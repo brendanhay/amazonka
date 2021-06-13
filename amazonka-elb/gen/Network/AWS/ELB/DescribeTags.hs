@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
   { -- | The names of the load balancers.
-    loadBalancerNames :: Core.NonEmpty Core.Text
+    loadBalancerNames :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTags' with all optional fields omitted.
@@ -65,7 +66,7 @@ data DescribeTags = DescribeTags'
 -- 'loadBalancerNames', 'describeTags_loadBalancerNames' - The names of the load balancers.
 newDescribeTags ::
   -- | 'loadBalancerNames'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DescribeTags
 newDescribeTags pLoadBalancerNames_ =
   DescribeTags'
@@ -74,8 +75,8 @@ newDescribeTags pLoadBalancerNames_ =
     }
 
 -- | The names of the load balancers.
-describeTags_loadBalancerNames :: Lens.Lens' DescribeTags (Core.NonEmpty Core.Text)
-describeTags_loadBalancerNames = Lens.lens (\DescribeTags' {loadBalancerNames} -> loadBalancerNames) (\s@DescribeTags' {} a -> s {loadBalancerNames = a} :: DescribeTags) Core.. Lens._Coerce
+describeTags_loadBalancerNames :: Lens.Lens' DescribeTags (Prelude.NonEmpty Prelude.Text)
+describeTags_loadBalancerNames = Lens.lens (\DescribeTags' {loadBalancerNames} -> loadBalancerNames) (\s@DescribeTags' {} a -> s {loadBalancerNames = a} :: DescribeTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -85,28 +86,29 @@ instance Core.AWSRequest DescribeTags where
       "DescribeTagsResult"
       ( \s h x ->
           DescribeTagsResponse'
-            Core.<$> ( x Core..@? "TagDescriptions" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "TagDescriptions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTags
+instance Prelude.Hashable DescribeTags
 
-instance Core.NFData DescribeTags
+instance Prelude.NFData DescribeTags
 
 instance Core.ToHeaders DescribeTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTags where
   toQuery DescribeTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTags" :: Core.ByteString),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+          Core.=: ("DescribeTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerNames"
           Core.=: Core.toQueryList "member" loadBalancerNames
       ]
@@ -116,11 +118,11 @@ instance Core.ToQuery DescribeTags where
 -- /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
   { -- | Information about the tags.
-    tagDescriptions :: Core.Maybe [TagDescription],
+    tagDescriptions :: Prelude.Maybe [TagDescription],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTagsResponse' with all optional fields omitted.
@@ -135,21 +137,21 @@ data DescribeTagsResponse = DescribeTagsResponse'
 -- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
 newDescribeTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTagsResponse
 newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
     { tagDescriptions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the tags.
-describeTagsResponse_tagDescriptions :: Lens.Lens' DescribeTagsResponse (Core.Maybe [TagDescription])
-describeTagsResponse_tagDescriptions = Lens.lens (\DescribeTagsResponse' {tagDescriptions} -> tagDescriptions) (\s@DescribeTagsResponse' {} a -> s {tagDescriptions = a} :: DescribeTagsResponse) Core.. Lens.mapping Lens._Coerce
+describeTagsResponse_tagDescriptions :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [TagDescription])
+describeTagsResponse_tagDescriptions = Lens.lens (\DescribeTagsResponse' {tagDescriptions} -> tagDescriptions) (\s@DescribeTagsResponse' {} a -> s {tagDescriptions = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Core.Int
+describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
 describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
 
-instance Core.NFData DescribeTagsResponse
+instance Prelude.NFData DescribeTagsResponse

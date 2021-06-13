@@ -21,17 +21,18 @@ module Network.AWS.CloudWatchEvents.Types.CreateConnectionApiKeyAuthRequestParam
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the API key authorization parameters for the connection.
 --
 -- /See:/ 'newCreateConnectionApiKeyAuthRequestParameters' smart constructor.
 data CreateConnectionApiKeyAuthRequestParameters = CreateConnectionApiKeyAuthRequestParameters'
   { -- | The name of the API key to use for authorization.
-    apiKeyName :: Core.Text,
+    apiKeyName :: Prelude.Text,
     -- | The value for the API key to use for authorization.
-    apiKeyValue :: Core.Text
+    apiKeyValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConnectionApiKeyAuthRequestParameters' with all optional fields omitted.
@@ -46,9 +47,9 @@ data CreateConnectionApiKeyAuthRequestParameters = CreateConnectionApiKeyAuthReq
 -- 'apiKeyValue', 'createConnectionApiKeyAuthRequestParameters_apiKeyValue' - The value for the API key to use for authorization.
 newCreateConnectionApiKeyAuthRequestParameters ::
   -- | 'apiKeyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'apiKeyValue'
-  Core.Text ->
+  Prelude.Text ->
   CreateConnectionApiKeyAuthRequestParameters
 newCreateConnectionApiKeyAuthRequestParameters
   pApiKeyName_
@@ -60,19 +61,19 @@ newCreateConnectionApiKeyAuthRequestParameters
       }
 
 -- | The name of the API key to use for authorization.
-createConnectionApiKeyAuthRequestParameters_apiKeyName :: Lens.Lens' CreateConnectionApiKeyAuthRequestParameters Core.Text
+createConnectionApiKeyAuthRequestParameters_apiKeyName :: Lens.Lens' CreateConnectionApiKeyAuthRequestParameters Prelude.Text
 createConnectionApiKeyAuthRequestParameters_apiKeyName = Lens.lens (\CreateConnectionApiKeyAuthRequestParameters' {apiKeyName} -> apiKeyName) (\s@CreateConnectionApiKeyAuthRequestParameters' {} a -> s {apiKeyName = a} :: CreateConnectionApiKeyAuthRequestParameters)
 
 -- | The value for the API key to use for authorization.
-createConnectionApiKeyAuthRequestParameters_apiKeyValue :: Lens.Lens' CreateConnectionApiKeyAuthRequestParameters Core.Text
+createConnectionApiKeyAuthRequestParameters_apiKeyValue :: Lens.Lens' CreateConnectionApiKeyAuthRequestParameters Prelude.Text
 createConnectionApiKeyAuthRequestParameters_apiKeyValue = Lens.lens (\CreateConnectionApiKeyAuthRequestParameters' {apiKeyValue} -> apiKeyValue) (\s@CreateConnectionApiKeyAuthRequestParameters' {} a -> s {apiKeyValue = a} :: CreateConnectionApiKeyAuthRequestParameters)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateConnectionApiKeyAuthRequestParameters
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateConnectionApiKeyAuthRequestParameters
 
 instance
@@ -82,8 +83,8 @@ instance
   toJSON
     CreateConnectionApiKeyAuthRequestParameters' {..} =
       Core.object
-        ( Core.catMaybes
-            [ Core.Just ("ApiKeyName" Core..= apiKeyName),
-              Core.Just ("ApiKeyValue" Core..= apiKeyValue)
+        ( Prelude.catMaybes
+            [ Prelude.Just ("ApiKeyName" Core..= apiKeyName),
+              Prelude.Just ("ApiKeyValue" Core..= apiKeyValue)
             ]
         )

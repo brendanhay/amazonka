@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,11 +52,11 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newCreateOpsMetadata' smart constructor.
 data CreateOpsMetadata = CreateOpsMetadata'
   { -- | Metadata for a new Application Manager application.
-    metadata :: Core.Maybe (Core.HashMap Core.Text MetadataValue),
+    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue),
     -- | A resource ID for a new Application Manager application.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOpsMetadata' with all optional fields omitted.
@@ -70,20 +71,20 @@ data CreateOpsMetadata = CreateOpsMetadata'
 -- 'resourceId', 'createOpsMetadata_resourceId' - A resource ID for a new Application Manager application.
 newCreateOpsMetadata ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   CreateOpsMetadata
 newCreateOpsMetadata pResourceId_ =
   CreateOpsMetadata'
-    { metadata = Core.Nothing,
+    { metadata = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
 -- | Metadata for a new Application Manager application.
-createOpsMetadata_metadata :: Lens.Lens' CreateOpsMetadata (Core.Maybe (Core.HashMap Core.Text MetadataValue))
-createOpsMetadata_metadata = Lens.lens (\CreateOpsMetadata' {metadata} -> metadata) (\s@CreateOpsMetadata' {} a -> s {metadata = a} :: CreateOpsMetadata) Core.. Lens.mapping Lens._Coerce
+createOpsMetadata_metadata :: Lens.Lens' CreateOpsMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
+createOpsMetadata_metadata = Lens.lens (\CreateOpsMetadata' {metadata} -> metadata) (\s@CreateOpsMetadata' {} a -> s {metadata = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A resource ID for a new Application Manager application.
-createOpsMetadata_resourceId :: Lens.Lens' CreateOpsMetadata Core.Text
+createOpsMetadata_resourceId :: Lens.Lens' CreateOpsMetadata Prelude.Text
 createOpsMetadata_resourceId = Lens.lens (\CreateOpsMetadata' {resourceId} -> resourceId) (\s@CreateOpsMetadata' {} a -> s {resourceId = a} :: CreateOpsMetadata)
 
 instance Core.AWSRequest CreateOpsMetadata where
@@ -95,49 +96,53 @@ instance Core.AWSRequest CreateOpsMetadata where
     Response.receiveJSON
       ( \s h x ->
           CreateOpsMetadataResponse'
-            Core.<$> (x Core..?> "OpsMetadataArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OpsMetadataArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateOpsMetadata
+instance Prelude.Hashable CreateOpsMetadata
 
-instance Core.NFData CreateOpsMetadata
+instance Prelude.NFData CreateOpsMetadata
 
 instance Core.ToHeaders CreateOpsMetadata where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.CreateOpsMetadata" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.CreateOpsMetadata" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateOpsMetadata where
   toJSON CreateOpsMetadata' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Metadata" Core..=) Core.<$> metadata,
-            Core.Just ("ResourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ ("Metadata" Core..=) Prelude.<$> metadata,
+            Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
 instance Core.ToPath CreateOpsMetadata where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateOpsMetadata where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOpsMetadataResponse' smart constructor.
 data CreateOpsMetadataResponse = CreateOpsMetadataResponse'
   { -- | The Amazon Resource Name (ARN) of the OpsMetadata Object or blob created
     -- by the call.
-    opsMetadataArn :: Core.Maybe Core.Text,
+    opsMetadataArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOpsMetadataResponse' with all optional fields omitted.
@@ -153,22 +158,22 @@ data CreateOpsMetadataResponse = CreateOpsMetadataResponse'
 -- 'httpStatus', 'createOpsMetadataResponse_httpStatus' - The response's http status code.
 newCreateOpsMetadataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateOpsMetadataResponse
 newCreateOpsMetadataResponse pHttpStatus_ =
   CreateOpsMetadataResponse'
     { opsMetadataArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the OpsMetadata Object or blob created
 -- by the call.
-createOpsMetadataResponse_opsMetadataArn :: Lens.Lens' CreateOpsMetadataResponse (Core.Maybe Core.Text)
+createOpsMetadataResponse_opsMetadataArn :: Lens.Lens' CreateOpsMetadataResponse (Prelude.Maybe Prelude.Text)
 createOpsMetadataResponse_opsMetadataArn = Lens.lens (\CreateOpsMetadataResponse' {opsMetadataArn} -> opsMetadataArn) (\s@CreateOpsMetadataResponse' {} a -> s {opsMetadataArn = a} :: CreateOpsMetadataResponse)
 
 -- | The response's http status code.
-createOpsMetadataResponse_httpStatus :: Lens.Lens' CreateOpsMetadataResponse Core.Int
+createOpsMetadataResponse_httpStatus :: Lens.Lens' CreateOpsMetadataResponse Prelude.Int
 createOpsMetadataResponse_httpStatus = Lens.lens (\CreateOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@CreateOpsMetadataResponse' {} a -> s {httpStatus = a} :: CreateOpsMetadataResponse)
 
-instance Core.NFData CreateOpsMetadataResponse
+instance Prelude.NFData CreateOpsMetadataResponse

@@ -49,22 +49,23 @@ where
 import Network.AWS.CognitoIdentity.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetPrincipalTagAttributeMap' smart constructor.
 data SetPrincipalTagAttributeMap = SetPrincipalTagAttributeMap'
   { -- | You can use this operation to add principal tags.
-    principalTags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    principalTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | You can use this operation to use default (username and clientID)
     -- attribute mappings.
-    useDefaults :: Core.Maybe Core.Bool,
+    useDefaults :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Identity Pool you want to set attribute mappings for.
-    identityPoolId :: Core.Text,
+    identityPoolId :: Prelude.Text,
     -- | The provider name you want to use for attribute mappings.
-    identityProviderName :: Core.Text
+    identityProviderName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetPrincipalTagAttributeMap' with all optional fields omitted.
@@ -84,36 +85,36 @@ data SetPrincipalTagAttributeMap = SetPrincipalTagAttributeMap'
 -- 'identityProviderName', 'setPrincipalTagAttributeMap_identityProviderName' - The provider name you want to use for attribute mappings.
 newSetPrincipalTagAttributeMap ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identityProviderName'
-  Core.Text ->
+  Prelude.Text ->
   SetPrincipalTagAttributeMap
 newSetPrincipalTagAttributeMap
   pIdentityPoolId_
   pIdentityProviderName_ =
     SetPrincipalTagAttributeMap'
       { principalTags =
-          Core.Nothing,
-        useDefaults = Core.Nothing,
+          Prelude.Nothing,
+        useDefaults = Prelude.Nothing,
         identityPoolId = pIdentityPoolId_,
         identityProviderName = pIdentityProviderName_
       }
 
 -- | You can use this operation to add principal tags.
-setPrincipalTagAttributeMap_principalTags :: Lens.Lens' SetPrincipalTagAttributeMap (Core.Maybe (Core.HashMap Core.Text Core.Text))
-setPrincipalTagAttributeMap_principalTags = Lens.lens (\SetPrincipalTagAttributeMap' {principalTags} -> principalTags) (\s@SetPrincipalTagAttributeMap' {} a -> s {principalTags = a} :: SetPrincipalTagAttributeMap) Core.. Lens.mapping Lens._Coerce
+setPrincipalTagAttributeMap_principalTags :: Lens.Lens' SetPrincipalTagAttributeMap (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+setPrincipalTagAttributeMap_principalTags = Lens.lens (\SetPrincipalTagAttributeMap' {principalTags} -> principalTags) (\s@SetPrincipalTagAttributeMap' {} a -> s {principalTags = a} :: SetPrincipalTagAttributeMap) Prelude.. Lens.mapping Lens._Coerce
 
 -- | You can use this operation to use default (username and clientID)
 -- attribute mappings.
-setPrincipalTagAttributeMap_useDefaults :: Lens.Lens' SetPrincipalTagAttributeMap (Core.Maybe Core.Bool)
+setPrincipalTagAttributeMap_useDefaults :: Lens.Lens' SetPrincipalTagAttributeMap (Prelude.Maybe Prelude.Bool)
 setPrincipalTagAttributeMap_useDefaults = Lens.lens (\SetPrincipalTagAttributeMap' {useDefaults} -> useDefaults) (\s@SetPrincipalTagAttributeMap' {} a -> s {useDefaults = a} :: SetPrincipalTagAttributeMap)
 
 -- | The ID of the Identity Pool you want to set attribute mappings for.
-setPrincipalTagAttributeMap_identityPoolId :: Lens.Lens' SetPrincipalTagAttributeMap Core.Text
+setPrincipalTagAttributeMap_identityPoolId :: Lens.Lens' SetPrincipalTagAttributeMap Prelude.Text
 setPrincipalTagAttributeMap_identityPoolId = Lens.lens (\SetPrincipalTagAttributeMap' {identityPoolId} -> identityPoolId) (\s@SetPrincipalTagAttributeMap' {} a -> s {identityPoolId = a} :: SetPrincipalTagAttributeMap)
 
 -- | The provider name you want to use for attribute mappings.
-setPrincipalTagAttributeMap_identityProviderName :: Lens.Lens' SetPrincipalTagAttributeMap Core.Text
+setPrincipalTagAttributeMap_identityProviderName :: Lens.Lens' SetPrincipalTagAttributeMap Prelude.Text
 setPrincipalTagAttributeMap_identityProviderName = Lens.lens (\SetPrincipalTagAttributeMap' {identityProviderName} -> identityProviderName) (\s@SetPrincipalTagAttributeMap' {} a -> s {identityProviderName = a} :: SetPrincipalTagAttributeMap)
 
 instance Core.AWSRequest SetPrincipalTagAttributeMap where
@@ -125,38 +126,41 @@ instance Core.AWSRequest SetPrincipalTagAttributeMap where
     Response.receiveJSON
       ( \s h x ->
           SetPrincipalTagAttributeMapResponse'
-            Core.<$> (x Core..?> "IdentityPoolId")
-            Core.<*> (x Core..?> "IdentityProviderName")
-            Core.<*> (x Core..?> "PrincipalTags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "UseDefaults")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "IdentityPoolId")
+            Prelude.<*> (x Core..?> "IdentityProviderName")
+            Prelude.<*> (x Core..?> "PrincipalTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "UseDefaults")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetPrincipalTagAttributeMap
+instance Prelude.Hashable SetPrincipalTagAttributeMap
 
-instance Core.NFData SetPrincipalTagAttributeMap
+instance Prelude.NFData SetPrincipalTagAttributeMap
 
 instance Core.ToHeaders SetPrincipalTagAttributeMap where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityService.SetPrincipalTagAttributeMap" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetPrincipalTagAttributeMap where
   toJSON SetPrincipalTagAttributeMap' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PrincipalTags" Core..=) Core.<$> principalTags,
-            ("UseDefaults" Core..=) Core.<$> useDefaults,
-            Core.Just ("IdentityPoolId" Core..= identityPoolId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("PrincipalTags" Core..=) Prelude.<$> principalTags,
+            ("UseDefaults" Core..=) Prelude.<$> useDefaults,
+            Prelude.Just
+              ("IdentityPoolId" Core..= identityPoolId),
+            Prelude.Just
               ( "IdentityProviderName"
                   Core..= identityProviderName
               )
@@ -164,28 +168,28 @@ instance Core.ToJSON SetPrincipalTagAttributeMap where
       )
 
 instance Core.ToPath SetPrincipalTagAttributeMap where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetPrincipalTagAttributeMap where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetPrincipalTagAttributeMapResponse' smart constructor.
 data SetPrincipalTagAttributeMapResponse = SetPrincipalTagAttributeMapResponse'
   { -- | The ID of the Identity Pool you want to set attribute mappings for.
-    identityPoolId :: Core.Maybe Core.Text,
+    identityPoolId :: Prelude.Maybe Prelude.Text,
     -- | The provider name you want to use for attribute mappings.
-    identityProviderName :: Core.Maybe Core.Text,
+    identityProviderName :: Prelude.Maybe Prelude.Text,
     -- | You can use this operation to add principal tags. The
     -- @PrincipalTags@operation enables you to reference user attributes in
     -- your IAM permissions policy.
-    principalTags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    principalTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | You can use this operation to select default (username and clientID)
     -- attribute mappings.
-    useDefaults :: Core.Maybe Core.Bool,
+    useDefaults :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetPrincipalTagAttributeMapResponse' with all optional fields omitted.
@@ -209,41 +213,41 @@ data SetPrincipalTagAttributeMapResponse = SetPrincipalTagAttributeMapResponse'
 -- 'httpStatus', 'setPrincipalTagAttributeMapResponse_httpStatus' - The response's http status code.
 newSetPrincipalTagAttributeMapResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetPrincipalTagAttributeMapResponse
 newSetPrincipalTagAttributeMapResponse pHttpStatus_ =
   SetPrincipalTagAttributeMapResponse'
     { identityPoolId =
-        Core.Nothing,
-      identityProviderName = Core.Nothing,
-      principalTags = Core.Nothing,
-      useDefaults = Core.Nothing,
+        Prelude.Nothing,
+      identityProviderName = Prelude.Nothing,
+      principalTags = Prelude.Nothing,
+      useDefaults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the Identity Pool you want to set attribute mappings for.
-setPrincipalTagAttributeMapResponse_identityPoolId :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Core.Maybe Core.Text)
+setPrincipalTagAttributeMapResponse_identityPoolId :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Text)
 setPrincipalTagAttributeMapResponse_identityPoolId = Lens.lens (\SetPrincipalTagAttributeMapResponse' {identityPoolId} -> identityPoolId) (\s@SetPrincipalTagAttributeMapResponse' {} a -> s {identityPoolId = a} :: SetPrincipalTagAttributeMapResponse)
 
 -- | The provider name you want to use for attribute mappings.
-setPrincipalTagAttributeMapResponse_identityProviderName :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Core.Maybe Core.Text)
+setPrincipalTagAttributeMapResponse_identityProviderName :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Text)
 setPrincipalTagAttributeMapResponse_identityProviderName = Lens.lens (\SetPrincipalTagAttributeMapResponse' {identityProviderName} -> identityProviderName) (\s@SetPrincipalTagAttributeMapResponse' {} a -> s {identityProviderName = a} :: SetPrincipalTagAttributeMapResponse)
 
 -- | You can use this operation to add principal tags. The
 -- @PrincipalTags@operation enables you to reference user attributes in
 -- your IAM permissions policy.
-setPrincipalTagAttributeMapResponse_principalTags :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-setPrincipalTagAttributeMapResponse_principalTags = Lens.lens (\SetPrincipalTagAttributeMapResponse' {principalTags} -> principalTags) (\s@SetPrincipalTagAttributeMapResponse' {} a -> s {principalTags = a} :: SetPrincipalTagAttributeMapResponse) Core.. Lens.mapping Lens._Coerce
+setPrincipalTagAttributeMapResponse_principalTags :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+setPrincipalTagAttributeMapResponse_principalTags = Lens.lens (\SetPrincipalTagAttributeMapResponse' {principalTags} -> principalTags) (\s@SetPrincipalTagAttributeMapResponse' {} a -> s {principalTags = a} :: SetPrincipalTagAttributeMapResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | You can use this operation to select default (username and clientID)
 -- attribute mappings.
-setPrincipalTagAttributeMapResponse_useDefaults :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Core.Maybe Core.Bool)
+setPrincipalTagAttributeMapResponse_useDefaults :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Bool)
 setPrincipalTagAttributeMapResponse_useDefaults = Lens.lens (\SetPrincipalTagAttributeMapResponse' {useDefaults} -> useDefaults) (\s@SetPrincipalTagAttributeMapResponse' {} a -> s {useDefaults = a} :: SetPrincipalTagAttributeMapResponse)
 
 -- | The response's http status code.
-setPrincipalTagAttributeMapResponse_httpStatus :: Lens.Lens' SetPrincipalTagAttributeMapResponse Core.Int
+setPrincipalTagAttributeMapResponse_httpStatus :: Lens.Lens' SetPrincipalTagAttributeMapResponse Prelude.Int
 setPrincipalTagAttributeMapResponse_httpStatus = Lens.lens (\SetPrincipalTagAttributeMapResponse' {httpStatus} -> httpStatus) (\s@SetPrincipalTagAttributeMapResponse' {} a -> s {httpStatus = a} :: SetPrincipalTagAttributeMapResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetPrincipalTagAttributeMapResponse

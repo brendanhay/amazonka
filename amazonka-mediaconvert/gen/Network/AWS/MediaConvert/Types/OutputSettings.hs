@@ -22,15 +22,16 @@ module Network.AWS.MediaConvert.Types.OutputSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.HlsSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specific settings for this type of output.
 --
 -- /See:/ 'newOutputSettings' smart constructor.
 data OutputSettings = OutputSettings'
   { -- | Settings for HLS output groups
-    hlsSettings :: Core.Maybe HlsSettings
+    hlsSettings :: Prelude.Maybe HlsSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputSettings' with all optional fields omitted.
@@ -44,10 +45,10 @@ data OutputSettings = OutputSettings'
 newOutputSettings ::
   OutputSettings
 newOutputSettings =
-  OutputSettings' {hlsSettings = Core.Nothing}
+  OutputSettings' {hlsSettings = Prelude.Nothing}
 
 -- | Settings for HLS output groups
-outputSettings_hlsSettings :: Lens.Lens' OutputSettings (Core.Maybe HlsSettings)
+outputSettings_hlsSettings :: Lens.Lens' OutputSettings (Prelude.Maybe HlsSettings)
 outputSettings_hlsSettings = Lens.lens (\OutputSettings' {hlsSettings} -> hlsSettings) (\s@OutputSettings' {} a -> s {hlsSettings = a} :: OutputSettings)
 
 instance Core.FromJSON OutputSettings where
@@ -55,16 +56,17 @@ instance Core.FromJSON OutputSettings where
     Core.withObject
       "OutputSettings"
       ( \x ->
-          OutputSettings' Core.<$> (x Core..:? "hlsSettings")
+          OutputSettings'
+            Prelude.<$> (x Core..:? "hlsSettings")
       )
 
-instance Core.Hashable OutputSettings
+instance Prelude.Hashable OutputSettings
 
-instance Core.NFData OutputSettings
+instance Prelude.NFData OutputSettings
 
 instance Core.ToJSON OutputSettings where
   toJSON OutputSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("hlsSettings" Core..=) Core.<$> hlsSettings]
+      ( Prelude.catMaybes
+          [("hlsSettings" Core..=) Prelude.<$> hlsSettings]
       )

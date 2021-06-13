@@ -43,6 +43,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data StopUserImportJob = StopUserImportJob'
   { -- | The user pool ID for the user pool that the users are being imported
     -- into.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The job ID for the user import job.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopUserImportJob' with all optional fields omitted.
@@ -72,9 +73,9 @@ data StopUserImportJob = StopUserImportJob'
 -- 'jobId', 'stopUserImportJob_jobId' - The job ID for the user import job.
 newStopUserImportJob ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   StopUserImportJob
 newStopUserImportJob pUserPoolId_ pJobId_ =
   StopUserImportJob'
@@ -84,11 +85,11 @@ newStopUserImportJob pUserPoolId_ pJobId_ =
 
 -- | The user pool ID for the user pool that the users are being imported
 -- into.
-stopUserImportJob_userPoolId :: Lens.Lens' StopUserImportJob Core.Text
+stopUserImportJob_userPoolId :: Lens.Lens' StopUserImportJob Prelude.Text
 stopUserImportJob_userPoolId = Lens.lens (\StopUserImportJob' {userPoolId} -> userPoolId) (\s@StopUserImportJob' {} a -> s {userPoolId = a} :: StopUserImportJob)
 
 -- | The job ID for the user import job.
-stopUserImportJob_jobId :: Lens.Lens' StopUserImportJob Core.Text
+stopUserImportJob_jobId :: Lens.Lens' StopUserImportJob Prelude.Text
 stopUserImportJob_jobId = Lens.lens (\StopUserImportJob' {jobId} -> jobId) (\s@StopUserImportJob' {} a -> s {jobId = a} :: StopUserImportJob)
 
 instance Core.AWSRequest StopUserImportJob where
@@ -100,41 +101,43 @@ instance Core.AWSRequest StopUserImportJob where
     Response.receiveJSON
       ( \s h x ->
           StopUserImportJobResponse'
-            Core.<$> (x Core..?> "UserImportJob")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UserImportJob")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopUserImportJob
+instance Prelude.Hashable StopUserImportJob
 
-instance Core.NFData StopUserImportJob
+instance Prelude.NFData StopUserImportJob
 
 instance Core.ToHeaders StopUserImportJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.StopUserImportJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopUserImportJob where
   toJSON StopUserImportJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("JobId" Core..= jobId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("JobId" Core..= jobId)
           ]
       )
 
 instance Core.ToPath StopUserImportJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopUserImportJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to the request to stop the user
 -- import job.
@@ -142,11 +145,11 @@ instance Core.ToQuery StopUserImportJob where
 -- /See:/ 'newStopUserImportJobResponse' smart constructor.
 data StopUserImportJobResponse = StopUserImportJobResponse'
   { -- | The job object that represents the user import job.
-    userImportJob :: Core.Maybe UserImportJobType,
+    userImportJob :: Prelude.Maybe UserImportJobType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopUserImportJobResponse' with all optional fields omitted.
@@ -161,21 +164,21 @@ data StopUserImportJobResponse = StopUserImportJobResponse'
 -- 'httpStatus', 'stopUserImportJobResponse_httpStatus' - The response's http status code.
 newStopUserImportJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopUserImportJobResponse
 newStopUserImportJobResponse pHttpStatus_ =
   StopUserImportJobResponse'
     { userImportJob =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The job object that represents the user import job.
-stopUserImportJobResponse_userImportJob :: Lens.Lens' StopUserImportJobResponse (Core.Maybe UserImportJobType)
+stopUserImportJobResponse_userImportJob :: Lens.Lens' StopUserImportJobResponse (Prelude.Maybe UserImportJobType)
 stopUserImportJobResponse_userImportJob = Lens.lens (\StopUserImportJobResponse' {userImportJob} -> userImportJob) (\s@StopUserImportJobResponse' {} a -> s {userImportJob = a} :: StopUserImportJobResponse)
 
 -- | The response's http status code.
-stopUserImportJobResponse_httpStatus :: Lens.Lens' StopUserImportJobResponse Core.Int
+stopUserImportJobResponse_httpStatus :: Lens.Lens' StopUserImportJobResponse Prelude.Int
 stopUserImportJobResponse_httpStatus = Lens.lens (\StopUserImportJobResponse' {httpStatus} -> httpStatus) (\s@StopUserImportJobResponse' {} a -> s {httpStatus = a} :: StopUserImportJobResponse)
 
-instance Core.NFData StopUserImportJobResponse
+instance Prelude.NFData StopUserImportJobResponse

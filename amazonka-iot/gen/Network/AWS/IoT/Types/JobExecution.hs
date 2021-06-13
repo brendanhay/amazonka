@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.JobExecutionStatus
 import Network.AWS.IoT.Types.JobExecutionStatusDetails
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The job execution object represents the execution of a job on a
 -- particular device.
@@ -30,41 +31,41 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newJobExecution' smart constructor.
 data JobExecution = JobExecution'
   { -- | The time, in seconds since the epoch, when the job execution started.
-    startedAt :: Core.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Core.POSIX,
     -- | The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED,
     -- TIMED_OUT, CANCELED, or REJECTED).
-    status :: Core.Maybe JobExecutionStatus,
+    status :: Prelude.Maybe JobExecutionStatus,
     -- | The ARN of the thing on which the job execution is running.
-    thingArn :: Core.Maybe Core.Text,
+    thingArn :: Prelude.Maybe Prelude.Text,
     -- | A collection of name\/value pairs that describe the status of the job
     -- execution.
-    statusDetails :: Core.Maybe JobExecutionStatusDetails,
+    statusDetails :: Prelude.Maybe JobExecutionStatusDetails,
     -- | The time, in seconds since the epoch, when the job execution was queued.
-    queuedAt :: Core.Maybe Core.POSIX,
+    queuedAt :: Prelude.Maybe Core.POSIX,
     -- | Will be @true@ if the job execution was canceled with the optional
     -- @force@ parameter set to @true@.
-    forceCanceled :: Core.Maybe Core.Bool,
+    forceCanceled :: Prelude.Maybe Prelude.Bool,
     -- | The version of the job execution. Job execution versions are incremented
     -- each time they are updated by a device.
-    versionNumber :: Core.Maybe Core.Integer,
+    versionNumber :: Prelude.Maybe Prelude.Integer,
     -- | A string (consisting of the digits \"0\" through \"9\") which identifies
     -- this particular job execution on this particular device. It can be used
     -- in commands which return or update job execution information.
-    executionNumber :: Core.Maybe Core.Integer,
+    executionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The estimated number of seconds that remain before the job execution
     -- status will be changed to @TIMED_OUT@. The timeout interval can be
     -- anywhere between 1 minute and 7 days (1 to 10080 minutes). The actual
     -- job execution timeout can occur up to 60 seconds later than the
     -- estimated duration. This value will not be included if the job execution
     -- has reached a terminal status.
-    approximateSecondsBeforeTimedOut :: Core.Maybe Core.Integer,
+    approximateSecondsBeforeTimedOut :: Prelude.Maybe Prelude.Integer,
     -- | The time, in seconds since the epoch, when the job execution was last
     -- updated.
-    lastUpdatedAt :: Core.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier you assigned to the job when it was created.
-    jobId :: Core.Maybe Core.Text
+    jobId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobExecution' with all optional fields omitted.
@@ -111,55 +112,55 @@ newJobExecution ::
   JobExecution
 newJobExecution =
   JobExecution'
-    { startedAt = Core.Nothing,
-      status = Core.Nothing,
-      thingArn = Core.Nothing,
-      statusDetails = Core.Nothing,
-      queuedAt = Core.Nothing,
-      forceCanceled = Core.Nothing,
-      versionNumber = Core.Nothing,
-      executionNumber = Core.Nothing,
-      approximateSecondsBeforeTimedOut = Core.Nothing,
-      lastUpdatedAt = Core.Nothing,
-      jobId = Core.Nothing
+    { startedAt = Prelude.Nothing,
+      status = Prelude.Nothing,
+      thingArn = Prelude.Nothing,
+      statusDetails = Prelude.Nothing,
+      queuedAt = Prelude.Nothing,
+      forceCanceled = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
+      executionNumber = Prelude.Nothing,
+      approximateSecondsBeforeTimedOut = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
 
 -- | The time, in seconds since the epoch, when the job execution started.
-jobExecution_startedAt :: Lens.Lens' JobExecution (Core.Maybe Core.UTCTime)
-jobExecution_startedAt = Lens.lens (\JobExecution' {startedAt} -> startedAt) (\s@JobExecution' {} a -> s {startedAt = a} :: JobExecution) Core.. Lens.mapping Core._Time
+jobExecution_startedAt :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.UTCTime)
+jobExecution_startedAt = Lens.lens (\JobExecution' {startedAt} -> startedAt) (\s@JobExecution' {} a -> s {startedAt = a} :: JobExecution) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED,
 -- TIMED_OUT, CANCELED, or REJECTED).
-jobExecution_status :: Lens.Lens' JobExecution (Core.Maybe JobExecutionStatus)
+jobExecution_status :: Lens.Lens' JobExecution (Prelude.Maybe JobExecutionStatus)
 jobExecution_status = Lens.lens (\JobExecution' {status} -> status) (\s@JobExecution' {} a -> s {status = a} :: JobExecution)
 
 -- | The ARN of the thing on which the job execution is running.
-jobExecution_thingArn :: Lens.Lens' JobExecution (Core.Maybe Core.Text)
+jobExecution_thingArn :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Text)
 jobExecution_thingArn = Lens.lens (\JobExecution' {thingArn} -> thingArn) (\s@JobExecution' {} a -> s {thingArn = a} :: JobExecution)
 
 -- | A collection of name\/value pairs that describe the status of the job
 -- execution.
-jobExecution_statusDetails :: Lens.Lens' JobExecution (Core.Maybe JobExecutionStatusDetails)
+jobExecution_statusDetails :: Lens.Lens' JobExecution (Prelude.Maybe JobExecutionStatusDetails)
 jobExecution_statusDetails = Lens.lens (\JobExecution' {statusDetails} -> statusDetails) (\s@JobExecution' {} a -> s {statusDetails = a} :: JobExecution)
 
 -- | The time, in seconds since the epoch, when the job execution was queued.
-jobExecution_queuedAt :: Lens.Lens' JobExecution (Core.Maybe Core.UTCTime)
-jobExecution_queuedAt = Lens.lens (\JobExecution' {queuedAt} -> queuedAt) (\s@JobExecution' {} a -> s {queuedAt = a} :: JobExecution) Core.. Lens.mapping Core._Time
+jobExecution_queuedAt :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.UTCTime)
+jobExecution_queuedAt = Lens.lens (\JobExecution' {queuedAt} -> queuedAt) (\s@JobExecution' {} a -> s {queuedAt = a} :: JobExecution) Prelude.. Lens.mapping Core._Time
 
 -- | Will be @true@ if the job execution was canceled with the optional
 -- @force@ parameter set to @true@.
-jobExecution_forceCanceled :: Lens.Lens' JobExecution (Core.Maybe Core.Bool)
+jobExecution_forceCanceled :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Bool)
 jobExecution_forceCanceled = Lens.lens (\JobExecution' {forceCanceled} -> forceCanceled) (\s@JobExecution' {} a -> s {forceCanceled = a} :: JobExecution)
 
 -- | The version of the job execution. Job execution versions are incremented
 -- each time they are updated by a device.
-jobExecution_versionNumber :: Lens.Lens' JobExecution (Core.Maybe Core.Integer)
+jobExecution_versionNumber :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_versionNumber = Lens.lens (\JobExecution' {versionNumber} -> versionNumber) (\s@JobExecution' {} a -> s {versionNumber = a} :: JobExecution)
 
 -- | A string (consisting of the digits \"0\" through \"9\") which identifies
 -- this particular job execution on this particular device. It can be used
 -- in commands which return or update job execution information.
-jobExecution_executionNumber :: Lens.Lens' JobExecution (Core.Maybe Core.Integer)
+jobExecution_executionNumber :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_executionNumber = Lens.lens (\JobExecution' {executionNumber} -> executionNumber) (\s@JobExecution' {} a -> s {executionNumber = a} :: JobExecution)
 
 -- | The estimated number of seconds that remain before the job execution
@@ -168,16 +169,16 @@ jobExecution_executionNumber = Lens.lens (\JobExecution' {executionNumber} -> ex
 -- job execution timeout can occur up to 60 seconds later than the
 -- estimated duration. This value will not be included if the job execution
 -- has reached a terminal status.
-jobExecution_approximateSecondsBeforeTimedOut :: Lens.Lens' JobExecution (Core.Maybe Core.Integer)
+jobExecution_approximateSecondsBeforeTimedOut :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_approximateSecondsBeforeTimedOut = Lens.lens (\JobExecution' {approximateSecondsBeforeTimedOut} -> approximateSecondsBeforeTimedOut) (\s@JobExecution' {} a -> s {approximateSecondsBeforeTimedOut = a} :: JobExecution)
 
 -- | The time, in seconds since the epoch, when the job execution was last
 -- updated.
-jobExecution_lastUpdatedAt :: Lens.Lens' JobExecution (Core.Maybe Core.UTCTime)
-jobExecution_lastUpdatedAt = Lens.lens (\JobExecution' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecution' {} a -> s {lastUpdatedAt = a} :: JobExecution) Core.. Lens.mapping Core._Time
+jobExecution_lastUpdatedAt :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.UTCTime)
+jobExecution_lastUpdatedAt = Lens.lens (\JobExecution' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecution' {} a -> s {lastUpdatedAt = a} :: JobExecution) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier you assigned to the job when it was created.
-jobExecution_jobId :: Lens.Lens' JobExecution (Core.Maybe Core.Text)
+jobExecution_jobId :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Text)
 jobExecution_jobId = Lens.lens (\JobExecution' {jobId} -> jobId) (\s@JobExecution' {} a -> s {jobId = a} :: JobExecution)
 
 instance Core.FromJSON JobExecution where
@@ -186,19 +187,19 @@ instance Core.FromJSON JobExecution where
       "JobExecution"
       ( \x ->
           JobExecution'
-            Core.<$> (x Core..:? "startedAt")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "thingArn")
-            Core.<*> (x Core..:? "statusDetails")
-            Core.<*> (x Core..:? "queuedAt")
-            Core.<*> (x Core..:? "forceCanceled")
-            Core.<*> (x Core..:? "versionNumber")
-            Core.<*> (x Core..:? "executionNumber")
-            Core.<*> (x Core..:? "approximateSecondsBeforeTimedOut")
-            Core.<*> (x Core..:? "lastUpdatedAt")
-            Core.<*> (x Core..:? "jobId")
+            Prelude.<$> (x Core..:? "startedAt")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "thingArn")
+            Prelude.<*> (x Core..:? "statusDetails")
+            Prelude.<*> (x Core..:? "queuedAt")
+            Prelude.<*> (x Core..:? "forceCanceled")
+            Prelude.<*> (x Core..:? "versionNumber")
+            Prelude.<*> (x Core..:? "executionNumber")
+            Prelude.<*> (x Core..:? "approximateSecondsBeforeTimedOut")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> (x Core..:? "jobId")
       )
 
-instance Core.Hashable JobExecution
+instance Prelude.Hashable JobExecution
 
-instance Core.NFData JobExecution
+instance Prelude.NFData JobExecution

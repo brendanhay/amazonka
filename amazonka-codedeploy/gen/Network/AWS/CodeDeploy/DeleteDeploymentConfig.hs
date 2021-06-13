@@ -41,6 +41,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteDeploymentConfig = DeleteDeploymentConfig'
   { -- | The name of a deployment configuration associated with the IAM user or
     -- AWS account.
-    deploymentConfigName :: Core.Text
+    deploymentConfigName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeploymentConfig' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DeleteDeploymentConfig = DeleteDeploymentConfig'
 -- AWS account.
 newDeleteDeploymentConfig ::
   -- | 'deploymentConfigName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDeploymentConfig
 newDeleteDeploymentConfig pDeploymentConfigName_ =
   DeleteDeploymentConfig'
@@ -76,7 +77,7 @@ newDeleteDeploymentConfig pDeploymentConfigName_ =
 
 -- | The name of a deployment configuration associated with the IAM user or
 -- AWS account.
-deleteDeploymentConfig_deploymentConfigName :: Lens.Lens' DeleteDeploymentConfig Core.Text
+deleteDeploymentConfig_deploymentConfigName :: Lens.Lens' DeleteDeploymentConfig Prelude.Text
 deleteDeploymentConfig_deploymentConfigName = Lens.lens (\DeleteDeploymentConfig' {deploymentConfigName} -> deploymentConfigName) (\s@DeleteDeploymentConfig' {} a -> s {deploymentConfigName = a} :: DeleteDeploymentConfig)
 
 instance Core.AWSRequest DeleteDeploymentConfig where
@@ -88,28 +89,30 @@ instance Core.AWSRequest DeleteDeploymentConfig where
     Response.receiveNull
       DeleteDeploymentConfigResponse'
 
-instance Core.Hashable DeleteDeploymentConfig
+instance Prelude.Hashable DeleteDeploymentConfig
 
-instance Core.NFData DeleteDeploymentConfig
+instance Prelude.NFData DeleteDeploymentConfig
 
 instance Core.ToHeaders DeleteDeploymentConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.DeleteDeploymentConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDeploymentConfig where
   toJSON DeleteDeploymentConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "deploymentConfigName"
                   Core..= deploymentConfigName
               )
@@ -117,16 +120,16 @@ instance Core.ToJSON DeleteDeploymentConfig where
       )
 
 instance Core.ToPath DeleteDeploymentConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDeploymentConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeploymentConfigResponse' smart constructor.
 data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeploymentConfigResponse' with all optional fields omitted.
@@ -137,4 +140,6 @@ newDeleteDeploymentConfigResponse ::
 newDeleteDeploymentConfigResponse =
   DeleteDeploymentConfigResponse'
 
-instance Core.NFData DeleteDeploymentConfigResponse
+instance
+  Prelude.NFData
+    DeleteDeploymentConfigResponse

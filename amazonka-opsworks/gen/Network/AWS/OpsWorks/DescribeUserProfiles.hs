@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data DescribeUserProfiles = DescribeUserProfiles'
   { -- | An array of IAM or federated user ARNs that identify the users to be
     -- described.
-    iamUserArns :: Core.Maybe [Core.Text]
+    iamUserArns :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserProfiles' with all optional fields omitted.
@@ -71,12 +72,15 @@ data DescribeUserProfiles = DescribeUserProfiles'
 newDescribeUserProfiles ::
   DescribeUserProfiles
 newDescribeUserProfiles =
-  DescribeUserProfiles' {iamUserArns = Core.Nothing}
+  DescribeUserProfiles'
+    { iamUserArns =
+        Prelude.Nothing
+    }
 
 -- | An array of IAM or federated user ARNs that identify the users to be
 -- described.
-describeUserProfiles_iamUserArns :: Lens.Lens' DescribeUserProfiles (Core.Maybe [Core.Text])
-describeUserProfiles_iamUserArns = Lens.lens (\DescribeUserProfiles' {iamUserArns} -> iamUserArns) (\s@DescribeUserProfiles' {} a -> s {iamUserArns = a} :: DescribeUserProfiles) Core.. Lens.mapping Lens._Coerce
+describeUserProfiles_iamUserArns :: Lens.Lens' DescribeUserProfiles (Prelude.Maybe [Prelude.Text])
+describeUserProfiles_iamUserArns = Lens.lens (\DescribeUserProfiles' {iamUserArns} -> iamUserArns) (\s@DescribeUserProfiles' {} a -> s {iamUserArns = a} :: DescribeUserProfiles) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeUserProfiles where
   type
@@ -87,50 +91,52 @@ instance Core.AWSRequest DescribeUserProfiles where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserProfilesResponse'
-            Core.<$> (x Core..?> "UserProfiles" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UserProfiles" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeUserProfiles
+instance Prelude.Hashable DescribeUserProfiles
 
-instance Core.NFData DescribeUserProfiles
+instance Prelude.NFData DescribeUserProfiles
 
 instance Core.ToHeaders DescribeUserProfiles where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribeUserProfiles" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeUserProfiles where
   toJSON DescribeUserProfiles' {..} =
     Core.object
-      ( Core.catMaybes
-          [("IamUserArns" Core..=) Core.<$> iamUserArns]
+      ( Prelude.catMaybes
+          [("IamUserArns" Core..=) Prelude.<$> iamUserArns]
       )
 
 instance Core.ToPath DescribeUserProfiles where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeUserProfiles where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeUserProfiles@ request.
 --
 -- /See:/ 'newDescribeUserProfilesResponse' smart constructor.
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
   { -- | A @Users@ object that describes the specified users.
-    userProfiles :: Core.Maybe [UserProfile],
+    userProfiles :: Prelude.Maybe [UserProfile],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserProfilesResponse' with all optional fields omitted.
@@ -145,21 +151,21 @@ data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
 -- 'httpStatus', 'describeUserProfilesResponse_httpStatus' - The response's http status code.
 newDescribeUserProfilesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeUserProfilesResponse
 newDescribeUserProfilesResponse pHttpStatus_ =
   DescribeUserProfilesResponse'
     { userProfiles =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @Users@ object that describes the specified users.
-describeUserProfilesResponse_userProfiles :: Lens.Lens' DescribeUserProfilesResponse (Core.Maybe [UserProfile])
-describeUserProfilesResponse_userProfiles = Lens.lens (\DescribeUserProfilesResponse' {userProfiles} -> userProfiles) (\s@DescribeUserProfilesResponse' {} a -> s {userProfiles = a} :: DescribeUserProfilesResponse) Core.. Lens.mapping Lens._Coerce
+describeUserProfilesResponse_userProfiles :: Lens.Lens' DescribeUserProfilesResponse (Prelude.Maybe [UserProfile])
+describeUserProfilesResponse_userProfiles = Lens.lens (\DescribeUserProfilesResponse' {userProfiles} -> userProfiles) (\s@DescribeUserProfilesResponse' {} a -> s {userProfiles = a} :: DescribeUserProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeUserProfilesResponse_httpStatus :: Lens.Lens' DescribeUserProfilesResponse Core.Int
+describeUserProfilesResponse_httpStatus :: Lens.Lens' DescribeUserProfilesResponse Prelude.Int
 describeUserProfilesResponse_httpStatus = Lens.lens (\DescribeUserProfilesResponse' {httpStatus} -> httpStatus) (\s@DescribeUserProfilesResponse' {} a -> s {httpStatus = a} :: DescribeUserProfilesResponse)
 
-instance Core.NFData DescribeUserProfilesResponse
+instance Prelude.NFData DescribeUserProfilesResponse

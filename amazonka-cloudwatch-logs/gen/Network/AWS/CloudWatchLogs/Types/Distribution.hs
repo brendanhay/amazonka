@@ -27,6 +27,7 @@ module Network.AWS.CloudWatchLogs.Types.Distribution
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The method used to distribute log data to the destination, which can be
 -- either random or grouped by log stream.
@@ -35,15 +36,15 @@ newtype Distribution = Distribution'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

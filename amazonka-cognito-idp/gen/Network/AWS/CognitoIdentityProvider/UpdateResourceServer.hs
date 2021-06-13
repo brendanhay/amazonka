@@ -49,21 +49,22 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateResourceServer' smart constructor.
 data UpdateResourceServer = UpdateResourceServer'
   { -- | The scope values to be set for the resource server.
-    scopes :: Core.Maybe [ResourceServerScopeType],
+    scopes :: Prelude.Maybe [ResourceServerScopeType],
     -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The identifier for the resource server.
-    identifier :: Core.Text,
+    identifier :: Prelude.Text,
     -- | The name of the resource server.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceServer' with all optional fields omitted.
@@ -82,37 +83,37 @@ data UpdateResourceServer = UpdateResourceServer'
 -- 'name', 'updateResourceServer_name' - The name of the resource server.
 newUpdateResourceServer ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdateResourceServer
 newUpdateResourceServer
   pUserPoolId_
   pIdentifier_
   pName_ =
     UpdateResourceServer'
-      { scopes = Core.Nothing,
+      { scopes = Prelude.Nothing,
         userPoolId = pUserPoolId_,
         identifier = pIdentifier_,
         name = pName_
       }
 
 -- | The scope values to be set for the resource server.
-updateResourceServer_scopes :: Lens.Lens' UpdateResourceServer (Core.Maybe [ResourceServerScopeType])
-updateResourceServer_scopes = Lens.lens (\UpdateResourceServer' {scopes} -> scopes) (\s@UpdateResourceServer' {} a -> s {scopes = a} :: UpdateResourceServer) Core.. Lens.mapping Lens._Coerce
+updateResourceServer_scopes :: Lens.Lens' UpdateResourceServer (Prelude.Maybe [ResourceServerScopeType])
+updateResourceServer_scopes = Lens.lens (\UpdateResourceServer' {scopes} -> scopes) (\s@UpdateResourceServer' {} a -> s {scopes = a} :: UpdateResourceServer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID for the user pool.
-updateResourceServer_userPoolId :: Lens.Lens' UpdateResourceServer Core.Text
+updateResourceServer_userPoolId :: Lens.Lens' UpdateResourceServer Prelude.Text
 updateResourceServer_userPoolId = Lens.lens (\UpdateResourceServer' {userPoolId} -> userPoolId) (\s@UpdateResourceServer' {} a -> s {userPoolId = a} :: UpdateResourceServer)
 
 -- | The identifier for the resource server.
-updateResourceServer_identifier :: Lens.Lens' UpdateResourceServer Core.Text
+updateResourceServer_identifier :: Lens.Lens' UpdateResourceServer Prelude.Text
 updateResourceServer_identifier = Lens.lens (\UpdateResourceServer' {identifier} -> identifier) (\s@UpdateResourceServer' {} a -> s {identifier = a} :: UpdateResourceServer)
 
 -- | The name of the resource server.
-updateResourceServer_name :: Lens.Lens' UpdateResourceServer Core.Text
+updateResourceServer_name :: Lens.Lens' UpdateResourceServer Prelude.Text
 updateResourceServer_name = Lens.lens (\UpdateResourceServer' {name} -> name) (\s@UpdateResourceServer' {} a -> s {name = a} :: UpdateResourceServer)
 
 instance Core.AWSRequest UpdateResourceServer where
@@ -124,52 +125,54 @@ instance Core.AWSRequest UpdateResourceServer where
     Response.receiveJSON
       ( \s h x ->
           UpdateResourceServerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ResourceServer")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ResourceServer")
       )
 
-instance Core.Hashable UpdateResourceServer
+instance Prelude.Hashable UpdateResourceServer
 
-instance Core.NFData UpdateResourceServer
+instance Prelude.NFData UpdateResourceServer
 
 instance Core.ToHeaders UpdateResourceServer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.UpdateResourceServer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateResourceServer where
   toJSON UpdateResourceServer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Scopes" Core..=) Core.<$> scopes,
-            Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Identifier" Core..= identifier),
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Scopes" Core..=) Prelude.<$> scopes,
+            Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Identifier" Core..= identifier),
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath UpdateResourceServer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateResourceServer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResourceServerResponse' smart constructor.
 data UpdateResourceServerResponse = UpdateResourceServerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The resource server.
     resourceServer :: ResourceServerType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceServerResponse' with all optional fields omitted.
@@ -184,7 +187,7 @@ data UpdateResourceServerResponse = UpdateResourceServerResponse'
 -- 'resourceServer', 'updateResourceServerResponse_resourceServer' - The resource server.
 newUpdateResourceServerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'resourceServer'
   ResourceServerType ->
   UpdateResourceServerResponse
@@ -198,11 +201,11 @@ newUpdateResourceServerResponse
       }
 
 -- | The response's http status code.
-updateResourceServerResponse_httpStatus :: Lens.Lens' UpdateResourceServerResponse Core.Int
+updateResourceServerResponse_httpStatus :: Lens.Lens' UpdateResourceServerResponse Prelude.Int
 updateResourceServerResponse_httpStatus = Lens.lens (\UpdateResourceServerResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceServerResponse' {} a -> s {httpStatus = a} :: UpdateResourceServerResponse)
 
 -- | The resource server.
 updateResourceServerResponse_resourceServer :: Lens.Lens' UpdateResourceServerResponse ResourceServerType
 updateResourceServerResponse_resourceServer = Lens.lens (\UpdateResourceServerResponse' {resourceServer} -> resourceServer) (\s@UpdateResourceServerResponse' {} a -> s {resourceServer = a} :: UpdateResourceServerResponse)
 
-instance Core.NFData UpdateResourceServerResponse
+instance Prelude.NFData UpdateResourceServerResponse

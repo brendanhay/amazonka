@@ -44,6 +44,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DetectDominantLanguage = DetectDominantLanguage'
   { -- | A UTF-8 text string. Each string should contain at least 20 characters
     -- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-    text :: Core.Sensitive Core.Text
+    text :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectDominantLanguage' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DetectDominantLanguage = DetectDominantLanguage'
 -- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 newDetectDominantLanguage ::
   -- | 'text'
-  Core.Text ->
+  Prelude.Text ->
   DetectDominantLanguage
 newDetectDominantLanguage pText_ =
   DetectDominantLanguage'
@@ -77,8 +78,8 @@ newDetectDominantLanguage pText_ =
 
 -- | A UTF-8 text string. Each string should contain at least 20 characters
 -- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-detectDominantLanguage_text :: Lens.Lens' DetectDominantLanguage Core.Text
-detectDominantLanguage_text = Lens.lens (\DetectDominantLanguage' {text} -> text) (\s@DetectDominantLanguage' {} a -> s {text = a} :: DetectDominantLanguage) Core.. Core._Sensitive
+detectDominantLanguage_text :: Lens.Lens' DetectDominantLanguage Prelude.Text
+detectDominantLanguage_text = Lens.lens (\DetectDominantLanguage' {text} -> text) (\s@DetectDominantLanguage' {} a -> s {text = a} :: DetectDominantLanguage) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest DetectDominantLanguage where
   type
@@ -89,37 +90,41 @@ instance Core.AWSRequest DetectDominantLanguage where
     Response.receiveJSON
       ( \s h x ->
           DetectDominantLanguageResponse'
-            Core.<$> (x Core..?> "Languages" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Languages" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetectDominantLanguage
+instance Prelude.Hashable DetectDominantLanguage
 
-instance Core.NFData DetectDominantLanguage
+instance Prelude.NFData DetectDominantLanguage
 
 instance Core.ToHeaders DetectDominantLanguage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DetectDominantLanguage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetectDominantLanguage where
   toJSON DetectDominantLanguage' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Text" Core..= text)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Text" Core..= text)]
+      )
 
 instance Core.ToPath DetectDominantLanguage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetectDominantLanguage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectDominantLanguageResponse' smart constructor.
 data DetectDominantLanguageResponse = DetectDominantLanguageResponse'
@@ -129,11 +134,11 @@ data DetectDominantLanguageResponse = DetectDominantLanguageResponse'
     -- inference. For more information about RFC 5646, see
     -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
     -- the /IETF Tools/ web site.
-    languages :: Core.Maybe [DominantLanguage],
+    languages :: Prelude.Maybe [DominantLanguage],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectDominantLanguageResponse' with all optional fields omitted.
@@ -153,12 +158,12 @@ data DetectDominantLanguageResponse = DetectDominantLanguageResponse'
 -- 'httpStatus', 'detectDominantLanguageResponse_httpStatus' - The response's http status code.
 newDetectDominantLanguageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetectDominantLanguageResponse
 newDetectDominantLanguageResponse pHttpStatus_ =
   DetectDominantLanguageResponse'
     { languages =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -168,11 +173,13 @@ newDetectDominantLanguageResponse pHttpStatus_ =
 -- inference. For more information about RFC 5646, see
 -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
 -- the /IETF Tools/ web site.
-detectDominantLanguageResponse_languages :: Lens.Lens' DetectDominantLanguageResponse (Core.Maybe [DominantLanguage])
-detectDominantLanguageResponse_languages = Lens.lens (\DetectDominantLanguageResponse' {languages} -> languages) (\s@DetectDominantLanguageResponse' {} a -> s {languages = a} :: DetectDominantLanguageResponse) Core.. Lens.mapping Lens._Coerce
+detectDominantLanguageResponse_languages :: Lens.Lens' DetectDominantLanguageResponse (Prelude.Maybe [DominantLanguage])
+detectDominantLanguageResponse_languages = Lens.lens (\DetectDominantLanguageResponse' {languages} -> languages) (\s@DetectDominantLanguageResponse' {} a -> s {languages = a} :: DetectDominantLanguageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detectDominantLanguageResponse_httpStatus :: Lens.Lens' DetectDominantLanguageResponse Core.Int
+detectDominantLanguageResponse_httpStatus :: Lens.Lens' DetectDominantLanguageResponse Prelude.Int
 detectDominantLanguageResponse_httpStatus = Lens.lens (\DetectDominantLanguageResponse' {httpStatus} -> httpStatus) (\s@DetectDominantLanguageResponse' {} a -> s {httpStatus = a} :: DetectDominantLanguageResponse)
 
-instance Core.NFData DetectDominantLanguageResponse
+instance
+  Prelude.NFData
+    DetectDominantLanguageResponse

@@ -47,22 +47,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeImportTasks' smart constructor.
 data DescribeImportTasks = DescribeImportTasks'
   { -- | The token to request a specific page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that you want this request to return, up
     -- to 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An array of name-value pairs that you provide to filter the results for
     -- the @DescribeImportTask@ request to a specific subset of results.
     -- Currently, wildcard values aren\'t supported for filters.
-    filters :: Core.Maybe [ImportTaskFilter]
+    filters :: Prelude.Maybe [ImportTaskFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImportTasks' with all optional fields omitted.
@@ -84,25 +85,25 @@ newDescribeImportTasks ::
   DescribeImportTasks
 newDescribeImportTasks =
   DescribeImportTasks'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token to request a specific page of results.
-describeImportTasks_nextToken :: Lens.Lens' DescribeImportTasks (Core.Maybe Core.Text)
+describeImportTasks_nextToken :: Lens.Lens' DescribeImportTasks (Prelude.Maybe Prelude.Text)
 describeImportTasks_nextToken = Lens.lens (\DescribeImportTasks' {nextToken} -> nextToken) (\s@DescribeImportTasks' {} a -> s {nextToken = a} :: DescribeImportTasks)
 
 -- | The maximum number of results that you want this request to return, up
 -- to 100.
-describeImportTasks_maxResults :: Lens.Lens' DescribeImportTasks (Core.Maybe Core.Natural)
+describeImportTasks_maxResults :: Lens.Lens' DescribeImportTasks (Prelude.Maybe Prelude.Natural)
 describeImportTasks_maxResults = Lens.lens (\DescribeImportTasks' {maxResults} -> maxResults) (\s@DescribeImportTasks' {} a -> s {maxResults = a} :: DescribeImportTasks)
 
 -- | An array of name-value pairs that you provide to filter the results for
 -- the @DescribeImportTask@ request to a specific subset of results.
 -- Currently, wildcard values aren\'t supported for filters.
-describeImportTasks_filters :: Lens.Lens' DescribeImportTasks (Core.Maybe [ImportTaskFilter])
-describeImportTasks_filters = Lens.lens (\DescribeImportTasks' {filters} -> filters) (\s@DescribeImportTasks' {} a -> s {filters = a} :: DescribeImportTasks) Core.. Lens.mapping Lens._Coerce
+describeImportTasks_filters :: Lens.Lens' DescribeImportTasks (Prelude.Maybe [ImportTaskFilter])
+describeImportTasks_filters = Lens.lens (\DescribeImportTasks' {filters} -> filters) (\s@DescribeImportTasks' {} a -> s {filters = a} :: DescribeImportTasks) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeImportTasks where
   type
@@ -113,55 +114,57 @@ instance Core.AWSRequest DescribeImportTasks where
     Response.receiveJSON
       ( \s h x ->
           DescribeImportTasksResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "tasks" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeImportTasks
+instance Prelude.Hashable DescribeImportTasks
 
-instance Core.NFData DescribeImportTasks
+instance Prelude.NFData DescribeImportTasks
 
 instance Core.ToHeaders DescribeImportTasks where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSPoseidonService_V2015_11_01.DescribeImportTasks" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeImportTasks where
   toJSON DescribeImportTasks' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath DescribeImportTasks where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeImportTasks where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImportTasksResponse' smart constructor.
 data DescribeImportTasksResponse = DescribeImportTasksResponse'
   { -- | The token to request the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A returned array of import tasks that match any applied filters, up to
     -- the specified number of maximum results.
-    tasks :: Core.Maybe [ImportTask],
+    tasks :: Prelude.Maybe [ImportTask],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImportTasksResponse' with all optional fields omitted.
@@ -179,27 +182,27 @@ data DescribeImportTasksResponse = DescribeImportTasksResponse'
 -- 'httpStatus', 'describeImportTasksResponse_httpStatus' - The response's http status code.
 newDescribeImportTasksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeImportTasksResponse
 newDescribeImportTasksResponse pHttpStatus_ =
   DescribeImportTasksResponse'
     { nextToken =
-        Core.Nothing,
-      tasks = Core.Nothing,
+        Prelude.Nothing,
+      tasks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to request the next page of results.
-describeImportTasksResponse_nextToken :: Lens.Lens' DescribeImportTasksResponse (Core.Maybe Core.Text)
+describeImportTasksResponse_nextToken :: Lens.Lens' DescribeImportTasksResponse (Prelude.Maybe Prelude.Text)
 describeImportTasksResponse_nextToken = Lens.lens (\DescribeImportTasksResponse' {nextToken} -> nextToken) (\s@DescribeImportTasksResponse' {} a -> s {nextToken = a} :: DescribeImportTasksResponse)
 
 -- | A returned array of import tasks that match any applied filters, up to
 -- the specified number of maximum results.
-describeImportTasksResponse_tasks :: Lens.Lens' DescribeImportTasksResponse (Core.Maybe [ImportTask])
-describeImportTasksResponse_tasks = Lens.lens (\DescribeImportTasksResponse' {tasks} -> tasks) (\s@DescribeImportTasksResponse' {} a -> s {tasks = a} :: DescribeImportTasksResponse) Core.. Lens.mapping Lens._Coerce
+describeImportTasksResponse_tasks :: Lens.Lens' DescribeImportTasksResponse (Prelude.Maybe [ImportTask])
+describeImportTasksResponse_tasks = Lens.lens (\DescribeImportTasksResponse' {tasks} -> tasks) (\s@DescribeImportTasksResponse' {} a -> s {tasks = a} :: DescribeImportTasksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeImportTasksResponse_httpStatus :: Lens.Lens' DescribeImportTasksResponse Core.Int
+describeImportTasksResponse_httpStatus :: Lens.Lens' DescribeImportTasksResponse Prelude.Int
 describeImportTasksResponse_httpStatus = Lens.lens (\DescribeImportTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeImportTasksResponse' {} a -> s {httpStatus = a} :: DescribeImportTasksResponse)
 
-instance Core.NFData DescribeImportTasksResponse
+instance Prelude.NFData DescribeImportTasksResponse

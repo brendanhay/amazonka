@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.DataTransfer where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the real-time status of a Snow device\'s data transfer while the
 -- device is at AWS. This data is only available while a job has a
@@ -31,17 +32,17 @@ data DataTransfer = DataTransfer'
   { -- | The total number of objects for a transfer between a Snow device and
     -- Amazon S3. This value is set to 0 (zero) until all the keys that will be
     -- transferred have been listed.
-    totalObjects :: Core.Maybe Core.Integer,
+    totalObjects :: Prelude.Maybe Prelude.Integer,
     -- | The number of bytes transferred between a Snow device and Amazon S3.
-    bytesTransferred :: Core.Maybe Core.Integer,
+    bytesTransferred :: Prelude.Maybe Prelude.Integer,
     -- | The total bytes of data for a transfer between a Snow device and Amazon
     -- S3. This value is set to 0 (zero) until all the keys that will be
     -- transferred have been listed.
-    totalBytes :: Core.Maybe Core.Integer,
+    totalBytes :: Prelude.Maybe Prelude.Integer,
     -- | The number of objects transferred between a Snow device and Amazon S3.
-    objectsTransferred :: Core.Maybe Core.Integer
+    objectsTransferred :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataTransfer' with all optional fields omitted.
@@ -66,30 +67,30 @@ newDataTransfer ::
   DataTransfer
 newDataTransfer =
   DataTransfer'
-    { totalObjects = Core.Nothing,
-      bytesTransferred = Core.Nothing,
-      totalBytes = Core.Nothing,
-      objectsTransferred = Core.Nothing
+    { totalObjects = Prelude.Nothing,
+      bytesTransferred = Prelude.Nothing,
+      totalBytes = Prelude.Nothing,
+      objectsTransferred = Prelude.Nothing
     }
 
 -- | The total number of objects for a transfer between a Snow device and
 -- Amazon S3. This value is set to 0 (zero) until all the keys that will be
 -- transferred have been listed.
-dataTransfer_totalObjects :: Lens.Lens' DataTransfer (Core.Maybe Core.Integer)
+dataTransfer_totalObjects :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
 dataTransfer_totalObjects = Lens.lens (\DataTransfer' {totalObjects} -> totalObjects) (\s@DataTransfer' {} a -> s {totalObjects = a} :: DataTransfer)
 
 -- | The number of bytes transferred between a Snow device and Amazon S3.
-dataTransfer_bytesTransferred :: Lens.Lens' DataTransfer (Core.Maybe Core.Integer)
+dataTransfer_bytesTransferred :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
 dataTransfer_bytesTransferred = Lens.lens (\DataTransfer' {bytesTransferred} -> bytesTransferred) (\s@DataTransfer' {} a -> s {bytesTransferred = a} :: DataTransfer)
 
 -- | The total bytes of data for a transfer between a Snow device and Amazon
 -- S3. This value is set to 0 (zero) until all the keys that will be
 -- transferred have been listed.
-dataTransfer_totalBytes :: Lens.Lens' DataTransfer (Core.Maybe Core.Integer)
+dataTransfer_totalBytes :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
 dataTransfer_totalBytes = Lens.lens (\DataTransfer' {totalBytes} -> totalBytes) (\s@DataTransfer' {} a -> s {totalBytes = a} :: DataTransfer)
 
 -- | The number of objects transferred between a Snow device and Amazon S3.
-dataTransfer_objectsTransferred :: Lens.Lens' DataTransfer (Core.Maybe Core.Integer)
+dataTransfer_objectsTransferred :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
 dataTransfer_objectsTransferred = Lens.lens (\DataTransfer' {objectsTransferred} -> objectsTransferred) (\s@DataTransfer' {} a -> s {objectsTransferred = a} :: DataTransfer)
 
 instance Core.FromJSON DataTransfer where
@@ -98,12 +99,12 @@ instance Core.FromJSON DataTransfer where
       "DataTransfer"
       ( \x ->
           DataTransfer'
-            Core.<$> (x Core..:? "TotalObjects")
-            Core.<*> (x Core..:? "BytesTransferred")
-            Core.<*> (x Core..:? "TotalBytes")
-            Core.<*> (x Core..:? "ObjectsTransferred")
+            Prelude.<$> (x Core..:? "TotalObjects")
+            Prelude.<*> (x Core..:? "BytesTransferred")
+            Prelude.<*> (x Core..:? "TotalBytes")
+            Prelude.<*> (x Core..:? "ObjectsTransferred")
       )
 
-instance Core.Hashable DataTransfer
+instance Prelude.Hashable DataTransfer
 
-instance Core.NFData DataTransfer
+instance Prelude.NFData DataTransfer

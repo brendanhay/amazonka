@@ -22,6 +22,7 @@ module Network.AWS.DeviceFarm.Types.MonetaryAmount where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.CurrencyCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A number that represents the monetary amount for an offering or
 -- transaction.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMonetaryAmount' smart constructor.
 data MonetaryAmount = MonetaryAmount'
   { -- | The numerical amount of an offering or transaction.
-    amount :: Core.Maybe Core.Double,
+    amount :: Prelude.Maybe Prelude.Double,
     -- | The currency code of a monetary amount. For example, @USD@ means U.S.
     -- dollars.
-    currencyCode :: Core.Maybe CurrencyCode
+    currencyCode :: Prelude.Maybe CurrencyCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonetaryAmount' with all optional fields omitted.
@@ -52,17 +53,17 @@ newMonetaryAmount ::
   MonetaryAmount
 newMonetaryAmount =
   MonetaryAmount'
-    { amount = Core.Nothing,
-      currencyCode = Core.Nothing
+    { amount = Prelude.Nothing,
+      currencyCode = Prelude.Nothing
     }
 
 -- | The numerical amount of an offering or transaction.
-monetaryAmount_amount :: Lens.Lens' MonetaryAmount (Core.Maybe Core.Double)
+monetaryAmount_amount :: Lens.Lens' MonetaryAmount (Prelude.Maybe Prelude.Double)
 monetaryAmount_amount = Lens.lens (\MonetaryAmount' {amount} -> amount) (\s@MonetaryAmount' {} a -> s {amount = a} :: MonetaryAmount)
 
 -- | The currency code of a monetary amount. For example, @USD@ means U.S.
 -- dollars.
-monetaryAmount_currencyCode :: Lens.Lens' MonetaryAmount (Core.Maybe CurrencyCode)
+monetaryAmount_currencyCode :: Lens.Lens' MonetaryAmount (Prelude.Maybe CurrencyCode)
 monetaryAmount_currencyCode = Lens.lens (\MonetaryAmount' {currencyCode} -> currencyCode) (\s@MonetaryAmount' {} a -> s {currencyCode = a} :: MonetaryAmount)
 
 instance Core.FromJSON MonetaryAmount where
@@ -71,10 +72,10 @@ instance Core.FromJSON MonetaryAmount where
       "MonetaryAmount"
       ( \x ->
           MonetaryAmount'
-            Core.<$> (x Core..:? "amount")
-            Core.<*> (x Core..:? "currencyCode")
+            Prelude.<$> (x Core..:? "amount")
+            Prelude.<*> (x Core..:? "currencyCode")
       )
 
-instance Core.Hashable MonetaryAmount
+instance Prelude.Hashable MonetaryAmount
 
-instance Core.NFData MonetaryAmount
+instance Prelude.NFData MonetaryAmount

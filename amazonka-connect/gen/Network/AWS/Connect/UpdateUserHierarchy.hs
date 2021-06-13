@@ -40,19 +40,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateUserHierarchy' smart constructor.
 data UpdateUserHierarchy = UpdateUserHierarchy'
   { -- | The identifier of the hierarchy group.
-    hierarchyGroupId :: Core.Maybe Core.Text,
+    hierarchyGroupId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the user account.
-    userId :: Core.Text,
+    userId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserHierarchy' with all optional fields omitted.
@@ -69,28 +70,28 @@ data UpdateUserHierarchy = UpdateUserHierarchy'
 -- 'instanceId', 'updateUserHierarchy_instanceId' - The identifier of the Amazon Connect instance.
 newUpdateUserHierarchy ::
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateUserHierarchy
 newUpdateUserHierarchy pUserId_ pInstanceId_ =
   UpdateUserHierarchy'
     { hierarchyGroupId =
-        Core.Nothing,
+        Prelude.Nothing,
       userId = pUserId_,
       instanceId = pInstanceId_
     }
 
 -- | The identifier of the hierarchy group.
-updateUserHierarchy_hierarchyGroupId :: Lens.Lens' UpdateUserHierarchy (Core.Maybe Core.Text)
+updateUserHierarchy_hierarchyGroupId :: Lens.Lens' UpdateUserHierarchy (Prelude.Maybe Prelude.Text)
 updateUserHierarchy_hierarchyGroupId = Lens.lens (\UpdateUserHierarchy' {hierarchyGroupId} -> hierarchyGroupId) (\s@UpdateUserHierarchy' {} a -> s {hierarchyGroupId = a} :: UpdateUserHierarchy)
 
 -- | The identifier of the user account.
-updateUserHierarchy_userId :: Lens.Lens' UpdateUserHierarchy Core.Text
+updateUserHierarchy_userId :: Lens.Lens' UpdateUserHierarchy Prelude.Text
 updateUserHierarchy_userId = Lens.lens (\UpdateUserHierarchy' {userId} -> userId) (\s@UpdateUserHierarchy' {} a -> s {userId = a} :: UpdateUserHierarchy)
 
 -- | The identifier of the Amazon Connect instance.
-updateUserHierarchy_instanceId :: Lens.Lens' UpdateUserHierarchy Core.Text
+updateUserHierarchy_instanceId :: Lens.Lens' UpdateUserHierarchy Prelude.Text
 updateUserHierarchy_instanceId = Lens.lens (\UpdateUserHierarchy' {instanceId} -> instanceId) (\s@UpdateUserHierarchy' {} a -> s {instanceId = a} :: UpdateUserHierarchy)
 
 instance Core.AWSRequest UpdateUserHierarchy where
@@ -101,31 +102,33 @@ instance Core.AWSRequest UpdateUserHierarchy where
   response =
     Response.receiveNull UpdateUserHierarchyResponse'
 
-instance Core.Hashable UpdateUserHierarchy
+instance Prelude.Hashable UpdateUserHierarchy
 
-instance Core.NFData UpdateUserHierarchy
+instance Prelude.NFData UpdateUserHierarchy
 
 instance Core.ToHeaders UpdateUserHierarchy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateUserHierarchy where
   toJSON UpdateUserHierarchy' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("HierarchyGroupId" Core..=)
-              Core.<$> hierarchyGroupId
+              Prelude.<$> hierarchyGroupId
           ]
       )
 
 instance Core.ToPath UpdateUserHierarchy where
   toPath UpdateUserHierarchy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/users/",
         Core.toBS instanceId,
         "/",
@@ -134,13 +137,13 @@ instance Core.ToPath UpdateUserHierarchy where
       ]
 
 instance Core.ToQuery UpdateUserHierarchy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserHierarchyResponse' smart constructor.
 data UpdateUserHierarchyResponse = UpdateUserHierarchyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserHierarchyResponse' with all optional fields omitted.
@@ -151,4 +154,4 @@ newUpdateUserHierarchyResponse ::
 newUpdateUserHierarchyResponse =
   UpdateUserHierarchyResponse'
 
-instance Core.NFData UpdateUserHierarchyResponse
+instance Prelude.NFData UpdateUserHierarchyResponse

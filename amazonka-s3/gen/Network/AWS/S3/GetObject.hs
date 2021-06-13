@@ -231,6 +231,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -239,59 +240,59 @@ import Network.AWS.S3.Types
 data GetObject = GetObject'
   { -- | Return the object only if it has not been modified since the specified
     -- time, otherwise return a 412 (precondition failed).
-    ifUnmodifiedSince :: Core.Maybe Core.ISO8601,
+    ifUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
     -- | Downloads the specified range bytes of an object. For more information
     -- about the HTTP Range header, see
     -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>.
     --
     -- Amazon S3 doesn\'t support retrieving multiple ranges of data per @GET@
     -- request.
-    range :: Core.Maybe Core.Text,
+    range :: Prelude.Maybe Prelude.Text,
     -- | Return the object only if it has been modified since the specified time,
     -- otherwise return a 304 (not modified).
-    ifModifiedSince :: Core.Maybe Core.ISO8601,
+    ifModifiedSince :: Prelude.Maybe Core.ISO8601,
     -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Sets the @Expires@ header of the response.
-    responseExpires :: Core.Maybe Core.ISO8601,
+    responseExpires :: Prelude.Maybe Core.ISO8601,
     -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
     -- 1321. Amazon S3 uses this header for a message integrity check to ensure
     -- that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Core.Maybe Core.Text,
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | VersionId used to reference a specific version of the object.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | Return the object only if its entity tag (ETag) is the same as the one
     -- specified, otherwise return a 412 (precondition failed).
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | Part number of the object being read. This is a positive integer between
     -- 1 and 10,000. Effectively performs a \'ranged\' GET request for the part
     -- specified. Useful for downloading just a part of an object.
-    partNumber :: Core.Maybe Core.Int,
+    partNumber :: Prelude.Maybe Prelude.Int,
     -- | Sets the @Content-Encoding@ header of the response.
-    responseContentEncoding :: Core.Maybe Core.Text,
+    responseContentEncoding :: Prelude.Maybe Prelude.Text,
     -- | Return the object only if its entity tag (ETag) is different from the
     -- one specified, otherwise return a 304 (not modified).
-    ifNoneMatch :: Core.Maybe Core.Text,
+    ifNoneMatch :: Prelude.Maybe Prelude.Text,
     -- | Specifies the algorithm to use to when decrypting the object (for
     -- example, AES256).
-    sSECustomerAlgorithm :: Core.Maybe Core.Text,
-    requestPayer :: Core.Maybe RequestPayer,
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies the customer-provided encryption key for Amazon S3 used to
     -- encrypt the data. This value is used to decrypt the object when
     -- recovering it and must match the one used when storing the data. The key
     -- must be appropriate for use with the algorithm specified in the
     -- @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Core.Maybe (Core.Sensitive Core.Text),
+    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Sets the @Content-Language@ header of the response.
-    responseContentLanguage :: Core.Maybe Core.Text,
+    responseContentLanguage :: Prelude.Maybe Prelude.Text,
     -- | Sets the @Cache-Control@ header of the response.
-    responseCacheControl :: Core.Maybe Core.Text,
+    responseCacheControl :: Prelude.Maybe Prelude.Text,
     -- | Sets the @Content-Disposition@ header of the response
-    responseContentDisposition :: Core.Maybe Core.Text,
+    responseContentDisposition :: Prelude.Maybe Prelude.Text,
     -- | Sets the @Content-Type@ header of the response.
-    responseContentType :: Core.Maybe Core.Text,
+    responseContentType :: Prelude.Maybe Prelude.Text,
     -- | The bucket name containing the object.
     --
     -- When using this API with an access point, you must direct requests to
@@ -316,7 +317,7 @@ data GetObject = GetObject'
     -- | Key of the object to get.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObject' with all optional fields omitted.
@@ -412,32 +413,32 @@ newGetObject ::
   GetObject
 newGetObject pBucket_ pKey_ =
   GetObject'
-    { ifUnmodifiedSince = Core.Nothing,
-      range = Core.Nothing,
-      ifModifiedSince = Core.Nothing,
-      expectedBucketOwner = Core.Nothing,
-      responseExpires = Core.Nothing,
-      sSECustomerKeyMD5 = Core.Nothing,
-      versionId = Core.Nothing,
-      ifMatch = Core.Nothing,
-      partNumber = Core.Nothing,
-      responseContentEncoding = Core.Nothing,
-      ifNoneMatch = Core.Nothing,
-      sSECustomerAlgorithm = Core.Nothing,
-      requestPayer = Core.Nothing,
-      sSECustomerKey = Core.Nothing,
-      responseContentLanguage = Core.Nothing,
-      responseCacheControl = Core.Nothing,
-      responseContentDisposition = Core.Nothing,
-      responseContentType = Core.Nothing,
+    { ifUnmodifiedSince = Prelude.Nothing,
+      range = Prelude.Nothing,
+      ifModifiedSince = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
+      responseExpires = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      ifMatch = Prelude.Nothing,
+      partNumber = Prelude.Nothing,
+      responseContentEncoding = Prelude.Nothing,
+      ifNoneMatch = Prelude.Nothing,
+      sSECustomerAlgorithm = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
+      sSECustomerKey = Prelude.Nothing,
+      responseContentLanguage = Prelude.Nothing,
+      responseCacheControl = Prelude.Nothing,
+      responseContentDisposition = Prelude.Nothing,
+      responseContentType = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
 
 -- | Return the object only if it has not been modified since the specified
 -- time, otherwise return a 412 (precondition failed).
-getObject_ifUnmodifiedSince :: Lens.Lens' GetObject (Core.Maybe Core.UTCTime)
-getObject_ifUnmodifiedSince = Lens.lens (\GetObject' {ifUnmodifiedSince} -> ifUnmodifiedSince) (\s@GetObject' {} a -> s {ifUnmodifiedSince = a} :: GetObject) Core.. Lens.mapping Core._Time
+getObject_ifUnmodifiedSince :: Lens.Lens' GetObject (Prelude.Maybe Prelude.UTCTime)
+getObject_ifUnmodifiedSince = Lens.lens (\GetObject' {ifUnmodifiedSince} -> ifUnmodifiedSince) (\s@GetObject' {} a -> s {ifUnmodifiedSince = a} :: GetObject) Prelude.. Lens.mapping Core._Time
 
 -- | Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, see
@@ -445,61 +446,61 @@ getObject_ifUnmodifiedSince = Lens.lens (\GetObject' {ifUnmodifiedSince} -> ifUn
 --
 -- Amazon S3 doesn\'t support retrieving multiple ranges of data per @GET@
 -- request.
-getObject_range :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_range :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_range = Lens.lens (\GetObject' {range} -> range) (\s@GetObject' {} a -> s {range = a} :: GetObject)
 
 -- | Return the object only if it has been modified since the specified time,
 -- otherwise return a 304 (not modified).
-getObject_ifModifiedSince :: Lens.Lens' GetObject (Core.Maybe Core.UTCTime)
-getObject_ifModifiedSince = Lens.lens (\GetObject' {ifModifiedSince} -> ifModifiedSince) (\s@GetObject' {} a -> s {ifModifiedSince = a} :: GetObject) Core.. Lens.mapping Core._Time
+getObject_ifModifiedSince :: Lens.Lens' GetObject (Prelude.Maybe Prelude.UTCTime)
+getObject_ifModifiedSince = Lens.lens (\GetObject' {ifModifiedSince} -> ifModifiedSince) (\s@GetObject' {} a -> s {ifModifiedSince = a} :: GetObject) Prelude.. Lens.mapping Core._Time
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getObject_expectedBucketOwner :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_expectedBucketOwner :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_expectedBucketOwner = Lens.lens (\GetObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObject' {} a -> s {expectedBucketOwner = a} :: GetObject)
 
 -- | Sets the @Expires@ header of the response.
-getObject_responseExpires :: Lens.Lens' GetObject (Core.Maybe Core.UTCTime)
-getObject_responseExpires = Lens.lens (\GetObject' {responseExpires} -> responseExpires) (\s@GetObject' {} a -> s {responseExpires = a} :: GetObject) Core.. Lens.mapping Core._Time
+getObject_responseExpires :: Lens.Lens' GetObject (Prelude.Maybe Prelude.UTCTime)
+getObject_responseExpires = Lens.lens (\GetObject' {responseExpires} -> responseExpires) (\s@GetObject' {} a -> s {responseExpires = a} :: GetObject) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- that the encryption key was transmitted without error.
-getObject_sSECustomerKeyMD5 :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_sSECustomerKeyMD5 :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_sSECustomerKeyMD5 = Lens.lens (\GetObject' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@GetObject' {} a -> s {sSECustomerKeyMD5 = a} :: GetObject)
 
 -- | VersionId used to reference a specific version of the object.
-getObject_versionId :: Lens.Lens' GetObject (Core.Maybe ObjectVersionId)
+getObject_versionId :: Lens.Lens' GetObject (Prelude.Maybe ObjectVersionId)
 getObject_versionId = Lens.lens (\GetObject' {versionId} -> versionId) (\s@GetObject' {} a -> s {versionId = a} :: GetObject)
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
-getObject_ifMatch :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_ifMatch :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_ifMatch = Lens.lens (\GetObject' {ifMatch} -> ifMatch) (\s@GetObject' {} a -> s {ifMatch = a} :: GetObject)
 
 -- | Part number of the object being read. This is a positive integer between
 -- 1 and 10,000. Effectively performs a \'ranged\' GET request for the part
 -- specified. Useful for downloading just a part of an object.
-getObject_partNumber :: Lens.Lens' GetObject (Core.Maybe Core.Int)
+getObject_partNumber :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Int)
 getObject_partNumber = Lens.lens (\GetObject' {partNumber} -> partNumber) (\s@GetObject' {} a -> s {partNumber = a} :: GetObject)
 
 -- | Sets the @Content-Encoding@ header of the response.
-getObject_responseContentEncoding :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_responseContentEncoding :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_responseContentEncoding = Lens.lens (\GetObject' {responseContentEncoding} -> responseContentEncoding) (\s@GetObject' {} a -> s {responseContentEncoding = a} :: GetObject)
 
 -- | Return the object only if its entity tag (ETag) is different from the
 -- one specified, otherwise return a 304 (not modified).
-getObject_ifNoneMatch :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_ifNoneMatch :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_ifNoneMatch = Lens.lens (\GetObject' {ifNoneMatch} -> ifNoneMatch) (\s@GetObject' {} a -> s {ifNoneMatch = a} :: GetObject)
 
 -- | Specifies the algorithm to use to when decrypting the object (for
 -- example, AES256).
-getObject_sSECustomerAlgorithm :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_sSECustomerAlgorithm :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_sSECustomerAlgorithm = Lens.lens (\GetObject' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@GetObject' {} a -> s {sSECustomerAlgorithm = a} :: GetObject)
 
 -- | Undocumented member.
-getObject_requestPayer :: Lens.Lens' GetObject (Core.Maybe RequestPayer)
+getObject_requestPayer :: Lens.Lens' GetObject (Prelude.Maybe RequestPayer)
 getObject_requestPayer = Lens.lens (\GetObject' {requestPayer} -> requestPayer) (\s@GetObject' {} a -> s {requestPayer = a} :: GetObject)
 
 -- | Specifies the customer-provided encryption key for Amazon S3 used to
@@ -507,23 +508,23 @@ getObject_requestPayer = Lens.lens (\GetObject' {requestPayer} -> requestPayer) 
 -- recovering it and must match the one used when storing the data. The key
 -- must be appropriate for use with the algorithm specified in the
 -- @x-amz-server-side-encryption-customer-algorithm@ header.
-getObject_sSECustomerKey :: Lens.Lens' GetObject (Core.Maybe Core.Text)
-getObject_sSECustomerKey = Lens.lens (\GetObject' {sSECustomerKey} -> sSECustomerKey) (\s@GetObject' {} a -> s {sSECustomerKey = a} :: GetObject) Core.. Lens.mapping Core._Sensitive
+getObject_sSECustomerKey :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
+getObject_sSECustomerKey = Lens.lens (\GetObject' {sSECustomerKey} -> sSECustomerKey) (\s@GetObject' {} a -> s {sSECustomerKey = a} :: GetObject) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Sets the @Content-Language@ header of the response.
-getObject_responseContentLanguage :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_responseContentLanguage :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_responseContentLanguage = Lens.lens (\GetObject' {responseContentLanguage} -> responseContentLanguage) (\s@GetObject' {} a -> s {responseContentLanguage = a} :: GetObject)
 
 -- | Sets the @Cache-Control@ header of the response.
-getObject_responseCacheControl :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_responseCacheControl :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_responseCacheControl = Lens.lens (\GetObject' {responseCacheControl} -> responseCacheControl) (\s@GetObject' {} a -> s {responseCacheControl = a} :: GetObject)
 
 -- | Sets the @Content-Disposition@ header of the response
-getObject_responseContentDisposition :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_responseContentDisposition :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_responseContentDisposition = Lens.lens (\GetObject' {responseContentDisposition} -> responseContentDisposition) (\s@GetObject' {} a -> s {responseContentDisposition = a} :: GetObject)
 
 -- | Sets the @Content-Type@ header of the response.
-getObject_responseContentType :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_responseContentType :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_responseContentType = Lens.lens (\GetObject' {responseContentType} -> responseContentType) (\s@GetObject' {} a -> s {responseContentType = a} :: GetObject)
 
 -- | The bucket name containing the object.
@@ -560,56 +561,56 @@ instance Core.AWSRequest GetObject where
     Response.receiveBody
       ( \s h x ->
           GetObjectResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (h Core..#? "x-amz-request-charged")
-            Core.<*> (h Core..#? "x-amz-mp-parts-count")
-            Core.<*> (h Core..#? "x-amz-website-redirect-location")
-            Core.<*> (h Core..#? "Content-Type")
-            Core.<*> (h Core..#? "x-amz-tagging-count")
-            Core.<*> (h Core..#? "Content-Range")
-            Core.<*> (h Core..#? "Content-Disposition")
-            Core.<*> (h Core..#? "x-amz-delete-marker")
-            Core.<*> (h Core..#? "x-amz-expiration")
-            Core.<*> (h Core..#? "Content-Language")
-            Core.<*> (h Core..#? "x-amz-replication-status")
-            Core.<*> (Core.parseHeadersMap "x-amz-meta-" h)
-            Core.<*> (h Core..#? "Content-Length")
-            Core.<*> (h Core..#? "Content-Encoding")
-            Core.<*> ( h
-                         Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
-                     )
-            Core.<*> ( h
-                         Core..#? "x-amz-server-side-encryption-customer-key-MD5"
-                     )
-            Core.<*> (h Core..#? "x-amz-storage-class")
-            Core.<*> (h Core..#? "x-amz-version-id")
-            Core.<*> (h Core..#? "accept-ranges")
-            Core.<*> ( h
-                         Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
-                     )
-            Core.<*> (h Core..#? "x-amz-server-side-encryption")
-            Core.<*> (h Core..#? "x-amz-missing-meta")
-            Core.<*> (h Core..#? "x-amz-object-lock-legal-hold")
-            Core.<*> ( h
-                         Core..#? "x-amz-server-side-encryption-customer-algorithm"
-                     )
-            Core.<*> (h Core..#? "Last-Modified")
-            Core.<*> (h Core..#? "Cache-Control")
-            Core.<*> (h Core..#? "Expires")
-            Core.<*> (h Core..#? "x-amz-restore")
-            Core.<*> (h Core..#? "x-amz-object-lock-mode")
-            Core.<*> (h Core..#? "x-amz-object-lock-retain-until-date")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.pure x)
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (h Core..#? "x-amz-mp-parts-count")
+            Prelude.<*> (h Core..#? "x-amz-website-redirect-location")
+            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Core..#? "x-amz-tagging-count")
+            Prelude.<*> (h Core..#? "Content-Range")
+            Prelude.<*> (h Core..#? "Content-Disposition")
+            Prelude.<*> (h Core..#? "x-amz-delete-marker")
+            Prelude.<*> (h Core..#? "x-amz-expiration")
+            Prelude.<*> (h Core..#? "Content-Language")
+            Prelude.<*> (h Core..#? "x-amz-replication-status")
+            Prelude.<*> (Core.parseHeadersMap "x-amz-meta-" h)
+            Prelude.<*> (h Core..#? "Content-Length")
+            Prelude.<*> (h Core..#? "Content-Encoding")
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                        )
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-customer-key-MD5"
+                        )
+            Prelude.<*> (h Core..#? "x-amz-storage-class")
+            Prelude.<*> (h Core..#? "x-amz-version-id")
+            Prelude.<*> (h Core..#? "accept-ranges")
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                        )
+            Prelude.<*> (h Core..#? "x-amz-server-side-encryption")
+            Prelude.<*> (h Core..#? "x-amz-missing-meta")
+            Prelude.<*> (h Core..#? "x-amz-object-lock-legal-hold")
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-customer-algorithm"
+                        )
+            Prelude.<*> (h Core..#? "Last-Modified")
+            Prelude.<*> (h Core..#? "Cache-Control")
+            Prelude.<*> (h Core..#? "Expires")
+            Prelude.<*> (h Core..#? "x-amz-restore")
+            Prelude.<*> (h Core..#? "x-amz-object-lock-mode")
+            Prelude.<*> (h Core..#? "x-amz-object-lock-retain-until-date")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure x)
       )
 
-instance Core.Hashable GetObject
+instance Prelude.Hashable GetObject
 
-instance Core.NFData GetObject
+instance Prelude.NFData GetObject
 
 instance Core.ToHeaders GetObject where
   toHeaders GetObject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "If-Unmodified-Since" Core.=# ifUnmodifiedSince,
         "Range" Core.=# range,
         "If-Modified-Since" Core.=# ifModifiedSince,
@@ -628,12 +629,12 @@ instance Core.ToHeaders GetObject where
 
 instance Core.ToPath GetObject where
   toPath GetObject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS bucket, "/", Core.toBS key]
 
 instance Core.ToQuery GetObject where
   toQuery GetObject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "response-expires" Core.=: responseExpires,
         "versionId" Core.=: versionId,
         "partNumber" Core.=: partNumber,
@@ -652,98 +653,98 @@ instance Core.ToQuery GetObject where
 data GetObjectResponse = GetObjectResponse'
   { -- | An ETag is an opaque identifier assigned by a web server to a specific
     -- version of a resource found at a URL.
-    eTag :: Core.Maybe ETag,
-    requestCharged :: Core.Maybe RequestCharged,
+    eTag :: Prelude.Maybe ETag,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | The count of parts this object has.
-    partsCount :: Core.Maybe Core.Int,
+    partsCount :: Prelude.Maybe Prelude.Int,
     -- | If the bucket is configured as a website, redirects requests for this
     -- object to another object in the same bucket or to an external URL.
     -- Amazon S3 stores the value of this header in the object metadata.
-    websiteRedirectLocation :: Core.Maybe Core.Text,
+    websiteRedirectLocation :: Prelude.Maybe Prelude.Text,
     -- | A standard MIME type describing the format of the object data.
-    contentType :: Core.Maybe Core.Text,
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The number of tags, if any, on the object.
-    tagCount :: Core.Maybe Core.Int,
+    tagCount :: Prelude.Maybe Prelude.Int,
     -- | The portion of the object returned in the response.
-    contentRange :: Core.Maybe Core.Text,
+    contentRange :: Prelude.Maybe Prelude.Text,
     -- | Specifies presentational information for the object.
-    contentDisposition :: Core.Maybe Core.Text,
+    contentDisposition :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the object retrieved was (true) or was not (false) a
     -- Delete Marker. If false, this response header does not appear in the
     -- response.
-    deleteMarker :: Core.Maybe Core.Bool,
+    deleteMarker :: Prelude.Maybe Prelude.Bool,
     -- | If the object expiration is configured (see PUT Bucket lifecycle), the
     -- response includes this header. It includes the expiry-date and rule-id
     -- key-value pairs providing object expiration information. The value of
     -- the rule-id is URL encoded.
-    expiration :: Core.Maybe Core.Text,
+    expiration :: Prelude.Maybe Prelude.Text,
     -- | The language the content is in.
-    contentLanguage :: Core.Maybe Core.Text,
+    contentLanguage :: Prelude.Maybe Prelude.Text,
     -- | Amazon S3 can return this if your request involves a bucket that is
     -- either a source or destination in a replication rule.
-    replicationStatus :: Core.Maybe ReplicationStatus,
+    replicationStatus :: Prelude.Maybe ReplicationStatus,
     -- | A map of metadata to store with the object in S3.
-    metadata :: Core.HashMap Core.Text Core.Text,
+    metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | Size of the body in bytes.
-    contentLength :: Core.Maybe Core.Integer,
+    contentLength :: Prelude.Maybe Prelude.Integer,
     -- | Specifies what content encodings have been applied to the object and
     -- thus what decoding mechanisms must be applied to obtain the media-type
     -- referenced by the Content-Type header field.
-    contentEncoding :: Core.Maybe Core.Text,
+    contentEncoding :: Prelude.Maybe Prelude.Text,
     -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS)
     -- symmetric customer managed customer master key (CMK) that was used for
     -- the object.
-    sSEKMSKeyId :: Core.Maybe (Core.Sensitive Core.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | If server-side encryption with a customer-provided encryption key was
     -- requested, the response will include this header to provide round-trip
     -- message integrity verification of the customer-provided encryption key.
-    sSECustomerKeyMD5 :: Core.Maybe Core.Text,
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | Provides storage class information of the object. Amazon S3 returns this
     -- header for all objects except for S3 Standard storage class objects.
-    storageClass :: Core.Maybe StorageClass,
+    storageClass :: Prelude.Maybe StorageClass,
     -- | Version of the object.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | Indicates that a range of bytes was specified.
-    acceptRanges :: Core.Maybe Core.Text,
+    acceptRanges :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the object uses an S3 Bucket Key for server-side
     -- encryption with AWS KMS (SSE-KMS).
-    bucketKeyEnabled :: Core.Maybe Core.Bool,
+    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The server-side encryption algorithm used when storing this object in
     -- Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Core.Maybe ServerSideEncryption,
+    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | This is set to the number of metadata entries not returned in
     -- @x-amz-meta@ headers. This can happen if you create metadata using an
     -- API like SOAP that supports more flexible metadata than the REST API.
     -- For example, using SOAP, you can create metadata whose values are not
     -- legal HTTP headers.
-    missingMeta :: Core.Maybe Core.Int,
+    missingMeta :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether this object has an active legal hold. This field is
     -- only returned if you have permission to view an object\'s legal hold
     -- status.
-    objectLockLegalHoldStatus :: Core.Maybe ObjectLockLegalHoldStatus,
+    objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
     -- | If server-side encryption with a customer-provided encryption key was
     -- requested, the response will include this header confirming the
     -- encryption algorithm used.
-    sSECustomerAlgorithm :: Core.Maybe Core.Text,
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | Creation date of the object.
-    lastModified :: Core.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Core.ISO8601,
     -- | Specifies caching behavior along the request\/reply chain.
-    cacheControl :: Core.Maybe Core.Text,
+    cacheControl :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable.
-    expires :: Core.Maybe Core.ISO8601,
+    expires :: Prelude.Maybe Core.ISO8601,
     -- | Provides information about object restoration operation and expiration
     -- time of the restored object copy.
-    restore :: Core.Maybe Core.Text,
+    restore :: Prelude.Maybe Prelude.Text,
     -- | The Object Lock mode currently in place for this object.
-    objectLockMode :: Core.Maybe ObjectLockMode,
+    objectLockMode :: Prelude.Maybe ObjectLockMode,
     -- | The date and time when this object\'s Object Lock will expire.
-    objectLockRetainUntilDate :: Core.Maybe Core.ISO8601,
+    objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Object data.
     body :: Core.ResponseBody
   }
-  deriving (Core.Show, Core.Generic)
+  deriving (Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectResponse' with all optional fields omitted.
@@ -847,151 +848,151 @@ data GetObjectResponse = GetObjectResponse'
 -- 'body', 'getObjectResponse_body' - Object data.
 newGetObjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'body'
   Core.ResponseBody ->
   GetObjectResponse
 newGetObjectResponse pHttpStatus_ pBody_ =
   GetObjectResponse'
-    { eTag = Core.Nothing,
-      requestCharged = Core.Nothing,
-      partsCount = Core.Nothing,
-      websiteRedirectLocation = Core.Nothing,
-      contentType = Core.Nothing,
-      tagCount = Core.Nothing,
-      contentRange = Core.Nothing,
-      contentDisposition = Core.Nothing,
-      deleteMarker = Core.Nothing,
-      expiration = Core.Nothing,
-      contentLanguage = Core.Nothing,
-      replicationStatus = Core.Nothing,
-      metadata = Core.mempty,
-      contentLength = Core.Nothing,
-      contentEncoding = Core.Nothing,
-      sSEKMSKeyId = Core.Nothing,
-      sSECustomerKeyMD5 = Core.Nothing,
-      storageClass = Core.Nothing,
-      versionId = Core.Nothing,
-      acceptRanges = Core.Nothing,
-      bucketKeyEnabled = Core.Nothing,
-      serverSideEncryption = Core.Nothing,
-      missingMeta = Core.Nothing,
-      objectLockLegalHoldStatus = Core.Nothing,
-      sSECustomerAlgorithm = Core.Nothing,
-      lastModified = Core.Nothing,
-      cacheControl = Core.Nothing,
-      expires = Core.Nothing,
-      restore = Core.Nothing,
-      objectLockMode = Core.Nothing,
-      objectLockRetainUntilDate = Core.Nothing,
+    { eTag = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
+      partsCount = Prelude.Nothing,
+      websiteRedirectLocation = Prelude.Nothing,
+      contentType = Prelude.Nothing,
+      tagCount = Prelude.Nothing,
+      contentRange = Prelude.Nothing,
+      contentDisposition = Prelude.Nothing,
+      deleteMarker = Prelude.Nothing,
+      expiration = Prelude.Nothing,
+      contentLanguage = Prelude.Nothing,
+      replicationStatus = Prelude.Nothing,
+      metadata = Prelude.mempty,
+      contentLength = Prelude.Nothing,
+      contentEncoding = Prelude.Nothing,
+      sSEKMSKeyId = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
+      storageClass = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      acceptRanges = Prelude.Nothing,
+      bucketKeyEnabled = Prelude.Nothing,
+      serverSideEncryption = Prelude.Nothing,
+      missingMeta = Prelude.Nothing,
+      objectLockLegalHoldStatus = Prelude.Nothing,
+      sSECustomerAlgorithm = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
+      expires = Prelude.Nothing,
+      restore = Prelude.Nothing,
+      objectLockMode = Prelude.Nothing,
+      objectLockRetainUntilDate = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       body = pBody_
     }
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-getObjectResponse_eTag :: Lens.Lens' GetObjectResponse (Core.Maybe ETag)
+getObjectResponse_eTag :: Lens.Lens' GetObjectResponse (Prelude.Maybe ETag)
 getObjectResponse_eTag = Lens.lens (\GetObjectResponse' {eTag} -> eTag) (\s@GetObjectResponse' {} a -> s {eTag = a} :: GetObjectResponse)
 
 -- | Undocumented member.
-getObjectResponse_requestCharged :: Lens.Lens' GetObjectResponse (Core.Maybe RequestCharged)
+getObjectResponse_requestCharged :: Lens.Lens' GetObjectResponse (Prelude.Maybe RequestCharged)
 getObjectResponse_requestCharged = Lens.lens (\GetObjectResponse' {requestCharged} -> requestCharged) (\s@GetObjectResponse' {} a -> s {requestCharged = a} :: GetObjectResponse)
 
 -- | The count of parts this object has.
-getObjectResponse_partsCount :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Int)
+getObjectResponse_partsCount :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Int)
 getObjectResponse_partsCount = Lens.lens (\GetObjectResponse' {partsCount} -> partsCount) (\s@GetObjectResponse' {} a -> s {partsCount = a} :: GetObjectResponse)
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL.
 -- Amazon S3 stores the value of this header in the object metadata.
-getObjectResponse_websiteRedirectLocation :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_websiteRedirectLocation :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_websiteRedirectLocation = Lens.lens (\GetObjectResponse' {websiteRedirectLocation} -> websiteRedirectLocation) (\s@GetObjectResponse' {} a -> s {websiteRedirectLocation = a} :: GetObjectResponse)
 
 -- | A standard MIME type describing the format of the object data.
-getObjectResponse_contentType :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_contentType :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_contentType = Lens.lens (\GetObjectResponse' {contentType} -> contentType) (\s@GetObjectResponse' {} a -> s {contentType = a} :: GetObjectResponse)
 
 -- | The number of tags, if any, on the object.
-getObjectResponse_tagCount :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Int)
+getObjectResponse_tagCount :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Int)
 getObjectResponse_tagCount = Lens.lens (\GetObjectResponse' {tagCount} -> tagCount) (\s@GetObjectResponse' {} a -> s {tagCount = a} :: GetObjectResponse)
 
 -- | The portion of the object returned in the response.
-getObjectResponse_contentRange :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_contentRange :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_contentRange = Lens.lens (\GetObjectResponse' {contentRange} -> contentRange) (\s@GetObjectResponse' {} a -> s {contentRange = a} :: GetObjectResponse)
 
 -- | Specifies presentational information for the object.
-getObjectResponse_contentDisposition :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_contentDisposition :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_contentDisposition = Lens.lens (\GetObjectResponse' {contentDisposition} -> contentDisposition) (\s@GetObjectResponse' {} a -> s {contentDisposition = a} :: GetObjectResponse)
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the
 -- response.
-getObjectResponse_deleteMarker :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Bool)
+getObjectResponse_deleteMarker :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Bool)
 getObjectResponse_deleteMarker = Lens.lens (\GetObjectResponse' {deleteMarker} -> deleteMarker) (\s@GetObjectResponse' {} a -> s {deleteMarker = a} :: GetObjectResponse)
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id
 -- key-value pairs providing object expiration information. The value of
 -- the rule-id is URL encoded.
-getObjectResponse_expiration :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_expiration :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_expiration = Lens.lens (\GetObjectResponse' {expiration} -> expiration) (\s@GetObjectResponse' {} a -> s {expiration = a} :: GetObjectResponse)
 
 -- | The language the content is in.
-getObjectResponse_contentLanguage :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_contentLanguage :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_contentLanguage = Lens.lens (\GetObjectResponse' {contentLanguage} -> contentLanguage) (\s@GetObjectResponse' {} a -> s {contentLanguage = a} :: GetObjectResponse)
 
 -- | Amazon S3 can return this if your request involves a bucket that is
 -- either a source or destination in a replication rule.
-getObjectResponse_replicationStatus :: Lens.Lens' GetObjectResponse (Core.Maybe ReplicationStatus)
+getObjectResponse_replicationStatus :: Lens.Lens' GetObjectResponse (Prelude.Maybe ReplicationStatus)
 getObjectResponse_replicationStatus = Lens.lens (\GetObjectResponse' {replicationStatus} -> replicationStatus) (\s@GetObjectResponse' {} a -> s {replicationStatus = a} :: GetObjectResponse)
 
 -- | A map of metadata to store with the object in S3.
-getObjectResponse_metadata :: Lens.Lens' GetObjectResponse (Core.HashMap Core.Text Core.Text)
-getObjectResponse_metadata = Lens.lens (\GetObjectResponse' {metadata} -> metadata) (\s@GetObjectResponse' {} a -> s {metadata = a} :: GetObjectResponse) Core.. Lens._Coerce
+getObjectResponse_metadata :: Lens.Lens' GetObjectResponse (Prelude.HashMap Prelude.Text Prelude.Text)
+getObjectResponse_metadata = Lens.lens (\GetObjectResponse' {metadata} -> metadata) (\s@GetObjectResponse' {} a -> s {metadata = a} :: GetObjectResponse) Prelude.. Lens._Coerce
 
 -- | Size of the body in bytes.
-getObjectResponse_contentLength :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Integer)
+getObjectResponse_contentLength :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Integer)
 getObjectResponse_contentLength = Lens.lens (\GetObjectResponse' {contentLength} -> contentLength) (\s@GetObjectResponse' {} a -> s {contentLength = a} :: GetObjectResponse)
 
 -- | Specifies what content encodings have been applied to the object and
 -- thus what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-getObjectResponse_contentEncoding :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_contentEncoding :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_contentEncoding = Lens.lens (\GetObjectResponse' {contentEncoding} -> contentEncoding) (\s@GetObjectResponse' {} a -> s {contentEncoding = a} :: GetObjectResponse)
 
 -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS)
 -- symmetric customer managed customer master key (CMK) that was used for
 -- the object.
-getObjectResponse_sSEKMSKeyId :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
-getObjectResponse_sSEKMSKeyId = Lens.lens (\GetObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@GetObjectResponse' {} a -> s {sSEKMSKeyId = a} :: GetObjectResponse) Core.. Lens.mapping Core._Sensitive
+getObjectResponse_sSEKMSKeyId :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
+getObjectResponse_sSEKMSKeyId = Lens.lens (\GetObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@GetObjectResponse' {} a -> s {sSEKMSKeyId = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round-trip
 -- message integrity verification of the customer-provided encryption key.
-getObjectResponse_sSECustomerKeyMD5 :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_sSECustomerKeyMD5 :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_sSECustomerKeyMD5 = Lens.lens (\GetObjectResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@GetObjectResponse' {} a -> s {sSECustomerKeyMD5 = a} :: GetObjectResponse)
 
 -- | Provides storage class information of the object. Amazon S3 returns this
 -- header for all objects except for S3 Standard storage class objects.
-getObjectResponse_storageClass :: Lens.Lens' GetObjectResponse (Core.Maybe StorageClass)
+getObjectResponse_storageClass :: Lens.Lens' GetObjectResponse (Prelude.Maybe StorageClass)
 getObjectResponse_storageClass = Lens.lens (\GetObjectResponse' {storageClass} -> storageClass) (\s@GetObjectResponse' {} a -> s {storageClass = a} :: GetObjectResponse)
 
 -- | Version of the object.
-getObjectResponse_versionId :: Lens.Lens' GetObjectResponse (Core.Maybe ObjectVersionId)
+getObjectResponse_versionId :: Lens.Lens' GetObjectResponse (Prelude.Maybe ObjectVersionId)
 getObjectResponse_versionId = Lens.lens (\GetObjectResponse' {versionId} -> versionId) (\s@GetObjectResponse' {} a -> s {versionId = a} :: GetObjectResponse)
 
 -- | Indicates that a range of bytes was specified.
-getObjectResponse_acceptRanges :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_acceptRanges :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_acceptRanges = Lens.lens (\GetObjectResponse' {acceptRanges} -> acceptRanges) (\s@GetObjectResponse' {} a -> s {acceptRanges = a} :: GetObjectResponse)
 
 -- | Indicates whether the object uses an S3 Bucket Key for server-side
 -- encryption with AWS KMS (SSE-KMS).
-getObjectResponse_bucketKeyEnabled :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Bool)
+getObjectResponse_bucketKeyEnabled :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Bool)
 getObjectResponse_bucketKeyEnabled = Lens.lens (\GetObjectResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@GetObjectResponse' {} a -> s {bucketKeyEnabled = a} :: GetObjectResponse)
 
 -- | The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
-getObjectResponse_serverSideEncryption :: Lens.Lens' GetObjectResponse (Core.Maybe ServerSideEncryption)
+getObjectResponse_serverSideEncryption :: Lens.Lens' GetObjectResponse (Prelude.Maybe ServerSideEncryption)
 getObjectResponse_serverSideEncryption = Lens.lens (\GetObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@GetObjectResponse' {} a -> s {serverSideEncryption = a} :: GetObjectResponse)
 
 -- | This is set to the number of metadata entries not returned in
@@ -999,48 +1000,48 @@ getObjectResponse_serverSideEncryption = Lens.lens (\GetObjectResponse' {serverS
 -- API like SOAP that supports more flexible metadata than the REST API.
 -- For example, using SOAP, you can create metadata whose values are not
 -- legal HTTP headers.
-getObjectResponse_missingMeta :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Int)
+getObjectResponse_missingMeta :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Int)
 getObjectResponse_missingMeta = Lens.lens (\GetObjectResponse' {missingMeta} -> missingMeta) (\s@GetObjectResponse' {} a -> s {missingMeta = a} :: GetObjectResponse)
 
 -- | Indicates whether this object has an active legal hold. This field is
 -- only returned if you have permission to view an object\'s legal hold
 -- status.
-getObjectResponse_objectLockLegalHoldStatus :: Lens.Lens' GetObjectResponse (Core.Maybe ObjectLockLegalHoldStatus)
+getObjectResponse_objectLockLegalHoldStatus :: Lens.Lens' GetObjectResponse (Prelude.Maybe ObjectLockLegalHoldStatus)
 getObjectResponse_objectLockLegalHoldStatus = Lens.lens (\GetObjectResponse' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@GetObjectResponse' {} a -> s {objectLockLegalHoldStatus = a} :: GetObjectResponse)
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
 -- encryption algorithm used.
-getObjectResponse_sSECustomerAlgorithm :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_sSECustomerAlgorithm :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_sSECustomerAlgorithm = Lens.lens (\GetObjectResponse' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@GetObjectResponse' {} a -> s {sSECustomerAlgorithm = a} :: GetObjectResponse)
 
 -- | Creation date of the object.
-getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Core.Maybe Core.UTCTime)
-getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Core.. Lens.mapping Core._Time
+getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
+getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies caching behavior along the request\/reply chain.
-getObjectResponse_cacheControl :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_cacheControl :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_cacheControl = Lens.lens (\GetObjectResponse' {cacheControl} -> cacheControl) (\s@GetObjectResponse' {} a -> s {cacheControl = a} :: GetObjectResponse)
 
 -- | The date and time at which the object is no longer cacheable.
-getObjectResponse_expires :: Lens.Lens' GetObjectResponse (Core.Maybe Core.UTCTime)
-getObjectResponse_expires = Lens.lens (\GetObjectResponse' {expires} -> expires) (\s@GetObjectResponse' {} a -> s {expires = a} :: GetObjectResponse) Core.. Lens.mapping Core._Time
+getObjectResponse_expires :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
+getObjectResponse_expires = Lens.lens (\GetObjectResponse' {expires} -> expires) (\s@GetObjectResponse' {} a -> s {expires = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Provides information about object restoration operation and expiration
 -- time of the restored object copy.
-getObjectResponse_restore :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_restore :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_restore = Lens.lens (\GetObjectResponse' {restore} -> restore) (\s@GetObjectResponse' {} a -> s {restore = a} :: GetObjectResponse)
 
 -- | The Object Lock mode currently in place for this object.
-getObjectResponse_objectLockMode :: Lens.Lens' GetObjectResponse (Core.Maybe ObjectLockMode)
+getObjectResponse_objectLockMode :: Lens.Lens' GetObjectResponse (Prelude.Maybe ObjectLockMode)
 getObjectResponse_objectLockMode = Lens.lens (\GetObjectResponse' {objectLockMode} -> objectLockMode) (\s@GetObjectResponse' {} a -> s {objectLockMode = a} :: GetObjectResponse)
 
 -- | The date and time when this object\'s Object Lock will expire.
-getObjectResponse_objectLockRetainUntilDate :: Lens.Lens' GetObjectResponse (Core.Maybe Core.UTCTime)
-getObjectResponse_objectLockRetainUntilDate = Lens.lens (\GetObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@GetObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: GetObjectResponse) Core.. Lens.mapping Core._Time
+getObjectResponse_objectLockRetainUntilDate :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
+getObjectResponse_objectLockRetainUntilDate = Lens.lens (\GetObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@GetObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-getObjectResponse_httpStatus :: Lens.Lens' GetObjectResponse Core.Int
+getObjectResponse_httpStatus :: Lens.Lens' GetObjectResponse Prelude.Int
 getObjectResponse_httpStatus = Lens.lens (\GetObjectResponse' {httpStatus} -> httpStatus) (\s@GetObjectResponse' {} a -> s {httpStatus = a} :: GetObjectResponse)
 
 -- | Object data.

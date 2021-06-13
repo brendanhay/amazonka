@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,21 +60,21 @@ import qualified Network.AWS.Response as Response
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
   { -- | One or more instance IDs. Must be instances linked to a VPC through
     -- ClassicLink.
-    instanceIds :: Core.Maybe [Core.Text],
+    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     --
     -- Constraint: If the value is greater than 1000, we return only 1000
     -- items.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters.
     --
     -- -   @group-id@ - The ID of a VPC security group that\'s associated with
@@ -94,9 +95,9 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
     -- -   @vpc-id@ - The ID of the VPC to which the instance is linked.
     --
     --     @vpc-id@ - The ID of the VPC that the instance is linked to.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClassicLinkInstances' with all optional fields omitted.
@@ -148,27 +149,27 @@ newDescribeClassicLinkInstances ::
 newDescribeClassicLinkInstances =
   DescribeClassicLinkInstances'
     { instanceIds =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | One or more instance IDs. Must be instances linked to a VPC through
 -- ClassicLink.
-describeClassicLinkInstances_instanceIds :: Lens.Lens' DescribeClassicLinkInstances (Core.Maybe [Core.Text])
-describeClassicLinkInstances_instanceIds = Lens.lens (\DescribeClassicLinkInstances' {instanceIds} -> instanceIds) (\s@DescribeClassicLinkInstances' {} a -> s {instanceIds = a} :: DescribeClassicLinkInstances) Core.. Lens.mapping Lens._Coerce
+describeClassicLinkInstances_instanceIds :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe [Prelude.Text])
+describeClassicLinkInstances_instanceIds = Lens.lens (\DescribeClassicLinkInstances' {instanceIds} -> instanceIds) (\s@DescribeClassicLinkInstances' {} a -> s {instanceIds = a} :: DescribeClassicLinkInstances) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token for the next page of results.
-describeClassicLinkInstances_nextToken :: Lens.Lens' DescribeClassicLinkInstances (Core.Maybe Core.Text)
+describeClassicLinkInstances_nextToken :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Text)
 describeClassicLinkInstances_nextToken = Lens.lens (\DescribeClassicLinkInstances' {nextToken} -> nextToken) (\s@DescribeClassicLinkInstances' {} a -> s {nextToken = a} :: DescribeClassicLinkInstances)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeClassicLinkInstances_dryRun :: Lens.Lens' DescribeClassicLinkInstances (Core.Maybe Core.Bool)
+describeClassicLinkInstances_dryRun :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Bool)
 describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' {dryRun} -> dryRun) (\s@DescribeClassicLinkInstances' {} a -> s {dryRun = a} :: DescribeClassicLinkInstances)
 
 -- | The maximum number of results to return with a single call. To retrieve
@@ -177,7 +178,7 @@ describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' 
 --
 -- Constraint: If the value is greater than 1000, we return only 1000
 -- items.
-describeClassicLinkInstances_maxResults :: Lens.Lens' DescribeClassicLinkInstances (Core.Maybe Core.Natural)
+describeClassicLinkInstances_maxResults :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Natural)
 describeClassicLinkInstances_maxResults = Lens.lens (\DescribeClassicLinkInstances' {maxResults} -> maxResults) (\s@DescribeClassicLinkInstances' {} a -> s {maxResults = a} :: DescribeClassicLinkInstances)
 
 -- | One or more filters.
@@ -200,30 +201,30 @@ describeClassicLinkInstances_maxResults = Lens.lens (\DescribeClassicLinkInstanc
 -- -   @vpc-id@ - The ID of the VPC to which the instance is linked.
 --
 --     @vpc-id@ - The ID of the VPC that the instance is linked to.
-describeClassicLinkInstances_filters :: Lens.Lens' DescribeClassicLinkInstances (Core.Maybe [Filter])
-describeClassicLinkInstances_filters = Lens.lens (\DescribeClassicLinkInstances' {filters} -> filters) (\s@DescribeClassicLinkInstances' {} a -> s {filters = a} :: DescribeClassicLinkInstances) Core.. Lens.mapping Lens._Coerce
+describeClassicLinkInstances_filters :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe [Filter])
+describeClassicLinkInstances_filters = Lens.lens (\DescribeClassicLinkInstances' {filters} -> filters) (\s@DescribeClassicLinkInstances' {} a -> s {filters = a} :: DescribeClassicLinkInstances) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeClassicLinkInstances where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeClassicLinkInstancesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClassicLinkInstancesResponse_instances
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeClassicLinkInstances_nextToken
+          Prelude.& describeClassicLinkInstances_nextToken
           Lens..~ rs
           Lens.^? describeClassicLinkInstancesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClassicLinkInstances where
   type
@@ -234,49 +235,56 @@ instance Core.AWSRequest DescribeClassicLinkInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeClassicLinkInstancesResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "instancesSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeClassicLinkInstances
+instance
+  Prelude.Hashable
+    DescribeClassicLinkInstances
 
-instance Core.NFData DescribeClassicLinkInstances
+instance Prelude.NFData DescribeClassicLinkInstances
 
 instance Core.ToHeaders DescribeClassicLinkInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeClassicLinkInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeClassicLinkInstances where
   toQuery DescribeClassicLinkInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClassicLinkInstances" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ( "DescribeClassicLinkInstances" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "InstanceId" Core.<$> instanceIds),
+          ( Core.toQueryList "InstanceId"
+              Prelude.<$> instanceIds
+          ),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeClassicLinkInstancesResponse' smart constructor.
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about one or more linked EC2-Classic instances.
-    instances :: Core.Maybe [ClassicLinkInstance],
+    instances :: Prelude.Maybe [ClassicLinkInstance],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClassicLinkInstancesResponse' with all optional fields omitted.
@@ -294,29 +302,29 @@ data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse
 -- 'httpStatus', 'describeClassicLinkInstancesResponse_httpStatus' - The response's http status code.
 newDescribeClassicLinkInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeClassicLinkInstancesResponse
 newDescribeClassicLinkInstancesResponse pHttpStatus_ =
   DescribeClassicLinkInstancesResponse'
     { nextToken =
-        Core.Nothing,
-      instances = Core.Nothing,
+        Prelude.Nothing,
+      instances = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeClassicLinkInstancesResponse_nextToken :: Lens.Lens' DescribeClassicLinkInstancesResponse (Core.Maybe Core.Text)
+describeClassicLinkInstancesResponse_nextToken :: Lens.Lens' DescribeClassicLinkInstancesResponse (Prelude.Maybe Prelude.Text)
 describeClassicLinkInstancesResponse_nextToken = Lens.lens (\DescribeClassicLinkInstancesResponse' {nextToken} -> nextToken) (\s@DescribeClassicLinkInstancesResponse' {} a -> s {nextToken = a} :: DescribeClassicLinkInstancesResponse)
 
 -- | Information about one or more linked EC2-Classic instances.
-describeClassicLinkInstancesResponse_instances :: Lens.Lens' DescribeClassicLinkInstancesResponse (Core.Maybe [ClassicLinkInstance])
-describeClassicLinkInstancesResponse_instances = Lens.lens (\DescribeClassicLinkInstancesResponse' {instances} -> instances) (\s@DescribeClassicLinkInstancesResponse' {} a -> s {instances = a} :: DescribeClassicLinkInstancesResponse) Core.. Lens.mapping Lens._Coerce
+describeClassicLinkInstancesResponse_instances :: Lens.Lens' DescribeClassicLinkInstancesResponse (Prelude.Maybe [ClassicLinkInstance])
+describeClassicLinkInstancesResponse_instances = Lens.lens (\DescribeClassicLinkInstancesResponse' {instances} -> instances) (\s@DescribeClassicLinkInstancesResponse' {} a -> s {instances = a} :: DescribeClassicLinkInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeClassicLinkInstancesResponse_httpStatus :: Lens.Lens' DescribeClassicLinkInstancesResponse Core.Int
+describeClassicLinkInstancesResponse_httpStatus :: Lens.Lens' DescribeClassicLinkInstancesResponse Prelude.Int
 describeClassicLinkInstancesResponse_httpStatus = Lens.lens (\DescribeClassicLinkInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeClassicLinkInstancesResponse' {} a -> s {httpStatus = a} :: DescribeClassicLinkInstancesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeClassicLinkInstancesResponse

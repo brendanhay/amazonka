@@ -21,18 +21,19 @@ module Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Violations for network interfaces associated with an EC2 instance.
 --
 -- /See:/ 'newAwsEc2NetworkInterfaceViolation' smart constructor.
 data AwsEc2NetworkInterfaceViolation = AwsEc2NetworkInterfaceViolation'
   { -- | The resource ID of the network interface.
-    violationTarget :: Core.Maybe Core.Text,
+    violationTarget :: Prelude.Maybe Prelude.Text,
     -- | List of security groups that violate the rules specified in the master
     -- security group of the AWS Firewall Manager policy.
-    violatingSecurityGroups :: Core.Maybe [Core.Text]
+    violatingSecurityGroups :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AwsEc2NetworkInterfaceViolation' with all optional fields omitted.
@@ -51,18 +52,18 @@ newAwsEc2NetworkInterfaceViolation ::
 newAwsEc2NetworkInterfaceViolation =
   AwsEc2NetworkInterfaceViolation'
     { violationTarget =
-        Core.Nothing,
-      violatingSecurityGroups = Core.Nothing
+        Prelude.Nothing,
+      violatingSecurityGroups = Prelude.Nothing
     }
 
 -- | The resource ID of the network interface.
-awsEc2NetworkInterfaceViolation_violationTarget :: Lens.Lens' AwsEc2NetworkInterfaceViolation (Core.Maybe Core.Text)
+awsEc2NetworkInterfaceViolation_violationTarget :: Lens.Lens' AwsEc2NetworkInterfaceViolation (Prelude.Maybe Prelude.Text)
 awsEc2NetworkInterfaceViolation_violationTarget = Lens.lens (\AwsEc2NetworkInterfaceViolation' {violationTarget} -> violationTarget) (\s@AwsEc2NetworkInterfaceViolation' {} a -> s {violationTarget = a} :: AwsEc2NetworkInterfaceViolation)
 
 -- | List of security groups that violate the rules specified in the master
 -- security group of the AWS Firewall Manager policy.
-awsEc2NetworkInterfaceViolation_violatingSecurityGroups :: Lens.Lens' AwsEc2NetworkInterfaceViolation (Core.Maybe [Core.Text])
-awsEc2NetworkInterfaceViolation_violatingSecurityGroups = Lens.lens (\AwsEc2NetworkInterfaceViolation' {violatingSecurityGroups} -> violatingSecurityGroups) (\s@AwsEc2NetworkInterfaceViolation' {} a -> s {violatingSecurityGroups = a} :: AwsEc2NetworkInterfaceViolation) Core.. Lens.mapping Lens._Coerce
+awsEc2NetworkInterfaceViolation_violatingSecurityGroups :: Lens.Lens' AwsEc2NetworkInterfaceViolation (Prelude.Maybe [Prelude.Text])
+awsEc2NetworkInterfaceViolation_violatingSecurityGroups = Lens.lens (\AwsEc2NetworkInterfaceViolation' {violatingSecurityGroups} -> violatingSecurityGroups) (\s@AwsEc2NetworkInterfaceViolation' {} a -> s {violatingSecurityGroups = a} :: AwsEc2NetworkInterfaceViolation) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -73,14 +74,16 @@ instance
       "AwsEc2NetworkInterfaceViolation"
       ( \x ->
           AwsEc2NetworkInterfaceViolation'
-            Core.<$> (x Core..:? "ViolationTarget")
-            Core.<*> ( x Core..:? "ViolatingSecurityGroups"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "ViolationTarget")
+            Prelude.<*> ( x Core..:? "ViolatingSecurityGroups"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AwsEc2NetworkInterfaceViolation
 
-instance Core.NFData AwsEc2NetworkInterfaceViolation
+instance
+  Prelude.NFData
+    AwsEc2NetworkInterfaceViolation

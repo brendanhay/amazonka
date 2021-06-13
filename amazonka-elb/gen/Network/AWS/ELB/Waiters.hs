@@ -20,6 +20,7 @@ import Network.AWS.ELB.DescribeInstanceHealth
 import Network.AWS.ELB.Lens
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceDeregistered :: Core.Wait DescribeInstanceHealth
@@ -35,12 +36,12 @@ newInstanceDeregistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstanceHealthResponse_instanceStates
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instanceState_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instanceState_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "InvalidInstance"
@@ -62,12 +63,12 @@ newInstanceInService =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstanceHealthResponse_instanceStates
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instanceState_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instanceState_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError "InvalidInstance" Core.AcceptRetry
         ]
@@ -87,12 +88,12 @@ newAnyInstanceInService =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstanceHealthResponse_instanceStates
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instanceState_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instanceState_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

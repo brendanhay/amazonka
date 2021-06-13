@@ -55,15 +55,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newReleaseHosts' smart constructor.
 data ReleaseHosts = ReleaseHosts'
   { -- | The IDs of the Dedicated Hosts to release.
-    hostIds :: [Core.Text]
+    hostIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReleaseHosts' with all optional fields omitted.
@@ -77,11 +78,11 @@ data ReleaseHosts = ReleaseHosts'
 newReleaseHosts ::
   ReleaseHosts
 newReleaseHosts =
-  ReleaseHosts' {hostIds = Core.mempty}
+  ReleaseHosts' {hostIds = Prelude.mempty}
 
 -- | The IDs of the Dedicated Hosts to release.
-releaseHosts_hostIds :: Lens.Lens' ReleaseHosts [Core.Text]
-releaseHosts_hostIds = Lens.lens (\ReleaseHosts' {hostIds} -> hostIds) (\s@ReleaseHosts' {} a -> s {hostIds = a} :: ReleaseHosts) Core.. Lens._Coerce
+releaseHosts_hostIds :: Lens.Lens' ReleaseHosts [Prelude.Text]
+releaseHosts_hostIds = Lens.lens (\ReleaseHosts' {hostIds} -> hostIds) (\s@ReleaseHosts' {} a -> s {hostIds = a} :: ReleaseHosts) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ReleaseHosts where
   type AWSResponse ReleaseHosts = ReleaseHostsResponse
@@ -90,31 +91,32 @@ instance Core.AWSRequest ReleaseHosts where
     Response.receiveXML
       ( \s h x ->
           ReleaseHostsResponse'
-            Core.<$> ( x Core..@? "unsuccessful" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> ( x Core..@? "successful" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "unsuccessful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> ( x Core..@? "successful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ReleaseHosts
+instance Prelude.Hashable ReleaseHosts
 
-instance Core.NFData ReleaseHosts
+instance Prelude.NFData ReleaseHosts
 
 instance Core.ToHeaders ReleaseHosts where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ReleaseHosts where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ReleaseHosts where
   toQuery ReleaseHosts' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ReleaseHosts" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ReleaseHosts" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQueryList "HostId" hostIds
       ]
 
@@ -122,13 +124,13 @@ instance Core.ToQuery ReleaseHosts where
 data ReleaseHostsResponse = ReleaseHostsResponse'
   { -- | The IDs of the Dedicated Hosts that could not be released, including an
     -- error message.
-    unsuccessful :: Core.Maybe [UnsuccessfulItem],
+    unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
     -- | The IDs of the Dedicated Hosts that were successfully released.
-    successful :: Core.Maybe [Core.Text],
+    successful :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReleaseHostsResponse' with all optional fields omitted.
@@ -146,26 +148,27 @@ data ReleaseHostsResponse = ReleaseHostsResponse'
 -- 'httpStatus', 'releaseHostsResponse_httpStatus' - The response's http status code.
 newReleaseHostsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ReleaseHostsResponse
 newReleaseHostsResponse pHttpStatus_ =
   ReleaseHostsResponse'
-    { unsuccessful = Core.Nothing,
-      successful = Core.Nothing,
+    { unsuccessful =
+        Prelude.Nothing,
+      successful = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IDs of the Dedicated Hosts that could not be released, including an
 -- error message.
-releaseHostsResponse_unsuccessful :: Lens.Lens' ReleaseHostsResponse (Core.Maybe [UnsuccessfulItem])
-releaseHostsResponse_unsuccessful = Lens.lens (\ReleaseHostsResponse' {unsuccessful} -> unsuccessful) (\s@ReleaseHostsResponse' {} a -> s {unsuccessful = a} :: ReleaseHostsResponse) Core.. Lens.mapping Lens._Coerce
+releaseHostsResponse_unsuccessful :: Lens.Lens' ReleaseHostsResponse (Prelude.Maybe [UnsuccessfulItem])
+releaseHostsResponse_unsuccessful = Lens.lens (\ReleaseHostsResponse' {unsuccessful} -> unsuccessful) (\s@ReleaseHostsResponse' {} a -> s {unsuccessful = a} :: ReleaseHostsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the Dedicated Hosts that were successfully released.
-releaseHostsResponse_successful :: Lens.Lens' ReleaseHostsResponse (Core.Maybe [Core.Text])
-releaseHostsResponse_successful = Lens.lens (\ReleaseHostsResponse' {successful} -> successful) (\s@ReleaseHostsResponse' {} a -> s {successful = a} :: ReleaseHostsResponse) Core.. Lens.mapping Lens._Coerce
+releaseHostsResponse_successful :: Lens.Lens' ReleaseHostsResponse (Prelude.Maybe [Prelude.Text])
+releaseHostsResponse_successful = Lens.lens (\ReleaseHostsResponse' {successful} -> successful) (\s@ReleaseHostsResponse' {} a -> s {successful = a} :: ReleaseHostsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-releaseHostsResponse_httpStatus :: Lens.Lens' ReleaseHostsResponse Core.Int
+releaseHostsResponse_httpStatus :: Lens.Lens' ReleaseHostsResponse Prelude.Int
 releaseHostsResponse_httpStatus = Lens.lens (\ReleaseHostsResponse' {httpStatus} -> httpStatus) (\s@ReleaseHostsResponse' {} a -> s {httpStatus = a} :: ReleaseHostsResponse)
 
-instance Core.NFData ReleaseHostsResponse
+instance Prelude.NFData ReleaseHostsResponse

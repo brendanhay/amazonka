@@ -39,17 +39,18 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSubscriptionFilter' smart constructor.
 data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
   { -- | The name of the log group.
-    logGroupName :: Core.Text,
+    logGroupName :: Prelude.Text,
     -- | The name of the subscription filter.
-    filterName :: Core.Text
+    filterName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSubscriptionFilter' with all optional fields omitted.
@@ -64,9 +65,9 @@ data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
 -- 'filterName', 'deleteSubscriptionFilter_filterName' - The name of the subscription filter.
 newDeleteSubscriptionFilter ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filterName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSubscriptionFilter
 newDeleteSubscriptionFilter
   pLogGroupName_
@@ -78,11 +79,11 @@ newDeleteSubscriptionFilter
       }
 
 -- | The name of the log group.
-deleteSubscriptionFilter_logGroupName :: Lens.Lens' DeleteSubscriptionFilter Core.Text
+deleteSubscriptionFilter_logGroupName :: Lens.Lens' DeleteSubscriptionFilter Prelude.Text
 deleteSubscriptionFilter_logGroupName = Lens.lens (\DeleteSubscriptionFilter' {logGroupName} -> logGroupName) (\s@DeleteSubscriptionFilter' {} a -> s {logGroupName = a} :: DeleteSubscriptionFilter)
 
 -- | The name of the subscription filter.
-deleteSubscriptionFilter_filterName :: Lens.Lens' DeleteSubscriptionFilter Core.Text
+deleteSubscriptionFilter_filterName :: Lens.Lens' DeleteSubscriptionFilter Prelude.Text
 deleteSubscriptionFilter_filterName = Lens.lens (\DeleteSubscriptionFilter' {filterName} -> filterName) (\s@DeleteSubscriptionFilter' {} a -> s {filterName = a} :: DeleteSubscriptionFilter)
 
 instance Core.AWSRequest DeleteSubscriptionFilter where
@@ -94,43 +95,45 @@ instance Core.AWSRequest DeleteSubscriptionFilter where
     Response.receiveNull
       DeleteSubscriptionFilterResponse'
 
-instance Core.Hashable DeleteSubscriptionFilter
+instance Prelude.Hashable DeleteSubscriptionFilter
 
-instance Core.NFData DeleteSubscriptionFilter
+instance Prelude.NFData DeleteSubscriptionFilter
 
 instance Core.ToHeaders DeleteSubscriptionFilter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.DeleteSubscriptionFilter" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteSubscriptionFilter where
   toJSON DeleteSubscriptionFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("logGroupName" Core..= logGroupName),
-            Core.Just ("filterName" Core..= filterName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just ("filterName" Core..= filterName)
           ]
       )
 
 instance Core.ToPath DeleteSubscriptionFilter where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSubscriptionFilter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSubscriptionFilterResponse' smart constructor.
 data DeleteSubscriptionFilterResponse = DeleteSubscriptionFilterResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSubscriptionFilterResponse' with all optional fields omitted.
@@ -141,4 +144,6 @@ newDeleteSubscriptionFilterResponse ::
 newDeleteSubscriptionFilterResponse =
   DeleteSubscriptionFilterResponse'
 
-instance Core.NFData DeleteSubscriptionFilterResponse
+instance
+  Prelude.NFData
+    DeleteSubscriptionFilterResponse

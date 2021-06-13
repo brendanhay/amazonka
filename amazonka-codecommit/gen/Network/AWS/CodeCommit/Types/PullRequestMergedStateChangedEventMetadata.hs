@@ -22,6 +22,7 @@ module Network.AWS.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata w
 import Network.AWS.CodeCommit.Types.MergeMetadata
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about the change in the merge state for a pull
 -- request event.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPullRequestMergedStateChangedEventMetadata' smart constructor.
 data PullRequestMergedStateChangedEventMetadata = PullRequestMergedStateChangedEventMetadata'
   { -- | The name of the branch that the pull request is merged into.
-    destinationReference :: Core.Maybe Core.Text,
+    destinationReference :: Prelude.Maybe Prelude.Text,
     -- | Information about the merge state change event.
-    mergeMetadata :: Core.Maybe MergeMetadata,
+    mergeMetadata :: Prelude.Maybe MergeMetadata,
     -- | The name of the repository where the pull request was created.
-    repositoryName :: Core.Maybe Core.Text
+    repositoryName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PullRequestMergedStateChangedEventMetadata' with all optional fields omitted.
@@ -55,21 +56,22 @@ newPullRequestMergedStateChangedEventMetadata ::
 newPullRequestMergedStateChangedEventMetadata =
   PullRequestMergedStateChangedEventMetadata'
     { destinationReference =
-        Core.Nothing,
-      mergeMetadata = Core.Nothing,
-      repositoryName = Core.Nothing
+        Prelude.Nothing,
+      mergeMetadata = Prelude.Nothing,
+      repositoryName =
+        Prelude.Nothing
     }
 
 -- | The name of the branch that the pull request is merged into.
-pullRequestMergedStateChangedEventMetadata_destinationReference :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Core.Maybe Core.Text)
+pullRequestMergedStateChangedEventMetadata_destinationReference :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Prelude.Maybe Prelude.Text)
 pullRequestMergedStateChangedEventMetadata_destinationReference = Lens.lens (\PullRequestMergedStateChangedEventMetadata' {destinationReference} -> destinationReference) (\s@PullRequestMergedStateChangedEventMetadata' {} a -> s {destinationReference = a} :: PullRequestMergedStateChangedEventMetadata)
 
 -- | Information about the merge state change event.
-pullRequestMergedStateChangedEventMetadata_mergeMetadata :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Core.Maybe MergeMetadata)
+pullRequestMergedStateChangedEventMetadata_mergeMetadata :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Prelude.Maybe MergeMetadata)
 pullRequestMergedStateChangedEventMetadata_mergeMetadata = Lens.lens (\PullRequestMergedStateChangedEventMetadata' {mergeMetadata} -> mergeMetadata) (\s@PullRequestMergedStateChangedEventMetadata' {} a -> s {mergeMetadata = a} :: PullRequestMergedStateChangedEventMetadata)
 
 -- | The name of the repository where the pull request was created.
-pullRequestMergedStateChangedEventMetadata_repositoryName :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Core.Maybe Core.Text)
+pullRequestMergedStateChangedEventMetadata_repositoryName :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Prelude.Maybe Prelude.Text)
 pullRequestMergedStateChangedEventMetadata_repositoryName = Lens.lens (\PullRequestMergedStateChangedEventMetadata' {repositoryName} -> repositoryName) (\s@PullRequestMergedStateChangedEventMetadata' {} a -> s {repositoryName = a} :: PullRequestMergedStateChangedEventMetadata)
 
 instance
@@ -81,15 +83,15 @@ instance
       "PullRequestMergedStateChangedEventMetadata"
       ( \x ->
           PullRequestMergedStateChangedEventMetadata'
-            Core.<$> (x Core..:? "destinationReference")
-            Core.<*> (x Core..:? "mergeMetadata")
-            Core.<*> (x Core..:? "repositoryName")
+            Prelude.<$> (x Core..:? "destinationReference")
+              Prelude.<*> (x Core..:? "mergeMetadata")
+              Prelude.<*> (x Core..:? "repositoryName")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PullRequestMergedStateChangedEventMetadata
 
 instance
-  Core.NFData
+  Prelude.NFData
     PullRequestMergedStateChangedEventMetadata

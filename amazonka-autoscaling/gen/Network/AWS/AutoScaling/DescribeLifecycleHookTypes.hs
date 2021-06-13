@@ -45,6 +45,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +53,7 @@ import qualified Network.AWS.Response as Response
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLifecycleHookTypes' with all optional fields omitted.
@@ -73,40 +74,42 @@ instance Core.AWSRequest DescribeLifecycleHookTypes where
       "DescribeLifecycleHookTypesResult"
       ( \s h x ->
           DescribeLifecycleHookTypesResponse'
-            Core.<$> ( x Core..@? "LifecycleHookTypes" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "LifecycleHookTypes"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeLifecycleHookTypes
+instance Prelude.Hashable DescribeLifecycleHookTypes
 
-instance Core.NFData DescribeLifecycleHookTypes
+instance Prelude.NFData DescribeLifecycleHookTypes
 
 instance Core.ToHeaders DescribeLifecycleHookTypes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeLifecycleHookTypes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeLifecycleHookTypes where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("DescribeLifecycleHookTypes" :: Core.ByteString),
-            "Version" Core.=: ("2011-01-01" :: Core.ByteString)
+              Core.=: ("DescribeLifecycleHookTypes" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2011-01-01" :: Prelude.ByteString)
           ]
       )
 
 -- | /See:/ 'newDescribeLifecycleHookTypesResponse' smart constructor.
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
   { -- | The lifecycle hook types.
-    lifecycleHookTypes :: Core.Maybe [Core.Text],
+    lifecycleHookTypes :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLifecycleHookTypesResponse' with all optional fields omitted.
@@ -121,23 +124,23 @@ data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
 -- 'httpStatus', 'describeLifecycleHookTypesResponse_httpStatus' - The response's http status code.
 newDescribeLifecycleHookTypesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeLifecycleHookTypesResponse
 newDescribeLifecycleHookTypesResponse pHttpStatus_ =
   DescribeLifecycleHookTypesResponse'
     { lifecycleHookTypes =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The lifecycle hook types.
-describeLifecycleHookTypesResponse_lifecycleHookTypes :: Lens.Lens' DescribeLifecycleHookTypesResponse (Core.Maybe [Core.Text])
-describeLifecycleHookTypesResponse_lifecycleHookTypes = Lens.lens (\DescribeLifecycleHookTypesResponse' {lifecycleHookTypes} -> lifecycleHookTypes) (\s@DescribeLifecycleHookTypesResponse' {} a -> s {lifecycleHookTypes = a} :: DescribeLifecycleHookTypesResponse) Core.. Lens.mapping Lens._Coerce
+describeLifecycleHookTypesResponse_lifecycleHookTypes :: Lens.Lens' DescribeLifecycleHookTypesResponse (Prelude.Maybe [Prelude.Text])
+describeLifecycleHookTypesResponse_lifecycleHookTypes = Lens.lens (\DescribeLifecycleHookTypesResponse' {lifecycleHookTypes} -> lifecycleHookTypes) (\s@DescribeLifecycleHookTypesResponse' {} a -> s {lifecycleHookTypes = a} :: DescribeLifecycleHookTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLifecycleHookTypesResponse_httpStatus :: Lens.Lens' DescribeLifecycleHookTypesResponse Core.Int
+describeLifecycleHookTypesResponse_httpStatus :: Lens.Lens' DescribeLifecycleHookTypesResponse Prelude.Int
 describeLifecycleHookTypesResponse_httpStatus = Lens.lens (\DescribeLifecycleHookTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeLifecycleHookTypesResponse' {} a -> s {httpStatus = a} :: DescribeLifecycleHookTypesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeLifecycleHookTypesResponse

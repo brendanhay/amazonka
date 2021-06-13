@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -60,9 +61,9 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioned product.
-    provisionedProductId :: Core.Text,
+    provisionedProductId :: Prelude.Text,
     -- | A map that contains the provisioned product properties to be updated.
     --
     -- The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an
@@ -91,12 +92,12 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
     -- provisions a product and the owner is updated to someone else, they will
     -- no longer be able to see or perform any actions through API or the
     -- Service Catalog console on that provisioned product.
-    provisionedProductProperties :: Core.HashMap PropertyKey Core.Text,
+    provisionedProductProperties :: Prelude.HashMap PropertyKey Prelude.Text,
     -- | The idempotency token that uniquely identifies the provisioning product
     -- update request.
-    idempotencyToken :: Core.Text
+    idempotencyToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProvisionedProductProperties' with all optional fields omitted.
@@ -149,20 +150,20 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
 -- update request.
 newUpdateProvisionedProductProperties ::
   -- | 'provisionedProductId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'idempotencyToken'
-  Core.Text ->
+  Prelude.Text ->
   UpdateProvisionedProductProperties
 newUpdateProvisionedProductProperties
   pProvisionedProductId_
   pIdempotencyToken_ =
     UpdateProvisionedProductProperties'
       { acceptLanguage =
-          Core.Nothing,
+          Prelude.Nothing,
         provisionedProductId =
           pProvisionedProductId_,
         provisionedProductProperties =
-          Core.mempty,
+          Prelude.mempty,
         idempotencyToken = pIdempotencyToken_
       }
 
@@ -173,11 +174,11 @@ newUpdateProvisionedProductProperties
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-updateProvisionedProductProperties_acceptLanguage :: Lens.Lens' UpdateProvisionedProductProperties (Core.Maybe Core.Text)
+updateProvisionedProductProperties_acceptLanguage :: Lens.Lens' UpdateProvisionedProductProperties (Prelude.Maybe Prelude.Text)
 updateProvisionedProductProperties_acceptLanguage = Lens.lens (\UpdateProvisionedProductProperties' {acceptLanguage} -> acceptLanguage) (\s@UpdateProvisionedProductProperties' {} a -> s {acceptLanguage = a} :: UpdateProvisionedProductProperties)
 
 -- | The identifier of the provisioned product.
-updateProvisionedProductProperties_provisionedProductId :: Lens.Lens' UpdateProvisionedProductProperties Core.Text
+updateProvisionedProductProperties_provisionedProductId :: Lens.Lens' UpdateProvisionedProductProperties Prelude.Text
 updateProvisionedProductProperties_provisionedProductId = Lens.lens (\UpdateProvisionedProductProperties' {provisionedProductId} -> provisionedProductId) (\s@UpdateProvisionedProductProperties' {} a -> s {provisionedProductId = a} :: UpdateProvisionedProductProperties)
 
 -- | A map that contains the provisioned product properties to be updated.
@@ -208,12 +209,12 @@ updateProvisionedProductProperties_provisionedProductId = Lens.lens (\UpdateProv
 -- provisions a product and the owner is updated to someone else, they will
 -- no longer be able to see or perform any actions through API or the
 -- Service Catalog console on that provisioned product.
-updateProvisionedProductProperties_provisionedProductProperties :: Lens.Lens' UpdateProvisionedProductProperties (Core.HashMap PropertyKey Core.Text)
-updateProvisionedProductProperties_provisionedProductProperties = Lens.lens (\UpdateProvisionedProductProperties' {provisionedProductProperties} -> provisionedProductProperties) (\s@UpdateProvisionedProductProperties' {} a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductProperties) Core.. Lens._Coerce
+updateProvisionedProductProperties_provisionedProductProperties :: Lens.Lens' UpdateProvisionedProductProperties (Prelude.HashMap PropertyKey Prelude.Text)
+updateProvisionedProductProperties_provisionedProductProperties = Lens.lens (\UpdateProvisionedProductProperties' {provisionedProductProperties} -> provisionedProductProperties) (\s@UpdateProvisionedProductProperties' {} a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductProperties) Prelude.. Lens._Coerce
 
 -- | The idempotency token that uniquely identifies the provisioning product
 -- update request.
-updateProvisionedProductProperties_idempotencyToken :: Lens.Lens' UpdateProvisionedProductProperties Core.Text
+updateProvisionedProductProperties_idempotencyToken :: Lens.Lens' UpdateProvisionedProductProperties Prelude.Text
 updateProvisionedProductProperties_idempotencyToken = Lens.lens (\UpdateProvisionedProductProperties' {idempotencyToken} -> idempotencyToken) (\s@UpdateProvisionedProductProperties' {} a -> s {idempotencyToken = a} :: UpdateProvisionedProductProperties)
 
 instance
@@ -228,21 +229,21 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateProvisionedProductPropertiesResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (x Core..?> "ProvisionedProductId")
-            Core.<*> (x Core..?> "RecordId")
-            Core.<*> ( x Core..?> "ProvisionedProductProperties"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+              Prelude.<*> (x Core..?> "ProvisionedProductId")
+              Prelude.<*> (x Core..?> "RecordId")
+              Prelude.<*> ( x Core..?> "ProvisionedProductProperties"
+                              Core..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateProvisionedProductProperties
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateProvisionedProductProperties
 
 instance
@@ -250,14 +251,16 @@ instance
     UpdateProvisionedProductProperties
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.UpdateProvisionedProductProperties" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -267,17 +270,18 @@ instance
   where
   toJSON UpdateProvisionedProductProperties' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just
               ( "ProvisionedProductId"
                   Core..= provisionedProductId
               ),
-            Core.Just
+            Prelude.Just
               ( "ProvisionedProductProperties"
                   Core..= provisionedProductProperties
               ),
-            Core.Just
+            Prelude.Just
               ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
@@ -286,28 +290,28 @@ instance
   Core.ToPath
     UpdateProvisionedProductProperties
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     UpdateProvisionedProductProperties
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProvisionedProductPropertiesResponse' smart constructor.
 data UpdateProvisionedProductPropertiesResponse = UpdateProvisionedProductPropertiesResponse'
   { -- | The status of the request.
-    status :: Core.Maybe RecordStatus,
+    status :: Prelude.Maybe RecordStatus,
     -- | The provisioned product identifier.
-    provisionedProductId :: Core.Maybe Core.Text,
+    provisionedProductId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the record.
-    recordId :: Core.Maybe Core.Text,
+    recordId :: Prelude.Maybe Prelude.Text,
     -- | A map that contains the properties updated.
-    provisionedProductProperties :: Core.Maybe (Core.HashMap PropertyKey Core.Text),
+    provisionedProductProperties :: Prelude.Maybe (Prelude.HashMap PropertyKey Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProvisionedProductPropertiesResponse' with all optional fields omitted.
@@ -328,41 +332,41 @@ data UpdateProvisionedProductPropertiesResponse = UpdateProvisionedProductProper
 -- 'httpStatus', 'updateProvisionedProductPropertiesResponse_httpStatus' - The response's http status code.
 newUpdateProvisionedProductPropertiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateProvisionedProductPropertiesResponse
 newUpdateProvisionedProductPropertiesResponse
   pHttpStatus_ =
     UpdateProvisionedProductPropertiesResponse'
       { status =
-          Core.Nothing,
+          Prelude.Nothing,
         provisionedProductId =
-          Core.Nothing,
-        recordId = Core.Nothing,
+          Prelude.Nothing,
+        recordId = Prelude.Nothing,
         provisionedProductProperties =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The status of the request.
-updateProvisionedProductPropertiesResponse_status :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Core.Maybe RecordStatus)
+updateProvisionedProductPropertiesResponse_status :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe RecordStatus)
 updateProvisionedProductPropertiesResponse_status = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {status} -> status) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {status = a} :: UpdateProvisionedProductPropertiesResponse)
 
 -- | The provisioned product identifier.
-updateProvisionedProductPropertiesResponse_provisionedProductId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Core.Maybe Core.Text)
+updateProvisionedProductPropertiesResponse_provisionedProductId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe Prelude.Text)
 updateProvisionedProductPropertiesResponse_provisionedProductId = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductId} -> provisionedProductId) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductId = a} :: UpdateProvisionedProductPropertiesResponse)
 
 -- | The identifier of the record.
-updateProvisionedProductPropertiesResponse_recordId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Core.Maybe Core.Text)
+updateProvisionedProductPropertiesResponse_recordId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe Prelude.Text)
 updateProvisionedProductPropertiesResponse_recordId = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {recordId} -> recordId) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {recordId = a} :: UpdateProvisionedProductPropertiesResponse)
 
 -- | A map that contains the properties updated.
-updateProvisionedProductPropertiesResponse_provisionedProductProperties :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Core.Maybe (Core.HashMap PropertyKey Core.Text))
-updateProvisionedProductPropertiesResponse_provisionedProductProperties = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductProperties} -> provisionedProductProperties) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductPropertiesResponse) Core.. Lens.mapping Lens._Coerce
+updateProvisionedProductPropertiesResponse_provisionedProductProperties :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe (Prelude.HashMap PropertyKey Prelude.Text))
+updateProvisionedProductPropertiesResponse_provisionedProductProperties = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductProperties} -> provisionedProductProperties) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductPropertiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateProvisionedProductPropertiesResponse_httpStatus :: Lens.Lens' UpdateProvisionedProductPropertiesResponse Core.Int
+updateProvisionedProductPropertiesResponse_httpStatus :: Lens.Lens' UpdateProvisionedProductPropertiesResponse Prelude.Int
 updateProvisionedProductPropertiesResponse_httpStatus = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {httpStatus} -> httpStatus) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {httpStatus = a} :: UpdateProvisionedProductPropertiesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateProvisionedProductPropertiesResponse

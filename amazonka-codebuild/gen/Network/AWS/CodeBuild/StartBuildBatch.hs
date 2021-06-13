@@ -72,6 +72,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,7 +90,7 @@ data StartBuildBatch = StartBuildBatch'
     -- not provided or is set to an empty string, the source code must contain
     -- a buildspec file in its root directory. For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
-    buildspecOverride :: Core.Maybe Core.Text,
+    buildspecOverride :: Prelude.Maybe Prelude.Text,
     -- | The version of the batch build input to be built, for this build only.
     -- If not specified, the latest version is used. If specified, the contents
     -- depends on the source provider:
@@ -121,57 +122,57 @@ data StartBuildBatch = StartBuildBatch'
     -- For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
     -- in the /AWS CodeBuild User Guide/.
-    sourceVersion :: Core.Maybe Core.Text,
+    sourceVersion :: Prelude.Maybe Prelude.Text,
     -- | An array of @EnvironmentVariable@ objects that override, or add to, the
     -- environment variables defined in the batch build project.
-    environmentVariablesOverride :: Core.Maybe [EnvironmentVariable],
+    environmentVariablesOverride :: Prelude.Maybe [EnvironmentVariable],
     -- | A unique, case sensitive identifier you provide to ensure the
     -- idempotency of the @StartBuildBatch@ request. The token is included in
     -- the @StartBuildBatch@ request and is valid for five minutes. If you
     -- repeat the @StartBuildBatch@ request with the same token, but change a
     -- parameter, AWS CodeBuild returns a parameter mismatch error.
-    idempotencyToken :: Core.Maybe Core.Text,
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | A @BuildBatchConfigOverride@ object that contains batch build
     -- configuration overrides.
-    buildBatchConfigOverride :: Core.Maybe ProjectBuildBatchConfig,
+    buildBatchConfigOverride :: Prelude.Maybe ProjectBuildBatchConfig,
     -- | A location that overrides, for this batch build, the source location
     -- defined in the batch build project.
-    sourceLocationOverride :: Core.Maybe Core.Text,
+    sourceLocationOverride :: Prelude.Maybe Prelude.Text,
     -- | A @LogsConfig@ object that override the log settings defined in the
     -- batch build project.
-    logsConfigOverride :: Core.Maybe LogsConfig,
+    logsConfigOverride :: Prelude.Maybe LogsConfig,
     -- | An array of @ProjectArtifacts@ objects that contains information about
     -- the build output artifact overrides for the build project.
-    artifactsOverride :: Core.Maybe ProjectArtifacts,
+    artifactsOverride :: Prelude.Maybe ProjectArtifacts,
     -- | A @SourceAuth@ object that overrides the one defined in the batch build
     -- project. This override applies only if the build project\'s source is
     -- BitBucket or GitHub.
-    sourceAuthOverride :: Core.Maybe SourceAuth,
+    sourceAuthOverride :: Prelude.Maybe SourceAuth,
     -- | Overrides the build timeout specified in the batch build project.
-    buildTimeoutInMinutesOverride :: Core.Maybe Core.Natural,
+    buildTimeoutInMinutesOverride :: Prelude.Maybe Prelude.Natural,
     -- | The name of an image for this batch build that overrides the one
     -- specified in the batch build project.
-    imageOverride :: Core.Maybe Core.Text,
+    imageOverride :: Prelude.Maybe Prelude.Text,
     -- | The number of minutes a batch build is allowed to be queued before it
     -- times out.
-    queuedTimeoutInMinutesOverride :: Core.Maybe Core.Natural,
+    queuedTimeoutInMinutesOverride :: Prelude.Maybe Prelude.Natural,
     -- | Enable this flag to override the insecure SSL setting that is specified
     -- in the batch build project. The insecure SSL setting determines whether
     -- to ignore SSL warnings while connecting to the project source code. This
     -- override applies only if the build\'s source is GitHub Enterprise.
-    insecureSslOverride :: Core.Maybe Core.Bool,
+    insecureSslOverride :: Prelude.Maybe Prelude.Bool,
     -- | An array of @ProjectSource@ objects that override the secondary sources
     -- defined in the batch build project.
-    secondarySourcesOverride :: Core.Maybe [ProjectSource],
+    secondarySourcesOverride :: Prelude.Maybe [ProjectSource],
     -- | The name of a service role for this batch build that overrides the one
     -- specified in the batch build project.
-    serviceRoleOverride :: Core.Maybe Core.Text,
+    serviceRoleOverride :: Prelude.Maybe Prelude.Text,
     -- | A @RegistryCredential@ object that overrides credentials for access to a
     -- private registry.
-    registryCredentialOverride :: Core.Maybe RegistryCredential,
+    registryCredentialOverride :: Prelude.Maybe RegistryCredential,
     -- | An array of @ProjectSourceVersion@ objects that override the secondary
     -- source versions in the batch build project.
-    secondarySourcesVersionOverride :: Core.Maybe [ProjectSourceVersion],
+    secondarySourcesVersionOverride :: Prelude.Maybe [ProjectSourceVersion],
     -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that
     -- overrides the one specified in the batch build project. The CMK key
     -- encrypts the build output artifacts.
@@ -181,9 +182,9 @@ data StartBuildBatch = StartBuildBatch'
     --
     -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
     -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-    encryptionKeyOverride :: Core.Maybe Core.Text,
+    encryptionKeyOverride :: Prelude.Maybe Prelude.Text,
     -- | Enable this flag to override privileged mode in the batch build project.
-    privilegedModeOverride :: Core.Maybe Core.Bool,
+    privilegedModeOverride :: Prelude.Maybe Prelude.Bool,
     -- | Set to @true@ to report to your source provider the status of a batch
     -- build\'s start and completion. If you use this option with a source
     -- provider other than GitHub, GitHub Enterprise, or Bitbucket, an
@@ -191,22 +192,22 @@ data StartBuildBatch = StartBuildBatch'
     --
     -- The status of a build triggered by a webhook is always reported to your
     -- source provider.
-    reportBuildBatchStatusOverride :: Core.Maybe Core.Bool,
+    reportBuildBatchStatusOverride :: Prelude.Maybe Prelude.Bool,
     -- | A @GitSubmodulesConfig@ object that overrides the Git submodules
     -- configuration for this batch build.
-    gitSubmodulesConfigOverride :: Core.Maybe GitSubmodulesConfig,
+    gitSubmodulesConfigOverride :: Prelude.Maybe GitSubmodulesConfig,
     -- | The name of a compute type for this batch build that overrides the one
     -- specified in the batch build project.
-    computeTypeOverride :: Core.Maybe ComputeType,
+    computeTypeOverride :: Prelude.Maybe ComputeType,
     -- | The name of a certificate for this batch build that overrides the one
     -- specified in the batch build project.
-    certificateOverride :: Core.Maybe Core.Text,
+    certificateOverride :: Prelude.Maybe Prelude.Text,
     -- | The source input type that overrides the source input defined in the
     -- batch build project.
-    sourceTypeOverride :: Core.Maybe SourceType,
+    sourceTypeOverride :: Prelude.Maybe SourceType,
     -- | A container type for this batch build that overrides the one specified
     -- in the batch build project.
-    environmentTypeOverride :: Core.Maybe EnvironmentType,
+    environmentTypeOverride :: Prelude.Maybe EnvironmentType,
     -- | The type of credentials AWS CodeBuild uses to pull images in your batch
     -- build. There are two valid values:
     --
@@ -222,25 +223,25 @@ data StartBuildBatch = StartBuildBatch'
     -- When using a cross-account or private registry image, you must use
     -- @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image,
     -- you must use @CODEBUILD@ credentials.
-    imagePullCredentialsTypeOverride :: Core.Maybe ImagePullCredentialsType,
+    imagePullCredentialsTypeOverride :: Prelude.Maybe ImagePullCredentialsType,
     -- | An array of @ProjectArtifacts@ objects that override the secondary
     -- artifacts defined in the batch build project.
-    secondaryArtifactsOverride :: Core.Maybe [ProjectArtifacts],
+    secondaryArtifactsOverride :: Prelude.Maybe [ProjectArtifacts],
     -- | The user-defined depth of history, with a minimum value of 0, that
     -- overrides, for this batch build only, any previous depth of history
     -- defined in the batch build project.
-    gitCloneDepthOverride :: Core.Maybe Core.Natural,
+    gitCloneDepthOverride :: Prelude.Maybe Prelude.Natural,
     -- | A @ProjectCache@ object that specifies cache overrides.
-    cacheOverride :: Core.Maybe ProjectCache,
+    cacheOverride :: Prelude.Maybe ProjectCache,
     -- | Specifies if session debugging is enabled for this batch build. For more
     -- information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager>.
     -- Batch session debugging is not supported for matrix batch builds.
-    debugSessionEnabled :: Core.Maybe Core.Bool,
+    debugSessionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the project.
-    projectName :: Core.Text
+    projectName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartBuildBatch' with all optional fields omitted.
@@ -413,40 +414,41 @@ data StartBuildBatch = StartBuildBatch'
 -- 'projectName', 'startBuildBatch_projectName' - The name of the project.
 newStartBuildBatch ::
   -- | 'projectName'
-  Core.Text ->
+  Prelude.Text ->
   StartBuildBatch
 newStartBuildBatch pProjectName_ =
   StartBuildBatch'
-    { buildspecOverride = Core.Nothing,
-      sourceVersion = Core.Nothing,
-      environmentVariablesOverride = Core.Nothing,
-      idempotencyToken = Core.Nothing,
-      buildBatchConfigOverride = Core.Nothing,
-      sourceLocationOverride = Core.Nothing,
-      logsConfigOverride = Core.Nothing,
-      artifactsOverride = Core.Nothing,
-      sourceAuthOverride = Core.Nothing,
-      buildTimeoutInMinutesOverride = Core.Nothing,
-      imageOverride = Core.Nothing,
-      queuedTimeoutInMinutesOverride = Core.Nothing,
-      insecureSslOverride = Core.Nothing,
-      secondarySourcesOverride = Core.Nothing,
-      serviceRoleOverride = Core.Nothing,
-      registryCredentialOverride = Core.Nothing,
-      secondarySourcesVersionOverride = Core.Nothing,
-      encryptionKeyOverride = Core.Nothing,
-      privilegedModeOverride = Core.Nothing,
-      reportBuildBatchStatusOverride = Core.Nothing,
-      gitSubmodulesConfigOverride = Core.Nothing,
-      computeTypeOverride = Core.Nothing,
-      certificateOverride = Core.Nothing,
-      sourceTypeOverride = Core.Nothing,
-      environmentTypeOverride = Core.Nothing,
-      imagePullCredentialsTypeOverride = Core.Nothing,
-      secondaryArtifactsOverride = Core.Nothing,
-      gitCloneDepthOverride = Core.Nothing,
-      cacheOverride = Core.Nothing,
-      debugSessionEnabled = Core.Nothing,
+    { buildspecOverride =
+        Prelude.Nothing,
+      sourceVersion = Prelude.Nothing,
+      environmentVariablesOverride = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
+      buildBatchConfigOverride = Prelude.Nothing,
+      sourceLocationOverride = Prelude.Nothing,
+      logsConfigOverride = Prelude.Nothing,
+      artifactsOverride = Prelude.Nothing,
+      sourceAuthOverride = Prelude.Nothing,
+      buildTimeoutInMinutesOverride = Prelude.Nothing,
+      imageOverride = Prelude.Nothing,
+      queuedTimeoutInMinutesOverride = Prelude.Nothing,
+      insecureSslOverride = Prelude.Nothing,
+      secondarySourcesOverride = Prelude.Nothing,
+      serviceRoleOverride = Prelude.Nothing,
+      registryCredentialOverride = Prelude.Nothing,
+      secondarySourcesVersionOverride = Prelude.Nothing,
+      encryptionKeyOverride = Prelude.Nothing,
+      privilegedModeOverride = Prelude.Nothing,
+      reportBuildBatchStatusOverride = Prelude.Nothing,
+      gitSubmodulesConfigOverride = Prelude.Nothing,
+      computeTypeOverride = Prelude.Nothing,
+      certificateOverride = Prelude.Nothing,
+      sourceTypeOverride = Prelude.Nothing,
+      environmentTypeOverride = Prelude.Nothing,
+      imagePullCredentialsTypeOverride = Prelude.Nothing,
+      secondaryArtifactsOverride = Prelude.Nothing,
+      gitCloneDepthOverride = Prelude.Nothing,
+      cacheOverride = Prelude.Nothing,
+      debugSessionEnabled = Prelude.Nothing,
       projectName = pProjectName_
     }
 
@@ -462,7 +464,7 @@ newStartBuildBatch pProjectName_ =
 -- not provided or is set to an empty string, the source code must contain
 -- a buildspec file in its root directory. For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
-startBuildBatch_buildspecOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Text)
+startBuildBatch_buildspecOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Text)
 startBuildBatch_buildspecOverride = Lens.lens (\StartBuildBatch' {buildspecOverride} -> buildspecOverride) (\s@StartBuildBatch' {} a -> s {buildspecOverride = a} :: StartBuildBatch)
 
 -- | The version of the batch build input to be built, for this build only.
@@ -496,88 +498,88 @@ startBuildBatch_buildspecOverride = Lens.lens (\StartBuildBatch' {buildspecOverr
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
 -- in the /AWS CodeBuild User Guide/.
-startBuildBatch_sourceVersion :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Text)
+startBuildBatch_sourceVersion :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Text)
 startBuildBatch_sourceVersion = Lens.lens (\StartBuildBatch' {sourceVersion} -> sourceVersion) (\s@StartBuildBatch' {} a -> s {sourceVersion = a} :: StartBuildBatch)
 
 -- | An array of @EnvironmentVariable@ objects that override, or add to, the
 -- environment variables defined in the batch build project.
-startBuildBatch_environmentVariablesOverride :: Lens.Lens' StartBuildBatch (Core.Maybe [EnvironmentVariable])
-startBuildBatch_environmentVariablesOverride = Lens.lens (\StartBuildBatch' {environmentVariablesOverride} -> environmentVariablesOverride) (\s@StartBuildBatch' {} a -> s {environmentVariablesOverride = a} :: StartBuildBatch) Core.. Lens.mapping Lens._Coerce
+startBuildBatch_environmentVariablesOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe [EnvironmentVariable])
+startBuildBatch_environmentVariablesOverride = Lens.lens (\StartBuildBatch' {environmentVariablesOverride} -> environmentVariablesOverride) (\s@StartBuildBatch' {} a -> s {environmentVariablesOverride = a} :: StartBuildBatch) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique, case sensitive identifier you provide to ensure the
 -- idempotency of the @StartBuildBatch@ request. The token is included in
 -- the @StartBuildBatch@ request and is valid for five minutes. If you
 -- repeat the @StartBuildBatch@ request with the same token, but change a
 -- parameter, AWS CodeBuild returns a parameter mismatch error.
-startBuildBatch_idempotencyToken :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Text)
+startBuildBatch_idempotencyToken :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Text)
 startBuildBatch_idempotencyToken = Lens.lens (\StartBuildBatch' {idempotencyToken} -> idempotencyToken) (\s@StartBuildBatch' {} a -> s {idempotencyToken = a} :: StartBuildBatch)
 
 -- | A @BuildBatchConfigOverride@ object that contains batch build
 -- configuration overrides.
-startBuildBatch_buildBatchConfigOverride :: Lens.Lens' StartBuildBatch (Core.Maybe ProjectBuildBatchConfig)
+startBuildBatch_buildBatchConfigOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe ProjectBuildBatchConfig)
 startBuildBatch_buildBatchConfigOverride = Lens.lens (\StartBuildBatch' {buildBatchConfigOverride} -> buildBatchConfigOverride) (\s@StartBuildBatch' {} a -> s {buildBatchConfigOverride = a} :: StartBuildBatch)
 
 -- | A location that overrides, for this batch build, the source location
 -- defined in the batch build project.
-startBuildBatch_sourceLocationOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Text)
+startBuildBatch_sourceLocationOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Text)
 startBuildBatch_sourceLocationOverride = Lens.lens (\StartBuildBatch' {sourceLocationOverride} -> sourceLocationOverride) (\s@StartBuildBatch' {} a -> s {sourceLocationOverride = a} :: StartBuildBatch)
 
 -- | A @LogsConfig@ object that override the log settings defined in the
 -- batch build project.
-startBuildBatch_logsConfigOverride :: Lens.Lens' StartBuildBatch (Core.Maybe LogsConfig)
+startBuildBatch_logsConfigOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe LogsConfig)
 startBuildBatch_logsConfigOverride = Lens.lens (\StartBuildBatch' {logsConfigOverride} -> logsConfigOverride) (\s@StartBuildBatch' {} a -> s {logsConfigOverride = a} :: StartBuildBatch)
 
 -- | An array of @ProjectArtifacts@ objects that contains information about
 -- the build output artifact overrides for the build project.
-startBuildBatch_artifactsOverride :: Lens.Lens' StartBuildBatch (Core.Maybe ProjectArtifacts)
+startBuildBatch_artifactsOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe ProjectArtifacts)
 startBuildBatch_artifactsOverride = Lens.lens (\StartBuildBatch' {artifactsOverride} -> artifactsOverride) (\s@StartBuildBatch' {} a -> s {artifactsOverride = a} :: StartBuildBatch)
 
 -- | A @SourceAuth@ object that overrides the one defined in the batch build
 -- project. This override applies only if the build project\'s source is
 -- BitBucket or GitHub.
-startBuildBatch_sourceAuthOverride :: Lens.Lens' StartBuildBatch (Core.Maybe SourceAuth)
+startBuildBatch_sourceAuthOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe SourceAuth)
 startBuildBatch_sourceAuthOverride = Lens.lens (\StartBuildBatch' {sourceAuthOverride} -> sourceAuthOverride) (\s@StartBuildBatch' {} a -> s {sourceAuthOverride = a} :: StartBuildBatch)
 
 -- | Overrides the build timeout specified in the batch build project.
-startBuildBatch_buildTimeoutInMinutesOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Natural)
+startBuildBatch_buildTimeoutInMinutesOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Natural)
 startBuildBatch_buildTimeoutInMinutesOverride = Lens.lens (\StartBuildBatch' {buildTimeoutInMinutesOverride} -> buildTimeoutInMinutesOverride) (\s@StartBuildBatch' {} a -> s {buildTimeoutInMinutesOverride = a} :: StartBuildBatch)
 
 -- | The name of an image for this batch build that overrides the one
 -- specified in the batch build project.
-startBuildBatch_imageOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Text)
+startBuildBatch_imageOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Text)
 startBuildBatch_imageOverride = Lens.lens (\StartBuildBatch' {imageOverride} -> imageOverride) (\s@StartBuildBatch' {} a -> s {imageOverride = a} :: StartBuildBatch)
 
 -- | The number of minutes a batch build is allowed to be queued before it
 -- times out.
-startBuildBatch_queuedTimeoutInMinutesOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Natural)
+startBuildBatch_queuedTimeoutInMinutesOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Natural)
 startBuildBatch_queuedTimeoutInMinutesOverride = Lens.lens (\StartBuildBatch' {queuedTimeoutInMinutesOverride} -> queuedTimeoutInMinutesOverride) (\s@StartBuildBatch' {} a -> s {queuedTimeoutInMinutesOverride = a} :: StartBuildBatch)
 
 -- | Enable this flag to override the insecure SSL setting that is specified
 -- in the batch build project. The insecure SSL setting determines whether
 -- to ignore SSL warnings while connecting to the project source code. This
 -- override applies only if the build\'s source is GitHub Enterprise.
-startBuildBatch_insecureSslOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Bool)
+startBuildBatch_insecureSslOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Bool)
 startBuildBatch_insecureSslOverride = Lens.lens (\StartBuildBatch' {insecureSslOverride} -> insecureSslOverride) (\s@StartBuildBatch' {} a -> s {insecureSslOverride = a} :: StartBuildBatch)
 
 -- | An array of @ProjectSource@ objects that override the secondary sources
 -- defined in the batch build project.
-startBuildBatch_secondarySourcesOverride :: Lens.Lens' StartBuildBatch (Core.Maybe [ProjectSource])
-startBuildBatch_secondarySourcesOverride = Lens.lens (\StartBuildBatch' {secondarySourcesOverride} -> secondarySourcesOverride) (\s@StartBuildBatch' {} a -> s {secondarySourcesOverride = a} :: StartBuildBatch) Core.. Lens.mapping Lens._Coerce
+startBuildBatch_secondarySourcesOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe [ProjectSource])
+startBuildBatch_secondarySourcesOverride = Lens.lens (\StartBuildBatch' {secondarySourcesOverride} -> secondarySourcesOverride) (\s@StartBuildBatch' {} a -> s {secondarySourcesOverride = a} :: StartBuildBatch) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of a service role for this batch build that overrides the one
 -- specified in the batch build project.
-startBuildBatch_serviceRoleOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Text)
+startBuildBatch_serviceRoleOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Text)
 startBuildBatch_serviceRoleOverride = Lens.lens (\StartBuildBatch' {serviceRoleOverride} -> serviceRoleOverride) (\s@StartBuildBatch' {} a -> s {serviceRoleOverride = a} :: StartBuildBatch)
 
 -- | A @RegistryCredential@ object that overrides credentials for access to a
 -- private registry.
-startBuildBatch_registryCredentialOverride :: Lens.Lens' StartBuildBatch (Core.Maybe RegistryCredential)
+startBuildBatch_registryCredentialOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe RegistryCredential)
 startBuildBatch_registryCredentialOverride = Lens.lens (\StartBuildBatch' {registryCredentialOverride} -> registryCredentialOverride) (\s@StartBuildBatch' {} a -> s {registryCredentialOverride = a} :: StartBuildBatch)
 
 -- | An array of @ProjectSourceVersion@ objects that override the secondary
 -- source versions in the batch build project.
-startBuildBatch_secondarySourcesVersionOverride :: Lens.Lens' StartBuildBatch (Core.Maybe [ProjectSourceVersion])
-startBuildBatch_secondarySourcesVersionOverride = Lens.lens (\StartBuildBatch' {secondarySourcesVersionOverride} -> secondarySourcesVersionOverride) (\s@StartBuildBatch' {} a -> s {secondarySourcesVersionOverride = a} :: StartBuildBatch) Core.. Lens.mapping Lens._Coerce
+startBuildBatch_secondarySourcesVersionOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe [ProjectSourceVersion])
+startBuildBatch_secondarySourcesVersionOverride = Lens.lens (\StartBuildBatch' {secondarySourcesVersionOverride} -> secondarySourcesVersionOverride) (\s@StartBuildBatch' {} a -> s {secondarySourcesVersionOverride = a} :: StartBuildBatch) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that
 -- overrides the one specified in the batch build project. The CMK key
@@ -588,11 +590,11 @@ startBuildBatch_secondarySourcesVersionOverride = Lens.lens (\StartBuildBatch' {
 --
 -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
 -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-startBuildBatch_encryptionKeyOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Text)
+startBuildBatch_encryptionKeyOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Text)
 startBuildBatch_encryptionKeyOverride = Lens.lens (\StartBuildBatch' {encryptionKeyOverride} -> encryptionKeyOverride) (\s@StartBuildBatch' {} a -> s {encryptionKeyOverride = a} :: StartBuildBatch)
 
 -- | Enable this flag to override privileged mode in the batch build project.
-startBuildBatch_privilegedModeOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Bool)
+startBuildBatch_privilegedModeOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Bool)
 startBuildBatch_privilegedModeOverride = Lens.lens (\StartBuildBatch' {privilegedModeOverride} -> privilegedModeOverride) (\s@StartBuildBatch' {} a -> s {privilegedModeOverride = a} :: StartBuildBatch)
 
 -- | Set to @true@ to report to your source provider the status of a batch
@@ -602,32 +604,32 @@ startBuildBatch_privilegedModeOverride = Lens.lens (\StartBuildBatch' {privilege
 --
 -- The status of a build triggered by a webhook is always reported to your
 -- source provider.
-startBuildBatch_reportBuildBatchStatusOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Bool)
+startBuildBatch_reportBuildBatchStatusOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Bool)
 startBuildBatch_reportBuildBatchStatusOverride = Lens.lens (\StartBuildBatch' {reportBuildBatchStatusOverride} -> reportBuildBatchStatusOverride) (\s@StartBuildBatch' {} a -> s {reportBuildBatchStatusOverride = a} :: StartBuildBatch)
 
 -- | A @GitSubmodulesConfig@ object that overrides the Git submodules
 -- configuration for this batch build.
-startBuildBatch_gitSubmodulesConfigOverride :: Lens.Lens' StartBuildBatch (Core.Maybe GitSubmodulesConfig)
+startBuildBatch_gitSubmodulesConfigOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe GitSubmodulesConfig)
 startBuildBatch_gitSubmodulesConfigOverride = Lens.lens (\StartBuildBatch' {gitSubmodulesConfigOverride} -> gitSubmodulesConfigOverride) (\s@StartBuildBatch' {} a -> s {gitSubmodulesConfigOverride = a} :: StartBuildBatch)
 
 -- | The name of a compute type for this batch build that overrides the one
 -- specified in the batch build project.
-startBuildBatch_computeTypeOverride :: Lens.Lens' StartBuildBatch (Core.Maybe ComputeType)
+startBuildBatch_computeTypeOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe ComputeType)
 startBuildBatch_computeTypeOverride = Lens.lens (\StartBuildBatch' {computeTypeOverride} -> computeTypeOverride) (\s@StartBuildBatch' {} a -> s {computeTypeOverride = a} :: StartBuildBatch)
 
 -- | The name of a certificate for this batch build that overrides the one
 -- specified in the batch build project.
-startBuildBatch_certificateOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Text)
+startBuildBatch_certificateOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Text)
 startBuildBatch_certificateOverride = Lens.lens (\StartBuildBatch' {certificateOverride} -> certificateOverride) (\s@StartBuildBatch' {} a -> s {certificateOverride = a} :: StartBuildBatch)
 
 -- | The source input type that overrides the source input defined in the
 -- batch build project.
-startBuildBatch_sourceTypeOverride :: Lens.Lens' StartBuildBatch (Core.Maybe SourceType)
+startBuildBatch_sourceTypeOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe SourceType)
 startBuildBatch_sourceTypeOverride = Lens.lens (\StartBuildBatch' {sourceTypeOverride} -> sourceTypeOverride) (\s@StartBuildBatch' {} a -> s {sourceTypeOverride = a} :: StartBuildBatch)
 
 -- | A container type for this batch build that overrides the one specified
 -- in the batch build project.
-startBuildBatch_environmentTypeOverride :: Lens.Lens' StartBuildBatch (Core.Maybe EnvironmentType)
+startBuildBatch_environmentTypeOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe EnvironmentType)
 startBuildBatch_environmentTypeOverride = Lens.lens (\StartBuildBatch' {environmentTypeOverride} -> environmentTypeOverride) (\s@StartBuildBatch' {} a -> s {environmentTypeOverride = a} :: StartBuildBatch)
 
 -- | The type of credentials AWS CodeBuild uses to pull images in your batch
@@ -645,33 +647,33 @@ startBuildBatch_environmentTypeOverride = Lens.lens (\StartBuildBatch' {environm
 -- When using a cross-account or private registry image, you must use
 -- @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image,
 -- you must use @CODEBUILD@ credentials.
-startBuildBatch_imagePullCredentialsTypeOverride :: Lens.Lens' StartBuildBatch (Core.Maybe ImagePullCredentialsType)
+startBuildBatch_imagePullCredentialsTypeOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe ImagePullCredentialsType)
 startBuildBatch_imagePullCredentialsTypeOverride = Lens.lens (\StartBuildBatch' {imagePullCredentialsTypeOverride} -> imagePullCredentialsTypeOverride) (\s@StartBuildBatch' {} a -> s {imagePullCredentialsTypeOverride = a} :: StartBuildBatch)
 
 -- | An array of @ProjectArtifacts@ objects that override the secondary
 -- artifacts defined in the batch build project.
-startBuildBatch_secondaryArtifactsOverride :: Lens.Lens' StartBuildBatch (Core.Maybe [ProjectArtifacts])
-startBuildBatch_secondaryArtifactsOverride = Lens.lens (\StartBuildBatch' {secondaryArtifactsOverride} -> secondaryArtifactsOverride) (\s@StartBuildBatch' {} a -> s {secondaryArtifactsOverride = a} :: StartBuildBatch) Core.. Lens.mapping Lens._Coerce
+startBuildBatch_secondaryArtifactsOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe [ProjectArtifacts])
+startBuildBatch_secondaryArtifactsOverride = Lens.lens (\StartBuildBatch' {secondaryArtifactsOverride} -> secondaryArtifactsOverride) (\s@StartBuildBatch' {} a -> s {secondaryArtifactsOverride = a} :: StartBuildBatch) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user-defined depth of history, with a minimum value of 0, that
 -- overrides, for this batch build only, any previous depth of history
 -- defined in the batch build project.
-startBuildBatch_gitCloneDepthOverride :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Natural)
+startBuildBatch_gitCloneDepthOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Natural)
 startBuildBatch_gitCloneDepthOverride = Lens.lens (\StartBuildBatch' {gitCloneDepthOverride} -> gitCloneDepthOverride) (\s@StartBuildBatch' {} a -> s {gitCloneDepthOverride = a} :: StartBuildBatch)
 
 -- | A @ProjectCache@ object that specifies cache overrides.
-startBuildBatch_cacheOverride :: Lens.Lens' StartBuildBatch (Core.Maybe ProjectCache)
+startBuildBatch_cacheOverride :: Lens.Lens' StartBuildBatch (Prelude.Maybe ProjectCache)
 startBuildBatch_cacheOverride = Lens.lens (\StartBuildBatch' {cacheOverride} -> cacheOverride) (\s@StartBuildBatch' {} a -> s {cacheOverride = a} :: StartBuildBatch)
 
 -- | Specifies if session debugging is enabled for this batch build. For more
 -- information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager>.
 -- Batch session debugging is not supported for matrix batch builds.
-startBuildBatch_debugSessionEnabled :: Lens.Lens' StartBuildBatch (Core.Maybe Core.Bool)
+startBuildBatch_debugSessionEnabled :: Lens.Lens' StartBuildBatch (Prelude.Maybe Prelude.Bool)
 startBuildBatch_debugSessionEnabled = Lens.lens (\StartBuildBatch' {debugSessionEnabled} -> debugSessionEnabled) (\s@StartBuildBatch' {} a -> s {debugSessionEnabled = a} :: StartBuildBatch)
 
 -- | The name of the project.
-startBuildBatch_projectName :: Lens.Lens' StartBuildBatch Core.Text
+startBuildBatch_projectName :: Lens.Lens' StartBuildBatch Prelude.Text
 startBuildBatch_projectName = Lens.lens (\StartBuildBatch' {projectName} -> projectName) (\s@StartBuildBatch' {} a -> s {projectName = a} :: StartBuildBatch)
 
 instance Core.AWSRequest StartBuildBatch where
@@ -683,106 +685,108 @@ instance Core.AWSRequest StartBuildBatch where
     Response.receiveJSON
       ( \s h x ->
           StartBuildBatchResponse'
-            Core.<$> (x Core..?> "buildBatch")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "buildBatch")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartBuildBatch
+instance Prelude.Hashable StartBuildBatch
 
-instance Core.NFData StartBuildBatch
+instance Prelude.NFData StartBuildBatch
 
 instance Core.ToHeaders StartBuildBatch where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.StartBuildBatch" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartBuildBatch where
   toJSON StartBuildBatch' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("buildspecOverride" Core..=)
-              Core.<$> buildspecOverride,
-            ("sourceVersion" Core..=) Core.<$> sourceVersion,
+              Prelude.<$> buildspecOverride,
+            ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
             ("environmentVariablesOverride" Core..=)
-              Core.<$> environmentVariablesOverride,
+              Prelude.<$> environmentVariablesOverride,
             ("idempotencyToken" Core..=)
-              Core.<$> idempotencyToken,
+              Prelude.<$> idempotencyToken,
             ("buildBatchConfigOverride" Core..=)
-              Core.<$> buildBatchConfigOverride,
+              Prelude.<$> buildBatchConfigOverride,
             ("sourceLocationOverride" Core..=)
-              Core.<$> sourceLocationOverride,
+              Prelude.<$> sourceLocationOverride,
             ("logsConfigOverride" Core..=)
-              Core.<$> logsConfigOverride,
+              Prelude.<$> logsConfigOverride,
             ("artifactsOverride" Core..=)
-              Core.<$> artifactsOverride,
+              Prelude.<$> artifactsOverride,
             ("sourceAuthOverride" Core..=)
-              Core.<$> sourceAuthOverride,
+              Prelude.<$> sourceAuthOverride,
             ("buildTimeoutInMinutesOverride" Core..=)
-              Core.<$> buildTimeoutInMinutesOverride,
-            ("imageOverride" Core..=) Core.<$> imageOverride,
+              Prelude.<$> buildTimeoutInMinutesOverride,
+            ("imageOverride" Core..=) Prelude.<$> imageOverride,
             ("queuedTimeoutInMinutesOverride" Core..=)
-              Core.<$> queuedTimeoutInMinutesOverride,
+              Prelude.<$> queuedTimeoutInMinutesOverride,
             ("insecureSslOverride" Core..=)
-              Core.<$> insecureSslOverride,
+              Prelude.<$> insecureSslOverride,
             ("secondarySourcesOverride" Core..=)
-              Core.<$> secondarySourcesOverride,
+              Prelude.<$> secondarySourcesOverride,
             ("serviceRoleOverride" Core..=)
-              Core.<$> serviceRoleOverride,
+              Prelude.<$> serviceRoleOverride,
             ("registryCredentialOverride" Core..=)
-              Core.<$> registryCredentialOverride,
+              Prelude.<$> registryCredentialOverride,
             ("secondarySourcesVersionOverride" Core..=)
-              Core.<$> secondarySourcesVersionOverride,
+              Prelude.<$> secondarySourcesVersionOverride,
             ("encryptionKeyOverride" Core..=)
-              Core.<$> encryptionKeyOverride,
+              Prelude.<$> encryptionKeyOverride,
             ("privilegedModeOverride" Core..=)
-              Core.<$> privilegedModeOverride,
+              Prelude.<$> privilegedModeOverride,
             ("reportBuildBatchStatusOverride" Core..=)
-              Core.<$> reportBuildBatchStatusOverride,
+              Prelude.<$> reportBuildBatchStatusOverride,
             ("gitSubmodulesConfigOverride" Core..=)
-              Core.<$> gitSubmodulesConfigOverride,
+              Prelude.<$> gitSubmodulesConfigOverride,
             ("computeTypeOverride" Core..=)
-              Core.<$> computeTypeOverride,
+              Prelude.<$> computeTypeOverride,
             ("certificateOverride" Core..=)
-              Core.<$> certificateOverride,
+              Prelude.<$> certificateOverride,
             ("sourceTypeOverride" Core..=)
-              Core.<$> sourceTypeOverride,
+              Prelude.<$> sourceTypeOverride,
             ("environmentTypeOverride" Core..=)
-              Core.<$> environmentTypeOverride,
+              Prelude.<$> environmentTypeOverride,
             ("imagePullCredentialsTypeOverride" Core..=)
-              Core.<$> imagePullCredentialsTypeOverride,
+              Prelude.<$> imagePullCredentialsTypeOverride,
             ("secondaryArtifactsOverride" Core..=)
-              Core.<$> secondaryArtifactsOverride,
+              Prelude.<$> secondaryArtifactsOverride,
             ("gitCloneDepthOverride" Core..=)
-              Core.<$> gitCloneDepthOverride,
-            ("cacheOverride" Core..=) Core.<$> cacheOverride,
+              Prelude.<$> gitCloneDepthOverride,
+            ("cacheOverride" Core..=) Prelude.<$> cacheOverride,
             ("debugSessionEnabled" Core..=)
-              Core.<$> debugSessionEnabled,
-            Core.Just ("projectName" Core..= projectName)
+              Prelude.<$> debugSessionEnabled,
+            Prelude.Just ("projectName" Core..= projectName)
           ]
       )
 
 instance Core.ToPath StartBuildBatch where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartBuildBatch where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBuildBatchResponse' smart constructor.
 data StartBuildBatchResponse = StartBuildBatchResponse'
   { -- | A @BuildBatch@ object that contains information about the batch build.
-    buildBatch :: Core.Maybe BuildBatch,
+    buildBatch :: Prelude.Maybe BuildBatch,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartBuildBatchResponse' with all optional fields omitted.
@@ -797,20 +801,21 @@ data StartBuildBatchResponse = StartBuildBatchResponse'
 -- 'httpStatus', 'startBuildBatchResponse_httpStatus' - The response's http status code.
 newStartBuildBatchResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartBuildBatchResponse
 newStartBuildBatchResponse pHttpStatus_ =
   StartBuildBatchResponse'
-    { buildBatch = Core.Nothing,
+    { buildBatch =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @BuildBatch@ object that contains information about the batch build.
-startBuildBatchResponse_buildBatch :: Lens.Lens' StartBuildBatchResponse (Core.Maybe BuildBatch)
+startBuildBatchResponse_buildBatch :: Lens.Lens' StartBuildBatchResponse (Prelude.Maybe BuildBatch)
 startBuildBatchResponse_buildBatch = Lens.lens (\StartBuildBatchResponse' {buildBatch} -> buildBatch) (\s@StartBuildBatchResponse' {} a -> s {buildBatch = a} :: StartBuildBatchResponse)
 
 -- | The response's http status code.
-startBuildBatchResponse_httpStatus :: Lens.Lens' StartBuildBatchResponse Core.Int
+startBuildBatchResponse_httpStatus :: Lens.Lens' StartBuildBatchResponse Prelude.Int
 startBuildBatchResponse_httpStatus = Lens.lens (\StartBuildBatchResponse' {httpStatus} -> httpStatus) (\s@StartBuildBatchResponse' {} a -> s {httpStatus = a} :: StartBuildBatchResponse)
 
-instance Core.NFData StartBuildBatchResponse
+instance Prelude.NFData StartBuildBatchResponse

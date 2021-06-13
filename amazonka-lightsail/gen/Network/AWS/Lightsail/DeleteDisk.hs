@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +59,11 @@ import qualified Network.AWS.Response as Response
 data DeleteDisk = DeleteDisk'
   { -- | A Boolean value to indicate whether to delete the enabled add-ons for
     -- the disk.
-    forceDeleteAddOns :: Core.Maybe Core.Bool,
+    forceDeleteAddOns :: Prelude.Maybe Prelude.Bool,
     -- | The unique name of the disk you want to delete (e.g., @my-disk@).
-    diskName :: Core.Text
+    diskName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDisk' with all optional fields omitted.
@@ -78,21 +79,21 @@ data DeleteDisk = DeleteDisk'
 -- 'diskName', 'deleteDisk_diskName' - The unique name of the disk you want to delete (e.g., @my-disk@).
 newDeleteDisk ::
   -- | 'diskName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDisk
 newDeleteDisk pDiskName_ =
   DeleteDisk'
-    { forceDeleteAddOns = Core.Nothing,
+    { forceDeleteAddOns = Prelude.Nothing,
       diskName = pDiskName_
     }
 
 -- | A Boolean value to indicate whether to delete the enabled add-ons for
 -- the disk.
-deleteDisk_forceDeleteAddOns :: Lens.Lens' DeleteDisk (Core.Maybe Core.Bool)
+deleteDisk_forceDeleteAddOns :: Lens.Lens' DeleteDisk (Prelude.Maybe Prelude.Bool)
 deleteDisk_forceDeleteAddOns = Lens.lens (\DeleteDisk' {forceDeleteAddOns} -> forceDeleteAddOns) (\s@DeleteDisk' {} a -> s {forceDeleteAddOns = a} :: DeleteDisk)
 
 -- | The unique name of the disk you want to delete (e.g., @my-disk@).
-deleteDisk_diskName :: Lens.Lens' DeleteDisk Core.Text
+deleteDisk_diskName :: Lens.Lens' DeleteDisk Prelude.Text
 deleteDisk_diskName = Lens.lens (\DeleteDisk' {diskName} -> diskName) (\s@DeleteDisk' {} a -> s {diskName = a} :: DeleteDisk)
 
 instance Core.AWSRequest DeleteDisk where
@@ -102,51 +103,55 @@ instance Core.AWSRequest DeleteDisk where
     Response.receiveJSON
       ( \s h x ->
           DeleteDiskResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDisk
+instance Prelude.Hashable DeleteDisk
 
-instance Core.NFData DeleteDisk
+instance Prelude.NFData DeleteDisk
 
 instance Core.ToHeaders DeleteDisk where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Lightsail_20161128.DeleteDisk" :: Core.ByteString),
+              Core.=# ( "Lightsail_20161128.DeleteDisk" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDisk where
   toJSON DeleteDisk' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("forceDeleteAddOns" Core..=)
-              Core.<$> forceDeleteAddOns,
-            Core.Just ("diskName" Core..= diskName)
+              Prelude.<$> forceDeleteAddOns,
+            Prelude.Just ("diskName" Core..= diskName)
           ]
       )
 
 instance Core.ToPath DeleteDisk where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDisk where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDiskResponse' smart constructor.
 data DeleteDiskResponse = DeleteDiskResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDiskResponse' with all optional fields omitted.
@@ -163,22 +168,22 @@ data DeleteDiskResponse = DeleteDiskResponse'
 -- 'httpStatus', 'deleteDiskResponse_httpStatus' - The response's http status code.
 newDeleteDiskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDiskResponse
 newDeleteDiskResponse pHttpStatus_ =
   DeleteDiskResponse'
-    { operations = Core.Nothing,
+    { operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteDiskResponse_operations :: Lens.Lens' DeleteDiskResponse (Core.Maybe [Operation])
-deleteDiskResponse_operations = Lens.lens (\DeleteDiskResponse' {operations} -> operations) (\s@DeleteDiskResponse' {} a -> s {operations = a} :: DeleteDiskResponse) Core.. Lens.mapping Lens._Coerce
+deleteDiskResponse_operations :: Lens.Lens' DeleteDiskResponse (Prelude.Maybe [Operation])
+deleteDiskResponse_operations = Lens.lens (\DeleteDiskResponse' {operations} -> operations) (\s@DeleteDiskResponse' {} a -> s {operations = a} :: DeleteDiskResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteDiskResponse_httpStatus :: Lens.Lens' DeleteDiskResponse Core.Int
+deleteDiskResponse_httpStatus :: Lens.Lens' DeleteDiskResponse Prelude.Int
 deleteDiskResponse_httpStatus = Lens.lens (\DeleteDiskResponse' {httpStatus} -> httpStatus) (\s@DeleteDiskResponse' {} a -> s {httpStatus = a} :: DeleteDiskResponse)
 
-instance Core.NFData DeleteDiskResponse
+instance Prelude.NFData DeleteDiskResponse

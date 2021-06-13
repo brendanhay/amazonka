@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetRelationalDatabase' smart constructor.
 data GetRelationalDatabase = GetRelationalDatabase'
   { -- | The name of the database that you are looking up.
-    relationalDatabaseName :: Core.Text
+    relationalDatabaseName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabase' with all optional fields omitted.
@@ -63,7 +64,7 @@ data GetRelationalDatabase = GetRelationalDatabase'
 -- 'relationalDatabaseName', 'getRelationalDatabase_relationalDatabaseName' - The name of the database that you are looking up.
 newGetRelationalDatabase ::
   -- | 'relationalDatabaseName'
-  Core.Text ->
+  Prelude.Text ->
   GetRelationalDatabase
 newGetRelationalDatabase pRelationalDatabaseName_ =
   GetRelationalDatabase'
@@ -72,7 +73,7 @@ newGetRelationalDatabase pRelationalDatabaseName_ =
     }
 
 -- | The name of the database that you are looking up.
-getRelationalDatabase_relationalDatabaseName :: Lens.Lens' GetRelationalDatabase Core.Text
+getRelationalDatabase_relationalDatabaseName :: Lens.Lens' GetRelationalDatabase Prelude.Text
 getRelationalDatabase_relationalDatabaseName = Lens.lens (\GetRelationalDatabase' {relationalDatabaseName} -> relationalDatabaseName) (\s@GetRelationalDatabase' {} a -> s {relationalDatabaseName = a} :: GetRelationalDatabase)
 
 instance Core.AWSRequest GetRelationalDatabase where
@@ -84,32 +85,34 @@ instance Core.AWSRequest GetRelationalDatabase where
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseResponse'
-            Core.<$> (x Core..?> "relationalDatabase")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "relationalDatabase")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRelationalDatabase
+instance Prelude.Hashable GetRelationalDatabase
 
-instance Core.NFData GetRelationalDatabase
+instance Prelude.NFData GetRelationalDatabase
 
 instance Core.ToHeaders GetRelationalDatabase where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetRelationalDatabase" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRelationalDatabase where
   toJSON GetRelationalDatabase' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "relationalDatabaseName"
                   Core..= relationalDatabaseName
               )
@@ -117,19 +120,19 @@ instance Core.ToJSON GetRelationalDatabase where
       )
 
 instance Core.ToPath GetRelationalDatabase where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRelationalDatabase where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseResponse' smart constructor.
 data GetRelationalDatabaseResponse = GetRelationalDatabaseResponse'
   { -- | An object describing the specified database.
-    relationalDatabase :: Core.Maybe RelationalDatabase,
+    relationalDatabase :: Prelude.Maybe RelationalDatabase,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseResponse' with all optional fields omitted.
@@ -144,21 +147,21 @@ data GetRelationalDatabaseResponse = GetRelationalDatabaseResponse'
 -- 'httpStatus', 'getRelationalDatabaseResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRelationalDatabaseResponse
 newGetRelationalDatabaseResponse pHttpStatus_ =
   GetRelationalDatabaseResponse'
     { relationalDatabase =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object describing the specified database.
-getRelationalDatabaseResponse_relationalDatabase :: Lens.Lens' GetRelationalDatabaseResponse (Core.Maybe RelationalDatabase)
+getRelationalDatabaseResponse_relationalDatabase :: Lens.Lens' GetRelationalDatabaseResponse (Prelude.Maybe RelationalDatabase)
 getRelationalDatabaseResponse_relationalDatabase = Lens.lens (\GetRelationalDatabaseResponse' {relationalDatabase} -> relationalDatabase) (\s@GetRelationalDatabaseResponse' {} a -> s {relationalDatabase = a} :: GetRelationalDatabaseResponse)
 
 -- | The response's http status code.
-getRelationalDatabaseResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseResponse Core.Int
+getRelationalDatabaseResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseResponse Prelude.Int
 getRelationalDatabaseResponse_httpStatus = Lens.lens (\GetRelationalDatabaseResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseResponse)
 
-instance Core.NFData GetRelationalDatabaseResponse
+instance Prelude.NFData GetRelationalDatabaseResponse

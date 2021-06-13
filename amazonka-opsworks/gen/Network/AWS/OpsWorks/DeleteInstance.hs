@@ -50,19 +50,20 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteInstance' smart constructor.
 data DeleteInstance = DeleteInstance'
   { -- | Whether to delete the instance\'s Amazon EBS volumes.
-    deleteVolumes :: Core.Maybe Core.Bool,
+    deleteVolumes :: Prelude.Maybe Prelude.Bool,
     -- | Whether to delete the instance Elastic IP address.
-    deleteElasticIp :: Core.Maybe Core.Bool,
+    deleteElasticIp :: Prelude.Maybe Prelude.Bool,
     -- | The instance ID.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstance' with all optional fields omitted.
@@ -79,25 +80,25 @@ data DeleteInstance = DeleteInstance'
 -- 'instanceId', 'deleteInstance_instanceId' - The instance ID.
 newDeleteInstance ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInstance
 newDeleteInstance pInstanceId_ =
   DeleteInstance'
-    { deleteVolumes = Core.Nothing,
-      deleteElasticIp = Core.Nothing,
+    { deleteVolumes = Prelude.Nothing,
+      deleteElasticIp = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | Whether to delete the instance\'s Amazon EBS volumes.
-deleteInstance_deleteVolumes :: Lens.Lens' DeleteInstance (Core.Maybe Core.Bool)
+deleteInstance_deleteVolumes :: Lens.Lens' DeleteInstance (Prelude.Maybe Prelude.Bool)
 deleteInstance_deleteVolumes = Lens.lens (\DeleteInstance' {deleteVolumes} -> deleteVolumes) (\s@DeleteInstance' {} a -> s {deleteVolumes = a} :: DeleteInstance)
 
 -- | Whether to delete the instance Elastic IP address.
-deleteInstance_deleteElasticIp :: Lens.Lens' DeleteInstance (Core.Maybe Core.Bool)
+deleteInstance_deleteElasticIp :: Lens.Lens' DeleteInstance (Prelude.Maybe Prelude.Bool)
 deleteInstance_deleteElasticIp = Lens.lens (\DeleteInstance' {deleteElasticIp} -> deleteElasticIp) (\s@DeleteInstance' {} a -> s {deleteElasticIp = a} :: DeleteInstance)
 
 -- | The instance ID.
-deleteInstance_instanceId :: Lens.Lens' DeleteInstance Core.Text
+deleteInstance_instanceId :: Lens.Lens' DeleteInstance Prelude.Text
 deleteInstance_instanceId = Lens.lens (\DeleteInstance' {instanceId} -> instanceId) (\s@DeleteInstance' {} a -> s {instanceId = a} :: DeleteInstance)
 
 instance Core.AWSRequest DeleteInstance where
@@ -108,44 +109,47 @@ instance Core.AWSRequest DeleteInstance where
   response =
     Response.receiveNull DeleteInstanceResponse'
 
-instance Core.Hashable DeleteInstance
+instance Prelude.Hashable DeleteInstance
 
-instance Core.NFData DeleteInstance
+instance Prelude.NFData DeleteInstance
 
 instance Core.ToHeaders DeleteInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DeleteInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteInstance where
   toJSON DeleteInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DeleteVolumes" Core..=) Core.<$> deleteVolumes,
-            ("DeleteElasticIp" Core..=) Core.<$> deleteElasticIp,
-            Core.Just ("InstanceId" Core..= instanceId)
+      ( Prelude.catMaybes
+          [ ("DeleteVolumes" Core..=) Prelude.<$> deleteVolumes,
+            ("DeleteElasticIp" Core..=)
+              Prelude.<$> deleteElasticIp,
+            Prelude.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
 instance Core.ToPath DeleteInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceResponse' with all optional fields omitted.
@@ -155,4 +159,4 @@ newDeleteInstanceResponse ::
   DeleteInstanceResponse
 newDeleteInstanceResponse = DeleteInstanceResponse'
 
-instance Core.NFData DeleteInstanceResponse
+instance Prelude.NFData DeleteInstanceResponse

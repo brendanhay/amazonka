@@ -88,17 +88,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGlobalTable' smart constructor.
 data CreateGlobalTable = CreateGlobalTable'
   { -- | The global table name.
-    globalTableName :: Core.Text,
+    globalTableName :: Prelude.Text,
     -- | The Regions where the global table needs to be created.
     replicationGroup :: [Replica]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGlobalTable' with all optional fields omitted.
@@ -113,22 +114,22 @@ data CreateGlobalTable = CreateGlobalTable'
 -- 'replicationGroup', 'createGlobalTable_replicationGroup' - The Regions where the global table needs to be created.
 newCreateGlobalTable ::
   -- | 'globalTableName'
-  Core.Text ->
+  Prelude.Text ->
   CreateGlobalTable
 newCreateGlobalTable pGlobalTableName_ =
   CreateGlobalTable'
     { globalTableName =
         pGlobalTableName_,
-      replicationGroup = Core.mempty
+      replicationGroup = Prelude.mempty
     }
 
 -- | The global table name.
-createGlobalTable_globalTableName :: Lens.Lens' CreateGlobalTable Core.Text
+createGlobalTable_globalTableName :: Lens.Lens' CreateGlobalTable Prelude.Text
 createGlobalTable_globalTableName = Lens.lens (\CreateGlobalTable' {globalTableName} -> globalTableName) (\s@CreateGlobalTable' {} a -> s {globalTableName = a} :: CreateGlobalTable)
 
 -- | The Regions where the global table needs to be created.
 createGlobalTable_replicationGroup :: Lens.Lens' CreateGlobalTable [Replica]
-createGlobalTable_replicationGroup = Lens.lens (\CreateGlobalTable' {replicationGroup} -> replicationGroup) (\s@CreateGlobalTable' {} a -> s {replicationGroup = a} :: CreateGlobalTable) Core.. Lens._Coerce
+createGlobalTable_replicationGroup = Lens.lens (\CreateGlobalTable' {replicationGroup} -> replicationGroup) (\s@CreateGlobalTable' {} a -> s {replicationGroup = a} :: CreateGlobalTable) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateGlobalTable where
   type
@@ -139,52 +140,54 @@ instance Core.AWSRequest CreateGlobalTable where
     Response.receiveJSON
       ( \s h x ->
           CreateGlobalTableResponse'
-            Core.<$> (x Core..?> "GlobalTableDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GlobalTableDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateGlobalTable
+instance Prelude.Hashable CreateGlobalTable
 
-instance Core.NFData CreateGlobalTable
+instance Prelude.NFData CreateGlobalTable
 
 instance Core.ToHeaders CreateGlobalTable where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.CreateGlobalTable" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateGlobalTable where
   toJSON CreateGlobalTable' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("GlobalTableName" Core..= globalTableName),
-            Core.Just
+            Prelude.Just
               ("ReplicationGroup" Core..= replicationGroup)
           ]
       )
 
 instance Core.ToPath CreateGlobalTable where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateGlobalTable where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGlobalTableResponse' smart constructor.
 data CreateGlobalTableResponse = CreateGlobalTableResponse'
   { -- | Contains the details of the global table.
-    globalTableDescription :: Core.Maybe GlobalTableDescription,
+    globalTableDescription :: Prelude.Maybe GlobalTableDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGlobalTableResponse' with all optional fields omitted.
@@ -199,21 +202,21 @@ data CreateGlobalTableResponse = CreateGlobalTableResponse'
 -- 'httpStatus', 'createGlobalTableResponse_httpStatus' - The response's http status code.
 newCreateGlobalTableResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateGlobalTableResponse
 newCreateGlobalTableResponse pHttpStatus_ =
   CreateGlobalTableResponse'
     { globalTableDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the details of the global table.
-createGlobalTableResponse_globalTableDescription :: Lens.Lens' CreateGlobalTableResponse (Core.Maybe GlobalTableDescription)
+createGlobalTableResponse_globalTableDescription :: Lens.Lens' CreateGlobalTableResponse (Prelude.Maybe GlobalTableDescription)
 createGlobalTableResponse_globalTableDescription = Lens.lens (\CreateGlobalTableResponse' {globalTableDescription} -> globalTableDescription) (\s@CreateGlobalTableResponse' {} a -> s {globalTableDescription = a} :: CreateGlobalTableResponse)
 
 -- | The response's http status code.
-createGlobalTableResponse_httpStatus :: Lens.Lens' CreateGlobalTableResponse Core.Int
+createGlobalTableResponse_httpStatus :: Lens.Lens' CreateGlobalTableResponse Prelude.Int
 createGlobalTableResponse_httpStatus = Lens.lens (\CreateGlobalTableResponse' {httpStatus} -> httpStatus) (\s@CreateGlobalTableResponse' {} a -> s {httpStatus = a} :: CreateGlobalTableResponse)
 
-instance Core.NFData CreateGlobalTableResponse
+instance Prelude.NFData CreateGlobalTableResponse

@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSecurityConfiguration' smart constructor.
 data GetSecurityConfiguration = GetSecurityConfiguration'
   { -- | The name of the security configuration to retrieve.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSecurityConfiguration' with all optional fields omitted.
@@ -63,13 +64,13 @@ data GetSecurityConfiguration = GetSecurityConfiguration'
 -- 'name', 'getSecurityConfiguration_name' - The name of the security configuration to retrieve.
 newGetSecurityConfiguration ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetSecurityConfiguration
 newGetSecurityConfiguration pName_ =
   GetSecurityConfiguration' {name = pName_}
 
 -- | The name of the security configuration to retrieve.
-getSecurityConfiguration_name :: Lens.Lens' GetSecurityConfiguration Core.Text
+getSecurityConfiguration_name :: Lens.Lens' GetSecurityConfiguration Prelude.Text
 getSecurityConfiguration_name = Lens.lens (\GetSecurityConfiguration' {name} -> name) (\s@GetSecurityConfiguration' {} a -> s {name = a} :: GetSecurityConfiguration)
 
 instance Core.AWSRequest GetSecurityConfiguration where
@@ -81,46 +82,50 @@ instance Core.AWSRequest GetSecurityConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetSecurityConfigurationResponse'
-            Core.<$> (x Core..?> "SecurityConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SecurityConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSecurityConfiguration
+instance Prelude.Hashable GetSecurityConfiguration
 
-instance Core.NFData GetSecurityConfiguration
+instance Prelude.NFData GetSecurityConfiguration
 
 instance Core.ToHeaders GetSecurityConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.GetSecurityConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSecurityConfiguration where
   toJSON GetSecurityConfiguration' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath GetSecurityConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSecurityConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSecurityConfigurationResponse' smart constructor.
 data GetSecurityConfigurationResponse = GetSecurityConfigurationResponse'
   { -- | The requested security configuration.
-    securityConfiguration :: Core.Maybe SecurityConfiguration,
+    securityConfiguration :: Prelude.Maybe SecurityConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSecurityConfigurationResponse' with all optional fields omitted.
@@ -135,21 +140,23 @@ data GetSecurityConfigurationResponse = GetSecurityConfigurationResponse'
 -- 'httpStatus', 'getSecurityConfigurationResponse_httpStatus' - The response's http status code.
 newGetSecurityConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSecurityConfigurationResponse
 newGetSecurityConfigurationResponse pHttpStatus_ =
   GetSecurityConfigurationResponse'
     { securityConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested security configuration.
-getSecurityConfigurationResponse_securityConfiguration :: Lens.Lens' GetSecurityConfigurationResponse (Core.Maybe SecurityConfiguration)
+getSecurityConfigurationResponse_securityConfiguration :: Lens.Lens' GetSecurityConfigurationResponse (Prelude.Maybe SecurityConfiguration)
 getSecurityConfigurationResponse_securityConfiguration = Lens.lens (\GetSecurityConfigurationResponse' {securityConfiguration} -> securityConfiguration) (\s@GetSecurityConfigurationResponse' {} a -> s {securityConfiguration = a} :: GetSecurityConfigurationResponse)
 
 -- | The response's http status code.
-getSecurityConfigurationResponse_httpStatus :: Lens.Lens' GetSecurityConfigurationResponse Core.Int
+getSecurityConfigurationResponse_httpStatus :: Lens.Lens' GetSecurityConfigurationResponse Prelude.Int
 getSecurityConfigurationResponse_httpStatus = Lens.lens (\GetSecurityConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetSecurityConfigurationResponse' {} a -> s {httpStatus = a} :: GetSecurityConfigurationResponse)
 
-instance Core.NFData GetSecurityConfigurationResponse
+instance
+  Prelude.NFData
+    GetSecurityConfigurationResponse

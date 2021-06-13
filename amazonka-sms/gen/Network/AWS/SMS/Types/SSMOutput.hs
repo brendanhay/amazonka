@@ -21,15 +21,16 @@ module Network.AWS.SMS.Types.SSMOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.S3Location
 
 -- | Contains the location of validation output.
 --
 -- /See:/ 'newSSMOutput' smart constructor.
 data SSMOutput = SSMOutput'
-  { s3Location :: Core.Maybe S3Location
+  { s3Location :: Prelude.Maybe S3Location
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SSMOutput' with all optional fields omitted.
@@ -42,10 +43,11 @@ data SSMOutput = SSMOutput'
 -- 's3Location', 'sSMOutput_s3Location' - Undocumented member.
 newSSMOutput ::
   SSMOutput
-newSSMOutput = SSMOutput' {s3Location = Core.Nothing}
+newSSMOutput =
+  SSMOutput' {s3Location = Prelude.Nothing}
 
 -- | Undocumented member.
-sSMOutput_s3Location :: Lens.Lens' SSMOutput (Core.Maybe S3Location)
+sSMOutput_s3Location :: Lens.Lens' SSMOutput (Prelude.Maybe S3Location)
 sSMOutput_s3Location = Lens.lens (\SSMOutput' {s3Location} -> s3Location) (\s@SSMOutput' {} a -> s {s3Location = a} :: SSMOutput)
 
 instance Core.FromJSON SSMOutput where
@@ -53,9 +55,9 @@ instance Core.FromJSON SSMOutput where
     Core.withObject
       "SSMOutput"
       ( \x ->
-          SSMOutput' Core.<$> (x Core..:? "s3Location")
+          SSMOutput' Prelude.<$> (x Core..:? "s3Location")
       )
 
-instance Core.Hashable SSMOutput
+instance Prelude.Hashable SSMOutput
 
-instance Core.NFData SSMOutput
+instance Prelude.NFData SSMOutput

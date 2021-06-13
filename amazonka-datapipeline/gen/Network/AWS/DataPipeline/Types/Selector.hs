@@ -22,20 +22,21 @@ module Network.AWS.DataPipeline.Types.Selector where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types.Operator
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A comparision that is used to determine whether a query should return
 -- this object.
 --
 -- /See:/ 'newSelector' smart constructor.
 data Selector = Selector'
-  { operator :: Core.Maybe Operator,
+  { operator :: Prelude.Maybe Operator,
     -- | The name of the field that the operator will be applied to. The field
     -- name is the \"key\" portion of the field definition in the pipeline
     -- definition syntax that is used by the AWS Data Pipeline API. If the
     -- field is not set on the object, the condition fails.
-    fieldName :: Core.Maybe Core.Text
+    fieldName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Selector' with all optional fields omitted.
@@ -55,30 +56,30 @@ newSelector ::
   Selector
 newSelector =
   Selector'
-    { operator = Core.Nothing,
-      fieldName = Core.Nothing
+    { operator = Prelude.Nothing,
+      fieldName = Prelude.Nothing
     }
 
 -- | Undocumented member.
-selector_operator :: Lens.Lens' Selector (Core.Maybe Operator)
+selector_operator :: Lens.Lens' Selector (Prelude.Maybe Operator)
 selector_operator = Lens.lens (\Selector' {operator} -> operator) (\s@Selector' {} a -> s {operator = a} :: Selector)
 
 -- | The name of the field that the operator will be applied to. The field
 -- name is the \"key\" portion of the field definition in the pipeline
 -- definition syntax that is used by the AWS Data Pipeline API. If the
 -- field is not set on the object, the condition fails.
-selector_fieldName :: Lens.Lens' Selector (Core.Maybe Core.Text)
+selector_fieldName :: Lens.Lens' Selector (Prelude.Maybe Prelude.Text)
 selector_fieldName = Lens.lens (\Selector' {fieldName} -> fieldName) (\s@Selector' {} a -> s {fieldName = a} :: Selector)
 
-instance Core.Hashable Selector
+instance Prelude.Hashable Selector
 
-instance Core.NFData Selector
+instance Prelude.NFData Selector
 
 instance Core.ToJSON Selector where
   toJSON Selector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("operator" Core..=) Core.<$> operator,
-            ("fieldName" Core..=) Core.<$> fieldName
+      ( Prelude.catMaybes
+          [ ("operator" Core..=) Prelude.<$> operator,
+            ("fieldName" Core..=) Prelude.<$> fieldName
           ]
       )

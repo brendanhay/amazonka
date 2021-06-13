@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When configuring application output, identifies an Amazon Kinesis stream
 -- as the destination. You provide the stream Amazon Resource Name (ARN)
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKinesisStreamsOutput' smart constructor.
 data KinesisStreamsOutput = KinesisStreamsOutput'
   { -- | ARN of the destination Amazon Kinesis stream to write to.
-    resourceARN :: Core.Text,
+    resourceARN :: Prelude.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
     -- the destination stream on your behalf. You need to grant the necessary
     -- permissions to this role.
-    roleARN :: Core.Text
+    roleARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisStreamsOutput' with all optional fields omitted.
@@ -53,9 +54,9 @@ data KinesisStreamsOutput = KinesisStreamsOutput'
 -- permissions to this role.
 newKinesisStreamsOutput ::
   -- | 'resourceARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleARN'
-  Core.Text ->
+  Prelude.Text ->
   KinesisStreamsOutput
 newKinesisStreamsOutput pResourceARN_ pRoleARN_ =
   KinesisStreamsOutput'
@@ -64,24 +65,24 @@ newKinesisStreamsOutput pResourceARN_ pRoleARN_ =
     }
 
 -- | ARN of the destination Amazon Kinesis stream to write to.
-kinesisStreamsOutput_resourceARN :: Lens.Lens' KinesisStreamsOutput Core.Text
+kinesisStreamsOutput_resourceARN :: Lens.Lens' KinesisStreamsOutput Prelude.Text
 kinesisStreamsOutput_resourceARN = Lens.lens (\KinesisStreamsOutput' {resourceARN} -> resourceARN) (\s@KinesisStreamsOutput' {} a -> s {resourceARN = a} :: KinesisStreamsOutput)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 -- the destination stream on your behalf. You need to grant the necessary
 -- permissions to this role.
-kinesisStreamsOutput_roleARN :: Lens.Lens' KinesisStreamsOutput Core.Text
+kinesisStreamsOutput_roleARN :: Lens.Lens' KinesisStreamsOutput Prelude.Text
 kinesisStreamsOutput_roleARN = Lens.lens (\KinesisStreamsOutput' {roleARN} -> roleARN) (\s@KinesisStreamsOutput' {} a -> s {roleARN = a} :: KinesisStreamsOutput)
 
-instance Core.Hashable KinesisStreamsOutput
+instance Prelude.Hashable KinesisStreamsOutput
 
-instance Core.NFData KinesisStreamsOutput
+instance Prelude.NFData KinesisStreamsOutput
 
 instance Core.ToJSON KinesisStreamsOutput where
   toJSON KinesisStreamsOutput' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceARN" Core..= resourceARN),
-            Core.Just ("RoleARN" Core..= roleARN)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceARN" Core..= resourceARN),
+            Prelude.Just ("RoleARN" Core..= roleARN)
           ]
       )

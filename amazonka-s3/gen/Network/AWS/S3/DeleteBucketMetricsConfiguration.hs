@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -72,13 +73,13 @@ data DeleteBucketMetricsConfiguration = DeleteBucketMetricsConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket containing the metrics configuration to delete.
     bucket :: BucketName,
     -- | The ID used to identify the metrics configuration.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketMetricsConfiguration' with all optional fields omitted.
@@ -99,12 +100,12 @@ newDeleteBucketMetricsConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBucketMetricsConfiguration
 newDeleteBucketMetricsConfiguration pBucket_ pId_ =
   DeleteBucketMetricsConfiguration'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_,
       id = pId_
     }
@@ -112,7 +113,7 @@ newDeleteBucketMetricsConfiguration pBucket_ pId_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' DeleteBucketMetricsConfiguration (Core.Maybe Core.Text)
+deleteBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' DeleteBucketMetricsConfiguration (Prelude.Maybe Prelude.Text)
 deleteBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\DeleteBucketMetricsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketMetricsConfiguration' {} a -> s {expectedBucketOwner = a} :: DeleteBucketMetricsConfiguration)
 
 -- | The name of the bucket containing the metrics configuration to delete.
@@ -120,7 +121,7 @@ deleteBucketMetricsConfiguration_bucket :: Lens.Lens' DeleteBucketMetricsConfigu
 deleteBucketMetricsConfiguration_bucket = Lens.lens (\DeleteBucketMetricsConfiguration' {bucket} -> bucket) (\s@DeleteBucketMetricsConfiguration' {} a -> s {bucket = a} :: DeleteBucketMetricsConfiguration)
 
 -- | The ID used to identify the metrics configuration.
-deleteBucketMetricsConfiguration_id :: Lens.Lens' DeleteBucketMetricsConfiguration Core.Text
+deleteBucketMetricsConfiguration_id :: Lens.Lens' DeleteBucketMetricsConfiguration Prelude.Text
 deleteBucketMetricsConfiguration_id = Lens.lens (\DeleteBucketMetricsConfiguration' {id} -> id) (\s@DeleteBucketMetricsConfiguration' {} a -> s {id = a} :: DeleteBucketMetricsConfiguration)
 
 instance
@@ -136,37 +137,39 @@ instance
       DeleteBucketMetricsConfigurationResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteBucketMetricsConfiguration
 
-instance Core.NFData DeleteBucketMetricsConfiguration
+instance
+  Prelude.NFData
+    DeleteBucketMetricsConfiguration
 
 instance
   Core.ToHeaders
     DeleteBucketMetricsConfiguration
   where
   toHeaders DeleteBucketMetricsConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath DeleteBucketMetricsConfiguration where
   toPath DeleteBucketMetricsConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance
   Core.ToQuery
     DeleteBucketMetricsConfiguration
   where
   toQuery DeleteBucketMetricsConfiguration' {..} =
-    Core.mconcat ["id" Core.=: id, "metrics"]
+    Prelude.mconcat ["id" Core.=: id, "metrics"]
 
 -- | /See:/ 'newDeleteBucketMetricsConfigurationResponse' smart constructor.
 data DeleteBucketMetricsConfigurationResponse = DeleteBucketMetricsConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketMetricsConfigurationResponse' with all optional fields omitted.
@@ -178,5 +181,5 @@ newDeleteBucketMetricsConfigurationResponse =
   DeleteBucketMetricsConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteBucketMetricsConfigurationResponse

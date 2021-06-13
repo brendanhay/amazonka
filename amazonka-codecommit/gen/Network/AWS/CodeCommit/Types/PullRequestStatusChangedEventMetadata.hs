@@ -22,15 +22,16 @@ module Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata where
 import Network.AWS.CodeCommit.Types.PullRequestStatusEnum
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a change to the status of a pull request.
 --
 -- /See:/ 'newPullRequestStatusChangedEventMetadata' smart constructor.
 data PullRequestStatusChangedEventMetadata = PullRequestStatusChangedEventMetadata'
   { -- | The changed status of the pull request.
-    pullRequestStatus :: Core.Maybe PullRequestStatusEnum
+    pullRequestStatus :: Prelude.Maybe PullRequestStatusEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PullRequestStatusChangedEventMetadata' with all optional fields omitted.
@@ -46,11 +47,11 @@ newPullRequestStatusChangedEventMetadata ::
 newPullRequestStatusChangedEventMetadata =
   PullRequestStatusChangedEventMetadata'
     { pullRequestStatus =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The changed status of the pull request.
-pullRequestStatusChangedEventMetadata_pullRequestStatus :: Lens.Lens' PullRequestStatusChangedEventMetadata (Core.Maybe PullRequestStatusEnum)
+pullRequestStatusChangedEventMetadata_pullRequestStatus :: Lens.Lens' PullRequestStatusChangedEventMetadata (Prelude.Maybe PullRequestStatusEnum)
 pullRequestStatusChangedEventMetadata_pullRequestStatus = Lens.lens (\PullRequestStatusChangedEventMetadata' {pullRequestStatus} -> pullRequestStatus) (\s@PullRequestStatusChangedEventMetadata' {} a -> s {pullRequestStatus = a} :: PullRequestStatusChangedEventMetadata)
 
 instance
@@ -62,13 +63,13 @@ instance
       "PullRequestStatusChangedEventMetadata"
       ( \x ->
           PullRequestStatusChangedEventMetadata'
-            Core.<$> (x Core..:? "pullRequestStatus")
+            Prelude.<$> (x Core..:? "pullRequestStatus")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PullRequestStatusChangedEventMetadata
 
 instance
-  Core.NFData
+  Prelude.NFData
     PullRequestStatusChangedEventMetadata

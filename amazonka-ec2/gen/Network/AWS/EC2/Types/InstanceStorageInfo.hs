@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DiskInfo
 import Network.AWS.EC2.Types.EphemeralNvmeSupport
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the disks that are available for the instance type.
 --
@@ -31,13 +32,13 @@ import qualified Network.AWS.Lens as Lens
 data InstanceStorageInfo = InstanceStorageInfo'
   { -- | Indicates whether non-volatile memory express (NVMe) is supported for
     -- instance store.
-    nvmeSupport :: Core.Maybe EphemeralNvmeSupport,
+    nvmeSupport :: Prelude.Maybe EphemeralNvmeSupport,
     -- | The total size of the disks, in GB.
-    totalSizeInGB :: Core.Maybe Core.Integer,
+    totalSizeInGB :: Prelude.Maybe Prelude.Integer,
     -- | Describes the disks that are available for the instance type.
-    disks :: Core.Maybe [DiskInfo]
+    disks :: Prelude.Maybe [DiskInfo]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceStorageInfo' with all optional fields omitted.
@@ -57,33 +58,33 @@ newInstanceStorageInfo ::
   InstanceStorageInfo
 newInstanceStorageInfo =
   InstanceStorageInfo'
-    { nvmeSupport = Core.Nothing,
-      totalSizeInGB = Core.Nothing,
-      disks = Core.Nothing
+    { nvmeSupport = Prelude.Nothing,
+      totalSizeInGB = Prelude.Nothing,
+      disks = Prelude.Nothing
     }
 
 -- | Indicates whether non-volatile memory express (NVMe) is supported for
 -- instance store.
-instanceStorageInfo_nvmeSupport :: Lens.Lens' InstanceStorageInfo (Core.Maybe EphemeralNvmeSupport)
+instanceStorageInfo_nvmeSupport :: Lens.Lens' InstanceStorageInfo (Prelude.Maybe EphemeralNvmeSupport)
 instanceStorageInfo_nvmeSupport = Lens.lens (\InstanceStorageInfo' {nvmeSupport} -> nvmeSupport) (\s@InstanceStorageInfo' {} a -> s {nvmeSupport = a} :: InstanceStorageInfo)
 
 -- | The total size of the disks, in GB.
-instanceStorageInfo_totalSizeInGB :: Lens.Lens' InstanceStorageInfo (Core.Maybe Core.Integer)
+instanceStorageInfo_totalSizeInGB :: Lens.Lens' InstanceStorageInfo (Prelude.Maybe Prelude.Integer)
 instanceStorageInfo_totalSizeInGB = Lens.lens (\InstanceStorageInfo' {totalSizeInGB} -> totalSizeInGB) (\s@InstanceStorageInfo' {} a -> s {totalSizeInGB = a} :: InstanceStorageInfo)
 
 -- | Describes the disks that are available for the instance type.
-instanceStorageInfo_disks :: Lens.Lens' InstanceStorageInfo (Core.Maybe [DiskInfo])
-instanceStorageInfo_disks = Lens.lens (\InstanceStorageInfo' {disks} -> disks) (\s@InstanceStorageInfo' {} a -> s {disks = a} :: InstanceStorageInfo) Core.. Lens.mapping Lens._Coerce
+instanceStorageInfo_disks :: Lens.Lens' InstanceStorageInfo (Prelude.Maybe [DiskInfo])
+instanceStorageInfo_disks = Lens.lens (\InstanceStorageInfo' {disks} -> disks) (\s@InstanceStorageInfo' {} a -> s {disks = a} :: InstanceStorageInfo) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML InstanceStorageInfo where
   parseXML x =
     InstanceStorageInfo'
-      Core.<$> (x Core..@? "nvmeSupport")
-      Core.<*> (x Core..@? "totalSizeInGB")
-      Core.<*> ( x Core..@? "disks" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "nvmeSupport")
+      Prelude.<*> (x Core..@? "totalSizeInGB")
+      Prelude.<*> ( x Core..@? "disks" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable InstanceStorageInfo
+instance Prelude.Hashable InstanceStorageInfo
 
-instance Core.NFData InstanceStorageInfo
+instance Prelude.NFData InstanceStorageInfo

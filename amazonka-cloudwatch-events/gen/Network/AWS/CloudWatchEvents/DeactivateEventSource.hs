@@ -45,15 +45,16 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeactivateEventSource' smart constructor.
 data DeactivateEventSource = DeactivateEventSource'
   { -- | The name of the partner event source to deactivate.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeactivateEventSource' with all optional fields omitted.
@@ -66,13 +67,13 @@ data DeactivateEventSource = DeactivateEventSource'
 -- 'name', 'deactivateEventSource_name' - The name of the partner event source to deactivate.
 newDeactivateEventSource ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeactivateEventSource
 newDeactivateEventSource pName_ =
   DeactivateEventSource' {name = pName_}
 
 -- | The name of the partner event source to deactivate.
-deactivateEventSource_name :: Lens.Lens' DeactivateEventSource Core.Text
+deactivateEventSource_name :: Lens.Lens' DeactivateEventSource Prelude.Text
 deactivateEventSource_name = Lens.lens (\DeactivateEventSource' {name} -> name) (\s@DeactivateEventSource' {} a -> s {name = a} :: DeactivateEventSource)
 
 instance Core.AWSRequest DeactivateEventSource where
@@ -83,39 +84,43 @@ instance Core.AWSRequest DeactivateEventSource where
   response =
     Response.receiveNull DeactivateEventSourceResponse'
 
-instance Core.Hashable DeactivateEventSource
+instance Prelude.Hashable DeactivateEventSource
 
-instance Core.NFData DeactivateEventSource
+instance Prelude.NFData DeactivateEventSource
 
 instance Core.ToHeaders DeactivateEventSource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSEvents.DeactivateEventSource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeactivateEventSource where
   toJSON DeactivateEventSource' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeactivateEventSource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeactivateEventSource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeactivateEventSourceResponse' smart constructor.
 data DeactivateEventSourceResponse = DeactivateEventSourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeactivateEventSourceResponse' with all optional fields omitted.
@@ -126,4 +131,4 @@ newDeactivateEventSourceResponse ::
 newDeactivateEventSourceResponse =
   DeactivateEventSourceResponse'
 
-instance Core.NFData DeactivateEventSourceResponse
+instance Prelude.NFData DeactivateEventSourceResponse

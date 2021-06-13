@@ -24,17 +24,18 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ResourceType
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The tag specification for the launch template.
 --
 -- /See:/ 'newLaunchTemplateTagSpecification' smart constructor.
 data LaunchTemplateTagSpecification = LaunchTemplateTagSpecification'
   { -- | The type of resource.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The tags for the resource.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateTagSpecification' with all optional fields omitted.
@@ -52,26 +53,30 @@ newLaunchTemplateTagSpecification ::
 newLaunchTemplateTagSpecification =
   LaunchTemplateTagSpecification'
     { resourceType =
-        Core.Nothing,
-      tags = Core.Nothing
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The type of resource.
-launchTemplateTagSpecification_resourceType :: Lens.Lens' LaunchTemplateTagSpecification (Core.Maybe ResourceType)
+launchTemplateTagSpecification_resourceType :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe ResourceType)
 launchTemplateTagSpecification_resourceType = Lens.lens (\LaunchTemplateTagSpecification' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecification' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecification)
 
 -- | The tags for the resource.
-launchTemplateTagSpecification_tags :: Lens.Lens' LaunchTemplateTagSpecification (Core.Maybe [Tag])
-launchTemplateTagSpecification_tags = Lens.lens (\LaunchTemplateTagSpecification' {tags} -> tags) (\s@LaunchTemplateTagSpecification' {} a -> s {tags = a} :: LaunchTemplateTagSpecification) Core.. Lens.mapping Lens._Coerce
+launchTemplateTagSpecification_tags :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe [Tag])
+launchTemplateTagSpecification_tags = Lens.lens (\LaunchTemplateTagSpecification' {tags} -> tags) (\s@LaunchTemplateTagSpecification' {} a -> s {tags = a} :: LaunchTemplateTagSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML LaunchTemplateTagSpecification where
   parseXML x =
     LaunchTemplateTagSpecification'
-      Core.<$> (x Core..@? "resourceType")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "resourceType")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable LaunchTemplateTagSpecification
+instance
+  Prelude.Hashable
+    LaunchTemplateTagSpecification
 
-instance Core.NFData LaunchTemplateTagSpecification
+instance
+  Prelude.NFData
+    LaunchTemplateTagSpecification

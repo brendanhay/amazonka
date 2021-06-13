@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostAndUsageReport.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DeleteReportDefinition = DeleteReportDefinition'
   { -- | The name of the report that you want to delete. The name must be unique,
     -- is case sensitive, and can\'t include spaces.
-    reportName :: Core.Maybe Core.Text
+    reportName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReportDefinition' with all optional fields omitted.
@@ -68,11 +69,14 @@ data DeleteReportDefinition = DeleteReportDefinition'
 newDeleteReportDefinition ::
   DeleteReportDefinition
 newDeleteReportDefinition =
-  DeleteReportDefinition' {reportName = Core.Nothing}
+  DeleteReportDefinition'
+    { reportName =
+        Prelude.Nothing
+    }
 
 -- | The name of the report that you want to delete. The name must be unique,
 -- is case sensitive, and can\'t include spaces.
-deleteReportDefinition_reportName :: Lens.Lens' DeleteReportDefinition (Core.Maybe Core.Text)
+deleteReportDefinition_reportName :: Lens.Lens' DeleteReportDefinition (Prelude.Maybe Prelude.Text)
 deleteReportDefinition_reportName = Lens.lens (\DeleteReportDefinition' {reportName} -> reportName) (\s@DeleteReportDefinition' {} a -> s {reportName = a} :: DeleteReportDefinition)
 
 instance Core.AWSRequest DeleteReportDefinition where
@@ -84,50 +88,52 @@ instance Core.AWSRequest DeleteReportDefinition where
     Response.receiveJSON
       ( \s h x ->
           DeleteReportDefinitionResponse'
-            Core.<$> (x Core..?> "ResponseMessage")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ResponseMessage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteReportDefinition
+instance Prelude.Hashable DeleteReportDefinition
 
-instance Core.NFData DeleteReportDefinition
+instance Prelude.NFData DeleteReportDefinition
 
 instance Core.ToHeaders DeleteReportDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrigamiServiceGatewayService.DeleteReportDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteReportDefinition where
   toJSON DeleteReportDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [("ReportName" Core..=) Core.<$> reportName]
+      ( Prelude.catMaybes
+          [("ReportName" Core..=) Prelude.<$> reportName]
       )
 
 instance Core.ToPath DeleteReportDefinition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteReportDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | If the action is successful, the service sends back an HTTP 200
 -- response.
 --
 -- /See:/ 'newDeleteReportDefinitionResponse' smart constructor.
 data DeleteReportDefinitionResponse = DeleteReportDefinitionResponse'
-  { responseMessage :: Core.Maybe Core.Text,
+  { responseMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReportDefinitionResponse' with all optional fields omitted.
@@ -142,21 +148,23 @@ data DeleteReportDefinitionResponse = DeleteReportDefinitionResponse'
 -- 'httpStatus', 'deleteReportDefinitionResponse_httpStatus' - The response's http status code.
 newDeleteReportDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteReportDefinitionResponse
 newDeleteReportDefinitionResponse pHttpStatus_ =
   DeleteReportDefinitionResponse'
     { responseMessage =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteReportDefinitionResponse_responseMessage :: Lens.Lens' DeleteReportDefinitionResponse (Core.Maybe Core.Text)
+deleteReportDefinitionResponse_responseMessage :: Lens.Lens' DeleteReportDefinitionResponse (Prelude.Maybe Prelude.Text)
 deleteReportDefinitionResponse_responseMessage = Lens.lens (\DeleteReportDefinitionResponse' {responseMessage} -> responseMessage) (\s@DeleteReportDefinitionResponse' {} a -> s {responseMessage = a} :: DeleteReportDefinitionResponse)
 
 -- | The response's http status code.
-deleteReportDefinitionResponse_httpStatus :: Lens.Lens' DeleteReportDefinitionResponse Core.Int
+deleteReportDefinitionResponse_httpStatus :: Lens.Lens' DeleteReportDefinitionResponse Prelude.Int
 deleteReportDefinitionResponse_httpStatus = Lens.lens (\DeleteReportDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteReportDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteReportDefinitionResponse)
 
-instance Core.NFData DeleteReportDefinitionResponse
+instance
+  Prelude.NFData
+    DeleteReportDefinitionResponse

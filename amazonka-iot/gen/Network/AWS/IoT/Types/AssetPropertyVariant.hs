@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.AssetPropertyVariant where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains an asset property value (of a single type).
 --
@@ -28,18 +29,18 @@ import qualified Network.AWS.Lens as Lens
 data AssetPropertyVariant = AssetPropertyVariant'
   { -- | Optional. A string that contains the double value of the value entry.
     -- Accepts substitution templates.
-    doubleValue :: Core.Maybe Core.Text,
+    doubleValue :: Prelude.Maybe Prelude.Text,
     -- | Optional. The string value of the value entry. Accepts substitution
     -- templates.
-    stringValue :: Core.Maybe Core.Text,
+    stringValue :: Prelude.Maybe Prelude.Text,
     -- | Optional. A string that contains the boolean value (@true@ or @false@)
     -- of the value entry. Accepts substitution templates.
-    booleanValue :: Core.Maybe Core.Text,
+    booleanValue :: Prelude.Maybe Prelude.Text,
     -- | Optional. A string that contains the integer value of the value entry.
     -- Accepts substitution templates.
-    integerValue :: Core.Maybe Core.Text
+    integerValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssetPropertyVariant' with all optional fields omitted.
@@ -64,30 +65,31 @@ newAssetPropertyVariant ::
   AssetPropertyVariant
 newAssetPropertyVariant =
   AssetPropertyVariant'
-    { doubleValue = Core.Nothing,
-      stringValue = Core.Nothing,
-      booleanValue = Core.Nothing,
-      integerValue = Core.Nothing
+    { doubleValue =
+        Prelude.Nothing,
+      stringValue = Prelude.Nothing,
+      booleanValue = Prelude.Nothing,
+      integerValue = Prelude.Nothing
     }
 
 -- | Optional. A string that contains the double value of the value entry.
 -- Accepts substitution templates.
-assetPropertyVariant_doubleValue :: Lens.Lens' AssetPropertyVariant (Core.Maybe Core.Text)
+assetPropertyVariant_doubleValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_doubleValue = Lens.lens (\AssetPropertyVariant' {doubleValue} -> doubleValue) (\s@AssetPropertyVariant' {} a -> s {doubleValue = a} :: AssetPropertyVariant)
 
 -- | Optional. The string value of the value entry. Accepts substitution
 -- templates.
-assetPropertyVariant_stringValue :: Lens.Lens' AssetPropertyVariant (Core.Maybe Core.Text)
+assetPropertyVariant_stringValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_stringValue = Lens.lens (\AssetPropertyVariant' {stringValue} -> stringValue) (\s@AssetPropertyVariant' {} a -> s {stringValue = a} :: AssetPropertyVariant)
 
 -- | Optional. A string that contains the boolean value (@true@ or @false@)
 -- of the value entry. Accepts substitution templates.
-assetPropertyVariant_booleanValue :: Lens.Lens' AssetPropertyVariant (Core.Maybe Core.Text)
+assetPropertyVariant_booleanValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_booleanValue = Lens.lens (\AssetPropertyVariant' {booleanValue} -> booleanValue) (\s@AssetPropertyVariant' {} a -> s {booleanValue = a} :: AssetPropertyVariant)
 
 -- | Optional. A string that contains the integer value of the value entry.
 -- Accepts substitution templates.
-assetPropertyVariant_integerValue :: Lens.Lens' AssetPropertyVariant (Core.Maybe Core.Text)
+assetPropertyVariant_integerValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_integerValue = Lens.lens (\AssetPropertyVariant' {integerValue} -> integerValue) (\s@AssetPropertyVariant' {} a -> s {integerValue = a} :: AssetPropertyVariant)
 
 instance Core.FromJSON AssetPropertyVariant where
@@ -96,23 +98,23 @@ instance Core.FromJSON AssetPropertyVariant where
       "AssetPropertyVariant"
       ( \x ->
           AssetPropertyVariant'
-            Core.<$> (x Core..:? "doubleValue")
-            Core.<*> (x Core..:? "stringValue")
-            Core.<*> (x Core..:? "booleanValue")
-            Core.<*> (x Core..:? "integerValue")
+            Prelude.<$> (x Core..:? "doubleValue")
+            Prelude.<*> (x Core..:? "stringValue")
+            Prelude.<*> (x Core..:? "booleanValue")
+            Prelude.<*> (x Core..:? "integerValue")
       )
 
-instance Core.Hashable AssetPropertyVariant
+instance Prelude.Hashable AssetPropertyVariant
 
-instance Core.NFData AssetPropertyVariant
+instance Prelude.NFData AssetPropertyVariant
 
 instance Core.ToJSON AssetPropertyVariant where
   toJSON AssetPropertyVariant' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("doubleValue" Core..=) Core.<$> doubleValue,
-            ("stringValue" Core..=) Core.<$> stringValue,
-            ("booleanValue" Core..=) Core.<$> booleanValue,
-            ("integerValue" Core..=) Core.<$> integerValue
+      ( Prelude.catMaybes
+          [ ("doubleValue" Core..=) Prelude.<$> doubleValue,
+            ("stringValue" Core..=) Prelude.<$> stringValue,
+            ("booleanValue" Core..=) Prelude.<$> booleanValue,
+            ("integerValue" Core..=) Prelude.<$> integerValue
           ]
       )

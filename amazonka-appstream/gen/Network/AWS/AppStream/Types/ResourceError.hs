@@ -22,19 +22,20 @@ module Network.AWS.AppStream.Types.ResourceError where
 import Network.AWS.AppStream.Types.FleetErrorCode
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a resource error.
 --
 -- /See:/ 'newResourceError' smart constructor.
 data ResourceError = ResourceError'
   { -- | The time the error occurred.
-    errorTimestamp :: Core.Maybe Core.POSIX,
+    errorTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The error message.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    errorCode :: Core.Maybe FleetErrorCode
+    errorCode :: Prelude.Maybe FleetErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceError' with all optional fields omitted.
@@ -53,21 +54,21 @@ newResourceError ::
   ResourceError
 newResourceError =
   ResourceError'
-    { errorTimestamp = Core.Nothing,
-      errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+    { errorTimestamp = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The time the error occurred.
-resourceError_errorTimestamp :: Lens.Lens' ResourceError (Core.Maybe Core.UTCTime)
-resourceError_errorTimestamp = Lens.lens (\ResourceError' {errorTimestamp} -> errorTimestamp) (\s@ResourceError' {} a -> s {errorTimestamp = a} :: ResourceError) Core.. Lens.mapping Core._Time
+resourceError_errorTimestamp :: Lens.Lens' ResourceError (Prelude.Maybe Prelude.UTCTime)
+resourceError_errorTimestamp = Lens.lens (\ResourceError' {errorTimestamp} -> errorTimestamp) (\s@ResourceError' {} a -> s {errorTimestamp = a} :: ResourceError) Prelude.. Lens.mapping Core._Time
 
 -- | The error message.
-resourceError_errorMessage :: Lens.Lens' ResourceError (Core.Maybe Core.Text)
+resourceError_errorMessage :: Lens.Lens' ResourceError (Prelude.Maybe Prelude.Text)
 resourceError_errorMessage = Lens.lens (\ResourceError' {errorMessage} -> errorMessage) (\s@ResourceError' {} a -> s {errorMessage = a} :: ResourceError)
 
 -- | The error code.
-resourceError_errorCode :: Lens.Lens' ResourceError (Core.Maybe FleetErrorCode)
+resourceError_errorCode :: Lens.Lens' ResourceError (Prelude.Maybe FleetErrorCode)
 resourceError_errorCode = Lens.lens (\ResourceError' {errorCode} -> errorCode) (\s@ResourceError' {} a -> s {errorCode = a} :: ResourceError)
 
 instance Core.FromJSON ResourceError where
@@ -76,11 +77,11 @@ instance Core.FromJSON ResourceError where
       "ResourceError"
       ( \x ->
           ResourceError'
-            Core.<$> (x Core..:? "ErrorTimestamp")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ErrorTimestamp")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable ResourceError
+instance Prelude.Hashable ResourceError
 
-instance Core.NFData ResourceError
+instance Prelude.NFData ResourceError

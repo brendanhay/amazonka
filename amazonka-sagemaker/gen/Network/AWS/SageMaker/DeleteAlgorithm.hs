@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -44,9 +45,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteAlgorithm' smart constructor.
 data DeleteAlgorithm = DeleteAlgorithm'
   { -- | The name of the algorithm to delete.
-    algorithmName :: Core.Text
+    algorithmName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAlgorithm' with all optional fields omitted.
@@ -59,13 +60,13 @@ data DeleteAlgorithm = DeleteAlgorithm'
 -- 'algorithmName', 'deleteAlgorithm_algorithmName' - The name of the algorithm to delete.
 newDeleteAlgorithm ::
   -- | 'algorithmName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAlgorithm
 newDeleteAlgorithm pAlgorithmName_ =
   DeleteAlgorithm' {algorithmName = pAlgorithmName_}
 
 -- | The name of the algorithm to delete.
-deleteAlgorithm_algorithmName :: Lens.Lens' DeleteAlgorithm Core.Text
+deleteAlgorithm_algorithmName :: Lens.Lens' DeleteAlgorithm Prelude.Text
 deleteAlgorithm_algorithmName = Lens.lens (\DeleteAlgorithm' {algorithmName} -> algorithmName) (\s@DeleteAlgorithm' {} a -> s {algorithmName = a} :: DeleteAlgorithm)
 
 instance Core.AWSRequest DeleteAlgorithm where
@@ -76,39 +77,43 @@ instance Core.AWSRequest DeleteAlgorithm where
   response =
     Response.receiveNull DeleteAlgorithmResponse'
 
-instance Core.Hashable DeleteAlgorithm
+instance Prelude.Hashable DeleteAlgorithm
 
-instance Core.NFData DeleteAlgorithm
+instance Prelude.NFData DeleteAlgorithm
 
 instance Core.ToHeaders DeleteAlgorithm where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteAlgorithm" :: Core.ByteString),
+              Core.=# ("SageMaker.DeleteAlgorithm" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteAlgorithm where
   toJSON DeleteAlgorithm' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AlgorithmName" Core..= algorithmName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("AlgorithmName" Core..= algorithmName)
+          ]
       )
 
 instance Core.ToPath DeleteAlgorithm where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAlgorithm where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAlgorithmResponse' smart constructor.
 data DeleteAlgorithmResponse = DeleteAlgorithmResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAlgorithmResponse' with all optional fields omitted.
@@ -118,4 +123,4 @@ newDeleteAlgorithmResponse ::
   DeleteAlgorithmResponse
 newDeleteAlgorithmResponse = DeleteAlgorithmResponse'
 
-instance Core.NFData DeleteAlgorithmResponse
+instance Prelude.NFData DeleteAlgorithmResponse

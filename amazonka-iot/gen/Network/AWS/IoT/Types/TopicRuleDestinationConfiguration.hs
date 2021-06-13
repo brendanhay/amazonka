@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.HttpUrlDestinationConfiguration
 import Network.AWS.IoT.Types.VpcDestinationConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration of the topic rule destination.
 --
 -- /See:/ 'newTopicRuleDestinationConfiguration' smart constructor.
 data TopicRuleDestinationConfiguration = TopicRuleDestinationConfiguration'
   { -- | Configuration of the virtual private cloud (VPC) connection.
-    vpcConfiguration :: Core.Maybe VpcDestinationConfiguration,
+    vpcConfiguration :: Prelude.Maybe VpcDestinationConfiguration,
     -- | Configuration of the HTTP URL.
-    httpUrlConfiguration :: Core.Maybe HttpUrlDestinationConfiguration
+    httpUrlConfiguration :: Prelude.Maybe HttpUrlDestinationConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TopicRuleDestinationConfiguration' with all optional fields omitted.
@@ -51,24 +52,24 @@ newTopicRuleDestinationConfiguration ::
 newTopicRuleDestinationConfiguration =
   TopicRuleDestinationConfiguration'
     { vpcConfiguration =
-        Core.Nothing,
-      httpUrlConfiguration = Core.Nothing
+        Prelude.Nothing,
+      httpUrlConfiguration = Prelude.Nothing
     }
 
 -- | Configuration of the virtual private cloud (VPC) connection.
-topicRuleDestinationConfiguration_vpcConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Core.Maybe VpcDestinationConfiguration)
+topicRuleDestinationConfiguration_vpcConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Prelude.Maybe VpcDestinationConfiguration)
 topicRuleDestinationConfiguration_vpcConfiguration = Lens.lens (\TopicRuleDestinationConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@TopicRuleDestinationConfiguration' {} a -> s {vpcConfiguration = a} :: TopicRuleDestinationConfiguration)
 
 -- | Configuration of the HTTP URL.
-topicRuleDestinationConfiguration_httpUrlConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Core.Maybe HttpUrlDestinationConfiguration)
+topicRuleDestinationConfiguration_httpUrlConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Prelude.Maybe HttpUrlDestinationConfiguration)
 topicRuleDestinationConfiguration_httpUrlConfiguration = Lens.lens (\TopicRuleDestinationConfiguration' {httpUrlConfiguration} -> httpUrlConfiguration) (\s@TopicRuleDestinationConfiguration' {} a -> s {httpUrlConfiguration = a} :: TopicRuleDestinationConfiguration)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     TopicRuleDestinationConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     TopicRuleDestinationConfiguration
 
 instance
@@ -77,10 +78,10 @@ instance
   where
   toJSON TopicRuleDestinationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("vpcConfiguration" Core..=)
-              Core.<$> vpcConfiguration,
+              Prelude.<$> vpcConfiguration,
             ("httpUrlConfiguration" Core..=)
-              Core.<$> httpUrlConfiguration
+              Prelude.<$> httpUrlConfiguration
           ]
       )

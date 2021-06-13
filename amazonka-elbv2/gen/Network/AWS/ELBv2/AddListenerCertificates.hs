@@ -53,18 +53,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAddListenerCertificates' smart constructor.
 data AddListenerCertificates = AddListenerCertificates'
   { -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Core.Text,
+    listenerArn :: Prelude.Text,
     -- | The certificate to add. You can specify one certificate per call. Set
     -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
     certificates :: [Certificate]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddListenerCertificates' with all optional fields omitted.
@@ -80,23 +81,23 @@ data AddListenerCertificates = AddListenerCertificates'
 -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
 newAddListenerCertificates ::
   -- | 'listenerArn'
-  Core.Text ->
+  Prelude.Text ->
   AddListenerCertificates
 newAddListenerCertificates pListenerArn_ =
   AddListenerCertificates'
     { listenerArn =
         pListenerArn_,
-      certificates = Core.mempty
+      certificates = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the listener.
-addListenerCertificates_listenerArn :: Lens.Lens' AddListenerCertificates Core.Text
+addListenerCertificates_listenerArn :: Lens.Lens' AddListenerCertificates Prelude.Text
 addListenerCertificates_listenerArn = Lens.lens (\AddListenerCertificates' {listenerArn} -> listenerArn) (\s@AddListenerCertificates' {} a -> s {listenerArn = a} :: AddListenerCertificates)
 
 -- | The certificate to add. You can specify one certificate per call. Set
 -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
 addListenerCertificates_certificates :: Lens.Lens' AddListenerCertificates [Certificate]
-addListenerCertificates_certificates = Lens.lens (\AddListenerCertificates' {certificates} -> certificates) (\s@AddListenerCertificates' {} a -> s {certificates = a} :: AddListenerCertificates) Core.. Lens._Coerce
+addListenerCertificates_certificates = Lens.lens (\AddListenerCertificates' {certificates} -> certificates) (\s@AddListenerCertificates' {} a -> s {certificates = a} :: AddListenerCertificates) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddListenerCertificates where
   type
@@ -108,28 +109,29 @@ instance Core.AWSRequest AddListenerCertificates where
       "AddListenerCertificatesResult"
       ( \s h x ->
           AddListenerCertificatesResponse'
-            Core.<$> ( x Core..@? "Certificates" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddListenerCertificates
+instance Prelude.Hashable AddListenerCertificates
 
-instance Core.NFData AddListenerCertificates
+instance Prelude.NFData AddListenerCertificates
 
 instance Core.ToHeaders AddListenerCertificates where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AddListenerCertificates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddListenerCertificates where
   toQuery AddListenerCertificates' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AddListenerCertificates" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("AddListenerCertificates" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "ListenerArn" Core.=: listenerArn,
         "Certificates"
           Core.=: Core.toQueryList "member" certificates
@@ -138,11 +140,11 @@ instance Core.ToQuery AddListenerCertificates where
 -- | /See:/ 'newAddListenerCertificatesResponse' smart constructor.
 data AddListenerCertificatesResponse = AddListenerCertificatesResponse'
   { -- | Information about the certificates in the certificate list.
-    certificates :: Core.Maybe [Certificate],
+    certificates :: Prelude.Maybe [Certificate],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddListenerCertificatesResponse' with all optional fields omitted.
@@ -157,21 +159,23 @@ data AddListenerCertificatesResponse = AddListenerCertificatesResponse'
 -- 'httpStatus', 'addListenerCertificatesResponse_httpStatus' - The response's http status code.
 newAddListenerCertificatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddListenerCertificatesResponse
 newAddListenerCertificatesResponse pHttpStatus_ =
   AddListenerCertificatesResponse'
     { certificates =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the certificates in the certificate list.
-addListenerCertificatesResponse_certificates :: Lens.Lens' AddListenerCertificatesResponse (Core.Maybe [Certificate])
-addListenerCertificatesResponse_certificates = Lens.lens (\AddListenerCertificatesResponse' {certificates} -> certificates) (\s@AddListenerCertificatesResponse' {} a -> s {certificates = a} :: AddListenerCertificatesResponse) Core.. Lens.mapping Lens._Coerce
+addListenerCertificatesResponse_certificates :: Lens.Lens' AddListenerCertificatesResponse (Prelude.Maybe [Certificate])
+addListenerCertificatesResponse_certificates = Lens.lens (\AddListenerCertificatesResponse' {certificates} -> certificates) (\s@AddListenerCertificatesResponse' {} a -> s {certificates = a} :: AddListenerCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-addListenerCertificatesResponse_httpStatus :: Lens.Lens' AddListenerCertificatesResponse Core.Int
+addListenerCertificatesResponse_httpStatus :: Lens.Lens' AddListenerCertificatesResponse Prelude.Int
 addListenerCertificatesResponse_httpStatus = Lens.lens (\AddListenerCertificatesResponse' {httpStatus} -> httpStatus) (\s@AddListenerCertificatesResponse' {} a -> s {httpStatus = a} :: AddListenerCertificatesResponse)
 
-instance Core.NFData AddListenerCertificatesResponse
+instance
+  Prelude.NFData
+    AddListenerCertificatesResponse

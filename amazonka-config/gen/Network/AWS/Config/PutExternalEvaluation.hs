@@ -44,17 +44,18 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutExternalEvaluation' smart constructor.
 data PutExternalEvaluation = PutExternalEvaluation'
   { -- | The name of the AWS Config rule.
-    configRuleName :: Core.Text,
+    configRuleName :: Prelude.Text,
     -- | An @ExternalEvaluation@ object that provides details about compliance.
     externalEvaluation :: ExternalEvaluation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutExternalEvaluation' with all optional fields omitted.
@@ -69,7 +70,7 @@ data PutExternalEvaluation = PutExternalEvaluation'
 -- 'externalEvaluation', 'putExternalEvaluation_externalEvaluation' - An @ExternalEvaluation@ object that provides details about compliance.
 newPutExternalEvaluation ::
   -- | 'configRuleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'externalEvaluation'
   ExternalEvaluation ->
   PutExternalEvaluation
@@ -83,7 +84,7 @@ newPutExternalEvaluation
       }
 
 -- | The name of the AWS Config rule.
-putExternalEvaluation_configRuleName :: Lens.Lens' PutExternalEvaluation Core.Text
+putExternalEvaluation_configRuleName :: Lens.Lens' PutExternalEvaluation Prelude.Text
 putExternalEvaluation_configRuleName = Lens.lens (\PutExternalEvaluation' {configRuleName} -> configRuleName) (\s@PutExternalEvaluation' {} a -> s {configRuleName = a} :: PutExternalEvaluation)
 
 -- | An @ExternalEvaluation@ object that provides details about compliance.
@@ -99,48 +100,51 @@ instance Core.AWSRequest PutExternalEvaluation where
     Response.receiveEmpty
       ( \s h x ->
           PutExternalEvaluationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutExternalEvaluation
+instance Prelude.Hashable PutExternalEvaluation
 
-instance Core.NFData PutExternalEvaluation
+instance Prelude.NFData PutExternalEvaluation
 
 instance Core.ToHeaders PutExternalEvaluation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutExternalEvaluation" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutExternalEvaluation where
   toJSON PutExternalEvaluation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ConfigRuleName" Core..= configRuleName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ConfigRuleName" Core..= configRuleName),
+            Prelude.Just
               ("ExternalEvaluation" Core..= externalEvaluation)
           ]
       )
 
 instance Core.ToPath PutExternalEvaluation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutExternalEvaluation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutExternalEvaluationResponse' smart constructor.
 data PutExternalEvaluationResponse = PutExternalEvaluationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutExternalEvaluationResponse' with all optional fields omitted.
@@ -153,7 +157,7 @@ data PutExternalEvaluationResponse = PutExternalEvaluationResponse'
 -- 'httpStatus', 'putExternalEvaluationResponse_httpStatus' - The response's http status code.
 newPutExternalEvaluationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutExternalEvaluationResponse
 newPutExternalEvaluationResponse pHttpStatus_ =
   PutExternalEvaluationResponse'
@@ -162,7 +166,7 @@ newPutExternalEvaluationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putExternalEvaluationResponse_httpStatus :: Lens.Lens' PutExternalEvaluationResponse Core.Int
+putExternalEvaluationResponse_httpStatus :: Lens.Lens' PutExternalEvaluationResponse Prelude.Int
 putExternalEvaluationResponse_httpStatus = Lens.lens (\PutExternalEvaluationResponse' {httpStatus} -> httpStatus) (\s@PutExternalEvaluationResponse' {} a -> s {httpStatus = a} :: PutExternalEvaluationResponse)
 
-instance Core.NFData PutExternalEvaluationResponse
+instance Prelude.NFData PutExternalEvaluationResponse

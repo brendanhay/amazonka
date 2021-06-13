@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +59,12 @@ data DiscoverPollEndpoint = DiscoverPollEndpoint'
     -- the @container-instance@ namespace, and then the container instance ID.
     -- For example,
     -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
-    containerInstance :: Core.Maybe Core.Text,
+    containerInstance :: Prelude.Maybe Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster to
     -- which the container instance belongs.
-    cluster :: Core.Maybe Core.Text
+    cluster :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiscoverPollEndpoint' with all optional fields omitted.
@@ -87,8 +88,8 @@ newDiscoverPollEndpoint ::
 newDiscoverPollEndpoint =
   DiscoverPollEndpoint'
     { containerInstance =
-        Core.Nothing,
-      cluster = Core.Nothing
+        Prelude.Nothing,
+      cluster = Prelude.Nothing
     }
 
 -- | The container instance ID or full ARN of the container instance. The ARN
@@ -97,12 +98,12 @@ newDiscoverPollEndpoint =
 -- the @container-instance@ namespace, and then the container instance ID.
 -- For example,
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
-discoverPollEndpoint_containerInstance :: Lens.Lens' DiscoverPollEndpoint (Core.Maybe Core.Text)
+discoverPollEndpoint_containerInstance :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
 discoverPollEndpoint_containerInstance = Lens.lens (\DiscoverPollEndpoint' {containerInstance} -> containerInstance) (\s@DiscoverPollEndpoint' {} a -> s {containerInstance = a} :: DiscoverPollEndpoint)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to
 -- which the container instance belongs.
-discoverPollEndpoint_cluster :: Lens.Lens' DiscoverPollEndpoint (Core.Maybe Core.Text)
+discoverPollEndpoint_cluster :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
 discoverPollEndpoint_cluster = Lens.lens (\DiscoverPollEndpoint' {cluster} -> cluster) (\s@DiscoverPollEndpoint' {} a -> s {cluster = a} :: DiscoverPollEndpoint)
 
 instance Core.AWSRequest DiscoverPollEndpoint where
@@ -114,54 +115,56 @@ instance Core.AWSRequest DiscoverPollEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DiscoverPollEndpointResponse'
-            Core.<$> (x Core..?> "telemetryEndpoint")
-            Core.<*> (x Core..?> "endpoint")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "telemetryEndpoint")
+            Prelude.<*> (x Core..?> "endpoint")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DiscoverPollEndpoint
+instance Prelude.Hashable DiscoverPollEndpoint
 
-instance Core.NFData DiscoverPollEndpoint
+instance Prelude.NFData DiscoverPollEndpoint
 
 instance Core.ToHeaders DiscoverPollEndpoint where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DiscoverPollEndpoint where
   toJSON DiscoverPollEndpoint' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("containerInstance" Core..=)
-              Core.<$> containerInstance,
-            ("cluster" Core..=) Core.<$> cluster
+              Prelude.<$> containerInstance,
+            ("cluster" Core..=) Prelude.<$> cluster
           ]
       )
 
 instance Core.ToPath DiscoverPollEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DiscoverPollEndpoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDiscoverPollEndpointResponse' smart constructor.
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
   { -- | The telemetry endpoint for the Amazon ECS agent.
-    telemetryEndpoint :: Core.Maybe Core.Text,
+    telemetryEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The endpoint for the Amazon ECS agent to poll.
-    endpoint :: Core.Maybe Core.Text,
+    endpoint :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiscoverPollEndpointResponse' with all optional fields omitted.
@@ -178,26 +181,26 @@ data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
 -- 'httpStatus', 'discoverPollEndpointResponse_httpStatus' - The response's http status code.
 newDiscoverPollEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DiscoverPollEndpointResponse
 newDiscoverPollEndpointResponse pHttpStatus_ =
   DiscoverPollEndpointResponse'
     { telemetryEndpoint =
-        Core.Nothing,
-      endpoint = Core.Nothing,
+        Prelude.Nothing,
+      endpoint = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The telemetry endpoint for the Amazon ECS agent.
-discoverPollEndpointResponse_telemetryEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Core.Maybe Core.Text)
+discoverPollEndpointResponse_telemetryEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Prelude.Maybe Prelude.Text)
 discoverPollEndpointResponse_telemetryEndpoint = Lens.lens (\DiscoverPollEndpointResponse' {telemetryEndpoint} -> telemetryEndpoint) (\s@DiscoverPollEndpointResponse' {} a -> s {telemetryEndpoint = a} :: DiscoverPollEndpointResponse)
 
 -- | The endpoint for the Amazon ECS agent to poll.
-discoverPollEndpointResponse_endpoint :: Lens.Lens' DiscoverPollEndpointResponse (Core.Maybe Core.Text)
+discoverPollEndpointResponse_endpoint :: Lens.Lens' DiscoverPollEndpointResponse (Prelude.Maybe Prelude.Text)
 discoverPollEndpointResponse_endpoint = Lens.lens (\DiscoverPollEndpointResponse' {endpoint} -> endpoint) (\s@DiscoverPollEndpointResponse' {} a -> s {endpoint = a} :: DiscoverPollEndpointResponse)
 
 -- | The response's http status code.
-discoverPollEndpointResponse_httpStatus :: Lens.Lens' DiscoverPollEndpointResponse Core.Int
+discoverPollEndpointResponse_httpStatus :: Lens.Lens' DiscoverPollEndpointResponse Prelude.Int
 discoverPollEndpointResponse_httpStatus = Lens.lens (\DiscoverPollEndpointResponse' {httpStatus} -> httpStatus) (\s@DiscoverPollEndpointResponse' {} a -> s {httpStatus = a} :: DiscoverPollEndpointResponse)
 
-instance Core.NFData DiscoverPollEndpointResponse
+instance Prelude.NFData DiscoverPollEndpointResponse

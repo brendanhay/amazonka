@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.InstanceCreditSpecificationRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the credit option for CPU usage of a burstable performance
 -- instance.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newInstanceCreditSpecificationRequest' smart constructor.
 data InstanceCreditSpecificationRequest = InstanceCreditSpecificationRequest'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The credit option for CPU usage of the instance. Valid values are
     -- @standard@ and @unlimited@.
-    cpuCredits :: Core.Maybe Core.Text
+    cpuCredits :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceCreditSpecificationRequest' with all optional fields omitted.
@@ -53,25 +54,25 @@ newInstanceCreditSpecificationRequest ::
 newInstanceCreditSpecificationRequest =
   InstanceCreditSpecificationRequest'
     { instanceId =
-        Core.Nothing,
-      cpuCredits = Core.Nothing
+        Prelude.Nothing,
+      cpuCredits = Prelude.Nothing
     }
 
 -- | The ID of the instance.
-instanceCreditSpecificationRequest_instanceId :: Lens.Lens' InstanceCreditSpecificationRequest (Core.Maybe Core.Text)
+instanceCreditSpecificationRequest_instanceId :: Lens.Lens' InstanceCreditSpecificationRequest (Prelude.Maybe Prelude.Text)
 instanceCreditSpecificationRequest_instanceId = Lens.lens (\InstanceCreditSpecificationRequest' {instanceId} -> instanceId) (\s@InstanceCreditSpecificationRequest' {} a -> s {instanceId = a} :: InstanceCreditSpecificationRequest)
 
 -- | The credit option for CPU usage of the instance. Valid values are
 -- @standard@ and @unlimited@.
-instanceCreditSpecificationRequest_cpuCredits :: Lens.Lens' InstanceCreditSpecificationRequest (Core.Maybe Core.Text)
+instanceCreditSpecificationRequest_cpuCredits :: Lens.Lens' InstanceCreditSpecificationRequest (Prelude.Maybe Prelude.Text)
 instanceCreditSpecificationRequest_cpuCredits = Lens.lens (\InstanceCreditSpecificationRequest' {cpuCredits} -> cpuCredits) (\s@InstanceCreditSpecificationRequest' {} a -> s {cpuCredits = a} :: InstanceCreditSpecificationRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InstanceCreditSpecificationRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     InstanceCreditSpecificationRequest
 
 instance
@@ -79,7 +80,7 @@ instance
     InstanceCreditSpecificationRequest
   where
   toQuery InstanceCreditSpecificationRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "InstanceId" Core.=: instanceId,
         "CpuCredits" Core.=: cpuCredits
       ]

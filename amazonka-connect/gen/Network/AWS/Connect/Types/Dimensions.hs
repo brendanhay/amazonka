@@ -23,17 +23,18 @@ import Network.AWS.Connect.Types.Channel
 import Network.AWS.Connect.Types.QueueReference
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the dimensions for a set of metrics.
 --
 -- /See:/ 'newDimensions' smart constructor.
 data Dimensions = Dimensions'
   { -- | Information about the queue for which metrics are returned.
-    queue :: Core.Maybe QueueReference,
+    queue :: Prelude.Maybe QueueReference,
     -- | The channel used for grouping and filters.
-    channel :: Core.Maybe Channel
+    channel :: Prelude.Maybe Channel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Dimensions' with all optional fields omitted.
@@ -50,16 +51,16 @@ newDimensions ::
   Dimensions
 newDimensions =
   Dimensions'
-    { queue = Core.Nothing,
-      channel = Core.Nothing
+    { queue = Prelude.Nothing,
+      channel = Prelude.Nothing
     }
 
 -- | Information about the queue for which metrics are returned.
-dimensions_queue :: Lens.Lens' Dimensions (Core.Maybe QueueReference)
+dimensions_queue :: Lens.Lens' Dimensions (Prelude.Maybe QueueReference)
 dimensions_queue = Lens.lens (\Dimensions' {queue} -> queue) (\s@Dimensions' {} a -> s {queue = a} :: Dimensions)
 
 -- | The channel used for grouping and filters.
-dimensions_channel :: Lens.Lens' Dimensions (Core.Maybe Channel)
+dimensions_channel :: Lens.Lens' Dimensions (Prelude.Maybe Channel)
 dimensions_channel = Lens.lens (\Dimensions' {channel} -> channel) (\s@Dimensions' {} a -> s {channel = a} :: Dimensions)
 
 instance Core.FromJSON Dimensions where
@@ -68,9 +69,10 @@ instance Core.FromJSON Dimensions where
       "Dimensions"
       ( \x ->
           Dimensions'
-            Core.<$> (x Core..:? "Queue") Core.<*> (x Core..:? "Channel")
+            Prelude.<$> (x Core..:? "Queue")
+            Prelude.<*> (x Core..:? "Channel")
       )
 
-instance Core.Hashable Dimensions
+instance Prelude.Hashable Dimensions
 
-instance Core.NFData Dimensions
+instance Prelude.NFData Dimensions

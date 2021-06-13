@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDetachLoadBalancerFromSubnets' smart constructor.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The IDs of the subnets.
-    subnets :: [Core.Text]
+    subnets :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachLoadBalancerFromSubnets' with all optional fields omitted.
@@ -76,22 +77,22 @@ data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
 -- 'subnets', 'detachLoadBalancerFromSubnets_subnets' - The IDs of the subnets.
 newDetachLoadBalancerFromSubnets ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   DetachLoadBalancerFromSubnets
 newDetachLoadBalancerFromSubnets pLoadBalancerName_ =
   DetachLoadBalancerFromSubnets'
     { loadBalancerName =
         pLoadBalancerName_,
-      subnets = Core.mempty
+      subnets = Prelude.mempty
     }
 
 -- | The name of the load balancer.
-detachLoadBalancerFromSubnets_loadBalancerName :: Lens.Lens' DetachLoadBalancerFromSubnets Core.Text
+detachLoadBalancerFromSubnets_loadBalancerName :: Lens.Lens' DetachLoadBalancerFromSubnets Prelude.Text
 detachLoadBalancerFromSubnets_loadBalancerName = Lens.lens (\DetachLoadBalancerFromSubnets' {loadBalancerName} -> loadBalancerName) (\s@DetachLoadBalancerFromSubnets' {} a -> s {loadBalancerName = a} :: DetachLoadBalancerFromSubnets)
 
 -- | The IDs of the subnets.
-detachLoadBalancerFromSubnets_subnets :: Lens.Lens' DetachLoadBalancerFromSubnets [Core.Text]
-detachLoadBalancerFromSubnets_subnets = Lens.lens (\DetachLoadBalancerFromSubnets' {subnets} -> subnets) (\s@DetachLoadBalancerFromSubnets' {} a -> s {subnets = a} :: DetachLoadBalancerFromSubnets) Core.. Lens._Coerce
+detachLoadBalancerFromSubnets_subnets :: Lens.Lens' DetachLoadBalancerFromSubnets [Prelude.Text]
+detachLoadBalancerFromSubnets_subnets = Lens.lens (\DetachLoadBalancerFromSubnets' {subnets} -> subnets) (\s@DetachLoadBalancerFromSubnets' {} a -> s {subnets = a} :: DetachLoadBalancerFromSubnets) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -106,28 +107,33 @@ instance
       "DetachLoadBalancerFromSubnetsResult"
       ( \s h x ->
           DetachLoadBalancerFromSubnetsResponse'
-            Core.<$> ( x Core..@? "Subnets" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetachLoadBalancerFromSubnets
+instance
+  Prelude.Hashable
+    DetachLoadBalancerFromSubnets
 
-instance Core.NFData DetachLoadBalancerFromSubnets
+instance Prelude.NFData DetachLoadBalancerFromSubnets
 
 instance Core.ToHeaders DetachLoadBalancerFromSubnets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetachLoadBalancerFromSubnets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachLoadBalancerFromSubnets where
   toQuery DetachLoadBalancerFromSubnets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachLoadBalancerFromSubnets" :: Core.ByteString),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+          Core.=: ( "DetachLoadBalancerFromSubnets" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerName" Core.=: loadBalancerName,
         "Subnets" Core.=: Core.toQueryList "member" subnets
       ]
@@ -137,11 +143,11 @@ instance Core.ToQuery DetachLoadBalancerFromSubnets where
 -- /See:/ 'newDetachLoadBalancerFromSubnetsResponse' smart constructor.
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
   { -- | The IDs of the remaining subnets for the load balancer.
-    subnets :: Core.Maybe [Core.Text],
+    subnets :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachLoadBalancerFromSubnetsResponse' with all optional fields omitted.
@@ -156,23 +162,23 @@ data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsRespon
 -- 'httpStatus', 'detachLoadBalancerFromSubnetsResponse_httpStatus' - The response's http status code.
 newDetachLoadBalancerFromSubnetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetachLoadBalancerFromSubnetsResponse
 newDetachLoadBalancerFromSubnetsResponse pHttpStatus_ =
   DetachLoadBalancerFromSubnetsResponse'
     { subnets =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IDs of the remaining subnets for the load balancer.
-detachLoadBalancerFromSubnetsResponse_subnets :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse (Core.Maybe [Core.Text])
-detachLoadBalancerFromSubnetsResponse_subnets = Lens.lens (\DetachLoadBalancerFromSubnetsResponse' {subnets} -> subnets) (\s@DetachLoadBalancerFromSubnetsResponse' {} a -> s {subnets = a} :: DetachLoadBalancerFromSubnetsResponse) Core.. Lens.mapping Lens._Coerce
+detachLoadBalancerFromSubnetsResponse_subnets :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse (Prelude.Maybe [Prelude.Text])
+detachLoadBalancerFromSubnetsResponse_subnets = Lens.lens (\DetachLoadBalancerFromSubnetsResponse' {subnets} -> subnets) (\s@DetachLoadBalancerFromSubnetsResponse' {} a -> s {subnets = a} :: DetachLoadBalancerFromSubnetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detachLoadBalancerFromSubnetsResponse_httpStatus :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse Core.Int
+detachLoadBalancerFromSubnetsResponse_httpStatus :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse Prelude.Int
 detachLoadBalancerFromSubnetsResponse_httpStatus = Lens.lens (\DetachLoadBalancerFromSubnetsResponse' {httpStatus} -> httpStatus) (\s@DetachLoadBalancerFromSubnetsResponse' {} a -> s {httpStatus = a} :: DetachLoadBalancerFromSubnetsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DetachLoadBalancerFromSubnetsResponse

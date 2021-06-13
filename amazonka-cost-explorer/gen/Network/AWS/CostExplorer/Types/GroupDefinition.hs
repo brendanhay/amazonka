@@ -22,6 +22,7 @@ module Network.AWS.CostExplorer.Types.GroupDefinition where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.GroupDefinitionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a group when you specify a group by criteria or in the
 -- response to a query with a specific grouping.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newGroupDefinition' smart constructor.
 data GroupDefinition = GroupDefinition'
   { -- | The string that represents a key for a specified group.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The string that represents the type of group.
-    type' :: Core.Maybe GroupDefinitionType
+    type' :: Prelude.Maybe GroupDefinitionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupDefinition' with all optional fields omitted.
@@ -50,16 +51,16 @@ newGroupDefinition ::
   GroupDefinition
 newGroupDefinition =
   GroupDefinition'
-    { key = Core.Nothing,
-      type' = Core.Nothing
+    { key = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The string that represents a key for a specified group.
-groupDefinition_key :: Lens.Lens' GroupDefinition (Core.Maybe Core.Text)
+groupDefinition_key :: Lens.Lens' GroupDefinition (Prelude.Maybe Prelude.Text)
 groupDefinition_key = Lens.lens (\GroupDefinition' {key} -> key) (\s@GroupDefinition' {} a -> s {key = a} :: GroupDefinition)
 
 -- | The string that represents the type of group.
-groupDefinition_type :: Lens.Lens' GroupDefinition (Core.Maybe GroupDefinitionType)
+groupDefinition_type :: Lens.Lens' GroupDefinition (Prelude.Maybe GroupDefinitionType)
 groupDefinition_type = Lens.lens (\GroupDefinition' {type'} -> type') (\s@GroupDefinition' {} a -> s {type' = a} :: GroupDefinition)
 
 instance Core.FromJSON GroupDefinition where
@@ -68,18 +69,18 @@ instance Core.FromJSON GroupDefinition where
       "GroupDefinition"
       ( \x ->
           GroupDefinition'
-            Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable GroupDefinition
+instance Prelude.Hashable GroupDefinition
 
-instance Core.NFData GroupDefinition
+instance Prelude.NFData GroupDefinition
 
 instance Core.ToJSON GroupDefinition where
   toJSON GroupDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

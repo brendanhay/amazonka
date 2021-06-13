@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types.BackupStatus
 import Network.AWS.OpsWorksCM.Types.BackupType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a single backup.
 --
@@ -30,71 +31,71 @@ import Network.AWS.OpsWorksCM.Types.BackupType
 data Backup = Backup'
   { -- | The security group IDs that are obtained from the server when the backup
     -- is created.
-    securityGroupIds :: Core.Maybe [Core.Text],
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The EC2 instance profile ARN that is obtained from the server when the
     -- backup is created. Because this value is stored, you are not required to
     -- provide the InstanceProfileArn again if you restore a backup.
-    instanceProfileArn :: Core.Maybe Core.Text,
+    instanceProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The preferred backup period that is obtained from the server when the
     -- backup is created.
-    preferredBackupWindow :: Core.Maybe Core.Text,
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | The status of a backup while in progress.
-    status :: Core.Maybe BackupStatus,
+    status :: Prelude.Maybe BackupStatus,
     -- | The service role ARN that is obtained from the server when the backup is
     -- created.
-    serviceRoleArn :: Core.Maybe Core.Text,
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The IAM user ARN of the requester for manual backups. This field is
     -- empty for automated backups.
-    userArn :: Core.Maybe Core.Text,
+    userArn :: Prelude.Maybe Prelude.Text,
     -- | The instance type that is obtained from the server when the backup is
     -- created.
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The backup type. Valid values are @automated@ or @manual@.
-    backupType :: Core.Maybe BackupType,
+    backupType :: Prelude.Maybe BackupType,
     -- | The generated ID of the backup. Example:
     -- @myServerName-yyyyMMddHHmmssSSS@
-    backupId :: Core.Maybe Core.Text,
+    backupId :: Prelude.Maybe Prelude.Text,
     -- | This field is deprecated and is no longer used.
-    s3DataUrl :: Core.Maybe Core.Text,
+    s3DataUrl :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the backup.
-    backupArn :: Core.Maybe Core.Text,
+    backupArn :: Prelude.Maybe Prelude.Text,
     -- | The subnet IDs that are obtained from the server when the backup is
     -- created.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The key pair that is obtained from the server when the backup is
     -- created.
-    keyPair :: Core.Maybe Core.Text,
+    keyPair :: Prelude.Maybe Prelude.Text,
     -- | This field is deprecated and is no longer used.
-    s3DataSize :: Core.Maybe Core.Int,
+    s3DataSize :: Prelude.Maybe Prelude.Int,
     -- | The time stamp when the backup was created in the database. Example:
     -- @2016-07-29T13:38:47.520Z@
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The name of the server from which the backup was made.
-    serverName :: Core.Maybe Core.Text,
+    serverName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 URL of the backup\'s log file.
-    s3LogUrl :: Core.Maybe Core.Text,
+    s3LogUrl :: Prelude.Maybe Prelude.Text,
     -- | The engine version that is obtained from the server when the backup is
     -- created.
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The preferred maintenance period that is obtained from the server when
     -- the backup is created.
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The version of AWS OpsWorks CM-specific tools that is obtained from the
     -- server when the backup is created.
-    toolsVersion :: Core.Maybe Core.Text,
+    toolsVersion :: Prelude.Maybe Prelude.Text,
     -- | The engine model that is obtained from the server when the backup is
     -- created.
-    engineModel :: Core.Maybe Core.Text,
+    engineModel :: Prelude.Maybe Prelude.Text,
     -- | The engine type that is obtained from the server when the backup is
     -- created.
-    engine :: Core.Maybe Core.Text,
+    engine :: Prelude.Maybe Prelude.Text,
     -- | A user-provided description for a manual backup. This field is empty for
     -- automated backups.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | An informational message about backup status.
-    statusDescription :: Core.Maybe Core.Text
+    statusDescription :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Backup' with all optional fields omitted.
@@ -172,143 +173,143 @@ newBackup ::
   Backup
 newBackup =
   Backup'
-    { securityGroupIds = Core.Nothing,
-      instanceProfileArn = Core.Nothing,
-      preferredBackupWindow = Core.Nothing,
-      status = Core.Nothing,
-      serviceRoleArn = Core.Nothing,
-      userArn = Core.Nothing,
-      instanceType = Core.Nothing,
-      backupType = Core.Nothing,
-      backupId = Core.Nothing,
-      s3DataUrl = Core.Nothing,
-      backupArn = Core.Nothing,
-      subnetIds = Core.Nothing,
-      keyPair = Core.Nothing,
-      s3DataSize = Core.Nothing,
-      createdAt = Core.Nothing,
-      serverName = Core.Nothing,
-      s3LogUrl = Core.Nothing,
-      engineVersion = Core.Nothing,
-      preferredMaintenanceWindow = Core.Nothing,
-      toolsVersion = Core.Nothing,
-      engineModel = Core.Nothing,
-      engine = Core.Nothing,
-      description = Core.Nothing,
-      statusDescription = Core.Nothing
+    { securityGroupIds = Prelude.Nothing,
+      instanceProfileArn = Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
+      status = Prelude.Nothing,
+      serviceRoleArn = Prelude.Nothing,
+      userArn = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      backupType = Prelude.Nothing,
+      backupId = Prelude.Nothing,
+      s3DataUrl = Prelude.Nothing,
+      backupArn = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      keyPair = Prelude.Nothing,
+      s3DataSize = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      serverName = Prelude.Nothing,
+      s3LogUrl = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      toolsVersion = Prelude.Nothing,
+      engineModel = Prelude.Nothing,
+      engine = Prelude.Nothing,
+      description = Prelude.Nothing,
+      statusDescription = Prelude.Nothing
     }
 
 -- | The security group IDs that are obtained from the server when the backup
 -- is created.
-backup_securityGroupIds :: Lens.Lens' Backup (Core.Maybe [Core.Text])
-backup_securityGroupIds = Lens.lens (\Backup' {securityGroupIds} -> securityGroupIds) (\s@Backup' {} a -> s {securityGroupIds = a} :: Backup) Core.. Lens.mapping Lens._Coerce
+backup_securityGroupIds :: Lens.Lens' Backup (Prelude.Maybe [Prelude.Text])
+backup_securityGroupIds = Lens.lens (\Backup' {securityGroupIds} -> securityGroupIds) (\s@Backup' {} a -> s {securityGroupIds = a} :: Backup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The EC2 instance profile ARN that is obtained from the server when the
 -- backup is created. Because this value is stored, you are not required to
 -- provide the InstanceProfileArn again if you restore a backup.
-backup_instanceProfileArn :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_instanceProfileArn :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_instanceProfileArn = Lens.lens (\Backup' {instanceProfileArn} -> instanceProfileArn) (\s@Backup' {} a -> s {instanceProfileArn = a} :: Backup)
 
 -- | The preferred backup period that is obtained from the server when the
 -- backup is created.
-backup_preferredBackupWindow :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_preferredBackupWindow :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_preferredBackupWindow = Lens.lens (\Backup' {preferredBackupWindow} -> preferredBackupWindow) (\s@Backup' {} a -> s {preferredBackupWindow = a} :: Backup)
 
 -- | The status of a backup while in progress.
-backup_status :: Lens.Lens' Backup (Core.Maybe BackupStatus)
+backup_status :: Lens.Lens' Backup (Prelude.Maybe BackupStatus)
 backup_status = Lens.lens (\Backup' {status} -> status) (\s@Backup' {} a -> s {status = a} :: Backup)
 
 -- | The service role ARN that is obtained from the server when the backup is
 -- created.
-backup_serviceRoleArn :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_serviceRoleArn :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_serviceRoleArn = Lens.lens (\Backup' {serviceRoleArn} -> serviceRoleArn) (\s@Backup' {} a -> s {serviceRoleArn = a} :: Backup)
 
 -- | The IAM user ARN of the requester for manual backups. This field is
 -- empty for automated backups.
-backup_userArn :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_userArn :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_userArn = Lens.lens (\Backup' {userArn} -> userArn) (\s@Backup' {} a -> s {userArn = a} :: Backup)
 
 -- | The instance type that is obtained from the server when the backup is
 -- created.
-backup_instanceType :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_instanceType :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_instanceType = Lens.lens (\Backup' {instanceType} -> instanceType) (\s@Backup' {} a -> s {instanceType = a} :: Backup)
 
 -- | The backup type. Valid values are @automated@ or @manual@.
-backup_backupType :: Lens.Lens' Backup (Core.Maybe BackupType)
+backup_backupType :: Lens.Lens' Backup (Prelude.Maybe BackupType)
 backup_backupType = Lens.lens (\Backup' {backupType} -> backupType) (\s@Backup' {} a -> s {backupType = a} :: Backup)
 
 -- | The generated ID of the backup. Example:
 -- @myServerName-yyyyMMddHHmmssSSS@
-backup_backupId :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_backupId :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_backupId = Lens.lens (\Backup' {backupId} -> backupId) (\s@Backup' {} a -> s {backupId = a} :: Backup)
 
 -- | This field is deprecated and is no longer used.
-backup_s3DataUrl :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_s3DataUrl :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_s3DataUrl = Lens.lens (\Backup' {s3DataUrl} -> s3DataUrl) (\s@Backup' {} a -> s {s3DataUrl = a} :: Backup)
 
 -- | The ARN of the backup.
-backup_backupArn :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_backupArn :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_backupArn = Lens.lens (\Backup' {backupArn} -> backupArn) (\s@Backup' {} a -> s {backupArn = a} :: Backup)
 
 -- | The subnet IDs that are obtained from the server when the backup is
 -- created.
-backup_subnetIds :: Lens.Lens' Backup (Core.Maybe [Core.Text])
-backup_subnetIds = Lens.lens (\Backup' {subnetIds} -> subnetIds) (\s@Backup' {} a -> s {subnetIds = a} :: Backup) Core.. Lens.mapping Lens._Coerce
+backup_subnetIds :: Lens.Lens' Backup (Prelude.Maybe [Prelude.Text])
+backup_subnetIds = Lens.lens (\Backup' {subnetIds} -> subnetIds) (\s@Backup' {} a -> s {subnetIds = a} :: Backup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The key pair that is obtained from the server when the backup is
 -- created.
-backup_keyPair :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_keyPair :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_keyPair = Lens.lens (\Backup' {keyPair} -> keyPair) (\s@Backup' {} a -> s {keyPair = a} :: Backup)
 
 -- | This field is deprecated and is no longer used.
-backup_s3DataSize :: Lens.Lens' Backup (Core.Maybe Core.Int)
+backup_s3DataSize :: Lens.Lens' Backup (Prelude.Maybe Prelude.Int)
 backup_s3DataSize = Lens.lens (\Backup' {s3DataSize} -> s3DataSize) (\s@Backup' {} a -> s {s3DataSize = a} :: Backup)
 
 -- | The time stamp when the backup was created in the database. Example:
 -- @2016-07-29T13:38:47.520Z@
-backup_createdAt :: Lens.Lens' Backup (Core.Maybe Core.UTCTime)
-backup_createdAt = Lens.lens (\Backup' {createdAt} -> createdAt) (\s@Backup' {} a -> s {createdAt = a} :: Backup) Core.. Lens.mapping Core._Time
+backup_createdAt :: Lens.Lens' Backup (Prelude.Maybe Prelude.UTCTime)
+backup_createdAt = Lens.lens (\Backup' {createdAt} -> createdAt) (\s@Backup' {} a -> s {createdAt = a} :: Backup) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the server from which the backup was made.
-backup_serverName :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_serverName :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_serverName = Lens.lens (\Backup' {serverName} -> serverName) (\s@Backup' {} a -> s {serverName = a} :: Backup)
 
 -- | The Amazon S3 URL of the backup\'s log file.
-backup_s3LogUrl :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_s3LogUrl :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_s3LogUrl = Lens.lens (\Backup' {s3LogUrl} -> s3LogUrl) (\s@Backup' {} a -> s {s3LogUrl = a} :: Backup)
 
 -- | The engine version that is obtained from the server when the backup is
 -- created.
-backup_engineVersion :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_engineVersion :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_engineVersion = Lens.lens (\Backup' {engineVersion} -> engineVersion) (\s@Backup' {} a -> s {engineVersion = a} :: Backup)
 
 -- | The preferred maintenance period that is obtained from the server when
 -- the backup is created.
-backup_preferredMaintenanceWindow :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_preferredMaintenanceWindow :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_preferredMaintenanceWindow = Lens.lens (\Backup' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@Backup' {} a -> s {preferredMaintenanceWindow = a} :: Backup)
 
 -- | The version of AWS OpsWorks CM-specific tools that is obtained from the
 -- server when the backup is created.
-backup_toolsVersion :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_toolsVersion :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_toolsVersion = Lens.lens (\Backup' {toolsVersion} -> toolsVersion) (\s@Backup' {} a -> s {toolsVersion = a} :: Backup)
 
 -- | The engine model that is obtained from the server when the backup is
 -- created.
-backup_engineModel :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_engineModel :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_engineModel = Lens.lens (\Backup' {engineModel} -> engineModel) (\s@Backup' {} a -> s {engineModel = a} :: Backup)
 
 -- | The engine type that is obtained from the server when the backup is
 -- created.
-backup_engine :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_engine :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_engine = Lens.lens (\Backup' {engine} -> engine) (\s@Backup' {} a -> s {engine = a} :: Backup)
 
 -- | A user-provided description for a manual backup. This field is empty for
 -- automated backups.
-backup_description :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_description :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_description = Lens.lens (\Backup' {description} -> description) (\s@Backup' {} a -> s {description = a} :: Backup)
 
 -- | An informational message about backup status.
-backup_statusDescription :: Lens.Lens' Backup (Core.Maybe Core.Text)
+backup_statusDescription :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_statusDescription = Lens.lens (\Backup' {statusDescription} -> statusDescription) (\s@Backup' {} a -> s {statusDescription = a} :: Backup)
 
 instance Core.FromJSON Backup where
@@ -317,32 +318,34 @@ instance Core.FromJSON Backup where
       "Backup"
       ( \x ->
           Backup'
-            Core.<$> (x Core..:? "SecurityGroupIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "InstanceProfileArn")
-            Core.<*> (x Core..:? "PreferredBackupWindow")
-            Core.<*> (x Core..:? "Status")
-            Core.<*> (x Core..:? "ServiceRoleArn")
-            Core.<*> (x Core..:? "UserArn")
-            Core.<*> (x Core..:? "InstanceType")
-            Core.<*> (x Core..:? "BackupType")
-            Core.<*> (x Core..:? "BackupId")
-            Core.<*> (x Core..:? "S3DataUrl")
-            Core.<*> (x Core..:? "BackupArn")
-            Core.<*> (x Core..:? "SubnetIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "KeyPair")
-            Core.<*> (x Core..:? "S3DataSize")
-            Core.<*> (x Core..:? "CreatedAt")
-            Core.<*> (x Core..:? "ServerName")
-            Core.<*> (x Core..:? "S3LogUrl")
-            Core.<*> (x Core..:? "EngineVersion")
-            Core.<*> (x Core..:? "PreferredMaintenanceWindow")
-            Core.<*> (x Core..:? "ToolsVersion")
-            Core.<*> (x Core..:? "EngineModel")
-            Core.<*> (x Core..:? "Engine")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "StatusDescription")
+            Prelude.<$> ( x Core..:? "SecurityGroupIds"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "InstanceProfileArn")
+            Prelude.<*> (x Core..:? "PreferredBackupWindow")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "ServiceRoleArn")
+            Prelude.<*> (x Core..:? "UserArn")
+            Prelude.<*> (x Core..:? "InstanceType")
+            Prelude.<*> (x Core..:? "BackupType")
+            Prelude.<*> (x Core..:? "BackupId")
+            Prelude.<*> (x Core..:? "S3DataUrl")
+            Prelude.<*> (x Core..:? "BackupArn")
+            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "KeyPair")
+            Prelude.<*> (x Core..:? "S3DataSize")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "ServerName")
+            Prelude.<*> (x Core..:? "S3LogUrl")
+            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
+            Prelude.<*> (x Core..:? "ToolsVersion")
+            Prelude.<*> (x Core..:? "EngineModel")
+            Prelude.<*> (x Core..:? "Engine")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "StatusDescription")
       )
 
-instance Core.Hashable Backup
+instance Prelude.Hashable Backup
 
-instance Core.NFData Backup
+instance Prelude.NFData Backup

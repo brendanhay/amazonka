@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data GetDefaultCreditSpecification = GetDefaultCreditSpecification'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The instance family.
     instanceFamily :: UnlimitedSupportedInstanceFamily
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDefaultCreditSpecification' with all optional fields omitted.
@@ -84,7 +85,7 @@ newGetDefaultCreditSpecification ::
 newGetDefaultCreditSpecification pInstanceFamily_ =
   GetDefaultCreditSpecification'
     { dryRun =
-        Core.Nothing,
+        Prelude.Nothing,
       instanceFamily = pInstanceFamily_
     }
 
@@ -92,7 +93,7 @@ newGetDefaultCreditSpecification pInstanceFamily_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getDefaultCreditSpecification_dryRun :: Lens.Lens' GetDefaultCreditSpecification (Core.Maybe Core.Bool)
+getDefaultCreditSpecification_dryRun :: Lens.Lens' GetDefaultCreditSpecification (Prelude.Maybe Prelude.Bool)
 getDefaultCreditSpecification_dryRun = Lens.lens (\GetDefaultCreditSpecification' {dryRun} -> dryRun) (\s@GetDefaultCreditSpecification' {} a -> s {dryRun = a} :: GetDefaultCreditSpecification)
 
 -- | The instance family.
@@ -111,26 +112,31 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetDefaultCreditSpecificationResponse'
-            Core.<$> (x Core..@? "instanceFamilyCreditSpecification")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "instanceFamilyCreditSpecification")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDefaultCreditSpecification
+instance
+  Prelude.Hashable
+    GetDefaultCreditSpecification
 
-instance Core.NFData GetDefaultCreditSpecification
+instance Prelude.NFData GetDefaultCreditSpecification
 
 instance Core.ToHeaders GetDefaultCreditSpecification where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetDefaultCreditSpecification where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDefaultCreditSpecification where
   toQuery GetDefaultCreditSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetDefaultCreditSpecification" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ( "GetDefaultCreditSpecification" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "InstanceFamily" Core.=: instanceFamily
       ]
@@ -138,11 +144,11 @@ instance Core.ToQuery GetDefaultCreditSpecification where
 -- | /See:/ 'newGetDefaultCreditSpecificationResponse' smart constructor.
 data GetDefaultCreditSpecificationResponse = GetDefaultCreditSpecificationResponse'
   { -- | The default credit option for CPU usage of the instance family.
-    instanceFamilyCreditSpecification :: Core.Maybe InstanceFamilyCreditSpecification,
+    instanceFamilyCreditSpecification :: Prelude.Maybe InstanceFamilyCreditSpecification,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDefaultCreditSpecificationResponse' with all optional fields omitted.
@@ -157,23 +163,23 @@ data GetDefaultCreditSpecificationResponse = GetDefaultCreditSpecificationRespon
 -- 'httpStatus', 'getDefaultCreditSpecificationResponse_httpStatus' - The response's http status code.
 newGetDefaultCreditSpecificationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDefaultCreditSpecificationResponse
 newGetDefaultCreditSpecificationResponse pHttpStatus_ =
   GetDefaultCreditSpecificationResponse'
     { instanceFamilyCreditSpecification =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The default credit option for CPU usage of the instance family.
-getDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification :: Lens.Lens' GetDefaultCreditSpecificationResponse (Core.Maybe InstanceFamilyCreditSpecification)
+getDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification :: Lens.Lens' GetDefaultCreditSpecificationResponse (Prelude.Maybe InstanceFamilyCreditSpecification)
 getDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification = Lens.lens (\GetDefaultCreditSpecificationResponse' {instanceFamilyCreditSpecification} -> instanceFamilyCreditSpecification) (\s@GetDefaultCreditSpecificationResponse' {} a -> s {instanceFamilyCreditSpecification = a} :: GetDefaultCreditSpecificationResponse)
 
 -- | The response's http status code.
-getDefaultCreditSpecificationResponse_httpStatus :: Lens.Lens' GetDefaultCreditSpecificationResponse Core.Int
+getDefaultCreditSpecificationResponse_httpStatus :: Lens.Lens' GetDefaultCreditSpecificationResponse Prelude.Int
 getDefaultCreditSpecificationResponse_httpStatus = Lens.lens (\GetDefaultCreditSpecificationResponse' {httpStatus} -> httpStatus) (\s@GetDefaultCreditSpecificationResponse' {} a -> s {httpStatus = a} :: GetDefaultCreditSpecificationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetDefaultCreditSpecificationResponse

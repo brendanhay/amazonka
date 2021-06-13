@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.TracingConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Selects whether or not the state machine\'s AWS X-Ray tracing is
 -- enabled. Default is @false@
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTracingConfiguration' smart constructor.
 data TracingConfiguration = TracingConfiguration'
   { -- | When set to @true@, AWS X-Ray tracing is enabled.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TracingConfiguration' with all optional fields omitted.
@@ -44,10 +45,10 @@ data TracingConfiguration = TracingConfiguration'
 newTracingConfiguration ::
   TracingConfiguration
 newTracingConfiguration =
-  TracingConfiguration' {enabled = Core.Nothing}
+  TracingConfiguration' {enabled = Prelude.Nothing}
 
 -- | When set to @true@, AWS X-Ray tracing is enabled.
-tracingConfiguration_enabled :: Lens.Lens' TracingConfiguration (Core.Maybe Core.Bool)
+tracingConfiguration_enabled :: Lens.Lens' TracingConfiguration (Prelude.Maybe Prelude.Bool)
 tracingConfiguration_enabled = Lens.lens (\TracingConfiguration' {enabled} -> enabled) (\s@TracingConfiguration' {} a -> s {enabled = a} :: TracingConfiguration)
 
 instance Core.FromJSON TracingConfiguration where
@@ -56,16 +57,16 @@ instance Core.FromJSON TracingConfiguration where
       "TracingConfiguration"
       ( \x ->
           TracingConfiguration'
-            Core.<$> (x Core..:? "enabled")
+            Prelude.<$> (x Core..:? "enabled")
       )
 
-instance Core.Hashable TracingConfiguration
+instance Prelude.Hashable TracingConfiguration
 
-instance Core.NFData TracingConfiguration
+instance Prelude.NFData TracingConfiguration
 
 instance Core.ToJSON TracingConfiguration where
   toJSON TracingConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [("enabled" Core..=) Core.<$> enabled]
+      ( Prelude.catMaybes
+          [("enabled" Core..=) Prelude.<$> enabled]
       )

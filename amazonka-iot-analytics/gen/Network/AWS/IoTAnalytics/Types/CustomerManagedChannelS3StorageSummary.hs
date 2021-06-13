@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary whe
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to store channel data in an S3 bucket that you manage.
 --
@@ -30,14 +31,14 @@ data CustomerManagedChannelS3StorageSummary = CustomerManagedChannelS3StorageSum
     -- objects. Each object in an S3 bucket has a key that is its unique
     -- identifier within the bucket (each object in a bucket has exactly one
     -- key). The prefix must end with a forward slash (\/).
-    keyPrefix :: Core.Maybe Core.Text,
+    keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the role that grants AWS IoT Analytics permission to interact
     -- with your Amazon S3 resources.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket in which channel data is stored.
-    bucket :: Core.Maybe Core.Text
+    bucket :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomerManagedChannelS3StorageSummary' with all optional fields omitted.
@@ -61,25 +62,25 @@ newCustomerManagedChannelS3StorageSummary ::
 newCustomerManagedChannelS3StorageSummary =
   CustomerManagedChannelS3StorageSummary'
     { keyPrefix =
-        Core.Nothing,
-      roleArn = Core.Nothing,
-      bucket = Core.Nothing
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      bucket = Prelude.Nothing
     }
 
 -- | Optional. The prefix used to create the keys of the channel data
 -- objects. Each object in an S3 bucket has a key that is its unique
 -- identifier within the bucket (each object in a bucket has exactly one
 -- key). The prefix must end with a forward slash (\/).
-customerManagedChannelS3StorageSummary_keyPrefix :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Core.Maybe Core.Text)
+customerManagedChannelS3StorageSummary_keyPrefix :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedChannelS3StorageSummary_keyPrefix = Lens.lens (\CustomerManagedChannelS3StorageSummary' {keyPrefix} -> keyPrefix) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {keyPrefix = a} :: CustomerManagedChannelS3StorageSummary)
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to interact
 -- with your Amazon S3 resources.
-customerManagedChannelS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Core.Maybe Core.Text)
+customerManagedChannelS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedChannelS3StorageSummary_roleArn = Lens.lens (\CustomerManagedChannelS3StorageSummary' {roleArn} -> roleArn) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {roleArn = a} :: CustomerManagedChannelS3StorageSummary)
 
 -- | The name of the S3 bucket in which channel data is stored.
-customerManagedChannelS3StorageSummary_bucket :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Core.Maybe Core.Text)
+customerManagedChannelS3StorageSummary_bucket :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedChannelS3StorageSummary_bucket = Lens.lens (\CustomerManagedChannelS3StorageSummary' {bucket} -> bucket) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {bucket = a} :: CustomerManagedChannelS3StorageSummary)
 
 instance
@@ -91,15 +92,15 @@ instance
       "CustomerManagedChannelS3StorageSummary"
       ( \x ->
           CustomerManagedChannelS3StorageSummary'
-            Core.<$> (x Core..:? "keyPrefix")
-            Core.<*> (x Core..:? "roleArn")
-            Core.<*> (x Core..:? "bucket")
+            Prelude.<$> (x Core..:? "keyPrefix")
+            Prelude.<*> (x Core..:? "roleArn")
+            Prelude.<*> (x Core..:? "bucket")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CustomerManagedChannelS3StorageSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     CustomerManagedChannelS3StorageSummary

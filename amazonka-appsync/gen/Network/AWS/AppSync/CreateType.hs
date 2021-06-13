@@ -44,22 +44,23 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateType' smart constructor.
 data CreateType = CreateType'
   { -- | The API ID.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | The type definition, in GraphQL Schema Definition Language (SDL) format.
     --
     -- For more information, see the
     -- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
-    definition :: Core.Text,
+    definition :: Prelude.Text,
     -- | The type format: SDL or JSON.
     format :: TypeDefinitionFormat
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateType' with all optional fields omitted.
@@ -79,9 +80,9 @@ data CreateType = CreateType'
 -- 'format', 'createType_format' - The type format: SDL or JSON.
 newCreateType ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'definition'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'format'
   TypeDefinitionFormat ->
   CreateType
@@ -93,14 +94,14 @@ newCreateType pApiId_ pDefinition_ pFormat_ =
     }
 
 -- | The API ID.
-createType_apiId :: Lens.Lens' CreateType Core.Text
+createType_apiId :: Lens.Lens' CreateType Prelude.Text
 createType_apiId = Lens.lens (\CreateType' {apiId} -> apiId) (\s@CreateType' {} a -> s {apiId = a} :: CreateType)
 
 -- | The type definition, in GraphQL Schema Definition Language (SDL) format.
 --
 -- For more information, see the
 -- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
-createType_definition :: Lens.Lens' CreateType Core.Text
+createType_definition :: Lens.Lens' CreateType Prelude.Text
 createType_definition = Lens.lens (\CreateType' {definition} -> definition) (\s@CreateType' {} a -> s {definition = a} :: CreateType)
 
 -- | The type format: SDL or JSON.
@@ -114,48 +115,50 @@ instance Core.AWSRequest CreateType where
     Response.receiveJSON
       ( \s h x ->
           CreateTypeResponse'
-            Core.<$> (x Core..?> "type")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "type")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateType
+instance Prelude.Hashable CreateType
 
-instance Core.NFData CreateType
+instance Prelude.NFData CreateType
 
 instance Core.ToHeaders CreateType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateType where
   toJSON CreateType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("definition" Core..= definition),
-            Core.Just ("format" Core..= format)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("definition" Core..= definition),
+            Prelude.Just ("format" Core..= format)
           ]
       )
 
 instance Core.ToPath CreateType where
   toPath CreateType' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apis/", Core.toBS apiId, "/types"]
 
 instance Core.ToQuery CreateType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTypeResponse' smart constructor.
 data CreateTypeResponse = CreateTypeResponse'
   { -- | The @Type@ object.
-    type' :: Core.Maybe Type,
+    type' :: Prelude.Maybe Type,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTypeResponse' with all optional fields omitted.
@@ -170,20 +173,20 @@ data CreateTypeResponse = CreateTypeResponse'
 -- 'httpStatus', 'createTypeResponse_httpStatus' - The response's http status code.
 newCreateTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTypeResponse
 newCreateTypeResponse pHttpStatus_ =
   CreateTypeResponse'
-    { type' = Core.Nothing,
+    { type' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @Type@ object.
-createTypeResponse_type :: Lens.Lens' CreateTypeResponse (Core.Maybe Type)
+createTypeResponse_type :: Lens.Lens' CreateTypeResponse (Prelude.Maybe Type)
 createTypeResponse_type = Lens.lens (\CreateTypeResponse' {type'} -> type') (\s@CreateTypeResponse' {} a -> s {type' = a} :: CreateTypeResponse)
 
 -- | The response's http status code.
-createTypeResponse_httpStatus :: Lens.Lens' CreateTypeResponse Core.Int
+createTypeResponse_httpStatus :: Lens.Lens' CreateTypeResponse Prelude.Int
 createTypeResponse_httpStatus = Lens.lens (\CreateTypeResponse' {httpStatus} -> httpStatus) (\s@CreateTypeResponse' {} a -> s {httpStatus = a} :: CreateTypeResponse)
 
-instance Core.NFData CreateTypeResponse
+instance Prelude.NFData CreateTypeResponse

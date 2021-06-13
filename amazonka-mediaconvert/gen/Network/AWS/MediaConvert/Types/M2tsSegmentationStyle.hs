@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.M2tsSegmentationStyle
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The segmentation style parameter controls how segmentation markers are
 -- inserted into the transport stream. With avails, it is possible that
@@ -45,15 +46,15 @@ newtype M2tsSegmentationStyle = M2tsSegmentationStyle'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

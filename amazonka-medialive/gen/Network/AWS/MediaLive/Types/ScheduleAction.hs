@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleActionSettings
 import Network.AWS.MediaLive.Types.ScheduleActionStartSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on a single schedule action.
 --
@@ -34,13 +35,13 @@ data ScheduleAction = ScheduleAction'
     -- schedule is automatically cleaned up to remove actions with a start time
     -- of more than 1 hour ago (approximately) so at that point a name can be
     -- reused.
-    actionName :: Core.Text,
+    actionName :: Prelude.Text,
     -- | The time for the action to start in the channel.
     scheduleActionStartSettings :: ScheduleActionStartSettings,
     -- | Settings for this schedule action.
     scheduleActionSettings :: ScheduleActionSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduleAction' with all optional fields omitted.
@@ -62,7 +63,7 @@ data ScheduleAction = ScheduleAction'
 -- 'scheduleActionSettings', 'scheduleAction_scheduleActionSettings' - Settings for this schedule action.
 newScheduleAction ::
   -- | 'actionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scheduleActionStartSettings'
   ScheduleActionStartSettings ->
   -- | 'scheduleActionSettings'
@@ -85,7 +86,7 @@ newScheduleAction
 -- schedule is automatically cleaned up to remove actions with a start time
 -- of more than 1 hour ago (approximately) so at that point a name can be
 -- reused.
-scheduleAction_actionName :: Lens.Lens' ScheduleAction Core.Text
+scheduleAction_actionName :: Lens.Lens' ScheduleAction Prelude.Text
 scheduleAction_actionName = Lens.lens (\ScheduleAction' {actionName} -> actionName) (\s@ScheduleAction' {} a -> s {actionName = a} :: ScheduleAction)
 
 -- | The time for the action to start in the channel.
@@ -102,25 +103,25 @@ instance Core.FromJSON ScheduleAction where
       "ScheduleAction"
       ( \x ->
           ScheduleAction'
-            Core.<$> (x Core..: "actionName")
-            Core.<*> (x Core..: "scheduleActionStartSettings")
-            Core.<*> (x Core..: "scheduleActionSettings")
+            Prelude.<$> (x Core..: "actionName")
+            Prelude.<*> (x Core..: "scheduleActionStartSettings")
+            Prelude.<*> (x Core..: "scheduleActionSettings")
       )
 
-instance Core.Hashable ScheduleAction
+instance Prelude.Hashable ScheduleAction
 
-instance Core.NFData ScheduleAction
+instance Prelude.NFData ScheduleAction
 
 instance Core.ToJSON ScheduleAction where
   toJSON ScheduleAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("actionName" Core..= actionName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("actionName" Core..= actionName),
+            Prelude.Just
               ( "scheduleActionStartSettings"
                   Core..= scheduleActionStartSettings
               ),
-            Core.Just
+            Prelude.Just
               ( "scheduleActionSettings"
                   Core..= scheduleActionSettings
               )

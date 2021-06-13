@@ -39,6 +39,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | An ARN of a CloudFront resource.
-    resource :: Core.Text,
+    resource :: Prelude.Text,
     -- | A complex type that contains zero or more @Tag@ elements.
     tags :: Tags
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -66,7 +67,7 @@ data TagResource = TagResource'
 -- 'tags', 'tagResource_tags' - A complex type that contains zero or more @Tag@ elements.
 newTagResource ::
   -- | 'resource'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tags'
   Tags ->
   TagResource
@@ -74,7 +75,7 @@ newTagResource pResource_ pTags_ =
   TagResource' {resource = pResource_, tags = pTags_}
 
 -- | An ARN of a CloudFront resource.
-tagResource_resource :: Lens.Lens' TagResource Core.Text
+tagResource_resource :: Lens.Lens' TagResource Prelude.Text
 tagResource_resource = Lens.lens (\TagResource' {resource} -> resource) (\s@TagResource' {} a -> s {resource = a} :: TagResource)
 
 -- | A complex type that contains zero or more @Tag@ elements.
@@ -86,9 +87,9 @@ instance Core.AWSRequest TagResource where
   request = Request.postXML defaultService
   response = Response.receiveNull TagResourceResponse'
 
-instance Core.Hashable TagResource
+instance Prelude.Hashable TagResource
 
-instance Core.NFData TagResource
+instance Prelude.NFData TagResource
 
 instance Core.ToElement TagResource where
   toElement TagResource' {..} =
@@ -97,21 +98,21 @@ instance Core.ToElement TagResource where
       tags
 
 instance Core.ToHeaders TagResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath TagResource where
-  toPath = Core.const "/2020-05-31/tagging"
+  toPath = Prelude.const "/2020-05-31/tagging"
 
 instance Core.ToQuery TagResource where
   toQuery TagResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Resource" Core.=: resource, "Operation=Tag"]
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -121,4 +122,4 @@ newTagResourceResponse ::
   TagResourceResponse
 newTagResourceResponse = TagResourceResponse'
 
-instance Core.NFData TagResourceResponse
+instance Prelude.NFData TagResourceResponse

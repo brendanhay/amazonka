@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.VpcSecurityGroupMembership where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used as a response element for queries on VPC security
 -- group membership.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newVpcSecurityGroupMembership' smart constructor.
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership'
   { -- | The status of the VPC security group.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The name of the VPC security group.
-    vpcSecurityGroupId :: Core.Maybe Core.Text
+    vpcSecurityGroupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcSecurityGroupMembership' with all optional fields omitted.
@@ -49,24 +50,25 @@ newVpcSecurityGroupMembership ::
   VpcSecurityGroupMembership
 newVpcSecurityGroupMembership =
   VpcSecurityGroupMembership'
-    { status = Core.Nothing,
-      vpcSecurityGroupId = Core.Nothing
+    { status =
+        Prelude.Nothing,
+      vpcSecurityGroupId = Prelude.Nothing
     }
 
 -- | The status of the VPC security group.
-vpcSecurityGroupMembership_status :: Lens.Lens' VpcSecurityGroupMembership (Core.Maybe Core.Text)
+vpcSecurityGroupMembership_status :: Lens.Lens' VpcSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 vpcSecurityGroupMembership_status = Lens.lens (\VpcSecurityGroupMembership' {status} -> status) (\s@VpcSecurityGroupMembership' {} a -> s {status = a} :: VpcSecurityGroupMembership)
 
 -- | The name of the VPC security group.
-vpcSecurityGroupMembership_vpcSecurityGroupId :: Lens.Lens' VpcSecurityGroupMembership (Core.Maybe Core.Text)
+vpcSecurityGroupMembership_vpcSecurityGroupId :: Lens.Lens' VpcSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 vpcSecurityGroupMembership_vpcSecurityGroupId = Lens.lens (\VpcSecurityGroupMembership' {vpcSecurityGroupId} -> vpcSecurityGroupId) (\s@VpcSecurityGroupMembership' {} a -> s {vpcSecurityGroupId = a} :: VpcSecurityGroupMembership)
 
 instance Core.FromXML VpcSecurityGroupMembership where
   parseXML x =
     VpcSecurityGroupMembership'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "VpcSecurityGroupId")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "VpcSecurityGroupId")
 
-instance Core.Hashable VpcSecurityGroupMembership
+instance Prelude.Hashable VpcSecurityGroupMembership
 
-instance Core.NFData VpcSecurityGroupMembership
+instance Prelude.NFData VpcSecurityGroupMembership

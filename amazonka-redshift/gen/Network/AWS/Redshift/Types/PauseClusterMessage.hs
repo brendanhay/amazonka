@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.PauseClusterMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a pause cluster operation. For example, a scheduled action to
@@ -29,9 +30,9 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newPauseClusterMessage' smart constructor.
 data PauseClusterMessage = PauseClusterMessage'
   { -- | The identifier of the cluster to be paused.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PauseClusterMessage' with all optional fields omitted.
@@ -44,7 +45,7 @@ data PauseClusterMessage = PauseClusterMessage'
 -- 'clusterIdentifier', 'pauseClusterMessage_clusterIdentifier' - The identifier of the cluster to be paused.
 newPauseClusterMessage ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   PauseClusterMessage
 newPauseClusterMessage pClusterIdentifier_ =
   PauseClusterMessage'
@@ -53,19 +54,19 @@ newPauseClusterMessage pClusterIdentifier_ =
     }
 
 -- | The identifier of the cluster to be paused.
-pauseClusterMessage_clusterIdentifier :: Lens.Lens' PauseClusterMessage Core.Text
+pauseClusterMessage_clusterIdentifier :: Lens.Lens' PauseClusterMessage Prelude.Text
 pauseClusterMessage_clusterIdentifier = Lens.lens (\PauseClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@PauseClusterMessage' {} a -> s {clusterIdentifier = a} :: PauseClusterMessage)
 
 instance Core.FromXML PauseClusterMessage where
   parseXML x =
     PauseClusterMessage'
-      Core.<$> (x Core..@ "ClusterIdentifier")
+      Prelude.<$> (x Core..@ "ClusterIdentifier")
 
-instance Core.Hashable PauseClusterMessage
+instance Prelude.Hashable PauseClusterMessage
 
-instance Core.NFData PauseClusterMessage
+instance Prelude.NFData PauseClusterMessage
 
 instance Core.ToQuery PauseClusterMessage where
   toQuery PauseClusterMessage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["ClusterIdentifier" Core.=: clusterIdentifier]

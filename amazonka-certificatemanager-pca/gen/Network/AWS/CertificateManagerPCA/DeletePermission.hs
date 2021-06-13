@@ -69,25 +69,26 @@ where
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeletePermission' smart constructor.
 data DeletePermission = DeletePermission'
   { -- | The AWS account that calls this action.
-    sourceAccount :: Core.Maybe Core.Text,
+    sourceAccount :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Number (ARN) of the private CA that issued the
     -- permissions. You can find the CA\'s ARN by calling the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action. This must have the following form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-    certificateAuthorityArn :: Core.Text,
+    certificateAuthorityArn :: Prelude.Text,
     -- | The AWS service or identity that will have its CA permissions revoked.
     -- At this time, the only valid service principal is @acm.amazonaws.com@
-    principal :: Core.Text
+    principal :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePermission' with all optional fields omitted.
@@ -110,21 +111,21 @@ data DeletePermission = DeletePermission'
 -- At this time, the only valid service principal is @acm.amazonaws.com@
 newDeletePermission ::
   -- | 'certificateAuthorityArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'principal'
-  Core.Text ->
+  Prelude.Text ->
   DeletePermission
 newDeletePermission
   pCertificateAuthorityArn_
   pPrincipal_ =
     DeletePermission'
-      { sourceAccount = Core.Nothing,
+      { sourceAccount = Prelude.Nothing,
         certificateAuthorityArn = pCertificateAuthorityArn_,
         principal = pPrincipal_
       }
 
 -- | The AWS account that calls this action.
-deletePermission_sourceAccount :: Lens.Lens' DeletePermission (Core.Maybe Core.Text)
+deletePermission_sourceAccount :: Lens.Lens' DeletePermission (Prelude.Maybe Prelude.Text)
 deletePermission_sourceAccount = Lens.lens (\DeletePermission' {sourceAccount} -> sourceAccount) (\s@DeletePermission' {} a -> s {sourceAccount = a} :: DeletePermission)
 
 -- | The Amazon Resource Number (ARN) of the private CA that issued the
@@ -133,12 +134,12 @@ deletePermission_sourceAccount = Lens.lens (\DeletePermission' {sourceAccount} -
 -- action. This must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-deletePermission_certificateAuthorityArn :: Lens.Lens' DeletePermission Core.Text
+deletePermission_certificateAuthorityArn :: Lens.Lens' DeletePermission Prelude.Text
 deletePermission_certificateAuthorityArn = Lens.lens (\DeletePermission' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@DeletePermission' {} a -> s {certificateAuthorityArn = a} :: DeletePermission)
 
 -- | The AWS service or identity that will have its CA permissions revoked.
 -- At this time, the only valid service principal is @acm.amazonaws.com@
-deletePermission_principal :: Lens.Lens' DeletePermission Core.Text
+deletePermission_principal :: Lens.Lens' DeletePermission Prelude.Text
 deletePermission_principal = Lens.lens (\DeletePermission' {principal} -> principal) (\s@DeletePermission' {} a -> s {principal = a} :: DeletePermission)
 
 instance Core.AWSRequest DeletePermission where
@@ -149,45 +150,49 @@ instance Core.AWSRequest DeletePermission where
   response =
     Response.receiveNull DeletePermissionResponse'
 
-instance Core.Hashable DeletePermission
+instance Prelude.Hashable DeletePermission
 
-instance Core.NFData DeletePermission
+instance Prelude.NFData DeletePermission
 
 instance Core.ToHeaders DeletePermission where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ACMPrivateCA.DeletePermission" :: Core.ByteString),
+              Core.=# ( "ACMPrivateCA.DeletePermission" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeletePermission where
   toJSON DeletePermission' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SourceAccount" Core..=) Core.<$> sourceAccount,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
+            Prelude.Just
               ( "CertificateAuthorityArn"
                   Core..= certificateAuthorityArn
               ),
-            Core.Just ("Principal" Core..= principal)
+            Prelude.Just ("Principal" Core..= principal)
           ]
       )
 
 instance Core.ToPath DeletePermission where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePermission where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePermissionResponse' smart constructor.
 data DeletePermissionResponse = DeletePermissionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePermissionResponse' with all optional fields omitted.
@@ -198,4 +203,4 @@ newDeletePermissionResponse ::
 newDeletePermissionResponse =
   DeletePermissionResponse'
 
-instance Core.NFData DeletePermissionResponse
+instance Prelude.NFData DeletePermissionResponse

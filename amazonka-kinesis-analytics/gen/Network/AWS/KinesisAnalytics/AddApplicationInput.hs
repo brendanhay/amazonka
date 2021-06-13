@@ -63,6 +63,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,18 +73,18 @@ import qualified Network.AWS.Response as Response
 data AddApplicationInput = AddApplicationInput'
   { -- | Name of your existing Amazon Kinesis Analytics application to which you
     -- want to add the streaming source.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | Current version of your Amazon Kinesis Analytics application. You can
     -- use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to find the current application version.
-    currentApplicationVersionId :: Core.Natural,
+    currentApplicationVersionId :: Prelude.Natural,
     -- | The
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Input.html Input>
     -- to add.
     input :: Input
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddApplicationInput' with all optional fields omitted.
@@ -106,9 +107,9 @@ data AddApplicationInput = AddApplicationInput'
 -- to add.
 newAddApplicationInput ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'currentApplicationVersionId'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'input'
   Input ->
   AddApplicationInput
@@ -126,14 +127,14 @@ newAddApplicationInput
 
 -- | Name of your existing Amazon Kinesis Analytics application to which you
 -- want to add the streaming source.
-addApplicationInput_applicationName :: Lens.Lens' AddApplicationInput Core.Text
+addApplicationInput_applicationName :: Lens.Lens' AddApplicationInput Prelude.Text
 addApplicationInput_applicationName = Lens.lens (\AddApplicationInput' {applicationName} -> applicationName) (\s@AddApplicationInput' {} a -> s {applicationName = a} :: AddApplicationInput)
 
 -- | Current version of your Amazon Kinesis Analytics application. You can
 -- use the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
 -- operation to find the current application version.
-addApplicationInput_currentApplicationVersionId :: Lens.Lens' AddApplicationInput Core.Natural
+addApplicationInput_currentApplicationVersionId :: Lens.Lens' AddApplicationInput Prelude.Natural
 addApplicationInput_currentApplicationVersionId = Lens.lens (\AddApplicationInput' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationInput' {} a -> s {currentApplicationVersionId = a} :: AddApplicationInput)
 
 -- | The
@@ -151,54 +152,56 @@ instance Core.AWSRequest AddApplicationInput where
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationInputResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddApplicationInput
+instance Prelude.Hashable AddApplicationInput
 
-instance Core.NFData AddApplicationInput
+instance Prelude.NFData AddApplicationInput
 
 instance Core.ToHeaders AddApplicationInput where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "KinesisAnalytics_20150814.AddApplicationInput" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddApplicationInput where
   toJSON AddApplicationInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ApplicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ( "CurrentApplicationVersionId"
                   Core..= currentApplicationVersionId
               ),
-            Core.Just ("Input" Core..= input)
+            Prelude.Just ("Input" Core..= input)
           ]
       )
 
 instance Core.ToPath AddApplicationInput where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddApplicationInput where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newAddApplicationInputResponse' smart constructor.
 data AddApplicationInputResponse = AddApplicationInputResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddApplicationInputResponse' with all optional fields omitted.
@@ -211,7 +214,7 @@ data AddApplicationInputResponse = AddApplicationInputResponse'
 -- 'httpStatus', 'addApplicationInputResponse_httpStatus' - The response's http status code.
 newAddApplicationInputResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddApplicationInputResponse
 newAddApplicationInputResponse pHttpStatus_ =
   AddApplicationInputResponse'
@@ -220,7 +223,7 @@ newAddApplicationInputResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-addApplicationInputResponse_httpStatus :: Lens.Lens' AddApplicationInputResponse Core.Int
+addApplicationInputResponse_httpStatus :: Lens.Lens' AddApplicationInputResponse Prelude.Int
 addApplicationInputResponse_httpStatus = Lens.lens (\AddApplicationInputResponse' {httpStatus} -> httpStatus) (\s@AddApplicationInputResponse' {} a -> s {httpStatus = a} :: AddApplicationInputResponse)
 
-instance Core.NFData AddApplicationInputResponse
+instance Prelude.NFData AddApplicationInputResponse

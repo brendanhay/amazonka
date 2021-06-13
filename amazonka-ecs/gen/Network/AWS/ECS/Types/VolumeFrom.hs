@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.VolumeFrom where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on a data volume from another container in the same task
 -- definition.
@@ -30,12 +31,12 @@ data VolumeFrom = VolumeFrom'
   { -- | If this value is @true@, the container has read-only access to the
     -- volume. If this value is @false@, then the container can write to the
     -- volume. The default value is @false@.
-    readOnly :: Core.Maybe Core.Bool,
+    readOnly :: Prelude.Maybe Prelude.Bool,
     -- | The name of another container within the same task definition from which
     -- to mount volumes.
-    sourceContainer :: Core.Maybe Core.Text
+    sourceContainer :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VolumeFrom' with all optional fields omitted.
@@ -55,19 +56,19 @@ newVolumeFrom ::
   VolumeFrom
 newVolumeFrom =
   VolumeFrom'
-    { readOnly = Core.Nothing,
-      sourceContainer = Core.Nothing
+    { readOnly = Prelude.Nothing,
+      sourceContainer = Prelude.Nothing
     }
 
 -- | If this value is @true@, the container has read-only access to the
 -- volume. If this value is @false@, then the container can write to the
 -- volume. The default value is @false@.
-volumeFrom_readOnly :: Lens.Lens' VolumeFrom (Core.Maybe Core.Bool)
+volumeFrom_readOnly :: Lens.Lens' VolumeFrom (Prelude.Maybe Prelude.Bool)
 volumeFrom_readOnly = Lens.lens (\VolumeFrom' {readOnly} -> readOnly) (\s@VolumeFrom' {} a -> s {readOnly = a} :: VolumeFrom)
 
 -- | The name of another container within the same task definition from which
 -- to mount volumes.
-volumeFrom_sourceContainer :: Lens.Lens' VolumeFrom (Core.Maybe Core.Text)
+volumeFrom_sourceContainer :: Lens.Lens' VolumeFrom (Prelude.Maybe Prelude.Text)
 volumeFrom_sourceContainer = Lens.lens (\VolumeFrom' {sourceContainer} -> sourceContainer) (\s@VolumeFrom' {} a -> s {sourceContainer = a} :: VolumeFrom)
 
 instance Core.FromJSON VolumeFrom where
@@ -76,20 +77,20 @@ instance Core.FromJSON VolumeFrom where
       "VolumeFrom"
       ( \x ->
           VolumeFrom'
-            Core.<$> (x Core..:? "readOnly")
-            Core.<*> (x Core..:? "sourceContainer")
+            Prelude.<$> (x Core..:? "readOnly")
+            Prelude.<*> (x Core..:? "sourceContainer")
       )
 
-instance Core.Hashable VolumeFrom
+instance Prelude.Hashable VolumeFrom
 
-instance Core.NFData VolumeFrom
+instance Prelude.NFData VolumeFrom
 
 instance Core.ToJSON VolumeFrom where
   toJSON VolumeFrom' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("readOnly" Core..=) Core.<$> readOnly,
+      ( Prelude.catMaybes
+          [ ("readOnly" Core..=) Prelude.<$> readOnly,
             ("sourceContainer" Core..=)
-              Core.<$> sourceContainer
+              Prelude.<$> sourceContainer
           ]
       )

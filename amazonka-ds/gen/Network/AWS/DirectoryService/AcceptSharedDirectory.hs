@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data AcceptSharedDirectory = AcceptSharedDirectory'
   { -- | Identifier of the shared directory in the directory consumer account.
     -- This identifier is different for each directory owner account.
-    sharedDirectoryId :: Core.Text
+    sharedDirectoryId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptSharedDirectory' with all optional fields omitted.
@@ -66,7 +67,7 @@ data AcceptSharedDirectory = AcceptSharedDirectory'
 -- This identifier is different for each directory owner account.
 newAcceptSharedDirectory ::
   -- | 'sharedDirectoryId'
-  Core.Text ->
+  Prelude.Text ->
   AcceptSharedDirectory
 newAcceptSharedDirectory pSharedDirectoryId_ =
   AcceptSharedDirectory'
@@ -76,7 +77,7 @@ newAcceptSharedDirectory pSharedDirectoryId_ =
 
 -- | Identifier of the shared directory in the directory consumer account.
 -- This identifier is different for each directory owner account.
-acceptSharedDirectory_sharedDirectoryId :: Lens.Lens' AcceptSharedDirectory Core.Text
+acceptSharedDirectory_sharedDirectoryId :: Lens.Lens' AcceptSharedDirectory Prelude.Text
 acceptSharedDirectory_sharedDirectoryId = Lens.lens (\AcceptSharedDirectory' {sharedDirectoryId} -> sharedDirectoryId) (\s@AcceptSharedDirectory' {} a -> s {sharedDirectoryId = a} :: AcceptSharedDirectory)
 
 instance Core.AWSRequest AcceptSharedDirectory where
@@ -88,50 +89,52 @@ instance Core.AWSRequest AcceptSharedDirectory where
     Response.receiveJSON
       ( \s h x ->
           AcceptSharedDirectoryResponse'
-            Core.<$> (x Core..?> "SharedDirectory")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SharedDirectory")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AcceptSharedDirectory
+instance Prelude.Hashable AcceptSharedDirectory
 
-instance Core.NFData AcceptSharedDirectory
+instance Prelude.NFData AcceptSharedDirectory
 
 instance Core.ToHeaders AcceptSharedDirectory where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.AcceptSharedDirectory" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AcceptSharedDirectory where
   toJSON AcceptSharedDirectory' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SharedDirectoryId" Core..= sharedDirectoryId)
           ]
       )
 
 instance Core.ToPath AcceptSharedDirectory where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AcceptSharedDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptSharedDirectoryResponse' smart constructor.
 data AcceptSharedDirectoryResponse = AcceptSharedDirectoryResponse'
   { -- | The shared directory in the directory consumer account.
-    sharedDirectory :: Core.Maybe SharedDirectory,
+    sharedDirectory :: Prelude.Maybe SharedDirectory,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptSharedDirectoryResponse' with all optional fields omitted.
@@ -146,21 +149,21 @@ data AcceptSharedDirectoryResponse = AcceptSharedDirectoryResponse'
 -- 'httpStatus', 'acceptSharedDirectoryResponse_httpStatus' - The response's http status code.
 newAcceptSharedDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AcceptSharedDirectoryResponse
 newAcceptSharedDirectoryResponse pHttpStatus_ =
   AcceptSharedDirectoryResponse'
     { sharedDirectory =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The shared directory in the directory consumer account.
-acceptSharedDirectoryResponse_sharedDirectory :: Lens.Lens' AcceptSharedDirectoryResponse (Core.Maybe SharedDirectory)
+acceptSharedDirectoryResponse_sharedDirectory :: Lens.Lens' AcceptSharedDirectoryResponse (Prelude.Maybe SharedDirectory)
 acceptSharedDirectoryResponse_sharedDirectory = Lens.lens (\AcceptSharedDirectoryResponse' {sharedDirectory} -> sharedDirectory) (\s@AcceptSharedDirectoryResponse' {} a -> s {sharedDirectory = a} :: AcceptSharedDirectoryResponse)
 
 -- | The response's http status code.
-acceptSharedDirectoryResponse_httpStatus :: Lens.Lens' AcceptSharedDirectoryResponse Core.Int
+acceptSharedDirectoryResponse_httpStatus :: Lens.Lens' AcceptSharedDirectoryResponse Prelude.Int
 acceptSharedDirectoryResponse_httpStatus = Lens.lens (\AcceptSharedDirectoryResponse' {httpStatus} -> httpStatus) (\s@AcceptSharedDirectoryResponse' {} a -> s {httpStatus = a} :: AcceptSharedDirectoryResponse)
 
-instance Core.NFData AcceptSharedDirectoryResponse
+instance Prelude.NFData AcceptSharedDirectoryResponse

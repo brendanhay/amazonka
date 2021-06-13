@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,15 +52,15 @@ import qualified Network.AWS.Response as Response
 data DeletePartition = DeletePartition'
   { -- | The ID of the Data Catalog where the partition to be deleted resides. If
     -- none is provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the table in question resides.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the table that contains the partition to be deleted.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | The values that define the partition.
-    partitionValues :: [Core.Text]
+    partitionValues :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePartition' with all optional fields omitted.
@@ -79,34 +80,34 @@ data DeletePartition = DeletePartition'
 -- 'partitionValues', 'deletePartition_partitionValues' - The values that define the partition.
 newDeletePartition ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   DeletePartition
 newDeletePartition pDatabaseName_ pTableName_ =
   DeletePartition'
-    { catalogId = Core.Nothing,
+    { catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_,
-      partitionValues = Core.mempty
+      partitionValues = Prelude.mempty
     }
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If
 -- none is provided, the AWS account ID is used by default.
-deletePartition_catalogId :: Lens.Lens' DeletePartition (Core.Maybe Core.Text)
+deletePartition_catalogId :: Lens.Lens' DeletePartition (Prelude.Maybe Prelude.Text)
 deletePartition_catalogId = Lens.lens (\DeletePartition' {catalogId} -> catalogId) (\s@DeletePartition' {} a -> s {catalogId = a} :: DeletePartition)
 
 -- | The name of the catalog database in which the table in question resides.
-deletePartition_databaseName :: Lens.Lens' DeletePartition Core.Text
+deletePartition_databaseName :: Lens.Lens' DeletePartition Prelude.Text
 deletePartition_databaseName = Lens.lens (\DeletePartition' {databaseName} -> databaseName) (\s@DeletePartition' {} a -> s {databaseName = a} :: DeletePartition)
 
 -- | The name of the table that contains the partition to be deleted.
-deletePartition_tableName :: Lens.Lens' DeletePartition Core.Text
+deletePartition_tableName :: Lens.Lens' DeletePartition Prelude.Text
 deletePartition_tableName = Lens.lens (\DeletePartition' {tableName} -> tableName) (\s@DeletePartition' {} a -> s {tableName = a} :: DeletePartition)
 
 -- | The values that define the partition.
-deletePartition_partitionValues :: Lens.Lens' DeletePartition [Core.Text]
-deletePartition_partitionValues = Lens.lens (\DeletePartition' {partitionValues} -> partitionValues) (\s@DeletePartition' {} a -> s {partitionValues = a} :: DeletePartition) Core.. Lens._Coerce
+deletePartition_partitionValues :: Lens.Lens' DeletePartition [Prelude.Text]
+deletePartition_partitionValues = Lens.lens (\DeletePartition' {partitionValues} -> partitionValues) (\s@DeletePartition' {} a -> s {partitionValues = a} :: DeletePartition) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeletePartition where
   type
@@ -117,48 +118,50 @@ instance Core.AWSRequest DeletePartition where
     Response.receiveEmpty
       ( \s h x ->
           DeletePartitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeletePartition
+instance Prelude.Hashable DeletePartition
 
-instance Core.NFData DeletePartition
+instance Prelude.NFData DeletePartition
 
 instance Core.ToHeaders DeletePartition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeletePartition" :: Core.ByteString),
+              Core.=# ("AWSGlue.DeletePartition" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeletePartition where
   toJSON DeletePartition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just
               ("PartitionValues" Core..= partitionValues)
           ]
       )
 
 instance Core.ToPath DeletePartition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePartition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePartitionResponse' smart constructor.
 data DeletePartitionResponse = DeletePartitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePartitionResponse' with all optional fields omitted.
@@ -171,13 +174,13 @@ data DeletePartitionResponse = DeletePartitionResponse'
 -- 'httpStatus', 'deletePartitionResponse_httpStatus' - The response's http status code.
 newDeletePartitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeletePartitionResponse
 newDeletePartitionResponse pHttpStatus_ =
   DeletePartitionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deletePartitionResponse_httpStatus :: Lens.Lens' DeletePartitionResponse Core.Int
+deletePartitionResponse_httpStatus :: Lens.Lens' DeletePartitionResponse Prelude.Int
 deletePartitionResponse_httpStatus = Lens.lens (\DeletePartitionResponse' {httpStatus} -> httpStatus) (\s@DeletePartitionResponse' {} a -> s {httpStatus = a} :: DeletePartitionResponse)
 
-instance Core.NFData DeletePartitionResponse
+instance Prelude.NFData DeletePartitionResponse

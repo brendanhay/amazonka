@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -50,7 +51,7 @@ import Network.AWS.SES.Types
 data GetSendQuota = GetSendQuota'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSendQuota' with all optional fields omitted.
@@ -68,29 +69,30 @@ instance Core.AWSRequest GetSendQuota where
       "GetSendQuotaResult"
       ( \s h x ->
           GetSendQuotaResponse'
-            Core.<$> (x Core..@? "Max24HourSend")
-            Core.<*> (x Core..@? "SentLast24Hours")
-            Core.<*> (x Core..@? "MaxSendRate")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Max24HourSend")
+            Prelude.<*> (x Core..@? "SentLast24Hours")
+            Prelude.<*> (x Core..@? "MaxSendRate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSendQuota
+instance Prelude.Hashable GetSendQuota
 
-instance Core.NFData GetSendQuota
+instance Prelude.NFData GetSendQuota
 
 instance Core.ToHeaders GetSendQuota where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetSendQuota where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSendQuota where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetSendQuota" :: Core.ByteString),
-            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
+              Core.=: ("GetSendQuota" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 
@@ -101,19 +103,19 @@ instance Core.ToQuery GetSendQuota where
 data GetSendQuotaResponse = GetSendQuotaResponse'
   { -- | The maximum number of emails the user is allowed to send in a 24-hour
     -- interval. A value of -1 signifies an unlimited quota.
-    max24HourSend :: Core.Maybe Core.Double,
+    max24HourSend :: Prelude.Maybe Prelude.Double,
     -- | The number of emails sent during the previous 24 hours.
-    sentLast24Hours :: Core.Maybe Core.Double,
+    sentLast24Hours :: Prelude.Maybe Prelude.Double,
     -- | The maximum number of emails that Amazon SES can accept from the user\'s
     -- account per second.
     --
     -- The rate at which Amazon SES accepts the user\'s messages might be less
     -- than the maximum send rate.
-    maxSendRate :: Core.Maybe Core.Double,
+    maxSendRate :: Prelude.Maybe Prelude.Double,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSendQuotaResponse' with all optional fields omitted.
@@ -137,23 +139,24 @@ data GetSendQuotaResponse = GetSendQuotaResponse'
 -- 'httpStatus', 'getSendQuotaResponse_httpStatus' - The response's http status code.
 newGetSendQuotaResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSendQuotaResponse
 newGetSendQuotaResponse pHttpStatus_ =
   GetSendQuotaResponse'
-    { max24HourSend = Core.Nothing,
-      sentLast24Hours = Core.Nothing,
-      maxSendRate = Core.Nothing,
+    { max24HourSend =
+        Prelude.Nothing,
+      sentLast24Hours = Prelude.Nothing,
+      maxSendRate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour
 -- interval. A value of -1 signifies an unlimited quota.
-getSendQuotaResponse_max24HourSend :: Lens.Lens' GetSendQuotaResponse (Core.Maybe Core.Double)
+getSendQuotaResponse_max24HourSend :: Lens.Lens' GetSendQuotaResponse (Prelude.Maybe Prelude.Double)
 getSendQuotaResponse_max24HourSend = Lens.lens (\GetSendQuotaResponse' {max24HourSend} -> max24HourSend) (\s@GetSendQuotaResponse' {} a -> s {max24HourSend = a} :: GetSendQuotaResponse)
 
 -- | The number of emails sent during the previous 24 hours.
-getSendQuotaResponse_sentLast24Hours :: Lens.Lens' GetSendQuotaResponse (Core.Maybe Core.Double)
+getSendQuotaResponse_sentLast24Hours :: Lens.Lens' GetSendQuotaResponse (Prelude.Maybe Prelude.Double)
 getSendQuotaResponse_sentLast24Hours = Lens.lens (\GetSendQuotaResponse' {sentLast24Hours} -> sentLast24Hours) (\s@GetSendQuotaResponse' {} a -> s {sentLast24Hours = a} :: GetSendQuotaResponse)
 
 -- | The maximum number of emails that Amazon SES can accept from the user\'s
@@ -161,11 +164,11 @@ getSendQuotaResponse_sentLast24Hours = Lens.lens (\GetSendQuotaResponse' {sentLa
 --
 -- The rate at which Amazon SES accepts the user\'s messages might be less
 -- than the maximum send rate.
-getSendQuotaResponse_maxSendRate :: Lens.Lens' GetSendQuotaResponse (Core.Maybe Core.Double)
+getSendQuotaResponse_maxSendRate :: Lens.Lens' GetSendQuotaResponse (Prelude.Maybe Prelude.Double)
 getSendQuotaResponse_maxSendRate = Lens.lens (\GetSendQuotaResponse' {maxSendRate} -> maxSendRate) (\s@GetSendQuotaResponse' {} a -> s {maxSendRate = a} :: GetSendQuotaResponse)
 
 -- | The response's http status code.
-getSendQuotaResponse_httpStatus :: Lens.Lens' GetSendQuotaResponse Core.Int
+getSendQuotaResponse_httpStatus :: Lens.Lens' GetSendQuotaResponse Prelude.Int
 getSendQuotaResponse_httpStatus = Lens.lens (\GetSendQuotaResponse' {httpStatus} -> httpStatus) (\s@GetSendQuotaResponse' {} a -> s {httpStatus = a} :: GetSendQuotaResponse)
 
-instance Core.NFData GetSendQuotaResponse
+instance Prelude.NFData GetSendQuotaResponse

@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.RuleGroupUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.ActivatedRule
 import Network.AWS.WAF.Types.ChangeAction
 
@@ -47,7 +48,7 @@ data RuleGroupUpdate = RuleGroupUpdate'
     -- @BLOCK@, or @COUNT@).
     activatedRule :: ActivatedRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RuleGroupUpdate' with all optional fields omitted.
@@ -88,15 +89,16 @@ ruleGroupUpdate_action = Lens.lens (\RuleGroupUpdate' {action} -> action) (\s@Ru
 ruleGroupUpdate_activatedRule :: Lens.Lens' RuleGroupUpdate ActivatedRule
 ruleGroupUpdate_activatedRule = Lens.lens (\RuleGroupUpdate' {activatedRule} -> activatedRule) (\s@RuleGroupUpdate' {} a -> s {activatedRule = a} :: RuleGroupUpdate)
 
-instance Core.Hashable RuleGroupUpdate
+instance Prelude.Hashable RuleGroupUpdate
 
-instance Core.NFData RuleGroupUpdate
+instance Prelude.NFData RuleGroupUpdate
 
 instance Core.ToJSON RuleGroupUpdate where
   toJSON RuleGroupUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Action" Core..= action),
-            Core.Just ("ActivatedRule" Core..= activatedRule)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Action" Core..= action),
+            Prelude.Just
+              ("ActivatedRule" Core..= activatedRule)
           ]
       )

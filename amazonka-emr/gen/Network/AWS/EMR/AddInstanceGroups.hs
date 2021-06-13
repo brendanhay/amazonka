@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data AddInstanceGroups = AddInstanceGroups'
   { -- | Instance groups to add.
     instanceGroups :: [InstanceGroupConfig],
     -- | Job flow in which to add the instance groups.
-    jobFlowId :: Core.Text
+    jobFlowId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddInstanceGroups' with all optional fields omitted.
@@ -72,20 +73,20 @@ data AddInstanceGroups = AddInstanceGroups'
 -- 'jobFlowId', 'addInstanceGroups_jobFlowId' - Job flow in which to add the instance groups.
 newAddInstanceGroups ::
   -- | 'jobFlowId'
-  Core.Text ->
+  Prelude.Text ->
   AddInstanceGroups
 newAddInstanceGroups pJobFlowId_ =
   AddInstanceGroups'
-    { instanceGroups = Core.mempty,
+    { instanceGroups = Prelude.mempty,
       jobFlowId = pJobFlowId_
     }
 
 -- | Instance groups to add.
 addInstanceGroups_instanceGroups :: Lens.Lens' AddInstanceGroups [InstanceGroupConfig]
-addInstanceGroups_instanceGroups = Lens.lens (\AddInstanceGroups' {instanceGroups} -> instanceGroups) (\s@AddInstanceGroups' {} a -> s {instanceGroups = a} :: AddInstanceGroups) Core.. Lens._Coerce
+addInstanceGroups_instanceGroups = Lens.lens (\AddInstanceGroups' {instanceGroups} -> instanceGroups) (\s@AddInstanceGroups' {} a -> s {instanceGroups = a} :: AddInstanceGroups) Prelude.. Lens._Coerce
 
 -- | Job flow in which to add the instance groups.
-addInstanceGroups_jobFlowId :: Lens.Lens' AddInstanceGroups Core.Text
+addInstanceGroups_jobFlowId :: Lens.Lens' AddInstanceGroups Prelude.Text
 addInstanceGroups_jobFlowId = Lens.lens (\AddInstanceGroups' {jobFlowId} -> jobFlowId) (\s@AddInstanceGroups' {} a -> s {jobFlowId = a} :: AddInstanceGroups)
 
 instance Core.AWSRequest AddInstanceGroups where
@@ -97,58 +98,63 @@ instance Core.AWSRequest AddInstanceGroups where
     Response.receiveJSON
       ( \s h x ->
           AddInstanceGroupsResponse'
-            Core.<$> (x Core..?> "ClusterArn")
-            Core.<*> (x Core..?> "InstanceGroupIds" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "JobFlowId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ClusterArn")
+            Prelude.<*> ( x Core..?> "InstanceGroupIds"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "JobFlowId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddInstanceGroups
+instance Prelude.Hashable AddInstanceGroups
 
-instance Core.NFData AddInstanceGroups
+instance Prelude.NFData AddInstanceGroups
 
 instance Core.ToHeaders AddInstanceGroups where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.AddInstanceGroups" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddInstanceGroups where
   toJSON AddInstanceGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("InstanceGroups" Core..= instanceGroups),
-            Core.Just ("JobFlowId" Core..= jobFlowId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("InstanceGroups" Core..= instanceGroups),
+            Prelude.Just ("JobFlowId" Core..= jobFlowId)
           ]
       )
 
 instance Core.ToPath AddInstanceGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddInstanceGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Output from an AddInstanceGroups call.
 --
 -- /See:/ 'newAddInstanceGroupsResponse' smart constructor.
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
   { -- | The Amazon Resource Name of the cluster.
-    clusterArn :: Core.Maybe Core.Text,
+    clusterArn :: Prelude.Maybe Prelude.Text,
     -- | Instance group IDs of the newly created instance groups.
-    instanceGroupIds :: Core.Maybe [Core.Text],
+    instanceGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The job flow ID in which the instance groups are added.
-    jobFlowId :: Core.Maybe Core.Text,
+    jobFlowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddInstanceGroupsResponse' with all optional fields omitted.
@@ -167,31 +173,31 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
 -- 'httpStatus', 'addInstanceGroupsResponse_httpStatus' - The response's http status code.
 newAddInstanceGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddInstanceGroupsResponse
 newAddInstanceGroupsResponse pHttpStatus_ =
   AddInstanceGroupsResponse'
     { clusterArn =
-        Core.Nothing,
-      instanceGroupIds = Core.Nothing,
-      jobFlowId = Core.Nothing,
+        Prelude.Nothing,
+      instanceGroupIds = Prelude.Nothing,
+      jobFlowId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name of the cluster.
-addInstanceGroupsResponse_clusterArn :: Lens.Lens' AddInstanceGroupsResponse (Core.Maybe Core.Text)
+addInstanceGroupsResponse_clusterArn :: Lens.Lens' AddInstanceGroupsResponse (Prelude.Maybe Prelude.Text)
 addInstanceGroupsResponse_clusterArn = Lens.lens (\AddInstanceGroupsResponse' {clusterArn} -> clusterArn) (\s@AddInstanceGroupsResponse' {} a -> s {clusterArn = a} :: AddInstanceGroupsResponse)
 
 -- | Instance group IDs of the newly created instance groups.
-addInstanceGroupsResponse_instanceGroupIds :: Lens.Lens' AddInstanceGroupsResponse (Core.Maybe [Core.Text])
-addInstanceGroupsResponse_instanceGroupIds = Lens.lens (\AddInstanceGroupsResponse' {instanceGroupIds} -> instanceGroupIds) (\s@AddInstanceGroupsResponse' {} a -> s {instanceGroupIds = a} :: AddInstanceGroupsResponse) Core.. Lens.mapping Lens._Coerce
+addInstanceGroupsResponse_instanceGroupIds :: Lens.Lens' AddInstanceGroupsResponse (Prelude.Maybe [Prelude.Text])
+addInstanceGroupsResponse_instanceGroupIds = Lens.lens (\AddInstanceGroupsResponse' {instanceGroupIds} -> instanceGroupIds) (\s@AddInstanceGroupsResponse' {} a -> s {instanceGroupIds = a} :: AddInstanceGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The job flow ID in which the instance groups are added.
-addInstanceGroupsResponse_jobFlowId :: Lens.Lens' AddInstanceGroupsResponse (Core.Maybe Core.Text)
+addInstanceGroupsResponse_jobFlowId :: Lens.Lens' AddInstanceGroupsResponse (Prelude.Maybe Prelude.Text)
 addInstanceGroupsResponse_jobFlowId = Lens.lens (\AddInstanceGroupsResponse' {jobFlowId} -> jobFlowId) (\s@AddInstanceGroupsResponse' {} a -> s {jobFlowId = a} :: AddInstanceGroupsResponse)
 
 -- | The response's http status code.
-addInstanceGroupsResponse_httpStatus :: Lens.Lens' AddInstanceGroupsResponse Core.Int
+addInstanceGroupsResponse_httpStatus :: Lens.Lens' AddInstanceGroupsResponse Prelude.Int
 addInstanceGroupsResponse_httpStatus = Lens.lens (\AddInstanceGroupsResponse' {httpStatus} -> httpStatus) (\s@AddInstanceGroupsResponse' {} a -> s {httpStatus = a} :: AddInstanceGroupsResponse)
 
-instance Core.NFData AddInstanceGroupsResponse
+instance Prelude.NFData AddInstanceGroupsResponse

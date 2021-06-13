@@ -23,17 +23,18 @@ import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.ObjectAttributeAction
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Structure that contains attribute update information.
 --
 -- /See:/ 'newObjectAttributeUpdate' smart constructor.
 data ObjectAttributeUpdate = ObjectAttributeUpdate'
   { -- | The action to perform as part of the attribute update.
-    objectAttributeAction :: Core.Maybe ObjectAttributeAction,
+    objectAttributeAction :: Prelude.Maybe ObjectAttributeAction,
     -- | The key of the attribute being updated.
-    objectAttributeKey :: Core.Maybe AttributeKey
+    objectAttributeKey :: Prelude.Maybe AttributeKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ObjectAttributeUpdate' with all optional fields omitted.
@@ -51,29 +52,29 @@ newObjectAttributeUpdate ::
 newObjectAttributeUpdate =
   ObjectAttributeUpdate'
     { objectAttributeAction =
-        Core.Nothing,
-      objectAttributeKey = Core.Nothing
+        Prelude.Nothing,
+      objectAttributeKey = Prelude.Nothing
     }
 
 -- | The action to perform as part of the attribute update.
-objectAttributeUpdate_objectAttributeAction :: Lens.Lens' ObjectAttributeUpdate (Core.Maybe ObjectAttributeAction)
+objectAttributeUpdate_objectAttributeAction :: Lens.Lens' ObjectAttributeUpdate (Prelude.Maybe ObjectAttributeAction)
 objectAttributeUpdate_objectAttributeAction = Lens.lens (\ObjectAttributeUpdate' {objectAttributeAction} -> objectAttributeAction) (\s@ObjectAttributeUpdate' {} a -> s {objectAttributeAction = a} :: ObjectAttributeUpdate)
 
 -- | The key of the attribute being updated.
-objectAttributeUpdate_objectAttributeKey :: Lens.Lens' ObjectAttributeUpdate (Core.Maybe AttributeKey)
+objectAttributeUpdate_objectAttributeKey :: Lens.Lens' ObjectAttributeUpdate (Prelude.Maybe AttributeKey)
 objectAttributeUpdate_objectAttributeKey = Lens.lens (\ObjectAttributeUpdate' {objectAttributeKey} -> objectAttributeKey) (\s@ObjectAttributeUpdate' {} a -> s {objectAttributeKey = a} :: ObjectAttributeUpdate)
 
-instance Core.Hashable ObjectAttributeUpdate
+instance Prelude.Hashable ObjectAttributeUpdate
 
-instance Core.NFData ObjectAttributeUpdate
+instance Prelude.NFData ObjectAttributeUpdate
 
 instance Core.ToJSON ObjectAttributeUpdate where
   toJSON ObjectAttributeUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ObjectAttributeAction" Core..=)
-              Core.<$> objectAttributeAction,
+              Prelude.<$> objectAttributeAction,
             ("ObjectAttributeKey" Core..=)
-              Core.<$> objectAttributeKey
+              Prelude.<$> objectAttributeKey
           ]
       )

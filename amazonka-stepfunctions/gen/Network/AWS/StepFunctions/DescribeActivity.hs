@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -53,9 +54,9 @@ import Network.AWS.StepFunctions.Types
 -- | /See:/ 'newDescribeActivity' smart constructor.
 data DescribeActivity = DescribeActivity'
   { -- | The Amazon Resource Name (ARN) of the activity to describe.
-    activityArn :: Core.Text
+    activityArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeActivity' with all optional fields omitted.
@@ -68,13 +69,13 @@ data DescribeActivity = DescribeActivity'
 -- 'activityArn', 'describeActivity_activityArn' - The Amazon Resource Name (ARN) of the activity to describe.
 newDescribeActivity ::
   -- | 'activityArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeActivity
 newDescribeActivity pActivityArn_ =
   DescribeActivity' {activityArn = pActivityArn_}
 
 -- | The Amazon Resource Name (ARN) of the activity to describe.
-describeActivity_activityArn :: Lens.Lens' DescribeActivity Core.Text
+describeActivity_activityArn :: Lens.Lens' DescribeActivity Prelude.Text
 describeActivity_activityArn = Lens.lens (\DescribeActivity' {activityArn} -> activityArn) (\s@DescribeActivity' {} a -> s {activityArn = a} :: DescribeActivity)
 
 instance Core.AWSRequest DescribeActivity where
@@ -86,48 +87,50 @@ instance Core.AWSRequest DescribeActivity where
     Response.receiveJSON
       ( \s h x ->
           DescribeActivityResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "activityArn")
-            Core.<*> (x Core..:> "name")
-            Core.<*> (x Core..:> "creationDate")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "activityArn")
+            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Core..:> "creationDate")
       )
 
-instance Core.Hashable DescribeActivity
+instance Prelude.Hashable DescribeActivity
 
-instance Core.NFData DescribeActivity
+instance Prelude.NFData DescribeActivity
 
 instance Core.ToHeaders DescribeActivity where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSStepFunctions.DescribeActivity" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeActivity where
   toJSON DescribeActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("activityArn" Core..= activityArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("activityArn" Core..= activityArn)]
       )
 
 instance Core.ToPath DescribeActivity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeActivity where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeActivityResponse' smart constructor.
 data DescribeActivityResponse = DescribeActivityResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) that identifies the activity.
-    activityArn :: Core.Text,
+    activityArn :: Prelude.Text,
     -- | The name of the activity.
     --
     -- A name must /not/ contain:
@@ -144,11 +147,11 @@ data DescribeActivityResponse = DescribeActivityResponse'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The date the activity is created.
     creationDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeActivityResponse' with all optional fields omitted.
@@ -182,13 +185,13 @@ data DescribeActivityResponse = DescribeActivityResponse'
 -- 'creationDate', 'describeActivityResponse_creationDate' - The date the activity is created.
 newDescribeActivityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'activityArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   DescribeActivityResponse
 newDescribeActivityResponse
   pHttpStatus_
@@ -204,11 +207,11 @@ newDescribeActivityResponse
       }
 
 -- | The response's http status code.
-describeActivityResponse_httpStatus :: Lens.Lens' DescribeActivityResponse Core.Int
+describeActivityResponse_httpStatus :: Lens.Lens' DescribeActivityResponse Prelude.Int
 describeActivityResponse_httpStatus = Lens.lens (\DescribeActivityResponse' {httpStatus} -> httpStatus) (\s@DescribeActivityResponse' {} a -> s {httpStatus = a} :: DescribeActivityResponse)
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
-describeActivityResponse_activityArn :: Lens.Lens' DescribeActivityResponse Core.Text
+describeActivityResponse_activityArn :: Lens.Lens' DescribeActivityResponse Prelude.Text
 describeActivityResponse_activityArn = Lens.lens (\DescribeActivityResponse' {activityArn} -> activityArn) (\s@DescribeActivityResponse' {} a -> s {activityArn = a} :: DescribeActivityResponse)
 
 -- | The name of the activity.
@@ -227,11 +230,11 @@ describeActivityResponse_activityArn = Lens.lens (\DescribeActivityResponse' {ac
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-describeActivityResponse_name :: Lens.Lens' DescribeActivityResponse Core.Text
+describeActivityResponse_name :: Lens.Lens' DescribeActivityResponse Prelude.Text
 describeActivityResponse_name = Lens.lens (\DescribeActivityResponse' {name} -> name) (\s@DescribeActivityResponse' {} a -> s {name = a} :: DescribeActivityResponse)
 
 -- | The date the activity is created.
-describeActivityResponse_creationDate :: Lens.Lens' DescribeActivityResponse Core.UTCTime
-describeActivityResponse_creationDate = Lens.lens (\DescribeActivityResponse' {creationDate} -> creationDate) (\s@DescribeActivityResponse' {} a -> s {creationDate = a} :: DescribeActivityResponse) Core.. Core._Time
+describeActivityResponse_creationDate :: Lens.Lens' DescribeActivityResponse Prelude.UTCTime
+describeActivityResponse_creationDate = Lens.lens (\DescribeActivityResponse' {creationDate} -> creationDate) (\s@DescribeActivityResponse' {} a -> s {creationDate = a} :: DescribeActivityResponse) Prelude.. Core._Time
 
-instance Core.NFData DescribeActivityResponse
+instance Prelude.NFData DescribeActivityResponse

@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,7 +56,7 @@ data DescribeClusterDbRevisions = DescribeClusterDbRevisions'
   { -- | A unique identifier for a cluster whose @ClusterDbRevisions@ you are
     -- requesting. This parameter is case sensitive. All clusters defined for
     -- an account are returned by default.
-    clusterIdentifier :: Core.Maybe Core.Text,
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter that specifies the starting point for returning a
     -- set of response records. When the results of a
     -- @DescribeClusterDbRevisions@ request exceed the value specified in
@@ -66,7 +67,7 @@ data DescribeClusterDbRevisions = DescribeClusterDbRevisions'
     --
     -- Constraints: You can specify either the @ClusterIdentifier@ parameter,
     -- or the @marker@ parameter, but not both.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified MaxRecords
     -- value, a value is returned in the @marker@ field of the response. You
@@ -76,9 +77,9 @@ data DescribeClusterDbRevisions = DescribeClusterDbRevisions'
     -- Default: 100
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterDbRevisions' with all optional fields omitted.
@@ -117,15 +118,15 @@ newDescribeClusterDbRevisions ::
 newDescribeClusterDbRevisions =
   DescribeClusterDbRevisions'
     { clusterIdentifier =
-        Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | A unique identifier for a cluster whose @ClusterDbRevisions@ you are
 -- requesting. This parameter is case sensitive. All clusters defined for
 -- an account are returned by default.
-describeClusterDbRevisions_clusterIdentifier :: Lens.Lens' DescribeClusterDbRevisions (Core.Maybe Core.Text)
+describeClusterDbRevisions_clusterIdentifier :: Lens.Lens' DescribeClusterDbRevisions (Prelude.Maybe Prelude.Text)
 describeClusterDbRevisions_clusterIdentifier = Lens.lens (\DescribeClusterDbRevisions' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeClusterDbRevisions' {} a -> s {clusterIdentifier = a} :: DescribeClusterDbRevisions)
 
 -- | An optional parameter that specifies the starting point for returning a
@@ -138,7 +139,7 @@ describeClusterDbRevisions_clusterIdentifier = Lens.lens (\DescribeClusterDbRevi
 --
 -- Constraints: You can specify either the @ClusterIdentifier@ parameter,
 -- or the @marker@ parameter, but not both.
-describeClusterDbRevisions_marker :: Lens.Lens' DescribeClusterDbRevisions (Core.Maybe Core.Text)
+describeClusterDbRevisions_marker :: Lens.Lens' DescribeClusterDbRevisions (Prelude.Maybe Prelude.Text)
 describeClusterDbRevisions_marker = Lens.lens (\DescribeClusterDbRevisions' {marker} -> marker) (\s@DescribeClusterDbRevisions' {} a -> s {marker = a} :: DescribeClusterDbRevisions)
 
 -- | The maximum number of response records to return in each call. If the
@@ -150,7 +151,7 @@ describeClusterDbRevisions_marker = Lens.lens (\DescribeClusterDbRevisions' {mar
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100.
-describeClusterDbRevisions_maxRecords :: Lens.Lens' DescribeClusterDbRevisions (Core.Maybe Core.Int)
+describeClusterDbRevisions_maxRecords :: Lens.Lens' DescribeClusterDbRevisions (Prelude.Maybe Prelude.Int)
 describeClusterDbRevisions_maxRecords = Lens.lens (\DescribeClusterDbRevisions' {maxRecords} -> maxRecords) (\s@DescribeClusterDbRevisions' {} a -> s {maxRecords = a} :: DescribeClusterDbRevisions)
 
 instance Core.AWSPager DescribeClusterDbRevisions where
@@ -158,22 +159,22 @@ instance Core.AWSPager DescribeClusterDbRevisions where
     | Core.stop
         ( rs
             Lens.^? describeClusterDbRevisionsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterDbRevisionsResponse_clusterDbRevisions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeClusterDbRevisions_marker
+          Prelude.& describeClusterDbRevisions_marker
           Lens..~ rs
           Lens.^? describeClusterDbRevisionsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterDbRevisions where
   type
@@ -185,29 +186,31 @@ instance Core.AWSRequest DescribeClusterDbRevisions where
       "DescribeClusterDbRevisionsResult"
       ( \s h x ->
           DescribeClusterDbRevisionsResponse'
-            Core.<$> ( x Core..@? "ClusterDbRevisions" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "ClusterDbRevision")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "ClusterDbRevisions"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "ClusterDbRevision")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeClusterDbRevisions
+instance Prelude.Hashable DescribeClusterDbRevisions
 
-instance Core.NFData DescribeClusterDbRevisions
+instance Prelude.NFData DescribeClusterDbRevisions
 
 instance Core.ToHeaders DescribeClusterDbRevisions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeClusterDbRevisions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeClusterDbRevisions where
   toQuery DescribeClusterDbRevisions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusterDbRevisions" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DescribeClusterDbRevisions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
@@ -216,17 +219,17 @@ instance Core.ToQuery DescribeClusterDbRevisions where
 -- | /See:/ 'newDescribeClusterDbRevisionsResponse' smart constructor.
 data DescribeClusterDbRevisionsResponse = DescribeClusterDbRevisionsResponse'
   { -- | A list of revisions.
-    clusterDbRevisions :: Core.Maybe [ClusterDbRevision],
+    clusterDbRevisions :: Prelude.Maybe [ClusterDbRevision],
     -- | A string representing the starting point for the next set of revisions.
     -- If a value is returned in a response, you can retrieve the next set of
     -- revisions by providing the value in the @marker@ parameter and retrying
     -- the command. If the @marker@ field is empty, all revisions have already
     -- been returned.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterDbRevisionsResponse' with all optional fields omitted.
@@ -247,32 +250,32 @@ data DescribeClusterDbRevisionsResponse = DescribeClusterDbRevisionsResponse'
 -- 'httpStatus', 'describeClusterDbRevisionsResponse_httpStatus' - The response's http status code.
 newDescribeClusterDbRevisionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeClusterDbRevisionsResponse
 newDescribeClusterDbRevisionsResponse pHttpStatus_ =
   DescribeClusterDbRevisionsResponse'
     { clusterDbRevisions =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of revisions.
-describeClusterDbRevisionsResponse_clusterDbRevisions :: Lens.Lens' DescribeClusterDbRevisionsResponse (Core.Maybe [ClusterDbRevision])
-describeClusterDbRevisionsResponse_clusterDbRevisions = Lens.lens (\DescribeClusterDbRevisionsResponse' {clusterDbRevisions} -> clusterDbRevisions) (\s@DescribeClusterDbRevisionsResponse' {} a -> s {clusterDbRevisions = a} :: DescribeClusterDbRevisionsResponse) Core.. Lens.mapping Lens._Coerce
+describeClusterDbRevisionsResponse_clusterDbRevisions :: Lens.Lens' DescribeClusterDbRevisionsResponse (Prelude.Maybe [ClusterDbRevision])
+describeClusterDbRevisionsResponse_clusterDbRevisions = Lens.lens (\DescribeClusterDbRevisionsResponse' {clusterDbRevisions} -> clusterDbRevisions) (\s@DescribeClusterDbRevisionsResponse' {} a -> s {clusterDbRevisions = a} :: DescribeClusterDbRevisionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string representing the starting point for the next set of revisions.
 -- If a value is returned in a response, you can retrieve the next set of
 -- revisions by providing the value in the @marker@ parameter and retrying
 -- the command. If the @marker@ field is empty, all revisions have already
 -- been returned.
-describeClusterDbRevisionsResponse_marker :: Lens.Lens' DescribeClusterDbRevisionsResponse (Core.Maybe Core.Text)
+describeClusterDbRevisionsResponse_marker :: Lens.Lens' DescribeClusterDbRevisionsResponse (Prelude.Maybe Prelude.Text)
 describeClusterDbRevisionsResponse_marker = Lens.lens (\DescribeClusterDbRevisionsResponse' {marker} -> marker) (\s@DescribeClusterDbRevisionsResponse' {} a -> s {marker = a} :: DescribeClusterDbRevisionsResponse)
 
 -- | The response's http status code.
-describeClusterDbRevisionsResponse_httpStatus :: Lens.Lens' DescribeClusterDbRevisionsResponse Core.Int
+describeClusterDbRevisionsResponse_httpStatus :: Lens.Lens' DescribeClusterDbRevisionsResponse Prelude.Int
 describeClusterDbRevisionsResponse_httpStatus = Lens.lens (\DescribeClusterDbRevisionsResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterDbRevisionsResponse' {} a -> s {httpStatus = a} :: DescribeClusterDbRevisionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeClusterDbRevisionsResponse

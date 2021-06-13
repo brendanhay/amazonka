@@ -21,17 +21,18 @@ module Network.AWS.RDS.Types.DBClusterOptionGroupStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains status information for a DB cluster option group.
 --
 -- /See:/ 'newDBClusterOptionGroupStatus' smart constructor.
 data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
   { -- | Specifies the status of the DB cluster option group.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the DB cluster option group.
-    dbClusterOptionGroupName :: Core.Maybe Core.Text
+    dbClusterOptionGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBClusterOptionGroupStatus' with all optional fields omitted.
@@ -48,24 +49,25 @@ newDBClusterOptionGroupStatus ::
   DBClusterOptionGroupStatus
 newDBClusterOptionGroupStatus =
   DBClusterOptionGroupStatus'
-    { status = Core.Nothing,
-      dbClusterOptionGroupName = Core.Nothing
+    { status =
+        Prelude.Nothing,
+      dbClusterOptionGroupName = Prelude.Nothing
     }
 
 -- | Specifies the status of the DB cluster option group.
-dbClusterOptionGroupStatus_status :: Lens.Lens' DBClusterOptionGroupStatus (Core.Maybe Core.Text)
+dbClusterOptionGroupStatus_status :: Lens.Lens' DBClusterOptionGroupStatus (Prelude.Maybe Prelude.Text)
 dbClusterOptionGroupStatus_status = Lens.lens (\DBClusterOptionGroupStatus' {status} -> status) (\s@DBClusterOptionGroupStatus' {} a -> s {status = a} :: DBClusterOptionGroupStatus)
 
 -- | Specifies the name of the DB cluster option group.
-dbClusterOptionGroupStatus_dbClusterOptionGroupName :: Lens.Lens' DBClusterOptionGroupStatus (Core.Maybe Core.Text)
+dbClusterOptionGroupStatus_dbClusterOptionGroupName :: Lens.Lens' DBClusterOptionGroupStatus (Prelude.Maybe Prelude.Text)
 dbClusterOptionGroupStatus_dbClusterOptionGroupName = Lens.lens (\DBClusterOptionGroupStatus' {dbClusterOptionGroupName} -> dbClusterOptionGroupName) (\s@DBClusterOptionGroupStatus' {} a -> s {dbClusterOptionGroupName = a} :: DBClusterOptionGroupStatus)
 
 instance Core.FromXML DBClusterOptionGroupStatus where
   parseXML x =
     DBClusterOptionGroupStatus'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "DBClusterOptionGroupName")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "DBClusterOptionGroupName")
 
-instance Core.Hashable DBClusterOptionGroupStatus
+instance Prelude.Hashable DBClusterOptionGroupStatus
 
-instance Core.NFData DBClusterOptionGroupStatus
+instance Prelude.NFData DBClusterOptionGroupStatus

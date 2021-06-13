@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +57,7 @@ import qualified Network.AWS.Response as Response
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
   { -- | The identifier of the pipeline for which you want to change notification
     -- settings.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
     -- topic that you want to notify to report job status.
     --
@@ -82,7 +83,7 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications'
     --     is the ARN that Amazon SNS returned when you created the topic.
     notifications :: Notifications
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePipelineNotifications' with all optional fields omitted.
@@ -120,7 +121,7 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications'
 --     is the ARN that Amazon SNS returned when you created the topic.
 newUpdatePipelineNotifications ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'notifications'
   Notifications ->
   UpdatePipelineNotifications
@@ -132,7 +133,7 @@ newUpdatePipelineNotifications pId_ pNotifications_ =
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
-updatePipelineNotifications_id :: Lens.Lens' UpdatePipelineNotifications Core.Text
+updatePipelineNotifications_id :: Lens.Lens' UpdatePipelineNotifications Prelude.Text
 updatePipelineNotifications_id = Lens.lens (\UpdatePipelineNotifications' {id} -> id) (\s@UpdatePipelineNotifications' {} a -> s {id = a} :: UpdatePipelineNotifications)
 
 -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
@@ -170,34 +171,36 @@ instance Core.AWSRequest UpdatePipelineNotifications where
     Response.receiveJSON
       ( \s h x ->
           UpdatePipelineNotificationsResponse'
-            Core.<$> (x Core..?> "Pipeline")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Pipeline")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdatePipelineNotifications
+instance Prelude.Hashable UpdatePipelineNotifications
 
-instance Core.NFData UpdatePipelineNotifications
+instance Prelude.NFData UpdatePipelineNotifications
 
 instance Core.ToHeaders UpdatePipelineNotifications where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdatePipelineNotifications where
   toJSON UpdatePipelineNotifications' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Notifications" Core..= notifications)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("Notifications" Core..= notifications)
+          ]
       )
 
 instance Core.ToPath UpdatePipelineNotifications where
   toPath UpdatePipelineNotifications' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2012-09-25/pipelines/",
         Core.toBS id,
         "/notifications"
       ]
 
 instance Core.ToQuery UpdatePipelineNotifications where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The @UpdatePipelineNotificationsResponse@ structure.
 --
@@ -205,11 +208,11 @@ instance Core.ToQuery UpdatePipelineNotifications where
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
   { -- | A section of the response body that provides information about the
     -- pipeline associated with this notification.
-    pipeline :: Core.Maybe Pipeline,
+    pipeline :: Prelude.Maybe Pipeline,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePipelineNotificationsResponse' with all optional fields omitted.
@@ -225,24 +228,24 @@ data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
 -- 'httpStatus', 'updatePipelineNotificationsResponse_httpStatus' - The response's http status code.
 newUpdatePipelineNotificationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdatePipelineNotificationsResponse
 newUpdatePipelineNotificationsResponse pHttpStatus_ =
   UpdatePipelineNotificationsResponse'
     { pipeline =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A section of the response body that provides information about the
 -- pipeline associated with this notification.
-updatePipelineNotificationsResponse_pipeline :: Lens.Lens' UpdatePipelineNotificationsResponse (Core.Maybe Pipeline)
+updatePipelineNotificationsResponse_pipeline :: Lens.Lens' UpdatePipelineNotificationsResponse (Prelude.Maybe Pipeline)
 updatePipelineNotificationsResponse_pipeline = Lens.lens (\UpdatePipelineNotificationsResponse' {pipeline} -> pipeline) (\s@UpdatePipelineNotificationsResponse' {} a -> s {pipeline = a} :: UpdatePipelineNotificationsResponse)
 
 -- | The response's http status code.
-updatePipelineNotificationsResponse_httpStatus :: Lens.Lens' UpdatePipelineNotificationsResponse Core.Int
+updatePipelineNotificationsResponse_httpStatus :: Lens.Lens' UpdatePipelineNotificationsResponse Prelude.Int
 updatePipelineNotificationsResponse_httpStatus = Lens.lens (\UpdatePipelineNotificationsResponse' {httpStatus} -> httpStatus) (\s@UpdatePipelineNotificationsResponse' {} a -> s {httpStatus = a} :: UpdatePipelineNotificationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdatePipelineNotificationsResponse

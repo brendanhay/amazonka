@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -51,7 +52,7 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newCreateConnectionAlias' smart constructor.
 data CreateConnectionAlias = CreateConnectionAlias'
   { -- | The tags to associate with the connection alias.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A connection string in the form of a fully qualified domain name (FQDN),
     -- such as @www.example.com@.
     --
@@ -60,9 +61,9 @@ data CreateConnectionAlias = CreateConnectionAlias'
     -- different account, even if you delete all instances of it from the
     -- original account. The connection string is globally reserved for your
     -- account.
-    connectionString :: Core.Text
+    connectionString :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConnectionAlias' with all optional fields omitted.
@@ -84,17 +85,17 @@ data CreateConnectionAlias = CreateConnectionAlias'
 -- account.
 newCreateConnectionAlias ::
   -- | 'connectionString'
-  Core.Text ->
+  Prelude.Text ->
   CreateConnectionAlias
 newCreateConnectionAlias pConnectionString_ =
   CreateConnectionAlias'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       connectionString = pConnectionString_
     }
 
 -- | The tags to associate with the connection alias.
-createConnectionAlias_tags :: Lens.Lens' CreateConnectionAlias (Core.Maybe [Tag])
-createConnectionAlias_tags = Lens.lens (\CreateConnectionAlias' {tags} -> tags) (\s@CreateConnectionAlias' {} a -> s {tags = a} :: CreateConnectionAlias) Core.. Lens.mapping Lens._Coerce
+createConnectionAlias_tags :: Lens.Lens' CreateConnectionAlias (Prelude.Maybe [Tag])
+createConnectionAlias_tags = Lens.lens (\CreateConnectionAlias' {tags} -> tags) (\s@CreateConnectionAlias' {} a -> s {tags = a} :: CreateConnectionAlias) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A connection string in the form of a fully qualified domain name (FQDN),
 -- such as @www.example.com@.
@@ -104,7 +105,7 @@ createConnectionAlias_tags = Lens.lens (\CreateConnectionAlias' {tags} -> tags) 
 -- different account, even if you delete all instances of it from the
 -- original account. The connection string is globally reserved for your
 -- account.
-createConnectionAlias_connectionString :: Lens.Lens' CreateConnectionAlias Core.Text
+createConnectionAlias_connectionString :: Lens.Lens' CreateConnectionAlias Prelude.Text
 createConnectionAlias_connectionString = Lens.lens (\CreateConnectionAlias' {connectionString} -> connectionString) (\s@CreateConnectionAlias' {} a -> s {connectionString = a} :: CreateConnectionAlias)
 
 instance Core.AWSRequest CreateConnectionAlias where
@@ -116,51 +117,53 @@ instance Core.AWSRequest CreateConnectionAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectionAliasResponse'
-            Core.<$> (x Core..?> "AliasId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AliasId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateConnectionAlias
+instance Prelude.Hashable CreateConnectionAlias
 
-instance Core.NFData CreateConnectionAlias
+instance Prelude.NFData CreateConnectionAlias
 
 instance Core.ToHeaders CreateConnectionAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.CreateConnectionAlias" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateConnectionAlias where
   toJSON CreateConnectionAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("ConnectionString" Core..= connectionString)
           ]
       )
 
 instance Core.ToPath CreateConnectionAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateConnectionAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectionAliasResponse' smart constructor.
 data CreateConnectionAliasResponse = CreateConnectionAliasResponse'
   { -- | The identifier of the connection alias.
-    aliasId :: Core.Maybe Core.Text,
+    aliasId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConnectionAliasResponse' with all optional fields omitted.
@@ -175,21 +178,21 @@ data CreateConnectionAliasResponse = CreateConnectionAliasResponse'
 -- 'httpStatus', 'createConnectionAliasResponse_httpStatus' - The response's http status code.
 newCreateConnectionAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateConnectionAliasResponse
 newCreateConnectionAliasResponse pHttpStatus_ =
   CreateConnectionAliasResponse'
     { aliasId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the connection alias.
-createConnectionAliasResponse_aliasId :: Lens.Lens' CreateConnectionAliasResponse (Core.Maybe Core.Text)
+createConnectionAliasResponse_aliasId :: Lens.Lens' CreateConnectionAliasResponse (Prelude.Maybe Prelude.Text)
 createConnectionAliasResponse_aliasId = Lens.lens (\CreateConnectionAliasResponse' {aliasId} -> aliasId) (\s@CreateConnectionAliasResponse' {} a -> s {aliasId = a} :: CreateConnectionAliasResponse)
 
 -- | The response's http status code.
-createConnectionAliasResponse_httpStatus :: Lens.Lens' CreateConnectionAliasResponse Core.Int
+createConnectionAliasResponse_httpStatus :: Lens.Lens' CreateConnectionAliasResponse Prelude.Int
 createConnectionAliasResponse_httpStatus = Lens.lens (\CreateConnectionAliasResponse' {httpStatus} -> httpStatus) (\s@CreateConnectionAliasResponse' {} a -> s {httpStatus = a} :: CreateConnectionAliasResponse)
 
-instance Core.NFData CreateConnectionAliasResponse
+instance Prelude.NFData CreateConnectionAliasResponse

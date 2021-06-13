@@ -21,15 +21,16 @@ module Network.AWS.SageMaker.Types.RegisterModelStepMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for a register model job step.
 --
 -- /See:/ 'newRegisterModelStepMetadata' smart constructor.
 data RegisterModelStepMetadata = RegisterModelStepMetadata'
   { -- | The Amazon Resource Name (ARN) of the model package.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterModelStepMetadata' with all optional fields omitted.
@@ -43,10 +44,10 @@ data RegisterModelStepMetadata = RegisterModelStepMetadata'
 newRegisterModelStepMetadata ::
   RegisterModelStepMetadata
 newRegisterModelStepMetadata =
-  RegisterModelStepMetadata' {arn = Core.Nothing}
+  RegisterModelStepMetadata' {arn = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the model package.
-registerModelStepMetadata_arn :: Lens.Lens' RegisterModelStepMetadata (Core.Maybe Core.Text)
+registerModelStepMetadata_arn :: Lens.Lens' RegisterModelStepMetadata (Prelude.Maybe Prelude.Text)
 registerModelStepMetadata_arn = Lens.lens (\RegisterModelStepMetadata' {arn} -> arn) (\s@RegisterModelStepMetadata' {} a -> s {arn = a} :: RegisterModelStepMetadata)
 
 instance Core.FromJSON RegisterModelStepMetadata where
@@ -55,9 +56,9 @@ instance Core.FromJSON RegisterModelStepMetadata where
       "RegisterModelStepMetadata"
       ( \x ->
           RegisterModelStepMetadata'
-            Core.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Core.Hashable RegisterModelStepMetadata
+instance Prelude.Hashable RegisterModelStepMetadata
 
-instance Core.NFData RegisterModelStepMetadata
+instance Prelude.NFData RegisterModelStepMetadata

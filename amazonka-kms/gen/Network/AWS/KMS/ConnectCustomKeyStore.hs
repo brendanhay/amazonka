@@ -105,6 +105,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -113,9 +114,9 @@ data ConnectCustomKeyStore = ConnectCustomKeyStore'
   { -- | Enter the key store ID of the custom key store that you want to connect.
     -- To find the ID of a custom key store, use the DescribeCustomKeyStores
     -- operation.
-    customKeyStoreId :: Core.Text
+    customKeyStoreId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectCustomKeyStore' with all optional fields omitted.
@@ -130,7 +131,7 @@ data ConnectCustomKeyStore = ConnectCustomKeyStore'
 -- operation.
 newConnectCustomKeyStore ::
   -- | 'customKeyStoreId'
-  Core.Text ->
+  Prelude.Text ->
   ConnectCustomKeyStore
 newConnectCustomKeyStore pCustomKeyStoreId_ =
   ConnectCustomKeyStore'
@@ -141,7 +142,7 @@ newConnectCustomKeyStore pCustomKeyStoreId_ =
 -- | Enter the key store ID of the custom key store that you want to connect.
 -- To find the ID of a custom key store, use the DescribeCustomKeyStores
 -- operation.
-connectCustomKeyStore_customKeyStoreId :: Lens.Lens' ConnectCustomKeyStore Core.Text
+connectCustomKeyStore_customKeyStoreId :: Lens.Lens' ConnectCustomKeyStore Prelude.Text
 connectCustomKeyStore_customKeyStoreId = Lens.lens (\ConnectCustomKeyStore' {customKeyStoreId} -> customKeyStoreId) (\s@ConnectCustomKeyStore' {} a -> s {customKeyStoreId = a} :: ConnectCustomKeyStore)
 
 instance Core.AWSRequest ConnectCustomKeyStore where
@@ -153,47 +154,49 @@ instance Core.AWSRequest ConnectCustomKeyStore where
     Response.receiveEmpty
       ( \s h x ->
           ConnectCustomKeyStoreResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ConnectCustomKeyStore
+instance Prelude.Hashable ConnectCustomKeyStore
 
-instance Core.NFData ConnectCustomKeyStore
+instance Prelude.NFData ConnectCustomKeyStore
 
 instance Core.ToHeaders ConnectCustomKeyStore where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.ConnectCustomKeyStore" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ConnectCustomKeyStore where
   toJSON ConnectCustomKeyStore' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CustomKeyStoreId" Core..= customKeyStoreId)
           ]
       )
 
 instance Core.ToPath ConnectCustomKeyStore where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ConnectCustomKeyStore where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConnectCustomKeyStoreResponse' smart constructor.
 data ConnectCustomKeyStoreResponse = ConnectCustomKeyStoreResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectCustomKeyStoreResponse' with all optional fields omitted.
@@ -206,7 +209,7 @@ data ConnectCustomKeyStoreResponse = ConnectCustomKeyStoreResponse'
 -- 'httpStatus', 'connectCustomKeyStoreResponse_httpStatus' - The response's http status code.
 newConnectCustomKeyStoreResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ConnectCustomKeyStoreResponse
 newConnectCustomKeyStoreResponse pHttpStatus_ =
   ConnectCustomKeyStoreResponse'
@@ -215,7 +218,7 @@ newConnectCustomKeyStoreResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-connectCustomKeyStoreResponse_httpStatus :: Lens.Lens' ConnectCustomKeyStoreResponse Core.Int
+connectCustomKeyStoreResponse_httpStatus :: Lens.Lens' ConnectCustomKeyStoreResponse Prelude.Int
 connectCustomKeyStoreResponse_httpStatus = Lens.lens (\ConnectCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@ConnectCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: ConnectCustomKeyStoreResponse)
 
-instance Core.NFData ConnectCustomKeyStoreResponse
+instance Prelude.NFData ConnectCustomKeyStoreResponse

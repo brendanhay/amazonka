@@ -108,6 +108,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -120,11 +121,11 @@ data GetMetricStatistics = GetMetricStatistics'
     -- that unit specified. If you specify a unit that does not match the data
     -- collected, the results of the operation are null. CloudWatch does not
     -- perform unit conversions.
-    unit :: Core.Maybe StandardUnit,
+    unit :: Prelude.Maybe StandardUnit,
     -- | The metric statistics, other than percentile. For percentile statistics,
     -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
     -- specify either @Statistics@ or @ExtendedStatistics@, but not both.
-    statistics :: Core.Maybe (Core.NonEmpty Statistic),
+    statistics :: Prelude.Maybe (Prelude.NonEmpty Statistic),
     -- | The dimensions. If the metric contains multiple dimensions, you must
     -- include a value for each dimension. CloudWatch treats each unique
     -- combination of dimensions as a separate metric. If a specific
@@ -136,17 +137,17 @@ data GetMetricStatistics = GetMetricStatistics'
     -- specifying dimensions, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics>
     -- in the /Amazon CloudWatch User Guide/.
-    dimensions :: Core.Maybe [Dimension],
+    dimensions :: Prelude.Maybe [Dimension],
     -- | The percentile statistics. Specify values between p0.0 and p100. When
     -- calling @GetMetricStatistics@, you must specify either @Statistics@ or
     -- @ExtendedStatistics@, but not both. Percentile statistics are not
     -- available for metrics when any of the metric values are negative
     -- numbers.
-    extendedStatistics :: Core.Maybe (Core.NonEmpty Core.Text),
+    extendedStatistics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The namespace of the metric, with or without spaces.
-    namespace :: Core.Text,
+    namespace :: Prelude.Text,
     -- | The name of the metric, with or without spaces.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The time stamp that determines the first data point to return. Start
     -- times are evaluated relative to the time that CloudWatch receives the
     -- request.
@@ -203,9 +204,9 @@ data GetMetricStatistics = GetMetricStatistics'
     --
     -- -   Start time greater than 63 days ago - Use a multiple of 3600 seconds
     --     (1 hour).
-    period :: Core.Natural
+    period :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMetricStatistics' with all optional fields omitted.
@@ -307,15 +308,15 @@ data GetMetricStatistics = GetMetricStatistics'
 --     (1 hour).
 newGetMetricStatistics ::
   -- | 'namespace'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'period'
-  Core.Natural ->
+  Prelude.Natural ->
   GetMetricStatistics
 newGetMetricStatistics
   pNamespace_
@@ -324,10 +325,10 @@ newGetMetricStatistics
   pEndTime_
   pPeriod_ =
     GetMetricStatistics'
-      { unit = Core.Nothing,
-        statistics = Core.Nothing,
-        dimensions = Core.Nothing,
-        extendedStatistics = Core.Nothing,
+      { unit = Prelude.Nothing,
+        statistics = Prelude.Nothing,
+        dimensions = Prelude.Nothing,
+        extendedStatistics = Prelude.Nothing,
         namespace = pNamespace_,
         metricName = pMetricName_,
         startTime = Core._Time Lens.# pStartTime_,
@@ -342,14 +343,14 @@ newGetMetricStatistics
 -- that unit specified. If you specify a unit that does not match the data
 -- collected, the results of the operation are null. CloudWatch does not
 -- perform unit conversions.
-getMetricStatistics_unit :: Lens.Lens' GetMetricStatistics (Core.Maybe StandardUnit)
+getMetricStatistics_unit :: Lens.Lens' GetMetricStatistics (Prelude.Maybe StandardUnit)
 getMetricStatistics_unit = Lens.lens (\GetMetricStatistics' {unit} -> unit) (\s@GetMetricStatistics' {} a -> s {unit = a} :: GetMetricStatistics)
 
 -- | The metric statistics, other than percentile. For percentile statistics,
 -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
 -- specify either @Statistics@ or @ExtendedStatistics@, but not both.
-getMetricStatistics_statistics :: Lens.Lens' GetMetricStatistics (Core.Maybe (Core.NonEmpty Statistic))
-getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -> statistics) (\s@GetMetricStatistics' {} a -> s {statistics = a} :: GetMetricStatistics) Core.. Lens.mapping Lens._Coerce
+getMetricStatistics_statistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Statistic))
+getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -> statistics) (\s@GetMetricStatistics' {} a -> s {statistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The dimensions. If the metric contains multiple dimensions, you must
 -- include a value for each dimension. CloudWatch treats each unique
@@ -362,23 +363,23 @@ getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -
 -- specifying dimensions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics>
 -- in the /Amazon CloudWatch User Guide/.
-getMetricStatistics_dimensions :: Lens.Lens' GetMetricStatistics (Core.Maybe [Dimension])
-getMetricStatistics_dimensions = Lens.lens (\GetMetricStatistics' {dimensions} -> dimensions) (\s@GetMetricStatistics' {} a -> s {dimensions = a} :: GetMetricStatistics) Core.. Lens.mapping Lens._Coerce
+getMetricStatistics_dimensions :: Lens.Lens' GetMetricStatistics (Prelude.Maybe [Dimension])
+getMetricStatistics_dimensions = Lens.lens (\GetMetricStatistics' {dimensions} -> dimensions) (\s@GetMetricStatistics' {} a -> s {dimensions = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The percentile statistics. Specify values between p0.0 and p100. When
 -- calling @GetMetricStatistics@, you must specify either @Statistics@ or
 -- @ExtendedStatistics@, but not both. Percentile statistics are not
 -- available for metrics when any of the metric values are negative
 -- numbers.
-getMetricStatistics_extendedStatistics :: Lens.Lens' GetMetricStatistics (Core.Maybe (Core.NonEmpty Core.Text))
-getMetricStatistics_extendedStatistics = Lens.lens (\GetMetricStatistics' {extendedStatistics} -> extendedStatistics) (\s@GetMetricStatistics' {} a -> s {extendedStatistics = a} :: GetMetricStatistics) Core.. Lens.mapping Lens._Coerce
+getMetricStatistics_extendedStatistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getMetricStatistics_extendedStatistics = Lens.lens (\GetMetricStatistics' {extendedStatistics} -> extendedStatistics) (\s@GetMetricStatistics' {} a -> s {extendedStatistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace of the metric, with or without spaces.
-getMetricStatistics_namespace :: Lens.Lens' GetMetricStatistics Core.Text
+getMetricStatistics_namespace :: Lens.Lens' GetMetricStatistics Prelude.Text
 getMetricStatistics_namespace = Lens.lens (\GetMetricStatistics' {namespace} -> namespace) (\s@GetMetricStatistics' {} a -> s {namespace = a} :: GetMetricStatistics)
 
 -- | The name of the metric, with or without spaces.
-getMetricStatistics_metricName :: Lens.Lens' GetMetricStatistics Core.Text
+getMetricStatistics_metricName :: Lens.Lens' GetMetricStatistics Prelude.Text
 getMetricStatistics_metricName = Lens.lens (\GetMetricStatistics' {metricName} -> metricName) (\s@GetMetricStatistics' {} a -> s {metricName = a} :: GetMetricStatistics)
 
 -- | The time stamp that determines the first data point to return. Start
@@ -410,16 +411,16 @@ getMetricStatistics_metricName = Lens.lens (\GetMetricStatistics' {metricName} -
 -- 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of
 -- data, using a period of 5 seconds, you receive data timestamped between
 -- 15:02:15 and 15:07:15.
-getMetricStatistics_startTime :: Lens.Lens' GetMetricStatistics Core.UTCTime
-getMetricStatistics_startTime = Lens.lens (\GetMetricStatistics' {startTime} -> startTime) (\s@GetMetricStatistics' {} a -> s {startTime = a} :: GetMetricStatistics) Core.. Core._Time
+getMetricStatistics_startTime :: Lens.Lens' GetMetricStatistics Prelude.UTCTime
+getMetricStatistics_startTime = Lens.lens (\GetMetricStatistics' {startTime} -> startTime) (\s@GetMetricStatistics' {} a -> s {startTime = a} :: GetMetricStatistics) Prelude.. Core._Time
 
 -- | The time stamp that determines the last data point to return.
 --
 -- The value specified is exclusive; results include data points up to the
 -- specified time stamp. In a raw HTTP query, the time stamp must be in ISO
 -- 8601 UTC format (for example, 2016-10-10T23:00:00Z).
-getMetricStatistics_endTime :: Lens.Lens' GetMetricStatistics Core.UTCTime
-getMetricStatistics_endTime = Lens.lens (\GetMetricStatistics' {endTime} -> endTime) (\s@GetMetricStatistics' {} a -> s {endTime = a} :: GetMetricStatistics) Core.. Core._Time
+getMetricStatistics_endTime :: Lens.Lens' GetMetricStatistics Prelude.UTCTime
+getMetricStatistics_endTime = Lens.lens (\GetMetricStatistics' {endTime} -> endTime) (\s@GetMetricStatistics' {} a -> s {endTime = a} :: GetMetricStatistics) Prelude.. Core._Time
 
 -- | The granularity, in seconds, of the returned data points. For metrics
 -- with regular resolution, a period can be as short as one minute (60
@@ -441,7 +442,7 @@ getMetricStatistics_endTime = Lens.lens (\GetMetricStatistics' {endTime} -> endT
 --
 -- -   Start time greater than 63 days ago - Use a multiple of 3600 seconds
 --     (1 hour).
-getMetricStatistics_period :: Lens.Lens' GetMetricStatistics Core.Natural
+getMetricStatistics_period :: Lens.Lens' GetMetricStatistics Prelude.Natural
 getMetricStatistics_period = Lens.lens (\GetMetricStatistics' {period} -> period) (\s@GetMetricStatistics' {} a -> s {period = a} :: GetMetricStatistics)
 
 instance Core.AWSRequest GetMetricStatistics where
@@ -454,40 +455,41 @@ instance Core.AWSRequest GetMetricStatistics where
       "GetMetricStatisticsResult"
       ( \s h x ->
           GetMetricStatisticsResponse'
-            Core.<$> ( x Core..@? "Datapoints" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "Label")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Datapoints" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "Label")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetMetricStatistics
+instance Prelude.Hashable GetMetricStatistics
 
-instance Core.NFData GetMetricStatistics
+instance Prelude.NFData GetMetricStatistics
 
 instance Core.ToHeaders GetMetricStatistics where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetMetricStatistics where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetMetricStatistics where
   toQuery GetMetricStatistics' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetMetricStatistics" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("GetMetricStatistics" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "Unit" Core.=: unit,
         "Statistics"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> statistics),
+            (Core.toQueryList "member" Prelude.<$> statistics),
         "Dimensions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> dimensions),
+            (Core.toQueryList "member" Prelude.<$> dimensions),
         "ExtendedStatistics"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> extendedStatistics
+                Prelude.<$> extendedStatistics
             ),
         "Namespace" Core.=: namespace,
         "MetricName" Core.=: metricName,
@@ -499,13 +501,13 @@ instance Core.ToQuery GetMetricStatistics where
 -- | /See:/ 'newGetMetricStatisticsResponse' smart constructor.
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
   { -- | The data points for the specified metric.
-    datapoints :: Core.Maybe [Datapoint],
+    datapoints :: Prelude.Maybe [Datapoint],
     -- | A label for the specified metric.
-    label :: Core.Maybe Core.Text,
+    label :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMetricStatisticsResponse' with all optional fields omitted.
@@ -522,26 +524,26 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
 -- 'httpStatus', 'getMetricStatisticsResponse_httpStatus' - The response's http status code.
 newGetMetricStatisticsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetMetricStatisticsResponse
 newGetMetricStatisticsResponse pHttpStatus_ =
   GetMetricStatisticsResponse'
     { datapoints =
-        Core.Nothing,
-      label = Core.Nothing,
+        Prelude.Nothing,
+      label = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The data points for the specified metric.
-getMetricStatisticsResponse_datapoints :: Lens.Lens' GetMetricStatisticsResponse (Core.Maybe [Datapoint])
-getMetricStatisticsResponse_datapoints = Lens.lens (\GetMetricStatisticsResponse' {datapoints} -> datapoints) (\s@GetMetricStatisticsResponse' {} a -> s {datapoints = a} :: GetMetricStatisticsResponse) Core.. Lens.mapping Lens._Coerce
+getMetricStatisticsResponse_datapoints :: Lens.Lens' GetMetricStatisticsResponse (Prelude.Maybe [Datapoint])
+getMetricStatisticsResponse_datapoints = Lens.lens (\GetMetricStatisticsResponse' {datapoints} -> datapoints) (\s@GetMetricStatisticsResponse' {} a -> s {datapoints = a} :: GetMetricStatisticsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A label for the specified metric.
-getMetricStatisticsResponse_label :: Lens.Lens' GetMetricStatisticsResponse (Core.Maybe Core.Text)
+getMetricStatisticsResponse_label :: Lens.Lens' GetMetricStatisticsResponse (Prelude.Maybe Prelude.Text)
 getMetricStatisticsResponse_label = Lens.lens (\GetMetricStatisticsResponse' {label} -> label) (\s@GetMetricStatisticsResponse' {} a -> s {label = a} :: GetMetricStatisticsResponse)
 
 -- | The response's http status code.
-getMetricStatisticsResponse_httpStatus :: Lens.Lens' GetMetricStatisticsResponse Core.Int
+getMetricStatisticsResponse_httpStatus :: Lens.Lens' GetMetricStatisticsResponse Prelude.Int
 getMetricStatisticsResponse_httpStatus = Lens.lens (\GetMetricStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetMetricStatisticsResponse' {} a -> s {httpStatus = a} :: GetMetricStatisticsResponse)
 
-instance Core.NFData GetMetricStatisticsResponse
+instance Prelude.NFData GetMetricStatisticsResponse

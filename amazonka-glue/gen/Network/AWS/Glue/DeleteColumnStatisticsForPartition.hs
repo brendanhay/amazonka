@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,17 +56,17 @@ import qualified Network.AWS.Response as Response
 data DeleteColumnStatisticsForPartition = DeleteColumnStatisticsForPartition'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
     -- none is supplied, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partitions reside.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the partitions\' table.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | A list of partition values identifying the partition.
-    partitionValues :: [Core.Text],
+    partitionValues :: [Prelude.Text],
     -- | Name of the column.
-    columnName :: Core.Text
+    columnName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteColumnStatisticsForPartition' with all optional fields omitted.
@@ -87,11 +88,11 @@ data DeleteColumnStatisticsForPartition = DeleteColumnStatisticsForPartition'
 -- 'columnName', 'deleteColumnStatisticsForPartition_columnName' - Name of the column.
 newDeleteColumnStatisticsForPartition ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'columnName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteColumnStatisticsForPartition
 newDeleteColumnStatisticsForPartition
   pDatabaseName_
@@ -99,32 +100,32 @@ newDeleteColumnStatisticsForPartition
   pColumnName_ =
     DeleteColumnStatisticsForPartition'
       { catalogId =
-          Core.Nothing,
+          Prelude.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        partitionValues = Core.mempty,
+        partitionValues = Prelude.mempty,
         columnName = pColumnName_
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
 -- none is supplied, the AWS account ID is used by default.
-deleteColumnStatisticsForPartition_catalogId :: Lens.Lens' DeleteColumnStatisticsForPartition (Core.Maybe Core.Text)
+deleteColumnStatisticsForPartition_catalogId :: Lens.Lens' DeleteColumnStatisticsForPartition (Prelude.Maybe Prelude.Text)
 deleteColumnStatisticsForPartition_catalogId = Lens.lens (\DeleteColumnStatisticsForPartition' {catalogId} -> catalogId) (\s@DeleteColumnStatisticsForPartition' {} a -> s {catalogId = a} :: DeleteColumnStatisticsForPartition)
 
 -- | The name of the catalog database where the partitions reside.
-deleteColumnStatisticsForPartition_databaseName :: Lens.Lens' DeleteColumnStatisticsForPartition Core.Text
+deleteColumnStatisticsForPartition_databaseName :: Lens.Lens' DeleteColumnStatisticsForPartition Prelude.Text
 deleteColumnStatisticsForPartition_databaseName = Lens.lens (\DeleteColumnStatisticsForPartition' {databaseName} -> databaseName) (\s@DeleteColumnStatisticsForPartition' {} a -> s {databaseName = a} :: DeleteColumnStatisticsForPartition)
 
 -- | The name of the partitions\' table.
-deleteColumnStatisticsForPartition_tableName :: Lens.Lens' DeleteColumnStatisticsForPartition Core.Text
+deleteColumnStatisticsForPartition_tableName :: Lens.Lens' DeleteColumnStatisticsForPartition Prelude.Text
 deleteColumnStatisticsForPartition_tableName = Lens.lens (\DeleteColumnStatisticsForPartition' {tableName} -> tableName) (\s@DeleteColumnStatisticsForPartition' {} a -> s {tableName = a} :: DeleteColumnStatisticsForPartition)
 
 -- | A list of partition values identifying the partition.
-deleteColumnStatisticsForPartition_partitionValues :: Lens.Lens' DeleteColumnStatisticsForPartition [Core.Text]
-deleteColumnStatisticsForPartition_partitionValues = Lens.lens (\DeleteColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@DeleteColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: DeleteColumnStatisticsForPartition) Core.. Lens._Coerce
+deleteColumnStatisticsForPartition_partitionValues :: Lens.Lens' DeleteColumnStatisticsForPartition [Prelude.Text]
+deleteColumnStatisticsForPartition_partitionValues = Lens.lens (\DeleteColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@DeleteColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: DeleteColumnStatisticsForPartition) Prelude.. Lens._Coerce
 
 -- | Name of the column.
-deleteColumnStatisticsForPartition_columnName :: Lens.Lens' DeleteColumnStatisticsForPartition Core.Text
+deleteColumnStatisticsForPartition_columnName :: Lens.Lens' DeleteColumnStatisticsForPartition Prelude.Text
 deleteColumnStatisticsForPartition_columnName = Lens.lens (\DeleteColumnStatisticsForPartition' {columnName} -> columnName) (\s@DeleteColumnStatisticsForPartition' {} a -> s {columnName = a} :: DeleteColumnStatisticsForPartition)
 
 instance
@@ -139,15 +140,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DeleteColumnStatisticsForPartitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteColumnStatisticsForPartition
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteColumnStatisticsForPartition
 
 instance
@@ -155,14 +156,16 @@ instance
     DeleteColumnStatisticsForPartition
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.DeleteColumnStatisticsForPartition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -172,13 +175,13 @@ instance
   where
   toJSON DeleteColumnStatisticsForPartition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just
               ("PartitionValues" Core..= partitionValues),
-            Core.Just ("ColumnName" Core..= columnName)
+            Prelude.Just ("ColumnName" Core..= columnName)
           ]
       )
 
@@ -186,20 +189,20 @@ instance
   Core.ToPath
     DeleteColumnStatisticsForPartition
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteColumnStatisticsForPartition
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteColumnStatisticsForPartitionResponse' smart constructor.
 data DeleteColumnStatisticsForPartitionResponse = DeleteColumnStatisticsForPartitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteColumnStatisticsForPartitionResponse' with all optional fields omitted.
@@ -212,7 +215,7 @@ data DeleteColumnStatisticsForPartitionResponse = DeleteColumnStatisticsForParti
 -- 'httpStatus', 'deleteColumnStatisticsForPartitionResponse_httpStatus' - The response's http status code.
 newDeleteColumnStatisticsForPartitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteColumnStatisticsForPartitionResponse
 newDeleteColumnStatisticsForPartitionResponse
   pHttpStatus_ =
@@ -222,9 +225,9 @@ newDeleteColumnStatisticsForPartitionResponse
       }
 
 -- | The response's http status code.
-deleteColumnStatisticsForPartitionResponse_httpStatus :: Lens.Lens' DeleteColumnStatisticsForPartitionResponse Core.Int
+deleteColumnStatisticsForPartitionResponse_httpStatus :: Lens.Lens' DeleteColumnStatisticsForPartitionResponse Prelude.Int
 deleteColumnStatisticsForPartitionResponse_httpStatus = Lens.lens (\DeleteColumnStatisticsForPartitionResponse' {httpStatus} -> httpStatus) (\s@DeleteColumnStatisticsForPartitionResponse' {} a -> s {httpStatus = a} :: DeleteColumnStatisticsForPartitionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteColumnStatisticsForPartitionResponse

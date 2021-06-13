@@ -21,17 +21,18 @@ module Network.AWS.CostExplorer.Types.AnomalyDateInterval where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The time period for an anomaly.
 --
 -- /See:/ 'newAnomalyDateInterval' smart constructor.
 data AnomalyDateInterval = AnomalyDateInterval'
   { -- | The last date an anomaly was observed.
-    endDate :: Core.Maybe Core.Text,
+    endDate :: Prelude.Maybe Prelude.Text,
     -- | The first date an anomaly was observed.
-    startDate :: Core.Text
+    startDate :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnomalyDateInterval' with all optional fields omitted.
@@ -46,31 +47,31 @@ data AnomalyDateInterval = AnomalyDateInterval'
 -- 'startDate', 'anomalyDateInterval_startDate' - The first date an anomaly was observed.
 newAnomalyDateInterval ::
   -- | 'startDate'
-  Core.Text ->
+  Prelude.Text ->
   AnomalyDateInterval
 newAnomalyDateInterval pStartDate_ =
   AnomalyDateInterval'
-    { endDate = Core.Nothing,
+    { endDate = Prelude.Nothing,
       startDate = pStartDate_
     }
 
 -- | The last date an anomaly was observed.
-anomalyDateInterval_endDate :: Lens.Lens' AnomalyDateInterval (Core.Maybe Core.Text)
+anomalyDateInterval_endDate :: Lens.Lens' AnomalyDateInterval (Prelude.Maybe Prelude.Text)
 anomalyDateInterval_endDate = Lens.lens (\AnomalyDateInterval' {endDate} -> endDate) (\s@AnomalyDateInterval' {} a -> s {endDate = a} :: AnomalyDateInterval)
 
 -- | The first date an anomaly was observed.
-anomalyDateInterval_startDate :: Lens.Lens' AnomalyDateInterval Core.Text
+anomalyDateInterval_startDate :: Lens.Lens' AnomalyDateInterval Prelude.Text
 anomalyDateInterval_startDate = Lens.lens (\AnomalyDateInterval' {startDate} -> startDate) (\s@AnomalyDateInterval' {} a -> s {startDate = a} :: AnomalyDateInterval)
 
-instance Core.Hashable AnomalyDateInterval
+instance Prelude.Hashable AnomalyDateInterval
 
-instance Core.NFData AnomalyDateInterval
+instance Prelude.NFData AnomalyDateInterval
 
 instance Core.ToJSON AnomalyDateInterval where
   toJSON AnomalyDateInterval' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EndDate" Core..=) Core.<$> endDate,
-            Core.Just ("StartDate" Core..= startDate)
+      ( Prelude.catMaybes
+          [ ("EndDate" Core..=) Prelude.<$> endDate,
+            Prelude.Just ("StartDate" Core..= startDate)
           ]
       )

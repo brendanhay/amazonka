@@ -42,6 +42,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetPullRequest = GetPullRequest'
   { -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
-    pullRequestId :: Core.Text
+    pullRequestId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPullRequest' with all optional fields omitted.
@@ -65,14 +66,14 @@ data GetPullRequest = GetPullRequest'
 -- ListPullRequests.
 newGetPullRequest ::
   -- | 'pullRequestId'
-  Core.Text ->
+  Prelude.Text ->
   GetPullRequest
 newGetPullRequest pPullRequestId_ =
   GetPullRequest' {pullRequestId = pPullRequestId_}
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
-getPullRequest_pullRequestId :: Lens.Lens' GetPullRequest Core.Text
+getPullRequest_pullRequestId :: Lens.Lens' GetPullRequest Prelude.Text
 getPullRequest_pullRequestId = Lens.lens (\GetPullRequest' {pullRequestId} -> pullRequestId) (\s@GetPullRequest' {} a -> s {pullRequestId = a} :: GetPullRequest)
 
 instance Core.AWSRequest GetPullRequest where
@@ -84,48 +85,52 @@ instance Core.AWSRequest GetPullRequest where
     Response.receiveJSON
       ( \s h x ->
           GetPullRequestResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "pullRequest")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "pullRequest")
       )
 
-instance Core.Hashable GetPullRequest
+instance Prelude.Hashable GetPullRequest
 
-instance Core.NFData GetPullRequest
+instance Prelude.NFData GetPullRequest
 
 instance Core.ToHeaders GetPullRequest where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.GetPullRequest" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPullRequest where
   toJSON GetPullRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("pullRequestId" Core..= pullRequestId)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("pullRequestId" Core..= pullRequestId)
+          ]
       )
 
 instance Core.ToPath GetPullRequest where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPullRequest where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPullRequestResponse' smart constructor.
 data GetPullRequestResponse = GetPullRequestResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the specified pull request.
     pullRequest :: PullRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPullRequestResponse' with all optional fields omitted.
@@ -140,7 +145,7 @@ data GetPullRequestResponse = GetPullRequestResponse'
 -- 'pullRequest', 'getPullRequestResponse_pullRequest' - Information about the specified pull request.
 newGetPullRequestResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'pullRequest'
   PullRequest ->
   GetPullRequestResponse
@@ -151,11 +156,11 @@ newGetPullRequestResponse pHttpStatus_ pPullRequest_ =
     }
 
 -- | The response's http status code.
-getPullRequestResponse_httpStatus :: Lens.Lens' GetPullRequestResponse Core.Int
+getPullRequestResponse_httpStatus :: Lens.Lens' GetPullRequestResponse Prelude.Int
 getPullRequestResponse_httpStatus = Lens.lens (\GetPullRequestResponse' {httpStatus} -> httpStatus) (\s@GetPullRequestResponse' {} a -> s {httpStatus = a} :: GetPullRequestResponse)
 
 -- | Information about the specified pull request.
 getPullRequestResponse_pullRequest :: Lens.Lens' GetPullRequestResponse PullRequest
 getPullRequestResponse_pullRequest = Lens.lens (\GetPullRequestResponse' {pullRequest} -> pullRequest) (\s@GetPullRequestResponse' {} a -> s {pullRequest = a} :: GetPullRequestResponse)
 
-instance Core.NFData GetPullRequestResponse
+instance Prelude.NFData GetPullRequestResponse

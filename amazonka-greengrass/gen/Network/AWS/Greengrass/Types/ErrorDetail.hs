@@ -21,17 +21,18 @@ module Network.AWS.Greengrass.Types.ErrorDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the error.
 --
 -- /See:/ 'newErrorDetail' smart constructor.
 data ErrorDetail = ErrorDetail'
   { -- | A detailed error message.
-    detailedErrorMessage :: Core.Maybe Core.Text,
+    detailedErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | A detailed error code.
-    detailedErrorCode :: Core.Maybe Core.Text
+    detailedErrorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ErrorDetail' with all optional fields omitted.
@@ -48,16 +49,17 @@ newErrorDetail ::
   ErrorDetail
 newErrorDetail =
   ErrorDetail'
-    { detailedErrorMessage = Core.Nothing,
-      detailedErrorCode = Core.Nothing
+    { detailedErrorMessage =
+        Prelude.Nothing,
+      detailedErrorCode = Prelude.Nothing
     }
 
 -- | A detailed error message.
-errorDetail_detailedErrorMessage :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
+errorDetail_detailedErrorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
 errorDetail_detailedErrorMessage = Lens.lens (\ErrorDetail' {detailedErrorMessage} -> detailedErrorMessage) (\s@ErrorDetail' {} a -> s {detailedErrorMessage = a} :: ErrorDetail)
 
 -- | A detailed error code.
-errorDetail_detailedErrorCode :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
+errorDetail_detailedErrorCode :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
 errorDetail_detailedErrorCode = Lens.lens (\ErrorDetail' {detailedErrorCode} -> detailedErrorCode) (\s@ErrorDetail' {} a -> s {detailedErrorCode = a} :: ErrorDetail)
 
 instance Core.FromJSON ErrorDetail where
@@ -66,10 +68,10 @@ instance Core.FromJSON ErrorDetail where
       "ErrorDetail"
       ( \x ->
           ErrorDetail'
-            Core.<$> (x Core..:? "DetailedErrorMessage")
-            Core.<*> (x Core..:? "DetailedErrorCode")
+            Prelude.<$> (x Core..:? "DetailedErrorMessage")
+            Prelude.<*> (x Core..:? "DetailedErrorCode")
       )
 
-instance Core.Hashable ErrorDetail
+instance Prelude.Hashable ErrorDetail
 
-instance Core.NFData ErrorDetail
+instance Prelude.NFData ErrorDetail

@@ -43,20 +43,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEnableClientAuthentication' smart constructor.
 data EnableClientAuthentication = EnableClientAuthentication'
   { -- | The identifier of the specified directory.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | The type of client authentication to enable. Currently only the value
     -- @SmartCard@ is supported. Smart card authentication in AD Connector
     -- requires that you enable Kerberos Constrained Delegation for the Service
     -- User to the LDAP service in the on-premises AD.
     type' :: ClientAuthenticationType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableClientAuthentication' with all optional fields omitted.
@@ -74,7 +75,7 @@ data EnableClientAuthentication = EnableClientAuthentication'
 -- User to the LDAP service in the on-premises AD.
 newEnableClientAuthentication ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   ClientAuthenticationType ->
   EnableClientAuthentication
@@ -86,7 +87,7 @@ newEnableClientAuthentication pDirectoryId_ pType_ =
     }
 
 -- | The identifier of the specified directory.
-enableClientAuthentication_directoryId :: Lens.Lens' EnableClientAuthentication Core.Text
+enableClientAuthentication_directoryId :: Lens.Lens' EnableClientAuthentication Prelude.Text
 enableClientAuthentication_directoryId = Lens.lens (\EnableClientAuthentication' {directoryId} -> directoryId) (\s@EnableClientAuthentication' {} a -> s {directoryId = a} :: EnableClientAuthentication)
 
 -- | The type of client authentication to enable. Currently only the value
@@ -105,47 +106,49 @@ instance Core.AWSRequest EnableClientAuthentication where
     Response.receiveEmpty
       ( \s h x ->
           EnableClientAuthenticationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable EnableClientAuthentication
+instance Prelude.Hashable EnableClientAuthentication
 
-instance Core.NFData EnableClientAuthentication
+instance Prelude.NFData EnableClientAuthentication
 
 instance Core.ToHeaders EnableClientAuthentication where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.EnableClientAuthentication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableClientAuthentication where
   toJSON EnableClientAuthentication' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("Type" Core..= type')
           ]
       )
 
 instance Core.ToPath EnableClientAuthentication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableClientAuthentication where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableClientAuthenticationResponse' smart constructor.
 data EnableClientAuthenticationResponse = EnableClientAuthenticationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableClientAuthenticationResponse' with all optional fields omitted.
@@ -158,7 +161,7 @@ data EnableClientAuthenticationResponse = EnableClientAuthenticationResponse'
 -- 'httpStatus', 'enableClientAuthenticationResponse_httpStatus' - The response's http status code.
 newEnableClientAuthenticationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EnableClientAuthenticationResponse
 newEnableClientAuthenticationResponse pHttpStatus_ =
   EnableClientAuthenticationResponse'
@@ -167,9 +170,9 @@ newEnableClientAuthenticationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-enableClientAuthenticationResponse_httpStatus :: Lens.Lens' EnableClientAuthenticationResponse Core.Int
+enableClientAuthenticationResponse_httpStatus :: Lens.Lens' EnableClientAuthenticationResponse Prelude.Int
 enableClientAuthenticationResponse_httpStatus = Lens.lens (\EnableClientAuthenticationResponse' {httpStatus} -> httpStatus) (\s@EnableClientAuthenticationResponse' {} a -> s {httpStatus = a} :: EnableClientAuthenticationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     EnableClientAuthenticationResponse

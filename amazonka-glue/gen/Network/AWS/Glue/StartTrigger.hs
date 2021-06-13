@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartTrigger' smart constructor.
 data StartTrigger = StartTrigger'
   { -- | The name of the trigger to start.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTrigger' with all optional fields omitted.
@@ -65,12 +66,12 @@ data StartTrigger = StartTrigger'
 -- 'name', 'startTrigger_name' - The name of the trigger to start.
 newStartTrigger ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   StartTrigger
 newStartTrigger pName_ = StartTrigger' {name = pName_}
 
 -- | The name of the trigger to start.
-startTrigger_name :: Lens.Lens' StartTrigger Core.Text
+startTrigger_name :: Lens.Lens' StartTrigger Prelude.Text
 startTrigger_name = Lens.lens (\StartTrigger' {name} -> name) (\s@StartTrigger' {} a -> s {name = a} :: StartTrigger)
 
 instance Core.AWSRequest StartTrigger where
@@ -80,44 +81,48 @@ instance Core.AWSRequest StartTrigger where
     Response.receiveJSON
       ( \s h x ->
           StartTriggerResponse'
-            Core.<$> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartTrigger
+instance Prelude.Hashable StartTrigger
 
-instance Core.NFData StartTrigger
+instance Prelude.NFData StartTrigger
 
 instance Core.ToHeaders StartTrigger where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StartTrigger" :: Core.ByteString),
+              Core.=# ("AWSGlue.StartTrigger" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartTrigger where
   toJSON StartTrigger' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath StartTrigger where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartTrigger where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTriggerResponse' smart constructor.
 data StartTriggerResponse = StartTriggerResponse'
   { -- | The name of the trigger that was started.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTriggerResponse' with all optional fields omitted.
@@ -132,20 +137,20 @@ data StartTriggerResponse = StartTriggerResponse'
 -- 'httpStatus', 'startTriggerResponse_httpStatus' - The response's http status code.
 newStartTriggerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartTriggerResponse
 newStartTriggerResponse pHttpStatus_ =
   StartTriggerResponse'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the trigger that was started.
-startTriggerResponse_name :: Lens.Lens' StartTriggerResponse (Core.Maybe Core.Text)
+startTriggerResponse_name :: Lens.Lens' StartTriggerResponse (Prelude.Maybe Prelude.Text)
 startTriggerResponse_name = Lens.lens (\StartTriggerResponse' {name} -> name) (\s@StartTriggerResponse' {} a -> s {name = a} :: StartTriggerResponse)
 
 -- | The response's http status code.
-startTriggerResponse_httpStatus :: Lens.Lens' StartTriggerResponse Core.Int
+startTriggerResponse_httpStatus :: Lens.Lens' StartTriggerResponse Prelude.Int
 startTriggerResponse_httpStatus = Lens.lens (\StartTriggerResponse' {httpStatus} -> httpStatus) (\s@StartTriggerResponse' {} a -> s {httpStatus = a} :: StartTriggerResponse)
 
-instance Core.NFData StartTriggerResponse
+instance Prelude.NFData StartTriggerResponse

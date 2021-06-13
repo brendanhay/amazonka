@@ -41,6 +41,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DeleteResourcesByExternalId = DeleteResourcesByExternalId'
   { -- | The unique ID of an external resource (for example, a CloudFormation
     -- stack ID) that is linked to one or more CodeDeploy resources.
-    externalId :: Core.Maybe Core.Text
+    externalId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteResourcesByExternalId' with all optional fields omitted.
@@ -67,12 +68,12 @@ newDeleteResourcesByExternalId ::
 newDeleteResourcesByExternalId =
   DeleteResourcesByExternalId'
     { externalId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The unique ID of an external resource (for example, a CloudFormation
 -- stack ID) that is linked to one or more CodeDeploy resources.
-deleteResourcesByExternalId_externalId :: Lens.Lens' DeleteResourcesByExternalId (Core.Maybe Core.Text)
+deleteResourcesByExternalId_externalId :: Lens.Lens' DeleteResourcesByExternalId (Prelude.Maybe Prelude.Text)
 deleteResourcesByExternalId_externalId = Lens.lens (\DeleteResourcesByExternalId' {externalId} -> externalId) (\s@DeleteResourcesByExternalId' {} a -> s {externalId = a} :: DeleteResourcesByExternalId)
 
 instance Core.AWSRequest DeleteResourcesByExternalId where
@@ -84,45 +85,47 @@ instance Core.AWSRequest DeleteResourcesByExternalId where
     Response.receiveEmpty
       ( \s h x ->
           DeleteResourcesByExternalIdResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteResourcesByExternalId
+instance Prelude.Hashable DeleteResourcesByExternalId
 
-instance Core.NFData DeleteResourcesByExternalId
+instance Prelude.NFData DeleteResourcesByExternalId
 
 instance Core.ToHeaders DeleteResourcesByExternalId where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.DeleteResourcesByExternalId" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteResourcesByExternalId where
   toJSON DeleteResourcesByExternalId' {..} =
     Core.object
-      ( Core.catMaybes
-          [("externalId" Core..=) Core.<$> externalId]
+      ( Prelude.catMaybes
+          [("externalId" Core..=) Prelude.<$> externalId]
       )
 
 instance Core.ToPath DeleteResourcesByExternalId where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteResourcesByExternalId where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourcesByExternalIdResponse' smart constructor.
 data DeleteResourcesByExternalIdResponse = DeleteResourcesByExternalIdResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteResourcesByExternalIdResponse' with all optional fields omitted.
@@ -135,7 +138,7 @@ data DeleteResourcesByExternalIdResponse = DeleteResourcesByExternalIdResponse'
 -- 'httpStatus', 'deleteResourcesByExternalIdResponse_httpStatus' - The response's http status code.
 newDeleteResourcesByExternalIdResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteResourcesByExternalIdResponse
 newDeleteResourcesByExternalIdResponse pHttpStatus_ =
   DeleteResourcesByExternalIdResponse'
@@ -144,9 +147,9 @@ newDeleteResourcesByExternalIdResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteResourcesByExternalIdResponse_httpStatus :: Lens.Lens' DeleteResourcesByExternalIdResponse Core.Int
+deleteResourcesByExternalIdResponse_httpStatus :: Lens.Lens' DeleteResourcesByExternalIdResponse Prelude.Int
 deleteResourcesByExternalIdResponse_httpStatus = Lens.lens (\DeleteResourcesByExternalIdResponse' {httpStatus} -> httpStatus) (\s@DeleteResourcesByExternalIdResponse' {} a -> s {httpStatus = a} :: DeleteResourcesByExternalIdResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteResourcesByExternalIdResponse

@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -83,7 +84,7 @@ data GetAccountLimit = GetAccountLimit'
     --     policy records in the Amazon Route 53 console.)
     type' :: AccountLimitType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountLimit' with all optional fields omitted.
@@ -150,32 +151,32 @@ instance Core.AWSRequest GetAccountLimit where
     Response.receiveXML
       ( \s h x ->
           GetAccountLimitResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "Limit")
-            Core.<*> (x Core..@ "Count")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Limit")
+            Prelude.<*> (x Core..@ "Count")
       )
 
-instance Core.Hashable GetAccountLimit
+instance Prelude.Hashable GetAccountLimit
 
-instance Core.NFData GetAccountLimit
+instance Prelude.NFData GetAccountLimit
 
 instance Core.ToHeaders GetAccountLimit where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAccountLimit where
   toPath GetAccountLimit' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2013-04-01/accountlimit/", Core.toBS type']
 
 instance Core.ToQuery GetAccountLimit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the requested limit.
 --
 -- /See:/ 'newGetAccountLimitResponse' smart constructor.
 data GetAccountLimitResponse = GetAccountLimitResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The current setting for the specified limit. For example, if you
     -- specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the value of @Type@ in the
     -- request, the value of @Limit@ is the maximum number of health checks
@@ -185,9 +186,9 @@ data GetAccountLimitResponse = GetAccountLimitResponse'
     -- type. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the
     -- value of @Type@ in the request, the value of @Count@ is the current
     -- number of health checks that you have created using the current account.
-    count :: Core.Natural
+    count :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountLimitResponse' with all optional fields omitted.
@@ -210,11 +211,11 @@ data GetAccountLimitResponse = GetAccountLimitResponse'
 -- number of health checks that you have created using the current account.
 newGetAccountLimitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'limit'
   AccountLimit ->
   -- | 'count'
-  Core.Natural ->
+  Prelude.Natural ->
   GetAccountLimitResponse
 newGetAccountLimitResponse
   pHttpStatus_
@@ -227,7 +228,7 @@ newGetAccountLimitResponse
       }
 
 -- | The response's http status code.
-getAccountLimitResponse_httpStatus :: Lens.Lens' GetAccountLimitResponse Core.Int
+getAccountLimitResponse_httpStatus :: Lens.Lens' GetAccountLimitResponse Prelude.Int
 getAccountLimitResponse_httpStatus = Lens.lens (\GetAccountLimitResponse' {httpStatus} -> httpStatus) (\s@GetAccountLimitResponse' {} a -> s {httpStatus = a} :: GetAccountLimitResponse)
 
 -- | The current setting for the specified limit. For example, if you
@@ -241,7 +242,7 @@ getAccountLimitResponse_limit = Lens.lens (\GetAccountLimitResponse' {limit} -> 
 -- type. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the
 -- value of @Type@ in the request, the value of @Count@ is the current
 -- number of health checks that you have created using the current account.
-getAccountLimitResponse_count :: Lens.Lens' GetAccountLimitResponse Core.Natural
+getAccountLimitResponse_count :: Lens.Lens' GetAccountLimitResponse Prelude.Natural
 getAccountLimitResponse_count = Lens.lens (\GetAccountLimitResponse' {count} -> count) (\s@GetAccountLimitResponse' {} a -> s {count = a} :: GetAccountLimitResponse)
 
-instance Core.NFData GetAccountLimitResponse
+instance Prelude.NFData GetAccountLimitResponse

@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -54,7 +55,7 @@ data GetObjectLockConfiguration = GetObjectLockConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket whose Object Lock configuration you want to retrieve.
     --
     -- When using this API with an access point, you must direct requests to
@@ -67,7 +68,7 @@ data GetObjectLockConfiguration = GetObjectLockConfiguration'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectLockConfiguration' with all optional fields omitted.
@@ -98,14 +99,14 @@ newGetObjectLockConfiguration ::
 newGetObjectLockConfiguration pBucket_ =
   GetObjectLockConfiguration'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' GetObjectLockConfiguration (Core.Maybe Core.Text)
+getObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' GetObjectLockConfiguration (Prelude.Maybe Prelude.Text)
 getObjectLockConfiguration_expectedBucketOwner = Lens.lens (\GetObjectLockConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectLockConfiguration' {} a -> s {expectedBucketOwner = a} :: GetObjectLockConfiguration)
 
 -- | The bucket whose Object Lock configuration you want to retrieve.
@@ -130,36 +131,37 @@ instance Core.AWSRequest GetObjectLockConfiguration where
     Response.receiveXML
       ( \s h x ->
           GetObjectLockConfigurationResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetObjectLockConfiguration
+instance Prelude.Hashable GetObjectLockConfiguration
 
-instance Core.NFData GetObjectLockConfiguration
+instance Prelude.NFData GetObjectLockConfiguration
 
 instance Core.ToHeaders GetObjectLockConfiguration where
   toHeaders GetObjectLockConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetObjectLockConfiguration where
   toPath GetObjectLockConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery GetObjectLockConfiguration where
-  toQuery = Core.const (Core.mconcat ["object-lock"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["object-lock"])
 
 -- | /See:/ 'newGetObjectLockConfigurationResponse' smart constructor.
 data GetObjectLockConfigurationResponse = GetObjectLockConfigurationResponse'
   { -- | The specified bucket\'s Object Lock configuration.
-    objectLockConfiguration :: Core.Maybe ObjectLockConfiguration,
+    objectLockConfiguration :: Prelude.Maybe ObjectLockConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectLockConfigurationResponse' with all optional fields omitted.
@@ -174,23 +176,23 @@ data GetObjectLockConfigurationResponse = GetObjectLockConfigurationResponse'
 -- 'httpStatus', 'getObjectLockConfigurationResponse_httpStatus' - The response's http status code.
 newGetObjectLockConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetObjectLockConfigurationResponse
 newGetObjectLockConfigurationResponse pHttpStatus_ =
   GetObjectLockConfigurationResponse'
     { objectLockConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The specified bucket\'s Object Lock configuration.
-getObjectLockConfigurationResponse_objectLockConfiguration :: Lens.Lens' GetObjectLockConfigurationResponse (Core.Maybe ObjectLockConfiguration)
+getObjectLockConfigurationResponse_objectLockConfiguration :: Lens.Lens' GetObjectLockConfigurationResponse (Prelude.Maybe ObjectLockConfiguration)
 getObjectLockConfigurationResponse_objectLockConfiguration = Lens.lens (\GetObjectLockConfigurationResponse' {objectLockConfiguration} -> objectLockConfiguration) (\s@GetObjectLockConfigurationResponse' {} a -> s {objectLockConfiguration = a} :: GetObjectLockConfigurationResponse)
 
 -- | The response's http status code.
-getObjectLockConfigurationResponse_httpStatus :: Lens.Lens' GetObjectLockConfigurationResponse Core.Int
+getObjectLockConfigurationResponse_httpStatus :: Lens.Lens' GetObjectLockConfigurationResponse Prelude.Int
 getObjectLockConfigurationResponse_httpStatus = Lens.lens (\GetObjectLockConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetObjectLockConfigurationResponse' {} a -> s {httpStatus = a} :: GetObjectLockConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetObjectLockConfigurationResponse

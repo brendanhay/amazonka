@@ -22,6 +22,7 @@ module Network.AWS.EMR.Types.EbsBlockDeviceConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.VolumeSpecification
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration of requested EBS block device associated with the instance
 -- group with count of volumes that will be associated to every instance.
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 data EbsBlockDeviceConfig = EbsBlockDeviceConfig'
   { -- | Number of EBS volumes with a specific volume configuration that will be
     -- associated with every instance in the instance group
-    volumesPerInstance :: Core.Maybe Core.Int,
+    volumesPerInstance :: Prelude.Maybe Prelude.Int,
     -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
     -- will be requested for the EBS volume attached to an EC2 instance in the
     -- cluster.
     volumeSpecification :: VolumeSpecification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EbsBlockDeviceConfig' with all optional fields omitted.
@@ -59,13 +60,13 @@ newEbsBlockDeviceConfig ::
 newEbsBlockDeviceConfig pVolumeSpecification_ =
   EbsBlockDeviceConfig'
     { volumesPerInstance =
-        Core.Nothing,
+        Prelude.Nothing,
       volumeSpecification = pVolumeSpecification_
     }
 
 -- | Number of EBS volumes with a specific volume configuration that will be
 -- associated with every instance in the instance group
-ebsBlockDeviceConfig_volumesPerInstance :: Lens.Lens' EbsBlockDeviceConfig (Core.Maybe Core.Int)
+ebsBlockDeviceConfig_volumesPerInstance :: Lens.Lens' EbsBlockDeviceConfig (Prelude.Maybe Prelude.Int)
 ebsBlockDeviceConfig_volumesPerInstance = Lens.lens (\EbsBlockDeviceConfig' {volumesPerInstance} -> volumesPerInstance) (\s@EbsBlockDeviceConfig' {} a -> s {volumesPerInstance = a} :: EbsBlockDeviceConfig)
 
 -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
@@ -74,17 +75,17 @@ ebsBlockDeviceConfig_volumesPerInstance = Lens.lens (\EbsBlockDeviceConfig' {vol
 ebsBlockDeviceConfig_volumeSpecification :: Lens.Lens' EbsBlockDeviceConfig VolumeSpecification
 ebsBlockDeviceConfig_volumeSpecification = Lens.lens (\EbsBlockDeviceConfig' {volumeSpecification} -> volumeSpecification) (\s@EbsBlockDeviceConfig' {} a -> s {volumeSpecification = a} :: EbsBlockDeviceConfig)
 
-instance Core.Hashable EbsBlockDeviceConfig
+instance Prelude.Hashable EbsBlockDeviceConfig
 
-instance Core.NFData EbsBlockDeviceConfig
+instance Prelude.NFData EbsBlockDeviceConfig
 
 instance Core.ToJSON EbsBlockDeviceConfig where
   toJSON EbsBlockDeviceConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("VolumesPerInstance" Core..=)
-              Core.<$> volumesPerInstance,
-            Core.Just
+              Prelude.<$> volumesPerInstance,
+            Prelude.Just
               ("VolumeSpecification" Core..= volumeSpecification)
           ]
       )

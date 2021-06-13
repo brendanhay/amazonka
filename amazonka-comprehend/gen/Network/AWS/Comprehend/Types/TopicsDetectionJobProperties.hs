@@ -25,6 +25,7 @@ import Network.AWS.Comprehend.Types.OutputDataConfig
 import Network.AWS.Comprehend.Types.VpcConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a topic detection job.
 --
@@ -34,20 +35,20 @@ data TopicsDetectionJobProperties = TopicsDetectionJobProperties'
     -- containing the resources you are using for your topic detection job. For
     -- more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Core.Maybe VpcConfig,
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The input data configuration supplied when you created the topic
     -- detection job.
-    inputDataConfig :: Core.Maybe InputDataConfig,
+    inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | A description for the status of a job.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The current status of the topic detection job. If the status is
     -- @Failed@, the reason for the failure is shown in the @Message@ field.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The output data configuration supplied when you created the topic
     -- detection job.
-    outputDataConfig :: Core.Maybe OutputDataConfig,
+    outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the topic detection job was completed.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -57,21 +58,21 @@ data TopicsDetectionJobProperties = TopicsDetectionJobProperties'
     --
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Core.Maybe Core.Text,
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time that the topic detection job was submitted for processing.
-    submitTime :: Core.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Core.POSIX,
     -- | The number of topics to detect supplied when you created the topic
     -- detection job. The default is 10.
-    numberOfTopics :: Core.Maybe Core.Int,
+    numberOfTopics :: Prelude.Maybe Prelude.Int,
     -- | The name of the topic detection job.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
     -- role that grants Amazon Comprehend read access to your job data.
-    dataAccessRoleArn :: Core.Maybe Core.Text,
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier assigned to the topic detection job.
-    jobId :: Core.Maybe Core.Text
+    jobId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TopicsDetectionJobProperties' with all optional fields omitted.
@@ -125,49 +126,49 @@ newTopicsDetectionJobProperties ::
 newTopicsDetectionJobProperties =
   TopicsDetectionJobProperties'
     { vpcConfig =
-        Core.Nothing,
-      inputDataConfig = Core.Nothing,
-      message = Core.Nothing,
-      jobStatus = Core.Nothing,
-      outputDataConfig = Core.Nothing,
-      endTime = Core.Nothing,
-      volumeKmsKeyId = Core.Nothing,
-      submitTime = Core.Nothing,
-      numberOfTopics = Core.Nothing,
-      jobName = Core.Nothing,
-      dataAccessRoleArn = Core.Nothing,
-      jobId = Core.Nothing
+        Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
+      message = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      outputDataConfig = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing,
+      submitTime = Prelude.Nothing,
+      numberOfTopics = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      dataAccessRoleArn = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
 
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your topic detection job. For
 -- more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-topicsDetectionJobProperties_vpcConfig :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe VpcConfig)
+topicsDetectionJobProperties_vpcConfig :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe VpcConfig)
 topicsDetectionJobProperties_vpcConfig = Lens.lens (\TopicsDetectionJobProperties' {vpcConfig} -> vpcConfig) (\s@TopicsDetectionJobProperties' {} a -> s {vpcConfig = a} :: TopicsDetectionJobProperties)
 
 -- | The input data configuration supplied when you created the topic
 -- detection job.
-topicsDetectionJobProperties_inputDataConfig :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe InputDataConfig)
+topicsDetectionJobProperties_inputDataConfig :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe InputDataConfig)
 topicsDetectionJobProperties_inputDataConfig = Lens.lens (\TopicsDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@TopicsDetectionJobProperties' {} a -> s {inputDataConfig = a} :: TopicsDetectionJobProperties)
 
 -- | A description for the status of a job.
-topicsDetectionJobProperties_message :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe Core.Text)
+topicsDetectionJobProperties_message :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 topicsDetectionJobProperties_message = Lens.lens (\TopicsDetectionJobProperties' {message} -> message) (\s@TopicsDetectionJobProperties' {} a -> s {message = a} :: TopicsDetectionJobProperties)
 
 -- | The current status of the topic detection job. If the status is
 -- @Failed@, the reason for the failure is shown in the @Message@ field.
-topicsDetectionJobProperties_jobStatus :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe JobStatus)
+topicsDetectionJobProperties_jobStatus :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe JobStatus)
 topicsDetectionJobProperties_jobStatus = Lens.lens (\TopicsDetectionJobProperties' {jobStatus} -> jobStatus) (\s@TopicsDetectionJobProperties' {} a -> s {jobStatus = a} :: TopicsDetectionJobProperties)
 
 -- | The output data configuration supplied when you created the topic
 -- detection job.
-topicsDetectionJobProperties_outputDataConfig :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe OutputDataConfig)
+topicsDetectionJobProperties_outputDataConfig :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe OutputDataConfig)
 topicsDetectionJobProperties_outputDataConfig = Lens.lens (\TopicsDetectionJobProperties' {outputDataConfig} -> outputDataConfig) (\s@TopicsDetectionJobProperties' {} a -> s {outputDataConfig = a} :: TopicsDetectionJobProperties)
 
 -- | The time that the topic detection job was completed.
-topicsDetectionJobProperties_endTime :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe Core.UTCTime)
-topicsDetectionJobProperties_endTime = Lens.lens (\TopicsDetectionJobProperties' {endTime} -> endTime) (\s@TopicsDetectionJobProperties' {} a -> s {endTime = a} :: TopicsDetectionJobProperties) Core.. Lens.mapping Core._Time
+topicsDetectionJobProperties_endTime :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+topicsDetectionJobProperties_endTime = Lens.lens (\TopicsDetectionJobProperties' {endTime} -> endTime) (\s@TopicsDetectionJobProperties' {} a -> s {endTime = a} :: TopicsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -178,29 +179,29 @@ topicsDetectionJobProperties_endTime = Lens.lens (\TopicsDetectionJobProperties'
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-topicsDetectionJobProperties_volumeKmsKeyId :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe Core.Text)
+topicsDetectionJobProperties_volumeKmsKeyId :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 topicsDetectionJobProperties_volumeKmsKeyId = Lens.lens (\TopicsDetectionJobProperties' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@TopicsDetectionJobProperties' {} a -> s {volumeKmsKeyId = a} :: TopicsDetectionJobProperties)
 
 -- | The time that the topic detection job was submitted for processing.
-topicsDetectionJobProperties_submitTime :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe Core.UTCTime)
-topicsDetectionJobProperties_submitTime = Lens.lens (\TopicsDetectionJobProperties' {submitTime} -> submitTime) (\s@TopicsDetectionJobProperties' {} a -> s {submitTime = a} :: TopicsDetectionJobProperties) Core.. Lens.mapping Core._Time
+topicsDetectionJobProperties_submitTime :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+topicsDetectionJobProperties_submitTime = Lens.lens (\TopicsDetectionJobProperties' {submitTime} -> submitTime) (\s@TopicsDetectionJobProperties' {} a -> s {submitTime = a} :: TopicsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The number of topics to detect supplied when you created the topic
 -- detection job. The default is 10.
-topicsDetectionJobProperties_numberOfTopics :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe Core.Int)
+topicsDetectionJobProperties_numberOfTopics :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.Int)
 topicsDetectionJobProperties_numberOfTopics = Lens.lens (\TopicsDetectionJobProperties' {numberOfTopics} -> numberOfTopics) (\s@TopicsDetectionJobProperties' {} a -> s {numberOfTopics = a} :: TopicsDetectionJobProperties)
 
 -- | The name of the topic detection job.
-topicsDetectionJobProperties_jobName :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe Core.Text)
+topicsDetectionJobProperties_jobName :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 topicsDetectionJobProperties_jobName = Lens.lens (\TopicsDetectionJobProperties' {jobName} -> jobName) (\s@TopicsDetectionJobProperties' {} a -> s {jobName = a} :: TopicsDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
 -- role that grants Amazon Comprehend read access to your job data.
-topicsDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe Core.Text)
+topicsDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 topicsDetectionJobProperties_dataAccessRoleArn = Lens.lens (\TopicsDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@TopicsDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: TopicsDetectionJobProperties)
 
 -- | The identifier assigned to the topic detection job.
-topicsDetectionJobProperties_jobId :: Lens.Lens' TopicsDetectionJobProperties (Core.Maybe Core.Text)
+topicsDetectionJobProperties_jobId :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 topicsDetectionJobProperties_jobId = Lens.lens (\TopicsDetectionJobProperties' {jobId} -> jobId) (\s@TopicsDetectionJobProperties' {} a -> s {jobId = a} :: TopicsDetectionJobProperties)
 
 instance Core.FromJSON TopicsDetectionJobProperties where
@@ -209,20 +210,22 @@ instance Core.FromJSON TopicsDetectionJobProperties where
       "TopicsDetectionJobProperties"
       ( \x ->
           TopicsDetectionJobProperties'
-            Core.<$> (x Core..:? "VpcConfig")
-            Core.<*> (x Core..:? "InputDataConfig")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "JobStatus")
-            Core.<*> (x Core..:? "OutputDataConfig")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "VolumeKmsKeyId")
-            Core.<*> (x Core..:? "SubmitTime")
-            Core.<*> (x Core..:? "NumberOfTopics")
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "DataAccessRoleArn")
-            Core.<*> (x Core..:? "JobId")
+            Prelude.<$> (x Core..:? "VpcConfig")
+            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<*> (x Core..:? "OutputDataConfig")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Core..:? "SubmitTime")
+            Prelude.<*> (x Core..:? "NumberOfTopics")
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "DataAccessRoleArn")
+            Prelude.<*> (x Core..:? "JobId")
       )
 
-instance Core.Hashable TopicsDetectionJobProperties
+instance
+  Prelude.Hashable
+    TopicsDetectionJobProperties
 
-instance Core.NFData TopicsDetectionJobProperties
+instance Prelude.NFData TopicsDetectionJobProperties

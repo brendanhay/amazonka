@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ data ListJobs = ListJobs'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The run\'s Amazon Resource Name (ARN).
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobs' with all optional fields omitted.
@@ -77,37 +78,39 @@ data ListJobs = ListJobs'
 -- 'arn', 'listJobs_arn' - The run\'s Amazon Resource Name (ARN).
 newListJobs ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   ListJobs
 newListJobs pArn_ =
-  ListJobs' {nextToken = Core.Nothing, arn = pArn_}
+  ListJobs' {nextToken = Prelude.Nothing, arn = pArn_}
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listJobs_nextToken :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
 -- | The run\'s Amazon Resource Name (ARN).
-listJobs_arn :: Lens.Lens' ListJobs Core.Text
+listJobs_arn :: Lens.Lens' ListJobs Prelude.Text
 listJobs_arn = Lens.lens (\ListJobs' {arn} -> arn) (\s@ListJobs' {} a -> s {arn = a} :: ListJobs)
 
 instance Core.AWSPager ListJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listJobsResponse_nextToken Core.. Lens._Just
+            Lens.^? listJobsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
-        (rs Lens.^? listJobsResponse_jobs Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+        ( rs
+            Lens.^? listJobsResponse_jobs Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listJobs_nextToken
+          Prelude.& listJobs_nextToken
           Lens..~ rs
-          Lens.^? listJobsResponse_nextToken Core.. Lens._Just
+          Lens.^? listJobsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -116,40 +119,44 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "jobs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListJobs
+instance Prelude.Hashable ListJobs
 
-instance Core.NFData ListJobs
+instance Prelude.NFData ListJobs
 
 instance Core.ToHeaders ListJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DeviceFarm_20150623.ListJobs" :: Core.ByteString),
+              Core.=# ( "DeviceFarm_20150623.ListJobs" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListJobs where
   toJSON ListJobs' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            Core.Just ("arn" Core..= arn)
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("arn" Core..= arn)
           ]
       )
 
 instance Core.ToPath ListJobs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListJobs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a list jobs request.
 --
@@ -158,13 +165,13 @@ data ListJobsResponse = ListJobsResponse'
   { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the jobs.
-    jobs :: Core.Maybe [Job],
+    jobs :: Prelude.Maybe [Job],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobsResponse' with all optional fields omitted.
@@ -183,27 +190,27 @@ data ListJobsResponse = ListJobsResponse'
 -- 'httpStatus', 'listJobsResponse_httpStatus' - The response's http status code.
 newListJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListJobsResponse
 newListJobsResponse pHttpStatus_ =
   ListJobsResponse'
-    { nextToken = Core.Nothing,
-      jobs = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      jobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
-listJobsResponse_nextToken :: Lens.Lens' ListJobsResponse (Core.Maybe Core.Text)
+listJobsResponse_nextToken :: Lens.Lens' ListJobsResponse (Prelude.Maybe Prelude.Text)
 listJobsResponse_nextToken = Lens.lens (\ListJobsResponse' {nextToken} -> nextToken) (\s@ListJobsResponse' {} a -> s {nextToken = a} :: ListJobsResponse)
 
 -- | Information about the jobs.
-listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Core.Maybe [Job])
-listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Core.. Lens.mapping Lens._Coerce
+listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [Job])
+listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Core.Int
+listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int
 listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> httpStatus) (\s@ListJobsResponse' {} a -> s {httpStatus = a} :: ListJobsResponse)
 
-instance Core.NFData ListJobsResponse
+instance Prelude.NFData ListJobsResponse

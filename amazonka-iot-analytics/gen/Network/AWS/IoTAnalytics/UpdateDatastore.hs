@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +51,7 @@ data UpdateDatastore = UpdateDatastore'
     -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
     -- default is@serviceManagedS3@. You cannot change this storage option
     -- after the data store is created.
-    datastoreStorage :: Core.Maybe DatastoreStorage,
+    datastoreStorage :: Prelude.Maybe DatastoreStorage,
     -- | Contains the configuration information of file formats. AWS IoT
     -- Analytics data stores support JSON and
     -- <https://parquet.apache.org/ Parquet>.
@@ -58,15 +59,15 @@ data UpdateDatastore = UpdateDatastore'
     -- The default file format is JSON. You can specify only one format.
     --
     -- You can\'t change the file format after you create the data store.
-    fileFormatConfiguration :: Core.Maybe FileFormatConfiguration,
+    fileFormatConfiguration :: Prelude.Maybe FileFormatConfiguration,
     -- | How long, in days, message data is kept for the data store. The
     -- retention period cannot be updated if the data store\'s S3 storage is
     -- customer-managed.
-    retentionPeriod :: Core.Maybe RetentionPeriod,
+    retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | The name of the data store to be updated.
-    datastoreName :: Core.Text
+    datastoreName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDatastore' with all optional fields omitted.
@@ -96,13 +97,14 @@ data UpdateDatastore = UpdateDatastore'
 -- 'datastoreName', 'updateDatastore_datastoreName' - The name of the data store to be updated.
 newUpdateDatastore ::
   -- | 'datastoreName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDatastore
 newUpdateDatastore pDatastoreName_ =
   UpdateDatastore'
-    { datastoreStorage = Core.Nothing,
-      fileFormatConfiguration = Core.Nothing,
-      retentionPeriod = Core.Nothing,
+    { datastoreStorage =
+        Prelude.Nothing,
+      fileFormatConfiguration = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
       datastoreName = pDatastoreName_
     }
 
@@ -110,7 +112,7 @@ newUpdateDatastore pDatastoreName_ =
 -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
 -- default is@serviceManagedS3@. You cannot change this storage option
 -- after the data store is created.
-updateDatastore_datastoreStorage :: Lens.Lens' UpdateDatastore (Core.Maybe DatastoreStorage)
+updateDatastore_datastoreStorage :: Lens.Lens' UpdateDatastore (Prelude.Maybe DatastoreStorage)
 updateDatastore_datastoreStorage = Lens.lens (\UpdateDatastore' {datastoreStorage} -> datastoreStorage) (\s@UpdateDatastore' {} a -> s {datastoreStorage = a} :: UpdateDatastore)
 
 -- | Contains the configuration information of file formats. AWS IoT
@@ -120,17 +122,17 @@ updateDatastore_datastoreStorage = Lens.lens (\UpdateDatastore' {datastoreStorag
 -- The default file format is JSON. You can specify only one format.
 --
 -- You can\'t change the file format after you create the data store.
-updateDatastore_fileFormatConfiguration :: Lens.Lens' UpdateDatastore (Core.Maybe FileFormatConfiguration)
+updateDatastore_fileFormatConfiguration :: Lens.Lens' UpdateDatastore (Prelude.Maybe FileFormatConfiguration)
 updateDatastore_fileFormatConfiguration = Lens.lens (\UpdateDatastore' {fileFormatConfiguration} -> fileFormatConfiguration) (\s@UpdateDatastore' {} a -> s {fileFormatConfiguration = a} :: UpdateDatastore)
 
 -- | How long, in days, message data is kept for the data store. The
 -- retention period cannot be updated if the data store\'s S3 storage is
 -- customer-managed.
-updateDatastore_retentionPeriod :: Lens.Lens' UpdateDatastore (Core.Maybe RetentionPeriod)
+updateDatastore_retentionPeriod :: Lens.Lens' UpdateDatastore (Prelude.Maybe RetentionPeriod)
 updateDatastore_retentionPeriod = Lens.lens (\UpdateDatastore' {retentionPeriod} -> retentionPeriod) (\s@UpdateDatastore' {} a -> s {retentionPeriod = a} :: UpdateDatastore)
 
 -- | The name of the data store to be updated.
-updateDatastore_datastoreName :: Lens.Lens' UpdateDatastore Core.Text
+updateDatastore_datastoreName :: Lens.Lens' UpdateDatastore Prelude.Text
 updateDatastore_datastoreName = Lens.lens (\UpdateDatastore' {datastoreName} -> datastoreName) (\s@UpdateDatastore' {} a -> s {datastoreName = a} :: UpdateDatastore)
 
 instance Core.AWSRequest UpdateDatastore where
@@ -141,39 +143,39 @@ instance Core.AWSRequest UpdateDatastore where
   response =
     Response.receiveNull UpdateDatastoreResponse'
 
-instance Core.Hashable UpdateDatastore
+instance Prelude.Hashable UpdateDatastore
 
-instance Core.NFData UpdateDatastore
+instance Prelude.NFData UpdateDatastore
 
 instance Core.ToHeaders UpdateDatastore where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateDatastore where
   toJSON UpdateDatastore' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("datastoreStorage" Core..=)
-              Core.<$> datastoreStorage,
+              Prelude.<$> datastoreStorage,
             ("fileFormatConfiguration" Core..=)
-              Core.<$> fileFormatConfiguration,
+              Prelude.<$> fileFormatConfiguration,
             ("retentionPeriod" Core..=)
-              Core.<$> retentionPeriod
+              Prelude.<$> retentionPeriod
           ]
       )
 
 instance Core.ToPath UpdateDatastore where
   toPath UpdateDatastore' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/datastores/", Core.toBS datastoreName]
 
 instance Core.ToQuery UpdateDatastore where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatastoreResponse' smart constructor.
 data UpdateDatastoreResponse = UpdateDatastoreResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDatastoreResponse' with all optional fields omitted.
@@ -183,4 +185,4 @@ newUpdateDatastoreResponse ::
   UpdateDatastoreResponse
 newUpdateDatastoreResponse = UpdateDatastoreResponse'
 
-instance Core.NFData UpdateDatastoreResponse
+instance Prelude.NFData UpdateDatastoreResponse

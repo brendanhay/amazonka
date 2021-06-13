@@ -22,15 +22,16 @@ module Network.AWS.IoT.Types.Allowed where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.Policy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information that allowed the authorization.
 --
 -- /See:/ 'newAllowed' smart constructor.
 data Allowed = Allowed'
   { -- | A list of policies that allowed the authentication.
-    policies :: Core.Maybe [Policy]
+    policies :: Prelude.Maybe [Policy]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Allowed' with all optional fields omitted.
@@ -43,11 +44,11 @@ data Allowed = Allowed'
 -- 'policies', 'allowed_policies' - A list of policies that allowed the authentication.
 newAllowed ::
   Allowed
-newAllowed = Allowed' {policies = Core.Nothing}
+newAllowed = Allowed' {policies = Prelude.Nothing}
 
 -- | A list of policies that allowed the authentication.
-allowed_policies :: Lens.Lens' Allowed (Core.Maybe [Policy])
-allowed_policies = Lens.lens (\Allowed' {policies} -> policies) (\s@Allowed' {} a -> s {policies = a} :: Allowed) Core.. Lens.mapping Lens._Coerce
+allowed_policies :: Lens.Lens' Allowed (Prelude.Maybe [Policy])
+allowed_policies = Lens.lens (\Allowed' {policies} -> policies) (\s@Allowed' {} a -> s {policies = a} :: Allowed) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Allowed where
   parseJSON =
@@ -55,9 +56,9 @@ instance Core.FromJSON Allowed where
       "Allowed"
       ( \x ->
           Allowed'
-            Core.<$> (x Core..:? "policies" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "policies" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Allowed
+instance Prelude.Hashable Allowed
 
-instance Core.NFData Allowed
+instance Prelude.NFData Allowed

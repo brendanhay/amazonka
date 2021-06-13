@@ -52,6 +52,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +62,9 @@ import qualified Network.AWS.Response as Response
 data DeliverConfigSnapshot = DeliverConfigSnapshot'
   { -- | The name of the delivery channel through which the snapshot is
     -- delivered.
-    deliveryChannelName :: Core.Text
+    deliveryChannelName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeliverConfigSnapshot' with all optional fields omitted.
@@ -77,7 +78,7 @@ data DeliverConfigSnapshot = DeliverConfigSnapshot'
 -- delivered.
 newDeliverConfigSnapshot ::
   -- | 'deliveryChannelName'
-  Core.Text ->
+  Prelude.Text ->
   DeliverConfigSnapshot
 newDeliverConfigSnapshot pDeliveryChannelName_ =
   DeliverConfigSnapshot'
@@ -87,7 +88,7 @@ newDeliverConfigSnapshot pDeliveryChannelName_ =
 
 -- | The name of the delivery channel through which the snapshot is
 -- delivered.
-deliverConfigSnapshot_deliveryChannelName :: Lens.Lens' DeliverConfigSnapshot Core.Text
+deliverConfigSnapshot_deliveryChannelName :: Lens.Lens' DeliverConfigSnapshot Prelude.Text
 deliverConfigSnapshot_deliveryChannelName = Lens.lens (\DeliverConfigSnapshot' {deliveryChannelName} -> deliveryChannelName) (\s@DeliverConfigSnapshot' {} a -> s {deliveryChannelName = a} :: DeliverConfigSnapshot)
 
 instance Core.AWSRequest DeliverConfigSnapshot where
@@ -99,52 +100,54 @@ instance Core.AWSRequest DeliverConfigSnapshot where
     Response.receiveJSON
       ( \s h x ->
           DeliverConfigSnapshotResponse'
-            Core.<$> (x Core..?> "configSnapshotId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "configSnapshotId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeliverConfigSnapshot
+instance Prelude.Hashable DeliverConfigSnapshot
 
-instance Core.NFData DeliverConfigSnapshot
+instance Prelude.NFData DeliverConfigSnapshot
 
 instance Core.ToHeaders DeliverConfigSnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeliverConfigSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeliverConfigSnapshot where
   toJSON DeliverConfigSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("deliveryChannelName" Core..= deliveryChannelName)
           ]
       )
 
 instance Core.ToPath DeliverConfigSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeliverConfigSnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DeliverConfigSnapshot action, in JSON format.
 --
 -- /See:/ 'newDeliverConfigSnapshotResponse' smart constructor.
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
   { -- | The ID of the snapshot that is being created.
-    configSnapshotId :: Core.Maybe Core.Text,
+    configSnapshotId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeliverConfigSnapshotResponse' with all optional fields omitted.
@@ -159,21 +162,21 @@ data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
 -- 'httpStatus', 'deliverConfigSnapshotResponse_httpStatus' - The response's http status code.
 newDeliverConfigSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeliverConfigSnapshotResponse
 newDeliverConfigSnapshotResponse pHttpStatus_ =
   DeliverConfigSnapshotResponse'
     { configSnapshotId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the snapshot that is being created.
-deliverConfigSnapshotResponse_configSnapshotId :: Lens.Lens' DeliverConfigSnapshotResponse (Core.Maybe Core.Text)
+deliverConfigSnapshotResponse_configSnapshotId :: Lens.Lens' DeliverConfigSnapshotResponse (Prelude.Maybe Prelude.Text)
 deliverConfigSnapshotResponse_configSnapshotId = Lens.lens (\DeliverConfigSnapshotResponse' {configSnapshotId} -> configSnapshotId) (\s@DeliverConfigSnapshotResponse' {} a -> s {configSnapshotId = a} :: DeliverConfigSnapshotResponse)
 
 -- | The response's http status code.
-deliverConfigSnapshotResponse_httpStatus :: Lens.Lens' DeliverConfigSnapshotResponse Core.Int
+deliverConfigSnapshotResponse_httpStatus :: Lens.Lens' DeliverConfigSnapshotResponse Prelude.Int
 deliverConfigSnapshotResponse_httpStatus = Lens.lens (\DeliverConfigSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeliverConfigSnapshotResponse' {} a -> s {httpStatus = a} :: DeliverConfigSnapshotResponse)
 
-instance Core.NFData DeliverConfigSnapshotResponse
+instance Prelude.NFData DeliverConfigSnapshotResponse

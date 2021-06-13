@@ -21,6 +21,7 @@ module Network.AWS.OpsWorksCM.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A map that contains tag keys and tag values to attach to an AWS OpsWorks
 -- for Chef Automate or AWS OpsWorks for Puppet Enterprise server. Leading
@@ -34,14 +35,14 @@ data Tag = Tag'
     -- can be a maximum of 127 characters, and can contain only Unicode
     -- letters, numbers, or separators, or the following special characters:
     -- @+ - = . _ : \/@
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | An optional tag value, such as @Production@ or @test-owcm-server@. The
     -- value can be a maximum of 255 characters, and contain only Unicode
     -- letters, numbers, or separators, or the following special characters:
     -- @+ - = . _ : \/@
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -62,9 +63,9 @@ data Tag = Tag'
 -- @+ - = . _ : \/@
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
@@ -73,14 +74,14 @@ newTag pKey_ pValue_ =
 -- can be a maximum of 127 characters, and can contain only Unicode
 -- letters, numbers, or separators, or the following special characters:
 -- @+ - = . _ : \/@
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | An optional tag value, such as @Production@ or @test-owcm-server@. The
 -- value can be a maximum of 255 characters, and contain only Unicode
 -- letters, numbers, or separators, or the following special characters:
 -- @+ - = . _ : \/@
-tag_value :: Lens.Lens' Tag Core.Text
+tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -89,18 +90,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.NumberAttributeConstraintsType 
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The minimum and maximum value of an attribute that is of the number data
 -- type.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newNumberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
   { -- | The maximum value of an attribute that is of the number data type.
-    maxValue :: Core.Maybe Core.Text,
+    maxValue :: Prelude.Maybe Prelude.Text,
     -- | The minimum value of an attribute that is of the number data type.
-    minValue :: Core.Maybe Core.Text
+    minValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NumberAttributeConstraintsType' with all optional fields omitted.
@@ -50,16 +51,16 @@ newNumberAttributeConstraintsType ::
 newNumberAttributeConstraintsType =
   NumberAttributeConstraintsType'
     { maxValue =
-        Core.Nothing,
-      minValue = Core.Nothing
+        Prelude.Nothing,
+      minValue = Prelude.Nothing
     }
 
 -- | The maximum value of an attribute that is of the number data type.
-numberAttributeConstraintsType_maxValue :: Lens.Lens' NumberAttributeConstraintsType (Core.Maybe Core.Text)
+numberAttributeConstraintsType_maxValue :: Lens.Lens' NumberAttributeConstraintsType (Prelude.Maybe Prelude.Text)
 numberAttributeConstraintsType_maxValue = Lens.lens (\NumberAttributeConstraintsType' {maxValue} -> maxValue) (\s@NumberAttributeConstraintsType' {} a -> s {maxValue = a} :: NumberAttributeConstraintsType)
 
 -- | The minimum value of an attribute that is of the number data type.
-numberAttributeConstraintsType_minValue :: Lens.Lens' NumberAttributeConstraintsType (Core.Maybe Core.Text)
+numberAttributeConstraintsType_minValue :: Lens.Lens' NumberAttributeConstraintsType (Prelude.Maybe Prelude.Text)
 numberAttributeConstraintsType_minValue = Lens.lens (\NumberAttributeConstraintsType' {minValue} -> minValue) (\s@NumberAttributeConstraintsType' {} a -> s {minValue = a} :: NumberAttributeConstraintsType)
 
 instance Core.FromJSON NumberAttributeConstraintsType where
@@ -68,19 +69,23 @@ instance Core.FromJSON NumberAttributeConstraintsType where
       "NumberAttributeConstraintsType"
       ( \x ->
           NumberAttributeConstraintsType'
-            Core.<$> (x Core..:? "MaxValue")
-            Core.<*> (x Core..:? "MinValue")
+            Prelude.<$> (x Core..:? "MaxValue")
+            Prelude.<*> (x Core..:? "MinValue")
       )
 
-instance Core.Hashable NumberAttributeConstraintsType
+instance
+  Prelude.Hashable
+    NumberAttributeConstraintsType
 
-instance Core.NFData NumberAttributeConstraintsType
+instance
+  Prelude.NFData
+    NumberAttributeConstraintsType
 
 instance Core.ToJSON NumberAttributeConstraintsType where
   toJSON NumberAttributeConstraintsType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxValue" Core..=) Core.<$> maxValue,
-            ("MinValue" Core..=) Core.<$> minValue
+      ( Prelude.catMaybes
+          [ ("MaxValue" Core..=) Prelude.<$> maxValue,
+            ("MinValue" Core..=) Prelude.<$> minValue
           ]
       )

@@ -50,6 +50,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ data PutRetentionConfiguration = PutRetentionConfiguration'
   { -- | Number of days AWS Config stores your historical information.
     --
     -- Currently, only applicable to the configuration item history.
-    retentionPeriodInDays :: Core.Natural
+    retentionPeriodInDays :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRetentionConfiguration' with all optional fields omitted.
@@ -75,7 +76,7 @@ data PutRetentionConfiguration = PutRetentionConfiguration'
 -- Currently, only applicable to the configuration item history.
 newPutRetentionConfiguration ::
   -- | 'retentionPeriodInDays'
-  Core.Natural ->
+  Prelude.Natural ->
   PutRetentionConfiguration
 newPutRetentionConfiguration pRetentionPeriodInDays_ =
   PutRetentionConfiguration'
@@ -86,7 +87,7 @@ newPutRetentionConfiguration pRetentionPeriodInDays_ =
 -- | Number of days AWS Config stores your historical information.
 --
 -- Currently, only applicable to the configuration item history.
-putRetentionConfiguration_retentionPeriodInDays :: Lens.Lens' PutRetentionConfiguration Core.Natural
+putRetentionConfiguration_retentionPeriodInDays :: Lens.Lens' PutRetentionConfiguration Prelude.Natural
 putRetentionConfiguration_retentionPeriodInDays = Lens.lens (\PutRetentionConfiguration' {retentionPeriodInDays} -> retentionPeriodInDays) (\s@PutRetentionConfiguration' {} a -> s {retentionPeriodInDays = a} :: PutRetentionConfiguration)
 
 instance Core.AWSRequest PutRetentionConfiguration where
@@ -98,32 +99,34 @@ instance Core.AWSRequest PutRetentionConfiguration where
     Response.receiveJSON
       ( \s h x ->
           PutRetentionConfigurationResponse'
-            Core.<$> (x Core..?> "RetentionConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RetentionConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutRetentionConfiguration
+instance Prelude.Hashable PutRetentionConfiguration
 
-instance Core.NFData PutRetentionConfiguration
+instance Prelude.NFData PutRetentionConfiguration
 
 instance Core.ToHeaders PutRetentionConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutRetentionConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutRetentionConfiguration where
   toJSON PutRetentionConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "RetentionPeriodInDays"
                   Core..= retentionPeriodInDays
               )
@@ -131,19 +134,19 @@ instance Core.ToJSON PutRetentionConfiguration where
       )
 
 instance Core.ToPath PutRetentionConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRetentionConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRetentionConfigurationResponse' smart constructor.
 data PutRetentionConfigurationResponse = PutRetentionConfigurationResponse'
   { -- | Returns a retention configuration object.
-    retentionConfiguration :: Core.Maybe RetentionConfiguration,
+    retentionConfiguration :: Prelude.Maybe RetentionConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRetentionConfigurationResponse' with all optional fields omitted.
@@ -158,23 +161,23 @@ data PutRetentionConfigurationResponse = PutRetentionConfigurationResponse'
 -- 'httpStatus', 'putRetentionConfigurationResponse_httpStatus' - The response's http status code.
 newPutRetentionConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutRetentionConfigurationResponse
 newPutRetentionConfigurationResponse pHttpStatus_ =
   PutRetentionConfigurationResponse'
     { retentionConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns a retention configuration object.
-putRetentionConfigurationResponse_retentionConfiguration :: Lens.Lens' PutRetentionConfigurationResponse (Core.Maybe RetentionConfiguration)
+putRetentionConfigurationResponse_retentionConfiguration :: Lens.Lens' PutRetentionConfigurationResponse (Prelude.Maybe RetentionConfiguration)
 putRetentionConfigurationResponse_retentionConfiguration = Lens.lens (\PutRetentionConfigurationResponse' {retentionConfiguration} -> retentionConfiguration) (\s@PutRetentionConfigurationResponse' {} a -> s {retentionConfiguration = a} :: PutRetentionConfigurationResponse)
 
 -- | The response's http status code.
-putRetentionConfigurationResponse_httpStatus :: Lens.Lens' PutRetentionConfigurationResponse Core.Int
+putRetentionConfigurationResponse_httpStatus :: Lens.Lens' PutRetentionConfigurationResponse Prelude.Int
 putRetentionConfigurationResponse_httpStatus = Lens.lens (\PutRetentionConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutRetentionConfigurationResponse' {} a -> s {httpStatus = a} :: PutRetentionConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutRetentionConfigurationResponse

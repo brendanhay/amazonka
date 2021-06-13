@@ -78,6 +78,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,30 +87,30 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
   { -- | The tags to apply to the customer gateway.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | A name for the customer gateway device.
     --
     -- Length Constraints: Up to 255 characters.
-    deviceName :: Core.Maybe Core.Text,
+    deviceName :: Prelude.Maybe Prelude.Text,
     -- | The Internet-routable IP address for the customer gateway\'s outside
     -- interface. The address must be static.
-    publicIp :: Core.Maybe Core.Text,
+    publicIp :: Prelude.Maybe Prelude.Text,
     -- | For devices that support BGP, the customer gateway\'s BGP ASN.
     --
     -- Default: 65000
-    bgpAsn :: Core.Int,
+    bgpAsn :: Prelude.Int,
     -- | The type of VPN connection that this customer gateway supports
     -- (@ipsec.1@).
     type' :: GatewayType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCustomerGateway' with all optional fields omitted.
@@ -143,52 +144,52 @@ data CreateCustomerGateway = CreateCustomerGateway'
 -- (@ipsec.1@).
 newCreateCustomerGateway ::
   -- | 'bgpAsn'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'type''
   GatewayType ->
   CreateCustomerGateway
 newCreateCustomerGateway pBgpAsn_ pType_ =
   CreateCustomerGateway'
     { tagSpecifications =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      certificateArn = Core.Nothing,
-      deviceName = Core.Nothing,
-      publicIp = Core.Nothing,
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
+      deviceName = Prelude.Nothing,
+      publicIp = Prelude.Nothing,
       bgpAsn = pBgpAsn_,
       type' = pType_
     }
 
 -- | The tags to apply to the customer gateway.
-createCustomerGateway_tagSpecifications :: Lens.Lens' CreateCustomerGateway (Core.Maybe [TagSpecification])
-createCustomerGateway_tagSpecifications = Lens.lens (\CreateCustomerGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCustomerGateway' {} a -> s {tagSpecifications = a} :: CreateCustomerGateway) Core.. Lens.mapping Lens._Coerce
+createCustomerGateway_tagSpecifications :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe [TagSpecification])
+createCustomerGateway_tagSpecifications = Lens.lens (\CreateCustomerGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCustomerGateway' {} a -> s {tagSpecifications = a} :: CreateCustomerGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createCustomerGateway_dryRun :: Lens.Lens' CreateCustomerGateway (Core.Maybe Core.Bool)
+createCustomerGateway_dryRun :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Bool)
 createCustomerGateway_dryRun = Lens.lens (\CreateCustomerGateway' {dryRun} -> dryRun) (\s@CreateCustomerGateway' {} a -> s {dryRun = a} :: CreateCustomerGateway)
 
 -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-createCustomerGateway_certificateArn :: Lens.Lens' CreateCustomerGateway (Core.Maybe Core.Text)
+createCustomerGateway_certificateArn :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
 createCustomerGateway_certificateArn = Lens.lens (\CreateCustomerGateway' {certificateArn} -> certificateArn) (\s@CreateCustomerGateway' {} a -> s {certificateArn = a} :: CreateCustomerGateway)
 
 -- | A name for the customer gateway device.
 --
 -- Length Constraints: Up to 255 characters.
-createCustomerGateway_deviceName :: Lens.Lens' CreateCustomerGateway (Core.Maybe Core.Text)
+createCustomerGateway_deviceName :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
 createCustomerGateway_deviceName = Lens.lens (\CreateCustomerGateway' {deviceName} -> deviceName) (\s@CreateCustomerGateway' {} a -> s {deviceName = a} :: CreateCustomerGateway)
 
 -- | The Internet-routable IP address for the customer gateway\'s outside
 -- interface. The address must be static.
-createCustomerGateway_publicIp :: Lens.Lens' CreateCustomerGateway (Core.Maybe Core.Text)
+createCustomerGateway_publicIp :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
 createCustomerGateway_publicIp = Lens.lens (\CreateCustomerGateway' {publicIp} -> publicIp) (\s@CreateCustomerGateway' {} a -> s {publicIp = a} :: CreateCustomerGateway)
 
 -- | For devices that support BGP, the customer gateway\'s BGP ASN.
 --
 -- Default: 65000
-createCustomerGateway_bgpAsn :: Lens.Lens' CreateCustomerGateway Core.Int
+createCustomerGateway_bgpAsn :: Lens.Lens' CreateCustomerGateway Prelude.Int
 createCustomerGateway_bgpAsn = Lens.lens (\CreateCustomerGateway' {bgpAsn} -> bgpAsn) (\s@CreateCustomerGateway' {} a -> s {bgpAsn = a} :: CreateCustomerGateway)
 
 -- | The type of VPN connection that this customer gateway supports
@@ -205,29 +206,30 @@ instance Core.AWSRequest CreateCustomerGateway where
     Response.receiveXML
       ( \s h x ->
           CreateCustomerGatewayResponse'
-            Core.<$> (x Core..@? "customerGateway")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "customerGateway")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateCustomerGateway
+instance Prelude.Hashable CreateCustomerGateway
 
-instance Core.NFData CreateCustomerGateway
+instance Prelude.NFData CreateCustomerGateway
 
 instance Core.ToHeaders CreateCustomerGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateCustomerGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateCustomerGateway where
   toQuery CreateCustomerGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCustomerGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateCustomerGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "CertificateArn" Core.=: certificateArn,
@@ -242,11 +244,11 @@ instance Core.ToQuery CreateCustomerGateway where
 -- /See:/ 'newCreateCustomerGatewayResponse' smart constructor.
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
   { -- | Information about the customer gateway.
-    customerGateway :: Core.Maybe CustomerGateway,
+    customerGateway :: Prelude.Maybe CustomerGateway,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCustomerGatewayResponse' with all optional fields omitted.
@@ -261,21 +263,21 @@ data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
 -- 'httpStatus', 'createCustomerGatewayResponse_httpStatus' - The response's http status code.
 newCreateCustomerGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateCustomerGatewayResponse
 newCreateCustomerGatewayResponse pHttpStatus_ =
   CreateCustomerGatewayResponse'
     { customerGateway =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the customer gateway.
-createCustomerGatewayResponse_customerGateway :: Lens.Lens' CreateCustomerGatewayResponse (Core.Maybe CustomerGateway)
+createCustomerGatewayResponse_customerGateway :: Lens.Lens' CreateCustomerGatewayResponse (Prelude.Maybe CustomerGateway)
 createCustomerGatewayResponse_customerGateway = Lens.lens (\CreateCustomerGatewayResponse' {customerGateway} -> customerGateway) (\s@CreateCustomerGatewayResponse' {} a -> s {customerGateway = a} :: CreateCustomerGatewayResponse)
 
 -- | The response's http status code.
-createCustomerGatewayResponse_httpStatus :: Lens.Lens' CreateCustomerGatewayResponse Core.Int
+createCustomerGatewayResponse_httpStatus :: Lens.Lens' CreateCustomerGatewayResponse Prelude.Int
 createCustomerGatewayResponse_httpStatus = Lens.lens (\CreateCustomerGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateCustomerGatewayResponse' {} a -> s {httpStatus = a} :: CreateCustomerGatewayResponse)
 
-instance Core.NFData CreateCustomerGatewayResponse
+instance Prelude.NFData CreateCustomerGatewayResponse

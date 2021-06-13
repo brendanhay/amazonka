@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -49,9 +50,9 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newDeleteNamespace' smart constructor.
 data DeleteNamespace = DeleteNamespace'
   { -- | The ID of the namespace that you want to delete.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNamespace' with all optional fields omitted.
@@ -64,12 +65,12 @@ data DeleteNamespace = DeleteNamespace'
 -- 'id', 'deleteNamespace_id' - The ID of the namespace that you want to delete.
 newDeleteNamespace ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteNamespace
 newDeleteNamespace pId_ = DeleteNamespace' {id = pId_}
 
 -- | The ID of the namespace that you want to delete.
-deleteNamespace_id :: Lens.Lens' DeleteNamespace Core.Text
+deleteNamespace_id :: Lens.Lens' DeleteNamespace Prelude.Text
 deleteNamespace_id = Lens.lens (\DeleteNamespace' {id} -> id) (\s@DeleteNamespace' {} a -> s {id = a} :: DeleteNamespace)
 
 instance Core.AWSRequest DeleteNamespace where
@@ -81,48 +82,50 @@ instance Core.AWSRequest DeleteNamespace where
     Response.receiveJSON
       ( \s h x ->
           DeleteNamespaceResponse'
-            Core.<$> (x Core..?> "OperationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteNamespace
+instance Prelude.Hashable DeleteNamespace
 
-instance Core.NFData DeleteNamespace
+instance Prelude.NFData DeleteNamespace
 
 instance Core.ToHeaders DeleteNamespace where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.DeleteNamespace" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteNamespace where
   toJSON DeleteNamespace' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Id" Core..= id)])
+      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
 
 instance Core.ToPath DeleteNamespace where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteNamespace where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteNamespaceResponse' smart constructor.
 data DeleteNamespaceResponse = DeleteNamespaceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. To get the status of the operation, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNamespaceResponse' with all optional fields omitted.
@@ -139,23 +142,23 @@ data DeleteNamespaceResponse = DeleteNamespaceResponse'
 -- 'httpStatus', 'deleteNamespaceResponse_httpStatus' - The response's http status code.
 newDeleteNamespaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteNamespaceResponse
 newDeleteNamespaceResponse pHttpStatus_ =
   DeleteNamespaceResponse'
     { operationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-deleteNamespaceResponse_operationId :: Lens.Lens' DeleteNamespaceResponse (Core.Maybe Core.Text)
+deleteNamespaceResponse_operationId :: Lens.Lens' DeleteNamespaceResponse (Prelude.Maybe Prelude.Text)
 deleteNamespaceResponse_operationId = Lens.lens (\DeleteNamespaceResponse' {operationId} -> operationId) (\s@DeleteNamespaceResponse' {} a -> s {operationId = a} :: DeleteNamespaceResponse)
 
 -- | The response's http status code.
-deleteNamespaceResponse_httpStatus :: Lens.Lens' DeleteNamespaceResponse Core.Int
+deleteNamespaceResponse_httpStatus :: Lens.Lens' DeleteNamespaceResponse Prelude.Int
 deleteNamespaceResponse_httpStatus = Lens.lens (\DeleteNamespaceResponse' {httpStatus} -> httpStatus) (\s@DeleteNamespaceResponse' {} a -> s {httpStatus = a} :: DeleteNamespaceResponse)
 
-instance Core.NFData DeleteNamespaceResponse
+instance Prelude.NFData DeleteNamespaceResponse

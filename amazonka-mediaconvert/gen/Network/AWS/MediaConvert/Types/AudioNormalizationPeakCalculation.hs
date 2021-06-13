@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s
 -- audio track loudness.
@@ -35,15 +36,15 @@ newtype AudioNormalizationPeakCalculation = AudioNormalizationPeakCalculation'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

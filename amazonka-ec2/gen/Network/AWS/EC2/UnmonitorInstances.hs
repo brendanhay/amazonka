@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ data UnmonitorInstances = UnmonitorInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the instances.
-    instanceIds :: [Core.Text]
+    instanceIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnmonitorInstances' with all optional fields omitted.
@@ -79,20 +80,20 @@ newUnmonitorInstances ::
   UnmonitorInstances
 newUnmonitorInstances =
   UnmonitorInstances'
-    { dryRun = Core.Nothing,
-      instanceIds = Core.mempty
+    { dryRun = Prelude.Nothing,
+      instanceIds = Prelude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-unmonitorInstances_dryRun :: Lens.Lens' UnmonitorInstances (Core.Maybe Core.Bool)
+unmonitorInstances_dryRun :: Lens.Lens' UnmonitorInstances (Prelude.Maybe Prelude.Bool)
 unmonitorInstances_dryRun = Lens.lens (\UnmonitorInstances' {dryRun} -> dryRun) (\s@UnmonitorInstances' {} a -> s {dryRun = a} :: UnmonitorInstances)
 
 -- | The IDs of the instances.
-unmonitorInstances_instanceIds :: Lens.Lens' UnmonitorInstances [Core.Text]
-unmonitorInstances_instanceIds = Lens.lens (\UnmonitorInstances' {instanceIds} -> instanceIds) (\s@UnmonitorInstances' {} a -> s {instanceIds = a} :: UnmonitorInstances) Core.. Lens._Coerce
+unmonitorInstances_instanceIds :: Lens.Lens' UnmonitorInstances [Prelude.Text]
+unmonitorInstances_instanceIds = Lens.lens (\UnmonitorInstances' {instanceIds} -> instanceIds) (\s@UnmonitorInstances' {} a -> s {instanceIds = a} :: UnmonitorInstances) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UnmonitorInstances where
   type
@@ -103,28 +104,29 @@ instance Core.AWSRequest UnmonitorInstances where
     Response.receiveXML
       ( \s h x ->
           UnmonitorInstancesResponse'
-            Core.<$> ( x Core..@? "instancesSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UnmonitorInstances
+instance Prelude.Hashable UnmonitorInstances
 
-instance Core.NFData UnmonitorInstances
+instance Prelude.NFData UnmonitorInstances
 
 instance Core.ToHeaders UnmonitorInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UnmonitorInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UnmonitorInstances where
   toQuery UnmonitorInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UnmonitorInstances" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("UnmonitorInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQueryList "InstanceId" instanceIds
       ]
@@ -132,11 +134,11 @@ instance Core.ToQuery UnmonitorInstances where
 -- | /See:/ 'newUnmonitorInstancesResponse' smart constructor.
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
   { -- | The monitoring information.
-    instanceMonitorings :: Core.Maybe [InstanceMonitoring],
+    instanceMonitorings :: Prelude.Maybe [InstanceMonitoring],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnmonitorInstancesResponse' with all optional fields omitted.
@@ -151,21 +153,21 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
 -- 'httpStatus', 'unmonitorInstancesResponse_httpStatus' - The response's http status code.
 newUnmonitorInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UnmonitorInstancesResponse
 newUnmonitorInstancesResponse pHttpStatus_ =
   UnmonitorInstancesResponse'
     { instanceMonitorings =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The monitoring information.
-unmonitorInstancesResponse_instanceMonitorings :: Lens.Lens' UnmonitorInstancesResponse (Core.Maybe [InstanceMonitoring])
-unmonitorInstancesResponse_instanceMonitorings = Lens.lens (\UnmonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@UnmonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: UnmonitorInstancesResponse) Core.. Lens.mapping Lens._Coerce
+unmonitorInstancesResponse_instanceMonitorings :: Lens.Lens' UnmonitorInstancesResponse (Prelude.Maybe [InstanceMonitoring])
+unmonitorInstancesResponse_instanceMonitorings = Lens.lens (\UnmonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@UnmonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: UnmonitorInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-unmonitorInstancesResponse_httpStatus :: Lens.Lens' UnmonitorInstancesResponse Core.Int
+unmonitorInstancesResponse_httpStatus :: Lens.Lens' UnmonitorInstancesResponse Prelude.Int
 unmonitorInstancesResponse_httpStatus = Lens.lens (\UnmonitorInstancesResponse' {httpStatus} -> httpStatus) (\s@UnmonitorInstancesResponse' {} a -> s {httpStatus = a} :: UnmonitorInstancesResponse)
 
-instance Core.NFData UnmonitorInstancesResponse
+instance Prelude.NFData UnmonitorInstancesResponse

@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This parameter is specified when you are using
 -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html Amazon FSx for Windows File Server>
@@ -34,15 +35,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFSxWindowsFileServerVolumeConfiguration' smart constructor.
 data FSxWindowsFileServerVolumeConfiguration = FSxWindowsFileServerVolumeConfiguration'
   { -- | The Amazon FSx for Windows File Server file system ID to use.
-    fileSystemId :: Core.Text,
+    fileSystemId :: Prelude.Text,
     -- | The directory within the Amazon FSx for Windows File Server file system
     -- to mount as the root directory inside the host.
-    rootDirectory :: Core.Text,
+    rootDirectory :: Prelude.Text,
     -- | The authorization configuration details for the Amazon FSx for Windows
     -- File Server file system.
     authorizationConfig :: FSxWindowsFileServerAuthorizationConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FSxWindowsFileServerVolumeConfiguration' with all optional fields omitted.
@@ -61,9 +62,9 @@ data FSxWindowsFileServerVolumeConfiguration = FSxWindowsFileServerVolumeConfigu
 -- File Server file system.
 newFSxWindowsFileServerVolumeConfiguration ::
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'rootDirectory'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authorizationConfig'
   FSxWindowsFileServerAuthorizationConfig ->
   FSxWindowsFileServerVolumeConfiguration
@@ -80,12 +81,12 @@ newFSxWindowsFileServerVolumeConfiguration
       }
 
 -- | The Amazon FSx for Windows File Server file system ID to use.
-fSxWindowsFileServerVolumeConfiguration_fileSystemId :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Core.Text
+fSxWindowsFileServerVolumeConfiguration_fileSystemId :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Prelude.Text
 fSxWindowsFileServerVolumeConfiguration_fileSystemId = Lens.lens (\FSxWindowsFileServerVolumeConfiguration' {fileSystemId} -> fileSystemId) (\s@FSxWindowsFileServerVolumeConfiguration' {} a -> s {fileSystemId = a} :: FSxWindowsFileServerVolumeConfiguration)
 
 -- | The directory within the Amazon FSx for Windows File Server file system
 -- to mount as the root directory inside the host.
-fSxWindowsFileServerVolumeConfiguration_rootDirectory :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Core.Text
+fSxWindowsFileServerVolumeConfiguration_rootDirectory :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Prelude.Text
 fSxWindowsFileServerVolumeConfiguration_rootDirectory = Lens.lens (\FSxWindowsFileServerVolumeConfiguration' {rootDirectory} -> rootDirectory) (\s@FSxWindowsFileServerVolumeConfiguration' {} a -> s {rootDirectory = a} :: FSxWindowsFileServerVolumeConfiguration)
 
 -- | The authorization configuration details for the Amazon FSx for Windows
@@ -102,17 +103,17 @@ instance
       "FSxWindowsFileServerVolumeConfiguration"
       ( \x ->
           FSxWindowsFileServerVolumeConfiguration'
-            Core.<$> (x Core..: "fileSystemId")
-            Core.<*> (x Core..: "rootDirectory")
-            Core.<*> (x Core..: "authorizationConfig")
+            Prelude.<$> (x Core..: "fileSystemId")
+            Prelude.<*> (x Core..: "rootDirectory")
+            Prelude.<*> (x Core..: "authorizationConfig")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FSxWindowsFileServerVolumeConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     FSxWindowsFileServerVolumeConfiguration
 
 instance
@@ -121,10 +122,10 @@ instance
   where
   toJSON FSxWindowsFileServerVolumeConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("fileSystemId" Core..= fileSystemId),
-            Core.Just ("rootDirectory" Core..= rootDirectory),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("fileSystemId" Core..= fileSystemId),
+            Prelude.Just ("rootDirectory" Core..= rootDirectory),
+            Prelude.Just
               ("authorizationConfig" Core..= authorizationConfig)
           ]
       )

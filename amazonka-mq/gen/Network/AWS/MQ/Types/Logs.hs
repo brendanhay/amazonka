@@ -21,6 +21,7 @@ module Network.AWS.MQ.Types.Logs where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The list of information about logs to be enabled for the specified
 -- broker.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLogs' smart constructor.
 data Logs = Logs'
   { -- | Enables general logging.
-    general :: Core.Maybe Core.Bool,
+    general :: Prelude.Maybe Prelude.Bool,
     -- | Enables audit logging. Every user management action made using JMX or
     -- the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-    audit :: Core.Maybe Core.Bool
+    audit :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Logs' with all optional fields omitted.
@@ -50,15 +51,18 @@ data Logs = Logs'
 newLogs ::
   Logs
 newLogs =
-  Logs' {general = Core.Nothing, audit = Core.Nothing}
+  Logs'
+    { general = Prelude.Nothing,
+      audit = Prelude.Nothing
+    }
 
 -- | Enables general logging.
-logs_general :: Lens.Lens' Logs (Core.Maybe Core.Bool)
+logs_general :: Lens.Lens' Logs (Prelude.Maybe Prelude.Bool)
 logs_general = Lens.lens (\Logs' {general} -> general) (\s@Logs' {} a -> s {general = a} :: Logs)
 
 -- | Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-logs_audit :: Lens.Lens' Logs (Core.Maybe Core.Bool)
+logs_audit :: Lens.Lens' Logs (Prelude.Maybe Prelude.Bool)
 logs_audit = Lens.lens (\Logs' {audit} -> audit) (\s@Logs' {} a -> s {audit = a} :: Logs)
 
 instance Core.FromJSON Logs where
@@ -67,18 +71,19 @@ instance Core.FromJSON Logs where
       "Logs"
       ( \x ->
           Logs'
-            Core.<$> (x Core..:? "general") Core.<*> (x Core..:? "audit")
+            Prelude.<$> (x Core..:? "general")
+            Prelude.<*> (x Core..:? "audit")
       )
 
-instance Core.Hashable Logs
+instance Prelude.Hashable Logs
 
-instance Core.NFData Logs
+instance Prelude.NFData Logs
 
 instance Core.ToJSON Logs where
   toJSON Logs' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("general" Core..=) Core.<$> general,
-            ("audit" Core..=) Core.<$> audit
+      ( Prelude.catMaybes
+          [ ("general" Core..=) Prelude.<$> general,
+            ("audit" Core..=) Prelude.<$> audit
           ]
       )

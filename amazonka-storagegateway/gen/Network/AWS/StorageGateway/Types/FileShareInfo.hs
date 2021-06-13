@@ -21,19 +21,20 @@ module Network.AWS.StorageGateway.Types.FileShareInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StorageGateway.Types.FileShareType
 
 -- | Describes a file share.
 --
 -- /See:/ 'newFileShareInfo' smart constructor.
 data FileShareInfo = FileShareInfo'
-  { fileShareId :: Core.Maybe Core.Text,
-    fileShareType :: Core.Maybe FileShareType,
-    fileShareStatus :: Core.Maybe Core.Text,
-    fileShareARN :: Core.Maybe Core.Text,
-    gatewayARN :: Core.Maybe Core.Text
+  { fileShareId :: Prelude.Maybe Prelude.Text,
+    fileShareType :: Prelude.Maybe FileShareType,
+    fileShareStatus :: Prelude.Maybe Prelude.Text,
+    fileShareARN :: Prelude.Maybe Prelude.Text,
+    gatewayARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FileShareInfo' with all optional fields omitted.
@@ -56,31 +57,31 @@ newFileShareInfo ::
   FileShareInfo
 newFileShareInfo =
   FileShareInfo'
-    { fileShareId = Core.Nothing,
-      fileShareType = Core.Nothing,
-      fileShareStatus = Core.Nothing,
-      fileShareARN = Core.Nothing,
-      gatewayARN = Core.Nothing
+    { fileShareId = Prelude.Nothing,
+      fileShareType = Prelude.Nothing,
+      fileShareStatus = Prelude.Nothing,
+      fileShareARN = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing
     }
 
 -- | Undocumented member.
-fileShareInfo_fileShareId :: Lens.Lens' FileShareInfo (Core.Maybe Core.Text)
+fileShareInfo_fileShareId :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
 fileShareInfo_fileShareId = Lens.lens (\FileShareInfo' {fileShareId} -> fileShareId) (\s@FileShareInfo' {} a -> s {fileShareId = a} :: FileShareInfo)
 
 -- | Undocumented member.
-fileShareInfo_fileShareType :: Lens.Lens' FileShareInfo (Core.Maybe FileShareType)
+fileShareInfo_fileShareType :: Lens.Lens' FileShareInfo (Prelude.Maybe FileShareType)
 fileShareInfo_fileShareType = Lens.lens (\FileShareInfo' {fileShareType} -> fileShareType) (\s@FileShareInfo' {} a -> s {fileShareType = a} :: FileShareInfo)
 
 -- | Undocumented member.
-fileShareInfo_fileShareStatus :: Lens.Lens' FileShareInfo (Core.Maybe Core.Text)
+fileShareInfo_fileShareStatus :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
 fileShareInfo_fileShareStatus = Lens.lens (\FileShareInfo' {fileShareStatus} -> fileShareStatus) (\s@FileShareInfo' {} a -> s {fileShareStatus = a} :: FileShareInfo)
 
 -- | Undocumented member.
-fileShareInfo_fileShareARN :: Lens.Lens' FileShareInfo (Core.Maybe Core.Text)
+fileShareInfo_fileShareARN :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
 fileShareInfo_fileShareARN = Lens.lens (\FileShareInfo' {fileShareARN} -> fileShareARN) (\s@FileShareInfo' {} a -> s {fileShareARN = a} :: FileShareInfo)
 
 -- | Undocumented member.
-fileShareInfo_gatewayARN :: Lens.Lens' FileShareInfo (Core.Maybe Core.Text)
+fileShareInfo_gatewayARN :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
 fileShareInfo_gatewayARN = Lens.lens (\FileShareInfo' {gatewayARN} -> gatewayARN) (\s@FileShareInfo' {} a -> s {gatewayARN = a} :: FileShareInfo)
 
 instance Core.FromJSON FileShareInfo where
@@ -89,13 +90,13 @@ instance Core.FromJSON FileShareInfo where
       "FileShareInfo"
       ( \x ->
           FileShareInfo'
-            Core.<$> (x Core..:? "FileShareId")
-            Core.<*> (x Core..:? "FileShareType")
-            Core.<*> (x Core..:? "FileShareStatus")
-            Core.<*> (x Core..:? "FileShareARN")
-            Core.<*> (x Core..:? "GatewayARN")
+            Prelude.<$> (x Core..:? "FileShareId")
+            Prelude.<*> (x Core..:? "FileShareType")
+            Prelude.<*> (x Core..:? "FileShareStatus")
+            Prelude.<*> (x Core..:? "FileShareARN")
+            Prelude.<*> (x Core..:? "GatewayARN")
       )
 
-instance Core.Hashable FileShareInfo
+instance Prelude.Hashable FileShareInfo
 
-instance Core.NFData FileShareInfo
+instance Prelude.NFData FileShareInfo

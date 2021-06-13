@@ -36,6 +36,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -43,7 +44,7 @@ import qualified Network.AWS.Response as Response
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAccountPasswordPolicy' with all optional fields omitted.
@@ -63,23 +64,26 @@ instance Core.AWSRequest DeleteAccountPasswordPolicy where
     Response.receiveNull
       DeleteAccountPasswordPolicyResponse'
 
-instance Core.Hashable DeleteAccountPasswordPolicy
+instance Prelude.Hashable DeleteAccountPasswordPolicy
 
-instance Core.NFData DeleteAccountPasswordPolicy
+instance Prelude.NFData DeleteAccountPasswordPolicy
 
 instance Core.ToHeaders DeleteAccountPasswordPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteAccountPasswordPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAccountPasswordPolicy where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("DeleteAccountPasswordPolicy" :: Core.ByteString),
-            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
+              Core.=: ( "DeleteAccountPasswordPolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Version"
+              Core.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 
@@ -87,7 +91,7 @@ instance Core.ToQuery DeleteAccountPasswordPolicy where
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAccountPasswordPolicyResponse' with all optional fields omitted.
@@ -99,5 +103,5 @@ newDeleteAccountPasswordPolicyResponse =
   DeleteAccountPasswordPolicyResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteAccountPasswordPolicyResponse

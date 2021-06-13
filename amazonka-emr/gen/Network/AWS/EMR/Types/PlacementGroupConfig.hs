@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.InstanceRoleType
 import Network.AWS.EMR.Types.PlacementGroupStrategy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Placement group configuration for an Amazon EMR cluster. The
 -- configuration specifies the placement strategy that can be applied to
@@ -37,14 +38,14 @@ data PlacementGroupConfig = PlacementGroupConfig'
     --
     -- Starting with Amazon EMR version 5.23.0, the only supported placement
     -- strategy is @SPREAD@ for the @MASTER@ instance role.
-    placementStrategy :: Core.Maybe PlacementGroupStrategy,
+    placementStrategy :: Prelude.Maybe PlacementGroupStrategy,
     -- | Role of the instance in the cluster.
     --
     -- Starting with Amazon EMR version 5.23.0, the only supported instance
     -- role is @MASTER@.
     instanceRole :: InstanceRoleType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PlacementGroupConfig' with all optional fields omitted.
@@ -70,7 +71,7 @@ newPlacementGroupConfig ::
 newPlacementGroupConfig pInstanceRole_ =
   PlacementGroupConfig'
     { placementStrategy =
-        Core.Nothing,
+        Prelude.Nothing,
       instanceRole = pInstanceRole_
     }
 
@@ -78,7 +79,7 @@ newPlacementGroupConfig pInstanceRole_ =
 --
 -- Starting with Amazon EMR version 5.23.0, the only supported placement
 -- strategy is @SPREAD@ for the @MASTER@ instance role.
-placementGroupConfig_placementStrategy :: Lens.Lens' PlacementGroupConfig (Core.Maybe PlacementGroupStrategy)
+placementGroupConfig_placementStrategy :: Lens.Lens' PlacementGroupConfig (Prelude.Maybe PlacementGroupStrategy)
 placementGroupConfig_placementStrategy = Lens.lens (\PlacementGroupConfig' {placementStrategy} -> placementStrategy) (\s@PlacementGroupConfig' {} a -> s {placementStrategy = a} :: PlacementGroupConfig)
 
 -- | Role of the instance in the cluster.
@@ -94,20 +95,20 @@ instance Core.FromJSON PlacementGroupConfig where
       "PlacementGroupConfig"
       ( \x ->
           PlacementGroupConfig'
-            Core.<$> (x Core..:? "PlacementStrategy")
-            Core.<*> (x Core..: "InstanceRole")
+            Prelude.<$> (x Core..:? "PlacementStrategy")
+            Prelude.<*> (x Core..: "InstanceRole")
       )
 
-instance Core.Hashable PlacementGroupConfig
+instance Prelude.Hashable PlacementGroupConfig
 
-instance Core.NFData PlacementGroupConfig
+instance Prelude.NFData PlacementGroupConfig
 
 instance Core.ToJSON PlacementGroupConfig where
   toJSON PlacementGroupConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PlacementStrategy" Core..=)
-              Core.<$> placementStrategy,
-            Core.Just ("InstanceRole" Core..= instanceRole)
+              Prelude.<$> placementStrategy,
+            Prelude.Just ("InstanceRole" Core..= instanceRole)
           ]
       )

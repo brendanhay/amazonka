@@ -21,6 +21,7 @@ module Network.AWS.CodeDeploy.Types.LambdaFunctionInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a Lambda function specified in a deployment.
 --
@@ -29,19 +30,19 @@ data LambdaFunctionInfo = LambdaFunctionInfo'
   { -- | The alias of a Lambda function. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases>
     -- in the /AWS Lambda Developer Guide/.
-    functionAlias :: Core.Maybe Core.Text,
+    functionAlias :: Prelude.Maybe Prelude.Text,
     -- | The version of a Lambda function that production traffic points to after
     -- the Lambda function is deployed.
-    targetVersion :: Core.Maybe Core.Text,
+    targetVersion :: Prelude.Maybe Prelude.Text,
     -- | The percentage of production traffic that the target version of a Lambda
     -- function receives.
-    targetVersionWeight :: Core.Maybe Core.Double,
+    targetVersionWeight :: Prelude.Maybe Prelude.Double,
     -- | The version of a Lambda function that production traffic points to.
-    currentVersion :: Core.Maybe Core.Text,
+    currentVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of a Lambda function.
-    functionName :: Core.Maybe Core.Text
+    functionName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionInfo' with all optional fields omitted.
@@ -68,35 +69,36 @@ newLambdaFunctionInfo ::
   LambdaFunctionInfo
 newLambdaFunctionInfo =
   LambdaFunctionInfo'
-    { functionAlias = Core.Nothing,
-      targetVersion = Core.Nothing,
-      targetVersionWeight = Core.Nothing,
-      currentVersion = Core.Nothing,
-      functionName = Core.Nothing
+    { functionAlias =
+        Prelude.Nothing,
+      targetVersion = Prelude.Nothing,
+      targetVersionWeight = Prelude.Nothing,
+      currentVersion = Prelude.Nothing,
+      functionName = Prelude.Nothing
     }
 
 -- | The alias of a Lambda function. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases>
 -- in the /AWS Lambda Developer Guide/.
-lambdaFunctionInfo_functionAlias :: Lens.Lens' LambdaFunctionInfo (Core.Maybe Core.Text)
+lambdaFunctionInfo_functionAlias :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
 lambdaFunctionInfo_functionAlias = Lens.lens (\LambdaFunctionInfo' {functionAlias} -> functionAlias) (\s@LambdaFunctionInfo' {} a -> s {functionAlias = a} :: LambdaFunctionInfo)
 
 -- | The version of a Lambda function that production traffic points to after
 -- the Lambda function is deployed.
-lambdaFunctionInfo_targetVersion :: Lens.Lens' LambdaFunctionInfo (Core.Maybe Core.Text)
+lambdaFunctionInfo_targetVersion :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
 lambdaFunctionInfo_targetVersion = Lens.lens (\LambdaFunctionInfo' {targetVersion} -> targetVersion) (\s@LambdaFunctionInfo' {} a -> s {targetVersion = a} :: LambdaFunctionInfo)
 
 -- | The percentage of production traffic that the target version of a Lambda
 -- function receives.
-lambdaFunctionInfo_targetVersionWeight :: Lens.Lens' LambdaFunctionInfo (Core.Maybe Core.Double)
+lambdaFunctionInfo_targetVersionWeight :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Double)
 lambdaFunctionInfo_targetVersionWeight = Lens.lens (\LambdaFunctionInfo' {targetVersionWeight} -> targetVersionWeight) (\s@LambdaFunctionInfo' {} a -> s {targetVersionWeight = a} :: LambdaFunctionInfo)
 
 -- | The version of a Lambda function that production traffic points to.
-lambdaFunctionInfo_currentVersion :: Lens.Lens' LambdaFunctionInfo (Core.Maybe Core.Text)
+lambdaFunctionInfo_currentVersion :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
 lambdaFunctionInfo_currentVersion = Lens.lens (\LambdaFunctionInfo' {currentVersion} -> currentVersion) (\s@LambdaFunctionInfo' {} a -> s {currentVersion = a} :: LambdaFunctionInfo)
 
 -- | The name of a Lambda function.
-lambdaFunctionInfo_functionName :: Lens.Lens' LambdaFunctionInfo (Core.Maybe Core.Text)
+lambdaFunctionInfo_functionName :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
 lambdaFunctionInfo_functionName = Lens.lens (\LambdaFunctionInfo' {functionName} -> functionName) (\s@LambdaFunctionInfo' {} a -> s {functionName = a} :: LambdaFunctionInfo)
 
 instance Core.FromJSON LambdaFunctionInfo where
@@ -105,13 +107,13 @@ instance Core.FromJSON LambdaFunctionInfo where
       "LambdaFunctionInfo"
       ( \x ->
           LambdaFunctionInfo'
-            Core.<$> (x Core..:? "functionAlias")
-            Core.<*> (x Core..:? "targetVersion")
-            Core.<*> (x Core..:? "targetVersionWeight")
-            Core.<*> (x Core..:? "currentVersion")
-            Core.<*> (x Core..:? "functionName")
+            Prelude.<$> (x Core..:? "functionAlias")
+            Prelude.<*> (x Core..:? "targetVersion")
+            Prelude.<*> (x Core..:? "targetVersionWeight")
+            Prelude.<*> (x Core..:? "currentVersion")
+            Prelude.<*> (x Core..:? "functionName")
       )
 
-instance Core.Hashable LambdaFunctionInfo
+instance Prelude.Hashable LambdaFunctionInfo
 
-instance Core.NFData LambdaFunctionInfo
+instance Prelude.NFData LambdaFunctionInfo

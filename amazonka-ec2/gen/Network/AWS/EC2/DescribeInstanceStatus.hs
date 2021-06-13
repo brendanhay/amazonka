@@ -74,6 +74,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,24 +85,24 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
     -- Default: Describes all your instances.
     --
     -- Constraints: Maximum 100 explicitly specified instance IDs.
-    instanceIds :: Core.Maybe [Core.Text],
+    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The token to retrieve the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value. This value can be between 5 and 1000. You cannot specify this
     -- parameter and the instance IDs parameter in the same call.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | When @true@, includes the health status for all instances. When @false@,
     -- includes the health status for running instances only.
     --
     -- Default: @false@
-    includeAllInstances :: Core.Maybe Core.Bool,
+    includeAllInstances :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone of the instance.
@@ -149,9 +150,9 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
     -- -   @system-status.status@ - The system status of the instance (@ok@ |
     --     @impaired@ | @initializing@ | @insufficient-data@ |
     --     @not-applicable@).
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceStatus' with all optional fields omitted.
@@ -235,12 +236,13 @@ newDescribeInstanceStatus ::
   DescribeInstanceStatus
 newDescribeInstanceStatus =
   DescribeInstanceStatus'
-    { instanceIds = Core.Nothing,
-      nextToken = Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      includeAllInstances = Core.Nothing,
-      filters = Core.Nothing
+    { instanceIds =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      includeAllInstances = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The instance IDs.
@@ -248,32 +250,32 @@ newDescribeInstanceStatus =
 -- Default: Describes all your instances.
 --
 -- Constraints: Maximum 100 explicitly specified instance IDs.
-describeInstanceStatus_instanceIds :: Lens.Lens' DescribeInstanceStatus (Core.Maybe [Core.Text])
-describeInstanceStatus_instanceIds = Lens.lens (\DescribeInstanceStatus' {instanceIds} -> instanceIds) (\s@DescribeInstanceStatus' {} a -> s {instanceIds = a} :: DescribeInstanceStatus) Core.. Lens.mapping Lens._Coerce
+describeInstanceStatus_instanceIds :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe [Prelude.Text])
+describeInstanceStatus_instanceIds = Lens.lens (\DescribeInstanceStatus' {instanceIds} -> instanceIds) (\s@DescribeInstanceStatus' {} a -> s {instanceIds = a} :: DescribeInstanceStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to retrieve the next page of results.
-describeInstanceStatus_nextToken :: Lens.Lens' DescribeInstanceStatus (Core.Maybe Core.Text)
+describeInstanceStatus_nextToken :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Text)
 describeInstanceStatus_nextToken = Lens.lens (\DescribeInstanceStatus' {nextToken} -> nextToken) (\s@DescribeInstanceStatus' {} a -> s {nextToken = a} :: DescribeInstanceStatus)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeInstanceStatus_dryRun :: Lens.Lens' DescribeInstanceStatus (Core.Maybe Core.Bool)
+describeInstanceStatus_dryRun :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Bool)
 describeInstanceStatus_dryRun = Lens.lens (\DescribeInstanceStatus' {dryRun} -> dryRun) (\s@DescribeInstanceStatus' {} a -> s {dryRun = a} :: DescribeInstanceStatus)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 5 and 1000. You cannot specify this
 -- parameter and the instance IDs parameter in the same call.
-describeInstanceStatus_maxResults :: Lens.Lens' DescribeInstanceStatus (Core.Maybe Core.Int)
+describeInstanceStatus_maxResults :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Int)
 describeInstanceStatus_maxResults = Lens.lens (\DescribeInstanceStatus' {maxResults} -> maxResults) (\s@DescribeInstanceStatus' {} a -> s {maxResults = a} :: DescribeInstanceStatus)
 
 -- | When @true@, includes the health status for all instances. When @false@,
 -- includes the health status for running instances only.
 --
 -- Default: @false@
-describeInstanceStatus_includeAllInstances :: Lens.Lens' DescribeInstanceStatus (Core.Maybe Core.Bool)
+describeInstanceStatus_includeAllInstances :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Bool)
 describeInstanceStatus_includeAllInstances = Lens.lens (\DescribeInstanceStatus' {includeAllInstances} -> includeAllInstances) (\s@DescribeInstanceStatus' {} a -> s {includeAllInstances = a} :: DescribeInstanceStatus)
 
 -- | The filters.
@@ -323,30 +325,30 @@ describeInstanceStatus_includeAllInstances = Lens.lens (\DescribeInstanceStatus'
 -- -   @system-status.status@ - The system status of the instance (@ok@ |
 --     @impaired@ | @initializing@ | @insufficient-data@ |
 --     @not-applicable@).
-describeInstanceStatus_filters :: Lens.Lens' DescribeInstanceStatus (Core.Maybe [Filter])
-describeInstanceStatus_filters = Lens.lens (\DescribeInstanceStatus' {filters} -> filters) (\s@DescribeInstanceStatus' {} a -> s {filters = a} :: DescribeInstanceStatus) Core.. Lens.mapping Lens._Coerce
+describeInstanceStatus_filters :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe [Filter])
+describeInstanceStatus_filters = Lens.lens (\DescribeInstanceStatus' {filters} -> filters) (\s@DescribeInstanceStatus' {} a -> s {filters = a} :: DescribeInstanceStatus) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeInstanceStatus where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeInstanceStatusResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceStatusResponse_instanceStatuses
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeInstanceStatus_nextToken
+          Prelude.& describeInstanceStatus_nextToken
           Lens..~ rs
           Lens.^? describeInstanceStatusResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceStatus where
   type
@@ -357,50 +359,54 @@ instance Core.AWSRequest DescribeInstanceStatus where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceStatusResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "instanceStatusSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "instanceStatusSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeInstanceStatus
+instance Prelude.Hashable DescribeInstanceStatus
 
-instance Core.NFData DescribeInstanceStatus
+instance Prelude.NFData DescribeInstanceStatus
 
 instance Core.ToHeaders DescribeInstanceStatus where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeInstanceStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeInstanceStatus where
   toQuery DescribeInstanceStatus' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstanceStatus" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeInstanceStatus" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "InstanceId" Core.<$> instanceIds),
+          ( Core.toQueryList "InstanceId"
+              Prelude.<$> instanceIds
+          ),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "IncludeAllInstances" Core.=: includeAllInstances,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeInstanceStatusResponse' smart constructor.
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the status of the instances.
-    instanceStatuses :: Core.Maybe [InstanceStatus],
+    instanceStatuses :: Prelude.Maybe [InstanceStatus],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceStatusResponse' with all optional fields omitted.
@@ -418,27 +424,29 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
 -- 'httpStatus', 'describeInstanceStatusResponse_httpStatus' - The response's http status code.
 newDescribeInstanceStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeInstanceStatusResponse
 newDescribeInstanceStatusResponse pHttpStatus_ =
   DescribeInstanceStatusResponse'
     { nextToken =
-        Core.Nothing,
-      instanceStatuses = Core.Nothing,
+        Prelude.Nothing,
+      instanceStatuses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeInstanceStatusResponse_nextToken :: Lens.Lens' DescribeInstanceStatusResponse (Core.Maybe Core.Text)
+describeInstanceStatusResponse_nextToken :: Lens.Lens' DescribeInstanceStatusResponse (Prelude.Maybe Prelude.Text)
 describeInstanceStatusResponse_nextToken = Lens.lens (\DescribeInstanceStatusResponse' {nextToken} -> nextToken) (\s@DescribeInstanceStatusResponse' {} a -> s {nextToken = a} :: DescribeInstanceStatusResponse)
 
 -- | Information about the status of the instances.
-describeInstanceStatusResponse_instanceStatuses :: Lens.Lens' DescribeInstanceStatusResponse (Core.Maybe [InstanceStatus])
-describeInstanceStatusResponse_instanceStatuses = Lens.lens (\DescribeInstanceStatusResponse' {instanceStatuses} -> instanceStatuses) (\s@DescribeInstanceStatusResponse' {} a -> s {instanceStatuses = a} :: DescribeInstanceStatusResponse) Core.. Lens.mapping Lens._Coerce
+describeInstanceStatusResponse_instanceStatuses :: Lens.Lens' DescribeInstanceStatusResponse (Prelude.Maybe [InstanceStatus])
+describeInstanceStatusResponse_instanceStatuses = Lens.lens (\DescribeInstanceStatusResponse' {instanceStatuses} -> instanceStatuses) (\s@DescribeInstanceStatusResponse' {} a -> s {instanceStatuses = a} :: DescribeInstanceStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeInstanceStatusResponse_httpStatus :: Lens.Lens' DescribeInstanceStatusResponse Core.Int
+describeInstanceStatusResponse_httpStatus :: Lens.Lens' DescribeInstanceStatusResponse Prelude.Int
 describeInstanceStatusResponse_httpStatus = Lens.lens (\DescribeInstanceStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceStatusResponse' {} a -> s {httpStatus = a} :: DescribeInstanceStatusResponse)
 
-instance Core.NFData DescribeInstanceStatusResponse
+instance
+  Prelude.NFData
+    DescribeInstanceStatusResponse

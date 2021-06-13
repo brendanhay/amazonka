@@ -22,17 +22,18 @@ module Network.AWS.Connect.Types.CurrentMetricData where
 import Network.AWS.Connect.Types.CurrentMetric
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the data for a real-time metric.
 --
 -- /See:/ 'newCurrentMetricData' smart constructor.
 data CurrentMetricData = CurrentMetricData'
   { -- | Information about the metric.
-    metric :: Core.Maybe CurrentMetric,
+    metric :: Prelude.Maybe CurrentMetric,
     -- | The value of the metric.
-    value :: Core.Maybe Core.Double
+    value :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CurrentMetricData' with all optional fields omitted.
@@ -49,16 +50,16 @@ newCurrentMetricData ::
   CurrentMetricData
 newCurrentMetricData =
   CurrentMetricData'
-    { metric = Core.Nothing,
-      value = Core.Nothing
+    { metric = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Information about the metric.
-currentMetricData_metric :: Lens.Lens' CurrentMetricData (Core.Maybe CurrentMetric)
+currentMetricData_metric :: Lens.Lens' CurrentMetricData (Prelude.Maybe CurrentMetric)
 currentMetricData_metric = Lens.lens (\CurrentMetricData' {metric} -> metric) (\s@CurrentMetricData' {} a -> s {metric = a} :: CurrentMetricData)
 
 -- | The value of the metric.
-currentMetricData_value :: Lens.Lens' CurrentMetricData (Core.Maybe Core.Double)
+currentMetricData_value :: Lens.Lens' CurrentMetricData (Prelude.Maybe Prelude.Double)
 currentMetricData_value = Lens.lens (\CurrentMetricData' {value} -> value) (\s@CurrentMetricData' {} a -> s {value = a} :: CurrentMetricData)
 
 instance Core.FromJSON CurrentMetricData where
@@ -67,9 +68,10 @@ instance Core.FromJSON CurrentMetricData where
       "CurrentMetricData"
       ( \x ->
           CurrentMetricData'
-            Core.<$> (x Core..:? "Metric") Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Metric")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable CurrentMetricData
+instance Prelude.Hashable CurrentMetricData
 
-instance Core.NFData CurrentMetricData
+instance Prelude.NFData CurrentMetricData

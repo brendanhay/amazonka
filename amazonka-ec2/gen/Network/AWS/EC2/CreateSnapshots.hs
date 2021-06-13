@@ -58,18 +58,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSnapshots' smart constructor.
 data CreateSnapshots = CreateSnapshots'
   { -- | Tags to apply to every snapshot specified by the instance.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the AWS Outpost on which to create the
     -- local snapshots.
     --
@@ -88,16 +89,16 @@ data CreateSnapshots = CreateSnapshots'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Creating multi-volume local snapshots from instances on an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Copies the tags from the specified volume to corresponding snapshot.
-    copyTagsFromSource :: Core.Maybe CopyTagsFromSource,
+    copyTagsFromSource :: Prelude.Maybe CopyTagsFromSource,
     -- | A description propagated to every snapshot specified by the instance.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The instance to specify which volumes should be included in the
     -- snapshots.
     instanceSpecification :: InstanceSpecification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshots' with all optional fields omitted.
@@ -145,23 +146,24 @@ newCreateSnapshots ::
   CreateSnapshots
 newCreateSnapshots pInstanceSpecification_ =
   CreateSnapshots'
-    { tagSpecifications = Core.Nothing,
-      dryRun = Core.Nothing,
-      outpostArn = Core.Nothing,
-      copyTagsFromSource = Core.Nothing,
-      description = Core.Nothing,
+    { tagSpecifications =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      copyTagsFromSource = Prelude.Nothing,
+      description = Prelude.Nothing,
       instanceSpecification = pInstanceSpecification_
     }
 
 -- | Tags to apply to every snapshot specified by the instance.
-createSnapshots_tagSpecifications :: Lens.Lens' CreateSnapshots (Core.Maybe [TagSpecification])
-createSnapshots_tagSpecifications = Lens.lens (\CreateSnapshots' {tagSpecifications} -> tagSpecifications) (\s@CreateSnapshots' {} a -> s {tagSpecifications = a} :: CreateSnapshots) Core.. Lens.mapping Lens._Coerce
+createSnapshots_tagSpecifications :: Lens.Lens' CreateSnapshots (Prelude.Maybe [TagSpecification])
+createSnapshots_tagSpecifications = Lens.lens (\CreateSnapshots' {tagSpecifications} -> tagSpecifications) (\s@CreateSnapshots' {} a -> s {tagSpecifications = a} :: CreateSnapshots) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createSnapshots_dryRun :: Lens.Lens' CreateSnapshots (Core.Maybe Core.Bool)
+createSnapshots_dryRun :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Bool)
 createSnapshots_dryRun = Lens.lens (\CreateSnapshots' {dryRun} -> dryRun) (\s@CreateSnapshots' {} a -> s {dryRun = a} :: CreateSnapshots)
 
 -- | The Amazon Resource Name (ARN) of the AWS Outpost on which to create the
@@ -182,15 +184,15 @@ createSnapshots_dryRun = Lens.lens (\CreateSnapshots' {dryRun} -> dryRun) (\s@Cr
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Creating multi-volume local snapshots from instances on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-createSnapshots_outpostArn :: Lens.Lens' CreateSnapshots (Core.Maybe Core.Text)
+createSnapshots_outpostArn :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Text)
 createSnapshots_outpostArn = Lens.lens (\CreateSnapshots' {outpostArn} -> outpostArn) (\s@CreateSnapshots' {} a -> s {outpostArn = a} :: CreateSnapshots)
 
 -- | Copies the tags from the specified volume to corresponding snapshot.
-createSnapshots_copyTagsFromSource :: Lens.Lens' CreateSnapshots (Core.Maybe CopyTagsFromSource)
+createSnapshots_copyTagsFromSource :: Lens.Lens' CreateSnapshots (Prelude.Maybe CopyTagsFromSource)
 createSnapshots_copyTagsFromSource = Lens.lens (\CreateSnapshots' {copyTagsFromSource} -> copyTagsFromSource) (\s@CreateSnapshots' {} a -> s {copyTagsFromSource = a} :: CreateSnapshots)
 
 -- | A description propagated to every snapshot specified by the instance.
-createSnapshots_description :: Lens.Lens' CreateSnapshots (Core.Maybe Core.Text)
+createSnapshots_description :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Text)
 createSnapshots_description = Lens.lens (\CreateSnapshots' {description} -> description) (\s@CreateSnapshots' {} a -> s {description = a} :: CreateSnapshots)
 
 -- | The instance to specify which volumes should be included in the
@@ -207,31 +209,32 @@ instance Core.AWSRequest CreateSnapshots where
     Response.receiveXML
       ( \s h x ->
           CreateSnapshotsResponse'
-            Core.<$> ( x Core..@? "snapshotSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "snapshotSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSnapshots
+instance Prelude.Hashable CreateSnapshots
 
-instance Core.NFData CreateSnapshots
+instance Prelude.NFData CreateSnapshots
 
 instance Core.ToHeaders CreateSnapshots where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateSnapshots where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateSnapshots where
   toQuery CreateSnapshots' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSnapshots" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateSnapshots" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "OutpostArn" Core.=: outpostArn,
@@ -244,11 +247,11 @@ instance Core.ToQuery CreateSnapshots where
 -- | /See:/ 'newCreateSnapshotsResponse' smart constructor.
 data CreateSnapshotsResponse = CreateSnapshotsResponse'
   { -- | List of snapshots.
-    snapshots :: Core.Maybe [SnapshotInfo],
+    snapshots :: Prelude.Maybe [SnapshotInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshotsResponse' with all optional fields omitted.
@@ -263,20 +266,21 @@ data CreateSnapshotsResponse = CreateSnapshotsResponse'
 -- 'httpStatus', 'createSnapshotsResponse_httpStatus' - The response's http status code.
 newCreateSnapshotsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSnapshotsResponse
 newCreateSnapshotsResponse pHttpStatus_ =
   CreateSnapshotsResponse'
-    { snapshots = Core.Nothing,
+    { snapshots =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | List of snapshots.
-createSnapshotsResponse_snapshots :: Lens.Lens' CreateSnapshotsResponse (Core.Maybe [SnapshotInfo])
-createSnapshotsResponse_snapshots = Lens.lens (\CreateSnapshotsResponse' {snapshots} -> snapshots) (\s@CreateSnapshotsResponse' {} a -> s {snapshots = a} :: CreateSnapshotsResponse) Core.. Lens.mapping Lens._Coerce
+createSnapshotsResponse_snapshots :: Lens.Lens' CreateSnapshotsResponse (Prelude.Maybe [SnapshotInfo])
+createSnapshotsResponse_snapshots = Lens.lens (\CreateSnapshotsResponse' {snapshots} -> snapshots) (\s@CreateSnapshotsResponse' {} a -> s {snapshots = a} :: CreateSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createSnapshotsResponse_httpStatus :: Lens.Lens' CreateSnapshotsResponse Core.Int
+createSnapshotsResponse_httpStatus :: Lens.Lens' CreateSnapshotsResponse Prelude.Int
 createSnapshotsResponse_httpStatus = Lens.lens (\CreateSnapshotsResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotsResponse' {} a -> s {httpStatus = a} :: CreateSnapshotsResponse)
 
-instance Core.NFData CreateSnapshotsResponse
+instance Prelude.NFData CreateSnapshotsResponse

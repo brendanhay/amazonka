@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.DeviceConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
 
 -- | The container for @SnowconeDeviceConfiguration@.
@@ -29,9 +30,9 @@ import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
 data DeviceConfiguration = DeviceConfiguration'
   { -- | Returns information about the device configuration for an AWS Snowcone
     -- job.
-    snowconeDeviceConfiguration :: Core.Maybe SnowconeDeviceConfiguration
+    snowconeDeviceConfiguration :: Prelude.Maybe SnowconeDeviceConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeviceConfiguration' with all optional fields omitted.
@@ -48,12 +49,12 @@ newDeviceConfiguration ::
 newDeviceConfiguration =
   DeviceConfiguration'
     { snowconeDeviceConfiguration =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Returns information about the device configuration for an AWS Snowcone
 -- job.
-deviceConfiguration_snowconeDeviceConfiguration :: Lens.Lens' DeviceConfiguration (Core.Maybe SnowconeDeviceConfiguration)
+deviceConfiguration_snowconeDeviceConfiguration :: Lens.Lens' DeviceConfiguration (Prelude.Maybe SnowconeDeviceConfiguration)
 deviceConfiguration_snowconeDeviceConfiguration = Lens.lens (\DeviceConfiguration' {snowconeDeviceConfiguration} -> snowconeDeviceConfiguration) (\s@DeviceConfiguration' {} a -> s {snowconeDeviceConfiguration = a} :: DeviceConfiguration)
 
 instance Core.FromJSON DeviceConfiguration where
@@ -62,18 +63,18 @@ instance Core.FromJSON DeviceConfiguration where
       "DeviceConfiguration"
       ( \x ->
           DeviceConfiguration'
-            Core.<$> (x Core..:? "SnowconeDeviceConfiguration")
+            Prelude.<$> (x Core..:? "SnowconeDeviceConfiguration")
       )
 
-instance Core.Hashable DeviceConfiguration
+instance Prelude.Hashable DeviceConfiguration
 
-instance Core.NFData DeviceConfiguration
+instance Prelude.NFData DeviceConfiguration
 
 instance Core.ToJSON DeviceConfiguration where
   toJSON DeviceConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SnowconeDeviceConfiguration" Core..=)
-              Core.<$> snowconeDeviceConfiguration
+              Prelude.<$> snowconeDeviceConfiguration
           ]
       )

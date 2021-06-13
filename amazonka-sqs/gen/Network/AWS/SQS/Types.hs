@@ -128,6 +128,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SQS.Types.BatchResultErrorEntry
 import Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
 import Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry
@@ -154,7 +155,7 @@ defaultService =
       Core._serviceVersion = "2012-11-05",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseXMLError "SQS",
       Core._serviceRetry = retry
@@ -170,110 +171,112 @@ defaultService =
     check e
       | Lens.has
           ( Core.hasCode "RequestThrottled"
-              Core.. Core.hasStatus 403
+              Prelude.. Core.hasStatus 403
           )
           e =
-        Core.Just "request_limit_exceeded"
+        Prelude.Just "request_limit_exceeded"
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified receipt handle isn\'t valid for the current version.
-_InvalidIdFormat :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidIdFormat :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidIdFormat =
   Core._MatchServiceError
     defaultService
     "InvalidIdFormat"
 
 -- | The batch request contains more entries than permissible.
-_TooManyEntriesInBatchRequest :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyEntriesInBatchRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyEntriesInBatchRequest =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.TooManyEntriesInBatchRequest"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A queue with this name already exists. Amazon SQS returns this error
 -- only if the request includes attributes whose values differ from those
 -- of the existing queue.
-_QueueNameExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_QueueNameExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _QueueNameExists =
   Core._MatchServiceError
     defaultService
     "QueueAlreadyExists"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The batch request doesn\'t contain any entries.
-_EmptyBatchRequest :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EmptyBatchRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EmptyBatchRequest =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.EmptyBatchRequest"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The message contains characters outside the allowed set.
-_InvalidMessageContents :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidMessageContents :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidMessageContents =
   Core._MatchServiceError
     defaultService
     "InvalidMessageContents"
 
 -- | Error code 400. Unsupported operation.
-_UnsupportedOperation :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedOperation =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.UnsupportedOperation"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified receipt handle isn\'t valid.
-_ReceiptHandleIsInvalid :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ReceiptHandleIsInvalid :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReceiptHandleIsInvalid =
   Core._MatchServiceError
     defaultService
     "ReceiptHandleIsInvalid"
 
 -- | The specified attribute doesn\'t exist.
-_InvalidAttributeName :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidAttributeName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidAttributeName =
   Core._MatchServiceError
     defaultService
@@ -281,69 +284,69 @@ _InvalidAttributeName =
 
 -- | You must wait 60 seconds after deleting a queue before you can create
 -- another queue with the same name.
-_QueueDeletedRecently :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_QueueDeletedRecently :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _QueueDeletedRecently =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.QueueDeletedRecently"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The @Id@ of a batch entry in a batch request doesn\'t abide by the
 -- specification.
-_InvalidBatchEntryId :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidBatchEntryId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidBatchEntryId =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.InvalidBatchEntryId"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Two or more batch entries in the request have the same @Id@.
-_BatchEntryIdsNotDistinct :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BatchEntryIdsNotDistinct :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BatchEntryIdsNotDistinct =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.BatchEntryIdsNotDistinct"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified message isn\'t in flight.
-_MessageNotInflight :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MessageNotInflight :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MessageNotInflight =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.MessageNotInflight"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Indicates that the specified queue previously received a @PurgeQueue@
 -- request within the last 60 seconds (the time it can take to delete the
 -- messages in the queue).
-_PurgeQueueInProgress :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PurgeQueueInProgress :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PurgeQueueInProgress =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.PurgeQueueInProgress"
-    Core.. Core.hasStatus 403
+    Prelude.. Core.hasStatus 403
 
 -- | The length of all the messages put together is more than the limit.
-_BatchRequestTooLong :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BatchRequestTooLong :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BatchRequestTooLong =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.BatchRequestTooLong"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified action violates a limit. For example, @ReceiveMessage@
 -- returns this error if the maximum number of inflight messages is reached
 -- and @AddPermission@ returns this error if the maximum number of
 -- permissions for the queue is reached.
-_OverLimit :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OverLimit :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OverLimit =
   Core._MatchServiceError defaultService "OverLimit"
-    Core.. Core.hasStatus 403
+    Prelude.. Core.hasStatus 403
 
 -- | The specified queue doesn\'t exist.
-_QueueDoesNotExist :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_QueueDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _QueueDoesNotExist =
   Core._MatchServiceError
     defaultService
     "AWS.SimpleQueueService.NonExistentQueue"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400

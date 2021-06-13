@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.Attribute where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.TargetType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An attribute is a name-value pair associated with an Amazon ECS object.
 -- Attributes enable you to extend the Amazon ECS data model by adding
@@ -33,24 +34,24 @@ import qualified Network.AWS.Lens as Lens
 data Attribute = Attribute'
   { -- | The ID of the target. You can specify the short form ID for a resource
     -- or the full Amazon Resource Name (ARN).
-    targetId :: Core.Maybe Core.Text,
+    targetId :: Prelude.Maybe Prelude.Text,
     -- | The type of the target with which to attach the attribute. This
     -- parameter is required if you use the short form ID for a resource
     -- instead of the full ARN.
-    targetType :: Core.Maybe TargetType,
+    targetType :: Prelude.Maybe TargetType,
     -- | The value of the attribute. The @value@ must contain between 1 and 128
     -- characters and may contain letters (uppercase and lowercase), numbers,
     -- hyphens, underscores, periods, at signs (\@), forward slashes, back
     -- slashes, colons, or spaces. The value cannot contain any leading or
     -- trailing whitespace.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute. The @name@ must contain between 1 and 128
     -- characters and name may contain letters (uppercase and lowercase),
     -- numbers, hyphens, underscores, forward slashes, back slashes, or
     -- periods.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Attribute' with all optional fields omitted.
@@ -79,25 +80,25 @@ data Attribute = Attribute'
 -- periods.
 newAttribute ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Attribute
 newAttribute pName_ =
   Attribute'
-    { targetId = Core.Nothing,
-      targetType = Core.Nothing,
-      value = Core.Nothing,
+    { targetId = Prelude.Nothing,
+      targetType = Prelude.Nothing,
+      value = Prelude.Nothing,
       name = pName_
     }
 
 -- | The ID of the target. You can specify the short form ID for a resource
 -- or the full Amazon Resource Name (ARN).
-attribute_targetId :: Lens.Lens' Attribute (Core.Maybe Core.Text)
+attribute_targetId :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_targetId = Lens.lens (\Attribute' {targetId} -> targetId) (\s@Attribute' {} a -> s {targetId = a} :: Attribute)
 
 -- | The type of the target with which to attach the attribute. This
 -- parameter is required if you use the short form ID for a resource
 -- instead of the full ARN.
-attribute_targetType :: Lens.Lens' Attribute (Core.Maybe TargetType)
+attribute_targetType :: Lens.Lens' Attribute (Prelude.Maybe TargetType)
 attribute_targetType = Lens.lens (\Attribute' {targetType} -> targetType) (\s@Attribute' {} a -> s {targetType = a} :: Attribute)
 
 -- | The value of the attribute. The @value@ must contain between 1 and 128
@@ -105,14 +106,14 @@ attribute_targetType = Lens.lens (\Attribute' {targetType} -> targetType) (\s@At
 -- hyphens, underscores, periods, at signs (\@), forward slashes, back
 -- slashes, colons, or spaces. The value cannot contain any leading or
 -- trailing whitespace.
-attribute_value :: Lens.Lens' Attribute (Core.Maybe Core.Text)
+attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 -- | The name of the attribute. The @name@ must contain between 1 and 128
 -- characters and name may contain letters (uppercase and lowercase),
 -- numbers, hyphens, underscores, forward slashes, back slashes, or
 -- periods.
-attribute_name :: Lens.Lens' Attribute Core.Text
+attribute_name :: Lens.Lens' Attribute Prelude.Text
 attribute_name = Lens.lens (\Attribute' {name} -> name) (\s@Attribute' {} a -> s {name = a} :: Attribute)
 
 instance Core.FromJSON Attribute where
@@ -121,23 +122,23 @@ instance Core.FromJSON Attribute where
       "Attribute"
       ( \x ->
           Attribute'
-            Core.<$> (x Core..:? "targetId")
-            Core.<*> (x Core..:? "targetType")
-            Core.<*> (x Core..:? "value")
-            Core.<*> (x Core..: "name")
+            Prelude.<$> (x Core..:? "targetId")
+            Prelude.<*> (x Core..:? "targetType")
+            Prelude.<*> (x Core..:? "value")
+            Prelude.<*> (x Core..: "name")
       )
 
-instance Core.Hashable Attribute
+instance Prelude.Hashable Attribute
 
-instance Core.NFData Attribute
+instance Prelude.NFData Attribute
 
 instance Core.ToJSON Attribute where
   toJSON Attribute' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("targetId" Core..=) Core.<$> targetId,
-            ("targetType" Core..=) Core.<$> targetType,
-            ("value" Core..=) Core.<$> value,
-            Core.Just ("name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("targetId" Core..=) Prelude.<$> targetId,
+            ("targetType" Core..=) Prelude.<$> targetType,
+            ("value" Core..=) Prelude.<$> value,
+            Prelude.Just ("name" Core..= name)
           ]
       )

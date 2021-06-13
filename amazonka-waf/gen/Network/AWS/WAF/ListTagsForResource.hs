@@ -63,17 +63,18 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextMarker :: Core.Maybe Core.Text,
-    limit :: Core.Maybe Core.Natural,
-    resourceARN :: Core.Text
+  { nextMarker :: Prelude.Maybe Prelude.Text,
+    limit :: Prelude.Maybe Prelude.Natural,
+    resourceARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -90,25 +91,25 @@ data ListTagsForResource = ListTagsForResource'
 -- 'resourceARN', 'listTagsForResource_resourceARN' -
 newListTagsForResource ::
   -- | 'resourceARN'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForResource
 newListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { nextMarker = Core.Nothing,
-      limit = Core.Nothing,
+    { nextMarker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       resourceARN = pResourceARN_
     }
 
 -- |
-listTagsForResource_nextMarker :: Lens.Lens' ListTagsForResource (Core.Maybe Core.Text)
+listTagsForResource_nextMarker :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_nextMarker = Lens.lens (\ListTagsForResource' {nextMarker} -> nextMarker) (\s@ListTagsForResource' {} a -> s {nextMarker = a} :: ListTagsForResource)
 
 -- |
-listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Core.Maybe Core.Natural)
+listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_limit = Lens.lens (\ListTagsForResource' {limit} -> limit) (\s@ListTagsForResource' {} a -> s {limit = a} :: ListTagsForResource)
 
 -- |
-listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Core.Text
+listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceARN = Lens.lens (\ListTagsForResource' {resourceARN} -> resourceARN) (\s@ListTagsForResource' {} a -> s {resourceARN = a} :: ListTagsForResource)
 
 instance Core.AWSRequest ListTagsForResource where
@@ -120,52 +121,54 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "TagInfoForResource")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "TagInfoForResource")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTagsForResource
+instance Prelude.Hashable ListTagsForResource
 
-instance Core.NFData ListTagsForResource
+instance Prelude.NFData ListTagsForResource
 
 instance Core.ToHeaders ListTagsForResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.ListTagsForResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextMarker" Core..=) Core.<$> nextMarker,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just ("ResourceARN" Core..= resourceARN)
+      ( Prelude.catMaybes
+          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("ResourceARN" Core..= resourceARN)
           ]
       )
 
 instance Core.ToPath ListTagsForResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsForResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextMarker :: Core.Maybe Core.Text,
-    tagInfoForResource :: Core.Maybe TagInfoForResource,
+  { nextMarker :: Prelude.Maybe Prelude.Text,
+    tagInfoForResource :: Prelude.Maybe TagInfoForResource,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -182,26 +185,26 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
     { nextMarker =
-        Core.Nothing,
-      tagInfoForResource = Core.Nothing,
+        Prelude.Nothing,
+      tagInfoForResource = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-listTagsForResourceResponse_nextMarker :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Core.Text)
+listTagsForResourceResponse_nextMarker :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextMarker = Lens.lens (\ListTagsForResourceResponse' {nextMarker} -> nextMarker) (\s@ListTagsForResourceResponse' {} a -> s {nextMarker = a} :: ListTagsForResourceResponse)
 
 -- |
-listTagsForResourceResponse_tagInfoForResource :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe TagInfoForResource)
+listTagsForResourceResponse_tagInfoForResource :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe TagInfoForResource)
 listTagsForResourceResponse_tagInfoForResource = Lens.lens (\ListTagsForResourceResponse' {tagInfoForResource} -> tagInfoForResource) (\s@ListTagsForResourceResponse' {} a -> s {tagInfoForResource = a} :: ListTagsForResourceResponse)
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
-instance Core.NFData ListTagsForResourceResponse
+instance Prelude.NFData ListTagsForResourceResponse

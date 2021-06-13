@@ -47,19 +47,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
   { -- | A token used to get the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at a time.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Set to true to return the list of streams in ascending order.
-    ascendingOrder :: Core.Maybe Core.Bool
+    ascendingOrder :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStreams' with all optional fields omitted.
@@ -78,41 +79,41 @@ newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      ascendingOrder = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing
     }
 
 -- | A token used to get the next set of results.
-listStreams_nextToken :: Lens.Lens' ListStreams (Core.Maybe Core.Text)
+listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
 listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
 
 -- | The maximum number of results to return at a time.
-listStreams_maxResults :: Lens.Lens' ListStreams (Core.Maybe Core.Natural)
+listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
 
 -- | Set to true to return the list of streams in ascending order.
-listStreams_ascendingOrder :: Lens.Lens' ListStreams (Core.Maybe Core.Bool)
+listStreams_ascendingOrder :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Bool)
 listStreams_ascendingOrder = Lens.lens (\ListStreams' {ascendingOrder} -> ascendingOrder) (\s@ListStreams' {} a -> s {ascendingOrder = a} :: ListStreams)
 
 instance Core.AWSPager ListStreams where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listStreamsResponse_nextToken Core.. Lens._Just
+            Lens.^? listStreamsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listStreamsResponse_streams Core.. Lens._Just
+            Lens.^? listStreamsResponse_streams Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listStreams_nextToken
+          Prelude.& listStreams_nextToken
           Lens..~ rs
-          Lens.^? listStreamsResponse_nextToken Core.. Lens._Just
+          Lens.^? listStreamsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreams where
   type AWSResponse ListStreams = ListStreamsResponse
@@ -121,24 +122,24 @@ instance Core.AWSRequest ListStreams where
     Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Core.<$> (x Core..?> "streams" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "streams" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListStreams
+instance Prelude.Hashable ListStreams
 
-instance Core.NFData ListStreams
+instance Prelude.NFData ListStreams
 
 instance Core.ToHeaders ListStreams where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListStreams where
-  toPath = Core.const "/streams"
+  toPath = Prelude.const "/streams"
 
 instance Core.ToQuery ListStreams where
   toQuery ListStreams' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults,
         "isAscendingOrder" Core.=: ascendingOrder
@@ -147,13 +148,13 @@ instance Core.ToQuery ListStreams where
 -- | /See:/ 'newListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
   { -- | A list of streams.
-    streams :: Core.Maybe [StreamSummary],
+    streams :: Prelude.Maybe [StreamSummary],
     -- | A token used to get the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStreamsResponse' with all optional fields omitted.
@@ -170,25 +171,25 @@ data ListStreamsResponse = ListStreamsResponse'
 -- 'httpStatus', 'listStreamsResponse_httpStatus' - The response's http status code.
 newListStreamsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListStreamsResponse
 newListStreamsResponse pHttpStatus_ =
   ListStreamsResponse'
-    { streams = Core.Nothing,
-      nextToken = Core.Nothing,
+    { streams = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of streams.
-listStreamsResponse_streams :: Lens.Lens' ListStreamsResponse (Core.Maybe [StreamSummary])
-listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> streams) (\s@ListStreamsResponse' {} a -> s {streams = a} :: ListStreamsResponse) Core.. Lens.mapping Lens._Coerce
+listStreamsResponse_streams :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [StreamSummary])
+listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> streams) (\s@ListStreamsResponse' {} a -> s {streams = a} :: ListStreamsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A token used to get the next set of results.
-listStreamsResponse_nextToken :: Lens.Lens' ListStreamsResponse (Core.Maybe Core.Text)
+listStreamsResponse_nextToken :: Lens.Lens' ListStreamsResponse (Prelude.Maybe Prelude.Text)
 listStreamsResponse_nextToken = Lens.lens (\ListStreamsResponse' {nextToken} -> nextToken) (\s@ListStreamsResponse' {} a -> s {nextToken = a} :: ListStreamsResponse)
 
 -- | The response's http status code.
-listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Core.Int
+listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int
 listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -> httpStatus) (\s@ListStreamsResponse' {} a -> s {httpStatus = a} :: ListStreamsResponse)
 
-instance Core.NFData ListStreamsResponse
+instance Prelude.NFData ListStreamsResponse

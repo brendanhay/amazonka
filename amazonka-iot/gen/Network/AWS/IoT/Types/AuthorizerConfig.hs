@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.AuthorizerConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that specifies the authorization service for a domain.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data AuthorizerConfig = AuthorizerConfig'
   { -- | A Boolean that specifies whether the domain configuration\'s
     -- authorization service can be overridden.
-    allowAuthorizerOverride :: Core.Maybe Core.Bool,
+    allowAuthorizerOverride :: Prelude.Maybe Prelude.Bool,
     -- | The name of the authorization service for a domain configuration.
-    defaultAuthorizerName :: Core.Maybe Core.Text
+    defaultAuthorizerName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizerConfig' with all optional fields omitted.
@@ -51,17 +52,17 @@ newAuthorizerConfig ::
 newAuthorizerConfig =
   AuthorizerConfig'
     { allowAuthorizerOverride =
-        Core.Nothing,
-      defaultAuthorizerName = Core.Nothing
+        Prelude.Nothing,
+      defaultAuthorizerName = Prelude.Nothing
     }
 
 -- | A Boolean that specifies whether the domain configuration\'s
 -- authorization service can be overridden.
-authorizerConfig_allowAuthorizerOverride :: Lens.Lens' AuthorizerConfig (Core.Maybe Core.Bool)
+authorizerConfig_allowAuthorizerOverride :: Lens.Lens' AuthorizerConfig (Prelude.Maybe Prelude.Bool)
 authorizerConfig_allowAuthorizerOverride = Lens.lens (\AuthorizerConfig' {allowAuthorizerOverride} -> allowAuthorizerOverride) (\s@AuthorizerConfig' {} a -> s {allowAuthorizerOverride = a} :: AuthorizerConfig)
 
 -- | The name of the authorization service for a domain configuration.
-authorizerConfig_defaultAuthorizerName :: Lens.Lens' AuthorizerConfig (Core.Maybe Core.Text)
+authorizerConfig_defaultAuthorizerName :: Lens.Lens' AuthorizerConfig (Prelude.Maybe Prelude.Text)
 authorizerConfig_defaultAuthorizerName = Lens.lens (\AuthorizerConfig' {defaultAuthorizerName} -> defaultAuthorizerName) (\s@AuthorizerConfig' {} a -> s {defaultAuthorizerName = a} :: AuthorizerConfig)
 
 instance Core.FromJSON AuthorizerConfig where
@@ -70,21 +71,21 @@ instance Core.FromJSON AuthorizerConfig where
       "AuthorizerConfig"
       ( \x ->
           AuthorizerConfig'
-            Core.<$> (x Core..:? "allowAuthorizerOverride")
-            Core.<*> (x Core..:? "defaultAuthorizerName")
+            Prelude.<$> (x Core..:? "allowAuthorizerOverride")
+            Prelude.<*> (x Core..:? "defaultAuthorizerName")
       )
 
-instance Core.Hashable AuthorizerConfig
+instance Prelude.Hashable AuthorizerConfig
 
-instance Core.NFData AuthorizerConfig
+instance Prelude.NFData AuthorizerConfig
 
 instance Core.ToJSON AuthorizerConfig where
   toJSON AuthorizerConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("allowAuthorizerOverride" Core..=)
-              Core.<$> allowAuthorizerOverride,
+              Prelude.<$> allowAuthorizerOverride,
             ("defaultAuthorizerName" Core..=)
-              Core.<$> defaultAuthorizerName
+              Prelude.<$> defaultAuthorizerName
           ]
       )

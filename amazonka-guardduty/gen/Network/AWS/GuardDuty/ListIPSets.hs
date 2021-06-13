@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +59,14 @@ data ListIPSets = ListIPSets'
     -- this parameter to null on your first call to the list action. For
     -- subsequent calls to the action, fill nextToken in the request with the
     -- value of NextToken from the previous response to continue listing data.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 50. The maximum value is 50.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID of the detector that the IPSet is associated with.
-    detectorId :: Core.Text
+    detectorId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIPSets' with all optional fields omitted.
@@ -86,12 +87,12 @@ data ListIPSets = ListIPSets'
 -- 'detectorId', 'listIPSets_detectorId' - The unique ID of the detector that the IPSet is associated with.
 newListIPSets ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   ListIPSets
 newListIPSets pDetectorId_ =
   ListIPSets'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       detectorId = pDetectorId_
     }
 
@@ -99,33 +100,33 @@ newListIPSets pDetectorId_ =
 -- this parameter to null on your first call to the list action. For
 -- subsequent calls to the action, fill nextToken in the request with the
 -- value of NextToken from the previous response to continue listing data.
-listIPSets_nextToken :: Lens.Lens' ListIPSets (Core.Maybe Core.Text)
+listIPSets_nextToken :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Text)
 listIPSets_nextToken = Lens.lens (\ListIPSets' {nextToken} -> nextToken) (\s@ListIPSets' {} a -> s {nextToken = a} :: ListIPSets)
 
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 50. The maximum value is 50.
-listIPSets_maxResults :: Lens.Lens' ListIPSets (Core.Maybe Core.Natural)
+listIPSets_maxResults :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Natural)
 listIPSets_maxResults = Lens.lens (\ListIPSets' {maxResults} -> maxResults) (\s@ListIPSets' {} a -> s {maxResults = a} :: ListIPSets)
 
 -- | The unique ID of the detector that the IPSet is associated with.
-listIPSets_detectorId :: Lens.Lens' ListIPSets Core.Text
+listIPSets_detectorId :: Lens.Lens' ListIPSets Prelude.Text
 listIPSets_detectorId = Lens.lens (\ListIPSets' {detectorId} -> detectorId) (\s@ListIPSets' {} a -> s {detectorId = a} :: ListIPSets)
 
 instance Core.AWSPager ListIPSets where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listIPSetsResponse_nextToken Core.. Lens._Just
+            Lens.^? listIPSetsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop (rs Lens.^. listIPSetsResponse_ipSetIds) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listIPSets_nextToken
+          Prelude.& listIPSets_nextToken
           Lens..~ rs
-          Lens.^? listIPSetsResponse_nextToken Core.. Lens._Just
+          Lens.^? listIPSetsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIPSets where
   type AWSResponse ListIPSets = ListIPSetsResponse
@@ -134,32 +135,34 @@ instance Core.AWSRequest ListIPSets where
     Response.receiveJSON
       ( \s h x ->
           ListIPSetsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "ipSetIds" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "ipSetIds" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListIPSets
+instance Prelude.Hashable ListIPSets
 
-instance Core.NFData ListIPSets
+instance Prelude.NFData ListIPSets
 
 instance Core.ToHeaders ListIPSets where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListIPSets where
   toPath ListIPSets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/detector/", Core.toBS detectorId, "/ipset"]
 
 instance Core.ToQuery ListIPSets where
   toQuery ListIPSets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -168,13 +171,13 @@ instance Core.ToQuery ListIPSets where
 data ListIPSetsResponse = ListIPSetsResponse'
   { -- | The pagination parameter to be used on the next list operation to
     -- retrieve more items.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The IDs of the IPSet resources.
-    ipSetIds :: [Core.Text]
+    ipSetIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIPSetsResponse' with all optional fields omitted.
@@ -192,26 +195,26 @@ data ListIPSetsResponse = ListIPSetsResponse'
 -- 'ipSetIds', 'listIPSetsResponse_ipSetIds' - The IDs of the IPSet resources.
 newListIPSetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListIPSetsResponse
 newListIPSetsResponse pHttpStatus_ =
   ListIPSetsResponse'
-    { nextToken = Core.Nothing,
+    { nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      ipSetIds = Core.mempty
+      ipSetIds = Prelude.mempty
     }
 
 -- | The pagination parameter to be used on the next list operation to
 -- retrieve more items.
-listIPSetsResponse_nextToken :: Lens.Lens' ListIPSetsResponse (Core.Maybe Core.Text)
+listIPSetsResponse_nextToken :: Lens.Lens' ListIPSetsResponse (Prelude.Maybe Prelude.Text)
 listIPSetsResponse_nextToken = Lens.lens (\ListIPSetsResponse' {nextToken} -> nextToken) (\s@ListIPSetsResponse' {} a -> s {nextToken = a} :: ListIPSetsResponse)
 
 -- | The response's http status code.
-listIPSetsResponse_httpStatus :: Lens.Lens' ListIPSetsResponse Core.Int
+listIPSetsResponse_httpStatus :: Lens.Lens' ListIPSetsResponse Prelude.Int
 listIPSetsResponse_httpStatus = Lens.lens (\ListIPSetsResponse' {httpStatus} -> httpStatus) (\s@ListIPSetsResponse' {} a -> s {httpStatus = a} :: ListIPSetsResponse)
 
 -- | The IDs of the IPSet resources.
-listIPSetsResponse_ipSetIds :: Lens.Lens' ListIPSetsResponse [Core.Text]
-listIPSetsResponse_ipSetIds = Lens.lens (\ListIPSetsResponse' {ipSetIds} -> ipSetIds) (\s@ListIPSetsResponse' {} a -> s {ipSetIds = a} :: ListIPSetsResponse) Core.. Lens._Coerce
+listIPSetsResponse_ipSetIds :: Lens.Lens' ListIPSetsResponse [Prelude.Text]
+listIPSetsResponse_ipSetIds = Lens.lens (\ListIPSetsResponse' {ipSetIds} -> ipSetIds) (\s@ListIPSetsResponse' {} a -> s {ipSetIds = a} :: ListIPSetsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListIPSetsResponse
+instance Prelude.NFData ListIPSetsResponse

@@ -22,6 +22,7 @@ module Network.AWS.IAM.Types.SSHPublicKey where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.StatusType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an SSH public key.
 --
@@ -33,21 +34,21 @@ data SSHPublicKey = SSHPublicKey'
   { -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
     -- public key was uploaded.
-    uploadDate :: Core.Maybe Core.ISO8601,
+    uploadDate :: Prelude.Maybe Core.ISO8601,
     -- | The name of the IAM user associated with the SSH public key.
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The unique identifier for the SSH public key.
-    sSHPublicKeyId :: Core.Text,
+    sSHPublicKeyId :: Prelude.Text,
     -- | The MD5 message digest of the SSH public key.
-    fingerprint :: Core.Text,
+    fingerprint :: Prelude.Text,
     -- | The SSH public key.
-    sSHPublicKeyBody :: Core.Text,
+    sSHPublicKeyBody :: Prelude.Text,
     -- | The status of the SSH public key. @Active@ means that the key can be
     -- used for authentication with an AWS CodeCommit repository. @Inactive@
     -- means that the key cannot be used.
     status :: StatusType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SSHPublicKey' with all optional fields omitted.
@@ -74,13 +75,13 @@ data SSHPublicKey = SSHPublicKey'
 -- means that the key cannot be used.
 newSSHPublicKey ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sSHPublicKeyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fingerprint'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sSHPublicKeyBody'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   StatusType ->
   SSHPublicKey
@@ -91,7 +92,7 @@ newSSHPublicKey
   pSSHPublicKeyBody_
   pStatus_ =
     SSHPublicKey'
-      { uploadDate = Core.Nothing,
+      { uploadDate = Prelude.Nothing,
         userName = pUserName_,
         sSHPublicKeyId = pSSHPublicKeyId_,
         fingerprint = pFingerprint_,
@@ -102,23 +103,23 @@ newSSHPublicKey
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
 -- public key was uploaded.
-sSHPublicKey_uploadDate :: Lens.Lens' SSHPublicKey (Core.Maybe Core.UTCTime)
-sSHPublicKey_uploadDate = Lens.lens (\SSHPublicKey' {uploadDate} -> uploadDate) (\s@SSHPublicKey' {} a -> s {uploadDate = a} :: SSHPublicKey) Core.. Lens.mapping Core._Time
+sSHPublicKey_uploadDate :: Lens.Lens' SSHPublicKey (Prelude.Maybe Prelude.UTCTime)
+sSHPublicKey_uploadDate = Lens.lens (\SSHPublicKey' {uploadDate} -> uploadDate) (\s@SSHPublicKey' {} a -> s {uploadDate = a} :: SSHPublicKey) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the IAM user associated with the SSH public key.
-sSHPublicKey_userName :: Lens.Lens' SSHPublicKey Core.Text
+sSHPublicKey_userName :: Lens.Lens' SSHPublicKey Prelude.Text
 sSHPublicKey_userName = Lens.lens (\SSHPublicKey' {userName} -> userName) (\s@SSHPublicKey' {} a -> s {userName = a} :: SSHPublicKey)
 
 -- | The unique identifier for the SSH public key.
-sSHPublicKey_sSHPublicKeyId :: Lens.Lens' SSHPublicKey Core.Text
+sSHPublicKey_sSHPublicKeyId :: Lens.Lens' SSHPublicKey Prelude.Text
 sSHPublicKey_sSHPublicKeyId = Lens.lens (\SSHPublicKey' {sSHPublicKeyId} -> sSHPublicKeyId) (\s@SSHPublicKey' {} a -> s {sSHPublicKeyId = a} :: SSHPublicKey)
 
 -- | The MD5 message digest of the SSH public key.
-sSHPublicKey_fingerprint :: Lens.Lens' SSHPublicKey Core.Text
+sSHPublicKey_fingerprint :: Lens.Lens' SSHPublicKey Prelude.Text
 sSHPublicKey_fingerprint = Lens.lens (\SSHPublicKey' {fingerprint} -> fingerprint) (\s@SSHPublicKey' {} a -> s {fingerprint = a} :: SSHPublicKey)
 
 -- | The SSH public key.
-sSHPublicKey_sSHPublicKeyBody :: Lens.Lens' SSHPublicKey Core.Text
+sSHPublicKey_sSHPublicKeyBody :: Lens.Lens' SSHPublicKey Prelude.Text
 sSHPublicKey_sSHPublicKeyBody = Lens.lens (\SSHPublicKey' {sSHPublicKeyBody} -> sSHPublicKeyBody) (\s@SSHPublicKey' {} a -> s {sSHPublicKeyBody = a} :: SSHPublicKey)
 
 -- | The status of the SSH public key. @Active@ means that the key can be
@@ -130,13 +131,13 @@ sSHPublicKey_status = Lens.lens (\SSHPublicKey' {status} -> status) (\s@SSHPubli
 instance Core.FromXML SSHPublicKey where
   parseXML x =
     SSHPublicKey'
-      Core.<$> (x Core..@? "UploadDate")
-      Core.<*> (x Core..@ "UserName")
-      Core.<*> (x Core..@ "SSHPublicKeyId")
-      Core.<*> (x Core..@ "Fingerprint")
-      Core.<*> (x Core..@ "SSHPublicKeyBody")
-      Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@? "UploadDate")
+      Prelude.<*> (x Core..@ "UserName")
+      Prelude.<*> (x Core..@ "SSHPublicKeyId")
+      Prelude.<*> (x Core..@ "Fingerprint")
+      Prelude.<*> (x Core..@ "SSHPublicKeyBody")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable SSHPublicKey
+instance Prelude.Hashable SSHPublicKey
 
-instance Core.NFData SSHPublicKey
+instance Prelude.NFData SSHPublicKey

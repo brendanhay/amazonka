@@ -21,6 +21,7 @@ module Network.AWS.Batch.Types.ComputeEnvironmentOrder where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The order in which compute environments are tried for job placement
 -- within a queue. Compute environments are tried in ascending order. For
@@ -42,11 +43,11 @@ data ComputeEnvironmentOrder = ComputeEnvironmentOrder'
     -- ascending order. For example, if two compute environments are associated
     -- with a job queue, the compute environment with a lower @order@ integer
     -- value is tried for job placement first.
-    order :: Core.Int,
+    order :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironment :: Core.Text
+    computeEnvironment :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ComputeEnvironmentOrder' with all optional fields omitted.
@@ -64,9 +65,9 @@ data ComputeEnvironmentOrder = ComputeEnvironmentOrder'
 -- 'computeEnvironment', 'computeEnvironmentOrder_computeEnvironment' - The Amazon Resource Name (ARN) of the compute environment.
 newComputeEnvironmentOrder ::
   -- | 'order'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'computeEnvironment'
-  Core.Text ->
+  Prelude.Text ->
   ComputeEnvironmentOrder
 newComputeEnvironmentOrder
   pOrder_
@@ -80,11 +81,11 @@ newComputeEnvironmentOrder
 -- ascending order. For example, if two compute environments are associated
 -- with a job queue, the compute environment with a lower @order@ integer
 -- value is tried for job placement first.
-computeEnvironmentOrder_order :: Lens.Lens' ComputeEnvironmentOrder Core.Int
+computeEnvironmentOrder_order :: Lens.Lens' ComputeEnvironmentOrder Prelude.Int
 computeEnvironmentOrder_order = Lens.lens (\ComputeEnvironmentOrder' {order} -> order) (\s@ComputeEnvironmentOrder' {} a -> s {order = a} :: ComputeEnvironmentOrder)
 
 -- | The Amazon Resource Name (ARN) of the compute environment.
-computeEnvironmentOrder_computeEnvironment :: Lens.Lens' ComputeEnvironmentOrder Core.Text
+computeEnvironmentOrder_computeEnvironment :: Lens.Lens' ComputeEnvironmentOrder Prelude.Text
 computeEnvironmentOrder_computeEnvironment = Lens.lens (\ComputeEnvironmentOrder' {computeEnvironment} -> computeEnvironment) (\s@ComputeEnvironmentOrder' {} a -> s {computeEnvironment = a} :: ComputeEnvironmentOrder)
 
 instance Core.FromJSON ComputeEnvironmentOrder where
@@ -93,20 +94,20 @@ instance Core.FromJSON ComputeEnvironmentOrder where
       "ComputeEnvironmentOrder"
       ( \x ->
           ComputeEnvironmentOrder'
-            Core.<$> (x Core..: "order")
-            Core.<*> (x Core..: "computeEnvironment")
+            Prelude.<$> (x Core..: "order")
+            Prelude.<*> (x Core..: "computeEnvironment")
       )
 
-instance Core.Hashable ComputeEnvironmentOrder
+instance Prelude.Hashable ComputeEnvironmentOrder
 
-instance Core.NFData ComputeEnvironmentOrder
+instance Prelude.NFData ComputeEnvironmentOrder
 
 instance Core.ToJSON ComputeEnvironmentOrder where
   toJSON ComputeEnvironmentOrder' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("order" Core..= order),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("order" Core..= order),
+            Prelude.Just
               ("computeEnvironment" Core..= computeEnvironment)
           ]
       )

@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -53,11 +54,11 @@ import Network.AWS.SSM.Types
 data GetPatchBaselineForPatchGroup = GetPatchBaselineForPatchGroup'
   { -- | Returns he operating system rule specified for patch groups using the
     -- patch baseline.
-    operatingSystem :: Core.Maybe OperatingSystem,
+    operatingSystem :: Prelude.Maybe OperatingSystem,
     -- | The name of the patch group whose patch baseline should be retrieved.
-    patchGroup :: Core.Text
+    patchGroup :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPatchBaselineForPatchGroup' with all optional fields omitted.
@@ -73,22 +74,22 @@ data GetPatchBaselineForPatchGroup = GetPatchBaselineForPatchGroup'
 -- 'patchGroup', 'getPatchBaselineForPatchGroup_patchGroup' - The name of the patch group whose patch baseline should be retrieved.
 newGetPatchBaselineForPatchGroup ::
   -- | 'patchGroup'
-  Core.Text ->
+  Prelude.Text ->
   GetPatchBaselineForPatchGroup
 newGetPatchBaselineForPatchGroup pPatchGroup_ =
   GetPatchBaselineForPatchGroup'
     { operatingSystem =
-        Core.Nothing,
+        Prelude.Nothing,
       patchGroup = pPatchGroup_
     }
 
 -- | Returns he operating system rule specified for patch groups using the
 -- patch baseline.
-getPatchBaselineForPatchGroup_operatingSystem :: Lens.Lens' GetPatchBaselineForPatchGroup (Core.Maybe OperatingSystem)
+getPatchBaselineForPatchGroup_operatingSystem :: Lens.Lens' GetPatchBaselineForPatchGroup (Prelude.Maybe OperatingSystem)
 getPatchBaselineForPatchGroup_operatingSystem = Lens.lens (\GetPatchBaselineForPatchGroup' {operatingSystem} -> operatingSystem) (\s@GetPatchBaselineForPatchGroup' {} a -> s {operatingSystem = a} :: GetPatchBaselineForPatchGroup)
 
 -- | The name of the patch group whose patch baseline should be retrieved.
-getPatchBaselineForPatchGroup_patchGroup :: Lens.Lens' GetPatchBaselineForPatchGroup Core.Text
+getPatchBaselineForPatchGroup_patchGroup :: Lens.Lens' GetPatchBaselineForPatchGroup Prelude.Text
 getPatchBaselineForPatchGroup_patchGroup = Lens.lens (\GetPatchBaselineForPatchGroup' {patchGroup} -> patchGroup) (\s@GetPatchBaselineForPatchGroup' {} a -> s {patchGroup = a} :: GetPatchBaselineForPatchGroup)
 
 instance
@@ -103,58 +104,62 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetPatchBaselineForPatchGroupResponse'
-            Core.<$> (x Core..?> "BaselineId")
-            Core.<*> (x Core..?> "PatchGroup")
-            Core.<*> (x Core..?> "OperatingSystem")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "BaselineId")
+            Prelude.<*> (x Core..?> "PatchGroup")
+            Prelude.<*> (x Core..?> "OperatingSystem")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPatchBaselineForPatchGroup
+instance
+  Prelude.Hashable
+    GetPatchBaselineForPatchGroup
 
-instance Core.NFData GetPatchBaselineForPatchGroup
+instance Prelude.NFData GetPatchBaselineForPatchGroup
 
 instance Core.ToHeaders GetPatchBaselineForPatchGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.GetPatchBaselineForPatchGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPatchBaselineForPatchGroup where
   toJSON GetPatchBaselineForPatchGroup' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("OperatingSystem" Core..=)
-              Core.<$> operatingSystem,
-            Core.Just ("PatchGroup" Core..= patchGroup)
+              Prelude.<$> operatingSystem,
+            Prelude.Just ("PatchGroup" Core..= patchGroup)
           ]
       )
 
 instance Core.ToPath GetPatchBaselineForPatchGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPatchBaselineForPatchGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPatchBaselineForPatchGroupResponse' smart constructor.
 data GetPatchBaselineForPatchGroupResponse = GetPatchBaselineForPatchGroupResponse'
   { -- | The ID of the patch baseline that should be used for the patch group.
-    baselineId :: Core.Maybe Core.Text,
+    baselineId :: Prelude.Maybe Prelude.Text,
     -- | The name of the patch group.
-    patchGroup :: Core.Maybe Core.Text,
+    patchGroup :: Prelude.Maybe Prelude.Text,
     -- | The operating system rule specified for patch groups using the patch
     -- baseline.
-    operatingSystem :: Core.Maybe OperatingSystem,
+    operatingSystem :: Prelude.Maybe OperatingSystem,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPatchBaselineForPatchGroupResponse' with all optional fields omitted.
@@ -174,34 +179,34 @@ data GetPatchBaselineForPatchGroupResponse = GetPatchBaselineForPatchGroupRespon
 -- 'httpStatus', 'getPatchBaselineForPatchGroupResponse_httpStatus' - The response's http status code.
 newGetPatchBaselineForPatchGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPatchBaselineForPatchGroupResponse
 newGetPatchBaselineForPatchGroupResponse pHttpStatus_ =
   GetPatchBaselineForPatchGroupResponse'
     { baselineId =
-        Core.Nothing,
-      patchGroup = Core.Nothing,
-      operatingSystem = Core.Nothing,
+        Prelude.Nothing,
+      patchGroup = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the patch baseline that should be used for the patch group.
-getPatchBaselineForPatchGroupResponse_baselineId :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Core.Maybe Core.Text)
+getPatchBaselineForPatchGroupResponse_baselineId :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
 getPatchBaselineForPatchGroupResponse_baselineId = Lens.lens (\GetPatchBaselineForPatchGroupResponse' {baselineId} -> baselineId) (\s@GetPatchBaselineForPatchGroupResponse' {} a -> s {baselineId = a} :: GetPatchBaselineForPatchGroupResponse)
 
 -- | The name of the patch group.
-getPatchBaselineForPatchGroupResponse_patchGroup :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Core.Maybe Core.Text)
+getPatchBaselineForPatchGroupResponse_patchGroup :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
 getPatchBaselineForPatchGroupResponse_patchGroup = Lens.lens (\GetPatchBaselineForPatchGroupResponse' {patchGroup} -> patchGroup) (\s@GetPatchBaselineForPatchGroupResponse' {} a -> s {patchGroup = a} :: GetPatchBaselineForPatchGroupResponse)
 
 -- | The operating system rule specified for patch groups using the patch
 -- baseline.
-getPatchBaselineForPatchGroupResponse_operatingSystem :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Core.Maybe OperatingSystem)
+getPatchBaselineForPatchGroupResponse_operatingSystem :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Prelude.Maybe OperatingSystem)
 getPatchBaselineForPatchGroupResponse_operatingSystem = Lens.lens (\GetPatchBaselineForPatchGroupResponse' {operatingSystem} -> operatingSystem) (\s@GetPatchBaselineForPatchGroupResponse' {} a -> s {operatingSystem = a} :: GetPatchBaselineForPatchGroupResponse)
 
 -- | The response's http status code.
-getPatchBaselineForPatchGroupResponse_httpStatus :: Lens.Lens' GetPatchBaselineForPatchGroupResponse Core.Int
+getPatchBaselineForPatchGroupResponse_httpStatus :: Lens.Lens' GetPatchBaselineForPatchGroupResponse Prelude.Int
 getPatchBaselineForPatchGroupResponse_httpStatus = Lens.lens (\GetPatchBaselineForPatchGroupResponse' {httpStatus} -> httpStatus) (\s@GetPatchBaselineForPatchGroupResponse' {} a -> s {httpStatus = a} :: GetPatchBaselineForPatchGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetPatchBaselineForPatchGroupResponse

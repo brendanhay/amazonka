@@ -49,15 +49,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeStackSummary' smart constructor.
 data DescribeStackSummary = DescribeStackSummary'
   { -- | The stack ID.
-    stackId :: Core.Text
+    stackId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStackSummary' with all optional fields omitted.
@@ -70,13 +71,13 @@ data DescribeStackSummary = DescribeStackSummary'
 -- 'stackId', 'describeStackSummary_stackId' - The stack ID.
 newDescribeStackSummary ::
   -- | 'stackId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeStackSummary
 newDescribeStackSummary pStackId_ =
   DescribeStackSummary' {stackId = pStackId_}
 
 -- | The stack ID.
-describeStackSummary_stackId :: Lens.Lens' DescribeStackSummary Core.Text
+describeStackSummary_stackId :: Lens.Lens' DescribeStackSummary Prelude.Text
 describeStackSummary_stackId = Lens.lens (\DescribeStackSummary' {stackId} -> stackId) (\s@DescribeStackSummary' {} a -> s {stackId = a} :: DescribeStackSummary)
 
 instance Core.AWSRequest DescribeStackSummary where
@@ -88,50 +89,52 @@ instance Core.AWSRequest DescribeStackSummary where
     Response.receiveJSON
       ( \s h x ->
           DescribeStackSummaryResponse'
-            Core.<$> (x Core..?> "StackSummary")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "StackSummary")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeStackSummary
+instance Prelude.Hashable DescribeStackSummary
 
-instance Core.NFData DescribeStackSummary
+instance Prelude.NFData DescribeStackSummary
 
 instance Core.ToHeaders DescribeStackSummary where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribeStackSummary" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeStackSummary where
   toJSON DescribeStackSummary' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("StackId" Core..= stackId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("StackId" Core..= stackId)]
       )
 
 instance Core.ToPath DescribeStackSummary where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeStackSummary where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeStackSummary@ request.
 --
 -- /See:/ 'newDescribeStackSummaryResponse' smart constructor.
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
   { -- | A @StackSummary@ object that contains the results.
-    stackSummary :: Core.Maybe StackSummary,
+    stackSummary :: Prelude.Maybe StackSummary,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStackSummaryResponse' with all optional fields omitted.
@@ -146,21 +149,21 @@ data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
 -- 'httpStatus', 'describeStackSummaryResponse_httpStatus' - The response's http status code.
 newDescribeStackSummaryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeStackSummaryResponse
 newDescribeStackSummaryResponse pHttpStatus_ =
   DescribeStackSummaryResponse'
     { stackSummary =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @StackSummary@ object that contains the results.
-describeStackSummaryResponse_stackSummary :: Lens.Lens' DescribeStackSummaryResponse (Core.Maybe StackSummary)
+describeStackSummaryResponse_stackSummary :: Lens.Lens' DescribeStackSummaryResponse (Prelude.Maybe StackSummary)
 describeStackSummaryResponse_stackSummary = Lens.lens (\DescribeStackSummaryResponse' {stackSummary} -> stackSummary) (\s@DescribeStackSummaryResponse' {} a -> s {stackSummary = a} :: DescribeStackSummaryResponse)
 
 -- | The response's http status code.
-describeStackSummaryResponse_httpStatus :: Lens.Lens' DescribeStackSummaryResponse Core.Int
+describeStackSummaryResponse_httpStatus :: Lens.Lens' DescribeStackSummaryResponse Prelude.Int
 describeStackSummaryResponse_httpStatus = Lens.lens (\DescribeStackSummaryResponse' {httpStatus} -> httpStatus) (\s@DescribeStackSummaryResponse' {} a -> s {httpStatus = a} :: DescribeStackSummaryResponse)
 
-instance Core.NFData DescribeStackSummaryResponse
+instance Prelude.NFData DescribeStackSummaryResponse

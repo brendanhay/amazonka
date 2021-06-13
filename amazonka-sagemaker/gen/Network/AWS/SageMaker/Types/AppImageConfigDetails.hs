@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AppImageConfigDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.KernelGatewayImageConfig
 
 -- | The configuration for running a SageMaker image as a KernelGateway app.
@@ -28,18 +29,18 @@ import Network.AWS.SageMaker.Types.KernelGatewayImageConfig
 -- /See:/ 'newAppImageConfigDetails' smart constructor.
 data AppImageConfigDetails = AppImageConfigDetails'
   { -- | When the AppImageConfig was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the AppImageConfig.
-    appImageConfigArn :: Core.Maybe Core.Text,
+    appImageConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration for the file system and kernels in the SageMaker
     -- image.
-    kernelGatewayImageConfig :: Core.Maybe KernelGatewayImageConfig,
+    kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
     -- | The name of the AppImageConfig. Must be unique to your account.
-    appImageConfigName :: Core.Maybe Core.Text,
+    appImageConfigName :: Prelude.Maybe Prelude.Text,
     -- | When the AppImageConfig was last modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX
+    lastModifiedTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AppImageConfigDetails' with all optional fields omitted.
@@ -63,33 +64,34 @@ newAppImageConfigDetails ::
   AppImageConfigDetails
 newAppImageConfigDetails =
   AppImageConfigDetails'
-    { creationTime = Core.Nothing,
-      appImageConfigArn = Core.Nothing,
-      kernelGatewayImageConfig = Core.Nothing,
-      appImageConfigName = Core.Nothing,
-      lastModifiedTime = Core.Nothing
+    { creationTime =
+        Prelude.Nothing,
+      appImageConfigArn = Prelude.Nothing,
+      kernelGatewayImageConfig = Prelude.Nothing,
+      appImageConfigName = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing
     }
 
 -- | When the AppImageConfig was created.
-appImageConfigDetails_creationTime :: Lens.Lens' AppImageConfigDetails (Core.Maybe Core.UTCTime)
-appImageConfigDetails_creationTime = Lens.lens (\AppImageConfigDetails' {creationTime} -> creationTime) (\s@AppImageConfigDetails' {} a -> s {creationTime = a} :: AppImageConfigDetails) Core.. Lens.mapping Core._Time
+appImageConfigDetails_creationTime :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.UTCTime)
+appImageConfigDetails_creationTime = Lens.lens (\AppImageConfigDetails' {creationTime} -> creationTime) (\s@AppImageConfigDetails' {} a -> s {creationTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the AppImageConfig.
-appImageConfigDetails_appImageConfigArn :: Lens.Lens' AppImageConfigDetails (Core.Maybe Core.Text)
+appImageConfigDetails_appImageConfigArn :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.Text)
 appImageConfigDetails_appImageConfigArn = Lens.lens (\AppImageConfigDetails' {appImageConfigArn} -> appImageConfigArn) (\s@AppImageConfigDetails' {} a -> s {appImageConfigArn = a} :: AppImageConfigDetails)
 
 -- | The configuration for the file system and kernels in the SageMaker
 -- image.
-appImageConfigDetails_kernelGatewayImageConfig :: Lens.Lens' AppImageConfigDetails (Core.Maybe KernelGatewayImageConfig)
+appImageConfigDetails_kernelGatewayImageConfig :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe KernelGatewayImageConfig)
 appImageConfigDetails_kernelGatewayImageConfig = Lens.lens (\AppImageConfigDetails' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@AppImageConfigDetails' {} a -> s {kernelGatewayImageConfig = a} :: AppImageConfigDetails)
 
 -- | The name of the AppImageConfig. Must be unique to your account.
-appImageConfigDetails_appImageConfigName :: Lens.Lens' AppImageConfigDetails (Core.Maybe Core.Text)
+appImageConfigDetails_appImageConfigName :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.Text)
 appImageConfigDetails_appImageConfigName = Lens.lens (\AppImageConfigDetails' {appImageConfigName} -> appImageConfigName) (\s@AppImageConfigDetails' {} a -> s {appImageConfigName = a} :: AppImageConfigDetails)
 
 -- | When the AppImageConfig was last modified.
-appImageConfigDetails_lastModifiedTime :: Lens.Lens' AppImageConfigDetails (Core.Maybe Core.UTCTime)
-appImageConfigDetails_lastModifiedTime = Lens.lens (\AppImageConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@AppImageConfigDetails' {} a -> s {lastModifiedTime = a} :: AppImageConfigDetails) Core.. Lens.mapping Core._Time
+appImageConfigDetails_lastModifiedTime :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.UTCTime)
+appImageConfigDetails_lastModifiedTime = Lens.lens (\AppImageConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@AppImageConfigDetails' {} a -> s {lastModifiedTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON AppImageConfigDetails where
   parseJSON =
@@ -97,13 +99,13 @@ instance Core.FromJSON AppImageConfigDetails where
       "AppImageConfigDetails"
       ( \x ->
           AppImageConfigDetails'
-            Core.<$> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "AppImageConfigArn")
-            Core.<*> (x Core..:? "KernelGatewayImageConfig")
-            Core.<*> (x Core..:? "AppImageConfigName")
-            Core.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "AppImageConfigArn")
+            Prelude.<*> (x Core..:? "KernelGatewayImageConfig")
+            Prelude.<*> (x Core..:? "AppImageConfigName")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
       )
 
-instance Core.Hashable AppImageConfigDetails
+instance Prelude.Hashable AppImageConfigDetails
 
-instance Core.NFData AppImageConfigDetails
+instance Prelude.NFData AppImageConfigDetails

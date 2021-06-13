@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -54,9 +55,9 @@ data ActivateKeySigningKey = ActivateKeySigningKey'
     -- | A string used to identify a key-signing key (KSK). @Name@ can include
     -- numbers, letters, and underscores (_). @Name@ must be unique for each
     -- key-signing key in the same hosted zone.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivateKeySigningKey' with all optional fields omitted.
@@ -75,7 +76,7 @@ newActivateKeySigningKey ::
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   ActivateKeySigningKey
 newActivateKeySigningKey pHostedZoneId_ pName_ =
   ActivateKeySigningKey'
@@ -91,7 +92,7 @@ activateKeySigningKey_hostedZoneId = Lens.lens (\ActivateKeySigningKey' {hostedZ
 -- | A string used to identify a key-signing key (KSK). @Name@ can include
 -- numbers, letters, and underscores (_). @Name@ must be unique for each
 -- key-signing key in the same hosted zone.
-activateKeySigningKey_name :: Lens.Lens' ActivateKeySigningKey Core.Text
+activateKeySigningKey_name :: Lens.Lens' ActivateKeySigningKey Prelude.Text
 activateKeySigningKey_name = Lens.lens (\ActivateKeySigningKey' {name} -> name) (\s@ActivateKeySigningKey' {} a -> s {name = a} :: ActivateKeySigningKey)
 
 instance Core.AWSRequest ActivateKeySigningKey where
@@ -103,20 +104,20 @@ instance Core.AWSRequest ActivateKeySigningKey where
     Response.receiveXML
       ( \s h x ->
           ActivateKeySigningKeyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "ChangeInfo")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Core.Hashable ActivateKeySigningKey
+instance Prelude.Hashable ActivateKeySigningKey
 
-instance Core.NFData ActivateKeySigningKey
+instance Prelude.NFData ActivateKeySigningKey
 
 instance Core.ToHeaders ActivateKeySigningKey where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ActivateKeySigningKey where
   toPath ActivateKeySigningKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2013-04-01/keysigningkey/",
         Core.toBS hostedZoneId,
         "/",
@@ -125,15 +126,15 @@ instance Core.ToPath ActivateKeySigningKey where
       ]
 
 instance Core.ToQuery ActivateKeySigningKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newActivateKeySigningKeyResponse' smart constructor.
 data ActivateKeySigningKeyResponse = ActivateKeySigningKeyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     changeInfo :: ChangeInfo
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivateKeySigningKeyResponse' with all optional fields omitted.
@@ -148,7 +149,7 @@ data ActivateKeySigningKeyResponse = ActivateKeySigningKeyResponse'
 -- 'changeInfo', 'activateKeySigningKeyResponse_changeInfo' - Undocumented member.
 newActivateKeySigningKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   ActivateKeySigningKeyResponse
@@ -162,11 +163,11 @@ newActivateKeySigningKeyResponse
       }
 
 -- | The response's http status code.
-activateKeySigningKeyResponse_httpStatus :: Lens.Lens' ActivateKeySigningKeyResponse Core.Int
+activateKeySigningKeyResponse_httpStatus :: Lens.Lens' ActivateKeySigningKeyResponse Prelude.Int
 activateKeySigningKeyResponse_httpStatus = Lens.lens (\ActivateKeySigningKeyResponse' {httpStatus} -> httpStatus) (\s@ActivateKeySigningKeyResponse' {} a -> s {httpStatus = a} :: ActivateKeySigningKeyResponse)
 
 -- | Undocumented member.
 activateKeySigningKeyResponse_changeInfo :: Lens.Lens' ActivateKeySigningKeyResponse ChangeInfo
 activateKeySigningKeyResponse_changeInfo = Lens.lens (\ActivateKeySigningKeyResponse' {changeInfo} -> changeInfo) (\s@ActivateKeySigningKeyResponse' {} a -> s {changeInfo = a} :: ActivateKeySigningKeyResponse)
 
-instance Core.NFData ActivateKeySigningKeyResponse
+instance Prelude.NFData ActivateKeySigningKeyResponse

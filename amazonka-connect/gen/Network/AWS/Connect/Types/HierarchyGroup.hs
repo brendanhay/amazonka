@@ -22,23 +22,24 @@ module Network.AWS.Connect.Types.HierarchyGroup where
 import Network.AWS.Connect.Types.HierarchyPath
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a hierarchy group.
 --
 -- /See:/ 'newHierarchyGroup' smart constructor.
 data HierarchyGroup = HierarchyGroup'
   { -- | The identifier of the level in the hierarchy group.
-    levelId :: Core.Maybe Core.Text,
+    levelId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the hierarchy group.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the hierarchy group.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | Information about the levels in the hierarchy group.
-    hierarchyPath :: Core.Maybe HierarchyPath,
+    hierarchyPath :: Prelude.Maybe HierarchyPath,
     -- | The name of the hierarchy group.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HierarchyGroup' with all optional fields omitted.
@@ -61,31 +62,31 @@ newHierarchyGroup ::
   HierarchyGroup
 newHierarchyGroup =
   HierarchyGroup'
-    { levelId = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      hierarchyPath = Core.Nothing,
-      name = Core.Nothing
+    { levelId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      hierarchyPath = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The identifier of the level in the hierarchy group.
-hierarchyGroup_levelId :: Lens.Lens' HierarchyGroup (Core.Maybe Core.Text)
+hierarchyGroup_levelId :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
 hierarchyGroup_levelId = Lens.lens (\HierarchyGroup' {levelId} -> levelId) (\s@HierarchyGroup' {} a -> s {levelId = a} :: HierarchyGroup)
 
 -- | The Amazon Resource Name (ARN) of the hierarchy group.
-hierarchyGroup_arn :: Lens.Lens' HierarchyGroup (Core.Maybe Core.Text)
+hierarchyGroup_arn :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
 hierarchyGroup_arn = Lens.lens (\HierarchyGroup' {arn} -> arn) (\s@HierarchyGroup' {} a -> s {arn = a} :: HierarchyGroup)
 
 -- | The identifier of the hierarchy group.
-hierarchyGroup_id :: Lens.Lens' HierarchyGroup (Core.Maybe Core.Text)
+hierarchyGroup_id :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
 hierarchyGroup_id = Lens.lens (\HierarchyGroup' {id} -> id) (\s@HierarchyGroup' {} a -> s {id = a} :: HierarchyGroup)
 
 -- | Information about the levels in the hierarchy group.
-hierarchyGroup_hierarchyPath :: Lens.Lens' HierarchyGroup (Core.Maybe HierarchyPath)
+hierarchyGroup_hierarchyPath :: Lens.Lens' HierarchyGroup (Prelude.Maybe HierarchyPath)
 hierarchyGroup_hierarchyPath = Lens.lens (\HierarchyGroup' {hierarchyPath} -> hierarchyPath) (\s@HierarchyGroup' {} a -> s {hierarchyPath = a} :: HierarchyGroup)
 
 -- | The name of the hierarchy group.
-hierarchyGroup_name :: Lens.Lens' HierarchyGroup (Core.Maybe Core.Text)
+hierarchyGroup_name :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
 hierarchyGroup_name = Lens.lens (\HierarchyGroup' {name} -> name) (\s@HierarchyGroup' {} a -> s {name = a} :: HierarchyGroup)
 
 instance Core.FromJSON HierarchyGroup where
@@ -94,13 +95,13 @@ instance Core.FromJSON HierarchyGroup where
       "HierarchyGroup"
       ( \x ->
           HierarchyGroup'
-            Core.<$> (x Core..:? "LevelId")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "HierarchyPath")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "LevelId")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "HierarchyPath")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable HierarchyGroup
+instance Prelude.Hashable HierarchyGroup
 
-instance Core.NFData HierarchyGroup
+instance Prelude.NFData HierarchyGroup

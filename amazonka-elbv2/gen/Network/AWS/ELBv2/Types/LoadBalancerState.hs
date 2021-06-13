@@ -22,6 +22,7 @@ module Network.AWS.ELBv2.Types.LoadBalancerState where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.LoadBalancerStateEnum
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the state of the load balancer.
 --
@@ -33,11 +34,11 @@ data LoadBalancerState = LoadBalancerState'
     -- traffic but does not have the resources it needs to scale, its state
     -- is@active_impaired@. If the load balancer could not be set up, its state
     -- is @failed@.
-    code :: Core.Maybe LoadBalancerStateEnum,
+    code :: Prelude.Maybe LoadBalancerStateEnum,
     -- | A description of the state.
-    reason :: Core.Maybe Core.Text
+    reason :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerState' with all optional fields omitted.
@@ -59,8 +60,8 @@ newLoadBalancerState ::
   LoadBalancerState
 newLoadBalancerState =
   LoadBalancerState'
-    { code = Core.Nothing,
-      reason = Core.Nothing
+    { code = Prelude.Nothing,
+      reason = Prelude.Nothing
     }
 
 -- | The state code. The initial state of the load balancer is
@@ -69,18 +70,18 @@ newLoadBalancerState =
 -- traffic but does not have the resources it needs to scale, its state
 -- is@active_impaired@. If the load balancer could not be set up, its state
 -- is @failed@.
-loadBalancerState_code :: Lens.Lens' LoadBalancerState (Core.Maybe LoadBalancerStateEnum)
+loadBalancerState_code :: Lens.Lens' LoadBalancerState (Prelude.Maybe LoadBalancerStateEnum)
 loadBalancerState_code = Lens.lens (\LoadBalancerState' {code} -> code) (\s@LoadBalancerState' {} a -> s {code = a} :: LoadBalancerState)
 
 -- | A description of the state.
-loadBalancerState_reason :: Lens.Lens' LoadBalancerState (Core.Maybe Core.Text)
+loadBalancerState_reason :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
 loadBalancerState_reason = Lens.lens (\LoadBalancerState' {reason} -> reason) (\s@LoadBalancerState' {} a -> s {reason = a} :: LoadBalancerState)
 
 instance Core.FromXML LoadBalancerState where
   parseXML x =
     LoadBalancerState'
-      Core.<$> (x Core..@? "Code") Core.<*> (x Core..@? "Reason")
+      Prelude.<$> (x Core..@? "Code") Prelude.<*> (x Core..@? "Reason")
 
-instance Core.Hashable LoadBalancerState
+instance Prelude.Hashable LoadBalancerState
 
-instance Core.NFData LoadBalancerState
+instance Prelude.NFData LoadBalancerState

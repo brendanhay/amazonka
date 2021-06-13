@@ -125,6 +125,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -154,12 +155,12 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     --
     -- If you copy an unencrypted DB cluster snapshot and specify a value for
     -- the @KmsKeyId@ parameter, an error is returned.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to copy all tags from the source DB
     -- cluster snapshot to the target DB cluster snapshot. By default, tags are
     -- not copied.
-    copyTags :: Core.Maybe Core.Bool,
-    tags :: Core.Maybe [Tag],
+    copyTags :: Prelude.Maybe Prelude.Bool,
+    tags :: Prelude.Maybe [Tag],
     -- | The URL that contains a Signature Version 4 signed request for the
     -- @CopyDBClusterSnapshot@ API action in the AWS Region that contains the
     -- source DB cluster snapshot to copy. The @PreSignedUrl@ parameter must be
@@ -200,7 +201,7 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
     -- autogenerates a pre-signed URL that is a valid request for the operation
     -- that can be executed in the source AWS Region.
-    preSignedUrl :: Core.Maybe Core.Text,
+    preSignedUrl :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the DB cluster snapshot to copy. This parameter isn\'t
     -- case-sensitive.
     --
@@ -220,7 +221,7 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     --     in the /Amazon Aurora User Guide./
     --
     -- Example: @my-cluster-snapshot1@
-    sourceDBClusterSnapshotIdentifier :: Core.Text,
+    sourceDBClusterSnapshotIdentifier :: Prelude.Text,
     -- | The identifier of the new DB cluster snapshot to create from the source
     -- DB cluster snapshot. This parameter isn\'t case-sensitive.
     --
@@ -233,9 +234,9 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     --
     -- Example: @my-cluster-snapshot2@
-    targetDBClusterSnapshotIdentifier :: Core.Text
+    targetDBClusterSnapshotIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyDBClusterSnapshot' with all optional fields omitted.
@@ -348,18 +349,18 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
 -- Example: @my-cluster-snapshot2@
 newCopyDBClusterSnapshot ::
   -- | 'sourceDBClusterSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetDBClusterSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   CopyDBClusterSnapshot
 newCopyDBClusterSnapshot
   pSourceDBClusterSnapshotIdentifier_
   pTargetDBClusterSnapshotIdentifier_ =
     CopyDBClusterSnapshot'
-      { kmsKeyId = Core.Nothing,
-        copyTags = Core.Nothing,
-        tags = Core.Nothing,
-        preSignedUrl = Core.Nothing,
+      { kmsKeyId = Prelude.Nothing,
+        copyTags = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        preSignedUrl = Prelude.Nothing,
         sourceDBClusterSnapshotIdentifier =
           pSourceDBClusterSnapshotIdentifier_,
         targetDBClusterSnapshotIdentifier =
@@ -387,18 +388,18 @@ newCopyDBClusterSnapshot
 --
 -- If you copy an unencrypted DB cluster snapshot and specify a value for
 -- the @KmsKeyId@ parameter, an error is returned.
-copyDBClusterSnapshot_kmsKeyId :: Lens.Lens' CopyDBClusterSnapshot (Core.Maybe Core.Text)
+copyDBClusterSnapshot_kmsKeyId :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Text)
 copyDBClusterSnapshot_kmsKeyId = Lens.lens (\CopyDBClusterSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopyDBClusterSnapshot' {} a -> s {kmsKeyId = a} :: CopyDBClusterSnapshot)
 
 -- | A value that indicates whether to copy all tags from the source DB
 -- cluster snapshot to the target DB cluster snapshot. By default, tags are
 -- not copied.
-copyDBClusterSnapshot_copyTags :: Lens.Lens' CopyDBClusterSnapshot (Core.Maybe Core.Bool)
+copyDBClusterSnapshot_copyTags :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Bool)
 copyDBClusterSnapshot_copyTags = Lens.lens (\CopyDBClusterSnapshot' {copyTags} -> copyTags) (\s@CopyDBClusterSnapshot' {} a -> s {copyTags = a} :: CopyDBClusterSnapshot)
 
 -- | Undocumented member.
-copyDBClusterSnapshot_tags :: Lens.Lens' CopyDBClusterSnapshot (Core.Maybe [Tag])
-copyDBClusterSnapshot_tags = Lens.lens (\CopyDBClusterSnapshot' {tags} -> tags) (\s@CopyDBClusterSnapshot' {} a -> s {tags = a} :: CopyDBClusterSnapshot) Core.. Lens.mapping Lens._Coerce
+copyDBClusterSnapshot_tags :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe [Tag])
+copyDBClusterSnapshot_tags = Lens.lens (\CopyDBClusterSnapshot' {tags} -> tags) (\s@CopyDBClusterSnapshot' {} a -> s {tags = a} :: CopyDBClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL that contains a Signature Version 4 signed request for the
 -- @CopyDBClusterSnapshot@ API action in the AWS Region that contains the
@@ -440,7 +441,7 @@ copyDBClusterSnapshot_tags = Lens.lens (\CopyDBClusterSnapshot' {tags} -> tags) 
 -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
 -- autogenerates a pre-signed URL that is a valid request for the operation
 -- that can be executed in the source AWS Region.
-copyDBClusterSnapshot_preSignedUrl :: Lens.Lens' CopyDBClusterSnapshot (Core.Maybe Core.Text)
+copyDBClusterSnapshot_preSignedUrl :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Text)
 copyDBClusterSnapshot_preSignedUrl = Lens.lens (\CopyDBClusterSnapshot' {preSignedUrl} -> preSignedUrl) (\s@CopyDBClusterSnapshot' {} a -> s {preSignedUrl = a} :: CopyDBClusterSnapshot)
 
 -- | The identifier of the DB cluster snapshot to copy. This parameter isn\'t
@@ -462,7 +463,7 @@ copyDBClusterSnapshot_preSignedUrl = Lens.lens (\CopyDBClusterSnapshot' {preSign
 --     in the /Amazon Aurora User Guide./
 --
 -- Example: @my-cluster-snapshot1@
-copyDBClusterSnapshot_sourceDBClusterSnapshotIdentifier :: Lens.Lens' CopyDBClusterSnapshot Core.Text
+copyDBClusterSnapshot_sourceDBClusterSnapshotIdentifier :: Lens.Lens' CopyDBClusterSnapshot Prelude.Text
 copyDBClusterSnapshot_sourceDBClusterSnapshotIdentifier = Lens.lens (\CopyDBClusterSnapshot' {sourceDBClusterSnapshotIdentifier} -> sourceDBClusterSnapshotIdentifier) (\s@CopyDBClusterSnapshot' {} a -> s {sourceDBClusterSnapshotIdentifier = a} :: CopyDBClusterSnapshot)
 
 -- | The identifier of the new DB cluster snapshot to create from the source
@@ -477,7 +478,7 @@ copyDBClusterSnapshot_sourceDBClusterSnapshotIdentifier = Lens.lens (\CopyDBClus
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @my-cluster-snapshot2@
-copyDBClusterSnapshot_targetDBClusterSnapshotIdentifier :: Lens.Lens' CopyDBClusterSnapshot Core.Text
+copyDBClusterSnapshot_targetDBClusterSnapshotIdentifier :: Lens.Lens' CopyDBClusterSnapshot Prelude.Text
 copyDBClusterSnapshot_targetDBClusterSnapshotIdentifier = Lens.lens (\CopyDBClusterSnapshot' {targetDBClusterSnapshotIdentifier} -> targetDBClusterSnapshotIdentifier) (\s@CopyDBClusterSnapshot' {} a -> s {targetDBClusterSnapshotIdentifier = a} :: CopyDBClusterSnapshot)
 
 instance Core.AWSRequest CopyDBClusterSnapshot where
@@ -490,30 +491,32 @@ instance Core.AWSRequest CopyDBClusterSnapshot where
       "CopyDBClusterSnapshotResult"
       ( \s h x ->
           CopyDBClusterSnapshotResponse'
-            Core.<$> (x Core..@? "DBClusterSnapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBClusterSnapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CopyDBClusterSnapshot
+instance Prelude.Hashable CopyDBClusterSnapshot
 
-instance Core.NFData CopyDBClusterSnapshot
+instance Prelude.NFData CopyDBClusterSnapshot
 
 instance Core.ToHeaders CopyDBClusterSnapshot where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CopyDBClusterSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CopyDBClusterSnapshot where
   toQuery CopyDBClusterSnapshot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyDBClusterSnapshot" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("CopyDBClusterSnapshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "KmsKeyId" Core.=: kmsKeyId,
         "CopyTags" Core.=: copyTags,
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "PreSignedUrl" Core.=: preSignedUrl,
         "SourceDBClusterSnapshotIdentifier"
           Core.=: sourceDBClusterSnapshotIdentifier,
@@ -523,11 +526,11 @@ instance Core.ToQuery CopyDBClusterSnapshot where
 
 -- | /See:/ 'newCopyDBClusterSnapshotResponse' smart constructor.
 data CopyDBClusterSnapshotResponse = CopyDBClusterSnapshotResponse'
-  { dbClusterSnapshot :: Core.Maybe DBClusterSnapshot,
+  { dbClusterSnapshot :: Prelude.Maybe DBClusterSnapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyDBClusterSnapshotResponse' with all optional fields omitted.
@@ -542,21 +545,21 @@ data CopyDBClusterSnapshotResponse = CopyDBClusterSnapshotResponse'
 -- 'httpStatus', 'copyDBClusterSnapshotResponse_httpStatus' - The response's http status code.
 newCopyDBClusterSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CopyDBClusterSnapshotResponse
 newCopyDBClusterSnapshotResponse pHttpStatus_ =
   CopyDBClusterSnapshotResponse'
     { dbClusterSnapshot =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-copyDBClusterSnapshotResponse_dbClusterSnapshot :: Lens.Lens' CopyDBClusterSnapshotResponse (Core.Maybe DBClusterSnapshot)
+copyDBClusterSnapshotResponse_dbClusterSnapshot :: Lens.Lens' CopyDBClusterSnapshotResponse (Prelude.Maybe DBClusterSnapshot)
 copyDBClusterSnapshotResponse_dbClusterSnapshot = Lens.lens (\CopyDBClusterSnapshotResponse' {dbClusterSnapshot} -> dbClusterSnapshot) (\s@CopyDBClusterSnapshotResponse' {} a -> s {dbClusterSnapshot = a} :: CopyDBClusterSnapshotResponse)
 
 -- | The response's http status code.
-copyDBClusterSnapshotResponse_httpStatus :: Lens.Lens' CopyDBClusterSnapshotResponse Core.Int
+copyDBClusterSnapshotResponse_httpStatus :: Lens.Lens' CopyDBClusterSnapshotResponse Prelude.Int
 copyDBClusterSnapshotResponse_httpStatus = Lens.lens (\CopyDBClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@CopyDBClusterSnapshotResponse' {} a -> s {httpStatus = a} :: CopyDBClusterSnapshotResponse)
 
-instance Core.NFData CopyDBClusterSnapshotResponse
+instance Prelude.NFData CopyDBClusterSnapshotResponse

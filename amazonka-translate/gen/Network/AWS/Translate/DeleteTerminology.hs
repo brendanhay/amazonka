@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Translate.Types
@@ -44,9 +45,9 @@ import Network.AWS.Translate.Types
 -- | /See:/ 'newDeleteTerminology' smart constructor.
 data DeleteTerminology = DeleteTerminology'
   { -- | The name of the custom terminology being deleted.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTerminology' with all optional fields omitted.
@@ -59,13 +60,13 @@ data DeleteTerminology = DeleteTerminology'
 -- 'name', 'deleteTerminology_name' - The name of the custom terminology being deleted.
 newDeleteTerminology ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTerminology
 newDeleteTerminology pName_ =
   DeleteTerminology' {name = pName_}
 
 -- | The name of the custom terminology being deleted.
-deleteTerminology_name :: Lens.Lens' DeleteTerminology Core.Text
+deleteTerminology_name :: Lens.Lens' DeleteTerminology Prelude.Text
 deleteTerminology_name = Lens.lens (\DeleteTerminology' {name} -> name) (\s@DeleteTerminology' {} a -> s {name = a} :: DeleteTerminology)
 
 instance Core.AWSRequest DeleteTerminology where
@@ -76,39 +77,43 @@ instance Core.AWSRequest DeleteTerminology where
   response =
     Response.receiveNull DeleteTerminologyResponse'
 
-instance Core.Hashable DeleteTerminology
+instance Prelude.Hashable DeleteTerminology
 
-instance Core.NFData DeleteTerminology
+instance Prelude.NFData DeleteTerminology
 
 instance Core.ToHeaders DeleteTerminology where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShineFrontendService_20170701.DeleteTerminology" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteTerminology where
   toJSON DeleteTerminology' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteTerminology where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTerminology where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTerminologyResponse' smart constructor.
 data DeleteTerminologyResponse = DeleteTerminologyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTerminologyResponse' with all optional fields omitted.
@@ -119,4 +124,4 @@ newDeleteTerminologyResponse ::
 newDeleteTerminologyResponse =
   DeleteTerminologyResponse'
 
-instance Core.NFData DeleteTerminologyResponse
+instance Prelude.NFData DeleteTerminologyResponse

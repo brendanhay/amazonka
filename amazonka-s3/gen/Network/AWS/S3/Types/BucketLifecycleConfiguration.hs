@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.BucketLifecycleConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.LifecycleRule
 
@@ -34,7 +35,7 @@ data BucketLifecycleConfiguration = BucketLifecycleConfiguration'
   { -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
     rules :: [LifecycleRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BucketLifecycleConfiguration' with all optional fields omitted.
@@ -48,16 +49,21 @@ data BucketLifecycleConfiguration = BucketLifecycleConfiguration'
 newBucketLifecycleConfiguration ::
   BucketLifecycleConfiguration
 newBucketLifecycleConfiguration =
-  BucketLifecycleConfiguration' {rules = Core.mempty}
+  BucketLifecycleConfiguration'
+    { rules =
+        Prelude.mempty
+    }
 
 -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
 bucketLifecycleConfiguration_rules :: Lens.Lens' BucketLifecycleConfiguration [LifecycleRule]
-bucketLifecycleConfiguration_rules = Lens.lens (\BucketLifecycleConfiguration' {rules} -> rules) (\s@BucketLifecycleConfiguration' {} a -> s {rules = a} :: BucketLifecycleConfiguration) Core.. Lens._Coerce
+bucketLifecycleConfiguration_rules = Lens.lens (\BucketLifecycleConfiguration' {rules} -> rules) (\s@BucketLifecycleConfiguration' {} a -> s {rules = a} :: BucketLifecycleConfiguration) Prelude.. Lens._Coerce
 
-instance Core.Hashable BucketLifecycleConfiguration
+instance
+  Prelude.Hashable
+    BucketLifecycleConfiguration
 
-instance Core.NFData BucketLifecycleConfiguration
+instance Prelude.NFData BucketLifecycleConfiguration
 
 instance Core.ToXML BucketLifecycleConfiguration where
   toXML BucketLifecycleConfiguration' {..} =
-    Core.mconcat [Core.toXMLList "Rule" rules]
+    Prelude.mconcat [Core.toXMLList "Rule" rules]

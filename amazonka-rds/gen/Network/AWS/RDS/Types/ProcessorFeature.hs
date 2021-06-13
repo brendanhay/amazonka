@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.ProcessorFeature where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the processor features of a DB instance class.
 --
@@ -73,11 +74,11 @@ import qualified Network.AWS.Lens as Lens
 data ProcessorFeature = ProcessorFeature'
   { -- | The name of the processor feature. Valid names are @coreCount@ and
     -- @threadsPerCore@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The value of a processor feature name.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessorFeature' with all optional fields omitted.
@@ -95,29 +96,29 @@ newProcessorFeature ::
   ProcessorFeature
 newProcessorFeature =
   ProcessorFeature'
-    { name = Core.Nothing,
-      value = Core.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The name of the processor feature. Valid names are @coreCount@ and
 -- @threadsPerCore@.
-processorFeature_name :: Lens.Lens' ProcessorFeature (Core.Maybe Core.Text)
+processorFeature_name :: Lens.Lens' ProcessorFeature (Prelude.Maybe Prelude.Text)
 processorFeature_name = Lens.lens (\ProcessorFeature' {name} -> name) (\s@ProcessorFeature' {} a -> s {name = a} :: ProcessorFeature)
 
 -- | The value of a processor feature name.
-processorFeature_value :: Lens.Lens' ProcessorFeature (Core.Maybe Core.Text)
+processorFeature_value :: Lens.Lens' ProcessorFeature (Prelude.Maybe Prelude.Text)
 processorFeature_value = Lens.lens (\ProcessorFeature' {value} -> value) (\s@ProcessorFeature' {} a -> s {value = a} :: ProcessorFeature)
 
 instance Core.FromXML ProcessorFeature where
   parseXML x =
     ProcessorFeature'
-      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Value")
 
-instance Core.Hashable ProcessorFeature
+instance Prelude.Hashable ProcessorFeature
 
-instance Core.NFData ProcessorFeature
+instance Prelude.NFData ProcessorFeature
 
 instance Core.ToQuery ProcessorFeature where
   toQuery ProcessorFeature' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Name" Core.=: name, "Value" Core.=: value]

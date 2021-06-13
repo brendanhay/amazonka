@@ -69,6 +69,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,11 +82,11 @@ data GetVaultLock = GetVaultLock'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text
+    vaultName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetVaultLock' with all optional fields omitted.
@@ -104,9 +105,9 @@ data GetVaultLock = GetVaultLock'
 -- 'vaultName', 'getVaultLock_vaultName' - The name of the vault.
 newGetVaultLock ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   GetVaultLock
 newGetVaultLock pAccountId_ pVaultName_ =
   GetVaultLock'
@@ -119,39 +120,39 @@ newGetVaultLock pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-getVaultLock_accountId :: Lens.Lens' GetVaultLock Core.Text
+getVaultLock_accountId :: Lens.Lens' GetVaultLock Prelude.Text
 getVaultLock_accountId = Lens.lens (\GetVaultLock' {accountId} -> accountId) (\s@GetVaultLock' {} a -> s {accountId = a} :: GetVaultLock)
 
 -- | The name of the vault.
-getVaultLock_vaultName :: Lens.Lens' GetVaultLock Core.Text
+getVaultLock_vaultName :: Lens.Lens' GetVaultLock Prelude.Text
 getVaultLock_vaultName = Lens.lens (\GetVaultLock' {vaultName} -> vaultName) (\s@GetVaultLock' {} a -> s {vaultName = a} :: GetVaultLock)
 
 instance Core.AWSRequest GetVaultLock where
   type AWSResponse GetVaultLock = GetVaultLockResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.get defaultService
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetVaultLockResponse'
-            Core.<$> (x Core..?> "CreationDate")
-            Core.<*> (x Core..?> "State")
-            Core.<*> (x Core..?> "ExpirationDate")
-            Core.<*> (x Core..?> "Policy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationDate")
+            Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "ExpirationDate")
+            Prelude.<*> (x Core..?> "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetVaultLock
+instance Prelude.Hashable GetVaultLock
 
-instance Core.NFData GetVaultLock
+instance Prelude.NFData GetVaultLock
 
 instance Core.ToHeaders GetVaultLock where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetVaultLock where
   toPath GetVaultLock' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -160,7 +161,7 @@ instance Core.ToPath GetVaultLock where
       ]
 
 instance Core.ToQuery GetVaultLock where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -168,19 +169,19 @@ instance Core.ToQuery GetVaultLock where
 data GetVaultLockResponse = GetVaultLockResponse'
   { -- | The UTC date and time at which the vault lock was put into the
     -- @InProgress@ state.
-    creationDate :: Core.Maybe Core.Text,
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | The state of the vault lock. @InProgress@ or @Locked@.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The UTC date and time at which the lock ID expires. This value can be
     -- @null@ if the vault lock is in a @Locked@ state.
-    expirationDate :: Core.Maybe Core.Text,
+    expirationDate :: Prelude.Maybe Prelude.Text,
     -- | The vault lock policy as a JSON string, which uses \"\\\" as an escape
     -- character.
-    policy :: Core.Maybe Core.Text,
+    policy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetVaultLockResponse' with all optional fields omitted.
@@ -204,38 +205,39 @@ data GetVaultLockResponse = GetVaultLockResponse'
 -- 'httpStatus', 'getVaultLockResponse_httpStatus' - The response's http status code.
 newGetVaultLockResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetVaultLockResponse
 newGetVaultLockResponse pHttpStatus_ =
   GetVaultLockResponse'
-    { creationDate = Core.Nothing,
-      state = Core.Nothing,
-      expirationDate = Core.Nothing,
-      policy = Core.Nothing,
+    { creationDate =
+        Prelude.Nothing,
+      state = Prelude.Nothing,
+      expirationDate = Prelude.Nothing,
+      policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The UTC date and time at which the vault lock was put into the
 -- @InProgress@ state.
-getVaultLockResponse_creationDate :: Lens.Lens' GetVaultLockResponse (Core.Maybe Core.Text)
+getVaultLockResponse_creationDate :: Lens.Lens' GetVaultLockResponse (Prelude.Maybe Prelude.Text)
 getVaultLockResponse_creationDate = Lens.lens (\GetVaultLockResponse' {creationDate} -> creationDate) (\s@GetVaultLockResponse' {} a -> s {creationDate = a} :: GetVaultLockResponse)
 
 -- | The state of the vault lock. @InProgress@ or @Locked@.
-getVaultLockResponse_state :: Lens.Lens' GetVaultLockResponse (Core.Maybe Core.Text)
+getVaultLockResponse_state :: Lens.Lens' GetVaultLockResponse (Prelude.Maybe Prelude.Text)
 getVaultLockResponse_state = Lens.lens (\GetVaultLockResponse' {state} -> state) (\s@GetVaultLockResponse' {} a -> s {state = a} :: GetVaultLockResponse)
 
 -- | The UTC date and time at which the lock ID expires. This value can be
 -- @null@ if the vault lock is in a @Locked@ state.
-getVaultLockResponse_expirationDate :: Lens.Lens' GetVaultLockResponse (Core.Maybe Core.Text)
+getVaultLockResponse_expirationDate :: Lens.Lens' GetVaultLockResponse (Prelude.Maybe Prelude.Text)
 getVaultLockResponse_expirationDate = Lens.lens (\GetVaultLockResponse' {expirationDate} -> expirationDate) (\s@GetVaultLockResponse' {} a -> s {expirationDate = a} :: GetVaultLockResponse)
 
 -- | The vault lock policy as a JSON string, which uses \"\\\" as an escape
 -- character.
-getVaultLockResponse_policy :: Lens.Lens' GetVaultLockResponse (Core.Maybe Core.Text)
+getVaultLockResponse_policy :: Lens.Lens' GetVaultLockResponse (Prelude.Maybe Prelude.Text)
 getVaultLockResponse_policy = Lens.lens (\GetVaultLockResponse' {policy} -> policy) (\s@GetVaultLockResponse' {} a -> s {policy = a} :: GetVaultLockResponse)
 
 -- | The response's http status code.
-getVaultLockResponse_httpStatus :: Lens.Lens' GetVaultLockResponse Core.Int
+getVaultLockResponse_httpStatus :: Lens.Lens' GetVaultLockResponse Prelude.Int
 getVaultLockResponse_httpStatus = Lens.lens (\GetVaultLockResponse' {httpStatus} -> httpStatus) (\s@GetVaultLockResponse' {} a -> s {httpStatus = a} :: GetVaultLockResponse)
 
-instance Core.NFData GetVaultLockResponse
+instance Prelude.NFData GetVaultLockResponse

@@ -42,15 +42,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetContact' smart constructor.
 data GetContact = GetContact'
   { -- | The ARN of the contact for which to request details.
-    contactArn :: Core.Text
+    contactArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContact' with all optional fields omitted.
@@ -63,13 +64,13 @@ data GetContact = GetContact'
 -- 'contactArn', 'getContact_contactArn' - The ARN of the contact for which to request details.
 newGetContact ::
   -- | 'contactArn'
-  Core.Text ->
+  Prelude.Text ->
   GetContact
 newGetContact pContactArn_ =
   GetContact' {contactArn = pContactArn_}
 
 -- | The ARN of the contact for which to request details.
-getContact_contactArn :: Lens.Lens' GetContact Core.Text
+getContact_contactArn :: Lens.Lens' GetContact Prelude.Text
 getContact_contactArn = Lens.lens (\GetContact' {contactArn} -> contactArn) (\s@GetContact' {} a -> s {contactArn = a} :: GetContact)
 
 instance Core.AWSRequest GetContact where
@@ -79,46 +80,50 @@ instance Core.AWSRequest GetContact where
     Response.receiveJSON
       ( \s h x ->
           GetContactResponse'
-            Core.<$> (x Core..?> "Contact")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Contact")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetContact
+instance Prelude.Hashable GetContact
 
-instance Core.NFData GetContact
+instance Prelude.NFData GetContact
 
 instance Core.ToHeaders GetContact where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.GetContact" :: Core.ByteString),
+              Core.=# ( "AlexaForBusiness.GetContact" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetContact where
   toJSON GetContact' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContactArn" Core..= contactArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ContactArn" Core..= contactArn)]
       )
 
 instance Core.ToPath GetContact where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetContact where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactResponse' smart constructor.
 data GetContactResponse = GetContactResponse'
   { -- | The details of the requested contact.
-    contact :: Core.Maybe Contact,
+    contact :: Prelude.Maybe Contact,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContactResponse' with all optional fields omitted.
@@ -133,20 +138,20 @@ data GetContactResponse = GetContactResponse'
 -- 'httpStatus', 'getContactResponse_httpStatus' - The response's http status code.
 newGetContactResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetContactResponse
 newGetContactResponse pHttpStatus_ =
   GetContactResponse'
-    { contact = Core.Nothing,
+    { contact = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the requested contact.
-getContactResponse_contact :: Lens.Lens' GetContactResponse (Core.Maybe Contact)
+getContactResponse_contact :: Lens.Lens' GetContactResponse (Prelude.Maybe Contact)
 getContactResponse_contact = Lens.lens (\GetContactResponse' {contact} -> contact) (\s@GetContactResponse' {} a -> s {contact = a} :: GetContactResponse)
 
 -- | The response's http status code.
-getContactResponse_httpStatus :: Lens.Lens' GetContactResponse Core.Int
+getContactResponse_httpStatus :: Lens.Lens' GetContactResponse Prelude.Int
 getContactResponse_httpStatus = Lens.lens (\GetContactResponse' {httpStatus} -> httpStatus) (\s@GetContactResponse' {} a -> s {httpStatus = a} :: GetContactResponse)
 
-instance Core.NFData GetContactResponse
+instance Prelude.NFData GetContactResponse

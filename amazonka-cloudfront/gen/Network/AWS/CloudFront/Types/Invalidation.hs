@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.Invalidation where
 import Network.AWS.CloudFront.Types.InvalidationBatch
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An invalidation.
 --
@@ -29,16 +30,16 @@ import qualified Network.AWS.Lens as Lens
 data Invalidation = Invalidation'
   { -- | The identifier for the invalidation request. For example:
     -- @IDFDVBD632BHDS5@.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The status of the invalidation request. When the invalidation batch is
     -- finished, the status is @Completed@.
-    status :: Core.Text,
+    status :: Prelude.Text,
     -- | The date and time the invalidation request was first made.
     createTime :: Core.ISO8601,
     -- | The current invalidation information for the batch request.
     invalidationBatch :: InvalidationBatch
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Invalidation' with all optional fields omitted.
@@ -59,11 +60,11 @@ data Invalidation = Invalidation'
 -- 'invalidationBatch', 'invalidation_invalidationBatch' - The current invalidation information for the batch request.
 newInvalidation ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'invalidationBatch'
   InvalidationBatch ->
   Invalidation
@@ -81,17 +82,17 @@ newInvalidation
 
 -- | The identifier for the invalidation request. For example:
 -- @IDFDVBD632BHDS5@.
-invalidation_id :: Lens.Lens' Invalidation Core.Text
+invalidation_id :: Lens.Lens' Invalidation Prelude.Text
 invalidation_id = Lens.lens (\Invalidation' {id} -> id) (\s@Invalidation' {} a -> s {id = a} :: Invalidation)
 
 -- | The status of the invalidation request. When the invalidation batch is
 -- finished, the status is @Completed@.
-invalidation_status :: Lens.Lens' Invalidation Core.Text
+invalidation_status :: Lens.Lens' Invalidation Prelude.Text
 invalidation_status = Lens.lens (\Invalidation' {status} -> status) (\s@Invalidation' {} a -> s {status = a} :: Invalidation)
 
 -- | The date and time the invalidation request was first made.
-invalidation_createTime :: Lens.Lens' Invalidation Core.UTCTime
-invalidation_createTime = Lens.lens (\Invalidation' {createTime} -> createTime) (\s@Invalidation' {} a -> s {createTime = a} :: Invalidation) Core.. Core._Time
+invalidation_createTime :: Lens.Lens' Invalidation Prelude.UTCTime
+invalidation_createTime = Lens.lens (\Invalidation' {createTime} -> createTime) (\s@Invalidation' {} a -> s {createTime = a} :: Invalidation) Prelude.. Core._Time
 
 -- | The current invalidation information for the batch request.
 invalidation_invalidationBatch :: Lens.Lens' Invalidation InvalidationBatch
@@ -100,11 +101,11 @@ invalidation_invalidationBatch = Lens.lens (\Invalidation' {invalidationBatch} -
 instance Core.FromXML Invalidation where
   parseXML x =
     Invalidation'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "Status")
-      Core.<*> (x Core..@ "CreateTime")
-      Core.<*> (x Core..@ "InvalidationBatch")
+      Prelude.<$> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "Status")
+      Prelude.<*> (x Core..@ "CreateTime")
+      Prelude.<*> (x Core..@ "InvalidationBatch")
 
-instance Core.Hashable Invalidation
+instance Prelude.Hashable Invalidation
 
-instance Core.NFData Invalidation
+instance Prelude.NFData Invalidation

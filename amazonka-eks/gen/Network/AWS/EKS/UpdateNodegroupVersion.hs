@@ -74,6 +74,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,16 +90,16 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
     -- information about using launch templates with Amazon EKS, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
     -- in the Amazon EKS User Guide.
-    releaseVersion :: Core.Maybe Core.Text,
+    releaseVersion :: Prelude.Maybe Prelude.Text,
     -- | Force the update if the existing node group\'s pods are unable to be
     -- drained due to a pod disruption budget issue. If an update fails because
     -- pods could not be drained, you can force the update after it fails to
     -- terminate the old node whether or not any pods are running on the node.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | An object representing a node group\'s launch template specification.
     -- You can only update a node group using a launch template if the node
     -- group was originally deployed with a launch template.
-    launchTemplate :: Core.Maybe LaunchTemplateSpecification,
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
     -- | The Kubernetes version to update to. If no version is specified, then
     -- the Kubernetes version of the node group does not change. You can
     -- specify the Kubernetes version of the cluster to update the node group
@@ -108,17 +109,17 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
     -- more information about using launch templates with Amazon EKS, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
     -- in the Amazon EKS User Guide.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EKS cluster that is associated with the managed
     -- node group to update.
-    clusterName :: Core.Text,
+    clusterName :: Prelude.Text,
     -- | The name of the managed node group to update.
-    nodegroupName :: Core.Text
+    nodegroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateNodegroupVersion' with all optional fields omitted.
@@ -167,20 +168,20 @@ data UpdateNodegroupVersion = UpdateNodegroupVersion'
 -- 'nodegroupName', 'updateNodegroupVersion_nodegroupName' - The name of the managed node group to update.
 newUpdateNodegroupVersion ::
   -- | 'clusterName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'nodegroupName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateNodegroupVersion
 newUpdateNodegroupVersion
   pClusterName_
   pNodegroupName_ =
     UpdateNodegroupVersion'
       { releaseVersion =
-          Core.Nothing,
-        force = Core.Nothing,
-        launchTemplate = Core.Nothing,
-        version = Core.Nothing,
-        clientRequestToken = Core.Nothing,
+          Prelude.Nothing,
+        force = Prelude.Nothing,
+        launchTemplate = Prelude.Nothing,
+        version = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
         clusterName = pClusterName_,
         nodegroupName = pNodegroupName_
       }
@@ -195,20 +196,20 @@ newUpdateNodegroupVersion
 -- information about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the Amazon EKS User Guide.
-updateNodegroupVersion_releaseVersion :: Lens.Lens' UpdateNodegroupVersion (Core.Maybe Core.Text)
+updateNodegroupVersion_releaseVersion :: Lens.Lens' UpdateNodegroupVersion (Prelude.Maybe Prelude.Text)
 updateNodegroupVersion_releaseVersion = Lens.lens (\UpdateNodegroupVersion' {releaseVersion} -> releaseVersion) (\s@UpdateNodegroupVersion' {} a -> s {releaseVersion = a} :: UpdateNodegroupVersion)
 
 -- | Force the update if the existing node group\'s pods are unable to be
 -- drained due to a pod disruption budget issue. If an update fails because
 -- pods could not be drained, you can force the update after it fails to
 -- terminate the old node whether or not any pods are running on the node.
-updateNodegroupVersion_force :: Lens.Lens' UpdateNodegroupVersion (Core.Maybe Core.Bool)
+updateNodegroupVersion_force :: Lens.Lens' UpdateNodegroupVersion (Prelude.Maybe Prelude.Bool)
 updateNodegroupVersion_force = Lens.lens (\UpdateNodegroupVersion' {force} -> force) (\s@UpdateNodegroupVersion' {} a -> s {force = a} :: UpdateNodegroupVersion)
 
 -- | An object representing a node group\'s launch template specification.
 -- You can only update a node group using a launch template if the node
 -- group was originally deployed with a launch template.
-updateNodegroupVersion_launchTemplate :: Lens.Lens' UpdateNodegroupVersion (Core.Maybe LaunchTemplateSpecification)
+updateNodegroupVersion_launchTemplate :: Lens.Lens' UpdateNodegroupVersion (Prelude.Maybe LaunchTemplateSpecification)
 updateNodegroupVersion_launchTemplate = Lens.lens (\UpdateNodegroupVersion' {launchTemplate} -> launchTemplate) (\s@UpdateNodegroupVersion' {} a -> s {launchTemplate = a} :: UpdateNodegroupVersion)
 
 -- | The Kubernetes version to update to. If no version is specified, then
@@ -220,21 +221,21 @@ updateNodegroupVersion_launchTemplate = Lens.lens (\UpdateNodegroupVersion' {lau
 -- more information about using launch templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the Amazon EKS User Guide.
-updateNodegroupVersion_version :: Lens.Lens' UpdateNodegroupVersion (Core.Maybe Core.Text)
+updateNodegroupVersion_version :: Lens.Lens' UpdateNodegroupVersion (Prelude.Maybe Prelude.Text)
 updateNodegroupVersion_version = Lens.lens (\UpdateNodegroupVersion' {version} -> version) (\s@UpdateNodegroupVersion' {} a -> s {version = a} :: UpdateNodegroupVersion)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-updateNodegroupVersion_clientRequestToken :: Lens.Lens' UpdateNodegroupVersion (Core.Maybe Core.Text)
+updateNodegroupVersion_clientRequestToken :: Lens.Lens' UpdateNodegroupVersion (Prelude.Maybe Prelude.Text)
 updateNodegroupVersion_clientRequestToken = Lens.lens (\UpdateNodegroupVersion' {clientRequestToken} -> clientRequestToken) (\s@UpdateNodegroupVersion' {} a -> s {clientRequestToken = a} :: UpdateNodegroupVersion)
 
 -- | The name of the Amazon EKS cluster that is associated with the managed
 -- node group to update.
-updateNodegroupVersion_clusterName :: Lens.Lens' UpdateNodegroupVersion Core.Text
+updateNodegroupVersion_clusterName :: Lens.Lens' UpdateNodegroupVersion Prelude.Text
 updateNodegroupVersion_clusterName = Lens.lens (\UpdateNodegroupVersion' {clusterName} -> clusterName) (\s@UpdateNodegroupVersion' {} a -> s {clusterName = a} :: UpdateNodegroupVersion)
 
 -- | The name of the managed node group to update.
-updateNodegroupVersion_nodegroupName :: Lens.Lens' UpdateNodegroupVersion Core.Text
+updateNodegroupVersion_nodegroupName :: Lens.Lens' UpdateNodegroupVersion Prelude.Text
 updateNodegroupVersion_nodegroupName = Lens.lens (\UpdateNodegroupVersion' {nodegroupName} -> nodegroupName) (\s@UpdateNodegroupVersion' {} a -> s {nodegroupName = a} :: UpdateNodegroupVersion)
 
 instance Core.AWSRequest UpdateNodegroupVersion where
@@ -246,39 +247,43 @@ instance Core.AWSRequest UpdateNodegroupVersion where
     Response.receiveJSON
       ( \s h x ->
           UpdateNodegroupVersionResponse'
-            Core.<$> (x Core..?> "update")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "update")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateNodegroupVersion
+instance Prelude.Hashable UpdateNodegroupVersion
 
-instance Core.NFData UpdateNodegroupVersion
+instance Prelude.NFData UpdateNodegroupVersion
 
 instance Core.ToHeaders UpdateNodegroupVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateNodegroupVersion where
   toJSON UpdateNodegroupVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("releaseVersion" Core..=) Core.<$> releaseVersion,
-            ("force" Core..=) Core.<$> force,
-            ("launchTemplate" Core..=) Core.<$> launchTemplate,
-            ("version" Core..=) Core.<$> version,
+      ( Prelude.catMaybes
+          [ ("releaseVersion" Core..=)
+              Prelude.<$> releaseVersion,
+            ("force" Core..=) Prelude.<$> force,
+            ("launchTemplate" Core..=)
+              Prelude.<$> launchTemplate,
+            ("version" Core..=) Prelude.<$> version,
             ("clientRequestToken" Core..=)
-              Core.<$> clientRequestToken
+              Prelude.<$> clientRequestToken
           ]
       )
 
 instance Core.ToPath UpdateNodegroupVersion where
   toPath UpdateNodegroupVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/clusters/",
         Core.toBS clusterName,
         "/node-groups/",
@@ -287,15 +292,15 @@ instance Core.ToPath UpdateNodegroupVersion where
       ]
 
 instance Core.ToQuery UpdateNodegroupVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNodegroupVersionResponse' smart constructor.
 data UpdateNodegroupVersionResponse = UpdateNodegroupVersionResponse'
-  { update :: Core.Maybe Update,
+  { update :: Prelude.Maybe Update,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateNodegroupVersionResponse' with all optional fields omitted.
@@ -310,21 +315,23 @@ data UpdateNodegroupVersionResponse = UpdateNodegroupVersionResponse'
 -- 'httpStatus', 'updateNodegroupVersionResponse_httpStatus' - The response's http status code.
 newUpdateNodegroupVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateNodegroupVersionResponse
 newUpdateNodegroupVersionResponse pHttpStatus_ =
   UpdateNodegroupVersionResponse'
     { update =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateNodegroupVersionResponse_update :: Lens.Lens' UpdateNodegroupVersionResponse (Core.Maybe Update)
+updateNodegroupVersionResponse_update :: Lens.Lens' UpdateNodegroupVersionResponse (Prelude.Maybe Update)
 updateNodegroupVersionResponse_update = Lens.lens (\UpdateNodegroupVersionResponse' {update} -> update) (\s@UpdateNodegroupVersionResponse' {} a -> s {update = a} :: UpdateNodegroupVersionResponse)
 
 -- | The response's http status code.
-updateNodegroupVersionResponse_httpStatus :: Lens.Lens' UpdateNodegroupVersionResponse Core.Int
+updateNodegroupVersionResponse_httpStatus :: Lens.Lens' UpdateNodegroupVersionResponse Prelude.Int
 updateNodegroupVersionResponse_httpStatus = Lens.lens (\UpdateNodegroupVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateNodegroupVersionResponse' {} a -> s {httpStatus = a} :: UpdateNodegroupVersionResponse)
 
-instance Core.NFData UpdateNodegroupVersionResponse
+instance
+  Prelude.NFData
+    UpdateNodegroupVersionResponse

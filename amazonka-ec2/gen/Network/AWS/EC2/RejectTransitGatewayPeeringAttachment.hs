@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ data RejectTransitGatewayPeeringAttachment = RejectTransitGatewayPeeringAttachme
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the transit gateway peering attachment.
-    transitGatewayAttachmentId :: Core.Text
+    transitGatewayAttachmentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectTransitGatewayPeeringAttachment' with all optional fields omitted.
@@ -74,13 +75,13 @@ data RejectTransitGatewayPeeringAttachment = RejectTransitGatewayPeeringAttachme
 -- 'transitGatewayAttachmentId', 'rejectTransitGatewayPeeringAttachment_transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.
 newRejectTransitGatewayPeeringAttachment ::
   -- | 'transitGatewayAttachmentId'
-  Core.Text ->
+  Prelude.Text ->
   RejectTransitGatewayPeeringAttachment
 newRejectTransitGatewayPeeringAttachment
   pTransitGatewayAttachmentId_ =
     RejectTransitGatewayPeeringAttachment'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_
       }
@@ -89,11 +90,11 @@ newRejectTransitGatewayPeeringAttachment
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rejectTransitGatewayPeeringAttachment_dryRun :: Lens.Lens' RejectTransitGatewayPeeringAttachment (Core.Maybe Core.Bool)
+rejectTransitGatewayPeeringAttachment_dryRun :: Lens.Lens' RejectTransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Bool)
 rejectTransitGatewayPeeringAttachment_dryRun = Lens.lens (\RejectTransitGatewayPeeringAttachment' {dryRun} -> dryRun) (\s@RejectTransitGatewayPeeringAttachment' {} a -> s {dryRun = a} :: RejectTransitGatewayPeeringAttachment)
 
 -- | The ID of the transit gateway peering attachment.
-rejectTransitGatewayPeeringAttachment_transitGatewayAttachmentId :: Lens.Lens' RejectTransitGatewayPeeringAttachment Core.Text
+rejectTransitGatewayPeeringAttachment_transitGatewayAttachmentId :: Lens.Lens' RejectTransitGatewayPeeringAttachment Prelude.Text
 rejectTransitGatewayPeeringAttachment_transitGatewayAttachmentId = Lens.lens (\RejectTransitGatewayPeeringAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@RejectTransitGatewayPeeringAttachment' {} a -> s {transitGatewayAttachmentId = a} :: RejectTransitGatewayPeeringAttachment)
 
 instance
@@ -109,41 +110,42 @@ instance
     Response.receiveXML
       ( \s h x ->
           RejectTransitGatewayPeeringAttachmentResponse'
-            Core.<$> (x Core..@? "transitGatewayPeeringAttachment")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGatewayPeeringAttachment")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RejectTransitGatewayPeeringAttachment
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectTransitGatewayPeeringAttachment
 
 instance
   Core.ToHeaders
     RejectTransitGatewayPeeringAttachment
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     RejectTransitGatewayPeeringAttachment
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     RejectTransitGatewayPeeringAttachment
   where
   toQuery RejectTransitGatewayPeeringAttachment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "RejectTransitGatewayPeeringAttachment" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "TransitGatewayAttachmentId"
           Core.=: transitGatewayAttachmentId
@@ -152,11 +154,11 @@ instance
 -- | /See:/ 'newRejectTransitGatewayPeeringAttachmentResponse' smart constructor.
 data RejectTransitGatewayPeeringAttachmentResponse = RejectTransitGatewayPeeringAttachmentResponse'
   { -- | The transit gateway peering attachment.
-    transitGatewayPeeringAttachment :: Core.Maybe TransitGatewayPeeringAttachment,
+    transitGatewayPeeringAttachment :: Prelude.Maybe TransitGatewayPeeringAttachment,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectTransitGatewayPeeringAttachmentResponse' with all optional fields omitted.
@@ -171,24 +173,24 @@ data RejectTransitGatewayPeeringAttachmentResponse = RejectTransitGatewayPeering
 -- 'httpStatus', 'rejectTransitGatewayPeeringAttachmentResponse_httpStatus' - The response's http status code.
 newRejectTransitGatewayPeeringAttachmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RejectTransitGatewayPeeringAttachmentResponse
 newRejectTransitGatewayPeeringAttachmentResponse
   pHttpStatus_ =
     RejectTransitGatewayPeeringAttachmentResponse'
       { transitGatewayPeeringAttachment =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The transit gateway peering attachment.
-rejectTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment :: Lens.Lens' RejectTransitGatewayPeeringAttachmentResponse (Core.Maybe TransitGatewayPeeringAttachment)
+rejectTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment :: Lens.Lens' RejectTransitGatewayPeeringAttachmentResponse (Prelude.Maybe TransitGatewayPeeringAttachment)
 rejectTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment = Lens.lens (\RejectTransitGatewayPeeringAttachmentResponse' {transitGatewayPeeringAttachment} -> transitGatewayPeeringAttachment) (\s@RejectTransitGatewayPeeringAttachmentResponse' {} a -> s {transitGatewayPeeringAttachment = a} :: RejectTransitGatewayPeeringAttachmentResponse)
 
 -- | The response's http status code.
-rejectTransitGatewayPeeringAttachmentResponse_httpStatus :: Lens.Lens' RejectTransitGatewayPeeringAttachmentResponse Core.Int
+rejectTransitGatewayPeeringAttachmentResponse_httpStatus :: Lens.Lens' RejectTransitGatewayPeeringAttachmentResponse Prelude.Int
 rejectTransitGatewayPeeringAttachmentResponse_httpStatus = Lens.lens (\RejectTransitGatewayPeeringAttachmentResponse' {httpStatus} -> httpStatus) (\s@RejectTransitGatewayPeeringAttachmentResponse' {} a -> s {httpStatus = a} :: RejectTransitGatewayPeeringAttachmentResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectTransitGatewayPeeringAttachmentResponse

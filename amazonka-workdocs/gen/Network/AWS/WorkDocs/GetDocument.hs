@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -51,14 +52,14 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newGetDocument' smart constructor.
 data GetDocument = GetDocument'
   { -- | Set this to @TRUE@ to include custom metadata in the response.
-    includeCustomMetadata :: Core.Maybe Core.Bool,
+    includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the document.
-    documentId :: Core.Text
+    documentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDocument' with all optional fields omitted.
@@ -76,26 +77,27 @@ data GetDocument = GetDocument'
 -- 'documentId', 'getDocument_documentId' - The ID of the document.
 newGetDocument ::
   -- | 'documentId'
-  Core.Text ->
+  Prelude.Text ->
   GetDocument
 newGetDocument pDocumentId_ =
   GetDocument'
-    { includeCustomMetadata = Core.Nothing,
-      authenticationToken = Core.Nothing,
+    { includeCustomMetadata =
+        Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
       documentId = pDocumentId_
     }
 
 -- | Set this to @TRUE@ to include custom metadata in the response.
-getDocument_includeCustomMetadata :: Lens.Lens' GetDocument (Core.Maybe Core.Bool)
+getDocument_includeCustomMetadata :: Lens.Lens' GetDocument (Prelude.Maybe Prelude.Bool)
 getDocument_includeCustomMetadata = Lens.lens (\GetDocument' {includeCustomMetadata} -> includeCustomMetadata) (\s@GetDocument' {} a -> s {includeCustomMetadata = a} :: GetDocument)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-getDocument_authenticationToken :: Lens.Lens' GetDocument (Core.Maybe Core.Text)
-getDocument_authenticationToken = Lens.lens (\GetDocument' {authenticationToken} -> authenticationToken) (\s@GetDocument' {} a -> s {authenticationToken = a} :: GetDocument) Core.. Lens.mapping Core._Sensitive
+getDocument_authenticationToken :: Lens.Lens' GetDocument (Prelude.Maybe Prelude.Text)
+getDocument_authenticationToken = Lens.lens (\GetDocument' {authenticationToken} -> authenticationToken) (\s@GetDocument' {} a -> s {authenticationToken = a} :: GetDocument) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the document.
-getDocument_documentId :: Lens.Lens' GetDocument Core.Text
+getDocument_documentId :: Lens.Lens' GetDocument Prelude.Text
 getDocument_documentId = Lens.lens (\GetDocument' {documentId} -> documentId) (\s@GetDocument' {} a -> s {documentId = a} :: GetDocument)
 
 instance Core.AWSRequest GetDocument where
@@ -105,31 +107,31 @@ instance Core.AWSRequest GetDocument where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentResponse'
-            Core.<$> (x Core..?> "Metadata")
-            Core.<*> (x Core..?> "CustomMetadata" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Metadata")
+            Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDocument
+instance Prelude.Hashable GetDocument
 
-instance Core.NFData GetDocument
+instance Prelude.NFData GetDocument
 
 instance Core.ToHeaders GetDocument where
   toHeaders GetDocument' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath GetDocument where
   toPath GetDocument' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/api/v1/documents/", Core.toBS documentId]
 
 instance Core.ToQuery GetDocument where
   toQuery GetDocument' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "includeCustomMetadata"
           Core.=: includeCustomMetadata
       ]
@@ -137,13 +139,13 @@ instance Core.ToQuery GetDocument where
 -- | /See:/ 'newGetDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
   { -- | The metadata details of the document.
-    metadata :: Core.Maybe DocumentMetadata,
+    metadata :: Prelude.Maybe DocumentMetadata,
     -- | The custom metadata on the document.
-    customMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    customMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDocumentResponse' with all optional fields omitted.
@@ -160,25 +162,25 @@ data GetDocumentResponse = GetDocumentResponse'
 -- 'httpStatus', 'getDocumentResponse_httpStatus' - The response's http status code.
 newGetDocumentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDocumentResponse
 newGetDocumentResponse pHttpStatus_ =
   GetDocumentResponse'
-    { metadata = Core.Nothing,
-      customMetadata = Core.Nothing,
+    { metadata = Prelude.Nothing,
+      customMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The metadata details of the document.
-getDocumentResponse_metadata :: Lens.Lens' GetDocumentResponse (Core.Maybe DocumentMetadata)
+getDocumentResponse_metadata :: Lens.Lens' GetDocumentResponse (Prelude.Maybe DocumentMetadata)
 getDocumentResponse_metadata = Lens.lens (\GetDocumentResponse' {metadata} -> metadata) (\s@GetDocumentResponse' {} a -> s {metadata = a} :: GetDocumentResponse)
 
 -- | The custom metadata on the document.
-getDocumentResponse_customMetadata :: Lens.Lens' GetDocumentResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getDocumentResponse_customMetadata = Lens.lens (\GetDocumentResponse' {customMetadata} -> customMetadata) (\s@GetDocumentResponse' {} a -> s {customMetadata = a} :: GetDocumentResponse) Core.. Lens.mapping Lens._Coerce
+getDocumentResponse_customMetadata :: Lens.Lens' GetDocumentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDocumentResponse_customMetadata = Lens.lens (\GetDocumentResponse' {customMetadata} -> customMetadata) (\s@GetDocumentResponse' {} a -> s {customMetadata = a} :: GetDocumentResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDocumentResponse_httpStatus :: Lens.Lens' GetDocumentResponse Core.Int
+getDocumentResponse_httpStatus :: Lens.Lens' GetDocumentResponse Prelude.Int
 getDocumentResponse_httpStatus = Lens.lens (\GetDocumentResponse' {httpStatus} -> httpStatus) (\s@GetDocumentResponse' {} a -> s {httpStatus = a} :: GetDocumentResponse)
 
-instance Core.NFData GetDocumentResponse
+instance Prelude.NFData GetDocumentResponse

@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.DirectoryServiceAuthenticationRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Active Directory to be used for client authentication.
 --
 -- /See:/ 'newDirectoryServiceAuthenticationRequest' smart constructor.
 data DirectoryServiceAuthenticationRequest = DirectoryServiceAuthenticationRequest'
   { -- | The ID of the Active Directory to be used for authentication.
-    directoryId :: Core.Maybe Core.Text
+    directoryId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DirectoryServiceAuthenticationRequest' with all optional fields omitted.
@@ -46,19 +47,19 @@ newDirectoryServiceAuthenticationRequest ::
 newDirectoryServiceAuthenticationRequest =
   DirectoryServiceAuthenticationRequest'
     { directoryId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the Active Directory to be used for authentication.
-directoryServiceAuthenticationRequest_directoryId :: Lens.Lens' DirectoryServiceAuthenticationRequest (Core.Maybe Core.Text)
+directoryServiceAuthenticationRequest_directoryId :: Lens.Lens' DirectoryServiceAuthenticationRequest (Prelude.Maybe Prelude.Text)
 directoryServiceAuthenticationRequest_directoryId = Lens.lens (\DirectoryServiceAuthenticationRequest' {directoryId} -> directoryId) (\s@DirectoryServiceAuthenticationRequest' {} a -> s {directoryId = a} :: DirectoryServiceAuthenticationRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DirectoryServiceAuthenticationRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     DirectoryServiceAuthenticationRequest
 
 instance
@@ -66,4 +67,4 @@ instance
     DirectoryServiceAuthenticationRequest
   where
   toQuery DirectoryServiceAuthenticationRequest' {..} =
-    Core.mconcat ["DirectoryId" Core.=: directoryId]
+    Prelude.mconcat ["DirectoryId" Core.=: directoryId]

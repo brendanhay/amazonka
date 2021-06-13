@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -67,12 +68,12 @@ data GetActivityTask = GetActivityTask'
   { -- | You can provide an arbitrary name in order to identify the worker that
     -- the task is assigned to. This name is used when it is logged in the
     -- execution history.
-    workerName :: Core.Maybe Core.Text,
+    workerName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from
     -- (assigned when you create the task using CreateActivity.)
-    activityArn :: Core.Text
+    activityArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetActivityTask' with all optional fields omitted.
@@ -90,23 +91,23 @@ data GetActivityTask = GetActivityTask'
 -- (assigned when you create the task using CreateActivity.)
 newGetActivityTask ::
   -- | 'activityArn'
-  Core.Text ->
+  Prelude.Text ->
   GetActivityTask
 newGetActivityTask pActivityArn_ =
   GetActivityTask'
-    { workerName = Core.Nothing,
+    { workerName = Prelude.Nothing,
       activityArn = pActivityArn_
     }
 
 -- | You can provide an arbitrary name in order to identify the worker that
 -- the task is assigned to. This name is used when it is logged in the
 -- execution history.
-getActivityTask_workerName :: Lens.Lens' GetActivityTask (Core.Maybe Core.Text)
+getActivityTask_workerName :: Lens.Lens' GetActivityTask (Prelude.Maybe Prelude.Text)
 getActivityTask_workerName = Lens.lens (\GetActivityTask' {workerName} -> workerName) (\s@GetActivityTask' {} a -> s {workerName = a} :: GetActivityTask)
 
 -- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from
 -- (assigned when you create the task using CreateActivity.)
-getActivityTask_activityArn :: Lens.Lens' GetActivityTask Core.Text
+getActivityTask_activityArn :: Lens.Lens' GetActivityTask Prelude.Text
 getActivityTask_activityArn = Lens.lens (\GetActivityTask' {activityArn} -> activityArn) (\s@GetActivityTask' {} a -> s {activityArn = a} :: GetActivityTask)
 
 instance Core.AWSRequest GetActivityTask where
@@ -118,58 +119,60 @@ instance Core.AWSRequest GetActivityTask where
     Response.receiveJSON
       ( \s h x ->
           GetActivityTaskResponse'
-            Core.<$> (x Core..?> "input")
-            Core.<*> (x Core..?> "taskToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "input")
+            Prelude.<*> (x Core..?> "taskToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetActivityTask
+instance Prelude.Hashable GetActivityTask
 
-instance Core.NFData GetActivityTask
+instance Prelude.NFData GetActivityTask
 
 instance Core.ToHeaders GetActivityTask where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSStepFunctions.GetActivityTask" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetActivityTask where
   toJSON GetActivityTask' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("workerName" Core..=) Core.<$> workerName,
-            Core.Just ("activityArn" Core..= activityArn)
+      ( Prelude.catMaybes
+          [ ("workerName" Core..=) Prelude.<$> workerName,
+            Prelude.Just ("activityArn" Core..= activityArn)
           ]
       )
 
 instance Core.ToPath GetActivityTask where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetActivityTask where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetActivityTaskResponse' smart constructor.
 data GetActivityTaskResponse = GetActivityTaskResponse'
   { -- | The string that contains the JSON input data for the task. Length
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
-    input :: Core.Maybe (Core.Sensitive Core.Text),
+    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A token that identifies the scheduled task. This token must be copied
     -- and included in subsequent calls to SendTaskHeartbeat, SendTaskSuccess
     -- or SendTaskFailure in order to report the progress or completion of the
     -- task.
-    taskToken :: Core.Maybe Core.Text,
+    taskToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetActivityTaskResponse' with all optional fields omitted.
@@ -191,30 +194,30 @@ data GetActivityTaskResponse = GetActivityTaskResponse'
 -- 'httpStatus', 'getActivityTaskResponse_httpStatus' - The response's http status code.
 newGetActivityTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetActivityTaskResponse
 newGetActivityTaskResponse pHttpStatus_ =
   GetActivityTaskResponse'
-    { input = Core.Nothing,
-      taskToken = Core.Nothing,
+    { input = Prelude.Nothing,
+      taskToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The string that contains the JSON input data for the task. Length
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
-getActivityTaskResponse_input :: Lens.Lens' GetActivityTaskResponse (Core.Maybe Core.Text)
-getActivityTaskResponse_input = Lens.lens (\GetActivityTaskResponse' {input} -> input) (\s@GetActivityTaskResponse' {} a -> s {input = a} :: GetActivityTaskResponse) Core.. Lens.mapping Core._Sensitive
+getActivityTaskResponse_input :: Lens.Lens' GetActivityTaskResponse (Prelude.Maybe Prelude.Text)
+getActivityTaskResponse_input = Lens.lens (\GetActivityTaskResponse' {input} -> input) (\s@GetActivityTaskResponse' {} a -> s {input = a} :: GetActivityTaskResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A token that identifies the scheduled task. This token must be copied
 -- and included in subsequent calls to SendTaskHeartbeat, SendTaskSuccess
 -- or SendTaskFailure in order to report the progress or completion of the
 -- task.
-getActivityTaskResponse_taskToken :: Lens.Lens' GetActivityTaskResponse (Core.Maybe Core.Text)
+getActivityTaskResponse_taskToken :: Lens.Lens' GetActivityTaskResponse (Prelude.Maybe Prelude.Text)
 getActivityTaskResponse_taskToken = Lens.lens (\GetActivityTaskResponse' {taskToken} -> taskToken) (\s@GetActivityTaskResponse' {} a -> s {taskToken = a} :: GetActivityTaskResponse)
 
 -- | The response's http status code.
-getActivityTaskResponse_httpStatus :: Lens.Lens' GetActivityTaskResponse Core.Int
+getActivityTaskResponse_httpStatus :: Lens.Lens' GetActivityTaskResponse Prelude.Int
 getActivityTaskResponse_httpStatus = Lens.lens (\GetActivityTaskResponse' {httpStatus} -> httpStatus) (\s@GetActivityTaskResponse' {} a -> s {httpStatus = a} :: GetActivityTaskResponse)
 
-instance Core.NFData GetActivityTaskResponse
+instance Prelude.NFData GetActivityTaskResponse

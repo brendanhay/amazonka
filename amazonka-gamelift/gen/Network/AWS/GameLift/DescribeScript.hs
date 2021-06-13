@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,9 +69,9 @@ import qualified Network.AWS.Response as Response
 data DescribeScript = DescribeScript'
   { -- | A unique identifier for a Realtime script to retrieve properties for.
     -- You can use either the script ID or ARN value.
-    scriptId :: Core.Text
+    scriptId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScript' with all optional fields omitted.
@@ -84,14 +85,14 @@ data DescribeScript = DescribeScript'
 -- You can use either the script ID or ARN value.
 newDescribeScript ::
   -- | 'scriptId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeScript
 newDescribeScript pScriptId_ =
   DescribeScript' {scriptId = pScriptId_}
 
 -- | A unique identifier for a Realtime script to retrieve properties for.
 -- You can use either the script ID or ARN value.
-describeScript_scriptId :: Lens.Lens' DescribeScript Core.Text
+describeScript_scriptId :: Lens.Lens' DescribeScript Prelude.Text
 describeScript_scriptId = Lens.lens (\DescribeScript' {scriptId} -> scriptId) (\s@DescribeScript' {} a -> s {scriptId = a} :: DescribeScript)
 
 instance Core.AWSRequest DescribeScript where
@@ -103,46 +104,48 @@ instance Core.AWSRequest DescribeScript where
     Response.receiveJSON
       ( \s h x ->
           DescribeScriptResponse'
-            Core.<$> (x Core..?> "Script")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Script")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeScript
+instance Prelude.Hashable DescribeScript
 
-instance Core.NFData DescribeScript
+instance Prelude.NFData DescribeScript
 
 instance Core.ToHeaders DescribeScript where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DescribeScript" :: Core.ByteString),
+              Core.=# ("GameLift.DescribeScript" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeScript where
   toJSON DescribeScript' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ScriptId" Core..= scriptId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ScriptId" Core..= scriptId)]
       )
 
 instance Core.ToPath DescribeScript where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeScript where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScriptResponse' smart constructor.
 data DescribeScriptResponse = DescribeScriptResponse'
   { -- | A set of properties describing the requested script.
-    script :: Core.Maybe Script,
+    script :: Prelude.Maybe Script,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScriptResponse' with all optional fields omitted.
@@ -157,20 +160,20 @@ data DescribeScriptResponse = DescribeScriptResponse'
 -- 'httpStatus', 'describeScriptResponse_httpStatus' - The response's http status code.
 newDescribeScriptResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScriptResponse
 newDescribeScriptResponse pHttpStatus_ =
   DescribeScriptResponse'
-    { script = Core.Nothing,
+    { script = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A set of properties describing the requested script.
-describeScriptResponse_script :: Lens.Lens' DescribeScriptResponse (Core.Maybe Script)
+describeScriptResponse_script :: Lens.Lens' DescribeScriptResponse (Prelude.Maybe Script)
 describeScriptResponse_script = Lens.lens (\DescribeScriptResponse' {script} -> script) (\s@DescribeScriptResponse' {} a -> s {script = a} :: DescribeScriptResponse)
 
 -- | The response's http status code.
-describeScriptResponse_httpStatus :: Lens.Lens' DescribeScriptResponse Core.Int
+describeScriptResponse_httpStatus :: Lens.Lens' DescribeScriptResponse Prelude.Int
 describeScriptResponse_httpStatus = Lens.lens (\DescribeScriptResponse' {httpStatus} -> httpStatus) (\s@DescribeScriptResponse' {} a -> s {httpStatus = a} :: DescribeScriptResponse)
 
-instance Core.NFData DescribeScriptResponse
+instance Prelude.NFData DescribeScriptResponse

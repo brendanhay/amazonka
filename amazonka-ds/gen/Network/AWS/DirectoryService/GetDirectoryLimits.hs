@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data GetDirectoryLimits = GetDirectoryLimits'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDirectoryLimits' with all optional fields omitted.
@@ -67,35 +68,37 @@ instance Core.AWSRequest GetDirectoryLimits where
     Response.receiveJSON
       ( \s h x ->
           GetDirectoryLimitsResponse'
-            Core.<$> (x Core..?> "DirectoryLimits")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DirectoryLimits")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDirectoryLimits
+instance Prelude.Hashable GetDirectoryLimits
 
-instance Core.NFData GetDirectoryLimits
+instance Prelude.NFData GetDirectoryLimits
 
 instance Core.ToHeaders GetDirectoryLimits where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.GetDirectoryLimits" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDirectoryLimits where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetDirectoryLimits where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDirectoryLimits where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the GetDirectoryLimits operation.
 --
@@ -103,11 +106,11 @@ instance Core.ToQuery GetDirectoryLimits where
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
   { -- | A DirectoryLimits object that contains the directory limits for the
     -- current rRegion.
-    directoryLimits :: Core.Maybe DirectoryLimits,
+    directoryLimits :: Prelude.Maybe DirectoryLimits,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDirectoryLimitsResponse' with all optional fields omitted.
@@ -123,22 +126,22 @@ data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
 -- 'httpStatus', 'getDirectoryLimitsResponse_httpStatus' - The response's http status code.
 newGetDirectoryLimitsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDirectoryLimitsResponse
 newGetDirectoryLimitsResponse pHttpStatus_ =
   GetDirectoryLimitsResponse'
     { directoryLimits =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A DirectoryLimits object that contains the directory limits for the
 -- current rRegion.
-getDirectoryLimitsResponse_directoryLimits :: Lens.Lens' GetDirectoryLimitsResponse (Core.Maybe DirectoryLimits)
+getDirectoryLimitsResponse_directoryLimits :: Lens.Lens' GetDirectoryLimitsResponse (Prelude.Maybe DirectoryLimits)
 getDirectoryLimitsResponse_directoryLimits = Lens.lens (\GetDirectoryLimitsResponse' {directoryLimits} -> directoryLimits) (\s@GetDirectoryLimitsResponse' {} a -> s {directoryLimits = a} :: GetDirectoryLimitsResponse)
 
 -- | The response's http status code.
-getDirectoryLimitsResponse_httpStatus :: Lens.Lens' GetDirectoryLimitsResponse Core.Int
+getDirectoryLimitsResponse_httpStatus :: Lens.Lens' GetDirectoryLimitsResponse Prelude.Int
 getDirectoryLimitsResponse_httpStatus = Lens.lens (\GetDirectoryLimitsResponse' {httpStatus} -> httpStatus) (\s@GetDirectoryLimitsResponse' {} a -> s {httpStatus = a} :: GetDirectoryLimitsResponse)
 
-instance Core.NFData GetDirectoryLimitsResponse
+instance Prelude.NFData GetDirectoryLimitsResponse

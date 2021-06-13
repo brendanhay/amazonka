@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance whose queued purchase was not deleted.
 --
 -- /See:/ 'newFailedQueuedPurchaseDeletion' smart constructor.
 data FailedQueuedPurchaseDeletion = FailedQueuedPurchaseDeletion'
   { -- | The ID of the Reserved Instance.
-    reservedInstancesId :: Core.Maybe Core.Text,
+    reservedInstancesId :: Prelude.Maybe Prelude.Text,
     -- | The error.
-    error :: Core.Maybe DeleteQueuedReservedInstancesError
+    error :: Prelude.Maybe DeleteQueuedReservedInstancesError
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailedQueuedPurchaseDeletion' with all optional fields omitted.
@@ -51,24 +52,26 @@ newFailedQueuedPurchaseDeletion ::
 newFailedQueuedPurchaseDeletion =
   FailedQueuedPurchaseDeletion'
     { reservedInstancesId =
-        Core.Nothing,
-      error = Core.Nothing
+        Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | The ID of the Reserved Instance.
-failedQueuedPurchaseDeletion_reservedInstancesId :: Lens.Lens' FailedQueuedPurchaseDeletion (Core.Maybe Core.Text)
+failedQueuedPurchaseDeletion_reservedInstancesId :: Lens.Lens' FailedQueuedPurchaseDeletion (Prelude.Maybe Prelude.Text)
 failedQueuedPurchaseDeletion_reservedInstancesId = Lens.lens (\FailedQueuedPurchaseDeletion' {reservedInstancesId} -> reservedInstancesId) (\s@FailedQueuedPurchaseDeletion' {} a -> s {reservedInstancesId = a} :: FailedQueuedPurchaseDeletion)
 
 -- | The error.
-failedQueuedPurchaseDeletion_error :: Lens.Lens' FailedQueuedPurchaseDeletion (Core.Maybe DeleteQueuedReservedInstancesError)
+failedQueuedPurchaseDeletion_error :: Lens.Lens' FailedQueuedPurchaseDeletion (Prelude.Maybe DeleteQueuedReservedInstancesError)
 failedQueuedPurchaseDeletion_error = Lens.lens (\FailedQueuedPurchaseDeletion' {error} -> error) (\s@FailedQueuedPurchaseDeletion' {} a -> s {error = a} :: FailedQueuedPurchaseDeletion)
 
 instance Core.FromXML FailedQueuedPurchaseDeletion where
   parseXML x =
     FailedQueuedPurchaseDeletion'
-      Core.<$> (x Core..@? "reservedInstancesId")
-      Core.<*> (x Core..@? "error")
+      Prelude.<$> (x Core..@? "reservedInstancesId")
+      Prelude.<*> (x Core..@? "error")
 
-instance Core.Hashable FailedQueuedPurchaseDeletion
+instance
+  Prelude.Hashable
+    FailedQueuedPurchaseDeletion
 
-instance Core.NFData FailedQueuedPurchaseDeletion
+instance Prelude.NFData FailedQueuedPurchaseDeletion

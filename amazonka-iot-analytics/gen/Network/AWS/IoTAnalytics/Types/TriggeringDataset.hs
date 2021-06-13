@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.TriggeringDataset where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the dataset whose content generation triggers the new
 -- dataset content generation.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data TriggeringDataset = TriggeringDataset'
   { -- | The name of the dataset whose content generation triggers the new
     -- dataset content generation.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TriggeringDataset' with all optional fields omitted.
@@ -45,14 +46,14 @@ data TriggeringDataset = TriggeringDataset'
 -- dataset content generation.
 newTriggeringDataset ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   TriggeringDataset
 newTriggeringDataset pName_ =
   TriggeringDataset' {name = pName_}
 
 -- | The name of the dataset whose content generation triggers the new
 -- dataset content generation.
-triggeringDataset_name :: Lens.Lens' TriggeringDataset Core.Text
+triggeringDataset_name :: Lens.Lens' TriggeringDataset Prelude.Text
 triggeringDataset_name = Lens.lens (\TriggeringDataset' {name} -> name) (\s@TriggeringDataset' {} a -> s {name = a} :: TriggeringDataset)
 
 instance Core.FromJSON TriggeringDataset where
@@ -60,14 +61,16 @@ instance Core.FromJSON TriggeringDataset where
     Core.withObject
       "TriggeringDataset"
       ( \x ->
-          TriggeringDataset' Core.<$> (x Core..: "name")
+          TriggeringDataset' Prelude.<$> (x Core..: "name")
       )
 
-instance Core.Hashable TriggeringDataset
+instance Prelude.Hashable TriggeringDataset
 
-instance Core.NFData TriggeringDataset
+instance Prelude.NFData TriggeringDataset
 
 instance Core.ToJSON TriggeringDataset where
   toJSON TriggeringDataset' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("name" Core..= name)]
+      )

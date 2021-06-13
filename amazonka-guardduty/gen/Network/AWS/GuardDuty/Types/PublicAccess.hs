@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.PublicAccess where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.PermissionConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the public access policies that apply to the S3 bucket.
 --
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data PublicAccess = PublicAccess'
   { -- | Contains information about how permissions are configured for the S3
     -- bucket.
-    permissionConfiguration :: Core.Maybe PermissionConfiguration,
+    permissionConfiguration :: Prelude.Maybe PermissionConfiguration,
     -- | Describes the effective permission on this bucket after factoring all
     -- attached policies.
-    effectivePermission :: Core.Maybe Core.Text
+    effectivePermission :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublicAccess' with all optional fields omitted.
@@ -54,18 +55,18 @@ newPublicAccess ::
 newPublicAccess =
   PublicAccess'
     { permissionConfiguration =
-        Core.Nothing,
-      effectivePermission = Core.Nothing
+        Prelude.Nothing,
+      effectivePermission = Prelude.Nothing
     }
 
 -- | Contains information about how permissions are configured for the S3
 -- bucket.
-publicAccess_permissionConfiguration :: Lens.Lens' PublicAccess (Core.Maybe PermissionConfiguration)
+publicAccess_permissionConfiguration :: Lens.Lens' PublicAccess (Prelude.Maybe PermissionConfiguration)
 publicAccess_permissionConfiguration = Lens.lens (\PublicAccess' {permissionConfiguration} -> permissionConfiguration) (\s@PublicAccess' {} a -> s {permissionConfiguration = a} :: PublicAccess)
 
 -- | Describes the effective permission on this bucket after factoring all
 -- attached policies.
-publicAccess_effectivePermission :: Lens.Lens' PublicAccess (Core.Maybe Core.Text)
+publicAccess_effectivePermission :: Lens.Lens' PublicAccess (Prelude.Maybe Prelude.Text)
 publicAccess_effectivePermission = Lens.lens (\PublicAccess' {effectivePermission} -> effectivePermission) (\s@PublicAccess' {} a -> s {effectivePermission = a} :: PublicAccess)
 
 instance Core.FromJSON PublicAccess where
@@ -74,10 +75,10 @@ instance Core.FromJSON PublicAccess where
       "PublicAccess"
       ( \x ->
           PublicAccess'
-            Core.<$> (x Core..:? "permissionConfiguration")
-            Core.<*> (x Core..:? "effectivePermission")
+            Prelude.<$> (x Core..:? "permissionConfiguration")
+            Prelude.<*> (x Core..:? "effectivePermission")
       )
 
-instance Core.Hashable PublicAccess
+instance Prelude.Hashable PublicAccess
 
-instance Core.NFData PublicAccess
+instance Prelude.NFData PublicAccess

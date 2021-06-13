@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteEmailChannel = DeleteEmailChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEmailChannel' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DeleteEmailChannel = DeleteEmailChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteEmailChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEmailChannel
 newDeleteEmailChannel pApplicationId_ =
   DeleteEmailChannel'
@@ -76,7 +77,7 @@ newDeleteEmailChannel pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteEmailChannel_applicationId :: Lens.Lens' DeleteEmailChannel Core.Text
+deleteEmailChannel_applicationId :: Lens.Lens' DeleteEmailChannel Prelude.Text
 deleteEmailChannel_applicationId = Lens.lens (\DeleteEmailChannel' {applicationId} -> applicationId) (\s@DeleteEmailChannel' {} a -> s {applicationId = a} :: DeleteEmailChannel)
 
 instance Core.AWSRequest DeleteEmailChannel where
@@ -88,41 +89,43 @@ instance Core.AWSRequest DeleteEmailChannel where
     Response.receiveJSON
       ( \s h x ->
           DeleteEmailChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteEmailChannel
+instance Prelude.Hashable DeleteEmailChannel
 
-instance Core.NFData DeleteEmailChannel
+instance Prelude.NFData DeleteEmailChannel
 
 instance Core.ToHeaders DeleteEmailChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteEmailChannel where
   toPath DeleteEmailChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/email"
       ]
 
 instance Core.ToQuery DeleteEmailChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEmailChannelResponse' smart constructor.
 data DeleteEmailChannelResponse = DeleteEmailChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     emailChannelResponse :: EmailChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEmailChannelResponse' with all optional fields omitted.
@@ -137,7 +140,7 @@ data DeleteEmailChannelResponse = DeleteEmailChannelResponse'
 -- 'emailChannelResponse', 'deleteEmailChannelResponse_emailChannelResponse' - Undocumented member.
 newDeleteEmailChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'emailChannelResponse'
   EmailChannelResponse ->
   DeleteEmailChannelResponse
@@ -151,11 +154,11 @@ newDeleteEmailChannelResponse
       }
 
 -- | The response's http status code.
-deleteEmailChannelResponse_httpStatus :: Lens.Lens' DeleteEmailChannelResponse Core.Int
+deleteEmailChannelResponse_httpStatus :: Lens.Lens' DeleteEmailChannelResponse Prelude.Int
 deleteEmailChannelResponse_httpStatus = Lens.lens (\DeleteEmailChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteEmailChannelResponse' {} a -> s {httpStatus = a} :: DeleteEmailChannelResponse)
 
 -- | Undocumented member.
 deleteEmailChannelResponse_emailChannelResponse :: Lens.Lens' DeleteEmailChannelResponse EmailChannelResponse
 deleteEmailChannelResponse_emailChannelResponse = Lens.lens (\DeleteEmailChannelResponse' {emailChannelResponse} -> emailChannelResponse) (\s@DeleteEmailChannelResponse' {} a -> s {emailChannelResponse = a} :: DeleteEmailChannelResponse)
 
-instance Core.NFData DeleteEmailChannelResponse
+instance Prelude.NFData DeleteEmailChannelResponse

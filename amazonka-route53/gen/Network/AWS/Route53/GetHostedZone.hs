@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -55,7 +56,7 @@ data GetHostedZone = GetHostedZone'
   { -- | The ID of the hosted zone that you want to get information about.
     id :: ResourceId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHostedZone' with all optional fields omitted.
@@ -85,28 +86,28 @@ instance Core.AWSRequest GetHostedZone where
     Response.receiveXML
       ( \s h x ->
           GetHostedZoneResponse'
-            Core.<$> (x Core..@? "DelegationSet")
-            Core.<*> ( x Core..@? "VPCs" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList1 "VPC")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "HostedZone")
+            Prelude.<$> (x Core..@? "DelegationSet")
+            Prelude.<*> ( x Core..@? "VPCs" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList1 "VPC")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "HostedZone")
       )
 
-instance Core.Hashable GetHostedZone
+instance Prelude.Hashable GetHostedZone
 
-instance Core.NFData GetHostedZone
+instance Prelude.NFData GetHostedZone
 
 instance Core.ToHeaders GetHostedZone where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetHostedZone where
   toPath GetHostedZone' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2013-04-01/hostedzone/", Core.toBS id]
 
 instance Core.ToQuery GetHostedZone where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contain the response to a @GetHostedZone@ request.
 --
@@ -114,17 +115,17 @@ instance Core.ToQuery GetHostedZone where
 data GetHostedZoneResponse = GetHostedZoneResponse'
   { -- | A complex type that lists the Amazon Route 53 name servers for the
     -- specified hosted zone.
-    delegationSet :: Core.Maybe DelegationSet,
+    delegationSet :: Prelude.Maybe DelegationSet,
     -- | A complex type that contains information about the VPCs that are
     -- associated with the specified hosted zone.
-    vPCs :: Core.Maybe (Core.NonEmpty VPC),
+    vPCs :: Prelude.Maybe (Prelude.NonEmpty VPC),
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains general information about the specified
     -- hosted zone.
     hostedZone :: HostedZone
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHostedZoneResponse' with all optional fields omitted.
@@ -146,31 +147,31 @@ data GetHostedZoneResponse = GetHostedZoneResponse'
 -- hosted zone.
 newGetHostedZoneResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'hostedZone'
   HostedZone ->
   GetHostedZoneResponse
 newGetHostedZoneResponse pHttpStatus_ pHostedZone_ =
   GetHostedZoneResponse'
     { delegationSet =
-        Core.Nothing,
-      vPCs = Core.Nothing,
+        Prelude.Nothing,
+      vPCs = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       hostedZone = pHostedZone_
     }
 
 -- | A complex type that lists the Amazon Route 53 name servers for the
 -- specified hosted zone.
-getHostedZoneResponse_delegationSet :: Lens.Lens' GetHostedZoneResponse (Core.Maybe DelegationSet)
+getHostedZoneResponse_delegationSet :: Lens.Lens' GetHostedZoneResponse (Prelude.Maybe DelegationSet)
 getHostedZoneResponse_delegationSet = Lens.lens (\GetHostedZoneResponse' {delegationSet} -> delegationSet) (\s@GetHostedZoneResponse' {} a -> s {delegationSet = a} :: GetHostedZoneResponse)
 
 -- | A complex type that contains information about the VPCs that are
 -- associated with the specified hosted zone.
-getHostedZoneResponse_vPCs :: Lens.Lens' GetHostedZoneResponse (Core.Maybe (Core.NonEmpty VPC))
-getHostedZoneResponse_vPCs = Lens.lens (\GetHostedZoneResponse' {vPCs} -> vPCs) (\s@GetHostedZoneResponse' {} a -> s {vPCs = a} :: GetHostedZoneResponse) Core.. Lens.mapping Lens._Coerce
+getHostedZoneResponse_vPCs :: Lens.Lens' GetHostedZoneResponse (Prelude.Maybe (Prelude.NonEmpty VPC))
+getHostedZoneResponse_vPCs = Lens.lens (\GetHostedZoneResponse' {vPCs} -> vPCs) (\s@GetHostedZoneResponse' {} a -> s {vPCs = a} :: GetHostedZoneResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getHostedZoneResponse_httpStatus :: Lens.Lens' GetHostedZoneResponse Core.Int
+getHostedZoneResponse_httpStatus :: Lens.Lens' GetHostedZoneResponse Prelude.Int
 getHostedZoneResponse_httpStatus = Lens.lens (\GetHostedZoneResponse' {httpStatus} -> httpStatus) (\s@GetHostedZoneResponse' {} a -> s {httpStatus = a} :: GetHostedZoneResponse)
 
 -- | A complex type that contains general information about the specified
@@ -178,4 +179,4 @@ getHostedZoneResponse_httpStatus = Lens.lens (\GetHostedZoneResponse' {httpStatu
 getHostedZoneResponse_hostedZone :: Lens.Lens' GetHostedZoneResponse HostedZone
 getHostedZoneResponse_hostedZone = Lens.lens (\GetHostedZoneResponse' {hostedZone} -> hostedZone) (\s@GetHostedZoneResponse' {} a -> s {hostedZone = a} :: GetHostedZoneResponse)
 
-instance Core.NFData GetHostedZoneResponse
+instance Prelude.NFData GetHostedZoneResponse

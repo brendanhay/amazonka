@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newEnableRadius' smart constructor.
 data EnableRadius = EnableRadius'
   { -- | The identifier of the directory for which to enable MFA.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | A RadiusSettings object that contains information about the RADIUS
     -- server.
     radiusSettings :: RadiusSettings
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableRadius' with all optional fields omitted.
@@ -73,7 +74,7 @@ data EnableRadius = EnableRadius'
 -- server.
 newEnableRadius ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'radiusSettings'
   RadiusSettings ->
   EnableRadius
@@ -84,7 +85,7 @@ newEnableRadius pDirectoryId_ pRadiusSettings_ =
     }
 
 -- | The identifier of the directory for which to enable MFA.
-enableRadius_directoryId :: Lens.Lens' EnableRadius Core.Text
+enableRadius_directoryId :: Lens.Lens' EnableRadius Prelude.Text
 enableRadius_directoryId = Lens.lens (\EnableRadius' {directoryId} -> directoryId) (\s@EnableRadius' {} a -> s {directoryId = a} :: EnableRadius)
 
 -- | A RadiusSettings object that contains information about the RADIUS
@@ -99,49 +100,52 @@ instance Core.AWSRequest EnableRadius where
     Response.receiveEmpty
       ( \s h x ->
           EnableRadiusResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable EnableRadius
+instance Prelude.Hashable EnableRadius
 
-instance Core.NFData EnableRadius
+instance Prelude.NFData EnableRadius
 
 instance Core.ToHeaders EnableRadius where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.EnableRadius" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableRadius where
   toJSON EnableRadius' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("RadiusSettings" Core..= radiusSettings)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just
+              ("RadiusSettings" Core..= radiusSettings)
           ]
       )
 
 instance Core.ToPath EnableRadius where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableRadius where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the EnableRadius operation.
 --
 -- /See:/ 'newEnableRadiusResponse' smart constructor.
 data EnableRadiusResponse = EnableRadiusResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableRadiusResponse' with all optional fields omitted.
@@ -154,13 +158,13 @@ data EnableRadiusResponse = EnableRadiusResponse'
 -- 'httpStatus', 'enableRadiusResponse_httpStatus' - The response's http status code.
 newEnableRadiusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EnableRadiusResponse
 newEnableRadiusResponse pHttpStatus_ =
   EnableRadiusResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-enableRadiusResponse_httpStatus :: Lens.Lens' EnableRadiusResponse Core.Int
+enableRadiusResponse_httpStatus :: Lens.Lens' EnableRadiusResponse Prelude.Int
 enableRadiusResponse_httpStatus = Lens.lens (\EnableRadiusResponse' {httpStatus} -> httpStatus) (\s@EnableRadiusResponse' {} a -> s {httpStatus = a} :: EnableRadiusResponse)
 
-instance Core.NFData EnableRadiusResponse
+instance Prelude.NFData EnableRadiusResponse

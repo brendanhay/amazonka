@@ -75,6 +75,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,13 +89,13 @@ data UpdateScript = UpdateScript'
     -- the zip file name. It must be prepended with the string \"fileb:\/\/\"
     -- to indicate that the file data is a binary object. For example:
     -- @--zip-file fileb:\/\/myRealtimeScript.zip@.
-    zipFile :: Core.Maybe Core.Base64,
+    zipFile :: Prelude.Maybe Core.Base64,
     -- | The version that is associated with a build or script. Version strings
     -- do not need to be unique.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with a script. Script names do
     -- not need to be unique.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 location of your Realtime scripts. The storage location
     -- must specify the S3 bucket name, the zip file name (the \"key\"), and an
     -- IAM role ARN that allows Amazon GameLift to access the S3 storage
@@ -105,12 +106,12 @@ data UpdateScript = UpdateScript'
     -- operation with a storage location, you must have IAM PassRole
     -- permission. For more details on IAM roles and PassRole permissions, see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
-    storageLocation :: Core.Maybe S3Location,
+    storageLocation :: Prelude.Maybe S3Location,
     -- | A unique identifier for a Realtime script to update. You can use either
     -- the script ID or ARN value.
-    scriptId :: Core.Text
+    scriptId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateScript' with all optional fields omitted.
@@ -154,14 +155,14 @@ data UpdateScript = UpdateScript'
 -- the script ID or ARN value.
 newUpdateScript ::
   -- | 'scriptId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateScript
 newUpdateScript pScriptId_ =
   UpdateScript'
-    { zipFile = Core.Nothing,
-      version = Core.Nothing,
-      name = Core.Nothing,
-      storageLocation = Core.Nothing,
+    { zipFile = Prelude.Nothing,
+      version = Prelude.Nothing,
+      name = Prelude.Nothing,
+      storageLocation = Prelude.Nothing,
       scriptId = pScriptId_
     }
 
@@ -177,17 +178,17 @@ newUpdateScript pScriptId_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-updateScript_zipFile :: Lens.Lens' UpdateScript (Core.Maybe Core.ByteString)
-updateScript_zipFile = Lens.lens (\UpdateScript' {zipFile} -> zipFile) (\s@UpdateScript' {} a -> s {zipFile = a} :: UpdateScript) Core.. Lens.mapping Core._Base64
+updateScript_zipFile :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.ByteString)
+updateScript_zipFile = Lens.lens (\UpdateScript' {zipFile} -> zipFile) (\s@UpdateScript' {} a -> s {zipFile = a} :: UpdateScript) Prelude.. Lens.mapping Core._Base64
 
 -- | The version that is associated with a build or script. Version strings
 -- do not need to be unique.
-updateScript_version :: Lens.Lens' UpdateScript (Core.Maybe Core.Text)
+updateScript_version :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.Text)
 updateScript_version = Lens.lens (\UpdateScript' {version} -> version) (\s@UpdateScript' {} a -> s {version = a} :: UpdateScript)
 
 -- | A descriptive label that is associated with a script. Script names do
 -- not need to be unique.
-updateScript_name :: Lens.Lens' UpdateScript (Core.Maybe Core.Text)
+updateScript_name :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.Text)
 updateScript_name = Lens.lens (\UpdateScript' {name} -> name) (\s@UpdateScript' {} a -> s {name = a} :: UpdateScript)
 
 -- | The Amazon S3 location of your Realtime scripts. The storage location
@@ -200,12 +201,12 @@ updateScript_name = Lens.lens (\UpdateScript' {name} -> name) (\s@UpdateScript' 
 -- operation with a storage location, you must have IAM PassRole
 -- permission. For more details on IAM roles and PassRole permissions, see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
-updateScript_storageLocation :: Lens.Lens' UpdateScript (Core.Maybe S3Location)
+updateScript_storageLocation :: Lens.Lens' UpdateScript (Prelude.Maybe S3Location)
 updateScript_storageLocation = Lens.lens (\UpdateScript' {storageLocation} -> storageLocation) (\s@UpdateScript' {} a -> s {storageLocation = a} :: UpdateScript)
 
 -- | A unique identifier for a Realtime script to update. You can use either
 -- the script ID or ARN value.
-updateScript_scriptId :: Lens.Lens' UpdateScript Core.Text
+updateScript_scriptId :: Lens.Lens' UpdateScript Prelude.Text
 updateScript_scriptId = Lens.lens (\UpdateScript' {scriptId} -> scriptId) (\s@UpdateScript' {} a -> s {scriptId = a} :: UpdateScript)
 
 instance Core.AWSRequest UpdateScript where
@@ -215,42 +216,45 @@ instance Core.AWSRequest UpdateScript where
     Response.receiveJSON
       ( \s h x ->
           UpdateScriptResponse'
-            Core.<$> (x Core..?> "Script")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Script")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateScript
+instance Prelude.Hashable UpdateScript
 
-instance Core.NFData UpdateScript
+instance Prelude.NFData UpdateScript
 
 instance Core.ToHeaders UpdateScript where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateScript" :: Core.ByteString),
+              Core.=# ("GameLift.UpdateScript" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateScript where
   toJSON UpdateScript' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ZipFile" Core..=) Core.<$> zipFile,
-            ("Version" Core..=) Core.<$> version,
-            ("Name" Core..=) Core.<$> name,
-            ("StorageLocation" Core..=) Core.<$> storageLocation,
-            Core.Just ("ScriptId" Core..= scriptId)
+      ( Prelude.catMaybes
+          [ ("ZipFile" Core..=) Prelude.<$> zipFile,
+            ("Version" Core..=) Prelude.<$> version,
+            ("Name" Core..=) Prelude.<$> name,
+            ("StorageLocation" Core..=)
+              Prelude.<$> storageLocation,
+            Prelude.Just ("ScriptId" Core..= scriptId)
           ]
       )
 
 instance Core.ToPath UpdateScript where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateScript where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateScriptResponse' smart constructor.
 data UpdateScriptResponse = UpdateScriptResponse'
@@ -261,11 +265,11 @@ data UpdateScriptResponse = UpdateScriptResponse'
     -- /CreateScript/ request; (2) If the script file was uploaded from a local
     -- zip file, the storage location reflects an S3 location controls by the
     -- Amazon GameLift service.
-    script :: Core.Maybe Script,
+    script :: Prelude.Maybe Script,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateScriptResponse' with all optional fields omitted.
@@ -286,11 +290,11 @@ data UpdateScriptResponse = UpdateScriptResponse'
 -- 'httpStatus', 'updateScriptResponse_httpStatus' - The response's http status code.
 newUpdateScriptResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateScriptResponse
 newUpdateScriptResponse pHttpStatus_ =
   UpdateScriptResponse'
-    { script = Core.Nothing,
+    { script = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -301,11 +305,11 @@ newUpdateScriptResponse pHttpStatus_ =
 -- /CreateScript/ request; (2) If the script file was uploaded from a local
 -- zip file, the storage location reflects an S3 location controls by the
 -- Amazon GameLift service.
-updateScriptResponse_script :: Lens.Lens' UpdateScriptResponse (Core.Maybe Script)
+updateScriptResponse_script :: Lens.Lens' UpdateScriptResponse (Prelude.Maybe Script)
 updateScriptResponse_script = Lens.lens (\UpdateScriptResponse' {script} -> script) (\s@UpdateScriptResponse' {} a -> s {script = a} :: UpdateScriptResponse)
 
 -- | The response's http status code.
-updateScriptResponse_httpStatus :: Lens.Lens' UpdateScriptResponse Core.Int
+updateScriptResponse_httpStatus :: Lens.Lens' UpdateScriptResponse Prelude.Int
 updateScriptResponse_httpStatus = Lens.lens (\UpdateScriptResponse' {httpStatus} -> httpStatus) (\s@UpdateScriptResponse' {} a -> s {httpStatus = a} :: UpdateScriptResponse)
 
-instance Core.NFData UpdateScriptResponse
+instance Prelude.NFData UpdateScriptResponse

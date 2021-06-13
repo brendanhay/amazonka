@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.TagsModel where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the tags (keys and values) for an application, campaign,
 -- message template, or segment.
@@ -34,9 +35,9 @@ data TagsModel = TagsModel'
     -- Each tag consists of a required tag key and an associated tag value. The
     -- maximum length of a tag key is 128 characters. The maximum length of a
     -- tag value is 256 characters.
-    tags :: Core.HashMap Core.Text Core.Text
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagsModel' with all optional fields omitted.
@@ -55,7 +56,7 @@ data TagsModel = TagsModel'
 -- tag value is 256 characters.
 newTagsModel ::
   TagsModel
-newTagsModel = TagsModel' {tags = Core.mempty}
+newTagsModel = TagsModel' {tags = Prelude.mempty}
 
 -- | A string-to-string map of key-value pairs that defines the tags for an
 -- application, campaign, message template, or segment. Each of these
@@ -64,8 +65,8 @@ newTagsModel = TagsModel' {tags = Core.mempty}
 -- Each tag consists of a required tag key and an associated tag value. The
 -- maximum length of a tag key is 128 characters. The maximum length of a
 -- tag value is 256 characters.
-tagsModel_tags :: Lens.Lens' TagsModel (Core.HashMap Core.Text Core.Text)
-tagsModel_tags = Lens.lens (\TagsModel' {tags} -> tags) (\s@TagsModel' {} a -> s {tags = a} :: TagsModel) Core.. Lens._Coerce
+tagsModel_tags :: Lens.Lens' TagsModel (Prelude.HashMap Prelude.Text Prelude.Text)
+tagsModel_tags = Lens.lens (\TagsModel' {tags} -> tags) (\s@TagsModel' {} a -> s {tags = a} :: TagsModel) Prelude.. Lens._Coerce
 
 instance Core.FromJSON TagsModel where
   parseJSON =
@@ -73,14 +74,16 @@ instance Core.FromJSON TagsModel where
       "TagsModel"
       ( \x ->
           TagsModel'
-            Core.<$> (x Core..:? "tags" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable TagsModel
+instance Prelude.Hashable TagsModel
 
-instance Core.NFData TagsModel
+instance Prelude.NFData TagsModel
 
 instance Core.ToJSON TagsModel where
   toJSON TagsModel' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("tags" Core..= tags)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("tags" Core..= tags)]
+      )

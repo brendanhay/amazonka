@@ -21,17 +21,18 @@ module Network.AWS.CloudWatchLogs.Types.SearchedLogStream where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the search status of a log stream.
 --
 -- /See:/ 'newSearchedLogStream' smart constructor.
 data SearchedLogStream = SearchedLogStream'
   { -- | The name of the log stream.
-    logStreamName :: Core.Maybe Core.Text,
+    logStreamName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether all the events in this log stream were searched.
-    searchedCompletely :: Core.Maybe Core.Bool
+    searchedCompletely :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchedLogStream' with all optional fields omitted.
@@ -48,16 +49,16 @@ newSearchedLogStream ::
   SearchedLogStream
 newSearchedLogStream =
   SearchedLogStream'
-    { logStreamName = Core.Nothing,
-      searchedCompletely = Core.Nothing
+    { logStreamName = Prelude.Nothing,
+      searchedCompletely = Prelude.Nothing
     }
 
 -- | The name of the log stream.
-searchedLogStream_logStreamName :: Lens.Lens' SearchedLogStream (Core.Maybe Core.Text)
+searchedLogStream_logStreamName :: Lens.Lens' SearchedLogStream (Prelude.Maybe Prelude.Text)
 searchedLogStream_logStreamName = Lens.lens (\SearchedLogStream' {logStreamName} -> logStreamName) (\s@SearchedLogStream' {} a -> s {logStreamName = a} :: SearchedLogStream)
 
 -- | Indicates whether all the events in this log stream were searched.
-searchedLogStream_searchedCompletely :: Lens.Lens' SearchedLogStream (Core.Maybe Core.Bool)
+searchedLogStream_searchedCompletely :: Lens.Lens' SearchedLogStream (Prelude.Maybe Prelude.Bool)
 searchedLogStream_searchedCompletely = Lens.lens (\SearchedLogStream' {searchedCompletely} -> searchedCompletely) (\s@SearchedLogStream' {} a -> s {searchedCompletely = a} :: SearchedLogStream)
 
 instance Core.FromJSON SearchedLogStream where
@@ -66,10 +67,10 @@ instance Core.FromJSON SearchedLogStream where
       "SearchedLogStream"
       ( \x ->
           SearchedLogStream'
-            Core.<$> (x Core..:? "logStreamName")
-            Core.<*> (x Core..:? "searchedCompletely")
+            Prelude.<$> (x Core..:? "logStreamName")
+            Prelude.<*> (x Core..:? "searchedCompletely")
       )
 
-instance Core.Hashable SearchedLogStream
+instance Prelude.Hashable SearchedLogStream
 
-instance Core.NFData SearchedLogStream
+instance Prelude.NFData SearchedLogStream

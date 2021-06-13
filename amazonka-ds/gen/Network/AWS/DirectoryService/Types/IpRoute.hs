@@ -21,6 +21,7 @@ module Network.AWS.DirectoryService.Types.IpRoute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | IP address block. This is often the address block of the DNS server used
 -- for your on-premises domain.
@@ -31,11 +32,11 @@ data IpRoute = IpRoute'
     -- often the address block of the DNS server used for your on-premises
     -- domain. For a single IP address use a CIDR address block with \/32. For
     -- example 10.0.0.0\/32.
-    cidrIp :: Core.Maybe Core.Text,
+    cidrIp :: Prelude.Maybe Prelude.Text,
     -- | Description of the address block.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IpRoute' with all optional fields omitted.
@@ -55,30 +56,30 @@ newIpRoute ::
   IpRoute
 newIpRoute =
   IpRoute'
-    { cidrIp = Core.Nothing,
-      description = Core.Nothing
+    { cidrIp = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | IP address block using CIDR format, for example 10.0.0.0\/24. This is
 -- often the address block of the DNS server used for your on-premises
 -- domain. For a single IP address use a CIDR address block with \/32. For
 -- example 10.0.0.0\/32.
-ipRoute_cidrIp :: Lens.Lens' IpRoute (Core.Maybe Core.Text)
+ipRoute_cidrIp :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)
 ipRoute_cidrIp = Lens.lens (\IpRoute' {cidrIp} -> cidrIp) (\s@IpRoute' {} a -> s {cidrIp = a} :: IpRoute)
 
 -- | Description of the address block.
-ipRoute_description :: Lens.Lens' IpRoute (Core.Maybe Core.Text)
+ipRoute_description :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)
 ipRoute_description = Lens.lens (\IpRoute' {description} -> description) (\s@IpRoute' {} a -> s {description = a} :: IpRoute)
 
-instance Core.Hashable IpRoute
+instance Prelude.Hashable IpRoute
 
-instance Core.NFData IpRoute
+instance Prelude.NFData IpRoute
 
 instance Core.ToJSON IpRoute where
   toJSON IpRoute' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CidrIp" Core..=) Core.<$> cidrIp,
-            ("Description" Core..=) Core.<$> description
+      ( Prelude.catMaybes
+          [ ("CidrIp" Core..=) Prelude.<$> cidrIp,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A regular expression representing a restriction on a string
 -- configuration option value.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOptionRestrictionRegex' smart constructor.
 data OptionRestrictionRegex = OptionRestrictionRegex'
   { -- | A unique name representing this regular expression.
-    label :: Core.Maybe Core.Text,
+    label :: Prelude.Maybe Prelude.Text,
     -- | The regular expression pattern that a string configuration option value
     -- with this restriction must match.
-    pattern' :: Core.Maybe Core.Text
+    pattern' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OptionRestrictionRegex' with all optional fields omitted.
@@ -51,24 +52,25 @@ newOptionRestrictionRegex ::
   OptionRestrictionRegex
 newOptionRestrictionRegex =
   OptionRestrictionRegex'
-    { label = Core.Nothing,
-      pattern' = Core.Nothing
+    { label = Prelude.Nothing,
+      pattern' = Prelude.Nothing
     }
 
 -- | A unique name representing this regular expression.
-optionRestrictionRegex_label :: Lens.Lens' OptionRestrictionRegex (Core.Maybe Core.Text)
+optionRestrictionRegex_label :: Lens.Lens' OptionRestrictionRegex (Prelude.Maybe Prelude.Text)
 optionRestrictionRegex_label = Lens.lens (\OptionRestrictionRegex' {label} -> label) (\s@OptionRestrictionRegex' {} a -> s {label = a} :: OptionRestrictionRegex)
 
 -- | The regular expression pattern that a string configuration option value
 -- with this restriction must match.
-optionRestrictionRegex_pattern :: Lens.Lens' OptionRestrictionRegex (Core.Maybe Core.Text)
+optionRestrictionRegex_pattern :: Lens.Lens' OptionRestrictionRegex (Prelude.Maybe Prelude.Text)
 optionRestrictionRegex_pattern = Lens.lens (\OptionRestrictionRegex' {pattern'} -> pattern') (\s@OptionRestrictionRegex' {} a -> s {pattern' = a} :: OptionRestrictionRegex)
 
 instance Core.FromXML OptionRestrictionRegex where
   parseXML x =
     OptionRestrictionRegex'
-      Core.<$> (x Core..@? "Label") Core.<*> (x Core..@? "Pattern")
+      Prelude.<$> (x Core..@? "Label")
+      Prelude.<*> (x Core..@? "Pattern")
 
-instance Core.Hashable OptionRestrictionRegex
+instance Prelude.Hashable OptionRestrictionRegex
 
-instance Core.NFData OptionRestrictionRegex
+instance Prelude.NFData OptionRestrictionRegex

@@ -22,6 +22,7 @@ module Network.AWS.AutoScaling.Types.InstanceRefresh where
 import Network.AWS.AutoScaling.Types.InstanceRefreshStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance refresh for an Auto Scaling group.
 --
@@ -44,28 +45,28 @@ data InstanceRefresh = InstanceRefresh'
     --     completed, but it prevents new replacements from being started.
     --
     -- -   @Cancelled@ - The operation is cancelled.
-    status :: Core.Maybe InstanceRefreshStatus,
+    status :: Prelude.Maybe InstanceRefreshStatus,
     -- | The instance refresh ID.
-    instanceRefreshId :: Core.Maybe Core.Text,
+    instanceRefreshId :: Prelude.Maybe Prelude.Text,
     -- | The percentage of the instance refresh that is complete. For each
     -- instance replacement, Amazon EC2 Auto Scaling tracks the instance\'s
     -- health status and warm-up time. When the instance\'s health status
     -- changes to healthy and the specified warm-up time passes, the instance
     -- is considered updated and added to the percentage complete.
-    percentageComplete :: Core.Maybe Core.Natural,
+    percentageComplete :: Prelude.Maybe Prelude.Natural,
     -- | The date and time at which the instance refresh began.
-    startTime :: Core.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Core.ISO8601,
     -- | The date and time at which the instance refresh ended.
-    endTime :: Core.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Core.ISO8601,
     -- | The number of instances remaining to update before the instance refresh
     -- is complete.
-    instancesToUpdate :: Core.Maybe Core.Natural,
+    instancesToUpdate :: Prelude.Maybe Prelude.Natural,
     -- | Provides more details about the current status of the instance refresh.
-    statusReason :: Core.Maybe Core.Text,
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Maybe Core.Text
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceRefresh' with all optional fields omitted.
@@ -115,14 +116,14 @@ newInstanceRefresh ::
   InstanceRefresh
 newInstanceRefresh =
   InstanceRefresh'
-    { status = Core.Nothing,
-      instanceRefreshId = Core.Nothing,
-      percentageComplete = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      instancesToUpdate = Core.Nothing,
-      statusReason = Core.Nothing,
-      autoScalingGroupName = Core.Nothing
+    { status = Prelude.Nothing,
+      instanceRefreshId = Prelude.Nothing,
+      percentageComplete = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      instancesToUpdate = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
+      autoScalingGroupName = Prelude.Nothing
     }
 
 -- | The current status for the instance refresh operation:
@@ -142,11 +143,11 @@ newInstanceRefresh =
 --     completed, but it prevents new replacements from being started.
 --
 -- -   @Cancelled@ - The operation is cancelled.
-instanceRefresh_status :: Lens.Lens' InstanceRefresh (Core.Maybe InstanceRefreshStatus)
+instanceRefresh_status :: Lens.Lens' InstanceRefresh (Prelude.Maybe InstanceRefreshStatus)
 instanceRefresh_status = Lens.lens (\InstanceRefresh' {status} -> status) (\s@InstanceRefresh' {} a -> s {status = a} :: InstanceRefresh)
 
 -- | The instance refresh ID.
-instanceRefresh_instanceRefreshId :: Lens.Lens' InstanceRefresh (Core.Maybe Core.Text)
+instanceRefresh_instanceRefreshId :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.Text)
 instanceRefresh_instanceRefreshId = Lens.lens (\InstanceRefresh' {instanceRefreshId} -> instanceRefreshId) (\s@InstanceRefresh' {} a -> s {instanceRefreshId = a} :: InstanceRefresh)
 
 -- | The percentage of the instance refresh that is complete. For each
@@ -154,42 +155,42 @@ instanceRefresh_instanceRefreshId = Lens.lens (\InstanceRefresh' {instanceRefres
 -- health status and warm-up time. When the instance\'s health status
 -- changes to healthy and the specified warm-up time passes, the instance
 -- is considered updated and added to the percentage complete.
-instanceRefresh_percentageComplete :: Lens.Lens' InstanceRefresh (Core.Maybe Core.Natural)
+instanceRefresh_percentageComplete :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.Natural)
 instanceRefresh_percentageComplete = Lens.lens (\InstanceRefresh' {percentageComplete} -> percentageComplete) (\s@InstanceRefresh' {} a -> s {percentageComplete = a} :: InstanceRefresh)
 
 -- | The date and time at which the instance refresh began.
-instanceRefresh_startTime :: Lens.Lens' InstanceRefresh (Core.Maybe Core.UTCTime)
-instanceRefresh_startTime = Lens.lens (\InstanceRefresh' {startTime} -> startTime) (\s@InstanceRefresh' {} a -> s {startTime = a} :: InstanceRefresh) Core.. Lens.mapping Core._Time
+instanceRefresh_startTime :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.UTCTime)
+instanceRefresh_startTime = Lens.lens (\InstanceRefresh' {startTime} -> startTime) (\s@InstanceRefresh' {} a -> s {startTime = a} :: InstanceRefresh) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time at which the instance refresh ended.
-instanceRefresh_endTime :: Lens.Lens' InstanceRefresh (Core.Maybe Core.UTCTime)
-instanceRefresh_endTime = Lens.lens (\InstanceRefresh' {endTime} -> endTime) (\s@InstanceRefresh' {} a -> s {endTime = a} :: InstanceRefresh) Core.. Lens.mapping Core._Time
+instanceRefresh_endTime :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.UTCTime)
+instanceRefresh_endTime = Lens.lens (\InstanceRefresh' {endTime} -> endTime) (\s@InstanceRefresh' {} a -> s {endTime = a} :: InstanceRefresh) Prelude.. Lens.mapping Core._Time
 
 -- | The number of instances remaining to update before the instance refresh
 -- is complete.
-instanceRefresh_instancesToUpdate :: Lens.Lens' InstanceRefresh (Core.Maybe Core.Natural)
+instanceRefresh_instancesToUpdate :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.Natural)
 instanceRefresh_instancesToUpdate = Lens.lens (\InstanceRefresh' {instancesToUpdate} -> instancesToUpdate) (\s@InstanceRefresh' {} a -> s {instancesToUpdate = a} :: InstanceRefresh)
 
 -- | Provides more details about the current status of the instance refresh.
-instanceRefresh_statusReason :: Lens.Lens' InstanceRefresh (Core.Maybe Core.Text)
+instanceRefresh_statusReason :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.Text)
 instanceRefresh_statusReason = Lens.lens (\InstanceRefresh' {statusReason} -> statusReason) (\s@InstanceRefresh' {} a -> s {statusReason = a} :: InstanceRefresh)
 
 -- | The name of the Auto Scaling group.
-instanceRefresh_autoScalingGroupName :: Lens.Lens' InstanceRefresh (Core.Maybe Core.Text)
+instanceRefresh_autoScalingGroupName :: Lens.Lens' InstanceRefresh (Prelude.Maybe Prelude.Text)
 instanceRefresh_autoScalingGroupName = Lens.lens (\InstanceRefresh' {autoScalingGroupName} -> autoScalingGroupName) (\s@InstanceRefresh' {} a -> s {autoScalingGroupName = a} :: InstanceRefresh)
 
 instance Core.FromXML InstanceRefresh where
   parseXML x =
     InstanceRefresh'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "InstanceRefreshId")
-      Core.<*> (x Core..@? "PercentageComplete")
-      Core.<*> (x Core..@? "StartTime")
-      Core.<*> (x Core..@? "EndTime")
-      Core.<*> (x Core..@? "InstancesToUpdate")
-      Core.<*> (x Core..@? "StatusReason")
-      Core.<*> (x Core..@? "AutoScalingGroupName")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "InstanceRefreshId")
+      Prelude.<*> (x Core..@? "PercentageComplete")
+      Prelude.<*> (x Core..@? "StartTime")
+      Prelude.<*> (x Core..@? "EndTime")
+      Prelude.<*> (x Core..@? "InstancesToUpdate")
+      Prelude.<*> (x Core..@? "StatusReason")
+      Prelude.<*> (x Core..@? "AutoScalingGroupName")
 
-instance Core.Hashable InstanceRefresh
+instance Prelude.Hashable InstanceRefresh
 
-instance Core.NFData InstanceRefresh
+instance Prelude.NFData InstanceRefresh

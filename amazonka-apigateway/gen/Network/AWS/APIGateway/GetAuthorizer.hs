@@ -53,6 +53,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +62,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetAuthorizer' smart constructor.
 data GetAuthorizer = GetAuthorizer'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the Authorizer resource.
-    authorizerId :: Core.Text
+    authorizerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAuthorizer' with all optional fields omitted.
@@ -80,9 +81,9 @@ data GetAuthorizer = GetAuthorizer'
 -- 'authorizerId', 'getAuthorizer_authorizerId' - [Required] The identifier of the Authorizer resource.
 newGetAuthorizer ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authorizerId'
-  Core.Text ->
+  Prelude.Text ->
   GetAuthorizer
 newGetAuthorizer pRestApiId_ pAuthorizerId_ =
   GetAuthorizer'
@@ -91,11 +92,11 @@ newGetAuthorizer pRestApiId_ pAuthorizerId_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-getAuthorizer_restApiId :: Lens.Lens' GetAuthorizer Core.Text
+getAuthorizer_restApiId :: Lens.Lens' GetAuthorizer Prelude.Text
 getAuthorizer_restApiId = Lens.lens (\GetAuthorizer' {restApiId} -> restApiId) (\s@GetAuthorizer' {} a -> s {restApiId = a} :: GetAuthorizer)
 
 -- | [Required] The identifier of the Authorizer resource.
-getAuthorizer_authorizerId :: Lens.Lens' GetAuthorizer Core.Text
+getAuthorizer_authorizerId :: Lens.Lens' GetAuthorizer Prelude.Text
 getAuthorizer_authorizerId = Lens.lens (\GetAuthorizer' {authorizerId} -> authorizerId) (\s@GetAuthorizer' {} a -> s {authorizerId = a} :: GetAuthorizer)
 
 instance Core.AWSRequest GetAuthorizer where
@@ -105,22 +106,22 @@ instance Core.AWSRequest GetAuthorizer where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetAuthorizer
+instance Prelude.Hashable GetAuthorizer
 
-instance Core.NFData GetAuthorizer
+instance Prelude.NFData GetAuthorizer
 
 instance Core.ToHeaders GetAuthorizer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetAuthorizer where
   toPath GetAuthorizer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/authorizers/",
@@ -128,4 +129,4 @@ instance Core.ToPath GetAuthorizer where
       ]
 
 instance Core.ToQuery GetAuthorizer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

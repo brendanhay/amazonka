@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,15 +68,15 @@ data CreatePolicy = CreatePolicy'
     --
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The policy name.
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The JSON document that describes the policy. __policyDocument__ must
     -- have a minimum length of 1, with a maximum length of 2048, excluding
     -- whitespace.
-    policyDocument :: Core.Text
+    policyDocument :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePolicy' with all optional fields omitted.
@@ -102,13 +103,13 @@ data CreatePolicy = CreatePolicy'
 -- whitespace.
 newCreatePolicy ::
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyDocument'
-  Core.Text ->
+  Prelude.Text ->
   CreatePolicy
 newCreatePolicy pPolicyName_ pPolicyDocument_ =
   CreatePolicy'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       policyName = pPolicyName_,
       policyDocument = pPolicyDocument_
     }
@@ -122,17 +123,17 @@ newCreatePolicy pPolicyName_ pPolicyDocument_ =
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
-createPolicy_tags :: Lens.Lens' CreatePolicy (Core.Maybe [Tag])
-createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Core.. Lens.mapping Lens._Coerce
+createPolicy_tags :: Lens.Lens' CreatePolicy (Prelude.Maybe [Tag])
+createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The policy name.
-createPolicy_policyName :: Lens.Lens' CreatePolicy Core.Text
+createPolicy_policyName :: Lens.Lens' CreatePolicy Prelude.Text
 createPolicy_policyName = Lens.lens (\CreatePolicy' {policyName} -> policyName) (\s@CreatePolicy' {} a -> s {policyName = a} :: CreatePolicy)
 
 -- | The JSON document that describes the policy. __policyDocument__ must
 -- have a minimum length of 1, with a maximum length of 2048, excluding
 -- whitespace.
-createPolicy_policyDocument :: Lens.Lens' CreatePolicy Core.Text
+createPolicy_policyDocument :: Lens.Lens' CreatePolicy Prelude.Text
 createPolicy_policyDocument = Lens.lens (\CreatePolicy' {policyDocument} -> policyDocument) (\s@CreatePolicy' {} a -> s {policyDocument = a} :: CreatePolicy)
 
 instance Core.AWSRequest CreatePolicy where
@@ -142,52 +143,54 @@ instance Core.AWSRequest CreatePolicy where
     Response.receiveJSON
       ( \s h x ->
           CreatePolicyResponse'
-            Core.<$> (x Core..?> "policyVersionId")
-            Core.<*> (x Core..?> "policyName")
-            Core.<*> (x Core..?> "policyDocument")
-            Core.<*> (x Core..?> "policyArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "policyVersionId")
+            Prelude.<*> (x Core..?> "policyName")
+            Prelude.<*> (x Core..?> "policyDocument")
+            Prelude.<*> (x Core..?> "policyArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePolicy
+instance Prelude.Hashable CreatePolicy
 
-instance Core.NFData CreatePolicy
+instance Prelude.NFData CreatePolicy
 
 instance Core.ToHeaders CreatePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreatePolicy where
   toJSON CreatePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            Core.Just ("policyDocument" Core..= policyDocument)
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
+              ("policyDocument" Core..= policyDocument)
           ]
       )
 
 instance Core.ToPath CreatePolicy where
   toPath CreatePolicy' {..} =
-    Core.mconcat ["/policies/", Core.toBS policyName]
+    Prelude.mconcat
+      ["/policies/", Core.toBS policyName]
 
 instance Core.ToQuery CreatePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the CreatePolicy operation.
 --
 -- /See:/ 'newCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
   { -- | The policy version ID.
-    policyVersionId :: Core.Maybe Core.Text,
+    policyVersionId :: Prelude.Maybe Prelude.Text,
     -- | The policy name.
-    policyName :: Core.Maybe Core.Text,
+    policyName :: Prelude.Maybe Prelude.Text,
     -- | The JSON document that describes the policy.
-    policyDocument :: Core.Maybe Core.Text,
+    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The policy ARN.
-    policyArn :: Core.Maybe Core.Text,
+    policyArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePolicyResponse' with all optional fields omitted.
@@ -208,36 +211,36 @@ data CreatePolicyResponse = CreatePolicyResponse'
 -- 'httpStatus', 'createPolicyResponse_httpStatus' - The response's http status code.
 newCreatePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePolicyResponse
 newCreatePolicyResponse pHttpStatus_ =
   CreatePolicyResponse'
     { policyVersionId =
-        Core.Nothing,
-      policyName = Core.Nothing,
-      policyDocument = Core.Nothing,
-      policyArn = Core.Nothing,
+        Prelude.Nothing,
+      policyName = Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
+      policyArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The policy version ID.
-createPolicyResponse_policyVersionId :: Lens.Lens' CreatePolicyResponse (Core.Maybe Core.Text)
+createPolicyResponse_policyVersionId :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
 createPolicyResponse_policyVersionId = Lens.lens (\CreatePolicyResponse' {policyVersionId} -> policyVersionId) (\s@CreatePolicyResponse' {} a -> s {policyVersionId = a} :: CreatePolicyResponse)
 
 -- | The policy name.
-createPolicyResponse_policyName :: Lens.Lens' CreatePolicyResponse (Core.Maybe Core.Text)
+createPolicyResponse_policyName :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
 createPolicyResponse_policyName = Lens.lens (\CreatePolicyResponse' {policyName} -> policyName) (\s@CreatePolicyResponse' {} a -> s {policyName = a} :: CreatePolicyResponse)
 
 -- | The JSON document that describes the policy.
-createPolicyResponse_policyDocument :: Lens.Lens' CreatePolicyResponse (Core.Maybe Core.Text)
+createPolicyResponse_policyDocument :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
 createPolicyResponse_policyDocument = Lens.lens (\CreatePolicyResponse' {policyDocument} -> policyDocument) (\s@CreatePolicyResponse' {} a -> s {policyDocument = a} :: CreatePolicyResponse)
 
 -- | The policy ARN.
-createPolicyResponse_policyArn :: Lens.Lens' CreatePolicyResponse (Core.Maybe Core.Text)
+createPolicyResponse_policyArn :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
 createPolicyResponse_policyArn = Lens.lens (\CreatePolicyResponse' {policyArn} -> policyArn) (\s@CreatePolicyResponse' {} a -> s {policyArn = a} :: CreatePolicyResponse)
 
 -- | The response's http status code.
-createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Core.Int
+createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Prelude.Int
 createPolicyResponse_httpStatus = Lens.lens (\CreatePolicyResponse' {httpStatus} -> httpStatus) (\s@CreatePolicyResponse' {} a -> s {httpStatus = a} :: CreatePolicyResponse)
 
-instance Core.NFData CreatePolicyResponse
+instance Prelude.NFData CreatePolicyResponse

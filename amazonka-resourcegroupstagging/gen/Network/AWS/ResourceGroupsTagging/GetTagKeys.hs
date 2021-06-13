@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
 import qualified Network.AWS.Response as Response
@@ -62,9 +63,9 @@ data GetTagKeys = GetTagKeys'
   { -- | Specifies a @PaginationToken@ response value from a previous request to
     -- indicate that you want the next page of results. Leave this parameter
     -- empty in your initial request.
-    paginationToken :: Core.Maybe Core.Text
+    paginationToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTagKeys' with all optional fields omitted.
@@ -80,32 +81,34 @@ data GetTagKeys = GetTagKeys'
 newGetTagKeys ::
   GetTagKeys
 newGetTagKeys =
-  GetTagKeys' {paginationToken = Core.Nothing}
+  GetTagKeys' {paginationToken = Prelude.Nothing}
 
 -- | Specifies a @PaginationToken@ response value from a previous request to
 -- indicate that you want the next page of results. Leave this parameter
 -- empty in your initial request.
-getTagKeys_paginationToken :: Lens.Lens' GetTagKeys (Core.Maybe Core.Text)
+getTagKeys_paginationToken :: Lens.Lens' GetTagKeys (Prelude.Maybe Prelude.Text)
 getTagKeys_paginationToken = Lens.lens (\GetTagKeys' {paginationToken} -> paginationToken) (\s@GetTagKeys' {} a -> s {paginationToken = a} :: GetTagKeys)
 
 instance Core.AWSPager GetTagKeys where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getTagKeysResponse_paginationToken Core.. Lens._Just
+            Lens.^? getTagKeysResponse_paginationToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getTagKeysResponse_tagKeys Core.. Lens._Just
+            Lens.^? getTagKeysResponse_tagKeys Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getTagKeys_paginationToken
+          Prelude.& getTagKeys_paginationToken
           Lens..~ rs
-          Lens.^? getTagKeysResponse_paginationToken Core.. Lens._Just
+          Lens.^? getTagKeysResponse_paginationToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTagKeys where
   type AWSResponse GetTagKeys = GetTagKeysResponse
@@ -114,56 +117,58 @@ instance Core.AWSRequest GetTagKeys where
     Response.receiveJSON
       ( \s h x ->
           GetTagKeysResponse'
-            Core.<$> (x Core..?> "TagKeys" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "PaginationToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TagKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTagKeys
+instance Prelude.Hashable GetTagKeys
 
-instance Core.NFData GetTagKeys
+instance Prelude.NFData GetTagKeys
 
 instance Core.ToHeaders GetTagKeys where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ResourceGroupsTaggingAPI_20170126.GetTagKeys" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetTagKeys where
   toJSON GetTagKeys' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PaginationToken" Core..=)
-              Core.<$> paginationToken
+              Prelude.<$> paginationToken
           ]
       )
 
 instance Core.ToPath GetTagKeys where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTagKeys where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTagKeysResponse' smart constructor.
 data GetTagKeysResponse = GetTagKeysResponse'
   { -- | A list of all tag keys in the AWS account.
-    tagKeys :: Core.Maybe [Core.Text],
+    tagKeys :: Prelude.Maybe [Prelude.Text],
     -- | A string that indicates that there is more data available than this
     -- response contains. To receive the next part of the response, specify
     -- this response value as the @PaginationToken@ value in the request for
     -- the next page.
-    paginationToken :: Core.Maybe Core.Text,
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTagKeysResponse' with all optional fields omitted.
@@ -183,28 +188,28 @@ data GetTagKeysResponse = GetTagKeysResponse'
 -- 'httpStatus', 'getTagKeysResponse_httpStatus' - The response's http status code.
 newGetTagKeysResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTagKeysResponse
 newGetTagKeysResponse pHttpStatus_ =
   GetTagKeysResponse'
-    { tagKeys = Core.Nothing,
-      paginationToken = Core.Nothing,
+    { tagKeys = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of all tag keys in the AWS account.
-getTagKeysResponse_tagKeys :: Lens.Lens' GetTagKeysResponse (Core.Maybe [Core.Text])
-getTagKeysResponse_tagKeys = Lens.lens (\GetTagKeysResponse' {tagKeys} -> tagKeys) (\s@GetTagKeysResponse' {} a -> s {tagKeys = a} :: GetTagKeysResponse) Core.. Lens.mapping Lens._Coerce
+getTagKeysResponse_tagKeys :: Lens.Lens' GetTagKeysResponse (Prelude.Maybe [Prelude.Text])
+getTagKeysResponse_tagKeys = Lens.lens (\GetTagKeysResponse' {tagKeys} -> tagKeys) (\s@GetTagKeysResponse' {} a -> s {tagKeys = a} :: GetTagKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string that indicates that there is more data available than this
 -- response contains. To receive the next part of the response, specify
 -- this response value as the @PaginationToken@ value in the request for
 -- the next page.
-getTagKeysResponse_paginationToken :: Lens.Lens' GetTagKeysResponse (Core.Maybe Core.Text)
+getTagKeysResponse_paginationToken :: Lens.Lens' GetTagKeysResponse (Prelude.Maybe Prelude.Text)
 getTagKeysResponse_paginationToken = Lens.lens (\GetTagKeysResponse' {paginationToken} -> paginationToken) (\s@GetTagKeysResponse' {} a -> s {paginationToken = a} :: GetTagKeysResponse)
 
 -- | The response's http status code.
-getTagKeysResponse_httpStatus :: Lens.Lens' GetTagKeysResponse Core.Int
+getTagKeysResponse_httpStatus :: Lens.Lens' GetTagKeysResponse Prelude.Int
 getTagKeysResponse_httpStatus = Lens.lens (\GetTagKeysResponse' {httpStatus} -> httpStatus) (\s@GetTagKeysResponse' {} a -> s {httpStatus = a} :: GetTagKeysResponse)
 
-instance Core.NFData GetTagKeysResponse
+instance Prelude.NFData GetTagKeysResponse

@@ -21,6 +21,7 @@ module Network.AWS.ElasticTranscoder.Types.Permission where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The @Permission@ structure.
 --
@@ -41,7 +42,7 @@ data Permission = Permission'
     -- -   @FULL_CONTROL@: The grantee has READ, READ_ACP, and WRITE_ACP
     --     permissions for the thumbnails that Elastic Transcoder adds to the
     --     Amazon S3 bucket.
-    access :: Core.Maybe [Core.Text],
+    access :: Prelude.Maybe [Prelude.Text],
     -- | The type of value that appears in the Grantee object:
     --
     -- -   @Canonical@: Either the canonical user ID for an AWS account or an
@@ -53,15 +54,15 @@ data Permission = Permission'
     --
     -- -   @Group@: One of the following predefined Amazon S3 groups:
     --     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
-    granteeType :: Core.Maybe Core.Text,
+    granteeType :: Prelude.Maybe Prelude.Text,
     -- | The AWS user or group that you want to have access to transcoded files
     -- and playlists. To identify the user or group, you can specify the
     -- canonical user ID for an AWS account, an origin access identity for a
     -- CloudFront distribution, the registered email address of an AWS account,
     -- or a predefined Amazon S3 group.
-    grantee :: Core.Maybe Core.Text
+    grantee :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Permission' with all optional fields omitted.
@@ -108,9 +109,9 @@ newPermission ::
   Permission
 newPermission =
   Permission'
-    { access = Core.Nothing,
-      granteeType = Core.Nothing,
-      grantee = Core.Nothing
+    { access = Prelude.Nothing,
+      granteeType = Prelude.Nothing,
+      grantee = Prelude.Nothing
     }
 
 -- | The permission that you want to give to the AWS user that is listed in
@@ -128,8 +129,8 @@ newPermission =
 -- -   @FULL_CONTROL@: The grantee has READ, READ_ACP, and WRITE_ACP
 --     permissions for the thumbnails that Elastic Transcoder adds to the
 --     Amazon S3 bucket.
-permission_access :: Lens.Lens' Permission (Core.Maybe [Core.Text])
-permission_access = Lens.lens (\Permission' {access} -> access) (\s@Permission' {} a -> s {access = a} :: Permission) Core.. Lens.mapping Lens._Coerce
+permission_access :: Lens.Lens' Permission (Prelude.Maybe [Prelude.Text])
+permission_access = Lens.lens (\Permission' {access} -> access) (\s@Permission' {} a -> s {access = a} :: Permission) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of value that appears in the Grantee object:
 --
@@ -142,7 +143,7 @@ permission_access = Lens.lens (\Permission' {access} -> access) (\s@Permission' 
 --
 -- -   @Group@: One of the following predefined Amazon S3 groups:
 --     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
-permission_granteeType :: Lens.Lens' Permission (Core.Maybe Core.Text)
+permission_granteeType :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_granteeType = Lens.lens (\Permission' {granteeType} -> granteeType) (\s@Permission' {} a -> s {granteeType = a} :: Permission)
 
 -- | The AWS user or group that you want to have access to transcoded files
@@ -150,7 +151,7 @@ permission_granteeType = Lens.lens (\Permission' {granteeType} -> granteeType) (
 -- canonical user ID for an AWS account, an origin access identity for a
 -- CloudFront distribution, the registered email address of an AWS account,
 -- or a predefined Amazon S3 group.
-permission_grantee :: Lens.Lens' Permission (Core.Maybe Core.Text)
+permission_grantee :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_grantee = Lens.lens (\Permission' {grantee} -> grantee) (\s@Permission' {} a -> s {grantee = a} :: Permission)
 
 instance Core.FromJSON Permission where
@@ -159,21 +160,21 @@ instance Core.FromJSON Permission where
       "Permission"
       ( \x ->
           Permission'
-            Core.<$> (x Core..:? "Access" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "GranteeType")
-            Core.<*> (x Core..:? "Grantee")
+            Prelude.<$> (x Core..:? "Access" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "GranteeType")
+            Prelude.<*> (x Core..:? "Grantee")
       )
 
-instance Core.Hashable Permission
+instance Prelude.Hashable Permission
 
-instance Core.NFData Permission
+instance Prelude.NFData Permission
 
 instance Core.ToJSON Permission where
   toJSON Permission' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Access" Core..=) Core.<$> access,
-            ("GranteeType" Core..=) Core.<$> granteeType,
-            ("Grantee" Core..=) Core.<$> grantee
+      ( Prelude.catMaybes
+          [ ("Access" Core..=) Prelude.<$> access,
+            ("GranteeType" Core..=) Prelude.<$> granteeType,
+            ("Grantee" Core..=) Prelude.<$> grantee
           ]
       )

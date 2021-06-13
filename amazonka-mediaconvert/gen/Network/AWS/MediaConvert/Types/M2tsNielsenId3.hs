@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.M2tsNielsenId3
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If INSERT, Nielsen inaudible tones for media tracking will be detected
 -- in the input audio and an equivalent ID3 tag will be inserted in the
@@ -36,15 +37,15 @@ newtype M2tsNielsenId3 = M2tsNielsenId3'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +59,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newActivatePipeline' smart constructor.
 data ActivatePipeline = ActivatePipeline'
   { -- | A list of parameter values to pass to the pipeline at activation.
-    parameterValues :: Core.Maybe [ParameterValue],
+    parameterValues :: Prelude.Maybe [ParameterValue],
     -- | The date and time to resume the pipeline. By default, the pipeline
     -- resumes from the last completed execution.
-    startTimestamp :: Core.Maybe Core.POSIX,
+    startTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The ID of the pipeline.
-    pipelineId :: Core.Text
+    pipelineId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivatePipeline' with all optional fields omitted.
@@ -83,26 +84,27 @@ data ActivatePipeline = ActivatePipeline'
 -- 'pipelineId', 'activatePipeline_pipelineId' - The ID of the pipeline.
 newActivatePipeline ::
   -- | 'pipelineId'
-  Core.Text ->
+  Prelude.Text ->
   ActivatePipeline
 newActivatePipeline pPipelineId_ =
   ActivatePipeline'
-    { parameterValues = Core.Nothing,
-      startTimestamp = Core.Nothing,
+    { parameterValues =
+        Prelude.Nothing,
+      startTimestamp = Prelude.Nothing,
       pipelineId = pPipelineId_
     }
 
 -- | A list of parameter values to pass to the pipeline at activation.
-activatePipeline_parameterValues :: Lens.Lens' ActivatePipeline (Core.Maybe [ParameterValue])
-activatePipeline_parameterValues = Lens.lens (\ActivatePipeline' {parameterValues} -> parameterValues) (\s@ActivatePipeline' {} a -> s {parameterValues = a} :: ActivatePipeline) Core.. Lens.mapping Lens._Coerce
+activatePipeline_parameterValues :: Lens.Lens' ActivatePipeline (Prelude.Maybe [ParameterValue])
+activatePipeline_parameterValues = Lens.lens (\ActivatePipeline' {parameterValues} -> parameterValues) (\s@ActivatePipeline' {} a -> s {parameterValues = a} :: ActivatePipeline) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time to resume the pipeline. By default, the pipeline
 -- resumes from the last completed execution.
-activatePipeline_startTimestamp :: Lens.Lens' ActivatePipeline (Core.Maybe Core.UTCTime)
-activatePipeline_startTimestamp = Lens.lens (\ActivatePipeline' {startTimestamp} -> startTimestamp) (\s@ActivatePipeline' {} a -> s {startTimestamp = a} :: ActivatePipeline) Core.. Lens.mapping Core._Time
+activatePipeline_startTimestamp :: Lens.Lens' ActivatePipeline (Prelude.Maybe Prelude.UTCTime)
+activatePipeline_startTimestamp = Lens.lens (\ActivatePipeline' {startTimestamp} -> startTimestamp) (\s@ActivatePipeline' {} a -> s {startTimestamp = a} :: ActivatePipeline) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the pipeline.
-activatePipeline_pipelineId :: Lens.Lens' ActivatePipeline Core.Text
+activatePipeline_pipelineId :: Lens.Lens' ActivatePipeline Prelude.Text
 activatePipeline_pipelineId = Lens.lens (\ActivatePipeline' {pipelineId} -> pipelineId) (\s@ActivatePipeline' {} a -> s {pipelineId = a} :: ActivatePipeline)
 
 instance Core.AWSRequest ActivatePipeline where
@@ -114,49 +116,54 @@ instance Core.AWSRequest ActivatePipeline where
     Response.receiveEmpty
       ( \s h x ->
           ActivatePipelineResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ActivatePipeline
+instance Prelude.Hashable ActivatePipeline
 
-instance Core.NFData ActivatePipeline
+instance Prelude.NFData ActivatePipeline
 
 instance Core.ToHeaders ActivatePipeline where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DataPipeline.ActivatePipeline" :: Core.ByteString),
+              Core.=# ( "DataPipeline.ActivatePipeline" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ActivatePipeline where
   toJSON ActivatePipeline' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("parameterValues" Core..=)
-              Core.<$> parameterValues,
-            ("startTimestamp" Core..=) Core.<$> startTimestamp,
-            Core.Just ("pipelineId" Core..= pipelineId)
+              Prelude.<$> parameterValues,
+            ("startTimestamp" Core..=)
+              Prelude.<$> startTimestamp,
+            Prelude.Just ("pipelineId" Core..= pipelineId)
           ]
       )
 
 instance Core.ToPath ActivatePipeline where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ActivatePipeline where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of ActivatePipeline.
 --
 -- /See:/ 'newActivatePipelineResponse' smart constructor.
 data ActivatePipelineResponse = ActivatePipelineResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivatePipelineResponse' with all optional fields omitted.
@@ -169,7 +176,7 @@ data ActivatePipelineResponse = ActivatePipelineResponse'
 -- 'httpStatus', 'activatePipelineResponse_httpStatus' - The response's http status code.
 newActivatePipelineResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ActivatePipelineResponse
 newActivatePipelineResponse pHttpStatus_ =
   ActivatePipelineResponse'
@@ -178,7 +185,7 @@ newActivatePipelineResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-activatePipelineResponse_httpStatus :: Lens.Lens' ActivatePipelineResponse Core.Int
+activatePipelineResponse_httpStatus :: Lens.Lens' ActivatePipelineResponse Prelude.Int
 activatePipelineResponse_httpStatus = Lens.lens (\ActivatePipelineResponse' {httpStatus} -> httpStatus) (\s@ActivatePipelineResponse' {} a -> s {httpStatus = a} :: ActivatePipelineResponse)
 
-instance Core.NFData ActivatePipelineResponse
+instance Prelude.NFData ActivatePipelineResponse

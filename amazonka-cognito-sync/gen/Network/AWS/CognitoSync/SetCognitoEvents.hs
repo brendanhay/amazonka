@@ -46,6 +46,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetCognitoEvents' smart constructor.
 data SetCognitoEvents = SetCognitoEvents'
   { -- | The Cognito Identity Pool to use when configuring Cognito Events
-    identityPoolId :: Core.Text,
+    identityPoolId :: Prelude.Text,
     -- | The events to configure
-    events :: Core.HashMap Core.Text Core.Text
+    events :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetCognitoEvents' with all optional fields omitted.
@@ -75,22 +76,22 @@ data SetCognitoEvents = SetCognitoEvents'
 -- 'events', 'setCognitoEvents_events' - The events to configure
 newSetCognitoEvents ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   SetCognitoEvents
 newSetCognitoEvents pIdentityPoolId_ =
   SetCognitoEvents'
     { identityPoolId =
         pIdentityPoolId_,
-      events = Core.mempty
+      events = Prelude.mempty
     }
 
 -- | The Cognito Identity Pool to use when configuring Cognito Events
-setCognitoEvents_identityPoolId :: Lens.Lens' SetCognitoEvents Core.Text
+setCognitoEvents_identityPoolId :: Lens.Lens' SetCognitoEvents Prelude.Text
 setCognitoEvents_identityPoolId = Lens.lens (\SetCognitoEvents' {identityPoolId} -> identityPoolId) (\s@SetCognitoEvents' {} a -> s {identityPoolId = a} :: SetCognitoEvents)
 
 -- | The events to configure
-setCognitoEvents_events :: Lens.Lens' SetCognitoEvents (Core.HashMap Core.Text Core.Text)
-setCognitoEvents_events = Lens.lens (\SetCognitoEvents' {events} -> events) (\s@SetCognitoEvents' {} a -> s {events = a} :: SetCognitoEvents) Core.. Lens._Coerce
+setCognitoEvents_events :: Lens.Lens' SetCognitoEvents (Prelude.HashMap Prelude.Text Prelude.Text)
+setCognitoEvents_events = Lens.lens (\SetCognitoEvents' {events} -> events) (\s@SetCognitoEvents' {} a -> s {events = a} :: SetCognitoEvents) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest SetCognitoEvents where
   type
@@ -100,42 +101,44 @@ instance Core.AWSRequest SetCognitoEvents where
   response =
     Response.receiveNull SetCognitoEventsResponse'
 
-instance Core.Hashable SetCognitoEvents
+instance Prelude.Hashable SetCognitoEvents
 
-instance Core.NFData SetCognitoEvents
+instance Prelude.NFData SetCognitoEvents
 
 instance Core.ToHeaders SetCognitoEvents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetCognitoEvents where
   toJSON SetCognitoEvents' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Events" Core..= events)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Events" Core..= events)]
       )
 
 instance Core.ToPath SetCognitoEvents where
   toPath SetCognitoEvents' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/identitypools/",
         Core.toBS identityPoolId,
         "/events"
       ]
 
 instance Core.ToQuery SetCognitoEvents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetCognitoEventsResponse' smart constructor.
 data SetCognitoEventsResponse = SetCognitoEventsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetCognitoEventsResponse' with all optional fields omitted.
@@ -146,4 +149,4 @@ newSetCognitoEventsResponse ::
 newSetCognitoEventsResponse =
   SetCognitoEventsResponse'
 
-instance Core.NFData SetCognitoEventsResponse
+instance Prelude.NFData SetCognitoEventsResponse

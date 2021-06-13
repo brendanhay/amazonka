@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +52,7 @@ data SetLoggingOptions = SetLoggingOptions'
   { -- | The logging options payload.
     loggingOptionsPayload :: LoggingOptionsPayload
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetLoggingOptions' with all optional fields omitted.
@@ -84,18 +85,18 @@ instance Core.AWSRequest SetLoggingOptions where
   response =
     Response.receiveNull SetLoggingOptionsResponse'
 
-instance Core.Hashable SetLoggingOptions
+instance Prelude.Hashable SetLoggingOptions
 
-instance Core.NFData SetLoggingOptions
+instance Prelude.NFData SetLoggingOptions
 
 instance Core.ToHeaders SetLoggingOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON SetLoggingOptions where
   toJSON SetLoggingOptions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "loggingOptionsPayload"
                   Core..= loggingOptionsPayload
               )
@@ -103,16 +104,16 @@ instance Core.ToJSON SetLoggingOptions where
       )
 
 instance Core.ToPath SetLoggingOptions where
-  toPath = Core.const "/loggingOptions"
+  toPath = Prelude.const "/loggingOptions"
 
 instance Core.ToQuery SetLoggingOptions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetLoggingOptionsResponse' smart constructor.
 data SetLoggingOptionsResponse = SetLoggingOptionsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetLoggingOptionsResponse' with all optional fields omitted.
@@ -123,4 +124,4 @@ newSetLoggingOptionsResponse ::
 newSetLoggingOptionsResponse =
   SetLoggingOptionsResponse'
 
-instance Core.NFData SetLoggingOptionsResponse
+instance Prelude.NFData SetLoggingOptionsResponse

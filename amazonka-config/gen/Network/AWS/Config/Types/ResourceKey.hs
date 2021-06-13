@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.ResourceKey where
 import Network.AWS.Config.Types.ResourceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details that identify a resource within AWS Config, including the
 -- resource type and resource ID.
@@ -31,9 +32,9 @@ data ResourceKey = ResourceKey'
   { -- | The resource type.
     resourceType :: ResourceType,
     -- | The ID of the resource (for example., sg-xxxxxx).
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceKey' with all optional fields omitted.
@@ -50,7 +51,7 @@ newResourceKey ::
   -- | 'resourceType'
   ResourceType ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   ResourceKey
 newResourceKey pResourceType_ pResourceId_ =
   ResourceKey'
@@ -63,7 +64,7 @@ resourceKey_resourceType :: Lens.Lens' ResourceKey ResourceType
 resourceKey_resourceType = Lens.lens (\ResourceKey' {resourceType} -> resourceType) (\s@ResourceKey' {} a -> s {resourceType = a} :: ResourceKey)
 
 -- | The ID of the resource (for example., sg-xxxxxx).
-resourceKey_resourceId :: Lens.Lens' ResourceKey Core.Text
+resourceKey_resourceId :: Lens.Lens' ResourceKey Prelude.Text
 resourceKey_resourceId = Lens.lens (\ResourceKey' {resourceId} -> resourceId) (\s@ResourceKey' {} a -> s {resourceId = a} :: ResourceKey)
 
 instance Core.FromJSON ResourceKey where
@@ -72,19 +73,19 @@ instance Core.FromJSON ResourceKey where
       "ResourceKey"
       ( \x ->
           ResourceKey'
-            Core.<$> (x Core..: "resourceType")
-            Core.<*> (x Core..: "resourceId")
+            Prelude.<$> (x Core..: "resourceType")
+            Prelude.<*> (x Core..: "resourceId")
       )
 
-instance Core.Hashable ResourceKey
+instance Prelude.Hashable ResourceKey
 
-instance Core.NFData ResourceKey
+instance Prelude.NFData ResourceKey
 
 instance Core.ToJSON ResourceKey where
   toJSON ResourceKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("resourceType" Core..= resourceType),
-            Core.Just ("resourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("resourceType" Core..= resourceType),
+            Prelude.Just ("resourceId" Core..= resourceId)
           ]
       )

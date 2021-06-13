@@ -61,20 +61,21 @@ where
 import Network.AWS.CloudHSM.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetConfig' smart constructor.
 data GetConfig = GetConfig'
   { -- | The ARN of the client.
-    clientArn :: Core.Text,
+    clientArn :: Prelude.Text,
     -- | The client version.
     clientVersion :: ClientVersion,
     -- | A list of ARNs that identify the high-availability partition groups that
     -- are associated with the client.
-    hapgList :: [Core.Text]
+    hapgList :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConfig' with all optional fields omitted.
@@ -92,7 +93,7 @@ data GetConfig = GetConfig'
 -- are associated with the client.
 newGetConfig ::
   -- | 'clientArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientVersion'
   ClientVersion ->
   GetConfig
@@ -100,11 +101,11 @@ newGetConfig pClientArn_ pClientVersion_ =
   GetConfig'
     { clientArn = pClientArn_,
       clientVersion = pClientVersion_,
-      hapgList = Core.mempty
+      hapgList = Prelude.mempty
     }
 
 -- | The ARN of the client.
-getConfig_clientArn :: Lens.Lens' GetConfig Core.Text
+getConfig_clientArn :: Lens.Lens' GetConfig Prelude.Text
 getConfig_clientArn = Lens.lens (\GetConfig' {clientArn} -> clientArn) (\s@GetConfig' {} a -> s {clientArn = a} :: GetConfig)
 
 -- | The client version.
@@ -113,8 +114,8 @@ getConfig_clientVersion = Lens.lens (\GetConfig' {clientVersion} -> clientVersio
 
 -- | A list of ARNs that identify the high-availability partition groups that
 -- are associated with the client.
-getConfig_hapgList :: Lens.Lens' GetConfig [Core.Text]
-getConfig_hapgList = Lens.lens (\GetConfig' {hapgList} -> hapgList) (\s@GetConfig' {} a -> s {hapgList = a} :: GetConfig) Core.. Lens._Coerce
+getConfig_hapgList :: Lens.Lens' GetConfig [Prelude.Text]
+getConfig_hapgList = Lens.lens (\GetConfig' {hapgList} -> hapgList) (\s@GetConfig' {} a -> s {hapgList = a} :: GetConfig) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetConfig where
   type AWSResponse GetConfig = GetConfigResponse
@@ -123,57 +124,59 @@ instance Core.AWSRequest GetConfig where
     Response.receiveJSON
       ( \s h x ->
           GetConfigResponse'
-            Core.<$> (x Core..?> "ConfigFile")
-            Core.<*> (x Core..?> "ConfigCred")
-            Core.<*> (x Core..?> "ConfigType")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ConfigFile")
+            Prelude.<*> (x Core..?> "ConfigCred")
+            Prelude.<*> (x Core..?> "ConfigType")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetConfig
+instance Prelude.Hashable GetConfig
 
-instance Core.NFData GetConfig
+instance Prelude.NFData GetConfig
 
 instance Core.ToHeaders GetConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CloudHsmFrontendService.GetConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetConfig where
   toJSON GetConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ClientArn" Core..= clientArn),
-            Core.Just ("ClientVersion" Core..= clientVersion),
-            Core.Just ("HapgList" Core..= hapgList)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ClientArn" Core..= clientArn),
+            Prelude.Just ("ClientVersion" Core..= clientVersion),
+            Prelude.Just ("HapgList" Core..= hapgList)
           ]
       )
 
 instance Core.ToPath GetConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConfigResponse' smart constructor.
 data GetConfigResponse = GetConfigResponse'
   { -- | The chrystoki.conf configuration file.
-    configFile :: Core.Maybe Core.Text,
+    configFile :: Prelude.Maybe Prelude.Text,
     -- | The certificate file containing the server.pem files of the HSMs.
-    configCred :: Core.Maybe Core.Text,
+    configCred :: Prelude.Maybe Prelude.Text,
     -- | The type of credentials.
-    configType :: Core.Maybe Core.Text,
+    configType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConfigResponse' with all optional fields omitted.
@@ -192,30 +195,30 @@ data GetConfigResponse = GetConfigResponse'
 -- 'httpStatus', 'getConfigResponse_httpStatus' - The response's http status code.
 newGetConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetConfigResponse
 newGetConfigResponse pHttpStatus_ =
   GetConfigResponse'
-    { configFile = Core.Nothing,
-      configCred = Core.Nothing,
-      configType = Core.Nothing,
+    { configFile = Prelude.Nothing,
+      configCred = Prelude.Nothing,
+      configType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The chrystoki.conf configuration file.
-getConfigResponse_configFile :: Lens.Lens' GetConfigResponse (Core.Maybe Core.Text)
+getConfigResponse_configFile :: Lens.Lens' GetConfigResponse (Prelude.Maybe Prelude.Text)
 getConfigResponse_configFile = Lens.lens (\GetConfigResponse' {configFile} -> configFile) (\s@GetConfigResponse' {} a -> s {configFile = a} :: GetConfigResponse)
 
 -- | The certificate file containing the server.pem files of the HSMs.
-getConfigResponse_configCred :: Lens.Lens' GetConfigResponse (Core.Maybe Core.Text)
+getConfigResponse_configCred :: Lens.Lens' GetConfigResponse (Prelude.Maybe Prelude.Text)
 getConfigResponse_configCred = Lens.lens (\GetConfigResponse' {configCred} -> configCred) (\s@GetConfigResponse' {} a -> s {configCred = a} :: GetConfigResponse)
 
 -- | The type of credentials.
-getConfigResponse_configType :: Lens.Lens' GetConfigResponse (Core.Maybe Core.Text)
+getConfigResponse_configType :: Lens.Lens' GetConfigResponse (Prelude.Maybe Prelude.Text)
 getConfigResponse_configType = Lens.lens (\GetConfigResponse' {configType} -> configType) (\s@GetConfigResponse' {} a -> s {configType = a} :: GetConfigResponse)
 
 -- | The response's http status code.
-getConfigResponse_httpStatus :: Lens.Lens' GetConfigResponse Core.Int
+getConfigResponse_httpStatus :: Lens.Lens' GetConfigResponse Prelude.Int
 getConfigResponse_httpStatus = Lens.lens (\GetConfigResponse' {httpStatus} -> httpStatus) (\s@GetConfigResponse' {} a -> s {httpStatus = a} :: GetConfigResponse)
 
-instance Core.NFData GetConfigResponse
+instance Prelude.NFData GetConfigResponse

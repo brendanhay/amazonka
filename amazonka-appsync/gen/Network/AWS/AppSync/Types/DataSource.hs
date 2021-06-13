@@ -27,28 +27,29 @@ import Network.AWS.AppSync.Types.LambdaDataSourceConfig
 import Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a data source.
 --
 -- /See:/ 'newDataSource' smart constructor.
 data DataSource = DataSource'
   { -- | Relational database settings.
-    relationalDatabaseConfig :: Core.Maybe RelationalDatabaseDataSourceConfig,
+    relationalDatabaseConfig :: Prelude.Maybe RelationalDatabaseDataSourceConfig,
     -- | The AWS IAM service role ARN for the data source. The system assumes
     -- this role when accessing the data source.
-    serviceRoleArn :: Core.Maybe Core.Text,
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Amazon Elasticsearch Service settings.
-    elasticsearchConfig :: Core.Maybe ElasticsearchDataSourceConfig,
+    elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
     -- | AWS Lambda settings.
-    lambdaConfig :: Core.Maybe LambdaDataSourceConfig,
+    lambdaConfig :: Prelude.Maybe LambdaDataSourceConfig,
     -- | The name of the data source.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Amazon DynamoDB settings.
-    dynamodbConfig :: Core.Maybe DynamodbDataSourceConfig,
+    dynamodbConfig :: Prelude.Maybe DynamodbDataSourceConfig,
     -- | The description of the data source.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The data source ARN.
-    dataSourceArn :: Core.Maybe Core.Text,
+    dataSourceArn :: Prelude.Maybe Prelude.Text,
     -- | The type of the data source.
     --
     -- -   __AMAZON_DYNAMODB__: The data source is an Amazon DynamoDB table.
@@ -66,11 +67,11 @@ data DataSource = DataSource'
     -- -   __HTTP__: The data source is an HTTP endpoint.
     --
     -- -   __RELATIONAL_DATABASE__: The data source is a relational database.
-    type' :: Core.Maybe DataSourceType,
+    type' :: Prelude.Maybe DataSourceType,
     -- | HTTP endpoint settings.
-    httpConfig :: Core.Maybe HttpDataSourceConfig
+    httpConfig :: Prelude.Maybe HttpDataSourceConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataSource' with all optional fields omitted.
@@ -121,49 +122,49 @@ newDataSource ::
 newDataSource =
   DataSource'
     { relationalDatabaseConfig =
-        Core.Nothing,
-      serviceRoleArn = Core.Nothing,
-      elasticsearchConfig = Core.Nothing,
-      lambdaConfig = Core.Nothing,
-      name = Core.Nothing,
-      dynamodbConfig = Core.Nothing,
-      description = Core.Nothing,
-      dataSourceArn = Core.Nothing,
-      type' = Core.Nothing,
-      httpConfig = Core.Nothing
+        Prelude.Nothing,
+      serviceRoleArn = Prelude.Nothing,
+      elasticsearchConfig = Prelude.Nothing,
+      lambdaConfig = Prelude.Nothing,
+      name = Prelude.Nothing,
+      dynamodbConfig = Prelude.Nothing,
+      description = Prelude.Nothing,
+      dataSourceArn = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      httpConfig = Prelude.Nothing
     }
 
 -- | Relational database settings.
-dataSource_relationalDatabaseConfig :: Lens.Lens' DataSource (Core.Maybe RelationalDatabaseDataSourceConfig)
+dataSource_relationalDatabaseConfig :: Lens.Lens' DataSource (Prelude.Maybe RelationalDatabaseDataSourceConfig)
 dataSource_relationalDatabaseConfig = Lens.lens (\DataSource' {relationalDatabaseConfig} -> relationalDatabaseConfig) (\s@DataSource' {} a -> s {relationalDatabaseConfig = a} :: DataSource)
 
 -- | The AWS IAM service role ARN for the data source. The system assumes
 -- this role when accessing the data source.
-dataSource_serviceRoleArn :: Lens.Lens' DataSource (Core.Maybe Core.Text)
+dataSource_serviceRoleArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_serviceRoleArn = Lens.lens (\DataSource' {serviceRoleArn} -> serviceRoleArn) (\s@DataSource' {} a -> s {serviceRoleArn = a} :: DataSource)
 
 -- | Amazon Elasticsearch Service settings.
-dataSource_elasticsearchConfig :: Lens.Lens' DataSource (Core.Maybe ElasticsearchDataSourceConfig)
+dataSource_elasticsearchConfig :: Lens.Lens' DataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 dataSource_elasticsearchConfig = Lens.lens (\DataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@DataSource' {} a -> s {elasticsearchConfig = a} :: DataSource)
 
 -- | AWS Lambda settings.
-dataSource_lambdaConfig :: Lens.Lens' DataSource (Core.Maybe LambdaDataSourceConfig)
+dataSource_lambdaConfig :: Lens.Lens' DataSource (Prelude.Maybe LambdaDataSourceConfig)
 dataSource_lambdaConfig = Lens.lens (\DataSource' {lambdaConfig} -> lambdaConfig) (\s@DataSource' {} a -> s {lambdaConfig = a} :: DataSource)
 
 -- | The name of the data source.
-dataSource_name :: Lens.Lens' DataSource (Core.Maybe Core.Text)
+dataSource_name :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_name = Lens.lens (\DataSource' {name} -> name) (\s@DataSource' {} a -> s {name = a} :: DataSource)
 
 -- | Amazon DynamoDB settings.
-dataSource_dynamodbConfig :: Lens.Lens' DataSource (Core.Maybe DynamodbDataSourceConfig)
+dataSource_dynamodbConfig :: Lens.Lens' DataSource (Prelude.Maybe DynamodbDataSourceConfig)
 dataSource_dynamodbConfig = Lens.lens (\DataSource' {dynamodbConfig} -> dynamodbConfig) (\s@DataSource' {} a -> s {dynamodbConfig = a} :: DataSource)
 
 -- | The description of the data source.
-dataSource_description :: Lens.Lens' DataSource (Core.Maybe Core.Text)
+dataSource_description :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_description = Lens.lens (\DataSource' {description} -> description) (\s@DataSource' {} a -> s {description = a} :: DataSource)
 
 -- | The data source ARN.
-dataSource_dataSourceArn :: Lens.Lens' DataSource (Core.Maybe Core.Text)
+dataSource_dataSourceArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_dataSourceArn = Lens.lens (\DataSource' {dataSourceArn} -> dataSourceArn) (\s@DataSource' {} a -> s {dataSourceArn = a} :: DataSource)
 
 -- | The type of the data source.
@@ -183,11 +184,11 @@ dataSource_dataSourceArn = Lens.lens (\DataSource' {dataSourceArn} -> dataSource
 -- -   __HTTP__: The data source is an HTTP endpoint.
 --
 -- -   __RELATIONAL_DATABASE__: The data source is a relational database.
-dataSource_type :: Lens.Lens' DataSource (Core.Maybe DataSourceType)
+dataSource_type :: Lens.Lens' DataSource (Prelude.Maybe DataSourceType)
 dataSource_type = Lens.lens (\DataSource' {type'} -> type') (\s@DataSource' {} a -> s {type' = a} :: DataSource)
 
 -- | HTTP endpoint settings.
-dataSource_httpConfig :: Lens.Lens' DataSource (Core.Maybe HttpDataSourceConfig)
+dataSource_httpConfig :: Lens.Lens' DataSource (Prelude.Maybe HttpDataSourceConfig)
 dataSource_httpConfig = Lens.lens (\DataSource' {httpConfig} -> httpConfig) (\s@DataSource' {} a -> s {httpConfig = a} :: DataSource)
 
 instance Core.FromJSON DataSource where
@@ -196,18 +197,18 @@ instance Core.FromJSON DataSource where
       "DataSource"
       ( \x ->
           DataSource'
-            Core.<$> (x Core..:? "relationalDatabaseConfig")
-            Core.<*> (x Core..:? "serviceRoleArn")
-            Core.<*> (x Core..:? "elasticsearchConfig")
-            Core.<*> (x Core..:? "lambdaConfig")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "dynamodbConfig")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "dataSourceArn")
-            Core.<*> (x Core..:? "type")
-            Core.<*> (x Core..:? "httpConfig")
+            Prelude.<$> (x Core..:? "relationalDatabaseConfig")
+            Prelude.<*> (x Core..:? "serviceRoleArn")
+            Prelude.<*> (x Core..:? "elasticsearchConfig")
+            Prelude.<*> (x Core..:? "lambdaConfig")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "dynamodbConfig")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "dataSourceArn")
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "httpConfig")
       )
 
-instance Core.Hashable DataSource
+instance Prelude.Hashable DataSource
 
-instance Core.NFData DataSource
+instance Prelude.NFData DataSource

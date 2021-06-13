@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.FleetUtilization where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Current status of fleet utilization, including the number of game and
 -- player sessions being hosted.
@@ -41,20 +42,20 @@ import qualified Network.AWS.Lens as Lens
 data FleetUtilization = FleetUtilization'
   { -- | Number of active game sessions currently being hosted on all instances
     -- in the fleet.
-    activeGameSessionCount :: Core.Maybe Core.Natural,
+    activeGameSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | Number of active player sessions currently being hosted on all instances
     -- in the fleet.
-    currentPlayerSessionCount :: Core.Maybe Core.Natural,
+    currentPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of players allowed across all game sessions currently
     -- being hosted on all instances in the fleet.
-    maximumPlayerSessionCount :: Core.Maybe Core.Natural,
+    maximumPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for a fleet.
-    fleetId :: Core.Maybe Core.Text,
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | Number of server processes in an @ACTIVE@ status currently running
     -- across all instances in the fleet
-    activeServerProcessCount :: Core.Maybe Core.Natural
+    activeServerProcessCount :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetUtilization' with all optional fields omitted.
@@ -82,35 +83,35 @@ newFleetUtilization ::
 newFleetUtilization =
   FleetUtilization'
     { activeGameSessionCount =
-        Core.Nothing,
-      currentPlayerSessionCount = Core.Nothing,
-      maximumPlayerSessionCount = Core.Nothing,
-      fleetId = Core.Nothing,
-      activeServerProcessCount = Core.Nothing
+        Prelude.Nothing,
+      currentPlayerSessionCount = Prelude.Nothing,
+      maximumPlayerSessionCount = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
+      activeServerProcessCount = Prelude.Nothing
     }
 
 -- | Number of active game sessions currently being hosted on all instances
 -- in the fleet.
-fleetUtilization_activeGameSessionCount :: Lens.Lens' FleetUtilization (Core.Maybe Core.Natural)
+fleetUtilization_activeGameSessionCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
 fleetUtilization_activeGameSessionCount = Lens.lens (\FleetUtilization' {activeGameSessionCount} -> activeGameSessionCount) (\s@FleetUtilization' {} a -> s {activeGameSessionCount = a} :: FleetUtilization)
 
 -- | Number of active player sessions currently being hosted on all instances
 -- in the fleet.
-fleetUtilization_currentPlayerSessionCount :: Lens.Lens' FleetUtilization (Core.Maybe Core.Natural)
+fleetUtilization_currentPlayerSessionCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
 fleetUtilization_currentPlayerSessionCount = Lens.lens (\FleetUtilization' {currentPlayerSessionCount} -> currentPlayerSessionCount) (\s@FleetUtilization' {} a -> s {currentPlayerSessionCount = a} :: FleetUtilization)
 
 -- | The maximum number of players allowed across all game sessions currently
 -- being hosted on all instances in the fleet.
-fleetUtilization_maximumPlayerSessionCount :: Lens.Lens' FleetUtilization (Core.Maybe Core.Natural)
+fleetUtilization_maximumPlayerSessionCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
 fleetUtilization_maximumPlayerSessionCount = Lens.lens (\FleetUtilization' {maximumPlayerSessionCount} -> maximumPlayerSessionCount) (\s@FleetUtilization' {} a -> s {maximumPlayerSessionCount = a} :: FleetUtilization)
 
 -- | A unique identifier for a fleet.
-fleetUtilization_fleetId :: Lens.Lens' FleetUtilization (Core.Maybe Core.Text)
+fleetUtilization_fleetId :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Text)
 fleetUtilization_fleetId = Lens.lens (\FleetUtilization' {fleetId} -> fleetId) (\s@FleetUtilization' {} a -> s {fleetId = a} :: FleetUtilization)
 
 -- | Number of server processes in an @ACTIVE@ status currently running
 -- across all instances in the fleet
-fleetUtilization_activeServerProcessCount :: Lens.Lens' FleetUtilization (Core.Maybe Core.Natural)
+fleetUtilization_activeServerProcessCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
 fleetUtilization_activeServerProcessCount = Lens.lens (\FleetUtilization' {activeServerProcessCount} -> activeServerProcessCount) (\s@FleetUtilization' {} a -> s {activeServerProcessCount = a} :: FleetUtilization)
 
 instance Core.FromJSON FleetUtilization where
@@ -119,13 +120,13 @@ instance Core.FromJSON FleetUtilization where
       "FleetUtilization"
       ( \x ->
           FleetUtilization'
-            Core.<$> (x Core..:? "ActiveGameSessionCount")
-            Core.<*> (x Core..:? "CurrentPlayerSessionCount")
-            Core.<*> (x Core..:? "MaximumPlayerSessionCount")
-            Core.<*> (x Core..:? "FleetId")
-            Core.<*> (x Core..:? "ActiveServerProcessCount")
+            Prelude.<$> (x Core..:? "ActiveGameSessionCount")
+            Prelude.<*> (x Core..:? "CurrentPlayerSessionCount")
+            Prelude.<*> (x Core..:? "MaximumPlayerSessionCount")
+            Prelude.<*> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "ActiveServerProcessCount")
       )
 
-instance Core.Hashable FleetUtilization
+instance Prelude.Hashable FleetUtilization
 
-instance Core.NFData FleetUtilization
+instance Prelude.NFData FleetUtilization

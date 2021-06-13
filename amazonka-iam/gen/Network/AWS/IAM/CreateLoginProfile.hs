@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +62,7 @@ import qualified Network.AWS.Response as Response
 data CreateLoginProfile = CreateLoginProfile'
   { -- | Specifies whether the user is required to set a new password on next
     -- sign-in.
-    passwordResetRequired :: Core.Maybe Core.Bool,
+    passwordResetRequired :: Prelude.Maybe Prelude.Bool,
     -- | The name of the IAM user to create a password for. The user must already
     -- exist.
     --
@@ -69,7 +70,7 @@ data CreateLoginProfile = CreateLoginProfile'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The new password for the user.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
@@ -81,9 +82,9 @@ data CreateLoginProfile = CreateLoginProfile'
     -- However, many tools, such as the AWS Management Console, might restrict
     -- the ability to type certain characters because they have special meaning
     -- within that tool.
-    password :: Core.Sensitive Core.Text
+    password :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLoginProfile' with all optional fields omitted.
@@ -117,21 +118,21 @@ data CreateLoginProfile = CreateLoginProfile'
 -- within that tool.
 newCreateLoginProfile ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'password'
-  Core.Text ->
+  Prelude.Text ->
   CreateLoginProfile
 newCreateLoginProfile pUserName_ pPassword_ =
   CreateLoginProfile'
     { passwordResetRequired =
-        Core.Nothing,
+        Prelude.Nothing,
       userName = pUserName_,
       password = Core._Sensitive Lens.# pPassword_
     }
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
-createLoginProfile_passwordResetRequired :: Lens.Lens' CreateLoginProfile (Core.Maybe Core.Bool)
+createLoginProfile_passwordResetRequired :: Lens.Lens' CreateLoginProfile (Prelude.Maybe Prelude.Bool)
 createLoginProfile_passwordResetRequired = Lens.lens (\CreateLoginProfile' {passwordResetRequired} -> passwordResetRequired) (\s@CreateLoginProfile' {} a -> s {passwordResetRequired = a} :: CreateLoginProfile)
 
 -- | The name of the IAM user to create a password for. The user must already
@@ -141,7 +142,7 @@ createLoginProfile_passwordResetRequired = Lens.lens (\CreateLoginProfile' {pass
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-createLoginProfile_userName :: Lens.Lens' CreateLoginProfile Core.Text
+createLoginProfile_userName :: Lens.Lens' CreateLoginProfile Prelude.Text
 createLoginProfile_userName = Lens.lens (\CreateLoginProfile' {userName} -> userName) (\s@CreateLoginProfile' {} a -> s {userName = a} :: CreateLoginProfile)
 
 -- | The new password for the user.
@@ -155,8 +156,8 @@ createLoginProfile_userName = Lens.lens (\CreateLoginProfile' {userName} -> user
 -- However, many tools, such as the AWS Management Console, might restrict
 -- the ability to type certain characters because they have special meaning
 -- within that tool.
-createLoginProfile_password :: Lens.Lens' CreateLoginProfile Core.Text
-createLoginProfile_password = Lens.lens (\CreateLoginProfile' {password} -> password) (\s@CreateLoginProfile' {} a -> s {password = a} :: CreateLoginProfile) Core.. Core._Sensitive
+createLoginProfile_password :: Lens.Lens' CreateLoginProfile Prelude.Text
+createLoginProfile_password = Lens.lens (\CreateLoginProfile' {password} -> password) (\s@CreateLoginProfile' {} a -> s {password = a} :: CreateLoginProfile) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest CreateLoginProfile where
   type
@@ -168,26 +169,27 @@ instance Core.AWSRequest CreateLoginProfile where
       "CreateLoginProfileResult"
       ( \s h x ->
           CreateLoginProfileResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "LoginProfile")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "LoginProfile")
       )
 
-instance Core.Hashable CreateLoginProfile
+instance Prelude.Hashable CreateLoginProfile
 
-instance Core.NFData CreateLoginProfile
+instance Prelude.NFData CreateLoginProfile
 
 instance Core.ToHeaders CreateLoginProfile where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateLoginProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateLoginProfile where
   toQuery CreateLoginProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLoginProfile" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("CreateLoginProfile" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PasswordResetRequired"
           Core.=: passwordResetRequired,
         "UserName" Core.=: userName,
@@ -199,11 +201,11 @@ instance Core.ToQuery CreateLoginProfile where
 -- /See:/ 'newCreateLoginProfileResponse' smart constructor.
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A structure containing the user name and password create date.
     loginProfile :: LoginProfile
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLoginProfileResponse' with all optional fields omitted.
@@ -218,7 +220,7 @@ data CreateLoginProfileResponse = CreateLoginProfileResponse'
 -- 'loginProfile', 'createLoginProfileResponse_loginProfile' - A structure containing the user name and password create date.
 newCreateLoginProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'loginProfile'
   LoginProfile ->
   CreateLoginProfileResponse
@@ -232,11 +234,11 @@ newCreateLoginProfileResponse
       }
 
 -- | The response's http status code.
-createLoginProfileResponse_httpStatus :: Lens.Lens' CreateLoginProfileResponse Core.Int
+createLoginProfileResponse_httpStatus :: Lens.Lens' CreateLoginProfileResponse Prelude.Int
 createLoginProfileResponse_httpStatus = Lens.lens (\CreateLoginProfileResponse' {httpStatus} -> httpStatus) (\s@CreateLoginProfileResponse' {} a -> s {httpStatus = a} :: CreateLoginProfileResponse)
 
 -- | A structure containing the user name and password create date.
 createLoginProfileResponse_loginProfile :: Lens.Lens' CreateLoginProfileResponse LoginProfile
 createLoginProfileResponse_loginProfile = Lens.lens (\CreateLoginProfileResponse' {loginProfile} -> loginProfile) (\s@CreateLoginProfileResponse' {} a -> s {loginProfile = a} :: CreateLoginProfileResponse)
 
-instance Core.NFData CreateLoginProfileResponse
+instance Prelude.NFData CreateLoginProfileResponse

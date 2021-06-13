@@ -46,15 +46,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateElasticIp' smart constructor.
 data DisassociateElasticIp = DisassociateElasticIp'
   { -- | The Elastic IP address.
-    elasticIp :: Core.Text
+    elasticIp :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateElasticIp' with all optional fields omitted.
@@ -67,13 +68,13 @@ data DisassociateElasticIp = DisassociateElasticIp'
 -- 'elasticIp', 'disassociateElasticIp_elasticIp' - The Elastic IP address.
 newDisassociateElasticIp ::
   -- | 'elasticIp'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateElasticIp
 newDisassociateElasticIp pElasticIp_ =
   DisassociateElasticIp' {elasticIp = pElasticIp_}
 
 -- | The Elastic IP address.
-disassociateElasticIp_elasticIp :: Lens.Lens' DisassociateElasticIp Core.Text
+disassociateElasticIp_elasticIp :: Lens.Lens' DisassociateElasticIp Prelude.Text
 disassociateElasticIp_elasticIp = Lens.lens (\DisassociateElasticIp' {elasticIp} -> elasticIp) (\s@DisassociateElasticIp' {} a -> s {elasticIp = a} :: DisassociateElasticIp)
 
 instance Core.AWSRequest DisassociateElasticIp where
@@ -84,41 +85,43 @@ instance Core.AWSRequest DisassociateElasticIp where
   response =
     Response.receiveNull DisassociateElasticIpResponse'
 
-instance Core.Hashable DisassociateElasticIp
+instance Prelude.Hashable DisassociateElasticIp
 
-instance Core.NFData DisassociateElasticIp
+instance Prelude.NFData DisassociateElasticIp
 
 instance Core.ToHeaders DisassociateElasticIp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DisassociateElasticIp" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateElasticIp where
   toJSON DisassociateElasticIp' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ElasticIp" Core..= elasticIp)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ElasticIp" Core..= elasticIp)]
       )
 
 instance Core.ToPath DisassociateElasticIp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateElasticIp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateElasticIpResponse' smart constructor.
 data DisassociateElasticIpResponse = DisassociateElasticIpResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateElasticIpResponse' with all optional fields omitted.
@@ -129,4 +132,4 @@ newDisassociateElasticIpResponse ::
 newDisassociateElasticIpResponse =
   DisassociateElasticIpResponse'
 
-instance Core.NFData DisassociateElasticIpResponse
+instance Prelude.NFData DisassociateElasticIpResponse

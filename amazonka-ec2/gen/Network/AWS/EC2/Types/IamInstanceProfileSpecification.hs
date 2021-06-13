@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.IamInstanceProfileSpecification where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IAM instance profile.
 --
 -- /See:/ 'newIamInstanceProfileSpecification' smart constructor.
 data IamInstanceProfileSpecification = IamInstanceProfileSpecification'
   { -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the instance profile.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IamInstanceProfileSpecification' with all optional fields omitted.
@@ -50,30 +51,32 @@ newIamInstanceProfileSpecification ::
 newIamInstanceProfileSpecification =
   IamInstanceProfileSpecification'
     { arn =
-        Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-iamInstanceProfileSpecification_arn :: Lens.Lens' IamInstanceProfileSpecification (Core.Maybe Core.Text)
+iamInstanceProfileSpecification_arn :: Lens.Lens' IamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
 iamInstanceProfileSpecification_arn = Lens.lens (\IamInstanceProfileSpecification' {arn} -> arn) (\s@IamInstanceProfileSpecification' {} a -> s {arn = a} :: IamInstanceProfileSpecification)
 
 -- | The name of the instance profile.
-iamInstanceProfileSpecification_name :: Lens.Lens' IamInstanceProfileSpecification (Core.Maybe Core.Text)
+iamInstanceProfileSpecification_name :: Lens.Lens' IamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
 iamInstanceProfileSpecification_name = Lens.lens (\IamInstanceProfileSpecification' {name} -> name) (\s@IamInstanceProfileSpecification' {} a -> s {name = a} :: IamInstanceProfileSpecification)
 
 instance Core.FromXML IamInstanceProfileSpecification where
   parseXML x =
     IamInstanceProfileSpecification'
-      Core.<$> (x Core..@? "arn") Core.<*> (x Core..@? "name")
+      Prelude.<$> (x Core..@? "arn") Prelude.<*> (x Core..@? "name")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     IamInstanceProfileSpecification
 
-instance Core.NFData IamInstanceProfileSpecification
+instance
+  Prelude.NFData
+    IamInstanceProfileSpecification
 
 instance Core.ToQuery IamInstanceProfileSpecification where
   toQuery IamInstanceProfileSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Arn" Core.=: arn, "Name" Core.=: name]

@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -50,16 +51,16 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newDeleteLabels' smart constructor.
 data DeleteLabels = DeleteLabels'
   { -- | List of labels to delete from the resource.
-    labels :: Core.Maybe [Core.Text],
+    labels :: Prelude.Maybe [Prelude.Text],
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Flag to request removal of all labels from the specified resource.
-    deleteAll :: Core.Maybe Core.Bool,
+    deleteAll :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the resource.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLabels' with all optional fields omitted.
@@ -79,31 +80,31 @@ data DeleteLabels = DeleteLabels'
 -- 'resourceId', 'deleteLabels_resourceId' - The ID of the resource.
 newDeleteLabels ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLabels
 newDeleteLabels pResourceId_ =
   DeleteLabels'
-    { labels = Core.Nothing,
-      authenticationToken = Core.Nothing,
-      deleteAll = Core.Nothing,
+    { labels = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      deleteAll = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
 -- | List of labels to delete from the resource.
-deleteLabels_labels :: Lens.Lens' DeleteLabels (Core.Maybe [Core.Text])
-deleteLabels_labels = Lens.lens (\DeleteLabels' {labels} -> labels) (\s@DeleteLabels' {} a -> s {labels = a} :: DeleteLabels) Core.. Lens.mapping Lens._Coerce
+deleteLabels_labels :: Lens.Lens' DeleteLabels (Prelude.Maybe [Prelude.Text])
+deleteLabels_labels = Lens.lens (\DeleteLabels' {labels} -> labels) (\s@DeleteLabels' {} a -> s {labels = a} :: DeleteLabels) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-deleteLabels_authenticationToken :: Lens.Lens' DeleteLabels (Core.Maybe Core.Text)
-deleteLabels_authenticationToken = Lens.lens (\DeleteLabels' {authenticationToken} -> authenticationToken) (\s@DeleteLabels' {} a -> s {authenticationToken = a} :: DeleteLabels) Core.. Lens.mapping Core._Sensitive
+deleteLabels_authenticationToken :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Text)
+deleteLabels_authenticationToken = Lens.lens (\DeleteLabels' {authenticationToken} -> authenticationToken) (\s@DeleteLabels' {} a -> s {authenticationToken = a} :: DeleteLabels) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Flag to request removal of all labels from the specified resource.
-deleteLabels_deleteAll :: Lens.Lens' DeleteLabels (Core.Maybe Core.Bool)
+deleteLabels_deleteAll :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Bool)
 deleteLabels_deleteAll = Lens.lens (\DeleteLabels' {deleteAll} -> deleteAll) (\s@DeleteLabels' {} a -> s {deleteAll = a} :: DeleteLabels)
 
 -- | The ID of the resource.
-deleteLabels_resourceId :: Lens.Lens' DeleteLabels Core.Text
+deleteLabels_resourceId :: Lens.Lens' DeleteLabels Prelude.Text
 deleteLabels_resourceId = Lens.lens (\DeleteLabels' {resourceId} -> resourceId) (\s@DeleteLabels' {} a -> s {resourceId = a} :: DeleteLabels)
 
 instance Core.AWSRequest DeleteLabels where
@@ -113,24 +114,24 @@ instance Core.AWSRequest DeleteLabels where
     Response.receiveEmpty
       ( \s h x ->
           DeleteLabelsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteLabels
+instance Prelude.Hashable DeleteLabels
 
-instance Core.NFData DeleteLabels
+instance Prelude.NFData DeleteLabels
 
 instance Core.ToHeaders DeleteLabels where
   toHeaders DeleteLabels' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DeleteLabels where
   toPath DeleteLabels' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/api/v1/resources/",
         Core.toBS resourceId,
         "/labels"
@@ -138,19 +139,19 @@ instance Core.ToPath DeleteLabels where
 
 instance Core.ToQuery DeleteLabels where
   toQuery DeleteLabels' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "labels"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> labels),
+            (Core.toQueryList "member" Prelude.<$> labels),
         "deleteAll" Core.=: deleteAll
       ]
 
 -- | /See:/ 'newDeleteLabelsResponse' smart constructor.
 data DeleteLabelsResponse = DeleteLabelsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLabelsResponse' with all optional fields omitted.
@@ -163,13 +164,13 @@ data DeleteLabelsResponse = DeleteLabelsResponse'
 -- 'httpStatus', 'deleteLabelsResponse_httpStatus' - The response's http status code.
 newDeleteLabelsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLabelsResponse
 newDeleteLabelsResponse pHttpStatus_ =
   DeleteLabelsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteLabelsResponse_httpStatus :: Lens.Lens' DeleteLabelsResponse Core.Int
+deleteLabelsResponse_httpStatus :: Lens.Lens' DeleteLabelsResponse Prelude.Int
 deleteLabelsResponse_httpStatus = Lens.lens (\DeleteLabelsResponse' {httpStatus} -> httpStatus) (\s@DeleteLabelsResponse' {} a -> s {httpStatus = a} :: DeleteLabelsResponse)
 
-instance Core.NFData DeleteLabelsResponse
+instance Prelude.NFData DeleteLabelsResponse

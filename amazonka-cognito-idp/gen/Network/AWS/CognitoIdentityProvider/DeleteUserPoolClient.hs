@@ -39,6 +39,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteUserPoolClient' smart constructor.
 data DeleteUserPoolClient = DeleteUserPoolClient'
   { -- | The user pool ID for the user pool where you want to delete the client.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The app client ID of the app associated with the user pool.
-    clientId :: Core.Sensitive Core.Text
+    clientId :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPoolClient' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteUserPoolClient = DeleteUserPoolClient'
 -- 'clientId', 'deleteUserPoolClient_clientId' - The app client ID of the app associated with the user pool.
 newDeleteUserPoolClient ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserPoolClient
 newDeleteUserPoolClient pUserPoolId_ pClientId_ =
   DeleteUserPoolClient'
@@ -77,12 +78,12 @@ newDeleteUserPoolClient pUserPoolId_ pClientId_ =
     }
 
 -- | The user pool ID for the user pool where you want to delete the client.
-deleteUserPoolClient_userPoolId :: Lens.Lens' DeleteUserPoolClient Core.Text
+deleteUserPoolClient_userPoolId :: Lens.Lens' DeleteUserPoolClient Prelude.Text
 deleteUserPoolClient_userPoolId = Lens.lens (\DeleteUserPoolClient' {userPoolId} -> userPoolId) (\s@DeleteUserPoolClient' {} a -> s {userPoolId = a} :: DeleteUserPoolClient)
 
 -- | The app client ID of the app associated with the user pool.
-deleteUserPoolClient_clientId :: Lens.Lens' DeleteUserPoolClient Core.Text
-deleteUserPoolClient_clientId = Lens.lens (\DeleteUserPoolClient' {clientId} -> clientId) (\s@DeleteUserPoolClient' {} a -> s {clientId = a} :: DeleteUserPoolClient) Core.. Core._Sensitive
+deleteUserPoolClient_clientId :: Lens.Lens' DeleteUserPoolClient Prelude.Text
+deleteUserPoolClient_clientId = Lens.lens (\DeleteUserPoolClient' {clientId} -> clientId) (\s@DeleteUserPoolClient' {} a -> s {clientId = a} :: DeleteUserPoolClient) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest DeleteUserPoolClient where
   type
@@ -92,43 +93,45 @@ instance Core.AWSRequest DeleteUserPoolClient where
   response =
     Response.receiveNull DeleteUserPoolClientResponse'
 
-instance Core.Hashable DeleteUserPoolClient
+instance Prelude.Hashable DeleteUserPoolClient
 
-instance Core.NFData DeleteUserPoolClient
+instance Prelude.NFData DeleteUserPoolClient
 
 instance Core.ToHeaders DeleteUserPoolClient where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.DeleteUserPoolClient" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUserPoolClient where
   toJSON DeleteUserPoolClient' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("ClientId" Core..= clientId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("ClientId" Core..= clientId)
           ]
       )
 
 instance Core.ToPath DeleteUserPoolClient where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUserPoolClient where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserPoolClientResponse' smart constructor.
 data DeleteUserPoolClientResponse = DeleteUserPoolClientResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPoolClientResponse' with all optional fields omitted.
@@ -139,4 +142,4 @@ newDeleteUserPoolClientResponse ::
 newDeleteUserPoolClientResponse =
   DeleteUserPoolClientResponse'
 
-instance Core.NFData DeleteUserPoolClientResponse
+instance Prelude.NFData DeleteUserPoolClientResponse

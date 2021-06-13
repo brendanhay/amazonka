@@ -52,18 +52,19 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
   { -- | The name of the Directory. Should be unique per account, per region.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the published schema that will be
     -- copied into the data Directory. For more information, see arns.
-    schemaArn :: Core.Text
+    schemaArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDirectory' with all optional fields omitted.
@@ -79,9 +80,9 @@ data CreateDirectory = CreateDirectory'
 -- copied into the data Directory. For more information, see arns.
 newCreateDirectory ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateDirectory
 newCreateDirectory pName_ pSchemaArn_ =
   CreateDirectory'
@@ -90,12 +91,12 @@ newCreateDirectory pName_ pSchemaArn_ =
     }
 
 -- | The name of the Directory. Should be unique per account, per region.
-createDirectory_name :: Lens.Lens' CreateDirectory Core.Text
+createDirectory_name :: Lens.Lens' CreateDirectory Prelude.Text
 createDirectory_name = Lens.lens (\CreateDirectory' {name} -> name) (\s@CreateDirectory' {} a -> s {name = a} :: CreateDirectory)
 
 -- | The Amazon Resource Name (ARN) of the published schema that will be
 -- copied into the data Directory. For more information, see arns.
-createDirectory_schemaArn :: Lens.Lens' CreateDirectory Core.Text
+createDirectory_schemaArn :: Lens.Lens' CreateDirectory Prelude.Text
 createDirectory_schemaArn = Lens.lens (\CreateDirectory' {schemaArn} -> schemaArn) (\s@CreateDirectory' {} a -> s {schemaArn = a} :: CreateDirectory)
 
 instance Core.AWSRequest CreateDirectory where
@@ -107,52 +108,54 @@ instance Core.AWSRequest CreateDirectory where
     Response.receiveJSON
       ( \s h x ->
           CreateDirectoryResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "DirectoryArn")
-            Core.<*> (x Core..:> "Name")
-            Core.<*> (x Core..:> "ObjectIdentifier")
-            Core.<*> (x Core..:> "AppliedSchemaArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "DirectoryArn")
+            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Core..:> "ObjectIdentifier")
+            Prelude.<*> (x Core..:> "AppliedSchemaArn")
       )
 
-instance Core.Hashable CreateDirectory
+instance Prelude.Hashable CreateDirectory
 
-instance Core.NFData CreateDirectory
+instance Prelude.NFData CreateDirectory
 
 instance Core.ToHeaders CreateDirectory where
   toHeaders CreateDirectory' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON CreateDirectory where
   toJSON CreateDirectory' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath CreateDirectory where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/directory/create"
 
 instance Core.ToQuery CreateDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The ARN that is associated with the Directory. For more information, see
     -- arns.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | The name of the Directory.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The root object node of the created directory.
-    objectIdentifier :: Core.Text,
+    objectIdentifier :: Prelude.Text,
     -- | The ARN of the published schema in the Directory. Once a published
     -- schema is copied into the directory, it has its own ARN, which is
     -- referred to applied schema ARN. For more information, see arns.
-    appliedSchemaArn :: Core.Text
+    appliedSchemaArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDirectoryResponse' with all optional fields omitted.
@@ -176,15 +179,15 @@ data CreateDirectoryResponse = CreateDirectoryResponse'
 -- referred to applied schema ARN. For more information, see arns.
 newCreateDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'objectIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'appliedSchemaArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateDirectoryResponse
 newCreateDirectoryResponse
   pHttpStatus_
@@ -201,26 +204,26 @@ newCreateDirectoryResponse
       }
 
 -- | The response's http status code.
-createDirectoryResponse_httpStatus :: Lens.Lens' CreateDirectoryResponse Core.Int
+createDirectoryResponse_httpStatus :: Lens.Lens' CreateDirectoryResponse Prelude.Int
 createDirectoryResponse_httpStatus = Lens.lens (\CreateDirectoryResponse' {httpStatus} -> httpStatus) (\s@CreateDirectoryResponse' {} a -> s {httpStatus = a} :: CreateDirectoryResponse)
 
 -- | The ARN that is associated with the Directory. For more information, see
 -- arns.
-createDirectoryResponse_directoryArn :: Lens.Lens' CreateDirectoryResponse Core.Text
+createDirectoryResponse_directoryArn :: Lens.Lens' CreateDirectoryResponse Prelude.Text
 createDirectoryResponse_directoryArn = Lens.lens (\CreateDirectoryResponse' {directoryArn} -> directoryArn) (\s@CreateDirectoryResponse' {} a -> s {directoryArn = a} :: CreateDirectoryResponse)
 
 -- | The name of the Directory.
-createDirectoryResponse_name :: Lens.Lens' CreateDirectoryResponse Core.Text
+createDirectoryResponse_name :: Lens.Lens' CreateDirectoryResponse Prelude.Text
 createDirectoryResponse_name = Lens.lens (\CreateDirectoryResponse' {name} -> name) (\s@CreateDirectoryResponse' {} a -> s {name = a} :: CreateDirectoryResponse)
 
 -- | The root object node of the created directory.
-createDirectoryResponse_objectIdentifier :: Lens.Lens' CreateDirectoryResponse Core.Text
+createDirectoryResponse_objectIdentifier :: Lens.Lens' CreateDirectoryResponse Prelude.Text
 createDirectoryResponse_objectIdentifier = Lens.lens (\CreateDirectoryResponse' {objectIdentifier} -> objectIdentifier) (\s@CreateDirectoryResponse' {} a -> s {objectIdentifier = a} :: CreateDirectoryResponse)
 
 -- | The ARN of the published schema in the Directory. Once a published
 -- schema is copied into the directory, it has its own ARN, which is
 -- referred to applied schema ARN. For more information, see arns.
-createDirectoryResponse_appliedSchemaArn :: Lens.Lens' CreateDirectoryResponse Core.Text
+createDirectoryResponse_appliedSchemaArn :: Lens.Lens' CreateDirectoryResponse Prelude.Text
 createDirectoryResponse_appliedSchemaArn = Lens.lens (\CreateDirectoryResponse' {appliedSchemaArn} -> appliedSchemaArn) (\s@CreateDirectoryResponse' {} a -> s {appliedSchemaArn = a} :: CreateDirectoryResponse)
 
-instance Core.NFData CreateDirectoryResponse
+instance Prelude.NFData CreateDirectoryResponse

@@ -29,6 +29,7 @@ module Network.AWS.MediaConvert.Types.BillingTagsSource
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The tag type that AWS Billing and Cost Management will use to sort your
 -- AWS Elemental MediaConvert costs on any billing report that you set up.
@@ -37,15 +38,15 @@ newtype BillingTagsSource = BillingTagsSource'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

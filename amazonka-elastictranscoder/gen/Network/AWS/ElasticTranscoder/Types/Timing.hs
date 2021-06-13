@@ -21,6 +21,7 @@ module Network.AWS.ElasticTranscoder.Types.Timing where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the timing of a job.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data Timing = Timing'
   { -- | The time the job was submitted to Elastic Transcoder, in epoch
     -- milliseconds.
-    submitTimeMillis :: Core.Maybe Core.Integer,
+    submitTimeMillis :: Prelude.Maybe Prelude.Integer,
     -- | The time the job began transcoding, in epoch milliseconds.
-    startTimeMillis :: Core.Maybe Core.Integer,
+    startTimeMillis :: Prelude.Maybe Prelude.Integer,
     -- | The time the job finished transcoding, in epoch milliseconds.
-    finishTimeMillis :: Core.Maybe Core.Integer
+    finishTimeMillis :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Timing' with all optional fields omitted.
@@ -54,22 +55,22 @@ newTiming ::
   Timing
 newTiming =
   Timing'
-    { submitTimeMillis = Core.Nothing,
-      startTimeMillis = Core.Nothing,
-      finishTimeMillis = Core.Nothing
+    { submitTimeMillis = Prelude.Nothing,
+      startTimeMillis = Prelude.Nothing,
+      finishTimeMillis = Prelude.Nothing
     }
 
 -- | The time the job was submitted to Elastic Transcoder, in epoch
 -- milliseconds.
-timing_submitTimeMillis :: Lens.Lens' Timing (Core.Maybe Core.Integer)
+timing_submitTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
 timing_submitTimeMillis = Lens.lens (\Timing' {submitTimeMillis} -> submitTimeMillis) (\s@Timing' {} a -> s {submitTimeMillis = a} :: Timing)
 
 -- | The time the job began transcoding, in epoch milliseconds.
-timing_startTimeMillis :: Lens.Lens' Timing (Core.Maybe Core.Integer)
+timing_startTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
 timing_startTimeMillis = Lens.lens (\Timing' {startTimeMillis} -> startTimeMillis) (\s@Timing' {} a -> s {startTimeMillis = a} :: Timing)
 
 -- | The time the job finished transcoding, in epoch milliseconds.
-timing_finishTimeMillis :: Lens.Lens' Timing (Core.Maybe Core.Integer)
+timing_finishTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
 timing_finishTimeMillis = Lens.lens (\Timing' {finishTimeMillis} -> finishTimeMillis) (\s@Timing' {} a -> s {finishTimeMillis = a} :: Timing)
 
 instance Core.FromJSON Timing where
@@ -78,11 +79,11 @@ instance Core.FromJSON Timing where
       "Timing"
       ( \x ->
           Timing'
-            Core.<$> (x Core..:? "SubmitTimeMillis")
-            Core.<*> (x Core..:? "StartTimeMillis")
-            Core.<*> (x Core..:? "FinishTimeMillis")
+            Prelude.<$> (x Core..:? "SubmitTimeMillis")
+            Prelude.<*> (x Core..:? "StartTimeMillis")
+            Prelude.<*> (x Core..:? "FinishTimeMillis")
       )
 
-instance Core.Hashable Timing
+instance Prelude.Hashable Timing
 
-instance Core.NFData Timing
+instance Prelude.NFData Timing

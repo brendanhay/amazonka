@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -59,9 +60,9 @@ import Network.AWS.WAF.Types
 data GetRule = GetRule'
   { -- | The @RuleId@ of the Rule that you want to get. @RuleId@ is returned by
     -- CreateRule and by ListRules.
-    ruleId :: Core.Text
+    ruleId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRule' with all optional fields omitted.
@@ -75,13 +76,13 @@ data GetRule = GetRule'
 -- CreateRule and by ListRules.
 newGetRule ::
   -- | 'ruleId'
-  Core.Text ->
+  Prelude.Text ->
   GetRule
 newGetRule pRuleId_ = GetRule' {ruleId = pRuleId_}
 
 -- | The @RuleId@ of the Rule that you want to get. @RuleId@ is returned by
 -- CreateRule and by ListRules.
-getRule_ruleId :: Lens.Lens' GetRule Core.Text
+getRule_ruleId :: Lens.Lens' GetRule Prelude.Text
 getRule_ruleId = Lens.lens (\GetRule' {ruleId} -> ruleId) (\s@GetRule' {} a -> s {ruleId = a} :: GetRule)
 
 instance Core.AWSRequest GetRule where
@@ -91,37 +92,39 @@ instance Core.AWSRequest GetRule where
     Response.receiveJSON
       ( \s h x ->
           GetRuleResponse'
-            Core.<$> (x Core..?> "Rule")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Rule")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRule
+instance Prelude.Hashable GetRule
 
-instance Core.NFData GetRule
+instance Prelude.NFData GetRule
 
 instance Core.ToHeaders GetRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSWAF_20150824.GetRule" :: Core.ByteString),
+              Core.=# ("AWSWAF_20150824.GetRule" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRule where
   toJSON GetRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RuleId" Core..= ruleId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RuleId" Core..= ruleId)]
       )
 
 instance Core.ToPath GetRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRuleResponse' smart constructor.
 data GetRuleResponse = GetRuleResponse'
@@ -133,11 +136,11 @@ data GetRuleResponse = GetRuleResponse'
     --
     -- -   Predicate: Each @Predicate@ object contains @DataId@, @Negated@, and
     --     @Type@
-    rule :: Core.Maybe Rule,
+    rule :: Prelude.Maybe Rule,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRuleResponse' with all optional fields omitted.
@@ -159,11 +162,11 @@ data GetRuleResponse = GetRuleResponse'
 -- 'httpStatus', 'getRuleResponse_httpStatus' - The response's http status code.
 newGetRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRuleResponse
 newGetRuleResponse pHttpStatus_ =
   GetRuleResponse'
-    { rule = Core.Nothing,
+    { rule = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -175,11 +178,11 @@ newGetRuleResponse pHttpStatus_ =
 --
 -- -   Predicate: Each @Predicate@ object contains @DataId@, @Negated@, and
 --     @Type@
-getRuleResponse_rule :: Lens.Lens' GetRuleResponse (Core.Maybe Rule)
+getRuleResponse_rule :: Lens.Lens' GetRuleResponse (Prelude.Maybe Rule)
 getRuleResponse_rule = Lens.lens (\GetRuleResponse' {rule} -> rule) (\s@GetRuleResponse' {} a -> s {rule = a} :: GetRuleResponse)
 
 -- | The response's http status code.
-getRuleResponse_httpStatus :: Lens.Lens' GetRuleResponse Core.Int
+getRuleResponse_httpStatus :: Lens.Lens' GetRuleResponse Prelude.Int
 getRuleResponse_httpStatus = Lens.lens (\GetRuleResponse' {httpStatus} -> httpStatus) (\s@GetRuleResponse' {} a -> s {httpStatus = a} :: GetRuleResponse)
 
-instance Core.NFData GetRuleResponse
+instance Prelude.NFData GetRuleResponse

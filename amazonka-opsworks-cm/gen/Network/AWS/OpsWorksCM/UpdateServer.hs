@@ -48,22 +48,23 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateServer' smart constructor.
 data UpdateServer = UpdateServer'
-  { preferredBackupWindow :: Core.Maybe Core.Text,
+  { preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled
     -- backups. Automated backups are enabled by default.
-    disableAutomatedBackup :: Core.Maybe Core.Bool,
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    disableAutomatedBackup :: Prelude.Maybe Prelude.Bool,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | Sets the number of automated backups that you want to keep.
-    backupRetentionCount :: Core.Maybe Core.Int,
+    backupRetentionCount :: Prelude.Maybe Prelude.Int,
     -- | The name of the server to update.
-    serverName :: Core.Text
+    serverName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateServer' with all optional fields omitted.
@@ -85,36 +86,37 @@ data UpdateServer = UpdateServer'
 -- 'serverName', 'updateServer_serverName' - The name of the server to update.
 newUpdateServer ::
   -- | 'serverName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateServer
 newUpdateServer pServerName_ =
   UpdateServer'
-    { preferredBackupWindow = Core.Nothing,
-      disableAutomatedBackup = Core.Nothing,
-      preferredMaintenanceWindow = Core.Nothing,
-      backupRetentionCount = Core.Nothing,
+    { preferredBackupWindow =
+        Prelude.Nothing,
+      disableAutomatedBackup = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      backupRetentionCount = Prelude.Nothing,
       serverName = pServerName_
     }
 
 -- | Undocumented member.
-updateServer_preferredBackupWindow :: Lens.Lens' UpdateServer (Core.Maybe Core.Text)
+updateServer_preferredBackupWindow :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
 updateServer_preferredBackupWindow = Lens.lens (\UpdateServer' {preferredBackupWindow} -> preferredBackupWindow) (\s@UpdateServer' {} a -> s {preferredBackupWindow = a} :: UpdateServer)
 
 -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled
 -- backups. Automated backups are enabled by default.
-updateServer_disableAutomatedBackup :: Lens.Lens' UpdateServer (Core.Maybe Core.Bool)
+updateServer_disableAutomatedBackup :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Bool)
 updateServer_disableAutomatedBackup = Lens.lens (\UpdateServer' {disableAutomatedBackup} -> disableAutomatedBackup) (\s@UpdateServer' {} a -> s {disableAutomatedBackup = a} :: UpdateServer)
 
 -- | Undocumented member.
-updateServer_preferredMaintenanceWindow :: Lens.Lens' UpdateServer (Core.Maybe Core.Text)
+updateServer_preferredMaintenanceWindow :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
 updateServer_preferredMaintenanceWindow = Lens.lens (\UpdateServer' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@UpdateServer' {} a -> s {preferredMaintenanceWindow = a} :: UpdateServer)
 
 -- | Sets the number of automated backups that you want to keep.
-updateServer_backupRetentionCount :: Lens.Lens' UpdateServer (Core.Maybe Core.Int)
+updateServer_backupRetentionCount :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Int)
 updateServer_backupRetentionCount = Lens.lens (\UpdateServer' {backupRetentionCount} -> backupRetentionCount) (\s@UpdateServer' {} a -> s {backupRetentionCount = a} :: UpdateServer)
 
 -- | The name of the server to update.
-updateServer_serverName :: Lens.Lens' UpdateServer Core.Text
+updateServer_serverName :: Lens.Lens' UpdateServer Prelude.Text
 updateServer_serverName = Lens.lens (\UpdateServer' {serverName} -> serverName) (\s@UpdateServer' {} a -> s {serverName = a} :: UpdateServer)
 
 instance Core.AWSRequest UpdateServer where
@@ -124,57 +126,59 @@ instance Core.AWSRequest UpdateServer where
     Response.receiveJSON
       ( \s h x ->
           UpdateServerResponse'
-            Core.<$> (x Core..?> "Server")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Server")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateServer
+instance Prelude.Hashable UpdateServer
 
-instance Core.NFData UpdateServer
+instance Prelude.NFData UpdateServer
 
 instance Core.ToHeaders UpdateServer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.UpdateServer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateServer where
   toJSON UpdateServer' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PreferredBackupWindow" Core..=)
-              Core.<$> preferredBackupWindow,
+              Prelude.<$> preferredBackupWindow,
             ("DisableAutomatedBackup" Core..=)
-              Core.<$> disableAutomatedBackup,
+              Prelude.<$> disableAutomatedBackup,
             ("PreferredMaintenanceWindow" Core..=)
-              Core.<$> preferredMaintenanceWindow,
+              Prelude.<$> preferredMaintenanceWindow,
             ("BackupRetentionCount" Core..=)
-              Core.<$> backupRetentionCount,
-            Core.Just ("ServerName" Core..= serverName)
+              Prelude.<$> backupRetentionCount,
+            Prelude.Just ("ServerName" Core..= serverName)
           ]
       )
 
 instance Core.ToPath UpdateServer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateServer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServerResponse' smart constructor.
 data UpdateServerResponse = UpdateServerResponse'
   { -- | Contains the response to a @UpdateServer@ request.
-    server :: Core.Maybe Server,
+    server :: Prelude.Maybe Server,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateServerResponse' with all optional fields omitted.
@@ -189,20 +193,20 @@ data UpdateServerResponse = UpdateServerResponse'
 -- 'httpStatus', 'updateServerResponse_httpStatus' - The response's http status code.
 newUpdateServerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateServerResponse
 newUpdateServerResponse pHttpStatus_ =
   UpdateServerResponse'
-    { server = Core.Nothing,
+    { server = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the response to a @UpdateServer@ request.
-updateServerResponse_server :: Lens.Lens' UpdateServerResponse (Core.Maybe Server)
+updateServerResponse_server :: Lens.Lens' UpdateServerResponse (Prelude.Maybe Server)
 updateServerResponse_server = Lens.lens (\UpdateServerResponse' {server} -> server) (\s@UpdateServerResponse' {} a -> s {server = a} :: UpdateServerResponse)
 
 -- | The response's http status code.
-updateServerResponse_httpStatus :: Lens.Lens' UpdateServerResponse Core.Int
+updateServerResponse_httpStatus :: Lens.Lens' UpdateServerResponse Prelude.Int
 updateServerResponse_httpStatus = Lens.lens (\UpdateServerResponse' {httpStatus} -> httpStatus) (\s@UpdateServerResponse' {} a -> s {httpStatus = a} :: UpdateServerResponse)
 
-instance Core.NFData UpdateServerResponse
+instance Prelude.NFData UpdateServerResponse

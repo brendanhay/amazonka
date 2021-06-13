@@ -51,15 +51,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTimeBasedAutoScaling' smart constructor.
 data DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
   { -- | An array of instance IDs.
-    instanceIds :: [Core.Text]
+    instanceIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTimeBasedAutoScaling' with all optional fields omitted.
@@ -75,12 +76,12 @@ newDescribeTimeBasedAutoScaling ::
 newDescribeTimeBasedAutoScaling =
   DescribeTimeBasedAutoScaling'
     { instanceIds =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | An array of instance IDs.
-describeTimeBasedAutoScaling_instanceIds :: Lens.Lens' DescribeTimeBasedAutoScaling [Core.Text]
-describeTimeBasedAutoScaling_instanceIds = Lens.lens (\DescribeTimeBasedAutoScaling' {instanceIds} -> instanceIds) (\s@DescribeTimeBasedAutoScaling' {} a -> s {instanceIds = a} :: DescribeTimeBasedAutoScaling) Core.. Lens._Coerce
+describeTimeBasedAutoScaling_instanceIds :: Lens.Lens' DescribeTimeBasedAutoScaling [Prelude.Text]
+describeTimeBasedAutoScaling_instanceIds = Lens.lens (\DescribeTimeBasedAutoScaling' {instanceIds} -> instanceIds) (\s@DescribeTimeBasedAutoScaling' {} a -> s {instanceIds = a} :: DescribeTimeBasedAutoScaling) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeTimeBasedAutoScaling where
   type
@@ -91,41 +92,45 @@ instance Core.AWSRequest DescribeTimeBasedAutoScaling where
     Response.receiveJSON
       ( \s h x ->
           DescribeTimeBasedAutoScalingResponse'
-            Core.<$> ( x Core..?> "TimeBasedAutoScalingConfigurations"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "TimeBasedAutoScalingConfigurations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTimeBasedAutoScaling
+instance
+  Prelude.Hashable
+    DescribeTimeBasedAutoScaling
 
-instance Core.NFData DescribeTimeBasedAutoScaling
+instance Prelude.NFData DescribeTimeBasedAutoScaling
 
 instance Core.ToHeaders DescribeTimeBasedAutoScaling where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribeTimeBasedAutoScaling" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeTimeBasedAutoScaling where
   toJSON DescribeTimeBasedAutoScaling' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("InstanceIds" Core..= instanceIds)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("InstanceIds" Core..= instanceIds)]
       )
 
 instance Core.ToPath DescribeTimeBasedAutoScaling where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTimeBasedAutoScaling where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeTimeBasedAutoScaling@ request.
 --
@@ -133,11 +138,11 @@ instance Core.ToQuery DescribeTimeBasedAutoScaling where
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
   { -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
     -- the configuration for the specified instances.
-    timeBasedAutoScalingConfigurations :: Core.Maybe [TimeBasedAutoScalingConfiguration],
+    timeBasedAutoScalingConfigurations :: Prelude.Maybe [TimeBasedAutoScalingConfiguration],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTimeBasedAutoScalingResponse' with all optional fields omitted.
@@ -153,24 +158,24 @@ data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
 -- 'httpStatus', 'describeTimeBasedAutoScalingResponse_httpStatus' - The response's http status code.
 newDescribeTimeBasedAutoScalingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTimeBasedAutoScalingResponse
 newDescribeTimeBasedAutoScalingResponse pHttpStatus_ =
   DescribeTimeBasedAutoScalingResponse'
     { timeBasedAutoScalingConfigurations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
 -- the configuration for the specified instances.
-describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations :: Lens.Lens' DescribeTimeBasedAutoScalingResponse (Core.Maybe [TimeBasedAutoScalingConfiguration])
-describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations = Lens.lens (\DescribeTimeBasedAutoScalingResponse' {timeBasedAutoScalingConfigurations} -> timeBasedAutoScalingConfigurations) (\s@DescribeTimeBasedAutoScalingResponse' {} a -> s {timeBasedAutoScalingConfigurations = a} :: DescribeTimeBasedAutoScalingResponse) Core.. Lens.mapping Lens._Coerce
+describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations :: Lens.Lens' DescribeTimeBasedAutoScalingResponse (Prelude.Maybe [TimeBasedAutoScalingConfiguration])
+describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations = Lens.lens (\DescribeTimeBasedAutoScalingResponse' {timeBasedAutoScalingConfigurations} -> timeBasedAutoScalingConfigurations) (\s@DescribeTimeBasedAutoScalingResponse' {} a -> s {timeBasedAutoScalingConfigurations = a} :: DescribeTimeBasedAutoScalingResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTimeBasedAutoScalingResponse_httpStatus :: Lens.Lens' DescribeTimeBasedAutoScalingResponse Core.Int
+describeTimeBasedAutoScalingResponse_httpStatus :: Lens.Lens' DescribeTimeBasedAutoScalingResponse Prelude.Int
 describeTimeBasedAutoScalingResponse_httpStatus = Lens.lens (\DescribeTimeBasedAutoScalingResponse' {httpStatus} -> httpStatus) (\s@DescribeTimeBasedAutoScalingResponse' {} a -> s {httpStatus = a} :: DescribeTimeBasedAutoScalingResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTimeBasedAutoScalingResponse

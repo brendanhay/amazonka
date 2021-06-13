@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +53,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyReplicationSubnetGroup' smart constructor.
 data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
   { -- | A description for the replication instance subnet group.
-    replicationSubnetGroupDescription :: Core.Maybe Core.Text,
+    replicationSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the replication instance subnet group.
-    replicationSubnetGroupIdentifier :: Core.Text,
+    replicationSubnetGroupIdentifier :: Prelude.Text,
     -- | A list of subnet IDs.
-    subnetIds :: [Core.Text]
+    subnetIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationSubnetGroup' with all optional fields omitted.
@@ -75,29 +76,29 @@ data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
 -- 'subnetIds', 'modifyReplicationSubnetGroup_subnetIds' - A list of subnet IDs.
 newModifyReplicationSubnetGroup ::
   -- | 'replicationSubnetGroupIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ModifyReplicationSubnetGroup
 newModifyReplicationSubnetGroup
   pReplicationSubnetGroupIdentifier_ =
     ModifyReplicationSubnetGroup'
       { replicationSubnetGroupDescription =
-          Core.Nothing,
+          Prelude.Nothing,
         replicationSubnetGroupIdentifier =
           pReplicationSubnetGroupIdentifier_,
-        subnetIds = Core.mempty
+        subnetIds = Prelude.mempty
       }
 
 -- | A description for the replication instance subnet group.
-modifyReplicationSubnetGroup_replicationSubnetGroupDescription :: Lens.Lens' ModifyReplicationSubnetGroup (Core.Maybe Core.Text)
+modifyReplicationSubnetGroup_replicationSubnetGroupDescription :: Lens.Lens' ModifyReplicationSubnetGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationSubnetGroup_replicationSubnetGroupDescription = Lens.lens (\ModifyReplicationSubnetGroup' {replicationSubnetGroupDescription} -> replicationSubnetGroupDescription) (\s@ModifyReplicationSubnetGroup' {} a -> s {replicationSubnetGroupDescription = a} :: ModifyReplicationSubnetGroup)
 
 -- | The name of the replication instance subnet group.
-modifyReplicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' ModifyReplicationSubnetGroup Core.Text
+modifyReplicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' ModifyReplicationSubnetGroup Prelude.Text
 modifyReplicationSubnetGroup_replicationSubnetGroupIdentifier = Lens.lens (\ModifyReplicationSubnetGroup' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@ModifyReplicationSubnetGroup' {} a -> s {replicationSubnetGroupIdentifier = a} :: ModifyReplicationSubnetGroup)
 
 -- | A list of subnet IDs.
-modifyReplicationSubnetGroup_subnetIds :: Lens.Lens' ModifyReplicationSubnetGroup [Core.Text]
-modifyReplicationSubnetGroup_subnetIds = Lens.lens (\ModifyReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyReplicationSubnetGroup' {} a -> s {subnetIds = a} :: ModifyReplicationSubnetGroup) Core.. Lens._Coerce
+modifyReplicationSubnetGroup_subnetIds :: Lens.Lens' ModifyReplicationSubnetGroup [Prelude.Text]
+modifyReplicationSubnetGroup_subnetIds = Lens.lens (\ModifyReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyReplicationSubnetGroup' {} a -> s {subnetIds = a} :: ModifyReplicationSubnetGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ModifyReplicationSubnetGroup where
   type
@@ -108,57 +109,61 @@ instance Core.AWSRequest ModifyReplicationSubnetGroup where
     Response.receiveJSON
       ( \s h x ->
           ModifyReplicationSubnetGroupResponse'
-            Core.<$> (x Core..?> "ReplicationSubnetGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ReplicationSubnetGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyReplicationSubnetGroup
+instance
+  Prelude.Hashable
+    ModifyReplicationSubnetGroup
 
-instance Core.NFData ModifyReplicationSubnetGroup
+instance Prelude.NFData ModifyReplicationSubnetGroup
 
 instance Core.ToHeaders ModifyReplicationSubnetGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.ModifyReplicationSubnetGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyReplicationSubnetGroup where
   toJSON ModifyReplicationSubnetGroup' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReplicationSubnetGroupDescription" Core..=)
-              Core.<$> replicationSubnetGroupDescription,
-            Core.Just
+              Prelude.<$> replicationSubnetGroupDescription,
+            Prelude.Just
               ( "ReplicationSubnetGroupIdentifier"
                   Core..= replicationSubnetGroupIdentifier
               ),
-            Core.Just ("SubnetIds" Core..= subnetIds)
+            Prelude.Just ("SubnetIds" Core..= subnetIds)
           ]
       )
 
 instance Core.ToPath ModifyReplicationSubnetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyReplicationSubnetGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newModifyReplicationSubnetGroupResponse' smart constructor.
 data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse'
   { -- | The modified replication subnet group.
-    replicationSubnetGroup :: Core.Maybe ReplicationSubnetGroup,
+    replicationSubnetGroup :: Prelude.Maybe ReplicationSubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationSubnetGroupResponse' with all optional fields omitted.
@@ -173,23 +178,23 @@ data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse
 -- 'httpStatus', 'modifyReplicationSubnetGroupResponse_httpStatus' - The response's http status code.
 newModifyReplicationSubnetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyReplicationSubnetGroupResponse
 newModifyReplicationSubnetGroupResponse pHttpStatus_ =
   ModifyReplicationSubnetGroupResponse'
     { replicationSubnetGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The modified replication subnet group.
-modifyReplicationSubnetGroupResponse_replicationSubnetGroup :: Lens.Lens' ModifyReplicationSubnetGroupResponse (Core.Maybe ReplicationSubnetGroup)
+modifyReplicationSubnetGroupResponse_replicationSubnetGroup :: Lens.Lens' ModifyReplicationSubnetGroupResponse (Prelude.Maybe ReplicationSubnetGroup)
 modifyReplicationSubnetGroupResponse_replicationSubnetGroup = Lens.lens (\ModifyReplicationSubnetGroupResponse' {replicationSubnetGroup} -> replicationSubnetGroup) (\s@ModifyReplicationSubnetGroupResponse' {} a -> s {replicationSubnetGroup = a} :: ModifyReplicationSubnetGroupResponse)
 
 -- | The response's http status code.
-modifyReplicationSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyReplicationSubnetGroupResponse Core.Int
+modifyReplicationSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyReplicationSubnetGroupResponse Prelude.Int
 modifyReplicationSubnetGroupResponse_httpStatus = Lens.lens (\ModifyReplicationSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyReplicationSubnetGroupResponse' {} a -> s {httpStatus = a} :: ModifyReplicationSubnetGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyReplicationSubnetGroupResponse

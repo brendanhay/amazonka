@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.CommandFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.CommandFilterKey
 
 -- | Describes a command filter.
@@ -72,9 +73,9 @@ data CommandFilter = CommandFilter'
     --
     --     -   @Complete@: Returns a list of command executions that have
     --         already completed.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CommandFilter' with all optional fields omitted.
@@ -130,7 +131,7 @@ newCommandFilter ::
   -- | 'key'
   CommandFilterKey ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   CommandFilter
 newCommandFilter pKey_ pValue_ =
   CommandFilter' {key = pKey_, value = pValue_}
@@ -179,18 +180,18 @@ commandFilter_key = Lens.lens (\CommandFilter' {key} -> key) (\s@CommandFilter' 
 --
 --     -   @Complete@: Returns a list of command executions that have
 --         already completed.
-commandFilter_value :: Lens.Lens' CommandFilter Core.Text
+commandFilter_value :: Lens.Lens' CommandFilter Prelude.Text
 commandFilter_value = Lens.lens (\CommandFilter' {value} -> value) (\s@CommandFilter' {} a -> s {value = a} :: CommandFilter)
 
-instance Core.Hashable CommandFilter
+instance Prelude.Hashable CommandFilter
 
-instance Core.NFData CommandFilter
+instance Prelude.NFData CommandFilter
 
 instance Core.ToJSON CommandFilter where
   toJSON CommandFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("key" Core..= key),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("key" Core..= key),
+            Prelude.Just ("value" Core..= value)
           ]
       )

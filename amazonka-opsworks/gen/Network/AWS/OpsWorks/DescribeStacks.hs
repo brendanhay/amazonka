@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data DescribeStacks = DescribeStacks'
   { -- | An array of stack IDs that specify the stacks to be described. If you
     -- omit this parameter, @DescribeStacks@ returns a description of every
     -- stack.
-    stackIds :: Core.Maybe [Core.Text]
+    stackIds :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStacks' with all optional fields omitted.
@@ -74,13 +75,13 @@ data DescribeStacks = DescribeStacks'
 newDescribeStacks ::
   DescribeStacks
 newDescribeStacks =
-  DescribeStacks' {stackIds = Core.Nothing}
+  DescribeStacks' {stackIds = Prelude.Nothing}
 
 -- | An array of stack IDs that specify the stacks to be described. If you
 -- omit this parameter, @DescribeStacks@ returns a description of every
 -- stack.
-describeStacks_stackIds :: Lens.Lens' DescribeStacks (Core.Maybe [Core.Text])
-describeStacks_stackIds = Lens.lens (\DescribeStacks' {stackIds} -> stackIds) (\s@DescribeStacks' {} a -> s {stackIds = a} :: DescribeStacks) Core.. Lens.mapping Lens._Coerce
+describeStacks_stackIds :: Lens.Lens' DescribeStacks (Prelude.Maybe [Prelude.Text])
+describeStacks_stackIds = Lens.lens (\DescribeStacks' {stackIds} -> stackIds) (\s@DescribeStacks' {} a -> s {stackIds = a} :: DescribeStacks) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeStacks where
   type
@@ -91,50 +92,52 @@ instance Core.AWSRequest DescribeStacks where
     Response.receiveJSON
       ( \s h x ->
           DescribeStacksResponse'
-            Core.<$> (x Core..?> "Stacks" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Stacks" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeStacks
+instance Prelude.Hashable DescribeStacks
 
-instance Core.NFData DescribeStacks
+instance Prelude.NFData DescribeStacks
 
 instance Core.ToHeaders DescribeStacks where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribeStacks" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeStacks where
   toJSON DescribeStacks' {..} =
     Core.object
-      ( Core.catMaybes
-          [("StackIds" Core..=) Core.<$> stackIds]
+      ( Prelude.catMaybes
+          [("StackIds" Core..=) Prelude.<$> stackIds]
       )
 
 instance Core.ToPath DescribeStacks where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeStacks where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeStacks@ request.
 --
 -- /See:/ 'newDescribeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
   { -- | An array of @Stack@ objects that describe the stacks.
-    stacks :: Core.Maybe [Stack],
+    stacks :: Prelude.Maybe [Stack],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStacksResponse' with all optional fields omitted.
@@ -149,20 +152,20 @@ data DescribeStacksResponse = DescribeStacksResponse'
 -- 'httpStatus', 'describeStacksResponse_httpStatus' - The response's http status code.
 newDescribeStacksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeStacksResponse
 newDescribeStacksResponse pHttpStatus_ =
   DescribeStacksResponse'
-    { stacks = Core.Nothing,
+    { stacks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @Stack@ objects that describe the stacks.
-describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Core.Maybe [Stack])
-describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Core.. Lens.mapping Lens._Coerce
+describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
+describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Core.Int
+describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Prelude.Int
 describeStacksResponse_httpStatus = Lens.lens (\DescribeStacksResponse' {httpStatus} -> httpStatus) (\s@DescribeStacksResponse' {} a -> s {httpStatus = a} :: DescribeStacksResponse)
 
-instance Core.NFData DescribeStacksResponse
+instance Prelude.NFData DescribeStacksResponse

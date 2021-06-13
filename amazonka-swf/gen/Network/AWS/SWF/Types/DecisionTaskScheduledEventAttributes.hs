@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.DecisionTaskScheduledEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.TaskList
 
 -- | Provides details about the @DecisionTaskScheduled@ event.
@@ -35,17 +36,17 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
     -- For more information about setting task priority, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
-    taskPriority :: Core.Maybe Core.Text,
+    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The maximum duration for this decision task. The task is considered
     -- timed out if it doesn\'t completed within this duration.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    startToCloseTimeout :: Core.Maybe Core.Text,
+    startToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The name of the task list in which the decision task was scheduled.
     taskList :: TaskList
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DecisionTaskScheduledEventAttributes' with all optional fields omitted.
@@ -78,8 +79,8 @@ newDecisionTaskScheduledEventAttributes ::
 newDecisionTaskScheduledEventAttributes pTaskList_ =
   DecisionTaskScheduledEventAttributes'
     { taskPriority =
-        Core.Nothing,
-      startToCloseTimeout = Core.Nothing,
+        Prelude.Nothing,
+      startToCloseTimeout = Prelude.Nothing,
       taskList = pTaskList_
     }
 
@@ -91,7 +92,7 @@ newDecisionTaskScheduledEventAttributes pTaskList_ =
 -- For more information about setting task priority, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
-decisionTaskScheduledEventAttributes_taskPriority :: Lens.Lens' DecisionTaskScheduledEventAttributes (Core.Maybe Core.Text)
+decisionTaskScheduledEventAttributes_taskPriority :: Lens.Lens' DecisionTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
 decisionTaskScheduledEventAttributes_taskPriority = Lens.lens (\DecisionTaskScheduledEventAttributes' {taskPriority} -> taskPriority) (\s@DecisionTaskScheduledEventAttributes' {} a -> s {taskPriority = a} :: DecisionTaskScheduledEventAttributes)
 
 -- | The maximum duration for this decision task. The task is considered
@@ -99,7 +100,7 @@ decisionTaskScheduledEventAttributes_taskPriority = Lens.lens (\DecisionTaskSche
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-decisionTaskScheduledEventAttributes_startToCloseTimeout :: Lens.Lens' DecisionTaskScheduledEventAttributes (Core.Maybe Core.Text)
+decisionTaskScheduledEventAttributes_startToCloseTimeout :: Lens.Lens' DecisionTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
 decisionTaskScheduledEventAttributes_startToCloseTimeout = Lens.lens (\DecisionTaskScheduledEventAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@DecisionTaskScheduledEventAttributes' {} a -> s {startToCloseTimeout = a} :: DecisionTaskScheduledEventAttributes)
 
 -- | The name of the task list in which the decision task was scheduled.
@@ -115,15 +116,15 @@ instance
       "DecisionTaskScheduledEventAttributes"
       ( \x ->
           DecisionTaskScheduledEventAttributes'
-            Core.<$> (x Core..:? "taskPriority")
-            Core.<*> (x Core..:? "startToCloseTimeout")
-            Core.<*> (x Core..: "taskList")
+            Prelude.<$> (x Core..:? "taskPriority")
+            Prelude.<*> (x Core..:? "startToCloseTimeout")
+            Prelude.<*> (x Core..: "taskList")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DecisionTaskScheduledEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     DecisionTaskScheduledEventAttributes

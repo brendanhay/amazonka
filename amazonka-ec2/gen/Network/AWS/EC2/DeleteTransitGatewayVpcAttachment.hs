@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ data DeleteTransitGatewayVpcAttachment = DeleteTransitGatewayVpcAttachment'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Core.Text
+    transitGatewayAttachmentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayVpcAttachment' with all optional fields omitted.
@@ -74,13 +75,13 @@ data DeleteTransitGatewayVpcAttachment = DeleteTransitGatewayVpcAttachment'
 -- 'transitGatewayAttachmentId', 'deleteTransitGatewayVpcAttachment_transitGatewayAttachmentId' - The ID of the attachment.
 newDeleteTransitGatewayVpcAttachment ::
   -- | 'transitGatewayAttachmentId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTransitGatewayVpcAttachment
 newDeleteTransitGatewayVpcAttachment
   pTransitGatewayAttachmentId_ =
     DeleteTransitGatewayVpcAttachment'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_
       }
@@ -89,11 +90,11 @@ newDeleteTransitGatewayVpcAttachment
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteTransitGatewayVpcAttachment_dryRun :: Lens.Lens' DeleteTransitGatewayVpcAttachment (Core.Maybe Core.Bool)
+deleteTransitGatewayVpcAttachment_dryRun :: Lens.Lens' DeleteTransitGatewayVpcAttachment (Prelude.Maybe Prelude.Bool)
 deleteTransitGatewayVpcAttachment_dryRun = Lens.lens (\DeleteTransitGatewayVpcAttachment' {dryRun} -> dryRun) (\s@DeleteTransitGatewayVpcAttachment' {} a -> s {dryRun = a} :: DeleteTransitGatewayVpcAttachment)
 
 -- | The ID of the attachment.
-deleteTransitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' DeleteTransitGatewayVpcAttachment Core.Text
+deleteTransitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' DeleteTransitGatewayVpcAttachment Prelude.Text
 deleteTransitGatewayVpcAttachment_transitGatewayAttachmentId = Lens.lens (\DeleteTransitGatewayVpcAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@DeleteTransitGatewayVpcAttachment' {} a -> s {transitGatewayAttachmentId = a} :: DeleteTransitGatewayVpcAttachment)
 
 instance
@@ -108,41 +109,42 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteTransitGatewayVpcAttachmentResponse'
-            Core.<$> (x Core..@? "transitGatewayVpcAttachment")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGatewayVpcAttachment")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteTransitGatewayVpcAttachment
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteTransitGatewayVpcAttachment
 
 instance
   Core.ToHeaders
     DeleteTransitGatewayVpcAttachment
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DeleteTransitGatewayVpcAttachment
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteTransitGatewayVpcAttachment
   where
   toQuery DeleteTransitGatewayVpcAttachment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DeleteTransitGatewayVpcAttachment" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "TransitGatewayAttachmentId"
           Core.=: transitGatewayAttachmentId
@@ -151,11 +153,11 @@ instance
 -- | /See:/ 'newDeleteTransitGatewayVpcAttachmentResponse' smart constructor.
 data DeleteTransitGatewayVpcAttachmentResponse = DeleteTransitGatewayVpcAttachmentResponse'
   { -- | Information about the deleted VPC attachment.
-    transitGatewayVpcAttachment :: Core.Maybe TransitGatewayVpcAttachment,
+    transitGatewayVpcAttachment :: Prelude.Maybe TransitGatewayVpcAttachment,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayVpcAttachmentResponse' with all optional fields omitted.
@@ -170,24 +172,24 @@ data DeleteTransitGatewayVpcAttachmentResponse = DeleteTransitGatewayVpcAttachme
 -- 'httpStatus', 'deleteTransitGatewayVpcAttachmentResponse_httpStatus' - The response's http status code.
 newDeleteTransitGatewayVpcAttachmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTransitGatewayVpcAttachmentResponse
 newDeleteTransitGatewayVpcAttachmentResponse
   pHttpStatus_ =
     DeleteTransitGatewayVpcAttachmentResponse'
       { transitGatewayVpcAttachment =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the deleted VPC attachment.
-deleteTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment :: Lens.Lens' DeleteTransitGatewayVpcAttachmentResponse (Core.Maybe TransitGatewayVpcAttachment)
+deleteTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment :: Lens.Lens' DeleteTransitGatewayVpcAttachmentResponse (Prelude.Maybe TransitGatewayVpcAttachment)
 deleteTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment = Lens.lens (\DeleteTransitGatewayVpcAttachmentResponse' {transitGatewayVpcAttachment} -> transitGatewayVpcAttachment) (\s@DeleteTransitGatewayVpcAttachmentResponse' {} a -> s {transitGatewayVpcAttachment = a} :: DeleteTransitGatewayVpcAttachmentResponse)
 
 -- | The response's http status code.
-deleteTransitGatewayVpcAttachmentResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayVpcAttachmentResponse Core.Int
+deleteTransitGatewayVpcAttachmentResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayVpcAttachmentResponse Prelude.Int
 deleteTransitGatewayVpcAttachmentResponse_httpStatus = Lens.lens (\DeleteTransitGatewayVpcAttachmentResponse' {httpStatus} -> httpStatus) (\s@DeleteTransitGatewayVpcAttachmentResponse' {} a -> s {httpStatus = a} :: DeleteTransitGatewayVpcAttachmentResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteTransitGatewayVpcAttachmentResponse

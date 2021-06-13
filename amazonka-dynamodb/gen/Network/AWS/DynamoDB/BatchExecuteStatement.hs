@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchExecuteStatement' smart constructor.
 data BatchExecuteStatement = BatchExecuteStatement'
   { -- | The list of PartiQL statements representing the batch to run.
-    statements :: Core.NonEmpty BatchStatementRequest
+    statements :: Prelude.NonEmpty BatchStatementRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchExecuteStatement' with all optional fields omitted.
@@ -64,7 +65,7 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- 'statements', 'batchExecuteStatement_statements' - The list of PartiQL statements representing the batch to run.
 newBatchExecuteStatement ::
   -- | 'statements'
-  Core.NonEmpty BatchStatementRequest ->
+  Prelude.NonEmpty BatchStatementRequest ->
   BatchExecuteStatement
 newBatchExecuteStatement pStatements_ =
   BatchExecuteStatement'
@@ -73,8 +74,8 @@ newBatchExecuteStatement pStatements_ =
     }
 
 -- | The list of PartiQL statements representing the batch to run.
-batchExecuteStatement_statements :: Lens.Lens' BatchExecuteStatement (Core.NonEmpty BatchStatementRequest)
-batchExecuteStatement_statements = Lens.lens (\BatchExecuteStatement' {statements} -> statements) (\s@BatchExecuteStatement' {} a -> s {statements = a} :: BatchExecuteStatement) Core.. Lens._Coerce
+batchExecuteStatement_statements :: Lens.Lens' BatchExecuteStatement (Prelude.NonEmpty BatchStatementRequest)
+batchExecuteStatement_statements = Lens.lens (\BatchExecuteStatement' {statements} -> statements) (\s@BatchExecuteStatement' {} a -> s {statements = a} :: BatchExecuteStatement) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchExecuteStatement where
   type
@@ -85,48 +86,50 @@ instance Core.AWSRequest BatchExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           BatchExecuteStatementResponse'
-            Core.<$> (x Core..?> "Responses" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Responses" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchExecuteStatement
+instance Prelude.Hashable BatchExecuteStatement
 
-instance Core.NFData BatchExecuteStatement
+instance Prelude.NFData BatchExecuteStatement
 
 instance Core.ToHeaders BatchExecuteStatement where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.BatchExecuteStatement" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Statements" Core..= statements)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Statements" Core..= statements)]
       )
 
 instance Core.ToPath BatchExecuteStatement where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchExecuteStatement where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchExecuteStatementResponse' smart constructor.
 data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
   { -- | The response to each PartiQL statement in the batch.
-    responses :: Core.Maybe [BatchStatementResponse],
+    responses :: Prelude.Maybe [BatchStatementResponse],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchExecuteStatementResponse' with all optional fields omitted.
@@ -141,21 +144,21 @@ data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
 -- 'httpStatus', 'batchExecuteStatementResponse_httpStatus' - The response's http status code.
 newBatchExecuteStatementResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchExecuteStatementResponse
 newBatchExecuteStatementResponse pHttpStatus_ =
   BatchExecuteStatementResponse'
     { responses =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The response to each PartiQL statement in the batch.
-batchExecuteStatementResponse_responses :: Lens.Lens' BatchExecuteStatementResponse (Core.Maybe [BatchStatementResponse])
-batchExecuteStatementResponse_responses = Lens.lens (\BatchExecuteStatementResponse' {responses} -> responses) (\s@BatchExecuteStatementResponse' {} a -> s {responses = a} :: BatchExecuteStatementResponse) Core.. Lens.mapping Lens._Coerce
+batchExecuteStatementResponse_responses :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe [BatchStatementResponse])
+batchExecuteStatementResponse_responses = Lens.lens (\BatchExecuteStatementResponse' {responses} -> responses) (\s@BatchExecuteStatementResponse' {} a -> s {responses = a} :: BatchExecuteStatementResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchExecuteStatementResponse_httpStatus :: Lens.Lens' BatchExecuteStatementResponse Core.Int
+batchExecuteStatementResponse_httpStatus :: Lens.Lens' BatchExecuteStatementResponse Prelude.Int
 batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@BatchExecuteStatementResponse' {} a -> s {httpStatus = a} :: BatchExecuteStatementResponse)
 
-instance Core.NFData BatchExecuteStatementResponse
+instance Prelude.NFData BatchExecuteStatementResponse

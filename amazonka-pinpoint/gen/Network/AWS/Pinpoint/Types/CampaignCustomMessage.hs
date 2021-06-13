@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.CampaignCustomMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the contents of a message that\'s sent through a custom
 -- channel to recipients of a campaign.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data CampaignCustomMessage = CampaignCustomMessage'
   { -- | The raw, JSON-formatted string to use as the payload for the message.
     -- The maximum size is 5 KB.
-    data' :: Core.Maybe Core.Text
+    data' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CampaignCustomMessage' with all optional fields omitted.
@@ -46,11 +47,11 @@ data CampaignCustomMessage = CampaignCustomMessage'
 newCampaignCustomMessage ::
   CampaignCustomMessage
 newCampaignCustomMessage =
-  CampaignCustomMessage' {data' = Core.Nothing}
+  CampaignCustomMessage' {data' = Prelude.Nothing}
 
 -- | The raw, JSON-formatted string to use as the payload for the message.
 -- The maximum size is 5 KB.
-campaignCustomMessage_data :: Lens.Lens' CampaignCustomMessage (Core.Maybe Core.Text)
+campaignCustomMessage_data :: Lens.Lens' CampaignCustomMessage (Prelude.Maybe Prelude.Text)
 campaignCustomMessage_data = Lens.lens (\CampaignCustomMessage' {data'} -> data') (\s@CampaignCustomMessage' {} a -> s {data' = a} :: CampaignCustomMessage)
 
 instance Core.FromJSON CampaignCustomMessage where
@@ -58,14 +59,17 @@ instance Core.FromJSON CampaignCustomMessage where
     Core.withObject
       "CampaignCustomMessage"
       ( \x ->
-          CampaignCustomMessage' Core.<$> (x Core..:? "Data")
+          CampaignCustomMessage'
+            Prelude.<$> (x Core..:? "Data")
       )
 
-instance Core.Hashable CampaignCustomMessage
+instance Prelude.Hashable CampaignCustomMessage
 
-instance Core.NFData CampaignCustomMessage
+instance Prelude.NFData CampaignCustomMessage
 
 instance Core.ToJSON CampaignCustomMessage where
   toJSON CampaignCustomMessage' {..} =
     Core.object
-      (Core.catMaybes [("Data" Core..=) Core.<$> data'])
+      ( Prelude.catMaybes
+          [("Data" Core..=) Prelude.<$> data']
+      )

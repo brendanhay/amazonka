@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ data ListProjects = ListProjects'
   { -- | Pagination token. Set to null to start listing projects from start. If
     -- non-null pagination token is returned in a result, then pass its value
     -- in here in another request to list more projects.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of records to list in a single response.
-    maxResults :: Core.Maybe Core.Int
+    maxResults :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProjects' with all optional fields omitted.
@@ -79,38 +80,38 @@ newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Pagination token. Set to null to start listing projects from start. If
 -- non-null pagination token is returned in a result, then pass its value
 -- in here in another request to list more projects.
-listProjects_nextToken :: Lens.Lens' ListProjects (Core.Maybe Core.Text)
+listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 -- | Maximum number of records to list in a single response.
-listProjects_maxResults :: Lens.Lens' ListProjects (Core.Maybe Core.Int)
+listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Int)
 listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listProjectsResponse_nextToken Core.. Lens._Just
+            Lens.^? listProjectsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listProjectsResponse_projects Core.. Lens._Just
+            Lens.^? listProjectsResponse_projects Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listProjects_nextToken
+          Prelude.& listProjects_nextToken
           Lens..~ rs
-          Lens.^? listProjectsResponse_nextToken Core.. Lens._Just
+          Lens.^? listProjectsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProjects where
   type AWSResponse ListProjects = ListProjectsResponse
@@ -119,30 +120,32 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "projects" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "projects" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListProjects
+instance Prelude.Hashable ListProjects
 
-instance Core.NFData ListProjects
+instance Prelude.NFData ListProjects
 
 instance Core.ToHeaders ListProjects where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListProjects where
-  toPath = Core.const "/projects"
+  toPath = Prelude.const "/projects"
 
 instance Core.ToQuery ListProjects where
   toQuery ListProjects' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -151,12 +154,12 @@ instance Core.ToQuery ListProjects where
 --
 -- /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { nextToken :: Core.Maybe Core.Text,
-    projects :: Core.Maybe [ProjectSummary],
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    projects :: Prelude.Maybe [ProjectSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProjectsResponse' with all optional fields omitted.
@@ -173,25 +176,25 @@ data ListProjectsResponse = ListProjectsResponse'
 -- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
 newListProjectsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { nextToken = Core.Nothing,
-      projects = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      projects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Core.Maybe Core.Text)
+listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
 listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
 
 -- | Undocumented member.
-listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Core.Maybe [ProjectSummary])
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Core.. Lens.mapping Lens._Coerce
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectSummary])
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Core.Int
+listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
 listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
-instance Core.NFData ListProjectsResponse
+instance Prelude.NFData ListProjectsResponse

@@ -22,6 +22,7 @@ module Network.AWS.ElasticTranscoder.Types.Clip where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.TimeSpan
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for one clip in a composition. All jobs in a playlist must have
 -- the same clip settings.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newClip' smart constructor.
 data Clip = Clip'
   { -- | Settings that determine when a clip begins and how long it lasts.
-    timeSpan :: Core.Maybe TimeSpan
+    timeSpan :: Prelude.Maybe TimeSpan
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Clip' with all optional fields omitted.
@@ -44,25 +45,25 @@ data Clip = Clip'
 -- 'timeSpan', 'clip_timeSpan' - Settings that determine when a clip begins and how long it lasts.
 newClip ::
   Clip
-newClip = Clip' {timeSpan = Core.Nothing}
+newClip = Clip' {timeSpan = Prelude.Nothing}
 
 -- | Settings that determine when a clip begins and how long it lasts.
-clip_timeSpan :: Lens.Lens' Clip (Core.Maybe TimeSpan)
+clip_timeSpan :: Lens.Lens' Clip (Prelude.Maybe TimeSpan)
 clip_timeSpan = Lens.lens (\Clip' {timeSpan} -> timeSpan) (\s@Clip' {} a -> s {timeSpan = a} :: Clip)
 
 instance Core.FromJSON Clip where
   parseJSON =
     Core.withObject
       "Clip"
-      (\x -> Clip' Core.<$> (x Core..:? "TimeSpan"))
+      (\x -> Clip' Prelude.<$> (x Core..:? "TimeSpan"))
 
-instance Core.Hashable Clip
+instance Prelude.Hashable Clip
 
-instance Core.NFData Clip
+instance Prelude.NFData Clip
 
 instance Core.ToJSON Clip where
   toJSON Clip' {..} =
     Core.object
-      ( Core.catMaybes
-          [("TimeSpan" Core..=) Core.<$> timeSpan]
+      ( Prelude.catMaybes
+          [("TimeSpan" Core..=) Prelude.<$> timeSpan]
       )

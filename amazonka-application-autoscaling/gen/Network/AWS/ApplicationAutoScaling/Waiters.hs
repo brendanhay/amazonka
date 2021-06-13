@@ -19,3 +19,4 @@ import Network.AWS.ApplicationAutoScaling.Lens
 import Network.AWS.ApplicationAutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude

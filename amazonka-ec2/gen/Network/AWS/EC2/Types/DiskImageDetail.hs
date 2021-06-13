@@ -23,13 +23,14 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DiskImageFormat
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a disk image.
 --
 -- /See:/ 'newDiskImageDetail' smart constructor.
 data DiskImageDetail = DiskImageDetail'
   { -- | The size of the disk image, in GiB.
-    bytes :: Core.Integer,
+    bytes :: Prelude.Integer,
     -- | The disk image format.
     format :: DiskImageFormat,
     -- | A presigned URL for the import manifest stored in Amazon S3 and
@@ -42,9 +43,9 @@ data DiskImageDetail = DiskImageDetail'
     -- For information about the import manifest referenced by this API action,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
-    importManifestUrl :: Core.Text
+    importManifestUrl :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiskImageDetail' with all optional fields omitted.
@@ -70,11 +71,11 @@ data DiskImageDetail = DiskImageDetail'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 newDiskImageDetail ::
   -- | 'bytes'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'format'
   DiskImageFormat ->
   -- | 'importManifestUrl'
-  Core.Text ->
+  Prelude.Text ->
   DiskImageDetail
 newDiskImageDetail
   pBytes_
@@ -87,7 +88,7 @@ newDiskImageDetail
       }
 
 -- | The size of the disk image, in GiB.
-diskImageDetail_bytes :: Lens.Lens' DiskImageDetail Core.Integer
+diskImageDetail_bytes :: Lens.Lens' DiskImageDetail Prelude.Integer
 diskImageDetail_bytes = Lens.lens (\DiskImageDetail' {bytes} -> bytes) (\s@DiskImageDetail' {} a -> s {bytes = a} :: DiskImageDetail)
 
 -- | The disk image format.
@@ -104,16 +105,16 @@ diskImageDetail_format = Lens.lens (\DiskImageDetail' {format} -> format) (\s@Di
 -- For information about the import manifest referenced by this API action,
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
-diskImageDetail_importManifestUrl :: Lens.Lens' DiskImageDetail Core.Text
+diskImageDetail_importManifestUrl :: Lens.Lens' DiskImageDetail Prelude.Text
 diskImageDetail_importManifestUrl = Lens.lens (\DiskImageDetail' {importManifestUrl} -> importManifestUrl) (\s@DiskImageDetail' {} a -> s {importManifestUrl = a} :: DiskImageDetail)
 
-instance Core.Hashable DiskImageDetail
+instance Prelude.Hashable DiskImageDetail
 
-instance Core.NFData DiskImageDetail
+instance Prelude.NFData DiskImageDetail
 
 instance Core.ToQuery DiskImageDetail where
   toQuery DiskImageDetail' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Bytes" Core.=: bytes,
         "Format" Core.=: format,
         "ImportManifestUrl" Core.=: importManifestUrl

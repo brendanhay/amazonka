@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.CreditSpecificationRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The credit option for CPU usage of a T2, T3, or T3a instance.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data CreditSpecificationRequest = CreditSpecificationRequest'
   { -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid
     -- values are @standard@ and @unlimited@.
-    cpuCredits :: Core.Text
+    cpuCredits :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreditSpecificationRequest' with all optional fields omitted.
@@ -45,7 +46,7 @@ data CreditSpecificationRequest = CreditSpecificationRequest'
 -- values are @standard@ and @unlimited@.
 newCreditSpecificationRequest ::
   -- | 'cpuCredits'
-  Core.Text ->
+  Prelude.Text ->
   CreditSpecificationRequest
 newCreditSpecificationRequest pCpuCredits_ =
   CreditSpecificationRequest'
@@ -55,13 +56,13 @@ newCreditSpecificationRequest pCpuCredits_ =
 
 -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid
 -- values are @standard@ and @unlimited@.
-creditSpecificationRequest_cpuCredits :: Lens.Lens' CreditSpecificationRequest Core.Text
+creditSpecificationRequest_cpuCredits :: Lens.Lens' CreditSpecificationRequest Prelude.Text
 creditSpecificationRequest_cpuCredits = Lens.lens (\CreditSpecificationRequest' {cpuCredits} -> cpuCredits) (\s@CreditSpecificationRequest' {} a -> s {cpuCredits = a} :: CreditSpecificationRequest)
 
-instance Core.Hashable CreditSpecificationRequest
+instance Prelude.Hashable CreditSpecificationRequest
 
-instance Core.NFData CreditSpecificationRequest
+instance Prelude.NFData CreditSpecificationRequest
 
 instance Core.ToQuery CreditSpecificationRequest where
   toQuery CreditSpecificationRequest' {..} =
-    Core.mconcat ["CpuCredits" Core.=: cpuCredits]
+    Prelude.mconcat ["CpuCredits" Core.=: cpuCredits]

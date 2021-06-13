@@ -21,15 +21,16 @@ module Network.AWS.CloudDirectory.Types.BatchCreateObjectResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a CreateObject response operation.
 --
 -- /See:/ 'newBatchCreateObjectResponse' smart constructor.
 data BatchCreateObjectResponse = BatchCreateObjectResponse'
   { -- | The ID that is associated with the object.
-    objectIdentifier :: Core.Maybe Core.Text
+    objectIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchCreateObjectResponse' with all optional fields omitted.
@@ -45,11 +46,11 @@ newBatchCreateObjectResponse ::
 newBatchCreateObjectResponse =
   BatchCreateObjectResponse'
     { objectIdentifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID that is associated with the object.
-batchCreateObjectResponse_objectIdentifier :: Lens.Lens' BatchCreateObjectResponse (Core.Maybe Core.Text)
+batchCreateObjectResponse_objectIdentifier :: Lens.Lens' BatchCreateObjectResponse (Prelude.Maybe Prelude.Text)
 batchCreateObjectResponse_objectIdentifier = Lens.lens (\BatchCreateObjectResponse' {objectIdentifier} -> objectIdentifier) (\s@BatchCreateObjectResponse' {} a -> s {objectIdentifier = a} :: BatchCreateObjectResponse)
 
 instance Core.FromJSON BatchCreateObjectResponse where
@@ -58,9 +59,9 @@ instance Core.FromJSON BatchCreateObjectResponse where
       "BatchCreateObjectResponse"
       ( \x ->
           BatchCreateObjectResponse'
-            Core.<$> (x Core..:? "ObjectIdentifier")
+            Prelude.<$> (x Core..:? "ObjectIdentifier")
       )
 
-instance Core.Hashable BatchCreateObjectResponse
+instance Prelude.Hashable BatchCreateObjectResponse
 
-instance Core.NFData BatchCreateObjectResponse
+instance Prelude.NFData BatchCreateObjectResponse

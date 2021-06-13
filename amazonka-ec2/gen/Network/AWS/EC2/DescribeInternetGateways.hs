@@ -49,26 +49,27 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeInternetGateways' smart constructor.
 data DescribeInternetGateways = DescribeInternetGateways'
   { -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more internet gateway IDs.
     --
     -- Default: Describes all your internet gateways.
-    internetGatewayIds :: Core.Maybe [Core.Text],
+    internetGatewayIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
     --
     -- -   @attachment.state@ - The current state of the attachment between the
@@ -91,9 +92,9 @@ data DescribeInternetGateways = DescribeInternetGateways'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInternetGateways' with all optional fields omitted.
@@ -144,35 +145,36 @@ newDescribeInternetGateways ::
   DescribeInternetGateways
 newDescribeInternetGateways =
   DescribeInternetGateways'
-    { nextToken = Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      internetGatewayIds = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      internetGatewayIds = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token for the next page of results.
-describeInternetGateways_nextToken :: Lens.Lens' DescribeInternetGateways (Core.Maybe Core.Text)
+describeInternetGateways_nextToken :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Text)
 describeInternetGateways_nextToken = Lens.lens (\DescribeInternetGateways' {nextToken} -> nextToken) (\s@DescribeInternetGateways' {} a -> s {nextToken = a} :: DescribeInternetGateways)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeInternetGateways_dryRun :: Lens.Lens' DescribeInternetGateways (Core.Maybe Core.Bool)
+describeInternetGateways_dryRun :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Bool)
 describeInternetGateways_dryRun = Lens.lens (\DescribeInternetGateways' {dryRun} -> dryRun) (\s@DescribeInternetGateways' {} a -> s {dryRun = a} :: DescribeInternetGateways)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeInternetGateways_maxResults :: Lens.Lens' DescribeInternetGateways (Core.Maybe Core.Natural)
+describeInternetGateways_maxResults :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Natural)
 describeInternetGateways_maxResults = Lens.lens (\DescribeInternetGateways' {maxResults} -> maxResults) (\s@DescribeInternetGateways' {} a -> s {maxResults = a} :: DescribeInternetGateways)
 
 -- | One or more internet gateway IDs.
 --
 -- Default: Describes all your internet gateways.
-describeInternetGateways_internetGatewayIds :: Lens.Lens' DescribeInternetGateways (Core.Maybe [Core.Text])
-describeInternetGateways_internetGatewayIds = Lens.lens (\DescribeInternetGateways' {internetGatewayIds} -> internetGatewayIds) (\s@DescribeInternetGateways' {} a -> s {internetGatewayIds = a} :: DescribeInternetGateways) Core.. Lens.mapping Lens._Coerce
+describeInternetGateways_internetGatewayIds :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe [Prelude.Text])
+describeInternetGateways_internetGatewayIds = Lens.lens (\DescribeInternetGateways' {internetGatewayIds} -> internetGatewayIds) (\s@DescribeInternetGateways' {} a -> s {internetGatewayIds = a} :: DescribeInternetGateways) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -196,30 +198,30 @@ describeInternetGateways_internetGatewayIds = Lens.lens (\DescribeInternetGatewa
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describeInternetGateways_filters :: Lens.Lens' DescribeInternetGateways (Core.Maybe [Filter])
-describeInternetGateways_filters = Lens.lens (\DescribeInternetGateways' {filters} -> filters) (\s@DescribeInternetGateways' {} a -> s {filters = a} :: DescribeInternetGateways) Core.. Lens.mapping Lens._Coerce
+describeInternetGateways_filters :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe [Filter])
+describeInternetGateways_filters = Lens.lens (\DescribeInternetGateways' {filters} -> filters) (\s@DescribeInternetGateways' {} a -> s {filters = a} :: DescribeInternetGateways) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeInternetGateways where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeInternetGatewaysResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInternetGatewaysResponse_internetGateways
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeInternetGateways_nextToken
+          Prelude.& describeInternetGateways_nextToken
           Lens..~ rs
           Lens.^? describeInternetGatewaysResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInternetGateways where
   type
@@ -230,51 +232,53 @@ instance Core.AWSRequest DescribeInternetGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeInternetGatewaysResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "internetGatewaySet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "internetGatewaySet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeInternetGateways
+instance Prelude.Hashable DescribeInternetGateways
 
-instance Core.NFData DescribeInternetGateways
+instance Prelude.NFData DescribeInternetGateways
 
 instance Core.ToHeaders DescribeInternetGateways where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeInternetGateways where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeInternetGateways where
   toQuery DescribeInternetGateways' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInternetGateways" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeInternetGateways" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "InternetGatewayId"
-              Core.<$> internetGatewayIds
+              Prelude.<$> internetGatewayIds
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeInternetGatewaysResponse' smart constructor.
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about one or more internet gateways.
-    internetGateways :: Core.Maybe [InternetGateway],
+    internetGateways :: Prelude.Maybe [InternetGateway],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInternetGatewaysResponse' with all optional fields omitted.
@@ -292,27 +296,29 @@ data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
 -- 'httpStatus', 'describeInternetGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeInternetGatewaysResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeInternetGatewaysResponse
 newDescribeInternetGatewaysResponse pHttpStatus_ =
   DescribeInternetGatewaysResponse'
     { nextToken =
-        Core.Nothing,
-      internetGateways = Core.Nothing,
+        Prelude.Nothing,
+      internetGateways = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeInternetGatewaysResponse_nextToken :: Lens.Lens' DescribeInternetGatewaysResponse (Core.Maybe Core.Text)
+describeInternetGatewaysResponse_nextToken :: Lens.Lens' DescribeInternetGatewaysResponse (Prelude.Maybe Prelude.Text)
 describeInternetGatewaysResponse_nextToken = Lens.lens (\DescribeInternetGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeInternetGatewaysResponse' {} a -> s {nextToken = a} :: DescribeInternetGatewaysResponse)
 
 -- | Information about one or more internet gateways.
-describeInternetGatewaysResponse_internetGateways :: Lens.Lens' DescribeInternetGatewaysResponse (Core.Maybe [InternetGateway])
-describeInternetGatewaysResponse_internetGateways = Lens.lens (\DescribeInternetGatewaysResponse' {internetGateways} -> internetGateways) (\s@DescribeInternetGatewaysResponse' {} a -> s {internetGateways = a} :: DescribeInternetGatewaysResponse) Core.. Lens.mapping Lens._Coerce
+describeInternetGatewaysResponse_internetGateways :: Lens.Lens' DescribeInternetGatewaysResponse (Prelude.Maybe [InternetGateway])
+describeInternetGatewaysResponse_internetGateways = Lens.lens (\DescribeInternetGatewaysResponse' {internetGateways} -> internetGateways) (\s@DescribeInternetGatewaysResponse' {} a -> s {internetGateways = a} :: DescribeInternetGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeInternetGatewaysResponse_httpStatus :: Lens.Lens' DescribeInternetGatewaysResponse Core.Int
+describeInternetGatewaysResponse_httpStatus :: Lens.Lens' DescribeInternetGatewaysResponse Prelude.Int
 describeInternetGatewaysResponse_httpStatus = Lens.lens (\DescribeInternetGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeInternetGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeInternetGatewaysResponse)
 
-instance Core.NFData DescribeInternetGatewaysResponse
+instance
+  Prelude.NFData
+    DescribeInternetGatewaysResponse

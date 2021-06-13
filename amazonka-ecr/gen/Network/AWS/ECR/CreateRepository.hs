@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,29 +56,29 @@ import qualified Network.AWS.Response as Response
 data CreateRepository = CreateRepository'
   { -- | The encryption configuration for the repository. This determines how the
     -- contents of your repository are encrypted at rest.
-    encryptionConfiguration :: Core.Maybe EncryptionConfiguration,
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The metadata that you apply to the repository to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define. Tag keys can have a maximum character length of 128
     -- characters, and tag values can have a maximum length of 256 characters.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The image scanning configuration for the repository. This determines
     -- whether images are scanned for known vulnerabilities after being pushed
     -- to the repository.
-    imageScanningConfiguration :: Core.Maybe ImageScanningConfiguration,
+    imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
     -- | The tag mutability setting for the repository. If this parameter is
     -- omitted, the default setting of @MUTABLE@ will be used which will allow
     -- image tags to be overwritten. If @IMMUTABLE@ is specified, all image
     -- tags within the repository will be immutable which will prevent them
     -- from being overwritten.
-    imageTagMutability :: Core.Maybe ImageTagMutability,
+    imageTagMutability :: Prelude.Maybe ImageTagMutability,
     -- | The name to use for the repository. The repository name may be specified
     -- on its own (such as @nginx-web-app@) or it can be prepended with a
     -- namespace to group the repository into a category (such as
     -- @project-a\/nginx-web-app@).
-    repositoryName :: Core.Text
+    repositoryName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRepository' with all optional fields omitted.
@@ -111,34 +112,34 @@ data CreateRepository = CreateRepository'
 -- @project-a\/nginx-web-app@).
 newCreateRepository ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   CreateRepository
 newCreateRepository pRepositoryName_ =
   CreateRepository'
     { encryptionConfiguration =
-        Core.Nothing,
-      tags = Core.Nothing,
-      imageScanningConfiguration = Core.Nothing,
-      imageTagMutability = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      imageScanningConfiguration = Prelude.Nothing,
+      imageTagMutability = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
 
 -- | The encryption configuration for the repository. This determines how the
 -- contents of your repository are encrypted at rest.
-createRepository_encryptionConfiguration :: Lens.Lens' CreateRepository (Core.Maybe EncryptionConfiguration)
+createRepository_encryptionConfiguration :: Lens.Lens' CreateRepository (Prelude.Maybe EncryptionConfiguration)
 createRepository_encryptionConfiguration = Lens.lens (\CreateRepository' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateRepository' {} a -> s {encryptionConfiguration = a} :: CreateRepository)
 
 -- | The metadata that you apply to the repository to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
 -- which you define. Tag keys can have a maximum character length of 128
 -- characters, and tag values can have a maximum length of 256 characters.
-createRepository_tags :: Lens.Lens' CreateRepository (Core.Maybe [Tag])
-createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Core.. Lens.mapping Lens._Coerce
+createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe [Tag])
+createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The image scanning configuration for the repository. This determines
 -- whether images are scanned for known vulnerabilities after being pushed
 -- to the repository.
-createRepository_imageScanningConfiguration :: Lens.Lens' CreateRepository (Core.Maybe ImageScanningConfiguration)
+createRepository_imageScanningConfiguration :: Lens.Lens' CreateRepository (Prelude.Maybe ImageScanningConfiguration)
 createRepository_imageScanningConfiguration = Lens.lens (\CreateRepository' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@CreateRepository' {} a -> s {imageScanningConfiguration = a} :: CreateRepository)
 
 -- | The tag mutability setting for the repository. If this parameter is
@@ -146,14 +147,14 @@ createRepository_imageScanningConfiguration = Lens.lens (\CreateRepository' {ima
 -- image tags to be overwritten. If @IMMUTABLE@ is specified, all image
 -- tags within the repository will be immutable which will prevent them
 -- from being overwritten.
-createRepository_imageTagMutability :: Lens.Lens' CreateRepository (Core.Maybe ImageTagMutability)
+createRepository_imageTagMutability :: Lens.Lens' CreateRepository (Prelude.Maybe ImageTagMutability)
 createRepository_imageTagMutability = Lens.lens (\CreateRepository' {imageTagMutability} -> imageTagMutability) (\s@CreateRepository' {} a -> s {imageTagMutability = a} :: CreateRepository)
 
 -- | The name to use for the repository. The repository name may be specified
 -- on its own (such as @nginx-web-app@) or it can be prepended with a
 -- namespace to group the repository into a category (such as
 -- @project-a\/nginx-web-app@).
-createRepository_repositoryName :: Lens.Lens' CreateRepository Core.Text
+createRepository_repositoryName :: Lens.Lens' CreateRepository Prelude.Text
 createRepository_repositoryName = Lens.lens (\CreateRepository' {repositoryName} -> repositoryName) (\s@CreateRepository' {} a -> s {repositoryName = a} :: CreateRepository)
 
 instance Core.AWSRequest CreateRepository where
@@ -165,56 +166,59 @@ instance Core.AWSRequest CreateRepository where
     Response.receiveJSON
       ( \s h x ->
           CreateRepositoryResponse'
-            Core.<$> (x Core..?> "repository")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "repository")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateRepository
+instance Prelude.Hashable CreateRepository
 
-instance Core.NFData CreateRepository
+instance Prelude.NFData CreateRepository
 
 instance Core.ToHeaders CreateRepository where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.CreateRepository" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("encryptionConfiguration" Core..=)
-              Core.<$> encryptionConfiguration,
-            ("tags" Core..=) Core.<$> tags,
+              Prelude.<$> encryptionConfiguration,
+            ("tags" Core..=) Prelude.<$> tags,
             ("imageScanningConfiguration" Core..=)
-              Core.<$> imageScanningConfiguration,
+              Prelude.<$> imageScanningConfiguration,
             ("imageTagMutability" Core..=)
-              Core.<$> imageTagMutability,
-            Core.Just ("repositoryName" Core..= repositoryName)
+              Prelude.<$> imageTagMutability,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
 instance Core.ToPath CreateRepository where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateRepository where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
   { -- | The repository that was created.
-    repository :: Core.Maybe Repository,
+    repository :: Prelude.Maybe Repository,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRepositoryResponse' with all optional fields omitted.
@@ -229,21 +233,21 @@ data CreateRepositoryResponse = CreateRepositoryResponse'
 -- 'httpStatus', 'createRepositoryResponse_httpStatus' - The response's http status code.
 newCreateRepositoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateRepositoryResponse
 newCreateRepositoryResponse pHttpStatus_ =
   CreateRepositoryResponse'
     { repository =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The repository that was created.
-createRepositoryResponse_repository :: Lens.Lens' CreateRepositoryResponse (Core.Maybe Repository)
+createRepositoryResponse_repository :: Lens.Lens' CreateRepositoryResponse (Prelude.Maybe Repository)
 createRepositoryResponse_repository = Lens.lens (\CreateRepositoryResponse' {repository} -> repository) (\s@CreateRepositoryResponse' {} a -> s {repository = a} :: CreateRepositoryResponse)
 
 -- | The response's http status code.
-createRepositoryResponse_httpStatus :: Lens.Lens' CreateRepositoryResponse Core.Int
+createRepositoryResponse_httpStatus :: Lens.Lens' CreateRepositoryResponse Prelude.Int
 createRepositoryResponse_httpStatus = Lens.lens (\CreateRepositoryResponse' {httpStatus} -> httpStatus) (\s@CreateRepositoryResponse' {} a -> s {httpStatus = a} :: CreateRepositoryResponse)
 
-instance Core.NFData CreateRepositoryResponse
+instance Prelude.NFData CreateRepositoryResponse

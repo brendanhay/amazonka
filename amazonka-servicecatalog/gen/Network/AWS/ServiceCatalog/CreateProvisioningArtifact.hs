@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -68,17 +69,17 @@ data CreateProvisioningArtifact = CreateProvisioningArtifact'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
-    productId :: Core.Text,
+    productId :: Prelude.Text,
     -- | The configuration for the provisioning artifact.
     parameters :: ProvisioningArtifactProperties,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Core.Text
+    idempotencyToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProvisioningArtifact' with all optional fields omitted.
@@ -105,11 +106,11 @@ data CreateProvisioningArtifact = CreateProvisioningArtifact'
 -- returned for each repeated request.
 newCreateProvisioningArtifact ::
   -- | 'productId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'parameters'
   ProvisioningArtifactProperties ->
   -- | 'idempotencyToken'
-  Core.Text ->
+  Prelude.Text ->
   CreateProvisioningArtifact
 newCreateProvisioningArtifact
   pProductId_
@@ -117,7 +118,7 @@ newCreateProvisioningArtifact
   pIdempotencyToken_ =
     CreateProvisioningArtifact'
       { acceptLanguage =
-          Core.Nothing,
+          Prelude.Nothing,
         productId = pProductId_,
         parameters = pParameters_,
         idempotencyToken = pIdempotencyToken_
@@ -130,11 +131,11 @@ newCreateProvisioningArtifact
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-createProvisioningArtifact_acceptLanguage :: Lens.Lens' CreateProvisioningArtifact (Core.Maybe Core.Text)
+createProvisioningArtifact_acceptLanguage :: Lens.Lens' CreateProvisioningArtifact (Prelude.Maybe Prelude.Text)
 createProvisioningArtifact_acceptLanguage = Lens.lens (\CreateProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@CreateProvisioningArtifact' {} a -> s {acceptLanguage = a} :: CreateProvisioningArtifact)
 
 -- | The product identifier.
-createProvisioningArtifact_productId :: Lens.Lens' CreateProvisioningArtifact Core.Text
+createProvisioningArtifact_productId :: Lens.Lens' CreateProvisioningArtifact Prelude.Text
 createProvisioningArtifact_productId = Lens.lens (\CreateProvisioningArtifact' {productId} -> productId) (\s@CreateProvisioningArtifact' {} a -> s {productId = a} :: CreateProvisioningArtifact)
 
 -- | The configuration for the provisioning artifact.
@@ -144,7 +145,7 @@ createProvisioningArtifact_parameters = Lens.lens (\CreateProvisioningArtifact' 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createProvisioningArtifact_idempotencyToken :: Lens.Lens' CreateProvisioningArtifact Core.Text
+createProvisioningArtifact_idempotencyToken :: Lens.Lens' CreateProvisioningArtifact Prelude.Text
 createProvisioningArtifact_idempotencyToken = Lens.lens (\CreateProvisioningArtifact' {idempotencyToken} -> idempotencyToken) (\s@CreateProvisioningArtifact' {} a -> s {idempotencyToken = a} :: CreateProvisioningArtifact)
 
 instance Core.AWSRequest CreateProvisioningArtifact where
@@ -156,51 +157,54 @@ instance Core.AWSRequest CreateProvisioningArtifact where
     Response.receiveJSON
       ( \s h x ->
           CreateProvisioningArtifactResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (x Core..?> "Info" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ProvisioningArtifactDetail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "Info" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ProvisioningArtifactDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateProvisioningArtifact
+instance Prelude.Hashable CreateProvisioningArtifact
 
-instance Core.NFData CreateProvisioningArtifact
+instance Prelude.NFData CreateProvisioningArtifact
 
 instance Core.ToHeaders CreateProvisioningArtifact where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.CreateProvisioningArtifact" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateProvisioningArtifact where
   toJSON CreateProvisioningArtifact' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("ProductId" Core..= productId),
-            Core.Just ("Parameters" Core..= parameters),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("ProductId" Core..= productId),
+            Prelude.Just ("Parameters" Core..= parameters),
+            Prelude.Just
               ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
 
 instance Core.ToPath CreateProvisioningArtifact where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateProvisioningArtifact where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProvisioningArtifactResponse' smart constructor.
 data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
   { -- | The status of the current request.
-    status :: Core.Maybe RequestStatus,
+    status :: Prelude.Maybe RequestStatus,
     -- | Specify the template source with one of the following options, but not
     -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ].
     --
@@ -214,13 +218,13 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
     --
     -- Use the physical id of the resource that contains the template;
     -- currently supports CloudFormation stack ARN.
-    info :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Information about the provisioning artifact.
-    provisioningArtifactDetail :: Core.Maybe ProvisioningArtifactDetail,
+    provisioningArtifactDetail :: Prelude.Maybe ProvisioningArtifactDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProvisioningArtifactResponse' with all optional fields omitted.
@@ -251,20 +255,20 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
 -- 'httpStatus', 'createProvisioningArtifactResponse_httpStatus' - The response's http status code.
 newCreateProvisioningArtifactResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateProvisioningArtifactResponse
 newCreateProvisioningArtifactResponse pHttpStatus_ =
   CreateProvisioningArtifactResponse'
     { status =
-        Core.Nothing,
-      info = Core.Nothing,
+        Prelude.Nothing,
+      info = Prelude.Nothing,
       provisioningArtifactDetail =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the current request.
-createProvisioningArtifactResponse_status :: Lens.Lens' CreateProvisioningArtifactResponse (Core.Maybe RequestStatus)
+createProvisioningArtifactResponse_status :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe RequestStatus)
 createProvisioningArtifactResponse_status = Lens.lens (\CreateProvisioningArtifactResponse' {status} -> status) (\s@CreateProvisioningArtifactResponse' {} a -> s {status = a} :: CreateProvisioningArtifactResponse)
 
 -- | Specify the template source with one of the following options, but not
@@ -280,17 +284,17 @@ createProvisioningArtifactResponse_status = Lens.lens (\CreateProvisioningArtifa
 --
 -- Use the physical id of the resource that contains the template;
 -- currently supports CloudFormation stack ARN.
-createProvisioningArtifactResponse_info :: Lens.Lens' CreateProvisioningArtifactResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createProvisioningArtifactResponse_info = Lens.lens (\CreateProvisioningArtifactResponse' {info} -> info) (\s@CreateProvisioningArtifactResponse' {} a -> s {info = a} :: CreateProvisioningArtifactResponse) Core.. Lens.mapping Lens._Coerce
+createProvisioningArtifactResponse_info :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProvisioningArtifactResponse_info = Lens.lens (\CreateProvisioningArtifactResponse' {info} -> info) (\s@CreateProvisioningArtifactResponse' {} a -> s {info = a} :: CreateProvisioningArtifactResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the provisioning artifact.
-createProvisioningArtifactResponse_provisioningArtifactDetail :: Lens.Lens' CreateProvisioningArtifactResponse (Core.Maybe ProvisioningArtifactDetail)
+createProvisioningArtifactResponse_provisioningArtifactDetail :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe ProvisioningArtifactDetail)
 createProvisioningArtifactResponse_provisioningArtifactDetail = Lens.lens (\CreateProvisioningArtifactResponse' {provisioningArtifactDetail} -> provisioningArtifactDetail) (\s@CreateProvisioningArtifactResponse' {} a -> s {provisioningArtifactDetail = a} :: CreateProvisioningArtifactResponse)
 
 -- | The response's http status code.
-createProvisioningArtifactResponse_httpStatus :: Lens.Lens' CreateProvisioningArtifactResponse Core.Int
+createProvisioningArtifactResponse_httpStatus :: Lens.Lens' CreateProvisioningArtifactResponse Prelude.Int
 createProvisioningArtifactResponse_httpStatus = Lens.lens (\CreateProvisioningArtifactResponse' {httpStatus} -> httpStatus) (\s@CreateProvisioningArtifactResponse' {} a -> s {httpStatus = a} :: CreateProvisioningArtifactResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateProvisioningArtifactResponse

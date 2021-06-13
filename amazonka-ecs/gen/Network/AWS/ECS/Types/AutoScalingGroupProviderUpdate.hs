@@ -23,12 +23,13 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.ManagedScaling
 import Network.AWS.ECS.Types.ManagedTerminationProtection
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of the Auto Scaling group capacity provider to update.
 --
 -- /See:/ 'newAutoScalingGroupProviderUpdate' smart constructor.
 data AutoScalingGroupProviderUpdate = AutoScalingGroupProviderUpdate'
-  { managedScaling :: Core.Maybe ManagedScaling,
+  { managedScaling :: Prelude.Maybe ManagedScaling,
     -- | The managed termination protection setting to use for the Auto Scaling
     -- group capacity provider. This determines whether the Auto Scaling group
     -- has managed termination protection.
@@ -47,9 +48,9 @@ data AutoScalingGroupProviderUpdate = AutoScalingGroupProviderUpdate'
     -- When managed termination protection is disabled, your Amazon EC2
     -- instances are not protected from termination when the Auto Scaling group
     -- scales in.
-    managedTerminationProtection :: Core.Maybe ManagedTerminationProtection
+    managedTerminationProtection :: Prelude.Maybe ManagedTerminationProtection
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoScalingGroupProviderUpdate' with all optional fields omitted.
@@ -84,12 +85,13 @@ newAutoScalingGroupProviderUpdate ::
 newAutoScalingGroupProviderUpdate =
   AutoScalingGroupProviderUpdate'
     { managedScaling =
-        Core.Nothing,
-      managedTerminationProtection = Core.Nothing
+        Prelude.Nothing,
+      managedTerminationProtection =
+        Prelude.Nothing
     }
 
 -- | Undocumented member.
-autoScalingGroupProviderUpdate_managedScaling :: Lens.Lens' AutoScalingGroupProviderUpdate (Core.Maybe ManagedScaling)
+autoScalingGroupProviderUpdate_managedScaling :: Lens.Lens' AutoScalingGroupProviderUpdate (Prelude.Maybe ManagedScaling)
 autoScalingGroupProviderUpdate_managedScaling = Lens.lens (\AutoScalingGroupProviderUpdate' {managedScaling} -> managedScaling) (\s@AutoScalingGroupProviderUpdate' {} a -> s {managedScaling = a} :: AutoScalingGroupProviderUpdate)
 
 -- | The managed termination protection setting to use for the Auto Scaling
@@ -110,19 +112,24 @@ autoScalingGroupProviderUpdate_managedScaling = Lens.lens (\AutoScalingGroupProv
 -- When managed termination protection is disabled, your Amazon EC2
 -- instances are not protected from termination when the Auto Scaling group
 -- scales in.
-autoScalingGroupProviderUpdate_managedTerminationProtection :: Lens.Lens' AutoScalingGroupProviderUpdate (Core.Maybe ManagedTerminationProtection)
+autoScalingGroupProviderUpdate_managedTerminationProtection :: Lens.Lens' AutoScalingGroupProviderUpdate (Prelude.Maybe ManagedTerminationProtection)
 autoScalingGroupProviderUpdate_managedTerminationProtection = Lens.lens (\AutoScalingGroupProviderUpdate' {managedTerminationProtection} -> managedTerminationProtection) (\s@AutoScalingGroupProviderUpdate' {} a -> s {managedTerminationProtection = a} :: AutoScalingGroupProviderUpdate)
 
-instance Core.Hashable AutoScalingGroupProviderUpdate
+instance
+  Prelude.Hashable
+    AutoScalingGroupProviderUpdate
 
-instance Core.NFData AutoScalingGroupProviderUpdate
+instance
+  Prelude.NFData
+    AutoScalingGroupProviderUpdate
 
 instance Core.ToJSON AutoScalingGroupProviderUpdate where
   toJSON AutoScalingGroupProviderUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("managedScaling" Core..=) Core.<$> managedScaling,
+      ( Prelude.catMaybes
+          [ ("managedScaling" Core..=)
+              Prelude.<$> managedScaling,
             ("managedTerminationProtection" Core..=)
-              Core.<$> managedTerminationProtection
+              Prelude.<$> managedTerminationProtection
           ]
       )

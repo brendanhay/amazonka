@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ import qualified Network.AWS.Response as Response
 data UpdateObjectAttributes = UpdateObjectAttributes'
   { -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where the object resides. For more information, see arns.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | The reference that identifies the object.
     objectReference :: ObjectReference,
     -- | The attributes update structure.
     attributeUpdates :: [ObjectAttributeUpdate]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateObjectAttributes' with all optional fields omitted.
@@ -75,7 +76,7 @@ data UpdateObjectAttributes = UpdateObjectAttributes'
 -- 'attributeUpdates', 'updateObjectAttributes_attributeUpdates' - The attributes update structure.
 newUpdateObjectAttributes ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'objectReference'
   ObjectReference ->
   UpdateObjectAttributes
@@ -86,12 +87,12 @@ newUpdateObjectAttributes
       { directoryArn =
           pDirectoryArn_,
         objectReference = pObjectReference_,
-        attributeUpdates = Core.mempty
+        attributeUpdates = Prelude.mempty
       }
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the object resides. For more information, see arns.
-updateObjectAttributes_directoryArn :: Lens.Lens' UpdateObjectAttributes Core.Text
+updateObjectAttributes_directoryArn :: Lens.Lens' UpdateObjectAttributes Prelude.Text
 updateObjectAttributes_directoryArn = Lens.lens (\UpdateObjectAttributes' {directoryArn} -> directoryArn) (\s@UpdateObjectAttributes' {} a -> s {directoryArn = a} :: UpdateObjectAttributes)
 
 -- | The reference that identifies the object.
@@ -100,7 +101,7 @@ updateObjectAttributes_objectReference = Lens.lens (\UpdateObjectAttributes' {ob
 
 -- | The attributes update structure.
 updateObjectAttributes_attributeUpdates :: Lens.Lens' UpdateObjectAttributes [ObjectAttributeUpdate]
-updateObjectAttributes_attributeUpdates = Lens.lens (\UpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@UpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: UpdateObjectAttributes) Core.. Lens._Coerce
+updateObjectAttributes_attributeUpdates = Lens.lens (\UpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@UpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: UpdateObjectAttributes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateObjectAttributes where
   type
@@ -111,46 +112,46 @@ instance Core.AWSRequest UpdateObjectAttributes where
     Response.receiveJSON
       ( \s h x ->
           UpdateObjectAttributesResponse'
-            Core.<$> (x Core..?> "ObjectIdentifier")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateObjectAttributes
+instance Prelude.Hashable UpdateObjectAttributes
 
-instance Core.NFData UpdateObjectAttributes
+instance Prelude.NFData UpdateObjectAttributes
 
 instance Core.ToHeaders UpdateObjectAttributes where
   toHeaders UpdateObjectAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON UpdateObjectAttributes where
   toJSON UpdateObjectAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ObjectReference" Core..= objectReference),
-            Core.Just
+            Prelude.Just
               ("AttributeUpdates" Core..= attributeUpdates)
           ]
       )
 
 instance Core.ToPath UpdateObjectAttributes where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/object/update"
 
 instance Core.ToQuery UpdateObjectAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateObjectAttributesResponse' smart constructor.
 data UpdateObjectAttributesResponse = UpdateObjectAttributesResponse'
   { -- | The @ObjectIdentifier@ of the updated object.
-    objectIdentifier :: Core.Maybe Core.Text,
+    objectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateObjectAttributesResponse' with all optional fields omitted.
@@ -165,21 +166,23 @@ data UpdateObjectAttributesResponse = UpdateObjectAttributesResponse'
 -- 'httpStatus', 'updateObjectAttributesResponse_httpStatus' - The response's http status code.
 newUpdateObjectAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateObjectAttributesResponse
 newUpdateObjectAttributesResponse pHttpStatus_ =
   UpdateObjectAttributesResponse'
     { objectIdentifier =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ObjectIdentifier@ of the updated object.
-updateObjectAttributesResponse_objectIdentifier :: Lens.Lens' UpdateObjectAttributesResponse (Core.Maybe Core.Text)
+updateObjectAttributesResponse_objectIdentifier :: Lens.Lens' UpdateObjectAttributesResponse (Prelude.Maybe Prelude.Text)
 updateObjectAttributesResponse_objectIdentifier = Lens.lens (\UpdateObjectAttributesResponse' {objectIdentifier} -> objectIdentifier) (\s@UpdateObjectAttributesResponse' {} a -> s {objectIdentifier = a} :: UpdateObjectAttributesResponse)
 
 -- | The response's http status code.
-updateObjectAttributesResponse_httpStatus :: Lens.Lens' UpdateObjectAttributesResponse Core.Int
+updateObjectAttributesResponse_httpStatus :: Lens.Lens' UpdateObjectAttributesResponse Prelude.Int
 updateObjectAttributesResponse_httpStatus = Lens.lens (\UpdateObjectAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateObjectAttributesResponse' {} a -> s {httpStatus = a} :: UpdateObjectAttributesResponse)
 
-instance Core.NFData UpdateObjectAttributesResponse
+instance
+  Prelude.NFData
+    UpdateObjectAttributesResponse

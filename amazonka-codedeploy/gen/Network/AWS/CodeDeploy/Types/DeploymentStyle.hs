@@ -23,6 +23,7 @@ import Network.AWS.CodeDeploy.Types.DeploymentOption
 import Network.AWS.CodeDeploy.Types.DeploymentType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the type of deployment, either in-place or
 -- blue\/green, you want to run and whether to route deployment traffic
@@ -32,11 +33,11 @@ import qualified Network.AWS.Lens as Lens
 data DeploymentStyle = DeploymentStyle'
   { -- | Indicates whether to run an in-place deployment or a blue\/green
     -- deployment.
-    deploymentType :: Core.Maybe DeploymentType,
+    deploymentType :: Prelude.Maybe DeploymentType,
     -- | Indicates whether to route deployment traffic behind a load balancer.
-    deploymentOption :: Core.Maybe DeploymentOption
+    deploymentOption :: Prelude.Maybe DeploymentOption
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeploymentStyle' with all optional fields omitted.
@@ -54,17 +55,17 @@ newDeploymentStyle ::
   DeploymentStyle
 newDeploymentStyle =
   DeploymentStyle'
-    { deploymentType = Core.Nothing,
-      deploymentOption = Core.Nothing
+    { deploymentType = Prelude.Nothing,
+      deploymentOption = Prelude.Nothing
     }
 
 -- | Indicates whether to run an in-place deployment or a blue\/green
 -- deployment.
-deploymentStyle_deploymentType :: Lens.Lens' DeploymentStyle (Core.Maybe DeploymentType)
+deploymentStyle_deploymentType :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentType)
 deploymentStyle_deploymentType = Lens.lens (\DeploymentStyle' {deploymentType} -> deploymentType) (\s@DeploymentStyle' {} a -> s {deploymentType = a} :: DeploymentStyle)
 
 -- | Indicates whether to route deployment traffic behind a load balancer.
-deploymentStyle_deploymentOption :: Lens.Lens' DeploymentStyle (Core.Maybe DeploymentOption)
+deploymentStyle_deploymentOption :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentOption)
 deploymentStyle_deploymentOption = Lens.lens (\DeploymentStyle' {deploymentOption} -> deploymentOption) (\s@DeploymentStyle' {} a -> s {deploymentOption = a} :: DeploymentStyle)
 
 instance Core.FromJSON DeploymentStyle where
@@ -73,20 +74,21 @@ instance Core.FromJSON DeploymentStyle where
       "DeploymentStyle"
       ( \x ->
           DeploymentStyle'
-            Core.<$> (x Core..:? "deploymentType")
-            Core.<*> (x Core..:? "deploymentOption")
+            Prelude.<$> (x Core..:? "deploymentType")
+            Prelude.<*> (x Core..:? "deploymentOption")
       )
 
-instance Core.Hashable DeploymentStyle
+instance Prelude.Hashable DeploymentStyle
 
-instance Core.NFData DeploymentStyle
+instance Prelude.NFData DeploymentStyle
 
 instance Core.ToJSON DeploymentStyle where
   toJSON DeploymentStyle' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("deploymentType" Core..=) Core.<$> deploymentType,
+      ( Prelude.catMaybes
+          [ ("deploymentType" Core..=)
+              Prelude.<$> deploymentType,
             ("deploymentOption" Core..=)
-              Core.<$> deploymentOption
+              Prelude.<$> deploymentOption
           ]
       )

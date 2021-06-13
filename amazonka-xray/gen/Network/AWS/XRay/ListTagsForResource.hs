@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -53,11 +54,11 @@ data ListTagsForResource = ListTagsForResource'
   { -- | A pagination token. If multiple pages of results are returned, use the
     -- @NextToken@ value returned with the current page of results as the value
     -- of this parameter to get the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.
-    resourceARN :: Core.Text
+    resourceARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -74,22 +75,22 @@ data ListTagsForResource = ListTagsForResource'
 -- 'resourceARN', 'listTagsForResource_resourceARN' - The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.
 newListTagsForResource ::
   -- | 'resourceARN'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForResource
 newListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { nextToken = Core.Nothing,
+    { nextToken = Prelude.Nothing,
       resourceARN = pResourceARN_
     }
 
 -- | A pagination token. If multiple pages of results are returned, use the
 -- @NextToken@ value returned with the current page of results as the value
 -- of this parameter to get the next page of results.
-listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Core.Maybe Core.Text)
+listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.
-listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Core.Text
+listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceARN = Lens.lens (\ListTagsForResource' {resourceARN} -> resourceARN) (\s@ListTagsForResource' {} a -> s {resourceARN = a} :: ListTagsForResource)
 
 instance Core.AWSRequest ListTagsForResource where
@@ -101,46 +102,46 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTagsForResource
+instance Prelude.Hashable ListTagsForResource
 
-instance Core.NFData ListTagsForResource
+instance Prelude.NFData ListTagsForResource
 
 instance Core.ToHeaders ListTagsForResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            Core.Just ("ResourceARN" Core..= resourceARN)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("ResourceARN" Core..= resourceARN)
           ]
       )
 
 instance Core.ToPath ListTagsForResource where
-  toPath = Core.const "/ListTagsForResource"
+  toPath = Prelude.const "/ListTagsForResource"
 
 instance Core.ToQuery ListTagsForResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | A pagination token. If multiple pages of results are returned, use the
     -- @NextToken@ value returned with the current page of results to get the
     -- next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of tags, as key and value pairs, that is associated with the
     -- specified X-Ray group or sampling rule.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -160,29 +161,29 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
     { nextToken =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A pagination token. If multiple pages of results are returned, use the
 -- @NextToken@ value returned with the current page of results to get the
 -- next page of results.
-listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Core.Text)
+listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
 
 -- | A list of tags, as key and value pairs, that is associated with the
 -- specified X-Ray group or sampling rule.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe [Tag])
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Core.. Lens.mapping Lens._Coerce
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
-instance Core.NFData ListTagsForResourceResponse
+instance Prelude.NFData ListTagsForResourceResponse

@@ -43,20 +43,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateOrganizationConfiguration' smart constructor.
 data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
   { -- | Describes which data sources will be updated.
-    dataSources :: Core.Maybe OrganizationDataSourceConfigurations,
+    dataSources :: Prelude.Maybe OrganizationDataSourceConfigurations,
     -- | The ID of the detector to update the delegated administrator for.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | Indicates whether to automatically enable member accounts in the
     -- organization.
-    autoEnable :: Core.Bool
+    autoEnable :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOrganizationConfiguration' with all optional fields omitted.
@@ -74,31 +75,31 @@ data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
 -- organization.
 newUpdateOrganizationConfiguration ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'autoEnable'
-  Core.Bool ->
+  Prelude.Bool ->
   UpdateOrganizationConfiguration
 newUpdateOrganizationConfiguration
   pDetectorId_
   pAutoEnable_ =
     UpdateOrganizationConfiguration'
       { dataSources =
-          Core.Nothing,
+          Prelude.Nothing,
         detectorId = pDetectorId_,
         autoEnable = pAutoEnable_
       }
 
 -- | Describes which data sources will be updated.
-updateOrganizationConfiguration_dataSources :: Lens.Lens' UpdateOrganizationConfiguration (Core.Maybe OrganizationDataSourceConfigurations)
+updateOrganizationConfiguration_dataSources :: Lens.Lens' UpdateOrganizationConfiguration (Prelude.Maybe OrganizationDataSourceConfigurations)
 updateOrganizationConfiguration_dataSources = Lens.lens (\UpdateOrganizationConfiguration' {dataSources} -> dataSources) (\s@UpdateOrganizationConfiguration' {} a -> s {dataSources = a} :: UpdateOrganizationConfiguration)
 
 -- | The ID of the detector to update the delegated administrator for.
-updateOrganizationConfiguration_detectorId :: Lens.Lens' UpdateOrganizationConfiguration Core.Text
+updateOrganizationConfiguration_detectorId :: Lens.Lens' UpdateOrganizationConfiguration Prelude.Text
 updateOrganizationConfiguration_detectorId = Lens.lens (\UpdateOrganizationConfiguration' {detectorId} -> detectorId) (\s@UpdateOrganizationConfiguration' {} a -> s {detectorId = a} :: UpdateOrganizationConfiguration)
 
 -- | Indicates whether to automatically enable member accounts in the
 -- organization.
-updateOrganizationConfiguration_autoEnable :: Lens.Lens' UpdateOrganizationConfiguration Core.Bool
+updateOrganizationConfiguration_autoEnable :: Lens.Lens' UpdateOrganizationConfiguration Prelude.Bool
 updateOrganizationConfiguration_autoEnable = Lens.lens (\UpdateOrganizationConfiguration' {autoEnable} -> autoEnable) (\s@UpdateOrganizationConfiguration' {} a -> s {autoEnable = a} :: UpdateOrganizationConfiguration)
 
 instance
@@ -113,50 +114,54 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           UpdateOrganizationConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateOrganizationConfiguration
 
-instance Core.NFData UpdateOrganizationConfiguration
+instance
+  Prelude.NFData
+    UpdateOrganizationConfiguration
 
 instance
   Core.ToHeaders
     UpdateOrganizationConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateOrganizationConfiguration where
   toJSON UpdateOrganizationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("dataSources" Core..=) Core.<$> dataSources,
-            Core.Just ("autoEnable" Core..= autoEnable)
+      ( Prelude.catMaybes
+          [ ("dataSources" Core..=) Prelude.<$> dataSources,
+            Prelude.Just ("autoEnable" Core..= autoEnable)
           ]
       )
 
 instance Core.ToPath UpdateOrganizationConfiguration where
   toPath UpdateOrganizationConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/detector/", Core.toBS detectorId, "/admin"]
 
 instance Core.ToQuery UpdateOrganizationConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateOrganizationConfigurationResponse' smart constructor.
 data UpdateOrganizationConfigurationResponse = UpdateOrganizationConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOrganizationConfigurationResponse' with all optional fields omitted.
@@ -169,7 +174,7 @@ data UpdateOrganizationConfigurationResponse = UpdateOrganizationConfigurationRe
 -- 'httpStatus', 'updateOrganizationConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateOrganizationConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateOrganizationConfigurationResponse
 newUpdateOrganizationConfigurationResponse
   pHttpStatus_ =
@@ -179,9 +184,9 @@ newUpdateOrganizationConfigurationResponse
       }
 
 -- | The response's http status code.
-updateOrganizationConfigurationResponse_httpStatus :: Lens.Lens' UpdateOrganizationConfigurationResponse Core.Int
+updateOrganizationConfigurationResponse_httpStatus :: Lens.Lens' UpdateOrganizationConfigurationResponse Prelude.Int
 updateOrganizationConfigurationResponse_httpStatus = Lens.lens (\UpdateOrganizationConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateOrganizationConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateOrganizationConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateOrganizationConfigurationResponse

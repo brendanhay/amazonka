@@ -21,6 +21,7 @@ module Network.AWS.MechanicalTurk.Types.Locale where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Locale data structure represents a geographical region or location.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data Locale = Locale'
   { -- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision
     -- code. For example, the code WA refers to the state of Washington.
-    subdivision :: Core.Maybe Core.Text,
+    subdivision :: Prelude.Maybe Prelude.Text,
     -- | The country of the locale. Must be a valid ISO 3166 country code. For
     -- example, the code US refers to the United States of America.
-    country :: Core.Text
+    country :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Locale' with all optional fields omitted.
@@ -50,22 +51,22 @@ data Locale = Locale'
 -- example, the code US refers to the United States of America.
 newLocale ::
   -- | 'country'
-  Core.Text ->
+  Prelude.Text ->
   Locale
 newLocale pCountry_ =
   Locale'
-    { subdivision = Core.Nothing,
+    { subdivision = Prelude.Nothing,
       country = pCountry_
     }
 
 -- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision
 -- code. For example, the code WA refers to the state of Washington.
-locale_subdivision :: Lens.Lens' Locale (Core.Maybe Core.Text)
+locale_subdivision :: Lens.Lens' Locale (Prelude.Maybe Prelude.Text)
 locale_subdivision = Lens.lens (\Locale' {subdivision} -> subdivision) (\s@Locale' {} a -> s {subdivision = a} :: Locale)
 
 -- | The country of the locale. Must be a valid ISO 3166 country code. For
 -- example, the code US refers to the United States of America.
-locale_country :: Lens.Lens' Locale Core.Text
+locale_country :: Lens.Lens' Locale Prelude.Text
 locale_country = Lens.lens (\Locale' {country} -> country) (\s@Locale' {} a -> s {country = a} :: Locale)
 
 instance Core.FromJSON Locale where
@@ -74,19 +75,19 @@ instance Core.FromJSON Locale where
       "Locale"
       ( \x ->
           Locale'
-            Core.<$> (x Core..:? "Subdivision")
-            Core.<*> (x Core..: "Country")
+            Prelude.<$> (x Core..:? "Subdivision")
+            Prelude.<*> (x Core..: "Country")
       )
 
-instance Core.Hashable Locale
+instance Prelude.Hashable Locale
 
-instance Core.NFData Locale
+instance Prelude.NFData Locale
 
 instance Core.ToJSON Locale where
   toJSON Locale' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Subdivision" Core..=) Core.<$> subdivision,
-            Core.Just ("Country" Core..= country)
+      ( Prelude.catMaybes
+          [ ("Subdivision" Core..=) Prelude.<$> subdivision,
+            Prelude.Just ("Country" Core..= country)
           ]
       )

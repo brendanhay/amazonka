@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.StorageLocation where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a storage location in Amazon S3.
 --
 -- /See:/ 'newStorageLocation' smart constructor.
 data StorageLocation = StorageLocation'
   { -- | The key.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket.
-    bucket :: Core.Maybe Core.Text
+    bucket :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StorageLocation' with all optional fields omitted.
@@ -49,23 +50,23 @@ newStorageLocation ::
   StorageLocation
 newStorageLocation =
   StorageLocation'
-    { key = Core.Nothing,
-      bucket = Core.Nothing
+    { key = Prelude.Nothing,
+      bucket = Prelude.Nothing
     }
 
 -- | The key.
-storageLocation_key :: Lens.Lens' StorageLocation (Core.Maybe Core.Text)
+storageLocation_key :: Lens.Lens' StorageLocation (Prelude.Maybe Prelude.Text)
 storageLocation_key = Lens.lens (\StorageLocation' {key} -> key) (\s@StorageLocation' {} a -> s {key = a} :: StorageLocation)
 
 -- | The name of the S3 bucket.
-storageLocation_bucket :: Lens.Lens' StorageLocation (Core.Maybe Core.Text)
+storageLocation_bucket :: Lens.Lens' StorageLocation (Prelude.Maybe Prelude.Text)
 storageLocation_bucket = Lens.lens (\StorageLocation' {bucket} -> bucket) (\s@StorageLocation' {} a -> s {bucket = a} :: StorageLocation)
 
-instance Core.Hashable StorageLocation
+instance Prelude.Hashable StorageLocation
 
-instance Core.NFData StorageLocation
+instance Prelude.NFData StorageLocation
 
 instance Core.ToQuery StorageLocation where
   toQuery StorageLocation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Key" Core.=: key, "Bucket" Core.=: bucket]

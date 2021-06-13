@@ -45,20 +45,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutWorkflowRunProperties' smart constructor.
 data PutWorkflowRunProperties = PutWorkflowRunProperties'
   { -- | Name of the workflow which was run.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The ID of the workflow run for which the run properties should be
     -- updated.
-    runId :: Core.Text,
+    runId :: Prelude.Text,
     -- | The properties to put for the specified run.
-    runProperties :: Core.HashMap Core.Text Core.Text
+    runProperties :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutWorkflowRunProperties' with all optional fields omitted.
@@ -76,29 +77,29 @@ data PutWorkflowRunProperties = PutWorkflowRunProperties'
 -- 'runProperties', 'putWorkflowRunProperties_runProperties' - The properties to put for the specified run.
 newPutWorkflowRunProperties ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'runId'
-  Core.Text ->
+  Prelude.Text ->
   PutWorkflowRunProperties
 newPutWorkflowRunProperties pName_ pRunId_ =
   PutWorkflowRunProperties'
     { name = pName_,
       runId = pRunId_,
-      runProperties = Core.mempty
+      runProperties = Prelude.mempty
     }
 
 -- | Name of the workflow which was run.
-putWorkflowRunProperties_name :: Lens.Lens' PutWorkflowRunProperties Core.Text
+putWorkflowRunProperties_name :: Lens.Lens' PutWorkflowRunProperties Prelude.Text
 putWorkflowRunProperties_name = Lens.lens (\PutWorkflowRunProperties' {name} -> name) (\s@PutWorkflowRunProperties' {} a -> s {name = a} :: PutWorkflowRunProperties)
 
 -- | The ID of the workflow run for which the run properties should be
 -- updated.
-putWorkflowRunProperties_runId :: Lens.Lens' PutWorkflowRunProperties Core.Text
+putWorkflowRunProperties_runId :: Lens.Lens' PutWorkflowRunProperties Prelude.Text
 putWorkflowRunProperties_runId = Lens.lens (\PutWorkflowRunProperties' {runId} -> runId) (\s@PutWorkflowRunProperties' {} a -> s {runId = a} :: PutWorkflowRunProperties)
 
 -- | The properties to put for the specified run.
-putWorkflowRunProperties_runProperties :: Lens.Lens' PutWorkflowRunProperties (Core.HashMap Core.Text Core.Text)
-putWorkflowRunProperties_runProperties = Lens.lens (\PutWorkflowRunProperties' {runProperties} -> runProperties) (\s@PutWorkflowRunProperties' {} a -> s {runProperties = a} :: PutWorkflowRunProperties) Core.. Lens._Coerce
+putWorkflowRunProperties_runProperties :: Lens.Lens' PutWorkflowRunProperties (Prelude.HashMap Prelude.Text Prelude.Text)
+putWorkflowRunProperties_runProperties = Lens.lens (\PutWorkflowRunProperties' {runProperties} -> runProperties) (\s@PutWorkflowRunProperties' {} a -> s {runProperties = a} :: PutWorkflowRunProperties) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutWorkflowRunProperties where
   type
@@ -109,48 +110,51 @@ instance Core.AWSRequest PutWorkflowRunProperties where
     Response.receiveEmpty
       ( \s h x ->
           PutWorkflowRunPropertiesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutWorkflowRunProperties
+instance Prelude.Hashable PutWorkflowRunProperties
 
-instance Core.NFData PutWorkflowRunProperties
+instance Prelude.NFData PutWorkflowRunProperties
 
 instance Core.ToHeaders PutWorkflowRunProperties where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.PutWorkflowRunProperties" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutWorkflowRunProperties where
   toJSON PutWorkflowRunProperties' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("RunId" Core..= runId),
-            Core.Just ("RunProperties" Core..= runProperties)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("RunId" Core..= runId),
+            Prelude.Just
+              ("RunProperties" Core..= runProperties)
           ]
       )
 
 instance Core.ToPath PutWorkflowRunProperties where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutWorkflowRunProperties where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutWorkflowRunPropertiesResponse' smart constructor.
 data PutWorkflowRunPropertiesResponse = PutWorkflowRunPropertiesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutWorkflowRunPropertiesResponse' with all optional fields omitted.
@@ -163,7 +167,7 @@ data PutWorkflowRunPropertiesResponse = PutWorkflowRunPropertiesResponse'
 -- 'httpStatus', 'putWorkflowRunPropertiesResponse_httpStatus' - The response's http status code.
 newPutWorkflowRunPropertiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutWorkflowRunPropertiesResponse
 newPutWorkflowRunPropertiesResponse pHttpStatus_ =
   PutWorkflowRunPropertiesResponse'
@@ -172,7 +176,9 @@ newPutWorkflowRunPropertiesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putWorkflowRunPropertiesResponse_httpStatus :: Lens.Lens' PutWorkflowRunPropertiesResponse Core.Int
+putWorkflowRunPropertiesResponse_httpStatus :: Lens.Lens' PutWorkflowRunPropertiesResponse Prelude.Int
 putWorkflowRunPropertiesResponse_httpStatus = Lens.lens (\PutWorkflowRunPropertiesResponse' {httpStatus} -> httpStatus) (\s@PutWorkflowRunPropertiesResponse' {} a -> s {httpStatus = a} :: PutWorkflowRunPropertiesResponse)
 
-instance Core.NFData PutWorkflowRunPropertiesResponse
+instance
+  Prelude.NFData
+    PutWorkflowRunPropertiesResponse

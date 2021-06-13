@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,9 +73,9 @@ data DeleteUser = DeleteUser'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text
+    userName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -92,7 +93,7 @@ data DeleteUser = DeleteUser'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteUser ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUser
 newDeleteUser pUserName_ =
   DeleteUser' {userName = pUserName_}
@@ -103,7 +104,7 @@ newDeleteUser pUserName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteUser_userName :: Lens.Lens' DeleteUser Core.Text
+deleteUser_userName :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_userName = Lens.lens (\DeleteUser' {userName} -> userName) (\s@DeleteUser' {} a -> s {userName = a} :: DeleteUser)
 
 instance Core.AWSRequest DeleteUser where
@@ -111,21 +112,23 @@ instance Core.AWSRequest DeleteUser where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteUserResponse'
 
-instance Core.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser
 
-instance Core.NFData DeleteUser
+instance Prelude.NFData DeleteUser
 
 instance Core.ToHeaders DeleteUser where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUser where
   toQuery DeleteUser' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("DeleteUser" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteUser" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName
       ]
 
@@ -133,7 +136,7 @@ instance Core.ToQuery DeleteUser where
 data DeleteUserResponse = DeleteUserResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserResponse' with all optional fields omitted.
@@ -143,4 +146,4 @@ newDeleteUserResponse ::
   DeleteUserResponse
 newDeleteUserResponse = DeleteUserResponse'
 
-instance Core.NFData DeleteUserResponse
+instance Prelude.NFData DeleteUserResponse

@@ -57,6 +57,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -66,17 +67,17 @@ data AddCommunicationToCase = AddCommunicationToCase'
   { -- | The AWS Support case ID requested or returned in the call. The case ID
     -- is an alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-    caseId :: Core.Maybe Core.Text,
+    caseId :: Prelude.Maybe Prelude.Text,
     -- | The email addresses in the CC line of an email to be added to the
     -- support case.
-    ccEmailAddresses :: Core.Maybe [Core.Text],
+    ccEmailAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The ID of a set of one or more attachments for the communication to add
     -- to the case. Create the set by calling AddAttachmentsToSet
-    attachmentSetId :: Core.Maybe Core.Text,
+    attachmentSetId :: Prelude.Maybe Prelude.Text,
     -- | The body of an email communication to add to the support case.
-    communicationBody :: Core.Text
+    communicationBody :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddCommunicationToCase' with all optional fields omitted.
@@ -99,34 +100,34 @@ data AddCommunicationToCase = AddCommunicationToCase'
 -- 'communicationBody', 'addCommunicationToCase_communicationBody' - The body of an email communication to add to the support case.
 newAddCommunicationToCase ::
   -- | 'communicationBody'
-  Core.Text ->
+  Prelude.Text ->
   AddCommunicationToCase
 newAddCommunicationToCase pCommunicationBody_ =
   AddCommunicationToCase'
-    { caseId = Core.Nothing,
-      ccEmailAddresses = Core.Nothing,
-      attachmentSetId = Core.Nothing,
+    { caseId = Prelude.Nothing,
+      ccEmailAddresses = Prelude.Nothing,
+      attachmentSetId = Prelude.Nothing,
       communicationBody = pCommunicationBody_
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-addCommunicationToCase_caseId :: Lens.Lens' AddCommunicationToCase (Core.Maybe Core.Text)
+addCommunicationToCase_caseId :: Lens.Lens' AddCommunicationToCase (Prelude.Maybe Prelude.Text)
 addCommunicationToCase_caseId = Lens.lens (\AddCommunicationToCase' {caseId} -> caseId) (\s@AddCommunicationToCase' {} a -> s {caseId = a} :: AddCommunicationToCase)
 
 -- | The email addresses in the CC line of an email to be added to the
 -- support case.
-addCommunicationToCase_ccEmailAddresses :: Lens.Lens' AddCommunicationToCase (Core.Maybe [Core.Text])
-addCommunicationToCase_ccEmailAddresses = Lens.lens (\AddCommunicationToCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@AddCommunicationToCase' {} a -> s {ccEmailAddresses = a} :: AddCommunicationToCase) Core.. Lens.mapping Lens._Coerce
+addCommunicationToCase_ccEmailAddresses :: Lens.Lens' AddCommunicationToCase (Prelude.Maybe [Prelude.Text])
+addCommunicationToCase_ccEmailAddresses = Lens.lens (\AddCommunicationToCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@AddCommunicationToCase' {} a -> s {ccEmailAddresses = a} :: AddCommunicationToCase) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of a set of one or more attachments for the communication to add
 -- to the case. Create the set by calling AddAttachmentsToSet
-addCommunicationToCase_attachmentSetId :: Lens.Lens' AddCommunicationToCase (Core.Maybe Core.Text)
+addCommunicationToCase_attachmentSetId :: Lens.Lens' AddCommunicationToCase (Prelude.Maybe Prelude.Text)
 addCommunicationToCase_attachmentSetId = Lens.lens (\AddCommunicationToCase' {attachmentSetId} -> attachmentSetId) (\s@AddCommunicationToCase' {} a -> s {attachmentSetId = a} :: AddCommunicationToCase)
 
 -- | The body of an email communication to add to the support case.
-addCommunicationToCase_communicationBody :: Lens.Lens' AddCommunicationToCase Core.Text
+addCommunicationToCase_communicationBody :: Lens.Lens' AddCommunicationToCase Prelude.Text
 addCommunicationToCase_communicationBody = Lens.lens (\AddCommunicationToCase' {communicationBody} -> communicationBody) (\s@AddCommunicationToCase' {} a -> s {communicationBody = a} :: AddCommunicationToCase)
 
 instance Core.AWSRequest AddCommunicationToCase where
@@ -138,56 +139,59 @@ instance Core.AWSRequest AddCommunicationToCase where
     Response.receiveJSON
       ( \s h x ->
           AddCommunicationToCaseResponse'
-            Core.<$> (x Core..?> "result")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "result")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddCommunicationToCase
+instance Prelude.Hashable AddCommunicationToCase
 
-instance Core.NFData AddCommunicationToCase
+instance Prelude.NFData AddCommunicationToCase
 
 instance Core.ToHeaders AddCommunicationToCase where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSSupport_20130415.AddCommunicationToCase" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddCommunicationToCase where
   toJSON AddCommunicationToCase' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("caseId" Core..=) Core.<$> caseId,
+      ( Prelude.catMaybes
+          [ ("caseId" Core..=) Prelude.<$> caseId,
             ("ccEmailAddresses" Core..=)
-              Core.<$> ccEmailAddresses,
-            ("attachmentSetId" Core..=) Core.<$> attachmentSetId,
-            Core.Just
+              Prelude.<$> ccEmailAddresses,
+            ("attachmentSetId" Core..=)
+              Prelude.<$> attachmentSetId,
+            Prelude.Just
               ("communicationBody" Core..= communicationBody)
           ]
       )
 
 instance Core.ToPath AddCommunicationToCase where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddCommunicationToCase where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of the AddCommunicationToCase operation.
 --
 -- /See:/ 'newAddCommunicationToCaseResponse' smart constructor.
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
   { -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
-    result :: Core.Maybe Core.Bool,
+    result :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddCommunicationToCaseResponse' with all optional fields omitted.
@@ -202,21 +206,23 @@ data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
 -- 'httpStatus', 'addCommunicationToCaseResponse_httpStatus' - The response's http status code.
 newAddCommunicationToCaseResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddCommunicationToCaseResponse
 newAddCommunicationToCaseResponse pHttpStatus_ =
   AddCommunicationToCaseResponse'
     { result =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
-addCommunicationToCaseResponse_result :: Lens.Lens' AddCommunicationToCaseResponse (Core.Maybe Core.Bool)
+addCommunicationToCaseResponse_result :: Lens.Lens' AddCommunicationToCaseResponse (Prelude.Maybe Prelude.Bool)
 addCommunicationToCaseResponse_result = Lens.lens (\AddCommunicationToCaseResponse' {result} -> result) (\s@AddCommunicationToCaseResponse' {} a -> s {result = a} :: AddCommunicationToCaseResponse)
 
 -- | The response's http status code.
-addCommunicationToCaseResponse_httpStatus :: Lens.Lens' AddCommunicationToCaseResponse Core.Int
+addCommunicationToCaseResponse_httpStatus :: Lens.Lens' AddCommunicationToCaseResponse Prelude.Int
 addCommunicationToCaseResponse_httpStatus = Lens.lens (\AddCommunicationToCaseResponse' {httpStatus} -> httpStatus) (\s@AddCommunicationToCaseResponse' {} a -> s {httpStatus = a} :: AddCommunicationToCaseResponse)
 
-instance Core.NFData AddCommunicationToCaseResponse
+instance
+  Prelude.NFData
+    AddCommunicationToCaseResponse

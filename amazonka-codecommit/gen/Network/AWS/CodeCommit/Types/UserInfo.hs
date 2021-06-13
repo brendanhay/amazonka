@@ -21,20 +21,21 @@ module Network.AWS.CodeCommit.Types.UserInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the user who made a specified commit.
 --
 -- /See:/ 'newUserInfo' smart constructor.
 data UserInfo = UserInfo'
   { -- | The name of the user who made the specified commit.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The date when the specified commit was commited, in timestamp format
     -- with GMT offset.
-    date :: Core.Maybe Core.Text,
+    date :: Prelude.Maybe Prelude.Text,
     -- | The email address associated with the user who made the commit, if any.
-    email :: Core.Maybe Core.Text
+    email :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserInfo' with all optional fields omitted.
@@ -54,22 +55,22 @@ newUserInfo ::
   UserInfo
 newUserInfo =
   UserInfo'
-    { name = Core.Nothing,
-      date = Core.Nothing,
-      email = Core.Nothing
+    { name = Prelude.Nothing,
+      date = Prelude.Nothing,
+      email = Prelude.Nothing
     }
 
 -- | The name of the user who made the specified commit.
-userInfo_name :: Lens.Lens' UserInfo (Core.Maybe Core.Text)
+userInfo_name :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
 userInfo_name = Lens.lens (\UserInfo' {name} -> name) (\s@UserInfo' {} a -> s {name = a} :: UserInfo)
 
 -- | The date when the specified commit was commited, in timestamp format
 -- with GMT offset.
-userInfo_date :: Lens.Lens' UserInfo (Core.Maybe Core.Text)
+userInfo_date :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
 userInfo_date = Lens.lens (\UserInfo' {date} -> date) (\s@UserInfo' {} a -> s {date = a} :: UserInfo)
 
 -- | The email address associated with the user who made the commit, if any.
-userInfo_email :: Lens.Lens' UserInfo (Core.Maybe Core.Text)
+userInfo_email :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
 userInfo_email = Lens.lens (\UserInfo' {email} -> email) (\s@UserInfo' {} a -> s {email = a} :: UserInfo)
 
 instance Core.FromJSON UserInfo where
@@ -78,11 +79,11 @@ instance Core.FromJSON UserInfo where
       "UserInfo"
       ( \x ->
           UserInfo'
-            Core.<$> (x Core..:? "name")
-            Core.<*> (x Core..:? "date")
-            Core.<*> (x Core..:? "email")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "date")
+            Prelude.<*> (x Core..:? "email")
       )
 
-instance Core.Hashable UserInfo
+instance Prelude.Hashable UserInfo
 
-instance Core.NFData UserInfo
+instance Prelude.NFData UserInfo

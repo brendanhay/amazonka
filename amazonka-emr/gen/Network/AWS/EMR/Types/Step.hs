@@ -24,26 +24,27 @@ import Network.AWS.EMR.Types.ActionOnFailure
 import Network.AWS.EMR.Types.HadoopStepConfig
 import Network.AWS.EMR.Types.StepStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This represents a step in a cluster.
 --
 -- /See:/ 'newStep' smart constructor.
 data Step = Step'
   { -- | The current execution status details of the cluster step.
-    status :: Core.Maybe StepStatus,
+    status :: Prelude.Maybe StepStatus,
     -- | The identifier of the cluster step.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The Hadoop job configuration of the cluster step.
-    config :: Core.Maybe HadoopStepConfig,
+    config :: Prelude.Maybe HadoopStepConfig,
     -- | The action to take when the cluster step fails. Possible values are
     -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
     -- provided for backward compatibility. We recommend using
     -- TERMINATE_CLUSTER instead.
-    actionOnFailure :: Core.Maybe ActionOnFailure,
+    actionOnFailure :: Prelude.Maybe ActionOnFailure,
     -- | The name of the cluster step.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Step' with all optional fields omitted.
@@ -69,34 +70,34 @@ newStep ::
   Step
 newStep =
   Step'
-    { status = Core.Nothing,
-      id = Core.Nothing,
-      config = Core.Nothing,
-      actionOnFailure = Core.Nothing,
-      name = Core.Nothing
+    { status = Prelude.Nothing,
+      id = Prelude.Nothing,
+      config = Prelude.Nothing,
+      actionOnFailure = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The current execution status details of the cluster step.
-step_status :: Lens.Lens' Step (Core.Maybe StepStatus)
+step_status :: Lens.Lens' Step (Prelude.Maybe StepStatus)
 step_status = Lens.lens (\Step' {status} -> status) (\s@Step' {} a -> s {status = a} :: Step)
 
 -- | The identifier of the cluster step.
-step_id :: Lens.Lens' Step (Core.Maybe Core.Text)
+step_id :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
 step_id = Lens.lens (\Step' {id} -> id) (\s@Step' {} a -> s {id = a} :: Step)
 
 -- | The Hadoop job configuration of the cluster step.
-step_config :: Lens.Lens' Step (Core.Maybe HadoopStepConfig)
+step_config :: Lens.Lens' Step (Prelude.Maybe HadoopStepConfig)
 step_config = Lens.lens (\Step' {config} -> config) (\s@Step' {} a -> s {config = a} :: Step)
 
 -- | The action to take when the cluster step fails. Possible values are
 -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
 -- provided for backward compatibility. We recommend using
 -- TERMINATE_CLUSTER instead.
-step_actionOnFailure :: Lens.Lens' Step (Core.Maybe ActionOnFailure)
+step_actionOnFailure :: Lens.Lens' Step (Prelude.Maybe ActionOnFailure)
 step_actionOnFailure = Lens.lens (\Step' {actionOnFailure} -> actionOnFailure) (\s@Step' {} a -> s {actionOnFailure = a} :: Step)
 
 -- | The name of the cluster step.
-step_name :: Lens.Lens' Step (Core.Maybe Core.Text)
+step_name :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
 step_name = Lens.lens (\Step' {name} -> name) (\s@Step' {} a -> s {name = a} :: Step)
 
 instance Core.FromJSON Step where
@@ -105,13 +106,13 @@ instance Core.FromJSON Step where
       "Step"
       ( \x ->
           Step'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Config")
-            Core.<*> (x Core..:? "ActionOnFailure")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Config")
+            Prelude.<*> (x Core..:? "ActionOnFailure")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable Step
+instance Prelude.Hashable Step
 
-instance Core.NFData Step
+instance Prelude.NFData Step

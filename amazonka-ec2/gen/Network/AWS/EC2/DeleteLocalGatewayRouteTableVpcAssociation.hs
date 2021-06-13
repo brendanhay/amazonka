@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ data DeleteLocalGatewayRouteTableVpcAssociation = DeleteLocalGatewayRouteTableVp
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the association.
-    localGatewayRouteTableVpcAssociationId :: Core.Text
+    localGatewayRouteTableVpcAssociationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLocalGatewayRouteTableVpcAssociation' with all optional fields omitted.
@@ -75,13 +76,13 @@ data DeleteLocalGatewayRouteTableVpcAssociation = DeleteLocalGatewayRouteTableVp
 -- 'localGatewayRouteTableVpcAssociationId', 'deleteLocalGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId' - The ID of the association.
 newDeleteLocalGatewayRouteTableVpcAssociation ::
   -- | 'localGatewayRouteTableVpcAssociationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLocalGatewayRouteTableVpcAssociation
 newDeleteLocalGatewayRouteTableVpcAssociation
   pLocalGatewayRouteTableVpcAssociationId_ =
     DeleteLocalGatewayRouteTableVpcAssociation'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         localGatewayRouteTableVpcAssociationId =
           pLocalGatewayRouteTableVpcAssociationId_
       }
@@ -90,11 +91,11 @@ newDeleteLocalGatewayRouteTableVpcAssociation
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteLocalGatewayRouteTableVpcAssociation_dryRun :: Lens.Lens' DeleteLocalGatewayRouteTableVpcAssociation (Core.Maybe Core.Bool)
+deleteLocalGatewayRouteTableVpcAssociation_dryRun :: Lens.Lens' DeleteLocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Bool)
 deleteLocalGatewayRouteTableVpcAssociation_dryRun = Lens.lens (\DeleteLocalGatewayRouteTableVpcAssociation' {dryRun} -> dryRun) (\s@DeleteLocalGatewayRouteTableVpcAssociation' {} a -> s {dryRun = a} :: DeleteLocalGatewayRouteTableVpcAssociation)
 
 -- | The ID of the association.
-deleteLocalGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId :: Lens.Lens' DeleteLocalGatewayRouteTableVpcAssociation Core.Text
+deleteLocalGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId :: Lens.Lens' DeleteLocalGatewayRouteTableVpcAssociation Prelude.Text
 deleteLocalGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId = Lens.lens (\DeleteLocalGatewayRouteTableVpcAssociation' {localGatewayRouteTableVpcAssociationId} -> localGatewayRouteTableVpcAssociationId) (\s@DeleteLocalGatewayRouteTableVpcAssociation' {} a -> s {localGatewayRouteTableVpcAssociationId = a} :: DeleteLocalGatewayRouteTableVpcAssociation)
 
 instance
@@ -110,29 +111,29 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteLocalGatewayRouteTableVpcAssociationResponse'
-            Core.<$> (x Core..@? "localGatewayRouteTableVpcAssociation")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "localGatewayRouteTableVpcAssociation")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteLocalGatewayRouteTableVpcAssociation
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteLocalGatewayRouteTableVpcAssociation
 
 instance
   Core.ToHeaders
     DeleteLocalGatewayRouteTableVpcAssociation
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DeleteLocalGatewayRouteTableVpcAssociation
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
@@ -140,12 +141,13 @@ instance
   where
   toQuery
     DeleteLocalGatewayRouteTableVpcAssociation' {..} =
-      Core.mconcat
+      Prelude.mconcat
         [ "Action"
             Core.=: ( "DeleteLocalGatewayRouteTableVpcAssociation" ::
-                        Core.ByteString
+                        Prelude.ByteString
                     ),
-          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "Version"
+            Core.=: ("2016-11-15" :: Prelude.ByteString),
           "DryRun" Core.=: dryRun,
           "LocalGatewayRouteTableVpcAssociationId"
             Core.=: localGatewayRouteTableVpcAssociationId
@@ -154,11 +156,11 @@ instance
 -- | /See:/ 'newDeleteLocalGatewayRouteTableVpcAssociationResponse' smart constructor.
 data DeleteLocalGatewayRouteTableVpcAssociationResponse = DeleteLocalGatewayRouteTableVpcAssociationResponse'
   { -- | Information about the association.
-    localGatewayRouteTableVpcAssociation :: Core.Maybe LocalGatewayRouteTableVpcAssociation,
+    localGatewayRouteTableVpcAssociation :: Prelude.Maybe LocalGatewayRouteTableVpcAssociation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLocalGatewayRouteTableVpcAssociationResponse' with all optional fields omitted.
@@ -173,25 +175,25 @@ data DeleteLocalGatewayRouteTableVpcAssociationResponse = DeleteLocalGatewayRout
 -- 'httpStatus', 'deleteLocalGatewayRouteTableVpcAssociationResponse_httpStatus' - The response's http status code.
 newDeleteLocalGatewayRouteTableVpcAssociationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLocalGatewayRouteTableVpcAssociationResponse
 newDeleteLocalGatewayRouteTableVpcAssociationResponse
   pHttpStatus_ =
     DeleteLocalGatewayRouteTableVpcAssociationResponse'
       { localGatewayRouteTableVpcAssociation =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Information about the association.
-deleteLocalGatewayRouteTableVpcAssociationResponse_localGatewayRouteTableVpcAssociation :: Lens.Lens' DeleteLocalGatewayRouteTableVpcAssociationResponse (Core.Maybe LocalGatewayRouteTableVpcAssociation)
+deleteLocalGatewayRouteTableVpcAssociationResponse_localGatewayRouteTableVpcAssociation :: Lens.Lens' DeleteLocalGatewayRouteTableVpcAssociationResponse (Prelude.Maybe LocalGatewayRouteTableVpcAssociation)
 deleteLocalGatewayRouteTableVpcAssociationResponse_localGatewayRouteTableVpcAssociation = Lens.lens (\DeleteLocalGatewayRouteTableVpcAssociationResponse' {localGatewayRouteTableVpcAssociation} -> localGatewayRouteTableVpcAssociation) (\s@DeleteLocalGatewayRouteTableVpcAssociationResponse' {} a -> s {localGatewayRouteTableVpcAssociation = a} :: DeleteLocalGatewayRouteTableVpcAssociationResponse)
 
 -- | The response's http status code.
-deleteLocalGatewayRouteTableVpcAssociationResponse_httpStatus :: Lens.Lens' DeleteLocalGatewayRouteTableVpcAssociationResponse Core.Int
+deleteLocalGatewayRouteTableVpcAssociationResponse_httpStatus :: Lens.Lens' DeleteLocalGatewayRouteTableVpcAssociationResponse Prelude.Int
 deleteLocalGatewayRouteTableVpcAssociationResponse_httpStatus = Lens.lens (\DeleteLocalGatewayRouteTableVpcAssociationResponse' {httpStatus} -> httpStatus) (\s@DeleteLocalGatewayRouteTableVpcAssociationResponse' {} a -> s {httpStatus = a} :: DeleteLocalGatewayRouteTableVpcAssociationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteLocalGatewayRouteTableVpcAssociationResponse

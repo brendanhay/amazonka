@@ -27,6 +27,7 @@ module Network.AWS.ElasticSearch.Types.RollbackOnDisable
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the rollback state while disabling Auto-Tune for the domain.
 -- Valid values are NO_ROLLBACK, DEFAULT_ROLLBACK.
@@ -35,15 +36,15 @@ newtype RollbackOnDisable = RollbackOnDisable'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

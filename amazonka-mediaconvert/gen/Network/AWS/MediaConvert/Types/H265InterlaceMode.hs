@@ -30,6 +30,7 @@ module Network.AWS.MediaConvert.Types.H265InterlaceMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Choose the scan line type for the output. Keep the default value,
 -- Progressive (PROGRESSIVE) to create a progressive output, regardless of
@@ -49,15 +50,15 @@ newtype H265InterlaceMode = H265InterlaceMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

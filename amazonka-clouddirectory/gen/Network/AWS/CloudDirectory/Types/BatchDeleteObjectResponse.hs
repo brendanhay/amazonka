@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DeleteObject response operation.
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data BatchDeleteObjectResponse = BatchDeleteObjectResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteObjectResponse' with all optional fields omitted.
@@ -43,8 +44,8 @@ instance Core.FromJSON BatchDeleteObjectResponse where
   parseJSON =
     Core.withObject
       "BatchDeleteObjectResponse"
-      (\x -> Core.pure BatchDeleteObjectResponse')
+      (\x -> Prelude.pure BatchDeleteObjectResponse')
 
-instance Core.Hashable BatchDeleteObjectResponse
+instance Prelude.Hashable BatchDeleteObjectResponse
 
-instance Core.NFData BatchDeleteObjectResponse
+instance Prelude.NFData BatchDeleteObjectResponse

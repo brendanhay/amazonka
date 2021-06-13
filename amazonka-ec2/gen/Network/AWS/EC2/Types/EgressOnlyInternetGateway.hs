@@ -24,19 +24,20 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InternetGatewayAttachment
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an egress-only internet gateway.
 --
 -- /See:/ 'newEgressOnlyInternetGateway' smart constructor.
 data EgressOnlyInternetGateway = EgressOnlyInternetGateway'
   { -- | The ID of the egress-only internet gateway.
-    egressOnlyInternetGatewayId :: Core.Maybe Core.Text,
+    egressOnlyInternetGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the egress-only internet gateway.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Information about the attachment of the egress-only internet gateway.
-    attachments :: Core.Maybe [InternetGatewayAttachment]
+    attachments :: Prelude.Maybe [InternetGatewayAttachment]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EgressOnlyInternetGateway' with all optional fields omitted.
@@ -56,34 +57,34 @@ newEgressOnlyInternetGateway ::
 newEgressOnlyInternetGateway =
   EgressOnlyInternetGateway'
     { egressOnlyInternetGatewayId =
-        Core.Nothing,
-      tags = Core.Nothing,
-      attachments = Core.Nothing
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      attachments = Prelude.Nothing
     }
 
 -- | The ID of the egress-only internet gateway.
-egressOnlyInternetGateway_egressOnlyInternetGatewayId :: Lens.Lens' EgressOnlyInternetGateway (Core.Maybe Core.Text)
+egressOnlyInternetGateway_egressOnlyInternetGatewayId :: Lens.Lens' EgressOnlyInternetGateway (Prelude.Maybe Prelude.Text)
 egressOnlyInternetGateway_egressOnlyInternetGatewayId = Lens.lens (\EgressOnlyInternetGateway' {egressOnlyInternetGatewayId} -> egressOnlyInternetGatewayId) (\s@EgressOnlyInternetGateway' {} a -> s {egressOnlyInternetGatewayId = a} :: EgressOnlyInternetGateway)
 
 -- | The tags assigned to the egress-only internet gateway.
-egressOnlyInternetGateway_tags :: Lens.Lens' EgressOnlyInternetGateway (Core.Maybe [Tag])
-egressOnlyInternetGateway_tags = Lens.lens (\EgressOnlyInternetGateway' {tags} -> tags) (\s@EgressOnlyInternetGateway' {} a -> s {tags = a} :: EgressOnlyInternetGateway) Core.. Lens.mapping Lens._Coerce
+egressOnlyInternetGateway_tags :: Lens.Lens' EgressOnlyInternetGateway (Prelude.Maybe [Tag])
+egressOnlyInternetGateway_tags = Lens.lens (\EgressOnlyInternetGateway' {tags} -> tags) (\s@EgressOnlyInternetGateway' {} a -> s {tags = a} :: EgressOnlyInternetGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the attachment of the egress-only internet gateway.
-egressOnlyInternetGateway_attachments :: Lens.Lens' EgressOnlyInternetGateway (Core.Maybe [InternetGatewayAttachment])
-egressOnlyInternetGateway_attachments = Lens.lens (\EgressOnlyInternetGateway' {attachments} -> attachments) (\s@EgressOnlyInternetGateway' {} a -> s {attachments = a} :: EgressOnlyInternetGateway) Core.. Lens.mapping Lens._Coerce
+egressOnlyInternetGateway_attachments :: Lens.Lens' EgressOnlyInternetGateway (Prelude.Maybe [InternetGatewayAttachment])
+egressOnlyInternetGateway_attachments = Lens.lens (\EgressOnlyInternetGateway' {attachments} -> attachments) (\s@EgressOnlyInternetGateway' {} a -> s {attachments = a} :: EgressOnlyInternetGateway) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML EgressOnlyInternetGateway where
   parseXML x =
     EgressOnlyInternetGateway'
-      Core.<$> (x Core..@? "egressOnlyInternetGatewayId")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "attachmentSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "egressOnlyInternetGatewayId")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "attachmentSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable EgressOnlyInternetGateway
+instance Prelude.Hashable EgressOnlyInternetGateway
 
-instance Core.NFData EgressOnlyInternetGateway
+instance Prelude.NFData EgressOnlyInternetGateway

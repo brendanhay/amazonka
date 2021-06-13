@@ -52,17 +52,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartExportLabelsTaskRun' smart constructor.
 data StartExportLabelsTaskRun = StartExportLabelsTaskRun'
   { -- | The unique identifier of the machine learning transform.
-    transformId :: Core.Text,
+    transformId :: Prelude.Text,
     -- | The Amazon S3 path where you export the labels.
-    outputS3Path :: Core.Text
+    outputS3Path :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartExportLabelsTaskRun' with all optional fields omitted.
@@ -77,9 +78,9 @@ data StartExportLabelsTaskRun = StartExportLabelsTaskRun'
 -- 'outputS3Path', 'startExportLabelsTaskRun_outputS3Path' - The Amazon S3 path where you export the labels.
 newStartExportLabelsTaskRun ::
   -- | 'transformId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'outputS3Path'
-  Core.Text ->
+  Prelude.Text ->
   StartExportLabelsTaskRun
 newStartExportLabelsTaskRun
   pTransformId_
@@ -91,11 +92,11 @@ newStartExportLabelsTaskRun
       }
 
 -- | The unique identifier of the machine learning transform.
-startExportLabelsTaskRun_transformId :: Lens.Lens' StartExportLabelsTaskRun Core.Text
+startExportLabelsTaskRun_transformId :: Lens.Lens' StartExportLabelsTaskRun Prelude.Text
 startExportLabelsTaskRun_transformId = Lens.lens (\StartExportLabelsTaskRun' {transformId} -> transformId) (\s@StartExportLabelsTaskRun' {} a -> s {transformId = a} :: StartExportLabelsTaskRun)
 
 -- | The Amazon S3 path where you export the labels.
-startExportLabelsTaskRun_outputS3Path :: Lens.Lens' StartExportLabelsTaskRun Core.Text
+startExportLabelsTaskRun_outputS3Path :: Lens.Lens' StartExportLabelsTaskRun Prelude.Text
 startExportLabelsTaskRun_outputS3Path = Lens.lens (\StartExportLabelsTaskRun' {outputS3Path} -> outputS3Path) (\s@StartExportLabelsTaskRun' {} a -> s {outputS3Path = a} :: StartExportLabelsTaskRun)
 
 instance Core.AWSRequest StartExportLabelsTaskRun where
@@ -107,50 +108,52 @@ instance Core.AWSRequest StartExportLabelsTaskRun where
     Response.receiveJSON
       ( \s h x ->
           StartExportLabelsTaskRunResponse'
-            Core.<$> (x Core..?> "TaskRunId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TaskRunId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartExportLabelsTaskRun
+instance Prelude.Hashable StartExportLabelsTaskRun
 
-instance Core.NFData StartExportLabelsTaskRun
+instance Prelude.NFData StartExportLabelsTaskRun
 
 instance Core.ToHeaders StartExportLabelsTaskRun where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.StartExportLabelsTaskRun" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartExportLabelsTaskRun where
   toJSON StartExportLabelsTaskRun' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TransformId" Core..= transformId),
-            Core.Just ("OutputS3Path" Core..= outputS3Path)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TransformId" Core..= transformId),
+            Prelude.Just ("OutputS3Path" Core..= outputS3Path)
           ]
       )
 
 instance Core.ToPath StartExportLabelsTaskRun where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartExportLabelsTaskRun where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartExportLabelsTaskRunResponse' smart constructor.
 data StartExportLabelsTaskRunResponse = StartExportLabelsTaskRunResponse'
   { -- | The unique identifier for the task run.
-    taskRunId :: Core.Maybe Core.Text,
+    taskRunId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartExportLabelsTaskRunResponse' with all optional fields omitted.
@@ -165,21 +168,23 @@ data StartExportLabelsTaskRunResponse = StartExportLabelsTaskRunResponse'
 -- 'httpStatus', 'startExportLabelsTaskRunResponse_httpStatus' - The response's http status code.
 newStartExportLabelsTaskRunResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartExportLabelsTaskRunResponse
 newStartExportLabelsTaskRunResponse pHttpStatus_ =
   StartExportLabelsTaskRunResponse'
     { taskRunId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique identifier for the task run.
-startExportLabelsTaskRunResponse_taskRunId :: Lens.Lens' StartExportLabelsTaskRunResponse (Core.Maybe Core.Text)
+startExportLabelsTaskRunResponse_taskRunId :: Lens.Lens' StartExportLabelsTaskRunResponse (Prelude.Maybe Prelude.Text)
 startExportLabelsTaskRunResponse_taskRunId = Lens.lens (\StartExportLabelsTaskRunResponse' {taskRunId} -> taskRunId) (\s@StartExportLabelsTaskRunResponse' {} a -> s {taskRunId = a} :: StartExportLabelsTaskRunResponse)
 
 -- | The response's http status code.
-startExportLabelsTaskRunResponse_httpStatus :: Lens.Lens' StartExportLabelsTaskRunResponse Core.Int
+startExportLabelsTaskRunResponse_httpStatus :: Lens.Lens' StartExportLabelsTaskRunResponse Prelude.Int
 startExportLabelsTaskRunResponse_httpStatus = Lens.lens (\StartExportLabelsTaskRunResponse' {httpStatus} -> httpStatus) (\s@StartExportLabelsTaskRunResponse' {} a -> s {httpStatus = a} :: StartExportLabelsTaskRunResponse)
 
-instance Core.NFData StartExportLabelsTaskRunResponse
+instance
+  Prelude.NFData
+    StartExportLabelsTaskRunResponse

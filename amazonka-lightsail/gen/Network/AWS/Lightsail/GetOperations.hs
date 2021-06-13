@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ data GetOperations = GetOperations'
     -- To get a page token, perform an initial @GetOperations@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Core.Maybe Core.Text
+    pageToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOperations' with all optional fields omitted.
@@ -80,14 +81,14 @@ data GetOperations = GetOperations'
 newGetOperations ::
   GetOperations
 newGetOperations =
-  GetOperations' {pageToken = Core.Nothing}
+  GetOperations' {pageToken = Prelude.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetOperations@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
-getOperations_pageToken :: Lens.Lens' GetOperations (Core.Maybe Core.Text)
+getOperations_pageToken :: Lens.Lens' GetOperations (Prelude.Maybe Prelude.Text)
 getOperations_pageToken = Lens.lens (\GetOperations' {pageToken} -> pageToken) (\s@GetOperations' {} a -> s {pageToken = a} :: GetOperations)
 
 instance Core.AWSPager GetOperations where
@@ -95,20 +96,22 @@ instance Core.AWSPager GetOperations where
     | Core.stop
         ( rs
             Lens.^? getOperationsResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getOperationsResponse_operations Core.. Lens._Just
+            Lens.^? getOperationsResponse_operations
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getOperations_pageToken
+          Prelude.& getOperations_pageToken
           Lens..~ rs
-          Lens.^? getOperationsResponse_nextPageToken Core.. Lens._Just
+          Lens.^? getOperationsResponse_nextPageToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetOperations where
   type
@@ -119,47 +122,49 @@ instance Core.AWSRequest GetOperations where
     Response.receiveJSON
       ( \s h x ->
           GetOperationsResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "nextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetOperations
+instance Prelude.Hashable GetOperations
 
-instance Core.NFData GetOperations
+instance Prelude.NFData GetOperations
 
 instance Core.ToHeaders GetOperations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetOperations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetOperations where
   toJSON GetOperations' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pageToken" Core..=) Core.<$> pageToken]
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
       )
 
 instance Core.ToPath GetOperations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetOperations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOperationsResponse' smart constructor.
 data GetOperationsResponse = GetOperationsResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -167,11 +172,11 @@ data GetOperationsResponse = GetOperationsResponse'
     --
     -- To get the next page of results, perform another @GetOperations@ request
     -- and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOperationsResponse' with all optional fields omitted.
@@ -196,20 +201,21 @@ data GetOperationsResponse = GetOperationsResponse'
 -- 'httpStatus', 'getOperationsResponse_httpStatus' - The response's http status code.
 newGetOperationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetOperationsResponse
 newGetOperationsResponse pHttpStatus_ =
   GetOperationsResponse'
-    { operations = Core.Nothing,
-      nextPageToken = Core.Nothing,
+    { operations =
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-getOperationsResponse_operations :: Lens.Lens' GetOperationsResponse (Core.Maybe [Operation])
-getOperationsResponse_operations = Lens.lens (\GetOperationsResponse' {operations} -> operations) (\s@GetOperationsResponse' {} a -> s {operations = a} :: GetOperationsResponse) Core.. Lens.mapping Lens._Coerce
+getOperationsResponse_operations :: Lens.Lens' GetOperationsResponse (Prelude.Maybe [Operation])
+getOperationsResponse_operations = Lens.lens (\GetOperationsResponse' {operations} -> operations) (\s@GetOperationsResponse' {} a -> s {operations = a} :: GetOperationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -218,11 +224,11 @@ getOperationsResponse_operations = Lens.lens (\GetOperationsResponse' {operation
 --
 -- To get the next page of results, perform another @GetOperations@ request
 -- and specify the next page token using the @pageToken@ parameter.
-getOperationsResponse_nextPageToken :: Lens.Lens' GetOperationsResponse (Core.Maybe Core.Text)
+getOperationsResponse_nextPageToken :: Lens.Lens' GetOperationsResponse (Prelude.Maybe Prelude.Text)
 getOperationsResponse_nextPageToken = Lens.lens (\GetOperationsResponse' {nextPageToken} -> nextPageToken) (\s@GetOperationsResponse' {} a -> s {nextPageToken = a} :: GetOperationsResponse)
 
 -- | The response's http status code.
-getOperationsResponse_httpStatus :: Lens.Lens' GetOperationsResponse Core.Int
+getOperationsResponse_httpStatus :: Lens.Lens' GetOperationsResponse Prelude.Int
 getOperationsResponse_httpStatus = Lens.lens (\GetOperationsResponse' {httpStatus} -> httpStatus) (\s@GetOperationsResponse' {} a -> s {httpStatus = a} :: GetOperationsResponse)
 
-instance Core.NFData GetOperationsResponse
+instance Prelude.NFData GetOperationsResponse

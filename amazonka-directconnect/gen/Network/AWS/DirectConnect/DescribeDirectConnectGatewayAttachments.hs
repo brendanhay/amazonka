@@ -55,26 +55,27 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeDirectConnectGatewayAttachments' smart constructor.
 data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttachments'
   { -- | The token provided in the previous call to retrieve the next page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     --
     -- If @MaxResults@ is given a value larger than 100, only 100 results are
     -- returned.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ID of the virtual interface.
-    virtualInterfaceId :: Core.Maybe Core.Text,
+    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Core.Maybe Core.Text
+    directConnectGatewayId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDirectConnectGatewayAttachments' with all optional fields omitted.
@@ -101,15 +102,16 @@ newDescribeDirectConnectGatewayAttachments ::
 newDescribeDirectConnectGatewayAttachments =
   DescribeDirectConnectGatewayAttachments'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
-      virtualInterfaceId = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      virtualInterfaceId =
+        Prelude.Nothing,
       directConnectGatewayId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The token provided in the previous call to retrieve the next page.
-describeDirectConnectGatewayAttachments_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Core.Maybe Core.Text)
+describeDirectConnectGatewayAttachments_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
 describeDirectConnectGatewayAttachments_nextToken = Lens.lens (\DescribeDirectConnectGatewayAttachments' {nextToken} -> nextToken) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {nextToken = a} :: DescribeDirectConnectGatewayAttachments)
 
 -- | The maximum number of results to return with a single call. To retrieve
@@ -118,15 +120,15 @@ describeDirectConnectGatewayAttachments_nextToken = Lens.lens (\DescribeDirectCo
 --
 -- If @MaxResults@ is given a value larger than 100, only 100 results are
 -- returned.
-describeDirectConnectGatewayAttachments_maxResults :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Core.Maybe Core.Int)
+describeDirectConnectGatewayAttachments_maxResults :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Int)
 describeDirectConnectGatewayAttachments_maxResults = Lens.lens (\DescribeDirectConnectGatewayAttachments' {maxResults} -> maxResults) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {maxResults = a} :: DescribeDirectConnectGatewayAttachments)
 
 -- | The ID of the virtual interface.
-describeDirectConnectGatewayAttachments_virtualInterfaceId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Core.Maybe Core.Text)
+describeDirectConnectGatewayAttachments_virtualInterfaceId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
 describeDirectConnectGatewayAttachments_virtualInterfaceId = Lens.lens (\DescribeDirectConnectGatewayAttachments' {virtualInterfaceId} -> virtualInterfaceId) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {virtualInterfaceId = a} :: DescribeDirectConnectGatewayAttachments)
 
 -- | The ID of the Direct Connect gateway.
-describeDirectConnectGatewayAttachments_directConnectGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Core.Maybe Core.Text)
+describeDirectConnectGatewayAttachments_directConnectGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
 describeDirectConnectGatewayAttachments_directConnectGatewayId = Lens.lens (\DescribeDirectConnectGatewayAttachments' {directConnectGatewayId} -> directConnectGatewayId) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {directConnectGatewayId = a} :: DescribeDirectConnectGatewayAttachments)
 
 instance
@@ -137,22 +139,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeDirectConnectGatewayAttachmentsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeDirectConnectGatewayAttachments_nextToken
+          Prelude.& describeDirectConnectGatewayAttachments_nextToken
           Lens..~ rs
             Lens.^? describeDirectConnectGatewayAttachmentsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -167,19 +169,19 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewayAttachmentsResponse'
-            Core.<$> (x Core..?> "nextToken")
-              Core.<*> ( x Core..?> "directConnectGatewayAttachments"
-                           Core..!@ Core.mempty
-                       )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+              Prelude.<*> ( x Core..?> "directConnectGatewayAttachments"
+                              Core..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeDirectConnectGatewayAttachments
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDirectConnectGatewayAttachments
 
 instance
@@ -187,14 +189,16 @@ instance
     DescribeDirectConnectGatewayAttachments
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.DescribeDirectConnectGatewayAttachments" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -204,13 +208,13 @@ instance
   where
   toJSON DescribeDirectConnectGatewayAttachments' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("virtualInterfaceId" Core..=)
-              Core.<$> virtualInterfaceId,
+              Prelude.<$> virtualInterfaceId,
             ("directConnectGatewayId" Core..=)
-              Core.<$> directConnectGatewayId
+              Prelude.<$> directConnectGatewayId
           ]
       )
 
@@ -218,24 +222,24 @@ instance
   Core.ToPath
     DescribeDirectConnectGatewayAttachments
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeDirectConnectGatewayAttachments
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDirectConnectGatewayAttachmentsResponse' smart constructor.
 data DescribeDirectConnectGatewayAttachmentsResponse = DescribeDirectConnectGatewayAttachmentsResponse'
   { -- | The token to retrieve the next page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The attachments.
-    directConnectGatewayAttachments :: Core.Maybe [DirectConnectGatewayAttachment],
+    directConnectGatewayAttachments :: Prelude.Maybe [DirectConnectGatewayAttachment],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDirectConnectGatewayAttachmentsResponse' with all optional fields omitted.
@@ -252,30 +256,30 @@ data DescribeDirectConnectGatewayAttachmentsResponse = DescribeDirectConnectGate
 -- 'httpStatus', 'describeDirectConnectGatewayAttachmentsResponse_httpStatus' - The response's http status code.
 newDescribeDirectConnectGatewayAttachmentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDirectConnectGatewayAttachmentsResponse
 newDescribeDirectConnectGatewayAttachmentsResponse
   pHttpStatus_ =
     DescribeDirectConnectGatewayAttachmentsResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         directConnectGatewayAttachments =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to retrieve the next page.
-describeDirectConnectGatewayAttachmentsResponse_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAttachmentsResponse (Core.Maybe Core.Text)
+describeDirectConnectGatewayAttachmentsResponse_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAttachmentsResponse (Prelude.Maybe Prelude.Text)
 describeDirectConnectGatewayAttachmentsResponse_nextToken = Lens.lens (\DescribeDirectConnectGatewayAttachmentsResponse' {nextToken} -> nextToken) (\s@DescribeDirectConnectGatewayAttachmentsResponse' {} a -> s {nextToken = a} :: DescribeDirectConnectGatewayAttachmentsResponse)
 
 -- | The attachments.
-describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments :: Lens.Lens' DescribeDirectConnectGatewayAttachmentsResponse (Core.Maybe [DirectConnectGatewayAttachment])
-describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments = Lens.lens (\DescribeDirectConnectGatewayAttachmentsResponse' {directConnectGatewayAttachments} -> directConnectGatewayAttachments) (\s@DescribeDirectConnectGatewayAttachmentsResponse' {} a -> s {directConnectGatewayAttachments = a} :: DescribeDirectConnectGatewayAttachmentsResponse) Core.. Lens.mapping Lens._Coerce
+describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments :: Lens.Lens' DescribeDirectConnectGatewayAttachmentsResponse (Prelude.Maybe [DirectConnectGatewayAttachment])
+describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments = Lens.lens (\DescribeDirectConnectGatewayAttachmentsResponse' {directConnectGatewayAttachments} -> directConnectGatewayAttachments) (\s@DescribeDirectConnectGatewayAttachmentsResponse' {} a -> s {directConnectGatewayAttachments = a} :: DescribeDirectConnectGatewayAttachmentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeDirectConnectGatewayAttachmentsResponse_httpStatus :: Lens.Lens' DescribeDirectConnectGatewayAttachmentsResponse Core.Int
+describeDirectConnectGatewayAttachmentsResponse_httpStatus :: Lens.Lens' DescribeDirectConnectGatewayAttachmentsResponse Prelude.Int
 describeDirectConnectGatewayAttachmentsResponse_httpStatus = Lens.lens (\DescribeDirectConnectGatewayAttachmentsResponse' {httpStatus} -> httpStatus) (\s@DescribeDirectConnectGatewayAttachmentsResponse' {} a -> s {httpStatus = a} :: DescribeDirectConnectGatewayAttachmentsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDirectConnectGatewayAttachmentsResponse

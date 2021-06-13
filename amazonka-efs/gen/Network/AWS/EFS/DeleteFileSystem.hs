@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +63,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteFileSystem' smart constructor.
 data DeleteFileSystem = DeleteFileSystem'
   { -- | The ID of the file system you want to delete.
-    fileSystemId :: Core.Text
+    fileSystemId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFileSystem' with all optional fields omitted.
@@ -77,13 +78,13 @@ data DeleteFileSystem = DeleteFileSystem'
 -- 'fileSystemId', 'deleteFileSystem_fileSystemId' - The ID of the file system you want to delete.
 newDeleteFileSystem ::
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFileSystem
 newDeleteFileSystem pFileSystemId_ =
   DeleteFileSystem' {fileSystemId = pFileSystemId_}
 
 -- | The ID of the file system you want to delete.
-deleteFileSystem_fileSystemId :: Lens.Lens' DeleteFileSystem Core.Text
+deleteFileSystem_fileSystemId :: Lens.Lens' DeleteFileSystem Prelude.Text
 deleteFileSystem_fileSystemId = Lens.lens (\DeleteFileSystem' {fileSystemId} -> fileSystemId) (\s@DeleteFileSystem' {} a -> s {fileSystemId = a} :: DeleteFileSystem)
 
 instance Core.AWSRequest DeleteFileSystem where
@@ -94,26 +95,26 @@ instance Core.AWSRequest DeleteFileSystem where
   response =
     Response.receiveNull DeleteFileSystemResponse'
 
-instance Core.Hashable DeleteFileSystem
+instance Prelude.Hashable DeleteFileSystem
 
-instance Core.NFData DeleteFileSystem
+instance Prelude.NFData DeleteFileSystem
 
 instance Core.ToHeaders DeleteFileSystem where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteFileSystem where
   toPath DeleteFileSystem' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2015-02-01/file-systems/", Core.toBS fileSystemId]
 
 instance Core.ToQuery DeleteFileSystem where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFileSystemResponse' smart constructor.
 data DeleteFileSystemResponse = DeleteFileSystemResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFileSystemResponse' with all optional fields omitted.
@@ -124,4 +125,4 @@ newDeleteFileSystemResponse ::
 newDeleteFileSystemResponse =
   DeleteFileSystemResponse'
 
-instance Core.NFData DeleteFileSystemResponse
+instance Prelude.NFData DeleteFileSystemResponse

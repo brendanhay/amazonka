@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.ViolationEventOccurrenceRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the time period of which violation events occurred between.
 --
@@ -33,7 +34,7 @@ data ViolationEventOccurrenceRange = ViolationEventOccurrenceRange'
     -- occurred.
     endTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ViolationEventOccurrenceRange' with all optional fields omitted.
@@ -50,9 +51,9 @@ data ViolationEventOccurrenceRange = ViolationEventOccurrenceRange'
 -- occurred.
 newViolationEventOccurrenceRange ::
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ViolationEventOccurrenceRange
 newViolationEventOccurrenceRange
   pStartTime_
@@ -65,13 +66,13 @@ newViolationEventOccurrenceRange
 
 -- | The start date and time of a time period in which violation events
 -- occurred.
-violationEventOccurrenceRange_startTime :: Lens.Lens' ViolationEventOccurrenceRange Core.UTCTime
-violationEventOccurrenceRange_startTime = Lens.lens (\ViolationEventOccurrenceRange' {startTime} -> startTime) (\s@ViolationEventOccurrenceRange' {} a -> s {startTime = a} :: ViolationEventOccurrenceRange) Core.. Core._Time
+violationEventOccurrenceRange_startTime :: Lens.Lens' ViolationEventOccurrenceRange Prelude.UTCTime
+violationEventOccurrenceRange_startTime = Lens.lens (\ViolationEventOccurrenceRange' {startTime} -> startTime) (\s@ViolationEventOccurrenceRange' {} a -> s {startTime = a} :: ViolationEventOccurrenceRange) Prelude.. Core._Time
 
 -- | The end date and time of a time period in which violation events
 -- occurred.
-violationEventOccurrenceRange_endTime :: Lens.Lens' ViolationEventOccurrenceRange Core.UTCTime
-violationEventOccurrenceRange_endTime = Lens.lens (\ViolationEventOccurrenceRange' {endTime} -> endTime) (\s@ViolationEventOccurrenceRange' {} a -> s {endTime = a} :: ViolationEventOccurrenceRange) Core.. Core._Time
+violationEventOccurrenceRange_endTime :: Lens.Lens' ViolationEventOccurrenceRange Prelude.UTCTime
+violationEventOccurrenceRange_endTime = Lens.lens (\ViolationEventOccurrenceRange' {endTime} -> endTime) (\s@ViolationEventOccurrenceRange' {} a -> s {endTime = a} :: ViolationEventOccurrenceRange) Prelude.. Core._Time
 
 instance Core.FromJSON ViolationEventOccurrenceRange where
   parseJSON =
@@ -79,19 +80,21 @@ instance Core.FromJSON ViolationEventOccurrenceRange where
       "ViolationEventOccurrenceRange"
       ( \x ->
           ViolationEventOccurrenceRange'
-            Core.<$> (x Core..: "startTime")
-            Core.<*> (x Core..: "endTime")
+            Prelude.<$> (x Core..: "startTime")
+            Prelude.<*> (x Core..: "endTime")
       )
 
-instance Core.Hashable ViolationEventOccurrenceRange
+instance
+  Prelude.Hashable
+    ViolationEventOccurrenceRange
 
-instance Core.NFData ViolationEventOccurrenceRange
+instance Prelude.NFData ViolationEventOccurrenceRange
 
 instance Core.ToJSON ViolationEventOccurrenceRange where
   toJSON ViolationEventOccurrenceRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("startTime" Core..= startTime),
-            Core.Just ("endTime" Core..= endTime)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("startTime" Core..= startTime),
+            Prelude.Just ("endTime" Core..= endTime)
           ]
       )

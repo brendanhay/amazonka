@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Encryption where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ServerSideEncryption
 
@@ -34,15 +35,15 @@ data Encryption = Encryption'
     -- information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
     -- in the /AWS Key Management Service Developer Guide/.
-    kmsKeyId :: Core.Maybe (Core.Sensitive Core.Text),
+    kmsKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | If the encryption type is @aws:kms@, this optional value can be used to
     -- specify the encryption context for the restore results.
-    kmsContext :: Core.Maybe Core.Text,
+    kmsContext :: Prelude.Maybe Prelude.Text,
     -- | The server-side encryption algorithm used when storing job results in
     -- Amazon S3 (for example, AES256, aws:kms).
     encryptionType :: ServerSideEncryption
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Encryption' with all optional fields omitted.
@@ -70,8 +71,8 @@ newEncryption ::
   Encryption
 newEncryption pEncryptionType_ =
   Encryption'
-    { kmsKeyId = Core.Nothing,
-      kmsContext = Core.Nothing,
+    { kmsKeyId = Prelude.Nothing,
+      kmsContext = Prelude.Nothing,
       encryptionType = pEncryptionType_
     }
 
@@ -81,12 +82,12 @@ newEncryption pEncryptionType_ =
 -- information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
 -- in the /AWS Key Management Service Developer Guide/.
-encryption_kmsKeyId :: Lens.Lens' Encryption (Core.Maybe Core.Text)
-encryption_kmsKeyId = Lens.lens (\Encryption' {kmsKeyId} -> kmsKeyId) (\s@Encryption' {} a -> s {kmsKeyId = a} :: Encryption) Core.. Lens.mapping Core._Sensitive
+encryption_kmsKeyId :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
+encryption_kmsKeyId = Lens.lens (\Encryption' {kmsKeyId} -> kmsKeyId) (\s@Encryption' {} a -> s {kmsKeyId = a} :: Encryption) Prelude.. Lens.mapping Core._Sensitive
 
 -- | If the encryption type is @aws:kms@, this optional value can be used to
 -- specify the encryption context for the restore results.
-encryption_kmsContext :: Lens.Lens' Encryption (Core.Maybe Core.Text)
+encryption_kmsContext :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@Encryption' {} a -> s {kmsContext = a} :: Encryption)
 
 -- | The server-side encryption algorithm used when storing job results in
@@ -94,13 +95,13 @@ encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@
 encryption_encryptionType :: Lens.Lens' Encryption ServerSideEncryption
 encryption_encryptionType = Lens.lens (\Encryption' {encryptionType} -> encryptionType) (\s@Encryption' {} a -> s {encryptionType = a} :: Encryption)
 
-instance Core.Hashable Encryption
+instance Prelude.Hashable Encryption
 
-instance Core.NFData Encryption
+instance Prelude.NFData Encryption
 
 instance Core.ToXML Encryption where
   toXML Encryption' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "KMSKeyId" Core.@= kmsKeyId,
         "KMSContext" Core.@= kmsContext,
         "EncryptionType" Core.@= encryptionType

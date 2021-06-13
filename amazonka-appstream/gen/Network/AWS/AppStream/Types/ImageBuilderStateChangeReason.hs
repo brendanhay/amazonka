@@ -22,17 +22,18 @@ module Network.AWS.AppStream.Types.ImageBuilderStateChangeReason where
 import Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the reason why the last image builder state change occurred.
 --
 -- /See:/ 'newImageBuilderStateChangeReason' smart constructor.
 data ImageBuilderStateChangeReason = ImageBuilderStateChangeReason'
   { -- | The state change reason message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The state change reason code.
-    code :: Core.Maybe ImageBuilderStateChangeReasonCode
+    code :: Prelude.Maybe ImageBuilderStateChangeReasonCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageBuilderStateChangeReason' with all optional fields omitted.
@@ -50,16 +51,16 @@ newImageBuilderStateChangeReason ::
 newImageBuilderStateChangeReason =
   ImageBuilderStateChangeReason'
     { message =
-        Core.Nothing,
-      code = Core.Nothing
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The state change reason message.
-imageBuilderStateChangeReason_message :: Lens.Lens' ImageBuilderStateChangeReason (Core.Maybe Core.Text)
+imageBuilderStateChangeReason_message :: Lens.Lens' ImageBuilderStateChangeReason (Prelude.Maybe Prelude.Text)
 imageBuilderStateChangeReason_message = Lens.lens (\ImageBuilderStateChangeReason' {message} -> message) (\s@ImageBuilderStateChangeReason' {} a -> s {message = a} :: ImageBuilderStateChangeReason)
 
 -- | The state change reason code.
-imageBuilderStateChangeReason_code :: Lens.Lens' ImageBuilderStateChangeReason (Core.Maybe ImageBuilderStateChangeReasonCode)
+imageBuilderStateChangeReason_code :: Lens.Lens' ImageBuilderStateChangeReason (Prelude.Maybe ImageBuilderStateChangeReasonCode)
 imageBuilderStateChangeReason_code = Lens.lens (\ImageBuilderStateChangeReason' {code} -> code) (\s@ImageBuilderStateChangeReason' {} a -> s {code = a} :: ImageBuilderStateChangeReason)
 
 instance Core.FromJSON ImageBuilderStateChangeReason where
@@ -68,9 +69,12 @@ instance Core.FromJSON ImageBuilderStateChangeReason where
       "ImageBuilderStateChangeReason"
       ( \x ->
           ImageBuilderStateChangeReason'
-            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Code")
       )
 
-instance Core.Hashable ImageBuilderStateChangeReason
+instance
+  Prelude.Hashable
+    ImageBuilderStateChangeReason
 
-instance Core.NFData ImageBuilderStateChangeReason
+instance Prelude.NFData ImageBuilderStateChangeReason

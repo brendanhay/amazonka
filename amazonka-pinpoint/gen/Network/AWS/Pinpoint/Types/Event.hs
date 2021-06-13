@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.Event where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Session
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies information about an event that reports data to Amazon
 -- Pinpoint.
@@ -29,27 +30,27 @@ import Network.AWS.Pinpoint.Types.Session
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | The version of the SDK that\'s running on the client device.
-    clientSdkVersion :: Core.Maybe Core.Text,
+    clientSdkVersion :: Prelude.Maybe Prelude.Text,
     -- | The title of the app that\'s recording the event.
-    appTitle :: Core.Maybe Core.Text,
+    appTitle :: Prelude.Maybe Prelude.Text,
     -- | The name of the SDK that\'s being used to record the event.
-    sdkName :: Core.Maybe Core.Text,
+    sdkName :: Prelude.Maybe Prelude.Text,
     -- | One or more custom attributes that are associated with the event.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | One or more custom metrics that are associated with the event.
-    metrics :: Core.Maybe (Core.HashMap Core.Text Core.Double),
+    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | The package name of the app that\'s recording the event.
-    appPackageName :: Core.Maybe Core.Text,
+    appPackageName :: Prelude.Maybe Prelude.Text,
     -- | The version number of the app that\'s recording the event.
-    appVersionCode :: Core.Maybe Core.Text,
+    appVersionCode :: Prelude.Maybe Prelude.Text,
     -- | Information about the session in which the event occurred.
-    session :: Core.Maybe Session,
+    session :: Prelude.Maybe Session,
     -- | The name of the event.
-    eventType :: Core.Text,
+    eventType :: Prelude.Text,
     -- | The date and time, in ISO 8601 format, when the event occurred.
-    timestamp :: Core.Text
+    timestamp :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Event' with all optional fields omitted.
@@ -80,82 +81,84 @@ data Event = Event'
 -- 'timestamp', 'event_timestamp' - The date and time, in ISO 8601 format, when the event occurred.
 newEvent ::
   -- | 'eventType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'timestamp'
-  Core.Text ->
+  Prelude.Text ->
   Event
 newEvent pEventType_ pTimestamp_ =
   Event'
-    { clientSdkVersion = Core.Nothing,
-      appTitle = Core.Nothing,
-      sdkName = Core.Nothing,
-      attributes = Core.Nothing,
-      metrics = Core.Nothing,
-      appPackageName = Core.Nothing,
-      appVersionCode = Core.Nothing,
-      session = Core.Nothing,
+    { clientSdkVersion = Prelude.Nothing,
+      appTitle = Prelude.Nothing,
+      sdkName = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      metrics = Prelude.Nothing,
+      appPackageName = Prelude.Nothing,
+      appVersionCode = Prelude.Nothing,
+      session = Prelude.Nothing,
       eventType = pEventType_,
       timestamp = pTimestamp_
     }
 
 -- | The version of the SDK that\'s running on the client device.
-event_clientSdkVersion :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_clientSdkVersion :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_clientSdkVersion = Lens.lens (\Event' {clientSdkVersion} -> clientSdkVersion) (\s@Event' {} a -> s {clientSdkVersion = a} :: Event)
 
 -- | The title of the app that\'s recording the event.
-event_appTitle :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_appTitle :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_appTitle = Lens.lens (\Event' {appTitle} -> appTitle) (\s@Event' {} a -> s {appTitle = a} :: Event)
 
 -- | The name of the SDK that\'s being used to record the event.
-event_sdkName :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_sdkName :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_sdkName = Lens.lens (\Event' {sdkName} -> sdkName) (\s@Event' {} a -> s {sdkName = a} :: Event)
 
 -- | One or more custom attributes that are associated with the event.
-event_attributes :: Lens.Lens' Event (Core.Maybe (Core.HashMap Core.Text Core.Text))
-event_attributes = Lens.lens (\Event' {attributes} -> attributes) (\s@Event' {} a -> s {attributes = a} :: Event) Core.. Lens.mapping Lens._Coerce
+event_attributes :: Lens.Lens' Event (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+event_attributes = Lens.lens (\Event' {attributes} -> attributes) (\s@Event' {} a -> s {attributes = a} :: Event) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more custom metrics that are associated with the event.
-event_metrics :: Lens.Lens' Event (Core.Maybe (Core.HashMap Core.Text Core.Double))
-event_metrics = Lens.lens (\Event' {metrics} -> metrics) (\s@Event' {} a -> s {metrics = a} :: Event) Core.. Lens.mapping Lens._Coerce
+event_metrics :: Lens.Lens' Event (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+event_metrics = Lens.lens (\Event' {metrics} -> metrics) (\s@Event' {} a -> s {metrics = a} :: Event) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The package name of the app that\'s recording the event.
-event_appPackageName :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_appPackageName :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_appPackageName = Lens.lens (\Event' {appPackageName} -> appPackageName) (\s@Event' {} a -> s {appPackageName = a} :: Event)
 
 -- | The version number of the app that\'s recording the event.
-event_appVersionCode :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_appVersionCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_appVersionCode = Lens.lens (\Event' {appVersionCode} -> appVersionCode) (\s@Event' {} a -> s {appVersionCode = a} :: Event)
 
 -- | Information about the session in which the event occurred.
-event_session :: Lens.Lens' Event (Core.Maybe Session)
+event_session :: Lens.Lens' Event (Prelude.Maybe Session)
 event_session = Lens.lens (\Event' {session} -> session) (\s@Event' {} a -> s {session = a} :: Event)
 
 -- | The name of the event.
-event_eventType :: Lens.Lens' Event Core.Text
+event_eventType :: Lens.Lens' Event Prelude.Text
 event_eventType = Lens.lens (\Event' {eventType} -> eventType) (\s@Event' {} a -> s {eventType = a} :: Event)
 
 -- | The date and time, in ISO 8601 format, when the event occurred.
-event_timestamp :: Lens.Lens' Event Core.Text
+event_timestamp :: Lens.Lens' Event Prelude.Text
 event_timestamp = Lens.lens (\Event' {timestamp} -> timestamp) (\s@Event' {} a -> s {timestamp = a} :: Event)
 
-instance Core.Hashable Event
+instance Prelude.Hashable Event
 
-instance Core.NFData Event
+instance Prelude.NFData Event
 
 instance Core.ToJSON Event where
   toJSON Event' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ClientSdkVersion" Core..=)
-              Core.<$> clientSdkVersion,
-            ("AppTitle" Core..=) Core.<$> appTitle,
-            ("SdkName" Core..=) Core.<$> sdkName,
-            ("Attributes" Core..=) Core.<$> attributes,
-            ("Metrics" Core..=) Core.<$> metrics,
-            ("AppPackageName" Core..=) Core.<$> appPackageName,
-            ("AppVersionCode" Core..=) Core.<$> appVersionCode,
-            ("Session" Core..=) Core.<$> session,
-            Core.Just ("EventType" Core..= eventType),
-            Core.Just ("Timestamp" Core..= timestamp)
+              Prelude.<$> clientSdkVersion,
+            ("AppTitle" Core..=) Prelude.<$> appTitle,
+            ("SdkName" Core..=) Prelude.<$> sdkName,
+            ("Attributes" Core..=) Prelude.<$> attributes,
+            ("Metrics" Core..=) Prelude.<$> metrics,
+            ("AppPackageName" Core..=)
+              Prelude.<$> appPackageName,
+            ("AppVersionCode" Core..=)
+              Prelude.<$> appVersionCode,
+            ("Session" Core..=) Prelude.<$> session,
+            Prelude.Just ("EventType" Core..= eventType),
+            Prelude.Just ("Timestamp" Core..= timestamp)
           ]
       )

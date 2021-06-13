@@ -47,6 +47,7 @@ where
 import Network.AWS.CodeStar.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +58,15 @@ data DeleteProject = DeleteProject'
     -- resources. This option will delete all AWS resources for the project
     -- (except for any buckets in Amazon S3) as well as deleting the project
     -- itself. Recommended for most use cases.
-    deleteStack :: Core.Maybe Core.Bool,
+    deleteStack :: Prelude.Maybe Prelude.Bool,
     -- | A user- or system-generated token that identifies the entity that
     -- requested project deletion. This token can be used to repeat the
     -- request.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the project to be deleted in AWS CodeStar.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProject' with all optional fields omitted.
@@ -88,12 +89,12 @@ data DeleteProject = DeleteProject'
 -- 'id', 'deleteProject_id' - The ID of the project to be deleted in AWS CodeStar.
 newDeleteProject ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteProject
 newDeleteProject pId_ =
   DeleteProject'
-    { deleteStack = Core.Nothing,
-      clientRequestToken = Core.Nothing,
+    { deleteStack = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       id = pId_
     }
 
@@ -102,17 +103,17 @@ newDeleteProject pId_ =
 -- resources. This option will delete all AWS resources for the project
 -- (except for any buckets in Amazon S3) as well as deleting the project
 -- itself. Recommended for most use cases.
-deleteProject_deleteStack :: Lens.Lens' DeleteProject (Core.Maybe Core.Bool)
+deleteProject_deleteStack :: Lens.Lens' DeleteProject (Prelude.Maybe Prelude.Bool)
 deleteProject_deleteStack = Lens.lens (\DeleteProject' {deleteStack} -> deleteStack) (\s@DeleteProject' {} a -> s {deleteStack = a} :: DeleteProject)
 
 -- | A user- or system-generated token that identifies the entity that
 -- requested project deletion. This token can be used to repeat the
 -- request.
-deleteProject_clientRequestToken :: Lens.Lens' DeleteProject (Core.Maybe Core.Text)
+deleteProject_clientRequestToken :: Lens.Lens' DeleteProject (Prelude.Maybe Prelude.Text)
 deleteProject_clientRequestToken = Lens.lens (\DeleteProject' {clientRequestToken} -> clientRequestToken) (\s@DeleteProject' {} a -> s {clientRequestToken = a} :: DeleteProject)
 
 -- | The ID of the project to be deleted in AWS CodeStar.
-deleteProject_id :: Lens.Lens' DeleteProject Core.Text
+deleteProject_id :: Lens.Lens' DeleteProject Prelude.Text
 deleteProject_id = Lens.lens (\DeleteProject' {id} -> id) (\s@DeleteProject' {} a -> s {id = a} :: DeleteProject)
 
 instance Core.AWSRequest DeleteProject where
@@ -124,56 +125,58 @@ instance Core.AWSRequest DeleteProject where
     Response.receiveJSON
       ( \s h x ->
           DeleteProjectResponse'
-            Core.<$> (x Core..?> "stackId")
-            Core.<*> (x Core..?> "projectArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "stackId")
+            Prelude.<*> (x Core..?> "projectArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteProject
+instance Prelude.Hashable DeleteProject
 
-instance Core.NFData DeleteProject
+instance Prelude.NFData DeleteProject
 
 instance Core.ToHeaders DeleteProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeStar_20170419.DeleteProject" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteProject where
   toJSON DeleteProject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("deleteStack" Core..=) Core.<$> deleteStack,
+      ( Prelude.catMaybes
+          [ ("deleteStack" Core..=) Prelude.<$> deleteStack,
             ("clientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just ("id" Core..= id)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just ("id" Core..= id)
           ]
       )
 
 instance Core.ToPath DeleteProject where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteProject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
   { -- | The ID of the primary stack in AWS CloudFormation that will be deleted
     -- as part of deleting the project and its resources.
-    stackId :: Core.Maybe Core.Text,
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the deleted project.
-    projectArn :: Core.Maybe Core.Text,
+    projectArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProjectResponse' with all optional fields omitted.
@@ -191,26 +194,26 @@ data DeleteProjectResponse = DeleteProjectResponse'
 -- 'httpStatus', 'deleteProjectResponse_httpStatus' - The response's http status code.
 newDeleteProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteProjectResponse
 newDeleteProjectResponse pHttpStatus_ =
   DeleteProjectResponse'
-    { stackId = Core.Nothing,
-      projectArn = Core.Nothing,
+    { stackId = Prelude.Nothing,
+      projectArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the primary stack in AWS CloudFormation that will be deleted
 -- as part of deleting the project and its resources.
-deleteProjectResponse_stackId :: Lens.Lens' DeleteProjectResponse (Core.Maybe Core.Text)
+deleteProjectResponse_stackId :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe Prelude.Text)
 deleteProjectResponse_stackId = Lens.lens (\DeleteProjectResponse' {stackId} -> stackId) (\s@DeleteProjectResponse' {} a -> s {stackId = a} :: DeleteProjectResponse)
 
 -- | The Amazon Resource Name (ARN) of the deleted project.
-deleteProjectResponse_projectArn :: Lens.Lens' DeleteProjectResponse (Core.Maybe Core.Text)
+deleteProjectResponse_projectArn :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe Prelude.Text)
 deleteProjectResponse_projectArn = Lens.lens (\DeleteProjectResponse' {projectArn} -> projectArn) (\s@DeleteProjectResponse' {} a -> s {projectArn = a} :: DeleteProjectResponse)
 
 -- | The response's http status code.
-deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Core.Int
+deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Prelude.Int
 deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatus} -> httpStatus) (\s@DeleteProjectResponse' {} a -> s {httpStatus = a} :: DeleteProjectResponse)
 
-instance Core.NFData DeleteProjectResponse
+instance Prelude.NFData DeleteProjectResponse

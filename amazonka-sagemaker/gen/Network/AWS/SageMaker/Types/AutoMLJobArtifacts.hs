@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.AutoMLJobArtifacts where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Artifacts that are generation during a job.
 --
 -- /See:/ 'newAutoMLJobArtifacts' smart constructor.
 data AutoMLJobArtifacts = AutoMLJobArtifacts'
   { -- | The URL to the notebook location.
-    candidateDefinitionNotebookLocation :: Core.Maybe Core.Text,
+    candidateDefinitionNotebookLocation :: Prelude.Maybe Prelude.Text,
     -- | The URL to the notebook location.
-    dataExplorationNotebookLocation :: Core.Maybe Core.Text
+    dataExplorationNotebookLocation :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoMLJobArtifacts' with all optional fields omitted.
@@ -49,16 +50,16 @@ newAutoMLJobArtifacts ::
 newAutoMLJobArtifacts =
   AutoMLJobArtifacts'
     { candidateDefinitionNotebookLocation =
-        Core.Nothing,
-      dataExplorationNotebookLocation = Core.Nothing
+        Prelude.Nothing,
+      dataExplorationNotebookLocation = Prelude.Nothing
     }
 
 -- | The URL to the notebook location.
-autoMLJobArtifacts_candidateDefinitionNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Core.Maybe Core.Text)
+autoMLJobArtifacts_candidateDefinitionNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Prelude.Maybe Prelude.Text)
 autoMLJobArtifacts_candidateDefinitionNotebookLocation = Lens.lens (\AutoMLJobArtifacts' {candidateDefinitionNotebookLocation} -> candidateDefinitionNotebookLocation) (\s@AutoMLJobArtifacts' {} a -> s {candidateDefinitionNotebookLocation = a} :: AutoMLJobArtifacts)
 
 -- | The URL to the notebook location.
-autoMLJobArtifacts_dataExplorationNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Core.Maybe Core.Text)
+autoMLJobArtifacts_dataExplorationNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Prelude.Maybe Prelude.Text)
 autoMLJobArtifacts_dataExplorationNotebookLocation = Lens.lens (\AutoMLJobArtifacts' {dataExplorationNotebookLocation} -> dataExplorationNotebookLocation) (\s@AutoMLJobArtifacts' {} a -> s {dataExplorationNotebookLocation = a} :: AutoMLJobArtifacts)
 
 instance Core.FromJSON AutoMLJobArtifacts where
@@ -67,10 +68,10 @@ instance Core.FromJSON AutoMLJobArtifacts where
       "AutoMLJobArtifacts"
       ( \x ->
           AutoMLJobArtifacts'
-            Core.<$> (x Core..:? "CandidateDefinitionNotebookLocation")
-            Core.<*> (x Core..:? "DataExplorationNotebookLocation")
+            Prelude.<$> (x Core..:? "CandidateDefinitionNotebookLocation")
+            Prelude.<*> (x Core..:? "DataExplorationNotebookLocation")
       )
 
-instance Core.Hashable AutoMLJobArtifacts
+instance Prelude.Hashable AutoMLJobArtifacts
 
-instance Core.NFData AutoMLJobArtifacts
+instance Prelude.NFData AutoMLJobArtifacts

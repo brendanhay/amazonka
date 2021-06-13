@@ -22,17 +22,18 @@ module Network.AWS.DynamoDB.Types.ParameterizedStatement where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a PartiQL statment that uses parameters.
 --
 -- /See:/ 'newParameterizedStatement' smart constructor.
 data ParameterizedStatement = ParameterizedStatement'
   { -- | The parameter values.
-    parameters :: Core.Maybe (Core.NonEmpty AttributeValue),
+    parameters :: Prelude.Maybe (Prelude.NonEmpty AttributeValue),
     -- | A PartiQL statment that uses parameters.
-    statement :: Core.Text
+    statement :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterizedStatement' with all optional fields omitted.
@@ -47,31 +48,32 @@ data ParameterizedStatement = ParameterizedStatement'
 -- 'statement', 'parameterizedStatement_statement' - A PartiQL statment that uses parameters.
 newParameterizedStatement ::
   -- | 'statement'
-  Core.Text ->
+  Prelude.Text ->
   ParameterizedStatement
 newParameterizedStatement pStatement_ =
   ParameterizedStatement'
-    { parameters = Core.Nothing,
+    { parameters =
+        Prelude.Nothing,
       statement = pStatement_
     }
 
 -- | The parameter values.
-parameterizedStatement_parameters :: Lens.Lens' ParameterizedStatement (Core.Maybe (Core.NonEmpty AttributeValue))
-parameterizedStatement_parameters = Lens.lens (\ParameterizedStatement' {parameters} -> parameters) (\s@ParameterizedStatement' {} a -> s {parameters = a} :: ParameterizedStatement) Core.. Lens.mapping Lens._Coerce
+parameterizedStatement_parameters :: Lens.Lens' ParameterizedStatement (Prelude.Maybe (Prelude.NonEmpty AttributeValue))
+parameterizedStatement_parameters = Lens.lens (\ParameterizedStatement' {parameters} -> parameters) (\s@ParameterizedStatement' {} a -> s {parameters = a} :: ParameterizedStatement) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A PartiQL statment that uses parameters.
-parameterizedStatement_statement :: Lens.Lens' ParameterizedStatement Core.Text
+parameterizedStatement_statement :: Lens.Lens' ParameterizedStatement Prelude.Text
 parameterizedStatement_statement = Lens.lens (\ParameterizedStatement' {statement} -> statement) (\s@ParameterizedStatement' {} a -> s {statement = a} :: ParameterizedStatement)
 
-instance Core.Hashable ParameterizedStatement
+instance Prelude.Hashable ParameterizedStatement
 
-instance Core.NFData ParameterizedStatement
+instance Prelude.NFData ParameterizedStatement
 
 instance Core.ToJSON ParameterizedStatement where
   toJSON ParameterizedStatement' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Parameters" Core..=) Core.<$> parameters,
-            Core.Just ("Statement" Core..= statement)
+      ( Prelude.catMaybes
+          [ ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("Statement" Core..= statement)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.EndPoint where
 import Network.AWS.CloudFront.Types.KinesisStreamConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the Amazon Kinesis data stream where you are
 -- sending real-time log data in a real-time log configuration.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 data EndPoint = EndPoint'
   { -- | Contains information about the Amazon Kinesis data stream where you are
     -- sending real-time log data.
-    kinesisStreamConfig :: Core.Maybe KinesisStreamConfig,
+    kinesisStreamConfig :: Prelude.Maybe KinesisStreamConfig,
     -- | The type of data stream where you are sending real-time log data. The
     -- only valid value is @Kinesis@.
-    streamType :: Core.Text
+    streamType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EndPoint' with all optional fields omitted.
@@ -52,37 +53,37 @@ data EndPoint = EndPoint'
 -- only valid value is @Kinesis@.
 newEndPoint ::
   -- | 'streamType'
-  Core.Text ->
+  Prelude.Text ->
   EndPoint
 newEndPoint pStreamType_ =
   EndPoint'
-    { kinesisStreamConfig = Core.Nothing,
+    { kinesisStreamConfig = Prelude.Nothing,
       streamType = pStreamType_
     }
 
 -- | Contains information about the Amazon Kinesis data stream where you are
 -- sending real-time log data.
-endPoint_kinesisStreamConfig :: Lens.Lens' EndPoint (Core.Maybe KinesisStreamConfig)
+endPoint_kinesisStreamConfig :: Lens.Lens' EndPoint (Prelude.Maybe KinesisStreamConfig)
 endPoint_kinesisStreamConfig = Lens.lens (\EndPoint' {kinesisStreamConfig} -> kinesisStreamConfig) (\s@EndPoint' {} a -> s {kinesisStreamConfig = a} :: EndPoint)
 
 -- | The type of data stream where you are sending real-time log data. The
 -- only valid value is @Kinesis@.
-endPoint_streamType :: Lens.Lens' EndPoint Core.Text
+endPoint_streamType :: Lens.Lens' EndPoint Prelude.Text
 endPoint_streamType = Lens.lens (\EndPoint' {streamType} -> streamType) (\s@EndPoint' {} a -> s {streamType = a} :: EndPoint)
 
 instance Core.FromXML EndPoint where
   parseXML x =
     EndPoint'
-      Core.<$> (x Core..@? "KinesisStreamConfig")
-      Core.<*> (x Core..@ "StreamType")
+      Prelude.<$> (x Core..@? "KinesisStreamConfig")
+      Prelude.<*> (x Core..@ "StreamType")
 
-instance Core.Hashable EndPoint
+instance Prelude.Hashable EndPoint
 
-instance Core.NFData EndPoint
+instance Prelude.NFData EndPoint
 
 instance Core.ToXML EndPoint where
   toXML EndPoint' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "KinesisStreamConfig" Core.@= kinesisStreamConfig,
         "StreamType" Core.@= streamType
       ]

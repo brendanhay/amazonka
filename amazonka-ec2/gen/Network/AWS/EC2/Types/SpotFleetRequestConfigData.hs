@@ -32,6 +32,7 @@ import Network.AWS.EC2.Types.SpotFleetLaunchSpecification
 import Network.AWS.EC2.Types.SpotMaintenanceStrategies
 import Network.AWS.EC2.Types.TagSpecification
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the configuration of a Spot Fleet request.
 --
@@ -41,7 +42,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- @LaunchTemplateConfigs@, you can\'t specify @LaunchSpecifications@. If
     -- you include On-Demand capacity in your request, you must use
     -- @LaunchTemplateConfigs@.
-    launchTemplateConfigs :: Core.Maybe [LaunchTemplateConfig],
+    launchTemplateConfigs :: Prelude.Maybe [LaunchTemplateConfig],
     -- | The key-value pair for tagging the Spot Fleet request on creation. The
     -- value for @ResourceType@ must be @spot-fleet-request@, otherwise the
     -- Spot Fleet request fails. To tag instances at launch, specify the tags
@@ -52,7 +53,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- (valid only if you use @LaunchSpecifications@). For information about
     -- tagging after launch, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The maximum amount per hour for Spot Instances that you\'re willing to
     -- pay. You can use the @spotdMaxTotalPrice@ parameter, the
     -- @onDemandMaxTotalPrice@ parameter, or both parameters to ensure that
@@ -62,32 +63,32 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- you\'re willing to pay. When the maximum amount you\'re willing to pay
     -- is reached, the fleet stops launching instances even if it hasn’t met
     -- the target capacity.
-    spotMaxTotalPrice :: Core.Maybe Core.Text,
+    spotMaxTotalPrice :: Prelude.Maybe Prelude.Text,
     -- | The number of On-Demand units to request. You can choose to set the
     -- target capacity in terms of instances or a performance characteristic
     -- that is important to your application workload, such as vCPUs, memory,
     -- or I\/O. If the request type is @maintain@, you can specify a target
     -- capacity of 0 and add capacity later.
-    onDemandTargetCapacity :: Core.Maybe Core.Int,
+    onDemandTargetCapacity :: Prelude.Maybe Prelude.Int,
     -- | The number of On-Demand units fulfilled by this request compared to the
     -- set target On-Demand capacity.
-    onDemandFulfilledCapacity :: Core.Maybe Core.Double,
+    onDemandFulfilledCapacity :: Prelude.Maybe Prelude.Double,
     -- | The start date and time of the request, in UTC format
     -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). By default, Amazon EC2 starts
     -- fulfilling the request immediately.
-    validFrom :: Core.Maybe Core.ISO8601,
+    validFrom :: Prelude.Maybe Core.ISO8601,
     -- | Indicates whether Spot Fleet should replace unhealthy instances.
-    replaceUnhealthyInstances :: Core.Maybe Core.Bool,
+    replaceUnhealthyInstances :: Prelude.Maybe Prelude.Bool,
     -- | The order of the launch template overrides to use in fulfilling
     -- On-Demand capacity. If you specify @lowestPrice@, Spot Fleet uses price
     -- to determine the order, launching the lowest price first. If you specify
     -- @prioritized@, Spot Fleet uses the priority that you assign to each Spot
     -- Fleet launch template override, launching the highest priority first. If
     -- you do not specify a value, Spot Fleet defaults to @lowestPrice@.
-    onDemandAllocationStrategy :: Core.Maybe OnDemandAllocationStrategy,
+    onDemandAllocationStrategy :: Prelude.Maybe OnDemandAllocationStrategy,
     -- | The maximum price per unit hour that you are willing to pay for a Spot
     -- Instance. The default is the On-Demand price.
-    spotPrice :: Core.Maybe Core.Text,
+    spotPrice :: Prelude.Maybe Prelude.Text,
     -- | The maximum amount per hour for On-Demand Instances that you\'re willing
     -- to pay. You can use the @onDemandMaxTotalPrice@ parameter, the
     -- @spotMaxTotalPrice@ parameter, or both parameters to ensure that your
@@ -97,15 +98,15 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- you\'re willing to pay. When the maximum amount you\'re willing to pay
     -- is reached, the fleet stops launching instances even if it hasn’t met
     -- the target capacity.
-    onDemandMaxTotalPrice :: Core.Maybe Core.Text,
+    onDemandMaxTotalPrice :: Prelude.Maybe Prelude.Text,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
-    instanceInterruptionBehavior :: Core.Maybe InstanceInterruptionBehavior,
+    instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
     -- | The end date and time of the request, in UTC format
     -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). After the end date and time, no new
     -- Spot Instance requests are placed or able to fulfill the request. If no
     -- value is specified, the Spot Fleet request remains until you cancel it.
-    validUntil :: Core.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Core.ISO8601,
     -- | One or more Classic Load Balancers and target groups to attach to the
     -- Spot Fleet request. Spot Fleet registers the running Spot Instances with
     -- the specified Classic Load Balancers and target groups.
@@ -113,11 +114,11 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- With Network Load Balancers, Spot Fleet cannot register instances that
     -- have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1,
     -- G2, HI1, HS1, M1, M2, M3, and T1.
-    loadBalancersConfig :: Core.Maybe LoadBalancersConfig,
+    loadBalancersConfig :: Prelude.Maybe LoadBalancersConfig,
     -- | Indicates whether running Spot Instances should be terminated if you
     -- decrease the target capacity of the Spot Fleet request below the current
     -- size of the Spot Fleet.
-    excessCapacityTerminationPolicy :: Core.Maybe ExcessCapacityTerminationPolicy,
+    excessCapacityTerminationPolicy :: Prelude.Maybe ExcessCapacityTerminationPolicy,
     -- | Indicates how to allocate the target Spot Instance capacity across the
     -- Spot Instance pools specified by the Spot Fleet request.
     --
@@ -131,12 +132,12 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- If the allocation strategy is @capacityOptimized@, Spot Fleet launches
     -- instances from Spot Instance pools with optimal capacity for the number
     -- of instances that are launching.
-    allocationStrategy :: Core.Maybe AllocationStrategy,
+    allocationStrategy :: Prelude.Maybe AllocationStrategy,
     -- | The launch specifications for the Spot Fleet request. If you specify
     -- @LaunchSpecifications@, you can\'t specify @LaunchTemplateConfigs@. If
     -- you include On-Demand capacity in your request, you must use
     -- @LaunchTemplateConfigs@.
-    launchSpecifications :: Core.Maybe [SpotFleetLaunchSpecification],
+    launchSpecifications :: Prelude.Maybe [SpotFleetLaunchSpecification],
     -- | The type of request. Indicates whether the Spot Fleet only requests the
     -- target capacity or also attempts to maintain it. When this value is
     -- @request@, the Spot Fleet only places the required requests. It does not
@@ -146,27 +147,27 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- target capacity. The Spot Fleet places the required requests to meet
     -- capacity and automatically replenishes any interrupted instances.
     -- Default: @maintain@. @instant@ is listed but is not used by Spot Fleet.
-    type' :: Core.Maybe FleetType,
+    type' :: Prelude.Maybe FleetType,
     -- | The strategies for managing your Spot Instances that are at an elevated
     -- risk of being interrupted.
-    spotMaintenanceStrategies :: Core.Maybe SpotMaintenanceStrategies,
+    spotMaintenanceStrategies :: Prelude.Maybe SpotMaintenanceStrategies,
     -- | The number of Spot pools across which to allocate your target Spot
     -- capacity. Valid only when Spot __AllocationStrategy__ is set to
     -- @lowest-price@. Spot Fleet selects the cheapest Spot pools and evenly
     -- allocates your target Spot capacity across the number of Spot pools that
     -- you specify.
-    instancePoolsToUseCount :: Core.Maybe Core.Int,
+    instancePoolsToUseCount :: Prelude.Maybe Prelude.Int,
     -- | The number of units fulfilled by this request compared to the set target
     -- capacity. You cannot set this value.
-    fulfilledCapacity :: Core.Maybe Core.Double,
+    fulfilledCapacity :: Prelude.Maybe Prelude.Double,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of your listings. This helps to avoid duplicate listings.
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether running Spot Instances are terminated when the Spot
     -- Fleet request expires.
-    terminateInstancesWithExpiration :: Core.Maybe Core.Bool,
+    terminateInstancesWithExpiration :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
     -- (IAM) role that grants the Spot Fleet the permission to request, launch,
     -- terminate, and tag instances on your behalf. For more information, see
@@ -177,15 +178,15 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests CancelSpotFleetRequests>
     -- or when the Spot Fleet request expires, if you set
     -- @TerminateInstancesWithExpiration@.
-    iamFleetRole :: Core.Text,
+    iamFleetRole :: Prelude.Text,
     -- | The number of units to request for the Spot Fleet. You can choose to set
     -- the target capacity in terms of instances or a performance
     -- characteristic that is important to your application workload, such as
     -- vCPUs, memory, or I\/O. If the request type is @maintain@, you can
     -- specify a target capacity of 0 and add capacity later.
-    targetCapacity :: Core.Int
+    targetCapacity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotFleetRequestConfigData' with all optional fields omitted.
@@ -343,37 +344,39 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- specify a target capacity of 0 and add capacity later.
 newSpotFleetRequestConfigData ::
   -- | 'iamFleetRole'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetCapacity'
-  Core.Int ->
+  Prelude.Int ->
   SpotFleetRequestConfigData
 newSpotFleetRequestConfigData
   pIamFleetRole_
   pTargetCapacity_ =
     SpotFleetRequestConfigData'
       { launchTemplateConfigs =
-          Core.Nothing,
-        tagSpecifications = Core.Nothing,
-        spotMaxTotalPrice = Core.Nothing,
-        onDemandTargetCapacity = Core.Nothing,
-        onDemandFulfilledCapacity = Core.Nothing,
-        validFrom = Core.Nothing,
-        replaceUnhealthyInstances = Core.Nothing,
-        onDemandAllocationStrategy = Core.Nothing,
-        spotPrice = Core.Nothing,
-        onDemandMaxTotalPrice = Core.Nothing,
-        instanceInterruptionBehavior = Core.Nothing,
-        validUntil = Core.Nothing,
-        loadBalancersConfig = Core.Nothing,
-        excessCapacityTerminationPolicy = Core.Nothing,
-        allocationStrategy = Core.Nothing,
-        launchSpecifications = Core.Nothing,
-        type' = Core.Nothing,
-        spotMaintenanceStrategies = Core.Nothing,
-        instancePoolsToUseCount = Core.Nothing,
-        fulfilledCapacity = Core.Nothing,
-        clientToken = Core.Nothing,
-        terminateInstancesWithExpiration = Core.Nothing,
+          Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
+        spotMaxTotalPrice = Prelude.Nothing,
+        onDemandTargetCapacity = Prelude.Nothing,
+        onDemandFulfilledCapacity = Prelude.Nothing,
+        validFrom = Prelude.Nothing,
+        replaceUnhealthyInstances = Prelude.Nothing,
+        onDemandAllocationStrategy = Prelude.Nothing,
+        spotPrice = Prelude.Nothing,
+        onDemandMaxTotalPrice = Prelude.Nothing,
+        instanceInterruptionBehavior = Prelude.Nothing,
+        validUntil = Prelude.Nothing,
+        loadBalancersConfig = Prelude.Nothing,
+        excessCapacityTerminationPolicy =
+          Prelude.Nothing,
+        allocationStrategy = Prelude.Nothing,
+        launchSpecifications = Prelude.Nothing,
+        type' = Prelude.Nothing,
+        spotMaintenanceStrategies = Prelude.Nothing,
+        instancePoolsToUseCount = Prelude.Nothing,
+        fulfilledCapacity = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
+        terminateInstancesWithExpiration =
+          Prelude.Nothing,
         iamFleetRole = pIamFleetRole_,
         targetCapacity = pTargetCapacity_
       }
@@ -382,8 +385,8 @@ newSpotFleetRequestConfigData
 -- @LaunchTemplateConfigs@, you can\'t specify @LaunchSpecifications@. If
 -- you include On-Demand capacity in your request, you must use
 -- @LaunchTemplateConfigs@.
-spotFleetRequestConfigData_launchTemplateConfigs :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe [LaunchTemplateConfig])
-spotFleetRequestConfigData_launchTemplateConfigs = Lens.lens (\SpotFleetRequestConfigData' {launchTemplateConfigs} -> launchTemplateConfigs) (\s@SpotFleetRequestConfigData' {} a -> s {launchTemplateConfigs = a} :: SpotFleetRequestConfigData) Core.. Lens.mapping Lens._Coerce
+spotFleetRequestConfigData_launchTemplateConfigs :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe [LaunchTemplateConfig])
+spotFleetRequestConfigData_launchTemplateConfigs = Lens.lens (\SpotFleetRequestConfigData' {launchTemplateConfigs} -> launchTemplateConfigs) (\s@SpotFleetRequestConfigData' {} a -> s {launchTemplateConfigs = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The key-value pair for tagging the Spot Fleet request on creation. The
 -- value for @ResourceType@ must be @spot-fleet-request@, otherwise the
@@ -395,8 +398,8 @@ spotFleetRequestConfigData_launchTemplateConfigs = Lens.lens (\SpotFleetRequestC
 -- (valid only if you use @LaunchSpecifications@). For information about
 -- tagging after launch, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
-spotFleetRequestConfigData_tagSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe [TagSpecification])
-spotFleetRequestConfigData_tagSpecifications = Lens.lens (\SpotFleetRequestConfigData' {tagSpecifications} -> tagSpecifications) (\s@SpotFleetRequestConfigData' {} a -> s {tagSpecifications = a} :: SpotFleetRequestConfigData) Core.. Lens.mapping Lens._Coerce
+spotFleetRequestConfigData_tagSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe [TagSpecification])
+spotFleetRequestConfigData_tagSpecifications = Lens.lens (\SpotFleetRequestConfigData' {tagSpecifications} -> tagSpecifications) (\s@SpotFleetRequestConfigData' {} a -> s {tagSpecifications = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum amount per hour for Spot Instances that you\'re willing to
 -- pay. You can use the @spotdMaxTotalPrice@ parameter, the
@@ -407,7 +410,7 @@ spotFleetRequestConfigData_tagSpecifications = Lens.lens (\SpotFleetRequestConfi
 -- you\'re willing to pay. When the maximum amount you\'re willing to pay
 -- is reached, the fleet stops launching instances even if it hasn’t met
 -- the target capacity.
-spotFleetRequestConfigData_spotMaxTotalPrice :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Text)
+spotFleetRequestConfigData_spotMaxTotalPrice :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Text)
 spotFleetRequestConfigData_spotMaxTotalPrice = Lens.lens (\SpotFleetRequestConfigData' {spotMaxTotalPrice} -> spotMaxTotalPrice) (\s@SpotFleetRequestConfigData' {} a -> s {spotMaxTotalPrice = a} :: SpotFleetRequestConfigData)
 
 -- | The number of On-Demand units to request. You can choose to set the
@@ -415,22 +418,22 @@ spotFleetRequestConfigData_spotMaxTotalPrice = Lens.lens (\SpotFleetRequestConfi
 -- that is important to your application workload, such as vCPUs, memory,
 -- or I\/O. If the request type is @maintain@, you can specify a target
 -- capacity of 0 and add capacity later.
-spotFleetRequestConfigData_onDemandTargetCapacity :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Int)
+spotFleetRequestConfigData_onDemandTargetCapacity :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Int)
 spotFleetRequestConfigData_onDemandTargetCapacity = Lens.lens (\SpotFleetRequestConfigData' {onDemandTargetCapacity} -> onDemandTargetCapacity) (\s@SpotFleetRequestConfigData' {} a -> s {onDemandTargetCapacity = a} :: SpotFleetRequestConfigData)
 
 -- | The number of On-Demand units fulfilled by this request compared to the
 -- set target On-Demand capacity.
-spotFleetRequestConfigData_onDemandFulfilledCapacity :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Double)
+spotFleetRequestConfigData_onDemandFulfilledCapacity :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Double)
 spotFleetRequestConfigData_onDemandFulfilledCapacity = Lens.lens (\SpotFleetRequestConfigData' {onDemandFulfilledCapacity} -> onDemandFulfilledCapacity) (\s@SpotFleetRequestConfigData' {} a -> s {onDemandFulfilledCapacity = a} :: SpotFleetRequestConfigData)
 
 -- | The start date and time of the request, in UTC format
 -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). By default, Amazon EC2 starts
 -- fulfilling the request immediately.
-spotFleetRequestConfigData_validFrom :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.UTCTime)
-spotFleetRequestConfigData_validFrom = Lens.lens (\SpotFleetRequestConfigData' {validFrom} -> validFrom) (\s@SpotFleetRequestConfigData' {} a -> s {validFrom = a} :: SpotFleetRequestConfigData) Core.. Lens.mapping Core._Time
+spotFleetRequestConfigData_validFrom :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.UTCTime)
+spotFleetRequestConfigData_validFrom = Lens.lens (\SpotFleetRequestConfigData' {validFrom} -> validFrom) (\s@SpotFleetRequestConfigData' {} a -> s {validFrom = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates whether Spot Fleet should replace unhealthy instances.
-spotFleetRequestConfigData_replaceUnhealthyInstances :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Bool)
+spotFleetRequestConfigData_replaceUnhealthyInstances :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Bool)
 spotFleetRequestConfigData_replaceUnhealthyInstances = Lens.lens (\SpotFleetRequestConfigData' {replaceUnhealthyInstances} -> replaceUnhealthyInstances) (\s@SpotFleetRequestConfigData' {} a -> s {replaceUnhealthyInstances = a} :: SpotFleetRequestConfigData)
 
 -- | The order of the launch template overrides to use in fulfilling
@@ -439,12 +442,12 @@ spotFleetRequestConfigData_replaceUnhealthyInstances = Lens.lens (\SpotFleetRequ
 -- @prioritized@, Spot Fleet uses the priority that you assign to each Spot
 -- Fleet launch template override, launching the highest priority first. If
 -- you do not specify a value, Spot Fleet defaults to @lowestPrice@.
-spotFleetRequestConfigData_onDemandAllocationStrategy :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe OnDemandAllocationStrategy)
+spotFleetRequestConfigData_onDemandAllocationStrategy :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe OnDemandAllocationStrategy)
 spotFleetRequestConfigData_onDemandAllocationStrategy = Lens.lens (\SpotFleetRequestConfigData' {onDemandAllocationStrategy} -> onDemandAllocationStrategy) (\s@SpotFleetRequestConfigData' {} a -> s {onDemandAllocationStrategy = a} :: SpotFleetRequestConfigData)
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance. The default is the On-Demand price.
-spotFleetRequestConfigData_spotPrice :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Text)
+spotFleetRequestConfigData_spotPrice :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Text)
 spotFleetRequestConfigData_spotPrice = Lens.lens (\SpotFleetRequestConfigData' {spotPrice} -> spotPrice) (\s@SpotFleetRequestConfigData' {} a -> s {spotPrice = a} :: SpotFleetRequestConfigData)
 
 -- | The maximum amount per hour for On-Demand Instances that you\'re willing
@@ -456,20 +459,20 @@ spotFleetRequestConfigData_spotPrice = Lens.lens (\SpotFleetRequestConfigData' {
 -- you\'re willing to pay. When the maximum amount you\'re willing to pay
 -- is reached, the fleet stops launching instances even if it hasn’t met
 -- the target capacity.
-spotFleetRequestConfigData_onDemandMaxTotalPrice :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Text)
+spotFleetRequestConfigData_onDemandMaxTotalPrice :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Text)
 spotFleetRequestConfigData_onDemandMaxTotalPrice = Lens.lens (\SpotFleetRequestConfigData' {onDemandMaxTotalPrice} -> onDemandMaxTotalPrice) (\s@SpotFleetRequestConfigData' {} a -> s {onDemandMaxTotalPrice = a} :: SpotFleetRequestConfigData)
 
 -- | The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
-spotFleetRequestConfigData_instanceInterruptionBehavior :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe InstanceInterruptionBehavior)
+spotFleetRequestConfigData_instanceInterruptionBehavior :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe InstanceInterruptionBehavior)
 spotFleetRequestConfigData_instanceInterruptionBehavior = Lens.lens (\SpotFleetRequestConfigData' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@SpotFleetRequestConfigData' {} a -> s {instanceInterruptionBehavior = a} :: SpotFleetRequestConfigData)
 
 -- | The end date and time of the request, in UTC format
 -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). After the end date and time, no new
 -- Spot Instance requests are placed or able to fulfill the request. If no
 -- value is specified, the Spot Fleet request remains until you cancel it.
-spotFleetRequestConfigData_validUntil :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.UTCTime)
-spotFleetRequestConfigData_validUntil = Lens.lens (\SpotFleetRequestConfigData' {validUntil} -> validUntil) (\s@SpotFleetRequestConfigData' {} a -> s {validUntil = a} :: SpotFleetRequestConfigData) Core.. Lens.mapping Core._Time
+spotFleetRequestConfigData_validUntil :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.UTCTime)
+spotFleetRequestConfigData_validUntil = Lens.lens (\SpotFleetRequestConfigData' {validUntil} -> validUntil) (\s@SpotFleetRequestConfigData' {} a -> s {validUntil = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Core._Time
 
 -- | One or more Classic Load Balancers and target groups to attach to the
 -- Spot Fleet request. Spot Fleet registers the running Spot Instances with
@@ -478,13 +481,13 @@ spotFleetRequestConfigData_validUntil = Lens.lens (\SpotFleetRequestConfigData' 
 -- With Network Load Balancers, Spot Fleet cannot register instances that
 -- have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1,
 -- G2, HI1, HS1, M1, M2, M3, and T1.
-spotFleetRequestConfigData_loadBalancersConfig :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe LoadBalancersConfig)
+spotFleetRequestConfigData_loadBalancersConfig :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe LoadBalancersConfig)
 spotFleetRequestConfigData_loadBalancersConfig = Lens.lens (\SpotFleetRequestConfigData' {loadBalancersConfig} -> loadBalancersConfig) (\s@SpotFleetRequestConfigData' {} a -> s {loadBalancersConfig = a} :: SpotFleetRequestConfigData)
 
 -- | Indicates whether running Spot Instances should be terminated if you
 -- decrease the target capacity of the Spot Fleet request below the current
 -- size of the Spot Fleet.
-spotFleetRequestConfigData_excessCapacityTerminationPolicy :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe ExcessCapacityTerminationPolicy)
+spotFleetRequestConfigData_excessCapacityTerminationPolicy :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe ExcessCapacityTerminationPolicy)
 spotFleetRequestConfigData_excessCapacityTerminationPolicy = Lens.lens (\SpotFleetRequestConfigData' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@SpotFleetRequestConfigData' {} a -> s {excessCapacityTerminationPolicy = a} :: SpotFleetRequestConfigData)
 
 -- | Indicates how to allocate the target Spot Instance capacity across the
@@ -500,15 +503,15 @@ spotFleetRequestConfigData_excessCapacityTerminationPolicy = Lens.lens (\SpotFle
 -- If the allocation strategy is @capacityOptimized@, Spot Fleet launches
 -- instances from Spot Instance pools with optimal capacity for the number
 -- of instances that are launching.
-spotFleetRequestConfigData_allocationStrategy :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe AllocationStrategy)
+spotFleetRequestConfigData_allocationStrategy :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe AllocationStrategy)
 spotFleetRequestConfigData_allocationStrategy = Lens.lens (\SpotFleetRequestConfigData' {allocationStrategy} -> allocationStrategy) (\s@SpotFleetRequestConfigData' {} a -> s {allocationStrategy = a} :: SpotFleetRequestConfigData)
 
 -- | The launch specifications for the Spot Fleet request. If you specify
 -- @LaunchSpecifications@, you can\'t specify @LaunchTemplateConfigs@. If
 -- you include On-Demand capacity in your request, you must use
 -- @LaunchTemplateConfigs@.
-spotFleetRequestConfigData_launchSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe [SpotFleetLaunchSpecification])
-spotFleetRequestConfigData_launchSpecifications = Lens.lens (\SpotFleetRequestConfigData' {launchSpecifications} -> launchSpecifications) (\s@SpotFleetRequestConfigData' {} a -> s {launchSpecifications = a} :: SpotFleetRequestConfigData) Core.. Lens.mapping Lens._Coerce
+spotFleetRequestConfigData_launchSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe [SpotFleetLaunchSpecification])
+spotFleetRequestConfigData_launchSpecifications = Lens.lens (\SpotFleetRequestConfigData' {launchSpecifications} -> launchSpecifications) (\s@SpotFleetRequestConfigData' {} a -> s {launchSpecifications = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of request. Indicates whether the Spot Fleet only requests the
 -- target capacity or also attempts to maintain it. When this value is
@@ -519,12 +522,12 @@ spotFleetRequestConfigData_launchSpecifications = Lens.lens (\SpotFleetRequestCo
 -- target capacity. The Spot Fleet places the required requests to meet
 -- capacity and automatically replenishes any interrupted instances.
 -- Default: @maintain@. @instant@ is listed but is not used by Spot Fleet.
-spotFleetRequestConfigData_type :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe FleetType)
+spotFleetRequestConfigData_type :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe FleetType)
 spotFleetRequestConfigData_type = Lens.lens (\SpotFleetRequestConfigData' {type'} -> type') (\s@SpotFleetRequestConfigData' {} a -> s {type' = a} :: SpotFleetRequestConfigData)
 
 -- | The strategies for managing your Spot Instances that are at an elevated
 -- risk of being interrupted.
-spotFleetRequestConfigData_spotMaintenanceStrategies :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe SpotMaintenanceStrategies)
+spotFleetRequestConfigData_spotMaintenanceStrategies :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe SpotMaintenanceStrategies)
 spotFleetRequestConfigData_spotMaintenanceStrategies = Lens.lens (\SpotFleetRequestConfigData' {spotMaintenanceStrategies} -> spotMaintenanceStrategies) (\s@SpotFleetRequestConfigData' {} a -> s {spotMaintenanceStrategies = a} :: SpotFleetRequestConfigData)
 
 -- | The number of Spot pools across which to allocate your target Spot
@@ -532,24 +535,24 @@ spotFleetRequestConfigData_spotMaintenanceStrategies = Lens.lens (\SpotFleetRequ
 -- @lowest-price@. Spot Fleet selects the cheapest Spot pools and evenly
 -- allocates your target Spot capacity across the number of Spot pools that
 -- you specify.
-spotFleetRequestConfigData_instancePoolsToUseCount :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Int)
+spotFleetRequestConfigData_instancePoolsToUseCount :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Int)
 spotFleetRequestConfigData_instancePoolsToUseCount = Lens.lens (\SpotFleetRequestConfigData' {instancePoolsToUseCount} -> instancePoolsToUseCount) (\s@SpotFleetRequestConfigData' {} a -> s {instancePoolsToUseCount = a} :: SpotFleetRequestConfigData)
 
 -- | The number of units fulfilled by this request compared to the set target
 -- capacity. You cannot set this value.
-spotFleetRequestConfigData_fulfilledCapacity :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Double)
+spotFleetRequestConfigData_fulfilledCapacity :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Double)
 spotFleetRequestConfigData_fulfilledCapacity = Lens.lens (\SpotFleetRequestConfigData' {fulfilledCapacity} -> fulfilledCapacity) (\s@SpotFleetRequestConfigData' {} a -> s {fulfilledCapacity = a} :: SpotFleetRequestConfigData)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of your listings. This helps to avoid duplicate listings.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-spotFleetRequestConfigData_clientToken :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Text)
+spotFleetRequestConfigData_clientToken :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Text)
 spotFleetRequestConfigData_clientToken = Lens.lens (\SpotFleetRequestConfigData' {clientToken} -> clientToken) (\s@SpotFleetRequestConfigData' {} a -> s {clientToken = a} :: SpotFleetRequestConfigData)
 
 -- | Indicates whether running Spot Instances are terminated when the Spot
 -- Fleet request expires.
-spotFleetRequestConfigData_terminateInstancesWithExpiration :: Lens.Lens' SpotFleetRequestConfigData (Core.Maybe Core.Bool)
+spotFleetRequestConfigData_terminateInstancesWithExpiration :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Bool)
 spotFleetRequestConfigData_terminateInstancesWithExpiration = Lens.lens (\SpotFleetRequestConfigData' {terminateInstancesWithExpiration} -> terminateInstancesWithExpiration) (\s@SpotFleetRequestConfigData' {} a -> s {terminateInstancesWithExpiration = a} :: SpotFleetRequestConfigData)
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
@@ -562,7 +565,7 @@ spotFleetRequestConfigData_terminateInstancesWithExpiration = Lens.lens (\SpotFl
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests CancelSpotFleetRequests>
 -- or when the Spot Fleet request expires, if you set
 -- @TerminateInstancesWithExpiration@.
-spotFleetRequestConfigData_iamFleetRole :: Lens.Lens' SpotFleetRequestConfigData Core.Text
+spotFleetRequestConfigData_iamFleetRole :: Lens.Lens' SpotFleetRequestConfigData Prelude.Text
 spotFleetRequestConfigData_iamFleetRole = Lens.lens (\SpotFleetRequestConfigData' {iamFleetRole} -> iamFleetRole) (\s@SpotFleetRequestConfigData' {} a -> s {iamFleetRole = a} :: SpotFleetRequestConfigData)
 
 -- | The number of units to request for the Spot Fleet. You can choose to set
@@ -570,59 +573,60 @@ spotFleetRequestConfigData_iamFleetRole = Lens.lens (\SpotFleetRequestConfigData
 -- characteristic that is important to your application workload, such as
 -- vCPUs, memory, or I\/O. If the request type is @maintain@, you can
 -- specify a target capacity of 0 and add capacity later.
-spotFleetRequestConfigData_targetCapacity :: Lens.Lens' SpotFleetRequestConfigData Core.Int
+spotFleetRequestConfigData_targetCapacity :: Lens.Lens' SpotFleetRequestConfigData Prelude.Int
 spotFleetRequestConfigData_targetCapacity = Lens.lens (\SpotFleetRequestConfigData' {targetCapacity} -> targetCapacity) (\s@SpotFleetRequestConfigData' {} a -> s {targetCapacity = a} :: SpotFleetRequestConfigData)
 
 instance Core.FromXML SpotFleetRequestConfigData where
   parseXML x =
     SpotFleetRequestConfigData'
-      Core.<$> ( x Core..@? "launchTemplateConfigs"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "TagSpecification" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "spotMaxTotalPrice")
-      Core.<*> (x Core..@? "onDemandTargetCapacity")
-      Core.<*> (x Core..@? "onDemandFulfilledCapacity")
-      Core.<*> (x Core..@? "validFrom")
-      Core.<*> (x Core..@? "replaceUnhealthyInstances")
-      Core.<*> (x Core..@? "onDemandAllocationStrategy")
-      Core.<*> (x Core..@? "spotPrice")
-      Core.<*> (x Core..@? "onDemandMaxTotalPrice")
-      Core.<*> (x Core..@? "instanceInterruptionBehavior")
-      Core.<*> (x Core..@? "validUntil")
-      Core.<*> (x Core..@? "loadBalancersConfig")
-      Core.<*> (x Core..@? "excessCapacityTerminationPolicy")
-      Core.<*> (x Core..@? "allocationStrategy")
-      Core.<*> ( x Core..@? "launchSpecifications"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "type")
-      Core.<*> (x Core..@? "spotMaintenanceStrategies")
-      Core.<*> (x Core..@? "instancePoolsToUseCount")
-      Core.<*> (x Core..@? "fulfilledCapacity")
-      Core.<*> (x Core..@? "clientToken")
-      Core.<*> (x Core..@? "terminateInstancesWithExpiration")
-      Core.<*> (x Core..@ "iamFleetRole")
-      Core.<*> (x Core..@ "targetCapacity")
+      Prelude.<$> ( x Core..@? "launchTemplateConfigs"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "TagSpecification"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "spotMaxTotalPrice")
+      Prelude.<*> (x Core..@? "onDemandTargetCapacity")
+      Prelude.<*> (x Core..@? "onDemandFulfilledCapacity")
+      Prelude.<*> (x Core..@? "validFrom")
+      Prelude.<*> (x Core..@? "replaceUnhealthyInstances")
+      Prelude.<*> (x Core..@? "onDemandAllocationStrategy")
+      Prelude.<*> (x Core..@? "spotPrice")
+      Prelude.<*> (x Core..@? "onDemandMaxTotalPrice")
+      Prelude.<*> (x Core..@? "instanceInterruptionBehavior")
+      Prelude.<*> (x Core..@? "validUntil")
+      Prelude.<*> (x Core..@? "loadBalancersConfig")
+      Prelude.<*> (x Core..@? "excessCapacityTerminationPolicy")
+      Prelude.<*> (x Core..@? "allocationStrategy")
+      Prelude.<*> ( x Core..@? "launchSpecifications"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "type")
+      Prelude.<*> (x Core..@? "spotMaintenanceStrategies")
+      Prelude.<*> (x Core..@? "instancePoolsToUseCount")
+      Prelude.<*> (x Core..@? "fulfilledCapacity")
+      Prelude.<*> (x Core..@? "clientToken")
+      Prelude.<*> (x Core..@? "terminateInstancesWithExpiration")
+      Prelude.<*> (x Core..@ "iamFleetRole")
+      Prelude.<*> (x Core..@ "targetCapacity")
 
-instance Core.Hashable SpotFleetRequestConfigData
+instance Prelude.Hashable SpotFleetRequestConfigData
 
-instance Core.NFData SpotFleetRequestConfigData
+instance Prelude.NFData SpotFleetRequestConfigData
 
 instance Core.ToQuery SpotFleetRequestConfigData where
   toQuery SpotFleetRequestConfigData' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ Core.toQuery
           ( Core.toQueryList "LaunchTemplateConfigs"
-              Core.<$> launchTemplateConfigs
+              Prelude.<$> launchTemplateConfigs
           ),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "SpotMaxTotalPrice" Core.=: spotMaxTotalPrice,
         "OnDemandTargetCapacity"
@@ -646,7 +650,7 @@ instance Core.ToQuery SpotFleetRequestConfigData where
         "AllocationStrategy" Core.=: allocationStrategy,
         Core.toQuery
           ( Core.toQueryList "LaunchSpecifications"
-              Core.<$> launchSpecifications
+              Prelude.<$> launchSpecifications
           ),
         "Type" Core.=: type',
         "SpotMaintenanceStrategies"

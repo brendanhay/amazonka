@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -47,14 +48,14 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) for the Amazon SWF domain.
-    resourceArn :: Core.Text,
+    resourceArn :: Prelude.Text,
     -- | The list of tags to add to a domain.
     --
     -- Tags may only contain unicode letters, digits, whitespace, or these
     -- symbols: @_ . : \/ = + - \@@.
     tags :: [ResourceTag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -72,16 +73,16 @@ data TagResource = TagResource'
 -- symbols: @_ . : \/ = + - \@@.
 newTagResource ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   TagResource
 newTagResource pResourceArn_ =
   TagResource'
     { resourceArn = pResourceArn_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) for the Amazon SWF domain.
-tagResource_resourceArn :: Lens.Lens' TagResource Core.Text
+tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | The list of tags to add to a domain.
@@ -89,50 +90,52 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 -- Tags may only contain unicode letters, digits, whitespace, or these
 -- symbols: @_ . : \/ = + - \@@.
 tagResource_tags :: Lens.Lens' TagResource [ResourceTag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Core.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull TagResourceResponse'
 
-instance Core.Hashable TagResource
+instance Prelude.Hashable TagResource
 
-instance Core.NFData TagResource
+instance Prelude.NFData TagResource
 
 instance Core.ToHeaders TagResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.TagResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("resourceArn" Core..= resourceArn),
-            Core.Just ("tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("resourceArn" Core..= resourceArn),
+            Prelude.Just ("tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath TagResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -142,4 +145,4 @@ newTagResourceResponse ::
   TagResourceResponse
 newTagResourceResponse = TagResourceResponse'
 
-instance Core.NFData TagResourceResponse
+instance Prelude.NFData TagResourceResponse

@@ -21,15 +21,16 @@ module Network.AWS.MachineLearning.Types.RDSDatabaseCredentials where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The database credentials to connect to a database on an RDS DB instance.
 --
 -- /See:/ 'newRDSDatabaseCredentials' smart constructor.
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-  { username :: Core.Text,
-    password :: Core.Text
+  { username :: Prelude.Text,
+    password :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RDSDatabaseCredentials' with all optional fields omitted.
@@ -44,9 +45,9 @@ data RDSDatabaseCredentials = RDSDatabaseCredentials'
 -- 'password', 'rDSDatabaseCredentials_password' - Undocumented member.
 newRDSDatabaseCredentials ::
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'password'
-  Core.Text ->
+  Prelude.Text ->
   RDSDatabaseCredentials
 newRDSDatabaseCredentials pUsername_ pPassword_ =
   RDSDatabaseCredentials'
@@ -55,22 +56,22 @@ newRDSDatabaseCredentials pUsername_ pPassword_ =
     }
 
 -- | Undocumented member.
-rDSDatabaseCredentials_username :: Lens.Lens' RDSDatabaseCredentials Core.Text
+rDSDatabaseCredentials_username :: Lens.Lens' RDSDatabaseCredentials Prelude.Text
 rDSDatabaseCredentials_username = Lens.lens (\RDSDatabaseCredentials' {username} -> username) (\s@RDSDatabaseCredentials' {} a -> s {username = a} :: RDSDatabaseCredentials)
 
 -- | Undocumented member.
-rDSDatabaseCredentials_password :: Lens.Lens' RDSDatabaseCredentials Core.Text
+rDSDatabaseCredentials_password :: Lens.Lens' RDSDatabaseCredentials Prelude.Text
 rDSDatabaseCredentials_password = Lens.lens (\RDSDatabaseCredentials' {password} -> password) (\s@RDSDatabaseCredentials' {} a -> s {password = a} :: RDSDatabaseCredentials)
 
-instance Core.Hashable RDSDatabaseCredentials
+instance Prelude.Hashable RDSDatabaseCredentials
 
-instance Core.NFData RDSDatabaseCredentials
+instance Prelude.NFData RDSDatabaseCredentials
 
 instance Core.ToJSON RDSDatabaseCredentials where
   toJSON RDSDatabaseCredentials' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Username" Core..= username),
-            Core.Just ("Password" Core..= password)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("Password" Core..= password)
           ]
       )

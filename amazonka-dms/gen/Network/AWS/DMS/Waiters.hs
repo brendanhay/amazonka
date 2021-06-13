@@ -23,6 +23,7 @@ import Network.AWS.DMS.DescribeReplicationTasks
 import Network.AWS.DMS.Lens
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.DMS.DescribeReplicationInstances' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newReplicationInstanceAvailable :: Core.Wait DescribeReplicationInstances
@@ -39,12 +40,12 @@ newReplicationInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationInstancesResponse_replicationInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationInstance_replicationInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationInstance_replicationInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -52,12 +53,12 @@ newReplicationInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationInstancesResponse_replicationInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationInstance_replicationInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationInstance_replicationInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-credentials"
@@ -65,12 +66,12 @@ newReplicationInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationInstancesResponse_replicationInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationInstance_replicationInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationInstance_replicationInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-network"
@@ -78,12 +79,12 @@ newReplicationInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationInstancesResponse_replicationInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationInstance_replicationInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationInstance_replicationInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "inaccessible-encryption-credentials"
@@ -91,12 +92,12 @@ newReplicationInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationInstancesResponse_replicationInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationInstance_replicationInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationInstance_replicationInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -116,12 +117,12 @@ newReplicationTaskDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -129,12 +130,12 @@ newReplicationTaskDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -142,12 +143,12 @@ newReplicationTaskDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "running"
@@ -155,12 +156,12 @@ newReplicationTaskDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -168,12 +169,12 @@ newReplicationTaskDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundFault"
@@ -198,12 +199,12 @@ newEndpointDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeEndpointsResponse_endpoints
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. endpoint_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. endpoint_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -211,12 +212,12 @@ newEndpointDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeEndpointsResponse_endpoints
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. endpoint_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. endpoint_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -236,12 +237,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "ready"
@@ -249,12 +250,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -262,12 +263,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -275,12 +276,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -288,12 +289,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -301,12 +302,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -314,12 +315,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "testing"
@@ -327,12 +328,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -340,12 +341,12 @@ newReplicationTaskRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -365,12 +366,12 @@ newReplicationInstanceDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationInstancesResponse_replicationInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationInstance_replicationInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationInstance_replicationInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundFault"
@@ -392,12 +393,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "starting"
@@ -405,12 +406,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "running"
@@ -418,12 +419,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -431,12 +432,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -444,12 +445,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -457,12 +458,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -470,12 +471,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "testing"
@@ -483,12 +484,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -496,12 +497,12 @@ newReplicationTaskReady =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -521,12 +522,12 @@ newTestConnectionSucceeds =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConnectionsResponse_connections
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. connection_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. connection_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -534,12 +535,12 @@ newTestConnectionSucceeds =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConnectionsResponse_connections
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. connection_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. connection_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -559,12 +560,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "ready"
@@ -572,12 +573,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -585,12 +586,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "starting"
@@ -598,12 +599,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "running"
@@ -611,12 +612,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -624,12 +625,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -637,12 +638,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "testing"
@@ -650,12 +651,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -663,12 +664,12 @@ newReplicationTaskStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationTask_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

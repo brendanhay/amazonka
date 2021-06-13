@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteApnsSandboxChannel = DeleteApnsSandboxChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApnsSandboxChannel' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DeleteApnsSandboxChannel = DeleteApnsSandboxChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteApnsSandboxChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteApnsSandboxChannel
 newDeleteApnsSandboxChannel pApplicationId_ =
   DeleteApnsSandboxChannel'
@@ -76,7 +77,7 @@ newDeleteApnsSandboxChannel pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteApnsSandboxChannel_applicationId :: Lens.Lens' DeleteApnsSandboxChannel Core.Text
+deleteApnsSandboxChannel_applicationId :: Lens.Lens' DeleteApnsSandboxChannel Prelude.Text
 deleteApnsSandboxChannel_applicationId = Lens.lens (\DeleteApnsSandboxChannel' {applicationId} -> applicationId) (\s@DeleteApnsSandboxChannel' {} a -> s {applicationId = a} :: DeleteApnsSandboxChannel)
 
 instance Core.AWSRequest DeleteApnsSandboxChannel where
@@ -88,41 +89,43 @@ instance Core.AWSRequest DeleteApnsSandboxChannel where
     Response.receiveJSON
       ( \s h x ->
           DeleteApnsSandboxChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteApnsSandboxChannel
+instance Prelude.Hashable DeleteApnsSandboxChannel
 
-instance Core.NFData DeleteApnsSandboxChannel
+instance Prelude.NFData DeleteApnsSandboxChannel
 
 instance Core.ToHeaders DeleteApnsSandboxChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteApnsSandboxChannel where
   toPath DeleteApnsSandboxChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/apns_sandbox"
       ]
 
 instance Core.ToQuery DeleteApnsSandboxChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApnsSandboxChannelResponse' smart constructor.
 data DeleteApnsSandboxChannelResponse = DeleteApnsSandboxChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     aPNSSandboxChannelResponse :: APNSSandboxChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApnsSandboxChannelResponse' with all optional fields omitted.
@@ -137,7 +140,7 @@ data DeleteApnsSandboxChannelResponse = DeleteApnsSandboxChannelResponse'
 -- 'aPNSSandboxChannelResponse', 'deleteApnsSandboxChannelResponse_aPNSSandboxChannelResponse' - Undocumented member.
 newDeleteApnsSandboxChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'aPNSSandboxChannelResponse'
   APNSSandboxChannelResponse ->
   DeleteApnsSandboxChannelResponse
@@ -152,11 +155,13 @@ newDeleteApnsSandboxChannelResponse
       }
 
 -- | The response's http status code.
-deleteApnsSandboxChannelResponse_httpStatus :: Lens.Lens' DeleteApnsSandboxChannelResponse Core.Int
+deleteApnsSandboxChannelResponse_httpStatus :: Lens.Lens' DeleteApnsSandboxChannelResponse Prelude.Int
 deleteApnsSandboxChannelResponse_httpStatus = Lens.lens (\DeleteApnsSandboxChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteApnsSandboxChannelResponse' {} a -> s {httpStatus = a} :: DeleteApnsSandboxChannelResponse)
 
 -- | Undocumented member.
 deleteApnsSandboxChannelResponse_aPNSSandboxChannelResponse :: Lens.Lens' DeleteApnsSandboxChannelResponse APNSSandboxChannelResponse
 deleteApnsSandboxChannelResponse_aPNSSandboxChannelResponse = Lens.lens (\DeleteApnsSandboxChannelResponse' {aPNSSandboxChannelResponse} -> aPNSSandboxChannelResponse) (\s@DeleteApnsSandboxChannelResponse' {} a -> s {aPNSSandboxChannelResponse = a} :: DeleteApnsSandboxChannelResponse)
 
-instance Core.NFData DeleteApnsSandboxChannelResponse
+instance
+  Prelude.NFData
+    DeleteApnsSandboxChannelResponse

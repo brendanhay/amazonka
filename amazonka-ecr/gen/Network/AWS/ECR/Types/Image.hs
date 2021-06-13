@@ -22,24 +22,25 @@ module Network.AWS.ECR.Types.Image where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ImageIdentifier
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an Amazon ECR image.
 --
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
   { -- | The image manifest associated with the image.
-    imageManifest :: Core.Maybe Core.Text,
+    imageManifest :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID associated with the registry containing the image.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository associated with the image.
-    repositoryName :: Core.Maybe Core.Text,
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | An object containing the image tag and image digest associated with an
     -- image.
-    imageId :: Core.Maybe ImageIdentifier,
+    imageId :: Prelude.Maybe ImageIdentifier,
     -- | The manifest media type of the image.
-    imageManifestMediaType :: Core.Maybe Core.Text
+    imageManifestMediaType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Image' with all optional fields omitted.
@@ -63,32 +64,32 @@ newImage ::
   Image
 newImage =
   Image'
-    { imageManifest = Core.Nothing,
-      registryId = Core.Nothing,
-      repositoryName = Core.Nothing,
-      imageId = Core.Nothing,
-      imageManifestMediaType = Core.Nothing
+    { imageManifest = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      imageId = Prelude.Nothing,
+      imageManifestMediaType = Prelude.Nothing
     }
 
 -- | The image manifest associated with the image.
-image_imageManifest :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_imageManifest :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_imageManifest = Lens.lens (\Image' {imageManifest} -> imageManifest) (\s@Image' {} a -> s {imageManifest = a} :: Image)
 
 -- | The AWS account ID associated with the registry containing the image.
-image_registryId :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_registryId :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_registryId = Lens.lens (\Image' {registryId} -> registryId) (\s@Image' {} a -> s {registryId = a} :: Image)
 
 -- | The name of the repository associated with the image.
-image_repositoryName :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_repositoryName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_repositoryName = Lens.lens (\Image' {repositoryName} -> repositoryName) (\s@Image' {} a -> s {repositoryName = a} :: Image)
 
 -- | An object containing the image tag and image digest associated with an
 -- image.
-image_imageId :: Lens.Lens' Image (Core.Maybe ImageIdentifier)
+image_imageId :: Lens.Lens' Image (Prelude.Maybe ImageIdentifier)
 image_imageId = Lens.lens (\Image' {imageId} -> imageId) (\s@Image' {} a -> s {imageId = a} :: Image)
 
 -- | The manifest media type of the image.
-image_imageManifestMediaType :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_imageManifestMediaType :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_imageManifestMediaType = Lens.lens (\Image' {imageManifestMediaType} -> imageManifestMediaType) (\s@Image' {} a -> s {imageManifestMediaType = a} :: Image)
 
 instance Core.FromJSON Image where
@@ -97,13 +98,13 @@ instance Core.FromJSON Image where
       "Image"
       ( \x ->
           Image'
-            Core.<$> (x Core..:? "imageManifest")
-            Core.<*> (x Core..:? "registryId")
-            Core.<*> (x Core..:? "repositoryName")
-            Core.<*> (x Core..:? "imageId")
-            Core.<*> (x Core..:? "imageManifestMediaType")
+            Prelude.<$> (x Core..:? "imageManifest")
+            Prelude.<*> (x Core..:? "registryId")
+            Prelude.<*> (x Core..:? "repositoryName")
+            Prelude.<*> (x Core..:? "imageId")
+            Prelude.<*> (x Core..:? "imageManifestMediaType")
       )
 
-instance Core.Hashable Image
+instance Prelude.Hashable Image
 
-instance Core.NFData Image
+instance Prelude.NFData Image

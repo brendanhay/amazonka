@@ -21,6 +21,7 @@ module Network.AWS.CloudFront.Types.S3OriginConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about the Amazon S3 origin. If
 -- the origin is a custom origin or an S3 bucket that is configured as a
@@ -53,9 +54,9 @@ data S3OriginConfig = S3OriginConfig'
     -- For more information about the origin access identity, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront>
     -- in the /Amazon CloudFront Developer Guide/.
-    originAccessIdentity :: Core.Text
+    originAccessIdentity :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3OriginConfig' with all optional fields omitted.
@@ -92,7 +93,7 @@ data S3OriginConfig = S3OriginConfig'
 -- in the /Amazon CloudFront Developer Guide/.
 newS3OriginConfig ::
   -- | 'originAccessIdentity'
-  Core.Text ->
+  Prelude.Text ->
   S3OriginConfig
 newS3OriginConfig pOriginAccessIdentity_ =
   S3OriginConfig'
@@ -125,19 +126,19 @@ newS3OriginConfig pOriginAccessIdentity_ =
 -- For more information about the origin access identity, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront>
 -- in the /Amazon CloudFront Developer Guide/.
-s3OriginConfig_originAccessIdentity :: Lens.Lens' S3OriginConfig Core.Text
+s3OriginConfig_originAccessIdentity :: Lens.Lens' S3OriginConfig Prelude.Text
 s3OriginConfig_originAccessIdentity = Lens.lens (\S3OriginConfig' {originAccessIdentity} -> originAccessIdentity) (\s@S3OriginConfig' {} a -> s {originAccessIdentity = a} :: S3OriginConfig)
 
 instance Core.FromXML S3OriginConfig where
   parseXML x =
     S3OriginConfig'
-      Core.<$> (x Core..@ "OriginAccessIdentity")
+      Prelude.<$> (x Core..@ "OriginAccessIdentity")
 
-instance Core.Hashable S3OriginConfig
+instance Prelude.Hashable S3OriginConfig
 
-instance Core.NFData S3OriginConfig
+instance Prelude.NFData S3OriginConfig
 
 instance Core.ToXML S3OriginConfig where
   toXML S3OriginConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["OriginAccessIdentity" Core.@= originAccessIdentity]

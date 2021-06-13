@@ -23,17 +23,18 @@ import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of attributes.
 --
 -- /See:/ 'newObjectAttributeRange' smart constructor.
 data ObjectAttributeRange = ObjectAttributeRange'
   { -- | The range of attribute values being selected.
-    range :: Core.Maybe TypedAttributeValueRange,
+    range :: Prelude.Maybe TypedAttributeValueRange,
     -- | The key of the attribute that the attribute range covers.
-    attributeKey :: Core.Maybe AttributeKey
+    attributeKey :: Prelude.Maybe AttributeKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ObjectAttributeRange' with all optional fields omitted.
@@ -50,27 +51,27 @@ newObjectAttributeRange ::
   ObjectAttributeRange
 newObjectAttributeRange =
   ObjectAttributeRange'
-    { range = Core.Nothing,
-      attributeKey = Core.Nothing
+    { range = Prelude.Nothing,
+      attributeKey = Prelude.Nothing
     }
 
 -- | The range of attribute values being selected.
-objectAttributeRange_range :: Lens.Lens' ObjectAttributeRange (Core.Maybe TypedAttributeValueRange)
+objectAttributeRange_range :: Lens.Lens' ObjectAttributeRange (Prelude.Maybe TypedAttributeValueRange)
 objectAttributeRange_range = Lens.lens (\ObjectAttributeRange' {range} -> range) (\s@ObjectAttributeRange' {} a -> s {range = a} :: ObjectAttributeRange)
 
 -- | The key of the attribute that the attribute range covers.
-objectAttributeRange_attributeKey :: Lens.Lens' ObjectAttributeRange (Core.Maybe AttributeKey)
+objectAttributeRange_attributeKey :: Lens.Lens' ObjectAttributeRange (Prelude.Maybe AttributeKey)
 objectAttributeRange_attributeKey = Lens.lens (\ObjectAttributeRange' {attributeKey} -> attributeKey) (\s@ObjectAttributeRange' {} a -> s {attributeKey = a} :: ObjectAttributeRange)
 
-instance Core.Hashable ObjectAttributeRange
+instance Prelude.Hashable ObjectAttributeRange
 
-instance Core.NFData ObjectAttributeRange
+instance Prelude.NFData ObjectAttributeRange
 
 instance Core.ToJSON ObjectAttributeRange where
   toJSON ObjectAttributeRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Range" Core..=) Core.<$> range,
-            ("AttributeKey" Core..=) Core.<$> attributeKey
+      ( Prelude.catMaybes
+          [ ("Range" Core..=) Prelude.<$> range,
+            ("AttributeKey" Core..=) Prelude.<$> attributeKey
           ]
       )

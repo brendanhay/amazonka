@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,7 +60,7 @@ data DeleteInventory = DeleteInventory'
     -- want to understand what will be deleted. Once you validate that the data
     -- to be deleted is what you intend to delete, you can run the same command
     -- without specifying the @DryRun@ option.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Use the @SchemaDeleteOption@ to delete a custom inventory type (schema).
     -- If you don\'t choose this option, the system only deletes existing
     -- inventory data associated with the custom inventory type. Choose one of
@@ -72,14 +73,14 @@ data DeleteInventory = DeleteInventory'
     --
     -- DeleteSchema: This option deletes the specified custom type from the
     -- Inventory service. You can recreate the schema later, if you want.
-    schemaDeleteOption :: Core.Maybe InventorySchemaDeleteOption,
+    schemaDeleteOption :: Prelude.Maybe InventorySchemaDeleteOption,
     -- | User-provided idempotency token.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom inventory type for which you want to delete
     -- either all previously collected data or the inventory type itself.
-    typeName :: Core.Text
+    typeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInventory' with all optional fields omitted.
@@ -114,13 +115,13 @@ data DeleteInventory = DeleteInventory'
 -- either all previously collected data or the inventory type itself.
 newDeleteInventory ::
   -- | 'typeName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInventory
 newDeleteInventory pTypeName_ =
   DeleteInventory'
-    { dryRun = Core.Nothing,
-      schemaDeleteOption = Core.Nothing,
-      clientToken = Core.Nothing,
+    { dryRun = Prelude.Nothing,
+      schemaDeleteOption = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       typeName = pTypeName_
     }
 
@@ -129,7 +130,7 @@ newDeleteInventory pTypeName_ =
 -- want to understand what will be deleted. Once you validate that the data
 -- to be deleted is what you intend to delete, you can run the same command
 -- without specifying the @DryRun@ option.
-deleteInventory_dryRun :: Lens.Lens' DeleteInventory (Core.Maybe Core.Bool)
+deleteInventory_dryRun :: Lens.Lens' DeleteInventory (Prelude.Maybe Prelude.Bool)
 deleteInventory_dryRun = Lens.lens (\DeleteInventory' {dryRun} -> dryRun) (\s@DeleteInventory' {} a -> s {dryRun = a} :: DeleteInventory)
 
 -- | Use the @SchemaDeleteOption@ to delete a custom inventory type (schema).
@@ -144,16 +145,16 @@ deleteInventory_dryRun = Lens.lens (\DeleteInventory' {dryRun} -> dryRun) (\s@De
 --
 -- DeleteSchema: This option deletes the specified custom type from the
 -- Inventory service. You can recreate the schema later, if you want.
-deleteInventory_schemaDeleteOption :: Lens.Lens' DeleteInventory (Core.Maybe InventorySchemaDeleteOption)
+deleteInventory_schemaDeleteOption :: Lens.Lens' DeleteInventory (Prelude.Maybe InventorySchemaDeleteOption)
 deleteInventory_schemaDeleteOption = Lens.lens (\DeleteInventory' {schemaDeleteOption} -> schemaDeleteOption) (\s@DeleteInventory' {} a -> s {schemaDeleteOption = a} :: DeleteInventory)
 
 -- | User-provided idempotency token.
-deleteInventory_clientToken :: Lens.Lens' DeleteInventory (Core.Maybe Core.Text)
+deleteInventory_clientToken :: Lens.Lens' DeleteInventory (Prelude.Maybe Prelude.Text)
 deleteInventory_clientToken = Lens.lens (\DeleteInventory' {clientToken} -> clientToken) (\s@DeleteInventory' {} a -> s {clientToken = a} :: DeleteInventory)
 
 -- | The name of the custom inventory type for which you want to delete
 -- either all previously collected data or the inventory type itself.
-deleteInventory_typeName :: Lens.Lens' DeleteInventory Core.Text
+deleteInventory_typeName :: Lens.Lens' DeleteInventory Prelude.Text
 deleteInventory_typeName = Lens.lens (\DeleteInventory' {typeName} -> typeName) (\s@DeleteInventory' {} a -> s {typeName = a} :: DeleteInventory)
 
 instance Core.AWSRequest DeleteInventory where
@@ -165,63 +166,65 @@ instance Core.AWSRequest DeleteInventory where
     Response.receiveJSON
       ( \s h x ->
           DeleteInventoryResponse'
-            Core.<$> (x Core..?> "TypeName")
-            Core.<*> (x Core..?> "DeletionId")
-            Core.<*> (x Core..?> "DeletionSummary")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TypeName")
+            Prelude.<*> (x Core..?> "DeletionId")
+            Prelude.<*> (x Core..?> "DeletionSummary")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteInventory
+instance Prelude.Hashable DeleteInventory
 
-instance Core.NFData DeleteInventory
+instance Prelude.NFData DeleteInventory
 
 instance Core.ToHeaders DeleteInventory where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteInventory" :: Core.ByteString),
+              Core.=# ("AmazonSSM.DeleteInventory" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteInventory where
   toJSON DeleteInventory' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DryRun" Core..=) Core.<$> dryRun,
+      ( Prelude.catMaybes
+          [ ("DryRun" Core..=) Prelude.<$> dryRun,
             ("SchemaDeleteOption" Core..=)
-              Core.<$> schemaDeleteOption,
-            ("ClientToken" Core..=) Core.<$> clientToken,
-            Core.Just ("TypeName" Core..= typeName)
+              Prelude.<$> schemaDeleteOption,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            Prelude.Just ("TypeName" Core..= typeName)
           ]
       )
 
 instance Core.ToPath DeleteInventory where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInventory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInventoryResponse' smart constructor.
 data DeleteInventoryResponse = DeleteInventoryResponse'
   { -- | The name of the inventory data type specified in the request.
-    typeName :: Core.Maybe Core.Text,
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | Every @DeleteInventory@ action is assigned a unique ID. This option
     -- returns a unique ID. You can use this ID to query the status of a delete
     -- operation. This option is useful for ensuring that a delete operation
     -- has completed before you begin other actions.
-    deletionId :: Core.Maybe Core.Text,
+    deletionId :: Prelude.Maybe Prelude.Text,
     -- | A summary of the delete operation. For more information about this
     -- summary, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary Deleting custom inventory>
     -- in the /AWS Systems Manager User Guide/.
-    deletionSummary :: Core.Maybe InventoryDeletionSummary,
+    deletionSummary :: Prelude.Maybe InventoryDeletionSummary,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInventoryResponse' with all optional fields omitted.
@@ -246,36 +249,37 @@ data DeleteInventoryResponse = DeleteInventoryResponse'
 -- 'httpStatus', 'deleteInventoryResponse_httpStatus' - The response's http status code.
 newDeleteInventoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteInventoryResponse
 newDeleteInventoryResponse pHttpStatus_ =
   DeleteInventoryResponse'
-    { typeName = Core.Nothing,
-      deletionId = Core.Nothing,
-      deletionSummary = Core.Nothing,
+    { typeName =
+        Prelude.Nothing,
+      deletionId = Prelude.Nothing,
+      deletionSummary = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the inventory data type specified in the request.
-deleteInventoryResponse_typeName :: Lens.Lens' DeleteInventoryResponse (Core.Maybe Core.Text)
+deleteInventoryResponse_typeName :: Lens.Lens' DeleteInventoryResponse (Prelude.Maybe Prelude.Text)
 deleteInventoryResponse_typeName = Lens.lens (\DeleteInventoryResponse' {typeName} -> typeName) (\s@DeleteInventoryResponse' {} a -> s {typeName = a} :: DeleteInventoryResponse)
 
 -- | Every @DeleteInventory@ action is assigned a unique ID. This option
 -- returns a unique ID. You can use this ID to query the status of a delete
 -- operation. This option is useful for ensuring that a delete operation
 -- has completed before you begin other actions.
-deleteInventoryResponse_deletionId :: Lens.Lens' DeleteInventoryResponse (Core.Maybe Core.Text)
+deleteInventoryResponse_deletionId :: Lens.Lens' DeleteInventoryResponse (Prelude.Maybe Prelude.Text)
 deleteInventoryResponse_deletionId = Lens.lens (\DeleteInventoryResponse' {deletionId} -> deletionId) (\s@DeleteInventoryResponse' {} a -> s {deletionId = a} :: DeleteInventoryResponse)
 
 -- | A summary of the delete operation. For more information about this
 -- summary, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary Deleting custom inventory>
 -- in the /AWS Systems Manager User Guide/.
-deleteInventoryResponse_deletionSummary :: Lens.Lens' DeleteInventoryResponse (Core.Maybe InventoryDeletionSummary)
+deleteInventoryResponse_deletionSummary :: Lens.Lens' DeleteInventoryResponse (Prelude.Maybe InventoryDeletionSummary)
 deleteInventoryResponse_deletionSummary = Lens.lens (\DeleteInventoryResponse' {deletionSummary} -> deletionSummary) (\s@DeleteInventoryResponse' {} a -> s {deletionSummary = a} :: DeleteInventoryResponse)
 
 -- | The response's http status code.
-deleteInventoryResponse_httpStatus :: Lens.Lens' DeleteInventoryResponse Core.Int
+deleteInventoryResponse_httpStatus :: Lens.Lens' DeleteInventoryResponse Prelude.Int
 deleteInventoryResponse_httpStatus = Lens.lens (\DeleteInventoryResponse' {httpStatus} -> httpStatus) (\s@DeleteInventoryResponse' {} a -> s {httpStatus = a} :: DeleteInventoryResponse)
 
-instance Core.NFData DeleteInventoryResponse
+instance Prelude.NFData DeleteInventoryResponse

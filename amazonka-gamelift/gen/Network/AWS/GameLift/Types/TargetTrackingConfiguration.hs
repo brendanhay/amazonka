@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.TargetTrackingConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game
 -- server groups.__
@@ -36,9 +37,9 @@ import qualified Network.AWS.Lens as Lens
 data TargetTrackingConfiguration = TargetTrackingConfiguration'
   { -- | Desired value to use with a game server group target-based scaling
     -- policy.
-    targetValue :: Core.Double
+    targetValue :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetTrackingConfiguration' with all optional fields omitted.
@@ -52,7 +53,7 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 -- policy.
 newTargetTrackingConfiguration ::
   -- | 'targetValue'
-  Core.Double ->
+  Prelude.Double ->
   TargetTrackingConfiguration
 newTargetTrackingConfiguration pTargetValue_ =
   TargetTrackingConfiguration'
@@ -62,16 +63,16 @@ newTargetTrackingConfiguration pTargetValue_ =
 
 -- | Desired value to use with a game server group target-based scaling
 -- policy.
-targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Core.Double
+targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Prelude.Double
 targetTrackingConfiguration_targetValue = Lens.lens (\TargetTrackingConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingConfiguration' {} a -> s {targetValue = a} :: TargetTrackingConfiguration)
 
-instance Core.Hashable TargetTrackingConfiguration
+instance Prelude.Hashable TargetTrackingConfiguration
 
-instance Core.NFData TargetTrackingConfiguration
+instance Prelude.NFData TargetTrackingConfiguration
 
 instance Core.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("TargetValue" Core..= targetValue)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("TargetValue" Core..= targetValue)]
       )

@@ -57,6 +57,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,28 +69,28 @@ data PutConformancePack = PutConformancePack'
     -- in the same region as the conformance pack.
     --
     -- You must have access to read Amazon S3 bucket.
-    templateS3Uri :: Core.Maybe Core.Text,
+    templateS3Uri :: Prelude.Maybe Prelude.Text,
     -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
     --
     -- This field is optional.
-    deliveryS3Bucket :: Core.Maybe Core.Text,
+    deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the Amazon S3 bucket.
     --
     -- This field is optional.
-    deliveryS3KeyPrefix :: Core.Maybe Core.Text,
+    deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | A string containing full conformance pack template body. Structure
     -- containing the template body with a minimum length of 1 byte and a
     -- maximum length of 51,200 bytes.
     --
     -- You can only use a YAML template with one resource type, that is, config
     -- rule and a remediation action.
-    templateBody :: Core.Maybe Core.Text,
+    templateBody :: Prelude.Maybe Prelude.Text,
     -- | A list of @ConformancePackInputParameter@ objects.
-    conformancePackInputParameters :: Core.Maybe [ConformancePackInputParameter],
+    conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
     -- | Name of the conformance pack you want to create.
-    conformancePackName :: Core.Text
+    conformancePackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutConformancePack' with all optional fields omitted.
@@ -126,15 +127,16 @@ data PutConformancePack = PutConformancePack'
 -- 'conformancePackName', 'putConformancePack_conformancePackName' - Name of the conformance pack you want to create.
 newPutConformancePack ::
   -- | 'conformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   PutConformancePack
 newPutConformancePack pConformancePackName_ =
   PutConformancePack'
-    { templateS3Uri = Core.Nothing,
-      deliveryS3Bucket = Core.Nothing,
-      deliveryS3KeyPrefix = Core.Nothing,
-      templateBody = Core.Nothing,
-      conformancePackInputParameters = Core.Nothing,
+    { templateS3Uri =
+        Prelude.Nothing,
+      deliveryS3Bucket = Prelude.Nothing,
+      deliveryS3KeyPrefix = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      conformancePackInputParameters = Prelude.Nothing,
       conformancePackName = pConformancePackName_
     }
 
@@ -144,19 +146,19 @@ newPutConformancePack pConformancePackName_ =
 -- in the same region as the conformance pack.
 --
 -- You must have access to read Amazon S3 bucket.
-putConformancePack_templateS3Uri :: Lens.Lens' PutConformancePack (Core.Maybe Core.Text)
+putConformancePack_templateS3Uri :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
 putConformancePack_templateS3Uri = Lens.lens (\PutConformancePack' {templateS3Uri} -> templateS3Uri) (\s@PutConformancePack' {} a -> s {templateS3Uri = a} :: PutConformancePack)
 
 -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
 --
 -- This field is optional.
-putConformancePack_deliveryS3Bucket :: Lens.Lens' PutConformancePack (Core.Maybe Core.Text)
+putConformancePack_deliveryS3Bucket :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
 putConformancePack_deliveryS3Bucket = Lens.lens (\PutConformancePack' {deliveryS3Bucket} -> deliveryS3Bucket) (\s@PutConformancePack' {} a -> s {deliveryS3Bucket = a} :: PutConformancePack)
 
 -- | The prefix for the Amazon S3 bucket.
 --
 -- This field is optional.
-putConformancePack_deliveryS3KeyPrefix :: Lens.Lens' PutConformancePack (Core.Maybe Core.Text)
+putConformancePack_deliveryS3KeyPrefix :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
 putConformancePack_deliveryS3KeyPrefix = Lens.lens (\PutConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@PutConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: PutConformancePack)
 
 -- | A string containing full conformance pack template body. Structure
@@ -165,15 +167,15 @@ putConformancePack_deliveryS3KeyPrefix = Lens.lens (\PutConformancePack' {delive
 --
 -- You can only use a YAML template with one resource type, that is, config
 -- rule and a remediation action.
-putConformancePack_templateBody :: Lens.Lens' PutConformancePack (Core.Maybe Core.Text)
+putConformancePack_templateBody :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
 putConformancePack_templateBody = Lens.lens (\PutConformancePack' {templateBody} -> templateBody) (\s@PutConformancePack' {} a -> s {templateBody = a} :: PutConformancePack)
 
 -- | A list of @ConformancePackInputParameter@ objects.
-putConformancePack_conformancePackInputParameters :: Lens.Lens' PutConformancePack (Core.Maybe [ConformancePackInputParameter])
-putConformancePack_conformancePackInputParameters = Lens.lens (\PutConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@PutConformancePack' {} a -> s {conformancePackInputParameters = a} :: PutConformancePack) Core.. Lens.mapping Lens._Coerce
+putConformancePack_conformancePackInputParameters :: Lens.Lens' PutConformancePack (Prelude.Maybe [ConformancePackInputParameter])
+putConformancePack_conformancePackInputParameters = Lens.lens (\PutConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@PutConformancePack' {} a -> s {conformancePackInputParameters = a} :: PutConformancePack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Name of the conformance pack you want to create.
-putConformancePack_conformancePackName :: Lens.Lens' PutConformancePack Core.Text
+putConformancePack_conformancePackName :: Lens.Lens' PutConformancePack Prelude.Text
 putConformancePack_conformancePackName = Lens.lens (\PutConformancePack' {conformancePackName} -> conformancePackName) (\s@PutConformancePack' {} a -> s {conformancePackName = a} :: PutConformancePack)
 
 instance Core.AWSRequest PutConformancePack where
@@ -185,58 +187,60 @@ instance Core.AWSRequest PutConformancePack where
     Response.receiveJSON
       ( \s h x ->
           PutConformancePackResponse'
-            Core.<$> (x Core..?> "ConformancePackArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ConformancePackArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutConformancePack
+instance Prelude.Hashable PutConformancePack
 
-instance Core.NFData PutConformancePack
+instance Prelude.NFData PutConformancePack
 
 instance Core.ToHeaders PutConformancePack where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutConformancePack" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutConformancePack where
   toJSON PutConformancePack' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TemplateS3Uri" Core..=) Core.<$> templateS3Uri,
+      ( Prelude.catMaybes
+          [ ("TemplateS3Uri" Core..=) Prelude.<$> templateS3Uri,
             ("DeliveryS3Bucket" Core..=)
-              Core.<$> deliveryS3Bucket,
+              Prelude.<$> deliveryS3Bucket,
             ("DeliveryS3KeyPrefix" Core..=)
-              Core.<$> deliveryS3KeyPrefix,
-            ("TemplateBody" Core..=) Core.<$> templateBody,
+              Prelude.<$> deliveryS3KeyPrefix,
+            ("TemplateBody" Core..=) Prelude.<$> templateBody,
             ("ConformancePackInputParameters" Core..=)
-              Core.<$> conformancePackInputParameters,
-            Core.Just
+              Prelude.<$> conformancePackInputParameters,
+            Prelude.Just
               ("ConformancePackName" Core..= conformancePackName)
           ]
       )
 
 instance Core.ToPath PutConformancePack where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutConformancePack where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutConformancePackResponse' smart constructor.
 data PutConformancePackResponse = PutConformancePackResponse'
   { -- | ARN of the conformance pack.
-    conformancePackArn :: Core.Maybe Core.Text,
+    conformancePackArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutConformancePackResponse' with all optional fields omitted.
@@ -251,21 +255,21 @@ data PutConformancePackResponse = PutConformancePackResponse'
 -- 'httpStatus', 'putConformancePackResponse_httpStatus' - The response's http status code.
 newPutConformancePackResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutConformancePackResponse
 newPutConformancePackResponse pHttpStatus_ =
   PutConformancePackResponse'
     { conformancePackArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | ARN of the conformance pack.
-putConformancePackResponse_conformancePackArn :: Lens.Lens' PutConformancePackResponse (Core.Maybe Core.Text)
+putConformancePackResponse_conformancePackArn :: Lens.Lens' PutConformancePackResponse (Prelude.Maybe Prelude.Text)
 putConformancePackResponse_conformancePackArn = Lens.lens (\PutConformancePackResponse' {conformancePackArn} -> conformancePackArn) (\s@PutConformancePackResponse' {} a -> s {conformancePackArn = a} :: PutConformancePackResponse)
 
 -- | The response's http status code.
-putConformancePackResponse_httpStatus :: Lens.Lens' PutConformancePackResponse Core.Int
+putConformancePackResponse_httpStatus :: Lens.Lens' PutConformancePackResponse Prelude.Int
 putConformancePackResponse_httpStatus = Lens.lens (\PutConformancePackResponse' {httpStatus} -> httpStatus) (\s@PutConformancePackResponse' {} a -> s {httpStatus = a} :: PutConformancePackResponse)
 
-instance Core.NFData PutConformancePackResponse
+instance Prelude.NFData PutConformancePackResponse

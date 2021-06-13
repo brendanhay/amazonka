@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,19 +61,19 @@ import qualified Network.AWS.Response as Response
 data DescribeVolumes = DescribeVolumes'
   { -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns
     -- descriptions of the volumes associated with the specified instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@
     -- returns descriptions of the specified volumes. Otherwise, it returns a
     -- description of every volume.
-    volumeIds :: Core.Maybe [Core.Text],
+    volumeIds :: Prelude.Maybe [Prelude.Text],
     -- | A stack ID. The action describes the stack\'s registered Amazon EBS
     -- volumes.
-    stackId :: Core.Maybe Core.Text,
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
     -- descriptions of the volumes associated with the specified RAID array.
-    raidArrayId :: Core.Maybe Core.Text
+    raidArrayId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVolumes' with all optional fields omitted.
@@ -98,31 +99,31 @@ newDescribeVolumes ::
   DescribeVolumes
 newDescribeVolumes =
   DescribeVolumes'
-    { instanceId = Core.Nothing,
-      volumeIds = Core.Nothing,
-      stackId = Core.Nothing,
-      raidArrayId = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      volumeIds = Prelude.Nothing,
+      stackId = Prelude.Nothing,
+      raidArrayId = Prelude.Nothing
     }
 
 -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified instance.
-describeVolumes_instanceId :: Lens.Lens' DescribeVolumes (Core.Maybe Core.Text)
+describeVolumes_instanceId :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
 describeVolumes_instanceId = Lens.lens (\DescribeVolumes' {instanceId} -> instanceId) (\s@DescribeVolumes' {} a -> s {instanceId = a} :: DescribeVolumes)
 
 -- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@
 -- returns descriptions of the specified volumes. Otherwise, it returns a
 -- description of every volume.
-describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Core.Maybe [Core.Text])
-describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Core.. Lens.mapping Lens._Coerce
+describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Prelude.Text])
+describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A stack ID. The action describes the stack\'s registered Amazon EBS
 -- volumes.
-describeVolumes_stackId :: Lens.Lens' DescribeVolumes (Core.Maybe Core.Text)
+describeVolumes_stackId :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
 describeVolumes_stackId = Lens.lens (\DescribeVolumes' {stackId} -> stackId) (\s@DescribeVolumes' {} a -> s {stackId = a} :: DescribeVolumes)
 
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified RAID array.
-describeVolumes_raidArrayId :: Lens.Lens' DescribeVolumes (Core.Maybe Core.Text)
+describeVolumes_raidArrayId :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
 describeVolumes_raidArrayId = Lens.lens (\DescribeVolumes' {raidArrayId} -> raidArrayId) (\s@DescribeVolumes' {} a -> s {raidArrayId = a} :: DescribeVolumes)
 
 instance Core.AWSRequest DescribeVolumes where
@@ -134,54 +135,56 @@ instance Core.AWSRequest DescribeVolumes where
     Response.receiveJSON
       ( \s h x ->
           DescribeVolumesResponse'
-            Core.<$> (x Core..?> "Volumes" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Volumes" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeVolumes
+instance Prelude.Hashable DescribeVolumes
 
-instance Core.NFData DescribeVolumes
+instance Prelude.NFData DescribeVolumes
 
 instance Core.ToHeaders DescribeVolumes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribeVolumes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeVolumes where
   toJSON DescribeVolumes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InstanceId" Core..=) Core.<$> instanceId,
-            ("VolumeIds" Core..=) Core.<$> volumeIds,
-            ("StackId" Core..=) Core.<$> stackId,
-            ("RaidArrayId" Core..=) Core.<$> raidArrayId
+      ( Prelude.catMaybes
+          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("VolumeIds" Core..=) Prelude.<$> volumeIds,
+            ("StackId" Core..=) Prelude.<$> stackId,
+            ("RaidArrayId" Core..=) Prelude.<$> raidArrayId
           ]
       )
 
 instance Core.ToPath DescribeVolumes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeVolumes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeVolumes@ request.
 --
 -- /See:/ 'newDescribeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
   { -- | An array of volume IDs.
-    volumes :: Core.Maybe [Volume],
+    volumes :: Prelude.Maybe [Volume],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVolumesResponse' with all optional fields omitted.
@@ -196,20 +199,20 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
 -- 'httpStatus', 'describeVolumesResponse_httpStatus' - The response's http status code.
 newDescribeVolumesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeVolumesResponse
 newDescribeVolumesResponse pHttpStatus_ =
   DescribeVolumesResponse'
-    { volumes = Core.Nothing,
+    { volumes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of volume IDs.
-describeVolumesResponse_volumes :: Lens.Lens' DescribeVolumesResponse (Core.Maybe [Volume])
-describeVolumesResponse_volumes = Lens.lens (\DescribeVolumesResponse' {volumes} -> volumes) (\s@DescribeVolumesResponse' {} a -> s {volumes = a} :: DescribeVolumesResponse) Core.. Lens.mapping Lens._Coerce
+describeVolumesResponse_volumes :: Lens.Lens' DescribeVolumesResponse (Prelude.Maybe [Volume])
+describeVolumesResponse_volumes = Lens.lens (\DescribeVolumesResponse' {volumes} -> volumes) (\s@DescribeVolumesResponse' {} a -> s {volumes = a} :: DescribeVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVolumesResponse_httpStatus :: Lens.Lens' DescribeVolumesResponse Core.Int
+describeVolumesResponse_httpStatus :: Lens.Lens' DescribeVolumesResponse Prelude.Int
 describeVolumesResponse_httpStatus = Lens.lens (\DescribeVolumesResponse' {httpStatus} -> httpStatus) (\s@DescribeVolumesResponse' {} a -> s {httpStatus = a} :: DescribeVolumesResponse)
 
-instance Core.NFData DescribeVolumesResponse
+instance Prelude.NFData DescribeVolumesResponse

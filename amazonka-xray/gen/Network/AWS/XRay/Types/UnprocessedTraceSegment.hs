@@ -21,19 +21,20 @@ module Network.AWS.XRay.Types.UnprocessedTraceSegment where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a segment that failed processing.
 --
 -- /See:/ 'newUnprocessedTraceSegment' smart constructor.
 data UnprocessedTraceSegment = UnprocessedTraceSegment'
   { -- | The error message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The segment\'s ID.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The error that caused processing to fail.
-    errorCode :: Core.Maybe Core.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnprocessedTraceSegment' with all optional fields omitted.
@@ -52,21 +53,21 @@ newUnprocessedTraceSegment ::
   UnprocessedTraceSegment
 newUnprocessedTraceSegment =
   UnprocessedTraceSegment'
-    { message = Core.Nothing,
-      id = Core.Nothing,
-      errorCode = Core.Nothing
+    { message = Prelude.Nothing,
+      id = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The error message.
-unprocessedTraceSegment_message :: Lens.Lens' UnprocessedTraceSegment (Core.Maybe Core.Text)
+unprocessedTraceSegment_message :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
 unprocessedTraceSegment_message = Lens.lens (\UnprocessedTraceSegment' {message} -> message) (\s@UnprocessedTraceSegment' {} a -> s {message = a} :: UnprocessedTraceSegment)
 
 -- | The segment\'s ID.
-unprocessedTraceSegment_id :: Lens.Lens' UnprocessedTraceSegment (Core.Maybe Core.Text)
+unprocessedTraceSegment_id :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
 unprocessedTraceSegment_id = Lens.lens (\UnprocessedTraceSegment' {id} -> id) (\s@UnprocessedTraceSegment' {} a -> s {id = a} :: UnprocessedTraceSegment)
 
 -- | The error that caused processing to fail.
-unprocessedTraceSegment_errorCode :: Lens.Lens' UnprocessedTraceSegment (Core.Maybe Core.Text)
+unprocessedTraceSegment_errorCode :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
 unprocessedTraceSegment_errorCode = Lens.lens (\UnprocessedTraceSegment' {errorCode} -> errorCode) (\s@UnprocessedTraceSegment' {} a -> s {errorCode = a} :: UnprocessedTraceSegment)
 
 instance Core.FromJSON UnprocessedTraceSegment where
@@ -75,11 +76,11 @@ instance Core.FromJSON UnprocessedTraceSegment where
       "UnprocessedTraceSegment"
       ( \x ->
           UnprocessedTraceSegment'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable UnprocessedTraceSegment
+instance Prelude.Hashable UnprocessedTraceSegment
 
-instance Core.NFData UnprocessedTraceSegment
+instance Prelude.NFData UnprocessedTraceSegment

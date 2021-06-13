@@ -27,6 +27,7 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The preferred time zone for logs streamed to CloudWatch Logs. Valid
 -- values are @LOCAL@ and @UTC@, for Coordinated Universal Time.
@@ -35,15 +36,15 @@ newtype CloudWatchLogsTimeZone = CloudWatchLogsTimeZone'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

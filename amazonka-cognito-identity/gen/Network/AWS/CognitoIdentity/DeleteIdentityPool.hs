@@ -41,6 +41,7 @@ where
 import Network.AWS.CognitoIdentity.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteIdentityPool' smart constructor.
 data DeleteIdentityPool = DeleteIdentityPool'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Core.Text
+    identityPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityPool' with all optional fields omitted.
@@ -64,7 +65,7 @@ data DeleteIdentityPool = DeleteIdentityPool'
 -- 'identityPoolId', 'deleteIdentityPool_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newDeleteIdentityPool ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteIdentityPool
 newDeleteIdentityPool pIdentityPoolId_ =
   DeleteIdentityPool'
@@ -73,7 +74,7 @@ newDeleteIdentityPool pIdentityPoolId_ =
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-deleteIdentityPool_identityPoolId :: Lens.Lens' DeleteIdentityPool Core.Text
+deleteIdentityPool_identityPoolId :: Lens.Lens' DeleteIdentityPool Prelude.Text
 deleteIdentityPool_identityPoolId = Lens.lens (\DeleteIdentityPool' {identityPoolId} -> identityPoolId) (\s@DeleteIdentityPool' {} a -> s {identityPoolId = a} :: DeleteIdentityPool)
 
 instance Core.AWSRequest DeleteIdentityPool where
@@ -84,43 +85,45 @@ instance Core.AWSRequest DeleteIdentityPool where
   response =
     Response.receiveNull DeleteIdentityPoolResponse'
 
-instance Core.Hashable DeleteIdentityPool
+instance Prelude.Hashable DeleteIdentityPool
 
-instance Core.NFData DeleteIdentityPool
+instance Prelude.NFData DeleteIdentityPool
 
 instance Core.ToHeaders DeleteIdentityPool where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityService.DeleteIdentityPool" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteIdentityPool where
   toJSON DeleteIdentityPool' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("IdentityPoolId" Core..= identityPoolId)
           ]
       )
 
 instance Core.ToPath DeleteIdentityPool where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteIdentityPool where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIdentityPoolResponse' smart constructor.
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityPoolResponse' with all optional fields omitted.
@@ -131,4 +134,4 @@ newDeleteIdentityPoolResponse ::
 newDeleteIdentityPoolResponse =
   DeleteIdentityPoolResponse'
 
-instance Core.NFData DeleteIdentityPoolResponse
+instance Prelude.NFData DeleteIdentityPoolResponse

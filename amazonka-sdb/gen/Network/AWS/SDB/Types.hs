@@ -80,6 +80,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SDB.Types.Attribute
 import Network.AWS.SDB.Types.DeletableItem
 import Network.AWS.SDB.Types.Item
@@ -99,7 +100,7 @@ defaultService =
       Core._serviceVersion = "2009-04-15",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseXMLError "SDB",
       Core._serviceRetry = retry
@@ -114,181 +115,183 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | Too many attributes in this domain.
-_NumberDomainAttributesExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NumberDomainAttributesExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NumberDomainAttributesExceeded =
   Core._MatchServiceError
     defaultService
     "NumberDomainAttributesExceeded"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Too many items exist in a single call.
-_NumberSubmittedItemsExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NumberSubmittedItemsExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NumberSubmittedItemsExceeded =
   Core._MatchServiceError
     defaultService
     "NumberSubmittedItemsExceeded"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The specified domain does not exist.
-_NoSuchDomain :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchDomain :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchDomain =
   Core._MatchServiceError
     defaultService
     "NoSuchDomain"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Too many bytes in this domain.
-_NumberDomainBytesExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NumberDomainBytesExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NumberDomainBytesExceeded =
   Core._MatchServiceError
     defaultService
     "NumberDomainBytesExceeded"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Too many domains exist per this account.
-_NumberDomainsExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NumberDomainsExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NumberDomainsExceeded =
   Core._MatchServiceError
     defaultService
     "NumberDomainsExceeded"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Too many predicates exist in the query expression.
-_InvalidNumberPredicates :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidNumberPredicates :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidNumberPredicates =
   Core._MatchServiceError
     defaultService
     "InvalidNumberPredicates"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The item name was specified more than once.
-_DuplicateItemName :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateItemName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateItemName =
   Core._MatchServiceError
     defaultService
     "DuplicateItemName"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified attribute does not exist.
-_AttributeDoesNotExist :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AttributeDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AttributeDoesNotExist =
   Core._MatchServiceError
     defaultService
     "AttributeDoesNotExist"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | Too many predicates exist in the query expression.
-_InvalidNumberValueTests :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidNumberValueTests :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidNumberValueTests =
   Core._MatchServiceError
     defaultService
     "InvalidNumberValueTests"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified query expression syntax is not valid.
-_InvalidQueryExpression :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidQueryExpression :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidQueryExpression =
   Core._MatchServiceError
     defaultService
     "InvalidQueryExpression"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Too many attributes exist in a single call.
-_NumberSubmittedAttributesExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NumberSubmittedAttributesExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NumberSubmittedAttributesExceeded =
   Core._MatchServiceError
     defaultService
     "NumberSubmittedAttributesExceeded"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The value for a parameter is invalid.
-_InvalidParameterValue :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValue :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterValue =
   Core._MatchServiceError
     defaultService
     "InvalidParameterValue"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Too many attributes requested.
-_TooManyRequestedAttributes :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestedAttributes :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestedAttributes =
   Core._MatchServiceError
     defaultService
     "TooManyRequestedAttributes"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The request must contain the specified missing parameter.
-_MissingParameter :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MissingParameter :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingParameter =
   Core._MatchServiceError
     defaultService
     "MissingParameter"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified NextToken is not valid.
-_InvalidNextToken :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidNextToken =
   Core._MatchServiceError
     defaultService
     "InvalidNextToken"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A timeout occurred when attempting to query the specified domain with
 -- specified query expression.
-_RequestTimeout :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RequestTimeout :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RequestTimeout =
   Core._MatchServiceError
     defaultService
     "RequestTimeout"
-    Core.. Core.hasStatus 408
+    Prelude.. Core.hasStatus 408
 
 -- | Too many attributes in this item.
-_NumberItemAttributesExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NumberItemAttributesExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NumberItemAttributesExceeded =
   Core._MatchServiceError
     defaultService
     "NumberItemAttributesExceeded"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409

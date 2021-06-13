@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.MxfAfdSignaling
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. When you have AFD signaling set up in your output video
 -- stream, use this setting to choose whether to also include it in the MXF
@@ -42,15 +43,15 @@ newtype MxfAfdSignaling = MxfAfdSignaling'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

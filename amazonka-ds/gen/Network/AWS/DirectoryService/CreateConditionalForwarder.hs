@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +58,15 @@ import qualified Network.AWS.Response as Response
 data CreateConditionalForwarder = CreateConditionalForwarder'
   { -- | The directory ID of the AWS directory for which you are creating the
     -- conditional forwarder.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | The fully qualified domain name (FQDN) of the remote domain with which
     -- you will set up a trust relationship.
-    remoteDomainName :: Core.Text,
+    remoteDomainName :: Prelude.Text,
     -- | The IP addresses of the remote DNS server associated with
     -- RemoteDomainName.
-    dnsIpAddrs :: [Core.Text]
+    dnsIpAddrs :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConditionalForwarder' with all optional fields omitted.
@@ -85,9 +86,9 @@ data CreateConditionalForwarder = CreateConditionalForwarder'
 -- RemoteDomainName.
 newCreateConditionalForwarder ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'remoteDomainName'
-  Core.Text ->
+  Prelude.Text ->
   CreateConditionalForwarder
 newCreateConditionalForwarder
   pDirectoryId_
@@ -96,23 +97,23 @@ newCreateConditionalForwarder
       { directoryId =
           pDirectoryId_,
         remoteDomainName = pRemoteDomainName_,
-        dnsIpAddrs = Core.mempty
+        dnsIpAddrs = Prelude.mempty
       }
 
 -- | The directory ID of the AWS directory for which you are creating the
 -- conditional forwarder.
-createConditionalForwarder_directoryId :: Lens.Lens' CreateConditionalForwarder Core.Text
+createConditionalForwarder_directoryId :: Lens.Lens' CreateConditionalForwarder Prelude.Text
 createConditionalForwarder_directoryId = Lens.lens (\CreateConditionalForwarder' {directoryId} -> directoryId) (\s@CreateConditionalForwarder' {} a -> s {directoryId = a} :: CreateConditionalForwarder)
 
 -- | The fully qualified domain name (FQDN) of the remote domain with which
 -- you will set up a trust relationship.
-createConditionalForwarder_remoteDomainName :: Lens.Lens' CreateConditionalForwarder Core.Text
+createConditionalForwarder_remoteDomainName :: Lens.Lens' CreateConditionalForwarder Prelude.Text
 createConditionalForwarder_remoteDomainName = Lens.lens (\CreateConditionalForwarder' {remoteDomainName} -> remoteDomainName) (\s@CreateConditionalForwarder' {} a -> s {remoteDomainName = a} :: CreateConditionalForwarder)
 
 -- | The IP addresses of the remote DNS server associated with
 -- RemoteDomainName.
-createConditionalForwarder_dnsIpAddrs :: Lens.Lens' CreateConditionalForwarder [Core.Text]
-createConditionalForwarder_dnsIpAddrs = Lens.lens (\CreateConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@CreateConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: CreateConditionalForwarder) Core.. Lens._Coerce
+createConditionalForwarder_dnsIpAddrs :: Lens.Lens' CreateConditionalForwarder [Prelude.Text]
+createConditionalForwarder_dnsIpAddrs = Lens.lens (\CreateConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@CreateConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: CreateConditionalForwarder) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateConditionalForwarder where
   type
@@ -123,51 +124,53 @@ instance Core.AWSRequest CreateConditionalForwarder where
     Response.receiveEmpty
       ( \s h x ->
           CreateConditionalForwarderResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateConditionalForwarder
+instance Prelude.Hashable CreateConditionalForwarder
 
-instance Core.NFData CreateConditionalForwarder
+instance Prelude.NFData CreateConditionalForwarder
 
 instance Core.ToHeaders CreateConditionalForwarder where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.CreateConditionalForwarder" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateConditionalForwarder where
   toJSON CreateConditionalForwarder' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just
               ("RemoteDomainName" Core..= remoteDomainName),
-            Core.Just ("DnsIpAddrs" Core..= dnsIpAddrs)
+            Prelude.Just ("DnsIpAddrs" Core..= dnsIpAddrs)
           ]
       )
 
 instance Core.ToPath CreateConditionalForwarder where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateConditionalForwarder where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a CreateConditinalForwarder request.
 --
 -- /See:/ 'newCreateConditionalForwarderResponse' smart constructor.
 data CreateConditionalForwarderResponse = CreateConditionalForwarderResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConditionalForwarderResponse' with all optional fields omitted.
@@ -180,7 +183,7 @@ data CreateConditionalForwarderResponse = CreateConditionalForwarderResponse'
 -- 'httpStatus', 'createConditionalForwarderResponse_httpStatus' - The response's http status code.
 newCreateConditionalForwarderResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateConditionalForwarderResponse
 newCreateConditionalForwarderResponse pHttpStatus_ =
   CreateConditionalForwarderResponse'
@@ -189,9 +192,9 @@ newCreateConditionalForwarderResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createConditionalForwarderResponse_httpStatus :: Lens.Lens' CreateConditionalForwarderResponse Core.Int
+createConditionalForwarderResponse_httpStatus :: Lens.Lens' CreateConditionalForwarderResponse Prelude.Int
 createConditionalForwarderResponse_httpStatus = Lens.lens (\CreateConditionalForwarderResponse' {httpStatus} -> httpStatus) (\s@CreateConditionalForwarderResponse' {} a -> s {httpStatus = a} :: CreateConditionalForwarderResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateConditionalForwarderResponse

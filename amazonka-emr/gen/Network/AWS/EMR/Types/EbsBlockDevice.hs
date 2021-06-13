@@ -22,6 +22,7 @@ module Network.AWS.EMR.Types.EbsBlockDevice where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.VolumeSpecification
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration of requested EBS block device associated with the instance
 -- group.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEbsBlockDevice' smart constructor.
 data EbsBlockDevice = EbsBlockDevice'
   { -- | The device name that is exposed to the instance, such as \/dev\/sdh.
-    device :: Core.Maybe Core.Text,
+    device :: Prelude.Maybe Prelude.Text,
     -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
     -- will be requested for the EBS volume attached to an EC2 instance in the
     -- cluster.
-    volumeSpecification :: Core.Maybe VolumeSpecification
+    volumeSpecification :: Prelude.Maybe VolumeSpecification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EbsBlockDevice' with all optional fields omitted.
@@ -54,18 +55,18 @@ newEbsBlockDevice ::
   EbsBlockDevice
 newEbsBlockDevice =
   EbsBlockDevice'
-    { device = Core.Nothing,
-      volumeSpecification = Core.Nothing
+    { device = Prelude.Nothing,
+      volumeSpecification = Prelude.Nothing
     }
 
 -- | The device name that is exposed to the instance, such as \/dev\/sdh.
-ebsBlockDevice_device :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Text)
+ebsBlockDevice_device :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
 ebsBlockDevice_device = Lens.lens (\EbsBlockDevice' {device} -> device) (\s@EbsBlockDevice' {} a -> s {device = a} :: EbsBlockDevice)
 
 -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
 -- will be requested for the EBS volume attached to an EC2 instance in the
 -- cluster.
-ebsBlockDevice_volumeSpecification :: Lens.Lens' EbsBlockDevice (Core.Maybe VolumeSpecification)
+ebsBlockDevice_volumeSpecification :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeSpecification)
 ebsBlockDevice_volumeSpecification = Lens.lens (\EbsBlockDevice' {volumeSpecification} -> volumeSpecification) (\s@EbsBlockDevice' {} a -> s {volumeSpecification = a} :: EbsBlockDevice)
 
 instance Core.FromJSON EbsBlockDevice where
@@ -74,10 +75,10 @@ instance Core.FromJSON EbsBlockDevice where
       "EbsBlockDevice"
       ( \x ->
           EbsBlockDevice'
-            Core.<$> (x Core..:? "Device")
-            Core.<*> (x Core..:? "VolumeSpecification")
+            Prelude.<$> (x Core..:? "Device")
+            Prelude.<*> (x Core..:? "VolumeSpecification")
       )
 
-instance Core.Hashable EbsBlockDevice
+instance Prelude.Hashable EbsBlockDevice
 
-instance Core.NFData EbsBlockDevice
+instance Prelude.NFData EbsBlockDevice

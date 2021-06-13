@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ProductionVariantCoreDumpConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration for a core dump from the model container when
 -- the process crashes.
@@ -64,11 +65,11 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
     -- information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
     -- in the /AWS Key Management Service Developer Guide/.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket to send the core dump to.
-    destinationS3Uri :: Core.Text
+    destinationS3Uri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProductionVariantCoreDumpConfig' with all optional fields omitted.
@@ -119,12 +120,12 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
 -- 'destinationS3Uri', 'productionVariantCoreDumpConfig_destinationS3Uri' - The Amazon S3 bucket to send the core dump to.
 newProductionVariantCoreDumpConfig ::
   -- | 'destinationS3Uri'
-  Core.Text ->
+  Prelude.Text ->
   ProductionVariantCoreDumpConfig
 newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
   ProductionVariantCoreDumpConfig'
     { kmsKeyId =
-        Core.Nothing,
+        Prelude.Nothing,
       destinationS3Uri = pDestinationS3Uri_
     }
 
@@ -165,11 +166,11 @@ newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
 -- information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
 -- in the /AWS Key Management Service Developer Guide/.
-productionVariantCoreDumpConfig_kmsKeyId :: Lens.Lens' ProductionVariantCoreDumpConfig (Core.Maybe Core.Text)
+productionVariantCoreDumpConfig_kmsKeyId :: Lens.Lens' ProductionVariantCoreDumpConfig (Prelude.Maybe Prelude.Text)
 productionVariantCoreDumpConfig_kmsKeyId = Lens.lens (\ProductionVariantCoreDumpConfig' {kmsKeyId} -> kmsKeyId) (\s@ProductionVariantCoreDumpConfig' {} a -> s {kmsKeyId = a} :: ProductionVariantCoreDumpConfig)
 
 -- | The Amazon S3 bucket to send the core dump to.
-productionVariantCoreDumpConfig_destinationS3Uri :: Lens.Lens' ProductionVariantCoreDumpConfig Core.Text
+productionVariantCoreDumpConfig_destinationS3Uri :: Lens.Lens' ProductionVariantCoreDumpConfig Prelude.Text
 productionVariantCoreDumpConfig_destinationS3Uri = Lens.lens (\ProductionVariantCoreDumpConfig' {destinationS3Uri} -> destinationS3Uri) (\s@ProductionVariantCoreDumpConfig' {} a -> s {destinationS3Uri = a} :: ProductionVariantCoreDumpConfig)
 
 instance
@@ -181,22 +182,24 @@ instance
       "ProductionVariantCoreDumpConfig"
       ( \x ->
           ProductionVariantCoreDumpConfig'
-            Core.<$> (x Core..:? "KmsKeyId")
-            Core.<*> (x Core..: "DestinationS3Uri")
+            Prelude.<$> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..: "DestinationS3Uri")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ProductionVariantCoreDumpConfig
 
-instance Core.NFData ProductionVariantCoreDumpConfig
+instance
+  Prelude.NFData
+    ProductionVariantCoreDumpConfig
 
 instance Core.ToJSON ProductionVariantCoreDumpConfig where
   toJSON ProductionVariantCoreDumpConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            Prelude.Just
               ("DestinationS3Uri" Core..= destinationS3Uri)
           ]
       )

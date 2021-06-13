@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DetachPolicy response operation.
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data BatchDetachPolicyResponse = BatchDetachPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetachPolicyResponse' with all optional fields omitted.
@@ -43,8 +44,8 @@ instance Core.FromJSON BatchDetachPolicyResponse where
   parseJSON =
     Core.withObject
       "BatchDetachPolicyResponse"
-      (\x -> Core.pure BatchDetachPolicyResponse')
+      (\x -> Prelude.pure BatchDetachPolicyResponse')
 
-instance Core.Hashable BatchDetachPolicyResponse
+instance Prelude.Hashable BatchDetachPolicyResponse
 
-instance Core.NFData BatchDetachPolicyResponse
+instance Prelude.NFData BatchDetachPolicyResponse

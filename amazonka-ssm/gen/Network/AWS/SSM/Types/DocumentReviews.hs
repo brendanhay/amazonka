@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.DocumentReviews where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.DocumentReviewAction
 import Network.AWS.SSM.Types.DocumentReviewCommentSource
 
@@ -30,11 +31,11 @@ import Network.AWS.SSM.Types.DocumentReviewCommentSource
 data DocumentReviews = DocumentReviews'
   { -- | A comment entered by a user in your organization about the document
     -- review request.
-    comment :: Core.Maybe [DocumentReviewCommentSource],
+    comment :: Prelude.Maybe [DocumentReviewCommentSource],
     -- | The action to take on a document approval review request.
     action :: DocumentReviewAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentReviews' with all optional fields omitted.
@@ -54,28 +55,28 @@ newDocumentReviews ::
   DocumentReviews
 newDocumentReviews pAction_ =
   DocumentReviews'
-    { comment = Core.Nothing,
+    { comment = Prelude.Nothing,
       action = pAction_
     }
 
 -- | A comment entered by a user in your organization about the document
 -- review request.
-documentReviews_comment :: Lens.Lens' DocumentReviews (Core.Maybe [DocumentReviewCommentSource])
-documentReviews_comment = Lens.lens (\DocumentReviews' {comment} -> comment) (\s@DocumentReviews' {} a -> s {comment = a} :: DocumentReviews) Core.. Lens.mapping Lens._Coerce
+documentReviews_comment :: Lens.Lens' DocumentReviews (Prelude.Maybe [DocumentReviewCommentSource])
+documentReviews_comment = Lens.lens (\DocumentReviews' {comment} -> comment) (\s@DocumentReviews' {} a -> s {comment = a} :: DocumentReviews) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The action to take on a document approval review request.
 documentReviews_action :: Lens.Lens' DocumentReviews DocumentReviewAction
 documentReviews_action = Lens.lens (\DocumentReviews' {action} -> action) (\s@DocumentReviews' {} a -> s {action = a} :: DocumentReviews)
 
-instance Core.Hashable DocumentReviews
+instance Prelude.Hashable DocumentReviews
 
-instance Core.NFData DocumentReviews
+instance Prelude.NFData DocumentReviews
 
 instance Core.ToJSON DocumentReviews where
   toJSON DocumentReviews' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Comment" Core..=) Core.<$> comment,
-            Core.Just ("Action" Core..= action)
+      ( Prelude.catMaybes
+          [ ("Comment" Core..=) Prelude.<$> comment,
+            Prelude.Just ("Action" Core..= action)
           ]
       )

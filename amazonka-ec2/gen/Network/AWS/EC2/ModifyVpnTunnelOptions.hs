@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,15 +60,15 @@ data ModifyVpnTunnelOptions = ModifyVpnTunnelOptions'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the AWS Site-to-Site VPN connection.
-    vpnConnectionId :: Core.Text,
+    vpnConnectionId :: Prelude.Text,
     -- | The external IP address of the VPN tunnel.
-    vpnTunnelOutsideIpAddress :: Core.Text,
+    vpnTunnelOutsideIpAddress :: Prelude.Text,
     -- | The tunnel options to modify.
     tunnelOptions :: ModifyVpnTunnelOptionsSpecification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnTunnelOptions' with all optional fields omitted.
@@ -89,9 +90,9 @@ data ModifyVpnTunnelOptions = ModifyVpnTunnelOptions'
 -- 'tunnelOptions', 'modifyVpnTunnelOptions_tunnelOptions' - The tunnel options to modify.
 newModifyVpnTunnelOptions ::
   -- | 'vpnConnectionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpnTunnelOutsideIpAddress'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tunnelOptions'
   ModifyVpnTunnelOptionsSpecification ->
   ModifyVpnTunnelOptions
@@ -100,7 +101,7 @@ newModifyVpnTunnelOptions
   pVpnTunnelOutsideIpAddress_
   pTunnelOptions_ =
     ModifyVpnTunnelOptions'
-      { dryRun = Core.Nothing,
+      { dryRun = Prelude.Nothing,
         vpnConnectionId = pVpnConnectionId_,
         vpnTunnelOutsideIpAddress =
           pVpnTunnelOutsideIpAddress_,
@@ -111,15 +112,15 @@ newModifyVpnTunnelOptions
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpnTunnelOptions_dryRun :: Lens.Lens' ModifyVpnTunnelOptions (Core.Maybe Core.Bool)
+modifyVpnTunnelOptions_dryRun :: Lens.Lens' ModifyVpnTunnelOptions (Prelude.Maybe Prelude.Bool)
 modifyVpnTunnelOptions_dryRun = Lens.lens (\ModifyVpnTunnelOptions' {dryRun} -> dryRun) (\s@ModifyVpnTunnelOptions' {} a -> s {dryRun = a} :: ModifyVpnTunnelOptions)
 
 -- | The ID of the AWS Site-to-Site VPN connection.
-modifyVpnTunnelOptions_vpnConnectionId :: Lens.Lens' ModifyVpnTunnelOptions Core.Text
+modifyVpnTunnelOptions_vpnConnectionId :: Lens.Lens' ModifyVpnTunnelOptions Prelude.Text
 modifyVpnTunnelOptions_vpnConnectionId = Lens.lens (\ModifyVpnTunnelOptions' {vpnConnectionId} -> vpnConnectionId) (\s@ModifyVpnTunnelOptions' {} a -> s {vpnConnectionId = a} :: ModifyVpnTunnelOptions)
 
 -- | The external IP address of the VPN tunnel.
-modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress :: Lens.Lens' ModifyVpnTunnelOptions Core.Text
+modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress :: Lens.Lens' ModifyVpnTunnelOptions Prelude.Text
 modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress = Lens.lens (\ModifyVpnTunnelOptions' {vpnTunnelOutsideIpAddress} -> vpnTunnelOutsideIpAddress) (\s@ModifyVpnTunnelOptions' {} a -> s {vpnTunnelOutsideIpAddress = a} :: ModifyVpnTunnelOptions)
 
 -- | The tunnel options to modify.
@@ -135,26 +136,27 @@ instance Core.AWSRequest ModifyVpnTunnelOptions where
     Response.receiveXML
       ( \s h x ->
           ModifyVpnTunnelOptionsResponse'
-            Core.<$> (x Core..@? "vpnConnection")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "vpnConnection")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyVpnTunnelOptions
+instance Prelude.Hashable ModifyVpnTunnelOptions
 
-instance Core.NFData ModifyVpnTunnelOptions
+instance Prelude.NFData ModifyVpnTunnelOptions
 
 instance Core.ToHeaders ModifyVpnTunnelOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyVpnTunnelOptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyVpnTunnelOptions where
   toQuery ModifyVpnTunnelOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpnTunnelOptions" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyVpnTunnelOptions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "VpnConnectionId" Core.=: vpnConnectionId,
         "VpnTunnelOutsideIpAddress"
@@ -164,11 +166,11 @@ instance Core.ToQuery ModifyVpnTunnelOptions where
 
 -- | /See:/ 'newModifyVpnTunnelOptionsResponse' smart constructor.
 data ModifyVpnTunnelOptionsResponse = ModifyVpnTunnelOptionsResponse'
-  { vpnConnection :: Core.Maybe VpnConnection,
+  { vpnConnection :: Prelude.Maybe VpnConnection,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnTunnelOptionsResponse' with all optional fields omitted.
@@ -183,21 +185,23 @@ data ModifyVpnTunnelOptionsResponse = ModifyVpnTunnelOptionsResponse'
 -- 'httpStatus', 'modifyVpnTunnelOptionsResponse_httpStatus' - The response's http status code.
 newModifyVpnTunnelOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyVpnTunnelOptionsResponse
 newModifyVpnTunnelOptionsResponse pHttpStatus_ =
   ModifyVpnTunnelOptionsResponse'
     { vpnConnection =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyVpnTunnelOptionsResponse_vpnConnection :: Lens.Lens' ModifyVpnTunnelOptionsResponse (Core.Maybe VpnConnection)
+modifyVpnTunnelOptionsResponse_vpnConnection :: Lens.Lens' ModifyVpnTunnelOptionsResponse (Prelude.Maybe VpnConnection)
 modifyVpnTunnelOptionsResponse_vpnConnection = Lens.lens (\ModifyVpnTunnelOptionsResponse' {vpnConnection} -> vpnConnection) (\s@ModifyVpnTunnelOptionsResponse' {} a -> s {vpnConnection = a} :: ModifyVpnTunnelOptionsResponse)
 
 -- | The response's http status code.
-modifyVpnTunnelOptionsResponse_httpStatus :: Lens.Lens' ModifyVpnTunnelOptionsResponse Core.Int
+modifyVpnTunnelOptionsResponse_httpStatus :: Lens.Lens' ModifyVpnTunnelOptionsResponse Prelude.Int
 modifyVpnTunnelOptionsResponse_httpStatus = Lens.lens (\ModifyVpnTunnelOptionsResponse' {httpStatus} -> httpStatus) (\s@ModifyVpnTunnelOptionsResponse' {} a -> s {httpStatus = a} :: ModifyVpnTunnelOptionsResponse)
 
-instance Core.NFData ModifyVpnTunnelOptionsResponse
+instance
+  Prelude.NFData
+    ModifyVpnTunnelOptionsResponse

@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -55,12 +56,12 @@ data SendTaskSuccess = SendTaskSuccess'
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html context object>
     -- when a workflow enters a task state. See
     -- GetActivityTaskOutput$taskToken.
-    taskToken :: Core.Text,
+    taskToken :: Prelude.Text,
     -- | The JSON output of the task. Length constraints apply to the payload
     -- size, and are expressed as bytes in UTF-8 encoding.
-    output :: Core.Sensitive Core.Text
+    output :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendTaskSuccess' with all optional fields omitted.
@@ -80,9 +81,9 @@ data SendTaskSuccess = SendTaskSuccess'
 -- size, and are expressed as bytes in UTF-8 encoding.
 newSendTaskSuccess ::
   -- | 'taskToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'output'
-  Core.Text ->
+  Prelude.Text ->
   SendTaskSuccess
 newSendTaskSuccess pTaskToken_ pOutput_ =
   SendTaskSuccess'
@@ -95,13 +96,13 @@ newSendTaskSuccess pTaskToken_ pOutput_ =
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html context object>
 -- when a workflow enters a task state. See
 -- GetActivityTaskOutput$taskToken.
-sendTaskSuccess_taskToken :: Lens.Lens' SendTaskSuccess Core.Text
+sendTaskSuccess_taskToken :: Lens.Lens' SendTaskSuccess Prelude.Text
 sendTaskSuccess_taskToken = Lens.lens (\SendTaskSuccess' {taskToken} -> taskToken) (\s@SendTaskSuccess' {} a -> s {taskToken = a} :: SendTaskSuccess)
 
 -- | The JSON output of the task. Length constraints apply to the payload
 -- size, and are expressed as bytes in UTF-8 encoding.
-sendTaskSuccess_output :: Lens.Lens' SendTaskSuccess Core.Text
-sendTaskSuccess_output = Lens.lens (\SendTaskSuccess' {output} -> output) (\s@SendTaskSuccess' {} a -> s {output = a} :: SendTaskSuccess) Core.. Core._Sensitive
+sendTaskSuccess_output :: Lens.Lens' SendTaskSuccess Prelude.Text
+sendTaskSuccess_output = Lens.lens (\SendTaskSuccess' {output} -> output) (\s@SendTaskSuccess' {} a -> s {output = a} :: SendTaskSuccess) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest SendTaskSuccess where
   type
@@ -112,47 +113,49 @@ instance Core.AWSRequest SendTaskSuccess where
     Response.receiveEmpty
       ( \s h x ->
           SendTaskSuccessResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SendTaskSuccess
+instance Prelude.Hashable SendTaskSuccess
 
-instance Core.NFData SendTaskSuccess
+instance Prelude.NFData SendTaskSuccess
 
 instance Core.ToHeaders SendTaskSuccess where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSStepFunctions.SendTaskSuccess" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SendTaskSuccess where
   toJSON SendTaskSuccess' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("taskToken" Core..= taskToken),
-            Core.Just ("output" Core..= output)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("taskToken" Core..= taskToken),
+            Prelude.Just ("output" Core..= output)
           ]
       )
 
 instance Core.ToPath SendTaskSuccess where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SendTaskSuccess where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendTaskSuccessResponse' smart constructor.
 data SendTaskSuccessResponse = SendTaskSuccessResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendTaskSuccessResponse' with all optional fields omitted.
@@ -165,13 +168,13 @@ data SendTaskSuccessResponse = SendTaskSuccessResponse'
 -- 'httpStatus', 'sendTaskSuccessResponse_httpStatus' - The response's http status code.
 newSendTaskSuccessResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SendTaskSuccessResponse
 newSendTaskSuccessResponse pHttpStatus_ =
   SendTaskSuccessResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-sendTaskSuccessResponse_httpStatus :: Lens.Lens' SendTaskSuccessResponse Core.Int
+sendTaskSuccessResponse_httpStatus :: Lens.Lens' SendTaskSuccessResponse Prelude.Int
 sendTaskSuccessResponse_httpStatus = Lens.lens (\SendTaskSuccessResponse' {httpStatus} -> httpStatus) (\s@SendTaskSuccessResponse' {} a -> s {httpStatus = a} :: SendTaskSuccessResponse)
 
-instance Core.NFData SendTaskSuccessResponse
+instance Prelude.NFData SendTaskSuccessResponse

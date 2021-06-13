@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -62,33 +63,33 @@ import Network.AWS.SageMaker.Types
 data ListHyperParameterTuningJobs = ListHyperParameterTuningJobs'
   { -- | A filter that returns only tuning jobs that were modified before the
     -- specified time.
-    lastModifiedTimeBefore :: Core.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListHyperParameterTuningJobs@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of tuning jobs, use the token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A string in the tuning job name. This filter returns only tuning jobs
     -- whose name contains the specified string.
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tuning jobs to return. The default value is 10.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only tuning jobs that were created before the
     -- specified time.
-    creationTimeBefore :: Core.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only tuning jobs that were modified after the
     -- specified time.
-    lastModifiedTimeAfter :: Core.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | The field to sort results by. The default is @Name@.
-    sortBy :: Core.Maybe HyperParameterTuningJobSortByOptions,
+    sortBy :: Prelude.Maybe HyperParameterTuningJobSortByOptions,
     -- | A filter that returns only tuning jobs with the specified status.
-    statusEquals :: Core.Maybe HyperParameterTuningJobStatus,
+    statusEquals :: Prelude.Maybe HyperParameterTuningJobStatus,
     -- | A filter that returns only tuning jobs that were created after the
     -- specified time.
-    creationTimeAfter :: Core.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHyperParameterTuningJobs' with all optional fields omitted.
@@ -129,85 +130,85 @@ newListHyperParameterTuningJobs ::
 newListHyperParameterTuningJobs =
   ListHyperParameterTuningJobs'
     { lastModifiedTimeBefore =
-        Core.Nothing,
-      sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing,
-      creationTimeBefore = Core.Nothing,
-      lastModifiedTimeAfter = Core.Nothing,
-      sortBy = Core.Nothing,
-      statusEquals = Core.Nothing,
-      creationTimeAfter = Core.Nothing
+        Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
+      lastModifiedTimeAfter = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      statusEquals = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing
     }
 
 -- | A filter that returns only tuning jobs that were modified before the
 -- specified time.
-listHyperParameterTuningJobs_lastModifiedTimeBefore :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe Core.UTCTime)
-listHyperParameterTuningJobs_lastModifiedTimeBefore = Lens.lens (\ListHyperParameterTuningJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListHyperParameterTuningJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListHyperParameterTuningJobs) Core.. Lens.mapping Core._Time
+listHyperParameterTuningJobs_lastModifiedTimeBefore :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
+listHyperParameterTuningJobs_lastModifiedTimeBefore = Lens.lens (\ListHyperParameterTuningJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListHyperParameterTuningJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
 
 -- | The sort order for results. The default is @Ascending@.
-listHyperParameterTuningJobs_sortOrder :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe SortOrder)
+listHyperParameterTuningJobs_sortOrder :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe SortOrder)
 listHyperParameterTuningJobs_sortOrder = Lens.lens (\ListHyperParameterTuningJobs' {sortOrder} -> sortOrder) (\s@ListHyperParameterTuningJobs' {} a -> s {sortOrder = a} :: ListHyperParameterTuningJobs)
 
 -- | If the result of the previous @ListHyperParameterTuningJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of tuning jobs, use the token in the next request.
-listHyperParameterTuningJobs_nextToken :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe Core.Text)
+listHyperParameterTuningJobs_nextToken :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.Text)
 listHyperParameterTuningJobs_nextToken = Lens.lens (\ListHyperParameterTuningJobs' {nextToken} -> nextToken) (\s@ListHyperParameterTuningJobs' {} a -> s {nextToken = a} :: ListHyperParameterTuningJobs)
 
 -- | A string in the tuning job name. This filter returns only tuning jobs
 -- whose name contains the specified string.
-listHyperParameterTuningJobs_nameContains :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe Core.Text)
+listHyperParameterTuningJobs_nameContains :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.Text)
 listHyperParameterTuningJobs_nameContains = Lens.lens (\ListHyperParameterTuningJobs' {nameContains} -> nameContains) (\s@ListHyperParameterTuningJobs' {} a -> s {nameContains = a} :: ListHyperParameterTuningJobs)
 
 -- | The maximum number of tuning jobs to return. The default value is 10.
-listHyperParameterTuningJobs_maxResults :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe Core.Natural)
+listHyperParameterTuningJobs_maxResults :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.Natural)
 listHyperParameterTuningJobs_maxResults = Lens.lens (\ListHyperParameterTuningJobs' {maxResults} -> maxResults) (\s@ListHyperParameterTuningJobs' {} a -> s {maxResults = a} :: ListHyperParameterTuningJobs)
 
 -- | A filter that returns only tuning jobs that were created before the
 -- specified time.
-listHyperParameterTuningJobs_creationTimeBefore :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe Core.UTCTime)
-listHyperParameterTuningJobs_creationTimeBefore = Lens.lens (\ListHyperParameterTuningJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListHyperParameterTuningJobs' {} a -> s {creationTimeBefore = a} :: ListHyperParameterTuningJobs) Core.. Lens.mapping Core._Time
+listHyperParameterTuningJobs_creationTimeBefore :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
+listHyperParameterTuningJobs_creationTimeBefore = Lens.lens (\ListHyperParameterTuningJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListHyperParameterTuningJobs' {} a -> s {creationTimeBefore = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only tuning jobs that were modified after the
 -- specified time.
-listHyperParameterTuningJobs_lastModifiedTimeAfter :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe Core.UTCTime)
-listHyperParameterTuningJobs_lastModifiedTimeAfter = Lens.lens (\ListHyperParameterTuningJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListHyperParameterTuningJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListHyperParameterTuningJobs) Core.. Lens.mapping Core._Time
+listHyperParameterTuningJobs_lastModifiedTimeAfter :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
+listHyperParameterTuningJobs_lastModifiedTimeAfter = Lens.lens (\ListHyperParameterTuningJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListHyperParameterTuningJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
 
 -- | The field to sort results by. The default is @Name@.
-listHyperParameterTuningJobs_sortBy :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe HyperParameterTuningJobSortByOptions)
+listHyperParameterTuningJobs_sortBy :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe HyperParameterTuningJobSortByOptions)
 listHyperParameterTuningJobs_sortBy = Lens.lens (\ListHyperParameterTuningJobs' {sortBy} -> sortBy) (\s@ListHyperParameterTuningJobs' {} a -> s {sortBy = a} :: ListHyperParameterTuningJobs)
 
 -- | A filter that returns only tuning jobs with the specified status.
-listHyperParameterTuningJobs_statusEquals :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe HyperParameterTuningJobStatus)
+listHyperParameterTuningJobs_statusEquals :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe HyperParameterTuningJobStatus)
 listHyperParameterTuningJobs_statusEquals = Lens.lens (\ListHyperParameterTuningJobs' {statusEquals} -> statusEquals) (\s@ListHyperParameterTuningJobs' {} a -> s {statusEquals = a} :: ListHyperParameterTuningJobs)
 
 -- | A filter that returns only tuning jobs that were created after the
 -- specified time.
-listHyperParameterTuningJobs_creationTimeAfter :: Lens.Lens' ListHyperParameterTuningJobs (Core.Maybe Core.UTCTime)
-listHyperParameterTuningJobs_creationTimeAfter = Lens.lens (\ListHyperParameterTuningJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListHyperParameterTuningJobs' {} a -> s {creationTimeAfter = a} :: ListHyperParameterTuningJobs) Core.. Lens.mapping Core._Time
+listHyperParameterTuningJobs_creationTimeAfter :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
+listHyperParameterTuningJobs_creationTimeAfter = Lens.lens (\ListHyperParameterTuningJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListHyperParameterTuningJobs' {} a -> s {creationTimeAfter = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListHyperParameterTuningJobs where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? listHyperParameterTuningJobsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listHyperParameterTuningJobs_nextToken
+          Prelude.& listHyperParameterTuningJobs_nextToken
           Lens..~ rs
           Lens.^? listHyperParameterTuningJobsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHyperParameterTuningJobs where
   type
@@ -218,70 +219,74 @@ instance Core.AWSRequest ListHyperParameterTuningJobs where
     Response.receiveJSON
       ( \s h x ->
           ListHyperParameterTuningJobsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "HyperParameterTuningJobSummaries"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "HyperParameterTuningJobSummaries"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ListHyperParameterTuningJobs
+instance
+  Prelude.Hashable
+    ListHyperParameterTuningJobs
 
-instance Core.NFData ListHyperParameterTuningJobs
+instance Prelude.NFData ListHyperParameterTuningJobs
 
 instance Core.ToHeaders ListHyperParameterTuningJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.ListHyperParameterTuningJobs" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListHyperParameterTuningJobs where
   toJSON ListHyperParameterTuningJobs' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
-              Core.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("NameContains" Core..=) Core.<$> nameContains,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+              Prelude.<$> lastModifiedTimeBefore,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
-              Core.<$> creationTimeBefore,
+              Prelude.<$> creationTimeBefore,
             ("LastModifiedTimeAfter" Core..=)
-              Core.<$> lastModifiedTimeAfter,
-            ("SortBy" Core..=) Core.<$> sortBy,
-            ("StatusEquals" Core..=) Core.<$> statusEquals,
+              Prelude.<$> lastModifiedTimeAfter,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
             ("CreationTimeAfter" Core..=)
-              Core.<$> creationTimeAfter
+              Prelude.<$> creationTimeAfter
           ]
       )
 
 instance Core.ToPath ListHyperParameterTuningJobs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListHyperParameterTuningJobs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListHyperParameterTuningJobsResponse' smart constructor.
 data ListHyperParameterTuningJobsResponse = ListHyperParameterTuningJobsResponse'
   { -- | If the result of this @ListHyperParameterTuningJobs@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of tuning jobs, use the token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of HyperParameterTuningJobSummary objects that describe the
     -- tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
     hyperParameterTuningJobSummaries :: [HyperParameterTuningJobSummary]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHyperParameterTuningJobsResponse' with all optional fields omitted.
@@ -301,32 +306,32 @@ data ListHyperParameterTuningJobsResponse = ListHyperParameterTuningJobsResponse
 -- tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
 newListHyperParameterTuningJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListHyperParameterTuningJobsResponse
 newListHyperParameterTuningJobsResponse pHttpStatus_ =
   ListHyperParameterTuningJobsResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
       hyperParameterTuningJobSummaries =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | If the result of this @ListHyperParameterTuningJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of tuning jobs, use the token in the next request.
-listHyperParameterTuningJobsResponse_nextToken :: Lens.Lens' ListHyperParameterTuningJobsResponse (Core.Maybe Core.Text)
+listHyperParameterTuningJobsResponse_nextToken :: Lens.Lens' ListHyperParameterTuningJobsResponse (Prelude.Maybe Prelude.Text)
 listHyperParameterTuningJobsResponse_nextToken = Lens.lens (\ListHyperParameterTuningJobsResponse' {nextToken} -> nextToken) (\s@ListHyperParameterTuningJobsResponse' {} a -> s {nextToken = a} :: ListHyperParameterTuningJobsResponse)
 
 -- | The response's http status code.
-listHyperParameterTuningJobsResponse_httpStatus :: Lens.Lens' ListHyperParameterTuningJobsResponse Core.Int
+listHyperParameterTuningJobsResponse_httpStatus :: Lens.Lens' ListHyperParameterTuningJobsResponse Prelude.Int
 listHyperParameterTuningJobsResponse_httpStatus = Lens.lens (\ListHyperParameterTuningJobsResponse' {httpStatus} -> httpStatus) (\s@ListHyperParameterTuningJobsResponse' {} a -> s {httpStatus = a} :: ListHyperParameterTuningJobsResponse)
 
 -- | A list of HyperParameterTuningJobSummary objects that describe the
 -- tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
 listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries :: Lens.Lens' ListHyperParameterTuningJobsResponse [HyperParameterTuningJobSummary]
-listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries = Lens.lens (\ListHyperParameterTuningJobsResponse' {hyperParameterTuningJobSummaries} -> hyperParameterTuningJobSummaries) (\s@ListHyperParameterTuningJobsResponse' {} a -> s {hyperParameterTuningJobSummaries = a} :: ListHyperParameterTuningJobsResponse) Core.. Lens._Coerce
+listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries = Lens.lens (\ListHyperParameterTuningJobsResponse' {hyperParameterTuningJobSummaries} -> hyperParameterTuningJobSummaries) (\s@ListHyperParameterTuningJobsResponse' {} a -> s {hyperParameterTuningJobSummaries = a} :: ListHyperParameterTuningJobsResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListHyperParameterTuningJobsResponse

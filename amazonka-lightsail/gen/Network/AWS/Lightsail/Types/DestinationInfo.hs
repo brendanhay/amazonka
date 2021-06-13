@@ -21,17 +21,18 @@ module Network.AWS.Lightsail.Types.DestinationInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the destination of a record.
 --
 -- /See:/ 'newDestinationInfo' smart constructor.
 data DestinationInfo = DestinationInfo'
   { -- | The ID of the resource created at the destination.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The destination service of the record.
-    service :: Core.Maybe Core.Text
+    service :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DestinationInfo' with all optional fields omitted.
@@ -48,16 +49,16 @@ newDestinationInfo ::
   DestinationInfo
 newDestinationInfo =
   DestinationInfo'
-    { id = Core.Nothing,
-      service = Core.Nothing
+    { id = Prelude.Nothing,
+      service = Prelude.Nothing
     }
 
 -- | The ID of the resource created at the destination.
-destinationInfo_id :: Lens.Lens' DestinationInfo (Core.Maybe Core.Text)
+destinationInfo_id :: Lens.Lens' DestinationInfo (Prelude.Maybe Prelude.Text)
 destinationInfo_id = Lens.lens (\DestinationInfo' {id} -> id) (\s@DestinationInfo' {} a -> s {id = a} :: DestinationInfo)
 
 -- | The destination service of the record.
-destinationInfo_service :: Lens.Lens' DestinationInfo (Core.Maybe Core.Text)
+destinationInfo_service :: Lens.Lens' DestinationInfo (Prelude.Maybe Prelude.Text)
 destinationInfo_service = Lens.lens (\DestinationInfo' {service} -> service) (\s@DestinationInfo' {} a -> s {service = a} :: DestinationInfo)
 
 instance Core.FromJSON DestinationInfo where
@@ -66,9 +67,9 @@ instance Core.FromJSON DestinationInfo where
       "DestinationInfo"
       ( \x ->
           DestinationInfo'
-            Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "service")
+            Prelude.<$> (x Core..:? "id") Prelude.<*> (x Core..:? "service")
       )
 
-instance Core.Hashable DestinationInfo
+instance Prelude.Hashable DestinationInfo
 
-instance Core.NFData DestinationInfo
+instance Prelude.NFData DestinationInfo

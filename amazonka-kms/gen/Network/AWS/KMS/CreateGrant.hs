@@ -118,6 +118,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -134,13 +135,13 @@ data CreateGrant = CreateGrant'
     -- Grant constraints are not applied to operations that do not support an
     -- encryption context, such as cryptographic operations with asymmetric
     -- CMKs and management operations, such as DescribeKey or RetireGrant.
-    constraints :: Core.Maybe GrantConstraints,
+    constraints :: Prelude.Maybe GrantConstraints,
     -- | A list of grant tokens.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
     -- in the /AWS Key Management Service Developer Guide/.
-    grantTokens :: Core.Maybe [Core.Text],
+    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | A friendly name for the grant. Use this value to prevent the unintended
     -- creation of duplicate grants when retrying this request.
     --
@@ -155,7 +156,7 @@ data CreateGrant = CreateGrant'
     -- returned grant token is unique with every @CreateGrant@ request, even
     -- when a duplicate @GrantId@ is returned. All grant tokens for the same
     -- grant ID can be used interchangeably.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The principal that is given permission to retire the grant by using
     -- RetireGrant operation.
     --
@@ -166,7 +167,7 @@ data CreateGrant = CreateGrant'
     -- ARN syntax to use for specifying a principal, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
     -- in the Example ARNs section of the /AWS General Reference/.
-    retiringPrincipal :: Core.Maybe Core.Text,
+    retiringPrincipal :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the customer master key (CMK) that the grant
     -- applies to.
     --
@@ -181,7 +182,7 @@ data CreateGrant = CreateGrant'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text,
+    keyId :: Prelude.Text,
     -- | The principal that is given permission to perform the operations that
     -- the grant permits.
     --
@@ -192,11 +193,11 @@ data CreateGrant = CreateGrant'
     -- examples of the ARN syntax to use for specifying a principal, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
     -- in the Example ARNs section of the /AWS General Reference/.
-    granteePrincipal :: Core.Text,
+    granteePrincipal :: Prelude.Text,
     -- | A list of operations that the grant permits.
     operations :: [GrantOperation]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGrant' with all optional fields omitted.
@@ -279,19 +280,19 @@ data CreateGrant = CreateGrant'
 -- 'operations', 'createGrant_operations' - A list of operations that the grant permits.
 newCreateGrant ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'granteePrincipal'
-  Core.Text ->
+  Prelude.Text ->
   CreateGrant
 newCreateGrant pKeyId_ pGranteePrincipal_ =
   CreateGrant'
-    { constraints = Core.Nothing,
-      grantTokens = Core.Nothing,
-      name = Core.Nothing,
-      retiringPrincipal = Core.Nothing,
+    { constraints = Prelude.Nothing,
+      grantTokens = Prelude.Nothing,
+      name = Prelude.Nothing,
+      retiringPrincipal = Prelude.Nothing,
       keyId = pKeyId_,
       granteePrincipal = pGranteePrincipal_,
-      operations = Core.mempty
+      operations = Prelude.mempty
     }
 
 -- | Allows a
@@ -305,7 +306,7 @@ newCreateGrant pKeyId_ pGranteePrincipal_ =
 -- Grant constraints are not applied to operations that do not support an
 -- encryption context, such as cryptographic operations with asymmetric
 -- CMKs and management operations, such as DescribeKey or RetireGrant.
-createGrant_constraints :: Lens.Lens' CreateGrant (Core.Maybe GrantConstraints)
+createGrant_constraints :: Lens.Lens' CreateGrant (Prelude.Maybe GrantConstraints)
 createGrant_constraints = Lens.lens (\CreateGrant' {constraints} -> constraints) (\s@CreateGrant' {} a -> s {constraints = a} :: CreateGrant)
 
 -- | A list of grant tokens.
@@ -313,8 +314,8 @@ createGrant_constraints = Lens.lens (\CreateGrant' {constraints} -> constraints)
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
 -- in the /AWS Key Management Service Developer Guide/.
-createGrant_grantTokens :: Lens.Lens' CreateGrant (Core.Maybe [Core.Text])
-createGrant_grantTokens = Lens.lens (\CreateGrant' {grantTokens} -> grantTokens) (\s@CreateGrant' {} a -> s {grantTokens = a} :: CreateGrant) Core.. Lens.mapping Lens._Coerce
+createGrant_grantTokens :: Lens.Lens' CreateGrant (Prelude.Maybe [Prelude.Text])
+createGrant_grantTokens = Lens.lens (\CreateGrant' {grantTokens} -> grantTokens) (\s@CreateGrant' {} a -> s {grantTokens = a} :: CreateGrant) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A friendly name for the grant. Use this value to prevent the unintended
 -- creation of duplicate grants when retrying this request.
@@ -330,7 +331,7 @@ createGrant_grantTokens = Lens.lens (\CreateGrant' {grantTokens} -> grantTokens)
 -- returned grant token is unique with every @CreateGrant@ request, even
 -- when a duplicate @GrantId@ is returned. All grant tokens for the same
 -- grant ID can be used interchangeably.
-createGrant_name :: Lens.Lens' CreateGrant (Core.Maybe Core.Text)
+createGrant_name :: Lens.Lens' CreateGrant (Prelude.Maybe Prelude.Text)
 createGrant_name = Lens.lens (\CreateGrant' {name} -> name) (\s@CreateGrant' {} a -> s {name = a} :: CreateGrant)
 
 -- | The principal that is given permission to retire the grant by using
@@ -343,7 +344,7 @@ createGrant_name = Lens.lens (\CreateGrant' {name} -> name) (\s@CreateGrant' {} 
 -- ARN syntax to use for specifying a principal, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
 -- in the Example ARNs section of the /AWS General Reference/.
-createGrant_retiringPrincipal :: Lens.Lens' CreateGrant (Core.Maybe Core.Text)
+createGrant_retiringPrincipal :: Lens.Lens' CreateGrant (Prelude.Maybe Prelude.Text)
 createGrant_retiringPrincipal = Lens.lens (\CreateGrant' {retiringPrincipal} -> retiringPrincipal) (\s@CreateGrant' {} a -> s {retiringPrincipal = a} :: CreateGrant)
 
 -- | The unique identifier for the customer master key (CMK) that the grant
@@ -360,7 +361,7 @@ createGrant_retiringPrincipal = Lens.lens (\CreateGrant' {retiringPrincipal} -> 
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-createGrant_keyId :: Lens.Lens' CreateGrant Core.Text
+createGrant_keyId :: Lens.Lens' CreateGrant Prelude.Text
 createGrant_keyId = Lens.lens (\CreateGrant' {keyId} -> keyId) (\s@CreateGrant' {} a -> s {keyId = a} :: CreateGrant)
 
 -- | The principal that is given permission to perform the operations that
@@ -373,12 +374,12 @@ createGrant_keyId = Lens.lens (\CreateGrant' {keyId} -> keyId) (\s@CreateGrant' 
 -- examples of the ARN syntax to use for specifying a principal, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
 -- in the Example ARNs section of the /AWS General Reference/.
-createGrant_granteePrincipal :: Lens.Lens' CreateGrant Core.Text
+createGrant_granteePrincipal :: Lens.Lens' CreateGrant Prelude.Text
 createGrant_granteePrincipal = Lens.lens (\CreateGrant' {granteePrincipal} -> granteePrincipal) (\s@CreateGrant' {} a -> s {granteePrincipal = a} :: CreateGrant)
 
 -- | A list of operations that the grant permits.
 createGrant_operations :: Lens.Lens' CreateGrant [GrantOperation]
-createGrant_operations = Lens.lens (\CreateGrant' {operations} -> operations) (\s@CreateGrant' {} a -> s {operations = a} :: CreateGrant) Core.. Lens._Coerce
+createGrant_operations = Lens.lens (\CreateGrant' {operations} -> operations) (\s@CreateGrant' {} a -> s {operations = a} :: CreateGrant) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateGrant where
   type AWSResponse CreateGrant = CreateGrantResponse
@@ -387,47 +388,49 @@ instance Core.AWSRequest CreateGrant where
     Response.receiveJSON
       ( \s h x ->
           CreateGrantResponse'
-            Core.<$> (x Core..?> "GrantToken")
-            Core.<*> (x Core..?> "GrantId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GrantToken")
+            Prelude.<*> (x Core..?> "GrantId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateGrant
+instance Prelude.Hashable CreateGrant
 
-instance Core.NFData CreateGrant
+instance Prelude.NFData CreateGrant
 
 instance Core.ToHeaders CreateGrant where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.CreateGrant" :: Core.ByteString),
+              Core.=# ("TrentService.CreateGrant" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateGrant where
   toJSON CreateGrant' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Constraints" Core..=) Core.<$> constraints,
-            ("GrantTokens" Core..=) Core.<$> grantTokens,
-            ("Name" Core..=) Core.<$> name,
+      ( Prelude.catMaybes
+          [ ("Constraints" Core..=) Prelude.<$> constraints,
+            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
+            ("Name" Core..=) Prelude.<$> name,
             ("RetiringPrincipal" Core..=)
-              Core.<$> retiringPrincipal,
-            Core.Just ("KeyId" Core..= keyId),
-            Core.Just
+              Prelude.<$> retiringPrincipal,
+            Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just
               ("GranteePrincipal" Core..= granteePrincipal),
-            Core.Just ("Operations" Core..= operations)
+            Prelude.Just ("Operations" Core..= operations)
           ]
       )
 
 instance Core.ToPath CreateGrant where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateGrant where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGrantResponse' smart constructor.
 data CreateGrantResponse = CreateGrantResponse'
@@ -436,16 +439,16 @@ data CreateGrantResponse = CreateGrantResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
     -- in the /AWS Key Management Service Developer Guide/.
-    grantToken :: Core.Maybe Core.Text,
+    grantToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the grant.
     --
     -- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant
     -- operation.
-    grantId :: Core.Maybe Core.Text,
+    grantId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGrantResponse' with all optional fields omitted.
@@ -469,12 +472,12 @@ data CreateGrantResponse = CreateGrantResponse'
 -- 'httpStatus', 'createGrantResponse_httpStatus' - The response's http status code.
 newCreateGrantResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateGrantResponse
 newCreateGrantResponse pHttpStatus_ =
   CreateGrantResponse'
-    { grantToken = Core.Nothing,
-      grantId = Core.Nothing,
+    { grantToken = Prelude.Nothing,
+      grantId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -483,18 +486,18 @@ newCreateGrantResponse pHttpStatus_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
 -- in the /AWS Key Management Service Developer Guide/.
-createGrantResponse_grantToken :: Lens.Lens' CreateGrantResponse (Core.Maybe Core.Text)
+createGrantResponse_grantToken :: Lens.Lens' CreateGrantResponse (Prelude.Maybe Prelude.Text)
 createGrantResponse_grantToken = Lens.lens (\CreateGrantResponse' {grantToken} -> grantToken) (\s@CreateGrantResponse' {} a -> s {grantToken = a} :: CreateGrantResponse)
 
 -- | The unique identifier for the grant.
 --
 -- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant
 -- operation.
-createGrantResponse_grantId :: Lens.Lens' CreateGrantResponse (Core.Maybe Core.Text)
+createGrantResponse_grantId :: Lens.Lens' CreateGrantResponse (Prelude.Maybe Prelude.Text)
 createGrantResponse_grantId = Lens.lens (\CreateGrantResponse' {grantId} -> grantId) (\s@CreateGrantResponse' {} a -> s {grantId = a} :: CreateGrantResponse)
 
 -- | The response's http status code.
-createGrantResponse_httpStatus :: Lens.Lens' CreateGrantResponse Core.Int
+createGrantResponse_httpStatus :: Lens.Lens' CreateGrantResponse Prelude.Int
 createGrantResponse_httpStatus = Lens.lens (\CreateGrantResponse' {httpStatus} -> httpStatus) (\s@CreateGrantResponse' {} a -> s {httpStatus = a} :: CreateGrantResponse)
 
-instance Core.NFData CreateGrantResponse
+instance Prelude.NFData CreateGrantResponse

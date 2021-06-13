@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -59,16 +60,16 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateDataQualityJobDefinition' smart constructor.
 data CreateDataQualityJobDefinition = CreateDataQualityJobDefinition'
   { -- | Specifies networking configuration for the monitoring job.
-    networkConfig :: Core.Maybe MonitoringNetworkConfig,
+    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
     -- | Configures the constraints and baselines for the monitoring job.
-    dataQualityBaselineConfig :: Core.Maybe DataQualityBaselineConfig,
+    dataQualityBaselineConfig :: Prelude.Maybe DataQualityBaselineConfig,
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
     -- in the /AWS Billing and Cost Management User Guide/.
-    tags :: Core.Maybe [Tag],
-    stoppingCondition :: Core.Maybe MonitoringStoppingCondition,
+    tags :: Prelude.Maybe [Tag],
+    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The name for the monitoring job definition.
-    jobDefinitionName :: Core.Text,
+    jobDefinitionName :: Prelude.Text,
     -- | Specifies the container that runs the monitoring job.
     dataQualityAppSpecification :: DataQualityAppSpecification,
     -- | A list of inputs for the monitoring job. Currently endpoints are
@@ -78,9 +79,9 @@ data CreateDataQualityJobDefinition = CreateDataQualityJobDefinition'
     jobResources :: MonitoringResources,
     -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
     -- assume to perform tasks on your behalf.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDataQualityJobDefinition' with all optional fields omitted.
@@ -115,7 +116,7 @@ data CreateDataQualityJobDefinition = CreateDataQualityJobDefinition'
 -- assume to perform tasks on your behalf.
 newCreateDataQualityJobDefinition ::
   -- | 'jobDefinitionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataQualityAppSpecification'
   DataQualityAppSpecification ->
   -- | 'dataQualityJobInput'
@@ -125,7 +126,7 @@ newCreateDataQualityJobDefinition ::
   -- | 'jobResources'
   MonitoringResources ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateDataQualityJobDefinition
 newCreateDataQualityJobDefinition
   pJobDefinitionName_
@@ -136,10 +137,10 @@ newCreateDataQualityJobDefinition
   pRoleArn_ =
     CreateDataQualityJobDefinition'
       { networkConfig =
-          Core.Nothing,
-        dataQualityBaselineConfig = Core.Nothing,
-        tags = Core.Nothing,
-        stoppingCondition = Core.Nothing,
+          Prelude.Nothing,
+        dataQualityBaselineConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        stoppingCondition = Prelude.Nothing,
         jobDefinitionName = pJobDefinitionName_,
         dataQualityAppSpecification =
           pDataQualityAppSpecification_,
@@ -151,25 +152,25 @@ newCreateDataQualityJobDefinition
       }
 
 -- | Specifies networking configuration for the monitoring job.
-createDataQualityJobDefinition_networkConfig :: Lens.Lens' CreateDataQualityJobDefinition (Core.Maybe MonitoringNetworkConfig)
+createDataQualityJobDefinition_networkConfig :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe MonitoringNetworkConfig)
 createDataQualityJobDefinition_networkConfig = Lens.lens (\CreateDataQualityJobDefinition' {networkConfig} -> networkConfig) (\s@CreateDataQualityJobDefinition' {} a -> s {networkConfig = a} :: CreateDataQualityJobDefinition)
 
 -- | Configures the constraints and baselines for the monitoring job.
-createDataQualityJobDefinition_dataQualityBaselineConfig :: Lens.Lens' CreateDataQualityJobDefinition (Core.Maybe DataQualityBaselineConfig)
+createDataQualityJobDefinition_dataQualityBaselineConfig :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe DataQualityBaselineConfig)
 createDataQualityJobDefinition_dataQualityBaselineConfig = Lens.lens (\CreateDataQualityJobDefinition' {dataQualityBaselineConfig} -> dataQualityBaselineConfig) (\s@CreateDataQualityJobDefinition' {} a -> s {dataQualityBaselineConfig = a} :: CreateDataQualityJobDefinition)
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /AWS Billing and Cost Management User Guide/.
-createDataQualityJobDefinition_tags :: Lens.Lens' CreateDataQualityJobDefinition (Core.Maybe [Tag])
-createDataQualityJobDefinition_tags = Lens.lens (\CreateDataQualityJobDefinition' {tags} -> tags) (\s@CreateDataQualityJobDefinition' {} a -> s {tags = a} :: CreateDataQualityJobDefinition) Core.. Lens.mapping Lens._Coerce
+createDataQualityJobDefinition_tags :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe [Tag])
+createDataQualityJobDefinition_tags = Lens.lens (\CreateDataQualityJobDefinition' {tags} -> tags) (\s@CreateDataQualityJobDefinition' {} a -> s {tags = a} :: CreateDataQualityJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-createDataQualityJobDefinition_stoppingCondition :: Lens.Lens' CreateDataQualityJobDefinition (Core.Maybe MonitoringStoppingCondition)
+createDataQualityJobDefinition_stoppingCondition :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
 createDataQualityJobDefinition_stoppingCondition = Lens.lens (\CreateDataQualityJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateDataQualityJobDefinition' {} a -> s {stoppingCondition = a} :: CreateDataQualityJobDefinition)
 
 -- | The name for the monitoring job definition.
-createDataQualityJobDefinition_jobDefinitionName :: Lens.Lens' CreateDataQualityJobDefinition Core.Text
+createDataQualityJobDefinition_jobDefinitionName :: Lens.Lens' CreateDataQualityJobDefinition Prelude.Text
 createDataQualityJobDefinition_jobDefinitionName = Lens.lens (\CreateDataQualityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@CreateDataQualityJobDefinition' {} a -> s {jobDefinitionName = a} :: CreateDataQualityJobDefinition)
 
 -- | Specifies the container that runs the monitoring job.
@@ -191,7 +192,7 @@ createDataQualityJobDefinition_jobResources = Lens.lens (\CreateDataQualityJobDe
 
 -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
 -- assume to perform tasks on your behalf.
-createDataQualityJobDefinition_roleArn :: Lens.Lens' CreateDataQualityJobDefinition Core.Text
+createDataQualityJobDefinition_roleArn :: Lens.Lens' CreateDataQualityJobDefinition Prelude.Text
 createDataQualityJobDefinition_roleArn = Lens.lens (\CreateDataQualityJobDefinition' {roleArn} -> roleArn) (\s@CreateDataQualityJobDefinition' {} a -> s {roleArn = a} :: CreateDataQualityJobDefinition)
 
 instance
@@ -206,71 +207,77 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateDataQualityJobDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "JobDefinitionArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "JobDefinitionArn")
       )
 
-instance Core.Hashable CreateDataQualityJobDefinition
+instance
+  Prelude.Hashable
+    CreateDataQualityJobDefinition
 
-instance Core.NFData CreateDataQualityJobDefinition
+instance
+  Prelude.NFData
+    CreateDataQualityJobDefinition
 
 instance
   Core.ToHeaders
     CreateDataQualityJobDefinition
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.CreateDataQualityJobDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDataQualityJobDefinition where
   toJSON CreateDataQualityJobDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NetworkConfig" Core..=) Core.<$> networkConfig,
+      ( Prelude.catMaybes
+          [ ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
             ("DataQualityBaselineConfig" Core..=)
-              Core.<$> dataQualityBaselineConfig,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> dataQualityBaselineConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("StoppingCondition" Core..=)
-              Core.<$> stoppingCondition,
-            Core.Just
+              Prelude.<$> stoppingCondition,
+            Prelude.Just
               ("JobDefinitionName" Core..= jobDefinitionName),
-            Core.Just
+            Prelude.Just
               ( "DataQualityAppSpecification"
                   Core..= dataQualityAppSpecification
               ),
-            Core.Just
+            Prelude.Just
               ("DataQualityJobInput" Core..= dataQualityJobInput),
-            Core.Just
+            Prelude.Just
               ( "DataQualityJobOutputConfig"
                   Core..= dataQualityJobOutputConfig
               ),
-            Core.Just ("JobResources" Core..= jobResources),
-            Core.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("JobResources" Core..= jobResources),
+            Prelude.Just ("RoleArn" Core..= roleArn)
           ]
       )
 
 instance Core.ToPath CreateDataQualityJobDefinition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDataQualityJobDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataQualityJobDefinitionResponse' smart constructor.
 data CreateDataQualityJobDefinitionResponse = CreateDataQualityJobDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the job definition.
-    jobDefinitionArn :: Core.Text
+    jobDefinitionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDataQualityJobDefinitionResponse' with all optional fields omitted.
@@ -285,9 +292,9 @@ data CreateDataQualityJobDefinitionResponse = CreateDataQualityJobDefinitionResp
 -- 'jobDefinitionArn', 'createDataQualityJobDefinitionResponse_jobDefinitionArn' - The Amazon Resource Name (ARN) of the job definition.
 newCreateDataQualityJobDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'jobDefinitionArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateDataQualityJobDefinitionResponse
 newCreateDataQualityJobDefinitionResponse
   pHttpStatus_
@@ -300,13 +307,13 @@ newCreateDataQualityJobDefinitionResponse
       }
 
 -- | The response's http status code.
-createDataQualityJobDefinitionResponse_httpStatus :: Lens.Lens' CreateDataQualityJobDefinitionResponse Core.Int
+createDataQualityJobDefinitionResponse_httpStatus :: Lens.Lens' CreateDataQualityJobDefinitionResponse Prelude.Int
 createDataQualityJobDefinitionResponse_httpStatus = Lens.lens (\CreateDataQualityJobDefinitionResponse' {httpStatus} -> httpStatus) (\s@CreateDataQualityJobDefinitionResponse' {} a -> s {httpStatus = a} :: CreateDataQualityJobDefinitionResponse)
 
 -- | The Amazon Resource Name (ARN) of the job definition.
-createDataQualityJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' CreateDataQualityJobDefinitionResponse Core.Text
+createDataQualityJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' CreateDataQualityJobDefinitionResponse Prelude.Text
 createDataQualityJobDefinitionResponse_jobDefinitionArn = Lens.lens (\CreateDataQualityJobDefinitionResponse' {jobDefinitionArn} -> jobDefinitionArn) (\s@CreateDataQualityJobDefinitionResponse' {} a -> s {jobDefinitionArn = a} :: CreateDataQualityJobDefinitionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateDataQualityJobDefinitionResponse

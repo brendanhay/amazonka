@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,11 +66,11 @@ data StopInstance = StopInstance'
     -- Only use the @force@ parameter if your instance is stuck in the
     -- @stopping@ state. In any other state, your instance should stop normally
     -- without adding this parameter to your API request.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The name of the instance (a virtual private server) to stop.
-    instanceName :: Core.Text
+    instanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopInstance' with all optional fields omitted.
@@ -89,11 +90,11 @@ data StopInstance = StopInstance'
 -- 'instanceName', 'stopInstance_instanceName' - The name of the instance (a virtual private server) to stop.
 newStopInstance ::
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   StopInstance
 newStopInstance pInstanceName_ =
   StopInstance'
-    { force = Core.Nothing,
+    { force = Prelude.Nothing,
       instanceName = pInstanceName_
     }
 
@@ -103,11 +104,11 @@ newStopInstance pInstanceName_ =
 -- Only use the @force@ parameter if your instance is stuck in the
 -- @stopping@ state. In any other state, your instance should stop normally
 -- without adding this parameter to your API request.
-stopInstance_force :: Lens.Lens' StopInstance (Core.Maybe Core.Bool)
+stopInstance_force :: Lens.Lens' StopInstance (Prelude.Maybe Prelude.Bool)
 stopInstance_force = Lens.lens (\StopInstance' {force} -> force) (\s@StopInstance' {} a -> s {force = a} :: StopInstance)
 
 -- | The name of the instance (a virtual private server) to stop.
-stopInstance_instanceName :: Lens.Lens' StopInstance Core.Text
+stopInstance_instanceName :: Lens.Lens' StopInstance Prelude.Text
 stopInstance_instanceName = Lens.lens (\StopInstance' {instanceName} -> instanceName) (\s@StopInstance' {} a -> s {instanceName = a} :: StopInstance)
 
 instance Core.AWSRequest StopInstance where
@@ -117,52 +118,54 @@ instance Core.AWSRequest StopInstance where
     Response.receiveJSON
       ( \s h x ->
           StopInstanceResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopInstance
+instance Prelude.Hashable StopInstance
 
-instance Core.NFData StopInstance
+instance Prelude.NFData StopInstance
 
 instance Core.ToHeaders StopInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.StopInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopInstance where
   toJSON StopInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("force" Core..=) Core.<$> force,
-            Core.Just ("instanceName" Core..= instanceName)
+      ( Prelude.catMaybes
+          [ ("force" Core..=) Prelude.<$> force,
+            Prelude.Just ("instanceName" Core..= instanceName)
           ]
       )
 
 instance Core.ToPath StopInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopInstanceResponse' with all optional fields omitted.
@@ -179,22 +182,22 @@ data StopInstanceResponse = StopInstanceResponse'
 -- 'httpStatus', 'stopInstanceResponse_httpStatus' - The response's http status code.
 newStopInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopInstanceResponse
 newStopInstanceResponse pHttpStatus_ =
   StopInstanceResponse'
-    { operations = Core.Nothing,
+    { operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-stopInstanceResponse_operations :: Lens.Lens' StopInstanceResponse (Core.Maybe [Operation])
-stopInstanceResponse_operations = Lens.lens (\StopInstanceResponse' {operations} -> operations) (\s@StopInstanceResponse' {} a -> s {operations = a} :: StopInstanceResponse) Core.. Lens.mapping Lens._Coerce
+stopInstanceResponse_operations :: Lens.Lens' StopInstanceResponse (Prelude.Maybe [Operation])
+stopInstanceResponse_operations = Lens.lens (\StopInstanceResponse' {operations} -> operations) (\s@StopInstanceResponse' {} a -> s {operations = a} :: StopInstanceResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-stopInstanceResponse_httpStatus :: Lens.Lens' StopInstanceResponse Core.Int
+stopInstanceResponse_httpStatus :: Lens.Lens' StopInstanceResponse Prelude.Int
 stopInstanceResponse_httpStatus = Lens.lens (\StopInstanceResponse' {httpStatus} -> httpStatus) (\s@StopInstanceResponse' {} a -> s {httpStatus = a} :: StopInstanceResponse)
 
-instance Core.NFData StopInstanceResponse
+instance Prelude.NFData StopInstanceResponse

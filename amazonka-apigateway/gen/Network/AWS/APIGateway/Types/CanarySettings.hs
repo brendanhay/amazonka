@@ -21,25 +21,26 @@ module Network.AWS.APIGateway.Types.CanarySettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration settings of a canary deployment.
 --
 -- /See:/ 'newCanarySettings' smart constructor.
 data CanarySettings = CanarySettings'
   { -- | The ID of the canary deployment.
-    deploymentId :: Core.Maybe Core.Text,
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The percent (0-100) of traffic diverted to a canary deployment.
-    percentTraffic :: Core.Maybe Core.Double,
+    percentTraffic :: Prelude.Maybe Prelude.Double,
     -- | A Boolean flag to indicate whether the canary deployment uses the stage
     -- cache or not.
-    useStageCache :: Core.Maybe Core.Bool,
+    useStageCache :: Prelude.Maybe Prelude.Bool,
     -- | Stage variables overridden for a canary release deployment, including
     -- new stage variables introduced in the canary. These stage variables are
     -- represented as a string-to-string map between stage variable names and
     -- their values.
-    stageVariableOverrides :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    stageVariableOverrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CanarySettings' with all optional fields omitted.
@@ -64,31 +65,31 @@ newCanarySettings ::
   CanarySettings
 newCanarySettings =
   CanarySettings'
-    { deploymentId = Core.Nothing,
-      percentTraffic = Core.Nothing,
-      useStageCache = Core.Nothing,
-      stageVariableOverrides = Core.Nothing
+    { deploymentId = Prelude.Nothing,
+      percentTraffic = Prelude.Nothing,
+      useStageCache = Prelude.Nothing,
+      stageVariableOverrides = Prelude.Nothing
     }
 
 -- | The ID of the canary deployment.
-canarySettings_deploymentId :: Lens.Lens' CanarySettings (Core.Maybe Core.Text)
+canarySettings_deploymentId :: Lens.Lens' CanarySettings (Prelude.Maybe Prelude.Text)
 canarySettings_deploymentId = Lens.lens (\CanarySettings' {deploymentId} -> deploymentId) (\s@CanarySettings' {} a -> s {deploymentId = a} :: CanarySettings)
 
 -- | The percent (0-100) of traffic diverted to a canary deployment.
-canarySettings_percentTraffic :: Lens.Lens' CanarySettings (Core.Maybe Core.Double)
+canarySettings_percentTraffic :: Lens.Lens' CanarySettings (Prelude.Maybe Prelude.Double)
 canarySettings_percentTraffic = Lens.lens (\CanarySettings' {percentTraffic} -> percentTraffic) (\s@CanarySettings' {} a -> s {percentTraffic = a} :: CanarySettings)
 
 -- | A Boolean flag to indicate whether the canary deployment uses the stage
 -- cache or not.
-canarySettings_useStageCache :: Lens.Lens' CanarySettings (Core.Maybe Core.Bool)
+canarySettings_useStageCache :: Lens.Lens' CanarySettings (Prelude.Maybe Prelude.Bool)
 canarySettings_useStageCache = Lens.lens (\CanarySettings' {useStageCache} -> useStageCache) (\s@CanarySettings' {} a -> s {useStageCache = a} :: CanarySettings)
 
 -- | Stage variables overridden for a canary release deployment, including
 -- new stage variables introduced in the canary. These stage variables are
 -- represented as a string-to-string map between stage variable names and
 -- their values.
-canarySettings_stageVariableOverrides :: Lens.Lens' CanarySettings (Core.Maybe (Core.HashMap Core.Text Core.Text))
-canarySettings_stageVariableOverrides = Lens.lens (\CanarySettings' {stageVariableOverrides} -> stageVariableOverrides) (\s@CanarySettings' {} a -> s {stageVariableOverrides = a} :: CanarySettings) Core.. Lens.mapping Lens._Coerce
+canarySettings_stageVariableOverrides :: Lens.Lens' CanarySettings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+canarySettings_stageVariableOverrides = Lens.lens (\CanarySettings' {stageVariableOverrides} -> stageVariableOverrides) (\s@CanarySettings' {} a -> s {stageVariableOverrides = a} :: CanarySettings) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON CanarySettings where
   parseJSON =
@@ -96,26 +97,27 @@ instance Core.FromJSON CanarySettings where
       "CanarySettings"
       ( \x ->
           CanarySettings'
-            Core.<$> (x Core..:? "deploymentId")
-            Core.<*> (x Core..:? "percentTraffic")
-            Core.<*> (x Core..:? "useStageCache")
-            Core.<*> ( x Core..:? "stageVariableOverrides"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "deploymentId")
+            Prelude.<*> (x Core..:? "percentTraffic")
+            Prelude.<*> (x Core..:? "useStageCache")
+            Prelude.<*> ( x Core..:? "stageVariableOverrides"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable CanarySettings
+instance Prelude.Hashable CanarySettings
 
-instance Core.NFData CanarySettings
+instance Prelude.NFData CanarySettings
 
 instance Core.ToJSON CanarySettings where
   toJSON CanarySettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("deploymentId" Core..=) Core.<$> deploymentId,
-            ("percentTraffic" Core..=) Core.<$> percentTraffic,
-            ("useStageCache" Core..=) Core.<$> useStageCache,
+      ( Prelude.catMaybes
+          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
+            ("percentTraffic" Core..=)
+              Prelude.<$> percentTraffic,
+            ("useStageCache" Core..=) Prelude.<$> useStageCache,
             ("stageVariableOverrides" Core..=)
-              Core.<$> stageVariableOverrides
+              Prelude.<$> stageVariableOverrides
           ]
       )

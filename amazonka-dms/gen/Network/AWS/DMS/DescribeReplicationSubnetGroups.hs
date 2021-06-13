@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
   { -- | Filters applied to replication subnet groups.
     --
     -- Valid filter names: replication-subnet-group-id
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -70,9 +71,9 @@ data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationSubnetGroups' with all optional fields omitted.
@@ -103,21 +104,21 @@ newDescribeReplicationSubnetGroups ::
 newDescribeReplicationSubnetGroups =
   DescribeReplicationSubnetGroups'
     { filters =
-        Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | Filters applied to replication subnet groups.
 --
 -- Valid filter names: replication-subnet-group-id
-describeReplicationSubnetGroups_filters :: Lens.Lens' DescribeReplicationSubnetGroups (Core.Maybe [Filter])
-describeReplicationSubnetGroups_filters = Lens.lens (\DescribeReplicationSubnetGroups' {filters} -> filters) (\s@DescribeReplicationSubnetGroups' {} a -> s {filters = a} :: DescribeReplicationSubnetGroups) Core.. Lens.mapping Lens._Coerce
+describeReplicationSubnetGroups_filters :: Lens.Lens' DescribeReplicationSubnetGroups (Prelude.Maybe [Filter])
+describeReplicationSubnetGroups_filters = Lens.lens (\DescribeReplicationSubnetGroups' {filters} -> filters) (\s@DescribeReplicationSubnetGroups' {} a -> s {filters = a} :: DescribeReplicationSubnetGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeReplicationSubnetGroups_marker :: Lens.Lens' DescribeReplicationSubnetGroups (Core.Maybe Core.Text)
+describeReplicationSubnetGroups_marker :: Lens.Lens' DescribeReplicationSubnetGroups (Prelude.Maybe Prelude.Text)
 describeReplicationSubnetGroups_marker = Lens.lens (\DescribeReplicationSubnetGroups' {marker} -> marker) (\s@DescribeReplicationSubnetGroups' {} a -> s {marker = a} :: DescribeReplicationSubnetGroups)
 
 -- | The maximum number of records to include in the response. If more
@@ -128,7 +129,7 @@ describeReplicationSubnetGroups_marker = Lens.lens (\DescribeReplicationSubnetGr
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeReplicationSubnetGroups_maxRecords :: Lens.Lens' DescribeReplicationSubnetGroups (Core.Maybe Core.Int)
+describeReplicationSubnetGroups_maxRecords :: Lens.Lens' DescribeReplicationSubnetGroups (Prelude.Maybe Prelude.Int)
 describeReplicationSubnetGroups_maxRecords = Lens.lens (\DescribeReplicationSubnetGroups' {maxRecords} -> maxRecords) (\s@DescribeReplicationSubnetGroups' {} a -> s {maxRecords = a} :: DescribeReplicationSubnetGroups)
 
 instance
@@ -139,22 +140,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReplicationSubnetGroupsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReplicationSubnetGroupsResponse_replicationSubnetGroups
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeReplicationSubnetGroups_marker
+          Prelude.& describeReplicationSubnetGroups_marker
           Lens..~ rs
           Lens.^? describeReplicationSubnetGroupsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -168,65 +169,69 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationSubnetGroupsResponse'
-            Core.<$> ( x Core..?> "ReplicationSubnetGroups"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ReplicationSubnetGroups"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeReplicationSubnetGroups
 
-instance Core.NFData DescribeReplicationSubnetGroups
+instance
+  Prelude.NFData
+    DescribeReplicationSubnetGroups
 
 instance
   Core.ToHeaders
     DescribeReplicationSubnetGroups
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.DescribeReplicationSubnetGroups" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeReplicationSubnetGroups where
   toJSON DescribeReplicationSubnetGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Filters" Core..=) Core.<$> filters,
-            ("Marker" Core..=) Core.<$> marker,
-            ("MaxRecords" Core..=) Core.<$> maxRecords
+      ( Prelude.catMaybes
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords
           ]
       )
 
 instance Core.ToPath DescribeReplicationSubnetGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeReplicationSubnetGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeReplicationSubnetGroupsResponse' smart constructor.
 data DescribeReplicationSubnetGroupsResponse = DescribeReplicationSubnetGroupsResponse'
   { -- | A description of the replication subnet groups.
-    replicationSubnetGroups :: Core.Maybe [ReplicationSubnetGroup],
+    replicationSubnetGroups :: Prelude.Maybe [ReplicationSubnetGroup],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationSubnetGroupsResponse' with all optional fields omitted.
@@ -245,31 +250,31 @@ data DescribeReplicationSubnetGroupsResponse = DescribeReplicationSubnetGroupsRe
 -- 'httpStatus', 'describeReplicationSubnetGroupsResponse_httpStatus' - The response's http status code.
 newDescribeReplicationSubnetGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeReplicationSubnetGroupsResponse
 newDescribeReplicationSubnetGroupsResponse
   pHttpStatus_ =
     DescribeReplicationSubnetGroupsResponse'
       { replicationSubnetGroups =
-          Core.Nothing,
-        marker = Core.Nothing,
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A description of the replication subnet groups.
-describeReplicationSubnetGroupsResponse_replicationSubnetGroups :: Lens.Lens' DescribeReplicationSubnetGroupsResponse (Core.Maybe [ReplicationSubnetGroup])
-describeReplicationSubnetGroupsResponse_replicationSubnetGroups = Lens.lens (\DescribeReplicationSubnetGroupsResponse' {replicationSubnetGroups} -> replicationSubnetGroups) (\s@DescribeReplicationSubnetGroupsResponse' {} a -> s {replicationSubnetGroups = a} :: DescribeReplicationSubnetGroupsResponse) Core.. Lens.mapping Lens._Coerce
+describeReplicationSubnetGroupsResponse_replicationSubnetGroups :: Lens.Lens' DescribeReplicationSubnetGroupsResponse (Prelude.Maybe [ReplicationSubnetGroup])
+describeReplicationSubnetGroupsResponse_replicationSubnetGroups = Lens.lens (\DescribeReplicationSubnetGroupsResponse' {replicationSubnetGroups} -> replicationSubnetGroups) (\s@DescribeReplicationSubnetGroupsResponse' {} a -> s {replicationSubnetGroups = a} :: DescribeReplicationSubnetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeReplicationSubnetGroupsResponse_marker :: Lens.Lens' DescribeReplicationSubnetGroupsResponse (Core.Maybe Core.Text)
+describeReplicationSubnetGroupsResponse_marker :: Lens.Lens' DescribeReplicationSubnetGroupsResponse (Prelude.Maybe Prelude.Text)
 describeReplicationSubnetGroupsResponse_marker = Lens.lens (\DescribeReplicationSubnetGroupsResponse' {marker} -> marker) (\s@DescribeReplicationSubnetGroupsResponse' {} a -> s {marker = a} :: DescribeReplicationSubnetGroupsResponse)
 
 -- | The response's http status code.
-describeReplicationSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeReplicationSubnetGroupsResponse Core.Int
+describeReplicationSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeReplicationSubnetGroupsResponse Prelude.Int
 describeReplicationSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeReplicationSubnetGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeReplicationSubnetGroupsResponse' {} a -> s {httpStatus = a} :: DescribeReplicationSubnetGroupsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeReplicationSubnetGroupsResponse

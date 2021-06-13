@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.AppValidationConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.AppValidationStrategy
 import Network.AWS.SMS.Types.SSMValidationParameters
 
@@ -29,15 +30,15 @@ import Network.AWS.SMS.Types.SSMValidationParameters
 -- /See:/ 'newAppValidationConfiguration' smart constructor.
 data AppValidationConfiguration = AppValidationConfiguration'
   { -- | The validation parameters.
-    ssmValidationParameters :: Core.Maybe SSMValidationParameters,
+    ssmValidationParameters :: Prelude.Maybe SSMValidationParameters,
     -- | The validation strategy.
-    appValidationStrategy :: Core.Maybe AppValidationStrategy,
+    appValidationStrategy :: Prelude.Maybe AppValidationStrategy,
     -- | The ID of the validation.
-    validationId :: Core.Maybe Core.Text,
+    validationId :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AppValidationConfiguration' with all optional fields omitted.
@@ -59,26 +60,26 @@ newAppValidationConfiguration ::
 newAppValidationConfiguration =
   AppValidationConfiguration'
     { ssmValidationParameters =
-        Core.Nothing,
-      appValidationStrategy = Core.Nothing,
-      validationId = Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      appValidationStrategy = Prelude.Nothing,
+      validationId = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The validation parameters.
-appValidationConfiguration_ssmValidationParameters :: Lens.Lens' AppValidationConfiguration (Core.Maybe SSMValidationParameters)
+appValidationConfiguration_ssmValidationParameters :: Lens.Lens' AppValidationConfiguration (Prelude.Maybe SSMValidationParameters)
 appValidationConfiguration_ssmValidationParameters = Lens.lens (\AppValidationConfiguration' {ssmValidationParameters} -> ssmValidationParameters) (\s@AppValidationConfiguration' {} a -> s {ssmValidationParameters = a} :: AppValidationConfiguration)
 
 -- | The validation strategy.
-appValidationConfiguration_appValidationStrategy :: Lens.Lens' AppValidationConfiguration (Core.Maybe AppValidationStrategy)
+appValidationConfiguration_appValidationStrategy :: Lens.Lens' AppValidationConfiguration (Prelude.Maybe AppValidationStrategy)
 appValidationConfiguration_appValidationStrategy = Lens.lens (\AppValidationConfiguration' {appValidationStrategy} -> appValidationStrategy) (\s@AppValidationConfiguration' {} a -> s {appValidationStrategy = a} :: AppValidationConfiguration)
 
 -- | The ID of the validation.
-appValidationConfiguration_validationId :: Lens.Lens' AppValidationConfiguration (Core.Maybe Core.Text)
+appValidationConfiguration_validationId :: Lens.Lens' AppValidationConfiguration (Prelude.Maybe Prelude.Text)
 appValidationConfiguration_validationId = Lens.lens (\AppValidationConfiguration' {validationId} -> validationId) (\s@AppValidationConfiguration' {} a -> s {validationId = a} :: AppValidationConfiguration)
 
 -- | The name of the configuration.
-appValidationConfiguration_name :: Lens.Lens' AppValidationConfiguration (Core.Maybe Core.Text)
+appValidationConfiguration_name :: Lens.Lens' AppValidationConfiguration (Prelude.Maybe Prelude.Text)
 appValidationConfiguration_name = Lens.lens (\AppValidationConfiguration' {name} -> name) (\s@AppValidationConfiguration' {} a -> s {name = a} :: AppValidationConfiguration)
 
 instance Core.FromJSON AppValidationConfiguration where
@@ -87,25 +88,25 @@ instance Core.FromJSON AppValidationConfiguration where
       "AppValidationConfiguration"
       ( \x ->
           AppValidationConfiguration'
-            Core.<$> (x Core..:? "ssmValidationParameters")
-            Core.<*> (x Core..:? "appValidationStrategy")
-            Core.<*> (x Core..:? "validationId")
-            Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "ssmValidationParameters")
+            Prelude.<*> (x Core..:? "appValidationStrategy")
+            Prelude.<*> (x Core..:? "validationId")
+            Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable AppValidationConfiguration
+instance Prelude.Hashable AppValidationConfiguration
 
-instance Core.NFData AppValidationConfiguration
+instance Prelude.NFData AppValidationConfiguration
 
 instance Core.ToJSON AppValidationConfiguration where
   toJSON AppValidationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ssmValidationParameters" Core..=)
-              Core.<$> ssmValidationParameters,
+              Prelude.<$> ssmValidationParameters,
             ("appValidationStrategy" Core..=)
-              Core.<$> appValidationStrategy,
-            ("validationId" Core..=) Core.<$> validationId,
-            ("name" Core..=) Core.<$> name
+              Prelude.<$> appValidationStrategy,
+            ("validationId" Core..=) Prelude.<$> validationId,
+            ("name" Core..=) Prelude.<$> name
           ]
       )

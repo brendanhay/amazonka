@@ -21,6 +21,7 @@ module Network.AWS.SQS.Types.SendMessageBatchRequestEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SQS.Types.MessageAttributeValue
 import Network.AWS.SQS.Types.MessageSystemAttributeNameForSends
 import Network.AWS.SQS.Types.MessageSystemAttributeValue
@@ -84,12 +85,12 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     -- For best practices of using @MessageDeduplicationId@, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html Using the MessageDeduplicationId Property>
     -- in the /Amazon Simple Queue Service Developer Guide/.
-    messageDeduplicationId :: Core.Maybe Core.Text,
+    messageDeduplicationId :: Prelude.Maybe Prelude.Text,
     -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes>
     -- in the /Amazon Simple Queue Service Developer Guide/.
-    messageAttributes :: Core.Maybe (Core.HashMap Core.Text MessageAttributeValue),
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The message system attribute to send Each message system attribute
     -- consists of a @Name@, @Type@, and @Value@.
     --
@@ -99,7 +100,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     --
     -- -   The size of a message system attribute doesn\'t count towards the
     --     total size of a message.
-    messageSystemAttributes :: Core.Maybe (Core.HashMap MessageSystemAttributeNameForSends MessageSystemAttributeValue),
+    messageSystemAttributes :: Prelude.Maybe (Prelude.HashMap MessageSystemAttributeNameForSends MessageSystemAttributeValue),
     -- | This parameter applies only to FIFO (first-in-first-out) queues.
     --
     -- The tag that specifies that a message belongs to a specific message
@@ -127,7 +128,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     --
     -- @MessageGroupId@ is required for FIFO queues. You can\'t use it for
     -- Standard queues.
-    messageGroupId :: Core.Maybe Core.Text,
+    messageGroupId :: Prelude.Maybe Prelude.Text,
     -- | The length of time, in seconds, for which a specific message is delayed.
     -- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
     -- @DelaySeconds@ value become available for processing after the delay
@@ -136,7 +137,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     --
     -- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
     -- can set this parameter only on a queue level.
-    delaySeconds :: Core.Maybe Core.Int,
+    delaySeconds :: Prelude.Maybe Prelude.Int,
     -- | An identifier for a message in this batch used to communicate the
     -- result.
     --
@@ -144,11 +145,11 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     --
     -- This identifier can have up to 80 characters. The following characters
     -- are accepted: alphanumeric characters, hyphens(-), and underscores (_).
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The body of the message.
-    messageBody :: Core.Text
+    messageBody :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendMessageBatchRequestEntry' with all optional fields omitted.
@@ -277,18 +278,18 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 -- 'messageBody', 'sendMessageBatchRequestEntry_messageBody' - The body of the message.
 newSendMessageBatchRequestEntry ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'messageBody'
-  Core.Text ->
+  Prelude.Text ->
   SendMessageBatchRequestEntry
 newSendMessageBatchRequestEntry pId_ pMessageBody_ =
   SendMessageBatchRequestEntry'
     { messageDeduplicationId =
-        Core.Nothing,
-      messageAttributes = Core.Nothing,
-      messageSystemAttributes = Core.Nothing,
-      messageGroupId = Core.Nothing,
-      delaySeconds = Core.Nothing,
+        Prelude.Nothing,
+      messageAttributes = Prelude.Nothing,
+      messageSystemAttributes = Prelude.Nothing,
+      messageGroupId = Prelude.Nothing,
+      delaySeconds = Prelude.Nothing,
       id = pId_,
       messageBody = pMessageBody_
     }
@@ -348,15 +349,15 @@ newSendMessageBatchRequestEntry pId_ pMessageBody_ =
 -- For best practices of using @MessageDeduplicationId@, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html Using the MessageDeduplicationId Property>
 -- in the /Amazon Simple Queue Service Developer Guide/.
-sendMessageBatchRequestEntry_messageDeduplicationId :: Lens.Lens' SendMessageBatchRequestEntry (Core.Maybe Core.Text)
+sendMessageBatchRequestEntry_messageDeduplicationId :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchRequestEntry_messageDeduplicationId = Lens.lens (\SendMessageBatchRequestEntry' {messageDeduplicationId} -> messageDeduplicationId) (\s@SendMessageBatchRequestEntry' {} a -> s {messageDeduplicationId = a} :: SendMessageBatchRequestEntry)
 
 -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes>
 -- in the /Amazon Simple Queue Service Developer Guide/.
-sendMessageBatchRequestEntry_messageAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Core.Maybe (Core.HashMap Core.Text MessageAttributeValue))
-sendMessageBatchRequestEntry_messageAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageAttributes} -> messageAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageAttributes = a} :: SendMessageBatchRequestEntry) Core.. Lens.mapping Lens._Coerce
+sendMessageBatchRequestEntry_messageAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+sendMessageBatchRequestEntry_messageAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageAttributes} -> messageAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageAttributes = a} :: SendMessageBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The message system attribute to send Each message system attribute
 -- consists of a @Name@, @Type@, and @Value@.
@@ -367,8 +368,8 @@ sendMessageBatchRequestEntry_messageAttributes = Lens.lens (\SendMessageBatchReq
 --
 -- -   The size of a message system attribute doesn\'t count towards the
 --     total size of a message.
-sendMessageBatchRequestEntry_messageSystemAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Core.Maybe (Core.HashMap MessageSystemAttributeNameForSends MessageSystemAttributeValue))
-sendMessageBatchRequestEntry_messageSystemAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageSystemAttributes} -> messageSystemAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageSystemAttributes = a} :: SendMessageBatchRequestEntry) Core.. Lens.mapping Lens._Coerce
+sendMessageBatchRequestEntry_messageSystemAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe (Prelude.HashMap MessageSystemAttributeNameForSends MessageSystemAttributeValue))
+sendMessageBatchRequestEntry_messageSystemAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageSystemAttributes} -> messageSystemAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageSystemAttributes = a} :: SendMessageBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This parameter applies only to FIFO (first-in-first-out) queues.
 --
@@ -397,7 +398,7 @@ sendMessageBatchRequestEntry_messageSystemAttributes = Lens.lens (\SendMessageBa
 --
 -- @MessageGroupId@ is required for FIFO queues. You can\'t use it for
 -- Standard queues.
-sendMessageBatchRequestEntry_messageGroupId :: Lens.Lens' SendMessageBatchRequestEntry (Core.Maybe Core.Text)
+sendMessageBatchRequestEntry_messageGroupId :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchRequestEntry_messageGroupId = Lens.lens (\SendMessageBatchRequestEntry' {messageGroupId} -> messageGroupId) (\s@SendMessageBatchRequestEntry' {} a -> s {messageGroupId = a} :: SendMessageBatchRequestEntry)
 
 -- | The length of time, in seconds, for which a specific message is delayed.
@@ -408,7 +409,7 @@ sendMessageBatchRequestEntry_messageGroupId = Lens.lens (\SendMessageBatchReques
 --
 -- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
 -- can set this parameter only on a queue level.
-sendMessageBatchRequestEntry_delaySeconds :: Lens.Lens' SendMessageBatchRequestEntry (Core.Maybe Core.Int)
+sendMessageBatchRequestEntry_delaySeconds :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Int)
 sendMessageBatchRequestEntry_delaySeconds = Lens.lens (\SendMessageBatchRequestEntry' {delaySeconds} -> delaySeconds) (\s@SendMessageBatchRequestEntry' {} a -> s {delaySeconds = a} :: SendMessageBatchRequestEntry)
 
 -- | An identifier for a message in this batch used to communicate the
@@ -418,32 +419,34 @@ sendMessageBatchRequestEntry_delaySeconds = Lens.lens (\SendMessageBatchRequestE
 --
 -- This identifier can have up to 80 characters. The following characters
 -- are accepted: alphanumeric characters, hyphens(-), and underscores (_).
-sendMessageBatchRequestEntry_id :: Lens.Lens' SendMessageBatchRequestEntry Core.Text
+sendMessageBatchRequestEntry_id :: Lens.Lens' SendMessageBatchRequestEntry Prelude.Text
 sendMessageBatchRequestEntry_id = Lens.lens (\SendMessageBatchRequestEntry' {id} -> id) (\s@SendMessageBatchRequestEntry' {} a -> s {id = a} :: SendMessageBatchRequestEntry)
 
 -- | The body of the message.
-sendMessageBatchRequestEntry_messageBody :: Lens.Lens' SendMessageBatchRequestEntry Core.Text
+sendMessageBatchRequestEntry_messageBody :: Lens.Lens' SendMessageBatchRequestEntry Prelude.Text
 sendMessageBatchRequestEntry_messageBody = Lens.lens (\SendMessageBatchRequestEntry' {messageBody} -> messageBody) (\s@SendMessageBatchRequestEntry' {} a -> s {messageBody = a} :: SendMessageBatchRequestEntry)
 
-instance Core.Hashable SendMessageBatchRequestEntry
+instance
+  Prelude.Hashable
+    SendMessageBatchRequestEntry
 
-instance Core.NFData SendMessageBatchRequestEntry
+instance Prelude.NFData SendMessageBatchRequestEntry
 
 instance Core.ToQuery SendMessageBatchRequestEntry where
   toQuery SendMessageBatchRequestEntry' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MessageDeduplicationId"
           Core.=: messageDeduplicationId,
         Core.toQuery
           ( Core.toQueryMap "MessageAttribute" "Name" "Value"
-              Core.<$> messageAttributes
+              Prelude.<$> messageAttributes
           ),
         Core.toQuery
           ( Core.toQueryMap
               "MessageSystemAttribute"
               "Name"
               "Value"
-              Core.<$> messageSystemAttributes
+              Prelude.<$> messageSystemAttributes
           ),
         "MessageGroupId" Core.=: messageGroupId,
         "DelaySeconds" Core.=: delaySeconds,

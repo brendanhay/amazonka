@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data ListCoreDefinitionVersions = ListCoreDefinitionVersions'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Core.Maybe Core.Text,
+    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The ID of the core definition.
-    coreDefinitionId :: Core.Text
+    coreDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCoreDefinitionVersions' with all optional fields omitted.
@@ -78,27 +79,27 @@ data ListCoreDefinitionVersions = ListCoreDefinitionVersions'
 -- 'coreDefinitionId', 'listCoreDefinitionVersions_coreDefinitionId' - The ID of the core definition.
 newListCoreDefinitionVersions ::
   -- | 'coreDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   ListCoreDefinitionVersions
 newListCoreDefinitionVersions pCoreDefinitionId_ =
   ListCoreDefinitionVersions'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       coreDefinitionId = pCoreDefinitionId_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listCoreDefinitionVersions_nextToken :: Lens.Lens' ListCoreDefinitionVersions (Core.Maybe Core.Text)
+listCoreDefinitionVersions_nextToken :: Lens.Lens' ListCoreDefinitionVersions (Prelude.Maybe Prelude.Text)
 listCoreDefinitionVersions_nextToken = Lens.lens (\ListCoreDefinitionVersions' {nextToken} -> nextToken) (\s@ListCoreDefinitionVersions' {} a -> s {nextToken = a} :: ListCoreDefinitionVersions)
 
 -- | The maximum number of results to be returned per request.
-listCoreDefinitionVersions_maxResults :: Lens.Lens' ListCoreDefinitionVersions (Core.Maybe Core.Text)
+listCoreDefinitionVersions_maxResults :: Lens.Lens' ListCoreDefinitionVersions (Prelude.Maybe Prelude.Text)
 listCoreDefinitionVersions_maxResults = Lens.lens (\ListCoreDefinitionVersions' {maxResults} -> maxResults) (\s@ListCoreDefinitionVersions' {} a -> s {maxResults = a} :: ListCoreDefinitionVersions)
 
 -- | The ID of the core definition.
-listCoreDefinitionVersions_coreDefinitionId :: Lens.Lens' ListCoreDefinitionVersions Core.Text
+listCoreDefinitionVersions_coreDefinitionId :: Lens.Lens' ListCoreDefinitionVersions Prelude.Text
 listCoreDefinitionVersions_coreDefinitionId = Lens.lens (\ListCoreDefinitionVersions' {coreDefinitionId} -> coreDefinitionId) (\s@ListCoreDefinitionVersions' {} a -> s {coreDefinitionId = a} :: ListCoreDefinitionVersions)
 
 instance Core.AWSPager ListCoreDefinitionVersions where
@@ -106,22 +107,22 @@ instance Core.AWSPager ListCoreDefinitionVersions where
     | Core.stop
         ( rs
             Lens.^? listCoreDefinitionVersionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCoreDefinitionVersionsResponse_versions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listCoreDefinitionVersions_nextToken
+          Prelude.& listCoreDefinitionVersions_nextToken
           Lens..~ rs
           Lens.^? listCoreDefinitionVersionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCoreDefinitionVersions where
   type
@@ -132,27 +133,29 @@ instance Core.AWSRequest ListCoreDefinitionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListCoreDefinitionVersionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Versions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListCoreDefinitionVersions
+instance Prelude.Hashable ListCoreDefinitionVersions
 
-instance Core.NFData ListCoreDefinitionVersions
+instance Prelude.NFData ListCoreDefinitionVersions
 
 instance Core.ToHeaders ListCoreDefinitionVersions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListCoreDefinitionVersions where
   toPath ListCoreDefinitionVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/cores/",
         Core.toBS coreDefinitionId,
         "/versions"
@@ -160,7 +163,7 @@ instance Core.ToPath ListCoreDefinitionVersions where
 
 instance Core.ToQuery ListCoreDefinitionVersions where
   toQuery ListCoreDefinitionVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults
       ]
@@ -169,13 +172,13 @@ instance Core.ToQuery ListCoreDefinitionVersions where
 data ListCoreDefinitionVersionsResponse = ListCoreDefinitionVersionsResponse'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about a version.
-    versions :: Core.Maybe [VersionInformation],
+    versions :: Prelude.Maybe [VersionInformation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCoreDefinitionVersionsResponse' with all optional fields omitted.
@@ -193,29 +196,29 @@ data ListCoreDefinitionVersionsResponse = ListCoreDefinitionVersionsResponse'
 -- 'httpStatus', 'listCoreDefinitionVersionsResponse_httpStatus' - The response's http status code.
 newListCoreDefinitionVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListCoreDefinitionVersionsResponse
 newListCoreDefinitionVersionsResponse pHttpStatus_ =
   ListCoreDefinitionVersionsResponse'
     { nextToken =
-        Core.Nothing,
-      versions = Core.Nothing,
+        Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listCoreDefinitionVersionsResponse_nextToken :: Lens.Lens' ListCoreDefinitionVersionsResponse (Core.Maybe Core.Text)
+listCoreDefinitionVersionsResponse_nextToken :: Lens.Lens' ListCoreDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
 listCoreDefinitionVersionsResponse_nextToken = Lens.lens (\ListCoreDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListCoreDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListCoreDefinitionVersionsResponse)
 
 -- | Information about a version.
-listCoreDefinitionVersionsResponse_versions :: Lens.Lens' ListCoreDefinitionVersionsResponse (Core.Maybe [VersionInformation])
-listCoreDefinitionVersionsResponse_versions = Lens.lens (\ListCoreDefinitionVersionsResponse' {versions} -> versions) (\s@ListCoreDefinitionVersionsResponse' {} a -> s {versions = a} :: ListCoreDefinitionVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listCoreDefinitionVersionsResponse_versions :: Lens.Lens' ListCoreDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
+listCoreDefinitionVersionsResponse_versions = Lens.lens (\ListCoreDefinitionVersionsResponse' {versions} -> versions) (\s@ListCoreDefinitionVersionsResponse' {} a -> s {versions = a} :: ListCoreDefinitionVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCoreDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListCoreDefinitionVersionsResponse Core.Int
+listCoreDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListCoreDefinitionVersionsResponse Prelude.Int
 listCoreDefinitionVersionsResponse_httpStatus = Lens.lens (\ListCoreDefinitionVersionsResponse' {httpStatus} -> httpStatus) (\s@ListCoreDefinitionVersionsResponse' {} a -> s {httpStatus = a} :: ListCoreDefinitionVersionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListCoreDefinitionVersionsResponse

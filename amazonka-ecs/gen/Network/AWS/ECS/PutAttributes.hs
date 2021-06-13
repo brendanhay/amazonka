@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +57,13 @@ data PutAttributes = PutAttributes'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- contains the resource to apply attributes. If you do not specify a
     -- cluster, the default cluster is assumed.
-    cluster :: Core.Maybe Core.Text,
+    cluster :: Prelude.Maybe Prelude.Text,
     -- | The attributes to apply to your resource. You can specify up to 10
     -- custom attributes per resource. You can specify up to 10 attributes in a
     -- single call.
     attributes :: [Attribute]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutAttributes' with all optional fields omitted.
@@ -83,21 +84,21 @@ newPutAttributes ::
   PutAttributes
 newPutAttributes =
   PutAttributes'
-    { cluster = Core.Nothing,
-      attributes = Core.mempty
+    { cluster = Prelude.Nothing,
+      attributes = Prelude.mempty
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- contains the resource to apply attributes. If you do not specify a
 -- cluster, the default cluster is assumed.
-putAttributes_cluster :: Lens.Lens' PutAttributes (Core.Maybe Core.Text)
+putAttributes_cluster :: Lens.Lens' PutAttributes (Prelude.Maybe Prelude.Text)
 putAttributes_cluster = Lens.lens (\PutAttributes' {cluster} -> cluster) (\s@PutAttributes' {} a -> s {cluster = a} :: PutAttributes)
 
 -- | The attributes to apply to your resource. You can specify up to 10
 -- custom attributes per resource. You can specify up to 10 attributes in a
 -- single call.
 putAttributes_attributes :: Lens.Lens' PutAttributes [Attribute]
-putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Core.. Lens._Coerce
+putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutAttributes where
   type
@@ -108,50 +109,52 @@ instance Core.AWSRequest PutAttributes where
     Response.receiveJSON
       ( \s h x ->
           PutAttributesResponse'
-            Core.<$> (x Core..?> "attributes" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutAttributes
+instance Prelude.Hashable PutAttributes
 
-instance Core.NFData PutAttributes
+instance Prelude.NFData PutAttributes
 
 instance Core.ToHeaders PutAttributes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.PutAttributes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutAttributes where
   toJSON PutAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("cluster" Core..=) Core.<$> cluster,
-            Core.Just ("attributes" Core..= attributes)
+      ( Prelude.catMaybes
+          [ ("cluster" Core..=) Prelude.<$> cluster,
+            Prelude.Just ("attributes" Core..= attributes)
           ]
       )
 
 instance Core.ToPath PutAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAttributesResponse' smart constructor.
 data PutAttributesResponse = PutAttributesResponse'
   { -- | The attributes applied to your resource.
-    attributes :: Core.Maybe [Attribute],
+    attributes :: Prelude.Maybe [Attribute],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutAttributesResponse' with all optional fields omitted.
@@ -166,20 +169,21 @@ data PutAttributesResponse = PutAttributesResponse'
 -- 'httpStatus', 'putAttributesResponse_httpStatus' - The response's http status code.
 newPutAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutAttributesResponse
 newPutAttributesResponse pHttpStatus_ =
   PutAttributesResponse'
-    { attributes = Core.Nothing,
+    { attributes =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The attributes applied to your resource.
-putAttributesResponse_attributes :: Lens.Lens' PutAttributesResponse (Core.Maybe [Attribute])
-putAttributesResponse_attributes = Lens.lens (\PutAttributesResponse' {attributes} -> attributes) (\s@PutAttributesResponse' {} a -> s {attributes = a} :: PutAttributesResponse) Core.. Lens.mapping Lens._Coerce
+putAttributesResponse_attributes :: Lens.Lens' PutAttributesResponse (Prelude.Maybe [Attribute])
+putAttributesResponse_attributes = Lens.lens (\PutAttributesResponse' {attributes} -> attributes) (\s@PutAttributesResponse' {} a -> s {attributes = a} :: PutAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putAttributesResponse_httpStatus :: Lens.Lens' PutAttributesResponse Core.Int
+putAttributesResponse_httpStatus :: Lens.Lens' PutAttributesResponse Prelude.Int
 putAttributesResponse_httpStatus = Lens.lens (\PutAttributesResponse' {httpStatus} -> httpStatus) (\s@PutAttributesResponse' {} a -> s {httpStatus = a} :: PutAttributesResponse)
 
-instance Core.NFData PutAttributesResponse
+instance Prelude.NFData PutAttributesResponse

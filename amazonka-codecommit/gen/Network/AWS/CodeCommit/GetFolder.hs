@@ -50,6 +50,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,16 +61,16 @@ data GetFolder = GetFolder'
     -- can be a commit ID, branch name, tag, or reference such as HEAD. If no
     -- specifier is provided, the folder content is returned as it exists in
     -- the HEAD commit.
-    commitSpecifier :: Core.Maybe Core.Text,
+    commitSpecifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The fully qualified path to the folder whose contents are returned,
     -- including the folder name. For example, \/examples is a fully-qualified
     -- path to a folder named examples that was created off of the root
     -- directory (\/) of a repository.
-    folderPath :: Core.Text
+    folderPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFolder' with all optional fields omitted.
@@ -93,13 +94,13 @@ data GetFolder = GetFolder'
 -- directory (\/) of a repository.
 newGetFolder ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'folderPath'
-  Core.Text ->
+  Prelude.Text ->
   GetFolder
 newGetFolder pRepositoryName_ pFolderPath_ =
   GetFolder'
-    { commitSpecifier = Core.Nothing,
+    { commitSpecifier = Prelude.Nothing,
       repositoryName = pRepositoryName_,
       folderPath = pFolderPath_
     }
@@ -109,18 +110,18 @@ newGetFolder pRepositoryName_ pFolderPath_ =
 -- can be a commit ID, branch name, tag, or reference such as HEAD. If no
 -- specifier is provided, the folder content is returned as it exists in
 -- the HEAD commit.
-getFolder_commitSpecifier :: Lens.Lens' GetFolder (Core.Maybe Core.Text)
+getFolder_commitSpecifier :: Lens.Lens' GetFolder (Prelude.Maybe Prelude.Text)
 getFolder_commitSpecifier = Lens.lens (\GetFolder' {commitSpecifier} -> commitSpecifier) (\s@GetFolder' {} a -> s {commitSpecifier = a} :: GetFolder)
 
 -- | The name of the repository.
-getFolder_repositoryName :: Lens.Lens' GetFolder Core.Text
+getFolder_repositoryName :: Lens.Lens' GetFolder Prelude.Text
 getFolder_repositoryName = Lens.lens (\GetFolder' {repositoryName} -> repositoryName) (\s@GetFolder' {} a -> s {repositoryName = a} :: GetFolder)
 
 -- | The fully qualified path to the folder whose contents are returned,
 -- including the folder name. For example, \/examples is a fully-qualified
 -- path to a folder named examples that was created off of the root
 -- directory (\/) of a repository.
-getFolder_folderPath :: Lens.Lens' GetFolder Core.Text
+getFolder_folderPath :: Lens.Lens' GetFolder Prelude.Text
 getFolder_folderPath = Lens.lens (\GetFolder' {folderPath} -> folderPath) (\s@GetFolder' {} a -> s {folderPath = a} :: GetFolder)
 
 instance Core.AWSRequest GetFolder where
@@ -130,71 +131,76 @@ instance Core.AWSRequest GetFolder where
     Response.receiveJSON
       ( \s h x ->
           GetFolderResponse'
-            Core.<$> (x Core..?> "symbolicLinks" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "subFolders" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "treeId")
-            Core.<*> (x Core..?> "subModules" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "files" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "commitId")
-            Core.<*> (x Core..:> "folderPath")
+            Prelude.<$> (x Core..?> "symbolicLinks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "subFolders" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "treeId")
+            Prelude.<*> (x Core..?> "subModules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "files" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "commitId")
+            Prelude.<*> (x Core..:> "folderPath")
       )
 
-instance Core.Hashable GetFolder
+instance Prelude.Hashable GetFolder
 
-instance Core.NFData GetFolder
+instance Prelude.NFData GetFolder
 
 instance Core.ToHeaders GetFolder where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("CodeCommit_20150413.GetFolder" :: Core.ByteString),
+              Core.=# ( "CodeCommit_20150413.GetFolder" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetFolder where
   toJSON GetFolder' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("commitSpecifier" Core..=)
-              Core.<$> commitSpecifier,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just ("folderPath" Core..= folderPath)
+              Prelude.<$> commitSpecifier,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("folderPath" Core..= folderPath)
           ]
       )
 
 instance Core.ToPath GetFolder where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetFolder where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFolderResponse' smart constructor.
 data GetFolderResponse = GetFolderResponse'
   { -- | The list of symbolic links to other files and folders in the specified
     -- folder, if any.
-    symbolicLinks :: Core.Maybe [SymbolicLink],
+    symbolicLinks :: Prelude.Maybe [SymbolicLink],
     -- | The list of folders that exist under the specified folder, if any.
-    subFolders :: Core.Maybe [Folder],
+    subFolders :: Prelude.Maybe [Folder],
     -- | The full SHA-1 pointer of the tree information for the commit that
     -- contains the folder.
-    treeId :: Core.Maybe Core.Text,
+    treeId :: Prelude.Maybe Prelude.Text,
     -- | The list of submodules in the specified folder, if any.
-    subModules :: Core.Maybe [SubModule],
+    subModules :: Prelude.Maybe [SubModule],
     -- | The list of files in the specified folder, if any.
-    files :: Core.Maybe [File],
+    files :: Prelude.Maybe [File],
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The full commit ID used as a reference for the returned version of the
     -- folder content.
-    commitId :: Core.Text,
+    commitId :: Prelude.Text,
     -- | The fully qualified path of the folder whose contents are returned.
-    folderPath :: Core.Text
+    folderPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFolderResponse' with all optional fields omitted.
@@ -224,22 +230,22 @@ data GetFolderResponse = GetFolderResponse'
 -- 'folderPath', 'getFolderResponse_folderPath' - The fully qualified path of the folder whose contents are returned.
 newGetFolderResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'commitId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'folderPath'
-  Core.Text ->
+  Prelude.Text ->
   GetFolderResponse
 newGetFolderResponse
   pHttpStatus_
   pCommitId_
   pFolderPath_ =
     GetFolderResponse'
-      { symbolicLinks = Core.Nothing,
-        subFolders = Core.Nothing,
-        treeId = Core.Nothing,
-        subModules = Core.Nothing,
-        files = Core.Nothing,
+      { symbolicLinks = Prelude.Nothing,
+        subFolders = Prelude.Nothing,
+        treeId = Prelude.Nothing,
+        subModules = Prelude.Nothing,
+        files = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         commitId = pCommitId_,
         folderPath = pFolderPath_
@@ -247,37 +253,37 @@ newGetFolderResponse
 
 -- | The list of symbolic links to other files and folders in the specified
 -- folder, if any.
-getFolderResponse_symbolicLinks :: Lens.Lens' GetFolderResponse (Core.Maybe [SymbolicLink])
-getFolderResponse_symbolicLinks = Lens.lens (\GetFolderResponse' {symbolicLinks} -> symbolicLinks) (\s@GetFolderResponse' {} a -> s {symbolicLinks = a} :: GetFolderResponse) Core.. Lens.mapping Lens._Coerce
+getFolderResponse_symbolicLinks :: Lens.Lens' GetFolderResponse (Prelude.Maybe [SymbolicLink])
+getFolderResponse_symbolicLinks = Lens.lens (\GetFolderResponse' {symbolicLinks} -> symbolicLinks) (\s@GetFolderResponse' {} a -> s {symbolicLinks = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of folders that exist under the specified folder, if any.
-getFolderResponse_subFolders :: Lens.Lens' GetFolderResponse (Core.Maybe [Folder])
-getFolderResponse_subFolders = Lens.lens (\GetFolderResponse' {subFolders} -> subFolders) (\s@GetFolderResponse' {} a -> s {subFolders = a} :: GetFolderResponse) Core.. Lens.mapping Lens._Coerce
+getFolderResponse_subFolders :: Lens.Lens' GetFolderResponse (Prelude.Maybe [Folder])
+getFolderResponse_subFolders = Lens.lens (\GetFolderResponse' {subFolders} -> subFolders) (\s@GetFolderResponse' {} a -> s {subFolders = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The full SHA-1 pointer of the tree information for the commit that
 -- contains the folder.
-getFolderResponse_treeId :: Lens.Lens' GetFolderResponse (Core.Maybe Core.Text)
+getFolderResponse_treeId :: Lens.Lens' GetFolderResponse (Prelude.Maybe Prelude.Text)
 getFolderResponse_treeId = Lens.lens (\GetFolderResponse' {treeId} -> treeId) (\s@GetFolderResponse' {} a -> s {treeId = a} :: GetFolderResponse)
 
 -- | The list of submodules in the specified folder, if any.
-getFolderResponse_subModules :: Lens.Lens' GetFolderResponse (Core.Maybe [SubModule])
-getFolderResponse_subModules = Lens.lens (\GetFolderResponse' {subModules} -> subModules) (\s@GetFolderResponse' {} a -> s {subModules = a} :: GetFolderResponse) Core.. Lens.mapping Lens._Coerce
+getFolderResponse_subModules :: Lens.Lens' GetFolderResponse (Prelude.Maybe [SubModule])
+getFolderResponse_subModules = Lens.lens (\GetFolderResponse' {subModules} -> subModules) (\s@GetFolderResponse' {} a -> s {subModules = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of files in the specified folder, if any.
-getFolderResponse_files :: Lens.Lens' GetFolderResponse (Core.Maybe [File])
-getFolderResponse_files = Lens.lens (\GetFolderResponse' {files} -> files) (\s@GetFolderResponse' {} a -> s {files = a} :: GetFolderResponse) Core.. Lens.mapping Lens._Coerce
+getFolderResponse_files :: Lens.Lens' GetFolderResponse (Prelude.Maybe [File])
+getFolderResponse_files = Lens.lens (\GetFolderResponse' {files} -> files) (\s@GetFolderResponse' {} a -> s {files = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getFolderResponse_httpStatus :: Lens.Lens' GetFolderResponse Core.Int
+getFolderResponse_httpStatus :: Lens.Lens' GetFolderResponse Prelude.Int
 getFolderResponse_httpStatus = Lens.lens (\GetFolderResponse' {httpStatus} -> httpStatus) (\s@GetFolderResponse' {} a -> s {httpStatus = a} :: GetFolderResponse)
 
 -- | The full commit ID used as a reference for the returned version of the
 -- folder content.
-getFolderResponse_commitId :: Lens.Lens' GetFolderResponse Core.Text
+getFolderResponse_commitId :: Lens.Lens' GetFolderResponse Prelude.Text
 getFolderResponse_commitId = Lens.lens (\GetFolderResponse' {commitId} -> commitId) (\s@GetFolderResponse' {} a -> s {commitId = a} :: GetFolderResponse)
 
 -- | The fully qualified path of the folder whose contents are returned.
-getFolderResponse_folderPath :: Lens.Lens' GetFolderResponse Core.Text
+getFolderResponse_folderPath :: Lens.Lens' GetFolderResponse Prelude.Text
 getFolderResponse_folderPath = Lens.lens (\GetFolderResponse' {folderPath} -> folderPath) (\s@GetFolderResponse' {} a -> s {folderPath = a} :: GetFolderResponse)
 
-instance Core.NFData GetFolderResponse
+instance Prelude.NFData GetFolderResponse

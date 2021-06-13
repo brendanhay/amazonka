@@ -22,17 +22,18 @@ module Network.AWS.EMR.Types.ClusterStateChangeReason where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ClusterStateChangeReasonCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The reason that the cluster changed to its current state.
 --
 -- /See:/ 'newClusterStateChangeReason' smart constructor.
 data ClusterStateChangeReason = ClusterStateChangeReason'
   { -- | The descriptive message for the state change reason.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The programmatic code for the state change reason.
-    code :: Core.Maybe ClusterStateChangeReasonCode
+    code :: Prelude.Maybe ClusterStateChangeReasonCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClusterStateChangeReason' with all optional fields omitted.
@@ -49,16 +50,17 @@ newClusterStateChangeReason ::
   ClusterStateChangeReason
 newClusterStateChangeReason =
   ClusterStateChangeReason'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message =
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The descriptive message for the state change reason.
-clusterStateChangeReason_message :: Lens.Lens' ClusterStateChangeReason (Core.Maybe Core.Text)
+clusterStateChangeReason_message :: Lens.Lens' ClusterStateChangeReason (Prelude.Maybe Prelude.Text)
 clusterStateChangeReason_message = Lens.lens (\ClusterStateChangeReason' {message} -> message) (\s@ClusterStateChangeReason' {} a -> s {message = a} :: ClusterStateChangeReason)
 
 -- | The programmatic code for the state change reason.
-clusterStateChangeReason_code :: Lens.Lens' ClusterStateChangeReason (Core.Maybe ClusterStateChangeReasonCode)
+clusterStateChangeReason_code :: Lens.Lens' ClusterStateChangeReason (Prelude.Maybe ClusterStateChangeReasonCode)
 clusterStateChangeReason_code = Lens.lens (\ClusterStateChangeReason' {code} -> code) (\s@ClusterStateChangeReason' {} a -> s {code = a} :: ClusterStateChangeReason)
 
 instance Core.FromJSON ClusterStateChangeReason where
@@ -67,9 +69,10 @@ instance Core.FromJSON ClusterStateChangeReason where
       "ClusterStateChangeReason"
       ( \x ->
           ClusterStateChangeReason'
-            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Code")
       )
 
-instance Core.Hashable ClusterStateChangeReason
+instance Prelude.Hashable ClusterStateChangeReason
 
-instance Core.NFData ClusterStateChangeReason
+instance Prelude.NFData ClusterStateChangeReason

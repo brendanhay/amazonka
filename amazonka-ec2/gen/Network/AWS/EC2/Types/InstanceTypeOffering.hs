@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.LocationType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The instance types offered.
 --
@@ -32,15 +33,15 @@ data InstanceTypeOffering = InstanceTypeOffering'
   { -- | The instance type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
-    instanceType :: Core.Maybe InstanceType,
+    instanceType :: Prelude.Maybe InstanceType,
     -- | The location type.
-    locationType :: Core.Maybe LocationType,
+    locationType :: Prelude.Maybe LocationType,
     -- | The identifier for the location. This depends on the location type. For
     -- example, if the location type is @region@, the location is the Region
     -- code (for example, @us-east-2@.)
-    location :: Core.Maybe Core.Text
+    location :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceTypeOffering' with all optional fields omitted.
@@ -63,34 +64,35 @@ newInstanceTypeOffering ::
   InstanceTypeOffering
 newInstanceTypeOffering =
   InstanceTypeOffering'
-    { instanceType = Core.Nothing,
-      locationType = Core.Nothing,
-      location = Core.Nothing
+    { instanceType =
+        Prelude.Nothing,
+      locationType = Prelude.Nothing,
+      location = Prelude.Nothing
     }
 
 -- | The instance type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
-instanceTypeOffering_instanceType :: Lens.Lens' InstanceTypeOffering (Core.Maybe InstanceType)
+instanceTypeOffering_instanceType :: Lens.Lens' InstanceTypeOffering (Prelude.Maybe InstanceType)
 instanceTypeOffering_instanceType = Lens.lens (\InstanceTypeOffering' {instanceType} -> instanceType) (\s@InstanceTypeOffering' {} a -> s {instanceType = a} :: InstanceTypeOffering)
 
 -- | The location type.
-instanceTypeOffering_locationType :: Lens.Lens' InstanceTypeOffering (Core.Maybe LocationType)
+instanceTypeOffering_locationType :: Lens.Lens' InstanceTypeOffering (Prelude.Maybe LocationType)
 instanceTypeOffering_locationType = Lens.lens (\InstanceTypeOffering' {locationType} -> locationType) (\s@InstanceTypeOffering' {} a -> s {locationType = a} :: InstanceTypeOffering)
 
 -- | The identifier for the location. This depends on the location type. For
 -- example, if the location type is @region@, the location is the Region
 -- code (for example, @us-east-2@.)
-instanceTypeOffering_location :: Lens.Lens' InstanceTypeOffering (Core.Maybe Core.Text)
+instanceTypeOffering_location :: Lens.Lens' InstanceTypeOffering (Prelude.Maybe Prelude.Text)
 instanceTypeOffering_location = Lens.lens (\InstanceTypeOffering' {location} -> location) (\s@InstanceTypeOffering' {} a -> s {location = a} :: InstanceTypeOffering)
 
 instance Core.FromXML InstanceTypeOffering where
   parseXML x =
     InstanceTypeOffering'
-      Core.<$> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "locationType")
-      Core.<*> (x Core..@? "location")
+      Prelude.<$> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "locationType")
+      Prelude.<*> (x Core..@? "location")
 
-instance Core.Hashable InstanceTypeOffering
+instance Prelude.Hashable InstanceTypeOffering
 
-instance Core.NFData InstanceTypeOffering
+instance Prelude.NFData InstanceTypeOffering

@@ -38,15 +38,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteChannel' smart constructor.
 data DeleteChannel = DeleteChannel'
   { -- | The name of the channel to delete.
-    channelName :: Core.Text
+    channelName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteChannel' with all optional fields omitted.
@@ -59,13 +60,13 @@ data DeleteChannel = DeleteChannel'
 -- 'channelName', 'deleteChannel_channelName' - The name of the channel to delete.
 newDeleteChannel ::
   -- | 'channelName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteChannel
 newDeleteChannel pChannelName_ =
   DeleteChannel' {channelName = pChannelName_}
 
 -- | The name of the channel to delete.
-deleteChannel_channelName :: Lens.Lens' DeleteChannel Core.Text
+deleteChannel_channelName :: Lens.Lens' DeleteChannel Prelude.Text
 deleteChannel_channelName = Lens.lens (\DeleteChannel' {channelName} -> channelName) (\s@DeleteChannel' {} a -> s {channelName = a} :: DeleteChannel)
 
 instance Core.AWSRequest DeleteChannel where
@@ -76,25 +77,26 @@ instance Core.AWSRequest DeleteChannel where
   response =
     Response.receiveNull DeleteChannelResponse'
 
-instance Core.Hashable DeleteChannel
+instance Prelude.Hashable DeleteChannel
 
-instance Core.NFData DeleteChannel
+instance Prelude.NFData DeleteChannel
 
 instance Core.ToHeaders DeleteChannel where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteChannel where
   toPath DeleteChannel' {..} =
-    Core.mconcat ["/channels/", Core.toBS channelName]
+    Prelude.mconcat
+      ["/channels/", Core.toBS channelName]
 
 instance Core.ToQuery DeleteChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteChannelResponse' smart constructor.
 data DeleteChannelResponse = DeleteChannelResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteChannelResponse' with all optional fields omitted.
@@ -104,4 +106,4 @@ newDeleteChannelResponse ::
   DeleteChannelResponse
 newDeleteChannelResponse = DeleteChannelResponse'
 
-instance Core.NFData DeleteChannelResponse
+instance Prelude.NFData DeleteChannelResponse

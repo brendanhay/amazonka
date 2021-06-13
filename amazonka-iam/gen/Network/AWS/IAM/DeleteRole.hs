@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data DeleteRole = DeleteRole'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text
+    roleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRole' with all optional fields omitted.
@@ -76,7 +77,7 @@ data DeleteRole = DeleteRole'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteRole ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRole
 newDeleteRole pRoleName_ =
   DeleteRole' {roleName = pRoleName_}
@@ -87,7 +88,7 @@ newDeleteRole pRoleName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteRole_roleName :: Lens.Lens' DeleteRole Core.Text
+deleteRole_roleName :: Lens.Lens' DeleteRole Prelude.Text
 deleteRole_roleName = Lens.lens (\DeleteRole' {roleName} -> roleName) (\s@DeleteRole' {} a -> s {roleName = a} :: DeleteRole)
 
 instance Core.AWSRequest DeleteRole where
@@ -95,21 +96,23 @@ instance Core.AWSRequest DeleteRole where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteRoleResponse'
 
-instance Core.Hashable DeleteRole
+instance Prelude.Hashable DeleteRole
 
-instance Core.NFData DeleteRole
+instance Prelude.NFData DeleteRole
 
 instance Core.ToHeaders DeleteRole where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRole where
   toQuery DeleteRole' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("DeleteRole" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteRole" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName
       ]
 
@@ -117,7 +120,7 @@ instance Core.ToQuery DeleteRole where
 data DeleteRoleResponse = DeleteRoleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRoleResponse' with all optional fields omitted.
@@ -127,4 +130,4 @@ newDeleteRoleResponse ::
   DeleteRoleResponse
 newDeleteRoleResponse = DeleteRoleResponse'
 
-instance Core.NFData DeleteRoleResponse
+instance Prelude.NFData DeleteRoleResponse

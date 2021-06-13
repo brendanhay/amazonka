@@ -49,19 +49,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newConfirmPrivateVirtualInterface' smart constructor.
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
   { -- | The ID of the virtual private gateway.
-    virtualGatewayId :: Core.Maybe Core.Text,
+    virtualGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Core.Maybe Core.Text,
+    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual interface.
-    virtualInterfaceId :: Core.Text
+    virtualInterfaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfirmPrivateVirtualInterface' with all optional fields omitted.
@@ -78,27 +79,27 @@ data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
 -- 'virtualInterfaceId', 'confirmPrivateVirtualInterface_virtualInterfaceId' - The ID of the virtual interface.
 newConfirmPrivateVirtualInterface ::
   -- | 'virtualInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   ConfirmPrivateVirtualInterface
 newConfirmPrivateVirtualInterface
   pVirtualInterfaceId_ =
     ConfirmPrivateVirtualInterface'
       { virtualGatewayId =
-          Core.Nothing,
-        directConnectGatewayId = Core.Nothing,
+          Prelude.Nothing,
+        directConnectGatewayId = Prelude.Nothing,
         virtualInterfaceId = pVirtualInterfaceId_
       }
 
 -- | The ID of the virtual private gateway.
-confirmPrivateVirtualInterface_virtualGatewayId :: Lens.Lens' ConfirmPrivateVirtualInterface (Core.Maybe Core.Text)
+confirmPrivateVirtualInterface_virtualGatewayId :: Lens.Lens' ConfirmPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
 confirmPrivateVirtualInterface_virtualGatewayId = Lens.lens (\ConfirmPrivateVirtualInterface' {virtualGatewayId} -> virtualGatewayId) (\s@ConfirmPrivateVirtualInterface' {} a -> s {virtualGatewayId = a} :: ConfirmPrivateVirtualInterface)
 
 -- | The ID of the Direct Connect gateway.
-confirmPrivateVirtualInterface_directConnectGatewayId :: Lens.Lens' ConfirmPrivateVirtualInterface (Core.Maybe Core.Text)
+confirmPrivateVirtualInterface_directConnectGatewayId :: Lens.Lens' ConfirmPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
 confirmPrivateVirtualInterface_directConnectGatewayId = Lens.lens (\ConfirmPrivateVirtualInterface' {directConnectGatewayId} -> directConnectGatewayId) (\s@ConfirmPrivateVirtualInterface' {} a -> s {directConnectGatewayId = a} :: ConfirmPrivateVirtualInterface)
 
 -- | The ID of the virtual interface.
-confirmPrivateVirtualInterface_virtualInterfaceId :: Lens.Lens' ConfirmPrivateVirtualInterface Core.Text
+confirmPrivateVirtualInterface_virtualInterfaceId :: Lens.Lens' ConfirmPrivateVirtualInterface Prelude.Text
 confirmPrivateVirtualInterface_virtualInterfaceId = Lens.lens (\ConfirmPrivateVirtualInterface' {virtualInterfaceId} -> virtualInterfaceId) (\s@ConfirmPrivateVirtualInterface' {} a -> s {virtualInterfaceId = a} :: ConfirmPrivateVirtualInterface)
 
 instance
@@ -113,48 +114,54 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ConfirmPrivateVirtualInterfaceResponse'
-            Core.<$> (x Core..?> "virtualInterfaceState")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "virtualInterfaceState")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ConfirmPrivateVirtualInterface
+instance
+  Prelude.Hashable
+    ConfirmPrivateVirtualInterface
 
-instance Core.NFData ConfirmPrivateVirtualInterface
+instance
+  Prelude.NFData
+    ConfirmPrivateVirtualInterface
 
 instance
   Core.ToHeaders
     ConfirmPrivateVirtualInterface
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.ConfirmPrivateVirtualInterface" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ConfirmPrivateVirtualInterface where
   toJSON ConfirmPrivateVirtualInterface' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("virtualGatewayId" Core..=)
-              Core.<$> virtualGatewayId,
+              Prelude.<$> virtualGatewayId,
             ("directConnectGatewayId" Core..=)
-              Core.<$> directConnectGatewayId,
-            Core.Just
+              Prelude.<$> directConnectGatewayId,
+            Prelude.Just
               ("virtualInterfaceId" Core..= virtualInterfaceId)
           ]
       )
 
 instance Core.ToPath ConfirmPrivateVirtualInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ConfirmPrivateVirtualInterface where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfirmPrivateVirtualInterfaceResponse' smart constructor.
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
@@ -191,11 +198,11 @@ data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResp
     --     enters the @Rejected@ state.
     --
     -- -   @unknown@: The state of the virtual interface is not available.
-    virtualInterfaceState :: Core.Maybe VirtualInterfaceState,
+    virtualInterfaceState :: Prelude.Maybe VirtualInterfaceState,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfirmPrivateVirtualInterfaceResponse' with all optional fields omitted.
@@ -242,13 +249,13 @@ data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResp
 -- 'httpStatus', 'confirmPrivateVirtualInterfaceResponse_httpStatus' - The response's http status code.
 newConfirmPrivateVirtualInterfaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ConfirmPrivateVirtualInterfaceResponse
 newConfirmPrivateVirtualInterfaceResponse
   pHttpStatus_ =
     ConfirmPrivateVirtualInterfaceResponse'
       { virtualInterfaceState =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -285,13 +292,13 @@ newConfirmPrivateVirtualInterfaceResponse
 --     enters the @Rejected@ state.
 --
 -- -   @unknown@: The state of the virtual interface is not available.
-confirmPrivateVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' ConfirmPrivateVirtualInterfaceResponse (Core.Maybe VirtualInterfaceState)
+confirmPrivateVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' ConfirmPrivateVirtualInterfaceResponse (Prelude.Maybe VirtualInterfaceState)
 confirmPrivateVirtualInterfaceResponse_virtualInterfaceState = Lens.lens (\ConfirmPrivateVirtualInterfaceResponse' {virtualInterfaceState} -> virtualInterfaceState) (\s@ConfirmPrivateVirtualInterfaceResponse' {} a -> s {virtualInterfaceState = a} :: ConfirmPrivateVirtualInterfaceResponse)
 
 -- | The response's http status code.
-confirmPrivateVirtualInterfaceResponse_httpStatus :: Lens.Lens' ConfirmPrivateVirtualInterfaceResponse Core.Int
+confirmPrivateVirtualInterfaceResponse_httpStatus :: Lens.Lens' ConfirmPrivateVirtualInterfaceResponse Prelude.Int
 confirmPrivateVirtualInterfaceResponse_httpStatus = Lens.lens (\ConfirmPrivateVirtualInterfaceResponse' {httpStatus} -> httpStatus) (\s@ConfirmPrivateVirtualInterfaceResponse' {} a -> s {httpStatus = a} :: ConfirmPrivateVirtualInterfaceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ConfirmPrivateVirtualInterfaceResponse

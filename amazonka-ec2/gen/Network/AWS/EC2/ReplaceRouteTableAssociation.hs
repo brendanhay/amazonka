@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,13 +64,13 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The association ID.
-    associationId :: Core.Text,
+    associationId :: Prelude.Text,
     -- | The ID of the new route table to associate with the subnet.
-    routeTableId :: Core.Text
+    routeTableId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceRouteTableAssociation' with all optional fields omitted.
@@ -89,16 +90,16 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
 -- 'routeTableId', 'replaceRouteTableAssociation_routeTableId' - The ID of the new route table to associate with the subnet.
 newReplaceRouteTableAssociation ::
   -- | 'associationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routeTableId'
-  Core.Text ->
+  Prelude.Text ->
   ReplaceRouteTableAssociation
 newReplaceRouteTableAssociation
   pAssociationId_
   pRouteTableId_ =
     ReplaceRouteTableAssociation'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         associationId = pAssociationId_,
         routeTableId = pRouteTableId_
       }
@@ -107,15 +108,15 @@ newReplaceRouteTableAssociation
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-replaceRouteTableAssociation_dryRun :: Lens.Lens' ReplaceRouteTableAssociation (Core.Maybe Core.Bool)
+replaceRouteTableAssociation_dryRun :: Lens.Lens' ReplaceRouteTableAssociation (Prelude.Maybe Prelude.Bool)
 replaceRouteTableAssociation_dryRun = Lens.lens (\ReplaceRouteTableAssociation' {dryRun} -> dryRun) (\s@ReplaceRouteTableAssociation' {} a -> s {dryRun = a} :: ReplaceRouteTableAssociation)
 
 -- | The association ID.
-replaceRouteTableAssociation_associationId :: Lens.Lens' ReplaceRouteTableAssociation Core.Text
+replaceRouteTableAssociation_associationId :: Lens.Lens' ReplaceRouteTableAssociation Prelude.Text
 replaceRouteTableAssociation_associationId = Lens.lens (\ReplaceRouteTableAssociation' {associationId} -> associationId) (\s@ReplaceRouteTableAssociation' {} a -> s {associationId = a} :: ReplaceRouteTableAssociation)
 
 -- | The ID of the new route table to associate with the subnet.
-replaceRouteTableAssociation_routeTableId :: Lens.Lens' ReplaceRouteTableAssociation Core.Text
+replaceRouteTableAssociation_routeTableId :: Lens.Lens' ReplaceRouteTableAssociation Prelude.Text
 replaceRouteTableAssociation_routeTableId = Lens.lens (\ReplaceRouteTableAssociation' {routeTableId} -> routeTableId) (\s@ReplaceRouteTableAssociation' {} a -> s {routeTableId = a} :: ReplaceRouteTableAssociation)
 
 instance Core.AWSRequest ReplaceRouteTableAssociation where
@@ -127,27 +128,32 @@ instance Core.AWSRequest ReplaceRouteTableAssociation where
     Response.receiveXML
       ( \s h x ->
           ReplaceRouteTableAssociationResponse'
-            Core.<$> (x Core..@? "associationState")
-            Core.<*> (x Core..@? "newAssociationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "associationState")
+            Prelude.<*> (x Core..@? "newAssociationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ReplaceRouteTableAssociation
+instance
+  Prelude.Hashable
+    ReplaceRouteTableAssociation
 
-instance Core.NFData ReplaceRouteTableAssociation
+instance Prelude.NFData ReplaceRouteTableAssociation
 
 instance Core.ToHeaders ReplaceRouteTableAssociation where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ReplaceRouteTableAssociation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ReplaceRouteTableAssociation where
   toQuery ReplaceRouteTableAssociation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ReplaceRouteTableAssociation" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ( "ReplaceRouteTableAssociation" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "AssociationId" Core.=: associationId,
         "RouteTableId" Core.=: routeTableId
@@ -156,13 +162,13 @@ instance Core.ToQuery ReplaceRouteTableAssociation where
 -- | /See:/ 'newReplaceRouteTableAssociationResponse' smart constructor.
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
   { -- | The state of the association.
-    associationState :: Core.Maybe RouteTableAssociationState,
+    associationState :: Prelude.Maybe RouteTableAssociationState,
     -- | The ID of the new association.
-    newAssociationId' :: Core.Maybe Core.Text,
+    newAssociationId' :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceRouteTableAssociationResponse' with all optional fields omitted.
@@ -179,28 +185,28 @@ data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
 -- 'httpStatus', 'replaceRouteTableAssociationResponse_httpStatus' - The response's http status code.
 newReplaceRouteTableAssociationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ReplaceRouteTableAssociationResponse
 newReplaceRouteTableAssociationResponse pHttpStatus_ =
   ReplaceRouteTableAssociationResponse'
     { associationState =
-        Core.Nothing,
-      newAssociationId' = Core.Nothing,
+        Prelude.Nothing,
+      newAssociationId' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The state of the association.
-replaceRouteTableAssociationResponse_associationState :: Lens.Lens' ReplaceRouteTableAssociationResponse (Core.Maybe RouteTableAssociationState)
+replaceRouteTableAssociationResponse_associationState :: Lens.Lens' ReplaceRouteTableAssociationResponse (Prelude.Maybe RouteTableAssociationState)
 replaceRouteTableAssociationResponse_associationState = Lens.lens (\ReplaceRouteTableAssociationResponse' {associationState} -> associationState) (\s@ReplaceRouteTableAssociationResponse' {} a -> s {associationState = a} :: ReplaceRouteTableAssociationResponse)
 
 -- | The ID of the new association.
-replaceRouteTableAssociationResponse_newAssociationId :: Lens.Lens' ReplaceRouteTableAssociationResponse (Core.Maybe Core.Text)
+replaceRouteTableAssociationResponse_newAssociationId :: Lens.Lens' ReplaceRouteTableAssociationResponse (Prelude.Maybe Prelude.Text)
 replaceRouteTableAssociationResponse_newAssociationId = Lens.lens (\ReplaceRouteTableAssociationResponse' {newAssociationId'} -> newAssociationId') (\s@ReplaceRouteTableAssociationResponse' {} a -> s {newAssociationId' = a} :: ReplaceRouteTableAssociationResponse)
 
 -- | The response's http status code.
-replaceRouteTableAssociationResponse_httpStatus :: Lens.Lens' ReplaceRouteTableAssociationResponse Core.Int
+replaceRouteTableAssociationResponse_httpStatus :: Lens.Lens' ReplaceRouteTableAssociationResponse Prelude.Int
 replaceRouteTableAssociationResponse_httpStatus = Lens.lens (\ReplaceRouteTableAssociationResponse' {httpStatus} -> httpStatus) (\s@ReplaceRouteTableAssociationResponse' {} a -> s {httpStatus = a} :: ReplaceRouteTableAssociationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReplaceRouteTableAssociationResponse

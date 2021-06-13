@@ -103,6 +103,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -113,7 +114,7 @@ data DescribeKey = DescribeKey'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
     -- in the /AWS Key Management Service Developer Guide/.
-    grantTokens :: Core.Maybe [Core.Text],
+    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | Describes the specified customer master key (CMK).
     --
     -- If you specify a predefined AWS alias (an AWS alias with no key ID), KMS
@@ -139,9 +140,9 @@ data DescribeKey = DescribeKey'
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
     -- get the alias name and alias ARN, use ListAliases.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeKey' with all optional fields omitted.
@@ -184,11 +185,11 @@ data DescribeKey = DescribeKey'
 -- get the alias name and alias ARN, use ListAliases.
 newDescribeKey ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeKey
 newDescribeKey pKeyId_ =
   DescribeKey'
-    { grantTokens = Core.Nothing,
+    { grantTokens = Prelude.Nothing,
       keyId = pKeyId_
     }
 
@@ -197,8 +198,8 @@ newDescribeKey pKeyId_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
 -- in the /AWS Key Management Service Developer Guide/.
-describeKey_grantTokens :: Lens.Lens' DescribeKey (Core.Maybe [Core.Text])
-describeKey_grantTokens = Lens.lens (\DescribeKey' {grantTokens} -> grantTokens) (\s@DescribeKey' {} a -> s {grantTokens = a} :: DescribeKey) Core.. Lens.mapping Lens._Coerce
+describeKey_grantTokens :: Lens.Lens' DescribeKey (Prelude.Maybe [Prelude.Text])
+describeKey_grantTokens = Lens.lens (\DescribeKey' {grantTokens} -> grantTokens) (\s@DescribeKey' {} a -> s {grantTokens = a} :: DescribeKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Describes the specified customer master key (CMK).
 --
@@ -225,7 +226,7 @@ describeKey_grantTokens = Lens.lens (\DescribeKey' {grantTokens} -> grantTokens)
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
 -- get the alias name and alias ARN, use ListAliases.
-describeKey_keyId :: Lens.Lens' DescribeKey Core.Text
+describeKey_keyId :: Lens.Lens' DescribeKey Prelude.Text
 describeKey_keyId = Lens.lens (\DescribeKey' {keyId} -> keyId) (\s@DescribeKey' {} a -> s {keyId = a} :: DescribeKey)
 
 instance Core.AWSRequest DescribeKey where
@@ -235,48 +236,50 @@ instance Core.AWSRequest DescribeKey where
     Response.receiveJSON
       ( \s h x ->
           DescribeKeyResponse'
-            Core.<$> (x Core..?> "KeyMetadata")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "KeyMetadata")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeKey
+instance Prelude.Hashable DescribeKey
 
-instance Core.NFData DescribeKey
+instance Prelude.NFData DescribeKey
 
 instance Core.ToHeaders DescribeKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.DescribeKey" :: Core.ByteString),
+              Core.=# ("TrentService.DescribeKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeKey where
   toJSON DescribeKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GrantTokens" Core..=) Core.<$> grantTokens,
-            Core.Just ("KeyId" Core..= keyId)
+      ( Prelude.catMaybes
+          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
+            Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
 
 instance Core.ToPath DescribeKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeKeyResponse' smart constructor.
 data DescribeKeyResponse = DescribeKeyResponse'
   { -- | Metadata associated with the key.
-    keyMetadata :: Core.Maybe KeyMetadata,
+    keyMetadata :: Prelude.Maybe KeyMetadata,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeKeyResponse' with all optional fields omitted.
@@ -291,20 +294,20 @@ data DescribeKeyResponse = DescribeKeyResponse'
 -- 'httpStatus', 'describeKeyResponse_httpStatus' - The response's http status code.
 newDescribeKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeKeyResponse
 newDescribeKeyResponse pHttpStatus_ =
   DescribeKeyResponse'
-    { keyMetadata = Core.Nothing,
+    { keyMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Metadata associated with the key.
-describeKeyResponse_keyMetadata :: Lens.Lens' DescribeKeyResponse (Core.Maybe KeyMetadata)
+describeKeyResponse_keyMetadata :: Lens.Lens' DescribeKeyResponse (Prelude.Maybe KeyMetadata)
 describeKeyResponse_keyMetadata = Lens.lens (\DescribeKeyResponse' {keyMetadata} -> keyMetadata) (\s@DescribeKeyResponse' {} a -> s {keyMetadata = a} :: DescribeKeyResponse)
 
 -- | The response's http status code.
-describeKeyResponse_httpStatus :: Lens.Lens' DescribeKeyResponse Core.Int
+describeKeyResponse_httpStatus :: Lens.Lens' DescribeKeyResponse Prelude.Int
 describeKeyResponse_httpStatus = Lens.lens (\DescribeKeyResponse' {httpStatus} -> httpStatus) (\s@DescribeKeyResponse' {} a -> s {httpStatus = a} :: DescribeKeyResponse)
 
-instance Core.NFData DescribeKeyResponse
+instance Prelude.NFData DescribeKeyResponse

@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.InputWhitelistRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Whitelist rule
 --
 -- /See:/ 'newInputWhitelistRule' smart constructor.
 data InputWhitelistRule = InputWhitelistRule'
   { -- | The IPv4 CIDR that\'s whitelisted.
-    cidr :: Core.Maybe Core.Text
+    cidr :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputWhitelistRule' with all optional fields omitted.
@@ -43,10 +44,10 @@ data InputWhitelistRule = InputWhitelistRule'
 newInputWhitelistRule ::
   InputWhitelistRule
 newInputWhitelistRule =
-  InputWhitelistRule' {cidr = Core.Nothing}
+  InputWhitelistRule' {cidr = Prelude.Nothing}
 
 -- | The IPv4 CIDR that\'s whitelisted.
-inputWhitelistRule_cidr :: Lens.Lens' InputWhitelistRule (Core.Maybe Core.Text)
+inputWhitelistRule_cidr :: Lens.Lens' InputWhitelistRule (Prelude.Maybe Prelude.Text)
 inputWhitelistRule_cidr = Lens.lens (\InputWhitelistRule' {cidr} -> cidr) (\s@InputWhitelistRule' {} a -> s {cidr = a} :: InputWhitelistRule)
 
 instance Core.FromJSON InputWhitelistRule where
@@ -54,9 +55,9 @@ instance Core.FromJSON InputWhitelistRule where
     Core.withObject
       "InputWhitelistRule"
       ( \x ->
-          InputWhitelistRule' Core.<$> (x Core..:? "cidr")
+          InputWhitelistRule' Prelude.<$> (x Core..:? "cidr")
       )
 
-instance Core.Hashable InputWhitelistRule
+instance Prelude.Hashable InputWhitelistRule
 
-instance Core.NFData InputWhitelistRule
+instance Prelude.NFData InputWhitelistRule

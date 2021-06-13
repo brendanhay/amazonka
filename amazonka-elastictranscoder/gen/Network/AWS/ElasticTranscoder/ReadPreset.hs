@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data ReadPreset = ReadPreset'
   { -- | The identifier of the preset for which you want to get detailed
     -- information.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReadPreset' with all optional fields omitted.
@@ -67,13 +68,13 @@ data ReadPreset = ReadPreset'
 -- information.
 newReadPreset ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   ReadPreset
 newReadPreset pId_ = ReadPreset' {id = pId_}
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-readPreset_id :: Lens.Lens' ReadPreset Core.Text
+readPreset_id :: Lens.Lens' ReadPreset Prelude.Text
 readPreset_id = Lens.lens (\ReadPreset' {id} -> id) (\s@ReadPreset' {} a -> s {id = a} :: ReadPreset)
 
 instance Core.AWSRequest ReadPreset where
@@ -83,23 +84,24 @@ instance Core.AWSRequest ReadPreset where
     Response.receiveJSON
       ( \s h x ->
           ReadPresetResponse'
-            Core.<$> (x Core..?> "Preset")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Preset")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ReadPreset
+instance Prelude.Hashable ReadPreset
 
-instance Core.NFData ReadPreset
+instance Prelude.NFData ReadPreset
 
 instance Core.ToHeaders ReadPreset where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ReadPreset where
   toPath ReadPreset' {..} =
-    Core.mconcat ["/2012-09-25/presets/", Core.toBS id]
+    Prelude.mconcat
+      ["/2012-09-25/presets/", Core.toBS id]
 
 instance Core.ToQuery ReadPreset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The @ReadPresetResponse@ structure.
 --
@@ -107,11 +109,11 @@ instance Core.ToQuery ReadPreset where
 data ReadPresetResponse = ReadPresetResponse'
   { -- | A section of the response body that provides information about the
     -- preset.
-    preset :: Core.Maybe Preset,
+    preset :: Prelude.Maybe Preset,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReadPresetResponse' with all optional fields omitted.
@@ -127,21 +129,21 @@ data ReadPresetResponse = ReadPresetResponse'
 -- 'httpStatus', 'readPresetResponse_httpStatus' - The response's http status code.
 newReadPresetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ReadPresetResponse
 newReadPresetResponse pHttpStatus_ =
   ReadPresetResponse'
-    { preset = Core.Nothing,
+    { preset = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A section of the response body that provides information about the
 -- preset.
-readPresetResponse_preset :: Lens.Lens' ReadPresetResponse (Core.Maybe Preset)
+readPresetResponse_preset :: Lens.Lens' ReadPresetResponse (Prelude.Maybe Preset)
 readPresetResponse_preset = Lens.lens (\ReadPresetResponse' {preset} -> preset) (\s@ReadPresetResponse' {} a -> s {preset = a} :: ReadPresetResponse)
 
 -- | The response's http status code.
-readPresetResponse_httpStatus :: Lens.Lens' ReadPresetResponse Core.Int
+readPresetResponse_httpStatus :: Lens.Lens' ReadPresetResponse Prelude.Int
 readPresetResponse_httpStatus = Lens.lens (\ReadPresetResponse' {httpStatus} -> httpStatus) (\s@ReadPresetResponse' {} a -> s {httpStatus = a} :: ReadPresetResponse)
 
-instance Core.NFData ReadPresetResponse
+instance Prelude.NFData ReadPresetResponse

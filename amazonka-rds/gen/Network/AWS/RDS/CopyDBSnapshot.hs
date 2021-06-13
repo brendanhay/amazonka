@@ -57,6 +57,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -74,7 +75,7 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- AWS Regions. For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
     -- in the /Amazon RDS User Guide./
-    optionGroupName :: Core.Maybe Core.Text,
+    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | The AWS KMS key identifier for an encrypted DB snapshot. The AWS KMS key
     -- identifier is the key ARN, key ID, alias ARN, or alias name for the AWS
     -- KMS customer master key (CMK).
@@ -95,11 +96,11 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- must specify a AWS KMS key identifier for the destination AWS Region.
     -- AWS KMS CMKs are specific to the AWS Region that they are created in,
     -- and you can\'t use CMKs from one AWS Region in another AWS Region.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to copy all tags from the source DB
     -- snapshot to the target DB snapshot. By default, tags are not copied.
-    copyTags :: Core.Maybe Core.Bool,
-    tags :: Core.Maybe [Tag],
+    copyTags :: Prelude.Maybe Prelude.Bool,
+    tags :: Prelude.Maybe [Tag],
     -- | The URL that contains a Signature Version 4 signed request for the
     -- @CopyDBSnapshot@ API action in the source AWS Region that contains the
     -- source DB snapshot to copy.
@@ -149,12 +150,12 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
     -- autogenerates a pre-signed URL that is a valid request for the operation
     -- that can be executed in the source AWS Region.
-    preSignedUrl :: Core.Maybe Core.Text,
+    preSignedUrl :: Prelude.Maybe Prelude.Text,
     -- | The external custom Availability Zone (CAZ) identifier for the target
     -- CAZ.
     --
     -- Example: @rds-caz-aiqhTgQv@.
-    targetCustomAvailabilityZone :: Core.Maybe Core.Text,
+    targetCustomAvailabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the source DB snapshot.
     --
     -- If the source snapshot is in the same AWS Region as the copy, specify a
@@ -180,7 +181,7 @@ data CopyDBSnapshot = CopyDBSnapshot'
     --
     -- Example:
     -- @arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805@
-    sourceDBSnapshotIdentifier :: Core.Text,
+    sourceDBSnapshotIdentifier :: Prelude.Text,
     -- | The identifier for the copy of the snapshot.
     --
     -- Constraints:
@@ -194,9 +195,9 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @my-db-snapshot@
-    targetDBSnapshotIdentifier :: Core.Text
+    targetDBSnapshotIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyDBSnapshot' with all optional fields omitted.
@@ -338,20 +339,20 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- Example: @my-db-snapshot@
 newCopyDBSnapshot ::
   -- | 'sourceDBSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetDBSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   CopyDBSnapshot
 newCopyDBSnapshot
   pSourceDBSnapshotIdentifier_
   pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
-      { optionGroupName = Core.Nothing,
-        kmsKeyId = Core.Nothing,
-        copyTags = Core.Nothing,
-        tags = Core.Nothing,
-        preSignedUrl = Core.Nothing,
-        targetCustomAvailabilityZone = Core.Nothing,
+      { optionGroupName = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        copyTags = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        preSignedUrl = Prelude.Nothing,
+        targetCustomAvailabilityZone = Prelude.Nothing,
         sourceDBSnapshotIdentifier =
           pSourceDBSnapshotIdentifier_,
         targetDBSnapshotIdentifier =
@@ -367,7 +368,7 @@ newCopyDBSnapshot
 -- AWS Regions. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
 -- in the /Amazon RDS User Guide./
-copyDBSnapshot_optionGroupName :: Lens.Lens' CopyDBSnapshot (Core.Maybe Core.Text)
+copyDBSnapshot_optionGroupName :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_optionGroupName = Lens.lens (\CopyDBSnapshot' {optionGroupName} -> optionGroupName) (\s@CopyDBSnapshot' {} a -> s {optionGroupName = a} :: CopyDBSnapshot)
 
 -- | The AWS KMS key identifier for an encrypted DB snapshot. The AWS KMS key
@@ -390,17 +391,17 @@ copyDBSnapshot_optionGroupName = Lens.lens (\CopyDBSnapshot' {optionGroupName} -
 -- must specify a AWS KMS key identifier for the destination AWS Region.
 -- AWS KMS CMKs are specific to the AWS Region that they are created in,
 -- and you can\'t use CMKs from one AWS Region in another AWS Region.
-copyDBSnapshot_kmsKeyId :: Lens.Lens' CopyDBSnapshot (Core.Maybe Core.Text)
+copyDBSnapshot_kmsKeyId :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_kmsKeyId = Lens.lens (\CopyDBSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopyDBSnapshot' {} a -> s {kmsKeyId = a} :: CopyDBSnapshot)
 
 -- | A value that indicates whether to copy all tags from the source DB
 -- snapshot to the target DB snapshot. By default, tags are not copied.
-copyDBSnapshot_copyTags :: Lens.Lens' CopyDBSnapshot (Core.Maybe Core.Bool)
+copyDBSnapshot_copyTags :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Bool)
 copyDBSnapshot_copyTags = Lens.lens (\CopyDBSnapshot' {copyTags} -> copyTags) (\s@CopyDBSnapshot' {} a -> s {copyTags = a} :: CopyDBSnapshot)
 
 -- | Undocumented member.
-copyDBSnapshot_tags :: Lens.Lens' CopyDBSnapshot (Core.Maybe [Tag])
-copyDBSnapshot_tags = Lens.lens (\CopyDBSnapshot' {tags} -> tags) (\s@CopyDBSnapshot' {} a -> s {tags = a} :: CopyDBSnapshot) Core.. Lens.mapping Lens._Coerce
+copyDBSnapshot_tags :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe [Tag])
+copyDBSnapshot_tags = Lens.lens (\CopyDBSnapshot' {tags} -> tags) (\s@CopyDBSnapshot' {} a -> s {tags = a} :: CopyDBSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL that contains a Signature Version 4 signed request for the
 -- @CopyDBSnapshot@ API action in the source AWS Region that contains the
@@ -451,14 +452,14 @@ copyDBSnapshot_tags = Lens.lens (\CopyDBSnapshot' {tags} -> tags) (\s@CopyDBSnap
 -- specifying @PreSignedUrl@ manually. Specifying @SourceRegion@
 -- autogenerates a pre-signed URL that is a valid request for the operation
 -- that can be executed in the source AWS Region.
-copyDBSnapshot_preSignedUrl :: Lens.Lens' CopyDBSnapshot (Core.Maybe Core.Text)
+copyDBSnapshot_preSignedUrl :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_preSignedUrl = Lens.lens (\CopyDBSnapshot' {preSignedUrl} -> preSignedUrl) (\s@CopyDBSnapshot' {} a -> s {preSignedUrl = a} :: CopyDBSnapshot)
 
 -- | The external custom Availability Zone (CAZ) identifier for the target
 -- CAZ.
 --
 -- Example: @rds-caz-aiqhTgQv@.
-copyDBSnapshot_targetCustomAvailabilityZone :: Lens.Lens' CopyDBSnapshot (Core.Maybe Core.Text)
+copyDBSnapshot_targetCustomAvailabilityZone :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_targetCustomAvailabilityZone = Lens.lens (\CopyDBSnapshot' {targetCustomAvailabilityZone} -> targetCustomAvailabilityZone) (\s@CopyDBSnapshot' {} a -> s {targetCustomAvailabilityZone = a} :: CopyDBSnapshot)
 
 -- | The identifier for the source DB snapshot.
@@ -486,7 +487,7 @@ copyDBSnapshot_targetCustomAvailabilityZone = Lens.lens (\CopyDBSnapshot' {targe
 --
 -- Example:
 -- @arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805@
-copyDBSnapshot_sourceDBSnapshotIdentifier :: Lens.Lens' CopyDBSnapshot Core.Text
+copyDBSnapshot_sourceDBSnapshotIdentifier :: Lens.Lens' CopyDBSnapshot Prelude.Text
 copyDBSnapshot_sourceDBSnapshotIdentifier = Lens.lens (\CopyDBSnapshot' {sourceDBSnapshotIdentifier} -> sourceDBSnapshotIdentifier) (\s@CopyDBSnapshot' {} a -> s {sourceDBSnapshotIdentifier = a} :: CopyDBSnapshot)
 
 -- | The identifier for the copy of the snapshot.
@@ -502,7 +503,7 @@ copyDBSnapshot_sourceDBSnapshotIdentifier = Lens.lens (\CopyDBSnapshot' {sourceD
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-db-snapshot@
-copyDBSnapshot_targetDBSnapshotIdentifier :: Lens.Lens' CopyDBSnapshot Core.Text
+copyDBSnapshot_targetDBSnapshotIdentifier :: Lens.Lens' CopyDBSnapshot Prelude.Text
 copyDBSnapshot_targetDBSnapshotIdentifier = Lens.lens (\CopyDBSnapshot' {targetDBSnapshotIdentifier} -> targetDBSnapshotIdentifier) (\s@CopyDBSnapshot' {} a -> s {targetDBSnapshotIdentifier = a} :: CopyDBSnapshot)
 
 instance Core.AWSRequest CopyDBSnapshot where
@@ -515,31 +516,33 @@ instance Core.AWSRequest CopyDBSnapshot where
       "CopyDBSnapshotResult"
       ( \s h x ->
           CopyDBSnapshotResponse'
-            Core.<$> (x Core..@? "DBSnapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBSnapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CopyDBSnapshot
+instance Prelude.Hashable CopyDBSnapshot
 
-instance Core.NFData CopyDBSnapshot
+instance Prelude.NFData CopyDBSnapshot
 
 instance Core.ToHeaders CopyDBSnapshot where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CopyDBSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CopyDBSnapshot where
   toQuery CopyDBSnapshot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyDBSnapshot" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("CopyDBSnapshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "OptionGroupName" Core.=: optionGroupName,
         "KmsKeyId" Core.=: kmsKeyId,
         "CopyTags" Core.=: copyTags,
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "PreSignedUrl" Core.=: preSignedUrl,
         "TargetCustomAvailabilityZone"
           Core.=: targetCustomAvailabilityZone,
@@ -551,11 +554,11 @@ instance Core.ToQuery CopyDBSnapshot where
 
 -- | /See:/ 'newCopyDBSnapshotResponse' smart constructor.
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
-  { dbSnapshot :: Core.Maybe DBSnapshot,
+  { dbSnapshot :: Prelude.Maybe DBSnapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyDBSnapshotResponse' with all optional fields omitted.
@@ -570,20 +573,21 @@ data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
 -- 'httpStatus', 'copyDBSnapshotResponse_httpStatus' - The response's http status code.
 newCopyDBSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CopyDBSnapshotResponse
 newCopyDBSnapshotResponse pHttpStatus_ =
   CopyDBSnapshotResponse'
-    { dbSnapshot = Core.Nothing,
+    { dbSnapshot =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-copyDBSnapshotResponse_dbSnapshot :: Lens.Lens' CopyDBSnapshotResponse (Core.Maybe DBSnapshot)
+copyDBSnapshotResponse_dbSnapshot :: Lens.Lens' CopyDBSnapshotResponse (Prelude.Maybe DBSnapshot)
 copyDBSnapshotResponse_dbSnapshot = Lens.lens (\CopyDBSnapshotResponse' {dbSnapshot} -> dbSnapshot) (\s@CopyDBSnapshotResponse' {} a -> s {dbSnapshot = a} :: CopyDBSnapshotResponse)
 
 -- | The response's http status code.
-copyDBSnapshotResponse_httpStatus :: Lens.Lens' CopyDBSnapshotResponse Core.Int
+copyDBSnapshotResponse_httpStatus :: Lens.Lens' CopyDBSnapshotResponse Prelude.Int
 copyDBSnapshotResponse_httpStatus = Lens.lens (\CopyDBSnapshotResponse' {httpStatus} -> httpStatus) (\s@CopyDBSnapshotResponse' {} a -> s {httpStatus = a} :: CopyDBSnapshotResponse)
 
-instance Core.NFData CopyDBSnapshotResponse
+instance Prelude.NFData CopyDBSnapshotResponse

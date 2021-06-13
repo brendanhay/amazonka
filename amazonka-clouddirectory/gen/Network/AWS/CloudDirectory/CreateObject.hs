@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,20 +58,20 @@ import qualified Network.AWS.Response as Response
 data CreateObject = CreateObject'
   { -- | If specified, the parent reference to which this object will be
     -- attached.
-    parentReference :: Core.Maybe ObjectReference,
+    parentReference :: Prelude.Maybe ObjectReference,
     -- | The name of link that is used to attach this object to a parent.
-    linkName :: Core.Maybe Core.Text,
+    linkName :: Prelude.Maybe Prelude.Text,
     -- | The attribute map whose attribute ARN contains the key and attribute
     -- value as the map value.
-    objectAttributeList :: Core.Maybe [AttributeKeyAndValue],
+    objectAttributeList :: Prelude.Maybe [AttributeKeyAndValue],
     -- | The Amazon Resource Name (ARN) that is associated with the Directory in
     -- which the object will be created. For more information, see arns.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | A list of schema facets to be associated with the object. Do not provide
     -- minor version components. See SchemaFacet for details.
     schemaFacets :: [SchemaFacet]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateObject' with all optional fields omitted.
@@ -95,40 +96,40 @@ data CreateObject = CreateObject'
 -- minor version components. See SchemaFacet for details.
 newCreateObject ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateObject
 newCreateObject pDirectoryArn_ =
   CreateObject'
-    { parentReference = Core.Nothing,
-      linkName = Core.Nothing,
-      objectAttributeList = Core.Nothing,
+    { parentReference = Prelude.Nothing,
+      linkName = Prelude.Nothing,
+      objectAttributeList = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
-      schemaFacets = Core.mempty
+      schemaFacets = Prelude.mempty
     }
 
 -- | If specified, the parent reference to which this object will be
 -- attached.
-createObject_parentReference :: Lens.Lens' CreateObject (Core.Maybe ObjectReference)
+createObject_parentReference :: Lens.Lens' CreateObject (Prelude.Maybe ObjectReference)
 createObject_parentReference = Lens.lens (\CreateObject' {parentReference} -> parentReference) (\s@CreateObject' {} a -> s {parentReference = a} :: CreateObject)
 
 -- | The name of link that is used to attach this object to a parent.
-createObject_linkName :: Lens.Lens' CreateObject (Core.Maybe Core.Text)
+createObject_linkName :: Lens.Lens' CreateObject (Prelude.Maybe Prelude.Text)
 createObject_linkName = Lens.lens (\CreateObject' {linkName} -> linkName) (\s@CreateObject' {} a -> s {linkName = a} :: CreateObject)
 
 -- | The attribute map whose attribute ARN contains the key and attribute
 -- value as the map value.
-createObject_objectAttributeList :: Lens.Lens' CreateObject (Core.Maybe [AttributeKeyAndValue])
-createObject_objectAttributeList = Lens.lens (\CreateObject' {objectAttributeList} -> objectAttributeList) (\s@CreateObject' {} a -> s {objectAttributeList = a} :: CreateObject) Core.. Lens.mapping Lens._Coerce
+createObject_objectAttributeList :: Lens.Lens' CreateObject (Prelude.Maybe [AttributeKeyAndValue])
+createObject_objectAttributeList = Lens.lens (\CreateObject' {objectAttributeList} -> objectAttributeList) (\s@CreateObject' {} a -> s {objectAttributeList = a} :: CreateObject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory in
 -- which the object will be created. For more information, see arns.
-createObject_directoryArn :: Lens.Lens' CreateObject Core.Text
+createObject_directoryArn :: Lens.Lens' CreateObject Prelude.Text
 createObject_directoryArn = Lens.lens (\CreateObject' {directoryArn} -> directoryArn) (\s@CreateObject' {} a -> s {directoryArn = a} :: CreateObject)
 
 -- | A list of schema facets to be associated with the object. Do not provide
 -- minor version components. See SchemaFacet for details.
 createObject_schemaFacets :: Lens.Lens' CreateObject [SchemaFacet]
-createObject_schemaFacets = Lens.lens (\CreateObject' {schemaFacets} -> schemaFacets) (\s@CreateObject' {} a -> s {schemaFacets = a} :: CreateObject) Core.. Lens._Coerce
+createObject_schemaFacets = Lens.lens (\CreateObject' {schemaFacets} -> schemaFacets) (\s@CreateObject' {} a -> s {schemaFacets = a} :: CreateObject) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateObject where
   type AWSResponse CreateObject = CreateObjectResponse
@@ -137,48 +138,48 @@ instance Core.AWSRequest CreateObject where
     Response.receiveJSON
       ( \s h x ->
           CreateObjectResponse'
-            Core.<$> (x Core..?> "ObjectIdentifier")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateObject
+instance Prelude.Hashable CreateObject
 
-instance Core.NFData CreateObject
+instance Prelude.NFData CreateObject
 
 instance Core.ToHeaders CreateObject where
   toHeaders CreateObject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON CreateObject where
   toJSON CreateObject' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ParentReference" Core..=)
-              Core.<$> parentReference,
-            ("LinkName" Core..=) Core.<$> linkName,
+              Prelude.<$> parentReference,
+            ("LinkName" Core..=) Prelude.<$> linkName,
             ("ObjectAttributeList" Core..=)
-              Core.<$> objectAttributeList,
-            Core.Just ("SchemaFacets" Core..= schemaFacets)
+              Prelude.<$> objectAttributeList,
+            Prelude.Just ("SchemaFacets" Core..= schemaFacets)
           ]
       )
 
 instance Core.ToPath CreateObject where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/object"
 
 instance Core.ToQuery CreateObject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateObjectResponse' smart constructor.
 data CreateObjectResponse = CreateObjectResponse'
   { -- | The identifier that is associated with the object.
-    objectIdentifier :: Core.Maybe Core.Text,
+    objectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateObjectResponse' with all optional fields omitted.
@@ -193,21 +194,21 @@ data CreateObjectResponse = CreateObjectResponse'
 -- 'httpStatus', 'createObjectResponse_httpStatus' - The response's http status code.
 newCreateObjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateObjectResponse
 newCreateObjectResponse pHttpStatus_ =
   CreateObjectResponse'
     { objectIdentifier =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier that is associated with the object.
-createObjectResponse_objectIdentifier :: Lens.Lens' CreateObjectResponse (Core.Maybe Core.Text)
+createObjectResponse_objectIdentifier :: Lens.Lens' CreateObjectResponse (Prelude.Maybe Prelude.Text)
 createObjectResponse_objectIdentifier = Lens.lens (\CreateObjectResponse' {objectIdentifier} -> objectIdentifier) (\s@CreateObjectResponse' {} a -> s {objectIdentifier = a} :: CreateObjectResponse)
 
 -- | The response's http status code.
-createObjectResponse_httpStatus :: Lens.Lens' CreateObjectResponse Core.Int
+createObjectResponse_httpStatus :: Lens.Lens' CreateObjectResponse Prelude.Int
 createObjectResponse_httpStatus = Lens.lens (\CreateObjectResponse' {httpStatus} -> httpStatus) (\s@CreateObjectResponse' {} a -> s {httpStatus = a} :: CreateObjectResponse)
 
-instance Core.NFData CreateObjectResponse
+instance Prelude.NFData CreateObjectResponse

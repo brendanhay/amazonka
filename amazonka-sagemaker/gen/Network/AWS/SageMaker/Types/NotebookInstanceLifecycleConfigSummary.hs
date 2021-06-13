@@ -21,22 +21,23 @@ module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a summary of a notebook instance lifecycle configuration.
 --
 -- /See:/ 'newNotebookInstanceLifecycleConfigSummary' smart constructor.
 data NotebookInstanceLifecycleConfigSummary = NotebookInstanceLifecycleConfigSummary'
   { -- | A timestamp that tells when the lifecycle configuration was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | A timestamp that tells when the lifecycle configuration was last
     -- modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the lifecycle configuration.
-    notebookInstanceLifecycleConfigName :: Core.Text,
+    notebookInstanceLifecycleConfigName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
-    notebookInstanceLifecycleConfigArn :: Core.Text
+    notebookInstanceLifecycleConfigArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotebookInstanceLifecycleConfigSummary' with all optional fields omitted.
@@ -56,17 +57,17 @@ data NotebookInstanceLifecycleConfigSummary = NotebookInstanceLifecycleConfigSum
 -- 'notebookInstanceLifecycleConfigArn', 'notebookInstanceLifecycleConfigSummary_notebookInstanceLifecycleConfigArn' - The Amazon Resource Name (ARN) of the lifecycle configuration.
 newNotebookInstanceLifecycleConfigSummary ::
   -- | 'notebookInstanceLifecycleConfigName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'notebookInstanceLifecycleConfigArn'
-  Core.Text ->
+  Prelude.Text ->
   NotebookInstanceLifecycleConfigSummary
 newNotebookInstanceLifecycleConfigSummary
   pNotebookInstanceLifecycleConfigName_
   pNotebookInstanceLifecycleConfigArn_ =
     NotebookInstanceLifecycleConfigSummary'
       { creationTime =
-          Core.Nothing,
-        lastModifiedTime = Core.Nothing,
+          Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
         notebookInstanceLifecycleConfigName =
           pNotebookInstanceLifecycleConfigName_,
         notebookInstanceLifecycleConfigArn =
@@ -74,20 +75,20 @@ newNotebookInstanceLifecycleConfigSummary
       }
 
 -- | A timestamp that tells when the lifecycle configuration was created.
-notebookInstanceLifecycleConfigSummary_creationTime :: Lens.Lens' NotebookInstanceLifecycleConfigSummary (Core.Maybe Core.UTCTime)
-notebookInstanceLifecycleConfigSummary_creationTime = Lens.lens (\NotebookInstanceLifecycleConfigSummary' {creationTime} -> creationTime) (\s@NotebookInstanceLifecycleConfigSummary' {} a -> s {creationTime = a} :: NotebookInstanceLifecycleConfigSummary) Core.. Lens.mapping Core._Time
+notebookInstanceLifecycleConfigSummary_creationTime :: Lens.Lens' NotebookInstanceLifecycleConfigSummary (Prelude.Maybe Prelude.UTCTime)
+notebookInstanceLifecycleConfigSummary_creationTime = Lens.lens (\NotebookInstanceLifecycleConfigSummary' {creationTime} -> creationTime) (\s@NotebookInstanceLifecycleConfigSummary' {} a -> s {creationTime = a} :: NotebookInstanceLifecycleConfigSummary) Prelude.. Lens.mapping Core._Time
 
 -- | A timestamp that tells when the lifecycle configuration was last
 -- modified.
-notebookInstanceLifecycleConfigSummary_lastModifiedTime :: Lens.Lens' NotebookInstanceLifecycleConfigSummary (Core.Maybe Core.UTCTime)
-notebookInstanceLifecycleConfigSummary_lastModifiedTime = Lens.lens (\NotebookInstanceLifecycleConfigSummary' {lastModifiedTime} -> lastModifiedTime) (\s@NotebookInstanceLifecycleConfigSummary' {} a -> s {lastModifiedTime = a} :: NotebookInstanceLifecycleConfigSummary) Core.. Lens.mapping Core._Time
+notebookInstanceLifecycleConfigSummary_lastModifiedTime :: Lens.Lens' NotebookInstanceLifecycleConfigSummary (Prelude.Maybe Prelude.UTCTime)
+notebookInstanceLifecycleConfigSummary_lastModifiedTime = Lens.lens (\NotebookInstanceLifecycleConfigSummary' {lastModifiedTime} -> lastModifiedTime) (\s@NotebookInstanceLifecycleConfigSummary' {} a -> s {lastModifiedTime = a} :: NotebookInstanceLifecycleConfigSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the lifecycle configuration.
-notebookInstanceLifecycleConfigSummary_notebookInstanceLifecycleConfigName :: Lens.Lens' NotebookInstanceLifecycleConfigSummary Core.Text
+notebookInstanceLifecycleConfigSummary_notebookInstanceLifecycleConfigName :: Lens.Lens' NotebookInstanceLifecycleConfigSummary Prelude.Text
 notebookInstanceLifecycleConfigSummary_notebookInstanceLifecycleConfigName = Lens.lens (\NotebookInstanceLifecycleConfigSummary' {notebookInstanceLifecycleConfigName} -> notebookInstanceLifecycleConfigName) (\s@NotebookInstanceLifecycleConfigSummary' {} a -> s {notebookInstanceLifecycleConfigName = a} :: NotebookInstanceLifecycleConfigSummary)
 
 -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
-notebookInstanceLifecycleConfigSummary_notebookInstanceLifecycleConfigArn :: Lens.Lens' NotebookInstanceLifecycleConfigSummary Core.Text
+notebookInstanceLifecycleConfigSummary_notebookInstanceLifecycleConfigArn :: Lens.Lens' NotebookInstanceLifecycleConfigSummary Prelude.Text
 notebookInstanceLifecycleConfigSummary_notebookInstanceLifecycleConfigArn = Lens.lens (\NotebookInstanceLifecycleConfigSummary' {notebookInstanceLifecycleConfigArn} -> notebookInstanceLifecycleConfigArn) (\s@NotebookInstanceLifecycleConfigSummary' {} a -> s {notebookInstanceLifecycleConfigArn = a} :: NotebookInstanceLifecycleConfigSummary)
 
 instance
@@ -99,16 +100,16 @@ instance
       "NotebookInstanceLifecycleConfigSummary"
       ( \x ->
           NotebookInstanceLifecycleConfigSummary'
-            Core.<$> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "LastModifiedTime")
-            Core.<*> (x Core..: "NotebookInstanceLifecycleConfigName")
-            Core.<*> (x Core..: "NotebookInstanceLifecycleConfigArn")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..: "NotebookInstanceLifecycleConfigName")
+            Prelude.<*> (x Core..: "NotebookInstanceLifecycleConfigArn")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     NotebookInstanceLifecycleConfigSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     NotebookInstanceLifecycleConfigSummary

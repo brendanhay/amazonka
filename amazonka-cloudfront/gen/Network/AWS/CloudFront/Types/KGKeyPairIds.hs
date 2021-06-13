@@ -22,17 +22,18 @@ module Network.AWS.CloudFront.Types.KGKeyPairIds where
 import Network.AWS.CloudFront.Types.KeyPairIds
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of identifiers for the public keys that CloudFront can use to
 -- verify the signatures of signed URLs and signed cookies.
 --
 -- /See:/ 'newKGKeyPairIds' smart constructor.
 data KGKeyPairIds = KGKeyPairIds'
-  { keyPairIds :: Core.Maybe KeyPairIds,
+  { keyPairIds :: Prelude.Maybe KeyPairIds,
     -- | The identifier of the key group that contains the public keys.
-    keyGroupId :: Core.Maybe Core.Text
+    keyGroupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KGKeyPairIds' with all optional fields omitted.
@@ -49,24 +50,24 @@ newKGKeyPairIds ::
   KGKeyPairIds
 newKGKeyPairIds =
   KGKeyPairIds'
-    { keyPairIds = Core.Nothing,
-      keyGroupId = Core.Nothing
+    { keyPairIds = Prelude.Nothing,
+      keyGroupId = Prelude.Nothing
     }
 
 -- | Undocumented member.
-kGKeyPairIds_keyPairIds :: Lens.Lens' KGKeyPairIds (Core.Maybe KeyPairIds)
+kGKeyPairIds_keyPairIds :: Lens.Lens' KGKeyPairIds (Prelude.Maybe KeyPairIds)
 kGKeyPairIds_keyPairIds = Lens.lens (\KGKeyPairIds' {keyPairIds} -> keyPairIds) (\s@KGKeyPairIds' {} a -> s {keyPairIds = a} :: KGKeyPairIds)
 
 -- | The identifier of the key group that contains the public keys.
-kGKeyPairIds_keyGroupId :: Lens.Lens' KGKeyPairIds (Core.Maybe Core.Text)
+kGKeyPairIds_keyGroupId :: Lens.Lens' KGKeyPairIds (Prelude.Maybe Prelude.Text)
 kGKeyPairIds_keyGroupId = Lens.lens (\KGKeyPairIds' {keyGroupId} -> keyGroupId) (\s@KGKeyPairIds' {} a -> s {keyGroupId = a} :: KGKeyPairIds)
 
 instance Core.FromXML KGKeyPairIds where
   parseXML x =
     KGKeyPairIds'
-      Core.<$> (x Core..@? "KeyPairIds")
-      Core.<*> (x Core..@? "KeyGroupId")
+      Prelude.<$> (x Core..@? "KeyPairIds")
+      Prelude.<*> (x Core..@? "KeyGroupId")
 
-instance Core.Hashable KGKeyPairIds
+instance Prelude.Hashable KGKeyPairIds
 
-instance Core.NFData KGKeyPairIds
+instance Prelude.NFData KGKeyPairIds

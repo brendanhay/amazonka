@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteLedger' smart constructor.
 data DeleteLedger = DeleteLedger'
   { -- | The name of the ledger that you want to delete.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLedger' with all optional fields omitted.
@@ -65,12 +66,12 @@ data DeleteLedger = DeleteLedger'
 -- 'name', 'deleteLedger_name' - The name of the ledger that you want to delete.
 newDeleteLedger ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLedger
 newDeleteLedger pName_ = DeleteLedger' {name = pName_}
 
 -- | The name of the ledger that you want to delete.
-deleteLedger_name :: Lens.Lens' DeleteLedger Core.Text
+deleteLedger_name :: Lens.Lens' DeleteLedger Prelude.Text
 deleteLedger_name = Lens.lens (\DeleteLedger' {name} -> name) (\s@DeleteLedger' {} a -> s {name = a} :: DeleteLedger)
 
 instance Core.AWSRequest DeleteLedger where
@@ -78,31 +79,33 @@ instance Core.AWSRequest DeleteLedger where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteLedgerResponse'
 
-instance Core.Hashable DeleteLedger
+instance Prelude.Hashable DeleteLedger
 
-instance Core.NFData DeleteLedger
+instance Prelude.NFData DeleteLedger
 
 instance Core.ToHeaders DeleteLedger where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteLedger where
   toPath DeleteLedger' {..} =
-    Core.mconcat ["/ledgers/", Core.toBS name]
+    Prelude.mconcat ["/ledgers/", Core.toBS name]
 
 instance Core.ToQuery DeleteLedger where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLedgerResponse' smart constructor.
 data DeleteLedgerResponse = DeleteLedgerResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLedgerResponse' with all optional fields omitted.
@@ -112,4 +115,4 @@ newDeleteLedgerResponse ::
   DeleteLedgerResponse
 newDeleteLedgerResponse = DeleteLedgerResponse'
 
-instance Core.NFData DeleteLedgerResponse
+instance Prelude.NFData DeleteLedgerResponse

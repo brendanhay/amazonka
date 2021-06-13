@@ -89,22 +89,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDhcpOptions' smart constructor.
 data CreateDhcpOptions = CreateDhcpOptions'
   { -- | The tags to assign to the DHCP option.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | A DHCP configuration option.
     dhcpConfigurations :: [NewDhcpConfiguration]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDhcpOptions' with all optional fields omitted.
@@ -127,25 +128,25 @@ newCreateDhcpOptions ::
 newCreateDhcpOptions =
   CreateDhcpOptions'
     { tagSpecifications =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      dhcpConfigurations = Core.mempty
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      dhcpConfigurations = Prelude.mempty
     }
 
 -- | The tags to assign to the DHCP option.
-createDhcpOptions_tagSpecifications :: Lens.Lens' CreateDhcpOptions (Core.Maybe [TagSpecification])
-createDhcpOptions_tagSpecifications = Lens.lens (\CreateDhcpOptions' {tagSpecifications} -> tagSpecifications) (\s@CreateDhcpOptions' {} a -> s {tagSpecifications = a} :: CreateDhcpOptions) Core.. Lens.mapping Lens._Coerce
+createDhcpOptions_tagSpecifications :: Lens.Lens' CreateDhcpOptions (Prelude.Maybe [TagSpecification])
+createDhcpOptions_tagSpecifications = Lens.lens (\CreateDhcpOptions' {tagSpecifications} -> tagSpecifications) (\s@CreateDhcpOptions' {} a -> s {tagSpecifications = a} :: CreateDhcpOptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createDhcpOptions_dryRun :: Lens.Lens' CreateDhcpOptions (Core.Maybe Core.Bool)
+createDhcpOptions_dryRun :: Lens.Lens' CreateDhcpOptions (Prelude.Maybe Prelude.Bool)
 createDhcpOptions_dryRun = Lens.lens (\CreateDhcpOptions' {dryRun} -> dryRun) (\s@CreateDhcpOptions' {} a -> s {dryRun = a} :: CreateDhcpOptions)
 
 -- | A DHCP configuration option.
 createDhcpOptions_dhcpConfigurations :: Lens.Lens' CreateDhcpOptions [NewDhcpConfiguration]
-createDhcpOptions_dhcpConfigurations = Lens.lens (\CreateDhcpOptions' {dhcpConfigurations} -> dhcpConfigurations) (\s@CreateDhcpOptions' {} a -> s {dhcpConfigurations = a} :: CreateDhcpOptions) Core.. Lens._Coerce
+createDhcpOptions_dhcpConfigurations = Lens.lens (\CreateDhcpOptions' {dhcpConfigurations} -> dhcpConfigurations) (\s@CreateDhcpOptions' {} a -> s {dhcpConfigurations = a} :: CreateDhcpOptions) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateDhcpOptions where
   type
@@ -156,29 +157,30 @@ instance Core.AWSRequest CreateDhcpOptions where
     Response.receiveXML
       ( \s h x ->
           CreateDhcpOptionsResponse'
-            Core.<$> (x Core..@? "dhcpOptions")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "dhcpOptions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDhcpOptions
+instance Prelude.Hashable CreateDhcpOptions
 
-instance Core.NFData CreateDhcpOptions
+instance Prelude.NFData CreateDhcpOptions
 
 instance Core.ToHeaders CreateDhcpOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateDhcpOptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDhcpOptions where
   toQuery CreateDhcpOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDhcpOptions" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateDhcpOptions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         Core.toQueryList
@@ -189,11 +191,11 @@ instance Core.ToQuery CreateDhcpOptions where
 -- | /See:/ 'newCreateDhcpOptionsResponse' smart constructor.
 data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse'
   { -- | A set of DHCP options.
-    dhcpOptions :: Core.Maybe DhcpOptions,
+    dhcpOptions :: Prelude.Maybe DhcpOptions,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDhcpOptionsResponse' with all optional fields omitted.
@@ -208,21 +210,21 @@ data CreateDhcpOptionsResponse = CreateDhcpOptionsResponse'
 -- 'httpStatus', 'createDhcpOptionsResponse_httpStatus' - The response's http status code.
 newCreateDhcpOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDhcpOptionsResponse
 newCreateDhcpOptionsResponse pHttpStatus_ =
   CreateDhcpOptionsResponse'
     { dhcpOptions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A set of DHCP options.
-createDhcpOptionsResponse_dhcpOptions :: Lens.Lens' CreateDhcpOptionsResponse (Core.Maybe DhcpOptions)
+createDhcpOptionsResponse_dhcpOptions :: Lens.Lens' CreateDhcpOptionsResponse (Prelude.Maybe DhcpOptions)
 createDhcpOptionsResponse_dhcpOptions = Lens.lens (\CreateDhcpOptionsResponse' {dhcpOptions} -> dhcpOptions) (\s@CreateDhcpOptionsResponse' {} a -> s {dhcpOptions = a} :: CreateDhcpOptionsResponse)
 
 -- | The response's http status code.
-createDhcpOptionsResponse_httpStatus :: Lens.Lens' CreateDhcpOptionsResponse Core.Int
+createDhcpOptionsResponse_httpStatus :: Lens.Lens' CreateDhcpOptionsResponse Prelude.Int
 createDhcpOptionsResponse_httpStatus = Lens.lens (\CreateDhcpOptionsResponse' {httpStatus} -> httpStatus) (\s@CreateDhcpOptionsResponse' {} a -> s {httpStatus = a} :: CreateDhcpOptionsResponse)
 
-instance Core.NFData CreateDhcpOptionsResponse
+instance Prelude.NFData CreateDhcpOptionsResponse

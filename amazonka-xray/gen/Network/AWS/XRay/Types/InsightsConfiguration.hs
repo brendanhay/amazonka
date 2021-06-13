@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.InsightsConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The structure containing configurations related to insights.
 --
@@ -29,12 +30,12 @@ data InsightsConfiguration = InsightsConfiguration'
   { -- | Set the NotificationsEnabled value to true to enable insights
     -- notifications. Notifications can only be enabled on a group with
     -- InsightsEnabled set to true.
-    notificationsEnabled :: Core.Maybe Core.Bool,
+    notificationsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Set the InsightsEnabled value to true to enable insights or false to
     -- disable insights.
-    insightsEnabled :: Core.Maybe Core.Bool
+    insightsEnabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InsightsConfiguration' with all optional fields omitted.
@@ -55,19 +56,19 @@ newInsightsConfiguration ::
 newInsightsConfiguration =
   InsightsConfiguration'
     { notificationsEnabled =
-        Core.Nothing,
-      insightsEnabled = Core.Nothing
+        Prelude.Nothing,
+      insightsEnabled = Prelude.Nothing
     }
 
 -- | Set the NotificationsEnabled value to true to enable insights
 -- notifications. Notifications can only be enabled on a group with
 -- InsightsEnabled set to true.
-insightsConfiguration_notificationsEnabled :: Lens.Lens' InsightsConfiguration (Core.Maybe Core.Bool)
+insightsConfiguration_notificationsEnabled :: Lens.Lens' InsightsConfiguration (Prelude.Maybe Prelude.Bool)
 insightsConfiguration_notificationsEnabled = Lens.lens (\InsightsConfiguration' {notificationsEnabled} -> notificationsEnabled) (\s@InsightsConfiguration' {} a -> s {notificationsEnabled = a} :: InsightsConfiguration)
 
 -- | Set the InsightsEnabled value to true to enable insights or false to
 -- disable insights.
-insightsConfiguration_insightsEnabled :: Lens.Lens' InsightsConfiguration (Core.Maybe Core.Bool)
+insightsConfiguration_insightsEnabled :: Lens.Lens' InsightsConfiguration (Prelude.Maybe Prelude.Bool)
 insightsConfiguration_insightsEnabled = Lens.lens (\InsightsConfiguration' {insightsEnabled} -> insightsEnabled) (\s@InsightsConfiguration' {} a -> s {insightsEnabled = a} :: InsightsConfiguration)
 
 instance Core.FromJSON InsightsConfiguration where
@@ -76,21 +77,21 @@ instance Core.FromJSON InsightsConfiguration where
       "InsightsConfiguration"
       ( \x ->
           InsightsConfiguration'
-            Core.<$> (x Core..:? "NotificationsEnabled")
-            Core.<*> (x Core..:? "InsightsEnabled")
+            Prelude.<$> (x Core..:? "NotificationsEnabled")
+            Prelude.<*> (x Core..:? "InsightsEnabled")
       )
 
-instance Core.Hashable InsightsConfiguration
+instance Prelude.Hashable InsightsConfiguration
 
-instance Core.NFData InsightsConfiguration
+instance Prelude.NFData InsightsConfiguration
 
 instance Core.ToJSON InsightsConfiguration where
   toJSON InsightsConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NotificationsEnabled" Core..=)
-              Core.<$> notificationsEnabled,
+              Prelude.<$> notificationsEnabled,
             ("InsightsEnabled" Core..=)
-              Core.<$> insightsEnabled
+              Prelude.<$> insightsEnabled
           ]
       )

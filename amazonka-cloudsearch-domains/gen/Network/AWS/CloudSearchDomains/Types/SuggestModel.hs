@@ -22,6 +22,7 @@ module Network.AWS.CloudSearchDomains.Types.SuggestModel where
 import Network.AWS.CloudSearchDomains.Types.SuggestionMatch
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Container for the suggestion information returned in a
 -- @SuggestResponse@.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSuggestModel' smart constructor.
 data SuggestModel = SuggestModel'
   { -- | The documents that match the query string.
-    suggestions :: Core.Maybe [SuggestionMatch],
+    suggestions :: Prelude.Maybe [SuggestionMatch],
     -- | The number of documents that were found to match the query string.
-    found :: Core.Maybe Core.Integer,
+    found :: Prelude.Maybe Prelude.Integer,
     -- | The query string specified in the suggest request.
-    query :: Core.Maybe Core.Text
+    query :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SuggestModel' with all optional fields omitted.
@@ -54,21 +55,21 @@ newSuggestModel ::
   SuggestModel
 newSuggestModel =
   SuggestModel'
-    { suggestions = Core.Nothing,
-      found = Core.Nothing,
-      query = Core.Nothing
+    { suggestions = Prelude.Nothing,
+      found = Prelude.Nothing,
+      query = Prelude.Nothing
     }
 
 -- | The documents that match the query string.
-suggestModel_suggestions :: Lens.Lens' SuggestModel (Core.Maybe [SuggestionMatch])
-suggestModel_suggestions = Lens.lens (\SuggestModel' {suggestions} -> suggestions) (\s@SuggestModel' {} a -> s {suggestions = a} :: SuggestModel) Core.. Lens.mapping Lens._Coerce
+suggestModel_suggestions :: Lens.Lens' SuggestModel (Prelude.Maybe [SuggestionMatch])
+suggestModel_suggestions = Lens.lens (\SuggestModel' {suggestions} -> suggestions) (\s@SuggestModel' {} a -> s {suggestions = a} :: SuggestModel) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of documents that were found to match the query string.
-suggestModel_found :: Lens.Lens' SuggestModel (Core.Maybe Core.Integer)
+suggestModel_found :: Lens.Lens' SuggestModel (Prelude.Maybe Prelude.Integer)
 suggestModel_found = Lens.lens (\SuggestModel' {found} -> found) (\s@SuggestModel' {} a -> s {found = a} :: SuggestModel)
 
 -- | The query string specified in the suggest request.
-suggestModel_query :: Lens.Lens' SuggestModel (Core.Maybe Core.Text)
+suggestModel_query :: Lens.Lens' SuggestModel (Prelude.Maybe Prelude.Text)
 suggestModel_query = Lens.lens (\SuggestModel' {query} -> query) (\s@SuggestModel' {} a -> s {query = a} :: SuggestModel)
 
 instance Core.FromJSON SuggestModel where
@@ -77,11 +78,11 @@ instance Core.FromJSON SuggestModel where
       "SuggestModel"
       ( \x ->
           SuggestModel'
-            Core.<$> (x Core..:? "suggestions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "found")
-            Core.<*> (x Core..:? "query")
+            Prelude.<$> (x Core..:? "suggestions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "found")
+            Prelude.<*> (x Core..:? "query")
       )
 
-instance Core.Hashable SuggestModel
+instance Prelude.Hashable SuggestModel
 
-instance Core.NFData SuggestModel
+instance Prelude.NFData SuggestModel

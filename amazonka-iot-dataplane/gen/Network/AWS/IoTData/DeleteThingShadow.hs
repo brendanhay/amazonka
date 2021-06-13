@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTData.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteThingShadow' smart constructor.
 data DeleteThingShadow = DeleteThingShadow'
   { -- | The name of the shadow.
-    shadowName :: Core.Maybe Core.Text,
+    shadowName :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteThingShadow' with all optional fields omitted.
@@ -74,20 +75,20 @@ data DeleteThingShadow = DeleteThingShadow'
 -- 'thingName', 'deleteThingShadow_thingName' - The name of the thing.
 newDeleteThingShadow ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteThingShadow
 newDeleteThingShadow pThingName_ =
   DeleteThingShadow'
-    { shadowName = Core.Nothing,
+    { shadowName = Prelude.Nothing,
       thingName = pThingName_
     }
 
 -- | The name of the shadow.
-deleteThingShadow_shadowName :: Lens.Lens' DeleteThingShadow (Core.Maybe Core.Text)
+deleteThingShadow_shadowName :: Lens.Lens' DeleteThingShadow (Prelude.Maybe Prelude.Text)
 deleteThingShadow_shadowName = Lens.lens (\DeleteThingShadow' {shadowName} -> shadowName) (\s@DeleteThingShadow' {} a -> s {shadowName = a} :: DeleteThingShadow)
 
 -- | The name of the thing.
-deleteThingShadow_thingName :: Lens.Lens' DeleteThingShadow Core.Text
+deleteThingShadow_thingName :: Lens.Lens' DeleteThingShadow Prelude.Text
 deleteThingShadow_thingName = Lens.lens (\DeleteThingShadow' {thingName} -> thingName) (\s@DeleteThingShadow' {} a -> s {thingName = a} :: DeleteThingShadow)
 
 instance Core.AWSRequest DeleteThingShadow where
@@ -99,35 +100,36 @@ instance Core.AWSRequest DeleteThingShadow where
     Response.receiveBytes
       ( \s h x ->
           DeleteThingShadowResponse'
-            Core.<$> (Core.pure (Core.fromEnum s)) Core.<*> (Core.pure x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure x)
       )
 
-instance Core.Hashable DeleteThingShadow
+instance Prelude.Hashable DeleteThingShadow
 
-instance Core.NFData DeleteThingShadow
+instance Prelude.NFData DeleteThingShadow
 
 instance Core.ToHeaders DeleteThingShadow where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteThingShadow where
   toPath DeleteThingShadow' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/things/", Core.toBS thingName, "/shadow"]
 
 instance Core.ToQuery DeleteThingShadow where
   toQuery DeleteThingShadow' {..} =
-    Core.mconcat ["name" Core.=: shadowName]
+    Prelude.mconcat ["name" Core.=: shadowName]
 
 -- | The output from the DeleteThingShadow operation.
 --
 -- /See:/ 'newDeleteThingShadowResponse' smart constructor.
 data DeleteThingShadowResponse = DeleteThingShadowResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The state information, in JSON format.
-    payload :: Core.ByteString
+    payload :: Prelude.ByteString
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteThingShadowResponse' with all optional fields omitted.
@@ -142,9 +144,9 @@ data DeleteThingShadowResponse = DeleteThingShadowResponse'
 -- 'payload', 'deleteThingShadowResponse_payload' - The state information, in JSON format.
 newDeleteThingShadowResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'payload'
-  Core.ByteString ->
+  Prelude.ByteString ->
   DeleteThingShadowResponse
 newDeleteThingShadowResponse pHttpStatus_ pPayload_ =
   DeleteThingShadowResponse'
@@ -154,11 +156,11 @@ newDeleteThingShadowResponse pHttpStatus_ pPayload_ =
     }
 
 -- | The response's http status code.
-deleteThingShadowResponse_httpStatus :: Lens.Lens' DeleteThingShadowResponse Core.Int
+deleteThingShadowResponse_httpStatus :: Lens.Lens' DeleteThingShadowResponse Prelude.Int
 deleteThingShadowResponse_httpStatus = Lens.lens (\DeleteThingShadowResponse' {httpStatus} -> httpStatus) (\s@DeleteThingShadowResponse' {} a -> s {httpStatus = a} :: DeleteThingShadowResponse)
 
 -- | The state information, in JSON format.
-deleteThingShadowResponse_payload :: Lens.Lens' DeleteThingShadowResponse Core.ByteString
+deleteThingShadowResponse_payload :: Lens.Lens' DeleteThingShadowResponse Prelude.ByteString
 deleteThingShadowResponse_payload = Lens.lens (\DeleteThingShadowResponse' {payload} -> payload) (\s@DeleteThingShadowResponse' {} a -> s {payload = a} :: DeleteThingShadowResponse)
 
-instance Core.NFData DeleteThingShadowResponse
+instance Prelude.NFData DeleteThingShadowResponse

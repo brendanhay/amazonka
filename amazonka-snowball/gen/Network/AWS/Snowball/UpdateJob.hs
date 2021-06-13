@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -61,28 +62,28 @@ data UpdateJob = UpdateJob'
     -- this job. To create a role ARN, use the
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>AWS
     -- Identity and Access Management (IAM) API action.
-    roleARN :: Core.Maybe Core.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The updated shipping option value of this job\'s ShippingDetails object.
-    shippingOption :: Core.Maybe ShippingOption,
+    shippingOption :: Prelude.Maybe ShippingOption,
     -- | The updated @JobResource@ object, or the updated JobResource object.
-    resources :: Core.Maybe JobResource,
+    resources :: Prelude.Maybe JobResource,
     -- | The updated @SnowballCapacityPreference@ of this job\'s JobMetadata
     -- object. The 50 TB Snowballs are only available in the US regions.
-    snowballCapacityPreference :: Core.Maybe SnowballCapacity,
+    snowballCapacityPreference :: Prelude.Maybe SnowballCapacity,
     -- | The updated description of this job\'s JobMetadata object.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the updated Address object.
-    addressId :: Core.Maybe Core.Text,
+    addressId :: Prelude.Maybe Prelude.Text,
     -- | The updated ID for the forwarding address for a job. This field is not
     -- supported in most regions.
-    forwardingAddressId :: Core.Maybe Core.Text,
+    forwardingAddressId :: Prelude.Maybe Prelude.Text,
     -- | The new or updated Notification object.
-    notification :: Core.Maybe Notification,
+    notification :: Prelude.Maybe Notification,
     -- | The job ID of the job that you want to update, for example
     -- @JID123e4567-e89b-12d3-a456-426655440000@.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJob' with all optional fields omitted.
@@ -117,18 +118,18 @@ data UpdateJob = UpdateJob'
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
 newUpdateJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateJob
 newUpdateJob pJobId_ =
   UpdateJob'
-    { roleARN = Core.Nothing,
-      shippingOption = Core.Nothing,
-      resources = Core.Nothing,
-      snowballCapacityPreference = Core.Nothing,
-      description = Core.Nothing,
-      addressId = Core.Nothing,
-      forwardingAddressId = Core.Nothing,
-      notification = Core.Nothing,
+    { roleARN = Prelude.Nothing,
+      shippingOption = Prelude.Nothing,
+      resources = Prelude.Nothing,
+      snowballCapacityPreference = Prelude.Nothing,
+      description = Prelude.Nothing,
+      addressId = Prelude.Nothing,
+      forwardingAddressId = Prelude.Nothing,
+      notification = Prelude.Nothing,
       jobId = pJobId_
     }
 
@@ -136,42 +137,42 @@ newUpdateJob pJobId_ =
 -- this job. To create a role ARN, use the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>AWS
 -- Identity and Access Management (IAM) API action.
-updateJob_roleARN :: Lens.Lens' UpdateJob (Core.Maybe Core.Text)
+updateJob_roleARN :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_roleARN = Lens.lens (\UpdateJob' {roleARN} -> roleARN) (\s@UpdateJob' {} a -> s {roleARN = a} :: UpdateJob)
 
 -- | The updated shipping option value of this job\'s ShippingDetails object.
-updateJob_shippingOption :: Lens.Lens' UpdateJob (Core.Maybe ShippingOption)
+updateJob_shippingOption :: Lens.Lens' UpdateJob (Prelude.Maybe ShippingOption)
 updateJob_shippingOption = Lens.lens (\UpdateJob' {shippingOption} -> shippingOption) (\s@UpdateJob' {} a -> s {shippingOption = a} :: UpdateJob)
 
 -- | The updated @JobResource@ object, or the updated JobResource object.
-updateJob_resources :: Lens.Lens' UpdateJob (Core.Maybe JobResource)
+updateJob_resources :: Lens.Lens' UpdateJob (Prelude.Maybe JobResource)
 updateJob_resources = Lens.lens (\UpdateJob' {resources} -> resources) (\s@UpdateJob' {} a -> s {resources = a} :: UpdateJob)
 
 -- | The updated @SnowballCapacityPreference@ of this job\'s JobMetadata
 -- object. The 50 TB Snowballs are only available in the US regions.
-updateJob_snowballCapacityPreference :: Lens.Lens' UpdateJob (Core.Maybe SnowballCapacity)
+updateJob_snowballCapacityPreference :: Lens.Lens' UpdateJob (Prelude.Maybe SnowballCapacity)
 updateJob_snowballCapacityPreference = Lens.lens (\UpdateJob' {snowballCapacityPreference} -> snowballCapacityPreference) (\s@UpdateJob' {} a -> s {snowballCapacityPreference = a} :: UpdateJob)
 
 -- | The updated description of this job\'s JobMetadata object.
-updateJob_description :: Lens.Lens' UpdateJob (Core.Maybe Core.Text)
+updateJob_description :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_description = Lens.lens (\UpdateJob' {description} -> description) (\s@UpdateJob' {} a -> s {description = a} :: UpdateJob)
 
 -- | The ID of the updated Address object.
-updateJob_addressId :: Lens.Lens' UpdateJob (Core.Maybe Core.Text)
+updateJob_addressId :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_addressId = Lens.lens (\UpdateJob' {addressId} -> addressId) (\s@UpdateJob' {} a -> s {addressId = a} :: UpdateJob)
 
 -- | The updated ID for the forwarding address for a job. This field is not
 -- supported in most regions.
-updateJob_forwardingAddressId :: Lens.Lens' UpdateJob (Core.Maybe Core.Text)
+updateJob_forwardingAddressId :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_forwardingAddressId = Lens.lens (\UpdateJob' {forwardingAddressId} -> forwardingAddressId) (\s@UpdateJob' {} a -> s {forwardingAddressId = a} :: UpdateJob)
 
 -- | The new or updated Notification object.
-updateJob_notification :: Lens.Lens' UpdateJob (Core.Maybe Notification)
+updateJob_notification :: Lens.Lens' UpdateJob (Prelude.Maybe Notification)
 updateJob_notification = Lens.lens (\UpdateJob' {notification} -> notification) (\s@UpdateJob' {} a -> s {notification = a} :: UpdateJob)
 
 -- | The job ID of the job that you want to update, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
-updateJob_jobId :: Lens.Lens' UpdateJob Core.Text
+updateJob_jobId :: Lens.Lens' UpdateJob Prelude.Text
 updateJob_jobId = Lens.lens (\UpdateJob' {jobId} -> jobId) (\s@UpdateJob' {} a -> s {jobId = a} :: UpdateJob)
 
 instance Core.AWSRequest UpdateJob where
@@ -181,56 +182,59 @@ instance Core.AWSRequest UpdateJob where
     Response.receiveEmpty
       ( \s h x ->
           UpdateJobResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateJob
+instance Prelude.Hashable UpdateJob
 
-instance Core.NFData UpdateJob
+instance Prelude.NFData UpdateJob
 
 instance Core.ToHeaders UpdateJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.UpdateJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateJob where
   toJSON UpdateJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleARN" Core..=) Core.<$> roleARN,
-            ("ShippingOption" Core..=) Core.<$> shippingOption,
-            ("Resources" Core..=) Core.<$> resources,
+      ( Prelude.catMaybes
+          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
+            ("ShippingOption" Core..=)
+              Prelude.<$> shippingOption,
+            ("Resources" Core..=) Prelude.<$> resources,
             ("SnowballCapacityPreference" Core..=)
-              Core.<$> snowballCapacityPreference,
-            ("Description" Core..=) Core.<$> description,
-            ("AddressId" Core..=) Core.<$> addressId,
+              Prelude.<$> snowballCapacityPreference,
+            ("Description" Core..=) Prelude.<$> description,
+            ("AddressId" Core..=) Prelude.<$> addressId,
             ("ForwardingAddressId" Core..=)
-              Core.<$> forwardingAddressId,
-            ("Notification" Core..=) Core.<$> notification,
-            Core.Just ("JobId" Core..= jobId)
+              Prelude.<$> forwardingAddressId,
+            ("Notification" Core..=) Prelude.<$> notification,
+            Prelude.Just ("JobId" Core..= jobId)
           ]
       )
 
 instance Core.ToPath UpdateJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJobResponse' with all optional fields omitted.
@@ -243,13 +247,13 @@ data UpdateJobResponse = UpdateJobResponse'
 -- 'httpStatus', 'updateJobResponse_httpStatus' - The response's http status code.
 newUpdateJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateJobResponse
 newUpdateJobResponse pHttpStatus_ =
   UpdateJobResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Core.Int
+updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Prelude.Int
 updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> httpStatus) (\s@UpdateJobResponse' {} a -> s {httpStatus = a} :: UpdateJobResponse)
 
-instance Core.NFData UpdateJobResponse
+instance Prelude.NFData UpdateJobResponse

@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata that you assign to your AWS resources. Tags enable you to
 -- categorize your resources in different ways, for example, by purpose,
@@ -31,11 +32,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The name of the tag.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The value of the tag.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -50,19 +51,19 @@ data Tag = Tag'
 -- 'value', 'tag_value' - The value of the tag.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
 -- | The name of the tag.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value of the tag.
-tag_value :: Lens.Lens' Tag Core.Text
+tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -71,18 +72,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

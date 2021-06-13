@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.InferenceSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ModelPackageContainerDefinition
 import Network.AWS.SageMaker.Types.ProductionVariantInstanceType
 import Network.AWS.SageMaker.Types.TransformInstanceType
@@ -34,22 +35,22 @@ data InferenceSpecification = InferenceSpecification'
     --
     -- This parameter is required for unversioned models, and optional for
     -- versioned models.
-    supportedTransformInstanceTypes :: Core.Maybe (Core.NonEmpty TransformInstanceType),
+    supportedTransformInstanceTypes :: Prelude.Maybe (Prelude.NonEmpty TransformInstanceType),
     -- | A list of the instance types that are used to generate inferences in
     -- real-time.
     --
     -- This parameter is required for unversioned models, and optional for
     -- versioned models.
-    supportedRealtimeInferenceInstanceTypes :: Core.Maybe [ProductionVariantInstanceType],
+    supportedRealtimeInferenceInstanceTypes :: Prelude.Maybe [ProductionVariantInstanceType],
     -- | The Amazon ECR registry path of the Docker image that contains the
     -- inference code.
-    containers :: Core.NonEmpty ModelPackageContainerDefinition,
+    containers :: Prelude.NonEmpty ModelPackageContainerDefinition,
     -- | The supported MIME types for the input data.
-    supportedContentTypes :: [Core.Text],
+    supportedContentTypes :: [Prelude.Text],
     -- | The supported MIME types for the output data.
-    supportedResponseMIMETypes :: [Core.Text]
+    supportedResponseMIMETypes :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InferenceSpecification' with all optional fields omitted.
@@ -79,17 +80,17 @@ data InferenceSpecification = InferenceSpecification'
 -- 'supportedResponseMIMETypes', 'inferenceSpecification_supportedResponseMIMETypes' - The supported MIME types for the output data.
 newInferenceSpecification ::
   -- | 'containers'
-  Core.NonEmpty ModelPackageContainerDefinition ->
+  Prelude.NonEmpty ModelPackageContainerDefinition ->
   InferenceSpecification
 newInferenceSpecification pContainers_ =
   InferenceSpecification'
     { supportedTransformInstanceTypes =
-        Core.Nothing,
+        Prelude.Nothing,
       supportedRealtimeInferenceInstanceTypes =
-        Core.Nothing,
+        Prelude.Nothing,
       containers = Lens._Coerce Lens.# pContainers_,
-      supportedContentTypes = Core.mempty,
-      supportedResponseMIMETypes = Core.mempty
+      supportedContentTypes = Prelude.mempty,
+      supportedResponseMIMETypes = Prelude.mempty
     }
 
 -- | A list of the instance types on which a transformation job can be run or
@@ -97,29 +98,29 @@ newInferenceSpecification pContainers_ =
 --
 -- This parameter is required for unversioned models, and optional for
 -- versioned models.
-inferenceSpecification_supportedTransformInstanceTypes :: Lens.Lens' InferenceSpecification (Core.Maybe (Core.NonEmpty TransformInstanceType))
-inferenceSpecification_supportedTransformInstanceTypes = Lens.lens (\InferenceSpecification' {supportedTransformInstanceTypes} -> supportedTransformInstanceTypes) (\s@InferenceSpecification' {} a -> s {supportedTransformInstanceTypes = a} :: InferenceSpecification) Core.. Lens.mapping Lens._Coerce
+inferenceSpecification_supportedTransformInstanceTypes :: Lens.Lens' InferenceSpecification (Prelude.Maybe (Prelude.NonEmpty TransformInstanceType))
+inferenceSpecification_supportedTransformInstanceTypes = Lens.lens (\InferenceSpecification' {supportedTransformInstanceTypes} -> supportedTransformInstanceTypes) (\s@InferenceSpecification' {} a -> s {supportedTransformInstanceTypes = a} :: InferenceSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of the instance types that are used to generate inferences in
 -- real-time.
 --
 -- This parameter is required for unversioned models, and optional for
 -- versioned models.
-inferenceSpecification_supportedRealtimeInferenceInstanceTypes :: Lens.Lens' InferenceSpecification (Core.Maybe [ProductionVariantInstanceType])
-inferenceSpecification_supportedRealtimeInferenceInstanceTypes = Lens.lens (\InferenceSpecification' {supportedRealtimeInferenceInstanceTypes} -> supportedRealtimeInferenceInstanceTypes) (\s@InferenceSpecification' {} a -> s {supportedRealtimeInferenceInstanceTypes = a} :: InferenceSpecification) Core.. Lens.mapping Lens._Coerce
+inferenceSpecification_supportedRealtimeInferenceInstanceTypes :: Lens.Lens' InferenceSpecification (Prelude.Maybe [ProductionVariantInstanceType])
+inferenceSpecification_supportedRealtimeInferenceInstanceTypes = Lens.lens (\InferenceSpecification' {supportedRealtimeInferenceInstanceTypes} -> supportedRealtimeInferenceInstanceTypes) (\s@InferenceSpecification' {} a -> s {supportedRealtimeInferenceInstanceTypes = a} :: InferenceSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon ECR registry path of the Docker image that contains the
 -- inference code.
-inferenceSpecification_containers :: Lens.Lens' InferenceSpecification (Core.NonEmpty ModelPackageContainerDefinition)
-inferenceSpecification_containers = Lens.lens (\InferenceSpecification' {containers} -> containers) (\s@InferenceSpecification' {} a -> s {containers = a} :: InferenceSpecification) Core.. Lens._Coerce
+inferenceSpecification_containers :: Lens.Lens' InferenceSpecification (Prelude.NonEmpty ModelPackageContainerDefinition)
+inferenceSpecification_containers = Lens.lens (\InferenceSpecification' {containers} -> containers) (\s@InferenceSpecification' {} a -> s {containers = a} :: InferenceSpecification) Prelude.. Lens._Coerce
 
 -- | The supported MIME types for the input data.
-inferenceSpecification_supportedContentTypes :: Lens.Lens' InferenceSpecification [Core.Text]
-inferenceSpecification_supportedContentTypes = Lens.lens (\InferenceSpecification' {supportedContentTypes} -> supportedContentTypes) (\s@InferenceSpecification' {} a -> s {supportedContentTypes = a} :: InferenceSpecification) Core.. Lens._Coerce
+inferenceSpecification_supportedContentTypes :: Lens.Lens' InferenceSpecification [Prelude.Text]
+inferenceSpecification_supportedContentTypes = Lens.lens (\InferenceSpecification' {supportedContentTypes} -> supportedContentTypes) (\s@InferenceSpecification' {} a -> s {supportedContentTypes = a} :: InferenceSpecification) Prelude.. Lens._Coerce
 
 -- | The supported MIME types for the output data.
-inferenceSpecification_supportedResponseMIMETypes :: Lens.Lens' InferenceSpecification [Core.Text]
-inferenceSpecification_supportedResponseMIMETypes = Lens.lens (\InferenceSpecification' {supportedResponseMIMETypes} -> supportedResponseMIMETypes) (\s@InferenceSpecification' {} a -> s {supportedResponseMIMETypes = a} :: InferenceSpecification) Core.. Lens._Coerce
+inferenceSpecification_supportedResponseMIMETypes :: Lens.Lens' InferenceSpecification [Prelude.Text]
+inferenceSpecification_supportedResponseMIMETypes = Lens.lens (\InferenceSpecification' {supportedResponseMIMETypes} -> supportedResponseMIMETypes) (\s@InferenceSpecification' {} a -> s {supportedResponseMIMETypes = a} :: InferenceSpecification) Prelude.. Lens._Coerce
 
 instance Core.FromJSON InferenceSpecification where
   parseJSON =
@@ -127,37 +128,37 @@ instance Core.FromJSON InferenceSpecification where
       "InferenceSpecification"
       ( \x ->
           InferenceSpecification'
-            Core.<$> (x Core..:? "SupportedTransformInstanceTypes")
-            Core.<*> ( x Core..:? "SupportedRealtimeInferenceInstanceTypes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..: "Containers")
-            Core.<*> ( x Core..:? "SupportedContentTypes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "SupportedResponseMIMETypes"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "SupportedTransformInstanceTypes")
+            Prelude.<*> ( x Core..:? "SupportedRealtimeInferenceInstanceTypes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "Containers")
+            Prelude.<*> ( x Core..:? "SupportedContentTypes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "SupportedResponseMIMETypes"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable InferenceSpecification
+instance Prelude.Hashable InferenceSpecification
 
-instance Core.NFData InferenceSpecification
+instance Prelude.NFData InferenceSpecification
 
 instance Core.ToJSON InferenceSpecification where
   toJSON InferenceSpecification' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SupportedTransformInstanceTypes" Core..=)
-              Core.<$> supportedTransformInstanceTypes,
+              Prelude.<$> supportedTransformInstanceTypes,
             ("SupportedRealtimeInferenceInstanceTypes" Core..=)
-              Core.<$> supportedRealtimeInferenceInstanceTypes,
-            Core.Just ("Containers" Core..= containers),
-            Core.Just
+              Prelude.<$> supportedRealtimeInferenceInstanceTypes,
+            Prelude.Just ("Containers" Core..= containers),
+            Prelude.Just
               ( "SupportedContentTypes"
                   Core..= supportedContentTypes
               ),
-            Core.Just
+            Prelude.Just
               ( "SupportedResponseMIMETypes"
                   Core..= supportedResponseMIMETypes
               )

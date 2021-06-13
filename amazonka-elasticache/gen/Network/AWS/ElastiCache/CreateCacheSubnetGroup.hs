@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +62,13 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
     -- hyphens.
     --
     -- Example: @mysubnetgroup@
-    cacheSubnetGroupName :: Core.Text,
+    cacheSubnetGroupName :: Prelude.Text,
     -- | A description for the cache subnet group.
-    cacheSubnetGroupDescription :: Core.Text,
+    cacheSubnetGroupDescription :: Prelude.Text,
     -- | A list of VPC subnet IDs for the cache subnet group.
-    subnetIds :: [Core.Text]
+    subnetIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCacheSubnetGroup' with all optional fields omitted.
@@ -90,9 +91,9 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
 -- 'subnetIds', 'createCacheSubnetGroup_subnetIds' - A list of VPC subnet IDs for the cache subnet group.
 newCreateCacheSubnetGroup ::
   -- | 'cacheSubnetGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'cacheSubnetGroupDescription'
-  Core.Text ->
+  Prelude.Text ->
   CreateCacheSubnetGroup
 newCreateCacheSubnetGroup
   pCacheSubnetGroupName_
@@ -102,7 +103,7 @@ newCreateCacheSubnetGroup
           pCacheSubnetGroupName_,
         cacheSubnetGroupDescription =
           pCacheSubnetGroupDescription_,
-        subnetIds = Core.mempty
+        subnetIds = Prelude.mempty
       }
 
 -- | A name for the cache subnet group. This value is stored as a lowercase
@@ -112,16 +113,16 @@ newCreateCacheSubnetGroup
 -- hyphens.
 --
 -- Example: @mysubnetgroup@
-createCacheSubnetGroup_cacheSubnetGroupName :: Lens.Lens' CreateCacheSubnetGroup Core.Text
+createCacheSubnetGroup_cacheSubnetGroupName :: Lens.Lens' CreateCacheSubnetGroup Prelude.Text
 createCacheSubnetGroup_cacheSubnetGroupName = Lens.lens (\CreateCacheSubnetGroup' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@CreateCacheSubnetGroup' {} a -> s {cacheSubnetGroupName = a} :: CreateCacheSubnetGroup)
 
 -- | A description for the cache subnet group.
-createCacheSubnetGroup_cacheSubnetGroupDescription :: Lens.Lens' CreateCacheSubnetGroup Core.Text
+createCacheSubnetGroup_cacheSubnetGroupDescription :: Lens.Lens' CreateCacheSubnetGroup Prelude.Text
 createCacheSubnetGroup_cacheSubnetGroupDescription = Lens.lens (\CreateCacheSubnetGroup' {cacheSubnetGroupDescription} -> cacheSubnetGroupDescription) (\s@CreateCacheSubnetGroup' {} a -> s {cacheSubnetGroupDescription = a} :: CreateCacheSubnetGroup)
 
 -- | A list of VPC subnet IDs for the cache subnet group.
-createCacheSubnetGroup_subnetIds :: Lens.Lens' CreateCacheSubnetGroup [Core.Text]
-createCacheSubnetGroup_subnetIds = Lens.lens (\CreateCacheSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateCacheSubnetGroup' {} a -> s {subnetIds = a} :: CreateCacheSubnetGroup) Core.. Lens._Coerce
+createCacheSubnetGroup_subnetIds :: Lens.Lens' CreateCacheSubnetGroup [Prelude.Text]
+createCacheSubnetGroup_subnetIds = Lens.lens (\CreateCacheSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateCacheSubnetGroup' {} a -> s {subnetIds = a} :: CreateCacheSubnetGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateCacheSubnetGroup where
   type
@@ -133,26 +134,27 @@ instance Core.AWSRequest CreateCacheSubnetGroup where
       "CreateCacheSubnetGroupResult"
       ( \s h x ->
           CreateCacheSubnetGroupResponse'
-            Core.<$> (x Core..@? "CacheSubnetGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "CacheSubnetGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateCacheSubnetGroup
+instance Prelude.Hashable CreateCacheSubnetGroup
 
-instance Core.NFData CreateCacheSubnetGroup
+instance Prelude.NFData CreateCacheSubnetGroup
 
 instance Core.ToHeaders CreateCacheSubnetGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateCacheSubnetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateCacheSubnetGroup where
   toQuery CreateCacheSubnetGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCacheSubnetGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("CreateCacheSubnetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
         "CacheSubnetGroupDescription"
           Core.=: cacheSubnetGroupDescription,
@@ -162,11 +164,11 @@ instance Core.ToQuery CreateCacheSubnetGroup where
 
 -- | /See:/ 'newCreateCacheSubnetGroupResponse' smart constructor.
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
-  { cacheSubnetGroup :: Core.Maybe CacheSubnetGroup,
+  { cacheSubnetGroup :: Prelude.Maybe CacheSubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCacheSubnetGroupResponse' with all optional fields omitted.
@@ -181,21 +183,23 @@ data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
 -- 'httpStatus', 'createCacheSubnetGroupResponse_httpStatus' - The response's http status code.
 newCreateCacheSubnetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateCacheSubnetGroupResponse
 newCreateCacheSubnetGroupResponse pHttpStatus_ =
   CreateCacheSubnetGroupResponse'
     { cacheSubnetGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createCacheSubnetGroupResponse_cacheSubnetGroup :: Lens.Lens' CreateCacheSubnetGroupResponse (Core.Maybe CacheSubnetGroup)
+createCacheSubnetGroupResponse_cacheSubnetGroup :: Lens.Lens' CreateCacheSubnetGroupResponse (Prelude.Maybe CacheSubnetGroup)
 createCacheSubnetGroupResponse_cacheSubnetGroup = Lens.lens (\CreateCacheSubnetGroupResponse' {cacheSubnetGroup} -> cacheSubnetGroup) (\s@CreateCacheSubnetGroupResponse' {} a -> s {cacheSubnetGroup = a} :: CreateCacheSubnetGroupResponse)
 
 -- | The response's http status code.
-createCacheSubnetGroupResponse_httpStatus :: Lens.Lens' CreateCacheSubnetGroupResponse Core.Int
+createCacheSubnetGroupResponse_httpStatus :: Lens.Lens' CreateCacheSubnetGroupResponse Prelude.Int
 createCacheSubnetGroupResponse_httpStatus = Lens.lens (\CreateCacheSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@CreateCacheSubnetGroupResponse' {} a -> s {httpStatus = a} :: CreateCacheSubnetGroupResponse)
 
-instance Core.NFData CreateCacheSubnetGroupResponse
+instance
+  Prelude.NFData
+    CreateCacheSubnetGroupResponse

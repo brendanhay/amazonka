@@ -23,32 +23,33 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a local gateway virtual interface.
 --
 -- /See:/ 'newLocalGatewayVirtualInterface' smart constructor.
 data LocalGatewayVirtualInterface = LocalGatewayVirtualInterface'
   { -- | The peer address.
-    peerAddress :: Core.Maybe Core.Text,
+    peerAddress :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID that owns the local gateway virtual interface.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual interface.
-    localGatewayVirtualInterfaceId :: Core.Maybe Core.Text,
+    localGatewayVirtualInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The peer BGP ASN.
-    peerBgpAsn :: Core.Maybe Core.Int,
+    peerBgpAsn :: Prelude.Maybe Prelude.Int,
     -- | The local address.
-    localAddress :: Core.Maybe Core.Text,
+    localAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the local gateway.
-    localGatewayId :: Core.Maybe Core.Text,
+    localGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the
     -- local gateway.
-    localBgpAsn :: Core.Maybe Core.Int,
+    localBgpAsn :: Prelude.Maybe Prelude.Int,
     -- | The tags assigned to the virtual interface.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the VLAN.
-    vlan :: Core.Maybe Core.Int
+    vlan :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LocalGatewayVirtualInterface' with all optional fields omitted.
@@ -81,69 +82,72 @@ newLocalGatewayVirtualInterface ::
 newLocalGatewayVirtualInterface =
   LocalGatewayVirtualInterface'
     { peerAddress =
-        Core.Nothing,
-      ownerId = Core.Nothing,
-      localGatewayVirtualInterfaceId = Core.Nothing,
-      peerBgpAsn = Core.Nothing,
-      localAddress = Core.Nothing,
-      localGatewayId = Core.Nothing,
-      localBgpAsn = Core.Nothing,
-      tags = Core.Nothing,
-      vlan = Core.Nothing
+        Prelude.Nothing,
+      ownerId = Prelude.Nothing,
+      localGatewayVirtualInterfaceId =
+        Prelude.Nothing,
+      peerBgpAsn = Prelude.Nothing,
+      localAddress = Prelude.Nothing,
+      localGatewayId = Prelude.Nothing,
+      localBgpAsn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vlan = Prelude.Nothing
     }
 
 -- | The peer address.
-localGatewayVirtualInterface_peerAddress :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe Core.Text)
+localGatewayVirtualInterface_peerAddress :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Text)
 localGatewayVirtualInterface_peerAddress = Lens.lens (\LocalGatewayVirtualInterface' {peerAddress} -> peerAddress) (\s@LocalGatewayVirtualInterface' {} a -> s {peerAddress = a} :: LocalGatewayVirtualInterface)
 
 -- | The AWS account ID that owns the local gateway virtual interface.
-localGatewayVirtualInterface_ownerId :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe Core.Text)
+localGatewayVirtualInterface_ownerId :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Text)
 localGatewayVirtualInterface_ownerId = Lens.lens (\LocalGatewayVirtualInterface' {ownerId} -> ownerId) (\s@LocalGatewayVirtualInterface' {} a -> s {ownerId = a} :: LocalGatewayVirtualInterface)
 
 -- | The ID of the virtual interface.
-localGatewayVirtualInterface_localGatewayVirtualInterfaceId :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe Core.Text)
+localGatewayVirtualInterface_localGatewayVirtualInterfaceId :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Text)
 localGatewayVirtualInterface_localGatewayVirtualInterfaceId = Lens.lens (\LocalGatewayVirtualInterface' {localGatewayVirtualInterfaceId} -> localGatewayVirtualInterfaceId) (\s@LocalGatewayVirtualInterface' {} a -> s {localGatewayVirtualInterfaceId = a} :: LocalGatewayVirtualInterface)
 
 -- | The peer BGP ASN.
-localGatewayVirtualInterface_peerBgpAsn :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe Core.Int)
+localGatewayVirtualInterface_peerBgpAsn :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Int)
 localGatewayVirtualInterface_peerBgpAsn = Lens.lens (\LocalGatewayVirtualInterface' {peerBgpAsn} -> peerBgpAsn) (\s@LocalGatewayVirtualInterface' {} a -> s {peerBgpAsn = a} :: LocalGatewayVirtualInterface)
 
 -- | The local address.
-localGatewayVirtualInterface_localAddress :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe Core.Text)
+localGatewayVirtualInterface_localAddress :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Text)
 localGatewayVirtualInterface_localAddress = Lens.lens (\LocalGatewayVirtualInterface' {localAddress} -> localAddress) (\s@LocalGatewayVirtualInterface' {} a -> s {localAddress = a} :: LocalGatewayVirtualInterface)
 
 -- | The ID of the local gateway.
-localGatewayVirtualInterface_localGatewayId :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe Core.Text)
+localGatewayVirtualInterface_localGatewayId :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Text)
 localGatewayVirtualInterface_localGatewayId = Lens.lens (\LocalGatewayVirtualInterface' {localGatewayId} -> localGatewayId) (\s@LocalGatewayVirtualInterface' {} a -> s {localGatewayId = a} :: LocalGatewayVirtualInterface)
 
 -- | The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the
 -- local gateway.
-localGatewayVirtualInterface_localBgpAsn :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe Core.Int)
+localGatewayVirtualInterface_localBgpAsn :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Int)
 localGatewayVirtualInterface_localBgpAsn = Lens.lens (\LocalGatewayVirtualInterface' {localBgpAsn} -> localBgpAsn) (\s@LocalGatewayVirtualInterface' {} a -> s {localBgpAsn = a} :: LocalGatewayVirtualInterface)
 
 -- | The tags assigned to the virtual interface.
-localGatewayVirtualInterface_tags :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe [Tag])
-localGatewayVirtualInterface_tags = Lens.lens (\LocalGatewayVirtualInterface' {tags} -> tags) (\s@LocalGatewayVirtualInterface' {} a -> s {tags = a} :: LocalGatewayVirtualInterface) Core.. Lens.mapping Lens._Coerce
+localGatewayVirtualInterface_tags :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe [Tag])
+localGatewayVirtualInterface_tags = Lens.lens (\LocalGatewayVirtualInterface' {tags} -> tags) (\s@LocalGatewayVirtualInterface' {} a -> s {tags = a} :: LocalGatewayVirtualInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VLAN.
-localGatewayVirtualInterface_vlan :: Lens.Lens' LocalGatewayVirtualInterface (Core.Maybe Core.Int)
+localGatewayVirtualInterface_vlan :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Int)
 localGatewayVirtualInterface_vlan = Lens.lens (\LocalGatewayVirtualInterface' {vlan} -> vlan) (\s@LocalGatewayVirtualInterface' {} a -> s {vlan = a} :: LocalGatewayVirtualInterface)
 
 instance Core.FromXML LocalGatewayVirtualInterface where
   parseXML x =
     LocalGatewayVirtualInterface'
-      Core.<$> (x Core..@? "peerAddress")
-      Core.<*> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "localGatewayVirtualInterfaceId")
-      Core.<*> (x Core..@? "peerBgpAsn")
-      Core.<*> (x Core..@? "localAddress")
-      Core.<*> (x Core..@? "localGatewayId")
-      Core.<*> (x Core..@? "localBgpAsn")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "vlan")
+      Prelude.<$> (x Core..@? "peerAddress")
+      Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "localGatewayVirtualInterfaceId")
+      Prelude.<*> (x Core..@? "peerBgpAsn")
+      Prelude.<*> (x Core..@? "localAddress")
+      Prelude.<*> (x Core..@? "localGatewayId")
+      Prelude.<*> (x Core..@? "localBgpAsn")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "vlan")
 
-instance Core.Hashable LocalGatewayVirtualInterface
+instance
+  Prelude.Hashable
+    LocalGatewayVirtualInterface
 
-instance Core.NFData LocalGatewayVirtualInterface
+instance Prelude.NFData LocalGatewayVirtualInterface

@@ -21,17 +21,18 @@ module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provisioning artifact output.
 --
 -- /See:/ 'newProvisioningArtifactOutput' smart constructor.
 data ProvisioningArtifactOutput = ProvisioningArtifactOutput'
   { -- | The provisioning artifact output key.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | Description of the provisioning artifact output key.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisioningArtifactOutput' with all optional fields omitted.
@@ -48,16 +49,16 @@ newProvisioningArtifactOutput ::
   ProvisioningArtifactOutput
 newProvisioningArtifactOutput =
   ProvisioningArtifactOutput'
-    { key = Core.Nothing,
-      description = Core.Nothing
+    { key = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The provisioning artifact output key.
-provisioningArtifactOutput_key :: Lens.Lens' ProvisioningArtifactOutput (Core.Maybe Core.Text)
+provisioningArtifactOutput_key :: Lens.Lens' ProvisioningArtifactOutput (Prelude.Maybe Prelude.Text)
 provisioningArtifactOutput_key = Lens.lens (\ProvisioningArtifactOutput' {key} -> key) (\s@ProvisioningArtifactOutput' {} a -> s {key = a} :: ProvisioningArtifactOutput)
 
 -- | Description of the provisioning artifact output key.
-provisioningArtifactOutput_description :: Lens.Lens' ProvisioningArtifactOutput (Core.Maybe Core.Text)
+provisioningArtifactOutput_description :: Lens.Lens' ProvisioningArtifactOutput (Prelude.Maybe Prelude.Text)
 provisioningArtifactOutput_description = Lens.lens (\ProvisioningArtifactOutput' {description} -> description) (\s@ProvisioningArtifactOutput' {} a -> s {description = a} :: ProvisioningArtifactOutput)
 
 instance Core.FromJSON ProvisioningArtifactOutput where
@@ -66,10 +67,10 @@ instance Core.FromJSON ProvisioningArtifactOutput where
       "ProvisioningArtifactOutput"
       ( \x ->
           ProvisioningArtifactOutput'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Description")
       )
 
-instance Core.Hashable ProvisioningArtifactOutput
+instance Prelude.Hashable ProvisioningArtifactOutput
 
-instance Core.NFData ProvisioningArtifactOutput
+instance Prelude.NFData ProvisioningArtifactOutput

@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Geometry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 import Network.AWS.Rekognition.Types.Point
 
@@ -31,12 +32,12 @@ import Network.AWS.Rekognition.Types.Point
 data Geometry = Geometry'
   { -- | Within the bounding box, a fine-grained polygon around the detected
     -- item.
-    polygon :: Core.Maybe [Point],
+    polygon :: Prelude.Maybe [Point],
     -- | An axis-aligned coarse representation of the detected item\'s location
     -- on the image.
-    boundingBox :: Core.Maybe BoundingBox
+    boundingBox :: Prelude.Maybe BoundingBox
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Geometry' with all optional fields omitted.
@@ -55,18 +56,18 @@ newGeometry ::
   Geometry
 newGeometry =
   Geometry'
-    { polygon = Core.Nothing,
-      boundingBox = Core.Nothing
+    { polygon = Prelude.Nothing,
+      boundingBox = Prelude.Nothing
     }
 
 -- | Within the bounding box, a fine-grained polygon around the detected
 -- item.
-geometry_polygon :: Lens.Lens' Geometry (Core.Maybe [Point])
-geometry_polygon = Lens.lens (\Geometry' {polygon} -> polygon) (\s@Geometry' {} a -> s {polygon = a} :: Geometry) Core.. Lens.mapping Lens._Coerce
+geometry_polygon :: Lens.Lens' Geometry (Prelude.Maybe [Point])
+geometry_polygon = Lens.lens (\Geometry' {polygon} -> polygon) (\s@Geometry' {} a -> s {polygon = a} :: Geometry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An axis-aligned coarse representation of the detected item\'s location
 -- on the image.
-geometry_boundingBox :: Lens.Lens' Geometry (Core.Maybe BoundingBox)
+geometry_boundingBox :: Lens.Lens' Geometry (Prelude.Maybe BoundingBox)
 geometry_boundingBox = Lens.lens (\Geometry' {boundingBox} -> boundingBox) (\s@Geometry' {} a -> s {boundingBox = a} :: Geometry)
 
 instance Core.FromJSON Geometry where
@@ -75,10 +76,10 @@ instance Core.FromJSON Geometry where
       "Geometry"
       ( \x ->
           Geometry'
-            Core.<$> (x Core..:? "Polygon" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "BoundingBox")
+            Prelude.<$> (x Core..:? "Polygon" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "BoundingBox")
       )
 
-instance Core.Hashable Geometry
+instance Prelude.Hashable Geometry
 
-instance Core.NFData Geometry
+instance Prelude.NFData Geometry

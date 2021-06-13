@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -54,18 +55,18 @@ import Network.AWS.SageMaker.Types
 data UpdateImage = UpdateImage'
   { -- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
     -- SageMaker to perform tasks on your behalf.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A list of properties to delete. Only the @Description@ and @DisplayName@
     -- properties can be deleted.
-    deleteProperties :: Core.Maybe [Core.Text],
+    deleteProperties :: Prelude.Maybe [Prelude.Text],
     -- | The new description for the image.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The new display name for the image.
-    displayName :: Core.Maybe Core.Text,
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The name of the image to update.
-    imageName :: Core.Text
+    imageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateImage' with all optional fields omitted.
@@ -88,37 +89,37 @@ data UpdateImage = UpdateImage'
 -- 'imageName', 'updateImage_imageName' - The name of the image to update.
 newUpdateImage ::
   -- | 'imageName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateImage
 newUpdateImage pImageName_ =
   UpdateImage'
-    { roleArn = Core.Nothing,
-      deleteProperties = Core.Nothing,
-      description = Core.Nothing,
-      displayName = Core.Nothing,
+    { roleArn = Prelude.Nothing,
+      deleteProperties = Prelude.Nothing,
+      description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       imageName = pImageName_
     }
 
 -- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
 -- SageMaker to perform tasks on your behalf.
-updateImage_roleArn :: Lens.Lens' UpdateImage (Core.Maybe Core.Text)
+updateImage_roleArn :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
 updateImage_roleArn = Lens.lens (\UpdateImage' {roleArn} -> roleArn) (\s@UpdateImage' {} a -> s {roleArn = a} :: UpdateImage)
 
 -- | A list of properties to delete. Only the @Description@ and @DisplayName@
 -- properties can be deleted.
-updateImage_deleteProperties :: Lens.Lens' UpdateImage (Core.Maybe [Core.Text])
-updateImage_deleteProperties = Lens.lens (\UpdateImage' {deleteProperties} -> deleteProperties) (\s@UpdateImage' {} a -> s {deleteProperties = a} :: UpdateImage) Core.. Lens.mapping Lens._Coerce
+updateImage_deleteProperties :: Lens.Lens' UpdateImage (Prelude.Maybe [Prelude.Text])
+updateImage_deleteProperties = Lens.lens (\UpdateImage' {deleteProperties} -> deleteProperties) (\s@UpdateImage' {} a -> s {deleteProperties = a} :: UpdateImage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new description for the image.
-updateImage_description :: Lens.Lens' UpdateImage (Core.Maybe Core.Text)
+updateImage_description :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
 updateImage_description = Lens.lens (\UpdateImage' {description} -> description) (\s@UpdateImage' {} a -> s {description = a} :: UpdateImage)
 
 -- | The new display name for the image.
-updateImage_displayName :: Lens.Lens' UpdateImage (Core.Maybe Core.Text)
+updateImage_displayName :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
 updateImage_displayName = Lens.lens (\UpdateImage' {displayName} -> displayName) (\s@UpdateImage' {} a -> s {displayName = a} :: UpdateImage)
 
 -- | The name of the image to update.
-updateImage_imageName :: Lens.Lens' UpdateImage Core.Text
+updateImage_imageName :: Lens.Lens' UpdateImage Prelude.Text
 updateImage_imageName = Lens.lens (\UpdateImage' {imageName} -> imageName) (\s@UpdateImage' {} a -> s {imageName = a} :: UpdateImage)
 
 instance Core.AWSRequest UpdateImage where
@@ -128,52 +129,54 @@ instance Core.AWSRequest UpdateImage where
     Response.receiveJSON
       ( \s h x ->
           UpdateImageResponse'
-            Core.<$> (x Core..?> "ImageArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ImageArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateImage
+instance Prelude.Hashable UpdateImage
 
-instance Core.NFData UpdateImage
+instance Prelude.NFData UpdateImage
 
 instance Core.ToHeaders UpdateImage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateImage" :: Core.ByteString),
+              Core.=# ("SageMaker.UpdateImage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateImage where
   toJSON UpdateImage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleArn" Core..=) Core.<$> roleArn,
+      ( Prelude.catMaybes
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("DeleteProperties" Core..=)
-              Core.<$> deleteProperties,
-            ("Description" Core..=) Core.<$> description,
-            ("DisplayName" Core..=) Core.<$> displayName,
-            Core.Just ("ImageName" Core..= imageName)
+              Prelude.<$> deleteProperties,
+            ("Description" Core..=) Prelude.<$> description,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            Prelude.Just ("ImageName" Core..= imageName)
           ]
       )
 
 instance Core.ToPath UpdateImage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateImage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateImageResponse' smart constructor.
 data UpdateImageResponse = UpdateImageResponse'
   { -- | The Amazon Resource Name (ARN) of the image.
-    imageArn :: Core.Maybe Core.Text,
+    imageArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateImageResponse' with all optional fields omitted.
@@ -188,20 +191,20 @@ data UpdateImageResponse = UpdateImageResponse'
 -- 'httpStatus', 'updateImageResponse_httpStatus' - The response's http status code.
 newUpdateImageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateImageResponse
 newUpdateImageResponse pHttpStatus_ =
   UpdateImageResponse'
-    { imageArn = Core.Nothing,
+    { imageArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the image.
-updateImageResponse_imageArn :: Lens.Lens' UpdateImageResponse (Core.Maybe Core.Text)
+updateImageResponse_imageArn :: Lens.Lens' UpdateImageResponse (Prelude.Maybe Prelude.Text)
 updateImageResponse_imageArn = Lens.lens (\UpdateImageResponse' {imageArn} -> imageArn) (\s@UpdateImageResponse' {} a -> s {imageArn = a} :: UpdateImageResponse)
 
 -- | The response's http status code.
-updateImageResponse_httpStatus :: Lens.Lens' UpdateImageResponse Core.Int
+updateImageResponse_httpStatus :: Lens.Lens' UpdateImageResponse Prelude.Int
 updateImageResponse_httpStatus = Lens.lens (\UpdateImageResponse' {httpStatus} -> httpStatus) (\s@UpdateImageResponse' {} a -> s {httpStatus = a} :: UpdateImageResponse)
 
-instance Core.NFData UpdateImageResponse
+instance Prelude.NFData UpdateImageResponse

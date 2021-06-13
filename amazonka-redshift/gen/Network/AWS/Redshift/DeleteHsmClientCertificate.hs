@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -46,9 +47,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteHsmClientCertificate' smart constructor.
 data DeleteHsmClientCertificate = DeleteHsmClientCertificate'
   { -- | The identifier of the HSM client certificate to be deleted.
-    hsmClientCertificateIdentifier :: Core.Text
+    hsmClientCertificateIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteHsmClientCertificate' with all optional fields omitted.
@@ -61,7 +62,7 @@ data DeleteHsmClientCertificate = DeleteHsmClientCertificate'
 -- 'hsmClientCertificateIdentifier', 'deleteHsmClientCertificate_hsmClientCertificateIdentifier' - The identifier of the HSM client certificate to be deleted.
 newDeleteHsmClientCertificate ::
   -- | 'hsmClientCertificateIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DeleteHsmClientCertificate
 newDeleteHsmClientCertificate
   pHsmClientCertificateIdentifier_ =
@@ -71,7 +72,7 @@ newDeleteHsmClientCertificate
       }
 
 -- | The identifier of the HSM client certificate to be deleted.
-deleteHsmClientCertificate_hsmClientCertificateIdentifier :: Lens.Lens' DeleteHsmClientCertificate Core.Text
+deleteHsmClientCertificate_hsmClientCertificateIdentifier :: Lens.Lens' DeleteHsmClientCertificate Prelude.Text
 deleteHsmClientCertificate_hsmClientCertificateIdentifier = Lens.lens (\DeleteHsmClientCertificate' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@DeleteHsmClientCertificate' {} a -> s {hsmClientCertificateIdentifier = a} :: DeleteHsmClientCertificate)
 
 instance Core.AWSRequest DeleteHsmClientCertificate where
@@ -83,22 +84,23 @@ instance Core.AWSRequest DeleteHsmClientCertificate where
     Response.receiveNull
       DeleteHsmClientCertificateResponse'
 
-instance Core.Hashable DeleteHsmClientCertificate
+instance Prelude.Hashable DeleteHsmClientCertificate
 
-instance Core.NFData DeleteHsmClientCertificate
+instance Prelude.NFData DeleteHsmClientCertificate
 
 instance Core.ToHeaders DeleteHsmClientCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteHsmClientCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteHsmClientCertificate where
   toQuery DeleteHsmClientCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteHsmClientCertificate" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DeleteHsmClientCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "HsmClientCertificateIdentifier"
           Core.=: hsmClientCertificateIdentifier
       ]
@@ -107,7 +109,7 @@ instance Core.ToQuery DeleteHsmClientCertificate where
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteHsmClientCertificateResponse' with all optional fields omitted.
@@ -119,5 +121,5 @@ newDeleteHsmClientCertificateResponse =
   DeleteHsmClientCertificateResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteHsmClientCertificateResponse

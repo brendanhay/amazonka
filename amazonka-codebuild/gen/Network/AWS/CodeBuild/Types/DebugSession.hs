@@ -21,6 +21,7 @@ module Network.AWS.CodeBuild.Types.DebugSession where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the debug session for a build. For more
 -- information, see
@@ -31,11 +32,11 @@ data DebugSession = DebugSession'
   { -- | Contains the identifier of the Session Manager session used for the
     -- build. To work with the paused build, you open this session to examine,
     -- control, and resume the build.
-    sessionTarget :: Core.Maybe Core.Text,
+    sessionTarget :: Prelude.Maybe Prelude.Text,
     -- | Specifies if session debugging is enabled for this build.
-    sessionEnabled :: Core.Maybe Core.Bool
+    sessionEnabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DebugSession' with all optional fields omitted.
@@ -54,18 +55,18 @@ newDebugSession ::
   DebugSession
 newDebugSession =
   DebugSession'
-    { sessionTarget = Core.Nothing,
-      sessionEnabled = Core.Nothing
+    { sessionTarget = Prelude.Nothing,
+      sessionEnabled = Prelude.Nothing
     }
 
 -- | Contains the identifier of the Session Manager session used for the
 -- build. To work with the paused build, you open this session to examine,
 -- control, and resume the build.
-debugSession_sessionTarget :: Lens.Lens' DebugSession (Core.Maybe Core.Text)
+debugSession_sessionTarget :: Lens.Lens' DebugSession (Prelude.Maybe Prelude.Text)
 debugSession_sessionTarget = Lens.lens (\DebugSession' {sessionTarget} -> sessionTarget) (\s@DebugSession' {} a -> s {sessionTarget = a} :: DebugSession)
 
 -- | Specifies if session debugging is enabled for this build.
-debugSession_sessionEnabled :: Lens.Lens' DebugSession (Core.Maybe Core.Bool)
+debugSession_sessionEnabled :: Lens.Lens' DebugSession (Prelude.Maybe Prelude.Bool)
 debugSession_sessionEnabled = Lens.lens (\DebugSession' {sessionEnabled} -> sessionEnabled) (\s@DebugSession' {} a -> s {sessionEnabled = a} :: DebugSession)
 
 instance Core.FromJSON DebugSession where
@@ -74,10 +75,10 @@ instance Core.FromJSON DebugSession where
       "DebugSession"
       ( \x ->
           DebugSession'
-            Core.<$> (x Core..:? "sessionTarget")
-            Core.<*> (x Core..:? "sessionEnabled")
+            Prelude.<$> (x Core..:? "sessionTarget")
+            Prelude.<*> (x Core..:? "sessionEnabled")
       )
 
-instance Core.Hashable DebugSession
+instance Prelude.Hashable DebugSession
 
-instance Core.NFData DebugSession
+instance Prelude.NFData DebugSession

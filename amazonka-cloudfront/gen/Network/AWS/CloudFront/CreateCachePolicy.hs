@@ -67,6 +67,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,7 +76,7 @@ data CreateCachePolicy = CreateCachePolicy'
   { -- | A cache policy configuration.
     cachePolicyConfig :: CachePolicyConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCachePolicy' with all optional fields omitted.
@@ -109,15 +110,15 @@ instance Core.AWSRequest CreateCachePolicy where
     Response.receiveXML
       ( \s h x ->
           CreateCachePolicyResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (h Core..#? "Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateCachePolicy
+instance Prelude.Hashable CreateCachePolicy
 
-instance Core.NFData CreateCachePolicy
+instance Prelude.NFData CreateCachePolicy
 
 instance Core.ToElement CreateCachePolicy where
   toElement CreateCachePolicy' {..} =
@@ -126,26 +127,26 @@ instance Core.ToElement CreateCachePolicy where
       cachePolicyConfig
 
 instance Core.ToHeaders CreateCachePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateCachePolicy where
-  toPath = Core.const "/2020-05-31/cache-policy"
+  toPath = Prelude.const "/2020-05-31/cache-policy"
 
 instance Core.ToQuery CreateCachePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCachePolicyResponse' smart constructor.
 data CreateCachePolicyResponse = CreateCachePolicyResponse'
   { -- | The current version of the cache policy.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | A cache policy.
-    cachePolicy :: Core.Maybe CachePolicy,
+    cachePolicy :: Prelude.Maybe CachePolicy,
     -- | The fully qualified URI of the cache policy just created.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCachePolicyResponse' with all optional fields omitted.
@@ -164,30 +165,30 @@ data CreateCachePolicyResponse = CreateCachePolicyResponse'
 -- 'httpStatus', 'createCachePolicyResponse_httpStatus' - The response's http status code.
 newCreateCachePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateCachePolicyResponse
 newCreateCachePolicyResponse pHttpStatus_ =
   CreateCachePolicyResponse'
-    { eTag = Core.Nothing,
-      cachePolicy = Core.Nothing,
-      location = Core.Nothing,
+    { eTag = Prelude.Nothing,
+      cachePolicy = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the cache policy.
-createCachePolicyResponse_eTag :: Lens.Lens' CreateCachePolicyResponse (Core.Maybe Core.Text)
+createCachePolicyResponse_eTag :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe Prelude.Text)
 createCachePolicyResponse_eTag = Lens.lens (\CreateCachePolicyResponse' {eTag} -> eTag) (\s@CreateCachePolicyResponse' {} a -> s {eTag = a} :: CreateCachePolicyResponse)
 
 -- | A cache policy.
-createCachePolicyResponse_cachePolicy :: Lens.Lens' CreateCachePolicyResponse (Core.Maybe CachePolicy)
+createCachePolicyResponse_cachePolicy :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe CachePolicy)
 createCachePolicyResponse_cachePolicy = Lens.lens (\CreateCachePolicyResponse' {cachePolicy} -> cachePolicy) (\s@CreateCachePolicyResponse' {} a -> s {cachePolicy = a} :: CreateCachePolicyResponse)
 
 -- | The fully qualified URI of the cache policy just created.
-createCachePolicyResponse_location :: Lens.Lens' CreateCachePolicyResponse (Core.Maybe Core.Text)
+createCachePolicyResponse_location :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe Prelude.Text)
 createCachePolicyResponse_location = Lens.lens (\CreateCachePolicyResponse' {location} -> location) (\s@CreateCachePolicyResponse' {} a -> s {location = a} :: CreateCachePolicyResponse)
 
 -- | The response's http status code.
-createCachePolicyResponse_httpStatus :: Lens.Lens' CreateCachePolicyResponse Core.Int
+createCachePolicyResponse_httpStatus :: Lens.Lens' CreateCachePolicyResponse Prelude.Int
 createCachePolicyResponse_httpStatus = Lens.lens (\CreateCachePolicyResponse' {httpStatus} -> httpStatus) (\s@CreateCachePolicyResponse' {} a -> s {httpStatus = a} :: CreateCachePolicyResponse)
 
-instance Core.NFData CreateCachePolicyResponse
+instance Prelude.NFData CreateCachePolicyResponse

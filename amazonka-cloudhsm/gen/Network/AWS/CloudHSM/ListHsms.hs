@@ -65,6 +65,7 @@ where
 import Network.AWS.CloudHSM.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,9 +73,9 @@ import qualified Network.AWS.Response as Response
 data ListHsms = ListHsms'
   { -- | The @NextToken@ value from a previous call to @ListHsms@. Pass null if
     -- this is the first call.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHsms' with all optional fields omitted.
@@ -88,31 +89,31 @@ data ListHsms = ListHsms'
 -- this is the first call.
 newListHsms ::
   ListHsms
-newListHsms = ListHsms' {nextToken = Core.Nothing}
+newListHsms = ListHsms' {nextToken = Prelude.Nothing}
 
 -- | The @NextToken@ value from a previous call to @ListHsms@. Pass null if
 -- this is the first call.
-listHsms_nextToken :: Lens.Lens' ListHsms (Core.Maybe Core.Text)
+listHsms_nextToken :: Lens.Lens' ListHsms (Prelude.Maybe Prelude.Text)
 listHsms_nextToken = Lens.lens (\ListHsms' {nextToken} -> nextToken) (\s@ListHsms' {} a -> s {nextToken = a} :: ListHsms)
 
 instance Core.AWSPager ListHsms where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listHsmsResponse_nextToken Core.. Lens._Just
+            Lens.^? listHsmsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listHsmsResponse_hsmList Core.. Lens._Just
+            Lens.^? listHsmsResponse_hsmList Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listHsms_nextToken
+          Prelude.& listHsms_nextToken
           Lens..~ rs
-          Lens.^? listHsmsResponse_nextToken Core.. Lens._Just
+          Lens.^? listHsmsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHsms where
   type AWSResponse ListHsms = ListHsmsResponse
@@ -121,54 +122,56 @@ instance Core.AWSRequest ListHsms where
     Response.receiveJSON
       ( \s h x ->
           ListHsmsResponse'
-            Core.<$> (x Core..?> "HsmList" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HsmList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListHsms
+instance Prelude.Hashable ListHsms
 
-instance Core.NFData ListHsms
+instance Prelude.NFData ListHsms
 
 instance Core.ToHeaders ListHsms where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CloudHsmFrontendService.ListHsms" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListHsms where
   toJSON ListHsms' {..} =
     Core.object
-      ( Core.catMaybes
-          [("NextToken" Core..=) Core.<$> nextToken]
+      ( Prelude.catMaybes
+          [("NextToken" Core..=) Prelude.<$> nextToken]
       )
 
 instance Core.ToPath ListHsms where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListHsms where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the @ListHsms@ operation.
 --
 -- /See:/ 'newListHsmsResponse' smart constructor.
 data ListHsmsResponse = ListHsmsResponse'
   { -- | The list of ARNs that identify the HSMs.
-    hsmList :: Core.Maybe [Core.Text],
+    hsmList :: Prelude.Maybe [Prelude.Text],
     -- | If not null, more results are available. Pass this value to @ListHsms@
     -- to retrieve the next set of items.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHsmsResponse' with all optional fields omitted.
@@ -186,26 +189,26 @@ data ListHsmsResponse = ListHsmsResponse'
 -- 'httpStatus', 'listHsmsResponse_httpStatus' - The response's http status code.
 newListHsmsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListHsmsResponse
 newListHsmsResponse pHttpStatus_ =
   ListHsmsResponse'
-    { hsmList = Core.Nothing,
-      nextToken = Core.Nothing,
+    { hsmList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of ARNs that identify the HSMs.
-listHsmsResponse_hsmList :: Lens.Lens' ListHsmsResponse (Core.Maybe [Core.Text])
-listHsmsResponse_hsmList = Lens.lens (\ListHsmsResponse' {hsmList} -> hsmList) (\s@ListHsmsResponse' {} a -> s {hsmList = a} :: ListHsmsResponse) Core.. Lens.mapping Lens._Coerce
+listHsmsResponse_hsmList :: Lens.Lens' ListHsmsResponse (Prelude.Maybe [Prelude.Text])
+listHsmsResponse_hsmList = Lens.lens (\ListHsmsResponse' {hsmList} -> hsmList) (\s@ListHsmsResponse' {} a -> s {hsmList = a} :: ListHsmsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If not null, more results are available. Pass this value to @ListHsms@
 -- to retrieve the next set of items.
-listHsmsResponse_nextToken :: Lens.Lens' ListHsmsResponse (Core.Maybe Core.Text)
+listHsmsResponse_nextToken :: Lens.Lens' ListHsmsResponse (Prelude.Maybe Prelude.Text)
 listHsmsResponse_nextToken = Lens.lens (\ListHsmsResponse' {nextToken} -> nextToken) (\s@ListHsmsResponse' {} a -> s {nextToken = a} :: ListHsmsResponse)
 
 -- | The response's http status code.
-listHsmsResponse_httpStatus :: Lens.Lens' ListHsmsResponse Core.Int
+listHsmsResponse_httpStatus :: Lens.Lens' ListHsmsResponse Prelude.Int
 listHsmsResponse_httpStatus = Lens.lens (\ListHsmsResponse' {httpStatus} -> httpStatus) (\s@ListHsmsResponse' {} a -> s {httpStatus = a} :: ListHsmsResponse)
 
-instance Core.NFData ListHsmsResponse
+instance Prelude.NFData ListHsmsResponse

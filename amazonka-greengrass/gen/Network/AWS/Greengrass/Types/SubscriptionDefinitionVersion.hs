@@ -22,15 +22,16 @@ module Network.AWS.Greengrass.Types.SubscriptionDefinitionVersion where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Subscription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a subscription definition version.
 --
 -- /See:/ 'newSubscriptionDefinitionVersion' smart constructor.
 data SubscriptionDefinitionVersion = SubscriptionDefinitionVersion'
   { -- | A list of subscriptions.
-    subscriptions :: Core.Maybe [Subscription]
+    subscriptions :: Prelude.Maybe [Subscription]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubscriptionDefinitionVersion' with all optional fields omitted.
@@ -46,12 +47,12 @@ newSubscriptionDefinitionVersion ::
 newSubscriptionDefinitionVersion =
   SubscriptionDefinitionVersion'
     { subscriptions =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A list of subscriptions.
-subscriptionDefinitionVersion_subscriptions :: Lens.Lens' SubscriptionDefinitionVersion (Core.Maybe [Subscription])
-subscriptionDefinitionVersion_subscriptions = Lens.lens (\SubscriptionDefinitionVersion' {subscriptions} -> subscriptions) (\s@SubscriptionDefinitionVersion' {} a -> s {subscriptions = a} :: SubscriptionDefinitionVersion) Core.. Lens.mapping Lens._Coerce
+subscriptionDefinitionVersion_subscriptions :: Lens.Lens' SubscriptionDefinitionVersion (Prelude.Maybe [Subscription])
+subscriptionDefinitionVersion_subscriptions = Lens.lens (\SubscriptionDefinitionVersion' {subscriptions} -> subscriptions) (\s@SubscriptionDefinitionVersion' {} a -> s {subscriptions = a} :: SubscriptionDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON SubscriptionDefinitionVersion where
   parseJSON =
@@ -59,16 +60,20 @@ instance Core.FromJSON SubscriptionDefinitionVersion where
       "SubscriptionDefinitionVersion"
       ( \x ->
           SubscriptionDefinitionVersion'
-            Core.<$> (x Core..:? "Subscriptions" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Subscriptions" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable SubscriptionDefinitionVersion
+instance
+  Prelude.Hashable
+    SubscriptionDefinitionVersion
 
-instance Core.NFData SubscriptionDefinitionVersion
+instance Prelude.NFData SubscriptionDefinitionVersion
 
 instance Core.ToJSON SubscriptionDefinitionVersion where
   toJSON SubscriptionDefinitionVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Subscriptions" Core..=) Core.<$> subscriptions]
+      ( Prelude.catMaybes
+          [ ("Subscriptions" Core..=)
+              Prelude.<$> subscriptions
+          ]
       )

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,16 +59,16 @@ data DeleteRolePolicy = DeleteRolePolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text,
+    roleName :: Prelude.Text,
     -- | The name of the inline policy to delete from the specified IAM role.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    policyName :: Core.Text
+    policyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRolePolicy' with all optional fields omitted.
@@ -93,9 +94,9 @@ data DeleteRolePolicy = DeleteRolePolicy'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteRolePolicy ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRolePolicy
 newDeleteRolePolicy pRoleName_ pPolicyName_ =
   DeleteRolePolicy'
@@ -110,7 +111,7 @@ newDeleteRolePolicy pRoleName_ pPolicyName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteRolePolicy_roleName :: Lens.Lens' DeleteRolePolicy Core.Text
+deleteRolePolicy_roleName :: Lens.Lens' DeleteRolePolicy Prelude.Text
 deleteRolePolicy_roleName = Lens.lens (\DeleteRolePolicy' {roleName} -> roleName) (\s@DeleteRolePolicy' {} a -> s {roleName = a} :: DeleteRolePolicy)
 
 -- | The name of the inline policy to delete from the specified IAM role.
@@ -119,7 +120,7 @@ deleteRolePolicy_roleName = Lens.lens (\DeleteRolePolicy' {roleName} -> roleName
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteRolePolicy_policyName :: Lens.Lens' DeleteRolePolicy Core.Text
+deleteRolePolicy_policyName :: Lens.Lens' DeleteRolePolicy Prelude.Text
 deleteRolePolicy_policyName = Lens.lens (\DeleteRolePolicy' {policyName} -> policyName) (\s@DeleteRolePolicy' {} a -> s {policyName = a} :: DeleteRolePolicy)
 
 instance Core.AWSRequest DeleteRolePolicy where
@@ -130,22 +131,23 @@ instance Core.AWSRequest DeleteRolePolicy where
   response =
     Response.receiveNull DeleteRolePolicyResponse'
 
-instance Core.Hashable DeleteRolePolicy
+instance Prelude.Hashable DeleteRolePolicy
 
-instance Core.NFData DeleteRolePolicy
+instance Prelude.NFData DeleteRolePolicy
 
 instance Core.ToHeaders DeleteRolePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteRolePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRolePolicy where
   toQuery DeleteRolePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteRolePolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeleteRolePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName,
         "PolicyName" Core.=: policyName
       ]
@@ -154,7 +156,7 @@ instance Core.ToQuery DeleteRolePolicy where
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRolePolicyResponse' with all optional fields omitted.
@@ -165,4 +167,4 @@ newDeleteRolePolicyResponse ::
 newDeleteRolePolicyResponse =
   DeleteRolePolicyResponse'
 
-instance Core.NFData DeleteRolePolicyResponse
+instance Prelude.NFData DeleteRolePolicyResponse

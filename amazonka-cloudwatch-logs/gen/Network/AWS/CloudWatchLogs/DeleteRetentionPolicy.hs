@@ -41,15 +41,16 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRetentionPolicy' smart constructor.
 data DeleteRetentionPolicy = DeleteRetentionPolicy'
   { -- | The name of the log group.
-    logGroupName :: Core.Text
+    logGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRetentionPolicy' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteRetentionPolicy = DeleteRetentionPolicy'
 -- 'logGroupName', 'deleteRetentionPolicy_logGroupName' - The name of the log group.
 newDeleteRetentionPolicy ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRetentionPolicy
 newDeleteRetentionPolicy pLogGroupName_ =
   DeleteRetentionPolicy'
@@ -71,7 +72,7 @@ newDeleteRetentionPolicy pLogGroupName_ =
     }
 
 -- | The name of the log group.
-deleteRetentionPolicy_logGroupName :: Lens.Lens' DeleteRetentionPolicy Core.Text
+deleteRetentionPolicy_logGroupName :: Lens.Lens' DeleteRetentionPolicy Prelude.Text
 deleteRetentionPolicy_logGroupName = Lens.lens (\DeleteRetentionPolicy' {logGroupName} -> logGroupName) (\s@DeleteRetentionPolicy' {} a -> s {logGroupName = a} :: DeleteRetentionPolicy)
 
 instance Core.AWSRequest DeleteRetentionPolicy where
@@ -82,41 +83,43 @@ instance Core.AWSRequest DeleteRetentionPolicy where
   response =
     Response.receiveNull DeleteRetentionPolicyResponse'
 
-instance Core.Hashable DeleteRetentionPolicy
+instance Prelude.Hashable DeleteRetentionPolicy
 
-instance Core.NFData DeleteRetentionPolicy
+instance Prelude.NFData DeleteRetentionPolicy
 
 instance Core.ToHeaders DeleteRetentionPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.DeleteRetentionPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRetentionPolicy where
   toJSON DeleteRetentionPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("logGroupName" Core..= logGroupName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("logGroupName" Core..= logGroupName)]
       )
 
 instance Core.ToPath DeleteRetentionPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRetentionPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRetentionPolicyResponse' smart constructor.
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRetentionPolicyResponse' with all optional fields omitted.
@@ -127,4 +130,4 @@ newDeleteRetentionPolicyResponse ::
 newDeleteRetentionPolicyResponse =
   DeleteRetentionPolicyResponse'
 
-instance Core.NFData DeleteRetentionPolicyResponse
+instance Prelude.NFData DeleteRetentionPolicyResponse

@@ -45,15 +45,16 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSchemaAsJson' smart constructor.
 data GetSchemaAsJson = GetSchemaAsJson'
   { -- | The ARN of the schema to retrieve.
-    schemaArn :: Core.Text
+    schemaArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSchemaAsJson' with all optional fields omitted.
@@ -66,13 +67,13 @@ data GetSchemaAsJson = GetSchemaAsJson'
 -- 'schemaArn', 'getSchemaAsJson_schemaArn' - The ARN of the schema to retrieve.
 newGetSchemaAsJson ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   GetSchemaAsJson
 newGetSchemaAsJson pSchemaArn_ =
   GetSchemaAsJson' {schemaArn = pSchemaArn_}
 
 -- | The ARN of the schema to retrieve.
-getSchemaAsJson_schemaArn :: Lens.Lens' GetSchemaAsJson Core.Text
+getSchemaAsJson_schemaArn :: Lens.Lens' GetSchemaAsJson Prelude.Text
 getSchemaAsJson_schemaArn = Lens.lens (\GetSchemaAsJson' {schemaArn} -> schemaArn) (\s@GetSchemaAsJson' {} a -> s {schemaArn = a} :: GetSchemaAsJson)
 
 instance Core.AWSRequest GetSchemaAsJson where
@@ -84,41 +85,41 @@ instance Core.AWSRequest GetSchemaAsJson where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaAsJsonResponse'
-            Core.<$> (x Core..?> "Name")
-            Core.<*> (x Core..?> "Document")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Document")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSchemaAsJson
+instance Prelude.Hashable GetSchemaAsJson
 
-instance Core.NFData GetSchemaAsJson
+instance Prelude.NFData GetSchemaAsJson
 
 instance Core.ToHeaders GetSchemaAsJson where
   toHeaders GetSchemaAsJson' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON GetSchemaAsJson where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetSchemaAsJson where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/json"
 
 instance Core.ToQuery GetSchemaAsJson where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaAsJsonResponse' smart constructor.
 data GetSchemaAsJsonResponse = GetSchemaAsJsonResponse'
   { -- | The name of the retrieved schema.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The JSON representation of the schema document.
-    document :: Core.Maybe Core.Text,
+    document :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSchemaAsJsonResponse' with all optional fields omitted.
@@ -135,25 +136,25 @@ data GetSchemaAsJsonResponse = GetSchemaAsJsonResponse'
 -- 'httpStatus', 'getSchemaAsJsonResponse_httpStatus' - The response's http status code.
 newGetSchemaAsJsonResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSchemaAsJsonResponse
 newGetSchemaAsJsonResponse pHttpStatus_ =
   GetSchemaAsJsonResponse'
-    { name = Core.Nothing,
-      document = Core.Nothing,
+    { name = Prelude.Nothing,
+      document = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the retrieved schema.
-getSchemaAsJsonResponse_name :: Lens.Lens' GetSchemaAsJsonResponse (Core.Maybe Core.Text)
+getSchemaAsJsonResponse_name :: Lens.Lens' GetSchemaAsJsonResponse (Prelude.Maybe Prelude.Text)
 getSchemaAsJsonResponse_name = Lens.lens (\GetSchemaAsJsonResponse' {name} -> name) (\s@GetSchemaAsJsonResponse' {} a -> s {name = a} :: GetSchemaAsJsonResponse)
 
 -- | The JSON representation of the schema document.
-getSchemaAsJsonResponse_document :: Lens.Lens' GetSchemaAsJsonResponse (Core.Maybe Core.Text)
+getSchemaAsJsonResponse_document :: Lens.Lens' GetSchemaAsJsonResponse (Prelude.Maybe Prelude.Text)
 getSchemaAsJsonResponse_document = Lens.lens (\GetSchemaAsJsonResponse' {document} -> document) (\s@GetSchemaAsJsonResponse' {} a -> s {document = a} :: GetSchemaAsJsonResponse)
 
 -- | The response's http status code.
-getSchemaAsJsonResponse_httpStatus :: Lens.Lens' GetSchemaAsJsonResponse Core.Int
+getSchemaAsJsonResponse_httpStatus :: Lens.Lens' GetSchemaAsJsonResponse Prelude.Int
 getSchemaAsJsonResponse_httpStatus = Lens.lens (\GetSchemaAsJsonResponse' {httpStatus} -> httpStatus) (\s@GetSchemaAsJsonResponse' {} a -> s {httpStatus = a} :: GetSchemaAsJsonResponse)
 
-instance Core.NFData GetSchemaAsJsonResponse
+instance Prelude.NFData GetSchemaAsJsonResponse

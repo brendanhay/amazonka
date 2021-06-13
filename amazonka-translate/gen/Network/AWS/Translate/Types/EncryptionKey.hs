@@ -21,6 +21,7 @@ module Network.AWS.Translate.Types.EncryptionKey where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Translate.Types.EncryptionKeyType
 
 -- | The encryption key used to encrypt this object.
@@ -32,9 +33,9 @@ data EncryptionKey = EncryptionKey'
     type' :: EncryptionKeyType,
     -- | The Amazon Resource Name (ARN) of the encryption key being used to
     -- encrypt the custom terminology.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EncryptionKey' with all optional fields omitted.
@@ -53,7 +54,7 @@ newEncryptionKey ::
   -- | 'type''
   EncryptionKeyType ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   EncryptionKey
 newEncryptionKey pType_ pId_ =
   EncryptionKey' {type' = pType_, id = pId_}
@@ -65,7 +66,7 @@ encryptionKey_type = Lens.lens (\EncryptionKey' {type'} -> type') (\s@Encryption
 
 -- | The Amazon Resource Name (ARN) of the encryption key being used to
 -- encrypt the custom terminology.
-encryptionKey_id :: Lens.Lens' EncryptionKey Core.Text
+encryptionKey_id :: Lens.Lens' EncryptionKey Prelude.Text
 encryptionKey_id = Lens.lens (\EncryptionKey' {id} -> id) (\s@EncryptionKey' {} a -> s {id = a} :: EncryptionKey)
 
 instance Core.FromJSON EncryptionKey where
@@ -74,18 +75,18 @@ instance Core.FromJSON EncryptionKey where
       "EncryptionKey"
       ( \x ->
           EncryptionKey'
-            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Id")
+            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Id")
       )
 
-instance Core.Hashable EncryptionKey
+instance Prelude.Hashable EncryptionKey
 
-instance Core.NFData EncryptionKey
+instance Prelude.NFData EncryptionKey
 
 instance Core.ToJSON EncryptionKey where
   toJSON EncryptionKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Type" Core..= type'),
-            Core.Just ("Id" Core..= id)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("Id" Core..= id)
           ]
       )

@@ -804,6 +804,7 @@ import Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType
 import Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-04-18@ of the Amazon Cognito Identity Provider SDK configuration.
@@ -818,7 +819,7 @@ defaultService =
       Core._serviceVersion = "2016-04-18",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError =
         Core.parseJSONError "CognitoIdentityProvider",
@@ -834,50 +835,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | This exception is thrown when a password reset is required.
-_PasswordResetRequiredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PasswordResetRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PasswordResetRequiredException =
   Core._MatchServiceError
     defaultService
@@ -885,7 +888,7 @@ _PasswordResetRequiredException =
 
 -- | This exception is thrown when Amazon Cognito encounters a user name that
 -- already exists in the user pool.
-_UsernameExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UsernameExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UsernameExistsException =
   Core._MatchServiceError
     defaultService
@@ -893,14 +896,14 @@ _UsernameExistsException =
 
 -- | This exception is thrown when a verification code fails to deliver
 -- successfully.
-_CodeDeliveryFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CodeDeliveryFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CodeDeliveryFailureException =
   Core._MatchServiceError
     defaultService
     "CodeDeliveryFailureException"
 
 -- | This exception is thrown when the specified scope does not exist.
-_ScopeDoesNotExistException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ScopeDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ScopeDoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -908,7 +911,7 @@ _ScopeDoesNotExistException =
 
 -- | This exception is thrown if the provided code does not match what the
 -- server was expecting.
-_CodeMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CodeMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CodeMismatchException =
   Core._MatchServiceError
     defaultService
@@ -916,7 +919,7 @@ _CodeMismatchException =
 
 -- | This exception is thrown when Amazon Cognito encounters an internal
 -- error.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
@@ -925,21 +928,21 @@ _InternalErrorException =
 -- | This exception is thrown when there is a code mismatch and the service
 -- fails to configure the software token TOTP multi-factor authentication
 -- (MFA).
-_EnableSoftwareTokenMFAException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EnableSoftwareTokenMFAException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EnableSoftwareTokenMFAException =
   Core._MatchServiceError
     defaultService
     "EnableSoftwareTokenMFAException"
 
 -- | This exception is thrown when a user is not confirmed successfully.
-_UserNotConfirmedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UserNotConfirmedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UserNotConfirmedException =
   Core._MatchServiceError
     defaultService
     "UserNotConfirmedException"
 
 -- | This exception is thrown if a code has expired.
-_ExpiredCodeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ExpiredCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ExpiredCodeException =
   Core._MatchServiceError
     defaultService
@@ -947,7 +950,7 @@ _ExpiredCodeException =
 
 -- | This exception is thrown when the user has made too many failed attempts
 -- for a given action (e.g., sign in).
-_TooManyFailedAttemptsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyFailedAttemptsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyFailedAttemptsException =
   Core._MatchServiceError
     defaultService
@@ -955,14 +958,14 @@ _TooManyFailedAttemptsException =
 
 -- | This exception is thrown when the Amazon Cognito service encounters an
 -- unexpected exception with the AWS Lambda service.
-_UnexpectedLambdaException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnexpectedLambdaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnexpectedLambdaException =
   Core._MatchServiceError
     defaultService
     "UnexpectedLambdaException"
 
 -- | This exception is thrown when a user is not found.
-_UserNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UserNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UserNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -970,7 +973,7 @@ _UserNotFoundException =
 
 -- | This exception is thrown when the Amazon Cognito service encounters an
 -- invalid AWS Lambda response.
-_InvalidLambdaResponseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidLambdaResponseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidLambdaResponseException =
   Core._MatchServiceError
     defaultService
@@ -978,7 +981,7 @@ _InvalidLambdaResponseException =
 
 -- | This exception is thrown if two or more modifications are happening
 -- concurrently.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -986,7 +989,7 @@ _ConcurrentModificationException =
 
 -- | This exception is thrown when the Amazon Cognito service encounters a
 -- user validation exception with the AWS Lambda service.
-_UserLambdaValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UserLambdaValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UserLambdaValidationException =
   Core._MatchServiceError
     defaultService
@@ -994,21 +997,21 @@ _UserLambdaValidationException =
 
 -- | This exception is thrown when the software token TOTP multi-factor
 -- authentication (MFA) is not enabled for the user pool.
-_SoftwareTokenMFANotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SoftwareTokenMFANotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SoftwareTokenMFANotFoundException =
   Core._MatchServiceError
     defaultService
     "SoftwareTokenMFANotFoundException"
 
 -- | This exception is thrown when a precondition is not met.
-_PreconditionNotMetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PreconditionNotMetException =
   Core._MatchServiceError
     defaultService
     "PreconditionNotMetException"
 
 -- | This exception is thrown when a user pool tag cannot be set or updated.
-_UserPoolTaggingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UserPoolTaggingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UserPoolTaggingException =
   Core._MatchServiceError
     defaultService
@@ -1019,7 +1022,7 @@ _UserPoolTaggingException =
 -- __cognito-idp.amazonaws.com__ or the external ID provided in the role
 -- does not match what is provided in the SMS configuration for the user
 -- pool.
-_InvalidSmsRoleTrustRelationshipException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSmsRoleTrustRelationshipException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidSmsRoleTrustRelationshipException =
   Core._MatchServiceError
     defaultService
@@ -1027,14 +1030,14 @@ _InvalidSmsRoleTrustRelationshipException =
 
 -- | This exception is thrown when the Amazon Cognito service encounters an
 -- invalid parameter.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | The request failed because the user is in an unsupported state.
-_UnsupportedUserStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedUserStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedUserStateException =
   Core._MatchServiceError
     defaultService
@@ -1042,7 +1045,7 @@ _UnsupportedUserStateException =
 
 -- | This exception is thrown when a user exceeds the limit for a requested
 -- AWS resource.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1050,7 +1053,7 @@ _LimitExceededException =
 
 -- | This exception is thrown when the Amazon Cognito service encounters an
 -- invalid password.
-_InvalidPasswordException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidPasswordException =
   Core._MatchServiceError
     defaultService
@@ -1058,7 +1061,7 @@ _InvalidPasswordException =
 
 -- | This exception is thrown when Amazon Cognito cannot find a multi-factor
 -- authentication (MFA) method.
-_MFAMethodNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MFAMethodNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MFAMethodNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1068,7 +1071,7 @@ _MFAMethodNotFoundException =
 -- an email or phone number that has already been supplied as an alias from
 -- a different account. This exception tells user that an account with this
 -- email or phone already exists.
-_AliasExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AliasExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AliasExistsException =
   Core._MatchServiceError
     defaultService
@@ -1076,7 +1079,7 @@ _AliasExistsException =
 
 -- | This exception is thrown when the provider is already supported by the
 -- user pool.
-_DuplicateProviderException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateProviderException =
   Core._MatchServiceError
     defaultService
@@ -1084,7 +1087,7 @@ _DuplicateProviderException =
 
 -- | This exception is thrown when you are trying to modify a user pool while
 -- a user import job is in progress for that pool.
-_UserImportInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UserImportInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UserImportInProgressException =
   Core._MatchServiceError
     defaultService
@@ -1092,7 +1095,7 @@ _UserImportInProgressException =
 
 -- | This exception is thrown when the Amazon Cognito service cannot find the
 -- requested resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1100,21 +1103,21 @@ _ResourceNotFoundException =
 
 -- | This exception is returned when the role provided for SMS configuration
 -- does not have permission to publish using Amazon SNS.
-_InvalidSmsRoleAccessPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSmsRoleAccessPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidSmsRoleAccessPolicyException =
   Core._MatchServiceError
     defaultService
     "InvalidSmsRoleAccessPolicyException"
 
 -- | This exception is thrown when the user pool configuration is invalid.
-_InvalidUserPoolConfigurationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidUserPoolConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidUserPoolConfigurationException =
   Core._MatchServiceError
     defaultService
     "InvalidUserPoolConfigurationException"
 
 -- | This exception is thrown when the specified OAuth flow is invalid.
-_InvalidOAuthFlowException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidOAuthFlowException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidOAuthFlowException =
   Core._MatchServiceError
     defaultService
@@ -1122,21 +1125,21 @@ _InvalidOAuthFlowException =
 
 -- | This exception is thrown when Amazon Cognito encounters a group that
 -- already exists in the user pool.
-_GroupExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_GroupExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _GroupExistsException =
   Core._MatchServiceError
     defaultService
     "GroupExistsException"
 
 -- | This exception is thrown when the specified identifier is not supported.
-_UnsupportedIdentityProviderException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedIdentityProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedIdentityProviderException =
   Core._MatchServiceError
     defaultService
     "UnsupportedIdentityProviderException"
 
 -- | This exception is thrown when a user is not authorized.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
@@ -1144,7 +1147,7 @@ _NotAuthorizedException =
 
 -- | This exception is thrown when the user has made too many requests for a
 -- given operation.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -1152,14 +1155,14 @@ _TooManyRequestsException =
 
 -- | This exception is thrown when Amazon Cognito is not allowed to use your
 -- email identity. HTTP status code: 400.
-_InvalidEmailRoleAccessPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidEmailRoleAccessPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidEmailRoleAccessPolicyException =
   Core._MatchServiceError
     defaultService
     "InvalidEmailRoleAccessPolicyException"
 
 -- | This exception is thrown when user pool add-ons are not enabled.
-_UserPoolAddOnNotEnabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UserPoolAddOnNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UserPoolAddOnNotEnabledException =
   Core._MatchServiceError
     defaultService

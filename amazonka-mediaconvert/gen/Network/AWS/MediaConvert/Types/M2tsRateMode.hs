@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.M2tsRateMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to CBR, inserts null packets into transport stream to fill
 -- specified bitrate. When set to VBR, the bitrate setting acts as the
@@ -36,15 +37,15 @@ newtype M2tsRateMode = M2tsRateMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

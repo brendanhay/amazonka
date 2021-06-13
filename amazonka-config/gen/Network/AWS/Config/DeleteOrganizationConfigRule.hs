@@ -48,15 +48,16 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteOrganizationConfigRule' smart constructor.
 data DeleteOrganizationConfigRule = DeleteOrganizationConfigRule'
   { -- | The name of organization config rule that you want to delete.
-    organizationConfigRuleName :: Core.Text
+    organizationConfigRuleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationConfigRule' with all optional fields omitted.
@@ -69,7 +70,7 @@ data DeleteOrganizationConfigRule = DeleteOrganizationConfigRule'
 -- 'organizationConfigRuleName', 'deleteOrganizationConfigRule_organizationConfigRuleName' - The name of organization config rule that you want to delete.
 newDeleteOrganizationConfigRule ::
   -- | 'organizationConfigRuleName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteOrganizationConfigRule
 newDeleteOrganizationConfigRule
   pOrganizationConfigRuleName_ =
@@ -79,7 +80,7 @@ newDeleteOrganizationConfigRule
       }
 
 -- | The name of organization config rule that you want to delete.
-deleteOrganizationConfigRule_organizationConfigRuleName :: Lens.Lens' DeleteOrganizationConfigRule Core.Text
+deleteOrganizationConfigRule_organizationConfigRuleName :: Lens.Lens' DeleteOrganizationConfigRule Prelude.Text
 deleteOrganizationConfigRule_organizationConfigRuleName = Lens.lens (\DeleteOrganizationConfigRule' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@DeleteOrganizationConfigRule' {} a -> s {organizationConfigRuleName = a} :: DeleteOrganizationConfigRule)
 
 instance Core.AWSRequest DeleteOrganizationConfigRule where
@@ -91,28 +92,32 @@ instance Core.AWSRequest DeleteOrganizationConfigRule where
     Response.receiveNull
       DeleteOrganizationConfigRuleResponse'
 
-instance Core.Hashable DeleteOrganizationConfigRule
+instance
+  Prelude.Hashable
+    DeleteOrganizationConfigRule
 
-instance Core.NFData DeleteOrganizationConfigRule
+instance Prelude.NFData DeleteOrganizationConfigRule
 
 instance Core.ToHeaders DeleteOrganizationConfigRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteOrganizationConfigRule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteOrganizationConfigRule where
   toJSON DeleteOrganizationConfigRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "OrganizationConfigRuleName"
                   Core..= organizationConfigRuleName
               )
@@ -120,16 +125,16 @@ instance Core.ToJSON DeleteOrganizationConfigRule where
       )
 
 instance Core.ToPath DeleteOrganizationConfigRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteOrganizationConfigRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOrganizationConfigRuleResponse' smart constructor.
 data DeleteOrganizationConfigRuleResponse = DeleteOrganizationConfigRuleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationConfigRuleResponse' with all optional fields omitted.
@@ -141,5 +146,5 @@ newDeleteOrganizationConfigRuleResponse =
   DeleteOrganizationConfigRuleResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteOrganizationConfigRuleResponse

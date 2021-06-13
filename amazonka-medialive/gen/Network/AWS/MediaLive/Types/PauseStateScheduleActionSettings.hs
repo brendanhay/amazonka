@@ -22,14 +22,15 @@ module Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.PipelinePauseStateSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for the action to set pause state of a channel.
 --
 -- /See:/ 'newPauseStateScheduleActionSettings' smart constructor.
 data PauseStateScheduleActionSettings = PauseStateScheduleActionSettings'
-  { pipelines :: Core.Maybe [PipelinePauseStateSettings]
+  { pipelines :: Prelude.Maybe [PipelinePauseStateSettings]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PauseStateScheduleActionSettings' with all optional fields omitted.
@@ -45,12 +46,12 @@ newPauseStateScheduleActionSettings ::
 newPauseStateScheduleActionSettings =
   PauseStateScheduleActionSettings'
     { pipelines =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Undocumented member.
-pauseStateScheduleActionSettings_pipelines :: Lens.Lens' PauseStateScheduleActionSettings (Core.Maybe [PipelinePauseStateSettings])
-pauseStateScheduleActionSettings_pipelines = Lens.lens (\PauseStateScheduleActionSettings' {pipelines} -> pipelines) (\s@PauseStateScheduleActionSettings' {} a -> s {pipelines = a} :: PauseStateScheduleActionSettings) Core.. Lens.mapping Lens._Coerce
+pauseStateScheduleActionSettings_pipelines :: Lens.Lens' PauseStateScheduleActionSettings (Prelude.Maybe [PipelinePauseStateSettings])
+pauseStateScheduleActionSettings_pipelines = Lens.lens (\PauseStateScheduleActionSettings' {pipelines} -> pipelines) (\s@PauseStateScheduleActionSettings' {} a -> s {pipelines = a} :: PauseStateScheduleActionSettings) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -61,18 +62,20 @@ instance
       "PauseStateScheduleActionSettings"
       ( \x ->
           PauseStateScheduleActionSettings'
-            Core.<$> (x Core..:? "pipelines" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "pipelines" Core..!= Prelude.mempty)
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PauseStateScheduleActionSettings
 
-instance Core.NFData PauseStateScheduleActionSettings
+instance
+  Prelude.NFData
+    PauseStateScheduleActionSettings
 
 instance Core.ToJSON PauseStateScheduleActionSettings where
   toJSON PauseStateScheduleActionSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pipelines" Core..=) Core.<$> pipelines]
+      ( Prelude.catMaybes
+          [("pipelines" Core..=) Prelude.<$> pipelines]
       )

@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.ScheduledInstancesEbs where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an EBS volume for a Scheduled Instance.
 --
@@ -29,22 +30,22 @@ import qualified Network.AWS.Lens as Lens
 data ScheduledInstancesEbs = ScheduledInstancesEbs'
   { -- | Indicates whether the volume is encrypted. You can attached encrypted
     -- volumes only to instances that support them.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the volume is deleted on instance termination.
-    deleteOnTermination :: Core.Maybe Core.Bool,
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the snapshot.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The volume type. @gp2@ for General Purpose SSD, @io1@ or @ io2@ for
     -- Provisioned IOPS SSD, Throughput Optimized HDD for @st1@, Cold HDD for
     -- @sc1@, or @standard@ for Magnetic.
     --
     -- Default: @gp2@
-    volumeType :: Core.Maybe Core.Text,
+    volumeType :: Prelude.Maybe Prelude.Text,
     -- | The size of the volume, in GiB.
     --
     -- Default: If you\'re creating the volume from a snapshot and don\'t
     -- specify a volume size, the default is the snapshot size.
-    volumeSize :: Core.Maybe Core.Int,
+    volumeSize :: Prelude.Maybe Prelude.Int,
     -- | The number of I\/O operations per second (IOPS) to provision for an
     -- @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS\/GiB for @io1@,
     -- and 500 IOPS\/GiB for @io2@. Range is 100 to 64,000 IOPS for volumes in
@@ -57,9 +58,9 @@ data ScheduledInstancesEbs = ScheduledInstancesEbs'
     --
     -- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@)
     -- volumes.
-    iops :: Core.Maybe Core.Int
+    iops :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesEbs' with all optional fields omitted.
@@ -103,25 +104,25 @@ newScheduledInstancesEbs ::
   ScheduledInstancesEbs
 newScheduledInstancesEbs =
   ScheduledInstancesEbs'
-    { encrypted = Core.Nothing,
-      deleteOnTermination = Core.Nothing,
-      snapshotId = Core.Nothing,
-      volumeType = Core.Nothing,
-      volumeSize = Core.Nothing,
-      iops = Core.Nothing
+    { encrypted = Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      volumeType = Prelude.Nothing,
+      volumeSize = Prelude.Nothing,
+      iops = Prelude.Nothing
     }
 
 -- | Indicates whether the volume is encrypted. You can attached encrypted
 -- volumes only to instances that support them.
-scheduledInstancesEbs_encrypted :: Lens.Lens' ScheduledInstancesEbs (Core.Maybe Core.Bool)
+scheduledInstancesEbs_encrypted :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Bool)
 scheduledInstancesEbs_encrypted = Lens.lens (\ScheduledInstancesEbs' {encrypted} -> encrypted) (\s@ScheduledInstancesEbs' {} a -> s {encrypted = a} :: ScheduledInstancesEbs)
 
 -- | Indicates whether the volume is deleted on instance termination.
-scheduledInstancesEbs_deleteOnTermination :: Lens.Lens' ScheduledInstancesEbs (Core.Maybe Core.Bool)
+scheduledInstancesEbs_deleteOnTermination :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Bool)
 scheduledInstancesEbs_deleteOnTermination = Lens.lens (\ScheduledInstancesEbs' {deleteOnTermination} -> deleteOnTermination) (\s@ScheduledInstancesEbs' {} a -> s {deleteOnTermination = a} :: ScheduledInstancesEbs)
 
 -- | The ID of the snapshot.
-scheduledInstancesEbs_snapshotId :: Lens.Lens' ScheduledInstancesEbs (Core.Maybe Core.Text)
+scheduledInstancesEbs_snapshotId :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Text)
 scheduledInstancesEbs_snapshotId = Lens.lens (\ScheduledInstancesEbs' {snapshotId} -> snapshotId) (\s@ScheduledInstancesEbs' {} a -> s {snapshotId = a} :: ScheduledInstancesEbs)
 
 -- | The volume type. @gp2@ for General Purpose SSD, @io1@ or @ io2@ for
@@ -129,14 +130,14 @@ scheduledInstancesEbs_snapshotId = Lens.lens (\ScheduledInstancesEbs' {snapshotI
 -- @sc1@, or @standard@ for Magnetic.
 --
 -- Default: @gp2@
-scheduledInstancesEbs_volumeType :: Lens.Lens' ScheduledInstancesEbs (Core.Maybe Core.Text)
+scheduledInstancesEbs_volumeType :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Text)
 scheduledInstancesEbs_volumeType = Lens.lens (\ScheduledInstancesEbs' {volumeType} -> volumeType) (\s@ScheduledInstancesEbs' {} a -> s {volumeType = a} :: ScheduledInstancesEbs)
 
 -- | The size of the volume, in GiB.
 --
 -- Default: If you\'re creating the volume from a snapshot and don\'t
 -- specify a volume size, the default is the snapshot size.
-scheduledInstancesEbs_volumeSize :: Lens.Lens' ScheduledInstancesEbs (Core.Maybe Core.Int)
+scheduledInstancesEbs_volumeSize :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Int)
 scheduledInstancesEbs_volumeSize = Lens.lens (\ScheduledInstancesEbs' {volumeSize} -> volumeSize) (\s@ScheduledInstancesEbs' {} a -> s {volumeSize = a} :: ScheduledInstancesEbs)
 
 -- | The number of I\/O operations per second (IOPS) to provision for an
@@ -151,16 +152,16 @@ scheduledInstancesEbs_volumeSize = Lens.lens (\ScheduledInstancesEbs' {volumeSiz
 --
 -- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@)
 -- volumes.
-scheduledInstancesEbs_iops :: Lens.Lens' ScheduledInstancesEbs (Core.Maybe Core.Int)
+scheduledInstancesEbs_iops :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Int)
 scheduledInstancesEbs_iops = Lens.lens (\ScheduledInstancesEbs' {iops} -> iops) (\s@ScheduledInstancesEbs' {} a -> s {iops = a} :: ScheduledInstancesEbs)
 
-instance Core.Hashable ScheduledInstancesEbs
+instance Prelude.Hashable ScheduledInstancesEbs
 
-instance Core.NFData ScheduledInstancesEbs
+instance Prelude.NFData ScheduledInstancesEbs
 
 instance Core.ToQuery ScheduledInstancesEbs where
   toQuery ScheduledInstancesEbs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Encrypted" Core.=: encrypted,
         "DeleteOnTermination" Core.=: deleteOnTermination,
         "SnapshotId" Core.=: snapshotId,

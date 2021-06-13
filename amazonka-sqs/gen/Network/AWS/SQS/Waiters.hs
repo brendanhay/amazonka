@@ -17,5 +17,6 @@ module Network.AWS.SQS.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SQS.Lens
 import Network.AWS.SQS.Types

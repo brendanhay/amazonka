@@ -42,17 +42,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateApprovedOrigin' smart constructor.
 data DisassociateApprovedOrigin = DisassociateApprovedOrigin'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The domain URL of the integrated application.
-    origin :: Core.Text
+    origin :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateApprovedOrigin' with all optional fields omitted.
@@ -67,9 +68,9 @@ data DisassociateApprovedOrigin = DisassociateApprovedOrigin'
 -- 'origin', 'disassociateApprovedOrigin_origin' - The domain URL of the integrated application.
 newDisassociateApprovedOrigin ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'origin'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateApprovedOrigin
 newDisassociateApprovedOrigin pInstanceId_ pOrigin_ =
   DisassociateApprovedOrigin'
@@ -79,11 +80,11 @@ newDisassociateApprovedOrigin pInstanceId_ pOrigin_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-disassociateApprovedOrigin_instanceId :: Lens.Lens' DisassociateApprovedOrigin Core.Text
+disassociateApprovedOrigin_instanceId :: Lens.Lens' DisassociateApprovedOrigin Prelude.Text
 disassociateApprovedOrigin_instanceId = Lens.lens (\DisassociateApprovedOrigin' {instanceId} -> instanceId) (\s@DisassociateApprovedOrigin' {} a -> s {instanceId = a} :: DisassociateApprovedOrigin)
 
 -- | The domain URL of the integrated application.
-disassociateApprovedOrigin_origin :: Lens.Lens' DisassociateApprovedOrigin Core.Text
+disassociateApprovedOrigin_origin :: Lens.Lens' DisassociateApprovedOrigin Prelude.Text
 disassociateApprovedOrigin_origin = Lens.lens (\DisassociateApprovedOrigin' {origin} -> origin) (\s@DisassociateApprovedOrigin' {} a -> s {origin = a} :: DisassociateApprovedOrigin)
 
 instance Core.AWSRequest DisassociateApprovedOrigin where
@@ -95,22 +96,24 @@ instance Core.AWSRequest DisassociateApprovedOrigin where
     Response.receiveNull
       DisassociateApprovedOriginResponse'
 
-instance Core.Hashable DisassociateApprovedOrigin
+instance Prelude.Hashable DisassociateApprovedOrigin
 
-instance Core.NFData DisassociateApprovedOrigin
+instance Prelude.NFData DisassociateApprovedOrigin
 
 instance Core.ToHeaders DisassociateApprovedOrigin where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DisassociateApprovedOrigin where
   toPath DisassociateApprovedOrigin' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/approved-origin"
@@ -118,13 +121,13 @@ instance Core.ToPath DisassociateApprovedOrigin where
 
 instance Core.ToQuery DisassociateApprovedOrigin where
   toQuery DisassociateApprovedOrigin' {..} =
-    Core.mconcat ["origin" Core.=: origin]
+    Prelude.mconcat ["origin" Core.=: origin]
 
 -- | /See:/ 'newDisassociateApprovedOriginResponse' smart constructor.
 data DisassociateApprovedOriginResponse = DisassociateApprovedOriginResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateApprovedOriginResponse' with all optional fields omitted.
@@ -136,5 +139,5 @@ newDisassociateApprovedOriginResponse =
   DisassociateApprovedOriginResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateApprovedOriginResponse

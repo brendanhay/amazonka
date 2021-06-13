@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,10 +79,10 @@ data ListStreamConsumers = ListStreamConsumers'
     -- in the response to a call to @ListStreamConsumers@, you have 300 seconds
     -- to use that value. If you specify an expired token in a call to
     -- @ListStreamConsumers@, you get @ExpiredNextTokenException@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of consumers that you want a single call of
     -- @ListStreamConsumers@ to return.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specify this input parameter to distinguish data streams that have the
     -- same name. For example, if you create a data stream and then delete it,
     -- and you later create another data stream with the same name, you can use
@@ -90,13 +91,13 @@ data ListStreamConsumers = ListStreamConsumers'
     --
     -- You can\'t specify this parameter if you specify the NextToken
     -- parameter.
-    streamCreationTimestamp :: Core.Maybe Core.POSIX,
+    streamCreationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the Kinesis data stream for which you want to list the
     -- registered consumers. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    streamARN :: Core.Text
+    streamARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStreamConsumers' with all optional fields omitted.
@@ -146,13 +147,13 @@ data ListStreamConsumers = ListStreamConsumers'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 newListStreamConsumers ::
   -- | 'streamARN'
-  Core.Text ->
+  Prelude.Text ->
   ListStreamConsumers
 newListStreamConsumers pStreamARN_ =
   ListStreamConsumers'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      streamCreationTimestamp = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      streamCreationTimestamp = Prelude.Nothing,
       streamARN = pStreamARN_
     }
 
@@ -178,12 +179,12 @@ newListStreamConsumers pStreamARN_ =
 -- in the response to a call to @ListStreamConsumers@, you have 300 seconds
 -- to use that value. If you specify an expired token in a call to
 -- @ListStreamConsumers@, you get @ExpiredNextTokenException@.
-listStreamConsumers_nextToken :: Lens.Lens' ListStreamConsumers (Core.Maybe Core.Text)
+listStreamConsumers_nextToken :: Lens.Lens' ListStreamConsumers (Prelude.Maybe Prelude.Text)
 listStreamConsumers_nextToken = Lens.lens (\ListStreamConsumers' {nextToken} -> nextToken) (\s@ListStreamConsumers' {} a -> s {nextToken = a} :: ListStreamConsumers)
 
 -- | The maximum number of consumers that you want a single call of
 -- @ListStreamConsumers@ to return.
-listStreamConsumers_maxResults :: Lens.Lens' ListStreamConsumers (Core.Maybe Core.Natural)
+listStreamConsumers_maxResults :: Lens.Lens' ListStreamConsumers (Prelude.Maybe Prelude.Natural)
 listStreamConsumers_maxResults = Lens.lens (\ListStreamConsumers' {maxResults} -> maxResults) (\s@ListStreamConsumers' {} a -> s {maxResults = a} :: ListStreamConsumers)
 
 -- | Specify this input parameter to distinguish data streams that have the
@@ -194,13 +195,13 @@ listStreamConsumers_maxResults = Lens.lens (\ListStreamConsumers' {maxResults} -
 --
 -- You can\'t specify this parameter if you specify the NextToken
 -- parameter.
-listStreamConsumers_streamCreationTimestamp :: Lens.Lens' ListStreamConsumers (Core.Maybe Core.UTCTime)
-listStreamConsumers_streamCreationTimestamp = Lens.lens (\ListStreamConsumers' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@ListStreamConsumers' {} a -> s {streamCreationTimestamp = a} :: ListStreamConsumers) Core.. Lens.mapping Core._Time
+listStreamConsumers_streamCreationTimestamp :: Lens.Lens' ListStreamConsumers (Prelude.Maybe Prelude.UTCTime)
+listStreamConsumers_streamCreationTimestamp = Lens.lens (\ListStreamConsumers' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@ListStreamConsumers' {} a -> s {streamCreationTimestamp = a} :: ListStreamConsumers) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the Kinesis data stream for which you want to list the
 -- registered consumers. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-listStreamConsumers_streamARN :: Lens.Lens' ListStreamConsumers Core.Text
+listStreamConsumers_streamARN :: Lens.Lens' ListStreamConsumers Prelude.Text
 listStreamConsumers_streamARN = Lens.lens (\ListStreamConsumers' {streamARN} -> streamARN) (\s@ListStreamConsumers' {} a -> s {streamARN = a} :: ListStreamConsumers)
 
 instance Core.AWSPager ListStreamConsumers where
@@ -208,22 +209,22 @@ instance Core.AWSPager ListStreamConsumers where
     | Core.stop
         ( rs
             Lens.^? listStreamConsumersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStreamConsumersResponse_consumers
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listStreamConsumers_nextToken
+          Prelude.& listStreamConsumers_nextToken
           Lens..~ rs
           Lens.^? listStreamConsumersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamConsumers where
   type
@@ -234,45 +235,47 @@ instance Core.AWSRequest ListStreamConsumers where
     Response.receiveJSON
       ( \s h x ->
           ListStreamConsumersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Consumers" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Consumers" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListStreamConsumers
+instance Prelude.Hashable ListStreamConsumers
 
-instance Core.NFData ListStreamConsumers
+instance Prelude.NFData ListStreamConsumers
 
 instance Core.ToHeaders ListStreamConsumers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Kinesis_20131202.ListStreamConsumers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListStreamConsumers where
   toJSON ListStreamConsumers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("StreamCreationTimestamp" Core..=)
-              Core.<$> streamCreationTimestamp,
-            Core.Just ("StreamARN" Core..= streamARN)
+              Prelude.<$> streamCreationTimestamp,
+            Prelude.Just ("StreamARN" Core..= streamARN)
           ]
       )
 
 instance Core.ToPath ListStreamConsumers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListStreamConsumers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStreamConsumersResponse' smart constructor.
 data ListStreamConsumersResponse = ListStreamConsumersResponse'
@@ -290,14 +293,14 @@ data ListStreamConsumersResponse = ListStreamConsumersResponse'
     -- in the response to a call to @ListStreamConsumers@, you have 300 seconds
     -- to use that value. If you specify an expired token in a call to
     -- @ListStreamConsumers@, you get @ExpiredNextTokenException@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of JSON objects. Each object represents one registered
     -- consumer.
-    consumers :: Core.Maybe [Consumer],
+    consumers :: Prelude.Maybe [Consumer],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStreamConsumersResponse' with all optional fields omitted.
@@ -328,13 +331,13 @@ data ListStreamConsumersResponse = ListStreamConsumersResponse'
 -- 'httpStatus', 'listStreamConsumersResponse_httpStatus' - The response's http status code.
 newListStreamConsumersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListStreamConsumersResponse
 newListStreamConsumersResponse pHttpStatus_ =
   ListStreamConsumersResponse'
     { nextToken =
-        Core.Nothing,
-      consumers = Core.Nothing,
+        Prelude.Nothing,
+      consumers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -352,16 +355,16 @@ newListStreamConsumersResponse pHttpStatus_ =
 -- in the response to a call to @ListStreamConsumers@, you have 300 seconds
 -- to use that value. If you specify an expired token in a call to
 -- @ListStreamConsumers@, you get @ExpiredNextTokenException@.
-listStreamConsumersResponse_nextToken :: Lens.Lens' ListStreamConsumersResponse (Core.Maybe Core.Text)
+listStreamConsumersResponse_nextToken :: Lens.Lens' ListStreamConsumersResponse (Prelude.Maybe Prelude.Text)
 listStreamConsumersResponse_nextToken = Lens.lens (\ListStreamConsumersResponse' {nextToken} -> nextToken) (\s@ListStreamConsumersResponse' {} a -> s {nextToken = a} :: ListStreamConsumersResponse)
 
 -- | An array of JSON objects. Each object represents one registered
 -- consumer.
-listStreamConsumersResponse_consumers :: Lens.Lens' ListStreamConsumersResponse (Core.Maybe [Consumer])
-listStreamConsumersResponse_consumers = Lens.lens (\ListStreamConsumersResponse' {consumers} -> consumers) (\s@ListStreamConsumersResponse' {} a -> s {consumers = a} :: ListStreamConsumersResponse) Core.. Lens.mapping Lens._Coerce
+listStreamConsumersResponse_consumers :: Lens.Lens' ListStreamConsumersResponse (Prelude.Maybe [Consumer])
+listStreamConsumersResponse_consumers = Lens.lens (\ListStreamConsumersResponse' {consumers} -> consumers) (\s@ListStreamConsumersResponse' {} a -> s {consumers = a} :: ListStreamConsumersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listStreamConsumersResponse_httpStatus :: Lens.Lens' ListStreamConsumersResponse Core.Int
+listStreamConsumersResponse_httpStatus :: Lens.Lens' ListStreamConsumersResponse Prelude.Int
 listStreamConsumersResponse_httpStatus = Lens.lens (\ListStreamConsumersResponse' {httpStatus} -> httpStatus) (\s@ListStreamConsumersResponse' {} a -> s {httpStatus = a} :: ListStreamConsumersResponse)
 
-instance Core.NFData ListStreamConsumersResponse
+instance Prelude.NFData ListStreamConsumersResponse

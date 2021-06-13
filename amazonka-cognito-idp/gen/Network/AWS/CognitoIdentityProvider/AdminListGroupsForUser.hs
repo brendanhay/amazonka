@@ -50,6 +50,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +59,15 @@ data AdminListGroupsForUser = AdminListGroupsForUser'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The limit of the request to list groups.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The username for the user.
-    username :: Core.Sensitive Core.Text,
+    username :: Core.Sensitive Prelude.Text,
     -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text
+    userPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminListGroupsForUser' with all optional fields omitted.
@@ -87,14 +88,15 @@ data AdminListGroupsForUser = AdminListGroupsForUser'
 -- 'userPoolId', 'adminListGroupsForUser_userPoolId' - The user pool ID for the user pool.
 newAdminListGroupsForUser ::
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   AdminListGroupsForUser
 newAdminListGroupsForUser pUsername_ pUserPoolId_ =
   AdminListGroupsForUser'
-    { nextToken = Core.Nothing,
-      limit = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
       username = Core._Sensitive Lens.# pUsername_,
       userPoolId = pUserPoolId_
     }
@@ -102,19 +104,19 @@ newAdminListGroupsForUser pUsername_ pUserPoolId_ =
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-adminListGroupsForUser_nextToken :: Lens.Lens' AdminListGroupsForUser (Core.Maybe Core.Text)
+adminListGroupsForUser_nextToken :: Lens.Lens' AdminListGroupsForUser (Prelude.Maybe Prelude.Text)
 adminListGroupsForUser_nextToken = Lens.lens (\AdminListGroupsForUser' {nextToken} -> nextToken) (\s@AdminListGroupsForUser' {} a -> s {nextToken = a} :: AdminListGroupsForUser)
 
 -- | The limit of the request to list groups.
-adminListGroupsForUser_limit :: Lens.Lens' AdminListGroupsForUser (Core.Maybe Core.Natural)
+adminListGroupsForUser_limit :: Lens.Lens' AdminListGroupsForUser (Prelude.Maybe Prelude.Natural)
 adminListGroupsForUser_limit = Lens.lens (\AdminListGroupsForUser' {limit} -> limit) (\s@AdminListGroupsForUser' {} a -> s {limit = a} :: AdminListGroupsForUser)
 
 -- | The username for the user.
-adminListGroupsForUser_username :: Lens.Lens' AdminListGroupsForUser Core.Text
-adminListGroupsForUser_username = Lens.lens (\AdminListGroupsForUser' {username} -> username) (\s@AdminListGroupsForUser' {} a -> s {username = a} :: AdminListGroupsForUser) Core.. Core._Sensitive
+adminListGroupsForUser_username :: Lens.Lens' AdminListGroupsForUser Prelude.Text
+adminListGroupsForUser_username = Lens.lens (\AdminListGroupsForUser' {username} -> username) (\s@AdminListGroupsForUser' {} a -> s {username = a} :: AdminListGroupsForUser) Prelude.. Core._Sensitive
 
 -- | The user pool ID for the user pool.
-adminListGroupsForUser_userPoolId :: Lens.Lens' AdminListGroupsForUser Core.Text
+adminListGroupsForUser_userPoolId :: Lens.Lens' AdminListGroupsForUser Prelude.Text
 adminListGroupsForUser_userPoolId = Lens.lens (\AdminListGroupsForUser' {userPoolId} -> userPoolId) (\s@AdminListGroupsForUser' {} a -> s {userPoolId = a} :: AdminListGroupsForUser)
 
 instance Core.AWSPager AdminListGroupsForUser where
@@ -122,22 +124,22 @@ instance Core.AWSPager AdminListGroupsForUser where
     | Core.stop
         ( rs
             Lens.^? adminListGroupsForUserResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? adminListGroupsForUserResponse_groups
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& adminListGroupsForUser_nextToken
+          Prelude.& adminListGroupsForUser_nextToken
           Lens..~ rs
           Lens.^? adminListGroupsForUserResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest AdminListGroupsForUser where
   type
@@ -148,57 +150,59 @@ instance Core.AWSRequest AdminListGroupsForUser where
     Response.receiveJSON
       ( \s h x ->
           AdminListGroupsForUserResponse'
-            Core.<$> (x Core..?> "Groups" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AdminListGroupsForUser
+instance Prelude.Hashable AdminListGroupsForUser
 
-instance Core.NFData AdminListGroupsForUser
+instance Prelude.NFData AdminListGroupsForUser
 
 instance Core.ToHeaders AdminListGroupsForUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminListGroupsForUser" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminListGroupsForUser where
   toJSON AdminListGroupsForUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just ("Username" Core..= username),
-            Core.Just ("UserPoolId" Core..= userPoolId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
 instance Core.ToPath AdminListGroupsForUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminListGroupsForUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminListGroupsForUserResponse' smart constructor.
 data AdminListGroupsForUserResponse = AdminListGroupsForUserResponse'
   { -- | The groups that the user belongs to.
-    groups :: Core.Maybe [GroupType],
+    groups :: Prelude.Maybe [GroupType],
     -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminListGroupsForUserResponse' with all optional fields omitted.
@@ -217,28 +221,30 @@ data AdminListGroupsForUserResponse = AdminListGroupsForUserResponse'
 -- 'httpStatus', 'adminListGroupsForUserResponse_httpStatus' - The response's http status code.
 newAdminListGroupsForUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AdminListGroupsForUserResponse
 newAdminListGroupsForUserResponse pHttpStatus_ =
   AdminListGroupsForUserResponse'
     { groups =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The groups that the user belongs to.
-adminListGroupsForUserResponse_groups :: Lens.Lens' AdminListGroupsForUserResponse (Core.Maybe [GroupType])
-adminListGroupsForUserResponse_groups = Lens.lens (\AdminListGroupsForUserResponse' {groups} -> groups) (\s@AdminListGroupsForUserResponse' {} a -> s {groups = a} :: AdminListGroupsForUserResponse) Core.. Lens.mapping Lens._Coerce
+adminListGroupsForUserResponse_groups :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe [GroupType])
+adminListGroupsForUserResponse_groups = Lens.lens (\AdminListGroupsForUserResponse' {groups} -> groups) (\s@AdminListGroupsForUserResponse' {} a -> s {groups = a} :: AdminListGroupsForUserResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-adminListGroupsForUserResponse_nextToken :: Lens.Lens' AdminListGroupsForUserResponse (Core.Maybe Core.Text)
+adminListGroupsForUserResponse_nextToken :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe Prelude.Text)
 adminListGroupsForUserResponse_nextToken = Lens.lens (\AdminListGroupsForUserResponse' {nextToken} -> nextToken) (\s@AdminListGroupsForUserResponse' {} a -> s {nextToken = a} :: AdminListGroupsForUserResponse)
 
 -- | The response's http status code.
-adminListGroupsForUserResponse_httpStatus :: Lens.Lens' AdminListGroupsForUserResponse Core.Int
+adminListGroupsForUserResponse_httpStatus :: Lens.Lens' AdminListGroupsForUserResponse Prelude.Int
 adminListGroupsForUserResponse_httpStatus = Lens.lens (\AdminListGroupsForUserResponse' {httpStatus} -> httpStatus) (\s@AdminListGroupsForUserResponse' {} a -> s {httpStatus = a} :: AdminListGroupsForUserResponse)
 
-instance Core.NFData AdminListGroupsForUserResponse
+instance
+  Prelude.NFData
+    AdminListGroupsForUserResponse

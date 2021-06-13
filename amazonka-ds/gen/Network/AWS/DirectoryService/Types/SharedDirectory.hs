@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.ShareMethod
 import Network.AWS.DirectoryService.Types.ShareStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the shared directory in the directory owner account for
 -- which the share request in the directory consumer account has been
@@ -31,35 +32,35 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSharedDirectory' smart constructor.
 data SharedDirectory = SharedDirectory'
   { -- | The date and time that the shared directory was created.
-    createdDateTime :: Core.Maybe Core.POSIX,
+    createdDateTime :: Prelude.Maybe Core.POSIX,
     -- | A directory share request that is sent by the directory owner to the
     -- directory consumer. The request includes a typed message to help the
     -- directory consumer administrator determine whether to approve or reject
     -- the share invitation.
-    shareNotes :: Core.Maybe (Core.Sensitive Core.Text),
+    shareNotes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The date and time that the shared directory was last updated.
-    lastUpdatedDateTime :: Core.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
     -- | Identifier of the directory consumer account that has access to the
     -- shared directory (@OwnerDirectoryId@) in the directory owner account.
-    sharedAccountId :: Core.Maybe Core.Text,
+    sharedAccountId :: Prelude.Maybe Prelude.Text,
     -- | Identifier of the directory in the directory owner account.
-    ownerDirectoryId :: Core.Maybe Core.Text,
+    ownerDirectoryId :: Prelude.Maybe Prelude.Text,
     -- | The method used when sharing a directory to determine whether the
     -- directory should be shared within your AWS organization
     -- (@ORGANIZATIONS@) or with any AWS account by sending a shared directory
     -- request (@HANDSHAKE@).
-    shareMethod :: Core.Maybe ShareMethod,
+    shareMethod :: Prelude.Maybe ShareMethod,
     -- | Current directory status of the shared AWS Managed Microsoft AD
     -- directory.
-    shareStatus :: Core.Maybe ShareStatus,
+    shareStatus :: Prelude.Maybe ShareStatus,
     -- | Identifier of the directory owner account, which contains the directory
     -- that has been shared to the consumer account.
-    ownerAccountId :: Core.Maybe Core.Text,
+    ownerAccountId :: Prelude.Maybe Prelude.Text,
     -- | Identifier of the shared directory in the directory consumer account.
     -- This identifier is different for each directory owner account.
-    sharedDirectoryId :: Core.Maybe Core.Text
+    sharedDirectoryId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SharedDirectory' with all optional fields omitted.
@@ -100,61 +101,61 @@ newSharedDirectory ::
   SharedDirectory
 newSharedDirectory =
   SharedDirectory'
-    { createdDateTime = Core.Nothing,
-      shareNotes = Core.Nothing,
-      lastUpdatedDateTime = Core.Nothing,
-      sharedAccountId = Core.Nothing,
-      ownerDirectoryId = Core.Nothing,
-      shareMethod = Core.Nothing,
-      shareStatus = Core.Nothing,
-      ownerAccountId = Core.Nothing,
-      sharedDirectoryId = Core.Nothing
+    { createdDateTime = Prelude.Nothing,
+      shareNotes = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
+      sharedAccountId = Prelude.Nothing,
+      ownerDirectoryId = Prelude.Nothing,
+      shareMethod = Prelude.Nothing,
+      shareStatus = Prelude.Nothing,
+      ownerAccountId = Prelude.Nothing,
+      sharedDirectoryId = Prelude.Nothing
     }
 
 -- | The date and time that the shared directory was created.
-sharedDirectory_createdDateTime :: Lens.Lens' SharedDirectory (Core.Maybe Core.UTCTime)
-sharedDirectory_createdDateTime = Lens.lens (\SharedDirectory' {createdDateTime} -> createdDateTime) (\s@SharedDirectory' {} a -> s {createdDateTime = a} :: SharedDirectory) Core.. Lens.mapping Core._Time
+sharedDirectory_createdDateTime :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.UTCTime)
+sharedDirectory_createdDateTime = Lens.lens (\SharedDirectory' {createdDateTime} -> createdDateTime) (\s@SharedDirectory' {} a -> s {createdDateTime = a} :: SharedDirectory) Prelude.. Lens.mapping Core._Time
 
 -- | A directory share request that is sent by the directory owner to the
 -- directory consumer. The request includes a typed message to help the
 -- directory consumer administrator determine whether to approve or reject
 -- the share invitation.
-sharedDirectory_shareNotes :: Lens.Lens' SharedDirectory (Core.Maybe Core.Text)
-sharedDirectory_shareNotes = Lens.lens (\SharedDirectory' {shareNotes} -> shareNotes) (\s@SharedDirectory' {} a -> s {shareNotes = a} :: SharedDirectory) Core.. Lens.mapping Core._Sensitive
+sharedDirectory_shareNotes :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.Text)
+sharedDirectory_shareNotes = Lens.lens (\SharedDirectory' {shareNotes} -> shareNotes) (\s@SharedDirectory' {} a -> s {shareNotes = a} :: SharedDirectory) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The date and time that the shared directory was last updated.
-sharedDirectory_lastUpdatedDateTime :: Lens.Lens' SharedDirectory (Core.Maybe Core.UTCTime)
-sharedDirectory_lastUpdatedDateTime = Lens.lens (\SharedDirectory' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SharedDirectory' {} a -> s {lastUpdatedDateTime = a} :: SharedDirectory) Core.. Lens.mapping Core._Time
+sharedDirectory_lastUpdatedDateTime :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.UTCTime)
+sharedDirectory_lastUpdatedDateTime = Lens.lens (\SharedDirectory' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SharedDirectory' {} a -> s {lastUpdatedDateTime = a} :: SharedDirectory) Prelude.. Lens.mapping Core._Time
 
 -- | Identifier of the directory consumer account that has access to the
 -- shared directory (@OwnerDirectoryId@) in the directory owner account.
-sharedDirectory_sharedAccountId :: Lens.Lens' SharedDirectory (Core.Maybe Core.Text)
+sharedDirectory_sharedAccountId :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.Text)
 sharedDirectory_sharedAccountId = Lens.lens (\SharedDirectory' {sharedAccountId} -> sharedAccountId) (\s@SharedDirectory' {} a -> s {sharedAccountId = a} :: SharedDirectory)
 
 -- | Identifier of the directory in the directory owner account.
-sharedDirectory_ownerDirectoryId :: Lens.Lens' SharedDirectory (Core.Maybe Core.Text)
+sharedDirectory_ownerDirectoryId :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.Text)
 sharedDirectory_ownerDirectoryId = Lens.lens (\SharedDirectory' {ownerDirectoryId} -> ownerDirectoryId) (\s@SharedDirectory' {} a -> s {ownerDirectoryId = a} :: SharedDirectory)
 
 -- | The method used when sharing a directory to determine whether the
 -- directory should be shared within your AWS organization
 -- (@ORGANIZATIONS@) or with any AWS account by sending a shared directory
 -- request (@HANDSHAKE@).
-sharedDirectory_shareMethod :: Lens.Lens' SharedDirectory (Core.Maybe ShareMethod)
+sharedDirectory_shareMethod :: Lens.Lens' SharedDirectory (Prelude.Maybe ShareMethod)
 sharedDirectory_shareMethod = Lens.lens (\SharedDirectory' {shareMethod} -> shareMethod) (\s@SharedDirectory' {} a -> s {shareMethod = a} :: SharedDirectory)
 
 -- | Current directory status of the shared AWS Managed Microsoft AD
 -- directory.
-sharedDirectory_shareStatus :: Lens.Lens' SharedDirectory (Core.Maybe ShareStatus)
+sharedDirectory_shareStatus :: Lens.Lens' SharedDirectory (Prelude.Maybe ShareStatus)
 sharedDirectory_shareStatus = Lens.lens (\SharedDirectory' {shareStatus} -> shareStatus) (\s@SharedDirectory' {} a -> s {shareStatus = a} :: SharedDirectory)
 
 -- | Identifier of the directory owner account, which contains the directory
 -- that has been shared to the consumer account.
-sharedDirectory_ownerAccountId :: Lens.Lens' SharedDirectory (Core.Maybe Core.Text)
+sharedDirectory_ownerAccountId :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.Text)
 sharedDirectory_ownerAccountId = Lens.lens (\SharedDirectory' {ownerAccountId} -> ownerAccountId) (\s@SharedDirectory' {} a -> s {ownerAccountId = a} :: SharedDirectory)
 
 -- | Identifier of the shared directory in the directory consumer account.
 -- This identifier is different for each directory owner account.
-sharedDirectory_sharedDirectoryId :: Lens.Lens' SharedDirectory (Core.Maybe Core.Text)
+sharedDirectory_sharedDirectoryId :: Lens.Lens' SharedDirectory (Prelude.Maybe Prelude.Text)
 sharedDirectory_sharedDirectoryId = Lens.lens (\SharedDirectory' {sharedDirectoryId} -> sharedDirectoryId) (\s@SharedDirectory' {} a -> s {sharedDirectoryId = a} :: SharedDirectory)
 
 instance Core.FromJSON SharedDirectory where
@@ -163,17 +164,17 @@ instance Core.FromJSON SharedDirectory where
       "SharedDirectory"
       ( \x ->
           SharedDirectory'
-            Core.<$> (x Core..:? "CreatedDateTime")
-            Core.<*> (x Core..:? "ShareNotes")
-            Core.<*> (x Core..:? "LastUpdatedDateTime")
-            Core.<*> (x Core..:? "SharedAccountId")
-            Core.<*> (x Core..:? "OwnerDirectoryId")
-            Core.<*> (x Core..:? "ShareMethod")
-            Core.<*> (x Core..:? "ShareStatus")
-            Core.<*> (x Core..:? "OwnerAccountId")
-            Core.<*> (x Core..:? "SharedDirectoryId")
+            Prelude.<$> (x Core..:? "CreatedDateTime")
+            Prelude.<*> (x Core..:? "ShareNotes")
+            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
+            Prelude.<*> (x Core..:? "SharedAccountId")
+            Prelude.<*> (x Core..:? "OwnerDirectoryId")
+            Prelude.<*> (x Core..:? "ShareMethod")
+            Prelude.<*> (x Core..:? "ShareStatus")
+            Prelude.<*> (x Core..:? "OwnerAccountId")
+            Prelude.<*> (x Core..:? "SharedDirectoryId")
       )
 
-instance Core.Hashable SharedDirectory
+instance Prelude.Hashable SharedDirectory
 
-instance Core.NFData SharedDirectory
+instance Prelude.NFData SharedDirectory

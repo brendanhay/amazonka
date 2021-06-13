@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ data DescribeAccount = DescribeAccount'
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
-    accountId :: Core.Text
+    accountId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccount' with all optional fields omitted.
@@ -78,7 +79,7 @@ data DescribeAccount = DescribeAccount'
 -- string requires exactly 12 digits.
 newDescribeAccount ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeAccount
 newDescribeAccount pAccountId_ =
   DescribeAccount' {accountId = pAccountId_}
@@ -89,7 +90,7 @@ newDescribeAccount pAccountId_ =
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-describeAccount_accountId :: Lens.Lens' DescribeAccount Core.Text
+describeAccount_accountId :: Lens.Lens' DescribeAccount Prelude.Text
 describeAccount_accountId = Lens.lens (\DescribeAccount' {accountId} -> accountId) (\s@DescribeAccount' {} a -> s {accountId = a} :: DescribeAccount)
 
 instance Core.AWSRequest DescribeAccount where
@@ -101,48 +102,50 @@ instance Core.AWSRequest DescribeAccount where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountResponse'
-            Core.<$> (x Core..?> "Account")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Account")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAccount
+instance Prelude.Hashable DescribeAccount
 
-instance Core.NFData DescribeAccount
+instance Prelude.NFData DescribeAccount
 
 instance Core.ToHeaders DescribeAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.DescribeAccount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeAccount where
   toJSON DescribeAccount' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AccountId" Core..= accountId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("AccountId" Core..= accountId)]
       )
 
 instance Core.ToPath DescribeAccount where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccountResponse' smart constructor.
 data DescribeAccountResponse = DescribeAccountResponse'
   { -- | A structure that contains information about the requested account.
-    account :: Core.Maybe Account,
+    account :: Prelude.Maybe Account,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountResponse' with all optional fields omitted.
@@ -157,20 +160,20 @@ data DescribeAccountResponse = DescribeAccountResponse'
 -- 'httpStatus', 'describeAccountResponse_httpStatus' - The response's http status code.
 newDescribeAccountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAccountResponse
 newDescribeAccountResponse pHttpStatus_ =
   DescribeAccountResponse'
-    { account = Core.Nothing,
+    { account = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains information about the requested account.
-describeAccountResponse_account :: Lens.Lens' DescribeAccountResponse (Core.Maybe Account)
+describeAccountResponse_account :: Lens.Lens' DescribeAccountResponse (Prelude.Maybe Account)
 describeAccountResponse_account = Lens.lens (\DescribeAccountResponse' {account} -> account) (\s@DescribeAccountResponse' {} a -> s {account = a} :: DescribeAccountResponse)
 
 -- | The response's http status code.
-describeAccountResponse_httpStatus :: Lens.Lens' DescribeAccountResponse Core.Int
+describeAccountResponse_httpStatus :: Lens.Lens' DescribeAccountResponse Prelude.Int
 describeAccountResponse_httpStatus = Lens.lens (\DescribeAccountResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountResponse' {} a -> s {httpStatus = a} :: DescribeAccountResponse)
 
-instance Core.NFData DescribeAccountResponse
+instance Prelude.NFData DescribeAccountResponse

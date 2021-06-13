@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -60,33 +61,33 @@ import qualified Network.AWS.Response as Response
 data DescribeDBLogFiles = DescribeDBLogFiles'
   { -- | Filters the available log files for files larger than the specified
     -- size.
-    fileSize :: Core.Maybe Core.Integer,
+    fileSize :: Prelude.Maybe Prelude.Integer,
     -- | Filters the available log files for log file names that contain the
     -- specified string.
-    filenameContains :: Core.Maybe Core.Text,
+    filenameContains :: Prelude.Maybe Prelude.Text,
     -- | This parameter isn\'t currently supported.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | Filters the available log files for files written since the specified
     -- date, in POSIX timestamp format with milliseconds.
-    fileLastWritten :: Core.Maybe Core.Integer,
+    fileLastWritten :: Prelude.Maybe Prelude.Integer,
     -- | The pagination token provided in the previous request. If this parameter
     -- is specified the response includes only records beyond the marker, up to
     -- MaxRecords.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxRecords value, a pagination token
     -- called a marker is included in the response so you can retrieve the
     -- remaining results.
-    maxRecords :: Core.Maybe Core.Int,
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The customer-assigned name of the DB instance that contains the log
     -- files you want to list.
     --
     -- Constraints:
     --
     -- -   Must match the identifier of an existing DBInstance.
-    dbInstanceIdentifier :: Core.Text
+    dbInstanceIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDBLogFiles' with all optional fields omitted.
@@ -124,49 +125,49 @@ data DescribeDBLogFiles = DescribeDBLogFiles'
 -- -   Must match the identifier of an existing DBInstance.
 newDescribeDBLogFiles ::
   -- | 'dbInstanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDBLogFiles
 newDescribeDBLogFiles pDBInstanceIdentifier_ =
   DescribeDBLogFiles'
-    { fileSize = Core.Nothing,
-      filenameContains = Core.Nothing,
-      filters = Core.Nothing,
-      fileLastWritten = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing,
+    { fileSize = Prelude.Nothing,
+      filenameContains = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      fileLastWritten = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | Filters the available log files for files larger than the specified
 -- size.
-describeDBLogFiles_fileSize :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Core.Integer)
+describeDBLogFiles_fileSize :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Integer)
 describeDBLogFiles_fileSize = Lens.lens (\DescribeDBLogFiles' {fileSize} -> fileSize) (\s@DescribeDBLogFiles' {} a -> s {fileSize = a} :: DescribeDBLogFiles)
 
 -- | Filters the available log files for log file names that contain the
 -- specified string.
-describeDBLogFiles_filenameContains :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Core.Text)
+describeDBLogFiles_filenameContains :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Text)
 describeDBLogFiles_filenameContains = Lens.lens (\DescribeDBLogFiles' {filenameContains} -> filenameContains) (\s@DescribeDBLogFiles' {} a -> s {filenameContains = a} :: DescribeDBLogFiles)
 
 -- | This parameter isn\'t currently supported.
-describeDBLogFiles_filters :: Lens.Lens' DescribeDBLogFiles (Core.Maybe [Filter])
-describeDBLogFiles_filters = Lens.lens (\DescribeDBLogFiles' {filters} -> filters) (\s@DescribeDBLogFiles' {} a -> s {filters = a} :: DescribeDBLogFiles) Core.. Lens.mapping Lens._Coerce
+describeDBLogFiles_filters :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe [Filter])
+describeDBLogFiles_filters = Lens.lens (\DescribeDBLogFiles' {filters} -> filters) (\s@DescribeDBLogFiles' {} a -> s {filters = a} :: DescribeDBLogFiles) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Filters the available log files for files written since the specified
 -- date, in POSIX timestamp format with milliseconds.
-describeDBLogFiles_fileLastWritten :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Core.Integer)
+describeDBLogFiles_fileLastWritten :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Integer)
 describeDBLogFiles_fileLastWritten = Lens.lens (\DescribeDBLogFiles' {fileLastWritten} -> fileLastWritten) (\s@DescribeDBLogFiles' {} a -> s {fileLastWritten = a} :: DescribeDBLogFiles)
 
 -- | The pagination token provided in the previous request. If this parameter
 -- is specified the response includes only records beyond the marker, up to
 -- MaxRecords.
-describeDBLogFiles_marker :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Core.Text)
+describeDBLogFiles_marker :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Text)
 describeDBLogFiles_marker = Lens.lens (\DescribeDBLogFiles' {marker} -> marker) (\s@DescribeDBLogFiles' {} a -> s {marker = a} :: DescribeDBLogFiles)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a pagination token
 -- called a marker is included in the response so you can retrieve the
 -- remaining results.
-describeDBLogFiles_maxRecords :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Core.Int)
+describeDBLogFiles_maxRecords :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Int)
 describeDBLogFiles_maxRecords = Lens.lens (\DescribeDBLogFiles' {maxRecords} -> maxRecords) (\s@DescribeDBLogFiles' {} a -> s {maxRecords = a} :: DescribeDBLogFiles)
 
 -- | The customer-assigned name of the DB instance that contains the log
@@ -175,28 +176,30 @@ describeDBLogFiles_maxRecords = Lens.lens (\DescribeDBLogFiles' {maxRecords} -> 
 -- Constraints:
 --
 -- -   Must match the identifier of an existing DBInstance.
-describeDBLogFiles_dbInstanceIdentifier :: Lens.Lens' DescribeDBLogFiles Core.Text
+describeDBLogFiles_dbInstanceIdentifier :: Lens.Lens' DescribeDBLogFiles Prelude.Text
 describeDBLogFiles_dbInstanceIdentifier = Lens.lens (\DescribeDBLogFiles' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DescribeDBLogFiles' {} a -> s {dbInstanceIdentifier = a} :: DescribeDBLogFiles)
 
 instance Core.AWSPager DescribeDBLogFiles where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeDBLogFilesResponse_marker Core.. Lens._Just
+            Lens.^? describeDBLogFilesResponse_marker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBLogFilesResponse_describeDBLogFiles
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeDBLogFiles_marker
+          Prelude.& describeDBLogFiles_marker
           Lens..~ rs
-          Lens.^? describeDBLogFilesResponse_marker Core.. Lens._Just
+          Lens.^? describeDBLogFilesResponse_marker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBLogFiles where
   type
@@ -208,35 +211,37 @@ instance Core.AWSRequest DescribeDBLogFiles where
       "DescribeDBLogFilesResult"
       ( \s h x ->
           DescribeDBLogFilesResponse'
-            Core.<$> ( x Core..@? "DescribeDBLogFiles" Core..!@ Core.mempty
-                         Core.>>= Core.may
-                           (Core.parseXMLList "DescribeDBLogFilesDetails")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "DescribeDBLogFiles"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              (Core.parseXMLList "DescribeDBLogFilesDetails")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDBLogFiles
+instance Prelude.Hashable DescribeDBLogFiles
 
-instance Core.NFData DescribeDBLogFiles
+instance Prelude.NFData DescribeDBLogFiles
 
 instance Core.ToHeaders DescribeDBLogFiles where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDBLogFiles where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDBLogFiles where
   toQuery DescribeDBLogFiles' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBLogFiles" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DescribeDBLogFiles" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "FileSize" Core.=: fileSize,
         "FilenameContains" Core.=: filenameContains,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Core.<$> filters),
+            (Core.toQueryList "Filter" Prelude.<$> filters),
         "FileLastWritten" Core.=: fileLastWritten,
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
@@ -248,14 +253,14 @@ instance Core.ToQuery DescribeDBLogFiles where
 -- /See:/ 'newDescribeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
   { -- | The DB log files returned.
-    describeDBLogFiles :: Core.Maybe [DescribeDBLogFilesDetails],
+    describeDBLogFiles :: Prelude.Maybe [DescribeDBLogFilesDetails],
     -- | A pagination token that can be used in a later DescribeDBLogFiles
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDBLogFilesResponse' with all optional fields omitted.
@@ -273,27 +278,27 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
 -- 'httpStatus', 'describeDBLogFilesResponse_httpStatus' - The response's http status code.
 newDescribeDBLogFilesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDBLogFilesResponse
 newDescribeDBLogFilesResponse pHttpStatus_ =
   DescribeDBLogFilesResponse'
     { describeDBLogFiles =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The DB log files returned.
-describeDBLogFilesResponse_describeDBLogFiles :: Lens.Lens' DescribeDBLogFilesResponse (Core.Maybe [DescribeDBLogFilesDetails])
-describeDBLogFilesResponse_describeDBLogFiles = Lens.lens (\DescribeDBLogFilesResponse' {describeDBLogFiles} -> describeDBLogFiles) (\s@DescribeDBLogFilesResponse' {} a -> s {describeDBLogFiles = a} :: DescribeDBLogFilesResponse) Core.. Lens.mapping Lens._Coerce
+describeDBLogFilesResponse_describeDBLogFiles :: Lens.Lens' DescribeDBLogFilesResponse (Prelude.Maybe [DescribeDBLogFilesDetails])
+describeDBLogFilesResponse_describeDBLogFiles = Lens.lens (\DescribeDBLogFilesResponse' {describeDBLogFiles} -> describeDBLogFiles) (\s@DescribeDBLogFilesResponse' {} a -> s {describeDBLogFiles = a} :: DescribeDBLogFilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that can be used in a later DescribeDBLogFiles
 -- request.
-describeDBLogFilesResponse_marker :: Lens.Lens' DescribeDBLogFilesResponse (Core.Maybe Core.Text)
+describeDBLogFilesResponse_marker :: Lens.Lens' DescribeDBLogFilesResponse (Prelude.Maybe Prelude.Text)
 describeDBLogFilesResponse_marker = Lens.lens (\DescribeDBLogFilesResponse' {marker} -> marker) (\s@DescribeDBLogFilesResponse' {} a -> s {marker = a} :: DescribeDBLogFilesResponse)
 
 -- | The response's http status code.
-describeDBLogFilesResponse_httpStatus :: Lens.Lens' DescribeDBLogFilesResponse Core.Int
+describeDBLogFilesResponse_httpStatus :: Lens.Lens' DescribeDBLogFilesResponse Prelude.Int
 describeDBLogFilesResponse_httpStatus = Lens.lens (\DescribeDBLogFilesResponse' {httpStatus} -> httpStatus) (\s@DescribeDBLogFilesResponse' {} a -> s {httpStatus = a} :: DescribeDBLogFilesResponse)
 
-instance Core.NFData DescribeDBLogFilesResponse
+instance Prelude.NFData DescribeDBLogFilesResponse

@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBParameterGroupNameMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the result of a successful invocation of the
 -- @ModifyDBParameterGroup@ or @ResetDBParameterGroup@ action.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDBParameterGroupNameMessage' smart constructor.
 data DBParameterGroupNameMessage = DBParameterGroupNameMessage'
   { -- | The name of the DB parameter group.
-    dbParameterGroupName :: Core.Maybe Core.Text
+    dbParameterGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBParameterGroupNameMessage' with all optional fields omitted.
@@ -46,18 +47,18 @@ newDBParameterGroupNameMessage ::
 newDBParameterGroupNameMessage =
   DBParameterGroupNameMessage'
     { dbParameterGroupName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the DB parameter group.
-dbParameterGroupNameMessage_dbParameterGroupName :: Lens.Lens' DBParameterGroupNameMessage (Core.Maybe Core.Text)
+dbParameterGroupNameMessage_dbParameterGroupName :: Lens.Lens' DBParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
 dbParameterGroupNameMessage_dbParameterGroupName = Lens.lens (\DBParameterGroupNameMessage' {dbParameterGroupName} -> dbParameterGroupName) (\s@DBParameterGroupNameMessage' {} a -> s {dbParameterGroupName = a} :: DBParameterGroupNameMessage)
 
 instance Core.FromXML DBParameterGroupNameMessage where
   parseXML x =
     DBParameterGroupNameMessage'
-      Core.<$> (x Core..@? "DBParameterGroupName")
+      Prelude.<$> (x Core..@? "DBParameterGroupName")
 
-instance Core.Hashable DBParameterGroupNameMessage
+instance Prelude.Hashable DBParameterGroupNameMessage
 
-instance Core.NFData DBParameterGroupNameMessage
+instance Prelude.NFData DBParameterGroupNameMessage

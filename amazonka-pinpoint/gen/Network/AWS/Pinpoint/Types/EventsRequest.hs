@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.EventsRequest where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventsBatch
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a batch of events to process.
 --
@@ -29,9 +30,9 @@ import Network.AWS.Pinpoint.Types.EventsBatch
 data EventsRequest = EventsRequest'
   { -- | The batch of events to process. For each item in a batch, the endpoint
     -- ID acts as a key that has an EventsBatch object as its value.
-    batchItem :: Core.HashMap Core.Text EventsBatch
+    batchItem :: Prelude.HashMap Prelude.Text EventsBatch
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventsRequest' with all optional fields omitted.
@@ -46,20 +47,20 @@ data EventsRequest = EventsRequest'
 newEventsRequest ::
   EventsRequest
 newEventsRequest =
-  EventsRequest' {batchItem = Core.mempty}
+  EventsRequest' {batchItem = Prelude.mempty}
 
 -- | The batch of events to process. For each item in a batch, the endpoint
 -- ID acts as a key that has an EventsBatch object as its value.
-eventsRequest_batchItem :: Lens.Lens' EventsRequest (Core.HashMap Core.Text EventsBatch)
-eventsRequest_batchItem = Lens.lens (\EventsRequest' {batchItem} -> batchItem) (\s@EventsRequest' {} a -> s {batchItem = a} :: EventsRequest) Core.. Lens._Coerce
+eventsRequest_batchItem :: Lens.Lens' EventsRequest (Prelude.HashMap Prelude.Text EventsBatch)
+eventsRequest_batchItem = Lens.lens (\EventsRequest' {batchItem} -> batchItem) (\s@EventsRequest' {} a -> s {batchItem = a} :: EventsRequest) Prelude.. Lens._Coerce
 
-instance Core.Hashable EventsRequest
+instance Prelude.Hashable EventsRequest
 
-instance Core.NFData EventsRequest
+instance Prelude.NFData EventsRequest
 
 instance Core.ToJSON EventsRequest where
   toJSON EventsRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("BatchItem" Core..= batchItem)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("BatchItem" Core..= batchItem)]
       )

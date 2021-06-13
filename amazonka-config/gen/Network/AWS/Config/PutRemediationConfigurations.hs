@@ -55,6 +55,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +64,7 @@ data PutRemediationConfigurations = PutRemediationConfigurations'
   { -- | A list of remediation configuration objects.
     remediationConfigurations :: [RemediationConfiguration]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRemediationConfigurations' with all optional fields omitted.
@@ -79,12 +80,12 @@ newPutRemediationConfigurations ::
 newPutRemediationConfigurations =
   PutRemediationConfigurations'
     { remediationConfigurations =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of remediation configuration objects.
 putRemediationConfigurations_remediationConfigurations :: Lens.Lens' PutRemediationConfigurations [RemediationConfiguration]
-putRemediationConfigurations_remediationConfigurations = Lens.lens (\PutRemediationConfigurations' {remediationConfigurations} -> remediationConfigurations) (\s@PutRemediationConfigurations' {} a -> s {remediationConfigurations = a} :: PutRemediationConfigurations) Core.. Lens._Coerce
+putRemediationConfigurations_remediationConfigurations = Lens.lens (\PutRemediationConfigurations' {remediationConfigurations} -> remediationConfigurations) (\s@PutRemediationConfigurations' {} a -> s {remediationConfigurations = a} :: PutRemediationConfigurations) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutRemediationConfigurations where
   type
@@ -95,32 +96,36 @@ instance Core.AWSRequest PutRemediationConfigurations where
     Response.receiveJSON
       ( \s h x ->
           PutRemediationConfigurationsResponse'
-            Core.<$> (x Core..?> "FailedBatches" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FailedBatches" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutRemediationConfigurations
+instance
+  Prelude.Hashable
+    PutRemediationConfigurations
 
-instance Core.NFData PutRemediationConfigurations
+instance Prelude.NFData PutRemediationConfigurations
 
 instance Core.ToHeaders PutRemediationConfigurations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutRemediationConfigurations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutRemediationConfigurations where
   toJSON PutRemediationConfigurations' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "RemediationConfigurations"
                   Core..= remediationConfigurations
               )
@@ -128,19 +133,19 @@ instance Core.ToJSON PutRemediationConfigurations where
       )
 
 instance Core.ToPath PutRemediationConfigurations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRemediationConfigurations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRemediationConfigurationsResponse' smart constructor.
 data PutRemediationConfigurationsResponse = PutRemediationConfigurationsResponse'
   { -- | Returns a list of failed remediation batch objects.
-    failedBatches :: Core.Maybe [FailedRemediationBatch],
+    failedBatches :: Prelude.Maybe [FailedRemediationBatch],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRemediationConfigurationsResponse' with all optional fields omitted.
@@ -155,23 +160,23 @@ data PutRemediationConfigurationsResponse = PutRemediationConfigurationsResponse
 -- 'httpStatus', 'putRemediationConfigurationsResponse_httpStatus' - The response's http status code.
 newPutRemediationConfigurationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutRemediationConfigurationsResponse
 newPutRemediationConfigurationsResponse pHttpStatus_ =
   PutRemediationConfigurationsResponse'
     { failedBatches =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns a list of failed remediation batch objects.
-putRemediationConfigurationsResponse_failedBatches :: Lens.Lens' PutRemediationConfigurationsResponse (Core.Maybe [FailedRemediationBatch])
-putRemediationConfigurationsResponse_failedBatches = Lens.lens (\PutRemediationConfigurationsResponse' {failedBatches} -> failedBatches) (\s@PutRemediationConfigurationsResponse' {} a -> s {failedBatches = a} :: PutRemediationConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
+putRemediationConfigurationsResponse_failedBatches :: Lens.Lens' PutRemediationConfigurationsResponse (Prelude.Maybe [FailedRemediationBatch])
+putRemediationConfigurationsResponse_failedBatches = Lens.lens (\PutRemediationConfigurationsResponse' {failedBatches} -> failedBatches) (\s@PutRemediationConfigurationsResponse' {} a -> s {failedBatches = a} :: PutRemediationConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putRemediationConfigurationsResponse_httpStatus :: Lens.Lens' PutRemediationConfigurationsResponse Core.Int
+putRemediationConfigurationsResponse_httpStatus :: Lens.Lens' PutRemediationConfigurationsResponse Prelude.Int
 putRemediationConfigurationsResponse_httpStatus = Lens.lens (\PutRemediationConfigurationsResponse' {httpStatus} -> httpStatus) (\s@PutRemediationConfigurationsResponse' {} a -> s {httpStatus = a} :: PutRemediationConfigurationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutRemediationConfigurationsResponse

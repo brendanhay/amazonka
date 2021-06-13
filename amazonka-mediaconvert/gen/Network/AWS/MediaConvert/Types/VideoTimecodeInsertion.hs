@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.VideoTimecodeInsertion
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable
 -- Timecode insertion when the input frame rate is identical to the output
@@ -46,15 +47,15 @@ newtype VideoTimecodeInsertion = VideoTimecodeInsertion'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

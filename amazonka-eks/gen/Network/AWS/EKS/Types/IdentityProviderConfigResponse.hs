@@ -22,6 +22,7 @@ module Network.AWS.EKS.Types.IdentityProviderConfigResponse where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.OidcIdentityProviderConfig
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that represents an identity configuration.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data IdentityProviderConfigResponse = IdentityProviderConfigResponse'
   { -- | An object that represents an OpenID Connect (OIDC) identity provider
     -- configuration.
-    oidc :: Core.Maybe OidcIdentityProviderConfig
+    oidc :: Prelude.Maybe OidcIdentityProviderConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IdentityProviderConfigResponse' with all optional fields omitted.
@@ -48,12 +49,12 @@ newIdentityProviderConfigResponse ::
 newIdentityProviderConfigResponse =
   IdentityProviderConfigResponse'
     { oidc =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | An object that represents an OpenID Connect (OIDC) identity provider
 -- configuration.
-identityProviderConfigResponse_oidc :: Lens.Lens' IdentityProviderConfigResponse (Core.Maybe OidcIdentityProviderConfig)
+identityProviderConfigResponse_oidc :: Lens.Lens' IdentityProviderConfigResponse (Prelude.Maybe OidcIdentityProviderConfig)
 identityProviderConfigResponse_oidc = Lens.lens (\IdentityProviderConfigResponse' {oidc} -> oidc) (\s@IdentityProviderConfigResponse' {} a -> s {oidc = a} :: IdentityProviderConfigResponse)
 
 instance Core.FromJSON IdentityProviderConfigResponse where
@@ -62,9 +63,13 @@ instance Core.FromJSON IdentityProviderConfigResponse where
       "IdentityProviderConfigResponse"
       ( \x ->
           IdentityProviderConfigResponse'
-            Core.<$> (x Core..:? "oidc")
+            Prelude.<$> (x Core..:? "oidc")
       )
 
-instance Core.Hashable IdentityProviderConfigResponse
+instance
+  Prelude.Hashable
+    IdentityProviderConfigResponse
 
-instance Core.NFData IdentityProviderConfigResponse
+instance
+  Prelude.NFData
+    IdentityProviderConfigResponse

@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data GetBuiltinIntent = GetBuiltinIntent'
     -- an intent, see
     -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
     -- in the /Alexa Skills Kit/.
-    signature :: Core.Text
+    signature :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBuiltinIntent' with all optional fields omitted.
@@ -74,7 +75,7 @@ data GetBuiltinIntent = GetBuiltinIntent'
 -- in the /Alexa Skills Kit/.
 newGetBuiltinIntent ::
   -- | 'signature'
-  Core.Text ->
+  Prelude.Text ->
   GetBuiltinIntent
 newGetBuiltinIntent pSignature_ =
   GetBuiltinIntent' {signature = pSignature_}
@@ -83,7 +84,7 @@ newGetBuiltinIntent pSignature_ =
 -- an intent, see
 -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
 -- in the /Alexa Skills Kit/.
-getBuiltinIntent_signature :: Lens.Lens' GetBuiltinIntent Core.Text
+getBuiltinIntent_signature :: Lens.Lens' GetBuiltinIntent Prelude.Text
 getBuiltinIntent_signature = Lens.lens (\GetBuiltinIntent' {signature} -> signature) (\s@GetBuiltinIntent' {} a -> s {signature = a} :: GetBuiltinIntent)
 
 instance Core.AWSRequest GetBuiltinIntent where
@@ -95,46 +96,50 @@ instance Core.AWSRequest GetBuiltinIntent where
     Response.receiveJSON
       ( \s h x ->
           GetBuiltinIntentResponse'
-            Core.<$> (x Core..?> "slots" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "signature")
-            Core.<*> (x Core..?> "supportedLocales" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "slots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "signature")
+            Prelude.<*> ( x Core..?> "supportedLocales"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBuiltinIntent
+instance Prelude.Hashable GetBuiltinIntent
 
-instance Core.NFData GetBuiltinIntent
+instance Prelude.NFData GetBuiltinIntent
 
 instance Core.ToHeaders GetBuiltinIntent where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetBuiltinIntent where
   toPath GetBuiltinIntent' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/builtins/intents/", Core.toBS signature]
 
 instance Core.ToQuery GetBuiltinIntent where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBuiltinIntentResponse' smart constructor.
 data GetBuiltinIntentResponse = GetBuiltinIntentResponse'
   { -- | An array of @BuiltinIntentSlot@ objects, one entry for each slot type in
     -- the intent.
-    slots :: Core.Maybe [BuiltinIntentSlot],
+    slots :: Prelude.Maybe [BuiltinIntentSlot],
     -- | The unique identifier for a built-in intent.
-    signature :: Core.Maybe Core.Text,
+    signature :: Prelude.Maybe Prelude.Text,
     -- | A list of locales that the intent supports.
-    supportedLocales :: Core.Maybe [Locale],
+    supportedLocales :: Prelude.Maybe [Locale],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBuiltinIntentResponse' with all optional fields omitted.
@@ -154,31 +159,31 @@ data GetBuiltinIntentResponse = GetBuiltinIntentResponse'
 -- 'httpStatus', 'getBuiltinIntentResponse_httpStatus' - The response's http status code.
 newGetBuiltinIntentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBuiltinIntentResponse
 newGetBuiltinIntentResponse pHttpStatus_ =
   GetBuiltinIntentResponse'
-    { slots = Core.Nothing,
-      signature = Core.Nothing,
-      supportedLocales = Core.Nothing,
+    { slots = Prelude.Nothing,
+      signature = Prelude.Nothing,
+      supportedLocales = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @BuiltinIntentSlot@ objects, one entry for each slot type in
 -- the intent.
-getBuiltinIntentResponse_slots :: Lens.Lens' GetBuiltinIntentResponse (Core.Maybe [BuiltinIntentSlot])
-getBuiltinIntentResponse_slots = Lens.lens (\GetBuiltinIntentResponse' {slots} -> slots) (\s@GetBuiltinIntentResponse' {} a -> s {slots = a} :: GetBuiltinIntentResponse) Core.. Lens.mapping Lens._Coerce
+getBuiltinIntentResponse_slots :: Lens.Lens' GetBuiltinIntentResponse (Prelude.Maybe [BuiltinIntentSlot])
+getBuiltinIntentResponse_slots = Lens.lens (\GetBuiltinIntentResponse' {slots} -> slots) (\s@GetBuiltinIntentResponse' {} a -> s {slots = a} :: GetBuiltinIntentResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for a built-in intent.
-getBuiltinIntentResponse_signature :: Lens.Lens' GetBuiltinIntentResponse (Core.Maybe Core.Text)
+getBuiltinIntentResponse_signature :: Lens.Lens' GetBuiltinIntentResponse (Prelude.Maybe Prelude.Text)
 getBuiltinIntentResponse_signature = Lens.lens (\GetBuiltinIntentResponse' {signature} -> signature) (\s@GetBuiltinIntentResponse' {} a -> s {signature = a} :: GetBuiltinIntentResponse)
 
 -- | A list of locales that the intent supports.
-getBuiltinIntentResponse_supportedLocales :: Lens.Lens' GetBuiltinIntentResponse (Core.Maybe [Locale])
-getBuiltinIntentResponse_supportedLocales = Lens.lens (\GetBuiltinIntentResponse' {supportedLocales} -> supportedLocales) (\s@GetBuiltinIntentResponse' {} a -> s {supportedLocales = a} :: GetBuiltinIntentResponse) Core.. Lens.mapping Lens._Coerce
+getBuiltinIntentResponse_supportedLocales :: Lens.Lens' GetBuiltinIntentResponse (Prelude.Maybe [Locale])
+getBuiltinIntentResponse_supportedLocales = Lens.lens (\GetBuiltinIntentResponse' {supportedLocales} -> supportedLocales) (\s@GetBuiltinIntentResponse' {} a -> s {supportedLocales = a} :: GetBuiltinIntentResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getBuiltinIntentResponse_httpStatus :: Lens.Lens' GetBuiltinIntentResponse Core.Int
+getBuiltinIntentResponse_httpStatus :: Lens.Lens' GetBuiltinIntentResponse Prelude.Int
 getBuiltinIntentResponse_httpStatus = Lens.lens (\GetBuiltinIntentResponse' {httpStatus} -> httpStatus) (\s@GetBuiltinIntentResponse' {} a -> s {httpStatus = a} :: GetBuiltinIntentResponse)
 
-instance Core.NFData GetBuiltinIntentResponse
+instance Prelude.NFData GetBuiltinIntentResponse

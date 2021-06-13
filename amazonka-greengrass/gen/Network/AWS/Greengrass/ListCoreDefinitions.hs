@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ import qualified Network.AWS.Response as Response
 data ListCoreDefinitions = ListCoreDefinitions'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Core.Maybe Core.Text
+    maxResults :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCoreDefinitions' with all optional fields omitted.
@@ -75,17 +76,17 @@ newListCoreDefinitions ::
   ListCoreDefinitions
 newListCoreDefinitions =
   ListCoreDefinitions'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listCoreDefinitions_nextToken :: Lens.Lens' ListCoreDefinitions (Core.Maybe Core.Text)
+listCoreDefinitions_nextToken :: Lens.Lens' ListCoreDefinitions (Prelude.Maybe Prelude.Text)
 listCoreDefinitions_nextToken = Lens.lens (\ListCoreDefinitions' {nextToken} -> nextToken) (\s@ListCoreDefinitions' {} a -> s {nextToken = a} :: ListCoreDefinitions)
 
 -- | The maximum number of results to be returned per request.
-listCoreDefinitions_maxResults :: Lens.Lens' ListCoreDefinitions (Core.Maybe Core.Text)
+listCoreDefinitions_maxResults :: Lens.Lens' ListCoreDefinitions (Prelude.Maybe Prelude.Text)
 listCoreDefinitions_maxResults = Lens.lens (\ListCoreDefinitions' {maxResults} -> maxResults) (\s@ListCoreDefinitions' {} a -> s {maxResults = a} :: ListCoreDefinitions)
 
 instance Core.AWSPager ListCoreDefinitions where
@@ -93,22 +94,22 @@ instance Core.AWSPager ListCoreDefinitions where
     | Core.stop
         ( rs
             Lens.^? listCoreDefinitionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCoreDefinitionsResponse_definitions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listCoreDefinitions_nextToken
+          Prelude.& listCoreDefinitions_nextToken
           Lens..~ rs
           Lens.^? listCoreDefinitionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCoreDefinitions where
   type
@@ -119,30 +120,32 @@ instance Core.AWSRequest ListCoreDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListCoreDefinitionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Definitions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Definitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListCoreDefinitions
+instance Prelude.Hashable ListCoreDefinitions
 
-instance Core.NFData ListCoreDefinitions
+instance Prelude.NFData ListCoreDefinitions
 
 instance Core.ToHeaders ListCoreDefinitions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListCoreDefinitions where
-  toPath = Core.const "/greengrass/definition/cores"
+  toPath = Prelude.const "/greengrass/definition/cores"
 
 instance Core.ToQuery ListCoreDefinitions where
   toQuery ListCoreDefinitions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults
       ]
@@ -151,13 +154,13 @@ instance Core.ToQuery ListCoreDefinitions where
 data ListCoreDefinitionsResponse = ListCoreDefinitionsResponse'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about a definition.
-    definitions :: Core.Maybe [DefinitionInformation],
+    definitions :: Prelude.Maybe [DefinitionInformation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCoreDefinitionsResponse' with all optional fields omitted.
@@ -175,27 +178,27 @@ data ListCoreDefinitionsResponse = ListCoreDefinitionsResponse'
 -- 'httpStatus', 'listCoreDefinitionsResponse_httpStatus' - The response's http status code.
 newListCoreDefinitionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListCoreDefinitionsResponse
 newListCoreDefinitionsResponse pHttpStatus_ =
   ListCoreDefinitionsResponse'
     { nextToken =
-        Core.Nothing,
-      definitions = Core.Nothing,
+        Prelude.Nothing,
+      definitions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listCoreDefinitionsResponse_nextToken :: Lens.Lens' ListCoreDefinitionsResponse (Core.Maybe Core.Text)
+listCoreDefinitionsResponse_nextToken :: Lens.Lens' ListCoreDefinitionsResponse (Prelude.Maybe Prelude.Text)
 listCoreDefinitionsResponse_nextToken = Lens.lens (\ListCoreDefinitionsResponse' {nextToken} -> nextToken) (\s@ListCoreDefinitionsResponse' {} a -> s {nextToken = a} :: ListCoreDefinitionsResponse)
 
 -- | Information about a definition.
-listCoreDefinitionsResponse_definitions :: Lens.Lens' ListCoreDefinitionsResponse (Core.Maybe [DefinitionInformation])
-listCoreDefinitionsResponse_definitions = Lens.lens (\ListCoreDefinitionsResponse' {definitions} -> definitions) (\s@ListCoreDefinitionsResponse' {} a -> s {definitions = a} :: ListCoreDefinitionsResponse) Core.. Lens.mapping Lens._Coerce
+listCoreDefinitionsResponse_definitions :: Lens.Lens' ListCoreDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
+listCoreDefinitionsResponse_definitions = Lens.lens (\ListCoreDefinitionsResponse' {definitions} -> definitions) (\s@ListCoreDefinitionsResponse' {} a -> s {definitions = a} :: ListCoreDefinitionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCoreDefinitionsResponse_httpStatus :: Lens.Lens' ListCoreDefinitionsResponse Core.Int
+listCoreDefinitionsResponse_httpStatus :: Lens.Lens' ListCoreDefinitionsResponse Prelude.Int
 listCoreDefinitionsResponse_httpStatus = Lens.lens (\ListCoreDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListCoreDefinitionsResponse' {} a -> s {httpStatus = a} :: ListCoreDefinitionsResponse)
 
-instance Core.NFData ListCoreDefinitionsResponse
+instance Prelude.NFData ListCoreDefinitionsResponse

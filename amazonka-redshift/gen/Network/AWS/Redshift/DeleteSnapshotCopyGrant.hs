@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -46,9 +47,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteSnapshotCopyGrant' smart constructor.
 data DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
   { -- | The name of the snapshot copy grant to delete.
-    snapshotCopyGrantName :: Core.Text
+    snapshotCopyGrantName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotCopyGrant' with all optional fields omitted.
@@ -61,7 +62,7 @@ data DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
 -- 'snapshotCopyGrantName', 'deleteSnapshotCopyGrant_snapshotCopyGrantName' - The name of the snapshot copy grant to delete.
 newDeleteSnapshotCopyGrant ::
   -- | 'snapshotCopyGrantName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSnapshotCopyGrant
 newDeleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
   DeleteSnapshotCopyGrant'
@@ -70,7 +71,7 @@ newDeleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
     }
 
 -- | The name of the snapshot copy grant to delete.
-deleteSnapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' DeleteSnapshotCopyGrant Core.Text
+deleteSnapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' DeleteSnapshotCopyGrant Prelude.Text
 deleteSnapshotCopyGrant_snapshotCopyGrantName = Lens.lens (\DeleteSnapshotCopyGrant' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@DeleteSnapshotCopyGrant' {} a -> s {snapshotCopyGrantName = a} :: DeleteSnapshotCopyGrant)
 
 instance Core.AWSRequest DeleteSnapshotCopyGrant where
@@ -82,22 +83,23 @@ instance Core.AWSRequest DeleteSnapshotCopyGrant where
     Response.receiveNull
       DeleteSnapshotCopyGrantResponse'
 
-instance Core.Hashable DeleteSnapshotCopyGrant
+instance Prelude.Hashable DeleteSnapshotCopyGrant
 
-instance Core.NFData DeleteSnapshotCopyGrant
+instance Prelude.NFData DeleteSnapshotCopyGrant
 
 instance Core.ToHeaders DeleteSnapshotCopyGrant where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteSnapshotCopyGrant where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSnapshotCopyGrant where
   toQuery DeleteSnapshotCopyGrant' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSnapshotCopyGrant" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DeleteSnapshotCopyGrant" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "SnapshotCopyGrantName"
           Core.=: snapshotCopyGrantName
       ]
@@ -106,7 +108,7 @@ instance Core.ToQuery DeleteSnapshotCopyGrant where
 data DeleteSnapshotCopyGrantResponse = DeleteSnapshotCopyGrantResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotCopyGrantResponse' with all optional fields omitted.
@@ -117,4 +119,6 @@ newDeleteSnapshotCopyGrantResponse ::
 newDeleteSnapshotCopyGrantResponse =
   DeleteSnapshotCopyGrantResponse'
 
-instance Core.NFData DeleteSnapshotCopyGrantResponse
+instance
+  Prelude.NFData
+    DeleteSnapshotCopyGrantResponse

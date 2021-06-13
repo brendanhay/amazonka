@@ -22,6 +22,7 @@ module Network.AWS.DirectoryService.Types.ConditionalForwarder where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.ReplicationScope
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Points to a remote domain with which you are setting up a trust
 -- relationship. Conditional forwarders are required in order to set up a
@@ -32,16 +33,16 @@ data ConditionalForwarder = ConditionalForwarder'
   { -- | The replication scope of the conditional forwarder. The only allowed
     -- value is @Domain@, which will replicate the conditional forwarder to all
     -- of the domain controllers for your AWS directory.
-    replicationScope :: Core.Maybe ReplicationScope,
+    replicationScope :: Prelude.Maybe ReplicationScope,
     -- | The fully qualified domain name (FQDN) of the remote domains pointed to
     -- by the conditional forwarder.
-    remoteDomainName :: Core.Maybe Core.Text,
+    remoteDomainName :: Prelude.Maybe Prelude.Text,
     -- | The IP addresses of the remote DNS server associated with
     -- RemoteDomainName. This is the IP address of the DNS server that your
     -- conditional forwarder points to.
-    dnsIpAddrs :: Core.Maybe [Core.Text]
+    dnsIpAddrs :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConditionalForwarder' with all optional fields omitted.
@@ -66,27 +67,27 @@ newConditionalForwarder ::
 newConditionalForwarder =
   ConditionalForwarder'
     { replicationScope =
-        Core.Nothing,
-      remoteDomainName = Core.Nothing,
-      dnsIpAddrs = Core.Nothing
+        Prelude.Nothing,
+      remoteDomainName = Prelude.Nothing,
+      dnsIpAddrs = Prelude.Nothing
     }
 
 -- | The replication scope of the conditional forwarder. The only allowed
 -- value is @Domain@, which will replicate the conditional forwarder to all
 -- of the domain controllers for your AWS directory.
-conditionalForwarder_replicationScope :: Lens.Lens' ConditionalForwarder (Core.Maybe ReplicationScope)
+conditionalForwarder_replicationScope :: Lens.Lens' ConditionalForwarder (Prelude.Maybe ReplicationScope)
 conditionalForwarder_replicationScope = Lens.lens (\ConditionalForwarder' {replicationScope} -> replicationScope) (\s@ConditionalForwarder' {} a -> s {replicationScope = a} :: ConditionalForwarder)
 
 -- | The fully qualified domain name (FQDN) of the remote domains pointed to
 -- by the conditional forwarder.
-conditionalForwarder_remoteDomainName :: Lens.Lens' ConditionalForwarder (Core.Maybe Core.Text)
+conditionalForwarder_remoteDomainName :: Lens.Lens' ConditionalForwarder (Prelude.Maybe Prelude.Text)
 conditionalForwarder_remoteDomainName = Lens.lens (\ConditionalForwarder' {remoteDomainName} -> remoteDomainName) (\s@ConditionalForwarder' {} a -> s {remoteDomainName = a} :: ConditionalForwarder)
 
 -- | The IP addresses of the remote DNS server associated with
 -- RemoteDomainName. This is the IP address of the DNS server that your
 -- conditional forwarder points to.
-conditionalForwarder_dnsIpAddrs :: Lens.Lens' ConditionalForwarder (Core.Maybe [Core.Text])
-conditionalForwarder_dnsIpAddrs = Lens.lens (\ConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@ConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: ConditionalForwarder) Core.. Lens.mapping Lens._Coerce
+conditionalForwarder_dnsIpAddrs :: Lens.Lens' ConditionalForwarder (Prelude.Maybe [Prelude.Text])
+conditionalForwarder_dnsIpAddrs = Lens.lens (\ConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@ConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: ConditionalForwarder) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ConditionalForwarder where
   parseJSON =
@@ -94,11 +95,11 @@ instance Core.FromJSON ConditionalForwarder where
       "ConditionalForwarder"
       ( \x ->
           ConditionalForwarder'
-            Core.<$> (x Core..:? "ReplicationScope")
-            Core.<*> (x Core..:? "RemoteDomainName")
-            Core.<*> (x Core..:? "DnsIpAddrs" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "ReplicationScope")
+            Prelude.<*> (x Core..:? "RemoteDomainName")
+            Prelude.<*> (x Core..:? "DnsIpAddrs" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ConditionalForwarder
+instance Prelude.Hashable ConditionalForwarder
 
-instance Core.NFData ConditionalForwarder
+instance Prelude.NFData ConditionalForwarder

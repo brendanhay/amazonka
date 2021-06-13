@@ -21,18 +21,19 @@ module Network.AWS.CloudWatchEvents.Types.ReplayDestination where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A @ReplayDestination@ object that contains details about a replay.
 --
 -- /See:/ 'newReplayDestination' smart constructor.
 data ReplayDestination = ReplayDestination'
   { -- | A list of ARNs for rules to replay events to.
-    filterArns :: Core.Maybe [Core.Text],
+    filterArns :: Prelude.Maybe [Prelude.Text],
     -- | The ARN of the event bus to replay event to. You can replay events only
     -- to the event bus specified to create the archive.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplayDestination' with all optional fields omitted.
@@ -48,21 +49,21 @@ data ReplayDestination = ReplayDestination'
 -- to the event bus specified to create the archive.
 newReplayDestination ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   ReplayDestination
 newReplayDestination pArn_ =
   ReplayDestination'
-    { filterArns = Core.Nothing,
+    { filterArns = Prelude.Nothing,
       arn = pArn_
     }
 
 -- | A list of ARNs for rules to replay events to.
-replayDestination_filterArns :: Lens.Lens' ReplayDestination (Core.Maybe [Core.Text])
-replayDestination_filterArns = Lens.lens (\ReplayDestination' {filterArns} -> filterArns) (\s@ReplayDestination' {} a -> s {filterArns = a} :: ReplayDestination) Core.. Lens.mapping Lens._Coerce
+replayDestination_filterArns :: Lens.Lens' ReplayDestination (Prelude.Maybe [Prelude.Text])
+replayDestination_filterArns = Lens.lens (\ReplayDestination' {filterArns} -> filterArns) (\s@ReplayDestination' {} a -> s {filterArns = a} :: ReplayDestination) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the event bus to replay event to. You can replay events only
 -- to the event bus specified to create the archive.
-replayDestination_arn :: Lens.Lens' ReplayDestination Core.Text
+replayDestination_arn :: Lens.Lens' ReplayDestination Prelude.Text
 replayDestination_arn = Lens.lens (\ReplayDestination' {arn} -> arn) (\s@ReplayDestination' {} a -> s {arn = a} :: ReplayDestination)
 
 instance Core.FromJSON ReplayDestination where
@@ -71,19 +72,19 @@ instance Core.FromJSON ReplayDestination where
       "ReplayDestination"
       ( \x ->
           ReplayDestination'
-            Core.<$> (x Core..:? "FilterArns" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Arn")
+            Prelude.<$> (x Core..:? "FilterArns" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "Arn")
       )
 
-instance Core.Hashable ReplayDestination
+instance Prelude.Hashable ReplayDestination
 
-instance Core.NFData ReplayDestination
+instance Prelude.NFData ReplayDestination
 
 instance Core.ToJSON ReplayDestination where
   toJSON ReplayDestination' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("FilterArns" Core..=) Core.<$> filterArns,
-            Core.Just ("Arn" Core..= arn)
+      ( Prelude.catMaybes
+          [ ("FilterArns" Core..=) Prelude.<$> filterArns,
+            Prelude.Just ("Arn" Core..= arn)
           ]
       )

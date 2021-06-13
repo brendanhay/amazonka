@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data DescribeLocations = DescribeLocations'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLocations' with all optional fields omitted.
@@ -67,44 +68,46 @@ instance Core.AWSRequest DescribeLocations where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationsResponse'
-            Core.<$> (x Core..?> "locations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "locations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeLocations
+instance Prelude.Hashable DescribeLocations
 
-instance Core.NFData DescribeLocations
+instance Prelude.NFData DescribeLocations
 
 instance Core.ToHeaders DescribeLocations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.DescribeLocations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeLocations where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DescribeLocations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeLocations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
   { -- | The locations.
-    locations :: Core.Maybe [Location],
+    locations :: Prelude.Maybe [Location],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLocationsResponse' with all optional fields omitted.
@@ -119,21 +122,21 @@ data DescribeLocationsResponse = DescribeLocationsResponse'
 -- 'httpStatus', 'describeLocationsResponse_httpStatus' - The response's http status code.
 newDescribeLocationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeLocationsResponse
 newDescribeLocationsResponse pHttpStatus_ =
   DescribeLocationsResponse'
     { locations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The locations.
-describeLocationsResponse_locations :: Lens.Lens' DescribeLocationsResponse (Core.Maybe [Location])
-describeLocationsResponse_locations = Lens.lens (\DescribeLocationsResponse' {locations} -> locations) (\s@DescribeLocationsResponse' {} a -> s {locations = a} :: DescribeLocationsResponse) Core.. Lens.mapping Lens._Coerce
+describeLocationsResponse_locations :: Lens.Lens' DescribeLocationsResponse (Prelude.Maybe [Location])
+describeLocationsResponse_locations = Lens.lens (\DescribeLocationsResponse' {locations} -> locations) (\s@DescribeLocationsResponse' {} a -> s {locations = a} :: DescribeLocationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLocationsResponse_httpStatus :: Lens.Lens' DescribeLocationsResponse Core.Int
+describeLocationsResponse_httpStatus :: Lens.Lens' DescribeLocationsResponse Prelude.Int
 describeLocationsResponse_httpStatus = Lens.lens (\DescribeLocationsResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationsResponse' {} a -> s {httpStatus = a} :: DescribeLocationsResponse)
 
-instance Core.NFData DescribeLocationsResponse
+instance Prelude.NFData DescribeLocationsResponse

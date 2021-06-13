@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.CustomImage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A custom SageMaker image. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html Bring your own SageMaker image>.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCustomImage' smart constructor.
 data CustomImage = CustomImage'
   { -- | The version number of the CustomImage.
-    imageVersionNumber :: Core.Maybe Core.Natural,
+    imageVersionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The name of the CustomImage. Must be unique to your account.
-    imageName :: Core.Text,
+    imageName :: Prelude.Text,
     -- | The name of the AppImageConfig.
-    appImageConfigName :: Core.Text
+    appImageConfigName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomImage' with all optional fields omitted.
@@ -51,27 +52,27 @@ data CustomImage = CustomImage'
 -- 'appImageConfigName', 'customImage_appImageConfigName' - The name of the AppImageConfig.
 newCustomImage ::
   -- | 'imageName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'appImageConfigName'
-  Core.Text ->
+  Prelude.Text ->
   CustomImage
 newCustomImage pImageName_ pAppImageConfigName_ =
   CustomImage'
-    { imageVersionNumber = Core.Nothing,
+    { imageVersionNumber = Prelude.Nothing,
       imageName = pImageName_,
       appImageConfigName = pAppImageConfigName_
     }
 
 -- | The version number of the CustomImage.
-customImage_imageVersionNumber :: Lens.Lens' CustomImage (Core.Maybe Core.Natural)
+customImage_imageVersionNumber :: Lens.Lens' CustomImage (Prelude.Maybe Prelude.Natural)
 customImage_imageVersionNumber = Lens.lens (\CustomImage' {imageVersionNumber} -> imageVersionNumber) (\s@CustomImage' {} a -> s {imageVersionNumber = a} :: CustomImage)
 
 -- | The name of the CustomImage. Must be unique to your account.
-customImage_imageName :: Lens.Lens' CustomImage Core.Text
+customImage_imageName :: Lens.Lens' CustomImage Prelude.Text
 customImage_imageName = Lens.lens (\CustomImage' {imageName} -> imageName) (\s@CustomImage' {} a -> s {imageName = a} :: CustomImage)
 
 -- | The name of the AppImageConfig.
-customImage_appImageConfigName :: Lens.Lens' CustomImage Core.Text
+customImage_appImageConfigName :: Lens.Lens' CustomImage Prelude.Text
 customImage_appImageConfigName = Lens.lens (\CustomImage' {appImageConfigName} -> appImageConfigName) (\s@CustomImage' {} a -> s {appImageConfigName = a} :: CustomImage)
 
 instance Core.FromJSON CustomImage where
@@ -80,23 +81,23 @@ instance Core.FromJSON CustomImage where
       "CustomImage"
       ( \x ->
           CustomImage'
-            Core.<$> (x Core..:? "ImageVersionNumber")
-            Core.<*> (x Core..: "ImageName")
-            Core.<*> (x Core..: "AppImageConfigName")
+            Prelude.<$> (x Core..:? "ImageVersionNumber")
+            Prelude.<*> (x Core..: "ImageName")
+            Prelude.<*> (x Core..: "AppImageConfigName")
       )
 
-instance Core.Hashable CustomImage
+instance Prelude.Hashable CustomImage
 
-instance Core.NFData CustomImage
+instance Prelude.NFData CustomImage
 
 instance Core.ToJSON CustomImage where
   toJSON CustomImage' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ImageVersionNumber" Core..=)
-              Core.<$> imageVersionNumber,
-            Core.Just ("ImageName" Core..= imageName),
-            Core.Just
+              Prelude.<$> imageVersionNumber,
+            Prelude.Just ("ImageName" Core..= imageName),
+            Prelude.Just
               ("AppImageConfigName" Core..= appImageConfigName)
           ]
       )

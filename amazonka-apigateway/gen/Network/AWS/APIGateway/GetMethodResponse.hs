@@ -46,6 +46,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,15 +55,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The Resource identifier for the MethodResponse resource.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | [Required] The HTTP verb of the Method resource.
-    httpMethod :: Core.Text,
+    httpMethod :: Prelude.Text,
     -- | [Required] The status code for the MethodResponse resource.
-    statusCode :: Core.Text
+    statusCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMethodResponse' with all optional fields omitted.
@@ -81,13 +82,13 @@ data GetMethodResponse = GetMethodResponse'
 -- 'statusCode', 'getMethodResponse_statusCode' - [Required] The status code for the MethodResponse resource.
 newGetMethodResponse ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpMethod'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'statusCode'
-  Core.Text ->
+  Prelude.Text ->
   GetMethodResponse
 newGetMethodResponse
   pRestApiId_
@@ -102,19 +103,19 @@ newGetMethodResponse
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-getMethodResponse_restApiId :: Lens.Lens' GetMethodResponse Core.Text
+getMethodResponse_restApiId :: Lens.Lens' GetMethodResponse Prelude.Text
 getMethodResponse_restApiId = Lens.lens (\GetMethodResponse' {restApiId} -> restApiId) (\s@GetMethodResponse' {} a -> s {restApiId = a} :: GetMethodResponse)
 
 -- | [Required] The Resource identifier for the MethodResponse resource.
-getMethodResponse_resourceId :: Lens.Lens' GetMethodResponse Core.Text
+getMethodResponse_resourceId :: Lens.Lens' GetMethodResponse Prelude.Text
 getMethodResponse_resourceId = Lens.lens (\GetMethodResponse' {resourceId} -> resourceId) (\s@GetMethodResponse' {} a -> s {resourceId = a} :: GetMethodResponse)
 
 -- | [Required] The HTTP verb of the Method resource.
-getMethodResponse_httpMethod :: Lens.Lens' GetMethodResponse Core.Text
+getMethodResponse_httpMethod :: Lens.Lens' GetMethodResponse Prelude.Text
 getMethodResponse_httpMethod = Lens.lens (\GetMethodResponse' {httpMethod} -> httpMethod) (\s@GetMethodResponse' {} a -> s {httpMethod = a} :: GetMethodResponse)
 
 -- | [Required] The status code for the MethodResponse resource.
-getMethodResponse_statusCode :: Lens.Lens' GetMethodResponse Core.Text
+getMethodResponse_statusCode :: Lens.Lens' GetMethodResponse Prelude.Text
 getMethodResponse_statusCode = Lens.lens (\GetMethodResponse' {statusCode} -> statusCode) (\s@GetMethodResponse' {} a -> s {statusCode = a} :: GetMethodResponse)
 
 instance Core.AWSRequest GetMethodResponse where
@@ -124,22 +125,22 @@ instance Core.AWSRequest GetMethodResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetMethodResponse
+instance Prelude.Hashable GetMethodResponse
 
-instance Core.NFData GetMethodResponse
+instance Prelude.NFData GetMethodResponse
 
 instance Core.ToHeaders GetMethodResponse where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetMethodResponse where
   toPath GetMethodResponse' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -151,4 +152,4 @@ instance Core.ToPath GetMethodResponse where
       ]
 
 instance Core.ToQuery GetMethodResponse where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

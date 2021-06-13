@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsParameters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The parameters for a STEP_FUNCTIONS task.
 --
@@ -46,11 +47,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMaintenanceWindowStepFunctionsParameters' smart constructor.
 data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsParameters'
   { -- | The inputs for the STEP_FUNCTIONS task.
-    input :: Core.Maybe (Core.Sensitive Core.Text),
+    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the STEP_FUNCTIONS task.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowStepFunctionsParameters' with all optional fields omitted.
@@ -68,16 +69,16 @@ newMaintenanceWindowStepFunctionsParameters ::
 newMaintenanceWindowStepFunctionsParameters =
   MaintenanceWindowStepFunctionsParameters'
     { input =
-        Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The inputs for the STEP_FUNCTIONS task.
-maintenanceWindowStepFunctionsParameters_input :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Core.Maybe Core.Text)
-maintenanceWindowStepFunctionsParameters_input = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {input} -> input) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters) Core.. Lens.mapping Core._Sensitive
+maintenanceWindowStepFunctionsParameters_input :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowStepFunctionsParameters_input = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {input} -> input) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the STEP_FUNCTIONS task.
-maintenanceWindowStepFunctionsParameters_name :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Core.Maybe Core.Text)
+maintenanceWindowStepFunctionsParameters_name :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowStepFunctionsParameters_name = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {name} -> name) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {name = a} :: MaintenanceWindowStepFunctionsParameters)
 
 instance
@@ -89,15 +90,15 @@ instance
       "MaintenanceWindowStepFunctionsParameters"
       ( \x ->
           MaintenanceWindowStepFunctionsParameters'
-            Core.<$> (x Core..:? "Input") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Input") Prelude.<*> (x Core..:? "Name")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     MaintenanceWindowStepFunctionsParameters
 
 instance
-  Core.NFData
+  Prelude.NFData
     MaintenanceWindowStepFunctionsParameters
 
 instance
@@ -106,8 +107,8 @@ instance
   where
   toJSON MaintenanceWindowStepFunctionsParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Input" Core..=) Core.<$> input,
-            ("Name" Core..=) Core.<$> name
+      ( Prelude.catMaybes
+          [ ("Input" Core..=) Prelude.<$> input,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

@@ -25,6 +25,7 @@ import Network.AWS.DynamoDB.Types.Delete
 import Network.AWS.DynamoDB.Types.Put
 import Network.AWS.DynamoDB.Types.Update
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of requests that can perform update, put, delete, or check
 -- operations on multiple items in one or more tables atomically.
@@ -32,15 +33,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTransactWriteItem' smart constructor.
 data TransactWriteItem = TransactWriteItem'
   { -- | A request to perform a @PutItem@ operation.
-    put :: Core.Maybe Put,
+    put :: Prelude.Maybe Put,
     -- | A request to perform a check item operation.
-    conditionCheck :: Core.Maybe ConditionCheck,
+    conditionCheck :: Prelude.Maybe ConditionCheck,
     -- | A request to perform an @UpdateItem@ operation.
-    update :: Core.Maybe Update,
+    update :: Prelude.Maybe Update,
     -- | A request to perform a @DeleteItem@ operation.
-    delete' :: Core.Maybe Delete
+    delete' :: Prelude.Maybe Delete
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransactWriteItem' with all optional fields omitted.
@@ -61,39 +62,40 @@ newTransactWriteItem ::
   TransactWriteItem
 newTransactWriteItem =
   TransactWriteItem'
-    { put = Core.Nothing,
-      conditionCheck = Core.Nothing,
-      update = Core.Nothing,
-      delete' = Core.Nothing
+    { put = Prelude.Nothing,
+      conditionCheck = Prelude.Nothing,
+      update = Prelude.Nothing,
+      delete' = Prelude.Nothing
     }
 
 -- | A request to perform a @PutItem@ operation.
-transactWriteItem_put :: Lens.Lens' TransactWriteItem (Core.Maybe Put)
+transactWriteItem_put :: Lens.Lens' TransactWriteItem (Prelude.Maybe Put)
 transactWriteItem_put = Lens.lens (\TransactWriteItem' {put} -> put) (\s@TransactWriteItem' {} a -> s {put = a} :: TransactWriteItem)
 
 -- | A request to perform a check item operation.
-transactWriteItem_conditionCheck :: Lens.Lens' TransactWriteItem (Core.Maybe ConditionCheck)
+transactWriteItem_conditionCheck :: Lens.Lens' TransactWriteItem (Prelude.Maybe ConditionCheck)
 transactWriteItem_conditionCheck = Lens.lens (\TransactWriteItem' {conditionCheck} -> conditionCheck) (\s@TransactWriteItem' {} a -> s {conditionCheck = a} :: TransactWriteItem)
 
 -- | A request to perform an @UpdateItem@ operation.
-transactWriteItem_update :: Lens.Lens' TransactWriteItem (Core.Maybe Update)
+transactWriteItem_update :: Lens.Lens' TransactWriteItem (Prelude.Maybe Update)
 transactWriteItem_update = Lens.lens (\TransactWriteItem' {update} -> update) (\s@TransactWriteItem' {} a -> s {update = a} :: TransactWriteItem)
 
 -- | A request to perform a @DeleteItem@ operation.
-transactWriteItem_delete :: Lens.Lens' TransactWriteItem (Core.Maybe Delete)
+transactWriteItem_delete :: Lens.Lens' TransactWriteItem (Prelude.Maybe Delete)
 transactWriteItem_delete = Lens.lens (\TransactWriteItem' {delete'} -> delete') (\s@TransactWriteItem' {} a -> s {delete' = a} :: TransactWriteItem)
 
-instance Core.Hashable TransactWriteItem
+instance Prelude.Hashable TransactWriteItem
 
-instance Core.NFData TransactWriteItem
+instance Prelude.NFData TransactWriteItem
 
 instance Core.ToJSON TransactWriteItem where
   toJSON TransactWriteItem' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Put" Core..=) Core.<$> put,
-            ("ConditionCheck" Core..=) Core.<$> conditionCheck,
-            ("Update" Core..=) Core.<$> update,
-            ("Delete" Core..=) Core.<$> delete'
+      ( Prelude.catMaybes
+          [ ("Put" Core..=) Prelude.<$> put,
+            ("ConditionCheck" Core..=)
+              Prelude.<$> conditionCheck,
+            ("Update" Core..=) Prelude.<$> update,
+            ("Delete" Core..=) Prelude.<$> delete'
           ]
       )

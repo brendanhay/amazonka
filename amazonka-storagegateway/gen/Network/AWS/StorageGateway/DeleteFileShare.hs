@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -58,11 +59,11 @@ data DeleteFileShare = DeleteFileShare'
     -- @FORCE_DELETING@ status.
     --
     -- Valid Values: @true@ | @false@
-    forceDelete :: Core.Maybe Core.Bool,
+    forceDelete :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the file share to be deleted.
-    fileShareARN :: Core.Text
+    fileShareARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFileShare' with all optional fields omitted.
@@ -83,11 +84,11 @@ data DeleteFileShare = DeleteFileShare'
 -- 'fileShareARN', 'deleteFileShare_fileShareARN' - The Amazon Resource Name (ARN) of the file share to be deleted.
 newDeleteFileShare ::
   -- | 'fileShareARN'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFileShare
 newDeleteFileShare pFileShareARN_ =
   DeleteFileShare'
-    { forceDelete = Core.Nothing,
+    { forceDelete = Prelude.Nothing,
       fileShareARN = pFileShareARN_
     }
 
@@ -98,11 +99,11 @@ newDeleteFileShare pFileShareARN_ =
 -- @FORCE_DELETING@ status.
 --
 -- Valid Values: @true@ | @false@
-deleteFileShare_forceDelete :: Lens.Lens' DeleteFileShare (Core.Maybe Core.Bool)
+deleteFileShare_forceDelete :: Lens.Lens' DeleteFileShare (Prelude.Maybe Prelude.Bool)
 deleteFileShare_forceDelete = Lens.lens (\DeleteFileShare' {forceDelete} -> forceDelete) (\s@DeleteFileShare' {} a -> s {forceDelete = a} :: DeleteFileShare)
 
 -- | The Amazon Resource Name (ARN) of the file share to be deleted.
-deleteFileShare_fileShareARN :: Lens.Lens' DeleteFileShare Core.Text
+deleteFileShare_fileShareARN :: Lens.Lens' DeleteFileShare Prelude.Text
 deleteFileShare_fileShareARN = Lens.lens (\DeleteFileShare' {fileShareARN} -> fileShareARN) (\s@DeleteFileShare' {} a -> s {fileShareARN = a} :: DeleteFileShare)
 
 instance Core.AWSRequest DeleteFileShare where
@@ -114,52 +115,54 @@ instance Core.AWSRequest DeleteFileShare where
     Response.receiveJSON
       ( \s h x ->
           DeleteFileShareResponse'
-            Core.<$> (x Core..?> "FileShareARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FileShareARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteFileShare
+instance Prelude.Hashable DeleteFileShare
 
-instance Core.NFData DeleteFileShare
+instance Prelude.NFData DeleteFileShare
 
 instance Core.ToHeaders DeleteFileShare where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DeleteFileShare" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteFileShare where
   toJSON DeleteFileShare' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ForceDelete" Core..=) Core.<$> forceDelete,
-            Core.Just ("FileShareARN" Core..= fileShareARN)
+      ( Prelude.catMaybes
+          [ ("ForceDelete" Core..=) Prelude.<$> forceDelete,
+            Prelude.Just ("FileShareARN" Core..= fileShareARN)
           ]
       )
 
 instance Core.ToPath DeleteFileShare where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteFileShare where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | DeleteFileShareOutput
 --
 -- /See:/ 'newDeleteFileShareResponse' smart constructor.
 data DeleteFileShareResponse = DeleteFileShareResponse'
   { -- | The Amazon Resource Name (ARN) of the deleted file share.
-    fileShareARN :: Core.Maybe Core.Text,
+    fileShareARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFileShareResponse' with all optional fields omitted.
@@ -174,21 +177,21 @@ data DeleteFileShareResponse = DeleteFileShareResponse'
 -- 'httpStatus', 'deleteFileShareResponse_httpStatus' - The response's http status code.
 newDeleteFileShareResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteFileShareResponse
 newDeleteFileShareResponse pHttpStatus_ =
   DeleteFileShareResponse'
     { fileShareARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the deleted file share.
-deleteFileShareResponse_fileShareARN :: Lens.Lens' DeleteFileShareResponse (Core.Maybe Core.Text)
+deleteFileShareResponse_fileShareARN :: Lens.Lens' DeleteFileShareResponse (Prelude.Maybe Prelude.Text)
 deleteFileShareResponse_fileShareARN = Lens.lens (\DeleteFileShareResponse' {fileShareARN} -> fileShareARN) (\s@DeleteFileShareResponse' {} a -> s {fileShareARN = a} :: DeleteFileShareResponse)
 
 -- | The response's http status code.
-deleteFileShareResponse_httpStatus :: Lens.Lens' DeleteFileShareResponse Core.Int
+deleteFileShareResponse_httpStatus :: Lens.Lens' DeleteFileShareResponse Prelude.Int
 deleteFileShareResponse_httpStatus = Lens.lens (\DeleteFileShareResponse' {httpStatus} -> httpStatus) (\s@DeleteFileShareResponse' {} a -> s {httpStatus = a} :: DeleteFileShareResponse)
 
-instance Core.NFData DeleteFileShareResponse
+instance Prelude.NFData DeleteFileShareResponse

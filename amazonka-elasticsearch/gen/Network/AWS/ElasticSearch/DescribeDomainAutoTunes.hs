@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,14 +57,14 @@ import qualified Network.AWS.Response as Response
 data DescribeDomainAutoTunes = DescribeDomainAutoTunes'
   { -- | NextToken is sent in case the earlier API call results contain the
     -- NextToken. It is used for pagination.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Set this value to limit the number of results returned. If not
     -- specified, defaults to 100.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Specifies the domain name for which you want Auto-Tune action details.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomainAutoTunes' with all optional fields omitted.
@@ -82,27 +83,28 @@ data DescribeDomainAutoTunes = DescribeDomainAutoTunes'
 -- 'domainName', 'describeDomainAutoTunes_domainName' - Specifies the domain name for which you want Auto-Tune action details.
 newDescribeDomainAutoTunes ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDomainAutoTunes
 newDescribeDomainAutoTunes pDomainName_ =
   DescribeDomainAutoTunes'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       domainName = pDomainName_
     }
 
 -- | NextToken is sent in case the earlier API call results contain the
 -- NextToken. It is used for pagination.
-describeDomainAutoTunes_nextToken :: Lens.Lens' DescribeDomainAutoTunes (Core.Maybe Core.Text)
+describeDomainAutoTunes_nextToken :: Lens.Lens' DescribeDomainAutoTunes (Prelude.Maybe Prelude.Text)
 describeDomainAutoTunes_nextToken = Lens.lens (\DescribeDomainAutoTunes' {nextToken} -> nextToken) (\s@DescribeDomainAutoTunes' {} a -> s {nextToken = a} :: DescribeDomainAutoTunes)
 
 -- | Set this value to limit the number of results returned. If not
 -- specified, defaults to 100.
-describeDomainAutoTunes_maxResults :: Lens.Lens' DescribeDomainAutoTunes (Core.Maybe Core.Int)
+describeDomainAutoTunes_maxResults :: Lens.Lens' DescribeDomainAutoTunes (Prelude.Maybe Prelude.Int)
 describeDomainAutoTunes_maxResults = Lens.lens (\DescribeDomainAutoTunes' {maxResults} -> maxResults) (\s@DescribeDomainAutoTunes' {} a -> s {maxResults = a} :: DescribeDomainAutoTunes)
 
 -- | Specifies the domain name for which you want Auto-Tune action details.
-describeDomainAutoTunes_domainName :: Lens.Lens' DescribeDomainAutoTunes Core.Text
+describeDomainAutoTunes_domainName :: Lens.Lens' DescribeDomainAutoTunes Prelude.Text
 describeDomainAutoTunes_domainName = Lens.lens (\DescribeDomainAutoTunes' {domainName} -> domainName) (\s@DescribeDomainAutoTunes' {} a -> s {domainName = a} :: DescribeDomainAutoTunes)
 
 instance Core.AWSRequest DescribeDomainAutoTunes where
@@ -114,28 +116,28 @@ instance Core.AWSRequest DescribeDomainAutoTunes where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainAutoTunesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "AutoTunes" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "AutoTunes" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDomainAutoTunes
+instance Prelude.Hashable DescribeDomainAutoTunes
 
-instance Core.NFData DescribeDomainAutoTunes
+instance Prelude.NFData DescribeDomainAutoTunes
 
 instance Core.ToHeaders DescribeDomainAutoTunes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDomainAutoTunes where
   toPath DescribeDomainAutoTunes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-01-01/es/domain/",
         Core.toBS domainName,
         "/autoTunes"
       ]
 
 instance Core.ToQuery DescribeDomainAutoTunes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of @DescribeDomainAutoTunes@ request. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
@@ -144,16 +146,16 @@ instance Core.ToQuery DescribeDomainAutoTunes where
 -- /See:/ 'newDescribeDomainAutoTunesResponse' smart constructor.
 data DescribeDomainAutoTunesResponse = DescribeDomainAutoTunesResponse'
   { -- | Specifies an identifier to allow retrieval of paginated results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the list of setting adjustments that Auto-Tune has made to the
     -- domain. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    autoTunes :: Core.Maybe [AutoTune],
+    autoTunes :: Prelude.Maybe [AutoTune],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomainAutoTunesResponse' with all optional fields omitted.
@@ -173,29 +175,31 @@ data DescribeDomainAutoTunesResponse = DescribeDomainAutoTunesResponse'
 -- 'httpStatus', 'describeDomainAutoTunesResponse_httpStatus' - The response's http status code.
 newDescribeDomainAutoTunesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDomainAutoTunesResponse
 newDescribeDomainAutoTunesResponse pHttpStatus_ =
   DescribeDomainAutoTunesResponse'
     { nextToken =
-        Core.Nothing,
-      autoTunes = Core.Nothing,
+        Prelude.Nothing,
+      autoTunes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Specifies an identifier to allow retrieval of paginated results.
-describeDomainAutoTunesResponse_nextToken :: Lens.Lens' DescribeDomainAutoTunesResponse (Core.Maybe Core.Text)
+describeDomainAutoTunesResponse_nextToken :: Lens.Lens' DescribeDomainAutoTunesResponse (Prelude.Maybe Prelude.Text)
 describeDomainAutoTunesResponse_nextToken = Lens.lens (\DescribeDomainAutoTunesResponse' {nextToken} -> nextToken) (\s@DescribeDomainAutoTunesResponse' {} a -> s {nextToken = a} :: DescribeDomainAutoTunesResponse)
 
 -- | Specifies the list of setting adjustments that Auto-Tune has made to the
 -- domain. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-describeDomainAutoTunesResponse_autoTunes :: Lens.Lens' DescribeDomainAutoTunesResponse (Core.Maybe [AutoTune])
-describeDomainAutoTunesResponse_autoTunes = Lens.lens (\DescribeDomainAutoTunesResponse' {autoTunes} -> autoTunes) (\s@DescribeDomainAutoTunesResponse' {} a -> s {autoTunes = a} :: DescribeDomainAutoTunesResponse) Core.. Lens.mapping Lens._Coerce
+describeDomainAutoTunesResponse_autoTunes :: Lens.Lens' DescribeDomainAutoTunesResponse (Prelude.Maybe [AutoTune])
+describeDomainAutoTunesResponse_autoTunes = Lens.lens (\DescribeDomainAutoTunesResponse' {autoTunes} -> autoTunes) (\s@DescribeDomainAutoTunesResponse' {} a -> s {autoTunes = a} :: DescribeDomainAutoTunesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeDomainAutoTunesResponse_httpStatus :: Lens.Lens' DescribeDomainAutoTunesResponse Core.Int
+describeDomainAutoTunesResponse_httpStatus :: Lens.Lens' DescribeDomainAutoTunesResponse Prelude.Int
 describeDomainAutoTunesResponse_httpStatus = Lens.lens (\DescribeDomainAutoTunesResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainAutoTunesResponse' {} a -> s {httpStatus = a} :: DescribeDomainAutoTunesResponse)
 
-instance Core.NFData DescribeDomainAutoTunesResponse
+instance
+  Prelude.NFData
+    DescribeDomainAutoTunesResponse

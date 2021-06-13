@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ data RegisterInstanceEventNotificationAttributes = RegisterInstanceEventNotifica
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Information about the tag keys to register.
-    instanceTagAttribute :: Core.Maybe RegisterInstanceTagAttributeRequest
+    instanceTagAttribute :: Prelude.Maybe RegisterInstanceTagAttributeRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterInstanceEventNotificationAttributes' with all optional fields omitted.
@@ -80,20 +81,20 @@ newRegisterInstanceEventNotificationAttributes ::
 newRegisterInstanceEventNotificationAttributes =
   RegisterInstanceEventNotificationAttributes'
     { dryRun =
-        Core.Nothing,
+        Prelude.Nothing,
       instanceTagAttribute =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-registerInstanceEventNotificationAttributes_dryRun :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Core.Maybe Core.Bool)
+registerInstanceEventNotificationAttributes_dryRun :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Prelude.Maybe Prelude.Bool)
 registerInstanceEventNotificationAttributes_dryRun = Lens.lens (\RegisterInstanceEventNotificationAttributes' {dryRun} -> dryRun) (\s@RegisterInstanceEventNotificationAttributes' {} a -> s {dryRun = a} :: RegisterInstanceEventNotificationAttributes)
 
 -- | Information about the tag keys to register.
-registerInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Core.Maybe RegisterInstanceTagAttributeRequest)
+registerInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Prelude.Maybe RegisterInstanceTagAttributeRequest)
 registerInstanceEventNotificationAttributes_instanceTagAttribute = Lens.lens (\RegisterInstanceEventNotificationAttributes' {instanceTagAttribute} -> instanceTagAttribute) (\s@RegisterInstanceEventNotificationAttributes' {} a -> s {instanceTagAttribute = a} :: RegisterInstanceEventNotificationAttributes)
 
 instance
@@ -109,29 +110,29 @@ instance
     Response.receiveXML
       ( \s h x ->
           RegisterInstanceEventNotificationAttributesResponse'
-            Core.<$> (x Core..@? "instanceTagAttribute")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "instanceTagAttribute")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RegisterInstanceEventNotificationAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterInstanceEventNotificationAttributes
 
 instance
   Core.ToHeaders
     RegisterInstanceEventNotificationAttributes
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     RegisterInstanceEventNotificationAttributes
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
@@ -139,12 +140,13 @@ instance
   where
   toQuery
     RegisterInstanceEventNotificationAttributes' {..} =
-      Core.mconcat
+      Prelude.mconcat
         [ "Action"
             Core.=: ( "RegisterInstanceEventNotificationAttributes" ::
-                        Core.ByteString
+                        Prelude.ByteString
                     ),
-          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "Version"
+            Core.=: ("2016-11-15" :: Prelude.ByteString),
           "DryRun" Core.=: dryRun,
           "InstanceTagAttribute" Core.=: instanceTagAttribute
         ]
@@ -152,11 +154,11 @@ instance
 -- | /See:/ 'newRegisterInstanceEventNotificationAttributesResponse' smart constructor.
 data RegisterInstanceEventNotificationAttributesResponse = RegisterInstanceEventNotificationAttributesResponse'
   { -- | The resulting set of tag keys.
-    instanceTagAttribute :: Core.Maybe InstanceTagNotificationAttribute,
+    instanceTagAttribute :: Prelude.Maybe InstanceTagNotificationAttribute,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterInstanceEventNotificationAttributesResponse' with all optional fields omitted.
@@ -171,25 +173,25 @@ data RegisterInstanceEventNotificationAttributesResponse = RegisterInstanceEvent
 -- 'httpStatus', 'registerInstanceEventNotificationAttributesResponse_httpStatus' - The response's http status code.
 newRegisterInstanceEventNotificationAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterInstanceEventNotificationAttributesResponse
 newRegisterInstanceEventNotificationAttributesResponse
   pHttpStatus_ =
     RegisterInstanceEventNotificationAttributesResponse'
       { instanceTagAttribute =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | The resulting set of tag keys.
-registerInstanceEventNotificationAttributesResponse_instanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributesResponse (Core.Maybe InstanceTagNotificationAttribute)
+registerInstanceEventNotificationAttributesResponse_instanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributesResponse (Prelude.Maybe InstanceTagNotificationAttribute)
 registerInstanceEventNotificationAttributesResponse_instanceTagAttribute = Lens.lens (\RegisterInstanceEventNotificationAttributesResponse' {instanceTagAttribute} -> instanceTagAttribute) (\s@RegisterInstanceEventNotificationAttributesResponse' {} a -> s {instanceTagAttribute = a} :: RegisterInstanceEventNotificationAttributesResponse)
 
 -- | The response's http status code.
-registerInstanceEventNotificationAttributesResponse_httpStatus :: Lens.Lens' RegisterInstanceEventNotificationAttributesResponse Core.Int
+registerInstanceEventNotificationAttributesResponse_httpStatus :: Lens.Lens' RegisterInstanceEventNotificationAttributesResponse Prelude.Int
 registerInstanceEventNotificationAttributesResponse_httpStatus = Lens.lens (\RegisterInstanceEventNotificationAttributesResponse' {httpStatus} -> httpStatus) (\s@RegisterInstanceEventNotificationAttributesResponse' {} a -> s {httpStatus = a} :: RegisterInstanceEventNotificationAttributesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterInstanceEventNotificationAttributesResponse

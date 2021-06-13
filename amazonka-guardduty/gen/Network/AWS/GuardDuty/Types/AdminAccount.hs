@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.AdminAccount where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.AdminStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The account within the organization specified as the GuardDuty delegated
 -- administrator.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAdminAccount' smart constructor.
 data AdminAccount = AdminAccount'
   { -- | The AWS account ID for the account.
-    adminAccountId :: Core.Maybe Core.Text,
+    adminAccountId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the account is enabled as the delegated administrator.
-    adminStatus :: Core.Maybe AdminStatus
+    adminStatus :: Prelude.Maybe AdminStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminAccount' with all optional fields omitted.
@@ -50,16 +51,16 @@ newAdminAccount ::
   AdminAccount
 newAdminAccount =
   AdminAccount'
-    { adminAccountId = Core.Nothing,
-      adminStatus = Core.Nothing
+    { adminAccountId = Prelude.Nothing,
+      adminStatus = Prelude.Nothing
     }
 
 -- | The AWS account ID for the account.
-adminAccount_adminAccountId :: Lens.Lens' AdminAccount (Core.Maybe Core.Text)
+adminAccount_adminAccountId :: Lens.Lens' AdminAccount (Prelude.Maybe Prelude.Text)
 adminAccount_adminAccountId = Lens.lens (\AdminAccount' {adminAccountId} -> adminAccountId) (\s@AdminAccount' {} a -> s {adminAccountId = a} :: AdminAccount)
 
 -- | Indicates whether the account is enabled as the delegated administrator.
-adminAccount_adminStatus :: Lens.Lens' AdminAccount (Core.Maybe AdminStatus)
+adminAccount_adminStatus :: Lens.Lens' AdminAccount (Prelude.Maybe AdminStatus)
 adminAccount_adminStatus = Lens.lens (\AdminAccount' {adminStatus} -> adminStatus) (\s@AdminAccount' {} a -> s {adminStatus = a} :: AdminAccount)
 
 instance Core.FromJSON AdminAccount where
@@ -68,10 +69,10 @@ instance Core.FromJSON AdminAccount where
       "AdminAccount"
       ( \x ->
           AdminAccount'
-            Core.<$> (x Core..:? "adminAccountId")
-            Core.<*> (x Core..:? "adminStatus")
+            Prelude.<$> (x Core..:? "adminAccountId")
+            Prelude.<*> (x Core..:? "adminStatus")
       )
 
-instance Core.Hashable AdminAccount
+instance Prelude.Hashable AdminAccount
 
-instance Core.NFData AdminAccount
+instance Prelude.NFData AdminAccount

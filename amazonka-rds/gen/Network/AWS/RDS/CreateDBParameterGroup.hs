@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -75,7 +76,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateDBParameterGroup' smart constructor.
 data CreateDBParameterGroup = CreateDBParameterGroup'
   { -- | Tags to assign to the DB parameter group.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the DB parameter group.
     --
     -- Constraints:
@@ -87,7 +88,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- This value is stored as a lowercase string.
-    dbParameterGroupName :: Core.Text,
+    dbParameterGroupName :: Prelude.Text,
     -- | The DB parameter group family name. A DB parameter group can be
     -- associated with one and only one DB parameter group family, and can be
     -- applied only to a DB instance running a database engine and engine
@@ -99,11 +100,11 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
     -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\"@
     --
     -- The output contains duplicates.
-    dbParameterGroupFamily :: Core.Text,
+    dbParameterGroupFamily :: Prelude.Text,
     -- | The description for the DB parameter group.
-    description :: Core.Text
+    description :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDBParameterGroup' with all optional fields omitted.
@@ -142,26 +143,26 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
 -- 'description', 'createDBParameterGroup_description' - The description for the DB parameter group.
 newCreateDBParameterGroup ::
   -- | 'dbParameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dbParameterGroupFamily'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   CreateDBParameterGroup
 newCreateDBParameterGroup
   pDBParameterGroupName_
   pDBParameterGroupFamily_
   pDescription_ =
     CreateDBParameterGroup'
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         dbParameterGroupName = pDBParameterGroupName_,
         dbParameterGroupFamily = pDBParameterGroupFamily_,
         description = pDescription_
       }
 
 -- | Tags to assign to the DB parameter group.
-createDBParameterGroup_tags :: Lens.Lens' CreateDBParameterGroup (Core.Maybe [Tag])
-createDBParameterGroup_tags = Lens.lens (\CreateDBParameterGroup' {tags} -> tags) (\s@CreateDBParameterGroup' {} a -> s {tags = a} :: CreateDBParameterGroup) Core.. Lens.mapping Lens._Coerce
+createDBParameterGroup_tags :: Lens.Lens' CreateDBParameterGroup (Prelude.Maybe [Tag])
+createDBParameterGroup_tags = Lens.lens (\CreateDBParameterGroup' {tags} -> tags) (\s@CreateDBParameterGroup' {} a -> s {tags = a} :: CreateDBParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the DB parameter group.
 --
@@ -174,7 +175,7 @@ createDBParameterGroup_tags = Lens.lens (\CreateDBParameterGroup' {tags} -> tags
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- This value is stored as a lowercase string.
-createDBParameterGroup_dbParameterGroupName :: Lens.Lens' CreateDBParameterGroup Core.Text
+createDBParameterGroup_dbParameterGroupName :: Lens.Lens' CreateDBParameterGroup Prelude.Text
 createDBParameterGroup_dbParameterGroupName = Lens.lens (\CreateDBParameterGroup' {dbParameterGroupName} -> dbParameterGroupName) (\s@CreateDBParameterGroup' {} a -> s {dbParameterGroupName = a} :: CreateDBParameterGroup)
 
 -- | The DB parameter group family name. A DB parameter group can be
@@ -188,11 +189,11 @@ createDBParameterGroup_dbParameterGroupName = Lens.lens (\CreateDBParameterGroup
 -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\"@
 --
 -- The output contains duplicates.
-createDBParameterGroup_dbParameterGroupFamily :: Lens.Lens' CreateDBParameterGroup Core.Text
+createDBParameterGroup_dbParameterGroupFamily :: Lens.Lens' CreateDBParameterGroup Prelude.Text
 createDBParameterGroup_dbParameterGroupFamily = Lens.lens (\CreateDBParameterGroup' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@CreateDBParameterGroup' {} a -> s {dbParameterGroupFamily = a} :: CreateDBParameterGroup)
 
 -- | The description for the DB parameter group.
-createDBParameterGroup_description :: Lens.Lens' CreateDBParameterGroup Core.Text
+createDBParameterGroup_description :: Lens.Lens' CreateDBParameterGroup Prelude.Text
 createDBParameterGroup_description = Lens.lens (\CreateDBParameterGroup' {description} -> description) (\s@CreateDBParameterGroup' {} a -> s {description = a} :: CreateDBParameterGroup)
 
 instance Core.AWSRequest CreateDBParameterGroup where
@@ -205,28 +206,30 @@ instance Core.AWSRequest CreateDBParameterGroup where
       "CreateDBParameterGroupResult"
       ( \s h x ->
           CreateDBParameterGroupResponse'
-            Core.<$> (x Core..@? "DBParameterGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBParameterGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDBParameterGroup
+instance Prelude.Hashable CreateDBParameterGroup
 
-instance Core.NFData CreateDBParameterGroup
+instance Prelude.NFData CreateDBParameterGroup
 
 instance Core.ToHeaders CreateDBParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateDBParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDBParameterGroup where
   toQuery CreateDBParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("CreateDBParameterGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "DBParameterGroupName" Core.=: dbParameterGroupName,
         "DBParameterGroupFamily"
           Core.=: dbParameterGroupFamily,
@@ -235,11 +238,11 @@ instance Core.ToQuery CreateDBParameterGroup where
 
 -- | /See:/ 'newCreateDBParameterGroupResponse' smart constructor.
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
-  { dbParameterGroup :: Core.Maybe DBParameterGroup,
+  { dbParameterGroup :: Prelude.Maybe DBParameterGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDBParameterGroupResponse' with all optional fields omitted.
@@ -254,21 +257,23 @@ data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
 -- 'httpStatus', 'createDBParameterGroupResponse_httpStatus' - The response's http status code.
 newCreateDBParameterGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDBParameterGroupResponse
 newCreateDBParameterGroupResponse pHttpStatus_ =
   CreateDBParameterGroupResponse'
     { dbParameterGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createDBParameterGroupResponse_dbParameterGroup :: Lens.Lens' CreateDBParameterGroupResponse (Core.Maybe DBParameterGroup)
+createDBParameterGroupResponse_dbParameterGroup :: Lens.Lens' CreateDBParameterGroupResponse (Prelude.Maybe DBParameterGroup)
 createDBParameterGroupResponse_dbParameterGroup = Lens.lens (\CreateDBParameterGroupResponse' {dbParameterGroup} -> dbParameterGroup) (\s@CreateDBParameterGroupResponse' {} a -> s {dbParameterGroup = a} :: CreateDBParameterGroupResponse)
 
 -- | The response's http status code.
-createDBParameterGroupResponse_httpStatus :: Lens.Lens' CreateDBParameterGroupResponse Core.Int
+createDBParameterGroupResponse_httpStatus :: Lens.Lens' CreateDBParameterGroupResponse Prelude.Int
 createDBParameterGroupResponse_httpStatus = Lens.lens (\CreateDBParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CreateDBParameterGroupResponse' {} a -> s {httpStatus = a} :: CreateDBParameterGroupResponse)
 
-instance Core.NFData CreateDBParameterGroupResponse
+instance
+  Prelude.NFData
+    CreateDBParameterGroupResponse

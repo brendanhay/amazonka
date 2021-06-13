@@ -133,6 +133,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -143,7 +144,7 @@ data GenerateDataKey = GenerateDataKey'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
     -- in the /AWS Key Management Service Developer Guide/.
-    grantTokens :: Core.Maybe [Core.Text],
+    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the length of the data key in bytes. For example, use the
     -- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
     -- 128-bit (16-byte) and 256-bit (32-byte) data keys, use the @KeySpec@
@@ -151,7 +152,7 @@ data GenerateDataKey = GenerateDataKey'
     --
     -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
     -- (but not both) in every @GenerateDataKey@ request.
-    numberOfBytes :: Core.Maybe Core.Natural,
+    numberOfBytes :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the encryption context that will be used when encrypting the
     -- data key.
     --
@@ -165,13 +166,13 @@ data GenerateDataKey = GenerateDataKey'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /AWS Key Management Service Developer Guide/.
-    encryptionContext :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the length of the data key. Use @AES_128@ to generate a
     -- 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
     --
     -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
     -- (but not both) in every @GenerateDataKey@ request.
-    keySpec :: Core.Maybe DataKeySpec,
+    keySpec :: Prelude.Maybe DataKeySpec,
     -- | Identifies the symmetric CMK that encrypts the data key.
     --
     -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias
@@ -192,9 +193,9 @@ data GenerateDataKey = GenerateDataKey'
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
     -- get the alias name and alias ARN, use ListAliases.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateDataKey' with all optional fields omitted.
@@ -260,14 +261,14 @@ data GenerateDataKey = GenerateDataKey'
 -- get the alias name and alias ARN, use ListAliases.
 newGenerateDataKey ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   GenerateDataKey
 newGenerateDataKey pKeyId_ =
   GenerateDataKey'
-    { grantTokens = Core.Nothing,
-      numberOfBytes = Core.Nothing,
-      encryptionContext = Core.Nothing,
-      keySpec = Core.Nothing,
+    { grantTokens = Prelude.Nothing,
+      numberOfBytes = Prelude.Nothing,
+      encryptionContext = Prelude.Nothing,
+      keySpec = Prelude.Nothing,
       keyId = pKeyId_
     }
 
@@ -276,8 +277,8 @@ newGenerateDataKey pKeyId_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
 -- in the /AWS Key Management Service Developer Guide/.
-generateDataKey_grantTokens :: Lens.Lens' GenerateDataKey (Core.Maybe [Core.Text])
-generateDataKey_grantTokens = Lens.lens (\GenerateDataKey' {grantTokens} -> grantTokens) (\s@GenerateDataKey' {} a -> s {grantTokens = a} :: GenerateDataKey) Core.. Lens.mapping Lens._Coerce
+generateDataKey_grantTokens :: Lens.Lens' GenerateDataKey (Prelude.Maybe [Prelude.Text])
+generateDataKey_grantTokens = Lens.lens (\GenerateDataKey' {grantTokens} -> grantTokens) (\s@GenerateDataKey' {} a -> s {grantTokens = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the length of the data key in bytes. For example, use the
 -- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
@@ -286,7 +287,7 @@ generateDataKey_grantTokens = Lens.lens (\GenerateDataKey' {grantTokens} -> gran
 --
 -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
 -- (but not both) in every @GenerateDataKey@ request.
-generateDataKey_numberOfBytes :: Lens.Lens' GenerateDataKey (Core.Maybe Core.Natural)
+generateDataKey_numberOfBytes :: Lens.Lens' GenerateDataKey (Prelude.Maybe Prelude.Natural)
 generateDataKey_numberOfBytes = Lens.lens (\GenerateDataKey' {numberOfBytes} -> numberOfBytes) (\s@GenerateDataKey' {} a -> s {numberOfBytes = a} :: GenerateDataKey)
 
 -- | Specifies the encryption context that will be used when encrypting the
@@ -302,15 +303,15 @@ generateDataKey_numberOfBytes = Lens.lens (\GenerateDataKey' {numberOfBytes} -> 
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /AWS Key Management Service Developer Guide/.
-generateDataKey_encryptionContext :: Lens.Lens' GenerateDataKey (Core.Maybe (Core.HashMap Core.Text Core.Text))
-generateDataKey_encryptionContext = Lens.lens (\GenerateDataKey' {encryptionContext} -> encryptionContext) (\s@GenerateDataKey' {} a -> s {encryptionContext = a} :: GenerateDataKey) Core.. Lens.mapping Lens._Coerce
+generateDataKey_encryptionContext :: Lens.Lens' GenerateDataKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+generateDataKey_encryptionContext = Lens.lens (\GenerateDataKey' {encryptionContext} -> encryptionContext) (\s@GenerateDataKey' {} a -> s {encryptionContext = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the length of the data key. Use @AES_128@ to generate a
 -- 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
 --
 -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
 -- (but not both) in every @GenerateDataKey@ request.
-generateDataKey_keySpec :: Lens.Lens' GenerateDataKey (Core.Maybe DataKeySpec)
+generateDataKey_keySpec :: Lens.Lens' GenerateDataKey (Prelude.Maybe DataKeySpec)
 generateDataKey_keySpec = Lens.lens (\GenerateDataKey' {keySpec} -> keySpec) (\s@GenerateDataKey' {} a -> s {keySpec = a} :: GenerateDataKey)
 
 -- | Identifies the symmetric CMK that encrypts the data key.
@@ -333,7 +334,7 @@ generateDataKey_keySpec = Lens.lens (\GenerateDataKey' {keySpec} -> keySpec) (\s
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
 -- get the alias name and alias ARN, use ListAliases.
-generateDataKey_keyId :: Lens.Lens' GenerateDataKey Core.Text
+generateDataKey_keyId :: Lens.Lens' GenerateDataKey Prelude.Text
 generateDataKey_keyId = Lens.lens (\GenerateDataKey' {keyId} -> keyId) (\s@GenerateDataKey' {} a -> s {keyId = a} :: GenerateDataKey)
 
 instance Core.AWSRequest GenerateDataKey where
@@ -345,54 +346,58 @@ instance Core.AWSRequest GenerateDataKey where
     Response.receiveJSON
       ( \s h x ->
           GenerateDataKeyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "KeyId")
-            Core.<*> (x Core..:> "Plaintext")
-            Core.<*> (x Core..:> "CiphertextBlob")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "KeyId")
+            Prelude.<*> (x Core..:> "Plaintext")
+            Prelude.<*> (x Core..:> "CiphertextBlob")
       )
 
-instance Core.Hashable GenerateDataKey
+instance Prelude.Hashable GenerateDataKey
 
-instance Core.NFData GenerateDataKey
+instance Prelude.NFData GenerateDataKey
 
 instance Core.ToHeaders GenerateDataKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.GenerateDataKey" :: Core.ByteString),
+              Core.=# ( "TrentService.GenerateDataKey" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GenerateDataKey where
   toJSON GenerateDataKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GrantTokens" Core..=) Core.<$> grantTokens,
-            ("NumberOfBytes" Core..=) Core.<$> numberOfBytes,
+      ( Prelude.catMaybes
+          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
+            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes,
             ("EncryptionContext" Core..=)
-              Core.<$> encryptionContext,
-            ("KeySpec" Core..=) Core.<$> keySpec,
-            Core.Just ("KeyId" Core..= keyId)
+              Prelude.<$> encryptionContext,
+            ("KeySpec" Core..=) Prelude.<$> keySpec,
+            Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
 
 instance Core.ToPath GenerateDataKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GenerateDataKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateDataKeyResponse' smart constructor.
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the CMK that encrypted the data key.
-    keyId :: Core.Text,
+    keyId :: Prelude.Text,
     -- | The plaintext data key. When you use the HTTP API or the AWS CLI, the
     -- value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this
     -- data key to encrypt your data outside of KMS. Then, remove it from
@@ -402,7 +407,7 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
     -- CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
     ciphertextBlob :: Core.Base64
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateDataKeyResponse' with all optional fields omitted.
@@ -435,13 +440,13 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newGenerateDataKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'plaintext'
-  Core.ByteString ->
+  Prelude.ByteString ->
   -- | 'ciphertextBlob'
-  Core.ByteString ->
+  Prelude.ByteString ->
   GenerateDataKeyResponse
 newGenerateDataKeyResponse
   pHttpStatus_
@@ -452,20 +457,20 @@ newGenerateDataKeyResponse
       { httpStatus = pHttpStatus_,
         keyId = pKeyId_,
         plaintext =
-          Core._Sensitive Core.. Core._Base64
+          Core._Sensitive Prelude.. Core._Base64
             Lens.# pPlaintext_,
         ciphertextBlob =
           Core._Base64 Lens.# pCiphertextBlob_
       }
 
 -- | The response's http status code.
-generateDataKeyResponse_httpStatus :: Lens.Lens' GenerateDataKeyResponse Core.Int
+generateDataKeyResponse_httpStatus :: Lens.Lens' GenerateDataKeyResponse Prelude.Int
 generateDataKeyResponse_httpStatus = Lens.lens (\GenerateDataKeyResponse' {httpStatus} -> httpStatus) (\s@GenerateDataKeyResponse' {} a -> s {httpStatus = a} :: GenerateDataKeyResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the CMK that encrypted the data key.
-generateDataKeyResponse_keyId :: Lens.Lens' GenerateDataKeyResponse Core.Text
+generateDataKeyResponse_keyId :: Lens.Lens' GenerateDataKeyResponse Prelude.Text
 generateDataKeyResponse_keyId = Lens.lens (\GenerateDataKeyResponse' {keyId} -> keyId) (\s@GenerateDataKeyResponse' {} a -> s {keyId = a} :: GenerateDataKeyResponse)
 
 -- | The plaintext data key. When you use the HTTP API or the AWS CLI, the
@@ -476,8 +481,8 @@ generateDataKeyResponse_keyId = Lens.lens (\GenerateDataKeyResponse' {keyId} -> 
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-generateDataKeyResponse_plaintext :: Lens.Lens' GenerateDataKeyResponse Core.ByteString
-generateDataKeyResponse_plaintext = Lens.lens (\GenerateDataKeyResponse' {plaintext} -> plaintext) (\s@GenerateDataKeyResponse' {} a -> s {plaintext = a} :: GenerateDataKeyResponse) Core.. Core._Sensitive Core.. Core._Base64
+generateDataKeyResponse_plaintext :: Lens.Lens' GenerateDataKeyResponse Prelude.ByteString
+generateDataKeyResponse_plaintext = Lens.lens (\GenerateDataKeyResponse' {plaintext} -> plaintext) (\s@GenerateDataKeyResponse' {} a -> s {plaintext = a} :: GenerateDataKeyResponse) Prelude.. Core._Sensitive Prelude.. Core._Base64
 
 -- | The encrypted copy of the data key. When you use the HTTP API or the AWS
 -- CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
@@ -485,7 +490,7 @@ generateDataKeyResponse_plaintext = Lens.lens (\GenerateDataKeyResponse' {plaint
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-generateDataKeyResponse_ciphertextBlob :: Lens.Lens' GenerateDataKeyResponse Core.ByteString
-generateDataKeyResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyResponse' {ciphertextBlob} -> ciphertextBlob) (\s@GenerateDataKeyResponse' {} a -> s {ciphertextBlob = a} :: GenerateDataKeyResponse) Core.. Core._Base64
+generateDataKeyResponse_ciphertextBlob :: Lens.Lens' GenerateDataKeyResponse Prelude.ByteString
+generateDataKeyResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyResponse' {ciphertextBlob} -> ciphertextBlob) (\s@GenerateDataKeyResponse' {} a -> s {ciphertextBlob = a} :: GenerateDataKeyResponse) Prelude.. Core._Base64
 
-instance Core.NFData GenerateDataKeyResponse
+instance Prelude.NFData GenerateDataKeyResponse

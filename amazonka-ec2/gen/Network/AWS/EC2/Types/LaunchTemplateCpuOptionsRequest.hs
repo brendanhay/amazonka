@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The CPU options for the instance. Both the core count and threads per
 -- core must be specified in the request.
@@ -31,11 +32,11 @@ data LaunchTemplateCpuOptionsRequest = LaunchTemplateCpuOptionsRequest'
   { -- | The number of threads per CPU core. To disable multithreading for the
     -- instance, specify a value of 1. Otherwise, specify the default value of
     -- 2.
-    threadsPerCore :: Core.Maybe Core.Int,
+    threadsPerCore :: Prelude.Maybe Prelude.Int,
     -- | The number of CPU cores for the instance.
-    coreCount :: Core.Maybe Core.Int
+    coreCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateCpuOptionsRequest' with all optional fields omitted.
@@ -55,29 +56,31 @@ newLaunchTemplateCpuOptionsRequest ::
 newLaunchTemplateCpuOptionsRequest =
   LaunchTemplateCpuOptionsRequest'
     { threadsPerCore =
-        Core.Nothing,
-      coreCount = Core.Nothing
+        Prelude.Nothing,
+      coreCount = Prelude.Nothing
     }
 
 -- | The number of threads per CPU core. To disable multithreading for the
 -- instance, specify a value of 1. Otherwise, specify the default value of
 -- 2.
-launchTemplateCpuOptionsRequest_threadsPerCore :: Lens.Lens' LaunchTemplateCpuOptionsRequest (Core.Maybe Core.Int)
+launchTemplateCpuOptionsRequest_threadsPerCore :: Lens.Lens' LaunchTemplateCpuOptionsRequest (Prelude.Maybe Prelude.Int)
 launchTemplateCpuOptionsRequest_threadsPerCore = Lens.lens (\LaunchTemplateCpuOptionsRequest' {threadsPerCore} -> threadsPerCore) (\s@LaunchTemplateCpuOptionsRequest' {} a -> s {threadsPerCore = a} :: LaunchTemplateCpuOptionsRequest)
 
 -- | The number of CPU cores for the instance.
-launchTemplateCpuOptionsRequest_coreCount :: Lens.Lens' LaunchTemplateCpuOptionsRequest (Core.Maybe Core.Int)
+launchTemplateCpuOptionsRequest_coreCount :: Lens.Lens' LaunchTemplateCpuOptionsRequest (Prelude.Maybe Prelude.Int)
 launchTemplateCpuOptionsRequest_coreCount = Lens.lens (\LaunchTemplateCpuOptionsRequest' {coreCount} -> coreCount) (\s@LaunchTemplateCpuOptionsRequest' {} a -> s {coreCount = a} :: LaunchTemplateCpuOptionsRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateCpuOptionsRequest
 
-instance Core.NFData LaunchTemplateCpuOptionsRequest
+instance
+  Prelude.NFData
+    LaunchTemplateCpuOptionsRequest
 
 instance Core.ToQuery LaunchTemplateCpuOptionsRequest where
   toQuery LaunchTemplateCpuOptionsRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ThreadsPerCore" Core.=: threadsPerCore,
         "CoreCount" Core.=: coreCount
       ]

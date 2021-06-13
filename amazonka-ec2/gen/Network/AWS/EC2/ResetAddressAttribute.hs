@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ data ResetAddressAttribute = ResetAddressAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | [EC2-VPC] The allocation ID.
-    allocationId :: Core.Text,
+    allocationId :: Prelude.Text,
     -- | The attribute of the IP address.
     attribute :: AddressAttributeName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetAddressAttribute' with all optional fields omitted.
@@ -80,13 +81,13 @@ data ResetAddressAttribute = ResetAddressAttribute'
 -- 'attribute', 'resetAddressAttribute_attribute' - The attribute of the IP address.
 newResetAddressAttribute ::
   -- | 'allocationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attribute'
   AddressAttributeName ->
   ResetAddressAttribute
 newResetAddressAttribute pAllocationId_ pAttribute_ =
   ResetAddressAttribute'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       allocationId = pAllocationId_,
       attribute = pAttribute_
     }
@@ -95,11 +96,11 @@ newResetAddressAttribute pAllocationId_ pAttribute_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-resetAddressAttribute_dryRun :: Lens.Lens' ResetAddressAttribute (Core.Maybe Core.Bool)
+resetAddressAttribute_dryRun :: Lens.Lens' ResetAddressAttribute (Prelude.Maybe Prelude.Bool)
 resetAddressAttribute_dryRun = Lens.lens (\ResetAddressAttribute' {dryRun} -> dryRun) (\s@ResetAddressAttribute' {} a -> s {dryRun = a} :: ResetAddressAttribute)
 
 -- | [EC2-VPC] The allocation ID.
-resetAddressAttribute_allocationId :: Lens.Lens' ResetAddressAttribute Core.Text
+resetAddressAttribute_allocationId :: Lens.Lens' ResetAddressAttribute Prelude.Text
 resetAddressAttribute_allocationId = Lens.lens (\ResetAddressAttribute' {allocationId} -> allocationId) (\s@ResetAddressAttribute' {} a -> s {allocationId = a} :: ResetAddressAttribute)
 
 -- | The attribute of the IP address.
@@ -115,26 +116,27 @@ instance Core.AWSRequest ResetAddressAttribute where
     Response.receiveXML
       ( \s h x ->
           ResetAddressAttributeResponse'
-            Core.<$> (x Core..@? "address")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "address")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResetAddressAttribute
+instance Prelude.Hashable ResetAddressAttribute
 
-instance Core.NFData ResetAddressAttribute
+instance Prelude.NFData ResetAddressAttribute
 
 instance Core.ToHeaders ResetAddressAttribute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ResetAddressAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResetAddressAttribute where
   toQuery ResetAddressAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetAddressAttribute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ResetAddressAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "AllocationId" Core.=: allocationId,
         "Attribute" Core.=: attribute
@@ -143,11 +145,11 @@ instance Core.ToQuery ResetAddressAttribute where
 -- | /See:/ 'newResetAddressAttributeResponse' smart constructor.
 data ResetAddressAttributeResponse = ResetAddressAttributeResponse'
   { -- | Information about the IP address.
-    address :: Core.Maybe AddressAttribute,
+    address :: Prelude.Maybe AddressAttribute,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetAddressAttributeResponse' with all optional fields omitted.
@@ -162,21 +164,21 @@ data ResetAddressAttributeResponse = ResetAddressAttributeResponse'
 -- 'httpStatus', 'resetAddressAttributeResponse_httpStatus' - The response's http status code.
 newResetAddressAttributeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResetAddressAttributeResponse
 newResetAddressAttributeResponse pHttpStatus_ =
   ResetAddressAttributeResponse'
     { address =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the IP address.
-resetAddressAttributeResponse_address :: Lens.Lens' ResetAddressAttributeResponse (Core.Maybe AddressAttribute)
+resetAddressAttributeResponse_address :: Lens.Lens' ResetAddressAttributeResponse (Prelude.Maybe AddressAttribute)
 resetAddressAttributeResponse_address = Lens.lens (\ResetAddressAttributeResponse' {address} -> address) (\s@ResetAddressAttributeResponse' {} a -> s {address = a} :: ResetAddressAttributeResponse)
 
 -- | The response's http status code.
-resetAddressAttributeResponse_httpStatus :: Lens.Lens' ResetAddressAttributeResponse Core.Int
+resetAddressAttributeResponse_httpStatus :: Lens.Lens' ResetAddressAttributeResponse Prelude.Int
 resetAddressAttributeResponse_httpStatus = Lens.lens (\ResetAddressAttributeResponse' {httpStatus} -> httpStatus) (\s@ResetAddressAttributeResponse' {} a -> s {httpStatus = a} :: ResetAddressAttributeResponse)
 
-instance Core.NFData ResetAddressAttributeResponse
+instance Prelude.NFData ResetAddressAttributeResponse

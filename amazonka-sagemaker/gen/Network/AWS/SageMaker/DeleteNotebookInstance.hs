@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -49,9 +50,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteNotebookInstance' smart constructor.
 data DeleteNotebookInstance = DeleteNotebookInstance'
   { -- | The name of the Amazon SageMaker notebook instance to delete.
-    notebookInstanceName :: Core.Text
+    notebookInstanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNotebookInstance' with all optional fields omitted.
@@ -64,7 +65,7 @@ data DeleteNotebookInstance = DeleteNotebookInstance'
 -- 'notebookInstanceName', 'deleteNotebookInstance_notebookInstanceName' - The name of the Amazon SageMaker notebook instance to delete.
 newDeleteNotebookInstance ::
   -- | 'notebookInstanceName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteNotebookInstance
 newDeleteNotebookInstance pNotebookInstanceName_ =
   DeleteNotebookInstance'
@@ -73,7 +74,7 @@ newDeleteNotebookInstance pNotebookInstanceName_ =
     }
 
 -- | The name of the Amazon SageMaker notebook instance to delete.
-deleteNotebookInstance_notebookInstanceName :: Lens.Lens' DeleteNotebookInstance Core.Text
+deleteNotebookInstance_notebookInstanceName :: Lens.Lens' DeleteNotebookInstance Prelude.Text
 deleteNotebookInstance_notebookInstanceName = Lens.lens (\DeleteNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@DeleteNotebookInstance' {} a -> s {notebookInstanceName = a} :: DeleteNotebookInstance)
 
 instance Core.AWSRequest DeleteNotebookInstance where
@@ -85,28 +86,30 @@ instance Core.AWSRequest DeleteNotebookInstance where
     Response.receiveNull
       DeleteNotebookInstanceResponse'
 
-instance Core.Hashable DeleteNotebookInstance
+instance Prelude.Hashable DeleteNotebookInstance
 
-instance Core.NFData DeleteNotebookInstance
+instance Prelude.NFData DeleteNotebookInstance
 
 instance Core.ToHeaders DeleteNotebookInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.DeleteNotebookInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteNotebookInstance where
   toJSON DeleteNotebookInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "NotebookInstanceName"
                   Core..= notebookInstanceName
               )
@@ -114,16 +117,16 @@ instance Core.ToJSON DeleteNotebookInstance where
       )
 
 instance Core.ToPath DeleteNotebookInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteNotebookInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteNotebookInstanceResponse' smart constructor.
 data DeleteNotebookInstanceResponse = DeleteNotebookInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNotebookInstanceResponse' with all optional fields omitted.
@@ -134,4 +137,6 @@ newDeleteNotebookInstanceResponse ::
 newDeleteNotebookInstanceResponse =
   DeleteNotebookInstanceResponse'
 
-instance Core.NFData DeleteNotebookInstanceResponse
+instance
+  Prelude.NFData
+    DeleteNotebookInstanceResponse

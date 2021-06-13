@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.AttributeBooleanValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a value for a resource attribute that is a Boolean value.
 --
 -- /See:/ 'newAttributeBooleanValue' smart constructor.
 data AttributeBooleanValue = AttributeBooleanValue'
   { -- | The attribute value. The valid values are @true@ or @false@.
-    value :: Core.Maybe Core.Bool
+    value :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttributeBooleanValue' with all optional fields omitted.
@@ -44,21 +45,21 @@ data AttributeBooleanValue = AttributeBooleanValue'
 newAttributeBooleanValue ::
   AttributeBooleanValue
 newAttributeBooleanValue =
-  AttributeBooleanValue' {value = Core.Nothing}
+  AttributeBooleanValue' {value = Prelude.Nothing}
 
 -- | The attribute value. The valid values are @true@ or @false@.
-attributeBooleanValue_value :: Lens.Lens' AttributeBooleanValue (Core.Maybe Core.Bool)
+attributeBooleanValue_value :: Lens.Lens' AttributeBooleanValue (Prelude.Maybe Prelude.Bool)
 attributeBooleanValue_value = Lens.lens (\AttributeBooleanValue' {value} -> value) (\s@AttributeBooleanValue' {} a -> s {value = a} :: AttributeBooleanValue)
 
 instance Core.FromXML AttributeBooleanValue where
   parseXML x =
     AttributeBooleanValue'
-      Core.<$> (x Core..@? "value")
+      Prelude.<$> (x Core..@? "value")
 
-instance Core.Hashable AttributeBooleanValue
+instance Prelude.Hashable AttributeBooleanValue
 
-instance Core.NFData AttributeBooleanValue
+instance Prelude.NFData AttributeBooleanValue
 
 instance Core.ToQuery AttributeBooleanValue where
   toQuery AttributeBooleanValue' {..} =
-    Core.mconcat ["Value" Core.=: value]
+    Prelude.mconcat ["Value" Core.=: value]

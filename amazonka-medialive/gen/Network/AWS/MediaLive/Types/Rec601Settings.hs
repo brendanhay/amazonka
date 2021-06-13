@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.Rec601Settings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Rec601 Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data Rec601Settings = Rec601Settings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Rec601Settings' with all optional fields omitted.
@@ -42,11 +43,11 @@ instance Core.FromJSON Rec601Settings where
   parseJSON =
     Core.withObject
       "Rec601Settings"
-      (\x -> Core.pure Rec601Settings')
+      (\x -> Prelude.pure Rec601Settings')
 
-instance Core.Hashable Rec601Settings
+instance Prelude.Hashable Rec601Settings
 
-instance Core.NFData Rec601Settings
+instance Prelude.NFData Rec601Settings
 
 instance Core.ToJSON Rec601Settings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

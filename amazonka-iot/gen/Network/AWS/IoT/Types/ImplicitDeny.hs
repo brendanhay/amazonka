@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.ImplicitDeny where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.Policy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information that implicitly denies authorization. When policy doesn\'t
 -- explicitly deny or allow an action on a resource it is considered an
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 data ImplicitDeny = ImplicitDeny'
   { -- | Policies that don\'t contain a matching allow or deny statement for the
     -- specified action on the specified resource.
-    policies :: Core.Maybe [Policy]
+    policies :: Prelude.Maybe [Policy]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImplicitDeny' with all optional fields omitted.
@@ -48,12 +49,12 @@ data ImplicitDeny = ImplicitDeny'
 newImplicitDeny ::
   ImplicitDeny
 newImplicitDeny =
-  ImplicitDeny' {policies = Core.Nothing}
+  ImplicitDeny' {policies = Prelude.Nothing}
 
 -- | Policies that don\'t contain a matching allow or deny statement for the
 -- specified action on the specified resource.
-implicitDeny_policies :: Lens.Lens' ImplicitDeny (Core.Maybe [Policy])
-implicitDeny_policies = Lens.lens (\ImplicitDeny' {policies} -> policies) (\s@ImplicitDeny' {} a -> s {policies = a} :: ImplicitDeny) Core.. Lens.mapping Lens._Coerce
+implicitDeny_policies :: Lens.Lens' ImplicitDeny (Prelude.Maybe [Policy])
+implicitDeny_policies = Lens.lens (\ImplicitDeny' {policies} -> policies) (\s@ImplicitDeny' {} a -> s {policies = a} :: ImplicitDeny) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ImplicitDeny where
   parseJSON =
@@ -61,9 +62,9 @@ instance Core.FromJSON ImplicitDeny where
       "ImplicitDeny"
       ( \x ->
           ImplicitDeny'
-            Core.<$> (x Core..:? "policies" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "policies" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ImplicitDeny
+instance Prelude.Hashable ImplicitDeny
 
-instance Core.NFData ImplicitDeny
+instance Prelude.NFData ImplicitDeny

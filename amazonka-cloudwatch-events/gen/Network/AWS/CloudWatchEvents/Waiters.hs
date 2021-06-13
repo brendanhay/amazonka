@@ -19,3 +19,4 @@ import Network.AWS.CloudWatchEvents.Lens
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude

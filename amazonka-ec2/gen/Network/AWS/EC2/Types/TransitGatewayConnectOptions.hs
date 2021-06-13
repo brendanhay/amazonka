@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ProtocolValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Connect attachment options.
 --
 -- /See:/ 'newTransitGatewayConnectOptions' smart constructor.
 data TransitGatewayConnectOptions = TransitGatewayConnectOptions'
   { -- | The tunnel protocol.
-    protocol :: Core.Maybe ProtocolValue
+    protocol :: Prelude.Maybe ProtocolValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayConnectOptions' with all optional fields omitted.
@@ -47,18 +48,20 @@ newTransitGatewayConnectOptions ::
 newTransitGatewayConnectOptions =
   TransitGatewayConnectOptions'
     { protocol =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The tunnel protocol.
-transitGatewayConnectOptions_protocol :: Lens.Lens' TransitGatewayConnectOptions (Core.Maybe ProtocolValue)
+transitGatewayConnectOptions_protocol :: Lens.Lens' TransitGatewayConnectOptions (Prelude.Maybe ProtocolValue)
 transitGatewayConnectOptions_protocol = Lens.lens (\TransitGatewayConnectOptions' {protocol} -> protocol) (\s@TransitGatewayConnectOptions' {} a -> s {protocol = a} :: TransitGatewayConnectOptions)
 
 instance Core.FromXML TransitGatewayConnectOptions where
   parseXML x =
     TransitGatewayConnectOptions'
-      Core.<$> (x Core..@? "protocol")
+      Prelude.<$> (x Core..@? "protocol")
 
-instance Core.Hashable TransitGatewayConnectOptions
+instance
+  Prelude.Hashable
+    TransitGatewayConnectOptions
 
-instance Core.NFData TransitGatewayConnectOptions
+instance Prelude.NFData TransitGatewayConnectOptions

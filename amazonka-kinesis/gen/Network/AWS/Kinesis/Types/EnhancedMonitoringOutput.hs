@@ -22,6 +22,7 @@ module Network.AWS.Kinesis.Types.EnhancedMonitoringOutput where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.MetricsName
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output for EnableEnhancedMonitoring and
 -- DisableEnhancedMonitoring.
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
   { -- | Represents the current state of the metrics that are in the enhanced
     -- state before the operation.
-    currentShardLevelMetrics :: Core.Maybe [MetricsName],
+    currentShardLevelMetrics :: Prelude.Maybe [MetricsName],
     -- | The name of the Kinesis data stream.
-    streamName :: Core.Maybe Core.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | Represents the list of all the metrics that would be in the enhanced
     -- state after the operation.
-    desiredShardLevelMetrics :: Core.Maybe [MetricsName]
+    desiredShardLevelMetrics :: Prelude.Maybe [MetricsName]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnhancedMonitoringOutput' with all optional fields omitted.
@@ -59,24 +60,24 @@ newEnhancedMonitoringOutput ::
 newEnhancedMonitoringOutput =
   EnhancedMonitoringOutput'
     { currentShardLevelMetrics =
-        Core.Nothing,
-      streamName = Core.Nothing,
-      desiredShardLevelMetrics = Core.Nothing
+        Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      desiredShardLevelMetrics = Prelude.Nothing
     }
 
 -- | Represents the current state of the metrics that are in the enhanced
 -- state before the operation.
-enhancedMonitoringOutput_currentShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Core.Maybe [MetricsName])
-enhancedMonitoringOutput_currentShardLevelMetrics = Lens.lens (\EnhancedMonitoringOutput' {currentShardLevelMetrics} -> currentShardLevelMetrics) (\s@EnhancedMonitoringOutput' {} a -> s {currentShardLevelMetrics = a} :: EnhancedMonitoringOutput) Core.. Lens.mapping Lens._Coerce
+enhancedMonitoringOutput_currentShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Prelude.Maybe [MetricsName])
+enhancedMonitoringOutput_currentShardLevelMetrics = Lens.lens (\EnhancedMonitoringOutput' {currentShardLevelMetrics} -> currentShardLevelMetrics) (\s@EnhancedMonitoringOutput' {} a -> s {currentShardLevelMetrics = a} :: EnhancedMonitoringOutput) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Kinesis data stream.
-enhancedMonitoringOutput_streamName :: Lens.Lens' EnhancedMonitoringOutput (Core.Maybe Core.Text)
+enhancedMonitoringOutput_streamName :: Lens.Lens' EnhancedMonitoringOutput (Prelude.Maybe Prelude.Text)
 enhancedMonitoringOutput_streamName = Lens.lens (\EnhancedMonitoringOutput' {streamName} -> streamName) (\s@EnhancedMonitoringOutput' {} a -> s {streamName = a} :: EnhancedMonitoringOutput)
 
 -- | Represents the list of all the metrics that would be in the enhanced
 -- state after the operation.
-enhancedMonitoringOutput_desiredShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Core.Maybe [MetricsName])
-enhancedMonitoringOutput_desiredShardLevelMetrics = Lens.lens (\EnhancedMonitoringOutput' {desiredShardLevelMetrics} -> desiredShardLevelMetrics) (\s@EnhancedMonitoringOutput' {} a -> s {desiredShardLevelMetrics = a} :: EnhancedMonitoringOutput) Core.. Lens.mapping Lens._Coerce
+enhancedMonitoringOutput_desiredShardLevelMetrics :: Lens.Lens' EnhancedMonitoringOutput (Prelude.Maybe [MetricsName])
+enhancedMonitoringOutput_desiredShardLevelMetrics = Lens.lens (\EnhancedMonitoringOutput' {desiredShardLevelMetrics} -> desiredShardLevelMetrics) (\s@EnhancedMonitoringOutput' {} a -> s {desiredShardLevelMetrics = a} :: EnhancedMonitoringOutput) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON EnhancedMonitoringOutput where
   parseJSON =
@@ -84,15 +85,15 @@ instance Core.FromJSON EnhancedMonitoringOutput where
       "EnhancedMonitoringOutput"
       ( \x ->
           EnhancedMonitoringOutput'
-            Core.<$> ( x Core..:? "CurrentShardLevelMetrics"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "StreamName")
-            Core.<*> ( x Core..:? "DesiredShardLevelMetrics"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "CurrentShardLevelMetrics"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "StreamName")
+            Prelude.<*> ( x Core..:? "DesiredShardLevelMetrics"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable EnhancedMonitoringOutput
+instance Prelude.Hashable EnhancedMonitoringOutput
 
-instance Core.NFData EnhancedMonitoringOutput
+instance Prelude.NFData EnhancedMonitoringOutput

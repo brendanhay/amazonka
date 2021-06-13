@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AttachmentStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the attachment of a VPC to an internet gateway or an
 -- egress-only internet gateway.
@@ -34,9 +35,9 @@ data InternetGatewayAttachment = InternetGatewayAttachment'
     -- returned.
     state :: AttachmentStatus,
     -- | The ID of the VPC.
-    vpcId :: Core.Text
+    vpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InternetGatewayAttachment' with all optional fields omitted.
@@ -55,7 +56,7 @@ newInternetGatewayAttachment ::
   -- | 'state'
   AttachmentStatus ->
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   InternetGatewayAttachment
 newInternetGatewayAttachment pState_ pVpcId_ =
   InternetGatewayAttachment'
@@ -70,14 +71,14 @@ internetGatewayAttachment_state :: Lens.Lens' InternetGatewayAttachment Attachme
 internetGatewayAttachment_state = Lens.lens (\InternetGatewayAttachment' {state} -> state) (\s@InternetGatewayAttachment' {} a -> s {state = a} :: InternetGatewayAttachment)
 
 -- | The ID of the VPC.
-internetGatewayAttachment_vpcId :: Lens.Lens' InternetGatewayAttachment Core.Text
+internetGatewayAttachment_vpcId :: Lens.Lens' InternetGatewayAttachment Prelude.Text
 internetGatewayAttachment_vpcId = Lens.lens (\InternetGatewayAttachment' {vpcId} -> vpcId) (\s@InternetGatewayAttachment' {} a -> s {vpcId = a} :: InternetGatewayAttachment)
 
 instance Core.FromXML InternetGatewayAttachment where
   parseXML x =
     InternetGatewayAttachment'
-      Core.<$> (x Core..@ "state") Core.<*> (x Core..@ "vpcId")
+      Prelude.<$> (x Core..@ "state") Prelude.<*> (x Core..@ "vpcId")
 
-instance Core.Hashable InternetGatewayAttachment
+instance Prelude.Hashable InternetGatewayAttachment
 
-instance Core.NFData InternetGatewayAttachment
+instance Prelude.NFData InternetGatewayAttachment

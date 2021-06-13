@@ -276,6 +276,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -285,11 +286,11 @@ data RestoreObject = RestoreObject'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | VersionId used to reference a specific version of the object.
-    versionId :: Core.Maybe ObjectVersionId,
-    restoreRequest :: Core.Maybe RestoreRequest,
-    requestPayer :: Core.Maybe RequestPayer,
+    versionId :: Prelude.Maybe ObjectVersionId,
+    restoreRequest :: Prelude.Maybe RestoreRequest,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the object to restore.
     --
     -- When using this API with an access point, you must direct requests to
@@ -314,7 +315,7 @@ data RestoreObject = RestoreObject'
     -- | Object key for which the operation was initiated.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreObject' with all optional fields omitted.
@@ -364,10 +365,11 @@ newRestoreObject ::
   RestoreObject
 newRestoreObject pBucket_ pKey_ =
   RestoreObject'
-    { expectedBucketOwner = Core.Nothing,
-      versionId = Core.Nothing,
-      restoreRequest = Core.Nothing,
-      requestPayer = Core.Nothing,
+    { expectedBucketOwner =
+        Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      restoreRequest = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -375,19 +377,19 @@ newRestoreObject pBucket_ pKey_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-restoreObject_expectedBucketOwner :: Lens.Lens' RestoreObject (Core.Maybe Core.Text)
+restoreObject_expectedBucketOwner :: Lens.Lens' RestoreObject (Prelude.Maybe Prelude.Text)
 restoreObject_expectedBucketOwner = Lens.lens (\RestoreObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@RestoreObject' {} a -> s {expectedBucketOwner = a} :: RestoreObject)
 
 -- | VersionId used to reference a specific version of the object.
-restoreObject_versionId :: Lens.Lens' RestoreObject (Core.Maybe ObjectVersionId)
+restoreObject_versionId :: Lens.Lens' RestoreObject (Prelude.Maybe ObjectVersionId)
 restoreObject_versionId = Lens.lens (\RestoreObject' {versionId} -> versionId) (\s@RestoreObject' {} a -> s {versionId = a} :: RestoreObject)
 
 -- | Undocumented member.
-restoreObject_restoreRequest :: Lens.Lens' RestoreObject (Core.Maybe RestoreRequest)
+restoreObject_restoreRequest :: Lens.Lens' RestoreObject (Prelude.Maybe RestoreRequest)
 restoreObject_restoreRequest = Lens.lens (\RestoreObject' {restoreRequest} -> restoreRequest) (\s@RestoreObject' {} a -> s {restoreRequest = a} :: RestoreObject)
 
 -- | Undocumented member.
-restoreObject_requestPayer :: Lens.Lens' RestoreObject (Core.Maybe RequestPayer)
+restoreObject_requestPayer :: Lens.Lens' RestoreObject (Prelude.Maybe RequestPayer)
 restoreObject_requestPayer = Lens.lens (\RestoreObject' {requestPayer} -> requestPayer) (\s@RestoreObject' {} a -> s {requestPayer = a} :: RestoreObject)
 
 -- | The bucket name containing the object to restore.
@@ -426,14 +428,14 @@ instance Core.AWSRequest RestoreObject where
     Response.receiveEmpty
       ( \s h x ->
           RestoreObjectResponse'
-            Core.<$> (h Core..#? "x-amz-request-charged")
-            Core.<*> (h Core..#? "x-amz-restore-output-path")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (h Core..#? "x-amz-restore-output-path")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RestoreObject
+instance Prelude.Hashable RestoreObject
 
-instance Core.NFData RestoreObject
+instance Prelude.NFData RestoreObject
 
 instance Core.ToElement RestoreObject where
   toElement RestoreObject' {..} =
@@ -443,7 +445,7 @@ instance Core.ToElement RestoreObject where
 
 instance Core.ToHeaders RestoreObject where
   toHeaders RestoreObject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer
@@ -451,24 +453,24 @@ instance Core.ToHeaders RestoreObject where
 
 instance Core.ToPath RestoreObject where
   toPath RestoreObject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS bucket, "/", Core.toBS key]
 
 instance Core.ToQuery RestoreObject where
   toQuery RestoreObject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["versionId" Core.=: versionId, "restore"]
 
 -- | /See:/ 'newRestoreObjectResponse' smart constructor.
 data RestoreObjectResponse = RestoreObjectResponse'
-  { requestCharged :: Core.Maybe RequestCharged,
+  { requestCharged :: Prelude.Maybe RequestCharged,
     -- | Indicates the path in the provided S3 output location where Select
     -- results will be restored to.
-    restoreOutputPath :: Core.Maybe Core.Text,
+    restoreOutputPath :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreObjectResponse' with all optional fields omitted.
@@ -486,27 +488,27 @@ data RestoreObjectResponse = RestoreObjectResponse'
 -- 'httpStatus', 'restoreObjectResponse_httpStatus' - The response's http status code.
 newRestoreObjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RestoreObjectResponse
 newRestoreObjectResponse pHttpStatus_ =
   RestoreObjectResponse'
     { requestCharged =
-        Core.Nothing,
-      restoreOutputPath = Core.Nothing,
+        Prelude.Nothing,
+      restoreOutputPath = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-restoreObjectResponse_requestCharged :: Lens.Lens' RestoreObjectResponse (Core.Maybe RequestCharged)
+restoreObjectResponse_requestCharged :: Lens.Lens' RestoreObjectResponse (Prelude.Maybe RequestCharged)
 restoreObjectResponse_requestCharged = Lens.lens (\RestoreObjectResponse' {requestCharged} -> requestCharged) (\s@RestoreObjectResponse' {} a -> s {requestCharged = a} :: RestoreObjectResponse)
 
 -- | Indicates the path in the provided S3 output location where Select
 -- results will be restored to.
-restoreObjectResponse_restoreOutputPath :: Lens.Lens' RestoreObjectResponse (Core.Maybe Core.Text)
+restoreObjectResponse_restoreOutputPath :: Lens.Lens' RestoreObjectResponse (Prelude.Maybe Prelude.Text)
 restoreObjectResponse_restoreOutputPath = Lens.lens (\RestoreObjectResponse' {restoreOutputPath} -> restoreOutputPath) (\s@RestoreObjectResponse' {} a -> s {restoreOutputPath = a} :: RestoreObjectResponse)
 
 -- | The response's http status code.
-restoreObjectResponse_httpStatus :: Lens.Lens' RestoreObjectResponse Core.Int
+restoreObjectResponse_httpStatus :: Lens.Lens' RestoreObjectResponse Prelude.Int
 restoreObjectResponse_httpStatus = Lens.lens (\RestoreObjectResponse' {httpStatus} -> httpStatus) (\s@RestoreObjectResponse' {} a -> s {httpStatus = a} :: RestoreObjectResponse)
 
-instance Core.NFData RestoreObjectResponse
+instance Prelude.NFData RestoreObjectResponse

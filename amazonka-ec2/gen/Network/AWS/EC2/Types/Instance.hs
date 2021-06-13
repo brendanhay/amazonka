@@ -47,36 +47,37 @@ import Network.AWS.EC2.Types.StateReason
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.VirtualizationType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance.
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The value is @Windows@ for Windows instances; otherwise blank.
-    platform :: Core.Maybe PlatformValues,
+    platform :: Prelude.Maybe PlatformValues,
     -- | Indicates whether this is a Spot Instance or a Scheduled Instance.
-    instanceLifecycle :: Core.Maybe InstanceLifecycleType,
+    instanceLifecycle :: Prelude.Maybe InstanceLifecycleType,
     -- | The reason for the most recent state transition. This might be an empty
     -- string.
-    stateTransitionReason :: Core.Maybe Core.Text,
+    stateTransitionReason :: Prelude.Maybe Prelude.Text,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-    rootDeviceName :: Core.Maybe Core.Text,
+    rootDeviceName :: Prelude.Maybe Prelude.Text,
     -- | Information about the Capacity Reservation targeting option.
-    capacityReservationSpecification :: Core.Maybe CapacityReservationSpecificationResponse,
+    capacityReservationSpecification :: Prelude.Maybe CapacityReservationSpecificationResponse,
     -- | Indicates whether the instance is optimized for Amazon EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
     -- optimized configuration stack to provide optimal I\/O performance. This
     -- optimization isn\'t available with all instance types. Additional usage
     -- charges apply when using an EBS Optimized instance.
-    ebsOptimized :: Core.Maybe Core.Bool,
+    ebsOptimized :: Prelude.Maybe Prelude.Bool,
     -- | The RAM disk associated with this instance, if applicable.
-    ramdiskId :: Core.Maybe Core.Text,
+    ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | The elastic inference accelerator associated with the instance.
-    elasticInferenceAcceleratorAssociations :: Core.Maybe [ElasticInferenceAcceleratorAssociation],
+    elasticInferenceAcceleratorAssociations :: Prelude.Maybe [ElasticInferenceAcceleratorAssociation],
     -- | The reason for the most recent state transition.
-    stateReason :: Core.Maybe StateReason,
+    stateReason :: Prelude.Maybe StateReason,
     -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to enable an instance launched in a VPC to perform
     -- NAT. This controls whether source\/destination checking is enabled on
     -- the instance. A value of @true@ means that checking is enabled, and
@@ -84,43 +85,43 @@ data Instance = Instance'
     -- the instance to perform NAT. For more information, see
     -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT instances>
     -- in the /Amazon VPC User Guide/.
-    sourceDestCheck :: Core.Maybe Core.Bool,
+    sourceDestCheck :: Prelude.Maybe Prelude.Bool,
     -- | The product codes attached to this instance, if applicable.
-    productCodes :: Core.Maybe [ProductCode],
+    productCodes :: Prelude.Maybe [ProductCode],
     -- | The security groups for the instance.
-    securityGroups :: Core.Maybe [GroupIdentifier],
+    securityGroups :: Prelude.Maybe [GroupIdentifier],
     -- | The IAM instance profile associated with the instance, if applicable.
-    iamInstanceProfile :: Core.Maybe IamInstanceProfile,
+    iamInstanceProfile :: Prelude.Maybe IamInstanceProfile,
     -- | (IPv4 only) The public DNS name assigned to the instance. This name is
     -- not available until the instance enters the @running@ state. For
     -- EC2-VPC, this name is only available if you\'ve enabled DNS hostnames
     -- for your VPC.
-    publicDnsName :: Core.Maybe Core.Text,
+    publicDnsName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the instance is enabled for hibernation.
-    hibernationOptions :: Core.Maybe HibernationOptions,
+    hibernationOptions :: Prelude.Maybe HibernationOptions,
     -- | The ID of the Capacity Reservation.
-    capacityReservationId :: Core.Maybe Core.Text,
+    capacityReservationId :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the instance.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies whether enhanced networking with the Intel 82599 Virtual
     -- Function interface is enabled.
-    sriovNetSupport :: Core.Maybe Core.Text,
+    sriovNetSupport :: Prelude.Maybe Prelude.Text,
     -- | Any block device mapping entries for the instance.
-    blockDeviceMappings :: Core.Maybe [InstanceBlockDeviceMapping],
+    blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
     -- | The public IPv4 address, or the Carrier IP address assigned to the
     -- instance, if applicable.
     --
     -- A Carrier IP address only applies to an instance launched in a subnet
     -- associated with a Wavelength Zone.
-    publicIpAddress :: Core.Maybe Core.Text,
+    publicIpAddress :: Prelude.Maybe Prelude.Text,
     -- | [EC2-VPC] The ID of the subnet in which the instance is running.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
-    enclaveOptions :: Core.Maybe EnclaveOptions,
+    enclaveOptions :: Prelude.Maybe EnclaveOptions,
     -- | The kernel associated with this instance, if applicable.
-    kernelId :: Core.Maybe Core.Text,
+    kernelId :: Prelude.Maybe Prelude.Text,
     -- | The CPU options for the instance.
-    cpuOptions :: Core.Maybe CpuOptions,
+    cpuOptions :: Prelude.Maybe CpuOptions,
     -- | (IPv4 only) The private DNS hostname name assigned to the instance. This
     -- DNS hostname can only be used inside the Amazon EC2 network. This name
     -- is not available until the instance enters the @running@ state.
@@ -130,36 +131,36 @@ data Instance = Instance'
     -- hostnames in your VPC. If you are not using the Amazon-provided DNS
     -- server in your VPC, your custom domain name servers must resolve the
     -- hostname as appropriate.
-    privateDnsName :: Core.Maybe Core.Text,
+    privateDnsName :: Prelude.Maybe Prelude.Text,
     -- | The name of the key pair, if this instance was launched with an
     -- associated key pair.
-    keyName :: Core.Maybe Core.Text,
+    keyName :: Prelude.Maybe Prelude.Text,
     -- | [EC2-VPC] The network interfaces for the instance.
-    networkInterfaces :: Core.Maybe [InstanceNetworkInterface],
+    networkInterfaces :: Prelude.Maybe [InstanceNetworkInterface],
     -- | The license configurations.
-    licenses :: Core.Maybe [LicenseConfiguration],
+    licenses :: Prelude.Maybe [LicenseConfiguration],
     -- | [EC2-VPC] The ID of the VPC in which the instance is running.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The Elastic GPU associated with the instance.
-    elasticGpuAssociations :: Core.Maybe [ElasticGpuAssociation],
+    elasticGpuAssociations :: Prelude.Maybe [ElasticGpuAssociation],
     -- | The metadata options for the instance.
-    metadataOptions :: Core.Maybe InstanceMetadataOptionsResponse,
+    metadataOptions :: Prelude.Maybe InstanceMetadataOptionsResponse,
     -- | Specifies whether enhanced networking with ENA is enabled.
-    enaSupport :: Core.Maybe Core.Bool,
+    enaSupport :: Prelude.Maybe Prelude.Bool,
     -- | If the request is a Spot Instance request, the ID of the request.
-    spotInstanceRequestId :: Core.Maybe Core.Text,
+    spotInstanceRequestId :: Prelude.Maybe Prelude.Text,
     -- | The idempotency token you provided when you launched the instance, if
     -- applicable.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The private IPv4 address assigned to the instance.
-    privateIpAddress :: Core.Maybe Core.Text,
+    privateIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The ID of the AMI used to launch the instance.
-    imageId :: Core.Text,
+    imageId :: Prelude.Text,
     -- | The AMI launch index, which can be used to find this instance in the
     -- launch group.
-    amiLaunchIndex :: Core.Int,
+    amiLaunchIndex :: Prelude.Int,
     -- | The instance type.
     instanceType :: InstanceType,
     -- | The time the instance was launched.
@@ -181,7 +182,7 @@ data Instance = Instance'
     -- | The current state of the instance.
     state :: InstanceState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -320,15 +321,15 @@ data Instance = Instance'
 -- 'state', 'instance_state' - The current state of the instance.
 newInstance ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imageId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'amiLaunchIndex'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'instanceType'
   InstanceType ->
   -- | 'launchTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'placement'
   Placement ->
   -- | 'monitoring'
@@ -358,43 +359,43 @@ newInstance
   pHypervisor_
   pState_ =
     Instance'
-      { platform = Core.Nothing,
-        instanceLifecycle = Core.Nothing,
-        stateTransitionReason = Core.Nothing,
-        rootDeviceName = Core.Nothing,
-        capacityReservationSpecification = Core.Nothing,
-        ebsOptimized = Core.Nothing,
-        ramdiskId = Core.Nothing,
+      { platform = Prelude.Nothing,
+        instanceLifecycle = Prelude.Nothing,
+        stateTransitionReason = Prelude.Nothing,
+        rootDeviceName = Prelude.Nothing,
+        capacityReservationSpecification = Prelude.Nothing,
+        ebsOptimized = Prelude.Nothing,
+        ramdiskId = Prelude.Nothing,
         elasticInferenceAcceleratorAssociations =
-          Core.Nothing,
-        stateReason = Core.Nothing,
-        outpostArn = Core.Nothing,
-        sourceDestCheck = Core.Nothing,
-        productCodes = Core.Nothing,
-        securityGroups = Core.Nothing,
-        iamInstanceProfile = Core.Nothing,
-        publicDnsName = Core.Nothing,
-        hibernationOptions = Core.Nothing,
-        capacityReservationId = Core.Nothing,
-        tags = Core.Nothing,
-        sriovNetSupport = Core.Nothing,
-        blockDeviceMappings = Core.Nothing,
-        publicIpAddress = Core.Nothing,
-        subnetId = Core.Nothing,
-        enclaveOptions = Core.Nothing,
-        kernelId = Core.Nothing,
-        cpuOptions = Core.Nothing,
-        privateDnsName = Core.Nothing,
-        keyName = Core.Nothing,
-        networkInterfaces = Core.Nothing,
-        licenses = Core.Nothing,
-        vpcId = Core.Nothing,
-        elasticGpuAssociations = Core.Nothing,
-        metadataOptions = Core.Nothing,
-        enaSupport = Core.Nothing,
-        spotInstanceRequestId = Core.Nothing,
-        clientToken = Core.Nothing,
-        privateIpAddress = Core.Nothing,
+          Prelude.Nothing,
+        stateReason = Prelude.Nothing,
+        outpostArn = Prelude.Nothing,
+        sourceDestCheck = Prelude.Nothing,
+        productCodes = Prelude.Nothing,
+        securityGroups = Prelude.Nothing,
+        iamInstanceProfile = Prelude.Nothing,
+        publicDnsName = Prelude.Nothing,
+        hibernationOptions = Prelude.Nothing,
+        capacityReservationId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        sriovNetSupport = Prelude.Nothing,
+        blockDeviceMappings = Prelude.Nothing,
+        publicIpAddress = Prelude.Nothing,
+        subnetId = Prelude.Nothing,
+        enclaveOptions = Prelude.Nothing,
+        kernelId = Prelude.Nothing,
+        cpuOptions = Prelude.Nothing,
+        privateDnsName = Prelude.Nothing,
+        keyName = Prelude.Nothing,
+        networkInterfaces = Prelude.Nothing,
+        licenses = Prelude.Nothing,
+        vpcId = Prelude.Nothing,
+        elasticGpuAssociations = Prelude.Nothing,
+        metadataOptions = Prelude.Nothing,
+        enaSupport = Prelude.Nothing,
+        spotInstanceRequestId = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
+        privateIpAddress = Prelude.Nothing,
         instanceId = pInstanceId_,
         imageId = pImageId_,
         amiLaunchIndex = pAmiLaunchIndex_,
@@ -410,24 +411,24 @@ newInstance
       }
 
 -- | The value is @Windows@ for Windows instances; otherwise blank.
-instance_platform :: Lens.Lens' Instance (Core.Maybe PlatformValues)
+instance_platform :: Lens.Lens' Instance (Prelude.Maybe PlatformValues)
 instance_platform = Lens.lens (\Instance' {platform} -> platform) (\s@Instance' {} a -> s {platform = a} :: Instance)
 
 -- | Indicates whether this is a Spot Instance or a Scheduled Instance.
-instance_instanceLifecycle :: Lens.Lens' Instance (Core.Maybe InstanceLifecycleType)
+instance_instanceLifecycle :: Lens.Lens' Instance (Prelude.Maybe InstanceLifecycleType)
 instance_instanceLifecycle = Lens.lens (\Instance' {instanceLifecycle} -> instanceLifecycle) (\s@Instance' {} a -> s {instanceLifecycle = a} :: Instance)
 
 -- | The reason for the most recent state transition. This might be an empty
 -- string.
-instance_stateTransitionReason :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_stateTransitionReason :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_stateTransitionReason = Lens.lens (\Instance' {stateTransitionReason} -> stateTransitionReason) (\s@Instance' {} a -> s {stateTransitionReason = a} :: Instance)
 
 -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-instance_rootDeviceName :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_rootDeviceName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_rootDeviceName = Lens.lens (\Instance' {rootDeviceName} -> rootDeviceName) (\s@Instance' {} a -> s {rootDeviceName = a} :: Instance)
 
 -- | Information about the Capacity Reservation targeting option.
-instance_capacityReservationSpecification :: Lens.Lens' Instance (Core.Maybe CapacityReservationSpecificationResponse)
+instance_capacityReservationSpecification :: Lens.Lens' Instance (Prelude.Maybe CapacityReservationSpecificationResponse)
 instance_capacityReservationSpecification = Lens.lens (\Instance' {capacityReservationSpecification} -> capacityReservationSpecification) (\s@Instance' {} a -> s {capacityReservationSpecification = a} :: Instance)
 
 -- | Indicates whether the instance is optimized for Amazon EBS I\/O. This
@@ -435,23 +436,23 @@ instance_capacityReservationSpecification = Lens.lens (\Instance' {capacityReser
 -- optimized configuration stack to provide optimal I\/O performance. This
 -- optimization isn\'t available with all instance types. Additional usage
 -- charges apply when using an EBS Optimized instance.
-instance_ebsOptimized :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+instance_ebsOptimized :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
 instance_ebsOptimized = Lens.lens (\Instance' {ebsOptimized} -> ebsOptimized) (\s@Instance' {} a -> s {ebsOptimized = a} :: Instance)
 
 -- | The RAM disk associated with this instance, if applicable.
-instance_ramdiskId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_ramdiskId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_ramdiskId = Lens.lens (\Instance' {ramdiskId} -> ramdiskId) (\s@Instance' {} a -> s {ramdiskId = a} :: Instance)
 
 -- | The elastic inference accelerator associated with the instance.
-instance_elasticInferenceAcceleratorAssociations :: Lens.Lens' Instance (Core.Maybe [ElasticInferenceAcceleratorAssociation])
-instance_elasticInferenceAcceleratorAssociations = Lens.lens (\Instance' {elasticInferenceAcceleratorAssociations} -> elasticInferenceAcceleratorAssociations) (\s@Instance' {} a -> s {elasticInferenceAcceleratorAssociations = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_elasticInferenceAcceleratorAssociations :: Lens.Lens' Instance (Prelude.Maybe [ElasticInferenceAcceleratorAssociation])
+instance_elasticInferenceAcceleratorAssociations = Lens.lens (\Instance' {elasticInferenceAcceleratorAssociations} -> elasticInferenceAcceleratorAssociations) (\s@Instance' {} a -> s {elasticInferenceAcceleratorAssociations = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The reason for the most recent state transition.
-instance_stateReason :: Lens.Lens' Instance (Core.Maybe StateReason)
+instance_stateReason :: Lens.Lens' Instance (Prelude.Maybe StateReason)
 instance_stateReason = Lens.lens (\Instance' {stateReason} -> stateReason) (\s@Instance' {} a -> s {stateReason = a} :: Instance)
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
-instance_outpostArn :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_outpostArn :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_outpostArn = Lens.lens (\Instance' {outpostArn} -> outpostArn) (\s@Instance' {} a -> s {outpostArn = a} :: Instance)
 
 -- | Specifies whether to enable an instance launched in a VPC to perform
@@ -461,71 +462,71 @@ instance_outpostArn = Lens.lens (\Instance' {outpostArn} -> outpostArn) (\s@Inst
 -- the instance to perform NAT. For more information, see
 -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT instances>
 -- in the /Amazon VPC User Guide/.
-instance_sourceDestCheck :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+instance_sourceDestCheck :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
 instance_sourceDestCheck = Lens.lens (\Instance' {sourceDestCheck} -> sourceDestCheck) (\s@Instance' {} a -> s {sourceDestCheck = a} :: Instance)
 
 -- | The product codes attached to this instance, if applicable.
-instance_productCodes :: Lens.Lens' Instance (Core.Maybe [ProductCode])
-instance_productCodes = Lens.lens (\Instance' {productCodes} -> productCodes) (\s@Instance' {} a -> s {productCodes = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_productCodes :: Lens.Lens' Instance (Prelude.Maybe [ProductCode])
+instance_productCodes = Lens.lens (\Instance' {productCodes} -> productCodes) (\s@Instance' {} a -> s {productCodes = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The security groups for the instance.
-instance_securityGroups :: Lens.Lens' Instance (Core.Maybe [GroupIdentifier])
-instance_securityGroups = Lens.lens (\Instance' {securityGroups} -> securityGroups) (\s@Instance' {} a -> s {securityGroups = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_securityGroups :: Lens.Lens' Instance (Prelude.Maybe [GroupIdentifier])
+instance_securityGroups = Lens.lens (\Instance' {securityGroups} -> securityGroups) (\s@Instance' {} a -> s {securityGroups = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IAM instance profile associated with the instance, if applicable.
-instance_iamInstanceProfile :: Lens.Lens' Instance (Core.Maybe IamInstanceProfile)
+instance_iamInstanceProfile :: Lens.Lens' Instance (Prelude.Maybe IamInstanceProfile)
 instance_iamInstanceProfile = Lens.lens (\Instance' {iamInstanceProfile} -> iamInstanceProfile) (\s@Instance' {} a -> s {iamInstanceProfile = a} :: Instance)
 
 -- | (IPv4 only) The public DNS name assigned to the instance. This name is
 -- not available until the instance enters the @running@ state. For
 -- EC2-VPC, this name is only available if you\'ve enabled DNS hostnames
 -- for your VPC.
-instance_publicDnsName :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_publicDnsName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_publicDnsName = Lens.lens (\Instance' {publicDnsName} -> publicDnsName) (\s@Instance' {} a -> s {publicDnsName = a} :: Instance)
 
 -- | Indicates whether the instance is enabled for hibernation.
-instance_hibernationOptions :: Lens.Lens' Instance (Core.Maybe HibernationOptions)
+instance_hibernationOptions :: Lens.Lens' Instance (Prelude.Maybe HibernationOptions)
 instance_hibernationOptions = Lens.lens (\Instance' {hibernationOptions} -> hibernationOptions) (\s@Instance' {} a -> s {hibernationOptions = a} :: Instance)
 
 -- | The ID of the Capacity Reservation.
-instance_capacityReservationId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_capacityReservationId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_capacityReservationId = Lens.lens (\Instance' {capacityReservationId} -> capacityReservationId) (\s@Instance' {} a -> s {capacityReservationId = a} :: Instance)
 
 -- | Any tags assigned to the instance.
-instance_tags :: Lens.Lens' Instance (Core.Maybe [Tag])
-instance_tags = Lens.lens (\Instance' {tags} -> tags) (\s@Instance' {} a -> s {tags = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_tags :: Lens.Lens' Instance (Prelude.Maybe [Tag])
+instance_tags = Lens.lens (\Instance' {tags} -> tags) (\s@Instance' {} a -> s {tags = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether enhanced networking with the Intel 82599 Virtual
 -- Function interface is enabled.
-instance_sriovNetSupport :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_sriovNetSupport :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_sriovNetSupport = Lens.lens (\Instance' {sriovNetSupport} -> sriovNetSupport) (\s@Instance' {} a -> s {sriovNetSupport = a} :: Instance)
 
 -- | Any block device mapping entries for the instance.
-instance_blockDeviceMappings :: Lens.Lens' Instance (Core.Maybe [InstanceBlockDeviceMapping])
-instance_blockDeviceMappings = Lens.lens (\Instance' {blockDeviceMappings} -> blockDeviceMappings) (\s@Instance' {} a -> s {blockDeviceMappings = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_blockDeviceMappings :: Lens.Lens' Instance (Prelude.Maybe [InstanceBlockDeviceMapping])
+instance_blockDeviceMappings = Lens.lens (\Instance' {blockDeviceMappings} -> blockDeviceMappings) (\s@Instance' {} a -> s {blockDeviceMappings = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The public IPv4 address, or the Carrier IP address assigned to the
 -- instance, if applicable.
 --
 -- A Carrier IP address only applies to an instance launched in a subnet
 -- associated with a Wavelength Zone.
-instance_publicIpAddress :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_publicIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_publicIpAddress = Lens.lens (\Instance' {publicIpAddress} -> publicIpAddress) (\s@Instance' {} a -> s {publicIpAddress = a} :: Instance)
 
 -- | [EC2-VPC] The ID of the subnet in which the instance is running.
-instance_subnetId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_subnetId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_subnetId = Lens.lens (\Instance' {subnetId} -> subnetId) (\s@Instance' {} a -> s {subnetId = a} :: Instance)
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
-instance_enclaveOptions :: Lens.Lens' Instance (Core.Maybe EnclaveOptions)
+instance_enclaveOptions :: Lens.Lens' Instance (Prelude.Maybe EnclaveOptions)
 instance_enclaveOptions = Lens.lens (\Instance' {enclaveOptions} -> enclaveOptions) (\s@Instance' {} a -> s {enclaveOptions = a} :: Instance)
 
 -- | The kernel associated with this instance, if applicable.
-instance_kernelId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_kernelId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_kernelId = Lens.lens (\Instance' {kernelId} -> kernelId) (\s@Instance' {} a -> s {kernelId = a} :: Instance)
 
 -- | The CPU options for the instance.
-instance_cpuOptions :: Lens.Lens' Instance (Core.Maybe CpuOptions)
+instance_cpuOptions :: Lens.Lens' Instance (Prelude.Maybe CpuOptions)
 instance_cpuOptions = Lens.lens (\Instance' {cpuOptions} -> cpuOptions) (\s@Instance' {} a -> s {cpuOptions = a} :: Instance)
 
 -- | (IPv4 only) The private DNS hostname name assigned to the instance. This
@@ -537,62 +538,62 @@ instance_cpuOptions = Lens.lens (\Instance' {cpuOptions} -> cpuOptions) (\s@Inst
 -- hostnames in your VPC. If you are not using the Amazon-provided DNS
 -- server in your VPC, your custom domain name servers must resolve the
 -- hostname as appropriate.
-instance_privateDnsName :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_privateDnsName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_privateDnsName = Lens.lens (\Instance' {privateDnsName} -> privateDnsName) (\s@Instance' {} a -> s {privateDnsName = a} :: Instance)
 
 -- | The name of the key pair, if this instance was launched with an
 -- associated key pair.
-instance_keyName :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_keyName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_keyName = Lens.lens (\Instance' {keyName} -> keyName) (\s@Instance' {} a -> s {keyName = a} :: Instance)
 
 -- | [EC2-VPC] The network interfaces for the instance.
-instance_networkInterfaces :: Lens.Lens' Instance (Core.Maybe [InstanceNetworkInterface])
-instance_networkInterfaces = Lens.lens (\Instance' {networkInterfaces} -> networkInterfaces) (\s@Instance' {} a -> s {networkInterfaces = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_networkInterfaces :: Lens.Lens' Instance (Prelude.Maybe [InstanceNetworkInterface])
+instance_networkInterfaces = Lens.lens (\Instance' {networkInterfaces} -> networkInterfaces) (\s@Instance' {} a -> s {networkInterfaces = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The license configurations.
-instance_licenses :: Lens.Lens' Instance (Core.Maybe [LicenseConfiguration])
-instance_licenses = Lens.lens (\Instance' {licenses} -> licenses) (\s@Instance' {} a -> s {licenses = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_licenses :: Lens.Lens' Instance (Prelude.Maybe [LicenseConfiguration])
+instance_licenses = Lens.lens (\Instance' {licenses} -> licenses) (\s@Instance' {} a -> s {licenses = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [EC2-VPC] The ID of the VPC in which the instance is running.
-instance_vpcId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_vpcId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_vpcId = Lens.lens (\Instance' {vpcId} -> vpcId) (\s@Instance' {} a -> s {vpcId = a} :: Instance)
 
 -- | The Elastic GPU associated with the instance.
-instance_elasticGpuAssociations :: Lens.Lens' Instance (Core.Maybe [ElasticGpuAssociation])
-instance_elasticGpuAssociations = Lens.lens (\Instance' {elasticGpuAssociations} -> elasticGpuAssociations) (\s@Instance' {} a -> s {elasticGpuAssociations = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_elasticGpuAssociations :: Lens.Lens' Instance (Prelude.Maybe [ElasticGpuAssociation])
+instance_elasticGpuAssociations = Lens.lens (\Instance' {elasticGpuAssociations} -> elasticGpuAssociations) (\s@Instance' {} a -> s {elasticGpuAssociations = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The metadata options for the instance.
-instance_metadataOptions :: Lens.Lens' Instance (Core.Maybe InstanceMetadataOptionsResponse)
+instance_metadataOptions :: Lens.Lens' Instance (Prelude.Maybe InstanceMetadataOptionsResponse)
 instance_metadataOptions = Lens.lens (\Instance' {metadataOptions} -> metadataOptions) (\s@Instance' {} a -> s {metadataOptions = a} :: Instance)
 
 -- | Specifies whether enhanced networking with ENA is enabled.
-instance_enaSupport :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+instance_enaSupport :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
 instance_enaSupport = Lens.lens (\Instance' {enaSupport} -> enaSupport) (\s@Instance' {} a -> s {enaSupport = a} :: Instance)
 
 -- | If the request is a Spot Instance request, the ID of the request.
-instance_spotInstanceRequestId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_spotInstanceRequestId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_spotInstanceRequestId = Lens.lens (\Instance' {spotInstanceRequestId} -> spotInstanceRequestId) (\s@Instance' {} a -> s {spotInstanceRequestId = a} :: Instance)
 
 -- | The idempotency token you provided when you launched the instance, if
 -- applicable.
-instance_clientToken :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_clientToken :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_clientToken = Lens.lens (\Instance' {clientToken} -> clientToken) (\s@Instance' {} a -> s {clientToken = a} :: Instance)
 
 -- | The private IPv4 address assigned to the instance.
-instance_privateIpAddress :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_privateIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_privateIpAddress = Lens.lens (\Instance' {privateIpAddress} -> privateIpAddress) (\s@Instance' {} a -> s {privateIpAddress = a} :: Instance)
 
 -- | The ID of the instance.
-instance_instanceId :: Lens.Lens' Instance Core.Text
+instance_instanceId :: Lens.Lens' Instance Prelude.Text
 instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
 
 -- | The ID of the AMI used to launch the instance.
-instance_imageId :: Lens.Lens' Instance Core.Text
+instance_imageId :: Lens.Lens' Instance Prelude.Text
 instance_imageId = Lens.lens (\Instance' {imageId} -> imageId) (\s@Instance' {} a -> s {imageId = a} :: Instance)
 
 -- | The AMI launch index, which can be used to find this instance in the
 -- launch group.
-instance_amiLaunchIndex :: Lens.Lens' Instance Core.Int
+instance_amiLaunchIndex :: Lens.Lens' Instance Prelude.Int
 instance_amiLaunchIndex = Lens.lens (\Instance' {amiLaunchIndex} -> amiLaunchIndex) (\s@Instance' {} a -> s {amiLaunchIndex = a} :: Instance)
 
 -- | The instance type.
@@ -600,8 +601,8 @@ instance_instanceType :: Lens.Lens' Instance InstanceType
 instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
 
 -- | The time the instance was launched.
-instance_launchTime :: Lens.Lens' Instance Core.UTCTime
-instance_launchTime = Lens.lens (\Instance' {launchTime} -> launchTime) (\s@Instance' {} a -> s {launchTime = a} :: Instance) Core.. Core._Time
+instance_launchTime :: Lens.Lens' Instance Prelude.UTCTime
+instance_launchTime = Lens.lens (\Instance' {launchTime} -> launchTime) (\s@Instance' {} a -> s {launchTime = a} :: Instance) Prelude.. Core._Time
 
 -- | The location where the instance launched, if applicable.
 instance_placement :: Lens.Lens' Instance Placement
@@ -636,75 +637,76 @@ instance_state = Lens.lens (\Instance' {state} -> state) (\s@Instance' {} a -> s
 instance Core.FromXML Instance where
   parseXML x =
     Instance'
-      Core.<$> (x Core..@? "platform")
-      Core.<*> (x Core..@? "instanceLifecycle")
-      Core.<*> (x Core..@? "reason")
-      Core.<*> (x Core..@? "rootDeviceName")
-      Core.<*> (x Core..@? "capacityReservationSpecification")
-      Core.<*> (x Core..@? "ebsOptimized")
-      Core.<*> (x Core..@? "ramdiskId")
-      Core.<*> ( x
-                   Core..@? "elasticInferenceAcceleratorAssociationSet"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "stateReason")
-      Core.<*> (x Core..@? "outpostArn")
-      Core.<*> (x Core..@? "sourceDestCheck")
-      Core.<*> ( x Core..@? "productCodes" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "groupSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "iamInstanceProfile")
-      Core.<*> (x Core..@? "dnsName")
-      Core.<*> (x Core..@? "hibernationOptions")
-      Core.<*> (x Core..@? "capacityReservationId")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "sriovNetSupport")
-      Core.<*> ( x Core..@? "blockDeviceMapping" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "ipAddress")
-      Core.<*> (x Core..@? "subnetId")
-      Core.<*> (x Core..@? "enclaveOptions")
-      Core.<*> (x Core..@? "kernelId")
-      Core.<*> (x Core..@? "cpuOptions")
-      Core.<*> (x Core..@? "privateDnsName")
-      Core.<*> (x Core..@? "keyName")
-      Core.<*> ( x Core..@? "networkInterfaceSet"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "licenseSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "vpcId")
-      Core.<*> ( x Core..@? "elasticGpuAssociationSet"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "metadataOptions")
-      Core.<*> (x Core..@? "enaSupport")
-      Core.<*> (x Core..@? "spotInstanceRequestId")
-      Core.<*> (x Core..@? "clientToken")
-      Core.<*> (x Core..@? "privateIpAddress")
-      Core.<*> (x Core..@ "instanceId")
-      Core.<*> (x Core..@ "imageId")
-      Core.<*> (x Core..@ "amiLaunchIndex")
-      Core.<*> (x Core..@ "instanceType")
-      Core.<*> (x Core..@ "launchTime")
-      Core.<*> (x Core..@ "placement")
-      Core.<*> (x Core..@ "monitoring")
-      Core.<*> (x Core..@ "architecture")
-      Core.<*> (x Core..@ "rootDeviceType")
-      Core.<*> (x Core..@ "virtualizationType")
-      Core.<*> (x Core..@ "hypervisor")
-      Core.<*> (x Core..@ "instanceState")
+      Prelude.<$> (x Core..@? "platform")
+      Prelude.<*> (x Core..@? "instanceLifecycle")
+      Prelude.<*> (x Core..@? "reason")
+      Prelude.<*> (x Core..@? "rootDeviceName")
+      Prelude.<*> (x Core..@? "capacityReservationSpecification")
+      Prelude.<*> (x Core..@? "ebsOptimized")
+      Prelude.<*> (x Core..@? "ramdiskId")
+      Prelude.<*> ( x
+                      Core..@? "elasticInferenceAcceleratorAssociationSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "stateReason")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> (x Core..@? "sourceDestCheck")
+      Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "iamInstanceProfile")
+      Prelude.<*> (x Core..@? "dnsName")
+      Prelude.<*> (x Core..@? "hibernationOptions")
+      Prelude.<*> (x Core..@? "capacityReservationId")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "sriovNetSupport")
+      Prelude.<*> ( x Core..@? "blockDeviceMapping"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "ipAddress")
+      Prelude.<*> (x Core..@? "subnetId")
+      Prelude.<*> (x Core..@? "enclaveOptions")
+      Prelude.<*> (x Core..@? "kernelId")
+      Prelude.<*> (x Core..@? "cpuOptions")
+      Prelude.<*> (x Core..@? "privateDnsName")
+      Prelude.<*> (x Core..@? "keyName")
+      Prelude.<*> ( x Core..@? "networkInterfaceSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "licenseSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> ( x Core..@? "elasticGpuAssociationSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "metadataOptions")
+      Prelude.<*> (x Core..@? "enaSupport")
+      Prelude.<*> (x Core..@? "spotInstanceRequestId")
+      Prelude.<*> (x Core..@? "clientToken")
+      Prelude.<*> (x Core..@? "privateIpAddress")
+      Prelude.<*> (x Core..@ "instanceId")
+      Prelude.<*> (x Core..@ "imageId")
+      Prelude.<*> (x Core..@ "amiLaunchIndex")
+      Prelude.<*> (x Core..@ "instanceType")
+      Prelude.<*> (x Core..@ "launchTime")
+      Prelude.<*> (x Core..@ "placement")
+      Prelude.<*> (x Core..@ "monitoring")
+      Prelude.<*> (x Core..@ "architecture")
+      Prelude.<*> (x Core..@ "rootDeviceType")
+      Prelude.<*> (x Core..@ "virtualizationType")
+      Prelude.<*> (x Core..@ "hypervisor")
+      Prelude.<*> (x Core..@ "instanceState")
 
-instance Core.Hashable Instance
+instance Prelude.Hashable Instance
 
-instance Core.NFData Instance
+instance Prelude.NFData Instance

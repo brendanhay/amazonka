@@ -21,15 +21,16 @@ module Network.AWS.ElastiCache.Types.SubnetOutpost where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The ID of the outpost subnet.
 --
 -- /See:/ 'newSubnetOutpost' smart constructor.
 data SubnetOutpost = SubnetOutpost'
   { -- | The outpost ARN of the subnet.
-    subnetOutpostArn :: Core.Maybe Core.Text
+    subnetOutpostArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubnetOutpost' with all optional fields omitted.
@@ -43,17 +44,17 @@ data SubnetOutpost = SubnetOutpost'
 newSubnetOutpost ::
   SubnetOutpost
 newSubnetOutpost =
-  SubnetOutpost' {subnetOutpostArn = Core.Nothing}
+  SubnetOutpost' {subnetOutpostArn = Prelude.Nothing}
 
 -- | The outpost ARN of the subnet.
-subnetOutpost_subnetOutpostArn :: Lens.Lens' SubnetOutpost (Core.Maybe Core.Text)
+subnetOutpost_subnetOutpostArn :: Lens.Lens' SubnetOutpost (Prelude.Maybe Prelude.Text)
 subnetOutpost_subnetOutpostArn = Lens.lens (\SubnetOutpost' {subnetOutpostArn} -> subnetOutpostArn) (\s@SubnetOutpost' {} a -> s {subnetOutpostArn = a} :: SubnetOutpost)
 
 instance Core.FromXML SubnetOutpost where
   parseXML x =
     SubnetOutpost'
-      Core.<$> (x Core..@? "SubnetOutpostArn")
+      Prelude.<$> (x Core..@? "SubnetOutpostArn")
 
-instance Core.Hashable SubnetOutpost
+instance Prelude.Hashable SubnetOutpost
 
-instance Core.NFData SubnetOutpost
+instance Prelude.NFData SubnetOutpost

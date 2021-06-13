@@ -22,17 +22,18 @@ module Network.AWS.CostExplorer.Types.SortDefinition where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.SortOrder
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of how to sort the data.
 --
 -- /See:/ 'newSortDefinition' smart constructor.
 data SortDefinition = SortDefinition'
   { -- | The order in which to sort the data.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The key by which to sort the data.
-    key :: Core.Text
+    key :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SortDefinition' with all optional fields omitted.
@@ -47,31 +48,31 @@ data SortDefinition = SortDefinition'
 -- 'key', 'sortDefinition_key' - The key by which to sort the data.
 newSortDefinition ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   SortDefinition
 newSortDefinition pKey_ =
   SortDefinition'
-    { sortOrder = Core.Nothing,
+    { sortOrder = Prelude.Nothing,
       key = pKey_
     }
 
 -- | The order in which to sort the data.
-sortDefinition_sortOrder :: Lens.Lens' SortDefinition (Core.Maybe SortOrder)
+sortDefinition_sortOrder :: Lens.Lens' SortDefinition (Prelude.Maybe SortOrder)
 sortDefinition_sortOrder = Lens.lens (\SortDefinition' {sortOrder} -> sortOrder) (\s@SortDefinition' {} a -> s {sortOrder = a} :: SortDefinition)
 
 -- | The key by which to sort the data.
-sortDefinition_key :: Lens.Lens' SortDefinition Core.Text
+sortDefinition_key :: Lens.Lens' SortDefinition Prelude.Text
 sortDefinition_key = Lens.lens (\SortDefinition' {key} -> key) (\s@SortDefinition' {} a -> s {key = a} :: SortDefinition)
 
-instance Core.Hashable SortDefinition
+instance Prelude.Hashable SortDefinition
 
-instance Core.NFData SortDefinition
+instance Prelude.NFData SortDefinition
 
 instance Core.ToJSON SortDefinition where
   toJSON SortDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SortOrder" Core..=) Core.<$> sortOrder,
-            Core.Just ("Key" Core..= key)
+      ( Prelude.catMaybes
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            Prelude.Just ("Key" Core..= key)
           ]
       )

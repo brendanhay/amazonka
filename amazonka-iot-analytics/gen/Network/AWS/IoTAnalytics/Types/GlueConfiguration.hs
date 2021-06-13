@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.GlueConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for coordination with AWS Glue, a fully
 -- managed extract, transform and load (ETL) service.
@@ -30,13 +31,13 @@ data GlueConfiguration = GlueConfiguration'
   { -- | The name of the table in your AWS Glue Data Catalog that is used to
     -- perform the ETL operations. An AWS Glue Data Catalog table contains
     -- partitioned data and descriptions of data sources and targets.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | The name of the database in your AWS Glue Data Catalog in which the
     -- table is located. An AWS Glue Data Catalog database contains metadata
     -- tables.
-    databaseName :: Core.Text
+    databaseName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GlueConfiguration' with all optional fields omitted.
@@ -55,9 +56,9 @@ data GlueConfiguration = GlueConfiguration'
 -- tables.
 newGlueConfiguration ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   GlueConfiguration
 newGlueConfiguration pTableName_ pDatabaseName_ =
   GlueConfiguration'
@@ -68,13 +69,13 @@ newGlueConfiguration pTableName_ pDatabaseName_ =
 -- | The name of the table in your AWS Glue Data Catalog that is used to
 -- perform the ETL operations. An AWS Glue Data Catalog table contains
 -- partitioned data and descriptions of data sources and targets.
-glueConfiguration_tableName :: Lens.Lens' GlueConfiguration Core.Text
+glueConfiguration_tableName :: Lens.Lens' GlueConfiguration Prelude.Text
 glueConfiguration_tableName = Lens.lens (\GlueConfiguration' {tableName} -> tableName) (\s@GlueConfiguration' {} a -> s {tableName = a} :: GlueConfiguration)
 
 -- | The name of the database in your AWS Glue Data Catalog in which the
 -- table is located. An AWS Glue Data Catalog database contains metadata
 -- tables.
-glueConfiguration_databaseName :: Lens.Lens' GlueConfiguration Core.Text
+glueConfiguration_databaseName :: Lens.Lens' GlueConfiguration Prelude.Text
 glueConfiguration_databaseName = Lens.lens (\GlueConfiguration' {databaseName} -> databaseName) (\s@GlueConfiguration' {} a -> s {databaseName = a} :: GlueConfiguration)
 
 instance Core.FromJSON GlueConfiguration where
@@ -83,19 +84,19 @@ instance Core.FromJSON GlueConfiguration where
       "GlueConfiguration"
       ( \x ->
           GlueConfiguration'
-            Core.<$> (x Core..: "tableName")
-            Core.<*> (x Core..: "databaseName")
+            Prelude.<$> (x Core..: "tableName")
+            Prelude.<*> (x Core..: "databaseName")
       )
 
-instance Core.Hashable GlueConfiguration
+instance Prelude.Hashable GlueConfiguration
 
-instance Core.NFData GlueConfiguration
+instance Prelude.NFData GlueConfiguration
 
 instance Core.ToJSON GlueConfiguration where
   toJSON GlueConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("tableName" Core..= tableName),
-            Core.Just ("databaseName" Core..= databaseName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("tableName" Core..= tableName),
+            Prelude.Just ("databaseName" Core..= databaseName)
           ]
       )

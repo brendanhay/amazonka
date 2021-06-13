@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,14 +63,14 @@ data SetIpAddressType = SetIpAddressType'
     -- @us-east-1@ to create, view, or edit distributions.
     resourceType :: ResourceType,
     -- | The name of the resource for which to set the IP address type.
-    resourceName :: Core.Text,
+    resourceName :: Prelude.Text,
     -- | The IP address type to set for the specified resource.
     --
     -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
     -- and IPv6.
     ipAddressType :: IpAddressType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetIpAddressType' with all optional fields omitted.
@@ -97,7 +98,7 @@ newSetIpAddressType ::
   -- | 'resourceType'
   ResourceType ->
   -- | 'resourceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ipAddressType'
   IpAddressType ->
   SetIpAddressType
@@ -122,7 +123,7 @@ setIpAddressType_resourceType :: Lens.Lens' SetIpAddressType ResourceType
 setIpAddressType_resourceType = Lens.lens (\SetIpAddressType' {resourceType} -> resourceType) (\s@SetIpAddressType' {} a -> s {resourceType = a} :: SetIpAddressType)
 
 -- | The name of the resource for which to set the IP address type.
-setIpAddressType_resourceName :: Lens.Lens' SetIpAddressType Core.Text
+setIpAddressType_resourceName :: Lens.Lens' SetIpAddressType Prelude.Text
 setIpAddressType_resourceName = Lens.lens (\SetIpAddressType' {resourceName} -> resourceName) (\s@SetIpAddressType' {} a -> s {resourceName = a} :: SetIpAddressType)
 
 -- | The IP address type to set for the specified resource.
@@ -141,53 +142,56 @@ instance Core.AWSRequest SetIpAddressType where
     Response.receiveJSON
       ( \s h x ->
           SetIpAddressTypeResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetIpAddressType
+instance Prelude.Hashable SetIpAddressType
 
-instance Core.NFData SetIpAddressType
+instance Prelude.NFData SetIpAddressType
 
 instance Core.ToHeaders SetIpAddressType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.SetIpAddressType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetIpAddressType where
   toJSON SetIpAddressType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("resourceType" Core..= resourceType),
-            Core.Just ("resourceName" Core..= resourceName),
-            Core.Just ("ipAddressType" Core..= ipAddressType)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("resourceType" Core..= resourceType),
+            Prelude.Just ("resourceName" Core..= resourceName),
+            Prelude.Just
+              ("ipAddressType" Core..= ipAddressType)
           ]
       )
 
 instance Core.ToPath SetIpAddressType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetIpAddressType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetIpAddressTypeResponse' smart constructor.
 data SetIpAddressTypeResponse = SetIpAddressTypeResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetIpAddressTypeResponse' with all optional fields omitted.
@@ -204,23 +208,23 @@ data SetIpAddressTypeResponse = SetIpAddressTypeResponse'
 -- 'httpStatus', 'setIpAddressTypeResponse_httpStatus' - The response's http status code.
 newSetIpAddressTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetIpAddressTypeResponse
 newSetIpAddressTypeResponse pHttpStatus_ =
   SetIpAddressTypeResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-setIpAddressTypeResponse_operations :: Lens.Lens' SetIpAddressTypeResponse (Core.Maybe [Operation])
-setIpAddressTypeResponse_operations = Lens.lens (\SetIpAddressTypeResponse' {operations} -> operations) (\s@SetIpAddressTypeResponse' {} a -> s {operations = a} :: SetIpAddressTypeResponse) Core.. Lens.mapping Lens._Coerce
+setIpAddressTypeResponse_operations :: Lens.Lens' SetIpAddressTypeResponse (Prelude.Maybe [Operation])
+setIpAddressTypeResponse_operations = Lens.lens (\SetIpAddressTypeResponse' {operations} -> operations) (\s@SetIpAddressTypeResponse' {} a -> s {operations = a} :: SetIpAddressTypeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-setIpAddressTypeResponse_httpStatus :: Lens.Lens' SetIpAddressTypeResponse Core.Int
+setIpAddressTypeResponse_httpStatus :: Lens.Lens' SetIpAddressTypeResponse Prelude.Int
 setIpAddressTypeResponse_httpStatus = Lens.lens (\SetIpAddressTypeResponse' {httpStatus} -> httpStatus) (\s@SetIpAddressTypeResponse' {} a -> s {httpStatus = a} :: SetIpAddressTypeResponse)
 
-instance Core.NFData SetIpAddressTypeResponse
+instance Prelude.NFData SetIpAddressTypeResponse

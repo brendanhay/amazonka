@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.RuleGroupSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -43,12 +44,12 @@ data RuleGroupSummary = RuleGroupSummary'
     -- WAF (see DeleteRuleGroup).
     --
     -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-    ruleGroupId :: Core.Text,
+    ruleGroupId :: Prelude.Text,
     -- | A friendly name or description of the RuleGroup. You can\'t change the
     -- name of a @RuleGroup@ after you create it.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RuleGroupSummary' with all optional fields omitted.
@@ -70,9 +71,9 @@ data RuleGroupSummary = RuleGroupSummary'
 -- name of a @RuleGroup@ after you create it.
 newRuleGroupSummary ::
   -- | 'ruleGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   RuleGroupSummary
 newRuleGroupSummary pRuleGroupId_ pName_ =
   RuleGroupSummary'
@@ -87,12 +88,12 @@ newRuleGroupSummary pRuleGroupId_ pName_ =
 -- WAF (see DeleteRuleGroup).
 --
 -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-ruleGroupSummary_ruleGroupId :: Lens.Lens' RuleGroupSummary Core.Text
+ruleGroupSummary_ruleGroupId :: Lens.Lens' RuleGroupSummary Prelude.Text
 ruleGroupSummary_ruleGroupId = Lens.lens (\RuleGroupSummary' {ruleGroupId} -> ruleGroupId) (\s@RuleGroupSummary' {} a -> s {ruleGroupId = a} :: RuleGroupSummary)
 
 -- | A friendly name or description of the RuleGroup. You can\'t change the
 -- name of a @RuleGroup@ after you create it.
-ruleGroupSummary_name :: Lens.Lens' RuleGroupSummary Core.Text
+ruleGroupSummary_name :: Lens.Lens' RuleGroupSummary Prelude.Text
 ruleGroupSummary_name = Lens.lens (\RuleGroupSummary' {name} -> name) (\s@RuleGroupSummary' {} a -> s {name = a} :: RuleGroupSummary)
 
 instance Core.FromJSON RuleGroupSummary where
@@ -101,10 +102,10 @@ instance Core.FromJSON RuleGroupSummary where
       "RuleGroupSummary"
       ( \x ->
           RuleGroupSummary'
-            Core.<$> (x Core..: "RuleGroupId")
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..: "RuleGroupId")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable RuleGroupSummary
+instance Prelude.Hashable RuleGroupSummary
 
-instance Core.NFData RuleGroupSummary
+instance Prelude.NFData RuleGroupSummary

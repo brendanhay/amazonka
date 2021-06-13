@@ -75,6 +75,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,17 +85,17 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetVaultNotifications' smart constructor.
 data SetVaultNotifications = SetVaultNotifications'
   { -- | Provides options for specifying notification configuration.
-    vaultNotificationConfig :: Core.Maybe VaultNotificationConfig,
+    vaultNotificationConfig :: Prelude.Maybe VaultNotificationConfig,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text
+    vaultName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetVaultNotifications' with all optional fields omitted.
@@ -115,20 +116,20 @@ data SetVaultNotifications = SetVaultNotifications'
 -- 'vaultName', 'setVaultNotifications_vaultName' - The name of the vault.
 newSetVaultNotifications ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   SetVaultNotifications
 newSetVaultNotifications pAccountId_ pVaultName_ =
   SetVaultNotifications'
     { vaultNotificationConfig =
-        Core.Nothing,
+        Prelude.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
     }
 
 -- | Provides options for specifying notification configuration.
-setVaultNotifications_vaultNotificationConfig :: Lens.Lens' SetVaultNotifications (Core.Maybe VaultNotificationConfig)
+setVaultNotifications_vaultNotificationConfig :: Lens.Lens' SetVaultNotifications (Prelude.Maybe VaultNotificationConfig)
 setVaultNotifications_vaultNotificationConfig = Lens.lens (\SetVaultNotifications' {vaultNotificationConfig} -> vaultNotificationConfig) (\s@SetVaultNotifications' {} a -> s {vaultNotificationConfig = a} :: SetVaultNotifications)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -136,11 +137,11 @@ setVaultNotifications_vaultNotificationConfig = Lens.lens (\SetVaultNotification
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-setVaultNotifications_accountId :: Lens.Lens' SetVaultNotifications Core.Text
+setVaultNotifications_accountId :: Lens.Lens' SetVaultNotifications Prelude.Text
 setVaultNotifications_accountId = Lens.lens (\SetVaultNotifications' {accountId} -> accountId) (\s@SetVaultNotifications' {} a -> s {accountId = a} :: SetVaultNotifications)
 
 -- | The name of the vault.
-setVaultNotifications_vaultName :: Lens.Lens' SetVaultNotifications Core.Text
+setVaultNotifications_vaultName :: Lens.Lens' SetVaultNotifications Prelude.Text
 setVaultNotifications_vaultName = Lens.lens (\SetVaultNotifications' {vaultName} -> vaultName) (\s@SetVaultNotifications' {} a -> s {vaultName = a} :: SetVaultNotifications)
 
 instance Core.AWSRequest SetVaultNotifications where
@@ -149,29 +150,29 @@ instance Core.AWSRequest SetVaultNotifications where
       SetVaultNotificationsResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.putJSON defaultService
+      Prelude.. Request.putJSON defaultService
   response =
     Response.receiveNull SetVaultNotificationsResponse'
 
-instance Core.Hashable SetVaultNotifications
+instance Prelude.Hashable SetVaultNotifications
 
-instance Core.NFData SetVaultNotifications
+instance Prelude.NFData SetVaultNotifications
 
 instance Core.ToHeaders SetVaultNotifications where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON SetVaultNotifications where
   toJSON SetVaultNotifications' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("vaultNotificationConfig" Core..=)
-              Core.<$> vaultNotificationConfig
+              Prelude.<$> vaultNotificationConfig
           ]
       )
 
 instance Core.ToPath SetVaultNotifications where
   toPath SetVaultNotifications' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -180,13 +181,13 @@ instance Core.ToPath SetVaultNotifications where
       ]
 
 instance Core.ToQuery SetVaultNotifications where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetVaultNotificationsResponse' smart constructor.
 data SetVaultNotificationsResponse = SetVaultNotificationsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetVaultNotificationsResponse' with all optional fields omitted.
@@ -197,4 +198,4 @@ newSetVaultNotificationsResponse ::
 newSetVaultNotificationsResponse =
   SetVaultNotificationsResponse'
 
-instance Core.NFData SetVaultNotificationsResponse
+instance Prelude.NFData SetVaultNotificationsResponse

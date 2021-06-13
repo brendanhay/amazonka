@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data GetTypedLinkFacetInformation = GetTypedLinkFacetInformation'
   { -- | The Amazon Resource Name (ARN) that is associated with the schema. For
     -- more information, see arns.
-    schemaArn :: Core.Text,
+    schemaArn :: Prelude.Text,
     -- | The unique name of the typed link facet.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTypedLinkFacetInformation' with all optional fields omitted.
@@ -72,9 +73,9 @@ data GetTypedLinkFacetInformation = GetTypedLinkFacetInformation'
 -- 'name', 'getTypedLinkFacetInformation_name' - The unique name of the typed link facet.
 newGetTypedLinkFacetInformation ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetTypedLinkFacetInformation
 newGetTypedLinkFacetInformation pSchemaArn_ pName_ =
   GetTypedLinkFacetInformation'
@@ -85,11 +86,11 @@ newGetTypedLinkFacetInformation pSchemaArn_ pName_ =
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For
 -- more information, see arns.
-getTypedLinkFacetInformation_schemaArn :: Lens.Lens' GetTypedLinkFacetInformation Core.Text
+getTypedLinkFacetInformation_schemaArn :: Lens.Lens' GetTypedLinkFacetInformation Prelude.Text
 getTypedLinkFacetInformation_schemaArn = Lens.lens (\GetTypedLinkFacetInformation' {schemaArn} -> schemaArn) (\s@GetTypedLinkFacetInformation' {} a -> s {schemaArn = a} :: GetTypedLinkFacetInformation)
 
 -- | The unique name of the typed link facet.
-getTypedLinkFacetInformation_name :: Lens.Lens' GetTypedLinkFacetInformation Core.Text
+getTypedLinkFacetInformation_name :: Lens.Lens' GetTypedLinkFacetInformation Prelude.Text
 getTypedLinkFacetInformation_name = Lens.lens (\GetTypedLinkFacetInformation' {name} -> name) (\s@GetTypedLinkFacetInformation' {} a -> s {name = a} :: GetTypedLinkFacetInformation)
 
 instance Core.AWSRequest GetTypedLinkFacetInformation where
@@ -101,33 +102,37 @@ instance Core.AWSRequest GetTypedLinkFacetInformation where
     Response.receiveJSON
       ( \s h x ->
           GetTypedLinkFacetInformationResponse'
-            Core.<$> ( x Core..?> "IdentityAttributeOrder"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "IdentityAttributeOrder"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTypedLinkFacetInformation
+instance
+  Prelude.Hashable
+    GetTypedLinkFacetInformation
 
-instance Core.NFData GetTypedLinkFacetInformation
+instance Prelude.NFData GetTypedLinkFacetInformation
 
 instance Core.ToHeaders GetTypedLinkFacetInformation where
   toHeaders GetTypedLinkFacetInformation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON GetTypedLinkFacetInformation where
   toJSON GetTypedLinkFacetInformation' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath GetTypedLinkFacetInformation where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
 
 instance Core.ToQuery GetTypedLinkFacetInformation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTypedLinkFacetInformationResponse' smart constructor.
 data GetTypedLinkFacetInformationResponse = GetTypedLinkFacetInformationResponse'
@@ -141,11 +146,11 @@ data GetTypedLinkFacetInformationResponse = GetTypedLinkFacetInformationResponse
     -- supplied to any API calls. For more information about identity
     -- attributes, see
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-    identityAttributeOrder :: Core.Maybe [Core.Text],
+    identityAttributeOrder :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTypedLinkFacetInformationResponse' with all optional fields omitted.
@@ -169,12 +174,12 @@ data GetTypedLinkFacetInformationResponse = GetTypedLinkFacetInformationResponse
 -- 'httpStatus', 'getTypedLinkFacetInformationResponse_httpStatus' - The response's http status code.
 newGetTypedLinkFacetInformationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTypedLinkFacetInformationResponse
 newGetTypedLinkFacetInformationResponse pHttpStatus_ =
   GetTypedLinkFacetInformationResponse'
     { identityAttributeOrder =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -188,13 +193,13 @@ newGetTypedLinkFacetInformationResponse pHttpStatus_ =
 -- supplied to any API calls. For more information about identity
 -- attributes, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-getTypedLinkFacetInformationResponse_identityAttributeOrder :: Lens.Lens' GetTypedLinkFacetInformationResponse (Core.Maybe [Core.Text])
-getTypedLinkFacetInformationResponse_identityAttributeOrder = Lens.lens (\GetTypedLinkFacetInformationResponse' {identityAttributeOrder} -> identityAttributeOrder) (\s@GetTypedLinkFacetInformationResponse' {} a -> s {identityAttributeOrder = a} :: GetTypedLinkFacetInformationResponse) Core.. Lens.mapping Lens._Coerce
+getTypedLinkFacetInformationResponse_identityAttributeOrder :: Lens.Lens' GetTypedLinkFacetInformationResponse (Prelude.Maybe [Prelude.Text])
+getTypedLinkFacetInformationResponse_identityAttributeOrder = Lens.lens (\GetTypedLinkFacetInformationResponse' {identityAttributeOrder} -> identityAttributeOrder) (\s@GetTypedLinkFacetInformationResponse' {} a -> s {identityAttributeOrder = a} :: GetTypedLinkFacetInformationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTypedLinkFacetInformationResponse_httpStatus :: Lens.Lens' GetTypedLinkFacetInformationResponse Core.Int
+getTypedLinkFacetInformationResponse_httpStatus :: Lens.Lens' GetTypedLinkFacetInformationResponse Prelude.Int
 getTypedLinkFacetInformationResponse_httpStatus = Lens.lens (\GetTypedLinkFacetInformationResponse' {httpStatus} -> httpStatus) (\s@GetTypedLinkFacetInformationResponse' {} a -> s {httpStatus = a} :: GetTypedLinkFacetInformationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetTypedLinkFacetInformationResponse

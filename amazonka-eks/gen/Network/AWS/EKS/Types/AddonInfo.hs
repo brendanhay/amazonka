@@ -22,6 +22,7 @@ module Network.AWS.EKS.Types.AddonInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.AddonVersionInfo
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an add-on.
 --
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 data AddonInfo = AddonInfo'
   { -- | An object that represents information about available add-on versions
     -- and compatible Kubernetes versions.
-    addonVersions :: Core.Maybe [AddonVersionInfo],
+    addonVersions :: Prelude.Maybe [AddonVersionInfo],
     -- | The name of the add-on.
-    addonName :: Core.Maybe Core.Text,
+    addonName :: Prelude.Maybe Prelude.Text,
     -- | The type of the add-on.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddonInfo' with all optional fields omitted.
@@ -55,22 +56,22 @@ newAddonInfo ::
   AddonInfo
 newAddonInfo =
   AddonInfo'
-    { addonVersions = Core.Nothing,
-      addonName = Core.Nothing,
-      type' = Core.Nothing
+    { addonVersions = Prelude.Nothing,
+      addonName = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | An object that represents information about available add-on versions
 -- and compatible Kubernetes versions.
-addonInfo_addonVersions :: Lens.Lens' AddonInfo (Core.Maybe [AddonVersionInfo])
-addonInfo_addonVersions = Lens.lens (\AddonInfo' {addonVersions} -> addonVersions) (\s@AddonInfo' {} a -> s {addonVersions = a} :: AddonInfo) Core.. Lens.mapping Lens._Coerce
+addonInfo_addonVersions :: Lens.Lens' AddonInfo (Prelude.Maybe [AddonVersionInfo])
+addonInfo_addonVersions = Lens.lens (\AddonInfo' {addonVersions} -> addonVersions) (\s@AddonInfo' {} a -> s {addonVersions = a} :: AddonInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the add-on.
-addonInfo_addonName :: Lens.Lens' AddonInfo (Core.Maybe Core.Text)
+addonInfo_addonName :: Lens.Lens' AddonInfo (Prelude.Maybe Prelude.Text)
 addonInfo_addonName = Lens.lens (\AddonInfo' {addonName} -> addonName) (\s@AddonInfo' {} a -> s {addonName = a} :: AddonInfo)
 
 -- | The type of the add-on.
-addonInfo_type :: Lens.Lens' AddonInfo (Core.Maybe Core.Text)
+addonInfo_type :: Lens.Lens' AddonInfo (Prelude.Maybe Prelude.Text)
 addonInfo_type = Lens.lens (\AddonInfo' {type'} -> type') (\s@AddonInfo' {} a -> s {type' = a} :: AddonInfo)
 
 instance Core.FromJSON AddonInfo where
@@ -79,11 +80,11 @@ instance Core.FromJSON AddonInfo where
       "AddonInfo"
       ( \x ->
           AddonInfo'
-            Core.<$> (x Core..:? "addonVersions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "addonName")
-            Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "addonVersions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "addonName")
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable AddonInfo
+instance Prelude.Hashable AddonInfo
 
-instance Core.NFData AddonInfo
+instance Prelude.NFData AddonInfo

@@ -22,6 +22,7 @@ module Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Request parameters to use when integrating with Amazon Cognito to
 -- authenticate users.
@@ -30,19 +31,19 @@ import qualified Network.AWS.Lens as Lens
 data AuthenticateCognitoActionConfig = AuthenticateCognitoActionConfig'
   { -- | The maximum duration of the authentication session, in seconds. The
     -- default is 604800 seconds (7 days).
-    sessionTimeout :: Core.Maybe Core.Integer,
+    sessionTimeout :: Prelude.Maybe Prelude.Integer,
     -- | The set of user claims to be requested from the IdP. The default is
     -- @openid@.
     --
     -- To verify which scope values your IdP supports and how to separate
     -- multiple values, see the documentation for your IdP.
-    scope :: Core.Maybe Core.Text,
+    scope :: Prelude.Maybe Prelude.Text,
     -- | The query parameters (up to 10) to include in the redirect request to
     -- the authorization endpoint.
-    authenticationRequestExtraParams :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    authenticationRequestExtraParams :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the cookie used to maintain session information. The default
     -- is AWSELBAuthSessionCookie.
-    sessionCookieName :: Core.Maybe Core.Text,
+    sessionCookieName :: Prelude.Maybe Prelude.Text,
     -- | The behavior if the user is not authenticated. The following are
     -- possible values:
     --
@@ -52,16 +53,16 @@ data AuthenticateCognitoActionConfig = AuthenticateCognitoActionConfig'
     --
     -- -   authenticate@@ - Redirect the request to the IdP authorization
     --     endpoint. This is the default value.
-    onUnauthenticatedRequest :: Core.Maybe AuthenticateCognitoActionConditionalBehaviorEnum,
+    onUnauthenticatedRequest :: Prelude.Maybe AuthenticateCognitoActionConditionalBehaviorEnum,
     -- | The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
-    userPoolArn :: Core.Text,
+    userPoolArn :: Prelude.Text,
     -- | The ID of the Amazon Cognito user pool client.
-    userPoolClientId :: Core.Text,
+    userPoolClientId :: Prelude.Text,
     -- | The domain prefix or fully-qualified domain name of the Amazon Cognito
     -- user pool.
-    userPoolDomain :: Core.Text
+    userPoolDomain :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthenticateCognitoActionConfig' with all optional fields omitted.
@@ -104,11 +105,11 @@ data AuthenticateCognitoActionConfig = AuthenticateCognitoActionConfig'
 -- user pool.
 newAuthenticateCognitoActionConfig ::
   -- | 'userPoolArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userPoolClientId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userPoolDomain'
-  Core.Text ->
+  Prelude.Text ->
   AuthenticateCognitoActionConfig
 newAuthenticateCognitoActionConfig
   pUserPoolArn_
@@ -116,12 +117,12 @@ newAuthenticateCognitoActionConfig
   pUserPoolDomain_ =
     AuthenticateCognitoActionConfig'
       { sessionTimeout =
-          Core.Nothing,
-        scope = Core.Nothing,
+          Prelude.Nothing,
+        scope = Prelude.Nothing,
         authenticationRequestExtraParams =
-          Core.Nothing,
-        sessionCookieName = Core.Nothing,
-        onUnauthenticatedRequest = Core.Nothing,
+          Prelude.Nothing,
+        sessionCookieName = Prelude.Nothing,
+        onUnauthenticatedRequest = Prelude.Nothing,
         userPoolArn = pUserPoolArn_,
         userPoolClientId = pUserPoolClientId_,
         userPoolDomain = pUserPoolDomain_
@@ -129,7 +130,7 @@ newAuthenticateCognitoActionConfig
 
 -- | The maximum duration of the authentication session, in seconds. The
 -- default is 604800 seconds (7 days).
-authenticateCognitoActionConfig_sessionTimeout :: Lens.Lens' AuthenticateCognitoActionConfig (Core.Maybe Core.Integer)
+authenticateCognitoActionConfig_sessionTimeout :: Lens.Lens' AuthenticateCognitoActionConfig (Prelude.Maybe Prelude.Integer)
 authenticateCognitoActionConfig_sessionTimeout = Lens.lens (\AuthenticateCognitoActionConfig' {sessionTimeout} -> sessionTimeout) (\s@AuthenticateCognitoActionConfig' {} a -> s {sessionTimeout = a} :: AuthenticateCognitoActionConfig)
 
 -- | The set of user claims to be requested from the IdP. The default is
@@ -137,17 +138,17 @@ authenticateCognitoActionConfig_sessionTimeout = Lens.lens (\AuthenticateCognito
 --
 -- To verify which scope values your IdP supports and how to separate
 -- multiple values, see the documentation for your IdP.
-authenticateCognitoActionConfig_scope :: Lens.Lens' AuthenticateCognitoActionConfig (Core.Maybe Core.Text)
+authenticateCognitoActionConfig_scope :: Lens.Lens' AuthenticateCognitoActionConfig (Prelude.Maybe Prelude.Text)
 authenticateCognitoActionConfig_scope = Lens.lens (\AuthenticateCognitoActionConfig' {scope} -> scope) (\s@AuthenticateCognitoActionConfig' {} a -> s {scope = a} :: AuthenticateCognitoActionConfig)
 
 -- | The query parameters (up to 10) to include in the redirect request to
 -- the authorization endpoint.
-authenticateCognitoActionConfig_authenticationRequestExtraParams :: Lens.Lens' AuthenticateCognitoActionConfig (Core.Maybe (Core.HashMap Core.Text Core.Text))
-authenticateCognitoActionConfig_authenticationRequestExtraParams = Lens.lens (\AuthenticateCognitoActionConfig' {authenticationRequestExtraParams} -> authenticationRequestExtraParams) (\s@AuthenticateCognitoActionConfig' {} a -> s {authenticationRequestExtraParams = a} :: AuthenticateCognitoActionConfig) Core.. Lens.mapping Lens._Coerce
+authenticateCognitoActionConfig_authenticationRequestExtraParams :: Lens.Lens' AuthenticateCognitoActionConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+authenticateCognitoActionConfig_authenticationRequestExtraParams = Lens.lens (\AuthenticateCognitoActionConfig' {authenticationRequestExtraParams} -> authenticationRequestExtraParams) (\s@AuthenticateCognitoActionConfig' {} a -> s {authenticationRequestExtraParams = a} :: AuthenticateCognitoActionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the cookie used to maintain session information. The default
 -- is AWSELBAuthSessionCookie.
-authenticateCognitoActionConfig_sessionCookieName :: Lens.Lens' AuthenticateCognitoActionConfig (Core.Maybe Core.Text)
+authenticateCognitoActionConfig_sessionCookieName :: Lens.Lens' AuthenticateCognitoActionConfig (Prelude.Maybe Prelude.Text)
 authenticateCognitoActionConfig_sessionCookieName = Lens.lens (\AuthenticateCognitoActionConfig' {sessionCookieName} -> sessionCookieName) (\s@AuthenticateCognitoActionConfig' {} a -> s {sessionCookieName = a} :: AuthenticateCognitoActionConfig)
 
 -- | The behavior if the user is not authenticated. The following are
@@ -159,52 +160,54 @@ authenticateCognitoActionConfig_sessionCookieName = Lens.lens (\AuthenticateCogn
 --
 -- -   authenticate@@ - Redirect the request to the IdP authorization
 --     endpoint. This is the default value.
-authenticateCognitoActionConfig_onUnauthenticatedRequest :: Lens.Lens' AuthenticateCognitoActionConfig (Core.Maybe AuthenticateCognitoActionConditionalBehaviorEnum)
+authenticateCognitoActionConfig_onUnauthenticatedRequest :: Lens.Lens' AuthenticateCognitoActionConfig (Prelude.Maybe AuthenticateCognitoActionConditionalBehaviorEnum)
 authenticateCognitoActionConfig_onUnauthenticatedRequest = Lens.lens (\AuthenticateCognitoActionConfig' {onUnauthenticatedRequest} -> onUnauthenticatedRequest) (\s@AuthenticateCognitoActionConfig' {} a -> s {onUnauthenticatedRequest = a} :: AuthenticateCognitoActionConfig)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
-authenticateCognitoActionConfig_userPoolArn :: Lens.Lens' AuthenticateCognitoActionConfig Core.Text
+authenticateCognitoActionConfig_userPoolArn :: Lens.Lens' AuthenticateCognitoActionConfig Prelude.Text
 authenticateCognitoActionConfig_userPoolArn = Lens.lens (\AuthenticateCognitoActionConfig' {userPoolArn} -> userPoolArn) (\s@AuthenticateCognitoActionConfig' {} a -> s {userPoolArn = a} :: AuthenticateCognitoActionConfig)
 
 -- | The ID of the Amazon Cognito user pool client.
-authenticateCognitoActionConfig_userPoolClientId :: Lens.Lens' AuthenticateCognitoActionConfig Core.Text
+authenticateCognitoActionConfig_userPoolClientId :: Lens.Lens' AuthenticateCognitoActionConfig Prelude.Text
 authenticateCognitoActionConfig_userPoolClientId = Lens.lens (\AuthenticateCognitoActionConfig' {userPoolClientId} -> userPoolClientId) (\s@AuthenticateCognitoActionConfig' {} a -> s {userPoolClientId = a} :: AuthenticateCognitoActionConfig)
 
 -- | The domain prefix or fully-qualified domain name of the Amazon Cognito
 -- user pool.
-authenticateCognitoActionConfig_userPoolDomain :: Lens.Lens' AuthenticateCognitoActionConfig Core.Text
+authenticateCognitoActionConfig_userPoolDomain :: Lens.Lens' AuthenticateCognitoActionConfig Prelude.Text
 authenticateCognitoActionConfig_userPoolDomain = Lens.lens (\AuthenticateCognitoActionConfig' {userPoolDomain} -> userPoolDomain) (\s@AuthenticateCognitoActionConfig' {} a -> s {userPoolDomain = a} :: AuthenticateCognitoActionConfig)
 
 instance Core.FromXML AuthenticateCognitoActionConfig where
   parseXML x =
     AuthenticateCognitoActionConfig'
-      Core.<$> (x Core..@? "SessionTimeout")
-      Core.<*> (x Core..@? "Scope")
-      Core.<*> ( x Core..@? "AuthenticationRequestExtraParams"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
-               )
-      Core.<*> (x Core..@? "SessionCookieName")
-      Core.<*> (x Core..@? "OnUnauthenticatedRequest")
-      Core.<*> (x Core..@ "UserPoolArn")
-      Core.<*> (x Core..@ "UserPoolClientId")
-      Core.<*> (x Core..@ "UserPoolDomain")
+      Prelude.<$> (x Core..@? "SessionTimeout")
+      Prelude.<*> (x Core..@? "Scope")
+      Prelude.<*> ( x Core..@? "AuthenticationRequestExtraParams"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                  )
+      Prelude.<*> (x Core..@? "SessionCookieName")
+      Prelude.<*> (x Core..@? "OnUnauthenticatedRequest")
+      Prelude.<*> (x Core..@ "UserPoolArn")
+      Prelude.<*> (x Core..@ "UserPoolClientId")
+      Prelude.<*> (x Core..@ "UserPoolDomain")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AuthenticateCognitoActionConfig
 
-instance Core.NFData AuthenticateCognitoActionConfig
+instance
+  Prelude.NFData
+    AuthenticateCognitoActionConfig
 
 instance Core.ToQuery AuthenticateCognitoActionConfig where
   toQuery AuthenticateCognitoActionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SessionTimeout" Core.=: sessionTimeout,
         "Scope" Core.=: scope,
         "AuthenticationRequestExtraParams"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"
-                Core.<$> authenticationRequestExtraParams
+                Prelude.<$> authenticationRequestExtraParams
             ),
         "SessionCookieName" Core.=: sessionCookieName,
         "OnUnauthenticatedRequest"

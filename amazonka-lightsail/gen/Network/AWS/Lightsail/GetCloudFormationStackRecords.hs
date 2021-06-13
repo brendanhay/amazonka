@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ data GetCloudFormationStackRecords = GetCloudFormationStackRecords'
     -- request. If your results are paginated, the response will return a next
     -- page token that you can specify as the page token in a subsequent
     -- request.
-    pageToken :: Core.Maybe Core.Text
+    pageToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCloudFormationStackRecords' with all optional fields omitted.
@@ -83,7 +84,7 @@ newGetCloudFormationStackRecords ::
 newGetCloudFormationStackRecords =
   GetCloudFormationStackRecords'
     { pageToken =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The token to advance to the next page of results from your request.
@@ -92,7 +93,7 @@ newGetCloudFormationStackRecords =
 -- request. If your results are paginated, the response will return a next
 -- page token that you can specify as the page token in a subsequent
 -- request.
-getCloudFormationStackRecords_pageToken :: Lens.Lens' GetCloudFormationStackRecords (Core.Maybe Core.Text)
+getCloudFormationStackRecords_pageToken :: Lens.Lens' GetCloudFormationStackRecords (Prelude.Maybe Prelude.Text)
 getCloudFormationStackRecords_pageToken = Lens.lens (\GetCloudFormationStackRecords' {pageToken} -> pageToken) (\s@GetCloudFormationStackRecords' {} a -> s {pageToken = a} :: GetCloudFormationStackRecords)
 
 instance Core.AWSPager GetCloudFormationStackRecords where
@@ -100,22 +101,22 @@ instance Core.AWSPager GetCloudFormationStackRecords where
     | Core.stop
         ( rs
             Lens.^? getCloudFormationStackRecordsResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getCloudFormationStackRecordsResponse_cloudFormationStackRecords
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getCloudFormationStackRecords_pageToken
+          Prelude.& getCloudFormationStackRecords_pageToken
           Lens..~ rs
           Lens.^? getCloudFormationStackRecordsResponse_nextPageToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -129,47 +130,51 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetCloudFormationStackRecordsResponse'
-            Core.<$> ( x Core..?> "cloudFormationStackRecords"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "nextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "cloudFormationStackRecords"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetCloudFormationStackRecords
+instance
+  Prelude.Hashable
+    GetCloudFormationStackRecords
 
-instance Core.NFData GetCloudFormationStackRecords
+instance Prelude.NFData GetCloudFormationStackRecords
 
 instance Core.ToHeaders GetCloudFormationStackRecords where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetCloudFormationStackRecords" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetCloudFormationStackRecords where
   toJSON GetCloudFormationStackRecords' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pageToken" Core..=) Core.<$> pageToken]
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
       )
 
 instance Core.ToPath GetCloudFormationStackRecords where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCloudFormationStackRecords where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCloudFormationStackRecordsResponse' smart constructor.
 data GetCloudFormationStackRecordsResponse = GetCloudFormationStackRecordsResponse'
   { -- | A list of objects describing the CloudFormation stack records.
-    cloudFormationStackRecords :: Core.Maybe [CloudFormationStackRecord],
+    cloudFormationStackRecords :: Prelude.Maybe [CloudFormationStackRecord],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -178,11 +183,11 @@ data GetCloudFormationStackRecordsResponse = GetCloudFormationStackRecordsRespon
     -- To get the next page of results, perform another
     -- @GetCloudFormationStackRecords@ request and specify the next page token
     -- using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCloudFormationStackRecordsResponse' with all optional fields omitted.
@@ -206,19 +211,19 @@ data GetCloudFormationStackRecordsResponse = GetCloudFormationStackRecordsRespon
 -- 'httpStatus', 'getCloudFormationStackRecordsResponse_httpStatus' - The response's http status code.
 newGetCloudFormationStackRecordsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCloudFormationStackRecordsResponse
 newGetCloudFormationStackRecordsResponse pHttpStatus_ =
   GetCloudFormationStackRecordsResponse'
     { cloudFormationStackRecords =
-        Core.Nothing,
-      nextPageToken = Core.Nothing,
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of objects describing the CloudFormation stack records.
-getCloudFormationStackRecordsResponse_cloudFormationStackRecords :: Lens.Lens' GetCloudFormationStackRecordsResponse (Core.Maybe [CloudFormationStackRecord])
-getCloudFormationStackRecordsResponse_cloudFormationStackRecords = Lens.lens (\GetCloudFormationStackRecordsResponse' {cloudFormationStackRecords} -> cloudFormationStackRecords) (\s@GetCloudFormationStackRecordsResponse' {} a -> s {cloudFormationStackRecords = a} :: GetCloudFormationStackRecordsResponse) Core.. Lens.mapping Lens._Coerce
+getCloudFormationStackRecordsResponse_cloudFormationStackRecords :: Lens.Lens' GetCloudFormationStackRecordsResponse (Prelude.Maybe [CloudFormationStackRecord])
+getCloudFormationStackRecordsResponse_cloudFormationStackRecords = Lens.lens (\GetCloudFormationStackRecordsResponse' {cloudFormationStackRecords} -> cloudFormationStackRecords) (\s@GetCloudFormationStackRecordsResponse' {} a -> s {cloudFormationStackRecords = a} :: GetCloudFormationStackRecordsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -228,13 +233,13 @@ getCloudFormationStackRecordsResponse_cloudFormationStackRecords = Lens.lens (\G
 -- To get the next page of results, perform another
 -- @GetCloudFormationStackRecords@ request and specify the next page token
 -- using the @pageToken@ parameter.
-getCloudFormationStackRecordsResponse_nextPageToken :: Lens.Lens' GetCloudFormationStackRecordsResponse (Core.Maybe Core.Text)
+getCloudFormationStackRecordsResponse_nextPageToken :: Lens.Lens' GetCloudFormationStackRecordsResponse (Prelude.Maybe Prelude.Text)
 getCloudFormationStackRecordsResponse_nextPageToken = Lens.lens (\GetCloudFormationStackRecordsResponse' {nextPageToken} -> nextPageToken) (\s@GetCloudFormationStackRecordsResponse' {} a -> s {nextPageToken = a} :: GetCloudFormationStackRecordsResponse)
 
 -- | The response's http status code.
-getCloudFormationStackRecordsResponse_httpStatus :: Lens.Lens' GetCloudFormationStackRecordsResponse Core.Int
+getCloudFormationStackRecordsResponse_httpStatus :: Lens.Lens' GetCloudFormationStackRecordsResponse Prelude.Int
 getCloudFormationStackRecordsResponse_httpStatus = Lens.lens (\GetCloudFormationStackRecordsResponse' {httpStatus} -> httpStatus) (\s@GetCloudFormationStackRecordsResponse' {} a -> s {httpStatus = a} :: GetCloudFormationStackRecordsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetCloudFormationStackRecordsResponse

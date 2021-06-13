@@ -21,6 +21,7 @@ module Network.AWS.DirectoryService.Types.ClientCertAuthSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the client certificate authentication
 -- settings for the @RegisterCertificate@ and @DescribeCertificate@
@@ -31,9 +32,9 @@ data ClientCertAuthSettings = ClientCertAuthSettings'
   { -- | Specifies the URL of the default OCSP server used to check for
     -- revocation status. A secondary value to any OCSP address found in the
     -- AIA extension of the user certificate.
-    oCSPUrl :: Core.Maybe Core.Text
+    oCSPUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientCertAuthSettings' with all optional fields omitted.
@@ -49,12 +50,12 @@ data ClientCertAuthSettings = ClientCertAuthSettings'
 newClientCertAuthSettings ::
   ClientCertAuthSettings
 newClientCertAuthSettings =
-  ClientCertAuthSettings' {oCSPUrl = Core.Nothing}
+  ClientCertAuthSettings' {oCSPUrl = Prelude.Nothing}
 
 -- | Specifies the URL of the default OCSP server used to check for
 -- revocation status. A secondary value to any OCSP address found in the
 -- AIA extension of the user certificate.
-clientCertAuthSettings_oCSPUrl :: Lens.Lens' ClientCertAuthSettings (Core.Maybe Core.Text)
+clientCertAuthSettings_oCSPUrl :: Lens.Lens' ClientCertAuthSettings (Prelude.Maybe Prelude.Text)
 clientCertAuthSettings_oCSPUrl = Lens.lens (\ClientCertAuthSettings' {oCSPUrl} -> oCSPUrl) (\s@ClientCertAuthSettings' {} a -> s {oCSPUrl = a} :: ClientCertAuthSettings)
 
 instance Core.FromJSON ClientCertAuthSettings where
@@ -63,16 +64,16 @@ instance Core.FromJSON ClientCertAuthSettings where
       "ClientCertAuthSettings"
       ( \x ->
           ClientCertAuthSettings'
-            Core.<$> (x Core..:? "OCSPUrl")
+            Prelude.<$> (x Core..:? "OCSPUrl")
       )
 
-instance Core.Hashable ClientCertAuthSettings
+instance Prelude.Hashable ClientCertAuthSettings
 
-instance Core.NFData ClientCertAuthSettings
+instance Prelude.NFData ClientCertAuthSettings
 
 instance Core.ToJSON ClientCertAuthSettings where
   toJSON ClientCertAuthSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("OCSPUrl" Core..=) Core.<$> oCSPUrl]
+      ( Prelude.catMaybes
+          [("OCSPUrl" Core..=) Prelude.<$> oCSPUrl]
       )

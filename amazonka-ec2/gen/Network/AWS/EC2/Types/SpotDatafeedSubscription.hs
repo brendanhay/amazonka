@@ -24,24 +24,25 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DatafeedSubscriptionState
 import Network.AWS.EC2.Types.SpotInstanceStateFault
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the data feed for a Spot Instance.
 --
 -- /See:/ 'newSpotDatafeedSubscription' smart constructor.
 data SpotDatafeedSubscription = SpotDatafeedSubscription'
   { -- | The AWS account ID of the account.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the data feed files.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | The fault codes for the Spot Instance request, if any.
-    fault :: Core.Maybe SpotInstanceStateFault,
+    fault :: Prelude.Maybe SpotInstanceStateFault,
     -- | The state of the Spot Instance data feed subscription.
-    state :: Core.Maybe DatafeedSubscriptionState,
+    state :: Prelude.Maybe DatafeedSubscriptionState,
     -- | The name of the Amazon S3 bucket where the Spot Instance data feed is
     -- located.
-    bucket :: Core.Maybe Core.Text
+    bucket :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotDatafeedSubscription' with all optional fields omitted.
@@ -65,43 +66,44 @@ newSpotDatafeedSubscription ::
   SpotDatafeedSubscription
 newSpotDatafeedSubscription =
   SpotDatafeedSubscription'
-    { ownerId = Core.Nothing,
-      prefix = Core.Nothing,
-      fault = Core.Nothing,
-      state = Core.Nothing,
-      bucket = Core.Nothing
+    { ownerId =
+        Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      fault = Prelude.Nothing,
+      state = Prelude.Nothing,
+      bucket = Prelude.Nothing
     }
 
 -- | The AWS account ID of the account.
-spotDatafeedSubscription_ownerId :: Lens.Lens' SpotDatafeedSubscription (Core.Maybe Core.Text)
+spotDatafeedSubscription_ownerId :: Lens.Lens' SpotDatafeedSubscription (Prelude.Maybe Prelude.Text)
 spotDatafeedSubscription_ownerId = Lens.lens (\SpotDatafeedSubscription' {ownerId} -> ownerId) (\s@SpotDatafeedSubscription' {} a -> s {ownerId = a} :: SpotDatafeedSubscription)
 
 -- | The prefix for the data feed files.
-spotDatafeedSubscription_prefix :: Lens.Lens' SpotDatafeedSubscription (Core.Maybe Core.Text)
+spotDatafeedSubscription_prefix :: Lens.Lens' SpotDatafeedSubscription (Prelude.Maybe Prelude.Text)
 spotDatafeedSubscription_prefix = Lens.lens (\SpotDatafeedSubscription' {prefix} -> prefix) (\s@SpotDatafeedSubscription' {} a -> s {prefix = a} :: SpotDatafeedSubscription)
 
 -- | The fault codes for the Spot Instance request, if any.
-spotDatafeedSubscription_fault :: Lens.Lens' SpotDatafeedSubscription (Core.Maybe SpotInstanceStateFault)
+spotDatafeedSubscription_fault :: Lens.Lens' SpotDatafeedSubscription (Prelude.Maybe SpotInstanceStateFault)
 spotDatafeedSubscription_fault = Lens.lens (\SpotDatafeedSubscription' {fault} -> fault) (\s@SpotDatafeedSubscription' {} a -> s {fault = a} :: SpotDatafeedSubscription)
 
 -- | The state of the Spot Instance data feed subscription.
-spotDatafeedSubscription_state :: Lens.Lens' SpotDatafeedSubscription (Core.Maybe DatafeedSubscriptionState)
+spotDatafeedSubscription_state :: Lens.Lens' SpotDatafeedSubscription (Prelude.Maybe DatafeedSubscriptionState)
 spotDatafeedSubscription_state = Lens.lens (\SpotDatafeedSubscription' {state} -> state) (\s@SpotDatafeedSubscription' {} a -> s {state = a} :: SpotDatafeedSubscription)
 
 -- | The name of the Amazon S3 bucket where the Spot Instance data feed is
 -- located.
-spotDatafeedSubscription_bucket :: Lens.Lens' SpotDatafeedSubscription (Core.Maybe Core.Text)
+spotDatafeedSubscription_bucket :: Lens.Lens' SpotDatafeedSubscription (Prelude.Maybe Prelude.Text)
 spotDatafeedSubscription_bucket = Lens.lens (\SpotDatafeedSubscription' {bucket} -> bucket) (\s@SpotDatafeedSubscription' {} a -> s {bucket = a} :: SpotDatafeedSubscription)
 
 instance Core.FromXML SpotDatafeedSubscription where
   parseXML x =
     SpotDatafeedSubscription'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "prefix")
-      Core.<*> (x Core..@? "fault")
-      Core.<*> (x Core..@? "state")
-      Core.<*> (x Core..@? "bucket")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "prefix")
+      Prelude.<*> (x Core..@? "fault")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "bucket")
 
-instance Core.Hashable SpotDatafeedSubscription
+instance Prelude.Hashable SpotDatafeedSubscription
 
-instance Core.NFData SpotDatafeedSubscription
+instance Prelude.NFData SpotDatafeedSubscription

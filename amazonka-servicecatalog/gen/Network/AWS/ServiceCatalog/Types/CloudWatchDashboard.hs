@@ -21,15 +21,16 @@ module Network.AWS.ServiceCatalog.Types.CloudWatchDashboard where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a CloudWatch dashboard.
 --
 -- /See:/ 'newCloudWatchDashboard' smart constructor.
 data CloudWatchDashboard = CloudWatchDashboard'
   { -- | The name of the CloudWatch dashboard.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudWatchDashboard' with all optional fields omitted.
@@ -43,10 +44,10 @@ data CloudWatchDashboard = CloudWatchDashboard'
 newCloudWatchDashboard ::
   CloudWatchDashboard
 newCloudWatchDashboard =
-  CloudWatchDashboard' {name = Core.Nothing}
+  CloudWatchDashboard' {name = Prelude.Nothing}
 
 -- | The name of the CloudWatch dashboard.
-cloudWatchDashboard_name :: Lens.Lens' CloudWatchDashboard (Core.Maybe Core.Text)
+cloudWatchDashboard_name :: Lens.Lens' CloudWatchDashboard (Prelude.Maybe Prelude.Text)
 cloudWatchDashboard_name = Lens.lens (\CloudWatchDashboard' {name} -> name) (\s@CloudWatchDashboard' {} a -> s {name = a} :: CloudWatchDashboard)
 
 instance Core.FromJSON CloudWatchDashboard where
@@ -54,9 +55,9 @@ instance Core.FromJSON CloudWatchDashboard where
     Core.withObject
       "CloudWatchDashboard"
       ( \x ->
-          CloudWatchDashboard' Core.<$> (x Core..:? "Name")
+          CloudWatchDashboard' Prelude.<$> (x Core..:? "Name")
       )
 
-instance Core.Hashable CloudWatchDashboard
+instance Prelude.Hashable CloudWatchDashboard
 
-instance Core.NFData CloudWatchDashboard
+instance Prelude.NFData CloudWatchDashboard

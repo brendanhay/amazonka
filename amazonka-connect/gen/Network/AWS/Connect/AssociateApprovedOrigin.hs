@@ -42,17 +42,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateApprovedOrigin' smart constructor.
 data AssociateApprovedOrigin = AssociateApprovedOrigin'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The domain to add to your allow list.
-    origin :: Core.Text
+    origin :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateApprovedOrigin' with all optional fields omitted.
@@ -67,9 +68,9 @@ data AssociateApprovedOrigin = AssociateApprovedOrigin'
 -- 'origin', 'associateApprovedOrigin_origin' - The domain to add to your allow list.
 newAssociateApprovedOrigin ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'origin'
-  Core.Text ->
+  Prelude.Text ->
   AssociateApprovedOrigin
 newAssociateApprovedOrigin pInstanceId_ pOrigin_ =
   AssociateApprovedOrigin'
@@ -78,11 +79,11 @@ newAssociateApprovedOrigin pInstanceId_ pOrigin_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-associateApprovedOrigin_instanceId :: Lens.Lens' AssociateApprovedOrigin Core.Text
+associateApprovedOrigin_instanceId :: Lens.Lens' AssociateApprovedOrigin Prelude.Text
 associateApprovedOrigin_instanceId = Lens.lens (\AssociateApprovedOrigin' {instanceId} -> instanceId) (\s@AssociateApprovedOrigin' {} a -> s {instanceId = a} :: AssociateApprovedOrigin)
 
 -- | The domain to add to your allow list.
-associateApprovedOrigin_origin :: Lens.Lens' AssociateApprovedOrigin Core.Text
+associateApprovedOrigin_origin :: Lens.Lens' AssociateApprovedOrigin Prelude.Text
 associateApprovedOrigin_origin = Lens.lens (\AssociateApprovedOrigin' {origin} -> origin) (\s@AssociateApprovedOrigin' {} a -> s {origin = a} :: AssociateApprovedOrigin)
 
 instance Core.AWSRequest AssociateApprovedOrigin where
@@ -94,42 +95,44 @@ instance Core.AWSRequest AssociateApprovedOrigin where
     Response.receiveNull
       AssociateApprovedOriginResponse'
 
-instance Core.Hashable AssociateApprovedOrigin
+instance Prelude.Hashable AssociateApprovedOrigin
 
-instance Core.NFData AssociateApprovedOrigin
+instance Prelude.NFData AssociateApprovedOrigin
 
 instance Core.ToHeaders AssociateApprovedOrigin where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateApprovedOrigin where
   toJSON AssociateApprovedOrigin' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Origin" Core..= origin)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Origin" Core..= origin)]
       )
 
 instance Core.ToPath AssociateApprovedOrigin where
   toPath AssociateApprovedOrigin' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/approved-origin"
       ]
 
 instance Core.ToQuery AssociateApprovedOrigin where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateApprovedOriginResponse' smart constructor.
 data AssociateApprovedOriginResponse = AssociateApprovedOriginResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateApprovedOriginResponse' with all optional fields omitted.
@@ -140,4 +143,6 @@ newAssociateApprovedOriginResponse ::
 newAssociateApprovedOriginResponse =
   AssociateApprovedOriginResponse'
 
-instance Core.NFData AssociateApprovedOriginResponse
+instance
+  Prelude.NFData
+    AssociateApprovedOriginResponse

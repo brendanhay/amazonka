@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -56,16 +57,16 @@ import Network.AWS.WorkMail.Types
 data ListResourceDelegates = ListResourceDelegates'
   { -- | The token used to paginate through the delegates associated with a
     -- resource.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of maximum results in a page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the organization that contains the resource for which
     -- delegates are listed.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The identifier for the resource whose delegates are listed.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListResourceDelegates' with all optional fields omitted.
@@ -86,36 +87,36 @@ data ListResourceDelegates = ListResourceDelegates'
 -- 'resourceId', 'listResourceDelegates_resourceId' - The identifier for the resource whose delegates are listed.
 newListResourceDelegates ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   ListResourceDelegates
 newListResourceDelegates
   pOrganizationId_
   pResourceId_ =
     ListResourceDelegates'
-      { nextToken = Core.Nothing,
-        maxResults = Core.Nothing,
+      { nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         organizationId = pOrganizationId_,
         resourceId = pResourceId_
       }
 
 -- | The token used to paginate through the delegates associated with a
 -- resource.
-listResourceDelegates_nextToken :: Lens.Lens' ListResourceDelegates (Core.Maybe Core.Text)
+listResourceDelegates_nextToken :: Lens.Lens' ListResourceDelegates (Prelude.Maybe Prelude.Text)
 listResourceDelegates_nextToken = Lens.lens (\ListResourceDelegates' {nextToken} -> nextToken) (\s@ListResourceDelegates' {} a -> s {nextToken = a} :: ListResourceDelegates)
 
 -- | The number of maximum results in a page.
-listResourceDelegates_maxResults :: Lens.Lens' ListResourceDelegates (Core.Maybe Core.Natural)
+listResourceDelegates_maxResults :: Lens.Lens' ListResourceDelegates (Prelude.Maybe Prelude.Natural)
 listResourceDelegates_maxResults = Lens.lens (\ListResourceDelegates' {maxResults} -> maxResults) (\s@ListResourceDelegates' {} a -> s {maxResults = a} :: ListResourceDelegates)
 
 -- | The identifier for the organization that contains the resource for which
 -- delegates are listed.
-listResourceDelegates_organizationId :: Lens.Lens' ListResourceDelegates Core.Text
+listResourceDelegates_organizationId :: Lens.Lens' ListResourceDelegates Prelude.Text
 listResourceDelegates_organizationId = Lens.lens (\ListResourceDelegates' {organizationId} -> organizationId) (\s@ListResourceDelegates' {} a -> s {organizationId = a} :: ListResourceDelegates)
 
 -- | The identifier for the resource whose delegates are listed.
-listResourceDelegates_resourceId :: Lens.Lens' ListResourceDelegates Core.Text
+listResourceDelegates_resourceId :: Lens.Lens' ListResourceDelegates Prelude.Text
 listResourceDelegates_resourceId = Lens.lens (\ListResourceDelegates' {resourceId} -> resourceId) (\s@ListResourceDelegates' {} a -> s {resourceId = a} :: ListResourceDelegates)
 
 instance Core.AWSPager ListResourceDelegates where
@@ -123,22 +124,22 @@ instance Core.AWSPager ListResourceDelegates where
     | Core.stop
         ( rs
             Lens.^? listResourceDelegatesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResourceDelegatesResponse_delegates
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listResourceDelegates_nextToken
+          Prelude.& listResourceDelegates_nextToken
           Lens..~ rs
           Lens.^? listResourceDelegatesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceDelegates where
   type
@@ -149,57 +150,60 @@ instance Core.AWSRequest ListResourceDelegates where
     Response.receiveJSON
       ( \s h x ->
           ListResourceDelegatesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Delegates" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Delegates" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListResourceDelegates
+instance Prelude.Hashable ListResourceDelegates
 
-instance Core.NFData ListResourceDelegates
+instance Prelude.NFData ListResourceDelegates
 
 instance Core.ToHeaders ListResourceDelegates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.ListResourceDelegates" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListResourceDelegates where
   toJSON ListResourceDelegates' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("ResourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
 instance Core.ToPath ListResourceDelegates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListResourceDelegates where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceDelegatesResponse' smart constructor.
 data ListResourceDelegatesResponse = ListResourceDelegatesResponse'
   { -- | The token used to paginate through the delegates associated with a
     -- resource. While results are still available, it has an associated value.
     -- When the last page is reached, the token is empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | One page of the resource\'s delegates.
-    delegates :: Core.Maybe [Delegate],
+    delegates :: Prelude.Maybe [Delegate],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListResourceDelegatesResponse' with all optional fields omitted.
@@ -218,28 +222,28 @@ data ListResourceDelegatesResponse = ListResourceDelegatesResponse'
 -- 'httpStatus', 'listResourceDelegatesResponse_httpStatus' - The response's http status code.
 newListResourceDelegatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListResourceDelegatesResponse
 newListResourceDelegatesResponse pHttpStatus_ =
   ListResourceDelegatesResponse'
     { nextToken =
-        Core.Nothing,
-      delegates = Core.Nothing,
+        Prelude.Nothing,
+      delegates = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token used to paginate through the delegates associated with a
 -- resource. While results are still available, it has an associated value.
 -- When the last page is reached, the token is empty.
-listResourceDelegatesResponse_nextToken :: Lens.Lens' ListResourceDelegatesResponse (Core.Maybe Core.Text)
+listResourceDelegatesResponse_nextToken :: Lens.Lens' ListResourceDelegatesResponse (Prelude.Maybe Prelude.Text)
 listResourceDelegatesResponse_nextToken = Lens.lens (\ListResourceDelegatesResponse' {nextToken} -> nextToken) (\s@ListResourceDelegatesResponse' {} a -> s {nextToken = a} :: ListResourceDelegatesResponse)
 
 -- | One page of the resource\'s delegates.
-listResourceDelegatesResponse_delegates :: Lens.Lens' ListResourceDelegatesResponse (Core.Maybe [Delegate])
-listResourceDelegatesResponse_delegates = Lens.lens (\ListResourceDelegatesResponse' {delegates} -> delegates) (\s@ListResourceDelegatesResponse' {} a -> s {delegates = a} :: ListResourceDelegatesResponse) Core.. Lens.mapping Lens._Coerce
+listResourceDelegatesResponse_delegates :: Lens.Lens' ListResourceDelegatesResponse (Prelude.Maybe [Delegate])
+listResourceDelegatesResponse_delegates = Lens.lens (\ListResourceDelegatesResponse' {delegates} -> delegates) (\s@ListResourceDelegatesResponse' {} a -> s {delegates = a} :: ListResourceDelegatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listResourceDelegatesResponse_httpStatus :: Lens.Lens' ListResourceDelegatesResponse Core.Int
+listResourceDelegatesResponse_httpStatus :: Lens.Lens' ListResourceDelegatesResponse Prelude.Int
 listResourceDelegatesResponse_httpStatus = Lens.lens (\ListResourceDelegatesResponse' {httpStatus} -> httpStatus) (\s@ListResourceDelegatesResponse' {} a -> s {httpStatus = a} :: ListResourceDelegatesResponse)
 
-instance Core.NFData ListResourceDelegatesResponse
+instance Prelude.NFData ListResourceDelegatesResponse

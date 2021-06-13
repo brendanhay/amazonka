@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.StatusDetailFilters where
 import Network.AWS.Config.Types.MemberAccountRuleStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status filter object to filter results based on specific member account
 -- ID or status type for an organization config rule.
@@ -29,7 +30,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newStatusDetailFilters' smart constructor.
 data StatusDetailFilters = StatusDetailFilters'
   { -- | The 12-digit account ID of the member account within an organization.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | Indicates deployment status for config rule in the member account. When
     -- master account calls @PutOrganizationConfigRule@ action for the first
     -- time, config rule status is created in the member account. When master
@@ -66,9 +67,9 @@ data StatusDetailFilters = StatusDetailFilters'
     --
     -- -   @UPDATE_FAILED@ when config rule deletion has failed in the member
     --     account.
-    memberAccountRuleStatus :: Core.Maybe MemberAccountRuleStatus
+    memberAccountRuleStatus :: Prelude.Maybe MemberAccountRuleStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StatusDetailFilters' with all optional fields omitted.
@@ -120,12 +121,12 @@ newStatusDetailFilters ::
   StatusDetailFilters
 newStatusDetailFilters =
   StatusDetailFilters'
-    { accountId = Core.Nothing,
-      memberAccountRuleStatus = Core.Nothing
+    { accountId = Prelude.Nothing,
+      memberAccountRuleStatus = Prelude.Nothing
     }
 
 -- | The 12-digit account ID of the member account within an organization.
-statusDetailFilters_accountId :: Lens.Lens' StatusDetailFilters (Core.Maybe Core.Text)
+statusDetailFilters_accountId :: Lens.Lens' StatusDetailFilters (Prelude.Maybe Prelude.Text)
 statusDetailFilters_accountId = Lens.lens (\StatusDetailFilters' {accountId} -> accountId) (\s@StatusDetailFilters' {} a -> s {accountId = a} :: StatusDetailFilters)
 
 -- | Indicates deployment status for config rule in the member account. When
@@ -164,19 +165,19 @@ statusDetailFilters_accountId = Lens.lens (\StatusDetailFilters' {accountId} -> 
 --
 -- -   @UPDATE_FAILED@ when config rule deletion has failed in the member
 --     account.
-statusDetailFilters_memberAccountRuleStatus :: Lens.Lens' StatusDetailFilters (Core.Maybe MemberAccountRuleStatus)
+statusDetailFilters_memberAccountRuleStatus :: Lens.Lens' StatusDetailFilters (Prelude.Maybe MemberAccountRuleStatus)
 statusDetailFilters_memberAccountRuleStatus = Lens.lens (\StatusDetailFilters' {memberAccountRuleStatus} -> memberAccountRuleStatus) (\s@StatusDetailFilters' {} a -> s {memberAccountRuleStatus = a} :: StatusDetailFilters)
 
-instance Core.Hashable StatusDetailFilters
+instance Prelude.Hashable StatusDetailFilters
 
-instance Core.NFData StatusDetailFilters
+instance Prelude.NFData StatusDetailFilters
 
 instance Core.ToJSON StatusDetailFilters where
   toJSON StatusDetailFilters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AccountId" Core..=) Core.<$> accountId,
+      ( Prelude.catMaybes
+          [ ("AccountId" Core..=) Prelude.<$> accountId,
             ("MemberAccountRuleStatus" Core..=)
-              Core.<$> memberAccountRuleStatus
+              Prelude.<$> memberAccountRuleStatus
           ]
       )

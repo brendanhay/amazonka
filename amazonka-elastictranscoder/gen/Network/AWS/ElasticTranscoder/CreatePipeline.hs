@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,7 +86,7 @@ data CreatePipeline = CreatePipeline'
     -- transcoded files or the permissions the users have, or change the Amazon
     -- S3 storage class, omit @OutputBucket@ and specify values for
     -- @ContentConfig@ and @ThumbnailConfig@ instead.
-    outputBucket :: Core.Maybe Core.Text,
+    outputBucket :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
     -- to notify to report job status.
     --
@@ -113,7 +114,7 @@ data CreatePipeline = CreatePipeline'
     --     notify when Elastic Transcoder encounters an error condition while
     --     processing a job in this pipeline. This is the ARN that Amazon SNS
     --     returned when you created the topic.
-    notifications :: Core.Maybe Notifications,
+    notifications :: Prelude.Maybe Notifications,
     -- | The @ThumbnailConfig@ object specifies several values, including the
     -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
     -- files, which users you want to have access to the files, the type of
@@ -178,7 +179,7 @@ data CreatePipeline = CreatePipeline'
     -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
     --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
     --     the thumbnails that it stores in your Amazon S3 bucket.
-    thumbnailConfig :: Core.Maybe PipelineOutputConfig,
+    thumbnailConfig :: Prelude.Maybe PipelineOutputConfig,
     -- | The optional @ContentConfig@ object specifies information about the
     -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
     -- files and playlists: which bucket to use, which users you want to have
@@ -249,7 +250,7 @@ data CreatePipeline = CreatePipeline'
     --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
     --     the video files and playlists that it stores in your Amazon S3
     --     bucket.
-    contentConfig :: Core.Maybe PipelineOutputConfig,
+    contentConfig :: Prelude.Maybe PipelineOutputConfig,
     -- | The AWS Key Management Service (AWS KMS) key that you want to use with
     -- this pipeline.
     --
@@ -259,20 +260,20 @@ data CreatePipeline = CreatePipeline'
     -- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
     -- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
     -- @aes-gcm@.
-    awsKmsKeyArn :: Core.Maybe Core.Text,
+    awsKmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the pipeline. We recommend that the name be unique within
     -- the AWS account, but uniqueness is not enforced.
     --
     -- Constraints: Maximum 40 characters.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The Amazon S3 bucket in which you saved the media files that you want to
     -- transcode.
-    inputBucket :: Core.Text,
+    inputBucket :: Prelude.Text,
     -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
     -- Transcoder to use to create the pipeline.
-    role' :: Core.Text
+    role' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePipeline' with all optional fields omitted.
@@ -496,19 +497,19 @@ data CreatePipeline = CreatePipeline'
 -- Transcoder to use to create the pipeline.
 newCreatePipeline ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputBucket'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'role''
-  Core.Text ->
+  Prelude.Text ->
   CreatePipeline
 newCreatePipeline pName_ pInputBucket_ pRole_ =
   CreatePipeline'
-    { outputBucket = Core.Nothing,
-      notifications = Core.Nothing,
-      thumbnailConfig = Core.Nothing,
-      contentConfig = Core.Nothing,
-      awsKmsKeyArn = Core.Nothing,
+    { outputBucket = Prelude.Nothing,
+      notifications = Prelude.Nothing,
+      thumbnailConfig = Prelude.Nothing,
+      contentConfig = Prelude.Nothing,
+      awsKmsKeyArn = Prelude.Nothing,
       name = pName_,
       inputBucket = pInputBucket_,
       role' = pRole_
@@ -541,7 +542,7 @@ newCreatePipeline pName_ pInputBucket_ pRole_ =
 -- transcoded files or the permissions the users have, or change the Amazon
 -- S3 storage class, omit @OutputBucket@ and specify values for
 -- @ContentConfig@ and @ThumbnailConfig@ instead.
-createPipeline_outputBucket :: Lens.Lens' CreatePipeline (Core.Maybe Core.Text)
+createPipeline_outputBucket :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
 createPipeline_outputBucket = Lens.lens (\CreatePipeline' {outputBucket} -> outputBucket) (\s@CreatePipeline' {} a -> s {outputBucket = a} :: CreatePipeline)
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
@@ -571,7 +572,7 @@ createPipeline_outputBucket = Lens.lens (\CreatePipeline' {outputBucket} -> outp
 --     notify when Elastic Transcoder encounters an error condition while
 --     processing a job in this pipeline. This is the ARN that Amazon SNS
 --     returned when you created the topic.
-createPipeline_notifications :: Lens.Lens' CreatePipeline (Core.Maybe Notifications)
+createPipeline_notifications :: Lens.Lens' CreatePipeline (Prelude.Maybe Notifications)
 createPipeline_notifications = Lens.lens (\CreatePipeline' {notifications} -> notifications) (\s@CreatePipeline' {} a -> s {notifications = a} :: CreatePipeline)
 
 -- | The @ThumbnailConfig@ object specifies several values, including the
@@ -638,7 +639,7 @@ createPipeline_notifications = Lens.lens (\CreatePipeline' {notifications} -> no
 -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
-createPipeline_thumbnailConfig :: Lens.Lens' CreatePipeline (Core.Maybe PipelineOutputConfig)
+createPipeline_thumbnailConfig :: Lens.Lens' CreatePipeline (Prelude.Maybe PipelineOutputConfig)
 createPipeline_thumbnailConfig = Lens.lens (\CreatePipeline' {thumbnailConfig} -> thumbnailConfig) (\s@CreatePipeline' {} a -> s {thumbnailConfig = a} :: CreatePipeline)
 
 -- | The optional @ContentConfig@ object specifies information about the
@@ -711,7 +712,7 @@ createPipeline_thumbnailConfig = Lens.lens (\CreatePipeline' {thumbnailConfig} -
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the video files and playlists that it stores in your Amazon S3
 --     bucket.
-createPipeline_contentConfig :: Lens.Lens' CreatePipeline (Core.Maybe PipelineOutputConfig)
+createPipeline_contentConfig :: Lens.Lens' CreatePipeline (Prelude.Maybe PipelineOutputConfig)
 createPipeline_contentConfig = Lens.lens (\CreatePipeline' {contentConfig} -> contentConfig) (\s@CreatePipeline' {} a -> s {contentConfig = a} :: CreatePipeline)
 
 -- | The AWS Key Management Service (AWS KMS) key that you want to use with
@@ -723,24 +724,24 @@ createPipeline_contentConfig = Lens.lens (\CreatePipeline' {contentConfig} -> co
 -- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
 -- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
 -- @aes-gcm@.
-createPipeline_awsKmsKeyArn :: Lens.Lens' CreatePipeline (Core.Maybe Core.Text)
+createPipeline_awsKmsKeyArn :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
 createPipeline_awsKmsKeyArn = Lens.lens (\CreatePipeline' {awsKmsKeyArn} -> awsKmsKeyArn) (\s@CreatePipeline' {} a -> s {awsKmsKeyArn = a} :: CreatePipeline)
 
 -- | The name of the pipeline. We recommend that the name be unique within
 -- the AWS account, but uniqueness is not enforced.
 --
 -- Constraints: Maximum 40 characters.
-createPipeline_name :: Lens.Lens' CreatePipeline Core.Text
+createPipeline_name :: Lens.Lens' CreatePipeline Prelude.Text
 createPipeline_name = Lens.lens (\CreatePipeline' {name} -> name) (\s@CreatePipeline' {} a -> s {name = a} :: CreatePipeline)
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode.
-createPipeline_inputBucket :: Lens.Lens' CreatePipeline Core.Text
+createPipeline_inputBucket :: Lens.Lens' CreatePipeline Prelude.Text
 createPipeline_inputBucket = Lens.lens (\CreatePipeline' {inputBucket} -> inputBucket) (\s@CreatePipeline' {} a -> s {inputBucket = a} :: CreatePipeline)
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to create the pipeline.
-createPipeline_role :: Lens.Lens' CreatePipeline Core.Text
+createPipeline_role :: Lens.Lens' CreatePipeline Prelude.Text
 createPipeline_role = Lens.lens (\CreatePipeline' {role'} -> role') (\s@CreatePipeline' {} a -> s {role' = a} :: CreatePipeline)
 
 instance Core.AWSRequest CreatePipeline where
@@ -752,38 +753,39 @@ instance Core.AWSRequest CreatePipeline where
     Response.receiveJSON
       ( \s h x ->
           CreatePipelineResponse'
-            Core.<$> (x Core..?> "Warnings" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Pipeline")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Pipeline")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePipeline
+instance Prelude.Hashable CreatePipeline
 
-instance Core.NFData CreatePipeline
+instance Prelude.NFData CreatePipeline
 
 instance Core.ToHeaders CreatePipeline where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("OutputBucket" Core..=) Core.<$> outputBucket,
-            ("Notifications" Core..=) Core.<$> notifications,
-            ("ThumbnailConfig" Core..=) Core.<$> thumbnailConfig,
-            ("ContentConfig" Core..=) Core.<$> contentConfig,
-            ("AwsKmsKeyArn" Core..=) Core.<$> awsKmsKeyArn,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("InputBucket" Core..= inputBucket),
-            Core.Just ("Role" Core..= role')
+      ( Prelude.catMaybes
+          [ ("OutputBucket" Core..=) Prelude.<$> outputBucket,
+            ("Notifications" Core..=) Prelude.<$> notifications,
+            ("ThumbnailConfig" Core..=)
+              Prelude.<$> thumbnailConfig,
+            ("ContentConfig" Core..=) Prelude.<$> contentConfig,
+            ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("InputBucket" Core..= inputBucket),
+            Prelude.Just ("Role" Core..= role')
           ]
       )
 
 instance Core.ToPath CreatePipeline where
-  toPath = Core.const "/2012-09-25/pipelines"
+  toPath = Prelude.const "/2012-09-25/pipelines"
 
 instance Core.ToQuery CreatePipeline where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | When you create a pipeline, Elastic Transcoder returns the values that
 -- you specified in the request.
@@ -796,14 +798,14 @@ data CreatePipelineResponse = CreatePipelineResponse'
     -- Using resources in the same region, such as your Amazon S3 buckets,
     -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
     -- and prevents cross-regional charges.
-    warnings :: Core.Maybe [Warning],
+    warnings :: Prelude.Maybe [Warning],
     -- | A section of the response body that provides information about the
     -- pipeline that is created.
-    pipeline :: Core.Maybe Pipeline,
+    pipeline :: Prelude.Maybe Pipeline,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePipelineResponse' with all optional fields omitted.
@@ -826,12 +828,12 @@ data CreatePipelineResponse = CreatePipelineResponse'
 -- 'httpStatus', 'createPipelineResponse_httpStatus' - The response's http status code.
 newCreatePipelineResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePipelineResponse
 newCreatePipelineResponse pHttpStatus_ =
   CreatePipelineResponse'
-    { warnings = Core.Nothing,
-      pipeline = Core.Nothing,
+    { warnings = Prelude.Nothing,
+      pipeline = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -841,16 +843,16 @@ newCreatePipelineResponse pHttpStatus_ =
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-createPipelineResponse_warnings :: Lens.Lens' CreatePipelineResponse (Core.Maybe [Warning])
-createPipelineResponse_warnings = Lens.lens (\CreatePipelineResponse' {warnings} -> warnings) (\s@CreatePipelineResponse' {} a -> s {warnings = a} :: CreatePipelineResponse) Core.. Lens.mapping Lens._Coerce
+createPipelineResponse_warnings :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe [Warning])
+createPipelineResponse_warnings = Lens.lens (\CreatePipelineResponse' {warnings} -> warnings) (\s@CreatePipelineResponse' {} a -> s {warnings = a} :: CreatePipelineResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A section of the response body that provides information about the
 -- pipeline that is created.
-createPipelineResponse_pipeline :: Lens.Lens' CreatePipelineResponse (Core.Maybe Pipeline)
+createPipelineResponse_pipeline :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe Pipeline)
 createPipelineResponse_pipeline = Lens.lens (\CreatePipelineResponse' {pipeline} -> pipeline) (\s@CreatePipelineResponse' {} a -> s {pipeline = a} :: CreatePipelineResponse)
 
 -- | The response's http status code.
-createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Core.Int
+createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Prelude.Int
 createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpStatus} -> httpStatus) (\s@CreatePipelineResponse' {} a -> s {httpStatus = a} :: CreatePipelineResponse)
 
-instance Core.NFData CreatePipelineResponse
+instance Prelude.NFData CreatePipelineResponse

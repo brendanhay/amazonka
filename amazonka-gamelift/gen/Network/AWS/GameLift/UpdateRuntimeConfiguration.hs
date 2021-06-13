@@ -83,6 +83,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,7 +93,7 @@ import qualified Network.AWS.Response as Response
 data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
   { -- | A unique identifier for a fleet to update runtime configuration for. You
     -- can use either the fleet ID or ARN value.
-    fleetId :: Core.Text,
+    fleetId :: Prelude.Text,
     -- | Instructions for launching server processes on each instance in the
     -- fleet. Server processes run either a custom game build executable or a
     -- Realtime Servers script. The runtime configuration lists the types of
@@ -103,7 +104,7 @@ data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
     -- configuration with at least one server process configuration.
     runtimeConfiguration :: RuntimeConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRuntimeConfiguration' with all optional fields omitted.
@@ -126,7 +127,7 @@ data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
 -- configuration with at least one server process configuration.
 newUpdateRuntimeConfiguration ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'runtimeConfiguration'
   RuntimeConfiguration ->
   UpdateRuntimeConfiguration
@@ -140,7 +141,7 @@ newUpdateRuntimeConfiguration
 
 -- | A unique identifier for a fleet to update runtime configuration for. You
 -- can use either the fleet ID or ARN value.
-updateRuntimeConfiguration_fleetId :: Lens.Lens' UpdateRuntimeConfiguration Core.Text
+updateRuntimeConfiguration_fleetId :: Lens.Lens' UpdateRuntimeConfiguration Prelude.Text
 updateRuntimeConfiguration_fleetId = Lens.lens (\UpdateRuntimeConfiguration' {fleetId} -> fleetId) (\s@UpdateRuntimeConfiguration' {} a -> s {fleetId = a} :: UpdateRuntimeConfiguration)
 
 -- | Instructions for launching server processes on each instance in the
@@ -163,33 +164,35 @@ instance Core.AWSRequest UpdateRuntimeConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateRuntimeConfigurationResponse'
-            Core.<$> (x Core..?> "RuntimeConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RuntimeConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateRuntimeConfiguration
+instance Prelude.Hashable UpdateRuntimeConfiguration
 
-instance Core.NFData UpdateRuntimeConfiguration
+instance Prelude.NFData UpdateRuntimeConfiguration
 
 instance Core.ToHeaders UpdateRuntimeConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.UpdateRuntimeConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRuntimeConfiguration where
   toJSON UpdateRuntimeConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FleetId" Core..= fleetId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FleetId" Core..= fleetId),
+            Prelude.Just
               ( "RuntimeConfiguration"
                   Core..= runtimeConfiguration
               )
@@ -197,10 +200,10 @@ instance Core.ToJSON UpdateRuntimeConfiguration where
       )
 
 instance Core.ToPath UpdateRuntimeConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRuntimeConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -208,11 +211,11 @@ instance Core.ToQuery UpdateRuntimeConfiguration where
 data UpdateRuntimeConfigurationResponse = UpdateRuntimeConfigurationResponse'
   { -- | The runtime configuration currently in force. If the update was
     -- successful, this object matches the one in the request.
-    runtimeConfiguration :: Core.Maybe RuntimeConfiguration,
+    runtimeConfiguration :: Prelude.Maybe RuntimeConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRuntimeConfigurationResponse' with all optional fields omitted.
@@ -228,24 +231,24 @@ data UpdateRuntimeConfigurationResponse = UpdateRuntimeConfigurationResponse'
 -- 'httpStatus', 'updateRuntimeConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateRuntimeConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateRuntimeConfigurationResponse
 newUpdateRuntimeConfigurationResponse pHttpStatus_ =
   UpdateRuntimeConfigurationResponse'
     { runtimeConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The runtime configuration currently in force. If the update was
 -- successful, this object matches the one in the request.
-updateRuntimeConfigurationResponse_runtimeConfiguration :: Lens.Lens' UpdateRuntimeConfigurationResponse (Core.Maybe RuntimeConfiguration)
+updateRuntimeConfigurationResponse_runtimeConfiguration :: Lens.Lens' UpdateRuntimeConfigurationResponse (Prelude.Maybe RuntimeConfiguration)
 updateRuntimeConfigurationResponse_runtimeConfiguration = Lens.lens (\UpdateRuntimeConfigurationResponse' {runtimeConfiguration} -> runtimeConfiguration) (\s@UpdateRuntimeConfigurationResponse' {} a -> s {runtimeConfiguration = a} :: UpdateRuntimeConfigurationResponse)
 
 -- | The response's http status code.
-updateRuntimeConfigurationResponse_httpStatus :: Lens.Lens' UpdateRuntimeConfigurationResponse Core.Int
+updateRuntimeConfigurationResponse_httpStatus :: Lens.Lens' UpdateRuntimeConfigurationResponse Prelude.Int
 updateRuntimeConfigurationResponse_httpStatus = Lens.lens (\UpdateRuntimeConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateRuntimeConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateRuntimeConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateRuntimeConfigurationResponse

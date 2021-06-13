@@ -85,6 +85,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -113,9 +114,9 @@ data CancelRotateSecret = CancelRotateSecret'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Core.Text
+    secretId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelRotateSecret' with all optional fields omitted.
@@ -149,7 +150,7 @@ data CancelRotateSecret = CancelRotateSecret'
 -- /AccessDeniedException/ error, depending on your permissions.
 newCancelRotateSecret ::
   -- | 'secretId'
-  Core.Text ->
+  Prelude.Text ->
   CancelRotateSecret
 newCancelRotateSecret pSecretId_ =
   CancelRotateSecret' {secretId = pSecretId_}
@@ -176,7 +177,7 @@ newCancelRotateSecret pSecretId_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-cancelRotateSecret_secretId :: Lens.Lens' CancelRotateSecret Core.Text
+cancelRotateSecret_secretId :: Lens.Lens' CancelRotateSecret Prelude.Text
 cancelRotateSecret_secretId = Lens.lens (\CancelRotateSecret' {secretId} -> secretId) (\s@CancelRotateSecret' {} a -> s {secretId = a} :: CancelRotateSecret)
 
 instance Core.AWSRequest CancelRotateSecret where
@@ -188,59 +189,61 @@ instance Core.AWSRequest CancelRotateSecret where
     Response.receiveJSON
       ( \s h x ->
           CancelRotateSecretResponse'
-            Core.<$> (x Core..?> "ARN")
-            Core.<*> (x Core..?> "VersionId")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelRotateSecret
+instance Prelude.Hashable CancelRotateSecret
 
-instance Core.NFData CancelRotateSecret
+instance Prelude.NFData CancelRotateSecret
 
 instance Core.ToHeaders CancelRotateSecret where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "secretsmanager.CancelRotateSecret" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelRotateSecret where
   toJSON CancelRotateSecret' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SecretId" Core..= secretId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SecretId" Core..= secretId)]
       )
 
 instance Core.ToPath CancelRotateSecret where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelRotateSecret where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelRotateSecretResponse' smart constructor.
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
   { -- | The ARN of the secret for which rotation was canceled.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the version of the secret created during the
     -- rotation. This version might not be complete, and should be evaluated
     -- for possible deletion. At the very least, you should remove the
     -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
     -- Failing to clean up a cancelled rotation can block you from successfully
     -- starting future rotations.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret for which rotation was canceled.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelRotateSecretResponse' with all optional fields omitted.
@@ -264,18 +267,18 @@ data CancelRotateSecretResponse = CancelRotateSecretResponse'
 -- 'httpStatus', 'cancelRotateSecretResponse_httpStatus' - The response's http status code.
 newCancelRotateSecretResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelRotateSecretResponse
 newCancelRotateSecretResponse pHttpStatus_ =
   CancelRotateSecretResponse'
-    { arn = Core.Nothing,
-      versionId = Core.Nothing,
-      name = Core.Nothing,
+    { arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret for which rotation was canceled.
-cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Core.Text)
+cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
 
 -- | The unique identifier of the version of the secret created during the
@@ -284,15 +287,15 @@ cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -
 -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
 -- Failing to clean up a cancelled rotation can block you from successfully
 -- starting future rotations.
-cancelRotateSecretResponse_versionId :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Core.Text)
+cancelRotateSecretResponse_versionId :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_versionId = Lens.lens (\CancelRotateSecretResponse' {versionId} -> versionId) (\s@CancelRotateSecretResponse' {} a -> s {versionId = a} :: CancelRotateSecretResponse)
 
 -- | The friendly name of the secret for which rotation was canceled.
-cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Core.Text)
+cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
 
 -- | The response's http status code.
-cancelRotateSecretResponse_httpStatus :: Lens.Lens' CancelRotateSecretResponse Core.Int
+cancelRotateSecretResponse_httpStatus :: Lens.Lens' CancelRotateSecretResponse Prelude.Int
 cancelRotateSecretResponse_httpStatus = Lens.lens (\CancelRotateSecretResponse' {httpStatus} -> httpStatus) (\s@CancelRotateSecretResponse' {} a -> s {httpStatus = a} :: CancelRotateSecretResponse)
 
-instance Core.NFData CancelRotateSecretResponse
+instance Prelude.NFData CancelRotateSecretResponse

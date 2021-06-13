@@ -22,6 +22,7 @@ module Network.AWS.FMS.Types.SecurityServicePolicyData where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.SecurityServiceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the security service that is being used to protect the
 -- resources.
@@ -66,7 +67,7 @@ data SecurityServicePolicyData = SecurityServicePolicyData'
     -- -   Example: @SECURITY_GROUPS_USAGE_AUDIT@
     --
     --     @\"{\\\"type\\\":\\\"SECURITY_GROUPS_USAGE_AUDIT\\\",\\\"deleteUnusedSecurityGroups\\\":true,\\\"coalesceRedundantSecurityGroups\\\":true}\"@
-    managedServiceData :: Core.Maybe Core.Text,
+    managedServiceData :: Prelude.Maybe Prelude.Text,
     -- | The service that the policy is using to protect the resources. This
     -- specifies the type of policy that is created, either an AWS WAF policy,
     -- a Shield Advanced policy, or a security group policy. For security group
@@ -75,7 +76,7 @@ data SecurityServicePolicyData = SecurityServicePolicyData'
     -- that you can increase by contacting AWS Support.
     type' :: SecurityServiceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecurityServicePolicyData' with all optional fields omitted.
@@ -137,7 +138,7 @@ newSecurityServicePolicyData ::
 newSecurityServicePolicyData pType_ =
   SecurityServicePolicyData'
     { managedServiceData =
-        Core.Nothing,
+        Prelude.Nothing,
       type' = pType_
     }
 
@@ -179,7 +180,7 @@ newSecurityServicePolicyData pType_ =
 -- -   Example: @SECURITY_GROUPS_USAGE_AUDIT@
 --
 --     @\"{\\\"type\\\":\\\"SECURITY_GROUPS_USAGE_AUDIT\\\",\\\"deleteUnusedSecurityGroups\\\":true,\\\"coalesceRedundantSecurityGroups\\\":true}\"@
-securityServicePolicyData_managedServiceData :: Lens.Lens' SecurityServicePolicyData (Core.Maybe Core.Text)
+securityServicePolicyData_managedServiceData :: Lens.Lens' SecurityServicePolicyData (Prelude.Maybe Prelude.Text)
 securityServicePolicyData_managedServiceData = Lens.lens (\SecurityServicePolicyData' {managedServiceData} -> managedServiceData) (\s@SecurityServicePolicyData' {} a -> s {managedServiceData = a} :: SecurityServicePolicyData)
 
 -- | The service that the policy is using to protect the resources. This
@@ -197,20 +198,20 @@ instance Core.FromJSON SecurityServicePolicyData where
       "SecurityServicePolicyData"
       ( \x ->
           SecurityServicePolicyData'
-            Core.<$> (x Core..:? "ManagedServiceData")
-            Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..:? "ManagedServiceData")
+            Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable SecurityServicePolicyData
+instance Prelude.Hashable SecurityServicePolicyData
 
-instance Core.NFData SecurityServicePolicyData
+instance Prelude.NFData SecurityServicePolicyData
 
 instance Core.ToJSON SecurityServicePolicyData where
   toJSON SecurityServicePolicyData' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ManagedServiceData" Core..=)
-              Core.<$> managedServiceData,
-            Core.Just ("Type" Core..= type')
+              Prelude.<$> managedServiceData,
+            Prelude.Just ("Type" Core..= type')
           ]
       )

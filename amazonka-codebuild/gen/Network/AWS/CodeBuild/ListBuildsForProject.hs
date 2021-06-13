@@ -48,6 +48,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,18 +65,18 @@ data ListBuildsForProject = ListBuildsForProject'
     --
     -- If the project has more than 100 builds, setting the sort order will
     -- result in an error.
-    sortOrder :: Core.Maybe SortOrderType,
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | During a previous call, if there are more than 100 items in the list,
     -- only the first 100 items are returned, along with a unique string called
     -- a /nextToken/. To get the next batch of items in the list, call this
     -- operation again, adding the next token to the call. To get all of the
     -- items in the list, keep calling this operation with each subsequent next
     -- token that is returned, until no more next tokens are returned.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS CodeBuild project.
-    projectName :: Core.Text
+    projectName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBuildsForProject' with all optional fields omitted.
@@ -107,12 +108,12 @@ data ListBuildsForProject = ListBuildsForProject'
 -- 'projectName', 'listBuildsForProject_projectName' - The name of the AWS CodeBuild project.
 newListBuildsForProject ::
   -- | 'projectName'
-  Core.Text ->
+  Prelude.Text ->
   ListBuildsForProject
 newListBuildsForProject pProjectName_ =
   ListBuildsForProject'
-    { sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectName = pProjectName_
     }
 
@@ -127,7 +128,7 @@ newListBuildsForProject pProjectName_ =
 --
 -- If the project has more than 100 builds, setting the sort order will
 -- result in an error.
-listBuildsForProject_sortOrder :: Lens.Lens' ListBuildsForProject (Core.Maybe SortOrderType)
+listBuildsForProject_sortOrder :: Lens.Lens' ListBuildsForProject (Prelude.Maybe SortOrderType)
 listBuildsForProject_sortOrder = Lens.lens (\ListBuildsForProject' {sortOrder} -> sortOrder) (\s@ListBuildsForProject' {} a -> s {sortOrder = a} :: ListBuildsForProject)
 
 -- | During a previous call, if there are more than 100 items in the list,
@@ -136,11 +137,11 @@ listBuildsForProject_sortOrder = Lens.lens (\ListBuildsForProject' {sortOrder} -
 -- operation again, adding the next token to the call. To get all of the
 -- items in the list, keep calling this operation with each subsequent next
 -- token that is returned, until no more next tokens are returned.
-listBuildsForProject_nextToken :: Lens.Lens' ListBuildsForProject (Core.Maybe Core.Text)
+listBuildsForProject_nextToken :: Lens.Lens' ListBuildsForProject (Prelude.Maybe Prelude.Text)
 listBuildsForProject_nextToken = Lens.lens (\ListBuildsForProject' {nextToken} -> nextToken) (\s@ListBuildsForProject' {} a -> s {nextToken = a} :: ListBuildsForProject)
 
 -- | The name of the AWS CodeBuild project.
-listBuildsForProject_projectName :: Lens.Lens' ListBuildsForProject Core.Text
+listBuildsForProject_projectName :: Lens.Lens' ListBuildsForProject Prelude.Text
 listBuildsForProject_projectName = Lens.lens (\ListBuildsForProject' {projectName} -> projectName) (\s@ListBuildsForProject' {} a -> s {projectName = a} :: ListBuildsForProject)
 
 instance Core.AWSPager ListBuildsForProject where
@@ -148,22 +149,22 @@ instance Core.AWSPager ListBuildsForProject where
     | Core.stop
         ( rs
             Lens.^? listBuildsForProjectResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBuildsForProjectResponse_ids Core.. Lens._Just
-              Core.. Lens.to Core.toList
+            Lens.^? listBuildsForProjectResponse_ids Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listBuildsForProject_nextToken
+          Prelude.& listBuildsForProject_nextToken
           Lens..~ rs
           Lens.^? listBuildsForProjectResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuildsForProject where
   type
@@ -174,43 +175,45 @@ instance Core.AWSRequest ListBuildsForProject where
     Response.receiveJSON
       ( \s h x ->
           ListBuildsForProjectResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "ids")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "ids")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListBuildsForProject
+instance Prelude.Hashable ListBuildsForProject
 
-instance Core.NFData ListBuildsForProject
+instance Prelude.NFData ListBuildsForProject
 
 instance Core.ToHeaders ListBuildsForProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.ListBuildsForProject" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListBuildsForProject where
   toJSON ListBuildsForProject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("sortOrder" Core..=) Core.<$> sortOrder,
-            ("nextToken" Core..=) Core.<$> nextToken,
-            Core.Just ("projectName" Core..= projectName)
+      ( Prelude.catMaybes
+          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("projectName" Core..= projectName)
           ]
       )
 
 instance Core.ToPath ListBuildsForProject where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListBuildsForProject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBuildsForProjectResponse' smart constructor.
 data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
@@ -218,14 +221,14 @@ data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
     -- are returned, along with a unique string called a /nextToken/. To get
     -- the next batch of items in the list, call this operation again, adding
     -- the next token to the call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of build IDs for the specified build project, with each build ID
     -- representing a single build.
-    ids :: Core.Maybe (Core.NonEmpty Core.Text),
+    ids :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBuildsForProjectResponse' with all optional fields omitted.
@@ -246,13 +249,13 @@ data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
 -- 'httpStatus', 'listBuildsForProjectResponse_httpStatus' - The response's http status code.
 newListBuildsForProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListBuildsForProjectResponse
 newListBuildsForProjectResponse pHttpStatus_ =
   ListBuildsForProjectResponse'
     { nextToken =
-        Core.Nothing,
-      ids = Core.Nothing,
+        Prelude.Nothing,
+      ids = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -260,16 +263,16 @@ newListBuildsForProjectResponse pHttpStatus_ =
 -- are returned, along with a unique string called a /nextToken/. To get
 -- the next batch of items in the list, call this operation again, adding
 -- the next token to the call.
-listBuildsForProjectResponse_nextToken :: Lens.Lens' ListBuildsForProjectResponse (Core.Maybe Core.Text)
+listBuildsForProjectResponse_nextToken :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe Prelude.Text)
 listBuildsForProjectResponse_nextToken = Lens.lens (\ListBuildsForProjectResponse' {nextToken} -> nextToken) (\s@ListBuildsForProjectResponse' {} a -> s {nextToken = a} :: ListBuildsForProjectResponse)
 
 -- | A list of build IDs for the specified build project, with each build ID
 -- representing a single build.
-listBuildsForProjectResponse_ids :: Lens.Lens' ListBuildsForProjectResponse (Core.Maybe (Core.NonEmpty Core.Text))
-listBuildsForProjectResponse_ids = Lens.lens (\ListBuildsForProjectResponse' {ids} -> ids) (\s@ListBuildsForProjectResponse' {} a -> s {ids = a} :: ListBuildsForProjectResponse) Core.. Lens.mapping Lens._Coerce
+listBuildsForProjectResponse_ids :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listBuildsForProjectResponse_ids = Lens.lens (\ListBuildsForProjectResponse' {ids} -> ids) (\s@ListBuildsForProjectResponse' {} a -> s {ids = a} :: ListBuildsForProjectResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listBuildsForProjectResponse_httpStatus :: Lens.Lens' ListBuildsForProjectResponse Core.Int
+listBuildsForProjectResponse_httpStatus :: Lens.Lens' ListBuildsForProjectResponse Prelude.Int
 listBuildsForProjectResponse_httpStatus = Lens.lens (\ListBuildsForProjectResponse' {httpStatus} -> httpStatus) (\s@ListBuildsForProjectResponse' {} a -> s {httpStatus = a} :: ListBuildsForProjectResponse)
 
-instance Core.NFData ListBuildsForProjectResponse
+instance Prelude.NFData ListBuildsForProjectResponse

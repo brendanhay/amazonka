@@ -57,6 +57,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,13 +66,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetIntegration' smart constructor.
 data GetIntegration = GetIntegration'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] Specifies a get integration request\'s resource identifier
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | [Required] Specifies a get integration request\'s HTTP method.
-    httpMethod :: Core.Text
+    httpMethod :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIntegration' with all optional fields omitted.
@@ -88,11 +89,11 @@ data GetIntegration = GetIntegration'
 -- 'httpMethod', 'getIntegration_httpMethod' - [Required] Specifies a get integration request\'s HTTP method.
 newGetIntegration ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpMethod'
-  Core.Text ->
+  Prelude.Text ->
   GetIntegration
 newGetIntegration
   pRestApiId_
@@ -105,15 +106,15 @@ newGetIntegration
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-getIntegration_restApiId :: Lens.Lens' GetIntegration Core.Text
+getIntegration_restApiId :: Lens.Lens' GetIntegration Prelude.Text
 getIntegration_restApiId = Lens.lens (\GetIntegration' {restApiId} -> restApiId) (\s@GetIntegration' {} a -> s {restApiId = a} :: GetIntegration)
 
 -- | [Required] Specifies a get integration request\'s resource identifier
-getIntegration_resourceId :: Lens.Lens' GetIntegration Core.Text
+getIntegration_resourceId :: Lens.Lens' GetIntegration Prelude.Text
 getIntegration_resourceId = Lens.lens (\GetIntegration' {resourceId} -> resourceId) (\s@GetIntegration' {} a -> s {resourceId = a} :: GetIntegration)
 
 -- | [Required] Specifies a get integration request\'s HTTP method.
-getIntegration_httpMethod :: Lens.Lens' GetIntegration Core.Text
+getIntegration_httpMethod :: Lens.Lens' GetIntegration Prelude.Text
 getIntegration_httpMethod = Lens.lens (\GetIntegration' {httpMethod} -> httpMethod) (\s@GetIntegration' {} a -> s {httpMethod = a} :: GetIntegration)
 
 instance Core.AWSRequest GetIntegration where
@@ -123,22 +124,22 @@ instance Core.AWSRequest GetIntegration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetIntegration
+instance Prelude.Hashable GetIntegration
 
-instance Core.NFData GetIntegration
+instance Prelude.NFData GetIntegration
 
 instance Core.ToHeaders GetIntegration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetIntegration where
   toPath GetIntegration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -149,4 +150,4 @@ instance Core.ToPath GetIntegration where
       ]
 
 instance Core.ToQuery GetIntegration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

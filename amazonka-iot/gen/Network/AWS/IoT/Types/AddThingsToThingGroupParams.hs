@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.AddThingsToThingGroupParams where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters used when defining a mitigation action that move a set of
 -- things to a thing group.
@@ -30,13 +31,13 @@ data AddThingsToThingGroupParams = AddThingsToThingGroupParams'
   { -- | Specifies if this mitigation action can move the things that triggered
     -- the mitigation action even if they are part of one or more dynamic thing
     -- groups.
-    overrideDynamicGroups :: Core.Maybe Core.Bool,
+    overrideDynamicGroups :: Prelude.Maybe Prelude.Bool,
     -- | The list of groups to which you want to add the things that triggered
     -- the mitigation action. You can add a thing to a maximum of 10 groups,
     -- but you can\'t add a thing to more than one group in the same hierarchy.
-    thingGroupNames :: Core.NonEmpty Core.Text
+    thingGroupNames :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddThingsToThingGroupParams' with all optional fields omitted.
@@ -55,12 +56,12 @@ data AddThingsToThingGroupParams = AddThingsToThingGroupParams'
 -- but you can\'t add a thing to more than one group in the same hierarchy.
 newAddThingsToThingGroupParams ::
   -- | 'thingGroupNames'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   AddThingsToThingGroupParams
 newAddThingsToThingGroupParams pThingGroupNames_ =
   AddThingsToThingGroupParams'
     { overrideDynamicGroups =
-        Core.Nothing,
+        Prelude.Nothing,
       thingGroupNames =
         Lens._Coerce Lens.# pThingGroupNames_
     }
@@ -68,14 +69,14 @@ newAddThingsToThingGroupParams pThingGroupNames_ =
 -- | Specifies if this mitigation action can move the things that triggered
 -- the mitigation action even if they are part of one or more dynamic thing
 -- groups.
-addThingsToThingGroupParams_overrideDynamicGroups :: Lens.Lens' AddThingsToThingGroupParams (Core.Maybe Core.Bool)
+addThingsToThingGroupParams_overrideDynamicGroups :: Lens.Lens' AddThingsToThingGroupParams (Prelude.Maybe Prelude.Bool)
 addThingsToThingGroupParams_overrideDynamicGroups = Lens.lens (\AddThingsToThingGroupParams' {overrideDynamicGroups} -> overrideDynamicGroups) (\s@AddThingsToThingGroupParams' {} a -> s {overrideDynamicGroups = a} :: AddThingsToThingGroupParams)
 
 -- | The list of groups to which you want to add the things that triggered
 -- the mitigation action. You can add a thing to a maximum of 10 groups,
 -- but you can\'t add a thing to more than one group in the same hierarchy.
-addThingsToThingGroupParams_thingGroupNames :: Lens.Lens' AddThingsToThingGroupParams (Core.NonEmpty Core.Text)
-addThingsToThingGroupParams_thingGroupNames = Lens.lens (\AddThingsToThingGroupParams' {thingGroupNames} -> thingGroupNames) (\s@AddThingsToThingGroupParams' {} a -> s {thingGroupNames = a} :: AddThingsToThingGroupParams) Core.. Lens._Coerce
+addThingsToThingGroupParams_thingGroupNames :: Lens.Lens' AddThingsToThingGroupParams (Prelude.NonEmpty Prelude.Text)
+addThingsToThingGroupParams_thingGroupNames = Lens.lens (\AddThingsToThingGroupParams' {thingGroupNames} -> thingGroupNames) (\s@AddThingsToThingGroupParams' {} a -> s {thingGroupNames = a} :: AddThingsToThingGroupParams) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AddThingsToThingGroupParams where
   parseJSON =
@@ -83,21 +84,21 @@ instance Core.FromJSON AddThingsToThingGroupParams where
       "AddThingsToThingGroupParams"
       ( \x ->
           AddThingsToThingGroupParams'
-            Core.<$> (x Core..:? "overrideDynamicGroups")
-            Core.<*> (x Core..: "thingGroupNames")
+            Prelude.<$> (x Core..:? "overrideDynamicGroups")
+            Prelude.<*> (x Core..: "thingGroupNames")
       )
 
-instance Core.Hashable AddThingsToThingGroupParams
+instance Prelude.Hashable AddThingsToThingGroupParams
 
-instance Core.NFData AddThingsToThingGroupParams
+instance Prelude.NFData AddThingsToThingGroupParams
 
 instance Core.ToJSON AddThingsToThingGroupParams where
   toJSON AddThingsToThingGroupParams' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("overrideDynamicGroups" Core..=)
-              Core.<$> overrideDynamicGroups,
-            Core.Just
+              Prelude.<$> overrideDynamicGroups,
+            Prelude.Just
               ("thingGroupNames" Core..= thingGroupNames)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.FirelensConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.FirelensConfigurationType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The FireLens configuration for the container. This is used to specify
 -- and configure a log router for container logs. For more information, see
@@ -39,11 +40,11 @@ data FirelensConfiguration = FirelensConfiguration'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    options :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The log router to use. The valid values are @fluentd@ or @fluentbit@.
     type' :: FirelensConfigurationType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FirelensConfiguration' with all optional fields omitted.
@@ -70,7 +71,7 @@ newFirelensConfiguration ::
   FirelensConfiguration
 newFirelensConfiguration pType_ =
   FirelensConfiguration'
-    { options = Core.Nothing,
+    { options = Prelude.Nothing,
       type' = pType_
     }
 
@@ -83,8 +84,8 @@ newFirelensConfiguration pType_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-firelensConfiguration_options :: Lens.Lens' FirelensConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
-firelensConfiguration_options = Lens.lens (\FirelensConfiguration' {options} -> options) (\s@FirelensConfiguration' {} a -> s {options = a} :: FirelensConfiguration) Core.. Lens.mapping Lens._Coerce
+firelensConfiguration_options :: Lens.Lens' FirelensConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+firelensConfiguration_options = Lens.lens (\FirelensConfiguration' {options} -> options) (\s@FirelensConfiguration' {} a -> s {options = a} :: FirelensConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The log router to use. The valid values are @fluentd@ or @fluentbit@.
 firelensConfiguration_type :: Lens.Lens' FirelensConfiguration FirelensConfigurationType
@@ -96,19 +97,19 @@ instance Core.FromJSON FirelensConfiguration where
       "FirelensConfiguration"
       ( \x ->
           FirelensConfiguration'
-            Core.<$> (x Core..:? "options" Core..!= Core.mempty)
-            Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..:? "options" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable FirelensConfiguration
+instance Prelude.Hashable FirelensConfiguration
 
-instance Core.NFData FirelensConfiguration
+instance Prelude.NFData FirelensConfiguration
 
 instance Core.ToJSON FirelensConfiguration where
   toJSON FirelensConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("options" Core..=) Core.<$> options,
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("options" Core..=) Prelude.<$> options,
+            Prelude.Just ("type" Core..= type')
           ]
       )

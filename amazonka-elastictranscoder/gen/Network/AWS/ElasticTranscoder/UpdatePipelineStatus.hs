@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +59,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdatePipelineStatus' smart constructor.
 data UpdatePipelineStatus = UpdatePipelineStatus'
   { -- | The identifier of the pipeline to update.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The desired status of the pipeline:
     --
     -- -   @Active@: The pipeline is processing jobs.
     --
     -- -   @Paused@: The pipeline is not currently processing jobs.
-    status :: Core.Text
+    status :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePipelineStatus' with all optional fields omitted.
@@ -85,15 +86,15 @@ data UpdatePipelineStatus = UpdatePipelineStatus'
 -- -   @Paused@: The pipeline is not currently processing jobs.
 newUpdatePipelineStatus ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   UpdatePipelineStatus
 newUpdatePipelineStatus pId_ pStatus_ =
   UpdatePipelineStatus' {id = pId_, status = pStatus_}
 
 -- | The identifier of the pipeline to update.
-updatePipelineStatus_id :: Lens.Lens' UpdatePipelineStatus Core.Text
+updatePipelineStatus_id :: Lens.Lens' UpdatePipelineStatus Prelude.Text
 updatePipelineStatus_id = Lens.lens (\UpdatePipelineStatus' {id} -> id) (\s@UpdatePipelineStatus' {} a -> s {id = a} :: UpdatePipelineStatus)
 
 -- | The desired status of the pipeline:
@@ -101,7 +102,7 @@ updatePipelineStatus_id = Lens.lens (\UpdatePipelineStatus' {id} -> id) (\s@Upda
 -- -   @Active@: The pipeline is processing jobs.
 --
 -- -   @Paused@: The pipeline is not currently processing jobs.
-updatePipelineStatus_status :: Lens.Lens' UpdatePipelineStatus Core.Text
+updatePipelineStatus_status :: Lens.Lens' UpdatePipelineStatus Prelude.Text
 updatePipelineStatus_status = Lens.lens (\UpdatePipelineStatus' {status} -> status) (\s@UpdatePipelineStatus' {} a -> s {status = a} :: UpdatePipelineStatus)
 
 instance Core.AWSRequest UpdatePipelineStatus where
@@ -113,31 +114,31 @@ instance Core.AWSRequest UpdatePipelineStatus where
     Response.receiveJSON
       ( \s h x ->
           UpdatePipelineStatusResponse'
-            Core.<$> (x Core..?> "Pipeline")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Pipeline")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdatePipelineStatus
+instance Prelude.Hashable UpdatePipelineStatus
 
-instance Core.NFData UpdatePipelineStatus
+instance Prelude.NFData UpdatePipelineStatus
 
 instance Core.ToHeaders UpdatePipelineStatus where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdatePipelineStatus where
   toJSON UpdatePipelineStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Status" Core..= status)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Status" Core..= status)]
       )
 
 instance Core.ToPath UpdatePipelineStatus where
   toPath UpdatePipelineStatus' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2012-09-25/pipelines/", Core.toBS id, "/status"]
 
 instance Core.ToQuery UpdatePipelineStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | When you update status for a pipeline, Elastic Transcoder returns the
 -- values that you specified in the request.
@@ -146,11 +147,11 @@ instance Core.ToQuery UpdatePipelineStatus where
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
   { -- | A section of the response body that provides information about the
     -- pipeline.
-    pipeline :: Core.Maybe Pipeline,
+    pipeline :: Prelude.Maybe Pipeline,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePipelineStatusResponse' with all optional fields omitted.
@@ -166,22 +167,22 @@ data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
 -- 'httpStatus', 'updatePipelineStatusResponse_httpStatus' - The response's http status code.
 newUpdatePipelineStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdatePipelineStatusResponse
 newUpdatePipelineStatusResponse pHttpStatus_ =
   UpdatePipelineStatusResponse'
     { pipeline =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-updatePipelineStatusResponse_pipeline :: Lens.Lens' UpdatePipelineStatusResponse (Core.Maybe Pipeline)
+updatePipelineStatusResponse_pipeline :: Lens.Lens' UpdatePipelineStatusResponse (Prelude.Maybe Pipeline)
 updatePipelineStatusResponse_pipeline = Lens.lens (\UpdatePipelineStatusResponse' {pipeline} -> pipeline) (\s@UpdatePipelineStatusResponse' {} a -> s {pipeline = a} :: UpdatePipelineStatusResponse)
 
 -- | The response's http status code.
-updatePipelineStatusResponse_httpStatus :: Lens.Lens' UpdatePipelineStatusResponse Core.Int
+updatePipelineStatusResponse_httpStatus :: Lens.Lens' UpdatePipelineStatusResponse Prelude.Int
 updatePipelineStatusResponse_httpStatus = Lens.lens (\UpdatePipelineStatusResponse' {httpStatus} -> httpStatus) (\s@UpdatePipelineStatusResponse' {} a -> s {httpStatus = a} :: UpdatePipelineStatusResponse)
 
-instance Core.NFData UpdatePipelineStatusResponse
+instance Prelude.NFData UpdatePipelineStatusResponse

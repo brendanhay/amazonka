@@ -54,15 +54,16 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newResetCache' smart constructor.
 data ResetCache = ResetCache'
-  { gatewayARN :: Core.Text
+  { gatewayARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetCache' with all optional fields omitted.
@@ -75,13 +76,13 @@ data ResetCache = ResetCache'
 -- 'gatewayARN', 'resetCache_gatewayARN' - Undocumented member.
 newResetCache ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   ResetCache
 newResetCache pGatewayARN_ =
   ResetCache' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-resetCache_gatewayARN :: Lens.Lens' ResetCache Core.Text
+resetCache_gatewayARN :: Lens.Lens' ResetCache Prelude.Text
 resetCache_gatewayARN = Lens.lens (\ResetCache' {gatewayARN} -> gatewayARN) (\s@ResetCache' {} a -> s {gatewayARN = a} :: ResetCache)
 
 instance Core.AWSRequest ResetCache where
@@ -91,47 +92,49 @@ instance Core.AWSRequest ResetCache where
     Response.receiveJSON
       ( \s h x ->
           ResetCacheResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResetCache
+instance Prelude.Hashable ResetCache
 
-instance Core.NFData ResetCache
+instance Prelude.NFData ResetCache
 
 instance Core.ToHeaders ResetCache where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.ResetCache" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ResetCache where
   toJSON ResetCache' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GatewayARN" Core..= gatewayARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
 instance Core.ToPath ResetCache where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResetCache where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResetCacheResponse' smart constructor.
 data ResetCacheResponse = ResetCacheResponse'
-  { gatewayARN :: Core.Maybe Core.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetCacheResponse' with all optional fields omitted.
@@ -146,20 +149,20 @@ data ResetCacheResponse = ResetCacheResponse'
 -- 'httpStatus', 'resetCacheResponse_httpStatus' - The response's http status code.
 newResetCacheResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResetCacheResponse
 newResetCacheResponse pHttpStatus_ =
   ResetCacheResponse'
-    { gatewayARN = Core.Nothing,
+    { gatewayARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-resetCacheResponse_gatewayARN :: Lens.Lens' ResetCacheResponse (Core.Maybe Core.Text)
+resetCacheResponse_gatewayARN :: Lens.Lens' ResetCacheResponse (Prelude.Maybe Prelude.Text)
 resetCacheResponse_gatewayARN = Lens.lens (\ResetCacheResponse' {gatewayARN} -> gatewayARN) (\s@ResetCacheResponse' {} a -> s {gatewayARN = a} :: ResetCacheResponse)
 
 -- | The response's http status code.
-resetCacheResponse_httpStatus :: Lens.Lens' ResetCacheResponse Core.Int
+resetCacheResponse_httpStatus :: Lens.Lens' ResetCacheResponse Prelude.Int
 resetCacheResponse_httpStatus = Lens.lens (\ResetCacheResponse' {httpStatus} -> httpStatus) (\s@ResetCacheResponse' {} a -> s {httpStatus = a} :: ResetCacheResponse)
 
-instance Core.NFData ResetCacheResponse
+instance Prelude.NFData ResetCacheResponse

@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -53,7 +54,7 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newCreateServiceAction' smart constructor.
 data CreateServiceAction = CreateServiceAction'
   { -- | The self-service action description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -61,9 +62,9 @@ data CreateServiceAction = CreateServiceAction'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The self-service action name.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The service action definition type. For example, @SSM_AUTOMATION@.
     definitionType :: ServiceActionDefinitionType,
     -- | The self-service action definition. Can be one of the following:
@@ -93,13 +94,13 @@ data CreateServiceAction = CreateServiceAction'
     --     For example:
     --     @[{\\\"Name\\\":\\\"InstanceId\\\",\\\"Type\\\":\\\"TARGET\\\"}]@ or
     --     @[{\\\"Name\\\":\\\"InstanceId\\\",\\\"Type\\\":\\\"TEXT_VALUE\\\"}]@.
-    definition :: Core.HashMap ServiceActionDefinitionKey Core.Text,
+    definition :: Prelude.HashMap ServiceActionDefinitionKey Prelude.Text,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Core.Text
+    idempotencyToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateServiceAction' with all optional fields omitted.
@@ -156,27 +157,27 @@ data CreateServiceAction = CreateServiceAction'
 -- returned for each repeated request.
 newCreateServiceAction ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'definitionType'
   ServiceActionDefinitionType ->
   -- | 'idempotencyToken'
-  Core.Text ->
+  Prelude.Text ->
   CreateServiceAction
 newCreateServiceAction
   pName_
   pDefinitionType_
   pIdempotencyToken_ =
     CreateServiceAction'
-      { description = Core.Nothing,
-        acceptLanguage = Core.Nothing,
+      { description = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         name = pName_,
         definitionType = pDefinitionType_,
-        definition = Core.mempty,
+        definition = Prelude.mempty,
         idempotencyToken = pIdempotencyToken_
       }
 
 -- | The self-service action description.
-createServiceAction_description :: Lens.Lens' CreateServiceAction (Core.Maybe Core.Text)
+createServiceAction_description :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
 createServiceAction_description = Lens.lens (\CreateServiceAction' {description} -> description) (\s@CreateServiceAction' {} a -> s {description = a} :: CreateServiceAction)
 
 -- | The language code.
@@ -186,11 +187,11 @@ createServiceAction_description = Lens.lens (\CreateServiceAction' {description}
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-createServiceAction_acceptLanguage :: Lens.Lens' CreateServiceAction (Core.Maybe Core.Text)
+createServiceAction_acceptLanguage :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
 createServiceAction_acceptLanguage = Lens.lens (\CreateServiceAction' {acceptLanguage} -> acceptLanguage) (\s@CreateServiceAction' {} a -> s {acceptLanguage = a} :: CreateServiceAction)
 
 -- | The self-service action name.
-createServiceAction_name :: Lens.Lens' CreateServiceAction Core.Text
+createServiceAction_name :: Lens.Lens' CreateServiceAction Prelude.Text
 createServiceAction_name = Lens.lens (\CreateServiceAction' {name} -> name) (\s@CreateServiceAction' {} a -> s {name = a} :: CreateServiceAction)
 
 -- | The service action definition type. For example, @SSM_AUTOMATION@.
@@ -224,13 +225,13 @@ createServiceAction_definitionType = Lens.lens (\CreateServiceAction' {definitio
 --     For example:
 --     @[{\\\"Name\\\":\\\"InstanceId\\\",\\\"Type\\\":\\\"TARGET\\\"}]@ or
 --     @[{\\\"Name\\\":\\\"InstanceId\\\",\\\"Type\\\":\\\"TEXT_VALUE\\\"}]@.
-createServiceAction_definition :: Lens.Lens' CreateServiceAction (Core.HashMap ServiceActionDefinitionKey Core.Text)
-createServiceAction_definition = Lens.lens (\CreateServiceAction' {definition} -> definition) (\s@CreateServiceAction' {} a -> s {definition = a} :: CreateServiceAction) Core.. Lens._Coerce
+createServiceAction_definition :: Lens.Lens' CreateServiceAction (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text)
+createServiceAction_definition = Lens.lens (\CreateServiceAction' {definition} -> definition) (\s@CreateServiceAction' {} a -> s {definition = a} :: CreateServiceAction) Prelude.. Lens._Coerce
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createServiceAction_idempotencyToken :: Lens.Lens' CreateServiceAction Core.Text
+createServiceAction_idempotencyToken :: Lens.Lens' CreateServiceAction Prelude.Text
 createServiceAction_idempotencyToken = Lens.lens (\CreateServiceAction' {idempotencyToken} -> idempotencyToken) (\s@CreateServiceAction' {} a -> s {idempotencyToken = a} :: CreateServiceAction)
 
 instance Core.AWSRequest CreateServiceAction where
@@ -242,55 +243,59 @@ instance Core.AWSRequest CreateServiceAction where
     Response.receiveJSON
       ( \s h x ->
           CreateServiceActionResponse'
-            Core.<$> (x Core..?> "ServiceActionDetail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ServiceActionDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateServiceAction
+instance Prelude.Hashable CreateServiceAction
 
-instance Core.NFData CreateServiceAction
+instance Prelude.NFData CreateServiceAction
 
 instance Core.ToHeaders CreateServiceAction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.CreateServiceAction" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateServiceAction where
   toJSON CreateServiceAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Description" Core..=) Core.<$> description,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("DefinitionType" Core..= definitionType),
-            Core.Just ("Definition" Core..= definition),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
+              ("DefinitionType" Core..= definitionType),
+            Prelude.Just ("Definition" Core..= definition),
+            Prelude.Just
               ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
 
 instance Core.ToPath CreateServiceAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateServiceAction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServiceActionResponse' smart constructor.
 data CreateServiceActionResponse = CreateServiceActionResponse'
   { -- | An object containing information about the self-service action.
-    serviceActionDetail :: Core.Maybe ServiceActionDetail,
+    serviceActionDetail :: Prelude.Maybe ServiceActionDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateServiceActionResponse' with all optional fields omitted.
@@ -305,21 +310,21 @@ data CreateServiceActionResponse = CreateServiceActionResponse'
 -- 'httpStatus', 'createServiceActionResponse_httpStatus' - The response's http status code.
 newCreateServiceActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateServiceActionResponse
 newCreateServiceActionResponse pHttpStatus_ =
   CreateServiceActionResponse'
     { serviceActionDetail =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object containing information about the self-service action.
-createServiceActionResponse_serviceActionDetail :: Lens.Lens' CreateServiceActionResponse (Core.Maybe ServiceActionDetail)
+createServiceActionResponse_serviceActionDetail :: Lens.Lens' CreateServiceActionResponse (Prelude.Maybe ServiceActionDetail)
 createServiceActionResponse_serviceActionDetail = Lens.lens (\CreateServiceActionResponse' {serviceActionDetail} -> serviceActionDetail) (\s@CreateServiceActionResponse' {} a -> s {serviceActionDetail = a} :: CreateServiceActionResponse)
 
 -- | The response's http status code.
-createServiceActionResponse_httpStatus :: Lens.Lens' CreateServiceActionResponse Core.Int
+createServiceActionResponse_httpStatus :: Lens.Lens' CreateServiceActionResponse Prelude.Int
 createServiceActionResponse_httpStatus = Lens.lens (\CreateServiceActionResponse' {httpStatus} -> httpStatus) (\s@CreateServiceActionResponse' {} a -> s {httpStatus = a} :: CreateServiceActionResponse)
 
-instance Core.NFData CreateServiceActionResponse
+instance Prelude.NFData CreateServiceActionResponse

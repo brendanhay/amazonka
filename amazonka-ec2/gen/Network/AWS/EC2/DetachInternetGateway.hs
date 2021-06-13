@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ data DetachInternetGateway = DetachInternetGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the internet gateway.
-    internetGatewayId :: Core.Text,
+    internetGatewayId :: Prelude.Text,
     -- | The ID of the VPC.
-    vpcId :: Core.Text
+    vpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachInternetGateway' with all optional fields omitted.
@@ -77,13 +78,13 @@ data DetachInternetGateway = DetachInternetGateway'
 -- 'vpcId', 'detachInternetGateway_vpcId' - The ID of the VPC.
 newDetachInternetGateway ::
   -- | 'internetGatewayId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   DetachInternetGateway
 newDetachInternetGateway pInternetGatewayId_ pVpcId_ =
   DetachInternetGateway'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       internetGatewayId = pInternetGatewayId_,
       vpcId = pVpcId_
     }
@@ -92,15 +93,15 @@ newDetachInternetGateway pInternetGatewayId_ pVpcId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-detachInternetGateway_dryRun :: Lens.Lens' DetachInternetGateway (Core.Maybe Core.Bool)
+detachInternetGateway_dryRun :: Lens.Lens' DetachInternetGateway (Prelude.Maybe Prelude.Bool)
 detachInternetGateway_dryRun = Lens.lens (\DetachInternetGateway' {dryRun} -> dryRun) (\s@DetachInternetGateway' {} a -> s {dryRun = a} :: DetachInternetGateway)
 
 -- | The ID of the internet gateway.
-detachInternetGateway_internetGatewayId :: Lens.Lens' DetachInternetGateway Core.Text
+detachInternetGateway_internetGatewayId :: Lens.Lens' DetachInternetGateway Prelude.Text
 detachInternetGateway_internetGatewayId = Lens.lens (\DetachInternetGateway' {internetGatewayId} -> internetGatewayId) (\s@DetachInternetGateway' {} a -> s {internetGatewayId = a} :: DetachInternetGateway)
 
 -- | The ID of the VPC.
-detachInternetGateway_vpcId :: Lens.Lens' DetachInternetGateway Core.Text
+detachInternetGateway_vpcId :: Lens.Lens' DetachInternetGateway Prelude.Text
 detachInternetGateway_vpcId = Lens.lens (\DetachInternetGateway' {vpcId} -> vpcId) (\s@DetachInternetGateway' {} a -> s {vpcId = a} :: DetachInternetGateway)
 
 instance Core.AWSRequest DetachInternetGateway where
@@ -111,22 +112,23 @@ instance Core.AWSRequest DetachInternetGateway where
   response =
     Response.receiveNull DetachInternetGatewayResponse'
 
-instance Core.Hashable DetachInternetGateway
+instance Prelude.Hashable DetachInternetGateway
 
-instance Core.NFData DetachInternetGateway
+instance Prelude.NFData DetachInternetGateway
 
 instance Core.ToHeaders DetachInternetGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetachInternetGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachInternetGateway where
   toQuery DetachInternetGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachInternetGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DetachInternetGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "InternetGatewayId" Core.=: internetGatewayId,
         "VpcId" Core.=: vpcId
@@ -136,7 +138,7 @@ instance Core.ToQuery DetachInternetGateway where
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachInternetGatewayResponse' with all optional fields omitted.
@@ -147,4 +149,4 @@ newDetachInternetGatewayResponse ::
 newDetachInternetGatewayResponse =
   DetachInternetGatewayResponse'
 
-instance Core.NFData DetachInternetGatewayResponse
+instance Prelude.NFData DetachInternetGatewayResponse

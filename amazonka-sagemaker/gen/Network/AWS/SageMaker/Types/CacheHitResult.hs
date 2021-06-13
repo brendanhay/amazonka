@@ -21,15 +21,16 @@ module Network.AWS.SageMaker.Types.CacheHitResult where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on the cache hit of a pipeline execution step.
 --
 -- /See:/ 'newCacheHitResult' smart constructor.
 data CacheHitResult = CacheHitResult'
   { -- | The Amazon Resource Name (ARN) of the pipeline execution.
-    sourcePipelineExecutionArn :: Core.Maybe Core.Text
+    sourcePipelineExecutionArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CacheHitResult' with all optional fields omitted.
@@ -45,11 +46,11 @@ newCacheHitResult ::
 newCacheHitResult =
   CacheHitResult'
     { sourcePipelineExecutionArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
-cacheHitResult_sourcePipelineExecutionArn :: Lens.Lens' CacheHitResult (Core.Maybe Core.Text)
+cacheHitResult_sourcePipelineExecutionArn :: Lens.Lens' CacheHitResult (Prelude.Maybe Prelude.Text)
 cacheHitResult_sourcePipelineExecutionArn = Lens.lens (\CacheHitResult' {sourcePipelineExecutionArn} -> sourcePipelineExecutionArn) (\s@CacheHitResult' {} a -> s {sourcePipelineExecutionArn = a} :: CacheHitResult)
 
 instance Core.FromJSON CacheHitResult where
@@ -58,9 +59,9 @@ instance Core.FromJSON CacheHitResult where
       "CacheHitResult"
       ( \x ->
           CacheHitResult'
-            Core.<$> (x Core..:? "SourcePipelineExecutionArn")
+            Prelude.<$> (x Core..:? "SourcePipelineExecutionArn")
       )
 
-instance Core.Hashable CacheHitResult
+instance Prelude.Hashable CacheHitResult
 
-instance Core.NFData CacheHitResult
+instance Prelude.NFData CacheHitResult

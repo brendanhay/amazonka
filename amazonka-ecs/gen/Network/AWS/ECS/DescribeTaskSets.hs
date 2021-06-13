@@ -50,25 +50,26 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTaskSets' smart constructor.
 data DescribeTaskSets = DescribeTaskSets'
   { -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
-    taskSets :: Core.Maybe [Core.Text],
+    taskSets :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether to see the resource tags for the task set. If @TAGS@
     -- is specified, the tags are included in the response. If this field is
     -- omitted, tags are not included in the response.
-    include :: Core.Maybe [TaskSetField],
+    include :: Prelude.Maybe [TaskSetField],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service that the task sets exist in.
-    cluster :: Core.Text,
+    cluster :: Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service that
     -- the task sets exist in.
-    service :: Core.Text
+    service :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTaskSets' with all optional fields omitted.
@@ -91,36 +92,36 @@ data DescribeTaskSets = DescribeTaskSets'
 -- the task sets exist in.
 newDescribeTaskSets ::
   -- | 'cluster'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'service'
-  Core.Text ->
+  Prelude.Text ->
   DescribeTaskSets
 newDescribeTaskSets pCluster_ pService_ =
   DescribeTaskSets'
-    { taskSets = Core.Nothing,
-      include = Core.Nothing,
+    { taskSets = Prelude.Nothing,
+      include = Prelude.Nothing,
       cluster = pCluster_,
       service = pService_
     }
 
 -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
-describeTaskSets_taskSets :: Lens.Lens' DescribeTaskSets (Core.Maybe [Core.Text])
-describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets) (\s@DescribeTaskSets' {} a -> s {taskSets = a} :: DescribeTaskSets) Core.. Lens.mapping Lens._Coerce
+describeTaskSets_taskSets :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [Prelude.Text])
+describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets) (\s@DescribeTaskSets' {} a -> s {taskSets = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to see the resource tags for the task set. If @TAGS@
 -- is specified, the tags are included in the response. If this field is
 -- omitted, tags are not included in the response.
-describeTaskSets_include :: Lens.Lens' DescribeTaskSets (Core.Maybe [TaskSetField])
-describeTaskSets_include = Lens.lens (\DescribeTaskSets' {include} -> include) (\s@DescribeTaskSets' {} a -> s {include = a} :: DescribeTaskSets) Core.. Lens.mapping Lens._Coerce
+describeTaskSets_include :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [TaskSetField])
+describeTaskSets_include = Lens.lens (\DescribeTaskSets' {include} -> include) (\s@DescribeTaskSets' {} a -> s {include = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task sets exist in.
-describeTaskSets_cluster :: Lens.Lens' DescribeTaskSets Core.Text
+describeTaskSets_cluster :: Lens.Lens' DescribeTaskSets Prelude.Text
 describeTaskSets_cluster = Lens.lens (\DescribeTaskSets' {cluster} -> cluster) (\s@DescribeTaskSets' {} a -> s {cluster = a} :: DescribeTaskSets)
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that
 -- the task sets exist in.
-describeTaskSets_service :: Lens.Lens' DescribeTaskSets Core.Text
+describeTaskSets_service :: Lens.Lens' DescribeTaskSets Prelude.Text
 describeTaskSets_service = Lens.lens (\DescribeTaskSets' {service} -> service) (\s@DescribeTaskSets' {} a -> s {service = a} :: DescribeTaskSets)
 
 instance Core.AWSRequest DescribeTaskSets where
@@ -132,55 +133,57 @@ instance Core.AWSRequest DescribeTaskSets where
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskSetsResponse'
-            Core.<$> (x Core..?> "taskSets" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "failures" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "taskSets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTaskSets
+instance Prelude.Hashable DescribeTaskSets
 
-instance Core.NFData DescribeTaskSets
+instance Prelude.NFData DescribeTaskSets
 
 instance Core.ToHeaders DescribeTaskSets where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeTaskSets where
   toJSON DescribeTaskSets' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("taskSets" Core..=) Core.<$> taskSets,
-            ("include" Core..=) Core.<$> include,
-            Core.Just ("cluster" Core..= cluster),
-            Core.Just ("service" Core..= service)
+      ( Prelude.catMaybes
+          [ ("taskSets" Core..=) Prelude.<$> taskSets,
+            ("include" Core..=) Prelude.<$> include,
+            Prelude.Just ("cluster" Core..= cluster),
+            Prelude.Just ("service" Core..= service)
           ]
       )
 
 instance Core.ToPath DescribeTaskSets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTaskSets where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTaskSetsResponse' smart constructor.
 data DescribeTaskSetsResponse = DescribeTaskSetsResponse'
   { -- | The list of task sets described.
-    taskSets :: Core.Maybe [TaskSet],
+    taskSets :: Prelude.Maybe [TaskSet],
     -- | Any failures associated with the call.
-    failures :: Core.Maybe [Failure],
+    failures :: Prelude.Maybe [Failure],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTaskSetsResponse' with all optional fields omitted.
@@ -197,25 +200,26 @@ data DescribeTaskSetsResponse = DescribeTaskSetsResponse'
 -- 'httpStatus', 'describeTaskSetsResponse_httpStatus' - The response's http status code.
 newDescribeTaskSetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTaskSetsResponse
 newDescribeTaskSetsResponse pHttpStatus_ =
   DescribeTaskSetsResponse'
-    { taskSets = Core.Nothing,
-      failures = Core.Nothing,
+    { taskSets =
+        Prelude.Nothing,
+      failures = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of task sets described.
-describeTaskSetsResponse_taskSets :: Lens.Lens' DescribeTaskSetsResponse (Core.Maybe [TaskSet])
-describeTaskSetsResponse_taskSets = Lens.lens (\DescribeTaskSetsResponse' {taskSets} -> taskSets) (\s@DescribeTaskSetsResponse' {} a -> s {taskSets = a} :: DescribeTaskSetsResponse) Core.. Lens.mapping Lens._Coerce
+describeTaskSetsResponse_taskSets :: Lens.Lens' DescribeTaskSetsResponse (Prelude.Maybe [TaskSet])
+describeTaskSetsResponse_taskSets = Lens.lens (\DescribeTaskSetsResponse' {taskSets} -> taskSets) (\s@DescribeTaskSetsResponse' {} a -> s {taskSets = a} :: DescribeTaskSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any failures associated with the call.
-describeTaskSetsResponse_failures :: Lens.Lens' DescribeTaskSetsResponse (Core.Maybe [Failure])
-describeTaskSetsResponse_failures = Lens.lens (\DescribeTaskSetsResponse' {failures} -> failures) (\s@DescribeTaskSetsResponse' {} a -> s {failures = a} :: DescribeTaskSetsResponse) Core.. Lens.mapping Lens._Coerce
+describeTaskSetsResponse_failures :: Lens.Lens' DescribeTaskSetsResponse (Prelude.Maybe [Failure])
+describeTaskSetsResponse_failures = Lens.lens (\DescribeTaskSetsResponse' {failures} -> failures) (\s@DescribeTaskSetsResponse' {} a -> s {failures = a} :: DescribeTaskSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTaskSetsResponse_httpStatus :: Lens.Lens' DescribeTaskSetsResponse Core.Int
+describeTaskSetsResponse_httpStatus :: Lens.Lens' DescribeTaskSetsResponse Prelude.Int
 describeTaskSetsResponse_httpStatus = Lens.lens (\DescribeTaskSetsResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskSetsResponse' {} a -> s {httpStatus = a} :: DescribeTaskSetsResponse)
 
-instance Core.NFData DescribeTaskSetsResponse
+instance Prelude.NFData DescribeTaskSetsResponse

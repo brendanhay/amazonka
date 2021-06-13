@@ -48,6 +48,7 @@ where
 import Network.AWS.Budgets.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ import qualified Network.AWS.Response as Response
 data DescribeBudget = DescribeBudget'
   { -- | The @accountId@ that is associated with the budget that you want a
     -- description of.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the budget that you want a description of.
-    budgetName :: Core.Text
+    budgetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBudget' with all optional fields omitted.
@@ -77,9 +78,9 @@ data DescribeBudget = DescribeBudget'
 -- 'budgetName', 'describeBudget_budgetName' - The name of the budget that you want a description of.
 newDescribeBudget ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'budgetName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeBudget
 newDescribeBudget pAccountId_ pBudgetName_ =
   DescribeBudget'
@@ -89,11 +90,11 @@ newDescribeBudget pAccountId_ pBudgetName_ =
 
 -- | The @accountId@ that is associated with the budget that you want a
 -- description of.
-describeBudget_accountId :: Lens.Lens' DescribeBudget Core.Text
+describeBudget_accountId :: Lens.Lens' DescribeBudget Prelude.Text
 describeBudget_accountId = Lens.lens (\DescribeBudget' {accountId} -> accountId) (\s@DescribeBudget' {} a -> s {accountId = a} :: DescribeBudget)
 
 -- | The name of the budget that you want a description of.
-describeBudget_budgetName :: Lens.Lens' DescribeBudget Core.Text
+describeBudget_budgetName :: Lens.Lens' DescribeBudget Prelude.Text
 describeBudget_budgetName = Lens.lens (\DescribeBudget' {budgetName} -> budgetName) (\s@DescribeBudget' {} a -> s {budgetName = a} :: DescribeBudget)
 
 instance Core.AWSRequest DescribeBudget where
@@ -105,52 +106,54 @@ instance Core.AWSRequest DescribeBudget where
     Response.receiveJSON
       ( \s h x ->
           DescribeBudgetResponse'
-            Core.<$> (x Core..?> "Budget")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Budget")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeBudget
+instance Prelude.Hashable DescribeBudget
 
-instance Core.NFData DescribeBudget
+instance Prelude.NFData DescribeBudget
 
 instance Core.ToHeaders DescribeBudget where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSBudgetServiceGateway.DescribeBudget" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeBudget where
   toJSON DescribeBudget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AccountId" Core..= accountId),
-            Core.Just ("BudgetName" Core..= budgetName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just ("BudgetName" Core..= budgetName)
           ]
       )
 
 instance Core.ToPath DescribeBudget where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeBudget where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response of DescribeBudget
 --
 -- /See:/ 'newDescribeBudgetResponse' smart constructor.
 data DescribeBudgetResponse = DescribeBudgetResponse'
   { -- | The description of the budget.
-    budget :: Core.Maybe Budget,
+    budget :: Prelude.Maybe Budget,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBudgetResponse' with all optional fields omitted.
@@ -165,20 +168,20 @@ data DescribeBudgetResponse = DescribeBudgetResponse'
 -- 'httpStatus', 'describeBudgetResponse_httpStatus' - The response's http status code.
 newDescribeBudgetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeBudgetResponse
 newDescribeBudgetResponse pHttpStatus_ =
   DescribeBudgetResponse'
-    { budget = Core.Nothing,
+    { budget = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The description of the budget.
-describeBudgetResponse_budget :: Lens.Lens' DescribeBudgetResponse (Core.Maybe Budget)
+describeBudgetResponse_budget :: Lens.Lens' DescribeBudgetResponse (Prelude.Maybe Budget)
 describeBudgetResponse_budget = Lens.lens (\DescribeBudgetResponse' {budget} -> budget) (\s@DescribeBudgetResponse' {} a -> s {budget = a} :: DescribeBudgetResponse)
 
 -- | The response's http status code.
-describeBudgetResponse_httpStatus :: Lens.Lens' DescribeBudgetResponse Core.Int
+describeBudgetResponse_httpStatus :: Lens.Lens' DescribeBudgetResponse Prelude.Int
 describeBudgetResponse_httpStatus = Lens.lens (\DescribeBudgetResponse' {httpStatus} -> httpStatus) (\s@DescribeBudgetResponse' {} a -> s {httpStatus = a} :: DescribeBudgetResponse)
 
-instance Core.NFData DescribeBudgetResponse
+instance Prelude.NFData DescribeBudgetResponse

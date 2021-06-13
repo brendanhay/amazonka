@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data AssociateConfigurationItemsToApplication = AssociateConfigurationItemsToApplication'
   { -- | The configuration ID of an application with which items are to be
     -- associated.
-    applicationConfigurationId :: Core.Text,
+    applicationConfigurationId :: Prelude.Text,
     -- | The ID of each configuration item to be associated with an application.
-    configurationIds :: [Core.Text]
+    configurationIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateConfigurationItemsToApplication' with all optional fields omitted.
@@ -69,24 +70,24 @@ data AssociateConfigurationItemsToApplication = AssociateConfigurationItemsToApp
 -- 'configurationIds', 'associateConfigurationItemsToApplication_configurationIds' - The ID of each configuration item to be associated with an application.
 newAssociateConfigurationItemsToApplication ::
   -- | 'applicationConfigurationId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateConfigurationItemsToApplication
 newAssociateConfigurationItemsToApplication
   pApplicationConfigurationId_ =
     AssociateConfigurationItemsToApplication'
       { applicationConfigurationId =
           pApplicationConfigurationId_,
-        configurationIds = Core.mempty
+        configurationIds = Prelude.mempty
       }
 
 -- | The configuration ID of an application with which items are to be
 -- associated.
-associateConfigurationItemsToApplication_applicationConfigurationId :: Lens.Lens' AssociateConfigurationItemsToApplication Core.Text
+associateConfigurationItemsToApplication_applicationConfigurationId :: Lens.Lens' AssociateConfigurationItemsToApplication Prelude.Text
 associateConfigurationItemsToApplication_applicationConfigurationId = Lens.lens (\AssociateConfigurationItemsToApplication' {applicationConfigurationId} -> applicationConfigurationId) (\s@AssociateConfigurationItemsToApplication' {} a -> s {applicationConfigurationId = a} :: AssociateConfigurationItemsToApplication)
 
 -- | The ID of each configuration item to be associated with an application.
-associateConfigurationItemsToApplication_configurationIds :: Lens.Lens' AssociateConfigurationItemsToApplication [Core.Text]
-associateConfigurationItemsToApplication_configurationIds = Lens.lens (\AssociateConfigurationItemsToApplication' {configurationIds} -> configurationIds) (\s@AssociateConfigurationItemsToApplication' {} a -> s {configurationIds = a} :: AssociateConfigurationItemsToApplication) Core.. Lens._Coerce
+associateConfigurationItemsToApplication_configurationIds :: Lens.Lens' AssociateConfigurationItemsToApplication [Prelude.Text]
+associateConfigurationItemsToApplication_configurationIds = Lens.lens (\AssociateConfigurationItemsToApplication' {configurationIds} -> configurationIds) (\s@AssociateConfigurationItemsToApplication' {} a -> s {configurationIds = a} :: AssociateConfigurationItemsToApplication) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -101,15 +102,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           AssociateConfigurationItemsToApplicationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AssociateConfigurationItemsToApplication
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateConfigurationItemsToApplication
 
 instance
@@ -117,14 +118,16 @@ instance
     AssociateConfigurationItemsToApplication
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -134,12 +137,12 @@ instance
   where
   toJSON AssociateConfigurationItemsToApplication' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "applicationConfigurationId"
                   Core..= applicationConfigurationId
               ),
-            Core.Just
+            Prelude.Just
               ("configurationIds" Core..= configurationIds)
           ]
       )
@@ -148,20 +151,20 @@ instance
   Core.ToPath
     AssociateConfigurationItemsToApplication
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AssociateConfigurationItemsToApplication
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateConfigurationItemsToApplicationResponse' smart constructor.
 data AssociateConfigurationItemsToApplicationResponse = AssociateConfigurationItemsToApplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateConfigurationItemsToApplicationResponse' with all optional fields omitted.
@@ -174,7 +177,7 @@ data AssociateConfigurationItemsToApplicationResponse = AssociateConfigurationIt
 -- 'httpStatus', 'associateConfigurationItemsToApplicationResponse_httpStatus' - The response's http status code.
 newAssociateConfigurationItemsToApplicationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateConfigurationItemsToApplicationResponse
 newAssociateConfigurationItemsToApplicationResponse
   pHttpStatus_ =
@@ -184,9 +187,9 @@ newAssociateConfigurationItemsToApplicationResponse
       }
 
 -- | The response's http status code.
-associateConfigurationItemsToApplicationResponse_httpStatus :: Lens.Lens' AssociateConfigurationItemsToApplicationResponse Core.Int
+associateConfigurationItemsToApplicationResponse_httpStatus :: Lens.Lens' AssociateConfigurationItemsToApplicationResponse Prelude.Int
 associateConfigurationItemsToApplicationResponse_httpStatus = Lens.lens (\AssociateConfigurationItemsToApplicationResponse' {httpStatus} -> httpStatus) (\s@AssociateConfigurationItemsToApplicationResponse' {} a -> s {httpStatus = a} :: AssociateConfigurationItemsToApplicationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateConfigurationItemsToApplicationResponse

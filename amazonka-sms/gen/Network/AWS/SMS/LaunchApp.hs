@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -47,9 +48,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newLaunchApp' smart constructor.
 data LaunchApp = LaunchApp'
   { -- | The ID of the application.
-    appId :: Core.Maybe Core.Text
+    appId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchApp' with all optional fields omitted.
@@ -62,10 +63,10 @@ data LaunchApp = LaunchApp'
 -- 'appId', 'launchApp_appId' - The ID of the application.
 newLaunchApp ::
   LaunchApp
-newLaunchApp = LaunchApp' {appId = Core.Nothing}
+newLaunchApp = LaunchApp' {appId = Prelude.Nothing}
 
 -- | The ID of the application.
-launchApp_appId :: Lens.Lens' LaunchApp (Core.Maybe Core.Text)
+launchApp_appId :: Lens.Lens' LaunchApp (Prelude.Maybe Prelude.Text)
 launchApp_appId = Lens.lens (\LaunchApp' {appId} -> appId) (\s@LaunchApp' {} a -> s {appId = a} :: LaunchApp)
 
 instance Core.AWSRequest LaunchApp where
@@ -75,43 +76,47 @@ instance Core.AWSRequest LaunchApp where
     Response.receiveEmpty
       ( \s h x ->
           LaunchAppResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable LaunchApp
+instance Prelude.Hashable LaunchApp
 
-instance Core.NFData LaunchApp
+instance Prelude.NFData LaunchApp
 
 instance Core.ToHeaders LaunchApp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.LaunchApp" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON LaunchApp where
   toJSON LaunchApp' {..} =
     Core.object
-      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
+      ( Prelude.catMaybes
+          [("appId" Core..=) Prelude.<$> appId]
+      )
 
 instance Core.ToPath LaunchApp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery LaunchApp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newLaunchAppResponse' smart constructor.
 data LaunchAppResponse = LaunchAppResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchAppResponse' with all optional fields omitted.
@@ -124,13 +129,13 @@ data LaunchAppResponse = LaunchAppResponse'
 -- 'httpStatus', 'launchAppResponse_httpStatus' - The response's http status code.
 newLaunchAppResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   LaunchAppResponse
 newLaunchAppResponse pHttpStatus_ =
   LaunchAppResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-launchAppResponse_httpStatus :: Lens.Lens' LaunchAppResponse Core.Int
+launchAppResponse_httpStatus :: Lens.Lens' LaunchAppResponse Prelude.Int
 launchAppResponse_httpStatus = Lens.lens (\LaunchAppResponse' {httpStatus} -> httpStatus) (\s@LaunchAppResponse' {} a -> s {httpStatus = a} :: LaunchAppResponse)
 
-instance Core.NFData LaunchAppResponse
+instance Prelude.NFData LaunchAppResponse

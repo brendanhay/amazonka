@@ -21,19 +21,20 @@ module Network.AWS.SWF.Types.TimerFiredEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @TimerFired@ event.
 --
 -- /See:/ 'newTimerFiredEventAttributes' smart constructor.
 data TimerFiredEventAttributes = TimerFiredEventAttributes'
   { -- | The unique ID of the timer that fired.
-    timerId :: Core.Text,
+    timerId :: Prelude.Text,
     -- | The ID of the @TimerStarted@ event that was recorded when this timer was
     -- started. This information can be useful for diagnosing problems by
     -- tracing back the chain of events leading up to this event.
-    startedEventId :: Core.Integer
+    startedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimerFiredEventAttributes' with all optional fields omitted.
@@ -50,9 +51,9 @@ data TimerFiredEventAttributes = TimerFiredEventAttributes'
 -- tracing back the chain of events leading up to this event.
 newTimerFiredEventAttributes ::
   -- | 'timerId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   TimerFiredEventAttributes
 newTimerFiredEventAttributes
   pTimerId_
@@ -63,13 +64,13 @@ newTimerFiredEventAttributes
       }
 
 -- | The unique ID of the timer that fired.
-timerFiredEventAttributes_timerId :: Lens.Lens' TimerFiredEventAttributes Core.Text
+timerFiredEventAttributes_timerId :: Lens.Lens' TimerFiredEventAttributes Prelude.Text
 timerFiredEventAttributes_timerId = Lens.lens (\TimerFiredEventAttributes' {timerId} -> timerId) (\s@TimerFiredEventAttributes' {} a -> s {timerId = a} :: TimerFiredEventAttributes)
 
 -- | The ID of the @TimerStarted@ event that was recorded when this timer was
 -- started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-timerFiredEventAttributes_startedEventId :: Lens.Lens' TimerFiredEventAttributes Core.Integer
+timerFiredEventAttributes_startedEventId :: Lens.Lens' TimerFiredEventAttributes Prelude.Integer
 timerFiredEventAttributes_startedEventId = Lens.lens (\TimerFiredEventAttributes' {startedEventId} -> startedEventId) (\s@TimerFiredEventAttributes' {} a -> s {startedEventId = a} :: TimerFiredEventAttributes)
 
 instance Core.FromJSON TimerFiredEventAttributes where
@@ -78,10 +79,10 @@ instance Core.FromJSON TimerFiredEventAttributes where
       "TimerFiredEventAttributes"
       ( \x ->
           TimerFiredEventAttributes'
-            Core.<$> (x Core..: "timerId")
-            Core.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Core..: "timerId")
+            Prelude.<*> (x Core..: "startedEventId")
       )
 
-instance Core.Hashable TimerFiredEventAttributes
+instance Prelude.Hashable TimerFiredEventAttributes
 
-instance Core.NFData TimerFiredEventAttributes
+instance Prelude.NFData TimerFiredEventAttributes

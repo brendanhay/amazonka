@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.DeleteBehavior
 import Network.AWS.Glue.Types.UpdateBehavior
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A policy that specifies update and deletion behaviors for the crawler.
 --
 -- /See:/ 'newSchemaChangePolicy' smart constructor.
 data SchemaChangePolicy = SchemaChangePolicy'
   { -- | The update behavior when the crawler finds a changed schema.
-    updateBehavior :: Core.Maybe UpdateBehavior,
+    updateBehavior :: Prelude.Maybe UpdateBehavior,
     -- | The deletion behavior when the crawler finds a deleted object.
-    deleteBehavior :: Core.Maybe DeleteBehavior
+    deleteBehavior :: Prelude.Maybe DeleteBehavior
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SchemaChangePolicy' with all optional fields omitted.
@@ -50,16 +51,17 @@ newSchemaChangePolicy ::
   SchemaChangePolicy
 newSchemaChangePolicy =
   SchemaChangePolicy'
-    { updateBehavior = Core.Nothing,
-      deleteBehavior = Core.Nothing
+    { updateBehavior =
+        Prelude.Nothing,
+      deleteBehavior = Prelude.Nothing
     }
 
 -- | The update behavior when the crawler finds a changed schema.
-schemaChangePolicy_updateBehavior :: Lens.Lens' SchemaChangePolicy (Core.Maybe UpdateBehavior)
+schemaChangePolicy_updateBehavior :: Lens.Lens' SchemaChangePolicy (Prelude.Maybe UpdateBehavior)
 schemaChangePolicy_updateBehavior = Lens.lens (\SchemaChangePolicy' {updateBehavior} -> updateBehavior) (\s@SchemaChangePolicy' {} a -> s {updateBehavior = a} :: SchemaChangePolicy)
 
 -- | The deletion behavior when the crawler finds a deleted object.
-schemaChangePolicy_deleteBehavior :: Lens.Lens' SchemaChangePolicy (Core.Maybe DeleteBehavior)
+schemaChangePolicy_deleteBehavior :: Lens.Lens' SchemaChangePolicy (Prelude.Maybe DeleteBehavior)
 schemaChangePolicy_deleteBehavior = Lens.lens (\SchemaChangePolicy' {deleteBehavior} -> deleteBehavior) (\s@SchemaChangePolicy' {} a -> s {deleteBehavior = a} :: SchemaChangePolicy)
 
 instance Core.FromJSON SchemaChangePolicy where
@@ -68,19 +70,21 @@ instance Core.FromJSON SchemaChangePolicy where
       "SchemaChangePolicy"
       ( \x ->
           SchemaChangePolicy'
-            Core.<$> (x Core..:? "UpdateBehavior")
-            Core.<*> (x Core..:? "DeleteBehavior")
+            Prelude.<$> (x Core..:? "UpdateBehavior")
+            Prelude.<*> (x Core..:? "DeleteBehavior")
       )
 
-instance Core.Hashable SchemaChangePolicy
+instance Prelude.Hashable SchemaChangePolicy
 
-instance Core.NFData SchemaChangePolicy
+instance Prelude.NFData SchemaChangePolicy
 
 instance Core.ToJSON SchemaChangePolicy where
   toJSON SchemaChangePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("UpdateBehavior" Core..=) Core.<$> updateBehavior,
-            ("DeleteBehavior" Core..=) Core.<$> deleteBehavior
+      ( Prelude.catMaybes
+          [ ("UpdateBehavior" Core..=)
+              Prelude.<$> updateBehavior,
+            ("DeleteBehavior" Core..=)
+              Prelude.<$> deleteBehavior
           ]
       )

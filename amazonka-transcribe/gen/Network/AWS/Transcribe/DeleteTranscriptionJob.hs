@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -45,9 +46,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newDeleteTranscriptionJob' smart constructor.
 data DeleteTranscriptionJob = DeleteTranscriptionJob'
   { -- | The name of the transcription job to be deleted.
-    transcriptionJobName :: Core.Text
+    transcriptionJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTranscriptionJob' with all optional fields omitted.
@@ -60,7 +61,7 @@ data DeleteTranscriptionJob = DeleteTranscriptionJob'
 -- 'transcriptionJobName', 'deleteTranscriptionJob_transcriptionJobName' - The name of the transcription job to be deleted.
 newDeleteTranscriptionJob ::
   -- | 'transcriptionJobName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTranscriptionJob
 newDeleteTranscriptionJob pTranscriptionJobName_ =
   DeleteTranscriptionJob'
@@ -69,7 +70,7 @@ newDeleteTranscriptionJob pTranscriptionJobName_ =
     }
 
 -- | The name of the transcription job to be deleted.
-deleteTranscriptionJob_transcriptionJobName :: Lens.Lens' DeleteTranscriptionJob Core.Text
+deleteTranscriptionJob_transcriptionJobName :: Lens.Lens' DeleteTranscriptionJob Prelude.Text
 deleteTranscriptionJob_transcriptionJobName = Lens.lens (\DeleteTranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@DeleteTranscriptionJob' {} a -> s {transcriptionJobName = a} :: DeleteTranscriptionJob)
 
 instance Core.AWSRequest DeleteTranscriptionJob where
@@ -81,28 +82,30 @@ instance Core.AWSRequest DeleteTranscriptionJob where
     Response.receiveNull
       DeleteTranscriptionJobResponse'
 
-instance Core.Hashable DeleteTranscriptionJob
+instance Prelude.Hashable DeleteTranscriptionJob
 
-instance Core.NFData DeleteTranscriptionJob
+instance Prelude.NFData DeleteTranscriptionJob
 
 instance Core.ToHeaders DeleteTranscriptionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.DeleteTranscriptionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteTranscriptionJob where
   toJSON DeleteTranscriptionJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "TranscriptionJobName"
                   Core..= transcriptionJobName
               )
@@ -110,16 +113,16 @@ instance Core.ToJSON DeleteTranscriptionJob where
       )
 
 instance Core.ToPath DeleteTranscriptionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTranscriptionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTranscriptionJobResponse' smart constructor.
 data DeleteTranscriptionJobResponse = DeleteTranscriptionJobResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTranscriptionJobResponse' with all optional fields omitted.
@@ -130,4 +133,6 @@ newDeleteTranscriptionJobResponse ::
 newDeleteTranscriptionJobResponse =
   DeleteTranscriptionJobResponse'
 
-instance Core.NFData DeleteTranscriptionJobResponse
+instance
+  Prelude.NFData
+    DeleteTranscriptionJobResponse

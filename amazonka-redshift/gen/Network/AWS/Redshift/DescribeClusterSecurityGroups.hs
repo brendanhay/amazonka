@@ -64,6 +64,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -78,13 +79,13 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     -- called @owner@ and @environment@. If you specify both of these tag keys
     -- in the request, Amazon Redshift returns a response with the security
     -- groups that have either or both of these tag keys associated with them.
-    tagKeys :: Core.Maybe [Core.Text],
+    tagKeys :: Prelude.Maybe [Prelude.Text],
     -- | The name of a cluster security group for which you are requesting
     -- details. You can specify either the __Marker__ parameter or a
     -- __ClusterSecurityGroupName__ parameter, but not both.
     --
     -- Example: @securitygroup1@
-    clusterSecurityGroupName :: Core.Maybe Core.Text,
+    clusterSecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | A tag value or values for which you want to return all matching cluster
     -- security groups that are associated with the specified tag value or
     -- values. For example, suppose that you have security groups that are
@@ -92,7 +93,7 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     -- these tag values in the request, Amazon Redshift returns a response with
     -- the security groups that have either or both of these tag values
     -- associated with them.
-    tagValues :: Core.Maybe [Core.Text],
+    tagValues :: Prelude.Maybe [Prelude.Text],
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeClusterSecurityGroups
     -- request exceed the value specified in @MaxRecords@, AWS returns a value
@@ -102,7 +103,7 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     --
     -- Constraints: You can specify either the __ClusterSecurityGroupName__
     -- parameter or the __Marker__ parameter, but not both.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -112,9 +113,9 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterSecurityGroups' with all optional fields omitted.
@@ -169,11 +170,11 @@ newDescribeClusterSecurityGroups ::
 newDescribeClusterSecurityGroups =
   DescribeClusterSecurityGroups'
     { tagKeys =
-        Core.Nothing,
-      clusterSecurityGroupName = Core.Nothing,
-      tagValues = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      clusterSecurityGroupName = Prelude.Nothing,
+      tagValues = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching cluster
@@ -182,15 +183,15 @@ newDescribeClusterSecurityGroups =
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the security
 -- groups that have either or both of these tag keys associated with them.
-describeClusterSecurityGroups_tagKeys :: Lens.Lens' DescribeClusterSecurityGroups (Core.Maybe [Core.Text])
-describeClusterSecurityGroups_tagKeys = Lens.lens (\DescribeClusterSecurityGroups' {tagKeys} -> tagKeys) (\s@DescribeClusterSecurityGroups' {} a -> s {tagKeys = a} :: DescribeClusterSecurityGroups) Core.. Lens.mapping Lens._Coerce
+describeClusterSecurityGroups_tagKeys :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe [Prelude.Text])
+describeClusterSecurityGroups_tagKeys = Lens.lens (\DescribeClusterSecurityGroups' {tagKeys} -> tagKeys) (\s@DescribeClusterSecurityGroups' {} a -> s {tagKeys = a} :: DescribeClusterSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of a cluster security group for which you are requesting
 -- details. You can specify either the __Marker__ parameter or a
 -- __ClusterSecurityGroupName__ parameter, but not both.
 --
 -- Example: @securitygroup1@
-describeClusterSecurityGroups_clusterSecurityGroupName :: Lens.Lens' DescribeClusterSecurityGroups (Core.Maybe Core.Text)
+describeClusterSecurityGroups_clusterSecurityGroupName :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Text)
 describeClusterSecurityGroups_clusterSecurityGroupName = Lens.lens (\DescribeClusterSecurityGroups' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@DescribeClusterSecurityGroups' {} a -> s {clusterSecurityGroupName = a} :: DescribeClusterSecurityGroups)
 
 -- | A tag value or values for which you want to return all matching cluster
@@ -200,8 +201,8 @@ describeClusterSecurityGroups_clusterSecurityGroupName = Lens.lens (\DescribeClu
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the security groups that have either or both of these tag values
 -- associated with them.
-describeClusterSecurityGroups_tagValues :: Lens.Lens' DescribeClusterSecurityGroups (Core.Maybe [Core.Text])
-describeClusterSecurityGroups_tagValues = Lens.lens (\DescribeClusterSecurityGroups' {tagValues} -> tagValues) (\s@DescribeClusterSecurityGroups' {} a -> s {tagValues = a} :: DescribeClusterSecurityGroups) Core.. Lens.mapping Lens._Coerce
+describeClusterSecurityGroups_tagValues :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe [Prelude.Text])
+describeClusterSecurityGroups_tagValues = Lens.lens (\DescribeClusterSecurityGroups' {tagValues} -> tagValues) (\s@DescribeClusterSecurityGroups' {} a -> s {tagValues = a} :: DescribeClusterSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSecurityGroups
@@ -212,7 +213,7 @@ describeClusterSecurityGroups_tagValues = Lens.lens (\DescribeClusterSecurityGro
 --
 -- Constraints: You can specify either the __ClusterSecurityGroupName__
 -- parameter or the __Marker__ parameter, but not both.
-describeClusterSecurityGroups_marker :: Lens.Lens' DescribeClusterSecurityGroups (Core.Maybe Core.Text)
+describeClusterSecurityGroups_marker :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Text)
 describeClusterSecurityGroups_marker = Lens.lens (\DescribeClusterSecurityGroups' {marker} -> marker) (\s@DescribeClusterSecurityGroups' {} a -> s {marker = a} :: DescribeClusterSecurityGroups)
 
 -- | The maximum number of response records to return in each call. If the
@@ -224,7 +225,7 @@ describeClusterSecurityGroups_marker = Lens.lens (\DescribeClusterSecurityGroups
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeClusterSecurityGroups_maxRecords :: Lens.Lens' DescribeClusterSecurityGroups (Core.Maybe Core.Int)
+describeClusterSecurityGroups_maxRecords :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Int)
 describeClusterSecurityGroups_maxRecords = Lens.lens (\DescribeClusterSecurityGroups' {maxRecords} -> maxRecords) (\s@DescribeClusterSecurityGroups' {} a -> s {maxRecords = a} :: DescribeClusterSecurityGroups)
 
 instance Core.AWSPager DescribeClusterSecurityGroups where
@@ -232,22 +233,22 @@ instance Core.AWSPager DescribeClusterSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeClusterSecurityGroupsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterSecurityGroupsResponse_clusterSecurityGroups
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeClusterSecurityGroups_marker
+          Prelude.& describeClusterSecurityGroups_marker
           Lens..~ rs
           Lens.^? describeClusterSecurityGroupsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -262,38 +263,43 @@ instance
       "DescribeClusterSecurityGroupsResult"
       ( \s h x ->
           DescribeClusterSecurityGroupsResponse'
-            Core.<$> ( x Core..@? "ClusterSecurityGroups"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "ClusterSecurityGroup")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "ClusterSecurityGroups"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "ClusterSecurityGroup")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeClusterSecurityGroups
+instance
+  Prelude.Hashable
+    DescribeClusterSecurityGroups
 
-instance Core.NFData DescribeClusterSecurityGroups
+instance Prelude.NFData DescribeClusterSecurityGroups
 
 instance Core.ToHeaders DescribeClusterSecurityGroups where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeClusterSecurityGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeClusterSecurityGroups where
   toQuery DescribeClusterSecurityGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusterSecurityGroups" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ( "DescribeClusterSecurityGroups" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "TagKeys"
           Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Core.<$> tagKeys),
+            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
         "ClusterSecurityGroupName"
           Core.=: clusterSecurityGroupName,
         "TagValues"
           Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Core.<$> tagValues),
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
       ]
@@ -303,18 +309,18 @@ instance Core.ToQuery DescribeClusterSecurityGroups where
 -- /See:/ 'newDescribeClusterSecurityGroupsResponse' smart constructor.
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
   { -- | A list of ClusterSecurityGroup instances.
-    clusterSecurityGroups :: Core.Maybe [ClusterSecurityGroup],
+    clusterSecurityGroups :: Prelude.Maybe [ClusterSecurityGroup],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterSecurityGroupsResponse' with all optional fields omitted.
@@ -336,19 +342,19 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
 -- 'httpStatus', 'describeClusterSecurityGroupsResponse_httpStatus' - The response's http status code.
 newDescribeClusterSecurityGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeClusterSecurityGroupsResponse
 newDescribeClusterSecurityGroupsResponse pHttpStatus_ =
   DescribeClusterSecurityGroupsResponse'
     { clusterSecurityGroups =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of ClusterSecurityGroup instances.
-describeClusterSecurityGroupsResponse_clusterSecurityGroups :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Core.Maybe [ClusterSecurityGroup])
-describeClusterSecurityGroupsResponse_clusterSecurityGroups = Lens.lens (\DescribeClusterSecurityGroupsResponse' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@DescribeClusterSecurityGroupsResponse' {} a -> s {clusterSecurityGroups = a} :: DescribeClusterSecurityGroupsResponse) Core.. Lens.mapping Lens._Coerce
+describeClusterSecurityGroupsResponse_clusterSecurityGroups :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Prelude.Maybe [ClusterSecurityGroup])
+describeClusterSecurityGroupsResponse_clusterSecurityGroups = Lens.lens (\DescribeClusterSecurityGroupsResponse' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@DescribeClusterSecurityGroupsResponse' {} a -> s {clusterSecurityGroups = a} :: DescribeClusterSecurityGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -356,13 +362,13 @@ describeClusterSecurityGroupsResponse_clusterSecurityGroups = Lens.lens (\Descri
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeClusterSecurityGroupsResponse_marker :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Core.Maybe Core.Text)
+describeClusterSecurityGroupsResponse_marker :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
 describeClusterSecurityGroupsResponse_marker = Lens.lens (\DescribeClusterSecurityGroupsResponse' {marker} -> marker) (\s@DescribeClusterSecurityGroupsResponse' {} a -> s {marker = a} :: DescribeClusterSecurityGroupsResponse)
 
 -- | The response's http status code.
-describeClusterSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeClusterSecurityGroupsResponse Core.Int
+describeClusterSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeClusterSecurityGroupsResponse Prelude.Int
 describeClusterSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeClusterSecurityGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterSecurityGroupsResponse' {} a -> s {httpStatus = a} :: DescribeClusterSecurityGroupsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeClusterSecurityGroupsResponse

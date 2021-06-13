@@ -104,6 +104,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -113,7 +114,7 @@ import qualified Network.AWS.Response as Response
 data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
   { -- | Information to be added to all events related to this matchmaking
     -- configuration.
-    customEventData :: Core.Maybe Core.Text,
+    customEventData :: Prelude.Maybe Prelude.Text,
     -- | A set of custom properties for a game session, formatted as key-value
     -- pairs. These properties are passed to a game server process in the
     -- GameSession object with a request to start a new game session (see
@@ -121,7 +122,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- This information is added to the new GameSession object that is created
     -- for a successful match. This parameter is not used if @FlexMatchMode@ is
     -- set to @STANDALONE@.
-    gameProperties :: Core.Maybe [GameProperty],
+    gameProperties :: Prelude.Maybe [GameProperty],
     -- | Indicates whether this matchmaking configuration is being used with
     -- GameLift hosting or as a standalone matchmaking solution.
     --
@@ -132,7 +133,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     --
     -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
     --     GameLift queue to start a game session for the match.
-    flexMatchMode :: Core.Maybe FlexMatchMode,
+    flexMatchMode :: Prelude.Maybe FlexMatchMode,
     -- | The method used to backfill game sessions that are created with this
     -- matchmaking configuration. Specify @MANUAL@ when your game manages
     -- backfill requests manually or does not use the match backfill feature.
@@ -142,18 +143,18 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch>.
     -- Automatic backfill is not available when @FlexMatchMode@ is set to
     -- @STANDALONE@.
-    backfillMode :: Core.Maybe BackfillMode,
+    backfillMode :: Prelude.Maybe BackfillMode,
     -- | The number of player slots in a match to keep open for future players.
     -- For example, assume that the configuration\'s rule set specifies a match
     -- for a single 12-person team. If the additional player count is set to 2,
     -- only 10 players are initially selected for the match. This parameter is
     -- not used if @FlexMatchMode@ is set to @STANDALONE@.
-    additionalPlayerCount :: Core.Maybe Core.Natural,
+    additionalPlayerCount :: Prelude.Maybe Prelude.Natural,
     -- | The length of time (in seconds) to wait for players to accept a proposed
     -- match, if acceptance is required. If any player rejects the match or
     -- fails to accept before the timeout, the tickets are returned to the
     -- ticket pool and continue to be evaluated for an acceptable match.
-    acceptanceTimeoutSeconds :: Core.Maybe Core.Natural,
+    acceptanceTimeoutSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A set of custom game session properties, formatted as a single string
     -- value. This data is passed to a game server process in the GameSession
     -- object with a request to start a new game session (see
@@ -161,7 +162,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- This information is added to the new GameSession object that is created
     -- for a successful match. This parameter is not used if @FlexMatchMode@ is
     -- set to @STANDALONE@.
-    gameSessionData :: Core.Maybe Core.Text,
+    gameSessionData :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name
     -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
     -- that is assigned to a GameLift game session queue resource and uniquely
@@ -170,9 +171,9 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- sessions for matches that are created with this matchmaking
     -- configuration. If @FlexMatchMode@ is set to @STANDALONE@, do not set
     -- this parameter.
-    gameSessionQueueArns :: Core.Maybe [Core.Text],
+    gameSessionQueueArns :: Prelude.Maybe [Prelude.Text],
     -- | An SNS topic ARN that is set up to receive matchmaking notifications.
-    notificationTarget :: Core.Maybe Core.Text,
+    notificationTarget :: Prelude.Maybe Prelude.Text,
     -- | A list of labels to assign to the new matchmaking configuration
     -- resource. Tags are developer-defined key-value pairs. Tagging AWS
     -- resources are useful for resource management, access management and cost
@@ -182,30 +183,30 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A human-readable description of the matchmaking configuration.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a matchmaking configuration. This name is used
     -- to identify the configuration associated with a matchmaking request or
     -- ticket.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The maximum duration, in seconds, that a matchmaking ticket can remain
     -- in process before timing out. Requests that fail due to timing out can
     -- be resubmitted as needed.
-    requestTimeoutSeconds :: Core.Natural,
+    requestTimeoutSeconds :: Prelude.Natural,
     -- | A flag that determines whether a match that was created with this
     -- configuration must be accepted by the matched players. To require
     -- acceptance, set to @TRUE@. With this option enabled, matchmaking tickets
     -- use the status @REQUIRES_ACCEPTANCE@ to indicate when a completed
     -- potential match is waiting for player acceptance.
-    acceptanceRequired :: Core.Bool,
+    acceptanceRequired :: Prelude.Bool,
     -- | A unique identifier for a matchmaking rule set to use with this
     -- configuration. You can use either the rule set name or ARN value. A
     -- matchmaking configuration can only use rule sets that are defined in the
     -- same Region.
-    ruleSetName :: Core.Text
+    ruleSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMatchmakingConfiguration' with all optional fields omitted.
@@ -309,13 +310,13 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- same Region.
 newCreateMatchmakingConfiguration ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'requestTimeoutSeconds'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'acceptanceRequired'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'ruleSetName'
-  Core.Text ->
+  Prelude.Text ->
   CreateMatchmakingConfiguration
 newCreateMatchmakingConfiguration
   pName_
@@ -324,17 +325,17 @@ newCreateMatchmakingConfiguration
   pRuleSetName_ =
     CreateMatchmakingConfiguration'
       { customEventData =
-          Core.Nothing,
-        gameProperties = Core.Nothing,
-        flexMatchMode = Core.Nothing,
-        backfillMode = Core.Nothing,
-        additionalPlayerCount = Core.Nothing,
-        acceptanceTimeoutSeconds = Core.Nothing,
-        gameSessionData = Core.Nothing,
-        gameSessionQueueArns = Core.Nothing,
-        notificationTarget = Core.Nothing,
-        tags = Core.Nothing,
-        description = Core.Nothing,
+          Prelude.Nothing,
+        gameProperties = Prelude.Nothing,
+        flexMatchMode = Prelude.Nothing,
+        backfillMode = Prelude.Nothing,
+        additionalPlayerCount = Prelude.Nothing,
+        acceptanceTimeoutSeconds = Prelude.Nothing,
+        gameSessionData = Prelude.Nothing,
+        gameSessionQueueArns = Prelude.Nothing,
+        notificationTarget = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         name = pName_,
         requestTimeoutSeconds =
           pRequestTimeoutSeconds_,
@@ -344,7 +345,7 @@ newCreateMatchmakingConfiguration
 
 -- | Information to be added to all events related to this matchmaking
 -- configuration.
-createMatchmakingConfiguration_customEventData :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe Core.Text)
+createMatchmakingConfiguration_customEventData :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 createMatchmakingConfiguration_customEventData = Lens.lens (\CreateMatchmakingConfiguration' {customEventData} -> customEventData) (\s@CreateMatchmakingConfiguration' {} a -> s {customEventData = a} :: CreateMatchmakingConfiguration)
 
 -- | A set of custom properties for a game session, formatted as key-value
@@ -354,8 +355,8 @@ createMatchmakingConfiguration_customEventData = Lens.lens (\CreateMatchmakingCo
 -- This information is added to the new GameSession object that is created
 -- for a successful match. This parameter is not used if @FlexMatchMode@ is
 -- set to @STANDALONE@.
-createMatchmakingConfiguration_gameProperties :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe [GameProperty])
-createMatchmakingConfiguration_gameProperties = Lens.lens (\CreateMatchmakingConfiguration' {gameProperties} -> gameProperties) (\s@CreateMatchmakingConfiguration' {} a -> s {gameProperties = a} :: CreateMatchmakingConfiguration) Core.. Lens.mapping Lens._Coerce
+createMatchmakingConfiguration_gameProperties :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe [GameProperty])
+createMatchmakingConfiguration_gameProperties = Lens.lens (\CreateMatchmakingConfiguration' {gameProperties} -> gameProperties) (\s@CreateMatchmakingConfiguration' {} a -> s {gameProperties = a} :: CreateMatchmakingConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether this matchmaking configuration is being used with
 -- GameLift hosting or as a standalone matchmaking solution.
@@ -367,7 +368,7 @@ createMatchmakingConfiguration_gameProperties = Lens.lens (\CreateMatchmakingCon
 --
 -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
 --     GameLift queue to start a game session for the match.
-createMatchmakingConfiguration_flexMatchMode :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe FlexMatchMode)
+createMatchmakingConfiguration_flexMatchMode :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe FlexMatchMode)
 createMatchmakingConfiguration_flexMatchMode = Lens.lens (\CreateMatchmakingConfiguration' {flexMatchMode} -> flexMatchMode) (\s@CreateMatchmakingConfiguration' {} a -> s {flexMatchMode = a} :: CreateMatchmakingConfiguration)
 
 -- | The method used to backfill game sessions that are created with this
@@ -379,7 +380,7 @@ createMatchmakingConfiguration_flexMatchMode = Lens.lens (\CreateMatchmakingConf
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch>.
 -- Automatic backfill is not available when @FlexMatchMode@ is set to
 -- @STANDALONE@.
-createMatchmakingConfiguration_backfillMode :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe BackfillMode)
+createMatchmakingConfiguration_backfillMode :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe BackfillMode)
 createMatchmakingConfiguration_backfillMode = Lens.lens (\CreateMatchmakingConfiguration' {backfillMode} -> backfillMode) (\s@CreateMatchmakingConfiguration' {} a -> s {backfillMode = a} :: CreateMatchmakingConfiguration)
 
 -- | The number of player slots in a match to keep open for future players.
@@ -387,14 +388,14 @@ createMatchmakingConfiguration_backfillMode = Lens.lens (\CreateMatchmakingConfi
 -- for a single 12-person team. If the additional player count is set to 2,
 -- only 10 players are initially selected for the match. This parameter is
 -- not used if @FlexMatchMode@ is set to @STANDALONE@.
-createMatchmakingConfiguration_additionalPlayerCount :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe Core.Natural)
+createMatchmakingConfiguration_additionalPlayerCount :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Natural)
 createMatchmakingConfiguration_additionalPlayerCount = Lens.lens (\CreateMatchmakingConfiguration' {additionalPlayerCount} -> additionalPlayerCount) (\s@CreateMatchmakingConfiguration' {} a -> s {additionalPlayerCount = a} :: CreateMatchmakingConfiguration)
 
 -- | The length of time (in seconds) to wait for players to accept a proposed
 -- match, if acceptance is required. If any player rejects the match or
 -- fails to accept before the timeout, the tickets are returned to the
 -- ticket pool and continue to be evaluated for an acceptable match.
-createMatchmakingConfiguration_acceptanceTimeoutSeconds :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe Core.Natural)
+createMatchmakingConfiguration_acceptanceTimeoutSeconds :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Natural)
 createMatchmakingConfiguration_acceptanceTimeoutSeconds = Lens.lens (\CreateMatchmakingConfiguration' {acceptanceTimeoutSeconds} -> acceptanceTimeoutSeconds) (\s@CreateMatchmakingConfiguration' {} a -> s {acceptanceTimeoutSeconds = a} :: CreateMatchmakingConfiguration)
 
 -- | A set of custom game session properties, formatted as a single string
@@ -404,7 +405,7 @@ createMatchmakingConfiguration_acceptanceTimeoutSeconds = Lens.lens (\CreateMatc
 -- This information is added to the new GameSession object that is created
 -- for a successful match. This parameter is not used if @FlexMatchMode@ is
 -- set to @STANDALONE@.
-createMatchmakingConfiguration_gameSessionData :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe Core.Text)
+createMatchmakingConfiguration_gameSessionData :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 createMatchmakingConfiguration_gameSessionData = Lens.lens (\CreateMatchmakingConfiguration' {gameSessionData} -> gameSessionData) (\s@CreateMatchmakingConfiguration' {} a -> s {gameSessionData = a} :: CreateMatchmakingConfiguration)
 
 -- | Amazon Resource Name
@@ -415,11 +416,11 @@ createMatchmakingConfiguration_gameSessionData = Lens.lens (\CreateMatchmakingCo
 -- sessions for matches that are created with this matchmaking
 -- configuration. If @FlexMatchMode@ is set to @STANDALONE@, do not set
 -- this parameter.
-createMatchmakingConfiguration_gameSessionQueueArns :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe [Core.Text])
-createMatchmakingConfiguration_gameSessionQueueArns = Lens.lens (\CreateMatchmakingConfiguration' {gameSessionQueueArns} -> gameSessionQueueArns) (\s@CreateMatchmakingConfiguration' {} a -> s {gameSessionQueueArns = a} :: CreateMatchmakingConfiguration) Core.. Lens.mapping Lens._Coerce
+createMatchmakingConfiguration_gameSessionQueueArns :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe [Prelude.Text])
+createMatchmakingConfiguration_gameSessionQueueArns = Lens.lens (\CreateMatchmakingConfiguration' {gameSessionQueueArns} -> gameSessionQueueArns) (\s@CreateMatchmakingConfiguration' {} a -> s {gameSessionQueueArns = a} :: CreateMatchmakingConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An SNS topic ARN that is set up to receive matchmaking notifications.
-createMatchmakingConfiguration_notificationTarget :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe Core.Text)
+createMatchmakingConfiguration_notificationTarget :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 createMatchmakingConfiguration_notificationTarget = Lens.lens (\CreateMatchmakingConfiguration' {notificationTarget} -> notificationTarget) (\s@CreateMatchmakingConfiguration' {} a -> s {notificationTarget = a} :: CreateMatchmakingConfiguration)
 
 -- | A list of labels to assign to the new matchmaking configuration
@@ -431,23 +432,23 @@ createMatchmakingConfiguration_notificationTarget = Lens.lens (\CreateMatchmakin
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
-createMatchmakingConfiguration_tags :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe [Tag])
-createMatchmakingConfiguration_tags = Lens.lens (\CreateMatchmakingConfiguration' {tags} -> tags) (\s@CreateMatchmakingConfiguration' {} a -> s {tags = a} :: CreateMatchmakingConfiguration) Core.. Lens.mapping Lens._Coerce
+createMatchmakingConfiguration_tags :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe [Tag])
+createMatchmakingConfiguration_tags = Lens.lens (\CreateMatchmakingConfiguration' {tags} -> tags) (\s@CreateMatchmakingConfiguration' {} a -> s {tags = a} :: CreateMatchmakingConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A human-readable description of the matchmaking configuration.
-createMatchmakingConfiguration_description :: Lens.Lens' CreateMatchmakingConfiguration (Core.Maybe Core.Text)
+createMatchmakingConfiguration_description :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 createMatchmakingConfiguration_description = Lens.lens (\CreateMatchmakingConfiguration' {description} -> description) (\s@CreateMatchmakingConfiguration' {} a -> s {description = a} :: CreateMatchmakingConfiguration)
 
 -- | A unique identifier for a matchmaking configuration. This name is used
 -- to identify the configuration associated with a matchmaking request or
 -- ticket.
-createMatchmakingConfiguration_name :: Lens.Lens' CreateMatchmakingConfiguration Core.Text
+createMatchmakingConfiguration_name :: Lens.Lens' CreateMatchmakingConfiguration Prelude.Text
 createMatchmakingConfiguration_name = Lens.lens (\CreateMatchmakingConfiguration' {name} -> name) (\s@CreateMatchmakingConfiguration' {} a -> s {name = a} :: CreateMatchmakingConfiguration)
 
 -- | The maximum duration, in seconds, that a matchmaking ticket can remain
 -- in process before timing out. Requests that fail due to timing out can
 -- be resubmitted as needed.
-createMatchmakingConfiguration_requestTimeoutSeconds :: Lens.Lens' CreateMatchmakingConfiguration Core.Natural
+createMatchmakingConfiguration_requestTimeoutSeconds :: Lens.Lens' CreateMatchmakingConfiguration Prelude.Natural
 createMatchmakingConfiguration_requestTimeoutSeconds = Lens.lens (\CreateMatchmakingConfiguration' {requestTimeoutSeconds} -> requestTimeoutSeconds) (\s@CreateMatchmakingConfiguration' {} a -> s {requestTimeoutSeconds = a} :: CreateMatchmakingConfiguration)
 
 -- | A flag that determines whether a match that was created with this
@@ -455,14 +456,14 @@ createMatchmakingConfiguration_requestTimeoutSeconds = Lens.lens (\CreateMatchma
 -- acceptance, set to @TRUE@. With this option enabled, matchmaking tickets
 -- use the status @REQUIRES_ACCEPTANCE@ to indicate when a completed
 -- potential match is waiting for player acceptance.
-createMatchmakingConfiguration_acceptanceRequired :: Lens.Lens' CreateMatchmakingConfiguration Core.Bool
+createMatchmakingConfiguration_acceptanceRequired :: Lens.Lens' CreateMatchmakingConfiguration Prelude.Bool
 createMatchmakingConfiguration_acceptanceRequired = Lens.lens (\CreateMatchmakingConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@CreateMatchmakingConfiguration' {} a -> s {acceptanceRequired = a} :: CreateMatchmakingConfiguration)
 
 -- | A unique identifier for a matchmaking rule set to use with this
 -- configuration. You can use either the rule set name or ARN value. A
 -- matchmaking configuration can only use rule sets that are defined in the
 -- same Region.
-createMatchmakingConfiguration_ruleSetName :: Lens.Lens' CreateMatchmakingConfiguration Core.Text
+createMatchmakingConfiguration_ruleSetName :: Lens.Lens' CreateMatchmakingConfiguration Prelude.Text
 createMatchmakingConfiguration_ruleSetName = Lens.lens (\CreateMatchmakingConfiguration' {ruleSetName} -> ruleSetName) (\s@CreateMatchmakingConfiguration' {} a -> s {ruleSetName = a} :: CreateMatchmakingConfiguration)
 
 instance
@@ -477,77 +478,85 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateMatchmakingConfigurationResponse'
-            Core.<$> (x Core..?> "Configuration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Configuration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateMatchmakingConfiguration
+instance
+  Prelude.Hashable
+    CreateMatchmakingConfiguration
 
-instance Core.NFData CreateMatchmakingConfiguration
+instance
+  Prelude.NFData
+    CreateMatchmakingConfiguration
 
 instance
   Core.ToHeaders
     CreateMatchmakingConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.CreateMatchmakingConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateMatchmakingConfiguration where
   toJSON CreateMatchmakingConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CustomEventData" Core..=)
-              Core.<$> customEventData,
-            ("GameProperties" Core..=) Core.<$> gameProperties,
-            ("FlexMatchMode" Core..=) Core.<$> flexMatchMode,
-            ("BackfillMode" Core..=) Core.<$> backfillMode,
+              Prelude.<$> customEventData,
+            ("GameProperties" Core..=)
+              Prelude.<$> gameProperties,
+            ("FlexMatchMode" Core..=) Prelude.<$> flexMatchMode,
+            ("BackfillMode" Core..=) Prelude.<$> backfillMode,
             ("AdditionalPlayerCount" Core..=)
-              Core.<$> additionalPlayerCount,
+              Prelude.<$> additionalPlayerCount,
             ("AcceptanceTimeoutSeconds" Core..=)
-              Core.<$> acceptanceTimeoutSeconds,
-            ("GameSessionData" Core..=) Core.<$> gameSessionData,
+              Prelude.<$> acceptanceTimeoutSeconds,
+            ("GameSessionData" Core..=)
+              Prelude.<$> gameSessionData,
             ("GameSessionQueueArns" Core..=)
-              Core.<$> gameSessionQueueArns,
+              Prelude.<$> gameSessionQueueArns,
             ("NotificationTarget" Core..=)
-              Core.<$> notificationTarget,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just
+              Prelude.<$> notificationTarget,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ( "RequestTimeoutSeconds"
                   Core..= requestTimeoutSeconds
               ),
-            Core.Just
+            Prelude.Just
               ("AcceptanceRequired" Core..= acceptanceRequired),
-            Core.Just ("RuleSetName" Core..= ruleSetName)
+            Prelude.Just ("RuleSetName" Core..= ruleSetName)
           ]
       )
 
 instance Core.ToPath CreateMatchmakingConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateMatchmakingConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newCreateMatchmakingConfigurationResponse' smart constructor.
 data CreateMatchmakingConfigurationResponse = CreateMatchmakingConfigurationResponse'
   { -- | Object that describes the newly created matchmaking configuration.
-    configuration :: Core.Maybe MatchmakingConfiguration,
+    configuration :: Prelude.Maybe MatchmakingConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMatchmakingConfigurationResponse' with all optional fields omitted.
@@ -562,24 +571,24 @@ data CreateMatchmakingConfigurationResponse = CreateMatchmakingConfigurationResp
 -- 'httpStatus', 'createMatchmakingConfigurationResponse_httpStatus' - The response's http status code.
 newCreateMatchmakingConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateMatchmakingConfigurationResponse
 newCreateMatchmakingConfigurationResponse
   pHttpStatus_ =
     CreateMatchmakingConfigurationResponse'
       { configuration =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Object that describes the newly created matchmaking configuration.
-createMatchmakingConfigurationResponse_configuration :: Lens.Lens' CreateMatchmakingConfigurationResponse (Core.Maybe MatchmakingConfiguration)
+createMatchmakingConfigurationResponse_configuration :: Lens.Lens' CreateMatchmakingConfigurationResponse (Prelude.Maybe MatchmakingConfiguration)
 createMatchmakingConfigurationResponse_configuration = Lens.lens (\CreateMatchmakingConfigurationResponse' {configuration} -> configuration) (\s@CreateMatchmakingConfigurationResponse' {} a -> s {configuration = a} :: CreateMatchmakingConfigurationResponse)
 
 -- | The response's http status code.
-createMatchmakingConfigurationResponse_httpStatus :: Lens.Lens' CreateMatchmakingConfigurationResponse Core.Int
+createMatchmakingConfigurationResponse_httpStatus :: Lens.Lens' CreateMatchmakingConfigurationResponse Prelude.Int
 createMatchmakingConfigurationResponse_httpStatus = Lens.lens (\CreateMatchmakingConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateMatchmakingConfigurationResponse' {} a -> s {httpStatus = a} :: CreateMatchmakingConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateMatchmakingConfigurationResponse

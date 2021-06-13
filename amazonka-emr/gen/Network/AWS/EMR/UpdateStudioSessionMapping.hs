@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +55,7 @@ data UpdateStudioSessionMapping = UpdateStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
     -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
     -- @IdentityId@ must be specified.
-    identityName :: Core.Maybe Core.Text,
+    identityName :: Prelude.Maybe Prelude.Text,
     -- | The globally unique identifier (GUID) of the user or group. For more
     -- information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
@@ -62,16 +63,16 @@ data UpdateStudioSessionMapping = UpdateStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
     -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
     -- @IdentityId@ must be specified.
-    identityId :: Core.Maybe Core.Text,
+    identityId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EMR Studio.
-    studioId :: Core.Text,
+    studioId :: Prelude.Text,
     -- | Specifies whether the identity to update is a user or a group.
     identityType :: IdentityType,
     -- | The Amazon Resource Name (ARN) of the session policy to associate with
     -- the specified user or group.
-    sessionPolicyArn :: Core.Text
+    sessionPolicyArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStudioSessionMapping' with all optional fields omitted.
@@ -104,11 +105,11 @@ data UpdateStudioSessionMapping = UpdateStudioSessionMapping'
 -- the specified user or group.
 newUpdateStudioSessionMapping ::
   -- | 'studioId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identityType'
   IdentityType ->
   -- | 'sessionPolicyArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateStudioSessionMapping
 newUpdateStudioSessionMapping
   pStudioId_
@@ -116,8 +117,8 @@ newUpdateStudioSessionMapping
   pSessionPolicyArn_ =
     UpdateStudioSessionMapping'
       { identityName =
-          Core.Nothing,
-        identityId = Core.Nothing,
+          Prelude.Nothing,
+        identityId = Prelude.Nothing,
         studioId = pStudioId_,
         identityType = pIdentityType_,
         sessionPolicyArn = pSessionPolicyArn_
@@ -129,7 +130,7 @@ newUpdateStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
 -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
 -- @IdentityId@ must be specified.
-updateStudioSessionMapping_identityName :: Lens.Lens' UpdateStudioSessionMapping (Core.Maybe Core.Text)
+updateStudioSessionMapping_identityName :: Lens.Lens' UpdateStudioSessionMapping (Prelude.Maybe Prelude.Text)
 updateStudioSessionMapping_identityName = Lens.lens (\UpdateStudioSessionMapping' {identityName} -> identityName) (\s@UpdateStudioSessionMapping' {} a -> s {identityName = a} :: UpdateStudioSessionMapping)
 
 -- | The globally unique identifier (GUID) of the user or group. For more
@@ -139,11 +140,11 @@ updateStudioSessionMapping_identityName = Lens.lens (\UpdateStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
 -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
 -- @IdentityId@ must be specified.
-updateStudioSessionMapping_identityId :: Lens.Lens' UpdateStudioSessionMapping (Core.Maybe Core.Text)
+updateStudioSessionMapping_identityId :: Lens.Lens' UpdateStudioSessionMapping (Prelude.Maybe Prelude.Text)
 updateStudioSessionMapping_identityId = Lens.lens (\UpdateStudioSessionMapping' {identityId} -> identityId) (\s@UpdateStudioSessionMapping' {} a -> s {identityId = a} :: UpdateStudioSessionMapping)
 
 -- | The ID of the Amazon EMR Studio.
-updateStudioSessionMapping_studioId :: Lens.Lens' UpdateStudioSessionMapping Core.Text
+updateStudioSessionMapping_studioId :: Lens.Lens' UpdateStudioSessionMapping Prelude.Text
 updateStudioSessionMapping_studioId = Lens.lens (\UpdateStudioSessionMapping' {studioId} -> studioId) (\s@UpdateStudioSessionMapping' {} a -> s {studioId = a} :: UpdateStudioSessionMapping)
 
 -- | Specifies whether the identity to update is a user or a group.
@@ -152,7 +153,7 @@ updateStudioSessionMapping_identityType = Lens.lens (\UpdateStudioSessionMapping
 
 -- | The Amazon Resource Name (ARN) of the session policy to associate with
 -- the specified user or group.
-updateStudioSessionMapping_sessionPolicyArn :: Lens.Lens' UpdateStudioSessionMapping Core.Text
+updateStudioSessionMapping_sessionPolicyArn :: Lens.Lens' UpdateStudioSessionMapping Prelude.Text
 updateStudioSessionMapping_sessionPolicyArn = Lens.lens (\UpdateStudioSessionMapping' {sessionPolicyArn} -> sessionPolicyArn) (\s@UpdateStudioSessionMapping' {} a -> s {sessionPolicyArn = a} :: UpdateStudioSessionMapping)
 
 instance Core.AWSRequest UpdateStudioSessionMapping where
@@ -164,47 +165,49 @@ instance Core.AWSRequest UpdateStudioSessionMapping where
     Response.receiveNull
       UpdateStudioSessionMappingResponse'
 
-instance Core.Hashable UpdateStudioSessionMapping
+instance Prelude.Hashable UpdateStudioSessionMapping
 
-instance Core.NFData UpdateStudioSessionMapping
+instance Prelude.NFData UpdateStudioSessionMapping
 
 instance Core.ToHeaders UpdateStudioSessionMapping where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.UpdateStudioSessionMapping" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateStudioSessionMapping where
   toJSON UpdateStudioSessionMapping' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IdentityName" Core..=) Core.<$> identityName,
-            ("IdentityId" Core..=) Core.<$> identityId,
-            Core.Just ("StudioId" Core..= studioId),
-            Core.Just ("IdentityType" Core..= identityType),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("IdentityName" Core..=) Prelude.<$> identityName,
+            ("IdentityId" Core..=) Prelude.<$> identityId,
+            Prelude.Just ("StudioId" Core..= studioId),
+            Prelude.Just ("IdentityType" Core..= identityType),
+            Prelude.Just
               ("SessionPolicyArn" Core..= sessionPolicyArn)
           ]
       )
 
 instance Core.ToPath UpdateStudioSessionMapping where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateStudioSessionMapping where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStudioSessionMappingResponse' smart constructor.
 data UpdateStudioSessionMappingResponse = UpdateStudioSessionMappingResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStudioSessionMappingResponse' with all optional fields omitted.
@@ -216,5 +219,5 @@ newUpdateStudioSessionMappingResponse =
   UpdateStudioSessionMappingResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateStudioSessionMappingResponse

@@ -21,6 +21,7 @@ module Network.AWS.WorkMail.Types.Domain where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The domain to associate with an Amazon WorkMail organization.
 --
@@ -34,11 +35,11 @@ import qualified Network.AWS.Lens as Lens
 data Domain = Domain'
   { -- | The hosted zone ID for a domain hosted in Route 53. Required when
     -- configuring a domain hosted in Route 53.
-    hostedZoneId :: Core.Maybe Core.Text,
+    hostedZoneId :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name.
-    domainName :: Core.Maybe Core.Text
+    domainName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Domain' with all optional fields omitted.
@@ -56,28 +57,28 @@ newDomain ::
   Domain
 newDomain =
   Domain'
-    { hostedZoneId = Core.Nothing,
-      domainName = Core.Nothing
+    { hostedZoneId = Prelude.Nothing,
+      domainName = Prelude.Nothing
     }
 
 -- | The hosted zone ID for a domain hosted in Route 53. Required when
 -- configuring a domain hosted in Route 53.
-domain_hostedZoneId :: Lens.Lens' Domain (Core.Maybe Core.Text)
+domain_hostedZoneId :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_hostedZoneId = Lens.lens (\Domain' {hostedZoneId} -> hostedZoneId) (\s@Domain' {} a -> s {hostedZoneId = a} :: Domain)
 
 -- | The fully qualified domain name.
-domain_domainName :: Lens.Lens' Domain (Core.Maybe Core.Text)
+domain_domainName :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_domainName = Lens.lens (\Domain' {domainName} -> domainName) (\s@Domain' {} a -> s {domainName = a} :: Domain)
 
-instance Core.Hashable Domain
+instance Prelude.Hashable Domain
 
-instance Core.NFData Domain
+instance Prelude.NFData Domain
 
 instance Core.ToJSON Domain where
   toJSON Domain' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("HostedZoneId" Core..=) Core.<$> hostedZoneId,
-            ("DomainName" Core..=) Core.<$> domainName
+      ( Prelude.catMaybes
+          [ ("HostedZoneId" Core..=) Prelude.<$> hostedZoneId,
+            ("DomainName" Core..=) Prelude.<$> domainName
           ]
       )

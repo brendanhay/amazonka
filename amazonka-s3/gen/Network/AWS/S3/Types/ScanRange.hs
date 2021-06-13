@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ScanRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies the byte range of the object to get the records from. A record
@@ -37,15 +38,15 @@ data ScanRange = ScanRange'
     -- it is interpreted to mean scan the last N bytes of the file. For
     -- example, @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ means scan the
     -- last 50 bytes.
-    end :: Core.Maybe Core.Integer,
+    end :: Prelude.Maybe Prelude.Integer,
     -- | Specifies the start of the byte range. This parameter is optional. Valid
     -- values: non-negative integers. The default value is 0. If only start is
     -- supplied, it means scan from that point to the end of the file.For
     -- example; @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
     -- from byte 50 until the end of the file.
-    start :: Core.Maybe Core.Integer
+    start :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScanRange' with all optional fields omitted.
@@ -71,8 +72,8 @@ newScanRange ::
   ScanRange
 newScanRange =
   ScanRange'
-    { end = Core.Nothing,
-      start = Core.Nothing
+    { end = Prelude.Nothing,
+      start = Prelude.Nothing
     }
 
 -- | Specifies the end of the byte range. This parameter is optional. Valid
@@ -81,7 +82,7 @@ newScanRange =
 -- it is interpreted to mean scan the last N bytes of the file. For
 -- example, @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ means scan the
 -- last 50 bytes.
-scanRange_end :: Lens.Lens' ScanRange (Core.Maybe Core.Integer)
+scanRange_end :: Lens.Lens' ScanRange (Prelude.Maybe Prelude.Integer)
 scanRange_end = Lens.lens (\ScanRange' {end} -> end) (\s@ScanRange' {} a -> s {end = a} :: ScanRange)
 
 -- | Specifies the start of the byte range. This parameter is optional. Valid
@@ -89,14 +90,14 @@ scanRange_end = Lens.lens (\ScanRange' {end} -> end) (\s@ScanRange' {} a -> s {e
 -- supplied, it means scan from that point to the end of the file.For
 -- example; @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
 -- from byte 50 until the end of the file.
-scanRange_start :: Lens.Lens' ScanRange (Core.Maybe Core.Integer)
+scanRange_start :: Lens.Lens' ScanRange (Prelude.Maybe Prelude.Integer)
 scanRange_start = Lens.lens (\ScanRange' {start} -> start) (\s@ScanRange' {} a -> s {start = a} :: ScanRange)
 
-instance Core.Hashable ScanRange
+instance Prelude.Hashable ScanRange
 
-instance Core.NFData ScanRange
+instance Prelude.NFData ScanRange
 
 instance Core.ToXML ScanRange where
   toXML ScanRange' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["End" Core.@= end, "Start" Core.@= start]

@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType where
 import Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The data type for TokenValidityUnits that specifics the time
 -- measurements for token validity.
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 data TokenValidityUnitsType = TokenValidityUnitsType'
   { -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
     -- AccessTokenValidity, defaults to hours.
-    accessToken :: Core.Maybe TimeUnitsType,
+    accessToken :: Prelude.Maybe TimeUnitsType,
     -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
     -- IdTokenValidity, defaults to hours.
-    idToken :: Core.Maybe TimeUnitsType,
+    idToken :: Prelude.Maybe TimeUnitsType,
     -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
     -- RefreshTokenValidity, defaults to days.
-    refreshToken :: Core.Maybe TimeUnitsType
+    refreshToken :: Prelude.Maybe TimeUnitsType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TokenValidityUnitsType' with all optional fields omitted.
@@ -60,24 +61,25 @@ newTokenValidityUnitsType ::
   TokenValidityUnitsType
 newTokenValidityUnitsType =
   TokenValidityUnitsType'
-    { accessToken = Core.Nothing,
-      idToken = Core.Nothing,
-      refreshToken = Core.Nothing
+    { accessToken =
+        Prelude.Nothing,
+      idToken = Prelude.Nothing,
+      refreshToken = Prelude.Nothing
     }
 
 -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
 -- AccessTokenValidity, defaults to hours.
-tokenValidityUnitsType_accessToken :: Lens.Lens' TokenValidityUnitsType (Core.Maybe TimeUnitsType)
+tokenValidityUnitsType_accessToken :: Lens.Lens' TokenValidityUnitsType (Prelude.Maybe TimeUnitsType)
 tokenValidityUnitsType_accessToken = Lens.lens (\TokenValidityUnitsType' {accessToken} -> accessToken) (\s@TokenValidityUnitsType' {} a -> s {accessToken = a} :: TokenValidityUnitsType)
 
 -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
 -- IdTokenValidity, defaults to hours.
-tokenValidityUnitsType_idToken :: Lens.Lens' TokenValidityUnitsType (Core.Maybe TimeUnitsType)
+tokenValidityUnitsType_idToken :: Lens.Lens' TokenValidityUnitsType (Prelude.Maybe TimeUnitsType)
 tokenValidityUnitsType_idToken = Lens.lens (\TokenValidityUnitsType' {idToken} -> idToken) (\s@TokenValidityUnitsType' {} a -> s {idToken = a} :: TokenValidityUnitsType)
 
 -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
 -- RefreshTokenValidity, defaults to days.
-tokenValidityUnitsType_refreshToken :: Lens.Lens' TokenValidityUnitsType (Core.Maybe TimeUnitsType)
+tokenValidityUnitsType_refreshToken :: Lens.Lens' TokenValidityUnitsType (Prelude.Maybe TimeUnitsType)
 tokenValidityUnitsType_refreshToken = Lens.lens (\TokenValidityUnitsType' {refreshToken} -> refreshToken) (\s@TokenValidityUnitsType' {} a -> s {refreshToken = a} :: TokenValidityUnitsType)
 
 instance Core.FromJSON TokenValidityUnitsType where
@@ -86,21 +88,21 @@ instance Core.FromJSON TokenValidityUnitsType where
       "TokenValidityUnitsType"
       ( \x ->
           TokenValidityUnitsType'
-            Core.<$> (x Core..:? "AccessToken")
-            Core.<*> (x Core..:? "IdToken")
-            Core.<*> (x Core..:? "RefreshToken")
+            Prelude.<$> (x Core..:? "AccessToken")
+            Prelude.<*> (x Core..:? "IdToken")
+            Prelude.<*> (x Core..:? "RefreshToken")
       )
 
-instance Core.Hashable TokenValidityUnitsType
+instance Prelude.Hashable TokenValidityUnitsType
 
-instance Core.NFData TokenValidityUnitsType
+instance Prelude.NFData TokenValidityUnitsType
 
 instance Core.ToJSON TokenValidityUnitsType where
   toJSON TokenValidityUnitsType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AccessToken" Core..=) Core.<$> accessToken,
-            ("IdToken" Core..=) Core.<$> idToken,
-            ("RefreshToken" Core..=) Core.<$> refreshToken
+      ( Prelude.catMaybes
+          [ ("AccessToken" Core..=) Prelude.<$> accessToken,
+            ("IdToken" Core..=) Prelude.<$> idToken,
+            ("RefreshToken" Core..=) Prelude.<$> refreshToken
           ]
       )

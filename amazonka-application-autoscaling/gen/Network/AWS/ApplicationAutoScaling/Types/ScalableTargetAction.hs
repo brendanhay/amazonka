@@ -21,6 +21,7 @@ module Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the minimum and maximum capacity for a scheduled action.
 --
@@ -36,16 +37,16 @@ data ScalableTargetAction = ScalableTargetAction'
     -- quotas for each service, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
     -- in the /Amazon Web Services General Reference/.
-    maxCapacity :: Core.Maybe Core.Int,
+    maxCapacity :: Prelude.Maybe Prelude.Int,
     -- | The minimum capacity.
     --
     -- For certain resources, the minimum value allowed is 0. This includes
     -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
     -- clusters, EMR clusters, and custom resources. For all other resources,
     -- the minimum value allowed is 1.
-    minCapacity :: Core.Maybe Core.Int
+    minCapacity :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalableTargetAction' with all optional fields omitted.
@@ -76,8 +77,9 @@ newScalableTargetAction ::
   ScalableTargetAction
 newScalableTargetAction =
   ScalableTargetAction'
-    { maxCapacity = Core.Nothing,
-      minCapacity = Core.Nothing
+    { maxCapacity =
+        Prelude.Nothing,
+      minCapacity = Prelude.Nothing
     }
 
 -- | The maximum capacity.
@@ -90,7 +92,7 @@ newScalableTargetAction =
 -- quotas for each service, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
 -- in the /Amazon Web Services General Reference/.
-scalableTargetAction_maxCapacity :: Lens.Lens' ScalableTargetAction (Core.Maybe Core.Int)
+scalableTargetAction_maxCapacity :: Lens.Lens' ScalableTargetAction (Prelude.Maybe Prelude.Int)
 scalableTargetAction_maxCapacity = Lens.lens (\ScalableTargetAction' {maxCapacity} -> maxCapacity) (\s@ScalableTargetAction' {} a -> s {maxCapacity = a} :: ScalableTargetAction)
 
 -- | The minimum capacity.
@@ -99,7 +101,7 @@ scalableTargetAction_maxCapacity = Lens.lens (\ScalableTargetAction' {maxCapacit
 -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
 -- clusters, EMR clusters, and custom resources. For all other resources,
 -- the minimum value allowed is 1.
-scalableTargetAction_minCapacity :: Lens.Lens' ScalableTargetAction (Core.Maybe Core.Int)
+scalableTargetAction_minCapacity :: Lens.Lens' ScalableTargetAction (Prelude.Maybe Prelude.Int)
 scalableTargetAction_minCapacity = Lens.lens (\ScalableTargetAction' {minCapacity} -> minCapacity) (\s@ScalableTargetAction' {} a -> s {minCapacity = a} :: ScalableTargetAction)
 
 instance Core.FromJSON ScalableTargetAction where
@@ -108,19 +110,19 @@ instance Core.FromJSON ScalableTargetAction where
       "ScalableTargetAction"
       ( \x ->
           ScalableTargetAction'
-            Core.<$> (x Core..:? "MaxCapacity")
-            Core.<*> (x Core..:? "MinCapacity")
+            Prelude.<$> (x Core..:? "MaxCapacity")
+            Prelude.<*> (x Core..:? "MinCapacity")
       )
 
-instance Core.Hashable ScalableTargetAction
+instance Prelude.Hashable ScalableTargetAction
 
-instance Core.NFData ScalableTargetAction
+instance Prelude.NFData ScalableTargetAction
 
 instance Core.ToJSON ScalableTargetAction where
   toJSON ScalableTargetAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxCapacity" Core..=) Core.<$> maxCapacity,
-            ("MinCapacity" Core..=) Core.<$> minCapacity
+      ( Prelude.catMaybes
+          [ ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
+            ("MinCapacity" Core..=) Prelude.<$> minCapacity
           ]
       )

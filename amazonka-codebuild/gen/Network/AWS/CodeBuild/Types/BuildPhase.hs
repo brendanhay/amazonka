@@ -24,6 +24,7 @@ import Network.AWS.CodeBuild.Types.PhaseContext
 import Network.AWS.CodeBuild.Types.StatusType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a stage for a build.
 --
@@ -58,17 +59,17 @@ data BuildPhase = BuildPhase'
     --
     -- -   @UPLOAD_ARTIFACTS@: Build output artifacts are being uploaded to the
     --     output location.
-    phaseType :: Core.Maybe BuildPhaseType,
+    phaseType :: Prelude.Maybe BuildPhaseType,
     -- | Additional information about a build phase, especially to help
     -- troubleshoot a failed build.
-    contexts :: Core.Maybe [PhaseContext],
+    contexts :: Prelude.Maybe [PhaseContext],
     -- | When the build phase started, expressed in Unix time format.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | When the build phase ended, expressed in Unix time format.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | How long, in seconds, between the starting and ending times of the
     -- build\'s phase.
-    durationInSeconds :: Core.Maybe Core.Integer,
+    durationInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The current status of the build phase. Valid values include:
     --
     -- [FAILED]
@@ -92,9 +93,9 @@ data BuildPhase = BuildPhase'
     --
     -- [TIMED_OUT]
     --     The build phase timed out.
-    phaseStatus :: Core.Maybe StatusType
+    phaseStatus :: Prelude.Maybe StatusType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BuildPhase' with all optional fields omitted.
@@ -171,12 +172,12 @@ newBuildPhase ::
   BuildPhase
 newBuildPhase =
   BuildPhase'
-    { phaseType = Core.Nothing,
-      contexts = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      durationInSeconds = Core.Nothing,
-      phaseStatus = Core.Nothing
+    { phaseType = Prelude.Nothing,
+      contexts = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      durationInSeconds = Prelude.Nothing,
+      phaseStatus = Prelude.Nothing
     }
 
 -- | The name of the build phase. Valid values include:
@@ -208,25 +209,25 @@ newBuildPhase =
 --
 -- -   @UPLOAD_ARTIFACTS@: Build output artifacts are being uploaded to the
 --     output location.
-buildPhase_phaseType :: Lens.Lens' BuildPhase (Core.Maybe BuildPhaseType)
+buildPhase_phaseType :: Lens.Lens' BuildPhase (Prelude.Maybe BuildPhaseType)
 buildPhase_phaseType = Lens.lens (\BuildPhase' {phaseType} -> phaseType) (\s@BuildPhase' {} a -> s {phaseType = a} :: BuildPhase)
 
 -- | Additional information about a build phase, especially to help
 -- troubleshoot a failed build.
-buildPhase_contexts :: Lens.Lens' BuildPhase (Core.Maybe [PhaseContext])
-buildPhase_contexts = Lens.lens (\BuildPhase' {contexts} -> contexts) (\s@BuildPhase' {} a -> s {contexts = a} :: BuildPhase) Core.. Lens.mapping Lens._Coerce
+buildPhase_contexts :: Lens.Lens' BuildPhase (Prelude.Maybe [PhaseContext])
+buildPhase_contexts = Lens.lens (\BuildPhase' {contexts} -> contexts) (\s@BuildPhase' {} a -> s {contexts = a} :: BuildPhase) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When the build phase started, expressed in Unix time format.
-buildPhase_startTime :: Lens.Lens' BuildPhase (Core.Maybe Core.UTCTime)
-buildPhase_startTime = Lens.lens (\BuildPhase' {startTime} -> startTime) (\s@BuildPhase' {} a -> s {startTime = a} :: BuildPhase) Core.. Lens.mapping Core._Time
+buildPhase_startTime :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.UTCTime)
+buildPhase_startTime = Lens.lens (\BuildPhase' {startTime} -> startTime) (\s@BuildPhase' {} a -> s {startTime = a} :: BuildPhase) Prelude.. Lens.mapping Core._Time
 
 -- | When the build phase ended, expressed in Unix time format.
-buildPhase_endTime :: Lens.Lens' BuildPhase (Core.Maybe Core.UTCTime)
-buildPhase_endTime = Lens.lens (\BuildPhase' {endTime} -> endTime) (\s@BuildPhase' {} a -> s {endTime = a} :: BuildPhase) Core.. Lens.mapping Core._Time
+buildPhase_endTime :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.UTCTime)
+buildPhase_endTime = Lens.lens (\BuildPhase' {endTime} -> endTime) (\s@BuildPhase' {} a -> s {endTime = a} :: BuildPhase) Prelude.. Lens.mapping Core._Time
 
 -- | How long, in seconds, between the starting and ending times of the
 -- build\'s phase.
-buildPhase_durationInSeconds :: Lens.Lens' BuildPhase (Core.Maybe Core.Integer)
+buildPhase_durationInSeconds :: Lens.Lens' BuildPhase (Prelude.Maybe Prelude.Integer)
 buildPhase_durationInSeconds = Lens.lens (\BuildPhase' {durationInSeconds} -> durationInSeconds) (\s@BuildPhase' {} a -> s {durationInSeconds = a} :: BuildPhase)
 
 -- | The current status of the build phase. Valid values include:
@@ -252,7 +253,7 @@ buildPhase_durationInSeconds = Lens.lens (\BuildPhase' {durationInSeconds} -> du
 --
 -- [TIMED_OUT]
 --     The build phase timed out.
-buildPhase_phaseStatus :: Lens.Lens' BuildPhase (Core.Maybe StatusType)
+buildPhase_phaseStatus :: Lens.Lens' BuildPhase (Prelude.Maybe StatusType)
 buildPhase_phaseStatus = Lens.lens (\BuildPhase' {phaseStatus} -> phaseStatus) (\s@BuildPhase' {} a -> s {phaseStatus = a} :: BuildPhase)
 
 instance Core.FromJSON BuildPhase where
@@ -261,14 +262,14 @@ instance Core.FromJSON BuildPhase where
       "BuildPhase"
       ( \x ->
           BuildPhase'
-            Core.<$> (x Core..:? "phaseType")
-            Core.<*> (x Core..:? "contexts" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "startTime")
-            Core.<*> (x Core..:? "endTime")
-            Core.<*> (x Core..:? "durationInSeconds")
-            Core.<*> (x Core..:? "phaseStatus")
+            Prelude.<$> (x Core..:? "phaseType")
+            Prelude.<*> (x Core..:? "contexts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Core..:? "endTime")
+            Prelude.<*> (x Core..:? "durationInSeconds")
+            Prelude.<*> (x Core..:? "phaseStatus")
       )
 
-instance Core.Hashable BuildPhase
+instance Prelude.Hashable BuildPhase
 
-instance Core.NFData BuildPhase
+instance Prelude.NFData BuildPhase

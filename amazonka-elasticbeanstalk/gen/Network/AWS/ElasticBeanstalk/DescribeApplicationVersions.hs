@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,20 +61,20 @@ data DescribeApplicationVersions = DescribeApplicationVersions'
     -- identical to the ones specified in the initial request.
     --
     -- If no @NextToken@ is specified, the first page is retrieved.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specify a version label to show a specific application version.
-    versionLabels :: Core.Maybe [Core.Text],
+    versionLabels :: Prelude.Maybe [Prelude.Text],
     -- | Specify an application name to show only application versions for that
     -- application.
-    applicationName :: Core.Maybe Core.Text,
+    applicationName :: Prelude.Maybe Prelude.Text,
     -- | For a paginated request. Specify a maximum number of application
     -- versions to include in each response.
     --
     -- If no @MaxRecords@ is specified, all available application versions are
     -- retrieved in a single response.
-    maxRecords :: Core.Maybe Core.Natural
+    maxRecords :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicationVersions' with all optional fields omitted.
@@ -104,10 +105,10 @@ newDescribeApplicationVersions ::
 newDescribeApplicationVersions =
   DescribeApplicationVersions'
     { nextToken =
-        Core.Nothing,
-      versionLabels = Core.Nothing,
-      applicationName = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      versionLabels = Prelude.Nothing,
+      applicationName = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | For a paginated request. Specify a token from a previous response page
@@ -115,16 +116,16 @@ newDescribeApplicationVersions =
 -- identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
-describeApplicationVersions_nextToken :: Lens.Lens' DescribeApplicationVersions (Core.Maybe Core.Text)
+describeApplicationVersions_nextToken :: Lens.Lens' DescribeApplicationVersions (Prelude.Maybe Prelude.Text)
 describeApplicationVersions_nextToken = Lens.lens (\DescribeApplicationVersions' {nextToken} -> nextToken) (\s@DescribeApplicationVersions' {} a -> s {nextToken = a} :: DescribeApplicationVersions)
 
 -- | Specify a version label to show a specific application version.
-describeApplicationVersions_versionLabels :: Lens.Lens' DescribeApplicationVersions (Core.Maybe [Core.Text])
-describeApplicationVersions_versionLabels = Lens.lens (\DescribeApplicationVersions' {versionLabels} -> versionLabels) (\s@DescribeApplicationVersions' {} a -> s {versionLabels = a} :: DescribeApplicationVersions) Core.. Lens.mapping Lens._Coerce
+describeApplicationVersions_versionLabels :: Lens.Lens' DescribeApplicationVersions (Prelude.Maybe [Prelude.Text])
+describeApplicationVersions_versionLabels = Lens.lens (\DescribeApplicationVersions' {versionLabels} -> versionLabels) (\s@DescribeApplicationVersions' {} a -> s {versionLabels = a} :: DescribeApplicationVersions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specify an application name to show only application versions for that
 -- application.
-describeApplicationVersions_applicationName :: Lens.Lens' DescribeApplicationVersions (Core.Maybe Core.Text)
+describeApplicationVersions_applicationName :: Lens.Lens' DescribeApplicationVersions (Prelude.Maybe Prelude.Text)
 describeApplicationVersions_applicationName = Lens.lens (\DescribeApplicationVersions' {applicationName} -> applicationName) (\s@DescribeApplicationVersions' {} a -> s {applicationName = a} :: DescribeApplicationVersions)
 
 -- | For a paginated request. Specify a maximum number of application
@@ -132,7 +133,7 @@ describeApplicationVersions_applicationName = Lens.lens (\DescribeApplicationVer
 --
 -- If no @MaxRecords@ is specified, all available application versions are
 -- retrieved in a single response.
-describeApplicationVersions_maxRecords :: Lens.Lens' DescribeApplicationVersions (Core.Maybe Core.Natural)
+describeApplicationVersions_maxRecords :: Lens.Lens' DescribeApplicationVersions (Prelude.Maybe Prelude.Natural)
 describeApplicationVersions_maxRecords = Lens.lens (\DescribeApplicationVersions' {maxRecords} -> maxRecords) (\s@DescribeApplicationVersions' {} a -> s {maxRecords = a} :: DescribeApplicationVersions)
 
 instance Core.AWSPager DescribeApplicationVersions where
@@ -140,22 +141,22 @@ instance Core.AWSPager DescribeApplicationVersions where
     | Core.stop
         ( rs
             Lens.^? describeApplicationVersionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeApplicationVersionsResponse_applicationVersions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeApplicationVersions_nextToken
+          Prelude.& describeApplicationVersions_nextToken
           Lens..~ rs
           Lens.^? describeApplicationVersionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeApplicationVersions where
   type
@@ -167,34 +168,39 @@ instance Core.AWSRequest DescribeApplicationVersions where
       "DescribeApplicationVersionsResult"
       ( \s h x ->
           DescribeApplicationVersionsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "ApplicationVersions"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "ApplicationVersions"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeApplicationVersions
+instance Prelude.Hashable DescribeApplicationVersions
 
-instance Core.NFData DescribeApplicationVersions
+instance Prelude.NFData DescribeApplicationVersions
 
 instance Core.ToHeaders DescribeApplicationVersions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeApplicationVersions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeApplicationVersions where
   toQuery DescribeApplicationVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeApplicationVersions" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ( "DescribeApplicationVersions" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "VersionLabels"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> versionLabels),
+            ( Core.toQueryList "member"
+                Prelude.<$> versionLabels
+            ),
         "ApplicationName" Core.=: applicationName,
         "MaxRecords" Core.=: maxRecords
       ]
@@ -205,14 +211,14 @@ instance Core.ToQuery DescribeApplicationVersions where
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
   { -- | In a paginated request, the token that you can pass in a subsequent
     -- request to get the next response page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | List of @ApplicationVersionDescription@ objects sorted in order of
     -- creation.
-    applicationVersions :: Core.Maybe [ApplicationVersionDescription],
+    applicationVersions :: Prelude.Maybe [ApplicationVersionDescription],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicationVersionsResponse' with all optional fields omitted.
@@ -231,30 +237,30 @@ data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
 -- 'httpStatus', 'describeApplicationVersionsResponse_httpStatus' - The response's http status code.
 newDescribeApplicationVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeApplicationVersionsResponse
 newDescribeApplicationVersionsResponse pHttpStatus_ =
   DescribeApplicationVersionsResponse'
     { nextToken =
-        Core.Nothing,
-      applicationVersions = Core.Nothing,
+        Prelude.Nothing,
+      applicationVersions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | In a paginated request, the token that you can pass in a subsequent
 -- request to get the next response page.
-describeApplicationVersionsResponse_nextToken :: Lens.Lens' DescribeApplicationVersionsResponse (Core.Maybe Core.Text)
+describeApplicationVersionsResponse_nextToken :: Lens.Lens' DescribeApplicationVersionsResponse (Prelude.Maybe Prelude.Text)
 describeApplicationVersionsResponse_nextToken = Lens.lens (\DescribeApplicationVersionsResponse' {nextToken} -> nextToken) (\s@DescribeApplicationVersionsResponse' {} a -> s {nextToken = a} :: DescribeApplicationVersionsResponse)
 
 -- | List of @ApplicationVersionDescription@ objects sorted in order of
 -- creation.
-describeApplicationVersionsResponse_applicationVersions :: Lens.Lens' DescribeApplicationVersionsResponse (Core.Maybe [ApplicationVersionDescription])
-describeApplicationVersionsResponse_applicationVersions = Lens.lens (\DescribeApplicationVersionsResponse' {applicationVersions} -> applicationVersions) (\s@DescribeApplicationVersionsResponse' {} a -> s {applicationVersions = a} :: DescribeApplicationVersionsResponse) Core.. Lens.mapping Lens._Coerce
+describeApplicationVersionsResponse_applicationVersions :: Lens.Lens' DescribeApplicationVersionsResponse (Prelude.Maybe [ApplicationVersionDescription])
+describeApplicationVersionsResponse_applicationVersions = Lens.lens (\DescribeApplicationVersionsResponse' {applicationVersions} -> applicationVersions) (\s@DescribeApplicationVersionsResponse' {} a -> s {applicationVersions = a} :: DescribeApplicationVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeApplicationVersionsResponse_httpStatus :: Lens.Lens' DescribeApplicationVersionsResponse Core.Int
+describeApplicationVersionsResponse_httpStatus :: Lens.Lens' DescribeApplicationVersionsResponse Prelude.Int
 describeApplicationVersionsResponse_httpStatus = Lens.lens (\DescribeApplicationVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeApplicationVersionsResponse' {} a -> s {httpStatus = a} :: DescribeApplicationVersionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeApplicationVersionsResponse

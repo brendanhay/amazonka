@@ -54,13 +54,14 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetLoadBalancerMetricData' smart constructor.
 data GetLoadBalancerMetricData = GetLoadBalancerMetricData'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The metric for which you want to return information.
     --
     -- Valid load balancer metric names are listed below, along with the most
@@ -177,7 +178,7 @@ data GetLoadBalancerMetricData = GetLoadBalancerMetricData'
     --     @Unit@: The published unit is @Count@.
     metricName :: LoadBalancerMetricName,
     -- | The granularity, in seconds, of the returned data points.
-    period :: Core.Natural,
+    period :: Prelude.Natural,
     -- | The start time of the period.
     startTime :: Core.POSIX,
     -- | The end time of the period.
@@ -213,7 +214,7 @@ data GetLoadBalancerMetricData = GetLoadBalancerMetricData'
     --     statistical calculation.
     statistics :: [MetricStatistic]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLoadBalancerMetricData' with all optional fields omitted.
@@ -377,15 +378,15 @@ data GetLoadBalancerMetricData = GetLoadBalancerMetricData'
 --     statistical calculation.
 newGetLoadBalancerMetricData ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
   LoadBalancerMetricName ->
   -- | 'period'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'unit'
   MetricUnit ->
   GetLoadBalancerMetricData
@@ -404,11 +405,11 @@ newGetLoadBalancerMetricData
         startTime = Core._Time Lens.# pStartTime_,
         endTime = Core._Time Lens.# pEndTime_,
         unit = pUnit_,
-        statistics = Core.mempty
+        statistics = Prelude.mempty
       }
 
 -- | The name of the load balancer.
-getLoadBalancerMetricData_loadBalancerName :: Lens.Lens' GetLoadBalancerMetricData Core.Text
+getLoadBalancerMetricData_loadBalancerName :: Lens.Lens' GetLoadBalancerMetricData Prelude.Text
 getLoadBalancerMetricData_loadBalancerName = Lens.lens (\GetLoadBalancerMetricData' {loadBalancerName} -> loadBalancerName) (\s@GetLoadBalancerMetricData' {} a -> s {loadBalancerName = a} :: GetLoadBalancerMetricData)
 
 -- | The metric for which you want to return information.
@@ -529,16 +530,16 @@ getLoadBalancerMetricData_metricName :: Lens.Lens' GetLoadBalancerMetricData Loa
 getLoadBalancerMetricData_metricName = Lens.lens (\GetLoadBalancerMetricData' {metricName} -> metricName) (\s@GetLoadBalancerMetricData' {} a -> s {metricName = a} :: GetLoadBalancerMetricData)
 
 -- | The granularity, in seconds, of the returned data points.
-getLoadBalancerMetricData_period :: Lens.Lens' GetLoadBalancerMetricData Core.Natural
+getLoadBalancerMetricData_period :: Lens.Lens' GetLoadBalancerMetricData Prelude.Natural
 getLoadBalancerMetricData_period = Lens.lens (\GetLoadBalancerMetricData' {period} -> period) (\s@GetLoadBalancerMetricData' {} a -> s {period = a} :: GetLoadBalancerMetricData)
 
 -- | The start time of the period.
-getLoadBalancerMetricData_startTime :: Lens.Lens' GetLoadBalancerMetricData Core.UTCTime
-getLoadBalancerMetricData_startTime = Lens.lens (\GetLoadBalancerMetricData' {startTime} -> startTime) (\s@GetLoadBalancerMetricData' {} a -> s {startTime = a} :: GetLoadBalancerMetricData) Core.. Core._Time
+getLoadBalancerMetricData_startTime :: Lens.Lens' GetLoadBalancerMetricData Prelude.UTCTime
+getLoadBalancerMetricData_startTime = Lens.lens (\GetLoadBalancerMetricData' {startTime} -> startTime) (\s@GetLoadBalancerMetricData' {} a -> s {startTime = a} :: GetLoadBalancerMetricData) Prelude.. Core._Time
 
 -- | The end time of the period.
-getLoadBalancerMetricData_endTime :: Lens.Lens' GetLoadBalancerMetricData Core.UTCTime
-getLoadBalancerMetricData_endTime = Lens.lens (\GetLoadBalancerMetricData' {endTime} -> endTime) (\s@GetLoadBalancerMetricData' {} a -> s {endTime = a} :: GetLoadBalancerMetricData) Core.. Core._Time
+getLoadBalancerMetricData_endTime :: Lens.Lens' GetLoadBalancerMetricData Prelude.UTCTime
+getLoadBalancerMetricData_endTime = Lens.lens (\GetLoadBalancerMetricData' {endTime} -> endTime) (\s@GetLoadBalancerMetricData' {} a -> s {endTime = a} :: GetLoadBalancerMetricData) Prelude.. Core._Time
 
 -- | The unit for the metric data request. Valid units depend on the metric
 -- data being requested. For the valid units with each available metric,
@@ -572,7 +573,7 @@ getLoadBalancerMetricData_unit = Lens.lens (\GetLoadBalancerMetricData' {unit} -
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getLoadBalancerMetricData_statistics :: Lens.Lens' GetLoadBalancerMetricData [MetricStatistic]
-getLoadBalancerMetricData_statistics = Lens.lens (\GetLoadBalancerMetricData' {statistics} -> statistics) (\s@GetLoadBalancerMetricData' {} a -> s {statistics = a} :: GetLoadBalancerMetricData) Core.. Lens._Coerce
+getLoadBalancerMetricData_statistics = Lens.lens (\GetLoadBalancerMetricData' {statistics} -> statistics) (\s@GetLoadBalancerMetricData' {} a -> s {statistics = a} :: GetLoadBalancerMetricData) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetLoadBalancerMetricData where
   type
@@ -583,59 +584,61 @@ instance Core.AWSRequest GetLoadBalancerMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancerMetricDataResponse'
-            Core.<$> (x Core..?> "metricName")
-            Core.<*> (x Core..?> "metricData" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "metricName")
+            Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetLoadBalancerMetricData
+instance Prelude.Hashable GetLoadBalancerMetricData
 
-instance Core.NFData GetLoadBalancerMetricData
+instance Prelude.NFData GetLoadBalancerMetricData
 
 instance Core.ToHeaders GetLoadBalancerMetricData where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetLoadBalancerMetricData" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetLoadBalancerMetricData where
   toJSON GetLoadBalancerMetricData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName),
-            Core.Just ("metricName" Core..= metricName),
-            Core.Just ("period" Core..= period),
-            Core.Just ("startTime" Core..= startTime),
-            Core.Just ("endTime" Core..= endTime),
-            Core.Just ("unit" Core..= unit),
-            Core.Just ("statistics" Core..= statistics)
+            Prelude.Just ("metricName" Core..= metricName),
+            Prelude.Just ("period" Core..= period),
+            Prelude.Just ("startTime" Core..= startTime),
+            Prelude.Just ("endTime" Core..= endTime),
+            Prelude.Just ("unit" Core..= unit),
+            Prelude.Just ("statistics" Core..= statistics)
           ]
       )
 
 instance Core.ToPath GetLoadBalancerMetricData where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetLoadBalancerMetricData where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLoadBalancerMetricDataResponse' smart constructor.
 data GetLoadBalancerMetricDataResponse = GetLoadBalancerMetricDataResponse'
   { -- | The name of the metric returned.
-    metricName :: Core.Maybe LoadBalancerMetricName,
+    metricName :: Prelude.Maybe LoadBalancerMetricName,
     -- | An array of objects that describe the metric data returned.
-    metricData :: Core.Maybe [MetricDatapoint],
+    metricData :: Prelude.Maybe [MetricDatapoint],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLoadBalancerMetricDataResponse' with all optional fields omitted.
@@ -652,28 +655,28 @@ data GetLoadBalancerMetricDataResponse = GetLoadBalancerMetricDataResponse'
 -- 'httpStatus', 'getLoadBalancerMetricDataResponse_httpStatus' - The response's http status code.
 newGetLoadBalancerMetricDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetLoadBalancerMetricDataResponse
 newGetLoadBalancerMetricDataResponse pHttpStatus_ =
   GetLoadBalancerMetricDataResponse'
     { metricName =
-        Core.Nothing,
-      metricData = Core.Nothing,
+        Prelude.Nothing,
+      metricData = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the metric returned.
-getLoadBalancerMetricDataResponse_metricName :: Lens.Lens' GetLoadBalancerMetricDataResponse (Core.Maybe LoadBalancerMetricName)
+getLoadBalancerMetricDataResponse_metricName :: Lens.Lens' GetLoadBalancerMetricDataResponse (Prelude.Maybe LoadBalancerMetricName)
 getLoadBalancerMetricDataResponse_metricName = Lens.lens (\GetLoadBalancerMetricDataResponse' {metricName} -> metricName) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {metricName = a} :: GetLoadBalancerMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
-getLoadBalancerMetricDataResponse_metricData :: Lens.Lens' GetLoadBalancerMetricDataResponse (Core.Maybe [MetricDatapoint])
-getLoadBalancerMetricDataResponse_metricData = Lens.lens (\GetLoadBalancerMetricDataResponse' {metricData} -> metricData) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {metricData = a} :: GetLoadBalancerMetricDataResponse) Core.. Lens.mapping Lens._Coerce
+getLoadBalancerMetricDataResponse_metricData :: Lens.Lens' GetLoadBalancerMetricDataResponse (Prelude.Maybe [MetricDatapoint])
+getLoadBalancerMetricDataResponse_metricData = Lens.lens (\GetLoadBalancerMetricDataResponse' {metricData} -> metricData) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {metricData = a} :: GetLoadBalancerMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getLoadBalancerMetricDataResponse_httpStatus :: Lens.Lens' GetLoadBalancerMetricDataResponse Core.Int
+getLoadBalancerMetricDataResponse_httpStatus :: Lens.Lens' GetLoadBalancerMetricDataResponse Prelude.Int
 getLoadBalancerMetricDataResponse_httpStatus = Lens.lens (\GetLoadBalancerMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetLoadBalancerMetricDataResponse' {} a -> s {httpStatus = a} :: GetLoadBalancerMetricDataResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetLoadBalancerMetricDataResponse

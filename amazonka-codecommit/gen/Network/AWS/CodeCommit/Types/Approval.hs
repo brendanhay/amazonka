@@ -22,18 +22,19 @@ module Network.AWS.CodeCommit.Types.Approval where
 import Network.AWS.CodeCommit.Types.ApprovalState
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a specific approval on a pull request.
 --
 -- /See:/ 'newApproval' smart constructor.
 data Approval = Approval'
   { -- | The Amazon Resource Name (ARN) of the user.
-    userArn :: Core.Maybe Core.Text,
+    userArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not
     -- stored.
-    approvalState :: Core.Maybe ApprovalState
+    approvalState :: Prelude.Maybe ApprovalState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Approval' with all optional fields omitted.
@@ -51,17 +52,17 @@ newApproval ::
   Approval
 newApproval =
   Approval'
-    { userArn = Core.Nothing,
-      approvalState = Core.Nothing
+    { userArn = Prelude.Nothing,
+      approvalState = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user.
-approval_userArn :: Lens.Lens' Approval (Core.Maybe Core.Text)
+approval_userArn :: Lens.Lens' Approval (Prelude.Maybe Prelude.Text)
 approval_userArn = Lens.lens (\Approval' {userArn} -> userArn) (\s@Approval' {} a -> s {userArn = a} :: Approval)
 
 -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not
 -- stored.
-approval_approvalState :: Lens.Lens' Approval (Core.Maybe ApprovalState)
+approval_approvalState :: Lens.Lens' Approval (Prelude.Maybe ApprovalState)
 approval_approvalState = Lens.lens (\Approval' {approvalState} -> approvalState) (\s@Approval' {} a -> s {approvalState = a} :: Approval)
 
 instance Core.FromJSON Approval where
@@ -70,10 +71,10 @@ instance Core.FromJSON Approval where
       "Approval"
       ( \x ->
           Approval'
-            Core.<$> (x Core..:? "userArn")
-            Core.<*> (x Core..:? "approvalState")
+            Prelude.<$> (x Core..:? "userArn")
+            Prelude.<*> (x Core..:? "approvalState")
       )
 
-instance Core.Hashable Approval
+instance Prelude.Hashable Approval
 
-instance Core.NFData Approval
+instance Prelude.NFData Approval

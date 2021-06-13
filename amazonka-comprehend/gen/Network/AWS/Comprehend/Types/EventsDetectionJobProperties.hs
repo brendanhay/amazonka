@@ -25,38 +25,39 @@ import Network.AWS.Comprehend.Types.LanguageCode
 import Network.AWS.Comprehend.Types.OutputDataConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about an events detection job.
 --
 -- /See:/ 'newEventsDetectionJobProperties' smart constructor.
 data EventsDetectionJobProperties = EventsDetectionJobProperties'
   { -- | The language code of the input documents.
-    languageCode :: Core.Maybe LanguageCode,
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The input data configuration that you supplied when you created the
     -- events detection job.
-    inputDataConfig :: Core.Maybe InputDataConfig,
+    inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | A description of the status of the events detection job.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The current status of the events detection job.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The output data configuration that you supplied when you created the
     -- events detection job.
-    outputDataConfig :: Core.Maybe OutputDataConfig,
+    outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the events detection job completed.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The time that the events detection job was submitted for processing.
-    submitTime :: Core.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Core.POSIX,
     -- | The types of events that are detected by the job.
-    targetEventTypes :: Core.Maybe (Core.NonEmpty Core.Text),
+    targetEventTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name you assigned the events detection job.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleArn :: Core.Maybe Core.Text,
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier assigned to the events detection job.
-    jobId :: Core.Maybe Core.Text
+    jobId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventsDetectionJobProperties' with all optional fields omitted.
@@ -95,64 +96,64 @@ newEventsDetectionJobProperties ::
 newEventsDetectionJobProperties =
   EventsDetectionJobProperties'
     { languageCode =
-        Core.Nothing,
-      inputDataConfig = Core.Nothing,
-      message = Core.Nothing,
-      jobStatus = Core.Nothing,
-      outputDataConfig = Core.Nothing,
-      endTime = Core.Nothing,
-      submitTime = Core.Nothing,
-      targetEventTypes = Core.Nothing,
-      jobName = Core.Nothing,
-      dataAccessRoleArn = Core.Nothing,
-      jobId = Core.Nothing
+        Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
+      message = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      outputDataConfig = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      submitTime = Prelude.Nothing,
+      targetEventTypes = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      dataAccessRoleArn = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
 
 -- | The language code of the input documents.
-eventsDetectionJobProperties_languageCode :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe LanguageCode)
+eventsDetectionJobProperties_languageCode :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe LanguageCode)
 eventsDetectionJobProperties_languageCode = Lens.lens (\EventsDetectionJobProperties' {languageCode} -> languageCode) (\s@EventsDetectionJobProperties' {} a -> s {languageCode = a} :: EventsDetectionJobProperties)
 
 -- | The input data configuration that you supplied when you created the
 -- events detection job.
-eventsDetectionJobProperties_inputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe InputDataConfig)
+eventsDetectionJobProperties_inputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe InputDataConfig)
 eventsDetectionJobProperties_inputDataConfig = Lens.lens (\EventsDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@EventsDetectionJobProperties' {} a -> s {inputDataConfig = a} :: EventsDetectionJobProperties)
 
 -- | A description of the status of the events detection job.
-eventsDetectionJobProperties_message :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Core.Text)
+eventsDetectionJobProperties_message :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 eventsDetectionJobProperties_message = Lens.lens (\EventsDetectionJobProperties' {message} -> message) (\s@EventsDetectionJobProperties' {} a -> s {message = a} :: EventsDetectionJobProperties)
 
 -- | The current status of the events detection job.
-eventsDetectionJobProperties_jobStatus :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe JobStatus)
+eventsDetectionJobProperties_jobStatus :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe JobStatus)
 eventsDetectionJobProperties_jobStatus = Lens.lens (\EventsDetectionJobProperties' {jobStatus} -> jobStatus) (\s@EventsDetectionJobProperties' {} a -> s {jobStatus = a} :: EventsDetectionJobProperties)
 
 -- | The output data configuration that you supplied when you created the
 -- events detection job.
-eventsDetectionJobProperties_outputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe OutputDataConfig)
+eventsDetectionJobProperties_outputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe OutputDataConfig)
 eventsDetectionJobProperties_outputDataConfig = Lens.lens (\EventsDetectionJobProperties' {outputDataConfig} -> outputDataConfig) (\s@EventsDetectionJobProperties' {} a -> s {outputDataConfig = a} :: EventsDetectionJobProperties)
 
 -- | The time that the events detection job completed.
-eventsDetectionJobProperties_endTime :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Core.UTCTime)
-eventsDetectionJobProperties_endTime = Lens.lens (\EventsDetectionJobProperties' {endTime} -> endTime) (\s@EventsDetectionJobProperties' {} a -> s {endTime = a} :: EventsDetectionJobProperties) Core.. Lens.mapping Core._Time
+eventsDetectionJobProperties_endTime :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+eventsDetectionJobProperties_endTime = Lens.lens (\EventsDetectionJobProperties' {endTime} -> endTime) (\s@EventsDetectionJobProperties' {} a -> s {endTime = a} :: EventsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The time that the events detection job was submitted for processing.
-eventsDetectionJobProperties_submitTime :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Core.UTCTime)
-eventsDetectionJobProperties_submitTime = Lens.lens (\EventsDetectionJobProperties' {submitTime} -> submitTime) (\s@EventsDetectionJobProperties' {} a -> s {submitTime = a} :: EventsDetectionJobProperties) Core.. Lens.mapping Core._Time
+eventsDetectionJobProperties_submitTime :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+eventsDetectionJobProperties_submitTime = Lens.lens (\EventsDetectionJobProperties' {submitTime} -> submitTime) (\s@EventsDetectionJobProperties' {} a -> s {submitTime = a} :: EventsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The types of events that are detected by the job.
-eventsDetectionJobProperties_targetEventTypes :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe (Core.NonEmpty Core.Text))
-eventsDetectionJobProperties_targetEventTypes = Lens.lens (\EventsDetectionJobProperties' {targetEventTypes} -> targetEventTypes) (\s@EventsDetectionJobProperties' {} a -> s {targetEventTypes = a} :: EventsDetectionJobProperties) Core.. Lens.mapping Lens._Coerce
+eventsDetectionJobProperties_targetEventTypes :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+eventsDetectionJobProperties_targetEventTypes = Lens.lens (\EventsDetectionJobProperties' {targetEventTypes} -> targetEventTypes) (\s@EventsDetectionJobProperties' {} a -> s {targetEventTypes = a} :: EventsDetectionJobProperties) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name you assigned the events detection job.
-eventsDetectionJobProperties_jobName :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Core.Text)
+eventsDetectionJobProperties_jobName :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 eventsDetectionJobProperties_jobName = Lens.lens (\EventsDetectionJobProperties' {jobName} -> jobName) (\s@EventsDetectionJobProperties' {} a -> s {jobName = a} :: EventsDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management
 -- (IAM) role that grants Amazon Comprehend read access to your input data.
-eventsDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Core.Text)
+eventsDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 eventsDetectionJobProperties_dataAccessRoleArn = Lens.lens (\EventsDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@EventsDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: EventsDetectionJobProperties)
 
 -- | The identifier assigned to the events detection job.
-eventsDetectionJobProperties_jobId :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Core.Text)
+eventsDetectionJobProperties_jobId :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 eventsDetectionJobProperties_jobId = Lens.lens (\EventsDetectionJobProperties' {jobId} -> jobId) (\s@EventsDetectionJobProperties' {} a -> s {jobId = a} :: EventsDetectionJobProperties)
 
 instance Core.FromJSON EventsDetectionJobProperties where
@@ -161,19 +162,21 @@ instance Core.FromJSON EventsDetectionJobProperties where
       "EventsDetectionJobProperties"
       ( \x ->
           EventsDetectionJobProperties'
-            Core.<$> (x Core..:? "LanguageCode")
-            Core.<*> (x Core..:? "InputDataConfig")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "JobStatus")
-            Core.<*> (x Core..:? "OutputDataConfig")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "SubmitTime")
-            Core.<*> (x Core..:? "TargetEventTypes")
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "DataAccessRoleArn")
-            Core.<*> (x Core..:? "JobId")
+            Prelude.<$> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<*> (x Core..:? "OutputDataConfig")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "SubmitTime")
+            Prelude.<*> (x Core..:? "TargetEventTypes")
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "DataAccessRoleArn")
+            Prelude.<*> (x Core..:? "JobId")
       )
 
-instance Core.Hashable EventsDetectionJobProperties
+instance
+  Prelude.Hashable
+    EventsDetectionJobProperties
 
-instance Core.NFData EventsDetectionJobProperties
+instance Prelude.NFData EventsDetectionJobProperties

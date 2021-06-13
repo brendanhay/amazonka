@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,17 +60,17 @@ import qualified Network.AWS.Response as Response
 data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendation'
   { -- | The number of recommendations that you want returned in a single
     -- response object.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The account scope that you want your recommendations for. Amazon Web
     -- Services calculates recommendations including the management account and
     -- member accounts if the value is set to @PAYER@. If the value is
     -- @LINKED@, recommendations are calculated for individual member accounts
     -- only.
-    accountScope :: Core.Maybe AccountScope,
+    accountScope :: Prelude.Maybe AccountScope,
     -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | You can filter your recommendations by Account ID with the
     -- @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account
     -- ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated
@@ -82,7 +83,7 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
     -- Account ID or multiple comma-separated Account IDs for which you want to
     -- see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are
     -- not supported.
-    filter' :: Core.Maybe Expression,
+    filter' :: Prelude.Maybe Expression,
     -- | The Savings Plans recommendation type requested.
     savingsPlansType :: SupportedSavingsPlansType,
     -- | The savings plan recommendation term used to generate these
@@ -93,7 +94,7 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
     -- | The lookback period used to generate the recommendation.
     lookbackPeriodInDays :: LookbackPeriodInDays
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSavingsPlansPurchaseRecommendation' with all optional fields omitted.
@@ -154,10 +155,10 @@ newGetSavingsPlansPurchaseRecommendation
   pLookbackPeriodInDays_ =
     GetSavingsPlansPurchaseRecommendation'
       { pageSize =
-          Core.Nothing,
-        accountScope = Core.Nothing,
-        nextPageToken = Core.Nothing,
-        filter' = Core.Nothing,
+          Prelude.Nothing,
+        accountScope = Prelude.Nothing,
+        nextPageToken = Prelude.Nothing,
+        filter' = Prelude.Nothing,
         savingsPlansType =
           pSavingsPlansType_,
         termInYears = pTermInYears_,
@@ -168,7 +169,7 @@ newGetSavingsPlansPurchaseRecommendation
 
 -- | The number of recommendations that you want returned in a single
 -- response object.
-getSavingsPlansPurchaseRecommendation_pageSize :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Core.Maybe Core.Natural)
+getSavingsPlansPurchaseRecommendation_pageSize :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe Prelude.Natural)
 getSavingsPlansPurchaseRecommendation_pageSize = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {pageSize} -> pageSize) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {pageSize = a} :: GetSavingsPlansPurchaseRecommendation)
 
 -- | The account scope that you want your recommendations for. Amazon Web
@@ -176,13 +177,13 @@ getSavingsPlansPurchaseRecommendation_pageSize = Lens.lens (\GetSavingsPlansPurc
 -- member accounts if the value is set to @PAYER@. If the value is
 -- @LINKED@, recommendations are calculated for individual member accounts
 -- only.
-getSavingsPlansPurchaseRecommendation_accountScope :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Core.Maybe AccountScope)
+getSavingsPlansPurchaseRecommendation_accountScope :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe AccountScope)
 getSavingsPlansPurchaseRecommendation_accountScope = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {accountScope} -> accountScope) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {accountScope = a} :: GetSavingsPlansPurchaseRecommendation)
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
-getSavingsPlansPurchaseRecommendation_nextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Core.Maybe Core.Text)
+getSavingsPlansPurchaseRecommendation_nextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe Prelude.Text)
 getSavingsPlansPurchaseRecommendation_nextPageToken = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {nextPageToken} -> nextPageToken) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {nextPageToken = a} :: GetSavingsPlansPurchaseRecommendation)
 
 -- | You can filter your recommendations by Account ID with the
@@ -197,7 +198,7 @@ getSavingsPlansPurchaseRecommendation_nextPageToken = Lens.lens (\GetSavingsPlan
 -- Account ID or multiple comma-separated Account IDs for which you want to
 -- see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are
 -- not supported.
-getSavingsPlansPurchaseRecommendation_filter :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Core.Maybe Expression)
+getSavingsPlansPurchaseRecommendation_filter :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe Expression)
 getSavingsPlansPurchaseRecommendation_filter = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {filter'} -> filter') (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {filter' = a} :: GetSavingsPlansPurchaseRecommendation)
 
 -- | The Savings Plans recommendation type requested.
@@ -230,18 +231,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansPurchaseRecommendationResponse'
-            Core.<$> (x Core..?> "Metadata")
-              Core.<*> (x Core..?> "NextPageToken")
-              Core.<*> (x Core..?> "SavingsPlansPurchaseRecommendation")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Metadata")
+              Prelude.<*> (x Core..?> "NextPageToken")
+              Prelude.<*> (x Core..?> "SavingsPlansPurchaseRecommendation")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetSavingsPlansPurchaseRecommendation
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetSavingsPlansPurchaseRecommendation
 
 instance
@@ -249,14 +250,16 @@ instance
     GetSavingsPlansPurchaseRecommendation
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -266,16 +269,16 @@ instance
   where
   toJSON GetSavingsPlansPurchaseRecommendation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PageSize" Core..=) Core.<$> pageSize,
-            ("AccountScope" Core..=) Core.<$> accountScope,
-            ("NextPageToken" Core..=) Core.<$> nextPageToken,
-            ("Filter" Core..=) Core.<$> filter',
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AccountScope" Core..=) Prelude.<$> accountScope,
+            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("Filter" Core..=) Prelude.<$> filter',
+            Prelude.Just
               ("SavingsPlansType" Core..= savingsPlansType),
-            Core.Just ("TermInYears" Core..= termInYears),
-            Core.Just ("PaymentOption" Core..= paymentOption),
-            Core.Just
+            Prelude.Just ("TermInYears" Core..= termInYears),
+            Prelude.Just ("PaymentOption" Core..= paymentOption),
+            Prelude.Just
               ( "LookbackPeriodInDays"
                   Core..= lookbackPeriodInDays
               )
@@ -286,29 +289,29 @@ instance
   Core.ToPath
     GetSavingsPlansPurchaseRecommendation
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetSavingsPlansPurchaseRecommendation
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSavingsPlansPurchaseRecommendationResponse' smart constructor.
 data GetSavingsPlansPurchaseRecommendationResponse = GetSavingsPlansPurchaseRecommendationResponse'
   { -- | Information regarding this specific recommendation set.
-    metadata :: Core.Maybe SavingsPlansPurchaseRecommendationMetadata,
+    metadata :: Prelude.Maybe SavingsPlansPurchaseRecommendationMetadata,
     -- | The token for the next set of retrievable results. AWS provides the
     -- token when the response from a previous call has more results than the
     -- maximum page size.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Contains your request parameters, Savings Plan Recommendations Summary,
     -- and Details.
-    savingsPlansPurchaseRecommendation :: Core.Maybe SavingsPlansPurchaseRecommendation,
+    savingsPlansPurchaseRecommendation :: Prelude.Maybe SavingsPlansPurchaseRecommendation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSavingsPlansPurchaseRecommendationResponse' with all optional fields omitted.
@@ -330,38 +333,39 @@ data GetSavingsPlansPurchaseRecommendationResponse = GetSavingsPlansPurchaseReco
 -- 'httpStatus', 'getSavingsPlansPurchaseRecommendationResponse_httpStatus' - The response's http status code.
 newGetSavingsPlansPurchaseRecommendationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSavingsPlansPurchaseRecommendationResponse
 newGetSavingsPlansPurchaseRecommendationResponse
   pHttpStatus_ =
     GetSavingsPlansPurchaseRecommendationResponse'
       { metadata =
-          Core.Nothing,
-        nextPageToken = Core.Nothing,
+          Prelude.Nothing,
+        nextPageToken =
+          Prelude.Nothing,
         savingsPlansPurchaseRecommendation =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information regarding this specific recommendation set.
-getSavingsPlansPurchaseRecommendationResponse_metadata :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Core.Maybe SavingsPlansPurchaseRecommendationMetadata)
+getSavingsPlansPurchaseRecommendationResponse_metadata :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Prelude.Maybe SavingsPlansPurchaseRecommendationMetadata)
 getSavingsPlansPurchaseRecommendationResponse_metadata = Lens.lens (\GetSavingsPlansPurchaseRecommendationResponse' {metadata} -> metadata) (\s@GetSavingsPlansPurchaseRecommendationResponse' {} a -> s {metadata = a} :: GetSavingsPlansPurchaseRecommendationResponse)
 
 -- | The token for the next set of retrievable results. AWS provides the
 -- token when the response from a previous call has more results than the
 -- maximum page size.
-getSavingsPlansPurchaseRecommendationResponse_nextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Core.Maybe Core.Text)
+getSavingsPlansPurchaseRecommendationResponse_nextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Prelude.Maybe Prelude.Text)
 getSavingsPlansPurchaseRecommendationResponse_nextPageToken = Lens.lens (\GetSavingsPlansPurchaseRecommendationResponse' {nextPageToken} -> nextPageToken) (\s@GetSavingsPlansPurchaseRecommendationResponse' {} a -> s {nextPageToken = a} :: GetSavingsPlansPurchaseRecommendationResponse)
 
 -- | Contains your request parameters, Savings Plan Recommendations Summary,
 -- and Details.
-getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Core.Maybe SavingsPlansPurchaseRecommendation)
+getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Prelude.Maybe SavingsPlansPurchaseRecommendation)
 getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation = Lens.lens (\GetSavingsPlansPurchaseRecommendationResponse' {savingsPlansPurchaseRecommendation} -> savingsPlansPurchaseRecommendation) (\s@GetSavingsPlansPurchaseRecommendationResponse' {} a -> s {savingsPlansPurchaseRecommendation = a} :: GetSavingsPlansPurchaseRecommendationResponse)
 
 -- | The response's http status code.
-getSavingsPlansPurchaseRecommendationResponse_httpStatus :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse Core.Int
+getSavingsPlansPurchaseRecommendationResponse_httpStatus :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse Prelude.Int
 getSavingsPlansPurchaseRecommendationResponse_httpStatus = Lens.lens (\GetSavingsPlansPurchaseRecommendationResponse' {httpStatus} -> httpStatus) (\s@GetSavingsPlansPurchaseRecommendationResponse' {} a -> s {httpStatus = a} :: GetSavingsPlansPurchaseRecommendationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetSavingsPlansPurchaseRecommendationResponse

@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.VpcPeeringConnectionOptionsDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the VPC peering connection options.
 --
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 data VpcPeeringConnectionOptionsDescription = VpcPeeringConnectionOptionsDescription'
   { -- | Indicates whether a local VPC can resolve public DNS hostnames to
     -- private IP addresses when queried from instances in a peer VPC.
-    allowDnsResolutionFromRemoteVpc :: Core.Maybe Core.Bool,
+    allowDnsResolutionFromRemoteVpc :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether a local VPC can communicate with a ClassicLink
     -- connection in the peer VPC over the VPC peering connection.
-    allowEgressFromLocalVpcToRemoteClassicLink :: Core.Maybe Core.Bool,
+    allowEgressFromLocalVpcToRemoteClassicLink :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether a local ClassicLink connection can communicate with
     -- the peer VPC over the VPC peering connection.
-    allowEgressFromLocalClassicLinkToRemoteVpc :: Core.Maybe Core.Bool
+    allowEgressFromLocalClassicLinkToRemoteVpc :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcPeeringConnectionOptionsDescription' with all optional fields omitted.
@@ -60,26 +61,26 @@ newVpcPeeringConnectionOptionsDescription ::
 newVpcPeeringConnectionOptionsDescription =
   VpcPeeringConnectionOptionsDescription'
     { allowDnsResolutionFromRemoteVpc =
-        Core.Nothing,
+        Prelude.Nothing,
       allowEgressFromLocalVpcToRemoteClassicLink =
-        Core.Nothing,
+        Prelude.Nothing,
       allowEgressFromLocalClassicLinkToRemoteVpc =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Indicates whether a local VPC can resolve public DNS hostnames to
 -- private IP addresses when queried from instances in a peer VPC.
-vpcPeeringConnectionOptionsDescription_allowDnsResolutionFromRemoteVpc :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Core.Maybe Core.Bool)
+vpcPeeringConnectionOptionsDescription_allowDnsResolutionFromRemoteVpc :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Prelude.Maybe Prelude.Bool)
 vpcPeeringConnectionOptionsDescription_allowDnsResolutionFromRemoteVpc = Lens.lens (\VpcPeeringConnectionOptionsDescription' {allowDnsResolutionFromRemoteVpc} -> allowDnsResolutionFromRemoteVpc) (\s@VpcPeeringConnectionOptionsDescription' {} a -> s {allowDnsResolutionFromRemoteVpc = a} :: VpcPeeringConnectionOptionsDescription)
 
 -- | Indicates whether a local VPC can communicate with a ClassicLink
 -- connection in the peer VPC over the VPC peering connection.
-vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Core.Maybe Core.Bool)
+vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Prelude.Maybe Prelude.Bool)
 vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink = Lens.lens (\VpcPeeringConnectionOptionsDescription' {allowEgressFromLocalVpcToRemoteClassicLink} -> allowEgressFromLocalVpcToRemoteClassicLink) (\s@VpcPeeringConnectionOptionsDescription' {} a -> s {allowEgressFromLocalVpcToRemoteClassicLink = a} :: VpcPeeringConnectionOptionsDescription)
 
 -- | Indicates whether a local ClassicLink connection can communicate with
 -- the peer VPC over the VPC peering connection.
-vpcPeeringConnectionOptionsDescription_allowEgressFromLocalClassicLinkToRemoteVpc :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Core.Maybe Core.Bool)
+vpcPeeringConnectionOptionsDescription_allowEgressFromLocalClassicLinkToRemoteVpc :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Prelude.Maybe Prelude.Bool)
 vpcPeeringConnectionOptionsDescription_allowEgressFromLocalClassicLinkToRemoteVpc = Lens.lens (\VpcPeeringConnectionOptionsDescription' {allowEgressFromLocalClassicLinkToRemoteVpc} -> allowEgressFromLocalClassicLinkToRemoteVpc) (\s@VpcPeeringConnectionOptionsDescription' {} a -> s {allowEgressFromLocalClassicLinkToRemoteVpc = a} :: VpcPeeringConnectionOptionsDescription)
 
 instance
@@ -88,18 +89,18 @@ instance
   where
   parseXML x =
     VpcPeeringConnectionOptionsDescription'
-      Core.<$> (x Core..@? "allowDnsResolutionFromRemoteVpc")
-      Core.<*> ( x
-                   Core..@? "allowEgressFromLocalVpcToRemoteClassicLink"
-               )
-      Core.<*> ( x
-                   Core..@? "allowEgressFromLocalClassicLinkToRemoteVpc"
-               )
+      Prelude.<$> (x Core..@? "allowDnsResolutionFromRemoteVpc")
+      Prelude.<*> ( x
+                      Core..@? "allowEgressFromLocalVpcToRemoteClassicLink"
+                  )
+      Prelude.<*> ( x
+                      Core..@? "allowEgressFromLocalClassicLinkToRemoteVpc"
+                  )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     VpcPeeringConnectionOptionsDescription
 
 instance
-  Core.NFData
+  Prelude.NFData
     VpcPeeringConnectionOptionsDescription

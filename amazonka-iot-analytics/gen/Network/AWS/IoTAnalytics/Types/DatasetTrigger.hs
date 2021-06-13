@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.Schedule
 import Network.AWS.IoTAnalytics.Types.TriggeringDataset
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The @DatasetTrigger@ that specifies when the data set is automatically
 -- updated.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDatasetTrigger' smart constructor.
 data DatasetTrigger = DatasetTrigger'
   { -- | The Schedule when the trigger is initiated.
-    schedule :: Core.Maybe Schedule,
+    schedule :: Prelude.Maybe Schedule,
     -- | The data set whose content creation triggers the creation of this data
     -- set\'s contents.
-    dataset :: Core.Maybe TriggeringDataset
+    dataset :: Prelude.Maybe TriggeringDataset
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatasetTrigger' with all optional fields omitted.
@@ -53,17 +54,17 @@ newDatasetTrigger ::
   DatasetTrigger
 newDatasetTrigger =
   DatasetTrigger'
-    { schedule = Core.Nothing,
-      dataset = Core.Nothing
+    { schedule = Prelude.Nothing,
+      dataset = Prelude.Nothing
     }
 
 -- | The Schedule when the trigger is initiated.
-datasetTrigger_schedule :: Lens.Lens' DatasetTrigger (Core.Maybe Schedule)
+datasetTrigger_schedule :: Lens.Lens' DatasetTrigger (Prelude.Maybe Schedule)
 datasetTrigger_schedule = Lens.lens (\DatasetTrigger' {schedule} -> schedule) (\s@DatasetTrigger' {} a -> s {schedule = a} :: DatasetTrigger)
 
 -- | The data set whose content creation triggers the creation of this data
 -- set\'s contents.
-datasetTrigger_dataset :: Lens.Lens' DatasetTrigger (Core.Maybe TriggeringDataset)
+datasetTrigger_dataset :: Lens.Lens' DatasetTrigger (Prelude.Maybe TriggeringDataset)
 datasetTrigger_dataset = Lens.lens (\DatasetTrigger' {dataset} -> dataset) (\s@DatasetTrigger' {} a -> s {dataset = a} :: DatasetTrigger)
 
 instance Core.FromJSON DatasetTrigger where
@@ -72,19 +73,19 @@ instance Core.FromJSON DatasetTrigger where
       "DatasetTrigger"
       ( \x ->
           DatasetTrigger'
-            Core.<$> (x Core..:? "schedule")
-            Core.<*> (x Core..:? "dataset")
+            Prelude.<$> (x Core..:? "schedule")
+            Prelude.<*> (x Core..:? "dataset")
       )
 
-instance Core.Hashable DatasetTrigger
+instance Prelude.Hashable DatasetTrigger
 
-instance Core.NFData DatasetTrigger
+instance Prelude.NFData DatasetTrigger
 
 instance Core.ToJSON DatasetTrigger where
   toJSON DatasetTrigger' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("schedule" Core..=) Core.<$> schedule,
-            ("dataset" Core..=) Core.<$> dataset
+      ( Prelude.catMaybes
+          [ ("schedule" Core..=) Prelude.<$> schedule,
+            ("dataset" Core..=) Prelude.<$> dataset
           ]
       )

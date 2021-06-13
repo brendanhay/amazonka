@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,17 +66,17 @@ import qualified Network.AWS.Response as Response
 data DisassociateCreatedArtifact = DisassociateCreatedArtifact'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Core.Text,
+    progressUpdateStream :: Prelude.Text,
     -- | Unique identifier that references the migration task to be disassociated
     -- with the artifact. /Do not store personal data in this field./
-    migrationTaskName :: Core.Text,
+    migrationTaskName :: Prelude.Text,
     -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2
     -- instance, RDS instance, etc.)
-    createdArtifactName :: Core.Text
+    createdArtifactName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateCreatedArtifact' with all optional fields omitted.
@@ -97,18 +98,19 @@ data DisassociateCreatedArtifact = DisassociateCreatedArtifact'
 -- instance, RDS instance, etc.)
 newDisassociateCreatedArtifact ::
   -- | 'progressUpdateStream'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'migrationTaskName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createdArtifactName'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateCreatedArtifact
 newDisassociateCreatedArtifact
   pProgressUpdateStream_
   pMigrationTaskName_
   pCreatedArtifactName_ =
     DisassociateCreatedArtifact'
-      { dryRun = Core.Nothing,
+      { dryRun =
+          Prelude.Nothing,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
         createdArtifactName = pCreatedArtifactName_
@@ -116,21 +118,21 @@ newDisassociateCreatedArtifact
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-disassociateCreatedArtifact_dryRun :: Lens.Lens' DisassociateCreatedArtifact (Core.Maybe Core.Bool)
+disassociateCreatedArtifact_dryRun :: Lens.Lens' DisassociateCreatedArtifact (Prelude.Maybe Prelude.Bool)
 disassociateCreatedArtifact_dryRun = Lens.lens (\DisassociateCreatedArtifact' {dryRun} -> dryRun) (\s@DisassociateCreatedArtifact' {} a -> s {dryRun = a} :: DisassociateCreatedArtifact)
 
 -- | The name of the ProgressUpdateStream.
-disassociateCreatedArtifact_progressUpdateStream :: Lens.Lens' DisassociateCreatedArtifact Core.Text
+disassociateCreatedArtifact_progressUpdateStream :: Lens.Lens' DisassociateCreatedArtifact Prelude.Text
 disassociateCreatedArtifact_progressUpdateStream = Lens.lens (\DisassociateCreatedArtifact' {progressUpdateStream} -> progressUpdateStream) (\s@DisassociateCreatedArtifact' {} a -> s {progressUpdateStream = a} :: DisassociateCreatedArtifact)
 
 -- | Unique identifier that references the migration task to be disassociated
 -- with the artifact. /Do not store personal data in this field./
-disassociateCreatedArtifact_migrationTaskName :: Lens.Lens' DisassociateCreatedArtifact Core.Text
+disassociateCreatedArtifact_migrationTaskName :: Lens.Lens' DisassociateCreatedArtifact Prelude.Text
 disassociateCreatedArtifact_migrationTaskName = Lens.lens (\DisassociateCreatedArtifact' {migrationTaskName} -> migrationTaskName) (\s@DisassociateCreatedArtifact' {} a -> s {migrationTaskName = a} :: DisassociateCreatedArtifact)
 
 -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2
 -- instance, RDS instance, etc.)
-disassociateCreatedArtifact_createdArtifactName :: Lens.Lens' DisassociateCreatedArtifact Core.Text
+disassociateCreatedArtifact_createdArtifactName :: Lens.Lens' DisassociateCreatedArtifact Prelude.Text
 disassociateCreatedArtifact_createdArtifactName = Lens.lens (\DisassociateCreatedArtifact' {createdArtifactName} -> createdArtifactName) (\s@DisassociateCreatedArtifact' {} a -> s {createdArtifactName = a} :: DisassociateCreatedArtifact)
 
 instance Core.AWSRequest DisassociateCreatedArtifact where
@@ -142,54 +144,56 @@ instance Core.AWSRequest DisassociateCreatedArtifact where
     Response.receiveEmpty
       ( \s h x ->
           DisassociateCreatedArtifactResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateCreatedArtifact
+instance Prelude.Hashable DisassociateCreatedArtifact
 
-instance Core.NFData DisassociateCreatedArtifact
+instance Prelude.NFData DisassociateCreatedArtifact
 
 instance Core.ToHeaders DisassociateCreatedArtifact where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMigrationHub.DisassociateCreatedArtifact" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateCreatedArtifact where
   toJSON DisassociateCreatedArtifact' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DryRun" Core..=) Core.<$> dryRun,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+            Prelude.Just
               ( "ProgressUpdateStream"
                   Core..= progressUpdateStream
               ),
-            Core.Just
+            Prelude.Just
               ("MigrationTaskName" Core..= migrationTaskName),
-            Core.Just
+            Prelude.Just
               ("CreatedArtifactName" Core..= createdArtifactName)
           ]
       )
 
 instance Core.ToPath DisassociateCreatedArtifact where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateCreatedArtifact where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateCreatedArtifactResponse' smart constructor.
 data DisassociateCreatedArtifactResponse = DisassociateCreatedArtifactResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateCreatedArtifactResponse' with all optional fields omitted.
@@ -202,7 +206,7 @@ data DisassociateCreatedArtifactResponse = DisassociateCreatedArtifactResponse'
 -- 'httpStatus', 'disassociateCreatedArtifactResponse_httpStatus' - The response's http status code.
 newDisassociateCreatedArtifactResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateCreatedArtifactResponse
 newDisassociateCreatedArtifactResponse pHttpStatus_ =
   DisassociateCreatedArtifactResponse'
@@ -211,9 +215,9 @@ newDisassociateCreatedArtifactResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateCreatedArtifactResponse_httpStatus :: Lens.Lens' DisassociateCreatedArtifactResponse Core.Int
+disassociateCreatedArtifactResponse_httpStatus :: Lens.Lens' DisassociateCreatedArtifactResponse Prelude.Int
 disassociateCreatedArtifactResponse_httpStatus = Lens.lens (\DisassociateCreatedArtifactResponse' {httpStatus} -> httpStatus) (\s@DisassociateCreatedArtifactResponse' {} a -> s {httpStatus = a} :: DisassociateCreatedArtifactResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateCreatedArtifactResponse

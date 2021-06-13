@@ -57,17 +57,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutCorsPolicy' smart constructor.
 data PutCorsPolicy = PutCorsPolicy'
   { -- | The name of the container that you want to assign the CORS policy to.
-    containerName :: Core.Text,
+    containerName :: Prelude.Text,
     -- | The CORS policy to apply to the container.
-    corsPolicy :: Core.NonEmpty CorsRule
+    corsPolicy :: Prelude.NonEmpty CorsRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutCorsPolicy' with all optional fields omitted.
@@ -82,9 +83,9 @@ data PutCorsPolicy = PutCorsPolicy'
 -- 'corsPolicy', 'putCorsPolicy_corsPolicy' - The CORS policy to apply to the container.
 newPutCorsPolicy ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'corsPolicy'
-  Core.NonEmpty CorsRule ->
+  Prelude.NonEmpty CorsRule ->
   PutCorsPolicy
 newPutCorsPolicy pContainerName_ pCorsPolicy_ =
   PutCorsPolicy'
@@ -93,12 +94,12 @@ newPutCorsPolicy pContainerName_ pCorsPolicy_ =
     }
 
 -- | The name of the container that you want to assign the CORS policy to.
-putCorsPolicy_containerName :: Lens.Lens' PutCorsPolicy Core.Text
+putCorsPolicy_containerName :: Lens.Lens' PutCorsPolicy Prelude.Text
 putCorsPolicy_containerName = Lens.lens (\PutCorsPolicy' {containerName} -> containerName) (\s@PutCorsPolicy' {} a -> s {containerName = a} :: PutCorsPolicy)
 
 -- | The CORS policy to apply to the container.
-putCorsPolicy_corsPolicy :: Lens.Lens' PutCorsPolicy (Core.NonEmpty CorsRule)
-putCorsPolicy_corsPolicy = Lens.lens (\PutCorsPolicy' {corsPolicy} -> corsPolicy) (\s@PutCorsPolicy' {} a -> s {corsPolicy = a} :: PutCorsPolicy) Core.. Lens._Coerce
+putCorsPolicy_corsPolicy :: Lens.Lens' PutCorsPolicy (Prelude.NonEmpty CorsRule)
+putCorsPolicy_corsPolicy = Lens.lens (\PutCorsPolicy' {corsPolicy} -> corsPolicy) (\s@PutCorsPolicy' {} a -> s {corsPolicy = a} :: PutCorsPolicy) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutCorsPolicy where
   type
@@ -109,47 +110,50 @@ instance Core.AWSRequest PutCorsPolicy where
     Response.receiveEmpty
       ( \s h x ->
           PutCorsPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutCorsPolicy
+instance Prelude.Hashable PutCorsPolicy
 
-instance Core.NFData PutCorsPolicy
+instance Prelude.NFData PutCorsPolicy
 
 instance Core.ToHeaders PutCorsPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.PutCorsPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutCorsPolicy where
   toJSON PutCorsPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ContainerName" Core..= containerName),
-            Core.Just ("CorsPolicy" Core..= corsPolicy)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName),
+            Prelude.Just ("CorsPolicy" Core..= corsPolicy)
           ]
       )
 
 instance Core.ToPath PutCorsPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutCorsPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutCorsPolicyResponse' smart constructor.
 data PutCorsPolicyResponse = PutCorsPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutCorsPolicyResponse' with all optional fields omitted.
@@ -162,13 +166,13 @@ data PutCorsPolicyResponse = PutCorsPolicyResponse'
 -- 'httpStatus', 'putCorsPolicyResponse_httpStatus' - The response's http status code.
 newPutCorsPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutCorsPolicyResponse
 newPutCorsPolicyResponse pHttpStatus_ =
   PutCorsPolicyResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-putCorsPolicyResponse_httpStatus :: Lens.Lens' PutCorsPolicyResponse Core.Int
+putCorsPolicyResponse_httpStatus :: Lens.Lens' PutCorsPolicyResponse Prelude.Int
 putCorsPolicyResponse_httpStatus = Lens.lens (\PutCorsPolicyResponse' {httpStatus} -> httpStatus) (\s@PutCorsPolicyResponse' {} a -> s {httpStatus = a} :: PutCorsPolicyResponse)
 
-instance Core.NFData PutCorsPolicyResponse
+instance Prelude.NFData PutCorsPolicyResponse

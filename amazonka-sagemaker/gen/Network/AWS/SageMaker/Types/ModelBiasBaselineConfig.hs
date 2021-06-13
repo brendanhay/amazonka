@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.ModelBiasBaselineConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringConstraintsResource
 
 -- | The configuration for a baseline model bias job.
 --
 -- /See:/ 'newModelBiasBaselineConfig' smart constructor.
 data ModelBiasBaselineConfig = ModelBiasBaselineConfig'
-  { constraintsResource :: Core.Maybe MonitoringConstraintsResource,
+  { constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
     -- | The name of the baseline model bias job.
-    baseliningJobName :: Core.Maybe Core.Text
+    baseliningJobName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelBiasBaselineConfig' with all optional fields omitted.
@@ -49,16 +50,16 @@ newModelBiasBaselineConfig ::
 newModelBiasBaselineConfig =
   ModelBiasBaselineConfig'
     { constraintsResource =
-        Core.Nothing,
-      baseliningJobName = Core.Nothing
+        Prelude.Nothing,
+      baseliningJobName = Prelude.Nothing
     }
 
 -- | Undocumented member.
-modelBiasBaselineConfig_constraintsResource :: Lens.Lens' ModelBiasBaselineConfig (Core.Maybe MonitoringConstraintsResource)
+modelBiasBaselineConfig_constraintsResource :: Lens.Lens' ModelBiasBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
 modelBiasBaselineConfig_constraintsResource = Lens.lens (\ModelBiasBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelBiasBaselineConfig' {} a -> s {constraintsResource = a} :: ModelBiasBaselineConfig)
 
 -- | The name of the baseline model bias job.
-modelBiasBaselineConfig_baseliningJobName :: Lens.Lens' ModelBiasBaselineConfig (Core.Maybe Core.Text)
+modelBiasBaselineConfig_baseliningJobName :: Lens.Lens' ModelBiasBaselineConfig (Prelude.Maybe Prelude.Text)
 modelBiasBaselineConfig_baseliningJobName = Lens.lens (\ModelBiasBaselineConfig' {baseliningJobName} -> baseliningJobName) (\s@ModelBiasBaselineConfig' {} a -> s {baseliningJobName = a} :: ModelBiasBaselineConfig)
 
 instance Core.FromJSON ModelBiasBaselineConfig where
@@ -67,21 +68,21 @@ instance Core.FromJSON ModelBiasBaselineConfig where
       "ModelBiasBaselineConfig"
       ( \x ->
           ModelBiasBaselineConfig'
-            Core.<$> (x Core..:? "ConstraintsResource")
-            Core.<*> (x Core..:? "BaseliningJobName")
+            Prelude.<$> (x Core..:? "ConstraintsResource")
+            Prelude.<*> (x Core..:? "BaseliningJobName")
       )
 
-instance Core.Hashable ModelBiasBaselineConfig
+instance Prelude.Hashable ModelBiasBaselineConfig
 
-instance Core.NFData ModelBiasBaselineConfig
+instance Prelude.NFData ModelBiasBaselineConfig
 
 instance Core.ToJSON ModelBiasBaselineConfig where
   toJSON ModelBiasBaselineConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ConstraintsResource" Core..=)
-              Core.<$> constraintsResource,
+              Prelude.<$> constraintsResource,
             ("BaseliningJobName" Core..=)
-              Core.<$> baseliningJobName
+              Prelude.<$> baseliningJobName
           ]
       )

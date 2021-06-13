@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -47,7 +48,7 @@ import Network.AWS.SES.Types
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListVerifiedEmailAddresses' with all optional fields omitted.
@@ -68,30 +69,31 @@ instance Core.AWSRequest ListVerifiedEmailAddresses where
       "ListVerifiedEmailAddressesResult"
       ( \s h x ->
           ListVerifiedEmailAddressesResponse'
-            Core.<$> ( x Core..@? "VerifiedEmailAddresses"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "VerifiedEmailAddresses"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListVerifiedEmailAddresses
+instance Prelude.Hashable ListVerifiedEmailAddresses
 
-instance Core.NFData ListVerifiedEmailAddresses
+instance Prelude.NFData ListVerifiedEmailAddresses
 
 instance Core.ToHeaders ListVerifiedEmailAddresses where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListVerifiedEmailAddresses where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListVerifiedEmailAddresses where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("ListVerifiedEmailAddresses" :: Core.ByteString),
-            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
+              Core.=: ("ListVerifiedEmailAddresses" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 
@@ -101,11 +103,11 @@ instance Core.ToQuery ListVerifiedEmailAddresses where
 -- /See:/ 'newListVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
   { -- | A list of email addresses that have been verified.
-    verifiedEmailAddresses :: Core.Maybe [Core.Text],
+    verifiedEmailAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListVerifiedEmailAddressesResponse' with all optional fields omitted.
@@ -120,23 +122,23 @@ data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
 -- 'httpStatus', 'listVerifiedEmailAddressesResponse_httpStatus' - The response's http status code.
 newListVerifiedEmailAddressesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListVerifiedEmailAddressesResponse
 newListVerifiedEmailAddressesResponse pHttpStatus_ =
   ListVerifiedEmailAddressesResponse'
     { verifiedEmailAddresses =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of email addresses that have been verified.
-listVerifiedEmailAddressesResponse_verifiedEmailAddresses :: Lens.Lens' ListVerifiedEmailAddressesResponse (Core.Maybe [Core.Text])
-listVerifiedEmailAddressesResponse_verifiedEmailAddresses = Lens.lens (\ListVerifiedEmailAddressesResponse' {verifiedEmailAddresses} -> verifiedEmailAddresses) (\s@ListVerifiedEmailAddressesResponse' {} a -> s {verifiedEmailAddresses = a} :: ListVerifiedEmailAddressesResponse) Core.. Lens.mapping Lens._Coerce
+listVerifiedEmailAddressesResponse_verifiedEmailAddresses :: Lens.Lens' ListVerifiedEmailAddressesResponse (Prelude.Maybe [Prelude.Text])
+listVerifiedEmailAddressesResponse_verifiedEmailAddresses = Lens.lens (\ListVerifiedEmailAddressesResponse' {verifiedEmailAddresses} -> verifiedEmailAddresses) (\s@ListVerifiedEmailAddressesResponse' {} a -> s {verifiedEmailAddresses = a} :: ListVerifiedEmailAddressesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listVerifiedEmailAddressesResponse_httpStatus :: Lens.Lens' ListVerifiedEmailAddressesResponse Core.Int
+listVerifiedEmailAddressesResponse_httpStatus :: Lens.Lens' ListVerifiedEmailAddressesResponse Prelude.Int
 listVerifiedEmailAddressesResponse_httpStatus = Lens.lens (\ListVerifiedEmailAddressesResponse' {httpStatus} -> httpStatus) (\s@ListVerifiedEmailAddressesResponse' {} a -> s {httpStatus = a} :: ListVerifiedEmailAddressesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListVerifiedEmailAddressesResponse

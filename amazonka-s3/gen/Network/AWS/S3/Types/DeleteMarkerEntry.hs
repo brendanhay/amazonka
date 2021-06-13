@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.DeleteMarkerEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Owner
 
@@ -29,18 +30,18 @@ import Network.AWS.S3.Types.Owner
 -- /See:/ 'newDeleteMarkerEntry' smart constructor.
 data DeleteMarkerEntry = DeleteMarkerEntry'
   { -- | The object key.
-    key :: Core.Maybe ObjectKey,
+    key :: Prelude.Maybe ObjectKey,
     -- | Specifies whether the object is (true) or is not (false) the latest
     -- version of an object.
-    isLatest :: Core.Maybe Core.Bool,
+    isLatest :: Prelude.Maybe Prelude.Bool,
     -- | Version ID of an object.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The account that created the delete marker.>
-    owner :: Core.Maybe Owner,
+    owner :: Prelude.Maybe Owner,
     -- | Date and time the object was last modified.
-    lastModified :: Core.Maybe Core.ISO8601
+    lastModified :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMarkerEntry' with all optional fields omitted.
@@ -64,43 +65,43 @@ newDeleteMarkerEntry ::
   DeleteMarkerEntry
 newDeleteMarkerEntry =
   DeleteMarkerEntry'
-    { key = Core.Nothing,
-      isLatest = Core.Nothing,
-      versionId = Core.Nothing,
-      owner = Core.Nothing,
-      lastModified = Core.Nothing
+    { key = Prelude.Nothing,
+      isLatest = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      lastModified = Prelude.Nothing
     }
 
 -- | The object key.
-deleteMarkerEntry_key :: Lens.Lens' DeleteMarkerEntry (Core.Maybe ObjectKey)
+deleteMarkerEntry_key :: Lens.Lens' DeleteMarkerEntry (Prelude.Maybe ObjectKey)
 deleteMarkerEntry_key = Lens.lens (\DeleteMarkerEntry' {key} -> key) (\s@DeleteMarkerEntry' {} a -> s {key = a} :: DeleteMarkerEntry)
 
 -- | Specifies whether the object is (true) or is not (false) the latest
 -- version of an object.
-deleteMarkerEntry_isLatest :: Lens.Lens' DeleteMarkerEntry (Core.Maybe Core.Bool)
+deleteMarkerEntry_isLatest :: Lens.Lens' DeleteMarkerEntry (Prelude.Maybe Prelude.Bool)
 deleteMarkerEntry_isLatest = Lens.lens (\DeleteMarkerEntry' {isLatest} -> isLatest) (\s@DeleteMarkerEntry' {} a -> s {isLatest = a} :: DeleteMarkerEntry)
 
 -- | Version ID of an object.
-deleteMarkerEntry_versionId :: Lens.Lens' DeleteMarkerEntry (Core.Maybe ObjectVersionId)
+deleteMarkerEntry_versionId :: Lens.Lens' DeleteMarkerEntry (Prelude.Maybe ObjectVersionId)
 deleteMarkerEntry_versionId = Lens.lens (\DeleteMarkerEntry' {versionId} -> versionId) (\s@DeleteMarkerEntry' {} a -> s {versionId = a} :: DeleteMarkerEntry)
 
 -- | The account that created the delete marker.>
-deleteMarkerEntry_owner :: Lens.Lens' DeleteMarkerEntry (Core.Maybe Owner)
+deleteMarkerEntry_owner :: Lens.Lens' DeleteMarkerEntry (Prelude.Maybe Owner)
 deleteMarkerEntry_owner = Lens.lens (\DeleteMarkerEntry' {owner} -> owner) (\s@DeleteMarkerEntry' {} a -> s {owner = a} :: DeleteMarkerEntry)
 
 -- | Date and time the object was last modified.
-deleteMarkerEntry_lastModified :: Lens.Lens' DeleteMarkerEntry (Core.Maybe Core.UTCTime)
-deleteMarkerEntry_lastModified = Lens.lens (\DeleteMarkerEntry' {lastModified} -> lastModified) (\s@DeleteMarkerEntry' {} a -> s {lastModified = a} :: DeleteMarkerEntry) Core.. Lens.mapping Core._Time
+deleteMarkerEntry_lastModified :: Lens.Lens' DeleteMarkerEntry (Prelude.Maybe Prelude.UTCTime)
+deleteMarkerEntry_lastModified = Lens.lens (\DeleteMarkerEntry' {lastModified} -> lastModified) (\s@DeleteMarkerEntry' {} a -> s {lastModified = a} :: DeleteMarkerEntry) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML DeleteMarkerEntry where
   parseXML x =
     DeleteMarkerEntry'
-      Core.<$> (x Core..@? "Key")
-      Core.<*> (x Core..@? "IsLatest")
-      Core.<*> (x Core..@? "VersionId")
-      Core.<*> (x Core..@? "Owner")
-      Core.<*> (x Core..@? "LastModified")
+      Prelude.<$> (x Core..@? "Key")
+      Prelude.<*> (x Core..@? "IsLatest")
+      Prelude.<*> (x Core..@? "VersionId")
+      Prelude.<*> (x Core..@? "Owner")
+      Prelude.<*> (x Core..@? "LastModified")
 
-instance Core.Hashable DeleteMarkerEntry
+instance Prelude.Hashable DeleteMarkerEntry
 
-instance Core.NFData DeleteMarkerEntry
+instance Prelude.NFData DeleteMarkerEntry

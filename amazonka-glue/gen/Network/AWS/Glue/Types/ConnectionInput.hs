@@ -24,6 +24,7 @@ import Network.AWS.Glue.Types.ConnectionPropertyKey
 import Network.AWS.Glue.Types.ConnectionType
 import Network.AWS.Glue.Types.PhysicalConnectionRequirements
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that is used to specify a connection to create or update.
 --
@@ -32,13 +33,13 @@ data ConnectionInput = ConnectionInput'
   { -- | A map of physical connection requirements, such as virtual private cloud
     -- (VPC) and @SecurityGroup@, that are needed to successfully make this
     -- connection.
-    physicalConnectionRequirements :: Core.Maybe PhysicalConnectionRequirements,
+    physicalConnectionRequirements :: Prelude.Maybe PhysicalConnectionRequirements,
     -- | The description of the connection.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of criteria that can be used in selecting this connection.
-    matchCriteria :: Core.Maybe [Core.Text],
+    matchCriteria :: Prelude.Maybe [Prelude.Text],
     -- | The name of the connection.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The type of the connection. Currently, these types are supported:
     --
     -- -   @JDBC@ - Designates a connection to a database through Java Database
@@ -63,9 +64,9 @@ data ConnectionInput = ConnectionInput'
     -- SFTP is not supported.
     connectionType :: ConnectionType,
     -- | These key-value pairs define parameters for the connection.
-    connectionProperties :: Core.HashMap ConnectionPropertyKey Core.Text
+    connectionProperties :: Prelude.HashMap ConnectionPropertyKey Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectionInput' with all optional fields omitted.
@@ -111,37 +112,37 @@ data ConnectionInput = ConnectionInput'
 -- 'connectionProperties', 'connectionInput_connectionProperties' - These key-value pairs define parameters for the connection.
 newConnectionInput ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'connectionType'
   ConnectionType ->
   ConnectionInput
 newConnectionInput pName_ pConnectionType_ =
   ConnectionInput'
     { physicalConnectionRequirements =
-        Core.Nothing,
-      description = Core.Nothing,
-      matchCriteria = Core.Nothing,
+        Prelude.Nothing,
+      description = Prelude.Nothing,
+      matchCriteria = Prelude.Nothing,
       name = pName_,
       connectionType = pConnectionType_,
-      connectionProperties = Core.mempty
+      connectionProperties = Prelude.mempty
     }
 
 -- | A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to successfully make this
 -- connection.
-connectionInput_physicalConnectionRequirements :: Lens.Lens' ConnectionInput (Core.Maybe PhysicalConnectionRequirements)
+connectionInput_physicalConnectionRequirements :: Lens.Lens' ConnectionInput (Prelude.Maybe PhysicalConnectionRequirements)
 connectionInput_physicalConnectionRequirements = Lens.lens (\ConnectionInput' {physicalConnectionRequirements} -> physicalConnectionRequirements) (\s@ConnectionInput' {} a -> s {physicalConnectionRequirements = a} :: ConnectionInput)
 
 -- | The description of the connection.
-connectionInput_description :: Lens.Lens' ConnectionInput (Core.Maybe Core.Text)
+connectionInput_description :: Lens.Lens' ConnectionInput (Prelude.Maybe Prelude.Text)
 connectionInput_description = Lens.lens (\ConnectionInput' {description} -> description) (\s@ConnectionInput' {} a -> s {description = a} :: ConnectionInput)
 
 -- | A list of criteria that can be used in selecting this connection.
-connectionInput_matchCriteria :: Lens.Lens' ConnectionInput (Core.Maybe [Core.Text])
-connectionInput_matchCriteria = Lens.lens (\ConnectionInput' {matchCriteria} -> matchCriteria) (\s@ConnectionInput' {} a -> s {matchCriteria = a} :: ConnectionInput) Core.. Lens.mapping Lens._Coerce
+connectionInput_matchCriteria :: Lens.Lens' ConnectionInput (Prelude.Maybe [Prelude.Text])
+connectionInput_matchCriteria = Lens.lens (\ConnectionInput' {matchCriteria} -> matchCriteria) (\s@ConnectionInput' {} a -> s {matchCriteria = a} :: ConnectionInput) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the connection.
-connectionInput_name :: Lens.Lens' ConnectionInput Core.Text
+connectionInput_name :: Lens.Lens' ConnectionInput Prelude.Text
 connectionInput_name = Lens.lens (\ConnectionInput' {name} -> name) (\s@ConnectionInput' {} a -> s {name = a} :: ConnectionInput)
 
 -- | The type of the connection. Currently, these types are supported:
@@ -170,24 +171,25 @@ connectionInput_connectionType :: Lens.Lens' ConnectionInput ConnectionType
 connectionInput_connectionType = Lens.lens (\ConnectionInput' {connectionType} -> connectionType) (\s@ConnectionInput' {} a -> s {connectionType = a} :: ConnectionInput)
 
 -- | These key-value pairs define parameters for the connection.
-connectionInput_connectionProperties :: Lens.Lens' ConnectionInput (Core.HashMap ConnectionPropertyKey Core.Text)
-connectionInput_connectionProperties = Lens.lens (\ConnectionInput' {connectionProperties} -> connectionProperties) (\s@ConnectionInput' {} a -> s {connectionProperties = a} :: ConnectionInput) Core.. Lens._Coerce
+connectionInput_connectionProperties :: Lens.Lens' ConnectionInput (Prelude.HashMap ConnectionPropertyKey Prelude.Text)
+connectionInput_connectionProperties = Lens.lens (\ConnectionInput' {connectionProperties} -> connectionProperties) (\s@ConnectionInput' {} a -> s {connectionProperties = a} :: ConnectionInput) Prelude.. Lens._Coerce
 
-instance Core.Hashable ConnectionInput
+instance Prelude.Hashable ConnectionInput
 
-instance Core.NFData ConnectionInput
+instance Prelude.NFData ConnectionInput
 
 instance Core.ToJSON ConnectionInput where
   toJSON ConnectionInput' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PhysicalConnectionRequirements" Core..=)
-              Core.<$> physicalConnectionRequirements,
-            ("Description" Core..=) Core.<$> description,
-            ("MatchCriteria" Core..=) Core.<$> matchCriteria,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("ConnectionType" Core..= connectionType),
-            Core.Just
+              Prelude.<$> physicalConnectionRequirements,
+            ("Description" Core..=) Prelude.<$> description,
+            ("MatchCriteria" Core..=) Prelude.<$> matchCriteria,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
+              ("ConnectionType" Core..= connectionType),
+            Prelude.Just
               ( "ConnectionProperties"
                   Core..= connectionProperties
               )

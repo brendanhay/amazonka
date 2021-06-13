@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the default values that are used to create WorkSpaces. For
 -- more information, see
@@ -31,10 +32,10 @@ data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
   { -- | Specifies whether maintenance mode is enabled for WorkSpaces. For more
     -- information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance>.
-    enableMaintenanceMode :: Core.Maybe Core.Bool,
+    enableMaintenanceMode :: Prelude.Maybe Prelude.Bool,
     -- | The organizational unit (OU) in the directory for the WorkSpace machine
     -- accounts.
-    defaultOu :: Core.Maybe Core.Text,
+    defaultOu :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to automatically assign an Elastic public IP address
     -- to WorkSpaces in this directory by default. If enabled, the Elastic
     -- public IP address allows outbound internet access from your WorkSpaces
@@ -46,18 +47,18 @@ data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
     -- WorkSpaces that you launch or to existing WorkSpaces that you rebuild.
     -- For more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces>.
-    enableInternetAccess :: Core.Maybe Core.Bool,
+    enableInternetAccess :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the directory is enabled for Amazon WorkDocs.
-    enableWorkDocs :: Core.Maybe Core.Bool,
+    enableWorkDocs :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the default security group to apply to WorkSpaces when
     -- they are created. For more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html Security Groups for Your WorkSpaces>.
-    customSecurityGroupId :: Core.Maybe Core.Text,
+    customSecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether WorkSpace users are local administrators on their
     -- WorkSpaces.
-    userEnabledAsLocalAdministrator :: Core.Maybe Core.Bool
+    userEnabledAsLocalAdministrator :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefaultWorkspaceCreationProperties' with all optional fields omitted.
@@ -99,24 +100,24 @@ newDefaultWorkspaceCreationProperties ::
 newDefaultWorkspaceCreationProperties =
   DefaultWorkspaceCreationProperties'
     { enableMaintenanceMode =
-        Core.Nothing,
-      defaultOu = Core.Nothing,
-      enableInternetAccess = Core.Nothing,
-      enableWorkDocs = Core.Nothing,
-      customSecurityGroupId = Core.Nothing,
+        Prelude.Nothing,
+      defaultOu = Prelude.Nothing,
+      enableInternetAccess = Prelude.Nothing,
+      enableWorkDocs = Prelude.Nothing,
+      customSecurityGroupId = Prelude.Nothing,
       userEnabledAsLocalAdministrator =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies whether maintenance mode is enabled for WorkSpaces. For more
 -- information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance>.
-defaultWorkspaceCreationProperties_enableMaintenanceMode :: Lens.Lens' DefaultWorkspaceCreationProperties (Core.Maybe Core.Bool)
+defaultWorkspaceCreationProperties_enableMaintenanceMode :: Lens.Lens' DefaultWorkspaceCreationProperties (Prelude.Maybe Prelude.Bool)
 defaultWorkspaceCreationProperties_enableMaintenanceMode = Lens.lens (\DefaultWorkspaceCreationProperties' {enableMaintenanceMode} -> enableMaintenanceMode) (\s@DefaultWorkspaceCreationProperties' {} a -> s {enableMaintenanceMode = a} :: DefaultWorkspaceCreationProperties)
 
 -- | The organizational unit (OU) in the directory for the WorkSpace machine
 -- accounts.
-defaultWorkspaceCreationProperties_defaultOu :: Lens.Lens' DefaultWorkspaceCreationProperties (Core.Maybe Core.Text)
+defaultWorkspaceCreationProperties_defaultOu :: Lens.Lens' DefaultWorkspaceCreationProperties (Prelude.Maybe Prelude.Text)
 defaultWorkspaceCreationProperties_defaultOu = Lens.lens (\DefaultWorkspaceCreationProperties' {defaultOu} -> defaultOu) (\s@DefaultWorkspaceCreationProperties' {} a -> s {defaultOu = a} :: DefaultWorkspaceCreationProperties)
 
 -- | Specifies whether to automatically assign an Elastic public IP address
@@ -130,22 +131,22 @@ defaultWorkspaceCreationProperties_defaultOu = Lens.lens (\DefaultWorkspaceCreat
 -- WorkSpaces that you launch or to existing WorkSpaces that you rebuild.
 -- For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces>.
-defaultWorkspaceCreationProperties_enableInternetAccess :: Lens.Lens' DefaultWorkspaceCreationProperties (Core.Maybe Core.Bool)
+defaultWorkspaceCreationProperties_enableInternetAccess :: Lens.Lens' DefaultWorkspaceCreationProperties (Prelude.Maybe Prelude.Bool)
 defaultWorkspaceCreationProperties_enableInternetAccess = Lens.lens (\DefaultWorkspaceCreationProperties' {enableInternetAccess} -> enableInternetAccess) (\s@DefaultWorkspaceCreationProperties' {} a -> s {enableInternetAccess = a} :: DefaultWorkspaceCreationProperties)
 
 -- | Specifies whether the directory is enabled for Amazon WorkDocs.
-defaultWorkspaceCreationProperties_enableWorkDocs :: Lens.Lens' DefaultWorkspaceCreationProperties (Core.Maybe Core.Bool)
+defaultWorkspaceCreationProperties_enableWorkDocs :: Lens.Lens' DefaultWorkspaceCreationProperties (Prelude.Maybe Prelude.Bool)
 defaultWorkspaceCreationProperties_enableWorkDocs = Lens.lens (\DefaultWorkspaceCreationProperties' {enableWorkDocs} -> enableWorkDocs) (\s@DefaultWorkspaceCreationProperties' {} a -> s {enableWorkDocs = a} :: DefaultWorkspaceCreationProperties)
 
 -- | The identifier of the default security group to apply to WorkSpaces when
 -- they are created. For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html Security Groups for Your WorkSpaces>.
-defaultWorkspaceCreationProperties_customSecurityGroupId :: Lens.Lens' DefaultWorkspaceCreationProperties (Core.Maybe Core.Text)
+defaultWorkspaceCreationProperties_customSecurityGroupId :: Lens.Lens' DefaultWorkspaceCreationProperties (Prelude.Maybe Prelude.Text)
 defaultWorkspaceCreationProperties_customSecurityGroupId = Lens.lens (\DefaultWorkspaceCreationProperties' {customSecurityGroupId} -> customSecurityGroupId) (\s@DefaultWorkspaceCreationProperties' {} a -> s {customSecurityGroupId = a} :: DefaultWorkspaceCreationProperties)
 
 -- | Specifies whether WorkSpace users are local administrators on their
 -- WorkSpaces.
-defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator :: Lens.Lens' DefaultWorkspaceCreationProperties (Core.Maybe Core.Bool)
+defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator :: Lens.Lens' DefaultWorkspaceCreationProperties (Prelude.Maybe Prelude.Bool)
 defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator = Lens.lens (\DefaultWorkspaceCreationProperties' {userEnabledAsLocalAdministrator} -> userEnabledAsLocalAdministrator) (\s@DefaultWorkspaceCreationProperties' {} a -> s {userEnabledAsLocalAdministrator = a} :: DefaultWorkspaceCreationProperties)
 
 instance
@@ -157,18 +158,18 @@ instance
       "DefaultWorkspaceCreationProperties"
       ( \x ->
           DefaultWorkspaceCreationProperties'
-            Core.<$> (x Core..:? "EnableMaintenanceMode")
-            Core.<*> (x Core..:? "DefaultOu")
-            Core.<*> (x Core..:? "EnableInternetAccess")
-            Core.<*> (x Core..:? "EnableWorkDocs")
-            Core.<*> (x Core..:? "CustomSecurityGroupId")
-            Core.<*> (x Core..:? "UserEnabledAsLocalAdministrator")
+            Prelude.<$> (x Core..:? "EnableMaintenanceMode")
+            Prelude.<*> (x Core..:? "DefaultOu")
+            Prelude.<*> (x Core..:? "EnableInternetAccess")
+            Prelude.<*> (x Core..:? "EnableWorkDocs")
+            Prelude.<*> (x Core..:? "CustomSecurityGroupId")
+            Prelude.<*> (x Core..:? "UserEnabledAsLocalAdministrator")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DefaultWorkspaceCreationProperties
 
 instance
-  Core.NFData
+  Prelude.NFData
     DefaultWorkspaceCreationProperties

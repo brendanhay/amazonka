@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -53,9 +54,9 @@ data GetHealthCheck = GetHealthCheck'
     -- you created it. When you add or update a resource record set, you use
     -- this value to specify which health check to use. The value can be up to
     -- 64 characters long.
-    healthCheckId :: Core.Text
+    healthCheckId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHealthCheck' with all optional fields omitted.
@@ -71,7 +72,7 @@ data GetHealthCheck = GetHealthCheck'
 -- 64 characters long.
 newGetHealthCheck ::
   -- | 'healthCheckId'
-  Core.Text ->
+  Prelude.Text ->
   GetHealthCheck
 newGetHealthCheck pHealthCheckId_ =
   GetHealthCheck' {healthCheckId = pHealthCheckId_}
@@ -80,7 +81,7 @@ newGetHealthCheck pHealthCheckId_ =
 -- you created it. When you add or update a resource record set, you use
 -- this value to specify which health check to use. The value can be up to
 -- 64 characters long.
-getHealthCheck_healthCheckId :: Lens.Lens' GetHealthCheck Core.Text
+getHealthCheck_healthCheckId :: Lens.Lens' GetHealthCheck Prelude.Text
 getHealthCheck_healthCheckId = Lens.lens (\GetHealthCheck' {healthCheckId} -> healthCheckId) (\s@GetHealthCheck' {} a -> s {healthCheckId = a} :: GetHealthCheck)
 
 instance Core.AWSRequest GetHealthCheck where
@@ -92,36 +93,36 @@ instance Core.AWSRequest GetHealthCheck where
     Response.receiveXML
       ( \s h x ->
           GetHealthCheckResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "HealthCheck")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "HealthCheck")
       )
 
-instance Core.Hashable GetHealthCheck
+instance Prelude.Hashable GetHealthCheck
 
-instance Core.NFData GetHealthCheck
+instance Prelude.NFData GetHealthCheck
 
 instance Core.ToHeaders GetHealthCheck where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetHealthCheck where
   toPath GetHealthCheck' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2013-04-01/healthcheck/", Core.toBS healthCheckId]
 
 instance Core.ToQuery GetHealthCheck where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the response to a @GetHealthCheck@ request.
 --
 -- /See:/ 'newGetHealthCheckResponse' smart constructor.
 data GetHealthCheckResponse = GetHealthCheckResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains information about one health check that is
     -- associated with the current AWS account.
     healthCheck :: HealthCheck
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHealthCheckResponse' with all optional fields omitted.
@@ -137,7 +138,7 @@ data GetHealthCheckResponse = GetHealthCheckResponse'
 -- associated with the current AWS account.
 newGetHealthCheckResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'healthCheck'
   HealthCheck ->
   GetHealthCheckResponse
@@ -148,7 +149,7 @@ newGetHealthCheckResponse pHttpStatus_ pHealthCheck_ =
     }
 
 -- | The response's http status code.
-getHealthCheckResponse_httpStatus :: Lens.Lens' GetHealthCheckResponse Core.Int
+getHealthCheckResponse_httpStatus :: Lens.Lens' GetHealthCheckResponse Prelude.Int
 getHealthCheckResponse_httpStatus = Lens.lens (\GetHealthCheckResponse' {httpStatus} -> httpStatus) (\s@GetHealthCheckResponse' {} a -> s {httpStatus = a} :: GetHealthCheckResponse)
 
 -- | A complex type that contains information about one health check that is
@@ -156,4 +157,4 @@ getHealthCheckResponse_httpStatus = Lens.lens (\GetHealthCheckResponse' {httpSta
 getHealthCheckResponse_healthCheck :: Lens.Lens' GetHealthCheckResponse HealthCheck
 getHealthCheckResponse_healthCheck = Lens.lens (\GetHealthCheckResponse' {healthCheck} -> healthCheck) (\s@GetHealthCheckResponse' {} a -> s {healthCheck = a} :: GetHealthCheckResponse)
 
-instance Core.NFData GetHealthCheckResponse
+instance Prelude.NFData GetHealthCheckResponse

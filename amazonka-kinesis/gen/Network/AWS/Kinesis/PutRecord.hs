@@ -94,6 +94,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -107,12 +108,12 @@ data PutRecord = PutRecord'
     -- record /n-1/ (as returned in the result when putting record /n-1/). If
     -- this parameter is not set, records are coarsely ordered based on arrival
     -- time.
-    sequenceNumberForOrdering :: Core.Maybe Core.Text,
+    sequenceNumberForOrdering :: Prelude.Maybe Prelude.Text,
     -- | The hash value used to explicitly determine the shard the data record is
     -- assigned to by overriding the partition key hash.
-    explicitHashKey :: Core.Maybe Core.Text,
+    explicitHashKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream to put the data record into.
-    streamName :: Core.Text,
+    streamName :: Prelude.Text,
     -- | The data blob to put into the record, which is base64-encoded when the
     -- blob is serialized. When the data blob (the payload before
     -- base64-encoding) is added to the partition key size, the total size must
@@ -127,9 +128,9 @@ data PutRecord = PutRecord'
     -- associated data records to shards. As a result of this hashing
     -- mechanism, all data records with the same partition key map to the same
     -- shard within the stream.
-    partitionKey :: Core.Text
+    partitionKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRecord' with all optional fields omitted.
@@ -171,17 +172,17 @@ data PutRecord = PutRecord'
 -- shard within the stream.
 newPutRecord ::
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'data''
-  Core.ByteString ->
+  Prelude.ByteString ->
   -- | 'partitionKey'
-  Core.Text ->
+  Prelude.Text ->
   PutRecord
 newPutRecord pStreamName_ pData_ pPartitionKey_ =
   PutRecord'
     { sequenceNumberForOrdering =
-        Core.Nothing,
-      explicitHashKey = Core.Nothing,
+        Prelude.Nothing,
+      explicitHashKey = Prelude.Nothing,
       streamName = pStreamName_,
       data' = Core._Base64 Lens.# pData_,
       partitionKey = pPartitionKey_
@@ -193,16 +194,16 @@ newPutRecord pStreamName_ pData_ pPartitionKey_ =
 -- record /n-1/ (as returned in the result when putting record /n-1/). If
 -- this parameter is not set, records are coarsely ordered based on arrival
 -- time.
-putRecord_sequenceNumberForOrdering :: Lens.Lens' PutRecord (Core.Maybe Core.Text)
+putRecord_sequenceNumberForOrdering :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
 putRecord_sequenceNumberForOrdering = Lens.lens (\PutRecord' {sequenceNumberForOrdering} -> sequenceNumberForOrdering) (\s@PutRecord' {} a -> s {sequenceNumberForOrdering = a} :: PutRecord)
 
 -- | The hash value used to explicitly determine the shard the data record is
 -- assigned to by overriding the partition key hash.
-putRecord_explicitHashKey :: Lens.Lens' PutRecord (Core.Maybe Core.Text)
+putRecord_explicitHashKey :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
 putRecord_explicitHashKey = Lens.lens (\PutRecord' {explicitHashKey} -> explicitHashKey) (\s@PutRecord' {} a -> s {explicitHashKey = a} :: PutRecord)
 
 -- | The name of the stream to put the data record into.
-putRecord_streamName :: Lens.Lens' PutRecord Core.Text
+putRecord_streamName :: Lens.Lens' PutRecord Prelude.Text
 putRecord_streamName = Lens.lens (\PutRecord' {streamName} -> streamName) (\s@PutRecord' {} a -> s {streamName = a} :: PutRecord)
 
 -- | The data blob to put into the record, which is base64-encoded when the
@@ -213,8 +214,8 @@ putRecord_streamName = Lens.lens (\PutRecord' {streamName} -> streamName) (\s@Pu
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-putRecord_data :: Lens.Lens' PutRecord Core.ByteString
-putRecord_data = Lens.lens (\PutRecord' {data'} -> data') (\s@PutRecord' {} a -> s {data' = a} :: PutRecord) Core.. Core._Base64
+putRecord_data :: Lens.Lens' PutRecord Prelude.ByteString
+putRecord_data = Lens.lens (\PutRecord' {data'} -> data') (\s@PutRecord' {} a -> s {data' = a} :: PutRecord) Prelude.. Core._Base64
 
 -- | Determines which shard in the stream the data record is assigned to.
 -- Partition keys are Unicode strings with a maximum length limit of 256
@@ -225,7 +226,7 @@ putRecord_data = Lens.lens (\PutRecord' {data'} -> data') (\s@PutRecord' {} a ->
 -- associated data records to shards. As a result of this hashing
 -- mechanism, all data records with the same partition key map to the same
 -- shard within the stream.
-putRecord_partitionKey :: Lens.Lens' PutRecord Core.Text
+putRecord_partitionKey :: Lens.Lens' PutRecord Prelude.Text
 putRecord_partitionKey = Lens.lens (\PutRecord' {partitionKey} -> partitionKey) (\s@PutRecord' {} a -> s {partitionKey = a} :: PutRecord)
 
 instance Core.AWSRequest PutRecord where
@@ -235,45 +236,48 @@ instance Core.AWSRequest PutRecord where
     Response.receiveJSON
       ( \s h x ->
           PutRecordResponse'
-            Core.<$> (x Core..?> "EncryptionType")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ShardId")
-            Core.<*> (x Core..:> "SequenceNumber")
+            Prelude.<$> (x Core..?> "EncryptionType")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ShardId")
+            Prelude.<*> (x Core..:> "SequenceNumber")
       )
 
-instance Core.Hashable PutRecord
+instance Prelude.Hashable PutRecord
 
-instance Core.NFData PutRecord
+instance Prelude.NFData PutRecord
 
 instance Core.ToHeaders PutRecord where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Kinesis_20131202.PutRecord" :: Core.ByteString),
+              Core.=# ("Kinesis_20131202.PutRecord" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutRecord where
   toJSON PutRecord' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SequenceNumberForOrdering" Core..=)
-              Core.<$> sequenceNumberForOrdering,
-            ("ExplicitHashKey" Core..=) Core.<$> explicitHashKey,
-            Core.Just ("StreamName" Core..= streamName),
-            Core.Just ("Data" Core..= data'),
-            Core.Just ("PartitionKey" Core..= partitionKey)
+              Prelude.<$> sequenceNumberForOrdering,
+            ("ExplicitHashKey" Core..=)
+              Prelude.<$> explicitHashKey,
+            Prelude.Just ("StreamName" Core..= streamName),
+            Prelude.Just ("Data" Core..= data'),
+            Prelude.Just ("PartitionKey" Core..= partitionKey)
           ]
       )
 
 instance Core.ToPath PutRecord where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRecord where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output for @PutRecord@.
 --
@@ -286,18 +290,18 @@ data PutRecordResponse = PutRecordResponse'
     --
     -- -   @KMS@: Use server-side encryption on the records in the stream using
     --     a customer-managed AWS KMS key.
-    encryptionType :: Core.Maybe EncryptionType,
+    encryptionType :: Prelude.Maybe EncryptionType,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The shard ID of the shard where the data record was placed.
-    shardId :: Core.Text,
+    shardId :: Prelude.Text,
     -- | The sequence number identifier that was assigned to the put data record.
     -- The sequence number for the record is unique across all records in the
     -- stream. A sequence number is the identifier associated with every record
     -- put into the stream.
-    sequenceNumber :: Core.Text
+    sequenceNumber :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRecordResponse' with all optional fields omitted.
@@ -325,18 +329,19 @@ data PutRecordResponse = PutRecordResponse'
 -- put into the stream.
 newPutRecordResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'shardId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sequenceNumber'
-  Core.Text ->
+  Prelude.Text ->
   PutRecordResponse
 newPutRecordResponse
   pHttpStatus_
   pShardId_
   pSequenceNumber_ =
     PutRecordResponse'
-      { encryptionType = Core.Nothing,
+      { encryptionType =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         shardId = pShardId_,
         sequenceNumber = pSequenceNumber_
@@ -349,22 +354,22 @@ newPutRecordResponse
 --
 -- -   @KMS@: Use server-side encryption on the records in the stream using
 --     a customer-managed AWS KMS key.
-putRecordResponse_encryptionType :: Lens.Lens' PutRecordResponse (Core.Maybe EncryptionType)
+putRecordResponse_encryptionType :: Lens.Lens' PutRecordResponse (Prelude.Maybe EncryptionType)
 putRecordResponse_encryptionType = Lens.lens (\PutRecordResponse' {encryptionType} -> encryptionType) (\s@PutRecordResponse' {} a -> s {encryptionType = a} :: PutRecordResponse)
 
 -- | The response's http status code.
-putRecordResponse_httpStatus :: Lens.Lens' PutRecordResponse Core.Int
+putRecordResponse_httpStatus :: Lens.Lens' PutRecordResponse Prelude.Int
 putRecordResponse_httpStatus = Lens.lens (\PutRecordResponse' {httpStatus} -> httpStatus) (\s@PutRecordResponse' {} a -> s {httpStatus = a} :: PutRecordResponse)
 
 -- | The shard ID of the shard where the data record was placed.
-putRecordResponse_shardId :: Lens.Lens' PutRecordResponse Core.Text
+putRecordResponse_shardId :: Lens.Lens' PutRecordResponse Prelude.Text
 putRecordResponse_shardId = Lens.lens (\PutRecordResponse' {shardId} -> shardId) (\s@PutRecordResponse' {} a -> s {shardId = a} :: PutRecordResponse)
 
 -- | The sequence number identifier that was assigned to the put data record.
 -- The sequence number for the record is unique across all records in the
 -- stream. A sequence number is the identifier associated with every record
 -- put into the stream.
-putRecordResponse_sequenceNumber :: Lens.Lens' PutRecordResponse Core.Text
+putRecordResponse_sequenceNumber :: Lens.Lens' PutRecordResponse Prelude.Text
 putRecordResponse_sequenceNumber = Lens.lens (\PutRecordResponse' {sequenceNumber} -> sequenceNumber) (\s@PutRecordResponse' {} a -> s {sequenceNumber = a} :: PutRecordResponse)
 
-instance Core.NFData PutRecordResponse
+instance Prelude.NFData PutRecordResponse

@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional query string parameter for the connection. You can include up
 -- to 100 additional query string parameters per request. Each additional
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newConnectionQueryStringParameter' smart constructor.
 data ConnectionQueryStringParameter = ConnectionQueryStringParameter'
   { -- | The key for a query string parameter.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the value is secret.
-    isValueSecret :: Core.Maybe Core.Bool,
+    isValueSecret :: Prelude.Maybe Prelude.Bool,
     -- | The value associated with the key for the query string parameter.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectionQueryStringParameter' with all optional fields omitted.
@@ -55,21 +56,22 @@ newConnectionQueryStringParameter ::
   ConnectionQueryStringParameter
 newConnectionQueryStringParameter =
   ConnectionQueryStringParameter'
-    { key = Core.Nothing,
-      isValueSecret = Core.Nothing,
-      value = Core.Nothing
+    { key =
+        Prelude.Nothing,
+      isValueSecret = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The key for a query string parameter.
-connectionQueryStringParameter_key :: Lens.Lens' ConnectionQueryStringParameter (Core.Maybe Core.Text)
+connectionQueryStringParameter_key :: Lens.Lens' ConnectionQueryStringParameter (Prelude.Maybe Prelude.Text)
 connectionQueryStringParameter_key = Lens.lens (\ConnectionQueryStringParameter' {key} -> key) (\s@ConnectionQueryStringParameter' {} a -> s {key = a} :: ConnectionQueryStringParameter)
 
 -- | Specifies whether the value is secret.
-connectionQueryStringParameter_isValueSecret :: Lens.Lens' ConnectionQueryStringParameter (Core.Maybe Core.Bool)
+connectionQueryStringParameter_isValueSecret :: Lens.Lens' ConnectionQueryStringParameter (Prelude.Maybe Prelude.Bool)
 connectionQueryStringParameter_isValueSecret = Lens.lens (\ConnectionQueryStringParameter' {isValueSecret} -> isValueSecret) (\s@ConnectionQueryStringParameter' {} a -> s {isValueSecret = a} :: ConnectionQueryStringParameter)
 
 -- | The value associated with the key for the query string parameter.
-connectionQueryStringParameter_value :: Lens.Lens' ConnectionQueryStringParameter (Core.Maybe Core.Text)
+connectionQueryStringParameter_value :: Lens.Lens' ConnectionQueryStringParameter (Prelude.Maybe Prelude.Text)
 connectionQueryStringParameter_value = Lens.lens (\ConnectionQueryStringParameter' {value} -> value) (\s@ConnectionQueryStringParameter' {} a -> s {value = a} :: ConnectionQueryStringParameter)
 
 instance Core.FromJSON ConnectionQueryStringParameter where
@@ -78,21 +80,25 @@ instance Core.FromJSON ConnectionQueryStringParameter where
       "ConnectionQueryStringParameter"
       ( \x ->
           ConnectionQueryStringParameter'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "IsValueSecret")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "IsValueSecret")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable ConnectionQueryStringParameter
+instance
+  Prelude.Hashable
+    ConnectionQueryStringParameter
 
-instance Core.NFData ConnectionQueryStringParameter
+instance
+  Prelude.NFData
+    ConnectionQueryStringParameter
 
 instance Core.ToJSON ConnectionQueryStringParameter where
   toJSON ConnectionQueryStringParameter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("IsValueSecret" Core..=) Core.<$> isValueSecret,
-            ("Value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("IsValueSecret" Core..=) Prelude.<$> isValueSecret,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

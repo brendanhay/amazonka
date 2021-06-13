@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ data UntagPolicy = UntagPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    policyArn :: Core.Text,
+    policyArn :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified policy.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagPolicy' with all optional fields omitted.
@@ -81,12 +82,12 @@ data UntagPolicy = UntagPolicy'
 -- keys are removed from the specified policy.
 newUntagPolicy ::
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   UntagPolicy
 newUntagPolicy pPolicyArn_ =
   UntagPolicy'
     { policyArn = pPolicyArn_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The ARN of the IAM customer managed policy from which you want to remove
@@ -96,34 +97,36 @@ newUntagPolicy pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagPolicy_policyArn :: Lens.Lens' UntagPolicy Core.Text
+untagPolicy_policyArn :: Lens.Lens' UntagPolicy Prelude.Text
 untagPolicy_policyArn = Lens.lens (\UntagPolicy' {policyArn} -> policyArn) (\s@UntagPolicy' {} a -> s {policyArn = a} :: UntagPolicy)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified policy.
-untagPolicy_tagKeys :: Lens.Lens' UntagPolicy [Core.Text]
-untagPolicy_tagKeys = Lens.lens (\UntagPolicy' {tagKeys} -> tagKeys) (\s@UntagPolicy' {} a -> s {tagKeys = a} :: UntagPolicy) Core.. Lens._Coerce
+untagPolicy_tagKeys :: Lens.Lens' UntagPolicy [Prelude.Text]
+untagPolicy_tagKeys = Lens.lens (\UntagPolicy' {tagKeys} -> tagKeys) (\s@UntagPolicy' {} a -> s {tagKeys = a} :: UntagPolicy) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagPolicy where
   type AWSResponse UntagPolicy = UntagPolicyResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagPolicyResponse'
 
-instance Core.Hashable UntagPolicy
+instance Prelude.Hashable UntagPolicy
 
-instance Core.NFData UntagPolicy
+instance Prelude.NFData UntagPolicy
 
 instance Core.ToHeaders UntagPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagPolicy where
   toQuery UntagPolicy' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("UntagPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("UntagPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PolicyArn" Core.=: policyArn,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
@@ -132,7 +135,7 @@ instance Core.ToQuery UntagPolicy where
 data UntagPolicyResponse = UntagPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagPolicyResponse' with all optional fields omitted.
@@ -142,4 +145,4 @@ newUntagPolicyResponse ::
   UntagPolicyResponse
 newUntagPolicyResponse = UntagPolicyResponse'
 
-instance Core.NFData UntagPolicyResponse
+instance Prelude.NFData UntagPolicyResponse

@@ -20,6 +20,7 @@ import Network.AWS.CloudWatch.Lens
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newAlarmExists :: Core.Wait DescribeAlarms
@@ -35,7 +36,7 @@ newAlarmExists =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeAlarmsResponse_metricAlarms
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
             )
@@ -56,7 +57,7 @@ newCompositeAlarmExists =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeAlarmsResponse_compositeAlarms
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
             )

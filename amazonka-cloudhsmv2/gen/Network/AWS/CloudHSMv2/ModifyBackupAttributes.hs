@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudHSMv2.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,14 +51,14 @@ import qualified Network.AWS.Response as Response
 data ModifyBackupAttributes = ModifyBackupAttributes'
   { -- | The identifier (ID) of the backup to modify. To find the ID of a backup,
     -- use the DescribeBackups operation.
-    backupId :: Core.Text,
+    backupId :: Prelude.Text,
     -- | Specifies whether the service should exempt a backup from the retention
     -- policy for the cluster. @True@ exempts a backup from the retention
     -- policy. @False@ means the service applies the backup retention policy
     -- defined at the cluster.
-    neverExpires :: Core.Bool
+    neverExpires :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyBackupAttributes' with all optional fields omitted.
@@ -76,9 +77,9 @@ data ModifyBackupAttributes = ModifyBackupAttributes'
 -- defined at the cluster.
 newModifyBackupAttributes ::
   -- | 'backupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'neverExpires'
-  Core.Bool ->
+  Prelude.Bool ->
   ModifyBackupAttributes
 newModifyBackupAttributes pBackupId_ pNeverExpires_ =
   ModifyBackupAttributes'
@@ -88,14 +89,14 @@ newModifyBackupAttributes pBackupId_ pNeverExpires_ =
 
 -- | The identifier (ID) of the backup to modify. To find the ID of a backup,
 -- use the DescribeBackups operation.
-modifyBackupAttributes_backupId :: Lens.Lens' ModifyBackupAttributes Core.Text
+modifyBackupAttributes_backupId :: Lens.Lens' ModifyBackupAttributes Prelude.Text
 modifyBackupAttributes_backupId = Lens.lens (\ModifyBackupAttributes' {backupId} -> backupId) (\s@ModifyBackupAttributes' {} a -> s {backupId = a} :: ModifyBackupAttributes)
 
 -- | Specifies whether the service should exempt a backup from the retention
 -- policy for the cluster. @True@ exempts a backup from the retention
 -- policy. @False@ means the service applies the backup retention policy
 -- defined at the cluster.
-modifyBackupAttributes_neverExpires :: Lens.Lens' ModifyBackupAttributes Core.Bool
+modifyBackupAttributes_neverExpires :: Lens.Lens' ModifyBackupAttributes Prelude.Bool
 modifyBackupAttributes_neverExpires = Lens.lens (\ModifyBackupAttributes' {neverExpires} -> neverExpires) (\s@ModifyBackupAttributes' {} a -> s {neverExpires = a} :: ModifyBackupAttributes)
 
 instance Core.AWSRequest ModifyBackupAttributes where
@@ -107,49 +108,51 @@ instance Core.AWSRequest ModifyBackupAttributes where
     Response.receiveJSON
       ( \s h x ->
           ModifyBackupAttributesResponse'
-            Core.<$> (x Core..?> "Backup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Backup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyBackupAttributes
+instance Prelude.Hashable ModifyBackupAttributes
 
-instance Core.NFData ModifyBackupAttributes
+instance Prelude.NFData ModifyBackupAttributes
 
 instance Core.ToHeaders ModifyBackupAttributes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "BaldrApiService.ModifyBackupAttributes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyBackupAttributes where
   toJSON ModifyBackupAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("BackupId" Core..= backupId),
-            Core.Just ("NeverExpires" Core..= neverExpires)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("BackupId" Core..= backupId),
+            Prelude.Just ("NeverExpires" Core..= neverExpires)
           ]
       )
 
 instance Core.ToPath ModifyBackupAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyBackupAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyBackupAttributesResponse' smart constructor.
 data ModifyBackupAttributesResponse = ModifyBackupAttributesResponse'
-  { backup :: Core.Maybe Backup,
+  { backup :: Prelude.Maybe Backup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyBackupAttributesResponse' with all optional fields omitted.
@@ -164,21 +167,23 @@ data ModifyBackupAttributesResponse = ModifyBackupAttributesResponse'
 -- 'httpStatus', 'modifyBackupAttributesResponse_httpStatus' - The response's http status code.
 newModifyBackupAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyBackupAttributesResponse
 newModifyBackupAttributesResponse pHttpStatus_ =
   ModifyBackupAttributesResponse'
     { backup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyBackupAttributesResponse_backup :: Lens.Lens' ModifyBackupAttributesResponse (Core.Maybe Backup)
+modifyBackupAttributesResponse_backup :: Lens.Lens' ModifyBackupAttributesResponse (Prelude.Maybe Backup)
 modifyBackupAttributesResponse_backup = Lens.lens (\ModifyBackupAttributesResponse' {backup} -> backup) (\s@ModifyBackupAttributesResponse' {} a -> s {backup = a} :: ModifyBackupAttributesResponse)
 
 -- | The response's http status code.
-modifyBackupAttributesResponse_httpStatus :: Lens.Lens' ModifyBackupAttributesResponse Core.Int
+modifyBackupAttributesResponse_httpStatus :: Lens.Lens' ModifyBackupAttributesResponse Prelude.Int
 modifyBackupAttributesResponse_httpStatus = Lens.lens (\ModifyBackupAttributesResponse' {httpStatus} -> httpStatus) (\s@ModifyBackupAttributesResponse' {} a -> s {httpStatus = a} :: ModifyBackupAttributesResponse)
 
-instance Core.NFData ModifyBackupAttributesResponse
+instance
+  Prelude.NFData
+    ModifyBackupAttributesResponse

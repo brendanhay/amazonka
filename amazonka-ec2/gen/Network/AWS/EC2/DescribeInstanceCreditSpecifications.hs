@@ -75,6 +75,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,25 +86,25 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
     -- Default: Describes all your instances.
     --
     -- Constraints: Maximum 1000 explicitly specified instance IDs.
-    instanceIds :: Core.Maybe [Core.Text],
+    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The token to retrieve the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value. This value can be between 5 and 1000. You cannot specify this
     -- parameter and the instance IDs parameter in the same call.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filters.
     --
     -- -   @instance-id@ - The ID of the instance.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceCreditSpecifications' with all optional fields omitted.
@@ -139,11 +140,11 @@ newDescribeInstanceCreditSpecifications ::
 newDescribeInstanceCreditSpecifications =
   DescribeInstanceCreditSpecifications'
     { instanceIds =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The instance IDs.
@@ -151,32 +152,32 @@ newDescribeInstanceCreditSpecifications =
 -- Default: Describes all your instances.
 --
 -- Constraints: Maximum 1000 explicitly specified instance IDs.
-describeInstanceCreditSpecifications_instanceIds :: Lens.Lens' DescribeInstanceCreditSpecifications (Core.Maybe [Core.Text])
-describeInstanceCreditSpecifications_instanceIds = Lens.lens (\DescribeInstanceCreditSpecifications' {instanceIds} -> instanceIds) (\s@DescribeInstanceCreditSpecifications' {} a -> s {instanceIds = a} :: DescribeInstanceCreditSpecifications) Core.. Lens.mapping Lens._Coerce
+describeInstanceCreditSpecifications_instanceIds :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Prelude.Text])
+describeInstanceCreditSpecifications_instanceIds = Lens.lens (\DescribeInstanceCreditSpecifications' {instanceIds} -> instanceIds) (\s@DescribeInstanceCreditSpecifications' {} a -> s {instanceIds = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to retrieve the next page of results.
-describeInstanceCreditSpecifications_nextToken :: Lens.Lens' DescribeInstanceCreditSpecifications (Core.Maybe Core.Text)
+describeInstanceCreditSpecifications_nextToken :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Text)
 describeInstanceCreditSpecifications_nextToken = Lens.lens (\DescribeInstanceCreditSpecifications' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecifications' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecifications)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeInstanceCreditSpecifications_dryRun :: Lens.Lens' DescribeInstanceCreditSpecifications (Core.Maybe Core.Bool)
+describeInstanceCreditSpecifications_dryRun :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Bool)
 describeInstanceCreditSpecifications_dryRun = Lens.lens (\DescribeInstanceCreditSpecifications' {dryRun} -> dryRun) (\s@DescribeInstanceCreditSpecifications' {} a -> s {dryRun = a} :: DescribeInstanceCreditSpecifications)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 5 and 1000. You cannot specify this
 -- parameter and the instance IDs parameter in the same call.
-describeInstanceCreditSpecifications_maxResults :: Lens.Lens' DescribeInstanceCreditSpecifications (Core.Maybe Core.Natural)
+describeInstanceCreditSpecifications_maxResults :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Natural)
 describeInstanceCreditSpecifications_maxResults = Lens.lens (\DescribeInstanceCreditSpecifications' {maxResults} -> maxResults) (\s@DescribeInstanceCreditSpecifications' {} a -> s {maxResults = a} :: DescribeInstanceCreditSpecifications)
 
 -- | The filters.
 --
 -- -   @instance-id@ - The ID of the instance.
-describeInstanceCreditSpecifications_filters :: Lens.Lens' DescribeInstanceCreditSpecifications (Core.Maybe [Filter])
-describeInstanceCreditSpecifications_filters = Lens.lens (\DescribeInstanceCreditSpecifications' {filters} -> filters) (\s@DescribeInstanceCreditSpecifications' {} a -> s {filters = a} :: DescribeInstanceCreditSpecifications) Core.. Lens.mapping Lens._Coerce
+describeInstanceCreditSpecifications_filters :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Filter])
+describeInstanceCreditSpecifications_filters = Lens.lens (\DescribeInstanceCreditSpecifications' {filters} -> filters) (\s@DescribeInstanceCreditSpecifications' {} a -> s {filters = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSPager
@@ -186,22 +187,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeInstanceCreditSpecificationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeInstanceCreditSpecifications_nextToken
+          Prelude.& describeInstanceCreditSpecifications_nextToken
           Lens..~ rs
             Lens.^? describeInstanceCreditSpecificationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -215,65 +216,68 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceCreditSpecificationsResponse'
-            Core.<$> (x Core..@? "nextToken")
-              Core.<*> ( x Core..@? "instanceCreditSpecificationSet"
-                           Core..!@ Core.mempty
-                           Core.>>= Core.may (Core.parseXMLList "item")
-                       )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "instanceCreditSpecificationSet"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeInstanceCreditSpecifications
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeInstanceCreditSpecifications
 
 instance
   Core.ToHeaders
     DescribeInstanceCreditSpecifications
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DescribeInstanceCreditSpecifications
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeInstanceCreditSpecifications
   where
   toQuery DescribeInstanceCreditSpecifications' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeInstanceCreditSpecifications" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "InstanceId" Core.<$> instanceIds),
+          ( Core.toQueryList "InstanceId"
+              Prelude.<$> instanceIds
+          ),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeInstanceCreditSpecificationsResponse' smart constructor.
 data DescribeInstanceCreditSpecificationsResponse = DescribeInstanceCreditSpecificationsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the credit option for CPU usage of an instance.
-    instanceCreditSpecifications :: Core.Maybe [InstanceCreditSpecification],
+    instanceCreditSpecifications :: Prelude.Maybe [InstanceCreditSpecification],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceCreditSpecificationsResponse' with all optional fields omitted.
@@ -291,31 +295,31 @@ data DescribeInstanceCreditSpecificationsResponse = DescribeInstanceCreditSpecif
 -- 'httpStatus', 'describeInstanceCreditSpecificationsResponse_httpStatus' - The response's http status code.
 newDescribeInstanceCreditSpecificationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeInstanceCreditSpecificationsResponse
 newDescribeInstanceCreditSpecificationsResponse
   pHttpStatus_ =
     DescribeInstanceCreditSpecificationsResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         instanceCreditSpecifications =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeInstanceCreditSpecificationsResponse_nextToken :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse (Core.Maybe Core.Text)
+describeInstanceCreditSpecificationsResponse_nextToken :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse (Prelude.Maybe Prelude.Text)
 describeInstanceCreditSpecificationsResponse_nextToken = Lens.lens (\DescribeInstanceCreditSpecificationsResponse' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecificationsResponse' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecificationsResponse)
 
 -- | Information about the credit option for CPU usage of an instance.
-describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse (Core.Maybe [InstanceCreditSpecification])
-describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications = Lens.lens (\DescribeInstanceCreditSpecificationsResponse' {instanceCreditSpecifications} -> instanceCreditSpecifications) (\s@DescribeInstanceCreditSpecificationsResponse' {} a -> s {instanceCreditSpecifications = a} :: DescribeInstanceCreditSpecificationsResponse) Core.. Lens.mapping Lens._Coerce
+describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse (Prelude.Maybe [InstanceCreditSpecification])
+describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications = Lens.lens (\DescribeInstanceCreditSpecificationsResponse' {instanceCreditSpecifications} -> instanceCreditSpecifications) (\s@DescribeInstanceCreditSpecificationsResponse' {} a -> s {instanceCreditSpecifications = a} :: DescribeInstanceCreditSpecificationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeInstanceCreditSpecificationsResponse_httpStatus :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse Core.Int
+describeInstanceCreditSpecificationsResponse_httpStatus :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse Prelude.Int
 describeInstanceCreditSpecificationsResponse_httpStatus = Lens.lens (\DescribeInstanceCreditSpecificationsResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceCreditSpecificationsResponse' {} a -> s {httpStatus = a} :: DescribeInstanceCreditSpecificationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeInstanceCreditSpecificationsResponse

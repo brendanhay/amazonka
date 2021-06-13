@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.PortRange where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a range of ports.
 --
 -- /See:/ 'newPortRange' smart constructor.
 data PortRange = PortRange'
   { -- | The last port in the range.
-    to :: Core.Maybe Core.Int,
+    to :: Prelude.Maybe Prelude.Int,
     -- | The first port in the range.
-    from :: Core.Maybe Core.Int
+    from :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PortRange' with all optional fields omitted.
@@ -48,25 +49,29 @@ data PortRange = PortRange'
 newPortRange ::
   PortRange
 newPortRange =
-  PortRange' {to = Core.Nothing, from = Core.Nothing}
+  PortRange'
+    { to = Prelude.Nothing,
+      from = Prelude.Nothing
+    }
 
 -- | The last port in the range.
-portRange_to :: Lens.Lens' PortRange (Core.Maybe Core.Int)
+portRange_to :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Int)
 portRange_to = Lens.lens (\PortRange' {to} -> to) (\s@PortRange' {} a -> s {to = a} :: PortRange)
 
 -- | The first port in the range.
-portRange_from :: Lens.Lens' PortRange (Core.Maybe Core.Int)
+portRange_from :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Int)
 portRange_from = Lens.lens (\PortRange' {from} -> from) (\s@PortRange' {} a -> s {from = a} :: PortRange)
 
 instance Core.FromXML PortRange where
   parseXML x =
     PortRange'
-      Core.<$> (x Core..@? "to") Core.<*> (x Core..@? "from")
+      Prelude.<$> (x Core..@? "to") Prelude.<*> (x Core..@? "from")
 
-instance Core.Hashable PortRange
+instance Prelude.Hashable PortRange
 
-instance Core.NFData PortRange
+instance Prelude.NFData PortRange
 
 instance Core.ToQuery PortRange where
   toQuery PortRange' {..} =
-    Core.mconcat ["To" Core.=: to, "From" Core.=: from]
+    Prelude.mconcat
+      ["To" Core.=: to, "From" Core.=: from]

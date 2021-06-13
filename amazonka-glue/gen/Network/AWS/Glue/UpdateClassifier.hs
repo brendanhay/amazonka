@@ -46,21 +46,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateClassifier' smart constructor.
 data UpdateClassifier = UpdateClassifier'
   { -- | An @XMLClassifier@ object with updated fields.
-    xMLClassifier :: Core.Maybe UpdateXMLClassifierRequest,
+    xMLClassifier :: Prelude.Maybe UpdateXMLClassifierRequest,
     -- | A @JsonClassifier@ object with updated fields.
-    jsonClassifier :: Core.Maybe UpdateJsonClassifierRequest,
+    jsonClassifier :: Prelude.Maybe UpdateJsonClassifierRequest,
     -- | A @CsvClassifier@ object with updated fields.
-    csvClassifier :: Core.Maybe UpdateCsvClassifierRequest,
+    csvClassifier :: Prelude.Maybe UpdateCsvClassifierRequest,
     -- | A @GrokClassifier@ object with updated fields.
-    grokClassifier :: Core.Maybe UpdateGrokClassifierRequest
+    grokClassifier :: Prelude.Maybe UpdateGrokClassifierRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateClassifier' with all optional fields omitted.
@@ -81,26 +82,26 @@ newUpdateClassifier ::
   UpdateClassifier
 newUpdateClassifier =
   UpdateClassifier'
-    { xMLClassifier = Core.Nothing,
-      jsonClassifier = Core.Nothing,
-      csvClassifier = Core.Nothing,
-      grokClassifier = Core.Nothing
+    { xMLClassifier = Prelude.Nothing,
+      jsonClassifier = Prelude.Nothing,
+      csvClassifier = Prelude.Nothing,
+      grokClassifier = Prelude.Nothing
     }
 
 -- | An @XMLClassifier@ object with updated fields.
-updateClassifier_xMLClassifier :: Lens.Lens' UpdateClassifier (Core.Maybe UpdateXMLClassifierRequest)
+updateClassifier_xMLClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateXMLClassifierRequest)
 updateClassifier_xMLClassifier = Lens.lens (\UpdateClassifier' {xMLClassifier} -> xMLClassifier) (\s@UpdateClassifier' {} a -> s {xMLClassifier = a} :: UpdateClassifier)
 
 -- | A @JsonClassifier@ object with updated fields.
-updateClassifier_jsonClassifier :: Lens.Lens' UpdateClassifier (Core.Maybe UpdateJsonClassifierRequest)
+updateClassifier_jsonClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateJsonClassifierRequest)
 updateClassifier_jsonClassifier = Lens.lens (\UpdateClassifier' {jsonClassifier} -> jsonClassifier) (\s@UpdateClassifier' {} a -> s {jsonClassifier = a} :: UpdateClassifier)
 
 -- | A @CsvClassifier@ object with updated fields.
-updateClassifier_csvClassifier :: Lens.Lens' UpdateClassifier (Core.Maybe UpdateCsvClassifierRequest)
+updateClassifier_csvClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateCsvClassifierRequest)
 updateClassifier_csvClassifier = Lens.lens (\UpdateClassifier' {csvClassifier} -> csvClassifier) (\s@UpdateClassifier' {} a -> s {csvClassifier = a} :: UpdateClassifier)
 
 -- | A @GrokClassifier@ object with updated fields.
-updateClassifier_grokClassifier :: Lens.Lens' UpdateClassifier (Core.Maybe UpdateGrokClassifierRequest)
+updateClassifier_grokClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateGrokClassifierRequest)
 updateClassifier_grokClassifier = Lens.lens (\UpdateClassifier' {grokClassifier} -> grokClassifier) (\s@UpdateClassifier' {} a -> s {grokClassifier = a} :: UpdateClassifier)
 
 instance Core.AWSRequest UpdateClassifier where
@@ -112,47 +113,51 @@ instance Core.AWSRequest UpdateClassifier where
     Response.receiveEmpty
       ( \s h x ->
           UpdateClassifierResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateClassifier
+instance Prelude.Hashable UpdateClassifier
 
-instance Core.NFData UpdateClassifier
+instance Prelude.NFData UpdateClassifier
 
 instance Core.ToHeaders UpdateClassifier where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateClassifier" :: Core.ByteString),
+              Core.=# ("AWSGlue.UpdateClassifier" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateClassifier where
   toJSON UpdateClassifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("XMLClassifier" Core..=) Core.<$> xMLClassifier,
-            ("JsonClassifier" Core..=) Core.<$> jsonClassifier,
-            ("CsvClassifier" Core..=) Core.<$> csvClassifier,
-            ("GrokClassifier" Core..=) Core.<$> grokClassifier
+      ( Prelude.catMaybes
+          [ ("XMLClassifier" Core..=) Prelude.<$> xMLClassifier,
+            ("JsonClassifier" Core..=)
+              Prelude.<$> jsonClassifier,
+            ("CsvClassifier" Core..=) Prelude.<$> csvClassifier,
+            ("GrokClassifier" Core..=)
+              Prelude.<$> grokClassifier
           ]
       )
 
 instance Core.ToPath UpdateClassifier where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateClassifier where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateClassifierResponse' smart constructor.
 data UpdateClassifierResponse = UpdateClassifierResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateClassifierResponse' with all optional fields omitted.
@@ -165,7 +170,7 @@ data UpdateClassifierResponse = UpdateClassifierResponse'
 -- 'httpStatus', 'updateClassifierResponse_httpStatus' - The response's http status code.
 newUpdateClassifierResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateClassifierResponse
 newUpdateClassifierResponse pHttpStatus_ =
   UpdateClassifierResponse'
@@ -174,7 +179,7 @@ newUpdateClassifierResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateClassifierResponse_httpStatus :: Lens.Lens' UpdateClassifierResponse Core.Int
+updateClassifierResponse_httpStatus :: Lens.Lens' UpdateClassifierResponse Prelude.Int
 updateClassifierResponse_httpStatus = Lens.lens (\UpdateClassifierResponse' {httpStatus} -> httpStatus) (\s@UpdateClassifierResponse' {} a -> s {httpStatus = a} :: UpdateClassifierResponse)
 
-instance Core.NFData UpdateClassifierResponse
+instance Prelude.NFData UpdateClassifierResponse

@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.ConformancePackRuleCompliance where
 import Network.AWS.Config.Types.ConformancePackComplianceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Compliance information of one or more AWS Config rules within a
 -- conformance pack. You can filter using AWS Config rule names and
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newConformancePackRuleCompliance' smart constructor.
 data ConformancePackRuleCompliance = ConformancePackRuleCompliance'
   { -- | Name of the config rule.
-    configRuleName :: Core.Maybe Core.Text,
+    configRuleName :: Prelude.Maybe Prelude.Text,
     -- | Compliance of the AWS Config rule
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
-    complianceType :: Core.Maybe ConformancePackComplianceType
+    complianceType :: Prelude.Maybe ConformancePackComplianceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConformancePackRuleCompliance' with all optional fields omitted.
@@ -56,18 +57,18 @@ newConformancePackRuleCompliance ::
 newConformancePackRuleCompliance =
   ConformancePackRuleCompliance'
     { configRuleName =
-        Core.Nothing,
-      complianceType = Core.Nothing
+        Prelude.Nothing,
+      complianceType = Prelude.Nothing
     }
 
 -- | Name of the config rule.
-conformancePackRuleCompliance_configRuleName :: Lens.Lens' ConformancePackRuleCompliance (Core.Maybe Core.Text)
+conformancePackRuleCompliance_configRuleName :: Lens.Lens' ConformancePackRuleCompliance (Prelude.Maybe Prelude.Text)
 conformancePackRuleCompliance_configRuleName = Lens.lens (\ConformancePackRuleCompliance' {configRuleName} -> configRuleName) (\s@ConformancePackRuleCompliance' {} a -> s {configRuleName = a} :: ConformancePackRuleCompliance)
 
 -- | Compliance of the AWS Config rule
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
-conformancePackRuleCompliance_complianceType :: Lens.Lens' ConformancePackRuleCompliance (Core.Maybe ConformancePackComplianceType)
+conformancePackRuleCompliance_complianceType :: Lens.Lens' ConformancePackRuleCompliance (Prelude.Maybe ConformancePackComplianceType)
 conformancePackRuleCompliance_complianceType = Lens.lens (\ConformancePackRuleCompliance' {complianceType} -> complianceType) (\s@ConformancePackRuleCompliance' {} a -> s {complianceType = a} :: ConformancePackRuleCompliance)
 
 instance Core.FromJSON ConformancePackRuleCompliance where
@@ -76,10 +77,12 @@ instance Core.FromJSON ConformancePackRuleCompliance where
       "ConformancePackRuleCompliance"
       ( \x ->
           ConformancePackRuleCompliance'
-            Core.<$> (x Core..:? "ConfigRuleName")
-            Core.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Core..:? "ConfigRuleName")
+            Prelude.<*> (x Core..:? "ComplianceType")
       )
 
-instance Core.Hashable ConformancePackRuleCompliance
+instance
+  Prelude.Hashable
+    ConformancePackRuleCompliance
 
-instance Core.NFData ConformancePackRuleCompliance
+instance Prelude.NFData ConformancePackRuleCompliance

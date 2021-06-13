@@ -22,18 +22,19 @@ module Network.AWS.Glue.Types.JobBookmarksEncryption where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.JobBookmarksEncryptionMode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies how job bookmark data should be encrypted.
 --
 -- /See:/ 'newJobBookmarksEncryption' smart constructor.
 data JobBookmarksEncryption = JobBookmarksEncryption'
   { -- | The encryption mode to use for job bookmarks data.
-    jobBookmarksEncryptionMode :: Core.Maybe JobBookmarksEncryptionMode,
+    jobBookmarksEncryptionMode :: Prelude.Maybe JobBookmarksEncryptionMode,
     -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the
     -- data.
-    kmsKeyArn :: Core.Maybe Core.Text
+    kmsKeyArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobBookmarksEncryption' with all optional fields omitted.
@@ -52,17 +53,17 @@ newJobBookmarksEncryption ::
 newJobBookmarksEncryption =
   JobBookmarksEncryption'
     { jobBookmarksEncryptionMode =
-        Core.Nothing,
-      kmsKeyArn = Core.Nothing
+        Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing
     }
 
 -- | The encryption mode to use for job bookmarks data.
-jobBookmarksEncryption_jobBookmarksEncryptionMode :: Lens.Lens' JobBookmarksEncryption (Core.Maybe JobBookmarksEncryptionMode)
+jobBookmarksEncryption_jobBookmarksEncryptionMode :: Lens.Lens' JobBookmarksEncryption (Prelude.Maybe JobBookmarksEncryptionMode)
 jobBookmarksEncryption_jobBookmarksEncryptionMode = Lens.lens (\JobBookmarksEncryption' {jobBookmarksEncryptionMode} -> jobBookmarksEncryptionMode) (\s@JobBookmarksEncryption' {} a -> s {jobBookmarksEncryptionMode = a} :: JobBookmarksEncryption)
 
 -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the
 -- data.
-jobBookmarksEncryption_kmsKeyArn :: Lens.Lens' JobBookmarksEncryption (Core.Maybe Core.Text)
+jobBookmarksEncryption_kmsKeyArn :: Lens.Lens' JobBookmarksEncryption (Prelude.Maybe Prelude.Text)
 jobBookmarksEncryption_kmsKeyArn = Lens.lens (\JobBookmarksEncryption' {kmsKeyArn} -> kmsKeyArn) (\s@JobBookmarksEncryption' {} a -> s {kmsKeyArn = a} :: JobBookmarksEncryption)
 
 instance Core.FromJSON JobBookmarksEncryption where
@@ -71,20 +72,20 @@ instance Core.FromJSON JobBookmarksEncryption where
       "JobBookmarksEncryption"
       ( \x ->
           JobBookmarksEncryption'
-            Core.<$> (x Core..:? "JobBookmarksEncryptionMode")
-            Core.<*> (x Core..:? "KmsKeyArn")
+            Prelude.<$> (x Core..:? "JobBookmarksEncryptionMode")
+            Prelude.<*> (x Core..:? "KmsKeyArn")
       )
 
-instance Core.Hashable JobBookmarksEncryption
+instance Prelude.Hashable JobBookmarksEncryption
 
-instance Core.NFData JobBookmarksEncryption
+instance Prelude.NFData JobBookmarksEncryption
 
 instance Core.ToJSON JobBookmarksEncryption where
   toJSON JobBookmarksEncryption' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("JobBookmarksEncryptionMode" Core..=)
-              Core.<$> jobBookmarksEncryptionMode,
-            ("KmsKeyArn" Core..=) Core.<$> kmsKeyArn
+              Prelude.<$> jobBookmarksEncryptionMode,
+            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn
           ]
       )

@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data GetRegistryPolicy = GetRegistryPolicy'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRegistryPolicy' with all optional fields omitted.
@@ -66,47 +67,49 @@ instance Core.AWSRequest GetRegistryPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetRegistryPolicyResponse'
-            Core.<$> (x Core..?> "registryId")
-            Core.<*> (x Core..?> "policyText")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "policyText")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRegistryPolicy
+instance Prelude.Hashable GetRegistryPolicy
 
-instance Core.NFData GetRegistryPolicy
+instance Prelude.NFData GetRegistryPolicy
 
 instance Core.ToHeaders GetRegistryPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.GetRegistryPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRegistryPolicy where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetRegistryPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRegistryPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRegistryPolicyResponse' smart constructor.
 data GetRegistryPolicyResponse = GetRegistryPolicyResponse'
   { -- | The ID of the registry.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The JSON text of the permissions policy for a registry.
-    policyText :: Core.Maybe Core.Text,
+    policyText :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRegistryPolicyResponse' with all optional fields omitted.
@@ -123,26 +126,26 @@ data GetRegistryPolicyResponse = GetRegistryPolicyResponse'
 -- 'httpStatus', 'getRegistryPolicyResponse_httpStatus' - The response's http status code.
 newGetRegistryPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRegistryPolicyResponse
 newGetRegistryPolicyResponse pHttpStatus_ =
   GetRegistryPolicyResponse'
     { registryId =
-        Core.Nothing,
-      policyText = Core.Nothing,
+        Prelude.Nothing,
+      policyText = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the registry.
-getRegistryPolicyResponse_registryId :: Lens.Lens' GetRegistryPolicyResponse (Core.Maybe Core.Text)
+getRegistryPolicyResponse_registryId :: Lens.Lens' GetRegistryPolicyResponse (Prelude.Maybe Prelude.Text)
 getRegistryPolicyResponse_registryId = Lens.lens (\GetRegistryPolicyResponse' {registryId} -> registryId) (\s@GetRegistryPolicyResponse' {} a -> s {registryId = a} :: GetRegistryPolicyResponse)
 
 -- | The JSON text of the permissions policy for a registry.
-getRegistryPolicyResponse_policyText :: Lens.Lens' GetRegistryPolicyResponse (Core.Maybe Core.Text)
+getRegistryPolicyResponse_policyText :: Lens.Lens' GetRegistryPolicyResponse (Prelude.Maybe Prelude.Text)
 getRegistryPolicyResponse_policyText = Lens.lens (\GetRegistryPolicyResponse' {policyText} -> policyText) (\s@GetRegistryPolicyResponse' {} a -> s {policyText = a} :: GetRegistryPolicyResponse)
 
 -- | The response's http status code.
-getRegistryPolicyResponse_httpStatus :: Lens.Lens' GetRegistryPolicyResponse Core.Int
+getRegistryPolicyResponse_httpStatus :: Lens.Lens' GetRegistryPolicyResponse Prelude.Int
 getRegistryPolicyResponse_httpStatus = Lens.lens (\GetRegistryPolicyResponse' {httpStatus} -> httpStatus) (\s@GetRegistryPolicyResponse' {} a -> s {httpStatus = a} :: GetRegistryPolicyResponse)
 
-instance Core.NFData GetRegistryPolicyResponse
+instance Prelude.NFData GetRegistryPolicyResponse

@@ -60,6 +60,7 @@ where
 import Network.AWS.ApplicationAutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -125,9 +126,9 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of scalable targets. This value can be between 1 and
     -- 50. The default value is 50.
     --
@@ -136,7 +137,7 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- of results, include the @NextToken@ value in a subsequent call. If this
     -- parameter is not used, the operation returns up to 50 results and a
     -- @NextToken@ value, if applicable.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property. If you specify a scalable
     -- dimension, you must also specify a resource ID.
@@ -194,15 +195,15 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
-    scalableDimension :: Core.Maybe ScalableDimension,
+    scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The names of the scaling policies to describe.
-    policyNames :: Core.Maybe [Core.Text],
+    policyNames :: Prelude.Maybe [Prelude.Text],
     -- | The namespace of the AWS service that provides the resource. For a
     -- resource provided by your own application or service, use
     -- @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingPolicies' with all optional fields omitted.
@@ -353,11 +354,12 @@ newDescribeScalingPolicies ::
   DescribeScalingPolicies
 newDescribeScalingPolicies pServiceNamespace_ =
   DescribeScalingPolicies'
-    { resourceId = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      scalableDimension = Core.Nothing,
-      policyNames = Core.Nothing,
+    { resourceId =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      scalableDimension = Prelude.Nothing,
+      policyNames = Prelude.Nothing,
       serviceNamespace = pServiceNamespace_
     }
 
@@ -421,11 +423,11 @@ newDescribeScalingPolicies pServiceNamespace_ =
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-describeScalingPolicies_resourceId :: Lens.Lens' DescribeScalingPolicies (Core.Maybe Core.Text)
+describeScalingPolicies_resourceId :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
 describeScalingPolicies_resourceId = Lens.lens (\DescribeScalingPolicies' {resourceId} -> resourceId) (\s@DescribeScalingPolicies' {} a -> s {resourceId = a} :: DescribeScalingPolicies)
 
 -- | The token for the next set of results.
-describeScalingPolicies_nextToken :: Lens.Lens' DescribeScalingPolicies (Core.Maybe Core.Text)
+describeScalingPolicies_nextToken :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
 describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextToken} -> nextToken) (\s@DescribeScalingPolicies' {} a -> s {nextToken = a} :: DescribeScalingPolicies)
 
 -- | The maximum number of scalable targets. This value can be between 1 and
@@ -436,7 +438,7 @@ describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextTo
 -- of results, include the @NextToken@ value in a subsequent call. If this
 -- parameter is not used, the operation returns up to 50 results and a
 -- @NextToken@ value, if applicable.
-describeScalingPolicies_maxResults :: Lens.Lens' DescribeScalingPolicies (Core.Maybe Core.Int)
+describeScalingPolicies_maxResults :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Int)
 describeScalingPolicies_maxResults = Lens.lens (\DescribeScalingPolicies' {maxResults} -> maxResults) (\s@DescribeScalingPolicies' {} a -> s {maxResults = a} :: DescribeScalingPolicies)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -496,12 +498,12 @@ describeScalingPolicies_maxResults = Lens.lens (\DescribeScalingPolicies' {maxRe
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
-describeScalingPolicies_scalableDimension :: Lens.Lens' DescribeScalingPolicies (Core.Maybe ScalableDimension)
+describeScalingPolicies_scalableDimension :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe ScalableDimension)
 describeScalingPolicies_scalableDimension = Lens.lens (\DescribeScalingPolicies' {scalableDimension} -> scalableDimension) (\s@DescribeScalingPolicies' {} a -> s {scalableDimension = a} :: DescribeScalingPolicies)
 
 -- | The names of the scaling policies to describe.
-describeScalingPolicies_policyNames :: Lens.Lens' DescribeScalingPolicies (Core.Maybe [Core.Text])
-describeScalingPolicies_policyNames = Lens.lens (\DescribeScalingPolicies' {policyNames} -> policyNames) (\s@DescribeScalingPolicies' {} a -> s {policyNames = a} :: DescribeScalingPolicies) Core.. Lens.mapping Lens._Coerce
+describeScalingPolicies_policyNames :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe [Prelude.Text])
+describeScalingPolicies_policyNames = Lens.lens (\DescribeScalingPolicies' {policyNames} -> policyNames) (\s@DescribeScalingPolicies' {} a -> s {policyNames = a} :: DescribeScalingPolicies) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace of the AWS service that provides the resource. For a
 -- resource provided by your own application or service, use
@@ -514,22 +516,22 @@ instance Core.AWSPager DescribeScalingPolicies where
     | Core.stop
         ( rs
             Lens.^? describeScalingPoliciesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScalingPoliciesResponse_scalingPolicies
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeScalingPolicies_nextToken
+          Prelude.& describeScalingPolicies_nextToken
           Lens..~ rs
           Lens.^? describeScalingPoliciesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingPolicies where
   type
@@ -540,60 +542,64 @@ instance Core.AWSRequest DescribeScalingPolicies where
     Response.receiveJSON
       ( \s h x ->
           DescribeScalingPoliciesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ScalingPolicies" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ScalingPolicies"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeScalingPolicies
+instance Prelude.Hashable DescribeScalingPolicies
 
-instance Core.NFData DescribeScalingPolicies
+instance Prelude.NFData DescribeScalingPolicies
 
 instance Core.ToHeaders DescribeScalingPolicies where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AnyScaleFrontendService.DescribeScalingPolicies" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeScalingPolicies where
   toJSON DescribeScalingPolicies' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceId" Core..=) Core.<$> resourceId,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ScalableDimension" Core..=)
-              Core.<$> scalableDimension,
-            ("PolicyNames" Core..=) Core.<$> policyNames,
-            Core.Just
+              Prelude.<$> scalableDimension,
+            ("PolicyNames" Core..=) Prelude.<$> policyNames,
+            Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace)
           ]
       )
 
 instance Core.ToPath DescribeScalingPolicies where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeScalingPolicies where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScalingPoliciesResponse' smart constructor.
 data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
   { -- | The token required to get the next set of results. This value is @null@
     -- if there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the scaling policies.
-    scalingPolicies :: Core.Maybe [ScalingPolicy],
+    scalingPolicies :: Prelude.Maybe [ScalingPolicy],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingPoliciesResponse' with all optional fields omitted.
@@ -611,27 +617,29 @@ data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
 -- 'httpStatus', 'describeScalingPoliciesResponse_httpStatus' - The response's http status code.
 newDescribeScalingPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScalingPoliciesResponse
 newDescribeScalingPoliciesResponse pHttpStatus_ =
   DescribeScalingPoliciesResponse'
     { nextToken =
-        Core.Nothing,
-      scalingPolicies = Core.Nothing,
+        Prelude.Nothing,
+      scalingPolicies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token required to get the next set of results. This value is @null@
 -- if there are no more results to return.
-describeScalingPoliciesResponse_nextToken :: Lens.Lens' DescribeScalingPoliciesResponse (Core.Maybe Core.Text)
+describeScalingPoliciesResponse_nextToken :: Lens.Lens' DescribeScalingPoliciesResponse (Prelude.Maybe Prelude.Text)
 describeScalingPoliciesResponse_nextToken = Lens.lens (\DescribeScalingPoliciesResponse' {nextToken} -> nextToken) (\s@DescribeScalingPoliciesResponse' {} a -> s {nextToken = a} :: DescribeScalingPoliciesResponse)
 
 -- | Information about the scaling policies.
-describeScalingPoliciesResponse_scalingPolicies :: Lens.Lens' DescribeScalingPoliciesResponse (Core.Maybe [ScalingPolicy])
-describeScalingPoliciesResponse_scalingPolicies = Lens.lens (\DescribeScalingPoliciesResponse' {scalingPolicies} -> scalingPolicies) (\s@DescribeScalingPoliciesResponse' {} a -> s {scalingPolicies = a} :: DescribeScalingPoliciesResponse) Core.. Lens.mapping Lens._Coerce
+describeScalingPoliciesResponse_scalingPolicies :: Lens.Lens' DescribeScalingPoliciesResponse (Prelude.Maybe [ScalingPolicy])
+describeScalingPoliciesResponse_scalingPolicies = Lens.lens (\DescribeScalingPoliciesResponse' {scalingPolicies} -> scalingPolicies) (\s@DescribeScalingPoliciesResponse' {} a -> s {scalingPolicies = a} :: DescribeScalingPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScalingPoliciesResponse_httpStatus :: Lens.Lens' DescribeScalingPoliciesResponse Core.Int
+describeScalingPoliciesResponse_httpStatus :: Lens.Lens' DescribeScalingPoliciesResponse Prelude.Int
 describeScalingPoliciesResponse_httpStatus = Lens.lens (\DescribeScalingPoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribeScalingPoliciesResponse' {} a -> s {httpStatus = a} :: DescribeScalingPoliciesResponse)
 
-instance Core.NFData DescribeScalingPoliciesResponse
+instance
+  Prelude.NFData
+    DescribeScalingPoliciesResponse

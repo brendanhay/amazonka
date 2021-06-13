@@ -69,6 +69,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,7 +88,7 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
     -- There is no defined format for a client ID. The
     -- @CreateOpenIDConnectProviderRequest@ operation accepts client IDs up to
     -- 255 characters long.
-    clientIDList :: Core.Maybe [Core.Text],
+    clientIDList :: Prelude.Maybe [Prelude.Text],
     -- | A list of tags that you want to attach to the new IAM OpenID Connect
     -- (OIDC) provider. Each tag consists of a key name and an associated
     -- value. For more information about tagging, see
@@ -97,7 +98,7 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
     -- If any one of the tags is invalid or if you exceed the allowed maximum
     -- number of tags, then the entire request fails and the resource is not
     -- created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The URL of the identity provider. The URL must begin with @https:\/\/@
     -- and should correspond to the @iss@ claim in the provider\'s OpenID
     -- Connect ID tokens. Per the OIDC standard, path components are allowed
@@ -108,7 +109,7 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
     -- You cannot register the same provider multiple times in a single AWS
     -- account. If you try to submit a URL that has already been used for an
     -- OpenID Connect provider in the AWS account, you will get an error.
-    url :: Core.Text,
+    url :: Prelude.Text,
     -- | A list of server certificate thumbprints for the OpenID Connect (OIDC)
     -- identity provider\'s server certificates. Typically this list includes
     -- only one entry. However, IAM lets you have up to five thumbprints for an
@@ -130,9 +131,9 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the thumbprint for an OpenID Connect provider>
     -- in the /IAM User Guide/.
-    thumbprintList :: [Core.Text]
+    thumbprintList :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOpenIDConnectProvider' with all optional fields omitted.
@@ -200,15 +201,15 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
 -- in the /IAM User Guide/.
 newCreateOpenIDConnectProvider ::
   -- | 'url'
-  Core.Text ->
+  Prelude.Text ->
   CreateOpenIDConnectProvider
 newCreateOpenIDConnectProvider pUrl_ =
   CreateOpenIDConnectProvider'
     { clientIDList =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       url = pUrl_,
-      thumbprintList = Core.mempty
+      thumbprintList = Prelude.mempty
     }
 
 -- | A list of client IDs (also known as audiences). When a mobile or web app
@@ -224,8 +225,8 @@ newCreateOpenIDConnectProvider pUrl_ =
 -- There is no defined format for a client ID. The
 -- @CreateOpenIDConnectProviderRequest@ operation accepts client IDs up to
 -- 255 characters long.
-createOpenIDConnectProvider_clientIDList :: Lens.Lens' CreateOpenIDConnectProvider (Core.Maybe [Core.Text])
-createOpenIDConnectProvider_clientIDList = Lens.lens (\CreateOpenIDConnectProvider' {clientIDList} -> clientIDList) (\s@CreateOpenIDConnectProvider' {} a -> s {clientIDList = a} :: CreateOpenIDConnectProvider) Core.. Lens.mapping Lens._Coerce
+createOpenIDConnectProvider_clientIDList :: Lens.Lens' CreateOpenIDConnectProvider (Prelude.Maybe [Prelude.Text])
+createOpenIDConnectProvider_clientIDList = Lens.lens (\CreateOpenIDConnectProvider' {clientIDList} -> clientIDList) (\s@CreateOpenIDConnectProvider' {} a -> s {clientIDList = a} :: CreateOpenIDConnectProvider) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of tags that you want to attach to the new IAM OpenID Connect
 -- (OIDC) provider. Each tag consists of a key name and an associated
@@ -236,8 +237,8 @@ createOpenIDConnectProvider_clientIDList = Lens.lens (\CreateOpenIDConnectProvid
 -- If any one of the tags is invalid or if you exceed the allowed maximum
 -- number of tags, then the entire request fails and the resource is not
 -- created.
-createOpenIDConnectProvider_tags :: Lens.Lens' CreateOpenIDConnectProvider (Core.Maybe [Tag])
-createOpenIDConnectProvider_tags = Lens.lens (\CreateOpenIDConnectProvider' {tags} -> tags) (\s@CreateOpenIDConnectProvider' {} a -> s {tags = a} :: CreateOpenIDConnectProvider) Core.. Lens.mapping Lens._Coerce
+createOpenIDConnectProvider_tags :: Lens.Lens' CreateOpenIDConnectProvider (Prelude.Maybe [Tag])
+createOpenIDConnectProvider_tags = Lens.lens (\CreateOpenIDConnectProvider' {tags} -> tags) (\s@CreateOpenIDConnectProvider' {} a -> s {tags = a} :: CreateOpenIDConnectProvider) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL of the identity provider. The URL must begin with @https:\/\/@
 -- and should correspond to the @iss@ claim in the provider\'s OpenID
@@ -249,7 +250,7 @@ createOpenIDConnectProvider_tags = Lens.lens (\CreateOpenIDConnectProvider' {tag
 -- You cannot register the same provider multiple times in a single AWS
 -- account. If you try to submit a URL that has already been used for an
 -- OpenID Connect provider in the AWS account, you will get an error.
-createOpenIDConnectProvider_url :: Lens.Lens' CreateOpenIDConnectProvider Core.Text
+createOpenIDConnectProvider_url :: Lens.Lens' CreateOpenIDConnectProvider Prelude.Text
 createOpenIDConnectProvider_url = Lens.lens (\CreateOpenIDConnectProvider' {url} -> url) (\s@CreateOpenIDConnectProvider' {} a -> s {url = a} :: CreateOpenIDConnectProvider)
 
 -- | A list of server certificate thumbprints for the OpenID Connect (OIDC)
@@ -273,8 +274,8 @@ createOpenIDConnectProvider_url = Lens.lens (\CreateOpenIDConnectProvider' {url}
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the thumbprint for an OpenID Connect provider>
 -- in the /IAM User Guide/.
-createOpenIDConnectProvider_thumbprintList :: Lens.Lens' CreateOpenIDConnectProvider [Core.Text]
-createOpenIDConnectProvider_thumbprintList = Lens.lens (\CreateOpenIDConnectProvider' {thumbprintList} -> thumbprintList) (\s@CreateOpenIDConnectProvider' {} a -> s {thumbprintList = a} :: CreateOpenIDConnectProvider) Core.. Lens._Coerce
+createOpenIDConnectProvider_thumbprintList :: Lens.Lens' CreateOpenIDConnectProvider [Prelude.Text]
+createOpenIDConnectProvider_thumbprintList = Lens.lens (\CreateOpenIDConnectProvider' {thumbprintList} -> thumbprintList) (\s@CreateOpenIDConnectProvider' {} a -> s {thumbprintList = a} :: CreateOpenIDConnectProvider) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateOpenIDConnectProvider where
   type
@@ -286,35 +287,38 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
       "CreateOpenIDConnectProviderResult"
       ( \s h x ->
           CreateOpenIDConnectProviderResponse'
-            Core.<$> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "OpenIDConnectProviderArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "OpenIDConnectProviderArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateOpenIDConnectProvider
+instance Prelude.Hashable CreateOpenIDConnectProvider
 
-instance Core.NFData CreateOpenIDConnectProvider
+instance Prelude.NFData CreateOpenIDConnectProvider
 
 instance Core.ToHeaders CreateOpenIDConnectProvider where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateOpenIDConnectProvider where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateOpenIDConnectProvider where
   toQuery CreateOpenIDConnectProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateOpenIDConnectProvider" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ( "CreateOpenIDConnectProvider" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "ClientIDList"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> clientIDList),
+            (Core.toQueryList "member" Prelude.<$> clientIDList),
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "Url" Core.=: url,
         "ThumbprintList"
           Core.=: Core.toQueryList "member" thumbprintList
@@ -330,15 +334,15 @@ data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider
     -- that is created. For more information, see
     -- OpenIDConnectProviderListEntry.
-    openIDConnectProviderArn :: Core.Maybe Core.Text,
+    openIDConnectProviderArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOpenIDConnectProviderResponse' with all optional fields omitted.
@@ -361,14 +365,14 @@ data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'
 -- 'httpStatus', 'createOpenIDConnectProviderResponse_httpStatus' - The response's http status code.
 newCreateOpenIDConnectProviderResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateOpenIDConnectProviderResponse
 newCreateOpenIDConnectProviderResponse pHttpStatus_ =
   CreateOpenIDConnectProviderResponse'
     { tags =
-        Core.Nothing,
+        Prelude.Nothing,
       openIDConnectProviderArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -377,19 +381,19 @@ newCreateOpenIDConnectProviderResponse pHttpStatus_ =
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
-createOpenIDConnectProviderResponse_tags :: Lens.Lens' CreateOpenIDConnectProviderResponse (Core.Maybe [Tag])
-createOpenIDConnectProviderResponse_tags = Lens.lens (\CreateOpenIDConnectProviderResponse' {tags} -> tags) (\s@CreateOpenIDConnectProviderResponse' {} a -> s {tags = a} :: CreateOpenIDConnectProviderResponse) Core.. Lens.mapping Lens._Coerce
+createOpenIDConnectProviderResponse_tags :: Lens.Lens' CreateOpenIDConnectProviderResponse (Prelude.Maybe [Tag])
+createOpenIDConnectProviderResponse_tags = Lens.lens (\CreateOpenIDConnectProviderResponse' {tags} -> tags) (\s@CreateOpenIDConnectProviderResponse' {} a -> s {tags = a} :: CreateOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider
 -- that is created. For more information, see
 -- OpenIDConnectProviderListEntry.
-createOpenIDConnectProviderResponse_openIDConnectProviderArn :: Lens.Lens' CreateOpenIDConnectProviderResponse (Core.Maybe Core.Text)
+createOpenIDConnectProviderResponse_openIDConnectProviderArn :: Lens.Lens' CreateOpenIDConnectProviderResponse (Prelude.Maybe Prelude.Text)
 createOpenIDConnectProviderResponse_openIDConnectProviderArn = Lens.lens (\CreateOpenIDConnectProviderResponse' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@CreateOpenIDConnectProviderResponse' {} a -> s {openIDConnectProviderArn = a} :: CreateOpenIDConnectProviderResponse)
 
 -- | The response's http status code.
-createOpenIDConnectProviderResponse_httpStatus :: Lens.Lens' CreateOpenIDConnectProviderResponse Core.Int
+createOpenIDConnectProviderResponse_httpStatus :: Lens.Lens' CreateOpenIDConnectProviderResponse Prelude.Int
 createOpenIDConnectProviderResponse_httpStatus = Lens.lens (\CreateOpenIDConnectProviderResponse' {httpStatus} -> httpStatus) (\s@CreateOpenIDConnectProviderResponse' {} a -> s {httpStatus = a} :: CreateOpenIDConnectProviderResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateOpenIDConnectProviderResponse

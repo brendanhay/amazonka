@@ -21,25 +21,26 @@ module Network.AWS.ServiceCatalog.Types.PortfolioDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a portfolio.
 --
 -- /See:/ 'newPortfolioDetail' smart constructor.
 data PortfolioDetail = PortfolioDetail'
   { -- | The name of the portfolio provider.
-    providerName :: Core.Maybe Core.Text,
+    providerName :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The ARN assigned to the portfolio.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Core.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The description of the portfolio.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name to use for display purposes.
-    displayName :: Core.Maybe Core.Text
+    displayName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PortfolioDetail' with all optional fields omitted.
@@ -64,36 +65,36 @@ newPortfolioDetail ::
   PortfolioDetail
 newPortfolioDetail =
   PortfolioDetail'
-    { providerName = Core.Nothing,
-      id = Core.Nothing,
-      arn = Core.Nothing,
-      createdTime = Core.Nothing,
-      description = Core.Nothing,
-      displayName = Core.Nothing
+    { providerName = Prelude.Nothing,
+      id = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      description = Prelude.Nothing,
+      displayName = Prelude.Nothing
     }
 
 -- | The name of the portfolio provider.
-portfolioDetail_providerName :: Lens.Lens' PortfolioDetail (Core.Maybe Core.Text)
+portfolioDetail_providerName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_providerName = Lens.lens (\PortfolioDetail' {providerName} -> providerName) (\s@PortfolioDetail' {} a -> s {providerName = a} :: PortfolioDetail)
 
 -- | The portfolio identifier.
-portfolioDetail_id :: Lens.Lens' PortfolioDetail (Core.Maybe Core.Text)
+portfolioDetail_id :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_id = Lens.lens (\PortfolioDetail' {id} -> id) (\s@PortfolioDetail' {} a -> s {id = a} :: PortfolioDetail)
 
 -- | The ARN assigned to the portfolio.
-portfolioDetail_arn :: Lens.Lens' PortfolioDetail (Core.Maybe Core.Text)
+portfolioDetail_arn :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_arn = Lens.lens (\PortfolioDetail' {arn} -> arn) (\s@PortfolioDetail' {} a -> s {arn = a} :: PortfolioDetail)
 
 -- | The UTC time stamp of the creation time.
-portfolioDetail_createdTime :: Lens.Lens' PortfolioDetail (Core.Maybe Core.UTCTime)
-portfolioDetail_createdTime = Lens.lens (\PortfolioDetail' {createdTime} -> createdTime) (\s@PortfolioDetail' {} a -> s {createdTime = a} :: PortfolioDetail) Core.. Lens.mapping Core._Time
+portfolioDetail_createdTime :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.UTCTime)
+portfolioDetail_createdTime = Lens.lens (\PortfolioDetail' {createdTime} -> createdTime) (\s@PortfolioDetail' {} a -> s {createdTime = a} :: PortfolioDetail) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the portfolio.
-portfolioDetail_description :: Lens.Lens' PortfolioDetail (Core.Maybe Core.Text)
+portfolioDetail_description :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_description = Lens.lens (\PortfolioDetail' {description} -> description) (\s@PortfolioDetail' {} a -> s {description = a} :: PortfolioDetail)
 
 -- | The name to use for display purposes.
-portfolioDetail_displayName :: Lens.Lens' PortfolioDetail (Core.Maybe Core.Text)
+portfolioDetail_displayName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_displayName = Lens.lens (\PortfolioDetail' {displayName} -> displayName) (\s@PortfolioDetail' {} a -> s {displayName = a} :: PortfolioDetail)
 
 instance Core.FromJSON PortfolioDetail where
@@ -102,14 +103,14 @@ instance Core.FromJSON PortfolioDetail where
       "PortfolioDetail"
       ( \x ->
           PortfolioDetail'
-            Core.<$> (x Core..:? "ProviderName")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "ARN")
-            Core.<*> (x Core..:? "CreatedTime")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "DisplayName")
+            Prelude.<$> (x Core..:? "ProviderName")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "ARN")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "DisplayName")
       )
 
-instance Core.Hashable PortfolioDetail
+instance Prelude.Hashable PortfolioDetail
 
-instance Core.NFData PortfolioDetail
+instance Prelude.NFData PortfolioDetail

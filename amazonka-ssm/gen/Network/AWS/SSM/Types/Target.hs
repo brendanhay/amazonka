@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.Target where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An array of search criteria that targets instances using a Key,Value
 -- combination that you specify.
@@ -89,13 +90,13 @@ import qualified Network.AWS.Lens as Lens
 data Target = Target'
   { -- | User-defined criteria for sending commands that target instances that
     -- meet the criteria.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | User-defined criteria that maps to @Key@. For example, if you specified
     -- @tag:ServerRole@, you could specify @value:WebServer@ to run a command
     -- on instances that include EC2 tags of @ServerRole,WebServer@.
-    values :: Core.Maybe [Core.Text]
+    values :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Target' with all optional fields omitted.
@@ -114,18 +115,21 @@ data Target = Target'
 newTarget ::
   Target
 newTarget =
-  Target' {key = Core.Nothing, values = Core.Nothing}
+  Target'
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
+    }
 
 -- | User-defined criteria for sending commands that target instances that
 -- meet the criteria.
-target_key :: Lens.Lens' Target (Core.Maybe Core.Text)
+target_key :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_key = Lens.lens (\Target' {key} -> key) (\s@Target' {} a -> s {key = a} :: Target)
 
 -- | User-defined criteria that maps to @Key@. For example, if you specified
 -- @tag:ServerRole@, you could specify @value:WebServer@ to run a command
 -- on instances that include EC2 tags of @ServerRole,WebServer@.
-target_values :: Lens.Lens' Target (Core.Maybe [Core.Text])
-target_values = Lens.lens (\Target' {values} -> values) (\s@Target' {} a -> s {values = a} :: Target) Core.. Lens.mapping Lens._Coerce
+target_values :: Lens.Lens' Target (Prelude.Maybe [Prelude.Text])
+target_values = Lens.lens (\Target' {values} -> values) (\s@Target' {} a -> s {values = a} :: Target) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Target where
   parseJSON =
@@ -133,19 +137,19 @@ instance Core.FromJSON Target where
       "Target"
       ( \x ->
           Target'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Target
+instance Prelude.Hashable Target
 
-instance Core.NFData Target
+instance Prelude.NFData Target
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Values" Core..=) Core.<$> values
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

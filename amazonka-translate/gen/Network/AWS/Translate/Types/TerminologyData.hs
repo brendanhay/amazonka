@@ -21,6 +21,7 @@ module Network.AWS.Translate.Types.TerminologyData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Translate.Types.TerminologyDataFormat
 
 -- | The data associated with the custom terminology.
@@ -35,7 +36,7 @@ data TerminologyData = TerminologyData'
     -- | The data format of the custom terminology. Either CSV or TMX.
     format :: TerminologyDataFormat
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminologyData' with all optional fields omitted.
@@ -57,14 +58,14 @@ data TerminologyData = TerminologyData'
 -- 'format', 'terminologyData_format' - The data format of the custom terminology. Either CSV or TMX.
 newTerminologyData ::
   -- | 'file'
-  Core.ByteString ->
+  Prelude.ByteString ->
   -- | 'format'
   TerminologyDataFormat ->
   TerminologyData
 newTerminologyData pFile_ pFormat_ =
   TerminologyData'
     { file =
-        Core._Sensitive Core.. Core._Base64 Lens.# pFile_,
+        Core._Sensitive Prelude.. Core._Base64 Lens.# pFile_,
       format = pFormat_
     }
 
@@ -76,22 +77,22 @@ newTerminologyData pFile_ pFormat_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-terminologyData_file :: Lens.Lens' TerminologyData Core.ByteString
-terminologyData_file = Lens.lens (\TerminologyData' {file} -> file) (\s@TerminologyData' {} a -> s {file = a} :: TerminologyData) Core.. Core._Sensitive Core.. Core._Base64
+terminologyData_file :: Lens.Lens' TerminologyData Prelude.ByteString
+terminologyData_file = Lens.lens (\TerminologyData' {file} -> file) (\s@TerminologyData' {} a -> s {file = a} :: TerminologyData) Prelude.. Core._Sensitive Prelude.. Core._Base64
 
 -- | The data format of the custom terminology. Either CSV or TMX.
 terminologyData_format :: Lens.Lens' TerminologyData TerminologyDataFormat
 terminologyData_format = Lens.lens (\TerminologyData' {format} -> format) (\s@TerminologyData' {} a -> s {format = a} :: TerminologyData)
 
-instance Core.Hashable TerminologyData
+instance Prelude.Hashable TerminologyData
 
-instance Core.NFData TerminologyData
+instance Prelude.NFData TerminologyData
 
 instance Core.ToJSON TerminologyData where
   toJSON TerminologyData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("File" Core..= file),
-            Core.Just ("Format" Core..= format)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("File" Core..= file),
+            Prelude.Just ("Format" Core..= format)
           ]
       )

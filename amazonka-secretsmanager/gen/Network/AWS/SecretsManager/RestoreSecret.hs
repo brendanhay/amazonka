@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -81,9 +82,9 @@ data RestoreSecret = RestoreSecret'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Core.Text
+    secretId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreSecret' with all optional fields omitted.
@@ -117,7 +118,7 @@ data RestoreSecret = RestoreSecret'
 -- /AccessDeniedException/ error, depending on your permissions.
 newRestoreSecret ::
   -- | 'secretId'
-  Core.Text ->
+  Prelude.Text ->
   RestoreSecret
 newRestoreSecret pSecretId_ =
   RestoreSecret' {secretId = pSecretId_}
@@ -144,7 +145,7 @@ newRestoreSecret pSecretId_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-restoreSecret_secretId :: Lens.Lens' RestoreSecret Core.Text
+restoreSecret_secretId :: Lens.Lens' RestoreSecret Prelude.Text
 restoreSecret_secretId = Lens.lens (\RestoreSecret' {secretId} -> secretId) (\s@RestoreSecret' {} a -> s {secretId = a} :: RestoreSecret)
 
 instance Core.AWSRequest RestoreSecret where
@@ -156,49 +157,53 @@ instance Core.AWSRequest RestoreSecret where
     Response.receiveJSON
       ( \s h x ->
           RestoreSecretResponse'
-            Core.<$> (x Core..?> "ARN")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RestoreSecret
+instance Prelude.Hashable RestoreSecret
 
-instance Core.NFData RestoreSecret
+instance Prelude.NFData RestoreSecret
 
 instance Core.ToHeaders RestoreSecret where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("secretsmanager.RestoreSecret" :: Core.ByteString),
+              Core.=# ( "secretsmanager.RestoreSecret" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RestoreSecret where
   toJSON RestoreSecret' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SecretId" Core..= secretId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SecretId" Core..= secretId)]
       )
 
 instance Core.ToPath RestoreSecret where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RestoreSecret where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreSecretResponse' smart constructor.
 data RestoreSecretResponse = RestoreSecretResponse'
   { -- | The ARN of the secret that was restored.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret that was restored.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreSecretResponse' with all optional fields omitted.
@@ -215,25 +220,25 @@ data RestoreSecretResponse = RestoreSecretResponse'
 -- 'httpStatus', 'restoreSecretResponse_httpStatus' - The response's http status code.
 newRestoreSecretResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RestoreSecretResponse
 newRestoreSecretResponse pHttpStatus_ =
   RestoreSecretResponse'
-    { arn = Core.Nothing,
-      name = Core.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret that was restored.
-restoreSecretResponse_arn :: Lens.Lens' RestoreSecretResponse (Core.Maybe Core.Text)
+restoreSecretResponse_arn :: Lens.Lens' RestoreSecretResponse (Prelude.Maybe Prelude.Text)
 restoreSecretResponse_arn = Lens.lens (\RestoreSecretResponse' {arn} -> arn) (\s@RestoreSecretResponse' {} a -> s {arn = a} :: RestoreSecretResponse)
 
 -- | The friendly name of the secret that was restored.
-restoreSecretResponse_name :: Lens.Lens' RestoreSecretResponse (Core.Maybe Core.Text)
+restoreSecretResponse_name :: Lens.Lens' RestoreSecretResponse (Prelude.Maybe Prelude.Text)
 restoreSecretResponse_name = Lens.lens (\RestoreSecretResponse' {name} -> name) (\s@RestoreSecretResponse' {} a -> s {name = a} :: RestoreSecretResponse)
 
 -- | The response's http status code.
-restoreSecretResponse_httpStatus :: Lens.Lens' RestoreSecretResponse Core.Int
+restoreSecretResponse_httpStatus :: Lens.Lens' RestoreSecretResponse Prelude.Int
 restoreSecretResponse_httpStatus = Lens.lens (\RestoreSecretResponse' {httpStatus} -> httpStatus) (\s@RestoreSecretResponse' {} a -> s {httpStatus = a} :: RestoreSecretResponse)
 
-instance Core.NFData RestoreSecretResponse
+instance Prelude.NFData RestoreSecretResponse

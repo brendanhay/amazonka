@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -59,15 +60,15 @@ import Network.AWS.SQS.Types
 -- /See:/ 'newGetQueueUrl' smart constructor.
 data GetQueueUrl = GetQueueUrl'
   { -- | The AWS account ID of the account that created the queue.
-    queueOwnerAWSAccountId :: Core.Maybe Core.Text,
+    queueOwnerAWSAccountId :: Prelude.Maybe Prelude.Text,
     -- | The name of the queue whose URL must be fetched. Maximum 80 characters.
     -- Valid values: alphanumeric characters, hyphens (@-@), and underscores
     -- (@_@).
     --
     -- Queue URLs and names are case-sensitive.
-    queueName :: Core.Text
+    queueName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetQueueUrl' with all optional fields omitted.
@@ -86,16 +87,17 @@ data GetQueueUrl = GetQueueUrl'
 -- Queue URLs and names are case-sensitive.
 newGetQueueUrl ::
   -- | 'queueName'
-  Core.Text ->
+  Prelude.Text ->
   GetQueueUrl
 newGetQueueUrl pQueueName_ =
   GetQueueUrl'
-    { queueOwnerAWSAccountId = Core.Nothing,
+    { queueOwnerAWSAccountId =
+        Prelude.Nothing,
       queueName = pQueueName_
     }
 
 -- | The AWS account ID of the account that created the queue.
-getQueueUrl_queueOwnerAWSAccountId :: Lens.Lens' GetQueueUrl (Core.Maybe Core.Text)
+getQueueUrl_queueOwnerAWSAccountId :: Lens.Lens' GetQueueUrl (Prelude.Maybe Prelude.Text)
 getQueueUrl_queueOwnerAWSAccountId = Lens.lens (\GetQueueUrl' {queueOwnerAWSAccountId} -> queueOwnerAWSAccountId) (\s@GetQueueUrl' {} a -> s {queueOwnerAWSAccountId = a} :: GetQueueUrl)
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters.
@@ -103,7 +105,7 @@ getQueueUrl_queueOwnerAWSAccountId = Lens.lens (\GetQueueUrl' {queueOwnerAWSAcco
 -- (@_@).
 --
 -- Queue URLs and names are case-sensitive.
-getQueueUrl_queueName :: Lens.Lens' GetQueueUrl Core.Text
+getQueueUrl_queueName :: Lens.Lens' GetQueueUrl Prelude.Text
 getQueueUrl_queueName = Lens.lens (\GetQueueUrl' {queueName} -> queueName) (\s@GetQueueUrl' {} a -> s {queueName = a} :: GetQueueUrl)
 
 instance Core.AWSRequest GetQueueUrl where
@@ -114,25 +116,27 @@ instance Core.AWSRequest GetQueueUrl where
       "GetQueueUrlResult"
       ( \s h x ->
           GetQueueUrlResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "QueueUrl")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "QueueUrl")
       )
 
-instance Core.Hashable GetQueueUrl
+instance Prelude.Hashable GetQueueUrl
 
-instance Core.NFData GetQueueUrl
+instance Prelude.NFData GetQueueUrl
 
 instance Core.ToHeaders GetQueueUrl where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetQueueUrl where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetQueueUrl where
   toQuery GetQueueUrl' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("GetQueueUrl" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetQueueUrl" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueOwnerAWSAccountId"
           Core.=: queueOwnerAWSAccountId,
         "QueueName" Core.=: queueName
@@ -145,11 +149,11 @@ instance Core.ToQuery GetQueueUrl where
 -- /See:/ 'newGetQueueUrlResponse' smart constructor.
 data GetQueueUrlResponse = GetQueueUrlResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The URL of the queue.
-    queueUrl :: Core.Text
+    queueUrl :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetQueueUrlResponse' with all optional fields omitted.
@@ -164,9 +168,9 @@ data GetQueueUrlResponse = GetQueueUrlResponse'
 -- 'queueUrl', 'getQueueUrlResponse_queueUrl' - The URL of the queue.
 newGetQueueUrlResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   GetQueueUrlResponse
 newGetQueueUrlResponse pHttpStatus_ pQueueUrl_ =
   GetQueueUrlResponse'
@@ -175,11 +179,11 @@ newGetQueueUrlResponse pHttpStatus_ pQueueUrl_ =
     }
 
 -- | The response's http status code.
-getQueueUrlResponse_httpStatus :: Lens.Lens' GetQueueUrlResponse Core.Int
+getQueueUrlResponse_httpStatus :: Lens.Lens' GetQueueUrlResponse Prelude.Int
 getQueueUrlResponse_httpStatus = Lens.lens (\GetQueueUrlResponse' {httpStatus} -> httpStatus) (\s@GetQueueUrlResponse' {} a -> s {httpStatus = a} :: GetQueueUrlResponse)
 
 -- | The URL of the queue.
-getQueueUrlResponse_queueUrl :: Lens.Lens' GetQueueUrlResponse Core.Text
+getQueueUrlResponse_queueUrl :: Lens.Lens' GetQueueUrlResponse Prelude.Text
 getQueueUrlResponse_queueUrl = Lens.lens (\GetQueueUrlResponse' {queueUrl} -> queueUrl) (\s@GetQueueUrlResponse' {} a -> s {queueUrl = a} :: GetQueueUrlResponse)
 
-instance Core.NFData GetQueueUrlResponse
+instance Prelude.NFData GetQueueUrlResponse

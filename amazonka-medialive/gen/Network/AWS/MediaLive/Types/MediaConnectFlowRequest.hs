@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.MediaConnectFlowRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The settings for a MediaConnect Flow.
 --
 -- /See:/ 'newMediaConnectFlowRequest' smart constructor.
 data MediaConnectFlowRequest = MediaConnectFlowRequest'
   { -- | The ARN of the MediaConnect Flow that you want to use as a source.
-    flowArn :: Core.Maybe Core.Text
+    flowArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MediaConnectFlowRequest' with all optional fields omitted.
@@ -43,19 +44,19 @@ data MediaConnectFlowRequest = MediaConnectFlowRequest'
 newMediaConnectFlowRequest ::
   MediaConnectFlowRequest
 newMediaConnectFlowRequest =
-  MediaConnectFlowRequest' {flowArn = Core.Nothing}
+  MediaConnectFlowRequest' {flowArn = Prelude.Nothing}
 
 -- | The ARN of the MediaConnect Flow that you want to use as a source.
-mediaConnectFlowRequest_flowArn :: Lens.Lens' MediaConnectFlowRequest (Core.Maybe Core.Text)
+mediaConnectFlowRequest_flowArn :: Lens.Lens' MediaConnectFlowRequest (Prelude.Maybe Prelude.Text)
 mediaConnectFlowRequest_flowArn = Lens.lens (\MediaConnectFlowRequest' {flowArn} -> flowArn) (\s@MediaConnectFlowRequest' {} a -> s {flowArn = a} :: MediaConnectFlowRequest)
 
-instance Core.Hashable MediaConnectFlowRequest
+instance Prelude.Hashable MediaConnectFlowRequest
 
-instance Core.NFData MediaConnectFlowRequest
+instance Prelude.NFData MediaConnectFlowRequest
 
 instance Core.ToJSON MediaConnectFlowRequest where
   toJSON MediaConnectFlowRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [("flowArn" Core..=) Core.<$> flowArn]
+      ( Prelude.catMaybes
+          [("flowArn" Core..=) Prelude.<$> flowArn]
       )

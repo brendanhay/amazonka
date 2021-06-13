@@ -44,6 +44,7 @@ where
 import Network.AWS.Athena.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +58,15 @@ data CreateWorkGroup = CreateWorkGroup'
     -- settings (specified with EnforceWorkGroupConfiguration) in the
     -- WorkGroupConfiguration override client-side settings. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
-    configuration :: Core.Maybe WorkGroupConfiguration,
+    configuration :: Prelude.Maybe WorkGroupConfiguration,
     -- | A list of comma separated tags to add to the workgroup that is created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The workgroup description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The workgroup name.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateWorkGroup' with all optional fields omitted.
@@ -91,13 +92,13 @@ data CreateWorkGroup = CreateWorkGroup'
 -- 'name', 'createWorkGroup_name' - The workgroup name.
 newCreateWorkGroup ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateWorkGroup
 newCreateWorkGroup pName_ =
   CreateWorkGroup'
-    { configuration = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
+    { configuration = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_
     }
 
@@ -109,19 +110,19 @@ newCreateWorkGroup pName_ =
 -- settings (specified with EnforceWorkGroupConfiguration) in the
 -- WorkGroupConfiguration override client-side settings. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
-createWorkGroup_configuration :: Lens.Lens' CreateWorkGroup (Core.Maybe WorkGroupConfiguration)
+createWorkGroup_configuration :: Lens.Lens' CreateWorkGroup (Prelude.Maybe WorkGroupConfiguration)
 createWorkGroup_configuration = Lens.lens (\CreateWorkGroup' {configuration} -> configuration) (\s@CreateWorkGroup' {} a -> s {configuration = a} :: CreateWorkGroup)
 
 -- | A list of comma separated tags to add to the workgroup that is created.
-createWorkGroup_tags :: Lens.Lens' CreateWorkGroup (Core.Maybe [Tag])
-createWorkGroup_tags = Lens.lens (\CreateWorkGroup' {tags} -> tags) (\s@CreateWorkGroup' {} a -> s {tags = a} :: CreateWorkGroup) Core.. Lens.mapping Lens._Coerce
+createWorkGroup_tags :: Lens.Lens' CreateWorkGroup (Prelude.Maybe [Tag])
+createWorkGroup_tags = Lens.lens (\CreateWorkGroup' {tags} -> tags) (\s@CreateWorkGroup' {} a -> s {tags = a} :: CreateWorkGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The workgroup description.
-createWorkGroup_description :: Lens.Lens' CreateWorkGroup (Core.Maybe Core.Text)
+createWorkGroup_description :: Lens.Lens' CreateWorkGroup (Prelude.Maybe Prelude.Text)
 createWorkGroup_description = Lens.lens (\CreateWorkGroup' {description} -> description) (\s@CreateWorkGroup' {} a -> s {description = a} :: CreateWorkGroup)
 
 -- | The workgroup name.
-createWorkGroup_name :: Lens.Lens' CreateWorkGroup Core.Text
+createWorkGroup_name :: Lens.Lens' CreateWorkGroup Prelude.Text
 createWorkGroup_name = Lens.lens (\CreateWorkGroup' {name} -> name) (\s@CreateWorkGroup' {} a -> s {name = a} :: CreateWorkGroup)
 
 instance Core.AWSRequest CreateWorkGroup where
@@ -133,47 +134,51 @@ instance Core.AWSRequest CreateWorkGroup where
     Response.receiveEmpty
       ( \s h x ->
           CreateWorkGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateWorkGroup
+instance Prelude.Hashable CreateWorkGroup
 
-instance Core.NFData CreateWorkGroup
+instance Prelude.NFData CreateWorkGroup
 
 instance Core.ToHeaders CreateWorkGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonAthena.CreateWorkGroup" :: Core.ByteString),
+              Core.=# ( "AmazonAthena.CreateWorkGroup" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateWorkGroup where
   toJSON CreateWorkGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Configuration" Core..=) Core.<$> configuration,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Configuration" Core..=) Prelude.<$> configuration,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateWorkGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateWorkGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkGroupResponse' smart constructor.
 data CreateWorkGroupResponse = CreateWorkGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateWorkGroupResponse' with all optional fields omitted.
@@ -186,13 +191,13 @@ data CreateWorkGroupResponse = CreateWorkGroupResponse'
 -- 'httpStatus', 'createWorkGroupResponse_httpStatus' - The response's http status code.
 newCreateWorkGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateWorkGroupResponse
 newCreateWorkGroupResponse pHttpStatus_ =
   CreateWorkGroupResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createWorkGroupResponse_httpStatus :: Lens.Lens' CreateWorkGroupResponse Core.Int
+createWorkGroupResponse_httpStatus :: Lens.Lens' CreateWorkGroupResponse Prelude.Int
 createWorkGroupResponse_httpStatus = Lens.lens (\CreateWorkGroupResponse' {httpStatus} -> httpStatus) (\s@CreateWorkGroupResponse' {} a -> s {httpStatus = a} :: CreateWorkGroupResponse)
 
-instance Core.NFData CreateWorkGroupResponse
+instance Prelude.NFData CreateWorkGroupResponse

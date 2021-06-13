@@ -23,17 +23,18 @@ import Network.AWS.CognitoIdentityProvider.Types.ChallengeName
 import Network.AWS.CognitoIdentityProvider.Types.ChallengeResponse
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The challenge response type.
 --
 -- /See:/ 'newChallengeResponseType' smart constructor.
 data ChallengeResponseType = ChallengeResponseType'
   { -- | The challenge response.
-    challengeResponse :: Core.Maybe ChallengeResponse,
+    challengeResponse :: Prelude.Maybe ChallengeResponse,
     -- | The challenge name
-    challengeName :: Core.Maybe ChallengeName
+    challengeName :: Prelude.Maybe ChallengeName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChallengeResponseType' with all optional fields omitted.
@@ -51,16 +52,16 @@ newChallengeResponseType ::
 newChallengeResponseType =
   ChallengeResponseType'
     { challengeResponse =
-        Core.Nothing,
-      challengeName = Core.Nothing
+        Prelude.Nothing,
+      challengeName = Prelude.Nothing
     }
 
 -- | The challenge response.
-challengeResponseType_challengeResponse :: Lens.Lens' ChallengeResponseType (Core.Maybe ChallengeResponse)
+challengeResponseType_challengeResponse :: Lens.Lens' ChallengeResponseType (Prelude.Maybe ChallengeResponse)
 challengeResponseType_challengeResponse = Lens.lens (\ChallengeResponseType' {challengeResponse} -> challengeResponse) (\s@ChallengeResponseType' {} a -> s {challengeResponse = a} :: ChallengeResponseType)
 
 -- | The challenge name
-challengeResponseType_challengeName :: Lens.Lens' ChallengeResponseType (Core.Maybe ChallengeName)
+challengeResponseType_challengeName :: Lens.Lens' ChallengeResponseType (Prelude.Maybe ChallengeName)
 challengeResponseType_challengeName = Lens.lens (\ChallengeResponseType' {challengeName} -> challengeName) (\s@ChallengeResponseType' {} a -> s {challengeName = a} :: ChallengeResponseType)
 
 instance Core.FromJSON ChallengeResponseType where
@@ -69,10 +70,10 @@ instance Core.FromJSON ChallengeResponseType where
       "ChallengeResponseType"
       ( \x ->
           ChallengeResponseType'
-            Core.<$> (x Core..:? "ChallengeResponse")
-            Core.<*> (x Core..:? "ChallengeName")
+            Prelude.<$> (x Core..:? "ChallengeResponse")
+            Prelude.<*> (x Core..:? "ChallengeName")
       )
 
-instance Core.Hashable ChallengeResponseType
+instance Prelude.Hashable ChallengeResponseType
 
-instance Core.NFData ChallengeResponseType
+instance Prelude.NFData ChallengeResponseType

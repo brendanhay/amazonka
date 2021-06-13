@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ import qualified Network.AWS.Response as Response
 data StopRun = StopRun'
   { -- | Represents the Amazon Resource Name (ARN) of the Device Farm run to
     -- stop.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopRun' with all optional fields omitted.
@@ -72,13 +73,13 @@ data StopRun = StopRun'
 -- stop.
 newStopRun ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   StopRun
 newStopRun pArn_ = StopRun' {arn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm run to
 -- stop.
-stopRun_arn :: Lens.Lens' StopRun Core.Text
+stopRun_arn :: Lens.Lens' StopRun Prelude.Text
 stopRun_arn = Lens.lens (\StopRun' {arn} -> arn) (\s@StopRun' {} a -> s {arn = a} :: StopRun)
 
 instance Core.AWSRequest StopRun where
@@ -88,46 +89,52 @@ instance Core.AWSRequest StopRun where
     Response.receiveJSON
       ( \s h x ->
           StopRunResponse'
-            Core.<$> (x Core..?> "run")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "run")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopRun
+instance Prelude.Hashable StopRun
 
-instance Core.NFData StopRun
+instance Prelude.NFData StopRun
 
 instance Core.ToHeaders StopRun where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DeviceFarm_20150623.StopRun" :: Core.ByteString),
+              Core.=# ( "DeviceFarm_20150623.StopRun" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopRun where
   toJSON StopRun' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
 instance Core.ToPath StopRun where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopRun where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the results of your stop run attempt.
 --
 -- /See:/ 'newStopRunResponse' smart constructor.
 data StopRunResponse = StopRunResponse'
   { -- | The run that was stopped.
-    run :: Core.Maybe Run,
+    run :: Prelude.Maybe Run,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopRunResponse' with all optional fields omitted.
@@ -142,20 +149,20 @@ data StopRunResponse = StopRunResponse'
 -- 'httpStatus', 'stopRunResponse_httpStatus' - The response's http status code.
 newStopRunResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopRunResponse
 newStopRunResponse pHttpStatus_ =
   StopRunResponse'
-    { run = Core.Nothing,
+    { run = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The run that was stopped.
-stopRunResponse_run :: Lens.Lens' StopRunResponse (Core.Maybe Run)
+stopRunResponse_run :: Lens.Lens' StopRunResponse (Prelude.Maybe Run)
 stopRunResponse_run = Lens.lens (\StopRunResponse' {run} -> run) (\s@StopRunResponse' {} a -> s {run = a} :: StopRunResponse)
 
 -- | The response's http status code.
-stopRunResponse_httpStatus :: Lens.Lens' StopRunResponse Core.Int
+stopRunResponse_httpStatus :: Lens.Lens' StopRunResponse Prelude.Int
 stopRunResponse_httpStatus = Lens.lens (\StopRunResponse' {httpStatus} -> httpStatus) (\s@StopRunResponse' {} a -> s {httpStatus = a} :: StopRunResponse)
 
-instance Core.NFData StopRunResponse
+instance Prelude.NFData StopRunResponse

@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +64,9 @@ data GetRole = GetRole'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text
+    roleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRole' with all optional fields omitted.
@@ -83,7 +84,7 @@ data GetRole = GetRole'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newGetRole ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   GetRole
 newGetRole pRoleName_ =
   GetRole' {roleName = pRoleName_}
@@ -94,7 +95,7 @@ newGetRole pRoleName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getRole_roleName :: Lens.Lens' GetRole Core.Text
+getRole_roleName :: Lens.Lens' GetRole Prelude.Text
 getRole_roleName = Lens.lens (\GetRole' {roleName} -> roleName) (\s@GetRole' {} a -> s {roleName = a} :: GetRole)
 
 instance Core.AWSRequest GetRole where
@@ -105,25 +106,26 @@ instance Core.AWSRequest GetRole where
       "GetRoleResult"
       ( \s h x ->
           GetRoleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "Role")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Role")
       )
 
-instance Core.Hashable GetRole
+instance Prelude.Hashable GetRole
 
-instance Core.NFData GetRole
+instance Prelude.NFData GetRole
 
 instance Core.ToHeaders GetRole where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRole where
   toQuery GetRole' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("GetRole" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action" Core.=: ("GetRole" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName
       ]
 
@@ -132,11 +134,11 @@ instance Core.ToQuery GetRole where
 -- /See:/ 'newGetRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A structure containing details about the IAM role.
     role' :: Role
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRoleResponse' with all optional fields omitted.
@@ -151,7 +153,7 @@ data GetRoleResponse = GetRoleResponse'
 -- 'role'', 'getRoleResponse_role' - A structure containing details about the IAM role.
 newGetRoleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'role''
   Role ->
   GetRoleResponse
@@ -162,11 +164,11 @@ newGetRoleResponse pHttpStatus_ pRole_ =
     }
 
 -- | The response's http status code.
-getRoleResponse_httpStatus :: Lens.Lens' GetRoleResponse Core.Int
+getRoleResponse_httpStatus :: Lens.Lens' GetRoleResponse Prelude.Int
 getRoleResponse_httpStatus = Lens.lens (\GetRoleResponse' {httpStatus} -> httpStatus) (\s@GetRoleResponse' {} a -> s {httpStatus = a} :: GetRoleResponse)
 
 -- | A structure containing details about the IAM role.
 getRoleResponse_role :: Lens.Lens' GetRoleResponse Role
 getRoleResponse_role = Lens.lens (\GetRoleResponse' {role'} -> role') (\s@GetRoleResponse' {} a -> s {role' = a} :: GetRoleResponse)
 
-instance Core.NFData GetRoleResponse
+instance Prelude.NFData GetRoleResponse

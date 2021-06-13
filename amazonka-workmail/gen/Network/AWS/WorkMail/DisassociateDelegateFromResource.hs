@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -49,15 +50,15 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newDisassociateDelegateFromResource' smart constructor.
 data DisassociateDelegateFromResource = DisassociateDelegateFromResource'
   { -- | The identifier for the organization under which the resource exists.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The identifier of the resource from which delegates\' set members are
     -- removed.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The identifier for the member (user, group) to be removed from the
     -- resource\'s delegates.
-    entityId :: Core.Text
+    entityId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateDelegateFromResource' with all optional fields omitted.
@@ -76,11 +77,11 @@ data DisassociateDelegateFromResource = DisassociateDelegateFromResource'
 -- resource\'s delegates.
 newDisassociateDelegateFromResource ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'entityId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateDelegateFromResource
 newDisassociateDelegateFromResource
   pOrganizationId_
@@ -94,17 +95,17 @@ newDisassociateDelegateFromResource
       }
 
 -- | The identifier for the organization under which the resource exists.
-disassociateDelegateFromResource_organizationId :: Lens.Lens' DisassociateDelegateFromResource Core.Text
+disassociateDelegateFromResource_organizationId :: Lens.Lens' DisassociateDelegateFromResource Prelude.Text
 disassociateDelegateFromResource_organizationId = Lens.lens (\DisassociateDelegateFromResource' {organizationId} -> organizationId) (\s@DisassociateDelegateFromResource' {} a -> s {organizationId = a} :: DisassociateDelegateFromResource)
 
 -- | The identifier of the resource from which delegates\' set members are
 -- removed.
-disassociateDelegateFromResource_resourceId :: Lens.Lens' DisassociateDelegateFromResource Core.Text
+disassociateDelegateFromResource_resourceId :: Lens.Lens' DisassociateDelegateFromResource Prelude.Text
 disassociateDelegateFromResource_resourceId = Lens.lens (\DisassociateDelegateFromResource' {resourceId} -> resourceId) (\s@DisassociateDelegateFromResource' {} a -> s {resourceId = a} :: DisassociateDelegateFromResource)
 
 -- | The identifier for the member (user, group) to be removed from the
 -- resource\'s delegates.
-disassociateDelegateFromResource_entityId :: Lens.Lens' DisassociateDelegateFromResource Core.Text
+disassociateDelegateFromResource_entityId :: Lens.Lens' DisassociateDelegateFromResource Prelude.Text
 disassociateDelegateFromResource_entityId = Lens.lens (\DisassociateDelegateFromResource' {entityId} -> entityId) (\s@DisassociateDelegateFromResource' {} a -> s {entityId = a} :: DisassociateDelegateFromResource)
 
 instance
@@ -119,56 +120,61 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDelegateFromResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisassociateDelegateFromResource
 
-instance Core.NFData DisassociateDelegateFromResource
+instance
+  Prelude.NFData
+    DisassociateDelegateFromResource
 
 instance
   Core.ToHeaders
     DisassociateDelegateFromResource
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.DisassociateDelegateFromResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateDelegateFromResource where
   toJSON DisassociateDelegateFromResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("EntityId" Core..= entityId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("EntityId" Core..= entityId)
           ]
       )
 
 instance Core.ToPath DisassociateDelegateFromResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DisassociateDelegateFromResource
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateDelegateFromResourceResponse' smart constructor.
 data DisassociateDelegateFromResourceResponse = DisassociateDelegateFromResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateDelegateFromResourceResponse' with all optional fields omitted.
@@ -181,7 +187,7 @@ data DisassociateDelegateFromResourceResponse = DisassociateDelegateFromResource
 -- 'httpStatus', 'disassociateDelegateFromResourceResponse_httpStatus' - The response's http status code.
 newDisassociateDelegateFromResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateDelegateFromResourceResponse
 newDisassociateDelegateFromResourceResponse
   pHttpStatus_ =
@@ -191,9 +197,9 @@ newDisassociateDelegateFromResourceResponse
       }
 
 -- | The response's http status code.
-disassociateDelegateFromResourceResponse_httpStatus :: Lens.Lens' DisassociateDelegateFromResourceResponse Core.Int
+disassociateDelegateFromResourceResponse_httpStatus :: Lens.Lens' DisassociateDelegateFromResourceResponse Prelude.Int
 disassociateDelegateFromResourceResponse_httpStatus = Lens.lens (\DisassociateDelegateFromResourceResponse' {httpStatus} -> httpStatus) (\s@DisassociateDelegateFromResourceResponse' {} a -> s {httpStatus = a} :: DisassociateDelegateFromResourceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateDelegateFromResourceResponse

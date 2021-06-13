@@ -43,17 +43,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateLexBot' smart constructor.
 data AssociateLexBot = AssociateLexBot'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The Amazon Lex box to associate with the instance.
     lexBot :: LexBot
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateLexBot' with all optional fields omitted.
@@ -68,7 +69,7 @@ data AssociateLexBot = AssociateLexBot'
 -- 'lexBot', 'associateLexBot_lexBot' - The Amazon Lex box to associate with the instance.
 newAssociateLexBot ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lexBot'
   LexBot ->
   AssociateLexBot
@@ -79,7 +80,7 @@ newAssociateLexBot pInstanceId_ pLexBot_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-associateLexBot_instanceId :: Lens.Lens' AssociateLexBot Core.Text
+associateLexBot_instanceId :: Lens.Lens' AssociateLexBot Prelude.Text
 associateLexBot_instanceId = Lens.lens (\AssociateLexBot' {instanceId} -> instanceId) (\s@AssociateLexBot' {} a -> s {instanceId = a} :: AssociateLexBot)
 
 -- | The Amazon Lex box to associate with the instance.
@@ -94,39 +95,41 @@ instance Core.AWSRequest AssociateLexBot where
   response =
     Response.receiveNull AssociateLexBotResponse'
 
-instance Core.Hashable AssociateLexBot
+instance Prelude.Hashable AssociateLexBot
 
-instance Core.NFData AssociateLexBot
+instance Prelude.NFData AssociateLexBot
 
 instance Core.ToHeaders AssociateLexBot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateLexBot where
   toJSON AssociateLexBot' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("LexBot" Core..= lexBot)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("LexBot" Core..= lexBot)]
       )
 
 instance Core.ToPath AssociateLexBot where
   toPath AssociateLexBot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/instance/", Core.toBS instanceId, "/lex-bot"]
 
 instance Core.ToQuery AssociateLexBot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateLexBotResponse' smart constructor.
 data AssociateLexBotResponse = AssociateLexBotResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateLexBotResponse' with all optional fields omitted.
@@ -136,4 +139,4 @@ newAssociateLexBotResponse ::
   AssociateLexBotResponse
 newAssociateLexBotResponse = AssociateLexBotResponse'
 
-instance Core.NFData AssociateLexBotResponse
+instance Prelude.NFData AssociateLexBotResponse

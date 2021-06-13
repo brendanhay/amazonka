@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,16 +55,16 @@ data ListTagsForDeliveryStream = ListTagsForDeliveryStream'
   { -- | The key to use as the starting point for the list of tags. If you set
     -- this parameter, @ListTagsForDeliveryStream@ gets all tags that occur
     -- after @ExclusiveStartTagKey@.
-    exclusiveStartTagKey :: Core.Maybe Core.Text,
+    exclusiveStartTagKey :: Prelude.Maybe Prelude.Text,
     -- | The number of tags to return. If this number is less than the total
     -- number of tags associated with the delivery stream, @HasMoreTags@ is set
     -- to @true@ in the response. To list additional tags, set
     -- @ExclusiveStartTagKey@ to the last key in the response.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the delivery stream whose tags you want to list.
-    deliveryStreamName :: Core.Text
+    deliveryStreamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForDeliveryStream' with all optional fields omitted.
@@ -85,31 +86,31 @@ data ListTagsForDeliveryStream = ListTagsForDeliveryStream'
 -- 'deliveryStreamName', 'listTagsForDeliveryStream_deliveryStreamName' - The name of the delivery stream whose tags you want to list.
 newListTagsForDeliveryStream ::
   -- | 'deliveryStreamName'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForDeliveryStream
 newListTagsForDeliveryStream pDeliveryStreamName_ =
   ListTagsForDeliveryStream'
     { exclusiveStartTagKey =
-        Core.Nothing,
-      limit = Core.Nothing,
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
       deliveryStreamName = pDeliveryStreamName_
     }
 
 -- | The key to use as the starting point for the list of tags. If you set
 -- this parameter, @ListTagsForDeliveryStream@ gets all tags that occur
 -- after @ExclusiveStartTagKey@.
-listTagsForDeliveryStream_exclusiveStartTagKey :: Lens.Lens' ListTagsForDeliveryStream (Core.Maybe Core.Text)
+listTagsForDeliveryStream_exclusiveStartTagKey :: Lens.Lens' ListTagsForDeliveryStream (Prelude.Maybe Prelude.Text)
 listTagsForDeliveryStream_exclusiveStartTagKey = Lens.lens (\ListTagsForDeliveryStream' {exclusiveStartTagKey} -> exclusiveStartTagKey) (\s@ListTagsForDeliveryStream' {} a -> s {exclusiveStartTagKey = a} :: ListTagsForDeliveryStream)
 
 -- | The number of tags to return. If this number is less than the total
 -- number of tags associated with the delivery stream, @HasMoreTags@ is set
 -- to @true@ in the response. To list additional tags, set
 -- @ExclusiveStartTagKey@ to the last key in the response.
-listTagsForDeliveryStream_limit :: Lens.Lens' ListTagsForDeliveryStream (Core.Maybe Core.Natural)
+listTagsForDeliveryStream_limit :: Lens.Lens' ListTagsForDeliveryStream (Prelude.Maybe Prelude.Natural)
 listTagsForDeliveryStream_limit = Lens.lens (\ListTagsForDeliveryStream' {limit} -> limit) (\s@ListTagsForDeliveryStream' {} a -> s {limit = a} :: ListTagsForDeliveryStream)
 
 -- | The name of the delivery stream whose tags you want to list.
-listTagsForDeliveryStream_deliveryStreamName :: Lens.Lens' ListTagsForDeliveryStream Core.Text
+listTagsForDeliveryStream_deliveryStreamName :: Lens.Lens' ListTagsForDeliveryStream Prelude.Text
 listTagsForDeliveryStream_deliveryStreamName = Lens.lens (\ListTagsForDeliveryStream' {deliveryStreamName} -> deliveryStreamName) (\s@ListTagsForDeliveryStream' {} a -> s {deliveryStreamName = a} :: ListTagsForDeliveryStream)
 
 instance Core.AWSRequest ListTagsForDeliveryStream where
@@ -121,59 +122,61 @@ instance Core.AWSRequest ListTagsForDeliveryStream where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForDeliveryStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..:> "HasMoreTags")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..:> "HasMoreTags")
       )
 
-instance Core.Hashable ListTagsForDeliveryStream
+instance Prelude.Hashable ListTagsForDeliveryStream
 
-instance Core.NFData ListTagsForDeliveryStream
+instance Prelude.NFData ListTagsForDeliveryStream
 
 instance Core.ToHeaders ListTagsForDeliveryStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Firehose_20150804.ListTagsForDeliveryStream" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsForDeliveryStream where
   toJSON ListTagsForDeliveryStream' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExclusiveStartTagKey" Core..=)
-              Core.<$> exclusiveStartTagKey,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just
+              Prelude.<$> exclusiveStartTagKey,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName)
           ]
       )
 
 instance Core.ToPath ListTagsForDeliveryStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsForDeliveryStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForDeliveryStreamResponse' smart constructor.
 data ListTagsForDeliveryStreamResponse = ListTagsForDeliveryStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of tags associated with @DeliveryStreamName@, starting with the
     -- first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@.
     tags :: [Tag],
     -- | If this is @true@ in the response, more tags are available. To list the
     -- remaining tags, set @ExclusiveStartTagKey@ to the key of the last tag
     -- returned and call @ListTagsForDeliveryStream@ again.
-    hasMoreTags :: Core.Bool
+    hasMoreTags :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForDeliveryStreamResponse' with all optional fields omitted.
@@ -193,9 +196,9 @@ data ListTagsForDeliveryStreamResponse = ListTagsForDeliveryStreamResponse'
 -- returned and call @ListTagsForDeliveryStream@ again.
 newListTagsForDeliveryStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'hasMoreTags'
-  Core.Bool ->
+  Prelude.Bool ->
   ListTagsForDeliveryStreamResponse
 newListTagsForDeliveryStreamResponse
   pHttpStatus_
@@ -203,25 +206,25 @@ newListTagsForDeliveryStreamResponse
     ListTagsForDeliveryStreamResponse'
       { httpStatus =
           pHttpStatus_,
-        tags = Core.mempty,
+        tags = Prelude.mempty,
         hasMoreTags = pHasMoreTags_
       }
 
 -- | The response's http status code.
-listTagsForDeliveryStreamResponse_httpStatus :: Lens.Lens' ListTagsForDeliveryStreamResponse Core.Int
+listTagsForDeliveryStreamResponse_httpStatus :: Lens.Lens' ListTagsForDeliveryStreamResponse Prelude.Int
 listTagsForDeliveryStreamResponse_httpStatus = Lens.lens (\ListTagsForDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@ListTagsForDeliveryStreamResponse' {} a -> s {httpStatus = a} :: ListTagsForDeliveryStreamResponse)
 
 -- | A list of tags associated with @DeliveryStreamName@, starting with the
 -- first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@.
 listTagsForDeliveryStreamResponse_tags :: Lens.Lens' ListTagsForDeliveryStreamResponse [Tag]
-listTagsForDeliveryStreamResponse_tags = Lens.lens (\ListTagsForDeliveryStreamResponse' {tags} -> tags) (\s@ListTagsForDeliveryStreamResponse' {} a -> s {tags = a} :: ListTagsForDeliveryStreamResponse) Core.. Lens._Coerce
+listTagsForDeliveryStreamResponse_tags = Lens.lens (\ListTagsForDeliveryStreamResponse' {tags} -> tags) (\s@ListTagsForDeliveryStreamResponse' {} a -> s {tags = a} :: ListTagsForDeliveryStreamResponse) Prelude.. Lens._Coerce
 
 -- | If this is @true@ in the response, more tags are available. To list the
 -- remaining tags, set @ExclusiveStartTagKey@ to the key of the last tag
 -- returned and call @ListTagsForDeliveryStream@ again.
-listTagsForDeliveryStreamResponse_hasMoreTags :: Lens.Lens' ListTagsForDeliveryStreamResponse Core.Bool
+listTagsForDeliveryStreamResponse_hasMoreTags :: Lens.Lens' ListTagsForDeliveryStreamResponse Prelude.Bool
 listTagsForDeliveryStreamResponse_hasMoreTags = Lens.lens (\ListTagsForDeliveryStreamResponse' {hasMoreTags} -> hasMoreTags) (\s@ListTagsForDeliveryStreamResponse' {} a -> s {hasMoreTags = a} :: ListTagsForDeliveryStreamResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListTagsForDeliveryStreamResponse

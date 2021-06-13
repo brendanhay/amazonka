@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -69,22 +70,22 @@ import Network.AWS.SNS.Types
 data CreatePlatformEndpoint = CreatePlatformEndpoint'
   { -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
     -- use this data. The data must be in UTF-8 format and less than 2KB.
-    customUserData :: Core.Maybe Core.Text,
+    customUserData :: Prelude.Maybe Prelude.Text,
     -- | For a list of attributes, see
     -- <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | PlatformApplicationArn returned from CreatePlatformApplication is used
     -- to create a an endpoint.
-    platformApplicationArn :: Core.Text,
+    platformApplicationArn :: Prelude.Text,
     -- | Unique identifier created by the notification service for an app on a
     -- device. The specific name for Token will vary, depending on which
     -- notification service is being used. For example, when using APNS as the
     -- notification service, you need the device token. Alternatively, when
     -- using GCM (Firebase Cloud Messaging) or ADM, the device token equivalent
     -- is called the registration ID.
-    token :: Core.Text
+    token :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePlatformEndpoint' with all optional fields omitted.
@@ -111,34 +112,34 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint'
 -- is called the registration ID.
 newCreatePlatformEndpoint ::
   -- | 'platformApplicationArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'token'
-  Core.Text ->
+  Prelude.Text ->
   CreatePlatformEndpoint
 newCreatePlatformEndpoint
   pPlatformApplicationArn_
   pToken_ =
     CreatePlatformEndpoint'
       { customUserData =
-          Core.Nothing,
-        attributes = Core.Nothing,
+          Prelude.Nothing,
+        attributes = Prelude.Nothing,
         platformApplicationArn = pPlatformApplicationArn_,
         token = pToken_
       }
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
 -- use this data. The data must be in UTF-8 format and less than 2KB.
-createPlatformEndpoint_customUserData :: Lens.Lens' CreatePlatformEndpoint (Core.Maybe Core.Text)
+createPlatformEndpoint_customUserData :: Lens.Lens' CreatePlatformEndpoint (Prelude.Maybe Prelude.Text)
 createPlatformEndpoint_customUserData = Lens.lens (\CreatePlatformEndpoint' {customUserData} -> customUserData) (\s@CreatePlatformEndpoint' {} a -> s {customUserData = a} :: CreatePlatformEndpoint)
 
 -- | For a list of attributes, see
 -- <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
-createPlatformEndpoint_attributes :: Lens.Lens' CreatePlatformEndpoint (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createPlatformEndpoint_attributes = Lens.lens (\CreatePlatformEndpoint' {attributes} -> attributes) (\s@CreatePlatformEndpoint' {} a -> s {attributes = a} :: CreatePlatformEndpoint) Core.. Lens.mapping Lens._Coerce
+createPlatformEndpoint_attributes :: Lens.Lens' CreatePlatformEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPlatformEndpoint_attributes = Lens.lens (\CreatePlatformEndpoint' {attributes} -> attributes) (\s@CreatePlatformEndpoint' {} a -> s {attributes = a} :: CreatePlatformEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used
 -- to create a an endpoint.
-createPlatformEndpoint_platformApplicationArn :: Lens.Lens' CreatePlatformEndpoint Core.Text
+createPlatformEndpoint_platformApplicationArn :: Lens.Lens' CreatePlatformEndpoint Prelude.Text
 createPlatformEndpoint_platformApplicationArn = Lens.lens (\CreatePlatformEndpoint' {platformApplicationArn} -> platformApplicationArn) (\s@CreatePlatformEndpoint' {} a -> s {platformApplicationArn = a} :: CreatePlatformEndpoint)
 
 -- | Unique identifier created by the notification service for an app on a
@@ -147,7 +148,7 @@ createPlatformEndpoint_platformApplicationArn = Lens.lens (\CreatePlatformEndpoi
 -- notification service, you need the device token. Alternatively, when
 -- using GCM (Firebase Cloud Messaging) or ADM, the device token equivalent
 -- is called the registration ID.
-createPlatformEndpoint_token :: Lens.Lens' CreatePlatformEndpoint Core.Text
+createPlatformEndpoint_token :: Lens.Lens' CreatePlatformEndpoint Prelude.Text
 createPlatformEndpoint_token = Lens.lens (\CreatePlatformEndpoint' {token} -> token) (\s@CreatePlatformEndpoint' {} a -> s {token = a} :: CreatePlatformEndpoint)
 
 instance Core.AWSRequest CreatePlatformEndpoint where
@@ -160,31 +161,32 @@ instance Core.AWSRequest CreatePlatformEndpoint where
       "CreatePlatformEndpointResult"
       ( \s h x ->
           CreatePlatformEndpointResponse'
-            Core.<$> (x Core..@? "EndpointArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "EndpointArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePlatformEndpoint
+instance Prelude.Hashable CreatePlatformEndpoint
 
-instance Core.NFData CreatePlatformEndpoint
+instance Prelude.NFData CreatePlatformEndpoint
 
 instance Core.ToHeaders CreatePlatformEndpoint where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreatePlatformEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePlatformEndpoint where
   toQuery CreatePlatformEndpoint' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePlatformEndpoint" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("CreatePlatformEndpoint" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "CustomUserData" Core.=: customUserData,
         "Attributes"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"
-                Core.<$> attributes
+                Prelude.<$> attributes
             ),
         "PlatformApplicationArn"
           Core.=: platformApplicationArn,
@@ -196,11 +198,11 @@ instance Core.ToQuery CreatePlatformEndpoint where
 -- /See:/ 'newCreatePlatformEndpointResponse' smart constructor.
 data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
   { -- | EndpointArn returned from CreateEndpoint action.
-    endpointArn :: Core.Maybe Core.Text,
+    endpointArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePlatformEndpointResponse' with all optional fields omitted.
@@ -215,21 +217,23 @@ data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
 -- 'httpStatus', 'createPlatformEndpointResponse_httpStatus' - The response's http status code.
 newCreatePlatformEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePlatformEndpointResponse
 newCreatePlatformEndpointResponse pHttpStatus_ =
   CreatePlatformEndpointResponse'
     { endpointArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | EndpointArn returned from CreateEndpoint action.
-createPlatformEndpointResponse_endpointArn :: Lens.Lens' CreatePlatformEndpointResponse (Core.Maybe Core.Text)
+createPlatformEndpointResponse_endpointArn :: Lens.Lens' CreatePlatformEndpointResponse (Prelude.Maybe Prelude.Text)
 createPlatformEndpointResponse_endpointArn = Lens.lens (\CreatePlatformEndpointResponse' {endpointArn} -> endpointArn) (\s@CreatePlatformEndpointResponse' {} a -> s {endpointArn = a} :: CreatePlatformEndpointResponse)
 
 -- | The response's http status code.
-createPlatformEndpointResponse_httpStatus :: Lens.Lens' CreatePlatformEndpointResponse Core.Int
+createPlatformEndpointResponse_httpStatus :: Lens.Lens' CreatePlatformEndpointResponse Prelude.Int
 createPlatformEndpointResponse_httpStatus = Lens.lens (\CreatePlatformEndpointResponse' {httpStatus} -> httpStatus) (\s@CreatePlatformEndpointResponse' {} a -> s {httpStatus = a} :: CreatePlatformEndpointResponse)
 
-instance Core.NFData CreatePlatformEndpointResponse
+instance
+  Prelude.NFData
+    CreatePlatformEndpointResponse

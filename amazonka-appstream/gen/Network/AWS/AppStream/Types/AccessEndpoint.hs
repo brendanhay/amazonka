@@ -22,6 +22,7 @@ module Network.AWS.AppStream.Types.AccessEndpoint where
 import Network.AWS.AppStream.Types.AccessEndpointType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an interface VPC endpoint (interface endpoint) that lets you
 -- create a private connection between the virtual private cloud (VPC) that
@@ -34,11 +35,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAccessEndpoint' smart constructor.
 data AccessEndpoint = AccessEndpoint'
   { -- | The identifier (ID) of the VPC in which the interface endpoint is used.
-    vpceId :: Core.Maybe Core.Text,
+    vpceId :: Prelude.Maybe Prelude.Text,
     -- | The type of interface endpoint.
     endpointType :: AccessEndpointType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessEndpoint' with all optional fields omitted.
@@ -57,12 +58,12 @@ newAccessEndpoint ::
   AccessEndpoint
 newAccessEndpoint pEndpointType_ =
   AccessEndpoint'
-    { vpceId = Core.Nothing,
+    { vpceId = Prelude.Nothing,
       endpointType = pEndpointType_
     }
 
 -- | The identifier (ID) of the VPC in which the interface endpoint is used.
-accessEndpoint_vpceId :: Lens.Lens' AccessEndpoint (Core.Maybe Core.Text)
+accessEndpoint_vpceId :: Lens.Lens' AccessEndpoint (Prelude.Maybe Prelude.Text)
 accessEndpoint_vpceId = Lens.lens (\AccessEndpoint' {vpceId} -> vpceId) (\s@AccessEndpoint' {} a -> s {vpceId = a} :: AccessEndpoint)
 
 -- | The type of interface endpoint.
@@ -75,19 +76,19 @@ instance Core.FromJSON AccessEndpoint where
       "AccessEndpoint"
       ( \x ->
           AccessEndpoint'
-            Core.<$> (x Core..:? "VpceId")
-            Core.<*> (x Core..: "EndpointType")
+            Prelude.<$> (x Core..:? "VpceId")
+            Prelude.<*> (x Core..: "EndpointType")
       )
 
-instance Core.Hashable AccessEndpoint
+instance Prelude.Hashable AccessEndpoint
 
-instance Core.NFData AccessEndpoint
+instance Prelude.NFData AccessEndpoint
 
 instance Core.ToJSON AccessEndpoint where
   toJSON AccessEndpoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("VpceId" Core..=) Core.<$> vpceId,
-            Core.Just ("EndpointType" Core..= endpointType)
+      ( Prelude.catMaybes
+          [ ("VpceId" Core..=) Prelude.<$> vpceId,
+            Prelude.Just ("EndpointType" Core..= endpointType)
           ]
       )

@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,12 +74,12 @@ data TransactGetItems = TransactGetItems'
   { -- | A value of @TOTAL@ causes consumed capacity information to be returned,
     -- and a value of @NONE@ prevents that information from being returned. No
     -- other value is valid.
-    returnConsumedCapacity :: Core.Maybe ReturnConsumedCapacity,
+    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | An ordered array of up to 25 @TransactGetItem@ objects, each of which
     -- contains a @Get@ structure.
-    transactItems :: Core.NonEmpty TransactGetItem
+    transactItems :: Prelude.NonEmpty TransactGetItem
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransactGetItems' with all optional fields omitted.
@@ -96,25 +97,25 @@ data TransactGetItems = TransactGetItems'
 -- contains a @Get@ structure.
 newTransactGetItems ::
   -- | 'transactItems'
-  Core.NonEmpty TransactGetItem ->
+  Prelude.NonEmpty TransactGetItem ->
   TransactGetItems
 newTransactGetItems pTransactItems_ =
   TransactGetItems'
     { returnConsumedCapacity =
-        Core.Nothing,
+        Prelude.Nothing,
       transactItems = Lens._Coerce Lens.# pTransactItems_
     }
 
 -- | A value of @TOTAL@ causes consumed capacity information to be returned,
 -- and a value of @NONE@ prevents that information from being returned. No
 -- other value is valid.
-transactGetItems_returnConsumedCapacity :: Lens.Lens' TransactGetItems (Core.Maybe ReturnConsumedCapacity)
+transactGetItems_returnConsumedCapacity :: Lens.Lens' TransactGetItems (Prelude.Maybe ReturnConsumedCapacity)
 transactGetItems_returnConsumedCapacity = Lens.lens (\TransactGetItems' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@TransactGetItems' {} a -> s {returnConsumedCapacity = a} :: TransactGetItems)
 
 -- | An ordered array of up to 25 @TransactGetItem@ objects, each of which
 -- contains a @Get@ structure.
-transactGetItems_transactItems :: Lens.Lens' TransactGetItems (Core.NonEmpty TransactGetItem)
-transactGetItems_transactItems = Lens.lens (\TransactGetItems' {transactItems} -> transactItems) (\s@TransactGetItems' {} a -> s {transactItems = a} :: TransactGetItems) Core.. Lens._Coerce
+transactGetItems_transactItems :: Lens.Lens' TransactGetItems (Prelude.NonEmpty TransactGetItem)
+transactGetItems_transactItems = Lens.lens (\TransactGetItems' {transactItems} -> transactItems) (\s@TransactGetItems' {} a -> s {transactItems = a} :: TransactGetItems) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TransactGetItems where
   type
@@ -125,43 +126,48 @@ instance Core.AWSRequest TransactGetItems where
     Response.receiveJSON
       ( \s h x ->
           TransactGetItemsResponse'
-            Core.<$> (x Core..?> "ConsumedCapacity" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Responses")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ConsumedCapacity"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Responses")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TransactGetItems
+instance Prelude.Hashable TransactGetItems
 
-instance Core.NFData TransactGetItems
+instance Prelude.NFData TransactGetItems
 
 instance Core.ToHeaders TransactGetItems where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.TransactGetItems" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TransactGetItems where
   toJSON TransactGetItems' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReturnConsumedCapacity" Core..=)
-              Core.<$> returnConsumedCapacity,
-            Core.Just ("TransactItems" Core..= transactItems)
+              Prelude.<$> returnConsumedCapacity,
+            Prelude.Just
+              ("TransactItems" Core..= transactItems)
           ]
       )
 
 instance Core.ToPath TransactGetItems where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TransactGetItems where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTransactGetItemsResponse' smart constructor.
 data TransactGetItemsResponse = TransactGetItemsResponse'
@@ -170,7 +176,7 @@ data TransactGetItemsResponse = TransactGetItemsResponse'
     -- @TransactGetItem@ objects in the /TransactItems/ parameter. These
     -- @ConsumedCapacity@ objects report the read-capacity units consumed by
     -- the @TransactGetItems@ call in that table.
-    consumedCapacity :: Core.Maybe [ConsumedCapacity],
+    consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
     -- | An ordered array of up to 25 @ItemResponse@ objects, each of which
     -- corresponds to the @TransactGetItem@ object in the same position in the
     -- /TransactItems/ array. Each @ItemResponse@ object contains a Map of the
@@ -180,11 +186,11 @@ data TransactGetItemsResponse = TransactGetItemsResponse'
     -- If a requested item could not be retrieved, the corresponding
     -- @ItemResponse@ object is Null, or if the requested item has no projected
     -- attributes, the corresponding @ItemResponse@ object is an empty Map.
-    responses :: Core.Maybe (Core.NonEmpty ItemResponse),
+    responses :: Prelude.Maybe (Prelude.NonEmpty ItemResponse),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransactGetItemsResponse' with all optional fields omitted.
@@ -213,13 +219,13 @@ data TransactGetItemsResponse = TransactGetItemsResponse'
 -- 'httpStatus', 'transactGetItemsResponse_httpStatus' - The response's http status code.
 newTransactGetItemsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TransactGetItemsResponse
 newTransactGetItemsResponse pHttpStatus_ =
   TransactGetItemsResponse'
     { consumedCapacity =
-        Core.Nothing,
-      responses = Core.Nothing,
+        Prelude.Nothing,
+      responses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -228,8 +234,8 @@ newTransactGetItemsResponse pHttpStatus_ =
 -- @TransactGetItem@ objects in the /TransactItems/ parameter. These
 -- @ConsumedCapacity@ objects report the read-capacity units consumed by
 -- the @TransactGetItems@ call in that table.
-transactGetItemsResponse_consumedCapacity :: Lens.Lens' TransactGetItemsResponse (Core.Maybe [ConsumedCapacity])
-transactGetItemsResponse_consumedCapacity = Lens.lens (\TransactGetItemsResponse' {consumedCapacity} -> consumedCapacity) (\s@TransactGetItemsResponse' {} a -> s {consumedCapacity = a} :: TransactGetItemsResponse) Core.. Lens.mapping Lens._Coerce
+transactGetItemsResponse_consumedCapacity :: Lens.Lens' TransactGetItemsResponse (Prelude.Maybe [ConsumedCapacity])
+transactGetItemsResponse_consumedCapacity = Lens.lens (\TransactGetItemsResponse' {consumedCapacity} -> consumedCapacity) (\s@TransactGetItemsResponse' {} a -> s {consumedCapacity = a} :: TransactGetItemsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An ordered array of up to 25 @ItemResponse@ objects, each of which
 -- corresponds to the @TransactGetItem@ object in the same position in the
@@ -240,11 +246,11 @@ transactGetItemsResponse_consumedCapacity = Lens.lens (\TransactGetItemsResponse
 -- If a requested item could not be retrieved, the corresponding
 -- @ItemResponse@ object is Null, or if the requested item has no projected
 -- attributes, the corresponding @ItemResponse@ object is an empty Map.
-transactGetItemsResponse_responses :: Lens.Lens' TransactGetItemsResponse (Core.Maybe (Core.NonEmpty ItemResponse))
-transactGetItemsResponse_responses = Lens.lens (\TransactGetItemsResponse' {responses} -> responses) (\s@TransactGetItemsResponse' {} a -> s {responses = a} :: TransactGetItemsResponse) Core.. Lens.mapping Lens._Coerce
+transactGetItemsResponse_responses :: Lens.Lens' TransactGetItemsResponse (Prelude.Maybe (Prelude.NonEmpty ItemResponse))
+transactGetItemsResponse_responses = Lens.lens (\TransactGetItemsResponse' {responses} -> responses) (\s@TransactGetItemsResponse' {} a -> s {responses = a} :: TransactGetItemsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-transactGetItemsResponse_httpStatus :: Lens.Lens' TransactGetItemsResponse Core.Int
+transactGetItemsResponse_httpStatus :: Lens.Lens' TransactGetItemsResponse Prelude.Int
 transactGetItemsResponse_httpStatus = Lens.lens (\TransactGetItemsResponse' {httpStatus} -> httpStatus) (\s@TransactGetItemsResponse' {} a -> s {httpStatus = a} :: TransactGetItemsResponse)
 
-instance Core.NFData TransactGetItemsResponse
+instance Prelude.NFData TransactGetItemsResponse

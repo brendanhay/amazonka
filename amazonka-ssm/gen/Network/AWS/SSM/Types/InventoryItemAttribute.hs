@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.InventoryItemAttribute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InventoryAttributeDataType
 
 -- | Attributes are the entries within the inventory item content. It
@@ -29,11 +30,11 @@ import Network.AWS.SSM.Types.InventoryAttributeDataType
 -- /See:/ 'newInventoryItemAttribute' smart constructor.
 data InventoryItemAttribute = InventoryItemAttribute'
   { -- | Name of the inventory item attribute.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The data type of the inventory item attribute.
     dataType :: InventoryAttributeDataType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryItemAttribute' with all optional fields omitted.
@@ -48,7 +49,7 @@ data InventoryItemAttribute = InventoryItemAttribute'
 -- 'dataType', 'inventoryItemAttribute_dataType' - The data type of the inventory item attribute.
 newInventoryItemAttribute ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataType'
   InventoryAttributeDataType ->
   InventoryItemAttribute
@@ -59,7 +60,7 @@ newInventoryItemAttribute pName_ pDataType_ =
     }
 
 -- | Name of the inventory item attribute.
-inventoryItemAttribute_name :: Lens.Lens' InventoryItemAttribute Core.Text
+inventoryItemAttribute_name :: Lens.Lens' InventoryItemAttribute Prelude.Text
 inventoryItemAttribute_name = Lens.lens (\InventoryItemAttribute' {name} -> name) (\s@InventoryItemAttribute' {} a -> s {name = a} :: InventoryItemAttribute)
 
 -- | The data type of the inventory item attribute.
@@ -72,9 +73,10 @@ instance Core.FromJSON InventoryItemAttribute where
       "InventoryItemAttribute"
       ( \x ->
           InventoryItemAttribute'
-            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "DataType")
+            Prelude.<$> (x Core..: "Name")
+            Prelude.<*> (x Core..: "DataType")
       )
 
-instance Core.Hashable InventoryItemAttribute
+instance Prelude.Hashable InventoryItemAttribute
 
-instance Core.NFData InventoryItemAttribute
+instance Prelude.NFData InventoryItemAttribute

@@ -22,23 +22,24 @@ module Network.AWS.ECR.Types.Layer where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.LayerAvailability
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an Amazon ECR image layer.
 --
 -- /See:/ 'newLayer' smart constructor.
 data Layer = Layer'
   { -- | The size, in bytes, of the image layer.
-    layerSize :: Core.Maybe Core.Integer,
+    layerSize :: Prelude.Maybe Prelude.Integer,
     -- | The availability status of the image layer.
-    layerAvailability :: Core.Maybe LayerAvailability,
+    layerAvailability :: Prelude.Maybe LayerAvailability,
     -- | The media type of the layer, such as
     -- @application\/vnd.docker.image.rootfs.diff.tar.gzip@ or
     -- @application\/vnd.oci.image.layer.v1.tar+gzip@.
-    mediaType :: Core.Maybe Core.Text,
+    mediaType :: Prelude.Maybe Prelude.Text,
     -- | The @sha256@ digest of the image layer.
-    layerDigest :: Core.Maybe Core.Text
+    layerDigest :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Layer' with all optional fields omitted.
@@ -61,28 +62,28 @@ newLayer ::
   Layer
 newLayer =
   Layer'
-    { layerSize = Core.Nothing,
-      layerAvailability = Core.Nothing,
-      mediaType = Core.Nothing,
-      layerDigest = Core.Nothing
+    { layerSize = Prelude.Nothing,
+      layerAvailability = Prelude.Nothing,
+      mediaType = Prelude.Nothing,
+      layerDigest = Prelude.Nothing
     }
 
 -- | The size, in bytes, of the image layer.
-layer_layerSize :: Lens.Lens' Layer (Core.Maybe Core.Integer)
+layer_layerSize :: Lens.Lens' Layer (Prelude.Maybe Prelude.Integer)
 layer_layerSize = Lens.lens (\Layer' {layerSize} -> layerSize) (\s@Layer' {} a -> s {layerSize = a} :: Layer)
 
 -- | The availability status of the image layer.
-layer_layerAvailability :: Lens.Lens' Layer (Core.Maybe LayerAvailability)
+layer_layerAvailability :: Lens.Lens' Layer (Prelude.Maybe LayerAvailability)
 layer_layerAvailability = Lens.lens (\Layer' {layerAvailability} -> layerAvailability) (\s@Layer' {} a -> s {layerAvailability = a} :: Layer)
 
 -- | The media type of the layer, such as
 -- @application\/vnd.docker.image.rootfs.diff.tar.gzip@ or
 -- @application\/vnd.oci.image.layer.v1.tar+gzip@.
-layer_mediaType :: Lens.Lens' Layer (Core.Maybe Core.Text)
+layer_mediaType :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
 layer_mediaType = Lens.lens (\Layer' {mediaType} -> mediaType) (\s@Layer' {} a -> s {mediaType = a} :: Layer)
 
 -- | The @sha256@ digest of the image layer.
-layer_layerDigest :: Lens.Lens' Layer (Core.Maybe Core.Text)
+layer_layerDigest :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
 layer_layerDigest = Lens.lens (\Layer' {layerDigest} -> layerDigest) (\s@Layer' {} a -> s {layerDigest = a} :: Layer)
 
 instance Core.FromJSON Layer where
@@ -91,12 +92,12 @@ instance Core.FromJSON Layer where
       "Layer"
       ( \x ->
           Layer'
-            Core.<$> (x Core..:? "layerSize")
-            Core.<*> (x Core..:? "layerAvailability")
-            Core.<*> (x Core..:? "mediaType")
-            Core.<*> (x Core..:? "layerDigest")
+            Prelude.<$> (x Core..:? "layerSize")
+            Prelude.<*> (x Core..:? "layerAvailability")
+            Prelude.<*> (x Core..:? "mediaType")
+            Prelude.<*> (x Core..:? "layerDigest")
       )
 
-instance Core.Hashable Layer
+instance Prelude.Hashable Layer
 
-instance Core.NFData Layer
+instance Prelude.NFData Layer

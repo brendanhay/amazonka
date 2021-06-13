@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +60,13 @@ data ListThingPrincipals = ListThingPrincipals'
   { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in this operation.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the thing.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListThingPrincipals' with all optional fields omitted.
@@ -84,27 +85,27 @@ data ListThingPrincipals = ListThingPrincipals'
 -- 'thingName', 'listThingPrincipals_thingName' - The name of the thing.
 newListThingPrincipals ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   ListThingPrincipals
 newListThingPrincipals pThingName_ =
   ListThingPrincipals'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       thingName = pThingName_
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
-listThingPrincipals_nextToken :: Lens.Lens' ListThingPrincipals (Core.Maybe Core.Text)
+listThingPrincipals_nextToken :: Lens.Lens' ListThingPrincipals (Prelude.Maybe Prelude.Text)
 listThingPrincipals_nextToken = Lens.lens (\ListThingPrincipals' {nextToken} -> nextToken) (\s@ListThingPrincipals' {} a -> s {nextToken = a} :: ListThingPrincipals)
 
 -- | The maximum number of results to return in this operation.
-listThingPrincipals_maxResults :: Lens.Lens' ListThingPrincipals (Core.Maybe Core.Natural)
+listThingPrincipals_maxResults :: Lens.Lens' ListThingPrincipals (Prelude.Maybe Prelude.Natural)
 listThingPrincipals_maxResults = Lens.lens (\ListThingPrincipals' {maxResults} -> maxResults) (\s@ListThingPrincipals' {} a -> s {maxResults = a} :: ListThingPrincipals)
 
 -- | The name of the thing.
-listThingPrincipals_thingName :: Lens.Lens' ListThingPrincipals Core.Text
+listThingPrincipals_thingName :: Lens.Lens' ListThingPrincipals Prelude.Text
 listThingPrincipals_thingName = Lens.lens (\ListThingPrincipals' {thingName} -> thingName) (\s@ListThingPrincipals' {} a -> s {thingName = a} :: ListThingPrincipals)
 
 instance Core.AWSPager ListThingPrincipals where
@@ -112,22 +113,22 @@ instance Core.AWSPager ListThingPrincipals where
     | Core.stop
         ( rs
             Lens.^? listThingPrincipalsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listThingPrincipalsResponse_principals
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listThingPrincipals_nextToken
+          Prelude.& listThingPrincipals_nextToken
           Lens..~ rs
           Lens.^? listThingPrincipalsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThingPrincipals where
   type
@@ -138,26 +139,26 @@ instance Core.AWSRequest ListThingPrincipals where
     Response.receiveJSON
       ( \s h x ->
           ListThingPrincipalsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "principals" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "principals" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListThingPrincipals
+instance Prelude.Hashable ListThingPrincipals
 
-instance Core.NFData ListThingPrincipals
+instance Prelude.NFData ListThingPrincipals
 
 instance Core.ToHeaders ListThingPrincipals where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListThingPrincipals where
   toPath ListThingPrincipals' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/things/", Core.toBS thingName, "/principals"]
 
 instance Core.ToQuery ListThingPrincipals where
   toQuery ListThingPrincipals' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -168,13 +169,13 @@ instance Core.ToQuery ListThingPrincipals where
 data ListThingPrincipalsResponse = ListThingPrincipalsResponse'
   { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The principals associated with the thing.
-    principals :: Core.Maybe [Core.Text],
+    principals :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListThingPrincipalsResponse' with all optional fields omitted.
@@ -192,27 +193,27 @@ data ListThingPrincipalsResponse = ListThingPrincipalsResponse'
 -- 'httpStatus', 'listThingPrincipalsResponse_httpStatus' - The response's http status code.
 newListThingPrincipalsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListThingPrincipalsResponse
 newListThingPrincipalsResponse pHttpStatus_ =
   ListThingPrincipalsResponse'
     { nextToken =
-        Core.Nothing,
-      principals = Core.Nothing,
+        Prelude.Nothing,
+      principals = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
-listThingPrincipalsResponse_nextToken :: Lens.Lens' ListThingPrincipalsResponse (Core.Maybe Core.Text)
+listThingPrincipalsResponse_nextToken :: Lens.Lens' ListThingPrincipalsResponse (Prelude.Maybe Prelude.Text)
 listThingPrincipalsResponse_nextToken = Lens.lens (\ListThingPrincipalsResponse' {nextToken} -> nextToken) (\s@ListThingPrincipalsResponse' {} a -> s {nextToken = a} :: ListThingPrincipalsResponse)
 
 -- | The principals associated with the thing.
-listThingPrincipalsResponse_principals :: Lens.Lens' ListThingPrincipalsResponse (Core.Maybe [Core.Text])
-listThingPrincipalsResponse_principals = Lens.lens (\ListThingPrincipalsResponse' {principals} -> principals) (\s@ListThingPrincipalsResponse' {} a -> s {principals = a} :: ListThingPrincipalsResponse) Core.. Lens.mapping Lens._Coerce
+listThingPrincipalsResponse_principals :: Lens.Lens' ListThingPrincipalsResponse (Prelude.Maybe [Prelude.Text])
+listThingPrincipalsResponse_principals = Lens.lens (\ListThingPrincipalsResponse' {principals} -> principals) (\s@ListThingPrincipalsResponse' {} a -> s {principals = a} :: ListThingPrincipalsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listThingPrincipalsResponse_httpStatus :: Lens.Lens' ListThingPrincipalsResponse Core.Int
+listThingPrincipalsResponse_httpStatus :: Lens.Lens' ListThingPrincipalsResponse Prelude.Int
 listThingPrincipalsResponse_httpStatus = Lens.lens (\ListThingPrincipalsResponse' {httpStatus} -> httpStatus) (\s@ListThingPrincipalsResponse' {} a -> s {httpStatus = a} :: ListThingPrincipalsResponse)
 
-instance Core.NFData ListThingPrincipalsResponse
+instance Prelude.NFData ListThingPrincipalsResponse

@@ -47,6 +47,7 @@ where
 import Network.AWS.Budgets.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DeleteSubscriber = DeleteSubscriber'
   { -- | The @accountId@ that is associated with the budget whose subscriber you
     -- want to delete.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the budget whose subscriber you want to delete.
-    budgetName :: Core.Text,
+    budgetName :: Prelude.Text,
     -- | The notification whose subscriber you want to delete.
     notification :: Notification,
     -- | The subscriber that you want to delete.
     subscriber :: Subscriber
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSubscriber' with all optional fields omitted.
@@ -84,9 +85,9 @@ data DeleteSubscriber = DeleteSubscriber'
 -- 'subscriber', 'deleteSubscriber_subscriber' - The subscriber that you want to delete.
 newDeleteSubscriber ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'budgetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'notification'
   Notification ->
   -- | 'subscriber'
@@ -106,11 +107,11 @@ newDeleteSubscriber
 
 -- | The @accountId@ that is associated with the budget whose subscriber you
 -- want to delete.
-deleteSubscriber_accountId :: Lens.Lens' DeleteSubscriber Core.Text
+deleteSubscriber_accountId :: Lens.Lens' DeleteSubscriber Prelude.Text
 deleteSubscriber_accountId = Lens.lens (\DeleteSubscriber' {accountId} -> accountId) (\s@DeleteSubscriber' {} a -> s {accountId = a} :: DeleteSubscriber)
 
 -- | The name of the budget whose subscriber you want to delete.
-deleteSubscriber_budgetName :: Lens.Lens' DeleteSubscriber Core.Text
+deleteSubscriber_budgetName :: Lens.Lens' DeleteSubscriber Prelude.Text
 deleteSubscriber_budgetName = Lens.lens (\DeleteSubscriber' {budgetName} -> budgetName) (\s@DeleteSubscriber' {} a -> s {budgetName = a} :: DeleteSubscriber)
 
 -- | The notification whose subscriber you want to delete.
@@ -130,51 +131,53 @@ instance Core.AWSRequest DeleteSubscriber where
     Response.receiveEmpty
       ( \s h x ->
           DeleteSubscriberResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteSubscriber
+instance Prelude.Hashable DeleteSubscriber
 
-instance Core.NFData DeleteSubscriber
+instance Prelude.NFData DeleteSubscriber
 
 instance Core.ToHeaders DeleteSubscriber where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSBudgetServiceGateway.DeleteSubscriber" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteSubscriber where
   toJSON DeleteSubscriber' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AccountId" Core..= accountId),
-            Core.Just ("BudgetName" Core..= budgetName),
-            Core.Just ("Notification" Core..= notification),
-            Core.Just ("Subscriber" Core..= subscriber)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just ("BudgetName" Core..= budgetName),
+            Prelude.Just ("Notification" Core..= notification),
+            Prelude.Just ("Subscriber" Core..= subscriber)
           ]
       )
 
 instance Core.ToPath DeleteSubscriber where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSubscriber where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response of DeleteSubscriber
 --
 -- /See:/ 'newDeleteSubscriberResponse' smart constructor.
 data DeleteSubscriberResponse = DeleteSubscriberResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSubscriberResponse' with all optional fields omitted.
@@ -187,7 +190,7 @@ data DeleteSubscriberResponse = DeleteSubscriberResponse'
 -- 'httpStatus', 'deleteSubscriberResponse_httpStatus' - The response's http status code.
 newDeleteSubscriberResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteSubscriberResponse
 newDeleteSubscriberResponse pHttpStatus_ =
   DeleteSubscriberResponse'
@@ -196,7 +199,7 @@ newDeleteSubscriberResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteSubscriberResponse_httpStatus :: Lens.Lens' DeleteSubscriberResponse Core.Int
+deleteSubscriberResponse_httpStatus :: Lens.Lens' DeleteSubscriberResponse Prelude.Int
 deleteSubscriberResponse_httpStatus = Lens.lens (\DeleteSubscriberResponse' {httpStatus} -> httpStatus) (\s@DeleteSubscriberResponse' {} a -> s {httpStatus = a} :: DeleteSubscriberResponse)
 
-instance Core.NFData DeleteSubscriberResponse
+instance Prelude.NFData DeleteSubscriberResponse

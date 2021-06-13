@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -68,13 +69,13 @@ import Network.AWS.Route53Domains.Types
 -- /See:/ 'newUpdateDomainNameservers' smart constructor.
 data UpdateDomainNameservers = UpdateDomainNameservers'
   { -- | The authorization key for .fi domains
-    fIAuthKey :: Core.Maybe Core.Text,
+    fIAuthKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that you want to change name servers for.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | A list of new name servers for the domain.
     nameservers :: [Nameserver]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainNameservers' with all optional fields omitted.
@@ -91,26 +92,27 @@ data UpdateDomainNameservers = UpdateDomainNameservers'
 -- 'nameservers', 'updateDomainNameservers_nameservers' - A list of new name servers for the domain.
 newUpdateDomainNameservers ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDomainNameservers
 newUpdateDomainNameservers pDomainName_ =
   UpdateDomainNameservers'
-    { fIAuthKey = Core.Nothing,
+    { fIAuthKey =
+        Prelude.Nothing,
       domainName = pDomainName_,
-      nameservers = Core.mempty
+      nameservers = Prelude.mempty
     }
 
 -- | The authorization key for .fi domains
-updateDomainNameservers_fIAuthKey :: Lens.Lens' UpdateDomainNameservers (Core.Maybe Core.Text)
+updateDomainNameservers_fIAuthKey :: Lens.Lens' UpdateDomainNameservers (Prelude.Maybe Prelude.Text)
 updateDomainNameservers_fIAuthKey = Lens.lens (\UpdateDomainNameservers' {fIAuthKey} -> fIAuthKey) (\s@UpdateDomainNameservers' {} a -> s {fIAuthKey = a} :: UpdateDomainNameservers)
 
 -- | The name of the domain that you want to change name servers for.
-updateDomainNameservers_domainName :: Lens.Lens' UpdateDomainNameservers Core.Text
+updateDomainNameservers_domainName :: Lens.Lens' UpdateDomainNameservers Prelude.Text
 updateDomainNameservers_domainName = Lens.lens (\UpdateDomainNameservers' {domainName} -> domainName) (\s@UpdateDomainNameservers' {} a -> s {domainName = a} :: UpdateDomainNameservers)
 
 -- | A list of new name servers for the domain.
 updateDomainNameservers_nameservers :: Lens.Lens' UpdateDomainNameservers [Nameserver]
-updateDomainNameservers_nameservers = Lens.lens (\UpdateDomainNameservers' {nameservers} -> nameservers) (\s@UpdateDomainNameservers' {} a -> s {nameservers = a} :: UpdateDomainNameservers) Core.. Lens._Coerce
+updateDomainNameservers_nameservers = Lens.lens (\UpdateDomainNameservers' {nameservers} -> nameservers) (\s@UpdateDomainNameservers' {} a -> s {nameservers = a} :: UpdateDomainNameservers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateDomainNameservers where
   type
@@ -121,55 +123,57 @@ instance Core.AWSRequest UpdateDomainNameservers where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainNameserversResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "OperationId")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Core.Hashable UpdateDomainNameservers
+instance Prelude.Hashable UpdateDomainNameservers
 
-instance Core.NFData UpdateDomainNameservers
+instance Prelude.NFData UpdateDomainNameservers
 
 instance Core.ToHeaders UpdateDomainNameservers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.UpdateDomainNameservers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDomainNameservers where
   toJSON UpdateDomainNameservers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("FIAuthKey" Core..=) Core.<$> fIAuthKey,
-            Core.Just ("DomainName" Core..= domainName),
-            Core.Just ("Nameservers" Core..= nameservers)
+      ( Prelude.catMaybes
+          [ ("FIAuthKey" Core..=) Prelude.<$> fIAuthKey,
+            Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just ("Nameservers" Core..= nameservers)
           ]
       )
 
 instance Core.ToPath UpdateDomainNameservers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDomainNameservers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The UpdateDomainNameservers response includes the following element.
 --
 -- /See:/ 'newUpdateDomainNameserversResponse' smart constructor.
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Core.Text
+    operationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainNameserversResponse' with all optional fields omitted.
@@ -186,9 +190,9 @@ data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
 newUpdateDomainNameserversResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'operationId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDomainNameserversResponse
 newUpdateDomainNameserversResponse
   pHttpStatus_
@@ -200,13 +204,15 @@ newUpdateDomainNameserversResponse
       }
 
 -- | The response's http status code.
-updateDomainNameserversResponse_httpStatus :: Lens.Lens' UpdateDomainNameserversResponse Core.Int
+updateDomainNameserversResponse_httpStatus :: Lens.Lens' UpdateDomainNameserversResponse Prelude.Int
 updateDomainNameserversResponse_httpStatus = Lens.lens (\UpdateDomainNameserversResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainNameserversResponse' {} a -> s {httpStatus = a} :: UpdateDomainNameserversResponse)
 
 -- | Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-updateDomainNameserversResponse_operationId :: Lens.Lens' UpdateDomainNameserversResponse Core.Text
+updateDomainNameserversResponse_operationId :: Lens.Lens' UpdateDomainNameserversResponse Prelude.Text
 updateDomainNameserversResponse_operationId = Lens.lens (\UpdateDomainNameserversResponse' {operationId} -> operationId) (\s@UpdateDomainNameserversResponse' {} a -> s {operationId = a} :: UpdateDomainNameserversResponse)
 
-instance Core.NFData UpdateDomainNameserversResponse
+instance
+  Prelude.NFData
+    UpdateDomainNameserversResponse

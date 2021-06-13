@@ -24,16 +24,17 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioLanguageSelection
 import Network.AWS.MediaLive.Types.AudioPidSelection
 import Network.AWS.MediaLive.Types.AudioTrackSelection
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Selector Settings
 --
 -- /See:/ 'newAudioSelectorSettings' smart constructor.
 data AudioSelectorSettings = AudioSelectorSettings'
-  { audioLanguageSelection :: Core.Maybe AudioLanguageSelection,
-    audioPidSelection :: Core.Maybe AudioPidSelection,
-    audioTrackSelection :: Core.Maybe AudioTrackSelection
+  { audioLanguageSelection :: Prelude.Maybe AudioLanguageSelection,
+    audioPidSelection :: Prelude.Maybe AudioPidSelection,
+    audioTrackSelection :: Prelude.Maybe AudioTrackSelection
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioSelectorSettings' with all optional fields omitted.
@@ -53,21 +54,21 @@ newAudioSelectorSettings ::
 newAudioSelectorSettings =
   AudioSelectorSettings'
     { audioLanguageSelection =
-        Core.Nothing,
-      audioPidSelection = Core.Nothing,
-      audioTrackSelection = Core.Nothing
+        Prelude.Nothing,
+      audioPidSelection = Prelude.Nothing,
+      audioTrackSelection = Prelude.Nothing
     }
 
 -- | Undocumented member.
-audioSelectorSettings_audioLanguageSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe AudioLanguageSelection)
+audioSelectorSettings_audioLanguageSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioLanguageSelection)
 audioSelectorSettings_audioLanguageSelection = Lens.lens (\AudioSelectorSettings' {audioLanguageSelection} -> audioLanguageSelection) (\s@AudioSelectorSettings' {} a -> s {audioLanguageSelection = a} :: AudioSelectorSettings)
 
 -- | Undocumented member.
-audioSelectorSettings_audioPidSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe AudioPidSelection)
+audioSelectorSettings_audioPidSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioPidSelection)
 audioSelectorSettings_audioPidSelection = Lens.lens (\AudioSelectorSettings' {audioPidSelection} -> audioPidSelection) (\s@AudioSelectorSettings' {} a -> s {audioPidSelection = a} :: AudioSelectorSettings)
 
 -- | Undocumented member.
-audioSelectorSettings_audioTrackSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe AudioTrackSelection)
+audioSelectorSettings_audioTrackSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioTrackSelection)
 audioSelectorSettings_audioTrackSelection = Lens.lens (\AudioSelectorSettings' {audioTrackSelection} -> audioTrackSelection) (\s@AudioSelectorSettings' {} a -> s {audioTrackSelection = a} :: AudioSelectorSettings)
 
 instance Core.FromJSON AudioSelectorSettings where
@@ -76,24 +77,24 @@ instance Core.FromJSON AudioSelectorSettings where
       "AudioSelectorSettings"
       ( \x ->
           AudioSelectorSettings'
-            Core.<$> (x Core..:? "audioLanguageSelection")
-            Core.<*> (x Core..:? "audioPidSelection")
-            Core.<*> (x Core..:? "audioTrackSelection")
+            Prelude.<$> (x Core..:? "audioLanguageSelection")
+            Prelude.<*> (x Core..:? "audioPidSelection")
+            Prelude.<*> (x Core..:? "audioTrackSelection")
       )
 
-instance Core.Hashable AudioSelectorSettings
+instance Prelude.Hashable AudioSelectorSettings
 
-instance Core.NFData AudioSelectorSettings
+instance Prelude.NFData AudioSelectorSettings
 
 instance Core.ToJSON AudioSelectorSettings where
   toJSON AudioSelectorSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("audioLanguageSelection" Core..=)
-              Core.<$> audioLanguageSelection,
+              Prelude.<$> audioLanguageSelection,
             ("audioPidSelection" Core..=)
-              Core.<$> audioPidSelection,
+              Prelude.<$> audioPidSelection,
             ("audioTrackSelection" Core..=)
-              Core.<$> audioTrackSelection
+              Prelude.<$> audioTrackSelection
           ]
       )

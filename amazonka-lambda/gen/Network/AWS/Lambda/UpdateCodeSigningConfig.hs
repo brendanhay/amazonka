@@ -47,21 +47,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateCodeSigningConfig' smart constructor.
 data UpdateCodeSigningConfig = UpdateCodeSigningConfig'
   { -- | Signing profiles for this code signing configuration.
-    allowedPublishers :: Core.Maybe AllowedPublishers,
+    allowedPublishers :: Prelude.Maybe AllowedPublishers,
     -- | Descriptive name for this code signing configuration.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The code signing policy.
-    codeSigningPolicies :: Core.Maybe CodeSigningPolicies,
+    codeSigningPolicies :: Prelude.Maybe CodeSigningPolicies,
     -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigArn :: Core.Text
+    codeSigningConfigArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCodeSigningConfig' with all optional fields omitted.
@@ -80,31 +81,31 @@ data UpdateCodeSigningConfig = UpdateCodeSigningConfig'
 -- 'codeSigningConfigArn', 'updateCodeSigningConfig_codeSigningConfigArn' - The The Amazon Resource Name (ARN) of the code signing configuration.
 newUpdateCodeSigningConfig ::
   -- | 'codeSigningConfigArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateCodeSigningConfig
 newUpdateCodeSigningConfig pCodeSigningConfigArn_ =
   UpdateCodeSigningConfig'
     { allowedPublishers =
-        Core.Nothing,
-      description = Core.Nothing,
-      codeSigningPolicies = Core.Nothing,
+        Prelude.Nothing,
+      description = Prelude.Nothing,
+      codeSigningPolicies = Prelude.Nothing,
       codeSigningConfigArn = pCodeSigningConfigArn_
     }
 
 -- | Signing profiles for this code signing configuration.
-updateCodeSigningConfig_allowedPublishers :: Lens.Lens' UpdateCodeSigningConfig (Core.Maybe AllowedPublishers)
+updateCodeSigningConfig_allowedPublishers :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe AllowedPublishers)
 updateCodeSigningConfig_allowedPublishers = Lens.lens (\UpdateCodeSigningConfig' {allowedPublishers} -> allowedPublishers) (\s@UpdateCodeSigningConfig' {} a -> s {allowedPublishers = a} :: UpdateCodeSigningConfig)
 
 -- | Descriptive name for this code signing configuration.
-updateCodeSigningConfig_description :: Lens.Lens' UpdateCodeSigningConfig (Core.Maybe Core.Text)
+updateCodeSigningConfig_description :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe Prelude.Text)
 updateCodeSigningConfig_description = Lens.lens (\UpdateCodeSigningConfig' {description} -> description) (\s@UpdateCodeSigningConfig' {} a -> s {description = a} :: UpdateCodeSigningConfig)
 
 -- | The code signing policy.
-updateCodeSigningConfig_codeSigningPolicies :: Lens.Lens' UpdateCodeSigningConfig (Core.Maybe CodeSigningPolicies)
+updateCodeSigningConfig_codeSigningPolicies :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe CodeSigningPolicies)
 updateCodeSigningConfig_codeSigningPolicies = Lens.lens (\UpdateCodeSigningConfig' {codeSigningPolicies} -> codeSigningPolicies) (\s@UpdateCodeSigningConfig' {} a -> s {codeSigningPolicies = a} :: UpdateCodeSigningConfig)
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-updateCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' UpdateCodeSigningConfig Core.Text
+updateCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' UpdateCodeSigningConfig Prelude.Text
 updateCodeSigningConfig_codeSigningConfigArn = Lens.lens (\UpdateCodeSigningConfig' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@UpdateCodeSigningConfig' {} a -> s {codeSigningConfigArn = a} :: UpdateCodeSigningConfig)
 
 instance Core.AWSRequest UpdateCodeSigningConfig where
@@ -116,47 +117,47 @@ instance Core.AWSRequest UpdateCodeSigningConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateCodeSigningConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "CodeSigningConfig")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "CodeSigningConfig")
       )
 
-instance Core.Hashable UpdateCodeSigningConfig
+instance Prelude.Hashable UpdateCodeSigningConfig
 
-instance Core.NFData UpdateCodeSigningConfig
+instance Prelude.NFData UpdateCodeSigningConfig
 
 instance Core.ToHeaders UpdateCodeSigningConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateCodeSigningConfig where
   toJSON UpdateCodeSigningConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AllowedPublishers" Core..=)
-              Core.<$> allowedPublishers,
-            ("Description" Core..=) Core.<$> description,
+              Prelude.<$> allowedPublishers,
+            ("Description" Core..=) Prelude.<$> description,
             ("CodeSigningPolicies" Core..=)
-              Core.<$> codeSigningPolicies
+              Prelude.<$> codeSigningPolicies
           ]
       )
 
 instance Core.ToPath UpdateCodeSigningConfig where
   toPath UpdateCodeSigningConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-04-22/code-signing-configs/",
         Core.toBS codeSigningConfigArn
       ]
 
 instance Core.ToQuery UpdateCodeSigningConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCodeSigningConfigResponse' smart constructor.
 data UpdateCodeSigningConfigResponse = UpdateCodeSigningConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The code signing configuration
     codeSigningConfig :: CodeSigningConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCodeSigningConfigResponse' with all optional fields omitted.
@@ -171,7 +172,7 @@ data UpdateCodeSigningConfigResponse = UpdateCodeSigningConfigResponse'
 -- 'codeSigningConfig', 'updateCodeSigningConfigResponse_codeSigningConfig' - The code signing configuration
 newUpdateCodeSigningConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'codeSigningConfig'
   CodeSigningConfig ->
   UpdateCodeSigningConfigResponse
@@ -185,11 +186,13 @@ newUpdateCodeSigningConfigResponse
       }
 
 -- | The response's http status code.
-updateCodeSigningConfigResponse_httpStatus :: Lens.Lens' UpdateCodeSigningConfigResponse Core.Int
+updateCodeSigningConfigResponse_httpStatus :: Lens.Lens' UpdateCodeSigningConfigResponse Prelude.Int
 updateCodeSigningConfigResponse_httpStatus = Lens.lens (\UpdateCodeSigningConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateCodeSigningConfigResponse' {} a -> s {httpStatus = a} :: UpdateCodeSigningConfigResponse)
 
 -- | The code signing configuration
 updateCodeSigningConfigResponse_codeSigningConfig :: Lens.Lens' UpdateCodeSigningConfigResponse CodeSigningConfig
 updateCodeSigningConfigResponse_codeSigningConfig = Lens.lens (\UpdateCodeSigningConfigResponse' {codeSigningConfig} -> codeSigningConfig) (\s@UpdateCodeSigningConfigResponse' {} a -> s {codeSigningConfig = a} :: UpdateCodeSigningConfigResponse)
 
-instance Core.NFData UpdateCodeSigningConfigResponse
+instance
+  Prelude.NFData
+    UpdateCodeSigningConfigResponse

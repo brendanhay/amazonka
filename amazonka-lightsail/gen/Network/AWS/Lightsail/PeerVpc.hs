@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data PeerVpc = PeerVpc'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PeerVpc' with all optional fields omitted.
@@ -63,44 +64,46 @@ instance Core.AWSRequest PeerVpc where
     Response.receiveJSON
       ( \s h x ->
           PeerVpcResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PeerVpc
+instance Prelude.Hashable PeerVpc
 
-instance Core.NFData PeerVpc
+instance Prelude.NFData PeerVpc
 
 instance Core.ToHeaders PeerVpc where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Lightsail_20161128.PeerVpc" :: Core.ByteString),
+              Core.=# ("Lightsail_20161128.PeerVpc" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PeerVpc where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath PeerVpc where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PeerVpc where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPeerVpcResponse' smart constructor.
 data PeerVpcResponse = PeerVpcResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PeerVpcResponse' with all optional fields omitted.
@@ -117,22 +120,22 @@ data PeerVpcResponse = PeerVpcResponse'
 -- 'httpStatus', 'peerVpcResponse_httpStatus' - The response's http status code.
 newPeerVpcResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PeerVpcResponse
 newPeerVpcResponse pHttpStatus_ =
   PeerVpcResponse'
-    { operation = Core.Nothing,
+    { operation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-peerVpcResponse_operation :: Lens.Lens' PeerVpcResponse (Core.Maybe Operation)
+peerVpcResponse_operation :: Lens.Lens' PeerVpcResponse (Prelude.Maybe Operation)
 peerVpcResponse_operation = Lens.lens (\PeerVpcResponse' {operation} -> operation) (\s@PeerVpcResponse' {} a -> s {operation = a} :: PeerVpcResponse)
 
 -- | The response's http status code.
-peerVpcResponse_httpStatus :: Lens.Lens' PeerVpcResponse Core.Int
+peerVpcResponse_httpStatus :: Lens.Lens' PeerVpcResponse Prelude.Int
 peerVpcResponse_httpStatus = Lens.lens (\PeerVpcResponse' {httpStatus} -> httpStatus) (\s@PeerVpcResponse' {} a -> s {httpStatus = a} :: PeerVpcResponse)
 
-instance Core.NFData PeerVpcResponse
+instance Prelude.NFData PeerVpcResponse

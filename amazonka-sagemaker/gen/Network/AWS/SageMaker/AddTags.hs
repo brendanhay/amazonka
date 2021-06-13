@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -66,14 +67,14 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | The Amazon Resource Name (ARN) of the resource that you want to tag.
-    resourceArn :: Core.Text,
+    resourceArn :: Prelude.Text,
     -- | An array of key-value pairs. You can use tags to categorize your AWS
     -- resources in different ways, for example, by purpose, owner, or
     -- environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTags' with all optional fields omitted.
@@ -91,16 +92,16 @@ data AddTags = AddTags'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
 newAddTags ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   AddTags
 newAddTags pResourceArn_ =
   AddTags'
     { resourceArn = pResourceArn_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to tag.
-addTags_resourceArn :: Lens.Lens' AddTags Core.Text
+addTags_resourceArn :: Lens.Lens' AddTags Prelude.Text
 addTags_resourceArn = Lens.lens (\AddTags' {resourceArn} -> resourceArn) (\s@AddTags' {} a -> s {resourceArn = a} :: AddTags)
 
 -- | An array of key-value pairs. You can use tags to categorize your AWS
@@ -108,7 +109,7 @@ addTags_resourceArn = Lens.lens (\AddTags' {resourceArn} -> resourceArn) (\s@Add
 -- environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
 addTags_tags :: Lens.Lens' AddTags [Tag]
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Core.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
@@ -117,48 +118,50 @@ instance Core.AWSRequest AddTags where
     Response.receiveJSON
       ( \s h x ->
           AddTagsResponse'
-            Core.<$> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddTags
+instance Prelude.Hashable AddTags
 
-instance Core.NFData AddTags
+instance Prelude.NFData AddTags
 
 instance Core.ToHeaders AddTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.AddTags" :: Core.ByteString),
+              Core.=# ("SageMaker.AddTags" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTags where
   toJSON AddTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceArn" Core..= resourceArn),
-            Core.Just ("Tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath AddTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   { -- | A list of tags associated with the Amazon SageMaker resource.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsResponse' with all optional fields omitted.
@@ -173,20 +176,20 @@ data AddTagsResponse = AddTagsResponse'
 -- 'httpStatus', 'addTagsResponse_httpStatus' - The response's http status code.
 newAddTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddTagsResponse
 newAddTagsResponse pHttpStatus_ =
   AddTagsResponse'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of tags associated with the Amazon SageMaker resource.
-addTagsResponse_tags :: Lens.Lens' AddTagsResponse (Core.Maybe [Tag])
-addTagsResponse_tags = Lens.lens (\AddTagsResponse' {tags} -> tags) (\s@AddTagsResponse' {} a -> s {tags = a} :: AddTagsResponse) Core.. Lens.mapping Lens._Coerce
+addTagsResponse_tags :: Lens.Lens' AddTagsResponse (Prelude.Maybe [Tag])
+addTagsResponse_tags = Lens.lens (\AddTagsResponse' {tags} -> tags) (\s@AddTagsResponse' {} a -> s {tags = a} :: AddTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Core.Int
+addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Prelude.Int
 addTagsResponse_httpStatus = Lens.lens (\AddTagsResponse' {httpStatus} -> httpStatus) (\s@AddTagsResponse' {} a -> s {httpStatus = a} :: AddTagsResponse)
 
-instance Core.NFData AddTagsResponse
+instance Prelude.NFData AddTagsResponse

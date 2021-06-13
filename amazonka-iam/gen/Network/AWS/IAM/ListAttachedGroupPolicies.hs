@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,7 +78,7 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    pathPrefix :: Core.Maybe Core.Text,
+    pathPrefix :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -87,12 +88,12 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name (friendly name, not ARN) of the group to list attached policies
     -- for.
     --
@@ -100,9 +101,9 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Core.Text
+    groupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAttachedGroupPolicies' with all optional fields omitted.
@@ -148,14 +149,14 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newListAttachedGroupPolicies ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   ListAttachedGroupPolicies
 newListAttachedGroupPolicies pGroupName_ =
   ListAttachedGroupPolicies'
     { pathPrefix =
-        Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       groupName = pGroupName_
     }
 
@@ -170,7 +171,7 @@ newListAttachedGroupPolicies pGroupName_ =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-listAttachedGroupPolicies_pathPrefix :: Lens.Lens' ListAttachedGroupPolicies (Core.Maybe Core.Text)
+listAttachedGroupPolicies_pathPrefix :: Lens.Lens' ListAttachedGroupPolicies (Prelude.Maybe Prelude.Text)
 listAttachedGroupPolicies_pathPrefix = Lens.lens (\ListAttachedGroupPolicies' {pathPrefix} -> pathPrefix) (\s@ListAttachedGroupPolicies' {} a -> s {pathPrefix = a} :: ListAttachedGroupPolicies)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -182,14 +183,14 @@ listAttachedGroupPolicies_pathPrefix = Lens.lens (\ListAttachedGroupPolicies' {p
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listAttachedGroupPolicies_maxItems :: Lens.Lens' ListAttachedGroupPolicies (Core.Maybe Core.Natural)
+listAttachedGroupPolicies_maxItems :: Lens.Lens' ListAttachedGroupPolicies (Prelude.Maybe Prelude.Natural)
 listAttachedGroupPolicies_maxItems = Lens.lens (\ListAttachedGroupPolicies' {maxItems} -> maxItems) (\s@ListAttachedGroupPolicies' {} a -> s {maxItems = a} :: ListAttachedGroupPolicies)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listAttachedGroupPolicies_marker :: Lens.Lens' ListAttachedGroupPolicies (Core.Maybe Core.Text)
+listAttachedGroupPolicies_marker :: Lens.Lens' ListAttachedGroupPolicies (Prelude.Maybe Prelude.Text)
 listAttachedGroupPolicies_marker = Lens.lens (\ListAttachedGroupPolicies' {marker} -> marker) (\s@ListAttachedGroupPolicies' {} a -> s {marker = a} :: ListAttachedGroupPolicies)
 
 -- | The name (friendly name, not ARN) of the group to list attached policies
@@ -199,7 +200,7 @@ listAttachedGroupPolicies_marker = Lens.lens (\ListAttachedGroupPolicies' {marke
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listAttachedGroupPolicies_groupName :: Lens.Lens' ListAttachedGroupPolicies Core.Text
+listAttachedGroupPolicies_groupName :: Lens.Lens' ListAttachedGroupPolicies Prelude.Text
 listAttachedGroupPolicies_groupName = Lens.lens (\ListAttachedGroupPolicies' {groupName} -> groupName) (\s@ListAttachedGroupPolicies' {} a -> s {groupName = a} :: ListAttachedGroupPolicies)
 
 instance Core.AWSPager ListAttachedGroupPolicies where
@@ -207,22 +208,22 @@ instance Core.AWSPager ListAttachedGroupPolicies where
     | Core.stop
         ( rs
             Lens.^? listAttachedGroupPoliciesResponse_isTruncated
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
             Lens.^? listAttachedGroupPoliciesResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAttachedGroupPolicies_marker
+          Prelude.& listAttachedGroupPolicies_marker
           Lens..~ rs
           Lens.^? listAttachedGroupPoliciesResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedGroupPolicies where
   type
@@ -234,30 +235,32 @@ instance Core.AWSRequest ListAttachedGroupPolicies where
       "ListAttachedGroupPoliciesResult"
       ( \s h x ->
           ListAttachedGroupPoliciesResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> ( x Core..@? "AttachedPolicies" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> ( x Core..@? "AttachedPolicies"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAttachedGroupPolicies
+instance Prelude.Hashable ListAttachedGroupPolicies
 
-instance Core.NFData ListAttachedGroupPolicies
+instance Prelude.NFData ListAttachedGroupPolicies
 
 instance Core.ToHeaders ListAttachedGroupPolicies where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListAttachedGroupPolicies where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListAttachedGroupPolicies where
   toQuery ListAttachedGroupPolicies' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListAttachedGroupPolicies" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListAttachedGroupPolicies" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PathPrefix" Core.=: pathPrefix,
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
@@ -275,17 +278,17 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | A list of the attached policies.
-    attachedPolicies :: Core.Maybe [AttachedPolicy],
+    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAttachedGroupPoliciesResponse' with all optional fields omitted.
@@ -312,14 +315,14 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
 -- 'httpStatus', 'listAttachedGroupPoliciesResponse_httpStatus' - The response's http status code.
 newListAttachedGroupPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAttachedGroupPoliciesResponse
 newListAttachedGroupPoliciesResponse pHttpStatus_ =
   ListAttachedGroupPoliciesResponse'
     { isTruncated =
-        Core.Nothing,
-      attachedPolicies = Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      attachedPolicies = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -330,23 +333,23 @@ newListAttachedGroupPoliciesResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listAttachedGroupPoliciesResponse_isTruncated :: Lens.Lens' ListAttachedGroupPoliciesResponse (Core.Maybe Core.Bool)
+listAttachedGroupPoliciesResponse_isTruncated :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe Prelude.Bool)
 listAttachedGroupPoliciesResponse_isTruncated = Lens.lens (\ListAttachedGroupPoliciesResponse' {isTruncated} -> isTruncated) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {isTruncated = a} :: ListAttachedGroupPoliciesResponse)
 
 -- | A list of the attached policies.
-listAttachedGroupPoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedGroupPoliciesResponse (Core.Maybe [AttachedPolicy])
-listAttachedGroupPoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedGroupPoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedGroupPoliciesResponse) Core.. Lens.mapping Lens._Coerce
+listAttachedGroupPoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe [AttachedPolicy])
+listAttachedGroupPoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedGroupPoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedGroupPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listAttachedGroupPoliciesResponse_marker :: Lens.Lens' ListAttachedGroupPoliciesResponse (Core.Maybe Core.Text)
+listAttachedGroupPoliciesResponse_marker :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe Prelude.Text)
 listAttachedGroupPoliciesResponse_marker = Lens.lens (\ListAttachedGroupPoliciesResponse' {marker} -> marker) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {marker = a} :: ListAttachedGroupPoliciesResponse)
 
 -- | The response's http status code.
-listAttachedGroupPoliciesResponse_httpStatus :: Lens.Lens' ListAttachedGroupPoliciesResponse Core.Int
+listAttachedGroupPoliciesResponse_httpStatus :: Lens.Lens' ListAttachedGroupPoliciesResponse Prelude.Int
 listAttachedGroupPoliciesResponse_httpStatus = Lens.lens (\ListAttachedGroupPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {httpStatus = a} :: ListAttachedGroupPoliciesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListAttachedGroupPoliciesResponse

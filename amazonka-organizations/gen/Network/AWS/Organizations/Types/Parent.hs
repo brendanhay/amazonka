@@ -22,6 +22,7 @@ module Network.AWS.Organizations.Types.Parent where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.ParentType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about either a root or an organizational unit (OU)
 -- that can contain OUs or accounts in an organization.
@@ -40,11 +41,11 @@ data Parent = Parent'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The type of the parent entity.
-    type' :: Core.Maybe ParentType
+    type' :: Prelude.Maybe ParentType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Parent' with all optional fields omitted.
@@ -71,7 +72,10 @@ data Parent = Parent'
 newParent ::
   Parent
 newParent =
-  Parent' {id = Core.Nothing, type' = Core.Nothing}
+  Parent'
+    { id = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
 
 -- | The unique identifier (ID) of the parent entity.
 --
@@ -85,11 +89,11 @@ newParent =
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-parent_id :: Lens.Lens' Parent (Core.Maybe Core.Text)
+parent_id :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
 parent_id = Lens.lens (\Parent' {id} -> id) (\s@Parent' {} a -> s {id = a} :: Parent)
 
 -- | The type of the parent entity.
-parent_type :: Lens.Lens' Parent (Core.Maybe ParentType)
+parent_type :: Lens.Lens' Parent (Prelude.Maybe ParentType)
 parent_type = Lens.lens (\Parent' {type'} -> type') (\s@Parent' {} a -> s {type' = a} :: Parent)
 
 instance Core.FromJSON Parent where
@@ -98,9 +102,9 @@ instance Core.FromJSON Parent where
       "Parent"
       ( \x ->
           Parent'
-            Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable Parent
+instance Prelude.Hashable Parent
 
-instance Core.NFData Parent
+instance Prelude.NFData Parent

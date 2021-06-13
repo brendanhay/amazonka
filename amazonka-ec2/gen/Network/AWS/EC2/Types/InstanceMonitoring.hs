@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Monitoring
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the monitoring of an instance.
 --
 -- /See:/ 'newInstanceMonitoring' smart constructor.
 data InstanceMonitoring = InstanceMonitoring'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The monitoring for the instance.
-    monitoring :: Core.Maybe Monitoring
+    monitoring :: Prelude.Maybe Monitoring
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceMonitoring' with all optional fields omitted.
@@ -50,24 +51,24 @@ newInstanceMonitoring ::
   InstanceMonitoring
 newInstanceMonitoring =
   InstanceMonitoring'
-    { instanceId = Core.Nothing,
-      monitoring = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      monitoring = Prelude.Nothing
     }
 
 -- | The ID of the instance.
-instanceMonitoring_instanceId :: Lens.Lens' InstanceMonitoring (Core.Maybe Core.Text)
+instanceMonitoring_instanceId :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Prelude.Text)
 instanceMonitoring_instanceId = Lens.lens (\InstanceMonitoring' {instanceId} -> instanceId) (\s@InstanceMonitoring' {} a -> s {instanceId = a} :: InstanceMonitoring)
 
 -- | The monitoring for the instance.
-instanceMonitoring_monitoring :: Lens.Lens' InstanceMonitoring (Core.Maybe Monitoring)
+instanceMonitoring_monitoring :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Monitoring)
 instanceMonitoring_monitoring = Lens.lens (\InstanceMonitoring' {monitoring} -> monitoring) (\s@InstanceMonitoring' {} a -> s {monitoring = a} :: InstanceMonitoring)
 
 instance Core.FromXML InstanceMonitoring where
   parseXML x =
     InstanceMonitoring'
-      Core.<$> (x Core..@? "instanceId")
-      Core.<*> (x Core..@? "monitoring")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "monitoring")
 
-instance Core.Hashable InstanceMonitoring
+instance Prelude.Hashable InstanceMonitoring
 
-instance Core.NFData InstanceMonitoring
+instance Prelude.NFData InstanceMonitoring

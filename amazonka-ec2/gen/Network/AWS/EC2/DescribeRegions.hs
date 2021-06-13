@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,10 +63,10 @@ data DescribeRegions = DescribeRegions'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The names of the Regions. You can specify any Regions, whether they are
     -- enabled and disabled for your account.
-    regionNames :: Core.Maybe [Core.Text],
+    regionNames :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @endpoint@ - The endpoint of the Region (for example,
@@ -75,12 +76,12 @@ data DescribeRegions = DescribeRegions'
     --     (@opt-in-not-required@ | @opted-in@ | @not-opted-in@).
     --
     -- -   @region-name@ - The name of the Region (for example, @us-east-1@).
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | Indicates whether to display all Regions, including Regions that are
     -- disabled for your account.
-    allRegions :: Core.Maybe Core.Bool
+    allRegions :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRegions' with all optional fields omitted.
@@ -114,23 +115,23 @@ newDescribeRegions ::
   DescribeRegions
 newDescribeRegions =
   DescribeRegions'
-    { dryRun = Core.Nothing,
-      regionNames = Core.Nothing,
-      filters = Core.Nothing,
-      allRegions = Core.Nothing
+    { dryRun = Prelude.Nothing,
+      regionNames = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      allRegions = Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeRegions_dryRun :: Lens.Lens' DescribeRegions (Core.Maybe Core.Bool)
+describeRegions_dryRun :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
 describeRegions_dryRun = Lens.lens (\DescribeRegions' {dryRun} -> dryRun) (\s@DescribeRegions' {} a -> s {dryRun = a} :: DescribeRegions)
 
 -- | The names of the Regions. You can specify any Regions, whether they are
 -- enabled and disabled for your account.
-describeRegions_regionNames :: Lens.Lens' DescribeRegions (Core.Maybe [Core.Text])
-describeRegions_regionNames = Lens.lens (\DescribeRegions' {regionNames} -> regionNames) (\s@DescribeRegions' {} a -> s {regionNames = a} :: DescribeRegions) Core.. Lens.mapping Lens._Coerce
+describeRegions_regionNames :: Lens.Lens' DescribeRegions (Prelude.Maybe [Prelude.Text])
+describeRegions_regionNames = Lens.lens (\DescribeRegions' {regionNames} -> regionNames) (\s@DescribeRegions' {} a -> s {regionNames = a} :: DescribeRegions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -141,12 +142,12 @@ describeRegions_regionNames = Lens.lens (\DescribeRegions' {regionNames} -> regi
 --     (@opt-in-not-required@ | @opted-in@ | @not-opted-in@).
 --
 -- -   @region-name@ - The name of the Region (for example, @us-east-1@).
-describeRegions_filters :: Lens.Lens' DescribeRegions (Core.Maybe [Filter])
-describeRegions_filters = Lens.lens (\DescribeRegions' {filters} -> filters) (\s@DescribeRegions' {} a -> s {filters = a} :: DescribeRegions) Core.. Lens.mapping Lens._Coerce
+describeRegions_filters :: Lens.Lens' DescribeRegions (Prelude.Maybe [Filter])
+describeRegions_filters = Lens.lens (\DescribeRegions' {filters} -> filters) (\s@DescribeRegions' {} a -> s {filters = a} :: DescribeRegions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether to display all Regions, including Regions that are
 -- disabled for your account.
-describeRegions_allRegions :: Lens.Lens' DescribeRegions (Core.Maybe Core.Bool)
+describeRegions_allRegions :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
 describeRegions_allRegions = Lens.lens (\DescribeRegions' {allRegions} -> allRegions) (\s@DescribeRegions' {} a -> s {allRegions = a} :: DescribeRegions)
 
 instance Core.AWSRequest DescribeRegions where
@@ -158,44 +159,47 @@ instance Core.AWSRequest DescribeRegions where
     Response.receiveXML
       ( \s h x ->
           DescribeRegionsResponse'
-            Core.<$> ( x Core..@? "regionInfo" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "regionInfo" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRegions
+instance Prelude.Hashable DescribeRegions
 
-instance Core.NFData DescribeRegions
+instance Prelude.NFData DescribeRegions
 
 instance Core.ToHeaders DescribeRegions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeRegions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeRegions where
   toQuery DescribeRegions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeRegions" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeRegions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "RegionName" Core.<$> regionNames),
+          ( Core.toQueryList "RegionName"
+              Prelude.<$> regionNames
+          ),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters),
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "AllRegions" Core.=: allRegions
       ]
 
 -- | /See:/ 'newDescribeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
   { -- | Information about the Regions.
-    regions :: Core.Maybe [RegionInfo],
+    regions :: Prelude.Maybe [RegionInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRegionsResponse' with all optional fields omitted.
@@ -210,20 +214,20 @@ data DescribeRegionsResponse = DescribeRegionsResponse'
 -- 'httpStatus', 'describeRegionsResponse_httpStatus' - The response's http status code.
 newDescribeRegionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRegionsResponse
 newDescribeRegionsResponse pHttpStatus_ =
   DescribeRegionsResponse'
-    { regions = Core.Nothing,
+    { regions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Regions.
-describeRegionsResponse_regions :: Lens.Lens' DescribeRegionsResponse (Core.Maybe [RegionInfo])
-describeRegionsResponse_regions = Lens.lens (\DescribeRegionsResponse' {regions} -> regions) (\s@DescribeRegionsResponse' {} a -> s {regions = a} :: DescribeRegionsResponse) Core.. Lens.mapping Lens._Coerce
+describeRegionsResponse_regions :: Lens.Lens' DescribeRegionsResponse (Prelude.Maybe [RegionInfo])
+describeRegionsResponse_regions = Lens.lens (\DescribeRegionsResponse' {regions} -> regions) (\s@DescribeRegionsResponse' {} a -> s {regions = a} :: DescribeRegionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Core.Int
+describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Prelude.Int
 describeRegionsResponse_httpStatus = Lens.lens (\DescribeRegionsResponse' {httpStatus} -> httpStatus) (\s@DescribeRegionsResponse' {} a -> s {httpStatus = a} :: DescribeRegionsResponse)
 
-instance Core.NFData DescribeRegionsResponse
+instance Prelude.NFData DescribeRegionsResponse

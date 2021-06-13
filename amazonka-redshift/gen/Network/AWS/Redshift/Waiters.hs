@@ -17,6 +17,7 @@ module Network.AWS.Redshift.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Redshift.DescribeClusters
 import Network.AWS.Redshift.Lens
@@ -36,14 +37,14 @@ newClusterRestored =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClustersResponse_clusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cluster_restoreStatus
-                Core.. Lens._Just
-                Core.. restoreStatus_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_restoreStatus
+                Prelude.. Lens._Just
+                Prelude.. restoreStatus_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -51,12 +52,12 @@ newClusterRestored =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClustersResponse_clusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cluster_clusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_clusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -78,12 +79,12 @@ newClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClustersResponse_clusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cluster_clusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_clusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -91,12 +92,12 @@ newClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClustersResponse_clusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cluster_clusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_clusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -115,12 +116,12 @@ newClusterAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClustersResponse_clusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cluster_clusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_clusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -128,12 +129,12 @@ newClusterAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClustersResponse_clusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cluster_clusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_clusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError "ClusterNotFound" Core.AcceptRetry
         ]
@@ -153,12 +154,12 @@ newSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClusterSnapshotsResponse_snapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. snapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. snapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -166,12 +167,12 @@ newSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClusterSnapshotsResponse_snapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. snapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. snapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -179,12 +180,12 @@ newSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeClusterSnapshotsResponse_snapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. snapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. snapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.UnindexedFace where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.FaceDetail
 import Network.AWS.Rekognition.Types.Reason
 
@@ -31,7 +32,7 @@ import Network.AWS.Rekognition.Types.Reason
 data UnindexedFace = UnindexedFace'
   { -- | The structure that contains attributes of a face that
     -- @IndexFaces@detected, but didn\'t index.
-    faceDetail :: Core.Maybe FaceDetail,
+    faceDetail :: Prelude.Maybe FaceDetail,
     -- | An array of reasons that specify why a face wasn\'t indexed.
     --
     -- -   EXTREME_POSE - The face is at a pose that can\'t be detected. For
@@ -48,9 +49,9 @@ data UnindexedFace = UnindexedFace'
     -- -   LOW_CONFIDENCE - The face was detected with a low confidence.
     --
     -- -   SMALL_BOUNDING_BOX - The bounding box around the face is too small.
-    reasons :: Core.Maybe [Reason]
+    reasons :: Prelude.Maybe [Reason]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnindexedFace' with all optional fields omitted.
@@ -83,13 +84,13 @@ newUnindexedFace ::
   UnindexedFace
 newUnindexedFace =
   UnindexedFace'
-    { faceDetail = Core.Nothing,
-      reasons = Core.Nothing
+    { faceDetail = Prelude.Nothing,
+      reasons = Prelude.Nothing
     }
 
 -- | The structure that contains attributes of a face that
 -- @IndexFaces@detected, but didn\'t index.
-unindexedFace_faceDetail :: Lens.Lens' UnindexedFace (Core.Maybe FaceDetail)
+unindexedFace_faceDetail :: Lens.Lens' UnindexedFace (Prelude.Maybe FaceDetail)
 unindexedFace_faceDetail = Lens.lens (\UnindexedFace' {faceDetail} -> faceDetail) (\s@UnindexedFace' {} a -> s {faceDetail = a} :: UnindexedFace)
 
 -- | An array of reasons that specify why a face wasn\'t indexed.
@@ -108,8 +109,8 @@ unindexedFace_faceDetail = Lens.lens (\UnindexedFace' {faceDetail} -> faceDetail
 -- -   LOW_CONFIDENCE - The face was detected with a low confidence.
 --
 -- -   SMALL_BOUNDING_BOX - The bounding box around the face is too small.
-unindexedFace_reasons :: Lens.Lens' UnindexedFace (Core.Maybe [Reason])
-unindexedFace_reasons = Lens.lens (\UnindexedFace' {reasons} -> reasons) (\s@UnindexedFace' {} a -> s {reasons = a} :: UnindexedFace) Core.. Lens.mapping Lens._Coerce
+unindexedFace_reasons :: Lens.Lens' UnindexedFace (Prelude.Maybe [Reason])
+unindexedFace_reasons = Lens.lens (\UnindexedFace' {reasons} -> reasons) (\s@UnindexedFace' {} a -> s {reasons = a} :: UnindexedFace) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON UnindexedFace where
   parseJSON =
@@ -117,10 +118,10 @@ instance Core.FromJSON UnindexedFace where
       "UnindexedFace"
       ( \x ->
           UnindexedFace'
-            Core.<$> (x Core..:? "FaceDetail")
-            Core.<*> (x Core..:? "Reasons" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "FaceDetail")
+            Prelude.<*> (x Core..:? "Reasons" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable UnindexedFace
+instance Prelude.Hashable UnindexedFace
 
-instance Core.NFData UnindexedFace
+instance Prelude.NFData UnindexedFace

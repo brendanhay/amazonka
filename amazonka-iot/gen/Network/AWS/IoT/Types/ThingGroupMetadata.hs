@@ -22,19 +22,20 @@ module Network.AWS.IoT.Types.ThingGroupMetadata where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.GroupNameAndArn
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Thing group metadata.
 --
 -- /See:/ 'newThingGroupMetadata' smart constructor.
 data ThingGroupMetadata = ThingGroupMetadata'
   { -- | The parent thing group name.
-    parentGroupName :: Core.Maybe Core.Text,
+    parentGroupName :: Prelude.Maybe Prelude.Text,
     -- | The UNIX timestamp of when the thing group was created.
-    creationDate :: Core.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The root parent thing group.
-    rootToParentThingGroups :: Core.Maybe [GroupNameAndArn]
+    rootToParentThingGroups :: Prelude.Maybe [GroupNameAndArn]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ThingGroupMetadata' with all optional fields omitted.
@@ -53,22 +54,23 @@ newThingGroupMetadata ::
   ThingGroupMetadata
 newThingGroupMetadata =
   ThingGroupMetadata'
-    { parentGroupName = Core.Nothing,
-      creationDate = Core.Nothing,
-      rootToParentThingGroups = Core.Nothing
+    { parentGroupName =
+        Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      rootToParentThingGroups = Prelude.Nothing
     }
 
 -- | The parent thing group name.
-thingGroupMetadata_parentGroupName :: Lens.Lens' ThingGroupMetadata (Core.Maybe Core.Text)
+thingGroupMetadata_parentGroupName :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe Prelude.Text)
 thingGroupMetadata_parentGroupName = Lens.lens (\ThingGroupMetadata' {parentGroupName} -> parentGroupName) (\s@ThingGroupMetadata' {} a -> s {parentGroupName = a} :: ThingGroupMetadata)
 
 -- | The UNIX timestamp of when the thing group was created.
-thingGroupMetadata_creationDate :: Lens.Lens' ThingGroupMetadata (Core.Maybe Core.UTCTime)
-thingGroupMetadata_creationDate = Lens.lens (\ThingGroupMetadata' {creationDate} -> creationDate) (\s@ThingGroupMetadata' {} a -> s {creationDate = a} :: ThingGroupMetadata) Core.. Lens.mapping Core._Time
+thingGroupMetadata_creationDate :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe Prelude.UTCTime)
+thingGroupMetadata_creationDate = Lens.lens (\ThingGroupMetadata' {creationDate} -> creationDate) (\s@ThingGroupMetadata' {} a -> s {creationDate = a} :: ThingGroupMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The root parent thing group.
-thingGroupMetadata_rootToParentThingGroups :: Lens.Lens' ThingGroupMetadata (Core.Maybe [GroupNameAndArn])
-thingGroupMetadata_rootToParentThingGroups = Lens.lens (\ThingGroupMetadata' {rootToParentThingGroups} -> rootToParentThingGroups) (\s@ThingGroupMetadata' {} a -> s {rootToParentThingGroups = a} :: ThingGroupMetadata) Core.. Lens.mapping Lens._Coerce
+thingGroupMetadata_rootToParentThingGroups :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe [GroupNameAndArn])
+thingGroupMetadata_rootToParentThingGroups = Lens.lens (\ThingGroupMetadata' {rootToParentThingGroups} -> rootToParentThingGroups) (\s@ThingGroupMetadata' {} a -> s {rootToParentThingGroups = a} :: ThingGroupMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ThingGroupMetadata where
   parseJSON =
@@ -76,13 +78,13 @@ instance Core.FromJSON ThingGroupMetadata where
       "ThingGroupMetadata"
       ( \x ->
           ThingGroupMetadata'
-            Core.<$> (x Core..:? "parentGroupName")
-            Core.<*> (x Core..:? "creationDate")
-            Core.<*> ( x Core..:? "rootToParentThingGroups"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "parentGroupName")
+            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> ( x Core..:? "rootToParentThingGroups"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ThingGroupMetadata
+instance Prelude.Hashable ThingGroupMetadata
 
-instance Core.NFData ThingGroupMetadata
+instance Prelude.NFData ThingGroupMetadata

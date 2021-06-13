@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that represents user-provided metadata that can be
 -- associated with an IAM resource. For more information about tagging, see
@@ -31,7 +32,7 @@ import qualified Network.AWS.Lens as Lens
 data Tag = Tag'
   { -- | The key name that can be used to look up or retrieve the associated
     -- value. For example, @Department@ or @Cost Center@ are common choices.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The value associated with this tag. For example, tags with a key name of
     -- @Department@ could have values such as @Human Resources@, @Accounting@,
     -- and @Support@. Tags with a key name of @Cost Center@ might have values
@@ -42,9 +43,9 @@ data Tag = Tag'
     -- AWS always interprets the tag @Value@ as a single string. If you need to
     -- store an array, you can store comma-separated values in the string.
     -- However, you must interpret the value in your code.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -69,16 +70,16 @@ data Tag = Tag'
 -- However, you must interpret the value in your code.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
 -- | The key name that can be used to look up or retrieve the associated
 -- value. For example, @Department@ or @Cost Center@ are common choices.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value associated with this tag. For example, tags with a key name of
@@ -91,19 +92,19 @@ tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 -- AWS always interprets the tag @Value@ as a single string. If you need to
 -- store an array, you can store comma-separated values in the string.
 -- However, you must interpret the value in your code.
-tag_value :: Lens.Lens' Tag Core.Text
+tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Core.<$> (x Core..@ "Key") Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@ "Key") Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToQuery Tag where
   toQuery Tag' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Key" Core.=: key, "Value" Core.=: value]

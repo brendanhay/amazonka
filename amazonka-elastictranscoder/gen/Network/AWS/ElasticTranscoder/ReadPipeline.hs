@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newReadPipeline' smart constructor.
 data ReadPipeline = ReadPipeline'
   { -- | The identifier of the pipeline to read.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReadPipeline' with all optional fields omitted.
@@ -66,12 +67,12 @@ data ReadPipeline = ReadPipeline'
 -- 'id', 'readPipeline_id' - The identifier of the pipeline to read.
 newReadPipeline ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   ReadPipeline
 newReadPipeline pId_ = ReadPipeline' {id = pId_}
 
 -- | The identifier of the pipeline to read.
-readPipeline_id :: Lens.Lens' ReadPipeline Core.Text
+readPipeline_id :: Lens.Lens' ReadPipeline Prelude.Text
 readPipeline_id = Lens.lens (\ReadPipeline' {id} -> id) (\s@ReadPipeline' {} a -> s {id = a} :: ReadPipeline)
 
 instance Core.AWSRequest ReadPipeline where
@@ -81,25 +82,25 @@ instance Core.AWSRequest ReadPipeline where
     Response.receiveJSON
       ( \s h x ->
           ReadPipelineResponse'
-            Core.<$> (x Core..?> "Warnings" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Pipeline")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Pipeline")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ReadPipeline
+instance Prelude.Hashable ReadPipeline
 
-instance Core.NFData ReadPipeline
+instance Prelude.NFData ReadPipeline
 
 instance Core.ToHeaders ReadPipeline where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ReadPipeline where
   toPath ReadPipeline' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2012-09-25/pipelines/", Core.toBS id]
 
 instance Core.ToQuery ReadPipeline where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The @ReadPipelineResponse@ structure.
 --
@@ -111,14 +112,14 @@ data ReadPipelineResponse = ReadPipelineResponse'
     -- Using resources in the same region, such as your Amazon S3 buckets,
     -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
     -- and prevents cross-regional charges.
-    warnings :: Core.Maybe [Warning],
+    warnings :: Prelude.Maybe [Warning],
     -- | A section of the response body that provides information about the
     -- pipeline.
-    pipeline :: Core.Maybe Pipeline,
+    pipeline :: Prelude.Maybe Pipeline,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReadPipelineResponse' with all optional fields omitted.
@@ -141,12 +142,12 @@ data ReadPipelineResponse = ReadPipelineResponse'
 -- 'httpStatus', 'readPipelineResponse_httpStatus' - The response's http status code.
 newReadPipelineResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ReadPipelineResponse
 newReadPipelineResponse pHttpStatus_ =
   ReadPipelineResponse'
-    { warnings = Core.Nothing,
-      pipeline = Core.Nothing,
+    { warnings = Prelude.Nothing,
+      pipeline = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -156,16 +157,16 @@ newReadPipelineResponse pHttpStatus_ =
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-readPipelineResponse_warnings :: Lens.Lens' ReadPipelineResponse (Core.Maybe [Warning])
-readPipelineResponse_warnings = Lens.lens (\ReadPipelineResponse' {warnings} -> warnings) (\s@ReadPipelineResponse' {} a -> s {warnings = a} :: ReadPipelineResponse) Core.. Lens.mapping Lens._Coerce
+readPipelineResponse_warnings :: Lens.Lens' ReadPipelineResponse (Prelude.Maybe [Warning])
+readPipelineResponse_warnings = Lens.lens (\ReadPipelineResponse' {warnings} -> warnings) (\s@ReadPipelineResponse' {} a -> s {warnings = a} :: ReadPipelineResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-readPipelineResponse_pipeline :: Lens.Lens' ReadPipelineResponse (Core.Maybe Pipeline)
+readPipelineResponse_pipeline :: Lens.Lens' ReadPipelineResponse (Prelude.Maybe Pipeline)
 readPipelineResponse_pipeline = Lens.lens (\ReadPipelineResponse' {pipeline} -> pipeline) (\s@ReadPipelineResponse' {} a -> s {pipeline = a} :: ReadPipelineResponse)
 
 -- | The response's http status code.
-readPipelineResponse_httpStatus :: Lens.Lens' ReadPipelineResponse Core.Int
+readPipelineResponse_httpStatus :: Lens.Lens' ReadPipelineResponse Prelude.Int
 readPipelineResponse_httpStatus = Lens.lens (\ReadPipelineResponse' {httpStatus} -> httpStatus) (\s@ReadPipelineResponse' {} a -> s {httpStatus = a} :: ReadPipelineResponse)
 
-instance Core.NFData ReadPipelineResponse
+instance Prelude.NFData ReadPipelineResponse

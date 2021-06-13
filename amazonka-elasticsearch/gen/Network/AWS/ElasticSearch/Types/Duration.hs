@@ -22,6 +22,7 @@ module Network.AWS.ElasticSearch.Types.Duration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.TimeUnit
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies maintenance schedule duration: duration value and duration
 -- unit. See the
@@ -34,13 +35,13 @@ data Duration = Duration'
     -- HOURS. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    unit :: Core.Maybe TimeUnit,
+    unit :: Prelude.Maybe TimeUnit,
     -- | Integer to specify the value of a maintenance schedule duration. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    value :: Core.Maybe Core.Natural
+    value :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Duration' with all optional fields omitted.
@@ -62,21 +63,21 @@ newDuration ::
   Duration
 newDuration =
   Duration'
-    { unit = Core.Nothing,
-      value = Core.Nothing
+    { unit = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Specifies the unit of a maintenance schedule duration. Valid value is
 -- HOURS. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-duration_unit :: Lens.Lens' Duration (Core.Maybe TimeUnit)
+duration_unit :: Lens.Lens' Duration (Prelude.Maybe TimeUnit)
 duration_unit = Lens.lens (\Duration' {unit} -> unit) (\s@Duration' {} a -> s {unit = a} :: Duration)
 
 -- | Integer to specify the value of a maintenance schedule duration. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-duration_value :: Lens.Lens' Duration (Core.Maybe Core.Natural)
+duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
 duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
 
 instance Core.FromJSON Duration where
@@ -85,18 +86,18 @@ instance Core.FromJSON Duration where
       "Duration"
       ( \x ->
           Duration'
-            Core.<$> (x Core..:? "Unit") Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Unit") Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Duration
+instance Prelude.Hashable Duration
 
-instance Core.NFData Duration
+instance Prelude.NFData Duration
 
 instance Core.ToJSON Duration where
   toJSON Duration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Unit" Core..=) Core.<$> unit,
-            ("Value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("Unit" Core..=) Prelude.<$> unit,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

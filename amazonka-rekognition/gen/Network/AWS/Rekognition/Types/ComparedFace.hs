@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.ComparedFace where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 import Network.AWS.Rekognition.Types.ImageQuality
 import Network.AWS.Rekognition.Types.Landmark
@@ -33,17 +34,17 @@ import Network.AWS.Rekognition.Types.Pose
 data ComparedFace = ComparedFace'
   { -- | Indicates the pose of the face as determined by its pitch, roll, and
     -- yaw.
-    pose :: Core.Maybe Pose,
+    pose :: Prelude.Maybe Pose,
     -- | An array of facial landmarks.
-    landmarks :: Core.Maybe [Landmark],
+    landmarks :: Prelude.Maybe [Landmark],
     -- | Bounding box of the face.
-    boundingBox :: Core.Maybe BoundingBox,
+    boundingBox :: Prelude.Maybe BoundingBox,
     -- | Level of confidence that what the bounding box contains is a face.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | Identifies face image brightness and sharpness.
-    quality :: Core.Maybe ImageQuality
+    quality :: Prelude.Maybe ImageQuality
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ComparedFace' with all optional fields omitted.
@@ -67,32 +68,32 @@ newComparedFace ::
   ComparedFace
 newComparedFace =
   ComparedFace'
-    { pose = Core.Nothing,
-      landmarks = Core.Nothing,
-      boundingBox = Core.Nothing,
-      confidence = Core.Nothing,
-      quality = Core.Nothing
+    { pose = Prelude.Nothing,
+      landmarks = Prelude.Nothing,
+      boundingBox = Prelude.Nothing,
+      confidence = Prelude.Nothing,
+      quality = Prelude.Nothing
     }
 
 -- | Indicates the pose of the face as determined by its pitch, roll, and
 -- yaw.
-comparedFace_pose :: Lens.Lens' ComparedFace (Core.Maybe Pose)
+comparedFace_pose :: Lens.Lens' ComparedFace (Prelude.Maybe Pose)
 comparedFace_pose = Lens.lens (\ComparedFace' {pose} -> pose) (\s@ComparedFace' {} a -> s {pose = a} :: ComparedFace)
 
 -- | An array of facial landmarks.
-comparedFace_landmarks :: Lens.Lens' ComparedFace (Core.Maybe [Landmark])
-comparedFace_landmarks = Lens.lens (\ComparedFace' {landmarks} -> landmarks) (\s@ComparedFace' {} a -> s {landmarks = a} :: ComparedFace) Core.. Lens.mapping Lens._Coerce
+comparedFace_landmarks :: Lens.Lens' ComparedFace (Prelude.Maybe [Landmark])
+comparedFace_landmarks = Lens.lens (\ComparedFace' {landmarks} -> landmarks) (\s@ComparedFace' {} a -> s {landmarks = a} :: ComparedFace) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Bounding box of the face.
-comparedFace_boundingBox :: Lens.Lens' ComparedFace (Core.Maybe BoundingBox)
+comparedFace_boundingBox :: Lens.Lens' ComparedFace (Prelude.Maybe BoundingBox)
 comparedFace_boundingBox = Lens.lens (\ComparedFace' {boundingBox} -> boundingBox) (\s@ComparedFace' {} a -> s {boundingBox = a} :: ComparedFace)
 
 -- | Level of confidence that what the bounding box contains is a face.
-comparedFace_confidence :: Lens.Lens' ComparedFace (Core.Maybe Core.Double)
+comparedFace_confidence :: Lens.Lens' ComparedFace (Prelude.Maybe Prelude.Double)
 comparedFace_confidence = Lens.lens (\ComparedFace' {confidence} -> confidence) (\s@ComparedFace' {} a -> s {confidence = a} :: ComparedFace)
 
 -- | Identifies face image brightness and sharpness.
-comparedFace_quality :: Lens.Lens' ComparedFace (Core.Maybe ImageQuality)
+comparedFace_quality :: Lens.Lens' ComparedFace (Prelude.Maybe ImageQuality)
 comparedFace_quality = Lens.lens (\ComparedFace' {quality} -> quality) (\s@ComparedFace' {} a -> s {quality = a} :: ComparedFace)
 
 instance Core.FromJSON ComparedFace where
@@ -101,13 +102,13 @@ instance Core.FromJSON ComparedFace where
       "ComparedFace"
       ( \x ->
           ComparedFace'
-            Core.<$> (x Core..:? "Pose")
-            Core.<*> (x Core..:? "Landmarks" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "BoundingBox")
-            Core.<*> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Quality")
+            Prelude.<$> (x Core..:? "Pose")
+            Prelude.<*> (x Core..:? "Landmarks" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Quality")
       )
 
-instance Core.Hashable ComparedFace
+instance Prelude.Hashable ComparedFace
 
-instance Core.NFData ComparedFace
+instance Prelude.NFData ComparedFace

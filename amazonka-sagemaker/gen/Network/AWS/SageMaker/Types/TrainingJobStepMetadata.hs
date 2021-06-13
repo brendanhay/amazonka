@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TrainingJobStepMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for a training job step.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data TrainingJobStepMetadata = TrainingJobStepMetadata'
   { -- | The Amazon Resource Name (ARN) of the training job that was run by this
     -- step execution.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrainingJobStepMetadata' with all optional fields omitted.
@@ -45,11 +46,11 @@ data TrainingJobStepMetadata = TrainingJobStepMetadata'
 newTrainingJobStepMetadata ::
   TrainingJobStepMetadata
 newTrainingJobStepMetadata =
-  TrainingJobStepMetadata' {arn = Core.Nothing}
+  TrainingJobStepMetadata' {arn = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the training job that was run by this
 -- step execution.
-trainingJobStepMetadata_arn :: Lens.Lens' TrainingJobStepMetadata (Core.Maybe Core.Text)
+trainingJobStepMetadata_arn :: Lens.Lens' TrainingJobStepMetadata (Prelude.Maybe Prelude.Text)
 trainingJobStepMetadata_arn = Lens.lens (\TrainingJobStepMetadata' {arn} -> arn) (\s@TrainingJobStepMetadata' {} a -> s {arn = a} :: TrainingJobStepMetadata)
 
 instance Core.FromJSON TrainingJobStepMetadata where
@@ -57,9 +58,10 @@ instance Core.FromJSON TrainingJobStepMetadata where
     Core.withObject
       "TrainingJobStepMetadata"
       ( \x ->
-          TrainingJobStepMetadata' Core.<$> (x Core..:? "Arn")
+          TrainingJobStepMetadata'
+            Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Core.Hashable TrainingJobStepMetadata
+instance Prelude.Hashable TrainingJobStepMetadata
 
-instance Core.NFData TrainingJobStepMetadata
+instance Prelude.NFData TrainingJobStepMetadata

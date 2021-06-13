@@ -21,21 +21,22 @@ module Network.AWS.FMS.Types.App where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An individual AWS Firewall Manager application.
 --
 -- /See:/ 'newApp' smart constructor.
 data App = App'
   { -- | The application\'s name.
-    appName :: Core.Text,
+    appName :: Prelude.Text,
     -- | The IP protocol name or number. The name can be one of @tcp@, @udp@, or
     -- @icmp@. For information on possible numbers, see
     -- <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>.
-    protocol :: Core.Text,
+    protocol :: Prelude.Text,
     -- | The application\'s port number, for example @80@.
-    port :: Core.Natural
+    port :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'App' with all optional fields omitted.
@@ -54,11 +55,11 @@ data App = App'
 -- 'port', 'app_port' - The application\'s port number, for example @80@.
 newApp ::
   -- | 'appName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'protocol'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'port'
-  Core.Natural ->
+  Prelude.Natural ->
   App
 newApp pAppName_ pProtocol_ pPort_ =
   App'
@@ -68,17 +69,17 @@ newApp pAppName_ pProtocol_ pPort_ =
     }
 
 -- | The application\'s name.
-app_appName :: Lens.Lens' App Core.Text
+app_appName :: Lens.Lens' App Prelude.Text
 app_appName = Lens.lens (\App' {appName} -> appName) (\s@App' {} a -> s {appName = a} :: App)
 
 -- | The IP protocol name or number. The name can be one of @tcp@, @udp@, or
 -- @icmp@. For information on possible numbers, see
 -- <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>.
-app_protocol :: Lens.Lens' App Core.Text
+app_protocol :: Lens.Lens' App Prelude.Text
 app_protocol = Lens.lens (\App' {protocol} -> protocol) (\s@App' {} a -> s {protocol = a} :: App)
 
 -- | The application\'s port number, for example @80@.
-app_port :: Lens.Lens' App Core.Natural
+app_port :: Lens.Lens' App Prelude.Natural
 app_port = Lens.lens (\App' {port} -> port) (\s@App' {} a -> s {port = a} :: App)
 
 instance Core.FromJSON App where
@@ -87,21 +88,21 @@ instance Core.FromJSON App where
       "App"
       ( \x ->
           App'
-            Core.<$> (x Core..: "AppName")
-            Core.<*> (x Core..: "Protocol")
-            Core.<*> (x Core..: "Port")
+            Prelude.<$> (x Core..: "AppName")
+            Prelude.<*> (x Core..: "Protocol")
+            Prelude.<*> (x Core..: "Port")
       )
 
-instance Core.Hashable App
+instance Prelude.Hashable App
 
-instance Core.NFData App
+instance Prelude.NFData App
 
 instance Core.ToJSON App where
   toJSON App' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AppName" Core..= appName),
-            Core.Just ("Protocol" Core..= protocol),
-            Core.Just ("Port" Core..= port)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AppName" Core..= appName),
+            Prelude.Just ("Protocol" Core..= protocol),
+            Prelude.Just ("Port" Core..= port)
           ]
       )

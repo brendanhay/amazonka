@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.EnclaveOptions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data EnclaveOptions = EnclaveOptions'
   { -- | If this parameter is set to @true@, the instance is enabled for AWS
     -- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnclaveOptions' with all optional fields omitted.
@@ -46,17 +47,17 @@ data EnclaveOptions = EnclaveOptions'
 newEnclaveOptions ::
   EnclaveOptions
 newEnclaveOptions =
-  EnclaveOptions' {enabled = Core.Nothing}
+  EnclaveOptions' {enabled = Prelude.Nothing}
 
 -- | If this parameter is set to @true@, the instance is enabled for AWS
 -- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-enclaveOptions_enabled :: Lens.Lens' EnclaveOptions (Core.Maybe Core.Bool)
+enclaveOptions_enabled :: Lens.Lens' EnclaveOptions (Prelude.Maybe Prelude.Bool)
 enclaveOptions_enabled = Lens.lens (\EnclaveOptions' {enabled} -> enabled) (\s@EnclaveOptions' {} a -> s {enabled = a} :: EnclaveOptions)
 
 instance Core.FromXML EnclaveOptions where
   parseXML x =
-    EnclaveOptions' Core.<$> (x Core..@? "enabled")
+    EnclaveOptions' Prelude.<$> (x Core..@? "enabled")
 
-instance Core.Hashable EnclaveOptions
+instance Prelude.Hashable EnclaveOptions
 
-instance Core.NFData EnclaveOptions
+instance Prelude.NFData EnclaveOptions

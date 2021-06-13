@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AbortAction
 import Network.AWS.IoT.Types.JobExecutionFailureType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The criteria that determine when and how a job abort takes place.
 --
@@ -37,12 +38,12 @@ data AbortCriteria = AbortCriteria'
     --
     -- AWS IoT supports up to two digits after the decimal (for example, 10.9
     -- and 10.99, but not 10.999).
-    thresholdPercentage :: Core.Double,
+    thresholdPercentage :: Prelude.Double,
     -- | The minimum number of things which must receive job execution
     -- notifications before the job can be aborted.
-    minNumberOfExecutedThings :: Core.Natural
+    minNumberOfExecutedThings :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AbortCriteria' with all optional fields omitted.
@@ -70,9 +71,9 @@ newAbortCriteria ::
   -- | 'action'
   AbortAction ->
   -- | 'thresholdPercentage'
-  Core.Double ->
+  Prelude.Double ->
   -- | 'minNumberOfExecutedThings'
-  Core.Natural ->
+  Prelude.Natural ->
   AbortCriteria
 newAbortCriteria
   pFailureType_
@@ -100,12 +101,12 @@ abortCriteria_action = Lens.lens (\AbortCriteria' {action} -> action) (\s@AbortC
 --
 -- AWS IoT supports up to two digits after the decimal (for example, 10.9
 -- and 10.99, but not 10.999).
-abortCriteria_thresholdPercentage :: Lens.Lens' AbortCriteria Core.Double
+abortCriteria_thresholdPercentage :: Lens.Lens' AbortCriteria Prelude.Double
 abortCriteria_thresholdPercentage = Lens.lens (\AbortCriteria' {thresholdPercentage} -> thresholdPercentage) (\s@AbortCriteria' {} a -> s {thresholdPercentage = a} :: AbortCriteria)
 
 -- | The minimum number of things which must receive job execution
 -- notifications before the job can be aborted.
-abortCriteria_minNumberOfExecutedThings :: Lens.Lens' AbortCriteria Core.Natural
+abortCriteria_minNumberOfExecutedThings :: Lens.Lens' AbortCriteria Prelude.Natural
 abortCriteria_minNumberOfExecutedThings = Lens.lens (\AbortCriteria' {minNumberOfExecutedThings} -> minNumberOfExecutedThings) (\s@AbortCriteria' {} a -> s {minNumberOfExecutedThings = a} :: AbortCriteria)
 
 instance Core.FromJSON AbortCriteria where
@@ -114,25 +115,25 @@ instance Core.FromJSON AbortCriteria where
       "AbortCriteria"
       ( \x ->
           AbortCriteria'
-            Core.<$> (x Core..: "failureType")
-            Core.<*> (x Core..: "action")
-            Core.<*> (x Core..: "thresholdPercentage")
-            Core.<*> (x Core..: "minNumberOfExecutedThings")
+            Prelude.<$> (x Core..: "failureType")
+            Prelude.<*> (x Core..: "action")
+            Prelude.<*> (x Core..: "thresholdPercentage")
+            Prelude.<*> (x Core..: "minNumberOfExecutedThings")
       )
 
-instance Core.Hashable AbortCriteria
+instance Prelude.Hashable AbortCriteria
 
-instance Core.NFData AbortCriteria
+instance Prelude.NFData AbortCriteria
 
 instance Core.ToJSON AbortCriteria where
   toJSON AbortCriteria' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("failureType" Core..= failureType),
-            Core.Just ("action" Core..= action),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("failureType" Core..= failureType),
+            Prelude.Just ("action" Core..= action),
+            Prelude.Just
               ("thresholdPercentage" Core..= thresholdPercentage),
-            Core.Just
+            Prelude.Just
               ( "minNumberOfExecutedThings"
                   Core..= minNumberOfExecutedThings
               )

@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a tag key and optional value assigned to an Amazon Lightsail
 -- resource.
@@ -34,14 +35,14 @@ data Tag = Tag'
     --
     -- Constraints: Tag keys accept a maximum of 128 letters, numbers, spaces
     -- in UTF-8, or the following characters: + - = . _ : \/ \@
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value of the tag.
     --
     -- Constraints: Tag values accept a maximum of 256 letters, numbers, spaces
     -- in UTF-8, or the following characters: + - = . _ : \/ \@
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -63,20 +64,23 @@ data Tag = Tag'
 newTag ::
   Tag
 newTag =
-  Tag' {key = Core.Nothing, value = Core.Nothing}
+  Tag'
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
+    }
 
 -- | The key of the tag.
 --
 -- Constraints: Tag keys accept a maximum of 128 letters, numbers, spaces
 -- in UTF-8, or the following characters: + - = . _ : \/ \@
-tag_key :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value of the tag.
 --
 -- Constraints: Tag values accept a maximum of 256 letters, numbers, spaces
 -- in UTF-8, or the following characters: + - = . _ : \/ \@
-tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -85,18 +89,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..:? "key") Core.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("key" Core..=) Core.<$> key,
-            ("value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("key" Core..=) Prelude.<$> key,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

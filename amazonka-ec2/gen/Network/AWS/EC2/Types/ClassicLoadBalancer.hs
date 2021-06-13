@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.ClassicLoadBalancer where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Classic Load Balancer.
 --
 -- /See:/ 'newClassicLoadBalancer' smart constructor.
 data ClassicLoadBalancer = ClassicLoadBalancer'
   { -- | The name of the load balancer.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClassicLoadBalancer' with all optional fields omitted.
@@ -44,20 +45,21 @@ data ClassicLoadBalancer = ClassicLoadBalancer'
 newClassicLoadBalancer ::
   ClassicLoadBalancer
 newClassicLoadBalancer =
-  ClassicLoadBalancer' {name = Core.Nothing}
+  ClassicLoadBalancer' {name = Prelude.Nothing}
 
 -- | The name of the load balancer.
-classicLoadBalancer_name :: Lens.Lens' ClassicLoadBalancer (Core.Maybe Core.Text)
+classicLoadBalancer_name :: Lens.Lens' ClassicLoadBalancer (Prelude.Maybe Prelude.Text)
 classicLoadBalancer_name = Lens.lens (\ClassicLoadBalancer' {name} -> name) (\s@ClassicLoadBalancer' {} a -> s {name = a} :: ClassicLoadBalancer)
 
 instance Core.FromXML ClassicLoadBalancer where
   parseXML x =
-    ClassicLoadBalancer' Core.<$> (x Core..@? "name")
+    ClassicLoadBalancer'
+      Prelude.<$> (x Core..@? "name")
 
-instance Core.Hashable ClassicLoadBalancer
+instance Prelude.Hashable ClassicLoadBalancer
 
-instance Core.NFData ClassicLoadBalancer
+instance Prelude.NFData ClassicLoadBalancer
 
 instance Core.ToQuery ClassicLoadBalancer where
   toQuery ClassicLoadBalancer' {..} =
-    Core.mconcat ["Name" Core.=: name]
+    Prelude.mconcat ["Name" Core.=: name]

@@ -21,6 +21,7 @@ module Network.AWS.CodeBuild.Types.TestReportSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a test report.
 --
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 data TestReportSummary = TestReportSummary'
   { -- | The number of test cases in this @TestReportSummary@. The total includes
     -- truncated test cases.
-    total :: Core.Int,
+    total :: Prelude.Int,
     -- | A map that contains the number of each type of status returned by the
     -- test results in this @TestReportSummary@.
-    statusCounts :: Core.HashMap Core.Text Core.Int,
+    statusCounts :: Prelude.HashMap Prelude.Text Prelude.Int,
     -- | The number of nanoseconds it took to run all of the test cases in this
     -- report.
-    durationInNanoSeconds :: Core.Integer
+    durationInNanoSeconds :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestReportSummary' with all optional fields omitted.
@@ -56,30 +57,30 @@ data TestReportSummary = TestReportSummary'
 -- report.
 newTestReportSummary ::
   -- | 'total'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'durationInNanoSeconds'
-  Core.Integer ->
+  Prelude.Integer ->
   TestReportSummary
 newTestReportSummary pTotal_ pDurationInNanoSeconds_ =
   TestReportSummary'
     { total = pTotal_,
-      statusCounts = Core.mempty,
+      statusCounts = Prelude.mempty,
       durationInNanoSeconds = pDurationInNanoSeconds_
     }
 
 -- | The number of test cases in this @TestReportSummary@. The total includes
 -- truncated test cases.
-testReportSummary_total :: Lens.Lens' TestReportSummary Core.Int
+testReportSummary_total :: Lens.Lens' TestReportSummary Prelude.Int
 testReportSummary_total = Lens.lens (\TestReportSummary' {total} -> total) (\s@TestReportSummary' {} a -> s {total = a} :: TestReportSummary)
 
 -- | A map that contains the number of each type of status returned by the
 -- test results in this @TestReportSummary@.
-testReportSummary_statusCounts :: Lens.Lens' TestReportSummary (Core.HashMap Core.Text Core.Int)
-testReportSummary_statusCounts = Lens.lens (\TestReportSummary' {statusCounts} -> statusCounts) (\s@TestReportSummary' {} a -> s {statusCounts = a} :: TestReportSummary) Core.. Lens._Coerce
+testReportSummary_statusCounts :: Lens.Lens' TestReportSummary (Prelude.HashMap Prelude.Text Prelude.Int)
+testReportSummary_statusCounts = Lens.lens (\TestReportSummary' {statusCounts} -> statusCounts) (\s@TestReportSummary' {} a -> s {statusCounts = a} :: TestReportSummary) Prelude.. Lens._Coerce
 
 -- | The number of nanoseconds it took to run all of the test cases in this
 -- report.
-testReportSummary_durationInNanoSeconds :: Lens.Lens' TestReportSummary Core.Integer
+testReportSummary_durationInNanoSeconds :: Lens.Lens' TestReportSummary Prelude.Integer
 testReportSummary_durationInNanoSeconds = Lens.lens (\TestReportSummary' {durationInNanoSeconds} -> durationInNanoSeconds) (\s@TestReportSummary' {} a -> s {durationInNanoSeconds = a} :: TestReportSummary)
 
 instance Core.FromJSON TestReportSummary where
@@ -88,11 +89,11 @@ instance Core.FromJSON TestReportSummary where
       "TestReportSummary"
       ( \x ->
           TestReportSummary'
-            Core.<$> (x Core..: "total")
-            Core.<*> (x Core..:? "statusCounts" Core..!= Core.mempty)
-            Core.<*> (x Core..: "durationInNanoSeconds")
+            Prelude.<$> (x Core..: "total")
+            Prelude.<*> (x Core..:? "statusCounts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "durationInNanoSeconds")
       )
 
-instance Core.Hashable TestReportSummary
+instance Prelude.Hashable TestReportSummary
 
-instance Core.NFData TestReportSummary
+instance Prelude.NFData TestReportSummary

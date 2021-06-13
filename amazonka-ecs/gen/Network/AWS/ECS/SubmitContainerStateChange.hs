@@ -52,30 +52,31 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSubmitContainerStateChange' smart constructor.
 data SubmitContainerStateChange = SubmitContainerStateChange'
   { -- | The status of the state change request.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Docker container.
-    runtimeId :: Core.Maybe Core.Text,
+    runtimeId :: Prelude.Maybe Prelude.Text,
     -- | The task ID or full Amazon Resource Name (ARN) of the task that hosts
     -- the container.
-    task :: Core.Maybe Core.Text,
+    task :: Prelude.Maybe Prelude.Text,
     -- | The exit code returned for the state change request.
-    exitCode :: Core.Maybe Core.Int,
+    exitCode :: Prelude.Maybe Prelude.Int,
     -- | The network bindings of the container.
-    networkBindings :: Core.Maybe [NetworkBinding],
+    networkBindings :: Prelude.Maybe [NetworkBinding],
     -- | The reason for the state change request.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The name of the container.
-    containerName :: Core.Maybe Core.Text,
+    containerName :: Prelude.Maybe Prelude.Text,
     -- | The short name or full ARN of the cluster that hosts the container.
-    cluster :: Core.Maybe Core.Text
+    cluster :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubmitContainerStateChange' with all optional fields omitted.
@@ -105,47 +106,48 @@ newSubmitContainerStateChange ::
   SubmitContainerStateChange
 newSubmitContainerStateChange =
   SubmitContainerStateChange'
-    { status = Core.Nothing,
-      runtimeId = Core.Nothing,
-      task = Core.Nothing,
-      exitCode = Core.Nothing,
-      networkBindings = Core.Nothing,
-      reason = Core.Nothing,
-      containerName = Core.Nothing,
-      cluster = Core.Nothing
+    { status =
+        Prelude.Nothing,
+      runtimeId = Prelude.Nothing,
+      task = Prelude.Nothing,
+      exitCode = Prelude.Nothing,
+      networkBindings = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      containerName = Prelude.Nothing,
+      cluster = Prelude.Nothing
     }
 
 -- | The status of the state change request.
-submitContainerStateChange_status :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Core.Text)
+submitContainerStateChange_status :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_status = Lens.lens (\SubmitContainerStateChange' {status} -> status) (\s@SubmitContainerStateChange' {} a -> s {status = a} :: SubmitContainerStateChange)
 
 -- | The ID of the Docker container.
-submitContainerStateChange_runtimeId :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Core.Text)
+submitContainerStateChange_runtimeId :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_runtimeId = Lens.lens (\SubmitContainerStateChange' {runtimeId} -> runtimeId) (\s@SubmitContainerStateChange' {} a -> s {runtimeId = a} :: SubmitContainerStateChange)
 
 -- | The task ID or full Amazon Resource Name (ARN) of the task that hosts
 -- the container.
-submitContainerStateChange_task :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Core.Text)
+submitContainerStateChange_task :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_task = Lens.lens (\SubmitContainerStateChange' {task} -> task) (\s@SubmitContainerStateChange' {} a -> s {task = a} :: SubmitContainerStateChange)
 
 -- | The exit code returned for the state change request.
-submitContainerStateChange_exitCode :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Core.Int)
+submitContainerStateChange_exitCode :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Int)
 submitContainerStateChange_exitCode = Lens.lens (\SubmitContainerStateChange' {exitCode} -> exitCode) (\s@SubmitContainerStateChange' {} a -> s {exitCode = a} :: SubmitContainerStateChange)
 
 -- | The network bindings of the container.
-submitContainerStateChange_networkBindings :: Lens.Lens' SubmitContainerStateChange (Core.Maybe [NetworkBinding])
-submitContainerStateChange_networkBindings = Lens.lens (\SubmitContainerStateChange' {networkBindings} -> networkBindings) (\s@SubmitContainerStateChange' {} a -> s {networkBindings = a} :: SubmitContainerStateChange) Core.. Lens.mapping Lens._Coerce
+submitContainerStateChange_networkBindings :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe [NetworkBinding])
+submitContainerStateChange_networkBindings = Lens.lens (\SubmitContainerStateChange' {networkBindings} -> networkBindings) (\s@SubmitContainerStateChange' {} a -> s {networkBindings = a} :: SubmitContainerStateChange) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The reason for the state change request.
-submitContainerStateChange_reason :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Core.Text)
+submitContainerStateChange_reason :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_reason = Lens.lens (\SubmitContainerStateChange' {reason} -> reason) (\s@SubmitContainerStateChange' {} a -> s {reason = a} :: SubmitContainerStateChange)
 
 -- | The name of the container.
-submitContainerStateChange_containerName :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Core.Text)
+submitContainerStateChange_containerName :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_containerName = Lens.lens (\SubmitContainerStateChange' {containerName} -> containerName) (\s@SubmitContainerStateChange' {} a -> s {containerName = a} :: SubmitContainerStateChange)
 
 -- | The short name or full ARN of the cluster that hosts the container.
-submitContainerStateChange_cluster :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Core.Text)
+submitContainerStateChange_cluster :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_cluster = Lens.lens (\SubmitContainerStateChange' {cluster} -> cluster) (\s@SubmitContainerStateChange' {} a -> s {cluster = a} :: SubmitContainerStateChange)
 
 instance Core.AWSRequest SubmitContainerStateChange where
@@ -157,56 +159,59 @@ instance Core.AWSRequest SubmitContainerStateChange where
     Response.receiveJSON
       ( \s h x ->
           SubmitContainerStateChangeResponse'
-            Core.<$> (x Core..?> "acknowledgment")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "acknowledgment")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SubmitContainerStateChange
+instance Prelude.Hashable SubmitContainerStateChange
 
-instance Core.NFData SubmitContainerStateChange
+instance Prelude.NFData SubmitContainerStateChange
 
 instance Core.ToHeaders SubmitContainerStateChange where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SubmitContainerStateChange where
   toJSON SubmitContainerStateChange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("status" Core..=) Core.<$> status,
-            ("runtimeId" Core..=) Core.<$> runtimeId,
-            ("task" Core..=) Core.<$> task,
-            ("exitCode" Core..=) Core.<$> exitCode,
-            ("networkBindings" Core..=) Core.<$> networkBindings,
-            ("reason" Core..=) Core.<$> reason,
-            ("containerName" Core..=) Core.<$> containerName,
-            ("cluster" Core..=) Core.<$> cluster
+      ( Prelude.catMaybes
+          [ ("status" Core..=) Prelude.<$> status,
+            ("runtimeId" Core..=) Prelude.<$> runtimeId,
+            ("task" Core..=) Prelude.<$> task,
+            ("exitCode" Core..=) Prelude.<$> exitCode,
+            ("networkBindings" Core..=)
+              Prelude.<$> networkBindings,
+            ("reason" Core..=) Prelude.<$> reason,
+            ("containerName" Core..=) Prelude.<$> containerName,
+            ("cluster" Core..=) Prelude.<$> cluster
           ]
       )
 
 instance Core.ToPath SubmitContainerStateChange where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SubmitContainerStateChange where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSubmitContainerStateChangeResponse' smart constructor.
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
   { -- | Acknowledgement of the state change.
-    acknowledgment :: Core.Maybe Core.Text,
+    acknowledgment :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubmitContainerStateChangeResponse' with all optional fields omitted.
@@ -221,23 +226,23 @@ data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
 -- 'httpStatus', 'submitContainerStateChangeResponse_httpStatus' - The response's http status code.
 newSubmitContainerStateChangeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SubmitContainerStateChangeResponse
 newSubmitContainerStateChangeResponse pHttpStatus_ =
   SubmitContainerStateChangeResponse'
     { acknowledgment =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Acknowledgement of the state change.
-submitContainerStateChangeResponse_acknowledgment :: Lens.Lens' SubmitContainerStateChangeResponse (Core.Maybe Core.Text)
+submitContainerStateChangeResponse_acknowledgment :: Lens.Lens' SubmitContainerStateChangeResponse (Prelude.Maybe Prelude.Text)
 submitContainerStateChangeResponse_acknowledgment = Lens.lens (\SubmitContainerStateChangeResponse' {acknowledgment} -> acknowledgment) (\s@SubmitContainerStateChangeResponse' {} a -> s {acknowledgment = a} :: SubmitContainerStateChangeResponse)
 
 -- | The response's http status code.
-submitContainerStateChangeResponse_httpStatus :: Lens.Lens' SubmitContainerStateChangeResponse Core.Int
+submitContainerStateChangeResponse_httpStatus :: Lens.Lens' SubmitContainerStateChangeResponse Prelude.Int
 submitContainerStateChangeResponse_httpStatus = Lens.lens (\SubmitContainerStateChangeResponse' {httpStatus} -> httpStatus) (\s@SubmitContainerStateChangeResponse' {} a -> s {httpStatus = a} :: SubmitContainerStateChangeResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     SubmitContainerStateChangeResponse

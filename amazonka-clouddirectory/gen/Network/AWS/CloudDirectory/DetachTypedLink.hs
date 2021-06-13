@@ -41,6 +41,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +49,11 @@ import qualified Network.AWS.Response as Response
 data DetachTypedLink = DetachTypedLink'
   { -- | The Amazon Resource Name (ARN) of the directory where you want to detach
     -- the typed link.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | Used to accept a typed link specifier as input.
     typedLinkSpecifier :: TypedLinkSpecifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachTypedLink' with all optional fields omitted.
@@ -68,7 +69,7 @@ data DetachTypedLink = DetachTypedLink'
 -- 'typedLinkSpecifier', 'detachTypedLink_typedLinkSpecifier' - Used to accept a typed link specifier as input.
 newDetachTypedLink ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'typedLinkSpecifier'
   TypedLinkSpecifier ->
   DetachTypedLink
@@ -82,7 +83,7 @@ newDetachTypedLink
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to detach
 -- the typed link.
-detachTypedLink_directoryArn :: Lens.Lens' DetachTypedLink Core.Text
+detachTypedLink_directoryArn :: Lens.Lens' DetachTypedLink Prelude.Text
 detachTypedLink_directoryArn = Lens.lens (\DetachTypedLink' {directoryArn} -> directoryArn) (\s@DetachTypedLink' {} a -> s {directoryArn = a} :: DetachTypedLink)
 
 -- | Used to accept a typed link specifier as input.
@@ -97,37 +98,37 @@ instance Core.AWSRequest DetachTypedLink where
   response =
     Response.receiveNull DetachTypedLinkResponse'
 
-instance Core.Hashable DetachTypedLink
+instance Prelude.Hashable DetachTypedLink
 
-instance Core.NFData DetachTypedLink
+instance Prelude.NFData DetachTypedLink
 
 instance Core.ToHeaders DetachTypedLink where
   toHeaders DetachTypedLink' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON DetachTypedLink where
   toJSON DetachTypedLink' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("TypedLinkSpecifier" Core..= typedLinkSpecifier)
           ]
       )
 
 instance Core.ToPath DetachTypedLink where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/detach"
 
 instance Core.ToQuery DetachTypedLink where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachTypedLinkResponse' smart constructor.
 data DetachTypedLinkResponse = DetachTypedLinkResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachTypedLinkResponse' with all optional fields omitted.
@@ -137,4 +138,4 @@ newDetachTypedLinkResponse ::
   DetachTypedLinkResponse
 newDetachTypedLinkResponse = DetachTypedLinkResponse'
 
-instance Core.NFData DetachTypedLinkResponse
+instance Prelude.NFData DetachTypedLinkResponse

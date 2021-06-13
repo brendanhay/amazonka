@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.WorkflowGraph
 import Network.AWS.Glue.Types.WorkflowRun
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A workflow represents a flow in which AWS Glue components should be
 -- executed to complete a logical task.
@@ -30,29 +31,29 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newWorkflow' smart constructor.
 data Workflow = Workflow'
   { -- | The date and time when the workflow was created.
-    createdOn :: Core.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Core.POSIX,
     -- | A collection of properties to be used as part of each execution of the
     -- workflow.
-    defaultRunProperties :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    defaultRunProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The information about the last execution of the workflow.
-    lastRun :: Core.Maybe WorkflowRun,
+    lastRun :: Prelude.Maybe WorkflowRun,
     -- | You can use this parameter to prevent unwanted multiple updates to data,
     -- to control costs, or in some cases, to prevent exceeding the maximum
     -- number of concurrent runs of any of the component jobs. If you leave
     -- this parameter blank, there is no limit to the number of concurrent
     -- workflow runs.
-    maxConcurrentRuns :: Core.Maybe Core.Int,
+    maxConcurrentRuns :: Prelude.Maybe Prelude.Int,
     -- | The date and time when the workflow was last modified.
-    lastModifiedOn :: Core.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Core.POSIX,
     -- | The name of the workflow representing the flow.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The graph representing all the AWS Glue components that belong to the
     -- workflow as nodes and directed connections between them as edges.
-    graph :: Core.Maybe WorkflowGraph,
+    graph :: Prelude.Maybe WorkflowGraph,
     -- | A description of the workflow.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Workflow' with all optional fields omitted.
@@ -87,27 +88,27 @@ newWorkflow ::
   Workflow
 newWorkflow =
   Workflow'
-    { createdOn = Core.Nothing,
-      defaultRunProperties = Core.Nothing,
-      lastRun = Core.Nothing,
-      maxConcurrentRuns = Core.Nothing,
-      lastModifiedOn = Core.Nothing,
-      name = Core.Nothing,
-      graph = Core.Nothing,
-      description = Core.Nothing
+    { createdOn = Prelude.Nothing,
+      defaultRunProperties = Prelude.Nothing,
+      lastRun = Prelude.Nothing,
+      maxConcurrentRuns = Prelude.Nothing,
+      lastModifiedOn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      graph = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The date and time when the workflow was created.
-workflow_createdOn :: Lens.Lens' Workflow (Core.Maybe Core.UTCTime)
-workflow_createdOn = Lens.lens (\Workflow' {createdOn} -> createdOn) (\s@Workflow' {} a -> s {createdOn = a} :: Workflow) Core.. Lens.mapping Core._Time
+workflow_createdOn :: Lens.Lens' Workflow (Prelude.Maybe Prelude.UTCTime)
+workflow_createdOn = Lens.lens (\Workflow' {createdOn} -> createdOn) (\s@Workflow' {} a -> s {createdOn = a} :: Workflow) Prelude.. Lens.mapping Core._Time
 
 -- | A collection of properties to be used as part of each execution of the
 -- workflow.
-workflow_defaultRunProperties :: Lens.Lens' Workflow (Core.Maybe (Core.HashMap Core.Text Core.Text))
-workflow_defaultRunProperties = Lens.lens (\Workflow' {defaultRunProperties} -> defaultRunProperties) (\s@Workflow' {} a -> s {defaultRunProperties = a} :: Workflow) Core.. Lens.mapping Lens._Coerce
+workflow_defaultRunProperties :: Lens.Lens' Workflow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+workflow_defaultRunProperties = Lens.lens (\Workflow' {defaultRunProperties} -> defaultRunProperties) (\s@Workflow' {} a -> s {defaultRunProperties = a} :: Workflow) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The information about the last execution of the workflow.
-workflow_lastRun :: Lens.Lens' Workflow (Core.Maybe WorkflowRun)
+workflow_lastRun :: Lens.Lens' Workflow (Prelude.Maybe WorkflowRun)
 workflow_lastRun = Lens.lens (\Workflow' {lastRun} -> lastRun) (\s@Workflow' {} a -> s {lastRun = a} :: Workflow)
 
 -- | You can use this parameter to prevent unwanted multiple updates to data,
@@ -115,24 +116,24 @@ workflow_lastRun = Lens.lens (\Workflow' {lastRun} -> lastRun) (\s@Workflow' {} 
 -- number of concurrent runs of any of the component jobs. If you leave
 -- this parameter blank, there is no limit to the number of concurrent
 -- workflow runs.
-workflow_maxConcurrentRuns :: Lens.Lens' Workflow (Core.Maybe Core.Int)
+workflow_maxConcurrentRuns :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Int)
 workflow_maxConcurrentRuns = Lens.lens (\Workflow' {maxConcurrentRuns} -> maxConcurrentRuns) (\s@Workflow' {} a -> s {maxConcurrentRuns = a} :: Workflow)
 
 -- | The date and time when the workflow was last modified.
-workflow_lastModifiedOn :: Lens.Lens' Workflow (Core.Maybe Core.UTCTime)
-workflow_lastModifiedOn = Lens.lens (\Workflow' {lastModifiedOn} -> lastModifiedOn) (\s@Workflow' {} a -> s {lastModifiedOn = a} :: Workflow) Core.. Lens.mapping Core._Time
+workflow_lastModifiedOn :: Lens.Lens' Workflow (Prelude.Maybe Prelude.UTCTime)
+workflow_lastModifiedOn = Lens.lens (\Workflow' {lastModifiedOn} -> lastModifiedOn) (\s@Workflow' {} a -> s {lastModifiedOn = a} :: Workflow) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the workflow representing the flow.
-workflow_name :: Lens.Lens' Workflow (Core.Maybe Core.Text)
+workflow_name :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Text)
 workflow_name = Lens.lens (\Workflow' {name} -> name) (\s@Workflow' {} a -> s {name = a} :: Workflow)
 
 -- | The graph representing all the AWS Glue components that belong to the
 -- workflow as nodes and directed connections between them as edges.
-workflow_graph :: Lens.Lens' Workflow (Core.Maybe WorkflowGraph)
+workflow_graph :: Lens.Lens' Workflow (Prelude.Maybe WorkflowGraph)
 workflow_graph = Lens.lens (\Workflow' {graph} -> graph) (\s@Workflow' {} a -> s {graph = a} :: Workflow)
 
 -- | A description of the workflow.
-workflow_description :: Lens.Lens' Workflow (Core.Maybe Core.Text)
+workflow_description :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Text)
 workflow_description = Lens.lens (\Workflow' {description} -> description) (\s@Workflow' {} a -> s {description = a} :: Workflow)
 
 instance Core.FromJSON Workflow where
@@ -141,18 +142,18 @@ instance Core.FromJSON Workflow where
       "Workflow"
       ( \x ->
           Workflow'
-            Core.<$> (x Core..:? "CreatedOn")
-            Core.<*> ( x Core..:? "DefaultRunProperties"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "LastRun")
-            Core.<*> (x Core..:? "MaxConcurrentRuns")
-            Core.<*> (x Core..:? "LastModifiedOn")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Graph")
-            Core.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "CreatedOn")
+            Prelude.<*> ( x Core..:? "DefaultRunProperties"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "LastRun")
+            Prelude.<*> (x Core..:? "MaxConcurrentRuns")
+            Prelude.<*> (x Core..:? "LastModifiedOn")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Graph")
+            Prelude.<*> (x Core..:? "Description")
       )
 
-instance Core.Hashable Workflow
+instance Prelude.Hashable Workflow
 
-instance Core.NFData Workflow
+instance Prelude.NFData Workflow

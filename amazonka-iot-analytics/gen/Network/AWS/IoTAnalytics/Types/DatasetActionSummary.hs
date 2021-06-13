@@ -22,6 +22,7 @@ module Network.AWS.IoTAnalytics.Types.DatasetActionSummary where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.DatasetActionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the action that automatically creates the dataset\'s
 -- contents.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 data DatasetActionSummary = DatasetActionSummary'
   { -- | The name of the action that automatically creates the dataset\'s
     -- contents.
-    actionName :: Core.Maybe Core.Text,
+    actionName :: Prelude.Maybe Prelude.Text,
     -- | The type of action by which the dataset\'s contents are automatically
     -- created.
-    actionType :: Core.Maybe DatasetActionType
+    actionType :: Prelude.Maybe DatasetActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatasetActionSummary' with all optional fields omitted.
@@ -54,18 +55,18 @@ newDatasetActionSummary ::
   DatasetActionSummary
 newDatasetActionSummary =
   DatasetActionSummary'
-    { actionName = Core.Nothing,
-      actionType = Core.Nothing
+    { actionName = Prelude.Nothing,
+      actionType = Prelude.Nothing
     }
 
 -- | The name of the action that automatically creates the dataset\'s
 -- contents.
-datasetActionSummary_actionName :: Lens.Lens' DatasetActionSummary (Core.Maybe Core.Text)
+datasetActionSummary_actionName :: Lens.Lens' DatasetActionSummary (Prelude.Maybe Prelude.Text)
 datasetActionSummary_actionName = Lens.lens (\DatasetActionSummary' {actionName} -> actionName) (\s@DatasetActionSummary' {} a -> s {actionName = a} :: DatasetActionSummary)
 
 -- | The type of action by which the dataset\'s contents are automatically
 -- created.
-datasetActionSummary_actionType :: Lens.Lens' DatasetActionSummary (Core.Maybe DatasetActionType)
+datasetActionSummary_actionType :: Lens.Lens' DatasetActionSummary (Prelude.Maybe DatasetActionType)
 datasetActionSummary_actionType = Lens.lens (\DatasetActionSummary' {actionType} -> actionType) (\s@DatasetActionSummary' {} a -> s {actionType = a} :: DatasetActionSummary)
 
 instance Core.FromJSON DatasetActionSummary where
@@ -74,10 +75,10 @@ instance Core.FromJSON DatasetActionSummary where
       "DatasetActionSummary"
       ( \x ->
           DatasetActionSummary'
-            Core.<$> (x Core..:? "actionName")
-            Core.<*> (x Core..:? "actionType")
+            Prelude.<$> (x Core..:? "actionName")
+            Prelude.<*> (x Core..:? "actionType")
       )
 
-instance Core.Hashable DatasetActionSummary
+instance Prelude.Hashable DatasetActionSummary
 
-instance Core.NFData DatasetActionSummary
+instance Prelude.NFData DatasetActionSummary

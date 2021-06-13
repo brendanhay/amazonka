@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,11 +78,11 @@ data RevokeGrant = RevokeGrant'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text,
+    keyId :: Prelude.Text,
     -- | Identifier of the grant to be revoked.
-    grantId :: Core.Text
+    grantId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RevokeGrant' with all optional fields omitted.
@@ -109,9 +110,9 @@ data RevokeGrant = RevokeGrant'
 -- 'grantId', 'revokeGrant_grantId' - Identifier of the grant to be revoked.
 newRevokeGrant ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'grantId'
-  Core.Text ->
+  Prelude.Text ->
   RevokeGrant
 newRevokeGrant pKeyId_ pGrantId_ =
   RevokeGrant' {keyId = pKeyId_, grantId = pGrantId_}
@@ -130,11 +131,11 @@ newRevokeGrant pKeyId_ pGrantId_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-revokeGrant_keyId :: Lens.Lens' RevokeGrant Core.Text
+revokeGrant_keyId :: Lens.Lens' RevokeGrant Prelude.Text
 revokeGrant_keyId = Lens.lens (\RevokeGrant' {keyId} -> keyId) (\s@RevokeGrant' {} a -> s {keyId = a} :: RevokeGrant)
 
 -- | Identifier of the grant to be revoked.
-revokeGrant_grantId :: Lens.Lens' RevokeGrant Core.Text
+revokeGrant_grantId :: Lens.Lens' RevokeGrant Prelude.Text
 revokeGrant_grantId = Lens.lens (\RevokeGrant' {grantId} -> grantId) (\s@RevokeGrant' {} a -> s {grantId = a} :: RevokeGrant)
 
 instance Core.AWSRequest RevokeGrant where
@@ -142,41 +143,43 @@ instance Core.AWSRequest RevokeGrant where
   request = Request.postJSON defaultService
   response = Response.receiveNull RevokeGrantResponse'
 
-instance Core.Hashable RevokeGrant
+instance Prelude.Hashable RevokeGrant
 
-instance Core.NFData RevokeGrant
+instance Prelude.NFData RevokeGrant
 
 instance Core.ToHeaders RevokeGrant where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.RevokeGrant" :: Core.ByteString),
+              Core.=# ("TrentService.RevokeGrant" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RevokeGrant where
   toJSON RevokeGrant' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("KeyId" Core..= keyId),
-            Core.Just ("GrantId" Core..= grantId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just ("GrantId" Core..= grantId)
           ]
       )
 
 instance Core.ToPath RevokeGrant where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RevokeGrant where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokeGrantResponse' smart constructor.
 data RevokeGrantResponse = RevokeGrantResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RevokeGrantResponse' with all optional fields omitted.
@@ -186,4 +189,4 @@ newRevokeGrantResponse ::
   RevokeGrantResponse
 newRevokeGrantResponse = RevokeGrantResponse'
 
-instance Core.NFData RevokeGrantResponse
+instance Prelude.NFData RevokeGrantResponse

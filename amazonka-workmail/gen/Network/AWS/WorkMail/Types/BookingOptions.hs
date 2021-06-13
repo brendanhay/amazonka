@@ -21,6 +21,7 @@ module Network.AWS.WorkMail.Types.BookingOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | At least one delegate must be associated to the resource to disable
 -- automatic replies from the resource.
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 data BookingOptions = BookingOptions'
   { -- | The resource\'s ability to automatically decline any conflicting
     -- requests.
-    autoDeclineConflictingRequests :: Core.Maybe Core.Bool,
+    autoDeclineConflictingRequests :: Prelude.Maybe Prelude.Bool,
     -- | The resource\'s ability to automatically decline any recurring requests.
-    autoDeclineRecurringRequests :: Core.Maybe Core.Bool,
+    autoDeclineRecurringRequests :: Prelude.Maybe Prelude.Bool,
     -- | The resource\'s ability to automatically reply to requests. If disabled,
     -- delegates must be associated to the resource.
-    autoAcceptRequests :: Core.Maybe Core.Bool
+    autoAcceptRequests :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BookingOptions' with all optional fields omitted.
@@ -58,23 +59,23 @@ newBookingOptions ::
 newBookingOptions =
   BookingOptions'
     { autoDeclineConflictingRequests =
-        Core.Nothing,
-      autoDeclineRecurringRequests = Core.Nothing,
-      autoAcceptRequests = Core.Nothing
+        Prelude.Nothing,
+      autoDeclineRecurringRequests = Prelude.Nothing,
+      autoAcceptRequests = Prelude.Nothing
     }
 
 -- | The resource\'s ability to automatically decline any conflicting
 -- requests.
-bookingOptions_autoDeclineConflictingRequests :: Lens.Lens' BookingOptions (Core.Maybe Core.Bool)
+bookingOptions_autoDeclineConflictingRequests :: Lens.Lens' BookingOptions (Prelude.Maybe Prelude.Bool)
 bookingOptions_autoDeclineConflictingRequests = Lens.lens (\BookingOptions' {autoDeclineConflictingRequests} -> autoDeclineConflictingRequests) (\s@BookingOptions' {} a -> s {autoDeclineConflictingRequests = a} :: BookingOptions)
 
 -- | The resource\'s ability to automatically decline any recurring requests.
-bookingOptions_autoDeclineRecurringRequests :: Lens.Lens' BookingOptions (Core.Maybe Core.Bool)
+bookingOptions_autoDeclineRecurringRequests :: Lens.Lens' BookingOptions (Prelude.Maybe Prelude.Bool)
 bookingOptions_autoDeclineRecurringRequests = Lens.lens (\BookingOptions' {autoDeclineRecurringRequests} -> autoDeclineRecurringRequests) (\s@BookingOptions' {} a -> s {autoDeclineRecurringRequests = a} :: BookingOptions)
 
 -- | The resource\'s ability to automatically reply to requests. If disabled,
 -- delegates must be associated to the resource.
-bookingOptions_autoAcceptRequests :: Lens.Lens' BookingOptions (Core.Maybe Core.Bool)
+bookingOptions_autoAcceptRequests :: Lens.Lens' BookingOptions (Prelude.Maybe Prelude.Bool)
 bookingOptions_autoAcceptRequests = Lens.lens (\BookingOptions' {autoAcceptRequests} -> autoAcceptRequests) (\s@BookingOptions' {} a -> s {autoAcceptRequests = a} :: BookingOptions)
 
 instance Core.FromJSON BookingOptions where
@@ -83,24 +84,24 @@ instance Core.FromJSON BookingOptions where
       "BookingOptions"
       ( \x ->
           BookingOptions'
-            Core.<$> (x Core..:? "AutoDeclineConflictingRequests")
-            Core.<*> (x Core..:? "AutoDeclineRecurringRequests")
-            Core.<*> (x Core..:? "AutoAcceptRequests")
+            Prelude.<$> (x Core..:? "AutoDeclineConflictingRequests")
+            Prelude.<*> (x Core..:? "AutoDeclineRecurringRequests")
+            Prelude.<*> (x Core..:? "AutoAcceptRequests")
       )
 
-instance Core.Hashable BookingOptions
+instance Prelude.Hashable BookingOptions
 
-instance Core.NFData BookingOptions
+instance Prelude.NFData BookingOptions
 
 instance Core.ToJSON BookingOptions where
   toJSON BookingOptions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AutoDeclineConflictingRequests" Core..=)
-              Core.<$> autoDeclineConflictingRequests,
+              Prelude.<$> autoDeclineConflictingRequests,
             ("AutoDeclineRecurringRequests" Core..=)
-              Core.<$> autoDeclineRecurringRequests,
+              Prelude.<$> autoDeclineRecurringRequests,
             ("AutoAcceptRequests" Core..=)
-              Core.<$> autoAcceptRequests
+              Prelude.<$> autoAcceptRequests
           ]
       )

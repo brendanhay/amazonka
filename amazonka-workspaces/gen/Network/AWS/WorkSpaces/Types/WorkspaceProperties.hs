@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.WorkspaceProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.Compute
 import Network.AWS.WorkSpaces.Types.RunningMode
 
@@ -31,22 +32,22 @@ data WorkspaceProperties = WorkspaceProperties'
   { -- | The size of the root volume. For important information about how to
     -- modify the size of the root and user volumes, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace>.
-    rootVolumeSizeGib :: Core.Maybe Core.Int,
+    rootVolumeSizeGib :: Prelude.Maybe Prelude.Int,
     -- | The running mode. For more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode>.
-    runningMode :: Core.Maybe RunningMode,
+    runningMode :: Prelude.Maybe RunningMode,
     -- | The size of the user storage. For important information about how to
     -- modify the size of the root and user volumes, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace>.
-    userVolumeSizeGib :: Core.Maybe Core.Int,
+    userVolumeSizeGib :: Prelude.Maybe Prelude.Int,
     -- | The time after a user logs off when WorkSpaces are automatically
     -- stopped. Configured in 60-minute intervals.
-    runningModeAutoStopTimeoutInMinutes :: Core.Maybe Core.Int,
+    runningModeAutoStopTimeoutInMinutes :: Prelude.Maybe Prelude.Int,
     -- | The compute type. For more information, see
     -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
-    computeTypeName :: Core.Maybe Compute
+    computeTypeName :: Prelude.Maybe Compute
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkspaceProperties' with all optional fields omitted.
@@ -77,38 +78,39 @@ newWorkspaceProperties ::
 newWorkspaceProperties =
   WorkspaceProperties'
     { rootVolumeSizeGib =
-        Core.Nothing,
-      runningMode = Core.Nothing,
-      userVolumeSizeGib = Core.Nothing,
-      runningModeAutoStopTimeoutInMinutes = Core.Nothing,
-      computeTypeName = Core.Nothing
+        Prelude.Nothing,
+      runningMode = Prelude.Nothing,
+      userVolumeSizeGib = Prelude.Nothing,
+      runningModeAutoStopTimeoutInMinutes =
+        Prelude.Nothing,
+      computeTypeName = Prelude.Nothing
     }
 
 -- | The size of the root volume. For important information about how to
 -- modify the size of the root and user volumes, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace>.
-workspaceProperties_rootVolumeSizeGib :: Lens.Lens' WorkspaceProperties (Core.Maybe Core.Int)
+workspaceProperties_rootVolumeSizeGib :: Lens.Lens' WorkspaceProperties (Prelude.Maybe Prelude.Int)
 workspaceProperties_rootVolumeSizeGib = Lens.lens (\WorkspaceProperties' {rootVolumeSizeGib} -> rootVolumeSizeGib) (\s@WorkspaceProperties' {} a -> s {rootVolumeSizeGib = a} :: WorkspaceProperties)
 
 -- | The running mode. For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode>.
-workspaceProperties_runningMode :: Lens.Lens' WorkspaceProperties (Core.Maybe RunningMode)
+workspaceProperties_runningMode :: Lens.Lens' WorkspaceProperties (Prelude.Maybe RunningMode)
 workspaceProperties_runningMode = Lens.lens (\WorkspaceProperties' {runningMode} -> runningMode) (\s@WorkspaceProperties' {} a -> s {runningMode = a} :: WorkspaceProperties)
 
 -- | The size of the user storage. For important information about how to
 -- modify the size of the root and user volumes, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace>.
-workspaceProperties_userVolumeSizeGib :: Lens.Lens' WorkspaceProperties (Core.Maybe Core.Int)
+workspaceProperties_userVolumeSizeGib :: Lens.Lens' WorkspaceProperties (Prelude.Maybe Prelude.Int)
 workspaceProperties_userVolumeSizeGib = Lens.lens (\WorkspaceProperties' {userVolumeSizeGib} -> userVolumeSizeGib) (\s@WorkspaceProperties' {} a -> s {userVolumeSizeGib = a} :: WorkspaceProperties)
 
 -- | The time after a user logs off when WorkSpaces are automatically
 -- stopped. Configured in 60-minute intervals.
-workspaceProperties_runningModeAutoStopTimeoutInMinutes :: Lens.Lens' WorkspaceProperties (Core.Maybe Core.Int)
+workspaceProperties_runningModeAutoStopTimeoutInMinutes :: Lens.Lens' WorkspaceProperties (Prelude.Maybe Prelude.Int)
 workspaceProperties_runningModeAutoStopTimeoutInMinutes = Lens.lens (\WorkspaceProperties' {runningModeAutoStopTimeoutInMinutes} -> runningModeAutoStopTimeoutInMinutes) (\s@WorkspaceProperties' {} a -> s {runningModeAutoStopTimeoutInMinutes = a} :: WorkspaceProperties)
 
 -- | The compute type. For more information, see
 -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
-workspaceProperties_computeTypeName :: Lens.Lens' WorkspaceProperties (Core.Maybe Compute)
+workspaceProperties_computeTypeName :: Lens.Lens' WorkspaceProperties (Prelude.Maybe Compute)
 workspaceProperties_computeTypeName = Lens.lens (\WorkspaceProperties' {computeTypeName} -> computeTypeName) (\s@WorkspaceProperties' {} a -> s {computeTypeName = a} :: WorkspaceProperties)
 
 instance Core.FromJSON WorkspaceProperties where
@@ -117,29 +119,29 @@ instance Core.FromJSON WorkspaceProperties where
       "WorkspaceProperties"
       ( \x ->
           WorkspaceProperties'
-            Core.<$> (x Core..:? "RootVolumeSizeGib")
-            Core.<*> (x Core..:? "RunningMode")
-            Core.<*> (x Core..:? "UserVolumeSizeGib")
-            Core.<*> (x Core..:? "RunningModeAutoStopTimeoutInMinutes")
-            Core.<*> (x Core..:? "ComputeTypeName")
+            Prelude.<$> (x Core..:? "RootVolumeSizeGib")
+            Prelude.<*> (x Core..:? "RunningMode")
+            Prelude.<*> (x Core..:? "UserVolumeSizeGib")
+            Prelude.<*> (x Core..:? "RunningModeAutoStopTimeoutInMinutes")
+            Prelude.<*> (x Core..:? "ComputeTypeName")
       )
 
-instance Core.Hashable WorkspaceProperties
+instance Prelude.Hashable WorkspaceProperties
 
-instance Core.NFData WorkspaceProperties
+instance Prelude.NFData WorkspaceProperties
 
 instance Core.ToJSON WorkspaceProperties where
   toJSON WorkspaceProperties' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RootVolumeSizeGib" Core..=)
-              Core.<$> rootVolumeSizeGib,
-            ("RunningMode" Core..=) Core.<$> runningMode,
+              Prelude.<$> rootVolumeSizeGib,
+            ("RunningMode" Core..=) Prelude.<$> runningMode,
             ("UserVolumeSizeGib" Core..=)
-              Core.<$> userVolumeSizeGib,
+              Prelude.<$> userVolumeSizeGib,
             ("RunningModeAutoStopTimeoutInMinutes" Core..=)
-              Core.<$> runningModeAutoStopTimeoutInMinutes,
+              Prelude.<$> runningModeAutoStopTimeoutInMinutes,
             ("ComputeTypeName" Core..=)
-              Core.<$> computeTypeName
+              Prelude.<$> computeTypeName
           ]
       )

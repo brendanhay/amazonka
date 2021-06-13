@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -48,11 +49,11 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newDeleteRetentionPolicy' smart constructor.
 data DeleteRetentionPolicy = DeleteRetentionPolicy'
   { -- | The organization ID.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The retention policy ID.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRetentionPolicy' with all optional fields omitted.
@@ -67,9 +68,9 @@ data DeleteRetentionPolicy = DeleteRetentionPolicy'
 -- 'id', 'deleteRetentionPolicy_id' - The retention policy ID.
 newDeleteRetentionPolicy ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRetentionPolicy
 newDeleteRetentionPolicy pOrganizationId_ pId_ =
   DeleteRetentionPolicy'
@@ -79,11 +80,11 @@ newDeleteRetentionPolicy pOrganizationId_ pId_ =
     }
 
 -- | The organization ID.
-deleteRetentionPolicy_organizationId :: Lens.Lens' DeleteRetentionPolicy Core.Text
+deleteRetentionPolicy_organizationId :: Lens.Lens' DeleteRetentionPolicy Prelude.Text
 deleteRetentionPolicy_organizationId = Lens.lens (\DeleteRetentionPolicy' {organizationId} -> organizationId) (\s@DeleteRetentionPolicy' {} a -> s {organizationId = a} :: DeleteRetentionPolicy)
 
 -- | The retention policy ID.
-deleteRetentionPolicy_id :: Lens.Lens' DeleteRetentionPolicy Core.Text
+deleteRetentionPolicy_id :: Lens.Lens' DeleteRetentionPolicy Prelude.Text
 deleteRetentionPolicy_id = Lens.lens (\DeleteRetentionPolicy' {id} -> id) (\s@DeleteRetentionPolicy' {} a -> s {id = a} :: DeleteRetentionPolicy)
 
 instance Core.AWSRequest DeleteRetentionPolicy where
@@ -95,47 +96,50 @@ instance Core.AWSRequest DeleteRetentionPolicy where
     Response.receiveEmpty
       ( \s h x ->
           DeleteRetentionPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRetentionPolicy
+instance Prelude.Hashable DeleteRetentionPolicy
 
-instance Core.NFData DeleteRetentionPolicy
+instance Prelude.NFData DeleteRetentionPolicy
 
 instance Core.ToHeaders DeleteRetentionPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.DeleteRetentionPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRetentionPolicy where
   toJSON DeleteRetentionPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("Id" Core..= id)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("Id" Core..= id)
           ]
       )
 
 instance Core.ToPath DeleteRetentionPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRetentionPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRetentionPolicyResponse' smart constructor.
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRetentionPolicyResponse' with all optional fields omitted.
@@ -148,7 +152,7 @@ data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
 -- 'httpStatus', 'deleteRetentionPolicyResponse_httpStatus' - The response's http status code.
 newDeleteRetentionPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRetentionPolicyResponse
 newDeleteRetentionPolicyResponse pHttpStatus_ =
   DeleteRetentionPolicyResponse'
@@ -157,7 +161,7 @@ newDeleteRetentionPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteRetentionPolicyResponse_httpStatus :: Lens.Lens' DeleteRetentionPolicyResponse Core.Int
+deleteRetentionPolicyResponse_httpStatus :: Lens.Lens' DeleteRetentionPolicyResponse Prelude.Int
 deleteRetentionPolicyResponse_httpStatus = Lens.lens (\DeleteRetentionPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteRetentionPolicyResponse' {} a -> s {httpStatus = a} :: DeleteRetentionPolicyResponse)
 
-instance Core.NFData DeleteRetentionPolicyResponse
+instance Prelude.NFData DeleteRetentionPolicyResponse

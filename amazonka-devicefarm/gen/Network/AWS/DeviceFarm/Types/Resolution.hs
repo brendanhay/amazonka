@@ -21,6 +21,7 @@ module Network.AWS.DeviceFarm.Types.Resolution where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the screen resolution of a device in height and width,
 -- expressed in pixels.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResolution' smart constructor.
 data Resolution = Resolution'
   { -- | The screen resolution\'s height, expressed in pixels.
-    height :: Core.Maybe Core.Int,
+    height :: Prelude.Maybe Prelude.Int,
     -- | The screen resolution\'s width, expressed in pixels.
-    width :: Core.Maybe Core.Int
+    width :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Resolution' with all optional fields omitted.
@@ -49,16 +50,16 @@ newResolution ::
   Resolution
 newResolution =
   Resolution'
-    { height = Core.Nothing,
-      width = Core.Nothing
+    { height = Prelude.Nothing,
+      width = Prelude.Nothing
     }
 
 -- | The screen resolution\'s height, expressed in pixels.
-resolution_height :: Lens.Lens' Resolution (Core.Maybe Core.Int)
+resolution_height :: Lens.Lens' Resolution (Prelude.Maybe Prelude.Int)
 resolution_height = Lens.lens (\Resolution' {height} -> height) (\s@Resolution' {} a -> s {height = a} :: Resolution)
 
 -- | The screen resolution\'s width, expressed in pixels.
-resolution_width :: Lens.Lens' Resolution (Core.Maybe Core.Int)
+resolution_width :: Lens.Lens' Resolution (Prelude.Maybe Prelude.Int)
 resolution_width = Lens.lens (\Resolution' {width} -> width) (\s@Resolution' {} a -> s {width = a} :: Resolution)
 
 instance Core.FromJSON Resolution where
@@ -67,9 +68,10 @@ instance Core.FromJSON Resolution where
       "Resolution"
       ( \x ->
           Resolution'
-            Core.<$> (x Core..:? "height") Core.<*> (x Core..:? "width")
+            Prelude.<$> (x Core..:? "height")
+            Prelude.<*> (x Core..:? "width")
       )
 
-instance Core.Hashable Resolution
+instance Prelude.Hashable Resolution
 
-instance Core.NFData Resolution
+instance Prelude.NFData Resolution

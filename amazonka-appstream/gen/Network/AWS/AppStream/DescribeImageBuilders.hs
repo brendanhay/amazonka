@@ -49,20 +49,21 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeImageBuilders' smart constructor.
 data DescribeImageBuilders = DescribeImageBuilders'
   { -- | The names of the image builders to describe.
-    names :: Core.Maybe [Core.Text],
+    names :: Prelude.Maybe [Prelude.Text],
     -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of each page of results.
-    maxResults :: Core.Maybe Core.Int
+    maxResults :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImageBuilders' with all optional fields omitted.
@@ -82,22 +83,22 @@ newDescribeImageBuilders ::
   DescribeImageBuilders
 newDescribeImageBuilders =
   DescribeImageBuilders'
-    { names = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { names = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The names of the image builders to describe.
-describeImageBuilders_names :: Lens.Lens' DescribeImageBuilders (Core.Maybe [Core.Text])
-describeImageBuilders_names = Lens.lens (\DescribeImageBuilders' {names} -> names) (\s@DescribeImageBuilders' {} a -> s {names = a} :: DescribeImageBuilders) Core.. Lens.mapping Lens._Coerce
+describeImageBuilders_names :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe [Prelude.Text])
+describeImageBuilders_names = Lens.lens (\DescribeImageBuilders' {names} -> names) (\s@DescribeImageBuilders' {} a -> s {names = a} :: DescribeImageBuilders) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
-describeImageBuilders_nextToken :: Lens.Lens' DescribeImageBuilders (Core.Maybe Core.Text)
+describeImageBuilders_nextToken :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe Prelude.Text)
 describeImageBuilders_nextToken = Lens.lens (\DescribeImageBuilders' {nextToken} -> nextToken) (\s@DescribeImageBuilders' {} a -> s {nextToken = a} :: DescribeImageBuilders)
 
 -- | The maximum size of each page of results.
-describeImageBuilders_maxResults :: Lens.Lens' DescribeImageBuilders (Core.Maybe Core.Int)
+describeImageBuilders_maxResults :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe Prelude.Int)
 describeImageBuilders_maxResults = Lens.lens (\DescribeImageBuilders' {maxResults} -> maxResults) (\s@DescribeImageBuilders' {} a -> s {maxResults = a} :: DescribeImageBuilders)
 
 instance Core.AWSPager DescribeImageBuilders where
@@ -105,22 +106,22 @@ instance Core.AWSPager DescribeImageBuilders where
     | Core.stop
         ( rs
             Lens.^? describeImageBuildersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeImageBuildersResponse_imageBuilders
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeImageBuilders_nextToken
+          Prelude.& describeImageBuilders_nextToken
           Lens..~ rs
           Lens.^? describeImageBuildersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImageBuilders where
   type
@@ -131,55 +132,57 @@ instance Core.AWSRequest DescribeImageBuilders where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageBuildersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ImageBuilders" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ImageBuilders" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeImageBuilders
+instance Prelude.Hashable DescribeImageBuilders
 
-instance Core.NFData DescribeImageBuilders
+instance Prelude.NFData DescribeImageBuilders
 
 instance Core.ToHeaders DescribeImageBuilders where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.DescribeImageBuilders" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeImageBuilders where
   toJSON DescribeImageBuilders' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Names" Core..=) Core.<$> names,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("Names" Core..=) Prelude.<$> names,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath DescribeImageBuilders where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeImageBuilders where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImageBuildersResponse' smart constructor.
 data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the image builders.
-    imageBuilders :: Core.Maybe [ImageBuilder],
+    imageBuilders :: Prelude.Maybe [ImageBuilder],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImageBuildersResponse' with all optional fields omitted.
@@ -197,27 +200,27 @@ data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
 -- 'httpStatus', 'describeImageBuildersResponse_httpStatus' - The response's http status code.
 newDescribeImageBuildersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeImageBuildersResponse
 newDescribeImageBuildersResponse pHttpStatus_ =
   DescribeImageBuildersResponse'
     { nextToken =
-        Core.Nothing,
-      imageBuilders = Core.Nothing,
+        Prelude.Nothing,
+      imageBuilders = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
-describeImageBuildersResponse_nextToken :: Lens.Lens' DescribeImageBuildersResponse (Core.Maybe Core.Text)
+describeImageBuildersResponse_nextToken :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe Prelude.Text)
 describeImageBuildersResponse_nextToken = Lens.lens (\DescribeImageBuildersResponse' {nextToken} -> nextToken) (\s@DescribeImageBuildersResponse' {} a -> s {nextToken = a} :: DescribeImageBuildersResponse)
 
 -- | Information about the image builders.
-describeImageBuildersResponse_imageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Core.Maybe [ImageBuilder])
-describeImageBuildersResponse_imageBuilders = Lens.lens (\DescribeImageBuildersResponse' {imageBuilders} -> imageBuilders) (\s@DescribeImageBuildersResponse' {} a -> s {imageBuilders = a} :: DescribeImageBuildersResponse) Core.. Lens.mapping Lens._Coerce
+describeImageBuildersResponse_imageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe [ImageBuilder])
+describeImageBuildersResponse_imageBuilders = Lens.lens (\DescribeImageBuildersResponse' {imageBuilders} -> imageBuilders) (\s@DescribeImageBuildersResponse' {} a -> s {imageBuilders = a} :: DescribeImageBuildersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeImageBuildersResponse_httpStatus :: Lens.Lens' DescribeImageBuildersResponse Core.Int
+describeImageBuildersResponse_httpStatus :: Lens.Lens' DescribeImageBuildersResponse Prelude.Int
 describeImageBuildersResponse_httpStatus = Lens.lens (\DescribeImageBuildersResponse' {httpStatus} -> httpStatus) (\s@DescribeImageBuildersResponse' {} a -> s {httpStatus = a} :: DescribeImageBuildersResponse)
 
-instance Core.NFData DescribeImageBuildersResponse
+instance Prelude.NFData DescribeImageBuildersResponse

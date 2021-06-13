@@ -40,6 +40,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ data DeleteUsagePlanKey = DeleteUsagePlanKey'
   { -- | [Required] The Id of the UsagePlan resource representing the usage plan
     -- containing the to-be-deleted UsagePlanKey resource representing a plan
     -- customer.
-    usagePlanId :: Core.Text,
+    usagePlanId :: Prelude.Text,
     -- | [Required] The Id of the UsagePlanKey resource to be deleted.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUsagePlanKey' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DeleteUsagePlanKey = DeleteUsagePlanKey'
 -- 'keyId', 'deleteUsagePlanKey_keyId' - [Required] The Id of the UsagePlanKey resource to be deleted.
 newDeleteUsagePlanKey ::
   -- | 'usagePlanId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUsagePlanKey
 newDeleteUsagePlanKey pUsagePlanId_ pKeyId_ =
   DeleteUsagePlanKey'
@@ -85,11 +86,11 @@ newDeleteUsagePlanKey pUsagePlanId_ pKeyId_ =
 -- | [Required] The Id of the UsagePlan resource representing the usage plan
 -- containing the to-be-deleted UsagePlanKey resource representing a plan
 -- customer.
-deleteUsagePlanKey_usagePlanId :: Lens.Lens' DeleteUsagePlanKey Core.Text
+deleteUsagePlanKey_usagePlanId :: Lens.Lens' DeleteUsagePlanKey Prelude.Text
 deleteUsagePlanKey_usagePlanId = Lens.lens (\DeleteUsagePlanKey' {usagePlanId} -> usagePlanId) (\s@DeleteUsagePlanKey' {} a -> s {usagePlanId = a} :: DeleteUsagePlanKey)
 
 -- | [Required] The Id of the UsagePlanKey resource to be deleted.
-deleteUsagePlanKey_keyId :: Lens.Lens' DeleteUsagePlanKey Core.Text
+deleteUsagePlanKey_keyId :: Lens.Lens' DeleteUsagePlanKey Prelude.Text
 deleteUsagePlanKey_keyId = Lens.lens (\DeleteUsagePlanKey' {keyId} -> keyId) (\s@DeleteUsagePlanKey' {} a -> s {keyId = a} :: DeleteUsagePlanKey)
 
 instance Core.AWSRequest DeleteUsagePlanKey where
@@ -100,22 +101,22 @@ instance Core.AWSRequest DeleteUsagePlanKey where
   response =
     Response.receiveNull DeleteUsagePlanKeyResponse'
 
-instance Core.Hashable DeleteUsagePlanKey
+instance Prelude.Hashable DeleteUsagePlanKey
 
-instance Core.NFData DeleteUsagePlanKey
+instance Prelude.NFData DeleteUsagePlanKey
 
 instance Core.ToHeaders DeleteUsagePlanKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteUsagePlanKey where
   toPath DeleteUsagePlanKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/usageplans/",
         Core.toBS usagePlanId,
         "/keys/",
@@ -123,13 +124,13 @@ instance Core.ToPath DeleteUsagePlanKey where
       ]
 
 instance Core.ToQuery DeleteUsagePlanKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUsagePlanKeyResponse' smart constructor.
 data DeleteUsagePlanKeyResponse = DeleteUsagePlanKeyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUsagePlanKeyResponse' with all optional fields omitted.
@@ -140,4 +141,4 @@ newDeleteUsagePlanKeyResponse ::
 newDeleteUsagePlanKeyResponse =
   DeleteUsagePlanKeyResponse'
 
-instance Core.NFData DeleteUsagePlanKeyResponse
+instance Prelude.NFData DeleteUsagePlanKeyResponse

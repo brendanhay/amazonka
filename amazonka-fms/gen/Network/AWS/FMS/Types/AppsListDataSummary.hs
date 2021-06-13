@@ -22,21 +22,22 @@ module Network.AWS.FMS.Types.AppsListDataSummary where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.App
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of the AWS Firewall Manager applications list.
 --
 -- /See:/ 'newAppsListDataSummary' smart constructor.
 data AppsListDataSummary = AppsListDataSummary'
   { -- | An array of @App@ objects in the AWS Firewall Manager applications list.
-    appsList :: Core.Maybe [App],
+    appsList :: Prelude.Maybe [App],
     -- | The name of the applications list.
-    listName :: Core.Maybe Core.Text,
+    listName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the applications list.
-    listArn :: Core.Maybe Core.Text,
+    listArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the applications list.
-    listId :: Core.Maybe Core.Text
+    listId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AppsListDataSummary' with all optional fields omitted.
@@ -57,26 +58,26 @@ newAppsListDataSummary ::
   AppsListDataSummary
 newAppsListDataSummary =
   AppsListDataSummary'
-    { appsList = Core.Nothing,
-      listName = Core.Nothing,
-      listArn = Core.Nothing,
-      listId = Core.Nothing
+    { appsList = Prelude.Nothing,
+      listName = Prelude.Nothing,
+      listArn = Prelude.Nothing,
+      listId = Prelude.Nothing
     }
 
 -- | An array of @App@ objects in the AWS Firewall Manager applications list.
-appsListDataSummary_appsList :: Lens.Lens' AppsListDataSummary (Core.Maybe [App])
-appsListDataSummary_appsList = Lens.lens (\AppsListDataSummary' {appsList} -> appsList) (\s@AppsListDataSummary' {} a -> s {appsList = a} :: AppsListDataSummary) Core.. Lens.mapping Lens._Coerce
+appsListDataSummary_appsList :: Lens.Lens' AppsListDataSummary (Prelude.Maybe [App])
+appsListDataSummary_appsList = Lens.lens (\AppsListDataSummary' {appsList} -> appsList) (\s@AppsListDataSummary' {} a -> s {appsList = a} :: AppsListDataSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the applications list.
-appsListDataSummary_listName :: Lens.Lens' AppsListDataSummary (Core.Maybe Core.Text)
+appsListDataSummary_listName :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
 appsListDataSummary_listName = Lens.lens (\AppsListDataSummary' {listName} -> listName) (\s@AppsListDataSummary' {} a -> s {listName = a} :: AppsListDataSummary)
 
 -- | The Amazon Resource Name (ARN) of the applications list.
-appsListDataSummary_listArn :: Lens.Lens' AppsListDataSummary (Core.Maybe Core.Text)
+appsListDataSummary_listArn :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
 appsListDataSummary_listArn = Lens.lens (\AppsListDataSummary' {listArn} -> listArn) (\s@AppsListDataSummary' {} a -> s {listArn = a} :: AppsListDataSummary)
 
 -- | The ID of the applications list.
-appsListDataSummary_listId :: Lens.Lens' AppsListDataSummary (Core.Maybe Core.Text)
+appsListDataSummary_listId :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
 appsListDataSummary_listId = Lens.lens (\AppsListDataSummary' {listId} -> listId) (\s@AppsListDataSummary' {} a -> s {listId = a} :: AppsListDataSummary)
 
 instance Core.FromJSON AppsListDataSummary where
@@ -85,12 +86,12 @@ instance Core.FromJSON AppsListDataSummary where
       "AppsListDataSummary"
       ( \x ->
           AppsListDataSummary'
-            Core.<$> (x Core..:? "AppsList" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ListName")
-            Core.<*> (x Core..:? "ListArn")
-            Core.<*> (x Core..:? "ListId")
+            Prelude.<$> (x Core..:? "AppsList" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ListName")
+            Prelude.<*> (x Core..:? "ListArn")
+            Prelude.<*> (x Core..:? "ListId")
       )
 
-instance Core.Hashable AppsListDataSummary
+instance Prelude.Hashable AppsListDataSummary
 
-instance Core.NFData AppsListDataSummary
+instance Prelude.NFData AppsListDataSummary

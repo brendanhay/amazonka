@@ -74,6 +74,7 @@ where
 import Network.AWS.AWSHealth.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,17 +85,17 @@ data DescribeEventsForOrganization = DescribeEventsForOrganization'
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return in one batch, between 10 and 100,
     -- inclusive.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The locale (language) to return information in. English (en) is the
     -- default and the only supported value at this time.
-    locale :: Core.Maybe Core.Text,
+    locale :: Prelude.Maybe Prelude.Text,
     -- | Values to narrow the results returned.
-    filter' :: Core.Maybe OrganizationEventFilter
+    filter' :: Prelude.Maybe OrganizationEventFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventsForOrganization' with all optional fields omitted.
@@ -122,10 +123,10 @@ newDescribeEventsForOrganization ::
 newDescribeEventsForOrganization =
   DescribeEventsForOrganization'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
-      locale = Core.Nothing,
-      filter' = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      filter' = Prelude.Nothing
     }
 
 -- | If the results of a search are large, only a portion of the results are
@@ -133,21 +134,21 @@ newDescribeEventsForOrganization =
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
-describeEventsForOrganization_nextToken :: Lens.Lens' DescribeEventsForOrganization (Core.Maybe Core.Text)
+describeEventsForOrganization_nextToken :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe Prelude.Text)
 describeEventsForOrganization_nextToken = Lens.lens (\DescribeEventsForOrganization' {nextToken} -> nextToken) (\s@DescribeEventsForOrganization' {} a -> s {nextToken = a} :: DescribeEventsForOrganization)
 
 -- | The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
-describeEventsForOrganization_maxResults :: Lens.Lens' DescribeEventsForOrganization (Core.Maybe Core.Natural)
+describeEventsForOrganization_maxResults :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe Prelude.Natural)
 describeEventsForOrganization_maxResults = Lens.lens (\DescribeEventsForOrganization' {maxResults} -> maxResults) (\s@DescribeEventsForOrganization' {} a -> s {maxResults = a} :: DescribeEventsForOrganization)
 
 -- | The locale (language) to return information in. English (en) is the
 -- default and the only supported value at this time.
-describeEventsForOrganization_locale :: Lens.Lens' DescribeEventsForOrganization (Core.Maybe Core.Text)
+describeEventsForOrganization_locale :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe Prelude.Text)
 describeEventsForOrganization_locale = Lens.lens (\DescribeEventsForOrganization' {locale} -> locale) (\s@DescribeEventsForOrganization' {} a -> s {locale = a} :: DescribeEventsForOrganization)
 
 -- | Values to narrow the results returned.
-describeEventsForOrganization_filter :: Lens.Lens' DescribeEventsForOrganization (Core.Maybe OrganizationEventFilter)
+describeEventsForOrganization_filter :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe OrganizationEventFilter)
 describeEventsForOrganization_filter = Lens.lens (\DescribeEventsForOrganization' {filter'} -> filter') (\s@DescribeEventsForOrganization' {} a -> s {filter' = a} :: DescribeEventsForOrganization)
 
 instance Core.AWSPager DescribeEventsForOrganization where
@@ -155,22 +156,22 @@ instance Core.AWSPager DescribeEventsForOrganization where
     | Core.stop
         ( rs
             Lens.^? describeEventsForOrganizationResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEventsForOrganizationResponse_events
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeEventsForOrganization_nextToken
+          Prelude.& describeEventsForOrganization_nextToken
           Lens..~ rs
           Lens.^? describeEventsForOrganizationResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -184,44 +185,48 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsForOrganizationResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "events" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEventsForOrganization
+instance
+  Prelude.Hashable
+    DescribeEventsForOrganization
 
-instance Core.NFData DescribeEventsForOrganization
+instance Prelude.NFData DescribeEventsForOrganization
 
 instance Core.ToHeaders DescribeEventsForOrganization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSHealth_20160804.DescribeEventsForOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEventsForOrganization where
   toJSON DescribeEventsForOrganization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("locale" Core..=) Core.<$> locale,
-            ("filter" Core..=) Core.<$> filter'
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("locale" Core..=) Prelude.<$> locale,
+            ("filter" Core..=) Prelude.<$> filter'
           ]
       )
 
 instance Core.ToPath DescribeEventsForOrganization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEventsForOrganization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventsForOrganizationResponse' smart constructor.
 data DescribeEventsForOrganizationResponse = DescribeEventsForOrganizationResponse'
@@ -230,13 +235,13 @@ data DescribeEventsForOrganizationResponse = DescribeEventsForOrganizationRespon
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The events that match the specified filter criteria.
-    events :: Core.Maybe [OrganizationEvent],
+    events :: Prelude.Maybe [OrganizationEvent],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventsForOrganizationResponse' with all optional fields omitted.
@@ -257,13 +262,13 @@ data DescribeEventsForOrganizationResponse = DescribeEventsForOrganizationRespon
 -- 'httpStatus', 'describeEventsForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeEventsForOrganizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEventsForOrganizationResponse
 newDescribeEventsForOrganizationResponse pHttpStatus_ =
   DescribeEventsForOrganizationResponse'
     { nextToken =
-        Core.Nothing,
-      events = Core.Nothing,
+        Prelude.Nothing,
+      events = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -272,17 +277,17 @@ newDescribeEventsForOrganizationResponse pHttpStatus_ =
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
-describeEventsForOrganizationResponse_nextToken :: Lens.Lens' DescribeEventsForOrganizationResponse (Core.Maybe Core.Text)
+describeEventsForOrganizationResponse_nextToken :: Lens.Lens' DescribeEventsForOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeEventsForOrganizationResponse_nextToken = Lens.lens (\DescribeEventsForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeEventsForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeEventsForOrganizationResponse)
 
 -- | The events that match the specified filter criteria.
-describeEventsForOrganizationResponse_events :: Lens.Lens' DescribeEventsForOrganizationResponse (Core.Maybe [OrganizationEvent])
-describeEventsForOrganizationResponse_events = Lens.lens (\DescribeEventsForOrganizationResponse' {events} -> events) (\s@DescribeEventsForOrganizationResponse' {} a -> s {events = a} :: DescribeEventsForOrganizationResponse) Core.. Lens.mapping Lens._Coerce
+describeEventsForOrganizationResponse_events :: Lens.Lens' DescribeEventsForOrganizationResponse (Prelude.Maybe [OrganizationEvent])
+describeEventsForOrganizationResponse_events = Lens.lens (\DescribeEventsForOrganizationResponse' {events} -> events) (\s@DescribeEventsForOrganizationResponse' {} a -> s {events = a} :: DescribeEventsForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeEventsForOrganizationResponse Core.Int
+describeEventsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeEventsForOrganizationResponse Prelude.Int
 describeEventsForOrganizationResponse_httpStatus = Lens.lens (\DescribeEventsForOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsForOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeEventsForOrganizationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeEventsForOrganizationResponse

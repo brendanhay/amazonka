@@ -44,18 +44,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateParameterGroup' smart constructor.
 data CreateParameterGroup = CreateParameterGroup'
   { -- | A description of the parameter group.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the parameter group to apply to all of the clusters in this
     -- replication group.
-    parameterGroupName :: Core.Text
+    parameterGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateParameterGroup' with all optional fields omitted.
@@ -71,21 +72,22 @@ data CreateParameterGroup = CreateParameterGroup'
 -- replication group.
 newCreateParameterGroup ::
   -- | 'parameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   CreateParameterGroup
 newCreateParameterGroup pParameterGroupName_ =
   CreateParameterGroup'
-    { description = Core.Nothing,
+    { description =
+        Prelude.Nothing,
       parameterGroupName = pParameterGroupName_
     }
 
 -- | A description of the parameter group.
-createParameterGroup_description :: Lens.Lens' CreateParameterGroup (Core.Maybe Core.Text)
+createParameterGroup_description :: Lens.Lens' CreateParameterGroup (Prelude.Maybe Prelude.Text)
 createParameterGroup_description = Lens.lens (\CreateParameterGroup' {description} -> description) (\s@CreateParameterGroup' {} a -> s {description = a} :: CreateParameterGroup)
 
 -- | The name of the parameter group to apply to all of the clusters in this
 -- replication group.
-createParameterGroup_parameterGroupName :: Lens.Lens' CreateParameterGroup Core.Text
+createParameterGroup_parameterGroupName :: Lens.Lens' CreateParameterGroup Prelude.Text
 createParameterGroup_parameterGroupName = Lens.lens (\CreateParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@CreateParameterGroup' {} a -> s {parameterGroupName = a} :: CreateParameterGroup)
 
 instance Core.AWSRequest CreateParameterGroup where
@@ -97,51 +99,53 @@ instance Core.AWSRequest CreateParameterGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateParameterGroupResponse'
-            Core.<$> (x Core..?> "ParameterGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ParameterGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateParameterGroup
+instance Prelude.Hashable CreateParameterGroup
 
-instance Core.NFData CreateParameterGroup
+instance Prelude.NFData CreateParameterGroup
 
 instance Core.ToHeaders CreateParameterGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDAXV3.CreateParameterGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateParameterGroup where
   toJSON CreateParameterGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Description" Core..=) Core.<$> description,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just
               ("ParameterGroupName" Core..= parameterGroupName)
           ]
       )
 
 instance Core.ToPath CreateParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateParameterGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateParameterGroupResponse' smart constructor.
 data CreateParameterGroupResponse = CreateParameterGroupResponse'
   { -- | Represents the output of a /CreateParameterGroup/ action.
-    parameterGroup :: Core.Maybe ParameterGroup,
+    parameterGroup :: Prelude.Maybe ParameterGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateParameterGroupResponse' with all optional fields omitted.
@@ -156,21 +160,21 @@ data CreateParameterGroupResponse = CreateParameterGroupResponse'
 -- 'httpStatus', 'createParameterGroupResponse_httpStatus' - The response's http status code.
 newCreateParameterGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateParameterGroupResponse
 newCreateParameterGroupResponse pHttpStatus_ =
   CreateParameterGroupResponse'
     { parameterGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents the output of a /CreateParameterGroup/ action.
-createParameterGroupResponse_parameterGroup :: Lens.Lens' CreateParameterGroupResponse (Core.Maybe ParameterGroup)
+createParameterGroupResponse_parameterGroup :: Lens.Lens' CreateParameterGroupResponse (Prelude.Maybe ParameterGroup)
 createParameterGroupResponse_parameterGroup = Lens.lens (\CreateParameterGroupResponse' {parameterGroup} -> parameterGroup) (\s@CreateParameterGroupResponse' {} a -> s {parameterGroup = a} :: CreateParameterGroupResponse)
 
 -- | The response's http status code.
-createParameterGroupResponse_httpStatus :: Lens.Lens' CreateParameterGroupResponse Core.Int
+createParameterGroupResponse_httpStatus :: Lens.Lens' CreateParameterGroupResponse Prelude.Int
 createParameterGroupResponse_httpStatus = Lens.lens (\CreateParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CreateParameterGroupResponse' {} a -> s {httpStatus = a} :: CreateParameterGroupResponse)
 
-instance Core.NFData CreateParameterGroupResponse
+instance Prelude.NFData CreateParameterGroupResponse

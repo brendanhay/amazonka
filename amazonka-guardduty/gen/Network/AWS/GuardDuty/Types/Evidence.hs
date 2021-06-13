@@ -22,15 +22,16 @@ module Network.AWS.GuardDuty.Types.Evidence where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the reason that the finding was generated.
 --
 -- /See:/ 'newEvidence' smart constructor.
 data Evidence = Evidence'
   { -- | A list of threat intelligence details related to the evidence.
-    threatIntelligenceDetails :: Core.Maybe [ThreatIntelligenceDetail]
+    threatIntelligenceDetails :: Prelude.Maybe [ThreatIntelligenceDetail]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Evidence' with all optional fields omitted.
@@ -44,11 +45,14 @@ data Evidence = Evidence'
 newEvidence ::
   Evidence
 newEvidence =
-  Evidence' {threatIntelligenceDetails = Core.Nothing}
+  Evidence'
+    { threatIntelligenceDetails =
+        Prelude.Nothing
+    }
 
 -- | A list of threat intelligence details related to the evidence.
-evidence_threatIntelligenceDetails :: Lens.Lens' Evidence (Core.Maybe [ThreatIntelligenceDetail])
-evidence_threatIntelligenceDetails = Lens.lens (\Evidence' {threatIntelligenceDetails} -> threatIntelligenceDetails) (\s@Evidence' {} a -> s {threatIntelligenceDetails = a} :: Evidence) Core.. Lens.mapping Lens._Coerce
+evidence_threatIntelligenceDetails :: Lens.Lens' Evidence (Prelude.Maybe [ThreatIntelligenceDetail])
+evidence_threatIntelligenceDetails = Lens.lens (\Evidence' {threatIntelligenceDetails} -> threatIntelligenceDetails) (\s@Evidence' {} a -> s {threatIntelligenceDetails = a} :: Evidence) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Evidence where
   parseJSON =
@@ -56,11 +60,11 @@ instance Core.FromJSON Evidence where
       "Evidence"
       ( \x ->
           Evidence'
-            Core.<$> ( x Core..:? "threatIntelligenceDetails"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "threatIntelligenceDetails"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable Evidence
+instance Prelude.Hashable Evidence
 
-instance Core.NFData Evidence
+instance Prelude.NFData Evidence

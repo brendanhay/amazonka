@@ -21,6 +21,7 @@ module Network.AWS.EFS.Types.CreationInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Required if the @RootDirectory@ > @Path@ specified does not exist.
 -- Specifies the POSIX IDs and permissions to apply to the access point\'s
@@ -37,15 +38,15 @@ import qualified Network.AWS.Lens as Lens
 data CreationInfo = CreationInfo'
   { -- | Specifies the POSIX user ID to apply to the @RootDirectory@. Accepts
     -- values from 0 to 2^32 (4294967295).
-    ownerUid :: Core.Natural,
+    ownerUid :: Prelude.Natural,
     -- | Specifies the POSIX group ID to apply to the @RootDirectory@. Accepts
     -- values from 0 to 2^32 (4294967295).
-    ownerGid :: Core.Natural,
+    ownerGid :: Prelude.Natural,
     -- | Specifies the POSIX permissions to apply to the @RootDirectory@, in the
     -- format of an octal number representing the file\'s mode bits.
-    permissions :: Core.Text
+    permissions :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreationInfo' with all optional fields omitted.
@@ -65,11 +66,11 @@ data CreationInfo = CreationInfo'
 -- format of an octal number representing the file\'s mode bits.
 newCreationInfo ::
   -- | 'ownerUid'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'ownerGid'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'permissions'
-  Core.Text ->
+  Prelude.Text ->
   CreationInfo
 newCreationInfo pOwnerUid_ pOwnerGid_ pPermissions_ =
   CreationInfo'
@@ -80,17 +81,17 @@ newCreationInfo pOwnerUid_ pOwnerGid_ pPermissions_ =
 
 -- | Specifies the POSIX user ID to apply to the @RootDirectory@. Accepts
 -- values from 0 to 2^32 (4294967295).
-creationInfo_ownerUid :: Lens.Lens' CreationInfo Core.Natural
+creationInfo_ownerUid :: Lens.Lens' CreationInfo Prelude.Natural
 creationInfo_ownerUid = Lens.lens (\CreationInfo' {ownerUid} -> ownerUid) (\s@CreationInfo' {} a -> s {ownerUid = a} :: CreationInfo)
 
 -- | Specifies the POSIX group ID to apply to the @RootDirectory@. Accepts
 -- values from 0 to 2^32 (4294967295).
-creationInfo_ownerGid :: Lens.Lens' CreationInfo Core.Natural
+creationInfo_ownerGid :: Lens.Lens' CreationInfo Prelude.Natural
 creationInfo_ownerGid = Lens.lens (\CreationInfo' {ownerGid} -> ownerGid) (\s@CreationInfo' {} a -> s {ownerGid = a} :: CreationInfo)
 
 -- | Specifies the POSIX permissions to apply to the @RootDirectory@, in the
 -- format of an octal number representing the file\'s mode bits.
-creationInfo_permissions :: Lens.Lens' CreationInfo Core.Text
+creationInfo_permissions :: Lens.Lens' CreationInfo Prelude.Text
 creationInfo_permissions = Lens.lens (\CreationInfo' {permissions} -> permissions) (\s@CreationInfo' {} a -> s {permissions = a} :: CreationInfo)
 
 instance Core.FromJSON CreationInfo where
@@ -99,21 +100,21 @@ instance Core.FromJSON CreationInfo where
       "CreationInfo"
       ( \x ->
           CreationInfo'
-            Core.<$> (x Core..: "OwnerUid")
-            Core.<*> (x Core..: "OwnerGid")
-            Core.<*> (x Core..: "Permissions")
+            Prelude.<$> (x Core..: "OwnerUid")
+            Prelude.<*> (x Core..: "OwnerGid")
+            Prelude.<*> (x Core..: "Permissions")
       )
 
-instance Core.Hashable CreationInfo
+instance Prelude.Hashable CreationInfo
 
-instance Core.NFData CreationInfo
+instance Prelude.NFData CreationInfo
 
 instance Core.ToJSON CreationInfo where
   toJSON CreationInfo' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OwnerUid" Core..= ownerUid),
-            Core.Just ("OwnerGid" Core..= ownerGid),
-            Core.Just ("Permissions" Core..= permissions)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("OwnerUid" Core..= ownerUid),
+            Prelude.Just ("OwnerGid" Core..= ownerGid),
+            Prelude.Just ("Permissions" Core..= permissions)
           ]
       )

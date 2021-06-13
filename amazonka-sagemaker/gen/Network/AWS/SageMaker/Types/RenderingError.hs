@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.RenderingError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A description of an error that occurred while rendering the template.
 --
 -- /See:/ 'newRenderingError' smart constructor.
 data RenderingError = RenderingError'
   { -- | A unique identifier for a specific class of errors.
-    code :: Core.Text,
+    code :: Prelude.Text,
     -- | A human-readable message describing the error.
-    message :: Core.Text
+    message :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RenderingError' with all optional fields omitted.
@@ -46,19 +47,19 @@ data RenderingError = RenderingError'
 -- 'message', 'renderingError_message' - A human-readable message describing the error.
 newRenderingError ::
   -- | 'code'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'message'
-  Core.Text ->
+  Prelude.Text ->
   RenderingError
 newRenderingError pCode_ pMessage_ =
   RenderingError' {code = pCode_, message = pMessage_}
 
 -- | A unique identifier for a specific class of errors.
-renderingError_code :: Lens.Lens' RenderingError Core.Text
+renderingError_code :: Lens.Lens' RenderingError Prelude.Text
 renderingError_code = Lens.lens (\RenderingError' {code} -> code) (\s@RenderingError' {} a -> s {code = a} :: RenderingError)
 
 -- | A human-readable message describing the error.
-renderingError_message :: Lens.Lens' RenderingError Core.Text
+renderingError_message :: Lens.Lens' RenderingError Prelude.Text
 renderingError_message = Lens.lens (\RenderingError' {message} -> message) (\s@RenderingError' {} a -> s {message = a} :: RenderingError)
 
 instance Core.FromJSON RenderingError where
@@ -67,9 +68,9 @@ instance Core.FromJSON RenderingError where
       "RenderingError"
       ( \x ->
           RenderingError'
-            Core.<$> (x Core..: "Code") Core.<*> (x Core..: "Message")
+            Prelude.<$> (x Core..: "Code") Prelude.<*> (x Core..: "Message")
       )
 
-instance Core.Hashable RenderingError
+instance Prelude.Hashable RenderingError
 
-instance Core.NFData RenderingError
+instance Prelude.NFData RenderingError

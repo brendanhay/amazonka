@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowExecutionOpenCounts where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the counts of open tasks, child workflow executions and timers
 -- for a workflow execution.
@@ -28,19 +29,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newWorkflowExecutionOpenCounts' smart constructor.
 data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
   { -- | The count of Lambda tasks whose status is @OPEN@.
-    openLambdaFunctions :: Core.Maybe Core.Natural,
+    openLambdaFunctions :: Prelude.Maybe Prelude.Natural,
     -- | The count of activity tasks whose status is @OPEN@.
-    openActivityTasks :: Core.Natural,
+    openActivityTasks :: Prelude.Natural,
     -- | The count of decision tasks whose status is OPEN. A workflow execution
     -- can have at most one open decision task.
-    openDecisionTasks :: Core.Natural,
+    openDecisionTasks :: Prelude.Natural,
     -- | The count of timers started by this workflow execution that have not
     -- fired yet.
-    openTimers :: Core.Natural,
+    openTimers :: Prelude.Natural,
     -- | The count of child workflow executions whose status is @OPEN@.
-    openChildWorkflowExecutions :: Core.Natural
+    openChildWorkflowExecutions :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionOpenCounts' with all optional fields omitted.
@@ -63,13 +64,13 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
 -- 'openChildWorkflowExecutions', 'workflowExecutionOpenCounts_openChildWorkflowExecutions' - The count of child workflow executions whose status is @OPEN@.
 newWorkflowExecutionOpenCounts ::
   -- | 'openActivityTasks'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'openDecisionTasks'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'openTimers'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'openChildWorkflowExecutions'
-  Core.Natural ->
+  Prelude.Natural ->
   WorkflowExecutionOpenCounts
 newWorkflowExecutionOpenCounts
   pOpenActivityTasks_
@@ -78,7 +79,7 @@ newWorkflowExecutionOpenCounts
   pOpenChildWorkflowExecutions_ =
     WorkflowExecutionOpenCounts'
       { openLambdaFunctions =
-          Core.Nothing,
+          Prelude.Nothing,
         openActivityTasks = pOpenActivityTasks_,
         openDecisionTasks = pOpenDecisionTasks_,
         openTimers = pOpenTimers_,
@@ -87,25 +88,25 @@ newWorkflowExecutionOpenCounts
       }
 
 -- | The count of Lambda tasks whose status is @OPEN@.
-workflowExecutionOpenCounts_openLambdaFunctions :: Lens.Lens' WorkflowExecutionOpenCounts (Core.Maybe Core.Natural)
+workflowExecutionOpenCounts_openLambdaFunctions :: Lens.Lens' WorkflowExecutionOpenCounts (Prelude.Maybe Prelude.Natural)
 workflowExecutionOpenCounts_openLambdaFunctions = Lens.lens (\WorkflowExecutionOpenCounts' {openLambdaFunctions} -> openLambdaFunctions) (\s@WorkflowExecutionOpenCounts' {} a -> s {openLambdaFunctions = a} :: WorkflowExecutionOpenCounts)
 
 -- | The count of activity tasks whose status is @OPEN@.
-workflowExecutionOpenCounts_openActivityTasks :: Lens.Lens' WorkflowExecutionOpenCounts Core.Natural
+workflowExecutionOpenCounts_openActivityTasks :: Lens.Lens' WorkflowExecutionOpenCounts Prelude.Natural
 workflowExecutionOpenCounts_openActivityTasks = Lens.lens (\WorkflowExecutionOpenCounts' {openActivityTasks} -> openActivityTasks) (\s@WorkflowExecutionOpenCounts' {} a -> s {openActivityTasks = a} :: WorkflowExecutionOpenCounts)
 
 -- | The count of decision tasks whose status is OPEN. A workflow execution
 -- can have at most one open decision task.
-workflowExecutionOpenCounts_openDecisionTasks :: Lens.Lens' WorkflowExecutionOpenCounts Core.Natural
+workflowExecutionOpenCounts_openDecisionTasks :: Lens.Lens' WorkflowExecutionOpenCounts Prelude.Natural
 workflowExecutionOpenCounts_openDecisionTasks = Lens.lens (\WorkflowExecutionOpenCounts' {openDecisionTasks} -> openDecisionTasks) (\s@WorkflowExecutionOpenCounts' {} a -> s {openDecisionTasks = a} :: WorkflowExecutionOpenCounts)
 
 -- | The count of timers started by this workflow execution that have not
 -- fired yet.
-workflowExecutionOpenCounts_openTimers :: Lens.Lens' WorkflowExecutionOpenCounts Core.Natural
+workflowExecutionOpenCounts_openTimers :: Lens.Lens' WorkflowExecutionOpenCounts Prelude.Natural
 workflowExecutionOpenCounts_openTimers = Lens.lens (\WorkflowExecutionOpenCounts' {openTimers} -> openTimers) (\s@WorkflowExecutionOpenCounts' {} a -> s {openTimers = a} :: WorkflowExecutionOpenCounts)
 
 -- | The count of child workflow executions whose status is @OPEN@.
-workflowExecutionOpenCounts_openChildWorkflowExecutions :: Lens.Lens' WorkflowExecutionOpenCounts Core.Natural
+workflowExecutionOpenCounts_openChildWorkflowExecutions :: Lens.Lens' WorkflowExecutionOpenCounts Prelude.Natural
 workflowExecutionOpenCounts_openChildWorkflowExecutions = Lens.lens (\WorkflowExecutionOpenCounts' {openChildWorkflowExecutions} -> openChildWorkflowExecutions) (\s@WorkflowExecutionOpenCounts' {} a -> s {openChildWorkflowExecutions = a} :: WorkflowExecutionOpenCounts)
 
 instance Core.FromJSON WorkflowExecutionOpenCounts where
@@ -114,13 +115,13 @@ instance Core.FromJSON WorkflowExecutionOpenCounts where
       "WorkflowExecutionOpenCounts"
       ( \x ->
           WorkflowExecutionOpenCounts'
-            Core.<$> (x Core..:? "openLambdaFunctions")
-            Core.<*> (x Core..: "openActivityTasks")
-            Core.<*> (x Core..: "openDecisionTasks")
-            Core.<*> (x Core..: "openTimers")
-            Core.<*> (x Core..: "openChildWorkflowExecutions")
+            Prelude.<$> (x Core..:? "openLambdaFunctions")
+            Prelude.<*> (x Core..: "openActivityTasks")
+            Prelude.<*> (x Core..: "openDecisionTasks")
+            Prelude.<*> (x Core..: "openTimers")
+            Prelude.<*> (x Core..: "openChildWorkflowExecutions")
       )
 
-instance Core.Hashable WorkflowExecutionOpenCounts
+instance Prelude.Hashable WorkflowExecutionOpenCounts
 
-instance Core.NFData WorkflowExecutionOpenCounts
+instance Prelude.NFData WorkflowExecutionOpenCounts

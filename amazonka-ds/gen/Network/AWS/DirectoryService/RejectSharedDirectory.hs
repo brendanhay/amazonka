@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data RejectSharedDirectory = RejectSharedDirectory'
   { -- | Identifier of the shared directory in the directory consumer account.
     -- This identifier is different for each directory owner account.
-    sharedDirectoryId :: Core.Text
+    sharedDirectoryId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectSharedDirectory' with all optional fields omitted.
@@ -66,7 +67,7 @@ data RejectSharedDirectory = RejectSharedDirectory'
 -- This identifier is different for each directory owner account.
 newRejectSharedDirectory ::
   -- | 'sharedDirectoryId'
-  Core.Text ->
+  Prelude.Text ->
   RejectSharedDirectory
 newRejectSharedDirectory pSharedDirectoryId_ =
   RejectSharedDirectory'
@@ -76,7 +77,7 @@ newRejectSharedDirectory pSharedDirectoryId_ =
 
 -- | Identifier of the shared directory in the directory consumer account.
 -- This identifier is different for each directory owner account.
-rejectSharedDirectory_sharedDirectoryId :: Lens.Lens' RejectSharedDirectory Core.Text
+rejectSharedDirectory_sharedDirectoryId :: Lens.Lens' RejectSharedDirectory Prelude.Text
 rejectSharedDirectory_sharedDirectoryId = Lens.lens (\RejectSharedDirectory' {sharedDirectoryId} -> sharedDirectoryId) (\s@RejectSharedDirectory' {} a -> s {sharedDirectoryId = a} :: RejectSharedDirectory)
 
 instance Core.AWSRequest RejectSharedDirectory where
@@ -88,50 +89,52 @@ instance Core.AWSRequest RejectSharedDirectory where
     Response.receiveJSON
       ( \s h x ->
           RejectSharedDirectoryResponse'
-            Core.<$> (x Core..?> "SharedDirectoryId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SharedDirectoryId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RejectSharedDirectory
+instance Prelude.Hashable RejectSharedDirectory
 
-instance Core.NFData RejectSharedDirectory
+instance Prelude.NFData RejectSharedDirectory
 
 instance Core.ToHeaders RejectSharedDirectory where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.RejectSharedDirectory" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RejectSharedDirectory where
   toJSON RejectSharedDirectory' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SharedDirectoryId" Core..= sharedDirectoryId)
           ]
       )
 
 instance Core.ToPath RejectSharedDirectory where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RejectSharedDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectSharedDirectoryResponse' smart constructor.
 data RejectSharedDirectoryResponse = RejectSharedDirectoryResponse'
   { -- | Identifier of the shared directory in the directory consumer account.
-    sharedDirectoryId :: Core.Maybe Core.Text,
+    sharedDirectoryId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectSharedDirectoryResponse' with all optional fields omitted.
@@ -146,21 +149,21 @@ data RejectSharedDirectoryResponse = RejectSharedDirectoryResponse'
 -- 'httpStatus', 'rejectSharedDirectoryResponse_httpStatus' - The response's http status code.
 newRejectSharedDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RejectSharedDirectoryResponse
 newRejectSharedDirectoryResponse pHttpStatus_ =
   RejectSharedDirectoryResponse'
     { sharedDirectoryId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Identifier of the shared directory in the directory consumer account.
-rejectSharedDirectoryResponse_sharedDirectoryId :: Lens.Lens' RejectSharedDirectoryResponse (Core.Maybe Core.Text)
+rejectSharedDirectoryResponse_sharedDirectoryId :: Lens.Lens' RejectSharedDirectoryResponse (Prelude.Maybe Prelude.Text)
 rejectSharedDirectoryResponse_sharedDirectoryId = Lens.lens (\RejectSharedDirectoryResponse' {sharedDirectoryId} -> sharedDirectoryId) (\s@RejectSharedDirectoryResponse' {} a -> s {sharedDirectoryId = a} :: RejectSharedDirectoryResponse)
 
 -- | The response's http status code.
-rejectSharedDirectoryResponse_httpStatus :: Lens.Lens' RejectSharedDirectoryResponse Core.Int
+rejectSharedDirectoryResponse_httpStatus :: Lens.Lens' RejectSharedDirectoryResponse Prelude.Int
 rejectSharedDirectoryResponse_httpStatus = Lens.lens (\RejectSharedDirectoryResponse' {httpStatus} -> httpStatus) (\s@RejectSharedDirectoryResponse' {} a -> s {httpStatus = a} :: RejectSharedDirectoryResponse)
 
-instance Core.NFData RejectSharedDirectoryResponse
+instance Prelude.NFData RejectSharedDirectoryResponse

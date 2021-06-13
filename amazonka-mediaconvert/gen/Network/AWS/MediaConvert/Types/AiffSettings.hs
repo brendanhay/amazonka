@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.AiffSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value AIFF.
@@ -30,14 +31,14 @@ data AiffSettings = AiffSettings'
   { -- | Specify the number of channels in this output audio track. Valid values
     -- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up
     -- to 64.
-    channels :: Core.Maybe Core.Natural,
+    channels :: Prelude.Maybe Prelude.Natural,
     -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
     -- quality for this audio track.
-    bitDepth :: Core.Maybe Core.Natural,
+    bitDepth :: Prelude.Maybe Prelude.Natural,
     -- | Sample rate in hz.
-    sampleRate :: Core.Maybe Core.Natural
+    sampleRate :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AiffSettings' with all optional fields omitted.
@@ -59,24 +60,24 @@ newAiffSettings ::
   AiffSettings
 newAiffSettings =
   AiffSettings'
-    { channels = Core.Nothing,
-      bitDepth = Core.Nothing,
-      sampleRate = Core.Nothing
+    { channels = Prelude.Nothing,
+      bitDepth = Prelude.Nothing,
+      sampleRate = Prelude.Nothing
     }
 
 -- | Specify the number of channels in this output audio track. Valid values
 -- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up
 -- to 64.
-aiffSettings_channels :: Lens.Lens' AiffSettings (Core.Maybe Core.Natural)
+aiffSettings_channels :: Lens.Lens' AiffSettings (Prelude.Maybe Prelude.Natural)
 aiffSettings_channels = Lens.lens (\AiffSettings' {channels} -> channels) (\s@AiffSettings' {} a -> s {channels = a} :: AiffSettings)
 
 -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
 -- quality for this audio track.
-aiffSettings_bitDepth :: Lens.Lens' AiffSettings (Core.Maybe Core.Natural)
+aiffSettings_bitDepth :: Lens.Lens' AiffSettings (Prelude.Maybe Prelude.Natural)
 aiffSettings_bitDepth = Lens.lens (\AiffSettings' {bitDepth} -> bitDepth) (\s@AiffSettings' {} a -> s {bitDepth = a} :: AiffSettings)
 
 -- | Sample rate in hz.
-aiffSettings_sampleRate :: Lens.Lens' AiffSettings (Core.Maybe Core.Natural)
+aiffSettings_sampleRate :: Lens.Lens' AiffSettings (Prelude.Maybe Prelude.Natural)
 aiffSettings_sampleRate = Lens.lens (\AiffSettings' {sampleRate} -> sampleRate) (\s@AiffSettings' {} a -> s {sampleRate = a} :: AiffSettings)
 
 instance Core.FromJSON AiffSettings where
@@ -85,21 +86,21 @@ instance Core.FromJSON AiffSettings where
       "AiffSettings"
       ( \x ->
           AiffSettings'
-            Core.<$> (x Core..:? "channels")
-            Core.<*> (x Core..:? "bitDepth")
-            Core.<*> (x Core..:? "sampleRate")
+            Prelude.<$> (x Core..:? "channels")
+            Prelude.<*> (x Core..:? "bitDepth")
+            Prelude.<*> (x Core..:? "sampleRate")
       )
 
-instance Core.Hashable AiffSettings
+instance Prelude.Hashable AiffSettings
 
-instance Core.NFData AiffSettings
+instance Prelude.NFData AiffSettings
 
 instance Core.ToJSON AiffSettings where
   toJSON AiffSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("channels" Core..=) Core.<$> channels,
-            ("bitDepth" Core..=) Core.<$> bitDepth,
-            ("sampleRate" Core..=) Core.<$> sampleRate
+      ( Prelude.catMaybes
+          [ ("channels" Core..=) Prelude.<$> channels,
+            ("bitDepth" Core..=) Prelude.<$> bitDepth,
+            ("sampleRate" Core..=) Prelude.<$> sampleRate
           ]
       )

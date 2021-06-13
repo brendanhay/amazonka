@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,15 +65,15 @@ data ListJournalS3ExportsForLedger = ListJournalS3ExportsForLedger'
     -- of results. If you received a value for @NextToken@ in the response from
     -- a previous @ListJournalS3ExportsForLedger@ call, then you should use
     -- that value as input here.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single
     -- @ListJournalS3ExportsForLedger@ request. (The actual number of results
     -- returned might be fewer.)
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the ledger.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJournalS3ExportsForLedger' with all optional fields omitted.
@@ -94,13 +95,13 @@ data ListJournalS3ExportsForLedger = ListJournalS3ExportsForLedger'
 -- 'name', 'listJournalS3ExportsForLedger_name' - The name of the ledger.
 newListJournalS3ExportsForLedger ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   ListJournalS3ExportsForLedger
 newListJournalS3ExportsForLedger pName_ =
   ListJournalS3ExportsForLedger'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       name = pName_
     }
 
@@ -108,17 +109,17 @@ newListJournalS3ExportsForLedger pName_ =
 -- of results. If you received a value for @NextToken@ in the response from
 -- a previous @ListJournalS3ExportsForLedger@ call, then you should use
 -- that value as input here.
-listJournalS3ExportsForLedger_nextToken :: Lens.Lens' ListJournalS3ExportsForLedger (Core.Maybe Core.Text)
+listJournalS3ExportsForLedger_nextToken :: Lens.Lens' ListJournalS3ExportsForLedger (Prelude.Maybe Prelude.Text)
 listJournalS3ExportsForLedger_nextToken = Lens.lens (\ListJournalS3ExportsForLedger' {nextToken} -> nextToken) (\s@ListJournalS3ExportsForLedger' {} a -> s {nextToken = a} :: ListJournalS3ExportsForLedger)
 
 -- | The maximum number of results to return in a single
 -- @ListJournalS3ExportsForLedger@ request. (The actual number of results
 -- returned might be fewer.)
-listJournalS3ExportsForLedger_maxResults :: Lens.Lens' ListJournalS3ExportsForLedger (Core.Maybe Core.Natural)
+listJournalS3ExportsForLedger_maxResults :: Lens.Lens' ListJournalS3ExportsForLedger (Prelude.Maybe Prelude.Natural)
 listJournalS3ExportsForLedger_maxResults = Lens.lens (\ListJournalS3ExportsForLedger' {maxResults} -> maxResults) (\s@ListJournalS3ExportsForLedger' {} a -> s {maxResults = a} :: ListJournalS3ExportsForLedger)
 
 -- | The name of the ledger.
-listJournalS3ExportsForLedger_name :: Lens.Lens' ListJournalS3ExportsForLedger Core.Text
+listJournalS3ExportsForLedger_name :: Lens.Lens' ListJournalS3ExportsForLedger Prelude.Text
 listJournalS3ExportsForLedger_name = Lens.lens (\ListJournalS3ExportsForLedger' {name} -> name) (\s@ListJournalS3ExportsForLedger' {} a -> s {name = a} :: ListJournalS3ExportsForLedger)
 
 instance
@@ -133,32 +134,38 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsForLedgerResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "JournalS3Exports" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "JournalS3Exports"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListJournalS3ExportsForLedger
+instance
+  Prelude.Hashable
+    ListJournalS3ExportsForLedger
 
-instance Core.NFData ListJournalS3ExportsForLedger
+instance Prelude.NFData ListJournalS3ExportsForLedger
 
 instance Core.ToHeaders ListJournalS3ExportsForLedger where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListJournalS3ExportsForLedger where
   toPath ListJournalS3ExportsForLedger' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/ledgers/", Core.toBS name, "/journal-s3-exports"]
 
 instance Core.ToQuery ListJournalS3ExportsForLedger where
   toQuery ListJournalS3ExportsForLedger' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "next_token" Core.=: nextToken,
         "max_results" Core.=: maxResults
       ]
@@ -171,14 +178,14 @@ data ListJournalS3ExportsForLedgerResponse = ListJournalS3ExportsForLedgerRespon
     -- -   If @NextToken@ is /not/ empty, then there are more results
     --     available. To retrieve the next page of results, use the value of
     --     @NextToken@ in a subsequent @ListJournalS3ExportsForLedger@ call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The array of journal export job descriptions that are associated with
     -- the specified ledger.
-    journalS3Exports :: Core.Maybe [JournalS3ExportDescription],
+    journalS3Exports :: Prelude.Maybe [JournalS3ExportDescription],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJournalS3ExportsForLedgerResponse' with all optional fields omitted.
@@ -201,13 +208,13 @@ data ListJournalS3ExportsForLedgerResponse = ListJournalS3ExportsForLedgerRespon
 -- 'httpStatus', 'listJournalS3ExportsForLedgerResponse_httpStatus' - The response's http status code.
 newListJournalS3ExportsForLedgerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListJournalS3ExportsForLedgerResponse
 newListJournalS3ExportsForLedgerResponse pHttpStatus_ =
   ListJournalS3ExportsForLedgerResponse'
     { nextToken =
-        Core.Nothing,
-      journalS3Exports = Core.Nothing,
+        Prelude.Nothing,
+      journalS3Exports = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -217,18 +224,18 @@ newListJournalS3ExportsForLedgerResponse pHttpStatus_ =
 -- -   If @NextToken@ is /not/ empty, then there are more results
 --     available. To retrieve the next page of results, use the value of
 --     @NextToken@ in a subsequent @ListJournalS3ExportsForLedger@ call.
-listJournalS3ExportsForLedgerResponse_nextToken :: Lens.Lens' ListJournalS3ExportsForLedgerResponse (Core.Maybe Core.Text)
+listJournalS3ExportsForLedgerResponse_nextToken :: Lens.Lens' ListJournalS3ExportsForLedgerResponse (Prelude.Maybe Prelude.Text)
 listJournalS3ExportsForLedgerResponse_nextToken = Lens.lens (\ListJournalS3ExportsForLedgerResponse' {nextToken} -> nextToken) (\s@ListJournalS3ExportsForLedgerResponse' {} a -> s {nextToken = a} :: ListJournalS3ExportsForLedgerResponse)
 
 -- | The array of journal export job descriptions that are associated with
 -- the specified ledger.
-listJournalS3ExportsForLedgerResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsForLedgerResponse (Core.Maybe [JournalS3ExportDescription])
-listJournalS3ExportsForLedgerResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsForLedgerResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsForLedgerResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsForLedgerResponse) Core.. Lens.mapping Lens._Coerce
+listJournalS3ExportsForLedgerResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsForLedgerResponse (Prelude.Maybe [JournalS3ExportDescription])
+listJournalS3ExportsForLedgerResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsForLedgerResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsForLedgerResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsForLedgerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listJournalS3ExportsForLedgerResponse_httpStatus :: Lens.Lens' ListJournalS3ExportsForLedgerResponse Core.Int
+listJournalS3ExportsForLedgerResponse_httpStatus :: Lens.Lens' ListJournalS3ExportsForLedgerResponse Prelude.Int
 listJournalS3ExportsForLedgerResponse_httpStatus = Lens.lens (\ListJournalS3ExportsForLedgerResponse' {httpStatus} -> httpStatus) (\s@ListJournalS3ExportsForLedgerResponse' {} a -> s {httpStatus = a} :: ListJournalS3ExportsForLedgerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListJournalS3ExportsForLedgerResponse

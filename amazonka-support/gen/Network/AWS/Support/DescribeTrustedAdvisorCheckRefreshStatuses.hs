@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -68,9 +69,9 @@ data DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRef
     --
     -- If you specify the check ID of a check that is automatically refreshed,
     -- you might see an @InvalidParameterValue@ error.
-    checkIds :: [Core.Text]
+    checkIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTrustedAdvisorCheckRefreshStatuses' with all optional fields omitted.
@@ -89,15 +90,15 @@ newDescribeTrustedAdvisorCheckRefreshStatuses ::
 newDescribeTrustedAdvisorCheckRefreshStatuses =
   DescribeTrustedAdvisorCheckRefreshStatuses'
     { checkIds =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | The IDs of the Trusted Advisor checks to get the status of.
 --
 -- If you specify the check ID of a check that is automatically refreshed,
 -- you might see an @InvalidParameterValue@ error.
-describeTrustedAdvisorCheckRefreshStatuses_checkIds :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Core.Text]
-describeTrustedAdvisorCheckRefreshStatuses_checkIds = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatuses' {checkIds} -> checkIds) (\s@DescribeTrustedAdvisorCheckRefreshStatuses' {} a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckRefreshStatuses) Core.. Lens._Coerce
+describeTrustedAdvisorCheckRefreshStatuses_checkIds :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Prelude.Text]
+describeTrustedAdvisorCheckRefreshStatuses_checkIds = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatuses' {checkIds} -> checkIds) (\s@DescribeTrustedAdvisorCheckRefreshStatuses' {} a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckRefreshStatuses) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -112,16 +113,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-              Core.<*> (x Core..?> "statuses" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..?> "statuses" Core..!@ Prelude.mempty)
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeTrustedAdvisorCheckRefreshStatuses
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTrustedAdvisorCheckRefreshStatuses
 
 instance
@@ -129,14 +130,16 @@ instance
     DescribeTrustedAdvisorCheckRefreshStatuses
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -147,21 +150,21 @@ instance
   toJSON
     DescribeTrustedAdvisorCheckRefreshStatuses' {..} =
       Core.object
-        ( Core.catMaybes
-            [Core.Just ("checkIds" Core..= checkIds)]
+        ( Prelude.catMaybes
+            [Prelude.Just ("checkIds" Core..= checkIds)]
         )
 
 instance
   Core.ToPath
     DescribeTrustedAdvisorCheckRefreshStatuses
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeTrustedAdvisorCheckRefreshStatuses
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The statuses of the Trusted Advisor checks returned by the
 -- DescribeTrustedAdvisorCheckRefreshStatuses operation.
@@ -169,11 +172,11 @@ instance
 -- /See:/ 'newDescribeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The refresh status of the specified Trusted Advisor checks.
     statuses :: [TrustedAdvisorCheckRefreshStatus]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' with all optional fields omitted.
@@ -188,24 +191,25 @@ data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisor
 -- 'statuses', 'describeTrustedAdvisorCheckRefreshStatusesResponse_statuses' - The refresh status of the specified Trusted Advisor checks.
 newDescribeTrustedAdvisorCheckRefreshStatusesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTrustedAdvisorCheckRefreshStatusesResponse
 newDescribeTrustedAdvisorCheckRefreshStatusesResponse
   pHttpStatus_ =
     DescribeTrustedAdvisorCheckRefreshStatusesResponse'
       { httpStatus =
           pHttpStatus_,
-        statuses = Core.mempty
+        statuses =
+          Prelude.mempty
       }
 
 -- | The response's http status code.
-describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Core.Int
+describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Prelude.Int
 describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatusesResponse' {httpStatus} -> httpStatus) (\s@DescribeTrustedAdvisorCheckRefreshStatusesResponse' {} a -> s {httpStatus = a} :: DescribeTrustedAdvisorCheckRefreshStatusesResponse)
 
 -- | The refresh status of the specified Trusted Advisor checks.
 describeTrustedAdvisorCheckRefreshStatusesResponse_statuses :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
-describeTrustedAdvisorCheckRefreshStatusesResponse_statuses = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatusesResponse' {statuses} -> statuses) (\s@DescribeTrustedAdvisorCheckRefreshStatusesResponse' {} a -> s {statuses = a} :: DescribeTrustedAdvisorCheckRefreshStatusesResponse) Core.. Lens._Coerce
+describeTrustedAdvisorCheckRefreshStatusesResponse_statuses = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatusesResponse' {statuses} -> statuses) (\s@DescribeTrustedAdvisorCheckRefreshStatusesResponse' {} a -> s {statuses = a} :: DescribeTrustedAdvisorCheckRefreshStatusesResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTrustedAdvisorCheckRefreshStatusesResponse

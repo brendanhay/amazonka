@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.Predicate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.PredicateType
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -53,15 +54,15 @@ data Predicate = Predicate'
     -- SizeConstraintSet. For example, if an @IPSet@ includes the IP address
     -- @192.0.2.44@, AWS WAF will allow, block, or count requests based on all
     -- IP addresses /except/ @192.0.2.44@.
-    negated :: Core.Bool,
+    negated :: Prelude.Bool,
     -- | The type of predicate in a @Rule@, such as @ByteMatch@ or @IPSet@.
     type' :: PredicateType,
     -- | A unique identifier for a predicate in a @Rule@, such as
     -- @ByteMatchSetId@ or @IPSetId@. The ID is returned by the corresponding
     -- @Create@ or @List@ command.
-    dataId :: Core.Text
+    dataId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Predicate' with all optional fields omitted.
@@ -92,11 +93,11 @@ data Predicate = Predicate'
 -- @Create@ or @List@ command.
 newPredicate ::
   -- | 'negated'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'type''
   PredicateType ->
   -- | 'dataId'
-  Core.Text ->
+  Prelude.Text ->
   Predicate
 newPredicate pNegated_ pType_ pDataId_ =
   Predicate'
@@ -118,7 +119,7 @@ newPredicate pNegated_ pType_ pDataId_ =
 -- SizeConstraintSet. For example, if an @IPSet@ includes the IP address
 -- @192.0.2.44@, AWS WAF will allow, block, or count requests based on all
 -- IP addresses /except/ @192.0.2.44@.
-predicate_negated :: Lens.Lens' Predicate Core.Bool
+predicate_negated :: Lens.Lens' Predicate Prelude.Bool
 predicate_negated = Lens.lens (\Predicate' {negated} -> negated) (\s@Predicate' {} a -> s {negated = a} :: Predicate)
 
 -- | The type of predicate in a @Rule@, such as @ByteMatch@ or @IPSet@.
@@ -128,7 +129,7 @@ predicate_type = Lens.lens (\Predicate' {type'} -> type') (\s@Predicate' {} a ->
 -- | A unique identifier for a predicate in a @Rule@, such as
 -- @ByteMatchSetId@ or @IPSetId@. The ID is returned by the corresponding
 -- @Create@ or @List@ command.
-predicate_dataId :: Lens.Lens' Predicate Core.Text
+predicate_dataId :: Lens.Lens' Predicate Prelude.Text
 predicate_dataId = Lens.lens (\Predicate' {dataId} -> dataId) (\s@Predicate' {} a -> s {dataId = a} :: Predicate)
 
 instance Core.FromJSON Predicate where
@@ -137,21 +138,21 @@ instance Core.FromJSON Predicate where
       "Predicate"
       ( \x ->
           Predicate'
-            Core.<$> (x Core..: "Negated")
-            Core.<*> (x Core..: "Type")
-            Core.<*> (x Core..: "DataId")
+            Prelude.<$> (x Core..: "Negated")
+            Prelude.<*> (x Core..: "Type")
+            Prelude.<*> (x Core..: "DataId")
       )
 
-instance Core.Hashable Predicate
+instance Prelude.Hashable Predicate
 
-instance Core.NFData Predicate
+instance Prelude.NFData Predicate
 
 instance Core.ToJSON Predicate where
   toJSON Predicate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Negated" Core..= negated),
-            Core.Just ("Type" Core..= type'),
-            Core.Just ("DataId" Core..= dataId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Negated" Core..= negated),
+            Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("DataId" Core..= dataId)
           ]
       )

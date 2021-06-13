@@ -21,15 +21,16 @@ module Network.AWS.AppStream.Types.ComputeCapacity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the capacity for a fleet.
 --
 -- /See:/ 'newComputeCapacity' smart constructor.
 data ComputeCapacity = ComputeCapacity'
   { -- | The desired number of streaming instances.
-    desiredInstances :: Core.Int
+    desiredInstances :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ComputeCapacity' with all optional fields omitted.
@@ -42,7 +43,7 @@ data ComputeCapacity = ComputeCapacity'
 -- 'desiredInstances', 'computeCapacity_desiredInstances' - The desired number of streaming instances.
 newComputeCapacity ::
   -- | 'desiredInstances'
-  Core.Int ->
+  Prelude.Int ->
   ComputeCapacity
 newComputeCapacity pDesiredInstances_ =
   ComputeCapacity'
@@ -51,18 +52,18 @@ newComputeCapacity pDesiredInstances_ =
     }
 
 -- | The desired number of streaming instances.
-computeCapacity_desiredInstances :: Lens.Lens' ComputeCapacity Core.Int
+computeCapacity_desiredInstances :: Lens.Lens' ComputeCapacity Prelude.Int
 computeCapacity_desiredInstances = Lens.lens (\ComputeCapacity' {desiredInstances} -> desiredInstances) (\s@ComputeCapacity' {} a -> s {desiredInstances = a} :: ComputeCapacity)
 
-instance Core.Hashable ComputeCapacity
+instance Prelude.Hashable ComputeCapacity
 
-instance Core.NFData ComputeCapacity
+instance Prelude.NFData ComputeCapacity
 
 instance Core.ToJSON ComputeCapacity where
   toJSON ComputeCapacity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("DesiredInstances" Core..= desiredInstances)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.OpsWorks.Types.DeploymentCommand where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.DeploymentCommandName
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to specify a stack or deployment command.
 --
@@ -48,7 +49,7 @@ data DeploymentCommand = DeploymentCommand'
     -- to the following.
     --
     -- @ { \"upgrade_os_to\":[\"Amazon Linux 2016.09\"], \"allow_reboot\":[\"true\"] } @
-    args :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    args :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | Specifies the operation. You can specify only one command.
     --
     -- For stacks, the following commands are available:
@@ -89,7 +90,7 @@ data DeploymentCommand = DeploymentCommand'
     -- -   @undeploy@: Undeploy the app.
     name :: DeploymentCommandName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeploymentCommand' with all optional fields omitted.
@@ -165,7 +166,7 @@ newDeploymentCommand ::
   DeploymentCommand
 newDeploymentCommand pName_ =
   DeploymentCommand'
-    { args = Core.Nothing,
+    { args = Prelude.Nothing,
       name = pName_
     }
 
@@ -190,8 +191,8 @@ newDeploymentCommand pName_ =
 -- to the following.
 --
 -- @ { \"upgrade_os_to\":[\"Amazon Linux 2016.09\"], \"allow_reboot\":[\"true\"] } @
-deploymentCommand_args :: Lens.Lens' DeploymentCommand (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-deploymentCommand_args = Lens.lens (\DeploymentCommand' {args} -> args) (\s@DeploymentCommand' {} a -> s {args = a} :: DeploymentCommand) Core.. Lens.mapping Lens._Coerce
+deploymentCommand_args :: Lens.Lens' DeploymentCommand (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+deploymentCommand_args = Lens.lens (\DeploymentCommand' {args} -> args) (\s@DeploymentCommand' {} a -> s {args = a} :: DeploymentCommand) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the operation. You can specify only one command.
 --
@@ -240,19 +241,19 @@ instance Core.FromJSON DeploymentCommand where
       "DeploymentCommand"
       ( \x ->
           DeploymentCommand'
-            Core.<$> (x Core..:? "Args" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..:? "Args" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable DeploymentCommand
+instance Prelude.Hashable DeploymentCommand
 
-instance Core.NFData DeploymentCommand
+instance Prelude.NFData DeploymentCommand
 
 instance Core.ToJSON DeploymentCommand where
   toJSON DeploymentCommand' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Args" Core..=) Core.<$> args,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Args" Core..=) Prelude.<$> args,
+            Prelude.Just ("Name" Core..= name)
           ]
       )

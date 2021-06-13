@@ -51,6 +51,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,13 +65,13 @@ import qualified Network.AWS.Response as Response
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
   { -- | Whether to display the deployed configuration (@true@) or include any
     -- pending changes (@false@). Defaults to @false@.
-    deployed :: Core.Maybe Core.Bool,
+    deployed :: Prelude.Maybe Prelude.Bool,
     -- | The analysis schemes you want to describe.
-    analysisSchemeNames :: Core.Maybe [Core.Text],
+    analysisSchemeNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the domain you want to describe.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAnalysisSchemes' with all optional fields omitted.
@@ -88,26 +89,27 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
 -- 'domainName', 'describeAnalysisSchemes_domainName' - The name of the domain you want to describe.
 newDescribeAnalysisSchemes ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeAnalysisSchemes
 newDescribeAnalysisSchemes pDomainName_ =
   DescribeAnalysisSchemes'
-    { deployed = Core.Nothing,
-      analysisSchemeNames = Core.Nothing,
+    { deployed =
+        Prelude.Nothing,
+      analysisSchemeNames = Prelude.Nothing,
       domainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-describeAnalysisSchemes_deployed :: Lens.Lens' DescribeAnalysisSchemes (Core.Maybe Core.Bool)
+describeAnalysisSchemes_deployed :: Lens.Lens' DescribeAnalysisSchemes (Prelude.Maybe Prelude.Bool)
 describeAnalysisSchemes_deployed = Lens.lens (\DescribeAnalysisSchemes' {deployed} -> deployed) (\s@DescribeAnalysisSchemes' {} a -> s {deployed = a} :: DescribeAnalysisSchemes)
 
 -- | The analysis schemes you want to describe.
-describeAnalysisSchemes_analysisSchemeNames :: Lens.Lens' DescribeAnalysisSchemes (Core.Maybe [Core.Text])
-describeAnalysisSchemes_analysisSchemeNames = Lens.lens (\DescribeAnalysisSchemes' {analysisSchemeNames} -> analysisSchemeNames) (\s@DescribeAnalysisSchemes' {} a -> s {analysisSchemeNames = a} :: DescribeAnalysisSchemes) Core.. Lens.mapping Lens._Coerce
+describeAnalysisSchemes_analysisSchemeNames :: Lens.Lens' DescribeAnalysisSchemes (Prelude.Maybe [Prelude.Text])
+describeAnalysisSchemes_analysisSchemeNames = Lens.lens (\DescribeAnalysisSchemes' {analysisSchemeNames} -> analysisSchemeNames) (\s@DescribeAnalysisSchemes' {} a -> s {analysisSchemeNames = a} :: DescribeAnalysisSchemes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the domain you want to describe.
-describeAnalysisSchemes_domainName :: Lens.Lens' DescribeAnalysisSchemes Core.Text
+describeAnalysisSchemes_domainName :: Lens.Lens' DescribeAnalysisSchemes Prelude.Text
 describeAnalysisSchemes_domainName = Lens.lens (\DescribeAnalysisSchemes' {domainName} -> domainName) (\s@DescribeAnalysisSchemes' {} a -> s {domainName = a} :: DescribeAnalysisSchemes)
 
 instance Core.AWSRequest DescribeAnalysisSchemes where
@@ -120,33 +122,34 @@ instance Core.AWSRequest DescribeAnalysisSchemes where
       "DescribeAnalysisSchemesResult"
       ( \s h x ->
           DescribeAnalysisSchemesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "AnalysisSchemes" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "AnalysisSchemes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable DescribeAnalysisSchemes
+instance Prelude.Hashable DescribeAnalysisSchemes
 
-instance Core.NFData DescribeAnalysisSchemes
+instance Prelude.NFData DescribeAnalysisSchemes
 
 instance Core.ToHeaders DescribeAnalysisSchemes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeAnalysisSchemes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAnalysisSchemes where
   toQuery DescribeAnalysisSchemes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAnalysisSchemes" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("DescribeAnalysisSchemes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "Deployed" Core.=: deployed,
         "AnalysisSchemeNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> analysisSchemeNames
+                Prelude.<$> analysisSchemeNames
             ),
         "DomainName" Core.=: domainName
       ]
@@ -157,11 +160,11 @@ instance Core.ToQuery DescribeAnalysisSchemes where
 -- /See:/ 'newDescribeAnalysisSchemesResponse' smart constructor.
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The analysis scheme descriptions.
     analysisSchemes :: [AnalysisSchemeStatus]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAnalysisSchemesResponse' with all optional fields omitted.
@@ -176,21 +179,23 @@ data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
 -- 'analysisSchemes', 'describeAnalysisSchemesResponse_analysisSchemes' - The analysis scheme descriptions.
 newDescribeAnalysisSchemesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAnalysisSchemesResponse
 newDescribeAnalysisSchemesResponse pHttpStatus_ =
   DescribeAnalysisSchemesResponse'
     { httpStatus =
         pHttpStatus_,
-      analysisSchemes = Core.mempty
+      analysisSchemes = Prelude.mempty
     }
 
 -- | The response's http status code.
-describeAnalysisSchemesResponse_httpStatus :: Lens.Lens' DescribeAnalysisSchemesResponse Core.Int
+describeAnalysisSchemesResponse_httpStatus :: Lens.Lens' DescribeAnalysisSchemesResponse Prelude.Int
 describeAnalysisSchemesResponse_httpStatus = Lens.lens (\DescribeAnalysisSchemesResponse' {httpStatus} -> httpStatus) (\s@DescribeAnalysisSchemesResponse' {} a -> s {httpStatus = a} :: DescribeAnalysisSchemesResponse)
 
 -- | The analysis scheme descriptions.
 describeAnalysisSchemesResponse_analysisSchemes :: Lens.Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-describeAnalysisSchemesResponse_analysisSchemes = Lens.lens (\DescribeAnalysisSchemesResponse' {analysisSchemes} -> analysisSchemes) (\s@DescribeAnalysisSchemesResponse' {} a -> s {analysisSchemes = a} :: DescribeAnalysisSchemesResponse) Core.. Lens._Coerce
+describeAnalysisSchemesResponse_analysisSchemes = Lens.lens (\DescribeAnalysisSchemesResponse' {analysisSchemes} -> analysisSchemes) (\s@DescribeAnalysisSchemesResponse' {} a -> s {analysisSchemes = a} :: DescribeAnalysisSchemesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DescribeAnalysisSchemesResponse
+instance
+  Prelude.NFData
+    DescribeAnalysisSchemesResponse

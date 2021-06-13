@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.WaitTime where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a duration or a date and time that indicates when Amazon
 -- Pinpoint determines whether an activity\'s conditions have been met or
@@ -31,13 +32,13 @@ data WaitTime = WaitTime'
   { -- | The date and time, in ISO 8601 format, when Amazon Pinpoint determines
     -- whether the activity\'s conditions have been met or the activity moves
     -- participants to the next activity in the journey.
-    waitUntil :: Core.Maybe Core.Text,
+    waitUntil :: Prelude.Maybe Prelude.Text,
     -- | The amount of time to wait, as a duration in ISO 8601 format, before
     -- determining whether the activity\'s conditions have been met or moving
     -- participants to the next activity in the journey.
-    waitFor :: Core.Maybe Core.Text
+    waitFor :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WaitTime' with all optional fields omitted.
@@ -58,20 +59,20 @@ newWaitTime ::
   WaitTime
 newWaitTime =
   WaitTime'
-    { waitUntil = Core.Nothing,
-      waitFor = Core.Nothing
+    { waitUntil = Prelude.Nothing,
+      waitFor = Prelude.Nothing
     }
 
 -- | The date and time, in ISO 8601 format, when Amazon Pinpoint determines
 -- whether the activity\'s conditions have been met or the activity moves
 -- participants to the next activity in the journey.
-waitTime_waitUntil :: Lens.Lens' WaitTime (Core.Maybe Core.Text)
+waitTime_waitUntil :: Lens.Lens' WaitTime (Prelude.Maybe Prelude.Text)
 waitTime_waitUntil = Lens.lens (\WaitTime' {waitUntil} -> waitUntil) (\s@WaitTime' {} a -> s {waitUntil = a} :: WaitTime)
 
 -- | The amount of time to wait, as a duration in ISO 8601 format, before
 -- determining whether the activity\'s conditions have been met or moving
 -- participants to the next activity in the journey.
-waitTime_waitFor :: Lens.Lens' WaitTime (Core.Maybe Core.Text)
+waitTime_waitFor :: Lens.Lens' WaitTime (Prelude.Maybe Prelude.Text)
 waitTime_waitFor = Lens.lens (\WaitTime' {waitFor} -> waitFor) (\s@WaitTime' {} a -> s {waitFor = a} :: WaitTime)
 
 instance Core.FromJSON WaitTime where
@@ -80,19 +81,19 @@ instance Core.FromJSON WaitTime where
       "WaitTime"
       ( \x ->
           WaitTime'
-            Core.<$> (x Core..:? "WaitUntil")
-            Core.<*> (x Core..:? "WaitFor")
+            Prelude.<$> (x Core..:? "WaitUntil")
+            Prelude.<*> (x Core..:? "WaitFor")
       )
 
-instance Core.Hashable WaitTime
+instance Prelude.Hashable WaitTime
 
-instance Core.NFData WaitTime
+instance Prelude.NFData WaitTime
 
 instance Core.ToJSON WaitTime where
   toJSON WaitTime' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("WaitUntil" Core..=) Core.<$> waitUntil,
-            ("WaitFor" Core..=) Core.<$> waitFor
+      ( Prelude.catMaybes
+          [ ("WaitUntil" Core..=) Prelude.<$> waitUntil,
+            ("WaitFor" Core..=) Prelude.<$> waitFor
           ]
       )

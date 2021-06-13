@@ -24,6 +24,7 @@ import Network.AWS.CloudDirectory.Types.Rule
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A facet attribute definition. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
@@ -32,15 +33,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFacetAttributeDefinition' smart constructor.
 data FacetAttributeDefinition = FacetAttributeDefinition'
   { -- | Whether the attribute is mutable or not.
-    isImmutable :: Core.Maybe Core.Bool,
+    isImmutable :: Prelude.Maybe Prelude.Bool,
     -- | Validation rules attached to the attribute definition.
-    rules :: Core.Maybe (Core.HashMap Core.Text Rule),
+    rules :: Prelude.Maybe (Prelude.HashMap Prelude.Text Rule),
     -- | The default value of the attribute (if configured).
-    defaultValue :: Core.Maybe TypedAttributeValue,
+    defaultValue :: Prelude.Maybe TypedAttributeValue,
     -- | The type of the attribute.
     type' :: FacetAttributeType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FacetAttributeDefinition' with all optional fields omitted.
@@ -64,22 +65,22 @@ newFacetAttributeDefinition ::
 newFacetAttributeDefinition pType_ =
   FacetAttributeDefinition'
     { isImmutable =
-        Core.Nothing,
-      rules = Core.Nothing,
-      defaultValue = Core.Nothing,
+        Prelude.Nothing,
+      rules = Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
       type' = pType_
     }
 
 -- | Whether the attribute is mutable or not.
-facetAttributeDefinition_isImmutable :: Lens.Lens' FacetAttributeDefinition (Core.Maybe Core.Bool)
+facetAttributeDefinition_isImmutable :: Lens.Lens' FacetAttributeDefinition (Prelude.Maybe Prelude.Bool)
 facetAttributeDefinition_isImmutable = Lens.lens (\FacetAttributeDefinition' {isImmutable} -> isImmutable) (\s@FacetAttributeDefinition' {} a -> s {isImmutable = a} :: FacetAttributeDefinition)
 
 -- | Validation rules attached to the attribute definition.
-facetAttributeDefinition_rules :: Lens.Lens' FacetAttributeDefinition (Core.Maybe (Core.HashMap Core.Text Rule))
-facetAttributeDefinition_rules = Lens.lens (\FacetAttributeDefinition' {rules} -> rules) (\s@FacetAttributeDefinition' {} a -> s {rules = a} :: FacetAttributeDefinition) Core.. Lens.mapping Lens._Coerce
+facetAttributeDefinition_rules :: Lens.Lens' FacetAttributeDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Rule))
+facetAttributeDefinition_rules = Lens.lens (\FacetAttributeDefinition' {rules} -> rules) (\s@FacetAttributeDefinition' {} a -> s {rules = a} :: FacetAttributeDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The default value of the attribute (if configured).
-facetAttributeDefinition_defaultValue :: Lens.Lens' FacetAttributeDefinition (Core.Maybe TypedAttributeValue)
+facetAttributeDefinition_defaultValue :: Lens.Lens' FacetAttributeDefinition (Prelude.Maybe TypedAttributeValue)
 facetAttributeDefinition_defaultValue = Lens.lens (\FacetAttributeDefinition' {defaultValue} -> defaultValue) (\s@FacetAttributeDefinition' {} a -> s {defaultValue = a} :: FacetAttributeDefinition)
 
 -- | The type of the attribute.
@@ -92,23 +93,23 @@ instance Core.FromJSON FacetAttributeDefinition where
       "FacetAttributeDefinition"
       ( \x ->
           FacetAttributeDefinition'
-            Core.<$> (x Core..:? "IsImmutable")
-            Core.<*> (x Core..:? "Rules" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "DefaultValue")
-            Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..:? "IsImmutable")
+            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DefaultValue")
+            Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable FacetAttributeDefinition
+instance Prelude.Hashable FacetAttributeDefinition
 
-instance Core.NFData FacetAttributeDefinition
+instance Prelude.NFData FacetAttributeDefinition
 
 instance Core.ToJSON FacetAttributeDefinition where
   toJSON FacetAttributeDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IsImmutable" Core..=) Core.<$> isImmutable,
-            ("Rules" Core..=) Core.<$> rules,
-            ("DefaultValue" Core..=) Core.<$> defaultValue,
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("IsImmutable" Core..=) Prelude.<$> isImmutable,
+            ("Rules" Core..=) Prelude.<$> rules,
+            ("DefaultValue" Core..=) Prelude.<$> defaultValue,
+            Prelude.Just ("Type" Core..= type')
           ]
       )

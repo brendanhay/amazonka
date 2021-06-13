@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.AnalyticsS3BucketDestination where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
 
@@ -30,19 +31,19 @@ import Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
 data AnalyticsS3BucketDestination = AnalyticsS3BucketDestination'
   { -- | The prefix to use when exporting data. The prefix is prepended to all
     -- results.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | The account ID that owns the destination S3 bucket. If no account ID is
     -- provided, the owner is not validated before exporting data.
     --
     -- Although this value is optional, we strongly recommend that you set it
     -- to help prevent problems if the destination bucket ownership changes.
-    bucketAccountId :: Core.Maybe Core.Text,
+    bucketAccountId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the file format used when exporting data to Amazon S3.
     format :: AnalyticsS3ExportFileFormat,
     -- | The Amazon Resource Name (ARN) of the bucket to which data is exported.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalyticsS3BucketDestination' with all optional fields omitted.
@@ -73,15 +74,15 @@ newAnalyticsS3BucketDestination ::
 newAnalyticsS3BucketDestination pFormat_ pBucket_ =
   AnalyticsS3BucketDestination'
     { prefix =
-        Core.Nothing,
-      bucketAccountId = Core.Nothing,
+        Prelude.Nothing,
+      bucketAccountId = Prelude.Nothing,
       format = pFormat_,
       bucket = pBucket_
     }
 
 -- | The prefix to use when exporting data. The prefix is prepended to all
 -- results.
-analyticsS3BucketDestination_prefix :: Lens.Lens' AnalyticsS3BucketDestination (Core.Maybe Core.Text)
+analyticsS3BucketDestination_prefix :: Lens.Lens' AnalyticsS3BucketDestination (Prelude.Maybe Prelude.Text)
 analyticsS3BucketDestination_prefix = Lens.lens (\AnalyticsS3BucketDestination' {prefix} -> prefix) (\s@AnalyticsS3BucketDestination' {} a -> s {prefix = a} :: AnalyticsS3BucketDestination)
 
 -- | The account ID that owns the destination S3 bucket. If no account ID is
@@ -89,7 +90,7 @@ analyticsS3BucketDestination_prefix = Lens.lens (\AnalyticsS3BucketDestination' 
 --
 -- Although this value is optional, we strongly recommend that you set it
 -- to help prevent problems if the destination bucket ownership changes.
-analyticsS3BucketDestination_bucketAccountId :: Lens.Lens' AnalyticsS3BucketDestination (Core.Maybe Core.Text)
+analyticsS3BucketDestination_bucketAccountId :: Lens.Lens' AnalyticsS3BucketDestination (Prelude.Maybe Prelude.Text)
 analyticsS3BucketDestination_bucketAccountId = Lens.lens (\AnalyticsS3BucketDestination' {bucketAccountId} -> bucketAccountId) (\s@AnalyticsS3BucketDestination' {} a -> s {bucketAccountId = a} :: AnalyticsS3BucketDestination)
 
 -- | Specifies the file format used when exporting data to Amazon S3.
@@ -103,18 +104,20 @@ analyticsS3BucketDestination_bucket = Lens.lens (\AnalyticsS3BucketDestination' 
 instance Core.FromXML AnalyticsS3BucketDestination where
   parseXML x =
     AnalyticsS3BucketDestination'
-      Core.<$> (x Core..@? "Prefix")
-      Core.<*> (x Core..@? "BucketAccountId")
-      Core.<*> (x Core..@ "Format")
-      Core.<*> (x Core..@ "Bucket")
+      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "BucketAccountId")
+      Prelude.<*> (x Core..@ "Format")
+      Prelude.<*> (x Core..@ "Bucket")
 
-instance Core.Hashable AnalyticsS3BucketDestination
+instance
+  Prelude.Hashable
+    AnalyticsS3BucketDestination
 
-instance Core.NFData AnalyticsS3BucketDestination
+instance Prelude.NFData AnalyticsS3BucketDestination
 
 instance Core.ToXML AnalyticsS3BucketDestination where
   toXML AnalyticsS3BucketDestination' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Prefix" Core.@= prefix,
         "BucketAccountId" Core.@= bucketAccountId,
         "Format" Core.@= format,

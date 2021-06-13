@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data UpdateBaiduChannel = UpdateBaiduChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     baiduChannelRequest :: BaiduChannelRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBaiduChannel' with all optional fields omitted.
@@ -70,7 +71,7 @@ data UpdateBaiduChannel = UpdateBaiduChannel'
 -- 'baiduChannelRequest', 'updateBaiduChannel_baiduChannelRequest' - Undocumented member.
 newUpdateBaiduChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'baiduChannelRequest'
   BaiduChannelRequest ->
   UpdateBaiduChannel
@@ -85,7 +86,7 @@ newUpdateBaiduChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateBaiduChannel_applicationId :: Lens.Lens' UpdateBaiduChannel Core.Text
+updateBaiduChannel_applicationId :: Lens.Lens' UpdateBaiduChannel Prelude.Text
 updateBaiduChannel_applicationId = Lens.lens (\UpdateBaiduChannel' {applicationId} -> applicationId) (\s@UpdateBaiduChannel' {} a -> s {applicationId = a} :: UpdateBaiduChannel)
 
 -- | Undocumented member.
@@ -101,50 +102,52 @@ instance Core.AWSRequest UpdateBaiduChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateBaiduChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateBaiduChannel
+instance Prelude.Hashable UpdateBaiduChannel
 
-instance Core.NFData UpdateBaiduChannel
+instance Prelude.NFData UpdateBaiduChannel
 
 instance Core.ToHeaders UpdateBaiduChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateBaiduChannel where
   toJSON UpdateBaiduChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("BaiduChannelRequest" Core..= baiduChannelRequest)
           ]
       )
 
 instance Core.ToPath UpdateBaiduChannel where
   toPath UpdateBaiduChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/baidu"
       ]
 
 instance Core.ToQuery UpdateBaiduChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBaiduChannelResponse' smart constructor.
 data UpdateBaiduChannelResponse = UpdateBaiduChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     baiduChannelResponse :: BaiduChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBaiduChannelResponse' with all optional fields omitted.
@@ -159,7 +162,7 @@ data UpdateBaiduChannelResponse = UpdateBaiduChannelResponse'
 -- 'baiduChannelResponse', 'updateBaiduChannelResponse_baiduChannelResponse' - Undocumented member.
 newUpdateBaiduChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'baiduChannelResponse'
   BaiduChannelResponse ->
   UpdateBaiduChannelResponse
@@ -173,11 +176,11 @@ newUpdateBaiduChannelResponse
       }
 
 -- | The response's http status code.
-updateBaiduChannelResponse_httpStatus :: Lens.Lens' UpdateBaiduChannelResponse Core.Int
+updateBaiduChannelResponse_httpStatus :: Lens.Lens' UpdateBaiduChannelResponse Prelude.Int
 updateBaiduChannelResponse_httpStatus = Lens.lens (\UpdateBaiduChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateBaiduChannelResponse' {} a -> s {httpStatus = a} :: UpdateBaiduChannelResponse)
 
 -- | Undocumented member.
 updateBaiduChannelResponse_baiduChannelResponse :: Lens.Lens' UpdateBaiduChannelResponse BaiduChannelResponse
 updateBaiduChannelResponse_baiduChannelResponse = Lens.lens (\UpdateBaiduChannelResponse' {baiduChannelResponse} -> baiduChannelResponse) (\s@UpdateBaiduChannelResponse' {} a -> s {baiduChannelResponse = a} :: UpdateBaiduChannelResponse)
 
-instance Core.NFData UpdateBaiduChannelResponse
+instance Prelude.NFData UpdateBaiduChannelResponse

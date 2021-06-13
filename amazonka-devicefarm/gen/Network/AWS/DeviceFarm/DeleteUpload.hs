@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteUpload = DeleteUpload'
   { -- | Represents the Amazon Resource Name (ARN) of the Device Farm upload to
     -- delete.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUpload' with all optional fields omitted.
@@ -66,13 +67,13 @@ data DeleteUpload = DeleteUpload'
 -- delete.
 newDeleteUpload ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUpload
 newDeleteUpload pArn_ = DeleteUpload' {arn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm upload to
 -- delete.
-deleteUpload_arn :: Lens.Lens' DeleteUpload Core.Text
+deleteUpload_arn :: Lens.Lens' DeleteUpload Prelude.Text
 deleteUpload_arn = Lens.lens (\DeleteUpload' {arn} -> arn) (\s@DeleteUpload' {} a -> s {arn = a} :: DeleteUpload)
 
 instance Core.AWSRequest DeleteUpload where
@@ -82,45 +83,49 @@ instance Core.AWSRequest DeleteUpload where
     Response.receiveEmpty
       ( \s h x ->
           DeleteUploadResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteUpload
+instance Prelude.Hashable DeleteUpload
 
-instance Core.NFData DeleteUpload
+instance Prelude.NFData DeleteUpload
 
 instance Core.ToHeaders DeleteUpload where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.DeleteUpload" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUpload where
   toJSON DeleteUpload' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
 instance Core.ToPath DeleteUpload where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUpload where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a delete upload request.
 --
 -- /See:/ 'newDeleteUploadResponse' smart constructor.
 data DeleteUploadResponse = DeleteUploadResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUploadResponse' with all optional fields omitted.
@@ -133,13 +138,13 @@ data DeleteUploadResponse = DeleteUploadResponse'
 -- 'httpStatus', 'deleteUploadResponse_httpStatus' - The response's http status code.
 newDeleteUploadResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteUploadResponse
 newDeleteUploadResponse pHttpStatus_ =
   DeleteUploadResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteUploadResponse_httpStatus :: Lens.Lens' DeleteUploadResponse Core.Int
+deleteUploadResponse_httpStatus :: Lens.Lens' DeleteUploadResponse Prelude.Int
 deleteUploadResponse_httpStatus = Lens.lens (\DeleteUploadResponse' {httpStatus} -> httpStatus) (\s@DeleteUploadResponse' {} a -> s {httpStatus = a} :: DeleteUploadResponse)
 
-instance Core.NFData DeleteUploadResponse
+instance Prelude.NFData DeleteUploadResponse

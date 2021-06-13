@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.EmbeddedDestinationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Embedded Destination Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data EmbeddedDestinationSettings = EmbeddedDestinationSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EmbeddedDestinationSettings' with all optional fields omitted.
@@ -43,11 +44,11 @@ instance Core.FromJSON EmbeddedDestinationSettings where
   parseJSON =
     Core.withObject
       "EmbeddedDestinationSettings"
-      (\x -> Core.pure EmbeddedDestinationSettings')
+      (\x -> Prelude.pure EmbeddedDestinationSettings')
 
-instance Core.Hashable EmbeddedDestinationSettings
+instance Prelude.Hashable EmbeddedDestinationSettings
 
-instance Core.NFData EmbeddedDestinationSettings
+instance Prelude.NFData EmbeddedDestinationSettings
 
 instance Core.ToJSON EmbeddedDestinationSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

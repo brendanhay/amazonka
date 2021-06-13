@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +58,15 @@ data DeleteSSHPublicKey = DeleteSSHPublicKey'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The unique identifier for the SSH public key.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    sSHPublicKeyId :: Core.Text
+    sSHPublicKeyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSSHPublicKey' with all optional fields omitted.
@@ -89,9 +90,9 @@ data DeleteSSHPublicKey = DeleteSSHPublicKey'
 -- that can consist of any upper or lowercased letter or digit.
 newDeleteSSHPublicKey ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sSHPublicKeyId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSSHPublicKey
 newDeleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
   DeleteSSHPublicKey'
@@ -105,7 +106,7 @@ newDeleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteSSHPublicKey_userName :: Lens.Lens' DeleteSSHPublicKey Core.Text
+deleteSSHPublicKey_userName :: Lens.Lens' DeleteSSHPublicKey Prelude.Text
 deleteSSHPublicKey_userName = Lens.lens (\DeleteSSHPublicKey' {userName} -> userName) (\s@DeleteSSHPublicKey' {} a -> s {userName = a} :: DeleteSSHPublicKey)
 
 -- | The unique identifier for the SSH public key.
@@ -113,7 +114,7 @@ deleteSSHPublicKey_userName = Lens.lens (\DeleteSSHPublicKey' {userName} -> user
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-deleteSSHPublicKey_sSHPublicKeyId :: Lens.Lens' DeleteSSHPublicKey Core.Text
+deleteSSHPublicKey_sSHPublicKeyId :: Lens.Lens' DeleteSSHPublicKey Prelude.Text
 deleteSSHPublicKey_sSHPublicKeyId = Lens.lens (\DeleteSSHPublicKey' {sSHPublicKeyId} -> sSHPublicKeyId) (\s@DeleteSSHPublicKey' {} a -> s {sSHPublicKeyId = a} :: DeleteSSHPublicKey)
 
 instance Core.AWSRequest DeleteSSHPublicKey where
@@ -124,22 +125,23 @@ instance Core.AWSRequest DeleteSSHPublicKey where
   response =
     Response.receiveNull DeleteSSHPublicKeyResponse'
 
-instance Core.Hashable DeleteSSHPublicKey
+instance Prelude.Hashable DeleteSSHPublicKey
 
-instance Core.NFData DeleteSSHPublicKey
+instance Prelude.NFData DeleteSSHPublicKey
 
 instance Core.ToHeaders DeleteSSHPublicKey where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteSSHPublicKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSSHPublicKey where
   toQuery DeleteSSHPublicKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSSHPublicKey" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeleteSSHPublicKey" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "SSHPublicKeyId" Core.=: sSHPublicKeyId
       ]
@@ -148,7 +150,7 @@ instance Core.ToQuery DeleteSSHPublicKey where
 data DeleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSSHPublicKeyResponse' with all optional fields omitted.
@@ -159,4 +161,4 @@ newDeleteSSHPublicKeyResponse ::
 newDeleteSSHPublicKeyResponse =
   DeleteSSHPublicKeyResponse'
 
-instance Core.NFData DeleteSSHPublicKeyResponse
+instance Prelude.NFData DeleteSSHPublicKeyResponse

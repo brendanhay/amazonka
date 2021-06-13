@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -62,9 +63,9 @@ data ListTagsForResource = ListTagsForResource'
     -- -   The resource type for hosted zones is @hostedzone@.
     resourceType :: TagResourceType,
     -- | The ID of the resource for which you want to retrieve tags.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -85,7 +86,7 @@ newListTagsForResource ::
   -- | 'resourceType'
   TagResourceType ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForResource
 newListTagsForResource pResourceType_ pResourceId_ =
   ListTagsForResource'
@@ -102,7 +103,7 @@ listTagsForResource_resourceType :: Lens.Lens' ListTagsForResource TagResourceTy
 listTagsForResource_resourceType = Lens.lens (\ListTagsForResource' {resourceType} -> resourceType) (\s@ListTagsForResource' {} a -> s {resourceType = a} :: ListTagsForResource)
 
 -- | The ID of the resource for which you want to retrieve tags.
-listTagsForResource_resourceId :: Lens.Lens' ListTagsForResource Core.Text
+listTagsForResource_resourceId :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceId = Lens.lens (\ListTagsForResource' {resourceId} -> resourceId) (\s@ListTagsForResource' {} a -> s {resourceId = a} :: ListTagsForResource)
 
 instance Core.AWSRequest ListTagsForResource where
@@ -114,20 +115,20 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveXML
       ( \s h x ->
           ListTagsForResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "ResourceTagSet")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "ResourceTagSet")
       )
 
-instance Core.Hashable ListTagsForResource
+instance Prelude.Hashable ListTagsForResource
 
-instance Core.NFData ListTagsForResource
+instance Prelude.NFData ListTagsForResource
 
 instance Core.ToHeaders ListTagsForResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListTagsForResource where
   toPath ListTagsForResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2013-04-01/tags/",
         Core.toBS resourceType,
         "/",
@@ -135,7 +136,7 @@ instance Core.ToPath ListTagsForResource where
       ]
 
 instance Core.ToQuery ListTagsForResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains information about the health checks or
 -- hosted zones for which you want to list tags.
@@ -143,12 +144,12 @@ instance Core.ToQuery ListTagsForResource where
 -- /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A @ResourceTagSet@ containing tags associated with the specified
     -- resource.
     resourceTagSet :: ResourceTagSet
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -164,7 +165,7 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- resource.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'resourceTagSet'
   ResourceTagSet ->
   ListTagsForResourceResponse
@@ -178,7 +179,7 @@ newListTagsForResourceResponse
       }
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
 -- | A @ResourceTagSet@ containing tags associated with the specified
@@ -186,4 +187,4 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 listTagsForResourceResponse_resourceTagSet :: Lens.Lens' ListTagsForResourceResponse ResourceTagSet
 listTagsForResourceResponse_resourceTagSet = Lens.lens (\ListTagsForResourceResponse' {resourceTagSet} -> resourceTagSet) (\s@ListTagsForResourceResponse' {} a -> s {resourceTagSet = a} :: ListTagsForResourceResponse)
 
-instance Core.NFData ListTagsForResourceResponse
+instance Prelude.NFData ListTagsForResourceResponse

@@ -98,6 +98,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -106,9 +107,9 @@ data UpdateContainerInstancesState = UpdateContainerInstancesState'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the container instance to update. If you do not specify a cluster,
     -- the default cluster is assumed.
-    cluster :: Core.Maybe Core.Text,
+    cluster :: Prelude.Maybe Prelude.Text,
     -- | A list of container instance IDs or full ARN entries.
-    containerInstances :: [Core.Text],
+    containerInstances :: [Prelude.Text],
     -- | The container instance state with which to update the container
     -- instance. The only valid values for this action are @ACTIVE@ and
     -- @DRAINING@. A container instance can only be updated to @DRAINING@
@@ -118,7 +119,7 @@ data UpdateContainerInstancesState = UpdateContainerInstancesState'
     -- container instance state.
     status :: ContainerInstanceStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateContainerInstancesState' with all optional fields omitted.
@@ -148,20 +149,20 @@ newUpdateContainerInstancesState ::
 newUpdateContainerInstancesState pStatus_ =
   UpdateContainerInstancesState'
     { cluster =
-        Core.Nothing,
-      containerInstances = Core.mempty,
+        Prelude.Nothing,
+      containerInstances = Prelude.mempty,
       status = pStatus_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instance to update. If you do not specify a cluster,
 -- the default cluster is assumed.
-updateContainerInstancesState_cluster :: Lens.Lens' UpdateContainerInstancesState (Core.Maybe Core.Text)
+updateContainerInstancesState_cluster :: Lens.Lens' UpdateContainerInstancesState (Prelude.Maybe Prelude.Text)
 updateContainerInstancesState_cluster = Lens.lens (\UpdateContainerInstancesState' {cluster} -> cluster) (\s@UpdateContainerInstancesState' {} a -> s {cluster = a} :: UpdateContainerInstancesState)
 
 -- | A list of container instance IDs or full ARN entries.
-updateContainerInstancesState_containerInstances :: Lens.Lens' UpdateContainerInstancesState [Core.Text]
-updateContainerInstancesState_containerInstances = Lens.lens (\UpdateContainerInstancesState' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesState' {} a -> s {containerInstances = a} :: UpdateContainerInstancesState) Core.. Lens._Coerce
+updateContainerInstancesState_containerInstances :: Lens.Lens' UpdateContainerInstancesState [Prelude.Text]
+updateContainerInstancesState_containerInstances = Lens.lens (\UpdateContainerInstancesState' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesState' {} a -> s {containerInstances = a} :: UpdateContainerInstancesState) Prelude.. Lens._Coerce
 
 -- | The container instance state with which to update the container
 -- instance. The only valid values for this action are @ACTIVE@ and
@@ -185,57 +186,61 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateContainerInstancesStateResponse'
-            Core.<$> (x Core..?> "failures" Core..!@ Core.mempty)
-            Core.<*> ( x Core..?> "containerInstances"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "containerInstances"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateContainerInstancesState
+instance
+  Prelude.Hashable
+    UpdateContainerInstancesState
 
-instance Core.NFData UpdateContainerInstancesState
+instance Prelude.NFData UpdateContainerInstancesState
 
 instance Core.ToHeaders UpdateContainerInstancesState where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateContainerInstancesState where
   toJSON UpdateContainerInstancesState' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("cluster" Core..=) Core.<$> cluster,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("cluster" Core..=) Prelude.<$> cluster,
+            Prelude.Just
               ("containerInstances" Core..= containerInstances),
-            Core.Just ("status" Core..= status)
+            Prelude.Just ("status" Core..= status)
           ]
       )
 
 instance Core.ToPath UpdateContainerInstancesState where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateContainerInstancesState where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContainerInstancesStateResponse' smart constructor.
 data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse'
   { -- | Any failures associated with the call.
-    failures :: Core.Maybe [Failure],
+    failures :: Prelude.Maybe [Failure],
     -- | The list of container instances.
-    containerInstances :: Core.Maybe [ContainerInstance],
+    containerInstances :: Prelude.Maybe [ContainerInstance],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateContainerInstancesStateResponse' with all optional fields omitted.
@@ -252,28 +257,28 @@ data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateRespon
 -- 'httpStatus', 'updateContainerInstancesStateResponse_httpStatus' - The response's http status code.
 newUpdateContainerInstancesStateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateContainerInstancesStateResponse
 newUpdateContainerInstancesStateResponse pHttpStatus_ =
   UpdateContainerInstancesStateResponse'
     { failures =
-        Core.Nothing,
-      containerInstances = Core.Nothing,
+        Prelude.Nothing,
+      containerInstances = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Any failures associated with the call.
-updateContainerInstancesStateResponse_failures :: Lens.Lens' UpdateContainerInstancesStateResponse (Core.Maybe [Failure])
-updateContainerInstancesStateResponse_failures = Lens.lens (\UpdateContainerInstancesStateResponse' {failures} -> failures) (\s@UpdateContainerInstancesStateResponse' {} a -> s {failures = a} :: UpdateContainerInstancesStateResponse) Core.. Lens.mapping Lens._Coerce
+updateContainerInstancesStateResponse_failures :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [Failure])
+updateContainerInstancesStateResponse_failures = Lens.lens (\UpdateContainerInstancesStateResponse' {failures} -> failures) (\s@UpdateContainerInstancesStateResponse' {} a -> s {failures = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of container instances.
-updateContainerInstancesStateResponse_containerInstances :: Lens.Lens' UpdateContainerInstancesStateResponse (Core.Maybe [ContainerInstance])
-updateContainerInstancesStateResponse_containerInstances = Lens.lens (\UpdateContainerInstancesStateResponse' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesStateResponse' {} a -> s {containerInstances = a} :: UpdateContainerInstancesStateResponse) Core.. Lens.mapping Lens._Coerce
+updateContainerInstancesStateResponse_containerInstances :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [ContainerInstance])
+updateContainerInstancesStateResponse_containerInstances = Lens.lens (\UpdateContainerInstancesStateResponse' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesStateResponse' {} a -> s {containerInstances = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateContainerInstancesStateResponse_httpStatus :: Lens.Lens' UpdateContainerInstancesStateResponse Core.Int
+updateContainerInstancesStateResponse_httpStatus :: Lens.Lens' UpdateContainerInstancesStateResponse Prelude.Int
 updateContainerInstancesStateResponse_httpStatus = Lens.lens (\UpdateContainerInstancesStateResponse' {httpStatus} -> httpStatus) (\s@UpdateContainerInstancesStateResponse' {} a -> s {httpStatus = a} :: UpdateContainerInstancesStateResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateContainerInstancesStateResponse

@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeBackup' smart constructor.
 data DescribeBackup = DescribeBackup'
   { -- | The Amazon Resource Name (ARN) associated with the backup.
-    backupArn :: Core.Text
+    backupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBackup' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DescribeBackup = DescribeBackup'
 -- 'backupArn', 'describeBackup_backupArn' - The Amazon Resource Name (ARN) associated with the backup.
 newDescribeBackup ::
   -- | 'backupArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeBackup
 newDescribeBackup pBackupArn_ =
   DescribeBackup' {backupArn = pBackupArn_}
 
 -- | The Amazon Resource Name (ARN) associated with the backup.
-describeBackup_backupArn :: Lens.Lens' DescribeBackup Core.Text
+describeBackup_backupArn :: Lens.Lens' DescribeBackup Prelude.Text
 describeBackup_backupArn = Lens.lens (\DescribeBackup' {backupArn} -> backupArn) (\s@DescribeBackup' {} a -> s {backupArn = a} :: DescribeBackup)
 
 instance Core.AWSRequest DescribeBackup where
@@ -83,48 +84,50 @@ instance Core.AWSRequest DescribeBackup where
     Response.receiveJSON
       ( \s h x ->
           DescribeBackupResponse'
-            Core.<$> (x Core..?> "BackupDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "BackupDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeBackup
+instance Prelude.Hashable DescribeBackup
 
-instance Core.NFData DescribeBackup
+instance Prelude.NFData DescribeBackup
 
 instance Core.ToHeaders DescribeBackup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.DescribeBackup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeBackup where
   toJSON DescribeBackup' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("BackupArn" Core..= backupArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("BackupArn" Core..= backupArn)]
       )
 
 instance Core.ToPath DescribeBackup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeBackup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBackupResponse' smart constructor.
 data DescribeBackupResponse = DescribeBackupResponse'
   { -- | Contains the description of the backup created for the table.
-    backupDescription :: Core.Maybe BackupDescription,
+    backupDescription :: Prelude.Maybe BackupDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBackupResponse' with all optional fields omitted.
@@ -139,21 +142,21 @@ data DescribeBackupResponse = DescribeBackupResponse'
 -- 'httpStatus', 'describeBackupResponse_httpStatus' - The response's http status code.
 newDescribeBackupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeBackupResponse
 newDescribeBackupResponse pHttpStatus_ =
   DescribeBackupResponse'
     { backupDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the description of the backup created for the table.
-describeBackupResponse_backupDescription :: Lens.Lens' DescribeBackupResponse (Core.Maybe BackupDescription)
+describeBackupResponse_backupDescription :: Lens.Lens' DescribeBackupResponse (Prelude.Maybe BackupDescription)
 describeBackupResponse_backupDescription = Lens.lens (\DescribeBackupResponse' {backupDescription} -> backupDescription) (\s@DescribeBackupResponse' {} a -> s {backupDescription = a} :: DescribeBackupResponse)
 
 -- | The response's http status code.
-describeBackupResponse_httpStatus :: Lens.Lens' DescribeBackupResponse Core.Int
+describeBackupResponse_httpStatus :: Lens.Lens' DescribeBackupResponse Prelude.Int
 describeBackupResponse_httpStatus = Lens.lens (\DescribeBackupResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupResponse' {} a -> s {httpStatus = a} :: DescribeBackupResponse)
 
-instance Core.NFData DescribeBackupResponse
+instance Prelude.NFData DescribeBackupResponse

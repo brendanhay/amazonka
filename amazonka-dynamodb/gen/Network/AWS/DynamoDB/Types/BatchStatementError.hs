@@ -22,17 +22,18 @@ module Network.AWS.DynamoDB.Types.BatchStatementError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An error associated with a statement in a PartiQL batch that was run.
 --
 -- /See:/ 'newBatchStatementError' smart constructor.
 data BatchStatementError = BatchStatementError'
   { -- | The error message associated with the PartiQL batch resposne.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code associated with the failed PartiQL batch statement.
-    code :: Core.Maybe BatchStatementErrorCodeEnum
+    code :: Prelude.Maybe BatchStatementErrorCodeEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchStatementError' with all optional fields omitted.
@@ -49,16 +50,16 @@ newBatchStatementError ::
   BatchStatementError
 newBatchStatementError =
   BatchStatementError'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The error message associated with the PartiQL batch resposne.
-batchStatementError_message :: Lens.Lens' BatchStatementError (Core.Maybe Core.Text)
+batchStatementError_message :: Lens.Lens' BatchStatementError (Prelude.Maybe Prelude.Text)
 batchStatementError_message = Lens.lens (\BatchStatementError' {message} -> message) (\s@BatchStatementError' {} a -> s {message = a} :: BatchStatementError)
 
 -- | The error code associated with the failed PartiQL batch statement.
-batchStatementError_code :: Lens.Lens' BatchStatementError (Core.Maybe BatchStatementErrorCodeEnum)
+batchStatementError_code :: Lens.Lens' BatchStatementError (Prelude.Maybe BatchStatementErrorCodeEnum)
 batchStatementError_code = Lens.lens (\BatchStatementError' {code} -> code) (\s@BatchStatementError' {} a -> s {code = a} :: BatchStatementError)
 
 instance Core.FromJSON BatchStatementError where
@@ -67,9 +68,10 @@ instance Core.FromJSON BatchStatementError where
       "BatchStatementError"
       ( \x ->
           BatchStatementError'
-            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Code")
       )
 
-instance Core.Hashable BatchStatementError
+instance Prelude.Hashable BatchStatementError
 
-instance Core.NFData BatchStatementError
+instance Prelude.NFData BatchStatementError

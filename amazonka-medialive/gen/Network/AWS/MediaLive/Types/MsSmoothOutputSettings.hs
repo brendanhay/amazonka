@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.MsSmoothOutputSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MsSmoothH265PackagingType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Ms Smooth Output Settings
 --
@@ -30,12 +31,12 @@ data MsSmoothOutputSettings = MsSmoothOutputSettings'
   { -- | Only applicable when this output is referencing an H.265 video
     -- description. Specifies whether MP4 segments should be packaged as HEV1
     -- or HVC1.
-    h265PackagingType :: Core.Maybe MsSmoothH265PackagingType,
+    h265PackagingType :: Prelude.Maybe MsSmoothH265PackagingType,
     -- | String concatenated to the end of the destination filename. Required for
     -- multiple outputs of the same type.
-    nameModifier :: Core.Maybe Core.Text
+    nameModifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MsSmoothOutputSettings' with all optional fields omitted.
@@ -56,19 +57,19 @@ newMsSmoothOutputSettings ::
 newMsSmoothOutputSettings =
   MsSmoothOutputSettings'
     { h265PackagingType =
-        Core.Nothing,
-      nameModifier = Core.Nothing
+        Prelude.Nothing,
+      nameModifier = Prelude.Nothing
     }
 
 -- | Only applicable when this output is referencing an H.265 video
 -- description. Specifies whether MP4 segments should be packaged as HEV1
 -- or HVC1.
-msSmoothOutputSettings_h265PackagingType :: Lens.Lens' MsSmoothOutputSettings (Core.Maybe MsSmoothH265PackagingType)
+msSmoothOutputSettings_h265PackagingType :: Lens.Lens' MsSmoothOutputSettings (Prelude.Maybe MsSmoothH265PackagingType)
 msSmoothOutputSettings_h265PackagingType = Lens.lens (\MsSmoothOutputSettings' {h265PackagingType} -> h265PackagingType) (\s@MsSmoothOutputSettings' {} a -> s {h265PackagingType = a} :: MsSmoothOutputSettings)
 
 -- | String concatenated to the end of the destination filename. Required for
 -- multiple outputs of the same type.
-msSmoothOutputSettings_nameModifier :: Lens.Lens' MsSmoothOutputSettings (Core.Maybe Core.Text)
+msSmoothOutputSettings_nameModifier :: Lens.Lens' MsSmoothOutputSettings (Prelude.Maybe Prelude.Text)
 msSmoothOutputSettings_nameModifier = Lens.lens (\MsSmoothOutputSettings' {nameModifier} -> nameModifier) (\s@MsSmoothOutputSettings' {} a -> s {nameModifier = a} :: MsSmoothOutputSettings)
 
 instance Core.FromJSON MsSmoothOutputSettings where
@@ -77,20 +78,20 @@ instance Core.FromJSON MsSmoothOutputSettings where
       "MsSmoothOutputSettings"
       ( \x ->
           MsSmoothOutputSettings'
-            Core.<$> (x Core..:? "h265PackagingType")
-            Core.<*> (x Core..:? "nameModifier")
+            Prelude.<$> (x Core..:? "h265PackagingType")
+            Prelude.<*> (x Core..:? "nameModifier")
       )
 
-instance Core.Hashable MsSmoothOutputSettings
+instance Prelude.Hashable MsSmoothOutputSettings
 
-instance Core.NFData MsSmoothOutputSettings
+instance Prelude.NFData MsSmoothOutputSettings
 
 instance Core.ToJSON MsSmoothOutputSettings where
   toJSON MsSmoothOutputSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("h265PackagingType" Core..=)
-              Core.<$> h265PackagingType,
-            ("nameModifier" Core..=) Core.<$> nameModifier
+              Prelude.<$> h265PackagingType,
+            ("nameModifier" Core..=) Prelude.<$> nameModifier
           ]
       )

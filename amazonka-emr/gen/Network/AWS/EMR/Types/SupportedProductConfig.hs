@@ -21,6 +21,7 @@ module Network.AWS.EMR.Types.SupportedProductConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The list of supported product configurations that allow user-supplied
 -- arguments. EMR accepts these arguments and forwards them to the
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSupportedProductConfig' smart constructor.
 data SupportedProductConfig = SupportedProductConfig'
   { -- | The list of user-supplied arguments.
-    args :: Core.Maybe [Core.Text],
+    args :: Prelude.Maybe [Prelude.Text],
     -- | The name of the product configuration.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SupportedProductConfig' with all optional fields omitted.
@@ -50,27 +51,27 @@ newSupportedProductConfig ::
   SupportedProductConfig
 newSupportedProductConfig =
   SupportedProductConfig'
-    { args = Core.Nothing,
-      name = Core.Nothing
+    { args = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The list of user-supplied arguments.
-supportedProductConfig_args :: Lens.Lens' SupportedProductConfig (Core.Maybe [Core.Text])
-supportedProductConfig_args = Lens.lens (\SupportedProductConfig' {args} -> args) (\s@SupportedProductConfig' {} a -> s {args = a} :: SupportedProductConfig) Core.. Lens.mapping Lens._Coerce
+supportedProductConfig_args :: Lens.Lens' SupportedProductConfig (Prelude.Maybe [Prelude.Text])
+supportedProductConfig_args = Lens.lens (\SupportedProductConfig' {args} -> args) (\s@SupportedProductConfig' {} a -> s {args = a} :: SupportedProductConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the product configuration.
-supportedProductConfig_name :: Lens.Lens' SupportedProductConfig (Core.Maybe Core.Text)
+supportedProductConfig_name :: Lens.Lens' SupportedProductConfig (Prelude.Maybe Prelude.Text)
 supportedProductConfig_name = Lens.lens (\SupportedProductConfig' {name} -> name) (\s@SupportedProductConfig' {} a -> s {name = a} :: SupportedProductConfig)
 
-instance Core.Hashable SupportedProductConfig
+instance Prelude.Hashable SupportedProductConfig
 
-instance Core.NFData SupportedProductConfig
+instance Prelude.NFData SupportedProductConfig
 
 instance Core.ToJSON SupportedProductConfig where
   toJSON SupportedProductConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Args" Core..=) Core.<$> args,
-            ("Name" Core..=) Core.<$> name
+      ( Prelude.catMaybes
+          [ ("Args" Core..=) Prelude.<$> args,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

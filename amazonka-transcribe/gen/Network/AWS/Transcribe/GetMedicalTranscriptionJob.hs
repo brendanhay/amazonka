@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -52,9 +53,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newGetMedicalTranscriptionJob' smart constructor.
 data GetMedicalTranscriptionJob = GetMedicalTranscriptionJob'
   { -- | The name of the medical transcription job.
-    medicalTranscriptionJobName :: Core.Text
+    medicalTranscriptionJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMedicalTranscriptionJob' with all optional fields omitted.
@@ -67,7 +68,7 @@ data GetMedicalTranscriptionJob = GetMedicalTranscriptionJob'
 -- 'medicalTranscriptionJobName', 'getMedicalTranscriptionJob_medicalTranscriptionJobName' - The name of the medical transcription job.
 newGetMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
-  Core.Text ->
+  Prelude.Text ->
   GetMedicalTranscriptionJob
 newGetMedicalTranscriptionJob
   pMedicalTranscriptionJobName_ =
@@ -77,7 +78,7 @@ newGetMedicalTranscriptionJob
       }
 
 -- | The name of the medical transcription job.
-getMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' GetMedicalTranscriptionJob Core.Text
+getMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' GetMedicalTranscriptionJob Prelude.Text
 getMedicalTranscriptionJob_medicalTranscriptionJobName = Lens.lens (\GetMedicalTranscriptionJob' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@GetMedicalTranscriptionJob' {} a -> s {medicalTranscriptionJobName = a} :: GetMedicalTranscriptionJob)
 
 instance Core.AWSRequest GetMedicalTranscriptionJob where
@@ -89,32 +90,34 @@ instance Core.AWSRequest GetMedicalTranscriptionJob where
     Response.receiveJSON
       ( \s h x ->
           GetMedicalTranscriptionJobResponse'
-            Core.<$> (x Core..?> "MedicalTranscriptionJob")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "MedicalTranscriptionJob")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetMedicalTranscriptionJob
+instance Prelude.Hashable GetMedicalTranscriptionJob
 
-instance Core.NFData GetMedicalTranscriptionJob
+instance Prelude.NFData GetMedicalTranscriptionJob
 
 instance Core.ToHeaders GetMedicalTranscriptionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.GetMedicalTranscriptionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetMedicalTranscriptionJob where
   toJSON GetMedicalTranscriptionJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "MedicalTranscriptionJobName"
                   Core..= medicalTranscriptionJobName
               )
@@ -122,19 +125,19 @@ instance Core.ToJSON GetMedicalTranscriptionJob where
       )
 
 instance Core.ToPath GetMedicalTranscriptionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetMedicalTranscriptionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMedicalTranscriptionJobResponse' smart constructor.
 data GetMedicalTranscriptionJobResponse = GetMedicalTranscriptionJobResponse'
   { -- | An object that contains the results of the medical transcription job.
-    medicalTranscriptionJob :: Core.Maybe MedicalTranscriptionJob,
+    medicalTranscriptionJob :: Prelude.Maybe MedicalTranscriptionJob,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMedicalTranscriptionJobResponse' with all optional fields omitted.
@@ -149,23 +152,23 @@ data GetMedicalTranscriptionJobResponse = GetMedicalTranscriptionJobResponse'
 -- 'httpStatus', 'getMedicalTranscriptionJobResponse_httpStatus' - The response's http status code.
 newGetMedicalTranscriptionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetMedicalTranscriptionJobResponse
 newGetMedicalTranscriptionJobResponse pHttpStatus_ =
   GetMedicalTranscriptionJobResponse'
     { medicalTranscriptionJob =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the results of the medical transcription job.
-getMedicalTranscriptionJobResponse_medicalTranscriptionJob :: Lens.Lens' GetMedicalTranscriptionJobResponse (Core.Maybe MedicalTranscriptionJob)
+getMedicalTranscriptionJobResponse_medicalTranscriptionJob :: Lens.Lens' GetMedicalTranscriptionJobResponse (Prelude.Maybe MedicalTranscriptionJob)
 getMedicalTranscriptionJobResponse_medicalTranscriptionJob = Lens.lens (\GetMedicalTranscriptionJobResponse' {medicalTranscriptionJob} -> medicalTranscriptionJob) (\s@GetMedicalTranscriptionJobResponse' {} a -> s {medicalTranscriptionJob = a} :: GetMedicalTranscriptionJobResponse)
 
 -- | The response's http status code.
-getMedicalTranscriptionJobResponse_httpStatus :: Lens.Lens' GetMedicalTranscriptionJobResponse Core.Int
+getMedicalTranscriptionJobResponse_httpStatus :: Lens.Lens' GetMedicalTranscriptionJobResponse Prelude.Int
 getMedicalTranscriptionJobResponse_httpStatus = Lens.lens (\GetMedicalTranscriptionJobResponse' {httpStatus} -> httpStatus) (\s@GetMedicalTranscriptionJobResponse' {} a -> s {httpStatus = a} :: GetMedicalTranscriptionJobResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetMedicalTranscriptionJobResponse

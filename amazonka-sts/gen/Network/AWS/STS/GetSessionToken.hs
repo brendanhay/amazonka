@@ -99,6 +99,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
@@ -114,7 +115,7 @@ data GetSessionToken = GetSessionToken'
     --
     -- The format for this parameter, as described by its regex pattern, is a
     -- sequence of six numeric digits.
-    tokenCode :: Core.Maybe Core.Text,
+    tokenCode :: Prelude.Maybe Prelude.Text,
     -- | The identification number of the MFA device that is associated with the
     -- IAM user who is making the @GetSessionToken@ call. Specify this value if
     -- the IAM user has a policy that requires MFA authentication. The value is
@@ -128,16 +129,16 @@ data GetSessionToken = GetSessionToken'
     -- consisting of upper- and lower-case alphanumeric characters with no
     -- spaces. You can also include underscores or any of the following
     -- characters: =,.\@:\/-
-    serialNumber :: Core.Maybe Core.Text,
+    serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The duration, in seconds, that the credentials should remain valid.
     -- Acceptable durations for IAM user sessions range from 900 seconds (15
     -- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
     -- as the default. Sessions for AWS account owners are restricted to a
     -- maximum of 3,600 seconds (one hour). If the duration is longer than one
     -- hour, the session for AWS account owners defaults to one hour.
-    durationSeconds :: Core.Maybe Core.Natural
+    durationSeconds :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSessionToken' with all optional fields omitted.
@@ -181,9 +182,9 @@ newGetSessionToken ::
   GetSessionToken
 newGetSessionToken =
   GetSessionToken'
-    { tokenCode = Core.Nothing,
-      serialNumber = Core.Nothing,
-      durationSeconds = Core.Nothing
+    { tokenCode = Prelude.Nothing,
+      serialNumber = Prelude.Nothing,
+      durationSeconds = Prelude.Nothing
     }
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
@@ -195,7 +196,7 @@ newGetSessionToken =
 --
 -- The format for this parameter, as described by its regex pattern, is a
 -- sequence of six numeric digits.
-getSessionToken_tokenCode :: Lens.Lens' GetSessionToken (Core.Maybe Core.Text)
+getSessionToken_tokenCode :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Text)
 getSessionToken_tokenCode = Lens.lens (\GetSessionToken' {tokenCode} -> tokenCode) (\s@GetSessionToken' {} a -> s {tokenCode = a} :: GetSessionToken)
 
 -- | The identification number of the MFA device that is associated with the
@@ -211,7 +212,7 @@ getSessionToken_tokenCode = Lens.lens (\GetSessionToken' {tokenCode} -> tokenCod
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@:\/-
-getSessionToken_serialNumber :: Lens.Lens' GetSessionToken (Core.Maybe Core.Text)
+getSessionToken_serialNumber :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Text)
 getSessionToken_serialNumber = Lens.lens (\GetSessionToken' {serialNumber} -> serialNumber) (\s@GetSessionToken' {} a -> s {serialNumber = a} :: GetSessionToken)
 
 -- | The duration, in seconds, that the credentials should remain valid.
@@ -220,7 +221,7 @@ getSessionToken_serialNumber = Lens.lens (\GetSessionToken' {serialNumber} -> se
 -- as the default. Sessions for AWS account owners are restricted to a
 -- maximum of 3,600 seconds (one hour). If the duration is longer than one
 -- hour, the session for AWS account owners defaults to one hour.
-getSessionToken_durationSeconds :: Lens.Lens' GetSessionToken (Core.Maybe Core.Natural)
+getSessionToken_durationSeconds :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Natural)
 getSessionToken_durationSeconds = Lens.lens (\GetSessionToken' {durationSeconds} -> durationSeconds) (\s@GetSessionToken' {} a -> s {durationSeconds = a} :: GetSessionToken)
 
 instance Core.AWSRequest GetSessionToken where
@@ -233,26 +234,27 @@ instance Core.AWSRequest GetSessionToken where
       "GetSessionTokenResult"
       ( \s h x ->
           GetSessionTokenResponse'
-            Core.<$> (x Core..@? "Credentials")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Credentials")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSessionToken
+instance Prelude.Hashable GetSessionToken
 
-instance Core.NFData GetSessionToken
+instance Prelude.NFData GetSessionToken
 
 instance Core.ToHeaders GetSessionToken where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetSessionToken where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSessionToken where
   toQuery GetSessionToken' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSessionToken" :: Core.ByteString),
-        "Version" Core.=: ("2011-06-15" :: Core.ByteString),
+          Core.=: ("GetSessionToken" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-06-15" :: Prelude.ByteString),
         "TokenCode" Core.=: tokenCode,
         "SerialNumber" Core.=: serialNumber,
         "DurationSeconds" Core.=: durationSeconds
@@ -269,11 +271,11 @@ data GetSessionTokenResponse = GetSessionTokenResponse'
     -- The size of the security token that STS API operations return is not
     -- fixed. We strongly recommend that you make no assumptions about the
     -- maximum size.
-    credentials :: Core.Maybe Core.AuthEnv,
+    credentials :: Prelude.Maybe Core.AuthEnv,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSessionTokenResponse' with all optional fields omitted.
@@ -293,12 +295,12 @@ data GetSessionTokenResponse = GetSessionTokenResponse'
 -- 'httpStatus', 'getSessionTokenResponse_httpStatus' - The response's http status code.
 newGetSessionTokenResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSessionTokenResponse
 newGetSessionTokenResponse pHttpStatus_ =
   GetSessionTokenResponse'
     { credentials =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -308,11 +310,11 @@ newGetSessionTokenResponse pHttpStatus_ =
 -- The size of the security token that STS API operations return is not
 -- fixed. We strongly recommend that you make no assumptions about the
 -- maximum size.
-getSessionTokenResponse_credentials :: Lens.Lens' GetSessionTokenResponse (Core.Maybe Core.AuthEnv)
+getSessionTokenResponse_credentials :: Lens.Lens' GetSessionTokenResponse (Prelude.Maybe Core.AuthEnv)
 getSessionTokenResponse_credentials = Lens.lens (\GetSessionTokenResponse' {credentials} -> credentials) (\s@GetSessionTokenResponse' {} a -> s {credentials = a} :: GetSessionTokenResponse)
 
 -- | The response's http status code.
-getSessionTokenResponse_httpStatus :: Lens.Lens' GetSessionTokenResponse Core.Int
+getSessionTokenResponse_httpStatus :: Lens.Lens' GetSessionTokenResponse Prelude.Int
 getSessionTokenResponse_httpStatus = Lens.lens (\GetSessionTokenResponse' {httpStatus} -> httpStatus) (\s@GetSessionTokenResponse' {} a -> s {httpStatus = a} :: GetSessionTokenResponse)
 
-instance Core.NFData GetSessionTokenResponse
+instance Prelude.NFData GetSessionTokenResponse

@@ -23,17 +23,18 @@ import Network.AWS.CloudDirectory.Types.TypedAttributeValue
 import Network.AWS.CloudDirectory.Types.UpdateActionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The action to take on the object attribute.
 --
 -- /See:/ 'newObjectAttributeAction' smart constructor.
 data ObjectAttributeAction = ObjectAttributeAction'
   { -- | A type that can be either @Update@ or @Delete@.
-    objectAttributeActionType :: Core.Maybe UpdateActionType,
+    objectAttributeActionType :: Prelude.Maybe UpdateActionType,
     -- | The value that you want to update to.
-    objectAttributeUpdateValue :: Core.Maybe TypedAttributeValue
+    objectAttributeUpdateValue :: Prelude.Maybe TypedAttributeValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ObjectAttributeAction' with all optional fields omitted.
@@ -51,29 +52,29 @@ newObjectAttributeAction ::
 newObjectAttributeAction =
   ObjectAttributeAction'
     { objectAttributeActionType =
-        Core.Nothing,
-      objectAttributeUpdateValue = Core.Nothing
+        Prelude.Nothing,
+      objectAttributeUpdateValue = Prelude.Nothing
     }
 
 -- | A type that can be either @Update@ or @Delete@.
-objectAttributeAction_objectAttributeActionType :: Lens.Lens' ObjectAttributeAction (Core.Maybe UpdateActionType)
+objectAttributeAction_objectAttributeActionType :: Lens.Lens' ObjectAttributeAction (Prelude.Maybe UpdateActionType)
 objectAttributeAction_objectAttributeActionType = Lens.lens (\ObjectAttributeAction' {objectAttributeActionType} -> objectAttributeActionType) (\s@ObjectAttributeAction' {} a -> s {objectAttributeActionType = a} :: ObjectAttributeAction)
 
 -- | The value that you want to update to.
-objectAttributeAction_objectAttributeUpdateValue :: Lens.Lens' ObjectAttributeAction (Core.Maybe TypedAttributeValue)
+objectAttributeAction_objectAttributeUpdateValue :: Lens.Lens' ObjectAttributeAction (Prelude.Maybe TypedAttributeValue)
 objectAttributeAction_objectAttributeUpdateValue = Lens.lens (\ObjectAttributeAction' {objectAttributeUpdateValue} -> objectAttributeUpdateValue) (\s@ObjectAttributeAction' {} a -> s {objectAttributeUpdateValue = a} :: ObjectAttributeAction)
 
-instance Core.Hashable ObjectAttributeAction
+instance Prelude.Hashable ObjectAttributeAction
 
-instance Core.NFData ObjectAttributeAction
+instance Prelude.NFData ObjectAttributeAction
 
 instance Core.ToJSON ObjectAttributeAction where
   toJSON ObjectAttributeAction' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ObjectAttributeActionType" Core..=)
-              Core.<$> objectAttributeActionType,
+              Prelude.<$> objectAttributeActionType,
             ("ObjectAttributeUpdateValue" Core..=)
-              Core.<$> objectAttributeUpdateValue
+              Prelude.<$> objectAttributeUpdateValue
           ]
       )

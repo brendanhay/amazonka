@@ -22,6 +22,7 @@ module Network.AWS.Inspector.Types.FailedItemDetails where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.FailedItemErrorCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Includes details about the failed items.
 --
@@ -31,9 +32,9 @@ data FailedItemDetails = FailedItemDetails'
     failureCode :: FailedItemErrorCode,
     -- | Indicates whether you can immediately retry a request for this item for
     -- a specified resource.
-    retryable :: Core.Bool
+    retryable :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailedItemDetails' with all optional fields omitted.
@@ -51,7 +52,7 @@ newFailedItemDetails ::
   -- | 'failureCode'
   FailedItemErrorCode ->
   -- | 'retryable'
-  Core.Bool ->
+  Prelude.Bool ->
   FailedItemDetails
 newFailedItemDetails pFailureCode_ pRetryable_ =
   FailedItemDetails'
@@ -65,7 +66,7 @@ failedItemDetails_failureCode = Lens.lens (\FailedItemDetails' {failureCode} -> 
 
 -- | Indicates whether you can immediately retry a request for this item for
 -- a specified resource.
-failedItemDetails_retryable :: Lens.Lens' FailedItemDetails Core.Bool
+failedItemDetails_retryable :: Lens.Lens' FailedItemDetails Prelude.Bool
 failedItemDetails_retryable = Lens.lens (\FailedItemDetails' {retryable} -> retryable) (\s@FailedItemDetails' {} a -> s {retryable = a} :: FailedItemDetails)
 
 instance Core.FromJSON FailedItemDetails where
@@ -74,10 +75,10 @@ instance Core.FromJSON FailedItemDetails where
       "FailedItemDetails"
       ( \x ->
           FailedItemDetails'
-            Core.<$> (x Core..: "failureCode")
-            Core.<*> (x Core..: "retryable")
+            Prelude.<$> (x Core..: "failureCode")
+            Prelude.<*> (x Core..: "retryable")
       )
 
-instance Core.Hashable FailedItemDetails
+instance Prelude.Hashable FailedItemDetails
 
-instance Core.NFData FailedItemDetails
+instance Prelude.NFData FailedItemDetails

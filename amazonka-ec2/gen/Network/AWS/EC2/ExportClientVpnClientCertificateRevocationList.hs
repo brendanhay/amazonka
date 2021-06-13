@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ data ExportClientVpnClientCertificateRevocationList = ExportClientVpnClientCerti
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Client VPN endpoint.
-    clientVpnEndpointId :: Core.Text
+    clientVpnEndpointId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportClientVpnClientCertificateRevocationList' with all optional fields omitted.
@@ -76,13 +77,13 @@ data ExportClientVpnClientCertificateRevocationList = ExportClientVpnClientCerti
 -- 'clientVpnEndpointId', 'exportClientVpnClientCertificateRevocationList_clientVpnEndpointId' - The ID of the Client VPN endpoint.
 newExportClientVpnClientCertificateRevocationList ::
   -- | 'clientVpnEndpointId'
-  Core.Text ->
+  Prelude.Text ->
   ExportClientVpnClientCertificateRevocationList
 newExportClientVpnClientCertificateRevocationList
   pClientVpnEndpointId_ =
     ExportClientVpnClientCertificateRevocationList'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         clientVpnEndpointId =
           pClientVpnEndpointId_
       }
@@ -91,11 +92,11 @@ newExportClientVpnClientCertificateRevocationList
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-exportClientVpnClientCertificateRevocationList_dryRun :: Lens.Lens' ExportClientVpnClientCertificateRevocationList (Core.Maybe Core.Bool)
+exportClientVpnClientCertificateRevocationList_dryRun :: Lens.Lens' ExportClientVpnClientCertificateRevocationList (Prelude.Maybe Prelude.Bool)
 exportClientVpnClientCertificateRevocationList_dryRun = Lens.lens (\ExportClientVpnClientCertificateRevocationList' {dryRun} -> dryRun) (\s@ExportClientVpnClientCertificateRevocationList' {} a -> s {dryRun = a} :: ExportClientVpnClientCertificateRevocationList)
 
 -- | The ID of the Client VPN endpoint.
-exportClientVpnClientCertificateRevocationList_clientVpnEndpointId :: Lens.Lens' ExportClientVpnClientCertificateRevocationList Core.Text
+exportClientVpnClientCertificateRevocationList_clientVpnEndpointId :: Lens.Lens' ExportClientVpnClientCertificateRevocationList Prelude.Text
 exportClientVpnClientCertificateRevocationList_clientVpnEndpointId = Lens.lens (\ExportClientVpnClientCertificateRevocationList' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@ExportClientVpnClientCertificateRevocationList' {} a -> s {clientVpnEndpointId = a} :: ExportClientVpnClientCertificateRevocationList)
 
 instance
@@ -111,30 +112,30 @@ instance
     Response.receiveXML
       ( \s h x ->
           ExportClientVpnClientCertificateRevocationListResponse'
-            Core.<$> (x Core..@? "certificateRevocationList")
-              Core.<*> (x Core..@? "status")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "certificateRevocationList")
+              Prelude.<*> (x Core..@? "status")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ExportClientVpnClientCertificateRevocationList
 
 instance
-  Core.NFData
+  Prelude.NFData
     ExportClientVpnClientCertificateRevocationList
 
 instance
   Core.ToHeaders
     ExportClientVpnClientCertificateRevocationList
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ExportClientVpnClientCertificateRevocationList
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
@@ -142,12 +143,13 @@ instance
   where
   toQuery
     ExportClientVpnClientCertificateRevocationList' {..} =
-      Core.mconcat
+      Prelude.mconcat
         [ "Action"
             Core.=: ( "ExportClientVpnClientCertificateRevocationList" ::
-                        Core.ByteString
+                        Prelude.ByteString
                     ),
-          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "Version"
+            Core.=: ("2016-11-15" :: Prelude.ByteString),
           "DryRun" Core.=: dryRun,
           "ClientVpnEndpointId" Core.=: clientVpnEndpointId
         ]
@@ -155,13 +157,13 @@ instance
 -- | /See:/ 'newExportClientVpnClientCertificateRevocationListResponse' smart constructor.
 data ExportClientVpnClientCertificateRevocationListResponse = ExportClientVpnClientCertificateRevocationListResponse'
   { -- | Information about the client certificate revocation list.
-    certificateRevocationList :: Core.Maybe Core.Text,
+    certificateRevocationList :: Prelude.Maybe Prelude.Text,
     -- | The current state of the client certificate revocation list.
-    status :: Core.Maybe ClientCertificateRevocationListStatus,
+    status :: Prelude.Maybe ClientCertificateRevocationListStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportClientVpnClientCertificateRevocationListResponse' with all optional fields omitted.
@@ -178,31 +180,31 @@ data ExportClientVpnClientCertificateRevocationListResponse = ExportClientVpnCli
 -- 'httpStatus', 'exportClientVpnClientCertificateRevocationListResponse_httpStatus' - The response's http status code.
 newExportClientVpnClientCertificateRevocationListResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ExportClientVpnClientCertificateRevocationListResponse
 newExportClientVpnClientCertificateRevocationListResponse
   pHttpStatus_ =
     ExportClientVpnClientCertificateRevocationListResponse'
       { certificateRevocationList =
-          Core.Nothing,
+          Prelude.Nothing,
         status =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Information about the client certificate revocation list.
-exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse (Core.Maybe Core.Text)
+exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse (Prelude.Maybe Prelude.Text)
 exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList = Lens.lens (\ExportClientVpnClientCertificateRevocationListResponse' {certificateRevocationList} -> certificateRevocationList) (\s@ExportClientVpnClientCertificateRevocationListResponse' {} a -> s {certificateRevocationList = a} :: ExportClientVpnClientCertificateRevocationListResponse)
 
 -- | The current state of the client certificate revocation list.
-exportClientVpnClientCertificateRevocationListResponse_status :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse (Core.Maybe ClientCertificateRevocationListStatus)
+exportClientVpnClientCertificateRevocationListResponse_status :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse (Prelude.Maybe ClientCertificateRevocationListStatus)
 exportClientVpnClientCertificateRevocationListResponse_status = Lens.lens (\ExportClientVpnClientCertificateRevocationListResponse' {status} -> status) (\s@ExportClientVpnClientCertificateRevocationListResponse' {} a -> s {status = a} :: ExportClientVpnClientCertificateRevocationListResponse)
 
 -- | The response's http status code.
-exportClientVpnClientCertificateRevocationListResponse_httpStatus :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse Core.Int
+exportClientVpnClientCertificateRevocationListResponse_httpStatus :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse Prelude.Int
 exportClientVpnClientCertificateRevocationListResponse_httpStatus = Lens.lens (\ExportClientVpnClientCertificateRevocationListResponse' {httpStatus} -> httpStatus) (\s@ExportClientVpnClientCertificateRevocationListResponse' {} a -> s {httpStatus = a} :: ExportClientVpnClientCertificateRevocationListResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ExportClientVpnClientCertificateRevocationListResponse

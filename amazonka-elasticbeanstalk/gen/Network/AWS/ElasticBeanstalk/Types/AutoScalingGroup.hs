@@ -21,15 +21,16 @@ module Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'newAutoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
   { -- | The name of the @AutoScalingGroup@ .
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoScalingGroup' with all optional fields omitted.
@@ -43,16 +44,16 @@ data AutoScalingGroup = AutoScalingGroup'
 newAutoScalingGroup ::
   AutoScalingGroup
 newAutoScalingGroup =
-  AutoScalingGroup' {name = Core.Nothing}
+  AutoScalingGroup' {name = Prelude.Nothing}
 
 -- | The name of the @AutoScalingGroup@ .
-autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Core.Maybe Core.Text)
+autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
 autoScalingGroup_name = Lens.lens (\AutoScalingGroup' {name} -> name) (\s@AutoScalingGroup' {} a -> s {name = a} :: AutoScalingGroup)
 
 instance Core.FromXML AutoScalingGroup where
   parseXML x =
-    AutoScalingGroup' Core.<$> (x Core..@? "Name")
+    AutoScalingGroup' Prelude.<$> (x Core..@? "Name")
 
-instance Core.Hashable AutoScalingGroup
+instance Prelude.Hashable AutoScalingGroup
 
-instance Core.NFData AutoScalingGroup
+instance Prelude.NFData AutoScalingGroup

@@ -48,6 +48,7 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,19 +58,19 @@ data SearchNetworkProfiles = SearchNetworkProfiles'
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by MaxResults.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order to use to list the specified set of network profiles.
     -- Valid sort criteria includes NetworkProfileName, Ssid, and SecurityType.
-    sortCriteria :: Core.Maybe [Sort],
+    sortCriteria :: Prelude.Maybe [Sort],
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filters to use to list a specified set of network profiles. Valid
     -- filters are NetworkProfileName, Ssid, and SecurityType.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchNetworkProfiles' with all optional fields omitted.
@@ -97,34 +98,34 @@ newSearchNetworkProfiles ::
   SearchNetworkProfiles
 newSearchNetworkProfiles =
   SearchNetworkProfiles'
-    { nextToken = Core.Nothing,
-      sortCriteria = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      sortCriteria = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
 -- specified by MaxResults.
-searchNetworkProfiles_nextToken :: Lens.Lens' SearchNetworkProfiles (Core.Maybe Core.Text)
+searchNetworkProfiles_nextToken :: Lens.Lens' SearchNetworkProfiles (Prelude.Maybe Prelude.Text)
 searchNetworkProfiles_nextToken = Lens.lens (\SearchNetworkProfiles' {nextToken} -> nextToken) (\s@SearchNetworkProfiles' {} a -> s {nextToken = a} :: SearchNetworkProfiles)
 
 -- | The sort order to use to list the specified set of network profiles.
 -- Valid sort criteria includes NetworkProfileName, Ssid, and SecurityType.
-searchNetworkProfiles_sortCriteria :: Lens.Lens' SearchNetworkProfiles (Core.Maybe [Sort])
-searchNetworkProfiles_sortCriteria = Lens.lens (\SearchNetworkProfiles' {sortCriteria} -> sortCriteria) (\s@SearchNetworkProfiles' {} a -> s {sortCriteria = a} :: SearchNetworkProfiles) Core.. Lens.mapping Lens._Coerce
+searchNetworkProfiles_sortCriteria :: Lens.Lens' SearchNetworkProfiles (Prelude.Maybe [Sort])
+searchNetworkProfiles_sortCriteria = Lens.lens (\SearchNetworkProfiles' {sortCriteria} -> sortCriteria) (\s@SearchNetworkProfiles' {} a -> s {sortCriteria = a} :: SearchNetworkProfiles) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
-searchNetworkProfiles_maxResults :: Lens.Lens' SearchNetworkProfiles (Core.Maybe Core.Natural)
+searchNetworkProfiles_maxResults :: Lens.Lens' SearchNetworkProfiles (Prelude.Maybe Prelude.Natural)
 searchNetworkProfiles_maxResults = Lens.lens (\SearchNetworkProfiles' {maxResults} -> maxResults) (\s@SearchNetworkProfiles' {} a -> s {maxResults = a} :: SearchNetworkProfiles)
 
 -- | The filters to use to list a specified set of network profiles. Valid
 -- filters are NetworkProfileName, Ssid, and SecurityType.
-searchNetworkProfiles_filters :: Lens.Lens' SearchNetworkProfiles (Core.Maybe [Filter])
-searchNetworkProfiles_filters = Lens.lens (\SearchNetworkProfiles' {filters} -> filters) (\s@SearchNetworkProfiles' {} a -> s {filters = a} :: SearchNetworkProfiles) Core.. Lens.mapping Lens._Coerce
+searchNetworkProfiles_filters :: Lens.Lens' SearchNetworkProfiles (Prelude.Maybe [Filter])
+searchNetworkProfiles_filters = Lens.lens (\SearchNetworkProfiles' {filters} -> filters) (\s@SearchNetworkProfiles' {} a -> s {filters = a} :: SearchNetworkProfiles) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest SearchNetworkProfiles where
   type
@@ -135,45 +136,49 @@ instance Core.AWSRequest SearchNetworkProfiles where
     Response.receiveJSON
       ( \s h x ->
           SearchNetworkProfilesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "NetworkProfiles" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "TotalCount")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "NetworkProfiles"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "TotalCount")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SearchNetworkProfiles
+instance Prelude.Hashable SearchNetworkProfiles
 
-instance Core.NFData SearchNetworkProfiles
+instance Prelude.NFData SearchNetworkProfiles
 
 instance Core.ToHeaders SearchNetworkProfiles where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.SearchNetworkProfiles" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SearchNetworkProfiles where
   toJSON SearchNetworkProfiles' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("SortCriteria" Core..=) Core.<$> sortCriteria,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath SearchNetworkProfiles where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SearchNetworkProfiles where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchNetworkProfilesResponse' smart constructor.
 data SearchNetworkProfilesResponse = SearchNetworkProfilesResponse'
@@ -181,16 +186,16 @@ data SearchNetworkProfilesResponse = SearchNetworkProfilesResponse'
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by MaxResults.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The network profiles that meet the specified set of filter criteria, in
     -- sort order. It is a list of NetworkProfileData objects.
-    networkProfiles :: Core.Maybe [NetworkProfileData],
+    networkProfiles :: Prelude.Maybe [NetworkProfileData],
     -- | The total number of network profiles returned.
-    totalCount :: Core.Maybe Core.Int,
+    totalCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchNetworkProfilesResponse' with all optional fields omitted.
@@ -213,14 +218,14 @@ data SearchNetworkProfilesResponse = SearchNetworkProfilesResponse'
 -- 'httpStatus', 'searchNetworkProfilesResponse_httpStatus' - The response's http status code.
 newSearchNetworkProfilesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SearchNetworkProfilesResponse
 newSearchNetworkProfilesResponse pHttpStatus_ =
   SearchNetworkProfilesResponse'
     { nextToken =
-        Core.Nothing,
-      networkProfiles = Core.Nothing,
-      totalCount = Core.Nothing,
+        Prelude.Nothing,
+      networkProfiles = Prelude.Nothing,
+      totalCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -228,20 +233,20 @@ newSearchNetworkProfilesResponse pHttpStatus_ =
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
 -- specified by MaxResults.
-searchNetworkProfilesResponse_nextToken :: Lens.Lens' SearchNetworkProfilesResponse (Core.Maybe Core.Text)
+searchNetworkProfilesResponse_nextToken :: Lens.Lens' SearchNetworkProfilesResponse (Prelude.Maybe Prelude.Text)
 searchNetworkProfilesResponse_nextToken = Lens.lens (\SearchNetworkProfilesResponse' {nextToken} -> nextToken) (\s@SearchNetworkProfilesResponse' {} a -> s {nextToken = a} :: SearchNetworkProfilesResponse)
 
 -- | The network profiles that meet the specified set of filter criteria, in
 -- sort order. It is a list of NetworkProfileData objects.
-searchNetworkProfilesResponse_networkProfiles :: Lens.Lens' SearchNetworkProfilesResponse (Core.Maybe [NetworkProfileData])
-searchNetworkProfilesResponse_networkProfiles = Lens.lens (\SearchNetworkProfilesResponse' {networkProfiles} -> networkProfiles) (\s@SearchNetworkProfilesResponse' {} a -> s {networkProfiles = a} :: SearchNetworkProfilesResponse) Core.. Lens.mapping Lens._Coerce
+searchNetworkProfilesResponse_networkProfiles :: Lens.Lens' SearchNetworkProfilesResponse (Prelude.Maybe [NetworkProfileData])
+searchNetworkProfilesResponse_networkProfiles = Lens.lens (\SearchNetworkProfilesResponse' {networkProfiles} -> networkProfiles) (\s@SearchNetworkProfilesResponse' {} a -> s {networkProfiles = a} :: SearchNetworkProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The total number of network profiles returned.
-searchNetworkProfilesResponse_totalCount :: Lens.Lens' SearchNetworkProfilesResponse (Core.Maybe Core.Int)
+searchNetworkProfilesResponse_totalCount :: Lens.Lens' SearchNetworkProfilesResponse (Prelude.Maybe Prelude.Int)
 searchNetworkProfilesResponse_totalCount = Lens.lens (\SearchNetworkProfilesResponse' {totalCount} -> totalCount) (\s@SearchNetworkProfilesResponse' {} a -> s {totalCount = a} :: SearchNetworkProfilesResponse)
 
 -- | The response's http status code.
-searchNetworkProfilesResponse_httpStatus :: Lens.Lens' SearchNetworkProfilesResponse Core.Int
+searchNetworkProfilesResponse_httpStatus :: Lens.Lens' SearchNetworkProfilesResponse Prelude.Int
 searchNetworkProfilesResponse_httpStatus = Lens.lens (\SearchNetworkProfilesResponse' {httpStatus} -> httpStatus) (\s@SearchNetworkProfilesResponse' {} a -> s {httpStatus = a} :: SearchNetworkProfilesResponse)
 
-instance Core.NFData SearchNetworkProfilesResponse
+instance Prelude.NFData SearchNetworkProfilesResponse

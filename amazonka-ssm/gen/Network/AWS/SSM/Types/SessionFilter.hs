@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.SessionFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.SessionFilterKey
 
 -- | Describes a filter for Session Manager information.
@@ -61,9 +62,9 @@ data SessionFilter = SessionFilter'
     --     -   Failed
     --
     -- -   SessionId: Specify a session ID to return details about the session.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SessionFilter' with all optional fields omitted.
@@ -111,7 +112,7 @@ newSessionFilter ::
   -- | 'key'
   SessionFilterKey ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   SessionFilter
 newSessionFilter pKey_ pValue_ =
   SessionFilter' {key = pKey_, value = pValue_}
@@ -152,18 +153,18 @@ sessionFilter_key = Lens.lens (\SessionFilter' {key} -> key) (\s@SessionFilter' 
 --     -   Failed
 --
 -- -   SessionId: Specify a session ID to return details about the session.
-sessionFilter_value :: Lens.Lens' SessionFilter Core.Text
+sessionFilter_value :: Lens.Lens' SessionFilter Prelude.Text
 sessionFilter_value = Lens.lens (\SessionFilter' {value} -> value) (\s@SessionFilter' {} a -> s {value = a} :: SessionFilter)
 
-instance Core.Hashable SessionFilter
+instance Prelude.Hashable SessionFilter
 
-instance Core.NFData SessionFilter
+instance Prelude.NFData SessionFilter
 
 instance Core.ToJSON SessionFilter where
   toJSON SessionFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("key" Core..= key),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("key" Core..= key),
+            Prelude.Just ("value" Core..= value)
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,13 +51,13 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
   { -- | A collection of settings.
-    userSettings :: Core.Maybe UserSettings,
+    userSettings :: Prelude.Maybe UserSettings,
     -- | The domain ID.
-    domainId :: Core.Text,
+    domainId :: Prelude.Text,
     -- | The user profile name.
-    userProfileName :: Core.Text
+    userProfileName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserProfile' with all optional fields omitted.
@@ -73,27 +74,27 @@ data UpdateUserProfile = UpdateUserProfile'
 -- 'userProfileName', 'updateUserProfile_userProfileName' - The user profile name.
 newUpdateUserProfile ::
   -- | 'domainId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userProfileName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateUserProfile
 newUpdateUserProfile pDomainId_ pUserProfileName_ =
   UpdateUserProfile'
-    { userSettings = Core.Nothing,
+    { userSettings = Prelude.Nothing,
       domainId = pDomainId_,
       userProfileName = pUserProfileName_
     }
 
 -- | A collection of settings.
-updateUserProfile_userSettings :: Lens.Lens' UpdateUserProfile (Core.Maybe UserSettings)
+updateUserProfile_userSettings :: Lens.Lens' UpdateUserProfile (Prelude.Maybe UserSettings)
 updateUserProfile_userSettings = Lens.lens (\UpdateUserProfile' {userSettings} -> userSettings) (\s@UpdateUserProfile' {} a -> s {userSettings = a} :: UpdateUserProfile)
 
 -- | The domain ID.
-updateUserProfile_domainId :: Lens.Lens' UpdateUserProfile Core.Text
+updateUserProfile_domainId :: Lens.Lens' UpdateUserProfile Prelude.Text
 updateUserProfile_domainId = Lens.lens (\UpdateUserProfile' {domainId} -> domainId) (\s@UpdateUserProfile' {} a -> s {domainId = a} :: UpdateUserProfile)
 
 -- | The user profile name.
-updateUserProfile_userProfileName :: Lens.Lens' UpdateUserProfile Core.Text
+updateUserProfile_userProfileName :: Lens.Lens' UpdateUserProfile Prelude.Text
 updateUserProfile_userProfileName = Lens.lens (\UpdateUserProfile' {userProfileName} -> userProfileName) (\s@UpdateUserProfile' {} a -> s {userProfileName = a} :: UpdateUserProfile)
 
 instance Core.AWSRequest UpdateUserProfile where
@@ -105,50 +106,54 @@ instance Core.AWSRequest UpdateUserProfile where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserProfileResponse'
-            Core.<$> (x Core..?> "UserProfileArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UserProfileArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateUserProfile
+instance Prelude.Hashable UpdateUserProfile
 
-instance Core.NFData UpdateUserProfile
+instance Prelude.NFData UpdateUserProfile
 
 instance Core.ToHeaders UpdateUserProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateUserProfile" :: Core.ByteString),
+              Core.=# ( "SageMaker.UpdateUserProfile" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateUserProfile where
   toJSON UpdateUserProfile' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("UserSettings" Core..=) Core.<$> userSettings,
-            Core.Just ("DomainId" Core..= domainId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("UserSettings" Core..=) Prelude.<$> userSettings,
+            Prelude.Just ("DomainId" Core..= domainId),
+            Prelude.Just
               ("UserProfileName" Core..= userProfileName)
           ]
       )
 
 instance Core.ToPath UpdateUserProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateUserProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
   { -- | The user profile Amazon Resource Name (ARN).
-    userProfileArn :: Core.Maybe Core.Text,
+    userProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserProfileResponse' with all optional fields omitted.
@@ -163,21 +168,21 @@ data UpdateUserProfileResponse = UpdateUserProfileResponse'
 -- 'httpStatus', 'updateUserProfileResponse_httpStatus' - The response's http status code.
 newUpdateUserProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateUserProfileResponse
 newUpdateUserProfileResponse pHttpStatus_ =
   UpdateUserProfileResponse'
     { userProfileArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user profile Amazon Resource Name (ARN).
-updateUserProfileResponse_userProfileArn :: Lens.Lens' UpdateUserProfileResponse (Core.Maybe Core.Text)
+updateUserProfileResponse_userProfileArn :: Lens.Lens' UpdateUserProfileResponse (Prelude.Maybe Prelude.Text)
 updateUserProfileResponse_userProfileArn = Lens.lens (\UpdateUserProfileResponse' {userProfileArn} -> userProfileArn) (\s@UpdateUserProfileResponse' {} a -> s {userProfileArn = a} :: UpdateUserProfileResponse)
 
 -- | The response's http status code.
-updateUserProfileResponse_httpStatus :: Lens.Lens' UpdateUserProfileResponse Core.Int
+updateUserProfileResponse_httpStatus :: Lens.Lens' UpdateUserProfileResponse Prelude.Int
 updateUserProfileResponse_httpStatus = Lens.lens (\UpdateUserProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateUserProfileResponse' {} a -> s {httpStatus = a} :: UpdateUserProfileResponse)
 
-instance Core.NFData UpdateUserProfileResponse
+instance Prelude.NFData UpdateUserProfileResponse

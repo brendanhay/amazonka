@@ -67,6 +67,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -80,18 +81,18 @@ data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoi
     -- representable in UTF-8 format, and the following special characters: + -
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
     -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
     -- for specified VolumeARN.
-    volumeARN :: Core.Text,
+    volumeARN :: Prelude.Text,
     -- | Textual description of the snapshot that appears in the Amazon EC2
     -- console, Elastic Block Store snapshots panel in the __Description__
     -- field, and in the AWS Storage Gateway snapshot __Details__ pane,
     -- __Description__ field.
-    snapshotDescription :: Core.Text
+    snapshotDescription :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshotFromVolumeRecoveryPoint' with all optional fields omitted.
@@ -119,16 +120,16 @@ data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoi
 -- __Description__ field.
 newCreateSnapshotFromVolumeRecoveryPoint ::
   -- | 'volumeARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'snapshotDescription'
-  Core.Text ->
+  Prelude.Text ->
   CreateSnapshotFromVolumeRecoveryPoint
 newCreateSnapshotFromVolumeRecoveryPoint
   pVolumeARN_
   pSnapshotDescription_ =
     CreateSnapshotFromVolumeRecoveryPoint'
       { tags =
-          Core.Nothing,
+          Prelude.Nothing,
         volumeARN = pVolumeARN_,
         snapshotDescription =
           pSnapshotDescription_
@@ -141,20 +142,20 @@ newCreateSnapshotFromVolumeRecoveryPoint
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
-createSnapshotFromVolumeRecoveryPoint_tags :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint (Core.Maybe [Tag])
-createSnapshotFromVolumeRecoveryPoint_tags = Lens.lens (\CreateSnapshotFromVolumeRecoveryPoint' {tags} -> tags) (\s@CreateSnapshotFromVolumeRecoveryPoint' {} a -> s {tags = a} :: CreateSnapshotFromVolumeRecoveryPoint) Core.. Lens.mapping Lens._Coerce
+createSnapshotFromVolumeRecoveryPoint_tags :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint (Prelude.Maybe [Tag])
+createSnapshotFromVolumeRecoveryPoint_tags = Lens.lens (\CreateSnapshotFromVolumeRecoveryPoint' {tags} -> tags) (\s@CreateSnapshotFromVolumeRecoveryPoint' {} a -> s {tags = a} :: CreateSnapshotFromVolumeRecoveryPoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-createSnapshotFromVolumeRecoveryPoint_volumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Core.Text
+createSnapshotFromVolumeRecoveryPoint_volumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Prelude.Text
 createSnapshotFromVolumeRecoveryPoint_volumeARN = Lens.lens (\CreateSnapshotFromVolumeRecoveryPoint' {volumeARN} -> volumeARN) (\s@CreateSnapshotFromVolumeRecoveryPoint' {} a -> s {volumeARN = a} :: CreateSnapshotFromVolumeRecoveryPoint)
 
 -- | Textual description of the snapshot that appears in the Amazon EC2
 -- console, Elastic Block Store snapshots panel in the __Description__
 -- field, and in the AWS Storage Gateway snapshot __Details__ pane,
 -- __Description__ field.
-createSnapshotFromVolumeRecoveryPoint_snapshotDescription :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Core.Text
+createSnapshotFromVolumeRecoveryPoint_snapshotDescription :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Prelude.Text
 createSnapshotFromVolumeRecoveryPoint_snapshotDescription = Lens.lens (\CreateSnapshotFromVolumeRecoveryPoint' {snapshotDescription} -> snapshotDescription) (\s@CreateSnapshotFromVolumeRecoveryPoint' {} a -> s {snapshotDescription = a} :: CreateSnapshotFromVolumeRecoveryPoint)
 
 instance
@@ -170,18 +171,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateSnapshotFromVolumeRecoveryPointResponse'
-            Core.<$> (x Core..?> "VolumeARN")
-              Core.<*> (x Core..?> "SnapshotId")
-              Core.<*> (x Core..?> "VolumeRecoveryPointTime")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "VolumeARN")
+              Prelude.<*> (x Core..?> "SnapshotId")
+              Prelude.<*> (x Core..?> "VolumeRecoveryPointTime")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateSnapshotFromVolumeRecoveryPoint
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateSnapshotFromVolumeRecoveryPoint
 
 instance
@@ -189,14 +190,16 @@ instance
     CreateSnapshotFromVolumeRecoveryPoint
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -206,10 +209,10 @@ instance
   where
   toJSON CreateSnapshotFromVolumeRecoveryPoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("VolumeARN" Core..= volumeARN),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("VolumeARN" Core..= volumeARN),
+            Prelude.Just
               ("SnapshotDescription" Core..= snapshotDescription)
           ]
       )
@@ -218,28 +221,28 @@ instance
   Core.ToPath
     CreateSnapshotFromVolumeRecoveryPoint
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     CreateSnapshotFromVolumeRecoveryPoint
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'
   { -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
     -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
     -- for specified VolumeARN.
-    volumeARN :: Core.Maybe Core.Text,
+    volumeARN :: Prelude.Maybe Prelude.Text,
     -- | The ID of the snapshot.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The time the volume was created from the recovery point.
-    volumeRecoveryPointTime :: Core.Maybe Core.Text,
+    volumeRecoveryPointTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshotFromVolumeRecoveryPointResponse' with all optional fields omitted.
@@ -260,37 +263,37 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
 -- 'httpStatus', 'createSnapshotFromVolumeRecoveryPointResponse_httpStatus' - The response's http status code.
 newCreateSnapshotFromVolumeRecoveryPointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSnapshotFromVolumeRecoveryPointResponse
 newCreateSnapshotFromVolumeRecoveryPointResponse
   pHttpStatus_ =
     CreateSnapshotFromVolumeRecoveryPointResponse'
       { volumeARN =
-          Core.Nothing,
-        snapshotId = Core.Nothing,
+          Prelude.Nothing,
+        snapshotId = Prelude.Nothing,
         volumeRecoveryPointTime =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-createSnapshotFromVolumeRecoveryPointResponse_volumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Core.Maybe Core.Text)
+createSnapshotFromVolumeRecoveryPointResponse_volumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Prelude.Maybe Prelude.Text)
 createSnapshotFromVolumeRecoveryPointResponse_volumeARN = Lens.lens (\CreateSnapshotFromVolumeRecoveryPointResponse' {volumeARN} -> volumeARN) (\s@CreateSnapshotFromVolumeRecoveryPointResponse' {} a -> s {volumeARN = a} :: CreateSnapshotFromVolumeRecoveryPointResponse)
 
 -- | The ID of the snapshot.
-createSnapshotFromVolumeRecoveryPointResponse_snapshotId :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Core.Maybe Core.Text)
+createSnapshotFromVolumeRecoveryPointResponse_snapshotId :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Prelude.Maybe Prelude.Text)
 createSnapshotFromVolumeRecoveryPointResponse_snapshotId = Lens.lens (\CreateSnapshotFromVolumeRecoveryPointResponse' {snapshotId} -> snapshotId) (\s@CreateSnapshotFromVolumeRecoveryPointResponse' {} a -> s {snapshotId = a} :: CreateSnapshotFromVolumeRecoveryPointResponse)
 
 -- | The time the volume was created from the recovery point.
-createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Core.Maybe Core.Text)
+createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Prelude.Maybe Prelude.Text)
 createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime = Lens.lens (\CreateSnapshotFromVolumeRecoveryPointResponse' {volumeRecoveryPointTime} -> volumeRecoveryPointTime) (\s@CreateSnapshotFromVolumeRecoveryPointResponse' {} a -> s {volumeRecoveryPointTime = a} :: CreateSnapshotFromVolumeRecoveryPointResponse)
 
 -- | The response's http status code.
-createSnapshotFromVolumeRecoveryPointResponse_httpStatus :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse Core.Int
+createSnapshotFromVolumeRecoveryPointResponse_httpStatus :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse Prelude.Int
 createSnapshotFromVolumeRecoveryPointResponse_httpStatus = Lens.lens (\CreateSnapshotFromVolumeRecoveryPointResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotFromVolumeRecoveryPointResponse' {} a -> s {httpStatus = a} :: CreateSnapshotFromVolumeRecoveryPointResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateSnapshotFromVolumeRecoveryPointResponse

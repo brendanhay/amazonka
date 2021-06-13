@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.Edge where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An edge represents a directed connection between two AWS Glue components
 -- that are part of the workflow the edge belongs to.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEdge' smart constructor.
 data Edge = Edge'
   { -- | The unique of the node within the workflow where the edge ends.
-    destinationId :: Core.Maybe Core.Text,
+    destinationId :: Prelude.Maybe Prelude.Text,
     -- | The unique of the node within the workflow where the edge starts.
-    sourceId :: Core.Maybe Core.Text
+    sourceId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Edge' with all optional fields omitted.
@@ -49,16 +50,16 @@ newEdge ::
   Edge
 newEdge =
   Edge'
-    { destinationId = Core.Nothing,
-      sourceId = Core.Nothing
+    { destinationId = Prelude.Nothing,
+      sourceId = Prelude.Nothing
     }
 
 -- | The unique of the node within the workflow where the edge ends.
-edge_destinationId :: Lens.Lens' Edge (Core.Maybe Core.Text)
+edge_destinationId :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
 edge_destinationId = Lens.lens (\Edge' {destinationId} -> destinationId) (\s@Edge' {} a -> s {destinationId = a} :: Edge)
 
 -- | The unique of the node within the workflow where the edge starts.
-edge_sourceId :: Lens.Lens' Edge (Core.Maybe Core.Text)
+edge_sourceId :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
 edge_sourceId = Lens.lens (\Edge' {sourceId} -> sourceId) (\s@Edge' {} a -> s {sourceId = a} :: Edge)
 
 instance Core.FromJSON Edge where
@@ -67,10 +68,10 @@ instance Core.FromJSON Edge where
       "Edge"
       ( \x ->
           Edge'
-            Core.<$> (x Core..:? "DestinationId")
-            Core.<*> (x Core..:? "SourceId")
+            Prelude.<$> (x Core..:? "DestinationId")
+            Prelude.<*> (x Core..:? "SourceId")
       )
 
-instance Core.Hashable Edge
+instance Prelude.Hashable Edge
 
-instance Core.NFData Edge
+instance Prelude.NFData Edge

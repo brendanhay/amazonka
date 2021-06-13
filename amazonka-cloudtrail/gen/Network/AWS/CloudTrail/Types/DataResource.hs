@@ -21,6 +21,7 @@ module Network.AWS.CloudTrail.Types.DataResource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon S3 buckets or AWS Lambda functions that you specify in your
 -- event selectors for your trail to log data events. Data events provide
@@ -113,16 +114,16 @@ data DataResource = DataResource'
     --     /arn:aws:lambda:us-west-2:111111111111:function:helloworld/. They
     --     will not be logged for
     --     /arn:aws:lambda:us-west-2:111111111111:function:helloworld2/.
-    values :: Core.Maybe [Core.Text],
+    values :: Prelude.Maybe [Prelude.Text],
     -- | The resource type in which you want to log data events. You can specify
     -- @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
     --
     -- The @AWS::S3Outposts::Object@ resource type is not valid in basic event
     -- selectors. To log data events on this resource type, use advanced event
     -- selectors.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataResource' with all optional fields omitted.
@@ -179,8 +180,8 @@ newDataResource ::
   DataResource
 newDataResource =
   DataResource'
-    { values = Core.Nothing,
-      type' = Core.Nothing
+    { values = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings
@@ -219,8 +220,8 @@ newDataResource =
 --     /arn:aws:lambda:us-west-2:111111111111:function:helloworld/. They
 --     will not be logged for
 --     /arn:aws:lambda:us-west-2:111111111111:function:helloworld2/.
-dataResource_values :: Lens.Lens' DataResource (Core.Maybe [Core.Text])
-dataResource_values = Lens.lens (\DataResource' {values} -> values) (\s@DataResource' {} a -> s {values = a} :: DataResource) Core.. Lens.mapping Lens._Coerce
+dataResource_values :: Lens.Lens' DataResource (Prelude.Maybe [Prelude.Text])
+dataResource_values = Lens.lens (\DataResource' {values} -> values) (\s@DataResource' {} a -> s {values = a} :: DataResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The resource type in which you want to log data events. You can specify
 -- @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
@@ -228,7 +229,7 @@ dataResource_values = Lens.lens (\DataResource' {values} -> values) (\s@DataReso
 -- The @AWS::S3Outposts::Object@ resource type is not valid in basic event
 -- selectors. To log data events on this resource type, use advanced event
 -- selectors.
-dataResource_type :: Lens.Lens' DataResource (Core.Maybe Core.Text)
+dataResource_type :: Lens.Lens' DataResource (Prelude.Maybe Prelude.Text)
 dataResource_type = Lens.lens (\DataResource' {type'} -> type') (\s@DataResource' {} a -> s {type' = a} :: DataResource)
 
 instance Core.FromJSON DataResource where
@@ -237,19 +238,19 @@ instance Core.FromJSON DataResource where
       "DataResource"
       ( \x ->
           DataResource'
-            Core.<$> (x Core..:? "Values" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable DataResource
+instance Prelude.Hashable DataResource
 
-instance Core.NFData DataResource
+instance Prelude.NFData DataResource
 
 instance Core.ToJSON DataResource where
   toJSON DataResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Values" Core..=) Core.<$> values,
-            ("Type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("Values" Core..=) Prelude.<$> values,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

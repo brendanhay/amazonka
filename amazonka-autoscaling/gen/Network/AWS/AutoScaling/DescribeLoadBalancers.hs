@@ -51,6 +51,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +59,14 @@ import qualified Network.AWS.Response as Response
 data DescribeLoadBalancers = DescribeLoadBalancers'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return with this call. The default value
     -- is @100@ and the maximum value is @100@.
-    maxRecords :: Core.Maybe Core.Int,
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text
+    autoScalingGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBalancers' with all optional fields omitted.
@@ -84,27 +85,27 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
 -- 'autoScalingGroupName', 'describeLoadBalancers_autoScalingGroupName' - The name of the Auto Scaling group.
 newDescribeLoadBalancers ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeLoadBalancers
 newDescribeLoadBalancers pAutoScalingGroupName_ =
   DescribeLoadBalancers'
-    { nextToken = Core.Nothing,
-      maxRecords = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeLoadBalancers_nextToken :: Lens.Lens' DescribeLoadBalancers (Core.Maybe Core.Text)
+describeLoadBalancers_nextToken :: Lens.Lens' DescribeLoadBalancers (Prelude.Maybe Prelude.Text)
 describeLoadBalancers_nextToken = Lens.lens (\DescribeLoadBalancers' {nextToken} -> nextToken) (\s@DescribeLoadBalancers' {} a -> s {nextToken = a} :: DescribeLoadBalancers)
 
 -- | The maximum number of items to return with this call. The default value
 -- is @100@ and the maximum value is @100@.
-describeLoadBalancers_maxRecords :: Lens.Lens' DescribeLoadBalancers (Core.Maybe Core.Int)
+describeLoadBalancers_maxRecords :: Lens.Lens' DescribeLoadBalancers (Prelude.Maybe Prelude.Int)
 describeLoadBalancers_maxRecords = Lens.lens (\DescribeLoadBalancers' {maxRecords} -> maxRecords) (\s@DescribeLoadBalancers' {} a -> s {maxRecords = a} :: DescribeLoadBalancers)
 
 -- | The name of the Auto Scaling group.
-describeLoadBalancers_autoScalingGroupName :: Lens.Lens' DescribeLoadBalancers Core.Text
+describeLoadBalancers_autoScalingGroupName :: Lens.Lens' DescribeLoadBalancers Prelude.Text
 describeLoadBalancers_autoScalingGroupName = Lens.lens (\DescribeLoadBalancers' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeLoadBalancers' {} a -> s {autoScalingGroupName = a} :: DescribeLoadBalancers)
 
 instance Core.AWSPager DescribeLoadBalancers where
@@ -112,22 +113,22 @@ instance Core.AWSPager DescribeLoadBalancers where
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_loadBalancers
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeLoadBalancers_nextToken
+          Prelude.& describeLoadBalancers_nextToken
           Lens..~ rs
           Lens.^? describeLoadBalancersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLoadBalancers where
   type
@@ -139,29 +140,30 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "LoadBalancers" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "LoadBalancers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeLoadBalancers
+instance Prelude.Hashable DescribeLoadBalancers
 
-instance Core.NFData DescribeLoadBalancers
+instance Prelude.NFData DescribeLoadBalancers
 
 instance Core.ToHeaders DescribeLoadBalancers where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeLoadBalancers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeLoadBalancers where
   toQuery DescribeLoadBalancers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeLoadBalancers" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("DescribeLoadBalancers" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MaxRecords" Core.=: maxRecords,
         "AutoScalingGroupName" Core.=: autoScalingGroupName
@@ -173,13 +175,13 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The load balancers.
-    loadBalancers :: Core.Maybe [LoadBalancerState],
+    loadBalancers :: Prelude.Maybe [LoadBalancerState],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBalancersResponse' with all optional fields omitted.
@@ -199,13 +201,13 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 -- 'httpStatus', 'describeLoadBalancersResponse_httpStatus' - The response's http status code.
 newDescribeLoadBalancersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeLoadBalancersResponse
 newDescribeLoadBalancersResponse pHttpStatus_ =
   DescribeLoadBalancersResponse'
     { nextToken =
-        Core.Nothing,
-      loadBalancers = Core.Nothing,
+        Prelude.Nothing,
+      loadBalancers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -213,15 +215,15 @@ newDescribeLoadBalancersResponse pHttpStatus_ =
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
-describeLoadBalancersResponse_nextToken :: Lens.Lens' DescribeLoadBalancersResponse (Core.Maybe Core.Text)
+describeLoadBalancersResponse_nextToken :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe Prelude.Text)
 describeLoadBalancersResponse_nextToken = Lens.lens (\DescribeLoadBalancersResponse' {nextToken} -> nextToken) (\s@DescribeLoadBalancersResponse' {} a -> s {nextToken = a} :: DescribeLoadBalancersResponse)
 
 -- | The load balancers.
-describeLoadBalancersResponse_loadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Core.Maybe [LoadBalancerState])
-describeLoadBalancersResponse_loadBalancers = Lens.lens (\DescribeLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@DescribeLoadBalancersResponse' {} a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse) Core.. Lens.mapping Lens._Coerce
+describeLoadBalancersResponse_loadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe [LoadBalancerState])
+describeLoadBalancersResponse_loadBalancers = Lens.lens (\DescribeLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@DescribeLoadBalancersResponse' {} a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeLoadBalancersResponse Core.Int
+describeLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeLoadBalancersResponse Prelude.Int
 describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancersResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancersResponse)
 
-instance Core.NFData DescribeLoadBalancersResponse
+instance Prelude.NFData DescribeLoadBalancersResponse

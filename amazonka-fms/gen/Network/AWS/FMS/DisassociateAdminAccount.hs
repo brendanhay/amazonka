@@ -37,6 +37,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -44,7 +45,7 @@ import qualified Network.AWS.Response as Response
 data DisassociateAdminAccount = DisassociateAdminAccount'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateAdminAccount' with all optional fields omitted.
@@ -64,37 +65,39 @@ instance Core.AWSRequest DisassociateAdminAccount where
     Response.receiveNull
       DisassociateAdminAccountResponse'
 
-instance Core.Hashable DisassociateAdminAccount
+instance Prelude.Hashable DisassociateAdminAccount
 
-instance Core.NFData DisassociateAdminAccount
+instance Prelude.NFData DisassociateAdminAccount
 
 instance Core.ToHeaders DisassociateAdminAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.DisassociateAdminAccount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateAdminAccount where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DisassociateAdminAccount where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateAdminAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateAdminAccountResponse' smart constructor.
 data DisassociateAdminAccountResponse = DisassociateAdminAccountResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateAdminAccountResponse' with all optional fields omitted.
@@ -105,4 +108,6 @@ newDisassociateAdminAccountResponse ::
 newDisassociateAdminAccountResponse =
   DisassociateAdminAccountResponse'
 
-instance Core.NFData DisassociateAdminAccountResponse
+instance
+  Prelude.NFData
+    DisassociateAdminAccountResponse

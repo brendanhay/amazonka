@@ -77,6 +77,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,21 +85,21 @@ import qualified Network.AWS.Response as Response
 data ListGrants = ListGrants'
   { -- | Returns only grants where the specified principal is the grantee
     -- principal for the grant.
-    granteePrincipal :: Core.Maybe Core.Text,
+    granteePrincipal :: Prelude.Maybe Prelude.Text,
     -- | Returns only the grant with the specified grant ID. The grant ID
     -- uniquely identifies the grant.
-    grantId :: Core.Maybe Core.Text,
+    grantId :: Prelude.Maybe Prelude.Text,
     -- | Use this parameter to specify the maximum number of items to return.
     -- When this value is present, AWS KMS does not return more than the
     -- specified number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 100, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter in a subsequent request after you receive a response
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Returns only grants for the specified customer master key (CMK). This
     -- parameter is required.
     --
@@ -113,9 +114,9 @@ data ListGrants = ListGrants'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGrants' with all optional fields omitted.
@@ -158,25 +159,25 @@ data ListGrants = ListGrants'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newListGrants ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   ListGrants
 newListGrants pKeyId_ =
   ListGrants'
-    { granteePrincipal = Core.Nothing,
-      grantId = Core.Nothing,
-      limit = Core.Nothing,
-      marker = Core.Nothing,
+    { granteePrincipal = Prelude.Nothing,
+      grantId = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       keyId = pKeyId_
     }
 
 -- | Returns only grants where the specified principal is the grantee
 -- principal for the grant.
-listGrants_granteePrincipal :: Lens.Lens' ListGrants (Core.Maybe Core.Text)
+listGrants_granteePrincipal :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Text)
 listGrants_granteePrincipal = Lens.lens (\ListGrants' {granteePrincipal} -> granteePrincipal) (\s@ListGrants' {} a -> s {granteePrincipal = a} :: ListGrants)
 
 -- | Returns only the grant with the specified grant ID. The grant ID
 -- uniquely identifies the grant.
-listGrants_grantId :: Lens.Lens' ListGrants (Core.Maybe Core.Text)
+listGrants_grantId :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Text)
 listGrants_grantId = Lens.lens (\ListGrants' {grantId} -> grantId) (\s@ListGrants' {} a -> s {grantId = a} :: ListGrants)
 
 -- | Use this parameter to specify the maximum number of items to return.
@@ -185,13 +186,13 @@ listGrants_grantId = Lens.lens (\ListGrants' {grantId} -> grantId) (\s@ListGrant
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
-listGrants_limit :: Lens.Lens' ListGrants (Core.Maybe Core.Natural)
+listGrants_limit :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Natural)
 listGrants_limit = Lens.lens (\ListGrants' {limit} -> limit) (\s@ListGrants' {} a -> s {limit = a} :: ListGrants)
 
 -- | Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
-listGrants_marker :: Lens.Lens' ListGrants (Core.Maybe Core.Text)
+listGrants_marker :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Text)
 listGrants_marker = Lens.lens (\ListGrants' {marker} -> marker) (\s@ListGrants' {} a -> s {marker = a} :: ListGrants)
 
 -- | Returns only grants for the specified customer master key (CMK). This
@@ -208,27 +209,27 @@ listGrants_marker = Lens.lens (\ListGrants' {marker} -> marker) (\s@ListGrants' 
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-listGrants_keyId :: Lens.Lens' ListGrants Core.Text
+listGrants_keyId :: Lens.Lens' ListGrants Prelude.Text
 listGrants_keyId = Lens.lens (\ListGrants' {keyId} -> keyId) (\s@ListGrants' {} a -> s {keyId = a} :: ListGrants)
 
 instance Core.AWSPager ListGrants where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGrantsResponse_truncated Core.. Lens._Just
+            Lens.^? listGrantsResponse_truncated Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listGrantsResponse_nextMarker Core.. Lens._Just
+            Lens.^? listGrantsResponse_nextMarker Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listGrants_marker
+          Prelude.& listGrants_marker
           Lens..~ rs
-          Lens.^? listGrantsResponse_nextMarker Core.. Lens._Just
+          Lens.^? listGrantsResponse_nextMarker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGrants where
   type AWSResponse ListGrants = ListGrantsResponse
@@ -237,36 +238,38 @@ instance Core.AWSRequest ListGrants where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable ListGrants
+instance Prelude.Hashable ListGrants
 
-instance Core.NFData ListGrants
+instance Prelude.NFData ListGrants
 
 instance Core.ToHeaders ListGrants where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.ListGrants" :: Core.ByteString),
+              Core.=# ("TrentService.ListGrants" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListGrants where
   toJSON ListGrants' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("GranteePrincipal" Core..=)
-              Core.<$> granteePrincipal,
-            ("GrantId" Core..=) Core.<$> grantId,
-            ("Limit" Core..=) Core.<$> limit,
-            ("Marker" Core..=) Core.<$> marker,
-            Core.Just ("KeyId" Core..= keyId)
+              Prelude.<$> granteePrincipal,
+            ("GrantId" Core..=) Prelude.<$> grantId,
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("Marker" Core..=) Prelude.<$> marker,
+            Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
 
 instance Core.ToPath ListGrants where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListGrants where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

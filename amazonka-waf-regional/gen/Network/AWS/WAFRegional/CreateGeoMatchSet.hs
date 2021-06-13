@@ -74,6 +74,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -82,11 +83,11 @@ import Network.AWS.WAFRegional.Types
 data CreateGeoMatchSet = CreateGeoMatchSet'
   { -- | A friendly name or description of the GeoMatchSet. You can\'t change
     -- @Name@ after you create the @GeoMatchSet@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGeoMatchSet' with all optional fields omitted.
@@ -102,9 +103,9 @@ data CreateGeoMatchSet = CreateGeoMatchSet'
 -- 'changeToken', 'createGeoMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newCreateGeoMatchSet ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   CreateGeoMatchSet
 newCreateGeoMatchSet pName_ pChangeToken_ =
   CreateGeoMatchSet'
@@ -114,11 +115,11 @@ newCreateGeoMatchSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the GeoMatchSet. You can\'t change
 -- @Name@ after you create the @GeoMatchSet@.
-createGeoMatchSet_name :: Lens.Lens' CreateGeoMatchSet Core.Text
+createGeoMatchSet_name :: Lens.Lens' CreateGeoMatchSet Prelude.Text
 createGeoMatchSet_name = Lens.lens (\CreateGeoMatchSet' {name} -> name) (\s@CreateGeoMatchSet' {} a -> s {name = a} :: CreateGeoMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-createGeoMatchSet_changeToken :: Lens.Lens' CreateGeoMatchSet Core.Text
+createGeoMatchSet_changeToken :: Lens.Lens' CreateGeoMatchSet Prelude.Text
 createGeoMatchSet_changeToken = Lens.lens (\CreateGeoMatchSet' {changeToken} -> changeToken) (\s@CreateGeoMatchSet' {} a -> s {changeToken = a} :: CreateGeoMatchSet)
 
 instance Core.AWSRequest CreateGeoMatchSet where
@@ -130,56 +131,58 @@ instance Core.AWSRequest CreateGeoMatchSet where
     Response.receiveJSON
       ( \s h x ->
           CreateGeoMatchSetResponse'
-            Core.<$> (x Core..?> "GeoMatchSet")
-            Core.<*> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GeoMatchSet")
+            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateGeoMatchSet
+instance Prelude.Hashable CreateGeoMatchSet
 
-instance Core.NFData CreateGeoMatchSet
+instance Prelude.NFData CreateGeoMatchSet
 
 instance Core.ToHeaders CreateGeoMatchSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.CreateGeoMatchSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateGeoMatchSet where
   toJSON CreateGeoMatchSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath CreateGeoMatchSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateGeoMatchSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGeoMatchSetResponse' smart constructor.
 data CreateGeoMatchSetResponse = CreateGeoMatchSetResponse'
   { -- | The GeoMatchSet returned in the @CreateGeoMatchSet@ response. The
     -- @GeoMatchSet@ contains no @GeoMatchConstraints@.
-    geoMatchSet :: Core.Maybe GeoMatchSet,
+    geoMatchSet :: Prelude.Maybe GeoMatchSet,
     -- | The @ChangeToken@ that you used to submit the @CreateGeoMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGeoMatchSetResponse' with all optional fields omitted.
@@ -199,29 +202,29 @@ data CreateGeoMatchSetResponse = CreateGeoMatchSetResponse'
 -- 'httpStatus', 'createGeoMatchSetResponse_httpStatus' - The response's http status code.
 newCreateGeoMatchSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateGeoMatchSetResponse
 newCreateGeoMatchSetResponse pHttpStatus_ =
   CreateGeoMatchSetResponse'
     { geoMatchSet =
-        Core.Nothing,
-      changeToken = Core.Nothing,
+        Prelude.Nothing,
+      changeToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The GeoMatchSet returned in the @CreateGeoMatchSet@ response. The
 -- @GeoMatchSet@ contains no @GeoMatchConstraints@.
-createGeoMatchSetResponse_geoMatchSet :: Lens.Lens' CreateGeoMatchSetResponse (Core.Maybe GeoMatchSet)
+createGeoMatchSetResponse_geoMatchSet :: Lens.Lens' CreateGeoMatchSetResponse (Prelude.Maybe GeoMatchSet)
 createGeoMatchSetResponse_geoMatchSet = Lens.lens (\CreateGeoMatchSetResponse' {geoMatchSet} -> geoMatchSet) (\s@CreateGeoMatchSetResponse' {} a -> s {geoMatchSet = a} :: CreateGeoMatchSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateGeoMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-createGeoMatchSetResponse_changeToken :: Lens.Lens' CreateGeoMatchSetResponse (Core.Maybe Core.Text)
+createGeoMatchSetResponse_changeToken :: Lens.Lens' CreateGeoMatchSetResponse (Prelude.Maybe Prelude.Text)
 createGeoMatchSetResponse_changeToken = Lens.lens (\CreateGeoMatchSetResponse' {changeToken} -> changeToken) (\s@CreateGeoMatchSetResponse' {} a -> s {changeToken = a} :: CreateGeoMatchSetResponse)
 
 -- | The response's http status code.
-createGeoMatchSetResponse_httpStatus :: Lens.Lens' CreateGeoMatchSetResponse Core.Int
+createGeoMatchSetResponse_httpStatus :: Lens.Lens' CreateGeoMatchSetResponse Prelude.Int
 createGeoMatchSetResponse_httpStatus = Lens.lens (\CreateGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateGeoMatchSetResponse' {} a -> s {httpStatus = a} :: CreateGeoMatchSetResponse)
 
-instance Core.NFData CreateGeoMatchSetResponse
+instance Prelude.NFData CreateGeoMatchSetResponse

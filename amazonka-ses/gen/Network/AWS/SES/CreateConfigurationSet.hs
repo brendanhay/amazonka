@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -60,7 +61,7 @@ data CreateConfigurationSet = CreateConfigurationSet'
   { -- | A data structure that contains the name of the configuration set.
     configurationSet :: ConfigurationSet
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConfigurationSet' with all optional fields omitted.
@@ -95,25 +96,26 @@ instance Core.AWSRequest CreateConfigurationSet where
       "CreateConfigurationSetResult"
       ( \s h x ->
           CreateConfigurationSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateConfigurationSet
+instance Prelude.Hashable CreateConfigurationSet
 
-instance Core.NFData CreateConfigurationSet
+instance Prelude.NFData CreateConfigurationSet
 
 instance Core.ToHeaders CreateConfigurationSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateConfigurationSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateConfigurationSet where
   toQuery CreateConfigurationSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateConfigurationSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("CreateConfigurationSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ConfigurationSet" Core.=: configurationSet
       ]
 
@@ -122,9 +124,9 @@ instance Core.ToQuery CreateConfigurationSet where
 -- /See:/ 'newCreateConfigurationSetResponse' smart constructor.
 data CreateConfigurationSetResponse = CreateConfigurationSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConfigurationSetResponse' with all optional fields omitted.
@@ -137,7 +139,7 @@ data CreateConfigurationSetResponse = CreateConfigurationSetResponse'
 -- 'httpStatus', 'createConfigurationSetResponse_httpStatus' - The response's http status code.
 newCreateConfigurationSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateConfigurationSetResponse
 newCreateConfigurationSetResponse pHttpStatus_ =
   CreateConfigurationSetResponse'
@@ -146,7 +148,9 @@ newCreateConfigurationSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createConfigurationSetResponse_httpStatus :: Lens.Lens' CreateConfigurationSetResponse Core.Int
+createConfigurationSetResponse_httpStatus :: Lens.Lens' CreateConfigurationSetResponse Prelude.Int
 createConfigurationSetResponse_httpStatus = Lens.lens (\CreateConfigurationSetResponse' {httpStatus} -> httpStatus) (\s@CreateConfigurationSetResponse' {} a -> s {httpStatus = a} :: CreateConfigurationSetResponse)
 
-instance Core.NFData CreateConfigurationSetResponse
+instance
+  Prelude.NFData
+    CreateConfigurationSetResponse

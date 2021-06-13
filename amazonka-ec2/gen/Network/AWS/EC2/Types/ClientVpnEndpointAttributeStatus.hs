@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatusCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of the Client VPN endpoint attribute.
 --
 -- /See:/ 'newClientVpnEndpointAttributeStatus' smart constructor.
 data ClientVpnEndpointAttributeStatus = ClientVpnEndpointAttributeStatus'
   { -- | The status message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status code.
-    code :: Core.Maybe ClientVpnEndpointAttributeStatusCode
+    code :: Prelude.Maybe ClientVpnEndpointAttributeStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientVpnEndpointAttributeStatus' with all optional fields omitted.
@@ -51,16 +52,16 @@ newClientVpnEndpointAttributeStatus ::
 newClientVpnEndpointAttributeStatus =
   ClientVpnEndpointAttributeStatus'
     { message =
-        Core.Nothing,
-      code = Core.Nothing
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The status message.
-clientVpnEndpointAttributeStatus_message :: Lens.Lens' ClientVpnEndpointAttributeStatus (Core.Maybe Core.Text)
+clientVpnEndpointAttributeStatus_message :: Lens.Lens' ClientVpnEndpointAttributeStatus (Prelude.Maybe Prelude.Text)
 clientVpnEndpointAttributeStatus_message = Lens.lens (\ClientVpnEndpointAttributeStatus' {message} -> message) (\s@ClientVpnEndpointAttributeStatus' {} a -> s {message = a} :: ClientVpnEndpointAttributeStatus)
 
 -- | The status code.
-clientVpnEndpointAttributeStatus_code :: Lens.Lens' ClientVpnEndpointAttributeStatus (Core.Maybe ClientVpnEndpointAttributeStatusCode)
+clientVpnEndpointAttributeStatus_code :: Lens.Lens' ClientVpnEndpointAttributeStatus (Prelude.Maybe ClientVpnEndpointAttributeStatusCode)
 clientVpnEndpointAttributeStatus_code = Lens.lens (\ClientVpnEndpointAttributeStatus' {code} -> code) (\s@ClientVpnEndpointAttributeStatus' {} a -> s {code = a} :: ClientVpnEndpointAttributeStatus)
 
 instance
@@ -69,10 +70,13 @@ instance
   where
   parseXML x =
     ClientVpnEndpointAttributeStatus'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ClientVpnEndpointAttributeStatus
 
-instance Core.NFData ClientVpnEndpointAttributeStatus
+instance
+  Prelude.NFData
+    ClientVpnEndpointAttributeStatus

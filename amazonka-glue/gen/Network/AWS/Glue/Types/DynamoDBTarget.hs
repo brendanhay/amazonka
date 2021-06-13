@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.DynamoDBTarget where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an Amazon DynamoDB table to crawl.
 --
@@ -33,7 +34,7 @@ data DynamoDBTarget = DynamoDBTarget'
     -- A value of @true@ means to scan all records, while a value of @false@
     -- means to sample the records. If no value is specified, the value
     -- defaults to @true@.
-    scanAll :: Core.Maybe Core.Bool,
+    scanAll :: Prelude.Maybe Prelude.Bool,
     -- | The percentage of the configured read capacity units to use by the AWS
     -- Glue crawler. Read capacity units is a term defined by DynamoDB, and is
     -- a numeric value that acts as rate limiter for the number of reads that
@@ -43,11 +44,11 @@ data DynamoDBTarget = DynamoDBTarget'
     -- used when user does not provide a value, and defaults to 0.5 of the
     -- configured Read Capacity Unit (for provisioned tables), or 0.25 of the
     -- max configured Read Capacity Unit (for tables using on-demand mode).
-    scanRate :: Core.Maybe Core.Double,
+    scanRate :: Prelude.Maybe Prelude.Double,
     -- | The name of the DynamoDB table to crawl.
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DynamoDBTarget' with all optional fields omitted.
@@ -80,9 +81,9 @@ newDynamoDBTarget ::
   DynamoDBTarget
 newDynamoDBTarget =
   DynamoDBTarget'
-    { scanAll = Core.Nothing,
-      scanRate = Core.Nothing,
-      path = Core.Nothing
+    { scanAll = Prelude.Nothing,
+      scanRate = Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | Indicates whether to scan all the records, or to sample rows from the
@@ -92,7 +93,7 @@ newDynamoDBTarget =
 -- A value of @true@ means to scan all records, while a value of @false@
 -- means to sample the records. If no value is specified, the value
 -- defaults to @true@.
-dynamoDBTarget_scanAll :: Lens.Lens' DynamoDBTarget (Core.Maybe Core.Bool)
+dynamoDBTarget_scanAll :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Bool)
 dynamoDBTarget_scanAll = Lens.lens (\DynamoDBTarget' {scanAll} -> scanAll) (\s@DynamoDBTarget' {} a -> s {scanAll = a} :: DynamoDBTarget)
 
 -- | The percentage of the configured read capacity units to use by the AWS
@@ -104,11 +105,11 @@ dynamoDBTarget_scanAll = Lens.lens (\DynamoDBTarget' {scanAll} -> scanAll) (\s@D
 -- used when user does not provide a value, and defaults to 0.5 of the
 -- configured Read Capacity Unit (for provisioned tables), or 0.25 of the
 -- max configured Read Capacity Unit (for tables using on-demand mode).
-dynamoDBTarget_scanRate :: Lens.Lens' DynamoDBTarget (Core.Maybe Core.Double)
+dynamoDBTarget_scanRate :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Double)
 dynamoDBTarget_scanRate = Lens.lens (\DynamoDBTarget' {scanRate} -> scanRate) (\s@DynamoDBTarget' {} a -> s {scanRate = a} :: DynamoDBTarget)
 
 -- | The name of the DynamoDB table to crawl.
-dynamoDBTarget_path :: Lens.Lens' DynamoDBTarget (Core.Maybe Core.Text)
+dynamoDBTarget_path :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Text)
 dynamoDBTarget_path = Lens.lens (\DynamoDBTarget' {path} -> path) (\s@DynamoDBTarget' {} a -> s {path = a} :: DynamoDBTarget)
 
 instance Core.FromJSON DynamoDBTarget where
@@ -117,21 +118,21 @@ instance Core.FromJSON DynamoDBTarget where
       "DynamoDBTarget"
       ( \x ->
           DynamoDBTarget'
-            Core.<$> (x Core..:? "scanAll")
-            Core.<*> (x Core..:? "scanRate")
-            Core.<*> (x Core..:? "Path")
+            Prelude.<$> (x Core..:? "scanAll")
+            Prelude.<*> (x Core..:? "scanRate")
+            Prelude.<*> (x Core..:? "Path")
       )
 
-instance Core.Hashable DynamoDBTarget
+instance Prelude.Hashable DynamoDBTarget
 
-instance Core.NFData DynamoDBTarget
+instance Prelude.NFData DynamoDBTarget
 
 instance Core.ToJSON DynamoDBTarget where
   toJSON DynamoDBTarget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("scanAll" Core..=) Core.<$> scanAll,
-            ("scanRate" Core..=) Core.<$> scanRate,
-            ("Path" Core..=) Core.<$> path
+      ( Prelude.catMaybes
+          [ ("scanAll" Core..=) Prelude.<$> scanAll,
+            ("scanRate" Core..=) Prelude.<$> scanRate,
+            ("Path" Core..=) Prelude.<$> path
           ]
       )

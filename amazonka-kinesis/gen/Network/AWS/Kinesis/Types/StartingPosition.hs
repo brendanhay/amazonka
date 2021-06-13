@@ -22,6 +22,7 @@ module Network.AWS.Kinesis.Types.StartingPosition where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.ShardIteratorType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
@@ -30,7 +31,7 @@ data StartingPosition = StartingPosition'
   { -- | The sequence number of the data record in the shard from which to start
     -- streaming. To specify a sequence number, set @StartingPosition@ to
     -- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
-    sequenceNumber :: Core.Maybe Core.Text,
+    sequenceNumber :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the data record from which to start reading. To
     -- specify a time stamp, set @StartingPosition@ to @Type AT_TIMESTAMP@. A
     -- time stamp is the Unix epoch date with precision in milliseconds. For
@@ -39,7 +40,7 @@ data StartingPosition = StartingPosition'
     -- streamed from the next (later) record. If the time stamp is older than
     -- the current trim horizon, records will be streamed from the oldest
     -- untrimmed data record (@TRIM_HORIZON@).
-    timestamp :: Core.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Core.POSIX,
     -- | You can set the starting position to one of the following values:
     --
     -- @AT_SEQUENCE_NUMBER@: Start streaming from the position denoted by the
@@ -58,7 +59,7 @@ data StartingPosition = StartingPosition'
     -- shard, so that you always read the most recent data in the shard.
     type' :: ShardIteratorType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartingPosition' with all optional fields omitted.
@@ -103,15 +104,15 @@ newStartingPosition ::
   StartingPosition
 newStartingPosition pType_ =
   StartingPosition'
-    { sequenceNumber = Core.Nothing,
-      timestamp = Core.Nothing,
+    { sequenceNumber = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       type' = pType_
     }
 
 -- | The sequence number of the data record in the shard from which to start
 -- streaming. To specify a sequence number, set @StartingPosition@ to
 -- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
-startingPosition_sequenceNumber :: Lens.Lens' StartingPosition (Core.Maybe Core.Text)
+startingPosition_sequenceNumber :: Lens.Lens' StartingPosition (Prelude.Maybe Prelude.Text)
 startingPosition_sequenceNumber = Lens.lens (\StartingPosition' {sequenceNumber} -> sequenceNumber) (\s@StartingPosition' {} a -> s {sequenceNumber = a} :: StartingPosition)
 
 -- | The time stamp of the data record from which to start reading. To
@@ -122,8 +123,8 @@ startingPosition_sequenceNumber = Lens.lens (\StartingPosition' {sequenceNumber}
 -- streamed from the next (later) record. If the time stamp is older than
 -- the current trim horizon, records will be streamed from the oldest
 -- untrimmed data record (@TRIM_HORIZON@).
-startingPosition_timestamp :: Lens.Lens' StartingPosition (Core.Maybe Core.UTCTime)
-startingPosition_timestamp = Lens.lens (\StartingPosition' {timestamp} -> timestamp) (\s@StartingPosition' {} a -> s {timestamp = a} :: StartingPosition) Core.. Lens.mapping Core._Time
+startingPosition_timestamp :: Lens.Lens' StartingPosition (Prelude.Maybe Prelude.UTCTime)
+startingPosition_timestamp = Lens.lens (\StartingPosition' {timestamp} -> timestamp) (\s@StartingPosition' {} a -> s {timestamp = a} :: StartingPosition) Prelude.. Lens.mapping Core._Time
 
 -- | You can set the starting position to one of the following values:
 --
@@ -144,16 +145,17 @@ startingPosition_timestamp = Lens.lens (\StartingPosition' {timestamp} -> timest
 startingPosition_type :: Lens.Lens' StartingPosition ShardIteratorType
 startingPosition_type = Lens.lens (\StartingPosition' {type'} -> type') (\s@StartingPosition' {} a -> s {type' = a} :: StartingPosition)
 
-instance Core.Hashable StartingPosition
+instance Prelude.Hashable StartingPosition
 
-instance Core.NFData StartingPosition
+instance Prelude.NFData StartingPosition
 
 instance Core.ToJSON StartingPosition where
   toJSON StartingPosition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SequenceNumber" Core..=) Core.<$> sequenceNumber,
-            ("Timestamp" Core..=) Core.<$> timestamp,
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("SequenceNumber" Core..=)
+              Prelude.<$> sequenceNumber,
+            ("Timestamp" Core..=) Prelude.<$> timestamp,
+            Prelude.Just ("Type" Core..= type')
           ]
       )

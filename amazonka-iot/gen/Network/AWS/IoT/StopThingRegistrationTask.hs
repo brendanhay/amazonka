@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopThingRegistrationTask' smart constructor.
 data StopThingRegistrationTask = StopThingRegistrationTask'
   { -- | The bulk thing provisioning task ID.
-    taskId :: Core.Text
+    taskId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopThingRegistrationTask' with all optional fields omitted.
@@ -62,13 +63,13 @@ data StopThingRegistrationTask = StopThingRegistrationTask'
 -- 'taskId', 'stopThingRegistrationTask_taskId' - The bulk thing provisioning task ID.
 newStopThingRegistrationTask ::
   -- | 'taskId'
-  Core.Text ->
+  Prelude.Text ->
   StopThingRegistrationTask
 newStopThingRegistrationTask pTaskId_ =
   StopThingRegistrationTask' {taskId = pTaskId_}
 
 -- | The bulk thing provisioning task ID.
-stopThingRegistrationTask_taskId :: Lens.Lens' StopThingRegistrationTask Core.Text
+stopThingRegistrationTask_taskId :: Lens.Lens' StopThingRegistrationTask Prelude.Text
 stopThingRegistrationTask_taskId = Lens.lens (\StopThingRegistrationTask' {taskId} -> taskId) (\s@StopThingRegistrationTask' {} a -> s {taskId = a} :: StopThingRegistrationTask)
 
 instance Core.AWSRequest StopThingRegistrationTask where
@@ -80,36 +81,36 @@ instance Core.AWSRequest StopThingRegistrationTask where
     Response.receiveEmpty
       ( \s h x ->
           StopThingRegistrationTaskResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopThingRegistrationTask
+instance Prelude.Hashable StopThingRegistrationTask
 
-instance Core.NFData StopThingRegistrationTask
+instance Prelude.NFData StopThingRegistrationTask
 
 instance Core.ToHeaders StopThingRegistrationTask where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON StopThingRegistrationTask where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath StopThingRegistrationTask where
   toPath StopThingRegistrationTask' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/thing-registration-tasks/",
         Core.toBS taskId,
         "/cancel"
       ]
 
 instance Core.ToQuery StopThingRegistrationTask where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopThingRegistrationTaskResponse' smart constructor.
 data StopThingRegistrationTaskResponse = StopThingRegistrationTaskResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopThingRegistrationTaskResponse' with all optional fields omitted.
@@ -122,7 +123,7 @@ data StopThingRegistrationTaskResponse = StopThingRegistrationTaskResponse'
 -- 'httpStatus', 'stopThingRegistrationTaskResponse_httpStatus' - The response's http status code.
 newStopThingRegistrationTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopThingRegistrationTaskResponse
 newStopThingRegistrationTaskResponse pHttpStatus_ =
   StopThingRegistrationTaskResponse'
@@ -131,9 +132,9 @@ newStopThingRegistrationTaskResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopThingRegistrationTaskResponse_httpStatus :: Lens.Lens' StopThingRegistrationTaskResponse Core.Int
+stopThingRegistrationTaskResponse_httpStatus :: Lens.Lens' StopThingRegistrationTaskResponse Prelude.Int
 stopThingRegistrationTaskResponse_httpStatus = Lens.lens (\StopThingRegistrationTaskResponse' {httpStatus} -> httpStatus) (\s@StopThingRegistrationTaskResponse' {} a -> s {httpStatus = a} :: StopThingRegistrationTaskResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StopThingRegistrationTaskResponse

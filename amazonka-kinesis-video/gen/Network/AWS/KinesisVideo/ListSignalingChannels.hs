@@ -49,23 +49,24 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSignalingChannels' smart constructor.
 data ListSignalingChannels = ListSignalingChannels'
   { -- | Optional: Returns only the channels that satisfy a specific condition.
-    channelNameCondition :: Core.Maybe ChannelNameCondition,
+    channelNameCondition :: Prelude.Maybe ChannelNameCondition,
     -- | If you specify this parameter, when the result of a
     -- @ListSignalingChannels@ operation is truncated, the call returns the
     -- @NextToken@ in the response. To get another batch of channels, provide
     -- this token in your next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of channels to return in the response. The default is
     -- 500.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSignalingChannels' with all optional fields omitted.
@@ -89,25 +90,25 @@ newListSignalingChannels ::
 newListSignalingChannels =
   ListSignalingChannels'
     { channelNameCondition =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Optional: Returns only the channels that satisfy a specific condition.
-listSignalingChannels_channelNameCondition :: Lens.Lens' ListSignalingChannels (Core.Maybe ChannelNameCondition)
+listSignalingChannels_channelNameCondition :: Lens.Lens' ListSignalingChannels (Prelude.Maybe ChannelNameCondition)
 listSignalingChannels_channelNameCondition = Lens.lens (\ListSignalingChannels' {channelNameCondition} -> channelNameCondition) (\s@ListSignalingChannels' {} a -> s {channelNameCondition = a} :: ListSignalingChannels)
 
 -- | If you specify this parameter, when the result of a
 -- @ListSignalingChannels@ operation is truncated, the call returns the
 -- @NextToken@ in the response. To get another batch of channels, provide
 -- this token in your next request.
-listSignalingChannels_nextToken :: Lens.Lens' ListSignalingChannels (Core.Maybe Core.Text)
+listSignalingChannels_nextToken :: Lens.Lens' ListSignalingChannels (Prelude.Maybe Prelude.Text)
 listSignalingChannels_nextToken = Lens.lens (\ListSignalingChannels' {nextToken} -> nextToken) (\s@ListSignalingChannels' {} a -> s {nextToken = a} :: ListSignalingChannels)
 
 -- | The maximum number of channels to return in the response. The default is
 -- 500.
-listSignalingChannels_maxResults :: Lens.Lens' ListSignalingChannels (Core.Maybe Core.Natural)
+listSignalingChannels_maxResults :: Lens.Lens' ListSignalingChannels (Prelude.Maybe Prelude.Natural)
 listSignalingChannels_maxResults = Lens.lens (\ListSignalingChannels' {maxResults} -> maxResults) (\s@ListSignalingChannels' {} a -> s {maxResults = a} :: ListSignalingChannels)
 
 instance Core.AWSPager ListSignalingChannels where
@@ -115,22 +116,22 @@ instance Core.AWSPager ListSignalingChannels where
     | Core.stop
         ( rs
             Lens.^? listSignalingChannelsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSignalingChannelsResponse_channelInfoList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listSignalingChannels_nextToken
+          Prelude.& listSignalingChannels_nextToken
           Lens..~ rs
           Lens.^? listSignalingChannelsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSignalingChannels where
   type
@@ -141,47 +142,49 @@ instance Core.AWSRequest ListSignalingChannels where
     Response.receiveJSON
       ( \s h x ->
           ListSignalingChannelsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ChannelInfoList" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ChannelInfoList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListSignalingChannels
+instance Prelude.Hashable ListSignalingChannels
 
-instance Core.NFData ListSignalingChannels
+instance Prelude.NFData ListSignalingChannels
 
 instance Core.ToHeaders ListSignalingChannels where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON ListSignalingChannels where
   toJSON ListSignalingChannels' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ChannelNameCondition" Core..=)
-              Core.<$> channelNameCondition,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+              Prelude.<$> channelNameCondition,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListSignalingChannels where
-  toPath = Core.const "/listSignalingChannels"
+  toPath = Prelude.const "/listSignalingChannels"
 
 instance Core.ToQuery ListSignalingChannels where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSignalingChannelsResponse' smart constructor.
 data ListSignalingChannelsResponse = ListSignalingChannelsResponse'
   { -- | If the response is truncated, the call returns this element with a
     -- token. To get the next batch of streams, use this token in your next
     -- request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @ChannelInfo@ objects.
-    channelInfoList :: Core.Maybe [ChannelInfo],
+    channelInfoList :: Prelude.Maybe [ChannelInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSignalingChannelsResponse' with all optional fields omitted.
@@ -200,28 +203,28 @@ data ListSignalingChannelsResponse = ListSignalingChannelsResponse'
 -- 'httpStatus', 'listSignalingChannelsResponse_httpStatus' - The response's http status code.
 newListSignalingChannelsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListSignalingChannelsResponse
 newListSignalingChannelsResponse pHttpStatus_ =
   ListSignalingChannelsResponse'
     { nextToken =
-        Core.Nothing,
-      channelInfoList = Core.Nothing,
+        Prelude.Nothing,
+      channelInfoList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the response is truncated, the call returns this element with a
 -- token. To get the next batch of streams, use this token in your next
 -- request.
-listSignalingChannelsResponse_nextToken :: Lens.Lens' ListSignalingChannelsResponse (Core.Maybe Core.Text)
+listSignalingChannelsResponse_nextToken :: Lens.Lens' ListSignalingChannelsResponse (Prelude.Maybe Prelude.Text)
 listSignalingChannelsResponse_nextToken = Lens.lens (\ListSignalingChannelsResponse' {nextToken} -> nextToken) (\s@ListSignalingChannelsResponse' {} a -> s {nextToken = a} :: ListSignalingChannelsResponse)
 
 -- | An array of @ChannelInfo@ objects.
-listSignalingChannelsResponse_channelInfoList :: Lens.Lens' ListSignalingChannelsResponse (Core.Maybe [ChannelInfo])
-listSignalingChannelsResponse_channelInfoList = Lens.lens (\ListSignalingChannelsResponse' {channelInfoList} -> channelInfoList) (\s@ListSignalingChannelsResponse' {} a -> s {channelInfoList = a} :: ListSignalingChannelsResponse) Core.. Lens.mapping Lens._Coerce
+listSignalingChannelsResponse_channelInfoList :: Lens.Lens' ListSignalingChannelsResponse (Prelude.Maybe [ChannelInfo])
+listSignalingChannelsResponse_channelInfoList = Lens.lens (\ListSignalingChannelsResponse' {channelInfoList} -> channelInfoList) (\s@ListSignalingChannelsResponse' {} a -> s {channelInfoList = a} :: ListSignalingChannelsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSignalingChannelsResponse_httpStatus :: Lens.Lens' ListSignalingChannelsResponse Core.Int
+listSignalingChannelsResponse_httpStatus :: Lens.Lens' ListSignalingChannelsResponse Prelude.Int
 listSignalingChannelsResponse_httpStatus = Lens.lens (\ListSignalingChannelsResponse' {httpStatus} -> httpStatus) (\s@ListSignalingChannelsResponse' {} a -> s {httpStatus = a} :: ListSignalingChannelsResponse)
 
-instance Core.NFData ListSignalingChannelsResponse
+instance Prelude.NFData ListSignalingChannelsResponse

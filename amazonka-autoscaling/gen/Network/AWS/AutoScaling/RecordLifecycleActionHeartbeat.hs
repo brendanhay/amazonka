@@ -71,24 +71,25 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRecordLifecycleActionHeartbeat' smart constructor.
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | A token that uniquely identifies a specific lifecycle action associated
     -- with an instance. Amazon EC2 Auto Scaling sends this token to the
     -- notification target that you specified when you created the lifecycle
     -- hook.
-    lifecycleActionToken :: Core.Maybe Core.Text,
+    lifecycleActionToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the lifecycle hook.
-    lifecycleHookName :: Core.Text,
+    lifecycleHookName :: Prelude.Text,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text
+    autoScalingGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecordLifecycleActionHeartbeat' with all optional fields omitted.
@@ -110,39 +111,39 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
 -- 'autoScalingGroupName', 'recordLifecycleActionHeartbeat_autoScalingGroupName' - The name of the Auto Scaling group.
 newRecordLifecycleActionHeartbeat ::
   -- | 'lifecycleHookName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   RecordLifecycleActionHeartbeat
 newRecordLifecycleActionHeartbeat
   pLifecycleHookName_
   pAutoScalingGroupName_ =
     RecordLifecycleActionHeartbeat'
       { instanceId =
-          Core.Nothing,
-        lifecycleActionToken = Core.Nothing,
+          Prelude.Nothing,
+        lifecycleActionToken = Prelude.Nothing,
         lifecycleHookName = pLifecycleHookName_,
         autoScalingGroupName =
           pAutoScalingGroupName_
       }
 
 -- | The ID of the instance.
-recordLifecycleActionHeartbeat_instanceId :: Lens.Lens' RecordLifecycleActionHeartbeat (Core.Maybe Core.Text)
+recordLifecycleActionHeartbeat_instanceId :: Lens.Lens' RecordLifecycleActionHeartbeat (Prelude.Maybe Prelude.Text)
 recordLifecycleActionHeartbeat_instanceId = Lens.lens (\RecordLifecycleActionHeartbeat' {instanceId} -> instanceId) (\s@RecordLifecycleActionHeartbeat' {} a -> s {instanceId = a} :: RecordLifecycleActionHeartbeat)
 
 -- | A token that uniquely identifies a specific lifecycle action associated
 -- with an instance. Amazon EC2 Auto Scaling sends this token to the
 -- notification target that you specified when you created the lifecycle
 -- hook.
-recordLifecycleActionHeartbeat_lifecycleActionToken :: Lens.Lens' RecordLifecycleActionHeartbeat (Core.Maybe Core.Text)
+recordLifecycleActionHeartbeat_lifecycleActionToken :: Lens.Lens' RecordLifecycleActionHeartbeat (Prelude.Maybe Prelude.Text)
 recordLifecycleActionHeartbeat_lifecycleActionToken = Lens.lens (\RecordLifecycleActionHeartbeat' {lifecycleActionToken} -> lifecycleActionToken) (\s@RecordLifecycleActionHeartbeat' {} a -> s {lifecycleActionToken = a} :: RecordLifecycleActionHeartbeat)
 
 -- | The name of the lifecycle hook.
-recordLifecycleActionHeartbeat_lifecycleHookName :: Lens.Lens' RecordLifecycleActionHeartbeat Core.Text
+recordLifecycleActionHeartbeat_lifecycleHookName :: Lens.Lens' RecordLifecycleActionHeartbeat Prelude.Text
 recordLifecycleActionHeartbeat_lifecycleHookName = Lens.lens (\RecordLifecycleActionHeartbeat' {lifecycleHookName} -> lifecycleHookName) (\s@RecordLifecycleActionHeartbeat' {} a -> s {lifecycleHookName = a} :: RecordLifecycleActionHeartbeat)
 
 -- | The name of the Auto Scaling group.
-recordLifecycleActionHeartbeat_autoScalingGroupName :: Lens.Lens' RecordLifecycleActionHeartbeat Core.Text
+recordLifecycleActionHeartbeat_autoScalingGroupName :: Lens.Lens' RecordLifecycleActionHeartbeat Prelude.Text
 recordLifecycleActionHeartbeat_autoScalingGroupName = Lens.lens (\RecordLifecycleActionHeartbeat' {autoScalingGroupName} -> autoScalingGroupName) (\s@RecordLifecycleActionHeartbeat' {} a -> s {autoScalingGroupName = a} :: RecordLifecycleActionHeartbeat)
 
 instance
@@ -158,30 +159,35 @@ instance
       "RecordLifecycleActionHeartbeatResult"
       ( \s h x ->
           RecordLifecycleActionHeartbeatResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RecordLifecycleActionHeartbeat
+instance
+  Prelude.Hashable
+    RecordLifecycleActionHeartbeat
 
-instance Core.NFData RecordLifecycleActionHeartbeat
+instance
+  Prelude.NFData
+    RecordLifecycleActionHeartbeat
 
 instance
   Core.ToHeaders
     RecordLifecycleActionHeartbeat
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RecordLifecycleActionHeartbeat where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RecordLifecycleActionHeartbeat where
   toQuery RecordLifecycleActionHeartbeat' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "RecordLifecycleActionHeartbeat" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "InstanceId" Core.=: instanceId,
         "LifecycleActionToken" Core.=: lifecycleActionToken,
         "LifecycleHookName" Core.=: lifecycleHookName,
@@ -191,9 +197,9 @@ instance Core.ToQuery RecordLifecycleActionHeartbeat where
 -- | /See:/ 'newRecordLifecycleActionHeartbeatResponse' smart constructor.
 data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecordLifecycleActionHeartbeatResponse' with all optional fields omitted.
@@ -206,7 +212,7 @@ data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResp
 -- 'httpStatus', 'recordLifecycleActionHeartbeatResponse_httpStatus' - The response's http status code.
 newRecordLifecycleActionHeartbeatResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RecordLifecycleActionHeartbeatResponse
 newRecordLifecycleActionHeartbeatResponse
   pHttpStatus_ =
@@ -216,9 +222,9 @@ newRecordLifecycleActionHeartbeatResponse
       }
 
 -- | The response's http status code.
-recordLifecycleActionHeartbeatResponse_httpStatus :: Lens.Lens' RecordLifecycleActionHeartbeatResponse Core.Int
+recordLifecycleActionHeartbeatResponse_httpStatus :: Lens.Lens' RecordLifecycleActionHeartbeatResponse Prelude.Int
 recordLifecycleActionHeartbeatResponse_httpStatus = Lens.lens (\RecordLifecycleActionHeartbeatResponse' {httpStatus} -> httpStatus) (\s@RecordLifecycleActionHeartbeatResponse' {} a -> s {httpStatus = a} :: RecordLifecycleActionHeartbeatResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RecordLifecycleActionHeartbeatResponse

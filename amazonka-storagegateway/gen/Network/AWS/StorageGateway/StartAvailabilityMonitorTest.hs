@@ -48,15 +48,16 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newStartAvailabilityMonitorTest' smart constructor.
 data StartAvailabilityMonitorTest = StartAvailabilityMonitorTest'
-  { gatewayARN :: Core.Text
+  { gatewayARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartAvailabilityMonitorTest' with all optional fields omitted.
@@ -69,7 +70,7 @@ data StartAvailabilityMonitorTest = StartAvailabilityMonitorTest'
 -- 'gatewayARN', 'startAvailabilityMonitorTest_gatewayARN' - Undocumented member.
 newStartAvailabilityMonitorTest ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   StartAvailabilityMonitorTest
 newStartAvailabilityMonitorTest pGatewayARN_ =
   StartAvailabilityMonitorTest'
@@ -78,7 +79,7 @@ newStartAvailabilityMonitorTest pGatewayARN_ =
     }
 
 -- | Undocumented member.
-startAvailabilityMonitorTest_gatewayARN :: Lens.Lens' StartAvailabilityMonitorTest Core.Text
+startAvailabilityMonitorTest_gatewayARN :: Lens.Lens' StartAvailabilityMonitorTest Prelude.Text
 startAvailabilityMonitorTest_gatewayARN = Lens.lens (\StartAvailabilityMonitorTest' {gatewayARN} -> gatewayARN) (\s@StartAvailabilityMonitorTest' {} a -> s {gatewayARN = a} :: StartAvailabilityMonitorTest)
 
 instance Core.AWSRequest StartAvailabilityMonitorTest where
@@ -90,47 +91,51 @@ instance Core.AWSRequest StartAvailabilityMonitorTest where
     Response.receiveJSON
       ( \s h x ->
           StartAvailabilityMonitorTestResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartAvailabilityMonitorTest
+instance
+  Prelude.Hashable
+    StartAvailabilityMonitorTest
 
-instance Core.NFData StartAvailabilityMonitorTest
+instance Prelude.NFData StartAvailabilityMonitorTest
 
 instance Core.ToHeaders StartAvailabilityMonitorTest where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.StartAvailabilityMonitorTest" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartAvailabilityMonitorTest where
   toJSON StartAvailabilityMonitorTest' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GatewayARN" Core..= gatewayARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
 instance Core.ToPath StartAvailabilityMonitorTest where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartAvailabilityMonitorTest where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAvailabilityMonitorTestResponse' smart constructor.
 data StartAvailabilityMonitorTestResponse = StartAvailabilityMonitorTestResponse'
-  { gatewayARN :: Core.Maybe Core.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartAvailabilityMonitorTestResponse' with all optional fields omitted.
@@ -145,23 +150,23 @@ data StartAvailabilityMonitorTestResponse = StartAvailabilityMonitorTestResponse
 -- 'httpStatus', 'startAvailabilityMonitorTestResponse_httpStatus' - The response's http status code.
 newStartAvailabilityMonitorTestResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartAvailabilityMonitorTestResponse
 newStartAvailabilityMonitorTestResponse pHttpStatus_ =
   StartAvailabilityMonitorTestResponse'
     { gatewayARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-startAvailabilityMonitorTestResponse_gatewayARN :: Lens.Lens' StartAvailabilityMonitorTestResponse (Core.Maybe Core.Text)
+startAvailabilityMonitorTestResponse_gatewayARN :: Lens.Lens' StartAvailabilityMonitorTestResponse (Prelude.Maybe Prelude.Text)
 startAvailabilityMonitorTestResponse_gatewayARN = Lens.lens (\StartAvailabilityMonitorTestResponse' {gatewayARN} -> gatewayARN) (\s@StartAvailabilityMonitorTestResponse' {} a -> s {gatewayARN = a} :: StartAvailabilityMonitorTestResponse)
 
 -- | The response's http status code.
-startAvailabilityMonitorTestResponse_httpStatus :: Lens.Lens' StartAvailabilityMonitorTestResponse Core.Int
+startAvailabilityMonitorTestResponse_httpStatus :: Lens.Lens' StartAvailabilityMonitorTestResponse Prelude.Int
 startAvailabilityMonitorTestResponse_httpStatus = Lens.lens (\StartAvailabilityMonitorTestResponse' {httpStatus} -> httpStatus) (\s@StartAvailabilityMonitorTestResponse' {} a -> s {httpStatus = a} :: StartAvailabilityMonitorTestResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartAvailabilityMonitorTestResponse

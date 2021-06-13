@@ -39,6 +39,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,11 +47,11 @@ import qualified Network.AWS.Response as Response
 data DeleteFieldLevelEncryptionProfile = DeleteFieldLevelEncryptionProfile'
   { -- | The value of the @ETag@ header that you received when retrieving the
     -- profile to delete. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | Request the ID of the profile you want to delete from CloudFront.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFieldLevelEncryptionProfile' with all optional fields omitted.
@@ -66,22 +67,22 @@ data DeleteFieldLevelEncryptionProfile = DeleteFieldLevelEncryptionProfile'
 -- 'id', 'deleteFieldLevelEncryptionProfile_id' - Request the ID of the profile you want to delete from CloudFront.
 newDeleteFieldLevelEncryptionProfile ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFieldLevelEncryptionProfile
 newDeleteFieldLevelEncryptionProfile pId_ =
   DeleteFieldLevelEncryptionProfile'
     { ifMatch =
-        Core.Nothing,
+        Prelude.Nothing,
       id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when retrieving the
 -- profile to delete. For example: @E2QWRUHAPOMQZL@.
-deleteFieldLevelEncryptionProfile_ifMatch :: Lens.Lens' DeleteFieldLevelEncryptionProfile (Core.Maybe Core.Text)
+deleteFieldLevelEncryptionProfile_ifMatch :: Lens.Lens' DeleteFieldLevelEncryptionProfile (Prelude.Maybe Prelude.Text)
 deleteFieldLevelEncryptionProfile_ifMatch = Lens.lens (\DeleteFieldLevelEncryptionProfile' {ifMatch} -> ifMatch) (\s@DeleteFieldLevelEncryptionProfile' {} a -> s {ifMatch = a} :: DeleteFieldLevelEncryptionProfile)
 
 -- | Request the ID of the profile you want to delete from CloudFront.
-deleteFieldLevelEncryptionProfile_id :: Lens.Lens' DeleteFieldLevelEncryptionProfile Core.Text
+deleteFieldLevelEncryptionProfile_id :: Lens.Lens' DeleteFieldLevelEncryptionProfile Prelude.Text
 deleteFieldLevelEncryptionProfile_id = Lens.lens (\DeleteFieldLevelEncryptionProfile' {id} -> id) (\s@DeleteFieldLevelEncryptionProfile' {} a -> s {id = a} :: DeleteFieldLevelEncryptionProfile)
 
 instance
@@ -97,11 +98,11 @@ instance
       DeleteFieldLevelEncryptionProfileResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteFieldLevelEncryptionProfile
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteFieldLevelEncryptionProfile
 
 instance
@@ -109,14 +110,14 @@ instance
     DeleteFieldLevelEncryptionProfile
   where
   toHeaders DeleteFieldLevelEncryptionProfile' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance
   Core.ToPath
     DeleteFieldLevelEncryptionProfile
   where
   toPath DeleteFieldLevelEncryptionProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/field-level-encryption-profile/",
         Core.toBS id
       ]
@@ -125,13 +126,13 @@ instance
   Core.ToQuery
     DeleteFieldLevelEncryptionProfile
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFieldLevelEncryptionProfileResponse' smart constructor.
 data DeleteFieldLevelEncryptionProfileResponse = DeleteFieldLevelEncryptionProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFieldLevelEncryptionProfileResponse' with all optional fields omitted.
@@ -143,5 +144,5 @@ newDeleteFieldLevelEncryptionProfileResponse =
   DeleteFieldLevelEncryptionProfileResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteFieldLevelEncryptionProfileResponse

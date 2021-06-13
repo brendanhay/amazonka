@@ -28,6 +28,7 @@ module Network.AWS.MediaLive.Types.InputLossActionForUdpOut
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Input Loss Action For Udp Out
 newtype InputLossActionForUdpOut = InputLossActionForUdpOut'
@@ -35,15 +36,15 @@ newtype InputLossActionForUdpOut = InputLossActionForUdpOut'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.ProcessType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a process type.
 --
@@ -49,9 +50,9 @@ data ProcessType = ProcessType'
     -- -   @ReplaceUnhealthy@
     --
     -- -   @ScheduledActions@
-    processName :: Core.Text
+    processName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessType' with all optional fields omitted.
@@ -82,7 +83,7 @@ data ProcessType = ProcessType'
 -- -   @ScheduledActions@
 newProcessType ::
   -- | 'processName'
-  Core.Text ->
+  Prelude.Text ->
   ProcessType
 newProcessType pProcessName_ =
   ProcessType' {processName = pProcessName_}
@@ -106,13 +107,13 @@ newProcessType pProcessName_ =
 -- -   @ReplaceUnhealthy@
 --
 -- -   @ScheduledActions@
-processType_processName :: Lens.Lens' ProcessType Core.Text
+processType_processName :: Lens.Lens' ProcessType Prelude.Text
 processType_processName = Lens.lens (\ProcessType' {processName} -> processName) (\s@ProcessType' {} a -> s {processName = a} :: ProcessType)
 
 instance Core.FromXML ProcessType where
   parseXML x =
-    ProcessType' Core.<$> (x Core..@ "ProcessName")
+    ProcessType' Prelude.<$> (x Core..@ "ProcessName")
 
-instance Core.Hashable ProcessType
+instance Prelude.Hashable ProcessType
 
-instance Core.NFData ProcessType
+instance Prelude.NFData ProcessType

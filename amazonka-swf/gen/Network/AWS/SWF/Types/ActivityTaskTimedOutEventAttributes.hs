@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ActivityTaskTimeoutType
 
 -- | Provides the details of the @ActivityTaskTimedOut@ event.
@@ -29,20 +30,20 @@ import Network.AWS.SWF.Types.ActivityTaskTimeoutType
 data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'
   { -- | Contains the content of the @details@ parameter for the last call made
     -- by the activity to @RecordActivityTaskHeartbeat@.
-    details :: Core.Maybe Core.Text,
+    details :: Prelude.Maybe Prelude.Text,
     -- | The type of the timeout that caused this event.
     timeoutType :: ActivityTaskTimeoutType,
     -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
     -- activity task was scheduled. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    scheduledEventId :: Core.Integer,
+    scheduledEventId :: Prelude.Integer,
     -- | The ID of the @ActivityTaskStarted@ event recorded when this activity
     -- task was started. This information can be useful for diagnosing problems
     -- by tracing back the chain of events leading up to this event.
-    startedEventId :: Core.Integer
+    startedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivityTaskTimedOutEventAttributes' with all optional fields omitted.
@@ -69,9 +70,9 @@ newActivityTaskTimedOutEventAttributes ::
   -- | 'timeoutType'
   ActivityTaskTimeoutType ->
   -- | 'scheduledEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'startedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   ActivityTaskTimedOutEventAttributes
 newActivityTaskTimedOutEventAttributes
   pTimeoutType_
@@ -79,7 +80,7 @@ newActivityTaskTimedOutEventAttributes
   pStartedEventId_ =
     ActivityTaskTimedOutEventAttributes'
       { details =
-          Core.Nothing,
+          Prelude.Nothing,
         timeoutType = pTimeoutType_,
         scheduledEventId = pScheduledEventId_,
         startedEventId = pStartedEventId_
@@ -87,7 +88,7 @@ newActivityTaskTimedOutEventAttributes
 
 -- | Contains the content of the @details@ parameter for the last call made
 -- by the activity to @RecordActivityTaskHeartbeat@.
-activityTaskTimedOutEventAttributes_details :: Lens.Lens' ActivityTaskTimedOutEventAttributes (Core.Maybe Core.Text)
+activityTaskTimedOutEventAttributes_details :: Lens.Lens' ActivityTaskTimedOutEventAttributes (Prelude.Maybe Prelude.Text)
 activityTaskTimedOutEventAttributes_details = Lens.lens (\ActivityTaskTimedOutEventAttributes' {details} -> details) (\s@ActivityTaskTimedOutEventAttributes' {} a -> s {details = a} :: ActivityTaskTimedOutEventAttributes)
 
 -- | The type of the timeout that caused this event.
@@ -98,13 +99,13 @@ activityTaskTimedOutEventAttributes_timeoutType = Lens.lens (\ActivityTaskTimedO
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-activityTaskTimedOutEventAttributes_scheduledEventId :: Lens.Lens' ActivityTaskTimedOutEventAttributes Core.Integer
+activityTaskTimedOutEventAttributes_scheduledEventId :: Lens.Lens' ActivityTaskTimedOutEventAttributes Prelude.Integer
 activityTaskTimedOutEventAttributes_scheduledEventId = Lens.lens (\ActivityTaskTimedOutEventAttributes' {scheduledEventId} -> scheduledEventId) (\s@ActivityTaskTimedOutEventAttributes' {} a -> s {scheduledEventId = a} :: ActivityTaskTimedOutEventAttributes)
 
 -- | The ID of the @ActivityTaskStarted@ event recorded when this activity
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
-activityTaskTimedOutEventAttributes_startedEventId :: Lens.Lens' ActivityTaskTimedOutEventAttributes Core.Integer
+activityTaskTimedOutEventAttributes_startedEventId :: Lens.Lens' ActivityTaskTimedOutEventAttributes Prelude.Integer
 activityTaskTimedOutEventAttributes_startedEventId = Lens.lens (\ActivityTaskTimedOutEventAttributes' {startedEventId} -> startedEventId) (\s@ActivityTaskTimedOutEventAttributes' {} a -> s {startedEventId = a} :: ActivityTaskTimedOutEventAttributes)
 
 instance
@@ -116,16 +117,16 @@ instance
       "ActivityTaskTimedOutEventAttributes"
       ( \x ->
           ActivityTaskTimedOutEventAttributes'
-            Core.<$> (x Core..:? "details")
-            Core.<*> (x Core..: "timeoutType")
-            Core.<*> (x Core..: "scheduledEventId")
-            Core.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Core..:? "details")
+            Prelude.<*> (x Core..: "timeoutType")
+            Prelude.<*> (x Core..: "scheduledEventId")
+            Prelude.<*> (x Core..: "startedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ActivityTaskTimedOutEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ActivityTaskTimedOutEventAttributes

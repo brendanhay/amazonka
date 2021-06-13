@@ -42,15 +42,16 @@ where
 import Network.AWS.Cloud9.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeEnvironments' smart constructor.
 data DescribeEnvironments = DescribeEnvironments'
   { -- | The IDs of individual environments to get information about.
-    environmentIds :: Core.NonEmpty Core.Text
+    environmentIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironments' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DescribeEnvironments = DescribeEnvironments'
 -- 'environmentIds', 'describeEnvironments_environmentIds' - The IDs of individual environments to get information about.
 newDescribeEnvironments ::
   -- | 'environmentIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DescribeEnvironments
 newDescribeEnvironments pEnvironmentIds_ =
   DescribeEnvironments'
@@ -72,8 +73,8 @@ newDescribeEnvironments pEnvironmentIds_ =
     }
 
 -- | The IDs of individual environments to get information about.
-describeEnvironments_environmentIds :: Lens.Lens' DescribeEnvironments (Core.NonEmpty Core.Text)
-describeEnvironments_environmentIds = Lens.lens (\DescribeEnvironments' {environmentIds} -> environmentIds) (\s@DescribeEnvironments' {} a -> s {environmentIds = a} :: DescribeEnvironments) Core.. Lens._Coerce
+describeEnvironments_environmentIds :: Lens.Lens' DescribeEnvironments (Prelude.NonEmpty Prelude.Text)
+describeEnvironments_environmentIds = Lens.lens (\DescribeEnvironments' {environmentIds} -> environmentIds) (\s@DescribeEnvironments' {} a -> s {environmentIds = a} :: DescribeEnvironments) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeEnvironments where
   type
@@ -84,50 +85,52 @@ instance Core.AWSRequest DescribeEnvironments where
     Response.receiveJSON
       ( \s h x ->
           DescribeEnvironmentsResponse'
-            Core.<$> (x Core..?> "environments" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "environments" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEnvironments
+instance Prelude.Hashable DescribeEnvironments
 
-instance Core.NFData DescribeEnvironments
+instance Prelude.NFData DescribeEnvironments
 
 instance Core.ToHeaders DescribeEnvironments where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironments" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEnvironments where
   toJSON DescribeEnvironments' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("environmentIds" Core..= environmentIds)
           ]
       )
 
 instance Core.ToPath DescribeEnvironments where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEnvironments where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEnvironmentsResponse' smart constructor.
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
   { -- | Information about the environments that are returned.
-    environments :: Core.Maybe [Environment],
+    environments :: Prelude.Maybe [Environment],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentsResponse' with all optional fields omitted.
@@ -142,21 +145,21 @@ data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
 -- 'httpStatus', 'describeEnvironmentsResponse_httpStatus' - The response's http status code.
 newDescribeEnvironmentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEnvironmentsResponse
 newDescribeEnvironmentsResponse pHttpStatus_ =
   DescribeEnvironmentsResponse'
     { environments =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the environments that are returned.
-describeEnvironmentsResponse_environments :: Lens.Lens' DescribeEnvironmentsResponse (Core.Maybe [Environment])
-describeEnvironmentsResponse_environments = Lens.lens (\DescribeEnvironmentsResponse' {environments} -> environments) (\s@DescribeEnvironmentsResponse' {} a -> s {environments = a} :: DescribeEnvironmentsResponse) Core.. Lens.mapping Lens._Coerce
+describeEnvironmentsResponse_environments :: Lens.Lens' DescribeEnvironmentsResponse (Prelude.Maybe [Environment])
+describeEnvironmentsResponse_environments = Lens.lens (\DescribeEnvironmentsResponse' {environments} -> environments) (\s@DescribeEnvironmentsResponse' {} a -> s {environments = a} :: DescribeEnvironmentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEnvironmentsResponse_httpStatus :: Lens.Lens' DescribeEnvironmentsResponse Core.Int
+describeEnvironmentsResponse_httpStatus :: Lens.Lens' DescribeEnvironmentsResponse Prelude.Int
 describeEnvironmentsResponse_httpStatus = Lens.lens (\DescribeEnvironmentsResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentsResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentsResponse)
 
-instance Core.NFData DescribeEnvironmentsResponse
+instance Prelude.NFData DescribeEnvironmentsResponse

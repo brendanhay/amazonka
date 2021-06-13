@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.ChannelMessages where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies one or more sets of channel messages.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data ChannelMessages = ChannelMessages'
   { -- | Specifies one or more keys that identify the Amazon Simple Storage
     -- Service (Amazon S3) objects that save your channel messages.
-    s3Paths :: Core.Maybe (Core.NonEmpty Core.Text)
+    s3Paths :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChannelMessages' with all optional fields omitted.
@@ -45,20 +46,20 @@ data ChannelMessages = ChannelMessages'
 newChannelMessages ::
   ChannelMessages
 newChannelMessages =
-  ChannelMessages' {s3Paths = Core.Nothing}
+  ChannelMessages' {s3Paths = Prelude.Nothing}
 
 -- | Specifies one or more keys that identify the Amazon Simple Storage
 -- Service (Amazon S3) objects that save your channel messages.
-channelMessages_s3Paths :: Lens.Lens' ChannelMessages (Core.Maybe (Core.NonEmpty Core.Text))
-channelMessages_s3Paths = Lens.lens (\ChannelMessages' {s3Paths} -> s3Paths) (\s@ChannelMessages' {} a -> s {s3Paths = a} :: ChannelMessages) Core.. Lens.mapping Lens._Coerce
+channelMessages_s3Paths :: Lens.Lens' ChannelMessages (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+channelMessages_s3Paths = Lens.lens (\ChannelMessages' {s3Paths} -> s3Paths) (\s@ChannelMessages' {} a -> s {s3Paths = a} :: ChannelMessages) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable ChannelMessages
+instance Prelude.Hashable ChannelMessages
 
-instance Core.NFData ChannelMessages
+instance Prelude.NFData ChannelMessages
 
 instance Core.ToJSON ChannelMessages where
   toJSON ChannelMessages' {..} =
     Core.object
-      ( Core.catMaybes
-          [("s3Paths" Core..=) Core.<$> s3Paths]
+      ( Prelude.catMaybes
+          [("s3Paths" Core..=) Prelude.<$> s3Paths]
       )

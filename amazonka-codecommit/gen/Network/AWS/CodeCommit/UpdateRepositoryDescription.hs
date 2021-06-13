@@ -46,6 +46,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +56,12 @@ import qualified Network.AWS.Response as Response
 data UpdateRepositoryDescription = UpdateRepositoryDescription'
   { -- | The new comment or description for the specified repository. Repository
     -- descriptions are limited to 1,000 characters.
-    repositoryDescription :: Core.Maybe Core.Text,
+    repositoryDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to set or change the comment or description
     -- for.
-    repositoryName :: Core.Text
+    repositoryName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRepositoryDescription' with all optional fields omitted.
@@ -77,23 +78,23 @@ data UpdateRepositoryDescription = UpdateRepositoryDescription'
 -- for.
 newUpdateRepositoryDescription ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRepositoryDescription
 newUpdateRepositoryDescription pRepositoryName_ =
   UpdateRepositoryDescription'
     { repositoryDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
 
 -- | The new comment or description for the specified repository. Repository
 -- descriptions are limited to 1,000 characters.
-updateRepositoryDescription_repositoryDescription :: Lens.Lens' UpdateRepositoryDescription (Core.Maybe Core.Text)
+updateRepositoryDescription_repositoryDescription :: Lens.Lens' UpdateRepositoryDescription (Prelude.Maybe Prelude.Text)
 updateRepositoryDescription_repositoryDescription = Lens.lens (\UpdateRepositoryDescription' {repositoryDescription} -> repositoryDescription) (\s@UpdateRepositoryDescription' {} a -> s {repositoryDescription = a} :: UpdateRepositoryDescription)
 
 -- | The name of the repository to set or change the comment or description
 -- for.
-updateRepositoryDescription_repositoryName :: Lens.Lens' UpdateRepositoryDescription Core.Text
+updateRepositoryDescription_repositoryName :: Lens.Lens' UpdateRepositoryDescription Prelude.Text
 updateRepositoryDescription_repositoryName = Lens.lens (\UpdateRepositoryDescription' {repositoryName} -> repositoryName) (\s@UpdateRepositoryDescription' {} a -> s {repositoryName = a} :: UpdateRepositoryDescription)
 
 instance Core.AWSRequest UpdateRepositoryDescription where
@@ -105,44 +106,47 @@ instance Core.AWSRequest UpdateRepositoryDescription where
     Response.receiveNull
       UpdateRepositoryDescriptionResponse'
 
-instance Core.Hashable UpdateRepositoryDescription
+instance Prelude.Hashable UpdateRepositoryDescription
 
-instance Core.NFData UpdateRepositoryDescription
+instance Prelude.NFData UpdateRepositoryDescription
 
 instance Core.ToHeaders UpdateRepositoryDescription where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.UpdateRepositoryDescription" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRepositoryDescription where
   toJSON UpdateRepositoryDescription' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("repositoryDescription" Core..=)
-              Core.<$> repositoryDescription,
-            Core.Just ("repositoryName" Core..= repositoryName)
+              Prelude.<$> repositoryDescription,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
 instance Core.ToPath UpdateRepositoryDescription where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRepositoryDescription where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRepositoryDescriptionResponse' smart constructor.
 data UpdateRepositoryDescriptionResponse = UpdateRepositoryDescriptionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRepositoryDescriptionResponse' with all optional fields omitted.
@@ -154,5 +158,5 @@ newUpdateRepositoryDescriptionResponse =
   UpdateRepositoryDescriptionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateRepositoryDescriptionResponse

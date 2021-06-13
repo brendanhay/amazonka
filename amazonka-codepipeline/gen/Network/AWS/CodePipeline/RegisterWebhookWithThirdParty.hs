@@ -42,6 +42,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data RegisterWebhookWithThirdParty = RegisterWebhookWithThirdParty'
   { -- | The name of an existing webhook created with PutWebhook to register with
     -- a supported third party.
-    webhookName :: Core.Maybe Core.Text
+    webhookName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterWebhookWithThirdParty' with all optional fields omitted.
@@ -68,12 +69,12 @@ newRegisterWebhookWithThirdParty ::
 newRegisterWebhookWithThirdParty =
   RegisterWebhookWithThirdParty'
     { webhookName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of an existing webhook created with PutWebhook to register with
 -- a supported third party.
-registerWebhookWithThirdParty_webhookName :: Lens.Lens' RegisterWebhookWithThirdParty (Core.Maybe Core.Text)
+registerWebhookWithThirdParty_webhookName :: Lens.Lens' RegisterWebhookWithThirdParty (Prelude.Maybe Prelude.Text)
 registerWebhookWithThirdParty_webhookName = Lens.lens (\RegisterWebhookWithThirdParty' {webhookName} -> webhookName) (\s@RegisterWebhookWithThirdParty' {} a -> s {webhookName = a} :: RegisterWebhookWithThirdParty)
 
 instance
@@ -88,45 +89,49 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           RegisterWebhookWithThirdPartyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RegisterWebhookWithThirdParty
+instance
+  Prelude.Hashable
+    RegisterWebhookWithThirdParty
 
-instance Core.NFData RegisterWebhookWithThirdParty
+instance Prelude.NFData RegisterWebhookWithThirdParty
 
 instance Core.ToHeaders RegisterWebhookWithThirdParty where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.RegisterWebhookWithThirdParty" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RegisterWebhookWithThirdParty where
   toJSON RegisterWebhookWithThirdParty' {..} =
     Core.object
-      ( Core.catMaybes
-          [("webhookName" Core..=) Core.<$> webhookName]
+      ( Prelude.catMaybes
+          [("webhookName" Core..=) Prelude.<$> webhookName]
       )
 
 instance Core.ToPath RegisterWebhookWithThirdParty where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterWebhookWithThirdParty where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterWebhookWithThirdPartyResponse' smart constructor.
 data RegisterWebhookWithThirdPartyResponse = RegisterWebhookWithThirdPartyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterWebhookWithThirdPartyResponse' with all optional fields omitted.
@@ -139,7 +144,7 @@ data RegisterWebhookWithThirdPartyResponse = RegisterWebhookWithThirdPartyRespon
 -- 'httpStatus', 'registerWebhookWithThirdPartyResponse_httpStatus' - The response's http status code.
 newRegisterWebhookWithThirdPartyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterWebhookWithThirdPartyResponse
 newRegisterWebhookWithThirdPartyResponse pHttpStatus_ =
   RegisterWebhookWithThirdPartyResponse'
@@ -148,9 +153,9 @@ newRegisterWebhookWithThirdPartyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-registerWebhookWithThirdPartyResponse_httpStatus :: Lens.Lens' RegisterWebhookWithThirdPartyResponse Core.Int
+registerWebhookWithThirdPartyResponse_httpStatus :: Lens.Lens' RegisterWebhookWithThirdPartyResponse Prelude.Int
 registerWebhookWithThirdPartyResponse_httpStatus = Lens.lens (\RegisterWebhookWithThirdPartyResponse' {httpStatus} -> httpStatus) (\s@RegisterWebhookWithThirdPartyResponse' {} a -> s {httpStatus = a} :: RegisterWebhookWithThirdPartyResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterWebhookWithThirdPartyResponse

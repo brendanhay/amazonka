@@ -21,17 +21,18 @@ module Network.AWS.IoT.Types.Policy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an AWS IoT policy.
 --
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'
   { -- | The policy name.
-    policyName :: Core.Maybe Core.Text,
+    policyName :: Prelude.Maybe Prelude.Text,
     -- | The policy ARN.
-    policyArn :: Core.Maybe Core.Text
+    policyArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Policy' with all optional fields omitted.
@@ -48,16 +49,16 @@ newPolicy ::
   Policy
 newPolicy =
   Policy'
-    { policyName = Core.Nothing,
-      policyArn = Core.Nothing
+    { policyName = Prelude.Nothing,
+      policyArn = Prelude.Nothing
     }
 
 -- | The policy name.
-policy_policyName :: Lens.Lens' Policy (Core.Maybe Core.Text)
+policy_policyName :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyName = Lens.lens (\Policy' {policyName} -> policyName) (\s@Policy' {} a -> s {policyName = a} :: Policy)
 
 -- | The policy ARN.
-policy_policyArn :: Lens.Lens' Policy (Core.Maybe Core.Text)
+policy_policyArn :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyArn = Lens.lens (\Policy' {policyArn} -> policyArn) (\s@Policy' {} a -> s {policyArn = a} :: Policy)
 
 instance Core.FromJSON Policy where
@@ -66,10 +67,10 @@ instance Core.FromJSON Policy where
       "Policy"
       ( \x ->
           Policy'
-            Core.<$> (x Core..:? "policyName")
-            Core.<*> (x Core..:? "policyArn")
+            Prelude.<$> (x Core..:? "policyName")
+            Prelude.<*> (x Core..:? "policyArn")
       )
 
-instance Core.Hashable Policy
+instance Prelude.Hashable Policy
 
-instance Core.NFData Policy
+instance Prelude.NFData Policy

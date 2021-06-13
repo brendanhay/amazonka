@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,12 +61,12 @@ data DescribeCacheParameters = DescribeCacheParameters'
   { -- | The parameter types to return.
     --
     -- Valid values: @user@ | @system@ | @engine-default@
-    source :: Core.Maybe Core.Text,
+    source :: Prelude.Maybe Prelude.Text,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -73,11 +74,11 @@ data DescribeCacheParameters = DescribeCacheParameters'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Core.Maybe Core.Int,
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The name of a specific cache parameter group to return details for.
-    cacheParameterGroupName :: Core.Text
+    cacheParameterGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCacheParameters' with all optional fields omitted.
@@ -107,13 +108,13 @@ data DescribeCacheParameters = DescribeCacheParameters'
 -- 'cacheParameterGroupName', 'describeCacheParameters_cacheParameterGroupName' - The name of a specific cache parameter group to return details for.
 newDescribeCacheParameters ::
   -- | 'cacheParameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeCacheParameters
 newDescribeCacheParameters pCacheParameterGroupName_ =
   DescribeCacheParameters'
-    { source = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing,
+    { source = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       cacheParameterGroupName =
         pCacheParameterGroupName_
     }
@@ -121,14 +122,14 @@ newDescribeCacheParameters pCacheParameterGroupName_ =
 -- | The parameter types to return.
 --
 -- Valid values: @user@ | @system@ | @engine-default@
-describeCacheParameters_source :: Lens.Lens' DescribeCacheParameters (Core.Maybe Core.Text)
+describeCacheParameters_source :: Lens.Lens' DescribeCacheParameters (Prelude.Maybe Prelude.Text)
 describeCacheParameters_source = Lens.lens (\DescribeCacheParameters' {source} -> source) (\s@DescribeCacheParameters' {} a -> s {source = a} :: DescribeCacheParameters)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeCacheParameters_marker :: Lens.Lens' DescribeCacheParameters (Core.Maybe Core.Text)
+describeCacheParameters_marker :: Lens.Lens' DescribeCacheParameters (Prelude.Maybe Prelude.Text)
 describeCacheParameters_marker = Lens.lens (\DescribeCacheParameters' {marker} -> marker) (\s@DescribeCacheParameters' {} a -> s {marker = a} :: DescribeCacheParameters)
 
 -- | The maximum number of records to include in the response. If more
@@ -138,11 +139,11 @@ describeCacheParameters_marker = Lens.lens (\DescribeCacheParameters' {marker} -
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-describeCacheParameters_maxRecords :: Lens.Lens' DescribeCacheParameters (Core.Maybe Core.Int)
+describeCacheParameters_maxRecords :: Lens.Lens' DescribeCacheParameters (Prelude.Maybe Prelude.Int)
 describeCacheParameters_maxRecords = Lens.lens (\DescribeCacheParameters' {maxRecords} -> maxRecords) (\s@DescribeCacheParameters' {} a -> s {maxRecords = a} :: DescribeCacheParameters)
 
 -- | The name of a specific cache parameter group to return details for.
-describeCacheParameters_cacheParameterGroupName :: Lens.Lens' DescribeCacheParameters Core.Text
+describeCacheParameters_cacheParameterGroupName :: Lens.Lens' DescribeCacheParameters Prelude.Text
 describeCacheParameters_cacheParameterGroupName = Lens.lens (\DescribeCacheParameters' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@DescribeCacheParameters' {} a -> s {cacheParameterGroupName = a} :: DescribeCacheParameters)
 
 instance Core.AWSPager DescribeCacheParameters where
@@ -150,22 +151,22 @@ instance Core.AWSPager DescribeCacheParameters where
     | Core.stop
         ( rs
             Lens.^? describeCacheParametersResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCacheParametersResponse_parameters
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeCacheParameters_marker
+          Prelude.& describeCacheParameters_marker
           Lens..~ rs
           Lens.^? describeCacheParametersResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheParameters where
   type
@@ -177,34 +178,35 @@ instance Core.AWSRequest DescribeCacheParameters where
       "DescribeCacheParametersResult"
       ( \s h x ->
           DescribeCacheParametersResponse'
-            Core.<$> ( x Core..@? "CacheNodeTypeSpecificParameters"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may
-                           (Core.parseXMLList "CacheNodeTypeSpecificParameter")
-                     )
-            Core.<*> ( x Core..@? "Parameters" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "Parameter")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "CacheNodeTypeSpecificParameters"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              (Core.parseXMLList "CacheNodeTypeSpecificParameter")
+                        )
+            Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeCacheParameters
+instance Prelude.Hashable DescribeCacheParameters
 
-instance Core.NFData DescribeCacheParameters
+instance Prelude.NFData DescribeCacheParameters
 
 instance Core.ToHeaders DescribeCacheParameters where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeCacheParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeCacheParameters where
   toQuery DescribeCacheParameters' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeCacheParameters" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("DescribeCacheParameters" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "Source" Core.=: source,
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
@@ -218,15 +220,15 @@ instance Core.ToQuery DescribeCacheParameters where
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
   { -- | A list of parameters specific to a particular cache node type. Each
     -- element in the list contains detailed information about one parameter.
-    cacheNodeTypeSpecificParameters :: Core.Maybe [CacheNodeTypeSpecificParameter],
+    cacheNodeTypeSpecificParameters :: Prelude.Maybe [CacheNodeTypeSpecificParameter],
     -- | A list of Parameter instances.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCacheParametersResponse' with all optional fields omitted.
@@ -246,32 +248,34 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
 -- 'httpStatus', 'describeCacheParametersResponse_httpStatus' - The response's http status code.
 newDescribeCacheParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeCacheParametersResponse
 newDescribeCacheParametersResponse pHttpStatus_ =
   DescribeCacheParametersResponse'
     { cacheNodeTypeSpecificParameters =
-        Core.Nothing,
-      parameters = Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
-describeCacheParametersResponse_cacheNodeTypeSpecificParameters :: Lens.Lens' DescribeCacheParametersResponse (Core.Maybe [CacheNodeTypeSpecificParameter])
-describeCacheParametersResponse_cacheNodeTypeSpecificParameters = Lens.lens (\DescribeCacheParametersResponse' {cacheNodeTypeSpecificParameters} -> cacheNodeTypeSpecificParameters) (\s@DescribeCacheParametersResponse' {} a -> s {cacheNodeTypeSpecificParameters = a} :: DescribeCacheParametersResponse) Core.. Lens.mapping Lens._Coerce
+describeCacheParametersResponse_cacheNodeTypeSpecificParameters :: Lens.Lens' DescribeCacheParametersResponse (Prelude.Maybe [CacheNodeTypeSpecificParameter])
+describeCacheParametersResponse_cacheNodeTypeSpecificParameters = Lens.lens (\DescribeCacheParametersResponse' {cacheNodeTypeSpecificParameters} -> cacheNodeTypeSpecificParameters) (\s@DescribeCacheParametersResponse' {} a -> s {cacheNodeTypeSpecificParameters = a} :: DescribeCacheParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of Parameter instances.
-describeCacheParametersResponse_parameters :: Lens.Lens' DescribeCacheParametersResponse (Core.Maybe [Parameter])
-describeCacheParametersResponse_parameters = Lens.lens (\DescribeCacheParametersResponse' {parameters} -> parameters) (\s@DescribeCacheParametersResponse' {} a -> s {parameters = a} :: DescribeCacheParametersResponse) Core.. Lens.mapping Lens._Coerce
+describeCacheParametersResponse_parameters :: Lens.Lens' DescribeCacheParametersResponse (Prelude.Maybe [Parameter])
+describeCacheParametersResponse_parameters = Lens.lens (\DescribeCacheParametersResponse' {parameters} -> parameters) (\s@DescribeCacheParametersResponse' {} a -> s {parameters = a} :: DescribeCacheParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeCacheParametersResponse_marker :: Lens.Lens' DescribeCacheParametersResponse (Core.Maybe Core.Text)
+describeCacheParametersResponse_marker :: Lens.Lens' DescribeCacheParametersResponse (Prelude.Maybe Prelude.Text)
 describeCacheParametersResponse_marker = Lens.lens (\DescribeCacheParametersResponse' {marker} -> marker) (\s@DescribeCacheParametersResponse' {} a -> s {marker = a} :: DescribeCacheParametersResponse)
 
 -- | The response's http status code.
-describeCacheParametersResponse_httpStatus :: Lens.Lens' DescribeCacheParametersResponse Core.Int
+describeCacheParametersResponse_httpStatus :: Lens.Lens' DescribeCacheParametersResponse Prelude.Int
 describeCacheParametersResponse_httpStatus = Lens.lens (\DescribeCacheParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeCacheParametersResponse' {} a -> s {httpStatus = a} :: DescribeCacheParametersResponse)
 
-instance Core.NFData DescribeCacheParametersResponse
+instance
+  Prelude.NFData
+    DescribeCacheParametersResponse

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TargetGroup
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the target groups to attach to a Spot Fleet. Spot Fleet
 -- registers the running Spot Instances with these target groups.
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTargetGroupsConfig' smart constructor.
 data TargetGroupsConfig = TargetGroupsConfig'
   { -- | One or more target groups.
-    targetGroups :: Core.Maybe (Core.NonEmpty TargetGroup)
+    targetGroups :: Prelude.Maybe (Prelude.NonEmpty TargetGroup)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetGroupsConfig' with all optional fields omitted.
@@ -46,28 +47,28 @@ data TargetGroupsConfig = TargetGroupsConfig'
 newTargetGroupsConfig ::
   TargetGroupsConfig
 newTargetGroupsConfig =
-  TargetGroupsConfig' {targetGroups = Core.Nothing}
+  TargetGroupsConfig' {targetGroups = Prelude.Nothing}
 
 -- | One or more target groups.
-targetGroupsConfig_targetGroups :: Lens.Lens' TargetGroupsConfig (Core.Maybe (Core.NonEmpty TargetGroup))
-targetGroupsConfig_targetGroups = Lens.lens (\TargetGroupsConfig' {targetGroups} -> targetGroups) (\s@TargetGroupsConfig' {} a -> s {targetGroups = a} :: TargetGroupsConfig) Core.. Lens.mapping Lens._Coerce
+targetGroupsConfig_targetGroups :: Lens.Lens' TargetGroupsConfig (Prelude.Maybe (Prelude.NonEmpty TargetGroup))
+targetGroupsConfig_targetGroups = Lens.lens (\TargetGroupsConfig' {targetGroups} -> targetGroups) (\s@TargetGroupsConfig' {} a -> s {targetGroups = a} :: TargetGroupsConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML TargetGroupsConfig where
   parseXML x =
     TargetGroupsConfig'
-      Core.<$> ( x Core..@? "targetGroups" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList1 "item")
-               )
+      Prelude.<$> ( x Core..@? "targetGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList1 "item")
+                  )
 
-instance Core.Hashable TargetGroupsConfig
+instance Prelude.Hashable TargetGroupsConfig
 
-instance Core.NFData TargetGroupsConfig
+instance Prelude.NFData TargetGroupsConfig
 
 instance Core.ToQuery TargetGroupsConfig where
   toQuery TargetGroupsConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ Core.toQuery
           ( Core.toQueryList "TargetGroups"
-              Core.<$> targetGroups
+              Prelude.<$> targetGroups
           )
       ]

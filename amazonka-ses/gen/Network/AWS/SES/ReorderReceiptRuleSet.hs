@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -62,12 +63,12 @@ import Network.AWS.SES.Types
 -- /See:/ 'newReorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
   { -- | The name of the receipt rule set to reorder.
-    ruleSetName :: Core.Text,
+    ruleSetName :: Prelude.Text,
     -- | A list of the specified receipt rule set\'s receipt rules in the order
     -- that you want to put them.
-    ruleNames :: [Core.Text]
+    ruleNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReorderReceiptRuleSet' with all optional fields omitted.
@@ -83,22 +84,22 @@ data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
 -- that you want to put them.
 newReorderReceiptRuleSet ::
   -- | 'ruleSetName'
-  Core.Text ->
+  Prelude.Text ->
   ReorderReceiptRuleSet
 newReorderReceiptRuleSet pRuleSetName_ =
   ReorderReceiptRuleSet'
     { ruleSetName = pRuleSetName_,
-      ruleNames = Core.mempty
+      ruleNames = Prelude.mempty
     }
 
 -- | The name of the receipt rule set to reorder.
-reorderReceiptRuleSet_ruleSetName :: Lens.Lens' ReorderReceiptRuleSet Core.Text
+reorderReceiptRuleSet_ruleSetName :: Lens.Lens' ReorderReceiptRuleSet Prelude.Text
 reorderReceiptRuleSet_ruleSetName = Lens.lens (\ReorderReceiptRuleSet' {ruleSetName} -> ruleSetName) (\s@ReorderReceiptRuleSet' {} a -> s {ruleSetName = a} :: ReorderReceiptRuleSet)
 
 -- | A list of the specified receipt rule set\'s receipt rules in the order
 -- that you want to put them.
-reorderReceiptRuleSet_ruleNames :: Lens.Lens' ReorderReceiptRuleSet [Core.Text]
-reorderReceiptRuleSet_ruleNames = Lens.lens (\ReorderReceiptRuleSet' {ruleNames} -> ruleNames) (\s@ReorderReceiptRuleSet' {} a -> s {ruleNames = a} :: ReorderReceiptRuleSet) Core.. Lens._Coerce
+reorderReceiptRuleSet_ruleNames :: Lens.Lens' ReorderReceiptRuleSet [Prelude.Text]
+reorderReceiptRuleSet_ruleNames = Lens.lens (\ReorderReceiptRuleSet' {ruleNames} -> ruleNames) (\s@ReorderReceiptRuleSet' {} a -> s {ruleNames = a} :: ReorderReceiptRuleSet) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ReorderReceiptRuleSet where
   type
@@ -110,25 +111,26 @@ instance Core.AWSRequest ReorderReceiptRuleSet where
       "ReorderReceiptRuleSetResult"
       ( \s h x ->
           ReorderReceiptRuleSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ReorderReceiptRuleSet
+instance Prelude.Hashable ReorderReceiptRuleSet
 
-instance Core.NFData ReorderReceiptRuleSet
+instance Prelude.NFData ReorderReceiptRuleSet
 
 instance Core.ToHeaders ReorderReceiptRuleSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ReorderReceiptRuleSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ReorderReceiptRuleSet where
   toQuery ReorderReceiptRuleSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ReorderReceiptRuleSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("ReorderReceiptRuleSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "RuleSetName" Core.=: ruleSetName,
         "RuleNames"
           Core.=: Core.toQueryList "member" ruleNames
@@ -139,9 +141,9 @@ instance Core.ToQuery ReorderReceiptRuleSet where
 -- /See:/ 'newReorderReceiptRuleSetResponse' smart constructor.
 data ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReorderReceiptRuleSetResponse' with all optional fields omitted.
@@ -154,7 +156,7 @@ data ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
 -- 'httpStatus', 'reorderReceiptRuleSetResponse_httpStatus' - The response's http status code.
 newReorderReceiptRuleSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ReorderReceiptRuleSetResponse
 newReorderReceiptRuleSetResponse pHttpStatus_ =
   ReorderReceiptRuleSetResponse'
@@ -163,7 +165,7 @@ newReorderReceiptRuleSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-reorderReceiptRuleSetResponse_httpStatus :: Lens.Lens' ReorderReceiptRuleSetResponse Core.Int
+reorderReceiptRuleSetResponse_httpStatus :: Lens.Lens' ReorderReceiptRuleSetResponse Prelude.Int
 reorderReceiptRuleSetResponse_httpStatus = Lens.lens (\ReorderReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@ReorderReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: ReorderReceiptRuleSetResponse)
 
-instance Core.NFData ReorderReceiptRuleSetResponse
+instance Prelude.NFData ReorderReceiptRuleSetResponse

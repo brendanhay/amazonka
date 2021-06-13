@@ -47,6 +47,7 @@ where
 import Network.AWS.Athena.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +57,13 @@ data ListDatabases = ListDatabases'
     -- pagination if a previous request was truncated. To obtain the next set
     -- of pages, pass in the @NextToken@ from the response object of the
     -- previous page call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum number of results to return.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the data catalog that contains the databases to return.
-    catalogName :: Core.Text
+    catalogName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDatabases' with all optional fields omitted.
@@ -82,12 +83,12 @@ data ListDatabases = ListDatabases'
 -- 'catalogName', 'listDatabases_catalogName' - The name of the data catalog that contains the databases to return.
 newListDatabases ::
   -- | 'catalogName'
-  Core.Text ->
+  Prelude.Text ->
   ListDatabases
 newListDatabases pCatalogName_ =
   ListDatabases'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       catalogName = pCatalogName_
     }
 
@@ -95,35 +96,36 @@ newListDatabases pCatalogName_ =
 -- pagination if a previous request was truncated. To obtain the next set
 -- of pages, pass in the @NextToken@ from the response object of the
 -- previous page call.
-listDatabases_nextToken :: Lens.Lens' ListDatabases (Core.Maybe Core.Text)
+listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
 
 -- | Specifies the maximum number of results to return.
-listDatabases_maxResults :: Lens.Lens' ListDatabases (Core.Maybe Core.Natural)
+listDatabases_maxResults :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Natural)
 listDatabases_maxResults = Lens.lens (\ListDatabases' {maxResults} -> maxResults) (\s@ListDatabases' {} a -> s {maxResults = a} :: ListDatabases)
 
 -- | The name of the data catalog that contains the databases to return.
-listDatabases_catalogName :: Lens.Lens' ListDatabases Core.Text
+listDatabases_catalogName :: Lens.Lens' ListDatabases Prelude.Text
 listDatabases_catalogName = Lens.lens (\ListDatabases' {catalogName} -> catalogName) (\s@ListDatabases' {} a -> s {catalogName = a} :: ListDatabases)
 
 instance Core.AWSPager ListDatabases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_nextToken Core.. Lens._Just
+            Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_databaseList Core.. Lens._Just
+            Lens.^? listDatabasesResponse_databaseList
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDatabases_nextToken
+          Prelude.& listDatabases_nextToken
           Lens..~ rs
-          Lens.^? listDatabasesResponse_nextToken Core.. Lens._Just
+          Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatabases where
   type
@@ -134,55 +136,57 @@ instance Core.AWSRequest ListDatabases where
     Response.receiveJSON
       ( \s h x ->
           ListDatabasesResponse'
-            Core.<$> (x Core..?> "DatabaseList" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDatabases
+instance Prelude.Hashable ListDatabases
 
-instance Core.NFData ListDatabases
+instance Prelude.NFData ListDatabases
 
 instance Core.ToHeaders ListDatabases where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonAthena.ListDatabases" :: Core.ByteString),
+              Core.=# ("AmazonAthena.ListDatabases" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListDatabases where
   toJSON ListDatabases' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("CatalogName" Core..= catalogName)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("CatalogName" Core..= catalogName)
           ]
       )
 
 instance Core.ToPath ListDatabases where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListDatabases where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDatabasesResponse' smart constructor.
 data ListDatabasesResponse = ListDatabasesResponse'
   { -- | A list of databases from a data catalog.
-    databaseList :: Core.Maybe [Database],
+    databaseList :: Prelude.Maybe [Database],
     -- | A token generated by the Athena service that specifies where to continue
     -- pagination if a previous request was truncated. To obtain the next set
     -- of pages, pass in the NextToken from the response object of the previous
     -- page call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDatabasesResponse' with all optional fields omitted.
@@ -202,28 +206,29 @@ data ListDatabasesResponse = ListDatabasesResponse'
 -- 'httpStatus', 'listDatabasesResponse_httpStatus' - The response's http status code.
 newListDatabasesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDatabasesResponse
 newListDatabasesResponse pHttpStatus_ =
   ListDatabasesResponse'
-    { databaseList = Core.Nothing,
-      nextToken = Core.Nothing,
+    { databaseList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of databases from a data catalog.
-listDatabasesResponse_databaseList :: Lens.Lens' ListDatabasesResponse (Core.Maybe [Database])
-listDatabasesResponse_databaseList = Lens.lens (\ListDatabasesResponse' {databaseList} -> databaseList) (\s@ListDatabasesResponse' {} a -> s {databaseList = a} :: ListDatabasesResponse) Core.. Lens.mapping Lens._Coerce
+listDatabasesResponse_databaseList :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe [Database])
+listDatabasesResponse_databaseList = Lens.lens (\ListDatabasesResponse' {databaseList} -> databaseList) (\s@ListDatabasesResponse' {} a -> s {databaseList = a} :: ListDatabasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A token generated by the Athena service that specifies where to continue
 -- pagination if a previous request was truncated. To obtain the next set
 -- of pages, pass in the NextToken from the response object of the previous
 -- page call.
-listDatabasesResponse_nextToken :: Lens.Lens' ListDatabasesResponse (Core.Maybe Core.Text)
+listDatabasesResponse_nextToken :: Lens.Lens' ListDatabasesResponse (Prelude.Maybe Prelude.Text)
 listDatabasesResponse_nextToken = Lens.lens (\ListDatabasesResponse' {nextToken} -> nextToken) (\s@ListDatabasesResponse' {} a -> s {nextToken = a} :: ListDatabasesResponse)
 
 -- | The response's http status code.
-listDatabasesResponse_httpStatus :: Lens.Lens' ListDatabasesResponse Core.Int
+listDatabasesResponse_httpStatus :: Lens.Lens' ListDatabasesResponse Prelude.Int
 listDatabasesResponse_httpStatus = Lens.lens (\ListDatabasesResponse' {httpStatus} -> httpStatus) (\s@ListDatabasesResponse' {} a -> s {httpStatus = a} :: ListDatabasesResponse)
 
-instance Core.NFData ListDatabasesResponse
+instance Prelude.NFData ListDatabasesResponse

@@ -49,6 +49,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,10 +59,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDefineSuggester' smart constructor.
 data DefineSuggester = DefineSuggester'
-  { domainName :: Core.Text,
+  { domainName :: Prelude.Text,
     suggester :: Suggester
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefineSuggester' with all optional fields omitted.
@@ -76,7 +77,7 @@ data DefineSuggester = DefineSuggester'
 -- 'suggester', 'defineSuggester_suggester' - Undocumented member.
 newDefineSuggester ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'suggester'
   Suggester ->
   DefineSuggester
@@ -87,7 +88,7 @@ newDefineSuggester pDomainName_ pSuggester_ =
     }
 
 -- | Undocumented member.
-defineSuggester_domainName :: Lens.Lens' DefineSuggester Core.Text
+defineSuggester_domainName :: Lens.Lens' DefineSuggester Prelude.Text
 defineSuggester_domainName = Lens.lens (\DefineSuggester' {domainName} -> domainName) (\s@DefineSuggester' {} a -> s {domainName = a} :: DefineSuggester)
 
 -- | Undocumented member.
@@ -104,26 +105,27 @@ instance Core.AWSRequest DefineSuggester where
       "DefineSuggesterResult"
       ( \s h x ->
           DefineSuggesterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "Suggester")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Suggester")
       )
 
-instance Core.Hashable DefineSuggester
+instance Prelude.Hashable DefineSuggester
 
-instance Core.NFData DefineSuggester
+instance Prelude.NFData DefineSuggester
 
 instance Core.ToHeaders DefineSuggester where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DefineSuggester where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DefineSuggester where
   toQuery DefineSuggester' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DefineSuggester" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("DefineSuggester" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainName" Core.=: domainName,
         "Suggester" Core.=: suggester
       ]
@@ -134,10 +136,10 @@ instance Core.ToQuery DefineSuggester where
 -- /See:/ 'newDefineSuggesterResponse' smart constructor.
 data DefineSuggesterResponse = DefineSuggesterResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     suggester :: SuggesterStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefineSuggesterResponse' with all optional fields omitted.
@@ -152,7 +154,7 @@ data DefineSuggesterResponse = DefineSuggesterResponse'
 -- 'suggester', 'defineSuggesterResponse_suggester' - Undocumented member.
 newDefineSuggesterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'suggester'
   SuggesterStatus ->
   DefineSuggesterResponse
@@ -163,11 +165,11 @@ newDefineSuggesterResponse pHttpStatus_ pSuggester_ =
     }
 
 -- | The response's http status code.
-defineSuggesterResponse_httpStatus :: Lens.Lens' DefineSuggesterResponse Core.Int
+defineSuggesterResponse_httpStatus :: Lens.Lens' DefineSuggesterResponse Prelude.Int
 defineSuggesterResponse_httpStatus = Lens.lens (\DefineSuggesterResponse' {httpStatus} -> httpStatus) (\s@DefineSuggesterResponse' {} a -> s {httpStatus = a} :: DefineSuggesterResponse)
 
 -- | Undocumented member.
 defineSuggesterResponse_suggester :: Lens.Lens' DefineSuggesterResponse SuggesterStatus
 defineSuggesterResponse_suggester = Lens.lens (\DefineSuggesterResponse' {suggester} -> suggester) (\s@DefineSuggesterResponse' {} a -> s {suggester = a} :: DefineSuggesterResponse)
 
-instance Core.NFData DefineSuggesterResponse
+instance Prelude.NFData DefineSuggesterResponse

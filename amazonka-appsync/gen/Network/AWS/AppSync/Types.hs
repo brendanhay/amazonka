@@ -322,6 +322,7 @@ import Network.AWS.AppSync.Types.TypeDefinitionFormat
 import Network.AWS.AppSync.Types.UserPoolConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon AppSync SDK configuration.
@@ -335,7 +336,7 @@ defaultService =
       Core._serviceVersion = "2017-07-25",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseJSONError "AppSync",
       Core._serviceRetry = retry
@@ -350,136 +351,138 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The API key expiration must be set to a value between 1 and 365 days
 -- from creation (for @CreateApiKey@) or from update (for @UpdateApiKey@).
-_ApiKeyValidityOutOfBoundsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ApiKeyValidityOutOfBoundsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ApiKeyValidityOutOfBoundsException =
   Core._MatchServiceError
     defaultService
     "ApiKeyValidityOutOfBoundsException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The resource specified in the request was not found. Check the resource,
 -- and then try again.
-_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The request is not well formed. For example, a value is invalid or a
 -- required field is missing. Check the field values, and then try again.
-_BadRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
     "BadRequestException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You are not authorized to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService
     "UnauthorizedException"
-    Core.. Core.hasStatus 401
+    Prelude.. Core.hasStatus 401
 
 -- | Another modification is in progress at this time and it must complete
 -- before you can make your change.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The GraphQL schema is not valid.
-_GraphQLSchemaException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_GraphQLSchemaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _GraphQLSchemaException =
   Core._MatchServiceError
     defaultService
     "GraphQLSchemaException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You do not have access to perform this operation on this resource.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
-    Core.. Core.hasStatus 403
+    Prelude.. Core.hasStatus 403
 
 -- | The request exceeded a limit. Try your request again.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-    Core.. Core.hasStatus 429
+    Prelude.. Core.hasStatus 429
 
 -- | The GraphQL API exceeded a limit. Try your request again.
-_ApiLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ApiLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ApiLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ApiLimitExceededException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The API key exceeded a limit. Try your request again.
-_ApiKeyLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ApiKeyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ApiKeyLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ApiKeyLimitExceededException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | An internal AWS AppSync error occurred. Try your request again.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
     "InternalFailureException"
-    Core.. Core.hasStatus 500
+    Prelude.. Core.hasStatus 500

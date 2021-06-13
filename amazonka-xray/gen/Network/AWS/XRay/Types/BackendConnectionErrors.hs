@@ -21,19 +21,20 @@ module Network.AWS.XRay.Types.BackendConnectionErrors where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
 -- /See:/ 'newBackendConnectionErrors' smart constructor.
 data BackendConnectionErrors = BackendConnectionErrors'
-  { otherCount :: Core.Maybe Core.Int,
-    connectionRefusedCount :: Core.Maybe Core.Int,
-    hTTPCode5XXCount :: Core.Maybe Core.Int,
-    timeoutCount :: Core.Maybe Core.Int,
-    unknownHostCount :: Core.Maybe Core.Int,
-    hTTPCode4XXCount :: Core.Maybe Core.Int
+  { otherCount :: Prelude.Maybe Prelude.Int,
+    connectionRefusedCount :: Prelude.Maybe Prelude.Int,
+    hTTPCode5XXCount :: Prelude.Maybe Prelude.Int,
+    timeoutCount :: Prelude.Maybe Prelude.Int,
+    unknownHostCount :: Prelude.Maybe Prelude.Int,
+    hTTPCode4XXCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BackendConnectionErrors' with all optional fields omitted.
@@ -58,55 +59,56 @@ newBackendConnectionErrors ::
   BackendConnectionErrors
 newBackendConnectionErrors =
   BackendConnectionErrors'
-    { otherCount = Core.Nothing,
-      connectionRefusedCount = Core.Nothing,
-      hTTPCode5XXCount = Core.Nothing,
-      timeoutCount = Core.Nothing,
-      unknownHostCount = Core.Nothing,
-      hTTPCode4XXCount = Core.Nothing
+    { otherCount =
+        Prelude.Nothing,
+      connectionRefusedCount = Prelude.Nothing,
+      hTTPCode5XXCount = Prelude.Nothing,
+      timeoutCount = Prelude.Nothing,
+      unknownHostCount = Prelude.Nothing,
+      hTTPCode4XXCount = Prelude.Nothing
     }
 
 -- |
-backendConnectionErrors_otherCount :: Lens.Lens' BackendConnectionErrors (Core.Maybe Core.Int)
+backendConnectionErrors_otherCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_otherCount = Lens.lens (\BackendConnectionErrors' {otherCount} -> otherCount) (\s@BackendConnectionErrors' {} a -> s {otherCount = a} :: BackendConnectionErrors)
 
 -- |
-backendConnectionErrors_connectionRefusedCount :: Lens.Lens' BackendConnectionErrors (Core.Maybe Core.Int)
+backendConnectionErrors_connectionRefusedCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_connectionRefusedCount = Lens.lens (\BackendConnectionErrors' {connectionRefusedCount} -> connectionRefusedCount) (\s@BackendConnectionErrors' {} a -> s {connectionRefusedCount = a} :: BackendConnectionErrors)
 
 -- |
-backendConnectionErrors_hTTPCode5XXCount :: Lens.Lens' BackendConnectionErrors (Core.Maybe Core.Int)
+backendConnectionErrors_hTTPCode5XXCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_hTTPCode5XXCount = Lens.lens (\BackendConnectionErrors' {hTTPCode5XXCount} -> hTTPCode5XXCount) (\s@BackendConnectionErrors' {} a -> s {hTTPCode5XXCount = a} :: BackendConnectionErrors)
 
 -- |
-backendConnectionErrors_timeoutCount :: Lens.Lens' BackendConnectionErrors (Core.Maybe Core.Int)
+backendConnectionErrors_timeoutCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_timeoutCount = Lens.lens (\BackendConnectionErrors' {timeoutCount} -> timeoutCount) (\s@BackendConnectionErrors' {} a -> s {timeoutCount = a} :: BackendConnectionErrors)
 
 -- |
-backendConnectionErrors_unknownHostCount :: Lens.Lens' BackendConnectionErrors (Core.Maybe Core.Int)
+backendConnectionErrors_unknownHostCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_unknownHostCount = Lens.lens (\BackendConnectionErrors' {unknownHostCount} -> unknownHostCount) (\s@BackendConnectionErrors' {} a -> s {unknownHostCount = a} :: BackendConnectionErrors)
 
 -- |
-backendConnectionErrors_hTTPCode4XXCount :: Lens.Lens' BackendConnectionErrors (Core.Maybe Core.Int)
+backendConnectionErrors_hTTPCode4XXCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_hTTPCode4XXCount = Lens.lens (\BackendConnectionErrors' {hTTPCode4XXCount} -> hTTPCode4XXCount) (\s@BackendConnectionErrors' {} a -> s {hTTPCode4XXCount = a} :: BackendConnectionErrors)
 
-instance Core.Hashable BackendConnectionErrors
+instance Prelude.Hashable BackendConnectionErrors
 
-instance Core.NFData BackendConnectionErrors
+instance Prelude.NFData BackendConnectionErrors
 
 instance Core.ToJSON BackendConnectionErrors where
   toJSON BackendConnectionErrors' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("OtherCount" Core..=) Core.<$> otherCount,
+      ( Prelude.catMaybes
+          [ ("OtherCount" Core..=) Prelude.<$> otherCount,
             ("ConnectionRefusedCount" Core..=)
-              Core.<$> connectionRefusedCount,
+              Prelude.<$> connectionRefusedCount,
             ("HTTPCode5XXCount" Core..=)
-              Core.<$> hTTPCode5XXCount,
-            ("TimeoutCount" Core..=) Core.<$> timeoutCount,
+              Prelude.<$> hTTPCode5XXCount,
+            ("TimeoutCount" Core..=) Prelude.<$> timeoutCount,
             ("UnknownHostCount" Core..=)
-              Core.<$> unknownHostCount,
+              Prelude.<$> unknownHostCount,
             ("HTTPCode4XXCount" Core..=)
-              Core.<$> hTTPCode4XXCount
+              Prelude.<$> hTTPCode4XXCount
           ]
       )

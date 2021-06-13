@@ -23,6 +23,7 @@ import Network.AWS.Athena.Types.ResultSetMetadata
 import Network.AWS.Athena.Types.Row
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata and rows that comprise a query result set. The metadata
 -- describes the column structure and data types. To return a @ResultSet@
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResultSet' smart constructor.
 data ResultSet = ResultSet'
   { -- | The rows in the table.
-    rows :: Core.Maybe [Row],
+    rows :: Prelude.Maybe [Row],
     -- | The metadata that describes the column structure and data types of a
     -- table of query results.
-    resultSetMetadata :: Core.Maybe ResultSetMetadata
+    resultSetMetadata :: Prelude.Maybe ResultSetMetadata
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResultSet' with all optional fields omitted.
@@ -54,17 +55,17 @@ newResultSet ::
   ResultSet
 newResultSet =
   ResultSet'
-    { rows = Core.Nothing,
-      resultSetMetadata = Core.Nothing
+    { rows = Prelude.Nothing,
+      resultSetMetadata = Prelude.Nothing
     }
 
 -- | The rows in the table.
-resultSet_rows :: Lens.Lens' ResultSet (Core.Maybe [Row])
-resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Core.. Lens.mapping Lens._Coerce
+resultSet_rows :: Lens.Lens' ResultSet (Prelude.Maybe [Row])
+resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The metadata that describes the column structure and data types of a
 -- table of query results.
-resultSet_resultSetMetadata :: Lens.Lens' ResultSet (Core.Maybe ResultSetMetadata)
+resultSet_resultSetMetadata :: Lens.Lens' ResultSet (Prelude.Maybe ResultSetMetadata)
 resultSet_resultSetMetadata = Lens.lens (\ResultSet' {resultSetMetadata} -> resultSetMetadata) (\s@ResultSet' {} a -> s {resultSetMetadata = a} :: ResultSet)
 
 instance Core.FromJSON ResultSet where
@@ -73,10 +74,10 @@ instance Core.FromJSON ResultSet where
       "ResultSet"
       ( \x ->
           ResultSet'
-            Core.<$> (x Core..:? "Rows" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ResultSetMetadata")
+            Prelude.<$> (x Core..:? "Rows" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ResultSetMetadata")
       )
 
-instance Core.Hashable ResultSet
+instance Prelude.Hashable ResultSet
 
-instance Core.NFData ResultSet
+instance Prelude.NFData ResultSet

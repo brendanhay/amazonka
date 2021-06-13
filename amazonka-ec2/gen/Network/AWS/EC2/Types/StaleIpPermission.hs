@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.UserIdGroupPair
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a stale rule in a security group.
 --
@@ -30,22 +31,22 @@ import qualified Network.AWS.Lens as Lens
 data StaleIpPermission = StaleIpPermission'
   { -- | The start of the port range for the TCP and UDP protocols, or an ICMP
     -- type number. A value of @-1@ indicates all ICMP types.
-    fromPort :: Core.Maybe Core.Int,
+    fromPort :: Prelude.Maybe Prelude.Int,
     -- | The prefix list IDs. Not applicable for stale security group rules.
-    prefixListIds :: Core.Maybe [Core.Text],
+    prefixListIds :: Prelude.Maybe [Prelude.Text],
     -- | The IP ranges. Not applicable for stale security group rules.
-    ipRanges :: Core.Maybe [Core.Text],
+    ipRanges :: Prelude.Maybe [Prelude.Text],
     -- | The security group pairs. Returns the ID of the referenced security
     -- group and VPC, and the ID and status of the VPC peering connection.
-    userIdGroupPairs :: Core.Maybe [UserIdGroupPair],
+    userIdGroupPairs :: Prelude.Maybe [UserIdGroupPair],
     -- | The IP protocol name (for @tcp@, @udp@, and @icmp@) or number (see
     -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers)>.
-    ipProtocol :: Core.Maybe Core.Text,
+    ipProtocol :: Prelude.Maybe Prelude.Text,
     -- | The end of the port range for the TCP and UDP protocols, or an ICMP type
     -- number. A value of @-1@ indicates all ICMP types.
-    toPort :: Core.Maybe Core.Int
+    toPort :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StaleIpPermission' with all optional fields omitted.
@@ -74,58 +75,58 @@ newStaleIpPermission ::
   StaleIpPermission
 newStaleIpPermission =
   StaleIpPermission'
-    { fromPort = Core.Nothing,
-      prefixListIds = Core.Nothing,
-      ipRanges = Core.Nothing,
-      userIdGroupPairs = Core.Nothing,
-      ipProtocol = Core.Nothing,
-      toPort = Core.Nothing
+    { fromPort = Prelude.Nothing,
+      prefixListIds = Prelude.Nothing,
+      ipRanges = Prelude.Nothing,
+      userIdGroupPairs = Prelude.Nothing,
+      ipProtocol = Prelude.Nothing,
+      toPort = Prelude.Nothing
     }
 
 -- | The start of the port range for the TCP and UDP protocols, or an ICMP
 -- type number. A value of @-1@ indicates all ICMP types.
-staleIpPermission_fromPort :: Lens.Lens' StaleIpPermission (Core.Maybe Core.Int)
+staleIpPermission_fromPort :: Lens.Lens' StaleIpPermission (Prelude.Maybe Prelude.Int)
 staleIpPermission_fromPort = Lens.lens (\StaleIpPermission' {fromPort} -> fromPort) (\s@StaleIpPermission' {} a -> s {fromPort = a} :: StaleIpPermission)
 
 -- | The prefix list IDs. Not applicable for stale security group rules.
-staleIpPermission_prefixListIds :: Lens.Lens' StaleIpPermission (Core.Maybe [Core.Text])
-staleIpPermission_prefixListIds = Lens.lens (\StaleIpPermission' {prefixListIds} -> prefixListIds) (\s@StaleIpPermission' {} a -> s {prefixListIds = a} :: StaleIpPermission) Core.. Lens.mapping Lens._Coerce
+staleIpPermission_prefixListIds :: Lens.Lens' StaleIpPermission (Prelude.Maybe [Prelude.Text])
+staleIpPermission_prefixListIds = Lens.lens (\StaleIpPermission' {prefixListIds} -> prefixListIds) (\s@StaleIpPermission' {} a -> s {prefixListIds = a} :: StaleIpPermission) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IP ranges. Not applicable for stale security group rules.
-staleIpPermission_ipRanges :: Lens.Lens' StaleIpPermission (Core.Maybe [Core.Text])
-staleIpPermission_ipRanges = Lens.lens (\StaleIpPermission' {ipRanges} -> ipRanges) (\s@StaleIpPermission' {} a -> s {ipRanges = a} :: StaleIpPermission) Core.. Lens.mapping Lens._Coerce
+staleIpPermission_ipRanges :: Lens.Lens' StaleIpPermission (Prelude.Maybe [Prelude.Text])
+staleIpPermission_ipRanges = Lens.lens (\StaleIpPermission' {ipRanges} -> ipRanges) (\s@StaleIpPermission' {} a -> s {ipRanges = a} :: StaleIpPermission) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The security group pairs. Returns the ID of the referenced security
 -- group and VPC, and the ID and status of the VPC peering connection.
-staleIpPermission_userIdGroupPairs :: Lens.Lens' StaleIpPermission (Core.Maybe [UserIdGroupPair])
-staleIpPermission_userIdGroupPairs = Lens.lens (\StaleIpPermission' {userIdGroupPairs} -> userIdGroupPairs) (\s@StaleIpPermission' {} a -> s {userIdGroupPairs = a} :: StaleIpPermission) Core.. Lens.mapping Lens._Coerce
+staleIpPermission_userIdGroupPairs :: Lens.Lens' StaleIpPermission (Prelude.Maybe [UserIdGroupPair])
+staleIpPermission_userIdGroupPairs = Lens.lens (\StaleIpPermission' {userIdGroupPairs} -> userIdGroupPairs) (\s@StaleIpPermission' {} a -> s {userIdGroupPairs = a} :: StaleIpPermission) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IP protocol name (for @tcp@, @udp@, and @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers)>.
-staleIpPermission_ipProtocol :: Lens.Lens' StaleIpPermission (Core.Maybe Core.Text)
+staleIpPermission_ipProtocol :: Lens.Lens' StaleIpPermission (Prelude.Maybe Prelude.Text)
 staleIpPermission_ipProtocol = Lens.lens (\StaleIpPermission' {ipProtocol} -> ipProtocol) (\s@StaleIpPermission' {} a -> s {ipProtocol = a} :: StaleIpPermission)
 
 -- | The end of the port range for the TCP and UDP protocols, or an ICMP type
 -- number. A value of @-1@ indicates all ICMP types.
-staleIpPermission_toPort :: Lens.Lens' StaleIpPermission (Core.Maybe Core.Int)
+staleIpPermission_toPort :: Lens.Lens' StaleIpPermission (Prelude.Maybe Prelude.Int)
 staleIpPermission_toPort = Lens.lens (\StaleIpPermission' {toPort} -> toPort) (\s@StaleIpPermission' {} a -> s {toPort = a} :: StaleIpPermission)
 
 instance Core.FromXML StaleIpPermission where
   parseXML x =
     StaleIpPermission'
-      Core.<$> (x Core..@? "fromPort")
-      Core.<*> ( x Core..@? "prefixListIds" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "ipRanges" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "groups" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "ipProtocol")
-      Core.<*> (x Core..@? "toPort")
+      Prelude.<$> (x Core..@? "fromPort")
+      Prelude.<*> ( x Core..@? "prefixListIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "ipRanges" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "groups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "ipProtocol")
+      Prelude.<*> (x Core..@? "toPort")
 
-instance Core.Hashable StaleIpPermission
+instance Prelude.Hashable StaleIpPermission
 
-instance Core.NFData StaleIpPermission
+instance Prelude.NFData StaleIpPermission

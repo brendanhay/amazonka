@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.Signer where
 import Network.AWS.CloudFront.Types.KeyPairIds
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of AWS accounts and the active CloudFront key pairs in each
 -- account that CloudFront can use to verify the signatures of signed URLs
@@ -34,11 +35,11 @@ data Signer = Signer'
     -- cookies. If the AWS account that owns the key pairs is the same account
     -- that owns the CloudFront distribution, the value of this field is
     -- @self@.
-    awsAccountNumber :: Core.Maybe Core.Text,
+    awsAccountNumber :: Prelude.Maybe Prelude.Text,
     -- | A list of CloudFront key pair identifiers.
-    keyPairIds :: Core.Maybe KeyPairIds
+    keyPairIds :: Prelude.Maybe KeyPairIds
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Signer' with all optional fields omitted.
@@ -59,8 +60,8 @@ newSigner ::
   Signer
 newSigner =
   Signer'
-    { awsAccountNumber = Core.Nothing,
-      keyPairIds = Core.Nothing
+    { awsAccountNumber = Prelude.Nothing,
+      keyPairIds = Prelude.Nothing
     }
 
 -- | An AWS account number that contains active CloudFront key pairs that
@@ -68,19 +69,19 @@ newSigner =
 -- cookies. If the AWS account that owns the key pairs is the same account
 -- that owns the CloudFront distribution, the value of this field is
 -- @self@.
-signer_awsAccountNumber :: Lens.Lens' Signer (Core.Maybe Core.Text)
+signer_awsAccountNumber :: Lens.Lens' Signer (Prelude.Maybe Prelude.Text)
 signer_awsAccountNumber = Lens.lens (\Signer' {awsAccountNumber} -> awsAccountNumber) (\s@Signer' {} a -> s {awsAccountNumber = a} :: Signer)
 
 -- | A list of CloudFront key pair identifiers.
-signer_keyPairIds :: Lens.Lens' Signer (Core.Maybe KeyPairIds)
+signer_keyPairIds :: Lens.Lens' Signer (Prelude.Maybe KeyPairIds)
 signer_keyPairIds = Lens.lens (\Signer' {keyPairIds} -> keyPairIds) (\s@Signer' {} a -> s {keyPairIds = a} :: Signer)
 
 instance Core.FromXML Signer where
   parseXML x =
     Signer'
-      Core.<$> (x Core..@? "AwsAccountNumber")
-      Core.<*> (x Core..@? "KeyPairIds")
+      Prelude.<$> (x Core..@? "AwsAccountNumber")
+      Prelude.<*> (x Core..@? "KeyPairIds")
 
-instance Core.Hashable Signer
+instance Prelude.Hashable Signer
 
-instance Core.NFData Signer
+instance Prelude.NFData Signer

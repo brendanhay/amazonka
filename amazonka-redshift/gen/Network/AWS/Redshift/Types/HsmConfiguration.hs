@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.HsmConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
@@ -31,19 +32,19 @@ import Network.AWS.Redshift.Types.Tag
 -- /See:/ 'newHsmConfiguration' smart constructor.
 data HsmConfiguration = HsmConfiguration'
   { -- | The list of tags for the HSM configuration.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The IP address that the Amazon Redshift cluster must use to access the
     -- HSM.
-    hsmIpAddress :: Core.Maybe Core.Text,
+    hsmIpAddress :: Prelude.Maybe Prelude.Text,
     -- | A text description of the HSM configuration.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the partition in the HSM where the Amazon Redshift clusters
     -- will store their database encryption keys.
-    hsmPartitionName :: Core.Maybe Core.Text,
+    hsmPartitionName :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Redshift HSM configuration.
-    hsmConfigurationIdentifier :: Core.Maybe Core.Text
+    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HsmConfiguration' with all optional fields omitted.
@@ -68,46 +69,46 @@ newHsmConfiguration ::
   HsmConfiguration
 newHsmConfiguration =
   HsmConfiguration'
-    { tags = Core.Nothing,
-      hsmIpAddress = Core.Nothing,
-      description = Core.Nothing,
-      hsmPartitionName = Core.Nothing,
-      hsmConfigurationIdentifier = Core.Nothing
+    { tags = Prelude.Nothing,
+      hsmIpAddress = Prelude.Nothing,
+      description = Prelude.Nothing,
+      hsmPartitionName = Prelude.Nothing,
+      hsmConfigurationIdentifier = Prelude.Nothing
     }
 
 -- | The list of tags for the HSM configuration.
-hsmConfiguration_tags :: Lens.Lens' HsmConfiguration (Core.Maybe [Tag])
-hsmConfiguration_tags = Lens.lens (\HsmConfiguration' {tags} -> tags) (\s@HsmConfiguration' {} a -> s {tags = a} :: HsmConfiguration) Core.. Lens.mapping Lens._Coerce
+hsmConfiguration_tags :: Lens.Lens' HsmConfiguration (Prelude.Maybe [Tag])
+hsmConfiguration_tags = Lens.lens (\HsmConfiguration' {tags} -> tags) (\s@HsmConfiguration' {} a -> s {tags = a} :: HsmConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IP address that the Amazon Redshift cluster must use to access the
 -- HSM.
-hsmConfiguration_hsmIpAddress :: Lens.Lens' HsmConfiguration (Core.Maybe Core.Text)
+hsmConfiguration_hsmIpAddress :: Lens.Lens' HsmConfiguration (Prelude.Maybe Prelude.Text)
 hsmConfiguration_hsmIpAddress = Lens.lens (\HsmConfiguration' {hsmIpAddress} -> hsmIpAddress) (\s@HsmConfiguration' {} a -> s {hsmIpAddress = a} :: HsmConfiguration)
 
 -- | A text description of the HSM configuration.
-hsmConfiguration_description :: Lens.Lens' HsmConfiguration (Core.Maybe Core.Text)
+hsmConfiguration_description :: Lens.Lens' HsmConfiguration (Prelude.Maybe Prelude.Text)
 hsmConfiguration_description = Lens.lens (\HsmConfiguration' {description} -> description) (\s@HsmConfiguration' {} a -> s {description = a} :: HsmConfiguration)
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters
 -- will store their database encryption keys.
-hsmConfiguration_hsmPartitionName :: Lens.Lens' HsmConfiguration (Core.Maybe Core.Text)
+hsmConfiguration_hsmPartitionName :: Lens.Lens' HsmConfiguration (Prelude.Maybe Prelude.Text)
 hsmConfiguration_hsmPartitionName = Lens.lens (\HsmConfiguration' {hsmPartitionName} -> hsmPartitionName) (\s@HsmConfiguration' {} a -> s {hsmPartitionName = a} :: HsmConfiguration)
 
 -- | The name of the Amazon Redshift HSM configuration.
-hsmConfiguration_hsmConfigurationIdentifier :: Lens.Lens' HsmConfiguration (Core.Maybe Core.Text)
+hsmConfiguration_hsmConfigurationIdentifier :: Lens.Lens' HsmConfiguration (Prelude.Maybe Prelude.Text)
 hsmConfiguration_hsmConfigurationIdentifier = Lens.lens (\HsmConfiguration' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@HsmConfiguration' {} a -> s {hsmConfigurationIdentifier = a} :: HsmConfiguration)
 
 instance Core.FromXML HsmConfiguration where
   parseXML x =
     HsmConfiguration'
-      Core.<$> ( x Core..@? "Tags" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Tag")
-               )
-      Core.<*> (x Core..@? "HsmIpAddress")
-      Core.<*> (x Core..@? "Description")
-      Core.<*> (x Core..@? "HsmPartitionName")
-      Core.<*> (x Core..@? "HsmConfigurationIdentifier")
+      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+                  )
+      Prelude.<*> (x Core..@? "HsmIpAddress")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "HsmPartitionName")
+      Prelude.<*> (x Core..@? "HsmConfigurationIdentifier")
 
-instance Core.Hashable HsmConfiguration
+instance Prelude.Hashable HsmConfiguration
 
-instance Core.NFData HsmConfiguration
+instance Prelude.NFData HsmConfiguration

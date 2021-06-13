@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -48,15 +49,15 @@ import Network.AWS.WorkDocs.Types
 data DeleteComment = DeleteComment'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the document.
-    documentId :: Core.Text,
+    documentId :: Prelude.Text,
     -- | The ID of the document version.
-    versionId :: Core.Text,
+    versionId :: Prelude.Text,
     -- | The ID of the comment.
-    commentId :: Core.Text
+    commentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteComment' with all optional fields omitted.
@@ -76,15 +77,16 @@ data DeleteComment = DeleteComment'
 -- 'commentId', 'deleteComment_commentId' - The ID of the comment.
 newDeleteComment ::
   -- | 'documentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'versionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'commentId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteComment
 newDeleteComment pDocumentId_ pVersionId_ pCommentId_ =
   DeleteComment'
-    { authenticationToken = Core.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_,
       commentId = pCommentId_
@@ -92,19 +94,19 @@ newDeleteComment pDocumentId_ pVersionId_ pCommentId_ =
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-deleteComment_authenticationToken :: Lens.Lens' DeleteComment (Core.Maybe Core.Text)
-deleteComment_authenticationToken = Lens.lens (\DeleteComment' {authenticationToken} -> authenticationToken) (\s@DeleteComment' {} a -> s {authenticationToken = a} :: DeleteComment) Core.. Lens.mapping Core._Sensitive
+deleteComment_authenticationToken :: Lens.Lens' DeleteComment (Prelude.Maybe Prelude.Text)
+deleteComment_authenticationToken = Lens.lens (\DeleteComment' {authenticationToken} -> authenticationToken) (\s@DeleteComment' {} a -> s {authenticationToken = a} :: DeleteComment) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the document.
-deleteComment_documentId :: Lens.Lens' DeleteComment Core.Text
+deleteComment_documentId :: Lens.Lens' DeleteComment Prelude.Text
 deleteComment_documentId = Lens.lens (\DeleteComment' {documentId} -> documentId) (\s@DeleteComment' {} a -> s {documentId = a} :: DeleteComment)
 
 -- | The ID of the document version.
-deleteComment_versionId :: Lens.Lens' DeleteComment Core.Text
+deleteComment_versionId :: Lens.Lens' DeleteComment Prelude.Text
 deleteComment_versionId = Lens.lens (\DeleteComment' {versionId} -> versionId) (\s@DeleteComment' {} a -> s {versionId = a} :: DeleteComment)
 
 -- | The ID of the comment.
-deleteComment_commentId :: Lens.Lens' DeleteComment Core.Text
+deleteComment_commentId :: Lens.Lens' DeleteComment Prelude.Text
 deleteComment_commentId = Lens.lens (\DeleteComment' {commentId} -> commentId) (\s@DeleteComment' {} a -> s {commentId = a} :: DeleteComment)
 
 instance Core.AWSRequest DeleteComment where
@@ -115,21 +117,21 @@ instance Core.AWSRequest DeleteComment where
   response =
     Response.receiveNull DeleteCommentResponse'
 
-instance Core.Hashable DeleteComment
+instance Prelude.Hashable DeleteComment
 
-instance Core.NFData DeleteComment
+instance Prelude.NFData DeleteComment
 
 instance Core.ToHeaders DeleteComment where
   toHeaders DeleteComment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DeleteComment where
   toPath DeleteComment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/api/v1/documents/",
         Core.toBS documentId,
         "/versions/",
@@ -139,13 +141,13 @@ instance Core.ToPath DeleteComment where
       ]
 
 instance Core.ToQuery DeleteComment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCommentResponse' smart constructor.
 data DeleteCommentResponse = DeleteCommentResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCommentResponse' with all optional fields omitted.
@@ -155,4 +157,4 @@ newDeleteCommentResponse ::
   DeleteCommentResponse
 newDeleteCommentResponse = DeleteCommentResponse'
 
-instance Core.NFData DeleteCommentResponse
+instance Prelude.NFData DeleteCommentResponse

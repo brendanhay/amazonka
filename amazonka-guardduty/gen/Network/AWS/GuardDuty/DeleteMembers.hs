@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,12 +52,12 @@ import qualified Network.AWS.Response as Response
 data DeleteMembers = DeleteMembers'
   { -- | The unique ID of the detector of the GuardDuty account whose members you
     -- want to delete.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | A list of account IDs of the GuardDuty member accounts that you want to
     -- delete.
-    accountIds :: Core.NonEmpty Core.Text
+    accountIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMembers' with all optional fields omitted.
@@ -73,9 +74,9 @@ data DeleteMembers = DeleteMembers'
 -- delete.
 newDeleteMembers ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accountIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DeleteMembers
 newDeleteMembers pDetectorId_ pAccountIds_ =
   DeleteMembers'
@@ -85,13 +86,13 @@ newDeleteMembers pDetectorId_ pAccountIds_ =
 
 -- | The unique ID of the detector of the GuardDuty account whose members you
 -- want to delete.
-deleteMembers_detectorId :: Lens.Lens' DeleteMembers Core.Text
+deleteMembers_detectorId :: Lens.Lens' DeleteMembers Prelude.Text
 deleteMembers_detectorId = Lens.lens (\DeleteMembers' {detectorId} -> detectorId) (\s@DeleteMembers' {} a -> s {detectorId = a} :: DeleteMembers)
 
 -- | A list of account IDs of the GuardDuty member accounts that you want to
 -- delete.
-deleteMembers_accountIds :: Lens.Lens' DeleteMembers (Core.NonEmpty Core.Text)
-deleteMembers_accountIds = Lens.lens (\DeleteMembers' {accountIds} -> accountIds) (\s@DeleteMembers' {} a -> s {accountIds = a} :: DeleteMembers) Core.. Lens._Coerce
+deleteMembers_accountIds :: Lens.Lens' DeleteMembers (Prelude.NonEmpty Prelude.Text)
+deleteMembers_accountIds = Lens.lens (\DeleteMembers' {accountIds} -> accountIds) (\s@DeleteMembers' {} a -> s {accountIds = a} :: DeleteMembers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteMembers where
   type
@@ -102,51 +103,53 @@ instance Core.AWSRequest DeleteMembers where
     Response.receiveJSON
       ( \s h x ->
           DeleteMembersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "unprocessedAccounts"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable DeleteMembers
+instance Prelude.Hashable DeleteMembers
 
-instance Core.NFData DeleteMembers
+instance Prelude.NFData DeleteMembers
 
 instance Core.ToHeaders DeleteMembers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteMembers where
   toJSON DeleteMembers' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("accountIds" Core..= accountIds)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("accountIds" Core..= accountIds)]
       )
 
 instance Core.ToPath DeleteMembers where
   toPath DeleteMembers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/member/delete"
       ]
 
 instance Core.ToQuery DeleteMembers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMembersResponse' smart constructor.
 data DeleteMembersResponse = DeleteMembersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The accounts that could not be processed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMembersResponse' with all optional fields omitted.
@@ -161,20 +164,20 @@ data DeleteMembersResponse = DeleteMembersResponse'
 -- 'unprocessedAccounts', 'deleteMembersResponse_unprocessedAccounts' - The accounts that could not be processed.
 newDeleteMembersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteMembersResponse
 newDeleteMembersResponse pHttpStatus_ =
   DeleteMembersResponse'
     { httpStatus = pHttpStatus_,
-      unprocessedAccounts = Core.mempty
+      unprocessedAccounts = Prelude.mempty
     }
 
 -- | The response's http status code.
-deleteMembersResponse_httpStatus :: Lens.Lens' DeleteMembersResponse Core.Int
+deleteMembersResponse_httpStatus :: Lens.Lens' DeleteMembersResponse Prelude.Int
 deleteMembersResponse_httpStatus = Lens.lens (\DeleteMembersResponse' {httpStatus} -> httpStatus) (\s@DeleteMembersResponse' {} a -> s {httpStatus = a} :: DeleteMembersResponse)
 
 -- | The accounts that could not be processed.
 deleteMembersResponse_unprocessedAccounts :: Lens.Lens' DeleteMembersResponse [UnprocessedAccount]
-deleteMembersResponse_unprocessedAccounts = Lens.lens (\DeleteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteMembersResponse' {} a -> s {unprocessedAccounts = a} :: DeleteMembersResponse) Core.. Lens._Coerce
+deleteMembersResponse_unprocessedAccounts = Lens.lens (\DeleteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteMembersResponse' {} a -> s {unprocessedAccounts = a} :: DeleteMembersResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DeleteMembersResponse
+instance Prelude.NFData DeleteMembersResponse

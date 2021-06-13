@@ -53,31 +53,32 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGroupVersion' smart constructor.
 data CreateGroupVersion = CreateGroupVersion'
   { -- | The ARN of the core definition version for this group.
-    coreDefinitionVersionArn :: Core.Maybe Core.Text,
+    coreDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the connector definition version for this group.
-    connectorDefinitionVersionArn :: Core.Maybe Core.Text,
+    connectorDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the subscription definition version for this group.
-    subscriptionDefinitionVersionArn :: Core.Maybe Core.Text,
+    subscriptionDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the logger definition version for this group.
-    loggerDefinitionVersionArn :: Core.Maybe Core.Text,
+    loggerDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource definition version for this group.
-    resourceDefinitionVersionArn :: Core.Maybe Core.Text,
+    resourceDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the function definition version for this group.
-    functionDefinitionVersionArn :: Core.Maybe Core.Text,
+    functionDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | A client token used to correlate requests and responses.
-    amznClientToken :: Core.Maybe Core.Text,
+    amznClientToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the device definition version for this group.
-    deviceDefinitionVersionArn :: Core.Maybe Core.Text,
+    deviceDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Greengrass group.
-    groupId :: Core.Text
+    groupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGroupVersion' with all optional fields omitted.
@@ -106,56 +107,56 @@ data CreateGroupVersion = CreateGroupVersion'
 -- 'groupId', 'createGroupVersion_groupId' - The ID of the Greengrass group.
 newCreateGroupVersion ::
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   CreateGroupVersion
 newCreateGroupVersion pGroupId_ =
   CreateGroupVersion'
     { coreDefinitionVersionArn =
-        Core.Nothing,
-      connectorDefinitionVersionArn = Core.Nothing,
-      subscriptionDefinitionVersionArn = Core.Nothing,
-      loggerDefinitionVersionArn = Core.Nothing,
-      resourceDefinitionVersionArn = Core.Nothing,
-      functionDefinitionVersionArn = Core.Nothing,
-      amznClientToken = Core.Nothing,
-      deviceDefinitionVersionArn = Core.Nothing,
+        Prelude.Nothing,
+      connectorDefinitionVersionArn = Prelude.Nothing,
+      subscriptionDefinitionVersionArn = Prelude.Nothing,
+      loggerDefinitionVersionArn = Prelude.Nothing,
+      resourceDefinitionVersionArn = Prelude.Nothing,
+      functionDefinitionVersionArn = Prelude.Nothing,
+      amznClientToken = Prelude.Nothing,
+      deviceDefinitionVersionArn = Prelude.Nothing,
       groupId = pGroupId_
     }
 
 -- | The ARN of the core definition version for this group.
-createGroupVersion_coreDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+createGroupVersion_coreDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Prelude.Maybe Prelude.Text)
 createGroupVersion_coreDefinitionVersionArn = Lens.lens (\CreateGroupVersion' {coreDefinitionVersionArn} -> coreDefinitionVersionArn) (\s@CreateGroupVersion' {} a -> s {coreDefinitionVersionArn = a} :: CreateGroupVersion)
 
 -- | The ARN of the connector definition version for this group.
-createGroupVersion_connectorDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+createGroupVersion_connectorDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Prelude.Maybe Prelude.Text)
 createGroupVersion_connectorDefinitionVersionArn = Lens.lens (\CreateGroupVersion' {connectorDefinitionVersionArn} -> connectorDefinitionVersionArn) (\s@CreateGroupVersion' {} a -> s {connectorDefinitionVersionArn = a} :: CreateGroupVersion)
 
 -- | The ARN of the subscription definition version for this group.
-createGroupVersion_subscriptionDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+createGroupVersion_subscriptionDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Prelude.Maybe Prelude.Text)
 createGroupVersion_subscriptionDefinitionVersionArn = Lens.lens (\CreateGroupVersion' {subscriptionDefinitionVersionArn} -> subscriptionDefinitionVersionArn) (\s@CreateGroupVersion' {} a -> s {subscriptionDefinitionVersionArn = a} :: CreateGroupVersion)
 
 -- | The ARN of the logger definition version for this group.
-createGroupVersion_loggerDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+createGroupVersion_loggerDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Prelude.Maybe Prelude.Text)
 createGroupVersion_loggerDefinitionVersionArn = Lens.lens (\CreateGroupVersion' {loggerDefinitionVersionArn} -> loggerDefinitionVersionArn) (\s@CreateGroupVersion' {} a -> s {loggerDefinitionVersionArn = a} :: CreateGroupVersion)
 
 -- | The ARN of the resource definition version for this group.
-createGroupVersion_resourceDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+createGroupVersion_resourceDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Prelude.Maybe Prelude.Text)
 createGroupVersion_resourceDefinitionVersionArn = Lens.lens (\CreateGroupVersion' {resourceDefinitionVersionArn} -> resourceDefinitionVersionArn) (\s@CreateGroupVersion' {} a -> s {resourceDefinitionVersionArn = a} :: CreateGroupVersion)
 
 -- | The ARN of the function definition version for this group.
-createGroupVersion_functionDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+createGroupVersion_functionDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Prelude.Maybe Prelude.Text)
 createGroupVersion_functionDefinitionVersionArn = Lens.lens (\CreateGroupVersion' {functionDefinitionVersionArn} -> functionDefinitionVersionArn) (\s@CreateGroupVersion' {} a -> s {functionDefinitionVersionArn = a} :: CreateGroupVersion)
 
 -- | A client token used to correlate requests and responses.
-createGroupVersion_amznClientToken :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+createGroupVersion_amznClientToken :: Lens.Lens' CreateGroupVersion (Prelude.Maybe Prelude.Text)
 createGroupVersion_amznClientToken = Lens.lens (\CreateGroupVersion' {amznClientToken} -> amznClientToken) (\s@CreateGroupVersion' {} a -> s {amznClientToken = a} :: CreateGroupVersion)
 
 -- | The ARN of the device definition version for this group.
-createGroupVersion_deviceDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+createGroupVersion_deviceDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Prelude.Maybe Prelude.Text)
 createGroupVersion_deviceDefinitionVersionArn = Lens.lens (\CreateGroupVersion' {deviceDefinitionVersionArn} -> deviceDefinitionVersionArn) (\s@CreateGroupVersion' {} a -> s {deviceDefinitionVersionArn = a} :: CreateGroupVersion)
 
 -- | The ID of the Greengrass group.
-createGroupVersion_groupId :: Lens.Lens' CreateGroupVersion Core.Text
+createGroupVersion_groupId :: Lens.Lens' CreateGroupVersion Prelude.Text
 createGroupVersion_groupId = Lens.lens (\CreateGroupVersion' {groupId} -> groupId) (\s@CreateGroupVersion' {} a -> s {groupId = a} :: CreateGroupVersion)
 
 instance Core.AWSRequest CreateGroupVersion where
@@ -167,71 +168,71 @@ instance Core.AWSRequest CreateGroupVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateGroupVersionResponse'
-            Core.<$> (x Core..?> "CreationTimestamp")
-            Core.<*> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "Id")
-            Core.<*> (x Core..?> "Version")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateGroupVersion
+instance Prelude.Hashable CreateGroupVersion
 
-instance Core.NFData CreateGroupVersion
+instance Prelude.NFData CreateGroupVersion
 
 instance Core.ToHeaders CreateGroupVersion where
   toHeaders CreateGroupVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "X-Amzn-Client-Token" Core.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToJSON CreateGroupVersion where
   toJSON CreateGroupVersion' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CoreDefinitionVersionArn" Core..=)
-              Core.<$> coreDefinitionVersionArn,
+              Prelude.<$> coreDefinitionVersionArn,
             ("ConnectorDefinitionVersionArn" Core..=)
-              Core.<$> connectorDefinitionVersionArn,
+              Prelude.<$> connectorDefinitionVersionArn,
             ("SubscriptionDefinitionVersionArn" Core..=)
-              Core.<$> subscriptionDefinitionVersionArn,
+              Prelude.<$> subscriptionDefinitionVersionArn,
             ("LoggerDefinitionVersionArn" Core..=)
-              Core.<$> loggerDefinitionVersionArn,
+              Prelude.<$> loggerDefinitionVersionArn,
             ("ResourceDefinitionVersionArn" Core..=)
-              Core.<$> resourceDefinitionVersionArn,
+              Prelude.<$> resourceDefinitionVersionArn,
             ("FunctionDefinitionVersionArn" Core..=)
-              Core.<$> functionDefinitionVersionArn,
+              Prelude.<$> functionDefinitionVersionArn,
             ("DeviceDefinitionVersionArn" Core..=)
-              Core.<$> deviceDefinitionVersionArn
+              Prelude.<$> deviceDefinitionVersionArn
           ]
       )
 
 instance Core.ToPath CreateGroupVersion where
   toPath CreateGroupVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/groups/",
         Core.toBS groupId,
         "/versions"
       ]
 
 instance Core.ToQuery CreateGroupVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGroupVersionResponse' smart constructor.
 data CreateGroupVersionResponse = CreateGroupVersionResponse'
   { -- | The time, in milliseconds since the epoch, when the version was created.
-    creationTimestamp :: Core.Maybe Core.Text,
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the version.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the parent definition that the version is associated with.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the version.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGroupVersionResponse' with all optional fields omitted.
@@ -252,36 +253,36 @@ data CreateGroupVersionResponse = CreateGroupVersionResponse'
 -- 'httpStatus', 'createGroupVersionResponse_httpStatus' - The response's http status code.
 newCreateGroupVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateGroupVersionResponse
 newCreateGroupVersionResponse pHttpStatus_ =
   CreateGroupVersionResponse'
     { creationTimestamp =
-        Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      version = Core.Nothing,
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time, in milliseconds since the epoch, when the version was created.
-createGroupVersionResponse_creationTimestamp :: Lens.Lens' CreateGroupVersionResponse (Core.Maybe Core.Text)
+createGroupVersionResponse_creationTimestamp :: Lens.Lens' CreateGroupVersionResponse (Prelude.Maybe Prelude.Text)
 createGroupVersionResponse_creationTimestamp = Lens.lens (\CreateGroupVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateGroupVersionResponse' {} a -> s {creationTimestamp = a} :: CreateGroupVersionResponse)
 
 -- | The ARN of the version.
-createGroupVersionResponse_arn :: Lens.Lens' CreateGroupVersionResponse (Core.Maybe Core.Text)
+createGroupVersionResponse_arn :: Lens.Lens' CreateGroupVersionResponse (Prelude.Maybe Prelude.Text)
 createGroupVersionResponse_arn = Lens.lens (\CreateGroupVersionResponse' {arn} -> arn) (\s@CreateGroupVersionResponse' {} a -> s {arn = a} :: CreateGroupVersionResponse)
 
 -- | The ID of the parent definition that the version is associated with.
-createGroupVersionResponse_id :: Lens.Lens' CreateGroupVersionResponse (Core.Maybe Core.Text)
+createGroupVersionResponse_id :: Lens.Lens' CreateGroupVersionResponse (Prelude.Maybe Prelude.Text)
 createGroupVersionResponse_id = Lens.lens (\CreateGroupVersionResponse' {id} -> id) (\s@CreateGroupVersionResponse' {} a -> s {id = a} :: CreateGroupVersionResponse)
 
 -- | The ID of the version.
-createGroupVersionResponse_version :: Lens.Lens' CreateGroupVersionResponse (Core.Maybe Core.Text)
+createGroupVersionResponse_version :: Lens.Lens' CreateGroupVersionResponse (Prelude.Maybe Prelude.Text)
 createGroupVersionResponse_version = Lens.lens (\CreateGroupVersionResponse' {version} -> version) (\s@CreateGroupVersionResponse' {} a -> s {version = a} :: CreateGroupVersionResponse)
 
 -- | The response's http status code.
-createGroupVersionResponse_httpStatus :: Lens.Lens' CreateGroupVersionResponse Core.Int
+createGroupVersionResponse_httpStatus :: Lens.Lens' CreateGroupVersionResponse Prelude.Int
 createGroupVersionResponse_httpStatus = Lens.lens (\CreateGroupVersionResponse' {httpStatus} -> httpStatus) (\s@CreateGroupVersionResponse' {} a -> s {httpStatus = a} :: CreateGroupVersionResponse)
 
-instance Core.NFData CreateGroupVersionResponse
+instance Prelude.NFData CreateGroupVersionResponse

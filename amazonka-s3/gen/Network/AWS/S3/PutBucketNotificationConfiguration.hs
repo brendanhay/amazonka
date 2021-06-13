@@ -95,6 +95,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -104,12 +105,12 @@ data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket.
     bucket :: BucketName,
     notificationConfiguration :: NotificationConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketNotificationConfiguration' with all optional fields omitted.
@@ -137,7 +138,7 @@ newPutBucketNotificationConfiguration
   pNotificationConfiguration_ =
     PutBucketNotificationConfiguration'
       { expectedBucketOwner =
-          Core.Nothing,
+          Prelude.Nothing,
         bucket = pBucket_,
         notificationConfiguration =
           pNotificationConfiguration_
@@ -146,7 +147,7 @@ newPutBucketNotificationConfiguration
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketNotificationConfiguration (Core.Maybe Core.Text)
+putBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketNotificationConfiguration (Prelude.Maybe Prelude.Text)
 putBucketNotificationConfiguration_expectedBucketOwner = Lens.lens (\PutBucketNotificationConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketNotificationConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketNotificationConfiguration)
 
 -- | The name of the bucket.
@@ -170,11 +171,11 @@ instance
       PutBucketNotificationConfigurationResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PutBucketNotificationConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutBucketNotificationConfiguration
 
 instance
@@ -191,7 +192,7 @@ instance
     PutBucketNotificationConfiguration
   where
   toHeaders PutBucketNotificationConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
@@ -201,19 +202,20 @@ instance
     PutBucketNotificationConfiguration
   where
   toPath PutBucketNotificationConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance
   Core.ToQuery
     PutBucketNotificationConfiguration
   where
-  toQuery = Core.const (Core.mconcat ["notification"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["notification"])
 
 -- | /See:/ 'newPutBucketNotificationConfigurationResponse' smart constructor.
 data PutBucketNotificationConfigurationResponse = PutBucketNotificationConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketNotificationConfigurationResponse' with all optional fields omitted.
@@ -225,5 +227,5 @@ newPutBucketNotificationConfigurationResponse =
   PutBucketNotificationConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutBucketNotificationConfigurationResponse

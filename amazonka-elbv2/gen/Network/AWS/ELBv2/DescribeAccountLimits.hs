@@ -55,18 +55,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
   { -- | The maximum number of results to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountLimits' with all optional fields omitted.
@@ -84,17 +85,17 @@ newDescribeAccountLimits ::
   DescribeAccountLimits
 newDescribeAccountLimits =
   DescribeAccountLimits'
-    { pageSize = Core.Nothing,
-      marker = Core.Nothing
+    { pageSize = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The maximum number of results to return with this call.
-describeAccountLimits_pageSize :: Lens.Lens' DescribeAccountLimits (Core.Maybe Core.Natural)
+describeAccountLimits_pageSize :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Natural)
 describeAccountLimits_pageSize = Lens.lens (\DescribeAccountLimits' {pageSize} -> pageSize) (\s@DescribeAccountLimits' {} a -> s {pageSize = a} :: DescribeAccountLimits)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeAccountLimits_marker :: Lens.Lens' DescribeAccountLimits (Core.Maybe Core.Text)
+describeAccountLimits_marker :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Text)
 describeAccountLimits_marker = Lens.lens (\DescribeAccountLimits' {marker} -> marker) (\s@DescribeAccountLimits' {} a -> s {marker = a} :: DescribeAccountLimits)
 
 instance Core.AWSPager DescribeAccountLimits where
@@ -102,22 +103,22 @@ instance Core.AWSPager DescribeAccountLimits where
     | Core.stop
         ( rs
             Lens.^? describeAccountLimitsResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAccountLimitsResponse_limits
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeAccountLimits_marker
+          Prelude.& describeAccountLimits_marker
           Lens..~ rs
           Lens.^? describeAccountLimitsResponse_nextMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccountLimits where
   type
@@ -129,29 +130,30 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Core.<$> (x Core..@? "NextMarker")
-            Core.<*> ( x Core..@? "Limits" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextMarker")
+            Prelude.<*> ( x Core..@? "Limits" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAccountLimits
+instance Prelude.Hashable DescribeAccountLimits
 
-instance Core.NFData DescribeAccountLimits
+instance Prelude.NFData DescribeAccountLimits
 
 instance Core.ToHeaders DescribeAccountLimits where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeAccountLimits where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAccountLimits where
   toQuery DescribeAccountLimits' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAccountLimits" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("DescribeAccountLimits" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "PageSize" Core.=: pageSize,
         "Marker" Core.=: marker
       ]
@@ -160,13 +162,13 @@ instance Core.ToQuery DescribeAccountLimits where
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
   { -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Information about the limits.
-    limits :: Core.Maybe [Limit],
+    limits :: Prelude.Maybe [Limit],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountLimitsResponse' with all optional fields omitted.
@@ -184,27 +186,27 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAccountLimitsResponse
 newDescribeAccountLimitsResponse pHttpStatus_ =
   DescribeAccountLimitsResponse'
     { nextMarker =
-        Core.Nothing,
-      limits = Core.Nothing,
+        Prelude.Nothing,
+      limits = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
-describeAccountLimitsResponse_nextMarker :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe Core.Text)
+describeAccountLimitsResponse_nextMarker :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Text)
 describeAccountLimitsResponse_nextMarker = Lens.lens (\DescribeAccountLimitsResponse' {nextMarker} -> nextMarker) (\s@DescribeAccountLimitsResponse' {} a -> s {nextMarker = a} :: DescribeAccountLimitsResponse)
 
 -- | Information about the limits.
-describeAccountLimitsResponse_limits :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe [Limit])
-describeAccountLimitsResponse_limits = Lens.lens (\DescribeAccountLimitsResponse' {limits} -> limits) (\s@DescribeAccountLimitsResponse' {} a -> s {limits = a} :: DescribeAccountLimitsResponse) Core.. Lens.mapping Lens._Coerce
+describeAccountLimitsResponse_limits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [Limit])
+describeAccountLimitsResponse_limits = Lens.lens (\DescribeAccountLimitsResponse' {limits} -> limits) (\s@DescribeAccountLimitsResponse' {} a -> s {limits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Core.Int
+describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int
 describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountLimitsResponse' {} a -> s {httpStatus = a} :: DescribeAccountLimitsResponse)
 
-instance Core.NFData DescribeAccountLimitsResponse
+instance Prelude.NFData DescribeAccountLimitsResponse

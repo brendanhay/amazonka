@@ -21,19 +21,20 @@ module Network.AWS.ServiceCatalog.Types.ShareError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Errors that occurred during the portfolio share operation.
 --
 -- /See:/ 'newShareError' smart constructor.
 data ShareError = ShareError'
   { -- | Information about the error.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | List of accounts impacted by the error.
-    accounts :: Core.Maybe [Core.Text],
+    accounts :: Prelude.Maybe [Prelude.Text],
     -- | Error type that happened when processing the operation.
-    error :: Core.Maybe Core.Text
+    error :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ShareError' with all optional fields omitted.
@@ -52,21 +53,21 @@ newShareError ::
   ShareError
 newShareError =
   ShareError'
-    { message = Core.Nothing,
-      accounts = Core.Nothing,
-      error = Core.Nothing
+    { message = Prelude.Nothing,
+      accounts = Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | Information about the error.
-shareError_message :: Lens.Lens' ShareError (Core.Maybe Core.Text)
+shareError_message :: Lens.Lens' ShareError (Prelude.Maybe Prelude.Text)
 shareError_message = Lens.lens (\ShareError' {message} -> message) (\s@ShareError' {} a -> s {message = a} :: ShareError)
 
 -- | List of accounts impacted by the error.
-shareError_accounts :: Lens.Lens' ShareError (Core.Maybe [Core.Text])
-shareError_accounts = Lens.lens (\ShareError' {accounts} -> accounts) (\s@ShareError' {} a -> s {accounts = a} :: ShareError) Core.. Lens.mapping Lens._Coerce
+shareError_accounts :: Lens.Lens' ShareError (Prelude.Maybe [Prelude.Text])
+shareError_accounts = Lens.lens (\ShareError' {accounts} -> accounts) (\s@ShareError' {} a -> s {accounts = a} :: ShareError) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Error type that happened when processing the operation.
-shareError_error :: Lens.Lens' ShareError (Core.Maybe Core.Text)
+shareError_error :: Lens.Lens' ShareError (Prelude.Maybe Prelude.Text)
 shareError_error = Lens.lens (\ShareError' {error} -> error) (\s@ShareError' {} a -> s {error = a} :: ShareError)
 
 instance Core.FromJSON ShareError where
@@ -75,11 +76,11 @@ instance Core.FromJSON ShareError where
       "ShareError"
       ( \x ->
           ShareError'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "Accounts" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Error")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Accounts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Error")
       )
 
-instance Core.Hashable ShareError
+instance Prelude.Hashable ShareError
 
-instance Core.NFData ShareError
+instance Prelude.NFData ShareError

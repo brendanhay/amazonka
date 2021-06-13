@@ -60,6 +60,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,7 +68,7 @@ import qualified Network.AWS.Response as Response
 data CreateContainerServiceRegistryLogin = CreateContainerServiceRegistryLogin'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateContainerServiceRegistryLogin' with all optional fields omitted.
@@ -90,16 +91,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateContainerServiceRegistryLoginResponse'
-            Core.<$> (x Core..?> "registryLogin")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "registryLogin")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateContainerServiceRegistryLogin
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateContainerServiceRegistryLogin
 
 instance
@@ -107,14 +108,16 @@ instance
     CreateContainerServiceRegistryLogin
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateContainerServiceRegistryLogin" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -122,29 +125,29 @@ instance
   Core.ToJSON
     CreateContainerServiceRegistryLogin
   where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance
   Core.ToPath
     CreateContainerServiceRegistryLogin
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     CreateContainerServiceRegistryLogin
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContainerServiceRegistryLoginResponse' smart constructor.
 data CreateContainerServiceRegistryLoginResponse = CreateContainerServiceRegistryLoginResponse'
   { -- | An object that describes the log in information for the container
     -- service registry of your Lightsail account.
-    registryLogin :: Core.Maybe ContainerServiceRegistryLogin,
+    registryLogin :: Prelude.Maybe ContainerServiceRegistryLogin,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateContainerServiceRegistryLoginResponse' with all optional fields omitted.
@@ -160,25 +163,25 @@ data CreateContainerServiceRegistryLoginResponse = CreateContainerServiceRegistr
 -- 'httpStatus', 'createContainerServiceRegistryLoginResponse_httpStatus' - The response's http status code.
 newCreateContainerServiceRegistryLoginResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateContainerServiceRegistryLoginResponse
 newCreateContainerServiceRegistryLoginResponse
   pHttpStatus_ =
     CreateContainerServiceRegistryLoginResponse'
       { registryLogin =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object that describes the log in information for the container
 -- service registry of your Lightsail account.
-createContainerServiceRegistryLoginResponse_registryLogin :: Lens.Lens' CreateContainerServiceRegistryLoginResponse (Core.Maybe ContainerServiceRegistryLogin)
+createContainerServiceRegistryLoginResponse_registryLogin :: Lens.Lens' CreateContainerServiceRegistryLoginResponse (Prelude.Maybe ContainerServiceRegistryLogin)
 createContainerServiceRegistryLoginResponse_registryLogin = Lens.lens (\CreateContainerServiceRegistryLoginResponse' {registryLogin} -> registryLogin) (\s@CreateContainerServiceRegistryLoginResponse' {} a -> s {registryLogin = a} :: CreateContainerServiceRegistryLoginResponse)
 
 -- | The response's http status code.
-createContainerServiceRegistryLoginResponse_httpStatus :: Lens.Lens' CreateContainerServiceRegistryLoginResponse Core.Int
+createContainerServiceRegistryLoginResponse_httpStatus :: Lens.Lens' CreateContainerServiceRegistryLoginResponse Prelude.Int
 createContainerServiceRegistryLoginResponse_httpStatus = Lens.lens (\CreateContainerServiceRegistryLoginResponse' {httpStatus} -> httpStatus) (\s@CreateContainerServiceRegistryLoginResponse' {} a -> s {httpStatus = a} :: CreateContainerServiceRegistryLoginResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateContainerServiceRegistryLoginResponse

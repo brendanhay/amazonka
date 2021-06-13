@@ -22,15 +22,16 @@ module Network.AWS.CodeDeploy.Types.TagFilter where
 import Network.AWS.CodeDeploy.Types.TagFilterType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an on-premises instance tag filter.
 --
 -- /See:/ 'newTagFilter' smart constructor.
 data TagFilter = TagFilter'
   { -- | The on-premises instance tag filter key.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The on-premises instance tag filter value.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The on-premises instance tag filter type:
     --
     -- -   KEY_ONLY: Key only.
@@ -38,9 +39,9 @@ data TagFilter = TagFilter'
     -- -   VALUE_ONLY: Value only.
     --
     -- -   KEY_AND_VALUE: Key and value.
-    type' :: Core.Maybe TagFilterType
+    type' :: Prelude.Maybe TagFilterType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagFilter' with all optional fields omitted.
@@ -65,17 +66,17 @@ newTagFilter ::
   TagFilter
 newTagFilter =
   TagFilter'
-    { key = Core.Nothing,
-      value = Core.Nothing,
-      type' = Core.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The on-premises instance tag filter key.
-tagFilter_key :: Lens.Lens' TagFilter (Core.Maybe Core.Text)
+tagFilter_key :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_key = Lens.lens (\TagFilter' {key} -> key) (\s@TagFilter' {} a -> s {key = a} :: TagFilter)
 
 -- | The on-premises instance tag filter value.
-tagFilter_value :: Lens.Lens' TagFilter (Core.Maybe Core.Text)
+tagFilter_value :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_value = Lens.lens (\TagFilter' {value} -> value) (\s@TagFilter' {} a -> s {value = a} :: TagFilter)
 
 -- | The on-premises instance tag filter type:
@@ -85,7 +86,7 @@ tagFilter_value = Lens.lens (\TagFilter' {value} -> value) (\s@TagFilter' {} a -
 -- -   VALUE_ONLY: Value only.
 --
 -- -   KEY_AND_VALUE: Key and value.
-tagFilter_type :: Lens.Lens' TagFilter (Core.Maybe TagFilterType)
+tagFilter_type :: Lens.Lens' TagFilter (Prelude.Maybe TagFilterType)
 tagFilter_type = Lens.lens (\TagFilter' {type'} -> type') (\s@TagFilter' {} a -> s {type' = a} :: TagFilter)
 
 instance Core.FromJSON TagFilter where
@@ -94,21 +95,21 @@ instance Core.FromJSON TagFilter where
       "TagFilter"
       ( \x ->
           TagFilter'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Value")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable TagFilter
+instance Prelude.Hashable TagFilter
 
-instance Core.NFData TagFilter
+instance Prelude.NFData TagFilter
 
 instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Value" Core..=) Core.<$> value,
-            ("Type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Value" Core..=) Prelude.<$> value,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

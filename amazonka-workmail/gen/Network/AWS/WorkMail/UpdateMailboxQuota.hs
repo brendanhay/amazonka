@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -51,13 +52,13 @@ import Network.AWS.WorkMail.Types
 data UpdateMailboxQuota = UpdateMailboxQuota'
   { -- | The identifier for the organization that contains the user for whom to
     -- update the mailbox quota.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The identifer for the user for whom to update the mailbox quota.
-    userId :: Core.Text,
+    userId :: Prelude.Text,
     -- | The updated mailbox quota, in MB, for the specified user.
-    mailboxQuota :: Core.Natural
+    mailboxQuota :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateMailboxQuota' with all optional fields omitted.
@@ -75,11 +76,11 @@ data UpdateMailboxQuota = UpdateMailboxQuota'
 -- 'mailboxQuota', 'updateMailboxQuota_mailboxQuota' - The updated mailbox quota, in MB, for the specified user.
 newUpdateMailboxQuota ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'mailboxQuota'
-  Core.Natural ->
+  Prelude.Natural ->
   UpdateMailboxQuota
 newUpdateMailboxQuota
   pOrganizationId_
@@ -94,15 +95,15 @@ newUpdateMailboxQuota
 
 -- | The identifier for the organization that contains the user for whom to
 -- update the mailbox quota.
-updateMailboxQuota_organizationId :: Lens.Lens' UpdateMailboxQuota Core.Text
+updateMailboxQuota_organizationId :: Lens.Lens' UpdateMailboxQuota Prelude.Text
 updateMailboxQuota_organizationId = Lens.lens (\UpdateMailboxQuota' {organizationId} -> organizationId) (\s@UpdateMailboxQuota' {} a -> s {organizationId = a} :: UpdateMailboxQuota)
 
 -- | The identifer for the user for whom to update the mailbox quota.
-updateMailboxQuota_userId :: Lens.Lens' UpdateMailboxQuota Core.Text
+updateMailboxQuota_userId :: Lens.Lens' UpdateMailboxQuota Prelude.Text
 updateMailboxQuota_userId = Lens.lens (\UpdateMailboxQuota' {userId} -> userId) (\s@UpdateMailboxQuota' {} a -> s {userId = a} :: UpdateMailboxQuota)
 
 -- | The updated mailbox quota, in MB, for the specified user.
-updateMailboxQuota_mailboxQuota :: Lens.Lens' UpdateMailboxQuota Core.Natural
+updateMailboxQuota_mailboxQuota :: Lens.Lens' UpdateMailboxQuota Prelude.Natural
 updateMailboxQuota_mailboxQuota = Lens.lens (\UpdateMailboxQuota' {mailboxQuota} -> mailboxQuota) (\s@UpdateMailboxQuota' {} a -> s {mailboxQuota = a} :: UpdateMailboxQuota)
 
 instance Core.AWSRequest UpdateMailboxQuota where
@@ -114,48 +115,51 @@ instance Core.AWSRequest UpdateMailboxQuota where
     Response.receiveEmpty
       ( \s h x ->
           UpdateMailboxQuotaResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateMailboxQuota
+instance Prelude.Hashable UpdateMailboxQuota
 
-instance Core.NFData UpdateMailboxQuota
+instance Prelude.NFData UpdateMailboxQuota
 
 instance Core.ToHeaders UpdateMailboxQuota where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.UpdateMailboxQuota" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateMailboxQuota where
   toJSON UpdateMailboxQuota' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("UserId" Core..= userId),
-            Core.Just ("MailboxQuota" Core..= mailboxQuota)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("UserId" Core..= userId),
+            Prelude.Just ("MailboxQuota" Core..= mailboxQuota)
           ]
       )
 
 instance Core.ToPath UpdateMailboxQuota where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateMailboxQuota where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMailboxQuotaResponse' smart constructor.
 data UpdateMailboxQuotaResponse = UpdateMailboxQuotaResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateMailboxQuotaResponse' with all optional fields omitted.
@@ -168,7 +172,7 @@ data UpdateMailboxQuotaResponse = UpdateMailboxQuotaResponse'
 -- 'httpStatus', 'updateMailboxQuotaResponse_httpStatus' - The response's http status code.
 newUpdateMailboxQuotaResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateMailboxQuotaResponse
 newUpdateMailboxQuotaResponse pHttpStatus_ =
   UpdateMailboxQuotaResponse'
@@ -177,7 +181,7 @@ newUpdateMailboxQuotaResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateMailboxQuotaResponse_httpStatus :: Lens.Lens' UpdateMailboxQuotaResponse Core.Int
+updateMailboxQuotaResponse_httpStatus :: Lens.Lens' UpdateMailboxQuotaResponse Prelude.Int
 updateMailboxQuotaResponse_httpStatus = Lens.lens (\UpdateMailboxQuotaResponse' {httpStatus} -> httpStatus) (\s@UpdateMailboxQuotaResponse' {} a -> s {httpStatus = a} :: UpdateMailboxQuotaResponse)
 
-instance Core.NFData UpdateMailboxQuotaResponse
+instance Prelude.NFData UpdateMailboxQuotaResponse

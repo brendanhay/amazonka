@@ -24,6 +24,7 @@ import Network.AWS.IoTAnalytics.Types.DatastoreStatus
 import Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary
 import Network.AWS.IoTAnalytics.Types.FileFormatType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of information about a data store.
 --
@@ -37,21 +38,21 @@ data DatastoreSummary = DatastoreSummary'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Core.Maybe Core.POSIX,
+    lastMessageArrivalTime :: Prelude.Maybe Core.POSIX,
     -- | The status of the data store.
-    status :: Core.Maybe DatastoreStatus,
+    status :: Prelude.Maybe DatastoreStatus,
     -- | When the data store was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | Where data store data is stored.
-    datastoreStorage :: Core.Maybe DatastoreStorageSummary,
+    datastoreStorage :: Prelude.Maybe DatastoreStorageSummary,
     -- | The last time the data store was updated.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The file format of the data in the data store.
-    fileFormatType :: Core.Maybe FileFormatType,
+    fileFormatType :: Prelude.Maybe FileFormatType,
     -- | The name of the data store.
-    datastoreName :: Core.Maybe Core.Text
+    datastoreName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatastoreSummary' with all optional fields omitted.
@@ -86,13 +87,13 @@ newDatastoreSummary ::
 newDatastoreSummary =
   DatastoreSummary'
     { lastMessageArrivalTime =
-        Core.Nothing,
-      status = Core.Nothing,
-      creationTime = Core.Nothing,
-      datastoreStorage = Core.Nothing,
-      lastUpdateTime = Core.Nothing,
-      fileFormatType = Core.Nothing,
-      datastoreName = Core.Nothing
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      datastoreStorage = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      fileFormatType = Prelude.Nothing,
+      datastoreName = Prelude.Nothing
     }
 
 -- | The last time when a new message arrived in the data store.
@@ -103,31 +104,31 @@ newDatastoreSummary =
 --
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
-datastoreSummary_lastMessageArrivalTime :: Lens.Lens' DatastoreSummary (Core.Maybe Core.UTCTime)
-datastoreSummary_lastMessageArrivalTime = Lens.lens (\DatastoreSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@DatastoreSummary' {} a -> s {lastMessageArrivalTime = a} :: DatastoreSummary) Core.. Lens.mapping Core._Time
+datastoreSummary_lastMessageArrivalTime :: Lens.Lens' DatastoreSummary (Prelude.Maybe Prelude.UTCTime)
+datastoreSummary_lastMessageArrivalTime = Lens.lens (\DatastoreSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@DatastoreSummary' {} a -> s {lastMessageArrivalTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the data store.
-datastoreSummary_status :: Lens.Lens' DatastoreSummary (Core.Maybe DatastoreStatus)
+datastoreSummary_status :: Lens.Lens' DatastoreSummary (Prelude.Maybe DatastoreStatus)
 datastoreSummary_status = Lens.lens (\DatastoreSummary' {status} -> status) (\s@DatastoreSummary' {} a -> s {status = a} :: DatastoreSummary)
 
 -- | When the data store was created.
-datastoreSummary_creationTime :: Lens.Lens' DatastoreSummary (Core.Maybe Core.UTCTime)
-datastoreSummary_creationTime = Lens.lens (\DatastoreSummary' {creationTime} -> creationTime) (\s@DatastoreSummary' {} a -> s {creationTime = a} :: DatastoreSummary) Core.. Lens.mapping Core._Time
+datastoreSummary_creationTime :: Lens.Lens' DatastoreSummary (Prelude.Maybe Prelude.UTCTime)
+datastoreSummary_creationTime = Lens.lens (\DatastoreSummary' {creationTime} -> creationTime) (\s@DatastoreSummary' {} a -> s {creationTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Core._Time
 
 -- | Where data store data is stored.
-datastoreSummary_datastoreStorage :: Lens.Lens' DatastoreSummary (Core.Maybe DatastoreStorageSummary)
+datastoreSummary_datastoreStorage :: Lens.Lens' DatastoreSummary (Prelude.Maybe DatastoreStorageSummary)
 datastoreSummary_datastoreStorage = Lens.lens (\DatastoreSummary' {datastoreStorage} -> datastoreStorage) (\s@DatastoreSummary' {} a -> s {datastoreStorage = a} :: DatastoreSummary)
 
 -- | The last time the data store was updated.
-datastoreSummary_lastUpdateTime :: Lens.Lens' DatastoreSummary (Core.Maybe Core.UTCTime)
-datastoreSummary_lastUpdateTime = Lens.lens (\DatastoreSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DatastoreSummary' {} a -> s {lastUpdateTime = a} :: DatastoreSummary) Core.. Lens.mapping Core._Time
+datastoreSummary_lastUpdateTime :: Lens.Lens' DatastoreSummary (Prelude.Maybe Prelude.UTCTime)
+datastoreSummary_lastUpdateTime = Lens.lens (\DatastoreSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DatastoreSummary' {} a -> s {lastUpdateTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The file format of the data in the data store.
-datastoreSummary_fileFormatType :: Lens.Lens' DatastoreSummary (Core.Maybe FileFormatType)
+datastoreSummary_fileFormatType :: Lens.Lens' DatastoreSummary (Prelude.Maybe FileFormatType)
 datastoreSummary_fileFormatType = Lens.lens (\DatastoreSummary' {fileFormatType} -> fileFormatType) (\s@DatastoreSummary' {} a -> s {fileFormatType = a} :: DatastoreSummary)
 
 -- | The name of the data store.
-datastoreSummary_datastoreName :: Lens.Lens' DatastoreSummary (Core.Maybe Core.Text)
+datastoreSummary_datastoreName :: Lens.Lens' DatastoreSummary (Prelude.Maybe Prelude.Text)
 datastoreSummary_datastoreName = Lens.lens (\DatastoreSummary' {datastoreName} -> datastoreName) (\s@DatastoreSummary' {} a -> s {datastoreName = a} :: DatastoreSummary)
 
 instance Core.FromJSON DatastoreSummary where
@@ -136,15 +137,15 @@ instance Core.FromJSON DatastoreSummary where
       "DatastoreSummary"
       ( \x ->
           DatastoreSummary'
-            Core.<$> (x Core..:? "lastMessageArrivalTime")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "creationTime")
-            Core.<*> (x Core..:? "datastoreStorage")
-            Core.<*> (x Core..:? "lastUpdateTime")
-            Core.<*> (x Core..:? "fileFormatType")
-            Core.<*> (x Core..:? "datastoreName")
+            Prelude.<$> (x Core..:? "lastMessageArrivalTime")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<*> (x Core..:? "datastoreStorage")
+            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<*> (x Core..:? "fileFormatType")
+            Prelude.<*> (x Core..:? "datastoreName")
       )
 
-instance Core.Hashable DatastoreSummary
+instance Prelude.Hashable DatastoreSummary
 
-instance Core.NFData DatastoreSummary
+instance Prelude.NFData DatastoreSummary

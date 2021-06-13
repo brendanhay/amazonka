@@ -71,6 +71,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,13 +84,13 @@ data CreatePlayerSessions = CreatePlayerSessions'
     -- does not use this data, so it can be formatted as needed for use in the
     -- game. Player data strings for player IDs not included in the @PlayerIds@
     -- parameter are ignored.
-    playerDataMap :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    playerDataMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique identifier for the game session to add players to.
-    gameSessionId :: Core.Text,
+    gameSessionId :: Prelude.Text,
     -- | List of unique identifiers for the players to be added.
-    playerIds :: Core.NonEmpty Core.Text
+    playerIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePlayerSessions' with all optional fields omitted.
@@ -110,13 +111,14 @@ data CreatePlayerSessions = CreatePlayerSessions'
 -- 'playerIds', 'createPlayerSessions_playerIds' - List of unique identifiers for the players to be added.
 newCreatePlayerSessions ::
   -- | 'gameSessionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'playerIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   CreatePlayerSessions
 newCreatePlayerSessions pGameSessionId_ pPlayerIds_ =
   CreatePlayerSessions'
-    { playerDataMap = Core.Nothing,
+    { playerDataMap =
+        Prelude.Nothing,
       gameSessionId = pGameSessionId_,
       playerIds = Lens._Coerce Lens.# pPlayerIds_
     }
@@ -126,16 +128,16 @@ newCreatePlayerSessions pGameSessionId_ pPlayerIds_ =
 -- does not use this data, so it can be formatted as needed for use in the
 -- game. Player data strings for player IDs not included in the @PlayerIds@
 -- parameter are ignored.
-createPlayerSessions_playerDataMap :: Lens.Lens' CreatePlayerSessions (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createPlayerSessions_playerDataMap = Lens.lens (\CreatePlayerSessions' {playerDataMap} -> playerDataMap) (\s@CreatePlayerSessions' {} a -> s {playerDataMap = a} :: CreatePlayerSessions) Core.. Lens.mapping Lens._Coerce
+createPlayerSessions_playerDataMap :: Lens.Lens' CreatePlayerSessions (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPlayerSessions_playerDataMap = Lens.lens (\CreatePlayerSessions' {playerDataMap} -> playerDataMap) (\s@CreatePlayerSessions' {} a -> s {playerDataMap = a} :: CreatePlayerSessions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the game session to add players to.
-createPlayerSessions_gameSessionId :: Lens.Lens' CreatePlayerSessions Core.Text
+createPlayerSessions_gameSessionId :: Lens.Lens' CreatePlayerSessions Prelude.Text
 createPlayerSessions_gameSessionId = Lens.lens (\CreatePlayerSessions' {gameSessionId} -> gameSessionId) (\s@CreatePlayerSessions' {} a -> s {gameSessionId = a} :: CreatePlayerSessions)
 
 -- | List of unique identifiers for the players to be added.
-createPlayerSessions_playerIds :: Lens.Lens' CreatePlayerSessions (Core.NonEmpty Core.Text)
-createPlayerSessions_playerIds = Lens.lens (\CreatePlayerSessions' {playerIds} -> playerIds) (\s@CreatePlayerSessions' {} a -> s {playerIds = a} :: CreatePlayerSessions) Core.. Lens._Coerce
+createPlayerSessions_playerIds :: Lens.Lens' CreatePlayerSessions (Prelude.NonEmpty Prelude.Text)
+createPlayerSessions_playerIds = Lens.lens (\CreatePlayerSessions' {playerIds} -> playerIds) (\s@CreatePlayerSessions' {} a -> s {playerIds = a} :: CreatePlayerSessions) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreatePlayerSessions where
   type
@@ -146,51 +148,55 @@ instance Core.AWSRequest CreatePlayerSessions where
     Response.receiveJSON
       ( \s h x ->
           CreatePlayerSessionsResponse'
-            Core.<$> (x Core..?> "PlayerSessions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PlayerSessions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePlayerSessions
+instance Prelude.Hashable CreatePlayerSessions
 
-instance Core.NFData CreatePlayerSessions
+instance Prelude.NFData CreatePlayerSessions
 
 instance Core.ToHeaders CreatePlayerSessions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.CreatePlayerSessions" :: Core.ByteString),
+              Core.=# ( "GameLift.CreatePlayerSessions" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePlayerSessions where
   toJSON CreatePlayerSessions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PlayerDataMap" Core..=) Core.<$> playerDataMap,
-            Core.Just ("GameSessionId" Core..= gameSessionId),
-            Core.Just ("PlayerIds" Core..= playerIds)
+      ( Prelude.catMaybes
+          [ ("PlayerDataMap" Core..=) Prelude.<$> playerDataMap,
+            Prelude.Just ("GameSessionId" Core..= gameSessionId),
+            Prelude.Just ("PlayerIds" Core..= playerIds)
           ]
       )
 
 instance Core.ToPath CreatePlayerSessions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePlayerSessions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newCreatePlayerSessionsResponse' smart constructor.
 data CreatePlayerSessionsResponse = CreatePlayerSessionsResponse'
   { -- | A collection of player session objects created for the added players.
-    playerSessions :: Core.Maybe [PlayerSession],
+    playerSessions :: Prelude.Maybe [PlayerSession],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePlayerSessionsResponse' with all optional fields omitted.
@@ -205,21 +211,21 @@ data CreatePlayerSessionsResponse = CreatePlayerSessionsResponse'
 -- 'httpStatus', 'createPlayerSessionsResponse_httpStatus' - The response's http status code.
 newCreatePlayerSessionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePlayerSessionsResponse
 newCreatePlayerSessionsResponse pHttpStatus_ =
   CreatePlayerSessionsResponse'
     { playerSessions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A collection of player session objects created for the added players.
-createPlayerSessionsResponse_playerSessions :: Lens.Lens' CreatePlayerSessionsResponse (Core.Maybe [PlayerSession])
-createPlayerSessionsResponse_playerSessions = Lens.lens (\CreatePlayerSessionsResponse' {playerSessions} -> playerSessions) (\s@CreatePlayerSessionsResponse' {} a -> s {playerSessions = a} :: CreatePlayerSessionsResponse) Core.. Lens.mapping Lens._Coerce
+createPlayerSessionsResponse_playerSessions :: Lens.Lens' CreatePlayerSessionsResponse (Prelude.Maybe [PlayerSession])
+createPlayerSessionsResponse_playerSessions = Lens.lens (\CreatePlayerSessionsResponse' {playerSessions} -> playerSessions) (\s@CreatePlayerSessionsResponse' {} a -> s {playerSessions = a} :: CreatePlayerSessionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createPlayerSessionsResponse_httpStatus :: Lens.Lens' CreatePlayerSessionsResponse Core.Int
+createPlayerSessionsResponse_httpStatus :: Lens.Lens' CreatePlayerSessionsResponse Prelude.Int
 createPlayerSessionsResponse_httpStatus = Lens.lens (\CreatePlayerSessionsResponse' {httpStatus} -> httpStatus) (\s@CreatePlayerSessionsResponse' {} a -> s {httpStatus = a} :: CreatePlayerSessionsResponse)
 
-instance Core.NFData CreatePlayerSessionsResponse
+instance Prelude.NFData CreatePlayerSessionsResponse

@@ -43,17 +43,18 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateApprovalRuleTemplateName' smart constructor.
 data UpdateApprovalRuleTemplateName = UpdateApprovalRuleTemplateName'
   { -- | The current name of the approval rule template.
-    oldApprovalRuleTemplateName :: Core.Text,
+    oldApprovalRuleTemplateName :: Prelude.Text,
     -- | The new name you want to apply to the approval rule template.
-    newApprovalRuleTemplateName' :: Core.Text
+    newApprovalRuleTemplateName' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApprovalRuleTemplateName' with all optional fields omitted.
@@ -68,9 +69,9 @@ data UpdateApprovalRuleTemplateName = UpdateApprovalRuleTemplateName'
 -- 'newApprovalRuleTemplateName'', 'updateApprovalRuleTemplateName_newApprovalRuleTemplateName' - The new name you want to apply to the approval rule template.
 newUpdateApprovalRuleTemplateName ::
   -- | 'oldApprovalRuleTemplateName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'newApprovalRuleTemplateName''
-  Core.Text ->
+  Prelude.Text ->
   UpdateApprovalRuleTemplateName
 newUpdateApprovalRuleTemplateName
   pOldApprovalRuleTemplateName_
@@ -83,11 +84,11 @@ newUpdateApprovalRuleTemplateName
       }
 
 -- | The current name of the approval rule template.
-updateApprovalRuleTemplateName_oldApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateName Core.Text
+updateApprovalRuleTemplateName_oldApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateName Prelude.Text
 updateApprovalRuleTemplateName_oldApprovalRuleTemplateName = Lens.lens (\UpdateApprovalRuleTemplateName' {oldApprovalRuleTemplateName} -> oldApprovalRuleTemplateName) (\s@UpdateApprovalRuleTemplateName' {} a -> s {oldApprovalRuleTemplateName = a} :: UpdateApprovalRuleTemplateName)
 
 -- | The new name you want to apply to the approval rule template.
-updateApprovalRuleTemplateName_newApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateName Core.Text
+updateApprovalRuleTemplateName_newApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateName Prelude.Text
 updateApprovalRuleTemplateName_newApprovalRuleTemplateName = Lens.lens (\UpdateApprovalRuleTemplateName' {newApprovalRuleTemplateName'} -> newApprovalRuleTemplateName') (\s@UpdateApprovalRuleTemplateName' {} a -> s {newApprovalRuleTemplateName' = a} :: UpdateApprovalRuleTemplateName)
 
 instance
@@ -102,39 +103,45 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateApprovalRuleTemplateNameResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "approvalRuleTemplate")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "approvalRuleTemplate")
       )
 
-instance Core.Hashable UpdateApprovalRuleTemplateName
+instance
+  Prelude.Hashable
+    UpdateApprovalRuleTemplateName
 
-instance Core.NFData UpdateApprovalRuleTemplateName
+instance
+  Prelude.NFData
+    UpdateApprovalRuleTemplateName
 
 instance
   Core.ToHeaders
     UpdateApprovalRuleTemplateName
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.UpdateApprovalRuleTemplateName" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateApprovalRuleTemplateName where
   toJSON UpdateApprovalRuleTemplateName' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "oldApprovalRuleTemplateName"
                   Core..= oldApprovalRuleTemplateName
               ),
-            Core.Just
+            Prelude.Just
               ( "newApprovalRuleTemplateName"
                   Core..= newApprovalRuleTemplateName'
               )
@@ -142,19 +149,19 @@ instance Core.ToJSON UpdateApprovalRuleTemplateName where
       )
 
 instance Core.ToPath UpdateApprovalRuleTemplateName where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateApprovalRuleTemplateName where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApprovalRuleTemplateNameResponse' smart constructor.
 data UpdateApprovalRuleTemplateNameResponse = UpdateApprovalRuleTemplateNameResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The structure and content of the updated approval rule template.
     approvalRuleTemplate :: ApprovalRuleTemplate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApprovalRuleTemplateNameResponse' with all optional fields omitted.
@@ -169,7 +176,7 @@ data UpdateApprovalRuleTemplateNameResponse = UpdateApprovalRuleTemplateNameResp
 -- 'approvalRuleTemplate', 'updateApprovalRuleTemplateNameResponse_approvalRuleTemplate' - The structure and content of the updated approval rule template.
 newUpdateApprovalRuleTemplateNameResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'approvalRuleTemplate'
   ApprovalRuleTemplate ->
   UpdateApprovalRuleTemplateNameResponse
@@ -184,7 +191,7 @@ newUpdateApprovalRuleTemplateNameResponse
       }
 
 -- | The response's http status code.
-updateApprovalRuleTemplateNameResponse_httpStatus :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse Core.Int
+updateApprovalRuleTemplateNameResponse_httpStatus :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse Prelude.Int
 updateApprovalRuleTemplateNameResponse_httpStatus = Lens.lens (\UpdateApprovalRuleTemplateNameResponse' {httpStatus} -> httpStatus) (\s@UpdateApprovalRuleTemplateNameResponse' {} a -> s {httpStatus = a} :: UpdateApprovalRuleTemplateNameResponse)
 
 -- | The structure and content of the updated approval rule template.
@@ -192,5 +199,5 @@ updateApprovalRuleTemplateNameResponse_approvalRuleTemplate :: Lens.Lens' Update
 updateApprovalRuleTemplateNameResponse_approvalRuleTemplate = Lens.lens (\UpdateApprovalRuleTemplateNameResponse' {approvalRuleTemplate} -> approvalRuleTemplate) (\s@UpdateApprovalRuleTemplateNameResponse' {} a -> s {approvalRuleTemplate = a} :: UpdateApprovalRuleTemplateNameResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateApprovalRuleTemplateNameResponse

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ data ListTopicRuleDestinations = ListTopicRuleDestinations'
   { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTopicRuleDestinations' with all optional fields omitted.
@@ -78,18 +79,18 @@ newListTopicRuleDestinations ::
 newListTopicRuleDestinations =
   ListTopicRuleDestinations'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
-listTopicRuleDestinations_nextToken :: Lens.Lens' ListTopicRuleDestinations (Core.Maybe Core.Text)
+listTopicRuleDestinations_nextToken :: Lens.Lens' ListTopicRuleDestinations (Prelude.Maybe Prelude.Text)
 listTopicRuleDestinations_nextToken = Lens.lens (\ListTopicRuleDestinations' {nextToken} -> nextToken) (\s@ListTopicRuleDestinations' {} a -> s {nextToken = a} :: ListTopicRuleDestinations)
 
 -- | The maximum number of results to return at one time.
-listTopicRuleDestinations_maxResults :: Lens.Lens' ListTopicRuleDestinations (Core.Maybe Core.Natural)
+listTopicRuleDestinations_maxResults :: Lens.Lens' ListTopicRuleDestinations (Prelude.Maybe Prelude.Natural)
 listTopicRuleDestinations_maxResults = Lens.lens (\ListTopicRuleDestinations' {maxResults} -> maxResults) (\s@ListTopicRuleDestinations' {} a -> s {maxResults = a} :: ListTopicRuleDestinations)
 
 instance Core.AWSPager ListTopicRuleDestinations where
@@ -97,22 +98,22 @@ instance Core.AWSPager ListTopicRuleDestinations where
     | Core.stop
         ( rs
             Lens.^? listTopicRuleDestinationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTopicRuleDestinationsResponse_destinationSummaries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTopicRuleDestinations_nextToken
+          Prelude.& listTopicRuleDestinations_nextToken
           Lens..~ rs
           Lens.^? listTopicRuleDestinationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTopicRuleDestinations where
   type
@@ -123,26 +124,26 @@ instance Core.AWSRequest ListTopicRuleDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListTopicRuleDestinationsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> ( x Core..?> "destinationSummaries"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "destinationSummaries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTopicRuleDestinations
+instance Prelude.Hashable ListTopicRuleDestinations
 
-instance Core.NFData ListTopicRuleDestinations
+instance Prelude.NFData ListTopicRuleDestinations
 
 instance Core.ToHeaders ListTopicRuleDestinations where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListTopicRuleDestinations where
-  toPath = Core.const "/destinations"
+  toPath = Prelude.const "/destinations"
 
 instance Core.ToQuery ListTopicRuleDestinations where
   toQuery ListTopicRuleDestinations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -151,13 +152,13 @@ instance Core.ToQuery ListTopicRuleDestinations where
 data ListTopicRuleDestinationsResponse = ListTopicRuleDestinationsResponse'
   { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about a topic rule destination.
-    destinationSummaries :: Core.Maybe [TopicRuleDestinationSummary],
+    destinationSummaries :: Prelude.Maybe [TopicRuleDestinationSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTopicRuleDestinationsResponse' with all optional fields omitted.
@@ -175,29 +176,29 @@ data ListTopicRuleDestinationsResponse = ListTopicRuleDestinationsResponse'
 -- 'httpStatus', 'listTopicRuleDestinationsResponse_httpStatus' - The response's http status code.
 newListTopicRuleDestinationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTopicRuleDestinationsResponse
 newListTopicRuleDestinationsResponse pHttpStatus_ =
   ListTopicRuleDestinationsResponse'
     { nextToken =
-        Core.Nothing,
-      destinationSummaries = Core.Nothing,
+        Prelude.Nothing,
+      destinationSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
-listTopicRuleDestinationsResponse_nextToken :: Lens.Lens' ListTopicRuleDestinationsResponse (Core.Maybe Core.Text)
+listTopicRuleDestinationsResponse_nextToken :: Lens.Lens' ListTopicRuleDestinationsResponse (Prelude.Maybe Prelude.Text)
 listTopicRuleDestinationsResponse_nextToken = Lens.lens (\ListTopicRuleDestinationsResponse' {nextToken} -> nextToken) (\s@ListTopicRuleDestinationsResponse' {} a -> s {nextToken = a} :: ListTopicRuleDestinationsResponse)
 
 -- | Information about a topic rule destination.
-listTopicRuleDestinationsResponse_destinationSummaries :: Lens.Lens' ListTopicRuleDestinationsResponse (Core.Maybe [TopicRuleDestinationSummary])
-listTopicRuleDestinationsResponse_destinationSummaries = Lens.lens (\ListTopicRuleDestinationsResponse' {destinationSummaries} -> destinationSummaries) (\s@ListTopicRuleDestinationsResponse' {} a -> s {destinationSummaries = a} :: ListTopicRuleDestinationsResponse) Core.. Lens.mapping Lens._Coerce
+listTopicRuleDestinationsResponse_destinationSummaries :: Lens.Lens' ListTopicRuleDestinationsResponse (Prelude.Maybe [TopicRuleDestinationSummary])
+listTopicRuleDestinationsResponse_destinationSummaries = Lens.lens (\ListTopicRuleDestinationsResponse' {destinationSummaries} -> destinationSummaries) (\s@ListTopicRuleDestinationsResponse' {} a -> s {destinationSummaries = a} :: ListTopicRuleDestinationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTopicRuleDestinationsResponse_httpStatus :: Lens.Lens' ListTopicRuleDestinationsResponse Core.Int
+listTopicRuleDestinationsResponse_httpStatus :: Lens.Lens' ListTopicRuleDestinationsResponse Prelude.Int
 listTopicRuleDestinationsResponse_httpStatus = Lens.lens (\ListTopicRuleDestinationsResponse' {httpStatus} -> httpStatus) (\s@ListTopicRuleDestinationsResponse' {} a -> s {httpStatus = a} :: ListTopicRuleDestinationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListTopicRuleDestinationsResponse

@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data ListTagsForResource = ListTagsForResource'
   { -- | The ARN that specifies the assessment template whose tags you want to
     -- list.
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -65,14 +66,14 @@ data ListTagsForResource = ListTagsForResource'
 -- list.
 newListTagsForResource ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForResource
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
 -- | The ARN that specifies the assessment template whose tags you want to
 -- list.
-listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Core.Text
+listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
 instance Core.AWSRequest ListTagsForResource where
@@ -84,48 +85,50 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListTagsForResource
+instance Prelude.Hashable ListTagsForResource
 
-instance Core.NFData ListTagsForResource
+instance Prelude.NFData ListTagsForResource
 
 instance Core.ToHeaders ListTagsForResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.ListTagsForResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("resourceArn" Core..= resourceArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("resourceArn" Core..= resourceArn)]
       )
 
 instance Core.ToPath ListTagsForResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsForResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A collection of key and value pairs.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -140,21 +143,21 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'tags', 'listTagsForResourceResponse_tags' - A collection of key and value pairs.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
     { httpStatus =
         pHttpStatus_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
 -- | A collection of key and value pairs.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse [Tag]
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Core.. Lens._Coerce
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListTagsForResourceResponse
+instance Prelude.NFData ListTagsForResourceResponse

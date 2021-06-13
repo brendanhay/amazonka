@@ -21,15 +21,16 @@ module Network.AWS.Redshift.Types.SupportedPlatform where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | A list of supported platforms for orderable clusters.
 --
 -- /See:/ 'newSupportedPlatform' smart constructor.
 data SupportedPlatform = SupportedPlatform'
-  { name :: Core.Maybe Core.Text
+  { name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SupportedPlatform' with all optional fields omitted.
@@ -43,16 +44,16 @@ data SupportedPlatform = SupportedPlatform'
 newSupportedPlatform ::
   SupportedPlatform
 newSupportedPlatform =
-  SupportedPlatform' {name = Core.Nothing}
+  SupportedPlatform' {name = Prelude.Nothing}
 
 -- |
-supportedPlatform_name :: Lens.Lens' SupportedPlatform (Core.Maybe Core.Text)
+supportedPlatform_name :: Lens.Lens' SupportedPlatform (Prelude.Maybe Prelude.Text)
 supportedPlatform_name = Lens.lens (\SupportedPlatform' {name} -> name) (\s@SupportedPlatform' {} a -> s {name = a} :: SupportedPlatform)
 
 instance Core.FromXML SupportedPlatform where
   parseXML x =
-    SupportedPlatform' Core.<$> (x Core..@? "Name")
+    SupportedPlatform' Prelude.<$> (x Core..@? "Name")
 
-instance Core.Hashable SupportedPlatform
+instance Prelude.Hashable SupportedPlatform
 
-instance Core.NFData SupportedPlatform
+instance Prelude.NFData SupportedPlatform

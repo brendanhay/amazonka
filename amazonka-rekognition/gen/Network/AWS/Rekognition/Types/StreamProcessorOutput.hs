@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.StreamProcessorOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.KinesisDataStream
 
 -- | Information about the Amazon Kinesis Data Streams stream to which a
@@ -32,9 +33,9 @@ import Network.AWS.Rekognition.Types.KinesisDataStream
 data StreamProcessorOutput = StreamProcessorOutput'
   { -- | The Amazon Kinesis Data Streams stream to which the Amazon Rekognition
     -- stream processor streams the analysis results.
-    kinesisDataStream :: Core.Maybe KinesisDataStream
+    kinesisDataStream :: Prelude.Maybe KinesisDataStream
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamProcessorOutput' with all optional fields omitted.
@@ -51,12 +52,12 @@ newStreamProcessorOutput ::
 newStreamProcessorOutput =
   StreamProcessorOutput'
     { kinesisDataStream =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Kinesis Data Streams stream to which the Amazon Rekognition
 -- stream processor streams the analysis results.
-streamProcessorOutput_kinesisDataStream :: Lens.Lens' StreamProcessorOutput (Core.Maybe KinesisDataStream)
+streamProcessorOutput_kinesisDataStream :: Lens.Lens' StreamProcessorOutput (Prelude.Maybe KinesisDataStream)
 streamProcessorOutput_kinesisDataStream = Lens.lens (\StreamProcessorOutput' {kinesisDataStream} -> kinesisDataStream) (\s@StreamProcessorOutput' {} a -> s {kinesisDataStream = a} :: StreamProcessorOutput)
 
 instance Core.FromJSON StreamProcessorOutput where
@@ -65,18 +66,18 @@ instance Core.FromJSON StreamProcessorOutput where
       "StreamProcessorOutput"
       ( \x ->
           StreamProcessorOutput'
-            Core.<$> (x Core..:? "KinesisDataStream")
+            Prelude.<$> (x Core..:? "KinesisDataStream")
       )
 
-instance Core.Hashable StreamProcessorOutput
+instance Prelude.Hashable StreamProcessorOutput
 
-instance Core.NFData StreamProcessorOutput
+instance Prelude.NFData StreamProcessorOutput
 
 instance Core.ToJSON StreamProcessorOutput where
   toJSON StreamProcessorOutput' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("KinesisDataStream" Core..=)
-              Core.<$> kinesisDataStream
+              Prelude.<$> kinesisDataStream
           ]
       )

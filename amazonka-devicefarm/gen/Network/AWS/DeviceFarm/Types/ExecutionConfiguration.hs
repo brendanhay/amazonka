@@ -21,6 +21,7 @@ module Network.AWS.DeviceFarm.Types.ExecutionConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents configuration information about a test run, such as the
 -- execution timeout (in minutes).
@@ -29,24 +30,24 @@ import qualified Network.AWS.Lens as Lens
 data ExecutionConfiguration = ExecutionConfiguration'
   { -- | True if app package cleanup is enabled at the beginning of the test.
     -- Otherwise, false.
-    appPackagesCleanup :: Core.Maybe Core.Bool,
+    appPackagesCleanup :: Prelude.Maybe Prelude.Bool,
     -- | Set to true to enable video capture. Otherwise, set to false. The
     -- default is true.
-    videoCapture :: Core.Maybe Core.Bool,
+    videoCapture :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, for private devices, Device Farm does not sign your
     -- app again. For public devices, Device Farm always signs your apps again.
     --
     -- For more information about how Device Farm re-signs your apps, see
     -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
     -- /AWS Device Farm FAQs/.
-    skipAppResign :: Core.Maybe Core.Bool,
+    skipAppResign :: Prelude.Maybe Prelude.Bool,
     -- | The number of minutes a test run executes before it times out.
-    jobTimeoutMinutes :: Core.Maybe Core.Int,
+    jobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
     -- | True if account cleanup is enabled at the beginning of the test.
     -- Otherwise, false.
-    accountsCleanup :: Core.Maybe Core.Bool
+    accountsCleanup :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecutionConfiguration' with all optional fields omitted.
@@ -78,21 +79,21 @@ newExecutionConfiguration ::
 newExecutionConfiguration =
   ExecutionConfiguration'
     { appPackagesCleanup =
-        Core.Nothing,
-      videoCapture = Core.Nothing,
-      skipAppResign = Core.Nothing,
-      jobTimeoutMinutes = Core.Nothing,
-      accountsCleanup = Core.Nothing
+        Prelude.Nothing,
+      videoCapture = Prelude.Nothing,
+      skipAppResign = Prelude.Nothing,
+      jobTimeoutMinutes = Prelude.Nothing,
+      accountsCleanup = Prelude.Nothing
     }
 
 -- | True if app package cleanup is enabled at the beginning of the test.
 -- Otherwise, false.
-executionConfiguration_appPackagesCleanup :: Lens.Lens' ExecutionConfiguration (Core.Maybe Core.Bool)
+executionConfiguration_appPackagesCleanup :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
 executionConfiguration_appPackagesCleanup = Lens.lens (\ExecutionConfiguration' {appPackagesCleanup} -> appPackagesCleanup) (\s@ExecutionConfiguration' {} a -> s {appPackagesCleanup = a} :: ExecutionConfiguration)
 
 -- | Set to true to enable video capture. Otherwise, set to false. The
 -- default is true.
-executionConfiguration_videoCapture :: Lens.Lens' ExecutionConfiguration (Core.Maybe Core.Bool)
+executionConfiguration_videoCapture :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
 executionConfiguration_videoCapture = Lens.lens (\ExecutionConfiguration' {videoCapture} -> videoCapture) (\s@ExecutionConfiguration' {} a -> s {videoCapture = a} :: ExecutionConfiguration)
 
 -- | When set to @true@, for private devices, Device Farm does not sign your
@@ -101,33 +102,33 @@ executionConfiguration_videoCapture = Lens.lens (\ExecutionConfiguration' {video
 -- For more information about how Device Farm re-signs your apps, see
 -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
-executionConfiguration_skipAppResign :: Lens.Lens' ExecutionConfiguration (Core.Maybe Core.Bool)
+executionConfiguration_skipAppResign :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
 executionConfiguration_skipAppResign = Lens.lens (\ExecutionConfiguration' {skipAppResign} -> skipAppResign) (\s@ExecutionConfiguration' {} a -> s {skipAppResign = a} :: ExecutionConfiguration)
 
 -- | The number of minutes a test run executes before it times out.
-executionConfiguration_jobTimeoutMinutes :: Lens.Lens' ExecutionConfiguration (Core.Maybe Core.Int)
+executionConfiguration_jobTimeoutMinutes :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Int)
 executionConfiguration_jobTimeoutMinutes = Lens.lens (\ExecutionConfiguration' {jobTimeoutMinutes} -> jobTimeoutMinutes) (\s@ExecutionConfiguration' {} a -> s {jobTimeoutMinutes = a} :: ExecutionConfiguration)
 
 -- | True if account cleanup is enabled at the beginning of the test.
 -- Otherwise, false.
-executionConfiguration_accountsCleanup :: Lens.Lens' ExecutionConfiguration (Core.Maybe Core.Bool)
+executionConfiguration_accountsCleanup :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
 executionConfiguration_accountsCleanup = Lens.lens (\ExecutionConfiguration' {accountsCleanup} -> accountsCleanup) (\s@ExecutionConfiguration' {} a -> s {accountsCleanup = a} :: ExecutionConfiguration)
 
-instance Core.Hashable ExecutionConfiguration
+instance Prelude.Hashable ExecutionConfiguration
 
-instance Core.NFData ExecutionConfiguration
+instance Prelude.NFData ExecutionConfiguration
 
 instance Core.ToJSON ExecutionConfiguration where
   toJSON ExecutionConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("appPackagesCleanup" Core..=)
-              Core.<$> appPackagesCleanup,
-            ("videoCapture" Core..=) Core.<$> videoCapture,
-            ("skipAppResign" Core..=) Core.<$> skipAppResign,
+              Prelude.<$> appPackagesCleanup,
+            ("videoCapture" Core..=) Prelude.<$> videoCapture,
+            ("skipAppResign" Core..=) Prelude.<$> skipAppResign,
             ("jobTimeoutMinutes" Core..=)
-              Core.<$> jobTimeoutMinutes,
+              Prelude.<$> jobTimeoutMinutes,
             ("accountsCleanup" Core..=)
-              Core.<$> accountsCleanup
+              Prelude.<$> accountsCleanup
           ]
       )

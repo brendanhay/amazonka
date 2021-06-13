@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -44,9 +45,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteDeviceFleet' smart constructor.
 data DeleteDeviceFleet = DeleteDeviceFleet'
   { -- | The name of the fleet to delete.
-    deviceFleetName :: Core.Text
+    deviceFleetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeviceFleet' with all optional fields omitted.
@@ -59,7 +60,7 @@ data DeleteDeviceFleet = DeleteDeviceFleet'
 -- 'deviceFleetName', 'deleteDeviceFleet_deviceFleetName' - The name of the fleet to delete.
 newDeleteDeviceFleet ::
   -- | 'deviceFleetName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDeviceFleet
 newDeleteDeviceFleet pDeviceFleetName_ =
   DeleteDeviceFleet'
@@ -68,7 +69,7 @@ newDeleteDeviceFleet pDeviceFleetName_ =
     }
 
 -- | The name of the fleet to delete.
-deleteDeviceFleet_deviceFleetName :: Lens.Lens' DeleteDeviceFleet Core.Text
+deleteDeviceFleet_deviceFleetName :: Lens.Lens' DeleteDeviceFleet Prelude.Text
 deleteDeviceFleet_deviceFleetName = Lens.lens (\DeleteDeviceFleet' {deviceFleetName} -> deviceFleetName) (\s@DeleteDeviceFleet' {} a -> s {deviceFleetName = a} :: DeleteDeviceFleet)
 
 instance Core.AWSRequest DeleteDeviceFleet where
@@ -79,41 +80,45 @@ instance Core.AWSRequest DeleteDeviceFleet where
   response =
     Response.receiveNull DeleteDeviceFleetResponse'
 
-instance Core.Hashable DeleteDeviceFleet
+instance Prelude.Hashable DeleteDeviceFleet
 
-instance Core.NFData DeleteDeviceFleet
+instance Prelude.NFData DeleteDeviceFleet
 
 instance Core.ToHeaders DeleteDeviceFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteDeviceFleet" :: Core.ByteString),
+              Core.=# ( "SageMaker.DeleteDeviceFleet" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDeviceFleet where
   toJSON DeleteDeviceFleet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("DeviceFleetName" Core..= deviceFleetName)
           ]
       )
 
 instance Core.ToPath DeleteDeviceFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDeviceFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeviceFleetResponse' smart constructor.
 data DeleteDeviceFleetResponse = DeleteDeviceFleetResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeviceFleetResponse' with all optional fields omitted.
@@ -124,4 +129,4 @@ newDeleteDeviceFleetResponse ::
 newDeleteDeviceFleetResponse =
   DeleteDeviceFleetResponse'
 
-instance Core.NFData DeleteDeviceFleetResponse
+instance Prelude.NFData DeleteDeviceFleetResponse

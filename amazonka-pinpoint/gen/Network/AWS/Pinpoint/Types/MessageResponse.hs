@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointMessageResult
 import Network.AWS.Pinpoint.Types.MessageResult
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the results of a request to send a message to
 -- an endpoint address.
@@ -32,19 +33,19 @@ data MessageResponse = MessageResponse'
   { -- | A map that contains a multipart response for each address (email
     -- address, phone number, or push notification token) that the message was
     -- sent to. In the map, the address is the key and the result is the value.
-    result :: Core.Maybe (Core.HashMap Core.Text MessageResult),
+    result :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageResult),
     -- | The identifier for the original request that the message was delivered
     -- for.
-    requestId :: Core.Maybe Core.Text,
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | A map that contains a multipart response for each address that the
     -- message was sent to. In the map, the endpoint ID is the key and the
     -- result is the value.
-    endpointResult :: Core.Maybe (Core.HashMap Core.Text EndpointMessageResult),
+    endpointResult :: Prelude.Maybe (Prelude.HashMap Prelude.Text EndpointMessageResult),
     -- | The unique identifier for the application that was used to send the
     -- message.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MessageResponse' with all optional fields omitted.
@@ -69,36 +70,36 @@ data MessageResponse = MessageResponse'
 -- message.
 newMessageResponse ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   MessageResponse
 newMessageResponse pApplicationId_ =
   MessageResponse'
-    { result = Core.Nothing,
-      requestId = Core.Nothing,
-      endpointResult = Core.Nothing,
+    { result = Prelude.Nothing,
+      requestId = Prelude.Nothing,
+      endpointResult = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
 -- | A map that contains a multipart response for each address (email
 -- address, phone number, or push notification token) that the message was
 -- sent to. In the map, the address is the key and the result is the value.
-messageResponse_result :: Lens.Lens' MessageResponse (Core.Maybe (Core.HashMap Core.Text MessageResult))
-messageResponse_result = Lens.lens (\MessageResponse' {result} -> result) (\s@MessageResponse' {} a -> s {result = a} :: MessageResponse) Core.. Lens.mapping Lens._Coerce
+messageResponse_result :: Lens.Lens' MessageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageResult))
+messageResponse_result = Lens.lens (\MessageResponse' {result} -> result) (\s@MessageResponse' {} a -> s {result = a} :: MessageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier for the original request that the message was delivered
 -- for.
-messageResponse_requestId :: Lens.Lens' MessageResponse (Core.Maybe Core.Text)
+messageResponse_requestId :: Lens.Lens' MessageResponse (Prelude.Maybe Prelude.Text)
 messageResponse_requestId = Lens.lens (\MessageResponse' {requestId} -> requestId) (\s@MessageResponse' {} a -> s {requestId = a} :: MessageResponse)
 
 -- | A map that contains a multipart response for each address that the
 -- message was sent to. In the map, the endpoint ID is the key and the
 -- result is the value.
-messageResponse_endpointResult :: Lens.Lens' MessageResponse (Core.Maybe (Core.HashMap Core.Text EndpointMessageResult))
-messageResponse_endpointResult = Lens.lens (\MessageResponse' {endpointResult} -> endpointResult) (\s@MessageResponse' {} a -> s {endpointResult = a} :: MessageResponse) Core.. Lens.mapping Lens._Coerce
+messageResponse_endpointResult :: Lens.Lens' MessageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text EndpointMessageResult))
+messageResponse_endpointResult = Lens.lens (\MessageResponse' {endpointResult} -> endpointResult) (\s@MessageResponse' {} a -> s {endpointResult = a} :: MessageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for the application that was used to send the
 -- message.
-messageResponse_applicationId :: Lens.Lens' MessageResponse Core.Text
+messageResponse_applicationId :: Lens.Lens' MessageResponse Prelude.Text
 messageResponse_applicationId = Lens.lens (\MessageResponse' {applicationId} -> applicationId) (\s@MessageResponse' {} a -> s {applicationId = a} :: MessageResponse)
 
 instance Core.FromJSON MessageResponse where
@@ -107,12 +108,12 @@ instance Core.FromJSON MessageResponse where
       "MessageResponse"
       ( \x ->
           MessageResponse'
-            Core.<$> (x Core..:? "Result" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "RequestId")
-            Core.<*> (x Core..:? "EndpointResult" Core..!= Core.mempty)
-            Core.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Core..:? "Result" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RequestId")
+            Prelude.<*> (x Core..:? "EndpointResult" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Core.Hashable MessageResponse
+instance Prelude.Hashable MessageResponse
 
-instance Core.NFData MessageResponse
+instance Prelude.NFData MessageResponse

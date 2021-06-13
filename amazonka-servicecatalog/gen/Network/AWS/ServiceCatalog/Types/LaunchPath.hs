@@ -21,17 +21,18 @@ module Network.AWS.ServiceCatalog.Types.LaunchPath where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A launch path object.
 --
 -- /See:/ 'newLaunchPath' smart constructor.
 data LaunchPath = LaunchPath'
   { -- | The identifier of the launch path.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch path.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchPath' with all optional fields omitted.
@@ -47,14 +48,17 @@ data LaunchPath = LaunchPath'
 newLaunchPath ::
   LaunchPath
 newLaunchPath =
-  LaunchPath' {id = Core.Nothing, name = Core.Nothing}
+  LaunchPath'
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
 
 -- | The identifier of the launch path.
-launchPath_id :: Lens.Lens' LaunchPath (Core.Maybe Core.Text)
+launchPath_id :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
 launchPath_id = Lens.lens (\LaunchPath' {id} -> id) (\s@LaunchPath' {} a -> s {id = a} :: LaunchPath)
 
 -- | The name of the launch path.
-launchPath_name :: Lens.Lens' LaunchPath (Core.Maybe Core.Text)
+launchPath_name :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
 launchPath_name = Lens.lens (\LaunchPath' {name} -> name) (\s@LaunchPath' {} a -> s {name = a} :: LaunchPath)
 
 instance Core.FromJSON LaunchPath where
@@ -63,9 +67,9 @@ instance Core.FromJSON LaunchPath where
       "LaunchPath"
       ( \x ->
           LaunchPath'
-            Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable LaunchPath
+instance Prelude.Hashable LaunchPath
 
-instance Core.NFData LaunchPath
+instance Prelude.NFData LaunchPath

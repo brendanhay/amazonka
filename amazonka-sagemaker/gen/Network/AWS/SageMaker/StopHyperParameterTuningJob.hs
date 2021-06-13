@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,9 +52,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopHyperParameterTuningJob' smart constructor.
 data StopHyperParameterTuningJob = StopHyperParameterTuningJob'
   { -- | The name of the tuning job to stop.
-    hyperParameterTuningJobName :: Core.Text
+    hyperParameterTuningJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopHyperParameterTuningJob' with all optional fields omitted.
@@ -66,7 +67,7 @@ data StopHyperParameterTuningJob = StopHyperParameterTuningJob'
 -- 'hyperParameterTuningJobName', 'stopHyperParameterTuningJob_hyperParameterTuningJobName' - The name of the tuning job to stop.
 newStopHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
-  Core.Text ->
+  Prelude.Text ->
   StopHyperParameterTuningJob
 newStopHyperParameterTuningJob
   pHyperParameterTuningJobName_ =
@@ -76,7 +77,7 @@ newStopHyperParameterTuningJob
       }
 
 -- | The name of the tuning job to stop.
-stopHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' StopHyperParameterTuningJob Core.Text
+stopHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' StopHyperParameterTuningJob Prelude.Text
 stopHyperParameterTuningJob_hyperParameterTuningJobName = Lens.lens (\StopHyperParameterTuningJob' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@StopHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobName = a} :: StopHyperParameterTuningJob)
 
 instance Core.AWSRequest StopHyperParameterTuningJob where
@@ -88,28 +89,30 @@ instance Core.AWSRequest StopHyperParameterTuningJob where
     Response.receiveNull
       StopHyperParameterTuningJobResponse'
 
-instance Core.Hashable StopHyperParameterTuningJob
+instance Prelude.Hashable StopHyperParameterTuningJob
 
-instance Core.NFData StopHyperParameterTuningJob
+instance Prelude.NFData StopHyperParameterTuningJob
 
 instance Core.ToHeaders StopHyperParameterTuningJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.StopHyperParameterTuningJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopHyperParameterTuningJob where
   toJSON StopHyperParameterTuningJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "HyperParameterTuningJobName"
                   Core..= hyperParameterTuningJobName
               )
@@ -117,16 +120,16 @@ instance Core.ToJSON StopHyperParameterTuningJob where
       )
 
 instance Core.ToPath StopHyperParameterTuningJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopHyperParameterTuningJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopHyperParameterTuningJobResponse' smart constructor.
 data StopHyperParameterTuningJobResponse = StopHyperParameterTuningJobResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopHyperParameterTuningJobResponse' with all optional fields omitted.
@@ -138,5 +141,5 @@ newStopHyperParameterTuningJobResponse =
   StopHyperParameterTuningJobResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     StopHyperParameterTuningJobResponse

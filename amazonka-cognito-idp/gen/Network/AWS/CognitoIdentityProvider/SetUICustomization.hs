@@ -57,21 +57,22 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetUICustomization' smart constructor.
 data SetUICustomization = SetUICustomization'
   { -- | The client ID for the client app.
-    clientId :: Core.Maybe (Core.Sensitive Core.Text),
+    clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The uploaded logo image for the UI customization.
-    imageFile :: Core.Maybe Core.Base64,
+    imageFile :: Prelude.Maybe Core.Base64,
     -- | The CSS values in the UI customization.
-    css :: Core.Maybe Core.Text,
+    css :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text
+    userPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetUICustomization' with all optional fields omitted.
@@ -94,34 +95,34 @@ data SetUICustomization = SetUICustomization'
 -- 'userPoolId', 'setUICustomization_userPoolId' - The user pool ID for the user pool.
 newSetUICustomization ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   SetUICustomization
 newSetUICustomization pUserPoolId_ =
   SetUICustomization'
-    { clientId = Core.Nothing,
-      imageFile = Core.Nothing,
-      css = Core.Nothing,
+    { clientId = Prelude.Nothing,
+      imageFile = Prelude.Nothing,
+      css = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
 
 -- | The client ID for the client app.
-setUICustomization_clientId :: Lens.Lens' SetUICustomization (Core.Maybe Core.Text)
-setUICustomization_clientId = Lens.lens (\SetUICustomization' {clientId} -> clientId) (\s@SetUICustomization' {} a -> s {clientId = a} :: SetUICustomization) Core.. Lens.mapping Core._Sensitive
+setUICustomization_clientId :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
+setUICustomization_clientId = Lens.lens (\SetUICustomization' {clientId} -> clientId) (\s@SetUICustomization' {} a -> s {clientId = a} :: SetUICustomization) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The uploaded logo image for the UI customization.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-setUICustomization_imageFile :: Lens.Lens' SetUICustomization (Core.Maybe Core.ByteString)
-setUICustomization_imageFile = Lens.lens (\SetUICustomization' {imageFile} -> imageFile) (\s@SetUICustomization' {} a -> s {imageFile = a} :: SetUICustomization) Core.. Lens.mapping Core._Base64
+setUICustomization_imageFile :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.ByteString)
+setUICustomization_imageFile = Lens.lens (\SetUICustomization' {imageFile} -> imageFile) (\s@SetUICustomization' {} a -> s {imageFile = a} :: SetUICustomization) Prelude.. Lens.mapping Core._Base64
 
 -- | The CSS values in the UI customization.
-setUICustomization_css :: Lens.Lens' SetUICustomization (Core.Maybe Core.Text)
+setUICustomization_css :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
 setUICustomization_css = Lens.lens (\SetUICustomization' {css} -> css) (\s@SetUICustomization' {} a -> s {css = a} :: SetUICustomization)
 
 -- | The user pool ID for the user pool.
-setUICustomization_userPoolId :: Lens.Lens' SetUICustomization Core.Text
+setUICustomization_userPoolId :: Lens.Lens' SetUICustomization Prelude.Text
 setUICustomization_userPoolId = Lens.lens (\SetUICustomization' {userPoolId} -> userPoolId) (\s@SetUICustomization' {} a -> s {userPoolId = a} :: SetUICustomization)
 
 instance Core.AWSRequest SetUICustomization where
@@ -133,52 +134,54 @@ instance Core.AWSRequest SetUICustomization where
     Response.receiveJSON
       ( \s h x ->
           SetUICustomizationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "UICustomization")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "UICustomization")
       )
 
-instance Core.Hashable SetUICustomization
+instance Prelude.Hashable SetUICustomization
 
-instance Core.NFData SetUICustomization
+instance Prelude.NFData SetUICustomization
 
 instance Core.ToHeaders SetUICustomization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.SetUICustomization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetUICustomization where
   toJSON SetUICustomization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ClientId" Core..=) Core.<$> clientId,
-            ("ImageFile" Core..=) Core.<$> imageFile,
-            ("CSS" Core..=) Core.<$> css,
-            Core.Just ("UserPoolId" Core..= userPoolId)
+      ( Prelude.catMaybes
+          [ ("ClientId" Core..=) Prelude.<$> clientId,
+            ("ImageFile" Core..=) Prelude.<$> imageFile,
+            ("CSS" Core..=) Prelude.<$> css,
+            Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
 instance Core.ToPath SetUICustomization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetUICustomization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetUICustomizationResponse' smart constructor.
 data SetUICustomizationResponse = SetUICustomizationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The UI customization information.
     uICustomization :: UICustomizationType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetUICustomizationResponse' with all optional fields omitted.
@@ -193,7 +196,7 @@ data SetUICustomizationResponse = SetUICustomizationResponse'
 -- 'uICustomization', 'setUICustomizationResponse_uICustomization' - The UI customization information.
 newSetUICustomizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'uICustomization'
   UICustomizationType ->
   SetUICustomizationResponse
@@ -207,11 +210,11 @@ newSetUICustomizationResponse
       }
 
 -- | The response's http status code.
-setUICustomizationResponse_httpStatus :: Lens.Lens' SetUICustomizationResponse Core.Int
+setUICustomizationResponse_httpStatus :: Lens.Lens' SetUICustomizationResponse Prelude.Int
 setUICustomizationResponse_httpStatus = Lens.lens (\SetUICustomizationResponse' {httpStatus} -> httpStatus) (\s@SetUICustomizationResponse' {} a -> s {httpStatus = a} :: SetUICustomizationResponse)
 
 -- | The UI customization information.
 setUICustomizationResponse_uICustomization :: Lens.Lens' SetUICustomizationResponse UICustomizationType
 setUICustomizationResponse_uICustomization = Lens.lens (\SetUICustomizationResponse' {uICustomization} -> uICustomization) (\s@SetUICustomizationResponse' {} a -> s {uICustomization = a} :: SetUICustomizationResponse)
 
-instance Core.NFData SetUICustomizationResponse
+instance Prelude.NFData SetUICustomizationResponse

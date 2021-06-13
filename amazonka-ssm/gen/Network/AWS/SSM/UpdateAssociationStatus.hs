@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,13 +52,13 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newUpdateAssociationStatus' smart constructor.
 data UpdateAssociationStatus = UpdateAssociationStatus'
   { -- | The name of the Systems Manager document.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The ID of the instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The association status.
     associationStatus :: AssociationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssociationStatus' with all optional fields omitted.
@@ -74,9 +75,9 @@ data UpdateAssociationStatus = UpdateAssociationStatus'
 -- 'associationStatus', 'updateAssociationStatus_associationStatus' - The association status.
 newUpdateAssociationStatus ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'associationStatus'
   AssociationStatus ->
   UpdateAssociationStatus
@@ -91,11 +92,11 @@ newUpdateAssociationStatus
       }
 
 -- | The name of the Systems Manager document.
-updateAssociationStatus_name :: Lens.Lens' UpdateAssociationStatus Core.Text
+updateAssociationStatus_name :: Lens.Lens' UpdateAssociationStatus Prelude.Text
 updateAssociationStatus_name = Lens.lens (\UpdateAssociationStatus' {name} -> name) (\s@UpdateAssociationStatus' {} a -> s {name = a} :: UpdateAssociationStatus)
 
 -- | The ID of the instance.
-updateAssociationStatus_instanceId :: Lens.Lens' UpdateAssociationStatus Core.Text
+updateAssociationStatus_instanceId :: Lens.Lens' UpdateAssociationStatus Prelude.Text
 updateAssociationStatus_instanceId = Lens.lens (\UpdateAssociationStatus' {instanceId} -> instanceId) (\s@UpdateAssociationStatus' {} a -> s {instanceId = a} :: UpdateAssociationStatus)
 
 -- | The association status.
@@ -111,52 +112,54 @@ instance Core.AWSRequest UpdateAssociationStatus where
     Response.receiveJSON
       ( \s h x ->
           UpdateAssociationStatusResponse'
-            Core.<$> (x Core..?> "AssociationDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AssociationDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateAssociationStatus
+instance Prelude.Hashable UpdateAssociationStatus
 
-instance Core.NFData UpdateAssociationStatus
+instance Prelude.NFData UpdateAssociationStatus
 
 instance Core.ToHeaders UpdateAssociationStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.UpdateAssociationStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateAssociationStatus where
   toJSON UpdateAssociationStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("InstanceId" Core..= instanceId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("InstanceId" Core..= instanceId),
+            Prelude.Just
               ("AssociationStatus" Core..= associationStatus)
           ]
       )
 
 instance Core.ToPath UpdateAssociationStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateAssociationStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssociationStatusResponse' smart constructor.
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
   { -- | Information about the association.
-    associationDescription :: Core.Maybe AssociationDescription,
+    associationDescription :: Prelude.Maybe AssociationDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssociationStatusResponse' with all optional fields omitted.
@@ -171,21 +174,23 @@ data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
 -- 'httpStatus', 'updateAssociationStatusResponse_httpStatus' - The response's http status code.
 newUpdateAssociationStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateAssociationStatusResponse
 newUpdateAssociationStatusResponse pHttpStatus_ =
   UpdateAssociationStatusResponse'
     { associationDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the association.
-updateAssociationStatusResponse_associationDescription :: Lens.Lens' UpdateAssociationStatusResponse (Core.Maybe AssociationDescription)
+updateAssociationStatusResponse_associationDescription :: Lens.Lens' UpdateAssociationStatusResponse (Prelude.Maybe AssociationDescription)
 updateAssociationStatusResponse_associationDescription = Lens.lens (\UpdateAssociationStatusResponse' {associationDescription} -> associationDescription) (\s@UpdateAssociationStatusResponse' {} a -> s {associationDescription = a} :: UpdateAssociationStatusResponse)
 
 -- | The response's http status code.
-updateAssociationStatusResponse_httpStatus :: Lens.Lens' UpdateAssociationStatusResponse Core.Int
+updateAssociationStatusResponse_httpStatus :: Lens.Lens' UpdateAssociationStatusResponse Prelude.Int
 updateAssociationStatusResponse_httpStatus = Lens.lens (\UpdateAssociationStatusResponse' {httpStatus} -> httpStatus) (\s@UpdateAssociationStatusResponse' {} a -> s {httpStatus = a} :: UpdateAssociationStatusResponse)
 
-instance Core.NFData UpdateAssociationStatusResponse
+instance
+  Prelude.NFData
+    UpdateAssociationStatusResponse

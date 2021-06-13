@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.RequestProgress where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for specifying if periodic @QueryProgress@ messages should be
@@ -30,9 +31,9 @@ import Network.AWS.S3.Internal
 data RequestProgress = RequestProgress'
   { -- | Specifies whether periodic QueryProgress frames should be sent. Valid
     -- values: TRUE, FALSE. Default value: FALSE.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestProgress' with all optional fields omitted.
@@ -47,17 +48,17 @@ data RequestProgress = RequestProgress'
 newRequestProgress ::
   RequestProgress
 newRequestProgress =
-  RequestProgress' {enabled = Core.Nothing}
+  RequestProgress' {enabled = Prelude.Nothing}
 
 -- | Specifies whether periodic QueryProgress frames should be sent. Valid
 -- values: TRUE, FALSE. Default value: FALSE.
-requestProgress_enabled :: Lens.Lens' RequestProgress (Core.Maybe Core.Bool)
+requestProgress_enabled :: Lens.Lens' RequestProgress (Prelude.Maybe Prelude.Bool)
 requestProgress_enabled = Lens.lens (\RequestProgress' {enabled} -> enabled) (\s@RequestProgress' {} a -> s {enabled = a} :: RequestProgress)
 
-instance Core.Hashable RequestProgress
+instance Prelude.Hashable RequestProgress
 
-instance Core.NFData RequestProgress
+instance Prelude.NFData RequestProgress
 
 instance Core.ToXML RequestProgress where
   toXML RequestProgress' {..} =
-    Core.mconcat ["Enabled" Core.@= enabled]
+    Prelude.mconcat ["Enabled" Core.@= enabled]

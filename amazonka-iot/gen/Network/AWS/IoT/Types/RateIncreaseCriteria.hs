@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.RateIncreaseCriteria where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Allows you to define a criteria to initiate the increase in rate of
 -- rollout for a job.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data RateIncreaseCriteria = RateIncreaseCriteria'
   { -- | The threshold for number of notified things that will initiate the
     -- increase in rate of rollout.
-    numberOfNotifiedThings :: Core.Maybe Core.Natural,
+    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural,
     -- | The threshold for number of succeeded things that will initiate the
     -- increase in rate of rollout.
-    numberOfSucceededThings :: Core.Maybe Core.Natural
+    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RateIncreaseCriteria' with all optional fields omitted.
@@ -54,18 +55,18 @@ newRateIncreaseCriteria ::
 newRateIncreaseCriteria =
   RateIncreaseCriteria'
     { numberOfNotifiedThings =
-        Core.Nothing,
-      numberOfSucceededThings = Core.Nothing
+        Prelude.Nothing,
+      numberOfSucceededThings = Prelude.Nothing
     }
 
 -- | The threshold for number of notified things that will initiate the
 -- increase in rate of rollout.
-rateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' RateIncreaseCriteria (Core.Maybe Core.Natural)
+rateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' RateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 rateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\RateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@RateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: RateIncreaseCriteria)
 
 -- | The threshold for number of succeeded things that will initiate the
 -- increase in rate of rollout.
-rateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' RateIncreaseCriteria (Core.Maybe Core.Natural)
+rateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' RateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 rateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\RateIncreaseCriteria' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@RateIncreaseCriteria' {} a -> s {numberOfSucceededThings = a} :: RateIncreaseCriteria)
 
 instance Core.FromJSON RateIncreaseCriteria where
@@ -74,21 +75,21 @@ instance Core.FromJSON RateIncreaseCriteria where
       "RateIncreaseCriteria"
       ( \x ->
           RateIncreaseCriteria'
-            Core.<$> (x Core..:? "numberOfNotifiedThings")
-            Core.<*> (x Core..:? "numberOfSucceededThings")
+            Prelude.<$> (x Core..:? "numberOfNotifiedThings")
+            Prelude.<*> (x Core..:? "numberOfSucceededThings")
       )
 
-instance Core.Hashable RateIncreaseCriteria
+instance Prelude.Hashable RateIncreaseCriteria
 
-instance Core.NFData RateIncreaseCriteria
+instance Prelude.NFData RateIncreaseCriteria
 
 instance Core.ToJSON RateIncreaseCriteria where
   toJSON RateIncreaseCriteria' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("numberOfNotifiedThings" Core..=)
-              Core.<$> numberOfNotifiedThings,
+              Prelude.<$> numberOfNotifiedThings,
             ("numberOfSucceededThings" Core..=)
-              Core.<$> numberOfSucceededThings
+              Prelude.<$> numberOfSucceededThings
           ]
       )

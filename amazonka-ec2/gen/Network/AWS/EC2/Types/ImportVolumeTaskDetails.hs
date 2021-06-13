@@ -24,23 +24,24 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DiskImageDescription
 import Network.AWS.EC2.Types.DiskImageVolumeDescription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an import volume task.
 --
 -- /See:/ 'newImportVolumeTaskDetails' smart constructor.
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
   { -- | The number of bytes converted so far.
-    bytesConverted :: Core.Maybe Core.Integer,
+    bytesConverted :: Prelude.Maybe Prelude.Integer,
     -- | The volume.
-    volume :: Core.Maybe DiskImageVolumeDescription,
+    volume :: Prelude.Maybe DiskImageVolumeDescription,
     -- | The image.
-    image :: Core.Maybe DiskImageDescription,
+    image :: Prelude.Maybe DiskImageDescription,
     -- | The Availability Zone where the resulting volume will reside.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The description you provided when starting the import volume task.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportVolumeTaskDetails' with all optional fields omitted.
@@ -64,42 +65,42 @@ newImportVolumeTaskDetails ::
 newImportVolumeTaskDetails =
   ImportVolumeTaskDetails'
     { bytesConverted =
-        Core.Nothing,
-      volume = Core.Nothing,
-      image = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      description = Core.Nothing
+        Prelude.Nothing,
+      volume = Prelude.Nothing,
+      image = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The number of bytes converted so far.
-importVolumeTaskDetails_bytesConverted :: Lens.Lens' ImportVolumeTaskDetails (Core.Maybe Core.Integer)
+importVolumeTaskDetails_bytesConverted :: Lens.Lens' ImportVolumeTaskDetails (Prelude.Maybe Prelude.Integer)
 importVolumeTaskDetails_bytesConverted = Lens.lens (\ImportVolumeTaskDetails' {bytesConverted} -> bytesConverted) (\s@ImportVolumeTaskDetails' {} a -> s {bytesConverted = a} :: ImportVolumeTaskDetails)
 
 -- | The volume.
-importVolumeTaskDetails_volume :: Lens.Lens' ImportVolumeTaskDetails (Core.Maybe DiskImageVolumeDescription)
+importVolumeTaskDetails_volume :: Lens.Lens' ImportVolumeTaskDetails (Prelude.Maybe DiskImageVolumeDescription)
 importVolumeTaskDetails_volume = Lens.lens (\ImportVolumeTaskDetails' {volume} -> volume) (\s@ImportVolumeTaskDetails' {} a -> s {volume = a} :: ImportVolumeTaskDetails)
 
 -- | The image.
-importVolumeTaskDetails_image :: Lens.Lens' ImportVolumeTaskDetails (Core.Maybe DiskImageDescription)
+importVolumeTaskDetails_image :: Lens.Lens' ImportVolumeTaskDetails (Prelude.Maybe DiskImageDescription)
 importVolumeTaskDetails_image = Lens.lens (\ImportVolumeTaskDetails' {image} -> image) (\s@ImportVolumeTaskDetails' {} a -> s {image = a} :: ImportVolumeTaskDetails)
 
 -- | The Availability Zone where the resulting volume will reside.
-importVolumeTaskDetails_availabilityZone :: Lens.Lens' ImportVolumeTaskDetails (Core.Maybe Core.Text)
+importVolumeTaskDetails_availabilityZone :: Lens.Lens' ImportVolumeTaskDetails (Prelude.Maybe Prelude.Text)
 importVolumeTaskDetails_availabilityZone = Lens.lens (\ImportVolumeTaskDetails' {availabilityZone} -> availabilityZone) (\s@ImportVolumeTaskDetails' {} a -> s {availabilityZone = a} :: ImportVolumeTaskDetails)
 
 -- | The description you provided when starting the import volume task.
-importVolumeTaskDetails_description :: Lens.Lens' ImportVolumeTaskDetails (Core.Maybe Core.Text)
+importVolumeTaskDetails_description :: Lens.Lens' ImportVolumeTaskDetails (Prelude.Maybe Prelude.Text)
 importVolumeTaskDetails_description = Lens.lens (\ImportVolumeTaskDetails' {description} -> description) (\s@ImportVolumeTaskDetails' {} a -> s {description = a} :: ImportVolumeTaskDetails)
 
 instance Core.FromXML ImportVolumeTaskDetails where
   parseXML x =
     ImportVolumeTaskDetails'
-      Core.<$> (x Core..@? "bytesConverted")
-      Core.<*> (x Core..@? "volume")
-      Core.<*> (x Core..@? "image")
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "description")
+      Prelude.<$> (x Core..@? "bytesConverted")
+      Prelude.<*> (x Core..@? "volume")
+      Prelude.<*> (x Core..@? "image")
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "description")
 
-instance Core.Hashable ImportVolumeTaskDetails
+instance Prelude.Hashable ImportVolumeTaskDetails
 
-instance Core.NFData ImportVolumeTaskDetails
+instance Prelude.NFData ImportVolumeTaskDetails

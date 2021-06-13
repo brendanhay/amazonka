@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.KernelSpec where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The specification of a Jupyter kernel.
 --
 -- /See:/ 'newKernelSpec' smart constructor.
 data KernelSpec = KernelSpec'
   { -- | The display name of the kernel.
-    displayName :: Core.Maybe Core.Text,
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The name of the kernel.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KernelSpec' with all optional fields omitted.
@@ -46,20 +47,20 @@ data KernelSpec = KernelSpec'
 -- 'name', 'kernelSpec_name' - The name of the kernel.
 newKernelSpec ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   KernelSpec
 newKernelSpec pName_ =
   KernelSpec'
-    { displayName = Core.Nothing,
+    { displayName = Prelude.Nothing,
       name = pName_
     }
 
 -- | The display name of the kernel.
-kernelSpec_displayName :: Lens.Lens' KernelSpec (Core.Maybe Core.Text)
+kernelSpec_displayName :: Lens.Lens' KernelSpec (Prelude.Maybe Prelude.Text)
 kernelSpec_displayName = Lens.lens (\KernelSpec' {displayName} -> displayName) (\s@KernelSpec' {} a -> s {displayName = a} :: KernelSpec)
 
 -- | The name of the kernel.
-kernelSpec_name :: Lens.Lens' KernelSpec Core.Text
+kernelSpec_name :: Lens.Lens' KernelSpec Prelude.Text
 kernelSpec_name = Lens.lens (\KernelSpec' {name} -> name) (\s@KernelSpec' {} a -> s {name = a} :: KernelSpec)
 
 instance Core.FromJSON KernelSpec where
@@ -68,19 +69,19 @@ instance Core.FromJSON KernelSpec where
       "KernelSpec"
       ( \x ->
           KernelSpec'
-            Core.<$> (x Core..:? "DisplayName")
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable KernelSpec
+instance Prelude.Hashable KernelSpec
 
-instance Core.NFData KernelSpec
+instance Prelude.NFData KernelSpec
 
 instance Core.ToJSON KernelSpec where
   toJSON KernelSpec' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DisplayName" Core..=) Core.<$> displayName,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("DisplayName" Core..=) Prelude.<$> displayName,
+            Prelude.Just ("Name" Core..= name)
           ]
       )

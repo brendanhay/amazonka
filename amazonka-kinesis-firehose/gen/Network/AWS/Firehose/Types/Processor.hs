@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.ProcessorParameter
 import Network.AWS.Firehose.Types.ProcessorType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a data processor.
 --
 -- /See:/ 'newProcessor' smart constructor.
 data Processor = Processor'
   { -- | The processor parameters.
-    parameters :: Core.Maybe [ProcessorParameter],
+    parameters :: Prelude.Maybe [ProcessorParameter],
     -- | The type of processor.
     type' :: ProcessorType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Processor' with all optional fields omitted.
@@ -52,13 +53,13 @@ newProcessor ::
   Processor
 newProcessor pType_ =
   Processor'
-    { parameters = Core.Nothing,
+    { parameters = Prelude.Nothing,
       type' = pType_
     }
 
 -- | The processor parameters.
-processor_parameters :: Lens.Lens' Processor (Core.Maybe [ProcessorParameter])
-processor_parameters = Lens.lens (\Processor' {parameters} -> parameters) (\s@Processor' {} a -> s {parameters = a} :: Processor) Core.. Lens.mapping Lens._Coerce
+processor_parameters :: Lens.Lens' Processor (Prelude.Maybe [ProcessorParameter])
+processor_parameters = Lens.lens (\Processor' {parameters} -> parameters) (\s@Processor' {} a -> s {parameters = a} :: Processor) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of processor.
 processor_type :: Lens.Lens' Processor ProcessorType
@@ -70,19 +71,19 @@ instance Core.FromJSON Processor where
       "Processor"
       ( \x ->
           Processor'
-            Core.<$> (x Core..:? "Parameters" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable Processor
+instance Prelude.Hashable Processor
 
-instance Core.NFData Processor
+instance Prelude.NFData Processor
 
 instance Core.ToJSON Processor where
   toJSON Processor' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Parameters" Core..=) Core.<$> parameters,
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("Type" Core..= type')
           ]
       )

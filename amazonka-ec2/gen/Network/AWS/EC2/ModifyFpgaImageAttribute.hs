@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,31 +62,31 @@ data ModifyFpgaImageAttribute = ModifyFpgaImageAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The product codes. After you add a product code to an AFI, it can\'t be
     -- removed. This parameter is valid only when modifying the @productCodes@
     -- attribute.
-    productCodes :: Core.Maybe [Core.Text],
+    productCodes :: Prelude.Maybe [Prelude.Text],
     -- | The AWS account IDs. This parameter is valid only when modifying the
     -- @loadPermission@ attribute.
-    userIds :: Core.Maybe [Core.Text],
+    userIds :: Prelude.Maybe [Prelude.Text],
     -- | A name for the AFI.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute.
-    attribute :: Core.Maybe FpgaImageAttributeName,
+    attribute :: Prelude.Maybe FpgaImageAttributeName,
     -- | A description for the AFI.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The user groups. This parameter is valid only when modifying the
     -- @loadPermission@ attribute.
-    userGroups :: Core.Maybe [Core.Text],
+    userGroups :: Prelude.Maybe [Prelude.Text],
     -- | The load permission for the AFI.
-    loadPermission :: Core.Maybe LoadPermissionModifications,
+    loadPermission :: Prelude.Maybe LoadPermissionModifications,
     -- | The operation type.
-    operationType :: Core.Maybe OperationType,
+    operationType :: Prelude.Maybe OperationType,
     -- | The ID of the AFI.
-    fpgaImageId :: Core.Text
+    fpgaImageId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyFpgaImageAttribute' with all optional fields omitted.
@@ -123,19 +124,19 @@ data ModifyFpgaImageAttribute = ModifyFpgaImageAttribute'
 -- 'fpgaImageId', 'modifyFpgaImageAttribute_fpgaImageId' - The ID of the AFI.
 newModifyFpgaImageAttribute ::
   -- | 'fpgaImageId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyFpgaImageAttribute
 newModifyFpgaImageAttribute pFpgaImageId_ =
   ModifyFpgaImageAttribute'
-    { dryRun = Core.Nothing,
-      productCodes = Core.Nothing,
-      userIds = Core.Nothing,
-      name = Core.Nothing,
-      attribute = Core.Nothing,
-      description = Core.Nothing,
-      userGroups = Core.Nothing,
-      loadPermission = Core.Nothing,
-      operationType = Core.Nothing,
+    { dryRun = Prelude.Nothing,
+      productCodes = Prelude.Nothing,
+      userIds = Prelude.Nothing,
+      name = Prelude.Nothing,
+      attribute = Prelude.Nothing,
+      description = Prelude.Nothing,
+      userGroups = Prelude.Nothing,
+      loadPermission = Prelude.Nothing,
+      operationType = Prelude.Nothing,
       fpgaImageId = pFpgaImageId_
     }
 
@@ -143,47 +144,47 @@ newModifyFpgaImageAttribute pFpgaImageId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyFpgaImageAttribute_dryRun :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe Core.Bool)
+modifyFpgaImageAttribute_dryRun :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe Prelude.Bool)
 modifyFpgaImageAttribute_dryRun = Lens.lens (\ModifyFpgaImageAttribute' {dryRun} -> dryRun) (\s@ModifyFpgaImageAttribute' {} a -> s {dryRun = a} :: ModifyFpgaImageAttribute)
 
 -- | The product codes. After you add a product code to an AFI, it can\'t be
 -- removed. This parameter is valid only when modifying the @productCodes@
 -- attribute.
-modifyFpgaImageAttribute_productCodes :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe [Core.Text])
-modifyFpgaImageAttribute_productCodes = Lens.lens (\ModifyFpgaImageAttribute' {productCodes} -> productCodes) (\s@ModifyFpgaImageAttribute' {} a -> s {productCodes = a} :: ModifyFpgaImageAttribute) Core.. Lens.mapping Lens._Coerce
+modifyFpgaImageAttribute_productCodes :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyFpgaImageAttribute_productCodes = Lens.lens (\ModifyFpgaImageAttribute' {productCodes} -> productCodes) (\s@ModifyFpgaImageAttribute' {} a -> s {productCodes = a} :: ModifyFpgaImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS account IDs. This parameter is valid only when modifying the
 -- @loadPermission@ attribute.
-modifyFpgaImageAttribute_userIds :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe [Core.Text])
-modifyFpgaImageAttribute_userIds = Lens.lens (\ModifyFpgaImageAttribute' {userIds} -> userIds) (\s@ModifyFpgaImageAttribute' {} a -> s {userIds = a} :: ModifyFpgaImageAttribute) Core.. Lens.mapping Lens._Coerce
+modifyFpgaImageAttribute_userIds :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyFpgaImageAttribute_userIds = Lens.lens (\ModifyFpgaImageAttribute' {userIds} -> userIds) (\s@ModifyFpgaImageAttribute' {} a -> s {userIds = a} :: ModifyFpgaImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A name for the AFI.
-modifyFpgaImageAttribute_name :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe Core.Text)
+modifyFpgaImageAttribute_name :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe Prelude.Text)
 modifyFpgaImageAttribute_name = Lens.lens (\ModifyFpgaImageAttribute' {name} -> name) (\s@ModifyFpgaImageAttribute' {} a -> s {name = a} :: ModifyFpgaImageAttribute)
 
 -- | The name of the attribute.
-modifyFpgaImageAttribute_attribute :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe FpgaImageAttributeName)
+modifyFpgaImageAttribute_attribute :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe FpgaImageAttributeName)
 modifyFpgaImageAttribute_attribute = Lens.lens (\ModifyFpgaImageAttribute' {attribute} -> attribute) (\s@ModifyFpgaImageAttribute' {} a -> s {attribute = a} :: ModifyFpgaImageAttribute)
 
 -- | A description for the AFI.
-modifyFpgaImageAttribute_description :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe Core.Text)
+modifyFpgaImageAttribute_description :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe Prelude.Text)
 modifyFpgaImageAttribute_description = Lens.lens (\ModifyFpgaImageAttribute' {description} -> description) (\s@ModifyFpgaImageAttribute' {} a -> s {description = a} :: ModifyFpgaImageAttribute)
 
 -- | The user groups. This parameter is valid only when modifying the
 -- @loadPermission@ attribute.
-modifyFpgaImageAttribute_userGroups :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe [Core.Text])
-modifyFpgaImageAttribute_userGroups = Lens.lens (\ModifyFpgaImageAttribute' {userGroups} -> userGroups) (\s@ModifyFpgaImageAttribute' {} a -> s {userGroups = a} :: ModifyFpgaImageAttribute) Core.. Lens.mapping Lens._Coerce
+modifyFpgaImageAttribute_userGroups :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyFpgaImageAttribute_userGroups = Lens.lens (\ModifyFpgaImageAttribute' {userGroups} -> userGroups) (\s@ModifyFpgaImageAttribute' {} a -> s {userGroups = a} :: ModifyFpgaImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The load permission for the AFI.
-modifyFpgaImageAttribute_loadPermission :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe LoadPermissionModifications)
+modifyFpgaImageAttribute_loadPermission :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe LoadPermissionModifications)
 modifyFpgaImageAttribute_loadPermission = Lens.lens (\ModifyFpgaImageAttribute' {loadPermission} -> loadPermission) (\s@ModifyFpgaImageAttribute' {} a -> s {loadPermission = a} :: ModifyFpgaImageAttribute)
 
 -- | The operation type.
-modifyFpgaImageAttribute_operationType :: Lens.Lens' ModifyFpgaImageAttribute (Core.Maybe OperationType)
+modifyFpgaImageAttribute_operationType :: Lens.Lens' ModifyFpgaImageAttribute (Prelude.Maybe OperationType)
 modifyFpgaImageAttribute_operationType = Lens.lens (\ModifyFpgaImageAttribute' {operationType} -> operationType) (\s@ModifyFpgaImageAttribute' {} a -> s {operationType = a} :: ModifyFpgaImageAttribute)
 
 -- | The ID of the AFI.
-modifyFpgaImageAttribute_fpgaImageId :: Lens.Lens' ModifyFpgaImageAttribute Core.Text
+modifyFpgaImageAttribute_fpgaImageId :: Lens.Lens' ModifyFpgaImageAttribute Prelude.Text
 modifyFpgaImageAttribute_fpgaImageId = Lens.lens (\ModifyFpgaImageAttribute' {fpgaImageId} -> fpgaImageId) (\s@ModifyFpgaImageAttribute' {} a -> s {fpgaImageId = a} :: ModifyFpgaImageAttribute)
 
 instance Core.AWSRequest ModifyFpgaImageAttribute where
@@ -195,38 +196,41 @@ instance Core.AWSRequest ModifyFpgaImageAttribute where
     Response.receiveXML
       ( \s h x ->
           ModifyFpgaImageAttributeResponse'
-            Core.<$> (x Core..@? "fpgaImageAttribute")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "fpgaImageAttribute")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyFpgaImageAttribute
+instance Prelude.Hashable ModifyFpgaImageAttribute
 
-instance Core.NFData ModifyFpgaImageAttribute
+instance Prelude.NFData ModifyFpgaImageAttribute
 
 instance Core.ToHeaders ModifyFpgaImageAttribute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyFpgaImageAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyFpgaImageAttribute where
   toQuery ModifyFpgaImageAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyFpgaImageAttribute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyFpgaImageAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "ProductCode"
-              Core.<$> productCodes
+              Prelude.<$> productCodes
           ),
         Core.toQuery
-          (Core.toQueryList "UserId" Core.<$> userIds),
+          (Core.toQueryList "UserId" Prelude.<$> userIds),
         "Name" Core.=: name,
         "Attribute" Core.=: attribute,
         "Description" Core.=: description,
         Core.toQuery
-          (Core.toQueryList "UserGroup" Core.<$> userGroups),
+          ( Core.toQueryList "UserGroup"
+              Prelude.<$> userGroups
+          ),
         "LoadPermission" Core.=: loadPermission,
         "OperationType" Core.=: operationType,
         "FpgaImageId" Core.=: fpgaImageId
@@ -235,11 +239,11 @@ instance Core.ToQuery ModifyFpgaImageAttribute where
 -- | /See:/ 'newModifyFpgaImageAttributeResponse' smart constructor.
 data ModifyFpgaImageAttributeResponse = ModifyFpgaImageAttributeResponse'
   { -- | Information about the attribute.
-    fpgaImageAttribute :: Core.Maybe FpgaImageAttribute,
+    fpgaImageAttribute :: Prelude.Maybe FpgaImageAttribute,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyFpgaImageAttributeResponse' with all optional fields omitted.
@@ -254,21 +258,23 @@ data ModifyFpgaImageAttributeResponse = ModifyFpgaImageAttributeResponse'
 -- 'httpStatus', 'modifyFpgaImageAttributeResponse_httpStatus' - The response's http status code.
 newModifyFpgaImageAttributeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyFpgaImageAttributeResponse
 newModifyFpgaImageAttributeResponse pHttpStatus_ =
   ModifyFpgaImageAttributeResponse'
     { fpgaImageAttribute =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the attribute.
-modifyFpgaImageAttributeResponse_fpgaImageAttribute :: Lens.Lens' ModifyFpgaImageAttributeResponse (Core.Maybe FpgaImageAttribute)
+modifyFpgaImageAttributeResponse_fpgaImageAttribute :: Lens.Lens' ModifyFpgaImageAttributeResponse (Prelude.Maybe FpgaImageAttribute)
 modifyFpgaImageAttributeResponse_fpgaImageAttribute = Lens.lens (\ModifyFpgaImageAttributeResponse' {fpgaImageAttribute} -> fpgaImageAttribute) (\s@ModifyFpgaImageAttributeResponse' {} a -> s {fpgaImageAttribute = a} :: ModifyFpgaImageAttributeResponse)
 
 -- | The response's http status code.
-modifyFpgaImageAttributeResponse_httpStatus :: Lens.Lens' ModifyFpgaImageAttributeResponse Core.Int
+modifyFpgaImageAttributeResponse_httpStatus :: Lens.Lens' ModifyFpgaImageAttributeResponse Prelude.Int
 modifyFpgaImageAttributeResponse_httpStatus = Lens.lens (\ModifyFpgaImageAttributeResponse' {httpStatus} -> httpStatus) (\s@ModifyFpgaImageAttributeResponse' {} a -> s {httpStatus = a} :: ModifyFpgaImageAttributeResponse)
 
-instance Core.NFData ModifyFpgaImageAttributeResponse
+instance
+  Prelude.NFData
+    ModifyFpgaImageAttributeResponse

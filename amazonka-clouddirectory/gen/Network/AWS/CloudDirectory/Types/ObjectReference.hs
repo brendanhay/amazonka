@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.ObjectReference where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The reference that identifies an object.
 --
@@ -43,9 +44,9 @@ data ObjectReference = ObjectReference'
     -- -   /\/some\/path/ - Identifies the object based on path
     --
     -- -   /#SomeBatchReference/ - Identifies the object in a batch call
-    selector :: Core.Maybe Core.Text
+    selector :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ObjectReference' with all optional fields omitted.
@@ -75,7 +76,7 @@ data ObjectReference = ObjectReference'
 newObjectReference ::
   ObjectReference
 newObjectReference =
-  ObjectReference' {selector = Core.Nothing}
+  ObjectReference' {selector = Prelude.Nothing}
 
 -- | A path selector supports easy selection of an object by the
 -- parent\/child links leading to it from the directory root. Use the link
@@ -94,7 +95,7 @@ newObjectReference =
 -- -   /\/some\/path/ - Identifies the object based on path
 --
 -- -   /#SomeBatchReference/ - Identifies the object in a batch call
-objectReference_selector :: Lens.Lens' ObjectReference (Core.Maybe Core.Text)
+objectReference_selector :: Lens.Lens' ObjectReference (Prelude.Maybe Prelude.Text)
 objectReference_selector = Lens.lens (\ObjectReference' {selector} -> selector) (\s@ObjectReference' {} a -> s {selector = a} :: ObjectReference)
 
 instance Core.FromJSON ObjectReference where
@@ -102,16 +103,16 @@ instance Core.FromJSON ObjectReference where
     Core.withObject
       "ObjectReference"
       ( \x ->
-          ObjectReference' Core.<$> (x Core..:? "Selector")
+          ObjectReference' Prelude.<$> (x Core..:? "Selector")
       )
 
-instance Core.Hashable ObjectReference
+instance Prelude.Hashable ObjectReference
 
-instance Core.NFData ObjectReference
+instance Prelude.NFData ObjectReference
 
 instance Core.ToJSON ObjectReference where
   toJSON ObjectReference' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Selector" Core..=) Core.<$> selector]
+      ( Prelude.catMaybes
+          [("Selector" Core..=) Prelude.<$> selector]
       )

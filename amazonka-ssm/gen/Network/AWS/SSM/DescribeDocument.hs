@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -52,14 +53,14 @@ data DescribeDocument = DescribeDocument'
   { -- | An optional field specifying the version of the artifact associated with
     -- the document. For example, \"Release 12, Update 6\". This value is
     -- unique across all versions of a document, and cannot be changed.
-    versionName :: Core.Maybe Core.Text,
+    versionName :: Prelude.Maybe Prelude.Text,
     -- | The document version for which you want information. Can be a specific
     -- version or the default version.
-    documentVersion :: Core.Maybe Core.Text,
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the Systems Manager document.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDocument' with all optional fields omitted.
@@ -79,28 +80,28 @@ data DescribeDocument = DescribeDocument'
 -- 'name', 'describeDocument_name' - The name of the Systems Manager document.
 newDescribeDocument ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDocument
 newDescribeDocument pName_ =
   DescribeDocument'
-    { versionName = Core.Nothing,
-      documentVersion = Core.Nothing,
+    { versionName = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
       name = pName_
     }
 
 -- | An optional field specifying the version of the artifact associated with
 -- the document. For example, \"Release 12, Update 6\". This value is
 -- unique across all versions of a document, and cannot be changed.
-describeDocument_versionName :: Lens.Lens' DescribeDocument (Core.Maybe Core.Text)
+describeDocument_versionName :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
 describeDocument_versionName = Lens.lens (\DescribeDocument' {versionName} -> versionName) (\s@DescribeDocument' {} a -> s {versionName = a} :: DescribeDocument)
 
 -- | The document version for which you want information. Can be a specific
 -- version or the default version.
-describeDocument_documentVersion :: Lens.Lens' DescribeDocument (Core.Maybe Core.Text)
+describeDocument_documentVersion :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
 describeDocument_documentVersion = Lens.lens (\DescribeDocument' {documentVersion} -> documentVersion) (\s@DescribeDocument' {} a -> s {documentVersion = a} :: DescribeDocument)
 
 -- | The name of the Systems Manager document.
-describeDocument_name :: Lens.Lens' DescribeDocument Core.Text
+describeDocument_name :: Lens.Lens' DescribeDocument Prelude.Text
 describeDocument_name = Lens.lens (\DescribeDocument' {name} -> name) (\s@DescribeDocument' {} a -> s {name = a} :: DescribeDocument)
 
 instance Core.AWSRequest DescribeDocument where
@@ -112,49 +113,52 @@ instance Core.AWSRequest DescribeDocument where
     Response.receiveJSON
       ( \s h x ->
           DescribeDocumentResponse'
-            Core.<$> (x Core..?> "Document")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Document")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDocument
+instance Prelude.Hashable DescribeDocument
 
-instance Core.NFData DescribeDocument
+instance Prelude.NFData DescribeDocument
 
 instance Core.ToHeaders DescribeDocument where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DescribeDocument" :: Core.ByteString),
+              Core.=# ("AmazonSSM.DescribeDocument" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDocument where
   toJSON DescribeDocument' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("VersionName" Core..=) Core.<$> versionName,
-            ("DocumentVersion" Core..=) Core.<$> documentVersion,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("VersionName" Core..=) Prelude.<$> versionName,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath DescribeDocument where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDocument where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
   { -- | Information about the Systems Manager document.
-    document :: Core.Maybe DocumentDescription,
+    document :: Prelude.Maybe DocumentDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDocumentResponse' with all optional fields omitted.
@@ -169,20 +173,21 @@ data DescribeDocumentResponse = DescribeDocumentResponse'
 -- 'httpStatus', 'describeDocumentResponse_httpStatus' - The response's http status code.
 newDescribeDocumentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDocumentResponse
 newDescribeDocumentResponse pHttpStatus_ =
   DescribeDocumentResponse'
-    { document = Core.Nothing,
+    { document =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Systems Manager document.
-describeDocumentResponse_document :: Lens.Lens' DescribeDocumentResponse (Core.Maybe DocumentDescription)
+describeDocumentResponse_document :: Lens.Lens' DescribeDocumentResponse (Prelude.Maybe DocumentDescription)
 describeDocumentResponse_document = Lens.lens (\DescribeDocumentResponse' {document} -> document) (\s@DescribeDocumentResponse' {} a -> s {document = a} :: DescribeDocumentResponse)
 
 -- | The response's http status code.
-describeDocumentResponse_httpStatus :: Lens.Lens' DescribeDocumentResponse Core.Int
+describeDocumentResponse_httpStatus :: Lens.Lens' DescribeDocumentResponse Prelude.Int
 describeDocumentResponse_httpStatus = Lens.lens (\DescribeDocumentResponse' {httpStatus} -> httpStatus) (\s@DescribeDocumentResponse' {} a -> s {httpStatus = a} :: DescribeDocumentResponse)
 
-instance Core.NFData DescribeDocumentResponse
+instance Prelude.NFData DescribeDocumentResponse

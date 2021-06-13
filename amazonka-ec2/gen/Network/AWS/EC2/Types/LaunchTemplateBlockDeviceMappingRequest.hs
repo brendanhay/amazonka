@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LaunchTemplateEbsBlockDeviceRequest
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device mapping.
 --
@@ -30,20 +31,20 @@ import qualified Network.AWS.Lens as Lens
 data LaunchTemplateBlockDeviceMappingRequest = LaunchTemplateBlockDeviceMappingRequest'
   { -- | Parameters used to automatically set up EBS volumes when the instance is
     -- launched.
-    ebs :: Core.Maybe LaunchTemplateEbsBlockDeviceRequest,
+    ebs :: Prelude.Maybe LaunchTemplateEbsBlockDeviceRequest,
     -- | To omit the device from the block device mapping, specify an empty
     -- string.
-    noDevice :: Core.Maybe Core.Text,
+    noDevice :: Prelude.Maybe Prelude.Text,
     -- | The virtual device name (ephemeralN). Instance store volumes are
     -- numbered starting from 0. An instance type with 2 available instance
     -- store volumes can specify mappings for ephemeral0 and ephemeral1. The
     -- number of available instance store volumes depends on the instance type.
     -- After you connect to the instance, you must mount the volume.
-    virtualName :: Core.Maybe Core.Text,
+    virtualName :: Prelude.Maybe Prelude.Text,
     -- | The device name (for example, \/dev\/sdh or xvdh).
-    deviceName :: Core.Maybe Core.Text
+    deviceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateBlockDeviceMappingRequest' with all optional fields omitted.
@@ -71,20 +72,20 @@ newLaunchTemplateBlockDeviceMappingRequest ::
 newLaunchTemplateBlockDeviceMappingRequest =
   LaunchTemplateBlockDeviceMappingRequest'
     { ebs =
-        Core.Nothing,
-      noDevice = Core.Nothing,
-      virtualName = Core.Nothing,
-      deviceName = Core.Nothing
+        Prelude.Nothing,
+      noDevice = Prelude.Nothing,
+      virtualName = Prelude.Nothing,
+      deviceName = Prelude.Nothing
     }
 
 -- | Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
-launchTemplateBlockDeviceMappingRequest_ebs :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Core.Maybe LaunchTemplateEbsBlockDeviceRequest)
+launchTemplateBlockDeviceMappingRequest_ebs :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Prelude.Maybe LaunchTemplateEbsBlockDeviceRequest)
 launchTemplateBlockDeviceMappingRequest_ebs = Lens.lens (\LaunchTemplateBlockDeviceMappingRequest' {ebs} -> ebs) (\s@LaunchTemplateBlockDeviceMappingRequest' {} a -> s {ebs = a} :: LaunchTemplateBlockDeviceMappingRequest)
 
 -- | To omit the device from the block device mapping, specify an empty
 -- string.
-launchTemplateBlockDeviceMappingRequest_noDevice :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Core.Maybe Core.Text)
+launchTemplateBlockDeviceMappingRequest_noDevice :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Prelude.Maybe Prelude.Text)
 launchTemplateBlockDeviceMappingRequest_noDevice = Lens.lens (\LaunchTemplateBlockDeviceMappingRequest' {noDevice} -> noDevice) (\s@LaunchTemplateBlockDeviceMappingRequest' {} a -> s {noDevice = a} :: LaunchTemplateBlockDeviceMappingRequest)
 
 -- | The virtual device name (ephemeralN). Instance store volumes are
@@ -92,19 +93,19 @@ launchTemplateBlockDeviceMappingRequest_noDevice = Lens.lens (\LaunchTemplateBlo
 -- store volumes can specify mappings for ephemeral0 and ephemeral1. The
 -- number of available instance store volumes depends on the instance type.
 -- After you connect to the instance, you must mount the volume.
-launchTemplateBlockDeviceMappingRequest_virtualName :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Core.Maybe Core.Text)
+launchTemplateBlockDeviceMappingRequest_virtualName :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Prelude.Maybe Prelude.Text)
 launchTemplateBlockDeviceMappingRequest_virtualName = Lens.lens (\LaunchTemplateBlockDeviceMappingRequest' {virtualName} -> virtualName) (\s@LaunchTemplateBlockDeviceMappingRequest' {} a -> s {virtualName = a} :: LaunchTemplateBlockDeviceMappingRequest)
 
 -- | The device name (for example, \/dev\/sdh or xvdh).
-launchTemplateBlockDeviceMappingRequest_deviceName :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Core.Maybe Core.Text)
+launchTemplateBlockDeviceMappingRequest_deviceName :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Prelude.Maybe Prelude.Text)
 launchTemplateBlockDeviceMappingRequest_deviceName = Lens.lens (\LaunchTemplateBlockDeviceMappingRequest' {deviceName} -> deviceName) (\s@LaunchTemplateBlockDeviceMappingRequest' {} a -> s {deviceName = a} :: LaunchTemplateBlockDeviceMappingRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateBlockDeviceMappingRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateBlockDeviceMappingRequest
 
 instance
@@ -112,7 +113,7 @@ instance
     LaunchTemplateBlockDeviceMappingRequest
   where
   toQuery LaunchTemplateBlockDeviceMappingRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Ebs" Core.=: ebs,
         "NoDevice" Core.=: noDevice,
         "VirtualName" Core.=: virtualName,

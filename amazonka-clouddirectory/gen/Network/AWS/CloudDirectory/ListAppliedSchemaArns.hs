@@ -49,6 +49,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data ListAppliedSchemaArns = ListAppliedSchemaArns'
   { -- | The response for @ListAppliedSchemaArns@ when this parameter is used
     -- will list all minor version ARNs for a major version.
-    schemaArn :: Core.Maybe Core.Text,
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to retrieve.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the directory you are listing.
-    directoryArn :: Core.Text
+    directoryArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAppliedSchemaArns' with all optional fields omitted.
@@ -84,31 +85,31 @@ data ListAppliedSchemaArns = ListAppliedSchemaArns'
 -- 'directoryArn', 'listAppliedSchemaArns_directoryArn' - The ARN of the directory you are listing.
 newListAppliedSchemaArns ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   ListAppliedSchemaArns
 newListAppliedSchemaArns pDirectoryArn_ =
   ListAppliedSchemaArns'
-    { schemaArn = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { schemaArn = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       directoryArn = pDirectoryArn_
     }
 
 -- | The response for @ListAppliedSchemaArns@ when this parameter is used
 -- will list all minor version ARNs for a major version.
-listAppliedSchemaArns_schemaArn :: Lens.Lens' ListAppliedSchemaArns (Core.Maybe Core.Text)
+listAppliedSchemaArns_schemaArn :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Text)
 listAppliedSchemaArns_schemaArn = Lens.lens (\ListAppliedSchemaArns' {schemaArn} -> schemaArn) (\s@ListAppliedSchemaArns' {} a -> s {schemaArn = a} :: ListAppliedSchemaArns)
 
 -- | The pagination token.
-listAppliedSchemaArns_nextToken :: Lens.Lens' ListAppliedSchemaArns (Core.Maybe Core.Text)
+listAppliedSchemaArns_nextToken :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Text)
 listAppliedSchemaArns_nextToken = Lens.lens (\ListAppliedSchemaArns' {nextToken} -> nextToken) (\s@ListAppliedSchemaArns' {} a -> s {nextToken = a} :: ListAppliedSchemaArns)
 
 -- | The maximum number of results to retrieve.
-listAppliedSchemaArns_maxResults :: Lens.Lens' ListAppliedSchemaArns (Core.Maybe Core.Natural)
+listAppliedSchemaArns_maxResults :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Natural)
 listAppliedSchemaArns_maxResults = Lens.lens (\ListAppliedSchemaArns' {maxResults} -> maxResults) (\s@ListAppliedSchemaArns' {} a -> s {maxResults = a} :: ListAppliedSchemaArns)
 
 -- | The ARN of the directory you are listing.
-listAppliedSchemaArns_directoryArn :: Lens.Lens' ListAppliedSchemaArns Core.Text
+listAppliedSchemaArns_directoryArn :: Lens.Lens' ListAppliedSchemaArns Prelude.Text
 listAppliedSchemaArns_directoryArn = Lens.lens (\ListAppliedSchemaArns' {directoryArn} -> directoryArn) (\s@ListAppliedSchemaArns' {} a -> s {directoryArn = a} :: ListAppliedSchemaArns)
 
 instance Core.AWSPager ListAppliedSchemaArns where
@@ -116,22 +117,22 @@ instance Core.AWSPager ListAppliedSchemaArns where
     | Core.stop
         ( rs
             Lens.^? listAppliedSchemaArnsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAppliedSchemaArnsResponse_schemaArns
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAppliedSchemaArns_nextToken
+          Prelude.& listAppliedSchemaArns_nextToken
           Lens..~ rs
           Lens.^? listAppliedSchemaArnsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAppliedSchemaArns where
   type
@@ -142,47 +143,47 @@ instance Core.AWSRequest ListAppliedSchemaArns where
     Response.receiveJSON
       ( \s h x ->
           ListAppliedSchemaArnsResponse'
-            Core.<$> (x Core..?> "SchemaArns" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAppliedSchemaArns
+instance Prelude.Hashable ListAppliedSchemaArns
 
-instance Core.NFData ListAppliedSchemaArns
+instance Prelude.NFData ListAppliedSchemaArns
 
 instance Core.ToHeaders ListAppliedSchemaArns where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON ListAppliedSchemaArns where
   toJSON ListAppliedSchemaArns' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SchemaArn" Core..=) Core.<$> schemaArn,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("DirectoryArn" Core..= directoryArn)
+      ( Prelude.catMaybes
+          [ ("SchemaArn" Core..=) Prelude.<$> schemaArn,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("DirectoryArn" Core..= directoryArn)
           ]
       )
 
 instance Core.ToPath ListAppliedSchemaArns where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/applied"
 
 instance Core.ToQuery ListAppliedSchemaArns where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAppliedSchemaArnsResponse' smart constructor.
 data ListAppliedSchemaArnsResponse = ListAppliedSchemaArnsResponse'
   { -- | The ARNs of schemas that are applied to the directory.
-    schemaArns :: Core.Maybe [Core.Text],
+    schemaArns :: Prelude.Maybe [Prelude.Text],
     -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAppliedSchemaArnsResponse' with all optional fields omitted.
@@ -199,26 +200,26 @@ data ListAppliedSchemaArnsResponse = ListAppliedSchemaArnsResponse'
 -- 'httpStatus', 'listAppliedSchemaArnsResponse_httpStatus' - The response's http status code.
 newListAppliedSchemaArnsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAppliedSchemaArnsResponse
 newListAppliedSchemaArnsResponse pHttpStatus_ =
   ListAppliedSchemaArnsResponse'
     { schemaArns =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARNs of schemas that are applied to the directory.
-listAppliedSchemaArnsResponse_schemaArns :: Lens.Lens' ListAppliedSchemaArnsResponse (Core.Maybe [Core.Text])
-listAppliedSchemaArnsResponse_schemaArns = Lens.lens (\ListAppliedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListAppliedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListAppliedSchemaArnsResponse) Core.. Lens.mapping Lens._Coerce
+listAppliedSchemaArnsResponse_schemaArns :: Lens.Lens' ListAppliedSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
+listAppliedSchemaArnsResponse_schemaArns = Lens.lens (\ListAppliedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListAppliedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListAppliedSchemaArnsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token.
-listAppliedSchemaArnsResponse_nextToken :: Lens.Lens' ListAppliedSchemaArnsResponse (Core.Maybe Core.Text)
+listAppliedSchemaArnsResponse_nextToken :: Lens.Lens' ListAppliedSchemaArnsResponse (Prelude.Maybe Prelude.Text)
 listAppliedSchemaArnsResponse_nextToken = Lens.lens (\ListAppliedSchemaArnsResponse' {nextToken} -> nextToken) (\s@ListAppliedSchemaArnsResponse' {} a -> s {nextToken = a} :: ListAppliedSchemaArnsResponse)
 
 -- | The response's http status code.
-listAppliedSchemaArnsResponse_httpStatus :: Lens.Lens' ListAppliedSchemaArnsResponse Core.Int
+listAppliedSchemaArnsResponse_httpStatus :: Lens.Lens' ListAppliedSchemaArnsResponse Prelude.Int
 listAppliedSchemaArnsResponse_httpStatus = Lens.lens (\ListAppliedSchemaArnsResponse' {httpStatus} -> httpStatus) (\s@ListAppliedSchemaArnsResponse' {} a -> s {httpStatus = a} :: ListAppliedSchemaArnsResponse)
 
-instance Core.NFData ListAppliedSchemaArnsResponse
+instance Prelude.NFData ListAppliedSchemaArnsResponse

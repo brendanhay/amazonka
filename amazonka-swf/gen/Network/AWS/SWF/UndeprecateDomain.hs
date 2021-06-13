@@ -62,6 +62,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -69,9 +70,9 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newUndeprecateDomain' smart constructor.
 data UndeprecateDomain = UndeprecateDomain'
   { -- | The name of the domain of the deprecated workflow type.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UndeprecateDomain' with all optional fields omitted.
@@ -84,13 +85,13 @@ data UndeprecateDomain = UndeprecateDomain'
 -- 'name', 'undeprecateDomain_name' - The name of the domain of the deprecated workflow type.
 newUndeprecateDomain ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UndeprecateDomain
 newUndeprecateDomain pName_ =
   UndeprecateDomain' {name = pName_}
 
 -- | The name of the domain of the deprecated workflow type.
-undeprecateDomain_name :: Lens.Lens' UndeprecateDomain Core.Text
+undeprecateDomain_name :: Lens.Lens' UndeprecateDomain Prelude.Text
 undeprecateDomain_name = Lens.lens (\UndeprecateDomain' {name} -> name) (\s@UndeprecateDomain' {} a -> s {name = a} :: UndeprecateDomain)
 
 instance Core.AWSRequest UndeprecateDomain where
@@ -101,39 +102,43 @@ instance Core.AWSRequest UndeprecateDomain where
   response =
     Response.receiveNull UndeprecateDomainResponse'
 
-instance Core.Hashable UndeprecateDomain
+instance Prelude.Hashable UndeprecateDomain
 
-instance Core.NFData UndeprecateDomain
+instance Prelude.NFData UndeprecateDomain
 
 instance Core.ToHeaders UndeprecateDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.UndeprecateDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UndeprecateDomain where
   toJSON UndeprecateDomain' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("name" Core..= name)]
+      )
 
 instance Core.ToPath UndeprecateDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UndeprecateDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUndeprecateDomainResponse' smart constructor.
 data UndeprecateDomainResponse = UndeprecateDomainResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UndeprecateDomainResponse' with all optional fields omitted.
@@ -144,4 +149,4 @@ newUndeprecateDomainResponse ::
 newUndeprecateDomainResponse =
   UndeprecateDomainResponse'
 
-instance Core.NFData UndeprecateDomainResponse
+instance Prelude.NFData UndeprecateDomainResponse

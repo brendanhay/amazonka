@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -49,13 +50,13 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newAssociateDelegateToResource' smart constructor.
 data AssociateDelegateToResource = AssociateDelegateToResource'
   { -- | The organization under which the resource exists.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The resource for which members (users or groups) are associated.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The member (user or group) to associate to the resource.
-    entityId :: Core.Text
+    entityId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateDelegateToResource' with all optional fields omitted.
@@ -72,11 +73,11 @@ data AssociateDelegateToResource = AssociateDelegateToResource'
 -- 'entityId', 'associateDelegateToResource_entityId' - The member (user or group) to associate to the resource.
 newAssociateDelegateToResource ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'entityId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateDelegateToResource
 newAssociateDelegateToResource
   pOrganizationId_
@@ -90,15 +91,15 @@ newAssociateDelegateToResource
       }
 
 -- | The organization under which the resource exists.
-associateDelegateToResource_organizationId :: Lens.Lens' AssociateDelegateToResource Core.Text
+associateDelegateToResource_organizationId :: Lens.Lens' AssociateDelegateToResource Prelude.Text
 associateDelegateToResource_organizationId = Lens.lens (\AssociateDelegateToResource' {organizationId} -> organizationId) (\s@AssociateDelegateToResource' {} a -> s {organizationId = a} :: AssociateDelegateToResource)
 
 -- | The resource for which members (users or groups) are associated.
-associateDelegateToResource_resourceId :: Lens.Lens' AssociateDelegateToResource Core.Text
+associateDelegateToResource_resourceId :: Lens.Lens' AssociateDelegateToResource Prelude.Text
 associateDelegateToResource_resourceId = Lens.lens (\AssociateDelegateToResource' {resourceId} -> resourceId) (\s@AssociateDelegateToResource' {} a -> s {resourceId = a} :: AssociateDelegateToResource)
 
 -- | The member (user or group) to associate to the resource.
-associateDelegateToResource_entityId :: Lens.Lens' AssociateDelegateToResource Core.Text
+associateDelegateToResource_entityId :: Lens.Lens' AssociateDelegateToResource Prelude.Text
 associateDelegateToResource_entityId = Lens.lens (\AssociateDelegateToResource' {entityId} -> entityId) (\s@AssociateDelegateToResource' {} a -> s {entityId = a} :: AssociateDelegateToResource)
 
 instance Core.AWSRequest AssociateDelegateToResource where
@@ -110,48 +111,51 @@ instance Core.AWSRequest AssociateDelegateToResource where
     Response.receiveEmpty
       ( \s h x ->
           AssociateDelegateToResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateDelegateToResource
+instance Prelude.Hashable AssociateDelegateToResource
 
-instance Core.NFData AssociateDelegateToResource
+instance Prelude.NFData AssociateDelegateToResource
 
 instance Core.ToHeaders AssociateDelegateToResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.AssociateDelegateToResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateDelegateToResource where
   toJSON AssociateDelegateToResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("EntityId" Core..= entityId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("EntityId" Core..= entityId)
           ]
       )
 
 instance Core.ToPath AssociateDelegateToResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateDelegateToResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateDelegateToResourceResponse' smart constructor.
 data AssociateDelegateToResourceResponse = AssociateDelegateToResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateDelegateToResourceResponse' with all optional fields omitted.
@@ -164,7 +168,7 @@ data AssociateDelegateToResourceResponse = AssociateDelegateToResourceResponse'
 -- 'httpStatus', 'associateDelegateToResourceResponse_httpStatus' - The response's http status code.
 newAssociateDelegateToResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateDelegateToResourceResponse
 newAssociateDelegateToResourceResponse pHttpStatus_ =
   AssociateDelegateToResourceResponse'
@@ -173,9 +177,9 @@ newAssociateDelegateToResourceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateDelegateToResourceResponse_httpStatus :: Lens.Lens' AssociateDelegateToResourceResponse Core.Int
+associateDelegateToResourceResponse_httpStatus :: Lens.Lens' AssociateDelegateToResourceResponse Prelude.Int
 associateDelegateToResourceResponse_httpStatus = Lens.lens (\AssociateDelegateToResourceResponse' {httpStatus} -> httpStatus) (\s@AssociateDelegateToResourceResponse' {} a -> s {httpStatus = a} :: AssociateDelegateToResourceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateDelegateToResourceResponse

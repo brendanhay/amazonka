@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The authorization configuration details for Amazon FSx for Windows File
 -- Server file system. See
@@ -37,13 +38,13 @@ data FSxWindowsFileServerAuthorizationConfig = FSxWindowsFileServerAuthorization
     -- options can be provided using either the Amazon Resource Name (ARN) of
     -- an AWS Secrets Manager secret or AWS Systems Manager Parameter Store
     -- parameter. The ARNs refer to the stored credentials.
-    credentialsParameter :: Core.Text,
+    credentialsParameter :: Prelude.Text,
     -- | A fully qualified domain name hosted by an
     -- <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Directory Service>
     -- Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-    domain :: Core.Text
+    domain :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FSxWindowsFileServerAuthorizationConfig' with all optional fields omitted.
@@ -63,9 +64,9 @@ data FSxWindowsFileServerAuthorizationConfig = FSxWindowsFileServerAuthorization
 -- Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 newFSxWindowsFileServerAuthorizationConfig ::
   -- | 'credentialsParameter'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'domain'
-  Core.Text ->
+  Prelude.Text ->
   FSxWindowsFileServerAuthorizationConfig
 newFSxWindowsFileServerAuthorizationConfig
   pCredentialsParameter_
@@ -80,13 +81,13 @@ newFSxWindowsFileServerAuthorizationConfig
 -- options can be provided using either the Amazon Resource Name (ARN) of
 -- an AWS Secrets Manager secret or AWS Systems Manager Parameter Store
 -- parameter. The ARNs refer to the stored credentials.
-fSxWindowsFileServerAuthorizationConfig_credentialsParameter :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Core.Text
+fSxWindowsFileServerAuthorizationConfig_credentialsParameter :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Prelude.Text
 fSxWindowsFileServerAuthorizationConfig_credentialsParameter = Lens.lens (\FSxWindowsFileServerAuthorizationConfig' {credentialsParameter} -> credentialsParameter) (\s@FSxWindowsFileServerAuthorizationConfig' {} a -> s {credentialsParameter = a} :: FSxWindowsFileServerAuthorizationConfig)
 
 -- | A fully qualified domain name hosted by an
 -- <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Directory Service>
 -- Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-fSxWindowsFileServerAuthorizationConfig_domain :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Core.Text
+fSxWindowsFileServerAuthorizationConfig_domain :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Prelude.Text
 fSxWindowsFileServerAuthorizationConfig_domain = Lens.lens (\FSxWindowsFileServerAuthorizationConfig' {domain} -> domain) (\s@FSxWindowsFileServerAuthorizationConfig' {} a -> s {domain = a} :: FSxWindowsFileServerAuthorizationConfig)
 
 instance
@@ -98,16 +99,16 @@ instance
       "FSxWindowsFileServerAuthorizationConfig"
       ( \x ->
           FSxWindowsFileServerAuthorizationConfig'
-            Core.<$> (x Core..: "credentialsParameter")
-            Core.<*> (x Core..: "domain")
+            Prelude.<$> (x Core..: "credentialsParameter")
+            Prelude.<*> (x Core..: "domain")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FSxWindowsFileServerAuthorizationConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     FSxWindowsFileServerAuthorizationConfig
 
 instance
@@ -116,11 +117,11 @@ instance
   where
   toJSON FSxWindowsFileServerAuthorizationConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "credentialsParameter"
                   Core..= credentialsParameter
               ),
-            Core.Just ("domain" Core..= domain)
+            Prelude.Just ("domain" Core..= domain)
           ]
       )

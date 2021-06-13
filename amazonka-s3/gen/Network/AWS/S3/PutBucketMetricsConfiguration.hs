@@ -72,6 +72,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -81,15 +82,15 @@ data PutBucketMetricsConfiguration = PutBucketMetricsConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which the metrics configuration is set.
     bucket :: BucketName,
     -- | The ID used to identify the metrics configuration.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | Specifies the metrics configuration.
     metricsConfiguration :: MetricsConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketMetricsConfiguration' with all optional fields omitted.
@@ -112,7 +113,7 @@ newPutBucketMetricsConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricsConfiguration'
   MetricsConfiguration ->
   PutBucketMetricsConfiguration
@@ -122,7 +123,7 @@ newPutBucketMetricsConfiguration
   pMetricsConfiguration_ =
     PutBucketMetricsConfiguration'
       { expectedBucketOwner =
-          Core.Nothing,
+          Prelude.Nothing,
         bucket = pBucket_,
         id = pId_,
         metricsConfiguration =
@@ -132,7 +133,7 @@ newPutBucketMetricsConfiguration
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketMetricsConfiguration (Core.Maybe Core.Text)
+putBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketMetricsConfiguration (Prelude.Maybe Prelude.Text)
 putBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\PutBucketMetricsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketMetricsConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketMetricsConfiguration)
 
 -- | The name of the bucket for which the metrics configuration is set.
@@ -140,7 +141,7 @@ putBucketMetricsConfiguration_bucket :: Lens.Lens' PutBucketMetricsConfiguration
 putBucketMetricsConfiguration_bucket = Lens.lens (\PutBucketMetricsConfiguration' {bucket} -> bucket) (\s@PutBucketMetricsConfiguration' {} a -> s {bucket = a} :: PutBucketMetricsConfiguration)
 
 -- | The ID used to identify the metrics configuration.
-putBucketMetricsConfiguration_id :: Lens.Lens' PutBucketMetricsConfiguration Core.Text
+putBucketMetricsConfiguration_id :: Lens.Lens' PutBucketMetricsConfiguration Prelude.Text
 putBucketMetricsConfiguration_id = Lens.lens (\PutBucketMetricsConfiguration' {id} -> id) (\s@PutBucketMetricsConfiguration' {} a -> s {id = a} :: PutBucketMetricsConfiguration)
 
 -- | Specifies the metrics configuration.
@@ -159,9 +160,11 @@ instance
     Response.receiveNull
       PutBucketMetricsConfigurationResponse'
 
-instance Core.Hashable PutBucketMetricsConfiguration
+instance
+  Prelude.Hashable
+    PutBucketMetricsConfiguration
 
-instance Core.NFData PutBucketMetricsConfiguration
+instance Prelude.NFData PutBucketMetricsConfiguration
 
 instance Core.ToElement PutBucketMetricsConfiguration where
   toElement PutBucketMetricsConfiguration' {..} =
@@ -171,24 +174,24 @@ instance Core.ToElement PutBucketMetricsConfiguration where
 
 instance Core.ToHeaders PutBucketMetricsConfiguration where
   toHeaders PutBucketMetricsConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketMetricsConfiguration where
   toPath PutBucketMetricsConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutBucketMetricsConfiguration where
   toQuery PutBucketMetricsConfiguration' {..} =
-    Core.mconcat ["id" Core.=: id, "metrics"]
+    Prelude.mconcat ["id" Core.=: id, "metrics"]
 
 -- | /See:/ 'newPutBucketMetricsConfigurationResponse' smart constructor.
 data PutBucketMetricsConfigurationResponse = PutBucketMetricsConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketMetricsConfigurationResponse' with all optional fields omitted.
@@ -200,5 +203,5 @@ newPutBucketMetricsConfigurationResponse =
   PutBucketMetricsConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutBucketMetricsConfigurationResponse

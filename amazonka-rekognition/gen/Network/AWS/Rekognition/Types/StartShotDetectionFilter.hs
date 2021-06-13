@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.StartShotDetectionFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters for the shot detection segments returned by
 -- @GetSegmentDetection@. For more information, see
@@ -38,9 +39,9 @@ data StartShotDetectionFilter = StartShotDetectionFilter'
     -- If you don\'t specify @MinSegmentConfidence@, the @GetSegmentDetection@
     -- returns segments with confidence values greater than or equal to 50
     -- percent.
-    minSegmentConfidence :: Core.Maybe Core.Double
+    minSegmentConfidence :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartShotDetectionFilter' with all optional fields omitted.
@@ -65,7 +66,7 @@ newStartShotDetectionFilter ::
 newStartShotDetectionFilter =
   StartShotDetectionFilter'
     { minSegmentConfidence =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies the minimum confidence that Amazon Rekognition Video must have
@@ -78,18 +79,18 @@ newStartShotDetectionFilter =
 -- If you don\'t specify @MinSegmentConfidence@, the @GetSegmentDetection@
 -- returns segments with confidence values greater than or equal to 50
 -- percent.
-startShotDetectionFilter_minSegmentConfidence :: Lens.Lens' StartShotDetectionFilter (Core.Maybe Core.Double)
+startShotDetectionFilter_minSegmentConfidence :: Lens.Lens' StartShotDetectionFilter (Prelude.Maybe Prelude.Double)
 startShotDetectionFilter_minSegmentConfidence = Lens.lens (\StartShotDetectionFilter' {minSegmentConfidence} -> minSegmentConfidence) (\s@StartShotDetectionFilter' {} a -> s {minSegmentConfidence = a} :: StartShotDetectionFilter)
 
-instance Core.Hashable StartShotDetectionFilter
+instance Prelude.Hashable StartShotDetectionFilter
 
-instance Core.NFData StartShotDetectionFilter
+instance Prelude.NFData StartShotDetectionFilter
 
 instance Core.ToJSON StartShotDetectionFilter where
   toJSON StartShotDetectionFilter' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MinSegmentConfidence" Core..=)
-              Core.<$> minSegmentConfidence
+              Prelude.<$> minSegmentConfidence
           ]
       )

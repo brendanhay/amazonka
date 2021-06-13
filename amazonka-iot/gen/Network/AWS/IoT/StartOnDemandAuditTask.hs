@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ data StartOnDemandAuditTask = StartOnDemandAuditTask'
     -- @DescribeAccountAuditConfiguration@ to see the list of all checks,
     -- including those that are enabled or @UpdateAccountAuditConfiguration@ to
     -- select which checks are enabled.
-    targetCheckNames :: [Core.Text]
+    targetCheckNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartOnDemandAuditTask' with all optional fields omitted.
@@ -74,7 +75,7 @@ newStartOnDemandAuditTask ::
 newStartOnDemandAuditTask =
   StartOnDemandAuditTask'
     { targetCheckNames =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | Which checks are performed during the audit. The checks you specify must
@@ -82,8 +83,8 @@ newStartOnDemandAuditTask =
 -- @DescribeAccountAuditConfiguration@ to see the list of all checks,
 -- including those that are enabled or @UpdateAccountAuditConfiguration@ to
 -- select which checks are enabled.
-startOnDemandAuditTask_targetCheckNames :: Lens.Lens' StartOnDemandAuditTask [Core.Text]
-startOnDemandAuditTask_targetCheckNames = Lens.lens (\StartOnDemandAuditTask' {targetCheckNames} -> targetCheckNames) (\s@StartOnDemandAuditTask' {} a -> s {targetCheckNames = a} :: StartOnDemandAuditTask) Core.. Lens._Coerce
+startOnDemandAuditTask_targetCheckNames :: Lens.Lens' StartOnDemandAuditTask [Prelude.Text]
+startOnDemandAuditTask_targetCheckNames = Lens.lens (\StartOnDemandAuditTask' {targetCheckNames} -> targetCheckNames) (\s@StartOnDemandAuditTask' {} a -> s {targetCheckNames = a} :: StartOnDemandAuditTask) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest StartOnDemandAuditTask where
   type
@@ -94,40 +95,40 @@ instance Core.AWSRequest StartOnDemandAuditTask where
     Response.receiveJSON
       ( \s h x ->
           StartOnDemandAuditTaskResponse'
-            Core.<$> (x Core..?> "taskId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "taskId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartOnDemandAuditTask
+instance Prelude.Hashable StartOnDemandAuditTask
 
-instance Core.NFData StartOnDemandAuditTask
+instance Prelude.NFData StartOnDemandAuditTask
 
 instance Core.ToHeaders StartOnDemandAuditTask where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON StartOnDemandAuditTask where
   toJSON StartOnDemandAuditTask' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("targetCheckNames" Core..= targetCheckNames)
           ]
       )
 
 instance Core.ToPath StartOnDemandAuditTask where
-  toPath = Core.const "/audit/tasks"
+  toPath = Prelude.const "/audit/tasks"
 
 instance Core.ToQuery StartOnDemandAuditTask where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartOnDemandAuditTaskResponse' smart constructor.
 data StartOnDemandAuditTaskResponse = StartOnDemandAuditTaskResponse'
   { -- | The ID of the on-demand audit you started.
-    taskId :: Core.Maybe Core.Text,
+    taskId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartOnDemandAuditTaskResponse' with all optional fields omitted.
@@ -142,21 +143,23 @@ data StartOnDemandAuditTaskResponse = StartOnDemandAuditTaskResponse'
 -- 'httpStatus', 'startOnDemandAuditTaskResponse_httpStatus' - The response's http status code.
 newStartOnDemandAuditTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartOnDemandAuditTaskResponse
 newStartOnDemandAuditTaskResponse pHttpStatus_ =
   StartOnDemandAuditTaskResponse'
     { taskId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the on-demand audit you started.
-startOnDemandAuditTaskResponse_taskId :: Lens.Lens' StartOnDemandAuditTaskResponse (Core.Maybe Core.Text)
+startOnDemandAuditTaskResponse_taskId :: Lens.Lens' StartOnDemandAuditTaskResponse (Prelude.Maybe Prelude.Text)
 startOnDemandAuditTaskResponse_taskId = Lens.lens (\StartOnDemandAuditTaskResponse' {taskId} -> taskId) (\s@StartOnDemandAuditTaskResponse' {} a -> s {taskId = a} :: StartOnDemandAuditTaskResponse)
 
 -- | The response's http status code.
-startOnDemandAuditTaskResponse_httpStatus :: Lens.Lens' StartOnDemandAuditTaskResponse Core.Int
+startOnDemandAuditTaskResponse_httpStatus :: Lens.Lens' StartOnDemandAuditTaskResponse Prelude.Int
 startOnDemandAuditTaskResponse_httpStatus = Lens.lens (\StartOnDemandAuditTaskResponse' {httpStatus} -> httpStatus) (\s@StartOnDemandAuditTaskResponse' {} a -> s {httpStatus = a} :: StartOnDemandAuditTaskResponse)
 
-instance Core.NFData StartOnDemandAuditTaskResponse
+instance
+  Prelude.NFData
+    StartOnDemandAuditTaskResponse

@@ -21,15 +21,16 @@ module Network.AWS.Connect.Types.InstanceStatusReason where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Relevant details why the instance was not successfully created.
 --
 -- /See:/ 'newInstanceStatusReason' smart constructor.
 data InstanceStatusReason = InstanceStatusReason'
   { -- | The message.
-    message :: Core.Maybe Core.Text
+    message :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceStatusReason' with all optional fields omitted.
@@ -43,10 +44,10 @@ data InstanceStatusReason = InstanceStatusReason'
 newInstanceStatusReason ::
   InstanceStatusReason
 newInstanceStatusReason =
-  InstanceStatusReason' {message = Core.Nothing}
+  InstanceStatusReason' {message = Prelude.Nothing}
 
 -- | The message.
-instanceStatusReason_message :: Lens.Lens' InstanceStatusReason (Core.Maybe Core.Text)
+instanceStatusReason_message :: Lens.Lens' InstanceStatusReason (Prelude.Maybe Prelude.Text)
 instanceStatusReason_message = Lens.lens (\InstanceStatusReason' {message} -> message) (\s@InstanceStatusReason' {} a -> s {message = a} :: InstanceStatusReason)
 
 instance Core.FromJSON InstanceStatusReason where
@@ -55,9 +56,9 @@ instance Core.FromJSON InstanceStatusReason where
       "InstanceStatusReason"
       ( \x ->
           InstanceStatusReason'
-            Core.<$> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
       )
 
-instance Core.Hashable InstanceStatusReason
+instance Prelude.Hashable InstanceStatusReason
 
-instance Core.NFData InstanceStatusReason
+instance Prelude.NFData InstanceStatusReason

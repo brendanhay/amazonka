@@ -22,6 +22,7 @@ module Network.AWS.CodeBuild.Types.WebhookFilter where
 import Network.AWS.CodeBuild.Types.WebhookFilterType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter used to determine which webhooks trigger a build.
 --
@@ -31,7 +32,7 @@ data WebhookFilter = WebhookFilter'
     -- not trigger a build. If true, then a webhook event that does not match
     -- the @pattern@ triggers a build. If false, then a webhook event that
     -- matches the @pattern@ triggers a build.
-    excludeMatchedPattern :: Core.Maybe Core.Bool,
+    excludeMatchedPattern :: Prelude.Maybe Prelude.Bool,
     -- | The type of webhook filter. There are six webhook filter types: @EVENT@,
     -- @ACTOR_ACCOUNT_ID@, @HEAD_REF@, @BASE_REF@, @FILE_PATH@, and
     -- @COMMIT_MESSAGE@.
@@ -94,9 +95,9 @@ data WebhookFilter = WebhookFilter'
     -- for its @type@ and the pattern @^refs\/heads\/@ triggers a build when
     -- the head reference is a branch with a reference name
     -- @refs\/heads\/branch-name@.
-    pattern' :: Core.Text
+    pattern' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WebhookFilter' with all optional fields omitted.
@@ -177,12 +178,12 @@ newWebhookFilter ::
   -- | 'type''
   WebhookFilterType ->
   -- | 'pattern''
-  Core.Text ->
+  Prelude.Text ->
   WebhookFilter
 newWebhookFilter pType_ pPattern_ =
   WebhookFilter'
     { excludeMatchedPattern =
-        Core.Nothing,
+        Prelude.Nothing,
       type' = pType_,
       pattern' = pPattern_
     }
@@ -191,7 +192,7 @@ newWebhookFilter pType_ pPattern_ =
 -- not trigger a build. If true, then a webhook event that does not match
 -- the @pattern@ triggers a build. If false, then a webhook event that
 -- matches the @pattern@ triggers a build.
-webhookFilter_excludeMatchedPattern :: Lens.Lens' WebhookFilter (Core.Maybe Core.Bool)
+webhookFilter_excludeMatchedPattern :: Lens.Lens' WebhookFilter (Prelude.Maybe Prelude.Bool)
 webhookFilter_excludeMatchedPattern = Lens.lens (\WebhookFilter' {excludeMatchedPattern} -> excludeMatchedPattern) (\s@WebhookFilter' {} a -> s {excludeMatchedPattern = a} :: WebhookFilter)
 
 -- | The type of webhook filter. There are six webhook filter types: @EVENT@,
@@ -258,7 +259,7 @@ webhookFilter_type = Lens.lens (\WebhookFilter' {type'} -> type') (\s@WebhookFil
 -- for its @type@ and the pattern @^refs\/heads\/@ triggers a build when
 -- the head reference is a branch with a reference name
 -- @refs\/heads\/branch-name@.
-webhookFilter_pattern :: Lens.Lens' WebhookFilter Core.Text
+webhookFilter_pattern :: Lens.Lens' WebhookFilter Prelude.Text
 webhookFilter_pattern = Lens.lens (\WebhookFilter' {pattern'} -> pattern') (\s@WebhookFilter' {} a -> s {pattern' = a} :: WebhookFilter)
 
 instance Core.FromJSON WebhookFilter where
@@ -267,22 +268,22 @@ instance Core.FromJSON WebhookFilter where
       "WebhookFilter"
       ( \x ->
           WebhookFilter'
-            Core.<$> (x Core..:? "excludeMatchedPattern")
-            Core.<*> (x Core..: "type")
-            Core.<*> (x Core..: "pattern")
+            Prelude.<$> (x Core..:? "excludeMatchedPattern")
+            Prelude.<*> (x Core..: "type")
+            Prelude.<*> (x Core..: "pattern")
       )
 
-instance Core.Hashable WebhookFilter
+instance Prelude.Hashable WebhookFilter
 
-instance Core.NFData WebhookFilter
+instance Prelude.NFData WebhookFilter
 
 instance Core.ToJSON WebhookFilter where
   toJSON WebhookFilter' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("excludeMatchedPattern" Core..=)
-              Core.<$> excludeMatchedPattern,
-            Core.Just ("type" Core..= type'),
-            Core.Just ("pattern" Core..= pattern')
+              Prelude.<$> excludeMatchedPattern,
+            Prelude.Just ("type" Core..= type'),
+            Prelude.Just ("pattern" Core..= pattern')
           ]
       )

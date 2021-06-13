@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.TeletextSourceSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings specific to Teletext caption sources, including Page number.
 --
@@ -29,9 +30,9 @@ data TeletextSourceSettings = TeletextSourceSettings'
   { -- | Use Page Number (PageNumber) to specify the three-digit hexadecimal page
     -- number that will be used for Teletext captions. Do not use this setting
     -- if you are passing through teletext from the input source to output.
-    pageNumber :: Core.Maybe Core.Text
+    pageNumber :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TeletextSourceSettings' with all optional fields omitted.
@@ -47,12 +48,15 @@ data TeletextSourceSettings = TeletextSourceSettings'
 newTeletextSourceSettings ::
   TeletextSourceSettings
 newTeletextSourceSettings =
-  TeletextSourceSettings' {pageNumber = Core.Nothing}
+  TeletextSourceSettings'
+    { pageNumber =
+        Prelude.Nothing
+    }
 
 -- | Use Page Number (PageNumber) to specify the three-digit hexadecimal page
 -- number that will be used for Teletext captions. Do not use this setting
 -- if you are passing through teletext from the input source to output.
-teletextSourceSettings_pageNumber :: Lens.Lens' TeletextSourceSettings (Core.Maybe Core.Text)
+teletextSourceSettings_pageNumber :: Lens.Lens' TeletextSourceSettings (Prelude.Maybe Prelude.Text)
 teletextSourceSettings_pageNumber = Lens.lens (\TeletextSourceSettings' {pageNumber} -> pageNumber) (\s@TeletextSourceSettings' {} a -> s {pageNumber = a} :: TeletextSourceSettings)
 
 instance Core.FromJSON TeletextSourceSettings where
@@ -61,16 +65,16 @@ instance Core.FromJSON TeletextSourceSettings where
       "TeletextSourceSettings"
       ( \x ->
           TeletextSourceSettings'
-            Core.<$> (x Core..:? "pageNumber")
+            Prelude.<$> (x Core..:? "pageNumber")
       )
 
-instance Core.Hashable TeletextSourceSettings
+instance Prelude.Hashable TeletextSourceSettings
 
-instance Core.NFData TeletextSourceSettings
+instance Prelude.NFData TeletextSourceSettings
 
 instance Core.ToJSON TeletextSourceSettings where
   toJSON TeletextSourceSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pageNumber" Core..=) Core.<$> pageNumber]
+      ( Prelude.catMaybes
+          [("pageNumber" Core..=) Prelude.<$> pageNumber]
       )

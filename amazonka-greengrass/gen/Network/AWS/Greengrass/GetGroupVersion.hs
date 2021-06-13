@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +59,11 @@ data GetGroupVersion = GetGroupVersion'
     -- last one that was associated with a group, the value also maps to the
     -- \'\'LatestVersion\'\' property of the corresponding
     -- \'\'GroupInformation\'\' object.
-    groupVersionId :: Core.Text,
+    groupVersionId :: Prelude.Text,
     -- | The ID of the Greengrass group.
-    groupId :: Core.Text
+    groupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroupVersion' with all optional fields omitted.
@@ -82,9 +83,9 @@ data GetGroupVersion = GetGroupVersion'
 -- 'groupId', 'getGroupVersion_groupId' - The ID of the Greengrass group.
 newGetGroupVersion ::
   -- | 'groupVersionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   GetGroupVersion
 newGetGroupVersion pGroupVersionId_ pGroupId_ =
   GetGroupVersion'
@@ -98,11 +99,11 @@ newGetGroupVersion pGroupVersionId_ pGroupId_ =
 -- last one that was associated with a group, the value also maps to the
 -- \'\'LatestVersion\'\' property of the corresponding
 -- \'\'GroupInformation\'\' object.
-getGroupVersion_groupVersionId :: Lens.Lens' GetGroupVersion Core.Text
+getGroupVersion_groupVersionId :: Lens.Lens' GetGroupVersion Prelude.Text
 getGroupVersion_groupVersionId = Lens.lens (\GetGroupVersion' {groupVersionId} -> groupVersionId) (\s@GetGroupVersion' {} a -> s {groupVersionId = a} :: GetGroupVersion)
 
 -- | The ID of the Greengrass group.
-getGroupVersion_groupId :: Lens.Lens' GetGroupVersion Core.Text
+getGroupVersion_groupId :: Lens.Lens' GetGroupVersion Prelude.Text
 getGroupVersion_groupId = Lens.lens (\GetGroupVersion' {groupId} -> groupId) (\s@GetGroupVersion' {} a -> s {groupId = a} :: GetGroupVersion)
 
 instance Core.AWSRequest GetGroupVersion where
@@ -114,30 +115,32 @@ instance Core.AWSRequest GetGroupVersion where
     Response.receiveJSON
       ( \s h x ->
           GetGroupVersionResponse'
-            Core.<$> (x Core..?> "CreationTimestamp")
-            Core.<*> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "Id")
-            Core.<*> (x Core..?> "Version")
-            Core.<*> (x Core..?> "Definition")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetGroupVersion
+instance Prelude.Hashable GetGroupVersion
 
-instance Core.NFData GetGroupVersion
+instance Prelude.NFData GetGroupVersion
 
 instance Core.ToHeaders GetGroupVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetGroupVersion where
   toPath GetGroupVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/groups/",
         Core.toBS groupId,
         "/versions/",
@@ -145,25 +148,25 @@ instance Core.ToPath GetGroupVersion where
       ]
 
 instance Core.ToQuery GetGroupVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupVersionResponse' smart constructor.
 data GetGroupVersionResponse = GetGroupVersionResponse'
   { -- | The time, in milliseconds since the epoch, when the group version was
     -- created.
-    creationTimestamp :: Core.Maybe Core.Text,
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the group version.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the group that the version is associated with.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the group version.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | Information about the group version definition.
-    definition :: Core.Maybe GroupVersion,
+    definition :: Prelude.Maybe GroupVersion,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroupVersionResponse' with all optional fields omitted.
@@ -187,42 +190,42 @@ data GetGroupVersionResponse = GetGroupVersionResponse'
 -- 'httpStatus', 'getGroupVersionResponse_httpStatus' - The response's http status code.
 newGetGroupVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetGroupVersionResponse
 newGetGroupVersionResponse pHttpStatus_ =
   GetGroupVersionResponse'
     { creationTimestamp =
-        Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      version = Core.Nothing,
-      definition = Core.Nothing,
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      version = Prelude.Nothing,
+      definition = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time, in milliseconds since the epoch, when the group version was
 -- created.
-getGroupVersionResponse_creationTimestamp :: Lens.Lens' GetGroupVersionResponse (Core.Maybe Core.Text)
+getGroupVersionResponse_creationTimestamp :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
 getGroupVersionResponse_creationTimestamp = Lens.lens (\GetGroupVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetGroupVersionResponse' {} a -> s {creationTimestamp = a} :: GetGroupVersionResponse)
 
 -- | The ARN of the group version.
-getGroupVersionResponse_arn :: Lens.Lens' GetGroupVersionResponse (Core.Maybe Core.Text)
+getGroupVersionResponse_arn :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
 getGroupVersionResponse_arn = Lens.lens (\GetGroupVersionResponse' {arn} -> arn) (\s@GetGroupVersionResponse' {} a -> s {arn = a} :: GetGroupVersionResponse)
 
 -- | The ID of the group that the version is associated with.
-getGroupVersionResponse_id :: Lens.Lens' GetGroupVersionResponse (Core.Maybe Core.Text)
+getGroupVersionResponse_id :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
 getGroupVersionResponse_id = Lens.lens (\GetGroupVersionResponse' {id} -> id) (\s@GetGroupVersionResponse' {} a -> s {id = a} :: GetGroupVersionResponse)
 
 -- | The ID of the group version.
-getGroupVersionResponse_version :: Lens.Lens' GetGroupVersionResponse (Core.Maybe Core.Text)
+getGroupVersionResponse_version :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
 getGroupVersionResponse_version = Lens.lens (\GetGroupVersionResponse' {version} -> version) (\s@GetGroupVersionResponse' {} a -> s {version = a} :: GetGroupVersionResponse)
 
 -- | Information about the group version definition.
-getGroupVersionResponse_definition :: Lens.Lens' GetGroupVersionResponse (Core.Maybe GroupVersion)
+getGroupVersionResponse_definition :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe GroupVersion)
 getGroupVersionResponse_definition = Lens.lens (\GetGroupVersionResponse' {definition} -> definition) (\s@GetGroupVersionResponse' {} a -> s {definition = a} :: GetGroupVersionResponse)
 
 -- | The response's http status code.
-getGroupVersionResponse_httpStatus :: Lens.Lens' GetGroupVersionResponse Core.Int
+getGroupVersionResponse_httpStatus :: Lens.Lens' GetGroupVersionResponse Prelude.Int
 getGroupVersionResponse_httpStatus = Lens.lens (\GetGroupVersionResponse' {httpStatus} -> httpStatus) (\s@GetGroupVersionResponse' {} a -> s {httpStatus = a} :: GetGroupVersionResponse)
 
-instance Core.NFData GetGroupVersionResponse
+instance Prelude.NFData GetGroupVersionResponse

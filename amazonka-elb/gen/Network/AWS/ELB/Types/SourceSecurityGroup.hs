@@ -22,17 +22,18 @@ module Network.AWS.ELB.Types.SourceSecurityGroup where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a source security group.
 --
 -- /See:/ 'newSourceSecurityGroup' smart constructor.
 data SourceSecurityGroup = SourceSecurityGroup'
   { -- | The owner of the security group.
-    ownerAlias :: Core.Maybe Core.Text,
+    ownerAlias :: Prelude.Maybe Prelude.Text,
     -- | The name of the security group.
-    groupName :: Core.Maybe Core.Text
+    groupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceSecurityGroup' with all optional fields omitted.
@@ -49,24 +50,24 @@ newSourceSecurityGroup ::
   SourceSecurityGroup
 newSourceSecurityGroup =
   SourceSecurityGroup'
-    { ownerAlias = Core.Nothing,
-      groupName = Core.Nothing
+    { ownerAlias = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
 
 -- | The owner of the security group.
-sourceSecurityGroup_ownerAlias :: Lens.Lens' SourceSecurityGroup (Core.Maybe Core.Text)
+sourceSecurityGroup_ownerAlias :: Lens.Lens' SourceSecurityGroup (Prelude.Maybe Prelude.Text)
 sourceSecurityGroup_ownerAlias = Lens.lens (\SourceSecurityGroup' {ownerAlias} -> ownerAlias) (\s@SourceSecurityGroup' {} a -> s {ownerAlias = a} :: SourceSecurityGroup)
 
 -- | The name of the security group.
-sourceSecurityGroup_groupName :: Lens.Lens' SourceSecurityGroup (Core.Maybe Core.Text)
+sourceSecurityGroup_groupName :: Lens.Lens' SourceSecurityGroup (Prelude.Maybe Prelude.Text)
 sourceSecurityGroup_groupName = Lens.lens (\SourceSecurityGroup' {groupName} -> groupName) (\s@SourceSecurityGroup' {} a -> s {groupName = a} :: SourceSecurityGroup)
 
 instance Core.FromXML SourceSecurityGroup where
   parseXML x =
     SourceSecurityGroup'
-      Core.<$> (x Core..@? "OwnerAlias")
-      Core.<*> (x Core..@? "GroupName")
+      Prelude.<$> (x Core..@? "OwnerAlias")
+      Prelude.<*> (x Core..@? "GroupName")
 
-instance Core.Hashable SourceSecurityGroup
+instance Prelude.Hashable SourceSecurityGroup
 
-instance Core.NFData SourceSecurityGroup
+instance Prelude.NFData SourceSecurityGroup

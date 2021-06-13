@@ -50,21 +50,22 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListWorkersWithQualificationType' smart constructor.
 data ListWorkersWithQualificationType = ListWorkersWithQualificationType'
   { -- | The status of the Qualifications to return. Can be @Granted | Revoked@.
-    status :: Core.Maybe QualificationStatus,
+    status :: Prelude.Maybe QualificationStatus,
     -- | Pagination Token
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Limit the number of results returned.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Qualification type of the Qualifications to return.
-    qualificationTypeId :: Core.Text
+    qualificationTypeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWorkersWithQualificationType' with all optional fields omitted.
@@ -83,33 +84,33 @@ data ListWorkersWithQualificationType = ListWorkersWithQualificationType'
 -- 'qualificationTypeId', 'listWorkersWithQualificationType_qualificationTypeId' - The ID of the Qualification type of the Qualifications to return.
 newListWorkersWithQualificationType ::
   -- | 'qualificationTypeId'
-  Core.Text ->
+  Prelude.Text ->
   ListWorkersWithQualificationType
 newListWorkersWithQualificationType
   pQualificationTypeId_ =
     ListWorkersWithQualificationType'
       { status =
-          Core.Nothing,
-        nextToken = Core.Nothing,
-        maxResults = Core.Nothing,
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         qualificationTypeId =
           pQualificationTypeId_
       }
 
 -- | The status of the Qualifications to return. Can be @Granted | Revoked@.
-listWorkersWithQualificationType_status :: Lens.Lens' ListWorkersWithQualificationType (Core.Maybe QualificationStatus)
+listWorkersWithQualificationType_status :: Lens.Lens' ListWorkersWithQualificationType (Prelude.Maybe QualificationStatus)
 listWorkersWithQualificationType_status = Lens.lens (\ListWorkersWithQualificationType' {status} -> status) (\s@ListWorkersWithQualificationType' {} a -> s {status = a} :: ListWorkersWithQualificationType)
 
 -- | Pagination Token
-listWorkersWithQualificationType_nextToken :: Lens.Lens' ListWorkersWithQualificationType (Core.Maybe Core.Text)
+listWorkersWithQualificationType_nextToken :: Lens.Lens' ListWorkersWithQualificationType (Prelude.Maybe Prelude.Text)
 listWorkersWithQualificationType_nextToken = Lens.lens (\ListWorkersWithQualificationType' {nextToken} -> nextToken) (\s@ListWorkersWithQualificationType' {} a -> s {nextToken = a} :: ListWorkersWithQualificationType)
 
 -- | Limit the number of results returned.
-listWorkersWithQualificationType_maxResults :: Lens.Lens' ListWorkersWithQualificationType (Core.Maybe Core.Natural)
+listWorkersWithQualificationType_maxResults :: Lens.Lens' ListWorkersWithQualificationType (Prelude.Maybe Prelude.Natural)
 listWorkersWithQualificationType_maxResults = Lens.lens (\ListWorkersWithQualificationType' {maxResults} -> maxResults) (\s@ListWorkersWithQualificationType' {} a -> s {maxResults = a} :: ListWorkersWithQualificationType)
 
 -- | The ID of the Qualification type of the Qualifications to return.
-listWorkersWithQualificationType_qualificationTypeId :: Lens.Lens' ListWorkersWithQualificationType Core.Text
+listWorkersWithQualificationType_qualificationTypeId :: Lens.Lens' ListWorkersWithQualificationType Prelude.Text
 listWorkersWithQualificationType_qualificationTypeId = Lens.lens (\ListWorkersWithQualificationType' {qualificationTypeId} -> qualificationTypeId) (\s@ListWorkersWithQualificationType' {} a -> s {qualificationTypeId = a} :: ListWorkersWithQualificationType)
 
 instance
@@ -120,22 +121,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listWorkersWithQualificationTypeResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listWorkersWithQualificationTypeResponse_qualifications
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listWorkersWithQualificationType_nextToken
+          Prelude.& listWorkersWithQualificationType_nextToken
           Lens..~ rs
           Lens.^? listWorkersWithQualificationTypeResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -149,67 +150,71 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListWorkersWithQualificationTypeResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "NumResults")
-            Core.<*> (x Core..?> "Qualifications" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "NumResults")
+            Prelude.<*> (x Core..?> "Qualifications" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ListWorkersWithQualificationType
 
-instance Core.NFData ListWorkersWithQualificationType
+instance
+  Prelude.NFData
+    ListWorkersWithQualificationType
 
 instance
   Core.ToHeaders
     ListWorkersWithQualificationType
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListWorkersWithQualificationType where
   toJSON ListWorkersWithQualificationType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Status" Core..=) Core.<$> status,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Status" Core..=) Prelude.<$> status,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId)
           ]
       )
 
 instance Core.ToPath ListWorkersWithQualificationType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ListWorkersWithQualificationType
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWorkersWithQualificationTypeResponse' smart constructor.
 data ListWorkersWithQualificationTypeResponse = ListWorkersWithQualificationTypeResponse'
-  { nextToken :: Core.Maybe Core.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of Qualifications on this page in the filtered results list,
     -- equivalent to the number of Qualifications being returned by this call.
-    numResults :: Core.Maybe Core.Int,
+    numResults :: Prelude.Maybe Prelude.Int,
     -- | The list of Qualification elements returned by this call.
-    qualifications :: Core.Maybe [Qualification],
+    qualifications :: Prelude.Maybe [Qualification],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWorkersWithQualificationTypeResponse' with all optional fields omitted.
@@ -229,35 +234,35 @@ data ListWorkersWithQualificationTypeResponse = ListWorkersWithQualificationType
 -- 'httpStatus', 'listWorkersWithQualificationTypeResponse_httpStatus' - The response's http status code.
 newListWorkersWithQualificationTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListWorkersWithQualificationTypeResponse
 newListWorkersWithQualificationTypeResponse
   pHttpStatus_ =
     ListWorkersWithQualificationTypeResponse'
       { nextToken =
-          Core.Nothing,
-        numResults = Core.Nothing,
-        qualifications = Core.Nothing,
+          Prelude.Nothing,
+        numResults = Prelude.Nothing,
+        qualifications = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-listWorkersWithQualificationTypeResponse_nextToken :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Core.Maybe Core.Text)
+listWorkersWithQualificationTypeResponse_nextToken :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Prelude.Maybe Prelude.Text)
 listWorkersWithQualificationTypeResponse_nextToken = Lens.lens (\ListWorkersWithQualificationTypeResponse' {nextToken} -> nextToken) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {nextToken = a} :: ListWorkersWithQualificationTypeResponse)
 
 -- | The number of Qualifications on this page in the filtered results list,
 -- equivalent to the number of Qualifications being returned by this call.
-listWorkersWithQualificationTypeResponse_numResults :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Core.Maybe Core.Int)
+listWorkersWithQualificationTypeResponse_numResults :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Prelude.Maybe Prelude.Int)
 listWorkersWithQualificationTypeResponse_numResults = Lens.lens (\ListWorkersWithQualificationTypeResponse' {numResults} -> numResults) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {numResults = a} :: ListWorkersWithQualificationTypeResponse)
 
 -- | The list of Qualification elements returned by this call.
-listWorkersWithQualificationTypeResponse_qualifications :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Core.Maybe [Qualification])
-listWorkersWithQualificationTypeResponse_qualifications = Lens.lens (\ListWorkersWithQualificationTypeResponse' {qualifications} -> qualifications) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {qualifications = a} :: ListWorkersWithQualificationTypeResponse) Core.. Lens.mapping Lens._Coerce
+listWorkersWithQualificationTypeResponse_qualifications :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Prelude.Maybe [Qualification])
+listWorkersWithQualificationTypeResponse_qualifications = Lens.lens (\ListWorkersWithQualificationTypeResponse' {qualifications} -> qualifications) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {qualifications = a} :: ListWorkersWithQualificationTypeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listWorkersWithQualificationTypeResponse_httpStatus :: Lens.Lens' ListWorkersWithQualificationTypeResponse Core.Int
+listWorkersWithQualificationTypeResponse_httpStatus :: Lens.Lens' ListWorkersWithQualificationTypeResponse Prelude.Int
 listWorkersWithQualificationTypeResponse_httpStatus = Lens.lens (\ListWorkersWithQualificationTypeResponse' {httpStatus} -> httpStatus) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {httpStatus = a} :: ListWorkersWithQualificationTypeResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListWorkersWithQualificationTypeResponse

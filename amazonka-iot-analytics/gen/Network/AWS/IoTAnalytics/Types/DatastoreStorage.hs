@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
 import Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Where data store data is stored. You can choose one of
 -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
@@ -34,14 +35,14 @@ data DatastoreStorage = DatastoreStorage'
   { -- | Use this to store data store data in an S3 bucket managed by AWS IoT
     -- Analytics. You cannot change the choice of service-managed or
     -- customer-managed S3 storage after the data store is created.
-    serviceManagedS3 :: Core.Maybe ServiceManagedDatastoreS3Storage,
+    serviceManagedS3 :: Prelude.Maybe ServiceManagedDatastoreS3Storage,
     -- | Use this to store data store data in an S3 bucket that you manage. When
     -- customer managed storage is selected, the @retentionPeriod@ parameter is
     -- ignored. The choice of service-managed or customer-managed S3 storage
     -- cannot be changed after creation of the data store.
-    customerManagedS3 :: Core.Maybe CustomerManagedDatastoreS3Storage
+    customerManagedS3 :: Prelude.Maybe CustomerManagedDatastoreS3Storage
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatastoreStorage' with all optional fields omitted.
@@ -63,21 +64,22 @@ newDatastoreStorage ::
   DatastoreStorage
 newDatastoreStorage =
   DatastoreStorage'
-    { serviceManagedS3 = Core.Nothing,
-      customerManagedS3 = Core.Nothing
+    { serviceManagedS3 =
+        Prelude.Nothing,
+      customerManagedS3 = Prelude.Nothing
     }
 
 -- | Use this to store data store data in an S3 bucket managed by AWS IoT
 -- Analytics. You cannot change the choice of service-managed or
 -- customer-managed S3 storage after the data store is created.
-datastoreStorage_serviceManagedS3 :: Lens.Lens' DatastoreStorage (Core.Maybe ServiceManagedDatastoreS3Storage)
+datastoreStorage_serviceManagedS3 :: Lens.Lens' DatastoreStorage (Prelude.Maybe ServiceManagedDatastoreS3Storage)
 datastoreStorage_serviceManagedS3 = Lens.lens (\DatastoreStorage' {serviceManagedS3} -> serviceManagedS3) (\s@DatastoreStorage' {} a -> s {serviceManagedS3 = a} :: DatastoreStorage)
 
 -- | Use this to store data store data in an S3 bucket that you manage. When
 -- customer managed storage is selected, the @retentionPeriod@ parameter is
 -- ignored. The choice of service-managed or customer-managed S3 storage
 -- cannot be changed after creation of the data store.
-datastoreStorage_customerManagedS3 :: Lens.Lens' DatastoreStorage (Core.Maybe CustomerManagedDatastoreS3Storage)
+datastoreStorage_customerManagedS3 :: Lens.Lens' DatastoreStorage (Prelude.Maybe CustomerManagedDatastoreS3Storage)
 datastoreStorage_customerManagedS3 = Lens.lens (\DatastoreStorage' {customerManagedS3} -> customerManagedS3) (\s@DatastoreStorage' {} a -> s {customerManagedS3 = a} :: DatastoreStorage)
 
 instance Core.FromJSON DatastoreStorage where
@@ -86,21 +88,21 @@ instance Core.FromJSON DatastoreStorage where
       "DatastoreStorage"
       ( \x ->
           DatastoreStorage'
-            Core.<$> (x Core..:? "serviceManagedS3")
-            Core.<*> (x Core..:? "customerManagedS3")
+            Prelude.<$> (x Core..:? "serviceManagedS3")
+            Prelude.<*> (x Core..:? "customerManagedS3")
       )
 
-instance Core.Hashable DatastoreStorage
+instance Prelude.Hashable DatastoreStorage
 
-instance Core.NFData DatastoreStorage
+instance Prelude.NFData DatastoreStorage
 
 instance Core.ToJSON DatastoreStorage where
   toJSON DatastoreStorage' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("serviceManagedS3" Core..=)
-              Core.<$> serviceManagedS3,
+              Prelude.<$> serviceManagedS3,
             ("customerManagedS3" Core..=)
-              Core.<$> customerManagedS3
+              Prelude.<$> customerManagedS3
           ]
       )

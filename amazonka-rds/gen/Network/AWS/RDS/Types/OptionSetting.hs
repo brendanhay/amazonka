@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.OptionSetting where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Option settings are the actual settings being applied or configured for
 -- that option. It is used when you modify an option group or describe
@@ -31,26 +32,26 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOptionSetting' smart constructor.
 data OptionSetting = OptionSetting'
   { -- | Indicates if the option setting is part of a collection.
-    isCollection :: Core.Maybe Core.Bool,
+    isCollection :: Prelude.Maybe Prelude.Bool,
     -- | The allowed values of the option setting.
-    allowedValues :: Core.Maybe Core.Text,
+    allowedValues :: Prelude.Maybe Prelude.Text,
     -- | The name of the option that has settings that you can set.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The DB engine specific parameter type.
-    applyType :: Core.Maybe Core.Text,
+    applyType :: Prelude.Maybe Prelude.Text,
     -- | The description of the option setting.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The current value of the option setting.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The data type of the option setting.
-    dataType :: Core.Maybe Core.Text,
+    dataType :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value that, when true, indicates the option setting can be
     -- modified from the default.
-    isModifiable :: Core.Maybe Core.Bool,
+    isModifiable :: Prelude.Maybe Prelude.Bool,
     -- | The default value of the option setting.
-    defaultValue :: Core.Maybe Core.Text
+    defaultValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OptionSetting' with all optional fields omitted.
@@ -82,74 +83,74 @@ newOptionSetting ::
   OptionSetting
 newOptionSetting =
   OptionSetting'
-    { isCollection = Core.Nothing,
-      allowedValues = Core.Nothing,
-      name = Core.Nothing,
-      applyType = Core.Nothing,
-      description = Core.Nothing,
-      value = Core.Nothing,
-      dataType = Core.Nothing,
-      isModifiable = Core.Nothing,
-      defaultValue = Core.Nothing
+    { isCollection = Prelude.Nothing,
+      allowedValues = Prelude.Nothing,
+      name = Prelude.Nothing,
+      applyType = Prelude.Nothing,
+      description = Prelude.Nothing,
+      value = Prelude.Nothing,
+      dataType = Prelude.Nothing,
+      isModifiable = Prelude.Nothing,
+      defaultValue = Prelude.Nothing
     }
 
 -- | Indicates if the option setting is part of a collection.
-optionSetting_isCollection :: Lens.Lens' OptionSetting (Core.Maybe Core.Bool)
+optionSetting_isCollection :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Bool)
 optionSetting_isCollection = Lens.lens (\OptionSetting' {isCollection} -> isCollection) (\s@OptionSetting' {} a -> s {isCollection = a} :: OptionSetting)
 
 -- | The allowed values of the option setting.
-optionSetting_allowedValues :: Lens.Lens' OptionSetting (Core.Maybe Core.Text)
+optionSetting_allowedValues :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_allowedValues = Lens.lens (\OptionSetting' {allowedValues} -> allowedValues) (\s@OptionSetting' {} a -> s {allowedValues = a} :: OptionSetting)
 
 -- | The name of the option that has settings that you can set.
-optionSetting_name :: Lens.Lens' OptionSetting (Core.Maybe Core.Text)
+optionSetting_name :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_name = Lens.lens (\OptionSetting' {name} -> name) (\s@OptionSetting' {} a -> s {name = a} :: OptionSetting)
 
 -- | The DB engine specific parameter type.
-optionSetting_applyType :: Lens.Lens' OptionSetting (Core.Maybe Core.Text)
+optionSetting_applyType :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_applyType = Lens.lens (\OptionSetting' {applyType} -> applyType) (\s@OptionSetting' {} a -> s {applyType = a} :: OptionSetting)
 
 -- | The description of the option setting.
-optionSetting_description :: Lens.Lens' OptionSetting (Core.Maybe Core.Text)
+optionSetting_description :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_description = Lens.lens (\OptionSetting' {description} -> description) (\s@OptionSetting' {} a -> s {description = a} :: OptionSetting)
 
 -- | The current value of the option setting.
-optionSetting_value :: Lens.Lens' OptionSetting (Core.Maybe Core.Text)
+optionSetting_value :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_value = Lens.lens (\OptionSetting' {value} -> value) (\s@OptionSetting' {} a -> s {value = a} :: OptionSetting)
 
 -- | The data type of the option setting.
-optionSetting_dataType :: Lens.Lens' OptionSetting (Core.Maybe Core.Text)
+optionSetting_dataType :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_dataType = Lens.lens (\OptionSetting' {dataType} -> dataType) (\s@OptionSetting' {} a -> s {dataType = a} :: OptionSetting)
 
 -- | A Boolean value that, when true, indicates the option setting can be
 -- modified from the default.
-optionSetting_isModifiable :: Lens.Lens' OptionSetting (Core.Maybe Core.Bool)
+optionSetting_isModifiable :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Bool)
 optionSetting_isModifiable = Lens.lens (\OptionSetting' {isModifiable} -> isModifiable) (\s@OptionSetting' {} a -> s {isModifiable = a} :: OptionSetting)
 
 -- | The default value of the option setting.
-optionSetting_defaultValue :: Lens.Lens' OptionSetting (Core.Maybe Core.Text)
+optionSetting_defaultValue :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_defaultValue = Lens.lens (\OptionSetting' {defaultValue} -> defaultValue) (\s@OptionSetting' {} a -> s {defaultValue = a} :: OptionSetting)
 
 instance Core.FromXML OptionSetting where
   parseXML x =
     OptionSetting'
-      Core.<$> (x Core..@? "IsCollection")
-      Core.<*> (x Core..@? "AllowedValues")
-      Core.<*> (x Core..@? "Name")
-      Core.<*> (x Core..@? "ApplyType")
-      Core.<*> (x Core..@? "Description")
-      Core.<*> (x Core..@? "Value")
-      Core.<*> (x Core..@? "DataType")
-      Core.<*> (x Core..@? "IsModifiable")
-      Core.<*> (x Core..@? "DefaultValue")
+      Prelude.<$> (x Core..@? "IsCollection")
+      Prelude.<*> (x Core..@? "AllowedValues")
+      Prelude.<*> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "ApplyType")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "Value")
+      Prelude.<*> (x Core..@? "DataType")
+      Prelude.<*> (x Core..@? "IsModifiable")
+      Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Core.Hashable OptionSetting
+instance Prelude.Hashable OptionSetting
 
-instance Core.NFData OptionSetting
+instance Prelude.NFData OptionSetting
 
 instance Core.ToQuery OptionSetting where
   toQuery OptionSetting' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "IsCollection" Core.=: isCollection,
         "AllowedValues" Core.=: allowedValues,
         "Name" Core.=: name,

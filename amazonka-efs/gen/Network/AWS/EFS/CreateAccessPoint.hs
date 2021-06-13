@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,20 +79,20 @@ data CreateAccessPoint = CreateAccessPoint'
     -- settings when a client connects to an access point. When specifying a
     -- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@
     -- is optional.
-    rootDirectory :: Core.Maybe RootDirectory,
+    rootDirectory :: Prelude.Maybe RootDirectory,
     -- | The operating system user and group applied to all file system requests
     -- made using the access point.
-    posixUser :: Core.Maybe PosixUser,
+    posixUser :: Prelude.Maybe PosixUser,
     -- | Creates tags associated with the access point. Each tag is a key-value
     -- pair.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure
     -- idempotent creation.
-    clientToken :: Core.Text,
+    clientToken :: Prelude.Text,
     -- | The ID of the EFS file system that the access point provides access to.
-    fileSystemId :: Core.Text
+    fileSystemId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAccessPoint' with all optional fields omitted.
@@ -122,15 +123,15 @@ data CreateAccessPoint = CreateAccessPoint'
 -- 'fileSystemId', 'createAccessPoint_fileSystemId' - The ID of the EFS file system that the access point provides access to.
 newCreateAccessPoint ::
   -- | 'clientToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   CreateAccessPoint
 newCreateAccessPoint pClientToken_ pFileSystemId_ =
   CreateAccessPoint'
-    { rootDirectory = Core.Nothing,
-      posixUser = Core.Nothing,
-      tags = Core.Nothing,
+    { rootDirectory = Prelude.Nothing,
+      posixUser = Prelude.Nothing,
+      tags = Prelude.Nothing,
       clientToken = pClientToken_,
       fileSystemId = pFileSystemId_
     }
@@ -143,26 +144,26 @@ newCreateAccessPoint pClientToken_ pFileSystemId_ =
 -- settings when a client connects to an access point. When specifying a
 -- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@
 -- is optional.
-createAccessPoint_rootDirectory :: Lens.Lens' CreateAccessPoint (Core.Maybe RootDirectory)
+createAccessPoint_rootDirectory :: Lens.Lens' CreateAccessPoint (Prelude.Maybe RootDirectory)
 createAccessPoint_rootDirectory = Lens.lens (\CreateAccessPoint' {rootDirectory} -> rootDirectory) (\s@CreateAccessPoint' {} a -> s {rootDirectory = a} :: CreateAccessPoint)
 
 -- | The operating system user and group applied to all file system requests
 -- made using the access point.
-createAccessPoint_posixUser :: Lens.Lens' CreateAccessPoint (Core.Maybe PosixUser)
+createAccessPoint_posixUser :: Lens.Lens' CreateAccessPoint (Prelude.Maybe PosixUser)
 createAccessPoint_posixUser = Lens.lens (\CreateAccessPoint' {posixUser} -> posixUser) (\s@CreateAccessPoint' {} a -> s {posixUser = a} :: CreateAccessPoint)
 
 -- | Creates tags associated with the access point. Each tag is a key-value
 -- pair.
-createAccessPoint_tags :: Lens.Lens' CreateAccessPoint (Core.Maybe [Tag])
-createAccessPoint_tags = Lens.lens (\CreateAccessPoint' {tags} -> tags) (\s@CreateAccessPoint' {} a -> s {tags = a} :: CreateAccessPoint) Core.. Lens.mapping Lens._Coerce
+createAccessPoint_tags :: Lens.Lens' CreateAccessPoint (Prelude.Maybe [Tag])
+createAccessPoint_tags = Lens.lens (\CreateAccessPoint' {tags} -> tags) (\s@CreateAccessPoint' {} a -> s {tags = a} :: CreateAccessPoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure
 -- idempotent creation.
-createAccessPoint_clientToken :: Lens.Lens' CreateAccessPoint Core.Text
+createAccessPoint_clientToken :: Lens.Lens' CreateAccessPoint Prelude.Text
 createAccessPoint_clientToken = Lens.lens (\CreateAccessPoint' {clientToken} -> clientToken) (\s@CreateAccessPoint' {} a -> s {clientToken = a} :: CreateAccessPoint)
 
 -- | The ID of the EFS file system that the access point provides access to.
-createAccessPoint_fileSystemId :: Lens.Lens' CreateAccessPoint Core.Text
+createAccessPoint_fileSystemId :: Lens.Lens' CreateAccessPoint Prelude.Text
 createAccessPoint_fileSystemId = Lens.lens (\CreateAccessPoint' {fileSystemId} -> fileSystemId) (\s@CreateAccessPoint' {} a -> s {fileSystemId = a} :: CreateAccessPoint)
 
 instance Core.AWSRequest CreateAccessPoint where
@@ -174,27 +175,27 @@ instance Core.AWSRequest CreateAccessPoint where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreateAccessPoint
+instance Prelude.Hashable CreateAccessPoint
 
-instance Core.NFData CreateAccessPoint
+instance Prelude.NFData CreateAccessPoint
 
 instance Core.ToHeaders CreateAccessPoint where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateAccessPoint where
   toJSON CreateAccessPoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RootDirectory" Core..=) Core.<$> rootDirectory,
-            ("PosixUser" Core..=) Core.<$> posixUser,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("ClientToken" Core..= clientToken),
-            Core.Just ("FileSystemId" Core..= fileSystemId)
+      ( Prelude.catMaybes
+          [ ("RootDirectory" Core..=) Prelude.<$> rootDirectory,
+            ("PosixUser" Core..=) Prelude.<$> posixUser,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("ClientToken" Core..= clientToken),
+            Prelude.Just ("FileSystemId" Core..= fileSystemId)
           ]
       )
 
 instance Core.ToPath CreateAccessPoint where
-  toPath = Core.const "/2015-02-01/access-points"
+  toPath = Prelude.const "/2015-02-01/access-points"
 
 instance Core.ToQuery CreateAccessPoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

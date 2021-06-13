@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -61,9 +62,9 @@ import Network.AWS.Support.Types
 -- | /See:/ 'newDescribeTrustedAdvisorCheckSummaries' smart constructor.
 data DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'
   { -- | The IDs of the Trusted Advisor checks.
-    checkIds :: [Core.Text]
+    checkIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTrustedAdvisorCheckSummaries' with all optional fields omitted.
@@ -79,12 +80,12 @@ newDescribeTrustedAdvisorCheckSummaries ::
 newDescribeTrustedAdvisorCheckSummaries =
   DescribeTrustedAdvisorCheckSummaries'
     { checkIds =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | The IDs of the Trusted Advisor checks.
-describeTrustedAdvisorCheckSummaries_checkIds :: Lens.Lens' DescribeTrustedAdvisorCheckSummaries [Core.Text]
-describeTrustedAdvisorCheckSummaries_checkIds = Lens.lens (\DescribeTrustedAdvisorCheckSummaries' {checkIds} -> checkIds) (\s@DescribeTrustedAdvisorCheckSummaries' {} a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckSummaries) Core.. Lens._Coerce
+describeTrustedAdvisorCheckSummaries_checkIds :: Lens.Lens' DescribeTrustedAdvisorCheckSummaries [Prelude.Text]
+describeTrustedAdvisorCheckSummaries_checkIds = Lens.lens (\DescribeTrustedAdvisorCheckSummaries' {checkIds} -> checkIds) (\s@DescribeTrustedAdvisorCheckSummaries' {} a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckSummaries) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -98,16 +99,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeTrustedAdvisorCheckSummariesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-              Core.<*> (x Core..?> "summaries" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..?> "summaries" Core..!@ Prelude.mempty)
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeTrustedAdvisorCheckSummaries
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTrustedAdvisorCheckSummaries
 
 instance
@@ -115,14 +116,16 @@ instance
     DescribeTrustedAdvisorCheckSummaries
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -132,21 +135,21 @@ instance
   where
   toJSON DescribeTrustedAdvisorCheckSummaries' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("checkIds" Core..= checkIds)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("checkIds" Core..= checkIds)]
       )
 
 instance
   Core.ToPath
     DescribeTrustedAdvisorCheckSummaries
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeTrustedAdvisorCheckSummaries
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The summaries of the Trusted Advisor checks returned by the
 -- DescribeTrustedAdvisorCheckSummaries operation.
@@ -154,11 +157,11 @@ instance
 -- /See:/ 'newDescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The summary information for the requested Trusted Advisor checks.
     summaries :: [TrustedAdvisorCheckSummary]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTrustedAdvisorCheckSummariesResponse' with all optional fields omitted.
@@ -173,24 +176,24 @@ data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckS
 -- 'summaries', 'describeTrustedAdvisorCheckSummariesResponse_summaries' - The summary information for the requested Trusted Advisor checks.
 newDescribeTrustedAdvisorCheckSummariesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTrustedAdvisorCheckSummariesResponse
 newDescribeTrustedAdvisorCheckSummariesResponse
   pHttpStatus_ =
     DescribeTrustedAdvisorCheckSummariesResponse'
       { httpStatus =
           pHttpStatus_,
-        summaries = Core.mempty
+        summaries = Prelude.mempty
       }
 
 -- | The response's http status code.
-describeTrustedAdvisorCheckSummariesResponse_httpStatus :: Lens.Lens' DescribeTrustedAdvisorCheckSummariesResponse Core.Int
+describeTrustedAdvisorCheckSummariesResponse_httpStatus :: Lens.Lens' DescribeTrustedAdvisorCheckSummariesResponse Prelude.Int
 describeTrustedAdvisorCheckSummariesResponse_httpStatus = Lens.lens (\DescribeTrustedAdvisorCheckSummariesResponse' {httpStatus} -> httpStatus) (\s@DescribeTrustedAdvisorCheckSummariesResponse' {} a -> s {httpStatus = a} :: DescribeTrustedAdvisorCheckSummariesResponse)
 
 -- | The summary information for the requested Trusted Advisor checks.
 describeTrustedAdvisorCheckSummariesResponse_summaries :: Lens.Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-describeTrustedAdvisorCheckSummariesResponse_summaries = Lens.lens (\DescribeTrustedAdvisorCheckSummariesResponse' {summaries} -> summaries) (\s@DescribeTrustedAdvisorCheckSummariesResponse' {} a -> s {summaries = a} :: DescribeTrustedAdvisorCheckSummariesResponse) Core.. Lens._Coerce
+describeTrustedAdvisorCheckSummariesResponse_summaries = Lens.lens (\DescribeTrustedAdvisorCheckSummariesResponse' {summaries} -> summaries) (\s@DescribeTrustedAdvisorCheckSummariesResponse' {} a -> s {summaries = a} :: DescribeTrustedAdvisorCheckSummariesResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTrustedAdvisorCheckSummariesResponse

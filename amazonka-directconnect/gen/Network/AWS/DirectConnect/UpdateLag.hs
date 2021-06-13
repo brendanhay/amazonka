@@ -73,20 +73,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateLag' smart constructor.
 data UpdateLag = UpdateLag'
   { -- | The name of the LAG.
-    lagName :: Core.Maybe Core.Text,
+    lagName :: Prelude.Maybe Prelude.Text,
     -- | The minimum number of physical connections that must be operational for
     -- the LAG itself to be operational.
-    minimumLinks :: Core.Maybe Core.Int,
+    minimumLinks :: Prelude.Maybe Prelude.Int,
     -- | The ID of the LAG.
-    lagId :: Core.Text
+    lagId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateLag' with all optional fields omitted.
@@ -104,26 +105,26 @@ data UpdateLag = UpdateLag'
 -- 'lagId', 'updateLag_lagId' - The ID of the LAG.
 newUpdateLag ::
   -- | 'lagId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateLag
 newUpdateLag pLagId_ =
   UpdateLag'
-    { lagName = Core.Nothing,
-      minimumLinks = Core.Nothing,
+    { lagName = Prelude.Nothing,
+      minimumLinks = Prelude.Nothing,
       lagId = pLagId_
     }
 
 -- | The name of the LAG.
-updateLag_lagName :: Lens.Lens' UpdateLag (Core.Maybe Core.Text)
+updateLag_lagName :: Lens.Lens' UpdateLag (Prelude.Maybe Prelude.Text)
 updateLag_lagName = Lens.lens (\UpdateLag' {lagName} -> lagName) (\s@UpdateLag' {} a -> s {lagName = a} :: UpdateLag)
 
 -- | The minimum number of physical connections that must be operational for
 -- the LAG itself to be operational.
-updateLag_minimumLinks :: Lens.Lens' UpdateLag (Core.Maybe Core.Int)
+updateLag_minimumLinks :: Lens.Lens' UpdateLag (Prelude.Maybe Prelude.Int)
 updateLag_minimumLinks = Lens.lens (\UpdateLag' {minimumLinks} -> minimumLinks) (\s@UpdateLag' {} a -> s {minimumLinks = a} :: UpdateLag)
 
 -- | The ID of the LAG.
-updateLag_lagId :: Lens.Lens' UpdateLag Core.Text
+updateLag_lagId :: Lens.Lens' UpdateLag Prelude.Text
 updateLag_lagId = Lens.lens (\UpdateLag' {lagId} -> lagId) (\s@UpdateLag' {} a -> s {lagId = a} :: UpdateLag)
 
 instance Core.AWSRequest UpdateLag where
@@ -133,33 +134,35 @@ instance Core.AWSRequest UpdateLag where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateLag
+instance Prelude.Hashable UpdateLag
 
-instance Core.NFData UpdateLag
+instance Prelude.NFData UpdateLag
 
 instance Core.ToHeaders UpdateLag where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("OvertureService.UpdateLag" :: Core.ByteString),
+              Core.=# ("OvertureService.UpdateLag" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateLag where
   toJSON UpdateLag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("lagName" Core..=) Core.<$> lagName,
-            ("minimumLinks" Core..=) Core.<$> minimumLinks,
-            Core.Just ("lagId" Core..= lagId)
+      ( Prelude.catMaybes
+          [ ("lagName" Core..=) Prelude.<$> lagName,
+            ("minimumLinks" Core..=) Prelude.<$> minimumLinks,
+            Prelude.Just ("lagId" Core..= lagId)
           ]
       )
 
 instance Core.ToPath UpdateLag where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateLag where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

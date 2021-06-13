@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data BatchGetJobs = BatchGetJobs'
   { -- | A list of job names, which might be the names returned from the
     -- @ListJobs@ operation.
-    jobNames :: [Core.Text]
+    jobNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetJobs' with all optional fields omitted.
@@ -71,12 +72,12 @@ data BatchGetJobs = BatchGetJobs'
 newBatchGetJobs ::
   BatchGetJobs
 newBatchGetJobs =
-  BatchGetJobs' {jobNames = Core.mempty}
+  BatchGetJobs' {jobNames = Prelude.mempty}
 
 -- | A list of job names, which might be the names returned from the
 -- @ListJobs@ operation.
-batchGetJobs_jobNames :: Lens.Lens' BatchGetJobs [Core.Text]
-batchGetJobs_jobNames = Lens.lens (\BatchGetJobs' {jobNames} -> jobNames) (\s@BatchGetJobs' {} a -> s {jobNames = a} :: BatchGetJobs) Core.. Lens._Coerce
+batchGetJobs_jobNames :: Lens.Lens' BatchGetJobs [Prelude.Text]
+batchGetJobs_jobNames = Lens.lens (\BatchGetJobs' {jobNames} -> jobNames) (\s@BatchGetJobs' {} a -> s {jobNames = a} :: BatchGetJobs) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetJobs where
   type AWSResponse BatchGetJobs = BatchGetJobsResponse
@@ -85,49 +86,51 @@ instance Core.AWSRequest BatchGetJobs where
     Response.receiveJSON
       ( \s h x ->
           BatchGetJobsResponse'
-            Core.<$> (x Core..?> "JobsNotFound" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Jobs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "JobsNotFound" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetJobs
+instance Prelude.Hashable BatchGetJobs
 
-instance Core.NFData BatchGetJobs
+instance Prelude.NFData BatchGetJobs
 
 instance Core.ToHeaders BatchGetJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetJobs" :: Core.ByteString),
+              Core.=# ("AWSGlue.BatchGetJobs" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetJobs where
   toJSON BatchGetJobs' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("JobNames" Core..= jobNames)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobNames" Core..= jobNames)]
       )
 
 instance Core.ToPath BatchGetJobs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetJobs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetJobsResponse' smart constructor.
 data BatchGetJobsResponse = BatchGetJobsResponse'
   { -- | A list of names of jobs not found.
-    jobsNotFound :: Core.Maybe [Core.Text],
+    jobsNotFound :: Prelude.Maybe [Prelude.Text],
     -- | A list of job definitions.
-    jobs :: Core.Maybe [Job],
+    jobs :: Prelude.Maybe [Job],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetJobsResponse' with all optional fields omitted.
@@ -144,25 +147,26 @@ data BatchGetJobsResponse = BatchGetJobsResponse'
 -- 'httpStatus', 'batchGetJobsResponse_httpStatus' - The response's http status code.
 newBatchGetJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetJobsResponse
 newBatchGetJobsResponse pHttpStatus_ =
   BatchGetJobsResponse'
-    { jobsNotFound = Core.Nothing,
-      jobs = Core.Nothing,
+    { jobsNotFound =
+        Prelude.Nothing,
+      jobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of names of jobs not found.
-batchGetJobsResponse_jobsNotFound :: Lens.Lens' BatchGetJobsResponse (Core.Maybe [Core.Text])
-batchGetJobsResponse_jobsNotFound = Lens.lens (\BatchGetJobsResponse' {jobsNotFound} -> jobsNotFound) (\s@BatchGetJobsResponse' {} a -> s {jobsNotFound = a} :: BatchGetJobsResponse) Core.. Lens.mapping Lens._Coerce
+batchGetJobsResponse_jobsNotFound :: Lens.Lens' BatchGetJobsResponse (Prelude.Maybe [Prelude.Text])
+batchGetJobsResponse_jobsNotFound = Lens.lens (\BatchGetJobsResponse' {jobsNotFound} -> jobsNotFound) (\s@BatchGetJobsResponse' {} a -> s {jobsNotFound = a} :: BatchGetJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of job definitions.
-batchGetJobsResponse_jobs :: Lens.Lens' BatchGetJobsResponse (Core.Maybe [Job])
-batchGetJobsResponse_jobs = Lens.lens (\BatchGetJobsResponse' {jobs} -> jobs) (\s@BatchGetJobsResponse' {} a -> s {jobs = a} :: BatchGetJobsResponse) Core.. Lens.mapping Lens._Coerce
+batchGetJobsResponse_jobs :: Lens.Lens' BatchGetJobsResponse (Prelude.Maybe [Job])
+batchGetJobsResponse_jobs = Lens.lens (\BatchGetJobsResponse' {jobs} -> jobs) (\s@BatchGetJobsResponse' {} a -> s {jobs = a} :: BatchGetJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetJobsResponse_httpStatus :: Lens.Lens' BatchGetJobsResponse Core.Int
+batchGetJobsResponse_httpStatus :: Lens.Lens' BatchGetJobsResponse Prelude.Int
 batchGetJobsResponse_httpStatus = Lens.lens (\BatchGetJobsResponse' {httpStatus} -> httpStatus) (\s@BatchGetJobsResponse' {} a -> s {httpStatus = a} :: BatchGetJobsResponse)
 
-instance Core.NFData BatchGetJobsResponse
+instance Prelude.NFData BatchGetJobsResponse

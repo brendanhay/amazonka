@@ -26,6 +26,7 @@ module Network.AWS.MediaConvert.Types.Av1RateControlMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | \'With AV1 outputs, for rate control mode, MediaConvert supports only
 -- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'
@@ -34,15 +35,15 @@ newtype Av1RateControlMode = Av1RateControlMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

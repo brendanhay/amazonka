@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelPackageStatusItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.DetailedModelPackageStatus
 
 -- | Represents the overall status of a model package.
@@ -28,14 +29,14 @@ import Network.AWS.SageMaker.Types.DetailedModelPackageStatus
 -- /See:/ 'newModelPackageStatusItem' smart constructor.
 data ModelPackageStatusItem = ModelPackageStatusItem'
   { -- | if the overall status is @Failed@, the reason for the failure.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the model package for which the overall status is being
     -- reported.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The current status.
     status :: DetailedModelPackageStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelPackageStatusItem' with all optional fields omitted.
@@ -53,25 +54,25 @@ data ModelPackageStatusItem = ModelPackageStatusItem'
 -- 'status', 'modelPackageStatusItem_status' - The current status.
 newModelPackageStatusItem ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   DetailedModelPackageStatus ->
   ModelPackageStatusItem
 newModelPackageStatusItem pName_ pStatus_ =
   ModelPackageStatusItem'
     { failureReason =
-        Core.Nothing,
+        Prelude.Nothing,
       name = pName_,
       status = pStatus_
     }
 
 -- | if the overall status is @Failed@, the reason for the failure.
-modelPackageStatusItem_failureReason :: Lens.Lens' ModelPackageStatusItem (Core.Maybe Core.Text)
+modelPackageStatusItem_failureReason :: Lens.Lens' ModelPackageStatusItem (Prelude.Maybe Prelude.Text)
 modelPackageStatusItem_failureReason = Lens.lens (\ModelPackageStatusItem' {failureReason} -> failureReason) (\s@ModelPackageStatusItem' {} a -> s {failureReason = a} :: ModelPackageStatusItem)
 
 -- | The name of the model package for which the overall status is being
 -- reported.
-modelPackageStatusItem_name :: Lens.Lens' ModelPackageStatusItem Core.Text
+modelPackageStatusItem_name :: Lens.Lens' ModelPackageStatusItem Prelude.Text
 modelPackageStatusItem_name = Lens.lens (\ModelPackageStatusItem' {name} -> name) (\s@ModelPackageStatusItem' {} a -> s {name = a} :: ModelPackageStatusItem)
 
 -- | The current status.
@@ -84,11 +85,11 @@ instance Core.FromJSON ModelPackageStatusItem where
       "ModelPackageStatusItem"
       ( \x ->
           ModelPackageStatusItem'
-            Core.<$> (x Core..:? "FailureReason")
-            Core.<*> (x Core..: "Name")
-            Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable ModelPackageStatusItem
+instance Prelude.Hashable ModelPackageStatusItem
 
-instance Core.NFData ModelPackageStatusItem
+instance Prelude.NFData ModelPackageStatusItem

@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary w
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to store data store data in an S3 bucket that you manage.
 --
@@ -30,14 +31,14 @@ data CustomerManagedDatastoreS3StorageSummary = CustomerManagedDatastoreS3Storag
     -- objects. Each object in an S3 bucket has a key that is its unique
     -- identifier in the bucket. Each object in a bucket has exactly one key.
     -- The prefix must end with a forward slash (\/).
-    keyPrefix :: Core.Maybe Core.Text,
+    keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the role that grants AWS IoT Analytics permission to interact
     -- with your Amazon S3 resources.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket in which data store data is stored.
-    bucket :: Core.Maybe Core.Text
+    bucket :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomerManagedDatastoreS3StorageSummary' with all optional fields omitted.
@@ -61,25 +62,25 @@ newCustomerManagedDatastoreS3StorageSummary ::
 newCustomerManagedDatastoreS3StorageSummary =
   CustomerManagedDatastoreS3StorageSummary'
     { keyPrefix =
-        Core.Nothing,
-      roleArn = Core.Nothing,
-      bucket = Core.Nothing
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      bucket = Prelude.Nothing
     }
 
 -- | Optional. The prefix used to create the keys of the data store data
 -- objects. Each object in an S3 bucket has a key that is its unique
 -- identifier in the bucket. Each object in a bucket has exactly one key.
 -- The prefix must end with a forward slash (\/).
-customerManagedDatastoreS3StorageSummary_keyPrefix :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Core.Maybe Core.Text)
+customerManagedDatastoreS3StorageSummary_keyPrefix :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedDatastoreS3StorageSummary_keyPrefix = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {keyPrefix} -> keyPrefix) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {keyPrefix = a} :: CustomerManagedDatastoreS3StorageSummary)
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to interact
 -- with your Amazon S3 resources.
-customerManagedDatastoreS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Core.Maybe Core.Text)
+customerManagedDatastoreS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedDatastoreS3StorageSummary_roleArn = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {roleArn} -> roleArn) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {roleArn = a} :: CustomerManagedDatastoreS3StorageSummary)
 
 -- | The name of the S3 bucket in which data store data is stored.
-customerManagedDatastoreS3StorageSummary_bucket :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Core.Maybe Core.Text)
+customerManagedDatastoreS3StorageSummary_bucket :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedDatastoreS3StorageSummary_bucket = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {bucket} -> bucket) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {bucket = a} :: CustomerManagedDatastoreS3StorageSummary)
 
 instance
@@ -91,15 +92,15 @@ instance
       "CustomerManagedDatastoreS3StorageSummary"
       ( \x ->
           CustomerManagedDatastoreS3StorageSummary'
-            Core.<$> (x Core..:? "keyPrefix")
-            Core.<*> (x Core..:? "roleArn")
-            Core.<*> (x Core..:? "bucket")
+            Prelude.<$> (x Core..:? "keyPrefix")
+            Prelude.<*> (x Core..:? "roleArn")
+            Prelude.<*> (x Core..:? "bucket")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CustomerManagedDatastoreS3StorageSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     CustomerManagedDatastoreS3StorageSummary

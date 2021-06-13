@@ -227,6 +227,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.AttackDetail
 import Network.AWS.Shield.Types.AttackLayer
 import Network.AWS.Shield.Types.AttackProperty
@@ -273,7 +274,7 @@ defaultService =
       Core._serviceVersion = "2016-06-02",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseJSONError "Shield",
       Core._serviceRetry = retry
@@ -288,51 +289,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | Exception that indicates that the resource state has been modified by
 -- another client. Retrieve the resource and then retry your request.
-_OptimisticLockException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OptimisticLockException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OptimisticLockException =
   Core._MatchServiceError
     defaultService
@@ -340,7 +343,7 @@ _OptimisticLockException =
 
 -- | Exception that indicates that the resource is invalid. You might not
 -- have access to the resource, or the resource might not exist.
-_InvalidResourceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidResourceException =
   Core._MatchServiceError
     defaultService
@@ -349,7 +352,7 @@ _InvalidResourceException =
 -- | Exception that indicates that the NextToken specified in the request is
 -- invalid. Submit the request using the NextToken value that was returned
 -- in the response.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidPaginationTokenException =
   Core._MatchServiceError
     defaultService
@@ -357,7 +360,7 @@ _InvalidPaginationTokenException =
 
 -- | Exception that indicates that the operation would not cause any change
 -- to occur.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidOperationException =
   Core._MatchServiceError
     defaultService
@@ -365,7 +368,7 @@ _InvalidOperationException =
 
 -- | Exception indicating the specified resource already exists. If
 -- available, this exception includes details in additional properties.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -373,14 +376,14 @@ _ResourceAlreadyExistsException =
 
 -- | Exception that indicates that a problem occurred with the service
 -- infrastructure. You can retry the request.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
     "InternalErrorException"
 
 -- | The ARN of the role that you specifed does not exist.
-_NoAssociatedRoleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoAssociatedRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoAssociatedRoleException =
   Core._MatchServiceError
     defaultService
@@ -389,7 +392,7 @@ _NoAssociatedRoleException =
 -- | Exception that indicates that the parameters passed to the API are
 -- invalid. If available, this exception includes details in additional
 -- properties.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -398,7 +401,7 @@ _InvalidParameterException =
 -- | Exception that indicates the specified @AttackId@ does not exist, or the
 -- requester does not have the appropriate permissions to access the
 -- @AttackId@.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -408,7 +411,7 @@ _AccessDeniedException =
 -- 1-year commitment. You can change the @AutoRenew@ parameter during the
 -- last 30 days of your subscription. This exception indicates that you are
 -- attempting to change @AutoRenew@ prior to that period.
-_LockedSubscriptionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LockedSubscriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LockedSubscriptionException =
   Core._MatchServiceError
     defaultService
@@ -416,7 +419,7 @@ _LockedSubscriptionException =
 
 -- | Exception indicating the specified resource does not exist. If
 -- available, this exception includes details in additional properties.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -427,7 +430,7 @@ _ResourceNotFoundException =
 -- This error indicates the user did not have the appropriate permissions.
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a User Permissions to Pass a Role to an AWS Service>.
-_AccessDeniedForDependencyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedForDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedForDependencyException =
   Core._MatchServiceError
     defaultService
@@ -438,7 +441,7 @@ _AccessDeniedForDependencyException =
 -- @Type@ is the type of limit that would be exceeded.
 --
 -- @Limit@ is the threshold that would be exceeded.
-_LimitsExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitsExceededException =
   Core._MatchServiceError
     defaultService

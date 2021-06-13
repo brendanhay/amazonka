@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -48,11 +49,11 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newStartOnDemandAppReplication' smart constructor.
 data StartOnDemandAppReplication = StartOnDemandAppReplication'
   { -- | The description of the replication run.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application.
-    appId :: Core.Text
+    appId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartOnDemandAppReplication' with all optional fields omitted.
@@ -67,21 +68,21 @@ data StartOnDemandAppReplication = StartOnDemandAppReplication'
 -- 'appId', 'startOnDemandAppReplication_appId' - The ID of the application.
 newStartOnDemandAppReplication ::
   -- | 'appId'
-  Core.Text ->
+  Prelude.Text ->
   StartOnDemandAppReplication
 newStartOnDemandAppReplication pAppId_ =
   StartOnDemandAppReplication'
     { description =
-        Core.Nothing,
+        Prelude.Nothing,
       appId = pAppId_
     }
 
 -- | The description of the replication run.
-startOnDemandAppReplication_description :: Lens.Lens' StartOnDemandAppReplication (Core.Maybe Core.Text)
+startOnDemandAppReplication_description :: Lens.Lens' StartOnDemandAppReplication (Prelude.Maybe Prelude.Text)
 startOnDemandAppReplication_description = Lens.lens (\StartOnDemandAppReplication' {description} -> description) (\s@StartOnDemandAppReplication' {} a -> s {description = a} :: StartOnDemandAppReplication)
 
 -- | The ID of the application.
-startOnDemandAppReplication_appId :: Lens.Lens' StartOnDemandAppReplication Core.Text
+startOnDemandAppReplication_appId :: Lens.Lens' StartOnDemandAppReplication Prelude.Text
 startOnDemandAppReplication_appId = Lens.lens (\StartOnDemandAppReplication' {appId} -> appId) (\s@StartOnDemandAppReplication' {} a -> s {appId = a} :: StartOnDemandAppReplication)
 
 instance Core.AWSRequest StartOnDemandAppReplication where
@@ -93,47 +94,49 @@ instance Core.AWSRequest StartOnDemandAppReplication where
     Response.receiveEmpty
       ( \s h x ->
           StartOnDemandAppReplicationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartOnDemandAppReplication
+instance Prelude.Hashable StartOnDemandAppReplication
 
-instance Core.NFData StartOnDemandAppReplication
+instance Prelude.NFData StartOnDemandAppReplication
 
 instance Core.ToHeaders StartOnDemandAppReplication where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.StartOnDemandAppReplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartOnDemandAppReplication where
   toJSON StartOnDemandAppReplication' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("description" Core..=) Core.<$> description,
-            Core.Just ("appId" Core..= appId)
+      ( Prelude.catMaybes
+          [ ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("appId" Core..= appId)
           ]
       )
 
 instance Core.ToPath StartOnDemandAppReplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartOnDemandAppReplication where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartOnDemandAppReplicationResponse' smart constructor.
 data StartOnDemandAppReplicationResponse = StartOnDemandAppReplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartOnDemandAppReplicationResponse' with all optional fields omitted.
@@ -146,7 +149,7 @@ data StartOnDemandAppReplicationResponse = StartOnDemandAppReplicationResponse'
 -- 'httpStatus', 'startOnDemandAppReplicationResponse_httpStatus' - The response's http status code.
 newStartOnDemandAppReplicationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartOnDemandAppReplicationResponse
 newStartOnDemandAppReplicationResponse pHttpStatus_ =
   StartOnDemandAppReplicationResponse'
@@ -155,9 +158,9 @@ newStartOnDemandAppReplicationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startOnDemandAppReplicationResponse_httpStatus :: Lens.Lens' StartOnDemandAppReplicationResponse Core.Int
+startOnDemandAppReplicationResponse_httpStatus :: Lens.Lens' StartOnDemandAppReplicationResponse Prelude.Int
 startOnDemandAppReplicationResponse_httpStatus = Lens.lens (\StartOnDemandAppReplicationResponse' {httpStatus} -> httpStatus) (\s@StartOnDemandAppReplicationResponse' {} a -> s {httpStatus = a} :: StartOnDemandAppReplicationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartOnDemandAppReplicationResponse

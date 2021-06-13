@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.DocumentFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.DocumentFilterKey
 
 -- | This data type is deprecated. Instead, use DocumentKeyValuesFilter.
@@ -30,9 +31,9 @@ data DocumentFilter = DocumentFilter'
   { -- | The name of the filter.
     key :: DocumentFilterKey,
     -- | The value of the filter.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentFilter' with all optional fields omitted.
@@ -49,7 +50,7 @@ newDocumentFilter ::
   -- | 'key'
   DocumentFilterKey ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   DocumentFilter
 newDocumentFilter pKey_ pValue_ =
   DocumentFilter' {key = pKey_, value = pValue_}
@@ -59,18 +60,18 @@ documentFilter_key :: Lens.Lens' DocumentFilter DocumentFilterKey
 documentFilter_key = Lens.lens (\DocumentFilter' {key} -> key) (\s@DocumentFilter' {} a -> s {key = a} :: DocumentFilter)
 
 -- | The value of the filter.
-documentFilter_value :: Lens.Lens' DocumentFilter Core.Text
+documentFilter_value :: Lens.Lens' DocumentFilter Prelude.Text
 documentFilter_value = Lens.lens (\DocumentFilter' {value} -> value) (\s@DocumentFilter' {} a -> s {value = a} :: DocumentFilter)
 
-instance Core.Hashable DocumentFilter
+instance Prelude.Hashable DocumentFilter
 
-instance Core.NFData DocumentFilter
+instance Prelude.NFData DocumentFilter
 
 instance Core.ToJSON DocumentFilter where
   toJSON DocumentFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("key" Core..= key),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("key" Core..= key),
+            Prelude.Just ("value" Core..= value)
           ]
       )

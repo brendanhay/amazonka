@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If set to FILM_STANDARD, adds dynamic range compression signaling to the
 -- output bitstream as defined in the Dolby Digital specification.
@@ -35,15 +36,15 @@ newtype Ac3DynamicRangeCompressionProfile = Ac3DynamicRangeCompressionProfile'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

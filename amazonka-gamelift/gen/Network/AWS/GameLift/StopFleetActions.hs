@@ -69,6 +69,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,11 +77,11 @@ import qualified Network.AWS.Response as Response
 data StopFleetActions = StopFleetActions'
   { -- | A unique identifier for a fleet to stop actions on. You can use either
     -- the fleet ID or ARN value.
-    fleetId :: Core.Text,
+    fleetId :: Prelude.Text,
     -- | List of actions to suspend on the fleet.
-    actions :: Core.NonEmpty FleetAction
+    actions :: Prelude.NonEmpty FleetAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopFleetActions' with all optional fields omitted.
@@ -96,9 +97,9 @@ data StopFleetActions = StopFleetActions'
 -- 'actions', 'stopFleetActions_actions' - List of actions to suspend on the fleet.
 newStopFleetActions ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'actions'
-  Core.NonEmpty FleetAction ->
+  Prelude.NonEmpty FleetAction ->
   StopFleetActions
 newStopFleetActions pFleetId_ pActions_ =
   StopFleetActions'
@@ -108,12 +109,12 @@ newStopFleetActions pFleetId_ pActions_ =
 
 -- | A unique identifier for a fleet to stop actions on. You can use either
 -- the fleet ID or ARN value.
-stopFleetActions_fleetId :: Lens.Lens' StopFleetActions Core.Text
+stopFleetActions_fleetId :: Lens.Lens' StopFleetActions Prelude.Text
 stopFleetActions_fleetId = Lens.lens (\StopFleetActions' {fleetId} -> fleetId) (\s@StopFleetActions' {} a -> s {fleetId = a} :: StopFleetActions)
 
 -- | List of actions to suspend on the fleet.
-stopFleetActions_actions :: Lens.Lens' StopFleetActions (Core.NonEmpty FleetAction)
-stopFleetActions_actions = Lens.lens (\StopFleetActions' {actions} -> actions) (\s@StopFleetActions' {} a -> s {actions = a} :: StopFleetActions) Core.. Lens._Coerce
+stopFleetActions_actions :: Lens.Lens' StopFleetActions (Prelude.NonEmpty FleetAction)
+stopFleetActions_actions = Lens.lens (\StopFleetActions' {actions} -> actions) (\s@StopFleetActions' {} a -> s {actions = a} :: StopFleetActions) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest StopFleetActions where
   type
@@ -124,45 +125,47 @@ instance Core.AWSRequest StopFleetActions where
     Response.receiveEmpty
       ( \s h x ->
           StopFleetActionsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopFleetActions
+instance Prelude.Hashable StopFleetActions
 
-instance Core.NFData StopFleetActions
+instance Prelude.NFData StopFleetActions
 
 instance Core.ToHeaders StopFleetActions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.StopFleetActions" :: Core.ByteString),
+              Core.=# ("GameLift.StopFleetActions" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopFleetActions where
   toJSON StopFleetActions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FleetId" Core..= fleetId),
-            Core.Just ("Actions" Core..= actions)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FleetId" Core..= fleetId),
+            Prelude.Just ("Actions" Core..= actions)
           ]
       )
 
 instance Core.ToPath StopFleetActions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopFleetActions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopFleetActionsResponse' smart constructor.
 data StopFleetActionsResponse = StopFleetActionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopFleetActionsResponse' with all optional fields omitted.
@@ -175,7 +178,7 @@ data StopFleetActionsResponse = StopFleetActionsResponse'
 -- 'httpStatus', 'stopFleetActionsResponse_httpStatus' - The response's http status code.
 newStopFleetActionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopFleetActionsResponse
 newStopFleetActionsResponse pHttpStatus_ =
   StopFleetActionsResponse'
@@ -184,7 +187,7 @@ newStopFleetActionsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopFleetActionsResponse_httpStatus :: Lens.Lens' StopFleetActionsResponse Core.Int
+stopFleetActionsResponse_httpStatus :: Lens.Lens' StopFleetActionsResponse Prelude.Int
 stopFleetActionsResponse_httpStatus = Lens.lens (\StopFleetActionsResponse' {httpStatus} -> httpStatus) (\s@StopFleetActionsResponse' {} a -> s {httpStatus = a} :: StopFleetActionsResponse)
 
-instance Core.NFData StopFleetActionsResponse
+instance Prelude.NFData StopFleetActionsResponse

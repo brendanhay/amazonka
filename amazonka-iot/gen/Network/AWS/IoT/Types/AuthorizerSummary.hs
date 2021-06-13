@@ -21,17 +21,18 @@ module Network.AWS.IoT.Types.AuthorizerSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The authorizer summary.
 --
 -- /See:/ 'newAuthorizerSummary' smart constructor.
 data AuthorizerSummary = AuthorizerSummary'
   { -- | The authorizer ARN.
-    authorizerArn :: Core.Maybe Core.Text,
+    authorizerArn :: Prelude.Maybe Prelude.Text,
     -- | The authorizer name.
-    authorizerName :: Core.Maybe Core.Text
+    authorizerName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizerSummary' with all optional fields omitted.
@@ -48,16 +49,16 @@ newAuthorizerSummary ::
   AuthorizerSummary
 newAuthorizerSummary =
   AuthorizerSummary'
-    { authorizerArn = Core.Nothing,
-      authorizerName = Core.Nothing
+    { authorizerArn = Prelude.Nothing,
+      authorizerName = Prelude.Nothing
     }
 
 -- | The authorizer ARN.
-authorizerSummary_authorizerArn :: Lens.Lens' AuthorizerSummary (Core.Maybe Core.Text)
+authorizerSummary_authorizerArn :: Lens.Lens' AuthorizerSummary (Prelude.Maybe Prelude.Text)
 authorizerSummary_authorizerArn = Lens.lens (\AuthorizerSummary' {authorizerArn} -> authorizerArn) (\s@AuthorizerSummary' {} a -> s {authorizerArn = a} :: AuthorizerSummary)
 
 -- | The authorizer name.
-authorizerSummary_authorizerName :: Lens.Lens' AuthorizerSummary (Core.Maybe Core.Text)
+authorizerSummary_authorizerName :: Lens.Lens' AuthorizerSummary (Prelude.Maybe Prelude.Text)
 authorizerSummary_authorizerName = Lens.lens (\AuthorizerSummary' {authorizerName} -> authorizerName) (\s@AuthorizerSummary' {} a -> s {authorizerName = a} :: AuthorizerSummary)
 
 instance Core.FromJSON AuthorizerSummary where
@@ -66,10 +67,10 @@ instance Core.FromJSON AuthorizerSummary where
       "AuthorizerSummary"
       ( \x ->
           AuthorizerSummary'
-            Core.<$> (x Core..:? "authorizerArn")
-            Core.<*> (x Core..:? "authorizerName")
+            Prelude.<$> (x Core..:? "authorizerArn")
+            Prelude.<*> (x Core..:? "authorizerName")
       )
 
-instance Core.Hashable AuthorizerSummary
+instance Prelude.Hashable AuthorizerSummary
 
-instance Core.NFData AuthorizerSummary
+instance Prelude.NFData AuthorizerSummary

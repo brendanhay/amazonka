@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.DvbSubtitlingType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify whether your DVB subtitles are standard or for hearing impaired.
 -- Choose hearing impaired if your subtitles include audio descriptions and
@@ -36,15 +37,15 @@ newtype DvbSubtitlingType = DvbSubtitlingType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

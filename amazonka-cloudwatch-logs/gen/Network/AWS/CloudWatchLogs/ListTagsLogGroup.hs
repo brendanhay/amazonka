@@ -42,15 +42,16 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTagsLogGroup' smart constructor.
 data ListTagsLogGroup = ListTagsLogGroup'
   { -- | The name of the log group.
-    logGroupName :: Core.Text
+    logGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsLogGroup' with all optional fields omitted.
@@ -63,13 +64,13 @@ data ListTagsLogGroup = ListTagsLogGroup'
 -- 'logGroupName', 'listTagsLogGroup_logGroupName' - The name of the log group.
 newListTagsLogGroup ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsLogGroup
 newListTagsLogGroup pLogGroupName_ =
   ListTagsLogGroup' {logGroupName = pLogGroupName_}
 
 -- | The name of the log group.
-listTagsLogGroup_logGroupName :: Lens.Lens' ListTagsLogGroup Core.Text
+listTagsLogGroup_logGroupName :: Lens.Lens' ListTagsLogGroup Prelude.Text
 listTagsLogGroup_logGroupName = Lens.lens (\ListTagsLogGroup' {logGroupName} -> logGroupName) (\s@ListTagsLogGroup' {} a -> s {logGroupName = a} :: ListTagsLogGroup)
 
 instance Core.AWSRequest ListTagsLogGroup where
@@ -81,48 +82,50 @@ instance Core.AWSRequest ListTagsLogGroup where
     Response.receiveJSON
       ( \s h x ->
           ListTagsLogGroupResponse'
-            Core.<$> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTagsLogGroup
+instance Prelude.Hashable ListTagsLogGroup
 
-instance Core.NFData ListTagsLogGroup
+instance Prelude.NFData ListTagsLogGroup
 
 instance Core.ToHeaders ListTagsLogGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.ListTagsLogGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsLogGroup where
   toJSON ListTagsLogGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("logGroupName" Core..= logGroupName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("logGroupName" Core..= logGroupName)]
       )
 
 instance Core.ToPath ListTagsLogGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsLogGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsLogGroupResponse' smart constructor.
 data ListTagsLogGroupResponse = ListTagsLogGroupResponse'
   { -- | The tags for the log group.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsLogGroupResponse' with all optional fields omitted.
@@ -137,20 +140,20 @@ data ListTagsLogGroupResponse = ListTagsLogGroupResponse'
 -- 'httpStatus', 'listTagsLogGroupResponse_httpStatus' - The response's http status code.
 newListTagsLogGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsLogGroupResponse
 newListTagsLogGroupResponse pHttpStatus_ =
   ListTagsLogGroupResponse'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The tags for the log group.
-listTagsLogGroupResponse_tags :: Lens.Lens' ListTagsLogGroupResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-listTagsLogGroupResponse_tags = Lens.lens (\ListTagsLogGroupResponse' {tags} -> tags) (\s@ListTagsLogGroupResponse' {} a -> s {tags = a} :: ListTagsLogGroupResponse) Core.. Lens.mapping Lens._Coerce
+listTagsLogGroupResponse_tags :: Lens.Lens' ListTagsLogGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsLogGroupResponse_tags = Lens.lens (\ListTagsLogGroupResponse' {tags} -> tags) (\s@ListTagsLogGroupResponse' {} a -> s {tags = a} :: ListTagsLogGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsLogGroupResponse_httpStatus :: Lens.Lens' ListTagsLogGroupResponse Core.Int
+listTagsLogGroupResponse_httpStatus :: Lens.Lens' ListTagsLogGroupResponse Prelude.Int
 listTagsLogGroupResponse_httpStatus = Lens.lens (\ListTagsLogGroupResponse' {httpStatus} -> httpStatus) (\s@ListTagsLogGroupResponse' {} a -> s {httpStatus = a} :: ListTagsLogGroupResponse)
 
-instance Core.NFData ListTagsLogGroupResponse
+instance Prelude.NFData ListTagsLogGroupResponse

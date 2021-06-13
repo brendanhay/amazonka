@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.LabelingJobDataSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.LabelingJobS3DataSource
 import Network.AWS.SageMaker.Types.LabelingJobSnsDataSource
 
@@ -40,11 +41,11 @@ import Network.AWS.SageMaker.Types.LabelingJobSnsDataSource
 -- /See:/ 'newLabelingJobDataSource' smart constructor.
 data LabelingJobDataSource = LabelingJobDataSource'
   { -- | An Amazon SNS data source used for streaming labeling jobs.
-    snsDataSource :: Core.Maybe LabelingJobSnsDataSource,
+    snsDataSource :: Prelude.Maybe LabelingJobSnsDataSource,
     -- | The Amazon S3 location of the input data objects.
-    s3DataSource :: Core.Maybe LabelingJobS3DataSource
+    s3DataSource :: Prelude.Maybe LabelingJobS3DataSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelingJobDataSource' with all optional fields omitted.
@@ -62,16 +63,16 @@ newLabelingJobDataSource ::
 newLabelingJobDataSource =
   LabelingJobDataSource'
     { snsDataSource =
-        Core.Nothing,
-      s3DataSource = Core.Nothing
+        Prelude.Nothing,
+      s3DataSource = Prelude.Nothing
     }
 
 -- | An Amazon SNS data source used for streaming labeling jobs.
-labelingJobDataSource_snsDataSource :: Lens.Lens' LabelingJobDataSource (Core.Maybe LabelingJobSnsDataSource)
+labelingJobDataSource_snsDataSource :: Lens.Lens' LabelingJobDataSource (Prelude.Maybe LabelingJobSnsDataSource)
 labelingJobDataSource_snsDataSource = Lens.lens (\LabelingJobDataSource' {snsDataSource} -> snsDataSource) (\s@LabelingJobDataSource' {} a -> s {snsDataSource = a} :: LabelingJobDataSource)
 
 -- | The Amazon S3 location of the input data objects.
-labelingJobDataSource_s3DataSource :: Lens.Lens' LabelingJobDataSource (Core.Maybe LabelingJobS3DataSource)
+labelingJobDataSource_s3DataSource :: Lens.Lens' LabelingJobDataSource (Prelude.Maybe LabelingJobS3DataSource)
 labelingJobDataSource_s3DataSource = Lens.lens (\LabelingJobDataSource' {s3DataSource} -> s3DataSource) (\s@LabelingJobDataSource' {} a -> s {s3DataSource = a} :: LabelingJobDataSource)
 
 instance Core.FromJSON LabelingJobDataSource where
@@ -80,19 +81,19 @@ instance Core.FromJSON LabelingJobDataSource where
       "LabelingJobDataSource"
       ( \x ->
           LabelingJobDataSource'
-            Core.<$> (x Core..:? "SnsDataSource")
-            Core.<*> (x Core..:? "S3DataSource")
+            Prelude.<$> (x Core..:? "SnsDataSource")
+            Prelude.<*> (x Core..:? "S3DataSource")
       )
 
-instance Core.Hashable LabelingJobDataSource
+instance Prelude.Hashable LabelingJobDataSource
 
-instance Core.NFData LabelingJobDataSource
+instance Prelude.NFData LabelingJobDataSource
 
 instance Core.ToJSON LabelingJobDataSource where
   toJSON LabelingJobDataSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SnsDataSource" Core..=) Core.<$> snsDataSource,
-            ("S3DataSource" Core..=) Core.<$> s3DataSource
+      ( Prelude.catMaybes
+          [ ("SnsDataSource" Core..=) Prelude.<$> snsDataSource,
+            ("S3DataSource" Core..=) Prelude.<$> s3DataSource
           ]
       )

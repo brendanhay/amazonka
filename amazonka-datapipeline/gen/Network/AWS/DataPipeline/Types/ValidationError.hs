@@ -21,6 +21,7 @@ module Network.AWS.DataPipeline.Types.ValidationError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a validation error. Validation errors prevent pipeline
 -- activation. The set of validation errors that can be returned are
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newValidationError' smart constructor.
 data ValidationError = ValidationError'
   { -- | The identifier of the object that contains the validation error.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | A description of the validation error.
-    errors :: Core.Maybe [Core.Text]
+    errors :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidationError' with all optional fields omitted.
@@ -50,17 +51,17 @@ newValidationError ::
   ValidationError
 newValidationError =
   ValidationError'
-    { id = Core.Nothing,
-      errors = Core.Nothing
+    { id = Prelude.Nothing,
+      errors = Prelude.Nothing
     }
 
 -- | The identifier of the object that contains the validation error.
-validationError_id :: Lens.Lens' ValidationError (Core.Maybe Core.Text)
+validationError_id :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
 validationError_id = Lens.lens (\ValidationError' {id} -> id) (\s@ValidationError' {} a -> s {id = a} :: ValidationError)
 
 -- | A description of the validation error.
-validationError_errors :: Lens.Lens' ValidationError (Core.Maybe [Core.Text])
-validationError_errors = Lens.lens (\ValidationError' {errors} -> errors) (\s@ValidationError' {} a -> s {errors = a} :: ValidationError) Core.. Lens.mapping Lens._Coerce
+validationError_errors :: Lens.Lens' ValidationError (Prelude.Maybe [Prelude.Text])
+validationError_errors = Lens.lens (\ValidationError' {errors} -> errors) (\s@ValidationError' {} a -> s {errors = a} :: ValidationError) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ValidationError where
   parseJSON =
@@ -68,10 +69,10 @@ instance Core.FromJSON ValidationError where
       "ValidationError"
       ( \x ->
           ValidationError'
-            Core.<$> (x Core..:? "id")
-            Core.<*> (x Core..:? "errors" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ValidationError
+instance Prelude.Hashable ValidationError
 
-instance Core.NFData ValidationError
+instance Prelude.NFData ValidationError

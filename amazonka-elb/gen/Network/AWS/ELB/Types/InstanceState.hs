@@ -22,22 +22,23 @@ module Network.AWS.ELB.Types.InstanceState where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the state of an EC2 instance.
 --
 -- /See:/ 'newInstanceState' smart constructor.
 data InstanceState = InstanceState'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Information about the cause of @OutOfService@ instances. Specifically,
     -- whether the cause is Elastic Load Balancing or the instance.
     --
     -- Valid values: @ELB@ | @Instance@ | @N\/A@
-    reasonCode :: Core.Maybe Core.Text,
+    reasonCode :: Prelude.Maybe Prelude.Text,
     -- | The current state of the instance.
     --
     -- Valid values: @InService@ | @OutOfService@ | @Unknown@
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | A description of the instance state. This string can contain one or more
     -- of the following messages.
     --
@@ -64,9 +65,9 @@ data InstanceState = InstanceState'
     -- -   @Instance is in stopped state.@
     --
     -- -   @Instance is in terminated state.@
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceState' with all optional fields omitted.
@@ -117,27 +118,27 @@ newInstanceState ::
   InstanceState
 newInstanceState =
   InstanceState'
-    { instanceId = Core.Nothing,
-      reasonCode = Core.Nothing,
-      state = Core.Nothing,
-      description = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      reasonCode = Prelude.Nothing,
+      state = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The ID of the instance.
-instanceState_instanceId :: Lens.Lens' InstanceState (Core.Maybe Core.Text)
+instanceState_instanceId :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
 instanceState_instanceId = Lens.lens (\InstanceState' {instanceId} -> instanceId) (\s@InstanceState' {} a -> s {instanceId = a} :: InstanceState)
 
 -- | Information about the cause of @OutOfService@ instances. Specifically,
 -- whether the cause is Elastic Load Balancing or the instance.
 --
 -- Valid values: @ELB@ | @Instance@ | @N\/A@
-instanceState_reasonCode :: Lens.Lens' InstanceState (Core.Maybe Core.Text)
+instanceState_reasonCode :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
 instanceState_reasonCode = Lens.lens (\InstanceState' {reasonCode} -> reasonCode) (\s@InstanceState' {} a -> s {reasonCode = a} :: InstanceState)
 
 -- | The current state of the instance.
 --
 -- Valid values: @InService@ | @OutOfService@ | @Unknown@
-instanceState_state :: Lens.Lens' InstanceState (Core.Maybe Core.Text)
+instanceState_state :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
 instanceState_state = Lens.lens (\InstanceState' {state} -> state) (\s@InstanceState' {} a -> s {state = a} :: InstanceState)
 
 -- | A description of the instance state. This string can contain one or more
@@ -166,17 +167,17 @@ instanceState_state = Lens.lens (\InstanceState' {state} -> state) (\s@InstanceS
 -- -   @Instance is in stopped state.@
 --
 -- -   @Instance is in terminated state.@
-instanceState_description :: Lens.Lens' InstanceState (Core.Maybe Core.Text)
+instanceState_description :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
 instanceState_description = Lens.lens (\InstanceState' {description} -> description) (\s@InstanceState' {} a -> s {description = a} :: InstanceState)
 
 instance Core.FromXML InstanceState where
   parseXML x =
     InstanceState'
-      Core.<$> (x Core..@? "InstanceId")
-      Core.<*> (x Core..@? "ReasonCode")
-      Core.<*> (x Core..@? "State")
-      Core.<*> (x Core..@? "Description")
+      Prelude.<$> (x Core..@? "InstanceId")
+      Prelude.<*> (x Core..@? "ReasonCode")
+      Prelude.<*> (x Core..@? "State")
+      Prelude.<*> (x Core..@? "Description")
 
-instance Core.Hashable InstanceState
+instance Prelude.Hashable InstanceState
 
-instance Core.NFData InstanceState
+instance Prelude.NFData InstanceState

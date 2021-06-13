@@ -22,6 +22,7 @@ module Network.AWS.DeviceFarm.Types.TestGridSessionArtifact where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Artifacts are video and other files that are produced in the process of
 -- running a browser in an automated context.
@@ -32,13 +33,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTestGridSessionArtifact' smart constructor.
 data TestGridSessionArtifact = TestGridSessionArtifact'
   { -- | The file name of the artifact.
-    filename :: Core.Maybe Core.Text,
+    filename :: Prelude.Maybe Prelude.Text,
     -- | A semi-stable URL to the content of the object.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The kind of artifact.
-    type' :: Core.Maybe TestGridSessionArtifactType
+    type' :: Prelude.Maybe TestGridSessionArtifactType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestGridSessionArtifact' with all optional fields omitted.
@@ -57,21 +58,22 @@ newTestGridSessionArtifact ::
   TestGridSessionArtifact
 newTestGridSessionArtifact =
   TestGridSessionArtifact'
-    { filename = Core.Nothing,
-      url = Core.Nothing,
-      type' = Core.Nothing
+    { filename =
+        Prelude.Nothing,
+      url = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The file name of the artifact.
-testGridSessionArtifact_filename :: Lens.Lens' TestGridSessionArtifact (Core.Maybe Core.Text)
+testGridSessionArtifact_filename :: Lens.Lens' TestGridSessionArtifact (Prelude.Maybe Prelude.Text)
 testGridSessionArtifact_filename = Lens.lens (\TestGridSessionArtifact' {filename} -> filename) (\s@TestGridSessionArtifact' {} a -> s {filename = a} :: TestGridSessionArtifact)
 
 -- | A semi-stable URL to the content of the object.
-testGridSessionArtifact_url :: Lens.Lens' TestGridSessionArtifact (Core.Maybe Core.Text)
+testGridSessionArtifact_url :: Lens.Lens' TestGridSessionArtifact (Prelude.Maybe Prelude.Text)
 testGridSessionArtifact_url = Lens.lens (\TestGridSessionArtifact' {url} -> url) (\s@TestGridSessionArtifact' {} a -> s {url = a} :: TestGridSessionArtifact)
 
 -- | The kind of artifact.
-testGridSessionArtifact_type :: Lens.Lens' TestGridSessionArtifact (Core.Maybe TestGridSessionArtifactType)
+testGridSessionArtifact_type :: Lens.Lens' TestGridSessionArtifact (Prelude.Maybe TestGridSessionArtifactType)
 testGridSessionArtifact_type = Lens.lens (\TestGridSessionArtifact' {type'} -> type') (\s@TestGridSessionArtifact' {} a -> s {type' = a} :: TestGridSessionArtifact)
 
 instance Core.FromJSON TestGridSessionArtifact where
@@ -80,11 +82,11 @@ instance Core.FromJSON TestGridSessionArtifact where
       "TestGridSessionArtifact"
       ( \x ->
           TestGridSessionArtifact'
-            Core.<$> (x Core..:? "filename")
-            Core.<*> (x Core..:? "url")
-            Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "filename")
+            Prelude.<*> (x Core..:? "url")
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable TestGridSessionArtifact
+instance Prelude.Hashable TestGridSessionArtifact
 
-instance Core.NFData TestGridSessionArtifact
+instance Prelude.NFData TestGridSessionArtifact

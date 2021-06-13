@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.HumanLoopRequestSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AwsManagedHumanLoopRequestSource
 
 -- | Container for configuring the source of human task requests.
@@ -32,7 +33,7 @@ data HumanLoopRequestSource = HumanLoopRequestSource'
     -- are different based on the integration source. Valid values:
     awsManagedHumanLoopRequestSource :: AwsManagedHumanLoopRequestSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HumanLoopRequestSource' with all optional fields omitted.
@@ -68,18 +69,18 @@ instance Core.FromJSON HumanLoopRequestSource where
       "HumanLoopRequestSource"
       ( \x ->
           HumanLoopRequestSource'
-            Core.<$> (x Core..: "AwsManagedHumanLoopRequestSource")
+            Prelude.<$> (x Core..: "AwsManagedHumanLoopRequestSource")
       )
 
-instance Core.Hashable HumanLoopRequestSource
+instance Prelude.Hashable HumanLoopRequestSource
 
-instance Core.NFData HumanLoopRequestSource
+instance Prelude.NFData HumanLoopRequestSource
 
 instance Core.ToJSON HumanLoopRequestSource where
   toJSON HumanLoopRequestSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "AwsManagedHumanLoopRequestSource"
                   Core..= awsManagedHumanLoopRequestSource
               )

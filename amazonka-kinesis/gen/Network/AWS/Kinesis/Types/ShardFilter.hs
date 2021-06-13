@@ -22,14 +22,15 @@ module Network.AWS.Kinesis.Types.ShardFilter where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.ShardFilterType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newShardFilter' smart constructor.
 data ShardFilter = ShardFilter'
-  { shardId :: Core.Maybe Core.Text,
-    timestamp :: Core.Maybe Core.POSIX,
+  { shardId :: Prelude.Maybe Prelude.Text,
+    timestamp :: Prelude.Maybe Core.POSIX,
     type' :: ShardFilterType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ShardFilter' with all optional fields omitted.
@@ -50,33 +51,33 @@ newShardFilter ::
   ShardFilter
 newShardFilter pType_ =
   ShardFilter'
-    { shardId = Core.Nothing,
-      timestamp = Core.Nothing,
+    { shardId = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       type' = pType_
     }
 
 -- | Undocumented member.
-shardFilter_shardId :: Lens.Lens' ShardFilter (Core.Maybe Core.Text)
+shardFilter_shardId :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.Text)
 shardFilter_shardId = Lens.lens (\ShardFilter' {shardId} -> shardId) (\s@ShardFilter' {} a -> s {shardId = a} :: ShardFilter)
 
 -- | Undocumented member.
-shardFilter_timestamp :: Lens.Lens' ShardFilter (Core.Maybe Core.UTCTime)
-shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Core.. Lens.mapping Core._Time
+shardFilter_timestamp :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.UTCTime)
+shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
 shardFilter_type :: Lens.Lens' ShardFilter ShardFilterType
 shardFilter_type = Lens.lens (\ShardFilter' {type'} -> type') (\s@ShardFilter' {} a -> s {type' = a} :: ShardFilter)
 
-instance Core.Hashable ShardFilter
+instance Prelude.Hashable ShardFilter
 
-instance Core.NFData ShardFilter
+instance Prelude.NFData ShardFilter
 
 instance Core.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ShardId" Core..=) Core.<$> shardId,
-            ("Timestamp" Core..=) Core.<$> timestamp,
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("ShardId" Core..=) Prelude.<$> shardId,
+            ("Timestamp" Core..=) Prelude.<$> timestamp,
+            Prelude.Just ("Type" Core..= type')
           ]
       )

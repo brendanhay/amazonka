@@ -31,52 +31,53 @@ import Network.AWS.EC2.Types.RecurringCharge
 import Network.AWS.EC2.Types.Scope
 import Network.AWS.EC2.Types.Tenancy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance offering.
 --
 -- /See:/ 'newReservedInstancesOffering' smart constructor.
 data ReservedInstancesOffering = ReservedInstancesOffering'
   { -- | The instance type on which the Reserved Instance can be used.
-    instanceType :: Core.Maybe InstanceType,
+    instanceType :: Prelude.Maybe InstanceType,
     -- | The duration of the Reserved Instance, in seconds.
-    duration :: Core.Maybe Core.Integer,
+    duration :: Prelude.Maybe Prelude.Integer,
     -- | The tenancy of the instance.
-    instanceTenancy :: Core.Maybe Tenancy,
+    instanceTenancy :: Prelude.Maybe Tenancy,
     -- | The ID of the Reserved Instance offering. This is the offering ID used
     -- in GetReservedInstancesExchangeQuote to confirm that an exchange can be
     -- made.
-    reservedInstancesOfferingId :: Core.Maybe Core.Text,
+    reservedInstancesOfferingId :: Prelude.Maybe Prelude.Text,
     -- | The currency of the Reserved Instance offering you are purchasing. It\'s
     -- specified using ISO 4217 standard currency codes. At this time, the only
     -- supported currency is @USD@.
-    currencyCode :: Core.Maybe CurrencyCodeValues,
+    currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | Whether the Reserved Instance is applied to instances in a Region or an
     -- Availability Zone.
-    scope :: Core.Maybe Scope,
+    scope :: Prelude.Maybe Scope,
     -- | The Availability Zone in which the Reserved Instance can be used.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the offering is available through the Reserved
     -- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
     -- Marketplace offering, this is @true@.
-    marketplace :: Core.Maybe Core.Bool,
+    marketplace :: Prelude.Maybe Prelude.Bool,
     -- | If @convertible@ it can be exchanged for Reserved Instances of the same
     -- or higher monetary value, with different configurations. If @standard@,
     -- it is not possible to perform an exchange.
-    offeringClass :: Core.Maybe OfferingClassType,
+    offeringClass :: Prelude.Maybe OfferingClassType,
     -- | The purchase price of the Reserved Instance.
-    fixedPrice :: Core.Maybe Core.Double,
+    fixedPrice :: Prelude.Maybe Prelude.Double,
     -- | The usage price of the Reserved Instance, per hour.
-    usagePrice :: Core.Maybe Core.Double,
+    usagePrice :: Prelude.Maybe Prelude.Double,
     -- | The Reserved Instance offering type.
-    offeringType :: Core.Maybe OfferingTypeValues,
+    offeringType :: Prelude.Maybe OfferingTypeValues,
     -- | The recurring charge tag assigned to the resource.
-    recurringCharges :: Core.Maybe [RecurringCharge],
+    recurringCharges :: Prelude.Maybe [RecurringCharge],
     -- | The Reserved Instance product platform description.
-    productDescription :: Core.Maybe RIProductDescription,
+    productDescription :: Prelude.Maybe RIProductDescription,
     -- | The pricing details of the Reserved Instance offering.
-    pricingDetails :: Core.Maybe [PricingDetail]
+    pricingDetails :: Prelude.Maybe [PricingDetail]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservedInstancesOffering' with all optional fields omitted.
@@ -129,115 +130,117 @@ newReservedInstancesOffering ::
 newReservedInstancesOffering =
   ReservedInstancesOffering'
     { instanceType =
-        Core.Nothing,
-      duration = Core.Nothing,
-      instanceTenancy = Core.Nothing,
-      reservedInstancesOfferingId = Core.Nothing,
-      currencyCode = Core.Nothing,
-      scope = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      marketplace = Core.Nothing,
-      offeringClass = Core.Nothing,
-      fixedPrice = Core.Nothing,
-      usagePrice = Core.Nothing,
-      offeringType = Core.Nothing,
-      recurringCharges = Core.Nothing,
-      productDescription = Core.Nothing,
-      pricingDetails = Core.Nothing
+        Prelude.Nothing,
+      duration = Prelude.Nothing,
+      instanceTenancy = Prelude.Nothing,
+      reservedInstancesOfferingId = Prelude.Nothing,
+      currencyCode = Prelude.Nothing,
+      scope = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      marketplace = Prelude.Nothing,
+      offeringClass = Prelude.Nothing,
+      fixedPrice = Prelude.Nothing,
+      usagePrice = Prelude.Nothing,
+      offeringType = Prelude.Nothing,
+      recurringCharges = Prelude.Nothing,
+      productDescription = Prelude.Nothing,
+      pricingDetails = Prelude.Nothing
     }
 
 -- | The instance type on which the Reserved Instance can be used.
-reservedInstancesOffering_instanceType :: Lens.Lens' ReservedInstancesOffering (Core.Maybe InstanceType)
+reservedInstancesOffering_instanceType :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe InstanceType)
 reservedInstancesOffering_instanceType = Lens.lens (\ReservedInstancesOffering' {instanceType} -> instanceType) (\s@ReservedInstancesOffering' {} a -> s {instanceType = a} :: ReservedInstancesOffering)
 
 -- | The duration of the Reserved Instance, in seconds.
-reservedInstancesOffering_duration :: Lens.Lens' ReservedInstancesOffering (Core.Maybe Core.Integer)
+reservedInstancesOffering_duration :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Integer)
 reservedInstancesOffering_duration = Lens.lens (\ReservedInstancesOffering' {duration} -> duration) (\s@ReservedInstancesOffering' {} a -> s {duration = a} :: ReservedInstancesOffering)
 
 -- | The tenancy of the instance.
-reservedInstancesOffering_instanceTenancy :: Lens.Lens' ReservedInstancesOffering (Core.Maybe Tenancy)
+reservedInstancesOffering_instanceTenancy :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Tenancy)
 reservedInstancesOffering_instanceTenancy = Lens.lens (\ReservedInstancesOffering' {instanceTenancy} -> instanceTenancy) (\s@ReservedInstancesOffering' {} a -> s {instanceTenancy = a} :: ReservedInstancesOffering)
 
 -- | The ID of the Reserved Instance offering. This is the offering ID used
 -- in GetReservedInstancesExchangeQuote to confirm that an exchange can be
 -- made.
-reservedInstancesOffering_reservedInstancesOfferingId :: Lens.Lens' ReservedInstancesOffering (Core.Maybe Core.Text)
+reservedInstancesOffering_reservedInstancesOfferingId :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Text)
 reservedInstancesOffering_reservedInstancesOfferingId = Lens.lens (\ReservedInstancesOffering' {reservedInstancesOfferingId} -> reservedInstancesOfferingId) (\s@ReservedInstancesOffering' {} a -> s {reservedInstancesOfferingId = a} :: ReservedInstancesOffering)
 
 -- | The currency of the Reserved Instance offering you are purchasing. It\'s
 -- specified using ISO 4217 standard currency codes. At this time, the only
 -- supported currency is @USD@.
-reservedInstancesOffering_currencyCode :: Lens.Lens' ReservedInstancesOffering (Core.Maybe CurrencyCodeValues)
+reservedInstancesOffering_currencyCode :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe CurrencyCodeValues)
 reservedInstancesOffering_currencyCode = Lens.lens (\ReservedInstancesOffering' {currencyCode} -> currencyCode) (\s@ReservedInstancesOffering' {} a -> s {currencyCode = a} :: ReservedInstancesOffering)
 
 -- | Whether the Reserved Instance is applied to instances in a Region or an
 -- Availability Zone.
-reservedInstancesOffering_scope :: Lens.Lens' ReservedInstancesOffering (Core.Maybe Scope)
+reservedInstancesOffering_scope :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Scope)
 reservedInstancesOffering_scope = Lens.lens (\ReservedInstancesOffering' {scope} -> scope) (\s@ReservedInstancesOffering' {} a -> s {scope = a} :: ReservedInstancesOffering)
 
 -- | The Availability Zone in which the Reserved Instance can be used.
-reservedInstancesOffering_availabilityZone :: Lens.Lens' ReservedInstancesOffering (Core.Maybe Core.Text)
+reservedInstancesOffering_availabilityZone :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Text)
 reservedInstancesOffering_availabilityZone = Lens.lens (\ReservedInstancesOffering' {availabilityZone} -> availabilityZone) (\s@ReservedInstancesOffering' {} a -> s {availabilityZone = a} :: ReservedInstancesOffering)
 
 -- | Indicates whether the offering is available through the Reserved
 -- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
 -- Marketplace offering, this is @true@.
-reservedInstancesOffering_marketplace :: Lens.Lens' ReservedInstancesOffering (Core.Maybe Core.Bool)
+reservedInstancesOffering_marketplace :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Bool)
 reservedInstancesOffering_marketplace = Lens.lens (\ReservedInstancesOffering' {marketplace} -> marketplace) (\s@ReservedInstancesOffering' {} a -> s {marketplace = a} :: ReservedInstancesOffering)
 
 -- | If @convertible@ it can be exchanged for Reserved Instances of the same
 -- or higher monetary value, with different configurations. If @standard@,
 -- it is not possible to perform an exchange.
-reservedInstancesOffering_offeringClass :: Lens.Lens' ReservedInstancesOffering (Core.Maybe OfferingClassType)
+reservedInstancesOffering_offeringClass :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe OfferingClassType)
 reservedInstancesOffering_offeringClass = Lens.lens (\ReservedInstancesOffering' {offeringClass} -> offeringClass) (\s@ReservedInstancesOffering' {} a -> s {offeringClass = a} :: ReservedInstancesOffering)
 
 -- | The purchase price of the Reserved Instance.
-reservedInstancesOffering_fixedPrice :: Lens.Lens' ReservedInstancesOffering (Core.Maybe Core.Double)
+reservedInstancesOffering_fixedPrice :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Double)
 reservedInstancesOffering_fixedPrice = Lens.lens (\ReservedInstancesOffering' {fixedPrice} -> fixedPrice) (\s@ReservedInstancesOffering' {} a -> s {fixedPrice = a} :: ReservedInstancesOffering)
 
 -- | The usage price of the Reserved Instance, per hour.
-reservedInstancesOffering_usagePrice :: Lens.Lens' ReservedInstancesOffering (Core.Maybe Core.Double)
+reservedInstancesOffering_usagePrice :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Double)
 reservedInstancesOffering_usagePrice = Lens.lens (\ReservedInstancesOffering' {usagePrice} -> usagePrice) (\s@ReservedInstancesOffering' {} a -> s {usagePrice = a} :: ReservedInstancesOffering)
 
 -- | The Reserved Instance offering type.
-reservedInstancesOffering_offeringType :: Lens.Lens' ReservedInstancesOffering (Core.Maybe OfferingTypeValues)
+reservedInstancesOffering_offeringType :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe OfferingTypeValues)
 reservedInstancesOffering_offeringType = Lens.lens (\ReservedInstancesOffering' {offeringType} -> offeringType) (\s@ReservedInstancesOffering' {} a -> s {offeringType = a} :: ReservedInstancesOffering)
 
 -- | The recurring charge tag assigned to the resource.
-reservedInstancesOffering_recurringCharges :: Lens.Lens' ReservedInstancesOffering (Core.Maybe [RecurringCharge])
-reservedInstancesOffering_recurringCharges = Lens.lens (\ReservedInstancesOffering' {recurringCharges} -> recurringCharges) (\s@ReservedInstancesOffering' {} a -> s {recurringCharges = a} :: ReservedInstancesOffering) Core.. Lens.mapping Lens._Coerce
+reservedInstancesOffering_recurringCharges :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe [RecurringCharge])
+reservedInstancesOffering_recurringCharges = Lens.lens (\ReservedInstancesOffering' {recurringCharges} -> recurringCharges) (\s@ReservedInstancesOffering' {} a -> s {recurringCharges = a} :: ReservedInstancesOffering) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Reserved Instance product platform description.
-reservedInstancesOffering_productDescription :: Lens.Lens' ReservedInstancesOffering (Core.Maybe RIProductDescription)
+reservedInstancesOffering_productDescription :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe RIProductDescription)
 reservedInstancesOffering_productDescription = Lens.lens (\ReservedInstancesOffering' {productDescription} -> productDescription) (\s@ReservedInstancesOffering' {} a -> s {productDescription = a} :: ReservedInstancesOffering)
 
 -- | The pricing details of the Reserved Instance offering.
-reservedInstancesOffering_pricingDetails :: Lens.Lens' ReservedInstancesOffering (Core.Maybe [PricingDetail])
-reservedInstancesOffering_pricingDetails = Lens.lens (\ReservedInstancesOffering' {pricingDetails} -> pricingDetails) (\s@ReservedInstancesOffering' {} a -> s {pricingDetails = a} :: ReservedInstancesOffering) Core.. Lens.mapping Lens._Coerce
+reservedInstancesOffering_pricingDetails :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe [PricingDetail])
+reservedInstancesOffering_pricingDetails = Lens.lens (\ReservedInstancesOffering' {pricingDetails} -> pricingDetails) (\s@ReservedInstancesOffering' {} a -> s {pricingDetails = a} :: ReservedInstancesOffering) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML ReservedInstancesOffering where
   parseXML x =
     ReservedInstancesOffering'
-      Core.<$> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "duration")
-      Core.<*> (x Core..@? "instanceTenancy")
-      Core.<*> (x Core..@? "reservedInstancesOfferingId")
-      Core.<*> (x Core..@? "currencyCode")
-      Core.<*> (x Core..@? "scope")
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "marketplace")
-      Core.<*> (x Core..@? "offeringClass")
-      Core.<*> (x Core..@? "fixedPrice")
-      Core.<*> (x Core..@? "usagePrice")
-      Core.<*> (x Core..@? "offeringType")
-      Core.<*> ( x Core..@? "recurringCharges" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "productDescription")
-      Core.<*> ( x Core..@? "pricingDetailsSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "duration")
+      Prelude.<*> (x Core..@? "instanceTenancy")
+      Prelude.<*> (x Core..@? "reservedInstancesOfferingId")
+      Prelude.<*> (x Core..@? "currencyCode")
+      Prelude.<*> (x Core..@? "scope")
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "marketplace")
+      Prelude.<*> (x Core..@? "offeringClass")
+      Prelude.<*> (x Core..@? "fixedPrice")
+      Prelude.<*> (x Core..@? "usagePrice")
+      Prelude.<*> (x Core..@? "offeringType")
+      Prelude.<*> ( x Core..@? "recurringCharges"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "productDescription")
+      Prelude.<*> ( x Core..@? "pricingDetailsSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable ReservedInstancesOffering
+instance Prelude.Hashable ReservedInstancesOffering
 
-instance Core.NFData ReservedInstancesOffering
+instance Prelude.NFData ReservedInstancesOffering

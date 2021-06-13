@@ -21,17 +21,18 @@ module Network.AWS.Glue.Types.MetadataInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure containing metadata information for a schema version.
 --
 -- /See:/ 'newMetadataInfo' smart constructor.
 data MetadataInfo = MetadataInfo'
   { -- | The time at which the entry was created.
-    createdTime :: Core.Maybe Core.Text,
+    createdTime :: Prelude.Maybe Prelude.Text,
     -- | The metadata key’s corresponding value.
-    metadataValue :: Core.Maybe Core.Text
+    metadataValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetadataInfo' with all optional fields omitted.
@@ -48,16 +49,16 @@ newMetadataInfo ::
   MetadataInfo
 newMetadataInfo =
   MetadataInfo'
-    { createdTime = Core.Nothing,
-      metadataValue = Core.Nothing
+    { createdTime = Prelude.Nothing,
+      metadataValue = Prelude.Nothing
     }
 
 -- | The time at which the entry was created.
-metadataInfo_createdTime :: Lens.Lens' MetadataInfo (Core.Maybe Core.Text)
+metadataInfo_createdTime :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
 metadataInfo_createdTime = Lens.lens (\MetadataInfo' {createdTime} -> createdTime) (\s@MetadataInfo' {} a -> s {createdTime = a} :: MetadataInfo)
 
 -- | The metadata key’s corresponding value.
-metadataInfo_metadataValue :: Lens.Lens' MetadataInfo (Core.Maybe Core.Text)
+metadataInfo_metadataValue :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
 metadataInfo_metadataValue = Lens.lens (\MetadataInfo' {metadataValue} -> metadataValue) (\s@MetadataInfo' {} a -> s {metadataValue = a} :: MetadataInfo)
 
 instance Core.FromJSON MetadataInfo where
@@ -66,10 +67,10 @@ instance Core.FromJSON MetadataInfo where
       "MetadataInfo"
       ( \x ->
           MetadataInfo'
-            Core.<$> (x Core..:? "CreatedTime")
-            Core.<*> (x Core..:? "MetadataValue")
+            Prelude.<$> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "MetadataValue")
       )
 
-instance Core.Hashable MetadataInfo
+instance Prelude.Hashable MetadataInfo
 
-instance Core.NFData MetadataInfo
+instance Prelude.NFData MetadataInfo

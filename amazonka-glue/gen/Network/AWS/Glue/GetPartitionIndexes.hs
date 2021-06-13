@@ -48,23 +48,24 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPartitionIndexes' smart constructor.
 data GetPartitionIndexes = GetPartitionIndexes'
   { -- | A continuation token, included if this is a continuation call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The catalog ID where the table resides.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of a database from which you want to retrieve
     -- partition indexes.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | Specifies the name of a table for which you want to retrieve the
     -- partition indexes.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPartitionIndexes' with all optional fields omitted.
@@ -85,34 +86,34 @@ data GetPartitionIndexes = GetPartitionIndexes'
 -- partition indexes.
 newGetPartitionIndexes ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   GetPartitionIndexes
 newGetPartitionIndexes pDatabaseName_ pTableName_ =
   GetPartitionIndexes'
-    { nextToken = Core.Nothing,
-      catalogId = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
 
 -- | A continuation token, included if this is a continuation call.
-getPartitionIndexes_nextToken :: Lens.Lens' GetPartitionIndexes (Core.Maybe Core.Text)
+getPartitionIndexes_nextToken :: Lens.Lens' GetPartitionIndexes (Prelude.Maybe Prelude.Text)
 getPartitionIndexes_nextToken = Lens.lens (\GetPartitionIndexes' {nextToken} -> nextToken) (\s@GetPartitionIndexes' {} a -> s {nextToken = a} :: GetPartitionIndexes)
 
 -- | The catalog ID where the table resides.
-getPartitionIndexes_catalogId :: Lens.Lens' GetPartitionIndexes (Core.Maybe Core.Text)
+getPartitionIndexes_catalogId :: Lens.Lens' GetPartitionIndexes (Prelude.Maybe Prelude.Text)
 getPartitionIndexes_catalogId = Lens.lens (\GetPartitionIndexes' {catalogId} -> catalogId) (\s@GetPartitionIndexes' {} a -> s {catalogId = a} :: GetPartitionIndexes)
 
 -- | Specifies the name of a database from which you want to retrieve
 -- partition indexes.
-getPartitionIndexes_databaseName :: Lens.Lens' GetPartitionIndexes Core.Text
+getPartitionIndexes_databaseName :: Lens.Lens' GetPartitionIndexes Prelude.Text
 getPartitionIndexes_databaseName = Lens.lens (\GetPartitionIndexes' {databaseName} -> databaseName) (\s@GetPartitionIndexes' {} a -> s {databaseName = a} :: GetPartitionIndexes)
 
 -- | Specifies the name of a table for which you want to retrieve the
 -- partition indexes.
-getPartitionIndexes_tableName :: Lens.Lens' GetPartitionIndexes Core.Text
+getPartitionIndexes_tableName :: Lens.Lens' GetPartitionIndexes Prelude.Text
 getPartitionIndexes_tableName = Lens.lens (\GetPartitionIndexes' {tableName} -> tableName) (\s@GetPartitionIndexes' {} a -> s {tableName = a} :: GetPartitionIndexes)
 
 instance Core.AWSPager GetPartitionIndexes where
@@ -120,22 +121,22 @@ instance Core.AWSPager GetPartitionIndexes where
     | Core.stop
         ( rs
             Lens.^? getPartitionIndexesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getPartitionIndexesResponse_partitionIndexDescriptorList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getPartitionIndexes_nextToken
+          Prelude.& getPartitionIndexes_nextToken
           Lens..~ rs
           Lens.^? getPartitionIndexesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetPartitionIndexes where
   type
@@ -146,56 +147,60 @@ instance Core.AWSRequest GetPartitionIndexes where
     Response.receiveJSON
       ( \s h x ->
           GetPartitionIndexesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "PartitionIndexDescriptorList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "PartitionIndexDescriptorList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPartitionIndexes
+instance Prelude.Hashable GetPartitionIndexes
 
-instance Core.NFData GetPartitionIndexes
+instance Prelude.NFData GetPartitionIndexes
 
 instance Core.ToHeaders GetPartitionIndexes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetPartitionIndexes" :: Core.ByteString),
+              Core.=# ( "AWSGlue.GetPartitionIndexes" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPartitionIndexes where
   toJSON GetPartitionIndexes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )
 
 instance Core.ToPath GetPartitionIndexes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPartitionIndexes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPartitionIndexesResponse' smart constructor.
 data GetPartitionIndexesResponse = GetPartitionIndexesResponse'
   { -- | A continuation token, present if the current list segment is not the
     -- last.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of index descriptors.
-    partitionIndexDescriptorList :: Core.Maybe [PartitionIndexDescriptor],
+    partitionIndexDescriptorList :: Prelude.Maybe [PartitionIndexDescriptor],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPartitionIndexesResponse' with all optional fields omitted.
@@ -213,27 +218,27 @@ data GetPartitionIndexesResponse = GetPartitionIndexesResponse'
 -- 'httpStatus', 'getPartitionIndexesResponse_httpStatus' - The response's http status code.
 newGetPartitionIndexesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPartitionIndexesResponse
 newGetPartitionIndexesResponse pHttpStatus_ =
   GetPartitionIndexesResponse'
     { nextToken =
-        Core.Nothing,
-      partitionIndexDescriptorList = Core.Nothing,
+        Prelude.Nothing,
+      partitionIndexDescriptorList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token, present if the current list segment is not the
 -- last.
-getPartitionIndexesResponse_nextToken :: Lens.Lens' GetPartitionIndexesResponse (Core.Maybe Core.Text)
+getPartitionIndexesResponse_nextToken :: Lens.Lens' GetPartitionIndexesResponse (Prelude.Maybe Prelude.Text)
 getPartitionIndexesResponse_nextToken = Lens.lens (\GetPartitionIndexesResponse' {nextToken} -> nextToken) (\s@GetPartitionIndexesResponse' {} a -> s {nextToken = a} :: GetPartitionIndexesResponse)
 
 -- | A list of index descriptors.
-getPartitionIndexesResponse_partitionIndexDescriptorList :: Lens.Lens' GetPartitionIndexesResponse (Core.Maybe [PartitionIndexDescriptor])
-getPartitionIndexesResponse_partitionIndexDescriptorList = Lens.lens (\GetPartitionIndexesResponse' {partitionIndexDescriptorList} -> partitionIndexDescriptorList) (\s@GetPartitionIndexesResponse' {} a -> s {partitionIndexDescriptorList = a} :: GetPartitionIndexesResponse) Core.. Lens.mapping Lens._Coerce
+getPartitionIndexesResponse_partitionIndexDescriptorList :: Lens.Lens' GetPartitionIndexesResponse (Prelude.Maybe [PartitionIndexDescriptor])
+getPartitionIndexesResponse_partitionIndexDescriptorList = Lens.lens (\GetPartitionIndexesResponse' {partitionIndexDescriptorList} -> partitionIndexDescriptorList) (\s@GetPartitionIndexesResponse' {} a -> s {partitionIndexDescriptorList = a} :: GetPartitionIndexesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getPartitionIndexesResponse_httpStatus :: Lens.Lens' GetPartitionIndexesResponse Core.Int
+getPartitionIndexesResponse_httpStatus :: Lens.Lens' GetPartitionIndexesResponse Prelude.Int
 getPartitionIndexesResponse_httpStatus = Lens.lens (\GetPartitionIndexesResponse' {httpStatus} -> httpStatus) (\s@GetPartitionIndexesResponse' {} a -> s {httpStatus = a} :: GetPartitionIndexesResponse)
 
-instance Core.NFData GetPartitionIndexesResponse
+instance Prelude.NFData GetPartitionIndexesResponse

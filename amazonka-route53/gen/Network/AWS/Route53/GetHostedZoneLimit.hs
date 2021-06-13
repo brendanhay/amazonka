@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -69,7 +70,7 @@ data GetHostedZoneLimit = GetHostedZoneLimit'
     -- | The ID of the hosted zone that you want to get a limit for.
     hostedZoneId :: ResourceId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHostedZoneLimit' with all optional fields omitted.
@@ -123,21 +124,21 @@ instance Core.AWSRequest GetHostedZoneLimit where
     Response.receiveXML
       ( \s h x ->
           GetHostedZoneLimitResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "Limit")
-            Core.<*> (x Core..@ "Count")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Limit")
+            Prelude.<*> (x Core..@ "Count")
       )
 
-instance Core.Hashable GetHostedZoneLimit
+instance Prelude.Hashable GetHostedZoneLimit
 
-instance Core.NFData GetHostedZoneLimit
+instance Prelude.NFData GetHostedZoneLimit
 
 instance Core.ToHeaders GetHostedZoneLimit where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetHostedZoneLimit where
   toPath GetHostedZoneLimit' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2013-04-01/hostedzonelimit/",
         Core.toBS hostedZoneId,
         "/",
@@ -145,14 +146,14 @@ instance Core.ToPath GetHostedZoneLimit where
       ]
 
 instance Core.ToQuery GetHostedZoneLimit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the requested limit.
 --
 -- /See:/ 'newGetHostedZoneLimitResponse' smart constructor.
 data GetHostedZoneLimitResponse = GetHostedZoneLimitResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The current setting for the specified limit. For example, if you
     -- specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request,
     -- the value of @Limit@ is the maximum number of records that you can
@@ -162,9 +163,9 @@ data GetHostedZoneLimitResponse = GetHostedZoneLimitResponse'
     -- type. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value
     -- of @Type@ in the request, the value of @Count@ is the current number of
     -- records that you have created in the specified hosted zone.
-    count :: Core.Natural
+    count :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHostedZoneLimitResponse' with all optional fields omitted.
@@ -187,11 +188,11 @@ data GetHostedZoneLimitResponse = GetHostedZoneLimitResponse'
 -- records that you have created in the specified hosted zone.
 newGetHostedZoneLimitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'limit'
   HostedZoneLimit ->
   -- | 'count'
-  Core.Natural ->
+  Prelude.Natural ->
   GetHostedZoneLimitResponse
 newGetHostedZoneLimitResponse
   pHttpStatus_
@@ -205,7 +206,7 @@ newGetHostedZoneLimitResponse
       }
 
 -- | The response's http status code.
-getHostedZoneLimitResponse_httpStatus :: Lens.Lens' GetHostedZoneLimitResponse Core.Int
+getHostedZoneLimitResponse_httpStatus :: Lens.Lens' GetHostedZoneLimitResponse Prelude.Int
 getHostedZoneLimitResponse_httpStatus = Lens.lens (\GetHostedZoneLimitResponse' {httpStatus} -> httpStatus) (\s@GetHostedZoneLimitResponse' {} a -> s {httpStatus = a} :: GetHostedZoneLimitResponse)
 
 -- | The current setting for the specified limit. For example, if you
@@ -219,7 +220,7 @@ getHostedZoneLimitResponse_limit = Lens.lens (\GetHostedZoneLimitResponse' {limi
 -- type. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value
 -- of @Type@ in the request, the value of @Count@ is the current number of
 -- records that you have created in the specified hosted zone.
-getHostedZoneLimitResponse_count :: Lens.Lens' GetHostedZoneLimitResponse Core.Natural
+getHostedZoneLimitResponse_count :: Lens.Lens' GetHostedZoneLimitResponse Prelude.Natural
 getHostedZoneLimitResponse_count = Lens.lens (\GetHostedZoneLimitResponse' {count} -> count) (\s@GetHostedZoneLimitResponse' {} a -> s {count = a} :: GetHostedZoneLimitResponse)
 
-instance Core.NFData GetHostedZoneLimitResponse
+instance Prelude.NFData GetHostedZoneLimitResponse

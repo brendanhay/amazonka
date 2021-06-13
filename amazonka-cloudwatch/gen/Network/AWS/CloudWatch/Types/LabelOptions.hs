@@ -21,6 +21,7 @@ module Network.AWS.CloudWatch.Types.LabelOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure includes the @Timezone@ parameter, which you can use to
 -- specify your time zone so that the labels that are associated with
@@ -38,9 +39,9 @@ data LabelOptions = LabelOptions'
     -- indicate the number of hours ahead or behind of UTC, and the final two
     -- digits are the number of minutes. For example, +0130 indicates a time
     -- zone that is 1 hour and 30 minutes ahead of UTC. The default is +0000.
-    timezone :: Core.Maybe Core.Text
+    timezone :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelOptions' with all optional fields omitted.
@@ -58,20 +59,20 @@ data LabelOptions = LabelOptions'
 newLabelOptions ::
   LabelOptions
 newLabelOptions =
-  LabelOptions' {timezone = Core.Nothing}
+  LabelOptions' {timezone = Prelude.Nothing}
 
 -- | The time zone to use for metric data return in this operation. The
 -- format is @+@ or @-@ followed by four digits. The first two digits
 -- indicate the number of hours ahead or behind of UTC, and the final two
 -- digits are the number of minutes. For example, +0130 indicates a time
 -- zone that is 1 hour and 30 minutes ahead of UTC. The default is +0000.
-labelOptions_timezone :: Lens.Lens' LabelOptions (Core.Maybe Core.Text)
+labelOptions_timezone :: Lens.Lens' LabelOptions (Prelude.Maybe Prelude.Text)
 labelOptions_timezone = Lens.lens (\LabelOptions' {timezone} -> timezone) (\s@LabelOptions' {} a -> s {timezone = a} :: LabelOptions)
 
-instance Core.Hashable LabelOptions
+instance Prelude.Hashable LabelOptions
 
-instance Core.NFData LabelOptions
+instance Prelude.NFData LabelOptions
 
 instance Core.ToQuery LabelOptions where
   toQuery LabelOptions' {..} =
-    Core.mconcat ["Timezone" Core.=: timezone]
+    Prelude.mconcat ["Timezone" Core.=: timezone]

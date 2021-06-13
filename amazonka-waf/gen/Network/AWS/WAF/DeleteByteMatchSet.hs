@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -75,11 +76,11 @@ data DeleteByteMatchSet = DeleteByteMatchSet'
   { -- | The @ByteMatchSetId@ of the ByteMatchSet that you want to delete.
     -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
     -- ListByteMatchSets.
-    byteMatchSetId :: Core.Text,
+    byteMatchSetId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteByteMatchSet' with all optional fields omitted.
@@ -96,9 +97,9 @@ data DeleteByteMatchSet = DeleteByteMatchSet'
 -- 'changeToken', 'deleteByteMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newDeleteByteMatchSet ::
   -- | 'byteMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   DeleteByteMatchSet
 newDeleteByteMatchSet pByteMatchSetId_ pChangeToken_ =
   DeleteByteMatchSet'
@@ -110,11 +111,11 @@ newDeleteByteMatchSet pByteMatchSetId_ pChangeToken_ =
 -- | The @ByteMatchSetId@ of the ByteMatchSet that you want to delete.
 -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
 -- ListByteMatchSets.
-deleteByteMatchSet_byteMatchSetId :: Lens.Lens' DeleteByteMatchSet Core.Text
+deleteByteMatchSet_byteMatchSetId :: Lens.Lens' DeleteByteMatchSet Prelude.Text
 deleteByteMatchSet_byteMatchSetId = Lens.lens (\DeleteByteMatchSet' {byteMatchSetId} -> byteMatchSetId) (\s@DeleteByteMatchSet' {} a -> s {byteMatchSetId = a} :: DeleteByteMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-deleteByteMatchSet_changeToken :: Lens.Lens' DeleteByteMatchSet Core.Text
+deleteByteMatchSet_changeToken :: Lens.Lens' DeleteByteMatchSet Prelude.Text
 deleteByteMatchSet_changeToken = Lens.lens (\DeleteByteMatchSet' {changeToken} -> changeToken) (\s@DeleteByteMatchSet' {} a -> s {changeToken = a} :: DeleteByteMatchSet)
 
 instance Core.AWSRequest DeleteByteMatchSet where
@@ -126,52 +127,55 @@ instance Core.AWSRequest DeleteByteMatchSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteByteMatchSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteByteMatchSet
+instance Prelude.Hashable DeleteByteMatchSet
 
-instance Core.NFData DeleteByteMatchSet
+instance Prelude.NFData DeleteByteMatchSet
 
 instance Core.ToHeaders DeleteByteMatchSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.DeleteByteMatchSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteByteMatchSet where
   toJSON DeleteByteMatchSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ByteMatchSetId" Core..= byteMatchSetId),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ByteMatchSetId" Core..= byteMatchSetId),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath DeleteByteMatchSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteByteMatchSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteByteMatchSetResponse' smart constructor.
 data DeleteByteMatchSetResponse = DeleteByteMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteByteMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteByteMatchSetResponse' with all optional fields omitted.
@@ -188,23 +192,23 @@ data DeleteByteMatchSetResponse = DeleteByteMatchSetResponse'
 -- 'httpStatus', 'deleteByteMatchSetResponse_httpStatus' - The response's http status code.
 newDeleteByteMatchSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteByteMatchSetResponse
 newDeleteByteMatchSetResponse pHttpStatus_ =
   DeleteByteMatchSetResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteByteMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-deleteByteMatchSetResponse_changeToken :: Lens.Lens' DeleteByteMatchSetResponse (Core.Maybe Core.Text)
+deleteByteMatchSetResponse_changeToken :: Lens.Lens' DeleteByteMatchSetResponse (Prelude.Maybe Prelude.Text)
 deleteByteMatchSetResponse_changeToken = Lens.lens (\DeleteByteMatchSetResponse' {changeToken} -> changeToken) (\s@DeleteByteMatchSetResponse' {} a -> s {changeToken = a} :: DeleteByteMatchSetResponse)
 
 -- | The response's http status code.
-deleteByteMatchSetResponse_httpStatus :: Lens.Lens' DeleteByteMatchSetResponse Core.Int
+deleteByteMatchSetResponse_httpStatus :: Lens.Lens' DeleteByteMatchSetResponse Prelude.Int
 deleteByteMatchSetResponse_httpStatus = Lens.lens (\DeleteByteMatchSetResponse' {httpStatus} -> httpStatus) (\s@DeleteByteMatchSetResponse' {} a -> s {httpStatus = a} :: DeleteByteMatchSetResponse)
 
-instance Core.NFData DeleteByteMatchSetResponse
+instance Prelude.NFData DeleteByteMatchSetResponse

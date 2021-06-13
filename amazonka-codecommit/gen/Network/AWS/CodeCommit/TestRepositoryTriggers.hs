@@ -47,6 +47,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newTestRepositoryTriggers' smart constructor.
 data TestRepositoryTriggers = TestRepositoryTriggers'
   { -- | The name of the repository in which to test the triggers.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The list of triggers to test.
     triggers :: [RepositoryTrigger]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestRepositoryTriggers' with all optional fields omitted.
@@ -74,22 +75,22 @@ data TestRepositoryTriggers = TestRepositoryTriggers'
 -- 'triggers', 'testRepositoryTriggers_triggers' - The list of triggers to test.
 newTestRepositoryTriggers ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   TestRepositoryTriggers
 newTestRepositoryTriggers pRepositoryName_ =
   TestRepositoryTriggers'
     { repositoryName =
         pRepositoryName_,
-      triggers = Core.mempty
+      triggers = Prelude.mempty
     }
 
 -- | The name of the repository in which to test the triggers.
-testRepositoryTriggers_repositoryName :: Lens.Lens' TestRepositoryTriggers Core.Text
+testRepositoryTriggers_repositoryName :: Lens.Lens' TestRepositoryTriggers Prelude.Text
 testRepositoryTriggers_repositoryName = Lens.lens (\TestRepositoryTriggers' {repositoryName} -> repositoryName) (\s@TestRepositoryTriggers' {} a -> s {repositoryName = a} :: TestRepositoryTriggers)
 
 -- | The list of triggers to test.
 testRepositoryTriggers_triggers :: Lens.Lens' TestRepositoryTriggers [RepositoryTrigger]
-testRepositoryTriggers_triggers = Lens.lens (\TestRepositoryTriggers' {triggers} -> triggers) (\s@TestRepositoryTriggers' {} a -> s {triggers = a} :: TestRepositoryTriggers) Core.. Lens._Coerce
+testRepositoryTriggers_triggers = Lens.lens (\TestRepositoryTriggers' {triggers} -> triggers) (\s@TestRepositoryTriggers' {} a -> s {triggers = a} :: TestRepositoryTriggers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TestRepositoryTriggers where
   type
@@ -100,44 +101,49 @@ instance Core.AWSRequest TestRepositoryTriggers where
     Response.receiveJSON
       ( \s h x ->
           TestRepositoryTriggersResponse'
-            Core.<$> ( x Core..?> "successfulExecutions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "failedExecutions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "successfulExecutions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "failedExecutions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TestRepositoryTriggers
+instance Prelude.Hashable TestRepositoryTriggers
 
-instance Core.NFData TestRepositoryTriggers
+instance Prelude.NFData TestRepositoryTriggers
 
 instance Core.ToHeaders TestRepositoryTriggers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.TestRepositoryTriggers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TestRepositoryTriggers where
   toJSON TestRepositoryTriggers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just ("triggers" Core..= triggers)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("triggers" Core..= triggers)
           ]
       )
 
 instance Core.ToPath TestRepositoryTriggers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TestRepositoryTriggers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a test repository triggers operation.
 --
@@ -146,14 +152,14 @@ data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
   { -- | The list of triggers that were successfully tested. This list provides
     -- the names of the triggers that were successfully tested, separated by
     -- commas.
-    successfulExecutions :: Core.Maybe [Core.Text],
+    successfulExecutions :: Prelude.Maybe [Prelude.Text],
     -- | The list of triggers that were not tested. This list provides the names
     -- of the triggers that could not be tested, separated by commas.
-    failedExecutions :: Core.Maybe [RepositoryTriggerExecutionFailure],
+    failedExecutions :: Prelude.Maybe [RepositoryTriggerExecutionFailure],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestRepositoryTriggersResponse' with all optional fields omitted.
@@ -173,29 +179,31 @@ data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
 -- 'httpStatus', 'testRepositoryTriggersResponse_httpStatus' - The response's http status code.
 newTestRepositoryTriggersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TestRepositoryTriggersResponse
 newTestRepositoryTriggersResponse pHttpStatus_ =
   TestRepositoryTriggersResponse'
     { successfulExecutions =
-        Core.Nothing,
-      failedExecutions = Core.Nothing,
+        Prelude.Nothing,
+      failedExecutions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of triggers that were successfully tested. This list provides
 -- the names of the triggers that were successfully tested, separated by
 -- commas.
-testRepositoryTriggersResponse_successfulExecutions :: Lens.Lens' TestRepositoryTriggersResponse (Core.Maybe [Core.Text])
-testRepositoryTriggersResponse_successfulExecutions = Lens.lens (\TestRepositoryTriggersResponse' {successfulExecutions} -> successfulExecutions) (\s@TestRepositoryTriggersResponse' {} a -> s {successfulExecutions = a} :: TestRepositoryTriggersResponse) Core.. Lens.mapping Lens._Coerce
+testRepositoryTriggersResponse_successfulExecutions :: Lens.Lens' TestRepositoryTriggersResponse (Prelude.Maybe [Prelude.Text])
+testRepositoryTriggersResponse_successfulExecutions = Lens.lens (\TestRepositoryTriggersResponse' {successfulExecutions} -> successfulExecutions) (\s@TestRepositoryTriggersResponse' {} a -> s {successfulExecutions = a} :: TestRepositoryTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of triggers that were not tested. This list provides the names
 -- of the triggers that could not be tested, separated by commas.
-testRepositoryTriggersResponse_failedExecutions :: Lens.Lens' TestRepositoryTriggersResponse (Core.Maybe [RepositoryTriggerExecutionFailure])
-testRepositoryTriggersResponse_failedExecutions = Lens.lens (\TestRepositoryTriggersResponse' {failedExecutions} -> failedExecutions) (\s@TestRepositoryTriggersResponse' {} a -> s {failedExecutions = a} :: TestRepositoryTriggersResponse) Core.. Lens.mapping Lens._Coerce
+testRepositoryTriggersResponse_failedExecutions :: Lens.Lens' TestRepositoryTriggersResponse (Prelude.Maybe [RepositoryTriggerExecutionFailure])
+testRepositoryTriggersResponse_failedExecutions = Lens.lens (\TestRepositoryTriggersResponse' {failedExecutions} -> failedExecutions) (\s@TestRepositoryTriggersResponse' {} a -> s {failedExecutions = a} :: TestRepositoryTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-testRepositoryTriggersResponse_httpStatus :: Lens.Lens' TestRepositoryTriggersResponse Core.Int
+testRepositoryTriggersResponse_httpStatus :: Lens.Lens' TestRepositoryTriggersResponse Prelude.Int
 testRepositoryTriggersResponse_httpStatus = Lens.lens (\TestRepositoryTriggersResponse' {httpStatus} -> httpStatus) (\s@TestRepositoryTriggersResponse' {} a -> s {httpStatus = a} :: TestRepositoryTriggersResponse)
 
-instance Core.NFData TestRepositoryTriggersResponse
+instance
+  Prelude.NFData
+    TestRepositoryTriggersResponse

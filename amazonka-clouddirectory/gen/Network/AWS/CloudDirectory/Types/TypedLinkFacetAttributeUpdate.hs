@@ -23,6 +23,7 @@ import Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
 import Network.AWS.CloudDirectory.Types.UpdateActionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A typed link facet attribute update.
 --
@@ -33,7 +34,7 @@ data TypedLinkFacetAttributeUpdate = TypedLinkFacetAttributeUpdate'
     -- | The action to perform when updating the attribute.
     action :: UpdateActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TypedLinkFacetAttributeUpdate' with all optional fields omitted.
@@ -67,15 +68,17 @@ typedLinkFacetAttributeUpdate_attribute = Lens.lens (\TypedLinkFacetAttributeUpd
 typedLinkFacetAttributeUpdate_action :: Lens.Lens' TypedLinkFacetAttributeUpdate UpdateActionType
 typedLinkFacetAttributeUpdate_action = Lens.lens (\TypedLinkFacetAttributeUpdate' {action} -> action) (\s@TypedLinkFacetAttributeUpdate' {} a -> s {action = a} :: TypedLinkFacetAttributeUpdate)
 
-instance Core.Hashable TypedLinkFacetAttributeUpdate
+instance
+  Prelude.Hashable
+    TypedLinkFacetAttributeUpdate
 
-instance Core.NFData TypedLinkFacetAttributeUpdate
+instance Prelude.NFData TypedLinkFacetAttributeUpdate
 
 instance Core.ToJSON TypedLinkFacetAttributeUpdate where
   toJSON TypedLinkFacetAttributeUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Attribute" Core..= attribute),
-            Core.Just ("Action" Core..= action)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Attribute" Core..= attribute),
+            Prelude.Just ("Action" Core..= action)
           ]
       )

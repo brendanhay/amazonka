@@ -62,6 +62,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -79,15 +80,15 @@ data CreateStreamProcessor = CreateStreamProcessor'
     -- manage the stream processor. For example, you can get the current status
     -- of the stream processor by calling DescribeStreamProcessor. @Name@ is
     -- idempotent.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Face recognition input parameters to be used by the stream processor.
     -- Includes the collection to use for face recognition and the face
     -- attributes to detect.
     settings :: StreamProcessorSettings,
     -- | ARN of the IAM role that allows access to the stream processor.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStreamProcessor' with all optional fields omitted.
@@ -120,11 +121,11 @@ newCreateStreamProcessor ::
   -- | 'output'
   StreamProcessorOutput ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'settings'
   StreamProcessorSettings ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateStreamProcessor
 newCreateStreamProcessor
   pInput_
@@ -155,7 +156,7 @@ createStreamProcessor_output = Lens.lens (\CreateStreamProcessor' {output} -> ou
 -- manage the stream processor. For example, you can get the current status
 -- of the stream processor by calling DescribeStreamProcessor. @Name@ is
 -- idempotent.
-createStreamProcessor_name :: Lens.Lens' CreateStreamProcessor Core.Text
+createStreamProcessor_name :: Lens.Lens' CreateStreamProcessor Prelude.Text
 createStreamProcessor_name = Lens.lens (\CreateStreamProcessor' {name} -> name) (\s@CreateStreamProcessor' {} a -> s {name = a} :: CreateStreamProcessor)
 
 -- | Face recognition input parameters to be used by the stream processor.
@@ -165,7 +166,7 @@ createStreamProcessor_settings :: Lens.Lens' CreateStreamProcessor StreamProcess
 createStreamProcessor_settings = Lens.lens (\CreateStreamProcessor' {settings} -> settings) (\s@CreateStreamProcessor' {} a -> s {settings = a} :: CreateStreamProcessor)
 
 -- | ARN of the IAM role that allows access to the stream processor.
-createStreamProcessor_roleArn :: Lens.Lens' CreateStreamProcessor Core.Text
+createStreamProcessor_roleArn :: Lens.Lens' CreateStreamProcessor Prelude.Text
 createStreamProcessor_roleArn = Lens.lens (\CreateStreamProcessor' {roleArn} -> roleArn) (\s@CreateStreamProcessor' {} a -> s {roleArn = a} :: CreateStreamProcessor)
 
 instance Core.AWSRequest CreateStreamProcessor where
@@ -177,53 +178,55 @@ instance Core.AWSRequest CreateStreamProcessor where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamProcessorResponse'
-            Core.<$> (x Core..?> "StreamProcessorArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "StreamProcessorArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateStreamProcessor
+instance Prelude.Hashable CreateStreamProcessor
 
-instance Core.NFData CreateStreamProcessor
+instance Prelude.NFData CreateStreamProcessor
 
 instance Core.ToHeaders CreateStreamProcessor where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.CreateStreamProcessor" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateStreamProcessor where
   toJSON CreateStreamProcessor' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Input" Core..= input),
-            Core.Just ("Output" Core..= output),
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Settings" Core..= settings),
-            Core.Just ("RoleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Input" Core..= input),
+            Prelude.Just ("Output" Core..= output),
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Settings" Core..= settings),
+            Prelude.Just ("RoleArn" Core..= roleArn)
           ]
       )
 
 instance Core.ToPath CreateStreamProcessor where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateStreamProcessor where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamProcessorResponse' smart constructor.
 data CreateStreamProcessorResponse = CreateStreamProcessorResponse'
   { -- | ARN for the newly create stream processor.
-    streamProcessorArn :: Core.Maybe Core.Text,
+    streamProcessorArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStreamProcessorResponse' with all optional fields omitted.
@@ -238,21 +241,21 @@ data CreateStreamProcessorResponse = CreateStreamProcessorResponse'
 -- 'httpStatus', 'createStreamProcessorResponse_httpStatus' - The response's http status code.
 newCreateStreamProcessorResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateStreamProcessorResponse
 newCreateStreamProcessorResponse pHttpStatus_ =
   CreateStreamProcessorResponse'
     { streamProcessorArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | ARN for the newly create stream processor.
-createStreamProcessorResponse_streamProcessorArn :: Lens.Lens' CreateStreamProcessorResponse (Core.Maybe Core.Text)
+createStreamProcessorResponse_streamProcessorArn :: Lens.Lens' CreateStreamProcessorResponse (Prelude.Maybe Prelude.Text)
 createStreamProcessorResponse_streamProcessorArn = Lens.lens (\CreateStreamProcessorResponse' {streamProcessorArn} -> streamProcessorArn) (\s@CreateStreamProcessorResponse' {} a -> s {streamProcessorArn = a} :: CreateStreamProcessorResponse)
 
 -- | The response's http status code.
-createStreamProcessorResponse_httpStatus :: Lens.Lens' CreateStreamProcessorResponse Core.Int
+createStreamProcessorResponse_httpStatus :: Lens.Lens' CreateStreamProcessorResponse Prelude.Int
 createStreamProcessorResponse_httpStatus = Lens.lens (\CreateStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@CreateStreamProcessorResponse' {} a -> s {httpStatus = a} :: CreateStreamProcessorResponse)
 
-instance Core.NFData CreateStreamProcessorResponse
+instance Prelude.NFData CreateStreamProcessorResponse

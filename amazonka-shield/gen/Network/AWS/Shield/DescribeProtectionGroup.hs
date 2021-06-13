@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -50,9 +51,9 @@ data DescribeProtectionGroup = DescribeProtectionGroup'
   { -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
-    protectionGroupId :: Core.Text
+    protectionGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProtectionGroup' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DescribeProtectionGroup = DescribeProtectionGroup'
 -- example to update, delete, or describe it.
 newDescribeProtectionGroup ::
   -- | 'protectionGroupId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeProtectionGroup
 newDescribeProtectionGroup pProtectionGroupId_ =
   DescribeProtectionGroup'
@@ -78,7 +79,7 @@ newDescribeProtectionGroup pProtectionGroupId_ =
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
-describeProtectionGroup_protectionGroupId :: Lens.Lens' DescribeProtectionGroup Core.Text
+describeProtectionGroup_protectionGroupId :: Lens.Lens' DescribeProtectionGroup Prelude.Text
 describeProtectionGroup_protectionGroupId = Lens.lens (\DescribeProtectionGroup' {protectionGroupId} -> protectionGroupId) (\s@DescribeProtectionGroup' {} a -> s {protectionGroupId = a} :: DescribeProtectionGroup)
 
 instance Core.AWSRequest DescribeProtectionGroup where
@@ -90,52 +91,54 @@ instance Core.AWSRequest DescribeProtectionGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeProtectionGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ProtectionGroup")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ProtectionGroup")
       )
 
-instance Core.Hashable DescribeProtectionGroup
+instance Prelude.Hashable DescribeProtectionGroup
 
-instance Core.NFData DescribeProtectionGroup
+instance Prelude.NFData DescribeProtectionGroup
 
 instance Core.ToHeaders DescribeProtectionGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.DescribeProtectionGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeProtectionGroup where
   toJSON DescribeProtectionGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ProtectionGroupId" Core..= protectionGroupId)
           ]
       )
 
 instance Core.ToPath DescribeProtectionGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeProtectionGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProtectionGroupResponse' smart constructor.
 data DescribeProtectionGroupResponse = DescribeProtectionGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A grouping of protected resources that you and AWS Shield Advanced can
     -- monitor as a collective. This resource grouping improves the accuracy of
     -- detection and reduces false positives.
     protectionGroup :: ProtectionGroup
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProtectionGroupResponse' with all optional fields omitted.
@@ -152,7 +155,7 @@ data DescribeProtectionGroupResponse = DescribeProtectionGroupResponse'
 -- detection and reduces false positives.
 newDescribeProtectionGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'protectionGroup'
   ProtectionGroup ->
   DescribeProtectionGroupResponse
@@ -166,7 +169,7 @@ newDescribeProtectionGroupResponse
       }
 
 -- | The response's http status code.
-describeProtectionGroupResponse_httpStatus :: Lens.Lens' DescribeProtectionGroupResponse Core.Int
+describeProtectionGroupResponse_httpStatus :: Lens.Lens' DescribeProtectionGroupResponse Prelude.Int
 describeProtectionGroupResponse_httpStatus = Lens.lens (\DescribeProtectionGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeProtectionGroupResponse' {} a -> s {httpStatus = a} :: DescribeProtectionGroupResponse)
 
 -- | A grouping of protected resources that you and AWS Shield Advanced can
@@ -175,4 +178,6 @@ describeProtectionGroupResponse_httpStatus = Lens.lens (\DescribeProtectionGroup
 describeProtectionGroupResponse_protectionGroup :: Lens.Lens' DescribeProtectionGroupResponse ProtectionGroup
 describeProtectionGroupResponse_protectionGroup = Lens.lens (\DescribeProtectionGroupResponse' {protectionGroup} -> protectionGroup) (\s@DescribeProtectionGroupResponse' {} a -> s {protectionGroup = a} :: DescribeProtectionGroupResponse)
 
-instance Core.NFData DescribeProtectionGroupResponse
+instance
+  Prelude.NFData
+    DescribeProtectionGroupResponse

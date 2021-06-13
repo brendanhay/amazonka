@@ -25,31 +25,32 @@ import Network.AWS.EC2.Types.IcmpTypeCode
 import Network.AWS.EC2.Types.PortRange
 import Network.AWS.EC2.Types.RuleAction
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an entry in a network ACL.
 --
 -- /See:/ 'newNetworkAclEntry' smart constructor.
 data NetworkAclEntry = NetworkAclEntry'
   { -- | TCP or UDP protocols: The range of ports the rule applies to.
-    portRange :: Core.Maybe PortRange,
+    portRange :: Prelude.Maybe PortRange,
     -- | Indicates whether to allow or deny the traffic that matches the rule.
-    ruleAction :: Core.Maybe RuleAction,
+    ruleAction :: Prelude.Maybe RuleAction,
     -- | Indicates whether the rule is an egress rule (applied to traffic leaving
     -- the subnet).
-    egress :: Core.Maybe Core.Bool,
+    egress :: Prelude.Maybe Prelude.Bool,
     -- | ICMP protocol: The ICMP type and code.
-    icmpTypeCode :: Core.Maybe IcmpTypeCode,
+    icmpTypeCode :: Prelude.Maybe IcmpTypeCode,
     -- | The IPv6 network range to allow or deny, in CIDR notation.
-    ipv6CidrBlock :: Core.Maybe Core.Text,
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The protocol number. A value of \"-1\" means all protocols.
-    protocol :: Core.Maybe Core.Text,
+    protocol :: Prelude.Maybe Prelude.Text,
     -- | The rule number for the entry. ACL entries are processed in ascending
     -- order by rule number.
-    ruleNumber :: Core.Maybe Core.Int,
+    ruleNumber :: Prelude.Maybe Prelude.Int,
     -- | The IPv4 network range to allow or deny, in CIDR notation.
-    cidrBlock :: Core.Maybe Core.Text
+    cidrBlock :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkAclEntry' with all optional fields omitted.
@@ -80,62 +81,62 @@ newNetworkAclEntry ::
   NetworkAclEntry
 newNetworkAclEntry =
   NetworkAclEntry'
-    { portRange = Core.Nothing,
-      ruleAction = Core.Nothing,
-      egress = Core.Nothing,
-      icmpTypeCode = Core.Nothing,
-      ipv6CidrBlock = Core.Nothing,
-      protocol = Core.Nothing,
-      ruleNumber = Core.Nothing,
-      cidrBlock = Core.Nothing
+    { portRange = Prelude.Nothing,
+      ruleAction = Prelude.Nothing,
+      egress = Prelude.Nothing,
+      icmpTypeCode = Prelude.Nothing,
+      ipv6CidrBlock = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      ruleNumber = Prelude.Nothing,
+      cidrBlock = Prelude.Nothing
     }
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
-networkAclEntry_portRange :: Lens.Lens' NetworkAclEntry (Core.Maybe PortRange)
+networkAclEntry_portRange :: Lens.Lens' NetworkAclEntry (Prelude.Maybe PortRange)
 networkAclEntry_portRange = Lens.lens (\NetworkAclEntry' {portRange} -> portRange) (\s@NetworkAclEntry' {} a -> s {portRange = a} :: NetworkAclEntry)
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-networkAclEntry_ruleAction :: Lens.Lens' NetworkAclEntry (Core.Maybe RuleAction)
+networkAclEntry_ruleAction :: Lens.Lens' NetworkAclEntry (Prelude.Maybe RuleAction)
 networkAclEntry_ruleAction = Lens.lens (\NetworkAclEntry' {ruleAction} -> ruleAction) (\s@NetworkAclEntry' {} a -> s {ruleAction = a} :: NetworkAclEntry)
 
 -- | Indicates whether the rule is an egress rule (applied to traffic leaving
 -- the subnet).
-networkAclEntry_egress :: Lens.Lens' NetworkAclEntry (Core.Maybe Core.Bool)
+networkAclEntry_egress :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Bool)
 networkAclEntry_egress = Lens.lens (\NetworkAclEntry' {egress} -> egress) (\s@NetworkAclEntry' {} a -> s {egress = a} :: NetworkAclEntry)
 
 -- | ICMP protocol: The ICMP type and code.
-networkAclEntry_icmpTypeCode :: Lens.Lens' NetworkAclEntry (Core.Maybe IcmpTypeCode)
+networkAclEntry_icmpTypeCode :: Lens.Lens' NetworkAclEntry (Prelude.Maybe IcmpTypeCode)
 networkAclEntry_icmpTypeCode = Lens.lens (\NetworkAclEntry' {icmpTypeCode} -> icmpTypeCode) (\s@NetworkAclEntry' {} a -> s {icmpTypeCode = a} :: NetworkAclEntry)
 
 -- | The IPv6 network range to allow or deny, in CIDR notation.
-networkAclEntry_ipv6CidrBlock :: Lens.Lens' NetworkAclEntry (Core.Maybe Core.Text)
+networkAclEntry_ipv6CidrBlock :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Text)
 networkAclEntry_ipv6CidrBlock = Lens.lens (\NetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@NetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: NetworkAclEntry)
 
 -- | The protocol number. A value of \"-1\" means all protocols.
-networkAclEntry_protocol :: Lens.Lens' NetworkAclEntry (Core.Maybe Core.Text)
+networkAclEntry_protocol :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Text)
 networkAclEntry_protocol = Lens.lens (\NetworkAclEntry' {protocol} -> protocol) (\s@NetworkAclEntry' {} a -> s {protocol = a} :: NetworkAclEntry)
 
 -- | The rule number for the entry. ACL entries are processed in ascending
 -- order by rule number.
-networkAclEntry_ruleNumber :: Lens.Lens' NetworkAclEntry (Core.Maybe Core.Int)
+networkAclEntry_ruleNumber :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Int)
 networkAclEntry_ruleNumber = Lens.lens (\NetworkAclEntry' {ruleNumber} -> ruleNumber) (\s@NetworkAclEntry' {} a -> s {ruleNumber = a} :: NetworkAclEntry)
 
 -- | The IPv4 network range to allow or deny, in CIDR notation.
-networkAclEntry_cidrBlock :: Lens.Lens' NetworkAclEntry (Core.Maybe Core.Text)
+networkAclEntry_cidrBlock :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Text)
 networkAclEntry_cidrBlock = Lens.lens (\NetworkAclEntry' {cidrBlock} -> cidrBlock) (\s@NetworkAclEntry' {} a -> s {cidrBlock = a} :: NetworkAclEntry)
 
 instance Core.FromXML NetworkAclEntry where
   parseXML x =
     NetworkAclEntry'
-      Core.<$> (x Core..@? "portRange")
-      Core.<*> (x Core..@? "ruleAction")
-      Core.<*> (x Core..@? "egress")
-      Core.<*> (x Core..@? "icmpTypeCode")
-      Core.<*> (x Core..@? "ipv6CidrBlock")
-      Core.<*> (x Core..@? "protocol")
-      Core.<*> (x Core..@? "ruleNumber")
-      Core.<*> (x Core..@? "cidrBlock")
+      Prelude.<$> (x Core..@? "portRange")
+      Prelude.<*> (x Core..@? "ruleAction")
+      Prelude.<*> (x Core..@? "egress")
+      Prelude.<*> (x Core..@? "icmpTypeCode")
+      Prelude.<*> (x Core..@? "ipv6CidrBlock")
+      Prelude.<*> (x Core..@? "protocol")
+      Prelude.<*> (x Core..@? "ruleNumber")
+      Prelude.<*> (x Core..@? "cidrBlock")
 
-instance Core.Hashable NetworkAclEntry
+instance Prelude.Hashable NetworkAclEntry
 
-instance Core.NFData NetworkAclEntry
+instance Prelude.NFData NetworkAclEntry

@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newFlushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The name of the stage to flush its cache.
-    stageName :: Core.Text
+    stageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlushStageCache' with all optional fields omitted.
@@ -66,9 +67,9 @@ data FlushStageCache = FlushStageCache'
 -- 'stageName', 'flushStageCache_stageName' - [Required] The name of the stage to flush its cache.
 newFlushStageCache ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   FlushStageCache
 newFlushStageCache pRestApiId_ pStageName_ =
   FlushStageCache'
@@ -77,11 +78,11 @@ newFlushStageCache pRestApiId_ pStageName_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-flushStageCache_restApiId :: Lens.Lens' FlushStageCache Core.Text
+flushStageCache_restApiId :: Lens.Lens' FlushStageCache Prelude.Text
 flushStageCache_restApiId = Lens.lens (\FlushStageCache' {restApiId} -> restApiId) (\s@FlushStageCache' {} a -> s {restApiId = a} :: FlushStageCache)
 
 -- | [Required] The name of the stage to flush its cache.
-flushStageCache_stageName :: Lens.Lens' FlushStageCache Core.Text
+flushStageCache_stageName :: Lens.Lens' FlushStageCache Prelude.Text
 flushStageCache_stageName = Lens.lens (\FlushStageCache' {stageName} -> stageName) (\s@FlushStageCache' {} a -> s {stageName = a} :: FlushStageCache)
 
 instance Core.AWSRequest FlushStageCache where
@@ -92,22 +93,22 @@ instance Core.AWSRequest FlushStageCache where
   response =
     Response.receiveNull FlushStageCacheResponse'
 
-instance Core.Hashable FlushStageCache
+instance Prelude.Hashable FlushStageCache
 
-instance Core.NFData FlushStageCache
+instance Prelude.NFData FlushStageCache
 
 instance Core.ToHeaders FlushStageCache where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath FlushStageCache where
   toPath FlushStageCache' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/stages/",
@@ -116,13 +117,13 @@ instance Core.ToPath FlushStageCache where
       ]
 
 instance Core.ToQuery FlushStageCache where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newFlushStageCacheResponse' smart constructor.
 data FlushStageCacheResponse = FlushStageCacheResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlushStageCacheResponse' with all optional fields omitted.
@@ -132,4 +133,4 @@ newFlushStageCacheResponse ::
   FlushStageCacheResponse
 newFlushStageCacheResponse = FlushStageCacheResponse'
 
-instance Core.NFData FlushStageCacheResponse
+instance Prelude.NFData FlushStageCacheResponse

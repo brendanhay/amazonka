@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyInstanceGroups' smart constructor.
 data ModifyInstanceGroups = ModifyInstanceGroups'
   { -- | The ID of the cluster to which the instance group belongs.
-    clusterId :: Core.Maybe Core.Text,
+    clusterId :: Prelude.Maybe Prelude.Text,
     -- | Instance groups to change.
-    instanceGroups :: Core.Maybe [InstanceGroupModifyConfig]
+    instanceGroups :: Prelude.Maybe [InstanceGroupModifyConfig]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceGroups' with all optional fields omitted.
@@ -71,17 +72,17 @@ newModifyInstanceGroups ::
   ModifyInstanceGroups
 newModifyInstanceGroups =
   ModifyInstanceGroups'
-    { clusterId = Core.Nothing,
-      instanceGroups = Core.Nothing
+    { clusterId = Prelude.Nothing,
+      instanceGroups = Prelude.Nothing
     }
 
 -- | The ID of the cluster to which the instance group belongs.
-modifyInstanceGroups_clusterId :: Lens.Lens' ModifyInstanceGroups (Core.Maybe Core.Text)
+modifyInstanceGroups_clusterId :: Lens.Lens' ModifyInstanceGroups (Prelude.Maybe Prelude.Text)
 modifyInstanceGroups_clusterId = Lens.lens (\ModifyInstanceGroups' {clusterId} -> clusterId) (\s@ModifyInstanceGroups' {} a -> s {clusterId = a} :: ModifyInstanceGroups)
 
 -- | Instance groups to change.
-modifyInstanceGroups_instanceGroups :: Lens.Lens' ModifyInstanceGroups (Core.Maybe [InstanceGroupModifyConfig])
-modifyInstanceGroups_instanceGroups = Lens.lens (\ModifyInstanceGroups' {instanceGroups} -> instanceGroups) (\s@ModifyInstanceGroups' {} a -> s {instanceGroups = a} :: ModifyInstanceGroups) Core.. Lens.mapping Lens._Coerce
+modifyInstanceGroups_instanceGroups :: Lens.Lens' ModifyInstanceGroups (Prelude.Maybe [InstanceGroupModifyConfig])
+modifyInstanceGroups_instanceGroups = Lens.lens (\ModifyInstanceGroups' {instanceGroups} -> instanceGroups) (\s@ModifyInstanceGroups' {} a -> s {instanceGroups = a} :: ModifyInstanceGroups) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest ModifyInstanceGroups where
   type
@@ -91,43 +92,46 @@ instance Core.AWSRequest ModifyInstanceGroups where
   response =
     Response.receiveNull ModifyInstanceGroupsResponse'
 
-instance Core.Hashable ModifyInstanceGroups
+instance Prelude.Hashable ModifyInstanceGroups
 
-instance Core.NFData ModifyInstanceGroups
+instance Prelude.NFData ModifyInstanceGroups
 
 instance Core.ToHeaders ModifyInstanceGroups where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.ModifyInstanceGroups" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyInstanceGroups where
   toJSON ModifyInstanceGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ClusterId" Core..=) Core.<$> clusterId,
-            ("InstanceGroups" Core..=) Core.<$> instanceGroups
+      ( Prelude.catMaybes
+          [ ("ClusterId" Core..=) Prelude.<$> clusterId,
+            ("InstanceGroups" Core..=)
+              Prelude.<$> instanceGroups
           ]
       )
 
 instance Core.ToPath ModifyInstanceGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyInstanceGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyInstanceGroupsResponse' smart constructor.
 data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceGroupsResponse' with all optional fields omitted.
@@ -138,4 +142,4 @@ newModifyInstanceGroupsResponse ::
 newModifyInstanceGroupsResponse =
   ModifyInstanceGroupsResponse'
 
-instance Core.NFData ModifyInstanceGroupsResponse
+instance Prelude.NFData ModifyInstanceGroupsResponse

@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -53,9 +54,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newGetPlatformApplicationAttributes' smart constructor.
 data GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
   { -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
-    platformApplicationArn :: Core.Text
+    platformApplicationArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPlatformApplicationAttributes' with all optional fields omitted.
@@ -68,7 +69,7 @@ data GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
 -- 'platformApplicationArn', 'getPlatformApplicationAttributes_platformApplicationArn' - PlatformApplicationArn for GetPlatformApplicationAttributesInput.
 newGetPlatformApplicationAttributes ::
   -- | 'platformApplicationArn'
-  Core.Text ->
+  Prelude.Text ->
   GetPlatformApplicationAttributes
 newGetPlatformApplicationAttributes
   pPlatformApplicationArn_ =
@@ -78,7 +79,7 @@ newGetPlatformApplicationAttributes
       }
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
-getPlatformApplicationAttributes_platformApplicationArn :: Lens.Lens' GetPlatformApplicationAttributes Core.Text
+getPlatformApplicationAttributes_platformApplicationArn :: Lens.Lens' GetPlatformApplicationAttributes Prelude.Text
 getPlatformApplicationAttributes_platformApplicationArn = Lens.lens (\GetPlatformApplicationAttributes' {platformApplicationArn} -> platformApplicationArn) (\s@GetPlatformApplicationAttributes' {} a -> s {platformApplicationArn = a} :: GetPlatformApplicationAttributes)
 
 instance
@@ -94,38 +95,41 @@ instance
       "GetPlatformApplicationAttributesResult"
       ( \s h x ->
           GetPlatformApplicationAttributesResponse'
-            Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetPlatformApplicationAttributes
 
-instance Core.NFData GetPlatformApplicationAttributes
+instance
+  Prelude.NFData
+    GetPlatformApplicationAttributes
 
 instance
   Core.ToHeaders
     GetPlatformApplicationAttributes
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetPlatformApplicationAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetPlatformApplicationAttributes
   where
   toQuery GetPlatformApplicationAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "GetPlatformApplicationAttributes" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "PlatformApplicationArn"
           Core.=: platformApplicationArn
       ]
@@ -148,11 +152,11 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
     -- -   @EventDeliveryFailure@ – Topic ARN to which DeliveryFailure event
     --     notifications should be sent upon Direct Publish delivery failure
     --     (permanent) to one of the application\'s endpoints.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPlatformApplicationAttributesResponse' with all optional fields omitted.
@@ -180,13 +184,13 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
 -- 'httpStatus', 'getPlatformApplicationAttributesResponse_httpStatus' - The response's http status code.
 newGetPlatformApplicationAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPlatformApplicationAttributesResponse
 newGetPlatformApplicationAttributesResponse
   pHttpStatus_ =
     GetPlatformApplicationAttributesResponse'
       { attributes =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -204,13 +208,13 @@ newGetPlatformApplicationAttributesResponse
 -- -   @EventDeliveryFailure@ – Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
-getPlatformApplicationAttributesResponse_attributes :: Lens.Lens' GetPlatformApplicationAttributesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getPlatformApplicationAttributesResponse_attributes = Lens.lens (\GetPlatformApplicationAttributesResponse' {attributes} -> attributes) (\s@GetPlatformApplicationAttributesResponse' {} a -> s {attributes = a} :: GetPlatformApplicationAttributesResponse) Core.. Lens.mapping Lens._Coerce
+getPlatformApplicationAttributesResponse_attributes :: Lens.Lens' GetPlatformApplicationAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getPlatformApplicationAttributesResponse_attributes = Lens.lens (\GetPlatformApplicationAttributesResponse' {attributes} -> attributes) (\s@GetPlatformApplicationAttributesResponse' {} a -> s {attributes = a} :: GetPlatformApplicationAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getPlatformApplicationAttributesResponse_httpStatus :: Lens.Lens' GetPlatformApplicationAttributesResponse Core.Int
+getPlatformApplicationAttributesResponse_httpStatus :: Lens.Lens' GetPlatformApplicationAttributesResponse Prelude.Int
 getPlatformApplicationAttributesResponse_httpStatus = Lens.lens (\GetPlatformApplicationAttributesResponse' {httpStatus} -> httpStatus) (\s@GetPlatformApplicationAttributesResponse' {} a -> s {httpStatus = a} :: GetPlatformApplicationAttributesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetPlatformApplicationAttributesResponse

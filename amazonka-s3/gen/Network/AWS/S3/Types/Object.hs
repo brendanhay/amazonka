@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Object where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectStorageClass
 import Network.AWS.S3.Types.Owner
@@ -30,7 +31,7 @@ import Network.AWS.S3.Types.Owner
 -- /See:/ 'newObject' smart constructor.
 data Object = Object'
   { -- | The owner of the object
-    owner :: Core.Maybe Owner,
+    owner :: Prelude.Maybe Owner,
     -- | The entity tag is a hash of the object. The ETag reflects changes only
     -- to the contents of an object, not its metadata. The ETag may or may not
     -- be an MD5 digest of the object data. Whether or not it is depends on how
@@ -50,7 +51,7 @@ data Object = Object'
     --     of encryption.
     eTag :: ETag,
     -- | Size in bytes of the object
-    size :: Core.Int,
+    size :: Prelude.Int,
     -- | The name that you assign to an object. You use the object key to
     -- retrieve the object.
     key :: ObjectKey,
@@ -59,7 +60,7 @@ data Object = Object'
     -- | Creation date of the object.
     lastModified :: Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Object' with all optional fields omitted.
@@ -101,13 +102,13 @@ newObject ::
   -- | 'eTag'
   ETag ->
   -- | 'size'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'key'
   ObjectKey ->
   -- | 'storageClass'
   ObjectStorageClass ->
   -- | 'lastModified'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   Object
 newObject
   pETag_
@@ -116,7 +117,7 @@ newObject
   pStorageClass_
   pLastModified_ =
     Object'
-      { owner = Core.Nothing,
+      { owner = Prelude.Nothing,
         eTag = pETag_,
         size = pSize_,
         key = pKey_,
@@ -125,7 +126,7 @@ newObject
       }
 
 -- | The owner of the object
-object_owner :: Lens.Lens' Object (Core.Maybe Owner)
+object_owner :: Lens.Lens' Object (Prelude.Maybe Owner)
 object_owner = Lens.lens (\Object' {owner} -> owner) (\s@Object' {} a -> s {owner = a} :: Object)
 
 -- | The entity tag is a hash of the object. The ETag reflects changes only
@@ -149,7 +150,7 @@ object_eTag :: Lens.Lens' Object ETag
 object_eTag = Lens.lens (\Object' {eTag} -> eTag) (\s@Object' {} a -> s {eTag = a} :: Object)
 
 -- | Size in bytes of the object
-object_size :: Lens.Lens' Object Core.Int
+object_size :: Lens.Lens' Object Prelude.Int
 object_size = Lens.lens (\Object' {size} -> size) (\s@Object' {} a -> s {size = a} :: Object)
 
 -- | The name that you assign to an object. You use the object key to
@@ -162,19 +163,19 @@ object_storageClass :: Lens.Lens' Object ObjectStorageClass
 object_storageClass = Lens.lens (\Object' {storageClass} -> storageClass) (\s@Object' {} a -> s {storageClass = a} :: Object)
 
 -- | Creation date of the object.
-object_lastModified :: Lens.Lens' Object Core.UTCTime
-object_lastModified = Lens.lens (\Object' {lastModified} -> lastModified) (\s@Object' {} a -> s {lastModified = a} :: Object) Core.. Core._Time
+object_lastModified :: Lens.Lens' Object Prelude.UTCTime
+object_lastModified = Lens.lens (\Object' {lastModified} -> lastModified) (\s@Object' {} a -> s {lastModified = a} :: Object) Prelude.. Core._Time
 
 instance Core.FromXML Object where
   parseXML x =
     Object'
-      Core.<$> (x Core..@? "Owner")
-      Core.<*> (x Core..@ "ETag")
-      Core.<*> (x Core..@ "Size")
-      Core.<*> (x Core..@ "Key")
-      Core.<*> (x Core..@ "StorageClass")
-      Core.<*> (x Core..@ "LastModified")
+      Prelude.<$> (x Core..@? "Owner")
+      Prelude.<*> (x Core..@ "ETag")
+      Prelude.<*> (x Core..@ "Size")
+      Prelude.<*> (x Core..@ "Key")
+      Prelude.<*> (x Core..@ "StorageClass")
+      Prelude.<*> (x Core..@ "LastModified")
 
-instance Core.Hashable Object
+instance Prelude.Hashable Object
 
-instance Core.NFData Object
+instance Prelude.NFData Object

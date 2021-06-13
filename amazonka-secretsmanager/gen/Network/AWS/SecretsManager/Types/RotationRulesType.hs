@@ -21,6 +21,7 @@ module Network.AWS.SecretsManager.Types.RotationRulesType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that defines the rotation configuration for the secret.
 --
@@ -36,9 +37,9 @@ data RotationRulesType = RotationRulesType'
     -- minute is also chosen somewhat randomly, but weighted towards the top of
     -- the hour and influenced by a variety of factors that help distribute
     -- load.
-    automaticallyAfterDays :: Core.Maybe Core.Natural
+    automaticallyAfterDays :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RotationRulesType' with all optional fields omitted.
@@ -63,7 +64,7 @@ newRotationRulesType ::
 newRotationRulesType =
   RotationRulesType'
     { automaticallyAfterDays =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies the number of days between automatic scheduled rotations of
@@ -76,7 +77,7 @@ newRotationRulesType =
 -- minute is also chosen somewhat randomly, but weighted towards the top of
 -- the hour and influenced by a variety of factors that help distribute
 -- load.
-rotationRulesType_automaticallyAfterDays :: Lens.Lens' RotationRulesType (Core.Maybe Core.Natural)
+rotationRulesType_automaticallyAfterDays :: Lens.Lens' RotationRulesType (Prelude.Maybe Prelude.Natural)
 rotationRulesType_automaticallyAfterDays = Lens.lens (\RotationRulesType' {automaticallyAfterDays} -> automaticallyAfterDays) (\s@RotationRulesType' {} a -> s {automaticallyAfterDays = a} :: RotationRulesType)
 
 instance Core.FromJSON RotationRulesType where
@@ -85,18 +86,18 @@ instance Core.FromJSON RotationRulesType where
       "RotationRulesType"
       ( \x ->
           RotationRulesType'
-            Core.<$> (x Core..:? "AutomaticallyAfterDays")
+            Prelude.<$> (x Core..:? "AutomaticallyAfterDays")
       )
 
-instance Core.Hashable RotationRulesType
+instance Prelude.Hashable RotationRulesType
 
-instance Core.NFData RotationRulesType
+instance Prelude.NFData RotationRulesType
 
 instance Core.ToJSON RotationRulesType where
   toJSON RotationRulesType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AutomaticallyAfterDays" Core..=)
-              Core.<$> automaticallyAfterDays
+              Prelude.<$> automaticallyAfterDays
           ]
       )

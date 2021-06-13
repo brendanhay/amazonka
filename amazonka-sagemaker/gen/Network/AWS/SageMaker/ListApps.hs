@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,20 +57,20 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListApps' smart constructor.
 data ListApps = ListApps'
   { -- | The sort order for the results. The default is Ascending.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns a list up to a specified limit.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A parameter to search for the domain ID.
-    domainIdEquals :: Core.Maybe Core.Text,
+    domainIdEquals :: Prelude.Maybe Prelude.Text,
     -- | A parameter to search by user profile name.
-    userProfileNameEquals :: Core.Maybe Core.Text,
+    userProfileNameEquals :: Prelude.Maybe Prelude.Text,
     -- | The parameter by which to sort the results. The default is CreationTime.
-    sortBy :: Core.Maybe AppSortKey
+    sortBy :: Prelude.Maybe AppSortKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListApps' with all optional fields omitted.
@@ -95,55 +96,57 @@ newListApps ::
   ListApps
 newListApps =
   ListApps'
-    { sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      domainIdEquals = Core.Nothing,
-      userProfileNameEquals = Core.Nothing,
-      sortBy = Core.Nothing
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      domainIdEquals = Prelude.Nothing,
+      userProfileNameEquals = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
 
 -- | The sort order for the results. The default is Ascending.
-listApps_sortOrder :: Lens.Lens' ListApps (Core.Maybe SortOrder)
+listApps_sortOrder :: Lens.Lens' ListApps (Prelude.Maybe SortOrder)
 listApps_sortOrder = Lens.lens (\ListApps' {sortOrder} -> sortOrder) (\s@ListApps' {} a -> s {sortOrder = a} :: ListApps)
 
 -- | If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
-listApps_nextToken :: Lens.Lens' ListApps (Core.Maybe Core.Text)
+listApps_nextToken :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_nextToken = Lens.lens (\ListApps' {nextToken} -> nextToken) (\s@ListApps' {} a -> s {nextToken = a} :: ListApps)
 
 -- | Returns a list up to a specified limit.
-listApps_maxResults :: Lens.Lens' ListApps (Core.Maybe Core.Natural)
+listApps_maxResults :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Natural)
 listApps_maxResults = Lens.lens (\ListApps' {maxResults} -> maxResults) (\s@ListApps' {} a -> s {maxResults = a} :: ListApps)
 
 -- | A parameter to search for the domain ID.
-listApps_domainIdEquals :: Lens.Lens' ListApps (Core.Maybe Core.Text)
+listApps_domainIdEquals :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_domainIdEquals = Lens.lens (\ListApps' {domainIdEquals} -> domainIdEquals) (\s@ListApps' {} a -> s {domainIdEquals = a} :: ListApps)
 
 -- | A parameter to search by user profile name.
-listApps_userProfileNameEquals :: Lens.Lens' ListApps (Core.Maybe Core.Text)
+listApps_userProfileNameEquals :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_userProfileNameEquals = Lens.lens (\ListApps' {userProfileNameEquals} -> userProfileNameEquals) (\s@ListApps' {} a -> s {userProfileNameEquals = a} :: ListApps)
 
 -- | The parameter by which to sort the results. The default is CreationTime.
-listApps_sortBy :: Lens.Lens' ListApps (Core.Maybe AppSortKey)
+listApps_sortBy :: Lens.Lens' ListApps (Prelude.Maybe AppSortKey)
 listApps_sortBy = Lens.lens (\ListApps' {sortBy} -> sortBy) (\s@ListApps' {} a -> s {sortBy = a} :: ListApps)
 
 instance Core.AWSPager ListApps where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAppsResponse_nextToken Core.. Lens._Just
+            Lens.^? listAppsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
-        (rs Lens.^? listAppsResponse_apps Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+        ( rs
+            Lens.^? listAppsResponse_apps Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listApps_nextToken
+          Prelude.& listApps_nextToken
           Lens..~ rs
-          Lens.^? listAppsResponse_nextToken Core.. Lens._Just
+          Lens.^? listAppsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApps where
   type AWSResponse ListApps = ListAppsResponse
@@ -152,57 +155,60 @@ instance Core.AWSRequest ListApps where
     Response.receiveJSON
       ( \s h x ->
           ListAppsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Apps" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Apps" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListApps
+instance Prelude.Hashable ListApps
 
-instance Core.NFData ListApps
+instance Prelude.NFData ListApps
 
 instance Core.ToHeaders ListApps where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListApps" :: Core.ByteString),
+              Core.=# ("SageMaker.ListApps" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListApps where
   toJSON ListApps' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("DomainIdEquals" Core..=) Core.<$> domainIdEquals,
+      ( Prelude.catMaybes
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("DomainIdEquals" Core..=)
+              Prelude.<$> domainIdEquals,
             ("UserProfileNameEquals" Core..=)
-              Core.<$> userProfileNameEquals,
-            ("SortBy" Core..=) Core.<$> sortBy
+              Prelude.<$> userProfileNameEquals,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
 instance Core.ToPath ListApps where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListApps where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAppsResponse' smart constructor.
 data ListAppsResponse = ListAppsResponse'
   { -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of apps.
-    apps :: Core.Maybe [AppDetails],
+    apps :: Prelude.Maybe [AppDetails],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAppsResponse' with all optional fields omitted.
@@ -220,26 +226,26 @@ data ListAppsResponse = ListAppsResponse'
 -- 'httpStatus', 'listAppsResponse_httpStatus' - The response's http status code.
 newListAppsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAppsResponse
 newListAppsResponse pHttpStatus_ =
   ListAppsResponse'
-    { nextToken = Core.Nothing,
-      apps = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      apps = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
-listAppsResponse_nextToken :: Lens.Lens' ListAppsResponse (Core.Maybe Core.Text)
+listAppsResponse_nextToken :: Lens.Lens' ListAppsResponse (Prelude.Maybe Prelude.Text)
 listAppsResponse_nextToken = Lens.lens (\ListAppsResponse' {nextToken} -> nextToken) (\s@ListAppsResponse' {} a -> s {nextToken = a} :: ListAppsResponse)
 
 -- | The list of apps.
-listAppsResponse_apps :: Lens.Lens' ListAppsResponse (Core.Maybe [AppDetails])
-listAppsResponse_apps = Lens.lens (\ListAppsResponse' {apps} -> apps) (\s@ListAppsResponse' {} a -> s {apps = a} :: ListAppsResponse) Core.. Lens.mapping Lens._Coerce
+listAppsResponse_apps :: Lens.Lens' ListAppsResponse (Prelude.Maybe [AppDetails])
+listAppsResponse_apps = Lens.lens (\ListAppsResponse' {apps} -> apps) (\s@ListAppsResponse' {} a -> s {apps = a} :: ListAppsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAppsResponse_httpStatus :: Lens.Lens' ListAppsResponse Core.Int
+listAppsResponse_httpStatus :: Lens.Lens' ListAppsResponse Prelude.Int
 listAppsResponse_httpStatus = Lens.lens (\ListAppsResponse' {httpStatus} -> httpStatus) (\s@ListAppsResponse' {} a -> s {httpStatus = a} :: ListAppsResponse)
 
-instance Core.NFData ListAppsResponse
+instance Prelude.NFData ListAppsResponse

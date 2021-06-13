@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -53,9 +54,9 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDescribeProduct' smart constructor.
 data DescribeProduct = DescribeProduct'
   { -- | The product identifier.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The product name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -63,9 +64,9 @@ data DescribeProduct = DescribeProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProduct' with all optional fields omitted.
@@ -90,17 +91,17 @@ newDescribeProduct ::
   DescribeProduct
 newDescribeProduct =
   DescribeProduct'
-    { id = Core.Nothing,
-      name = Core.Nothing,
-      acceptLanguage = Core.Nothing
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
 
 -- | The product identifier.
-describeProduct_id :: Lens.Lens' DescribeProduct (Core.Maybe Core.Text)
+describeProduct_id :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
 describeProduct_id = Lens.lens (\DescribeProduct' {id} -> id) (\s@DescribeProduct' {} a -> s {id = a} :: DescribeProduct)
 
 -- | The product name.
-describeProduct_name :: Lens.Lens' DescribeProduct (Core.Maybe Core.Text)
+describeProduct_name :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
 describeProduct_name = Lens.lens (\DescribeProduct' {name} -> name) (\s@DescribeProduct' {} a -> s {name = a} :: DescribeProduct)
 
 -- | The language code.
@@ -110,7 +111,7 @@ describeProduct_name = Lens.lens (\DescribeProduct' {name} -> name) (\s@Describe
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-describeProduct_acceptLanguage :: Lens.Lens' DescribeProduct (Core.Maybe Core.Text)
+describeProduct_acceptLanguage :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
 describeProduct_acceptLanguage = Lens.lens (\DescribeProduct' {acceptLanguage} -> acceptLanguage) (\s@DescribeProduct' {} a -> s {acceptLanguage = a} :: DescribeProduct)
 
 instance Core.AWSRequest DescribeProduct where
@@ -122,62 +123,65 @@ instance Core.AWSRequest DescribeProduct where
     Response.receiveJSON
       ( \s h x ->
           DescribeProductResponse'
-            Core.<$> ( x Core..?> "ProvisioningArtifacts"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "LaunchPaths" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ProductViewSummary")
-            Core.<*> (x Core..?> "Budgets" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ProvisioningArtifacts"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "LaunchPaths" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ProductViewSummary")
+            Prelude.<*> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeProduct
+instance Prelude.Hashable DescribeProduct
 
-instance Core.NFData DescribeProduct
+instance Prelude.NFData DescribeProduct
 
 instance Core.ToHeaders DescribeProduct where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DescribeProduct" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeProduct where
   toJSON DescribeProduct' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Id" Core..=) Core.<$> id,
-            ("Name" Core..=) Core.<$> name,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+      ( Prelude.catMaybes
+          [ ("Id" Core..=) Prelude.<$> id,
+            ("Name" Core..=) Prelude.<$> name,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 
 instance Core.ToPath DescribeProduct where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeProduct where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProductResponse' smart constructor.
 data DescribeProductResponse = DescribeProductResponse'
   { -- | Information about the provisioning artifacts for the specified product.
-    provisioningArtifacts :: Core.Maybe [ProvisioningArtifact],
+    provisioningArtifacts :: Prelude.Maybe [ProvisioningArtifact],
     -- | Information about the associated launch paths.
-    launchPaths :: Core.Maybe [LaunchPath],
+    launchPaths :: Prelude.Maybe [LaunchPath],
     -- | Summary information about the product view.
-    productViewSummary :: Core.Maybe ProductViewSummary,
+    productViewSummary :: Prelude.Maybe ProductViewSummary,
     -- | Information about the associated budgets.
-    budgets :: Core.Maybe [BudgetDetail],
+    budgets :: Prelude.Maybe [BudgetDetail],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProductResponse' with all optional fields omitted.
@@ -198,36 +202,36 @@ data DescribeProductResponse = DescribeProductResponse'
 -- 'httpStatus', 'describeProductResponse_httpStatus' - The response's http status code.
 newDescribeProductResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeProductResponse
 newDescribeProductResponse pHttpStatus_ =
   DescribeProductResponse'
     { provisioningArtifacts =
-        Core.Nothing,
-      launchPaths = Core.Nothing,
-      productViewSummary = Core.Nothing,
-      budgets = Core.Nothing,
+        Prelude.Nothing,
+      launchPaths = Prelude.Nothing,
+      productViewSummary = Prelude.Nothing,
+      budgets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the provisioning artifacts for the specified product.
-describeProductResponse_provisioningArtifacts :: Lens.Lens' DescribeProductResponse (Core.Maybe [ProvisioningArtifact])
-describeProductResponse_provisioningArtifacts = Lens.lens (\DescribeProductResponse' {provisioningArtifacts} -> provisioningArtifacts) (\s@DescribeProductResponse' {} a -> s {provisioningArtifacts = a} :: DescribeProductResponse) Core.. Lens.mapping Lens._Coerce
+describeProductResponse_provisioningArtifacts :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [ProvisioningArtifact])
+describeProductResponse_provisioningArtifacts = Lens.lens (\DescribeProductResponse' {provisioningArtifacts} -> provisioningArtifacts) (\s@DescribeProductResponse' {} a -> s {provisioningArtifacts = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the associated launch paths.
-describeProductResponse_launchPaths :: Lens.Lens' DescribeProductResponse (Core.Maybe [LaunchPath])
-describeProductResponse_launchPaths = Lens.lens (\DescribeProductResponse' {launchPaths} -> launchPaths) (\s@DescribeProductResponse' {} a -> s {launchPaths = a} :: DescribeProductResponse) Core.. Lens.mapping Lens._Coerce
+describeProductResponse_launchPaths :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [LaunchPath])
+describeProductResponse_launchPaths = Lens.lens (\DescribeProductResponse' {launchPaths} -> launchPaths) (\s@DescribeProductResponse' {} a -> s {launchPaths = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Summary information about the product view.
-describeProductResponse_productViewSummary :: Lens.Lens' DescribeProductResponse (Core.Maybe ProductViewSummary)
+describeProductResponse_productViewSummary :: Lens.Lens' DescribeProductResponse (Prelude.Maybe ProductViewSummary)
 describeProductResponse_productViewSummary = Lens.lens (\DescribeProductResponse' {productViewSummary} -> productViewSummary) (\s@DescribeProductResponse' {} a -> s {productViewSummary = a} :: DescribeProductResponse)
 
 -- | Information about the associated budgets.
-describeProductResponse_budgets :: Lens.Lens' DescribeProductResponse (Core.Maybe [BudgetDetail])
-describeProductResponse_budgets = Lens.lens (\DescribeProductResponse' {budgets} -> budgets) (\s@DescribeProductResponse' {} a -> s {budgets = a} :: DescribeProductResponse) Core.. Lens.mapping Lens._Coerce
+describeProductResponse_budgets :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [BudgetDetail])
+describeProductResponse_budgets = Lens.lens (\DescribeProductResponse' {budgets} -> budgets) (\s@DescribeProductResponse' {} a -> s {budgets = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeProductResponse_httpStatus :: Lens.Lens' DescribeProductResponse Core.Int
+describeProductResponse_httpStatus :: Lens.Lens' DescribeProductResponse Prelude.Int
 describeProductResponse_httpStatus = Lens.lens (\DescribeProductResponse' {httpStatus} -> httpStatus) (\s@DescribeProductResponse' {} a -> s {httpStatus = a} :: DescribeProductResponse)
 
-instance Core.NFData DescribeProductResponse
+instance Prelude.NFData DescribeProductResponse

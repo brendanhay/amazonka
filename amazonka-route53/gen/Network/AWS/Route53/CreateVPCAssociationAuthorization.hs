@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -71,7 +72,7 @@ data CreateVPCAssociationAuthorization = CreateVPCAssociationAuthorization'
     -- want to authorize associating with your hosted zone.
     vpc :: VPC
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVPCAssociationAuthorization' with all optional fields omitted.
@@ -123,17 +124,17 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateVPCAssociationAuthorizationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "HostedZoneId")
-            Core.<*> (x Core..@ "VPC")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..@ "HostedZoneId")
+              Prelude.<*> (x Core..@ "VPC")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateVPCAssociationAuthorization
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateVPCAssociationAuthorization
 
 instance
@@ -148,14 +149,14 @@ instance
   Core.ToHeaders
     CreateVPCAssociationAuthorization
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     CreateVPCAssociationAuthorization
   where
   toPath CreateVPCAssociationAuthorization' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2013-04-01/hostedzone/",
         Core.toBS hostedZoneId,
         "/authorizevpcassociation"
@@ -165,11 +166,11 @@ instance
   Core.ToQuery
     CreateVPCAssociationAuthorization
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML CreateVPCAssociationAuthorization where
   toXML CreateVPCAssociationAuthorization' {..} =
-    Core.mconcat ["VPC" Core.@= vpc]
+    Prelude.mconcat ["VPC" Core.@= vpc]
 
 -- | A complex type that contains the response information from a
 -- @CreateVPCAssociationAuthorization@ request.
@@ -177,13 +178,13 @@ instance Core.ToXML CreateVPCAssociationAuthorization where
 -- /See:/ 'newCreateVPCAssociationAuthorizationResponse' smart constructor.
 data CreateVPCAssociationAuthorizationResponse = CreateVPCAssociationAuthorizationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The ID of the hosted zone that you authorized associating a VPC with.
     hostedZoneId :: ResourceId,
     -- | The VPC that you authorized associating with a hosted zone.
     vpc :: VPC
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVPCAssociationAuthorizationResponse' with all optional fields omitted.
@@ -200,7 +201,7 @@ data CreateVPCAssociationAuthorizationResponse = CreateVPCAssociationAuthorizati
 -- 'vpc', 'createVPCAssociationAuthorizationResponse_vpc' - The VPC that you authorized associating with a hosted zone.
 newCreateVPCAssociationAuthorizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'vpc'
@@ -218,7 +219,7 @@ newCreateVPCAssociationAuthorizationResponse
       }
 
 -- | The response's http status code.
-createVPCAssociationAuthorizationResponse_httpStatus :: Lens.Lens' CreateVPCAssociationAuthorizationResponse Core.Int
+createVPCAssociationAuthorizationResponse_httpStatus :: Lens.Lens' CreateVPCAssociationAuthorizationResponse Prelude.Int
 createVPCAssociationAuthorizationResponse_httpStatus = Lens.lens (\CreateVPCAssociationAuthorizationResponse' {httpStatus} -> httpStatus) (\s@CreateVPCAssociationAuthorizationResponse' {} a -> s {httpStatus = a} :: CreateVPCAssociationAuthorizationResponse)
 
 -- | The ID of the hosted zone that you authorized associating a VPC with.
@@ -230,5 +231,5 @@ createVPCAssociationAuthorizationResponse_vpc :: Lens.Lens' CreateVPCAssociation
 createVPCAssociationAuthorizationResponse_vpc = Lens.lens (\CreateVPCAssociationAuthorizationResponse' {vpc} -> vpc) (\s@CreateVPCAssociationAuthorizationResponse' {} a -> s {vpc = a} :: CreateVPCAssociationAuthorizationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateVPCAssociationAuthorizationResponse

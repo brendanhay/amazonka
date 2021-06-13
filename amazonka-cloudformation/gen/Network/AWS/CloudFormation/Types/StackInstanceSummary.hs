@@ -24,6 +24,7 @@ import Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus
 import Network.AWS.CloudFormation.Types.StackInstanceStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The structure that contains summary information about a stack instance.
 --
@@ -50,19 +51,19 @@ data StackInstanceSummary = StackInstanceSummary'
     --         created or updated.
     --
     -- -   @CURRENT@: The stack is currently up to date with the stack set.
-    status :: Core.Maybe StackInstanceStatus,
+    status :: Prelude.Maybe StackInstanceStatus,
     -- | The ID of the stack instance.
-    stackId :: Core.Maybe Core.Text,
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The detailed status of the stack instance.
-    stackInstanceStatus :: Core.Maybe StackInstanceComprehensiveStatus,
+    stackInstanceStatus :: Prelude.Maybe StackInstanceComprehensiveStatus,
     -- | [Service-managed permissions] The organization root ID or organizational
     -- unit (OU) IDs that you specified for
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
-    organizationalUnitId :: Core.Maybe Core.Text,
+    organizationalUnitId :: Prelude.Maybe Prelude.Text,
     -- | Most recent time when CloudFormation performed a drift detection
     -- operation on the stack instance. This value will be @NULL@ for any stack
     -- instance on which drift detection has not yet been performed.
-    lastDriftCheckTimestamp :: Core.Maybe Core.ISO8601,
+    lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | Status of the stack instance\'s actual configuration compared to the
     -- expected template and parameter configuration of the stack set to which
     -- it belongs.
@@ -79,20 +80,20 @@ data StackInstanceSummary = StackInstanceSummary'
     --     expected stack set configuration.
     --
     -- -   @UNKNOWN@: This value is reserved for future use.
-    driftStatus :: Core.Maybe StackDriftStatus,
+    driftStatus :: Prelude.Maybe StackDriftStatus,
     -- | [Self-managed permissions] The name of the AWS account that the stack
     -- instance is associated with.
-    account :: Core.Maybe Core.Text,
+    account :: Prelude.Maybe Prelude.Text,
     -- | The name or unique ID of the stack set that the stack instance is
     -- associated with.
-    stackSetId :: Core.Maybe Core.Text,
+    stackSetId :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS Region that the stack instance is associated with.
-    region :: Core.Maybe Core.Text,
+    region :: Prelude.Maybe Prelude.Text,
     -- | The explanation for the specific status code assigned to this stack
     -- instance.
-    statusReason :: Core.Maybe Core.Text
+    statusReason :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackInstanceSummary' with all optional fields omitted.
@@ -167,16 +168,16 @@ newStackInstanceSummary ::
   StackInstanceSummary
 newStackInstanceSummary =
   StackInstanceSummary'
-    { status = Core.Nothing,
-      stackId = Core.Nothing,
-      stackInstanceStatus = Core.Nothing,
-      organizationalUnitId = Core.Nothing,
-      lastDriftCheckTimestamp = Core.Nothing,
-      driftStatus = Core.Nothing,
-      account = Core.Nothing,
-      stackSetId = Core.Nothing,
-      region = Core.Nothing,
-      statusReason = Core.Nothing
+    { status = Prelude.Nothing,
+      stackId = Prelude.Nothing,
+      stackInstanceStatus = Prelude.Nothing,
+      organizationalUnitId = Prelude.Nothing,
+      lastDriftCheckTimestamp = Prelude.Nothing,
+      driftStatus = Prelude.Nothing,
+      account = Prelude.Nothing,
+      stackSetId = Prelude.Nothing,
+      region = Prelude.Nothing,
+      statusReason = Prelude.Nothing
     }
 
 -- | The status of the stack instance, in terms of its synchronization with
@@ -200,28 +201,28 @@ newStackInstanceSummary =
 --         created or updated.
 --
 -- -   @CURRENT@: The stack is currently up to date with the stack set.
-stackInstanceSummary_status :: Lens.Lens' StackInstanceSummary (Core.Maybe StackInstanceStatus)
+stackInstanceSummary_status :: Lens.Lens' StackInstanceSummary (Prelude.Maybe StackInstanceStatus)
 stackInstanceSummary_status = Lens.lens (\StackInstanceSummary' {status} -> status) (\s@StackInstanceSummary' {} a -> s {status = a} :: StackInstanceSummary)
 
 -- | The ID of the stack instance.
-stackInstanceSummary_stackId :: Lens.Lens' StackInstanceSummary (Core.Maybe Core.Text)
+stackInstanceSummary_stackId :: Lens.Lens' StackInstanceSummary (Prelude.Maybe Prelude.Text)
 stackInstanceSummary_stackId = Lens.lens (\StackInstanceSummary' {stackId} -> stackId) (\s@StackInstanceSummary' {} a -> s {stackId = a} :: StackInstanceSummary)
 
 -- | The detailed status of the stack instance.
-stackInstanceSummary_stackInstanceStatus :: Lens.Lens' StackInstanceSummary (Core.Maybe StackInstanceComprehensiveStatus)
+stackInstanceSummary_stackInstanceStatus :: Lens.Lens' StackInstanceSummary (Prelude.Maybe StackInstanceComprehensiveStatus)
 stackInstanceSummary_stackInstanceStatus = Lens.lens (\StackInstanceSummary' {stackInstanceStatus} -> stackInstanceStatus) (\s@StackInstanceSummary' {} a -> s {stackInstanceStatus = a} :: StackInstanceSummary)
 
 -- | [Service-managed permissions] The organization root ID or organizational
 -- unit (OU) IDs that you specified for
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
-stackInstanceSummary_organizationalUnitId :: Lens.Lens' StackInstanceSummary (Core.Maybe Core.Text)
+stackInstanceSummary_organizationalUnitId :: Lens.Lens' StackInstanceSummary (Prelude.Maybe Prelude.Text)
 stackInstanceSummary_organizationalUnitId = Lens.lens (\StackInstanceSummary' {organizationalUnitId} -> organizationalUnitId) (\s@StackInstanceSummary' {} a -> s {organizationalUnitId = a} :: StackInstanceSummary)
 
 -- | Most recent time when CloudFormation performed a drift detection
 -- operation on the stack instance. This value will be @NULL@ for any stack
 -- instance on which drift detection has not yet been performed.
-stackInstanceSummary_lastDriftCheckTimestamp :: Lens.Lens' StackInstanceSummary (Core.Maybe Core.UTCTime)
-stackInstanceSummary_lastDriftCheckTimestamp = Lens.lens (\StackInstanceSummary' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstanceSummary' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstanceSummary) Core.. Lens.mapping Core._Time
+stackInstanceSummary_lastDriftCheckTimestamp :: Lens.Lens' StackInstanceSummary (Prelude.Maybe Prelude.UTCTime)
+stackInstanceSummary_lastDriftCheckTimestamp = Lens.lens (\StackInstanceSummary' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstanceSummary' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstanceSummary) Prelude.. Lens.mapping Core._Time
 
 -- | Status of the stack instance\'s actual configuration compared to the
 -- expected template and parameter configuration of the stack set to which
@@ -239,42 +240,42 @@ stackInstanceSummary_lastDriftCheckTimestamp = Lens.lens (\StackInstanceSummary'
 --     expected stack set configuration.
 --
 -- -   @UNKNOWN@: This value is reserved for future use.
-stackInstanceSummary_driftStatus :: Lens.Lens' StackInstanceSummary (Core.Maybe StackDriftStatus)
+stackInstanceSummary_driftStatus :: Lens.Lens' StackInstanceSummary (Prelude.Maybe StackDriftStatus)
 stackInstanceSummary_driftStatus = Lens.lens (\StackInstanceSummary' {driftStatus} -> driftStatus) (\s@StackInstanceSummary' {} a -> s {driftStatus = a} :: StackInstanceSummary)
 
 -- | [Self-managed permissions] The name of the AWS account that the stack
 -- instance is associated with.
-stackInstanceSummary_account :: Lens.Lens' StackInstanceSummary (Core.Maybe Core.Text)
+stackInstanceSummary_account :: Lens.Lens' StackInstanceSummary (Prelude.Maybe Prelude.Text)
 stackInstanceSummary_account = Lens.lens (\StackInstanceSummary' {account} -> account) (\s@StackInstanceSummary' {} a -> s {account = a} :: StackInstanceSummary)
 
 -- | The name or unique ID of the stack set that the stack instance is
 -- associated with.
-stackInstanceSummary_stackSetId :: Lens.Lens' StackInstanceSummary (Core.Maybe Core.Text)
+stackInstanceSummary_stackSetId :: Lens.Lens' StackInstanceSummary (Prelude.Maybe Prelude.Text)
 stackInstanceSummary_stackSetId = Lens.lens (\StackInstanceSummary' {stackSetId} -> stackSetId) (\s@StackInstanceSummary' {} a -> s {stackSetId = a} :: StackInstanceSummary)
 
 -- | The name of the AWS Region that the stack instance is associated with.
-stackInstanceSummary_region :: Lens.Lens' StackInstanceSummary (Core.Maybe Core.Text)
+stackInstanceSummary_region :: Lens.Lens' StackInstanceSummary (Prelude.Maybe Prelude.Text)
 stackInstanceSummary_region = Lens.lens (\StackInstanceSummary' {region} -> region) (\s@StackInstanceSummary' {} a -> s {region = a} :: StackInstanceSummary)
 
 -- | The explanation for the specific status code assigned to this stack
 -- instance.
-stackInstanceSummary_statusReason :: Lens.Lens' StackInstanceSummary (Core.Maybe Core.Text)
+stackInstanceSummary_statusReason :: Lens.Lens' StackInstanceSummary (Prelude.Maybe Prelude.Text)
 stackInstanceSummary_statusReason = Lens.lens (\StackInstanceSummary' {statusReason} -> statusReason) (\s@StackInstanceSummary' {} a -> s {statusReason = a} :: StackInstanceSummary)
 
 instance Core.FromXML StackInstanceSummary where
   parseXML x =
     StackInstanceSummary'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "StackId")
-      Core.<*> (x Core..@? "StackInstanceStatus")
-      Core.<*> (x Core..@? "OrganizationalUnitId")
-      Core.<*> (x Core..@? "LastDriftCheckTimestamp")
-      Core.<*> (x Core..@? "DriftStatus")
-      Core.<*> (x Core..@? "Account")
-      Core.<*> (x Core..@? "StackSetId")
-      Core.<*> (x Core..@? "Region")
-      Core.<*> (x Core..@? "StatusReason")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "StackId")
+      Prelude.<*> (x Core..@? "StackInstanceStatus")
+      Prelude.<*> (x Core..@? "OrganizationalUnitId")
+      Prelude.<*> (x Core..@? "LastDriftCheckTimestamp")
+      Prelude.<*> (x Core..@? "DriftStatus")
+      Prelude.<*> (x Core..@? "Account")
+      Prelude.<*> (x Core..@? "StackSetId")
+      Prelude.<*> (x Core..@? "Region")
+      Prelude.<*> (x Core..@? "StatusReason")
 
-instance Core.Hashable StackInstanceSummary
+instance Prelude.Hashable StackInstanceSummary
 
-instance Core.NFData StackInstanceSummary
+instance Prelude.NFData StackInstanceSummary

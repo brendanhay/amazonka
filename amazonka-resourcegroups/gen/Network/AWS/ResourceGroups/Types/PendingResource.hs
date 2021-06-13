@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.PendingResource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that identifies a resource that is currently pending
 -- addition to the group as a member. Adding a resource to a resource group
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 data PendingResource = PendingResource'
   { -- | The Amazon resource name (ARN) of the resource that\'s in a pending
     -- state.
-    resourceArn :: Core.Maybe Core.Text
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PendingResource' with all optional fields omitted.
@@ -48,11 +49,11 @@ data PendingResource = PendingResource'
 newPendingResource ::
   PendingResource
 newPendingResource =
-  PendingResource' {resourceArn = Core.Nothing}
+  PendingResource' {resourceArn = Prelude.Nothing}
 
 -- | The Amazon resource name (ARN) of the resource that\'s in a pending
 -- state.
-pendingResource_resourceArn :: Lens.Lens' PendingResource (Core.Maybe Core.Text)
+pendingResource_resourceArn :: Lens.Lens' PendingResource (Prelude.Maybe Prelude.Text)
 pendingResource_resourceArn = Lens.lens (\PendingResource' {resourceArn} -> resourceArn) (\s@PendingResource' {} a -> s {resourceArn = a} :: PendingResource)
 
 instance Core.FromJSON PendingResource where
@@ -60,9 +61,10 @@ instance Core.FromJSON PendingResource where
     Core.withObject
       "PendingResource"
       ( \x ->
-          PendingResource' Core.<$> (x Core..:? "ResourceArn")
+          PendingResource'
+            Prelude.<$> (x Core..:? "ResourceArn")
       )
 
-instance Core.Hashable PendingResource
+instance Prelude.Hashable PendingResource
 
-instance Core.NFData PendingResource
+instance Prelude.NFData PendingResource

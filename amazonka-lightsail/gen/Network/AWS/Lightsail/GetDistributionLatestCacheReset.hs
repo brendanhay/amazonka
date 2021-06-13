@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +58,9 @@ data GetDistributionLatestCacheReset = GetDistributionLatestCacheReset'
     --
     -- When omitted, the response includes the latest cache reset timestamp of
     -- all your distributions.
-    distributionName :: Core.Maybe Core.Text
+    distributionName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDistributionLatestCacheReset' with all optional fields omitted.
@@ -82,7 +83,7 @@ newGetDistributionLatestCacheReset ::
 newGetDistributionLatestCacheReset =
   GetDistributionLatestCacheReset'
     { distributionName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the distribution for which to return the timestamp of the
@@ -93,7 +94,7 @@ newGetDistributionLatestCacheReset =
 --
 -- When omitted, the response includes the latest cache reset timestamp of
 -- all your distributions.
-getDistributionLatestCacheReset_distributionName :: Lens.Lens' GetDistributionLatestCacheReset (Core.Maybe Core.Text)
+getDistributionLatestCacheReset_distributionName :: Lens.Lens' GetDistributionLatestCacheReset (Prelude.Maybe Prelude.Text)
 getDistributionLatestCacheReset_distributionName = Lens.lens (\GetDistributionLatestCacheReset' {distributionName} -> distributionName) (\s@GetDistributionLatestCacheReset' {} a -> s {distributionName = a} :: GetDistributionLatestCacheReset)
 
 instance
@@ -108,59 +109,63 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDistributionLatestCacheResetResponse'
-            Core.<$> (x Core..?> "status")
-            Core.<*> (x Core..?> "createTime")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "createTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetDistributionLatestCacheReset
 
-instance Core.NFData GetDistributionLatestCacheReset
+instance
+  Prelude.NFData
+    GetDistributionLatestCacheReset
 
 instance
   Core.ToHeaders
     GetDistributionLatestCacheReset
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetDistributionLatestCacheReset" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDistributionLatestCacheReset where
   toJSON GetDistributionLatestCacheReset' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("distributionName" Core..=)
-              Core.<$> distributionName
+              Prelude.<$> distributionName
           ]
       )
 
 instance Core.ToPath GetDistributionLatestCacheReset where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDistributionLatestCacheReset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDistributionLatestCacheResetResponse' smart constructor.
 data GetDistributionLatestCacheResetResponse = GetDistributionLatestCacheResetResponse'
   { -- | The status of the last cache reset.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last cache reset (e.g., @1479734909.17@) in Unix
     -- time format.
-    createTime :: Core.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDistributionLatestCacheResetResponse' with all optional fields omitted.
@@ -178,30 +183,30 @@ data GetDistributionLatestCacheResetResponse = GetDistributionLatestCacheResetRe
 -- 'httpStatus', 'getDistributionLatestCacheResetResponse_httpStatus' - The response's http status code.
 newGetDistributionLatestCacheResetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDistributionLatestCacheResetResponse
 newGetDistributionLatestCacheResetResponse
   pHttpStatus_ =
     GetDistributionLatestCacheResetResponse'
       { status =
-          Core.Nothing,
-        createTime = Core.Nothing,
+          Prelude.Nothing,
+        createTime = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The status of the last cache reset.
-getDistributionLatestCacheResetResponse_status :: Lens.Lens' GetDistributionLatestCacheResetResponse (Core.Maybe Core.Text)
+getDistributionLatestCacheResetResponse_status :: Lens.Lens' GetDistributionLatestCacheResetResponse (Prelude.Maybe Prelude.Text)
 getDistributionLatestCacheResetResponse_status = Lens.lens (\GetDistributionLatestCacheResetResponse' {status} -> status) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {status = a} :: GetDistributionLatestCacheResetResponse)
 
 -- | The timestamp of the last cache reset (e.g., @1479734909.17@) in Unix
 -- time format.
-getDistributionLatestCacheResetResponse_createTime :: Lens.Lens' GetDistributionLatestCacheResetResponse (Core.Maybe Core.UTCTime)
-getDistributionLatestCacheResetResponse_createTime = Lens.lens (\GetDistributionLatestCacheResetResponse' {createTime} -> createTime) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {createTime = a} :: GetDistributionLatestCacheResetResponse) Core.. Lens.mapping Core._Time
+getDistributionLatestCacheResetResponse_createTime :: Lens.Lens' GetDistributionLatestCacheResetResponse (Prelude.Maybe Prelude.UTCTime)
+getDistributionLatestCacheResetResponse_createTime = Lens.lens (\GetDistributionLatestCacheResetResponse' {createTime} -> createTime) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {createTime = a} :: GetDistributionLatestCacheResetResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-getDistributionLatestCacheResetResponse_httpStatus :: Lens.Lens' GetDistributionLatestCacheResetResponse Core.Int
+getDistributionLatestCacheResetResponse_httpStatus :: Lens.Lens' GetDistributionLatestCacheResetResponse Prelude.Int
 getDistributionLatestCacheResetResponse_httpStatus = Lens.lens (\GetDistributionLatestCacheResetResponse' {httpStatus} -> httpStatus) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {httpStatus = a} :: GetDistributionLatestCacheResetResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetDistributionLatestCacheResetResponse

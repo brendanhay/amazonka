@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.STS.Types.AssumedRoleUser
 import Network.AWS.STS.Types.FederatedUser
 import Network.AWS.STS.Types.PolicyDescriptorType
@@ -70,7 +71,7 @@ defaultService =
       Core._serviceVersion = "2011-06-15",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseXMLError "STS",
       Core._serviceRetry = retry
@@ -85,53 +86,55 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "IDPCommunicationError"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "idp_unreachable_error"
+        Prelude.Just "idp_unreachable_error"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | STS is not activated in the requested region for the account that is
 -- being asked to generate credentials. The account administrator must use
@@ -139,21 +142,21 @@ defaultService =
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region>
 -- in the /IAM User Guide/.
-_RegionDisabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RegionDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RegionDisabledException =
   Core._MatchServiceError
     defaultService
     "RegionDisabledException"
-    Core.. Core.hasStatus 403
+    Prelude.. Core.hasStatus 403
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
     defaultService
     "MalformedPolicyDocument"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The request was rejected because the total packed size of the session
 -- policies and session tags combined was too large. An AWS conversion
@@ -168,42 +171,42 @@ _MalformedPolicyDocumentException =
 -- policy and session tag limits. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html IAM and STS Entity Character Limits>
 -- in the /IAM User Guide/.
-_PackedPolicyTooLargeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PackedPolicyTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PackedPolicyTooLargeException =
   Core._MatchServiceError
     defaultService
     "PackedPolicyTooLarge"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The web identity token that was passed could not be validated by AWS.
 -- Get a new identity token from the identity provider and then retry the
 -- request.
-_InvalidIdentityTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidIdentityTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidIdentityTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidIdentityToken"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The web identity token that was passed is expired or is not valid. Get a
 -- new identity token from the identity provider and then retry the
 -- request.
-_ExpiredTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ExpiredTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ExpiredTokenException =
   Core._MatchServiceError
     defaultService
     "ExpiredTokenException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The error returned if the message passed to @DecodeAuthorizationMessage@
 -- was invalid. This can happen if the token contains invalid characters,
 -- such as linebreaks.
-_InvalidAuthorizationMessageException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidAuthorizationMessageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidAuthorizationMessageException =
   Core._MatchServiceError
     defaultService
     "InvalidAuthorizationMessageException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The identity provider (IdP) reported that authentication failed. This
 -- might be because the claim is invalid.
@@ -211,12 +214,12 @@ _InvalidAuthorizationMessageException =
 -- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
 -- it can also mean that the claim has expired or has been explicitly
 -- revoked.
-_IDPRejectedClaimException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IDPRejectedClaimException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IDPRejectedClaimException =
   Core._MatchServiceError
     defaultService
     "IDPRejectedClaim"
-    Core.. Core.hasStatus 403
+    Prelude.. Core.hasStatus 403
 
 -- | The request could not be fulfilled because the identity provider (IDP)
 -- that was asked to verify the incoming identity token could not be
@@ -224,9 +227,9 @@ _IDPRejectedClaimException =
 -- Retry the request a limited number of times so that you don\'t exceed
 -- the request rate. If the error persists, the identity provider might be
 -- down or not responding.
-_IDPCommunicationErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IDPCommunicationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IDPCommunicationErrorException =
   Core._MatchServiceError
     defaultService
     "IDPCommunicationError"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400

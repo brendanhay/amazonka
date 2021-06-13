@@ -21,6 +21,7 @@ module Network.AWS.DAX.Types.NodeTypeSpecificValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a parameter value that is applicable to a particular node
 -- type.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newNodeTypeSpecificValue' smart constructor.
 data NodeTypeSpecificValue = NodeTypeSpecificValue'
   { -- | The parameter value for this node type.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | A node type to which the parameter value applies.
-    nodeType :: Core.Maybe Core.Text
+    nodeType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeTypeSpecificValue' with all optional fields omitted.
@@ -49,16 +50,16 @@ newNodeTypeSpecificValue ::
   NodeTypeSpecificValue
 newNodeTypeSpecificValue =
   NodeTypeSpecificValue'
-    { value = Core.Nothing,
-      nodeType = Core.Nothing
+    { value = Prelude.Nothing,
+      nodeType = Prelude.Nothing
     }
 
 -- | The parameter value for this node type.
-nodeTypeSpecificValue_value :: Lens.Lens' NodeTypeSpecificValue (Core.Maybe Core.Text)
+nodeTypeSpecificValue_value :: Lens.Lens' NodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
 nodeTypeSpecificValue_value = Lens.lens (\NodeTypeSpecificValue' {value} -> value) (\s@NodeTypeSpecificValue' {} a -> s {value = a} :: NodeTypeSpecificValue)
 
 -- | A node type to which the parameter value applies.
-nodeTypeSpecificValue_nodeType :: Lens.Lens' NodeTypeSpecificValue (Core.Maybe Core.Text)
+nodeTypeSpecificValue_nodeType :: Lens.Lens' NodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
 nodeTypeSpecificValue_nodeType = Lens.lens (\NodeTypeSpecificValue' {nodeType} -> nodeType) (\s@NodeTypeSpecificValue' {} a -> s {nodeType = a} :: NodeTypeSpecificValue)
 
 instance Core.FromJSON NodeTypeSpecificValue where
@@ -67,10 +68,10 @@ instance Core.FromJSON NodeTypeSpecificValue where
       "NodeTypeSpecificValue"
       ( \x ->
           NodeTypeSpecificValue'
-            Core.<$> (x Core..:? "Value")
-            Core.<*> (x Core..:? "NodeType")
+            Prelude.<$> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "NodeType")
       )
 
-instance Core.Hashable NodeTypeSpecificValue
+instance Prelude.Hashable NodeTypeSpecificValue
 
-instance Core.NFData NodeTypeSpecificValue
+instance Prelude.NFData NodeTypeSpecificValue

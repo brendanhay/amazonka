@@ -21,6 +21,7 @@ module Network.AWS.Translate.Types.JobDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of documents successfully and unsuccessfully processed during
 -- a translation job.
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newJobDetails' smart constructor.
 data JobDetails = JobDetails'
   { -- | The number of documents used as input in a translation job.
-    inputDocumentsCount :: Core.Maybe Core.Int,
+    inputDocumentsCount :: Prelude.Maybe Prelude.Int,
     -- | The number of documents that could not be processed during a translation
     -- job.
-    documentsWithErrorsCount :: Core.Maybe Core.Int,
+    documentsWithErrorsCount :: Prelude.Maybe Prelude.Int,
     -- | The number of documents successfully processed during a translation job.
-    translatedDocumentsCount :: Core.Maybe Core.Int
+    translatedDocumentsCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobDetails' with all optional fields omitted.
@@ -55,22 +56,22 @@ newJobDetails ::
   JobDetails
 newJobDetails =
   JobDetails'
-    { inputDocumentsCount = Core.Nothing,
-      documentsWithErrorsCount = Core.Nothing,
-      translatedDocumentsCount = Core.Nothing
+    { inputDocumentsCount = Prelude.Nothing,
+      documentsWithErrorsCount = Prelude.Nothing,
+      translatedDocumentsCount = Prelude.Nothing
     }
 
 -- | The number of documents used as input in a translation job.
-jobDetails_inputDocumentsCount :: Lens.Lens' JobDetails (Core.Maybe Core.Int)
+jobDetails_inputDocumentsCount :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Int)
 jobDetails_inputDocumentsCount = Lens.lens (\JobDetails' {inputDocumentsCount} -> inputDocumentsCount) (\s@JobDetails' {} a -> s {inputDocumentsCount = a} :: JobDetails)
 
 -- | The number of documents that could not be processed during a translation
 -- job.
-jobDetails_documentsWithErrorsCount :: Lens.Lens' JobDetails (Core.Maybe Core.Int)
+jobDetails_documentsWithErrorsCount :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Int)
 jobDetails_documentsWithErrorsCount = Lens.lens (\JobDetails' {documentsWithErrorsCount} -> documentsWithErrorsCount) (\s@JobDetails' {} a -> s {documentsWithErrorsCount = a} :: JobDetails)
 
 -- | The number of documents successfully processed during a translation job.
-jobDetails_translatedDocumentsCount :: Lens.Lens' JobDetails (Core.Maybe Core.Int)
+jobDetails_translatedDocumentsCount :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Int)
 jobDetails_translatedDocumentsCount = Lens.lens (\JobDetails' {translatedDocumentsCount} -> translatedDocumentsCount) (\s@JobDetails' {} a -> s {translatedDocumentsCount = a} :: JobDetails)
 
 instance Core.FromJSON JobDetails where
@@ -79,11 +80,11 @@ instance Core.FromJSON JobDetails where
       "JobDetails"
       ( \x ->
           JobDetails'
-            Core.<$> (x Core..:? "InputDocumentsCount")
-            Core.<*> (x Core..:? "DocumentsWithErrorsCount")
-            Core.<*> (x Core..:? "TranslatedDocumentsCount")
+            Prelude.<$> (x Core..:? "InputDocumentsCount")
+            Prelude.<*> (x Core..:? "DocumentsWithErrorsCount")
+            Prelude.<*> (x Core..:? "TranslatedDocumentsCount")
       )
 
-instance Core.Hashable JobDetails
+instance Prelude.Hashable JobDetails
 
-instance Core.NFData JobDetails
+instance Prelude.NFData JobDetails

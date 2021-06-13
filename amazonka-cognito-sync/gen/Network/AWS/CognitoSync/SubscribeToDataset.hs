@@ -48,6 +48,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +59,15 @@ data SubscribeToDataset = SubscribeToDataset'
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. The ID of the pool to which the identity belongs.
-    identityPoolId :: Core.Text,
+    identityPoolId :: Prelude.Text,
     -- | Unique ID for this identity.
-    identityId :: Core.Text,
+    identityId :: Prelude.Text,
     -- | The name of the dataset to subcribe to.
-    datasetName :: Core.Text,
+    datasetName :: Prelude.Text,
     -- | The unique ID generated for this device by Cognito.
-    deviceId :: Core.Text
+    deviceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubscribeToDataset' with all optional fields omitted.
@@ -87,13 +88,13 @@ data SubscribeToDataset = SubscribeToDataset'
 -- 'deviceId', 'subscribeToDataset_deviceId' - The unique ID generated for this device by Cognito.
 newSubscribeToDataset ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identityId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'datasetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deviceId'
-  Core.Text ->
+  Prelude.Text ->
   SubscribeToDataset
 newSubscribeToDataset
   pIdentityPoolId_
@@ -111,19 +112,19 @@ newSubscribeToDataset
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. The ID of the pool to which the identity belongs.
-subscribeToDataset_identityPoolId :: Lens.Lens' SubscribeToDataset Core.Text
+subscribeToDataset_identityPoolId :: Lens.Lens' SubscribeToDataset Prelude.Text
 subscribeToDataset_identityPoolId = Lens.lens (\SubscribeToDataset' {identityPoolId} -> identityPoolId) (\s@SubscribeToDataset' {} a -> s {identityPoolId = a} :: SubscribeToDataset)
 
 -- | Unique ID for this identity.
-subscribeToDataset_identityId :: Lens.Lens' SubscribeToDataset Core.Text
+subscribeToDataset_identityId :: Lens.Lens' SubscribeToDataset Prelude.Text
 subscribeToDataset_identityId = Lens.lens (\SubscribeToDataset' {identityId} -> identityId) (\s@SubscribeToDataset' {} a -> s {identityId = a} :: SubscribeToDataset)
 
 -- | The name of the dataset to subcribe to.
-subscribeToDataset_datasetName :: Lens.Lens' SubscribeToDataset Core.Text
+subscribeToDataset_datasetName :: Lens.Lens' SubscribeToDataset Prelude.Text
 subscribeToDataset_datasetName = Lens.lens (\SubscribeToDataset' {datasetName} -> datasetName) (\s@SubscribeToDataset' {} a -> s {datasetName = a} :: SubscribeToDataset)
 
 -- | The unique ID generated for this device by Cognito.
-subscribeToDataset_deviceId :: Lens.Lens' SubscribeToDataset Core.Text
+subscribeToDataset_deviceId :: Lens.Lens' SubscribeToDataset Prelude.Text
 subscribeToDataset_deviceId = Lens.lens (\SubscribeToDataset' {deviceId} -> deviceId) (\s@SubscribeToDataset' {} a -> s {deviceId = a} :: SubscribeToDataset)
 
 instance Core.AWSRequest SubscribeToDataset where
@@ -135,28 +136,30 @@ instance Core.AWSRequest SubscribeToDataset where
     Response.receiveEmpty
       ( \s h x ->
           SubscribeToDatasetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SubscribeToDataset
+instance Prelude.Hashable SubscribeToDataset
 
-instance Core.NFData SubscribeToDataset
+instance Prelude.NFData SubscribeToDataset
 
 instance Core.ToHeaders SubscribeToDataset where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SubscribeToDataset where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath SubscribeToDataset where
   toPath SubscribeToDataset' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/identitypools/",
         Core.toBS identityPoolId,
         "/identities/",
@@ -168,16 +171,16 @@ instance Core.ToPath SubscribeToDataset where
       ]
 
 instance Core.ToQuery SubscribeToDataset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response to a SubscribeToDataset request.
 --
 -- /See:/ 'newSubscribeToDatasetResponse' smart constructor.
 data SubscribeToDatasetResponse = SubscribeToDatasetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubscribeToDatasetResponse' with all optional fields omitted.
@@ -190,7 +193,7 @@ data SubscribeToDatasetResponse = SubscribeToDatasetResponse'
 -- 'httpStatus', 'subscribeToDatasetResponse_httpStatus' - The response's http status code.
 newSubscribeToDatasetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SubscribeToDatasetResponse
 newSubscribeToDatasetResponse pHttpStatus_ =
   SubscribeToDatasetResponse'
@@ -199,7 +202,7 @@ newSubscribeToDatasetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-subscribeToDatasetResponse_httpStatus :: Lens.Lens' SubscribeToDatasetResponse Core.Int
+subscribeToDatasetResponse_httpStatus :: Lens.Lens' SubscribeToDatasetResponse Prelude.Int
 subscribeToDatasetResponse_httpStatus = Lens.lens (\SubscribeToDatasetResponse' {httpStatus} -> httpStatus) (\s@SubscribeToDatasetResponse' {} a -> s {httpStatus = a} :: SubscribeToDatasetResponse)
 
-instance Core.NFData SubscribeToDatasetResponse
+instance Prelude.NFData SubscribeToDatasetResponse

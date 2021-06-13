@@ -77,6 +77,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -84,7 +85,7 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newTerminateWorkflowExecution' smart constructor.
 data TerminateWorkflowExecution = TerminateWorkflowExecution'
   { -- | The runId of the workflow execution to terminate.
-    runId :: Core.Maybe Core.Text,
+    runId :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the policy to use for the child workflow executions of
     -- the workflow execution being terminated. This policy overrides the child
     -- policy specified for the workflow execution at registration time or when
@@ -106,17 +107,17 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
     -- default for the workflow type or through this parameter. If neither this
     -- parameter is set nor a default child policy was specified at
     -- registration time then a fault is returned.
-    childPolicy :: Core.Maybe ChildPolicy,
+    childPolicy :: Prelude.Maybe ChildPolicy,
     -- | Details for terminating the workflow execution.
-    details :: Core.Maybe Core.Text,
+    details :: Prelude.Maybe Prelude.Text,
     -- | A descriptive reason for terminating the workflow execution.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The domain of the workflow execution to terminate.
-    domain :: Core.Text,
+    domain :: Prelude.Text,
     -- | The workflowId of the workflow execution to terminate.
-    workflowId :: Core.Text
+    workflowId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateWorkflowExecution' with all optional fields omitted.
@@ -159,22 +160,23 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
 -- 'workflowId', 'terminateWorkflowExecution_workflowId' - The workflowId of the workflow execution to terminate.
 newTerminateWorkflowExecution ::
   -- | 'domain'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'workflowId'
-  Core.Text ->
+  Prelude.Text ->
   TerminateWorkflowExecution
 newTerminateWorkflowExecution pDomain_ pWorkflowId_ =
   TerminateWorkflowExecution'
-    { runId = Core.Nothing,
-      childPolicy = Core.Nothing,
-      details = Core.Nothing,
-      reason = Core.Nothing,
+    { runId =
+        Prelude.Nothing,
+      childPolicy = Prelude.Nothing,
+      details = Prelude.Nothing,
+      reason = Prelude.Nothing,
       domain = pDomain_,
       workflowId = pWorkflowId_
     }
 
 -- | The runId of the workflow execution to terminate.
-terminateWorkflowExecution_runId :: Lens.Lens' TerminateWorkflowExecution (Core.Maybe Core.Text)
+terminateWorkflowExecution_runId :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
 terminateWorkflowExecution_runId = Lens.lens (\TerminateWorkflowExecution' {runId} -> runId) (\s@TerminateWorkflowExecution' {} a -> s {runId = a} :: TerminateWorkflowExecution)
 
 -- | If set, specifies the policy to use for the child workflow executions of
@@ -198,23 +200,23 @@ terminateWorkflowExecution_runId = Lens.lens (\TerminateWorkflowExecution' {runI
 -- default for the workflow type or through this parameter. If neither this
 -- parameter is set nor a default child policy was specified at
 -- registration time then a fault is returned.
-terminateWorkflowExecution_childPolicy :: Lens.Lens' TerminateWorkflowExecution (Core.Maybe ChildPolicy)
+terminateWorkflowExecution_childPolicy :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe ChildPolicy)
 terminateWorkflowExecution_childPolicy = Lens.lens (\TerminateWorkflowExecution' {childPolicy} -> childPolicy) (\s@TerminateWorkflowExecution' {} a -> s {childPolicy = a} :: TerminateWorkflowExecution)
 
 -- | Details for terminating the workflow execution.
-terminateWorkflowExecution_details :: Lens.Lens' TerminateWorkflowExecution (Core.Maybe Core.Text)
+terminateWorkflowExecution_details :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
 terminateWorkflowExecution_details = Lens.lens (\TerminateWorkflowExecution' {details} -> details) (\s@TerminateWorkflowExecution' {} a -> s {details = a} :: TerminateWorkflowExecution)
 
 -- | A descriptive reason for terminating the workflow execution.
-terminateWorkflowExecution_reason :: Lens.Lens' TerminateWorkflowExecution (Core.Maybe Core.Text)
+terminateWorkflowExecution_reason :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
 terminateWorkflowExecution_reason = Lens.lens (\TerminateWorkflowExecution' {reason} -> reason) (\s@TerminateWorkflowExecution' {} a -> s {reason = a} :: TerminateWorkflowExecution)
 
 -- | The domain of the workflow execution to terminate.
-terminateWorkflowExecution_domain :: Lens.Lens' TerminateWorkflowExecution Core.Text
+terminateWorkflowExecution_domain :: Lens.Lens' TerminateWorkflowExecution Prelude.Text
 terminateWorkflowExecution_domain = Lens.lens (\TerminateWorkflowExecution' {domain} -> domain) (\s@TerminateWorkflowExecution' {} a -> s {domain = a} :: TerminateWorkflowExecution)
 
 -- | The workflowId of the workflow execution to terminate.
-terminateWorkflowExecution_workflowId :: Lens.Lens' TerminateWorkflowExecution Core.Text
+terminateWorkflowExecution_workflowId :: Lens.Lens' TerminateWorkflowExecution Prelude.Text
 terminateWorkflowExecution_workflowId = Lens.lens (\TerminateWorkflowExecution' {workflowId} -> workflowId) (\s@TerminateWorkflowExecution' {} a -> s {workflowId = a} :: TerminateWorkflowExecution)
 
 instance Core.AWSRequest TerminateWorkflowExecution where
@@ -226,47 +228,49 @@ instance Core.AWSRequest TerminateWorkflowExecution where
     Response.receiveNull
       TerminateWorkflowExecutionResponse'
 
-instance Core.Hashable TerminateWorkflowExecution
+instance Prelude.Hashable TerminateWorkflowExecution
 
-instance Core.NFData TerminateWorkflowExecution
+instance Prelude.NFData TerminateWorkflowExecution
 
 instance Core.ToHeaders TerminateWorkflowExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.TerminateWorkflowExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TerminateWorkflowExecution where
   toJSON TerminateWorkflowExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("runId" Core..=) Core.<$> runId,
-            ("childPolicy" Core..=) Core.<$> childPolicy,
-            ("details" Core..=) Core.<$> details,
-            ("reason" Core..=) Core.<$> reason,
-            Core.Just ("domain" Core..= domain),
-            Core.Just ("workflowId" Core..= workflowId)
+      ( Prelude.catMaybes
+          [ ("runId" Core..=) Prelude.<$> runId,
+            ("childPolicy" Core..=) Prelude.<$> childPolicy,
+            ("details" Core..=) Prelude.<$> details,
+            ("reason" Core..=) Prelude.<$> reason,
+            Prelude.Just ("domain" Core..= domain),
+            Prelude.Just ("workflowId" Core..= workflowId)
           ]
       )
 
 instance Core.ToPath TerminateWorkflowExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TerminateWorkflowExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateWorkflowExecutionResponse' smart constructor.
 data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateWorkflowExecutionResponse' with all optional fields omitted.
@@ -278,5 +282,5 @@ newTerminateWorkflowExecutionResponse =
   TerminateWorkflowExecutionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     TerminateWorkflowExecutionResponse

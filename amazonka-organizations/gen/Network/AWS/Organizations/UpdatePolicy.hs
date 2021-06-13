@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,23 +61,23 @@ data UpdatePolicy = UpdatePolicy'
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | If provided, the new content for the policy. The text must be correctly
     -- formatted JSON that complies with the syntax for the policy\'s type. For
     -- more information, see
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
     -- in the /AWS Organizations User Guide./
-    content :: Core.Maybe Core.Text,
+    content :: Prelude.Maybe Prelude.Text,
     -- | If provided, the new description for the policy.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the policy that you want to update.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
     -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
     -- letters, digits, or the underscore character (_).
-    policyId :: Core.Text
+    policyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePolicy' with all optional fields omitted.
@@ -107,13 +108,13 @@ data UpdatePolicy = UpdatePolicy'
 -- letters, digits, or the underscore character (_).
 newUpdatePolicy ::
   -- | 'policyId'
-  Core.Text ->
+  Prelude.Text ->
   UpdatePolicy
 newUpdatePolicy pPolicyId_ =
   UpdatePolicy'
-    { name = Core.Nothing,
-      content = Core.Nothing,
-      description = Core.Nothing,
+    { name = Prelude.Nothing,
+      content = Prelude.Nothing,
+      description = Prelude.Nothing,
       policyId = pPolicyId_
     }
 
@@ -122,7 +123,7 @@ newUpdatePolicy pPolicyId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
-updatePolicy_name :: Lens.Lens' UpdatePolicy (Core.Maybe Core.Text)
+updatePolicy_name :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
 updatePolicy_name = Lens.lens (\UpdatePolicy' {name} -> name) (\s@UpdatePolicy' {} a -> s {name = a} :: UpdatePolicy)
 
 -- | If provided, the new content for the policy. The text must be correctly
@@ -130,11 +131,11 @@ updatePolicy_name = Lens.lens (\UpdatePolicy' {name} -> name) (\s@UpdatePolicy' 
 -- more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
 -- in the /AWS Organizations User Guide./
-updatePolicy_content :: Lens.Lens' UpdatePolicy (Core.Maybe Core.Text)
+updatePolicy_content :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
 updatePolicy_content = Lens.lens (\UpdatePolicy' {content} -> content) (\s@UpdatePolicy' {} a -> s {content = a} :: UpdatePolicy)
 
 -- | If provided, the new description for the policy.
-updatePolicy_description :: Lens.Lens' UpdatePolicy (Core.Maybe Core.Text)
+updatePolicy_description :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
 updatePolicy_description = Lens.lens (\UpdatePolicy' {description} -> description) (\s@UpdatePolicy' {} a -> s {description = a} :: UpdatePolicy)
 
 -- | The unique identifier (ID) of the policy that you want to update.
@@ -142,7 +143,7 @@ updatePolicy_description = Lens.lens (\UpdatePolicy' {description} -> descriptio
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
 -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
 -- letters, digits, or the underscore character (_).
-updatePolicy_policyId :: Lens.Lens' UpdatePolicy Core.Text
+updatePolicy_policyId :: Lens.Lens' UpdatePolicy Prelude.Text
 updatePolicy_policyId = Lens.lens (\UpdatePolicy' {policyId} -> policyId) (\s@UpdatePolicy' {} a -> s {policyId = a} :: UpdatePolicy)
 
 instance Core.AWSRequest UpdatePolicy where
@@ -152,53 +153,55 @@ instance Core.AWSRequest UpdatePolicy where
     Response.receiveJSON
       ( \s h x ->
           UpdatePolicyResponse'
-            Core.<$> (x Core..?> "Policy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdatePolicy
+instance Prelude.Hashable UpdatePolicy
 
-instance Core.NFData UpdatePolicy
+instance Prelude.NFData UpdatePolicy
 
 instance Core.ToHeaders UpdatePolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.UpdatePolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdatePolicy where
   toJSON UpdatePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            ("Content" Core..=) Core.<$> content,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("PolicyId" Core..= policyId)
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Content" Core..=) Prelude.<$> content,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("PolicyId" Core..= policyId)
           ]
       )
 
 instance Core.ToPath UpdatePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdatePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePolicyResponse' smart constructor.
 data UpdatePolicyResponse = UpdatePolicyResponse'
   { -- | A structure that contains details about the updated policy, showing the
     -- requested changes.
-    policy :: Core.Maybe Policy,
+    policy :: Prelude.Maybe Policy,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePolicyResponse' with all optional fields omitted.
@@ -214,21 +217,21 @@ data UpdatePolicyResponse = UpdatePolicyResponse'
 -- 'httpStatus', 'updatePolicyResponse_httpStatus' - The response's http status code.
 newUpdatePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdatePolicyResponse
 newUpdatePolicyResponse pHttpStatus_ =
   UpdatePolicyResponse'
-    { policy = Core.Nothing,
+    { policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the updated policy, showing the
 -- requested changes.
-updatePolicyResponse_policy :: Lens.Lens' UpdatePolicyResponse (Core.Maybe Policy)
+updatePolicyResponse_policy :: Lens.Lens' UpdatePolicyResponse (Prelude.Maybe Policy)
 updatePolicyResponse_policy = Lens.lens (\UpdatePolicyResponse' {policy} -> policy) (\s@UpdatePolicyResponse' {} a -> s {policy = a} :: UpdatePolicyResponse)
 
 -- | The response's http status code.
-updatePolicyResponse_httpStatus :: Lens.Lens' UpdatePolicyResponse Core.Int
+updatePolicyResponse_httpStatus :: Lens.Lens' UpdatePolicyResponse Prelude.Int
 updatePolicyResponse_httpStatus = Lens.lens (\UpdatePolicyResponse' {httpStatus} -> httpStatus) (\s@UpdatePolicyResponse' {} a -> s {httpStatus = a} :: UpdatePolicyResponse)
 
-instance Core.NFData UpdatePolicyResponse
+instance Prelude.NFData UpdatePolicyResponse

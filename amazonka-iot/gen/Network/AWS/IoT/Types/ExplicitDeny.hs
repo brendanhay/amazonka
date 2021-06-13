@@ -22,15 +22,16 @@ module Network.AWS.IoT.Types.ExplicitDeny where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.Policy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information that explicitly denies authorization.
 --
 -- /See:/ 'newExplicitDeny' smart constructor.
 data ExplicitDeny = ExplicitDeny'
   { -- | The policies that denied the authorization.
-    policies :: Core.Maybe [Policy]
+    policies :: Prelude.Maybe [Policy]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExplicitDeny' with all optional fields omitted.
@@ -44,11 +45,11 @@ data ExplicitDeny = ExplicitDeny'
 newExplicitDeny ::
   ExplicitDeny
 newExplicitDeny =
-  ExplicitDeny' {policies = Core.Nothing}
+  ExplicitDeny' {policies = Prelude.Nothing}
 
 -- | The policies that denied the authorization.
-explicitDeny_policies :: Lens.Lens' ExplicitDeny (Core.Maybe [Policy])
-explicitDeny_policies = Lens.lens (\ExplicitDeny' {policies} -> policies) (\s@ExplicitDeny' {} a -> s {policies = a} :: ExplicitDeny) Core.. Lens.mapping Lens._Coerce
+explicitDeny_policies :: Lens.Lens' ExplicitDeny (Prelude.Maybe [Policy])
+explicitDeny_policies = Lens.lens (\ExplicitDeny' {policies} -> policies) (\s@ExplicitDeny' {} a -> s {policies = a} :: ExplicitDeny) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ExplicitDeny where
   parseJSON =
@@ -56,9 +57,9 @@ instance Core.FromJSON ExplicitDeny where
       "ExplicitDeny"
       ( \x ->
           ExplicitDeny'
-            Core.<$> (x Core..:? "policies" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "policies" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ExplicitDeny
+instance Prelude.Hashable ExplicitDeny
 
-instance Core.NFData ExplicitDeny
+instance Prelude.NFData ExplicitDeny

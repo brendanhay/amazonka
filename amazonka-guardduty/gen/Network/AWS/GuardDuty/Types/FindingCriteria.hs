@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.FindingCriteria where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.Condition
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the criteria used for querying findings.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data FindingCriteria = FindingCriteria'
   { -- | Represents a map of finding properties that match specified conditions
     -- and values when querying findings.
-    criterion :: Core.Maybe (Core.HashMap Core.Text Condition)
+    criterion :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FindingCriteria' with all optional fields omitted.
@@ -46,12 +47,12 @@ data FindingCriteria = FindingCriteria'
 newFindingCriteria ::
   FindingCriteria
 newFindingCriteria =
-  FindingCriteria' {criterion = Core.Nothing}
+  FindingCriteria' {criterion = Prelude.Nothing}
 
 -- | Represents a map of finding properties that match specified conditions
 -- and values when querying findings.
-findingCriteria_criterion :: Lens.Lens' FindingCriteria (Core.Maybe (Core.HashMap Core.Text Condition))
-findingCriteria_criterion = Lens.lens (\FindingCriteria' {criterion} -> criterion) (\s@FindingCriteria' {} a -> s {criterion = a} :: FindingCriteria) Core.. Lens.mapping Lens._Coerce
+findingCriteria_criterion :: Lens.Lens' FindingCriteria (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
+findingCriteria_criterion = Lens.lens (\FindingCriteria' {criterion} -> criterion) (\s@FindingCriteria' {} a -> s {criterion = a} :: FindingCriteria) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON FindingCriteria where
   parseJSON =
@@ -59,16 +60,16 @@ instance Core.FromJSON FindingCriteria where
       "FindingCriteria"
       ( \x ->
           FindingCriteria'
-            Core.<$> (x Core..:? "criterion" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "criterion" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable FindingCriteria
+instance Prelude.Hashable FindingCriteria
 
-instance Core.NFData FindingCriteria
+instance Prelude.NFData FindingCriteria
 
 instance Core.ToJSON FindingCriteria where
   toJSON FindingCriteria' {..} =
     Core.object
-      ( Core.catMaybes
-          [("criterion" Core..=) Core.<$> criterion]
+      ( Prelude.catMaybes
+          [("criterion" Core..=) Prelude.<$> criterion]
       )

@@ -39,15 +39,16 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLogGroup' smart constructor.
 data DeleteLogGroup = DeleteLogGroup'
   { -- | The name of the log group.
-    logGroupName :: Core.Text
+    logGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLogGroup' with all optional fields omitted.
@@ -60,13 +61,13 @@ data DeleteLogGroup = DeleteLogGroup'
 -- 'logGroupName', 'deleteLogGroup_logGroupName' - The name of the log group.
 newDeleteLogGroup ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLogGroup
 newDeleteLogGroup pLogGroupName_ =
   DeleteLogGroup' {logGroupName = pLogGroupName_}
 
 -- | The name of the log group.
-deleteLogGroup_logGroupName :: Lens.Lens' DeleteLogGroup Core.Text
+deleteLogGroup_logGroupName :: Lens.Lens' DeleteLogGroup Prelude.Text
 deleteLogGroup_logGroupName = Lens.lens (\DeleteLogGroup' {logGroupName} -> logGroupName) (\s@DeleteLogGroup' {} a -> s {logGroupName = a} :: DeleteLogGroup)
 
 instance Core.AWSRequest DeleteLogGroup where
@@ -77,39 +78,43 @@ instance Core.AWSRequest DeleteLogGroup where
   response =
     Response.receiveNull DeleteLogGroupResponse'
 
-instance Core.Hashable DeleteLogGroup
+instance Prelude.Hashable DeleteLogGroup
 
-instance Core.NFData DeleteLogGroup
+instance Prelude.NFData DeleteLogGroup
 
 instance Core.ToHeaders DeleteLogGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.DeleteLogGroup" :: Core.ByteString),
+              Core.=# ( "Logs_20140328.DeleteLogGroup" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteLogGroup where
   toJSON DeleteLogGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("logGroupName" Core..= logGroupName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("logGroupName" Core..= logGroupName)]
       )
 
 instance Core.ToPath DeleteLogGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLogGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLogGroupResponse' smart constructor.
 data DeleteLogGroupResponse = DeleteLogGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLogGroupResponse' with all optional fields omitted.
@@ -119,4 +124,4 @@ newDeleteLogGroupResponse ::
   DeleteLogGroupResponse
 newDeleteLogGroupResponse = DeleteLogGroupResponse'
 
-instance Core.NFData DeleteLogGroupResponse
+instance Prelude.NFData DeleteLogGroupResponse

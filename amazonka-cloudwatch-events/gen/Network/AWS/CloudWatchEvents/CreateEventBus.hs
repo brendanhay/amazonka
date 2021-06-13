@@ -47,16 +47,17 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateEventBus' smart constructor.
 data CreateEventBus = CreateEventBus'
   { -- | Tags to associate with the event bus.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | If you are creating a partner event bus, this specifies the partner
     -- event source that the new event bus will be matched with.
-    eventSourceName :: Core.Maybe Core.Text,
+    eventSourceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the new event bus.
     --
     -- Event bus names cannot contain the \/ character. You can\'t use the name
@@ -65,9 +66,9 @@ data CreateEventBus = CreateEventBus'
     --
     -- If this is a partner event bus, the name must exactly match the name of
     -- the partner event source that this event bus is matched to.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEventBus' with all optional fields omitted.
@@ -92,22 +93,22 @@ data CreateEventBus = CreateEventBus'
 -- the partner event source that this event bus is matched to.
 newCreateEventBus ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateEventBus
 newCreateEventBus pName_ =
   CreateEventBus'
-    { tags = Core.Nothing,
-      eventSourceName = Core.Nothing,
+    { tags = Prelude.Nothing,
+      eventSourceName = Prelude.Nothing,
       name = pName_
     }
 
 -- | Tags to associate with the event bus.
-createEventBus_tags :: Lens.Lens' CreateEventBus (Core.Maybe [Tag])
-createEventBus_tags = Lens.lens (\CreateEventBus' {tags} -> tags) (\s@CreateEventBus' {} a -> s {tags = a} :: CreateEventBus) Core.. Lens.mapping Lens._Coerce
+createEventBus_tags :: Lens.Lens' CreateEventBus (Prelude.Maybe [Tag])
+createEventBus_tags = Lens.lens (\CreateEventBus' {tags} -> tags) (\s@CreateEventBus' {} a -> s {tags = a} :: CreateEventBus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If you are creating a partner event bus, this specifies the partner
 -- event source that the new event bus will be matched with.
-createEventBus_eventSourceName :: Lens.Lens' CreateEventBus (Core.Maybe Core.Text)
+createEventBus_eventSourceName :: Lens.Lens' CreateEventBus (Prelude.Maybe Prelude.Text)
 createEventBus_eventSourceName = Lens.lens (\CreateEventBus' {eventSourceName} -> eventSourceName) (\s@CreateEventBus' {} a -> s {eventSourceName = a} :: CreateEventBus)
 
 -- | The name of the new event bus.
@@ -118,7 +119,7 @@ createEventBus_eventSourceName = Lens.lens (\CreateEventBus' {eventSourceName} -
 --
 -- If this is a partner event bus, the name must exactly match the name of
 -- the partner event source that this event bus is matched to.
-createEventBus_name :: Lens.Lens' CreateEventBus Core.Text
+createEventBus_name :: Lens.Lens' CreateEventBus Prelude.Text
 createEventBus_name = Lens.lens (\CreateEventBus' {name} -> name) (\s@CreateEventBus' {} a -> s {name = a} :: CreateEventBus)
 
 instance Core.AWSRequest CreateEventBus where
@@ -130,49 +131,52 @@ instance Core.AWSRequest CreateEventBus where
     Response.receiveJSON
       ( \s h x ->
           CreateEventBusResponse'
-            Core.<$> (x Core..?> "EventBusArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "EventBusArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateEventBus
+instance Prelude.Hashable CreateEventBus
 
-instance Core.NFData CreateEventBus
+instance Prelude.NFData CreateEventBus
 
 instance Core.ToHeaders CreateEventBus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.CreateEventBus" :: Core.ByteString),
+              Core.=# ("AWSEvents.CreateEventBus" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateEventBus where
   toJSON CreateEventBus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            ("EventSourceName" Core..=) Core.<$> eventSourceName,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("EventSourceName" Core..=)
+              Prelude.<$> eventSourceName,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateEventBus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateEventBus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEventBusResponse' smart constructor.
 data CreateEventBusResponse = CreateEventBusResponse'
   { -- | The ARN of the new event bus.
-    eventBusArn :: Core.Maybe Core.Text,
+    eventBusArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEventBusResponse' with all optional fields omitted.
@@ -187,20 +191,21 @@ data CreateEventBusResponse = CreateEventBusResponse'
 -- 'httpStatus', 'createEventBusResponse_httpStatus' - The response's http status code.
 newCreateEventBusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateEventBusResponse
 newCreateEventBusResponse pHttpStatus_ =
   CreateEventBusResponse'
-    { eventBusArn = Core.Nothing,
+    { eventBusArn =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the new event bus.
-createEventBusResponse_eventBusArn :: Lens.Lens' CreateEventBusResponse (Core.Maybe Core.Text)
+createEventBusResponse_eventBusArn :: Lens.Lens' CreateEventBusResponse (Prelude.Maybe Prelude.Text)
 createEventBusResponse_eventBusArn = Lens.lens (\CreateEventBusResponse' {eventBusArn} -> eventBusArn) (\s@CreateEventBusResponse' {} a -> s {eventBusArn = a} :: CreateEventBusResponse)
 
 -- | The response's http status code.
-createEventBusResponse_httpStatus :: Lens.Lens' CreateEventBusResponse Core.Int
+createEventBusResponse_httpStatus :: Lens.Lens' CreateEventBusResponse Prelude.Int
 createEventBusResponse_httpStatus = Lens.lens (\CreateEventBusResponse' {httpStatus} -> httpStatus) (\s@CreateEventBusResponse' {} a -> s {httpStatus = a} :: CreateEventBusResponse)
 
-instance Core.NFData CreateEventBusResponse
+instance Prelude.NFData CreateEventBusResponse

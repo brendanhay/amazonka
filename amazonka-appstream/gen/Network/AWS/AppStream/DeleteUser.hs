@@ -42,6 +42,7 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ data DeleteUser = DeleteUser'
   { -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Core.Sensitive Core.Text,
+    userName :: Core.Sensitive Prelude.Text,
     -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -71,7 +72,7 @@ data DeleteUser = DeleteUser'
 -- 'authenticationType', 'deleteUser_authenticationType' - The authentication type for the user. You must specify USERPOOL.
 newDeleteUser ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authenticationType'
   AuthenticationType ->
   DeleteUser
@@ -85,8 +86,8 @@ newDeleteUser pUserName_ pAuthenticationType_ =
 -- | The email address of the user.
 --
 -- Users\' email addresses are case-sensitive.
-deleteUser_userName :: Lens.Lens' DeleteUser Core.Text
-deleteUser_userName = Lens.lens (\DeleteUser' {userName} -> userName) (\s@DeleteUser' {} a -> s {userName = a} :: DeleteUser) Core.. Core._Sensitive
+deleteUser_userName :: Lens.Lens' DeleteUser Prelude.Text
+deleteUser_userName = Lens.lens (\DeleteUser' {userName} -> userName) (\s@DeleteUser' {} a -> s {userName = a} :: DeleteUser) Prelude.. Core._Sensitive
 
 -- | The authentication type for the user. You must specify USERPOOL.
 deleteUser_authenticationType :: Lens.Lens' DeleteUser AuthenticationType
@@ -99,48 +100,50 @@ instance Core.AWSRequest DeleteUser where
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser
 
-instance Core.NFData DeleteUser
+instance Prelude.NFData DeleteUser
 
 instance Core.ToHeaders DeleteUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.DeleteUser" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUser where
   toJSON DeleteUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserName" Core..= userName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserName" Core..= userName),
+            Prelude.Just
               ("AuthenticationType" Core..= authenticationType)
           ]
       )
 
 instance Core.ToPath DeleteUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserResponse' with all optional fields omitted.
@@ -153,13 +156,13 @@ data DeleteUserResponse = DeleteUserResponse'
 -- 'httpStatus', 'deleteUserResponse_httpStatus' - The response's http status code.
 newDeleteUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteUserResponse
 newDeleteUserResponse pHttpStatus_ =
   DeleteUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Core.Int
+deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Prelude.Int
 deleteUserResponse_httpStatus = Lens.lens (\DeleteUserResponse' {httpStatus} -> httpStatus) (\s@DeleteUserResponse' {} a -> s {httpStatus = a} :: DeleteUserResponse)
 
-instance Core.NFData DeleteUserResponse
+instance Prelude.NFData DeleteUserResponse

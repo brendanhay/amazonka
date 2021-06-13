@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +59,11 @@ data ListTagsForVault = ListTagsForVault'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text
+    vaultName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForVault' with all optional fields omitted.
@@ -81,9 +82,9 @@ data ListTagsForVault = ListTagsForVault'
 -- 'vaultName', 'listTagsForVault_vaultName' - The name of the vault.
 newListTagsForVault ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForVault
 newListTagsForVault pAccountId_ pVaultName_ =
   ListTagsForVault'
@@ -96,11 +97,11 @@ newListTagsForVault pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-listTagsForVault_accountId :: Lens.Lens' ListTagsForVault Core.Text
+listTagsForVault_accountId :: Lens.Lens' ListTagsForVault Prelude.Text
 listTagsForVault_accountId = Lens.lens (\ListTagsForVault' {accountId} -> accountId) (\s@ListTagsForVault' {} a -> s {accountId = a} :: ListTagsForVault)
 
 -- | The name of the vault.
-listTagsForVault_vaultName :: Lens.Lens' ListTagsForVault Core.Text
+listTagsForVault_vaultName :: Lens.Lens' ListTagsForVault Prelude.Text
 listTagsForVault_vaultName = Lens.lens (\ListTagsForVault' {vaultName} -> vaultName) (\s@ListTagsForVault' {} a -> s {vaultName = a} :: ListTagsForVault)
 
 instance Core.AWSRequest ListTagsForVault where
@@ -109,25 +110,25 @@ instance Core.AWSRequest ListTagsForVault where
       ListTagsForVaultResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.get defaultService
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsForVaultResponse'
-            Core.<$> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTagsForVault
+instance Prelude.Hashable ListTagsForVault
 
-instance Core.NFData ListTagsForVault
+instance Prelude.NFData ListTagsForVault
 
 instance Core.ToHeaders ListTagsForVault where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListTagsForVault where
   toPath ListTagsForVault' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -136,7 +137,7 @@ instance Core.ToPath ListTagsForVault where
       ]
 
 instance Core.ToQuery ListTagsForVault where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -144,11 +145,11 @@ instance Core.ToQuery ListTagsForVault where
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
   { -- | The tags attached to the vault. Each tag is composed of a key and a
     -- value.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForVaultResponse' with all optional fields omitted.
@@ -164,21 +165,21 @@ data ListTagsForVaultResponse = ListTagsForVaultResponse'
 -- 'httpStatus', 'listTagsForVaultResponse_httpStatus' - The response's http status code.
 newListTagsForVaultResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsForVaultResponse
 newListTagsForVaultResponse pHttpStatus_ =
   ListTagsForVaultResponse'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The tags attached to the vault. Each tag is composed of a key and a
 -- value.
-listTagsForVaultResponse_tags :: Lens.Lens' ListTagsForVaultResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-listTagsForVaultResponse_tags = Lens.lens (\ListTagsForVaultResponse' {tags} -> tags) (\s@ListTagsForVaultResponse' {} a -> s {tags = a} :: ListTagsForVaultResponse) Core.. Lens.mapping Lens._Coerce
+listTagsForVaultResponse_tags :: Lens.Lens' ListTagsForVaultResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsForVaultResponse_tags = Lens.lens (\ListTagsForVaultResponse' {tags} -> tags) (\s@ListTagsForVaultResponse' {} a -> s {tags = a} :: ListTagsForVaultResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForVaultResponse_httpStatus :: Lens.Lens' ListTagsForVaultResponse Core.Int
+listTagsForVaultResponse_httpStatus :: Lens.Lens' ListTagsForVaultResponse Prelude.Int
 listTagsForVaultResponse_httpStatus = Lens.lens (\ListTagsForVaultResponse' {httpStatus} -> httpStatus) (\s@ListTagsForVaultResponse' {} a -> s {httpStatus = a} :: ListTagsForVaultResponse)
 
-instance Core.NFData ListTagsForVaultResponse
+instance Prelude.NFData ListTagsForVaultResponse

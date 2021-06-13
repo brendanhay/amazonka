@@ -42,18 +42,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelPipelineReprocessing' smart constructor.
 data CancelPipelineReprocessing = CancelPipelineReprocessing'
   { -- | The name of pipeline for which data reprocessing is canceled.
-    pipelineName :: Core.Text,
+    pipelineName :: Prelude.Text,
     -- | The ID of the reprocessing task (returned by
     -- @StartPipelineReprocessing@).
-    reprocessingId :: Core.Text
+    reprocessingId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelPipelineReprocessing' with all optional fields omitted.
@@ -69,9 +70,9 @@ data CancelPipelineReprocessing = CancelPipelineReprocessing'
 -- @StartPipelineReprocessing@).
 newCancelPipelineReprocessing ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'reprocessingId'
-  Core.Text ->
+  Prelude.Text ->
   CancelPipelineReprocessing
 newCancelPipelineReprocessing
   pPipelineName_
@@ -83,12 +84,12 @@ newCancelPipelineReprocessing
       }
 
 -- | The name of pipeline for which data reprocessing is canceled.
-cancelPipelineReprocessing_pipelineName :: Lens.Lens' CancelPipelineReprocessing Core.Text
+cancelPipelineReprocessing_pipelineName :: Lens.Lens' CancelPipelineReprocessing Prelude.Text
 cancelPipelineReprocessing_pipelineName = Lens.lens (\CancelPipelineReprocessing' {pipelineName} -> pipelineName) (\s@CancelPipelineReprocessing' {} a -> s {pipelineName = a} :: CancelPipelineReprocessing)
 
 -- | The ID of the reprocessing task (returned by
 -- @StartPipelineReprocessing@).
-cancelPipelineReprocessing_reprocessingId :: Lens.Lens' CancelPipelineReprocessing Core.Text
+cancelPipelineReprocessing_reprocessingId :: Lens.Lens' CancelPipelineReprocessing Prelude.Text
 cancelPipelineReprocessing_reprocessingId = Lens.lens (\CancelPipelineReprocessing' {reprocessingId} -> reprocessingId) (\s@CancelPipelineReprocessing' {} a -> s {reprocessingId = a} :: CancelPipelineReprocessing)
 
 instance Core.AWSRequest CancelPipelineReprocessing where
@@ -100,19 +101,19 @@ instance Core.AWSRequest CancelPipelineReprocessing where
     Response.receiveEmpty
       ( \s h x ->
           CancelPipelineReprocessingResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelPipelineReprocessing
+instance Prelude.Hashable CancelPipelineReprocessing
 
-instance Core.NFData CancelPipelineReprocessing
+instance Prelude.NFData CancelPipelineReprocessing
 
 instance Core.ToHeaders CancelPipelineReprocessing where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CancelPipelineReprocessing where
   toPath CancelPipelineReprocessing' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/pipelines/",
         Core.toBS pipelineName,
         "/reprocessing/",
@@ -120,14 +121,14 @@ instance Core.ToPath CancelPipelineReprocessing where
       ]
 
 instance Core.ToQuery CancelPipelineReprocessing where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelPipelineReprocessingResponse' smart constructor.
 data CancelPipelineReprocessingResponse = CancelPipelineReprocessingResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelPipelineReprocessingResponse' with all optional fields omitted.
@@ -140,7 +141,7 @@ data CancelPipelineReprocessingResponse = CancelPipelineReprocessingResponse'
 -- 'httpStatus', 'cancelPipelineReprocessingResponse_httpStatus' - The response's http status code.
 newCancelPipelineReprocessingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelPipelineReprocessingResponse
 newCancelPipelineReprocessingResponse pHttpStatus_ =
   CancelPipelineReprocessingResponse'
@@ -149,9 +150,9 @@ newCancelPipelineReprocessingResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-cancelPipelineReprocessingResponse_httpStatus :: Lens.Lens' CancelPipelineReprocessingResponse Core.Int
+cancelPipelineReprocessingResponse_httpStatus :: Lens.Lens' CancelPipelineReprocessingResponse Prelude.Int
 cancelPipelineReprocessingResponse_httpStatus = Lens.lens (\CancelPipelineReprocessingResponse' {httpStatus} -> httpStatus) (\s@CancelPipelineReprocessingResponse' {} a -> s {httpStatus = a} :: CancelPipelineReprocessingResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelPipelineReprocessingResponse

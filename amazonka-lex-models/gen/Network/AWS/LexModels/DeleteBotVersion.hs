@@ -43,19 +43,20 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBotVersion' smart constructor.
 data DeleteBotVersion = DeleteBotVersion'
   { -- | The name of the bot.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The version of the bot to delete. You cannot delete the @$LATEST@
     -- version of the bot. To delete the @$LATEST@ version, use the DeleteBot
     -- operation.
-    version :: Core.Text
+    version :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBotVersion' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DeleteBotVersion = DeleteBotVersion'
 -- operation.
 newDeleteBotVersion ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBotVersion
 newDeleteBotVersion pName_ pVersion_ =
   DeleteBotVersion'
@@ -83,13 +84,13 @@ newDeleteBotVersion pName_ pVersion_ =
     }
 
 -- | The name of the bot.
-deleteBotVersion_name :: Lens.Lens' DeleteBotVersion Core.Text
+deleteBotVersion_name :: Lens.Lens' DeleteBotVersion Prelude.Text
 deleteBotVersion_name = Lens.lens (\DeleteBotVersion' {name} -> name) (\s@DeleteBotVersion' {} a -> s {name = a} :: DeleteBotVersion)
 
 -- | The version of the bot to delete. You cannot delete the @$LATEST@
 -- version of the bot. To delete the @$LATEST@ version, use the DeleteBot
 -- operation.
-deleteBotVersion_version :: Lens.Lens' DeleteBotVersion Core.Text
+deleteBotVersion_version :: Lens.Lens' DeleteBotVersion Prelude.Text
 deleteBotVersion_version = Lens.lens (\DeleteBotVersion' {version} -> version) (\s@DeleteBotVersion' {} a -> s {version = a} :: DeleteBotVersion)
 
 instance Core.AWSRequest DeleteBotVersion where
@@ -100,22 +101,24 @@ instance Core.AWSRequest DeleteBotVersion where
   response =
     Response.receiveNull DeleteBotVersionResponse'
 
-instance Core.Hashable DeleteBotVersion
+instance Prelude.Hashable DeleteBotVersion
 
-instance Core.NFData DeleteBotVersion
+instance Prelude.NFData DeleteBotVersion
 
 instance Core.ToHeaders DeleteBotVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteBotVersion where
   toPath DeleteBotVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/bots/",
         Core.toBS name,
         "/versions/",
@@ -123,13 +126,13 @@ instance Core.ToPath DeleteBotVersion where
       ]
 
 instance Core.ToQuery DeleteBotVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBotVersionResponse' smart constructor.
 data DeleteBotVersionResponse = DeleteBotVersionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBotVersionResponse' with all optional fields omitted.
@@ -140,4 +143,4 @@ newDeleteBotVersionResponse ::
 newDeleteBotVersionResponse =
   DeleteBotVersionResponse'
 
-instance Core.NFData DeleteBotVersionResponse
+instance Prelude.NFData DeleteBotVersionResponse

@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +58,15 @@ import qualified Network.AWS.Response as Response
 data ListRealtimeLogConfigs = ListRealtimeLogConfigs'
   { -- | The maximum number of real-time log configurations that you want in the
     -- response.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of real-time log configurations. The response includes
     -- real-time log configurations in the list that occur after the marker. To
     -- get the next page of the list, set this field’s value to the value of
     -- @NextMarker@ from the current page’s response.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRealtimeLogConfigs' with all optional fields omitted.
@@ -87,13 +88,13 @@ newListRealtimeLogConfigs ::
   ListRealtimeLogConfigs
 newListRealtimeLogConfigs =
   ListRealtimeLogConfigs'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The maximum number of real-time log configurations that you want in the
 -- response.
-listRealtimeLogConfigs_maxItems :: Lens.Lens' ListRealtimeLogConfigs (Core.Maybe Core.Text)
+listRealtimeLogConfigs_maxItems :: Lens.Lens' ListRealtimeLogConfigs (Prelude.Maybe Prelude.Text)
 listRealtimeLogConfigs_maxItems = Lens.lens (\ListRealtimeLogConfigs' {maxItems} -> maxItems) (\s@ListRealtimeLogConfigs' {} a -> s {maxItems = a} :: ListRealtimeLogConfigs)
 
 -- | Use this field when paginating results to indicate where to begin in
@@ -101,7 +102,7 @@ listRealtimeLogConfigs_maxItems = Lens.lens (\ListRealtimeLogConfigs' {maxItems}
 -- real-time log configurations in the list that occur after the marker. To
 -- get the next page of the list, set this field’s value to the value of
 -- @NextMarker@ from the current page’s response.
-listRealtimeLogConfigs_marker :: Lens.Lens' ListRealtimeLogConfigs (Core.Maybe Core.Text)
+listRealtimeLogConfigs_marker :: Lens.Lens' ListRealtimeLogConfigs (Prelude.Maybe Prelude.Text)
 listRealtimeLogConfigs_marker = Lens.lens (\ListRealtimeLogConfigs' {marker} -> marker) (\s@ListRealtimeLogConfigs' {} a -> s {marker = a} :: ListRealtimeLogConfigs)
 
 instance Core.AWSRequest ListRealtimeLogConfigs where
@@ -113,23 +114,24 @@ instance Core.AWSRequest ListRealtimeLogConfigs where
     Response.receiveXML
       ( \s h x ->
           ListRealtimeLogConfigsResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListRealtimeLogConfigs
+instance Prelude.Hashable ListRealtimeLogConfigs
 
-instance Core.NFData ListRealtimeLogConfigs
+instance Prelude.NFData ListRealtimeLogConfigs
 
 instance Core.ToHeaders ListRealtimeLogConfigs where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListRealtimeLogConfigs where
-  toPath = Core.const "/2020-05-31/realtime-log-config"
+  toPath =
+    Prelude.const "/2020-05-31/realtime-log-config"
 
 instance Core.ToQuery ListRealtimeLogConfigs where
   toQuery ListRealtimeLogConfigs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker
       ]
@@ -137,11 +139,11 @@ instance Core.ToQuery ListRealtimeLogConfigs where
 -- | /See:/ 'newListRealtimeLogConfigsResponse' smart constructor.
 data ListRealtimeLogConfigsResponse = ListRealtimeLogConfigsResponse'
   { -- | A list of real-time log configurations.
-    realtimeLogConfigs :: Core.Maybe RealtimeLogConfigs,
+    realtimeLogConfigs :: Prelude.Maybe RealtimeLogConfigs,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRealtimeLogConfigsResponse' with all optional fields omitted.
@@ -156,21 +158,23 @@ data ListRealtimeLogConfigsResponse = ListRealtimeLogConfigsResponse'
 -- 'httpStatus', 'listRealtimeLogConfigsResponse_httpStatus' - The response's http status code.
 newListRealtimeLogConfigsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRealtimeLogConfigsResponse
 newListRealtimeLogConfigsResponse pHttpStatus_ =
   ListRealtimeLogConfigsResponse'
     { realtimeLogConfigs =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of real-time log configurations.
-listRealtimeLogConfigsResponse_realtimeLogConfigs :: Lens.Lens' ListRealtimeLogConfigsResponse (Core.Maybe RealtimeLogConfigs)
+listRealtimeLogConfigsResponse_realtimeLogConfigs :: Lens.Lens' ListRealtimeLogConfigsResponse (Prelude.Maybe RealtimeLogConfigs)
 listRealtimeLogConfigsResponse_realtimeLogConfigs = Lens.lens (\ListRealtimeLogConfigsResponse' {realtimeLogConfigs} -> realtimeLogConfigs) (\s@ListRealtimeLogConfigsResponse' {} a -> s {realtimeLogConfigs = a} :: ListRealtimeLogConfigsResponse)
 
 -- | The response's http status code.
-listRealtimeLogConfigsResponse_httpStatus :: Lens.Lens' ListRealtimeLogConfigsResponse Core.Int
+listRealtimeLogConfigsResponse_httpStatus :: Lens.Lens' ListRealtimeLogConfigsResponse Prelude.Int
 listRealtimeLogConfigsResponse_httpStatus = Lens.lens (\ListRealtimeLogConfigsResponse' {httpStatus} -> httpStatus) (\s@ListRealtimeLogConfigsResponse' {} a -> s {httpStatus = a} :: ListRealtimeLogConfigsResponse)
 
-instance Core.NFData ListRealtimeLogConfigsResponse
+instance
+  Prelude.NFData
+    ListRealtimeLogConfigsResponse

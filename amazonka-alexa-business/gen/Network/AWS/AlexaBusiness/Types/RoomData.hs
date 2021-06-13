@@ -21,25 +21,26 @@ module Network.AWS.AlexaBusiness.Types.RoomData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The data of a room.
 --
 -- /See:/ 'newRoomData' smart constructor.
 data RoomData = RoomData'
   { -- | The profile name of a room.
-    profileName :: Core.Maybe Core.Text,
+    profileName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a room.
-    roomArn :: Core.Maybe Core.Text,
+    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The provider calendar ARN of a room.
-    providerCalendarId :: Core.Maybe Core.Text,
+    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | The profile ARN of a room.
-    profileArn :: Core.Maybe Core.Text,
+    profileArn :: Prelude.Maybe Prelude.Text,
     -- | The description of a room.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of a room.
-    roomName :: Core.Maybe Core.Text
+    roomName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RoomData' with all optional fields omitted.
@@ -64,36 +65,36 @@ newRoomData ::
   RoomData
 newRoomData =
   RoomData'
-    { profileName = Core.Nothing,
-      roomArn = Core.Nothing,
-      providerCalendarId = Core.Nothing,
-      profileArn = Core.Nothing,
-      description = Core.Nothing,
-      roomName = Core.Nothing
+    { profileName = Prelude.Nothing,
+      roomArn = Prelude.Nothing,
+      providerCalendarId = Prelude.Nothing,
+      profileArn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      roomName = Prelude.Nothing
     }
 
 -- | The profile name of a room.
-roomData_profileName :: Lens.Lens' RoomData (Core.Maybe Core.Text)
+roomData_profileName :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_profileName = Lens.lens (\RoomData' {profileName} -> profileName) (\s@RoomData' {} a -> s {profileName = a} :: RoomData)
 
 -- | The ARN of a room.
-roomData_roomArn :: Lens.Lens' RoomData (Core.Maybe Core.Text)
+roomData_roomArn :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_roomArn = Lens.lens (\RoomData' {roomArn} -> roomArn) (\s@RoomData' {} a -> s {roomArn = a} :: RoomData)
 
 -- | The provider calendar ARN of a room.
-roomData_providerCalendarId :: Lens.Lens' RoomData (Core.Maybe Core.Text)
+roomData_providerCalendarId :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_providerCalendarId = Lens.lens (\RoomData' {providerCalendarId} -> providerCalendarId) (\s@RoomData' {} a -> s {providerCalendarId = a} :: RoomData)
 
 -- | The profile ARN of a room.
-roomData_profileArn :: Lens.Lens' RoomData (Core.Maybe Core.Text)
+roomData_profileArn :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_profileArn = Lens.lens (\RoomData' {profileArn} -> profileArn) (\s@RoomData' {} a -> s {profileArn = a} :: RoomData)
 
 -- | The description of a room.
-roomData_description :: Lens.Lens' RoomData (Core.Maybe Core.Text)
+roomData_description :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_description = Lens.lens (\RoomData' {description} -> description) (\s@RoomData' {} a -> s {description = a} :: RoomData)
 
 -- | The name of a room.
-roomData_roomName :: Lens.Lens' RoomData (Core.Maybe Core.Text)
+roomData_roomName :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_roomName = Lens.lens (\RoomData' {roomName} -> roomName) (\s@RoomData' {} a -> s {roomName = a} :: RoomData)
 
 instance Core.FromJSON RoomData where
@@ -102,14 +103,14 @@ instance Core.FromJSON RoomData where
       "RoomData"
       ( \x ->
           RoomData'
-            Core.<$> (x Core..:? "ProfileName")
-            Core.<*> (x Core..:? "RoomArn")
-            Core.<*> (x Core..:? "ProviderCalendarId")
-            Core.<*> (x Core..:? "ProfileArn")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "RoomName")
+            Prelude.<$> (x Core..:? "ProfileName")
+            Prelude.<*> (x Core..:? "RoomArn")
+            Prelude.<*> (x Core..:? "ProviderCalendarId")
+            Prelude.<*> (x Core..:? "ProfileArn")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "RoomName")
       )
 
-instance Core.Hashable RoomData
+instance Prelude.Hashable RoomData
 
-instance Core.NFData RoomData
+instance Prelude.NFData RoomData

@@ -21,6 +21,7 @@ module Network.AWS.AlexaBusiness.Types.InstantBooking where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for the instant booking feature that are applied to a room
 -- profile. When users start their meeting with Alexa, Alexa automatically
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data InstantBooking = InstantBooking'
   { -- | Duration between 15 and 240 minutes at increments of 15 that determines
     -- how long to book an available room when a meeting is started with Alexa.
-    durationInMinutes :: Core.Maybe Core.Int,
+    durationInMinutes :: Prelude.Maybe Prelude.Int,
     -- | Whether instant booking is enabled or not.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstantBooking' with all optional fields omitted.
@@ -52,17 +53,18 @@ newInstantBooking ::
   InstantBooking
 newInstantBooking =
   InstantBooking'
-    { durationInMinutes = Core.Nothing,
-      enabled = Core.Nothing
+    { durationInMinutes =
+        Prelude.Nothing,
+      enabled = Prelude.Nothing
     }
 
 -- | Duration between 15 and 240 minutes at increments of 15 that determines
 -- how long to book an available room when a meeting is started with Alexa.
-instantBooking_durationInMinutes :: Lens.Lens' InstantBooking (Core.Maybe Core.Int)
+instantBooking_durationInMinutes :: Lens.Lens' InstantBooking (Prelude.Maybe Prelude.Int)
 instantBooking_durationInMinutes = Lens.lens (\InstantBooking' {durationInMinutes} -> durationInMinutes) (\s@InstantBooking' {} a -> s {durationInMinutes = a} :: InstantBooking)
 
 -- | Whether instant booking is enabled or not.
-instantBooking_enabled :: Lens.Lens' InstantBooking (Core.Maybe Core.Bool)
+instantBooking_enabled :: Lens.Lens' InstantBooking (Prelude.Maybe Prelude.Bool)
 instantBooking_enabled = Lens.lens (\InstantBooking' {enabled} -> enabled) (\s@InstantBooking' {} a -> s {enabled = a} :: InstantBooking)
 
 instance Core.FromJSON InstantBooking where
@@ -71,10 +73,10 @@ instance Core.FromJSON InstantBooking where
       "InstantBooking"
       ( \x ->
           InstantBooking'
-            Core.<$> (x Core..:? "DurationInMinutes")
-            Core.<*> (x Core..:? "Enabled")
+            Prelude.<$> (x Core..:? "DurationInMinutes")
+            Prelude.<*> (x Core..:? "Enabled")
       )
 
-instance Core.Hashable InstantBooking
+instance Prelude.Hashable InstantBooking
 
-instance Core.NFData InstantBooking
+instance Prelude.NFData InstantBooking

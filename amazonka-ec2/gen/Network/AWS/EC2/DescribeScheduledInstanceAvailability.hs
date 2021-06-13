@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,19 +74,19 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     -- is 1,200 hours per year. For example, the minimum daily schedule is 4
     -- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
     -- schedule is 100 hours.
-    minSlotDurationInHours :: Core.Maybe Core.Int,
+    minSlotDurationInHours :: Prelude.Maybe Prelude.Int,
     -- | The token for the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. This value can
     -- be between 5 and 300. The default value is 300. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone (for example,
@@ -97,16 +98,16 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     --     @EC2-VPC@).
     --
     -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum available duration, in hours. This value must be greater
     -- than @MinSlotDurationInHours@ and less than 1,720.
-    maxSlotDurationInHours :: Core.Maybe Core.Int,
+    maxSlotDurationInHours :: Prelude.Maybe Prelude.Int,
     -- | The time period for the first schedule to start.
     firstSlotStartTimeRange :: SlotDateTimeRangeRequest,
     -- | The schedule recurrence.
     recurrence :: ScheduledInstanceRecurrenceRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledInstanceAvailability' with all optional fields omitted.
@@ -162,13 +163,13 @@ newDescribeScheduledInstanceAvailability
   pRecurrence_ =
     DescribeScheduledInstanceAvailability'
       { minSlotDurationInHours =
-          Core.Nothing,
-        nextToken = Core.Nothing,
-        dryRun = Core.Nothing,
-        maxResults = Core.Nothing,
-        filters = Core.Nothing,
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        filters = Prelude.Nothing,
         maxSlotDurationInHours =
-          Core.Nothing,
+          Prelude.Nothing,
         firstSlotStartTimeRange =
           pFirstSlotStartTimeRange_,
         recurrence = pRecurrence_
@@ -178,25 +179,25 @@ newDescribeScheduledInstanceAvailability
 -- is 1,200 hours per year. For example, the minimum daily schedule is 4
 -- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
 -- schedule is 100 hours.
-describeScheduledInstanceAvailability_minSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Int)
+describeScheduledInstanceAvailability_minSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
 describeScheduledInstanceAvailability_minSlotDurationInHours = Lens.lens (\DescribeScheduledInstanceAvailability' {minSlotDurationInHours} -> minSlotDurationInHours) (\s@DescribeScheduledInstanceAvailability' {} a -> s {minSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The token for the next set of results.
-describeScheduledInstanceAvailability_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Text)
+describeScheduledInstanceAvailability_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
 describeScheduledInstanceAvailability_nextToken = Lens.lens (\DescribeScheduledInstanceAvailability' {nextToken} -> nextToken) (\s@DescribeScheduledInstanceAvailability' {} a -> s {nextToken = a} :: DescribeScheduledInstanceAvailability)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeScheduledInstanceAvailability_dryRun :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Bool)
+describeScheduledInstanceAvailability_dryRun :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Bool)
 describeScheduledInstanceAvailability_dryRun = Lens.lens (\DescribeScheduledInstanceAvailability' {dryRun} -> dryRun) (\s@DescribeScheduledInstanceAvailability' {} a -> s {dryRun = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The maximum number of results to return in a single call. This value can
 -- be between 5 and 300. The default value is 300. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-describeScheduledInstanceAvailability_maxResults :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Natural)
+describeScheduledInstanceAvailability_maxResults :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Natural)
 describeScheduledInstanceAvailability_maxResults = Lens.lens (\DescribeScheduledInstanceAvailability' {maxResults} -> maxResults) (\s@DescribeScheduledInstanceAvailability' {} a -> s {maxResults = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The filters.
@@ -210,12 +211,12 @@ describeScheduledInstanceAvailability_maxResults = Lens.lens (\DescribeScheduled
 --     @EC2-VPC@).
 --
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
-describeScheduledInstanceAvailability_filters :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe [Filter])
-describeScheduledInstanceAvailability_filters = Lens.lens (\DescribeScheduledInstanceAvailability' {filters} -> filters) (\s@DescribeScheduledInstanceAvailability' {} a -> s {filters = a} :: DescribeScheduledInstanceAvailability) Core.. Lens.mapping Lens._Coerce
+describeScheduledInstanceAvailability_filters :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe [Filter])
+describeScheduledInstanceAvailability_filters = Lens.lens (\DescribeScheduledInstanceAvailability' {filters} -> filters) (\s@DescribeScheduledInstanceAvailability' {} a -> s {filters = a} :: DescribeScheduledInstanceAvailability) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum available duration, in hours. This value must be greater
 -- than @MinSlotDurationInHours@ and less than 1,720.
-describeScheduledInstanceAvailability_maxSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Core.Maybe Core.Int)
+describeScheduledInstanceAvailability_maxSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
 describeScheduledInstanceAvailability_maxSlotDurationInHours = Lens.lens (\DescribeScheduledInstanceAvailability' {maxSlotDurationInHours} -> maxSlotDurationInHours) (\s@DescribeScheduledInstanceAvailability' {} a -> s {maxSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The time period for the first schedule to start.
@@ -234,22 +235,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeScheduledInstanceAvailabilityResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeScheduledInstanceAvailability_nextToken
+          Prelude.& describeScheduledInstanceAvailability_nextToken
           Lens..~ rs
             Lens.^? describeScheduledInstanceAvailabilityResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -264,52 +265,53 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeScheduledInstanceAvailabilityResponse'
-            Core.<$> (x Core..@? "nextToken")
-              Core.<*> ( x Core..@? "scheduledInstanceAvailabilitySet"
-                           Core..!@ Core.mempty
-                           Core.>>= Core.may (Core.parseXMLList "item")
-                       )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "scheduledInstanceAvailabilitySet"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeScheduledInstanceAvailability
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeScheduledInstanceAvailability
 
 instance
   Core.ToHeaders
     DescribeScheduledInstanceAvailability
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DescribeScheduledInstanceAvailability
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeScheduledInstanceAvailability
   where
   toQuery DescribeScheduledInstanceAvailability' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeScheduledInstanceAvailability" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "MinSlotDurationInHours"
           Core.=: minSlotDurationInHours,
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters),
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "MaxSlotDurationInHours"
           Core.=: maxSlotDurationInHours,
         "FirstSlotStartTimeRange"
@@ -323,13 +325,13 @@ instance
 data DescribeScheduledInstanceAvailabilityResponse = DescribeScheduledInstanceAvailabilityResponse'
   { -- | The token required to retrieve the next set of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the available Scheduled Instances.
-    scheduledInstanceAvailabilitySet :: Core.Maybe [ScheduledInstanceAvailability],
+    scheduledInstanceAvailabilitySet :: Prelude.Maybe [ScheduledInstanceAvailability],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledInstanceAvailabilityResponse' with all optional fields omitted.
@@ -347,31 +349,31 @@ data DescribeScheduledInstanceAvailabilityResponse = DescribeScheduledInstanceAv
 -- 'httpStatus', 'describeScheduledInstanceAvailabilityResponse_httpStatus' - The response's http status code.
 newDescribeScheduledInstanceAvailabilityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScheduledInstanceAvailabilityResponse
 newDescribeScheduledInstanceAvailabilityResponse
   pHttpStatus_ =
     DescribeScheduledInstanceAvailabilityResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         scheduledInstanceAvailabilitySet =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
-describeScheduledInstanceAvailabilityResponse_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Core.Maybe Core.Text)
+describeScheduledInstanceAvailabilityResponse_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Prelude.Maybe Prelude.Text)
 describeScheduledInstanceAvailabilityResponse_nextToken = Lens.lens (\DescribeScheduledInstanceAvailabilityResponse' {nextToken} -> nextToken) (\s@DescribeScheduledInstanceAvailabilityResponse' {} a -> s {nextToken = a} :: DescribeScheduledInstanceAvailabilityResponse)
 
 -- | Information about the available Scheduled Instances.
-describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Core.Maybe [ScheduledInstanceAvailability])
-describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet = Lens.lens (\DescribeScheduledInstanceAvailabilityResponse' {scheduledInstanceAvailabilitySet} -> scheduledInstanceAvailabilitySet) (\s@DescribeScheduledInstanceAvailabilityResponse' {} a -> s {scheduledInstanceAvailabilitySet = a} :: DescribeScheduledInstanceAvailabilityResponse) Core.. Lens.mapping Lens._Coerce
+describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Prelude.Maybe [ScheduledInstanceAvailability])
+describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet = Lens.lens (\DescribeScheduledInstanceAvailabilityResponse' {scheduledInstanceAvailabilitySet} -> scheduledInstanceAvailabilitySet) (\s@DescribeScheduledInstanceAvailabilityResponse' {} a -> s {scheduledInstanceAvailabilitySet = a} :: DescribeScheduledInstanceAvailabilityResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScheduledInstanceAvailabilityResponse_httpStatus :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse Core.Int
+describeScheduledInstanceAvailabilityResponse_httpStatus :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse Prelude.Int
 describeScheduledInstanceAvailabilityResponse_httpStatus = Lens.lens (\DescribeScheduledInstanceAvailabilityResponse' {httpStatus} -> httpStatus) (\s@DescribeScheduledInstanceAvailabilityResponse' {} a -> s {httpStatus = a} :: DescribeScheduledInstanceAvailabilityResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeScheduledInstanceAvailabilityResponse

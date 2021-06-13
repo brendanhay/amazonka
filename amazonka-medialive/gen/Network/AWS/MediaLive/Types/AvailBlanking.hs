@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AvailBlankingState
 import Network.AWS.MediaLive.Types.InputLocation
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Avail Blanking
 --
@@ -30,12 +31,12 @@ import Network.AWS.MediaLive.Types.InputLocation
 data AvailBlanking = AvailBlanking'
   { -- | When set to enabled, causes video, audio and captions to be blanked when
     -- insertion metadata is added.
-    state :: Core.Maybe AvailBlankingState,
+    state :: Prelude.Maybe AvailBlankingState,
     -- | Blanking image to be used. Leave empty for solid black. Only bmp and png
     -- images are supported.
-    availBlankingImage :: Core.Maybe InputLocation
+    availBlankingImage :: Prelude.Maybe InputLocation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AvailBlanking' with all optional fields omitted.
@@ -54,18 +55,18 @@ newAvailBlanking ::
   AvailBlanking
 newAvailBlanking =
   AvailBlanking'
-    { state = Core.Nothing,
-      availBlankingImage = Core.Nothing
+    { state = Prelude.Nothing,
+      availBlankingImage = Prelude.Nothing
     }
 
 -- | When set to enabled, causes video, audio and captions to be blanked when
 -- insertion metadata is added.
-availBlanking_state :: Lens.Lens' AvailBlanking (Core.Maybe AvailBlankingState)
+availBlanking_state :: Lens.Lens' AvailBlanking (Prelude.Maybe AvailBlankingState)
 availBlanking_state = Lens.lens (\AvailBlanking' {state} -> state) (\s@AvailBlanking' {} a -> s {state = a} :: AvailBlanking)
 
 -- | Blanking image to be used. Leave empty for solid black. Only bmp and png
 -- images are supported.
-availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Core.Maybe InputLocation)
+availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Prelude.Maybe InputLocation)
 availBlanking_availBlankingImage = Lens.lens (\AvailBlanking' {availBlankingImage} -> availBlankingImage) (\s@AvailBlanking' {} a -> s {availBlankingImage = a} :: AvailBlanking)
 
 instance Core.FromJSON AvailBlanking where
@@ -74,20 +75,20 @@ instance Core.FromJSON AvailBlanking where
       "AvailBlanking"
       ( \x ->
           AvailBlanking'
-            Core.<$> (x Core..:? "state")
-            Core.<*> (x Core..:? "availBlankingImage")
+            Prelude.<$> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "availBlankingImage")
       )
 
-instance Core.Hashable AvailBlanking
+instance Prelude.Hashable AvailBlanking
 
-instance Core.NFData AvailBlanking
+instance Prelude.NFData AvailBlanking
 
 instance Core.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("state" Core..=) Core.<$> state,
+      ( Prelude.catMaybes
+          [ ("state" Core..=) Prelude.<$> state,
             ("availBlankingImage" Core..=)
-              Core.<$> availBlankingImage
+              Prelude.<$> availBlankingImage
           ]
       )

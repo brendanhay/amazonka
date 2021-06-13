@@ -22,6 +22,7 @@ module Network.AWS.EKS.Types.NodegroupResources where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.AutoScalingGroup
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the resources associated with the node group,
 -- such as Auto Scaling groups and security groups for remote access.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data NodegroupResources = NodegroupResources'
   { -- | The remote access security group associated with the node group. This
     -- security group controls SSH access to the nodes.
-    remoteAccessSecurityGroup :: Core.Maybe Core.Text,
+    remoteAccessSecurityGroup :: Prelude.Maybe Prelude.Text,
     -- | The Auto Scaling groups associated with the node group.
-    autoScalingGroups :: Core.Maybe [AutoScalingGroup]
+    autoScalingGroups :: Prelude.Maybe [AutoScalingGroup]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodegroupResources' with all optional fields omitted.
@@ -53,18 +54,18 @@ newNodegroupResources ::
 newNodegroupResources =
   NodegroupResources'
     { remoteAccessSecurityGroup =
-        Core.Nothing,
-      autoScalingGroups = Core.Nothing
+        Prelude.Nothing,
+      autoScalingGroups = Prelude.Nothing
     }
 
 -- | The remote access security group associated with the node group. This
 -- security group controls SSH access to the nodes.
-nodegroupResources_remoteAccessSecurityGroup :: Lens.Lens' NodegroupResources (Core.Maybe Core.Text)
+nodegroupResources_remoteAccessSecurityGroup :: Lens.Lens' NodegroupResources (Prelude.Maybe Prelude.Text)
 nodegroupResources_remoteAccessSecurityGroup = Lens.lens (\NodegroupResources' {remoteAccessSecurityGroup} -> remoteAccessSecurityGroup) (\s@NodegroupResources' {} a -> s {remoteAccessSecurityGroup = a} :: NodegroupResources)
 
 -- | The Auto Scaling groups associated with the node group.
-nodegroupResources_autoScalingGroups :: Lens.Lens' NodegroupResources (Core.Maybe [AutoScalingGroup])
-nodegroupResources_autoScalingGroups = Lens.lens (\NodegroupResources' {autoScalingGroups} -> autoScalingGroups) (\s@NodegroupResources' {} a -> s {autoScalingGroups = a} :: NodegroupResources) Core.. Lens.mapping Lens._Coerce
+nodegroupResources_autoScalingGroups :: Lens.Lens' NodegroupResources (Prelude.Maybe [AutoScalingGroup])
+nodegroupResources_autoScalingGroups = Lens.lens (\NodegroupResources' {autoScalingGroups} -> autoScalingGroups) (\s@NodegroupResources' {} a -> s {autoScalingGroups = a} :: NodegroupResources) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON NodegroupResources where
   parseJSON =
@@ -72,12 +73,12 @@ instance Core.FromJSON NodegroupResources where
       "NodegroupResources"
       ( \x ->
           NodegroupResources'
-            Core.<$> (x Core..:? "remoteAccessSecurityGroup")
-            Core.<*> ( x Core..:? "autoScalingGroups"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "remoteAccessSecurityGroup")
+            Prelude.<*> ( x Core..:? "autoScalingGroups"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable NodegroupResources
+instance Prelude.Hashable NodegroupResources
 
-instance Core.NFData NodegroupResources
+instance Prelude.NFData NodegroupResources

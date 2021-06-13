@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,11 +68,11 @@ data SendDiagnosticInterrupt = SendDiagnosticInterrupt'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendDiagnosticInterrupt' with all optional fields omitted.
@@ -89,11 +90,11 @@ data SendDiagnosticInterrupt = SendDiagnosticInterrupt'
 -- 'instanceId', 'sendDiagnosticInterrupt_instanceId' - The ID of the instance.
 newSendDiagnosticInterrupt ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   SendDiagnosticInterrupt
 newSendDiagnosticInterrupt pInstanceId_ =
   SendDiagnosticInterrupt'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -101,11 +102,11 @@ newSendDiagnosticInterrupt pInstanceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-sendDiagnosticInterrupt_dryRun :: Lens.Lens' SendDiagnosticInterrupt (Core.Maybe Core.Bool)
+sendDiagnosticInterrupt_dryRun :: Lens.Lens' SendDiagnosticInterrupt (Prelude.Maybe Prelude.Bool)
 sendDiagnosticInterrupt_dryRun = Lens.lens (\SendDiagnosticInterrupt' {dryRun} -> dryRun) (\s@SendDiagnosticInterrupt' {} a -> s {dryRun = a} :: SendDiagnosticInterrupt)
 
 -- | The ID of the instance.
-sendDiagnosticInterrupt_instanceId :: Lens.Lens' SendDiagnosticInterrupt Core.Text
+sendDiagnosticInterrupt_instanceId :: Lens.Lens' SendDiagnosticInterrupt Prelude.Text
 sendDiagnosticInterrupt_instanceId = Lens.lens (\SendDiagnosticInterrupt' {instanceId} -> instanceId) (\s@SendDiagnosticInterrupt' {} a -> s {instanceId = a} :: SendDiagnosticInterrupt)
 
 instance Core.AWSRequest SendDiagnosticInterrupt where
@@ -117,22 +118,23 @@ instance Core.AWSRequest SendDiagnosticInterrupt where
     Response.receiveNull
       SendDiagnosticInterruptResponse'
 
-instance Core.Hashable SendDiagnosticInterrupt
+instance Prelude.Hashable SendDiagnosticInterrupt
 
-instance Core.NFData SendDiagnosticInterrupt
+instance Prelude.NFData SendDiagnosticInterrupt
 
 instance Core.ToHeaders SendDiagnosticInterrupt where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SendDiagnosticInterrupt where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SendDiagnosticInterrupt where
   toQuery SendDiagnosticInterrupt' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SendDiagnosticInterrupt" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("SendDiagnosticInterrupt" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "InstanceId" Core.=: instanceId
       ]
@@ -141,7 +143,7 @@ instance Core.ToQuery SendDiagnosticInterrupt where
 data SendDiagnosticInterruptResponse = SendDiagnosticInterruptResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendDiagnosticInterruptResponse' with all optional fields omitted.
@@ -152,4 +154,6 @@ newSendDiagnosticInterruptResponse ::
 newSendDiagnosticInterruptResponse =
   SendDiagnosticInterruptResponse'
 
-instance Core.NFData SendDiagnosticInterruptResponse
+instance
+  Prelude.NFData
+    SendDiagnosticInterruptResponse

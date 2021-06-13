@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -62,11 +63,11 @@ data DeleteRegexPatternSet = DeleteRegexPatternSet'
   { -- | The @RegexPatternSetId@ of the RegexPatternSet that you want to delete.
     -- @RegexPatternSetId@ is returned by CreateRegexPatternSet and by
     -- ListRegexPatternSets.
-    regexPatternSetId :: Core.Text,
+    regexPatternSetId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRegexPatternSet' with all optional fields omitted.
@@ -83,9 +84,9 @@ data DeleteRegexPatternSet = DeleteRegexPatternSet'
 -- 'changeToken', 'deleteRegexPatternSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newDeleteRegexPatternSet ::
   -- | 'regexPatternSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRegexPatternSet
 newDeleteRegexPatternSet
   pRegexPatternSetId_
@@ -99,11 +100,11 @@ newDeleteRegexPatternSet
 -- | The @RegexPatternSetId@ of the RegexPatternSet that you want to delete.
 -- @RegexPatternSetId@ is returned by CreateRegexPatternSet and by
 -- ListRegexPatternSets.
-deleteRegexPatternSet_regexPatternSetId :: Lens.Lens' DeleteRegexPatternSet Core.Text
+deleteRegexPatternSet_regexPatternSetId :: Lens.Lens' DeleteRegexPatternSet Prelude.Text
 deleteRegexPatternSet_regexPatternSetId = Lens.lens (\DeleteRegexPatternSet' {regexPatternSetId} -> regexPatternSetId) (\s@DeleteRegexPatternSet' {} a -> s {regexPatternSetId = a} :: DeleteRegexPatternSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-deleteRegexPatternSet_changeToken :: Lens.Lens' DeleteRegexPatternSet Core.Text
+deleteRegexPatternSet_changeToken :: Lens.Lens' DeleteRegexPatternSet Prelude.Text
 deleteRegexPatternSet_changeToken = Lens.lens (\DeleteRegexPatternSet' {changeToken} -> changeToken) (\s@DeleteRegexPatternSet' {} a -> s {changeToken = a} :: DeleteRegexPatternSet)
 
 instance Core.AWSRequest DeleteRegexPatternSet where
@@ -115,53 +116,55 @@ instance Core.AWSRequest DeleteRegexPatternSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteRegexPatternSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRegexPatternSet
+instance Prelude.Hashable DeleteRegexPatternSet
 
-instance Core.NFData DeleteRegexPatternSet
+instance Prelude.NFData DeleteRegexPatternSet
 
 instance Core.ToHeaders DeleteRegexPatternSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.DeleteRegexPatternSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRegexPatternSet where
   toJSON DeleteRegexPatternSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("RegexPatternSetId" Core..= regexPatternSetId),
-            Core.Just ("ChangeToken" Core..= changeToken)
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath DeleteRegexPatternSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRegexPatternSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRegexPatternSetResponse' smart constructor.
 data DeleteRegexPatternSetResponse = DeleteRegexPatternSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteRegexPatternSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRegexPatternSetResponse' with all optional fields omitted.
@@ -178,23 +181,23 @@ data DeleteRegexPatternSetResponse = DeleteRegexPatternSetResponse'
 -- 'httpStatus', 'deleteRegexPatternSetResponse_httpStatus' - The response's http status code.
 newDeleteRegexPatternSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRegexPatternSetResponse
 newDeleteRegexPatternSetResponse pHttpStatus_ =
   DeleteRegexPatternSetResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRegexPatternSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-deleteRegexPatternSetResponse_changeToken :: Lens.Lens' DeleteRegexPatternSetResponse (Core.Maybe Core.Text)
+deleteRegexPatternSetResponse_changeToken :: Lens.Lens' DeleteRegexPatternSetResponse (Prelude.Maybe Prelude.Text)
 deleteRegexPatternSetResponse_changeToken = Lens.lens (\DeleteRegexPatternSetResponse' {changeToken} -> changeToken) (\s@DeleteRegexPatternSetResponse' {} a -> s {changeToken = a} :: DeleteRegexPatternSetResponse)
 
 -- | The response's http status code.
-deleteRegexPatternSetResponse_httpStatus :: Lens.Lens' DeleteRegexPatternSetResponse Core.Int
+deleteRegexPatternSetResponse_httpStatus :: Lens.Lens' DeleteRegexPatternSetResponse Prelude.Int
 deleteRegexPatternSetResponse_httpStatus = Lens.lens (\DeleteRegexPatternSetResponse' {httpStatus} -> httpStatus) (\s@DeleteRegexPatternSetResponse' {} a -> s {httpStatus = a} :: DeleteRegexPatternSetResponse)
 
-instance Core.NFData DeleteRegexPatternSetResponse
+instance Prelude.NFData DeleteRegexPatternSetResponse

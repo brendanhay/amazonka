@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data CreateCampaign = CreateCampaign'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     writeCampaignRequest :: WriteCampaignRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCampaign' with all optional fields omitted.
@@ -70,7 +71,7 @@ data CreateCampaign = CreateCampaign'
 -- 'writeCampaignRequest', 'createCampaign_writeCampaignRequest' - Undocumented member.
 newCreateCampaign ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'writeCampaignRequest'
   WriteCampaignRequest ->
   CreateCampaign
@@ -84,7 +85,7 @@ newCreateCampaign
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-createCampaign_applicationId :: Lens.Lens' CreateCampaign Core.Text
+createCampaign_applicationId :: Lens.Lens' CreateCampaign Prelude.Text
 createCampaign_applicationId = Lens.lens (\CreateCampaign' {applicationId} -> applicationId) (\s@CreateCampaign' {} a -> s {applicationId = a} :: CreateCampaign)
 
 -- | Undocumented member.
@@ -100,28 +101,30 @@ instance Core.AWSRequest CreateCampaign where
     Response.receiveJSON
       ( \s h x ->
           CreateCampaignResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable CreateCampaign
+instance Prelude.Hashable CreateCampaign
 
-instance Core.NFData CreateCampaign
+instance Prelude.NFData CreateCampaign
 
 instance Core.ToHeaders CreateCampaign where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateCampaign where
   toJSON CreateCampaign' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "WriteCampaignRequest"
                   Core..= writeCampaignRequest
               )
@@ -130,19 +133,19 @@ instance Core.ToJSON CreateCampaign where
 
 instance Core.ToPath CreateCampaign where
   toPath CreateCampaign' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apps/", Core.toBS applicationId, "/campaigns"]
 
 instance Core.ToQuery CreateCampaign where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCampaignResponse' smart constructor.
 data CreateCampaignResponse = CreateCampaignResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     campaignResponse :: CampaignResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCampaignResponse' with all optional fields omitted.
@@ -157,7 +160,7 @@ data CreateCampaignResponse = CreateCampaignResponse'
 -- 'campaignResponse', 'createCampaignResponse_campaignResponse' - Undocumented member.
 newCreateCampaignResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'campaignResponse'
   CampaignResponse ->
   CreateCampaignResponse
@@ -170,11 +173,11 @@ newCreateCampaignResponse
       }
 
 -- | The response's http status code.
-createCampaignResponse_httpStatus :: Lens.Lens' CreateCampaignResponse Core.Int
+createCampaignResponse_httpStatus :: Lens.Lens' CreateCampaignResponse Prelude.Int
 createCampaignResponse_httpStatus = Lens.lens (\CreateCampaignResponse' {httpStatus} -> httpStatus) (\s@CreateCampaignResponse' {} a -> s {httpStatus = a} :: CreateCampaignResponse)
 
 -- | Undocumented member.
 createCampaignResponse_campaignResponse :: Lens.Lens' CreateCampaignResponse CampaignResponse
 createCampaignResponse_campaignResponse = Lens.lens (\CreateCampaignResponse' {campaignResponse} -> campaignResponse) (\s@CreateCampaignResponse' {} a -> s {campaignResponse = a} :: CreateCampaignResponse)
 
-instance Core.NFData CreateCampaignResponse
+instance Prelude.NFData CreateCampaignResponse

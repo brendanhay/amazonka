@@ -21,19 +21,20 @@ module Network.AWS.MQ.Types.ConfigurationRevision where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about the specified configuration revision.
 --
 -- /See:/ 'newConfigurationRevision' smart constructor.
 data ConfigurationRevision = ConfigurationRevision'
   { -- | The description of the configuration revision.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Required. The revision number of the configuration.
-    revision :: Core.Maybe Core.Int,
+    revision :: Prelude.Maybe Prelude.Int,
     -- | Required. The date and time of the configuration revision.
-    created :: Core.Maybe Core.POSIX
+    created :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigurationRevision' with all optional fields omitted.
@@ -52,22 +53,23 @@ newConfigurationRevision ::
   ConfigurationRevision
 newConfigurationRevision =
   ConfigurationRevision'
-    { description = Core.Nothing,
-      revision = Core.Nothing,
-      created = Core.Nothing
+    { description =
+        Prelude.Nothing,
+      revision = Prelude.Nothing,
+      created = Prelude.Nothing
     }
 
 -- | The description of the configuration revision.
-configurationRevision_description :: Lens.Lens' ConfigurationRevision (Core.Maybe Core.Text)
+configurationRevision_description :: Lens.Lens' ConfigurationRevision (Prelude.Maybe Prelude.Text)
 configurationRevision_description = Lens.lens (\ConfigurationRevision' {description} -> description) (\s@ConfigurationRevision' {} a -> s {description = a} :: ConfigurationRevision)
 
 -- | Required. The revision number of the configuration.
-configurationRevision_revision :: Lens.Lens' ConfigurationRevision (Core.Maybe Core.Int)
+configurationRevision_revision :: Lens.Lens' ConfigurationRevision (Prelude.Maybe Prelude.Int)
 configurationRevision_revision = Lens.lens (\ConfigurationRevision' {revision} -> revision) (\s@ConfigurationRevision' {} a -> s {revision = a} :: ConfigurationRevision)
 
 -- | Required. The date and time of the configuration revision.
-configurationRevision_created :: Lens.Lens' ConfigurationRevision (Core.Maybe Core.UTCTime)
-configurationRevision_created = Lens.lens (\ConfigurationRevision' {created} -> created) (\s@ConfigurationRevision' {} a -> s {created = a} :: ConfigurationRevision) Core.. Lens.mapping Core._Time
+configurationRevision_created :: Lens.Lens' ConfigurationRevision (Prelude.Maybe Prelude.UTCTime)
+configurationRevision_created = Lens.lens (\ConfigurationRevision' {created} -> created) (\s@ConfigurationRevision' {} a -> s {created = a} :: ConfigurationRevision) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ConfigurationRevision where
   parseJSON =
@@ -75,11 +77,11 @@ instance Core.FromJSON ConfigurationRevision where
       "ConfigurationRevision"
       ( \x ->
           ConfigurationRevision'
-            Core.<$> (x Core..:? "description")
-            Core.<*> (x Core..:? "revision")
-            Core.<*> (x Core..:? "created")
+            Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "revision")
+            Prelude.<*> (x Core..:? "created")
       )
 
-instance Core.Hashable ConfigurationRevision
+instance Prelude.Hashable ConfigurationRevision
 
-instance Core.NFData ConfigurationRevision
+instance Prelude.NFData ConfigurationRevision

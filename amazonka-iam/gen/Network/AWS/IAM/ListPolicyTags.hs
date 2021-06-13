@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,21 +66,21 @@ data ListPolicyTags = ListPolicyTags'
     -- that case, the @IsTruncated@ response element returns @true@, and
     -- @Marker@ contains a value to include in the subsequent call that tells
     -- the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM customer managed policy whose tags you want to see.
     --
     -- This parameter accepts (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    policyArn :: Core.Text
+    policyArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPolicyTags' with all optional fields omitted.
@@ -113,12 +114,12 @@ data ListPolicyTags = ListPolicyTags'
 -- spaces. You can also include any of the following characters: =,.\@-
 newListPolicyTags ::
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   ListPolicyTags
 newListPolicyTags pPolicyArn_ =
   ListPolicyTags'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       policyArn = pPolicyArn_
     }
 
@@ -132,14 +133,14 @@ newListPolicyTags pPolicyArn_ =
 -- that case, the @IsTruncated@ response element returns @true@, and
 -- @Marker@ contains a value to include in the subsequent call that tells
 -- the service where to continue from.
-listPolicyTags_maxItems :: Lens.Lens' ListPolicyTags (Core.Maybe Core.Natural)
+listPolicyTags_maxItems :: Lens.Lens' ListPolicyTags (Prelude.Maybe Prelude.Natural)
 listPolicyTags_maxItems = Lens.lens (\ListPolicyTags' {maxItems} -> maxItems) (\s@ListPolicyTags' {} a -> s {maxItems = a} :: ListPolicyTags)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listPolicyTags_marker :: Lens.Lens' ListPolicyTags (Core.Maybe Core.Text)
+listPolicyTags_marker :: Lens.Lens' ListPolicyTags (Prelude.Maybe Prelude.Text)
 listPolicyTags_marker = Lens.lens (\ListPolicyTags' {marker} -> marker) (\s@ListPolicyTags' {} a -> s {marker = a} :: ListPolicyTags)
 
 -- | The ARN of the IAM customer managed policy whose tags you want to see.
@@ -148,7 +149,7 @@ listPolicyTags_marker = Lens.lens (\ListPolicyTags' {marker} -> marker) (\s@List
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-listPolicyTags_policyArn :: Lens.Lens' ListPolicyTags Core.Text
+listPolicyTags_policyArn :: Lens.Lens' ListPolicyTags Prelude.Text
 listPolicyTags_policyArn = Lens.lens (\ListPolicyTags' {policyArn} -> policyArn) (\s@ListPolicyTags' {} a -> s {policyArn = a} :: ListPolicyTags)
 
 instance Core.AWSRequest ListPolicyTags where
@@ -161,30 +162,31 @@ instance Core.AWSRequest ListPolicyTags where
       "ListPolicyTagsResult"
       ( \s h x ->
           ListPolicyTagsResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListPolicyTags
+instance Prelude.Hashable ListPolicyTags
 
-instance Core.NFData ListPolicyTags
+instance Prelude.NFData ListPolicyTags
 
 instance Core.ToHeaders ListPolicyTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListPolicyTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListPolicyTags where
   toQuery ListPolicyTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPolicyTags" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListPolicyTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "PolicyArn" Core.=: policyArn
@@ -198,20 +200,20 @@ data ListPolicyTagsResponse = ListPolicyTagsResponse'
     -- that IAM might return fewer than the @MaxItems@ number of results even
     -- when more results are available. Check @IsTruncated@ after every call to
     -- ensure that you receive all of your results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the IAM customer managed
     -- policy. Each tag consists of a key name and an associated value. If no
     -- tags are attached to the specified resource, the response contains an
     -- empty list.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPolicyTagsResponse' with all optional fields omitted.
@@ -240,14 +242,15 @@ data ListPolicyTagsResponse = ListPolicyTagsResponse'
 -- empty list.
 newListPolicyTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPolicyTagsResponse
 newListPolicyTagsResponse pHttpStatus_ =
   ListPolicyTagsResponse'
-    { isTruncated = Core.Nothing,
-      marker = Core.Nothing,
+    { isTruncated =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -256,17 +259,17 @@ newListPolicyTagsResponse pHttpStatus_ =
 -- that IAM might return fewer than the @MaxItems@ number of results even
 -- when more results are available. Check @IsTruncated@ after every call to
 -- ensure that you receive all of your results.
-listPolicyTagsResponse_isTruncated :: Lens.Lens' ListPolicyTagsResponse (Core.Maybe Core.Bool)
+listPolicyTagsResponse_isTruncated :: Lens.Lens' ListPolicyTagsResponse (Prelude.Maybe Prelude.Bool)
 listPolicyTagsResponse_isTruncated = Lens.lens (\ListPolicyTagsResponse' {isTruncated} -> isTruncated) (\s@ListPolicyTagsResponse' {} a -> s {isTruncated = a} :: ListPolicyTagsResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listPolicyTagsResponse_marker :: Lens.Lens' ListPolicyTagsResponse (Core.Maybe Core.Text)
+listPolicyTagsResponse_marker :: Lens.Lens' ListPolicyTagsResponse (Prelude.Maybe Prelude.Text)
 listPolicyTagsResponse_marker = Lens.lens (\ListPolicyTagsResponse' {marker} -> marker) (\s@ListPolicyTagsResponse' {} a -> s {marker = a} :: ListPolicyTagsResponse)
 
 -- | The response's http status code.
-listPolicyTagsResponse_httpStatus :: Lens.Lens' ListPolicyTagsResponse Core.Int
+listPolicyTagsResponse_httpStatus :: Lens.Lens' ListPolicyTagsResponse Prelude.Int
 listPolicyTagsResponse_httpStatus = Lens.lens (\ListPolicyTagsResponse' {httpStatus} -> httpStatus) (\s@ListPolicyTagsResponse' {} a -> s {httpStatus = a} :: ListPolicyTagsResponse)
 
 -- | The list of tags that are currently attached to the IAM customer managed
@@ -274,6 +277,6 @@ listPolicyTagsResponse_httpStatus = Lens.lens (\ListPolicyTagsResponse' {httpSta
 -- tags are attached to the specified resource, the response contains an
 -- empty list.
 listPolicyTagsResponse_tags :: Lens.Lens' ListPolicyTagsResponse [Tag]
-listPolicyTagsResponse_tags = Lens.lens (\ListPolicyTagsResponse' {tags} -> tags) (\s@ListPolicyTagsResponse' {} a -> s {tags = a} :: ListPolicyTagsResponse) Core.. Lens._Coerce
+listPolicyTagsResponse_tags = Lens.lens (\ListPolicyTagsResponse' {tags} -> tags) (\s@ListPolicyTagsResponse' {} a -> s {tags = a} :: ListPolicyTagsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListPolicyTagsResponse
+instance Prelude.NFData ListPolicyTagsResponse

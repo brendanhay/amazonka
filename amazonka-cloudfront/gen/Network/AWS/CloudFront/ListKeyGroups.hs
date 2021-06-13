@@ -50,21 +50,22 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListKeyGroups' smart constructor.
 data ListKeyGroups = ListKeyGroups'
   { -- | The maximum number of key groups that you want in the response.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of key groups. The response includes key groups in the list
     -- that occur after the marker. To get the next page of the list, set this
     -- field’s value to the value of @NextMarker@ from the current page’s
     -- response.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListKeyGroups' with all optional fields omitted.
@@ -85,12 +86,12 @@ newListKeyGroups ::
   ListKeyGroups
 newListKeyGroups =
   ListKeyGroups'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The maximum number of key groups that you want in the response.
-listKeyGroups_maxItems :: Lens.Lens' ListKeyGroups (Core.Maybe Core.Text)
+listKeyGroups_maxItems :: Lens.Lens' ListKeyGroups (Prelude.Maybe Prelude.Text)
 listKeyGroups_maxItems = Lens.lens (\ListKeyGroups' {maxItems} -> maxItems) (\s@ListKeyGroups' {} a -> s {maxItems = a} :: ListKeyGroups)
 
 -- | Use this field when paginating results to indicate where to begin in
@@ -98,7 +99,7 @@ listKeyGroups_maxItems = Lens.lens (\ListKeyGroups' {maxItems} -> maxItems) (\s@
 -- that occur after the marker. To get the next page of the list, set this
 -- field’s value to the value of @NextMarker@ from the current page’s
 -- response.
-listKeyGroups_marker :: Lens.Lens' ListKeyGroups (Core.Maybe Core.Text)
+listKeyGroups_marker :: Lens.Lens' ListKeyGroups (Prelude.Maybe Prelude.Text)
 listKeyGroups_marker = Lens.lens (\ListKeyGroups' {marker} -> marker) (\s@ListKeyGroups' {} a -> s {marker = a} :: ListKeyGroups)
 
 instance Core.AWSRequest ListKeyGroups where
@@ -110,23 +111,23 @@ instance Core.AWSRequest ListKeyGroups where
     Response.receiveXML
       ( \s h x ->
           ListKeyGroupsResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListKeyGroups
+instance Prelude.Hashable ListKeyGroups
 
-instance Core.NFData ListKeyGroups
+instance Prelude.NFData ListKeyGroups
 
 instance Core.ToHeaders ListKeyGroups where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListKeyGroups where
-  toPath = Core.const "/2020-05-31/key-group"
+  toPath = Prelude.const "/2020-05-31/key-group"
 
 instance Core.ToQuery ListKeyGroups where
   toQuery ListKeyGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker
       ]
@@ -134,11 +135,11 @@ instance Core.ToQuery ListKeyGroups where
 -- | /See:/ 'newListKeyGroupsResponse' smart constructor.
 data ListKeyGroupsResponse = ListKeyGroupsResponse'
   { -- | A list of key groups.
-    keyGroupList :: Core.Maybe KeyGroupList,
+    keyGroupList :: Prelude.Maybe KeyGroupList,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListKeyGroupsResponse' with all optional fields omitted.
@@ -153,20 +154,21 @@ data ListKeyGroupsResponse = ListKeyGroupsResponse'
 -- 'httpStatus', 'listKeyGroupsResponse_httpStatus' - The response's http status code.
 newListKeyGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListKeyGroupsResponse
 newListKeyGroupsResponse pHttpStatus_ =
   ListKeyGroupsResponse'
-    { keyGroupList = Core.Nothing,
+    { keyGroupList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of key groups.
-listKeyGroupsResponse_keyGroupList :: Lens.Lens' ListKeyGroupsResponse (Core.Maybe KeyGroupList)
+listKeyGroupsResponse_keyGroupList :: Lens.Lens' ListKeyGroupsResponse (Prelude.Maybe KeyGroupList)
 listKeyGroupsResponse_keyGroupList = Lens.lens (\ListKeyGroupsResponse' {keyGroupList} -> keyGroupList) (\s@ListKeyGroupsResponse' {} a -> s {keyGroupList = a} :: ListKeyGroupsResponse)
 
 -- | The response's http status code.
-listKeyGroupsResponse_httpStatus :: Lens.Lens' ListKeyGroupsResponse Core.Int
+listKeyGroupsResponse_httpStatus :: Lens.Lens' ListKeyGroupsResponse Prelude.Int
 listKeyGroupsResponse_httpStatus = Lens.lens (\ListKeyGroupsResponse' {httpStatus} -> httpStatus) (\s@ListKeyGroupsResponse' {} a -> s {httpStatus = a} :: ListKeyGroupsResponse)
 
-instance Core.NFData ListKeyGroupsResponse
+instance Prelude.NFData ListKeyGroupsResponse

@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -74,11 +75,11 @@ import Network.AWS.WAF.Types
 data DeleteRateBasedRule = DeleteRateBasedRule'
   { -- | The @RuleId@ of the RateBasedRule that you want to delete. @RuleId@ is
     -- returned by CreateRateBasedRule and by ListRateBasedRules.
-    ruleId :: Core.Text,
+    ruleId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRateBasedRule' with all optional fields omitted.
@@ -94,9 +95,9 @@ data DeleteRateBasedRule = DeleteRateBasedRule'
 -- 'changeToken', 'deleteRateBasedRule_changeToken' - The value returned by the most recent call to GetChangeToken.
 newDeleteRateBasedRule ::
   -- | 'ruleId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRateBasedRule
 newDeleteRateBasedRule pRuleId_ pChangeToken_ =
   DeleteRateBasedRule'
@@ -106,11 +107,11 @@ newDeleteRateBasedRule pRuleId_ pChangeToken_ =
 
 -- | The @RuleId@ of the RateBasedRule that you want to delete. @RuleId@ is
 -- returned by CreateRateBasedRule and by ListRateBasedRules.
-deleteRateBasedRule_ruleId :: Lens.Lens' DeleteRateBasedRule Core.Text
+deleteRateBasedRule_ruleId :: Lens.Lens' DeleteRateBasedRule Prelude.Text
 deleteRateBasedRule_ruleId = Lens.lens (\DeleteRateBasedRule' {ruleId} -> ruleId) (\s@DeleteRateBasedRule' {} a -> s {ruleId = a} :: DeleteRateBasedRule)
 
 -- | The value returned by the most recent call to GetChangeToken.
-deleteRateBasedRule_changeToken :: Lens.Lens' DeleteRateBasedRule Core.Text
+deleteRateBasedRule_changeToken :: Lens.Lens' DeleteRateBasedRule Prelude.Text
 deleteRateBasedRule_changeToken = Lens.lens (\DeleteRateBasedRule' {changeToken} -> changeToken) (\s@DeleteRateBasedRule' {} a -> s {changeToken = a} :: DeleteRateBasedRule)
 
 instance Core.AWSRequest DeleteRateBasedRule where
@@ -122,52 +123,54 @@ instance Core.AWSRequest DeleteRateBasedRule where
     Response.receiveJSON
       ( \s h x ->
           DeleteRateBasedRuleResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRateBasedRule
+instance Prelude.Hashable DeleteRateBasedRule
 
-instance Core.NFData DeleteRateBasedRule
+instance Prelude.NFData DeleteRateBasedRule
 
 instance Core.ToHeaders DeleteRateBasedRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.DeleteRateBasedRule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRateBasedRule where
   toJSON DeleteRateBasedRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("RuleId" Core..= ruleId),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("RuleId" Core..= ruleId),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath DeleteRateBasedRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRateBasedRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRateBasedRuleResponse' smart constructor.
 data DeleteRateBasedRuleResponse = DeleteRateBasedRuleResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteRateBasedRule@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRateBasedRuleResponse' with all optional fields omitted.
@@ -184,23 +187,23 @@ data DeleteRateBasedRuleResponse = DeleteRateBasedRuleResponse'
 -- 'httpStatus', 'deleteRateBasedRuleResponse_httpStatus' - The response's http status code.
 newDeleteRateBasedRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRateBasedRuleResponse
 newDeleteRateBasedRuleResponse pHttpStatus_ =
   DeleteRateBasedRuleResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRateBasedRule@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-deleteRateBasedRuleResponse_changeToken :: Lens.Lens' DeleteRateBasedRuleResponse (Core.Maybe Core.Text)
+deleteRateBasedRuleResponse_changeToken :: Lens.Lens' DeleteRateBasedRuleResponse (Prelude.Maybe Prelude.Text)
 deleteRateBasedRuleResponse_changeToken = Lens.lens (\DeleteRateBasedRuleResponse' {changeToken} -> changeToken) (\s@DeleteRateBasedRuleResponse' {} a -> s {changeToken = a} :: DeleteRateBasedRuleResponse)
 
 -- | The response's http status code.
-deleteRateBasedRuleResponse_httpStatus :: Lens.Lens' DeleteRateBasedRuleResponse Core.Int
+deleteRateBasedRuleResponse_httpStatus :: Lens.Lens' DeleteRateBasedRuleResponse Prelude.Int
 deleteRateBasedRuleResponse_httpStatus = Lens.lens (\DeleteRateBasedRuleResponse' {httpStatus} -> httpStatus) (\s@DeleteRateBasedRuleResponse' {} a -> s {httpStatus = a} :: DeleteRateBasedRuleResponse)
 
-instance Core.NFData DeleteRateBasedRuleResponse
+instance Prelude.NFData DeleteRateBasedRuleResponse

@@ -64,35 +64,36 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateVpcPeeringConnection' smart constructor.
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection'
   { -- | The tags to assign to the peering connection.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The AWS account ID of the owner of the accepter VPC.
     --
     -- Default: Your AWS account ID
-    peerOwnerId :: Core.Maybe Core.Text,
+    peerOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the requester VPC. You must specify this parameter in the
     -- request.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The Region code for the accepter VPC, if the accepter VPC is located in
     -- a Region other than the Region in which you make the request.
     --
     -- Default: The Region in which you make the request.
-    peerRegion :: Core.Maybe Core.Text,
+    peerRegion :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC with which you are creating the VPC peering
     -- connection. You must specify this parameter in the request.
-    peerVpcId :: Core.Maybe Core.Text
+    peerVpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcPeeringConnection' with all optional fields omitted.
@@ -128,46 +129,46 @@ newCreateVpcPeeringConnection ::
 newCreateVpcPeeringConnection =
   CreateVpcPeeringConnection'
     { tagSpecifications =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      peerOwnerId = Core.Nothing,
-      vpcId = Core.Nothing,
-      peerRegion = Core.Nothing,
-      peerVpcId = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      peerOwnerId = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      peerRegion = Prelude.Nothing,
+      peerVpcId = Prelude.Nothing
     }
 
 -- | The tags to assign to the peering connection.
-createVpcPeeringConnection_tagSpecifications :: Lens.Lens' CreateVpcPeeringConnection (Core.Maybe [TagSpecification])
-createVpcPeeringConnection_tagSpecifications = Lens.lens (\CreateVpcPeeringConnection' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcPeeringConnection' {} a -> s {tagSpecifications = a} :: CreateVpcPeeringConnection) Core.. Lens.mapping Lens._Coerce
+createVpcPeeringConnection_tagSpecifications :: Lens.Lens' CreateVpcPeeringConnection (Prelude.Maybe [TagSpecification])
+createVpcPeeringConnection_tagSpecifications = Lens.lens (\CreateVpcPeeringConnection' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcPeeringConnection' {} a -> s {tagSpecifications = a} :: CreateVpcPeeringConnection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createVpcPeeringConnection_dryRun :: Lens.Lens' CreateVpcPeeringConnection (Core.Maybe Core.Bool)
+createVpcPeeringConnection_dryRun :: Lens.Lens' CreateVpcPeeringConnection (Prelude.Maybe Prelude.Bool)
 createVpcPeeringConnection_dryRun = Lens.lens (\CreateVpcPeeringConnection' {dryRun} -> dryRun) (\s@CreateVpcPeeringConnection' {} a -> s {dryRun = a} :: CreateVpcPeeringConnection)
 
 -- | The AWS account ID of the owner of the accepter VPC.
 --
 -- Default: Your AWS account ID
-createVpcPeeringConnection_peerOwnerId :: Lens.Lens' CreateVpcPeeringConnection (Core.Maybe Core.Text)
+createVpcPeeringConnection_peerOwnerId :: Lens.Lens' CreateVpcPeeringConnection (Prelude.Maybe Prelude.Text)
 createVpcPeeringConnection_peerOwnerId = Lens.lens (\CreateVpcPeeringConnection' {peerOwnerId} -> peerOwnerId) (\s@CreateVpcPeeringConnection' {} a -> s {peerOwnerId = a} :: CreateVpcPeeringConnection)
 
 -- | The ID of the requester VPC. You must specify this parameter in the
 -- request.
-createVpcPeeringConnection_vpcId :: Lens.Lens' CreateVpcPeeringConnection (Core.Maybe Core.Text)
+createVpcPeeringConnection_vpcId :: Lens.Lens' CreateVpcPeeringConnection (Prelude.Maybe Prelude.Text)
 createVpcPeeringConnection_vpcId = Lens.lens (\CreateVpcPeeringConnection' {vpcId} -> vpcId) (\s@CreateVpcPeeringConnection' {} a -> s {vpcId = a} :: CreateVpcPeeringConnection)
 
 -- | The Region code for the accepter VPC, if the accepter VPC is located in
 -- a Region other than the Region in which you make the request.
 --
 -- Default: The Region in which you make the request.
-createVpcPeeringConnection_peerRegion :: Lens.Lens' CreateVpcPeeringConnection (Core.Maybe Core.Text)
+createVpcPeeringConnection_peerRegion :: Lens.Lens' CreateVpcPeeringConnection (Prelude.Maybe Prelude.Text)
 createVpcPeeringConnection_peerRegion = Lens.lens (\CreateVpcPeeringConnection' {peerRegion} -> peerRegion) (\s@CreateVpcPeeringConnection' {} a -> s {peerRegion = a} :: CreateVpcPeeringConnection)
 
 -- | The ID of the VPC with which you are creating the VPC peering
 -- connection. You must specify this parameter in the request.
-createVpcPeeringConnection_peerVpcId :: Lens.Lens' CreateVpcPeeringConnection (Core.Maybe Core.Text)
+createVpcPeeringConnection_peerVpcId :: Lens.Lens' CreateVpcPeeringConnection (Prelude.Maybe Prelude.Text)
 createVpcPeeringConnection_peerVpcId = Lens.lens (\CreateVpcPeeringConnection' {peerVpcId} -> peerVpcId) (\s@CreateVpcPeeringConnection' {} a -> s {peerVpcId = a} :: CreateVpcPeeringConnection)
 
 instance Core.AWSRequest CreateVpcPeeringConnection where
@@ -179,29 +180,30 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
     Response.receiveXML
       ( \s h x ->
           CreateVpcPeeringConnectionResponse'
-            Core.<$> (x Core..@? "vpcPeeringConnection")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "vpcPeeringConnection")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateVpcPeeringConnection
+instance Prelude.Hashable CreateVpcPeeringConnection
 
-instance Core.NFData CreateVpcPeeringConnection
+instance Prelude.NFData CreateVpcPeeringConnection
 
 instance Core.ToHeaders CreateVpcPeeringConnection where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateVpcPeeringConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateVpcPeeringConnection where
   toQuery CreateVpcPeeringConnection' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVpcPeeringConnection" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateVpcPeeringConnection" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "PeerOwnerId" Core.=: peerOwnerId,
@@ -213,11 +215,11 @@ instance Core.ToQuery CreateVpcPeeringConnection where
 -- | /See:/ 'newCreateVpcPeeringConnectionResponse' smart constructor.
 data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse'
   { -- | Information about the VPC peering connection.
-    vpcPeeringConnection :: Core.Maybe VpcPeeringConnection,
+    vpcPeeringConnection :: Prelude.Maybe VpcPeeringConnection,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcPeeringConnectionResponse' with all optional fields omitted.
@@ -232,23 +234,23 @@ data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse'
 -- 'httpStatus', 'createVpcPeeringConnectionResponse_httpStatus' - The response's http status code.
 newCreateVpcPeeringConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateVpcPeeringConnectionResponse
 newCreateVpcPeeringConnectionResponse pHttpStatus_ =
   CreateVpcPeeringConnectionResponse'
     { vpcPeeringConnection =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the VPC peering connection.
-createVpcPeeringConnectionResponse_vpcPeeringConnection :: Lens.Lens' CreateVpcPeeringConnectionResponse (Core.Maybe VpcPeeringConnection)
+createVpcPeeringConnectionResponse_vpcPeeringConnection :: Lens.Lens' CreateVpcPeeringConnectionResponse (Prelude.Maybe VpcPeeringConnection)
 createVpcPeeringConnectionResponse_vpcPeeringConnection = Lens.lens (\CreateVpcPeeringConnectionResponse' {vpcPeeringConnection} -> vpcPeeringConnection) (\s@CreateVpcPeeringConnectionResponse' {} a -> s {vpcPeeringConnection = a} :: CreateVpcPeeringConnectionResponse)
 
 -- | The response's http status code.
-createVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' CreateVpcPeeringConnectionResponse Core.Int
+createVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' CreateVpcPeeringConnectionResponse Prelude.Int
 createVpcPeeringConnectionResponse_httpStatus = Lens.lens (\CreateVpcPeeringConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateVpcPeeringConnectionResponse' {} a -> s {httpStatus = a} :: CreateVpcPeeringConnectionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateVpcPeeringConnectionResponse

@@ -24,40 +24,41 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.SnapshotState
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a snapshot.
 --
 -- /See:/ 'newSnapshotInfo' smart constructor.
 data SnapshotInfo = SnapshotInfo'
   { -- | Account id used when creating this snapshot.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the snapshot is encrypted.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the AWS Outpost on which the snapshot is stored. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html EBS Local Snapshot on Outposts>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Time this snapshot was started. This is the same for all snapshots
     -- initiated by the same request.
-    startTime :: Core.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Core.ISO8601,
     -- | Source volume from which this snapshot was created.
-    volumeId :: Core.Maybe Core.Text,
+    volumeId :: Prelude.Maybe Prelude.Text,
     -- | Current state of the snapshot.
-    state :: Core.Maybe SnapshotState,
+    state :: Prelude.Maybe SnapshotState,
     -- | Snapshot id that can be used to describe this snapshot.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | Tags associated with this snapshot.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Description specified by the CreateSnapshotRequest that has been applied
     -- to all snapshots.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Progress this snapshot has made towards completing.
-    progress :: Core.Maybe Core.Text,
+    progress :: Prelude.Maybe Prelude.Text,
     -- | Size of the volume from which this snapshot was created.
-    volumeSize :: Core.Maybe Core.Int
+    volumeSize :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SnapshotInfo' with all optional fields omitted.
@@ -97,85 +98,85 @@ newSnapshotInfo ::
   SnapshotInfo
 newSnapshotInfo =
   SnapshotInfo'
-    { ownerId = Core.Nothing,
-      encrypted = Core.Nothing,
-      outpostArn = Core.Nothing,
-      startTime = Core.Nothing,
-      volumeId = Core.Nothing,
-      state = Core.Nothing,
-      snapshotId = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
-      progress = Core.Nothing,
-      volumeSize = Core.Nothing
+    { ownerId = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      volumeId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      progress = Prelude.Nothing,
+      volumeSize = Prelude.Nothing
     }
 
 -- | Account id used when creating this snapshot.
-snapshotInfo_ownerId :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Text)
+snapshotInfo_ownerId :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.Text)
 snapshotInfo_ownerId = Lens.lens (\SnapshotInfo' {ownerId} -> ownerId) (\s@SnapshotInfo' {} a -> s {ownerId = a} :: SnapshotInfo)
 
 -- | Indicates whether the snapshot is encrypted.
-snapshotInfo_encrypted :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Bool)
+snapshotInfo_encrypted :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.Bool)
 snapshotInfo_encrypted = Lens.lens (\SnapshotInfo' {encrypted} -> encrypted) (\s@SnapshotInfo' {} a -> s {encrypted = a} :: SnapshotInfo)
 
 -- | The ARN of the AWS Outpost on which the snapshot is stored. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html EBS Local Snapshot on Outposts>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-snapshotInfo_outpostArn :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Text)
+snapshotInfo_outpostArn :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.Text)
 snapshotInfo_outpostArn = Lens.lens (\SnapshotInfo' {outpostArn} -> outpostArn) (\s@SnapshotInfo' {} a -> s {outpostArn = a} :: SnapshotInfo)
 
 -- | Time this snapshot was started. This is the same for all snapshots
 -- initiated by the same request.
-snapshotInfo_startTime :: Lens.Lens' SnapshotInfo (Core.Maybe Core.UTCTime)
-snapshotInfo_startTime = Lens.lens (\SnapshotInfo' {startTime} -> startTime) (\s@SnapshotInfo' {} a -> s {startTime = a} :: SnapshotInfo) Core.. Lens.mapping Core._Time
+snapshotInfo_startTime :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.UTCTime)
+snapshotInfo_startTime = Lens.lens (\SnapshotInfo' {startTime} -> startTime) (\s@SnapshotInfo' {} a -> s {startTime = a} :: SnapshotInfo) Prelude.. Lens.mapping Core._Time
 
 -- | Source volume from which this snapshot was created.
-snapshotInfo_volumeId :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Text)
+snapshotInfo_volumeId :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.Text)
 snapshotInfo_volumeId = Lens.lens (\SnapshotInfo' {volumeId} -> volumeId) (\s@SnapshotInfo' {} a -> s {volumeId = a} :: SnapshotInfo)
 
 -- | Current state of the snapshot.
-snapshotInfo_state :: Lens.Lens' SnapshotInfo (Core.Maybe SnapshotState)
+snapshotInfo_state :: Lens.Lens' SnapshotInfo (Prelude.Maybe SnapshotState)
 snapshotInfo_state = Lens.lens (\SnapshotInfo' {state} -> state) (\s@SnapshotInfo' {} a -> s {state = a} :: SnapshotInfo)
 
 -- | Snapshot id that can be used to describe this snapshot.
-snapshotInfo_snapshotId :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Text)
+snapshotInfo_snapshotId :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.Text)
 snapshotInfo_snapshotId = Lens.lens (\SnapshotInfo' {snapshotId} -> snapshotId) (\s@SnapshotInfo' {} a -> s {snapshotId = a} :: SnapshotInfo)
 
 -- | Tags associated with this snapshot.
-snapshotInfo_tags :: Lens.Lens' SnapshotInfo (Core.Maybe [Tag])
-snapshotInfo_tags = Lens.lens (\SnapshotInfo' {tags} -> tags) (\s@SnapshotInfo' {} a -> s {tags = a} :: SnapshotInfo) Core.. Lens.mapping Lens._Coerce
+snapshotInfo_tags :: Lens.Lens' SnapshotInfo (Prelude.Maybe [Tag])
+snapshotInfo_tags = Lens.lens (\SnapshotInfo' {tags} -> tags) (\s@SnapshotInfo' {} a -> s {tags = a} :: SnapshotInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Description specified by the CreateSnapshotRequest that has been applied
 -- to all snapshots.
-snapshotInfo_description :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Text)
+snapshotInfo_description :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.Text)
 snapshotInfo_description = Lens.lens (\SnapshotInfo' {description} -> description) (\s@SnapshotInfo' {} a -> s {description = a} :: SnapshotInfo)
 
 -- | Progress this snapshot has made towards completing.
-snapshotInfo_progress :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Text)
+snapshotInfo_progress :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.Text)
 snapshotInfo_progress = Lens.lens (\SnapshotInfo' {progress} -> progress) (\s@SnapshotInfo' {} a -> s {progress = a} :: SnapshotInfo)
 
 -- | Size of the volume from which this snapshot was created.
-snapshotInfo_volumeSize :: Lens.Lens' SnapshotInfo (Core.Maybe Core.Int)
+snapshotInfo_volumeSize :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.Int)
 snapshotInfo_volumeSize = Lens.lens (\SnapshotInfo' {volumeSize} -> volumeSize) (\s@SnapshotInfo' {} a -> s {volumeSize = a} :: SnapshotInfo)
 
 instance Core.FromXML SnapshotInfo where
   parseXML x =
     SnapshotInfo'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "encrypted")
-      Core.<*> (x Core..@? "outpostArn")
-      Core.<*> (x Core..@? "startTime")
-      Core.<*> (x Core..@? "volumeId")
-      Core.<*> (x Core..@? "state")
-      Core.<*> (x Core..@? "snapshotId")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "description")
-      Core.<*> (x Core..@? "progress")
-      Core.<*> (x Core..@? "volumeSize")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "encrypted")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> (x Core..@? "startTime")
+      Prelude.<*> (x Core..@? "volumeId")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "snapshotId")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "progress")
+      Prelude.<*> (x Core..@? "volumeSize")
 
-instance Core.Hashable SnapshotInfo
+instance Prelude.Hashable SnapshotInfo
 
-instance Core.NFData SnapshotInfo
+instance Prelude.NFData SnapshotInfo

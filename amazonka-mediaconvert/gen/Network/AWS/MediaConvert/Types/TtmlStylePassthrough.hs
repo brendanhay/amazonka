@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.TtmlStylePassthrough
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Pass through style and position information from a TTML-like input
 -- source (TTML, SMPTE-TT) to the TTML output.
@@ -35,15 +36,15 @@ newtype TtmlStylePassthrough = TtmlStylePassthrough'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

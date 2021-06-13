@@ -21,17 +21,18 @@ module Network.AWS.WorkDocs.Types.ResourcePathComponent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the resource path.
 --
 -- /See:/ 'newResourcePathComponent' smart constructor.
 data ResourcePathComponent = ResourcePathComponent'
   { -- | The ID of the resource path.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource path.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourcePathComponent' with all optional fields omitted.
@@ -48,16 +49,16 @@ newResourcePathComponent ::
   ResourcePathComponent
 newResourcePathComponent =
   ResourcePathComponent'
-    { id = Core.Nothing,
-      name = Core.Nothing
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The ID of the resource path.
-resourcePathComponent_id :: Lens.Lens' ResourcePathComponent (Core.Maybe Core.Text)
+resourcePathComponent_id :: Lens.Lens' ResourcePathComponent (Prelude.Maybe Prelude.Text)
 resourcePathComponent_id = Lens.lens (\ResourcePathComponent' {id} -> id) (\s@ResourcePathComponent' {} a -> s {id = a} :: ResourcePathComponent)
 
 -- | The name of the resource path.
-resourcePathComponent_name :: Lens.Lens' ResourcePathComponent (Core.Maybe Core.Text)
+resourcePathComponent_name :: Lens.Lens' ResourcePathComponent (Prelude.Maybe Prelude.Text)
 resourcePathComponent_name = Lens.lens (\ResourcePathComponent' {name} -> name) (\s@ResourcePathComponent' {} a -> s {name = a} :: ResourcePathComponent)
 
 instance Core.FromJSON ResourcePathComponent where
@@ -66,9 +67,9 @@ instance Core.FromJSON ResourcePathComponent where
       "ResourcePathComponent"
       ( \x ->
           ResourcePathComponent'
-            Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable ResourcePathComponent
+instance Prelude.Hashable ResourcePathComponent
 
-instance Core.NFData ResourcePathComponent
+instance Prelude.NFData ResourcePathComponent

@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data MonitorInstances = MonitorInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the instances.
-    instanceIds :: [Core.Text]
+    instanceIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitorInstances' with all optional fields omitted.
@@ -81,20 +82,20 @@ newMonitorInstances ::
   MonitorInstances
 newMonitorInstances =
   MonitorInstances'
-    { dryRun = Core.Nothing,
-      instanceIds = Core.mempty
+    { dryRun = Prelude.Nothing,
+      instanceIds = Prelude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-monitorInstances_dryRun :: Lens.Lens' MonitorInstances (Core.Maybe Core.Bool)
+monitorInstances_dryRun :: Lens.Lens' MonitorInstances (Prelude.Maybe Prelude.Bool)
 monitorInstances_dryRun = Lens.lens (\MonitorInstances' {dryRun} -> dryRun) (\s@MonitorInstances' {} a -> s {dryRun = a} :: MonitorInstances)
 
 -- | The IDs of the instances.
-monitorInstances_instanceIds :: Lens.Lens' MonitorInstances [Core.Text]
-monitorInstances_instanceIds = Lens.lens (\MonitorInstances' {instanceIds} -> instanceIds) (\s@MonitorInstances' {} a -> s {instanceIds = a} :: MonitorInstances) Core.. Lens._Coerce
+monitorInstances_instanceIds :: Lens.Lens' MonitorInstances [Prelude.Text]
+monitorInstances_instanceIds = Lens.lens (\MonitorInstances' {instanceIds} -> instanceIds) (\s@MonitorInstances' {} a -> s {instanceIds = a} :: MonitorInstances) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest MonitorInstances where
   type
@@ -105,28 +106,29 @@ instance Core.AWSRequest MonitorInstances where
     Response.receiveXML
       ( \s h x ->
           MonitorInstancesResponse'
-            Core.<$> ( x Core..@? "instancesSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable MonitorInstances
+instance Prelude.Hashable MonitorInstances
 
-instance Core.NFData MonitorInstances
+instance Prelude.NFData MonitorInstances
 
 instance Core.ToHeaders MonitorInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath MonitorInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery MonitorInstances where
   toQuery MonitorInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("MonitorInstances" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("MonitorInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQueryList "InstanceId" instanceIds
       ]
@@ -134,11 +136,11 @@ instance Core.ToQuery MonitorInstances where
 -- | /See:/ 'newMonitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
   { -- | The monitoring information.
-    instanceMonitorings :: Core.Maybe [InstanceMonitoring],
+    instanceMonitorings :: Prelude.Maybe [InstanceMonitoring],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitorInstancesResponse' with all optional fields omitted.
@@ -153,21 +155,21 @@ data MonitorInstancesResponse = MonitorInstancesResponse'
 -- 'httpStatus', 'monitorInstancesResponse_httpStatus' - The response's http status code.
 newMonitorInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   MonitorInstancesResponse
 newMonitorInstancesResponse pHttpStatus_ =
   MonitorInstancesResponse'
     { instanceMonitorings =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The monitoring information.
-monitorInstancesResponse_instanceMonitorings :: Lens.Lens' MonitorInstancesResponse (Core.Maybe [InstanceMonitoring])
-monitorInstancesResponse_instanceMonitorings = Lens.lens (\MonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@MonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: MonitorInstancesResponse) Core.. Lens.mapping Lens._Coerce
+monitorInstancesResponse_instanceMonitorings :: Lens.Lens' MonitorInstancesResponse (Prelude.Maybe [InstanceMonitoring])
+monitorInstancesResponse_instanceMonitorings = Lens.lens (\MonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@MonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: MonitorInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-monitorInstancesResponse_httpStatus :: Lens.Lens' MonitorInstancesResponse Core.Int
+monitorInstancesResponse_httpStatus :: Lens.Lens' MonitorInstancesResponse Prelude.Int
 monitorInstancesResponse_httpStatus = Lens.lens (\MonitorInstancesResponse' {httpStatus} -> httpStatus) (\s@MonitorInstancesResponse' {} a -> s {httpStatus = a} :: MonitorInstancesResponse)
 
-instance Core.NFData MonitorInstancesResponse
+instance Prelude.NFData MonitorInstancesResponse

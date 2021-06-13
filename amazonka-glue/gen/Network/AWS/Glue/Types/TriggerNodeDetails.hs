@@ -22,15 +22,16 @@ module Network.AWS.Glue.Types.TriggerNodeDetails where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Trigger
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a Trigger node present in the workflow.
 --
 -- /See:/ 'newTriggerNodeDetails' smart constructor.
 data TriggerNodeDetails = TriggerNodeDetails'
   { -- | The information of the trigger represented by the trigger node.
-    trigger :: Core.Maybe Trigger
+    trigger :: Prelude.Maybe Trigger
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TriggerNodeDetails' with all optional fields omitted.
@@ -44,10 +45,10 @@ data TriggerNodeDetails = TriggerNodeDetails'
 newTriggerNodeDetails ::
   TriggerNodeDetails
 newTriggerNodeDetails =
-  TriggerNodeDetails' {trigger = Core.Nothing}
+  TriggerNodeDetails' {trigger = Prelude.Nothing}
 
 -- | The information of the trigger represented by the trigger node.
-triggerNodeDetails_trigger :: Lens.Lens' TriggerNodeDetails (Core.Maybe Trigger)
+triggerNodeDetails_trigger :: Lens.Lens' TriggerNodeDetails (Prelude.Maybe Trigger)
 triggerNodeDetails_trigger = Lens.lens (\TriggerNodeDetails' {trigger} -> trigger) (\s@TriggerNodeDetails' {} a -> s {trigger = a} :: TriggerNodeDetails)
 
 instance Core.FromJSON TriggerNodeDetails where
@@ -55,9 +56,10 @@ instance Core.FromJSON TriggerNodeDetails where
     Core.withObject
       "TriggerNodeDetails"
       ( \x ->
-          TriggerNodeDetails' Core.<$> (x Core..:? "Trigger")
+          TriggerNodeDetails'
+            Prelude.<$> (x Core..:? "Trigger")
       )
 
-instance Core.Hashable TriggerNodeDetails
+instance Prelude.Hashable TriggerNodeDetails
 
-instance Core.NFData TriggerNodeDetails
+instance Prelude.NFData TriggerNodeDetails

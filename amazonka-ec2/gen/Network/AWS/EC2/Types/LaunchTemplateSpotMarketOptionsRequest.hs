@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceInterruptionBehavior
 import Network.AWS.EC2.Types.SpotInstanceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The options for Spot Instances.
 --
@@ -32,22 +33,22 @@ data LaunchTemplateSpotMarketOptionsRequest = LaunchTemplateSpotMarketOptionsReq
   { -- | The required duration for the Spot Instances (also known as Spot
     -- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
     -- 240, 300, or 360).
-    blockDurationMinutes :: Core.Maybe Core.Int,
+    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
-    instanceInterruptionBehavior :: Core.Maybe InstanceInterruptionBehavior,
+    instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
     -- | The end date of the request. For a one-time request, the request remains
     -- active until all instances launch, the request is canceled, or this date
     -- is reached. If the request is persistent, it remains active until it is
     -- canceled or this date and time is reached. The default end date is 7
     -- days from the current date.
-    validUntil :: Core.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Core.ISO8601,
     -- | The Spot Instance request type.
-    spotInstanceType :: Core.Maybe SpotInstanceType,
+    spotInstanceType :: Prelude.Maybe SpotInstanceType,
     -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
-    maxPrice :: Core.Maybe Core.Text
+    maxPrice :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateSpotMarketOptionsRequest' with all optional fields omitted.
@@ -78,23 +79,23 @@ newLaunchTemplateSpotMarketOptionsRequest ::
 newLaunchTemplateSpotMarketOptionsRequest =
   LaunchTemplateSpotMarketOptionsRequest'
     { blockDurationMinutes =
-        Core.Nothing,
+        Prelude.Nothing,
       instanceInterruptionBehavior =
-        Core.Nothing,
-      validUntil = Core.Nothing,
-      spotInstanceType = Core.Nothing,
-      maxPrice = Core.Nothing
+        Prelude.Nothing,
+      validUntil = Prelude.Nothing,
+      spotInstanceType = Prelude.Nothing,
+      maxPrice = Prelude.Nothing
     }
 
 -- | The required duration for the Spot Instances (also known as Spot
 -- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
 -- 240, 300, or 360).
-launchTemplateSpotMarketOptionsRequest_blockDurationMinutes :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Core.Maybe Core.Int)
+launchTemplateSpotMarketOptionsRequest_blockDurationMinutes :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Prelude.Maybe Prelude.Int)
 launchTemplateSpotMarketOptionsRequest_blockDurationMinutes = Lens.lens (\LaunchTemplateSpotMarketOptionsRequest' {blockDurationMinutes} -> blockDurationMinutes) (\s@LaunchTemplateSpotMarketOptionsRequest' {} a -> s {blockDurationMinutes = a} :: LaunchTemplateSpotMarketOptionsRequest)
 
 -- | The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
-launchTemplateSpotMarketOptionsRequest_instanceInterruptionBehavior :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Core.Maybe InstanceInterruptionBehavior)
+launchTemplateSpotMarketOptionsRequest_instanceInterruptionBehavior :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Prelude.Maybe InstanceInterruptionBehavior)
 launchTemplateSpotMarketOptionsRequest_instanceInterruptionBehavior = Lens.lens (\LaunchTemplateSpotMarketOptionsRequest' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@LaunchTemplateSpotMarketOptionsRequest' {} a -> s {instanceInterruptionBehavior = a} :: LaunchTemplateSpotMarketOptionsRequest)
 
 -- | The end date of the request. For a one-time request, the request remains
@@ -102,23 +103,23 @@ launchTemplateSpotMarketOptionsRequest_instanceInterruptionBehavior = Lens.lens 
 -- is reached. If the request is persistent, it remains active until it is
 -- canceled or this date and time is reached. The default end date is 7
 -- days from the current date.
-launchTemplateSpotMarketOptionsRequest_validUntil :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Core.Maybe Core.UTCTime)
-launchTemplateSpotMarketOptionsRequest_validUntil = Lens.lens (\LaunchTemplateSpotMarketOptionsRequest' {validUntil} -> validUntil) (\s@LaunchTemplateSpotMarketOptionsRequest' {} a -> s {validUntil = a} :: LaunchTemplateSpotMarketOptionsRequest) Core.. Lens.mapping Core._Time
+launchTemplateSpotMarketOptionsRequest_validUntil :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Prelude.Maybe Prelude.UTCTime)
+launchTemplateSpotMarketOptionsRequest_validUntil = Lens.lens (\LaunchTemplateSpotMarketOptionsRequest' {validUntil} -> validUntil) (\s@LaunchTemplateSpotMarketOptionsRequest' {} a -> s {validUntil = a} :: LaunchTemplateSpotMarketOptionsRequest) Prelude.. Lens.mapping Core._Time
 
 -- | The Spot Instance request type.
-launchTemplateSpotMarketOptionsRequest_spotInstanceType :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Core.Maybe SpotInstanceType)
+launchTemplateSpotMarketOptionsRequest_spotInstanceType :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Prelude.Maybe SpotInstanceType)
 launchTemplateSpotMarketOptionsRequest_spotInstanceType = Lens.lens (\LaunchTemplateSpotMarketOptionsRequest' {spotInstanceType} -> spotInstanceType) (\s@LaunchTemplateSpotMarketOptionsRequest' {} a -> s {spotInstanceType = a} :: LaunchTemplateSpotMarketOptionsRequest)
 
 -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
-launchTemplateSpotMarketOptionsRequest_maxPrice :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Core.Maybe Core.Text)
+launchTemplateSpotMarketOptionsRequest_maxPrice :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Prelude.Maybe Prelude.Text)
 launchTemplateSpotMarketOptionsRequest_maxPrice = Lens.lens (\LaunchTemplateSpotMarketOptionsRequest' {maxPrice} -> maxPrice) (\s@LaunchTemplateSpotMarketOptionsRequest' {} a -> s {maxPrice = a} :: LaunchTemplateSpotMarketOptionsRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateSpotMarketOptionsRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateSpotMarketOptionsRequest
 
 instance
@@ -126,7 +127,7 @@ instance
     LaunchTemplateSpotMarketOptionsRequest
   where
   toQuery LaunchTemplateSpotMarketOptionsRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "BlockDurationMinutes" Core.=: blockDurationMinutes,
         "InstanceInterruptionBehavior"
           Core.=: instanceInterruptionBehavior,

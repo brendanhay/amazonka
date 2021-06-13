@@ -80,6 +80,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -90,21 +91,21 @@ data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
   { -- | A unique identifier for a matchmaking configuration(s) to retrieve. You
     -- can use either the configuration name or ARN value. To request all
     -- existing configurations, leave this parameter empty.
-    names :: Core.Maybe [Core.Text],
+    names :: Prelude.Maybe [Prelude.Text],
     -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a matchmaking rule set. You can use either the
     -- rule set name or ARN value. Use this parameter to retrieve all
     -- matchmaking configurations that use this rule set.
-    ruleSetName :: Core.Maybe Core.Text,
+    ruleSetName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages. This parameter
     -- is limited to 10.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMatchmakingConfigurations' with all optional fields omitted.
@@ -134,34 +135,34 @@ newDescribeMatchmakingConfigurations ::
 newDescribeMatchmakingConfigurations =
   DescribeMatchmakingConfigurations'
     { names =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      ruleSetName = Core.Nothing,
-      limit = Core.Nothing
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      ruleSetName = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | A unique identifier for a matchmaking configuration(s) to retrieve. You
 -- can use either the configuration name or ARN value. To request all
 -- existing configurations, leave this parameter empty.
-describeMatchmakingConfigurations_names :: Lens.Lens' DescribeMatchmakingConfigurations (Core.Maybe [Core.Text])
-describeMatchmakingConfigurations_names = Lens.lens (\DescribeMatchmakingConfigurations' {names} -> names) (\s@DescribeMatchmakingConfigurations' {} a -> s {names = a} :: DescribeMatchmakingConfigurations) Core.. Lens.mapping Lens._Coerce
+describeMatchmakingConfigurations_names :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe [Prelude.Text])
+describeMatchmakingConfigurations_names = Lens.lens (\DescribeMatchmakingConfigurations' {names} -> names) (\s@DescribeMatchmakingConfigurations' {} a -> s {names = a} :: DescribeMatchmakingConfigurations) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-describeMatchmakingConfigurations_nextToken :: Lens.Lens' DescribeMatchmakingConfigurations (Core.Maybe Core.Text)
+describeMatchmakingConfigurations_nextToken :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Text)
 describeMatchmakingConfigurations_nextToken = Lens.lens (\DescribeMatchmakingConfigurations' {nextToken} -> nextToken) (\s@DescribeMatchmakingConfigurations' {} a -> s {nextToken = a} :: DescribeMatchmakingConfigurations)
 
 -- | A unique identifier for a matchmaking rule set. You can use either the
 -- rule set name or ARN value. Use this parameter to retrieve all
 -- matchmaking configurations that use this rule set.
-describeMatchmakingConfigurations_ruleSetName :: Lens.Lens' DescribeMatchmakingConfigurations (Core.Maybe Core.Text)
+describeMatchmakingConfigurations_ruleSetName :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Text)
 describeMatchmakingConfigurations_ruleSetName = Lens.lens (\DescribeMatchmakingConfigurations' {ruleSetName} -> ruleSetName) (\s@DescribeMatchmakingConfigurations' {} a -> s {ruleSetName = a} :: DescribeMatchmakingConfigurations)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. This parameter
 -- is limited to 10.
-describeMatchmakingConfigurations_limit :: Lens.Lens' DescribeMatchmakingConfigurations (Core.Maybe Core.Natural)
+describeMatchmakingConfigurations_limit :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Natural)
 describeMatchmakingConfigurations_limit = Lens.lens (\DescribeMatchmakingConfigurations' {limit} -> limit) (\s@DescribeMatchmakingConfigurations' {} a -> s {limit = a} :: DescribeMatchmakingConfigurations)
 
 instance
@@ -172,22 +173,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeMatchmakingConfigurationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeMatchmakingConfigurationsResponse_configurations
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeMatchmakingConfigurations_nextToken
+          Prelude.& describeMatchmakingConfigurations_nextToken
           Lens..~ rs
           Lens.^? describeMatchmakingConfigurationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -201,17 +202,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMatchmakingConfigurationsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Configurations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (x Core..?> "Configurations" Core..!@ Prelude.mempty)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeMatchmakingConfigurations
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeMatchmakingConfigurations
 
 instance
@@ -219,14 +220,16 @@ instance
     DescribeMatchmakingConfigurations
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DescribeMatchmakingConfigurations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -236,11 +239,11 @@ instance
   where
   toJSON DescribeMatchmakingConfigurations' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Names" Core..=) Core.<$> names,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("RuleSetName" Core..=) Core.<$> ruleSetName,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("Names" Core..=) Prelude.<$> names,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("RuleSetName" Core..=) Prelude.<$> ruleSetName,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
@@ -248,13 +251,13 @@ instance
   Core.ToPath
     DescribeMatchmakingConfigurations
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeMatchmakingConfigurations
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -263,13 +266,13 @@ data DescribeMatchmakingConfigurationsResponse = DescribeMatchmakingConfiguratio
   { -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A collection of requested matchmaking configurations.
-    configurations :: Core.Maybe [MatchmakingConfiguration],
+    configurations :: Prelude.Maybe [MatchmakingConfiguration],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMatchmakingConfigurationsResponse' with all optional fields omitted.
@@ -288,31 +291,31 @@ data DescribeMatchmakingConfigurationsResponse = DescribeMatchmakingConfiguratio
 -- 'httpStatus', 'describeMatchmakingConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeMatchmakingConfigurationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeMatchmakingConfigurationsResponse
 newDescribeMatchmakingConfigurationsResponse
   pHttpStatus_ =
     DescribeMatchmakingConfigurationsResponse'
       { nextToken =
-          Core.Nothing,
-        configurations = Core.Nothing,
+          Prelude.Nothing,
+        configurations = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
-describeMatchmakingConfigurationsResponse_nextToken :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Core.Maybe Core.Text)
+describeMatchmakingConfigurationsResponse_nextToken :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Prelude.Maybe Prelude.Text)
 describeMatchmakingConfigurationsResponse_nextToken = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {nextToken} -> nextToken) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {nextToken = a} :: DescribeMatchmakingConfigurationsResponse)
 
 -- | A collection of requested matchmaking configurations.
-describeMatchmakingConfigurationsResponse_configurations :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Core.Maybe [MatchmakingConfiguration])
-describeMatchmakingConfigurationsResponse_configurations = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {configurations} -> configurations) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {configurations = a} :: DescribeMatchmakingConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
+describeMatchmakingConfigurationsResponse_configurations :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Prelude.Maybe [MatchmakingConfiguration])
+describeMatchmakingConfigurationsResponse_configurations = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {configurations} -> configurations) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {configurations = a} :: DescribeMatchmakingConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMatchmakingConfigurationsResponse_httpStatus :: Lens.Lens' DescribeMatchmakingConfigurationsResponse Core.Int
+describeMatchmakingConfigurationsResponse_httpStatus :: Lens.Lens' DescribeMatchmakingConfigurationsResponse Prelude.Int
 describeMatchmakingConfigurationsResponse_httpStatus = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeMatchmakingConfigurationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeMatchmakingConfigurationsResponse

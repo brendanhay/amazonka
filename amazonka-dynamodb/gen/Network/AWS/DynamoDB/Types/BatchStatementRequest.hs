@@ -22,19 +22,20 @@ module Network.AWS.DynamoDB.Types.BatchStatementRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A PartiQL batch statement request.
 --
 -- /See:/ 'newBatchStatementRequest' smart constructor.
 data BatchStatementRequest = BatchStatementRequest'
   { -- | The read consistency of the PartiQL batch request.
-    consistentRead :: Core.Maybe Core.Bool,
+    consistentRead :: Prelude.Maybe Prelude.Bool,
     -- | The parameters associated with a PartiQL statement in the batch request.
-    parameters :: Core.Maybe (Core.NonEmpty AttributeValue),
+    parameters :: Prelude.Maybe (Prelude.NonEmpty AttributeValue),
     -- | A valid PartiQL statement.
-    statement :: Core.Text
+    statement :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchStatementRequest' with all optional fields omitted.
@@ -51,38 +52,39 @@ data BatchStatementRequest = BatchStatementRequest'
 -- 'statement', 'batchStatementRequest_statement' - A valid PartiQL statement.
 newBatchStatementRequest ::
   -- | 'statement'
-  Core.Text ->
+  Prelude.Text ->
   BatchStatementRequest
 newBatchStatementRequest pStatement_ =
   BatchStatementRequest'
     { consistentRead =
-        Core.Nothing,
-      parameters = Core.Nothing,
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
       statement = pStatement_
     }
 
 -- | The read consistency of the PartiQL batch request.
-batchStatementRequest_consistentRead :: Lens.Lens' BatchStatementRequest (Core.Maybe Core.Bool)
+batchStatementRequest_consistentRead :: Lens.Lens' BatchStatementRequest (Prelude.Maybe Prelude.Bool)
 batchStatementRequest_consistentRead = Lens.lens (\BatchStatementRequest' {consistentRead} -> consistentRead) (\s@BatchStatementRequest' {} a -> s {consistentRead = a} :: BatchStatementRequest)
 
 -- | The parameters associated with a PartiQL statement in the batch request.
-batchStatementRequest_parameters :: Lens.Lens' BatchStatementRequest (Core.Maybe (Core.NonEmpty AttributeValue))
-batchStatementRequest_parameters = Lens.lens (\BatchStatementRequest' {parameters} -> parameters) (\s@BatchStatementRequest' {} a -> s {parameters = a} :: BatchStatementRequest) Core.. Lens.mapping Lens._Coerce
+batchStatementRequest_parameters :: Lens.Lens' BatchStatementRequest (Prelude.Maybe (Prelude.NonEmpty AttributeValue))
+batchStatementRequest_parameters = Lens.lens (\BatchStatementRequest' {parameters} -> parameters) (\s@BatchStatementRequest' {} a -> s {parameters = a} :: BatchStatementRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A valid PartiQL statement.
-batchStatementRequest_statement :: Lens.Lens' BatchStatementRequest Core.Text
+batchStatementRequest_statement :: Lens.Lens' BatchStatementRequest Prelude.Text
 batchStatementRequest_statement = Lens.lens (\BatchStatementRequest' {statement} -> statement) (\s@BatchStatementRequest' {} a -> s {statement = a} :: BatchStatementRequest)
 
-instance Core.Hashable BatchStatementRequest
+instance Prelude.Hashable BatchStatementRequest
 
-instance Core.NFData BatchStatementRequest
+instance Prelude.NFData BatchStatementRequest
 
 instance Core.ToJSON BatchStatementRequest where
   toJSON BatchStatementRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ConsistentRead" Core..=) Core.<$> consistentRead,
-            ("Parameters" Core..=) Core.<$> parameters,
-            Core.Just ("Statement" Core..= statement)
+      ( Prelude.catMaybes
+          [ ("ConsistentRead" Core..=)
+              Prelude.<$> consistentRead,
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("Statement" Core..= statement)
           ]
       )

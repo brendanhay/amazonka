@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.PropertyNameSuggestion where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A property name returned from a @GetSearchSuggestions@ call that
 -- specifies a value in the @PropertyNameQuery@ field.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data PropertyNameSuggestion = PropertyNameSuggestion'
   { -- | A suggested property name based on what you entered in the search
     -- textbox in the Amazon SageMaker console.
-    propertyName :: Core.Maybe Core.Text
+    propertyName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PropertyNameSuggestion' with all optional fields omitted.
@@ -48,12 +49,12 @@ newPropertyNameSuggestion ::
 newPropertyNameSuggestion =
   PropertyNameSuggestion'
     { propertyName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A suggested property name based on what you entered in the search
 -- textbox in the Amazon SageMaker console.
-propertyNameSuggestion_propertyName :: Lens.Lens' PropertyNameSuggestion (Core.Maybe Core.Text)
+propertyNameSuggestion_propertyName :: Lens.Lens' PropertyNameSuggestion (Prelude.Maybe Prelude.Text)
 propertyNameSuggestion_propertyName = Lens.lens (\PropertyNameSuggestion' {propertyName} -> propertyName) (\s@PropertyNameSuggestion' {} a -> s {propertyName = a} :: PropertyNameSuggestion)
 
 instance Core.FromJSON PropertyNameSuggestion where
@@ -62,9 +63,9 @@ instance Core.FromJSON PropertyNameSuggestion where
       "PropertyNameSuggestion"
       ( \x ->
           PropertyNameSuggestion'
-            Core.<$> (x Core..:? "PropertyName")
+            Prelude.<$> (x Core..:? "PropertyName")
       )
 
-instance Core.Hashable PropertyNameSuggestion
+instance Prelude.Hashable PropertyNameSuggestion
 
-instance Core.NFData PropertyNameSuggestion
+instance Prelude.NFData PropertyNameSuggestion

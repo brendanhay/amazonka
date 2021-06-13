@@ -22,6 +22,7 @@ module Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescriptio
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration information about an input processor. Currently,
 -- the only input processor available is
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 data InputProcessingConfigurationDescription = InputProcessingConfigurationDescription'
   { -- | Provides configuration information about the associated
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html InputLambdaProcessorDescription>.
-    inputLambdaProcessorDescription :: Core.Maybe InputLambdaProcessorDescription
+    inputLambdaProcessorDescription :: Prelude.Maybe InputLambdaProcessorDescription
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputProcessingConfigurationDescription' with all optional fields omitted.
@@ -50,12 +51,12 @@ newInputProcessingConfigurationDescription ::
 newInputProcessingConfigurationDescription =
   InputProcessingConfigurationDescription'
     { inputLambdaProcessorDescription =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Provides configuration information about the associated
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html InputLambdaProcessorDescription>.
-inputProcessingConfigurationDescription_inputLambdaProcessorDescription :: Lens.Lens' InputProcessingConfigurationDescription (Core.Maybe InputLambdaProcessorDescription)
+inputProcessingConfigurationDescription_inputLambdaProcessorDescription :: Lens.Lens' InputProcessingConfigurationDescription (Prelude.Maybe InputLambdaProcessorDescription)
 inputProcessingConfigurationDescription_inputLambdaProcessorDescription = Lens.lens (\InputProcessingConfigurationDescription' {inputLambdaProcessorDescription} -> inputLambdaProcessorDescription) (\s@InputProcessingConfigurationDescription' {} a -> s {inputLambdaProcessorDescription = a} :: InputProcessingConfigurationDescription)
 
 instance
@@ -67,13 +68,13 @@ instance
       "InputProcessingConfigurationDescription"
       ( \x ->
           InputProcessingConfigurationDescription'
-            Core.<$> (x Core..:? "InputLambdaProcessorDescription")
+            Prelude.<$> (x Core..:? "InputLambdaProcessorDescription")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InputProcessingConfigurationDescription
 
 instance
-  Core.NFData
+  Prelude.NFData
     InputProcessingConfigurationDescription

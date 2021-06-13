@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.Dimension where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | For the metric that the CloudWatch alarm is associated with, a complex
@@ -30,12 +31,12 @@ import Network.AWS.Route53.Internal
 data Dimension = Dimension'
   { -- | For the metric that the CloudWatch alarm is associated with, the name of
     -- one dimension.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | For the metric that the CloudWatch alarm is associated with, the value
     -- of one dimension.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Dimension' with all optional fields omitted.
@@ -52,28 +53,28 @@ data Dimension = Dimension'
 -- of one dimension.
 newDimension ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Dimension
 newDimension pName_ pValue_ =
   Dimension' {name = pName_, value = pValue_}
 
 -- | For the metric that the CloudWatch alarm is associated with, the name of
 -- one dimension.
-dimension_name :: Lens.Lens' Dimension Core.Text
+dimension_name :: Lens.Lens' Dimension Prelude.Text
 dimension_name = Lens.lens (\Dimension' {name} -> name) (\s@Dimension' {} a -> s {name = a} :: Dimension)
 
 -- | For the metric that the CloudWatch alarm is associated with, the value
 -- of one dimension.
-dimension_value :: Lens.Lens' Dimension Core.Text
+dimension_value :: Lens.Lens' Dimension Prelude.Text
 dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
 
 instance Core.FromXML Dimension where
   parseXML x =
     Dimension'
-      Core.<$> (x Core..@ "Name") Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable Dimension
+instance Prelude.Hashable Dimension
 
-instance Core.NFData Dimension
+instance Prelude.NFData Dimension

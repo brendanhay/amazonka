@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -59,15 +60,15 @@ data ViewBilling = ViewBilling'
   { -- | The end date and time for the time period for which you want a list of
     -- billing records. Specify the date and time in Unix time format and
     -- Coordinated Universal time (UTC).
-    end :: Core.Maybe Core.POSIX,
+    end :: Prelude.Maybe Core.POSIX,
     -- | The beginning date and time for the time period for which you want a
     -- list of billing records. Specify the date and time in Unix time format
     -- and Coordinated Universal time (UTC).
-    start :: Core.Maybe Core.POSIX,
+    start :: Prelude.Maybe Core.POSIX,
     -- | The number of billing records to be returned.
     --
     -- Default: 20
-    maxItems :: Core.Maybe Core.Int,
+    maxItems :: Prelude.Maybe Prelude.Int,
     -- | For an initial request for a list of billing records, omit this element.
     -- If the number of billing records that are associated with the current
     -- AWS account during the specified period is greater than the value that
@@ -78,9 +79,9 @@ data ViewBilling = ViewBilling'
     --
     -- Constraints: The marker must match the value of @NextPageMarker@ that
     -- was returned in the previous response.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ViewBilling' with all optional fields omitted.
@@ -116,28 +117,28 @@ newViewBilling ::
   ViewBilling
 newViewBilling =
   ViewBilling'
-    { end = Core.Nothing,
-      start = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { end = Prelude.Nothing,
+      start = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The end date and time for the time period for which you want a list of
 -- billing records. Specify the date and time in Unix time format and
 -- Coordinated Universal time (UTC).
-viewBilling_end :: Lens.Lens' ViewBilling (Core.Maybe Core.UTCTime)
-viewBilling_end = Lens.lens (\ViewBilling' {end} -> end) (\s@ViewBilling' {} a -> s {end = a} :: ViewBilling) Core.. Lens.mapping Core._Time
+viewBilling_end :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.UTCTime)
+viewBilling_end = Lens.lens (\ViewBilling' {end} -> end) (\s@ViewBilling' {} a -> s {end = a} :: ViewBilling) Prelude.. Lens.mapping Core._Time
 
 -- | The beginning date and time for the time period for which you want a
 -- list of billing records. Specify the date and time in Unix time format
 -- and Coordinated Universal time (UTC).
-viewBilling_start :: Lens.Lens' ViewBilling (Core.Maybe Core.UTCTime)
-viewBilling_start = Lens.lens (\ViewBilling' {start} -> start) (\s@ViewBilling' {} a -> s {start = a} :: ViewBilling) Core.. Lens.mapping Core._Time
+viewBilling_start :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.UTCTime)
+viewBilling_start = Lens.lens (\ViewBilling' {start} -> start) (\s@ViewBilling' {} a -> s {start = a} :: ViewBilling) Prelude.. Lens.mapping Core._Time
 
 -- | The number of billing records to be returned.
 --
 -- Default: 20
-viewBilling_maxItems :: Lens.Lens' ViewBilling (Core.Maybe Core.Int)
+viewBilling_maxItems :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.Int)
 viewBilling_maxItems = Lens.lens (\ViewBilling' {maxItems} -> maxItems) (\s@ViewBilling' {} a -> s {maxItems = a} :: ViewBilling)
 
 -- | For an initial request for a list of billing records, omit this element.
@@ -150,27 +151,30 @@ viewBilling_maxItems = Lens.lens (\ViewBilling' {maxItems} -> maxItems) (\s@View
 --
 -- Constraints: The marker must match the value of @NextPageMarker@ that
 -- was returned in the previous response.
-viewBilling_marker :: Lens.Lens' ViewBilling (Core.Maybe Core.Text)
+viewBilling_marker :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.Text)
 viewBilling_marker = Lens.lens (\ViewBilling' {marker} -> marker) (\s@ViewBilling' {} a -> s {marker = a} :: ViewBilling)
 
 instance Core.AWSPager ViewBilling where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? viewBillingResponse_nextPageMarker Core.. Lens._Just
+            Lens.^? viewBillingResponse_nextPageMarker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? viewBillingResponse_billingRecords Core.. Lens._Just
+            Lens.^? viewBillingResponse_billingRecords
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& viewBilling_marker
+          Prelude.& viewBilling_marker
           Lens..~ rs
-          Lens.^? viewBillingResponse_nextPageMarker Core.. Lens._Just
+          Lens.^? viewBillingResponse_nextPageMarker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ViewBilling where
   type AWSResponse ViewBilling = ViewBillingResponse
@@ -179,59 +183,61 @@ instance Core.AWSRequest ViewBilling where
     Response.receiveJSON
       ( \s h x ->
           ViewBillingResponse'
-            Core.<$> (x Core..?> "BillingRecords" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextPageMarker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "BillingRecords" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextPageMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ViewBilling
+instance Prelude.Hashable ViewBilling
 
-instance Core.NFData ViewBilling
+instance Prelude.NFData ViewBilling
 
 instance Core.ToHeaders ViewBilling where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.ViewBilling" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ViewBilling where
   toJSON ViewBilling' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("End" Core..=) Core.<$> end,
-            ("Start" Core..=) Core.<$> start,
-            ("MaxItems" Core..=) Core.<$> maxItems,
-            ("Marker" Core..=) Core.<$> marker
+      ( Prelude.catMaybes
+          [ ("End" Core..=) Prelude.<$> end,
+            ("Start" Core..=) Prelude.<$> start,
+            ("MaxItems" Core..=) Prelude.<$> maxItems,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 
 instance Core.ToPath ViewBilling where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ViewBilling where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The ViewBilling response includes the following elements.
 --
 -- /See:/ 'newViewBillingResponse' smart constructor.
 data ViewBillingResponse = ViewBillingResponse'
   { -- | A summary of billing records.
-    billingRecords :: Core.Maybe [BillingRecord],
+    billingRecords :: Prelude.Maybe [BillingRecord],
     -- | If there are more billing records than you specified for @MaxItems@ in
     -- the request, submit another request and include the value of
     -- @NextPageMarker@ in the value of @Marker@.
-    nextPageMarker :: Core.Maybe Core.Text,
+    nextPageMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ViewBillingResponse' with all optional fields omitted.
@@ -250,27 +256,28 @@ data ViewBillingResponse = ViewBillingResponse'
 -- 'httpStatus', 'viewBillingResponse_httpStatus' - The response's http status code.
 newViewBillingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ViewBillingResponse
 newViewBillingResponse pHttpStatus_ =
   ViewBillingResponse'
-    { billingRecords = Core.Nothing,
-      nextPageMarker = Core.Nothing,
+    { billingRecords =
+        Prelude.Nothing,
+      nextPageMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A summary of billing records.
-viewBillingResponse_billingRecords :: Lens.Lens' ViewBillingResponse (Core.Maybe [BillingRecord])
-viewBillingResponse_billingRecords = Lens.lens (\ViewBillingResponse' {billingRecords} -> billingRecords) (\s@ViewBillingResponse' {} a -> s {billingRecords = a} :: ViewBillingResponse) Core.. Lens.mapping Lens._Coerce
+viewBillingResponse_billingRecords :: Lens.Lens' ViewBillingResponse (Prelude.Maybe [BillingRecord])
+viewBillingResponse_billingRecords = Lens.lens (\ViewBillingResponse' {billingRecords} -> billingRecords) (\s@ViewBillingResponse' {} a -> s {billingRecords = a} :: ViewBillingResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are more billing records than you specified for @MaxItems@ in
 -- the request, submit another request and include the value of
 -- @NextPageMarker@ in the value of @Marker@.
-viewBillingResponse_nextPageMarker :: Lens.Lens' ViewBillingResponse (Core.Maybe Core.Text)
+viewBillingResponse_nextPageMarker :: Lens.Lens' ViewBillingResponse (Prelude.Maybe Prelude.Text)
 viewBillingResponse_nextPageMarker = Lens.lens (\ViewBillingResponse' {nextPageMarker} -> nextPageMarker) (\s@ViewBillingResponse' {} a -> s {nextPageMarker = a} :: ViewBillingResponse)
 
 -- | The response's http status code.
-viewBillingResponse_httpStatus :: Lens.Lens' ViewBillingResponse Core.Int
+viewBillingResponse_httpStatus :: Lens.Lens' ViewBillingResponse Prelude.Int
 viewBillingResponse_httpStatus = Lens.lens (\ViewBillingResponse' {httpStatus} -> httpStatus) (\s@ViewBillingResponse' {} a -> s {httpStatus = a} :: ViewBillingResponse)
 
-instance Core.NFData ViewBillingResponse
+instance Prelude.NFData ViewBillingResponse

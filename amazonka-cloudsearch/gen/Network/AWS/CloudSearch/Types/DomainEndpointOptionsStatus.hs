@@ -23,6 +23,7 @@ import Network.AWS.CloudSearch.Types.DomainEndpointOptions
 import Network.AWS.CloudSearch.Types.OptionStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration and status of the domain\'s endpoint options.
 --
@@ -33,7 +34,7 @@ data DomainEndpointOptionsStatus = DomainEndpointOptionsStatus'
     -- | The status of the configured domain endpoint options.
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainEndpointOptionsStatus' with all optional fields omitted.
@@ -69,8 +70,9 @@ domainEndpointOptionsStatus_status = Lens.lens (\DomainEndpointOptionsStatus' {s
 instance Core.FromXML DomainEndpointOptionsStatus where
   parseXML x =
     DomainEndpointOptionsStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Options")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable DomainEndpointOptionsStatus
+instance Prelude.Hashable DomainEndpointOptionsStatus
 
-instance Core.NFData DomainEndpointOptionsStatus
+instance Prelude.NFData DomainEndpointOptionsStatus

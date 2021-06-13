@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.UserBucket where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Amazon S3 bucket for the disk image.
 --
 -- /See:/ 'newUserBucket' smart constructor.
 data UserBucket = UserBucket'
   { -- | The name of the Amazon S3 bucket where the disk image is located.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The file name of the disk image.
-    s3Key :: Core.Maybe Core.Text
+    s3Key :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserBucket' with all optional fields omitted.
@@ -49,23 +50,23 @@ newUserBucket ::
   UserBucket
 newUserBucket =
   UserBucket'
-    { s3Bucket = Core.Nothing,
-      s3Key = Core.Nothing
+    { s3Bucket = Prelude.Nothing,
+      s3Key = Prelude.Nothing
     }
 
 -- | The name of the Amazon S3 bucket where the disk image is located.
-userBucket_s3Bucket :: Lens.Lens' UserBucket (Core.Maybe Core.Text)
+userBucket_s3Bucket :: Lens.Lens' UserBucket (Prelude.Maybe Prelude.Text)
 userBucket_s3Bucket = Lens.lens (\UserBucket' {s3Bucket} -> s3Bucket) (\s@UserBucket' {} a -> s {s3Bucket = a} :: UserBucket)
 
 -- | The file name of the disk image.
-userBucket_s3Key :: Lens.Lens' UserBucket (Core.Maybe Core.Text)
+userBucket_s3Key :: Lens.Lens' UserBucket (Prelude.Maybe Prelude.Text)
 userBucket_s3Key = Lens.lens (\UserBucket' {s3Key} -> s3Key) (\s@UserBucket' {} a -> s {s3Key = a} :: UserBucket)
 
-instance Core.Hashable UserBucket
+instance Prelude.Hashable UserBucket
 
-instance Core.NFData UserBucket
+instance Prelude.NFData UserBucket
 
 instance Core.ToQuery UserBucket where
   toQuery UserBucket' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["S3Bucket" Core.=: s3Bucket, "S3Key" Core.=: s3Key]

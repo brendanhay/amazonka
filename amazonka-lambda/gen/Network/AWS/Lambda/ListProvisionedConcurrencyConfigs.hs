@@ -48,16 +48,17 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListProvisionedConcurrencyConfigs' smart constructor.
 data ListProvisionedConcurrencyConfigs = ListProvisionedConcurrencyConfigs'
   { -- | Specify a number to limit the number of configurations returned.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -71,9 +72,9 @@ data ListProvisionedConcurrencyConfigs = ListProvisionedConcurrencyConfigs'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProvisionedConcurrencyConfigs' with all optional fields omitted.
@@ -103,23 +104,23 @@ data ListProvisionedConcurrencyConfigs = ListProvisionedConcurrencyConfigs'
 -- the function name, it is limited to 64 characters in length.
 newListProvisionedConcurrencyConfigs ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   ListProvisionedConcurrencyConfigs
 newListProvisionedConcurrencyConfigs pFunctionName_ =
   ListProvisionedConcurrencyConfigs'
     { maxItems =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
 -- | Specify a number to limit the number of configurations returned.
-listProvisionedConcurrencyConfigs_maxItems :: Lens.Lens' ListProvisionedConcurrencyConfigs (Core.Maybe Core.Natural)
+listProvisionedConcurrencyConfigs_maxItems :: Lens.Lens' ListProvisionedConcurrencyConfigs (Prelude.Maybe Prelude.Natural)
 listProvisionedConcurrencyConfigs_maxItems = Lens.lens (\ListProvisionedConcurrencyConfigs' {maxItems} -> maxItems) (\s@ListProvisionedConcurrencyConfigs' {} a -> s {maxItems = a} :: ListProvisionedConcurrencyConfigs)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
-listProvisionedConcurrencyConfigs_marker :: Lens.Lens' ListProvisionedConcurrencyConfigs (Core.Maybe Core.Text)
+listProvisionedConcurrencyConfigs_marker :: Lens.Lens' ListProvisionedConcurrencyConfigs (Prelude.Maybe Prelude.Text)
 listProvisionedConcurrencyConfigs_marker = Lens.lens (\ListProvisionedConcurrencyConfigs' {marker} -> marker) (\s@ListProvisionedConcurrencyConfigs' {} a -> s {marker = a} :: ListProvisionedConcurrencyConfigs)
 
 -- | The name of the Lambda function.
@@ -135,7 +136,7 @@ listProvisionedConcurrencyConfigs_marker = Lens.lens (\ListProvisionedConcurrenc
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-listProvisionedConcurrencyConfigs_functionName :: Lens.Lens' ListProvisionedConcurrencyConfigs Core.Text
+listProvisionedConcurrencyConfigs_functionName :: Lens.Lens' ListProvisionedConcurrencyConfigs Prelude.Text
 listProvisionedConcurrencyConfigs_functionName = Lens.lens (\ListProvisionedConcurrencyConfigs' {functionName} -> functionName) (\s@ListProvisionedConcurrencyConfigs' {} a -> s {functionName = a} :: ListProvisionedConcurrencyConfigs)
 
 instance
@@ -146,22 +147,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listProvisionedConcurrencyConfigsResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listProvisionedConcurrencyConfigs_marker
+          Prelude.& listProvisionedConcurrencyConfigs_marker
           Lens..~ rs
           Lens.^? listProvisionedConcurrencyConfigsResponse_nextMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -175,33 +176,33 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListProvisionedConcurrencyConfigsResponse'
-            Core.<$> ( x Core..?> "ProvisionedConcurrencyConfigs"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "NextMarker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ProvisionedConcurrencyConfigs"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "NextMarker")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ListProvisionedConcurrencyConfigs
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListProvisionedConcurrencyConfigs
 
 instance
   Core.ToHeaders
     ListProvisionedConcurrencyConfigs
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ListProvisionedConcurrencyConfigs
   where
   toPath ListProvisionedConcurrencyConfigs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2019-09-30/functions/",
         Core.toBS functionName,
         "/provisioned-concurrency"
@@ -212,7 +213,7 @@ instance
     ListProvisionedConcurrencyConfigs
   where
   toQuery ListProvisionedConcurrencyConfigs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "List=ALL"
@@ -221,13 +222,13 @@ instance
 -- | /See:/ 'newListProvisionedConcurrencyConfigsResponse' smart constructor.
 data ListProvisionedConcurrencyConfigsResponse = ListProvisionedConcurrencyConfigsResponse'
   { -- | A list of provisioned concurrency configurations.
-    provisionedConcurrencyConfigs :: Core.Maybe [ProvisionedConcurrencyConfigListItem],
+    provisionedConcurrencyConfigs :: Prelude.Maybe [ProvisionedConcurrencyConfigListItem],
     -- | The pagination token that\'s included if more results are available.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProvisionedConcurrencyConfigsResponse' with all optional fields omitted.
@@ -244,29 +245,29 @@ data ListProvisionedConcurrencyConfigsResponse = ListProvisionedConcurrencyConfi
 -- 'httpStatus', 'listProvisionedConcurrencyConfigsResponse_httpStatus' - The response's http status code.
 newListProvisionedConcurrencyConfigsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListProvisionedConcurrencyConfigsResponse
 newListProvisionedConcurrencyConfigsResponse
   pHttpStatus_ =
     ListProvisionedConcurrencyConfigsResponse'
       { provisionedConcurrencyConfigs =
-          Core.Nothing,
-        nextMarker = Core.Nothing,
+          Prelude.Nothing,
+        nextMarker = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list of provisioned concurrency configurations.
-listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs :: Lens.Lens' ListProvisionedConcurrencyConfigsResponse (Core.Maybe [ProvisionedConcurrencyConfigListItem])
-listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs = Lens.lens (\ListProvisionedConcurrencyConfigsResponse' {provisionedConcurrencyConfigs} -> provisionedConcurrencyConfigs) (\s@ListProvisionedConcurrencyConfigsResponse' {} a -> s {provisionedConcurrencyConfigs = a} :: ListProvisionedConcurrencyConfigsResponse) Core.. Lens.mapping Lens._Coerce
+listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs :: Lens.Lens' ListProvisionedConcurrencyConfigsResponse (Prelude.Maybe [ProvisionedConcurrencyConfigListItem])
+listProvisionedConcurrencyConfigsResponse_provisionedConcurrencyConfigs = Lens.lens (\ListProvisionedConcurrencyConfigsResponse' {provisionedConcurrencyConfigs} -> provisionedConcurrencyConfigs) (\s@ListProvisionedConcurrencyConfigsResponse' {} a -> s {provisionedConcurrencyConfigs = a} :: ListProvisionedConcurrencyConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that\'s included if more results are available.
-listProvisionedConcurrencyConfigsResponse_nextMarker :: Lens.Lens' ListProvisionedConcurrencyConfigsResponse (Core.Maybe Core.Text)
+listProvisionedConcurrencyConfigsResponse_nextMarker :: Lens.Lens' ListProvisionedConcurrencyConfigsResponse (Prelude.Maybe Prelude.Text)
 listProvisionedConcurrencyConfigsResponse_nextMarker = Lens.lens (\ListProvisionedConcurrencyConfigsResponse' {nextMarker} -> nextMarker) (\s@ListProvisionedConcurrencyConfigsResponse' {} a -> s {nextMarker = a} :: ListProvisionedConcurrencyConfigsResponse)
 
 -- | The response's http status code.
-listProvisionedConcurrencyConfigsResponse_httpStatus :: Lens.Lens' ListProvisionedConcurrencyConfigsResponse Core.Int
+listProvisionedConcurrencyConfigsResponse_httpStatus :: Lens.Lens' ListProvisionedConcurrencyConfigsResponse Prelude.Int
 listProvisionedConcurrencyConfigsResponse_httpStatus = Lens.lens (\ListProvisionedConcurrencyConfigsResponse' {httpStatus} -> httpStatus) (\s@ListProvisionedConcurrencyConfigsResponse' {} a -> s {httpStatus = a} :: ListProvisionedConcurrencyConfigsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListProvisionedConcurrencyConfigsResponse

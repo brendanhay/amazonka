@@ -21,40 +21,41 @@ module Network.AWS.OpsWorks.Types.RaidArray where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance\'s RAID array.
 --
 -- /See:/ 'newRaidArray' smart constructor.
 data RaidArray = RaidArray'
   { -- | The number of disks in the array.
-    numberOfDisks :: Core.Maybe Core.Int,
+    numberOfDisks :: Prelude.Maybe Prelude.Int,
     -- | The instance ID.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The stack ID.
-    stackId :: Core.Maybe Core.Text,
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The array\'s Linux device. For example \/dev\/mdadm0.
-    device :: Core.Maybe Core.Text,
+    device :: Prelude.Maybe Prelude.Text,
     -- | When the RAID array was created.
-    createdAt :: Core.Maybe Core.Text,
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The array ID.
-    raidArrayId :: Core.Maybe Core.Text,
+    raidArrayId :: Prelude.Maybe Prelude.Text,
     -- | The array\'s Availability Zone. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The array name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The array\'s mount point.
-    mountPoint :: Core.Maybe Core.Text,
+    mountPoint :: Prelude.Maybe Prelude.Text,
     -- | The volume type, standard or PIOPS.
-    volumeType :: Core.Maybe Core.Text,
+    volumeType :: Prelude.Maybe Prelude.Text,
     -- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-    raidLevel :: Core.Maybe Core.Int,
+    raidLevel :: Prelude.Maybe Prelude.Int,
     -- | For PIOPS volumes, the IOPS per disk.
-    iops :: Core.Maybe Core.Int,
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The array\'s size.
-    size :: Core.Maybe Core.Int
+    size :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RaidArray' with all optional fields omitted.
@@ -94,72 +95,72 @@ newRaidArray ::
   RaidArray
 newRaidArray =
   RaidArray'
-    { numberOfDisks = Core.Nothing,
-      instanceId = Core.Nothing,
-      stackId = Core.Nothing,
-      device = Core.Nothing,
-      createdAt = Core.Nothing,
-      raidArrayId = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      name = Core.Nothing,
-      mountPoint = Core.Nothing,
-      volumeType = Core.Nothing,
-      raidLevel = Core.Nothing,
-      iops = Core.Nothing,
-      size = Core.Nothing
+    { numberOfDisks = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      stackId = Prelude.Nothing,
+      device = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      raidArrayId = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      name = Prelude.Nothing,
+      mountPoint = Prelude.Nothing,
+      volumeType = Prelude.Nothing,
+      raidLevel = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      size = Prelude.Nothing
     }
 
 -- | The number of disks in the array.
-raidArray_numberOfDisks :: Lens.Lens' RaidArray (Core.Maybe Core.Int)
+raidArray_numberOfDisks :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Int)
 raidArray_numberOfDisks = Lens.lens (\RaidArray' {numberOfDisks} -> numberOfDisks) (\s@RaidArray' {} a -> s {numberOfDisks = a} :: RaidArray)
 
 -- | The instance ID.
-raidArray_instanceId :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_instanceId :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_instanceId = Lens.lens (\RaidArray' {instanceId} -> instanceId) (\s@RaidArray' {} a -> s {instanceId = a} :: RaidArray)
 
 -- | The stack ID.
-raidArray_stackId :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_stackId :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_stackId = Lens.lens (\RaidArray' {stackId} -> stackId) (\s@RaidArray' {} a -> s {stackId = a} :: RaidArray)
 
 -- | The array\'s Linux device. For example \/dev\/mdadm0.
-raidArray_device :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_device :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_device = Lens.lens (\RaidArray' {device} -> device) (\s@RaidArray' {} a -> s {device = a} :: RaidArray)
 
 -- | When the RAID array was created.
-raidArray_createdAt :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_createdAt :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_createdAt = Lens.lens (\RaidArray' {createdAt} -> createdAt) (\s@RaidArray' {} a -> s {createdAt = a} :: RaidArray)
 
 -- | The array ID.
-raidArray_raidArrayId :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_raidArrayId :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_raidArrayId = Lens.lens (\RaidArray' {raidArrayId} -> raidArrayId) (\s@RaidArray' {} a -> s {raidArrayId = a} :: RaidArray)
 
 -- | The array\'s Availability Zone. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-raidArray_availabilityZone :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_availabilityZone :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_availabilityZone = Lens.lens (\RaidArray' {availabilityZone} -> availabilityZone) (\s@RaidArray' {} a -> s {availabilityZone = a} :: RaidArray)
 
 -- | The array name.
-raidArray_name :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_name :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_name = Lens.lens (\RaidArray' {name} -> name) (\s@RaidArray' {} a -> s {name = a} :: RaidArray)
 
 -- | The array\'s mount point.
-raidArray_mountPoint :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_mountPoint :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_mountPoint = Lens.lens (\RaidArray' {mountPoint} -> mountPoint) (\s@RaidArray' {} a -> s {mountPoint = a} :: RaidArray)
 
 -- | The volume type, standard or PIOPS.
-raidArray_volumeType :: Lens.Lens' RaidArray (Core.Maybe Core.Text)
+raidArray_volumeType :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_volumeType = Lens.lens (\RaidArray' {volumeType} -> volumeType) (\s@RaidArray' {} a -> s {volumeType = a} :: RaidArray)
 
 -- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-raidArray_raidLevel :: Lens.Lens' RaidArray (Core.Maybe Core.Int)
+raidArray_raidLevel :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Int)
 raidArray_raidLevel = Lens.lens (\RaidArray' {raidLevel} -> raidLevel) (\s@RaidArray' {} a -> s {raidLevel = a} :: RaidArray)
 
 -- | For PIOPS volumes, the IOPS per disk.
-raidArray_iops :: Lens.Lens' RaidArray (Core.Maybe Core.Int)
+raidArray_iops :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Int)
 raidArray_iops = Lens.lens (\RaidArray' {iops} -> iops) (\s@RaidArray' {} a -> s {iops = a} :: RaidArray)
 
 -- | The array\'s size.
-raidArray_size :: Lens.Lens' RaidArray (Core.Maybe Core.Int)
+raidArray_size :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Int)
 raidArray_size = Lens.lens (\RaidArray' {size} -> size) (\s@RaidArray' {} a -> s {size = a} :: RaidArray)
 
 instance Core.FromJSON RaidArray where
@@ -168,21 +169,21 @@ instance Core.FromJSON RaidArray where
       "RaidArray"
       ( \x ->
           RaidArray'
-            Core.<$> (x Core..:? "NumberOfDisks")
-            Core.<*> (x Core..:? "InstanceId")
-            Core.<*> (x Core..:? "StackId")
-            Core.<*> (x Core..:? "Device")
-            Core.<*> (x Core..:? "CreatedAt")
-            Core.<*> (x Core..:? "RaidArrayId")
-            Core.<*> (x Core..:? "AvailabilityZone")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "MountPoint")
-            Core.<*> (x Core..:? "VolumeType")
-            Core.<*> (x Core..:? "RaidLevel")
-            Core.<*> (x Core..:? "Iops")
-            Core.<*> (x Core..:? "Size")
+            Prelude.<$> (x Core..:? "NumberOfDisks")
+            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "StackId")
+            Prelude.<*> (x Core..:? "Device")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "RaidArrayId")
+            Prelude.<*> (x Core..:? "AvailabilityZone")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "MountPoint")
+            Prelude.<*> (x Core..:? "VolumeType")
+            Prelude.<*> (x Core..:? "RaidLevel")
+            Prelude.<*> (x Core..:? "Iops")
+            Prelude.<*> (x Core..:? "Size")
       )
 
-instance Core.Hashable RaidArray
+instance Prelude.Hashable RaidArray
 
-instance Core.NFData RaidArray
+instance Prelude.NFData RaidArray

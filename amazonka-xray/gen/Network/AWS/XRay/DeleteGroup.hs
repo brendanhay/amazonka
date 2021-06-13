@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -48,11 +49,11 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newDeleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
   { -- | The case-sensitive name of the group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the group that was generated on creation.
-    groupARN :: Core.Maybe Core.Text
+    groupARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGroup' with all optional fields omitted.
@@ -69,16 +70,16 @@ newDeleteGroup ::
   DeleteGroup
 newDeleteGroup =
   DeleteGroup'
-    { groupName = Core.Nothing,
-      groupARN = Core.Nothing
+    { groupName = Prelude.Nothing,
+      groupARN = Prelude.Nothing
     }
 
 -- | The case-sensitive name of the group.
-deleteGroup_groupName :: Lens.Lens' DeleteGroup (Core.Maybe Core.Text)
+deleteGroup_groupName :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
 deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
 -- | The ARN of the group that was generated on creation.
-deleteGroup_groupARN :: Lens.Lens' DeleteGroup (Core.Maybe Core.Text)
+deleteGroup_groupARN :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
 deleteGroup_groupARN = Lens.lens (\DeleteGroup' {groupARN} -> groupARN) (\s@DeleteGroup' {} a -> s {groupARN = a} :: DeleteGroup)
 
 instance Core.AWSRequest DeleteGroup where
@@ -88,37 +89,37 @@ instance Core.AWSRequest DeleteGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteGroup
+instance Prelude.Hashable DeleteGroup
 
-instance Core.NFData DeleteGroup
+instance Prelude.NFData DeleteGroup
 
 instance Core.ToHeaders DeleteGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON DeleteGroup where
   toJSON DeleteGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GroupName" Core..=) Core.<$> groupName,
-            ("GroupARN" Core..=) Core.<$> groupARN
+      ( Prelude.catMaybes
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("GroupARN" Core..=) Prelude.<$> groupARN
           ]
       )
 
 instance Core.ToPath DeleteGroup where
-  toPath = Core.const "/DeleteGroup"
+  toPath = Prelude.const "/DeleteGroup"
 
 instance Core.ToQuery DeleteGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGroupResponse' smart constructor.
 data DeleteGroupResponse = DeleteGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGroupResponse' with all optional fields omitted.
@@ -131,13 +132,13 @@ data DeleteGroupResponse = DeleteGroupResponse'
 -- 'httpStatus', 'deleteGroupResponse_httpStatus' - The response's http status code.
 newDeleteGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteGroupResponse
 newDeleteGroupResponse pHttpStatus_ =
   DeleteGroupResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteGroupResponse_httpStatus :: Lens.Lens' DeleteGroupResponse Core.Int
+deleteGroupResponse_httpStatus :: Lens.Lens' DeleteGroupResponse Prelude.Int
 deleteGroupResponse_httpStatus = Lens.lens (\DeleteGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGroupResponse' {} a -> s {httpStatus = a} :: DeleteGroupResponse)
 
-instance Core.NFData DeleteGroupResponse
+instance Prelude.NFData DeleteGroupResponse

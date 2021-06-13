@@ -43,18 +43,19 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetachLoadBalancerTargetGroups' smart constructor.
 data DetachLoadBalancerTargetGroups = DetachLoadBalancerTargetGroups'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | The Amazon Resource Names (ARN) of the target groups. You can specify up
     -- to 10 target groups.
-    targetGroupARNs :: [Core.Text]
+    targetGroupARNs :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachLoadBalancerTargetGroups' with all optional fields omitted.
@@ -70,24 +71,24 @@ data DetachLoadBalancerTargetGroups = DetachLoadBalancerTargetGroups'
 -- to 10 target groups.
 newDetachLoadBalancerTargetGroups ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DetachLoadBalancerTargetGroups
 newDetachLoadBalancerTargetGroups
   pAutoScalingGroupName_ =
     DetachLoadBalancerTargetGroups'
       { autoScalingGroupName =
           pAutoScalingGroupName_,
-        targetGroupARNs = Core.mempty
+        targetGroupARNs = Prelude.mempty
       }
 
 -- | The name of the Auto Scaling group.
-detachLoadBalancerTargetGroups_autoScalingGroupName :: Lens.Lens' DetachLoadBalancerTargetGroups Core.Text
+detachLoadBalancerTargetGroups_autoScalingGroupName :: Lens.Lens' DetachLoadBalancerTargetGroups Prelude.Text
 detachLoadBalancerTargetGroups_autoScalingGroupName = Lens.lens (\DetachLoadBalancerTargetGroups' {autoScalingGroupName} -> autoScalingGroupName) (\s@DetachLoadBalancerTargetGroups' {} a -> s {autoScalingGroupName = a} :: DetachLoadBalancerTargetGroups)
 
 -- | The Amazon Resource Names (ARN) of the target groups. You can specify up
 -- to 10 target groups.
-detachLoadBalancerTargetGroups_targetGroupARNs :: Lens.Lens' DetachLoadBalancerTargetGroups [Core.Text]
-detachLoadBalancerTargetGroups_targetGroupARNs = Lens.lens (\DetachLoadBalancerTargetGroups' {targetGroupARNs} -> targetGroupARNs) (\s@DetachLoadBalancerTargetGroups' {} a -> s {targetGroupARNs = a} :: DetachLoadBalancerTargetGroups) Core.. Lens._Coerce
+detachLoadBalancerTargetGroups_targetGroupARNs :: Lens.Lens' DetachLoadBalancerTargetGroups [Prelude.Text]
+detachLoadBalancerTargetGroups_targetGroupARNs = Lens.lens (\DetachLoadBalancerTargetGroups' {targetGroupARNs} -> targetGroupARNs) (\s@DetachLoadBalancerTargetGroups' {} a -> s {targetGroupARNs = a} :: DetachLoadBalancerTargetGroups) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -102,30 +103,35 @@ instance
       "DetachLoadBalancerTargetGroupsResult"
       ( \s h x ->
           DetachLoadBalancerTargetGroupsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetachLoadBalancerTargetGroups
+instance
+  Prelude.Hashable
+    DetachLoadBalancerTargetGroups
 
-instance Core.NFData DetachLoadBalancerTargetGroups
+instance
+  Prelude.NFData
+    DetachLoadBalancerTargetGroups
 
 instance
   Core.ToHeaders
     DetachLoadBalancerTargetGroups
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetachLoadBalancerTargetGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachLoadBalancerTargetGroups where
   toQuery DetachLoadBalancerTargetGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DetachLoadBalancerTargetGroups" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "TargetGroupARNs"
           Core.=: Core.toQueryList "member" targetGroupARNs
@@ -134,9 +140,9 @@ instance Core.ToQuery DetachLoadBalancerTargetGroups where
 -- | /See:/ 'newDetachLoadBalancerTargetGroupsResponse' smart constructor.
 data DetachLoadBalancerTargetGroupsResponse = DetachLoadBalancerTargetGroupsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachLoadBalancerTargetGroupsResponse' with all optional fields omitted.
@@ -149,7 +155,7 @@ data DetachLoadBalancerTargetGroupsResponse = DetachLoadBalancerTargetGroupsResp
 -- 'httpStatus', 'detachLoadBalancerTargetGroupsResponse_httpStatus' - The response's http status code.
 newDetachLoadBalancerTargetGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetachLoadBalancerTargetGroupsResponse
 newDetachLoadBalancerTargetGroupsResponse
   pHttpStatus_ =
@@ -159,9 +165,9 @@ newDetachLoadBalancerTargetGroupsResponse
       }
 
 -- | The response's http status code.
-detachLoadBalancerTargetGroupsResponse_httpStatus :: Lens.Lens' DetachLoadBalancerTargetGroupsResponse Core.Int
+detachLoadBalancerTargetGroupsResponse_httpStatus :: Lens.Lens' DetachLoadBalancerTargetGroupsResponse Prelude.Int
 detachLoadBalancerTargetGroupsResponse_httpStatus = Lens.lens (\DetachLoadBalancerTargetGroupsResponse' {httpStatus} -> httpStatus) (\s@DetachLoadBalancerTargetGroupsResponse' {} a -> s {httpStatus = a} :: DetachLoadBalancerTargetGroupsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DetachLoadBalancerTargetGroupsResponse

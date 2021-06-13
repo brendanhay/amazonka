@@ -22,15 +22,16 @@ module Network.AWS.Config.Types.ExecutionControls where
 import Network.AWS.Config.Types.SsmControls
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The controls that AWS Config uses for executing remediations.
 --
 -- /See:/ 'newExecutionControls' smart constructor.
 data ExecutionControls = ExecutionControls'
   { -- | A SsmControls object.
-    ssmControls :: Core.Maybe SsmControls
+    ssmControls :: Prelude.Maybe SsmControls
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecutionControls' with all optional fields omitted.
@@ -44,10 +45,10 @@ data ExecutionControls = ExecutionControls'
 newExecutionControls ::
   ExecutionControls
 newExecutionControls =
-  ExecutionControls' {ssmControls = Core.Nothing}
+  ExecutionControls' {ssmControls = Prelude.Nothing}
 
 -- | A SsmControls object.
-executionControls_ssmControls :: Lens.Lens' ExecutionControls (Core.Maybe SsmControls)
+executionControls_ssmControls :: Lens.Lens' ExecutionControls (Prelude.Maybe SsmControls)
 executionControls_ssmControls = Lens.lens (\ExecutionControls' {ssmControls} -> ssmControls) (\s@ExecutionControls' {} a -> s {ssmControls = a} :: ExecutionControls)
 
 instance Core.FromJSON ExecutionControls where
@@ -56,16 +57,16 @@ instance Core.FromJSON ExecutionControls where
       "ExecutionControls"
       ( \x ->
           ExecutionControls'
-            Core.<$> (x Core..:? "SsmControls")
+            Prelude.<$> (x Core..:? "SsmControls")
       )
 
-instance Core.Hashable ExecutionControls
+instance Prelude.Hashable ExecutionControls
 
-instance Core.NFData ExecutionControls
+instance Prelude.NFData ExecutionControls
 
 instance Core.ToJSON ExecutionControls where
   toJSON ExecutionControls' {..} =
     Core.object
-      ( Core.catMaybes
-          [("SsmControls" Core..=) Core.<$> ssmControls]
+      ( Prelude.catMaybes
+          [("SsmControls" Core..=) Prelude.<$> ssmControls]
       )

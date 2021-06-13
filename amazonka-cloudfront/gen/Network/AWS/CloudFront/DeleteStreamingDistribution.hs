@@ -78,6 +78,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,11 +88,11 @@ import qualified Network.AWS.Response as Response
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
   { -- | The value of the @ETag@ header that you received when you disabled the
     -- streaming distribution. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The distribution ID.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamingDistribution' with all optional fields omitted.
@@ -107,22 +108,22 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution'
 -- 'id', 'deleteStreamingDistribution_id' - The distribution ID.
 newDeleteStreamingDistribution ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteStreamingDistribution
 newDeleteStreamingDistribution pId_ =
   DeleteStreamingDistribution'
     { ifMatch =
-        Core.Nothing,
+        Prelude.Nothing,
       id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when you disabled the
 -- streaming distribution. For example: @E2QWRUHAPOMQZL@.
-deleteStreamingDistribution_ifMatch :: Lens.Lens' DeleteStreamingDistribution (Core.Maybe Core.Text)
+deleteStreamingDistribution_ifMatch :: Lens.Lens' DeleteStreamingDistribution (Prelude.Maybe Prelude.Text)
 deleteStreamingDistribution_ifMatch = Lens.lens (\DeleteStreamingDistribution' {ifMatch} -> ifMatch) (\s@DeleteStreamingDistribution' {} a -> s {ifMatch = a} :: DeleteStreamingDistribution)
 
 -- | The distribution ID.
-deleteStreamingDistribution_id :: Lens.Lens' DeleteStreamingDistribution Core.Text
+deleteStreamingDistribution_id :: Lens.Lens' DeleteStreamingDistribution Prelude.Text
 deleteStreamingDistribution_id = Lens.lens (\DeleteStreamingDistribution' {id} -> id) (\s@DeleteStreamingDistribution' {} a -> s {id = a} :: DeleteStreamingDistribution)
 
 instance Core.AWSRequest DeleteStreamingDistribution where
@@ -134,27 +135,27 @@ instance Core.AWSRequest DeleteStreamingDistribution where
     Response.receiveNull
       DeleteStreamingDistributionResponse'
 
-instance Core.Hashable DeleteStreamingDistribution
+instance Prelude.Hashable DeleteStreamingDistribution
 
-instance Core.NFData DeleteStreamingDistribution
+instance Prelude.NFData DeleteStreamingDistribution
 
 instance Core.ToHeaders DeleteStreamingDistribution where
   toHeaders DeleteStreamingDistribution' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath DeleteStreamingDistribution where
   toPath DeleteStreamingDistribution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/streaming-distribution/", Core.toBS id]
 
 instance Core.ToQuery DeleteStreamingDistribution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamingDistributionResponse' smart constructor.
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamingDistributionResponse' with all optional fields omitted.
@@ -166,5 +167,5 @@ newDeleteStreamingDistributionResponse =
   DeleteStreamingDistributionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteStreamingDistributionResponse

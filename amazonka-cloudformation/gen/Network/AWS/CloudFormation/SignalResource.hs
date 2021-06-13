@@ -47,6 +47,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,21 +57,21 @@ import qualified Network.AWS.Response as Response
 data SignalResource = SignalResource'
   { -- | The stack name or unique stack ID that includes the resource that you
     -- want to signal.
-    stackName :: Core.Text,
+    stackName :: Prelude.Text,
     -- | The logical ID of the resource that you want to signal. The logical ID
     -- is the name of the resource that given in the template.
-    logicalResourceId :: Core.Text,
+    logicalResourceId :: Prelude.Text,
     -- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto
     -- Scaling groups, specify the instance ID that you are signaling as the
     -- unique ID. If you send multiple signals to a single resource (such as
     -- signaling a wait condition), each signal requires a different unique ID.
-    uniqueId :: Core.Text,
+    uniqueId :: Prelude.Text,
     -- | The status of the signal, which is either success or failure. A failure
     -- signal causes AWS CloudFormation to immediately fail the stack creation
     -- or update.
     status :: ResourceSignalStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SignalResource' with all optional fields omitted.
@@ -96,11 +97,11 @@ data SignalResource = SignalResource'
 -- or update.
 newSignalResource ::
   -- | 'stackName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'logicalResourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'uniqueId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   ResourceSignalStatus ->
   SignalResource
@@ -118,19 +119,19 @@ newSignalResource
 
 -- | The stack name or unique stack ID that includes the resource that you
 -- want to signal.
-signalResource_stackName :: Lens.Lens' SignalResource Core.Text
+signalResource_stackName :: Lens.Lens' SignalResource Prelude.Text
 signalResource_stackName = Lens.lens (\SignalResource' {stackName} -> stackName) (\s@SignalResource' {} a -> s {stackName = a} :: SignalResource)
 
 -- | The logical ID of the resource that you want to signal. The logical ID
 -- is the name of the resource that given in the template.
-signalResource_logicalResourceId :: Lens.Lens' SignalResource Core.Text
+signalResource_logicalResourceId :: Lens.Lens' SignalResource Prelude.Text
 signalResource_logicalResourceId = Lens.lens (\SignalResource' {logicalResourceId} -> logicalResourceId) (\s@SignalResource' {} a -> s {logicalResourceId = a} :: SignalResource)
 
 -- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto
 -- Scaling groups, specify the instance ID that you are signaling as the
 -- unique ID. If you send multiple signals to a single resource (such as
 -- signaling a wait condition), each signal requires a different unique ID.
-signalResource_uniqueId :: Lens.Lens' SignalResource Core.Text
+signalResource_uniqueId :: Lens.Lens' SignalResource Prelude.Text
 signalResource_uniqueId = Lens.lens (\SignalResource' {uniqueId} -> uniqueId) (\s@SignalResource' {} a -> s {uniqueId = a} :: SignalResource)
 
 -- | The status of the signal, which is either success or failure. A failure
@@ -147,22 +148,23 @@ instance Core.AWSRequest SignalResource where
   response =
     Response.receiveNull SignalResourceResponse'
 
-instance Core.Hashable SignalResource
+instance Prelude.Hashable SignalResource
 
-instance Core.NFData SignalResource
+instance Prelude.NFData SignalResource
 
 instance Core.ToHeaders SignalResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SignalResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SignalResource where
   toQuery SignalResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SignalResource" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("SignalResource" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "StackName" Core.=: stackName,
         "LogicalResourceId" Core.=: logicalResourceId,
         "UniqueId" Core.=: uniqueId,
@@ -173,7 +175,7 @@ instance Core.ToQuery SignalResource where
 data SignalResourceResponse = SignalResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SignalResourceResponse' with all optional fields omitted.
@@ -183,4 +185,4 @@ newSignalResourceResponse ::
   SignalResourceResponse
 newSignalResourceResponse = SignalResourceResponse'
 
-instance Core.NFData SignalResourceResponse
+instance Prelude.NFData SignalResourceResponse

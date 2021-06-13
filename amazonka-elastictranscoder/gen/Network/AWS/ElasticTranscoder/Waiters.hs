@@ -20,6 +20,7 @@ import Network.AWS.ElasticTranscoder.Lens
 import Network.AWS.ElasticTranscoder.ReadJob
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.ElasticTranscoder.ReadJob' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newJobComplete :: Core.Wait ReadJob
@@ -33,25 +34,25 @@ newJobComplete =
             "Complete"
             Core.AcceptSuccess
             ( readJobResponse_job
-                Core.. job'_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. job'_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Canceled"
             Core.AcceptFailure
             ( readJobResponse_job
-                Core.. job'_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. job'_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Error"
             Core.AcceptFailure
             ( readJobResponse_job
-                Core.. job'_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. job'_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

@@ -41,15 +41,16 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newExpireSession' smart constructor.
 data ExpireSession = ExpireSession'
   { -- | The identifier of the streaming session.
-    sessionId :: Core.Text
+    sessionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExpireSession' with all optional fields omitted.
@@ -62,13 +63,13 @@ data ExpireSession = ExpireSession'
 -- 'sessionId', 'expireSession_sessionId' - The identifier of the streaming session.
 newExpireSession ::
   -- | 'sessionId'
-  Core.Text ->
+  Prelude.Text ->
   ExpireSession
 newExpireSession pSessionId_ =
   ExpireSession' {sessionId = pSessionId_}
 
 -- | The identifier of the streaming session.
-expireSession_sessionId :: Lens.Lens' ExpireSession Core.Text
+expireSession_sessionId :: Lens.Lens' ExpireSession Prelude.Text
 expireSession_sessionId = Lens.lens (\ExpireSession' {sessionId} -> sessionId) (\s@ExpireSession' {} a -> s {sessionId = a} :: ExpireSession)
 
 instance Core.AWSRequest ExpireSession where
@@ -80,45 +81,47 @@ instance Core.AWSRequest ExpireSession where
     Response.receiveEmpty
       ( \s h x ->
           ExpireSessionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ExpireSession
+instance Prelude.Hashable ExpireSession
 
-instance Core.NFData ExpireSession
+instance Prelude.NFData ExpireSession
 
 instance Core.ToHeaders ExpireSession where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.ExpireSession" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ExpireSession where
   toJSON ExpireSession' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SessionId" Core..= sessionId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SessionId" Core..= sessionId)]
       )
 
 instance Core.ToPath ExpireSession where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ExpireSession where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExpireSessionResponse' smart constructor.
 data ExpireSessionResponse = ExpireSessionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExpireSessionResponse' with all optional fields omitted.
@@ -131,13 +134,13 @@ data ExpireSessionResponse = ExpireSessionResponse'
 -- 'httpStatus', 'expireSessionResponse_httpStatus' - The response's http status code.
 newExpireSessionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ExpireSessionResponse
 newExpireSessionResponse pHttpStatus_ =
   ExpireSessionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-expireSessionResponse_httpStatus :: Lens.Lens' ExpireSessionResponse Core.Int
+expireSessionResponse_httpStatus :: Lens.Lens' ExpireSessionResponse Prelude.Int
 expireSessionResponse_httpStatus = Lens.lens (\ExpireSessionResponse' {httpStatus} -> httpStatus) (\s@ExpireSessionResponse' {} a -> s {httpStatus = a} :: ExpireSessionResponse)
 
-instance Core.NFData ExpireSessionResponse
+instance Prelude.NFData ExpireSessionResponse

@@ -21,6 +21,7 @@ module Network.AWS.LexModels.Types.OutputContext where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The specification of an output context that is set when an intent is
 -- fulfilled.
@@ -28,17 +29,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOutputContext' smart constructor.
 data OutputContext = OutputContext'
   { -- | The name of the context.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The number of seconds that the context should be active after it is
     -- first sent in a @PostContent@ or @PostText@ response. You can set the
     -- value between 5 and 86,400 seconds (24 hours).
-    timeToLiveInSeconds :: Core.Natural,
+    timeToLiveInSeconds :: Prelude.Natural,
     -- | The number of conversation turns that the context should be active. A
     -- conversation turn is one @PostContent@ or @PostText@ request and the
     -- corresponding response from Amazon Lex.
-    turnsToLive :: Core.Natural
+    turnsToLive :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputContext' with all optional fields omitted.
@@ -59,11 +60,11 @@ data OutputContext = OutputContext'
 -- corresponding response from Amazon Lex.
 newOutputContext ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'timeToLiveInSeconds'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'turnsToLive'
-  Core.Natural ->
+  Prelude.Natural ->
   OutputContext
 newOutputContext
   pName_
@@ -76,19 +77,19 @@ newOutputContext
       }
 
 -- | The name of the context.
-outputContext_name :: Lens.Lens' OutputContext Core.Text
+outputContext_name :: Lens.Lens' OutputContext Prelude.Text
 outputContext_name = Lens.lens (\OutputContext' {name} -> name) (\s@OutputContext' {} a -> s {name = a} :: OutputContext)
 
 -- | The number of seconds that the context should be active after it is
 -- first sent in a @PostContent@ or @PostText@ response. You can set the
 -- value between 5 and 86,400 seconds (24 hours).
-outputContext_timeToLiveInSeconds :: Lens.Lens' OutputContext Core.Natural
+outputContext_timeToLiveInSeconds :: Lens.Lens' OutputContext Prelude.Natural
 outputContext_timeToLiveInSeconds = Lens.lens (\OutputContext' {timeToLiveInSeconds} -> timeToLiveInSeconds) (\s@OutputContext' {} a -> s {timeToLiveInSeconds = a} :: OutputContext)
 
 -- | The number of conversation turns that the context should be active. A
 -- conversation turn is one @PostContent@ or @PostText@ request and the
 -- corresponding response from Amazon Lex.
-outputContext_turnsToLive :: Lens.Lens' OutputContext Core.Natural
+outputContext_turnsToLive :: Lens.Lens' OutputContext Prelude.Natural
 outputContext_turnsToLive = Lens.lens (\OutputContext' {turnsToLive} -> turnsToLive) (\s@OutputContext' {} a -> s {turnsToLive = a} :: OutputContext)
 
 instance Core.FromJSON OutputContext where
@@ -97,22 +98,22 @@ instance Core.FromJSON OutputContext where
       "OutputContext"
       ( \x ->
           OutputContext'
-            Core.<$> (x Core..: "name")
-            Core.<*> (x Core..: "timeToLiveInSeconds")
-            Core.<*> (x Core..: "turnsToLive")
+            Prelude.<$> (x Core..: "name")
+            Prelude.<*> (x Core..: "timeToLiveInSeconds")
+            Prelude.<*> (x Core..: "turnsToLive")
       )
 
-instance Core.Hashable OutputContext
+instance Prelude.Hashable OutputContext
 
-instance Core.NFData OutputContext
+instance Prelude.NFData OutputContext
 
 instance Core.ToJSON OutputContext where
   toJSON OutputContext' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just
               ("timeToLiveInSeconds" Core..= timeToLiveInSeconds),
-            Core.Just ("turnsToLive" Core..= turnsToLive)
+            Prelude.Just ("turnsToLive" Core..= turnsToLive)
           ]
       )

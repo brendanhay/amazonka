@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -49,19 +50,19 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newUpdateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
   { -- | The ID of the parent folder.
-    parentFolderId :: Core.Maybe Core.Text,
+    parentFolderId :: Prelude.Maybe Prelude.Text,
     -- | The name of the document.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The resource state of the document. Only ACTIVE and RECYCLED are
     -- supported.
-    resourceState :: Core.Maybe ResourceStateType,
+    resourceState :: Prelude.Maybe ResourceStateType,
     -- | The ID of the document.
-    documentId :: Core.Text
+    documentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDocument' with all optional fields omitted.
@@ -84,37 +85,37 @@ data UpdateDocument = UpdateDocument'
 -- 'documentId', 'updateDocument_documentId' - The ID of the document.
 newUpdateDocument ::
   -- | 'documentId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDocument
 newUpdateDocument pDocumentId_ =
   UpdateDocument'
-    { parentFolderId = Core.Nothing,
-      name = Core.Nothing,
-      authenticationToken = Core.Nothing,
-      resourceState = Core.Nothing,
+    { parentFolderId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      resourceState = Prelude.Nothing,
       documentId = pDocumentId_
     }
 
 -- | The ID of the parent folder.
-updateDocument_parentFolderId :: Lens.Lens' UpdateDocument (Core.Maybe Core.Text)
+updateDocument_parentFolderId :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_parentFolderId = Lens.lens (\UpdateDocument' {parentFolderId} -> parentFolderId) (\s@UpdateDocument' {} a -> s {parentFolderId = a} :: UpdateDocument)
 
 -- | The name of the document.
-updateDocument_name :: Lens.Lens' UpdateDocument (Core.Maybe Core.Text)
+updateDocument_name :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_name = Lens.lens (\UpdateDocument' {name} -> name) (\s@UpdateDocument' {} a -> s {name = a} :: UpdateDocument)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-updateDocument_authenticationToken :: Lens.Lens' UpdateDocument (Core.Maybe Core.Text)
-updateDocument_authenticationToken = Lens.lens (\UpdateDocument' {authenticationToken} -> authenticationToken) (\s@UpdateDocument' {} a -> s {authenticationToken = a} :: UpdateDocument) Core.. Lens.mapping Core._Sensitive
+updateDocument_authenticationToken :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_authenticationToken = Lens.lens (\UpdateDocument' {authenticationToken} -> authenticationToken) (\s@UpdateDocument' {} a -> s {authenticationToken = a} :: UpdateDocument) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The resource state of the document. Only ACTIVE and RECYCLED are
 -- supported.
-updateDocument_resourceState :: Lens.Lens' UpdateDocument (Core.Maybe ResourceStateType)
+updateDocument_resourceState :: Lens.Lens' UpdateDocument (Prelude.Maybe ResourceStateType)
 updateDocument_resourceState = Lens.lens (\UpdateDocument' {resourceState} -> resourceState) (\s@UpdateDocument' {} a -> s {resourceState = a} :: UpdateDocument)
 
 -- | The ID of the document.
-updateDocument_documentId :: Lens.Lens' UpdateDocument Core.Text
+updateDocument_documentId :: Lens.Lens' UpdateDocument Prelude.Text
 updateDocument_documentId = Lens.lens (\UpdateDocument' {documentId} -> documentId) (\s@UpdateDocument' {} a -> s {documentId = a} :: UpdateDocument)
 
 instance Core.AWSRequest UpdateDocument where
@@ -125,41 +126,42 @@ instance Core.AWSRequest UpdateDocument where
   response =
     Response.receiveNull UpdateDocumentResponse'
 
-instance Core.Hashable UpdateDocument
+instance Prelude.Hashable UpdateDocument
 
-instance Core.NFData UpdateDocument
+instance Prelude.NFData UpdateDocument
 
 instance Core.ToHeaders UpdateDocument where
   toHeaders UpdateDocument' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToJSON UpdateDocument where
   toJSON UpdateDocument' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ParentFolderId" Core..=) Core.<$> parentFolderId,
-            ("Name" Core..=) Core.<$> name,
-            ("ResourceState" Core..=) Core.<$> resourceState
+      ( Prelude.catMaybes
+          [ ("ParentFolderId" Core..=)
+              Prelude.<$> parentFolderId,
+            ("Name" Core..=) Prelude.<$> name,
+            ("ResourceState" Core..=) Prelude.<$> resourceState
           ]
       )
 
 instance Core.ToPath UpdateDocument where
   toPath UpdateDocument' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/api/v1/documents/", Core.toBS documentId]
 
 instance Core.ToQuery UpdateDocument where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDocumentResponse' smart constructor.
 data UpdateDocumentResponse = UpdateDocumentResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentResponse' with all optional fields omitted.
@@ -169,4 +171,4 @@ newUpdateDocumentResponse ::
   UpdateDocumentResponse
 newUpdateDocumentResponse = UpdateDocumentResponse'
 
-instance Core.NFData UpdateDocumentResponse
+instance Prelude.NFData UpdateDocumentResponse

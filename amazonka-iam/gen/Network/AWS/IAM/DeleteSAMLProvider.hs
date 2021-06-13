@@ -46,15 +46,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSAMLProvider' smart constructor.
 data DeleteSAMLProvider = DeleteSAMLProvider'
   { -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
-    sAMLProviderArn :: Core.Text
+    sAMLProviderArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSAMLProvider' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DeleteSAMLProvider = DeleteSAMLProvider'
 -- 'sAMLProviderArn', 'deleteSAMLProvider_sAMLProviderArn' - The Amazon Resource Name (ARN) of the SAML provider to delete.
 newDeleteSAMLProvider ::
   -- | 'sAMLProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSAMLProvider
 newDeleteSAMLProvider pSAMLProviderArn_ =
   DeleteSAMLProvider'
@@ -76,7 +77,7 @@ newDeleteSAMLProvider pSAMLProviderArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
-deleteSAMLProvider_sAMLProviderArn :: Lens.Lens' DeleteSAMLProvider Core.Text
+deleteSAMLProvider_sAMLProviderArn :: Lens.Lens' DeleteSAMLProvider Prelude.Text
 deleteSAMLProvider_sAMLProviderArn = Lens.lens (\DeleteSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@DeleteSAMLProvider' {} a -> s {sAMLProviderArn = a} :: DeleteSAMLProvider)
 
 instance Core.AWSRequest DeleteSAMLProvider where
@@ -87,22 +88,23 @@ instance Core.AWSRequest DeleteSAMLProvider where
   response =
     Response.receiveNull DeleteSAMLProviderResponse'
 
-instance Core.Hashable DeleteSAMLProvider
+instance Prelude.Hashable DeleteSAMLProvider
 
-instance Core.NFData DeleteSAMLProvider
+instance Prelude.NFData DeleteSAMLProvider
 
 instance Core.ToHeaders DeleteSAMLProvider where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteSAMLProvider where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSAMLProvider where
   toQuery DeleteSAMLProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSAMLProvider" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeleteSAMLProvider" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "SAMLProviderArn" Core.=: sAMLProviderArn
       ]
 
@@ -110,7 +112,7 @@ instance Core.ToQuery DeleteSAMLProvider where
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSAMLProviderResponse' with all optional fields omitted.
@@ -121,4 +123,4 @@ newDeleteSAMLProviderResponse ::
 newDeleteSAMLProviderResponse =
   DeleteSAMLProviderResponse'
 
-instance Core.NFData DeleteSAMLProviderResponse
+instance Prelude.NFData DeleteSAMLProviderResponse

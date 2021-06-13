@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,9 +71,9 @@ import qualified Network.AWS.Response as Response
 data DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
   { -- | A unique identifier for a matchmaking configuration. You can use either
     -- the configuration name or ARN value.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMatchmakingConfiguration' with all optional fields omitted.
@@ -86,14 +87,14 @@ data DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
 -- the configuration name or ARN value.
 newDeleteMatchmakingConfiguration ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMatchmakingConfiguration
 newDeleteMatchmakingConfiguration pName_ =
   DeleteMatchmakingConfiguration' {name = pName_}
 
 -- | A unique identifier for a matchmaking configuration. You can use either
 -- the configuration name or ARN value.
-deleteMatchmakingConfiguration_name :: Lens.Lens' DeleteMatchmakingConfiguration Core.Text
+deleteMatchmakingConfiguration_name :: Lens.Lens' DeleteMatchmakingConfiguration Prelude.Text
 deleteMatchmakingConfiguration_name = Lens.lens (\DeleteMatchmakingConfiguration' {name} -> name) (\s@DeleteMatchmakingConfiguration' {} a -> s {name = a} :: DeleteMatchmakingConfiguration)
 
 instance
@@ -108,46 +109,54 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DeleteMatchmakingConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteMatchmakingConfiguration
+instance
+  Prelude.Hashable
+    DeleteMatchmakingConfiguration
 
-instance Core.NFData DeleteMatchmakingConfiguration
+instance
+  Prelude.NFData
+    DeleteMatchmakingConfiguration
 
 instance
   Core.ToHeaders
     DeleteMatchmakingConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DeleteMatchmakingConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteMatchmakingConfiguration where
   toJSON DeleteMatchmakingConfiguration' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteMatchmakingConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteMatchmakingConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMatchmakingConfigurationResponse' smart constructor.
 data DeleteMatchmakingConfigurationResponse = DeleteMatchmakingConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMatchmakingConfigurationResponse' with all optional fields omitted.
@@ -160,7 +169,7 @@ data DeleteMatchmakingConfigurationResponse = DeleteMatchmakingConfigurationResp
 -- 'httpStatus', 'deleteMatchmakingConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteMatchmakingConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteMatchmakingConfigurationResponse
 newDeleteMatchmakingConfigurationResponse
   pHttpStatus_ =
@@ -170,9 +179,9 @@ newDeleteMatchmakingConfigurationResponse
       }
 
 -- | The response's http status code.
-deleteMatchmakingConfigurationResponse_httpStatus :: Lens.Lens' DeleteMatchmakingConfigurationResponse Core.Int
+deleteMatchmakingConfigurationResponse_httpStatus :: Lens.Lens' DeleteMatchmakingConfigurationResponse Prelude.Int
 deleteMatchmakingConfigurationResponse_httpStatus = Lens.lens (\DeleteMatchmakingConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteMatchmakingConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteMatchmakingConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteMatchmakingConfigurationResponse

@@ -22,20 +22,21 @@ module Network.AWS.DynamoDB.Types.ContributorInsightsSummary where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ContributorInsightsStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a Contributor Insights summary entry.
 --
 -- /See:/ 'newContributorInsightsSummary' smart constructor.
 data ContributorInsightsSummary = ContributorInsightsSummary'
   { -- | Name of the table associated with the summary.
-    tableName :: Core.Maybe Core.Text,
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | Name of the index associated with the summary, if any.
-    indexName :: Core.Maybe Core.Text,
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | Describes the current status for contributor insights for the given
     -- table and index, if applicable.
-    contributorInsightsStatus :: Core.Maybe ContributorInsightsStatus
+    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContributorInsightsSummary' with all optional fields omitted.
@@ -56,22 +57,22 @@ newContributorInsightsSummary ::
 newContributorInsightsSummary =
   ContributorInsightsSummary'
     { tableName =
-        Core.Nothing,
-      indexName = Core.Nothing,
-      contributorInsightsStatus = Core.Nothing
+        Prelude.Nothing,
+      indexName = Prelude.Nothing,
+      contributorInsightsStatus = Prelude.Nothing
     }
 
 -- | Name of the table associated with the summary.
-contributorInsightsSummary_tableName :: Lens.Lens' ContributorInsightsSummary (Core.Maybe Core.Text)
+contributorInsightsSummary_tableName :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe Prelude.Text)
 contributorInsightsSummary_tableName = Lens.lens (\ContributorInsightsSummary' {tableName} -> tableName) (\s@ContributorInsightsSummary' {} a -> s {tableName = a} :: ContributorInsightsSummary)
 
 -- | Name of the index associated with the summary, if any.
-contributorInsightsSummary_indexName :: Lens.Lens' ContributorInsightsSummary (Core.Maybe Core.Text)
+contributorInsightsSummary_indexName :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe Prelude.Text)
 contributorInsightsSummary_indexName = Lens.lens (\ContributorInsightsSummary' {indexName} -> indexName) (\s@ContributorInsightsSummary' {} a -> s {indexName = a} :: ContributorInsightsSummary)
 
 -- | Describes the current status for contributor insights for the given
 -- table and index, if applicable.
-contributorInsightsSummary_contributorInsightsStatus :: Lens.Lens' ContributorInsightsSummary (Core.Maybe ContributorInsightsStatus)
+contributorInsightsSummary_contributorInsightsStatus :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe ContributorInsightsStatus)
 contributorInsightsSummary_contributorInsightsStatus = Lens.lens (\ContributorInsightsSummary' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@ContributorInsightsSummary' {} a -> s {contributorInsightsStatus = a} :: ContributorInsightsSummary)
 
 instance Core.FromJSON ContributorInsightsSummary where
@@ -80,11 +81,11 @@ instance Core.FromJSON ContributorInsightsSummary where
       "ContributorInsightsSummary"
       ( \x ->
           ContributorInsightsSummary'
-            Core.<$> (x Core..:? "TableName")
-            Core.<*> (x Core..:? "IndexName")
-            Core.<*> (x Core..:? "ContributorInsightsStatus")
+            Prelude.<$> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "IndexName")
+            Prelude.<*> (x Core..:? "ContributorInsightsStatus")
       )
 
-instance Core.Hashable ContributorInsightsSummary
+instance Prelude.Hashable ContributorInsightsSummary
 
-instance Core.NFData ContributorInsightsSummary
+instance Prelude.NFData ContributorInsightsSummary

@@ -22,17 +22,18 @@ module Network.AWS.CodeCommit.Types.SetFileModeEntry where
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the file mode changes.
 --
 -- /See:/ 'newSetFileModeEntry' smart constructor.
 data SetFileModeEntry = SetFileModeEntry'
   { -- | The full path to the file, including the name of the file.
-    filePath :: Core.Text,
+    filePath :: Prelude.Text,
     -- | The file mode for the file.
     fileMode :: FileModeTypeEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetFileModeEntry' with all optional fields omitted.
@@ -47,7 +48,7 @@ data SetFileModeEntry = SetFileModeEntry'
 -- 'fileMode', 'setFileModeEntry_fileMode' - The file mode for the file.
 newSetFileModeEntry ::
   -- | 'filePath'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fileMode'
   FileModeTypeEnum ->
   SetFileModeEntry
@@ -58,22 +59,22 @@ newSetFileModeEntry pFilePath_ pFileMode_ =
     }
 
 -- | The full path to the file, including the name of the file.
-setFileModeEntry_filePath :: Lens.Lens' SetFileModeEntry Core.Text
+setFileModeEntry_filePath :: Lens.Lens' SetFileModeEntry Prelude.Text
 setFileModeEntry_filePath = Lens.lens (\SetFileModeEntry' {filePath} -> filePath) (\s@SetFileModeEntry' {} a -> s {filePath = a} :: SetFileModeEntry)
 
 -- | The file mode for the file.
 setFileModeEntry_fileMode :: Lens.Lens' SetFileModeEntry FileModeTypeEnum
 setFileModeEntry_fileMode = Lens.lens (\SetFileModeEntry' {fileMode} -> fileMode) (\s@SetFileModeEntry' {} a -> s {fileMode = a} :: SetFileModeEntry)
 
-instance Core.Hashable SetFileModeEntry
+instance Prelude.Hashable SetFileModeEntry
 
-instance Core.NFData SetFileModeEntry
+instance Prelude.NFData SetFileModeEntry
 
 instance Core.ToJSON SetFileModeEntry where
   toJSON SetFileModeEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("filePath" Core..= filePath),
-            Core.Just ("fileMode" Core..= fileMode)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("filePath" Core..= filePath),
+            Prelude.Just ("fileMode" Core..= fileMode)
           ]
       )

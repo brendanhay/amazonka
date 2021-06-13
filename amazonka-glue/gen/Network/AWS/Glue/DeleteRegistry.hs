@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,7 +58,7 @@ data DeleteRegistry = DeleteRegistry'
     -- Amazon Resource Name (ARN).
     registryId :: RegistryId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRegistry' with all optional fields omitted.
@@ -90,53 +91,55 @@ instance Core.AWSRequest DeleteRegistry where
     Response.receiveJSON
       ( \s h x ->
           DeleteRegistryResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (x Core..?> "RegistryName")
-            Core.<*> (x Core..?> "RegistryArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "RegistryName")
+            Prelude.<*> (x Core..?> "RegistryArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRegistry
+instance Prelude.Hashable DeleteRegistry
 
-instance Core.NFData DeleteRegistry
+instance Prelude.NFData DeleteRegistry
 
 instance Core.ToHeaders DeleteRegistry where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteRegistry" :: Core.ByteString),
+              Core.=# ("AWSGlue.DeleteRegistry" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRegistry where
   toJSON DeleteRegistry' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RegistryId" Core..= registryId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RegistryId" Core..= registryId)]
       )
 
 instance Core.ToPath DeleteRegistry where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRegistry where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRegistryResponse' smart constructor.
 data DeleteRegistryResponse = DeleteRegistryResponse'
   { -- | The status of the registry. A successful operation will return the
     -- @Deleting@ status.
-    status :: Core.Maybe RegistryStatus,
+    status :: Prelude.Maybe RegistryStatus,
     -- | The name of the registry being deleted.
-    registryName :: Core.Maybe Core.Text,
+    registryName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the registry being deleted.
-    registryArn :: Core.Maybe Core.Text,
+    registryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRegistryResponse' with all optional fields omitted.
@@ -156,31 +159,31 @@ data DeleteRegistryResponse = DeleteRegistryResponse'
 -- 'httpStatus', 'deleteRegistryResponse_httpStatus' - The response's http status code.
 newDeleteRegistryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRegistryResponse
 newDeleteRegistryResponse pHttpStatus_ =
   DeleteRegistryResponse'
-    { status = Core.Nothing,
-      registryName = Core.Nothing,
-      registryArn = Core.Nothing,
+    { status = Prelude.Nothing,
+      registryName = Prelude.Nothing,
+      registryArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the registry. A successful operation will return the
 -- @Deleting@ status.
-deleteRegistryResponse_status :: Lens.Lens' DeleteRegistryResponse (Core.Maybe RegistryStatus)
+deleteRegistryResponse_status :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe RegistryStatus)
 deleteRegistryResponse_status = Lens.lens (\DeleteRegistryResponse' {status} -> status) (\s@DeleteRegistryResponse' {} a -> s {status = a} :: DeleteRegistryResponse)
 
 -- | The name of the registry being deleted.
-deleteRegistryResponse_registryName :: Lens.Lens' DeleteRegistryResponse (Core.Maybe Core.Text)
+deleteRegistryResponse_registryName :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe Prelude.Text)
 deleteRegistryResponse_registryName = Lens.lens (\DeleteRegistryResponse' {registryName} -> registryName) (\s@DeleteRegistryResponse' {} a -> s {registryName = a} :: DeleteRegistryResponse)
 
 -- | The Amazon Resource Name (ARN) of the registry being deleted.
-deleteRegistryResponse_registryArn :: Lens.Lens' DeleteRegistryResponse (Core.Maybe Core.Text)
+deleteRegistryResponse_registryArn :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe Prelude.Text)
 deleteRegistryResponse_registryArn = Lens.lens (\DeleteRegistryResponse' {registryArn} -> registryArn) (\s@DeleteRegistryResponse' {} a -> s {registryArn = a} :: DeleteRegistryResponse)
 
 -- | The response's http status code.
-deleteRegistryResponse_httpStatus :: Lens.Lens' DeleteRegistryResponse Core.Int
+deleteRegistryResponse_httpStatus :: Lens.Lens' DeleteRegistryResponse Prelude.Int
 deleteRegistryResponse_httpStatus = Lens.lens (\DeleteRegistryResponse' {httpStatus} -> httpStatus) (\s@DeleteRegistryResponse' {} a -> s {httpStatus = a} :: DeleteRegistryResponse)
 
-instance Core.NFData DeleteRegistryResponse
+instance Prelude.NFData DeleteRegistryResponse

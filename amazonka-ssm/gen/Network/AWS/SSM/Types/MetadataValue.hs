@@ -21,15 +21,16 @@ module Network.AWS.SSM.Types.MetadataValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata to assign to an Application Manager application.
 --
 -- /See:/ 'newMetadataValue' smart constructor.
 data MetadataValue = MetadataValue'
   { -- | Metadata value to assign to an Application Manager application.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetadataValue' with all optional fields omitted.
@@ -43,23 +44,27 @@ data MetadataValue = MetadataValue'
 newMetadataValue ::
   MetadataValue
 newMetadataValue =
-  MetadataValue' {value = Core.Nothing}
+  MetadataValue' {value = Prelude.Nothing}
 
 -- | Metadata value to assign to an Application Manager application.
-metadataValue_value :: Lens.Lens' MetadataValue (Core.Maybe Core.Text)
+metadataValue_value :: Lens.Lens' MetadataValue (Prelude.Maybe Prelude.Text)
 metadataValue_value = Lens.lens (\MetadataValue' {value} -> value) (\s@MetadataValue' {} a -> s {value = a} :: MetadataValue)
 
 instance Core.FromJSON MetadataValue where
   parseJSON =
     Core.withObject
       "MetadataValue"
-      (\x -> MetadataValue' Core.<$> (x Core..:? "Value"))
+      ( \x ->
+          MetadataValue' Prelude.<$> (x Core..:? "Value")
+      )
 
-instance Core.Hashable MetadataValue
+instance Prelude.Hashable MetadataValue
 
-instance Core.NFData MetadataValue
+instance Prelude.NFData MetadataValue
 
 instance Core.ToJSON MetadataValue where
   toJSON MetadataValue' {..} =
     Core.object
-      (Core.catMaybes [("Value" Core..=) Core.<$> value])
+      ( Prelude.catMaybes
+          [("Value" Core..=) Prelude.<$> value]
+      )

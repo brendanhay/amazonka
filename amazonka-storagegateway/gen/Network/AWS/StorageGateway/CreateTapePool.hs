@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -57,7 +58,7 @@ data CreateTapePool = CreateTapePool'
     -- authorized to remove the tape retention lock from archived virtual
     -- tapes. When configured in compliance mode, the tape retention lock
     -- cannot be removed by any user, including the root AWS account.
-    retentionLockType :: Core.Maybe RetentionLockType,
+    retentionLockType :: Prelude.Maybe RetentionLockType,
     -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
     -- key-value pair.
     --
@@ -65,19 +66,19 @@ data CreateTapePool = CreateTapePool'
     -- representable in UTF-8 format, and the following special characters: + -
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Tape retention lock time is set in days. Tape retention lock can be
     -- enabled for up to 100 years (36,500 days).
-    retentionLockTimeInDays :: Core.Maybe Core.Natural,
+    retentionLockTimeInDays :: Prelude.Maybe Prelude.Natural,
     -- | The name of the new custom tape pool.
-    poolName :: Core.Text,
+    poolName :: Prelude.Text,
     -- | The storage class that is associated with the new custom pool. When you
     -- use your backup application to eject the tape, the tape is archived
     -- directly into the storage class (S3 Glacier or S3 Glacier Deep Archive)
     -- that corresponds to the pool.
     storageClass :: TapeStorageClass
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTapePool' with all optional fields omitted.
@@ -112,15 +113,16 @@ data CreateTapePool = CreateTapePool'
 -- that corresponds to the pool.
 newCreateTapePool ::
   -- | 'poolName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'storageClass'
   TapeStorageClass ->
   CreateTapePool
 newCreateTapePool pPoolName_ pStorageClass_ =
   CreateTapePool'
-    { retentionLockType = Core.Nothing,
-      tags = Core.Nothing,
-      retentionLockTimeInDays = Core.Nothing,
+    { retentionLockType =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      retentionLockTimeInDays = Prelude.Nothing,
       poolName = pPoolName_,
       storageClass = pStorageClass_
     }
@@ -130,7 +132,7 @@ newCreateTapePool pPoolName_ pStorageClass_ =
 -- authorized to remove the tape retention lock from archived virtual
 -- tapes. When configured in compliance mode, the tape retention lock
 -- cannot be removed by any user, including the root AWS account.
-createTapePool_retentionLockType :: Lens.Lens' CreateTapePool (Core.Maybe RetentionLockType)
+createTapePool_retentionLockType :: Lens.Lens' CreateTapePool (Prelude.Maybe RetentionLockType)
 createTapePool_retentionLockType = Lens.lens (\CreateTapePool' {retentionLockType} -> retentionLockType) (\s@CreateTapePool' {} a -> s {retentionLockType = a} :: CreateTapePool)
 
 -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
@@ -140,16 +142,16 @@ createTapePool_retentionLockType = Lens.lens (\CreateTapePool' {retentionLockTyp
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
-createTapePool_tags :: Lens.Lens' CreateTapePool (Core.Maybe [Tag])
-createTapePool_tags = Lens.lens (\CreateTapePool' {tags} -> tags) (\s@CreateTapePool' {} a -> s {tags = a} :: CreateTapePool) Core.. Lens.mapping Lens._Coerce
+createTapePool_tags :: Lens.Lens' CreateTapePool (Prelude.Maybe [Tag])
+createTapePool_tags = Lens.lens (\CreateTapePool' {tags} -> tags) (\s@CreateTapePool' {} a -> s {tags = a} :: CreateTapePool) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
 -- enabled for up to 100 years (36,500 days).
-createTapePool_retentionLockTimeInDays :: Lens.Lens' CreateTapePool (Core.Maybe Core.Natural)
+createTapePool_retentionLockTimeInDays :: Lens.Lens' CreateTapePool (Prelude.Maybe Prelude.Natural)
 createTapePool_retentionLockTimeInDays = Lens.lens (\CreateTapePool' {retentionLockTimeInDays} -> retentionLockTimeInDays) (\s@CreateTapePool' {} a -> s {retentionLockTimeInDays = a} :: CreateTapePool)
 
 -- | The name of the new custom tape pool.
-createTapePool_poolName :: Lens.Lens' CreateTapePool Core.Text
+createTapePool_poolName :: Lens.Lens' CreateTapePool Prelude.Text
 createTapePool_poolName = Lens.lens (\CreateTapePool' {poolName} -> poolName) (\s@CreateTapePool' {} a -> s {poolName = a} :: CreateTapePool)
 
 -- | The storage class that is associated with the new custom pool. When you
@@ -168,57 +170,59 @@ instance Core.AWSRequest CreateTapePool where
     Response.receiveJSON
       ( \s h x ->
           CreateTapePoolResponse'
-            Core.<$> (x Core..?> "PoolARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PoolARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTapePool
+instance Prelude.Hashable CreateTapePool
 
-instance Core.NFData CreateTapePool
+instance Prelude.NFData CreateTapePool
 
 instance Core.ToHeaders CreateTapePool where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.CreateTapePool" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateTapePool where
   toJSON CreateTapePool' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RetentionLockType" Core..=)
-              Core.<$> retentionLockType,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> retentionLockType,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("RetentionLockTimeInDays" Core..=)
-              Core.<$> retentionLockTimeInDays,
-            Core.Just ("PoolName" Core..= poolName),
-            Core.Just ("StorageClass" Core..= storageClass)
+              Prelude.<$> retentionLockTimeInDays,
+            Prelude.Just ("PoolName" Core..= poolName),
+            Prelude.Just ("StorageClass" Core..= storageClass)
           ]
       )
 
 instance Core.ToPath CreateTapePool where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTapePool where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTapePoolResponse' smart constructor.
 data CreateTapePoolResponse = CreateTapePoolResponse'
   { -- | The unique Amazon Resource Name (ARN) that represents the custom tape
     -- pool. Use the ListTapePools operation to return a list of tape pools for
     -- your account and AWS Region.
-    poolARN :: Core.Maybe Core.Text,
+    poolARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTapePoolResponse' with all optional fields omitted.
@@ -235,22 +239,22 @@ data CreateTapePoolResponse = CreateTapePoolResponse'
 -- 'httpStatus', 'createTapePoolResponse_httpStatus' - The response's http status code.
 newCreateTapePoolResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTapePoolResponse
 newCreateTapePoolResponse pHttpStatus_ =
   CreateTapePoolResponse'
-    { poolARN = Core.Nothing,
+    { poolARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique Amazon Resource Name (ARN) that represents the custom tape
 -- pool. Use the ListTapePools operation to return a list of tape pools for
 -- your account and AWS Region.
-createTapePoolResponse_poolARN :: Lens.Lens' CreateTapePoolResponse (Core.Maybe Core.Text)
+createTapePoolResponse_poolARN :: Lens.Lens' CreateTapePoolResponse (Prelude.Maybe Prelude.Text)
 createTapePoolResponse_poolARN = Lens.lens (\CreateTapePoolResponse' {poolARN} -> poolARN) (\s@CreateTapePoolResponse' {} a -> s {poolARN = a} :: CreateTapePoolResponse)
 
 -- | The response's http status code.
-createTapePoolResponse_httpStatus :: Lens.Lens' CreateTapePoolResponse Core.Int
+createTapePoolResponse_httpStatus :: Lens.Lens' CreateTapePoolResponse Prelude.Int
 createTapePoolResponse_httpStatus = Lens.lens (\CreateTapePoolResponse' {httpStatus} -> httpStatus) (\s@CreateTapePoolResponse' {} a -> s {httpStatus = a} :: CreateTapePoolResponse)
 
-instance Core.NFData CreateTapePoolResponse
+instance Prelude.NFData CreateTapePoolResponse

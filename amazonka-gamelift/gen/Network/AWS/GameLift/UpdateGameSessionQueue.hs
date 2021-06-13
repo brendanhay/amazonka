@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,22 +80,22 @@ data UpdateGameSessionQueue = UpdateGameSessionQueue'
     -- followed by a 120-second policy, and then no policy for the remainder of
     -- the placement. When updating policies, provide a complete collection of
     -- policies.
-    playerLatencyPolicies :: Core.Maybe [PlayerLatencyPolicy],
+    playerLatencyPolicies :: Prelude.Maybe [PlayerLatencyPolicy],
     -- | The maximum time, in seconds, that a new game session placement request
     -- remains in the queue. When a request exceeds this time, the game session
     -- placement changes to a @TIMED_OUT@ status.
-    timeoutInSeconds :: Core.Maybe Core.Natural,
+    timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A list of fleets that can be used to fulfill game session placement
     -- requests in the queue. Fleets are identified by either a fleet ARN or a
     -- fleet alias ARN. Destinations are listed in default preference order.
     -- When updating this list, provide a complete list of destinations.
-    destinations :: Core.Maybe [GameSessionQueueDestination],
+    destinations :: Prelude.Maybe [GameSessionQueueDestination],
     -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region. You can use either the queue ID
     -- or ARN value.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGameSessionQueue' with all optional fields omitted.
@@ -129,14 +130,14 @@ data UpdateGameSessionQueue = UpdateGameSessionQueue'
 -- or ARN value.
 newUpdateGameSessionQueue ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdateGameSessionQueue
 newUpdateGameSessionQueue pName_ =
   UpdateGameSessionQueue'
     { playerLatencyPolicies =
-        Core.Nothing,
-      timeoutInSeconds = Core.Nothing,
-      destinations = Core.Nothing,
+        Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       name = pName_
     }
 
@@ -150,26 +151,26 @@ newUpdateGameSessionQueue pName_ =
 -- followed by a 120-second policy, and then no policy for the remainder of
 -- the placement. When updating policies, provide a complete collection of
 -- policies.
-updateGameSessionQueue_playerLatencyPolicies :: Lens.Lens' UpdateGameSessionQueue (Core.Maybe [PlayerLatencyPolicy])
-updateGameSessionQueue_playerLatencyPolicies = Lens.lens (\UpdateGameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@UpdateGameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: UpdateGameSessionQueue) Core.. Lens.mapping Lens._Coerce
+updateGameSessionQueue_playerLatencyPolicies :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe [PlayerLatencyPolicy])
+updateGameSessionQueue_playerLatencyPolicies = Lens.lens (\UpdateGameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@UpdateGameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: UpdateGameSessionQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
 -- placement changes to a @TIMED_OUT@ status.
-updateGameSessionQueue_timeoutInSeconds :: Lens.Lens' UpdateGameSessionQueue (Core.Maybe Core.Natural)
+updateGameSessionQueue_timeoutInSeconds :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe Prelude.Natural)
 updateGameSessionQueue_timeoutInSeconds = Lens.lens (\UpdateGameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@UpdateGameSessionQueue' {} a -> s {timeoutInSeconds = a} :: UpdateGameSessionQueue)
 
 -- | A list of fleets that can be used to fulfill game session placement
 -- requests in the queue. Fleets are identified by either a fleet ARN or a
 -- fleet alias ARN. Destinations are listed in default preference order.
 -- When updating this list, provide a complete list of destinations.
-updateGameSessionQueue_destinations :: Lens.Lens' UpdateGameSessionQueue (Core.Maybe [GameSessionQueueDestination])
-updateGameSessionQueue_destinations = Lens.lens (\UpdateGameSessionQueue' {destinations} -> destinations) (\s@UpdateGameSessionQueue' {} a -> s {destinations = a} :: UpdateGameSessionQueue) Core.. Lens.mapping Lens._Coerce
+updateGameSessionQueue_destinations :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe [GameSessionQueueDestination])
+updateGameSessionQueue_destinations = Lens.lens (\UpdateGameSessionQueue' {destinations} -> destinations) (\s@UpdateGameSessionQueue' {} a -> s {destinations = a} :: UpdateGameSessionQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region. You can use either the queue ID
 -- or ARN value.
-updateGameSessionQueue_name :: Lens.Lens' UpdateGameSessionQueue Core.Text
+updateGameSessionQueue_name :: Lens.Lens' UpdateGameSessionQueue Prelude.Text
 updateGameSessionQueue_name = Lens.lens (\UpdateGameSessionQueue' {name} -> name) (\s@UpdateGameSessionQueue' {} a -> s {name = a} :: UpdateGameSessionQueue)
 
 instance Core.AWSRequest UpdateGameSessionQueue where
@@ -181,56 +182,58 @@ instance Core.AWSRequest UpdateGameSessionQueue where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameSessionQueueResponse'
-            Core.<$> (x Core..?> "GameSessionQueue")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameSessionQueue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateGameSessionQueue
+instance Prelude.Hashable UpdateGameSessionQueue
 
-instance Core.NFData UpdateGameSessionQueue
+instance Prelude.NFData UpdateGameSessionQueue
 
 instance Core.ToHeaders UpdateGameSessionQueue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.UpdateGameSessionQueue" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateGameSessionQueue where
   toJSON UpdateGameSessionQueue' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PlayerLatencyPolicies" Core..=)
-              Core.<$> playerLatencyPolicies,
+              Prelude.<$> playerLatencyPolicies,
             ("TimeoutInSeconds" Core..=)
-              Core.<$> timeoutInSeconds,
-            ("Destinations" Core..=) Core.<$> destinations,
-            Core.Just ("Name" Core..= name)
+              Prelude.<$> timeoutInSeconds,
+            ("Destinations" Core..=) Prelude.<$> destinations,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath UpdateGameSessionQueue where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateGameSessionQueue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newUpdateGameSessionQueueResponse' smart constructor.
 data UpdateGameSessionQueueResponse = UpdateGameSessionQueueResponse'
   { -- | An object that describes the newly updated game session queue.
-    gameSessionQueue :: Core.Maybe GameSessionQueue,
+    gameSessionQueue :: Prelude.Maybe GameSessionQueue,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGameSessionQueueResponse' with all optional fields omitted.
@@ -245,21 +248,23 @@ data UpdateGameSessionQueueResponse = UpdateGameSessionQueueResponse'
 -- 'httpStatus', 'updateGameSessionQueueResponse_httpStatus' - The response's http status code.
 newUpdateGameSessionQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateGameSessionQueueResponse
 newUpdateGameSessionQueueResponse pHttpStatus_ =
   UpdateGameSessionQueueResponse'
     { gameSessionQueue =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes the newly updated game session queue.
-updateGameSessionQueueResponse_gameSessionQueue :: Lens.Lens' UpdateGameSessionQueueResponse (Core.Maybe GameSessionQueue)
+updateGameSessionQueueResponse_gameSessionQueue :: Lens.Lens' UpdateGameSessionQueueResponse (Prelude.Maybe GameSessionQueue)
 updateGameSessionQueueResponse_gameSessionQueue = Lens.lens (\UpdateGameSessionQueueResponse' {gameSessionQueue} -> gameSessionQueue) (\s@UpdateGameSessionQueueResponse' {} a -> s {gameSessionQueue = a} :: UpdateGameSessionQueueResponse)
 
 -- | The response's http status code.
-updateGameSessionQueueResponse_httpStatus :: Lens.Lens' UpdateGameSessionQueueResponse Core.Int
+updateGameSessionQueueResponse_httpStatus :: Lens.Lens' UpdateGameSessionQueueResponse Prelude.Int
 updateGameSessionQueueResponse_httpStatus = Lens.lens (\UpdateGameSessionQueueResponse' {httpStatus} -> httpStatus) (\s@UpdateGameSessionQueueResponse' {} a -> s {httpStatus = a} :: UpdateGameSessionQueueResponse)
 
-instance Core.NFData UpdateGameSessionQueueResponse
+instance
+  Prelude.NFData
+    UpdateGameSessionQueueResponse

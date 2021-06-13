@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.ContainerDependency where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.ContainerCondition
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The dependencies defined for container startup and shutdown. A container
 -- can contain multiple dependencies. When a dependency is defined for
@@ -48,7 +49,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newContainerDependency' smart constructor.
 data ContainerDependency = ContainerDependency'
   { -- | The name of a container.
-    containerName :: Core.Text,
+    containerName :: Prelude.Text,
     -- | The dependency condition of the container. The following are the
     -- available conditions and their behavior:
     --
@@ -72,7 +73,7 @@ data ContainerDependency = ContainerDependency'
     --     configured. This condition is confirmed only at task startup.
     condition :: ContainerCondition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerDependency' with all optional fields omitted.
@@ -107,7 +108,7 @@ data ContainerDependency = ContainerDependency'
 --     configured. This condition is confirmed only at task startup.
 newContainerDependency ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'condition'
   ContainerCondition ->
   ContainerDependency
@@ -119,7 +120,7 @@ newContainerDependency pContainerName_ pCondition_ =
     }
 
 -- | The name of a container.
-containerDependency_containerName :: Lens.Lens' ContainerDependency Core.Text
+containerDependency_containerName :: Lens.Lens' ContainerDependency Prelude.Text
 containerDependency_containerName = Lens.lens (\ContainerDependency' {containerName} -> containerName) (\s@ContainerDependency' {} a -> s {containerName = a} :: ContainerDependency)
 
 -- | The dependency condition of the container. The following are the
@@ -152,19 +153,20 @@ instance Core.FromJSON ContainerDependency where
       "ContainerDependency"
       ( \x ->
           ContainerDependency'
-            Core.<$> (x Core..: "containerName")
-            Core.<*> (x Core..: "condition")
+            Prelude.<$> (x Core..: "containerName")
+            Prelude.<*> (x Core..: "condition")
       )
 
-instance Core.Hashable ContainerDependency
+instance Prelude.Hashable ContainerDependency
 
-instance Core.NFData ContainerDependency
+instance Prelude.NFData ContainerDependency
 
 instance Core.ToJSON ContainerDependency where
   toJSON ContainerDependency' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("containerName" Core..= containerName),
-            Core.Just ("condition" Core..= condition)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("containerName" Core..= containerName),
+            Prelude.Just ("condition" Core..= condition)
           ]
       )

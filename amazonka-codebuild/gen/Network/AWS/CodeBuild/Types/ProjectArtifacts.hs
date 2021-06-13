@@ -24,6 +24,7 @@ import Network.AWS.CodeBuild.Types.ArtifactPackaging
 import Network.AWS.CodeBuild.Types.ArtifactsType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the build output artifacts for the build project.
 --
@@ -50,15 +51,15 @@ data ProjectArtifacts = ProjectArtifacts'
     -- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
     -- to @BUILD_ID@, and @name@ is set to @MyArtifact.zip@, the output
     -- artifact is stored in @MyArtifacts\/\<build-ID>\/MyArtifact.zip@.
-    namespaceType :: Core.Maybe ArtifactNamespace,
+    namespaceType :: Prelude.Maybe ArtifactNamespace,
     -- | If this flag is set, a name specified in the buildspec file overrides
     -- the artifact name. The name specified in a buildspec file is calculated
     -- at build time and uses the Shell Command Language. For example, you can
     -- append a date and time to your artifact name so that it is always
     -- unique.
-    overrideArtifactName :: Core.Maybe Core.Bool,
+    overrideArtifactName :: Prelude.Maybe Prelude.Bool,
     -- | An identifier for this artifact definition.
-    artifactIdentifier :: Core.Maybe Core.Text,
+    artifactIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Along with @path@ and @namespaceType@, the pattern that AWS CodeBuild
     -- uses to name and store the output artifact:
     --
@@ -86,7 +87,7 @@ data ProjectArtifacts = ProjectArtifacts'
     -- -   If @path@ is set to @MyArtifacts@, @namespaceType@ is set to
     --     @BUILD_ID@, and @name@ is set to \"@\/@\", the output artifact is
     --     stored in @MyArtifacts\/\<build-ID>@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The type of build output artifact to create:
     --
     -- -   If @type@ is set to @CODEPIPELINE@, AWS CodePipeline ignores this
@@ -104,11 +105,11 @@ data ProjectArtifacts = ProjectArtifacts'
     --
     --     -   @ZIP@: AWS CodeBuild creates in the output bucket a ZIP file
     --         that contains the build output.
-    packaging :: Core.Maybe ArtifactPackaging,
+    packaging :: Prelude.Maybe ArtifactPackaging,
     -- | Set to true if you do not want your output artifacts encrypted. This
     -- option is valid only if your artifacts type is Amazon S3. If this is set
     -- with another artifacts type, an invalidInputException is thrown.
-    encryptionDisabled :: Core.Maybe Core.Bool,
+    encryptionDisabled :: Prelude.Maybe Prelude.Bool,
     -- | Information about the build output artifact location:
     --
     -- -   If @type@ is set to @CODEPIPELINE@, AWS CodePipeline ignores this
@@ -119,7 +120,7 @@ data ProjectArtifacts = ProjectArtifacts'
     --     specified, because no build output is produced.
     --
     -- -   If @type@ is set to @S3@, this is the name of the output bucket.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | Along with @namespaceType@ and @name@, the pattern that AWS CodeBuild
     -- uses to name and store the output artifact:
     --
@@ -136,7 +137,7 @@ data ProjectArtifacts = ProjectArtifacts'
     -- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
     -- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is
     -- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | The type of build output artifact. Valid values include:
     --
     -- -   @CODEPIPELINE@: The build project has build output generated through
@@ -149,7 +150,7 @@ data ProjectArtifacts = ProjectArtifacts'
     -- -   @S3@: The build project stores build output in Amazon S3.
     type' :: ArtifactsType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProjectArtifacts' with all optional fields omitted.
@@ -283,14 +284,14 @@ newProjectArtifacts ::
   ProjectArtifacts
 newProjectArtifacts pType_ =
   ProjectArtifacts'
-    { namespaceType = Core.Nothing,
-      overrideArtifactName = Core.Nothing,
-      artifactIdentifier = Core.Nothing,
-      name = Core.Nothing,
-      packaging = Core.Nothing,
-      encryptionDisabled = Core.Nothing,
-      location = Core.Nothing,
-      path = Core.Nothing,
+    { namespaceType = Prelude.Nothing,
+      overrideArtifactName = Prelude.Nothing,
+      artifactIdentifier = Prelude.Nothing,
+      name = Prelude.Nothing,
+      packaging = Prelude.Nothing,
+      encryptionDisabled = Prelude.Nothing,
+      location = Prelude.Nothing,
+      path = Prelude.Nothing,
       type' = pType_
     }
 
@@ -315,7 +316,7 @@ newProjectArtifacts pType_ =
 -- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
 -- to @BUILD_ID@, and @name@ is set to @MyArtifact.zip@, the output
 -- artifact is stored in @MyArtifacts\/\<build-ID>\/MyArtifact.zip@.
-projectArtifacts_namespaceType :: Lens.Lens' ProjectArtifacts (Core.Maybe ArtifactNamespace)
+projectArtifacts_namespaceType :: Lens.Lens' ProjectArtifacts (Prelude.Maybe ArtifactNamespace)
 projectArtifacts_namespaceType = Lens.lens (\ProjectArtifacts' {namespaceType} -> namespaceType) (\s@ProjectArtifacts' {} a -> s {namespaceType = a} :: ProjectArtifacts)
 
 -- | If this flag is set, a name specified in the buildspec file overrides
@@ -323,11 +324,11 @@ projectArtifacts_namespaceType = Lens.lens (\ProjectArtifacts' {namespaceType} -
 -- at build time and uses the Shell Command Language. For example, you can
 -- append a date and time to your artifact name so that it is always
 -- unique.
-projectArtifacts_overrideArtifactName :: Lens.Lens' ProjectArtifacts (Core.Maybe Core.Bool)
+projectArtifacts_overrideArtifactName :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Bool)
 projectArtifacts_overrideArtifactName = Lens.lens (\ProjectArtifacts' {overrideArtifactName} -> overrideArtifactName) (\s@ProjectArtifacts' {} a -> s {overrideArtifactName = a} :: ProjectArtifacts)
 
 -- | An identifier for this artifact definition.
-projectArtifacts_artifactIdentifier :: Lens.Lens' ProjectArtifacts (Core.Maybe Core.Text)
+projectArtifacts_artifactIdentifier :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
 projectArtifacts_artifactIdentifier = Lens.lens (\ProjectArtifacts' {artifactIdentifier} -> artifactIdentifier) (\s@ProjectArtifacts' {} a -> s {artifactIdentifier = a} :: ProjectArtifacts)
 
 -- | Along with @path@ and @namespaceType@, the pattern that AWS CodeBuild
@@ -357,7 +358,7 @@ projectArtifacts_artifactIdentifier = Lens.lens (\ProjectArtifacts' {artifactIde
 -- -   If @path@ is set to @MyArtifacts@, @namespaceType@ is set to
 --     @BUILD_ID@, and @name@ is set to \"@\/@\", the output artifact is
 --     stored in @MyArtifacts\/\<build-ID>@.
-projectArtifacts_name :: Lens.Lens' ProjectArtifacts (Core.Maybe Core.Text)
+projectArtifacts_name :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
 projectArtifacts_name = Lens.lens (\ProjectArtifacts' {name} -> name) (\s@ProjectArtifacts' {} a -> s {name = a} :: ProjectArtifacts)
 
 -- | The type of build output artifact to create:
@@ -377,13 +378,13 @@ projectArtifacts_name = Lens.lens (\ProjectArtifacts' {name} -> name) (\s@Projec
 --
 --     -   @ZIP@: AWS CodeBuild creates in the output bucket a ZIP file
 --         that contains the build output.
-projectArtifacts_packaging :: Lens.Lens' ProjectArtifacts (Core.Maybe ArtifactPackaging)
+projectArtifacts_packaging :: Lens.Lens' ProjectArtifacts (Prelude.Maybe ArtifactPackaging)
 projectArtifacts_packaging = Lens.lens (\ProjectArtifacts' {packaging} -> packaging) (\s@ProjectArtifacts' {} a -> s {packaging = a} :: ProjectArtifacts)
 
 -- | Set to true if you do not want your output artifacts encrypted. This
 -- option is valid only if your artifacts type is Amazon S3. If this is set
 -- with another artifacts type, an invalidInputException is thrown.
-projectArtifacts_encryptionDisabled :: Lens.Lens' ProjectArtifacts (Core.Maybe Core.Bool)
+projectArtifacts_encryptionDisabled :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Bool)
 projectArtifacts_encryptionDisabled = Lens.lens (\ProjectArtifacts' {encryptionDisabled} -> encryptionDisabled) (\s@ProjectArtifacts' {} a -> s {encryptionDisabled = a} :: ProjectArtifacts)
 
 -- | Information about the build output artifact location:
@@ -396,7 +397,7 @@ projectArtifacts_encryptionDisabled = Lens.lens (\ProjectArtifacts' {encryptionD
 --     specified, because no build output is produced.
 --
 -- -   If @type@ is set to @S3@, this is the name of the output bucket.
-projectArtifacts_location :: Lens.Lens' ProjectArtifacts (Core.Maybe Core.Text)
+projectArtifacts_location :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
 projectArtifacts_location = Lens.lens (\ProjectArtifacts' {location} -> location) (\s@ProjectArtifacts' {} a -> s {location = a} :: ProjectArtifacts)
 
 -- | Along with @namespaceType@ and @name@, the pattern that AWS CodeBuild
@@ -415,7 +416,7 @@ projectArtifacts_location = Lens.lens (\ProjectArtifacts' {location} -> location
 -- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
 -- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is
 -- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.
-projectArtifacts_path :: Lens.Lens' ProjectArtifacts (Core.Maybe Core.Text)
+projectArtifacts_path :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
 projectArtifacts_path = Lens.lens (\ProjectArtifacts' {path} -> path) (\s@ProjectArtifacts' {} a -> s {path = a} :: ProjectArtifacts)
 
 -- | The type of build output artifact. Valid values include:
@@ -437,36 +438,36 @@ instance Core.FromJSON ProjectArtifacts where
       "ProjectArtifacts"
       ( \x ->
           ProjectArtifacts'
-            Core.<$> (x Core..:? "namespaceType")
-            Core.<*> (x Core..:? "overrideArtifactName")
-            Core.<*> (x Core..:? "artifactIdentifier")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "packaging")
-            Core.<*> (x Core..:? "encryptionDisabled")
-            Core.<*> (x Core..:? "location")
-            Core.<*> (x Core..:? "path")
-            Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..:? "namespaceType")
+            Prelude.<*> (x Core..:? "overrideArtifactName")
+            Prelude.<*> (x Core..:? "artifactIdentifier")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "packaging")
+            Prelude.<*> (x Core..:? "encryptionDisabled")
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "path")
+            Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable ProjectArtifacts
+instance Prelude.Hashable ProjectArtifacts
 
-instance Core.NFData ProjectArtifacts
+instance Prelude.NFData ProjectArtifacts
 
 instance Core.ToJSON ProjectArtifacts where
   toJSON ProjectArtifacts' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("namespaceType" Core..=) Core.<$> namespaceType,
+      ( Prelude.catMaybes
+          [ ("namespaceType" Core..=) Prelude.<$> namespaceType,
             ("overrideArtifactName" Core..=)
-              Core.<$> overrideArtifactName,
+              Prelude.<$> overrideArtifactName,
             ("artifactIdentifier" Core..=)
-              Core.<$> artifactIdentifier,
-            ("name" Core..=) Core.<$> name,
-            ("packaging" Core..=) Core.<$> packaging,
+              Prelude.<$> artifactIdentifier,
+            ("name" Core..=) Prelude.<$> name,
+            ("packaging" Core..=) Prelude.<$> packaging,
             ("encryptionDisabled" Core..=)
-              Core.<$> encryptionDisabled,
-            ("location" Core..=) Core.<$> location,
-            ("path" Core..=) Core.<$> path,
-            Core.Just ("type" Core..= type')
+              Prelude.<$> encryptionDisabled,
+            ("location" Core..=) Prelude.<$> location,
+            ("path" Core..=) Prelude.<$> path,
+            Prelude.Just ("type" Core..= type')
           ]
       )

@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +60,13 @@ data DetachVpnGateway = DetachVpnGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPC.
-    vpcId :: Core.Text,
+    vpcId :: Prelude.Text,
     -- | The ID of the virtual private gateway.
-    vpnGatewayId :: Core.Text
+    vpnGatewayId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachVpnGateway' with all optional fields omitted.
@@ -85,13 +86,13 @@ data DetachVpnGateway = DetachVpnGateway'
 -- 'vpnGatewayId', 'detachVpnGateway_vpnGatewayId' - The ID of the virtual private gateway.
 newDetachVpnGateway ::
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpnGatewayId'
-  Core.Text ->
+  Prelude.Text ->
   DetachVpnGateway
 newDetachVpnGateway pVpcId_ pVpnGatewayId_ =
   DetachVpnGateway'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       vpcId = pVpcId_,
       vpnGatewayId = pVpnGatewayId_
     }
@@ -100,15 +101,15 @@ newDetachVpnGateway pVpcId_ pVpnGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-detachVpnGateway_dryRun :: Lens.Lens' DetachVpnGateway (Core.Maybe Core.Bool)
+detachVpnGateway_dryRun :: Lens.Lens' DetachVpnGateway (Prelude.Maybe Prelude.Bool)
 detachVpnGateway_dryRun = Lens.lens (\DetachVpnGateway' {dryRun} -> dryRun) (\s@DetachVpnGateway' {} a -> s {dryRun = a} :: DetachVpnGateway)
 
 -- | The ID of the VPC.
-detachVpnGateway_vpcId :: Lens.Lens' DetachVpnGateway Core.Text
+detachVpnGateway_vpcId :: Lens.Lens' DetachVpnGateway Prelude.Text
 detachVpnGateway_vpcId = Lens.lens (\DetachVpnGateway' {vpcId} -> vpcId) (\s@DetachVpnGateway' {} a -> s {vpcId = a} :: DetachVpnGateway)
 
 -- | The ID of the virtual private gateway.
-detachVpnGateway_vpnGatewayId :: Lens.Lens' DetachVpnGateway Core.Text
+detachVpnGateway_vpnGatewayId :: Lens.Lens' DetachVpnGateway Prelude.Text
 detachVpnGateway_vpnGatewayId = Lens.lens (\DetachVpnGateway' {vpnGatewayId} -> vpnGatewayId) (\s@DetachVpnGateway' {} a -> s {vpnGatewayId = a} :: DetachVpnGateway)
 
 instance Core.AWSRequest DetachVpnGateway where
@@ -119,22 +120,23 @@ instance Core.AWSRequest DetachVpnGateway where
   response =
     Response.receiveNull DetachVpnGatewayResponse'
 
-instance Core.Hashable DetachVpnGateway
+instance Prelude.Hashable DetachVpnGateway
 
-instance Core.NFData DetachVpnGateway
+instance Prelude.NFData DetachVpnGateway
 
 instance Core.ToHeaders DetachVpnGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetachVpnGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachVpnGateway where
   toQuery DetachVpnGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachVpnGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DetachVpnGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "VpcId" Core.=: vpcId,
         "VpnGatewayId" Core.=: vpnGatewayId
@@ -144,7 +146,7 @@ instance Core.ToQuery DetachVpnGateway where
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachVpnGatewayResponse' with all optional fields omitted.
@@ -155,4 +157,4 @@ newDetachVpnGatewayResponse ::
 newDetachVpnGatewayResponse =
   DetachVpnGatewayResponse'
 
-instance Core.NFData DetachVpnGatewayResponse
+instance Prelude.NFData DetachVpnGatewayResponse

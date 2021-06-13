@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetContainerPolicy' smart constructor.
 data GetContainerPolicy = GetContainerPolicy'
   { -- | The name of the container.
-    containerName :: Core.Text
+    containerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerPolicy' with all optional fields omitted.
@@ -65,7 +66,7 @@ data GetContainerPolicy = GetContainerPolicy'
 -- 'containerName', 'getContainerPolicy_containerName' - The name of the container.
 newGetContainerPolicy ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   GetContainerPolicy
 newGetContainerPolicy pContainerName_ =
   GetContainerPolicy'
@@ -74,7 +75,7 @@ newGetContainerPolicy pContainerName_ =
     }
 
 -- | The name of the container.
-getContainerPolicy_containerName :: Lens.Lens' GetContainerPolicy Core.Text
+getContainerPolicy_containerName :: Lens.Lens' GetContainerPolicy Prelude.Text
 getContainerPolicy_containerName = Lens.lens (\GetContainerPolicy' {containerName} -> containerName) (\s@GetContainerPolicy' {} a -> s {containerName = a} :: GetContainerPolicy)
 
 instance Core.AWSRequest GetContainerPolicy where
@@ -86,48 +87,52 @@ instance Core.AWSRequest GetContainerPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetContainerPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "Policy")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Policy")
       )
 
-instance Core.Hashable GetContainerPolicy
+instance Prelude.Hashable GetContainerPolicy
 
-instance Core.NFData GetContainerPolicy
+instance Prelude.NFData GetContainerPolicy
 
 instance Core.ToHeaders GetContainerPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.GetContainerPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetContainerPolicy where
   toJSON GetContainerPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
       )
 
 instance Core.ToPath GetContainerPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetContainerPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerPolicyResponse' smart constructor.
 data GetContainerPolicyResponse = GetContainerPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The contents of the access policy.
-    policy :: Core.Text
+    policy :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerPolicyResponse' with all optional fields omitted.
@@ -142,9 +147,9 @@ data GetContainerPolicyResponse = GetContainerPolicyResponse'
 -- 'policy', 'getContainerPolicyResponse_policy' - The contents of the access policy.
 newGetContainerPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'policy'
-  Core.Text ->
+  Prelude.Text ->
   GetContainerPolicyResponse
 newGetContainerPolicyResponse pHttpStatus_ pPolicy_ =
   GetContainerPolicyResponse'
@@ -154,11 +159,11 @@ newGetContainerPolicyResponse pHttpStatus_ pPolicy_ =
     }
 
 -- | The response's http status code.
-getContainerPolicyResponse_httpStatus :: Lens.Lens' GetContainerPolicyResponse Core.Int
+getContainerPolicyResponse_httpStatus :: Lens.Lens' GetContainerPolicyResponse Prelude.Int
 getContainerPolicyResponse_httpStatus = Lens.lens (\GetContainerPolicyResponse' {httpStatus} -> httpStatus) (\s@GetContainerPolicyResponse' {} a -> s {httpStatus = a} :: GetContainerPolicyResponse)
 
 -- | The contents of the access policy.
-getContainerPolicyResponse_policy :: Lens.Lens' GetContainerPolicyResponse Core.Text
+getContainerPolicyResponse_policy :: Lens.Lens' GetContainerPolicyResponse Prelude.Text
 getContainerPolicyResponse_policy = Lens.lens (\GetContainerPolicyResponse' {policy} -> policy) (\s@GetContainerPolicyResponse' {} a -> s {policy = a} :: GetContainerPolicyResponse)
 
-instance Core.NFData GetContainerPolicyResponse
+instance Prelude.NFData GetContainerPolicyResponse

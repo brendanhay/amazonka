@@ -22,17 +22,18 @@ module Network.AWS.AppStream.Types.FleetError where
 import Network.AWS.AppStream.Types.FleetErrorCode
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a fleet error.
 --
 -- /See:/ 'newFleetError' smart constructor.
 data FleetError = FleetError'
   { -- | The error message.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    errorCode :: Core.Maybe FleetErrorCode
+    errorCode :: Prelude.Maybe FleetErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetError' with all optional fields omitted.
@@ -49,16 +50,16 @@ newFleetError ::
   FleetError
 newFleetError =
   FleetError'
-    { errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+    { errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The error message.
-fleetError_errorMessage :: Lens.Lens' FleetError (Core.Maybe Core.Text)
+fleetError_errorMessage :: Lens.Lens' FleetError (Prelude.Maybe Prelude.Text)
 fleetError_errorMessage = Lens.lens (\FleetError' {errorMessage} -> errorMessage) (\s@FleetError' {} a -> s {errorMessage = a} :: FleetError)
 
 -- | The error code.
-fleetError_errorCode :: Lens.Lens' FleetError (Core.Maybe FleetErrorCode)
+fleetError_errorCode :: Lens.Lens' FleetError (Prelude.Maybe FleetErrorCode)
 fleetError_errorCode = Lens.lens (\FleetError' {errorCode} -> errorCode) (\s@FleetError' {} a -> s {errorCode = a} :: FleetError)
 
 instance Core.FromJSON FleetError where
@@ -67,10 +68,10 @@ instance Core.FromJSON FleetError where
       "FleetError"
       ( \x ->
           FleetError'
-            Core.<$> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable FleetError
+instance Prelude.Hashable FleetError
 
-instance Core.NFData FleetError
+instance Prelude.NFData FleetError

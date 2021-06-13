@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
 
 -- | An object containing information about the error, along with identifying
@@ -30,17 +31,17 @@ import Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
 data FailedServiceActionAssociation = FailedServiceActionAssociation'
   { -- | The identifier of the provisioning artifact. For example,
     -- @pa-4abcdjnxjj6ne@.
-    provisioningArtifactId :: Core.Maybe Core.Text,
+    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
     -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-    serviceActionId :: Core.Maybe Core.Text,
+    serviceActionId :: Prelude.Maybe Prelude.Text,
     -- | The product identifier. For example, @prod-abcdzk7xy33qa@.
-    productId :: Core.Maybe Core.Text,
+    productId :: Prelude.Maybe Prelude.Text,
     -- | A text description of the error.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code. Valid values are listed below.
-    errorCode :: Core.Maybe ServiceActionAssociationErrorCode
+    errorCode :: Prelude.Maybe ServiceActionAssociationErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailedServiceActionAssociation' with all optional fields omitted.
@@ -65,32 +66,32 @@ newFailedServiceActionAssociation ::
 newFailedServiceActionAssociation =
   FailedServiceActionAssociation'
     { provisioningArtifactId =
-        Core.Nothing,
-      serviceActionId = Core.Nothing,
-      productId = Core.Nothing,
-      errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+        Prelude.Nothing,
+      serviceActionId = Prelude.Nothing,
+      productId = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The identifier of the provisioning artifact. For example,
 -- @pa-4abcdjnxjj6ne@.
-failedServiceActionAssociation_provisioningArtifactId :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Core.Text)
+failedServiceActionAssociation_provisioningArtifactId :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
 failedServiceActionAssociation_provisioningArtifactId = Lens.lens (\FailedServiceActionAssociation' {provisioningArtifactId} -> provisioningArtifactId) (\s@FailedServiceActionAssociation' {} a -> s {provisioningArtifactId = a} :: FailedServiceActionAssociation)
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-failedServiceActionAssociation_serviceActionId :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Core.Text)
+failedServiceActionAssociation_serviceActionId :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
 failedServiceActionAssociation_serviceActionId = Lens.lens (\FailedServiceActionAssociation' {serviceActionId} -> serviceActionId) (\s@FailedServiceActionAssociation' {} a -> s {serviceActionId = a} :: FailedServiceActionAssociation)
 
 -- | The product identifier. For example, @prod-abcdzk7xy33qa@.
-failedServiceActionAssociation_productId :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Core.Text)
+failedServiceActionAssociation_productId :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
 failedServiceActionAssociation_productId = Lens.lens (\FailedServiceActionAssociation' {productId} -> productId) (\s@FailedServiceActionAssociation' {} a -> s {productId = a} :: FailedServiceActionAssociation)
 
 -- | A text description of the error.
-failedServiceActionAssociation_errorMessage :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Core.Text)
+failedServiceActionAssociation_errorMessage :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
 failedServiceActionAssociation_errorMessage = Lens.lens (\FailedServiceActionAssociation' {errorMessage} -> errorMessage) (\s@FailedServiceActionAssociation' {} a -> s {errorMessage = a} :: FailedServiceActionAssociation)
 
 -- | The error code. Valid values are listed below.
-failedServiceActionAssociation_errorCode :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe ServiceActionAssociationErrorCode)
+failedServiceActionAssociation_errorCode :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe ServiceActionAssociationErrorCode)
 failedServiceActionAssociation_errorCode = Lens.lens (\FailedServiceActionAssociation' {errorCode} -> errorCode) (\s@FailedServiceActionAssociation' {} a -> s {errorCode = a} :: FailedServiceActionAssociation)
 
 instance Core.FromJSON FailedServiceActionAssociation where
@@ -99,13 +100,17 @@ instance Core.FromJSON FailedServiceActionAssociation where
       "FailedServiceActionAssociation"
       ( \x ->
           FailedServiceActionAssociation'
-            Core.<$> (x Core..:? "ProvisioningArtifactId")
-            Core.<*> (x Core..:? "ServiceActionId")
-            Core.<*> (x Core..:? "ProductId")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Core..:? "ServiceActionId")
+            Prelude.<*> (x Core..:? "ProductId")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable FailedServiceActionAssociation
+instance
+  Prelude.Hashable
+    FailedServiceActionAssociation
 
-instance Core.NFData FailedServiceActionAssociation
+instance
+  Prelude.NFData
+    FailedServiceActionAssociation

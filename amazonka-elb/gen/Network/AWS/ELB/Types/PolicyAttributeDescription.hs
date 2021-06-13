@@ -22,17 +22,18 @@ module Network.AWS.ELB.Types.PolicyAttributeDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a policy attribute.
 --
 -- /See:/ 'newPolicyAttributeDescription' smart constructor.
 data PolicyAttributeDescription = PolicyAttributeDescription'
   { -- | The value of the attribute.
-    attributeValue :: Core.Maybe Core.Text,
+    attributeValue :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute.
-    attributeName :: Core.Maybe Core.Text
+    attributeName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyAttributeDescription' with all optional fields omitted.
@@ -50,24 +51,24 @@ newPolicyAttributeDescription ::
 newPolicyAttributeDescription =
   PolicyAttributeDescription'
     { attributeValue =
-        Core.Nothing,
-      attributeName = Core.Nothing
+        Prelude.Nothing,
+      attributeName = Prelude.Nothing
     }
 
 -- | The value of the attribute.
-policyAttributeDescription_attributeValue :: Lens.Lens' PolicyAttributeDescription (Core.Maybe Core.Text)
+policyAttributeDescription_attributeValue :: Lens.Lens' PolicyAttributeDescription (Prelude.Maybe Prelude.Text)
 policyAttributeDescription_attributeValue = Lens.lens (\PolicyAttributeDescription' {attributeValue} -> attributeValue) (\s@PolicyAttributeDescription' {} a -> s {attributeValue = a} :: PolicyAttributeDescription)
 
 -- | The name of the attribute.
-policyAttributeDescription_attributeName :: Lens.Lens' PolicyAttributeDescription (Core.Maybe Core.Text)
+policyAttributeDescription_attributeName :: Lens.Lens' PolicyAttributeDescription (Prelude.Maybe Prelude.Text)
 policyAttributeDescription_attributeName = Lens.lens (\PolicyAttributeDescription' {attributeName} -> attributeName) (\s@PolicyAttributeDescription' {} a -> s {attributeName = a} :: PolicyAttributeDescription)
 
 instance Core.FromXML PolicyAttributeDescription where
   parseXML x =
     PolicyAttributeDescription'
-      Core.<$> (x Core..@? "AttributeValue")
-      Core.<*> (x Core..@? "AttributeName")
+      Prelude.<$> (x Core..@? "AttributeValue")
+      Prelude.<*> (x Core..@? "AttributeName")
 
-instance Core.Hashable PolicyAttributeDescription
+instance Prelude.Hashable PolicyAttributeDescription
 
-instance Core.NFData PolicyAttributeDescription
+instance Prelude.NFData PolicyAttributeDescription

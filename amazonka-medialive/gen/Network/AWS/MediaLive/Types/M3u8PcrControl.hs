@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.M3u8PcrControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | M3u8 Pcr Control
 newtype M3u8PcrControl = M3u8PcrControl'
@@ -34,15 +35,15 @@ newtype M3u8PcrControl = M3u8PcrControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

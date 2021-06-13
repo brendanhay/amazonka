@@ -22,15 +22,16 @@ module Network.AWS.MediaLive.Types.MultiplexOutputDestination where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Multiplex output destination settings
 --
 -- /See:/ 'newMultiplexOutputDestination' smart constructor.
 data MultiplexOutputDestination = MultiplexOutputDestination'
   { -- | Multiplex MediaConnect output destination settings.
-    mediaConnectSettings :: Core.Maybe MultiplexMediaConnectOutputDestinationSettings
+    mediaConnectSettings :: Prelude.Maybe MultiplexMediaConnectOutputDestinationSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiplexOutputDestination' with all optional fields omitted.
@@ -46,11 +47,11 @@ newMultiplexOutputDestination ::
 newMultiplexOutputDestination =
   MultiplexOutputDestination'
     { mediaConnectSettings =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Multiplex MediaConnect output destination settings.
-multiplexOutputDestination_mediaConnectSettings :: Lens.Lens' MultiplexOutputDestination (Core.Maybe MultiplexMediaConnectOutputDestinationSettings)
+multiplexOutputDestination_mediaConnectSettings :: Lens.Lens' MultiplexOutputDestination (Prelude.Maybe MultiplexMediaConnectOutputDestinationSettings)
 multiplexOutputDestination_mediaConnectSettings = Lens.lens (\MultiplexOutputDestination' {mediaConnectSettings} -> mediaConnectSettings) (\s@MultiplexOutputDestination' {} a -> s {mediaConnectSettings = a} :: MultiplexOutputDestination)
 
 instance Core.FromJSON MultiplexOutputDestination where
@@ -59,9 +60,9 @@ instance Core.FromJSON MultiplexOutputDestination where
       "MultiplexOutputDestination"
       ( \x ->
           MultiplexOutputDestination'
-            Core.<$> (x Core..:? "mediaConnectSettings")
+            Prelude.<$> (x Core..:? "mediaConnectSettings")
       )
 
-instance Core.Hashable MultiplexOutputDestination
+instance Prelude.Hashable MultiplexOutputDestination
 
-instance Core.NFData MultiplexOutputDestination
+instance Prelude.NFData MultiplexOutputDestination

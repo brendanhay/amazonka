@@ -21,6 +21,7 @@ module Network.AWS.KMS.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys
 -- and tag values are both required, but tag values can be empty (null)
@@ -34,11 +35,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The key of the tag.
-    tagKey :: Core.Text,
+    tagKey :: Prelude.Text,
     -- | The value of the tag.
-    tagValue :: Core.Text
+    tagValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -53,19 +54,19 @@ data Tag = Tag'
 -- 'tagValue', 'tag_tagValue' - The value of the tag.
 newTag ::
   -- | 'tagKey'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tagValue'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pTagKey_ pTagValue_ =
   Tag' {tagKey = pTagKey_, tagValue = pTagValue_}
 
 -- | The key of the tag.
-tag_tagKey :: Lens.Lens' Tag Core.Text
+tag_tagKey :: Lens.Lens' Tag Prelude.Text
 tag_tagKey = Lens.lens (\Tag' {tagKey} -> tagKey) (\s@Tag' {} a -> s {tagKey = a} :: Tag)
 
 -- | The value of the tag.
-tag_tagValue :: Lens.Lens' Tag Core.Text
+tag_tagValue :: Lens.Lens' Tag Prelude.Text
 tag_tagValue = Lens.lens (\Tag' {tagValue} -> tagValue) (\s@Tag' {} a -> s {tagValue = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -74,18 +75,19 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..: "TagKey") Core.<*> (x Core..: "TagValue")
+            Prelude.<$> (x Core..: "TagKey")
+            Prelude.<*> (x Core..: "TagValue")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TagKey" Core..= tagKey),
-            Core.Just ("TagValue" Core..= tagValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TagKey" Core..= tagKey),
+            Prelude.Just ("TagValue" Core..= tagValue)
           ]
       )

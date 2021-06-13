@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.BlueGreenUpdatePolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TrafficRoutingConfig
 
 -- | Currently, the @BlueGreenUpdatePolicy@ API is not supported.
 --
 -- /See:/ 'newBlueGreenUpdatePolicy' smart constructor.
 data BlueGreenUpdatePolicy = BlueGreenUpdatePolicy'
-  { terminationWaitInSeconds :: Core.Maybe Core.Natural,
-    maximumExecutionTimeoutInSeconds :: Core.Maybe Core.Natural,
+  { terminationWaitInSeconds :: Prelude.Maybe Prelude.Natural,
+    maximumExecutionTimeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     trafficRoutingConfiguration :: TrafficRoutingConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BlueGreenUpdatePolicy' with all optional fields omitted.
@@ -54,18 +55,18 @@ newBlueGreenUpdatePolicy
   pTrafficRoutingConfiguration_ =
     BlueGreenUpdatePolicy'
       { terminationWaitInSeconds =
-          Core.Nothing,
-        maximumExecutionTimeoutInSeconds = Core.Nothing,
+          Prelude.Nothing,
+        maximumExecutionTimeoutInSeconds = Prelude.Nothing,
         trafficRoutingConfiguration =
           pTrafficRoutingConfiguration_
       }
 
 -- |
-blueGreenUpdatePolicy_terminationWaitInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Core.Maybe Core.Natural)
+blueGreenUpdatePolicy_terminationWaitInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Prelude.Maybe Prelude.Natural)
 blueGreenUpdatePolicy_terminationWaitInSeconds = Lens.lens (\BlueGreenUpdatePolicy' {terminationWaitInSeconds} -> terminationWaitInSeconds) (\s@BlueGreenUpdatePolicy' {} a -> s {terminationWaitInSeconds = a} :: BlueGreenUpdatePolicy)
 
 -- |
-blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Core.Maybe Core.Natural)
+blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Prelude.Maybe Prelude.Natural)
 blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds = Lens.lens (\BlueGreenUpdatePolicy' {maximumExecutionTimeoutInSeconds} -> maximumExecutionTimeoutInSeconds) (\s@BlueGreenUpdatePolicy' {} a -> s {maximumExecutionTimeoutInSeconds = a} :: BlueGreenUpdatePolicy)
 
 -- |
@@ -78,24 +79,24 @@ instance Core.FromJSON BlueGreenUpdatePolicy where
       "BlueGreenUpdatePolicy"
       ( \x ->
           BlueGreenUpdatePolicy'
-            Core.<$> (x Core..:? "TerminationWaitInSeconds")
-            Core.<*> (x Core..:? "MaximumExecutionTimeoutInSeconds")
-            Core.<*> (x Core..: "TrafficRoutingConfiguration")
+            Prelude.<$> (x Core..:? "TerminationWaitInSeconds")
+            Prelude.<*> (x Core..:? "MaximumExecutionTimeoutInSeconds")
+            Prelude.<*> (x Core..: "TrafficRoutingConfiguration")
       )
 
-instance Core.Hashable BlueGreenUpdatePolicy
+instance Prelude.Hashable BlueGreenUpdatePolicy
 
-instance Core.NFData BlueGreenUpdatePolicy
+instance Prelude.NFData BlueGreenUpdatePolicy
 
 instance Core.ToJSON BlueGreenUpdatePolicy where
   toJSON BlueGreenUpdatePolicy' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("TerminationWaitInSeconds" Core..=)
-              Core.<$> terminationWaitInSeconds,
+              Prelude.<$> terminationWaitInSeconds,
             ("MaximumExecutionTimeoutInSeconds" Core..=)
-              Core.<$> maximumExecutionTimeoutInSeconds,
-            Core.Just
+              Prelude.<$> maximumExecutionTimeoutInSeconds,
+            Prelude.Just
               ( "TrafficRoutingConfiguration"
                   Core..= trafficRoutingConfiguration
               )

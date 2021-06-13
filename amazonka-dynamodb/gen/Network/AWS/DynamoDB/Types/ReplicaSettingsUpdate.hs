@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
 import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the settings for a global table in a Region that will be
 -- modified.
@@ -31,20 +32,20 @@ import qualified Network.AWS.Lens as Lens
 data ReplicaSettingsUpdate = ReplicaSettingsUpdate'
   { -- | Represents the settings of a global secondary index for a global table
     -- that will be modified.
-    replicaGlobalSecondaryIndexSettingsUpdate :: Core.Maybe (Core.NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate),
+    replicaGlobalSecondaryIndexSettingsUpdate :: Prelude.Maybe (Prelude.NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate),
     -- | The maximum number of strongly consistent reads consumed per second
     -- before DynamoDB returns a @ThrottlingException@. For more information,
     -- see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
     -- in the /Amazon DynamoDB Developer Guide/.
-    replicaProvisionedReadCapacityUnits :: Core.Maybe Core.Natural,
+    replicaProvisionedReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | Auto scaling settings for managing a global table replica\'s read
     -- capacity units.
-    replicaProvisionedReadCapacityAutoScalingSettingsUpdate :: Core.Maybe AutoScalingSettingsUpdate,
+    replicaProvisionedReadCapacityAutoScalingSettingsUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
     -- | The Region of the replica to be added.
-    regionName :: Core.Text
+    regionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicaSettingsUpdate' with all optional fields omitted.
@@ -69,58 +70,59 @@ data ReplicaSettingsUpdate = ReplicaSettingsUpdate'
 -- 'regionName', 'replicaSettingsUpdate_regionName' - The Region of the replica to be added.
 newReplicaSettingsUpdate ::
   -- | 'regionName'
-  Core.Text ->
+  Prelude.Text ->
   ReplicaSettingsUpdate
 newReplicaSettingsUpdate pRegionName_ =
   ReplicaSettingsUpdate'
     { replicaGlobalSecondaryIndexSettingsUpdate =
-        Core.Nothing,
-      replicaProvisionedReadCapacityUnits = Core.Nothing,
+        Prelude.Nothing,
+      replicaProvisionedReadCapacityUnits =
+        Prelude.Nothing,
       replicaProvisionedReadCapacityAutoScalingSettingsUpdate =
-        Core.Nothing,
+        Prelude.Nothing,
       regionName = pRegionName_
     }
 
 -- | Represents the settings of a global secondary index for a global table
 -- that will be modified.
-replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate :: Lens.Lens' ReplicaSettingsUpdate (Core.Maybe (Core.NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate))
-replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate = Lens.lens (\ReplicaSettingsUpdate' {replicaGlobalSecondaryIndexSettingsUpdate} -> replicaGlobalSecondaryIndexSettingsUpdate) (\s@ReplicaSettingsUpdate' {} a -> s {replicaGlobalSecondaryIndexSettingsUpdate = a} :: ReplicaSettingsUpdate) Core.. Lens.mapping Lens._Coerce
+replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate :: Lens.Lens' ReplicaSettingsUpdate (Prelude.Maybe (Prelude.NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate))
+replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate = Lens.lens (\ReplicaSettingsUpdate' {replicaGlobalSecondaryIndexSettingsUpdate} -> replicaGlobalSecondaryIndexSettingsUpdate) (\s@ReplicaSettingsUpdate' {} a -> s {replicaGlobalSecondaryIndexSettingsUpdate = a} :: ReplicaSettingsUpdate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a @ThrottlingException@. For more information,
 -- see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
 -- in the /Amazon DynamoDB Developer Guide/.
-replicaSettingsUpdate_replicaProvisionedReadCapacityUnits :: Lens.Lens' ReplicaSettingsUpdate (Core.Maybe Core.Natural)
+replicaSettingsUpdate_replicaProvisionedReadCapacityUnits :: Lens.Lens' ReplicaSettingsUpdate (Prelude.Maybe Prelude.Natural)
 replicaSettingsUpdate_replicaProvisionedReadCapacityUnits = Lens.lens (\ReplicaSettingsUpdate' {replicaProvisionedReadCapacityUnits} -> replicaProvisionedReadCapacityUnits) (\s@ReplicaSettingsUpdate' {} a -> s {replicaProvisionedReadCapacityUnits = a} :: ReplicaSettingsUpdate)
 
 -- | Auto scaling settings for managing a global table replica\'s read
 -- capacity units.
-replicaSettingsUpdate_replicaProvisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaSettingsUpdate (Core.Maybe AutoScalingSettingsUpdate)
+replicaSettingsUpdate_replicaProvisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaSettingsUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
 replicaSettingsUpdate_replicaProvisionedReadCapacityAutoScalingSettingsUpdate = Lens.lens (\ReplicaSettingsUpdate' {replicaProvisionedReadCapacityAutoScalingSettingsUpdate} -> replicaProvisionedReadCapacityAutoScalingSettingsUpdate) (\s@ReplicaSettingsUpdate' {} a -> s {replicaProvisionedReadCapacityAutoScalingSettingsUpdate = a} :: ReplicaSettingsUpdate)
 
 -- | The Region of the replica to be added.
-replicaSettingsUpdate_regionName :: Lens.Lens' ReplicaSettingsUpdate Core.Text
+replicaSettingsUpdate_regionName :: Lens.Lens' ReplicaSettingsUpdate Prelude.Text
 replicaSettingsUpdate_regionName = Lens.lens (\ReplicaSettingsUpdate' {regionName} -> regionName) (\s@ReplicaSettingsUpdate' {} a -> s {regionName = a} :: ReplicaSettingsUpdate)
 
-instance Core.Hashable ReplicaSettingsUpdate
+instance Prelude.Hashable ReplicaSettingsUpdate
 
-instance Core.NFData ReplicaSettingsUpdate
+instance Prelude.NFData ReplicaSettingsUpdate
 
 instance Core.ToJSON ReplicaSettingsUpdate where
   toJSON ReplicaSettingsUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ( "ReplicaGlobalSecondaryIndexSettingsUpdate"
                 Core..=
             )
-              Core.<$> replicaGlobalSecondaryIndexSettingsUpdate,
+              Prelude.<$> replicaGlobalSecondaryIndexSettingsUpdate,
             ("ReplicaProvisionedReadCapacityUnits" Core..=)
-              Core.<$> replicaProvisionedReadCapacityUnits,
+              Prelude.<$> replicaProvisionedReadCapacityUnits,
             ( "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate"
                 Core..=
             )
-              Core.<$> replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
-            Core.Just ("RegionName" Core..= regionName)
+              Prelude.<$> replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
+            Prelude.Just ("RegionName" Core..= regionName)
           ]
       )

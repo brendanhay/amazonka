@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -47,9 +48,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeleteOpsMetadata' smart constructor.
 data DeleteOpsMetadata = DeleteOpsMetadata'
   { -- | The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.
-    opsMetadataArn :: Core.Text
+    opsMetadataArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOpsMetadata' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteOpsMetadata = DeleteOpsMetadata'
 -- 'opsMetadataArn', 'deleteOpsMetadata_opsMetadataArn' - The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.
 newDeleteOpsMetadata ::
   -- | 'opsMetadataArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteOpsMetadata
 newDeleteOpsMetadata pOpsMetadataArn_ =
   DeleteOpsMetadata'
@@ -71,7 +72,7 @@ newDeleteOpsMetadata pOpsMetadataArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.
-deleteOpsMetadata_opsMetadataArn :: Lens.Lens' DeleteOpsMetadata Core.Text
+deleteOpsMetadata_opsMetadataArn :: Lens.Lens' DeleteOpsMetadata Prelude.Text
 deleteOpsMetadata_opsMetadataArn = Lens.lens (\DeleteOpsMetadata' {opsMetadataArn} -> opsMetadataArn) (\s@DeleteOpsMetadata' {} a -> s {opsMetadataArn = a} :: DeleteOpsMetadata)
 
 instance Core.AWSRequest DeleteOpsMetadata where
@@ -83,45 +84,49 @@ instance Core.AWSRequest DeleteOpsMetadata where
     Response.receiveEmpty
       ( \s h x ->
           DeleteOpsMetadataResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteOpsMetadata
+instance Prelude.Hashable DeleteOpsMetadata
 
-instance Core.NFData DeleteOpsMetadata
+instance Prelude.NFData DeleteOpsMetadata
 
 instance Core.ToHeaders DeleteOpsMetadata where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteOpsMetadata" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.DeleteOpsMetadata" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteOpsMetadata where
   toJSON DeleteOpsMetadata' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("OpsMetadataArn" Core..= opsMetadataArn)
           ]
       )
 
 instance Core.ToPath DeleteOpsMetadata where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteOpsMetadata where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOpsMetadataResponse' smart constructor.
 data DeleteOpsMetadataResponse = DeleteOpsMetadataResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOpsMetadataResponse' with all optional fields omitted.
@@ -134,7 +139,7 @@ data DeleteOpsMetadataResponse = DeleteOpsMetadataResponse'
 -- 'httpStatus', 'deleteOpsMetadataResponse_httpStatus' - The response's http status code.
 newDeleteOpsMetadataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteOpsMetadataResponse
 newDeleteOpsMetadataResponse pHttpStatus_ =
   DeleteOpsMetadataResponse'
@@ -143,7 +148,7 @@ newDeleteOpsMetadataResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteOpsMetadataResponse_httpStatus :: Lens.Lens' DeleteOpsMetadataResponse Core.Int
+deleteOpsMetadataResponse_httpStatus :: Lens.Lens' DeleteOpsMetadataResponse Prelude.Int
 deleteOpsMetadataResponse_httpStatus = Lens.lens (\DeleteOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@DeleteOpsMetadataResponse' {} a -> s {httpStatus = a} :: DeleteOpsMetadataResponse)
 
-instance Core.NFData DeleteOpsMetadataResponse
+instance Prelude.NFData DeleteOpsMetadataResponse

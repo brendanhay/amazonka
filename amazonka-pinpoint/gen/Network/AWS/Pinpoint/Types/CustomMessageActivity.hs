@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointTypesElement
 import Network.AWS.Pinpoint.Types.JourneyCustomMessage
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The settings for a custom message activity. This type of activity calls
 -- an AWS Lambda function or web hook that sends messages to participants.
@@ -32,10 +33,10 @@ data CustomMessageActivity = CustomMessageActivity'
   { -- | The name of the custom message template to use for the message. If
     -- specified, this value must match the name of an existing message
     -- template.
-    templateName :: Core.Maybe Core.Text,
+    templateName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the message data included in a custom channel message that\'s
     -- sent to participants in a journey.
-    messageConfig :: Core.Maybe JourneyCustomMessage,
+    messageConfig :: Prelude.Maybe JourneyCustomMessage,
     -- | The destination to send the campaign or treatment to. This value can be
     -- one of the following:
     --
@@ -45,14 +46,14 @@ data CustomMessageActivity = CustomMessageActivity'
     -- -   The URL for a web application or service that supports HTTPS and can
     --     receive the message. The URL has to be a full URL, including the
     --     HTTPS protocol.
-    deliveryUri :: Core.Maybe Core.Text,
+    deliveryUri :: Prelude.Maybe Prelude.Text,
     -- | The types of endpoints to send the custom message to. Each valid value
     -- maps to a type of channel that you can associate with an endpoint by
     -- using the ChannelType property of an endpoint.
-    endpointTypes :: Core.Maybe [EndpointTypesElement],
+    endpointTypes :: Prelude.Maybe [EndpointTypesElement],
     -- | The unique identifier for the next activity to perform, after Amazon
     -- Pinpoint calls the AWS Lambda function or web hook.
-    nextActivity :: Core.Maybe Core.Text,
+    nextActivity :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the version of the message template to use for
     -- the message. If specified, this value must match the identifier for an
     -- existing template version. To retrieve a list of versions and version
@@ -63,9 +64,9 @@ data CustomMessageActivity = CustomMessageActivity'
     -- the version of a template that\'s been most recently reviewed and
     -- approved for use, depending on your workflow. It isn\'t necessarily the
     -- latest version of a template.
-    templateVersion :: Core.Maybe Core.Text
+    templateVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomMessageActivity' with all optional fields omitted.
@@ -113,23 +114,24 @@ newCustomMessageActivity ::
   CustomMessageActivity
 newCustomMessageActivity =
   CustomMessageActivity'
-    { templateName = Core.Nothing,
-      messageConfig = Core.Nothing,
-      deliveryUri = Core.Nothing,
-      endpointTypes = Core.Nothing,
-      nextActivity = Core.Nothing,
-      templateVersion = Core.Nothing
+    { templateName =
+        Prelude.Nothing,
+      messageConfig = Prelude.Nothing,
+      deliveryUri = Prelude.Nothing,
+      endpointTypes = Prelude.Nothing,
+      nextActivity = Prelude.Nothing,
+      templateVersion = Prelude.Nothing
     }
 
 -- | The name of the custom message template to use for the message. If
 -- specified, this value must match the name of an existing message
 -- template.
-customMessageActivity_templateName :: Lens.Lens' CustomMessageActivity (Core.Maybe Core.Text)
+customMessageActivity_templateName :: Lens.Lens' CustomMessageActivity (Prelude.Maybe Prelude.Text)
 customMessageActivity_templateName = Lens.lens (\CustomMessageActivity' {templateName} -> templateName) (\s@CustomMessageActivity' {} a -> s {templateName = a} :: CustomMessageActivity)
 
 -- | Specifies the message data included in a custom channel message that\'s
 -- sent to participants in a journey.
-customMessageActivity_messageConfig :: Lens.Lens' CustomMessageActivity (Core.Maybe JourneyCustomMessage)
+customMessageActivity_messageConfig :: Lens.Lens' CustomMessageActivity (Prelude.Maybe JourneyCustomMessage)
 customMessageActivity_messageConfig = Lens.lens (\CustomMessageActivity' {messageConfig} -> messageConfig) (\s@CustomMessageActivity' {} a -> s {messageConfig = a} :: CustomMessageActivity)
 
 -- | The destination to send the campaign or treatment to. This value can be
@@ -141,18 +143,18 @@ customMessageActivity_messageConfig = Lens.lens (\CustomMessageActivity' {messag
 -- -   The URL for a web application or service that supports HTTPS and can
 --     receive the message. The URL has to be a full URL, including the
 --     HTTPS protocol.
-customMessageActivity_deliveryUri :: Lens.Lens' CustomMessageActivity (Core.Maybe Core.Text)
+customMessageActivity_deliveryUri :: Lens.Lens' CustomMessageActivity (Prelude.Maybe Prelude.Text)
 customMessageActivity_deliveryUri = Lens.lens (\CustomMessageActivity' {deliveryUri} -> deliveryUri) (\s@CustomMessageActivity' {} a -> s {deliveryUri = a} :: CustomMessageActivity)
 
 -- | The types of endpoints to send the custom message to. Each valid value
 -- maps to a type of channel that you can associate with an endpoint by
 -- using the ChannelType property of an endpoint.
-customMessageActivity_endpointTypes :: Lens.Lens' CustomMessageActivity (Core.Maybe [EndpointTypesElement])
-customMessageActivity_endpointTypes = Lens.lens (\CustomMessageActivity' {endpointTypes} -> endpointTypes) (\s@CustomMessageActivity' {} a -> s {endpointTypes = a} :: CustomMessageActivity) Core.. Lens.mapping Lens._Coerce
+customMessageActivity_endpointTypes :: Lens.Lens' CustomMessageActivity (Prelude.Maybe [EndpointTypesElement])
+customMessageActivity_endpointTypes = Lens.lens (\CustomMessageActivity' {endpointTypes} -> endpointTypes) (\s@CustomMessageActivity' {} a -> s {endpointTypes = a} :: CustomMessageActivity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for the next activity to perform, after Amazon
 -- Pinpoint calls the AWS Lambda function or web hook.
-customMessageActivity_nextActivity :: Lens.Lens' CustomMessageActivity (Core.Maybe Core.Text)
+customMessageActivity_nextActivity :: Lens.Lens' CustomMessageActivity (Prelude.Maybe Prelude.Text)
 customMessageActivity_nextActivity = Lens.lens (\CustomMessageActivity' {nextActivity} -> nextActivity) (\s@CustomMessageActivity' {} a -> s {nextActivity = a} :: CustomMessageActivity)
 
 -- | The unique identifier for the version of the message template to use for
@@ -165,7 +167,7 @@ customMessageActivity_nextActivity = Lens.lens (\CustomMessageActivity' {nextAct
 -- the version of a template that\'s been most recently reviewed and
 -- approved for use, depending on your workflow. It isn\'t necessarily the
 -- latest version of a template.
-customMessageActivity_templateVersion :: Lens.Lens' CustomMessageActivity (Core.Maybe Core.Text)
+customMessageActivity_templateVersion :: Lens.Lens' CustomMessageActivity (Prelude.Maybe Prelude.Text)
 customMessageActivity_templateVersion = Lens.lens (\CustomMessageActivity' {templateVersion} -> templateVersion) (\s@CustomMessageActivity' {} a -> s {templateVersion = a} :: CustomMessageActivity)
 
 instance Core.FromJSON CustomMessageActivity where
@@ -174,28 +176,28 @@ instance Core.FromJSON CustomMessageActivity where
       "CustomMessageActivity"
       ( \x ->
           CustomMessageActivity'
-            Core.<$> (x Core..:? "TemplateName")
-            Core.<*> (x Core..:? "MessageConfig")
-            Core.<*> (x Core..:? "DeliveryUri")
-            Core.<*> (x Core..:? "EndpointTypes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "NextActivity")
-            Core.<*> (x Core..:? "TemplateVersion")
+            Prelude.<$> (x Core..:? "TemplateName")
+            Prelude.<*> (x Core..:? "MessageConfig")
+            Prelude.<*> (x Core..:? "DeliveryUri")
+            Prelude.<*> (x Core..:? "EndpointTypes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "NextActivity")
+            Prelude.<*> (x Core..:? "TemplateVersion")
       )
 
-instance Core.Hashable CustomMessageActivity
+instance Prelude.Hashable CustomMessageActivity
 
-instance Core.NFData CustomMessageActivity
+instance Prelude.NFData CustomMessageActivity
 
 instance Core.ToJSON CustomMessageActivity where
   toJSON CustomMessageActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TemplateName" Core..=) Core.<$> templateName,
-            ("MessageConfig" Core..=) Core.<$> messageConfig,
-            ("DeliveryUri" Core..=) Core.<$> deliveryUri,
-            ("EndpointTypes" Core..=) Core.<$> endpointTypes,
-            ("NextActivity" Core..=) Core.<$> nextActivity,
+      ( Prelude.catMaybes
+          [ ("TemplateName" Core..=) Prelude.<$> templateName,
+            ("MessageConfig" Core..=) Prelude.<$> messageConfig,
+            ("DeliveryUri" Core..=) Prelude.<$> deliveryUri,
+            ("EndpointTypes" Core..=) Prelude.<$> endpointTypes,
+            ("NextActivity" Core..=) Prelude.<$> nextActivity,
             ("TemplateVersion" Core..=)
-              Core.<$> templateVersion
+              Prelude.<$> templateVersion
           ]
       )

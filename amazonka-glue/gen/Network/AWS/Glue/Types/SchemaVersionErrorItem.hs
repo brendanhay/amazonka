@@ -22,6 +22,7 @@ module Network.AWS.Glue.Types.SchemaVersionErrorItem where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ErrorDetails
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains the error details for an operation on a schema
 -- version.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSchemaVersionErrorItem' smart constructor.
 data SchemaVersionErrorItem = SchemaVersionErrorItem'
   { -- | The version number of the schema.
-    versionNumber :: Core.Maybe Core.Natural,
+    versionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The details of the error for the schema version.
-    errorDetails :: Core.Maybe ErrorDetails
+    errorDetails :: Prelude.Maybe ErrorDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SchemaVersionErrorItem' with all optional fields omitted.
@@ -51,16 +52,16 @@ newSchemaVersionErrorItem ::
 newSchemaVersionErrorItem =
   SchemaVersionErrorItem'
     { versionNumber =
-        Core.Nothing,
-      errorDetails = Core.Nothing
+        Prelude.Nothing,
+      errorDetails = Prelude.Nothing
     }
 
 -- | The version number of the schema.
-schemaVersionErrorItem_versionNumber :: Lens.Lens' SchemaVersionErrorItem (Core.Maybe Core.Natural)
+schemaVersionErrorItem_versionNumber :: Lens.Lens' SchemaVersionErrorItem (Prelude.Maybe Prelude.Natural)
 schemaVersionErrorItem_versionNumber = Lens.lens (\SchemaVersionErrorItem' {versionNumber} -> versionNumber) (\s@SchemaVersionErrorItem' {} a -> s {versionNumber = a} :: SchemaVersionErrorItem)
 
 -- | The details of the error for the schema version.
-schemaVersionErrorItem_errorDetails :: Lens.Lens' SchemaVersionErrorItem (Core.Maybe ErrorDetails)
+schemaVersionErrorItem_errorDetails :: Lens.Lens' SchemaVersionErrorItem (Prelude.Maybe ErrorDetails)
 schemaVersionErrorItem_errorDetails = Lens.lens (\SchemaVersionErrorItem' {errorDetails} -> errorDetails) (\s@SchemaVersionErrorItem' {} a -> s {errorDetails = a} :: SchemaVersionErrorItem)
 
 instance Core.FromJSON SchemaVersionErrorItem where
@@ -69,10 +70,10 @@ instance Core.FromJSON SchemaVersionErrorItem where
       "SchemaVersionErrorItem"
       ( \x ->
           SchemaVersionErrorItem'
-            Core.<$> (x Core..:? "VersionNumber")
-            Core.<*> (x Core..:? "ErrorDetails")
+            Prelude.<$> (x Core..:? "VersionNumber")
+            Prelude.<*> (x Core..:? "ErrorDetails")
       )
 
-instance Core.Hashable SchemaVersionErrorItem
+instance Prelude.Hashable SchemaVersionErrorItem
 
-instance Core.NFData SchemaVersionErrorItem
+instance Prelude.NFData SchemaVersionErrorItem

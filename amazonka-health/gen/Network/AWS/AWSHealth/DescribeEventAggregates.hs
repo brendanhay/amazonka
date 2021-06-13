@@ -53,6 +53,7 @@ where
 import Network.AWS.AWSHealth.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,16 +64,16 @@ data DescribeEventAggregates = DescribeEventAggregates'
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return in one batch, between 10 and 100,
     -- inclusive.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Values to narrow the results returned.
-    filter' :: Core.Maybe EventFilter,
+    filter' :: Prelude.Maybe EventFilter,
     -- | The only currently supported value is @eventTypeCategory@.
     aggregateField :: EventAggregateField
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventAggregates' with all optional fields omitted.
@@ -100,9 +101,10 @@ newDescribeEventAggregates ::
   DescribeEventAggregates
 newDescribeEventAggregates pAggregateField_ =
   DescribeEventAggregates'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filter' = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       aggregateField = pAggregateField_
     }
 
@@ -111,16 +113,16 @@ newDescribeEventAggregates pAggregateField_ =
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
-describeEventAggregates_nextToken :: Lens.Lens' DescribeEventAggregates (Core.Maybe Core.Text)
+describeEventAggregates_nextToken :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe Prelude.Text)
 describeEventAggregates_nextToken = Lens.lens (\DescribeEventAggregates' {nextToken} -> nextToken) (\s@DescribeEventAggregates' {} a -> s {nextToken = a} :: DescribeEventAggregates)
 
 -- | The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
-describeEventAggregates_maxResults :: Lens.Lens' DescribeEventAggregates (Core.Maybe Core.Natural)
+describeEventAggregates_maxResults :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe Prelude.Natural)
 describeEventAggregates_maxResults = Lens.lens (\DescribeEventAggregates' {maxResults} -> maxResults) (\s@DescribeEventAggregates' {} a -> s {maxResults = a} :: DescribeEventAggregates)
 
 -- | Values to narrow the results returned.
-describeEventAggregates_filter :: Lens.Lens' DescribeEventAggregates (Core.Maybe EventFilter)
+describeEventAggregates_filter :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe EventFilter)
 describeEventAggregates_filter = Lens.lens (\DescribeEventAggregates' {filter'} -> filter') (\s@DescribeEventAggregates' {} a -> s {filter' = a} :: DescribeEventAggregates)
 
 -- | The only currently supported value is @eventTypeCategory@.
@@ -132,22 +134,22 @@ instance Core.AWSPager DescribeEventAggregates where
     | Core.stop
         ( rs
             Lens.^? describeEventAggregatesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEventAggregatesResponse_eventAggregates
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeEventAggregates_nextToken
+          Prelude.& describeEventAggregates_nextToken
           Lens..~ rs
           Lens.^? describeEventAggregatesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEventAggregates where
   type
@@ -158,44 +160,49 @@ instance Core.AWSRequest DescribeEventAggregates where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventAggregatesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "eventAggregates" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "eventAggregates"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEventAggregates
+instance Prelude.Hashable DescribeEventAggregates
 
-instance Core.NFData DescribeEventAggregates
+instance Prelude.NFData DescribeEventAggregates
 
 instance Core.ToHeaders DescribeEventAggregates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSHealth_20160804.DescribeEventAggregates" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEventAggregates where
   toJSON DescribeEventAggregates' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("filter" Core..=) Core.<$> filter',
-            Core.Just ("aggregateField" Core..= aggregateField)
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("filter" Core..=) Prelude.<$> filter',
+            Prelude.Just
+              ("aggregateField" Core..= aggregateField)
           ]
       )
 
 instance Core.ToPath DescribeEventAggregates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEventAggregates where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventAggregatesResponse' smart constructor.
 data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
@@ -204,14 +211,14 @@ data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of events in each category that meet the optional filter
     -- criteria.
-    eventAggregates :: Core.Maybe [EventAggregate],
+    eventAggregates :: Prelude.Maybe [EventAggregate],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventAggregatesResponse' with all optional fields omitted.
@@ -233,13 +240,13 @@ data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
 -- 'httpStatus', 'describeEventAggregatesResponse_httpStatus' - The response's http status code.
 newDescribeEventAggregatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEventAggregatesResponse
 newDescribeEventAggregatesResponse pHttpStatus_ =
   DescribeEventAggregatesResponse'
     { nextToken =
-        Core.Nothing,
-      eventAggregates = Core.Nothing,
+        Prelude.Nothing,
+      eventAggregates = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -248,16 +255,18 @@ newDescribeEventAggregatesResponse pHttpStatus_ =
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
-describeEventAggregatesResponse_nextToken :: Lens.Lens' DescribeEventAggregatesResponse (Core.Maybe Core.Text)
+describeEventAggregatesResponse_nextToken :: Lens.Lens' DescribeEventAggregatesResponse (Prelude.Maybe Prelude.Text)
 describeEventAggregatesResponse_nextToken = Lens.lens (\DescribeEventAggregatesResponse' {nextToken} -> nextToken) (\s@DescribeEventAggregatesResponse' {} a -> s {nextToken = a} :: DescribeEventAggregatesResponse)
 
 -- | The number of events in each category that meet the optional filter
 -- criteria.
-describeEventAggregatesResponse_eventAggregates :: Lens.Lens' DescribeEventAggregatesResponse (Core.Maybe [EventAggregate])
-describeEventAggregatesResponse_eventAggregates = Lens.lens (\DescribeEventAggregatesResponse' {eventAggregates} -> eventAggregates) (\s@DescribeEventAggregatesResponse' {} a -> s {eventAggregates = a} :: DescribeEventAggregatesResponse) Core.. Lens.mapping Lens._Coerce
+describeEventAggregatesResponse_eventAggregates :: Lens.Lens' DescribeEventAggregatesResponse (Prelude.Maybe [EventAggregate])
+describeEventAggregatesResponse_eventAggregates = Lens.lens (\DescribeEventAggregatesResponse' {eventAggregates} -> eventAggregates) (\s@DescribeEventAggregatesResponse' {} a -> s {eventAggregates = a} :: DescribeEventAggregatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventAggregatesResponse_httpStatus :: Lens.Lens' DescribeEventAggregatesResponse Core.Int
+describeEventAggregatesResponse_httpStatus :: Lens.Lens' DescribeEventAggregatesResponse Prelude.Int
 describeEventAggregatesResponse_httpStatus = Lens.lens (\DescribeEventAggregatesResponse' {httpStatus} -> httpStatus) (\s@DescribeEventAggregatesResponse' {} a -> s {httpStatus = a} :: DescribeEventAggregatesResponse)
 
-instance Core.NFData DescribeEventAggregatesResponse
+instance
+  Prelude.NFData
+    DescribeEventAggregatesResponse

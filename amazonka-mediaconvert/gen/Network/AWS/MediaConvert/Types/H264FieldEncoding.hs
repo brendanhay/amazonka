@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.H264FieldEncoding
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Keep the default value, PAFF, to have MediaConvert use PAFF encoding for
 -- interlaced outputs. Choose Force field (FORCE_FIELD) to disable PAFF
@@ -36,15 +37,15 @@ newtype H264FieldEncoding = H264FieldEncoding'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Mpeg2Syntax
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify whether this output\'s video uses the D10 syntax. Keep the
 -- default value to not use the syntax. Related settings: When you choose
@@ -37,15 +38,15 @@ newtype Mpeg2Syntax = Mpeg2Syntax'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

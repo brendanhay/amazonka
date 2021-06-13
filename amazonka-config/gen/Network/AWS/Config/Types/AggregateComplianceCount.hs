@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.AggregateComplianceCount where
 import Network.AWS.Config.Types.ComplianceSummary
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the number of compliant and noncompliant rules for one or more
 -- accounts and regions in an aggregator.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAggregateComplianceCount' smart constructor.
 data AggregateComplianceCount = AggregateComplianceCount'
   { -- | The number of compliant and noncompliant AWS Config rules.
-    complianceSummary :: Core.Maybe ComplianceSummary,
+    complianceSummary :: Prelude.Maybe ComplianceSummary,
     -- | The 12-digit account ID or region based on the GroupByKey value.
-    groupName :: Core.Maybe Core.Text
+    groupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AggregateComplianceCount' with all optional fields omitted.
@@ -51,16 +52,16 @@ newAggregateComplianceCount ::
 newAggregateComplianceCount =
   AggregateComplianceCount'
     { complianceSummary =
-        Core.Nothing,
-      groupName = Core.Nothing
+        Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
 
 -- | The number of compliant and noncompliant AWS Config rules.
-aggregateComplianceCount_complianceSummary :: Lens.Lens' AggregateComplianceCount (Core.Maybe ComplianceSummary)
+aggregateComplianceCount_complianceSummary :: Lens.Lens' AggregateComplianceCount (Prelude.Maybe ComplianceSummary)
 aggregateComplianceCount_complianceSummary = Lens.lens (\AggregateComplianceCount' {complianceSummary} -> complianceSummary) (\s@AggregateComplianceCount' {} a -> s {complianceSummary = a} :: AggregateComplianceCount)
 
 -- | The 12-digit account ID or region based on the GroupByKey value.
-aggregateComplianceCount_groupName :: Lens.Lens' AggregateComplianceCount (Core.Maybe Core.Text)
+aggregateComplianceCount_groupName :: Lens.Lens' AggregateComplianceCount (Prelude.Maybe Prelude.Text)
 aggregateComplianceCount_groupName = Lens.lens (\AggregateComplianceCount' {groupName} -> groupName) (\s@AggregateComplianceCount' {} a -> s {groupName = a} :: AggregateComplianceCount)
 
 instance Core.FromJSON AggregateComplianceCount where
@@ -69,10 +70,10 @@ instance Core.FromJSON AggregateComplianceCount where
       "AggregateComplianceCount"
       ( \x ->
           AggregateComplianceCount'
-            Core.<$> (x Core..:? "ComplianceSummary")
-            Core.<*> (x Core..:? "GroupName")
+            Prelude.<$> (x Core..:? "ComplianceSummary")
+            Prelude.<*> (x Core..:? "GroupName")
       )
 
-instance Core.Hashable AggregateComplianceCount
+instance Prelude.Hashable AggregateComplianceCount
 
-instance Core.NFData AggregateComplianceCount
+instance Prelude.NFData AggregateComplianceCount

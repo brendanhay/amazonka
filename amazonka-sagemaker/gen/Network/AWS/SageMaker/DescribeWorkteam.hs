@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,9 +51,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeWorkteam' smart constructor.
 data DescribeWorkteam = DescribeWorkteam'
   { -- | The name of the work team to return a description of.
-    workteamName :: Core.Text
+    workteamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkteam' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DescribeWorkteam = DescribeWorkteam'
 -- 'workteamName', 'describeWorkteam_workteamName' - The name of the work team to return a description of.
 newDescribeWorkteam ::
   -- | 'workteamName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeWorkteam
 newDescribeWorkteam pWorkteamName_ =
   DescribeWorkteam' {workteamName = pWorkteamName_}
 
 -- | The name of the work team to return a description of.
-describeWorkteam_workteamName :: Lens.Lens' DescribeWorkteam Core.Text
+describeWorkteam_workteamName :: Lens.Lens' DescribeWorkteam Prelude.Text
 describeWorkteam_workteamName = Lens.lens (\DescribeWorkteam' {workteamName} -> workteamName) (\s@DescribeWorkteam' {} a -> s {workteamName = a} :: DescribeWorkteam)
 
 instance Core.AWSRequest DescribeWorkteam where
@@ -83,46 +84,48 @@ instance Core.AWSRequest DescribeWorkteam where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkteamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "Workteam")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Workteam")
       )
 
-instance Core.Hashable DescribeWorkteam
+instance Prelude.Hashable DescribeWorkteam
 
-instance Core.NFData DescribeWorkteam
+instance Prelude.NFData DescribeWorkteam
 
 instance Core.ToHeaders DescribeWorkteam where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeWorkteam" :: Core.ByteString),
+              Core.=# ("SageMaker.DescribeWorkteam" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeWorkteam where
   toJSON DescribeWorkteam' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("WorkteamName" Core..= workteamName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("WorkteamName" Core..= workteamName)]
       )
 
 instance Core.ToPath DescribeWorkteam where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeWorkteam where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkteamResponse' smart constructor.
 data DescribeWorkteamResponse = DescribeWorkteamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A @Workteam@ instance that contains information about the work team.
     workteam :: Workteam
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkteamResponse' with all optional fields omitted.
@@ -137,7 +140,7 @@ data DescribeWorkteamResponse = DescribeWorkteamResponse'
 -- 'workteam', 'describeWorkteamResponse_workteam' - A @Workteam@ instance that contains information about the work team.
 newDescribeWorkteamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'workteam'
   Workteam ->
   DescribeWorkteamResponse
@@ -149,11 +152,11 @@ newDescribeWorkteamResponse pHttpStatus_ pWorkteam_ =
     }
 
 -- | The response's http status code.
-describeWorkteamResponse_httpStatus :: Lens.Lens' DescribeWorkteamResponse Core.Int
+describeWorkteamResponse_httpStatus :: Lens.Lens' DescribeWorkteamResponse Prelude.Int
 describeWorkteamResponse_httpStatus = Lens.lens (\DescribeWorkteamResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkteamResponse' {} a -> s {httpStatus = a} :: DescribeWorkteamResponse)
 
 -- | A @Workteam@ instance that contains information about the work team.
 describeWorkteamResponse_workteam :: Lens.Lens' DescribeWorkteamResponse Workteam
 describeWorkteamResponse_workteam = Lens.lens (\DescribeWorkteamResponse' {workteam} -> workteam) (\s@DescribeWorkteamResponse' {} a -> s {workteam = a} :: DescribeWorkteamResponse)
 
-instance Core.NFData DescribeWorkteamResponse
+instance Prelude.NFData DescribeWorkteamResponse

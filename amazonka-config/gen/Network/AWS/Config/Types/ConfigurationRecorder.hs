@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.ConfigurationRecorder where
 import Network.AWS.Config.Types.RecordingGroup
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that represents the recording of configuration changes of an
 -- AWS resource.
@@ -30,16 +31,16 @@ import qualified Network.AWS.Lens as Lens
 data ConfigurationRecorder = ConfigurationRecorder'
   { -- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
     -- resources associated with the account.
-    roleARN :: Core.Maybe Core.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the recorder. By default, AWS Config automatically assigns
     -- the name \"default\" when creating the configuration recorder. You
     -- cannot change the assigned name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies the types of AWS resources for which AWS Config records
     -- configuration changes.
-    recordingGroup :: Core.Maybe RecordingGroup
+    recordingGroup :: Prelude.Maybe RecordingGroup
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigurationRecorder' with all optional fields omitted.
@@ -62,25 +63,25 @@ newConfigurationRecorder ::
   ConfigurationRecorder
 newConfigurationRecorder =
   ConfigurationRecorder'
-    { roleARN = Core.Nothing,
-      name = Core.Nothing,
-      recordingGroup = Core.Nothing
+    { roleARN = Prelude.Nothing,
+      name = Prelude.Nothing,
+      recordingGroup = Prelude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
 -- resources associated with the account.
-configurationRecorder_roleARN :: Lens.Lens' ConfigurationRecorder (Core.Maybe Core.Text)
+configurationRecorder_roleARN :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe Prelude.Text)
 configurationRecorder_roleARN = Lens.lens (\ConfigurationRecorder' {roleARN} -> roleARN) (\s@ConfigurationRecorder' {} a -> s {roleARN = a} :: ConfigurationRecorder)
 
 -- | The name of the recorder. By default, AWS Config automatically assigns
 -- the name \"default\" when creating the configuration recorder. You
 -- cannot change the assigned name.
-configurationRecorder_name :: Lens.Lens' ConfigurationRecorder (Core.Maybe Core.Text)
+configurationRecorder_name :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe Prelude.Text)
 configurationRecorder_name = Lens.lens (\ConfigurationRecorder' {name} -> name) (\s@ConfigurationRecorder' {} a -> s {name = a} :: ConfigurationRecorder)
 
 -- | Specifies the types of AWS resources for which AWS Config records
 -- configuration changes.
-configurationRecorder_recordingGroup :: Lens.Lens' ConfigurationRecorder (Core.Maybe RecordingGroup)
+configurationRecorder_recordingGroup :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe RecordingGroup)
 configurationRecorder_recordingGroup = Lens.lens (\ConfigurationRecorder' {recordingGroup} -> recordingGroup) (\s@ConfigurationRecorder' {} a -> s {recordingGroup = a} :: ConfigurationRecorder)
 
 instance Core.FromJSON ConfigurationRecorder where
@@ -89,21 +90,22 @@ instance Core.FromJSON ConfigurationRecorder where
       "ConfigurationRecorder"
       ( \x ->
           ConfigurationRecorder'
-            Core.<$> (x Core..:? "roleARN")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "recordingGroup")
+            Prelude.<$> (x Core..:? "roleARN")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "recordingGroup")
       )
 
-instance Core.Hashable ConfigurationRecorder
+instance Prelude.Hashable ConfigurationRecorder
 
-instance Core.NFData ConfigurationRecorder
+instance Prelude.NFData ConfigurationRecorder
 
 instance Core.ToJSON ConfigurationRecorder where
   toJSON ConfigurationRecorder' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("roleARN" Core..=) Core.<$> roleARN,
-            ("name" Core..=) Core.<$> name,
-            ("recordingGroup" Core..=) Core.<$> recordingGroup
+      ( Prelude.catMaybes
+          [ ("roleARN" Core..=) Prelude.<$> roleARN,
+            ("name" Core..=) Prelude.<$> name,
+            ("recordingGroup" Core..=)
+              Prelude.<$> recordingGroup
           ]
       )

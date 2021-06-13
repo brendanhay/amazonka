@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.DecisionTaskTimeoutType
 
 -- | Provides the details of the @DecisionTaskTimedOut@ event.
@@ -34,13 +35,13 @@ data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'
     -- decision task was scheduled. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    scheduledEventId :: Core.Integer,
+    scheduledEventId :: Prelude.Integer,
     -- | The ID of the @DecisionTaskStarted@ event recorded when this decision
     -- task was started. This information can be useful for diagnosing problems
     -- by tracing back the chain of events leading up to this event.
-    startedEventId :: Core.Integer
+    startedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DecisionTaskTimedOutEventAttributes' with all optional fields omitted.
@@ -65,9 +66,9 @@ newDecisionTaskTimedOutEventAttributes ::
   -- | 'timeoutType'
   DecisionTaskTimeoutType ->
   -- | 'scheduledEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'startedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   DecisionTaskTimedOutEventAttributes
 newDecisionTaskTimedOutEventAttributes
   pTimeoutType_
@@ -89,13 +90,13 @@ decisionTaskTimedOutEventAttributes_timeoutType = Lens.lens (\DecisionTaskTimedO
 -- decision task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-decisionTaskTimedOutEventAttributes_scheduledEventId :: Lens.Lens' DecisionTaskTimedOutEventAttributes Core.Integer
+decisionTaskTimedOutEventAttributes_scheduledEventId :: Lens.Lens' DecisionTaskTimedOutEventAttributes Prelude.Integer
 decisionTaskTimedOutEventAttributes_scheduledEventId = Lens.lens (\DecisionTaskTimedOutEventAttributes' {scheduledEventId} -> scheduledEventId) (\s@DecisionTaskTimedOutEventAttributes' {} a -> s {scheduledEventId = a} :: DecisionTaskTimedOutEventAttributes)
 
 -- | The ID of the @DecisionTaskStarted@ event recorded when this decision
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
-decisionTaskTimedOutEventAttributes_startedEventId :: Lens.Lens' DecisionTaskTimedOutEventAttributes Core.Integer
+decisionTaskTimedOutEventAttributes_startedEventId :: Lens.Lens' DecisionTaskTimedOutEventAttributes Prelude.Integer
 decisionTaskTimedOutEventAttributes_startedEventId = Lens.lens (\DecisionTaskTimedOutEventAttributes' {startedEventId} -> startedEventId) (\s@DecisionTaskTimedOutEventAttributes' {} a -> s {startedEventId = a} :: DecisionTaskTimedOutEventAttributes)
 
 instance
@@ -107,15 +108,15 @@ instance
       "DecisionTaskTimedOutEventAttributes"
       ( \x ->
           DecisionTaskTimedOutEventAttributes'
-            Core.<$> (x Core..: "timeoutType")
-            Core.<*> (x Core..: "scheduledEventId")
-            Core.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Core..: "timeoutType")
+            Prelude.<*> (x Core..: "scheduledEventId")
+            Prelude.<*> (x Core..: "startedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DecisionTaskTimedOutEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     DecisionTaskTimedOutEventAttributes

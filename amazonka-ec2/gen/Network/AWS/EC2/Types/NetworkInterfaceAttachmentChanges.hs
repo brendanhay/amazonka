@@ -22,18 +22,19 @@ module Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an attachment change.
 --
 -- /See:/ 'newNetworkInterfaceAttachmentChanges' smart constructor.
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'
   { -- | The ID of the network interface attachment.
-    attachmentId :: Core.Maybe Core.Text,
+    attachmentId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the network interface is deleted when the instance is
     -- terminated.
-    deleteOnTermination :: Core.Maybe Core.Bool
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkInterfaceAttachmentChanges' with all optional fields omitted.
@@ -52,25 +53,25 @@ newNetworkInterfaceAttachmentChanges ::
 newNetworkInterfaceAttachmentChanges =
   NetworkInterfaceAttachmentChanges'
     { attachmentId =
-        Core.Nothing,
-      deleteOnTermination = Core.Nothing
+        Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing
     }
 
 -- | The ID of the network interface attachment.
-networkInterfaceAttachmentChanges_attachmentId :: Lens.Lens' NetworkInterfaceAttachmentChanges (Core.Maybe Core.Text)
+networkInterfaceAttachmentChanges_attachmentId :: Lens.Lens' NetworkInterfaceAttachmentChanges (Prelude.Maybe Prelude.Text)
 networkInterfaceAttachmentChanges_attachmentId = Lens.lens (\NetworkInterfaceAttachmentChanges' {attachmentId} -> attachmentId) (\s@NetworkInterfaceAttachmentChanges' {} a -> s {attachmentId = a} :: NetworkInterfaceAttachmentChanges)
 
 -- | Indicates whether the network interface is deleted when the instance is
 -- terminated.
-networkInterfaceAttachmentChanges_deleteOnTermination :: Lens.Lens' NetworkInterfaceAttachmentChanges (Core.Maybe Core.Bool)
+networkInterfaceAttachmentChanges_deleteOnTermination :: Lens.Lens' NetworkInterfaceAttachmentChanges (Prelude.Maybe Prelude.Bool)
 networkInterfaceAttachmentChanges_deleteOnTermination = Lens.lens (\NetworkInterfaceAttachmentChanges' {deleteOnTermination} -> deleteOnTermination) (\s@NetworkInterfaceAttachmentChanges' {} a -> s {deleteOnTermination = a} :: NetworkInterfaceAttachmentChanges)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     NetworkInterfaceAttachmentChanges
 
 instance
-  Core.NFData
+  Prelude.NFData
     NetworkInterfaceAttachmentChanges
 
 instance
@@ -78,7 +79,7 @@ instance
     NetworkInterfaceAttachmentChanges
   where
   toQuery NetworkInterfaceAttachmentChanges' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "AttachmentId" Core.=: attachmentId,
         "DeleteOnTermination" Core.=: deleteOnTermination
       ]

@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.ServerValidationConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.Server
 import Network.AWS.SMS.Types.ServerValidationStrategy
 import Network.AWS.SMS.Types.UserDataValidationParameters
@@ -30,16 +31,16 @@ import Network.AWS.SMS.Types.UserDataValidationParameters
 -- /See:/ 'newServerValidationConfiguration' smart constructor.
 data ServerValidationConfiguration = ServerValidationConfiguration'
   { -- | The ID of the validation.
-    validationId :: Core.Maybe Core.Text,
+    validationId :: Prelude.Maybe Prelude.Text,
     -- | The validation parameters.
-    userDataValidationParameters :: Core.Maybe UserDataValidationParameters,
-    server :: Core.Maybe Server,
+    userDataValidationParameters :: Prelude.Maybe UserDataValidationParameters,
+    server :: Prelude.Maybe Server,
     -- | The name of the configuration.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The validation strategy.
-    serverValidationStrategy :: Core.Maybe ServerValidationStrategy
+    serverValidationStrategy :: Prelude.Maybe ServerValidationStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServerValidationConfiguration' with all optional fields omitted.
@@ -63,31 +64,32 @@ newServerValidationConfiguration ::
 newServerValidationConfiguration =
   ServerValidationConfiguration'
     { validationId =
-        Core.Nothing,
-      userDataValidationParameters = Core.Nothing,
-      server = Core.Nothing,
-      name = Core.Nothing,
-      serverValidationStrategy = Core.Nothing
+        Prelude.Nothing,
+      userDataValidationParameters =
+        Prelude.Nothing,
+      server = Prelude.Nothing,
+      name = Prelude.Nothing,
+      serverValidationStrategy = Prelude.Nothing
     }
 
 -- | The ID of the validation.
-serverValidationConfiguration_validationId :: Lens.Lens' ServerValidationConfiguration (Core.Maybe Core.Text)
+serverValidationConfiguration_validationId :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe Prelude.Text)
 serverValidationConfiguration_validationId = Lens.lens (\ServerValidationConfiguration' {validationId} -> validationId) (\s@ServerValidationConfiguration' {} a -> s {validationId = a} :: ServerValidationConfiguration)
 
 -- | The validation parameters.
-serverValidationConfiguration_userDataValidationParameters :: Lens.Lens' ServerValidationConfiguration (Core.Maybe UserDataValidationParameters)
+serverValidationConfiguration_userDataValidationParameters :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe UserDataValidationParameters)
 serverValidationConfiguration_userDataValidationParameters = Lens.lens (\ServerValidationConfiguration' {userDataValidationParameters} -> userDataValidationParameters) (\s@ServerValidationConfiguration' {} a -> s {userDataValidationParameters = a} :: ServerValidationConfiguration)
 
 -- | Undocumented member.
-serverValidationConfiguration_server :: Lens.Lens' ServerValidationConfiguration (Core.Maybe Server)
+serverValidationConfiguration_server :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe Server)
 serverValidationConfiguration_server = Lens.lens (\ServerValidationConfiguration' {server} -> server) (\s@ServerValidationConfiguration' {} a -> s {server = a} :: ServerValidationConfiguration)
 
 -- | The name of the configuration.
-serverValidationConfiguration_name :: Lens.Lens' ServerValidationConfiguration (Core.Maybe Core.Text)
+serverValidationConfiguration_name :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe Prelude.Text)
 serverValidationConfiguration_name = Lens.lens (\ServerValidationConfiguration' {name} -> name) (\s@ServerValidationConfiguration' {} a -> s {name = a} :: ServerValidationConfiguration)
 
 -- | The validation strategy.
-serverValidationConfiguration_serverValidationStrategy :: Lens.Lens' ServerValidationConfiguration (Core.Maybe ServerValidationStrategy)
+serverValidationConfiguration_serverValidationStrategy :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe ServerValidationStrategy)
 serverValidationConfiguration_serverValidationStrategy = Lens.lens (\ServerValidationConfiguration' {serverValidationStrategy} -> serverValidationStrategy) (\s@ServerValidationConfiguration' {} a -> s {serverValidationStrategy = a} :: ServerValidationConfiguration)
 
 instance Core.FromJSON ServerValidationConfiguration where
@@ -96,27 +98,29 @@ instance Core.FromJSON ServerValidationConfiguration where
       "ServerValidationConfiguration"
       ( \x ->
           ServerValidationConfiguration'
-            Core.<$> (x Core..:? "validationId")
-            Core.<*> (x Core..:? "userDataValidationParameters")
-            Core.<*> (x Core..:? "server")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "serverValidationStrategy")
+            Prelude.<$> (x Core..:? "validationId")
+            Prelude.<*> (x Core..:? "userDataValidationParameters")
+            Prelude.<*> (x Core..:? "server")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "serverValidationStrategy")
       )
 
-instance Core.Hashable ServerValidationConfiguration
+instance
+  Prelude.Hashable
+    ServerValidationConfiguration
 
-instance Core.NFData ServerValidationConfiguration
+instance Prelude.NFData ServerValidationConfiguration
 
 instance Core.ToJSON ServerValidationConfiguration where
   toJSON ServerValidationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("validationId" Core..=) Core.<$> validationId,
+      ( Prelude.catMaybes
+          [ ("validationId" Core..=) Prelude.<$> validationId,
             ("userDataValidationParameters" Core..=)
-              Core.<$> userDataValidationParameters,
-            ("server" Core..=) Core.<$> server,
-            ("name" Core..=) Core.<$> name,
+              Prelude.<$> userDataValidationParameters,
+            ("server" Core..=) Prelude.<$> server,
+            ("name" Core..=) Prelude.<$> name,
             ("serverValidationStrategy" Core..=)
-              Core.<$> serverValidationStrategy
+              Prelude.<$> serverValidationStrategy
           ]
       )

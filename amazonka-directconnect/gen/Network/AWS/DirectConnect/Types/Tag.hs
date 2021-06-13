@@ -21,17 +21,18 @@ module Network.AWS.DirectConnect.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a tag.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The value.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The key.
-    key :: Core.Text
+    key :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -46,17 +47,17 @@ data Tag = Tag'
 -- 'key', 'tag_key' - The key.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ =
-  Tag' {value = Core.Nothing, key = pKey_}
+  Tag' {value = Prelude.Nothing, key = pKey_}
 
 -- | The value.
-tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 -- | The key.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -65,18 +66,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..:? "value") Core.<*> (x Core..: "key")
+            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..: "key")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("value" Core..=) Core.<$> value,
-            Core.Just ("key" Core..= key)
+      ( Prelude.catMaybes
+          [ ("value" Core..=) Prelude.<$> value,
+            Prelude.Just ("key" Core..= key)
           ]
       )

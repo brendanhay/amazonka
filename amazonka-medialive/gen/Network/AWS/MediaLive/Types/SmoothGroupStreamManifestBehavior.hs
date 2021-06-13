@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.SmoothGroupStreamManifestBehavior
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Smooth Group Stream Manifest Behavior
 newtype SmoothGroupStreamManifestBehavior = SmoothGroupStreamManifestBehavior'
@@ -34,15 +35,15 @@ newtype SmoothGroupStreamManifestBehavior = SmoothGroupStreamManifestBehavior'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

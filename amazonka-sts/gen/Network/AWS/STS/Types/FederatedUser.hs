@@ -21,6 +21,7 @@ module Network.AWS.STS.Types.FederatedUser where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifiers for the federated user that is associated with the
 -- credentials.
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 data FederatedUser = FederatedUser'
   { -- | The string that identifies the federated user associated with the
     -- credentials, similar to the unique ID of an IAM user.
-    federatedUserId :: Core.Text,
+    federatedUserId :: Prelude.Text,
     -- | The ARN that specifies the federated user that is associated with the
     -- credentials. For more information about ARNs and how to use them in
     -- policies, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
     -- in the /IAM User Guide/.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FederatedUser' with all optional fields omitted.
@@ -57,9 +58,9 @@ data FederatedUser = FederatedUser'
 -- in the /IAM User Guide/.
 newFederatedUser ::
   -- | 'federatedUserId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   FederatedUser
 newFederatedUser pFederatedUserId_ pArn_ =
   FederatedUser'
@@ -69,7 +70,7 @@ newFederatedUser pFederatedUserId_ pArn_ =
 
 -- | The string that identifies the federated user associated with the
 -- credentials, similar to the unique ID of an IAM user.
-federatedUser_federatedUserId :: Lens.Lens' FederatedUser Core.Text
+federatedUser_federatedUserId :: Lens.Lens' FederatedUser Prelude.Text
 federatedUser_federatedUserId = Lens.lens (\FederatedUser' {federatedUserId} -> federatedUserId) (\s@FederatedUser' {} a -> s {federatedUserId = a} :: FederatedUser)
 
 -- | The ARN that specifies the federated user that is associated with the
@@ -77,15 +78,15 @@ federatedUser_federatedUserId = Lens.lens (\FederatedUser' {federatedUserId} -> 
 -- policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
 -- in the /IAM User Guide/.
-federatedUser_arn :: Lens.Lens' FederatedUser Core.Text
+federatedUser_arn :: Lens.Lens' FederatedUser Prelude.Text
 federatedUser_arn = Lens.lens (\FederatedUser' {arn} -> arn) (\s@FederatedUser' {} a -> s {arn = a} :: FederatedUser)
 
 instance Core.FromXML FederatedUser where
   parseXML x =
     FederatedUser'
-      Core.<$> (x Core..@ "FederatedUserId")
-      Core.<*> (x Core..@ "Arn")
+      Prelude.<$> (x Core..@ "FederatedUserId")
+      Prelude.<*> (x Core..@ "Arn")
 
-instance Core.Hashable FederatedUser
+instance Prelude.Hashable FederatedUser
 
-instance Core.NFData FederatedUser
+instance Prelude.NFData FederatedUser

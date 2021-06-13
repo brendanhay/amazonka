@@ -42,15 +42,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSkillGroup' smart constructor.
 data GetSkillGroup = GetSkillGroup'
   { -- | The ARN of the skill group for which to get details. Required.
-    skillGroupArn :: Core.Maybe Core.Text
+    skillGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSkillGroup' with all optional fields omitted.
@@ -64,10 +65,10 @@ data GetSkillGroup = GetSkillGroup'
 newGetSkillGroup ::
   GetSkillGroup
 newGetSkillGroup =
-  GetSkillGroup' {skillGroupArn = Core.Nothing}
+  GetSkillGroup' {skillGroupArn = Prelude.Nothing}
 
 -- | The ARN of the skill group for which to get details. Required.
-getSkillGroup_skillGroupArn :: Lens.Lens' GetSkillGroup (Core.Maybe Core.Text)
+getSkillGroup_skillGroupArn :: Lens.Lens' GetSkillGroup (Prelude.Maybe Prelude.Text)
 getSkillGroup_skillGroupArn = Lens.lens (\GetSkillGroup' {skillGroupArn} -> skillGroupArn) (\s@GetSkillGroup' {} a -> s {skillGroupArn = a} :: GetSkillGroup)
 
 instance Core.AWSRequest GetSkillGroup where
@@ -79,48 +80,52 @@ instance Core.AWSRequest GetSkillGroup where
     Response.receiveJSON
       ( \s h x ->
           GetSkillGroupResponse'
-            Core.<$> (x Core..?> "SkillGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SkillGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSkillGroup
+instance Prelude.Hashable GetSkillGroup
 
-instance Core.NFData GetSkillGroup
+instance Prelude.NFData GetSkillGroup
 
 instance Core.ToHeaders GetSkillGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.GetSkillGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSkillGroup where
   toJSON GetSkillGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [("SkillGroupArn" Core..=) Core.<$> skillGroupArn]
+      ( Prelude.catMaybes
+          [ ("SkillGroupArn" Core..=)
+              Prelude.<$> skillGroupArn
+          ]
       )
 
 instance Core.ToPath GetSkillGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSkillGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSkillGroupResponse' smart constructor.
 data GetSkillGroupResponse = GetSkillGroupResponse'
   { -- | The details of the skill group requested. Required.
-    skillGroup :: Core.Maybe SkillGroup,
+    skillGroup :: Prelude.Maybe SkillGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSkillGroupResponse' with all optional fields omitted.
@@ -135,20 +140,21 @@ data GetSkillGroupResponse = GetSkillGroupResponse'
 -- 'httpStatus', 'getSkillGroupResponse_httpStatus' - The response's http status code.
 newGetSkillGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSkillGroupResponse
 newGetSkillGroupResponse pHttpStatus_ =
   GetSkillGroupResponse'
-    { skillGroup = Core.Nothing,
+    { skillGroup =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the skill group requested. Required.
-getSkillGroupResponse_skillGroup :: Lens.Lens' GetSkillGroupResponse (Core.Maybe SkillGroup)
+getSkillGroupResponse_skillGroup :: Lens.Lens' GetSkillGroupResponse (Prelude.Maybe SkillGroup)
 getSkillGroupResponse_skillGroup = Lens.lens (\GetSkillGroupResponse' {skillGroup} -> skillGroup) (\s@GetSkillGroupResponse' {} a -> s {skillGroup = a} :: GetSkillGroupResponse)
 
 -- | The response's http status code.
-getSkillGroupResponse_httpStatus :: Lens.Lens' GetSkillGroupResponse Core.Int
+getSkillGroupResponse_httpStatus :: Lens.Lens' GetSkillGroupResponse Prelude.Int
 getSkillGroupResponse_httpStatus = Lens.lens (\GetSkillGroupResponse' {httpStatus} -> httpStatus) (\s@GetSkillGroupResponse' {} a -> s {httpStatus = a} :: GetSkillGroupResponse)
 
-instance Core.NFData GetSkillGroupResponse
+instance Prelude.NFData GetSkillGroupResponse

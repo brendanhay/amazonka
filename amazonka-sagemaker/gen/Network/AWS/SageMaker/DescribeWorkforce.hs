@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,9 +57,9 @@ data DescribeWorkforce = DescribeWorkforce'
   { -- | The name of the private workforce whose access you want to restrict.
     -- @WorkforceName@ is automatically set to @default@ when a workforce is
     -- created and cannot be modified.
-    workforceName :: Core.Text
+    workforceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkforce' with all optional fields omitted.
@@ -73,7 +74,7 @@ data DescribeWorkforce = DescribeWorkforce'
 -- created and cannot be modified.
 newDescribeWorkforce ::
   -- | 'workforceName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeWorkforce
 newDescribeWorkforce pWorkforceName_ =
   DescribeWorkforce' {workforceName = pWorkforceName_}
@@ -81,7 +82,7 @@ newDescribeWorkforce pWorkforceName_ =
 -- | The name of the private workforce whose access you want to restrict.
 -- @WorkforceName@ is automatically set to @default@ when a workforce is
 -- created and cannot be modified.
-describeWorkforce_workforceName :: Lens.Lens' DescribeWorkforce Core.Text
+describeWorkforce_workforceName :: Lens.Lens' DescribeWorkforce Prelude.Text
 describeWorkforce_workforceName = Lens.lens (\DescribeWorkforce' {workforceName} -> workforceName) (\s@DescribeWorkforce' {} a -> s {workforceName = a} :: DescribeWorkforce)
 
 instance Core.AWSRequest DescribeWorkforce where
@@ -93,42 +94,48 @@ instance Core.AWSRequest DescribeWorkforce where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkforceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "Workforce")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Workforce")
       )
 
-instance Core.Hashable DescribeWorkforce
+instance Prelude.Hashable DescribeWorkforce
 
-instance Core.NFData DescribeWorkforce
+instance Prelude.NFData DescribeWorkforce
 
 instance Core.ToHeaders DescribeWorkforce where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeWorkforce" :: Core.ByteString),
+              Core.=# ( "SageMaker.DescribeWorkforce" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeWorkforce where
   toJSON DescribeWorkforce' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("WorkforceName" Core..= workforceName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("WorkforceName" Core..= workforceName)
+          ]
       )
 
 instance Core.ToPath DescribeWorkforce where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeWorkforce where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkforceResponse' smart constructor.
 data DescribeWorkforceResponse = DescribeWorkforceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A single private workforce, which is automatically created when you
     -- create your first private work team. You can create one private work
     -- force in each AWS Region. By default, any workforce-related API
@@ -137,7 +144,7 @@ data DescribeWorkforceResponse = DescribeWorkforceResponse'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce>.
     workforce :: Workforce
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkforceResponse' with all optional fields omitted.
@@ -157,7 +164,7 @@ data DescribeWorkforceResponse = DescribeWorkforceResponse'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce>.
 newDescribeWorkforceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'workforce'
   Workforce ->
   DescribeWorkforceResponse
@@ -169,7 +176,7 @@ newDescribeWorkforceResponse pHttpStatus_ pWorkforce_ =
     }
 
 -- | The response's http status code.
-describeWorkforceResponse_httpStatus :: Lens.Lens' DescribeWorkforceResponse Core.Int
+describeWorkforceResponse_httpStatus :: Lens.Lens' DescribeWorkforceResponse Prelude.Int
 describeWorkforceResponse_httpStatus = Lens.lens (\DescribeWorkforceResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkforceResponse' {} a -> s {httpStatus = a} :: DescribeWorkforceResponse)
 
 -- | A single private workforce, which is automatically created when you
@@ -181,4 +188,4 @@ describeWorkforceResponse_httpStatus = Lens.lens (\DescribeWorkforceResponse' {h
 describeWorkforceResponse_workforce :: Lens.Lens' DescribeWorkforceResponse Workforce
 describeWorkforceResponse_workforce = Lens.lens (\DescribeWorkforceResponse' {workforce} -> workforce) (\s@DescribeWorkforceResponse' {} a -> s {workforce = a} :: DescribeWorkforceResponse)
 
-instance Core.NFData DescribeWorkforceResponse
+instance Prelude.NFData DescribeWorkforceResponse

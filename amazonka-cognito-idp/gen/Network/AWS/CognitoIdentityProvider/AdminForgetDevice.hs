@@ -42,6 +42,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,13 +51,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAdminForgetDevice' smart constructor.
 data AdminForgetDevice = AdminForgetDevice'
   { -- | The user pool ID.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The user name.
-    username :: Core.Sensitive Core.Text,
+    username :: Core.Sensitive Prelude.Text,
     -- | The device key.
-    deviceKey :: Core.Text
+    deviceKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminForgetDevice' with all optional fields omitted.
@@ -73,11 +74,11 @@ data AdminForgetDevice = AdminForgetDevice'
 -- 'deviceKey', 'adminForgetDevice_deviceKey' - The device key.
 newAdminForgetDevice ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deviceKey'
-  Core.Text ->
+  Prelude.Text ->
   AdminForgetDevice
 newAdminForgetDevice
   pUserPoolId_
@@ -90,15 +91,15 @@ newAdminForgetDevice
       }
 
 -- | The user pool ID.
-adminForgetDevice_userPoolId :: Lens.Lens' AdminForgetDevice Core.Text
+adminForgetDevice_userPoolId :: Lens.Lens' AdminForgetDevice Prelude.Text
 adminForgetDevice_userPoolId = Lens.lens (\AdminForgetDevice' {userPoolId} -> userPoolId) (\s@AdminForgetDevice' {} a -> s {userPoolId = a} :: AdminForgetDevice)
 
 -- | The user name.
-adminForgetDevice_username :: Lens.Lens' AdminForgetDevice Core.Text
-adminForgetDevice_username = Lens.lens (\AdminForgetDevice' {username} -> username) (\s@AdminForgetDevice' {} a -> s {username = a} :: AdminForgetDevice) Core.. Core._Sensitive
+adminForgetDevice_username :: Lens.Lens' AdminForgetDevice Prelude.Text
+adminForgetDevice_username = Lens.lens (\AdminForgetDevice' {username} -> username) (\s@AdminForgetDevice' {} a -> s {username = a} :: AdminForgetDevice) Prelude.. Core._Sensitive
 
 -- | The device key.
-adminForgetDevice_deviceKey :: Lens.Lens' AdminForgetDevice Core.Text
+adminForgetDevice_deviceKey :: Lens.Lens' AdminForgetDevice Prelude.Text
 adminForgetDevice_deviceKey = Lens.lens (\AdminForgetDevice' {deviceKey} -> deviceKey) (\s@AdminForgetDevice' {} a -> s {deviceKey = a} :: AdminForgetDevice)
 
 instance Core.AWSRequest AdminForgetDevice where
@@ -109,44 +110,46 @@ instance Core.AWSRequest AdminForgetDevice where
   response =
     Response.receiveNull AdminForgetDeviceResponse'
 
-instance Core.Hashable AdminForgetDevice
+instance Prelude.Hashable AdminForgetDevice
 
-instance Core.NFData AdminForgetDevice
+instance Prelude.NFData AdminForgetDevice
 
 instance Core.ToHeaders AdminForgetDevice where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminForgetDevice" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminForgetDevice where
   toJSON AdminForgetDevice' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Username" Core..= username),
-            Core.Just ("DeviceKey" Core..= deviceKey)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("DeviceKey" Core..= deviceKey)
           ]
       )
 
 instance Core.ToPath AdminForgetDevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminForgetDevice where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminForgetDeviceResponse' smart constructor.
 data AdminForgetDeviceResponse = AdminForgetDeviceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminForgetDeviceResponse' with all optional fields omitted.
@@ -157,4 +160,4 @@ newAdminForgetDeviceResponse ::
 newAdminForgetDeviceResponse =
   AdminForgetDeviceResponse'
 
-instance Core.NFData AdminForgetDeviceResponse
+instance Prelude.NFData AdminForgetDeviceResponse

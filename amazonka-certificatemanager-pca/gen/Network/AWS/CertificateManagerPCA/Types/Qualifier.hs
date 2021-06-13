@@ -21,6 +21,7 @@ module Network.AWS.CertificateManagerPCA.Types.Qualifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a @PolicyInformation@ qualifier. ACM Private CA supports the
 -- <https://tools.ietf.org/html/rfc5280#section-4.2.1.4 certification practice statement (CPS) qualifier>
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data Qualifier = Qualifier'
   { -- | Contains a pointer to a certification practice statement (CPS) published
     -- by the CA.
-    cpsUri :: Core.Text
+    cpsUri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Qualifier' with all optional fields omitted.
@@ -46,22 +47,22 @@ data Qualifier = Qualifier'
 -- by the CA.
 newQualifier ::
   -- | 'cpsUri'
-  Core.Text ->
+  Prelude.Text ->
   Qualifier
 newQualifier pCpsUri_ = Qualifier' {cpsUri = pCpsUri_}
 
 -- | Contains a pointer to a certification practice statement (CPS) published
 -- by the CA.
-qualifier_cpsUri :: Lens.Lens' Qualifier Core.Text
+qualifier_cpsUri :: Lens.Lens' Qualifier Prelude.Text
 qualifier_cpsUri = Lens.lens (\Qualifier' {cpsUri} -> cpsUri) (\s@Qualifier' {} a -> s {cpsUri = a} :: Qualifier)
 
-instance Core.Hashable Qualifier
+instance Prelude.Hashable Qualifier
 
-instance Core.NFData Qualifier
+instance Prelude.NFData Qualifier
 
 instance Core.ToJSON Qualifier where
   toJSON Qualifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("CpsUri" Core..= cpsUri)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("CpsUri" Core..= cpsUri)]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Translate.Types
@@ -51,16 +52,16 @@ import Network.AWS.Translate.Types
 -- | /See:/ 'newListTextTranslationJobs' smart constructor.
 data ListTextTranslationJobs = ListTextTranslationJobs'
   { -- | The token to request the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in each page. The default value
     -- is 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The parameters that specify which batch translation jobs to retrieve.
     -- Filters include job name, job status, and submission time. You can only
     -- set one filter at a time.
-    filter' :: Core.Maybe TextTranslationJobFilter
+    filter' :: Prelude.Maybe TextTranslationJobFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTextTranslationJobs' with all optional fields omitted.
@@ -82,24 +83,25 @@ newListTextTranslationJobs ::
   ListTextTranslationJobs
 newListTextTranslationJobs =
   ListTextTranslationJobs'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filter' = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filter' = Prelude.Nothing
     }
 
 -- | The token to request the next page of results.
-listTextTranslationJobs_nextToken :: Lens.Lens' ListTextTranslationJobs (Core.Maybe Core.Text)
+listTextTranslationJobs_nextToken :: Lens.Lens' ListTextTranslationJobs (Prelude.Maybe Prelude.Text)
 listTextTranslationJobs_nextToken = Lens.lens (\ListTextTranslationJobs' {nextToken} -> nextToken) (\s@ListTextTranslationJobs' {} a -> s {nextToken = a} :: ListTextTranslationJobs)
 
 -- | The maximum number of results to return in each page. The default value
 -- is 100.
-listTextTranslationJobs_maxResults :: Lens.Lens' ListTextTranslationJobs (Core.Maybe Core.Natural)
+listTextTranslationJobs_maxResults :: Lens.Lens' ListTextTranslationJobs (Prelude.Maybe Prelude.Natural)
 listTextTranslationJobs_maxResults = Lens.lens (\ListTextTranslationJobs' {maxResults} -> maxResults) (\s@ListTextTranslationJobs' {} a -> s {maxResults = a} :: ListTextTranslationJobs)
 
 -- | The parameters that specify which batch translation jobs to retrieve.
 -- Filters include job name, job status, and submission time. You can only
 -- set one filter at a time.
-listTextTranslationJobs_filter :: Lens.Lens' ListTextTranslationJobs (Core.Maybe TextTranslationJobFilter)
+listTextTranslationJobs_filter :: Lens.Lens' ListTextTranslationJobs (Prelude.Maybe TextTranslationJobFilter)
 listTextTranslationJobs_filter = Lens.lens (\ListTextTranslationJobs' {filter'} -> filter') (\s@ListTextTranslationJobs' {} a -> s {filter' = a} :: ListTextTranslationJobs)
 
 instance Core.AWSRequest ListTextTranslationJobs where
@@ -111,57 +113,59 @@ instance Core.AWSRequest ListTextTranslationJobs where
     Response.receiveJSON
       ( \s h x ->
           ListTextTranslationJobsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "TextTranslationJobPropertiesList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "TextTranslationJobPropertiesList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTextTranslationJobs
+instance Prelude.Hashable ListTextTranslationJobs
 
-instance Core.NFData ListTextTranslationJobs
+instance Prelude.NFData ListTextTranslationJobs
 
 instance Core.ToHeaders ListTextTranslationJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShineFrontendService_20170701.ListTextTranslationJobs" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTextTranslationJobs where
   toJSON ListTextTranslationJobs' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filter" Core..=) Core.<$> filter'
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filter" Core..=) Prelude.<$> filter'
           ]
       )
 
 instance Core.ToPath ListTextTranslationJobs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTextTranslationJobs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTextTranslationJobsResponse' smart constructor.
 data ListTextTranslationJobsResponse = ListTextTranslationJobsResponse'
   { -- | The token to use to retreive the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list containing the properties of each job that is returned.
-    textTranslationJobPropertiesList :: Core.Maybe [TextTranslationJobProperties],
+    textTranslationJobPropertiesList :: Prelude.Maybe [TextTranslationJobProperties],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTextTranslationJobsResponse' with all optional fields omitted.
@@ -179,28 +183,30 @@ data ListTextTranslationJobsResponse = ListTextTranslationJobsResponse'
 -- 'httpStatus', 'listTextTranslationJobsResponse_httpStatus' - The response's http status code.
 newListTextTranslationJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTextTranslationJobsResponse
 newListTextTranslationJobsResponse pHttpStatus_ =
   ListTextTranslationJobsResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       textTranslationJobPropertiesList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retreive the next page of results. This value is
 -- @null@ when there are no more results to return.
-listTextTranslationJobsResponse_nextToken :: Lens.Lens' ListTextTranslationJobsResponse (Core.Maybe Core.Text)
+listTextTranslationJobsResponse_nextToken :: Lens.Lens' ListTextTranslationJobsResponse (Prelude.Maybe Prelude.Text)
 listTextTranslationJobsResponse_nextToken = Lens.lens (\ListTextTranslationJobsResponse' {nextToken} -> nextToken) (\s@ListTextTranslationJobsResponse' {} a -> s {nextToken = a} :: ListTextTranslationJobsResponse)
 
 -- | A list containing the properties of each job that is returned.
-listTextTranslationJobsResponse_textTranslationJobPropertiesList :: Lens.Lens' ListTextTranslationJobsResponse (Core.Maybe [TextTranslationJobProperties])
-listTextTranslationJobsResponse_textTranslationJobPropertiesList = Lens.lens (\ListTextTranslationJobsResponse' {textTranslationJobPropertiesList} -> textTranslationJobPropertiesList) (\s@ListTextTranslationJobsResponse' {} a -> s {textTranslationJobPropertiesList = a} :: ListTextTranslationJobsResponse) Core.. Lens.mapping Lens._Coerce
+listTextTranslationJobsResponse_textTranslationJobPropertiesList :: Lens.Lens' ListTextTranslationJobsResponse (Prelude.Maybe [TextTranslationJobProperties])
+listTextTranslationJobsResponse_textTranslationJobPropertiesList = Lens.lens (\ListTextTranslationJobsResponse' {textTranslationJobPropertiesList} -> textTranslationJobPropertiesList) (\s@ListTextTranslationJobsResponse' {} a -> s {textTranslationJobPropertiesList = a} :: ListTextTranslationJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTextTranslationJobsResponse_httpStatus :: Lens.Lens' ListTextTranslationJobsResponse Core.Int
+listTextTranslationJobsResponse_httpStatus :: Lens.Lens' ListTextTranslationJobsResponse Prelude.Int
 listTextTranslationJobsResponse_httpStatus = Lens.lens (\ListTextTranslationJobsResponse' {httpStatus} -> httpStatus) (\s@ListTextTranslationJobsResponse' {} a -> s {httpStatus = a} :: ListTextTranslationJobsResponse)
 
-instance Core.NFData ListTextTranslationJobsResponse
+instance
+  Prelude.NFData
+    ListTextTranslationJobsResponse

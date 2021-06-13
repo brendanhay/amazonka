@@ -99,6 +99,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -108,9 +109,9 @@ data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
   { -- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to
     -- update. @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and
     -- by ListSizeConstraintSets.
-    sizeConstraintSetId :: Core.Text,
+    sizeConstraintSetId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text,
+    changeToken :: Prelude.Text,
     -- | An array of @SizeConstraintSetUpdate@ objects that you want to insert
     -- into or delete from a SizeConstraintSet. For more information, see the
     -- applicable data types:
@@ -121,9 +122,9 @@ data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
     --     @ComparisonOperator@, and @Size@
     --
     -- -   FieldToMatch: Contains @Data@ and @Type@
-    updates :: Core.NonEmpty SizeConstraintSetUpdate
+    updates :: Prelude.NonEmpty SizeConstraintSetUpdate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSizeConstraintSet' with all optional fields omitted.
@@ -151,11 +152,11 @@ data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
 -- -   FieldToMatch: Contains @Data@ and @Type@
 newUpdateSizeConstraintSet ::
   -- | 'sizeConstraintSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'updates'
-  Core.NonEmpty SizeConstraintSetUpdate ->
+  Prelude.NonEmpty SizeConstraintSetUpdate ->
   UpdateSizeConstraintSet
 newUpdateSizeConstraintSet
   pSizeConstraintSetId_
@@ -171,11 +172,11 @@ newUpdateSizeConstraintSet
 -- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to
 -- update. @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and
 -- by ListSizeConstraintSets.
-updateSizeConstraintSet_sizeConstraintSetId :: Lens.Lens' UpdateSizeConstraintSet Core.Text
+updateSizeConstraintSet_sizeConstraintSetId :: Lens.Lens' UpdateSizeConstraintSet Prelude.Text
 updateSizeConstraintSet_sizeConstraintSetId = Lens.lens (\UpdateSizeConstraintSet' {sizeConstraintSetId} -> sizeConstraintSetId) (\s@UpdateSizeConstraintSet' {} a -> s {sizeConstraintSetId = a} :: UpdateSizeConstraintSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateSizeConstraintSet_changeToken :: Lens.Lens' UpdateSizeConstraintSet Core.Text
+updateSizeConstraintSet_changeToken :: Lens.Lens' UpdateSizeConstraintSet Prelude.Text
 updateSizeConstraintSet_changeToken = Lens.lens (\UpdateSizeConstraintSet' {changeToken} -> changeToken) (\s@UpdateSizeConstraintSet' {} a -> s {changeToken = a} :: UpdateSizeConstraintSet)
 
 -- | An array of @SizeConstraintSetUpdate@ objects that you want to insert
@@ -188,8 +189,8 @@ updateSizeConstraintSet_changeToken = Lens.lens (\UpdateSizeConstraintSet' {chan
 --     @ComparisonOperator@, and @Size@
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
-updateSizeConstraintSet_updates :: Lens.Lens' UpdateSizeConstraintSet (Core.NonEmpty SizeConstraintSetUpdate)
-updateSizeConstraintSet_updates = Lens.lens (\UpdateSizeConstraintSet' {updates} -> updates) (\s@UpdateSizeConstraintSet' {} a -> s {updates = a} :: UpdateSizeConstraintSet) Core.. Lens._Coerce
+updateSizeConstraintSet_updates :: Lens.Lens' UpdateSizeConstraintSet (Prelude.NonEmpty SizeConstraintSetUpdate)
+updateSizeConstraintSet_updates = Lens.lens (\UpdateSizeConstraintSet' {updates} -> updates) (\s@UpdateSizeConstraintSet' {} a -> s {updates = a} :: UpdateSizeConstraintSet) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateSizeConstraintSet where
   type
@@ -200,54 +201,56 @@ instance Core.AWSRequest UpdateSizeConstraintSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateSizeConstraintSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateSizeConstraintSet
+instance Prelude.Hashable UpdateSizeConstraintSet
 
-instance Core.NFData UpdateSizeConstraintSet
+instance Prelude.NFData UpdateSizeConstraintSet
 
 instance Core.ToHeaders UpdateSizeConstraintSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.UpdateSizeConstraintSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSizeConstraintSet where
   toJSON UpdateSizeConstraintSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SizeConstraintSetId" Core..= sizeConstraintSetId),
-            Core.Just ("ChangeToken" Core..= changeToken),
-            Core.Just ("Updates" Core..= updates)
+            Prelude.Just ("ChangeToken" Core..= changeToken),
+            Prelude.Just ("Updates" Core..= updates)
           ]
       )
 
 instance Core.ToPath UpdateSizeConstraintSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSizeConstraintSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSizeConstraintSetResponse' smart constructor.
 data UpdateSizeConstraintSetResponse = UpdateSizeConstraintSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSizeConstraintSetResponse' with all optional fields omitted.
@@ -264,23 +267,25 @@ data UpdateSizeConstraintSetResponse = UpdateSizeConstraintSetResponse'
 -- 'httpStatus', 'updateSizeConstraintSetResponse_httpStatus' - The response's http status code.
 newUpdateSizeConstraintSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateSizeConstraintSetResponse
 newUpdateSizeConstraintSetResponse pHttpStatus_ =
   UpdateSizeConstraintSetResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-updateSizeConstraintSetResponse_changeToken :: Lens.Lens' UpdateSizeConstraintSetResponse (Core.Maybe Core.Text)
+updateSizeConstraintSetResponse_changeToken :: Lens.Lens' UpdateSizeConstraintSetResponse (Prelude.Maybe Prelude.Text)
 updateSizeConstraintSetResponse_changeToken = Lens.lens (\UpdateSizeConstraintSetResponse' {changeToken} -> changeToken) (\s@UpdateSizeConstraintSetResponse' {} a -> s {changeToken = a} :: UpdateSizeConstraintSetResponse)
 
 -- | The response's http status code.
-updateSizeConstraintSetResponse_httpStatus :: Lens.Lens' UpdateSizeConstraintSetResponse Core.Int
+updateSizeConstraintSetResponse_httpStatus :: Lens.Lens' UpdateSizeConstraintSetResponse Prelude.Int
 updateSizeConstraintSetResponse_httpStatus = Lens.lens (\UpdateSizeConstraintSetResponse' {httpStatus} -> httpStatus) (\s@UpdateSizeConstraintSetResponse' {} a -> s {httpStatus = a} :: UpdateSizeConstraintSetResponse)
 
-instance Core.NFData UpdateSizeConstraintSetResponse
+instance
+  Prelude.NFData
+    UpdateSizeConstraintSetResponse

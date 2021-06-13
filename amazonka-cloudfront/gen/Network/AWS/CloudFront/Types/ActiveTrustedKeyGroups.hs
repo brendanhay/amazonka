@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups where
 import Network.AWS.CloudFront.Types.KGKeyPairIds
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of key groups, and the public keys in each key group, that
 -- CloudFront can use to verify the signatures of signed URLs and signed
@@ -32,15 +33,15 @@ data ActiveTrustedKeyGroups = ActiveTrustedKeyGroups'
   { -- | A list of key groups, including the identifiers of the public keys in
     -- each key group that CloudFront can use to verify the signatures of
     -- signed URLs and signed cookies.
-    items :: Core.Maybe [KGKeyPairIds],
+    items :: Prelude.Maybe [KGKeyPairIds],
     -- | This field is @true@ if any of the key groups have public keys that
     -- CloudFront can use to verify the signatures of signed URLs and signed
     -- cookies. If not, this field is @false@.
-    enabled :: Core.Bool,
+    enabled :: Prelude.Bool,
     -- | The number of key groups in the list.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActiveTrustedKeyGroups' with all optional fields omitted.
@@ -61,13 +62,13 @@ data ActiveTrustedKeyGroups = ActiveTrustedKeyGroups'
 -- 'quantity', 'activeTrustedKeyGroups_quantity' - The number of key groups in the list.
 newActiveTrustedKeyGroups ::
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   ActiveTrustedKeyGroups
 newActiveTrustedKeyGroups pEnabled_ pQuantity_ =
   ActiveTrustedKeyGroups'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       enabled = pEnabled_,
       quantity = pQuantity_
     }
@@ -75,28 +76,28 @@ newActiveTrustedKeyGroups pEnabled_ pQuantity_ =
 -- | A list of key groups, including the identifiers of the public keys in
 -- each key group that CloudFront can use to verify the signatures of
 -- signed URLs and signed cookies.
-activeTrustedKeyGroups_items :: Lens.Lens' ActiveTrustedKeyGroups (Core.Maybe [KGKeyPairIds])
-activeTrustedKeyGroups_items = Lens.lens (\ActiveTrustedKeyGroups' {items} -> items) (\s@ActiveTrustedKeyGroups' {} a -> s {items = a} :: ActiveTrustedKeyGroups) Core.. Lens.mapping Lens._Coerce
+activeTrustedKeyGroups_items :: Lens.Lens' ActiveTrustedKeyGroups (Prelude.Maybe [KGKeyPairIds])
+activeTrustedKeyGroups_items = Lens.lens (\ActiveTrustedKeyGroups' {items} -> items) (\s@ActiveTrustedKeyGroups' {} a -> s {items = a} :: ActiveTrustedKeyGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This field is @true@ if any of the key groups have public keys that
 -- CloudFront can use to verify the signatures of signed URLs and signed
 -- cookies. If not, this field is @false@.
-activeTrustedKeyGroups_enabled :: Lens.Lens' ActiveTrustedKeyGroups Core.Bool
+activeTrustedKeyGroups_enabled :: Lens.Lens' ActiveTrustedKeyGroups Prelude.Bool
 activeTrustedKeyGroups_enabled = Lens.lens (\ActiveTrustedKeyGroups' {enabled} -> enabled) (\s@ActiveTrustedKeyGroups' {} a -> s {enabled = a} :: ActiveTrustedKeyGroups)
 
 -- | The number of key groups in the list.
-activeTrustedKeyGroups_quantity :: Lens.Lens' ActiveTrustedKeyGroups Core.Int
+activeTrustedKeyGroups_quantity :: Lens.Lens' ActiveTrustedKeyGroups Prelude.Int
 activeTrustedKeyGroups_quantity = Lens.lens (\ActiveTrustedKeyGroups' {quantity} -> quantity) (\s@ActiveTrustedKeyGroups' {} a -> s {quantity = a} :: ActiveTrustedKeyGroups)
 
 instance Core.FromXML ActiveTrustedKeyGroups where
   parseXML x =
     ActiveTrustedKeyGroups'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "KeyGroup")
-               )
-      Core.<*> (x Core..@ "Enabled")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "KeyGroup")
+                  )
+      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable ActiveTrustedKeyGroups
+instance Prelude.Hashable ActiveTrustedKeyGroups
 
-instance Core.NFData ActiveTrustedKeyGroups
+instance Prelude.NFData ActiveTrustedKeyGroups

@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.ActivityStartedEventDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the start of an activity during an execution.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data ActivityStartedEventDetails = ActivityStartedEventDetails'
   { -- | The name of the worker that the task is assigned to. These names are
     -- provided by the workers when calling GetActivityTask.
-    workerName :: Core.Maybe Core.Text
+    workerName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivityStartedEventDetails' with all optional fields omitted.
@@ -47,12 +48,12 @@ newActivityStartedEventDetails ::
 newActivityStartedEventDetails =
   ActivityStartedEventDetails'
     { workerName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the worker that the task is assigned to. These names are
 -- provided by the workers when calling GetActivityTask.
-activityStartedEventDetails_workerName :: Lens.Lens' ActivityStartedEventDetails (Core.Maybe Core.Text)
+activityStartedEventDetails_workerName :: Lens.Lens' ActivityStartedEventDetails (Prelude.Maybe Prelude.Text)
 activityStartedEventDetails_workerName = Lens.lens (\ActivityStartedEventDetails' {workerName} -> workerName) (\s@ActivityStartedEventDetails' {} a -> s {workerName = a} :: ActivityStartedEventDetails)
 
 instance Core.FromJSON ActivityStartedEventDetails where
@@ -61,9 +62,9 @@ instance Core.FromJSON ActivityStartedEventDetails where
       "ActivityStartedEventDetails"
       ( \x ->
           ActivityStartedEventDetails'
-            Core.<$> (x Core..:? "workerName")
+            Prelude.<$> (x Core..:? "workerName")
       )
 
-instance Core.Hashable ActivityStartedEventDetails
+instance Prelude.Hashable ActivityStartedEventDetails
 
-instance Core.NFData ActivityStartedEventDetails
+instance Prelude.NFData ActivityStartedEventDetails

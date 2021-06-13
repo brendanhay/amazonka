@@ -22,16 +22,17 @@ module Network.AWS.Pinpoint.Types.EventStartCondition where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventFilter
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for an event that causes a journey activity to
 -- start.
 --
 -- /See:/ 'newEventStartCondition' smart constructor.
 data EventStartCondition = EventStartCondition'
-  { eventFilter :: Core.Maybe EventFilter,
-    segmentId :: Core.Maybe Core.Text
+  { eventFilter :: Prelude.Maybe EventFilter,
+    segmentId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventStartCondition' with all optional fields omitted.
@@ -48,16 +49,16 @@ newEventStartCondition ::
   EventStartCondition
 newEventStartCondition =
   EventStartCondition'
-    { eventFilter = Core.Nothing,
-      segmentId = Core.Nothing
+    { eventFilter = Prelude.Nothing,
+      segmentId = Prelude.Nothing
     }
 
 -- | Undocumented member.
-eventStartCondition_eventFilter :: Lens.Lens' EventStartCondition (Core.Maybe EventFilter)
+eventStartCondition_eventFilter :: Lens.Lens' EventStartCondition (Prelude.Maybe EventFilter)
 eventStartCondition_eventFilter = Lens.lens (\EventStartCondition' {eventFilter} -> eventFilter) (\s@EventStartCondition' {} a -> s {eventFilter = a} :: EventStartCondition)
 
 -- | Undocumented member.
-eventStartCondition_segmentId :: Lens.Lens' EventStartCondition (Core.Maybe Core.Text)
+eventStartCondition_segmentId :: Lens.Lens' EventStartCondition (Prelude.Maybe Prelude.Text)
 eventStartCondition_segmentId = Lens.lens (\EventStartCondition' {segmentId} -> segmentId) (\s@EventStartCondition' {} a -> s {segmentId = a} :: EventStartCondition)
 
 instance Core.FromJSON EventStartCondition where
@@ -66,19 +67,19 @@ instance Core.FromJSON EventStartCondition where
       "EventStartCondition"
       ( \x ->
           EventStartCondition'
-            Core.<$> (x Core..:? "EventFilter")
-            Core.<*> (x Core..:? "SegmentId")
+            Prelude.<$> (x Core..:? "EventFilter")
+            Prelude.<*> (x Core..:? "SegmentId")
       )
 
-instance Core.Hashable EventStartCondition
+instance Prelude.Hashable EventStartCondition
 
-instance Core.NFData EventStartCondition
+instance Prelude.NFData EventStartCondition
 
 instance Core.ToJSON EventStartCondition where
   toJSON EventStartCondition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EventFilter" Core..=) Core.<$> eventFilter,
-            ("SegmentId" Core..=) Core.<$> segmentId
+      ( Prelude.catMaybes
+          [ ("EventFilter" Core..=) Prelude.<$> eventFilter,
+            ("SegmentId" Core..=) Prelude.<$> segmentId
           ]
       )

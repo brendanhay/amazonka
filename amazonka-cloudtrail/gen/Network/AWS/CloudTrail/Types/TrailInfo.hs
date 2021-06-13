@@ -21,6 +21,7 @@ module Network.AWS.CloudTrail.Types.TrailInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a CloudTrail trail, including the trail\'s name, home
 -- region, and Amazon Resource Name (ARN).
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTrailInfo' smart constructor.
 data TrailInfo = TrailInfo'
   { -- | The ARN of a trail.
-    trailARN :: Core.Maybe Core.Text,
+    trailARN :: Prelude.Maybe Prelude.Text,
     -- | The AWS region in which a trail was created.
-    homeRegion :: Core.Maybe Core.Text,
+    homeRegion :: Prelude.Maybe Prelude.Text,
     -- | The name of a trail.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrailInfo' with all optional fields omitted.
@@ -53,21 +54,21 @@ newTrailInfo ::
   TrailInfo
 newTrailInfo =
   TrailInfo'
-    { trailARN = Core.Nothing,
-      homeRegion = Core.Nothing,
-      name = Core.Nothing
+    { trailARN = Prelude.Nothing,
+      homeRegion = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The ARN of a trail.
-trailInfo_trailARN :: Lens.Lens' TrailInfo (Core.Maybe Core.Text)
+trailInfo_trailARN :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
 trailInfo_trailARN = Lens.lens (\TrailInfo' {trailARN} -> trailARN) (\s@TrailInfo' {} a -> s {trailARN = a} :: TrailInfo)
 
 -- | The AWS region in which a trail was created.
-trailInfo_homeRegion :: Lens.Lens' TrailInfo (Core.Maybe Core.Text)
+trailInfo_homeRegion :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
 trailInfo_homeRegion = Lens.lens (\TrailInfo' {homeRegion} -> homeRegion) (\s@TrailInfo' {} a -> s {homeRegion = a} :: TrailInfo)
 
 -- | The name of a trail.
-trailInfo_name :: Lens.Lens' TrailInfo (Core.Maybe Core.Text)
+trailInfo_name :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
 trailInfo_name = Lens.lens (\TrailInfo' {name} -> name) (\s@TrailInfo' {} a -> s {name = a} :: TrailInfo)
 
 instance Core.FromJSON TrailInfo where
@@ -76,11 +77,11 @@ instance Core.FromJSON TrailInfo where
       "TrailInfo"
       ( \x ->
           TrailInfo'
-            Core.<$> (x Core..:? "TrailARN")
-            Core.<*> (x Core..:? "HomeRegion")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "TrailARN")
+            Prelude.<*> (x Core..:? "HomeRegion")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable TrailInfo
+instance Prelude.Hashable TrailInfo
 
-instance Core.NFData TrailInfo
+instance Prelude.NFData TrailInfo

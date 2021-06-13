@@ -21,6 +21,7 @@ module Network.AWS.Batch.Types.Secret where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the secret to expose to your container. Secrets
 -- can be exposed to a container in the following ways:
@@ -38,7 +39,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSecret' smart constructor.
 data Secret = Secret'
   { -- | The name of the secret.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The secret to expose to the container. The supported values are either
     -- the full ARN of the AWS Secrets Manager secret or the full ARN of the
     -- parameter in the AWS Systems Manager Parameter Store.
@@ -47,9 +48,9 @@ data Secret = Secret'
     -- Region as the job you are launching, then you can use either the full
     -- ARN or name of the parameter. If the parameter exists in a different
     -- Region, then the full ARN must be specified.
-    valueFrom :: Core.Text
+    valueFrom :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Secret' with all optional fields omitted.
@@ -71,15 +72,15 @@ data Secret = Secret'
 -- Region, then the full ARN must be specified.
 newSecret ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'valueFrom'
-  Core.Text ->
+  Prelude.Text ->
   Secret
 newSecret pName_ pValueFrom_ =
   Secret' {name = pName_, valueFrom = pValueFrom_}
 
 -- | The name of the secret.
-secret_name :: Lens.Lens' Secret Core.Text
+secret_name :: Lens.Lens' Secret Prelude.Text
 secret_name = Lens.lens (\Secret' {name} -> name) (\s@Secret' {} a -> s {name = a} :: Secret)
 
 -- | The secret to expose to the container. The supported values are either
@@ -90,7 +91,7 @@ secret_name = Lens.lens (\Secret' {name} -> name) (\s@Secret' {} a -> s {name = 
 -- Region as the job you are launching, then you can use either the full
 -- ARN or name of the parameter. If the parameter exists in a different
 -- Region, then the full ARN must be specified.
-secret_valueFrom :: Lens.Lens' Secret Core.Text
+secret_valueFrom :: Lens.Lens' Secret Prelude.Text
 secret_valueFrom = Lens.lens (\Secret' {valueFrom} -> valueFrom) (\s@Secret' {} a -> s {valueFrom = a} :: Secret)
 
 instance Core.FromJSON Secret where
@@ -99,18 +100,19 @@ instance Core.FromJSON Secret where
       "Secret"
       ( \x ->
           Secret'
-            Core.<$> (x Core..: "name") Core.<*> (x Core..: "valueFrom")
+            Prelude.<$> (x Core..: "name")
+            Prelude.<*> (x Core..: "valueFrom")
       )
 
-instance Core.Hashable Secret
+instance Prelude.Hashable Secret
 
-instance Core.NFData Secret
+instance Prelude.NFData Secret
 
 instance Core.ToJSON Secret where
   toJSON Secret' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("valueFrom" Core..= valueFrom)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just ("valueFrom" Core..= valueFrom)
           ]
       )

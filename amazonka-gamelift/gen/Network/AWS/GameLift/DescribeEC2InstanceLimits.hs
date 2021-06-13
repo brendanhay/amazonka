@@ -68,6 +68,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,9 +83,9 @@ data DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
     -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
     -- for detailed descriptions. Leave this parameter blank to retrieve limits
     -- for all types.
-    eC2InstanceType :: Core.Maybe EC2InstanceType
+    eC2InstanceType :: Prelude.Maybe EC2InstanceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEC2InstanceLimits' with all optional fields omitted.
@@ -106,7 +107,7 @@ newDescribeEC2InstanceLimits ::
 newDescribeEC2InstanceLimits =
   DescribeEC2InstanceLimits'
     { eC2InstanceType =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Name of an EC2 instance type that is supported in Amazon GameLift. A
@@ -116,7 +117,7 @@ newDescribeEC2InstanceLimits =
 -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
 -- for detailed descriptions. Leave this parameter blank to retrieve limits
 -- for all types.
-describeEC2InstanceLimits_eC2InstanceType :: Lens.Lens' DescribeEC2InstanceLimits (Core.Maybe EC2InstanceType)
+describeEC2InstanceLimits_eC2InstanceType :: Lens.Lens' DescribeEC2InstanceLimits (Prelude.Maybe EC2InstanceType)
 describeEC2InstanceLimits_eC2InstanceType = Lens.lens (\DescribeEC2InstanceLimits' {eC2InstanceType} -> eC2InstanceType) (\s@DescribeEC2InstanceLimits' {} a -> s {eC2InstanceType = a} :: DescribeEC2InstanceLimits)
 
 instance Core.AWSRequest DescribeEC2InstanceLimits where
@@ -128,52 +129,56 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeEC2InstanceLimitsResponse'
-            Core.<$> (x Core..?> "EC2InstanceLimits" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "EC2InstanceLimits"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEC2InstanceLimits
+instance Prelude.Hashable DescribeEC2InstanceLimits
 
-instance Core.NFData DescribeEC2InstanceLimits
+instance Prelude.NFData DescribeEC2InstanceLimits
 
 instance Core.ToHeaders DescribeEC2InstanceLimits where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DescribeEC2InstanceLimits" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEC2InstanceLimits where
   toJSON DescribeEC2InstanceLimits' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EC2InstanceType" Core..=)
-              Core.<$> eC2InstanceType
+              Prelude.<$> eC2InstanceType
           ]
       )
 
 instance Core.ToPath DescribeEC2InstanceLimits where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEC2InstanceLimits where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newDescribeEC2InstanceLimitsResponse' smart constructor.
 data DescribeEC2InstanceLimitsResponse = DescribeEC2InstanceLimitsResponse'
   { -- | The maximum number of instances for the specified instance type.
-    eC2InstanceLimits :: Core.Maybe [EC2InstanceLimit],
+    eC2InstanceLimits :: Prelude.Maybe [EC2InstanceLimit],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEC2InstanceLimitsResponse' with all optional fields omitted.
@@ -188,23 +193,23 @@ data DescribeEC2InstanceLimitsResponse = DescribeEC2InstanceLimitsResponse'
 -- 'httpStatus', 'describeEC2InstanceLimitsResponse_httpStatus' - The response's http status code.
 newDescribeEC2InstanceLimitsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEC2InstanceLimitsResponse
 newDescribeEC2InstanceLimitsResponse pHttpStatus_ =
   DescribeEC2InstanceLimitsResponse'
     { eC2InstanceLimits =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The maximum number of instances for the specified instance type.
-describeEC2InstanceLimitsResponse_eC2InstanceLimits :: Lens.Lens' DescribeEC2InstanceLimitsResponse (Core.Maybe [EC2InstanceLimit])
-describeEC2InstanceLimitsResponse_eC2InstanceLimits = Lens.lens (\DescribeEC2InstanceLimitsResponse' {eC2InstanceLimits} -> eC2InstanceLimits) (\s@DescribeEC2InstanceLimitsResponse' {} a -> s {eC2InstanceLimits = a} :: DescribeEC2InstanceLimitsResponse) Core.. Lens.mapping Lens._Coerce
+describeEC2InstanceLimitsResponse_eC2InstanceLimits :: Lens.Lens' DescribeEC2InstanceLimitsResponse (Prelude.Maybe [EC2InstanceLimit])
+describeEC2InstanceLimitsResponse_eC2InstanceLimits = Lens.lens (\DescribeEC2InstanceLimitsResponse' {eC2InstanceLimits} -> eC2InstanceLimits) (\s@DescribeEC2InstanceLimitsResponse' {} a -> s {eC2InstanceLimits = a} :: DescribeEC2InstanceLimitsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEC2InstanceLimitsResponse_httpStatus :: Lens.Lens' DescribeEC2InstanceLimitsResponse Core.Int
+describeEC2InstanceLimitsResponse_httpStatus :: Lens.Lens' DescribeEC2InstanceLimitsResponse Prelude.Int
 describeEC2InstanceLimitsResponse_httpStatus = Lens.lens (\DescribeEC2InstanceLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeEC2InstanceLimitsResponse' {} a -> s {httpStatus = a} :: DescribeEC2InstanceLimitsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeEC2InstanceLimitsResponse

@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -53,14 +54,14 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newDescribeNotificationSubscriptions' smart constructor.
 data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
   { -- | The maximum number of items to return with this call.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The ID of the organization.
-    organizationId :: Core.Text
+    organizationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeNotificationSubscriptions' with all optional fields omitted.
@@ -78,27 +79,27 @@ data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
 -- 'organizationId', 'describeNotificationSubscriptions_organizationId' - The ID of the organization.
 newDescribeNotificationSubscriptions ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeNotificationSubscriptions
 newDescribeNotificationSubscriptions pOrganizationId_ =
   DescribeNotificationSubscriptions'
     { limit =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
 
 -- | The maximum number of items to return with this call.
-describeNotificationSubscriptions_limit :: Lens.Lens' DescribeNotificationSubscriptions (Core.Maybe Core.Natural)
+describeNotificationSubscriptions_limit :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Natural)
 describeNotificationSubscriptions_limit = Lens.lens (\DescribeNotificationSubscriptions' {limit} -> limit) (\s@DescribeNotificationSubscriptions' {} a -> s {limit = a} :: DescribeNotificationSubscriptions)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeNotificationSubscriptions_marker :: Lens.Lens' DescribeNotificationSubscriptions (Core.Maybe Core.Text)
+describeNotificationSubscriptions_marker :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Text)
 describeNotificationSubscriptions_marker = Lens.lens (\DescribeNotificationSubscriptions' {marker} -> marker) (\s@DescribeNotificationSubscriptions' {} a -> s {marker = a} :: DescribeNotificationSubscriptions)
 
 -- | The ID of the organization.
-describeNotificationSubscriptions_organizationId :: Lens.Lens' DescribeNotificationSubscriptions Core.Text
+describeNotificationSubscriptions_organizationId :: Lens.Lens' DescribeNotificationSubscriptions Prelude.Text
 describeNotificationSubscriptions_organizationId = Lens.lens (\DescribeNotificationSubscriptions' {organizationId} -> organizationId) (\s@DescribeNotificationSubscriptions' {} a -> s {organizationId = a} :: DescribeNotificationSubscriptions)
 
 instance
@@ -109,22 +110,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeNotificationSubscriptionsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNotificationSubscriptionsResponse_subscriptions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeNotificationSubscriptions_marker
+          Prelude.& describeNotificationSubscriptions_marker
           Lens..~ rs
           Lens.^? describeNotificationSubscriptionsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -138,17 +139,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNotificationSubscriptionsResponse'
-            Core.<$> (x Core..?> "Subscriptions" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Subscriptions" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Core..?> "Marker")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeNotificationSubscriptions
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeNotificationSubscriptions
 
 instance
@@ -156,10 +157,12 @@ instance
     DescribeNotificationSubscriptions
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -168,7 +171,7 @@ instance
     DescribeNotificationSubscriptions
   where
   toPath DescribeNotificationSubscriptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/api/v1/organizations/",
         Core.toBS organizationId,
         "/subscriptions"
@@ -179,20 +182,20 @@ instance
     DescribeNotificationSubscriptions
   where
   toQuery DescribeNotificationSubscriptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["limit" Core.=: limit, "marker" Core.=: marker]
 
 -- | /See:/ 'newDescribeNotificationSubscriptionsResponse' smart constructor.
 data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'
   { -- | The subscriptions.
-    subscriptions :: Core.Maybe [Subscription],
+    subscriptions :: Prelude.Maybe [Subscription],
     -- | The marker to use when requesting the next set of results. If there are
     -- no additional results, the string is empty.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeNotificationSubscriptionsResponse' with all optional fields omitted.
@@ -210,30 +213,30 @@ data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptio
 -- 'httpStatus', 'describeNotificationSubscriptionsResponse_httpStatus' - The response's http status code.
 newDescribeNotificationSubscriptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeNotificationSubscriptionsResponse
 newDescribeNotificationSubscriptionsResponse
   pHttpStatus_ =
     DescribeNotificationSubscriptionsResponse'
       { subscriptions =
-          Core.Nothing,
-        marker = Core.Nothing,
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The subscriptions.
-describeNotificationSubscriptionsResponse_subscriptions :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Core.Maybe [Subscription])
-describeNotificationSubscriptionsResponse_subscriptions = Lens.lens (\DescribeNotificationSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {subscriptions = a} :: DescribeNotificationSubscriptionsResponse) Core.. Lens.mapping Lens._Coerce
+describeNotificationSubscriptionsResponse_subscriptions :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Prelude.Maybe [Subscription])
+describeNotificationSubscriptionsResponse_subscriptions = Lens.lens (\DescribeNotificationSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {subscriptions = a} :: DescribeNotificationSubscriptionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
-describeNotificationSubscriptionsResponse_marker :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Core.Maybe Core.Text)
+describeNotificationSubscriptionsResponse_marker :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Prelude.Maybe Prelude.Text)
 describeNotificationSubscriptionsResponse_marker = Lens.lens (\DescribeNotificationSubscriptionsResponse' {marker} -> marker) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {marker = a} :: DescribeNotificationSubscriptionsResponse)
 
 -- | The response's http status code.
-describeNotificationSubscriptionsResponse_httpStatus :: Lens.Lens' DescribeNotificationSubscriptionsResponse Core.Int
+describeNotificationSubscriptionsResponse_httpStatus :: Lens.Lens' DescribeNotificationSubscriptionsResponse Prelude.Int
 describeNotificationSubscriptionsResponse_httpStatus = Lens.lens (\DescribeNotificationSubscriptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {httpStatus = a} :: DescribeNotificationSubscriptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeNotificationSubscriptionsResponse

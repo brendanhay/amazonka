@@ -21,6 +21,7 @@ module Network.AWS.DataPipeline.Types.ValidationWarning where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a validation warning. Validation warnings do not prevent
 -- pipeline activation. The set of validation warnings that can be returned
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newValidationWarning' smart constructor.
 data ValidationWarning = ValidationWarning'
   { -- | A description of the validation warning.
-    warnings :: Core.Maybe [Core.Text],
+    warnings :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the object that contains the validation warning.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidationWarning' with all optional fields omitted.
@@ -50,16 +51,16 @@ newValidationWarning ::
   ValidationWarning
 newValidationWarning =
   ValidationWarning'
-    { warnings = Core.Nothing,
-      id = Core.Nothing
+    { warnings = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | A description of the validation warning.
-validationWarning_warnings :: Lens.Lens' ValidationWarning (Core.Maybe [Core.Text])
-validationWarning_warnings = Lens.lens (\ValidationWarning' {warnings} -> warnings) (\s@ValidationWarning' {} a -> s {warnings = a} :: ValidationWarning) Core.. Lens.mapping Lens._Coerce
+validationWarning_warnings :: Lens.Lens' ValidationWarning (Prelude.Maybe [Prelude.Text])
+validationWarning_warnings = Lens.lens (\ValidationWarning' {warnings} -> warnings) (\s@ValidationWarning' {} a -> s {warnings = a} :: ValidationWarning) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the object that contains the validation warning.
-validationWarning_id :: Lens.Lens' ValidationWarning (Core.Maybe Core.Text)
+validationWarning_id :: Lens.Lens' ValidationWarning (Prelude.Maybe Prelude.Text)
 validationWarning_id = Lens.lens (\ValidationWarning' {id} -> id) (\s@ValidationWarning' {} a -> s {id = a} :: ValidationWarning)
 
 instance Core.FromJSON ValidationWarning where
@@ -68,10 +69,10 @@ instance Core.FromJSON ValidationWarning where
       "ValidationWarning"
       ( \x ->
           ValidationWarning'
-            Core.<$> (x Core..:? "warnings" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "id")
+            Prelude.<$> (x Core..:? "warnings" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "id")
       )
 
-instance Core.Hashable ValidationWarning
+instance Prelude.Hashable ValidationWarning
 
-instance Core.NFData ValidationWarning
+instance Prelude.NFData ValidationWarning

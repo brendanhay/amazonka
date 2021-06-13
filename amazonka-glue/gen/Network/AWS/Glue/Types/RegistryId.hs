@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.RegistryId where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A wrapper structure that may contain the registry name and Amazon
 -- Resource Name (ARN).
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data RegistryId = RegistryId'
   { -- | Name of the registry. Used only for lookup. One of @RegistryArn@ or
     -- @RegistryName@ has to be provided.
-    registryName :: Core.Maybe Core.Text,
+    registryName :: Prelude.Maybe Prelude.Text,
     -- | Arn of the registry to be updated. One of @RegistryArn@ or
     -- @RegistryName@ has to be provided.
-    registryArn :: Core.Maybe Core.Text
+    registryArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegistryId' with all optional fields omitted.
@@ -53,29 +54,29 @@ newRegistryId ::
   RegistryId
 newRegistryId =
   RegistryId'
-    { registryName = Core.Nothing,
-      registryArn = Core.Nothing
+    { registryName = Prelude.Nothing,
+      registryArn = Prelude.Nothing
     }
 
 -- | Name of the registry. Used only for lookup. One of @RegistryArn@ or
 -- @RegistryName@ has to be provided.
-registryId_registryName :: Lens.Lens' RegistryId (Core.Maybe Core.Text)
+registryId_registryName :: Lens.Lens' RegistryId (Prelude.Maybe Prelude.Text)
 registryId_registryName = Lens.lens (\RegistryId' {registryName} -> registryName) (\s@RegistryId' {} a -> s {registryName = a} :: RegistryId)
 
 -- | Arn of the registry to be updated. One of @RegistryArn@ or
 -- @RegistryName@ has to be provided.
-registryId_registryArn :: Lens.Lens' RegistryId (Core.Maybe Core.Text)
+registryId_registryArn :: Lens.Lens' RegistryId (Prelude.Maybe Prelude.Text)
 registryId_registryArn = Lens.lens (\RegistryId' {registryArn} -> registryArn) (\s@RegistryId' {} a -> s {registryArn = a} :: RegistryId)
 
-instance Core.Hashable RegistryId
+instance Prelude.Hashable RegistryId
 
-instance Core.NFData RegistryId
+instance Prelude.NFData RegistryId
 
 instance Core.ToJSON RegistryId where
   toJSON RegistryId' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RegistryName" Core..=) Core.<$> registryName,
-            ("RegistryArn" Core..=) Core.<$> registryArn
+      ( Prelude.catMaybes
+          [ ("RegistryName" Core..=) Prelude.<$> registryName,
+            ("RegistryArn" Core..=) Prelude.<$> registryArn
           ]
       )

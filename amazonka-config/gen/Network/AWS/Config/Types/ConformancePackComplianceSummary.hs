@@ -22,18 +22,19 @@ module Network.AWS.Config.Types.ConformancePackComplianceSummary where
 import Network.AWS.Config.Types.ConformancePackComplianceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary includes the name and status of the conformance pack.
 --
 -- /See:/ 'newConformancePackComplianceSummary' smart constructor.
 data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
   { -- | The name of the conformance pack name.
-    conformancePackName :: Core.Text,
+    conformancePackName :: Prelude.Text,
     -- | The status of the conformance pack. The allowed values are COMPLIANT and
     -- NON_COMPLIANT.
     conformancePackComplianceStatus :: ConformancePackComplianceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConformancePackComplianceSummary' with all optional fields omitted.
@@ -49,7 +50,7 @@ data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
 -- NON_COMPLIANT.
 newConformancePackComplianceSummary ::
   -- | 'conformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'conformancePackComplianceStatus'
   ConformancePackComplianceType ->
   ConformancePackComplianceSummary
@@ -64,7 +65,7 @@ newConformancePackComplianceSummary
       }
 
 -- | The name of the conformance pack name.
-conformancePackComplianceSummary_conformancePackName :: Lens.Lens' ConformancePackComplianceSummary Core.Text
+conformancePackComplianceSummary_conformancePackName :: Lens.Lens' ConformancePackComplianceSummary Prelude.Text
 conformancePackComplianceSummary_conformancePackName = Lens.lens (\ConformancePackComplianceSummary' {conformancePackName} -> conformancePackName) (\s@ConformancePackComplianceSummary' {} a -> s {conformancePackName = a} :: ConformancePackComplianceSummary)
 
 -- | The status of the conformance pack. The allowed values are COMPLIANT and
@@ -81,12 +82,14 @@ instance
       "ConformancePackComplianceSummary"
       ( \x ->
           ConformancePackComplianceSummary'
-            Core.<$> (x Core..: "ConformancePackName")
-            Core.<*> (x Core..: "ConformancePackComplianceStatus")
+            Prelude.<$> (x Core..: "ConformancePackName")
+            Prelude.<*> (x Core..: "ConformancePackComplianceStatus")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ConformancePackComplianceSummary
 
-instance Core.NFData ConformancePackComplianceSummary
+instance
+  Prelude.NFData
+    ConformancePackComplianceSummary

@@ -21,15 +21,16 @@ module Network.AWS.DynamoDB.Types.CreateReplicaAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a replica to be added.
 --
 -- /See:/ 'newCreateReplicaAction' smart constructor.
 data CreateReplicaAction = CreateReplicaAction'
   { -- | The Region of the replica to be added.
-    regionName :: Core.Text
+    regionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReplicaAction' with all optional fields omitted.
@@ -42,22 +43,22 @@ data CreateReplicaAction = CreateReplicaAction'
 -- 'regionName', 'createReplicaAction_regionName' - The Region of the replica to be added.
 newCreateReplicaAction ::
   -- | 'regionName'
-  Core.Text ->
+  Prelude.Text ->
   CreateReplicaAction
 newCreateReplicaAction pRegionName_ =
   CreateReplicaAction' {regionName = pRegionName_}
 
 -- | The Region of the replica to be added.
-createReplicaAction_regionName :: Lens.Lens' CreateReplicaAction Core.Text
+createReplicaAction_regionName :: Lens.Lens' CreateReplicaAction Prelude.Text
 createReplicaAction_regionName = Lens.lens (\CreateReplicaAction' {regionName} -> regionName) (\s@CreateReplicaAction' {} a -> s {regionName = a} :: CreateReplicaAction)
 
-instance Core.Hashable CreateReplicaAction
+instance Prelude.Hashable CreateReplicaAction
 
-instance Core.NFData CreateReplicaAction
+instance Prelude.NFData CreateReplicaAction
 
 instance Core.ToJSON CreateReplicaAction where
   toJSON CreateReplicaAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RegionName" Core..= regionName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RegionName" Core..= regionName)]
       )

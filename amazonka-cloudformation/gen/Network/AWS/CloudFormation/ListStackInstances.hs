@@ -54,6 +54,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,14 +66,14 @@ data ListStackInstances = ListStackInstances'
     -- token to the request object\'s @NextToken@ parameter. If there are no
     -- remaining results, the previous response object\'s @NextToken@ parameter
     -- is set to @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS account that you want to list stack instances for.
-    stackInstanceAccount :: Core.Maybe Core.Text,
+    stackInstanceAccount :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -89,16 +90,16 @@ data ListStackInstances = ListStackInstances'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Core.Maybe CallAs,
+    callAs :: Prelude.Maybe CallAs,
     -- | The name of the Region where you want to list stack instances.
-    stackInstanceRegion :: Core.Maybe Core.Text,
+    stackInstanceRegion :: Prelude.Maybe Prelude.Text,
     -- | The status that stack instances are filtered by.
-    filters :: Core.Maybe [StackInstanceFilter],
+    filters :: Prelude.Maybe [StackInstanceFilter],
     -- | The name or unique ID of the stack set that you want to list stack
     -- instances for.
-    stackSetName :: Core.Text
+    stackSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStackInstances' with all optional fields omitted.
@@ -147,16 +148,16 @@ data ListStackInstances = ListStackInstances'
 -- instances for.
 newListStackInstances ::
   -- | 'stackSetName'
-  Core.Text ->
+  Prelude.Text ->
   ListStackInstances
 newListStackInstances pStackSetName_ =
   ListStackInstances'
-    { nextToken = Core.Nothing,
-      stackInstanceAccount = Core.Nothing,
-      maxResults = Core.Nothing,
-      callAs = Core.Nothing,
-      stackInstanceRegion = Core.Nothing,
-      filters = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      stackInstanceAccount = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      callAs = Prelude.Nothing,
+      stackInstanceRegion = Prelude.Nothing,
+      filters = Prelude.Nothing,
       stackSetName = pStackSetName_
     }
 
@@ -166,18 +167,18 @@ newListStackInstances pStackSetName_ =
 -- token to the request object\'s @NextToken@ parameter. If there are no
 -- remaining results, the previous response object\'s @NextToken@ parameter
 -- is set to @null@.
-listStackInstances_nextToken :: Lens.Lens' ListStackInstances (Core.Maybe Core.Text)
+listStackInstances_nextToken :: Lens.Lens' ListStackInstances (Prelude.Maybe Prelude.Text)
 listStackInstances_nextToken = Lens.lens (\ListStackInstances' {nextToken} -> nextToken) (\s@ListStackInstances' {} a -> s {nextToken = a} :: ListStackInstances)
 
 -- | The name of the AWS account that you want to list stack instances for.
-listStackInstances_stackInstanceAccount :: Lens.Lens' ListStackInstances (Core.Maybe Core.Text)
+listStackInstances_stackInstanceAccount :: Lens.Lens' ListStackInstances (Prelude.Maybe Prelude.Text)
 listStackInstances_stackInstanceAccount = Lens.lens (\ListStackInstances' {stackInstanceAccount} -> stackInstanceAccount) (\s@ListStackInstances' {} a -> s {stackInstanceAccount = a} :: ListStackInstances)
 
 -- | The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
-listStackInstances_maxResults :: Lens.Lens' ListStackInstances (Core.Maybe Core.Natural)
+listStackInstances_maxResults :: Lens.Lens' ListStackInstances (Prelude.Maybe Prelude.Natural)
 listStackInstances_maxResults = Lens.lens (\ListStackInstances' {maxResults} -> maxResults) (\s@ListStackInstances' {} a -> s {maxResults = a} :: ListStackInstances)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
@@ -196,20 +197,20 @@ listStackInstances_maxResults = Lens.lens (\ListStackInstances' {maxResults} -> 
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-listStackInstances_callAs :: Lens.Lens' ListStackInstances (Core.Maybe CallAs)
+listStackInstances_callAs :: Lens.Lens' ListStackInstances (Prelude.Maybe CallAs)
 listStackInstances_callAs = Lens.lens (\ListStackInstances' {callAs} -> callAs) (\s@ListStackInstances' {} a -> s {callAs = a} :: ListStackInstances)
 
 -- | The name of the Region where you want to list stack instances.
-listStackInstances_stackInstanceRegion :: Lens.Lens' ListStackInstances (Core.Maybe Core.Text)
+listStackInstances_stackInstanceRegion :: Lens.Lens' ListStackInstances (Prelude.Maybe Prelude.Text)
 listStackInstances_stackInstanceRegion = Lens.lens (\ListStackInstances' {stackInstanceRegion} -> stackInstanceRegion) (\s@ListStackInstances' {} a -> s {stackInstanceRegion = a} :: ListStackInstances)
 
 -- | The status that stack instances are filtered by.
-listStackInstances_filters :: Lens.Lens' ListStackInstances (Core.Maybe [StackInstanceFilter])
-listStackInstances_filters = Lens.lens (\ListStackInstances' {filters} -> filters) (\s@ListStackInstances' {} a -> s {filters = a} :: ListStackInstances) Core.. Lens.mapping Lens._Coerce
+listStackInstances_filters :: Lens.Lens' ListStackInstances (Prelude.Maybe [StackInstanceFilter])
+listStackInstances_filters = Lens.lens (\ListStackInstances' {filters} -> filters) (\s@ListStackInstances' {} a -> s {filters = a} :: ListStackInstances) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name or unique ID of the stack set that you want to list stack
 -- instances for.
-listStackInstances_stackSetName :: Lens.Lens' ListStackInstances Core.Text
+listStackInstances_stackSetName :: Lens.Lens' ListStackInstances Prelude.Text
 listStackInstances_stackSetName = Lens.lens (\ListStackInstances' {stackSetName} -> stackSetName) (\s@ListStackInstances' {} a -> s {stackSetName = a} :: ListStackInstances)
 
 instance Core.AWSPager ListStackInstances where
@@ -217,22 +218,22 @@ instance Core.AWSPager ListStackInstances where
     | Core.stop
         ( rs
             Lens.^? listStackInstancesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStackInstancesResponse_summaries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listStackInstances_nextToken
+          Prelude.& listStackInstances_nextToken
           Lens..~ rs
           Lens.^? listStackInstancesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStackInstances where
   type
@@ -244,29 +245,30 @@ instance Core.AWSRequest ListStackInstances where
       "ListStackInstancesResult"
       ( \s h x ->
           ListStackInstancesResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "Summaries" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "Summaries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListStackInstances
+instance Prelude.Hashable ListStackInstances
 
-instance Core.NFData ListStackInstances
+instance Prelude.NFData ListStackInstances
 
 instance Core.ToHeaders ListStackInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListStackInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListStackInstances where
   toQuery ListStackInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListStackInstances" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("ListStackInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "StackInstanceAccount" Core.=: stackInstanceAccount,
         "MaxResults" Core.=: maxResults,
@@ -274,7 +276,7 @@ instance Core.ToQuery ListStackInstances where
         "StackInstanceRegion" Core.=: stackInstanceRegion,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> filters),
+            (Core.toQueryList "member" Prelude.<$> filters),
         "StackSetName" Core.=: stackSetName
       ]
 
@@ -285,14 +287,14 @@ data ListStackInstancesResponse = ListStackInstancesResponse'
     -- @ListStackInstances@ again and assign that token to the request
     -- object\'s @NextToken@ parameter. If the request returns all results,
     -- @NextToken@ is set to @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @StackInstanceSummary@ structures that contain information
     -- about the specified stack instances.
-    summaries :: Core.Maybe [StackInstanceSummary],
+    summaries :: Prelude.Maybe [StackInstanceSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStackInstancesResponse' with all optional fields omitted.
@@ -314,13 +316,13 @@ data ListStackInstancesResponse = ListStackInstancesResponse'
 -- 'httpStatus', 'listStackInstancesResponse_httpStatus' - The response's http status code.
 newListStackInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListStackInstancesResponse
 newListStackInstancesResponse pHttpStatus_ =
   ListStackInstancesResponse'
     { nextToken =
-        Core.Nothing,
-      summaries = Core.Nothing,
+        Prelude.Nothing,
+      summaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -329,16 +331,16 @@ newListStackInstancesResponse pHttpStatus_ =
 -- @ListStackInstances@ again and assign that token to the request
 -- object\'s @NextToken@ parameter. If the request returns all results,
 -- @NextToken@ is set to @null@.
-listStackInstancesResponse_nextToken :: Lens.Lens' ListStackInstancesResponse (Core.Maybe Core.Text)
+listStackInstancesResponse_nextToken :: Lens.Lens' ListStackInstancesResponse (Prelude.Maybe Prelude.Text)
 listStackInstancesResponse_nextToken = Lens.lens (\ListStackInstancesResponse' {nextToken} -> nextToken) (\s@ListStackInstancesResponse' {} a -> s {nextToken = a} :: ListStackInstancesResponse)
 
 -- | A list of @StackInstanceSummary@ structures that contain information
 -- about the specified stack instances.
-listStackInstancesResponse_summaries :: Lens.Lens' ListStackInstancesResponse (Core.Maybe [StackInstanceSummary])
-listStackInstancesResponse_summaries = Lens.lens (\ListStackInstancesResponse' {summaries} -> summaries) (\s@ListStackInstancesResponse' {} a -> s {summaries = a} :: ListStackInstancesResponse) Core.. Lens.mapping Lens._Coerce
+listStackInstancesResponse_summaries :: Lens.Lens' ListStackInstancesResponse (Prelude.Maybe [StackInstanceSummary])
+listStackInstancesResponse_summaries = Lens.lens (\ListStackInstancesResponse' {summaries} -> summaries) (\s@ListStackInstancesResponse' {} a -> s {summaries = a} :: ListStackInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listStackInstancesResponse_httpStatus :: Lens.Lens' ListStackInstancesResponse Core.Int
+listStackInstancesResponse_httpStatus :: Lens.Lens' ListStackInstancesResponse Prelude.Int
 listStackInstancesResponse_httpStatus = Lens.lens (\ListStackInstancesResponse' {httpStatus} -> httpStatus) (\s@ListStackInstancesResponse' {} a -> s {httpStatus = a} :: ListStackInstancesResponse)
 
-instance Core.NFData ListStackInstancesResponse
+instance Prelude.NFData ListStackInstancesResponse

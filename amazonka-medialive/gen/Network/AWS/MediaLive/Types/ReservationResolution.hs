@@ -29,6 +29,7 @@ module Network.AWS.MediaLive.Types.ReservationResolution
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Resolution based on lines of vertical resolution; SD is less than 720
 -- lines, HD is 720 to 1080 lines, FHD is 1080 lines, UHD is greater than
@@ -38,15 +39,15 @@ newtype ReservationResolution = ReservationResolution'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.DeploymentConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoRollbackConfig
 import Network.AWS.SageMaker.Types.BlueGreenUpdatePolicy
 
@@ -28,10 +29,10 @@ import Network.AWS.SageMaker.Types.BlueGreenUpdatePolicy
 --
 -- /See:/ 'newDeploymentConfig' smart constructor.
 data DeploymentConfig = DeploymentConfig'
-  { autoRollbackConfiguration :: Core.Maybe AutoRollbackConfig,
+  { autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfig,
     blueGreenUpdatePolicy :: BlueGreenUpdatePolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeploymentConfig' with all optional fields omitted.
@@ -51,12 +52,12 @@ newDeploymentConfig ::
 newDeploymentConfig pBlueGreenUpdatePolicy_ =
   DeploymentConfig'
     { autoRollbackConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       blueGreenUpdatePolicy = pBlueGreenUpdatePolicy_
     }
 
 -- |
-deploymentConfig_autoRollbackConfiguration :: Lens.Lens' DeploymentConfig (Core.Maybe AutoRollbackConfig)
+deploymentConfig_autoRollbackConfiguration :: Lens.Lens' DeploymentConfig (Prelude.Maybe AutoRollbackConfig)
 deploymentConfig_autoRollbackConfiguration = Lens.lens (\DeploymentConfig' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@DeploymentConfig' {} a -> s {autoRollbackConfiguration = a} :: DeploymentConfig)
 
 -- |
@@ -69,21 +70,21 @@ instance Core.FromJSON DeploymentConfig where
       "DeploymentConfig"
       ( \x ->
           DeploymentConfig'
-            Core.<$> (x Core..:? "AutoRollbackConfiguration")
-            Core.<*> (x Core..: "BlueGreenUpdatePolicy")
+            Prelude.<$> (x Core..:? "AutoRollbackConfiguration")
+            Prelude.<*> (x Core..: "BlueGreenUpdatePolicy")
       )
 
-instance Core.Hashable DeploymentConfig
+instance Prelude.Hashable DeploymentConfig
 
-instance Core.NFData DeploymentConfig
+instance Prelude.NFData DeploymentConfig
 
 instance Core.ToJSON DeploymentConfig where
   toJSON DeploymentConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AutoRollbackConfiguration" Core..=)
-              Core.<$> autoRollbackConfiguration,
-            Core.Just
+              Prelude.<$> autoRollbackConfiguration,
+            Prelude.Just
               ( "BlueGreenUpdatePolicy"
                   Core..= blueGreenUpdatePolicy
               )

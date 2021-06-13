@@ -22,6 +22,7 @@ module Network.AWS.Batch.Types.NodeRangeProperty where
 import Network.AWS.Batch.Types.ContainerProperties
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the properties of the node range for a multi-node
 -- parallel job.
@@ -29,7 +30,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newNodeRangeProperty' smart constructor.
 data NodeRangeProperty = NodeRangeProperty'
   { -- | The container details for the node range.
-    container :: Core.Maybe ContainerProperties,
+    container :: Prelude.Maybe ContainerProperties,
     -- | The range of nodes, using node index values. A range of @0:3@ indicates
     -- nodes with index values of @0@ through @3@. If the starting range value
     -- is omitted (@:n@), then @0@ is used to start the range. If the ending
@@ -38,9 +39,9 @@ data NodeRangeProperty = NodeRangeProperty'
     -- all nodes (@0:n@). You can nest node ranges, for example @0:10@ and
     -- @4:5@, in which case the @4:5@ range properties override the @0:10@
     -- properties.
-    targetNodes :: Core.Text
+    targetNodes :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeRangeProperty' with all optional fields omitted.
@@ -62,16 +63,16 @@ data NodeRangeProperty = NodeRangeProperty'
 -- properties.
 newNodeRangeProperty ::
   -- | 'targetNodes'
-  Core.Text ->
+  Prelude.Text ->
   NodeRangeProperty
 newNodeRangeProperty pTargetNodes_ =
   NodeRangeProperty'
-    { container = Core.Nothing,
+    { container = Prelude.Nothing,
       targetNodes = pTargetNodes_
     }
 
 -- | The container details for the node range.
-nodeRangeProperty_container :: Lens.Lens' NodeRangeProperty (Core.Maybe ContainerProperties)
+nodeRangeProperty_container :: Lens.Lens' NodeRangeProperty (Prelude.Maybe ContainerProperties)
 nodeRangeProperty_container = Lens.lens (\NodeRangeProperty' {container} -> container) (\s@NodeRangeProperty' {} a -> s {container = a} :: NodeRangeProperty)
 
 -- | The range of nodes, using node index values. A range of @0:3@ indicates
@@ -82,7 +83,7 @@ nodeRangeProperty_container = Lens.lens (\NodeRangeProperty' {container} -> cont
 -- all nodes (@0:n@). You can nest node ranges, for example @0:10@ and
 -- @4:5@, in which case the @4:5@ range properties override the @0:10@
 -- properties.
-nodeRangeProperty_targetNodes :: Lens.Lens' NodeRangeProperty Core.Text
+nodeRangeProperty_targetNodes :: Lens.Lens' NodeRangeProperty Prelude.Text
 nodeRangeProperty_targetNodes = Lens.lens (\NodeRangeProperty' {targetNodes} -> targetNodes) (\s@NodeRangeProperty' {} a -> s {targetNodes = a} :: NodeRangeProperty)
 
 instance Core.FromJSON NodeRangeProperty where
@@ -91,19 +92,19 @@ instance Core.FromJSON NodeRangeProperty where
       "NodeRangeProperty"
       ( \x ->
           NodeRangeProperty'
-            Core.<$> (x Core..:? "container")
-            Core.<*> (x Core..: "targetNodes")
+            Prelude.<$> (x Core..:? "container")
+            Prelude.<*> (x Core..: "targetNodes")
       )
 
-instance Core.Hashable NodeRangeProperty
+instance Prelude.Hashable NodeRangeProperty
 
-instance Core.NFData NodeRangeProperty
+instance Prelude.NFData NodeRangeProperty
 
 instance Core.ToJSON NodeRangeProperty where
   toJSON NodeRangeProperty' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("container" Core..=) Core.<$> container,
-            Core.Just ("targetNodes" Core..= targetNodes)
+      ( Prelude.catMaybes
+          [ ("container" Core..=) Prelude.<$> container,
+            Prelude.Just ("targetNodes" Core..= targetNodes)
           ]
       )

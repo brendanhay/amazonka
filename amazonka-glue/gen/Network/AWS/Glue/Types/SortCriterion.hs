@@ -22,17 +22,18 @@ module Network.AWS.Glue.Types.SortCriterion where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Sort
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a field to sort by and a sort order.
 --
 -- /See:/ 'newSortCriterion' smart constructor.
 data SortCriterion = SortCriterion'
   { -- | The name of the field on which to sort.
-    fieldName :: Core.Maybe Core.Text,
+    fieldName :: Prelude.Maybe Prelude.Text,
     -- | An ascending or descending sort.
-    sort :: Core.Maybe Sort
+    sort :: Prelude.Maybe Sort
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SortCriterion' with all optional fields omitted.
@@ -49,27 +50,27 @@ newSortCriterion ::
   SortCriterion
 newSortCriterion =
   SortCriterion'
-    { fieldName = Core.Nothing,
-      sort = Core.Nothing
+    { fieldName = Prelude.Nothing,
+      sort = Prelude.Nothing
     }
 
 -- | The name of the field on which to sort.
-sortCriterion_fieldName :: Lens.Lens' SortCriterion (Core.Maybe Core.Text)
+sortCriterion_fieldName :: Lens.Lens' SortCriterion (Prelude.Maybe Prelude.Text)
 sortCriterion_fieldName = Lens.lens (\SortCriterion' {fieldName} -> fieldName) (\s@SortCriterion' {} a -> s {fieldName = a} :: SortCriterion)
 
 -- | An ascending or descending sort.
-sortCriterion_sort :: Lens.Lens' SortCriterion (Core.Maybe Sort)
+sortCriterion_sort :: Lens.Lens' SortCriterion (Prelude.Maybe Sort)
 sortCriterion_sort = Lens.lens (\SortCriterion' {sort} -> sort) (\s@SortCriterion' {} a -> s {sort = a} :: SortCriterion)
 
-instance Core.Hashable SortCriterion
+instance Prelude.Hashable SortCriterion
 
-instance Core.NFData SortCriterion
+instance Prelude.NFData SortCriterion
 
 instance Core.ToJSON SortCriterion where
   toJSON SortCriterion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("FieldName" Core..=) Core.<$> fieldName,
-            ("Sort" Core..=) Core.<$> sort
+      ( Prelude.catMaybes
+          [ ("FieldName" Core..=) Prelude.<$> fieldName,
+            ("Sort" Core..=) Prelude.<$> sort
           ]
       )

@@ -89,6 +89,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -100,9 +101,9 @@ data UpdateXssMatchSet = UpdateXssMatchSet'
   { -- | The @XssMatchSetId@ of the @XssMatchSet@ that you want to update.
     -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
     -- ListXssMatchSets.
-    xssMatchSetId :: Core.Text,
+    xssMatchSetId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text,
+    changeToken :: Prelude.Text,
     -- | An array of @XssMatchSetUpdate@ objects that you want to insert into or
     -- delete from an XssMatchSet. For more information, see the applicable
     -- data types:
@@ -112,9 +113,9 @@ data UpdateXssMatchSet = UpdateXssMatchSet'
     -- -   XssMatchTuple: Contains @FieldToMatch@ and @TextTransformation@
     --
     -- -   FieldToMatch: Contains @Data@ and @Type@
-    updates :: Core.NonEmpty XssMatchSetUpdate
+    updates :: Prelude.NonEmpty XssMatchSetUpdate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateXssMatchSet' with all optional fields omitted.
@@ -141,11 +142,11 @@ data UpdateXssMatchSet = UpdateXssMatchSet'
 -- -   FieldToMatch: Contains @Data@ and @Type@
 newUpdateXssMatchSet ::
   -- | 'xssMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'updates'
-  Core.NonEmpty XssMatchSetUpdate ->
+  Prelude.NonEmpty XssMatchSetUpdate ->
   UpdateXssMatchSet
 newUpdateXssMatchSet
   pXssMatchSetId_
@@ -160,11 +161,11 @@ newUpdateXssMatchSet
 -- | The @XssMatchSetId@ of the @XssMatchSet@ that you want to update.
 -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
 -- ListXssMatchSets.
-updateXssMatchSet_xssMatchSetId :: Lens.Lens' UpdateXssMatchSet Core.Text
+updateXssMatchSet_xssMatchSetId :: Lens.Lens' UpdateXssMatchSet Prelude.Text
 updateXssMatchSet_xssMatchSetId = Lens.lens (\UpdateXssMatchSet' {xssMatchSetId} -> xssMatchSetId) (\s@UpdateXssMatchSet' {} a -> s {xssMatchSetId = a} :: UpdateXssMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateXssMatchSet_changeToken :: Lens.Lens' UpdateXssMatchSet Core.Text
+updateXssMatchSet_changeToken :: Lens.Lens' UpdateXssMatchSet Prelude.Text
 updateXssMatchSet_changeToken = Lens.lens (\UpdateXssMatchSet' {changeToken} -> changeToken) (\s@UpdateXssMatchSet' {} a -> s {changeToken = a} :: UpdateXssMatchSet)
 
 -- | An array of @XssMatchSetUpdate@ objects that you want to insert into or
@@ -176,8 +177,8 @@ updateXssMatchSet_changeToken = Lens.lens (\UpdateXssMatchSet' {changeToken} -> 
 -- -   XssMatchTuple: Contains @FieldToMatch@ and @TextTransformation@
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
-updateXssMatchSet_updates :: Lens.Lens' UpdateXssMatchSet (Core.NonEmpty XssMatchSetUpdate)
-updateXssMatchSet_updates = Lens.lens (\UpdateXssMatchSet' {updates} -> updates) (\s@UpdateXssMatchSet' {} a -> s {updates = a} :: UpdateXssMatchSet) Core.. Lens._Coerce
+updateXssMatchSet_updates :: Lens.Lens' UpdateXssMatchSet (Prelude.NonEmpty XssMatchSetUpdate)
+updateXssMatchSet_updates = Lens.lens (\UpdateXssMatchSet' {updates} -> updates) (\s@UpdateXssMatchSet' {} a -> s {updates = a} :: UpdateXssMatchSet) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateXssMatchSet where
   type
@@ -188,42 +189,45 @@ instance Core.AWSRequest UpdateXssMatchSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateXssMatchSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateXssMatchSet
+instance Prelude.Hashable UpdateXssMatchSet
 
-instance Core.NFData UpdateXssMatchSet
+instance Prelude.NFData UpdateXssMatchSet
 
 instance Core.ToHeaders UpdateXssMatchSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.UpdateXssMatchSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateXssMatchSet where
   toJSON UpdateXssMatchSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("XssMatchSetId" Core..= xssMatchSetId),
-            Core.Just ("ChangeToken" Core..= changeToken),
-            Core.Just ("Updates" Core..= updates)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("XssMatchSetId" Core..= xssMatchSetId),
+            Prelude.Just ("ChangeToken" Core..= changeToken),
+            Prelude.Just ("Updates" Core..= updates)
           ]
       )
 
 instance Core.ToPath UpdateXssMatchSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateXssMatchSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response to an UpdateXssMatchSets request.
 --
@@ -232,11 +236,11 @@ data UpdateXssMatchSetResponse = UpdateXssMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateXssMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateXssMatchSetResponse' with all optional fields omitted.
@@ -253,23 +257,23 @@ data UpdateXssMatchSetResponse = UpdateXssMatchSetResponse'
 -- 'httpStatus', 'updateXssMatchSetResponse_httpStatus' - The response's http status code.
 newUpdateXssMatchSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateXssMatchSetResponse
 newUpdateXssMatchSetResponse pHttpStatus_ =
   UpdateXssMatchSetResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateXssMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-updateXssMatchSetResponse_changeToken :: Lens.Lens' UpdateXssMatchSetResponse (Core.Maybe Core.Text)
+updateXssMatchSetResponse_changeToken :: Lens.Lens' UpdateXssMatchSetResponse (Prelude.Maybe Prelude.Text)
 updateXssMatchSetResponse_changeToken = Lens.lens (\UpdateXssMatchSetResponse' {changeToken} -> changeToken) (\s@UpdateXssMatchSetResponse' {} a -> s {changeToken = a} :: UpdateXssMatchSetResponse)
 
 -- | The response's http status code.
-updateXssMatchSetResponse_httpStatus :: Lens.Lens' UpdateXssMatchSetResponse Core.Int
+updateXssMatchSetResponse_httpStatus :: Lens.Lens' UpdateXssMatchSetResponse Prelude.Int
 updateXssMatchSetResponse_httpStatus = Lens.lens (\UpdateXssMatchSetResponse' {httpStatus} -> httpStatus) (\s@UpdateXssMatchSetResponse' {} a -> s {httpStatus = a} :: UpdateXssMatchSetResponse)
 
-instance Core.NFData UpdateXssMatchSetResponse
+instance Prelude.NFData UpdateXssMatchSetResponse

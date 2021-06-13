@@ -22,15 +22,16 @@ module Network.AWS.Config.Types.QueryInfo where
 import Network.AWS.Config.Types.FieldInfo
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the query.
 --
 -- /See:/ 'newQueryInfo' smart constructor.
 data QueryInfo = QueryInfo'
   { -- | Returns a @FieldInfo@ object.
-    selectFields :: Core.Maybe [FieldInfo]
+    selectFields :: Prelude.Maybe [FieldInfo]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryInfo' with all optional fields omitted.
@@ -44,11 +45,11 @@ data QueryInfo = QueryInfo'
 newQueryInfo ::
   QueryInfo
 newQueryInfo =
-  QueryInfo' {selectFields = Core.Nothing}
+  QueryInfo' {selectFields = Prelude.Nothing}
 
 -- | Returns a @FieldInfo@ object.
-queryInfo_selectFields :: Lens.Lens' QueryInfo (Core.Maybe [FieldInfo])
-queryInfo_selectFields = Lens.lens (\QueryInfo' {selectFields} -> selectFields) (\s@QueryInfo' {} a -> s {selectFields = a} :: QueryInfo) Core.. Lens.mapping Lens._Coerce
+queryInfo_selectFields :: Lens.Lens' QueryInfo (Prelude.Maybe [FieldInfo])
+queryInfo_selectFields = Lens.lens (\QueryInfo' {selectFields} -> selectFields) (\s@QueryInfo' {} a -> s {selectFields = a} :: QueryInfo) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON QueryInfo where
   parseJSON =
@@ -56,9 +57,9 @@ instance Core.FromJSON QueryInfo where
       "QueryInfo"
       ( \x ->
           QueryInfo'
-            Core.<$> (x Core..:? "SelectFields" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "SelectFields" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable QueryInfo
+instance Prelude.Hashable QueryInfo
 
-instance Core.NFData QueryInfo
+instance Prelude.NFData QueryInfo

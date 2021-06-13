@@ -47,19 +47,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListProvisioningTemplateVersions' smart constructor.
 data ListProvisioningTemplateVersions = ListProvisioningTemplateVersions'
   { -- | A token to retrieve the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the fleet provisioning template.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProvisioningTemplateVersions' with all optional fields omitted.
@@ -76,26 +77,26 @@ data ListProvisioningTemplateVersions = ListProvisioningTemplateVersions'
 -- 'templateName', 'listProvisioningTemplateVersions_templateName' - The name of the fleet provisioning template.
 newListProvisioningTemplateVersions ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   ListProvisioningTemplateVersions
 newListProvisioningTemplateVersions pTemplateName_ =
   ListProvisioningTemplateVersions'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       templateName = pTemplateName_
     }
 
 -- | A token to retrieve the next set of results.
-listProvisioningTemplateVersions_nextToken :: Lens.Lens' ListProvisioningTemplateVersions (Core.Maybe Core.Text)
+listProvisioningTemplateVersions_nextToken :: Lens.Lens' ListProvisioningTemplateVersions (Prelude.Maybe Prelude.Text)
 listProvisioningTemplateVersions_nextToken = Lens.lens (\ListProvisioningTemplateVersions' {nextToken} -> nextToken) (\s@ListProvisioningTemplateVersions' {} a -> s {nextToken = a} :: ListProvisioningTemplateVersions)
 
 -- | The maximum number of results to return at one time.
-listProvisioningTemplateVersions_maxResults :: Lens.Lens' ListProvisioningTemplateVersions (Core.Maybe Core.Natural)
+listProvisioningTemplateVersions_maxResults :: Lens.Lens' ListProvisioningTemplateVersions (Prelude.Maybe Prelude.Natural)
 listProvisioningTemplateVersions_maxResults = Lens.lens (\ListProvisioningTemplateVersions' {maxResults} -> maxResults) (\s@ListProvisioningTemplateVersions' {} a -> s {maxResults = a} :: ListProvisioningTemplateVersions)
 
 -- | The name of the fleet provisioning template.
-listProvisioningTemplateVersions_templateName :: Lens.Lens' ListProvisioningTemplateVersions Core.Text
+listProvisioningTemplateVersions_templateName :: Lens.Lens' ListProvisioningTemplateVersions Prelude.Text
 listProvisioningTemplateVersions_templateName = Lens.lens (\ListProvisioningTemplateVersions' {templateName} -> templateName) (\s@ListProvisioningTemplateVersions' {} a -> s {templateName = a} :: ListProvisioningTemplateVersions)
 
 instance
@@ -106,22 +107,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listProvisioningTemplateVersionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProvisioningTemplateVersionsResponse_versions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listProvisioningTemplateVersions_nextToken
+          Prelude.& listProvisioningTemplateVersions_nextToken
           Lens..~ rs
           Lens.^? listProvisioningTemplateVersionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -135,26 +136,28 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListProvisioningTemplateVersionsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "versions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "versions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ListProvisioningTemplateVersions
 
-instance Core.NFData ListProvisioningTemplateVersions
+instance
+  Prelude.NFData
+    ListProvisioningTemplateVersions
 
 instance
   Core.ToHeaders
     ListProvisioningTemplateVersions
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListProvisioningTemplateVersions where
   toPath ListProvisioningTemplateVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/provisioning-templates/",
         Core.toBS templateName,
         "/versions"
@@ -165,7 +168,7 @@ instance
     ListProvisioningTemplateVersions
   where
   toQuery ListProvisioningTemplateVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -173,13 +176,13 @@ instance
 -- | /See:/ 'newListProvisioningTemplateVersionsResponse' smart constructor.
 data ListProvisioningTemplateVersionsResponse = ListProvisioningTemplateVersionsResponse'
   { -- | A token to retrieve the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of fleet provisioning template versions.
-    versions :: Core.Maybe [ProvisioningTemplateVersionSummary],
+    versions :: Prelude.Maybe [ProvisioningTemplateVersionSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProvisioningTemplateVersionsResponse' with all optional fields omitted.
@@ -196,29 +199,29 @@ data ListProvisioningTemplateVersionsResponse = ListProvisioningTemplateVersions
 -- 'httpStatus', 'listProvisioningTemplateVersionsResponse_httpStatus' - The response's http status code.
 newListProvisioningTemplateVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListProvisioningTemplateVersionsResponse
 newListProvisioningTemplateVersionsResponse
   pHttpStatus_ =
     ListProvisioningTemplateVersionsResponse'
       { nextToken =
-          Core.Nothing,
-        versions = Core.Nothing,
+          Prelude.Nothing,
+        versions = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A token to retrieve the next set of results.
-listProvisioningTemplateVersionsResponse_nextToken :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Core.Maybe Core.Text)
+listProvisioningTemplateVersionsResponse_nextToken :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Prelude.Maybe Prelude.Text)
 listProvisioningTemplateVersionsResponse_nextToken = Lens.lens (\ListProvisioningTemplateVersionsResponse' {nextToken} -> nextToken) (\s@ListProvisioningTemplateVersionsResponse' {} a -> s {nextToken = a} :: ListProvisioningTemplateVersionsResponse)
 
 -- | The list of fleet provisioning template versions.
-listProvisioningTemplateVersionsResponse_versions :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Core.Maybe [ProvisioningTemplateVersionSummary])
-listProvisioningTemplateVersionsResponse_versions = Lens.lens (\ListProvisioningTemplateVersionsResponse' {versions} -> versions) (\s@ListProvisioningTemplateVersionsResponse' {} a -> s {versions = a} :: ListProvisioningTemplateVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listProvisioningTemplateVersionsResponse_versions :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Prelude.Maybe [ProvisioningTemplateVersionSummary])
+listProvisioningTemplateVersionsResponse_versions = Lens.lens (\ListProvisioningTemplateVersionsResponse' {versions} -> versions) (\s@ListProvisioningTemplateVersionsResponse' {} a -> s {versions = a} :: ListProvisioningTemplateVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listProvisioningTemplateVersionsResponse_httpStatus :: Lens.Lens' ListProvisioningTemplateVersionsResponse Core.Int
+listProvisioningTemplateVersionsResponse_httpStatus :: Lens.Lens' ListProvisioningTemplateVersionsResponse Prelude.Int
 listProvisioningTemplateVersionsResponse_httpStatus = Lens.lens (\ListProvisioningTemplateVersionsResponse' {httpStatus} -> httpStatus) (\s@ListProvisioningTemplateVersionsResponse' {} a -> s {httpStatus = a} :: ListProvisioningTemplateVersionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListProvisioningTemplateVersionsResponse

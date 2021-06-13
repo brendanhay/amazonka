@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ContainerFormat
 import Network.AWS.EC2.Types.DiskImageFormat
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an export instance task.
 --
@@ -31,18 +32,18 @@ import qualified Network.AWS.Lens as Lens
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
   { -- | The container format used to combine disk images with metadata (such as
     -- OVF). If absent, only the disk image is exported.
-    containerFormat :: Core.Maybe ContainerFormat,
+    containerFormat :: Prelude.Maybe ContainerFormat,
     -- | The format for the exported image.
-    diskImageFormat :: Core.Maybe DiskImageFormat,
+    diskImageFormat :: Prelude.Maybe DiskImageFormat,
     -- | The Amazon S3 bucket for the destination image. The destination bucket
     -- must exist and grant WRITE and READ_ACP permissions to the AWS account
     -- @vm-import-export\@amazon.com@.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The image is written to a single object in the Amazon S3 bucket at the
     -- S3 key s3prefix + exportTaskId + \'.\' + diskImageFormat.
-    s3Prefix :: Core.Maybe Core.Text
+    s3Prefix :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportToS3TaskSpecification' with all optional fields omitted.
@@ -68,39 +69,39 @@ newExportToS3TaskSpecification ::
 newExportToS3TaskSpecification =
   ExportToS3TaskSpecification'
     { containerFormat =
-        Core.Nothing,
-      diskImageFormat = Core.Nothing,
-      s3Bucket = Core.Nothing,
-      s3Prefix = Core.Nothing
+        Prelude.Nothing,
+      diskImageFormat = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
+      s3Prefix = Prelude.Nothing
     }
 
 -- | The container format used to combine disk images with metadata (such as
 -- OVF). If absent, only the disk image is exported.
-exportToS3TaskSpecification_containerFormat :: Lens.Lens' ExportToS3TaskSpecification (Core.Maybe ContainerFormat)
+exportToS3TaskSpecification_containerFormat :: Lens.Lens' ExportToS3TaskSpecification (Prelude.Maybe ContainerFormat)
 exportToS3TaskSpecification_containerFormat = Lens.lens (\ExportToS3TaskSpecification' {containerFormat} -> containerFormat) (\s@ExportToS3TaskSpecification' {} a -> s {containerFormat = a} :: ExportToS3TaskSpecification)
 
 -- | The format for the exported image.
-exportToS3TaskSpecification_diskImageFormat :: Lens.Lens' ExportToS3TaskSpecification (Core.Maybe DiskImageFormat)
+exportToS3TaskSpecification_diskImageFormat :: Lens.Lens' ExportToS3TaskSpecification (Prelude.Maybe DiskImageFormat)
 exportToS3TaskSpecification_diskImageFormat = Lens.lens (\ExportToS3TaskSpecification' {diskImageFormat} -> diskImageFormat) (\s@ExportToS3TaskSpecification' {} a -> s {diskImageFormat = a} :: ExportToS3TaskSpecification)
 
 -- | The Amazon S3 bucket for the destination image. The destination bucket
 -- must exist and grant WRITE and READ_ACP permissions to the AWS account
 -- @vm-import-export\@amazon.com@.
-exportToS3TaskSpecification_s3Bucket :: Lens.Lens' ExportToS3TaskSpecification (Core.Maybe Core.Text)
+exportToS3TaskSpecification_s3Bucket :: Lens.Lens' ExportToS3TaskSpecification (Prelude.Maybe Prelude.Text)
 exportToS3TaskSpecification_s3Bucket = Lens.lens (\ExportToS3TaskSpecification' {s3Bucket} -> s3Bucket) (\s@ExportToS3TaskSpecification' {} a -> s {s3Bucket = a} :: ExportToS3TaskSpecification)
 
 -- | The image is written to a single object in the Amazon S3 bucket at the
 -- S3 key s3prefix + exportTaskId + \'.\' + diskImageFormat.
-exportToS3TaskSpecification_s3Prefix :: Lens.Lens' ExportToS3TaskSpecification (Core.Maybe Core.Text)
+exportToS3TaskSpecification_s3Prefix :: Lens.Lens' ExportToS3TaskSpecification (Prelude.Maybe Prelude.Text)
 exportToS3TaskSpecification_s3Prefix = Lens.lens (\ExportToS3TaskSpecification' {s3Prefix} -> s3Prefix) (\s@ExportToS3TaskSpecification' {} a -> s {s3Prefix = a} :: ExportToS3TaskSpecification)
 
-instance Core.Hashable ExportToS3TaskSpecification
+instance Prelude.Hashable ExportToS3TaskSpecification
 
-instance Core.NFData ExportToS3TaskSpecification
+instance Prelude.NFData ExportToS3TaskSpecification
 
 instance Core.ToQuery ExportToS3TaskSpecification where
   toQuery ExportToS3TaskSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ContainerFormat" Core.=: containerFormat,
         "DiskImageFormat" Core.=: diskImageFormat,
         "S3Bucket" Core.=: s3Bucket,

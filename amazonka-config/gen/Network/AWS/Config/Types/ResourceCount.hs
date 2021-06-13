@@ -22,17 +22,18 @@ module Network.AWS.Config.Types.ResourceCount where
 import Network.AWS.Config.Types.ResourceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains the resource type and the number of resources.
 --
 -- /See:/ 'newResourceCount' smart constructor.
 data ResourceCount = ResourceCount'
   { -- | The resource type (for example, @\"AWS::EC2::Instance\"@).
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The number of resources.
-    count :: Core.Maybe Core.Integer
+    count :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceCount' with all optional fields omitted.
@@ -49,16 +50,16 @@ newResourceCount ::
   ResourceCount
 newResourceCount =
   ResourceCount'
-    { resourceType = Core.Nothing,
-      count = Core.Nothing
+    { resourceType = Prelude.Nothing,
+      count = Prelude.Nothing
     }
 
 -- | The resource type (for example, @\"AWS::EC2::Instance\"@).
-resourceCount_resourceType :: Lens.Lens' ResourceCount (Core.Maybe ResourceType)
+resourceCount_resourceType :: Lens.Lens' ResourceCount (Prelude.Maybe ResourceType)
 resourceCount_resourceType = Lens.lens (\ResourceCount' {resourceType} -> resourceType) (\s@ResourceCount' {} a -> s {resourceType = a} :: ResourceCount)
 
 -- | The number of resources.
-resourceCount_count :: Lens.Lens' ResourceCount (Core.Maybe Core.Integer)
+resourceCount_count :: Lens.Lens' ResourceCount (Prelude.Maybe Prelude.Integer)
 resourceCount_count = Lens.lens (\ResourceCount' {count} -> count) (\s@ResourceCount' {} a -> s {count = a} :: ResourceCount)
 
 instance Core.FromJSON ResourceCount where
@@ -67,10 +68,10 @@ instance Core.FromJSON ResourceCount where
       "ResourceCount"
       ( \x ->
           ResourceCount'
-            Core.<$> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "count")
+            Prelude.<$> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "count")
       )
 
-instance Core.Hashable ResourceCount
+instance Prelude.Hashable ResourceCount
 
-instance Core.NFData ResourceCount
+instance Prelude.NFData ResourceCount

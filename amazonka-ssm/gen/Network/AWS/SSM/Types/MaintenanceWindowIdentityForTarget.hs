@@ -21,17 +21,18 @@ module Network.AWS.SSM.Types.MaintenanceWindowIdentityForTarget where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The maintenance window to which the specified target belongs.
 --
 -- /See:/ 'newMaintenanceWindowIdentityForTarget' smart constructor.
 data MaintenanceWindowIdentityForTarget = MaintenanceWindowIdentityForTarget'
   { -- | The name of the maintenance window.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window.
-    windowId :: Core.Maybe Core.Text
+    windowId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowIdentityForTarget' with all optional fields omitted.
@@ -49,16 +50,16 @@ newMaintenanceWindowIdentityForTarget ::
 newMaintenanceWindowIdentityForTarget =
   MaintenanceWindowIdentityForTarget'
     { name =
-        Core.Nothing,
-      windowId = Core.Nothing
+        Prelude.Nothing,
+      windowId = Prelude.Nothing
     }
 
 -- | The name of the maintenance window.
-maintenanceWindowIdentityForTarget_name :: Lens.Lens' MaintenanceWindowIdentityForTarget (Core.Maybe Core.Text)
+maintenanceWindowIdentityForTarget_name :: Lens.Lens' MaintenanceWindowIdentityForTarget (Prelude.Maybe Prelude.Text)
 maintenanceWindowIdentityForTarget_name = Lens.lens (\MaintenanceWindowIdentityForTarget' {name} -> name) (\s@MaintenanceWindowIdentityForTarget' {} a -> s {name = a} :: MaintenanceWindowIdentityForTarget)
 
 -- | The ID of the maintenance window.
-maintenanceWindowIdentityForTarget_windowId :: Lens.Lens' MaintenanceWindowIdentityForTarget (Core.Maybe Core.Text)
+maintenanceWindowIdentityForTarget_windowId :: Lens.Lens' MaintenanceWindowIdentityForTarget (Prelude.Maybe Prelude.Text)
 maintenanceWindowIdentityForTarget_windowId = Lens.lens (\MaintenanceWindowIdentityForTarget' {windowId} -> windowId) (\s@MaintenanceWindowIdentityForTarget' {} a -> s {windowId = a} :: MaintenanceWindowIdentityForTarget)
 
 instance
@@ -70,13 +71,14 @@ instance
       "MaintenanceWindowIdentityForTarget"
       ( \x ->
           MaintenanceWindowIdentityForTarget'
-            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "WindowId")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "WindowId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     MaintenanceWindowIdentityForTarget
 
 instance
-  Core.NFData
+  Prelude.NFData
     MaintenanceWindowIdentityForTarget

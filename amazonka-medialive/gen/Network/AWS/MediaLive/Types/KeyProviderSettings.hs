@@ -22,14 +22,15 @@ module Network.AWS.MediaLive.Types.KeyProviderSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.StaticKeySettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Key Provider Settings
 --
 -- /See:/ 'newKeyProviderSettings' smart constructor.
 data KeyProviderSettings = KeyProviderSettings'
-  { staticKeySettings :: Core.Maybe StaticKeySettings
+  { staticKeySettings :: Prelude.Maybe StaticKeySettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeyProviderSettings' with all optional fields omitted.
@@ -45,11 +46,11 @@ newKeyProviderSettings ::
 newKeyProviderSettings =
   KeyProviderSettings'
     { staticKeySettings =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Undocumented member.
-keyProviderSettings_staticKeySettings :: Lens.Lens' KeyProviderSettings (Core.Maybe StaticKeySettings)
+keyProviderSettings_staticKeySettings :: Lens.Lens' KeyProviderSettings (Prelude.Maybe StaticKeySettings)
 keyProviderSettings_staticKeySettings = Lens.lens (\KeyProviderSettings' {staticKeySettings} -> staticKeySettings) (\s@KeyProviderSettings' {} a -> s {staticKeySettings = a} :: KeyProviderSettings)
 
 instance Core.FromJSON KeyProviderSettings where
@@ -58,18 +59,18 @@ instance Core.FromJSON KeyProviderSettings where
       "KeyProviderSettings"
       ( \x ->
           KeyProviderSettings'
-            Core.<$> (x Core..:? "staticKeySettings")
+            Prelude.<$> (x Core..:? "staticKeySettings")
       )
 
-instance Core.Hashable KeyProviderSettings
+instance Prelude.Hashable KeyProviderSettings
 
-instance Core.NFData KeyProviderSettings
+instance Prelude.NFData KeyProviderSettings
 
 instance Core.ToJSON KeyProviderSettings where
   toJSON KeyProviderSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("staticKeySettings" Core..=)
-              Core.<$> staticKeySettings
+              Prelude.<$> staticKeySettings
           ]
       )

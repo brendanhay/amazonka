@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,12 +64,12 @@ import qualified Network.AWS.Response as Response
 data ReportTaskProgress = ReportTaskProgress'
   { -- | Key-value pairs that define the properties of the
     -- ReportTaskProgressInput object.
-    fields :: Core.Maybe [Field],
+    fields :: Prelude.Maybe [Field],
     -- | The ID of the task assigned to the task runner. This value is provided
     -- in the response for PollForTask.
-    taskId :: Core.Text
+    taskId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReportTaskProgress' with all optional fields omitted.
@@ -85,22 +86,22 @@ data ReportTaskProgress = ReportTaskProgress'
 -- in the response for PollForTask.
 newReportTaskProgress ::
   -- | 'taskId'
-  Core.Text ->
+  Prelude.Text ->
   ReportTaskProgress
 newReportTaskProgress pTaskId_ =
   ReportTaskProgress'
-    { fields = Core.Nothing,
+    { fields = Prelude.Nothing,
       taskId = pTaskId_
     }
 
 -- | Key-value pairs that define the properties of the
 -- ReportTaskProgressInput object.
-reportTaskProgress_fields :: Lens.Lens' ReportTaskProgress (Core.Maybe [Field])
-reportTaskProgress_fields = Lens.lens (\ReportTaskProgress' {fields} -> fields) (\s@ReportTaskProgress' {} a -> s {fields = a} :: ReportTaskProgress) Core.. Lens.mapping Lens._Coerce
+reportTaskProgress_fields :: Lens.Lens' ReportTaskProgress (Prelude.Maybe [Field])
+reportTaskProgress_fields = Lens.lens (\ReportTaskProgress' {fields} -> fields) (\s@ReportTaskProgress' {} a -> s {fields = a} :: ReportTaskProgress) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the task assigned to the task runner. This value is provided
 -- in the response for PollForTask.
-reportTaskProgress_taskId :: Lens.Lens' ReportTaskProgress Core.Text
+reportTaskProgress_taskId :: Lens.Lens' ReportTaskProgress Prelude.Text
 reportTaskProgress_taskId = Lens.lens (\ReportTaskProgress' {taskId} -> taskId) (\s@ReportTaskProgress' {} a -> s {taskId = a} :: ReportTaskProgress)
 
 instance Core.AWSRequest ReportTaskProgress where
@@ -112,53 +113,55 @@ instance Core.AWSRequest ReportTaskProgress where
     Response.receiveJSON
       ( \s h x ->
           ReportTaskProgressResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "canceled")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "canceled")
       )
 
-instance Core.Hashable ReportTaskProgress
+instance Prelude.Hashable ReportTaskProgress
 
-instance Core.NFData ReportTaskProgress
+instance Prelude.NFData ReportTaskProgress
 
 instance Core.ToHeaders ReportTaskProgress where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DataPipeline.ReportTaskProgress" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ReportTaskProgress where
   toJSON ReportTaskProgress' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("fields" Core..=) Core.<$> fields,
-            Core.Just ("taskId" Core..= taskId)
+      ( Prelude.catMaybes
+          [ ("fields" Core..=) Prelude.<$> fields,
+            Prelude.Just ("taskId" Core..= taskId)
           ]
       )
 
 instance Core.ToPath ReportTaskProgress where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ReportTaskProgress where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of ReportTaskProgress.
 --
 -- /See:/ 'newReportTaskProgressResponse' smart constructor.
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | If true, the calling task runner should cancel processing of the task.
     -- The task runner does not need to call SetTaskStatus for canceled tasks.
-    canceled :: Core.Bool
+    canceled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReportTaskProgressResponse' with all optional fields omitted.
@@ -174,9 +177,9 @@ data ReportTaskProgressResponse = ReportTaskProgressResponse'
 -- The task runner does not need to call SetTaskStatus for canceled tasks.
 newReportTaskProgressResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'canceled'
-  Core.Bool ->
+  Prelude.Bool ->
   ReportTaskProgressResponse
 newReportTaskProgressResponse pHttpStatus_ pCanceled_ =
   ReportTaskProgressResponse'
@@ -186,12 +189,12 @@ newReportTaskProgressResponse pHttpStatus_ pCanceled_ =
     }
 
 -- | The response's http status code.
-reportTaskProgressResponse_httpStatus :: Lens.Lens' ReportTaskProgressResponse Core.Int
+reportTaskProgressResponse_httpStatus :: Lens.Lens' ReportTaskProgressResponse Prelude.Int
 reportTaskProgressResponse_httpStatus = Lens.lens (\ReportTaskProgressResponse' {httpStatus} -> httpStatus) (\s@ReportTaskProgressResponse' {} a -> s {httpStatus = a} :: ReportTaskProgressResponse)
 
 -- | If true, the calling task runner should cancel processing of the task.
 -- The task runner does not need to call SetTaskStatus for canceled tasks.
-reportTaskProgressResponse_canceled :: Lens.Lens' ReportTaskProgressResponse Core.Bool
+reportTaskProgressResponse_canceled :: Lens.Lens' ReportTaskProgressResponse Prelude.Bool
 reportTaskProgressResponse_canceled = Lens.lens (\ReportTaskProgressResponse' {canceled} -> canceled) (\s@ReportTaskProgressResponse' {} a -> s {canceled = a} :: ReportTaskProgressResponse)
 
-instance Core.NFData ReportTaskProgressResponse
+instance Prelude.NFData ReportTaskProgressResponse

@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.OutputSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the source where the association execution details are
 -- stored.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOutputSource' smart constructor.
 data OutputSource = OutputSource'
   { -- | The ID of the output source, for example the URL of an S3 bucket.
-    outputSourceId :: Core.Maybe Core.Text,
+    outputSourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of source where the association execution details are stored,
     -- for example, Amazon S3.
-    outputSourceType :: Core.Maybe Core.Text
+    outputSourceType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputSource' with all optional fields omitted.
@@ -51,17 +52,17 @@ newOutputSource ::
   OutputSource
 newOutputSource =
   OutputSource'
-    { outputSourceId = Core.Nothing,
-      outputSourceType = Core.Nothing
+    { outputSourceId = Prelude.Nothing,
+      outputSourceType = Prelude.Nothing
     }
 
 -- | The ID of the output source, for example the URL of an S3 bucket.
-outputSource_outputSourceId :: Lens.Lens' OutputSource (Core.Maybe Core.Text)
+outputSource_outputSourceId :: Lens.Lens' OutputSource (Prelude.Maybe Prelude.Text)
 outputSource_outputSourceId = Lens.lens (\OutputSource' {outputSourceId} -> outputSourceId) (\s@OutputSource' {} a -> s {outputSourceId = a} :: OutputSource)
 
 -- | The type of source where the association execution details are stored,
 -- for example, Amazon S3.
-outputSource_outputSourceType :: Lens.Lens' OutputSource (Core.Maybe Core.Text)
+outputSource_outputSourceType :: Lens.Lens' OutputSource (Prelude.Maybe Prelude.Text)
 outputSource_outputSourceType = Lens.lens (\OutputSource' {outputSourceType} -> outputSourceType) (\s@OutputSource' {} a -> s {outputSourceType = a} :: OutputSource)
 
 instance Core.FromJSON OutputSource where
@@ -70,10 +71,10 @@ instance Core.FromJSON OutputSource where
       "OutputSource"
       ( \x ->
           OutputSource'
-            Core.<$> (x Core..:? "OutputSourceId")
-            Core.<*> (x Core..:? "OutputSourceType")
+            Prelude.<$> (x Core..:? "OutputSourceId")
+            Prelude.<*> (x Core..:? "OutputSourceType")
       )
 
-instance Core.Hashable OutputSource
+instance Prelude.Hashable OutputSource
 
-instance Core.NFData OutputSource
+instance Prelude.NFData OutputSource

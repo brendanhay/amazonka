@@ -22,6 +22,7 @@ module Network.AWS.Budgets.Types.Subscriber where
 import Network.AWS.Budgets.Types.SubscriptionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The subscriber to a budget notification. The subscriber consists of a
 -- subscription type and either an Amazon SNS topic or an email address.
@@ -41,9 +42,9 @@ data Subscriber = Subscriber'
     --
     -- When you create a subscriber, the value of @Address@ can\'t contain line
     -- breaks.
-    address :: Core.Sensitive Core.Text
+    address :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Subscriber' with all optional fields omitted.
@@ -64,7 +65,7 @@ newSubscriber ::
   -- | 'subscriptionType'
   SubscriptionType ->
   -- | 'address'
-  Core.Text ->
+  Prelude.Text ->
   Subscriber
 newSubscriber pSubscriptionType_ pAddress_ =
   Subscriber'
@@ -81,8 +82,8 @@ subscriber_subscriptionType = Lens.lens (\Subscriber' {subscriptionType} -> subs
 --
 -- When you create a subscriber, the value of @Address@ can\'t contain line
 -- breaks.
-subscriber_address :: Lens.Lens' Subscriber Core.Text
-subscriber_address = Lens.lens (\Subscriber' {address} -> address) (\s@Subscriber' {} a -> s {address = a} :: Subscriber) Core.. Core._Sensitive
+subscriber_address :: Lens.Lens' Subscriber Prelude.Text
+subscriber_address = Lens.lens (\Subscriber' {address} -> address) (\s@Subscriber' {} a -> s {address = a} :: Subscriber) Prelude.. Core._Sensitive
 
 instance Core.FromJSON Subscriber where
   parseJSON =
@@ -90,20 +91,20 @@ instance Core.FromJSON Subscriber where
       "Subscriber"
       ( \x ->
           Subscriber'
-            Core.<$> (x Core..: "SubscriptionType")
-            Core.<*> (x Core..: "Address")
+            Prelude.<$> (x Core..: "SubscriptionType")
+            Prelude.<*> (x Core..: "Address")
       )
 
-instance Core.Hashable Subscriber
+instance Prelude.Hashable Subscriber
 
-instance Core.NFData Subscriber
+instance Prelude.NFData Subscriber
 
 instance Core.ToJSON Subscriber where
   toJSON Subscriber' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SubscriptionType" Core..= subscriptionType),
-            Core.Just ("Address" Core..= address)
+            Prelude.Just ("Address" Core..= address)
           ]
       )

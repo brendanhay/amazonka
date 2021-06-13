@@ -23,6 +23,7 @@ import Network.AWS.CodeBuild.Types.CloudWatchLogsConfig
 import Network.AWS.CodeBuild.Types.S3LogsConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about logs for a build project. These can be logs in Amazon
 -- CloudWatch Logs, built in a specified S3 bucket, or both.
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data LogsConfig = LogsConfig'
   { -- | Information about logs built to an S3 bucket for a build project. S3
     -- logs are not enabled by default.
-    s3Logs :: Core.Maybe S3LogsConfig,
+    s3Logs :: Prelude.Maybe S3LogsConfig,
     -- | Information about Amazon CloudWatch Logs for a build project. Amazon
     -- CloudWatch Logs are enabled by default.
-    cloudWatchLogs :: Core.Maybe CloudWatchLogsConfig
+    cloudWatchLogs :: Prelude.Maybe CloudWatchLogsConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LogsConfig' with all optional fields omitted.
@@ -55,18 +56,18 @@ newLogsConfig ::
   LogsConfig
 newLogsConfig =
   LogsConfig'
-    { s3Logs = Core.Nothing,
-      cloudWatchLogs = Core.Nothing
+    { s3Logs = Prelude.Nothing,
+      cloudWatchLogs = Prelude.Nothing
     }
 
 -- | Information about logs built to an S3 bucket for a build project. S3
 -- logs are not enabled by default.
-logsConfig_s3Logs :: Lens.Lens' LogsConfig (Core.Maybe S3LogsConfig)
+logsConfig_s3Logs :: Lens.Lens' LogsConfig (Prelude.Maybe S3LogsConfig)
 logsConfig_s3Logs = Lens.lens (\LogsConfig' {s3Logs} -> s3Logs) (\s@LogsConfig' {} a -> s {s3Logs = a} :: LogsConfig)
 
 -- | Information about Amazon CloudWatch Logs for a build project. Amazon
 -- CloudWatch Logs are enabled by default.
-logsConfig_cloudWatchLogs :: Lens.Lens' LogsConfig (Core.Maybe CloudWatchLogsConfig)
+logsConfig_cloudWatchLogs :: Lens.Lens' LogsConfig (Prelude.Maybe CloudWatchLogsConfig)
 logsConfig_cloudWatchLogs = Lens.lens (\LogsConfig' {cloudWatchLogs} -> cloudWatchLogs) (\s@LogsConfig' {} a -> s {cloudWatchLogs = a} :: LogsConfig)
 
 instance Core.FromJSON LogsConfig where
@@ -75,19 +76,20 @@ instance Core.FromJSON LogsConfig where
       "LogsConfig"
       ( \x ->
           LogsConfig'
-            Core.<$> (x Core..:? "s3Logs")
-            Core.<*> (x Core..:? "cloudWatchLogs")
+            Prelude.<$> (x Core..:? "s3Logs")
+            Prelude.<*> (x Core..:? "cloudWatchLogs")
       )
 
-instance Core.Hashable LogsConfig
+instance Prelude.Hashable LogsConfig
 
-instance Core.NFData LogsConfig
+instance Prelude.NFData LogsConfig
 
 instance Core.ToJSON LogsConfig where
   toJSON LogsConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("s3Logs" Core..=) Core.<$> s3Logs,
-            ("cloudWatchLogs" Core..=) Core.<$> cloudWatchLogs
+      ( Prelude.catMaybes
+          [ ("s3Logs" Core..=) Prelude.<$> s3Logs,
+            ("cloudWatchLogs" Core..=)
+              Prelude.<$> cloudWatchLogs
           ]
       )

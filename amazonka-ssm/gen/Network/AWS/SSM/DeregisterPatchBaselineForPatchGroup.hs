@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -50,12 +51,12 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeregisterPatchBaselineForPatchGroup' smart constructor.
 data DeregisterPatchBaselineForPatchGroup = DeregisterPatchBaselineForPatchGroup'
   { -- | The ID of the patch baseline to deregister the patch group from.
-    baselineId :: Core.Text,
+    baselineId :: Prelude.Text,
     -- | The name of the patch group that should be deregistered from the patch
     -- baseline.
-    patchGroup :: Core.Text
+    patchGroup :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterPatchBaselineForPatchGroup' with all optional fields omitted.
@@ -71,9 +72,9 @@ data DeregisterPatchBaselineForPatchGroup = DeregisterPatchBaselineForPatchGroup
 -- baseline.
 newDeregisterPatchBaselineForPatchGroup ::
   -- | 'baselineId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'patchGroup'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterPatchBaselineForPatchGroup
 newDeregisterPatchBaselineForPatchGroup
   pBaselineId_
@@ -85,12 +86,12 @@ newDeregisterPatchBaselineForPatchGroup
       }
 
 -- | The ID of the patch baseline to deregister the patch group from.
-deregisterPatchBaselineForPatchGroup_baselineId :: Lens.Lens' DeregisterPatchBaselineForPatchGroup Core.Text
+deregisterPatchBaselineForPatchGroup_baselineId :: Lens.Lens' DeregisterPatchBaselineForPatchGroup Prelude.Text
 deregisterPatchBaselineForPatchGroup_baselineId = Lens.lens (\DeregisterPatchBaselineForPatchGroup' {baselineId} -> baselineId) (\s@DeregisterPatchBaselineForPatchGroup' {} a -> s {baselineId = a} :: DeregisterPatchBaselineForPatchGroup)
 
 -- | The name of the patch group that should be deregistered from the patch
 -- baseline.
-deregisterPatchBaselineForPatchGroup_patchGroup :: Lens.Lens' DeregisterPatchBaselineForPatchGroup Core.Text
+deregisterPatchBaselineForPatchGroup_patchGroup :: Lens.Lens' DeregisterPatchBaselineForPatchGroup Prelude.Text
 deregisterPatchBaselineForPatchGroup_patchGroup = Lens.lens (\DeregisterPatchBaselineForPatchGroup' {patchGroup} -> patchGroup) (\s@DeregisterPatchBaselineForPatchGroup' {} a -> s {patchGroup = a} :: DeregisterPatchBaselineForPatchGroup)
 
 instance
@@ -105,17 +106,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeregisterPatchBaselineForPatchGroupResponse'
-            Core.<$> (x Core..?> "BaselineId")
-              Core.<*> (x Core..?> "PatchGroup")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "BaselineId")
+              Prelude.<*> (x Core..?> "PatchGroup")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeregisterPatchBaselineForPatchGroup
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeregisterPatchBaselineForPatchGroup
 
 instance
@@ -123,14 +124,16 @@ instance
     DeregisterPatchBaselineForPatchGroup
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DeregisterPatchBaselineForPatchGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -140,9 +143,9 @@ instance
   where
   toJSON DeregisterPatchBaselineForPatchGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("BaselineId" Core..= baselineId),
-            Core.Just ("PatchGroup" Core..= patchGroup)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("BaselineId" Core..= baselineId),
+            Prelude.Just ("PatchGroup" Core..= patchGroup)
           ]
       )
 
@@ -150,24 +153,24 @@ instance
   Core.ToPath
     DeregisterPatchBaselineForPatchGroup
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeregisterPatchBaselineForPatchGroup
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterPatchBaselineForPatchGroupResponse' smart constructor.
 data DeregisterPatchBaselineForPatchGroupResponse = DeregisterPatchBaselineForPatchGroupResponse'
   { -- | The ID of the patch baseline the patch group was deregistered from.
-    baselineId :: Core.Maybe Core.Text,
+    baselineId :: Prelude.Maybe Prelude.Text,
     -- | The name of the patch group deregistered from the patch baseline.
-    patchGroup :: Core.Maybe Core.Text,
+    patchGroup :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterPatchBaselineForPatchGroupResponse' with all optional fields omitted.
@@ -184,29 +187,29 @@ data DeregisterPatchBaselineForPatchGroupResponse = DeregisterPatchBaselineForPa
 -- 'httpStatus', 'deregisterPatchBaselineForPatchGroupResponse_httpStatus' - The response's http status code.
 newDeregisterPatchBaselineForPatchGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterPatchBaselineForPatchGroupResponse
 newDeregisterPatchBaselineForPatchGroupResponse
   pHttpStatus_ =
     DeregisterPatchBaselineForPatchGroupResponse'
       { baselineId =
-          Core.Nothing,
-        patchGroup = Core.Nothing,
+          Prelude.Nothing,
+        patchGroup = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The ID of the patch baseline the patch group was deregistered from.
-deregisterPatchBaselineForPatchGroupResponse_baselineId :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse (Core.Maybe Core.Text)
+deregisterPatchBaselineForPatchGroupResponse_baselineId :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
 deregisterPatchBaselineForPatchGroupResponse_baselineId = Lens.lens (\DeregisterPatchBaselineForPatchGroupResponse' {baselineId} -> baselineId) (\s@DeregisterPatchBaselineForPatchGroupResponse' {} a -> s {baselineId = a} :: DeregisterPatchBaselineForPatchGroupResponse)
 
 -- | The name of the patch group deregistered from the patch baseline.
-deregisterPatchBaselineForPatchGroupResponse_patchGroup :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse (Core.Maybe Core.Text)
+deregisterPatchBaselineForPatchGroupResponse_patchGroup :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
 deregisterPatchBaselineForPatchGroupResponse_patchGroup = Lens.lens (\DeregisterPatchBaselineForPatchGroupResponse' {patchGroup} -> patchGroup) (\s@DeregisterPatchBaselineForPatchGroupResponse' {} a -> s {patchGroup = a} :: DeregisterPatchBaselineForPatchGroupResponse)
 
 -- | The response's http status code.
-deregisterPatchBaselineForPatchGroupResponse_httpStatus :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse Core.Int
+deregisterPatchBaselineForPatchGroupResponse_httpStatus :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse Prelude.Int
 deregisterPatchBaselineForPatchGroupResponse_httpStatus = Lens.lens (\DeregisterPatchBaselineForPatchGroupResponse' {httpStatus} -> httpStatus) (\s@DeregisterPatchBaselineForPatchGroupResponse' {} a -> s {httpStatus = a} :: DeregisterPatchBaselineForPatchGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeregisterPatchBaselineForPatchGroupResponse

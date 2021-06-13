@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.GeoRestriction where
 import Network.AWS.CloudFront.Types.GeoRestrictionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that controls the countries in which your content is
 -- distributed. CloudFront determines the location of your users using
@@ -42,7 +43,7 @@ data GeoRestriction = GeoRestriction'
     -- @ISO 3166-1-alpha-2@ code on the /International Organization for
     -- Standardization/ website. You can also refer to the country list on the
     -- CloudFront console, which includes both country names and codes.
-    items :: Core.Maybe [Core.Text],
+    items :: Prelude.Maybe [Prelude.Text],
     -- | The method that you want to use to restrict distribution of your content
     -- by country:
     --
@@ -58,9 +59,9 @@ data GeoRestriction = GeoRestriction'
     -- | When geo restriction is @enabled@, this is the number of countries in
     -- your @whitelist@ or @blacklist@. Otherwise, when it is not enabled,
     -- @Quantity@ is @0@, and you can omit @Items@.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GeoRestriction' with all optional fields omitted.
@@ -103,11 +104,11 @@ newGeoRestriction ::
   -- | 'restrictionType'
   GeoRestrictionType ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   GeoRestriction
 newGeoRestriction pRestrictionType_ pQuantity_ =
   GeoRestriction'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       restrictionType = pRestrictionType_,
       quantity = pQuantity_
     }
@@ -125,8 +126,8 @@ newGeoRestriction pRestrictionType_ pQuantity_ =
 -- @ISO 3166-1-alpha-2@ code on the /International Organization for
 -- Standardization/ website. You can also refer to the country list on the
 -- CloudFront console, which includes both country names and codes.
-geoRestriction_items :: Lens.Lens' GeoRestriction (Core.Maybe [Core.Text])
-geoRestriction_items = Lens.lens (\GeoRestriction' {items} -> items) (\s@GeoRestriction' {} a -> s {items = a} :: GeoRestriction) Core.. Lens.mapping Lens._Coerce
+geoRestriction_items :: Lens.Lens' GeoRestriction (Prelude.Maybe [Prelude.Text])
+geoRestriction_items = Lens.lens (\GeoRestriction' {items} -> items) (\s@GeoRestriction' {} a -> s {items = a} :: GeoRestriction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The method that you want to use to restrict distribution of your content
 -- by country:
@@ -145,28 +146,28 @@ geoRestriction_restrictionType = Lens.lens (\GeoRestriction' {restrictionType} -
 -- | When geo restriction is @enabled@, this is the number of countries in
 -- your @whitelist@ or @blacklist@. Otherwise, when it is not enabled,
 -- @Quantity@ is @0@, and you can omit @Items@.
-geoRestriction_quantity :: Lens.Lens' GeoRestriction Core.Int
+geoRestriction_quantity :: Lens.Lens' GeoRestriction Prelude.Int
 geoRestriction_quantity = Lens.lens (\GeoRestriction' {quantity} -> quantity) (\s@GeoRestriction' {} a -> s {quantity = a} :: GeoRestriction)
 
 instance Core.FromXML GeoRestriction where
   parseXML x =
     GeoRestriction'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Location")
-               )
-      Core.<*> (x Core..@ "RestrictionType")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Location")
+                  )
+      Prelude.<*> (x Core..@ "RestrictionType")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable GeoRestriction
+instance Prelude.Hashable GeoRestriction
 
-instance Core.NFData GeoRestriction
+instance Prelude.NFData GeoRestriction
 
 instance Core.ToXML GeoRestriction where
   toXML GeoRestriction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
           Core.@= Core.toXML
-            (Core.toXMLList "Location" Core.<$> items),
+            (Core.toXMLList "Location" Prelude.<$> items),
         "RestrictionType" Core.@= restrictionType,
         "Quantity" Core.@= quantity
       ]

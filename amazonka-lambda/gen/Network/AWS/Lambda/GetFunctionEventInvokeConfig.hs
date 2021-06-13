@@ -50,13 +50,14 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetFunctionEventInvokeConfig' smart constructor.
 data GetFunctionEventInvokeConfig = GetFunctionEventInvokeConfig'
   { -- | A version number or alias name.
-    qualifier :: Core.Maybe Core.Text,
+    qualifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -72,9 +73,9 @@ data GetFunctionEventInvokeConfig = GetFunctionEventInvokeConfig'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFunctionEventInvokeConfig' with all optional fields omitted.
@@ -103,17 +104,17 @@ data GetFunctionEventInvokeConfig = GetFunctionEventInvokeConfig'
 -- function name, it is limited to 64 characters in length.
 newGetFunctionEventInvokeConfig ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   GetFunctionEventInvokeConfig
 newGetFunctionEventInvokeConfig pFunctionName_ =
   GetFunctionEventInvokeConfig'
     { qualifier =
-        Core.Nothing,
+        Prelude.Nothing,
       functionName = pFunctionName_
     }
 
 -- | A version number or alias name.
-getFunctionEventInvokeConfig_qualifier :: Lens.Lens' GetFunctionEventInvokeConfig (Core.Maybe Core.Text)
+getFunctionEventInvokeConfig_qualifier :: Lens.Lens' GetFunctionEventInvokeConfig (Prelude.Maybe Prelude.Text)
 getFunctionEventInvokeConfig_qualifier = Lens.lens (\GetFunctionEventInvokeConfig' {qualifier} -> qualifier) (\s@GetFunctionEventInvokeConfig' {} a -> s {qualifier = a} :: GetFunctionEventInvokeConfig)
 
 -- | The name of the Lambda function, version, or alias.
@@ -131,7 +132,7 @@ getFunctionEventInvokeConfig_qualifier = Lens.lens (\GetFunctionEventInvokeConfi
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-getFunctionEventInvokeConfig_functionName :: Lens.Lens' GetFunctionEventInvokeConfig Core.Text
+getFunctionEventInvokeConfig_functionName :: Lens.Lens' GetFunctionEventInvokeConfig Prelude.Text
 getFunctionEventInvokeConfig_functionName = Lens.lens (\GetFunctionEventInvokeConfig' {functionName} -> functionName) (\s@GetFunctionEventInvokeConfig' {} a -> s {functionName = a} :: GetFunctionEventInvokeConfig)
 
 instance Core.AWSRequest GetFunctionEventInvokeConfig where
@@ -143,16 +144,18 @@ instance Core.AWSRequest GetFunctionEventInvokeConfig where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetFunctionEventInvokeConfig
+instance
+  Prelude.Hashable
+    GetFunctionEventInvokeConfig
 
-instance Core.NFData GetFunctionEventInvokeConfig
+instance Prelude.NFData GetFunctionEventInvokeConfig
 
 instance Core.ToHeaders GetFunctionEventInvokeConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetFunctionEventInvokeConfig where
   toPath GetFunctionEventInvokeConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2019-09-25/functions/",
         Core.toBS functionName,
         "/event-invoke-config"
@@ -160,4 +163,4 @@ instance Core.ToPath GetFunctionEventInvokeConfig where
 
 instance Core.ToQuery GetFunctionEventInvokeConfig where
   toQuery GetFunctionEventInvokeConfig' {..} =
-    Core.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]

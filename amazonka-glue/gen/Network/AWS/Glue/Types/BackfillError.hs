@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.BackfillErrorCode
 import Network.AWS.Glue.Types.PartitionValueList
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of errors that can occur when registering partition indexes for
 -- an existing table.
@@ -47,12 +48,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newBackfillError' smart constructor.
 data BackfillError = BackfillError'
   { -- | A list of a limited number of partitions in the response.
-    partitions :: Core.Maybe [PartitionValueList],
+    partitions :: Prelude.Maybe [PartitionValueList],
     -- | The error code for an error that occurred when registering partition
     -- indexes for an existing table.
-    code :: Core.Maybe BackfillErrorCode
+    code :: Prelude.Maybe BackfillErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BackfillError' with all optional fields omitted.
@@ -70,17 +71,17 @@ newBackfillError ::
   BackfillError
 newBackfillError =
   BackfillError'
-    { partitions = Core.Nothing,
-      code = Core.Nothing
+    { partitions = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | A list of a limited number of partitions in the response.
-backfillError_partitions :: Lens.Lens' BackfillError (Core.Maybe [PartitionValueList])
-backfillError_partitions = Lens.lens (\BackfillError' {partitions} -> partitions) (\s@BackfillError' {} a -> s {partitions = a} :: BackfillError) Core.. Lens.mapping Lens._Coerce
+backfillError_partitions :: Lens.Lens' BackfillError (Prelude.Maybe [PartitionValueList])
+backfillError_partitions = Lens.lens (\BackfillError' {partitions} -> partitions) (\s@BackfillError' {} a -> s {partitions = a} :: BackfillError) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The error code for an error that occurred when registering partition
 -- indexes for an existing table.
-backfillError_code :: Lens.Lens' BackfillError (Core.Maybe BackfillErrorCode)
+backfillError_code :: Lens.Lens' BackfillError (Prelude.Maybe BackfillErrorCode)
 backfillError_code = Lens.lens (\BackfillError' {code} -> code) (\s@BackfillError' {} a -> s {code = a} :: BackfillError)
 
 instance Core.FromJSON BackfillError where
@@ -89,10 +90,10 @@ instance Core.FromJSON BackfillError where
       "BackfillError"
       ( \x ->
           BackfillError'
-            Core.<$> (x Core..:? "Partitions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Partitions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Code")
       )
 
-instance Core.Hashable BackfillError
+instance Prelude.Hashable BackfillError
 
-instance Core.NFData BackfillError
+instance Prelude.NFData BackfillError

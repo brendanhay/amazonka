@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the Encryption At Rest options for the specified Elasticsearch
 -- domain.
@@ -36,7 +37,7 @@ data EncryptionAtRestOptionsStatus = EncryptionAtRestOptionsStatus'
     -- Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EncryptionAtRestOptionsStatus' with all optional fields omitted.
@@ -79,9 +80,12 @@ instance Core.FromJSON EncryptionAtRestOptionsStatus where
       "EncryptionAtRestOptionsStatus"
       ( \x ->
           EncryptionAtRestOptionsStatus'
-            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..: "Options")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable EncryptionAtRestOptionsStatus
+instance
+  Prelude.Hashable
+    EncryptionAtRestOptionsStatus
 
-instance Core.NFData EncryptionAtRestOptionsStatus
+instance Prelude.NFData EncryptionAtRestOptionsStatus

@@ -60,6 +60,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,9 +70,9 @@ import qualified Network.AWS.Response as Response
 data DescribeBuild = DescribeBuild'
   { -- | A unique identifier for a build to retrieve properties for. You can use
     -- either the build ID or ARN value.
-    buildId :: Core.Text
+    buildId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBuild' with all optional fields omitted.
@@ -85,14 +86,14 @@ data DescribeBuild = DescribeBuild'
 -- either the build ID or ARN value.
 newDescribeBuild ::
   -- | 'buildId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeBuild
 newDescribeBuild pBuildId_ =
   DescribeBuild' {buildId = pBuildId_}
 
 -- | A unique identifier for a build to retrieve properties for. You can use
 -- either the build ID or ARN value.
-describeBuild_buildId :: Lens.Lens' DescribeBuild Core.Text
+describeBuild_buildId :: Lens.Lens' DescribeBuild Prelude.Text
 describeBuild_buildId = Lens.lens (\DescribeBuild' {buildId} -> buildId) (\s@DescribeBuild' {} a -> s {buildId = a} :: DescribeBuild)
 
 instance Core.AWSRequest DescribeBuild where
@@ -104,48 +105,50 @@ instance Core.AWSRequest DescribeBuild where
     Response.receiveJSON
       ( \s h x ->
           DescribeBuildResponse'
-            Core.<$> (x Core..?> "Build")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Build")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeBuild
+instance Prelude.Hashable DescribeBuild
 
-instance Core.NFData DescribeBuild
+instance Prelude.NFData DescribeBuild
 
 instance Core.ToHeaders DescribeBuild where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DescribeBuild" :: Core.ByteString),
+              Core.=# ("GameLift.DescribeBuild" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeBuild where
   toJSON DescribeBuild' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("BuildId" Core..= buildId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("BuildId" Core..= buildId)]
       )
 
 instance Core.ToPath DescribeBuild where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeBuild where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newDescribeBuildResponse' smart constructor.
 data DescribeBuildResponse = DescribeBuildResponse'
   { -- | Set of properties describing the requested build.
-    build :: Core.Maybe Build,
+    build :: Prelude.Maybe Build,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBuildResponse' with all optional fields omitted.
@@ -160,20 +163,20 @@ data DescribeBuildResponse = DescribeBuildResponse'
 -- 'httpStatus', 'describeBuildResponse_httpStatus' - The response's http status code.
 newDescribeBuildResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeBuildResponse
 newDescribeBuildResponse pHttpStatus_ =
   DescribeBuildResponse'
-    { build = Core.Nothing,
+    { build = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Set of properties describing the requested build.
-describeBuildResponse_build :: Lens.Lens' DescribeBuildResponse (Core.Maybe Build)
+describeBuildResponse_build :: Lens.Lens' DescribeBuildResponse (Prelude.Maybe Build)
 describeBuildResponse_build = Lens.lens (\DescribeBuildResponse' {build} -> build) (\s@DescribeBuildResponse' {} a -> s {build = a} :: DescribeBuildResponse)
 
 -- | The response's http status code.
-describeBuildResponse_httpStatus :: Lens.Lens' DescribeBuildResponse Core.Int
+describeBuildResponse_httpStatus :: Lens.Lens' DescribeBuildResponse Prelude.Int
 describeBuildResponse_httpStatus = Lens.lens (\DescribeBuildResponse' {httpStatus} -> httpStatus) (\s@DescribeBuildResponse' {} a -> s {httpStatus = a} :: DescribeBuildResponse)
 
-instance Core.NFData DescribeBuildResponse
+instance Prelude.NFData DescribeBuildResponse

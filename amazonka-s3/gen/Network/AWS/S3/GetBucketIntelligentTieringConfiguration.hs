@@ -67,6 +67,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -77,9 +78,9 @@ data GetBucketIntelligentTieringConfiguration = GetBucketIntelligentTieringConfi
     -- or retrieve.
     bucket :: BucketName,
     -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketIntelligentTieringConfiguration' with all optional fields omitted.
@@ -97,7 +98,7 @@ newGetBucketIntelligentTieringConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetBucketIntelligentTieringConfiguration
 newGetBucketIntelligentTieringConfiguration
   pBucket_
@@ -114,7 +115,7 @@ getBucketIntelligentTieringConfiguration_bucket :: Lens.Lens' GetBucketIntellige
 getBucketIntelligentTieringConfiguration_bucket = Lens.lens (\GetBucketIntelligentTieringConfiguration' {bucket} -> bucket) (\s@GetBucketIntelligentTieringConfiguration' {} a -> s {bucket = a} :: GetBucketIntelligentTieringConfiguration)
 
 -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-getBucketIntelligentTieringConfiguration_id :: Lens.Lens' GetBucketIntelligentTieringConfiguration Core.Text
+getBucketIntelligentTieringConfiguration_id :: Lens.Lens' GetBucketIntelligentTieringConfiguration Prelude.Text
 getBucketIntelligentTieringConfiguration_id = Lens.lens (\GetBucketIntelligentTieringConfiguration' {id} -> id) (\s@GetBucketIntelligentTieringConfiguration' {} a -> s {id = a} :: GetBucketIntelligentTieringConfiguration)
 
 instance
@@ -130,47 +131,47 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketIntelligentTieringConfigurationResponse'
-            Core.<$> (Core.parseXML x)
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetBucketIntelligentTieringConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBucketIntelligentTieringConfiguration
 
 instance
   Core.ToHeaders
     GetBucketIntelligentTieringConfiguration
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     GetBucketIntelligentTieringConfiguration
   where
   toPath GetBucketIntelligentTieringConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance
   Core.ToQuery
     GetBucketIntelligentTieringConfiguration
   where
   toQuery GetBucketIntelligentTieringConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["id" Core.=: id, "intelligent-tiering"]
 
 -- | /See:/ 'newGetBucketIntelligentTieringConfigurationResponse' smart constructor.
 data GetBucketIntelligentTieringConfigurationResponse = GetBucketIntelligentTieringConfigurationResponse'
   { -- | Container for S3 Intelligent-Tiering configuration.
-    intelligentTieringConfiguration :: Core.Maybe IntelligentTieringConfiguration,
+    intelligentTieringConfiguration :: Prelude.Maybe IntelligentTieringConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketIntelligentTieringConfigurationResponse' with all optional fields omitted.
@@ -185,24 +186,24 @@ data GetBucketIntelligentTieringConfigurationResponse = GetBucketIntelligentTier
 -- 'httpStatus', 'getBucketIntelligentTieringConfigurationResponse_httpStatus' - The response's http status code.
 newGetBucketIntelligentTieringConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBucketIntelligentTieringConfigurationResponse
 newGetBucketIntelligentTieringConfigurationResponse
   pHttpStatus_ =
     GetBucketIntelligentTieringConfigurationResponse'
       { intelligentTieringConfiguration =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Container for S3 Intelligent-Tiering configuration.
-getBucketIntelligentTieringConfigurationResponse_intelligentTieringConfiguration :: Lens.Lens' GetBucketIntelligentTieringConfigurationResponse (Core.Maybe IntelligentTieringConfiguration)
+getBucketIntelligentTieringConfigurationResponse_intelligentTieringConfiguration :: Lens.Lens' GetBucketIntelligentTieringConfigurationResponse (Prelude.Maybe IntelligentTieringConfiguration)
 getBucketIntelligentTieringConfigurationResponse_intelligentTieringConfiguration = Lens.lens (\GetBucketIntelligentTieringConfigurationResponse' {intelligentTieringConfiguration} -> intelligentTieringConfiguration) (\s@GetBucketIntelligentTieringConfigurationResponse' {} a -> s {intelligentTieringConfiguration = a} :: GetBucketIntelligentTieringConfigurationResponse)
 
 -- | The response's http status code.
-getBucketIntelligentTieringConfigurationResponse_httpStatus :: Lens.Lens' GetBucketIntelligentTieringConfigurationResponse Core.Int
+getBucketIntelligentTieringConfigurationResponse_httpStatus :: Lens.Lens' GetBucketIntelligentTieringConfigurationResponse Prelude.Int
 getBucketIntelligentTieringConfigurationResponse_httpStatus = Lens.lens (\GetBucketIntelligentTieringConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetBucketIntelligentTieringConfigurationResponse' {} a -> s {httpStatus = a} :: GetBucketIntelligentTieringConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBucketIntelligentTieringConfigurationResponse

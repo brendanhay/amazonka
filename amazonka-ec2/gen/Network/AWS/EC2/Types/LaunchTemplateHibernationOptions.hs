@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.LaunchTemplateHibernationOptions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether an instance is configured for hibernation.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data LaunchTemplateHibernationOptions = LaunchTemplateHibernationOptions'
   { -- | If this parameter is set to @true@, the instance is enabled for
     -- hibernation; otherwise, it is not enabled for hibernation.
-    configured :: Core.Maybe Core.Bool
+    configured :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateHibernationOptions' with all optional fields omitted.
@@ -48,12 +49,12 @@ newLaunchTemplateHibernationOptions ::
 newLaunchTemplateHibernationOptions =
   LaunchTemplateHibernationOptions'
     { configured =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | If this parameter is set to @true@, the instance is enabled for
 -- hibernation; otherwise, it is not enabled for hibernation.
-launchTemplateHibernationOptions_configured :: Lens.Lens' LaunchTemplateHibernationOptions (Core.Maybe Core.Bool)
+launchTemplateHibernationOptions_configured :: Lens.Lens' LaunchTemplateHibernationOptions (Prelude.Maybe Prelude.Bool)
 launchTemplateHibernationOptions_configured = Lens.lens (\LaunchTemplateHibernationOptions' {configured} -> configured) (\s@LaunchTemplateHibernationOptions' {} a -> s {configured = a} :: LaunchTemplateHibernationOptions)
 
 instance
@@ -62,10 +63,12 @@ instance
   where
   parseXML x =
     LaunchTemplateHibernationOptions'
-      Core.<$> (x Core..@? "configured")
+      Prelude.<$> (x Core..@? "configured")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateHibernationOptions
 
-instance Core.NFData LaunchTemplateHibernationOptions
+instance
+  Prelude.NFData
+    LaunchTemplateHibernationOptions

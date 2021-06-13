@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Metrics where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.MetricsStatus
 import Network.AWS.S3.Types.ReplicationTimeValue
@@ -32,11 +33,11 @@ import Network.AWS.S3.Types.ReplicationTimeValue
 data Metrics = Metrics'
   { -- | A container specifying the time threshold for emitting the
     -- @s3:Replication:OperationMissedThreshold@ event.
-    eventThreshold :: Core.Maybe ReplicationTimeValue,
+    eventThreshold :: Prelude.Maybe ReplicationTimeValue,
     -- | Specifies whether the replication metrics are enabled.
     status :: MetricsStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Metrics' with all optional fields omitted.
@@ -56,13 +57,13 @@ newMetrics ::
   Metrics
 newMetrics pStatus_ =
   Metrics'
-    { eventThreshold = Core.Nothing,
+    { eventThreshold = Prelude.Nothing,
       status = pStatus_
     }
 
 -- | A container specifying the time threshold for emitting the
 -- @s3:Replication:OperationMissedThreshold@ event.
-metrics_eventThreshold :: Lens.Lens' Metrics (Core.Maybe ReplicationTimeValue)
+metrics_eventThreshold :: Lens.Lens' Metrics (Prelude.Maybe ReplicationTimeValue)
 metrics_eventThreshold = Lens.lens (\Metrics' {eventThreshold} -> eventThreshold) (\s@Metrics' {} a -> s {eventThreshold = a} :: Metrics)
 
 -- | Specifies whether the replication metrics are enabled.
@@ -72,16 +73,16 @@ metrics_status = Lens.lens (\Metrics' {status} -> status) (\s@Metrics' {} a -> s
 instance Core.FromXML Metrics where
   parseXML x =
     Metrics'
-      Core.<$> (x Core..@? "EventThreshold")
-      Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@? "EventThreshold")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable Metrics
+instance Prelude.Hashable Metrics
 
-instance Core.NFData Metrics
+instance Prelude.NFData Metrics
 
 instance Core.ToXML Metrics where
   toXML Metrics' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "EventThreshold" Core.@= eventThreshold,
         "Status" Core.@= status
       ]

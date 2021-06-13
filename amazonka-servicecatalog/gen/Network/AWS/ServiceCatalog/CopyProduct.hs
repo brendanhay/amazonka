@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -62,17 +63,17 @@ import Network.AWS.ServiceCatalog.Types
 data CopyProduct = CopyProduct'
   { -- | A name for the target product. The default is the name of the source
     -- product.
-    targetProductName :: Core.Maybe Core.Text,
+    targetProductName :: Prelude.Maybe Prelude.Text,
     -- | The copy options. If the value is @CopyTags@, the tags from the source
     -- product are copied to the target product.
-    copyOptions :: Core.Maybe [CopyOption],
+    copyOptions :: Prelude.Maybe [CopyOption],
     -- | The identifier of the target product. By default, a new product is
     -- created.
-    targetProductId :: Core.Maybe Core.Text,
+    targetProductId :: Prelude.Maybe Prelude.Text,
     -- | The identifiers of the provisioning artifacts (also known as versions)
     -- of the product to copy. By default, all provisioning artifacts are
     -- copied.
-    sourceProvisioningArtifactIdentifiers :: Core.Maybe [Core.HashMap ProvisioningArtifactPropertyName Core.Text],
+    sourceProvisioningArtifactIdentifiers :: Prelude.Maybe [Prelude.HashMap ProvisioningArtifactPropertyName Prelude.Text],
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -80,15 +81,15 @@ data CopyProduct = CopyProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the source product.
-    sourceProductArn :: Core.Text,
+    sourceProductArn :: Prelude.Text,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Core.Text
+    idempotencyToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyProduct' with all optional fields omitted.
@@ -126,41 +127,42 @@ data CopyProduct = CopyProduct'
 -- returned for each repeated request.
 newCopyProduct ::
   -- | 'sourceProductArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'idempotencyToken'
-  Core.Text ->
+  Prelude.Text ->
   CopyProduct
 newCopyProduct pSourceProductArn_ pIdempotencyToken_ =
   CopyProduct'
-    { targetProductName = Core.Nothing,
-      copyOptions = Core.Nothing,
-      targetProductId = Core.Nothing,
-      sourceProvisioningArtifactIdentifiers = Core.Nothing,
-      acceptLanguage = Core.Nothing,
+    { targetProductName = Prelude.Nothing,
+      copyOptions = Prelude.Nothing,
+      targetProductId = Prelude.Nothing,
+      sourceProvisioningArtifactIdentifiers =
+        Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       sourceProductArn = pSourceProductArn_,
       idempotencyToken = pIdempotencyToken_
     }
 
 -- | A name for the target product. The default is the name of the source
 -- product.
-copyProduct_targetProductName :: Lens.Lens' CopyProduct (Core.Maybe Core.Text)
+copyProduct_targetProductName :: Lens.Lens' CopyProduct (Prelude.Maybe Prelude.Text)
 copyProduct_targetProductName = Lens.lens (\CopyProduct' {targetProductName} -> targetProductName) (\s@CopyProduct' {} a -> s {targetProductName = a} :: CopyProduct)
 
 -- | The copy options. If the value is @CopyTags@, the tags from the source
 -- product are copied to the target product.
-copyProduct_copyOptions :: Lens.Lens' CopyProduct (Core.Maybe [CopyOption])
-copyProduct_copyOptions = Lens.lens (\CopyProduct' {copyOptions} -> copyOptions) (\s@CopyProduct' {} a -> s {copyOptions = a} :: CopyProduct) Core.. Lens.mapping Lens._Coerce
+copyProduct_copyOptions :: Lens.Lens' CopyProduct (Prelude.Maybe [CopyOption])
+copyProduct_copyOptions = Lens.lens (\CopyProduct' {copyOptions} -> copyOptions) (\s@CopyProduct' {} a -> s {copyOptions = a} :: CopyProduct) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the target product. By default, a new product is
 -- created.
-copyProduct_targetProductId :: Lens.Lens' CopyProduct (Core.Maybe Core.Text)
+copyProduct_targetProductId :: Lens.Lens' CopyProduct (Prelude.Maybe Prelude.Text)
 copyProduct_targetProductId = Lens.lens (\CopyProduct' {targetProductId} -> targetProductId) (\s@CopyProduct' {} a -> s {targetProductId = a} :: CopyProduct)
 
 -- | The identifiers of the provisioning artifacts (also known as versions)
 -- of the product to copy. By default, all provisioning artifacts are
 -- copied.
-copyProduct_sourceProvisioningArtifactIdentifiers :: Lens.Lens' CopyProduct (Core.Maybe [Core.HashMap ProvisioningArtifactPropertyName Core.Text])
-copyProduct_sourceProvisioningArtifactIdentifiers = Lens.lens (\CopyProduct' {sourceProvisioningArtifactIdentifiers} -> sourceProvisioningArtifactIdentifiers) (\s@CopyProduct' {} a -> s {sourceProvisioningArtifactIdentifiers = a} :: CopyProduct) Core.. Lens.mapping Lens._Coerce
+copyProduct_sourceProvisioningArtifactIdentifiers :: Lens.Lens' CopyProduct (Prelude.Maybe [Prelude.HashMap ProvisioningArtifactPropertyName Prelude.Text])
+copyProduct_sourceProvisioningArtifactIdentifiers = Lens.lens (\CopyProduct' {sourceProvisioningArtifactIdentifiers} -> sourceProvisioningArtifactIdentifiers) (\s@CopyProduct' {} a -> s {sourceProvisioningArtifactIdentifiers = a} :: CopyProduct) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The language code.
 --
@@ -169,17 +171,17 @@ copyProduct_sourceProvisioningArtifactIdentifiers = Lens.lens (\CopyProduct' {so
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-copyProduct_acceptLanguage :: Lens.Lens' CopyProduct (Core.Maybe Core.Text)
+copyProduct_acceptLanguage :: Lens.Lens' CopyProduct (Prelude.Maybe Prelude.Text)
 copyProduct_acceptLanguage = Lens.lens (\CopyProduct' {acceptLanguage} -> acceptLanguage) (\s@CopyProduct' {} a -> s {acceptLanguage = a} :: CopyProduct)
 
 -- | The Amazon Resource Name (ARN) of the source product.
-copyProduct_sourceProductArn :: Lens.Lens' CopyProduct Core.Text
+copyProduct_sourceProductArn :: Lens.Lens' CopyProduct Prelude.Text
 copyProduct_sourceProductArn = Lens.lens (\CopyProduct' {sourceProductArn} -> sourceProductArn) (\s@CopyProduct' {} a -> s {sourceProductArn = a} :: CopyProduct)
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-copyProduct_idempotencyToken :: Lens.Lens' CopyProduct Core.Text
+copyProduct_idempotencyToken :: Lens.Lens' CopyProduct Prelude.Text
 copyProduct_idempotencyToken = Lens.lens (\CopyProduct' {idempotencyToken} -> idempotencyToken) (\s@CopyProduct' {} a -> s {idempotencyToken = a} :: CopyProduct)
 
 instance Core.AWSRequest CopyProduct where
@@ -189,59 +191,63 @@ instance Core.AWSRequest CopyProduct where
     Response.receiveJSON
       ( \s h x ->
           CopyProductResponse'
-            Core.<$> (x Core..?> "CopyProductToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CopyProductToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CopyProduct
+instance Prelude.Hashable CopyProduct
 
-instance Core.NFData CopyProduct
+instance Prelude.NFData CopyProduct
 
 instance Core.ToHeaders CopyProduct where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.CopyProduct" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CopyProduct where
   toJSON CopyProduct' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("TargetProductName" Core..=)
-              Core.<$> targetProductName,
-            ("CopyOptions" Core..=) Core.<$> copyOptions,
-            ("TargetProductId" Core..=) Core.<$> targetProductId,
+              Prelude.<$> targetProductName,
+            ("CopyOptions" Core..=) Prelude.<$> copyOptions,
+            ("TargetProductId" Core..=)
+              Prelude.<$> targetProductId,
             ("SourceProvisioningArtifactIdentifiers" Core..=)
-              Core.<$> sourceProvisioningArtifactIdentifiers,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just
+              Prelude.<$> sourceProvisioningArtifactIdentifiers,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just
               ("SourceProductArn" Core..= sourceProductArn),
-            Core.Just
+            Prelude.Just
               ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
 
 instance Core.ToPath CopyProduct where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CopyProduct where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopyProductResponse' smart constructor.
 data CopyProductResponse = CopyProductResponse'
   { -- | The token to use to track the progress of the operation.
-    copyProductToken :: Core.Maybe Core.Text,
+    copyProductToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyProductResponse' with all optional fields omitted.
@@ -256,21 +262,21 @@ data CopyProductResponse = CopyProductResponse'
 -- 'httpStatus', 'copyProductResponse_httpStatus' - The response's http status code.
 newCopyProductResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CopyProductResponse
 newCopyProductResponse pHttpStatus_ =
   CopyProductResponse'
     { copyProductToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to track the progress of the operation.
-copyProductResponse_copyProductToken :: Lens.Lens' CopyProductResponse (Core.Maybe Core.Text)
+copyProductResponse_copyProductToken :: Lens.Lens' CopyProductResponse (Prelude.Maybe Prelude.Text)
 copyProductResponse_copyProductToken = Lens.lens (\CopyProductResponse' {copyProductToken} -> copyProductToken) (\s@CopyProductResponse' {} a -> s {copyProductToken = a} :: CopyProductResponse)
 
 -- | The response's http status code.
-copyProductResponse_httpStatus :: Lens.Lens' CopyProductResponse Core.Int
+copyProductResponse_httpStatus :: Lens.Lens' CopyProductResponse Prelude.Int
 copyProductResponse_httpStatus = Lens.lens (\CopyProductResponse' {httpStatus} -> httpStatus) (\s@CopyProductResponse' {} a -> s {httpStatus = a} :: CopyProductResponse)
 
-instance Core.NFData CopyProductResponse
+instance Prelude.NFData CopyProductResponse

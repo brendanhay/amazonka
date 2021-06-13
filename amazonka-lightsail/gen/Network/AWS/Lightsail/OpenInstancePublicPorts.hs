@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ data OpenInstancePublicPorts = OpenInstancePublicPorts'
   { -- | An object to describe the ports to open for the specified instance.
     portInfo :: PortInfo,
     -- | The name of the instance for which to open ports.
-    instanceName :: Core.Text
+    instanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpenInstancePublicPorts' with all optional fields omitted.
@@ -77,7 +78,7 @@ newOpenInstancePublicPorts ::
   -- | 'portInfo'
   PortInfo ->
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   OpenInstancePublicPorts
 newOpenInstancePublicPorts pPortInfo_ pInstanceName_ =
   OpenInstancePublicPorts'
@@ -90,7 +91,7 @@ openInstancePublicPorts_portInfo :: Lens.Lens' OpenInstancePublicPorts PortInfo
 openInstancePublicPorts_portInfo = Lens.lens (\OpenInstancePublicPorts' {portInfo} -> portInfo) (\s@OpenInstancePublicPorts' {} a -> s {portInfo = a} :: OpenInstancePublicPorts)
 
 -- | The name of the instance for which to open ports.
-openInstancePublicPorts_instanceName :: Lens.Lens' OpenInstancePublicPorts Core.Text
+openInstancePublicPorts_instanceName :: Lens.Lens' OpenInstancePublicPorts Prelude.Text
 openInstancePublicPorts_instanceName = Lens.lens (\OpenInstancePublicPorts' {instanceName} -> instanceName) (\s@OpenInstancePublicPorts' {} a -> s {instanceName = a} :: OpenInstancePublicPorts)
 
 instance Core.AWSRequest OpenInstancePublicPorts where
@@ -102,52 +103,54 @@ instance Core.AWSRequest OpenInstancePublicPorts where
     Response.receiveJSON
       ( \s h x ->
           OpenInstancePublicPortsResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable OpenInstancePublicPorts
+instance Prelude.Hashable OpenInstancePublicPorts
 
-instance Core.NFData OpenInstancePublicPorts
+instance Prelude.NFData OpenInstancePublicPorts
 
 instance Core.ToHeaders OpenInstancePublicPorts where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.OpenInstancePublicPorts" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON OpenInstancePublicPorts where
   toJSON OpenInstancePublicPorts' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("portInfo" Core..= portInfo),
-            Core.Just ("instanceName" Core..= instanceName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("portInfo" Core..= portInfo),
+            Prelude.Just ("instanceName" Core..= instanceName)
           ]
       )
 
 instance Core.ToPath OpenInstancePublicPorts where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery OpenInstancePublicPorts where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newOpenInstancePublicPortsResponse' smart constructor.
 data OpenInstancePublicPortsResponse = OpenInstancePublicPortsResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpenInstancePublicPortsResponse' with all optional fields omitted.
@@ -164,23 +167,25 @@ data OpenInstancePublicPortsResponse = OpenInstancePublicPortsResponse'
 -- 'httpStatus', 'openInstancePublicPortsResponse_httpStatus' - The response's http status code.
 newOpenInstancePublicPortsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   OpenInstancePublicPortsResponse
 newOpenInstancePublicPortsResponse pHttpStatus_ =
   OpenInstancePublicPortsResponse'
     { operation =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-openInstancePublicPortsResponse_operation :: Lens.Lens' OpenInstancePublicPortsResponse (Core.Maybe Operation)
+openInstancePublicPortsResponse_operation :: Lens.Lens' OpenInstancePublicPortsResponse (Prelude.Maybe Operation)
 openInstancePublicPortsResponse_operation = Lens.lens (\OpenInstancePublicPortsResponse' {operation} -> operation) (\s@OpenInstancePublicPortsResponse' {} a -> s {operation = a} :: OpenInstancePublicPortsResponse)
 
 -- | The response's http status code.
-openInstancePublicPortsResponse_httpStatus :: Lens.Lens' OpenInstancePublicPortsResponse Core.Int
+openInstancePublicPortsResponse_httpStatus :: Lens.Lens' OpenInstancePublicPortsResponse Prelude.Int
 openInstancePublicPortsResponse_httpStatus = Lens.lens (\OpenInstancePublicPortsResponse' {httpStatus} -> httpStatus) (\s@OpenInstancePublicPortsResponse' {} a -> s {httpStatus = a} :: OpenInstancePublicPortsResponse)
 
-instance Core.NFData OpenInstancePublicPortsResponse
+instance
+  Prelude.NFData
+    OpenInstancePublicPortsResponse

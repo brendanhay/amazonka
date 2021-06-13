@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data GetAssessmentReport = GetAssessmentReport'
   { -- | The ARN that specifies the assessment run for which you want to generate
     -- a report.
-    assessmentRunArn :: Core.Text,
+    assessmentRunArn :: Prelude.Text,
     -- | Specifies the file format (html or pdf) of the assessment report that
     -- you want to generate.
     reportFileFormat :: ReportFileFormat,
@@ -63,7 +64,7 @@ data GetAssessmentReport = GetAssessmentReport'
     -- <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html Assessment Reports>.
     reportType :: ReportType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAssessmentReport' with all optional fields omitted.
@@ -85,7 +86,7 @@ data GetAssessmentReport = GetAssessmentReport'
 -- <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html Assessment Reports>.
 newGetAssessmentReport ::
   -- | 'assessmentRunArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'reportFileFormat'
   ReportFileFormat ->
   -- | 'reportType'
@@ -104,7 +105,7 @@ newGetAssessmentReport
 
 -- | The ARN that specifies the assessment run for which you want to generate
 -- a report.
-getAssessmentReport_assessmentRunArn :: Lens.Lens' GetAssessmentReport Core.Text
+getAssessmentReport_assessmentRunArn :: Lens.Lens' GetAssessmentReport Prelude.Text
 getAssessmentReport_assessmentRunArn = Lens.lens (\GetAssessmentReport' {assessmentRunArn} -> assessmentRunArn) (\s@GetAssessmentReport' {} a -> s {assessmentRunArn = a} :: GetAssessmentReport)
 
 -- | Specifies the file format (html or pdf) of the assessment report that
@@ -128,57 +129,59 @@ instance Core.AWSRequest GetAssessmentReport where
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentReportResponse'
-            Core.<$> (x Core..?> "url")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "status")
+            Prelude.<$> (x Core..?> "url")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "status")
       )
 
-instance Core.Hashable GetAssessmentReport
+instance Prelude.Hashable GetAssessmentReport
 
-instance Core.NFData GetAssessmentReport
+instance Prelude.NFData GetAssessmentReport
 
 instance Core.ToHeaders GetAssessmentReport where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.GetAssessmentReport" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetAssessmentReport where
   toJSON GetAssessmentReport' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("assessmentRunArn" Core..= assessmentRunArn),
-            Core.Just
+            Prelude.Just
               ("reportFileFormat" Core..= reportFileFormat),
-            Core.Just ("reportType" Core..= reportType)
+            Prelude.Just ("reportType" Core..= reportType)
           ]
       )
 
 instance Core.ToPath GetAssessmentReport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAssessmentReport where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAssessmentReportResponse' smart constructor.
 data GetAssessmentReportResponse = GetAssessmentReportResponse'
   { -- | Specifies the URL where you can find the generated assessment report.
     -- This parameter is only returned if the report is successfully generated.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Specifies the status of the request to generate an assessment report.
     status :: ReportStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAssessmentReportResponse' with all optional fields omitted.
@@ -196,28 +199,28 @@ data GetAssessmentReportResponse = GetAssessmentReportResponse'
 -- 'status', 'getAssessmentReportResponse_status' - Specifies the status of the request to generate an assessment report.
 newGetAssessmentReportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'status'
   ReportStatus ->
   GetAssessmentReportResponse
 newGetAssessmentReportResponse pHttpStatus_ pStatus_ =
   GetAssessmentReportResponse'
-    { url = Core.Nothing,
+    { url = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       status = pStatus_
     }
 
 -- | Specifies the URL where you can find the generated assessment report.
 -- This parameter is only returned if the report is successfully generated.
-getAssessmentReportResponse_url :: Lens.Lens' GetAssessmentReportResponse (Core.Maybe Core.Text)
+getAssessmentReportResponse_url :: Lens.Lens' GetAssessmentReportResponse (Prelude.Maybe Prelude.Text)
 getAssessmentReportResponse_url = Lens.lens (\GetAssessmentReportResponse' {url} -> url) (\s@GetAssessmentReportResponse' {} a -> s {url = a} :: GetAssessmentReportResponse)
 
 -- | The response's http status code.
-getAssessmentReportResponse_httpStatus :: Lens.Lens' GetAssessmentReportResponse Core.Int
+getAssessmentReportResponse_httpStatus :: Lens.Lens' GetAssessmentReportResponse Prelude.Int
 getAssessmentReportResponse_httpStatus = Lens.lens (\GetAssessmentReportResponse' {httpStatus} -> httpStatus) (\s@GetAssessmentReportResponse' {} a -> s {httpStatus = a} :: GetAssessmentReportResponse)
 
 -- | Specifies the status of the request to generate an assessment report.
 getAssessmentReportResponse_status :: Lens.Lens' GetAssessmentReportResponse ReportStatus
 getAssessmentReportResponse_status = Lens.lens (\GetAssessmentReportResponse' {status} -> status) (\s@GetAssessmentReportResponse' {} a -> s {status = a} :: GetAssessmentReportResponse)
 
-instance Core.NFData GetAssessmentReportResponse
+instance Prelude.NFData GetAssessmentReportResponse

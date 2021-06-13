@@ -21,15 +21,16 @@ module Network.AWS.DynamoDB.Types.Replica where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a replica.
 --
 -- /See:/ 'newReplica' smart constructor.
 data Replica = Replica'
   { -- | The Region where the replica needs to be created.
-    regionName :: Core.Maybe Core.Text
+    regionName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Replica' with all optional fields omitted.
@@ -42,25 +43,27 @@ data Replica = Replica'
 -- 'regionName', 'replica_regionName' - The Region where the replica needs to be created.
 newReplica ::
   Replica
-newReplica = Replica' {regionName = Core.Nothing}
+newReplica = Replica' {regionName = Prelude.Nothing}
 
 -- | The Region where the replica needs to be created.
-replica_regionName :: Lens.Lens' Replica (Core.Maybe Core.Text)
+replica_regionName :: Lens.Lens' Replica (Prelude.Maybe Prelude.Text)
 replica_regionName = Lens.lens (\Replica' {regionName} -> regionName) (\s@Replica' {} a -> s {regionName = a} :: Replica)
 
 instance Core.FromJSON Replica where
   parseJSON =
     Core.withObject
       "Replica"
-      (\x -> Replica' Core.<$> (x Core..:? "RegionName"))
+      ( \x ->
+          Replica' Prelude.<$> (x Core..:? "RegionName")
+      )
 
-instance Core.Hashable Replica
+instance Prelude.Hashable Replica
 
-instance Core.NFData Replica
+instance Prelude.NFData Replica
 
 instance Core.ToJSON Replica where
   toJSON Replica' {..} =
     Core.object
-      ( Core.catMaybes
-          [("RegionName" Core..=) Core.<$> regionName]
+      ( Prelude.catMaybes
+          [("RegionName" Core..=) Prelude.<$> regionName]
       )

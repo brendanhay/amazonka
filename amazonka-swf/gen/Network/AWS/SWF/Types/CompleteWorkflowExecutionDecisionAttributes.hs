@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.CompleteWorkflowExecutionDecisionAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @CompleteWorkflowExecution@ decision.
 --
@@ -48,9 +49,9 @@ import qualified Network.AWS.Lens as Lens
 data CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes'
   { -- | The result of the workflow execution. The form of the result is
     -- implementation defined.
-    result :: Core.Maybe Core.Text
+    result :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompleteWorkflowExecutionDecisionAttributes' with all optional fields omitted.
@@ -67,20 +68,20 @@ newCompleteWorkflowExecutionDecisionAttributes ::
 newCompleteWorkflowExecutionDecisionAttributes =
   CompleteWorkflowExecutionDecisionAttributes'
     { result =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The result of the workflow execution. The form of the result is
 -- implementation defined.
-completeWorkflowExecutionDecisionAttributes_result :: Lens.Lens' CompleteWorkflowExecutionDecisionAttributes (Core.Maybe Core.Text)
+completeWorkflowExecutionDecisionAttributes_result :: Lens.Lens' CompleteWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
 completeWorkflowExecutionDecisionAttributes_result = Lens.lens (\CompleteWorkflowExecutionDecisionAttributes' {result} -> result) (\s@CompleteWorkflowExecutionDecisionAttributes' {} a -> s {result = a} :: CompleteWorkflowExecutionDecisionAttributes)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CompleteWorkflowExecutionDecisionAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     CompleteWorkflowExecutionDecisionAttributes
 
 instance
@@ -90,4 +91,6 @@ instance
   toJSON
     CompleteWorkflowExecutionDecisionAttributes' {..} =
       Core.object
-        (Core.catMaybes [("result" Core..=) Core.<$> result])
+        ( Prelude.catMaybes
+            [("result" Core..=) Prelude.<$> result]
+        )

@@ -23,19 +23,20 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnConnectionStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a terminated Client VPN endpoint client connection.
 --
 -- /See:/ 'newTerminateConnectionStatus' smart constructor.
 data TerminateConnectionStatus = TerminateConnectionStatus'
   { -- | The ID of the client connection.
-    connectionId :: Core.Maybe Core.Text,
+    connectionId :: Prelude.Maybe Prelude.Text,
     -- | The state of the client connection.
-    previousStatus :: Core.Maybe ClientVpnConnectionStatus,
+    previousStatus :: Prelude.Maybe ClientVpnConnectionStatus,
     -- | A message about the status of the client connection, if applicable.
-    currentStatus :: Core.Maybe ClientVpnConnectionStatus
+    currentStatus :: Prelude.Maybe ClientVpnConnectionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateConnectionStatus' with all optional fields omitted.
@@ -55,30 +56,30 @@ newTerminateConnectionStatus ::
 newTerminateConnectionStatus =
   TerminateConnectionStatus'
     { connectionId =
-        Core.Nothing,
-      previousStatus = Core.Nothing,
-      currentStatus = Core.Nothing
+        Prelude.Nothing,
+      previousStatus = Prelude.Nothing,
+      currentStatus = Prelude.Nothing
     }
 
 -- | The ID of the client connection.
-terminateConnectionStatus_connectionId :: Lens.Lens' TerminateConnectionStatus (Core.Maybe Core.Text)
+terminateConnectionStatus_connectionId :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe Prelude.Text)
 terminateConnectionStatus_connectionId = Lens.lens (\TerminateConnectionStatus' {connectionId} -> connectionId) (\s@TerminateConnectionStatus' {} a -> s {connectionId = a} :: TerminateConnectionStatus)
 
 -- | The state of the client connection.
-terminateConnectionStatus_previousStatus :: Lens.Lens' TerminateConnectionStatus (Core.Maybe ClientVpnConnectionStatus)
+terminateConnectionStatus_previousStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
 terminateConnectionStatus_previousStatus = Lens.lens (\TerminateConnectionStatus' {previousStatus} -> previousStatus) (\s@TerminateConnectionStatus' {} a -> s {previousStatus = a} :: TerminateConnectionStatus)
 
 -- | A message about the status of the client connection, if applicable.
-terminateConnectionStatus_currentStatus :: Lens.Lens' TerminateConnectionStatus (Core.Maybe ClientVpnConnectionStatus)
+terminateConnectionStatus_currentStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
 terminateConnectionStatus_currentStatus = Lens.lens (\TerminateConnectionStatus' {currentStatus} -> currentStatus) (\s@TerminateConnectionStatus' {} a -> s {currentStatus = a} :: TerminateConnectionStatus)
 
 instance Core.FromXML TerminateConnectionStatus where
   parseXML x =
     TerminateConnectionStatus'
-      Core.<$> (x Core..@? "connectionId")
-      Core.<*> (x Core..@? "previousStatus")
-      Core.<*> (x Core..@? "currentStatus")
+      Prelude.<$> (x Core..@? "connectionId")
+      Prelude.<*> (x Core..@? "previousStatus")
+      Prelude.<*> (x Core..@? "currentStatus")
 
-instance Core.Hashable TerminateConnectionStatus
+instance Prelude.Hashable TerminateConnectionStatus
 
-instance Core.NFData TerminateConnectionStatus
+instance Prelude.NFData TerminateConnectionStatus

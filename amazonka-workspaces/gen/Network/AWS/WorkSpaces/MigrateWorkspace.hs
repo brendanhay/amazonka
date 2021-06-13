@@ -56,6 +56,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -63,11 +64,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newMigrateWorkspace' smart constructor.
 data MigrateWorkspace = MigrateWorkspace'
   { -- | The identifier of the WorkSpace to migrate from.
-    sourceWorkspaceId :: Core.Text,
+    sourceWorkspaceId :: Prelude.Text,
     -- | The identifier of the target bundle type to migrate the WorkSpace to.
-    bundleId :: Core.Text
+    bundleId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MigrateWorkspace' with all optional fields omitted.
@@ -82,9 +83,9 @@ data MigrateWorkspace = MigrateWorkspace'
 -- 'bundleId', 'migrateWorkspace_bundleId' - The identifier of the target bundle type to migrate the WorkSpace to.
 newMigrateWorkspace ::
   -- | 'sourceWorkspaceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'bundleId'
-  Core.Text ->
+  Prelude.Text ->
   MigrateWorkspace
 newMigrateWorkspace pSourceWorkspaceId_ pBundleId_ =
   MigrateWorkspace'
@@ -94,11 +95,11 @@ newMigrateWorkspace pSourceWorkspaceId_ pBundleId_ =
     }
 
 -- | The identifier of the WorkSpace to migrate from.
-migrateWorkspace_sourceWorkspaceId :: Lens.Lens' MigrateWorkspace Core.Text
+migrateWorkspace_sourceWorkspaceId :: Lens.Lens' MigrateWorkspace Prelude.Text
 migrateWorkspace_sourceWorkspaceId = Lens.lens (\MigrateWorkspace' {sourceWorkspaceId} -> sourceWorkspaceId) (\s@MigrateWorkspace' {} a -> s {sourceWorkspaceId = a} :: MigrateWorkspace)
 
 -- | The identifier of the target bundle type to migrate the WorkSpace to.
-migrateWorkspace_bundleId :: Lens.Lens' MigrateWorkspace Core.Text
+migrateWorkspace_bundleId :: Lens.Lens' MigrateWorkspace Prelude.Text
 migrateWorkspace_bundleId = Lens.lens (\MigrateWorkspace' {bundleId} -> bundleId) (\s@MigrateWorkspace' {} a -> s {bundleId = a} :: MigrateWorkspace)
 
 instance Core.AWSRequest MigrateWorkspace where
@@ -110,56 +111,58 @@ instance Core.AWSRequest MigrateWorkspace where
     Response.receiveJSON
       ( \s h x ->
           MigrateWorkspaceResponse'
-            Core.<$> (x Core..?> "TargetWorkspaceId")
-            Core.<*> (x Core..?> "SourceWorkspaceId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TargetWorkspaceId")
+            Prelude.<*> (x Core..?> "SourceWorkspaceId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable MigrateWorkspace
+instance Prelude.Hashable MigrateWorkspace
 
-instance Core.NFData MigrateWorkspace
+instance Prelude.NFData MigrateWorkspace
 
 instance Core.ToHeaders MigrateWorkspace where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.MigrateWorkspace" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON MigrateWorkspace where
   toJSON MigrateWorkspace' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SourceWorkspaceId" Core..= sourceWorkspaceId),
-            Core.Just ("BundleId" Core..= bundleId)
+            Prelude.Just ("BundleId" Core..= bundleId)
           ]
       )
 
 instance Core.ToPath MigrateWorkspace where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery MigrateWorkspace where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMigrateWorkspaceResponse' smart constructor.
 data MigrateWorkspaceResponse = MigrateWorkspaceResponse'
   { -- | The new identifier of the WorkSpace that is being migrated. If the
     -- migration does not succeed, the target WorkSpace ID will not be used,
     -- and the WorkSpace will still have the original WorkSpace ID.
-    targetWorkspaceId :: Core.Maybe Core.Text,
+    targetWorkspaceId :: Prelude.Maybe Prelude.Text,
     -- | The original identifier of the WorkSpace that is being migrated.
-    sourceWorkspaceId :: Core.Maybe Core.Text,
+    sourceWorkspaceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MigrateWorkspaceResponse' with all optional fields omitted.
@@ -178,28 +181,28 @@ data MigrateWorkspaceResponse = MigrateWorkspaceResponse'
 -- 'httpStatus', 'migrateWorkspaceResponse_httpStatus' - The response's http status code.
 newMigrateWorkspaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   MigrateWorkspaceResponse
 newMigrateWorkspaceResponse pHttpStatus_ =
   MigrateWorkspaceResponse'
     { targetWorkspaceId =
-        Core.Nothing,
-      sourceWorkspaceId = Core.Nothing,
+        Prelude.Nothing,
+      sourceWorkspaceId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The new identifier of the WorkSpace that is being migrated. If the
 -- migration does not succeed, the target WorkSpace ID will not be used,
 -- and the WorkSpace will still have the original WorkSpace ID.
-migrateWorkspaceResponse_targetWorkspaceId :: Lens.Lens' MigrateWorkspaceResponse (Core.Maybe Core.Text)
+migrateWorkspaceResponse_targetWorkspaceId :: Lens.Lens' MigrateWorkspaceResponse (Prelude.Maybe Prelude.Text)
 migrateWorkspaceResponse_targetWorkspaceId = Lens.lens (\MigrateWorkspaceResponse' {targetWorkspaceId} -> targetWorkspaceId) (\s@MigrateWorkspaceResponse' {} a -> s {targetWorkspaceId = a} :: MigrateWorkspaceResponse)
 
 -- | The original identifier of the WorkSpace that is being migrated.
-migrateWorkspaceResponse_sourceWorkspaceId :: Lens.Lens' MigrateWorkspaceResponse (Core.Maybe Core.Text)
+migrateWorkspaceResponse_sourceWorkspaceId :: Lens.Lens' MigrateWorkspaceResponse (Prelude.Maybe Prelude.Text)
 migrateWorkspaceResponse_sourceWorkspaceId = Lens.lens (\MigrateWorkspaceResponse' {sourceWorkspaceId} -> sourceWorkspaceId) (\s@MigrateWorkspaceResponse' {} a -> s {sourceWorkspaceId = a} :: MigrateWorkspaceResponse)
 
 -- | The response's http status code.
-migrateWorkspaceResponse_httpStatus :: Lens.Lens' MigrateWorkspaceResponse Core.Int
+migrateWorkspaceResponse_httpStatus :: Lens.Lens' MigrateWorkspaceResponse Prelude.Int
 migrateWorkspaceResponse_httpStatus = Lens.lens (\MigrateWorkspaceResponse' {httpStatus} -> httpStatus) (\s@MigrateWorkspaceResponse' {} a -> s {httpStatus = a} :: MigrateWorkspaceResponse)
 
-instance Core.NFData MigrateWorkspaceResponse
+instance Prelude.NFData MigrateWorkspaceResponse

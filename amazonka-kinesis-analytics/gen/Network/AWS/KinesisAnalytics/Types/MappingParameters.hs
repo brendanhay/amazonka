@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.CSVMappingParameters
 import Network.AWS.KinesisAnalytics.Types.JSONMappingParameters
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When configuring application input at the time of creating or updating
 -- an application, provides additional mapping information specific to the
@@ -33,12 +34,12 @@ import qualified Network.AWS.Lens as Lens
 data MappingParameters = MappingParameters'
   { -- | Provides additional mapping information when JSON is the record format
     -- on the streaming source.
-    jSONMappingParameters :: Core.Maybe JSONMappingParameters,
+    jSONMappingParameters :: Prelude.Maybe JSONMappingParameters,
     -- | Provides additional mapping information when the record format uses
     -- delimiters (for example, CSV).
-    cSVMappingParameters :: Core.Maybe CSVMappingParameters
+    cSVMappingParameters :: Prelude.Maybe CSVMappingParameters
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MappingParameters' with all optional fields omitted.
@@ -58,18 +59,18 @@ newMappingParameters ::
 newMappingParameters =
   MappingParameters'
     { jSONMappingParameters =
-        Core.Nothing,
-      cSVMappingParameters = Core.Nothing
+        Prelude.Nothing,
+      cSVMappingParameters = Prelude.Nothing
     }
 
 -- | Provides additional mapping information when JSON is the record format
 -- on the streaming source.
-mappingParameters_jSONMappingParameters :: Lens.Lens' MappingParameters (Core.Maybe JSONMappingParameters)
+mappingParameters_jSONMappingParameters :: Lens.Lens' MappingParameters (Prelude.Maybe JSONMappingParameters)
 mappingParameters_jSONMappingParameters = Lens.lens (\MappingParameters' {jSONMappingParameters} -> jSONMappingParameters) (\s@MappingParameters' {} a -> s {jSONMappingParameters = a} :: MappingParameters)
 
 -- | Provides additional mapping information when the record format uses
 -- delimiters (for example, CSV).
-mappingParameters_cSVMappingParameters :: Lens.Lens' MappingParameters (Core.Maybe CSVMappingParameters)
+mappingParameters_cSVMappingParameters :: Lens.Lens' MappingParameters (Prelude.Maybe CSVMappingParameters)
 mappingParameters_cSVMappingParameters = Lens.lens (\MappingParameters' {cSVMappingParameters} -> cSVMappingParameters) (\s@MappingParameters' {} a -> s {cSVMappingParameters = a} :: MappingParameters)
 
 instance Core.FromJSON MappingParameters where
@@ -78,21 +79,21 @@ instance Core.FromJSON MappingParameters where
       "MappingParameters"
       ( \x ->
           MappingParameters'
-            Core.<$> (x Core..:? "JSONMappingParameters")
-            Core.<*> (x Core..:? "CSVMappingParameters")
+            Prelude.<$> (x Core..:? "JSONMappingParameters")
+            Prelude.<*> (x Core..:? "CSVMappingParameters")
       )
 
-instance Core.Hashable MappingParameters
+instance Prelude.Hashable MappingParameters
 
-instance Core.NFData MappingParameters
+instance Prelude.NFData MappingParameters
 
 instance Core.ToJSON MappingParameters where
   toJSON MappingParameters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("JSONMappingParameters" Core..=)
-              Core.<$> jSONMappingParameters,
+              Prelude.<$> jSONMappingParameters,
             ("CSVMappingParameters" Core..=)
-              Core.<$> cSVMappingParameters
+              Prelude.<$> cSVMappingParameters
           ]
       )

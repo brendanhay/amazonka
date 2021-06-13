@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ data DeleteSignalingChannel = DeleteSignalingChannel'
   { -- | The current version of the signaling channel that you want to delete.
     -- You can obtain the current version by invoking the
     -- @DescribeSignalingChannel@ or @ListSignalingChannels@ API operations.
-    currentVersion :: Core.Maybe Core.Text,
+    currentVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the signaling channel that you want to
     -- delete.
-    channelARN :: Core.Text
+    channelARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSignalingChannel' with all optional fields omitted.
@@ -75,24 +76,24 @@ data DeleteSignalingChannel = DeleteSignalingChannel'
 -- delete.
 newDeleteSignalingChannel ::
   -- | 'channelARN'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSignalingChannel
 newDeleteSignalingChannel pChannelARN_ =
   DeleteSignalingChannel'
     { currentVersion =
-        Core.Nothing,
+        Prelude.Nothing,
       channelARN = pChannelARN_
     }
 
 -- | The current version of the signaling channel that you want to delete.
 -- You can obtain the current version by invoking the
 -- @DescribeSignalingChannel@ or @ListSignalingChannels@ API operations.
-deleteSignalingChannel_currentVersion :: Lens.Lens' DeleteSignalingChannel (Core.Maybe Core.Text)
+deleteSignalingChannel_currentVersion :: Lens.Lens' DeleteSignalingChannel (Prelude.Maybe Prelude.Text)
 deleteSignalingChannel_currentVersion = Lens.lens (\DeleteSignalingChannel' {currentVersion} -> currentVersion) (\s@DeleteSignalingChannel' {} a -> s {currentVersion = a} :: DeleteSignalingChannel)
 
 -- | The Amazon Resource Name (ARN) of the signaling channel that you want to
 -- delete.
-deleteSignalingChannel_channelARN :: Lens.Lens' DeleteSignalingChannel Core.Text
+deleteSignalingChannel_channelARN :: Lens.Lens' DeleteSignalingChannel Prelude.Text
 deleteSignalingChannel_channelARN = Lens.lens (\DeleteSignalingChannel' {channelARN} -> channelARN) (\s@DeleteSignalingChannel' {} a -> s {channelARN = a} :: DeleteSignalingChannel)
 
 instance Core.AWSRequest DeleteSignalingChannel where
@@ -104,37 +105,38 @@ instance Core.AWSRequest DeleteSignalingChannel where
     Response.receiveEmpty
       ( \s h x ->
           DeleteSignalingChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteSignalingChannel
+instance Prelude.Hashable DeleteSignalingChannel
 
-instance Core.NFData DeleteSignalingChannel
+instance Prelude.NFData DeleteSignalingChannel
 
 instance Core.ToHeaders DeleteSignalingChannel where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON DeleteSignalingChannel where
   toJSON DeleteSignalingChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CurrentVersion" Core..=) Core.<$> currentVersion,
-            Core.Just ("ChannelARN" Core..= channelARN)
+      ( Prelude.catMaybes
+          [ ("CurrentVersion" Core..=)
+              Prelude.<$> currentVersion,
+            Prelude.Just ("ChannelARN" Core..= channelARN)
           ]
       )
 
 instance Core.ToPath DeleteSignalingChannel where
-  toPath = Core.const "/deleteSignalingChannel"
+  toPath = Prelude.const "/deleteSignalingChannel"
 
 instance Core.ToQuery DeleteSignalingChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSignalingChannelResponse' smart constructor.
 data DeleteSignalingChannelResponse = DeleteSignalingChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSignalingChannelResponse' with all optional fields omitted.
@@ -147,7 +149,7 @@ data DeleteSignalingChannelResponse = DeleteSignalingChannelResponse'
 -- 'httpStatus', 'deleteSignalingChannelResponse_httpStatus' - The response's http status code.
 newDeleteSignalingChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteSignalingChannelResponse
 newDeleteSignalingChannelResponse pHttpStatus_ =
   DeleteSignalingChannelResponse'
@@ -156,7 +158,9 @@ newDeleteSignalingChannelResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteSignalingChannelResponse_httpStatus :: Lens.Lens' DeleteSignalingChannelResponse Core.Int
+deleteSignalingChannelResponse_httpStatus :: Lens.Lens' DeleteSignalingChannelResponse Prelude.Int
 deleteSignalingChannelResponse_httpStatus = Lens.lens (\DeleteSignalingChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteSignalingChannelResponse' {} a -> s {httpStatus = a} :: DeleteSignalingChannelResponse)
 
-instance Core.NFData DeleteSignalingChannelResponse
+instance
+  Prelude.NFData
+    DeleteSignalingChannelResponse

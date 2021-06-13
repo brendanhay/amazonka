@@ -42,17 +42,18 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDevice' smart constructor.
 data UpdateDevice = UpdateDevice'
   { -- | The ARN of the device to update. Required.
-    deviceArn :: Core.Maybe Core.Text,
+    deviceArn :: Prelude.Maybe Prelude.Text,
     -- | The updated device name. Required.
-    deviceName :: Core.Maybe Core.Text
+    deviceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDevice' with all optional fields omitted.
@@ -69,16 +70,16 @@ newUpdateDevice ::
   UpdateDevice
 newUpdateDevice =
   UpdateDevice'
-    { deviceArn = Core.Nothing,
-      deviceName = Core.Nothing
+    { deviceArn = Prelude.Nothing,
+      deviceName = Prelude.Nothing
     }
 
 -- | The ARN of the device to update. Required.
-updateDevice_deviceArn :: Lens.Lens' UpdateDevice (Core.Maybe Core.Text)
+updateDevice_deviceArn :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_deviceArn = Lens.lens (\UpdateDevice' {deviceArn} -> deviceArn) (\s@UpdateDevice' {} a -> s {deviceArn = a} :: UpdateDevice)
 
 -- | The updated device name. Required.
-updateDevice_deviceName :: Lens.Lens' UpdateDevice (Core.Maybe Core.Text)
+updateDevice_deviceName :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_deviceName = Lens.lens (\UpdateDevice' {deviceName} -> deviceName) (\s@UpdateDevice' {} a -> s {deviceName = a} :: UpdateDevice)
 
 instance Core.AWSRequest UpdateDevice where
@@ -88,45 +89,49 @@ instance Core.AWSRequest UpdateDevice where
     Response.receiveEmpty
       ( \s h x ->
           UpdateDeviceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDevice
+instance Prelude.Hashable UpdateDevice
 
-instance Core.NFData UpdateDevice
+instance Prelude.NFData UpdateDevice
 
 instance Core.ToHeaders UpdateDevice where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.UpdateDevice" :: Core.ByteString),
+              Core.=# ( "AlexaForBusiness.UpdateDevice" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDevice where
   toJSON UpdateDevice' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DeviceArn" Core..=) Core.<$> deviceArn,
-            ("DeviceName" Core..=) Core.<$> deviceName
+      ( Prelude.catMaybes
+          [ ("DeviceArn" Core..=) Prelude.<$> deviceArn,
+            ("DeviceName" Core..=) Prelude.<$> deviceName
           ]
       )
 
 instance Core.ToPath UpdateDevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDevice where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDeviceResponse' smart constructor.
 data UpdateDeviceResponse = UpdateDeviceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceResponse' with all optional fields omitted.
@@ -139,13 +144,13 @@ data UpdateDeviceResponse = UpdateDeviceResponse'
 -- 'httpStatus', 'updateDeviceResponse_httpStatus' - The response's http status code.
 newUpdateDeviceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDeviceResponse
 newUpdateDeviceResponse pHttpStatus_ =
   UpdateDeviceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateDeviceResponse_httpStatus :: Lens.Lens' UpdateDeviceResponse Core.Int
+updateDeviceResponse_httpStatus :: Lens.Lens' UpdateDeviceResponse Prelude.Int
 updateDeviceResponse_httpStatus = Lens.lens (\UpdateDeviceResponse' {httpStatus} -> httpStatus) (\s@UpdateDeviceResponse' {} a -> s {httpStatus = a} :: UpdateDeviceResponse)
 
-instance Core.NFData UpdateDeviceResponse
+instance Prelude.NFData UpdateDeviceResponse

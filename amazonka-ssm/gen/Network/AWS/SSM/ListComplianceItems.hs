@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,22 +60,22 @@ import Network.AWS.SSM.Types
 data ListComplianceItems = ListComplianceItems'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of resource from which to get compliance information.
     -- Currently, the only supported resource type is @ManagedInstance@.
-    resourceTypes :: Core.Maybe (Core.NonEmpty Core.Text),
+    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID for the resources from which to get compliance information.
     -- Currently, you can only specify one resource ID.
-    resourceIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    resourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | One or more compliance filters. Use a filter to return a more specific
     -- list of results.
-    filters :: Core.Maybe [ComplianceStringFilter]
+    filters :: Prelude.Maybe [ComplianceStringFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListComplianceItems' with all optional fields omitted.
@@ -103,60 +104,60 @@ newListComplianceItems ::
   ListComplianceItems
 newListComplianceItems =
   ListComplianceItems'
-    { nextToken = Core.Nothing,
-      resourceTypes = Core.Nothing,
-      maxResults = Core.Nothing,
-      resourceIds = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      resourceIds = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-listComplianceItems_nextToken :: Lens.Lens' ListComplianceItems (Core.Maybe Core.Text)
+listComplianceItems_nextToken :: Lens.Lens' ListComplianceItems (Prelude.Maybe Prelude.Text)
 listComplianceItems_nextToken = Lens.lens (\ListComplianceItems' {nextToken} -> nextToken) (\s@ListComplianceItems' {} a -> s {nextToken = a} :: ListComplianceItems)
 
 -- | The type of resource from which to get compliance information.
 -- Currently, the only supported resource type is @ManagedInstance@.
-listComplianceItems_resourceTypes :: Lens.Lens' ListComplianceItems (Core.Maybe (Core.NonEmpty Core.Text))
-listComplianceItems_resourceTypes = Lens.lens (\ListComplianceItems' {resourceTypes} -> resourceTypes) (\s@ListComplianceItems' {} a -> s {resourceTypes = a} :: ListComplianceItems) Core.. Lens.mapping Lens._Coerce
+listComplianceItems_resourceTypes :: Lens.Lens' ListComplianceItems (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listComplianceItems_resourceTypes = Lens.lens (\ListComplianceItems' {resourceTypes} -> resourceTypes) (\s@ListComplianceItems' {} a -> s {resourceTypes = a} :: ListComplianceItems) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-listComplianceItems_maxResults :: Lens.Lens' ListComplianceItems (Core.Maybe Core.Natural)
+listComplianceItems_maxResults :: Lens.Lens' ListComplianceItems (Prelude.Maybe Prelude.Natural)
 listComplianceItems_maxResults = Lens.lens (\ListComplianceItems' {maxResults} -> maxResults) (\s@ListComplianceItems' {} a -> s {maxResults = a} :: ListComplianceItems)
 
 -- | The ID for the resources from which to get compliance information.
 -- Currently, you can only specify one resource ID.
-listComplianceItems_resourceIds :: Lens.Lens' ListComplianceItems (Core.Maybe (Core.NonEmpty Core.Text))
-listComplianceItems_resourceIds = Lens.lens (\ListComplianceItems' {resourceIds} -> resourceIds) (\s@ListComplianceItems' {} a -> s {resourceIds = a} :: ListComplianceItems) Core.. Lens.mapping Lens._Coerce
+listComplianceItems_resourceIds :: Lens.Lens' ListComplianceItems (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listComplianceItems_resourceIds = Lens.lens (\ListComplianceItems' {resourceIds} -> resourceIds) (\s@ListComplianceItems' {} a -> s {resourceIds = a} :: ListComplianceItems) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more compliance filters. Use a filter to return a more specific
 -- list of results.
-listComplianceItems_filters :: Lens.Lens' ListComplianceItems (Core.Maybe [ComplianceStringFilter])
-listComplianceItems_filters = Lens.lens (\ListComplianceItems' {filters} -> filters) (\s@ListComplianceItems' {} a -> s {filters = a} :: ListComplianceItems) Core.. Lens.mapping Lens._Coerce
+listComplianceItems_filters :: Lens.Lens' ListComplianceItems (Prelude.Maybe [ComplianceStringFilter])
+listComplianceItems_filters = Lens.lens (\ListComplianceItems' {filters} -> filters) (\s@ListComplianceItems' {} a -> s {filters = a} :: ListComplianceItems) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListComplianceItems where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? listComplianceItemsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listComplianceItemsResponse_complianceItems
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listComplianceItems_nextToken
+          Prelude.& listComplianceItems_nextToken
           Lens..~ rs
           Lens.^? listComplianceItemsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComplianceItems where
   type
@@ -167,55 +168,61 @@ instance Core.AWSRequest ListComplianceItems where
     Response.receiveJSON
       ( \s h x ->
           ListComplianceItemsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ComplianceItems" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ComplianceItems"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListComplianceItems
+instance Prelude.Hashable ListComplianceItems
 
-instance Core.NFData ListComplianceItems
+instance Prelude.NFData ListComplianceItems
 
 instance Core.ToHeaders ListComplianceItems where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ListComplianceItems" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.ListComplianceItems" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListComplianceItems where
   toJSON ListComplianceItems' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("ResourceTypes" Core..=) Core.<$> resourceTypes,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("ResourceIds" Core..=) Core.<$> resourceIds,
-            ("Filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ResourceTypes" Core..=) Prelude.<$> resourceTypes,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ResourceIds" Core..=) Prelude.<$> resourceIds,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath ListComplianceItems where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListComplianceItems where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComplianceItemsResponse' smart constructor.
 data ListComplianceItemsResponse = ListComplianceItemsResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of compliance information for the specified resource ID.
-    complianceItems :: Core.Maybe [ComplianceItem],
+    complianceItems :: Prelude.Maybe [ComplianceItem],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListComplianceItemsResponse' with all optional fields omitted.
@@ -233,27 +240,27 @@ data ListComplianceItemsResponse = ListComplianceItemsResponse'
 -- 'httpStatus', 'listComplianceItemsResponse_httpStatus' - The response's http status code.
 newListComplianceItemsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListComplianceItemsResponse
 newListComplianceItemsResponse pHttpStatus_ =
   ListComplianceItemsResponse'
     { nextToken =
-        Core.Nothing,
-      complianceItems = Core.Nothing,
+        Prelude.Nothing,
+      complianceItems = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-listComplianceItemsResponse_nextToken :: Lens.Lens' ListComplianceItemsResponse (Core.Maybe Core.Text)
+listComplianceItemsResponse_nextToken :: Lens.Lens' ListComplianceItemsResponse (Prelude.Maybe Prelude.Text)
 listComplianceItemsResponse_nextToken = Lens.lens (\ListComplianceItemsResponse' {nextToken} -> nextToken) (\s@ListComplianceItemsResponse' {} a -> s {nextToken = a} :: ListComplianceItemsResponse)
 
 -- | A list of compliance information for the specified resource ID.
-listComplianceItemsResponse_complianceItems :: Lens.Lens' ListComplianceItemsResponse (Core.Maybe [ComplianceItem])
-listComplianceItemsResponse_complianceItems = Lens.lens (\ListComplianceItemsResponse' {complianceItems} -> complianceItems) (\s@ListComplianceItemsResponse' {} a -> s {complianceItems = a} :: ListComplianceItemsResponse) Core.. Lens.mapping Lens._Coerce
+listComplianceItemsResponse_complianceItems :: Lens.Lens' ListComplianceItemsResponse (Prelude.Maybe [ComplianceItem])
+listComplianceItemsResponse_complianceItems = Lens.lens (\ListComplianceItemsResponse' {complianceItems} -> complianceItems) (\s@ListComplianceItemsResponse' {} a -> s {complianceItems = a} :: ListComplianceItemsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listComplianceItemsResponse_httpStatus :: Lens.Lens' ListComplianceItemsResponse Core.Int
+listComplianceItemsResponse_httpStatus :: Lens.Lens' ListComplianceItemsResponse Prelude.Int
 listComplianceItemsResponse_httpStatus = Lens.lens (\ListComplianceItemsResponse' {httpStatus} -> httpStatus) (\s@ListComplianceItemsResponse' {} a -> s {httpStatus = a} :: ListComplianceItemsResponse)
 
-instance Core.NFData ListComplianceItemsResponse
+instance Prelude.NFData ListComplianceItemsResponse

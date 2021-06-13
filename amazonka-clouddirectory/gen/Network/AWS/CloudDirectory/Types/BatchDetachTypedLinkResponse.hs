@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DetachTypedLink response operation.
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data BatchDetachTypedLinkResponse = BatchDetachTypedLinkResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetachTypedLinkResponse' with all optional fields omitted.
@@ -43,8 +44,10 @@ instance Core.FromJSON BatchDetachTypedLinkResponse where
   parseJSON =
     Core.withObject
       "BatchDetachTypedLinkResponse"
-      (\x -> Core.pure BatchDetachTypedLinkResponse')
+      (\x -> Prelude.pure BatchDetachTypedLinkResponse')
 
-instance Core.Hashable BatchDetachTypedLinkResponse
+instance
+  Prelude.Hashable
+    BatchDetachTypedLinkResponse
 
-instance Core.NFData BatchDetachTypedLinkResponse
+instance Prelude.NFData BatchDetachTypedLinkResponse

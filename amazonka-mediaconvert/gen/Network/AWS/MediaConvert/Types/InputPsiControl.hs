@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.InputPsiControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Set PSI control (InputPsiControl) for transport stream inputs to specify
 -- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
@@ -36,15 +37,15 @@ newtype InputPsiControl = InputPsiControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

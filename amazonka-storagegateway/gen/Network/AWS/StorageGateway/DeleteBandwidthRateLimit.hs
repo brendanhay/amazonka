@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -57,14 +58,14 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newDeleteBandwidthRateLimit' smart constructor.
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
-  { gatewayARN :: Core.Text,
+  { gatewayARN :: Prelude.Text,
     -- | One of the BandwidthType values that indicates the gateway bandwidth
     -- rate limit to delete.
     --
     -- Valid Values: @UPLOAD@ | @DOWNLOAD@ | @ALL@
-    bandwidthType :: Core.Text
+    bandwidthType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBandwidthRateLimit' with all optional fields omitted.
@@ -82,9 +83,9 @@ data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
 -- Valid Values: @UPLOAD@ | @DOWNLOAD@ | @ALL@
 newDeleteBandwidthRateLimit ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'bandwidthType'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBandwidthRateLimit
 newDeleteBandwidthRateLimit
   pGatewayARN_
@@ -96,14 +97,14 @@ newDeleteBandwidthRateLimit
       }
 
 -- | Undocumented member.
-deleteBandwidthRateLimit_gatewayARN :: Lens.Lens' DeleteBandwidthRateLimit Core.Text
+deleteBandwidthRateLimit_gatewayARN :: Lens.Lens' DeleteBandwidthRateLimit Prelude.Text
 deleteBandwidthRateLimit_gatewayARN = Lens.lens (\DeleteBandwidthRateLimit' {gatewayARN} -> gatewayARN) (\s@DeleteBandwidthRateLimit' {} a -> s {gatewayARN = a} :: DeleteBandwidthRateLimit)
 
 -- | One of the BandwidthType values that indicates the gateway bandwidth
 -- rate limit to delete.
 --
 -- Valid Values: @UPLOAD@ | @DOWNLOAD@ | @ALL@
-deleteBandwidthRateLimit_bandwidthType :: Lens.Lens' DeleteBandwidthRateLimit Core.Text
+deleteBandwidthRateLimit_bandwidthType :: Lens.Lens' DeleteBandwidthRateLimit Prelude.Text
 deleteBandwidthRateLimit_bandwidthType = Lens.lens (\DeleteBandwidthRateLimit' {bandwidthType} -> bandwidthType) (\s@DeleteBandwidthRateLimit' {} a -> s {bandwidthType = a} :: DeleteBandwidthRateLimit)
 
 instance Core.AWSRequest DeleteBandwidthRateLimit where
@@ -115,52 +116,55 @@ instance Core.AWSRequest DeleteBandwidthRateLimit where
     Response.receiveJSON
       ( \s h x ->
           DeleteBandwidthRateLimitResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteBandwidthRateLimit
+instance Prelude.Hashable DeleteBandwidthRateLimit
 
-instance Core.NFData DeleteBandwidthRateLimit
+instance Prelude.NFData DeleteBandwidthRateLimit
 
 instance Core.ToHeaders DeleteBandwidthRateLimit where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DeleteBandwidthRateLimit" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteBandwidthRateLimit where
   toJSON DeleteBandwidthRateLimit' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GatewayARN" Core..= gatewayARN),
-            Core.Just ("BandwidthType" Core..= bandwidthType)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just
+              ("BandwidthType" Core..= bandwidthType)
           ]
       )
 
 instance Core.ToPath DeleteBandwidthRateLimit where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteBandwidthRateLimit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
 -- whose bandwidth rate information was deleted.
 --
 -- /See:/ 'newDeleteBandwidthRateLimitResponse' smart constructor.
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
-  { gatewayARN :: Core.Maybe Core.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBandwidthRateLimitResponse' with all optional fields omitted.
@@ -175,21 +179,23 @@ data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
 -- 'httpStatus', 'deleteBandwidthRateLimitResponse_httpStatus' - The response's http status code.
 newDeleteBandwidthRateLimitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteBandwidthRateLimitResponse
 newDeleteBandwidthRateLimitResponse pHttpStatus_ =
   DeleteBandwidthRateLimitResponse'
     { gatewayARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteBandwidthRateLimitResponse_gatewayARN :: Lens.Lens' DeleteBandwidthRateLimitResponse (Core.Maybe Core.Text)
+deleteBandwidthRateLimitResponse_gatewayARN :: Lens.Lens' DeleteBandwidthRateLimitResponse (Prelude.Maybe Prelude.Text)
 deleteBandwidthRateLimitResponse_gatewayARN = Lens.lens (\DeleteBandwidthRateLimitResponse' {gatewayARN} -> gatewayARN) (\s@DeleteBandwidthRateLimitResponse' {} a -> s {gatewayARN = a} :: DeleteBandwidthRateLimitResponse)
 
 -- | The response's http status code.
-deleteBandwidthRateLimitResponse_httpStatus :: Lens.Lens' DeleteBandwidthRateLimitResponse Core.Int
+deleteBandwidthRateLimitResponse_httpStatus :: Lens.Lens' DeleteBandwidthRateLimitResponse Prelude.Int
 deleteBandwidthRateLimitResponse_httpStatus = Lens.lens (\DeleteBandwidthRateLimitResponse' {httpStatus} -> httpStatus) (\s@DeleteBandwidthRateLimitResponse' {} a -> s {httpStatus = a} :: DeleteBandwidthRateLimitResponse)
 
-instance Core.NFData DeleteBandwidthRateLimitResponse
+instance
+  Prelude.NFData
+    DeleteBandwidthRateLimitResponse

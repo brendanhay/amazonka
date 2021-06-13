@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -61,11 +62,11 @@ data ChangeTagsForResource = ChangeTagsForResource'
     -- to edit @Value@ for.
     --
     -- You can add a maximum of 10 tags to a health check or a hosted zone.
-    addTags :: Core.Maybe (Core.NonEmpty Tag),
+    addTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | A complex type that contains a list of the tags that you want to delete
     -- from the specified health check or hosted zone. You can specify up to 10
     -- keys.
-    removeTagKeys :: Core.Maybe (Core.NonEmpty Core.Text),
+    removeTagKeys :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The type of the resource.
     --
     -- -   The resource type for health checks is @healthcheck@.
@@ -74,9 +75,9 @@ data ChangeTagsForResource = ChangeTagsForResource'
     resourceType :: TagResourceType,
     -- | The ID of the resource for which you want to add, change, or delete
     -- tags.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeTagsForResource' with all optional fields omitted.
@@ -108,12 +109,12 @@ newChangeTagsForResource ::
   -- | 'resourceType'
   TagResourceType ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   ChangeTagsForResource
 newChangeTagsForResource pResourceType_ pResourceId_ =
   ChangeTagsForResource'
-    { addTags = Core.Nothing,
-      removeTagKeys = Core.Nothing,
+    { addTags = Prelude.Nothing,
+      removeTagKeys = Prelude.Nothing,
       resourceType = pResourceType_,
       resourceId = pResourceId_
     }
@@ -123,14 +124,14 @@ newChangeTagsForResource pResourceType_ pResourceId_ =
 -- to edit @Value@ for.
 --
 -- You can add a maximum of 10 tags to a health check or a hosted zone.
-changeTagsForResource_addTags :: Lens.Lens' ChangeTagsForResource (Core.Maybe (Core.NonEmpty Tag))
-changeTagsForResource_addTags = Lens.lens (\ChangeTagsForResource' {addTags} -> addTags) (\s@ChangeTagsForResource' {} a -> s {addTags = a} :: ChangeTagsForResource) Core.. Lens.mapping Lens._Coerce
+changeTagsForResource_addTags :: Lens.Lens' ChangeTagsForResource (Prelude.Maybe (Prelude.NonEmpty Tag))
+changeTagsForResource_addTags = Lens.lens (\ChangeTagsForResource' {addTags} -> addTags) (\s@ChangeTagsForResource' {} a -> s {addTags = a} :: ChangeTagsForResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A complex type that contains a list of the tags that you want to delete
 -- from the specified health check or hosted zone. You can specify up to 10
 -- keys.
-changeTagsForResource_removeTagKeys :: Lens.Lens' ChangeTagsForResource (Core.Maybe (Core.NonEmpty Core.Text))
-changeTagsForResource_removeTagKeys = Lens.lens (\ChangeTagsForResource' {removeTagKeys} -> removeTagKeys) (\s@ChangeTagsForResource' {} a -> s {removeTagKeys = a} :: ChangeTagsForResource) Core.. Lens.mapping Lens._Coerce
+changeTagsForResource_removeTagKeys :: Lens.Lens' ChangeTagsForResource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+changeTagsForResource_removeTagKeys = Lens.lens (\ChangeTagsForResource' {removeTagKeys} -> removeTagKeys) (\s@ChangeTagsForResource' {} a -> s {removeTagKeys = a} :: ChangeTagsForResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of the resource.
 --
@@ -142,7 +143,7 @@ changeTagsForResource_resourceType = Lens.lens (\ChangeTagsForResource' {resourc
 
 -- | The ID of the resource for which you want to add, change, or delete
 -- tags.
-changeTagsForResource_resourceId :: Lens.Lens' ChangeTagsForResource Core.Text
+changeTagsForResource_resourceId :: Lens.Lens' ChangeTagsForResource Prelude.Text
 changeTagsForResource_resourceId = Lens.lens (\ChangeTagsForResource' {resourceId} -> resourceId) (\s@ChangeTagsForResource' {} a -> s {resourceId = a} :: ChangeTagsForResource)
 
 instance Core.AWSRequest ChangeTagsForResource where
@@ -154,12 +155,12 @@ instance Core.AWSRequest ChangeTagsForResource where
     Response.receiveEmpty
       ( \s h x ->
           ChangeTagsForResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ChangeTagsForResource
+instance Prelude.Hashable ChangeTagsForResource
 
-instance Core.NFData ChangeTagsForResource
+instance Prelude.NFData ChangeTagsForResource
 
 instance Core.ToElement ChangeTagsForResource where
   toElement =
@@ -167,11 +168,11 @@ instance Core.ToElement ChangeTagsForResource where
       "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeTagsForResourceRequest"
 
 instance Core.ToHeaders ChangeTagsForResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ChangeTagsForResource where
   toPath ChangeTagsForResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2013-04-01/tags/",
         Core.toBS resourceType,
         "/",
@@ -179,16 +180,17 @@ instance Core.ToPath ChangeTagsForResource where
       ]
 
 instance Core.ToQuery ChangeTagsForResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML ChangeTagsForResource where
   toXML ChangeTagsForResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "AddTags"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Core.<$> addTags),
+          Core.@= Core.toXML
+            (Core.toXMLList "Tag" Prelude.<$> addTags),
         "RemoveTagKeys"
           Core.@= Core.toXML
-            (Core.toXMLList "Key" Core.<$> removeTagKeys)
+            (Core.toXMLList "Key" Prelude.<$> removeTagKeys)
       ]
 
 -- | Empty response for the request.
@@ -196,9 +198,9 @@ instance Core.ToXML ChangeTagsForResource where
 -- /See:/ 'newChangeTagsForResourceResponse' smart constructor.
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeTagsForResourceResponse' with all optional fields omitted.
@@ -211,7 +213,7 @@ data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
 -- 'httpStatus', 'changeTagsForResourceResponse_httpStatus' - The response's http status code.
 newChangeTagsForResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ChangeTagsForResourceResponse
 newChangeTagsForResourceResponse pHttpStatus_ =
   ChangeTagsForResourceResponse'
@@ -220,7 +222,7 @@ newChangeTagsForResourceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-changeTagsForResourceResponse_httpStatus :: Lens.Lens' ChangeTagsForResourceResponse Core.Int
+changeTagsForResourceResponse_httpStatus :: Lens.Lens' ChangeTagsForResourceResponse Prelude.Int
 changeTagsForResourceResponse_httpStatus = Lens.lens (\ChangeTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ChangeTagsForResourceResponse' {} a -> s {httpStatus = a} :: ChangeTagsForResourceResponse)
 
-instance Core.NFData ChangeTagsForResourceResponse
+instance Prelude.NFData ChangeTagsForResourceResponse

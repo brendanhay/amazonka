@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.MonitoringState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the monitoring of an instance.
 --
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data Monitoring = Monitoring'
   { -- | Indicates whether detailed monitoring is enabled. Otherwise, basic
     -- monitoring is enabled.
-    state :: Core.Maybe MonitoringState
+    state :: Prelude.Maybe MonitoringState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Monitoring' with all optional fields omitted.
@@ -46,17 +47,17 @@ data Monitoring = Monitoring'
 -- monitoring is enabled.
 newMonitoring ::
   Monitoring
-newMonitoring = Monitoring' {state = Core.Nothing}
+newMonitoring = Monitoring' {state = Prelude.Nothing}
 
 -- | Indicates whether detailed monitoring is enabled. Otherwise, basic
 -- monitoring is enabled.
-monitoring_state :: Lens.Lens' Monitoring (Core.Maybe MonitoringState)
+monitoring_state :: Lens.Lens' Monitoring (Prelude.Maybe MonitoringState)
 monitoring_state = Lens.lens (\Monitoring' {state} -> state) (\s@Monitoring' {} a -> s {state = a} :: Monitoring)
 
 instance Core.FromXML Monitoring where
   parseXML x =
-    Monitoring' Core.<$> (x Core..@? "state")
+    Monitoring' Prelude.<$> (x Core..@? "state")
 
-instance Core.Hashable Monitoring
+instance Prelude.Hashable Monitoring
 
-instance Core.NFData Monitoring
+instance Prelude.NFData Monitoring

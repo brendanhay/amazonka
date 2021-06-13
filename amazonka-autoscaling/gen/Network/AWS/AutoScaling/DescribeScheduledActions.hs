@@ -52,6 +52,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,25 +60,25 @@ import qualified Network.AWS.Response as Response
 data DescribeScheduledActions = DescribeScheduledActions'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The earliest scheduled start time to return. If scheduled action names
     -- are provided, this parameter is ignored.
-    startTime :: Core.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Core.ISO8601,
     -- | The latest scheduled start time to return. If scheduled action names are
     -- provided, this parameter is ignored.
-    endTime :: Core.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Core.ISO8601,
     -- | The names of one or more scheduled actions. You can specify up to 50
     -- actions. If you omit this parameter, all scheduled actions are
     -- described. If you specify an unknown scheduled action, it is ignored
     -- with no error.
-    scheduledActionNames :: Core.Maybe [Core.Text],
+    scheduledActionNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Maybe Core.Text,
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledActions' with all optional fields omitted.
@@ -109,43 +110,44 @@ newDescribeScheduledActions ::
   DescribeScheduledActions
 newDescribeScheduledActions =
   DescribeScheduledActions'
-    { nextToken = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      scheduledActionNames = Core.Nothing,
-      autoScalingGroupName = Core.Nothing,
-      maxRecords = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      scheduledActionNames = Prelude.Nothing,
+      autoScalingGroupName = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeScheduledActions_nextToken :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Text)
+describeScheduledActions_nextToken :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {nextToken} -> nextToken) (\s@DescribeScheduledActions' {} a -> s {nextToken = a} :: DescribeScheduledActions)
 
 -- | The earliest scheduled start time to return. If scheduled action names
 -- are provided, this parameter is ignored.
-describeScheduledActions_startTime :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.UTCTime)
-describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Core.. Lens.mapping Core._Time
+describeScheduledActions_startTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
+describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
 
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this parameter is ignored.
-describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.UTCTime)
-describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Core.. Lens.mapping Core._Time
+describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
+describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
 
 -- | The names of one or more scheduled actions. You can specify up to 50
 -- actions. If you omit this parameter, all scheduled actions are
 -- described. If you specify an unknown scheduled action, it is ignored
 -- with no error.
-describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Core.Maybe [Core.Text])
-describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Core.. Lens.mapping Lens._Coerce
+describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [Prelude.Text])
+describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-describeScheduledActions_autoScalingGroupName :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Text)
+describeScheduledActions_autoScalingGroupName :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_autoScalingGroupName = Lens.lens (\DescribeScheduledActions' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeScheduledActions' {} a -> s {autoScalingGroupName = a} :: DescribeScheduledActions)
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
-describeScheduledActions_maxRecords :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Int)
+describeScheduledActions_maxRecords :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Int)
 describeScheduledActions_maxRecords = Lens.lens (\DescribeScheduledActions' {maxRecords} -> maxRecords) (\s@DescribeScheduledActions' {} a -> s {maxRecords = a} :: DescribeScheduledActions)
 
 instance Core.AWSPager DescribeScheduledActions where
@@ -153,22 +155,22 @@ instance Core.AWSPager DescribeScheduledActions where
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_scheduledUpdateGroupActions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeScheduledActions_nextToken
+          Prelude.& describeScheduledActions_nextToken
           Lens..~ rs
           Lens.^? describeScheduledActionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledActions where
   type
@@ -180,37 +182,38 @@ instance Core.AWSRequest DescribeScheduledActions where
       "DescribeScheduledActionsResult"
       ( \s h x ->
           DescribeScheduledActionsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "ScheduledUpdateGroupActions"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "ScheduledUpdateGroupActions"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeScheduledActions
+instance Prelude.Hashable DescribeScheduledActions
 
-instance Core.NFData DescribeScheduledActions
+instance Prelude.NFData DescribeScheduledActions
 
 instance Core.ToHeaders DescribeScheduledActions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeScheduledActions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeScheduledActions where
   toQuery DescribeScheduledActions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeScheduledActions" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("DescribeScheduledActions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "StartTime" Core.=: startTime,
         "EndTime" Core.=: endTime,
         "ScheduledActionNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> scheduledActionNames
+                Prelude.<$> scheduledActionNames
             ),
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "MaxRecords" Core.=: maxRecords
@@ -222,13 +225,13 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The scheduled actions.
-    scheduledUpdateGroupActions :: Core.Maybe [ScheduledUpdateGroupAction],
+    scheduledUpdateGroupActions :: Prelude.Maybe [ScheduledUpdateGroupAction],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledActionsResponse' with all optional fields omitted.
@@ -248,14 +251,14 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
 -- 'httpStatus', 'describeScheduledActionsResponse_httpStatus' - The response's http status code.
 newDescribeScheduledActionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScheduledActionsResponse
 newDescribeScheduledActionsResponse pHttpStatus_ =
   DescribeScheduledActionsResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       scheduledUpdateGroupActions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -263,15 +266,17 @@ newDescribeScheduledActionsResponse pHttpStatus_ =
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
-describeScheduledActionsResponse_nextToken :: Lens.Lens' DescribeScheduledActionsResponse (Core.Maybe Core.Text)
+describeScheduledActionsResponse_nextToken :: Lens.Lens' DescribeScheduledActionsResponse (Prelude.Maybe Prelude.Text)
 describeScheduledActionsResponse_nextToken = Lens.lens (\DescribeScheduledActionsResponse' {nextToken} -> nextToken) (\s@DescribeScheduledActionsResponse' {} a -> s {nextToken = a} :: DescribeScheduledActionsResponse)
 
 -- | The scheduled actions.
-describeScheduledActionsResponse_scheduledUpdateGroupActions :: Lens.Lens' DescribeScheduledActionsResponse (Core.Maybe [ScheduledUpdateGroupAction])
-describeScheduledActionsResponse_scheduledUpdateGroupActions = Lens.lens (\DescribeScheduledActionsResponse' {scheduledUpdateGroupActions} -> scheduledUpdateGroupActions) (\s@DescribeScheduledActionsResponse' {} a -> s {scheduledUpdateGroupActions = a} :: DescribeScheduledActionsResponse) Core.. Lens.mapping Lens._Coerce
+describeScheduledActionsResponse_scheduledUpdateGroupActions :: Lens.Lens' DescribeScheduledActionsResponse (Prelude.Maybe [ScheduledUpdateGroupAction])
+describeScheduledActionsResponse_scheduledUpdateGroupActions = Lens.lens (\DescribeScheduledActionsResponse' {scheduledUpdateGroupActions} -> scheduledUpdateGroupActions) (\s@DescribeScheduledActionsResponse' {} a -> s {scheduledUpdateGroupActions = a} :: DescribeScheduledActionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScheduledActionsResponse_httpStatus :: Lens.Lens' DescribeScheduledActionsResponse Core.Int
+describeScheduledActionsResponse_httpStatus :: Lens.Lens' DescribeScheduledActionsResponse Prelude.Int
 describeScheduledActionsResponse_httpStatus = Lens.lens (\DescribeScheduledActionsResponse' {httpStatus} -> httpStatus) (\s@DescribeScheduledActionsResponse' {} a -> s {httpStatus = a} :: DescribeScheduledActionsResponse)
 
-instance Core.NFData DescribeScheduledActionsResponse
+instance
+  Prelude.NFData
+    DescribeScheduledActionsResponse

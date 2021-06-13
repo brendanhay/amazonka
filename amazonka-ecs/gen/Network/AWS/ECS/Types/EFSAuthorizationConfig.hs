@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.EFSAuthorizationConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.EFSAuthorizationConfigIAM
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The authorization configuration details for the Amazon EFS file system.
 --
@@ -34,7 +35,7 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
     -- enabled in the @EFSVolumeConfiguration@. For more information, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points>
     -- in the /Amazon Elastic File System User Guide/.
-    accessPointId :: Core.Maybe Core.Text,
+    accessPointId :: Prelude.Maybe Prelude.Text,
     -- | Whether or not to use the Amazon ECS task IAM role defined in a task
     -- definition when mounting the Amazon EFS file system. If enabled, transit
     -- encryption must be enabled in the @EFSVolumeConfiguration@. If this
@@ -42,9 +43,9 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    iam :: Core.Maybe EFSAuthorizationConfigIAM
+    iam :: Prelude.Maybe EFSAuthorizationConfigIAM
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EFSAuthorizationConfig' with all optional fields omitted.
@@ -74,8 +75,8 @@ newEFSAuthorizationConfig ::
 newEFSAuthorizationConfig =
   EFSAuthorizationConfig'
     { accessPointId =
-        Core.Nothing,
-      iam = Core.Nothing
+        Prelude.Nothing,
+      iam = Prelude.Nothing
     }
 
 -- | The Amazon EFS access point ID to use. If an access point is specified,
@@ -85,7 +86,7 @@ newEFSAuthorizationConfig =
 -- enabled in the @EFSVolumeConfiguration@. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points>
 -- in the /Amazon Elastic File System User Guide/.
-eFSAuthorizationConfig_accessPointId :: Lens.Lens' EFSAuthorizationConfig (Core.Maybe Core.Text)
+eFSAuthorizationConfig_accessPointId :: Lens.Lens' EFSAuthorizationConfig (Prelude.Maybe Prelude.Text)
 eFSAuthorizationConfig_accessPointId = Lens.lens (\EFSAuthorizationConfig' {accessPointId} -> accessPointId) (\s@EFSAuthorizationConfig' {} a -> s {accessPointId = a} :: EFSAuthorizationConfig)
 
 -- | Whether or not to use the Amazon ECS task IAM role defined in a task
@@ -95,7 +96,7 @@ eFSAuthorizationConfig_accessPointId = Lens.lens (\EFSAuthorizationConfig' {acce
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-eFSAuthorizationConfig_iam :: Lens.Lens' EFSAuthorizationConfig (Core.Maybe EFSAuthorizationConfigIAM)
+eFSAuthorizationConfig_iam :: Lens.Lens' EFSAuthorizationConfig (Prelude.Maybe EFSAuthorizationConfigIAM)
 eFSAuthorizationConfig_iam = Lens.lens (\EFSAuthorizationConfig' {iam} -> iam) (\s@EFSAuthorizationConfig' {} a -> s {iam = a} :: EFSAuthorizationConfig)
 
 instance Core.FromJSON EFSAuthorizationConfig where
@@ -104,19 +105,19 @@ instance Core.FromJSON EFSAuthorizationConfig where
       "EFSAuthorizationConfig"
       ( \x ->
           EFSAuthorizationConfig'
-            Core.<$> (x Core..:? "accessPointId")
-            Core.<*> (x Core..:? "iam")
+            Prelude.<$> (x Core..:? "accessPointId")
+            Prelude.<*> (x Core..:? "iam")
       )
 
-instance Core.Hashable EFSAuthorizationConfig
+instance Prelude.Hashable EFSAuthorizationConfig
 
-instance Core.NFData EFSAuthorizationConfig
+instance Prelude.NFData EFSAuthorizationConfig
 
 instance Core.ToJSON EFSAuthorizationConfig where
   toJSON EFSAuthorizationConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("accessPointId" Core..=) Core.<$> accessPointId,
-            ("iam" Core..=) Core.<$> iam
+      ( Prelude.catMaybes
+          [ ("accessPointId" Core..=) Prelude.<$> accessPointId,
+            ("iam" Core..=) Prelude.<$> iam
           ]
       )

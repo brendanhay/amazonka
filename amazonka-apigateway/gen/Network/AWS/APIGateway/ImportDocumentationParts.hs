@@ -46,6 +46,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,18 +58,18 @@ data ImportDocumentationParts = ImportDocumentationParts'
   { -- | A query parameter to indicate whether to overwrite (@OVERWRITE@) any
     -- existing DocumentationParts definition or to merge (@MERGE@) the new
     -- definition into the existing one. The default value is @MERGE@.
-    mode :: Core.Maybe PutMode,
+    mode :: Prelude.Maybe PutMode,
     -- | A query parameter to specify whether to rollback the documentation
     -- importation (@true@) or not (@false@) when a warning is encountered. The
     -- default value is @false@.
-    failOnWarnings :: Core.Maybe Core.Bool,
+    failOnWarnings :: Prelude.Maybe Prelude.Bool,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] Raw byte array representing the to-be-imported documentation
     -- parts. To import from an OpenAPI file, this is a JSON object.
-    body :: Core.ByteString
+    body :: Prelude.ByteString
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportDocumentationParts' with all optional fields omitted.
@@ -92,14 +93,14 @@ data ImportDocumentationParts = ImportDocumentationParts'
 -- parts. To import from an OpenAPI file, this is a JSON object.
 newImportDocumentationParts ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'body'
-  Core.ByteString ->
+  Prelude.ByteString ->
   ImportDocumentationParts
 newImportDocumentationParts pRestApiId_ pBody_ =
   ImportDocumentationParts'
-    { mode = Core.Nothing,
-      failOnWarnings = Core.Nothing,
+    { mode = Prelude.Nothing,
+      failOnWarnings = Prelude.Nothing,
       restApiId = pRestApiId_,
       body = pBody_
     }
@@ -107,22 +108,22 @@ newImportDocumentationParts pRestApiId_ pBody_ =
 -- | A query parameter to indicate whether to overwrite (@OVERWRITE@) any
 -- existing DocumentationParts definition or to merge (@MERGE@) the new
 -- definition into the existing one. The default value is @MERGE@.
-importDocumentationParts_mode :: Lens.Lens' ImportDocumentationParts (Core.Maybe PutMode)
+importDocumentationParts_mode :: Lens.Lens' ImportDocumentationParts (Prelude.Maybe PutMode)
 importDocumentationParts_mode = Lens.lens (\ImportDocumentationParts' {mode} -> mode) (\s@ImportDocumentationParts' {} a -> s {mode = a} :: ImportDocumentationParts)
 
 -- | A query parameter to specify whether to rollback the documentation
 -- importation (@true@) or not (@false@) when a warning is encountered. The
 -- default value is @false@.
-importDocumentationParts_failOnWarnings :: Lens.Lens' ImportDocumentationParts (Core.Maybe Core.Bool)
+importDocumentationParts_failOnWarnings :: Lens.Lens' ImportDocumentationParts (Prelude.Maybe Prelude.Bool)
 importDocumentationParts_failOnWarnings = Lens.lens (\ImportDocumentationParts' {failOnWarnings} -> failOnWarnings) (\s@ImportDocumentationParts' {} a -> s {failOnWarnings = a} :: ImportDocumentationParts)
 
 -- | [Required] The string identifier of the associated RestApi.
-importDocumentationParts_restApiId :: Lens.Lens' ImportDocumentationParts Core.Text
+importDocumentationParts_restApiId :: Lens.Lens' ImportDocumentationParts Prelude.Text
 importDocumentationParts_restApiId = Lens.lens (\ImportDocumentationParts' {restApiId} -> restApiId) (\s@ImportDocumentationParts' {} a -> s {restApiId = a} :: ImportDocumentationParts)
 
 -- | [Required] Raw byte array representing the to-be-imported documentation
 -- parts. To import from an OpenAPI file, this is a JSON object.
-importDocumentationParts_body :: Lens.Lens' ImportDocumentationParts Core.ByteString
+importDocumentationParts_body :: Lens.Lens' ImportDocumentationParts Prelude.ByteString
 importDocumentationParts_body = Lens.lens (\ImportDocumentationParts' {body} -> body) (\s@ImportDocumentationParts' {} a -> s {body = a} :: ImportDocumentationParts)
 
 instance Core.AWSRequest ImportDocumentationParts where
@@ -134,14 +135,14 @@ instance Core.AWSRequest ImportDocumentationParts where
     Response.receiveJSON
       ( \s h x ->
           ImportDocumentationPartsResponse'
-            Core.<$> (x Core..?> "warnings" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ids" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportDocumentationParts
+instance Prelude.Hashable ImportDocumentationParts
 
-instance Core.NFData ImportDocumentationParts
+instance Prelude.NFData ImportDocumentationParts
 
 instance Core.ToBody ImportDocumentationParts where
   toBody ImportDocumentationParts' {..} =
@@ -149,16 +150,16 @@ instance Core.ToBody ImportDocumentationParts where
 
 instance Core.ToHeaders ImportDocumentationParts where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath ImportDocumentationParts where
   toPath ImportDocumentationParts' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/documentation/parts"
@@ -166,7 +167,7 @@ instance Core.ToPath ImportDocumentationParts where
 
 instance Core.ToQuery ImportDocumentationParts where
   toQuery ImportDocumentationParts' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "mode" Core.=: mode,
         "failonwarnings" Core.=: failOnWarnings
       ]
@@ -184,13 +185,13 @@ instance Core.ToQuery ImportDocumentationParts where
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
   { -- | A list of warning messages reported during import of documentation
     -- parts.
-    warnings :: Core.Maybe [Core.Text],
+    warnings :: Prelude.Maybe [Prelude.Text],
     -- | A list of the returned documentation part identifiers.
-    ids :: Core.Maybe [Core.Text],
+    ids :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportDocumentationPartsResponse' with all optional fields omitted.
@@ -208,27 +209,29 @@ data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
 -- 'httpStatus', 'importDocumentationPartsResponse_httpStatus' - The response's http status code.
 newImportDocumentationPartsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportDocumentationPartsResponse
 newImportDocumentationPartsResponse pHttpStatus_ =
   ImportDocumentationPartsResponse'
     { warnings =
-        Core.Nothing,
-      ids = Core.Nothing,
+        Prelude.Nothing,
+      ids = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of warning messages reported during import of documentation
 -- parts.
-importDocumentationPartsResponse_warnings :: Lens.Lens' ImportDocumentationPartsResponse (Core.Maybe [Core.Text])
-importDocumentationPartsResponse_warnings = Lens.lens (\ImportDocumentationPartsResponse' {warnings} -> warnings) (\s@ImportDocumentationPartsResponse' {} a -> s {warnings = a} :: ImportDocumentationPartsResponse) Core.. Lens.mapping Lens._Coerce
+importDocumentationPartsResponse_warnings :: Lens.Lens' ImportDocumentationPartsResponse (Prelude.Maybe [Prelude.Text])
+importDocumentationPartsResponse_warnings = Lens.lens (\ImportDocumentationPartsResponse' {warnings} -> warnings) (\s@ImportDocumentationPartsResponse' {} a -> s {warnings = a} :: ImportDocumentationPartsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of the returned documentation part identifiers.
-importDocumentationPartsResponse_ids :: Lens.Lens' ImportDocumentationPartsResponse (Core.Maybe [Core.Text])
-importDocumentationPartsResponse_ids = Lens.lens (\ImportDocumentationPartsResponse' {ids} -> ids) (\s@ImportDocumentationPartsResponse' {} a -> s {ids = a} :: ImportDocumentationPartsResponse) Core.. Lens.mapping Lens._Coerce
+importDocumentationPartsResponse_ids :: Lens.Lens' ImportDocumentationPartsResponse (Prelude.Maybe [Prelude.Text])
+importDocumentationPartsResponse_ids = Lens.lens (\ImportDocumentationPartsResponse' {ids} -> ids) (\s@ImportDocumentationPartsResponse' {} a -> s {ids = a} :: ImportDocumentationPartsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-importDocumentationPartsResponse_httpStatus :: Lens.Lens' ImportDocumentationPartsResponse Core.Int
+importDocumentationPartsResponse_httpStatus :: Lens.Lens' ImportDocumentationPartsResponse Prelude.Int
 importDocumentationPartsResponse_httpStatus = Lens.lens (\ImportDocumentationPartsResponse' {httpStatus} -> httpStatus) (\s@ImportDocumentationPartsResponse' {} a -> s {httpStatus = a} :: ImportDocumentationPartsResponse)
 
-instance Core.NFData ImportDocumentationPartsResponse
+instance
+  Prelude.NFData
+    ImportDocumentationPartsResponse

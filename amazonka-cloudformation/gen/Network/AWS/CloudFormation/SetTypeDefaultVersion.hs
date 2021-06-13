@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,22 +54,22 @@ data SetTypeDefaultVersion = SetTypeDefaultVersion'
   { -- | The name of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    typeName :: Core.Maybe Core.Text,
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the extension for which you want
     -- version summary information.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a specific version of the extension. The version ID is the
     -- value at the end of the Amazon Resource Name (ARN) assigned to the
     -- extension version when it is registered.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The kind of extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    type' :: Core.Maybe RegistryType
+    type' :: Prelude.Maybe RegistryType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTypeDefaultVersion' with all optional fields omitted.
@@ -98,35 +99,35 @@ newSetTypeDefaultVersion ::
   SetTypeDefaultVersion
 newSetTypeDefaultVersion =
   SetTypeDefaultVersion'
-    { typeName = Core.Nothing,
-      arn = Core.Nothing,
-      versionId = Core.Nothing,
-      type' = Core.Nothing
+    { typeName = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The name of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-setTypeDefaultVersion_typeName :: Lens.Lens' SetTypeDefaultVersion (Core.Maybe Core.Text)
+setTypeDefaultVersion_typeName :: Lens.Lens' SetTypeDefaultVersion (Prelude.Maybe Prelude.Text)
 setTypeDefaultVersion_typeName = Lens.lens (\SetTypeDefaultVersion' {typeName} -> typeName) (\s@SetTypeDefaultVersion' {} a -> s {typeName = a} :: SetTypeDefaultVersion)
 
 -- | The Amazon Resource Name (ARN) of the extension for which you want
 -- version summary information.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-setTypeDefaultVersion_arn :: Lens.Lens' SetTypeDefaultVersion (Core.Maybe Core.Text)
+setTypeDefaultVersion_arn :: Lens.Lens' SetTypeDefaultVersion (Prelude.Maybe Prelude.Text)
 setTypeDefaultVersion_arn = Lens.lens (\SetTypeDefaultVersion' {arn} -> arn) (\s@SetTypeDefaultVersion' {} a -> s {arn = a} :: SetTypeDefaultVersion)
 
 -- | The ID of a specific version of the extension. The version ID is the
 -- value at the end of the Amazon Resource Name (ARN) assigned to the
 -- extension version when it is registered.
-setTypeDefaultVersion_versionId :: Lens.Lens' SetTypeDefaultVersion (Core.Maybe Core.Text)
+setTypeDefaultVersion_versionId :: Lens.Lens' SetTypeDefaultVersion (Prelude.Maybe Prelude.Text)
 setTypeDefaultVersion_versionId = Lens.lens (\SetTypeDefaultVersion' {versionId} -> versionId) (\s@SetTypeDefaultVersion' {} a -> s {versionId = a} :: SetTypeDefaultVersion)
 
 -- | The kind of extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-setTypeDefaultVersion_type :: Lens.Lens' SetTypeDefaultVersion (Core.Maybe RegistryType)
+setTypeDefaultVersion_type :: Lens.Lens' SetTypeDefaultVersion (Prelude.Maybe RegistryType)
 setTypeDefaultVersion_type = Lens.lens (\SetTypeDefaultVersion' {type'} -> type') (\s@SetTypeDefaultVersion' {} a -> s {type' = a} :: SetTypeDefaultVersion)
 
 instance Core.AWSRequest SetTypeDefaultVersion where
@@ -139,25 +140,26 @@ instance Core.AWSRequest SetTypeDefaultVersion where
       "SetTypeDefaultVersionResult"
       ( \s h x ->
           SetTypeDefaultVersionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetTypeDefaultVersion
+instance Prelude.Hashable SetTypeDefaultVersion
 
-instance Core.NFData SetTypeDefaultVersion
+instance Prelude.NFData SetTypeDefaultVersion
 
 instance Core.ToHeaders SetTypeDefaultVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetTypeDefaultVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetTypeDefaultVersion where
   toQuery SetTypeDefaultVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetTypeDefaultVersion" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("SetTypeDefaultVersion" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "TypeName" Core.=: typeName,
         "Arn" Core.=: arn,
         "VersionId" Core.=: versionId,
@@ -167,9 +169,9 @@ instance Core.ToQuery SetTypeDefaultVersion where
 -- | /See:/ 'newSetTypeDefaultVersionResponse' smart constructor.
 data SetTypeDefaultVersionResponse = SetTypeDefaultVersionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTypeDefaultVersionResponse' with all optional fields omitted.
@@ -182,7 +184,7 @@ data SetTypeDefaultVersionResponse = SetTypeDefaultVersionResponse'
 -- 'httpStatus', 'setTypeDefaultVersionResponse_httpStatus' - The response's http status code.
 newSetTypeDefaultVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetTypeDefaultVersionResponse
 newSetTypeDefaultVersionResponse pHttpStatus_ =
   SetTypeDefaultVersionResponse'
@@ -191,7 +193,7 @@ newSetTypeDefaultVersionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setTypeDefaultVersionResponse_httpStatus :: Lens.Lens' SetTypeDefaultVersionResponse Core.Int
+setTypeDefaultVersionResponse_httpStatus :: Lens.Lens' SetTypeDefaultVersionResponse Prelude.Int
 setTypeDefaultVersionResponse_httpStatus = Lens.lens (\SetTypeDefaultVersionResponse' {httpStatus} -> httpStatus) (\s@SetTypeDefaultVersionResponse' {} a -> s {httpStatus = a} :: SetTypeDefaultVersionResponse)
 
-instance Core.NFData SetTypeDefaultVersionResponse
+instance Prelude.NFData SetTypeDefaultVersionResponse

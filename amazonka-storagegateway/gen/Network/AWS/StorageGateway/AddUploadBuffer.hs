@@ -48,19 +48,20 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newAddUploadBuffer' smart constructor.
 data AddUploadBuffer = AddUploadBuffer'
-  { gatewayARN :: Core.Text,
+  { gatewayARN :: Prelude.Text,
     -- | An array of strings that identify disks that are to be configured as
     -- working storage. Each string has a minimum length of 1 and maximum
     -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-    diskIds :: [Core.Text]
+    diskIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddUploadBuffer' with all optional fields omitted.
@@ -77,23 +78,23 @@ data AddUploadBuffer = AddUploadBuffer'
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 newAddUploadBuffer ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   AddUploadBuffer
 newAddUploadBuffer pGatewayARN_ =
   AddUploadBuffer'
     { gatewayARN = pGatewayARN_,
-      diskIds = Core.mempty
+      diskIds = Prelude.mempty
     }
 
 -- | Undocumented member.
-addUploadBuffer_gatewayARN :: Lens.Lens' AddUploadBuffer Core.Text
+addUploadBuffer_gatewayARN :: Lens.Lens' AddUploadBuffer Prelude.Text
 addUploadBuffer_gatewayARN = Lens.lens (\AddUploadBuffer' {gatewayARN} -> gatewayARN) (\s@AddUploadBuffer' {} a -> s {gatewayARN = a} :: AddUploadBuffer)
 
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string has a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-addUploadBuffer_diskIds :: Lens.Lens' AddUploadBuffer [Core.Text]
-addUploadBuffer_diskIds = Lens.lens (\AddUploadBuffer' {diskIds} -> diskIds) (\s@AddUploadBuffer' {} a -> s {diskIds = a} :: AddUploadBuffer) Core.. Lens._Coerce
+addUploadBuffer_diskIds :: Lens.Lens' AddUploadBuffer [Prelude.Text]
+addUploadBuffer_diskIds = Lens.lens (\AddUploadBuffer' {diskIds} -> diskIds) (\s@AddUploadBuffer' {} a -> s {diskIds = a} :: AddUploadBuffer) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddUploadBuffer where
   type
@@ -104,49 +105,51 @@ instance Core.AWSRequest AddUploadBuffer where
     Response.receiveJSON
       ( \s h x ->
           AddUploadBufferResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddUploadBuffer
+instance Prelude.Hashable AddUploadBuffer
 
-instance Core.NFData AddUploadBuffer
+instance Prelude.NFData AddUploadBuffer
 
 instance Core.ToHeaders AddUploadBuffer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.AddUploadBuffer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddUploadBuffer where
   toJSON AddUploadBuffer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GatewayARN" Core..= gatewayARN),
-            Core.Just ("DiskIds" Core..= diskIds)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just ("DiskIds" Core..= diskIds)
           ]
       )
 
 instance Core.ToPath AddUploadBuffer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddUploadBuffer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddUploadBufferResponse' smart constructor.
 data AddUploadBufferResponse = AddUploadBufferResponse'
-  { gatewayARN :: Core.Maybe Core.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddUploadBufferResponse' with all optional fields omitted.
@@ -161,20 +164,21 @@ data AddUploadBufferResponse = AddUploadBufferResponse'
 -- 'httpStatus', 'addUploadBufferResponse_httpStatus' - The response's http status code.
 newAddUploadBufferResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddUploadBufferResponse
 newAddUploadBufferResponse pHttpStatus_ =
   AddUploadBufferResponse'
-    { gatewayARN = Core.Nothing,
+    { gatewayARN =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-addUploadBufferResponse_gatewayARN :: Lens.Lens' AddUploadBufferResponse (Core.Maybe Core.Text)
+addUploadBufferResponse_gatewayARN :: Lens.Lens' AddUploadBufferResponse (Prelude.Maybe Prelude.Text)
 addUploadBufferResponse_gatewayARN = Lens.lens (\AddUploadBufferResponse' {gatewayARN} -> gatewayARN) (\s@AddUploadBufferResponse' {} a -> s {gatewayARN = a} :: AddUploadBufferResponse)
 
 -- | The response's http status code.
-addUploadBufferResponse_httpStatus :: Lens.Lens' AddUploadBufferResponse Core.Int
+addUploadBufferResponse_httpStatus :: Lens.Lens' AddUploadBufferResponse Prelude.Int
 addUploadBufferResponse_httpStatus = Lens.lens (\AddUploadBufferResponse' {httpStatus} -> httpStatus) (\s@AddUploadBufferResponse' {} a -> s {httpStatus = a} :: AddUploadBufferResponse)
 
-instance Core.NFData AddUploadBufferResponse
+instance Prelude.NFData AddUploadBufferResponse

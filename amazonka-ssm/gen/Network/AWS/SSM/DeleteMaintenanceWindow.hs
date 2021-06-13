@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -48,9 +49,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeleteMaintenanceWindow' smart constructor.
 data DeleteMaintenanceWindow = DeleteMaintenanceWindow'
   { -- | The ID of the maintenance window to delete.
-    windowId :: Core.Text
+    windowId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMaintenanceWindow' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DeleteMaintenanceWindow = DeleteMaintenanceWindow'
 -- 'windowId', 'deleteMaintenanceWindow_windowId' - The ID of the maintenance window to delete.
 newDeleteMaintenanceWindow ::
   -- | 'windowId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMaintenanceWindow
 newDeleteMaintenanceWindow pWindowId_ =
   DeleteMaintenanceWindow' {windowId = pWindowId_}
 
 -- | The ID of the maintenance window to delete.
-deleteMaintenanceWindow_windowId :: Lens.Lens' DeleteMaintenanceWindow Core.Text
+deleteMaintenanceWindow_windowId :: Lens.Lens' DeleteMaintenanceWindow Prelude.Text
 deleteMaintenanceWindow_windowId = Lens.lens (\DeleteMaintenanceWindow' {windowId} -> windowId) (\s@DeleteMaintenanceWindow' {} a -> s {windowId = a} :: DeleteMaintenanceWindow)
 
 instance Core.AWSRequest DeleteMaintenanceWindow where
@@ -81,48 +82,50 @@ instance Core.AWSRequest DeleteMaintenanceWindow where
     Response.receiveJSON
       ( \s h x ->
           DeleteMaintenanceWindowResponse'
-            Core.<$> (x Core..?> "WindowId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "WindowId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteMaintenanceWindow
+instance Prelude.Hashable DeleteMaintenanceWindow
 
-instance Core.NFData DeleteMaintenanceWindow
+instance Prelude.NFData DeleteMaintenanceWindow
 
 instance Core.ToHeaders DeleteMaintenanceWindow where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DeleteMaintenanceWindow" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteMaintenanceWindow where
   toJSON DeleteMaintenanceWindow' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("WindowId" Core..= windowId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("WindowId" Core..= windowId)]
       )
 
 instance Core.ToPath DeleteMaintenanceWindow where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteMaintenanceWindow where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMaintenanceWindowResponse' smart constructor.
 data DeleteMaintenanceWindowResponse = DeleteMaintenanceWindowResponse'
   { -- | The ID of the deleted maintenance window.
-    windowId :: Core.Maybe Core.Text,
+    windowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMaintenanceWindowResponse' with all optional fields omitted.
@@ -137,21 +140,23 @@ data DeleteMaintenanceWindowResponse = DeleteMaintenanceWindowResponse'
 -- 'httpStatus', 'deleteMaintenanceWindowResponse_httpStatus' - The response's http status code.
 newDeleteMaintenanceWindowResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteMaintenanceWindowResponse
 newDeleteMaintenanceWindowResponse pHttpStatus_ =
   DeleteMaintenanceWindowResponse'
     { windowId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the deleted maintenance window.
-deleteMaintenanceWindowResponse_windowId :: Lens.Lens' DeleteMaintenanceWindowResponse (Core.Maybe Core.Text)
+deleteMaintenanceWindowResponse_windowId :: Lens.Lens' DeleteMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
 deleteMaintenanceWindowResponse_windowId = Lens.lens (\DeleteMaintenanceWindowResponse' {windowId} -> windowId) (\s@DeleteMaintenanceWindowResponse' {} a -> s {windowId = a} :: DeleteMaintenanceWindowResponse)
 
 -- | The response's http status code.
-deleteMaintenanceWindowResponse_httpStatus :: Lens.Lens' DeleteMaintenanceWindowResponse Core.Int
+deleteMaintenanceWindowResponse_httpStatus :: Lens.Lens' DeleteMaintenanceWindowResponse Prelude.Int
 deleteMaintenanceWindowResponse_httpStatus = Lens.lens (\DeleteMaintenanceWindowResponse' {httpStatus} -> httpStatus) (\s@DeleteMaintenanceWindowResponse' {} a -> s {httpStatus = a} :: DeleteMaintenanceWindowResponse)
 
-instance Core.NFData DeleteMaintenanceWindowResponse
+instance
+  Prelude.NFData
+    DeleteMaintenanceWindowResponse

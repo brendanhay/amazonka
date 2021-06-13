@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ProcessingJobSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingJobStatus
 
 -- | Summary of information about a processing job.
@@ -28,26 +29,26 @@ import Network.AWS.SageMaker.Types.ProcessingJobStatus
 -- /See:/ 'newProcessingJobSummary' smart constructor.
 data ProcessingJobSummary = ProcessingJobSummary'
   { -- | The time at which the processing job completed.
-    processingEndTime :: Core.Maybe Core.POSIX,
+    processingEndTime :: Prelude.Maybe Core.POSIX,
     -- | An optional string, up to one KB in size, that contains metadata from
     -- the processing container when the processing job exits.
-    exitMessage :: Core.Maybe Core.Text,
+    exitMessage :: Prelude.Maybe Prelude.Text,
     -- | A string, up to one KB in size, that contains the reason a processing
     -- job failed, if it failed.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates the last time the processing job was
     -- modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the processing job.
-    processingJobName :: Core.Text,
+    processingJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the processing job..
-    processingJobArn :: Core.Text,
+    processingJobArn :: Prelude.Text,
     -- | The time at which the processing job was created.
     creationTime :: Core.POSIX,
     -- | The status of the processing job.
     processingJobStatus :: ProcessingJobStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessingJobSummary' with all optional fields omitted.
@@ -77,11 +78,11 @@ data ProcessingJobSummary = ProcessingJobSummary'
 -- 'processingJobStatus', 'processingJobSummary_processingJobStatus' - The status of the processing job.
 newProcessingJobSummary ::
   -- | 'processingJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'processingJobArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'processingJobStatus'
   ProcessingJobStatus ->
   ProcessingJobSummary
@@ -92,10 +93,10 @@ newProcessingJobSummary
   pProcessingJobStatus_ =
     ProcessingJobSummary'
       { processingEndTime =
-          Core.Nothing,
-        exitMessage = Core.Nothing,
-        failureReason = Core.Nothing,
-        lastModifiedTime = Core.Nothing,
+          Prelude.Nothing,
+        exitMessage = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
         processingJobName = pProcessingJobName_,
         processingJobArn = pProcessingJobArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
@@ -103,35 +104,35 @@ newProcessingJobSummary
       }
 
 -- | The time at which the processing job completed.
-processingJobSummary_processingEndTime :: Lens.Lens' ProcessingJobSummary (Core.Maybe Core.UTCTime)
-processingJobSummary_processingEndTime = Lens.lens (\ProcessingJobSummary' {processingEndTime} -> processingEndTime) (\s@ProcessingJobSummary' {} a -> s {processingEndTime = a} :: ProcessingJobSummary) Core.. Lens.mapping Core._Time
+processingJobSummary_processingEndTime :: Lens.Lens' ProcessingJobSummary (Prelude.Maybe Prelude.UTCTime)
+processingJobSummary_processingEndTime = Lens.lens (\ProcessingJobSummary' {processingEndTime} -> processingEndTime) (\s@ProcessingJobSummary' {} a -> s {processingEndTime = a} :: ProcessingJobSummary) Prelude.. Lens.mapping Core._Time
 
 -- | An optional string, up to one KB in size, that contains metadata from
 -- the processing container when the processing job exits.
-processingJobSummary_exitMessage :: Lens.Lens' ProcessingJobSummary (Core.Maybe Core.Text)
+processingJobSummary_exitMessage :: Lens.Lens' ProcessingJobSummary (Prelude.Maybe Prelude.Text)
 processingJobSummary_exitMessage = Lens.lens (\ProcessingJobSummary' {exitMessage} -> exitMessage) (\s@ProcessingJobSummary' {} a -> s {exitMessage = a} :: ProcessingJobSummary)
 
 -- | A string, up to one KB in size, that contains the reason a processing
 -- job failed, if it failed.
-processingJobSummary_failureReason :: Lens.Lens' ProcessingJobSummary (Core.Maybe Core.Text)
+processingJobSummary_failureReason :: Lens.Lens' ProcessingJobSummary (Prelude.Maybe Prelude.Text)
 processingJobSummary_failureReason = Lens.lens (\ProcessingJobSummary' {failureReason} -> failureReason) (\s@ProcessingJobSummary' {} a -> s {failureReason = a} :: ProcessingJobSummary)
 
 -- | A timestamp that indicates the last time the processing job was
 -- modified.
-processingJobSummary_lastModifiedTime :: Lens.Lens' ProcessingJobSummary (Core.Maybe Core.UTCTime)
-processingJobSummary_lastModifiedTime = Lens.lens (\ProcessingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ProcessingJobSummary' {} a -> s {lastModifiedTime = a} :: ProcessingJobSummary) Core.. Lens.mapping Core._Time
+processingJobSummary_lastModifiedTime :: Lens.Lens' ProcessingJobSummary (Prelude.Maybe Prelude.UTCTime)
+processingJobSummary_lastModifiedTime = Lens.lens (\ProcessingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ProcessingJobSummary' {} a -> s {lastModifiedTime = a} :: ProcessingJobSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the processing job.
-processingJobSummary_processingJobName :: Lens.Lens' ProcessingJobSummary Core.Text
+processingJobSummary_processingJobName :: Lens.Lens' ProcessingJobSummary Prelude.Text
 processingJobSummary_processingJobName = Lens.lens (\ProcessingJobSummary' {processingJobName} -> processingJobName) (\s@ProcessingJobSummary' {} a -> s {processingJobName = a} :: ProcessingJobSummary)
 
 -- | The Amazon Resource Name (ARN) of the processing job..
-processingJobSummary_processingJobArn :: Lens.Lens' ProcessingJobSummary Core.Text
+processingJobSummary_processingJobArn :: Lens.Lens' ProcessingJobSummary Prelude.Text
 processingJobSummary_processingJobArn = Lens.lens (\ProcessingJobSummary' {processingJobArn} -> processingJobArn) (\s@ProcessingJobSummary' {} a -> s {processingJobArn = a} :: ProcessingJobSummary)
 
 -- | The time at which the processing job was created.
-processingJobSummary_creationTime :: Lens.Lens' ProcessingJobSummary Core.UTCTime
-processingJobSummary_creationTime = Lens.lens (\ProcessingJobSummary' {creationTime} -> creationTime) (\s@ProcessingJobSummary' {} a -> s {creationTime = a} :: ProcessingJobSummary) Core.. Core._Time
+processingJobSummary_creationTime :: Lens.Lens' ProcessingJobSummary Prelude.UTCTime
+processingJobSummary_creationTime = Lens.lens (\ProcessingJobSummary' {creationTime} -> creationTime) (\s@ProcessingJobSummary' {} a -> s {creationTime = a} :: ProcessingJobSummary) Prelude.. Core._Time
 
 -- | The status of the processing job.
 processingJobSummary_processingJobStatus :: Lens.Lens' ProcessingJobSummary ProcessingJobStatus
@@ -143,16 +144,16 @@ instance Core.FromJSON ProcessingJobSummary where
       "ProcessingJobSummary"
       ( \x ->
           ProcessingJobSummary'
-            Core.<$> (x Core..:? "ProcessingEndTime")
-            Core.<*> (x Core..:? "ExitMessage")
-            Core.<*> (x Core..:? "FailureReason")
-            Core.<*> (x Core..:? "LastModifiedTime")
-            Core.<*> (x Core..: "ProcessingJobName")
-            Core.<*> (x Core..: "ProcessingJobArn")
-            Core.<*> (x Core..: "CreationTime")
-            Core.<*> (x Core..: "ProcessingJobStatus")
+            Prelude.<$> (x Core..:? "ProcessingEndTime")
+            Prelude.<*> (x Core..:? "ExitMessage")
+            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..: "ProcessingJobName")
+            Prelude.<*> (x Core..: "ProcessingJobArn")
+            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Core..: "ProcessingJobStatus")
       )
 
-instance Core.Hashable ProcessingJobSummary
+instance Prelude.Hashable ProcessingJobSummary
 
-instance Core.NFData ProcessingJobSummary
+instance Prelude.NFData ProcessingJobSummary

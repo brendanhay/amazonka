@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +57,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newExportBundle' smart constructor.
 data ExportBundle = ExportBundle'
   { -- | Developer desktop or target application platform.
-    platform :: Core.Maybe Platform,
+    platform :: Prelude.Maybe Platform,
     -- | Unique project identifier.
-    projectId :: Core.Maybe Core.Text,
+    projectId :: Prelude.Maybe Prelude.Text,
     -- | Unique bundle identifier.
-    bundleId :: Core.Text
+    bundleId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportBundle' with all optional fields omitted.
@@ -79,25 +80,25 @@ data ExportBundle = ExportBundle'
 -- 'bundleId', 'exportBundle_bundleId' - Unique bundle identifier.
 newExportBundle ::
   -- | 'bundleId'
-  Core.Text ->
+  Prelude.Text ->
   ExportBundle
 newExportBundle pBundleId_ =
   ExportBundle'
-    { platform = Core.Nothing,
-      projectId = Core.Nothing,
+    { platform = Prelude.Nothing,
+      projectId = Prelude.Nothing,
       bundleId = pBundleId_
     }
 
 -- | Developer desktop or target application platform.
-exportBundle_platform :: Lens.Lens' ExportBundle (Core.Maybe Platform)
+exportBundle_platform :: Lens.Lens' ExportBundle (Prelude.Maybe Platform)
 exportBundle_platform = Lens.lens (\ExportBundle' {platform} -> platform) (\s@ExportBundle' {} a -> s {platform = a} :: ExportBundle)
 
 -- | Unique project identifier.
-exportBundle_projectId :: Lens.Lens' ExportBundle (Core.Maybe Core.Text)
+exportBundle_projectId :: Lens.Lens' ExportBundle (Prelude.Maybe Prelude.Text)
 exportBundle_projectId = Lens.lens (\ExportBundle' {projectId} -> projectId) (\s@ExportBundle' {} a -> s {projectId = a} :: ExportBundle)
 
 -- | Unique bundle identifier.
-exportBundle_bundleId :: Lens.Lens' ExportBundle Core.Text
+exportBundle_bundleId :: Lens.Lens' ExportBundle Prelude.Text
 exportBundle_bundleId = Lens.lens (\ExportBundle' {bundleId} -> bundleId) (\s@ExportBundle' {} a -> s {bundleId = a} :: ExportBundle)
 
 instance Core.AWSRequest ExportBundle where
@@ -107,33 +108,35 @@ instance Core.AWSRequest ExportBundle where
     Response.receiveJSON
       ( \s h x ->
           ExportBundleResponse'
-            Core.<$> (x Core..?> "downloadUrl")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "downloadUrl")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ExportBundle
+instance Prelude.Hashable ExportBundle
 
-instance Core.NFData ExportBundle
+instance Prelude.NFData ExportBundle
 
 instance Core.ToHeaders ExportBundle where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ExportBundle where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath ExportBundle where
   toPath ExportBundle' {..} =
-    Core.mconcat ["/bundles/", Core.toBS bundleId]
+    Prelude.mconcat ["/bundles/", Core.toBS bundleId]
 
 instance Core.ToQuery ExportBundle where
   toQuery ExportBundle' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "platform" Core.=: platform,
         "projectId" Core.=: projectId
       ]
@@ -147,11 +150,11 @@ data ExportBundleResponse = ExportBundleResponse'
   { -- | URL which contains the custom-generated SDK and tool packages used to
     -- integrate the client mobile app or web app with the AWS resources
     -- created by the AWS Mobile Hub project.
-    downloadUrl :: Core.Maybe Core.Text,
+    downloadUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportBundleResponse' with all optional fields omitted.
@@ -168,22 +171,23 @@ data ExportBundleResponse = ExportBundleResponse'
 -- 'httpStatus', 'exportBundleResponse_httpStatus' - The response's http status code.
 newExportBundleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ExportBundleResponse
 newExportBundleResponse pHttpStatus_ =
   ExportBundleResponse'
-    { downloadUrl = Core.Nothing,
+    { downloadUrl =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | URL which contains the custom-generated SDK and tool packages used to
 -- integrate the client mobile app or web app with the AWS resources
 -- created by the AWS Mobile Hub project.
-exportBundleResponse_downloadUrl :: Lens.Lens' ExportBundleResponse (Core.Maybe Core.Text)
+exportBundleResponse_downloadUrl :: Lens.Lens' ExportBundleResponse (Prelude.Maybe Prelude.Text)
 exportBundleResponse_downloadUrl = Lens.lens (\ExportBundleResponse' {downloadUrl} -> downloadUrl) (\s@ExportBundleResponse' {} a -> s {downloadUrl = a} :: ExportBundleResponse)
 
 -- | The response's http status code.
-exportBundleResponse_httpStatus :: Lens.Lens' ExportBundleResponse Core.Int
+exportBundleResponse_httpStatus :: Lens.Lens' ExportBundleResponse Prelude.Int
 exportBundleResponse_httpStatus = Lens.lens (\ExportBundleResponse' {httpStatus} -> httpStatus) (\s@ExportBundleResponse' {} a -> s {httpStatus = a} :: ExportBundleResponse)
 
-instance Core.NFData ExportBundleResponse
+instance Prelude.NFData ExportBundleResponse

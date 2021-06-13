@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutputDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | For an application output, describes the Amazon Kinesis stream
 -- configured as its destination.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKinesisStreamsOutputDescription' smart constructor.
 data KinesisStreamsOutputDescription = KinesisStreamsOutputDescription'
   { -- | Amazon Resource Name (ARN) of the Amazon Kinesis stream.
-    resourceARN :: Core.Maybe Core.Text,
+    resourceARN :: Prelude.Maybe Prelude.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream.
-    roleARN :: Core.Maybe Core.Text
+    roleARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisStreamsOutputDescription' with all optional fields omitted.
@@ -52,17 +53,17 @@ newKinesisStreamsOutputDescription ::
 newKinesisStreamsOutputDescription =
   KinesisStreamsOutputDescription'
     { resourceARN =
-        Core.Nothing,
-      roleARN = Core.Nothing
+        Prelude.Nothing,
+      roleARN = Prelude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the Amazon Kinesis stream.
-kinesisStreamsOutputDescription_resourceARN :: Lens.Lens' KinesisStreamsOutputDescription (Core.Maybe Core.Text)
+kinesisStreamsOutputDescription_resourceARN :: Lens.Lens' KinesisStreamsOutputDescription (Prelude.Maybe Prelude.Text)
 kinesisStreamsOutputDescription_resourceARN = Lens.lens (\KinesisStreamsOutputDescription' {resourceARN} -> resourceARN) (\s@KinesisStreamsOutputDescription' {} a -> s {resourceARN = a} :: KinesisStreamsOutputDescription)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream.
-kinesisStreamsOutputDescription_roleARN :: Lens.Lens' KinesisStreamsOutputDescription (Core.Maybe Core.Text)
+kinesisStreamsOutputDescription_roleARN :: Lens.Lens' KinesisStreamsOutputDescription (Prelude.Maybe Prelude.Text)
 kinesisStreamsOutputDescription_roleARN = Lens.lens (\KinesisStreamsOutputDescription' {roleARN} -> roleARN) (\s@KinesisStreamsOutputDescription' {} a -> s {roleARN = a} :: KinesisStreamsOutputDescription)
 
 instance
@@ -74,12 +75,14 @@ instance
       "KinesisStreamsOutputDescription"
       ( \x ->
           KinesisStreamsOutputDescription'
-            Core.<$> (x Core..:? "ResourceARN")
-            Core.<*> (x Core..:? "RoleARN")
+            Prelude.<$> (x Core..:? "ResourceARN")
+            Prelude.<*> (x Core..:? "RoleARN")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     KinesisStreamsOutputDescription
 
-instance Core.NFData KinesisStreamsOutputDescription
+instance
+  Prelude.NFData
+    KinesisStreamsOutputDescription

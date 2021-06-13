@@ -27,6 +27,7 @@ module Network.AWS.IAM.Types.PolicyUsageType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The policy usage type that indicates whether the policy is used as a
 -- permissions policy or as the permissions boundary for an entity.
@@ -39,15 +40,15 @@ newtype PolicyUsageType = PolicyUsageType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

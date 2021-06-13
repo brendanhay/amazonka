@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.SSEKMS where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
@@ -30,9 +31,9 @@ data SSEKMS = SSEKMS'
   { -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
     -- customer managed customer master key (CMK) to use for encrypting
     -- inventory reports.
-    keyId :: Core.Sensitive Core.Text
+    keyId :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SSEKMS' with all optional fields omitted.
@@ -47,7 +48,7 @@ data SSEKMS = SSEKMS'
 -- inventory reports.
 newSSEKMS ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   SSEKMS
 newSSEKMS pKeyId_ =
   SSEKMS' {keyId = Core._Sensitive Lens.# pKeyId_}
@@ -55,16 +56,16 @@ newSSEKMS pKeyId_ =
 -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
 -- customer managed customer master key (CMK) to use for encrypting
 -- inventory reports.
-ssekms_keyId :: Lens.Lens' SSEKMS Core.Text
-ssekms_keyId = Lens.lens (\SSEKMS' {keyId} -> keyId) (\s@SSEKMS' {} a -> s {keyId = a} :: SSEKMS) Core.. Core._Sensitive
+ssekms_keyId :: Lens.Lens' SSEKMS Prelude.Text
+ssekms_keyId = Lens.lens (\SSEKMS' {keyId} -> keyId) (\s@SSEKMS' {} a -> s {keyId = a} :: SSEKMS) Prelude.. Core._Sensitive
 
 instance Core.FromXML SSEKMS where
-  parseXML x = SSEKMS' Core.<$> (x Core..@ "KeyId")
+  parseXML x = SSEKMS' Prelude.<$> (x Core..@ "KeyId")
 
-instance Core.Hashable SSEKMS
+instance Prelude.Hashable SSEKMS
 
-instance Core.NFData SSEKMS
+instance Prelude.NFData SSEKMS
 
 instance Core.ToXML SSEKMS where
   toXML SSEKMS' {..} =
-    Core.mconcat ["KeyId" Core.@= keyId]
+    Prelude.mconcat ["KeyId" Core.@= keyId]

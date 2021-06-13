@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,7 +56,7 @@ import qualified Network.AWS.Response as Response
 data CreateTags = CreateTags'
   { -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
     -- For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-    resourceName :: Core.Text,
+    resourceName :: Prelude.Text,
     -- | One or more name\/value pairs to add as tags to the specified resource.
     -- Each tag name is passed in with the parameter @Key@ and the
     -- corresponding value is passed in with the parameter @Value@. The @Key@
@@ -64,7 +65,7 @@ data CreateTags = CreateTags'
     -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTags' with all optional fields omitted.
@@ -85,17 +86,17 @@ data CreateTags = CreateTags'
 -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
 newCreateTags ::
   -- | 'resourceName'
-  Core.Text ->
+  Prelude.Text ->
   CreateTags
 newCreateTags pResourceName_ =
   CreateTags'
     { resourceName = pResourceName_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
 -- For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-createTags_resourceName :: Lens.Lens' CreateTags Core.Text
+createTags_resourceName :: Lens.Lens' CreateTags Prelude.Text
 createTags_resourceName = Lens.lens (\CreateTags' {resourceName} -> resourceName) (\s@CreateTags' {} a -> s {resourceName = a} :: CreateTags)
 
 -- | One or more name\/value pairs to add as tags to the specified resource.
@@ -105,28 +106,30 @@ createTags_resourceName = Lens.lens (\CreateTags' {resourceName} -> resourceName
 -- tags with a space. For example,
 -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Core.. Lens._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull CreateTagsResponse'
 
-instance Core.Hashable CreateTags
+instance Prelude.Hashable CreateTags
 
-instance Core.NFData CreateTags
+instance Prelude.NFData CreateTags
 
 instance Core.ToHeaders CreateTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTags where
   toQuery CreateTags' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CreateTags" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ResourceName" Core.=: resourceName,
         "Tags" Core.=: Core.toQueryList "Tag" tags
       ]
@@ -135,7 +138,7 @@ instance Core.ToQuery CreateTags where
 data CreateTagsResponse = CreateTagsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTagsResponse' with all optional fields omitted.
@@ -145,4 +148,4 @@ newCreateTagsResponse ::
   CreateTagsResponse
 newCreateTagsResponse = CreateTagsResponse'
 
-instance Core.NFData CreateTagsResponse
+instance Prelude.NFData CreateTagsResponse

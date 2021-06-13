@@ -92,6 +92,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -100,16 +101,16 @@ import Network.AWS.Route53.Types
 data CreateReusableDelegationSet = CreateReusableDelegationSet'
   { -- | If you want to mark the delegation set for an existing hosted zone as
     -- reusable, the ID for that hosted zone.
-    hostedZoneId :: Core.Maybe ResourceId,
+    hostedZoneId :: Prelude.Maybe ResourceId,
     -- | A unique string that identifies the request, and that allows you to
     -- retry failed @CreateReusableDelegationSet@ requests without the risk of
     -- executing the operation twice. You must use a unique @CallerReference@
     -- string every time you submit a @CreateReusableDelegationSet@ request.
     -- @CallerReference@ can be any unique string, for example a date\/time
     -- stamp.
-    callerReference :: Core.Text
+    callerReference :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReusableDelegationSet' with all optional fields omitted.
@@ -130,18 +131,18 @@ data CreateReusableDelegationSet = CreateReusableDelegationSet'
 -- stamp.
 newCreateReusableDelegationSet ::
   -- | 'callerReference'
-  Core.Text ->
+  Prelude.Text ->
   CreateReusableDelegationSet
 newCreateReusableDelegationSet pCallerReference_ =
   CreateReusableDelegationSet'
     { hostedZoneId =
-        Core.Nothing,
+        Prelude.Nothing,
       callerReference = pCallerReference_
     }
 
 -- | If you want to mark the delegation set for an existing hosted zone as
 -- reusable, the ID for that hosted zone.
-createReusableDelegationSet_hostedZoneId :: Lens.Lens' CreateReusableDelegationSet (Core.Maybe ResourceId)
+createReusableDelegationSet_hostedZoneId :: Lens.Lens' CreateReusableDelegationSet (Prelude.Maybe ResourceId)
 createReusableDelegationSet_hostedZoneId = Lens.lens (\CreateReusableDelegationSet' {hostedZoneId} -> hostedZoneId) (\s@CreateReusableDelegationSet' {} a -> s {hostedZoneId = a} :: CreateReusableDelegationSet)
 
 -- | A unique string that identifies the request, and that allows you to
@@ -150,7 +151,7 @@ createReusableDelegationSet_hostedZoneId = Lens.lens (\CreateReusableDelegationS
 -- string every time you submit a @CreateReusableDelegationSet@ request.
 -- @CallerReference@ can be any unique string, for example a date\/time
 -- stamp.
-createReusableDelegationSet_callerReference :: Lens.Lens' CreateReusableDelegationSet Core.Text
+createReusableDelegationSet_callerReference :: Lens.Lens' CreateReusableDelegationSet Prelude.Text
 createReusableDelegationSet_callerReference = Lens.lens (\CreateReusableDelegationSet' {callerReference} -> callerReference) (\s@CreateReusableDelegationSet' {} a -> s {callerReference = a} :: CreateReusableDelegationSet)
 
 instance Core.AWSRequest CreateReusableDelegationSet where
@@ -162,14 +163,14 @@ instance Core.AWSRequest CreateReusableDelegationSet where
     Response.receiveXML
       ( \s h x ->
           CreateReusableDelegationSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "DelegationSet")
-            Core.<*> (h Core..# "Location")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "DelegationSet")
+            Prelude.<*> (h Core..# "Location")
       )
 
-instance Core.Hashable CreateReusableDelegationSet
+instance Prelude.Hashable CreateReusableDelegationSet
 
-instance Core.NFData CreateReusableDelegationSet
+instance Prelude.NFData CreateReusableDelegationSet
 
 instance Core.ToElement CreateReusableDelegationSet where
   toElement =
@@ -177,17 +178,17 @@ instance Core.ToElement CreateReusableDelegationSet where
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateReusableDelegationSetRequest"
 
 instance Core.ToHeaders CreateReusableDelegationSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateReusableDelegationSet where
-  toPath = Core.const "/2013-04-01/delegationset"
+  toPath = Prelude.const "/2013-04-01/delegationset"
 
 instance Core.ToQuery CreateReusableDelegationSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML CreateReusableDelegationSet where
   toXML CreateReusableDelegationSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "HostedZoneId" Core.@= hostedZoneId,
         "CallerReference" Core.@= callerReference
       ]
@@ -195,13 +196,13 @@ instance Core.ToXML CreateReusableDelegationSet where
 -- | /See:/ 'newCreateReusableDelegationSetResponse' smart constructor.
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains name server information.
     delegationSet :: DelegationSet,
     -- | The unique URL representing the new reusable delegation set.
-    location :: Core.Text
+    location :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReusableDelegationSetResponse' with all optional fields omitted.
@@ -218,11 +219,11 @@ data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
 -- 'location', 'createReusableDelegationSetResponse_location' - The unique URL representing the new reusable delegation set.
 newCreateReusableDelegationSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'delegationSet'
   DelegationSet ->
   -- | 'location'
-  Core.Text ->
+  Prelude.Text ->
   CreateReusableDelegationSetResponse
 newCreateReusableDelegationSetResponse
   pHttpStatus_
@@ -236,7 +237,7 @@ newCreateReusableDelegationSetResponse
       }
 
 -- | The response's http status code.
-createReusableDelegationSetResponse_httpStatus :: Lens.Lens' CreateReusableDelegationSetResponse Core.Int
+createReusableDelegationSetResponse_httpStatus :: Lens.Lens' CreateReusableDelegationSetResponse Prelude.Int
 createReusableDelegationSetResponse_httpStatus = Lens.lens (\CreateReusableDelegationSetResponse' {httpStatus} -> httpStatus) (\s@CreateReusableDelegationSetResponse' {} a -> s {httpStatus = a} :: CreateReusableDelegationSetResponse)
 
 -- | A complex type that contains name server information.
@@ -244,9 +245,9 @@ createReusableDelegationSetResponse_delegationSet :: Lens.Lens' CreateReusableDe
 createReusableDelegationSetResponse_delegationSet = Lens.lens (\CreateReusableDelegationSetResponse' {delegationSet} -> delegationSet) (\s@CreateReusableDelegationSetResponse' {} a -> s {delegationSet = a} :: CreateReusableDelegationSetResponse)
 
 -- | The unique URL representing the new reusable delegation set.
-createReusableDelegationSetResponse_location :: Lens.Lens' CreateReusableDelegationSetResponse Core.Text
+createReusableDelegationSetResponse_location :: Lens.Lens' CreateReusableDelegationSetResponse Prelude.Text
 createReusableDelegationSetResponse_location = Lens.lens (\CreateReusableDelegationSetResponse' {location} -> location) (\s@CreateReusableDelegationSetResponse' {} a -> s {location = a} :: CreateReusableDelegationSetResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateReusableDelegationSetResponse

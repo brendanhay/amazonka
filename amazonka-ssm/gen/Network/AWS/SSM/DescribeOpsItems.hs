@@ -56,6 +56,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -64,11 +65,11 @@ import Network.AWS.SSM.Types
 data DescribeOpsItems = DescribeOpsItems'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters to limit the response.
     --
     -- -   Key: CreatedTime
@@ -126,9 +127,9 @@ data DescribeOpsItems = DescribeOpsItems'
     -- *If you filter the response by using the OperationalData operator,
     -- specify a key-value pair by using the following JSON format:
     -- {\"key\":\"key_name\",\"value\":\"a_value\"}
-    opsItemFilters :: Core.Maybe [OpsItemFilter]
+    opsItemFilters :: Prelude.Maybe [OpsItemFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOpsItems' with all optional fields omitted.
@@ -206,20 +207,20 @@ newDescribeOpsItems ::
   DescribeOpsItems
 newDescribeOpsItems =
   DescribeOpsItems'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      opsItemFilters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      opsItemFilters = Prelude.Nothing
     }
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-describeOpsItems_nextToken :: Lens.Lens' DescribeOpsItems (Core.Maybe Core.Text)
+describeOpsItems_nextToken :: Lens.Lens' DescribeOpsItems (Prelude.Maybe Prelude.Text)
 describeOpsItems_nextToken = Lens.lens (\DescribeOpsItems' {nextToken} -> nextToken) (\s@DescribeOpsItems' {} a -> s {nextToken = a} :: DescribeOpsItems)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeOpsItems_maxResults :: Lens.Lens' DescribeOpsItems (Core.Maybe Core.Natural)
+describeOpsItems_maxResults :: Lens.Lens' DescribeOpsItems (Prelude.Maybe Prelude.Natural)
 describeOpsItems_maxResults = Lens.lens (\DescribeOpsItems' {maxResults} -> maxResults) (\s@DescribeOpsItems' {} a -> s {maxResults = a} :: DescribeOpsItems)
 
 -- | One or more filters to limit the response.
@@ -279,28 +280,30 @@ describeOpsItems_maxResults = Lens.lens (\DescribeOpsItems' {maxResults} -> maxR
 -- *If you filter the response by using the OperationalData operator,
 -- specify a key-value pair by using the following JSON format:
 -- {\"key\":\"key_name\",\"value\":\"a_value\"}
-describeOpsItems_opsItemFilters :: Lens.Lens' DescribeOpsItems (Core.Maybe [OpsItemFilter])
-describeOpsItems_opsItemFilters = Lens.lens (\DescribeOpsItems' {opsItemFilters} -> opsItemFilters) (\s@DescribeOpsItems' {} a -> s {opsItemFilters = a} :: DescribeOpsItems) Core.. Lens.mapping Lens._Coerce
+describeOpsItems_opsItemFilters :: Lens.Lens' DescribeOpsItems (Prelude.Maybe [OpsItemFilter])
+describeOpsItems_opsItemFilters = Lens.lens (\DescribeOpsItems' {opsItemFilters} -> opsItemFilters) (\s@DescribeOpsItems' {} a -> s {opsItemFilters = a} :: DescribeOpsItems) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeOpsItems where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeOpsItemsResponse_nextToken Core.. Lens._Just
+            Lens.^? describeOpsItemsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOpsItemsResponse_opsItemSummaries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeOpsItems_nextToken
+          Prelude.& describeOpsItems_nextToken
           Lens..~ rs
-          Lens.^? describeOpsItemsResponse_nextToken Core.. Lens._Just
+          Lens.^? describeOpsItemsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeOpsItems where
   type
@@ -311,53 +314,58 @@ instance Core.AWSRequest DescribeOpsItems where
     Response.receiveJSON
       ( \s h x ->
           DescribeOpsItemsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "OpsItemSummaries" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "OpsItemSummaries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeOpsItems
+instance Prelude.Hashable DescribeOpsItems
 
-instance Core.NFData DescribeOpsItems
+instance Prelude.NFData DescribeOpsItems
 
 instance Core.ToHeaders DescribeOpsItems where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DescribeOpsItems" :: Core.ByteString),
+              Core.=# ("AmazonSSM.DescribeOpsItems" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeOpsItems where
   toJSON DescribeOpsItems' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("OpsItemFilters" Core..=) Core.<$> opsItemFilters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("OpsItemFilters" Core..=)
+              Prelude.<$> opsItemFilters
           ]
       )
 
 instance Core.ToPath DescribeOpsItems where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeOpsItems where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOpsItemsResponse' smart constructor.
 data DescribeOpsItemsResponse = DescribeOpsItemsResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of OpsItems.
-    opsItemSummaries :: Core.Maybe [OpsItemSummary],
+    opsItemSummaries :: Prelude.Maybe [OpsItemSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOpsItemsResponse' with all optional fields omitted.
@@ -375,26 +383,27 @@ data DescribeOpsItemsResponse = DescribeOpsItemsResponse'
 -- 'httpStatus', 'describeOpsItemsResponse_httpStatus' - The response's http status code.
 newDescribeOpsItemsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeOpsItemsResponse
 newDescribeOpsItemsResponse pHttpStatus_ =
   DescribeOpsItemsResponse'
-    { nextToken = Core.Nothing,
-      opsItemSummaries = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      opsItemSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-describeOpsItemsResponse_nextToken :: Lens.Lens' DescribeOpsItemsResponse (Core.Maybe Core.Text)
+describeOpsItemsResponse_nextToken :: Lens.Lens' DescribeOpsItemsResponse (Prelude.Maybe Prelude.Text)
 describeOpsItemsResponse_nextToken = Lens.lens (\DescribeOpsItemsResponse' {nextToken} -> nextToken) (\s@DescribeOpsItemsResponse' {} a -> s {nextToken = a} :: DescribeOpsItemsResponse)
 
 -- | A list of OpsItems.
-describeOpsItemsResponse_opsItemSummaries :: Lens.Lens' DescribeOpsItemsResponse (Core.Maybe [OpsItemSummary])
-describeOpsItemsResponse_opsItemSummaries = Lens.lens (\DescribeOpsItemsResponse' {opsItemSummaries} -> opsItemSummaries) (\s@DescribeOpsItemsResponse' {} a -> s {opsItemSummaries = a} :: DescribeOpsItemsResponse) Core.. Lens.mapping Lens._Coerce
+describeOpsItemsResponse_opsItemSummaries :: Lens.Lens' DescribeOpsItemsResponse (Prelude.Maybe [OpsItemSummary])
+describeOpsItemsResponse_opsItemSummaries = Lens.lens (\DescribeOpsItemsResponse' {opsItemSummaries} -> opsItemSummaries) (\s@DescribeOpsItemsResponse' {} a -> s {opsItemSummaries = a} :: DescribeOpsItemsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeOpsItemsResponse_httpStatus :: Lens.Lens' DescribeOpsItemsResponse Core.Int
+describeOpsItemsResponse_httpStatus :: Lens.Lens' DescribeOpsItemsResponse Prelude.Int
 describeOpsItemsResponse_httpStatus = Lens.lens (\DescribeOpsItemsResponse' {httpStatus} -> httpStatus) (\s@DescribeOpsItemsResponse' {} a -> s {httpStatus = a} :: DescribeOpsItemsResponse)
 
-instance Core.NFData DescribeOpsItemsResponse
+instance Prelude.NFData DescribeOpsItemsResponse

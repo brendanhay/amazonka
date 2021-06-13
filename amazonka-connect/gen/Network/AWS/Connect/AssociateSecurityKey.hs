@@ -46,17 +46,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateSecurityKey' smart constructor.
 data AssociateSecurityKey = AssociateSecurityKey'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | A valid security key in PEM format.
-    key :: Core.Text
+    key :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateSecurityKey' with all optional fields omitted.
@@ -71,9 +72,9 @@ data AssociateSecurityKey = AssociateSecurityKey'
 -- 'key', 'associateSecurityKey_key' - A valid security key in PEM format.
 newAssociateSecurityKey ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   AssociateSecurityKey
 newAssociateSecurityKey pInstanceId_ pKey_ =
   AssociateSecurityKey'
@@ -82,11 +83,11 @@ newAssociateSecurityKey pInstanceId_ pKey_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-associateSecurityKey_instanceId :: Lens.Lens' AssociateSecurityKey Core.Text
+associateSecurityKey_instanceId :: Lens.Lens' AssociateSecurityKey Prelude.Text
 associateSecurityKey_instanceId = Lens.lens (\AssociateSecurityKey' {instanceId} -> instanceId) (\s@AssociateSecurityKey' {} a -> s {instanceId = a} :: AssociateSecurityKey)
 
 -- | A valid security key in PEM format.
-associateSecurityKey_key :: Lens.Lens' AssociateSecurityKey Core.Text
+associateSecurityKey_key :: Lens.Lens' AssociateSecurityKey Prelude.Text
 associateSecurityKey_key = Lens.lens (\AssociateSecurityKey' {key} -> key) (\s@AssociateSecurityKey' {} a -> s {key = a} :: AssociateSecurityKey)
 
 instance Core.AWSRequest AssociateSecurityKey where
@@ -98,45 +99,49 @@ instance Core.AWSRequest AssociateSecurityKey where
     Response.receiveJSON
       ( \s h x ->
           AssociateSecurityKeyResponse'
-            Core.<$> (x Core..?> "AssociationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AssociationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateSecurityKey
+instance Prelude.Hashable AssociateSecurityKey
 
-instance Core.NFData AssociateSecurityKey
+instance Prelude.NFData AssociateSecurityKey
 
 instance Core.ToHeaders AssociateSecurityKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateSecurityKey where
   toJSON AssociateSecurityKey' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Key" Core..= key)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Key" Core..= key)]
+      )
 
 instance Core.ToPath AssociateSecurityKey where
   toPath AssociateSecurityKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/instance/", Core.toBS instanceId, "/security-key"]
 
 instance Core.ToQuery AssociateSecurityKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateSecurityKeyResponse' smart constructor.
 data AssociateSecurityKeyResponse = AssociateSecurityKeyResponse'
   { -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Core.Maybe Core.Text,
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateSecurityKeyResponse' with all optional fields omitted.
@@ -152,22 +157,22 @@ data AssociateSecurityKeyResponse = AssociateSecurityKeyResponse'
 -- 'httpStatus', 'associateSecurityKeyResponse_httpStatus' - The response's http status code.
 newAssociateSecurityKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateSecurityKeyResponse
 newAssociateSecurityKeyResponse pHttpStatus_ =
   AssociateSecurityKeyResponse'
     { associationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
-associateSecurityKeyResponse_associationId :: Lens.Lens' AssociateSecurityKeyResponse (Core.Maybe Core.Text)
+associateSecurityKeyResponse_associationId :: Lens.Lens' AssociateSecurityKeyResponse (Prelude.Maybe Prelude.Text)
 associateSecurityKeyResponse_associationId = Lens.lens (\AssociateSecurityKeyResponse' {associationId} -> associationId) (\s@AssociateSecurityKeyResponse' {} a -> s {associationId = a} :: AssociateSecurityKeyResponse)
 
 -- | The response's http status code.
-associateSecurityKeyResponse_httpStatus :: Lens.Lens' AssociateSecurityKeyResponse Core.Int
+associateSecurityKeyResponse_httpStatus :: Lens.Lens' AssociateSecurityKeyResponse Prelude.Int
 associateSecurityKeyResponse_httpStatus = Lens.lens (\AssociateSecurityKeyResponse' {httpStatus} -> httpStatus) (\s@AssociateSecurityKeyResponse' {} a -> s {httpStatus = a} :: AssociateSecurityKeyResponse)
 
-instance Core.NFData AssociateSecurityKeyResponse
+instance Prelude.NFData AssociateSecurityKeyResponse

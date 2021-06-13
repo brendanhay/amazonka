@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributesResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a UpdateLinkAttributes response operation.
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data BatchUpdateLinkAttributesResponse = BatchUpdateLinkAttributesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchUpdateLinkAttributesResponse' with all optional fields omitted.
@@ -46,12 +47,14 @@ instance
   parseJSON =
     Core.withObject
       "BatchUpdateLinkAttributesResponse"
-      (\x -> Core.pure BatchUpdateLinkAttributesResponse')
+      ( \x ->
+          Prelude.pure BatchUpdateLinkAttributesResponse'
+      )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchUpdateLinkAttributesResponse
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchUpdateLinkAttributesResponse

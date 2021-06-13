@@ -62,6 +62,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -69,11 +70,11 @@ import Network.AWS.SQS.Types
 -- | /See:/ 'newTagQueue' smart constructor.
 data TagQueue = TagQueue'
   { -- | The URL of the queue.
-    queueUrl :: Core.Text,
+    queueUrl :: Prelude.Text,
     -- | The list of tags to be added to the specified queue.
-    tags :: Core.HashMap Core.Text Core.Text
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagQueue' with all optional fields omitted.
@@ -88,42 +89,43 @@ data TagQueue = TagQueue'
 -- 'tags', 'tagQueue_tags' - The list of tags to be added to the specified queue.
 newTagQueue ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   TagQueue
 newTagQueue pQueueUrl_ =
   TagQueue'
     { queueUrl = pQueueUrl_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The URL of the queue.
-tagQueue_queueUrl :: Lens.Lens' TagQueue Core.Text
+tagQueue_queueUrl :: Lens.Lens' TagQueue Prelude.Text
 tagQueue_queueUrl = Lens.lens (\TagQueue' {queueUrl} -> queueUrl) (\s@TagQueue' {} a -> s {queueUrl = a} :: TagQueue)
 
 -- | The list of tags to be added to the specified queue.
-tagQueue_tags :: Lens.Lens' TagQueue (Core.HashMap Core.Text Core.Text)
-tagQueue_tags = Lens.lens (\TagQueue' {tags} -> tags) (\s@TagQueue' {} a -> s {tags = a} :: TagQueue) Core.. Lens._Coerce
+tagQueue_tags :: Lens.Lens' TagQueue (Prelude.HashMap Prelude.Text Prelude.Text)
+tagQueue_tags = Lens.lens (\TagQueue' {tags} -> tags) (\s@TagQueue' {} a -> s {tags = a} :: TagQueue) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagQueue where
   type AWSResponse TagQueue = TagQueueResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull TagQueueResponse'
 
-instance Core.Hashable TagQueue
+instance Prelude.Hashable TagQueue
 
-instance Core.NFData TagQueue
+instance Prelude.NFData TagQueue
 
 instance Core.ToHeaders TagQueue where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath TagQueue where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagQueue where
   toQuery TagQueue' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("TagQueue" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action" Core.=: ("TagQueue" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueUrl" Core.=: queueUrl,
         Core.toQueryMap "Tags" "Key" "Value" tags
       ]
@@ -132,7 +134,7 @@ instance Core.ToQuery TagQueue where
 data TagQueueResponse = TagQueueResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagQueueResponse' with all optional fields omitted.
@@ -142,4 +144,4 @@ newTagQueueResponse ::
   TagQueueResponse
 newTagQueueResponse = TagQueueResponse'
 
-instance Core.NFData TagQueueResponse
+instance Prelude.NFData TagQueueResponse

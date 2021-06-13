@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.AlertTarget where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure containing the alert target ARN and the role ARN.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data AlertTarget = AlertTarget'
   { -- | The Amazon Resource Name (ARN) of the notification target to which
     -- alerts are sent.
-    alertTargetArn :: Core.Text,
+    alertTargetArn :: Prelude.Text,
     -- | The ARN of the role that grants permission to send alerts to the
     -- notification target.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AlertTarget' with all optional fields omitted.
@@ -50,9 +51,9 @@ data AlertTarget = AlertTarget'
 -- notification target.
 newAlertTarget ::
   -- | 'alertTargetArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   AlertTarget
 newAlertTarget pAlertTargetArn_ pRoleArn_ =
   AlertTarget'
@@ -62,12 +63,12 @@ newAlertTarget pAlertTargetArn_ pRoleArn_ =
 
 -- | The Amazon Resource Name (ARN) of the notification target to which
 -- alerts are sent.
-alertTarget_alertTargetArn :: Lens.Lens' AlertTarget Core.Text
+alertTarget_alertTargetArn :: Lens.Lens' AlertTarget Prelude.Text
 alertTarget_alertTargetArn = Lens.lens (\AlertTarget' {alertTargetArn} -> alertTargetArn) (\s@AlertTarget' {} a -> s {alertTargetArn = a} :: AlertTarget)
 
 -- | The ARN of the role that grants permission to send alerts to the
 -- notification target.
-alertTarget_roleArn :: Lens.Lens' AlertTarget Core.Text
+alertTarget_roleArn :: Lens.Lens' AlertTarget Prelude.Text
 alertTarget_roleArn = Lens.lens (\AlertTarget' {roleArn} -> roleArn) (\s@AlertTarget' {} a -> s {roleArn = a} :: AlertTarget)
 
 instance Core.FromJSON AlertTarget where
@@ -76,19 +77,20 @@ instance Core.FromJSON AlertTarget where
       "AlertTarget"
       ( \x ->
           AlertTarget'
-            Core.<$> (x Core..: "alertTargetArn")
-            Core.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Core..: "alertTargetArn")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Core.Hashable AlertTarget
+instance Prelude.Hashable AlertTarget
 
-instance Core.NFData AlertTarget
+instance Prelude.NFData AlertTarget
 
 instance Core.ToJSON AlertTarget where
   toJSON AlertTarget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("alertTargetArn" Core..= alertTargetArn),
-            Core.Just ("roleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("alertTargetArn" Core..= alertTargetArn),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

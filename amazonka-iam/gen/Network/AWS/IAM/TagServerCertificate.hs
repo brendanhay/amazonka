@@ -77,6 +77,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,12 +89,12 @@ data TagServerCertificate = TagServerCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    serverCertificateName :: Core.Text,
+    serverCertificateName :: Prelude.Text,
     -- | The list of tags that you want to attach to the IAM server certificate.
     -- Each tag consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagServerCertificate' with all optional fields omitted.
@@ -114,13 +115,13 @@ data TagServerCertificate = TagServerCertificate'
 -- Each tag consists of a key name and an associated value.
 newTagServerCertificate ::
   -- | 'serverCertificateName'
-  Core.Text ->
+  Prelude.Text ->
   TagServerCertificate
 newTagServerCertificate pServerCertificateName_ =
   TagServerCertificate'
     { serverCertificateName =
         pServerCertificateName_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The name of the IAM server certificate to which you want to add tags.
@@ -129,13 +130,13 @@ newTagServerCertificate pServerCertificateName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagServerCertificate_serverCertificateName :: Lens.Lens' TagServerCertificate Core.Text
+tagServerCertificate_serverCertificateName :: Lens.Lens' TagServerCertificate Prelude.Text
 tagServerCertificate_serverCertificateName = Lens.lens (\TagServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@TagServerCertificate' {} a -> s {serverCertificateName = a} :: TagServerCertificate)
 
 -- | The list of tags that you want to attach to the IAM server certificate.
 -- Each tag consists of a key name and an associated value.
 tagServerCertificate_tags :: Lens.Lens' TagServerCertificate [Tag]
-tagServerCertificate_tags = Lens.lens (\TagServerCertificate' {tags} -> tags) (\s@TagServerCertificate' {} a -> s {tags = a} :: TagServerCertificate) Core.. Lens._Coerce
+tagServerCertificate_tags = Lens.lens (\TagServerCertificate' {tags} -> tags) (\s@TagServerCertificate' {} a -> s {tags = a} :: TagServerCertificate) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagServerCertificate where
   type
@@ -145,22 +146,23 @@ instance Core.AWSRequest TagServerCertificate where
   response =
     Response.receiveNull TagServerCertificateResponse'
 
-instance Core.Hashable TagServerCertificate
+instance Prelude.Hashable TagServerCertificate
 
-instance Core.NFData TagServerCertificate
+instance Prelude.NFData TagServerCertificate
 
 instance Core.ToHeaders TagServerCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath TagServerCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagServerCertificate where
   toQuery TagServerCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("TagServerCertificate" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("TagServerCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "ServerCertificateName"
           Core.=: serverCertificateName,
         "Tags" Core.=: Core.toQueryList "member" tags
@@ -170,7 +172,7 @@ instance Core.ToQuery TagServerCertificate where
 data TagServerCertificateResponse = TagServerCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagServerCertificateResponse' with all optional fields omitted.
@@ -181,4 +183,4 @@ newTagServerCertificateResponse ::
 newTagServerCertificateResponse =
   TagServerCertificateResponse'
 
-instance Core.NFData TagServerCertificateResponse
+instance Prelude.NFData TagServerCertificateResponse

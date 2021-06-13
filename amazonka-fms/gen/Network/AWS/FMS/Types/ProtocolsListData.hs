@@ -21,31 +21,32 @@ module Network.AWS.FMS.Types.ProtocolsListData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An AWS Firewall Manager protocols list.
 --
 -- /See:/ 'newProtocolsListData' smart constructor.
 data ProtocolsListData = ProtocolsListData'
   { -- | The time that the AWS Firewall Manager protocols list was last updated.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the AWS Firewall Manager protocols list.
-    listId :: Core.Maybe Core.Text,
+    listId :: Prelude.Maybe Prelude.Text,
     -- | The time that the AWS Firewall Manager protocols list was created.
-    createTime :: Core.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Core.POSIX,
     -- | A map of previous version numbers to their corresponding protocol
     -- arrays.
-    previousProtocolsList :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    previousProtocolsList :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | A unique identifier for each update to the list. When you update the
     -- list, the update token must match the token of the current version of
     -- the application list. You can retrieve the update token by getting the
     -- list.
-    listUpdateToken :: Core.Maybe Core.Text,
+    listUpdateToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS Firewall Manager protocols list.
-    listName :: Core.Text,
+    listName :: Prelude.Text,
     -- | An array of protocols in the AWS Firewall Manager protocols list.
-    protocolsList :: [Core.Text]
+    protocolsList :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProtocolsListData' with all optional fields omitted.
@@ -74,50 +75,51 @@ data ProtocolsListData = ProtocolsListData'
 -- 'protocolsList', 'protocolsListData_protocolsList' - An array of protocols in the AWS Firewall Manager protocols list.
 newProtocolsListData ::
   -- | 'listName'
-  Core.Text ->
+  Prelude.Text ->
   ProtocolsListData
 newProtocolsListData pListName_ =
   ProtocolsListData'
-    { lastUpdateTime = Core.Nothing,
-      listId = Core.Nothing,
-      createTime = Core.Nothing,
-      previousProtocolsList = Core.Nothing,
-      listUpdateToken = Core.Nothing,
+    { lastUpdateTime =
+        Prelude.Nothing,
+      listId = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      previousProtocolsList = Prelude.Nothing,
+      listUpdateToken = Prelude.Nothing,
       listName = pListName_,
-      protocolsList = Core.mempty
+      protocolsList = Prelude.mempty
     }
 
 -- | The time that the AWS Firewall Manager protocols list was last updated.
-protocolsListData_lastUpdateTime :: Lens.Lens' ProtocolsListData (Core.Maybe Core.UTCTime)
-protocolsListData_lastUpdateTime = Lens.lens (\ProtocolsListData' {lastUpdateTime} -> lastUpdateTime) (\s@ProtocolsListData' {} a -> s {lastUpdateTime = a} :: ProtocolsListData) Core.. Lens.mapping Core._Time
+protocolsListData_lastUpdateTime :: Lens.Lens' ProtocolsListData (Prelude.Maybe Prelude.UTCTime)
+protocolsListData_lastUpdateTime = Lens.lens (\ProtocolsListData' {lastUpdateTime} -> lastUpdateTime) (\s@ProtocolsListData' {} a -> s {lastUpdateTime = a} :: ProtocolsListData) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the AWS Firewall Manager protocols list.
-protocolsListData_listId :: Lens.Lens' ProtocolsListData (Core.Maybe Core.Text)
+protocolsListData_listId :: Lens.Lens' ProtocolsListData (Prelude.Maybe Prelude.Text)
 protocolsListData_listId = Lens.lens (\ProtocolsListData' {listId} -> listId) (\s@ProtocolsListData' {} a -> s {listId = a} :: ProtocolsListData)
 
 -- | The time that the AWS Firewall Manager protocols list was created.
-protocolsListData_createTime :: Lens.Lens' ProtocolsListData (Core.Maybe Core.UTCTime)
-protocolsListData_createTime = Lens.lens (\ProtocolsListData' {createTime} -> createTime) (\s@ProtocolsListData' {} a -> s {createTime = a} :: ProtocolsListData) Core.. Lens.mapping Core._Time
+protocolsListData_createTime :: Lens.Lens' ProtocolsListData (Prelude.Maybe Prelude.UTCTime)
+protocolsListData_createTime = Lens.lens (\ProtocolsListData' {createTime} -> createTime) (\s@ProtocolsListData' {} a -> s {createTime = a} :: ProtocolsListData) Prelude.. Lens.mapping Core._Time
 
 -- | A map of previous version numbers to their corresponding protocol
 -- arrays.
-protocolsListData_previousProtocolsList :: Lens.Lens' ProtocolsListData (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-protocolsListData_previousProtocolsList = Lens.lens (\ProtocolsListData' {previousProtocolsList} -> previousProtocolsList) (\s@ProtocolsListData' {} a -> s {previousProtocolsList = a} :: ProtocolsListData) Core.. Lens.mapping Lens._Coerce
+protocolsListData_previousProtocolsList :: Lens.Lens' ProtocolsListData (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+protocolsListData_previousProtocolsList = Lens.lens (\ProtocolsListData' {previousProtocolsList} -> previousProtocolsList) (\s@ProtocolsListData' {} a -> s {previousProtocolsList = a} :: ProtocolsListData) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for each update to the list. When you update the
 -- list, the update token must match the token of the current version of
 -- the application list. You can retrieve the update token by getting the
 -- list.
-protocolsListData_listUpdateToken :: Lens.Lens' ProtocolsListData (Core.Maybe Core.Text)
+protocolsListData_listUpdateToken :: Lens.Lens' ProtocolsListData (Prelude.Maybe Prelude.Text)
 protocolsListData_listUpdateToken = Lens.lens (\ProtocolsListData' {listUpdateToken} -> listUpdateToken) (\s@ProtocolsListData' {} a -> s {listUpdateToken = a} :: ProtocolsListData)
 
 -- | The name of the AWS Firewall Manager protocols list.
-protocolsListData_listName :: Lens.Lens' ProtocolsListData Core.Text
+protocolsListData_listName :: Lens.Lens' ProtocolsListData Prelude.Text
 protocolsListData_listName = Lens.lens (\ProtocolsListData' {listName} -> listName) (\s@ProtocolsListData' {} a -> s {listName = a} :: ProtocolsListData)
 
 -- | An array of protocols in the AWS Firewall Manager protocols list.
-protocolsListData_protocolsList :: Lens.Lens' ProtocolsListData [Core.Text]
-protocolsListData_protocolsList = Lens.lens (\ProtocolsListData' {protocolsList} -> protocolsList) (\s@ProtocolsListData' {} a -> s {protocolsList = a} :: ProtocolsListData) Core.. Lens._Coerce
+protocolsListData_protocolsList :: Lens.Lens' ProtocolsListData [Prelude.Text]
+protocolsListData_protocolsList = Lens.lens (\ProtocolsListData' {protocolsList} -> protocolsList) (\s@ProtocolsListData' {} a -> s {protocolsList = a} :: ProtocolsListData) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ProtocolsListData where
   parseJSON =
@@ -125,32 +127,35 @@ instance Core.FromJSON ProtocolsListData where
       "ProtocolsListData"
       ( \x ->
           ProtocolsListData'
-            Core.<$> (x Core..:? "LastUpdateTime")
-            Core.<*> (x Core..:? "ListId")
-            Core.<*> (x Core..:? "CreateTime")
-            Core.<*> ( x Core..:? "PreviousProtocolsList"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "ListUpdateToken")
-            Core.<*> (x Core..: "ListName")
-            Core.<*> (x Core..:? "ProtocolsList" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "LastUpdateTime")
+            Prelude.<*> (x Core..:? "ListId")
+            Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<*> ( x Core..:? "PreviousProtocolsList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ListUpdateToken")
+            Prelude.<*> (x Core..: "ListName")
+            Prelude.<*> (x Core..:? "ProtocolsList" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ProtocolsListData
+instance Prelude.Hashable ProtocolsListData
 
-instance Core.NFData ProtocolsListData
+instance Prelude.NFData ProtocolsListData
 
 instance Core.ToJSON ProtocolsListData where
   toJSON ProtocolsListData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("LastUpdateTime" Core..=) Core.<$> lastUpdateTime,
-            ("ListId" Core..=) Core.<$> listId,
-            ("CreateTime" Core..=) Core.<$> createTime,
+      ( Prelude.catMaybes
+          [ ("LastUpdateTime" Core..=)
+              Prelude.<$> lastUpdateTime,
+            ("ListId" Core..=) Prelude.<$> listId,
+            ("CreateTime" Core..=) Prelude.<$> createTime,
             ("PreviousProtocolsList" Core..=)
-              Core.<$> previousProtocolsList,
-            ("ListUpdateToken" Core..=) Core.<$> listUpdateToken,
-            Core.Just ("ListName" Core..= listName),
-            Core.Just ("ProtocolsList" Core..= protocolsList)
+              Prelude.<$> previousProtocolsList,
+            ("ListUpdateToken" Core..=)
+              Prelude.<$> listUpdateToken,
+            Prelude.Just ("ListName" Core..= listName),
+            Prelude.Just
+              ("ProtocolsList" Core..= protocolsList)
           ]
       )

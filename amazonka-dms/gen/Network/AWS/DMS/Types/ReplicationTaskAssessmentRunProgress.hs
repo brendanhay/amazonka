@@ -21,6 +21,7 @@ module Network.AWS.DMS.Types.ReplicationTaskAssessmentRunProgress where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The progress values reported by the @AssessmentProgress@ response
 -- element.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newReplicationTaskAssessmentRunProgress' smart constructor.
 data ReplicationTaskAssessmentRunProgress = ReplicationTaskAssessmentRunProgress'
   { -- | The number of individual assessments that are specified to run.
-    individualAssessmentCount :: Core.Maybe Core.Int,
+    individualAssessmentCount :: Prelude.Maybe Prelude.Int,
     -- | The number of individual assessments that have completed, successfully
     -- or not.
-    individualAssessmentCompletedCount :: Core.Maybe Core.Int
+    individualAssessmentCompletedCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationTaskAssessmentRunProgress' with all optional fields omitted.
@@ -52,18 +53,18 @@ newReplicationTaskAssessmentRunProgress ::
 newReplicationTaskAssessmentRunProgress =
   ReplicationTaskAssessmentRunProgress'
     { individualAssessmentCount =
-        Core.Nothing,
+        Prelude.Nothing,
       individualAssessmentCompletedCount =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The number of individual assessments that are specified to run.
-replicationTaskAssessmentRunProgress_individualAssessmentCount :: Lens.Lens' ReplicationTaskAssessmentRunProgress (Core.Maybe Core.Int)
+replicationTaskAssessmentRunProgress_individualAssessmentCount :: Lens.Lens' ReplicationTaskAssessmentRunProgress (Prelude.Maybe Prelude.Int)
 replicationTaskAssessmentRunProgress_individualAssessmentCount = Lens.lens (\ReplicationTaskAssessmentRunProgress' {individualAssessmentCount} -> individualAssessmentCount) (\s@ReplicationTaskAssessmentRunProgress' {} a -> s {individualAssessmentCount = a} :: ReplicationTaskAssessmentRunProgress)
 
 -- | The number of individual assessments that have completed, successfully
 -- or not.
-replicationTaskAssessmentRunProgress_individualAssessmentCompletedCount :: Lens.Lens' ReplicationTaskAssessmentRunProgress (Core.Maybe Core.Int)
+replicationTaskAssessmentRunProgress_individualAssessmentCompletedCount :: Lens.Lens' ReplicationTaskAssessmentRunProgress (Prelude.Maybe Prelude.Int)
 replicationTaskAssessmentRunProgress_individualAssessmentCompletedCount = Lens.lens (\ReplicationTaskAssessmentRunProgress' {individualAssessmentCompletedCount} -> individualAssessmentCompletedCount) (\s@ReplicationTaskAssessmentRunProgress' {} a -> s {individualAssessmentCompletedCount = a} :: ReplicationTaskAssessmentRunProgress)
 
 instance
@@ -75,14 +76,14 @@ instance
       "ReplicationTaskAssessmentRunProgress"
       ( \x ->
           ReplicationTaskAssessmentRunProgress'
-            Core.<$> (x Core..:? "IndividualAssessmentCount")
-            Core.<*> (x Core..:? "IndividualAssessmentCompletedCount")
+            Prelude.<$> (x Core..:? "IndividualAssessmentCount")
+            Prelude.<*> (x Core..:? "IndividualAssessmentCompletedCount")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReplicationTaskAssessmentRunProgress
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReplicationTaskAssessmentRunProgress

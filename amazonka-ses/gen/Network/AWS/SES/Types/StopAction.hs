@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.StopAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.StopScope
 
 -- | When included in a receipt rule, this action terminates the evaluation
@@ -37,11 +38,11 @@ data StopAction = StopAction'
     -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-    topicArn :: Core.Maybe Core.Text,
+    topicArn :: Prelude.Maybe Prelude.Text,
     -- | The scope of the StopAction. The only acceptable value is @RuleSet@.
     scope :: StopScope
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAction' with all optional fields omitted.
@@ -64,7 +65,7 @@ newStopAction ::
   StopAction
 newStopAction pScope_ =
   StopAction'
-    { topicArn = Core.Nothing,
+    { topicArn = Prelude.Nothing,
       scope = pScope_
     }
 
@@ -73,7 +74,7 @@ newStopAction pScope_ =
 -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-stopAction_topicArn :: Lens.Lens' StopAction (Core.Maybe Core.Text)
+stopAction_topicArn :: Lens.Lens' StopAction (Prelude.Maybe Prelude.Text)
 stopAction_topicArn = Lens.lens (\StopAction' {topicArn} -> topicArn) (\s@StopAction' {} a -> s {topicArn = a} :: StopAction)
 
 -- | The scope of the StopAction. The only acceptable value is @RuleSet@.
@@ -83,13 +84,14 @@ stopAction_scope = Lens.lens (\StopAction' {scope} -> scope) (\s@StopAction' {} 
 instance Core.FromXML StopAction where
   parseXML x =
     StopAction'
-      Core.<$> (x Core..@? "TopicArn") Core.<*> (x Core..@ "Scope")
+      Prelude.<$> (x Core..@? "TopicArn")
+      Prelude.<*> (x Core..@ "Scope")
 
-instance Core.Hashable StopAction
+instance Prelude.Hashable StopAction
 
-instance Core.NFData StopAction
+instance Prelude.NFData StopAction
 
 instance Core.ToQuery StopAction where
   toQuery StopAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["TopicArn" Core.=: topicArn, "Scope" Core.=: scope]

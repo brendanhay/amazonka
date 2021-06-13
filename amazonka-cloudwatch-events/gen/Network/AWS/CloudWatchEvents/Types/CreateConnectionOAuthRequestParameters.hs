@@ -24,6 +24,7 @@ import Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
 import Network.AWS.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParameters
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the OAuth authorization parameters to use for the connection.
 --
@@ -31,17 +32,17 @@ import qualified Network.AWS.Lens as Lens
 data CreateConnectionOAuthRequestParameters = CreateConnectionOAuthRequestParameters'
   { -- | A @ConnectionHttpParameters@ object that contains details about the
     -- additional parameters to use for the connection.
-    oAuthHttpParameters :: Core.Maybe ConnectionHttpParameters,
+    oAuthHttpParameters :: Prelude.Maybe ConnectionHttpParameters,
     -- | A @CreateConnectionOAuthClientRequestParameters@ object that contains
     -- the client parameters for OAuth authorization.
     clientParameters :: CreateConnectionOAuthClientRequestParameters,
     -- | The URL to the authorization endpoint when OAuth is specified as the
     -- authorization type.
-    authorizationEndpoint :: Core.Text,
+    authorizationEndpoint :: Prelude.Text,
     -- | The method to use for the authorization request.
     httpMethod :: ConnectionOAuthHttpMethod
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConnectionOAuthRequestParameters' with all optional fields omitted.
@@ -65,7 +66,7 @@ newCreateConnectionOAuthRequestParameters ::
   -- | 'clientParameters'
   CreateConnectionOAuthClientRequestParameters ->
   -- | 'authorizationEndpoint'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpMethod'
   ConnectionOAuthHttpMethod ->
   CreateConnectionOAuthRequestParameters
@@ -75,7 +76,7 @@ newCreateConnectionOAuthRequestParameters
   pHttpMethod_ =
     CreateConnectionOAuthRequestParameters'
       { oAuthHttpParameters =
-          Core.Nothing,
+          Prelude.Nothing,
         clientParameters =
           pClientParameters_,
         authorizationEndpoint =
@@ -85,7 +86,7 @@ newCreateConnectionOAuthRequestParameters
 
 -- | A @ConnectionHttpParameters@ object that contains details about the
 -- additional parameters to use for the connection.
-createConnectionOAuthRequestParameters_oAuthHttpParameters :: Lens.Lens' CreateConnectionOAuthRequestParameters (Core.Maybe ConnectionHttpParameters)
+createConnectionOAuthRequestParameters_oAuthHttpParameters :: Lens.Lens' CreateConnectionOAuthRequestParameters (Prelude.Maybe ConnectionHttpParameters)
 createConnectionOAuthRequestParameters_oAuthHttpParameters = Lens.lens (\CreateConnectionOAuthRequestParameters' {oAuthHttpParameters} -> oAuthHttpParameters) (\s@CreateConnectionOAuthRequestParameters' {} a -> s {oAuthHttpParameters = a} :: CreateConnectionOAuthRequestParameters)
 
 -- | A @CreateConnectionOAuthClientRequestParameters@ object that contains
@@ -95,7 +96,7 @@ createConnectionOAuthRequestParameters_clientParameters = Lens.lens (\CreateConn
 
 -- | The URL to the authorization endpoint when OAuth is specified as the
 -- authorization type.
-createConnectionOAuthRequestParameters_authorizationEndpoint :: Lens.Lens' CreateConnectionOAuthRequestParameters Core.Text
+createConnectionOAuthRequestParameters_authorizationEndpoint :: Lens.Lens' CreateConnectionOAuthRequestParameters Prelude.Text
 createConnectionOAuthRequestParameters_authorizationEndpoint = Lens.lens (\CreateConnectionOAuthRequestParameters' {authorizationEndpoint} -> authorizationEndpoint) (\s@CreateConnectionOAuthRequestParameters' {} a -> s {authorizationEndpoint = a} :: CreateConnectionOAuthRequestParameters)
 
 -- | The method to use for the authorization request.
@@ -103,11 +104,11 @@ createConnectionOAuthRequestParameters_httpMethod :: Lens.Lens' CreateConnection
 createConnectionOAuthRequestParameters_httpMethod = Lens.lens (\CreateConnectionOAuthRequestParameters' {httpMethod} -> httpMethod) (\s@CreateConnectionOAuthRequestParameters' {} a -> s {httpMethod = a} :: CreateConnectionOAuthRequestParameters)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateConnectionOAuthRequestParameters
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateConnectionOAuthRequestParameters
 
 instance
@@ -116,15 +117,15 @@ instance
   where
   toJSON CreateConnectionOAuthRequestParameters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("OAuthHttpParameters" Core..=)
-              Core.<$> oAuthHttpParameters,
-            Core.Just
+              Prelude.<$> oAuthHttpParameters,
+            Prelude.Just
               ("ClientParameters" Core..= clientParameters),
-            Core.Just
+            Prelude.Just
               ( "AuthorizationEndpoint"
                   Core..= authorizationEndpoint
               ),
-            Core.Just ("HttpMethod" Core..= httpMethod)
+            Prelude.Just ("HttpMethod" Core..= httpMethod)
           ]
       )

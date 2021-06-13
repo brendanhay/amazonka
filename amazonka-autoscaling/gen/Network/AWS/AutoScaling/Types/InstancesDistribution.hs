@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.InstancesDistribution where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instances distribution for an Auto Scaling group with a
 -- MixedInstancesPolicy.
@@ -46,13 +47,13 @@ data InstancesDistribution = InstancesDistribution'
     -- Scaling uses the On-Demand price as the maximum Spot price. To remove a
     -- value that you previously set, include the property but specify an empty
     -- string (\"\") for the value.
-    spotMaxPrice :: Core.Maybe Core.Text,
+    spotMaxPrice :: Prelude.Maybe Prelude.Text,
     -- | The number of Spot Instance pools across which to allocate your Spot
     -- Instances. The Spot pools are determined from the different instance
     -- types in the overrides. Valid only when the Spot allocation strategy is
     -- @lowest-price@. Value must be in the range of 1 to 20. Defaults to 2 if
     -- not specified.
-    spotInstancePools :: Core.Maybe Core.Int,
+    spotInstancePools :: Prelude.Maybe Prelude.Int,
     -- | Indicates how to allocate instances across Spot Instance pools. If the
     -- allocation strategy is @capacity-optimized@ (recommended), the Auto
     -- Scaling group launches instances using Spot pools that are optimally
@@ -61,13 +62,13 @@ data InstancesDistribution = InstancesDistribution'
     -- Spot pools with the lowest price, and evenly allocates your instances
     -- across the number of Spot pools that you specify. Defaults to
     -- @lowest-price@ if not specified.
-    spotAllocationStrategy :: Core.Maybe Core.Text,
+    spotAllocationStrategy :: Prelude.Maybe Prelude.Text,
     -- | Controls the percentages of On-Demand Instances and Spot Instances for
     -- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
     -- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
     -- Instances). Defaults to 100 if not specified. If set to 100, only
     -- On-Demand Instances are provisioned.
-    onDemandPercentageAboveBaseCapacity :: Core.Maybe Core.Int,
+    onDemandPercentageAboveBaseCapacity :: Prelude.Maybe Prelude.Int,
     -- | Indicates how to allocate instance types to fulfill On-Demand capacity.
     -- The only valid value is @prioritized@, which is also the default value.
     -- This strategy uses the order of instance types in the overrides to
@@ -76,16 +77,16 @@ data InstancesDistribution = InstancesDistribution'
     -- On-Demand capacity cannot be fulfilled using your highest priority
     -- instance, then the Auto Scaling groups launches the remaining capacity
     -- using the second priority instance type, and so on.
-    onDemandAllocationStrategy :: Core.Maybe Core.Text,
+    onDemandAllocationStrategy :: Prelude.Maybe Prelude.Text,
     -- | The minimum amount of the Auto Scaling group\'s capacity that must be
     -- fulfilled by On-Demand Instances. This base portion is provisioned first
     -- as your group scales. Defaults to 0 if not specified. If you specify
     -- weights for the instance types in the overrides, set the value of
     -- @OnDemandBaseCapacity@ in terms of the number of capacity units, and not
     -- the number of instances.
-    onDemandBaseCapacity :: Core.Maybe Core.Int
+    onDemandBaseCapacity :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstancesDistribution' with all optional fields omitted.
@@ -141,12 +142,14 @@ newInstancesDistribution ::
   InstancesDistribution
 newInstancesDistribution =
   InstancesDistribution'
-    { spotMaxPrice = Core.Nothing,
-      spotInstancePools = Core.Nothing,
-      spotAllocationStrategy = Core.Nothing,
-      onDemandPercentageAboveBaseCapacity = Core.Nothing,
-      onDemandAllocationStrategy = Core.Nothing,
-      onDemandBaseCapacity = Core.Nothing
+    { spotMaxPrice =
+        Prelude.Nothing,
+      spotInstancePools = Prelude.Nothing,
+      spotAllocationStrategy = Prelude.Nothing,
+      onDemandPercentageAboveBaseCapacity =
+        Prelude.Nothing,
+      onDemandAllocationStrategy = Prelude.Nothing,
+      onDemandBaseCapacity = Prelude.Nothing
     }
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
@@ -154,7 +157,7 @@ newInstancesDistribution =
 -- Scaling uses the On-Demand price as the maximum Spot price. To remove a
 -- value that you previously set, include the property but specify an empty
 -- string (\"\") for the value.
-instancesDistribution_spotMaxPrice :: Lens.Lens' InstancesDistribution (Core.Maybe Core.Text)
+instancesDistribution_spotMaxPrice :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMaxPrice} -> spotMaxPrice) (\s@InstancesDistribution' {} a -> s {spotMaxPrice = a} :: InstancesDistribution)
 
 -- | The number of Spot Instance pools across which to allocate your Spot
@@ -162,7 +165,7 @@ instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMax
 -- types in the overrides. Valid only when the Spot allocation strategy is
 -- @lowest-price@. Value must be in the range of 1 to 20. Defaults to 2 if
 -- not specified.
-instancesDistribution_spotInstancePools :: Lens.Lens' InstancesDistribution (Core.Maybe Core.Int)
+instancesDistribution_spotInstancePools :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
 instancesDistribution_spotInstancePools = Lens.lens (\InstancesDistribution' {spotInstancePools} -> spotInstancePools) (\s@InstancesDistribution' {} a -> s {spotInstancePools = a} :: InstancesDistribution)
 
 -- | Indicates how to allocate instances across Spot Instance pools. If the
@@ -173,7 +176,7 @@ instancesDistribution_spotInstancePools = Lens.lens (\InstancesDistribution' {sp
 -- Spot pools with the lowest price, and evenly allocates your instances
 -- across the number of Spot pools that you specify. Defaults to
 -- @lowest-price@ if not specified.
-instancesDistribution_spotAllocationStrategy :: Lens.Lens' InstancesDistribution (Core.Maybe Core.Text)
+instancesDistribution_spotAllocationStrategy :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_spotAllocationStrategy = Lens.lens (\InstancesDistribution' {spotAllocationStrategy} -> spotAllocationStrategy) (\s@InstancesDistribution' {} a -> s {spotAllocationStrategy = a} :: InstancesDistribution)
 
 -- | Controls the percentages of On-Demand Instances and Spot Instances for
@@ -181,7 +184,7 @@ instancesDistribution_spotAllocationStrategy = Lens.lens (\InstancesDistribution
 -- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
 -- Instances). Defaults to 100 if not specified. If set to 100, only
 -- On-Demand Instances are provisioned.
-instancesDistribution_onDemandPercentageAboveBaseCapacity :: Lens.Lens' InstancesDistribution (Core.Maybe Core.Int)
+instancesDistribution_onDemandPercentageAboveBaseCapacity :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
 instancesDistribution_onDemandPercentageAboveBaseCapacity = Lens.lens (\InstancesDistribution' {onDemandPercentageAboveBaseCapacity} -> onDemandPercentageAboveBaseCapacity) (\s@InstancesDistribution' {} a -> s {onDemandPercentageAboveBaseCapacity = a} :: InstancesDistribution)
 
 -- | Indicates how to allocate instance types to fulfill On-Demand capacity.
@@ -192,7 +195,7 @@ instancesDistribution_onDemandPercentageAboveBaseCapacity = Lens.lens (\Instance
 -- On-Demand capacity cannot be fulfilled using your highest priority
 -- instance, then the Auto Scaling groups launches the remaining capacity
 -- using the second priority instance type, and so on.
-instancesDistribution_onDemandAllocationStrategy :: Lens.Lens' InstancesDistribution (Core.Maybe Core.Text)
+instancesDistribution_onDemandAllocationStrategy :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_onDemandAllocationStrategy = Lens.lens (\InstancesDistribution' {onDemandAllocationStrategy} -> onDemandAllocationStrategy) (\s@InstancesDistribution' {} a -> s {onDemandAllocationStrategy = a} :: InstancesDistribution)
 
 -- | The minimum amount of the Auto Scaling group\'s capacity that must be
@@ -201,26 +204,26 @@ instancesDistribution_onDemandAllocationStrategy = Lens.lens (\InstancesDistribu
 -- weights for the instance types in the overrides, set the value of
 -- @OnDemandBaseCapacity@ in terms of the number of capacity units, and not
 -- the number of instances.
-instancesDistribution_onDemandBaseCapacity :: Lens.Lens' InstancesDistribution (Core.Maybe Core.Int)
+instancesDistribution_onDemandBaseCapacity :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
 instancesDistribution_onDemandBaseCapacity = Lens.lens (\InstancesDistribution' {onDemandBaseCapacity} -> onDemandBaseCapacity) (\s@InstancesDistribution' {} a -> s {onDemandBaseCapacity = a} :: InstancesDistribution)
 
 instance Core.FromXML InstancesDistribution where
   parseXML x =
     InstancesDistribution'
-      Core.<$> (x Core..@? "SpotMaxPrice")
-      Core.<*> (x Core..@? "SpotInstancePools")
-      Core.<*> (x Core..@? "SpotAllocationStrategy")
-      Core.<*> (x Core..@? "OnDemandPercentageAboveBaseCapacity")
-      Core.<*> (x Core..@? "OnDemandAllocationStrategy")
-      Core.<*> (x Core..@? "OnDemandBaseCapacity")
+      Prelude.<$> (x Core..@? "SpotMaxPrice")
+      Prelude.<*> (x Core..@? "SpotInstancePools")
+      Prelude.<*> (x Core..@? "SpotAllocationStrategy")
+      Prelude.<*> (x Core..@? "OnDemandPercentageAboveBaseCapacity")
+      Prelude.<*> (x Core..@? "OnDemandAllocationStrategy")
+      Prelude.<*> (x Core..@? "OnDemandBaseCapacity")
 
-instance Core.Hashable InstancesDistribution
+instance Prelude.Hashable InstancesDistribution
 
-instance Core.NFData InstancesDistribution
+instance Prelude.NFData InstancesDistribution
 
 instance Core.ToQuery InstancesDistribution where
   toQuery InstancesDistribution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SpotMaxPrice" Core.=: spotMaxPrice,
         "SpotInstancePools" Core.=: spotInstancePools,
         "SpotAllocationStrategy"

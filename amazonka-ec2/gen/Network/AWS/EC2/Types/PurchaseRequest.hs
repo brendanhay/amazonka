@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.PurchaseRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a request to purchase Scheduled Instances.
 --
 -- /See:/ 'newPurchaseRequest' smart constructor.
 data PurchaseRequest = PurchaseRequest'
   { -- | The number of instances.
-    instanceCount :: Core.Int,
+    instanceCount :: Prelude.Int,
     -- | The purchase token.
-    purchaseToken :: Core.Text
+    purchaseToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PurchaseRequest' with all optional fields omitted.
@@ -47,9 +48,9 @@ data PurchaseRequest = PurchaseRequest'
 -- 'purchaseToken', 'purchaseRequest_purchaseToken' - The purchase token.
 newPurchaseRequest ::
   -- | 'instanceCount'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'purchaseToken'
-  Core.Text ->
+  Prelude.Text ->
   PurchaseRequest
 newPurchaseRequest pInstanceCount_ pPurchaseToken_ =
   PurchaseRequest'
@@ -58,20 +59,20 @@ newPurchaseRequest pInstanceCount_ pPurchaseToken_ =
     }
 
 -- | The number of instances.
-purchaseRequest_instanceCount :: Lens.Lens' PurchaseRequest Core.Int
+purchaseRequest_instanceCount :: Lens.Lens' PurchaseRequest Prelude.Int
 purchaseRequest_instanceCount = Lens.lens (\PurchaseRequest' {instanceCount} -> instanceCount) (\s@PurchaseRequest' {} a -> s {instanceCount = a} :: PurchaseRequest)
 
 -- | The purchase token.
-purchaseRequest_purchaseToken :: Lens.Lens' PurchaseRequest Core.Text
+purchaseRequest_purchaseToken :: Lens.Lens' PurchaseRequest Prelude.Text
 purchaseRequest_purchaseToken = Lens.lens (\PurchaseRequest' {purchaseToken} -> purchaseToken) (\s@PurchaseRequest' {} a -> s {purchaseToken = a} :: PurchaseRequest)
 
-instance Core.Hashable PurchaseRequest
+instance Prelude.Hashable PurchaseRequest
 
-instance Core.NFData PurchaseRequest
+instance Prelude.NFData PurchaseRequest
 
 instance Core.ToQuery PurchaseRequest where
   toQuery PurchaseRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "InstanceCount" Core.=: instanceCount,
         "PurchaseToken" Core.=: purchaseToken
       ]

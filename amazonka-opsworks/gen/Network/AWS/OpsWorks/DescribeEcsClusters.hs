@@ -60,6 +60,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,20 +72,20 @@ data DescribeEcsClusters = DescribeEcsClusters'
     -- again and assign that token to the request object\'s @NextToken@
     -- parameter. If there are no remaining results, the previous response
     -- object\'s @NextToken@ parameter is set to @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | To receive a paginated response, use this parameter to specify the
     -- maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | A stack ID. @DescribeEcsClusters@ returns a description of the cluster
     -- that is registered with the stack.
-    stackId :: Core.Maybe Core.Text,
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | A list of ARNs, one for each cluster to be described.
-    ecsClusterArns :: Core.Maybe [Core.Text]
+    ecsClusterArns :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEcsClusters' with all optional fields omitted.
@@ -115,10 +116,10 @@ newDescribeEcsClusters ::
   DescribeEcsClusters
 newDescribeEcsClusters =
   DescribeEcsClusters'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      stackId = Core.Nothing,
-      ecsClusterArns = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      stackId = Prelude.Nothing,
+      ecsClusterArns = Prelude.Nothing
     }
 
 -- | If the previous paginated request did not return all of the remaining
@@ -127,7 +128,7 @@ newDescribeEcsClusters =
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If there are no remaining results, the previous response
 -- object\'s @NextToken@ parameter is set to @null@.
-describeEcsClusters_nextToken :: Lens.Lens' DescribeEcsClusters (Core.Maybe Core.Text)
+describeEcsClusters_nextToken :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe Prelude.Text)
 describeEcsClusters_nextToken = Lens.lens (\DescribeEcsClusters' {nextToken} -> nextToken) (\s@DescribeEcsClusters' {} a -> s {nextToken = a} :: DescribeEcsClusters)
 
 -- | To receive a paginated response, use this parameter to specify the
@@ -135,39 +136,39 @@ describeEcsClusters_nextToken = Lens.lens (\DescribeEcsClusters' {nextToken} -> 
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
-describeEcsClusters_maxResults :: Lens.Lens' DescribeEcsClusters (Core.Maybe Core.Int)
+describeEcsClusters_maxResults :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe Prelude.Int)
 describeEcsClusters_maxResults = Lens.lens (\DescribeEcsClusters' {maxResults} -> maxResults) (\s@DescribeEcsClusters' {} a -> s {maxResults = a} :: DescribeEcsClusters)
 
 -- | A stack ID. @DescribeEcsClusters@ returns a description of the cluster
 -- that is registered with the stack.
-describeEcsClusters_stackId :: Lens.Lens' DescribeEcsClusters (Core.Maybe Core.Text)
+describeEcsClusters_stackId :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe Prelude.Text)
 describeEcsClusters_stackId = Lens.lens (\DescribeEcsClusters' {stackId} -> stackId) (\s@DescribeEcsClusters' {} a -> s {stackId = a} :: DescribeEcsClusters)
 
 -- | A list of ARNs, one for each cluster to be described.
-describeEcsClusters_ecsClusterArns :: Lens.Lens' DescribeEcsClusters (Core.Maybe [Core.Text])
-describeEcsClusters_ecsClusterArns = Lens.lens (\DescribeEcsClusters' {ecsClusterArns} -> ecsClusterArns) (\s@DescribeEcsClusters' {} a -> s {ecsClusterArns = a} :: DescribeEcsClusters) Core.. Lens.mapping Lens._Coerce
+describeEcsClusters_ecsClusterArns :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe [Prelude.Text])
+describeEcsClusters_ecsClusterArns = Lens.lens (\DescribeEcsClusters' {ecsClusterArns} -> ecsClusterArns) (\s@DescribeEcsClusters' {} a -> s {ecsClusterArns = a} :: DescribeEcsClusters) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeEcsClusters where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeEcsClustersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEcsClustersResponse_ecsClusters
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeEcsClusters_nextToken
+          Prelude.& describeEcsClusters_nextToken
           Lens..~ rs
           Lens.^? describeEcsClustersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEcsClusters where
   type
@@ -178,44 +179,47 @@ instance Core.AWSRequest DescribeEcsClusters where
     Response.receiveJSON
       ( \s h x ->
           DescribeEcsClustersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "EcsClusters" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "EcsClusters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEcsClusters
+instance Prelude.Hashable DescribeEcsClusters
 
-instance Core.NFData DescribeEcsClusters
+instance Prelude.NFData DescribeEcsClusters
 
 instance Core.ToHeaders DescribeEcsClusters where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribeEcsClusters" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEcsClusters where
   toJSON DescribeEcsClusters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("StackId" Core..=) Core.<$> stackId,
-            ("EcsClusterArns" Core..=) Core.<$> ecsClusterArns
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("StackId" Core..=) Prelude.<$> stackId,
+            ("EcsClusterArns" Core..=)
+              Prelude.<$> ecsClusterArns
           ]
       )
 
 instance Core.ToPath DescribeEcsClusters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEcsClusters where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeEcsClusters@ request.
 --
@@ -226,13 +230,13 @@ data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
     -- object\'s @NextToken@ parameter to retrieve the next set of results. If
     -- the previous paginated request returned all of the remaining results,
     -- this parameter is set to @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @EcsCluster@ objects containing the cluster descriptions.
-    ecsClusters :: Core.Maybe [EcsCluster],
+    ecsClusters :: Prelude.Maybe [EcsCluster],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEcsClustersResponse' with all optional fields omitted.
@@ -253,13 +257,13 @@ data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
 -- 'httpStatus', 'describeEcsClustersResponse_httpStatus' - The response's http status code.
 newDescribeEcsClustersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEcsClustersResponse
 newDescribeEcsClustersResponse pHttpStatus_ =
   DescribeEcsClustersResponse'
     { nextToken =
-        Core.Nothing,
-      ecsClusters = Core.Nothing,
+        Prelude.Nothing,
+      ecsClusters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -268,15 +272,15 @@ newDescribeEcsClustersResponse pHttpStatus_ =
 -- object\'s @NextToken@ parameter to retrieve the next set of results. If
 -- the previous paginated request returned all of the remaining results,
 -- this parameter is set to @null@.
-describeEcsClustersResponse_nextToken :: Lens.Lens' DescribeEcsClustersResponse (Core.Maybe Core.Text)
+describeEcsClustersResponse_nextToken :: Lens.Lens' DescribeEcsClustersResponse (Prelude.Maybe Prelude.Text)
 describeEcsClustersResponse_nextToken = Lens.lens (\DescribeEcsClustersResponse' {nextToken} -> nextToken) (\s@DescribeEcsClustersResponse' {} a -> s {nextToken = a} :: DescribeEcsClustersResponse)
 
 -- | A list of @EcsCluster@ objects containing the cluster descriptions.
-describeEcsClustersResponse_ecsClusters :: Lens.Lens' DescribeEcsClustersResponse (Core.Maybe [EcsCluster])
-describeEcsClustersResponse_ecsClusters = Lens.lens (\DescribeEcsClustersResponse' {ecsClusters} -> ecsClusters) (\s@DescribeEcsClustersResponse' {} a -> s {ecsClusters = a} :: DescribeEcsClustersResponse) Core.. Lens.mapping Lens._Coerce
+describeEcsClustersResponse_ecsClusters :: Lens.Lens' DescribeEcsClustersResponse (Prelude.Maybe [EcsCluster])
+describeEcsClustersResponse_ecsClusters = Lens.lens (\DescribeEcsClustersResponse' {ecsClusters} -> ecsClusters) (\s@DescribeEcsClustersResponse' {} a -> s {ecsClusters = a} :: DescribeEcsClustersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEcsClustersResponse_httpStatus :: Lens.Lens' DescribeEcsClustersResponse Core.Int
+describeEcsClustersResponse_httpStatus :: Lens.Lens' DescribeEcsClustersResponse Prelude.Int
 describeEcsClustersResponse_httpStatus = Lens.lens (\DescribeEcsClustersResponse' {httpStatus} -> httpStatus) (\s@DescribeEcsClustersResponse' {} a -> s {httpStatus = a} :: DescribeEcsClustersResponse)
 
-instance Core.NFData DescribeEcsClustersResponse
+instance Prelude.NFData DescribeEcsClustersResponse

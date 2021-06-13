@@ -41,15 +41,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteContact' smart constructor.
 data DeleteContact = DeleteContact'
   { -- | The ARN of the contact to delete.
-    contactArn :: Core.Text
+    contactArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteContact' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteContact = DeleteContact'
 -- 'contactArn', 'deleteContact_contactArn' - The ARN of the contact to delete.
 newDeleteContact ::
   -- | 'contactArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteContact
 newDeleteContact pContactArn_ =
   DeleteContact' {contactArn = pContactArn_}
 
 -- | The ARN of the contact to delete.
-deleteContact_contactArn :: Lens.Lens' DeleteContact Core.Text
+deleteContact_contactArn :: Lens.Lens' DeleteContact Prelude.Text
 deleteContact_contactArn = Lens.lens (\DeleteContact' {contactArn} -> contactArn) (\s@DeleteContact' {} a -> s {contactArn = a} :: DeleteContact)
 
 instance Core.AWSRequest DeleteContact where
@@ -80,45 +81,47 @@ instance Core.AWSRequest DeleteContact where
     Response.receiveEmpty
       ( \s h x ->
           DeleteContactResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteContact
+instance Prelude.Hashable DeleteContact
 
-instance Core.NFData DeleteContact
+instance Prelude.NFData DeleteContact
 
 instance Core.ToHeaders DeleteContact where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.DeleteContact" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteContact where
   toJSON DeleteContact' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContactArn" Core..= contactArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ContactArn" Core..= contactArn)]
       )
 
 instance Core.ToPath DeleteContact where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteContact where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContactResponse' smart constructor.
 data DeleteContactResponse = DeleteContactResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteContactResponse' with all optional fields omitted.
@@ -131,13 +134,13 @@ data DeleteContactResponse = DeleteContactResponse'
 -- 'httpStatus', 'deleteContactResponse_httpStatus' - The response's http status code.
 newDeleteContactResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteContactResponse
 newDeleteContactResponse pHttpStatus_ =
   DeleteContactResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteContactResponse_httpStatus :: Lens.Lens' DeleteContactResponse Core.Int
+deleteContactResponse_httpStatus :: Lens.Lens' DeleteContactResponse Prelude.Int
 deleteContactResponse_httpStatus = Lens.lens (\DeleteContactResponse' {httpStatus} -> httpStatus) (\s@DeleteContactResponse' {} a -> s {httpStatus = a} :: DeleteContactResponse)
 
-instance Core.NFData DeleteContactResponse
+instance Prelude.NFData DeleteContactResponse

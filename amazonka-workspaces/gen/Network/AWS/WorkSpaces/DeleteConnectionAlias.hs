@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -61,9 +62,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newDeleteConnectionAlias' smart constructor.
 data DeleteConnectionAlias = DeleteConnectionAlias'
   { -- | The identifier of the connection alias to delete.
-    aliasId :: Core.Text
+    aliasId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConnectionAlias' with all optional fields omitted.
@@ -76,13 +77,13 @@ data DeleteConnectionAlias = DeleteConnectionAlias'
 -- 'aliasId', 'deleteConnectionAlias_aliasId' - The identifier of the connection alias to delete.
 newDeleteConnectionAlias ::
   -- | 'aliasId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConnectionAlias
 newDeleteConnectionAlias pAliasId_ =
   DeleteConnectionAlias' {aliasId = pAliasId_}
 
 -- | The identifier of the connection alias to delete.
-deleteConnectionAlias_aliasId :: Lens.Lens' DeleteConnectionAlias Core.Text
+deleteConnectionAlias_aliasId :: Lens.Lens' DeleteConnectionAlias Prelude.Text
 deleteConnectionAlias_aliasId = Lens.lens (\DeleteConnectionAlias' {aliasId} -> aliasId) (\s@DeleteConnectionAlias' {} a -> s {aliasId = a} :: DeleteConnectionAlias)
 
 instance Core.AWSRequest DeleteConnectionAlias where
@@ -94,45 +95,47 @@ instance Core.AWSRequest DeleteConnectionAlias where
     Response.receiveEmpty
       ( \s h x ->
           DeleteConnectionAliasResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteConnectionAlias
+instance Prelude.Hashable DeleteConnectionAlias
 
-instance Core.NFData DeleteConnectionAlias
+instance Prelude.NFData DeleteConnectionAlias
 
 instance Core.ToHeaders DeleteConnectionAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DeleteConnectionAlias" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteConnectionAlias where
   toJSON DeleteConnectionAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AliasId" Core..= aliasId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("AliasId" Core..= aliasId)]
       )
 
 instance Core.ToPath DeleteConnectionAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteConnectionAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConnectionAliasResponse' smart constructor.
 data DeleteConnectionAliasResponse = DeleteConnectionAliasResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConnectionAliasResponse' with all optional fields omitted.
@@ -145,7 +148,7 @@ data DeleteConnectionAliasResponse = DeleteConnectionAliasResponse'
 -- 'httpStatus', 'deleteConnectionAliasResponse_httpStatus' - The response's http status code.
 newDeleteConnectionAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteConnectionAliasResponse
 newDeleteConnectionAliasResponse pHttpStatus_ =
   DeleteConnectionAliasResponse'
@@ -154,7 +157,7 @@ newDeleteConnectionAliasResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteConnectionAliasResponse_httpStatus :: Lens.Lens' DeleteConnectionAliasResponse Core.Int
+deleteConnectionAliasResponse_httpStatus :: Lens.Lens' DeleteConnectionAliasResponse Prelude.Int
 deleteConnectionAliasResponse_httpStatus = Lens.lens (\DeleteConnectionAliasResponse' {httpStatus} -> httpStatus) (\s@DeleteConnectionAliasResponse' {} a -> s {httpStatus = a} :: DeleteConnectionAliasResponse)
 
-instance Core.NFData DeleteConnectionAliasResponse
+instance Prelude.NFData DeleteConnectionAliasResponse

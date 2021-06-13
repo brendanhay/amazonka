@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.LabelingJobOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the location of the output produced by the labeling job.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data LabelingJobOutput = LabelingJobOutput'
   { -- | The Amazon Resource Name (ARN) for the most recent Amazon SageMaker
     -- model trained as part of automated data labeling.
-    finalActiveLearningModelArn :: Core.Maybe Core.Text,
+    finalActiveLearningModelArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket location of the manifest file for labeled data.
-    outputDatasetS3Uri :: Core.Text
+    outputDatasetS3Uri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelingJobOutput' with all optional fields omitted.
@@ -48,22 +49,22 @@ data LabelingJobOutput = LabelingJobOutput'
 -- 'outputDatasetS3Uri', 'labelingJobOutput_outputDatasetS3Uri' - The Amazon S3 bucket location of the manifest file for labeled data.
 newLabelingJobOutput ::
   -- | 'outputDatasetS3Uri'
-  Core.Text ->
+  Prelude.Text ->
   LabelingJobOutput
 newLabelingJobOutput pOutputDatasetS3Uri_ =
   LabelingJobOutput'
     { finalActiveLearningModelArn =
-        Core.Nothing,
+        Prelude.Nothing,
       outputDatasetS3Uri = pOutputDatasetS3Uri_
     }
 
 -- | The Amazon Resource Name (ARN) for the most recent Amazon SageMaker
 -- model trained as part of automated data labeling.
-labelingJobOutput_finalActiveLearningModelArn :: Lens.Lens' LabelingJobOutput (Core.Maybe Core.Text)
+labelingJobOutput_finalActiveLearningModelArn :: Lens.Lens' LabelingJobOutput (Prelude.Maybe Prelude.Text)
 labelingJobOutput_finalActiveLearningModelArn = Lens.lens (\LabelingJobOutput' {finalActiveLearningModelArn} -> finalActiveLearningModelArn) (\s@LabelingJobOutput' {} a -> s {finalActiveLearningModelArn = a} :: LabelingJobOutput)
 
 -- | The Amazon S3 bucket location of the manifest file for labeled data.
-labelingJobOutput_outputDatasetS3Uri :: Lens.Lens' LabelingJobOutput Core.Text
+labelingJobOutput_outputDatasetS3Uri :: Lens.Lens' LabelingJobOutput Prelude.Text
 labelingJobOutput_outputDatasetS3Uri = Lens.lens (\LabelingJobOutput' {outputDatasetS3Uri} -> outputDatasetS3Uri) (\s@LabelingJobOutput' {} a -> s {outputDatasetS3Uri = a} :: LabelingJobOutput)
 
 instance Core.FromJSON LabelingJobOutput where
@@ -72,10 +73,10 @@ instance Core.FromJSON LabelingJobOutput where
       "LabelingJobOutput"
       ( \x ->
           LabelingJobOutput'
-            Core.<$> (x Core..:? "FinalActiveLearningModelArn")
-            Core.<*> (x Core..: "OutputDatasetS3Uri")
+            Prelude.<$> (x Core..:? "FinalActiveLearningModelArn")
+            Prelude.<*> (x Core..: "OutputDatasetS3Uri")
       )
 
-instance Core.Hashable LabelingJobOutput
+instance Prelude.Hashable LabelingJobOutput
 
-instance Core.NFData LabelingJobOutput
+instance Prelude.NFData LabelingJobOutput

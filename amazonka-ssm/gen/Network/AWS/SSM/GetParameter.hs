@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,11 +52,11 @@ import Network.AWS.SSM.Types
 data GetParameter = GetParameter'
   { -- | Return decrypted values for secure string parameters. This flag is
     -- ignored for String and StringList parameter types.
-    withDecryption :: Core.Maybe Core.Bool,
+    withDecryption :: Prelude.Maybe Prelude.Bool,
     -- | The name of the parameter you want to query.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParameter' with all optional fields omitted.
@@ -71,21 +72,21 @@ data GetParameter = GetParameter'
 -- 'name', 'getParameter_name' - The name of the parameter you want to query.
 newGetParameter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetParameter
 newGetParameter pName_ =
   GetParameter'
-    { withDecryption = Core.Nothing,
+    { withDecryption = Prelude.Nothing,
       name = pName_
     }
 
 -- | Return decrypted values for secure string parameters. This flag is
 -- ignored for String and StringList parameter types.
-getParameter_withDecryption :: Lens.Lens' GetParameter (Core.Maybe Core.Bool)
+getParameter_withDecryption :: Lens.Lens' GetParameter (Prelude.Maybe Prelude.Bool)
 getParameter_withDecryption = Lens.lens (\GetParameter' {withDecryption} -> withDecryption) (\s@GetParameter' {} a -> s {withDecryption = a} :: GetParameter)
 
 -- | The name of the parameter you want to query.
-getParameter_name :: Lens.Lens' GetParameter Core.Text
+getParameter_name :: Lens.Lens' GetParameter Prelude.Text
 getParameter_name = Lens.lens (\GetParameter' {name} -> name) (\s@GetParameter' {} a -> s {name = a} :: GetParameter)
 
 instance Core.AWSRequest GetParameter where
@@ -95,48 +96,51 @@ instance Core.AWSRequest GetParameter where
     Response.receiveJSON
       ( \s h x ->
           GetParameterResponse'
-            Core.<$> (x Core..?> "Parameter")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Parameter")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetParameter
+instance Prelude.Hashable GetParameter
 
-instance Core.NFData GetParameter
+instance Prelude.NFData GetParameter
 
 instance Core.ToHeaders GetParameter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetParameter" :: Core.ByteString),
+              Core.=# ("AmazonSSM.GetParameter" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetParameter where
   toJSON GetParameter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("WithDecryption" Core..=) Core.<$> withDecryption,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("WithDecryption" Core..=)
+              Prelude.<$> withDecryption,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath GetParameter where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetParameter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParameterResponse' smart constructor.
 data GetParameterResponse = GetParameterResponse'
   { -- | Information about a parameter.
-    parameter :: Core.Maybe Parameter,
+    parameter :: Prelude.Maybe Parameter,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParameterResponse' with all optional fields omitted.
@@ -151,20 +155,20 @@ data GetParameterResponse = GetParameterResponse'
 -- 'httpStatus', 'getParameterResponse_httpStatus' - The response's http status code.
 newGetParameterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetParameterResponse
 newGetParameterResponse pHttpStatus_ =
   GetParameterResponse'
-    { parameter = Core.Nothing,
+    { parameter = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about a parameter.
-getParameterResponse_parameter :: Lens.Lens' GetParameterResponse (Core.Maybe Parameter)
+getParameterResponse_parameter :: Lens.Lens' GetParameterResponse (Prelude.Maybe Parameter)
 getParameterResponse_parameter = Lens.lens (\GetParameterResponse' {parameter} -> parameter) (\s@GetParameterResponse' {} a -> s {parameter = a} :: GetParameterResponse)
 
 -- | The response's http status code.
-getParameterResponse_httpStatus :: Lens.Lens' GetParameterResponse Core.Int
+getParameterResponse_httpStatus :: Lens.Lens' GetParameterResponse Prelude.Int
 getParameterResponse_httpStatus = Lens.lens (\GetParameterResponse' {httpStatus} -> httpStatus) (\s@GetParameterResponse' {} a -> s {httpStatus = a} :: GetParameterResponse)
 
-instance Core.NFData GetParameterResponse
+instance Prelude.NFData GetParameterResponse

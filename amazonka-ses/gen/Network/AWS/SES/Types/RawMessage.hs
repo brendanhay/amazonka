@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.RawMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the raw data of the message.
 --
@@ -48,7 +49,7 @@ data RawMessage = RawMessage'
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.
     data' :: Core.Base64
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RawMessage' with all optional fields omitted.
@@ -84,7 +85,7 @@ data RawMessage = RawMessage'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newRawMessage ::
   -- | 'data''
-  Core.ByteString ->
+  Prelude.ByteString ->
   RawMessage
 newRawMessage pData_ =
   RawMessage' {data' = Core._Base64 Lens.# pData_}
@@ -113,13 +114,13 @@ newRawMessage pData_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-rawMessage_data :: Lens.Lens' RawMessage Core.ByteString
-rawMessage_data = Lens.lens (\RawMessage' {data'} -> data') (\s@RawMessage' {} a -> s {data' = a} :: RawMessage) Core.. Core._Base64
+rawMessage_data :: Lens.Lens' RawMessage Prelude.ByteString
+rawMessage_data = Lens.lens (\RawMessage' {data'} -> data') (\s@RawMessage' {} a -> s {data' = a} :: RawMessage) Prelude.. Core._Base64
 
-instance Core.Hashable RawMessage
+instance Prelude.Hashable RawMessage
 
-instance Core.NFData RawMessage
+instance Prelude.NFData RawMessage
 
 instance Core.ToQuery RawMessage where
   toQuery RawMessage' {..} =
-    Core.mconcat ["Data" Core.=: data']
+    Prelude.mconcat ["Data" Core.=: data']

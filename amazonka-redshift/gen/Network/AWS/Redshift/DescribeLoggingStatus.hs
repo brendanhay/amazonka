@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,9 +58,9 @@ data DescribeLoggingStatus = DescribeLoggingStatus'
   { -- | The identifier of the cluster from which to get the logging status.
     --
     -- Example: @examplecluster@
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLoggingStatus' with all optional fields omitted.
@@ -74,7 +75,7 @@ data DescribeLoggingStatus = DescribeLoggingStatus'
 -- Example: @examplecluster@
 newDescribeLoggingStatus ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DescribeLoggingStatus
 newDescribeLoggingStatus pClusterIdentifier_ =
   DescribeLoggingStatus'
@@ -85,7 +86,7 @@ newDescribeLoggingStatus pClusterIdentifier_ =
 -- | The identifier of the cluster from which to get the logging status.
 --
 -- Example: @examplecluster@
-describeLoggingStatus_clusterIdentifier :: Lens.Lens' DescribeLoggingStatus Core.Text
+describeLoggingStatus_clusterIdentifier :: Lens.Lens' DescribeLoggingStatus Prelude.Text
 describeLoggingStatus_clusterIdentifier = Lens.lens (\DescribeLoggingStatus' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeLoggingStatus' {} a -> s {clusterIdentifier = a} :: DescribeLoggingStatus)
 
 instance Core.AWSRequest DescribeLoggingStatus where
@@ -98,21 +99,22 @@ instance Core.AWSRequest DescribeLoggingStatus where
       "DescribeLoggingStatusResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable DescribeLoggingStatus
+instance Prelude.Hashable DescribeLoggingStatus
 
-instance Core.NFData DescribeLoggingStatus
+instance Prelude.NFData DescribeLoggingStatus
 
 instance Core.ToHeaders DescribeLoggingStatus where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeLoggingStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeLoggingStatus where
   toQuery DescribeLoggingStatus' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeLoggingStatus" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DescribeLoggingStatus" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]

@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.JobProcessDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The job process details.
 --
@@ -29,27 +30,27 @@ data JobProcessDetails = JobProcessDetails'
   { -- | The target devices to which the job execution is being rolled out. This
     -- value will be null after the job execution has finished rolling out to
     -- all the target devices.
-    processingTargets :: Core.Maybe [Core.Text],
+    processingTargets :: Prelude.Maybe [Prelude.Text],
     -- | The number of things which successfully completed the job.
-    numberOfSucceededThings :: Core.Maybe Core.Int,
+    numberOfSucceededThings :: Prelude.Maybe Prelude.Int,
     -- | The number of things that are awaiting execution of the job.
-    numberOfQueuedThings :: Core.Maybe Core.Int,
+    numberOfQueuedThings :: Prelude.Maybe Prelude.Int,
     -- | The number of things that are no longer scheduled to execute the job
     -- because they have been deleted or have been removed from the group that
     -- was a target of the job.
-    numberOfRemovedThings :: Core.Maybe Core.Int,
+    numberOfRemovedThings :: Prelude.Maybe Prelude.Int,
     -- | The number of things currently executing the job.
-    numberOfInProgressThings :: Core.Maybe Core.Int,
+    numberOfInProgressThings :: Prelude.Maybe Prelude.Int,
     -- | The number of things that failed executing the job.
-    numberOfFailedThings :: Core.Maybe Core.Int,
+    numberOfFailedThings :: Prelude.Maybe Prelude.Int,
     -- | The number of things that rejected the job.
-    numberOfRejectedThings :: Core.Maybe Core.Int,
+    numberOfRejectedThings :: Prelude.Maybe Prelude.Int,
     -- | The number of things that cancelled the job.
-    numberOfCanceledThings :: Core.Maybe Core.Int,
+    numberOfCanceledThings :: Prelude.Maybe Prelude.Int,
     -- | The number of things whose job execution status is @TIMED_OUT@.
-    numberOfTimedOutThings :: Core.Maybe Core.Int
+    numberOfTimedOutThings :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobProcessDetails' with all optional fields omitted.
@@ -85,55 +86,55 @@ newJobProcessDetails ::
 newJobProcessDetails =
   JobProcessDetails'
     { processingTargets =
-        Core.Nothing,
-      numberOfSucceededThings = Core.Nothing,
-      numberOfQueuedThings = Core.Nothing,
-      numberOfRemovedThings = Core.Nothing,
-      numberOfInProgressThings = Core.Nothing,
-      numberOfFailedThings = Core.Nothing,
-      numberOfRejectedThings = Core.Nothing,
-      numberOfCanceledThings = Core.Nothing,
-      numberOfTimedOutThings = Core.Nothing
+        Prelude.Nothing,
+      numberOfSucceededThings = Prelude.Nothing,
+      numberOfQueuedThings = Prelude.Nothing,
+      numberOfRemovedThings = Prelude.Nothing,
+      numberOfInProgressThings = Prelude.Nothing,
+      numberOfFailedThings = Prelude.Nothing,
+      numberOfRejectedThings = Prelude.Nothing,
+      numberOfCanceledThings = Prelude.Nothing,
+      numberOfTimedOutThings = Prelude.Nothing
     }
 
 -- | The target devices to which the job execution is being rolled out. This
 -- value will be null after the job execution has finished rolling out to
 -- all the target devices.
-jobProcessDetails_processingTargets :: Lens.Lens' JobProcessDetails (Core.Maybe [Core.Text])
-jobProcessDetails_processingTargets = Lens.lens (\JobProcessDetails' {processingTargets} -> processingTargets) (\s@JobProcessDetails' {} a -> s {processingTargets = a} :: JobProcessDetails) Core.. Lens.mapping Lens._Coerce
+jobProcessDetails_processingTargets :: Lens.Lens' JobProcessDetails (Prelude.Maybe [Prelude.Text])
+jobProcessDetails_processingTargets = Lens.lens (\JobProcessDetails' {processingTargets} -> processingTargets) (\s@JobProcessDetails' {} a -> s {processingTargets = a} :: JobProcessDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of things which successfully completed the job.
-jobProcessDetails_numberOfSucceededThings :: Lens.Lens' JobProcessDetails (Core.Maybe Core.Int)
+jobProcessDetails_numberOfSucceededThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfSucceededThings = Lens.lens (\JobProcessDetails' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@JobProcessDetails' {} a -> s {numberOfSucceededThings = a} :: JobProcessDetails)
 
 -- | The number of things that are awaiting execution of the job.
-jobProcessDetails_numberOfQueuedThings :: Lens.Lens' JobProcessDetails (Core.Maybe Core.Int)
+jobProcessDetails_numberOfQueuedThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfQueuedThings = Lens.lens (\JobProcessDetails' {numberOfQueuedThings} -> numberOfQueuedThings) (\s@JobProcessDetails' {} a -> s {numberOfQueuedThings = a} :: JobProcessDetails)
 
 -- | The number of things that are no longer scheduled to execute the job
 -- because they have been deleted or have been removed from the group that
 -- was a target of the job.
-jobProcessDetails_numberOfRemovedThings :: Lens.Lens' JobProcessDetails (Core.Maybe Core.Int)
+jobProcessDetails_numberOfRemovedThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfRemovedThings = Lens.lens (\JobProcessDetails' {numberOfRemovedThings} -> numberOfRemovedThings) (\s@JobProcessDetails' {} a -> s {numberOfRemovedThings = a} :: JobProcessDetails)
 
 -- | The number of things currently executing the job.
-jobProcessDetails_numberOfInProgressThings :: Lens.Lens' JobProcessDetails (Core.Maybe Core.Int)
+jobProcessDetails_numberOfInProgressThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfInProgressThings = Lens.lens (\JobProcessDetails' {numberOfInProgressThings} -> numberOfInProgressThings) (\s@JobProcessDetails' {} a -> s {numberOfInProgressThings = a} :: JobProcessDetails)
 
 -- | The number of things that failed executing the job.
-jobProcessDetails_numberOfFailedThings :: Lens.Lens' JobProcessDetails (Core.Maybe Core.Int)
+jobProcessDetails_numberOfFailedThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfFailedThings = Lens.lens (\JobProcessDetails' {numberOfFailedThings} -> numberOfFailedThings) (\s@JobProcessDetails' {} a -> s {numberOfFailedThings = a} :: JobProcessDetails)
 
 -- | The number of things that rejected the job.
-jobProcessDetails_numberOfRejectedThings :: Lens.Lens' JobProcessDetails (Core.Maybe Core.Int)
+jobProcessDetails_numberOfRejectedThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfRejectedThings = Lens.lens (\JobProcessDetails' {numberOfRejectedThings} -> numberOfRejectedThings) (\s@JobProcessDetails' {} a -> s {numberOfRejectedThings = a} :: JobProcessDetails)
 
 -- | The number of things that cancelled the job.
-jobProcessDetails_numberOfCanceledThings :: Lens.Lens' JobProcessDetails (Core.Maybe Core.Int)
+jobProcessDetails_numberOfCanceledThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfCanceledThings = Lens.lens (\JobProcessDetails' {numberOfCanceledThings} -> numberOfCanceledThings) (\s@JobProcessDetails' {} a -> s {numberOfCanceledThings = a} :: JobProcessDetails)
 
 -- | The number of things whose job execution status is @TIMED_OUT@.
-jobProcessDetails_numberOfTimedOutThings :: Lens.Lens' JobProcessDetails (Core.Maybe Core.Int)
+jobProcessDetails_numberOfTimedOutThings :: Lens.Lens' JobProcessDetails (Prelude.Maybe Prelude.Int)
 jobProcessDetails_numberOfTimedOutThings = Lens.lens (\JobProcessDetails' {numberOfTimedOutThings} -> numberOfTimedOutThings) (\s@JobProcessDetails' {} a -> s {numberOfTimedOutThings = a} :: JobProcessDetails)
 
 instance Core.FromJSON JobProcessDetails where
@@ -142,17 +143,19 @@ instance Core.FromJSON JobProcessDetails where
       "JobProcessDetails"
       ( \x ->
           JobProcessDetails'
-            Core.<$> (x Core..:? "processingTargets" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "numberOfSucceededThings")
-            Core.<*> (x Core..:? "numberOfQueuedThings")
-            Core.<*> (x Core..:? "numberOfRemovedThings")
-            Core.<*> (x Core..:? "numberOfInProgressThings")
-            Core.<*> (x Core..:? "numberOfFailedThings")
-            Core.<*> (x Core..:? "numberOfRejectedThings")
-            Core.<*> (x Core..:? "numberOfCanceledThings")
-            Core.<*> (x Core..:? "numberOfTimedOutThings")
+            Prelude.<$> ( x Core..:? "processingTargets"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "numberOfSucceededThings")
+            Prelude.<*> (x Core..:? "numberOfQueuedThings")
+            Prelude.<*> (x Core..:? "numberOfRemovedThings")
+            Prelude.<*> (x Core..:? "numberOfInProgressThings")
+            Prelude.<*> (x Core..:? "numberOfFailedThings")
+            Prelude.<*> (x Core..:? "numberOfRejectedThings")
+            Prelude.<*> (x Core..:? "numberOfCanceledThings")
+            Prelude.<*> (x Core..:? "numberOfTimedOutThings")
       )
 
-instance Core.Hashable JobProcessDetails
+instance Prelude.Hashable JobProcessDetails
 
-instance Core.NFData JobProcessDetails
+instance Prelude.NFData JobProcessDetails

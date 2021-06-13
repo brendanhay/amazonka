@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedEventAttributes wher
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause
 
 -- | Provides the details of the @CompleteWorkflowExecutionFailed@ event.
@@ -41,9 +42,9 @@ data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionF
     -- to complete this execution. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Core.Integer
+    decisionTaskCompletedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompleteWorkflowExecutionFailedEventAttributes' with all optional fields omitted.
@@ -71,7 +72,7 @@ newCompleteWorkflowExecutionFailedEventAttributes ::
   -- | 'cause'
   CompleteWorkflowExecutionFailedCause ->
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   CompleteWorkflowExecutionFailedEventAttributes
 newCompleteWorkflowExecutionFailedEventAttributes
   pCause_
@@ -99,7 +100,7 @@ completeWorkflowExecutionFailedEventAttributes_cause = Lens.lens (\CompleteWorkf
 -- to complete this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-completeWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' CompleteWorkflowExecutionFailedEventAttributes Core.Integer
+completeWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' CompleteWorkflowExecutionFailedEventAttributes Prelude.Integer
 completeWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\CompleteWorkflowExecutionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@CompleteWorkflowExecutionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: CompleteWorkflowExecutionFailedEventAttributes)
 
 instance
@@ -111,14 +112,14 @@ instance
       "CompleteWorkflowExecutionFailedEventAttributes"
       ( \x ->
           CompleteWorkflowExecutionFailedEventAttributes'
-            Core.<$> (x Core..: "cause")
-              Core.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Core..: "cause")
+              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CompleteWorkflowExecutionFailedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     CompleteWorkflowExecutionFailedEventAttributes

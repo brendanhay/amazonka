@@ -21,24 +21,25 @@ module Network.AWS.SWF.Types.TimerCanceledEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @TimerCanceled@ event.
 --
 -- /See:/ 'newTimerCanceledEventAttributes' smart constructor.
 data TimerCanceledEventAttributes = TimerCanceledEventAttributes'
   { -- | The unique ID of the timer that was canceled.
-    timerId :: Core.Text,
+    timerId :: Prelude.Text,
     -- | The ID of the @TimerStarted@ event that was recorded when this timer was
     -- started. This information can be useful for diagnosing problems by
     -- tracing back the chain of events leading up to this event.
-    startedEventId :: Core.Integer,
+    startedEventId :: Prelude.Integer,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @CancelTimer@ decision to cancel this
     -- timer. This information can be useful for diagnosing problems by tracing
     -- back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Core.Integer
+    decisionTaskCompletedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimerCanceledEventAttributes' with all optional fields omitted.
@@ -60,11 +61,11 @@ data TimerCanceledEventAttributes = TimerCanceledEventAttributes'
 -- back the chain of events leading up to this event.
 newTimerCanceledEventAttributes ::
   -- | 'timerId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   TimerCanceledEventAttributes
 newTimerCanceledEventAttributes
   pTimerId_
@@ -78,20 +79,20 @@ newTimerCanceledEventAttributes
       }
 
 -- | The unique ID of the timer that was canceled.
-timerCanceledEventAttributes_timerId :: Lens.Lens' TimerCanceledEventAttributes Core.Text
+timerCanceledEventAttributes_timerId :: Lens.Lens' TimerCanceledEventAttributes Prelude.Text
 timerCanceledEventAttributes_timerId = Lens.lens (\TimerCanceledEventAttributes' {timerId} -> timerId) (\s@TimerCanceledEventAttributes' {} a -> s {timerId = a} :: TimerCanceledEventAttributes)
 
 -- | The ID of the @TimerStarted@ event that was recorded when this timer was
 -- started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
-timerCanceledEventAttributes_startedEventId :: Lens.Lens' TimerCanceledEventAttributes Core.Integer
+timerCanceledEventAttributes_startedEventId :: Lens.Lens' TimerCanceledEventAttributes Prelude.Integer
 timerCanceledEventAttributes_startedEventId = Lens.lens (\TimerCanceledEventAttributes' {startedEventId} -> startedEventId) (\s@TimerCanceledEventAttributes' {} a -> s {startedEventId = a} :: TimerCanceledEventAttributes)
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @CancelTimer@ decision to cancel this
 -- timer. This information can be useful for diagnosing problems by tracing
 -- back the chain of events leading up to this event.
-timerCanceledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' TimerCanceledEventAttributes Core.Integer
+timerCanceledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' TimerCanceledEventAttributes Prelude.Integer
 timerCanceledEventAttributes_decisionTaskCompletedEventId = Lens.lens (\TimerCanceledEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@TimerCanceledEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: TimerCanceledEventAttributes)
 
 instance Core.FromJSON TimerCanceledEventAttributes where
@@ -100,11 +101,13 @@ instance Core.FromJSON TimerCanceledEventAttributes where
       "TimerCanceledEventAttributes"
       ( \x ->
           TimerCanceledEventAttributes'
-            Core.<$> (x Core..: "timerId")
-            Core.<*> (x Core..: "startedEventId")
-            Core.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Core..: "timerId")
+            Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
-instance Core.Hashable TimerCanceledEventAttributes
+instance
+  Prelude.Hashable
+    TimerCanceledEventAttributes
 
-instance Core.NFData TimerCanceledEventAttributes
+instance Prelude.NFData TimerCanceledEventAttributes

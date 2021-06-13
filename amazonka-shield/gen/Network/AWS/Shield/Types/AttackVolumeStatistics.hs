@@ -21,15 +21,16 @@ module Network.AWS.Shield.Types.AttackVolumeStatistics where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Statistics objects for the various data types in AttackVolume.
 --
 -- /See:/ 'newAttackVolumeStatistics' smart constructor.
 data AttackVolumeStatistics = AttackVolumeStatistics'
   { -- | The maximum attack volume observed for the given unit.
-    max :: Core.Double
+    max :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttackVolumeStatistics' with all optional fields omitted.
@@ -42,13 +43,13 @@ data AttackVolumeStatistics = AttackVolumeStatistics'
 -- 'max', 'attackVolumeStatistics_max' - The maximum attack volume observed for the given unit.
 newAttackVolumeStatistics ::
   -- | 'max'
-  Core.Double ->
+  Prelude.Double ->
   AttackVolumeStatistics
 newAttackVolumeStatistics pMax_ =
   AttackVolumeStatistics' {max = pMax_}
 
 -- | The maximum attack volume observed for the given unit.
-attackVolumeStatistics_max :: Lens.Lens' AttackVolumeStatistics Core.Double
+attackVolumeStatistics_max :: Lens.Lens' AttackVolumeStatistics Prelude.Double
 attackVolumeStatistics_max = Lens.lens (\AttackVolumeStatistics' {max} -> max) (\s@AttackVolumeStatistics' {} a -> s {max = a} :: AttackVolumeStatistics)
 
 instance Core.FromJSON AttackVolumeStatistics where
@@ -56,9 +57,10 @@ instance Core.FromJSON AttackVolumeStatistics where
     Core.withObject
       "AttackVolumeStatistics"
       ( \x ->
-          AttackVolumeStatistics' Core.<$> (x Core..: "Max")
+          AttackVolumeStatistics'
+            Prelude.<$> (x Core..: "Max")
       )
 
-instance Core.Hashable AttackVolumeStatistics
+instance Prelude.Hashable AttackVolumeStatistics
 
-instance Core.NFData AttackVolumeStatistics
+instance Prelude.NFData AttackVolumeStatistics

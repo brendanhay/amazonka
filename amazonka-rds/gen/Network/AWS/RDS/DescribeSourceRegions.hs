@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -62,14 +63,14 @@ data DescribeSourceRegions = DescribeSourceRegions'
     -- Constraints:
     --
     -- -   Must specify a valid AWS Region name.
-    regionName :: Core.Maybe Core.Text,
+    regionName :: Prelude.Maybe Prelude.Text,
     -- | This parameter isn\'t currently supported.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | An optional pagination token provided by a previous
     -- @DescribeSourceRegions@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -78,9 +79,9 @@ data DescribeSourceRegions = DescribeSourceRegions'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSourceRegions' with all optional fields omitted.
@@ -115,10 +116,11 @@ newDescribeSourceRegions ::
   DescribeSourceRegions
 newDescribeSourceRegions =
   DescribeSourceRegions'
-    { regionName = Core.Nothing,
-      filters = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+    { regionName =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The source AWS Region name. For example, @us-east-1@.
@@ -126,18 +128,18 @@ newDescribeSourceRegions =
 -- Constraints:
 --
 -- -   Must specify a valid AWS Region name.
-describeSourceRegions_regionName :: Lens.Lens' DescribeSourceRegions (Core.Maybe Core.Text)
+describeSourceRegions_regionName :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe Prelude.Text)
 describeSourceRegions_regionName = Lens.lens (\DescribeSourceRegions' {regionName} -> regionName) (\s@DescribeSourceRegions' {} a -> s {regionName = a} :: DescribeSourceRegions)
 
 -- | This parameter isn\'t currently supported.
-describeSourceRegions_filters :: Lens.Lens' DescribeSourceRegions (Core.Maybe [Filter])
-describeSourceRegions_filters = Lens.lens (\DescribeSourceRegions' {filters} -> filters) (\s@DescribeSourceRegions' {} a -> s {filters = a} :: DescribeSourceRegions) Core.. Lens.mapping Lens._Coerce
+describeSourceRegions_filters :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe [Filter])
+describeSourceRegions_filters = Lens.lens (\DescribeSourceRegions' {filters} -> filters) (\s@DescribeSourceRegions' {} a -> s {filters = a} :: DescribeSourceRegions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- @DescribeSourceRegions@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-describeSourceRegions_marker :: Lens.Lens' DescribeSourceRegions (Core.Maybe Core.Text)
+describeSourceRegions_marker :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe Prelude.Text)
 describeSourceRegions_marker = Lens.lens (\DescribeSourceRegions' {marker} -> marker) (\s@DescribeSourceRegions' {} a -> s {marker = a} :: DescribeSourceRegions)
 
 -- | The maximum number of records to include in the response. If more
@@ -148,7 +150,7 @@ describeSourceRegions_marker = Lens.lens (\DescribeSourceRegions' {marker} -> ma
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeSourceRegions_maxRecords :: Lens.Lens' DescribeSourceRegions (Core.Maybe Core.Int)
+describeSourceRegions_maxRecords :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe Prelude.Int)
 describeSourceRegions_maxRecords = Lens.lens (\DescribeSourceRegions' {maxRecords} -> maxRecords) (\s@DescribeSourceRegions' {} a -> s {maxRecords = a} :: DescribeSourceRegions)
 
 instance Core.AWSPager DescribeSourceRegions where
@@ -156,22 +158,22 @@ instance Core.AWSPager DescribeSourceRegions where
     | Core.stop
         ( rs
             Lens.^? describeSourceRegionsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSourceRegionsResponse_sourceRegions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeSourceRegions_marker
+          Prelude.& describeSourceRegions_marker
           Lens..~ rs
           Lens.^? describeSourceRegionsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSourceRegions where
   type
@@ -183,33 +185,34 @@ instance Core.AWSRequest DescribeSourceRegions where
       "DescribeSourceRegionsResult"
       ( \s h x ->
           DescribeSourceRegionsResponse'
-            Core.<$> ( x Core..@? "SourceRegions" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "SourceRegion")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "SourceRegions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "SourceRegion")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSourceRegions
+instance Prelude.Hashable DescribeSourceRegions
 
-instance Core.NFData DescribeSourceRegions
+instance Prelude.NFData DescribeSourceRegions
 
 instance Core.ToHeaders DescribeSourceRegions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeSourceRegions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeSourceRegions where
   toQuery DescribeSourceRegions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSourceRegions" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DescribeSourceRegions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "RegionName" Core.=: regionName,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Core.<$> filters),
+            (Core.toQueryList "Filter" Prelude.<$> filters),
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
       ]
@@ -222,15 +225,15 @@ data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
   { -- | A list of SourceRegion instances that contains each source AWS Region
     -- that the current AWS Region can get a read replica or a DB snapshot
     -- from.
-    sourceRegions :: Core.Maybe [SourceRegion],
+    sourceRegions :: Prelude.Maybe [SourceRegion],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSourceRegionsResponse' with all optional fields omitted.
@@ -251,30 +254,30 @@ data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
 -- 'httpStatus', 'describeSourceRegionsResponse_httpStatus' - The response's http status code.
 newDescribeSourceRegionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSourceRegionsResponse
 newDescribeSourceRegionsResponse pHttpStatus_ =
   DescribeSourceRegionsResponse'
     { sourceRegions =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of SourceRegion instances that contains each source AWS Region
 -- that the current AWS Region can get a read replica or a DB snapshot
 -- from.
-describeSourceRegionsResponse_sourceRegions :: Lens.Lens' DescribeSourceRegionsResponse (Core.Maybe [SourceRegion])
-describeSourceRegionsResponse_sourceRegions = Lens.lens (\DescribeSourceRegionsResponse' {sourceRegions} -> sourceRegions) (\s@DescribeSourceRegionsResponse' {} a -> s {sourceRegions = a} :: DescribeSourceRegionsResponse) Core.. Lens.mapping Lens._Coerce
+describeSourceRegionsResponse_sourceRegions :: Lens.Lens' DescribeSourceRegionsResponse (Prelude.Maybe [SourceRegion])
+describeSourceRegionsResponse_sourceRegions = Lens.lens (\DescribeSourceRegionsResponse' {sourceRegions} -> sourceRegions) (\s@DescribeSourceRegionsResponse' {} a -> s {sourceRegions = a} :: DescribeSourceRegionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeSourceRegionsResponse_marker :: Lens.Lens' DescribeSourceRegionsResponse (Core.Maybe Core.Text)
+describeSourceRegionsResponse_marker :: Lens.Lens' DescribeSourceRegionsResponse (Prelude.Maybe Prelude.Text)
 describeSourceRegionsResponse_marker = Lens.lens (\DescribeSourceRegionsResponse' {marker} -> marker) (\s@DescribeSourceRegionsResponse' {} a -> s {marker = a} :: DescribeSourceRegionsResponse)
 
 -- | The response's http status code.
-describeSourceRegionsResponse_httpStatus :: Lens.Lens' DescribeSourceRegionsResponse Core.Int
+describeSourceRegionsResponse_httpStatus :: Lens.Lens' DescribeSourceRegionsResponse Prelude.Int
 describeSourceRegionsResponse_httpStatus = Lens.lens (\DescribeSourceRegionsResponse' {httpStatus} -> httpStatus) (\s@DescribeSourceRegionsResponse' {} a -> s {httpStatus = a} :: DescribeSourceRegionsResponse)
 
-instance Core.NFData DescribeSourceRegionsResponse
+instance Prelude.NFData DescribeSourceRegionsResponse

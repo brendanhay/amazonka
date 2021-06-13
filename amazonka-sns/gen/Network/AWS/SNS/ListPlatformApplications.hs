@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -66,9 +67,9 @@ data ListPlatformApplications = ListPlatformApplications'
   { -- | NextToken string is used when calling ListPlatformApplications action to
     -- retrieve additional records that are available after the first page
     -- results.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPlatformApplications' with all optional fields omitted.
@@ -84,12 +85,15 @@ data ListPlatformApplications = ListPlatformApplications'
 newListPlatformApplications ::
   ListPlatformApplications
 newListPlatformApplications =
-  ListPlatformApplications' {nextToken = Core.Nothing}
+  ListPlatformApplications'
+    { nextToken =
+        Prelude.Nothing
+    }
 
 -- | NextToken string is used when calling ListPlatformApplications action to
 -- retrieve additional records that are available after the first page
 -- results.
-listPlatformApplications_nextToken :: Lens.Lens' ListPlatformApplications (Core.Maybe Core.Text)
+listPlatformApplications_nextToken :: Lens.Lens' ListPlatformApplications (Prelude.Maybe Prelude.Text)
 listPlatformApplications_nextToken = Lens.lens (\ListPlatformApplications' {nextToken} -> nextToken) (\s@ListPlatformApplications' {} a -> s {nextToken = a} :: ListPlatformApplications)
 
 instance Core.AWSPager ListPlatformApplications where
@@ -97,22 +101,22 @@ instance Core.AWSPager ListPlatformApplications where
     | Core.stop
         ( rs
             Lens.^? listPlatformApplicationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPlatformApplicationsResponse_platformApplications
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPlatformApplications_nextToken
+          Prelude.& listPlatformApplications_nextToken
           Lens..~ rs
           Lens.^? listPlatformApplicationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlatformApplications where
   type
@@ -124,30 +128,31 @@ instance Core.AWSRequest ListPlatformApplications where
       "ListPlatformApplicationsResult"
       ( \s h x ->
           ListPlatformApplicationsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "PlatformApplications"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "PlatformApplications"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPlatformApplications
+instance Prelude.Hashable ListPlatformApplications
 
-instance Core.NFData ListPlatformApplications
+instance Prelude.NFData ListPlatformApplications
 
 instance Core.ToHeaders ListPlatformApplications where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListPlatformApplications where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListPlatformApplications where
   toQuery ListPlatformApplications' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPlatformApplications" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("ListPlatformApplications" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken
       ]
 
@@ -157,14 +162,14 @@ instance Core.ToQuery ListPlatformApplications where
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
   { -- | NextToken string is returned when calling ListPlatformApplications
     -- action if additional records are available after the first page results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Platform applications returned when calling ListPlatformApplications
     -- action.
-    platformApplications :: Core.Maybe [PlatformApplication],
+    platformApplications :: Prelude.Maybe [PlatformApplication],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPlatformApplicationsResponse' with all optional fields omitted.
@@ -183,28 +188,30 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
 -- 'httpStatus', 'listPlatformApplicationsResponse_httpStatus' - The response's http status code.
 newListPlatformApplicationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPlatformApplicationsResponse
 newListPlatformApplicationsResponse pHttpStatus_ =
   ListPlatformApplicationsResponse'
     { nextToken =
-        Core.Nothing,
-      platformApplications = Core.Nothing,
+        Prelude.Nothing,
+      platformApplications = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | NextToken string is returned when calling ListPlatformApplications
 -- action if additional records are available after the first page results.
-listPlatformApplicationsResponse_nextToken :: Lens.Lens' ListPlatformApplicationsResponse (Core.Maybe Core.Text)
+listPlatformApplicationsResponse_nextToken :: Lens.Lens' ListPlatformApplicationsResponse (Prelude.Maybe Prelude.Text)
 listPlatformApplicationsResponse_nextToken = Lens.lens (\ListPlatformApplicationsResponse' {nextToken} -> nextToken) (\s@ListPlatformApplicationsResponse' {} a -> s {nextToken = a} :: ListPlatformApplicationsResponse)
 
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
-listPlatformApplicationsResponse_platformApplications :: Lens.Lens' ListPlatformApplicationsResponse (Core.Maybe [PlatformApplication])
-listPlatformApplicationsResponse_platformApplications = Lens.lens (\ListPlatformApplicationsResponse' {platformApplications} -> platformApplications) (\s@ListPlatformApplicationsResponse' {} a -> s {platformApplications = a} :: ListPlatformApplicationsResponse) Core.. Lens.mapping Lens._Coerce
+listPlatformApplicationsResponse_platformApplications :: Lens.Lens' ListPlatformApplicationsResponse (Prelude.Maybe [PlatformApplication])
+listPlatformApplicationsResponse_platformApplications = Lens.lens (\ListPlatformApplicationsResponse' {platformApplications} -> platformApplications) (\s@ListPlatformApplicationsResponse' {} a -> s {platformApplications = a} :: ListPlatformApplicationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPlatformApplicationsResponse_httpStatus :: Lens.Lens' ListPlatformApplicationsResponse Core.Int
+listPlatformApplicationsResponse_httpStatus :: Lens.Lens' ListPlatformApplicationsResponse Prelude.Int
 listPlatformApplicationsResponse_httpStatus = Lens.lens (\ListPlatformApplicationsResponse' {httpStatus} -> httpStatus) (\s@ListPlatformApplicationsResponse' {} a -> s {httpStatus = a} :: ListPlatformApplicationsResponse)
 
-instance Core.NFData ListPlatformApplicationsResponse
+instance
+  Prelude.NFData
+    ListPlatformApplicationsResponse

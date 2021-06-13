@@ -69,6 +69,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,16 +77,16 @@ import qualified Network.AWS.Response as Response
 data ListMetrics = ListMetrics'
   { -- | The token returned by a previous call to indicate that there is more
     -- data available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the metric to filter against. Only the metrics with names
     -- that match exactly will be returned.
-    metricName :: Core.Maybe Core.Text,
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | The dimensions to filter against. Only the dimensions that match exactly
     -- will be returned.
-    dimensions :: Core.Maybe [DimensionFilter],
+    dimensions :: Prelude.Maybe [DimensionFilter],
     -- | The metric namespace to filter against. Only the namespace that matches
     -- exactly will be returned.
-    namespace :: Core.Maybe Core.Text,
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | To filter the results to show only metrics that have had data points
     -- published in the past three hours, specify this parameter with a value
     -- of @PT3H@. This is the only valid value for this parameter.
@@ -94,9 +95,9 @@ data ListMetrics = ListMetrics'
     -- specify. There is a low probability that the returned results include
     -- metrics with last published data as much as 40 minutes more than the
     -- specified time interval.
-    recentlyActive :: Core.Maybe RecentlyActive
+    recentlyActive :: Prelude.Maybe RecentlyActive
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListMetrics' with all optional fields omitted.
@@ -130,31 +131,31 @@ newListMetrics ::
   ListMetrics
 newListMetrics =
   ListMetrics'
-    { nextToken = Core.Nothing,
-      metricName = Core.Nothing,
-      dimensions = Core.Nothing,
-      namespace = Core.Nothing,
-      recentlyActive = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      metricName = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      recentlyActive = Prelude.Nothing
     }
 
 -- | The token returned by a previous call to indicate that there is more
 -- data available.
-listMetrics_nextToken :: Lens.Lens' ListMetrics (Core.Maybe Core.Text)
+listMetrics_nextToken :: Lens.Lens' ListMetrics (Prelude.Maybe Prelude.Text)
 listMetrics_nextToken = Lens.lens (\ListMetrics' {nextToken} -> nextToken) (\s@ListMetrics' {} a -> s {nextToken = a} :: ListMetrics)
 
 -- | The name of the metric to filter against. Only the metrics with names
 -- that match exactly will be returned.
-listMetrics_metricName :: Lens.Lens' ListMetrics (Core.Maybe Core.Text)
+listMetrics_metricName :: Lens.Lens' ListMetrics (Prelude.Maybe Prelude.Text)
 listMetrics_metricName = Lens.lens (\ListMetrics' {metricName} -> metricName) (\s@ListMetrics' {} a -> s {metricName = a} :: ListMetrics)
 
 -- | The dimensions to filter against. Only the dimensions that match exactly
 -- will be returned.
-listMetrics_dimensions :: Lens.Lens' ListMetrics (Core.Maybe [DimensionFilter])
-listMetrics_dimensions = Lens.lens (\ListMetrics' {dimensions} -> dimensions) (\s@ListMetrics' {} a -> s {dimensions = a} :: ListMetrics) Core.. Lens.mapping Lens._Coerce
+listMetrics_dimensions :: Lens.Lens' ListMetrics (Prelude.Maybe [DimensionFilter])
+listMetrics_dimensions = Lens.lens (\ListMetrics' {dimensions} -> dimensions) (\s@ListMetrics' {} a -> s {dimensions = a} :: ListMetrics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The metric namespace to filter against. Only the namespace that matches
 -- exactly will be returned.
-listMetrics_namespace :: Lens.Lens' ListMetrics (Core.Maybe Core.Text)
+listMetrics_namespace :: Lens.Lens' ListMetrics (Prelude.Maybe Prelude.Text)
 listMetrics_namespace = Lens.lens (\ListMetrics' {namespace} -> namespace) (\s@ListMetrics' {} a -> s {namespace = a} :: ListMetrics)
 
 -- | To filter the results to show only metrics that have had data points
@@ -165,27 +166,27 @@ listMetrics_namespace = Lens.lens (\ListMetrics' {namespace} -> namespace) (\s@L
 -- specify. There is a low probability that the returned results include
 -- metrics with last published data as much as 40 minutes more than the
 -- specified time interval.
-listMetrics_recentlyActive :: Lens.Lens' ListMetrics (Core.Maybe RecentlyActive)
+listMetrics_recentlyActive :: Lens.Lens' ListMetrics (Prelude.Maybe RecentlyActive)
 listMetrics_recentlyActive = Lens.lens (\ListMetrics' {recentlyActive} -> recentlyActive) (\s@ListMetrics' {} a -> s {recentlyActive = a} :: ListMetrics)
 
 instance Core.AWSPager ListMetrics where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listMetricsResponse_nextToken Core.. Lens._Just
+            Lens.^? listMetricsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listMetricsResponse_metrics Core.. Lens._Just
+            Lens.^? listMetricsResponse_metrics Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listMetrics_nextToken
+          Prelude.& listMetrics_nextToken
           Lens..~ rs
-          Lens.^? listMetricsResponse_nextToken Core.. Lens._Just
+          Lens.^? listMetricsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMetrics where
   type AWSResponse ListMetrics = ListMetricsResponse
@@ -195,33 +196,35 @@ instance Core.AWSRequest ListMetrics where
       "ListMetricsResult"
       ( \s h x ->
           ListMetricsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "Metrics" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "Metrics" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListMetrics
+instance Prelude.Hashable ListMetrics
 
-instance Core.NFData ListMetrics
+instance Prelude.NFData ListMetrics
 
 instance Core.ToHeaders ListMetrics where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListMetrics where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListMetrics where
   toQuery ListMetrics' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("ListMetrics" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListMetrics" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MetricName" Core.=: metricName,
         "Dimensions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> dimensions),
+            (Core.toQueryList "member" Prelude.<$> dimensions),
         "Namespace" Core.=: namespace,
         "RecentlyActive" Core.=: recentlyActive
       ]
@@ -229,13 +232,13 @@ instance Core.ToQuery ListMetrics where
 -- | /See:/ 'newListMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'
   { -- | The token that marks the start of the next batch of returned results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The metrics that match your request.
-    metrics :: Core.Maybe [Metric],
+    metrics :: Prelude.Maybe [Metric],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListMetricsResponse' with all optional fields omitted.
@@ -252,25 +255,25 @@ data ListMetricsResponse = ListMetricsResponse'
 -- 'httpStatus', 'listMetricsResponse_httpStatus' - The response's http status code.
 newListMetricsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListMetricsResponse
 newListMetricsResponse pHttpStatus_ =
   ListMetricsResponse'
-    { nextToken = Core.Nothing,
-      metrics = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      metrics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token that marks the start of the next batch of returned results.
-listMetricsResponse_nextToken :: Lens.Lens' ListMetricsResponse (Core.Maybe Core.Text)
+listMetricsResponse_nextToken :: Lens.Lens' ListMetricsResponse (Prelude.Maybe Prelude.Text)
 listMetricsResponse_nextToken = Lens.lens (\ListMetricsResponse' {nextToken} -> nextToken) (\s@ListMetricsResponse' {} a -> s {nextToken = a} :: ListMetricsResponse)
 
 -- | The metrics that match your request.
-listMetricsResponse_metrics :: Lens.Lens' ListMetricsResponse (Core.Maybe [Metric])
-listMetricsResponse_metrics = Lens.lens (\ListMetricsResponse' {metrics} -> metrics) (\s@ListMetricsResponse' {} a -> s {metrics = a} :: ListMetricsResponse) Core.. Lens.mapping Lens._Coerce
+listMetricsResponse_metrics :: Lens.Lens' ListMetricsResponse (Prelude.Maybe [Metric])
+listMetricsResponse_metrics = Lens.lens (\ListMetricsResponse' {metrics} -> metrics) (\s@ListMetricsResponse' {} a -> s {metrics = a} :: ListMetricsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listMetricsResponse_httpStatus :: Lens.Lens' ListMetricsResponse Core.Int
+listMetricsResponse_httpStatus :: Lens.Lens' ListMetricsResponse Prelude.Int
 listMetricsResponse_httpStatus = Lens.lens (\ListMetricsResponse' {httpStatus} -> httpStatus) (\s@ListMetricsResponse' {} a -> s {httpStatus = a} :: ListMetricsResponse)
 
-instance Core.NFData ListMetricsResponse
+instance Prelude.NFData ListMetricsResponse

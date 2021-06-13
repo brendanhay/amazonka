@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.InstanceCapacity where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the number of instances that can be launched onto the
 -- Dedicated Host.
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newInstanceCapacity' smart constructor.
 data InstanceCapacity = InstanceCapacity'
   { -- | The instance type supported by the Dedicated Host.
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The number of instances that can be launched onto the Dedicated Host
     -- based on the host\'s available capacity.
-    availableCapacity :: Core.Maybe Core.Int,
+    availableCapacity :: Prelude.Maybe Prelude.Int,
     -- | The total number of instances that can be launched onto the Dedicated
     -- Host if there are no instances running on it.
-    totalCapacity :: Core.Maybe Core.Int
+    totalCapacity :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceCapacity' with all optional fields omitted.
@@ -58,32 +59,32 @@ newInstanceCapacity ::
   InstanceCapacity
 newInstanceCapacity =
   InstanceCapacity'
-    { instanceType = Core.Nothing,
-      availableCapacity = Core.Nothing,
-      totalCapacity = Core.Nothing
+    { instanceType = Prelude.Nothing,
+      availableCapacity = Prelude.Nothing,
+      totalCapacity = Prelude.Nothing
     }
 
 -- | The instance type supported by the Dedicated Host.
-instanceCapacity_instanceType :: Lens.Lens' InstanceCapacity (Core.Maybe Core.Text)
+instanceCapacity_instanceType :: Lens.Lens' InstanceCapacity (Prelude.Maybe Prelude.Text)
 instanceCapacity_instanceType = Lens.lens (\InstanceCapacity' {instanceType} -> instanceType) (\s@InstanceCapacity' {} a -> s {instanceType = a} :: InstanceCapacity)
 
 -- | The number of instances that can be launched onto the Dedicated Host
 -- based on the host\'s available capacity.
-instanceCapacity_availableCapacity :: Lens.Lens' InstanceCapacity (Core.Maybe Core.Int)
+instanceCapacity_availableCapacity :: Lens.Lens' InstanceCapacity (Prelude.Maybe Prelude.Int)
 instanceCapacity_availableCapacity = Lens.lens (\InstanceCapacity' {availableCapacity} -> availableCapacity) (\s@InstanceCapacity' {} a -> s {availableCapacity = a} :: InstanceCapacity)
 
 -- | The total number of instances that can be launched onto the Dedicated
 -- Host if there are no instances running on it.
-instanceCapacity_totalCapacity :: Lens.Lens' InstanceCapacity (Core.Maybe Core.Int)
+instanceCapacity_totalCapacity :: Lens.Lens' InstanceCapacity (Prelude.Maybe Prelude.Int)
 instanceCapacity_totalCapacity = Lens.lens (\InstanceCapacity' {totalCapacity} -> totalCapacity) (\s@InstanceCapacity' {} a -> s {totalCapacity = a} :: InstanceCapacity)
 
 instance Core.FromXML InstanceCapacity where
   parseXML x =
     InstanceCapacity'
-      Core.<$> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "availableCapacity")
-      Core.<*> (x Core..@? "totalCapacity")
+      Prelude.<$> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "availableCapacity")
+      Prelude.<*> (x Core..@? "totalCapacity")
 
-instance Core.Hashable InstanceCapacity
+instance Prelude.Hashable InstanceCapacity
 
-instance Core.NFData InstanceCapacity
+instance Prelude.NFData InstanceCapacity

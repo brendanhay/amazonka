@@ -21,30 +21,31 @@ module Network.AWS.CloudFront.Types.DistributionIdList where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of distribution IDs.
 --
 -- /See:/ 'newDistributionIdList' smart constructor.
 data DistributionIdList = DistributionIdList'
   { -- | Contains the distribution IDs in the list.
-    items :: Core.Maybe [Core.Text],
+    items :: Prelude.Maybe [Prelude.Text],
     -- | Contains the value that you should use in the @Marker@ field of a
     -- subsequent request to continue listing distribution IDs where you left
     -- off.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The value provided in the @Marker@ request field.
-    marker :: Core.Text,
+    marker :: Prelude.Text,
     -- | The maximum number of distribution IDs requested.
-    maxItems :: Core.Int,
+    maxItems :: Prelude.Int,
     -- | A flag that indicates whether more distribution IDs remain to be listed.
     -- If your results were truncated, you can make a subsequent request using
     -- the @Marker@ request field to retrieve more distribution IDs in the
     -- list.
-    isTruncated :: Core.Bool,
+    isTruncated :: Prelude.Bool,
     -- | The total number of distribution IDs returned in the response.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DistributionIdList' with all optional fields omitted.
@@ -72,13 +73,13 @@ data DistributionIdList = DistributionIdList'
 -- 'quantity', 'distributionIdList_quantity' - The total number of distribution IDs returned in the response.
 newDistributionIdList ::
   -- | 'marker'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'maxItems'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'isTruncated'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   DistributionIdList
 newDistributionIdList
   pMarker_
@@ -86,8 +87,8 @@ newDistributionIdList
   pIsTruncated_
   pQuantity_ =
     DistributionIdList'
-      { items = Core.Nothing,
-        nextMarker = Core.Nothing,
+      { items = Prelude.Nothing,
+        nextMarker = Prelude.Nothing,
         marker = pMarker_,
         maxItems = pMaxItems_,
         isTruncated = pIsTruncated_,
@@ -95,46 +96,46 @@ newDistributionIdList
       }
 
 -- | Contains the distribution IDs in the list.
-distributionIdList_items :: Lens.Lens' DistributionIdList (Core.Maybe [Core.Text])
-distributionIdList_items = Lens.lens (\DistributionIdList' {items} -> items) (\s@DistributionIdList' {} a -> s {items = a} :: DistributionIdList) Core.. Lens.mapping Lens._Coerce
+distributionIdList_items :: Lens.Lens' DistributionIdList (Prelude.Maybe [Prelude.Text])
+distributionIdList_items = Lens.lens (\DistributionIdList' {items} -> items) (\s@DistributionIdList' {} a -> s {items = a} :: DistributionIdList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contains the value that you should use in the @Marker@ field of a
 -- subsequent request to continue listing distribution IDs where you left
 -- off.
-distributionIdList_nextMarker :: Lens.Lens' DistributionIdList (Core.Maybe Core.Text)
+distributionIdList_nextMarker :: Lens.Lens' DistributionIdList (Prelude.Maybe Prelude.Text)
 distributionIdList_nextMarker = Lens.lens (\DistributionIdList' {nextMarker} -> nextMarker) (\s@DistributionIdList' {} a -> s {nextMarker = a} :: DistributionIdList)
 
 -- | The value provided in the @Marker@ request field.
-distributionIdList_marker :: Lens.Lens' DistributionIdList Core.Text
+distributionIdList_marker :: Lens.Lens' DistributionIdList Prelude.Text
 distributionIdList_marker = Lens.lens (\DistributionIdList' {marker} -> marker) (\s@DistributionIdList' {} a -> s {marker = a} :: DistributionIdList)
 
 -- | The maximum number of distribution IDs requested.
-distributionIdList_maxItems :: Lens.Lens' DistributionIdList Core.Int
+distributionIdList_maxItems :: Lens.Lens' DistributionIdList Prelude.Int
 distributionIdList_maxItems = Lens.lens (\DistributionIdList' {maxItems} -> maxItems) (\s@DistributionIdList' {} a -> s {maxItems = a} :: DistributionIdList)
 
 -- | A flag that indicates whether more distribution IDs remain to be listed.
 -- If your results were truncated, you can make a subsequent request using
 -- the @Marker@ request field to retrieve more distribution IDs in the
 -- list.
-distributionIdList_isTruncated :: Lens.Lens' DistributionIdList Core.Bool
+distributionIdList_isTruncated :: Lens.Lens' DistributionIdList Prelude.Bool
 distributionIdList_isTruncated = Lens.lens (\DistributionIdList' {isTruncated} -> isTruncated) (\s@DistributionIdList' {} a -> s {isTruncated = a} :: DistributionIdList)
 
 -- | The total number of distribution IDs returned in the response.
-distributionIdList_quantity :: Lens.Lens' DistributionIdList Core.Int
+distributionIdList_quantity :: Lens.Lens' DistributionIdList Prelude.Int
 distributionIdList_quantity = Lens.lens (\DistributionIdList' {quantity} -> quantity) (\s@DistributionIdList' {} a -> s {quantity = a} :: DistributionIdList)
 
 instance Core.FromXML DistributionIdList where
   parseXML x =
     DistributionIdList'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "DistributionId")
-               )
-      Core.<*> (x Core..@? "NextMarker")
-      Core.<*> (x Core..@ "Marker")
-      Core.<*> (x Core..@ "MaxItems")
-      Core.<*> (x Core..@ "IsTruncated")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "DistributionId")
+                  )
+      Prelude.<*> (x Core..@? "NextMarker")
+      Prelude.<*> (x Core..@ "Marker")
+      Prelude.<*> (x Core..@ "MaxItems")
+      Prelude.<*> (x Core..@ "IsTruncated")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable DistributionIdList
+instance Prelude.Hashable DistributionIdList
 
-instance Core.NFData DistributionIdList
+instance Prelude.NFData DistributionIdList

@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAuditSuppression' smart constructor.
 data DeleteAuditSuppression = DeleteAuditSuppression'
-  { checkName :: Core.Text,
+  { checkName :: Prelude.Text,
     resourceIdentifier :: ResourceIdentifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAuditSuppression' with all optional fields omitted.
@@ -65,7 +66,7 @@ data DeleteAuditSuppression = DeleteAuditSuppression'
 -- 'resourceIdentifier', 'deleteAuditSuppression_resourceIdentifier' - Undocumented member.
 newDeleteAuditSuppression ::
   -- | 'checkName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceIdentifier'
   ResourceIdentifier ->
   DeleteAuditSuppression
@@ -78,7 +79,7 @@ newDeleteAuditSuppression
       }
 
 -- | Undocumented member.
-deleteAuditSuppression_checkName :: Lens.Lens' DeleteAuditSuppression Core.Text
+deleteAuditSuppression_checkName :: Lens.Lens' DeleteAuditSuppression Prelude.Text
 deleteAuditSuppression_checkName = Lens.lens (\DeleteAuditSuppression' {checkName} -> checkName) (\s@DeleteAuditSuppression' {} a -> s {checkName = a} :: DeleteAuditSuppression)
 
 -- | Undocumented member.
@@ -94,38 +95,38 @@ instance Core.AWSRequest DeleteAuditSuppression where
     Response.receiveEmpty
       ( \s h x ->
           DeleteAuditSuppressionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteAuditSuppression
+instance Prelude.Hashable DeleteAuditSuppression
 
-instance Core.NFData DeleteAuditSuppression
+instance Prelude.NFData DeleteAuditSuppression
 
 instance Core.ToHeaders DeleteAuditSuppression where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON DeleteAuditSuppression where
   toJSON DeleteAuditSuppression' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("checkName" Core..= checkName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("checkName" Core..= checkName),
+            Prelude.Just
               ("resourceIdentifier" Core..= resourceIdentifier)
           ]
       )
 
 instance Core.ToPath DeleteAuditSuppression where
-  toPath = Core.const "/audit/suppressions/delete"
+  toPath = Prelude.const "/audit/suppressions/delete"
 
 instance Core.ToQuery DeleteAuditSuppression where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAuditSuppressionResponse' smart constructor.
 data DeleteAuditSuppressionResponse = DeleteAuditSuppressionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAuditSuppressionResponse' with all optional fields omitted.
@@ -138,7 +139,7 @@ data DeleteAuditSuppressionResponse = DeleteAuditSuppressionResponse'
 -- 'httpStatus', 'deleteAuditSuppressionResponse_httpStatus' - The response's http status code.
 newDeleteAuditSuppressionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteAuditSuppressionResponse
 newDeleteAuditSuppressionResponse pHttpStatus_ =
   DeleteAuditSuppressionResponse'
@@ -147,7 +148,9 @@ newDeleteAuditSuppressionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteAuditSuppressionResponse_httpStatus :: Lens.Lens' DeleteAuditSuppressionResponse Core.Int
+deleteAuditSuppressionResponse_httpStatus :: Lens.Lens' DeleteAuditSuppressionResponse Prelude.Int
 deleteAuditSuppressionResponse_httpStatus = Lens.lens (\DeleteAuditSuppressionResponse' {httpStatus} -> httpStatus) (\s@DeleteAuditSuppressionResponse' {} a -> s {httpStatus = a} :: DeleteAuditSuppressionResponse)
 
-instance Core.NFData DeleteAuditSuppressionResponse
+instance
+  Prelude.NFData
+    DeleteAuditSuppressionResponse

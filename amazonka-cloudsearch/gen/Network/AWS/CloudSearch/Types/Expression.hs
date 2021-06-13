@@ -21,6 +21,7 @@ module Network.AWS.CloudSearch.Types.Expression where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A named expression that can be evaluated at search time. Can be used to
 -- sort the search results, define other expressions, or return computed
@@ -28,10 +29,10 @@ import qualified Network.AWS.Lens as Lens
 --
 -- /See:/ 'newExpression' smart constructor.
 data Expression = Expression'
-  { expressionName :: Core.Text,
-    expressionValue :: Core.Text
+  { expressionName :: Prelude.Text,
+    expressionValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Expression' with all optional fields omitted.
@@ -46,9 +47,9 @@ data Expression = Expression'
 -- 'expressionValue', 'expression_expressionValue' - Undocumented member.
 newExpression ::
   -- | 'expressionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'expressionValue'
-  Core.Text ->
+  Prelude.Text ->
   Expression
 newExpression pExpressionName_ pExpressionValue_ =
   Expression'
@@ -57,26 +58,26 @@ newExpression pExpressionName_ pExpressionValue_ =
     }
 
 -- | Undocumented member.
-expression_expressionName :: Lens.Lens' Expression Core.Text
+expression_expressionName :: Lens.Lens' Expression Prelude.Text
 expression_expressionName = Lens.lens (\Expression' {expressionName} -> expressionName) (\s@Expression' {} a -> s {expressionName = a} :: Expression)
 
 -- | Undocumented member.
-expression_expressionValue :: Lens.Lens' Expression Core.Text
+expression_expressionValue :: Lens.Lens' Expression Prelude.Text
 expression_expressionValue = Lens.lens (\Expression' {expressionValue} -> expressionValue) (\s@Expression' {} a -> s {expressionValue = a} :: Expression)
 
 instance Core.FromXML Expression where
   parseXML x =
     Expression'
-      Core.<$> (x Core..@ "ExpressionName")
-      Core.<*> (x Core..@ "ExpressionValue")
+      Prelude.<$> (x Core..@ "ExpressionName")
+      Prelude.<*> (x Core..@ "ExpressionValue")
 
-instance Core.Hashable Expression
+instance Prelude.Hashable Expression
 
-instance Core.NFData Expression
+instance Prelude.NFData Expression
 
 instance Core.ToQuery Expression where
   toQuery Expression' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ExpressionName" Core.=: expressionName,
         "ExpressionValue" Core.=: expressionValue
       ]

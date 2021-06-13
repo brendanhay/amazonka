@@ -44,6 +44,7 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data CreateImageBuilderStreamingURL = CreateImageBuilderStreamingURL'
   { -- | The time that the streaming URL will be valid, in seconds. Specify a
     -- value between 1 and 604800 seconds. The default is 3600 seconds.
-    validity :: Core.Maybe Core.Integer,
+    validity :: Prelude.Maybe Prelude.Integer,
     -- | The name of the image builder.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateImageBuilderStreamingURL' with all optional fields omitted.
@@ -71,22 +72,22 @@ data CreateImageBuilderStreamingURL = CreateImageBuilderStreamingURL'
 -- 'name', 'createImageBuilderStreamingURL_name' - The name of the image builder.
 newCreateImageBuilderStreamingURL ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateImageBuilderStreamingURL
 newCreateImageBuilderStreamingURL pName_ =
   CreateImageBuilderStreamingURL'
     { validity =
-        Core.Nothing,
+        Prelude.Nothing,
       name = pName_
     }
 
 -- | The time that the streaming URL will be valid, in seconds. Specify a
 -- value between 1 and 604800 seconds. The default is 3600 seconds.
-createImageBuilderStreamingURL_validity :: Lens.Lens' CreateImageBuilderStreamingURL (Core.Maybe Core.Integer)
+createImageBuilderStreamingURL_validity :: Lens.Lens' CreateImageBuilderStreamingURL (Prelude.Maybe Prelude.Integer)
 createImageBuilderStreamingURL_validity = Lens.lens (\CreateImageBuilderStreamingURL' {validity} -> validity) (\s@CreateImageBuilderStreamingURL' {} a -> s {validity = a} :: CreateImageBuilderStreamingURL)
 
 -- | The name of the image builder.
-createImageBuilderStreamingURL_name :: Lens.Lens' CreateImageBuilderStreamingURL Core.Text
+createImageBuilderStreamingURL_name :: Lens.Lens' CreateImageBuilderStreamingURL Prelude.Text
 createImageBuilderStreamingURL_name = Lens.lens (\CreateImageBuilderStreamingURL' {name} -> name) (\s@CreateImageBuilderStreamingURL' {} a -> s {name = a} :: CreateImageBuilderStreamingURL)
 
 instance
@@ -101,57 +102,63 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateImageBuilderStreamingURLResponse'
-            Core.<$> (x Core..?> "StreamingURL")
-            Core.<*> (x Core..?> "Expires")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "StreamingURL")
+            Prelude.<*> (x Core..?> "Expires")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateImageBuilderStreamingURL
+instance
+  Prelude.Hashable
+    CreateImageBuilderStreamingURL
 
-instance Core.NFData CreateImageBuilderStreamingURL
+instance
+  Prelude.NFData
+    CreateImageBuilderStreamingURL
 
 instance
   Core.ToHeaders
     CreateImageBuilderStreamingURL
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.CreateImageBuilderStreamingURL" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateImageBuilderStreamingURL where
   toJSON CreateImageBuilderStreamingURL' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Validity" Core..=) Core.<$> validity,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Validity" Core..=) Prelude.<$> validity,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateImageBuilderStreamingURL where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateImageBuilderStreamingURL where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateImageBuilderStreamingURLResponse' smart constructor.
 data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResponse'
   { -- | The URL to start the AppStream 2.0 streaming session.
-    streamingURL :: Core.Maybe Core.Text,
+    streamingURL :: Prelude.Maybe Prelude.Text,
     -- | The elapsed time, in seconds after the Unix epoch, when this URL
     -- expires.
-    expires :: Core.Maybe Core.POSIX,
+    expires :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateImageBuilderStreamingURLResponse' with all optional fields omitted.
@@ -169,30 +176,30 @@ data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResp
 -- 'httpStatus', 'createImageBuilderStreamingURLResponse_httpStatus' - The response's http status code.
 newCreateImageBuilderStreamingURLResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateImageBuilderStreamingURLResponse
 newCreateImageBuilderStreamingURLResponse
   pHttpStatus_ =
     CreateImageBuilderStreamingURLResponse'
       { streamingURL =
-          Core.Nothing,
-        expires = Core.Nothing,
+          Prelude.Nothing,
+        expires = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The URL to start the AppStream 2.0 streaming session.
-createImageBuilderStreamingURLResponse_streamingURL :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Core.Maybe Core.Text)
+createImageBuilderStreamingURLResponse_streamingURL :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Prelude.Maybe Prelude.Text)
 createImageBuilderStreamingURLResponse_streamingURL = Lens.lens (\CreateImageBuilderStreamingURLResponse' {streamingURL} -> streamingURL) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {streamingURL = a} :: CreateImageBuilderStreamingURLResponse)
 
 -- | The elapsed time, in seconds after the Unix epoch, when this URL
 -- expires.
-createImageBuilderStreamingURLResponse_expires :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Core.Maybe Core.UTCTime)
-createImageBuilderStreamingURLResponse_expires = Lens.lens (\CreateImageBuilderStreamingURLResponse' {expires} -> expires) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {expires = a} :: CreateImageBuilderStreamingURLResponse) Core.. Lens.mapping Core._Time
+createImageBuilderStreamingURLResponse_expires :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Prelude.Maybe Prelude.UTCTime)
+createImageBuilderStreamingURLResponse_expires = Lens.lens (\CreateImageBuilderStreamingURLResponse' {expires} -> expires) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {expires = a} :: CreateImageBuilderStreamingURLResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-createImageBuilderStreamingURLResponse_httpStatus :: Lens.Lens' CreateImageBuilderStreamingURLResponse Core.Int
+createImageBuilderStreamingURLResponse_httpStatus :: Lens.Lens' CreateImageBuilderStreamingURLResponse Prelude.Int
 createImageBuilderStreamingURLResponse_httpStatus = Lens.lens (\CreateImageBuilderStreamingURLResponse' {httpStatus} -> httpStatus) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {httpStatus = a} :: CreateImageBuilderStreamingURLResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateImageBuilderStreamingURLResponse

@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,7 +77,7 @@ data ListRoles = ListRoles'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    pathPrefix :: Core.Maybe Core.Text,
+    pathPrefix :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -86,14 +87,14 @@ data ListRoles = ListRoles'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRoles' with all optional fields omitted.
@@ -134,9 +135,9 @@ newListRoles ::
   ListRoles
 newListRoles =
   ListRoles'
-    { pathPrefix = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { pathPrefix = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -151,7 +152,7 @@ newListRoles =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-listRoles_pathPrefix :: Lens.Lens' ListRoles (Core.Maybe Core.Text)
+listRoles_pathPrefix :: Lens.Lens' ListRoles (Prelude.Maybe Prelude.Text)
 listRoles_pathPrefix = Lens.lens (\ListRoles' {pathPrefix} -> pathPrefix) (\s@ListRoles' {} a -> s {pathPrefix = a} :: ListRoles)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -163,33 +164,34 @@ listRoles_pathPrefix = Lens.lens (\ListRoles' {pathPrefix} -> pathPrefix) (\s@Li
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listRoles_maxItems :: Lens.Lens' ListRoles (Core.Maybe Core.Natural)
+listRoles_maxItems :: Lens.Lens' ListRoles (Prelude.Maybe Prelude.Natural)
 listRoles_maxItems = Lens.lens (\ListRoles' {maxItems} -> maxItems) (\s@ListRoles' {} a -> s {maxItems = a} :: ListRoles)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listRoles_marker :: Lens.Lens' ListRoles (Core.Maybe Core.Text)
+listRoles_marker :: Lens.Lens' ListRoles (Prelude.Maybe Prelude.Text)
 listRoles_marker = Lens.lens (\ListRoles' {marker} -> marker) (\s@ListRoles' {} a -> s {marker = a} :: ListRoles)
 
 instance Core.AWSPager ListRoles where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRolesResponse_isTruncated Core.. Lens._Just
+            Lens.^? listRolesResponse_isTruncated Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listRolesResponse_marker Core.. Lens._Just
+            Lens.^? listRolesResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listRoles_marker
-          Lens..~ rs Lens.^? listRolesResponse_marker Core.. Lens._Just
+          Prelude.& listRoles_marker
+          Lens..~ rs
+          Lens.^? listRolesResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoles where
   type AWSResponse ListRoles = ListRolesResponse
@@ -199,29 +201,31 @@ instance Core.AWSRequest ListRoles where
       "ListRolesResult"
       ( \s h x ->
           ListRolesResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "Roles" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Roles" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListRoles
+instance Prelude.Hashable ListRoles
 
-instance Core.NFData ListRoles
+instance Prelude.NFData ListRoles
 
 instance Core.ToHeaders ListRoles where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListRoles where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListRoles where
   toQuery ListRoles' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("ListRoles" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListRoles" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PathPrefix" Core.=: pathPrefix,
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker
@@ -238,17 +242,17 @@ data ListRolesResponse = ListRolesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of roles.
     roles :: [Role]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRolesResponse' with all optional fields omitted.
@@ -275,14 +279,14 @@ data ListRolesResponse = ListRolesResponse'
 -- 'roles', 'listRolesResponse_roles' - A list of roles.
 newListRolesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRolesResponse
 newListRolesResponse pHttpStatus_ =
   ListRolesResponse'
-    { isTruncated = Core.Nothing,
-      marker = Core.Nothing,
+    { isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      roles = Core.mempty
+      roles = Prelude.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -292,21 +296,21 @@ newListRolesResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listRolesResponse_isTruncated :: Lens.Lens' ListRolesResponse (Core.Maybe Core.Bool)
+listRolesResponse_isTruncated :: Lens.Lens' ListRolesResponse (Prelude.Maybe Prelude.Bool)
 listRolesResponse_isTruncated = Lens.lens (\ListRolesResponse' {isTruncated} -> isTruncated) (\s@ListRolesResponse' {} a -> s {isTruncated = a} :: ListRolesResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listRolesResponse_marker :: Lens.Lens' ListRolesResponse (Core.Maybe Core.Text)
+listRolesResponse_marker :: Lens.Lens' ListRolesResponse (Prelude.Maybe Prelude.Text)
 listRolesResponse_marker = Lens.lens (\ListRolesResponse' {marker} -> marker) (\s@ListRolesResponse' {} a -> s {marker = a} :: ListRolesResponse)
 
 -- | The response's http status code.
-listRolesResponse_httpStatus :: Lens.Lens' ListRolesResponse Core.Int
+listRolesResponse_httpStatus :: Lens.Lens' ListRolesResponse Prelude.Int
 listRolesResponse_httpStatus = Lens.lens (\ListRolesResponse' {httpStatus} -> httpStatus) (\s@ListRolesResponse' {} a -> s {httpStatus = a} :: ListRolesResponse)
 
 -- | A list of roles.
 listRolesResponse_roles :: Lens.Lens' ListRolesResponse [Role]
-listRolesResponse_roles = Lens.lens (\ListRolesResponse' {roles} -> roles) (\s@ListRolesResponse' {} a -> s {roles = a} :: ListRolesResponse) Core.. Lens._Coerce
+listRolesResponse_roles = Lens.lens (\ListRolesResponse' {roles} -> roles) (\s@ListRolesResponse' {} a -> s {roles = a} :: ListRolesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListRolesResponse
+instance Prelude.NFData ListRolesResponse

@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.SendUsersMessageResponse where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointMessageResult
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about which users and endpoints a message was sent
 -- to.
@@ -32,14 +33,14 @@ data SendUsersMessageResponse = SendUsersMessageResponse'
     -- each user. The object lists user IDs and, for each user ID, provides the
     -- endpoint IDs that the message was sent to. For each endpoint ID, it
     -- provides an EndpointMessageResult object.
-    result :: Core.Maybe (Core.HashMap Core.Text (Core.HashMap Core.Text EndpointMessageResult)),
+    result :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text EndpointMessageResult)),
     -- | The unique identifier that was assigned to the message request.
-    requestId :: Core.Maybe Core.Text,
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application that was used to send the
     -- message.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendUsersMessageResponse' with all optional fields omitted.
@@ -60,12 +61,12 @@ data SendUsersMessageResponse = SendUsersMessageResponse'
 -- message.
 newSendUsersMessageResponse ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   SendUsersMessageResponse
 newSendUsersMessageResponse pApplicationId_ =
   SendUsersMessageResponse'
-    { result = Core.Nothing,
-      requestId = Core.Nothing,
+    { result = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
@@ -73,16 +74,16 @@ newSendUsersMessageResponse pApplicationId_ =
 -- each user. The object lists user IDs and, for each user ID, provides the
 -- endpoint IDs that the message was sent to. For each endpoint ID, it
 -- provides an EndpointMessageResult object.
-sendUsersMessageResponse_result :: Lens.Lens' SendUsersMessageResponse (Core.Maybe (Core.HashMap Core.Text (Core.HashMap Core.Text EndpointMessageResult)))
-sendUsersMessageResponse_result = Lens.lens (\SendUsersMessageResponse' {result} -> result) (\s@SendUsersMessageResponse' {} a -> s {result = a} :: SendUsersMessageResponse) Core.. Lens.mapping Lens._Coerce
+sendUsersMessageResponse_result :: Lens.Lens' SendUsersMessageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text EndpointMessageResult)))
+sendUsersMessageResponse_result = Lens.lens (\SendUsersMessageResponse' {result} -> result) (\s@SendUsersMessageResponse' {} a -> s {result = a} :: SendUsersMessageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier that was assigned to the message request.
-sendUsersMessageResponse_requestId :: Lens.Lens' SendUsersMessageResponse (Core.Maybe Core.Text)
+sendUsersMessageResponse_requestId :: Lens.Lens' SendUsersMessageResponse (Prelude.Maybe Prelude.Text)
 sendUsersMessageResponse_requestId = Lens.lens (\SendUsersMessageResponse' {requestId} -> requestId) (\s@SendUsersMessageResponse' {} a -> s {requestId = a} :: SendUsersMessageResponse)
 
 -- | The unique identifier for the application that was used to send the
 -- message.
-sendUsersMessageResponse_applicationId :: Lens.Lens' SendUsersMessageResponse Core.Text
+sendUsersMessageResponse_applicationId :: Lens.Lens' SendUsersMessageResponse Prelude.Text
 sendUsersMessageResponse_applicationId = Lens.lens (\SendUsersMessageResponse' {applicationId} -> applicationId) (\s@SendUsersMessageResponse' {} a -> s {applicationId = a} :: SendUsersMessageResponse)
 
 instance Core.FromJSON SendUsersMessageResponse where
@@ -91,11 +92,11 @@ instance Core.FromJSON SendUsersMessageResponse where
       "SendUsersMessageResponse"
       ( \x ->
           SendUsersMessageResponse'
-            Core.<$> (x Core..:? "Result" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "RequestId")
-            Core.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Core..:? "Result" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RequestId")
+            Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Core.Hashable SendUsersMessageResponse
+instance Prelude.Hashable SendUsersMessageResponse
 
-instance Core.NFData SendUsersMessageResponse
+instance Prelude.NFData SendUsersMessageResponse

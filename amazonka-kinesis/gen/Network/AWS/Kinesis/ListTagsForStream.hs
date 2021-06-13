@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +57,16 @@ data ListTagsForStream = ListTagsForStream'
   { -- | The key to use as the starting point for the list of tags. If this
     -- parameter is set, @ListTagsForStream@ gets all tags that occur after
     -- @ExclusiveStartTagKey@.
-    exclusiveStartTagKey :: Core.Maybe Core.Text,
+    exclusiveStartTagKey :: Prelude.Maybe Prelude.Text,
     -- | The number of tags to return. If this number is less than the total
     -- number of tags associated with the stream, @HasMoreTags@ is set to
     -- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
     -- key in the response.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the stream.
-    streamName :: Core.Text
+    streamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForStream' with all optional fields omitted.
@@ -87,31 +88,31 @@ data ListTagsForStream = ListTagsForStream'
 -- 'streamName', 'listTagsForStream_streamName' - The name of the stream.
 newListTagsForStream ::
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForStream
 newListTagsForStream pStreamName_ =
   ListTagsForStream'
     { exclusiveStartTagKey =
-        Core.Nothing,
-      limit = Core.Nothing,
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
       streamName = pStreamName_
     }
 
 -- | The key to use as the starting point for the list of tags. If this
 -- parameter is set, @ListTagsForStream@ gets all tags that occur after
 -- @ExclusiveStartTagKey@.
-listTagsForStream_exclusiveStartTagKey :: Lens.Lens' ListTagsForStream (Core.Maybe Core.Text)
+listTagsForStream_exclusiveStartTagKey :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Text)
 listTagsForStream_exclusiveStartTagKey = Lens.lens (\ListTagsForStream' {exclusiveStartTagKey} -> exclusiveStartTagKey) (\s@ListTagsForStream' {} a -> s {exclusiveStartTagKey = a} :: ListTagsForStream)
 
 -- | The number of tags to return. If this number is less than the total
 -- number of tags associated with the stream, @HasMoreTags@ is set to
 -- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
 -- key in the response.
-listTagsForStream_limit :: Lens.Lens' ListTagsForStream (Core.Maybe Core.Natural)
+listTagsForStream_limit :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Natural)
 listTagsForStream_limit = Lens.lens (\ListTagsForStream' {limit} -> limit) (\s@ListTagsForStream' {} a -> s {limit = a} :: ListTagsForStream)
 
 -- | The name of the stream.
-listTagsForStream_streamName :: Lens.Lens' ListTagsForStream Core.Text
+listTagsForStream_streamName :: Lens.Lens' ListTagsForStream Prelude.Text
 listTagsForStream_streamName = Lens.lens (\ListTagsForStream' {streamName} -> streamName) (\s@ListTagsForStream' {} a -> s {streamName = a} :: ListTagsForStream)
 
 instance Core.AWSRequest ListTagsForStream where
@@ -123,59 +124,61 @@ instance Core.AWSRequest ListTagsForStream where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..:> "HasMoreTags")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..:> "HasMoreTags")
       )
 
-instance Core.Hashable ListTagsForStream
+instance Prelude.Hashable ListTagsForStream
 
-instance Core.NFData ListTagsForStream
+instance Prelude.NFData ListTagsForStream
 
 instance Core.ToHeaders ListTagsForStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Kinesis_20131202.ListTagsForStream" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsForStream where
   toJSON ListTagsForStream' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExclusiveStartTagKey" Core..=)
-              Core.<$> exclusiveStartTagKey,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just ("StreamName" Core..= streamName)
+              Prelude.<$> exclusiveStartTagKey,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("StreamName" Core..= streamName)
           ]
       )
 
 instance Core.ToPath ListTagsForStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsForStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output for @ListTagsForStream@.
 --
 -- /See:/ 'newListTagsForStreamResponse' smart constructor.
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of tags associated with @StreamName@, starting with the first tag
     -- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
     tags :: [Tag],
     -- | If set to @true@, more tags are available. To request additional tags,
     -- set @ExclusiveStartTagKey@ to the key of the last tag returned.
-    hasMoreTags :: Core.Bool
+    hasMoreTags :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForStreamResponse' with all optional fields omitted.
@@ -194,9 +197,9 @@ data ListTagsForStreamResponse = ListTagsForStreamResponse'
 -- set @ExclusiveStartTagKey@ to the key of the last tag returned.
 newListTagsForStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'hasMoreTags'
-  Core.Bool ->
+  Prelude.Bool ->
   ListTagsForStreamResponse
 newListTagsForStreamResponse
   pHttpStatus_
@@ -204,22 +207,22 @@ newListTagsForStreamResponse
     ListTagsForStreamResponse'
       { httpStatus =
           pHttpStatus_,
-        tags = Core.mempty,
+        tags = Prelude.mempty,
         hasMoreTags = pHasMoreTags_
       }
 
 -- | The response's http status code.
-listTagsForStreamResponse_httpStatus :: Lens.Lens' ListTagsForStreamResponse Core.Int
+listTagsForStreamResponse_httpStatus :: Lens.Lens' ListTagsForStreamResponse Prelude.Int
 listTagsForStreamResponse_httpStatus = Lens.lens (\ListTagsForStreamResponse' {httpStatus} -> httpStatus) (\s@ListTagsForStreamResponse' {} a -> s {httpStatus = a} :: ListTagsForStreamResponse)
 
 -- | A list of tags associated with @StreamName@, starting with the first tag
 -- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
 listTagsForStreamResponse_tags :: Lens.Lens' ListTagsForStreamResponse [Tag]
-listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -> tags) (\s@ListTagsForStreamResponse' {} a -> s {tags = a} :: ListTagsForStreamResponse) Core.. Lens._Coerce
+listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -> tags) (\s@ListTagsForStreamResponse' {} a -> s {tags = a} :: ListTagsForStreamResponse) Prelude.. Lens._Coerce
 
 -- | If set to @true@, more tags are available. To request additional tags,
 -- set @ExclusiveStartTagKey@ to the key of the last tag returned.
-listTagsForStreamResponse_hasMoreTags :: Lens.Lens' ListTagsForStreamResponse Core.Bool
+listTagsForStreamResponse_hasMoreTags :: Lens.Lens' ListTagsForStreamResponse Prelude.Bool
 listTagsForStreamResponse_hasMoreTags = Lens.lens (\ListTagsForStreamResponse' {hasMoreTags} -> hasMoreTags) (\s@ListTagsForStreamResponse' {} a -> s {hasMoreTags = a} :: ListTagsForStreamResponse)
 
-instance Core.NFData ListTagsForStreamResponse
+instance Prelude.NFData ListTagsForStreamResponse

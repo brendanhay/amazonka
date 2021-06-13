@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -49,9 +50,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newDeletePlatformApplication' smart constructor.
 data DeletePlatformApplication = DeletePlatformApplication'
   { -- | PlatformApplicationArn of platform application object to delete.
-    platformApplicationArn :: Core.Text
+    platformApplicationArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePlatformApplication' with all optional fields omitted.
@@ -64,7 +65,7 @@ data DeletePlatformApplication = DeletePlatformApplication'
 -- 'platformApplicationArn', 'deletePlatformApplication_platformApplicationArn' - PlatformApplicationArn of platform application object to delete.
 newDeletePlatformApplication ::
   -- | 'platformApplicationArn'
-  Core.Text ->
+  Prelude.Text ->
   DeletePlatformApplication
 newDeletePlatformApplication pPlatformApplicationArn_ =
   DeletePlatformApplication'
@@ -73,7 +74,7 @@ newDeletePlatformApplication pPlatformApplicationArn_ =
     }
 
 -- | PlatformApplicationArn of platform application object to delete.
-deletePlatformApplication_platformApplicationArn :: Lens.Lens' DeletePlatformApplication Core.Text
+deletePlatformApplication_platformApplicationArn :: Lens.Lens' DeletePlatformApplication Prelude.Text
 deletePlatformApplication_platformApplicationArn = Lens.lens (\DeletePlatformApplication' {platformApplicationArn} -> platformApplicationArn) (\s@DeletePlatformApplication' {} a -> s {platformApplicationArn = a} :: DeletePlatformApplication)
 
 instance Core.AWSRequest DeletePlatformApplication where
@@ -85,22 +86,23 @@ instance Core.AWSRequest DeletePlatformApplication where
     Response.receiveNull
       DeletePlatformApplicationResponse'
 
-instance Core.Hashable DeletePlatformApplication
+instance Prelude.Hashable DeletePlatformApplication
 
-instance Core.NFData DeletePlatformApplication
+instance Prelude.NFData DeletePlatformApplication
 
 instance Core.ToHeaders DeletePlatformApplication where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeletePlatformApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePlatformApplication where
   toQuery DeletePlatformApplication' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeletePlatformApplication" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("DeletePlatformApplication" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "PlatformApplicationArn"
           Core.=: platformApplicationArn
       ]
@@ -109,7 +111,7 @@ instance Core.ToQuery DeletePlatformApplication where
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePlatformApplicationResponse' with all optional fields omitted.
@@ -121,5 +123,5 @@ newDeletePlatformApplicationResponse =
   DeletePlatformApplicationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeletePlatformApplicationResponse

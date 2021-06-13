@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,13 +80,13 @@ data AbortMultipartUpload = AbortMultipartUpload'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text,
+    vaultName :: Prelude.Text,
     -- | The upload ID of the multipart upload to delete.
-    uploadId :: Core.Text
+    uploadId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AbortMultipartUpload' with all optional fields omitted.
@@ -106,11 +107,11 @@ data AbortMultipartUpload = AbortMultipartUpload'
 -- 'uploadId', 'abortMultipartUpload_uploadId' - The upload ID of the multipart upload to delete.
 newAbortMultipartUpload ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'uploadId'
-  Core.Text ->
+  Prelude.Text ->
   AbortMultipartUpload
 newAbortMultipartUpload
   pAccountId_
@@ -127,15 +128,15 @@ newAbortMultipartUpload
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-abortMultipartUpload_accountId :: Lens.Lens' AbortMultipartUpload Core.Text
+abortMultipartUpload_accountId :: Lens.Lens' AbortMultipartUpload Prelude.Text
 abortMultipartUpload_accountId = Lens.lens (\AbortMultipartUpload' {accountId} -> accountId) (\s@AbortMultipartUpload' {} a -> s {accountId = a} :: AbortMultipartUpload)
 
 -- | The name of the vault.
-abortMultipartUpload_vaultName :: Lens.Lens' AbortMultipartUpload Core.Text
+abortMultipartUpload_vaultName :: Lens.Lens' AbortMultipartUpload Prelude.Text
 abortMultipartUpload_vaultName = Lens.lens (\AbortMultipartUpload' {vaultName} -> vaultName) (\s@AbortMultipartUpload' {} a -> s {vaultName = a} :: AbortMultipartUpload)
 
 -- | The upload ID of the multipart upload to delete.
-abortMultipartUpload_uploadId :: Lens.Lens' AbortMultipartUpload Core.Text
+abortMultipartUpload_uploadId :: Lens.Lens' AbortMultipartUpload Prelude.Text
 abortMultipartUpload_uploadId = Lens.lens (\AbortMultipartUpload' {uploadId} -> uploadId) (\s@AbortMultipartUpload' {} a -> s {uploadId = a} :: AbortMultipartUpload)
 
 instance Core.AWSRequest AbortMultipartUpload where
@@ -144,20 +145,20 @@ instance Core.AWSRequest AbortMultipartUpload where
       AbortMultipartUploadResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.delete defaultService
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull AbortMultipartUploadResponse'
 
-instance Core.Hashable AbortMultipartUpload
+instance Prelude.Hashable AbortMultipartUpload
 
-instance Core.NFData AbortMultipartUpload
+instance Prelude.NFData AbortMultipartUpload
 
 instance Core.ToHeaders AbortMultipartUpload where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AbortMultipartUpload where
   toPath AbortMultipartUpload' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -167,13 +168,13 @@ instance Core.ToPath AbortMultipartUpload where
       ]
 
 instance Core.ToQuery AbortMultipartUpload where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAbortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AbortMultipartUploadResponse' with all optional fields omitted.
@@ -184,4 +185,4 @@ newAbortMultipartUploadResponse ::
 newAbortMultipartUploadResponse =
   AbortMultipartUploadResponse'
 
-instance Core.NFData AbortMultipartUploadResponse
+instance Prelude.NFData AbortMultipartUploadResponse

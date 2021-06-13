@@ -30,6 +30,7 @@ module Network.AWS.MediaConvert.Types.InputRotate
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Rotate (InputRotate) to specify how the service rotates your video.
 -- You can choose automatic rotation or specify a rotation. You can specify
@@ -46,15 +47,15 @@ newtype InputRotate = InputRotate'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

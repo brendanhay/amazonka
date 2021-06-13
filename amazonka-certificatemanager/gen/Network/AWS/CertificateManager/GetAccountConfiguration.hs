@@ -40,6 +40,7 @@ where
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data GetAccountConfiguration = GetAccountConfiguration'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountConfiguration' with all optional fields omitted.
@@ -66,44 +67,46 @@ instance Core.AWSRequest GetAccountConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetAccountConfigurationResponse'
-            Core.<$> (x Core..?> "ExpiryEvents")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ExpiryEvents")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAccountConfiguration
+instance Prelude.Hashable GetAccountConfiguration
 
-instance Core.NFData GetAccountConfiguration
+instance Prelude.NFData GetAccountConfiguration
 
 instance Core.ToHeaders GetAccountConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CertificateManager.GetAccountConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetAccountConfiguration where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetAccountConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAccountConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccountConfigurationResponse' smart constructor.
 data GetAccountConfigurationResponse = GetAccountConfigurationResponse'
   { -- | Expiration events configuration options associated with the AWS account.
-    expiryEvents :: Core.Maybe ExpiryEventsConfiguration,
+    expiryEvents :: Prelude.Maybe ExpiryEventsConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountConfigurationResponse' with all optional fields omitted.
@@ -118,21 +121,23 @@ data GetAccountConfigurationResponse = GetAccountConfigurationResponse'
 -- 'httpStatus', 'getAccountConfigurationResponse_httpStatus' - The response's http status code.
 newGetAccountConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAccountConfigurationResponse
 newGetAccountConfigurationResponse pHttpStatus_ =
   GetAccountConfigurationResponse'
     { expiryEvents =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Expiration events configuration options associated with the AWS account.
-getAccountConfigurationResponse_expiryEvents :: Lens.Lens' GetAccountConfigurationResponse (Core.Maybe ExpiryEventsConfiguration)
+getAccountConfigurationResponse_expiryEvents :: Lens.Lens' GetAccountConfigurationResponse (Prelude.Maybe ExpiryEventsConfiguration)
 getAccountConfigurationResponse_expiryEvents = Lens.lens (\GetAccountConfigurationResponse' {expiryEvents} -> expiryEvents) (\s@GetAccountConfigurationResponse' {} a -> s {expiryEvents = a} :: GetAccountConfigurationResponse)
 
 -- | The response's http status code.
-getAccountConfigurationResponse_httpStatus :: Lens.Lens' GetAccountConfigurationResponse Core.Int
+getAccountConfigurationResponse_httpStatus :: Lens.Lens' GetAccountConfigurationResponse Prelude.Int
 getAccountConfigurationResponse_httpStatus = Lens.lens (\GetAccountConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetAccountConfigurationResponse' {} a -> s {httpStatus = a} :: GetAccountConfigurationResponse)
 
-instance Core.NFData GetAccountConfigurationResponse
+instance
+  Prelude.NFData
+    GetAccountConfigurationResponse

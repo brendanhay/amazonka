@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.AppValidationOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.SSMOutput
 
 -- | Output from validating an application.
@@ -28,9 +29,9 @@ import Network.AWS.SMS.Types.SSMOutput
 -- /See:/ 'newAppValidationOutput' smart constructor.
 data AppValidationOutput = AppValidationOutput'
   { -- | Output from using SSM to validate the application.
-    ssmOutput :: Core.Maybe SSMOutput
+    ssmOutput :: Prelude.Maybe SSMOutput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AppValidationOutput' with all optional fields omitted.
@@ -44,10 +45,10 @@ data AppValidationOutput = AppValidationOutput'
 newAppValidationOutput ::
   AppValidationOutput
 newAppValidationOutput =
-  AppValidationOutput' {ssmOutput = Core.Nothing}
+  AppValidationOutput' {ssmOutput = Prelude.Nothing}
 
 -- | Output from using SSM to validate the application.
-appValidationOutput_ssmOutput :: Lens.Lens' AppValidationOutput (Core.Maybe SSMOutput)
+appValidationOutput_ssmOutput :: Lens.Lens' AppValidationOutput (Prelude.Maybe SSMOutput)
 appValidationOutput_ssmOutput = Lens.lens (\AppValidationOutput' {ssmOutput} -> ssmOutput) (\s@AppValidationOutput' {} a -> s {ssmOutput = a} :: AppValidationOutput)
 
 instance Core.FromJSON AppValidationOutput where
@@ -56,9 +57,9 @@ instance Core.FromJSON AppValidationOutput where
       "AppValidationOutput"
       ( \x ->
           AppValidationOutput'
-            Core.<$> (x Core..:? "ssmOutput")
+            Prelude.<$> (x Core..:? "ssmOutput")
       )
 
-instance Core.Hashable AppValidationOutput
+instance Prelude.Hashable AppValidationOutput
 
-instance Core.NFData AppValidationOutput
+instance Prelude.NFData AppValidationOutput

@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,9 +57,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newResumeSession' smart constructor.
 data ResumeSession = ResumeSession'
   { -- | The ID of the disconnected session to resume.
-    sessionId :: Core.Text
+    sessionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResumeSession' with all optional fields omitted.
@@ -71,13 +72,13 @@ data ResumeSession = ResumeSession'
 -- 'sessionId', 'resumeSession_sessionId' - The ID of the disconnected session to resume.
 newResumeSession ::
   -- | 'sessionId'
-  Core.Text ->
+  Prelude.Text ->
   ResumeSession
 newResumeSession pSessionId_ =
   ResumeSession' {sessionId = pSessionId_}
 
 -- | The ID of the disconnected session to resume.
-resumeSession_sessionId :: Lens.Lens' ResumeSession Core.Text
+resumeSession_sessionId :: Lens.Lens' ResumeSession Prelude.Text
 resumeSession_sessionId = Lens.lens (\ResumeSession' {sessionId} -> sessionId) (\s@ResumeSession' {} a -> s {sessionId = a} :: ResumeSession)
 
 instance Core.AWSRequest ResumeSession where
@@ -89,44 +90,46 @@ instance Core.AWSRequest ResumeSession where
     Response.receiveJSON
       ( \s h x ->
           ResumeSessionResponse'
-            Core.<$> (x Core..?> "SessionId")
-            Core.<*> (x Core..?> "StreamUrl")
-            Core.<*> (x Core..?> "TokenValue")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SessionId")
+            Prelude.<*> (x Core..?> "StreamUrl")
+            Prelude.<*> (x Core..?> "TokenValue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResumeSession
+instance Prelude.Hashable ResumeSession
 
-instance Core.NFData ResumeSession
+instance Prelude.NFData ResumeSession
 
 instance Core.ToHeaders ResumeSession where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ResumeSession" :: Core.ByteString),
+              Core.=# ("AmazonSSM.ResumeSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ResumeSession where
   toJSON ResumeSession' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SessionId" Core..= sessionId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SessionId" Core..= sessionId)]
       )
 
 instance Core.ToPath ResumeSession where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResumeSession where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResumeSessionResponse' smart constructor.
 data ResumeSessionResponse = ResumeSessionResponse'
   { -- | The ID of the session.
-    sessionId :: Core.Maybe Core.Text,
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | A URL back to SSM Agent on the instance that the Session Manager client
     -- uses to send commands and receive output from the instance. Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
@@ -140,14 +143,14 @@ data ResumeSessionResponse = ResumeSessionResponse'
     --
     -- __session-id__ represents the ID of a Session Manager session, such as
     -- @1a2b3c4dEXAMPLE@.
-    streamUrl :: Core.Maybe Core.Text,
+    streamUrl :: Prelude.Maybe Prelude.Text,
     -- | An encrypted token value containing session and caller information. Used
     -- to authenticate the connection to the instance.
-    tokenValue :: Core.Maybe Core.Text,
+    tokenValue :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResumeSessionResponse' with all optional fields omitted.
@@ -179,18 +182,18 @@ data ResumeSessionResponse = ResumeSessionResponse'
 -- 'httpStatus', 'resumeSessionResponse_httpStatus' - The response's http status code.
 newResumeSessionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResumeSessionResponse
 newResumeSessionResponse pHttpStatus_ =
   ResumeSessionResponse'
-    { sessionId = Core.Nothing,
-      streamUrl = Core.Nothing,
-      tokenValue = Core.Nothing,
+    { sessionId = Prelude.Nothing,
+      streamUrl = Prelude.Nothing,
+      tokenValue = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the session.
-resumeSessionResponse_sessionId :: Lens.Lens' ResumeSessionResponse (Core.Maybe Core.Text)
+resumeSessionResponse_sessionId :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
 resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId} -> sessionId) (\s@ResumeSessionResponse' {} a -> s {sessionId = a} :: ResumeSessionResponse)
 
 -- | A URL back to SSM Agent on the instance that the Session Manager client
@@ -206,16 +209,16 @@ resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId}
 --
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.
-resumeSessionResponse_streamUrl :: Lens.Lens' ResumeSessionResponse (Core.Maybe Core.Text)
+resumeSessionResponse_streamUrl :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
 resumeSessionResponse_streamUrl = Lens.lens (\ResumeSessionResponse' {streamUrl} -> streamUrl) (\s@ResumeSessionResponse' {} a -> s {streamUrl = a} :: ResumeSessionResponse)
 
 -- | An encrypted token value containing session and caller information. Used
 -- to authenticate the connection to the instance.
-resumeSessionResponse_tokenValue :: Lens.Lens' ResumeSessionResponse (Core.Maybe Core.Text)
+resumeSessionResponse_tokenValue :: Lens.Lens' ResumeSessionResponse (Prelude.Maybe Prelude.Text)
 resumeSessionResponse_tokenValue = Lens.lens (\ResumeSessionResponse' {tokenValue} -> tokenValue) (\s@ResumeSessionResponse' {} a -> s {tokenValue = a} :: ResumeSessionResponse)
 
 -- | The response's http status code.
-resumeSessionResponse_httpStatus :: Lens.Lens' ResumeSessionResponse Core.Int
+resumeSessionResponse_httpStatus :: Lens.Lens' ResumeSessionResponse Prelude.Int
 resumeSessionResponse_httpStatus = Lens.lens (\ResumeSessionResponse' {httpStatus} -> httpStatus) (\s@ResumeSessionResponse' {} a -> s {httpStatus = a} :: ResumeSessionResponse)
 
-instance Core.NFData ResumeSessionResponse
+instance Prelude.NFData ResumeSessionResponse

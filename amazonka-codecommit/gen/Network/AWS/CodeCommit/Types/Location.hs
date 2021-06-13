@@ -22,6 +22,7 @@ module Network.AWS.CodeCommit.Types.Location where
 import Network.AWS.CodeCommit.Types.RelativeFileVersionEnum
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about the location of a change or comment in the
 -- comparison between two commits or a pull request.
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 data Location = Location'
   { -- | The name of the file being compared, including its extension and
     -- subdirectory, if any.
-    filePath :: Core.Maybe Core.Text,
+    filePath :: Prelude.Maybe Prelude.Text,
     -- | The position of a change in a compared file, in line number format.
-    filePosition :: Core.Maybe Core.Integer,
+    filePosition :: Prelude.Maybe Prelude.Integer,
     -- | In a comparison of commits or a pull request, whether the change is in
     -- the before or after of that comparison.
-    relativeFileVersion :: Core.Maybe RelativeFileVersionEnum
+    relativeFileVersion :: Prelude.Maybe RelativeFileVersionEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Location' with all optional fields omitted.
@@ -58,23 +59,23 @@ newLocation ::
   Location
 newLocation =
   Location'
-    { filePath = Core.Nothing,
-      filePosition = Core.Nothing,
-      relativeFileVersion = Core.Nothing
+    { filePath = Prelude.Nothing,
+      filePosition = Prelude.Nothing,
+      relativeFileVersion = Prelude.Nothing
     }
 
 -- | The name of the file being compared, including its extension and
 -- subdirectory, if any.
-location_filePath :: Lens.Lens' Location (Core.Maybe Core.Text)
+location_filePath :: Lens.Lens' Location (Prelude.Maybe Prelude.Text)
 location_filePath = Lens.lens (\Location' {filePath} -> filePath) (\s@Location' {} a -> s {filePath = a} :: Location)
 
 -- | The position of a change in a compared file, in line number format.
-location_filePosition :: Lens.Lens' Location (Core.Maybe Core.Integer)
+location_filePosition :: Lens.Lens' Location (Prelude.Maybe Prelude.Integer)
 location_filePosition = Lens.lens (\Location' {filePosition} -> filePosition) (\s@Location' {} a -> s {filePosition = a} :: Location)
 
 -- | In a comparison of commits or a pull request, whether the change is in
 -- the before or after of that comparison.
-location_relativeFileVersion :: Lens.Lens' Location (Core.Maybe RelativeFileVersionEnum)
+location_relativeFileVersion :: Lens.Lens' Location (Prelude.Maybe RelativeFileVersionEnum)
 location_relativeFileVersion = Lens.lens (\Location' {relativeFileVersion} -> relativeFileVersion) (\s@Location' {} a -> s {relativeFileVersion = a} :: Location)
 
 instance Core.FromJSON Location where
@@ -83,22 +84,22 @@ instance Core.FromJSON Location where
       "Location"
       ( \x ->
           Location'
-            Core.<$> (x Core..:? "filePath")
-            Core.<*> (x Core..:? "filePosition")
-            Core.<*> (x Core..:? "relativeFileVersion")
+            Prelude.<$> (x Core..:? "filePath")
+            Prelude.<*> (x Core..:? "filePosition")
+            Prelude.<*> (x Core..:? "relativeFileVersion")
       )
 
-instance Core.Hashable Location
+instance Prelude.Hashable Location
 
-instance Core.NFData Location
+instance Prelude.NFData Location
 
 instance Core.ToJSON Location where
   toJSON Location' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("filePath" Core..=) Core.<$> filePath,
-            ("filePosition" Core..=) Core.<$> filePosition,
+      ( Prelude.catMaybes
+          [ ("filePath" Core..=) Prelude.<$> filePath,
+            ("filePosition" Core..=) Prelude.<$> filePosition,
             ("relativeFileVersion" Core..=)
-              Core.<$> relativeFileVersion
+              Prelude.<$> relativeFileVersion
           ]
       )

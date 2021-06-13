@@ -44,6 +44,7 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,14 +52,14 @@ import qualified Network.AWS.Response as Response
 data PutInvitationConfiguration = PutInvitationConfiguration'
   { -- | The email ID of the organization or individual contact that the enrolled
     -- user can use.
-    contactEmail :: Core.Maybe Core.Text,
+    contactEmail :: Prelude.Maybe Prelude.Text,
     -- | The list of private skill IDs that you want to recommend to the user to
     -- enable in the invitation.
-    privateSkillIds :: Core.Maybe [Core.Text],
+    privateSkillIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the organization sending the enrollment invite to a user.
-    organizationName :: Core.Text
+    organizationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutInvitationConfiguration' with all optional fields omitted.
@@ -77,28 +78,28 @@ data PutInvitationConfiguration = PutInvitationConfiguration'
 -- 'organizationName', 'putInvitationConfiguration_organizationName' - The name of the organization sending the enrollment invite to a user.
 newPutInvitationConfiguration ::
   -- | 'organizationName'
-  Core.Text ->
+  Prelude.Text ->
   PutInvitationConfiguration
 newPutInvitationConfiguration pOrganizationName_ =
   PutInvitationConfiguration'
     { contactEmail =
-        Core.Nothing,
-      privateSkillIds = Core.Nothing,
+        Prelude.Nothing,
+      privateSkillIds = Prelude.Nothing,
       organizationName = pOrganizationName_
     }
 
 -- | The email ID of the organization or individual contact that the enrolled
 -- user can use.
-putInvitationConfiguration_contactEmail :: Lens.Lens' PutInvitationConfiguration (Core.Maybe Core.Text)
+putInvitationConfiguration_contactEmail :: Lens.Lens' PutInvitationConfiguration (Prelude.Maybe Prelude.Text)
 putInvitationConfiguration_contactEmail = Lens.lens (\PutInvitationConfiguration' {contactEmail} -> contactEmail) (\s@PutInvitationConfiguration' {} a -> s {contactEmail = a} :: PutInvitationConfiguration)
 
 -- | The list of private skill IDs that you want to recommend to the user to
 -- enable in the invitation.
-putInvitationConfiguration_privateSkillIds :: Lens.Lens' PutInvitationConfiguration (Core.Maybe [Core.Text])
-putInvitationConfiguration_privateSkillIds = Lens.lens (\PutInvitationConfiguration' {privateSkillIds} -> privateSkillIds) (\s@PutInvitationConfiguration' {} a -> s {privateSkillIds = a} :: PutInvitationConfiguration) Core.. Lens.mapping Lens._Coerce
+putInvitationConfiguration_privateSkillIds :: Lens.Lens' PutInvitationConfiguration (Prelude.Maybe [Prelude.Text])
+putInvitationConfiguration_privateSkillIds = Lens.lens (\PutInvitationConfiguration' {privateSkillIds} -> privateSkillIds) (\s@PutInvitationConfiguration' {} a -> s {privateSkillIds = a} :: PutInvitationConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the organization sending the enrollment invite to a user.
-putInvitationConfiguration_organizationName :: Lens.Lens' PutInvitationConfiguration Core.Text
+putInvitationConfiguration_organizationName :: Lens.Lens' PutInvitationConfiguration Prelude.Text
 putInvitationConfiguration_organizationName = Lens.lens (\PutInvitationConfiguration' {organizationName} -> organizationName) (\s@PutInvitationConfiguration' {} a -> s {organizationName = a} :: PutInvitationConfiguration)
 
 instance Core.AWSRequest PutInvitationConfiguration where
@@ -110,49 +111,52 @@ instance Core.AWSRequest PutInvitationConfiguration where
     Response.receiveEmpty
       ( \s h x ->
           PutInvitationConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutInvitationConfiguration
+instance Prelude.Hashable PutInvitationConfiguration
 
-instance Core.NFData PutInvitationConfiguration
+instance Prelude.NFData PutInvitationConfiguration
 
 instance Core.ToHeaders PutInvitationConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.PutInvitationConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutInvitationConfiguration where
   toJSON PutInvitationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ContactEmail" Core..=) Core.<$> contactEmail,
-            ("PrivateSkillIds" Core..=) Core.<$> privateSkillIds,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ContactEmail" Core..=) Prelude.<$> contactEmail,
+            ("PrivateSkillIds" Core..=)
+              Prelude.<$> privateSkillIds,
+            Prelude.Just
               ("OrganizationName" Core..= organizationName)
           ]
       )
 
 instance Core.ToPath PutInvitationConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutInvitationConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutInvitationConfigurationResponse' smart constructor.
 data PutInvitationConfigurationResponse = PutInvitationConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutInvitationConfigurationResponse' with all optional fields omitted.
@@ -165,7 +169,7 @@ data PutInvitationConfigurationResponse = PutInvitationConfigurationResponse'
 -- 'httpStatus', 'putInvitationConfigurationResponse_httpStatus' - The response's http status code.
 newPutInvitationConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutInvitationConfigurationResponse
 newPutInvitationConfigurationResponse pHttpStatus_ =
   PutInvitationConfigurationResponse'
@@ -174,9 +178,9 @@ newPutInvitationConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putInvitationConfigurationResponse_httpStatus :: Lens.Lens' PutInvitationConfigurationResponse Core.Int
+putInvitationConfigurationResponse_httpStatus :: Lens.Lens' PutInvitationConfigurationResponse Prelude.Int
 putInvitationConfigurationResponse_httpStatus = Lens.lens (\PutInvitationConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutInvitationConfigurationResponse' {} a -> s {httpStatus = a} :: PutInvitationConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutInvitationConfigurationResponse

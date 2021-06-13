@@ -24,6 +24,7 @@ import Network.AWS.AppSync.Types.ConflictHandlerType
 import Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Sync configuration for a resolver.
 --
@@ -42,19 +43,19 @@ data SyncConfig = SyncConfig'
     --
     -- -   __LAMBDA__: Resolve conflicts with a Lambda function supplied in the
     --     LambdaConflictHandlerConfig.
-    conflictHandler :: Core.Maybe ConflictHandlerType,
+    conflictHandler :: Prelude.Maybe ConflictHandlerType,
     -- | The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the
     -- Conflict Handler.
-    lambdaConflictHandlerConfig :: Core.Maybe LambdaConflictHandlerConfig,
+    lambdaConflictHandlerConfig :: Prelude.Maybe LambdaConflictHandlerConfig,
     -- | The Conflict Detection strategy to use.
     --
     -- -   __VERSION__: Detect conflicts based on object versions for this
     --     resolver.
     --
     -- -   __NONE__: Do not detect conflicts when executing this resolver.
-    conflictDetection :: Core.Maybe ConflictDetectionType
+    conflictDetection :: Prelude.Maybe ConflictDetectionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SyncConfig' with all optional fields omitted.
@@ -88,9 +89,9 @@ newSyncConfig ::
   SyncConfig
 newSyncConfig =
   SyncConfig'
-    { conflictHandler = Core.Nothing,
-      lambdaConflictHandlerConfig = Core.Nothing,
-      conflictDetection = Core.Nothing
+    { conflictHandler = Prelude.Nothing,
+      lambdaConflictHandlerConfig = Prelude.Nothing,
+      conflictDetection = Prelude.Nothing
     }
 
 -- | The Conflict Resolution strategy to perform in the event of a conflict.
@@ -103,12 +104,12 @@ newSyncConfig =
 --
 -- -   __LAMBDA__: Resolve conflicts with a Lambda function supplied in the
 --     LambdaConflictHandlerConfig.
-syncConfig_conflictHandler :: Lens.Lens' SyncConfig (Core.Maybe ConflictHandlerType)
+syncConfig_conflictHandler :: Lens.Lens' SyncConfig (Prelude.Maybe ConflictHandlerType)
 syncConfig_conflictHandler = Lens.lens (\SyncConfig' {conflictHandler} -> conflictHandler) (\s@SyncConfig' {} a -> s {conflictHandler = a} :: SyncConfig)
 
 -- | The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the
 -- Conflict Handler.
-syncConfig_lambdaConflictHandlerConfig :: Lens.Lens' SyncConfig (Core.Maybe LambdaConflictHandlerConfig)
+syncConfig_lambdaConflictHandlerConfig :: Lens.Lens' SyncConfig (Prelude.Maybe LambdaConflictHandlerConfig)
 syncConfig_lambdaConflictHandlerConfig = Lens.lens (\SyncConfig' {lambdaConflictHandlerConfig} -> lambdaConflictHandlerConfig) (\s@SyncConfig' {} a -> s {lambdaConflictHandlerConfig = a} :: SyncConfig)
 
 -- | The Conflict Detection strategy to use.
@@ -117,7 +118,7 @@ syncConfig_lambdaConflictHandlerConfig = Lens.lens (\SyncConfig' {lambdaConflict
 --     resolver.
 --
 -- -   __NONE__: Do not detect conflicts when executing this resolver.
-syncConfig_conflictDetection :: Lens.Lens' SyncConfig (Core.Maybe ConflictDetectionType)
+syncConfig_conflictDetection :: Lens.Lens' SyncConfig (Prelude.Maybe ConflictDetectionType)
 syncConfig_conflictDetection = Lens.lens (\SyncConfig' {conflictDetection} -> conflictDetection) (\s@SyncConfig' {} a -> s {conflictDetection = a} :: SyncConfig)
 
 instance Core.FromJSON SyncConfig where
@@ -126,24 +127,24 @@ instance Core.FromJSON SyncConfig where
       "SyncConfig"
       ( \x ->
           SyncConfig'
-            Core.<$> (x Core..:? "conflictHandler")
-            Core.<*> (x Core..:? "lambdaConflictHandlerConfig")
-            Core.<*> (x Core..:? "conflictDetection")
+            Prelude.<$> (x Core..:? "conflictHandler")
+            Prelude.<*> (x Core..:? "lambdaConflictHandlerConfig")
+            Prelude.<*> (x Core..:? "conflictDetection")
       )
 
-instance Core.Hashable SyncConfig
+instance Prelude.Hashable SyncConfig
 
-instance Core.NFData SyncConfig
+instance Prelude.NFData SyncConfig
 
 instance Core.ToJSON SyncConfig where
   toJSON SyncConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("conflictHandler" Core..=)
-              Core.<$> conflictHandler,
+              Prelude.<$> conflictHandler,
             ("lambdaConflictHandlerConfig" Core..=)
-              Core.<$> lambdaConflictHandlerConfig,
+              Prelude.<$> lambdaConflictHandlerConfig,
             ("conflictDetection" Core..=)
-              Core.<$> conflictDetection
+              Prelude.<$> conflictDetection
           ]
       )

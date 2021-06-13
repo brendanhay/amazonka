@@ -21,23 +21,24 @@ module Network.AWS.IoT.Types.TransferData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Data used to transfer a certificate to an AWS account.
 --
 -- /See:/ 'newTransferData' smart constructor.
 data TransferData = TransferData'
   { -- | The date the transfer took place.
-    transferDate :: Core.Maybe Core.POSIX,
+    transferDate :: Prelude.Maybe Core.POSIX,
     -- | The transfer message.
-    transferMessage :: Core.Maybe Core.Text,
+    transferMessage :: Prelude.Maybe Prelude.Text,
     -- | The date the transfer was accepted.
-    acceptDate :: Core.Maybe Core.POSIX,
+    acceptDate :: Prelude.Maybe Core.POSIX,
     -- | The date the transfer was rejected.
-    rejectDate :: Core.Maybe Core.POSIX,
+    rejectDate :: Prelude.Maybe Core.POSIX,
     -- | The reason why the transfer was rejected.
-    rejectReason :: Core.Maybe Core.Text
+    rejectReason :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransferData' with all optional fields omitted.
@@ -60,31 +61,31 @@ newTransferData ::
   TransferData
 newTransferData =
   TransferData'
-    { transferDate = Core.Nothing,
-      transferMessage = Core.Nothing,
-      acceptDate = Core.Nothing,
-      rejectDate = Core.Nothing,
-      rejectReason = Core.Nothing
+    { transferDate = Prelude.Nothing,
+      transferMessage = Prelude.Nothing,
+      acceptDate = Prelude.Nothing,
+      rejectDate = Prelude.Nothing,
+      rejectReason = Prelude.Nothing
     }
 
 -- | The date the transfer took place.
-transferData_transferDate :: Lens.Lens' TransferData (Core.Maybe Core.UTCTime)
-transferData_transferDate = Lens.lens (\TransferData' {transferDate} -> transferDate) (\s@TransferData' {} a -> s {transferDate = a} :: TransferData) Core.. Lens.mapping Core._Time
+transferData_transferDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
+transferData_transferDate = Lens.lens (\TransferData' {transferDate} -> transferDate) (\s@TransferData' {} a -> s {transferDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
 
 -- | The transfer message.
-transferData_transferMessage :: Lens.Lens' TransferData (Core.Maybe Core.Text)
+transferData_transferMessage :: Lens.Lens' TransferData (Prelude.Maybe Prelude.Text)
 transferData_transferMessage = Lens.lens (\TransferData' {transferMessage} -> transferMessage) (\s@TransferData' {} a -> s {transferMessage = a} :: TransferData)
 
 -- | The date the transfer was accepted.
-transferData_acceptDate :: Lens.Lens' TransferData (Core.Maybe Core.UTCTime)
-transferData_acceptDate = Lens.lens (\TransferData' {acceptDate} -> acceptDate) (\s@TransferData' {} a -> s {acceptDate = a} :: TransferData) Core.. Lens.mapping Core._Time
+transferData_acceptDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
+transferData_acceptDate = Lens.lens (\TransferData' {acceptDate} -> acceptDate) (\s@TransferData' {} a -> s {acceptDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
 
 -- | The date the transfer was rejected.
-transferData_rejectDate :: Lens.Lens' TransferData (Core.Maybe Core.UTCTime)
-transferData_rejectDate = Lens.lens (\TransferData' {rejectDate} -> rejectDate) (\s@TransferData' {} a -> s {rejectDate = a} :: TransferData) Core.. Lens.mapping Core._Time
+transferData_rejectDate :: Lens.Lens' TransferData (Prelude.Maybe Prelude.UTCTime)
+transferData_rejectDate = Lens.lens (\TransferData' {rejectDate} -> rejectDate) (\s@TransferData' {} a -> s {rejectDate = a} :: TransferData) Prelude.. Lens.mapping Core._Time
 
 -- | The reason why the transfer was rejected.
-transferData_rejectReason :: Lens.Lens' TransferData (Core.Maybe Core.Text)
+transferData_rejectReason :: Lens.Lens' TransferData (Prelude.Maybe Prelude.Text)
 transferData_rejectReason = Lens.lens (\TransferData' {rejectReason} -> rejectReason) (\s@TransferData' {} a -> s {rejectReason = a} :: TransferData)
 
 instance Core.FromJSON TransferData where
@@ -93,13 +94,13 @@ instance Core.FromJSON TransferData where
       "TransferData"
       ( \x ->
           TransferData'
-            Core.<$> (x Core..:? "transferDate")
-            Core.<*> (x Core..:? "transferMessage")
-            Core.<*> (x Core..:? "acceptDate")
-            Core.<*> (x Core..:? "rejectDate")
-            Core.<*> (x Core..:? "rejectReason")
+            Prelude.<$> (x Core..:? "transferDate")
+            Prelude.<*> (x Core..:? "transferMessage")
+            Prelude.<*> (x Core..:? "acceptDate")
+            Prelude.<*> (x Core..:? "rejectDate")
+            Prelude.<*> (x Core..:? "rejectReason")
       )
 
-instance Core.Hashable TransferData
+instance Prelude.Hashable TransferData
 
-instance Core.NFData TransferData
+instance Prelude.NFData TransferData

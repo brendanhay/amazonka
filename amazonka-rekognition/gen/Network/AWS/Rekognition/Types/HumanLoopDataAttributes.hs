@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.HumanLoopDataAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.ContentClassifier
 
 -- | Allows you to set attributes of the image. Currently, you can declare an
@@ -30,9 +31,9 @@ import Network.AWS.Rekognition.Types.ContentClassifier
 data HumanLoopDataAttributes = HumanLoopDataAttributes'
   { -- | Sets whether the input image is free of personally identifiable
     -- information.
-    contentClassifiers :: Core.Maybe [ContentClassifier]
+    contentClassifiers :: Prelude.Maybe [ContentClassifier]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HumanLoopDataAttributes' with all optional fields omitted.
@@ -49,23 +50,23 @@ newHumanLoopDataAttributes ::
 newHumanLoopDataAttributes =
   HumanLoopDataAttributes'
     { contentClassifiers =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Sets whether the input image is free of personally identifiable
 -- information.
-humanLoopDataAttributes_contentClassifiers :: Lens.Lens' HumanLoopDataAttributes (Core.Maybe [ContentClassifier])
-humanLoopDataAttributes_contentClassifiers = Lens.lens (\HumanLoopDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@HumanLoopDataAttributes' {} a -> s {contentClassifiers = a} :: HumanLoopDataAttributes) Core.. Lens.mapping Lens._Coerce
+humanLoopDataAttributes_contentClassifiers :: Lens.Lens' HumanLoopDataAttributes (Prelude.Maybe [ContentClassifier])
+humanLoopDataAttributes_contentClassifiers = Lens.lens (\HumanLoopDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@HumanLoopDataAttributes' {} a -> s {contentClassifiers = a} :: HumanLoopDataAttributes) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable HumanLoopDataAttributes
+instance Prelude.Hashable HumanLoopDataAttributes
 
-instance Core.NFData HumanLoopDataAttributes
+instance Prelude.NFData HumanLoopDataAttributes
 
 instance Core.ToJSON HumanLoopDataAttributes where
   toJSON HumanLoopDataAttributes' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ContentClassifiers" Core..=)
-              Core.<$> contentClassifiers
+              Prelude.<$> contentClassifiers
           ]
       )

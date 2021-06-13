@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.EventInformation
 import Network.AWS.EC2.Types.EventType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an event in the history of the Spot Fleet request.
 --
@@ -39,14 +40,14 @@ data HistoryRecord = HistoryRecord'
     -- -   @instanceChange@ - An instance was launched or terminated.
     --
     -- -   @Information@ - An informational event.
-    eventType :: Core.Maybe EventType,
+    eventType :: Prelude.Maybe EventType,
     -- | The date and time of the event, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    timestamp :: Core.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Core.ISO8601,
     -- | Information about the event.
-    eventInformation :: Core.Maybe EventInformation
+    eventInformation :: Prelude.Maybe EventInformation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HistoryRecord' with all optional fields omitted.
@@ -75,9 +76,9 @@ newHistoryRecord ::
   HistoryRecord
 newHistoryRecord =
   HistoryRecord'
-    { eventType = Core.Nothing,
-      timestamp = Core.Nothing,
-      eventInformation = Core.Nothing
+    { eventType = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
+      eventInformation = Prelude.Nothing
     }
 
 -- | The event type.
@@ -90,25 +91,25 @@ newHistoryRecord =
 -- -   @instanceChange@ - An instance was launched or terminated.
 --
 -- -   @Information@ - An informational event.
-historyRecord_eventType :: Lens.Lens' HistoryRecord (Core.Maybe EventType)
+historyRecord_eventType :: Lens.Lens' HistoryRecord (Prelude.Maybe EventType)
 historyRecord_eventType = Lens.lens (\HistoryRecord' {eventType} -> eventType) (\s@HistoryRecord' {} a -> s {eventType = a} :: HistoryRecord)
 
 -- | The date and time of the event, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-historyRecord_timestamp :: Lens.Lens' HistoryRecord (Core.Maybe Core.UTCTime)
-historyRecord_timestamp = Lens.lens (\HistoryRecord' {timestamp} -> timestamp) (\s@HistoryRecord' {} a -> s {timestamp = a} :: HistoryRecord) Core.. Lens.mapping Core._Time
+historyRecord_timestamp :: Lens.Lens' HistoryRecord (Prelude.Maybe Prelude.UTCTime)
+historyRecord_timestamp = Lens.lens (\HistoryRecord' {timestamp} -> timestamp) (\s@HistoryRecord' {} a -> s {timestamp = a} :: HistoryRecord) Prelude.. Lens.mapping Core._Time
 
 -- | Information about the event.
-historyRecord_eventInformation :: Lens.Lens' HistoryRecord (Core.Maybe EventInformation)
+historyRecord_eventInformation :: Lens.Lens' HistoryRecord (Prelude.Maybe EventInformation)
 historyRecord_eventInformation = Lens.lens (\HistoryRecord' {eventInformation} -> eventInformation) (\s@HistoryRecord' {} a -> s {eventInformation = a} :: HistoryRecord)
 
 instance Core.FromXML HistoryRecord where
   parseXML x =
     HistoryRecord'
-      Core.<$> (x Core..@? "eventType")
-      Core.<*> (x Core..@? "timestamp")
-      Core.<*> (x Core..@? "eventInformation")
+      Prelude.<$> (x Core..@? "eventType")
+      Prelude.<*> (x Core..@? "timestamp")
+      Prelude.<*> (x Core..@? "eventInformation")
 
-instance Core.Hashable HistoryRecord
+instance Prelude.Hashable HistoryRecord
 
-instance Core.NFData HistoryRecord
+instance Prelude.NFData HistoryRecord

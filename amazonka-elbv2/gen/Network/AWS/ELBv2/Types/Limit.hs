@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.Limit where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an Elastic Load Balancing resource limit for your AWS
 -- account.
@@ -64,11 +65,11 @@ data Limit = Limit'
     -- -   targets-per-availability-zone-per-network-load-balancer
     --
     -- -   targets-per-network-load-balancer
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The maximum value of the limit.
-    max :: Core.Maybe Core.Text
+    max :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Limit' with all optional fields omitted.
@@ -120,7 +121,10 @@ data Limit = Limit'
 newLimit ::
   Limit
 newLimit =
-  Limit' {name = Core.Nothing, max = Core.Nothing}
+  Limit'
+    { name = Prelude.Nothing,
+      max = Prelude.Nothing
+    }
 
 -- | The name of the limit. The possible values are:
 --
@@ -159,18 +163,18 @@ newLimit =
 -- -   targets-per-availability-zone-per-network-load-balancer
 --
 -- -   targets-per-network-load-balancer
-limit_name :: Lens.Lens' Limit (Core.Maybe Core.Text)
+limit_name :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
 limit_name = Lens.lens (\Limit' {name} -> name) (\s@Limit' {} a -> s {name = a} :: Limit)
 
 -- | The maximum value of the limit.
-limit_max :: Lens.Lens' Limit (Core.Maybe Core.Text)
+limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
 limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
 
 instance Core.FromXML Limit where
   parseXML x =
     Limit'
-      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Max")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Max")
 
-instance Core.Hashable Limit
+instance Prelude.Hashable Limit
 
-instance Core.NFData Limit
+instance Prelude.NFData Limit

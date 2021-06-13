@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -50,16 +51,16 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newAddRoleToDBInstance' smart constructor.
 data AddRoleToDBInstance = AddRoleToDBInstance'
   { -- | The name of the DB instance to associate the IAM role with.
-    dbInstanceIdentifier :: Core.Text,
+    dbInstanceIdentifier :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to associate with the DB
     -- instance, for example @arn:aws:iam::123456789012:role\/AccessRole@.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The name of the feature for the DB instance that the IAM role is to be
     -- associated with. For the list of supported feature names, see
     -- DBEngineVersion.
-    featureName :: Core.Text
+    featureName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddRoleToDBInstance' with all optional fields omitted.
@@ -79,11 +80,11 @@ data AddRoleToDBInstance = AddRoleToDBInstance'
 -- DBEngineVersion.
 newAddRoleToDBInstance ::
   -- | 'dbInstanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'featureName'
-  Core.Text ->
+  Prelude.Text ->
   AddRoleToDBInstance
 newAddRoleToDBInstance
   pDBInstanceIdentifier_
@@ -97,18 +98,18 @@ newAddRoleToDBInstance
       }
 
 -- | The name of the DB instance to associate the IAM role with.
-addRoleToDBInstance_dbInstanceIdentifier :: Lens.Lens' AddRoleToDBInstance Core.Text
+addRoleToDBInstance_dbInstanceIdentifier :: Lens.Lens' AddRoleToDBInstance Prelude.Text
 addRoleToDBInstance_dbInstanceIdentifier = Lens.lens (\AddRoleToDBInstance' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@AddRoleToDBInstance' {} a -> s {dbInstanceIdentifier = a} :: AddRoleToDBInstance)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to associate with the DB
 -- instance, for example @arn:aws:iam::123456789012:role\/AccessRole@.
-addRoleToDBInstance_roleArn :: Lens.Lens' AddRoleToDBInstance Core.Text
+addRoleToDBInstance_roleArn :: Lens.Lens' AddRoleToDBInstance Prelude.Text
 addRoleToDBInstance_roleArn = Lens.lens (\AddRoleToDBInstance' {roleArn} -> roleArn) (\s@AddRoleToDBInstance' {} a -> s {roleArn = a} :: AddRoleToDBInstance)
 
 -- | The name of the feature for the DB instance that the IAM role is to be
 -- associated with. For the list of supported feature names, see
 -- DBEngineVersion.
-addRoleToDBInstance_featureName :: Lens.Lens' AddRoleToDBInstance Core.Text
+addRoleToDBInstance_featureName :: Lens.Lens' AddRoleToDBInstance Prelude.Text
 addRoleToDBInstance_featureName = Lens.lens (\AddRoleToDBInstance' {featureName} -> featureName) (\s@AddRoleToDBInstance' {} a -> s {featureName = a} :: AddRoleToDBInstance)
 
 instance Core.AWSRequest AddRoleToDBInstance where
@@ -119,22 +120,23 @@ instance Core.AWSRequest AddRoleToDBInstance where
   response =
     Response.receiveNull AddRoleToDBInstanceResponse'
 
-instance Core.Hashable AddRoleToDBInstance
+instance Prelude.Hashable AddRoleToDBInstance
 
-instance Core.NFData AddRoleToDBInstance
+instance Prelude.NFData AddRoleToDBInstance
 
 instance Core.ToHeaders AddRoleToDBInstance where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AddRoleToDBInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddRoleToDBInstance where
   toQuery AddRoleToDBInstance' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AddRoleToDBInstance" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("AddRoleToDBInstance" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
         "RoleArn" Core.=: roleArn,
         "FeatureName" Core.=: featureName
@@ -144,7 +146,7 @@ instance Core.ToQuery AddRoleToDBInstance where
 data AddRoleToDBInstanceResponse = AddRoleToDBInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddRoleToDBInstanceResponse' with all optional fields omitted.
@@ -155,4 +157,4 @@ newAddRoleToDBInstanceResponse ::
 newAddRoleToDBInstanceResponse =
   AddRoleToDBInstanceResponse'
 
-instance Core.NFData AddRoleToDBInstanceResponse
+instance Prelude.NFData AddRoleToDBInstanceResponse

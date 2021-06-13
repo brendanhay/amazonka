@@ -47,17 +47,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetTimeBasedAutoScaling' smart constructor.
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
   { -- | An @AutoScalingSchedule@ with the instance schedule.
-    autoScalingSchedule :: Core.Maybe WeeklyAutoScalingSchedule,
+    autoScalingSchedule :: Prelude.Maybe WeeklyAutoScalingSchedule,
     -- | The instance ID.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTimeBasedAutoScaling' with all optional fields omitted.
@@ -72,21 +73,21 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
 -- 'instanceId', 'setTimeBasedAutoScaling_instanceId' - The instance ID.
 newSetTimeBasedAutoScaling ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   SetTimeBasedAutoScaling
 newSetTimeBasedAutoScaling pInstanceId_ =
   SetTimeBasedAutoScaling'
     { autoScalingSchedule =
-        Core.Nothing,
+        Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | An @AutoScalingSchedule@ with the instance schedule.
-setTimeBasedAutoScaling_autoScalingSchedule :: Lens.Lens' SetTimeBasedAutoScaling (Core.Maybe WeeklyAutoScalingSchedule)
+setTimeBasedAutoScaling_autoScalingSchedule :: Lens.Lens' SetTimeBasedAutoScaling (Prelude.Maybe WeeklyAutoScalingSchedule)
 setTimeBasedAutoScaling_autoScalingSchedule = Lens.lens (\SetTimeBasedAutoScaling' {autoScalingSchedule} -> autoScalingSchedule) (\s@SetTimeBasedAutoScaling' {} a -> s {autoScalingSchedule = a} :: SetTimeBasedAutoScaling)
 
 -- | The instance ID.
-setTimeBasedAutoScaling_instanceId :: Lens.Lens' SetTimeBasedAutoScaling Core.Text
+setTimeBasedAutoScaling_instanceId :: Lens.Lens' SetTimeBasedAutoScaling Prelude.Text
 setTimeBasedAutoScaling_instanceId = Lens.lens (\SetTimeBasedAutoScaling' {instanceId} -> instanceId) (\s@SetTimeBasedAutoScaling' {} a -> s {instanceId = a} :: SetTimeBasedAutoScaling)
 
 instance Core.AWSRequest SetTimeBasedAutoScaling where
@@ -98,44 +99,46 @@ instance Core.AWSRequest SetTimeBasedAutoScaling where
     Response.receiveNull
       SetTimeBasedAutoScalingResponse'
 
-instance Core.Hashable SetTimeBasedAutoScaling
+instance Prelude.Hashable SetTimeBasedAutoScaling
 
-instance Core.NFData SetTimeBasedAutoScaling
+instance Prelude.NFData SetTimeBasedAutoScaling
 
 instance Core.ToHeaders SetTimeBasedAutoScaling where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.SetTimeBasedAutoScaling" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetTimeBasedAutoScaling where
   toJSON SetTimeBasedAutoScaling' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AutoScalingSchedule" Core..=)
-              Core.<$> autoScalingSchedule,
-            Core.Just ("InstanceId" Core..= instanceId)
+              Prelude.<$> autoScalingSchedule,
+            Prelude.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
 instance Core.ToPath SetTimeBasedAutoScaling where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetTimeBasedAutoScaling where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetTimeBasedAutoScalingResponse' smart constructor.
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTimeBasedAutoScalingResponse' with all optional fields omitted.
@@ -146,4 +149,6 @@ newSetTimeBasedAutoScalingResponse ::
 newSetTimeBasedAutoScalingResponse =
   SetTimeBasedAutoScalingResponse'
 
-instance Core.NFData SetTimeBasedAutoScalingResponse
+instance
+  Prelude.NFData
+    SetTimeBasedAutoScalingResponse

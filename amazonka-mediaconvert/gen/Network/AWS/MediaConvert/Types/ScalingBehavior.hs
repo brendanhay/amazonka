@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.ScalingBehavior
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify how the service handles outputs that have a different aspect
 -- ratio from the input aspect ratio. Choose Stretch to output
@@ -39,15 +40,15 @@ newtype ScalingBehavior = ScalingBehavior'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

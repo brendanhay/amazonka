@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -53,7 +54,7 @@ data CheckDomainTransferability = CheckDomainTransferability'
   { -- | If the registrar for the top-level domain (TLD) requires an
     -- authorization code to transfer the domain, the code that you got from
     -- the current registrar for the domain.
-    authCode :: Core.Maybe (Core.Sensitive Core.Text),
+    authCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the domain that you want to transfer to Route 53. The
     -- top-level domain (TLD), such as .com, must be a TLD that Route 53
     -- supports. For a list of supported TLDs, see
@@ -71,9 +72,9 @@ data CheckDomainTransferability = CheckDomainTransferability'
     --
     -- -   Period (.) to separate the labels in the name, such as the @.@ in
     --     @example.com@.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CheckDomainTransferability' with all optional fields omitted.
@@ -106,20 +107,20 @@ data CheckDomainTransferability = CheckDomainTransferability'
 --     @example.com@.
 newCheckDomainTransferability ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   CheckDomainTransferability
 newCheckDomainTransferability pDomainName_ =
   CheckDomainTransferability'
     { authCode =
-        Core.Nothing,
+        Prelude.Nothing,
       domainName = pDomainName_
     }
 
 -- | If the registrar for the top-level domain (TLD) requires an
 -- authorization code to transfer the domain, the code that you got from
 -- the current registrar for the domain.
-checkDomainTransferability_authCode :: Lens.Lens' CheckDomainTransferability (Core.Maybe Core.Text)
-checkDomainTransferability_authCode = Lens.lens (\CheckDomainTransferability' {authCode} -> authCode) (\s@CheckDomainTransferability' {} a -> s {authCode = a} :: CheckDomainTransferability) Core.. Lens.mapping Core._Sensitive
+checkDomainTransferability_authCode :: Lens.Lens' CheckDomainTransferability (Prelude.Maybe Prelude.Text)
+checkDomainTransferability_authCode = Lens.lens (\CheckDomainTransferability' {authCode} -> authCode) (\s@CheckDomainTransferability' {} a -> s {authCode = a} :: CheckDomainTransferability) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the domain that you want to transfer to Route 53. The
 -- top-level domain (TLD), such as .com, must be a TLD that Route 53
@@ -138,7 +139,7 @@ checkDomainTransferability_authCode = Lens.lens (\CheckDomainTransferability' {a
 --
 -- -   Period (.) to separate the labels in the name, such as the @.@ in
 --     @example.com@.
-checkDomainTransferability_domainName :: Lens.Lens' CheckDomainTransferability Core.Text
+checkDomainTransferability_domainName :: Lens.Lens' CheckDomainTransferability Prelude.Text
 checkDomainTransferability_domainName = Lens.lens (\CheckDomainTransferability' {domainName} -> domainName) (\s@CheckDomainTransferability' {} a -> s {domainName = a} :: CheckDomainTransferability)
 
 instance Core.AWSRequest CheckDomainTransferability where
@@ -150,53 +151,55 @@ instance Core.AWSRequest CheckDomainTransferability where
     Response.receiveJSON
       ( \s h x ->
           CheckDomainTransferabilityResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "Transferability")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Transferability")
       )
 
-instance Core.Hashable CheckDomainTransferability
+instance Prelude.Hashable CheckDomainTransferability
 
-instance Core.NFData CheckDomainTransferability
+instance Prelude.NFData CheckDomainTransferability
 
 instance Core.ToHeaders CheckDomainTransferability where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.CheckDomainTransferability" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CheckDomainTransferability where
   toJSON CheckDomainTransferability' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AuthCode" Core..=) Core.<$> authCode,
-            Core.Just ("DomainName" Core..= domainName)
+      ( Prelude.catMaybes
+          [ ("AuthCode" Core..=) Prelude.<$> authCode,
+            Prelude.Just ("DomainName" Core..= domainName)
           ]
       )
 
 instance Core.ToPath CheckDomainTransferability where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CheckDomainTransferability where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The CheckDomainTransferability response includes the following elements.
 --
 -- /See:/ 'newCheckDomainTransferabilityResponse' smart constructor.
 data CheckDomainTransferabilityResponse = CheckDomainTransferabilityResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains information about whether the specified
     -- domain can be transferred to Route 53.
     transferability :: DomainTransferability
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CheckDomainTransferabilityResponse' with all optional fields omitted.
@@ -212,7 +215,7 @@ data CheckDomainTransferabilityResponse = CheckDomainTransferabilityResponse'
 -- domain can be transferred to Route 53.
 newCheckDomainTransferabilityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'transferability'
   DomainTransferability ->
   CheckDomainTransferabilityResponse
@@ -226,7 +229,7 @@ newCheckDomainTransferabilityResponse
       }
 
 -- | The response's http status code.
-checkDomainTransferabilityResponse_httpStatus :: Lens.Lens' CheckDomainTransferabilityResponse Core.Int
+checkDomainTransferabilityResponse_httpStatus :: Lens.Lens' CheckDomainTransferabilityResponse Prelude.Int
 checkDomainTransferabilityResponse_httpStatus = Lens.lens (\CheckDomainTransferabilityResponse' {httpStatus} -> httpStatus) (\s@CheckDomainTransferabilityResponse' {} a -> s {httpStatus = a} :: CheckDomainTransferabilityResponse)
 
 -- | A complex type that contains information about whether the specified
@@ -235,5 +238,5 @@ checkDomainTransferabilityResponse_transferability :: Lens.Lens' CheckDomainTran
 checkDomainTransferabilityResponse_transferability = Lens.lens (\CheckDomainTransferabilityResponse' {transferability} -> transferability) (\s@CheckDomainTransferabilityResponse' {} a -> s {transferability = a} :: CheckDomainTransferabilityResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CheckDomainTransferabilityResponse

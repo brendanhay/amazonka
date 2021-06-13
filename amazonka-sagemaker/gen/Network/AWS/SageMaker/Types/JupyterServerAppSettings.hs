@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.JupyterServerAppSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ResourceSpec
 
 -- | The JupyterServer app settings.
@@ -29,9 +30,9 @@ import Network.AWS.SageMaker.Types.ResourceSpec
 data JupyterServerAppSettings = JupyterServerAppSettings'
   { -- | The default instance type and the Amazon Resource Name (ARN) of the
     -- default SageMaker image used by the JupyterServer app.
-    defaultResourceSpec :: Core.Maybe ResourceSpec
+    defaultResourceSpec :: Prelude.Maybe ResourceSpec
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JupyterServerAppSettings' with all optional fields omitted.
@@ -48,12 +49,12 @@ newJupyterServerAppSettings ::
 newJupyterServerAppSettings =
   JupyterServerAppSettings'
     { defaultResourceSpec =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the JupyterServer app.
-jupyterServerAppSettings_defaultResourceSpec :: Lens.Lens' JupyterServerAppSettings (Core.Maybe ResourceSpec)
+jupyterServerAppSettings_defaultResourceSpec :: Lens.Lens' JupyterServerAppSettings (Prelude.Maybe ResourceSpec)
 jupyterServerAppSettings_defaultResourceSpec = Lens.lens (\JupyterServerAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@JupyterServerAppSettings' {} a -> s {defaultResourceSpec = a} :: JupyterServerAppSettings)
 
 instance Core.FromJSON JupyterServerAppSettings where
@@ -62,18 +63,18 @@ instance Core.FromJSON JupyterServerAppSettings where
       "JupyterServerAppSettings"
       ( \x ->
           JupyterServerAppSettings'
-            Core.<$> (x Core..:? "DefaultResourceSpec")
+            Prelude.<$> (x Core..:? "DefaultResourceSpec")
       )
 
-instance Core.Hashable JupyterServerAppSettings
+instance Prelude.Hashable JupyterServerAppSettings
 
-instance Core.NFData JupyterServerAppSettings
+instance Prelude.NFData JupyterServerAppSettings
 
 instance Core.ToJSON JupyterServerAppSettings where
   toJSON JupyterServerAppSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DefaultResourceSpec" Core..=)
-              Core.<$> defaultResourceSpec
+              Prelude.<$> defaultResourceSpec
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.Organizations.Types.PolicySummary where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.PolicyType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a policy, but does not include the content.
 -- To see the content of a policy, see DescribePolicy.
@@ -33,29 +34,29 @@ data PolicySummary = PolicySummary'
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the policy.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
     -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
     -- letters, digits, or the underscore character (_).
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the policy.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The description of the policy.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of policy.
-    type' :: Core.Maybe PolicyType,
+    type' :: Prelude.Maybe PolicyType,
     -- | A boolean value that indicates whether the specified policy is an AWS
     -- managed policy. If true, then you can attach the policy to roots, OUs,
     -- or accounts, but you cannot edit it.
-    awsManaged :: Core.Maybe Core.Bool
+    awsManaged :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicySummary' with all optional fields omitted.
@@ -94,12 +95,12 @@ newPolicySummary ::
   PolicySummary
 newPolicySummary =
   PolicySummary'
-    { arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      description = Core.Nothing,
-      type' = Core.Nothing,
-      awsManaged = Core.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      awsManaged = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the policy.
@@ -107,7 +108,7 @@ newPolicySummary =
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
-policySummary_arn :: Lens.Lens' PolicySummary (Core.Maybe Core.Text)
+policySummary_arn :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
 policySummary_arn = Lens.lens (\PolicySummary' {arn} -> arn) (\s@PolicySummary' {} a -> s {arn = a} :: PolicySummary)
 
 -- | The unique identifier (ID) of the policy.
@@ -115,7 +116,7 @@ policySummary_arn = Lens.lens (\PolicySummary' {arn} -> arn) (\s@PolicySummary' 
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
 -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
 -- letters, digits, or the underscore character (_).
-policySummary_id :: Lens.Lens' PolicySummary (Core.Maybe Core.Text)
+policySummary_id :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
 policySummary_id = Lens.lens (\PolicySummary' {id} -> id) (\s@PolicySummary' {} a -> s {id = a} :: PolicySummary)
 
 -- | The friendly name of the policy.
@@ -123,21 +124,21 @@ policySummary_id = Lens.lens (\PolicySummary' {id} -> id) (\s@PolicySummary' {} 
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
-policySummary_name :: Lens.Lens' PolicySummary (Core.Maybe Core.Text)
+policySummary_name :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
 policySummary_name = Lens.lens (\PolicySummary' {name} -> name) (\s@PolicySummary' {} a -> s {name = a} :: PolicySummary)
 
 -- | The description of the policy.
-policySummary_description :: Lens.Lens' PolicySummary (Core.Maybe Core.Text)
+policySummary_description :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
 policySummary_description = Lens.lens (\PolicySummary' {description} -> description) (\s@PolicySummary' {} a -> s {description = a} :: PolicySummary)
 
 -- | The type of policy.
-policySummary_type :: Lens.Lens' PolicySummary (Core.Maybe PolicyType)
+policySummary_type :: Lens.Lens' PolicySummary (Prelude.Maybe PolicyType)
 policySummary_type = Lens.lens (\PolicySummary' {type'} -> type') (\s@PolicySummary' {} a -> s {type' = a} :: PolicySummary)
 
 -- | A boolean value that indicates whether the specified policy is an AWS
 -- managed policy. If true, then you can attach the policy to roots, OUs,
 -- or accounts, but you cannot edit it.
-policySummary_awsManaged :: Lens.Lens' PolicySummary (Core.Maybe Core.Bool)
+policySummary_awsManaged :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
 policySummary_awsManaged = Lens.lens (\PolicySummary' {awsManaged} -> awsManaged) (\s@PolicySummary' {} a -> s {awsManaged = a} :: PolicySummary)
 
 instance Core.FromJSON PolicySummary where
@@ -146,14 +147,14 @@ instance Core.FromJSON PolicySummary where
       "PolicySummary"
       ( \x ->
           PolicySummary'
-            Core.<$> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "Type")
-            Core.<*> (x Core..:? "AwsManaged")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "AwsManaged")
       )
 
-instance Core.Hashable PolicySummary
+instance Prelude.Hashable PolicySummary
 
-instance Core.NFData PolicySummary
+instance Prelude.NFData PolicySummary

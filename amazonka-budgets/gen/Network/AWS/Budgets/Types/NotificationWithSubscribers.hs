@@ -23,6 +23,7 @@ import Network.AWS.Budgets.Types.Notification
 import Network.AWS.Budgets.Types.Subscriber
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A notification with subscribers. A notification can have one SNS
 -- subscriber and up to 10 email subscribers, for a total of 11
@@ -33,9 +34,9 @@ data NotificationWithSubscribers = NotificationWithSubscribers'
   { -- | The notification that is associated with a budget.
     notification :: Notification,
     -- | A list of subscribers who are subscribed to this notification.
-    subscribers :: Core.NonEmpty Subscriber
+    subscribers :: Prelude.NonEmpty Subscriber
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotificationWithSubscribers' with all optional fields omitted.
@@ -52,7 +53,7 @@ newNotificationWithSubscribers ::
   -- | 'notification'
   Notification ->
   -- | 'subscribers'
-  Core.NonEmpty Subscriber ->
+  Prelude.NonEmpty Subscriber ->
   NotificationWithSubscribers
 newNotificationWithSubscribers
   pNotification_
@@ -69,18 +70,18 @@ notificationWithSubscribers_notification :: Lens.Lens' NotificationWithSubscribe
 notificationWithSubscribers_notification = Lens.lens (\NotificationWithSubscribers' {notification} -> notification) (\s@NotificationWithSubscribers' {} a -> s {notification = a} :: NotificationWithSubscribers)
 
 -- | A list of subscribers who are subscribed to this notification.
-notificationWithSubscribers_subscribers :: Lens.Lens' NotificationWithSubscribers (Core.NonEmpty Subscriber)
-notificationWithSubscribers_subscribers = Lens.lens (\NotificationWithSubscribers' {subscribers} -> subscribers) (\s@NotificationWithSubscribers' {} a -> s {subscribers = a} :: NotificationWithSubscribers) Core.. Lens._Coerce
+notificationWithSubscribers_subscribers :: Lens.Lens' NotificationWithSubscribers (Prelude.NonEmpty Subscriber)
+notificationWithSubscribers_subscribers = Lens.lens (\NotificationWithSubscribers' {subscribers} -> subscribers) (\s@NotificationWithSubscribers' {} a -> s {subscribers = a} :: NotificationWithSubscribers) Prelude.. Lens._Coerce
 
-instance Core.Hashable NotificationWithSubscribers
+instance Prelude.Hashable NotificationWithSubscribers
 
-instance Core.NFData NotificationWithSubscribers
+instance Prelude.NFData NotificationWithSubscribers
 
 instance Core.ToJSON NotificationWithSubscribers where
   toJSON NotificationWithSubscribers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Notification" Core..= notification),
-            Core.Just ("Subscribers" Core..= subscribers)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Notification" Core..= notification),
+            Prelude.Just ("Subscribers" Core..= subscribers)
           ]
       )

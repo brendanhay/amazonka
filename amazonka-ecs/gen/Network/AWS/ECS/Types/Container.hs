@@ -24,6 +24,7 @@ import Network.AWS.ECS.Types.HealthStatus
 import Network.AWS.ECS.Types.NetworkBinding
 import Network.AWS.ECS.Types.NetworkInterface
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A Docker container that is part of a task.
 --
@@ -33,44 +34,44 @@ data Container = Container'
     --
     -- The @imageDigest@ is only returned if the container is using an image
     -- hosted in Amazon ECR, otherwise it is omitted.
-    imageDigest :: Core.Maybe Core.Text,
+    imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The IDs of each GPU assigned to the container.
-    gpuIds :: Core.Maybe [Core.Text],
+    gpuIds :: Prelude.Maybe [Prelude.Text],
     -- | The hard limit (in MiB) of memory set for the container.
-    memory :: Core.Maybe Core.Text,
+    memory :: Prelude.Maybe Prelude.Text,
     -- | The soft limit (in MiB) of memory set for the container.
-    memoryReservation :: Core.Maybe Core.Text,
+    memoryReservation :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Docker container.
-    runtimeId :: Core.Maybe Core.Text,
+    runtimeId :: Prelude.Maybe Prelude.Text,
     -- | The exit code returned from the container.
-    exitCode :: Core.Maybe Core.Int,
+    exitCode :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the container.
-    containerArn :: Core.Maybe Core.Text,
+    containerArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the container.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The image used for the container.
-    image :: Core.Maybe Core.Text,
+    image :: Prelude.Maybe Prelude.Text,
     -- | The network bindings associated with the container.
-    networkBindings :: Core.Maybe [NetworkBinding],
+    networkBindings :: Prelude.Maybe [NetworkBinding],
     -- | A short (255 max characters) human-readable string to provide additional
     -- details about a running or stopped container.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The number of CPU units set for the container. The value will be @0@ if
     -- no value was specified in the container definition when the task
     -- definition was registered.
-    cpu :: Core.Maybe Core.Text,
+    cpu :: Prelude.Maybe Prelude.Text,
     -- | The last known status of the container.
-    lastStatus :: Core.Maybe Core.Text,
+    lastStatus :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the task.
-    taskArn :: Core.Maybe Core.Text,
+    taskArn :: Prelude.Maybe Prelude.Text,
     -- | The health status of the container. If health checks are not configured
     -- for this container in its task definition, then it reports the health
     -- status as @UNKNOWN@.
-    healthStatus :: Core.Maybe HealthStatus,
+    healthStatus :: Prelude.Maybe HealthStatus,
     -- | The network interfaces associated with the container.
-    networkInterfaces :: Core.Maybe [NetworkInterface]
+    networkInterfaces :: Prelude.Maybe [NetworkInterface]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Container' with all optional fields omitted.
@@ -123,95 +124,95 @@ newContainer ::
   Container
 newContainer =
   Container'
-    { imageDigest = Core.Nothing,
-      gpuIds = Core.Nothing,
-      memory = Core.Nothing,
-      memoryReservation = Core.Nothing,
-      runtimeId = Core.Nothing,
-      exitCode = Core.Nothing,
-      containerArn = Core.Nothing,
-      name = Core.Nothing,
-      image = Core.Nothing,
-      networkBindings = Core.Nothing,
-      reason = Core.Nothing,
-      cpu = Core.Nothing,
-      lastStatus = Core.Nothing,
-      taskArn = Core.Nothing,
-      healthStatus = Core.Nothing,
-      networkInterfaces = Core.Nothing
+    { imageDigest = Prelude.Nothing,
+      gpuIds = Prelude.Nothing,
+      memory = Prelude.Nothing,
+      memoryReservation = Prelude.Nothing,
+      runtimeId = Prelude.Nothing,
+      exitCode = Prelude.Nothing,
+      containerArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      image = Prelude.Nothing,
+      networkBindings = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      cpu = Prelude.Nothing,
+      lastStatus = Prelude.Nothing,
+      taskArn = Prelude.Nothing,
+      healthStatus = Prelude.Nothing,
+      networkInterfaces = Prelude.Nothing
     }
 
 -- | The container image manifest digest.
 --
 -- The @imageDigest@ is only returned if the container is using an image
 -- hosted in Amazon ECR, otherwise it is omitted.
-container_imageDigest :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_imageDigest :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_imageDigest = Lens.lens (\Container' {imageDigest} -> imageDigest) (\s@Container' {} a -> s {imageDigest = a} :: Container)
 
 -- | The IDs of each GPU assigned to the container.
-container_gpuIds :: Lens.Lens' Container (Core.Maybe [Core.Text])
-container_gpuIds = Lens.lens (\Container' {gpuIds} -> gpuIds) (\s@Container' {} a -> s {gpuIds = a} :: Container) Core.. Lens.mapping Lens._Coerce
+container_gpuIds :: Lens.Lens' Container (Prelude.Maybe [Prelude.Text])
+container_gpuIds = Lens.lens (\Container' {gpuIds} -> gpuIds) (\s@Container' {} a -> s {gpuIds = a} :: Container) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The hard limit (in MiB) of memory set for the container.
-container_memory :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_memory :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_memory = Lens.lens (\Container' {memory} -> memory) (\s@Container' {} a -> s {memory = a} :: Container)
 
 -- | The soft limit (in MiB) of memory set for the container.
-container_memoryReservation :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_memoryReservation :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_memoryReservation = Lens.lens (\Container' {memoryReservation} -> memoryReservation) (\s@Container' {} a -> s {memoryReservation = a} :: Container)
 
 -- | The ID of the Docker container.
-container_runtimeId :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_runtimeId :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_runtimeId = Lens.lens (\Container' {runtimeId} -> runtimeId) (\s@Container' {} a -> s {runtimeId = a} :: Container)
 
 -- | The exit code returned from the container.
-container_exitCode :: Lens.Lens' Container (Core.Maybe Core.Int)
+container_exitCode :: Lens.Lens' Container (Prelude.Maybe Prelude.Int)
 container_exitCode = Lens.lens (\Container' {exitCode} -> exitCode) (\s@Container' {} a -> s {exitCode = a} :: Container)
 
 -- | The Amazon Resource Name (ARN) of the container.
-container_containerArn :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_containerArn :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_containerArn = Lens.lens (\Container' {containerArn} -> containerArn) (\s@Container' {} a -> s {containerArn = a} :: Container)
 
 -- | The name of the container.
-container_name :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_name :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_name = Lens.lens (\Container' {name} -> name) (\s@Container' {} a -> s {name = a} :: Container)
 
 -- | The image used for the container.
-container_image :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_image :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_image = Lens.lens (\Container' {image} -> image) (\s@Container' {} a -> s {image = a} :: Container)
 
 -- | The network bindings associated with the container.
-container_networkBindings :: Lens.Lens' Container (Core.Maybe [NetworkBinding])
-container_networkBindings = Lens.lens (\Container' {networkBindings} -> networkBindings) (\s@Container' {} a -> s {networkBindings = a} :: Container) Core.. Lens.mapping Lens._Coerce
+container_networkBindings :: Lens.Lens' Container (Prelude.Maybe [NetworkBinding])
+container_networkBindings = Lens.lens (\Container' {networkBindings} -> networkBindings) (\s@Container' {} a -> s {networkBindings = a} :: Container) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A short (255 max characters) human-readable string to provide additional
 -- details about a running or stopped container.
-container_reason :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_reason :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_reason = Lens.lens (\Container' {reason} -> reason) (\s@Container' {} a -> s {reason = a} :: Container)
 
 -- | The number of CPU units set for the container. The value will be @0@ if
 -- no value was specified in the container definition when the task
 -- definition was registered.
-container_cpu :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_cpu :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_cpu = Lens.lens (\Container' {cpu} -> cpu) (\s@Container' {} a -> s {cpu = a} :: Container)
 
 -- | The last known status of the container.
-container_lastStatus :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_lastStatus :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_lastStatus = Lens.lens (\Container' {lastStatus} -> lastStatus) (\s@Container' {} a -> s {lastStatus = a} :: Container)
 
 -- | The ARN of the task.
-container_taskArn :: Lens.Lens' Container (Core.Maybe Core.Text)
+container_taskArn :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_taskArn = Lens.lens (\Container' {taskArn} -> taskArn) (\s@Container' {} a -> s {taskArn = a} :: Container)
 
 -- | The health status of the container. If health checks are not configured
 -- for this container in its task definition, then it reports the health
 -- status as @UNKNOWN@.
-container_healthStatus :: Lens.Lens' Container (Core.Maybe HealthStatus)
+container_healthStatus :: Lens.Lens' Container (Prelude.Maybe HealthStatus)
 container_healthStatus = Lens.lens (\Container' {healthStatus} -> healthStatus) (\s@Container' {} a -> s {healthStatus = a} :: Container)
 
 -- | The network interfaces associated with the container.
-container_networkInterfaces :: Lens.Lens' Container (Core.Maybe [NetworkInterface])
-container_networkInterfaces = Lens.lens (\Container' {networkInterfaces} -> networkInterfaces) (\s@Container' {} a -> s {networkInterfaces = a} :: Container) Core.. Lens.mapping Lens._Coerce
+container_networkInterfaces :: Lens.Lens' Container (Prelude.Maybe [NetworkInterface])
+container_networkInterfaces = Lens.lens (\Container' {networkInterfaces} -> networkInterfaces) (\s@Container' {} a -> s {networkInterfaces = a} :: Container) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Container where
   parseJSON =
@@ -219,26 +220,28 @@ instance Core.FromJSON Container where
       "Container"
       ( \x ->
           Container'
-            Core.<$> (x Core..:? "imageDigest")
-            Core.<*> (x Core..:? "gpuIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "memory")
-            Core.<*> (x Core..:? "memoryReservation")
-            Core.<*> (x Core..:? "runtimeId")
-            Core.<*> (x Core..:? "exitCode")
-            Core.<*> (x Core..:? "containerArn")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "image")
-            Core.<*> (x Core..:? "networkBindings" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "reason")
-            Core.<*> (x Core..:? "cpu")
-            Core.<*> (x Core..:? "lastStatus")
-            Core.<*> (x Core..:? "taskArn")
-            Core.<*> (x Core..:? "healthStatus")
-            Core.<*> ( x Core..:? "networkInterfaces"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "imageDigest")
+            Prelude.<*> (x Core..:? "gpuIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "memory")
+            Prelude.<*> (x Core..:? "memoryReservation")
+            Prelude.<*> (x Core..:? "runtimeId")
+            Prelude.<*> (x Core..:? "exitCode")
+            Prelude.<*> (x Core..:? "containerArn")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "image")
+            Prelude.<*> ( x Core..:? "networkBindings"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "reason")
+            Prelude.<*> (x Core..:? "cpu")
+            Prelude.<*> (x Core..:? "lastStatus")
+            Prelude.<*> (x Core..:? "taskArn")
+            Prelude.<*> (x Core..:? "healthStatus")
+            Prelude.<*> ( x Core..:? "networkInterfaces"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable Container
+instance Prelude.Hashable Container
 
-instance Core.NFData Container
+instance Prelude.NFData Container

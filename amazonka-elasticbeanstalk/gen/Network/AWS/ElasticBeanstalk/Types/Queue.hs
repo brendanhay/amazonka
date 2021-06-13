@@ -21,17 +21,18 @@ module Network.AWS.ElasticBeanstalk.Types.Queue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a queue.
 --
 -- /See:/ 'newQueue' smart constructor.
 data Queue = Queue'
   { -- | The name of the queue.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The URL of the queue.
-    url :: Core.Maybe Core.Text
+    url :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Queue' with all optional fields omitted.
@@ -47,21 +48,24 @@ data Queue = Queue'
 newQueue ::
   Queue
 newQueue =
-  Queue' {name = Core.Nothing, url = Core.Nothing}
+  Queue'
+    { name = Prelude.Nothing,
+      url = Prelude.Nothing
+    }
 
 -- | The name of the queue.
-queue_name :: Lens.Lens' Queue (Core.Maybe Core.Text)
+queue_name :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
 queue_name = Lens.lens (\Queue' {name} -> name) (\s@Queue' {} a -> s {name = a} :: Queue)
 
 -- | The URL of the queue.
-queue_url :: Lens.Lens' Queue (Core.Maybe Core.Text)
+queue_url :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
 queue_url = Lens.lens (\Queue' {url} -> url) (\s@Queue' {} a -> s {url = a} :: Queue)
 
 instance Core.FromXML Queue where
   parseXML x =
     Queue'
-      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "URL")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "URL")
 
-instance Core.Hashable Queue
+instance Prelude.Hashable Queue
 
-instance Core.NFData Queue
+instance Prelude.NFData Queue

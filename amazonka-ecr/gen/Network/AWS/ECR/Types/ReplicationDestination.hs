@@ -21,6 +21,7 @@ module Network.AWS.ECR.Types.ReplicationDestination where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An array of objects representing the details of a replication
 -- destination.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newReplicationDestination' smart constructor.
 data ReplicationDestination = ReplicationDestination'
   { -- | A Region to replicate to.
-    region :: Core.Text,
+    region :: Prelude.Text,
     -- | The account ID of the destination registry to replicate to.
-    registryId :: Core.Text
+    registryId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationDestination' with all optional fields omitted.
@@ -47,9 +48,9 @@ data ReplicationDestination = ReplicationDestination'
 -- 'registryId', 'replicationDestination_registryId' - The account ID of the destination registry to replicate to.
 newReplicationDestination ::
   -- | 'region'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'registryId'
-  Core.Text ->
+  Prelude.Text ->
   ReplicationDestination
 newReplicationDestination pRegion_ pRegistryId_ =
   ReplicationDestination'
@@ -58,11 +59,11 @@ newReplicationDestination pRegion_ pRegistryId_ =
     }
 
 -- | A Region to replicate to.
-replicationDestination_region :: Lens.Lens' ReplicationDestination Core.Text
+replicationDestination_region :: Lens.Lens' ReplicationDestination Prelude.Text
 replicationDestination_region = Lens.lens (\ReplicationDestination' {region} -> region) (\s@ReplicationDestination' {} a -> s {region = a} :: ReplicationDestination)
 
 -- | The account ID of the destination registry to replicate to.
-replicationDestination_registryId :: Lens.Lens' ReplicationDestination Core.Text
+replicationDestination_registryId :: Lens.Lens' ReplicationDestination Prelude.Text
 replicationDestination_registryId = Lens.lens (\ReplicationDestination' {registryId} -> registryId) (\s@ReplicationDestination' {} a -> s {registryId = a} :: ReplicationDestination)
 
 instance Core.FromJSON ReplicationDestination where
@@ -71,19 +72,19 @@ instance Core.FromJSON ReplicationDestination where
       "ReplicationDestination"
       ( \x ->
           ReplicationDestination'
-            Core.<$> (x Core..: "region")
-            Core.<*> (x Core..: "registryId")
+            Prelude.<$> (x Core..: "region")
+            Prelude.<*> (x Core..: "registryId")
       )
 
-instance Core.Hashable ReplicationDestination
+instance Prelude.Hashable ReplicationDestination
 
-instance Core.NFData ReplicationDestination
+instance Prelude.NFData ReplicationDestination
 
 instance Core.ToJSON ReplicationDestination where
   toJSON ReplicationDestination' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("region" Core..= region),
-            Core.Just ("registryId" Core..= registryId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("region" Core..= region),
+            Prelude.Just ("registryId" Core..= registryId)
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -54,9 +55,9 @@ import Network.AWS.SES.Types
 data UpdateAccountSendingEnabled = UpdateAccountSendingEnabled'
   { -- | Describes whether email sending is enabled or disabled for your Amazon
     -- SES account in the current AWS Region.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAccountSendingEnabled' with all optional fields omitted.
@@ -73,12 +74,12 @@ newUpdateAccountSendingEnabled ::
 newUpdateAccountSendingEnabled =
   UpdateAccountSendingEnabled'
     { enabled =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Describes whether email sending is enabled or disabled for your Amazon
 -- SES account in the current AWS Region.
-updateAccountSendingEnabled_enabled :: Lens.Lens' UpdateAccountSendingEnabled (Core.Maybe Core.Bool)
+updateAccountSendingEnabled_enabled :: Lens.Lens' UpdateAccountSendingEnabled (Prelude.Maybe Prelude.Bool)
 updateAccountSendingEnabled_enabled = Lens.lens (\UpdateAccountSendingEnabled' {enabled} -> enabled) (\s@UpdateAccountSendingEnabled' {} a -> s {enabled = a} :: UpdateAccountSendingEnabled)
 
 instance Core.AWSRequest UpdateAccountSendingEnabled where
@@ -90,22 +91,25 @@ instance Core.AWSRequest UpdateAccountSendingEnabled where
     Response.receiveNull
       UpdateAccountSendingEnabledResponse'
 
-instance Core.Hashable UpdateAccountSendingEnabled
+instance Prelude.Hashable UpdateAccountSendingEnabled
 
-instance Core.NFData UpdateAccountSendingEnabled
+instance Prelude.NFData UpdateAccountSendingEnabled
 
 instance Core.ToHeaders UpdateAccountSendingEnabled where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateAccountSendingEnabled where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateAccountSendingEnabled where
   toQuery UpdateAccountSendingEnabled' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateAccountSendingEnabled" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ( "UpdateAccountSendingEnabled" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Enabled" Core.=: enabled
       ]
 
@@ -113,7 +117,7 @@ instance Core.ToQuery UpdateAccountSendingEnabled where
 data UpdateAccountSendingEnabledResponse = UpdateAccountSendingEnabledResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAccountSendingEnabledResponse' with all optional fields omitted.
@@ -125,5 +129,5 @@ newUpdateAccountSendingEnabledResponse =
   UpdateAccountSendingEnabledResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateAccountSendingEnabledResponse

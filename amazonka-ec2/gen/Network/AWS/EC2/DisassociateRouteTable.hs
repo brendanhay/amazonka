@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ data DisassociateRouteTable = DisassociateRouteTable'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The association ID representing the current association between the
     -- route table and subnet or gateway.
-    associationId :: Core.Text
+    associationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateRouteTable' with all optional fields omitted.
@@ -78,11 +79,11 @@ data DisassociateRouteTable = DisassociateRouteTable'
 -- route table and subnet or gateway.
 newDisassociateRouteTable ::
   -- | 'associationId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateRouteTable
 newDisassociateRouteTable pAssociationId_ =
   DisassociateRouteTable'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       associationId = pAssociationId_
     }
 
@@ -90,12 +91,12 @@ newDisassociateRouteTable pAssociationId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disassociateRouteTable_dryRun :: Lens.Lens' DisassociateRouteTable (Core.Maybe Core.Bool)
+disassociateRouteTable_dryRun :: Lens.Lens' DisassociateRouteTable (Prelude.Maybe Prelude.Bool)
 disassociateRouteTable_dryRun = Lens.lens (\DisassociateRouteTable' {dryRun} -> dryRun) (\s@DisassociateRouteTable' {} a -> s {dryRun = a} :: DisassociateRouteTable)
 
 -- | The association ID representing the current association between the
 -- route table and subnet or gateway.
-disassociateRouteTable_associationId :: Lens.Lens' DisassociateRouteTable Core.Text
+disassociateRouteTable_associationId :: Lens.Lens' DisassociateRouteTable Prelude.Text
 disassociateRouteTable_associationId = Lens.lens (\DisassociateRouteTable' {associationId} -> associationId) (\s@DisassociateRouteTable' {} a -> s {associationId = a} :: DisassociateRouteTable)
 
 instance Core.AWSRequest DisassociateRouteTable where
@@ -107,22 +108,23 @@ instance Core.AWSRequest DisassociateRouteTable where
     Response.receiveNull
       DisassociateRouteTableResponse'
 
-instance Core.Hashable DisassociateRouteTable
+instance Prelude.Hashable DisassociateRouteTable
 
-instance Core.NFData DisassociateRouteTable
+instance Prelude.NFData DisassociateRouteTable
 
 instance Core.ToHeaders DisassociateRouteTable where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisassociateRouteTable where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateRouteTable where
   toQuery DisassociateRouteTable' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisassociateRouteTable" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DisassociateRouteTable" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "AssociationId" Core.=: associationId
       ]
@@ -131,7 +133,7 @@ instance Core.ToQuery DisassociateRouteTable where
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateRouteTableResponse' with all optional fields omitted.
@@ -142,4 +144,6 @@ newDisassociateRouteTableResponse ::
 newDisassociateRouteTableResponse =
   DisassociateRouteTableResponse'
 
-instance Core.NFData DisassociateRouteTableResponse
+instance
+  Prelude.NFData
+    DisassociateRouteTableResponse

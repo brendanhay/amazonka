@@ -21,17 +21,18 @@ module Network.AWS.IoT.Types.ErrorInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Error information.
 --
 -- /See:/ 'newErrorInfo' smart constructor.
 data ErrorInfo = ErrorInfo'
   { -- | The error message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ErrorInfo' with all optional fields omitted.
@@ -48,16 +49,16 @@ newErrorInfo ::
   ErrorInfo
 newErrorInfo =
   ErrorInfo'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The error message.
-errorInfo_message :: Lens.Lens' ErrorInfo (Core.Maybe Core.Text)
+errorInfo_message :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
 errorInfo_message = Lens.lens (\ErrorInfo' {message} -> message) (\s@ErrorInfo' {} a -> s {message = a} :: ErrorInfo)
 
 -- | The error code.
-errorInfo_code :: Lens.Lens' ErrorInfo (Core.Maybe Core.Text)
+errorInfo_code :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
 errorInfo_code = Lens.lens (\ErrorInfo' {code} -> code) (\s@ErrorInfo' {} a -> s {code = a} :: ErrorInfo)
 
 instance Core.FromJSON ErrorInfo where
@@ -66,9 +67,10 @@ instance Core.FromJSON ErrorInfo where
       "ErrorInfo"
       ( \x ->
           ErrorInfo'
-            Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "code")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "code")
       )
 
-instance Core.Hashable ErrorInfo
+instance Prelude.Hashable ErrorInfo
 
-instance Core.NFData ErrorInfo
+instance Prelude.NFData ErrorInfo

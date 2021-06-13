@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -66,30 +67,30 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
   { -- | The ID of the organization.
-    organizationId :: Core.Maybe Core.Text,
+    organizationId :: Prelude.Maybe Prelude.Text,
     -- | A query to filter users by user name.
-    query :: Core.Maybe (Core.Sensitive Core.Text),
+    query :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The IDs of the users.
-    userIds :: Core.Maybe Core.Text,
+    userIds :: Prelude.Maybe Prelude.Text,
     -- | The state of the users. Specify \"ALL\" to include inactive users.
-    include :: Core.Maybe UserFilterType,
+    include :: Prelude.Maybe UserFilterType,
     -- | A comma-separated list of values. Specify \"STORAGE_METADATA\" to
     -- include the user storage quota and utilization information.
-    fields :: Core.Maybe Core.Text,
+    fields :: Prelude.Maybe Prelude.Text,
     -- | The order for the results.
-    order :: Core.Maybe OrderType,
+    order :: Prelude.Maybe OrderType,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The maximum number of items to return.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The sorting criteria.
-    sort :: Core.Maybe UserSortType,
+    sort :: Prelude.Maybe UserSortType,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUsers' with all optional fields omitted.
@@ -125,79 +126,79 @@ newDescribeUsers ::
   DescribeUsers
 newDescribeUsers =
   DescribeUsers'
-    { organizationId = Core.Nothing,
-      query = Core.Nothing,
-      userIds = Core.Nothing,
-      include = Core.Nothing,
-      fields = Core.Nothing,
-      order = Core.Nothing,
-      authenticationToken = Core.Nothing,
-      limit = Core.Nothing,
-      sort = Core.Nothing,
-      marker = Core.Nothing
+    { organizationId = Prelude.Nothing,
+      query = Prelude.Nothing,
+      userIds = Prelude.Nothing,
+      include = Prelude.Nothing,
+      fields = Prelude.Nothing,
+      order = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      sort = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The ID of the organization.
-describeUsers_organizationId :: Lens.Lens' DescribeUsers (Core.Maybe Core.Text)
+describeUsers_organizationId :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_organizationId = Lens.lens (\DescribeUsers' {organizationId} -> organizationId) (\s@DescribeUsers' {} a -> s {organizationId = a} :: DescribeUsers)
 
 -- | A query to filter users by user name.
-describeUsers_query :: Lens.Lens' DescribeUsers (Core.Maybe Core.Text)
-describeUsers_query = Lens.lens (\DescribeUsers' {query} -> query) (\s@DescribeUsers' {} a -> s {query = a} :: DescribeUsers) Core.. Lens.mapping Core._Sensitive
+describeUsers_query :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
+describeUsers_query = Lens.lens (\DescribeUsers' {query} -> query) (\s@DescribeUsers' {} a -> s {query = a} :: DescribeUsers) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The IDs of the users.
-describeUsers_userIds :: Lens.Lens' DescribeUsers (Core.Maybe Core.Text)
+describeUsers_userIds :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_userIds = Lens.lens (\DescribeUsers' {userIds} -> userIds) (\s@DescribeUsers' {} a -> s {userIds = a} :: DescribeUsers)
 
 -- | The state of the users. Specify \"ALL\" to include inactive users.
-describeUsers_include :: Lens.Lens' DescribeUsers (Core.Maybe UserFilterType)
+describeUsers_include :: Lens.Lens' DescribeUsers (Prelude.Maybe UserFilterType)
 describeUsers_include = Lens.lens (\DescribeUsers' {include} -> include) (\s@DescribeUsers' {} a -> s {include = a} :: DescribeUsers)
 
 -- | A comma-separated list of values. Specify \"STORAGE_METADATA\" to
 -- include the user storage quota and utilization information.
-describeUsers_fields :: Lens.Lens' DescribeUsers (Core.Maybe Core.Text)
+describeUsers_fields :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_fields = Lens.lens (\DescribeUsers' {fields} -> fields) (\s@DescribeUsers' {} a -> s {fields = a} :: DescribeUsers)
 
 -- | The order for the results.
-describeUsers_order :: Lens.Lens' DescribeUsers (Core.Maybe OrderType)
+describeUsers_order :: Lens.Lens' DescribeUsers (Prelude.Maybe OrderType)
 describeUsers_order = Lens.lens (\DescribeUsers' {order} -> order) (\s@DescribeUsers' {} a -> s {order = a} :: DescribeUsers)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-describeUsers_authenticationToken :: Lens.Lens' DescribeUsers (Core.Maybe Core.Text)
-describeUsers_authenticationToken = Lens.lens (\DescribeUsers' {authenticationToken} -> authenticationToken) (\s@DescribeUsers' {} a -> s {authenticationToken = a} :: DescribeUsers) Core.. Lens.mapping Core._Sensitive
+describeUsers_authenticationToken :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
+describeUsers_authenticationToken = Lens.lens (\DescribeUsers' {authenticationToken} -> authenticationToken) (\s@DescribeUsers' {} a -> s {authenticationToken = a} :: DescribeUsers) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The maximum number of items to return.
-describeUsers_limit :: Lens.Lens' DescribeUsers (Core.Maybe Core.Natural)
+describeUsers_limit :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Natural)
 describeUsers_limit = Lens.lens (\DescribeUsers' {limit} -> limit) (\s@DescribeUsers' {} a -> s {limit = a} :: DescribeUsers)
 
 -- | The sorting criteria.
-describeUsers_sort :: Lens.Lens' DescribeUsers (Core.Maybe UserSortType)
+describeUsers_sort :: Lens.Lens' DescribeUsers (Prelude.Maybe UserSortType)
 describeUsers_sort = Lens.lens (\DescribeUsers' {sort} -> sort) (\s@DescribeUsers' {} a -> s {sort = a} :: DescribeUsers)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeUsers_marker :: Lens.Lens' DescribeUsers (Core.Maybe Core.Text)
+describeUsers_marker :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_marker = Lens.lens (\DescribeUsers' {marker} -> marker) (\s@DescribeUsers' {} a -> s {marker = a} :: DescribeUsers)
 
 instance Core.AWSPager DescribeUsers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeUsersResponse_marker Core.. Lens._Just
+            Lens.^? describeUsersResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeUsersResponse_users Core.. Lens._Just
+            Lens.^? describeUsersResponse_users Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeUsers_marker
+          Prelude.& describeUsers_marker
           Lens..~ rs
-          Lens.^? describeUsersResponse_marker Core.. Lens._Just
+          Lens.^? describeUsersResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsers where
   type
@@ -208,30 +209,30 @@ instance Core.AWSRequest DescribeUsers where
     Response.receiveJSON
       ( \s h x ->
           DescribeUsersResponse'
-            Core.<$> (x Core..?> "TotalNumberOfUsers")
-            Core.<*> (x Core..?> "Users" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TotalNumberOfUsers")
+            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeUsers
+instance Prelude.Hashable DescribeUsers
 
-instance Core.NFData DescribeUsers
+instance Prelude.NFData DescribeUsers
 
 instance Core.ToHeaders DescribeUsers where
   toHeaders DescribeUsers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DescribeUsers where
-  toPath = Core.const "/api/v1/users"
+  toPath = Prelude.const "/api/v1/users"
 
 instance Core.ToQuery DescribeUsers where
   toQuery DescribeUsers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "organizationId" Core.=: organizationId,
         "query" Core.=: query,
         "userIds" Core.=: userIds,
@@ -246,16 +247,16 @@ instance Core.ToQuery DescribeUsers where
 -- | /See:/ 'newDescribeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
   { -- | The total number of users included in the results.
-    totalNumberOfUsers :: Core.Maybe Core.Integer,
+    totalNumberOfUsers :: Prelude.Maybe Prelude.Integer,
     -- | The users.
-    users :: Core.Maybe [User],
+    users :: Prelude.Maybe [User],
     -- | The marker to use when requesting the next set of results. If there are
     -- no additional results, the string is empty.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUsersResponse' with all optional fields omitted.
@@ -275,32 +276,32 @@ data DescribeUsersResponse = DescribeUsersResponse'
 -- 'httpStatus', 'describeUsersResponse_httpStatus' - The response's http status code.
 newDescribeUsersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeUsersResponse
 newDescribeUsersResponse pHttpStatus_ =
   DescribeUsersResponse'
     { totalNumberOfUsers =
-        Core.Nothing,
-      users = Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      users = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The total number of users included in the results.
-describeUsersResponse_totalNumberOfUsers :: Lens.Lens' DescribeUsersResponse (Core.Maybe Core.Integer)
+describeUsersResponse_totalNumberOfUsers :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe Prelude.Integer)
 describeUsersResponse_totalNumberOfUsers = Lens.lens (\DescribeUsersResponse' {totalNumberOfUsers} -> totalNumberOfUsers) (\s@DescribeUsersResponse' {} a -> s {totalNumberOfUsers = a} :: DescribeUsersResponse)
 
 -- | The users.
-describeUsersResponse_users :: Lens.Lens' DescribeUsersResponse (Core.Maybe [User])
-describeUsersResponse_users = Lens.lens (\DescribeUsersResponse' {users} -> users) (\s@DescribeUsersResponse' {} a -> s {users = a} :: DescribeUsersResponse) Core.. Lens.mapping Lens._Coerce
+describeUsersResponse_users :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe [User])
+describeUsersResponse_users = Lens.lens (\DescribeUsersResponse' {users} -> users) (\s@DescribeUsersResponse' {} a -> s {users = a} :: DescribeUsersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
-describeUsersResponse_marker :: Lens.Lens' DescribeUsersResponse (Core.Maybe Core.Text)
+describeUsersResponse_marker :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe Prelude.Text)
 describeUsersResponse_marker = Lens.lens (\DescribeUsersResponse' {marker} -> marker) (\s@DescribeUsersResponse' {} a -> s {marker = a} :: DescribeUsersResponse)
 
 -- | The response's http status code.
-describeUsersResponse_httpStatus :: Lens.Lens' DescribeUsersResponse Core.Int
+describeUsersResponse_httpStatus :: Lens.Lens' DescribeUsersResponse Prelude.Int
 describeUsersResponse_httpStatus = Lens.lens (\DescribeUsersResponse' {httpStatus} -> httpStatus) (\s@DescribeUsersResponse' {} a -> s {httpStatus = a} :: DescribeUsersResponse)
 
-instance Core.NFData DescribeUsersResponse
+instance Prelude.NFData DescribeUsersResponse

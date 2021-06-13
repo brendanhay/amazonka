@@ -25,6 +25,7 @@ import Network.AWS.MediaPackage.Types.AdMarkers
 import Network.AWS.MediaPackage.Types.AdTriggersElement
 import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
 import Network.AWS.MediaPackage.Types.PlaylistType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A HTTP Live Streaming (HLS) manifest configuration.
 --
@@ -39,7 +40,7 @@ data HlsManifestCreateOrUpdateParameters = HlsManifestCreateOrUpdateParameters'
     -- \"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program
     -- transition events in HLS and CMAF manifests. For this option, you must
     -- set a programDateTimeIntervalSeconds value that is greater than 0.
-    adMarkers :: Core.Maybe AdMarkers,
+    adMarkers :: Prelude.Maybe AdMarkers,
     -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
     -- inserted into manifests. Additionally, when an interval is specified
     -- ID3Timed Metadata messages will be generated every 5 seconds using the
@@ -49,25 +50,25 @@ data HlsManifestCreateOrUpdateParameters = HlsManifestCreateOrUpdateParameters'
     -- irrespective of this parameter, if any ID3 Timed Metadata is found in
     -- HTTP Live Streaming (HLS) input, it will be passed through to HLS
     -- output.
-    programDateTimeIntervalSeconds :: Core.Maybe Core.Int,
+    programDateTimeIntervalSeconds :: Prelude.Maybe Prelude.Int,
     -- | Time window (in seconds) contained in each parent manifest.
-    playlistWindowSeconds :: Core.Maybe Core.Int,
-    adTriggers :: Core.Maybe [AdTriggersElement],
+    playlistWindowSeconds :: Prelude.Maybe Prelude.Int,
+    adTriggers :: Prelude.Maybe [AdTriggersElement],
     -- | When enabled, an I-Frame only stream will be included in the output.
-    includeIframeOnlyStream :: Core.Maybe Core.Bool,
+    includeIframeOnlyStream :: Prelude.Maybe Prelude.Bool,
     -- | An optional short string appended to the end of the OriginEndpoint URL.
     -- If not specified, defaults to the manifestName for the OriginEndpoint.
-    manifestName :: Core.Maybe Core.Text,
-    adsOnDeliveryRestrictions :: Core.Maybe AdsOnDeliveryRestrictions,
+    manifestName :: Prelude.Maybe Prelude.Text,
+    adsOnDeliveryRestrictions :: Prelude.Maybe AdsOnDeliveryRestrictions,
     -- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
     -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
     -- included in the media playlist.
-    playlistType :: Core.Maybe PlaylistType,
+    playlistType :: Prelude.Maybe PlaylistType,
     -- | The ID of the manifest. The ID must be unique within the OriginEndpoint
     -- and it cannot be changed after it is created.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsManifestCreateOrUpdateParameters' with all optional fields omitted.
@@ -116,21 +117,23 @@ data HlsManifestCreateOrUpdateParameters = HlsManifestCreateOrUpdateParameters'
 -- and it cannot be changed after it is created.
 newHlsManifestCreateOrUpdateParameters ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   HlsManifestCreateOrUpdateParameters
 newHlsManifestCreateOrUpdateParameters pId_ =
   HlsManifestCreateOrUpdateParameters'
     { adMarkers =
-        Core.Nothing,
+        Prelude.Nothing,
       programDateTimeIntervalSeconds =
-        Core.Nothing,
-      playlistWindowSeconds = Core.Nothing,
-      adTriggers = Core.Nothing,
-      includeIframeOnlyStream = Core.Nothing,
-      manifestName = Core.Nothing,
+        Prelude.Nothing,
+      playlistWindowSeconds =
+        Prelude.Nothing,
+      adTriggers = Prelude.Nothing,
+      includeIframeOnlyStream =
+        Prelude.Nothing,
+      manifestName = Prelude.Nothing,
       adsOnDeliveryRestrictions =
-        Core.Nothing,
-      playlistType = Core.Nothing,
+        Prelude.Nothing,
+      playlistType = Prelude.Nothing,
       id = pId_
     }
 
@@ -143,7 +146,7 @@ newHlsManifestCreateOrUpdateParameters pId_ =
 -- \"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program
 -- transition events in HLS and CMAF manifests. For this option, you must
 -- set a programDateTimeIntervalSeconds value that is greater than 0.
-hlsManifestCreateOrUpdateParameters_adMarkers :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Core.Maybe AdMarkers)
+hlsManifestCreateOrUpdateParameters_adMarkers :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Prelude.Maybe AdMarkers)
 hlsManifestCreateOrUpdateParameters_adMarkers = Lens.lens (\HlsManifestCreateOrUpdateParameters' {adMarkers} -> adMarkers) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {adMarkers = a} :: HlsManifestCreateOrUpdateParameters)
 
 -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -155,47 +158,47 @@ hlsManifestCreateOrUpdateParameters_adMarkers = Lens.lens (\HlsManifestCreateOrU
 -- irrespective of this parameter, if any ID3 Timed Metadata is found in
 -- HTTP Live Streaming (HLS) input, it will be passed through to HLS
 -- output.
-hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Core.Maybe Core.Int)
+hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Prelude.Maybe Prelude.Int)
 hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds = Lens.lens (\HlsManifestCreateOrUpdateParameters' {programDateTimeIntervalSeconds} -> programDateTimeIntervalSeconds) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {programDateTimeIntervalSeconds = a} :: HlsManifestCreateOrUpdateParameters)
 
 -- | Time window (in seconds) contained in each parent manifest.
-hlsManifestCreateOrUpdateParameters_playlistWindowSeconds :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Core.Maybe Core.Int)
+hlsManifestCreateOrUpdateParameters_playlistWindowSeconds :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Prelude.Maybe Prelude.Int)
 hlsManifestCreateOrUpdateParameters_playlistWindowSeconds = Lens.lens (\HlsManifestCreateOrUpdateParameters' {playlistWindowSeconds} -> playlistWindowSeconds) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {playlistWindowSeconds = a} :: HlsManifestCreateOrUpdateParameters)
 
 -- | Undocumented member.
-hlsManifestCreateOrUpdateParameters_adTriggers :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Core.Maybe [AdTriggersElement])
-hlsManifestCreateOrUpdateParameters_adTriggers = Lens.lens (\HlsManifestCreateOrUpdateParameters' {adTriggers} -> adTriggers) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {adTriggers = a} :: HlsManifestCreateOrUpdateParameters) Core.. Lens.mapping Lens._Coerce
+hlsManifestCreateOrUpdateParameters_adTriggers :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Prelude.Maybe [AdTriggersElement])
+hlsManifestCreateOrUpdateParameters_adTriggers = Lens.lens (\HlsManifestCreateOrUpdateParameters' {adTriggers} -> adTriggers) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {adTriggers = a} :: HlsManifestCreateOrUpdateParameters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When enabled, an I-Frame only stream will be included in the output.
-hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Core.Maybe Core.Bool)
+hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Prelude.Maybe Prelude.Bool)
 hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream = Lens.lens (\HlsManifestCreateOrUpdateParameters' {includeIframeOnlyStream} -> includeIframeOnlyStream) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {includeIframeOnlyStream = a} :: HlsManifestCreateOrUpdateParameters)
 
 -- | An optional short string appended to the end of the OriginEndpoint URL.
 -- If not specified, defaults to the manifestName for the OriginEndpoint.
-hlsManifestCreateOrUpdateParameters_manifestName :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Core.Maybe Core.Text)
+hlsManifestCreateOrUpdateParameters_manifestName :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Prelude.Maybe Prelude.Text)
 hlsManifestCreateOrUpdateParameters_manifestName = Lens.lens (\HlsManifestCreateOrUpdateParameters' {manifestName} -> manifestName) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {manifestName = a} :: HlsManifestCreateOrUpdateParameters)
 
 -- | Undocumented member.
-hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Core.Maybe AdsOnDeliveryRestrictions)
+hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Prelude.Maybe AdsOnDeliveryRestrictions)
 hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions = Lens.lens (\HlsManifestCreateOrUpdateParameters' {adsOnDeliveryRestrictions} -> adsOnDeliveryRestrictions) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {adsOnDeliveryRestrictions = a} :: HlsManifestCreateOrUpdateParameters)
 
 -- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
 -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
 -- included in the media playlist.
-hlsManifestCreateOrUpdateParameters_playlistType :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Core.Maybe PlaylistType)
+hlsManifestCreateOrUpdateParameters_playlistType :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Prelude.Maybe PlaylistType)
 hlsManifestCreateOrUpdateParameters_playlistType = Lens.lens (\HlsManifestCreateOrUpdateParameters' {playlistType} -> playlistType) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {playlistType = a} :: HlsManifestCreateOrUpdateParameters)
 
 -- | The ID of the manifest. The ID must be unique within the OriginEndpoint
 -- and it cannot be changed after it is created.
-hlsManifestCreateOrUpdateParameters_id :: Lens.Lens' HlsManifestCreateOrUpdateParameters Core.Text
+hlsManifestCreateOrUpdateParameters_id :: Lens.Lens' HlsManifestCreateOrUpdateParameters Prelude.Text
 hlsManifestCreateOrUpdateParameters_id = Lens.lens (\HlsManifestCreateOrUpdateParameters' {id} -> id) (\s@HlsManifestCreateOrUpdateParameters' {} a -> s {id = a} :: HlsManifestCreateOrUpdateParameters)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HlsManifestCreateOrUpdateParameters
 
 instance
-  Core.NFData
+  Prelude.NFData
     HlsManifestCreateOrUpdateParameters
 
 instance
@@ -204,19 +207,19 @@ instance
   where
   toJSON HlsManifestCreateOrUpdateParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("adMarkers" Core..=) Core.<$> adMarkers,
+      ( Prelude.catMaybes
+          [ ("adMarkers" Core..=) Prelude.<$> adMarkers,
             ("programDateTimeIntervalSeconds" Core..=)
-              Core.<$> programDateTimeIntervalSeconds,
+              Prelude.<$> programDateTimeIntervalSeconds,
             ("playlistWindowSeconds" Core..=)
-              Core.<$> playlistWindowSeconds,
-            ("adTriggers" Core..=) Core.<$> adTriggers,
+              Prelude.<$> playlistWindowSeconds,
+            ("adTriggers" Core..=) Prelude.<$> adTriggers,
             ("includeIframeOnlyStream" Core..=)
-              Core.<$> includeIframeOnlyStream,
-            ("manifestName" Core..=) Core.<$> manifestName,
+              Prelude.<$> includeIframeOnlyStream,
+            ("manifestName" Core..=) Prelude.<$> manifestName,
             ("adsOnDeliveryRestrictions" Core..=)
-              Core.<$> adsOnDeliveryRestrictions,
-            ("playlistType" Core..=) Core.<$> playlistType,
-            Core.Just ("id" Core..= id)
+              Prelude.<$> adsOnDeliveryRestrictions,
+            ("playlistType" Core..=) Prelude.<$> playlistType,
+            Prelude.Just ("id" Core..= id)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.GroupConfigurationItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
 
 -- | An item in a group configuration. A group service configuration can have
@@ -34,14 +35,14 @@ data GroupConfigurationItem = GroupConfigurationItem'
     -- list of parameters that you can use with each configuration item type,
     -- see
     -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
-    parameters :: Core.Maybe [GroupConfigurationParameter],
+    parameters :: Prelude.Maybe [GroupConfigurationParameter],
     -- | Specifies the type of group configuration item. Each item must have a
     -- unique value for @type@. For the list of types that you can specify for
     -- a configuration item, see
     -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
-    type' :: Core.Text
+    type' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupConfigurationItem' with all optional fields omitted.
@@ -62,11 +63,12 @@ data GroupConfigurationItem = GroupConfigurationItem'
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
 newGroupConfigurationItem ::
   -- | 'type''
-  Core.Text ->
+  Prelude.Text ->
   GroupConfigurationItem
 newGroupConfigurationItem pType_ =
   GroupConfigurationItem'
-    { parameters = Core.Nothing,
+    { parameters =
+        Prelude.Nothing,
       type' = pType_
     }
 
@@ -74,14 +76,14 @@ newGroupConfigurationItem pType_ =
 -- list of parameters that you can use with each configuration item type,
 -- see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
-groupConfigurationItem_parameters :: Lens.Lens' GroupConfigurationItem (Core.Maybe [GroupConfigurationParameter])
-groupConfigurationItem_parameters = Lens.lens (\GroupConfigurationItem' {parameters} -> parameters) (\s@GroupConfigurationItem' {} a -> s {parameters = a} :: GroupConfigurationItem) Core.. Lens.mapping Lens._Coerce
+groupConfigurationItem_parameters :: Lens.Lens' GroupConfigurationItem (Prelude.Maybe [GroupConfigurationParameter])
+groupConfigurationItem_parameters = Lens.lens (\GroupConfigurationItem' {parameters} -> parameters) (\s@GroupConfigurationItem' {} a -> s {parameters = a} :: GroupConfigurationItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the type of group configuration item. Each item must have a
 -- unique value for @type@. For the list of types that you can specify for
 -- a configuration item, see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
-groupConfigurationItem_type :: Lens.Lens' GroupConfigurationItem Core.Text
+groupConfigurationItem_type :: Lens.Lens' GroupConfigurationItem Prelude.Text
 groupConfigurationItem_type = Lens.lens (\GroupConfigurationItem' {type'} -> type') (\s@GroupConfigurationItem' {} a -> s {type' = a} :: GroupConfigurationItem)
 
 instance Core.FromJSON GroupConfigurationItem where
@@ -90,19 +92,19 @@ instance Core.FromJSON GroupConfigurationItem where
       "GroupConfigurationItem"
       ( \x ->
           GroupConfigurationItem'
-            Core.<$> (x Core..:? "Parameters" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable GroupConfigurationItem
+instance Prelude.Hashable GroupConfigurationItem
 
-instance Core.NFData GroupConfigurationItem
+instance Prelude.NFData GroupConfigurationItem
 
 instance Core.ToJSON GroupConfigurationItem where
   toJSON GroupConfigurationItem' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Parameters" Core..=) Core.<$> parameters,
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("Type" Core..= type')
           ]
       )

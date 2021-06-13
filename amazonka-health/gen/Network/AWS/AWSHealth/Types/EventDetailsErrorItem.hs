@@ -21,6 +21,7 @@ module Network.AWS.AWSHealth.Types.EventDetailsErrorItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Error information returned when a
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html DescribeEventDetails>
@@ -29,16 +30,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEventDetailsErrorItem' smart constructor.
 data EventDetailsErrorItem = EventDetailsErrorItem'
   { -- | The name of the error.
-    errorName :: Core.Maybe Core.Text,
+    errorName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event. Format:
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
     -- Example:
     -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventArn :: Core.Maybe Core.Text,
+    eventArn :: Prelude.Maybe Prelude.Text,
     -- | A message that describes the error.
-    errorMessage :: Core.Maybe Core.Text
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventDetailsErrorItem' with all optional fields omitted.
@@ -60,24 +61,24 @@ newEventDetailsErrorItem ::
   EventDetailsErrorItem
 newEventDetailsErrorItem =
   EventDetailsErrorItem'
-    { errorName = Core.Nothing,
-      eventArn = Core.Nothing,
-      errorMessage = Core.Nothing
+    { errorName = Prelude.Nothing,
+      eventArn = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | The name of the error.
-eventDetailsErrorItem_errorName :: Lens.Lens' EventDetailsErrorItem (Core.Maybe Core.Text)
+eventDetailsErrorItem_errorName :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 eventDetailsErrorItem_errorName = Lens.lens (\EventDetailsErrorItem' {errorName} -> errorName) (\s@EventDetailsErrorItem' {} a -> s {errorName = a} :: EventDetailsErrorItem)
 
 -- | The unique identifier for the event. Format:
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
 -- Example:
 -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-eventDetailsErrorItem_eventArn :: Lens.Lens' EventDetailsErrorItem (Core.Maybe Core.Text)
+eventDetailsErrorItem_eventArn :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 eventDetailsErrorItem_eventArn = Lens.lens (\EventDetailsErrorItem' {eventArn} -> eventArn) (\s@EventDetailsErrorItem' {} a -> s {eventArn = a} :: EventDetailsErrorItem)
 
 -- | A message that describes the error.
-eventDetailsErrorItem_errorMessage :: Lens.Lens' EventDetailsErrorItem (Core.Maybe Core.Text)
+eventDetailsErrorItem_errorMessage :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 eventDetailsErrorItem_errorMessage = Lens.lens (\EventDetailsErrorItem' {errorMessage} -> errorMessage) (\s@EventDetailsErrorItem' {} a -> s {errorMessage = a} :: EventDetailsErrorItem)
 
 instance Core.FromJSON EventDetailsErrorItem where
@@ -86,11 +87,11 @@ instance Core.FromJSON EventDetailsErrorItem where
       "EventDetailsErrorItem"
       ( \x ->
           EventDetailsErrorItem'
-            Core.<$> (x Core..:? "errorName")
-            Core.<*> (x Core..:? "eventArn")
-            Core.<*> (x Core..:? "errorMessage")
+            Prelude.<$> (x Core..:? "errorName")
+            Prelude.<*> (x Core..:? "eventArn")
+            Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Core.Hashable EventDetailsErrorItem
+instance Prelude.Hashable EventDetailsErrorItem
 
-instance Core.NFData EventDetailsErrorItem
+instance Prelude.NFData EventDetailsErrorItem

@@ -259,6 +259,7 @@ import Network.AWS.ELB.Types.Tag
 import Network.AWS.ELB.Types.TagDescription
 import Network.AWS.ELB.Types.TagKeyOnly
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-06-01@ of the Amazon Elastic Load Balancing SDK configuration.
@@ -272,7 +273,7 @@ defaultService =
       Core._serviceVersion = "2012-06-01",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseXMLError "ELB",
       Core._serviceRetry = retry
@@ -287,229 +288,231 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified load balancer name already exists for this account.
-_DuplicateAccessPointNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateAccessPointNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateAccessPointNameException =
   Core._MatchServiceError
     defaultService
     "DuplicateLoadBalancerName"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | One or more of the specified security groups do not exist.
-_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidSecurityGroupException =
   Core._MatchServiceError
     defaultService
     "InvalidSecurityGroup"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The requested configuration change is not valid.
-_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidConfigurationRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidConfigurationRequest"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | A policy with the specified name already exists for this load balancer.
-_DuplicatePolicyNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicatePolicyNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicatePolicyNameException =
   Core._MatchServiceError
     defaultService
     "DuplicatePolicyName"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified load balancer does not exist.
-_AccessPointNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessPointNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessPointNotFoundException =
   Core._MatchServiceError
     defaultService
     "LoadBalancerNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | One or more of the specified policy types do not exist.
-_PolicyTypeNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PolicyTypeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PolicyTypeNotFoundException =
   Core._MatchServiceError
     defaultService
     "PolicyTypeNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The quota for the number of tags that can be assigned to a load balancer
 -- has been reached.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
     "TooManyTags"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The quota for the number of policies for this load balancer has been
 -- reached.
-_TooManyPoliciesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyPoliciesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyPoliciesException =
   Core._MatchServiceError
     defaultService
     "TooManyPolicies"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A tag key was specified more than once.
-_DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateTagKeysException =
   Core._MatchServiceError
     defaultService
     "DuplicateTagKeys"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A request made by Elastic Load Balancing to another service exceeds the
 -- maximum request rate permitted for your account.
-_DependencyThrottleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DependencyThrottleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DependencyThrottleException =
   Core._MatchServiceError
     defaultService
     "DependencyThrottle"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | This operation is not allowed.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
     "OperationNotPermitted"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified endpoint is not valid.
-_InvalidEndPointException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidEndPointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidEndPointException =
   Core._MatchServiceError
     defaultService
     "InvalidInstance"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The load balancer does not have a listener configured at the specified
 -- port.
-_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ListenerNotFoundException =
   Core._MatchServiceError
     defaultService
     "ListenerNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified load balancer attribute does not exist.
-_LoadBalancerAttributeNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LoadBalancerAttributeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LoadBalancerAttributeNotFoundException =
   Core._MatchServiceError
     defaultService
     "LoadBalancerAttributeNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | One or more of the specified subnets do not exist.
-_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SubnetNotFoundException =
   Core._MatchServiceError
     defaultService
     "SubnetNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified protocol or signature version is not supported.
-_UnsupportedProtocolException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedProtocolException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedProtocolException =
   Core._MatchServiceError
     defaultService
     "UnsupportedProtocol"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | One or more of the specified policies do not exist.
-_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PolicyNotFoundException =
   Core._MatchServiceError
     defaultService
     "PolicyNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified ARN does not refer to a valid SSL certificate in AWS
 -- Identity and Access Management (IAM) or AWS Certificate Manager (ACM).
 -- Note that if you recently uploaded the certificate to IAM, this error
 -- might indicate that the certificate is not fully available yet.
-_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CertificateNotFoundException =
   Core._MatchServiceError
     defaultService
     "CertificateNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A listener already exists for the specified load balancer name and port,
 -- but with a different instance port, protocol, or SSL certificate.
-_DuplicateListenerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateListenerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateListenerException =
   Core._MatchServiceError
     defaultService
     "DuplicateListener"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The quota for the number of load balancers has been reached.
-_TooManyAccessPointsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyAccessPointsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyAccessPointsException =
   Core._MatchServiceError
     defaultService
     "TooManyLoadBalancers"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified value for the schema is not valid. You can only specify a
 -- scheme for load balancers in a VPC.
-_InvalidSchemeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSchemeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidSchemeException =
   Core._MatchServiceError
     defaultService
     "InvalidScheme"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified VPC has no associated Internet gateway.
-_InvalidSubnetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidSubnetException =
   Core._MatchServiceError
     defaultService
     "InvalidSubnet"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400

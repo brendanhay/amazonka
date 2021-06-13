@@ -56,6 +56,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +65,7 @@ data GetMetricData = GetMetricData'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The grouping applied to the metrics returned. For example, when results
     -- are grouped by queue, the metrics returned are grouped by queue. The
     -- values returned apply to the metrics for each queue rather than
@@ -74,11 +75,11 @@ data GetMetricData = GetMetricData'
     --
     -- If no grouping is specified, a summary of metrics for all queues is
     -- returned.
-    groupings :: Core.Maybe [Grouping],
+    groupings :: Prelude.Maybe [Grouping],
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The timestamp, in UNIX Epoch time format, at which to start the
     -- reporting interval for the retrieval of historical metrics data. The
     -- time must be specified using a multiple of 5 minutes, such as 10:05,
@@ -237,7 +238,7 @@ data GetMetricData = GetMetricData'
     --     180, 240, 300, 600
     historicalMetrics :: [HistoricalMetric]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMetricData' with all optional fields omitted.
@@ -423,11 +424,11 @@ data GetMetricData = GetMetricData'
 --     180, 240, 300, 600
 newGetMetricData ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'filters'
   Filters ->
   GetMetricData
@@ -437,20 +438,20 @@ newGetMetricData
   pEndTime_
   pFilters_ =
     GetMetricData'
-      { nextToken = Core.Nothing,
-        groupings = Core.Nothing,
-        maxResults = Core.Nothing,
+      { nextToken = Prelude.Nothing,
+        groupings = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         instanceId = pInstanceId_,
         startTime = Core._Time Lens.# pStartTime_,
         endTime = Core._Time Lens.# pEndTime_,
         filters = pFilters_,
-        historicalMetrics = Core.mempty
+        historicalMetrics = Prelude.mempty
       }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-getMetricData_nextToken :: Lens.Lens' GetMetricData (Core.Maybe Core.Text)
+getMetricData_nextToken :: Lens.Lens' GetMetricData (Prelude.Maybe Prelude.Text)
 getMetricData_nextToken = Lens.lens (\GetMetricData' {nextToken} -> nextToken) (\s@GetMetricData' {} a -> s {nextToken = a} :: GetMetricData)
 
 -- | The grouping applied to the metrics returned. For example, when results
@@ -462,15 +463,15 @@ getMetricData_nextToken = Lens.lens (\GetMetricData' {nextToken} -> nextToken) (
 --
 -- If no grouping is specified, a summary of metrics for all queues is
 -- returned.
-getMetricData_groupings :: Lens.Lens' GetMetricData (Core.Maybe [Grouping])
-getMetricData_groupings = Lens.lens (\GetMetricData' {groupings} -> groupings) (\s@GetMetricData' {} a -> s {groupings = a} :: GetMetricData) Core.. Lens.mapping Lens._Coerce
+getMetricData_groupings :: Lens.Lens' GetMetricData (Prelude.Maybe [Grouping])
+getMetricData_groupings = Lens.lens (\GetMetricData' {groupings} -> groupings) (\s@GetMetricData' {} a -> s {groupings = a} :: GetMetricData) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return per page.
-getMetricData_maxResults :: Lens.Lens' GetMetricData (Core.Maybe Core.Natural)
+getMetricData_maxResults :: Lens.Lens' GetMetricData (Prelude.Maybe Prelude.Natural)
 getMetricData_maxResults = Lens.lens (\GetMetricData' {maxResults} -> maxResults) (\s@GetMetricData' {} a -> s {maxResults = a} :: GetMetricData)
 
 -- | The identifier of the Amazon Connect instance.
-getMetricData_instanceId :: Lens.Lens' GetMetricData Core.Text
+getMetricData_instanceId :: Lens.Lens' GetMetricData Prelude.Text
 getMetricData_instanceId = Lens.lens (\GetMetricData' {instanceId} -> instanceId) (\s@GetMetricData' {} a -> s {instanceId = a} :: GetMetricData)
 
 -- | The timestamp, in UNIX Epoch time format, at which to start the
@@ -480,8 +481,8 @@ getMetricData_instanceId = Lens.lens (\GetMetricData' {instanceId} -> instanceId
 --
 -- The start time cannot be earlier than 24 hours before the time of the
 -- request. Historical metrics are available only for 24 hours.
-getMetricData_startTime :: Lens.Lens' GetMetricData Core.UTCTime
-getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (\s@GetMetricData' {} a -> s {startTime = a} :: GetMetricData) Core.. Core._Time
+getMetricData_startTime :: Lens.Lens' GetMetricData Prelude.UTCTime
+getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (\s@GetMetricData' {} a -> s {startTime = a} :: GetMetricData) Prelude.. Core._Time
 
 -- | The timestamp, in UNIX Epoch time format, at which to end the reporting
 -- interval for the retrieval of historical metrics data. The time must be
@@ -490,8 +491,8 @@ getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (
 --
 -- The time range between the start and end time must be less than 24
 -- hours.
-getMetricData_endTime :: Lens.Lens' GetMetricData Core.UTCTime
-getMetricData_endTime = Lens.lens (\GetMetricData' {endTime} -> endTime) (\s@GetMetricData' {} a -> s {endTime = a} :: GetMetricData) Core.. Core._Time
+getMetricData_endTime :: Lens.Lens' GetMetricData Prelude.UTCTime
+getMetricData_endTime = Lens.lens (\GetMetricData' {endTime} -> endTime) (\s@GetMetricData' {} a -> s {endTime = a} :: GetMetricData) Prelude.. Core._Time
 
 -- | The queues, up to 100, or channels, to use to filter the metrics
 -- returned. Metric data is retrieved only for the resources associated
@@ -636,27 +637,27 @@ getMetricData_filters = Lens.lens (\GetMetricData' {filters} -> filters) (\s@Get
 --     following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120,
 --     180, 240, 300, 600
 getMetricData_historicalMetrics :: Lens.Lens' GetMetricData [HistoricalMetric]
-getMetricData_historicalMetrics = Lens.lens (\GetMetricData' {historicalMetrics} -> historicalMetrics) (\s@GetMetricData' {} a -> s {historicalMetrics = a} :: GetMetricData) Core.. Lens._Coerce
+getMetricData_historicalMetrics = Lens.lens (\GetMetricData' {historicalMetrics} -> historicalMetrics) (\s@GetMetricData' {} a -> s {historicalMetrics = a} :: GetMetricData) Prelude.. Lens._Coerce
 
 instance Core.AWSPager GetMetricData where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getMetricDataResponse_nextToken Core.. Lens._Just
+            Lens.^? getMetricDataResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getMetricDataResponse_metricResults
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getMetricData_nextToken
+          Prelude.& getMetricData_nextToken
           Lens..~ rs
-          Lens.^? getMetricDataResponse_nextToken Core.. Lens._Just
+          Lens.^? getMetricDataResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetMetricData where
   type
@@ -667,46 +668,48 @@ instance Core.AWSRequest GetMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetMetricDataResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "MetricResults" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetMetricData
+instance Prelude.Hashable GetMetricData
 
-instance Core.NFData GetMetricData
+instance Prelude.NFData GetMetricData
 
 instance Core.ToHeaders GetMetricData where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetMetricData where
   toJSON GetMetricData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Groupings" Core..=) Core.<$> groupings,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("StartTime" Core..= startTime),
-            Core.Just ("EndTime" Core..= endTime),
-            Core.Just ("Filters" Core..= filters),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Groupings" Core..=) Prelude.<$> groupings,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("StartTime" Core..= startTime),
+            Prelude.Just ("EndTime" Core..= endTime),
+            Prelude.Just ("Filters" Core..= filters),
+            Prelude.Just
               ("HistoricalMetrics" Core..= historicalMetrics)
           ]
       )
 
 instance Core.ToPath GetMetricData where
   toPath GetMetricData' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/metrics/historical/", Core.toBS instanceId]
 
 instance Core.ToQuery GetMetricData where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMetricDataResponse' smart constructor.
 data GetMetricDataResponse = GetMetricDataResponse'
@@ -716,15 +719,15 @@ data GetMetricDataResponse = GetMetricDataResponse'
     -- The token expires after 5 minutes from the time it is created.
     -- Subsequent requests that use the token must use the same request
     -- parameters as the request that generated the token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the historical metrics.
     --
     -- If no grouping is specified, a summary of metric data is returned.
-    metricResults :: Core.Maybe [HistoricalMetricResult],
+    metricResults :: Prelude.Maybe [HistoricalMetricResult],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMetricDataResponse' with all optional fields omitted.
@@ -748,12 +751,12 @@ data GetMetricDataResponse = GetMetricDataResponse'
 -- 'httpStatus', 'getMetricDataResponse_httpStatus' - The response's http status code.
 newGetMetricDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetMetricDataResponse
 newGetMetricDataResponse pHttpStatus_ =
   GetMetricDataResponse'
-    { nextToken = Core.Nothing,
-      metricResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      metricResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -763,17 +766,17 @@ newGetMetricDataResponse pHttpStatus_ =
 -- The token expires after 5 minutes from the time it is created.
 -- Subsequent requests that use the token must use the same request
 -- parameters as the request that generated the token.
-getMetricDataResponse_nextToken :: Lens.Lens' GetMetricDataResponse (Core.Maybe Core.Text)
+getMetricDataResponse_nextToken :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe Prelude.Text)
 getMetricDataResponse_nextToken = Lens.lens (\GetMetricDataResponse' {nextToken} -> nextToken) (\s@GetMetricDataResponse' {} a -> s {nextToken = a} :: GetMetricDataResponse)
 
 -- | Information about the historical metrics.
 --
 -- If no grouping is specified, a summary of metric data is returned.
-getMetricDataResponse_metricResults :: Lens.Lens' GetMetricDataResponse (Core.Maybe [HistoricalMetricResult])
-getMetricDataResponse_metricResults = Lens.lens (\GetMetricDataResponse' {metricResults} -> metricResults) (\s@GetMetricDataResponse' {} a -> s {metricResults = a} :: GetMetricDataResponse) Core.. Lens.mapping Lens._Coerce
+getMetricDataResponse_metricResults :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe [HistoricalMetricResult])
+getMetricDataResponse_metricResults = Lens.lens (\GetMetricDataResponse' {metricResults} -> metricResults) (\s@GetMetricDataResponse' {} a -> s {metricResults = a} :: GetMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getMetricDataResponse_httpStatus :: Lens.Lens' GetMetricDataResponse Core.Int
+getMetricDataResponse_httpStatus :: Lens.Lens' GetMetricDataResponse Prelude.Int
 getMetricDataResponse_httpStatus = Lens.lens (\GetMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetMetricDataResponse' {} a -> s {httpStatus = a} :: GetMetricDataResponse)
 
-instance Core.NFData GetMetricDataResponse
+instance Prelude.NFData GetMetricDataResponse

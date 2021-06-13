@@ -21,17 +21,18 @@ module Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A description of the identity pool.
 --
 -- /See:/ 'newIdentityPoolShortDescription' smart constructor.
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Core.Maybe Core.Text,
+    identityPoolId :: Prelude.Maybe Prelude.Text,
     -- | A string that you provide.
-    identityPoolName :: Core.Maybe Core.Text
+    identityPoolName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IdentityPoolShortDescription' with all optional fields omitted.
@@ -49,16 +50,16 @@ newIdentityPoolShortDescription ::
 newIdentityPoolShortDescription =
   IdentityPoolShortDescription'
     { identityPoolId =
-        Core.Nothing,
-      identityPoolName = Core.Nothing
+        Prelude.Nothing,
+      identityPoolName = Prelude.Nothing
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-identityPoolShortDescription_identityPoolId :: Lens.Lens' IdentityPoolShortDescription (Core.Maybe Core.Text)
+identityPoolShortDescription_identityPoolId :: Lens.Lens' IdentityPoolShortDescription (Prelude.Maybe Prelude.Text)
 identityPoolShortDescription_identityPoolId = Lens.lens (\IdentityPoolShortDescription' {identityPoolId} -> identityPoolId) (\s@IdentityPoolShortDescription' {} a -> s {identityPoolId = a} :: IdentityPoolShortDescription)
 
 -- | A string that you provide.
-identityPoolShortDescription_identityPoolName :: Lens.Lens' IdentityPoolShortDescription (Core.Maybe Core.Text)
+identityPoolShortDescription_identityPoolName :: Lens.Lens' IdentityPoolShortDescription (Prelude.Maybe Prelude.Text)
 identityPoolShortDescription_identityPoolName = Lens.lens (\IdentityPoolShortDescription' {identityPoolName} -> identityPoolName) (\s@IdentityPoolShortDescription' {} a -> s {identityPoolName = a} :: IdentityPoolShortDescription)
 
 instance Core.FromJSON IdentityPoolShortDescription where
@@ -67,10 +68,12 @@ instance Core.FromJSON IdentityPoolShortDescription where
       "IdentityPoolShortDescription"
       ( \x ->
           IdentityPoolShortDescription'
-            Core.<$> (x Core..:? "IdentityPoolId")
-            Core.<*> (x Core..:? "IdentityPoolName")
+            Prelude.<$> (x Core..:? "IdentityPoolId")
+            Prelude.<*> (x Core..:? "IdentityPoolName")
       )
 
-instance Core.Hashable IdentityPoolShortDescription
+instance
+  Prelude.Hashable
+    IdentityPoolShortDescription
 
-instance Core.NFData IdentityPoolShortDescription
+instance Prelude.NFData IdentityPoolShortDescription

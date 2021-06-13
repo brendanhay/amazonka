@@ -45,15 +45,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSpeechSynthesisTask' smart constructor.
 data GetSpeechSynthesisTask = GetSpeechSynthesisTask'
   { -- | The Amazon Polly generated identifier for a speech synthesis task.
-    taskId :: Core.Text
+    taskId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSpeechSynthesisTask' with all optional fields omitted.
@@ -66,13 +67,13 @@ data GetSpeechSynthesisTask = GetSpeechSynthesisTask'
 -- 'taskId', 'getSpeechSynthesisTask_taskId' - The Amazon Polly generated identifier for a speech synthesis task.
 newGetSpeechSynthesisTask ::
   -- | 'taskId'
-  Core.Text ->
+  Prelude.Text ->
   GetSpeechSynthesisTask
 newGetSpeechSynthesisTask pTaskId_ =
   GetSpeechSynthesisTask' {taskId = pTaskId_}
 
 -- | The Amazon Polly generated identifier for a speech synthesis task.
-getSpeechSynthesisTask_taskId :: Lens.Lens' GetSpeechSynthesisTask Core.Text
+getSpeechSynthesisTask_taskId :: Lens.Lens' GetSpeechSynthesisTask Prelude.Text
 getSpeechSynthesisTask_taskId = Lens.lens (\GetSpeechSynthesisTask' {taskId} -> taskId) (\s@GetSpeechSynthesisTask' {} a -> s {taskId = a} :: GetSpeechSynthesisTask)
 
 instance Core.AWSRequest GetSpeechSynthesisTask where
@@ -84,34 +85,34 @@ instance Core.AWSRequest GetSpeechSynthesisTask where
     Response.receiveJSON
       ( \s h x ->
           GetSpeechSynthesisTaskResponse'
-            Core.<$> (x Core..?> "SynthesisTask")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SynthesisTask")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSpeechSynthesisTask
+instance Prelude.Hashable GetSpeechSynthesisTask
 
-instance Core.NFData GetSpeechSynthesisTask
+instance Prelude.NFData GetSpeechSynthesisTask
 
 instance Core.ToHeaders GetSpeechSynthesisTask where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetSpeechSynthesisTask where
   toPath GetSpeechSynthesisTask' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/synthesisTasks/", Core.toBS taskId]
 
 instance Core.ToQuery GetSpeechSynthesisTask where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSpeechSynthesisTaskResponse' smart constructor.
 data GetSpeechSynthesisTaskResponse = GetSpeechSynthesisTaskResponse'
   { -- | SynthesisTask object that provides information from the requested task,
     -- including output format, creation time, task status, and so on.
-    synthesisTask :: Core.Maybe SynthesisTask,
+    synthesisTask :: Prelude.Maybe SynthesisTask,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSpeechSynthesisTaskResponse' with all optional fields omitted.
@@ -127,22 +128,24 @@ data GetSpeechSynthesisTaskResponse = GetSpeechSynthesisTaskResponse'
 -- 'httpStatus', 'getSpeechSynthesisTaskResponse_httpStatus' - The response's http status code.
 newGetSpeechSynthesisTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSpeechSynthesisTaskResponse
 newGetSpeechSynthesisTaskResponse pHttpStatus_ =
   GetSpeechSynthesisTaskResponse'
     { synthesisTask =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | SynthesisTask object that provides information from the requested task,
 -- including output format, creation time, task status, and so on.
-getSpeechSynthesisTaskResponse_synthesisTask :: Lens.Lens' GetSpeechSynthesisTaskResponse (Core.Maybe SynthesisTask)
+getSpeechSynthesisTaskResponse_synthesisTask :: Lens.Lens' GetSpeechSynthesisTaskResponse (Prelude.Maybe SynthesisTask)
 getSpeechSynthesisTaskResponse_synthesisTask = Lens.lens (\GetSpeechSynthesisTaskResponse' {synthesisTask} -> synthesisTask) (\s@GetSpeechSynthesisTaskResponse' {} a -> s {synthesisTask = a} :: GetSpeechSynthesisTaskResponse)
 
 -- | The response's http status code.
-getSpeechSynthesisTaskResponse_httpStatus :: Lens.Lens' GetSpeechSynthesisTaskResponse Core.Int
+getSpeechSynthesisTaskResponse_httpStatus :: Lens.Lens' GetSpeechSynthesisTaskResponse Prelude.Int
 getSpeechSynthesisTaskResponse_httpStatus = Lens.lens (\GetSpeechSynthesisTaskResponse' {httpStatus} -> httpStatus) (\s@GetSpeechSynthesisTaskResponse' {} a -> s {httpStatus = a} :: GetSpeechSynthesisTaskResponse)
 
-instance Core.NFData GetSpeechSynthesisTaskResponse
+instance
+  Prelude.NFData
+    GetSpeechSynthesisTaskResponse

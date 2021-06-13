@@ -22,6 +22,7 @@ module Network.AWS.Batch.Types.NodePropertyOverride where
 import Network.AWS.Batch.Types.ContainerOverrides
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Object representing any node overrides to a job definition that\'s used
 -- in a SubmitJob API operation.
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newNodePropertyOverride' smart constructor.
 data NodePropertyOverride = NodePropertyOverride'
   { -- | The overrides that should be sent to a node range.
-    containerOverrides :: Core.Maybe ContainerOverrides,
+    containerOverrides :: Prelude.Maybe ContainerOverrides,
     -- | The range of nodes, using node index values, that\'s used to override. A
     -- range of @0:3@ indicates nodes with index values of @0@ through @3@. If
     -- the starting range value is omitted (@:n@), then @0@ is used to start
     -- the range. If the ending range value is omitted (@n:@), then the highest
     -- possible node index is used to end the range.
-    targetNodes :: Core.Text
+    targetNodes :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodePropertyOverride' with all optional fields omitted.
@@ -56,17 +57,17 @@ data NodePropertyOverride = NodePropertyOverride'
 -- possible node index is used to end the range.
 newNodePropertyOverride ::
   -- | 'targetNodes'
-  Core.Text ->
+  Prelude.Text ->
   NodePropertyOverride
 newNodePropertyOverride pTargetNodes_ =
   NodePropertyOverride'
     { containerOverrides =
-        Core.Nothing,
+        Prelude.Nothing,
       targetNodes = pTargetNodes_
     }
 
 -- | The overrides that should be sent to a node range.
-nodePropertyOverride_containerOverrides :: Lens.Lens' NodePropertyOverride (Core.Maybe ContainerOverrides)
+nodePropertyOverride_containerOverrides :: Lens.Lens' NodePropertyOverride (Prelude.Maybe ContainerOverrides)
 nodePropertyOverride_containerOverrides = Lens.lens (\NodePropertyOverride' {containerOverrides} -> containerOverrides) (\s@NodePropertyOverride' {} a -> s {containerOverrides = a} :: NodePropertyOverride)
 
 -- | The range of nodes, using node index values, that\'s used to override. A
@@ -74,19 +75,19 @@ nodePropertyOverride_containerOverrides = Lens.lens (\NodePropertyOverride' {con
 -- the starting range value is omitted (@:n@), then @0@ is used to start
 -- the range. If the ending range value is omitted (@n:@), then the highest
 -- possible node index is used to end the range.
-nodePropertyOverride_targetNodes :: Lens.Lens' NodePropertyOverride Core.Text
+nodePropertyOverride_targetNodes :: Lens.Lens' NodePropertyOverride Prelude.Text
 nodePropertyOverride_targetNodes = Lens.lens (\NodePropertyOverride' {targetNodes} -> targetNodes) (\s@NodePropertyOverride' {} a -> s {targetNodes = a} :: NodePropertyOverride)
 
-instance Core.Hashable NodePropertyOverride
+instance Prelude.Hashable NodePropertyOverride
 
-instance Core.NFData NodePropertyOverride
+instance Prelude.NFData NodePropertyOverride
 
 instance Core.ToJSON NodePropertyOverride where
   toJSON NodePropertyOverride' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("containerOverrides" Core..=)
-              Core.<$> containerOverrides,
-            Core.Just ("targetNodes" Core..= targetNodes)
+              Prelude.<$> containerOverrides,
+            Prelude.Just ("targetNodes" Core..= targetNodes)
           ]
       )

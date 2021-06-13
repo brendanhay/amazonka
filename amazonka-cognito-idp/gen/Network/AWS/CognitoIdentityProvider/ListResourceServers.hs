@@ -47,19 +47,20 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListResourceServers' smart constructor.
 data ListResourceServers = ListResourceServers'
   { -- | A pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of resource servers to return.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text
+    userPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListResourceServers' with all optional fields omitted.
@@ -76,25 +77,25 @@ data ListResourceServers = ListResourceServers'
 -- 'userPoolId', 'listResourceServers_userPoolId' - The user pool ID for the user pool.
 newListResourceServers ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   ListResourceServers
 newListResourceServers pUserPoolId_ =
   ListResourceServers'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
 
 -- | A pagination token.
-listResourceServers_nextToken :: Lens.Lens' ListResourceServers (Core.Maybe Core.Text)
+listResourceServers_nextToken :: Lens.Lens' ListResourceServers (Prelude.Maybe Prelude.Text)
 listResourceServers_nextToken = Lens.lens (\ListResourceServers' {nextToken} -> nextToken) (\s@ListResourceServers' {} a -> s {nextToken = a} :: ListResourceServers)
 
 -- | The maximum number of resource servers to return.
-listResourceServers_maxResults :: Lens.Lens' ListResourceServers (Core.Maybe Core.Natural)
+listResourceServers_maxResults :: Lens.Lens' ListResourceServers (Prelude.Maybe Prelude.Natural)
 listResourceServers_maxResults = Lens.lens (\ListResourceServers' {maxResults} -> maxResults) (\s@ListResourceServers' {} a -> s {maxResults = a} :: ListResourceServers)
 
 -- | The user pool ID for the user pool.
-listResourceServers_userPoolId :: Lens.Lens' ListResourceServers Core.Text
+listResourceServers_userPoolId :: Lens.Lens' ListResourceServers Prelude.Text
 listResourceServers_userPoolId = Lens.lens (\ListResourceServers' {userPoolId} -> userPoolId) (\s@ListResourceServers' {} a -> s {userPoolId = a} :: ListResourceServers)
 
 instance Core.AWSPager ListResourceServers where
@@ -102,21 +103,21 @@ instance Core.AWSPager ListResourceServers where
     | Core.stop
         ( rs
             Lens.^? listResourceServersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listResourceServersResponse_resourceServers
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listResourceServers_nextToken
+          Prelude.& listResourceServers_nextToken
           Lens..~ rs
           Lens.^? listResourceServersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceServers where
   type
@@ -127,54 +128,58 @@ instance Core.AWSRequest ListResourceServers where
     Response.receiveJSON
       ( \s h x ->
           ListResourceServersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "ResourceServers" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "ResourceServers"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ListResourceServers
+instance Prelude.Hashable ListResourceServers
 
-instance Core.NFData ListResourceServers
+instance Prelude.NFData ListResourceServers
 
 instance Core.ToHeaders ListResourceServers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.ListResourceServers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListResourceServers where
   toJSON ListResourceServers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("UserPoolId" Core..= userPoolId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
 instance Core.ToPath ListResourceServers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListResourceServers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceServersResponse' smart constructor.
 data ListResourceServersResponse = ListResourceServersResponse'
   { -- | A pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The resource servers.
     resourceServers :: [ResourceServerType]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListResourceServersResponse' with all optional fields omitted.
@@ -191,26 +196,26 @@ data ListResourceServersResponse = ListResourceServersResponse'
 -- 'resourceServers', 'listResourceServersResponse_resourceServers' - The resource servers.
 newListResourceServersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListResourceServersResponse
 newListResourceServersResponse pHttpStatus_ =
   ListResourceServersResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      resourceServers = Core.mempty
+      resourceServers = Prelude.mempty
     }
 
 -- | A pagination token.
-listResourceServersResponse_nextToken :: Lens.Lens' ListResourceServersResponse (Core.Maybe Core.Text)
+listResourceServersResponse_nextToken :: Lens.Lens' ListResourceServersResponse (Prelude.Maybe Prelude.Text)
 listResourceServersResponse_nextToken = Lens.lens (\ListResourceServersResponse' {nextToken} -> nextToken) (\s@ListResourceServersResponse' {} a -> s {nextToken = a} :: ListResourceServersResponse)
 
 -- | The response's http status code.
-listResourceServersResponse_httpStatus :: Lens.Lens' ListResourceServersResponse Core.Int
+listResourceServersResponse_httpStatus :: Lens.Lens' ListResourceServersResponse Prelude.Int
 listResourceServersResponse_httpStatus = Lens.lens (\ListResourceServersResponse' {httpStatus} -> httpStatus) (\s@ListResourceServersResponse' {} a -> s {httpStatus = a} :: ListResourceServersResponse)
 
 -- | The resource servers.
 listResourceServersResponse_resourceServers :: Lens.Lens' ListResourceServersResponse [ResourceServerType]
-listResourceServersResponse_resourceServers = Lens.lens (\ListResourceServersResponse' {resourceServers} -> resourceServers) (\s@ListResourceServersResponse' {} a -> s {resourceServers = a} :: ListResourceServersResponse) Core.. Lens._Coerce
+listResourceServersResponse_resourceServers = Lens.lens (\ListResourceServersResponse' {resourceServers} -> resourceServers) (\s@ListResourceServersResponse' {} a -> s {resourceServers = a} :: ListResourceServersResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListResourceServersResponse
+instance Prelude.NFData ListResourceServersResponse

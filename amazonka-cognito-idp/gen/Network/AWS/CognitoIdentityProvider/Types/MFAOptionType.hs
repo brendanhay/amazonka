@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentityProvider.Types.MFAOptionType where
 import Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /This data type is no longer supported./ You can use it only for SMS MFA
 -- configurations. You can\'t use it for TOTP software token MFA
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data MFAOptionType = MFAOptionType'
   { -- | The delivery medium to send the MFA code. You can use this parameter to
     -- set only the @SMS@ delivery medium value.
-    deliveryMedium :: Core.Maybe DeliveryMediumType,
+    deliveryMedium :: Prelude.Maybe DeliveryMediumType,
     -- | The attribute name of the MFA option type. The only valid value is
     -- @phone_number@.
-    attributeName :: Core.Maybe Core.Text
+    attributeName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MFAOptionType' with all optional fields omitted.
@@ -55,18 +56,18 @@ newMFAOptionType ::
   MFAOptionType
 newMFAOptionType =
   MFAOptionType'
-    { deliveryMedium = Core.Nothing,
-      attributeName = Core.Nothing
+    { deliveryMedium = Prelude.Nothing,
+      attributeName = Prelude.Nothing
     }
 
 -- | The delivery medium to send the MFA code. You can use this parameter to
 -- set only the @SMS@ delivery medium value.
-mfaOptionType_deliveryMedium :: Lens.Lens' MFAOptionType (Core.Maybe DeliveryMediumType)
+mfaOptionType_deliveryMedium :: Lens.Lens' MFAOptionType (Prelude.Maybe DeliveryMediumType)
 mfaOptionType_deliveryMedium = Lens.lens (\MFAOptionType' {deliveryMedium} -> deliveryMedium) (\s@MFAOptionType' {} a -> s {deliveryMedium = a} :: MFAOptionType)
 
 -- | The attribute name of the MFA option type. The only valid value is
 -- @phone_number@.
-mfaOptionType_attributeName :: Lens.Lens' MFAOptionType (Core.Maybe Core.Text)
+mfaOptionType_attributeName :: Lens.Lens' MFAOptionType (Prelude.Maybe Prelude.Text)
 mfaOptionType_attributeName = Lens.lens (\MFAOptionType' {attributeName} -> attributeName) (\s@MFAOptionType' {} a -> s {attributeName = a} :: MFAOptionType)
 
 instance Core.FromJSON MFAOptionType where
@@ -75,19 +76,20 @@ instance Core.FromJSON MFAOptionType where
       "MFAOptionType"
       ( \x ->
           MFAOptionType'
-            Core.<$> (x Core..:? "DeliveryMedium")
-            Core.<*> (x Core..:? "AttributeName")
+            Prelude.<$> (x Core..:? "DeliveryMedium")
+            Prelude.<*> (x Core..:? "AttributeName")
       )
 
-instance Core.Hashable MFAOptionType
+instance Prelude.Hashable MFAOptionType
 
-instance Core.NFData MFAOptionType
+instance Prelude.NFData MFAOptionType
 
 instance Core.ToJSON MFAOptionType where
   toJSON MFAOptionType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DeliveryMedium" Core..=) Core.<$> deliveryMedium,
-            ("AttributeName" Core..=) Core.<$> attributeName
+      ( Prelude.catMaybes
+          [ ("DeliveryMedium" Core..=)
+              Prelude.<$> deliveryMedium,
+            ("AttributeName" Core..=) Prelude.<$> attributeName
           ]
       )

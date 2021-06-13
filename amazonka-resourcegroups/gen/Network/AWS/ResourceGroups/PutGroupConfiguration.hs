@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -65,12 +66,12 @@ data PutGroupConfiguration = PutGroupConfiguration'
     --
     -- A resource group can contain either a @Configuration@ or a
     -- @ResourceQuery@, but not both.
-    configuration :: Core.Maybe [GroupConfigurationItem],
+    configuration :: Prelude.Maybe [GroupConfigurationItem],
     -- | The name or ARN of the resource group with the configuration that you
     -- want to update.
-    group' :: Core.Maybe Core.Text
+    group' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutGroupConfiguration' with all optional fields omitted.
@@ -98,8 +99,8 @@ newPutGroupConfiguration ::
 newPutGroupConfiguration =
   PutGroupConfiguration'
     { configuration =
-        Core.Nothing,
-      group' = Core.Nothing
+        Prelude.Nothing,
+      group' = Prelude.Nothing
     }
 
 -- | The new configuration to associate with the specified group. A
@@ -112,12 +113,12 @@ newPutGroupConfiguration =
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
-putGroupConfiguration_configuration :: Lens.Lens' PutGroupConfiguration (Core.Maybe [GroupConfigurationItem])
-putGroupConfiguration_configuration = Lens.lens (\PutGroupConfiguration' {configuration} -> configuration) (\s@PutGroupConfiguration' {} a -> s {configuration = a} :: PutGroupConfiguration) Core.. Lens.mapping Lens._Coerce
+putGroupConfiguration_configuration :: Lens.Lens' PutGroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
+putGroupConfiguration_configuration = Lens.lens (\PutGroupConfiguration' {configuration} -> configuration) (\s@PutGroupConfiguration' {} a -> s {configuration = a} :: PutGroupConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name or ARN of the resource group with the configuration that you
 -- want to update.
-putGroupConfiguration_group :: Lens.Lens' PutGroupConfiguration (Core.Maybe Core.Text)
+putGroupConfiguration_group :: Lens.Lens' PutGroupConfiguration (Prelude.Maybe Prelude.Text)
 putGroupConfiguration_group = Lens.lens (\PutGroupConfiguration' {group'} -> group') (\s@PutGroupConfiguration' {} a -> s {group' = a} :: PutGroupConfiguration)
 
 instance Core.AWSRequest PutGroupConfiguration where
@@ -129,37 +130,37 @@ instance Core.AWSRequest PutGroupConfiguration where
     Response.receiveEmpty
       ( \s h x ->
           PutGroupConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutGroupConfiguration
+instance Prelude.Hashable PutGroupConfiguration
 
-instance Core.NFData PutGroupConfiguration
+instance Prelude.NFData PutGroupConfiguration
 
 instance Core.ToHeaders PutGroupConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON PutGroupConfiguration where
   toJSON PutGroupConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Configuration" Core..=) Core.<$> configuration,
-            ("Group" Core..=) Core.<$> group'
+      ( Prelude.catMaybes
+          [ ("Configuration" Core..=) Prelude.<$> configuration,
+            ("Group" Core..=) Prelude.<$> group'
           ]
       )
 
 instance Core.ToPath PutGroupConfiguration where
-  toPath = Core.const "/put-group-configuration"
+  toPath = Prelude.const "/put-group-configuration"
 
 instance Core.ToQuery PutGroupConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutGroupConfigurationResponse' smart constructor.
 data PutGroupConfigurationResponse = PutGroupConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutGroupConfigurationResponse' with all optional fields omitted.
@@ -172,7 +173,7 @@ data PutGroupConfigurationResponse = PutGroupConfigurationResponse'
 -- 'httpStatus', 'putGroupConfigurationResponse_httpStatus' - The response's http status code.
 newPutGroupConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutGroupConfigurationResponse
 newPutGroupConfigurationResponse pHttpStatus_ =
   PutGroupConfigurationResponse'
@@ -181,7 +182,7 @@ newPutGroupConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putGroupConfigurationResponse_httpStatus :: Lens.Lens' PutGroupConfigurationResponse Core.Int
+putGroupConfigurationResponse_httpStatus :: Lens.Lens' PutGroupConfigurationResponse Prelude.Int
 putGroupConfigurationResponse_httpStatus = Lens.lens (\PutGroupConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutGroupConfigurationResponse' {} a -> s {httpStatus = a} :: PutGroupConfigurationResponse)
 
-instance Core.NFData PutGroupConfigurationResponse
+instance Prelude.NFData PutGroupConfigurationResponse

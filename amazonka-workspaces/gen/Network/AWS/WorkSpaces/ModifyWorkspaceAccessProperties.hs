@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -50,11 +51,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newModifyWorkspaceAccessProperties' smart constructor.
 data ModifyWorkspaceAccessProperties = ModifyWorkspaceAccessProperties'
   { -- | The identifier of the directory.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The device types and operating systems to enable or disable for access.
     workspaceAccessProperties :: WorkspaceAccessProperties
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyWorkspaceAccessProperties' with all optional fields omitted.
@@ -69,7 +70,7 @@ data ModifyWorkspaceAccessProperties = ModifyWorkspaceAccessProperties'
 -- 'workspaceAccessProperties', 'modifyWorkspaceAccessProperties_workspaceAccessProperties' - The device types and operating systems to enable or disable for access.
 newModifyWorkspaceAccessProperties ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'workspaceAccessProperties'
   WorkspaceAccessProperties ->
   ModifyWorkspaceAccessProperties
@@ -84,7 +85,7 @@ newModifyWorkspaceAccessProperties
       }
 
 -- | The identifier of the directory.
-modifyWorkspaceAccessProperties_resourceId :: Lens.Lens' ModifyWorkspaceAccessProperties Core.Text
+modifyWorkspaceAccessProperties_resourceId :: Lens.Lens' ModifyWorkspaceAccessProperties Prelude.Text
 modifyWorkspaceAccessProperties_resourceId = Lens.lens (\ModifyWorkspaceAccessProperties' {resourceId} -> resourceId) (\s@ModifyWorkspaceAccessProperties' {} a -> s {resourceId = a} :: ModifyWorkspaceAccessProperties)
 
 -- | The device types and operating systems to enable or disable for access.
@@ -103,37 +104,41 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           ModifyWorkspaceAccessPropertiesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModifyWorkspaceAccessProperties
 
-instance Core.NFData ModifyWorkspaceAccessProperties
+instance
+  Prelude.NFData
+    ModifyWorkspaceAccessProperties
 
 instance
   Core.ToHeaders
     ModifyWorkspaceAccessProperties
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.ModifyWorkspaceAccessProperties" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyWorkspaceAccessProperties where
   toJSON ModifyWorkspaceAccessProperties' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just
               ( "WorkspaceAccessProperties"
                   Core..= workspaceAccessProperties
               )
@@ -141,17 +146,17 @@ instance Core.ToJSON ModifyWorkspaceAccessProperties where
       )
 
 instance Core.ToPath ModifyWorkspaceAccessProperties where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyWorkspaceAccessProperties where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyWorkspaceAccessPropertiesResponse' smart constructor.
 data ModifyWorkspaceAccessPropertiesResponse = ModifyWorkspaceAccessPropertiesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyWorkspaceAccessPropertiesResponse' with all optional fields omitted.
@@ -164,7 +169,7 @@ data ModifyWorkspaceAccessPropertiesResponse = ModifyWorkspaceAccessPropertiesRe
 -- 'httpStatus', 'modifyWorkspaceAccessPropertiesResponse_httpStatus' - The response's http status code.
 newModifyWorkspaceAccessPropertiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyWorkspaceAccessPropertiesResponse
 newModifyWorkspaceAccessPropertiesResponse
   pHttpStatus_ =
@@ -174,9 +179,9 @@ newModifyWorkspaceAccessPropertiesResponse
       }
 
 -- | The response's http status code.
-modifyWorkspaceAccessPropertiesResponse_httpStatus :: Lens.Lens' ModifyWorkspaceAccessPropertiesResponse Core.Int
+modifyWorkspaceAccessPropertiesResponse_httpStatus :: Lens.Lens' ModifyWorkspaceAccessPropertiesResponse Prelude.Int
 modifyWorkspaceAccessPropertiesResponse_httpStatus = Lens.lens (\ModifyWorkspaceAccessPropertiesResponse' {httpStatus} -> httpStatus) (\s@ModifyWorkspaceAccessPropertiesResponse' {} a -> s {httpStatus = a} :: ModifyWorkspaceAccessPropertiesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyWorkspaceAccessPropertiesResponse

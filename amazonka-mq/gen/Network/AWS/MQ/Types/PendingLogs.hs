@@ -21,6 +21,7 @@ module Network.AWS.MQ.Types.PendingLogs where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The list of information about logs to be enabled for the specified
 -- broker.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPendingLogs' smart constructor.
 data PendingLogs = PendingLogs'
   { -- | Enables general logging.
-    general :: Core.Maybe Core.Bool,
+    general :: Prelude.Maybe Prelude.Bool,
     -- | Enables audit logging. Every user management action made using JMX or
     -- the ActiveMQ Web Console is logged.
-    audit :: Core.Maybe Core.Bool
+    audit :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PendingLogs' with all optional fields omitted.
@@ -51,17 +52,17 @@ newPendingLogs ::
   PendingLogs
 newPendingLogs =
   PendingLogs'
-    { general = Core.Nothing,
-      audit = Core.Nothing
+    { general = Prelude.Nothing,
+      audit = Prelude.Nothing
     }
 
 -- | Enables general logging.
-pendingLogs_general :: Lens.Lens' PendingLogs (Core.Maybe Core.Bool)
+pendingLogs_general :: Lens.Lens' PendingLogs (Prelude.Maybe Prelude.Bool)
 pendingLogs_general = Lens.lens (\PendingLogs' {general} -> general) (\s@PendingLogs' {} a -> s {general = a} :: PendingLogs)
 
 -- | Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged.
-pendingLogs_audit :: Lens.Lens' PendingLogs (Core.Maybe Core.Bool)
+pendingLogs_audit :: Lens.Lens' PendingLogs (Prelude.Maybe Prelude.Bool)
 pendingLogs_audit = Lens.lens (\PendingLogs' {audit} -> audit) (\s@PendingLogs' {} a -> s {audit = a} :: PendingLogs)
 
 instance Core.FromJSON PendingLogs where
@@ -70,9 +71,10 @@ instance Core.FromJSON PendingLogs where
       "PendingLogs"
       ( \x ->
           PendingLogs'
-            Core.<$> (x Core..:? "general") Core.<*> (x Core..:? "audit")
+            Prelude.<$> (x Core..:? "general")
+            Prelude.<*> (x Core..:? "audit")
       )
 
-instance Core.Hashable PendingLogs
+instance Prelude.Hashable PendingLogs
 
-instance Core.NFData PendingLogs
+instance Prelude.NFData PendingLogs

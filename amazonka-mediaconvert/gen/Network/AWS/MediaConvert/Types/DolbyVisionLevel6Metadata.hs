@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to
 -- override the MaxCLL and MaxFALL values in your input with new values.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 data DolbyVisionLevel6Metadata = DolbyVisionLevel6Metadata'
   { -- | Maximum Content Light Level. Static HDR metadata that corresponds to the
     -- brightest pixel in the entire stream. Measured in nits.
-    maxCll :: Core.Maybe Core.Natural,
+    maxCll :: Prelude.Maybe Prelude.Natural,
     -- | Maximum Frame-Average Light Level. Static HDR metadata that corresponds
     -- to the highest frame-average brightness in the entire stream. Measured
     -- in nits.
-    maxFall :: Core.Maybe Core.Natural
+    maxFall :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DolbyVisionLevel6Metadata' with all optional fields omitted.
@@ -55,19 +56,20 @@ newDolbyVisionLevel6Metadata ::
   DolbyVisionLevel6Metadata
 newDolbyVisionLevel6Metadata =
   DolbyVisionLevel6Metadata'
-    { maxCll = Core.Nothing,
-      maxFall = Core.Nothing
+    { maxCll =
+        Prelude.Nothing,
+      maxFall = Prelude.Nothing
     }
 
 -- | Maximum Content Light Level. Static HDR metadata that corresponds to the
 -- brightest pixel in the entire stream. Measured in nits.
-dolbyVisionLevel6Metadata_maxCll :: Lens.Lens' DolbyVisionLevel6Metadata (Core.Maybe Core.Natural)
+dolbyVisionLevel6Metadata_maxCll :: Lens.Lens' DolbyVisionLevel6Metadata (Prelude.Maybe Prelude.Natural)
 dolbyVisionLevel6Metadata_maxCll = Lens.lens (\DolbyVisionLevel6Metadata' {maxCll} -> maxCll) (\s@DolbyVisionLevel6Metadata' {} a -> s {maxCll = a} :: DolbyVisionLevel6Metadata)
 
 -- | Maximum Frame-Average Light Level. Static HDR metadata that corresponds
 -- to the highest frame-average brightness in the entire stream. Measured
 -- in nits.
-dolbyVisionLevel6Metadata_maxFall :: Lens.Lens' DolbyVisionLevel6Metadata (Core.Maybe Core.Natural)
+dolbyVisionLevel6Metadata_maxFall :: Lens.Lens' DolbyVisionLevel6Metadata (Prelude.Maybe Prelude.Natural)
 dolbyVisionLevel6Metadata_maxFall = Lens.lens (\DolbyVisionLevel6Metadata' {maxFall} -> maxFall) (\s@DolbyVisionLevel6Metadata' {} a -> s {maxFall = a} :: DolbyVisionLevel6Metadata)
 
 instance Core.FromJSON DolbyVisionLevel6Metadata where
@@ -76,19 +78,19 @@ instance Core.FromJSON DolbyVisionLevel6Metadata where
       "DolbyVisionLevel6Metadata"
       ( \x ->
           DolbyVisionLevel6Metadata'
-            Core.<$> (x Core..:? "maxCll")
-            Core.<*> (x Core..:? "maxFall")
+            Prelude.<$> (x Core..:? "maxCll")
+            Prelude.<*> (x Core..:? "maxFall")
       )
 
-instance Core.Hashable DolbyVisionLevel6Metadata
+instance Prelude.Hashable DolbyVisionLevel6Metadata
 
-instance Core.NFData DolbyVisionLevel6Metadata
+instance Prelude.NFData DolbyVisionLevel6Metadata
 
 instance Core.ToJSON DolbyVisionLevel6Metadata where
   toJSON DolbyVisionLevel6Metadata' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("maxCll" Core..=) Core.<$> maxCll,
-            ("maxFall" Core..=) Core.<$> maxFall
+      ( Prelude.catMaybes
+          [ ("maxCll" Core..=) Prelude.<$> maxCll,
+            ("maxFall" Core..=) Prelude.<$> maxFall
           ]
       )

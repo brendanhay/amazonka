@@ -43,13 +43,14 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateTopicRuleDestination' smart constructor.
 data UpdateTopicRuleDestination = UpdateTopicRuleDestination'
   { -- | The ARN of the topic rule destination.
-    arn :: Core.Text,
+    arn :: Prelude.Text,
     -- | The status of the topic rule destination. Valid values are:
     --
     -- [IN_PROGRESS]
@@ -78,7 +79,7 @@ data UpdateTopicRuleDestination = UpdateTopicRuleDestination'
     --     endpoint.
     status :: TopicRuleDestinationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTopicRuleDestination' with all optional fields omitted.
@@ -118,7 +119,7 @@ data UpdateTopicRuleDestination = UpdateTopicRuleDestination'
 --     endpoint.
 newUpdateTopicRuleDestination ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   TopicRuleDestinationStatus ->
   UpdateTopicRuleDestination
@@ -129,7 +130,7 @@ newUpdateTopicRuleDestination pArn_ pStatus_ =
     }
 
 -- | The ARN of the topic rule destination.
-updateTopicRuleDestination_arn :: Lens.Lens' UpdateTopicRuleDestination Core.Text
+updateTopicRuleDestination_arn :: Lens.Lens' UpdateTopicRuleDestination Prelude.Text
 updateTopicRuleDestination_arn = Lens.lens (\UpdateTopicRuleDestination' {arn} -> arn) (\s@UpdateTopicRuleDestination' {} a -> s {arn = a} :: UpdateTopicRuleDestination)
 
 -- | The status of the topic rule destination. Valid values are:
@@ -170,37 +171,37 @@ instance Core.AWSRequest UpdateTopicRuleDestination where
     Response.receiveEmpty
       ( \s h x ->
           UpdateTopicRuleDestinationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateTopicRuleDestination
+instance Prelude.Hashable UpdateTopicRuleDestination
 
-instance Core.NFData UpdateTopicRuleDestination
+instance Prelude.NFData UpdateTopicRuleDestination
 
 instance Core.ToHeaders UpdateTopicRuleDestination where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateTopicRuleDestination where
   toJSON UpdateTopicRuleDestination' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("arn" Core..= arn),
-            Core.Just ("status" Core..= status)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("arn" Core..= arn),
+            Prelude.Just ("status" Core..= status)
           ]
       )
 
 instance Core.ToPath UpdateTopicRuleDestination where
-  toPath = Core.const "/destinations"
+  toPath = Prelude.const "/destinations"
 
 instance Core.ToQuery UpdateTopicRuleDestination where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTopicRuleDestinationResponse' smart constructor.
 data UpdateTopicRuleDestinationResponse = UpdateTopicRuleDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTopicRuleDestinationResponse' with all optional fields omitted.
@@ -213,7 +214,7 @@ data UpdateTopicRuleDestinationResponse = UpdateTopicRuleDestinationResponse'
 -- 'httpStatus', 'updateTopicRuleDestinationResponse_httpStatus' - The response's http status code.
 newUpdateTopicRuleDestinationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateTopicRuleDestinationResponse
 newUpdateTopicRuleDestinationResponse pHttpStatus_ =
   UpdateTopicRuleDestinationResponse'
@@ -222,9 +223,9 @@ newUpdateTopicRuleDestinationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateTopicRuleDestinationResponse_httpStatus :: Lens.Lens' UpdateTopicRuleDestinationResponse Core.Int
+updateTopicRuleDestinationResponse_httpStatus :: Lens.Lens' UpdateTopicRuleDestinationResponse Prelude.Int
 updateTopicRuleDestinationResponse_httpStatus = Lens.lens (\UpdateTopicRuleDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdateTopicRuleDestinationResponse' {} a -> s {httpStatus = a} :: UpdateTopicRuleDestinationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateTopicRuleDestinationResponse

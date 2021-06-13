@@ -21,6 +21,7 @@ module Network.AWS.WorkDocs.Types.StorageRuleType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.StorageType
 
 -- | Describes the storage for a user.
@@ -28,11 +29,11 @@ import Network.AWS.WorkDocs.Types.StorageType
 -- /See:/ 'newStorageRuleType' smart constructor.
 data StorageRuleType = StorageRuleType'
   { -- | The type of storage.
-    storageType :: Core.Maybe StorageType,
+    storageType :: Prelude.Maybe StorageType,
     -- | The amount of storage allocated, in bytes.
-    storageAllocatedInBytes :: Core.Maybe Core.Natural
+    storageAllocatedInBytes :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StorageRuleType' with all optional fields omitted.
@@ -49,16 +50,16 @@ newStorageRuleType ::
   StorageRuleType
 newStorageRuleType =
   StorageRuleType'
-    { storageType = Core.Nothing,
-      storageAllocatedInBytes = Core.Nothing
+    { storageType = Prelude.Nothing,
+      storageAllocatedInBytes = Prelude.Nothing
     }
 
 -- | The type of storage.
-storageRuleType_storageType :: Lens.Lens' StorageRuleType (Core.Maybe StorageType)
+storageRuleType_storageType :: Lens.Lens' StorageRuleType (Prelude.Maybe StorageType)
 storageRuleType_storageType = Lens.lens (\StorageRuleType' {storageType} -> storageType) (\s@StorageRuleType' {} a -> s {storageType = a} :: StorageRuleType)
 
 -- | The amount of storage allocated, in bytes.
-storageRuleType_storageAllocatedInBytes :: Lens.Lens' StorageRuleType (Core.Maybe Core.Natural)
+storageRuleType_storageAllocatedInBytes :: Lens.Lens' StorageRuleType (Prelude.Maybe Prelude.Natural)
 storageRuleType_storageAllocatedInBytes = Lens.lens (\StorageRuleType' {storageAllocatedInBytes} -> storageAllocatedInBytes) (\s@StorageRuleType' {} a -> s {storageAllocatedInBytes = a} :: StorageRuleType)
 
 instance Core.FromJSON StorageRuleType where
@@ -67,20 +68,20 @@ instance Core.FromJSON StorageRuleType where
       "StorageRuleType"
       ( \x ->
           StorageRuleType'
-            Core.<$> (x Core..:? "StorageType")
-            Core.<*> (x Core..:? "StorageAllocatedInBytes")
+            Prelude.<$> (x Core..:? "StorageType")
+            Prelude.<*> (x Core..:? "StorageAllocatedInBytes")
       )
 
-instance Core.Hashable StorageRuleType
+instance Prelude.Hashable StorageRuleType
 
-instance Core.NFData StorageRuleType
+instance Prelude.NFData StorageRuleType
 
 instance Core.ToJSON StorageRuleType where
   toJSON StorageRuleType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StorageType" Core..=) Core.<$> storageType,
+      ( Prelude.catMaybes
+          [ ("StorageType" Core..=) Prelude.<$> storageType,
             ("StorageAllocatedInBytes" Core..=)
-              Core.<$> storageAllocatedInBytes
+              Prelude.<$> storageAllocatedInBytes
           ]
       )

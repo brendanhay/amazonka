@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -49,11 +50,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateAppImageConfig' smart constructor.
 data UpdateAppImageConfig = UpdateAppImageConfig'
   { -- | The new KernelGateway app to run on the image.
-    kernelGatewayImageConfig :: Core.Maybe KernelGatewayImageConfig,
+    kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
     -- | The name of the AppImageConfig to update.
-    appImageConfigName :: Core.Text
+    appImageConfigName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAppImageConfig' with all optional fields omitted.
@@ -68,21 +69,21 @@ data UpdateAppImageConfig = UpdateAppImageConfig'
 -- 'appImageConfigName', 'updateAppImageConfig_appImageConfigName' - The name of the AppImageConfig to update.
 newUpdateAppImageConfig ::
   -- | 'appImageConfigName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateAppImageConfig
 newUpdateAppImageConfig pAppImageConfigName_ =
   UpdateAppImageConfig'
     { kernelGatewayImageConfig =
-        Core.Nothing,
+        Prelude.Nothing,
       appImageConfigName = pAppImageConfigName_
     }
 
 -- | The new KernelGateway app to run on the image.
-updateAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' UpdateAppImageConfig (Core.Maybe KernelGatewayImageConfig)
+updateAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' UpdateAppImageConfig (Prelude.Maybe KernelGatewayImageConfig)
 updateAppImageConfig_kernelGatewayImageConfig = Lens.lens (\UpdateAppImageConfig' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@UpdateAppImageConfig' {} a -> s {kernelGatewayImageConfig = a} :: UpdateAppImageConfig)
 
 -- | The name of the AppImageConfig to update.
-updateAppImageConfig_appImageConfigName :: Lens.Lens' UpdateAppImageConfig Core.Text
+updateAppImageConfig_appImageConfigName :: Lens.Lens' UpdateAppImageConfig Prelude.Text
 updateAppImageConfig_appImageConfigName = Lens.lens (\UpdateAppImageConfig' {appImageConfigName} -> appImageConfigName) (\s@UpdateAppImageConfig' {} a -> s {appImageConfigName = a} :: UpdateAppImageConfig)
 
 instance Core.AWSRequest UpdateAppImageConfig where
@@ -94,52 +95,54 @@ instance Core.AWSRequest UpdateAppImageConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateAppImageConfigResponse'
-            Core.<$> (x Core..?> "AppImageConfigArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AppImageConfigArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateAppImageConfig
+instance Prelude.Hashable UpdateAppImageConfig
 
-instance Core.NFData UpdateAppImageConfig
+instance Prelude.NFData UpdateAppImageConfig
 
 instance Core.ToHeaders UpdateAppImageConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.UpdateAppImageConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateAppImageConfig where
   toJSON UpdateAppImageConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("KernelGatewayImageConfig" Core..=)
-              Core.<$> kernelGatewayImageConfig,
-            Core.Just
+              Prelude.<$> kernelGatewayImageConfig,
+            Prelude.Just
               ("AppImageConfigName" Core..= appImageConfigName)
           ]
       )
 
 instance Core.ToPath UpdateAppImageConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateAppImageConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAppImageConfigResponse' smart constructor.
 data UpdateAppImageConfigResponse = UpdateAppImageConfigResponse'
   { -- | The Amazon Resource Name (ARN) for the AppImageConfig.
-    appImageConfigArn :: Core.Maybe Core.Text,
+    appImageConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAppImageConfigResponse' with all optional fields omitted.
@@ -154,21 +157,21 @@ data UpdateAppImageConfigResponse = UpdateAppImageConfigResponse'
 -- 'httpStatus', 'updateAppImageConfigResponse_httpStatus' - The response's http status code.
 newUpdateAppImageConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateAppImageConfigResponse
 newUpdateAppImageConfigResponse pHttpStatus_ =
   UpdateAppImageConfigResponse'
     { appImageConfigArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) for the AppImageConfig.
-updateAppImageConfigResponse_appImageConfigArn :: Lens.Lens' UpdateAppImageConfigResponse (Core.Maybe Core.Text)
+updateAppImageConfigResponse_appImageConfigArn :: Lens.Lens' UpdateAppImageConfigResponse (Prelude.Maybe Prelude.Text)
 updateAppImageConfigResponse_appImageConfigArn = Lens.lens (\UpdateAppImageConfigResponse' {appImageConfigArn} -> appImageConfigArn) (\s@UpdateAppImageConfigResponse' {} a -> s {appImageConfigArn = a} :: UpdateAppImageConfigResponse)
 
 -- | The response's http status code.
-updateAppImageConfigResponse_httpStatus :: Lens.Lens' UpdateAppImageConfigResponse Core.Int
+updateAppImageConfigResponse_httpStatus :: Lens.Lens' UpdateAppImageConfigResponse Prelude.Int
 updateAppImageConfigResponse_httpStatus = Lens.lens (\UpdateAppImageConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateAppImageConfigResponse' {} a -> s {httpStatus = a} :: UpdateAppImageConfigResponse)
 
-instance Core.NFData UpdateAppImageConfigResponse
+instance Prelude.NFData UpdateAppImageConfigResponse

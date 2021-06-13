@@ -22,15 +22,16 @@ module Network.AWS.Glue.Types.JobNodeDetails where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.JobRun
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a Job node present in the workflow.
 --
 -- /See:/ 'newJobNodeDetails' smart constructor.
 data JobNodeDetails = JobNodeDetails'
   { -- | The information for the job runs represented by the job node.
-    jobRuns :: Core.Maybe [JobRun]
+    jobRuns :: Prelude.Maybe [JobRun]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobNodeDetails' with all optional fields omitted.
@@ -44,11 +45,11 @@ data JobNodeDetails = JobNodeDetails'
 newJobNodeDetails ::
   JobNodeDetails
 newJobNodeDetails =
-  JobNodeDetails' {jobRuns = Core.Nothing}
+  JobNodeDetails' {jobRuns = Prelude.Nothing}
 
 -- | The information for the job runs represented by the job node.
-jobNodeDetails_jobRuns :: Lens.Lens' JobNodeDetails (Core.Maybe [JobRun])
-jobNodeDetails_jobRuns = Lens.lens (\JobNodeDetails' {jobRuns} -> jobRuns) (\s@JobNodeDetails' {} a -> s {jobRuns = a} :: JobNodeDetails) Core.. Lens.mapping Lens._Coerce
+jobNodeDetails_jobRuns :: Lens.Lens' JobNodeDetails (Prelude.Maybe [JobRun])
+jobNodeDetails_jobRuns = Lens.lens (\JobNodeDetails' {jobRuns} -> jobRuns) (\s@JobNodeDetails' {} a -> s {jobRuns = a} :: JobNodeDetails) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON JobNodeDetails where
   parseJSON =
@@ -56,9 +57,9 @@ instance Core.FromJSON JobNodeDetails where
       "JobNodeDetails"
       ( \x ->
           JobNodeDetails'
-            Core.<$> (x Core..:? "JobRuns" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "JobRuns" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable JobNodeDetails
+instance Prelude.Hashable JobNodeDetails
 
-instance Core.NFData JobNodeDetails
+instance Prelude.NFData JobNodeDetails

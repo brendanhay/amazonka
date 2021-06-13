@@ -22,6 +22,7 @@ module Network.AWS.EMR.Types.ManagedScalingPolicy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ComputeLimits
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Managed scaling policy for an Amazon EMR cluster. The policy specifies
 -- the limits for resources that can be added or terminated from a cluster.
@@ -34,9 +35,9 @@ data ManagedScalingPolicy = ManagedScalingPolicy'
     -- activity of a cluster is not allowed to go above or below these limits.
     -- The limit only applies to the core and task nodes. The master node
     -- cannot be scaled after initial configuration.
-    computeLimits :: Core.Maybe ComputeLimits
+    computeLimits :: Prelude.Maybe ComputeLimits
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ManagedScalingPolicy' with all optional fields omitted.
@@ -53,13 +54,16 @@ data ManagedScalingPolicy = ManagedScalingPolicy'
 newManagedScalingPolicy ::
   ManagedScalingPolicy
 newManagedScalingPolicy =
-  ManagedScalingPolicy' {computeLimits = Core.Nothing}
+  ManagedScalingPolicy'
+    { computeLimits =
+        Prelude.Nothing
+    }
 
 -- | The EC2 unit limits for a managed scaling policy. The managed scaling
 -- activity of a cluster is not allowed to go above or below these limits.
 -- The limit only applies to the core and task nodes. The master node
 -- cannot be scaled after initial configuration.
-managedScalingPolicy_computeLimits :: Lens.Lens' ManagedScalingPolicy (Core.Maybe ComputeLimits)
+managedScalingPolicy_computeLimits :: Lens.Lens' ManagedScalingPolicy (Prelude.Maybe ComputeLimits)
 managedScalingPolicy_computeLimits = Lens.lens (\ManagedScalingPolicy' {computeLimits} -> computeLimits) (\s@ManagedScalingPolicy' {} a -> s {computeLimits = a} :: ManagedScalingPolicy)
 
 instance Core.FromJSON ManagedScalingPolicy where
@@ -68,16 +72,18 @@ instance Core.FromJSON ManagedScalingPolicy where
       "ManagedScalingPolicy"
       ( \x ->
           ManagedScalingPolicy'
-            Core.<$> (x Core..:? "ComputeLimits")
+            Prelude.<$> (x Core..:? "ComputeLimits")
       )
 
-instance Core.Hashable ManagedScalingPolicy
+instance Prelude.Hashable ManagedScalingPolicy
 
-instance Core.NFData ManagedScalingPolicy
+instance Prelude.NFData ManagedScalingPolicy
 
 instance Core.ToJSON ManagedScalingPolicy where
   toJSON ManagedScalingPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [("ComputeLimits" Core..=) Core.<$> computeLimits]
+      ( Prelude.catMaybes
+          [ ("ComputeLimits" Core..=)
+              Prelude.<$> computeLimits
+          ]
       )

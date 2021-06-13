@@ -42,17 +42,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteFilter' smart constructor.
 data DeleteFilter = DeleteFilter'
   { -- | The unique ID of the detector that the filter is associated with.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | The name of the filter that you want to delete.
-    filterName :: Core.Text
+    filterName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFilter' with all optional fields omitted.
@@ -67,9 +68,9 @@ data DeleteFilter = DeleteFilter'
 -- 'filterName', 'deleteFilter_filterName' - The name of the filter that you want to delete.
 newDeleteFilter ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filterName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFilter
 newDeleteFilter pDetectorId_ pFilterName_ =
   DeleteFilter'
@@ -78,11 +79,11 @@ newDeleteFilter pDetectorId_ pFilterName_ =
     }
 
 -- | The unique ID of the detector that the filter is associated with.
-deleteFilter_detectorId :: Lens.Lens' DeleteFilter Core.Text
+deleteFilter_detectorId :: Lens.Lens' DeleteFilter Prelude.Text
 deleteFilter_detectorId = Lens.lens (\DeleteFilter' {detectorId} -> detectorId) (\s@DeleteFilter' {} a -> s {detectorId = a} :: DeleteFilter)
 
 -- | The name of the filter that you want to delete.
-deleteFilter_filterName :: Lens.Lens' DeleteFilter Core.Text
+deleteFilter_filterName :: Lens.Lens' DeleteFilter Prelude.Text
 deleteFilter_filterName = Lens.lens (\DeleteFilter' {filterName} -> filterName) (\s@DeleteFilter' {} a -> s {filterName = a} :: DeleteFilter)
 
 instance Core.AWSRequest DeleteFilter where
@@ -92,25 +93,27 @@ instance Core.AWSRequest DeleteFilter where
     Response.receiveEmpty
       ( \s h x ->
           DeleteFilterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteFilter
+instance Prelude.Hashable DeleteFilter
 
-instance Core.NFData DeleteFilter
+instance Prelude.NFData DeleteFilter
 
 instance Core.ToHeaders DeleteFilter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteFilter where
   toPath DeleteFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/filter/",
@@ -118,14 +121,14 @@ instance Core.ToPath DeleteFilter where
       ]
 
 instance Core.ToQuery DeleteFilter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFilterResponse' smart constructor.
 data DeleteFilterResponse = DeleteFilterResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFilterResponse' with all optional fields omitted.
@@ -138,13 +141,13 @@ data DeleteFilterResponse = DeleteFilterResponse'
 -- 'httpStatus', 'deleteFilterResponse_httpStatus' - The response's http status code.
 newDeleteFilterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteFilterResponse
 newDeleteFilterResponse pHttpStatus_ =
   DeleteFilterResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteFilterResponse_httpStatus :: Lens.Lens' DeleteFilterResponse Core.Int
+deleteFilterResponse_httpStatus :: Lens.Lens' DeleteFilterResponse Prelude.Int
 deleteFilterResponse_httpStatus = Lens.lens (\DeleteFilterResponse' {httpStatus} -> httpStatus) (\s@DeleteFilterResponse' {} a -> s {httpStatus = a} :: DeleteFilterResponse)
 
-instance Core.NFData DeleteFilterResponse
+instance Prelude.NFData DeleteFilterResponse

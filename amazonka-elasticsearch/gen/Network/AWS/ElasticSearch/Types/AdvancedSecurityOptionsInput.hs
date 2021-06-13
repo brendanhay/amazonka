@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.MasterUserOptions
 import Network.AWS.ElasticSearch.Types.SAMLOptionsInput
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the advanced security configuration: whether advanced security
 -- is enabled, whether the internal database option is enabled, master
@@ -32,15 +33,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAdvancedSecurityOptionsInput' smart constructor.
 data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
   { -- | True if the internal user database is enabled.
-    internalUserDatabaseEnabled :: Core.Maybe Core.Bool,
+    internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the SAML application configuration for the domain.
-    sAMLOptions :: Core.Maybe SAMLOptionsInput,
+    sAMLOptions :: Prelude.Maybe SAMLOptionsInput,
     -- | True if advanced security is enabled.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | Credentials for the master user: username and password, ARN, or both.
-    masterUserOptions :: Core.Maybe MasterUserOptions
+    masterUserOptions :: Prelude.Maybe MasterUserOptions
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdvancedSecurityOptionsInput' with all optional fields omitted.
@@ -62,41 +63,43 @@ newAdvancedSecurityOptionsInput ::
 newAdvancedSecurityOptionsInput =
   AdvancedSecurityOptionsInput'
     { internalUserDatabaseEnabled =
-        Core.Nothing,
-      sAMLOptions = Core.Nothing,
-      enabled = Core.Nothing,
-      masterUserOptions = Core.Nothing
+        Prelude.Nothing,
+      sAMLOptions = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      masterUserOptions = Prelude.Nothing
     }
 
 -- | True if the internal user database is enabled.
-advancedSecurityOptionsInput_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Core.Maybe Core.Bool)
+advancedSecurityOptionsInput_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptionsInput_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecurityOptionsInput' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptionsInput)
 
 -- | Specifies the SAML application configuration for the domain.
-advancedSecurityOptionsInput_sAMLOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Core.Maybe SAMLOptionsInput)
+advancedSecurityOptionsInput_sAMLOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe SAMLOptionsInput)
 advancedSecurityOptionsInput_sAMLOptions = Lens.lens (\AdvancedSecurityOptionsInput' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptionsInput' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptionsInput)
 
 -- | True if advanced security is enabled.
-advancedSecurityOptionsInput_enabled :: Lens.Lens' AdvancedSecurityOptionsInput (Core.Maybe Core.Bool)
+advancedSecurityOptionsInput_enabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptionsInput_enabled = Lens.lens (\AdvancedSecurityOptionsInput' {enabled} -> enabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {enabled = a} :: AdvancedSecurityOptionsInput)
 
 -- | Credentials for the master user: username and password, ARN, or both.
-advancedSecurityOptionsInput_masterUserOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Core.Maybe MasterUserOptions)
+advancedSecurityOptionsInput_masterUserOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe MasterUserOptions)
 advancedSecurityOptionsInput_masterUserOptions = Lens.lens (\AdvancedSecurityOptionsInput' {masterUserOptions} -> masterUserOptions) (\s@AdvancedSecurityOptionsInput' {} a -> s {masterUserOptions = a} :: AdvancedSecurityOptionsInput)
 
-instance Core.Hashable AdvancedSecurityOptionsInput
+instance
+  Prelude.Hashable
+    AdvancedSecurityOptionsInput
 
-instance Core.NFData AdvancedSecurityOptionsInput
+instance Prelude.NFData AdvancedSecurityOptionsInput
 
 instance Core.ToJSON AdvancedSecurityOptionsInput where
   toJSON AdvancedSecurityOptionsInput' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("InternalUserDatabaseEnabled" Core..=)
-              Core.<$> internalUserDatabaseEnabled,
-            ("SAMLOptions" Core..=) Core.<$> sAMLOptions,
-            ("Enabled" Core..=) Core.<$> enabled,
+              Prelude.<$> internalUserDatabaseEnabled,
+            ("SAMLOptions" Core..=) Prelude.<$> sAMLOptions,
+            ("Enabled" Core..=) Prelude.<$> enabled,
             ("MasterUserOptions" Core..=)
-              Core.<$> masterUserOptions
+              Prelude.<$> masterUserOptions
           ]
       )

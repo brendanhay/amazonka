@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ImportExport.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCancelJob' smart constructor.
 data CancelJob = CancelJob'
-  { aPIVersion :: Core.Maybe Core.Text,
-    jobId :: Core.Text
+  { aPIVersion :: Prelude.Maybe Prelude.Text,
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelJob' with all optional fields omitted.
@@ -69,20 +70,20 @@ data CancelJob = CancelJob'
 -- 'jobId', 'cancelJob_jobId' - Undocumented member.
 newCancelJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   CancelJob
 newCancelJob pJobId_ =
   CancelJob'
-    { aPIVersion = Core.Nothing,
+    { aPIVersion = Prelude.Nothing,
       jobId = pJobId_
     }
 
 -- | Undocumented member.
-cancelJob_aPIVersion :: Lens.Lens' CancelJob (Core.Maybe Core.Text)
+cancelJob_aPIVersion :: Lens.Lens' CancelJob (Prelude.Maybe Prelude.Text)
 cancelJob_aPIVersion = Lens.lens (\CancelJob' {aPIVersion} -> aPIVersion) (\s@CancelJob' {} a -> s {aPIVersion = a} :: CancelJob)
 
 -- | Undocumented member.
-cancelJob_jobId :: Lens.Lens' CancelJob Core.Text
+cancelJob_jobId :: Lens.Lens' CancelJob Prelude.Text
 cancelJob_jobId = Lens.lens (\CancelJob' {jobId} -> jobId) (\s@CancelJob' {} a -> s {jobId = a} :: CancelJob)
 
 instance Core.AWSRequest CancelJob where
@@ -93,26 +94,27 @@ instance Core.AWSRequest CancelJob where
       "CancelJobResult"
       ( \s h x ->
           CancelJobResponse'
-            Core.<$> (x Core..@? "Success")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Success")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelJob
+instance Prelude.Hashable CancelJob
 
-instance Core.NFData CancelJob
+instance Prelude.NFData CancelJob
 
 instance Core.ToHeaders CancelJob where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CancelJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelJob where
   toQuery CancelJob' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Operation=CancelJob",
-        "Action" Core.=: ("CancelJob" :: Core.ByteString),
-        "Version" Core.=: ("2010-06-01" :: Core.ByteString),
+        "Action" Core.=: ("CancelJob" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-06-01" :: Prelude.ByteString),
         "APIVersion" Core.=: aPIVersion,
         "JobId" Core.=: jobId
       ]
@@ -121,11 +123,11 @@ instance Core.ToQuery CancelJob where
 --
 -- /See:/ 'newCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-  { success :: Core.Maybe Core.Bool,
+  { success :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelJobResponse' with all optional fields omitted.
@@ -140,20 +142,20 @@ data CancelJobResponse = CancelJobResponse'
 -- 'httpStatus', 'cancelJobResponse_httpStatus' - The response's http status code.
 newCancelJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelJobResponse
 newCancelJobResponse pHttpStatus_ =
   CancelJobResponse'
-    { success = Core.Nothing,
+    { success = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-cancelJobResponse_success :: Lens.Lens' CancelJobResponse (Core.Maybe Core.Bool)
+cancelJobResponse_success :: Lens.Lens' CancelJobResponse (Prelude.Maybe Prelude.Bool)
 cancelJobResponse_success = Lens.lens (\CancelJobResponse' {success} -> success) (\s@CancelJobResponse' {} a -> s {success = a} :: CancelJobResponse)
 
 -- | The response's http status code.
-cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Core.Int
+cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Prelude.Int
 cancelJobResponse_httpStatus = Lens.lens (\CancelJobResponse' {httpStatus} -> httpStatus) (\s@CancelJobResponse' {} a -> s {httpStatus = a} :: CancelJobResponse)
 
-instance Core.NFData CancelJobResponse
+instance Prelude.NFData CancelJobResponse

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ data DeleteVolume = DeleteVolume'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the volume.
-    volumeId :: Core.Text
+    volumeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVolume' with all optional fields omitted.
@@ -77,11 +78,11 @@ data DeleteVolume = DeleteVolume'
 -- 'volumeId', 'deleteVolume_volumeId' - The ID of the volume.
 newDeleteVolume ::
   -- | 'volumeId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVolume
 newDeleteVolume pVolumeId_ =
   DeleteVolume'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -89,11 +90,11 @@ newDeleteVolume pVolumeId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVolume_dryRun :: Lens.Lens' DeleteVolume (Core.Maybe Core.Bool)
+deleteVolume_dryRun :: Lens.Lens' DeleteVolume (Prelude.Maybe Prelude.Bool)
 deleteVolume_dryRun = Lens.lens (\DeleteVolume' {dryRun} -> dryRun) (\s@DeleteVolume' {} a -> s {dryRun = a} :: DeleteVolume)
 
 -- | The ID of the volume.
-deleteVolume_volumeId :: Lens.Lens' DeleteVolume Core.Text
+deleteVolume_volumeId :: Lens.Lens' DeleteVolume Prelude.Text
 deleteVolume_volumeId = Lens.lens (\DeleteVolume' {volumeId} -> volumeId) (\s@DeleteVolume' {} a -> s {volumeId = a} :: DeleteVolume)
 
 instance Core.AWSRequest DeleteVolume where
@@ -101,22 +102,23 @@ instance Core.AWSRequest DeleteVolume where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteVolumeResponse'
 
-instance Core.Hashable DeleteVolume
+instance Prelude.Hashable DeleteVolume
 
-instance Core.NFData DeleteVolume
+instance Prelude.NFData DeleteVolume
 
 instance Core.ToHeaders DeleteVolume where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteVolume where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVolume where
   toQuery DeleteVolume' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVolume" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteVolume" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "VolumeId" Core.=: volumeId
       ]
@@ -125,7 +127,7 @@ instance Core.ToQuery DeleteVolume where
 data DeleteVolumeResponse = DeleteVolumeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVolumeResponse' with all optional fields omitted.
@@ -135,4 +137,4 @@ newDeleteVolumeResponse ::
   DeleteVolumeResponse
 newDeleteVolumeResponse = DeleteVolumeResponse'
 
-instance Core.NFData DeleteVolumeResponse
+instance Prelude.NFData DeleteVolumeResponse

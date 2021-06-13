@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSourceStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the status of CloudTrail as a data source for
 -- the detector.
@@ -32,7 +33,7 @@ data CloudTrailConfigurationResult = CloudTrailConfigurationResult'
     -- detector.
     status :: DataSourceStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudTrailConfigurationResult' with all optional fields omitted.
@@ -62,9 +63,11 @@ instance Core.FromJSON CloudTrailConfigurationResult where
       "CloudTrailConfigurationResult"
       ( \x ->
           CloudTrailConfigurationResult'
-            Core.<$> (x Core..: "status")
+            Prelude.<$> (x Core..: "status")
       )
 
-instance Core.Hashable CloudTrailConfigurationResult
+instance
+  Prelude.Hashable
+    CloudTrailConfigurationResult
 
-instance Core.NFData CloudTrailConfigurationResult
+instance Prelude.NFData CloudTrailConfigurationResult

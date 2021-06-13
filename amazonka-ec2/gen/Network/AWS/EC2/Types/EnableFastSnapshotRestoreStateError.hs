@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an error that occurred when enabling fast snapshot restores.
 --
 -- /See:/ 'newEnableFastSnapshotRestoreStateError' smart constructor.
 data EnableFastSnapshotRestoreStateError = EnableFastSnapshotRestoreStateError'
   { -- | The error message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableFastSnapshotRestoreStateError' with all optional fields omitted.
@@ -50,16 +51,16 @@ newEnableFastSnapshotRestoreStateError ::
 newEnableFastSnapshotRestoreStateError =
   EnableFastSnapshotRestoreStateError'
     { message =
-        Core.Nothing,
-      code = Core.Nothing
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The error message.
-enableFastSnapshotRestoreStateError_message :: Lens.Lens' EnableFastSnapshotRestoreStateError (Core.Maybe Core.Text)
+enableFastSnapshotRestoreStateError_message :: Lens.Lens' EnableFastSnapshotRestoreStateError (Prelude.Maybe Prelude.Text)
 enableFastSnapshotRestoreStateError_message = Lens.lens (\EnableFastSnapshotRestoreStateError' {message} -> message) (\s@EnableFastSnapshotRestoreStateError' {} a -> s {message = a} :: EnableFastSnapshotRestoreStateError)
 
 -- | The error code.
-enableFastSnapshotRestoreStateError_code :: Lens.Lens' EnableFastSnapshotRestoreStateError (Core.Maybe Core.Text)
+enableFastSnapshotRestoreStateError_code :: Lens.Lens' EnableFastSnapshotRestoreStateError (Prelude.Maybe Prelude.Text)
 enableFastSnapshotRestoreStateError_code = Lens.lens (\EnableFastSnapshotRestoreStateError' {code} -> code) (\s@EnableFastSnapshotRestoreStateError' {} a -> s {code = a} :: EnableFastSnapshotRestoreStateError)
 
 instance
@@ -68,12 +69,13 @@ instance
   where
   parseXML x =
     EnableFastSnapshotRestoreStateError'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     EnableFastSnapshotRestoreStateError
 
 instance
-  Core.NFData
+  Prelude.NFData
     EnableFastSnapshotRestoreStateError

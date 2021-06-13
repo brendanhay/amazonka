@@ -20,6 +20,7 @@ import Network.AWS.Glacier.DescribeVault
 import Network.AWS.Glacier.Lens
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
 newVaultExists :: Core.Wait DescribeVault

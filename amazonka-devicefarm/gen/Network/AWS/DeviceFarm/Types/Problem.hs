@@ -24,13 +24,14 @@ import Network.AWS.DeviceFarm.Types.Device
 import Network.AWS.DeviceFarm.Types.ExecutionResult
 import Network.AWS.DeviceFarm.Types.ProblemDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a specific warning or failure.
 --
 -- /See:/ 'newProblem' smart constructor.
 data Problem = Problem'
   { -- | Information about the associated job.
-    job :: Core.Maybe ProblemDetail,
+    job :: Prelude.Maybe ProblemDetail,
     -- | The problem\'s result.
     --
     -- Allowed values include:
@@ -48,19 +49,19 @@ data Problem = Problem'
     -- -   ERRORED
     --
     -- -   STOPPED
-    result :: Core.Maybe ExecutionResult,
+    result :: Prelude.Maybe ExecutionResult,
     -- | A message about the problem\'s result.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | Information about the associated device.
-    device :: Core.Maybe Device,
+    device :: Prelude.Maybe Device,
     -- | Information about the associated run.
-    run :: Core.Maybe ProblemDetail,
+    run :: Prelude.Maybe ProblemDetail,
     -- | Information about the associated test.
-    test :: Core.Maybe ProblemDetail,
+    test :: Prelude.Maybe ProblemDetail,
     -- | Information about the associated suite.
-    suite :: Core.Maybe ProblemDetail
+    suite :: Prelude.Maybe ProblemDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Problem' with all optional fields omitted.
@@ -103,17 +104,17 @@ newProblem ::
   Problem
 newProblem =
   Problem'
-    { job = Core.Nothing,
-      result = Core.Nothing,
-      message = Core.Nothing,
-      device = Core.Nothing,
-      run = Core.Nothing,
-      test = Core.Nothing,
-      suite = Core.Nothing
+    { job = Prelude.Nothing,
+      result = Prelude.Nothing,
+      message = Prelude.Nothing,
+      device = Prelude.Nothing,
+      run = Prelude.Nothing,
+      test = Prelude.Nothing,
+      suite = Prelude.Nothing
     }
 
 -- | Information about the associated job.
-problem_job :: Lens.Lens' Problem (Core.Maybe ProblemDetail)
+problem_job :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
 problem_job = Lens.lens (\Problem' {job} -> job) (\s@Problem' {} a -> s {job = a} :: Problem)
 
 -- | The problem\'s result.
@@ -133,27 +134,27 @@ problem_job = Lens.lens (\Problem' {job} -> job) (\s@Problem' {} a -> s {job = a
 -- -   ERRORED
 --
 -- -   STOPPED
-problem_result :: Lens.Lens' Problem (Core.Maybe ExecutionResult)
+problem_result :: Lens.Lens' Problem (Prelude.Maybe ExecutionResult)
 problem_result = Lens.lens (\Problem' {result} -> result) (\s@Problem' {} a -> s {result = a} :: Problem)
 
 -- | A message about the problem\'s result.
-problem_message :: Lens.Lens' Problem (Core.Maybe Core.Text)
+problem_message :: Lens.Lens' Problem (Prelude.Maybe Prelude.Text)
 problem_message = Lens.lens (\Problem' {message} -> message) (\s@Problem' {} a -> s {message = a} :: Problem)
 
 -- | Information about the associated device.
-problem_device :: Lens.Lens' Problem (Core.Maybe Device)
+problem_device :: Lens.Lens' Problem (Prelude.Maybe Device)
 problem_device = Lens.lens (\Problem' {device} -> device) (\s@Problem' {} a -> s {device = a} :: Problem)
 
 -- | Information about the associated run.
-problem_run :: Lens.Lens' Problem (Core.Maybe ProblemDetail)
+problem_run :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
 problem_run = Lens.lens (\Problem' {run} -> run) (\s@Problem' {} a -> s {run = a} :: Problem)
 
 -- | Information about the associated test.
-problem_test :: Lens.Lens' Problem (Core.Maybe ProblemDetail)
+problem_test :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
 problem_test = Lens.lens (\Problem' {test} -> test) (\s@Problem' {} a -> s {test = a} :: Problem)
 
 -- | Information about the associated suite.
-problem_suite :: Lens.Lens' Problem (Core.Maybe ProblemDetail)
+problem_suite :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
 problem_suite = Lens.lens (\Problem' {suite} -> suite) (\s@Problem' {} a -> s {suite = a} :: Problem)
 
 instance Core.FromJSON Problem where
@@ -162,15 +163,15 @@ instance Core.FromJSON Problem where
       "Problem"
       ( \x ->
           Problem'
-            Core.<$> (x Core..:? "job")
-            Core.<*> (x Core..:? "result")
-            Core.<*> (x Core..:? "message")
-            Core.<*> (x Core..:? "device")
-            Core.<*> (x Core..:? "run")
-            Core.<*> (x Core..:? "test")
-            Core.<*> (x Core..:? "suite")
+            Prelude.<$> (x Core..:? "job")
+            Prelude.<*> (x Core..:? "result")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "device")
+            Prelude.<*> (x Core..:? "run")
+            Prelude.<*> (x Core..:? "test")
+            Prelude.<*> (x Core..:? "suite")
       )
 
-instance Core.Hashable Problem
+instance Prelude.Hashable Problem
 
-instance Core.NFData Problem
+instance Prelude.NFData Problem

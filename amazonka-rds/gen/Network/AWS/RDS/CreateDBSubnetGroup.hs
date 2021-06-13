@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -54,7 +55,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateDBSubnetGroup' smart constructor.
 data CreateDBSubnetGroup = CreateDBSubnetGroup'
   { -- | Tags to assign to the DB subnet group.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the DB subnet group. This value is stored as a lowercase
     -- string.
     --
@@ -62,13 +63,13 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup'
     -- underscores, spaces, or hyphens. Must not be default.
     --
     -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Core.Text,
+    dbSubnetGroupName :: Prelude.Text,
     -- | The description for the DB subnet group.
-    dbSubnetGroupDescription :: Core.Text,
+    dbSubnetGroupDescription :: Prelude.Text,
     -- | The EC2 Subnet IDs for the DB subnet group.
-    subnetIds :: [Core.Text]
+    subnetIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDBSubnetGroup' with all optional fields omitted.
@@ -93,24 +94,24 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup'
 -- 'subnetIds', 'createDBSubnetGroup_subnetIds' - The EC2 Subnet IDs for the DB subnet group.
 newCreateDBSubnetGroup ::
   -- | 'dbSubnetGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dbSubnetGroupDescription'
-  Core.Text ->
+  Prelude.Text ->
   CreateDBSubnetGroup
 newCreateDBSubnetGroup
   pDBSubnetGroupName_
   pDBSubnetGroupDescription_ =
     CreateDBSubnetGroup'
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         dbSubnetGroupName = pDBSubnetGroupName_,
         dbSubnetGroupDescription =
           pDBSubnetGroupDescription_,
-        subnetIds = Core.mempty
+        subnetIds = Prelude.mempty
       }
 
 -- | Tags to assign to the DB subnet group.
-createDBSubnetGroup_tags :: Lens.Lens' CreateDBSubnetGroup (Core.Maybe [Tag])
-createDBSubnetGroup_tags = Lens.lens (\CreateDBSubnetGroup' {tags} -> tags) (\s@CreateDBSubnetGroup' {} a -> s {tags = a} :: CreateDBSubnetGroup) Core.. Lens.mapping Lens._Coerce
+createDBSubnetGroup_tags :: Lens.Lens' CreateDBSubnetGroup (Prelude.Maybe [Tag])
+createDBSubnetGroup_tags = Lens.lens (\CreateDBSubnetGroup' {tags} -> tags) (\s@CreateDBSubnetGroup' {} a -> s {tags = a} :: CreateDBSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
@@ -119,16 +120,16 @@ createDBSubnetGroup_tags = Lens.lens (\CreateDBSubnetGroup' {tags} -> tags) (\s@
 -- underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: @mySubnetgroup@
-createDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' CreateDBSubnetGroup Core.Text
+createDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' CreateDBSubnetGroup Prelude.Text
 createDBSubnetGroup_dbSubnetGroupName = Lens.lens (\CreateDBSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@CreateDBSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: CreateDBSubnetGroup)
 
 -- | The description for the DB subnet group.
-createDBSubnetGroup_dbSubnetGroupDescription :: Lens.Lens' CreateDBSubnetGroup Core.Text
+createDBSubnetGroup_dbSubnetGroupDescription :: Lens.Lens' CreateDBSubnetGroup Prelude.Text
 createDBSubnetGroup_dbSubnetGroupDescription = Lens.lens (\CreateDBSubnetGroup' {dbSubnetGroupDescription} -> dbSubnetGroupDescription) (\s@CreateDBSubnetGroup' {} a -> s {dbSubnetGroupDescription = a} :: CreateDBSubnetGroup)
 
 -- | The EC2 Subnet IDs for the DB subnet group.
-createDBSubnetGroup_subnetIds :: Lens.Lens' CreateDBSubnetGroup [Core.Text]
-createDBSubnetGroup_subnetIds = Lens.lens (\CreateDBSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateDBSubnetGroup' {} a -> s {subnetIds = a} :: CreateDBSubnetGroup) Core.. Lens._Coerce
+createDBSubnetGroup_subnetIds :: Lens.Lens' CreateDBSubnetGroup [Prelude.Text]
+createDBSubnetGroup_subnetIds = Lens.lens (\CreateDBSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateDBSubnetGroup' {} a -> s {subnetIds = a} :: CreateDBSubnetGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateDBSubnetGroup where
   type
@@ -140,28 +141,30 @@ instance Core.AWSRequest CreateDBSubnetGroup where
       "CreateDBSubnetGroupResult"
       ( \s h x ->
           CreateDBSubnetGroupResponse'
-            Core.<$> (x Core..@? "DBSubnetGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBSubnetGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDBSubnetGroup
+instance Prelude.Hashable CreateDBSubnetGroup
 
-instance Core.NFData CreateDBSubnetGroup
+instance Prelude.NFData CreateDBSubnetGroup
 
 instance Core.ToHeaders CreateDBSubnetGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateDBSubnetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDBSubnetGroup where
   toQuery CreateDBSubnetGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBSubnetGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("CreateDBSubnetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "DBSubnetGroupName" Core.=: dbSubnetGroupName,
         "DBSubnetGroupDescription"
           Core.=: dbSubnetGroupDescription,
@@ -171,11 +174,11 @@ instance Core.ToQuery CreateDBSubnetGroup where
 
 -- | /See:/ 'newCreateDBSubnetGroupResponse' smart constructor.
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
-  { dbSubnetGroup :: Core.Maybe DBSubnetGroup,
+  { dbSubnetGroup :: Prelude.Maybe DBSubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDBSubnetGroupResponse' with all optional fields omitted.
@@ -190,21 +193,21 @@ data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
 -- 'httpStatus', 'createDBSubnetGroupResponse_httpStatus' - The response's http status code.
 newCreateDBSubnetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDBSubnetGroupResponse
 newCreateDBSubnetGroupResponse pHttpStatus_ =
   CreateDBSubnetGroupResponse'
     { dbSubnetGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createDBSubnetGroupResponse_dbSubnetGroup :: Lens.Lens' CreateDBSubnetGroupResponse (Core.Maybe DBSubnetGroup)
+createDBSubnetGroupResponse_dbSubnetGroup :: Lens.Lens' CreateDBSubnetGroupResponse (Prelude.Maybe DBSubnetGroup)
 createDBSubnetGroupResponse_dbSubnetGroup = Lens.lens (\CreateDBSubnetGroupResponse' {dbSubnetGroup} -> dbSubnetGroup) (\s@CreateDBSubnetGroupResponse' {} a -> s {dbSubnetGroup = a} :: CreateDBSubnetGroupResponse)
 
 -- | The response's http status code.
-createDBSubnetGroupResponse_httpStatus :: Lens.Lens' CreateDBSubnetGroupResponse Core.Int
+createDBSubnetGroupResponse_httpStatus :: Lens.Lens' CreateDBSubnetGroupResponse Prelude.Int
 createDBSubnetGroupResponse_httpStatus = Lens.lens (\CreateDBSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@CreateDBSubnetGroupResponse' {} a -> s {httpStatus = a} :: CreateDBSubnetGroupResponse)
 
-instance Core.NFData CreateDBSubnetGroupResponse
+instance Prelude.NFData CreateDBSubnetGroupResponse

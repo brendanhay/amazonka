@@ -28,6 +28,7 @@ import Network.AWS.CostAndUsageReport.Types.ReportVersioning
 import Network.AWS.CostAndUsageReport.Types.SchemaElement
 import Network.AWS.CostAndUsageReport.Types.TimeUnit
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The definition of AWS Cost and Usage Report. You can specify the report
 -- name, time unit, report format, compression format, S3 bucket,
@@ -37,28 +38,28 @@ import qualified Network.AWS.Lens as Lens
 data ReportDefinition = ReportDefinition'
   { -- | A list of manifests that you want Amazon Web Services to create for this
     -- report.
-    additionalArtifacts :: Core.Maybe [AdditionalArtifact],
+    additionalArtifacts :: Prelude.Maybe [AdditionalArtifact],
     -- | Whether you want Amazon Web Services to overwrite the previous version
     -- of each report or to deliver the report in addition to the previous
     -- versions.
-    reportVersioning :: Core.Maybe ReportVersioning,
+    reportVersioning :: Prelude.Maybe ReportVersioning,
     -- | Whether you want Amazon Web Services to update your reports after they
     -- have been finalized if Amazon Web Services detects charges related to
     -- previous months. These charges can include refunds, credits, or support
     -- fees.
-    refreshClosedReports :: Core.Maybe Core.Bool,
-    reportName :: Core.Text,
+    refreshClosedReports :: Prelude.Maybe Prelude.Bool,
+    reportName :: Prelude.Text,
     timeUnit :: TimeUnit,
     format :: ReportFormat,
     compression :: CompressionFormat,
     -- | A list of strings that indicate additional content that Amazon Web
     -- Services includes in the report, such as individual resource IDs.
     additionalSchemaElements :: [SchemaElement],
-    s3Bucket :: Core.Text,
-    s3Prefix :: Core.Text,
+    s3Bucket :: Prelude.Text,
+    s3Prefix :: Prelude.Text,
     s3Region :: AWSRegion
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReportDefinition' with all optional fields omitted.
@@ -98,7 +99,7 @@ data ReportDefinition = ReportDefinition'
 -- 's3Region', 'reportDefinition_s3Region' - Undocumented member.
 newReportDefinition ::
   -- | 'reportName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'timeUnit'
   TimeUnit ->
   -- | 'format'
@@ -106,9 +107,9 @@ newReportDefinition ::
   -- | 'compression'
   CompressionFormat ->
   -- | 's3Bucket'
-  Core.Text ->
+  Prelude.Text ->
   -- | 's3Prefix'
-  Core.Text ->
+  Prelude.Text ->
   -- | 's3Region'
   AWSRegion ->
   ReportDefinition
@@ -122,14 +123,14 @@ newReportDefinition
   pS3Region_ =
     ReportDefinition'
       { additionalArtifacts =
-          Core.Nothing,
-        reportVersioning = Core.Nothing,
-        refreshClosedReports = Core.Nothing,
+          Prelude.Nothing,
+        reportVersioning = Prelude.Nothing,
+        refreshClosedReports = Prelude.Nothing,
         reportName = pReportName_,
         timeUnit = pTimeUnit_,
         format = pFormat_,
         compression = pCompression_,
-        additionalSchemaElements = Core.mempty,
+        additionalSchemaElements = Prelude.mempty,
         s3Bucket = pS3Bucket_,
         s3Prefix = pS3Prefix_,
         s3Region = pS3Region_
@@ -137,24 +138,24 @@ newReportDefinition
 
 -- | A list of manifests that you want Amazon Web Services to create for this
 -- report.
-reportDefinition_additionalArtifacts :: Lens.Lens' ReportDefinition (Core.Maybe [AdditionalArtifact])
-reportDefinition_additionalArtifacts = Lens.lens (\ReportDefinition' {additionalArtifacts} -> additionalArtifacts) (\s@ReportDefinition' {} a -> s {additionalArtifacts = a} :: ReportDefinition) Core.. Lens.mapping Lens._Coerce
+reportDefinition_additionalArtifacts :: Lens.Lens' ReportDefinition (Prelude.Maybe [AdditionalArtifact])
+reportDefinition_additionalArtifacts = Lens.lens (\ReportDefinition' {additionalArtifacts} -> additionalArtifacts) (\s@ReportDefinition' {} a -> s {additionalArtifacts = a} :: ReportDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Whether you want Amazon Web Services to overwrite the previous version
 -- of each report or to deliver the report in addition to the previous
 -- versions.
-reportDefinition_reportVersioning :: Lens.Lens' ReportDefinition (Core.Maybe ReportVersioning)
+reportDefinition_reportVersioning :: Lens.Lens' ReportDefinition (Prelude.Maybe ReportVersioning)
 reportDefinition_reportVersioning = Lens.lens (\ReportDefinition' {reportVersioning} -> reportVersioning) (\s@ReportDefinition' {} a -> s {reportVersioning = a} :: ReportDefinition)
 
 -- | Whether you want Amazon Web Services to update your reports after they
 -- have been finalized if Amazon Web Services detects charges related to
 -- previous months. These charges can include refunds, credits, or support
 -- fees.
-reportDefinition_refreshClosedReports :: Lens.Lens' ReportDefinition (Core.Maybe Core.Bool)
+reportDefinition_refreshClosedReports :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.Bool)
 reportDefinition_refreshClosedReports = Lens.lens (\ReportDefinition' {refreshClosedReports} -> refreshClosedReports) (\s@ReportDefinition' {} a -> s {refreshClosedReports = a} :: ReportDefinition)
 
 -- | Undocumented member.
-reportDefinition_reportName :: Lens.Lens' ReportDefinition Core.Text
+reportDefinition_reportName :: Lens.Lens' ReportDefinition Prelude.Text
 reportDefinition_reportName = Lens.lens (\ReportDefinition' {reportName} -> reportName) (\s@ReportDefinition' {} a -> s {reportName = a} :: ReportDefinition)
 
 -- | Undocumented member.
@@ -172,14 +173,14 @@ reportDefinition_compression = Lens.lens (\ReportDefinition' {compression} -> co
 -- | A list of strings that indicate additional content that Amazon Web
 -- Services includes in the report, such as individual resource IDs.
 reportDefinition_additionalSchemaElements :: Lens.Lens' ReportDefinition [SchemaElement]
-reportDefinition_additionalSchemaElements = Lens.lens (\ReportDefinition' {additionalSchemaElements} -> additionalSchemaElements) (\s@ReportDefinition' {} a -> s {additionalSchemaElements = a} :: ReportDefinition) Core.. Lens._Coerce
+reportDefinition_additionalSchemaElements = Lens.lens (\ReportDefinition' {additionalSchemaElements} -> additionalSchemaElements) (\s@ReportDefinition' {} a -> s {additionalSchemaElements = a} :: ReportDefinition) Prelude.. Lens._Coerce
 
 -- | Undocumented member.
-reportDefinition_s3Bucket :: Lens.Lens' ReportDefinition Core.Text
+reportDefinition_s3Bucket :: Lens.Lens' ReportDefinition Prelude.Text
 reportDefinition_s3Bucket = Lens.lens (\ReportDefinition' {s3Bucket} -> s3Bucket) (\s@ReportDefinition' {} a -> s {s3Bucket = a} :: ReportDefinition)
 
 -- | Undocumented member.
-reportDefinition_s3Prefix :: Lens.Lens' ReportDefinition Core.Text
+reportDefinition_s3Prefix :: Lens.Lens' ReportDefinition Prelude.Text
 reportDefinition_s3Prefix = Lens.lens (\ReportDefinition' {s3Prefix} -> s3Prefix) (\s@ReportDefinition' {} a -> s {s3Prefix = a} :: ReportDefinition)
 
 -- | Undocumented member.
@@ -192,47 +193,47 @@ instance Core.FromJSON ReportDefinition where
       "ReportDefinition"
       ( \x ->
           ReportDefinition'
-            Core.<$> ( x Core..:? "AdditionalArtifacts"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "ReportVersioning")
-            Core.<*> (x Core..:? "RefreshClosedReports")
-            Core.<*> (x Core..: "ReportName")
-            Core.<*> (x Core..: "TimeUnit")
-            Core.<*> (x Core..: "Format")
-            Core.<*> (x Core..: "Compression")
-            Core.<*> ( x Core..:? "AdditionalSchemaElements"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..: "S3Bucket")
-            Core.<*> (x Core..: "S3Prefix")
-            Core.<*> (x Core..: "S3Region")
+            Prelude.<$> ( x Core..:? "AdditionalArtifacts"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ReportVersioning")
+            Prelude.<*> (x Core..:? "RefreshClosedReports")
+            Prelude.<*> (x Core..: "ReportName")
+            Prelude.<*> (x Core..: "TimeUnit")
+            Prelude.<*> (x Core..: "Format")
+            Prelude.<*> (x Core..: "Compression")
+            Prelude.<*> ( x Core..:? "AdditionalSchemaElements"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "S3Bucket")
+            Prelude.<*> (x Core..: "S3Prefix")
+            Prelude.<*> (x Core..: "S3Region")
       )
 
-instance Core.Hashable ReportDefinition
+instance Prelude.Hashable ReportDefinition
 
-instance Core.NFData ReportDefinition
+instance Prelude.NFData ReportDefinition
 
 instance Core.ToJSON ReportDefinition where
   toJSON ReportDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AdditionalArtifacts" Core..=)
-              Core.<$> additionalArtifacts,
+              Prelude.<$> additionalArtifacts,
             ("ReportVersioning" Core..=)
-              Core.<$> reportVersioning,
+              Prelude.<$> reportVersioning,
             ("RefreshClosedReports" Core..=)
-              Core.<$> refreshClosedReports,
-            Core.Just ("ReportName" Core..= reportName),
-            Core.Just ("TimeUnit" Core..= timeUnit),
-            Core.Just ("Format" Core..= format),
-            Core.Just ("Compression" Core..= compression),
-            Core.Just
+              Prelude.<$> refreshClosedReports,
+            Prelude.Just ("ReportName" Core..= reportName),
+            Prelude.Just ("TimeUnit" Core..= timeUnit),
+            Prelude.Just ("Format" Core..= format),
+            Prelude.Just ("Compression" Core..= compression),
+            Prelude.Just
               ( "AdditionalSchemaElements"
                   Core..= additionalSchemaElements
               ),
-            Core.Just ("S3Bucket" Core..= s3Bucket),
-            Core.Just ("S3Prefix" Core..= s3Prefix),
-            Core.Just ("S3Region" Core..= s3Region)
+            Prelude.Just ("S3Bucket" Core..= s3Bucket),
+            Prelude.Just ("S3Prefix" Core..= s3Prefix),
+            Prelude.Just ("S3Region" Core..= s3Region)
           ]
       )

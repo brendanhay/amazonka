@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.InputTimecodeSource
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this Timecode source setting, located under the input settings
 -- (InputTimecodeSource), to specify how the service counts input video
@@ -46,15 +47,15 @@ newtype InputTimecodeSource = InputTimecodeSource'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

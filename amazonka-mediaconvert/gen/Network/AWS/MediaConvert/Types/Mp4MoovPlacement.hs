@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Mp4MoovPlacement
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
 -- beginning of the archive as required for progressive downloading.
@@ -36,15 +37,15 @@ newtype Mp4MoovPlacement = Mp4MoovPlacement'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -21,17 +21,18 @@ module Network.AWS.ServiceCatalog.Types.RecordTag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a tag, which is a key-value pair.
 --
 -- /See:/ 'newRecordTag' smart constructor.
 data RecordTag = RecordTag'
   { -- | The key for this tag.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value for this tag.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecordTag' with all optional fields omitted.
@@ -48,16 +49,16 @@ newRecordTag ::
   RecordTag
 newRecordTag =
   RecordTag'
-    { key = Core.Nothing,
-      value = Core.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The key for this tag.
-recordTag_key :: Lens.Lens' RecordTag (Core.Maybe Core.Text)
+recordTag_key :: Lens.Lens' RecordTag (Prelude.Maybe Prelude.Text)
 recordTag_key = Lens.lens (\RecordTag' {key} -> key) (\s@RecordTag' {} a -> s {key = a} :: RecordTag)
 
 -- | The value for this tag.
-recordTag_value :: Lens.Lens' RecordTag (Core.Maybe Core.Text)
+recordTag_value :: Lens.Lens' RecordTag (Prelude.Maybe Prelude.Text)
 recordTag_value = Lens.lens (\RecordTag' {value} -> value) (\s@RecordTag' {} a -> s {value = a} :: RecordTag)
 
 instance Core.FromJSON RecordTag where
@@ -66,9 +67,9 @@ instance Core.FromJSON RecordTag where
       "RecordTag"
       ( \x ->
           RecordTag'
-            Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable RecordTag
+instance Prelude.Hashable RecordTag
 
-instance Core.NFData RecordTag
+instance Prelude.NFData RecordTag

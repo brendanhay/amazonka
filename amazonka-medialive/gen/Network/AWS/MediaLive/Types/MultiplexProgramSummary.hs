@@ -21,17 +21,18 @@ module Network.AWS.MediaLive.Types.MultiplexProgramSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for MultiplexProgramSummary
 --
 -- /See:/ 'newMultiplexProgramSummary' smart constructor.
 data MultiplexProgramSummary = MultiplexProgramSummary'
   { -- | The MediaLive Channel associated with the program.
-    channelId :: Core.Maybe Core.Text,
+    channelId :: Prelude.Maybe Prelude.Text,
     -- | The name of the multiplex program.
-    programName :: Core.Maybe Core.Text
+    programName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiplexProgramSummary' with all optional fields omitted.
@@ -48,16 +49,17 @@ newMultiplexProgramSummary ::
   MultiplexProgramSummary
 newMultiplexProgramSummary =
   MultiplexProgramSummary'
-    { channelId = Core.Nothing,
-      programName = Core.Nothing
+    { channelId =
+        Prelude.Nothing,
+      programName = Prelude.Nothing
     }
 
 -- | The MediaLive Channel associated with the program.
-multiplexProgramSummary_channelId :: Lens.Lens' MultiplexProgramSummary (Core.Maybe Core.Text)
+multiplexProgramSummary_channelId :: Lens.Lens' MultiplexProgramSummary (Prelude.Maybe Prelude.Text)
 multiplexProgramSummary_channelId = Lens.lens (\MultiplexProgramSummary' {channelId} -> channelId) (\s@MultiplexProgramSummary' {} a -> s {channelId = a} :: MultiplexProgramSummary)
 
 -- | The name of the multiplex program.
-multiplexProgramSummary_programName :: Lens.Lens' MultiplexProgramSummary (Core.Maybe Core.Text)
+multiplexProgramSummary_programName :: Lens.Lens' MultiplexProgramSummary (Prelude.Maybe Prelude.Text)
 multiplexProgramSummary_programName = Lens.lens (\MultiplexProgramSummary' {programName} -> programName) (\s@MultiplexProgramSummary' {} a -> s {programName = a} :: MultiplexProgramSummary)
 
 instance Core.FromJSON MultiplexProgramSummary where
@@ -66,10 +68,10 @@ instance Core.FromJSON MultiplexProgramSummary where
       "MultiplexProgramSummary"
       ( \x ->
           MultiplexProgramSummary'
-            Core.<$> (x Core..:? "channelId")
-            Core.<*> (x Core..:? "programName")
+            Prelude.<$> (x Core..:? "channelId")
+            Prelude.<*> (x Core..:? "programName")
       )
 
-instance Core.Hashable MultiplexProgramSummary
+instance Prelude.Hashable MultiplexProgramSummary
 
-instance Core.NFData MultiplexProgramSummary
+instance Prelude.NFData MultiplexProgramSummary

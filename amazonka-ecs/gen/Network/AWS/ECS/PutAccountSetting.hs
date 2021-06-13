@@ -77,6 +77,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,7 +88,7 @@ data PutAccountSetting = PutAccountSetting'
     -- for all IAM users, IAM roles, and the root user of the account unless an
     -- IAM user or role explicitly overrides these settings. If this field is
     -- omitted, the setting is changed only for the authenticated user.
-    principalArn :: Core.Maybe Core.Text,
+    principalArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon ECS resource name for which to modify the account setting. If
     -- @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS
     -- services is affected. If @taskLongArnFormat@ is specified, the ARN and
@@ -101,9 +102,9 @@ data PutAccountSetting = PutAccountSetting'
     name :: SettingName,
     -- | The account setting value for the specified principal ARN. Accepted
     -- values are @enabled@ and @disabled@.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutAccountSetting' with all optional fields omitted.
@@ -136,11 +137,11 @@ newPutAccountSetting ::
   -- | 'name'
   SettingName ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   PutAccountSetting
 newPutAccountSetting pName_ pValue_ =
   PutAccountSetting'
-    { principalArn = Core.Nothing,
+    { principalArn = Prelude.Nothing,
       name = pName_,
       value = pValue_
     }
@@ -150,7 +151,7 @@ newPutAccountSetting pName_ pValue_ =
 -- for all IAM users, IAM roles, and the root user of the account unless an
 -- IAM user or role explicitly overrides these settings. If this field is
 -- omitted, the setting is changed only for the authenticated user.
-putAccountSetting_principalArn :: Lens.Lens' PutAccountSetting (Core.Maybe Core.Text)
+putAccountSetting_principalArn :: Lens.Lens' PutAccountSetting (Prelude.Maybe Prelude.Text)
 putAccountSetting_principalArn = Lens.lens (\PutAccountSetting' {principalArn} -> principalArn) (\s@PutAccountSetting' {} a -> s {principalArn = a} :: PutAccountSetting)
 
 -- | The Amazon ECS resource name for which to modify the account setting. If
@@ -168,7 +169,7 @@ putAccountSetting_name = Lens.lens (\PutAccountSetting' {name} -> name) (\s@PutA
 
 -- | The account setting value for the specified principal ARN. Accepted
 -- values are @enabled@ and @disabled@.
-putAccountSetting_value :: Lens.Lens' PutAccountSetting Core.Text
+putAccountSetting_value :: Lens.Lens' PutAccountSetting Prelude.Text
 putAccountSetting_value = Lens.lens (\PutAccountSetting' {value} -> value) (\s@PutAccountSetting' {} a -> s {value = a} :: PutAccountSetting)
 
 instance Core.AWSRequest PutAccountSetting where
@@ -180,51 +181,53 @@ instance Core.AWSRequest PutAccountSetting where
     Response.receiveJSON
       ( \s h x ->
           PutAccountSettingResponse'
-            Core.<$> (x Core..?> "setting")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "setting")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutAccountSetting
+instance Prelude.Hashable PutAccountSetting
 
-instance Core.NFData PutAccountSetting
+instance Prelude.NFData PutAccountSetting
 
 instance Core.ToHeaders PutAccountSetting where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSetting" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutAccountSetting where
   toJSON PutAccountSetting' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("principalArn" Core..=) Core.<$> principalArn,
-            Core.Just ("name" Core..= name),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ ("principalArn" Core..=) Prelude.<$> principalArn,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("value" Core..= value)
           ]
       )
 
 instance Core.ToPath PutAccountSetting where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutAccountSetting where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAccountSettingResponse' smart constructor.
 data PutAccountSettingResponse = PutAccountSettingResponse'
   { -- | The current account setting for a resource.
-    setting :: Core.Maybe Setting,
+    setting :: Prelude.Maybe Setting,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutAccountSettingResponse' with all optional fields omitted.
@@ -239,20 +242,21 @@ data PutAccountSettingResponse = PutAccountSettingResponse'
 -- 'httpStatus', 'putAccountSettingResponse_httpStatus' - The response's http status code.
 newPutAccountSettingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutAccountSettingResponse
 newPutAccountSettingResponse pHttpStatus_ =
   PutAccountSettingResponse'
-    { setting = Core.Nothing,
+    { setting =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current account setting for a resource.
-putAccountSettingResponse_setting :: Lens.Lens' PutAccountSettingResponse (Core.Maybe Setting)
+putAccountSettingResponse_setting :: Lens.Lens' PutAccountSettingResponse (Prelude.Maybe Setting)
 putAccountSettingResponse_setting = Lens.lens (\PutAccountSettingResponse' {setting} -> setting) (\s@PutAccountSettingResponse' {} a -> s {setting = a} :: PutAccountSettingResponse)
 
 -- | The response's http status code.
-putAccountSettingResponse_httpStatus :: Lens.Lens' PutAccountSettingResponse Core.Int
+putAccountSettingResponse_httpStatus :: Lens.Lens' PutAccountSettingResponse Prelude.Int
 putAccountSettingResponse_httpStatus = Lens.lens (\PutAccountSettingResponse' {httpStatus} -> httpStatus) (\s@PutAccountSettingResponse' {} a -> s {httpStatus = a} :: PutAccountSettingResponse)
 
-instance Core.NFData PutAccountSettingResponse
+instance Prelude.NFData PutAccountSettingResponse

@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchLogs.Types.MetricTransformation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates how to transform ingested log events to metric data in a
 -- CloudWatch metric.
@@ -29,18 +30,18 @@ import qualified Network.AWS.Lens as Lens
 data MetricTransformation = MetricTransformation'
   { -- | (Optional) The value to emit when a filter pattern does not match a log
     -- event. This value can be null.
-    defaultValue :: Core.Maybe Core.Double,
+    defaultValue :: Prelude.Maybe Prelude.Double,
     -- | The name of the CloudWatch metric.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | A custom namespace to contain your metric in CloudWatch. Use namespaces
     -- to group together metrics that are similar. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces>.
-    metricNamespace :: Core.Text,
+    metricNamespace :: Prelude.Text,
     -- | The value to publish to the CloudWatch metric when a filter pattern
     -- matches a log event.
-    metricValue :: Core.Text
+    metricValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricTransformation' with all optional fields omitted.
@@ -63,18 +64,19 @@ data MetricTransformation = MetricTransformation'
 -- matches a log event.
 newMetricTransformation ::
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricNamespace'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricValue'
-  Core.Text ->
+  Prelude.Text ->
   MetricTransformation
 newMetricTransformation
   pMetricName_
   pMetricNamespace_
   pMetricValue_ =
     MetricTransformation'
-      { defaultValue = Core.Nothing,
+      { defaultValue =
+          Prelude.Nothing,
         metricName = pMetricName_,
         metricNamespace = pMetricNamespace_,
         metricValue = pMetricValue_
@@ -82,22 +84,22 @@ newMetricTransformation
 
 -- | (Optional) The value to emit when a filter pattern does not match a log
 -- event. This value can be null.
-metricTransformation_defaultValue :: Lens.Lens' MetricTransformation (Core.Maybe Core.Double)
+metricTransformation_defaultValue :: Lens.Lens' MetricTransformation (Prelude.Maybe Prelude.Double)
 metricTransformation_defaultValue = Lens.lens (\MetricTransformation' {defaultValue} -> defaultValue) (\s@MetricTransformation' {} a -> s {defaultValue = a} :: MetricTransformation)
 
 -- | The name of the CloudWatch metric.
-metricTransformation_metricName :: Lens.Lens' MetricTransformation Core.Text
+metricTransformation_metricName :: Lens.Lens' MetricTransformation Prelude.Text
 metricTransformation_metricName = Lens.lens (\MetricTransformation' {metricName} -> metricName) (\s@MetricTransformation' {} a -> s {metricName = a} :: MetricTransformation)
 
 -- | A custom namespace to contain your metric in CloudWatch. Use namespaces
 -- to group together metrics that are similar. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces>.
-metricTransformation_metricNamespace :: Lens.Lens' MetricTransformation Core.Text
+metricTransformation_metricNamespace :: Lens.Lens' MetricTransformation Prelude.Text
 metricTransformation_metricNamespace = Lens.lens (\MetricTransformation' {metricNamespace} -> metricNamespace) (\s@MetricTransformation' {} a -> s {metricNamespace = a} :: MetricTransformation)
 
 -- | The value to publish to the CloudWatch metric when a filter pattern
 -- matches a log event.
-metricTransformation_metricValue :: Lens.Lens' MetricTransformation Core.Text
+metricTransformation_metricValue :: Lens.Lens' MetricTransformation Prelude.Text
 metricTransformation_metricValue = Lens.lens (\MetricTransformation' {metricValue} -> metricValue) (\s@MetricTransformation' {} a -> s {metricValue = a} :: MetricTransformation)
 
 instance Core.FromJSON MetricTransformation where
@@ -106,24 +108,24 @@ instance Core.FromJSON MetricTransformation where
       "MetricTransformation"
       ( \x ->
           MetricTransformation'
-            Core.<$> (x Core..:? "defaultValue")
-            Core.<*> (x Core..: "metricName")
-            Core.<*> (x Core..: "metricNamespace")
-            Core.<*> (x Core..: "metricValue")
+            Prelude.<$> (x Core..:? "defaultValue")
+            Prelude.<*> (x Core..: "metricName")
+            Prelude.<*> (x Core..: "metricNamespace")
+            Prelude.<*> (x Core..: "metricValue")
       )
 
-instance Core.Hashable MetricTransformation
+instance Prelude.Hashable MetricTransformation
 
-instance Core.NFData MetricTransformation
+instance Prelude.NFData MetricTransformation
 
 instance Core.ToJSON MetricTransformation where
   toJSON MetricTransformation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("defaultValue" Core..=) Core.<$> defaultValue,
-            Core.Just ("metricName" Core..= metricName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("defaultValue" Core..=) Prelude.<$> defaultValue,
+            Prelude.Just ("metricName" Core..= metricName),
+            Prelude.Just
               ("metricNamespace" Core..= metricNamespace),
-            Core.Just ("metricValue" Core..= metricValue)
+            Prelude.Just ("metricValue" Core..= metricValue)
           ]
       )

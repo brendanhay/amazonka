@@ -996,6 +996,7 @@ import Network.AWS.ECS.Types.VersionInfo
 import Network.AWS.ECS.Types.Volume
 import Network.AWS.ECS.Types.VolumeFrom
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-11-13@ of the Amazon EC2 Container Service SDK configuration.
@@ -1009,7 +1010,7 @@ defaultService =
       Core._serviceVersion = "2014-11-13",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseJSONError "ECS",
       Core._serviceRetry = retry
@@ -1024,54 +1025,56 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | There is already a current Amazon ECS container agent update in progress
 -- on the specified container instance. If the container agent becomes
 -- disconnected while it is in a transitional stage, such as @PENDING@ or
 -- @STAGING@, the update process can get stuck in that state. However, when
 -- the agent reconnects, it resumes where it stopped previously.
-_UpdateInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UpdateInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UpdateInProgressException =
   Core._MatchServiceError
     defaultService
@@ -1080,7 +1083,7 @@ _UpdateInProgressException =
 -- | The specified service could not be found. You can view your available
 -- services with ListServices. Amazon ECS services are cluster-specific and
 -- Region-specific.
-_ServiceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServiceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1088,14 +1091,14 @@ _ServiceNotFoundException =
 
 -- | The specified platform version does not satisfy the task definition\'s
 -- required capabilities.
-_PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PlatformTaskDefinitionIncompatibilityException =
   Core._MatchServiceError
     defaultService
     "PlatformTaskDefinitionIncompatibilityException"
 
 -- | The specified task is not supported in this Region.
-_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedFeatureException =
   Core._MatchServiceError
     defaultService
@@ -1104,7 +1107,7 @@ _UnsupportedFeatureException =
 -- | You cannot delete a cluster that has registered container instances.
 -- First, deregister the container instances before you can delete the
 -- cluster. For more information, see DeregisterContainerInstance.
-_ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterContainsContainerInstancesException =
   Core._MatchServiceError
     defaultService
@@ -1113,7 +1116,7 @@ _ClusterContainsContainerInstancesException =
 -- | The specified task set could not be found. You can view your available
 -- task sets with DescribeTaskSets. Task sets are specific to each cluster,
 -- service and Region.
-_TaskSetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TaskSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TaskSetNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1122,14 +1125,14 @@ _TaskSetNotFoundException =
 -- | You cannot delete a cluster that contains services. First, update the
 -- service to reduce its desired task count to 0 and then delete the
 -- service. For more information, see UpdateService and DeleteService.
-_ClusterContainsServicesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsServicesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterContainsServicesException =
   Core._MatchServiceError
     defaultService
     "ClusterContainsServicesException"
 
 -- | The specified platform version does not exist.
-_PlatformUnknownException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PlatformUnknownException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PlatformUnknownException =
   Core._MatchServiceError
     defaultService
@@ -1137,7 +1140,7 @@ _PlatformUnknownException =
 
 -- | Your AWS account has been blocked. For more information, contact
 -- <http://aws.amazon.com/contact-us/ AWS Support>.
-_BlockedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BlockedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BlockedException =
   Core._MatchServiceError
     defaultService
@@ -1145,28 +1148,28 @@ _BlockedException =
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | You do not have authorization to perform the requested action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | The specified resource is in-use and cannot be removed.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
 -- | The limit for the resource has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1177,7 +1180,7 @@ _LimitExceededException =
 -- information to proceed with an update. This could be because the agent
 -- running on the container instance is an older or custom version that
 -- does not use our version information.
-_MissingVersionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MissingVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingVersionException =
   Core._MatchServiceError
     defaultService
@@ -1187,7 +1190,7 @@ _MissingVersionException =
 -- action or resource on behalf of a user that doesn\'t have permissions to
 -- use the action or resource, or specifying an identifier that is not
 -- valid.
-_ClientException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
@@ -1195,7 +1198,7 @@ _ClientException =
 
 -- | The specified cluster could not be found. You can view your available
 -- clusters with ListClusters. Amazon ECS clusters are Region-specific.
-_ClusterNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClusterNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1204,14 +1207,14 @@ _ClusterNotFoundException =
 -- | There is no update available for this Amazon ECS container agent. This
 -- could be because the agent is already running the latest version, or it
 -- is so old that there is no update path to the current version.
-_NoUpdateAvailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoUpdateAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoUpdateAvailableException =
   Core._MatchServiceError
     defaultService
     "NoUpdateAvailableException"
 
 -- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1220,14 +1223,14 @@ _ResourceNotFoundException =
 -- | The specified service is not active. You can\'t update a service that is
 -- inactive. If you have previously deleted a service, you can re-create it
 -- with CreateService.
-_ServiceNotActiveException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServiceNotActiveException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceNotActiveException =
   Core._MatchServiceError
     defaultService
     "ServiceNotActiveException"
 
 -- | You cannot delete a cluster that has active tasks.
-_ClusterContainsTasksException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsTasksException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterContainsTasksException =
   Core._MatchServiceError
     defaultService
@@ -1236,7 +1239,7 @@ _ClusterContainsTasksException =
 -- | The specified target could not be found. You can view your available
 -- container instances with ListContainerInstances. Amazon ECS container
 -- instances are cluster-specific and Region-specific.
-_TargetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TargetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TargetNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1245,14 +1248,14 @@ _TargetNotFoundException =
 -- | You can apply up to 10 custom attributes per resource. You can view the
 -- attributes of a resource with ListAttributes. You can remove existing
 -- attributes on a resource with DeleteAttributes.
-_AttributeLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AttributeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AttributeLimitExceededException =
   Core._MatchServiceError
     defaultService
     "AttributeLimitExceededException"
 
 -- | These errors are usually caused by a server issue.
-_ServerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServerException =
   Core._MatchServiceError
     defaultService

@@ -45,6 +45,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,16 +55,16 @@ data CreateReportGroup = CreateReportGroup'
     --
     -- These tags are available for use by AWS services that support AWS
     -- CodeBuild report group tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the report group.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The type of report group.
     type' :: ReportType,
     -- | A @ReportExportConfig@ object that contains information about where the
     -- report group test results are exported.
     exportConfig :: ReportExportConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReportGroup' with all optional fields omitted.
@@ -86,7 +87,7 @@ data CreateReportGroup = CreateReportGroup'
 -- report group test results are exported.
 newCreateReportGroup ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   ReportType ->
   -- | 'exportConfig'
@@ -94,7 +95,7 @@ newCreateReportGroup ::
   CreateReportGroup
 newCreateReportGroup pName_ pType_ pExportConfig_ =
   CreateReportGroup'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       name = pName_,
       type' = pType_,
       exportConfig = pExportConfig_
@@ -104,11 +105,11 @@ newCreateReportGroup pName_ pType_ pExportConfig_ =
 --
 -- These tags are available for use by AWS services that support AWS
 -- CodeBuild report group tags.
-createReportGroup_tags :: Lens.Lens' CreateReportGroup (Core.Maybe [Tag])
-createReportGroup_tags = Lens.lens (\CreateReportGroup' {tags} -> tags) (\s@CreateReportGroup' {} a -> s {tags = a} :: CreateReportGroup) Core.. Lens.mapping Lens._Coerce
+createReportGroup_tags :: Lens.Lens' CreateReportGroup (Prelude.Maybe [Tag])
+createReportGroup_tags = Lens.lens (\CreateReportGroup' {tags} -> tags) (\s@CreateReportGroup' {} a -> s {tags = a} :: CreateReportGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the report group.
-createReportGroup_name :: Lens.Lens' CreateReportGroup Core.Text
+createReportGroup_name :: Lens.Lens' CreateReportGroup Prelude.Text
 createReportGroup_name = Lens.lens (\CreateReportGroup' {name} -> name) (\s@CreateReportGroup' {} a -> s {name = a} :: CreateReportGroup)
 
 -- | The type of report group.
@@ -129,52 +130,54 @@ instance Core.AWSRequest CreateReportGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateReportGroupResponse'
-            Core.<$> (x Core..?> "reportGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "reportGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateReportGroup
+instance Prelude.Hashable CreateReportGroup
 
-instance Core.NFData CreateReportGroup
+instance Prelude.NFData CreateReportGroup
 
 instance Core.ToHeaders CreateReportGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.CreateReportGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateReportGroup where
   toJSON CreateReportGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            Core.Just ("name" Core..= name),
-            Core.Just ("type" Core..= type'),
-            Core.Just ("exportConfig" Core..= exportConfig)
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("type" Core..= type'),
+            Prelude.Just ("exportConfig" Core..= exportConfig)
           ]
       )
 
 instance Core.ToPath CreateReportGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateReportGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateReportGroupResponse' smart constructor.
 data CreateReportGroupResponse = CreateReportGroupResponse'
   { -- | Information about the report group that was created.
-    reportGroup :: Core.Maybe ReportGroup,
+    reportGroup :: Prelude.Maybe ReportGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReportGroupResponse' with all optional fields omitted.
@@ -189,21 +192,21 @@ data CreateReportGroupResponse = CreateReportGroupResponse'
 -- 'httpStatus', 'createReportGroupResponse_httpStatus' - The response's http status code.
 newCreateReportGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateReportGroupResponse
 newCreateReportGroupResponse pHttpStatus_ =
   CreateReportGroupResponse'
     { reportGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the report group that was created.
-createReportGroupResponse_reportGroup :: Lens.Lens' CreateReportGroupResponse (Core.Maybe ReportGroup)
+createReportGroupResponse_reportGroup :: Lens.Lens' CreateReportGroupResponse (Prelude.Maybe ReportGroup)
 createReportGroupResponse_reportGroup = Lens.lens (\CreateReportGroupResponse' {reportGroup} -> reportGroup) (\s@CreateReportGroupResponse' {} a -> s {reportGroup = a} :: CreateReportGroupResponse)
 
 -- | The response's http status code.
-createReportGroupResponse_httpStatus :: Lens.Lens' CreateReportGroupResponse Core.Int
+createReportGroupResponse_httpStatus :: Lens.Lens' CreateReportGroupResponse Prelude.Int
 createReportGroupResponse_httpStatus = Lens.lens (\CreateReportGroupResponse' {httpStatus} -> httpStatus) (\s@CreateReportGroupResponse' {} a -> s {httpStatus = a} :: CreateReportGroupResponse)
 
-instance Core.NFData CreateReportGroupResponse
+instance Prelude.NFData CreateReportGroupResponse

@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -50,11 +51,11 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
   { -- | The organization under which the group is to be created.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The name of the group.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGroup' with all optional fields omitted.
@@ -69,9 +70,9 @@ data CreateGroup = CreateGroup'
 -- 'name', 'createGroup_name' - The name of the group.
 newCreateGroup ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateGroup
 newCreateGroup pOrganizationId_ pName_ =
   CreateGroup'
@@ -80,11 +81,11 @@ newCreateGroup pOrganizationId_ pName_ =
     }
 
 -- | The organization under which the group is to be created.
-createGroup_organizationId :: Lens.Lens' CreateGroup Core.Text
+createGroup_organizationId :: Lens.Lens' CreateGroup Prelude.Text
 createGroup_organizationId = Lens.lens (\CreateGroup' {organizationId} -> organizationId) (\s@CreateGroup' {} a -> s {organizationId = a} :: CreateGroup)
 
 -- | The name of the group.
-createGroup_name :: Lens.Lens' CreateGroup Core.Text
+createGroup_name :: Lens.Lens' CreateGroup Prelude.Text
 createGroup_name = Lens.lens (\CreateGroup' {name} -> name) (\s@CreateGroup' {} a -> s {name = a} :: CreateGroup)
 
 instance Core.AWSRequest CreateGroup where
@@ -94,48 +95,53 @@ instance Core.AWSRequest CreateGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateGroupResponse'
-            Core.<$> (x Core..?> "GroupId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GroupId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateGroup
+instance Prelude.Hashable CreateGroup
 
-instance Core.NFData CreateGroup
+instance Prelude.NFData CreateGroup
 
 instance Core.ToHeaders CreateGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("WorkMailService.CreateGroup" :: Core.ByteString),
+              Core.=# ( "WorkMailService.CreateGroup" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
   { -- | The identifier of the group.
-    groupId :: Core.Maybe Core.Text,
+    groupId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGroupResponse' with all optional fields omitted.
@@ -150,20 +156,20 @@ data CreateGroupResponse = CreateGroupResponse'
 -- 'httpStatus', 'createGroupResponse_httpStatus' - The response's http status code.
 newCreateGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateGroupResponse
 newCreateGroupResponse pHttpStatus_ =
   CreateGroupResponse'
-    { groupId = Core.Nothing,
+    { groupId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the group.
-createGroupResponse_groupId :: Lens.Lens' CreateGroupResponse (Core.Maybe Core.Text)
+createGroupResponse_groupId :: Lens.Lens' CreateGroupResponse (Prelude.Maybe Prelude.Text)
 createGroupResponse_groupId = Lens.lens (\CreateGroupResponse' {groupId} -> groupId) (\s@CreateGroupResponse' {} a -> s {groupId = a} :: CreateGroupResponse)
 
 -- | The response's http status code.
-createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Core.Int
+createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Prelude.Int
 createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGroupResponse' {} a -> s {httpStatus = a} :: CreateGroupResponse)
 
-instance Core.NFData CreateGroupResponse
+instance Prelude.NFData CreateGroupResponse

@@ -21,17 +21,18 @@ module Network.AWS.GuardDuty.Types.PrivateIpAddressDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains other private IP address information of the EC2 instance.
 --
 -- /See:/ 'newPrivateIpAddressDetails' smart constructor.
 data PrivateIpAddressDetails = PrivateIpAddressDetails'
   { -- | The private DNS name of the EC2 instance.
-    privateDnsName :: Core.Maybe Core.Text,
+    privateDnsName :: Prelude.Maybe Prelude.Text,
     -- | The private IP address of the EC2 instance.
-    privateIpAddress :: Core.Maybe Core.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PrivateIpAddressDetails' with all optional fields omitted.
@@ -49,16 +50,16 @@ newPrivateIpAddressDetails ::
 newPrivateIpAddressDetails =
   PrivateIpAddressDetails'
     { privateDnsName =
-        Core.Nothing,
-      privateIpAddress = Core.Nothing
+        Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
 
 -- | The private DNS name of the EC2 instance.
-privateIpAddressDetails_privateDnsName :: Lens.Lens' PrivateIpAddressDetails (Core.Maybe Core.Text)
+privateIpAddressDetails_privateDnsName :: Lens.Lens' PrivateIpAddressDetails (Prelude.Maybe Prelude.Text)
 privateIpAddressDetails_privateDnsName = Lens.lens (\PrivateIpAddressDetails' {privateDnsName} -> privateDnsName) (\s@PrivateIpAddressDetails' {} a -> s {privateDnsName = a} :: PrivateIpAddressDetails)
 
 -- | The private IP address of the EC2 instance.
-privateIpAddressDetails_privateIpAddress :: Lens.Lens' PrivateIpAddressDetails (Core.Maybe Core.Text)
+privateIpAddressDetails_privateIpAddress :: Lens.Lens' PrivateIpAddressDetails (Prelude.Maybe Prelude.Text)
 privateIpAddressDetails_privateIpAddress = Lens.lens (\PrivateIpAddressDetails' {privateIpAddress} -> privateIpAddress) (\s@PrivateIpAddressDetails' {} a -> s {privateIpAddress = a} :: PrivateIpAddressDetails)
 
 instance Core.FromJSON PrivateIpAddressDetails where
@@ -67,10 +68,10 @@ instance Core.FromJSON PrivateIpAddressDetails where
       "PrivateIpAddressDetails"
       ( \x ->
           PrivateIpAddressDetails'
-            Core.<$> (x Core..:? "privateDnsName")
-            Core.<*> (x Core..:? "privateIpAddress")
+            Prelude.<$> (x Core..:? "privateDnsName")
+            Prelude.<*> (x Core..:? "privateIpAddress")
       )
 
-instance Core.Hashable PrivateIpAddressDetails
+instance Prelude.Hashable PrivateIpAddressDetails
 
-instance Core.NFData PrivateIpAddressDetails
+instance Prelude.NFData PrivateIpAddressDetails

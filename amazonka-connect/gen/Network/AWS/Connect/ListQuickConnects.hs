@@ -52,6 +52,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,17 +61,17 @@ data ListQuickConnects = ListQuickConnects'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of quick connect. In the Amazon Connect console, when you
     -- create a quick connect, you are prompted to assign one of the following
     -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
-    quickConnectTypes :: Core.Maybe [QuickConnectType],
+    quickConnectTypes :: Prelude.Maybe [QuickConnectType],
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListQuickConnects' with all optional fields omitted.
@@ -93,34 +94,34 @@ data ListQuickConnects = ListQuickConnects'
 -- 'instanceId', 'listQuickConnects_instanceId' - The identifier of the Amazon Connect instance.
 newListQuickConnects ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   ListQuickConnects
 newListQuickConnects pInstanceId_ =
   ListQuickConnects'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      quickConnectTypes = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      quickConnectTypes = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listQuickConnects_nextToken :: Lens.Lens' ListQuickConnects (Core.Maybe Core.Text)
+listQuickConnects_nextToken :: Lens.Lens' ListQuickConnects (Prelude.Maybe Prelude.Text)
 listQuickConnects_nextToken = Lens.lens (\ListQuickConnects' {nextToken} -> nextToken) (\s@ListQuickConnects' {} a -> s {nextToken = a} :: ListQuickConnects)
 
 -- | The maximum number of results to return per page.
-listQuickConnects_maxResults :: Lens.Lens' ListQuickConnects (Core.Maybe Core.Natural)
+listQuickConnects_maxResults :: Lens.Lens' ListQuickConnects (Prelude.Maybe Prelude.Natural)
 listQuickConnects_maxResults = Lens.lens (\ListQuickConnects' {maxResults} -> maxResults) (\s@ListQuickConnects' {} a -> s {maxResults = a} :: ListQuickConnects)
 
 -- | The type of quick connect. In the Amazon Connect console, when you
 -- create a quick connect, you are prompted to assign one of the following
 -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
-listQuickConnects_quickConnectTypes :: Lens.Lens' ListQuickConnects (Core.Maybe [QuickConnectType])
-listQuickConnects_quickConnectTypes = Lens.lens (\ListQuickConnects' {quickConnectTypes} -> quickConnectTypes) (\s@ListQuickConnects' {} a -> s {quickConnectTypes = a} :: ListQuickConnects) Core.. Lens.mapping Lens._Coerce
+listQuickConnects_quickConnectTypes :: Lens.Lens' ListQuickConnects (Prelude.Maybe [QuickConnectType])
+listQuickConnects_quickConnectTypes = Lens.lens (\ListQuickConnects' {quickConnectTypes} -> quickConnectTypes) (\s@ListQuickConnects' {} a -> s {quickConnectTypes = a} :: ListQuickConnects) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the Amazon Connect instance.
-listQuickConnects_instanceId :: Lens.Lens' ListQuickConnects Core.Text
+listQuickConnects_instanceId :: Lens.Lens' ListQuickConnects Prelude.Text
 listQuickConnects_instanceId = Lens.lens (\ListQuickConnects' {instanceId} -> instanceId) (\s@ListQuickConnects' {} a -> s {instanceId = a} :: ListQuickConnects)
 
 instance Core.AWSPager ListQuickConnects where
@@ -128,21 +129,22 @@ instance Core.AWSPager ListQuickConnects where
     | Core.stop
         ( rs
             Lens.^? listQuickConnectsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listQuickConnectsResponse_quickConnectSummaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listQuickConnects_nextToken
+          Prelude.& listQuickConnects_nextToken
           Lens..~ rs
-          Lens.^? listQuickConnectsResponse_nextToken Core.. Lens._Just
+          Lens.^? listQuickConnectsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQuickConnects where
   type
@@ -153,40 +155,42 @@ instance Core.AWSRequest ListQuickConnects where
     Response.receiveJSON
       ( \s h x ->
           ListQuickConnectsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "QuickConnectSummaryList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "QuickConnectSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListQuickConnects
+instance Prelude.Hashable ListQuickConnects
 
-instance Core.NFData ListQuickConnects
+instance Prelude.NFData ListQuickConnects
 
 instance Core.ToHeaders ListQuickConnects where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListQuickConnects where
   toPath ListQuickConnects' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/quick-connects/", Core.toBS instanceId]
 
 instance Core.ToQuery ListQuickConnects where
   toQuery ListQuickConnects' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults,
         "QuickConnectTypes"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> quickConnectTypes
+                Prelude.<$> quickConnectTypes
             )
       ]
 
@@ -194,13 +198,13 @@ instance Core.ToQuery ListQuickConnects where
 data ListQuickConnectsResponse = ListQuickConnectsResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the quick connects.
-    quickConnectSummaryList :: Core.Maybe [QuickConnectSummary],
+    quickConnectSummaryList :: Prelude.Maybe [QuickConnectSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListQuickConnectsResponse' with all optional fields omitted.
@@ -218,27 +222,27 @@ data ListQuickConnectsResponse = ListQuickConnectsResponse'
 -- 'httpStatus', 'listQuickConnectsResponse_httpStatus' - The response's http status code.
 newListQuickConnectsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListQuickConnectsResponse
 newListQuickConnectsResponse pHttpStatus_ =
   ListQuickConnectsResponse'
     { nextToken =
-        Core.Nothing,
-      quickConnectSummaryList = Core.Nothing,
+        Prelude.Nothing,
+      quickConnectSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listQuickConnectsResponse_nextToken :: Lens.Lens' ListQuickConnectsResponse (Core.Maybe Core.Text)
+listQuickConnectsResponse_nextToken :: Lens.Lens' ListQuickConnectsResponse (Prelude.Maybe Prelude.Text)
 listQuickConnectsResponse_nextToken = Lens.lens (\ListQuickConnectsResponse' {nextToken} -> nextToken) (\s@ListQuickConnectsResponse' {} a -> s {nextToken = a} :: ListQuickConnectsResponse)
 
 -- | Information about the quick connects.
-listQuickConnectsResponse_quickConnectSummaryList :: Lens.Lens' ListQuickConnectsResponse (Core.Maybe [QuickConnectSummary])
-listQuickConnectsResponse_quickConnectSummaryList = Lens.lens (\ListQuickConnectsResponse' {quickConnectSummaryList} -> quickConnectSummaryList) (\s@ListQuickConnectsResponse' {} a -> s {quickConnectSummaryList = a} :: ListQuickConnectsResponse) Core.. Lens.mapping Lens._Coerce
+listQuickConnectsResponse_quickConnectSummaryList :: Lens.Lens' ListQuickConnectsResponse (Prelude.Maybe [QuickConnectSummary])
+listQuickConnectsResponse_quickConnectSummaryList = Lens.lens (\ListQuickConnectsResponse' {quickConnectSummaryList} -> quickConnectSummaryList) (\s@ListQuickConnectsResponse' {} a -> s {quickConnectSummaryList = a} :: ListQuickConnectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listQuickConnectsResponse_httpStatus :: Lens.Lens' ListQuickConnectsResponse Core.Int
+listQuickConnectsResponse_httpStatus :: Lens.Lens' ListQuickConnectsResponse Prelude.Int
 listQuickConnectsResponse_httpStatus = Lens.lens (\ListQuickConnectsResponse' {httpStatus} -> httpStatus) (\s@ListQuickConnectsResponse' {} a -> s {httpStatus = a} :: ListQuickConnectsResponse)
 
-instance Core.NFData ListQuickConnectsResponse
+instance Prelude.NFData ListQuickConnectsResponse

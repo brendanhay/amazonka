@@ -87,6 +87,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -97,7 +98,7 @@ data ScheduleKeyDeletion = ScheduleKeyDeletion'
     --
     -- This value is optional. If you include a value, it must be between 7 and
     -- 30, inclusive. If you do not include a value, it defaults to 30.
-    pendingWindowInDays :: Core.Maybe Core.Natural,
+    pendingWindowInDays :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the customer master key (CMK) to delete.
     --
     -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
@@ -110,9 +111,9 @@ data ScheduleKeyDeletion = ScheduleKeyDeletion'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduleKeyDeletion' with all optional fields omitted.
@@ -142,12 +143,12 @@ data ScheduleKeyDeletion = ScheduleKeyDeletion'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newScheduleKeyDeletion ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   ScheduleKeyDeletion
 newScheduleKeyDeletion pKeyId_ =
   ScheduleKeyDeletion'
     { pendingWindowInDays =
-        Core.Nothing,
+        Prelude.Nothing,
       keyId = pKeyId_
     }
 
@@ -156,7 +157,7 @@ newScheduleKeyDeletion pKeyId_ =
 --
 -- This value is optional. If you include a value, it must be between 7 and
 -- 30, inclusive. If you do not include a value, it defaults to 30.
-scheduleKeyDeletion_pendingWindowInDays :: Lens.Lens' ScheduleKeyDeletion (Core.Maybe Core.Natural)
+scheduleKeyDeletion_pendingWindowInDays :: Lens.Lens' ScheduleKeyDeletion (Prelude.Maybe Prelude.Natural)
 scheduleKeyDeletion_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletion' {pendingWindowInDays} -> pendingWindowInDays) (\s@ScheduleKeyDeletion' {} a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletion)
 
 -- | The unique identifier of the customer master key (CMK) to delete.
@@ -171,7 +172,7 @@ scheduleKeyDeletion_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletion' {pend
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-scheduleKeyDeletion_keyId :: Lens.Lens' ScheduleKeyDeletion Core.Text
+scheduleKeyDeletion_keyId :: Lens.Lens' ScheduleKeyDeletion Prelude.Text
 scheduleKeyDeletion_keyId = Lens.lens (\ScheduleKeyDeletion' {keyId} -> keyId) (\s@ScheduleKeyDeletion' {} a -> s {keyId = a} :: ScheduleKeyDeletion)
 
 instance Core.AWSRequest ScheduleKeyDeletion where
@@ -183,57 +184,59 @@ instance Core.AWSRequest ScheduleKeyDeletion where
     Response.receiveJSON
       ( \s h x ->
           ScheduleKeyDeletionResponse'
-            Core.<$> (x Core..?> "DeletionDate")
-            Core.<*> (x Core..?> "KeyId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DeletionDate")
+            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ScheduleKeyDeletion
+instance Prelude.Hashable ScheduleKeyDeletion
 
-instance Core.NFData ScheduleKeyDeletion
+instance Prelude.NFData ScheduleKeyDeletion
 
 instance Core.ToHeaders ScheduleKeyDeletion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.ScheduleKeyDeletion" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ScheduleKeyDeletion where
   toJSON ScheduleKeyDeletion' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PendingWindowInDays" Core..=)
-              Core.<$> pendingWindowInDays,
-            Core.Just ("KeyId" Core..= keyId)
+              Prelude.<$> pendingWindowInDays,
+            Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
 
 instance Core.ToPath ScheduleKeyDeletion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ScheduleKeyDeletion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newScheduleKeyDeletionResponse' smart constructor.
 data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
   { -- | The date and time after which AWS KMS deletes the customer master key
     -- (CMK).
-    deletionDate :: Core.Maybe Core.POSIX,
+    deletionDate :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the CMK whose deletion is scheduled.
-    keyId :: Core.Maybe Core.Text,
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduleKeyDeletionResponse' with all optional fields omitted.
@@ -253,29 +256,29 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
 -- 'httpStatus', 'scheduleKeyDeletionResponse_httpStatus' - The response's http status code.
 newScheduleKeyDeletionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ScheduleKeyDeletionResponse
 newScheduleKeyDeletionResponse pHttpStatus_ =
   ScheduleKeyDeletionResponse'
     { deletionDate =
-        Core.Nothing,
-      keyId = Core.Nothing,
+        Prelude.Nothing,
+      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date and time after which AWS KMS deletes the customer master key
 -- (CMK).
-scheduleKeyDeletionResponse_deletionDate :: Lens.Lens' ScheduleKeyDeletionResponse (Core.Maybe Core.UTCTime)
-scheduleKeyDeletionResponse_deletionDate = Lens.lens (\ScheduleKeyDeletionResponse' {deletionDate} -> deletionDate) (\s@ScheduleKeyDeletionResponse' {} a -> s {deletionDate = a} :: ScheduleKeyDeletionResponse) Core.. Lens.mapping Core._Time
+scheduleKeyDeletionResponse_deletionDate :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.UTCTime)
+scheduleKeyDeletionResponse_deletionDate = Lens.lens (\ScheduleKeyDeletionResponse' {deletionDate} -> deletionDate) (\s@ScheduleKeyDeletionResponse' {} a -> s {deletionDate = a} :: ScheduleKeyDeletionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the CMK whose deletion is scheduled.
-scheduleKeyDeletionResponse_keyId :: Lens.Lens' ScheduleKeyDeletionResponse (Core.Maybe Core.Text)
+scheduleKeyDeletionResponse_keyId :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.Text)
 scheduleKeyDeletionResponse_keyId = Lens.lens (\ScheduleKeyDeletionResponse' {keyId} -> keyId) (\s@ScheduleKeyDeletionResponse' {} a -> s {keyId = a} :: ScheduleKeyDeletionResponse)
 
 -- | The response's http status code.
-scheduleKeyDeletionResponse_httpStatus :: Lens.Lens' ScheduleKeyDeletionResponse Core.Int
+scheduleKeyDeletionResponse_httpStatus :: Lens.Lens' ScheduleKeyDeletionResponse Prelude.Int
 scheduleKeyDeletionResponse_httpStatus = Lens.lens (\ScheduleKeyDeletionResponse' {httpStatus} -> httpStatus) (\s@ScheduleKeyDeletionResponse' {} a -> s {httpStatus = a} :: ScheduleKeyDeletionResponse)
 
-instance Core.NFData ScheduleKeyDeletionResponse
+instance Prelude.NFData ScheduleKeyDeletionResponse

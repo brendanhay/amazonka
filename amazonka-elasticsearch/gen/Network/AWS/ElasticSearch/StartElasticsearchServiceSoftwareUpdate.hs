@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data StartElasticsearchServiceSoftwareUpdate = StartElasticsearchServiceSoftwareUpdate'
   { -- | The name of the domain that you want to update to the latest service
     -- software.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartElasticsearchServiceSoftwareUpdate' with all optional fields omitted.
@@ -70,7 +71,7 @@ data StartElasticsearchServiceSoftwareUpdate = StartElasticsearchServiceSoftware
 -- software.
 newStartElasticsearchServiceSoftwareUpdate ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   StartElasticsearchServiceSoftwareUpdate
 newStartElasticsearchServiceSoftwareUpdate
   pDomainName_ =
@@ -81,7 +82,7 @@ newStartElasticsearchServiceSoftwareUpdate
 
 -- | The name of the domain that you want to update to the latest service
 -- software.
-startElasticsearchServiceSoftwareUpdate_domainName :: Lens.Lens' StartElasticsearchServiceSoftwareUpdate Core.Text
+startElasticsearchServiceSoftwareUpdate_domainName :: Lens.Lens' StartElasticsearchServiceSoftwareUpdate Prelude.Text
 startElasticsearchServiceSoftwareUpdate_domainName = Lens.lens (\StartElasticsearchServiceSoftwareUpdate' {domainName} -> domainName) (\s@StartElasticsearchServiceSoftwareUpdate' {} a -> s {domainName = a} :: StartElasticsearchServiceSoftwareUpdate)
 
 instance
@@ -97,23 +98,23 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartElasticsearchServiceSoftwareUpdateResponse'
-            Core.<$> (x Core..?> "ServiceSoftwareOptions")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ServiceSoftwareOptions")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     StartElasticsearchServiceSoftwareUpdate
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartElasticsearchServiceSoftwareUpdate
 
 instance
   Core.ToHeaders
     StartElasticsearchServiceSoftwareUpdate
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToJSON
@@ -121,8 +122,8 @@ instance
   where
   toJSON StartElasticsearchServiceSoftwareUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("DomainName" Core..= domainName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("DomainName" Core..= domainName)]
       )
 
 instance
@@ -130,14 +131,14 @@ instance
     StartElasticsearchServiceSoftwareUpdate
   where
   toPath =
-    Core.const
+    Prelude.const
       "/2015-01-01/es/serviceSoftwareUpdate/start"
 
 instance
   Core.ToQuery
     StartElasticsearchServiceSoftwareUpdate
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @StartElasticsearchServiceSoftwareUpdate@ operation.
 -- Contains the status of the update.
@@ -145,11 +146,11 @@ instance
 -- /See:/ 'newStartElasticsearchServiceSoftwareUpdateResponse' smart constructor.
 data StartElasticsearchServiceSoftwareUpdateResponse = StartElasticsearchServiceSoftwareUpdateResponse'
   { -- | The current status of the Elasticsearch service software update.
-    serviceSoftwareOptions :: Core.Maybe ServiceSoftwareOptions,
+    serviceSoftwareOptions :: Prelude.Maybe ServiceSoftwareOptions,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartElasticsearchServiceSoftwareUpdateResponse' with all optional fields omitted.
@@ -164,24 +165,24 @@ data StartElasticsearchServiceSoftwareUpdateResponse = StartElasticsearchService
 -- 'httpStatus', 'startElasticsearchServiceSoftwareUpdateResponse_httpStatus' - The response's http status code.
 newStartElasticsearchServiceSoftwareUpdateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartElasticsearchServiceSoftwareUpdateResponse
 newStartElasticsearchServiceSoftwareUpdateResponse
   pHttpStatus_ =
     StartElasticsearchServiceSoftwareUpdateResponse'
       { serviceSoftwareOptions =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current status of the Elasticsearch service software update.
-startElasticsearchServiceSoftwareUpdateResponse_serviceSoftwareOptions :: Lens.Lens' StartElasticsearchServiceSoftwareUpdateResponse (Core.Maybe ServiceSoftwareOptions)
+startElasticsearchServiceSoftwareUpdateResponse_serviceSoftwareOptions :: Lens.Lens' StartElasticsearchServiceSoftwareUpdateResponse (Prelude.Maybe ServiceSoftwareOptions)
 startElasticsearchServiceSoftwareUpdateResponse_serviceSoftwareOptions = Lens.lens (\StartElasticsearchServiceSoftwareUpdateResponse' {serviceSoftwareOptions} -> serviceSoftwareOptions) (\s@StartElasticsearchServiceSoftwareUpdateResponse' {} a -> s {serviceSoftwareOptions = a} :: StartElasticsearchServiceSoftwareUpdateResponse)
 
 -- | The response's http status code.
-startElasticsearchServiceSoftwareUpdateResponse_httpStatus :: Lens.Lens' StartElasticsearchServiceSoftwareUpdateResponse Core.Int
+startElasticsearchServiceSoftwareUpdateResponse_httpStatus :: Lens.Lens' StartElasticsearchServiceSoftwareUpdateResponse Prelude.Int
 startElasticsearchServiceSoftwareUpdateResponse_httpStatus = Lens.lens (\StartElasticsearchServiceSoftwareUpdateResponse' {httpStatus} -> httpStatus) (\s@StartElasticsearchServiceSoftwareUpdateResponse' {} a -> s {httpStatus = a} :: StartElasticsearchServiceSoftwareUpdateResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartElasticsearchServiceSoftwareUpdateResponse

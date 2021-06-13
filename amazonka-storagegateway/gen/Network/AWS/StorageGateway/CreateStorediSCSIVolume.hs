@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -85,19 +86,19 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
     -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Core.Maybe Core.Bool,
+    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
     -- used for Amazon S3 server-side encryption. Storage Gateway does not
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
-    kmsKey :: Core.Maybe Core.Text,
+    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
     -- the new stored volume. Specify this field if you want to create the
     -- iSCSI storage volume from a snapshot; otherwise, do not include this
     -- field. To list snapshots for your account use
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
     -- in the /Amazon Elastic Compute Cloud API Reference/.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 50 tags that can be assigned to a stored volume. Each
     -- tag is a key-value pair.
     --
@@ -105,18 +106,18 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
     -- representable in UTF-8 format, and the following special characters: + -
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
-    tags :: Core.Maybe [Tag],
-    gatewayARN :: Core.Text,
+    tags :: Prelude.Maybe [Tag],
+    gatewayARN :: Prelude.Text,
     -- | The unique identifier for the gateway local disk that is configured as a
     -- stored volume. Use
     -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks>
     -- to list disk IDs for a gateway.
-    diskId :: Core.Text,
+    diskId :: Prelude.Text,
     -- | Set to true @true@ if you want to preserve the data on the local disk.
     -- Otherwise, set to @false@ to create an empty volume.
     --
     -- Valid Values: @true@ | @false@
-    preserveExistingData :: Core.Bool,
+    preserveExistingData :: Prelude.Bool,
     -- | The name of the iSCSI target used by an initiator to connect to a volume
     -- and used as a suffix for the target ARN. For example, specifying
     -- @TargetName@ as /myvolume/ results in the target ARN of
@@ -125,15 +126,15 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
     --
     -- If you don\'t specify a value, Storage Gateway uses the value that was
     -- previously used for this volume as the new target name.
-    targetName :: Core.Text,
+    targetName :: Prelude.Text,
     -- | The network interface of the gateway on which to expose the iSCSI
     -- target. Only IPv4 addresses are accepted. Use DescribeGatewayInformation
     -- to get a list of the network interfaces available on a gateway.
     --
     -- Valid Values: A valid IP address.
-    networkInterfaceId :: Core.Text
+    networkInterfaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStorediSCSIVolume' with all optional fields omitted.
@@ -196,15 +197,15 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 -- Valid Values: A valid IP address.
 newCreateStorediSCSIVolume ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'diskId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'preserveExistingData'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'targetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'networkInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   CreateStorediSCSIVolume
 newCreateStorediSCSIVolume
   pGatewayARN_
@@ -214,10 +215,10 @@ newCreateStorediSCSIVolume
   pNetworkInterfaceId_ =
     CreateStorediSCSIVolume'
       { kmsEncrypted =
-          Core.Nothing,
-        kmsKey = Core.Nothing,
-        snapshotId = Core.Nothing,
-        tags = Core.Nothing,
+          Prelude.Nothing,
+        kmsKey = Prelude.Nothing,
+        snapshotId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         diskId = pDiskId_,
         preserveExistingData = pPreserveExistingData_,
@@ -229,14 +230,14 @@ newCreateStorediSCSIVolume
 -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
-createStorediSCSIVolume_kmsEncrypted :: Lens.Lens' CreateStorediSCSIVolume (Core.Maybe Core.Bool)
+createStorediSCSIVolume_kmsEncrypted :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Bool)
 createStorediSCSIVolume_kmsEncrypted = Lens.lens (\CreateStorediSCSIVolume' {kmsEncrypted} -> kmsEncrypted) (\s@CreateStorediSCSIVolume' {} a -> s {kmsEncrypted = a} :: CreateStorediSCSIVolume)
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
 -- is @true@. Optional.
-createStorediSCSIVolume_kmsKey :: Lens.Lens' CreateStorediSCSIVolume (Core.Maybe Core.Text)
+createStorediSCSIVolume_kmsKey :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Text)
 createStorediSCSIVolume_kmsKey = Lens.lens (\CreateStorediSCSIVolume' {kmsKey} -> kmsKey) (\s@CreateStorediSCSIVolume' {} a -> s {kmsKey = a} :: CreateStorediSCSIVolume)
 
 -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
@@ -245,7 +246,7 @@ createStorediSCSIVolume_kmsKey = Lens.lens (\CreateStorediSCSIVolume' {kmsKey} -
 -- field. To list snapshots for your account use
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
 -- in the /Amazon Elastic Compute Cloud API Reference/.
-createStorediSCSIVolume_snapshotId :: Lens.Lens' CreateStorediSCSIVolume (Core.Maybe Core.Text)
+createStorediSCSIVolume_snapshotId :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Text)
 createStorediSCSIVolume_snapshotId = Lens.lens (\CreateStorediSCSIVolume' {snapshotId} -> snapshotId) (\s@CreateStorediSCSIVolume' {} a -> s {snapshotId = a} :: CreateStorediSCSIVolume)
 
 -- | A list of up to 50 tags that can be assigned to a stored volume. Each
@@ -255,25 +256,25 @@ createStorediSCSIVolume_snapshotId = Lens.lens (\CreateStorediSCSIVolume' {snaps
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
-createStorediSCSIVolume_tags :: Lens.Lens' CreateStorediSCSIVolume (Core.Maybe [Tag])
-createStorediSCSIVolume_tags = Lens.lens (\CreateStorediSCSIVolume' {tags} -> tags) (\s@CreateStorediSCSIVolume' {} a -> s {tags = a} :: CreateStorediSCSIVolume) Core.. Lens.mapping Lens._Coerce
+createStorediSCSIVolume_tags :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe [Tag])
+createStorediSCSIVolume_tags = Lens.lens (\CreateStorediSCSIVolume' {tags} -> tags) (\s@CreateStorediSCSIVolume' {} a -> s {tags = a} :: CreateStorediSCSIVolume) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-createStorediSCSIVolume_gatewayARN :: Lens.Lens' CreateStorediSCSIVolume Core.Text
+createStorediSCSIVolume_gatewayARN :: Lens.Lens' CreateStorediSCSIVolume Prelude.Text
 createStorediSCSIVolume_gatewayARN = Lens.lens (\CreateStorediSCSIVolume' {gatewayARN} -> gatewayARN) (\s@CreateStorediSCSIVolume' {} a -> s {gatewayARN = a} :: CreateStorediSCSIVolume)
 
 -- | The unique identifier for the gateway local disk that is configured as a
 -- stored volume. Use
 -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks>
 -- to list disk IDs for a gateway.
-createStorediSCSIVolume_diskId :: Lens.Lens' CreateStorediSCSIVolume Core.Text
+createStorediSCSIVolume_diskId :: Lens.Lens' CreateStorediSCSIVolume Prelude.Text
 createStorediSCSIVolume_diskId = Lens.lens (\CreateStorediSCSIVolume' {diskId} -> diskId) (\s@CreateStorediSCSIVolume' {} a -> s {diskId = a} :: CreateStorediSCSIVolume)
 
 -- | Set to true @true@ if you want to preserve the data on the local disk.
 -- Otherwise, set to @false@ to create an empty volume.
 --
 -- Valid Values: @true@ | @false@
-createStorediSCSIVolume_preserveExistingData :: Lens.Lens' CreateStorediSCSIVolume Core.Bool
+createStorediSCSIVolume_preserveExistingData :: Lens.Lens' CreateStorediSCSIVolume Prelude.Bool
 createStorediSCSIVolume_preserveExistingData = Lens.lens (\CreateStorediSCSIVolume' {preserveExistingData} -> preserveExistingData) (\s@CreateStorediSCSIVolume' {} a -> s {preserveExistingData = a} :: CreateStorediSCSIVolume)
 
 -- | The name of the iSCSI target used by an initiator to connect to a volume
@@ -284,7 +285,7 @@ createStorediSCSIVolume_preserveExistingData = Lens.lens (\CreateStorediSCSIVolu
 --
 -- If you don\'t specify a value, Storage Gateway uses the value that was
 -- previously used for this volume as the new target name.
-createStorediSCSIVolume_targetName :: Lens.Lens' CreateStorediSCSIVolume Core.Text
+createStorediSCSIVolume_targetName :: Lens.Lens' CreateStorediSCSIVolume Prelude.Text
 createStorediSCSIVolume_targetName = Lens.lens (\CreateStorediSCSIVolume' {targetName} -> targetName) (\s@CreateStorediSCSIVolume' {} a -> s {targetName = a} :: CreateStorediSCSIVolume)
 
 -- | The network interface of the gateway on which to expose the iSCSI
@@ -292,7 +293,7 @@ createStorediSCSIVolume_targetName = Lens.lens (\CreateStorediSCSIVolume' {targe
 -- to get a list of the network interfaces available on a gateway.
 --
 -- Valid Values: A valid IP address.
-createStorediSCSIVolume_networkInterfaceId :: Lens.Lens' CreateStorediSCSIVolume Core.Text
+createStorediSCSIVolume_networkInterfaceId :: Lens.Lens' CreateStorediSCSIVolume Prelude.Text
 createStorediSCSIVolume_networkInterfaceId = Lens.lens (\CreateStorediSCSIVolume' {networkInterfaceId} -> networkInterfaceId) (\s@CreateStorediSCSIVolume' {} a -> s {networkInterfaceId = a} :: CreateStorediSCSIVolume)
 
 instance Core.AWSRequest CreateStorediSCSIVolume where
@@ -304,70 +305,72 @@ instance Core.AWSRequest CreateStorediSCSIVolume where
     Response.receiveJSON
       ( \s h x ->
           CreateStorediSCSIVolumeResponse'
-            Core.<$> (x Core..?> "VolumeARN")
-            Core.<*> (x Core..?> "TargetARN")
-            Core.<*> (x Core..?> "VolumeSizeInBytes")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "VolumeARN")
+            Prelude.<*> (x Core..?> "TargetARN")
+            Prelude.<*> (x Core..?> "VolumeSizeInBytes")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateStorediSCSIVolume
+instance Prelude.Hashable CreateStorediSCSIVolume
 
-instance Core.NFData CreateStorediSCSIVolume
+instance Prelude.NFData CreateStorediSCSIVolume
 
 instance Core.ToHeaders CreateStorediSCSIVolume where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.CreateStorediSCSIVolume" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateStorediSCSIVolume where
   toJSON CreateStorediSCSIVolume' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("KMSEncrypted" Core..=) Core.<$> kmsEncrypted,
-            ("KMSKey" Core..=) Core.<$> kmsKey,
-            ("SnapshotId" Core..=) Core.<$> snapshotId,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("GatewayARN" Core..= gatewayARN),
-            Core.Just ("DiskId" Core..= diskId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
+            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just ("DiskId" Core..= diskId),
+            Prelude.Just
               ( "PreserveExistingData"
                   Core..= preserveExistingData
               ),
-            Core.Just ("TargetName" Core..= targetName),
-            Core.Just
+            Prelude.Just ("TargetName" Core..= targetName),
+            Prelude.Just
               ("NetworkInterfaceId" Core..= networkInterfaceId)
           ]
       )
 
 instance Core.ToPath CreateStorediSCSIVolume where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateStorediSCSIVolume where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'newCreateStorediSCSIVolumeResponse' smart constructor.
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
   { -- | The Amazon Resource Name (ARN) of the configured volume.
-    volumeARN :: Core.Maybe Core.Text,
+    volumeARN :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the volume target, which includes the
     -- iSCSI name that initiators can use to connect to the target.
-    targetARN :: Core.Maybe Core.Text,
+    targetARN :: Prelude.Maybe Prelude.Text,
     -- | The size of the volume in bytes.
-    volumeSizeInBytes :: Core.Maybe Core.Integer,
+    volumeSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStorediSCSIVolumeResponse' with all optional fields omitted.
@@ -387,32 +390,34 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
 -- 'httpStatus', 'createStorediSCSIVolumeResponse_httpStatus' - The response's http status code.
 newCreateStorediSCSIVolumeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateStorediSCSIVolumeResponse
 newCreateStorediSCSIVolumeResponse pHttpStatus_ =
   CreateStorediSCSIVolumeResponse'
     { volumeARN =
-        Core.Nothing,
-      targetARN = Core.Nothing,
-      volumeSizeInBytes = Core.Nothing,
+        Prelude.Nothing,
+      targetARN = Prelude.Nothing,
+      volumeSizeInBytes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the configured volume.
-createStorediSCSIVolumeResponse_volumeARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Core.Maybe Core.Text)
+createStorediSCSIVolumeResponse_volumeARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Prelude.Maybe Prelude.Text)
 createStorediSCSIVolumeResponse_volumeARN = Lens.lens (\CreateStorediSCSIVolumeResponse' {volumeARN} -> volumeARN) (\s@CreateStorediSCSIVolumeResponse' {} a -> s {volumeARN = a} :: CreateStorediSCSIVolumeResponse)
 
 -- | The Amazon Resource Name (ARN) of the volume target, which includes the
 -- iSCSI name that initiators can use to connect to the target.
-createStorediSCSIVolumeResponse_targetARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Core.Maybe Core.Text)
+createStorediSCSIVolumeResponse_targetARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Prelude.Maybe Prelude.Text)
 createStorediSCSIVolumeResponse_targetARN = Lens.lens (\CreateStorediSCSIVolumeResponse' {targetARN} -> targetARN) (\s@CreateStorediSCSIVolumeResponse' {} a -> s {targetARN = a} :: CreateStorediSCSIVolumeResponse)
 
 -- | The size of the volume in bytes.
-createStorediSCSIVolumeResponse_volumeSizeInBytes :: Lens.Lens' CreateStorediSCSIVolumeResponse (Core.Maybe Core.Integer)
+createStorediSCSIVolumeResponse_volumeSizeInBytes :: Lens.Lens' CreateStorediSCSIVolumeResponse (Prelude.Maybe Prelude.Integer)
 createStorediSCSIVolumeResponse_volumeSizeInBytes = Lens.lens (\CreateStorediSCSIVolumeResponse' {volumeSizeInBytes} -> volumeSizeInBytes) (\s@CreateStorediSCSIVolumeResponse' {} a -> s {volumeSizeInBytes = a} :: CreateStorediSCSIVolumeResponse)
 
 -- | The response's http status code.
-createStorediSCSIVolumeResponse_httpStatus :: Lens.Lens' CreateStorediSCSIVolumeResponse Core.Int
+createStorediSCSIVolumeResponse_httpStatus :: Lens.Lens' CreateStorediSCSIVolumeResponse Prelude.Int
 createStorediSCSIVolumeResponse_httpStatus = Lens.lens (\CreateStorediSCSIVolumeResponse' {httpStatus} -> httpStatus) (\s@CreateStorediSCSIVolumeResponse' {} a -> s {httpStatus = a} :: CreateStorediSCSIVolumeResponse)
 
-instance Core.NFData CreateStorediSCSIVolumeResponse
+instance
+  Prelude.NFData
+    CreateStorediSCSIVolumeResponse

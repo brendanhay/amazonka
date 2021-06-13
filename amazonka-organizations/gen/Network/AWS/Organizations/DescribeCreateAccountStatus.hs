@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ data DescribeCreateAccountStatus = DescribeCreateAccountStatus'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account
     -- request ID string requires \"car-\" followed by from 8 to 32 lowercase
     -- letters or digits.
-    createAccountRequestId :: Core.Text
+    createAccountRequestId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCreateAccountStatus' with all optional fields omitted.
@@ -82,7 +83,7 @@ data DescribeCreateAccountStatus = DescribeCreateAccountStatus'
 -- letters or digits.
 newDescribeCreateAccountStatus ::
   -- | 'createAccountRequestId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeCreateAccountStatus
 newDescribeCreateAccountStatus
   pCreateAccountRequestId_ =
@@ -99,7 +100,7 @@ newDescribeCreateAccountStatus
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account
 -- request ID string requires \"car-\" followed by from 8 to 32 lowercase
 -- letters or digits.
-describeCreateAccountStatus_createAccountRequestId :: Lens.Lens' DescribeCreateAccountStatus Core.Text
+describeCreateAccountStatus_createAccountRequestId :: Lens.Lens' DescribeCreateAccountStatus Prelude.Text
 describeCreateAccountStatus_createAccountRequestId = Lens.lens (\DescribeCreateAccountStatus' {createAccountRequestId} -> createAccountRequestId) (\s@DescribeCreateAccountStatus' {} a -> s {createAccountRequestId = a} :: DescribeCreateAccountStatus)
 
 instance Core.AWSRequest DescribeCreateAccountStatus where
@@ -111,32 +112,34 @@ instance Core.AWSRequest DescribeCreateAccountStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribeCreateAccountStatusResponse'
-            Core.<$> (x Core..?> "CreateAccountStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreateAccountStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeCreateAccountStatus
+instance Prelude.Hashable DescribeCreateAccountStatus
 
-instance Core.NFData DescribeCreateAccountStatus
+instance Prelude.NFData DescribeCreateAccountStatus
 
 instance Core.ToHeaders DescribeCreateAccountStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.DescribeCreateAccountStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeCreateAccountStatus where
   toJSON DescribeCreateAccountStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "CreateAccountRequestId"
                   Core..= createAccountRequestId
               )
@@ -144,20 +147,20 @@ instance Core.ToJSON DescribeCreateAccountStatus where
       )
 
 instance Core.ToPath DescribeCreateAccountStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeCreateAccountStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCreateAccountStatusResponse' smart constructor.
 data DescribeCreateAccountStatusResponse = DescribeCreateAccountStatusResponse'
   { -- | A structure that contains the current status of an account creation
     -- request.
-    createAccountStatus :: Core.Maybe CreateAccountStatus,
+    createAccountStatus :: Prelude.Maybe CreateAccountStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCreateAccountStatusResponse' with all optional fields omitted.
@@ -173,24 +176,24 @@ data DescribeCreateAccountStatusResponse = DescribeCreateAccountStatusResponse'
 -- 'httpStatus', 'describeCreateAccountStatusResponse_httpStatus' - The response's http status code.
 newDescribeCreateAccountStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeCreateAccountStatusResponse
 newDescribeCreateAccountStatusResponse pHttpStatus_ =
   DescribeCreateAccountStatusResponse'
     { createAccountStatus =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains the current status of an account creation
 -- request.
-describeCreateAccountStatusResponse_createAccountStatus :: Lens.Lens' DescribeCreateAccountStatusResponse (Core.Maybe CreateAccountStatus)
+describeCreateAccountStatusResponse_createAccountStatus :: Lens.Lens' DescribeCreateAccountStatusResponse (Prelude.Maybe CreateAccountStatus)
 describeCreateAccountStatusResponse_createAccountStatus = Lens.lens (\DescribeCreateAccountStatusResponse' {createAccountStatus} -> createAccountStatus) (\s@DescribeCreateAccountStatusResponse' {} a -> s {createAccountStatus = a} :: DescribeCreateAccountStatusResponse)
 
 -- | The response's http status code.
-describeCreateAccountStatusResponse_httpStatus :: Lens.Lens' DescribeCreateAccountStatusResponse Core.Int
+describeCreateAccountStatusResponse_httpStatus :: Lens.Lens' DescribeCreateAccountStatusResponse Prelude.Int
 describeCreateAccountStatusResponse_httpStatus = Lens.lens (\DescribeCreateAccountStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeCreateAccountStatusResponse' {} a -> s {httpStatus = a} :: DescribeCreateAccountStatusResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeCreateAccountStatusResponse

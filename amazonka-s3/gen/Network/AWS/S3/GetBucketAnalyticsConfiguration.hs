@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -75,14 +76,14 @@ data GetBucketAnalyticsConfiguration = GetBucketAnalyticsConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket from which an analytics configuration is
     -- retrieved.
     bucket :: BucketName,
     -- | The ID that identifies the analytics configuration.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketAnalyticsConfiguration' with all optional fields omitted.
@@ -104,12 +105,12 @@ newGetBucketAnalyticsConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetBucketAnalyticsConfiguration
 newGetBucketAnalyticsConfiguration pBucket_ pId_ =
   GetBucketAnalyticsConfiguration'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_,
       id = pId_
     }
@@ -117,7 +118,7 @@ newGetBucketAnalyticsConfiguration pBucket_ pId_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketAnalyticsConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketAnalyticsConfiguration (Core.Maybe Core.Text)
+getBucketAnalyticsConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketAnalyticsConfiguration (Prelude.Maybe Prelude.Text)
 getBucketAnalyticsConfiguration_expectedBucketOwner = Lens.lens (\GetBucketAnalyticsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketAnalyticsConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketAnalyticsConfiguration)
 
 -- | The name of the bucket from which an analytics configuration is
@@ -126,7 +127,7 @@ getBucketAnalyticsConfiguration_bucket :: Lens.Lens' GetBucketAnalyticsConfigura
 getBucketAnalyticsConfiguration_bucket = Lens.lens (\GetBucketAnalyticsConfiguration' {bucket} -> bucket) (\s@GetBucketAnalyticsConfiguration' {} a -> s {bucket = a} :: GetBucketAnalyticsConfiguration)
 
 -- | The ID that identifies the analytics configuration.
-getBucketAnalyticsConfiguration_id :: Lens.Lens' GetBucketAnalyticsConfiguration Core.Text
+getBucketAnalyticsConfiguration_id :: Lens.Lens' GetBucketAnalyticsConfiguration Prelude.Text
 getBucketAnalyticsConfiguration_id = Lens.lens (\GetBucketAnalyticsConfiguration' {id} -> id) (\s@GetBucketAnalyticsConfiguration' {} a -> s {id = a} :: GetBucketAnalyticsConfiguration)
 
 instance
@@ -141,42 +142,44 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketAnalyticsConfigurationResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetBucketAnalyticsConfiguration
 
-instance Core.NFData GetBucketAnalyticsConfiguration
+instance
+  Prelude.NFData
+    GetBucketAnalyticsConfiguration
 
 instance
   Core.ToHeaders
     GetBucketAnalyticsConfiguration
   where
   toHeaders GetBucketAnalyticsConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetBucketAnalyticsConfiguration where
   toPath GetBucketAnalyticsConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery GetBucketAnalyticsConfiguration where
   toQuery GetBucketAnalyticsConfiguration' {..} =
-    Core.mconcat ["id" Core.=: id, "analytics"]
+    Prelude.mconcat ["id" Core.=: id, "analytics"]
 
 -- | /See:/ 'newGetBucketAnalyticsConfigurationResponse' smart constructor.
 data GetBucketAnalyticsConfigurationResponse = GetBucketAnalyticsConfigurationResponse'
   { -- | The configuration and any analyses for the analytics filter.
-    analyticsConfiguration :: Core.Maybe AnalyticsConfiguration,
+    analyticsConfiguration :: Prelude.Maybe AnalyticsConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketAnalyticsConfigurationResponse' with all optional fields omitted.
@@ -191,24 +194,24 @@ data GetBucketAnalyticsConfigurationResponse = GetBucketAnalyticsConfigurationRe
 -- 'httpStatus', 'getBucketAnalyticsConfigurationResponse_httpStatus' - The response's http status code.
 newGetBucketAnalyticsConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBucketAnalyticsConfigurationResponse
 newGetBucketAnalyticsConfigurationResponse
   pHttpStatus_ =
     GetBucketAnalyticsConfigurationResponse'
       { analyticsConfiguration =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The configuration and any analyses for the analytics filter.
-getBucketAnalyticsConfigurationResponse_analyticsConfiguration :: Lens.Lens' GetBucketAnalyticsConfigurationResponse (Core.Maybe AnalyticsConfiguration)
+getBucketAnalyticsConfigurationResponse_analyticsConfiguration :: Lens.Lens' GetBucketAnalyticsConfigurationResponse (Prelude.Maybe AnalyticsConfiguration)
 getBucketAnalyticsConfigurationResponse_analyticsConfiguration = Lens.lens (\GetBucketAnalyticsConfigurationResponse' {analyticsConfiguration} -> analyticsConfiguration) (\s@GetBucketAnalyticsConfigurationResponse' {} a -> s {analyticsConfiguration = a} :: GetBucketAnalyticsConfigurationResponse)
 
 -- | The response's http status code.
-getBucketAnalyticsConfigurationResponse_httpStatus :: Lens.Lens' GetBucketAnalyticsConfigurationResponse Core.Int
+getBucketAnalyticsConfigurationResponse_httpStatus :: Lens.Lens' GetBucketAnalyticsConfigurationResponse Prelude.Int
 getBucketAnalyticsConfigurationResponse_httpStatus = Lens.lens (\GetBucketAnalyticsConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetBucketAnalyticsConfigurationResponse' {} a -> s {httpStatus = a} :: GetBucketAnalyticsConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBucketAnalyticsConfigurationResponse

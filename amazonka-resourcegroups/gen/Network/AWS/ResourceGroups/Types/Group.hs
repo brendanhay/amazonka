@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.Group where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A resource group that contains AWS resources. You can assign resources
 -- to the group by associating either of the following elements with the
@@ -39,13 +40,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
   { -- | The description of the resource group.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource group.
-    groupArn :: Core.Text,
+    groupArn :: Prelude.Text,
     -- | The name of the resource group.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Group' with all optional fields omitted.
@@ -62,27 +63,27 @@ data Group = Group'
 -- 'name', 'group_name' - The name of the resource group.
 newGroup ::
   -- | 'groupArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Group
 newGroup pGroupArn_ pName_ =
   Group'
-    { description = Core.Nothing,
+    { description = Prelude.Nothing,
       groupArn = pGroupArn_,
       name = pName_
     }
 
 -- | The description of the resource group.
-group_description :: Lens.Lens' Group (Core.Maybe Core.Text)
+group_description :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group)
 
 -- | The ARN of the resource group.
-group_groupArn :: Lens.Lens' Group Core.Text
+group_groupArn :: Lens.Lens' Group Prelude.Text
 group_groupArn = Lens.lens (\Group' {groupArn} -> groupArn) (\s@Group' {} a -> s {groupArn = a} :: Group)
 
 -- | The name of the resource group.
-group_name :: Lens.Lens' Group Core.Text
+group_name :: Lens.Lens' Group Prelude.Text
 group_name = Lens.lens (\Group' {name} -> name) (\s@Group' {} a -> s {name = a} :: Group)
 
 instance Core.FromJSON Group where
@@ -91,11 +92,11 @@ instance Core.FromJSON Group where
       "Group"
       ( \x ->
           Group'
-            Core.<$> (x Core..:? "Description")
-            Core.<*> (x Core..: "GroupArn")
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..: "GroupArn")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable Group
+instance Prelude.Hashable Group
 
-instance Core.NFData Group
+instance Prelude.NFData Group

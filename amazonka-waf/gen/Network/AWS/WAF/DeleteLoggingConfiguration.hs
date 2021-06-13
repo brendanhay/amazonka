@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -57,9 +58,9 @@ import Network.AWS.WAF.Types
 data DeleteLoggingConfiguration = DeleteLoggingConfiguration'
   { -- | The Amazon Resource Name (ARN) of the web ACL from which you want to
     -- delete the LoggingConfiguration.
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoggingConfiguration' with all optional fields omitted.
@@ -73,7 +74,7 @@ data DeleteLoggingConfiguration = DeleteLoggingConfiguration'
 -- delete the LoggingConfiguration.
 newDeleteLoggingConfiguration ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLoggingConfiguration
 newDeleteLoggingConfiguration pResourceArn_ =
   DeleteLoggingConfiguration'
@@ -83,7 +84,7 @@ newDeleteLoggingConfiguration pResourceArn_ =
 
 -- | The Amazon Resource Name (ARN) of the web ACL from which you want to
 -- delete the LoggingConfiguration.
-deleteLoggingConfiguration_resourceArn :: Lens.Lens' DeleteLoggingConfiguration Core.Text
+deleteLoggingConfiguration_resourceArn :: Lens.Lens' DeleteLoggingConfiguration Prelude.Text
 deleteLoggingConfiguration_resourceArn = Lens.lens (\DeleteLoggingConfiguration' {resourceArn} -> resourceArn) (\s@DeleteLoggingConfiguration' {} a -> s {resourceArn = a} :: DeleteLoggingConfiguration)
 
 instance Core.AWSRequest DeleteLoggingConfiguration where
@@ -95,45 +96,47 @@ instance Core.AWSRequest DeleteLoggingConfiguration where
     Response.receiveEmpty
       ( \s h x ->
           DeleteLoggingConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteLoggingConfiguration
+instance Prelude.Hashable DeleteLoggingConfiguration
 
-instance Core.NFData DeleteLoggingConfiguration
+instance Prelude.NFData DeleteLoggingConfiguration
 
 instance Core.ToHeaders DeleteLoggingConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.DeleteLoggingConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteLoggingConfiguration where
   toJSON DeleteLoggingConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ResourceArn" Core..= resourceArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
       )
 
 instance Core.ToPath DeleteLoggingConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLoggingConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLoggingConfigurationResponse' smart constructor.
 data DeleteLoggingConfigurationResponse = DeleteLoggingConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoggingConfigurationResponse' with all optional fields omitted.
@@ -146,7 +149,7 @@ data DeleteLoggingConfigurationResponse = DeleteLoggingConfigurationResponse'
 -- 'httpStatus', 'deleteLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteLoggingConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLoggingConfigurationResponse
 newDeleteLoggingConfigurationResponse pHttpStatus_ =
   DeleteLoggingConfigurationResponse'
@@ -155,9 +158,9 @@ newDeleteLoggingConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteLoggingConfigurationResponse_httpStatus :: Lens.Lens' DeleteLoggingConfigurationResponse Core.Int
+deleteLoggingConfigurationResponse_httpStatus :: Lens.Lens' DeleteLoggingConfigurationResponse Prelude.Int
 deleteLoggingConfigurationResponse_httpStatus = Lens.lens (\DeleteLoggingConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteLoggingConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteLoggingConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteLoggingConfigurationResponse

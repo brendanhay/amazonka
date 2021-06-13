@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +64,7 @@ data ListDeliveryStreams = ListDeliveryStreams'
     -- @ListDeliveryStreams@ will start with the delivery stream whose name
     -- comes alphabetically immediately after the name you specify in
     -- @ExclusiveStartDeliveryStreamName@.
-    exclusiveStartDeliveryStreamName :: Core.Maybe Core.Text,
+    exclusiveStartDeliveryStreamName :: Prelude.Maybe Prelude.Text,
     -- | The delivery stream type. This can be one of the following values:
     --
     -- -   @DirectPut@: Provider applications access the delivery stream
@@ -74,11 +75,11 @@ data ListDeliveryStreams = ListDeliveryStreams'
     --
     -- This parameter is optional. If this parameter is omitted, delivery
     -- streams of all types are returned.
-    deliveryStreamType :: Core.Maybe DeliveryStreamType,
+    deliveryStreamType :: Prelude.Maybe DeliveryStreamType,
     -- | The maximum number of delivery streams to list. The default value is 10.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDeliveryStreams' with all optional fields omitted.
@@ -110,16 +111,16 @@ newListDeliveryStreams ::
 newListDeliveryStreams =
   ListDeliveryStreams'
     { exclusiveStartDeliveryStreamName =
-        Core.Nothing,
-      deliveryStreamType = Core.Nothing,
-      limit = Core.Nothing
+        Prelude.Nothing,
+      deliveryStreamType = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The list of delivery streams returned by this call to
 -- @ListDeliveryStreams@ will start with the delivery stream whose name
 -- comes alphabetically immediately after the name you specify in
 -- @ExclusiveStartDeliveryStreamName@.
-listDeliveryStreams_exclusiveStartDeliveryStreamName :: Lens.Lens' ListDeliveryStreams (Core.Maybe Core.Text)
+listDeliveryStreams_exclusiveStartDeliveryStreamName :: Lens.Lens' ListDeliveryStreams (Prelude.Maybe Prelude.Text)
 listDeliveryStreams_exclusiveStartDeliveryStreamName = Lens.lens (\ListDeliveryStreams' {exclusiveStartDeliveryStreamName} -> exclusiveStartDeliveryStreamName) (\s@ListDeliveryStreams' {} a -> s {exclusiveStartDeliveryStreamName = a} :: ListDeliveryStreams)
 
 -- | The delivery stream type. This can be one of the following values:
@@ -132,11 +133,11 @@ listDeliveryStreams_exclusiveStartDeliveryStreamName = Lens.lens (\ListDeliveryS
 --
 -- This parameter is optional. If this parameter is omitted, delivery
 -- streams of all types are returned.
-listDeliveryStreams_deliveryStreamType :: Lens.Lens' ListDeliveryStreams (Core.Maybe DeliveryStreamType)
+listDeliveryStreams_deliveryStreamType :: Lens.Lens' ListDeliveryStreams (Prelude.Maybe DeliveryStreamType)
 listDeliveryStreams_deliveryStreamType = Lens.lens (\ListDeliveryStreams' {deliveryStreamType} -> deliveryStreamType) (\s@ListDeliveryStreams' {} a -> s {deliveryStreamType = a} :: ListDeliveryStreams)
 
 -- | The maximum number of delivery streams to list. The default value is 10.
-listDeliveryStreams_limit :: Lens.Lens' ListDeliveryStreams (Core.Maybe Core.Natural)
+listDeliveryStreams_limit :: Lens.Lens' ListDeliveryStreams (Prelude.Maybe Prelude.Natural)
 listDeliveryStreams_limit = Lens.lens (\ListDeliveryStreams' {limit} -> limit) (\s@ListDeliveryStreams' {} a -> s {limit = a} :: ListDeliveryStreams)
 
 instance Core.AWSRequest ListDeliveryStreams where
@@ -148,58 +149,60 @@ instance Core.AWSRequest ListDeliveryStreams where
     Response.receiveJSON
       ( \s h x ->
           ListDeliveryStreamsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "DeliveryStreamNames"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..:> "HasMoreDeliveryStreams")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "DeliveryStreamNames"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:> "HasMoreDeliveryStreams")
       )
 
-instance Core.Hashable ListDeliveryStreams
+instance Prelude.Hashable ListDeliveryStreams
 
-instance Core.NFData ListDeliveryStreams
+instance Prelude.NFData ListDeliveryStreams
 
 instance Core.ToHeaders ListDeliveryStreams where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Firehose_20150804.ListDeliveryStreams" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListDeliveryStreams where
   toJSON ListDeliveryStreams' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExclusiveStartDeliveryStreamName" Core..=)
-              Core.<$> exclusiveStartDeliveryStreamName,
+              Prelude.<$> exclusiveStartDeliveryStreamName,
             ("DeliveryStreamType" Core..=)
-              Core.<$> deliveryStreamType,
-            ("Limit" Core..=) Core.<$> limit
+              Prelude.<$> deliveryStreamType,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListDeliveryStreams where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListDeliveryStreams where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDeliveryStreamsResponse' smart constructor.
 data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The names of the delivery streams.
-    deliveryStreamNames :: [Core.Text],
+    deliveryStreamNames :: [Prelude.Text],
     -- | Indicates whether there are more delivery streams available to list.
-    hasMoreDeliveryStreams :: Core.Bool
+    hasMoreDeliveryStreams :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDeliveryStreamsResponse' with all optional fields omitted.
@@ -216,9 +219,9 @@ data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
 -- 'hasMoreDeliveryStreams', 'listDeliveryStreamsResponse_hasMoreDeliveryStreams' - Indicates whether there are more delivery streams available to list.
 newListDeliveryStreamsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'hasMoreDeliveryStreams'
-  Core.Bool ->
+  Prelude.Bool ->
   ListDeliveryStreamsResponse
 newListDeliveryStreamsResponse
   pHttpStatus_
@@ -226,21 +229,21 @@ newListDeliveryStreamsResponse
     ListDeliveryStreamsResponse'
       { httpStatus =
           pHttpStatus_,
-        deliveryStreamNames = Core.mempty,
+        deliveryStreamNames = Prelude.mempty,
         hasMoreDeliveryStreams =
           pHasMoreDeliveryStreams_
       }
 
 -- | The response's http status code.
-listDeliveryStreamsResponse_httpStatus :: Lens.Lens' ListDeliveryStreamsResponse Core.Int
+listDeliveryStreamsResponse_httpStatus :: Lens.Lens' ListDeliveryStreamsResponse Prelude.Int
 listDeliveryStreamsResponse_httpStatus = Lens.lens (\ListDeliveryStreamsResponse' {httpStatus} -> httpStatus) (\s@ListDeliveryStreamsResponse' {} a -> s {httpStatus = a} :: ListDeliveryStreamsResponse)
 
 -- | The names of the delivery streams.
-listDeliveryStreamsResponse_deliveryStreamNames :: Lens.Lens' ListDeliveryStreamsResponse [Core.Text]
-listDeliveryStreamsResponse_deliveryStreamNames = Lens.lens (\ListDeliveryStreamsResponse' {deliveryStreamNames} -> deliveryStreamNames) (\s@ListDeliveryStreamsResponse' {} a -> s {deliveryStreamNames = a} :: ListDeliveryStreamsResponse) Core.. Lens._Coerce
+listDeliveryStreamsResponse_deliveryStreamNames :: Lens.Lens' ListDeliveryStreamsResponse [Prelude.Text]
+listDeliveryStreamsResponse_deliveryStreamNames = Lens.lens (\ListDeliveryStreamsResponse' {deliveryStreamNames} -> deliveryStreamNames) (\s@ListDeliveryStreamsResponse' {} a -> s {deliveryStreamNames = a} :: ListDeliveryStreamsResponse) Prelude.. Lens._Coerce
 
 -- | Indicates whether there are more delivery streams available to list.
-listDeliveryStreamsResponse_hasMoreDeliveryStreams :: Lens.Lens' ListDeliveryStreamsResponse Core.Bool
+listDeliveryStreamsResponse_hasMoreDeliveryStreams :: Lens.Lens' ListDeliveryStreamsResponse Prelude.Bool
 listDeliveryStreamsResponse_hasMoreDeliveryStreams = Lens.lens (\ListDeliveryStreamsResponse' {hasMoreDeliveryStreams} -> hasMoreDeliveryStreams) (\s@ListDeliveryStreamsResponse' {} a -> s {hasMoreDeliveryStreams = a} :: ListDeliveryStreamsResponse)
 
-instance Core.NFData ListDeliveryStreamsResponse
+instance Prelude.NFData ListDeliveryStreamsResponse

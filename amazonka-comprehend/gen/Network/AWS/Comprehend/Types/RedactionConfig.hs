@@ -23,21 +23,22 @@ import Network.AWS.Comprehend.Types.PiiEntitiesDetectionMaskMode
 import Network.AWS.Comprehend.Types.PiiEntityType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration parameters for PII entity redaction.
 --
 -- /See:/ 'newRedactionConfig' smart constructor.
 data RedactionConfig = RedactionConfig'
   { -- | A character that replaces each character in the redacted PII entity.
-    maskCharacter :: Core.Maybe Core.Text,
+    maskCharacter :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the PII entity is redacted with the mask character or
     -- the entity type.
-    maskMode :: Core.Maybe PiiEntitiesDetectionMaskMode,
+    maskMode :: Prelude.Maybe PiiEntitiesDetectionMaskMode,
     -- | An array of the types of PII entities that Amazon Comprehend detects in
     -- the input text for your request.
-    piiEntityTypes :: Core.Maybe [PiiEntityType]
+    piiEntityTypes :: Prelude.Maybe [PiiEntityType]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RedactionConfig' with all optional fields omitted.
@@ -58,24 +59,24 @@ newRedactionConfig ::
   RedactionConfig
 newRedactionConfig =
   RedactionConfig'
-    { maskCharacter = Core.Nothing,
-      maskMode = Core.Nothing,
-      piiEntityTypes = Core.Nothing
+    { maskCharacter = Prelude.Nothing,
+      maskMode = Prelude.Nothing,
+      piiEntityTypes = Prelude.Nothing
     }
 
 -- | A character that replaces each character in the redacted PII entity.
-redactionConfig_maskCharacter :: Lens.Lens' RedactionConfig (Core.Maybe Core.Text)
+redactionConfig_maskCharacter :: Lens.Lens' RedactionConfig (Prelude.Maybe Prelude.Text)
 redactionConfig_maskCharacter = Lens.lens (\RedactionConfig' {maskCharacter} -> maskCharacter) (\s@RedactionConfig' {} a -> s {maskCharacter = a} :: RedactionConfig)
 
 -- | Specifies whether the PII entity is redacted with the mask character or
 -- the entity type.
-redactionConfig_maskMode :: Lens.Lens' RedactionConfig (Core.Maybe PiiEntitiesDetectionMaskMode)
+redactionConfig_maskMode :: Lens.Lens' RedactionConfig (Prelude.Maybe PiiEntitiesDetectionMaskMode)
 redactionConfig_maskMode = Lens.lens (\RedactionConfig' {maskMode} -> maskMode) (\s@RedactionConfig' {} a -> s {maskMode = a} :: RedactionConfig)
 
 -- | An array of the types of PII entities that Amazon Comprehend detects in
 -- the input text for your request.
-redactionConfig_piiEntityTypes :: Lens.Lens' RedactionConfig (Core.Maybe [PiiEntityType])
-redactionConfig_piiEntityTypes = Lens.lens (\RedactionConfig' {piiEntityTypes} -> piiEntityTypes) (\s@RedactionConfig' {} a -> s {piiEntityTypes = a} :: RedactionConfig) Core.. Lens.mapping Lens._Coerce
+redactionConfig_piiEntityTypes :: Lens.Lens' RedactionConfig (Prelude.Maybe [PiiEntityType])
+redactionConfig_piiEntityTypes = Lens.lens (\RedactionConfig' {piiEntityTypes} -> piiEntityTypes) (\s@RedactionConfig' {} a -> s {piiEntityTypes = a} :: RedactionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON RedactionConfig where
   parseJSON =
@@ -83,21 +84,24 @@ instance Core.FromJSON RedactionConfig where
       "RedactionConfig"
       ( \x ->
           RedactionConfig'
-            Core.<$> (x Core..:? "MaskCharacter")
-            Core.<*> (x Core..:? "MaskMode")
-            Core.<*> (x Core..:? "PiiEntityTypes" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "MaskCharacter")
+            Prelude.<*> (x Core..:? "MaskMode")
+            Prelude.<*> ( x Core..:? "PiiEntityTypes"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable RedactionConfig
+instance Prelude.Hashable RedactionConfig
 
-instance Core.NFData RedactionConfig
+instance Prelude.NFData RedactionConfig
 
 instance Core.ToJSON RedactionConfig where
   toJSON RedactionConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaskCharacter" Core..=) Core.<$> maskCharacter,
-            ("MaskMode" Core..=) Core.<$> maskMode,
-            ("PiiEntityTypes" Core..=) Core.<$> piiEntityTypes
+      ( Prelude.catMaybes
+          [ ("MaskCharacter" Core..=) Prelude.<$> maskCharacter,
+            ("MaskMode" Core..=) Prelude.<$> maskMode,
+            ("PiiEntityTypes" Core..=)
+              Prelude.<$> piiEntityTypes
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.ResolvedTargets where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about targets that resolved during the Automation execution.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data ResolvedTargets = ResolvedTargets'
   { -- | A list of parameter values sent to targets that resolved during the
     -- Automation execution.
-    parameterValues :: Core.Maybe [Core.Text],
+    parameterValues :: Prelude.Maybe [Prelude.Text],
     -- | A boolean value indicating whether the resolved target list is
     -- truncated.
-    truncated :: Core.Maybe Core.Bool
+    truncated :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResolvedTargets' with all optional fields omitted.
@@ -52,18 +53,18 @@ newResolvedTargets ::
   ResolvedTargets
 newResolvedTargets =
   ResolvedTargets'
-    { parameterValues = Core.Nothing,
-      truncated = Core.Nothing
+    { parameterValues = Prelude.Nothing,
+      truncated = Prelude.Nothing
     }
 
 -- | A list of parameter values sent to targets that resolved during the
 -- Automation execution.
-resolvedTargets_parameterValues :: Lens.Lens' ResolvedTargets (Core.Maybe [Core.Text])
-resolvedTargets_parameterValues = Lens.lens (\ResolvedTargets' {parameterValues} -> parameterValues) (\s@ResolvedTargets' {} a -> s {parameterValues = a} :: ResolvedTargets) Core.. Lens.mapping Lens._Coerce
+resolvedTargets_parameterValues :: Lens.Lens' ResolvedTargets (Prelude.Maybe [Prelude.Text])
+resolvedTargets_parameterValues = Lens.lens (\ResolvedTargets' {parameterValues} -> parameterValues) (\s@ResolvedTargets' {} a -> s {parameterValues = a} :: ResolvedTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A boolean value indicating whether the resolved target list is
 -- truncated.
-resolvedTargets_truncated :: Lens.Lens' ResolvedTargets (Core.Maybe Core.Bool)
+resolvedTargets_truncated :: Lens.Lens' ResolvedTargets (Prelude.Maybe Prelude.Bool)
 resolvedTargets_truncated = Lens.lens (\ResolvedTargets' {truncated} -> truncated) (\s@ResolvedTargets' {} a -> s {truncated = a} :: ResolvedTargets)
 
 instance Core.FromJSON ResolvedTargets where
@@ -72,10 +73,12 @@ instance Core.FromJSON ResolvedTargets where
       "ResolvedTargets"
       ( \x ->
           ResolvedTargets'
-            Core.<$> (x Core..:? "ParameterValues" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Truncated")
+            Prelude.<$> ( x Core..:? "ParameterValues"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Truncated")
       )
 
-instance Core.Hashable ResolvedTargets
+instance Prelude.Hashable ResolvedTargets
 
-instance Core.NFData ResolvedTargets
+instance Prelude.NFData ResolvedTargets

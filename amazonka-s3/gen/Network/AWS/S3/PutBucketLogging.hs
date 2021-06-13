@@ -94,6 +94,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -103,18 +104,18 @@ data PutBucketLogging = PutBucketLogging'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The MD5 hash of the @PutBucketLogging@ request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to set the logging parameters.
     bucket :: BucketName,
     -- | Container for logging status information.
     bucketLoggingStatus :: BucketLoggingStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketLogging' with all optional fields omitted.
@@ -145,8 +146,8 @@ newPutBucketLogging ::
 newPutBucketLogging pBucket_ pBucketLoggingStatus_ =
   PutBucketLogging'
     { expectedBucketOwner =
-        Core.Nothing,
-      contentMD5 = Core.Nothing,
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
       bucket = pBucket_,
       bucketLoggingStatus = pBucketLoggingStatus_
     }
@@ -154,14 +155,14 @@ newPutBucketLogging pBucket_ pBucketLoggingStatus_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketLogging_expectedBucketOwner :: Lens.Lens' PutBucketLogging (Core.Maybe Core.Text)
+putBucketLogging_expectedBucketOwner :: Lens.Lens' PutBucketLogging (Prelude.Maybe Prelude.Text)
 putBucketLogging_expectedBucketOwner = Lens.lens (\PutBucketLogging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketLogging' {} a -> s {expectedBucketOwner = a} :: PutBucketLogging)
 
 -- | The MD5 hash of the @PutBucketLogging@ request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketLogging_contentMD5 :: Lens.Lens' PutBucketLogging (Core.Maybe Core.Text)
+putBucketLogging_contentMD5 :: Lens.Lens' PutBucketLogging (Prelude.Maybe Prelude.Text)
 putBucketLogging_contentMD5 = Lens.lens (\PutBucketLogging' {contentMD5} -> contentMD5) (\s@PutBucketLogging' {} a -> s {contentMD5 = a} :: PutBucketLogging)
 
 -- | The name of the bucket for which to set the logging parameters.
@@ -180,9 +181,9 @@ instance Core.AWSRequest PutBucketLogging where
   response =
     Response.receiveNull PutBucketLoggingResponse'
 
-instance Core.Hashable PutBucketLogging
+instance Prelude.Hashable PutBucketLogging
 
-instance Core.NFData PutBucketLogging
+instance Prelude.NFData PutBucketLogging
 
 instance Core.ToElement PutBucketLogging where
   toElement PutBucketLogging' {..} =
@@ -192,7 +193,7 @@ instance Core.ToElement PutBucketLogging where
 
 instance Core.ToHeaders PutBucketLogging where
   toHeaders PutBucketLogging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5
@@ -200,16 +201,16 @@ instance Core.ToHeaders PutBucketLogging where
 
 instance Core.ToPath PutBucketLogging where
   toPath PutBucketLogging' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutBucketLogging where
-  toQuery = Core.const (Core.mconcat ["logging"])
+  toQuery = Prelude.const (Prelude.mconcat ["logging"])
 
 -- | /See:/ 'newPutBucketLoggingResponse' smart constructor.
 data PutBucketLoggingResponse = PutBucketLoggingResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketLoggingResponse' with all optional fields omitted.
@@ -220,4 +221,4 @@ newPutBucketLoggingResponse ::
 newPutBucketLoggingResponse =
   PutBucketLoggingResponse'
 
-instance Core.NFData PutBucketLoggingResponse
+instance Prelude.NFData PutBucketLoggingResponse

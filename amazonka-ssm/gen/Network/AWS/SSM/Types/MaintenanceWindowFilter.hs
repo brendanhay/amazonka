@@ -21,17 +21,18 @@ module Network.AWS.SSM.Types.MaintenanceWindowFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Filter used in the request. Supported filter keys are Name and Enabled.
 --
 -- /See:/ 'newMaintenanceWindowFilter' smart constructor.
 data MaintenanceWindowFilter = MaintenanceWindowFilter'
   { -- | The name of the filter.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The filter values.
-    values :: Core.Maybe [Core.Text]
+    values :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowFilter' with all optional fields omitted.
@@ -48,27 +49,27 @@ newMaintenanceWindowFilter ::
   MaintenanceWindowFilter
 newMaintenanceWindowFilter =
   MaintenanceWindowFilter'
-    { key = Core.Nothing,
-      values = Core.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
 
 -- | The name of the filter.
-maintenanceWindowFilter_key :: Lens.Lens' MaintenanceWindowFilter (Core.Maybe Core.Text)
+maintenanceWindowFilter_key :: Lens.Lens' MaintenanceWindowFilter (Prelude.Maybe Prelude.Text)
 maintenanceWindowFilter_key = Lens.lens (\MaintenanceWindowFilter' {key} -> key) (\s@MaintenanceWindowFilter' {} a -> s {key = a} :: MaintenanceWindowFilter)
 
 -- | The filter values.
-maintenanceWindowFilter_values :: Lens.Lens' MaintenanceWindowFilter (Core.Maybe [Core.Text])
-maintenanceWindowFilter_values = Lens.lens (\MaintenanceWindowFilter' {values} -> values) (\s@MaintenanceWindowFilter' {} a -> s {values = a} :: MaintenanceWindowFilter) Core.. Lens.mapping Lens._Coerce
+maintenanceWindowFilter_values :: Lens.Lens' MaintenanceWindowFilter (Prelude.Maybe [Prelude.Text])
+maintenanceWindowFilter_values = Lens.lens (\MaintenanceWindowFilter' {values} -> values) (\s@MaintenanceWindowFilter' {} a -> s {values = a} :: MaintenanceWindowFilter) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable MaintenanceWindowFilter
+instance Prelude.Hashable MaintenanceWindowFilter
 
-instance Core.NFData MaintenanceWindowFilter
+instance Prelude.NFData MaintenanceWindowFilter
 
 instance Core.ToJSON MaintenanceWindowFilter where
   toJSON MaintenanceWindowFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Values" Core..=) Core.<$> values
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

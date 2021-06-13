@@ -21,15 +21,16 @@ module Network.AWS.Connect.Types.KinesisFirehoseConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information of a Kinesis Data Firehose delivery stream.
 --
 -- /See:/ 'newKinesisFirehoseConfig' smart constructor.
 data KinesisFirehoseConfig = KinesisFirehoseConfig'
   { -- | The Amazon Resource Name (ARN) of the delivery stream.
-    firehoseArn :: Core.Text
+    firehoseArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisFirehoseConfig' with all optional fields omitted.
@@ -42,13 +43,13 @@ data KinesisFirehoseConfig = KinesisFirehoseConfig'
 -- 'firehoseArn', 'kinesisFirehoseConfig_firehoseArn' - The Amazon Resource Name (ARN) of the delivery stream.
 newKinesisFirehoseConfig ::
   -- | 'firehoseArn'
-  Core.Text ->
+  Prelude.Text ->
   KinesisFirehoseConfig
 newKinesisFirehoseConfig pFirehoseArn_ =
   KinesisFirehoseConfig' {firehoseArn = pFirehoseArn_}
 
 -- | The Amazon Resource Name (ARN) of the delivery stream.
-kinesisFirehoseConfig_firehoseArn :: Lens.Lens' KinesisFirehoseConfig Core.Text
+kinesisFirehoseConfig_firehoseArn :: Lens.Lens' KinesisFirehoseConfig Prelude.Text
 kinesisFirehoseConfig_firehoseArn = Lens.lens (\KinesisFirehoseConfig' {firehoseArn} -> firehoseArn) (\s@KinesisFirehoseConfig' {} a -> s {firehoseArn = a} :: KinesisFirehoseConfig)
 
 instance Core.FromJSON KinesisFirehoseConfig where
@@ -57,16 +58,16 @@ instance Core.FromJSON KinesisFirehoseConfig where
       "KinesisFirehoseConfig"
       ( \x ->
           KinesisFirehoseConfig'
-            Core.<$> (x Core..: "FirehoseArn")
+            Prelude.<$> (x Core..: "FirehoseArn")
       )
 
-instance Core.Hashable KinesisFirehoseConfig
+instance Prelude.Hashable KinesisFirehoseConfig
 
-instance Core.NFData KinesisFirehoseConfig
+instance Prelude.NFData KinesisFirehoseConfig
 
 instance Core.ToJSON KinesisFirehoseConfig where
   toJSON KinesisFirehoseConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("FirehoseArn" Core..= firehoseArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("FirehoseArn" Core..= firehoseArn)]
       )

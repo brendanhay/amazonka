@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMetricPolicy' smart constructor.
 data GetMetricPolicy = GetMetricPolicy'
   { -- | The name of the container that is associated with the metric policy.
-    containerName :: Core.Text
+    containerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMetricPolicy' with all optional fields omitted.
@@ -63,13 +64,13 @@ data GetMetricPolicy = GetMetricPolicy'
 -- 'containerName', 'getMetricPolicy_containerName' - The name of the container that is associated with the metric policy.
 newGetMetricPolicy ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   GetMetricPolicy
 newGetMetricPolicy pContainerName_ =
   GetMetricPolicy' {containerName = pContainerName_}
 
 -- | The name of the container that is associated with the metric policy.
-getMetricPolicy_containerName :: Lens.Lens' GetMetricPolicy Core.Text
+getMetricPolicy_containerName :: Lens.Lens' GetMetricPolicy Prelude.Text
 getMetricPolicy_containerName = Lens.lens (\GetMetricPolicy' {containerName} -> containerName) (\s@GetMetricPolicy' {} a -> s {containerName = a} :: GetMetricPolicy)
 
 instance Core.AWSRequest GetMetricPolicy where
@@ -81,48 +82,52 @@ instance Core.AWSRequest GetMetricPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetMetricPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "MetricPolicy")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "MetricPolicy")
       )
 
-instance Core.Hashable GetMetricPolicy
+instance Prelude.Hashable GetMetricPolicy
 
-instance Core.NFData GetMetricPolicy
+instance Prelude.NFData GetMetricPolicy
 
 instance Core.ToHeaders GetMetricPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.GetMetricPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetMetricPolicy where
   toJSON GetMetricPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
       )
 
 instance Core.ToPath GetMetricPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetMetricPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMetricPolicyResponse' smart constructor.
 data GetMetricPolicyResponse = GetMetricPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The metric policy that is associated with the specific container.
     metricPolicy :: MetricPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMetricPolicyResponse' with all optional fields omitted.
@@ -137,7 +142,7 @@ data GetMetricPolicyResponse = GetMetricPolicyResponse'
 -- 'metricPolicy', 'getMetricPolicyResponse_metricPolicy' - The metric policy that is associated with the specific container.
 newGetMetricPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'metricPolicy'
   MetricPolicy ->
   GetMetricPolicyResponse
@@ -150,11 +155,11 @@ newGetMetricPolicyResponse
       }
 
 -- | The response's http status code.
-getMetricPolicyResponse_httpStatus :: Lens.Lens' GetMetricPolicyResponse Core.Int
+getMetricPolicyResponse_httpStatus :: Lens.Lens' GetMetricPolicyResponse Prelude.Int
 getMetricPolicyResponse_httpStatus = Lens.lens (\GetMetricPolicyResponse' {httpStatus} -> httpStatus) (\s@GetMetricPolicyResponse' {} a -> s {httpStatus = a} :: GetMetricPolicyResponse)
 
 -- | The metric policy that is associated with the specific container.
 getMetricPolicyResponse_metricPolicy :: Lens.Lens' GetMetricPolicyResponse MetricPolicy
 getMetricPolicyResponse_metricPolicy = Lens.lens (\GetMetricPolicyResponse' {metricPolicy} -> metricPolicy) (\s@GetMetricPolicyResponse' {} a -> s {metricPolicy = a} :: GetMetricPolicyResponse)
 
-instance Core.NFData GetMetricPolicyResponse
+instance Prelude.NFData GetMetricPolicyResponse

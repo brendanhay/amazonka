@@ -157,6 +157,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -166,15 +167,15 @@ import qualified Network.AWS.Response as Response
 data CreateMountTarget = CreateMountTarget'
   { -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@. These must
     -- be for the same VPC as subnet specified.
-    securityGroups :: Core.Maybe [Core.Text],
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Valid IPv4 address within the address range of the specified subnet.
-    ipAddress :: Core.Maybe Core.Text,
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the file system for which to create the mount target.
-    fileSystemId :: Core.Text,
+    fileSystemId :: Prelude.Text,
     -- | The ID of the subnet to add the mount target in.
-    subnetId :: Core.Text
+    subnetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMountTarget' with all optional fields omitted.
@@ -194,33 +195,34 @@ data CreateMountTarget = CreateMountTarget'
 -- 'subnetId', 'createMountTarget_subnetId' - The ID of the subnet to add the mount target in.
 newCreateMountTarget ::
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'subnetId'
-  Core.Text ->
+  Prelude.Text ->
   CreateMountTarget
 newCreateMountTarget pFileSystemId_ pSubnetId_ =
   CreateMountTarget'
-    { securityGroups = Core.Nothing,
-      ipAddress = Core.Nothing,
+    { securityGroups =
+        Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
       fileSystemId = pFileSystemId_,
       subnetId = pSubnetId_
     }
 
 -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@. These must
 -- be for the same VPC as subnet specified.
-createMountTarget_securityGroups :: Lens.Lens' CreateMountTarget (Core.Maybe [Core.Text])
-createMountTarget_securityGroups = Lens.lens (\CreateMountTarget' {securityGroups} -> securityGroups) (\s@CreateMountTarget' {} a -> s {securityGroups = a} :: CreateMountTarget) Core.. Lens.mapping Lens._Coerce
+createMountTarget_securityGroups :: Lens.Lens' CreateMountTarget (Prelude.Maybe [Prelude.Text])
+createMountTarget_securityGroups = Lens.lens (\CreateMountTarget' {securityGroups} -> securityGroups) (\s@CreateMountTarget' {} a -> s {securityGroups = a} :: CreateMountTarget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Valid IPv4 address within the address range of the specified subnet.
-createMountTarget_ipAddress :: Lens.Lens' CreateMountTarget (Core.Maybe Core.Text)
+createMountTarget_ipAddress :: Lens.Lens' CreateMountTarget (Prelude.Maybe Prelude.Text)
 createMountTarget_ipAddress = Lens.lens (\CreateMountTarget' {ipAddress} -> ipAddress) (\s@CreateMountTarget' {} a -> s {ipAddress = a} :: CreateMountTarget)
 
 -- | The ID of the file system for which to create the mount target.
-createMountTarget_fileSystemId :: Lens.Lens' CreateMountTarget Core.Text
+createMountTarget_fileSystemId :: Lens.Lens' CreateMountTarget Prelude.Text
 createMountTarget_fileSystemId = Lens.lens (\CreateMountTarget' {fileSystemId} -> fileSystemId) (\s@CreateMountTarget' {} a -> s {fileSystemId = a} :: CreateMountTarget)
 
 -- | The ID of the subnet to add the mount target in.
-createMountTarget_subnetId :: Lens.Lens' CreateMountTarget Core.Text
+createMountTarget_subnetId :: Lens.Lens' CreateMountTarget Prelude.Text
 createMountTarget_subnetId = Lens.lens (\CreateMountTarget' {subnetId} -> subnetId) (\s@CreateMountTarget' {} a -> s {subnetId = a} :: CreateMountTarget)
 
 instance Core.AWSRequest CreateMountTarget where
@@ -232,26 +234,27 @@ instance Core.AWSRequest CreateMountTarget where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreateMountTarget
+instance Prelude.Hashable CreateMountTarget
 
-instance Core.NFData CreateMountTarget
+instance Prelude.NFData CreateMountTarget
 
 instance Core.ToHeaders CreateMountTarget where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateMountTarget where
   toJSON CreateMountTarget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SecurityGroups" Core..=) Core.<$> securityGroups,
-            ("IpAddress" Core..=) Core.<$> ipAddress,
-            Core.Just ("FileSystemId" Core..= fileSystemId),
-            Core.Just ("SubnetId" Core..= subnetId)
+      ( Prelude.catMaybes
+          [ ("SecurityGroups" Core..=)
+              Prelude.<$> securityGroups,
+            ("IpAddress" Core..=) Prelude.<$> ipAddress,
+            Prelude.Just ("FileSystemId" Core..= fileSystemId),
+            Prelude.Just ("SubnetId" Core..= subnetId)
           ]
       )
 
 instance Core.ToPath CreateMountTarget where
-  toPath = Core.const "/2015-02-01/mount-targets"
+  toPath = Prelude.const "/2015-02-01/mount-targets"
 
 instance Core.ToQuery CreateMountTarget where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

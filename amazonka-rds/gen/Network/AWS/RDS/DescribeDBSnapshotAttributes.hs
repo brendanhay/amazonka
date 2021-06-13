@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -62,9 +63,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeDBSnapshotAttributes' smart constructor.
 data DescribeDBSnapshotAttributes = DescribeDBSnapshotAttributes'
   { -- | The identifier for the DB snapshot to describe the attributes for.
-    dbSnapshotIdentifier :: Core.Text
+    dbSnapshotIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDBSnapshotAttributes' with all optional fields omitted.
@@ -77,7 +78,7 @@ data DescribeDBSnapshotAttributes = DescribeDBSnapshotAttributes'
 -- 'dbSnapshotIdentifier', 'describeDBSnapshotAttributes_dbSnapshotIdentifier' - The identifier for the DB snapshot to describe the attributes for.
 newDescribeDBSnapshotAttributes ::
   -- | 'dbSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDBSnapshotAttributes
 newDescribeDBSnapshotAttributes
   pDBSnapshotIdentifier_ =
@@ -87,7 +88,7 @@ newDescribeDBSnapshotAttributes
       }
 
 -- | The identifier for the DB snapshot to describe the attributes for.
-describeDBSnapshotAttributes_dbSnapshotIdentifier :: Lens.Lens' DescribeDBSnapshotAttributes Core.Text
+describeDBSnapshotAttributes_dbSnapshotIdentifier :: Lens.Lens' DescribeDBSnapshotAttributes Prelude.Text
 describeDBSnapshotAttributes_dbSnapshotIdentifier = Lens.lens (\DescribeDBSnapshotAttributes' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DescribeDBSnapshotAttributes' {} a -> s {dbSnapshotIdentifier = a} :: DescribeDBSnapshotAttributes)
 
 instance Core.AWSRequest DescribeDBSnapshotAttributes where
@@ -100,36 +101,41 @@ instance Core.AWSRequest DescribeDBSnapshotAttributes where
       "DescribeDBSnapshotAttributesResult"
       ( \s h x ->
           DescribeDBSnapshotAttributesResponse'
-            Core.<$> (x Core..@? "DBSnapshotAttributesResult")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBSnapshotAttributesResult")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDBSnapshotAttributes
+instance
+  Prelude.Hashable
+    DescribeDBSnapshotAttributes
 
-instance Core.NFData DescribeDBSnapshotAttributes
+instance Prelude.NFData DescribeDBSnapshotAttributes
 
 instance Core.ToHeaders DescribeDBSnapshotAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDBSnapshotAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDBSnapshotAttributes where
   toQuery DescribeDBSnapshotAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBSnapshotAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ( "DescribeDBSnapshotAttributes" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
       ]
 
 -- | /See:/ 'newDescribeDBSnapshotAttributesResponse' smart constructor.
 data DescribeDBSnapshotAttributesResponse = DescribeDBSnapshotAttributesResponse'
-  { dbSnapshotAttributesResult :: Core.Maybe DBSnapshotAttributesResult,
+  { dbSnapshotAttributesResult :: Prelude.Maybe DBSnapshotAttributesResult,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDBSnapshotAttributesResponse' with all optional fields omitted.
@@ -144,23 +150,23 @@ data DescribeDBSnapshotAttributesResponse = DescribeDBSnapshotAttributesResponse
 -- 'httpStatus', 'describeDBSnapshotAttributesResponse_httpStatus' - The response's http status code.
 newDescribeDBSnapshotAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDBSnapshotAttributesResponse
 newDescribeDBSnapshotAttributesResponse pHttpStatus_ =
   DescribeDBSnapshotAttributesResponse'
     { dbSnapshotAttributesResult =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeDBSnapshotAttributesResponse_dbSnapshotAttributesResult :: Lens.Lens' DescribeDBSnapshotAttributesResponse (Core.Maybe DBSnapshotAttributesResult)
+describeDBSnapshotAttributesResponse_dbSnapshotAttributesResult :: Lens.Lens' DescribeDBSnapshotAttributesResponse (Prelude.Maybe DBSnapshotAttributesResult)
 describeDBSnapshotAttributesResponse_dbSnapshotAttributesResult = Lens.lens (\DescribeDBSnapshotAttributesResponse' {dbSnapshotAttributesResult} -> dbSnapshotAttributesResult) (\s@DescribeDBSnapshotAttributesResponse' {} a -> s {dbSnapshotAttributesResult = a} :: DescribeDBSnapshotAttributesResponse)
 
 -- | The response's http status code.
-describeDBSnapshotAttributesResponse_httpStatus :: Lens.Lens' DescribeDBSnapshotAttributesResponse Core.Int
+describeDBSnapshotAttributesResponse_httpStatus :: Lens.Lens' DescribeDBSnapshotAttributesResponse Prelude.Int
 describeDBSnapshotAttributesResponse_httpStatus = Lens.lens (\DescribeDBSnapshotAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeDBSnapshotAttributesResponse' {} a -> s {httpStatus = a} :: DescribeDBSnapshotAttributesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDBSnapshotAttributesResponse

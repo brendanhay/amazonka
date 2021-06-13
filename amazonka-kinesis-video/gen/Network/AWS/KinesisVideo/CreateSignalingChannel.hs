@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,18 +55,18 @@ import qualified Network.AWS.Response as Response
 data CreateSignalingChannel = CreateSignalingChannel'
   { -- | A structure containing the configuration for the @SINGLE_MASTER@ channel
     -- type.
-    singleMasterConfiguration :: Core.Maybe SingleMasterConfiguration,
+    singleMasterConfiguration :: Prelude.Maybe SingleMasterConfiguration,
     -- | A type of the signaling channel that you are creating. Currently,
     -- @SINGLE_MASTER@ is the only supported channel type.
-    channelType :: Core.Maybe ChannelType,
+    channelType :: Prelude.Maybe ChannelType,
     -- | A set of tags (key-value pairs) that you want to associate with this
     -- channel.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A name for the signaling channel that you are creating. It must be
     -- unique for each AWS account and AWS Region.
-    channelName :: Core.Text
+    channelName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSignalingChannel' with all optional fields omitted.
@@ -88,35 +89,35 @@ data CreateSignalingChannel = CreateSignalingChannel'
 -- unique for each AWS account and AWS Region.
 newCreateSignalingChannel ::
   -- | 'channelName'
-  Core.Text ->
+  Prelude.Text ->
   CreateSignalingChannel
 newCreateSignalingChannel pChannelName_ =
   CreateSignalingChannel'
     { singleMasterConfiguration =
-        Core.Nothing,
-      channelType = Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      channelType = Prelude.Nothing,
+      tags = Prelude.Nothing,
       channelName = pChannelName_
     }
 
 -- | A structure containing the configuration for the @SINGLE_MASTER@ channel
 -- type.
-createSignalingChannel_singleMasterConfiguration :: Lens.Lens' CreateSignalingChannel (Core.Maybe SingleMasterConfiguration)
+createSignalingChannel_singleMasterConfiguration :: Lens.Lens' CreateSignalingChannel (Prelude.Maybe SingleMasterConfiguration)
 createSignalingChannel_singleMasterConfiguration = Lens.lens (\CreateSignalingChannel' {singleMasterConfiguration} -> singleMasterConfiguration) (\s@CreateSignalingChannel' {} a -> s {singleMasterConfiguration = a} :: CreateSignalingChannel)
 
 -- | A type of the signaling channel that you are creating. Currently,
 -- @SINGLE_MASTER@ is the only supported channel type.
-createSignalingChannel_channelType :: Lens.Lens' CreateSignalingChannel (Core.Maybe ChannelType)
+createSignalingChannel_channelType :: Lens.Lens' CreateSignalingChannel (Prelude.Maybe ChannelType)
 createSignalingChannel_channelType = Lens.lens (\CreateSignalingChannel' {channelType} -> channelType) (\s@CreateSignalingChannel' {} a -> s {channelType = a} :: CreateSignalingChannel)
 
 -- | A set of tags (key-value pairs) that you want to associate with this
 -- channel.
-createSignalingChannel_tags :: Lens.Lens' CreateSignalingChannel (Core.Maybe [Tag])
-createSignalingChannel_tags = Lens.lens (\CreateSignalingChannel' {tags} -> tags) (\s@CreateSignalingChannel' {} a -> s {tags = a} :: CreateSignalingChannel) Core.. Lens.mapping Lens._Coerce
+createSignalingChannel_tags :: Lens.Lens' CreateSignalingChannel (Prelude.Maybe [Tag])
+createSignalingChannel_tags = Lens.lens (\CreateSignalingChannel' {tags} -> tags) (\s@CreateSignalingChannel' {} a -> s {tags = a} :: CreateSignalingChannel) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A name for the signaling channel that you are creating. It must be
 -- unique for each AWS account and AWS Region.
-createSignalingChannel_channelName :: Lens.Lens' CreateSignalingChannel Core.Text
+createSignalingChannel_channelName :: Lens.Lens' CreateSignalingChannel Prelude.Text
 createSignalingChannel_channelName = Lens.lens (\CreateSignalingChannel' {channelName} -> channelName) (\s@CreateSignalingChannel' {} a -> s {channelName = a} :: CreateSignalingChannel)
 
 instance Core.AWSRequest CreateSignalingChannel where
@@ -128,43 +129,43 @@ instance Core.AWSRequest CreateSignalingChannel where
     Response.receiveJSON
       ( \s h x ->
           CreateSignalingChannelResponse'
-            Core.<$> (x Core..?> "ChannelARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChannelARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSignalingChannel
+instance Prelude.Hashable CreateSignalingChannel
 
-instance Core.NFData CreateSignalingChannel
+instance Prelude.NFData CreateSignalingChannel
 
 instance Core.ToHeaders CreateSignalingChannel where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateSignalingChannel where
   toJSON CreateSignalingChannel' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SingleMasterConfiguration" Core..=)
-              Core.<$> singleMasterConfiguration,
-            ("ChannelType" Core..=) Core.<$> channelType,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("ChannelName" Core..= channelName)
+              Prelude.<$> singleMasterConfiguration,
+            ("ChannelType" Core..=) Prelude.<$> channelType,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("ChannelName" Core..= channelName)
           ]
       )
 
 instance Core.ToPath CreateSignalingChannel where
-  toPath = Core.const "/createSignalingChannel"
+  toPath = Prelude.const "/createSignalingChannel"
 
 instance Core.ToQuery CreateSignalingChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSignalingChannelResponse' smart constructor.
 data CreateSignalingChannelResponse = CreateSignalingChannelResponse'
   { -- | The Amazon Resource Name (ARN) of the created channel.
-    channelARN :: Core.Maybe Core.Text,
+    channelARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSignalingChannelResponse' with all optional fields omitted.
@@ -179,21 +180,23 @@ data CreateSignalingChannelResponse = CreateSignalingChannelResponse'
 -- 'httpStatus', 'createSignalingChannelResponse_httpStatus' - The response's http status code.
 newCreateSignalingChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSignalingChannelResponse
 newCreateSignalingChannelResponse pHttpStatus_ =
   CreateSignalingChannelResponse'
     { channelARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the created channel.
-createSignalingChannelResponse_channelARN :: Lens.Lens' CreateSignalingChannelResponse (Core.Maybe Core.Text)
+createSignalingChannelResponse_channelARN :: Lens.Lens' CreateSignalingChannelResponse (Prelude.Maybe Prelude.Text)
 createSignalingChannelResponse_channelARN = Lens.lens (\CreateSignalingChannelResponse' {channelARN} -> channelARN) (\s@CreateSignalingChannelResponse' {} a -> s {channelARN = a} :: CreateSignalingChannelResponse)
 
 -- | The response's http status code.
-createSignalingChannelResponse_httpStatus :: Lens.Lens' CreateSignalingChannelResponse Core.Int
+createSignalingChannelResponse_httpStatus :: Lens.Lens' CreateSignalingChannelResponse Prelude.Int
 createSignalingChannelResponse_httpStatus = Lens.lens (\CreateSignalingChannelResponse' {httpStatus} -> httpStatus) (\s@CreateSignalingChannelResponse' {} a -> s {httpStatus = a} :: CreateSignalingChannelResponse)
 
-instance Core.NFData CreateSignalingChannelResponse
+instance
+  Prelude.NFData
+    CreateSignalingChannelResponse

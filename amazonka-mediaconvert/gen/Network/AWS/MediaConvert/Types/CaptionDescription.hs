@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CaptionDestinationSettings
 import Network.AWS.MediaConvert.Types.LanguageCode
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Description of Caption output
 --
@@ -33,13 +34,13 @@ data CaptionDescription = CaptionDescription'
     -- captions metadata. If your output captions format is DVB-Sub or Burn in,
     -- the encoder uses this language information to choose the font language
     -- for rendering the captions text.
-    languageCode :: Core.Maybe LanguageCode,
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | Specify a label for this set of output captions. For example,
     -- \"English\", \"Director commentary\", or \"track_2\". For streaming
     -- outputs, MediaConvert passes this information into destination manifests
     -- for display on the end-viewer\'s player device. For outputs in other
     -- output groups, the service ignores this setting.
-    languageDescription :: Core.Maybe Core.Text,
+    languageDescription :: Prelude.Maybe Prelude.Text,
     -- | Specify the language for this captions output track. For most captions
     -- output formats, the encoder puts this language information in the output
     -- captions metadata. If your output captions format is DVB-Sub or Burn in,
@@ -49,18 +50,18 @@ data CaptionDescription = CaptionDescription'
     -- also use any other code in the full RFC-5646 specification. Streaming
     -- outputs are those that are in one of the following output groups: CMAF,
     -- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
-    customLanguageCode :: Core.Maybe Core.Text,
+    customLanguageCode :: Prelude.Maybe Prelude.Text,
     -- | Specifies which \"Caption Selector\":#inputs-caption_selector to use
     -- from each input when generating captions. The name should be of the
     -- format \"Caption Selector \", which denotes that the Nth Caption
     -- Selector will be used from each input.
-    captionSelectorName :: Core.Maybe Core.Text,
+    captionSelectorName :: Prelude.Maybe Prelude.Text,
     -- | Specific settings required by destination type. Note that
     -- burnin_destination_settings are not available if the source of the
     -- caption data is Embedded or Teletext.
-    destinationSettings :: Core.Maybe CaptionDestinationSettings
+    destinationSettings :: Prelude.Maybe CaptionDestinationSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CaptionDescription' with all optional fields omitted.
@@ -104,11 +105,11 @@ newCaptionDescription ::
   CaptionDescription
 newCaptionDescription =
   CaptionDescription'
-    { languageCode = Core.Nothing,
-      languageDescription = Core.Nothing,
-      customLanguageCode = Core.Nothing,
-      captionSelectorName = Core.Nothing,
-      destinationSettings = Core.Nothing
+    { languageCode = Prelude.Nothing,
+      languageDescription = Prelude.Nothing,
+      customLanguageCode = Prelude.Nothing,
+      captionSelectorName = Prelude.Nothing,
+      destinationSettings = Prelude.Nothing
     }
 
 -- | Specify the language of this captions output track. For most captions
@@ -116,7 +117,7 @@ newCaptionDescription =
 -- captions metadata. If your output captions format is DVB-Sub or Burn in,
 -- the encoder uses this language information to choose the font language
 -- for rendering the captions text.
-captionDescription_languageCode :: Lens.Lens' CaptionDescription (Core.Maybe LanguageCode)
+captionDescription_languageCode :: Lens.Lens' CaptionDescription (Prelude.Maybe LanguageCode)
 captionDescription_languageCode = Lens.lens (\CaptionDescription' {languageCode} -> languageCode) (\s@CaptionDescription' {} a -> s {languageCode = a} :: CaptionDescription)
 
 -- | Specify a label for this set of output captions. For example,
@@ -124,7 +125,7 @@ captionDescription_languageCode = Lens.lens (\CaptionDescription' {languageCode}
 -- outputs, MediaConvert passes this information into destination manifests
 -- for display on the end-viewer\'s player device. For outputs in other
 -- output groups, the service ignores this setting.
-captionDescription_languageDescription :: Lens.Lens' CaptionDescription (Core.Maybe Core.Text)
+captionDescription_languageDescription :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
 captionDescription_languageDescription = Lens.lens (\CaptionDescription' {languageDescription} -> languageDescription) (\s@CaptionDescription' {} a -> s {languageDescription = a} :: CaptionDescription)
 
 -- | Specify the language for this captions output track. For most captions
@@ -136,20 +137,20 @@ captionDescription_languageDescription = Lens.lens (\CaptionDescription' {langua
 -- also use any other code in the full RFC-5646 specification. Streaming
 -- outputs are those that are in one of the following output groups: CMAF,
 -- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
-captionDescription_customLanguageCode :: Lens.Lens' CaptionDescription (Core.Maybe Core.Text)
+captionDescription_customLanguageCode :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
 captionDescription_customLanguageCode = Lens.lens (\CaptionDescription' {customLanguageCode} -> customLanguageCode) (\s@CaptionDescription' {} a -> s {customLanguageCode = a} :: CaptionDescription)
 
 -- | Specifies which \"Caption Selector\":#inputs-caption_selector to use
 -- from each input when generating captions. The name should be of the
 -- format \"Caption Selector \", which denotes that the Nth Caption
 -- Selector will be used from each input.
-captionDescription_captionSelectorName :: Lens.Lens' CaptionDescription (Core.Maybe Core.Text)
+captionDescription_captionSelectorName :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
 captionDescription_captionSelectorName = Lens.lens (\CaptionDescription' {captionSelectorName} -> captionSelectorName) (\s@CaptionDescription' {} a -> s {captionSelectorName = a} :: CaptionDescription)
 
 -- | Specific settings required by destination type. Note that
 -- burnin_destination_settings are not available if the source of the
 -- caption data is Embedded or Teletext.
-captionDescription_destinationSettings :: Lens.Lens' CaptionDescription (Core.Maybe CaptionDestinationSettings)
+captionDescription_destinationSettings :: Lens.Lens' CaptionDescription (Prelude.Maybe CaptionDestinationSettings)
 captionDescription_destinationSettings = Lens.lens (\CaptionDescription' {destinationSettings} -> destinationSettings) (\s@CaptionDescription' {} a -> s {destinationSettings = a} :: CaptionDescription)
 
 instance Core.FromJSON CaptionDescription where
@@ -158,29 +159,29 @@ instance Core.FromJSON CaptionDescription where
       "CaptionDescription"
       ( \x ->
           CaptionDescription'
-            Core.<$> (x Core..:? "languageCode")
-            Core.<*> (x Core..:? "languageDescription")
-            Core.<*> (x Core..:? "customLanguageCode")
-            Core.<*> (x Core..:? "captionSelectorName")
-            Core.<*> (x Core..:? "destinationSettings")
+            Prelude.<$> (x Core..:? "languageCode")
+            Prelude.<*> (x Core..:? "languageDescription")
+            Prelude.<*> (x Core..:? "customLanguageCode")
+            Prelude.<*> (x Core..:? "captionSelectorName")
+            Prelude.<*> (x Core..:? "destinationSettings")
       )
 
-instance Core.Hashable CaptionDescription
+instance Prelude.Hashable CaptionDescription
 
-instance Core.NFData CaptionDescription
+instance Prelude.NFData CaptionDescription
 
 instance Core.ToJSON CaptionDescription where
   toJSON CaptionDescription' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("languageCode" Core..=) Core.<$> languageCode,
+      ( Prelude.catMaybes
+          [ ("languageCode" Core..=) Prelude.<$> languageCode,
             ("languageDescription" Core..=)
-              Core.<$> languageDescription,
+              Prelude.<$> languageDescription,
             ("customLanguageCode" Core..=)
-              Core.<$> customLanguageCode,
+              Prelude.<$> customLanguageCode,
             ("captionSelectorName" Core..=)
-              Core.<$> captionSelectorName,
+              Prelude.<$> captionSelectorName,
             ("destinationSettings" Core..=)
-              Core.<$> destinationSettings
+              Prelude.<$> destinationSettings
           ]
       )

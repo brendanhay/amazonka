@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,9 +66,9 @@ data DeleteServerCertificate = DeleteServerCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    serverCertificateName :: Core.Text
+    serverCertificateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServerCertificate' with all optional fields omitted.
@@ -85,7 +86,7 @@ data DeleteServerCertificate = DeleteServerCertificate'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteServerCertificate ::
   -- | 'serverCertificateName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteServerCertificate
 newDeleteServerCertificate pServerCertificateName_ =
   DeleteServerCertificate'
@@ -99,7 +100,7 @@ newDeleteServerCertificate pServerCertificateName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteServerCertificate_serverCertificateName :: Lens.Lens' DeleteServerCertificate Core.Text
+deleteServerCertificate_serverCertificateName :: Lens.Lens' DeleteServerCertificate Prelude.Text
 deleteServerCertificate_serverCertificateName = Lens.lens (\DeleteServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@DeleteServerCertificate' {} a -> s {serverCertificateName = a} :: DeleteServerCertificate)
 
 instance Core.AWSRequest DeleteServerCertificate where
@@ -111,22 +112,23 @@ instance Core.AWSRequest DeleteServerCertificate where
     Response.receiveNull
       DeleteServerCertificateResponse'
 
-instance Core.Hashable DeleteServerCertificate
+instance Prelude.Hashable DeleteServerCertificate
 
-instance Core.NFData DeleteServerCertificate
+instance Prelude.NFData DeleteServerCertificate
 
 instance Core.ToHeaders DeleteServerCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteServerCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteServerCertificate where
   toQuery DeleteServerCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteServerCertificate" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeleteServerCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "ServerCertificateName"
           Core.=: serverCertificateName
       ]
@@ -135,7 +137,7 @@ instance Core.ToQuery DeleteServerCertificate where
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServerCertificateResponse' with all optional fields omitted.
@@ -146,4 +148,6 @@ newDeleteServerCertificateResponse ::
 newDeleteServerCertificateResponse =
   DeleteServerCertificateResponse'
 
-instance Core.NFData DeleteServerCertificateResponse
+instance
+  Prelude.NFData
+    DeleteServerCertificateResponse

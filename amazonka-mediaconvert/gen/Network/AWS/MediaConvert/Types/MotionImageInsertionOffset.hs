@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.MotionImageInsertionOffset where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the offset between the upper-left corner of the video frame and
 -- the top left corner of the overlay.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data MotionImageInsertionOffset = MotionImageInsertionOffset'
   { -- | Set the distance, in pixels, between the overlay and the left edge of
     -- the video frame.
-    imageX :: Core.Maybe Core.Natural,
+    imageX :: Prelude.Maybe Prelude.Natural,
     -- | Set the distance, in pixels, between the overlay and the top edge of the
     -- video frame.
-    imageY :: Core.Maybe Core.Natural
+    imageY :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MotionImageInsertionOffset' with all optional fields omitted.
@@ -53,18 +54,19 @@ newMotionImageInsertionOffset ::
   MotionImageInsertionOffset
 newMotionImageInsertionOffset =
   MotionImageInsertionOffset'
-    { imageX = Core.Nothing,
-      imageY = Core.Nothing
+    { imageX =
+        Prelude.Nothing,
+      imageY = Prelude.Nothing
     }
 
 -- | Set the distance, in pixels, between the overlay and the left edge of
 -- the video frame.
-motionImageInsertionOffset_imageX :: Lens.Lens' MotionImageInsertionOffset (Core.Maybe Core.Natural)
+motionImageInsertionOffset_imageX :: Lens.Lens' MotionImageInsertionOffset (Prelude.Maybe Prelude.Natural)
 motionImageInsertionOffset_imageX = Lens.lens (\MotionImageInsertionOffset' {imageX} -> imageX) (\s@MotionImageInsertionOffset' {} a -> s {imageX = a} :: MotionImageInsertionOffset)
 
 -- | Set the distance, in pixels, between the overlay and the top edge of the
 -- video frame.
-motionImageInsertionOffset_imageY :: Lens.Lens' MotionImageInsertionOffset (Core.Maybe Core.Natural)
+motionImageInsertionOffset_imageY :: Lens.Lens' MotionImageInsertionOffset (Prelude.Maybe Prelude.Natural)
 motionImageInsertionOffset_imageY = Lens.lens (\MotionImageInsertionOffset' {imageY} -> imageY) (\s@MotionImageInsertionOffset' {} a -> s {imageY = a} :: MotionImageInsertionOffset)
 
 instance Core.FromJSON MotionImageInsertionOffset where
@@ -73,18 +75,19 @@ instance Core.FromJSON MotionImageInsertionOffset where
       "MotionImageInsertionOffset"
       ( \x ->
           MotionImageInsertionOffset'
-            Core.<$> (x Core..:? "imageX") Core.<*> (x Core..:? "imageY")
+            Prelude.<$> (x Core..:? "imageX")
+            Prelude.<*> (x Core..:? "imageY")
       )
 
-instance Core.Hashable MotionImageInsertionOffset
+instance Prelude.Hashable MotionImageInsertionOffset
 
-instance Core.NFData MotionImageInsertionOffset
+instance Prelude.NFData MotionImageInsertionOffset
 
 instance Core.ToJSON MotionImageInsertionOffset where
   toJSON MotionImageInsertionOffset' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("imageX" Core..=) Core.<$> imageX,
-            ("imageY" Core..=) Core.<$> imageY
+      ( Prelude.catMaybes
+          [ ("imageX" Core..=) Prelude.<$> imageX,
+            ("imageY" Core..=) Prelude.<$> imageY
           ]
       )

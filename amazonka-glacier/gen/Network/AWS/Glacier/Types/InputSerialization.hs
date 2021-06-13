@@ -22,15 +22,16 @@ module Network.AWS.Glacier.Types.InputSerialization where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.CSVInput
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes how the archive is serialized.
 --
 -- /See:/ 'newInputSerialization' smart constructor.
 data InputSerialization = InputSerialization'
   { -- | Describes the serialization of a CSV-encoded object.
-    csv :: Core.Maybe CSVInput
+    csv :: Prelude.Maybe CSVInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputSerialization' with all optional fields omitted.
@@ -44,10 +45,10 @@ data InputSerialization = InputSerialization'
 newInputSerialization ::
   InputSerialization
 newInputSerialization =
-  InputSerialization' {csv = Core.Nothing}
+  InputSerialization' {csv = Prelude.Nothing}
 
 -- | Describes the serialization of a CSV-encoded object.
-inputSerialization_csv :: Lens.Lens' InputSerialization (Core.Maybe CSVInput)
+inputSerialization_csv :: Lens.Lens' InputSerialization (Prelude.Maybe CSVInput)
 inputSerialization_csv = Lens.lens (\InputSerialization' {csv} -> csv) (\s@InputSerialization' {} a -> s {csv = a} :: InputSerialization)
 
 instance Core.FromJSON InputSerialization where
@@ -55,14 +56,14 @@ instance Core.FromJSON InputSerialization where
     Core.withObject
       "InputSerialization"
       ( \x ->
-          InputSerialization' Core.<$> (x Core..:? "csv")
+          InputSerialization' Prelude.<$> (x Core..:? "csv")
       )
 
-instance Core.Hashable InputSerialization
+instance Prelude.Hashable InputSerialization
 
-instance Core.NFData InputSerialization
+instance Prelude.NFData InputSerialization
 
 instance Core.ToJSON InputSerialization where
   toJSON InputSerialization' {..} =
     Core.object
-      (Core.catMaybes [("csv" Core..=) Core.<$> csv])
+      (Prelude.catMaybes [("csv" Core..=) Prelude.<$> csv])

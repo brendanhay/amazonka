@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,15 +68,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateAppCookieStickinessPolicy' smart constructor.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The name of the policy being created. Policy names must consist of
     -- alphanumeric characters and dashes (-). This name must be unique within
     -- the set of policies for this load balancer.
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The name of the application cookie used for stickiness.
-    cookieName :: Core.Text
+    cookieName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAppCookieStickinessPolicy' with all optional fields omitted.
@@ -94,11 +95,11 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
 -- 'cookieName', 'createAppCookieStickinessPolicy_cookieName' - The name of the application cookie used for stickiness.
 newCreateAppCookieStickinessPolicy ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'cookieName'
-  Core.Text ->
+  Prelude.Text ->
   CreateAppCookieStickinessPolicy
 newCreateAppCookieStickinessPolicy
   pLoadBalancerName_
@@ -112,17 +113,17 @@ newCreateAppCookieStickinessPolicy
       }
 
 -- | The name of the load balancer.
-createAppCookieStickinessPolicy_loadBalancerName :: Lens.Lens' CreateAppCookieStickinessPolicy Core.Text
+createAppCookieStickinessPolicy_loadBalancerName :: Lens.Lens' CreateAppCookieStickinessPolicy Prelude.Text
 createAppCookieStickinessPolicy_loadBalancerName = Lens.lens (\CreateAppCookieStickinessPolicy' {loadBalancerName} -> loadBalancerName) (\s@CreateAppCookieStickinessPolicy' {} a -> s {loadBalancerName = a} :: CreateAppCookieStickinessPolicy)
 
 -- | The name of the policy being created. Policy names must consist of
 -- alphanumeric characters and dashes (-). This name must be unique within
 -- the set of policies for this load balancer.
-createAppCookieStickinessPolicy_policyName :: Lens.Lens' CreateAppCookieStickinessPolicy Core.Text
+createAppCookieStickinessPolicy_policyName :: Lens.Lens' CreateAppCookieStickinessPolicy Prelude.Text
 createAppCookieStickinessPolicy_policyName = Lens.lens (\CreateAppCookieStickinessPolicy' {policyName} -> policyName) (\s@CreateAppCookieStickinessPolicy' {} a -> s {policyName = a} :: CreateAppCookieStickinessPolicy)
 
 -- | The name of the application cookie used for stickiness.
-createAppCookieStickinessPolicy_cookieName :: Lens.Lens' CreateAppCookieStickinessPolicy Core.Text
+createAppCookieStickinessPolicy_cookieName :: Lens.Lens' CreateAppCookieStickinessPolicy Prelude.Text
 createAppCookieStickinessPolicy_cookieName = Lens.lens (\CreateAppCookieStickinessPolicy' {cookieName} -> cookieName) (\s@CreateAppCookieStickinessPolicy' {} a -> s {cookieName = a} :: CreateAppCookieStickinessPolicy)
 
 instance
@@ -138,32 +139,35 @@ instance
       "CreateAppCookieStickinessPolicyResult"
       ( \s h x ->
           CreateAppCookieStickinessPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateAppCookieStickinessPolicy
 
-instance Core.NFData CreateAppCookieStickinessPolicy
+instance
+  Prelude.NFData
+    CreateAppCookieStickinessPolicy
 
 instance
   Core.ToHeaders
     CreateAppCookieStickinessPolicy
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateAppCookieStickinessPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAppCookieStickinessPolicy where
   toQuery CreateAppCookieStickinessPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "CreateAppCookieStickinessPolicy" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerName" Core.=: loadBalancerName,
         "PolicyName" Core.=: policyName,
         "CookieName" Core.=: cookieName
@@ -174,9 +178,9 @@ instance Core.ToQuery CreateAppCookieStickinessPolicy where
 -- /See:/ 'newCreateAppCookieStickinessPolicyResponse' smart constructor.
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAppCookieStickinessPolicyResponse' with all optional fields omitted.
@@ -189,7 +193,7 @@ data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyRe
 -- 'httpStatus', 'createAppCookieStickinessPolicyResponse_httpStatus' - The response's http status code.
 newCreateAppCookieStickinessPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAppCookieStickinessPolicyResponse
 newCreateAppCookieStickinessPolicyResponse
   pHttpStatus_ =
@@ -199,9 +203,9 @@ newCreateAppCookieStickinessPolicyResponse
       }
 
 -- | The response's http status code.
-createAppCookieStickinessPolicyResponse_httpStatus :: Lens.Lens' CreateAppCookieStickinessPolicyResponse Core.Int
+createAppCookieStickinessPolicyResponse_httpStatus :: Lens.Lens' CreateAppCookieStickinessPolicyResponse Prelude.Int
 createAppCookieStickinessPolicyResponse_httpStatus = Lens.lens (\CreateAppCookieStickinessPolicyResponse' {httpStatus} -> httpStatus) (\s@CreateAppCookieStickinessPolicyResponse' {} a -> s {httpStatus = a} :: CreateAppCookieStickinessPolicyResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateAppCookieStickinessPolicyResponse

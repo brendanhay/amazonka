@@ -21,6 +21,7 @@ module Network.AWS.Connect.Types.UserQuickConnectConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the quick connect configuration settings for
 -- a user. The contact flow must be of type Transfer to Agent.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUserQuickConnectConfig' smart constructor.
 data UserQuickConnectConfig = UserQuickConnectConfig'
   { -- | The identifier of the user.
-    userId :: Core.Text,
+    userId :: Prelude.Text,
     -- | The identifier of the contact flow.
-    contactFlowId :: Core.Text
+    contactFlowId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserQuickConnectConfig' with all optional fields omitted.
@@ -47,9 +48,9 @@ data UserQuickConnectConfig = UserQuickConnectConfig'
 -- 'contactFlowId', 'userQuickConnectConfig_contactFlowId' - The identifier of the contact flow.
 newUserQuickConnectConfig ::
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'contactFlowId'
-  Core.Text ->
+  Prelude.Text ->
   UserQuickConnectConfig
 newUserQuickConnectConfig pUserId_ pContactFlowId_ =
   UserQuickConnectConfig'
@@ -58,11 +59,11 @@ newUserQuickConnectConfig pUserId_ pContactFlowId_ =
     }
 
 -- | The identifier of the user.
-userQuickConnectConfig_userId :: Lens.Lens' UserQuickConnectConfig Core.Text
+userQuickConnectConfig_userId :: Lens.Lens' UserQuickConnectConfig Prelude.Text
 userQuickConnectConfig_userId = Lens.lens (\UserQuickConnectConfig' {userId} -> userId) (\s@UserQuickConnectConfig' {} a -> s {userId = a} :: UserQuickConnectConfig)
 
 -- | The identifier of the contact flow.
-userQuickConnectConfig_contactFlowId :: Lens.Lens' UserQuickConnectConfig Core.Text
+userQuickConnectConfig_contactFlowId :: Lens.Lens' UserQuickConnectConfig Prelude.Text
 userQuickConnectConfig_contactFlowId = Lens.lens (\UserQuickConnectConfig' {contactFlowId} -> contactFlowId) (\s@UserQuickConnectConfig' {} a -> s {contactFlowId = a} :: UserQuickConnectConfig)
 
 instance Core.FromJSON UserQuickConnectConfig where
@@ -71,19 +72,20 @@ instance Core.FromJSON UserQuickConnectConfig where
       "UserQuickConnectConfig"
       ( \x ->
           UserQuickConnectConfig'
-            Core.<$> (x Core..: "UserId")
-            Core.<*> (x Core..: "ContactFlowId")
+            Prelude.<$> (x Core..: "UserId")
+            Prelude.<*> (x Core..: "ContactFlowId")
       )
 
-instance Core.Hashable UserQuickConnectConfig
+instance Prelude.Hashable UserQuickConnectConfig
 
-instance Core.NFData UserQuickConnectConfig
+instance Prelude.NFData UserQuickConnectConfig
 
 instance Core.ToJSON UserQuickConnectConfig where
   toJSON UserQuickConnectConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserId" Core..= userId),
-            Core.Just ("ContactFlowId" Core..= contactFlowId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserId" Core..= userId),
+            Prelude.Just
+              ("ContactFlowId" Core..= contactFlowId)
           ]
       )

@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.Eac3SurroundMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When encoding 2\/0 audio, sets whether Dolby Surround is matrix encoded
 -- into the two channels.
@@ -36,15 +37,15 @@ newtype Eac3SurroundMode = Eac3SurroundMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

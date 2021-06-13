@@ -22,6 +22,7 @@ module Network.AWS.CodeDeploy.Types.GreenFleetProvisioningOption where
 import Network.AWS.CodeDeploy.Types.GreenFleetProvisioningAction
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the instances that belong to the replacement
 -- environment in a blue\/green deployment.
@@ -36,9 +37,9 @@ data GreenFleetProvisioningOption = GreenFleetProvisioningOption'
     -- -   @COPY_AUTO_SCALING_GROUP@: Use settings from a specified Auto
     --     Scaling group to define and create instances in a new Auto Scaling
     --     group.
-    action :: Core.Maybe GreenFleetProvisioningAction
+    action :: Prelude.Maybe GreenFleetProvisioningAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GreenFleetProvisioningOption' with all optional fields omitted.
@@ -61,7 +62,7 @@ newGreenFleetProvisioningOption ::
 newGreenFleetProvisioningOption =
   GreenFleetProvisioningOption'
     { action =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The method used to add instances to a replacement environment.
@@ -72,7 +73,7 @@ newGreenFleetProvisioningOption =
 -- -   @COPY_AUTO_SCALING_GROUP@: Use settings from a specified Auto
 --     Scaling group to define and create instances in a new Auto Scaling
 --     group.
-greenFleetProvisioningOption_action :: Lens.Lens' GreenFleetProvisioningOption (Core.Maybe GreenFleetProvisioningAction)
+greenFleetProvisioningOption_action :: Lens.Lens' GreenFleetProvisioningOption (Prelude.Maybe GreenFleetProvisioningAction)
 greenFleetProvisioningOption_action = Lens.lens (\GreenFleetProvisioningOption' {action} -> action) (\s@GreenFleetProvisioningOption' {} a -> s {action = a} :: GreenFleetProvisioningOption)
 
 instance Core.FromJSON GreenFleetProvisioningOption where
@@ -81,14 +82,18 @@ instance Core.FromJSON GreenFleetProvisioningOption where
       "GreenFleetProvisioningOption"
       ( \x ->
           GreenFleetProvisioningOption'
-            Core.<$> (x Core..:? "action")
+            Prelude.<$> (x Core..:? "action")
       )
 
-instance Core.Hashable GreenFleetProvisioningOption
+instance
+  Prelude.Hashable
+    GreenFleetProvisioningOption
 
-instance Core.NFData GreenFleetProvisioningOption
+instance Prelude.NFData GreenFleetProvisioningOption
 
 instance Core.ToJSON GreenFleetProvisioningOption where
   toJSON GreenFleetProvisioningOption' {..} =
     Core.object
-      (Core.catMaybes [("action" Core..=) Core.<$> action])
+      ( Prelude.catMaybes
+          [("action" Core..=) Prelude.<$> action]
+      )

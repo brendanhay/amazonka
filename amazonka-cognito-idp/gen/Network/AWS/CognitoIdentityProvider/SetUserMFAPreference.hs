@@ -53,19 +53,20 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetUserMFAPreference' smart constructor.
 data SetUserMFAPreference = SetUserMFAPreference'
   { -- | The time-based one-time password software token MFA settings.
-    softwareTokenMfaSettings :: Core.Maybe SoftwareTokenMfaSettingsType,
+    softwareTokenMfaSettings :: Prelude.Maybe SoftwareTokenMfaSettingsType,
     -- | The SMS text message multi-factor authentication (MFA) settings.
-    sMSMfaSettings :: Core.Maybe SMSMfaSettingsType,
+    sMSMfaSettings :: Prelude.Maybe SMSMfaSettingsType,
     -- | The access token for the user.
-    accessToken :: Core.Sensitive Core.Text
+    accessToken :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetUserMFAPreference' with all optional fields omitted.
@@ -82,27 +83,27 @@ data SetUserMFAPreference = SetUserMFAPreference'
 -- 'accessToken', 'setUserMFAPreference_accessToken' - The access token for the user.
 newSetUserMFAPreference ::
   -- | 'accessToken'
-  Core.Text ->
+  Prelude.Text ->
   SetUserMFAPreference
 newSetUserMFAPreference pAccessToken_ =
   SetUserMFAPreference'
     { softwareTokenMfaSettings =
-        Core.Nothing,
-      sMSMfaSettings = Core.Nothing,
+        Prelude.Nothing,
+      sMSMfaSettings = Prelude.Nothing,
       accessToken = Core._Sensitive Lens.# pAccessToken_
     }
 
 -- | The time-based one-time password software token MFA settings.
-setUserMFAPreference_softwareTokenMfaSettings :: Lens.Lens' SetUserMFAPreference (Core.Maybe SoftwareTokenMfaSettingsType)
+setUserMFAPreference_softwareTokenMfaSettings :: Lens.Lens' SetUserMFAPreference (Prelude.Maybe SoftwareTokenMfaSettingsType)
 setUserMFAPreference_softwareTokenMfaSettings = Lens.lens (\SetUserMFAPreference' {softwareTokenMfaSettings} -> softwareTokenMfaSettings) (\s@SetUserMFAPreference' {} a -> s {softwareTokenMfaSettings = a} :: SetUserMFAPreference)
 
 -- | The SMS text message multi-factor authentication (MFA) settings.
-setUserMFAPreference_sMSMfaSettings :: Lens.Lens' SetUserMFAPreference (Core.Maybe SMSMfaSettingsType)
+setUserMFAPreference_sMSMfaSettings :: Lens.Lens' SetUserMFAPreference (Prelude.Maybe SMSMfaSettingsType)
 setUserMFAPreference_sMSMfaSettings = Lens.lens (\SetUserMFAPreference' {sMSMfaSettings} -> sMSMfaSettings) (\s@SetUserMFAPreference' {} a -> s {sMSMfaSettings = a} :: SetUserMFAPreference)
 
 -- | The access token for the user.
-setUserMFAPreference_accessToken :: Lens.Lens' SetUserMFAPreference Core.Text
-setUserMFAPreference_accessToken = Lens.lens (\SetUserMFAPreference' {accessToken} -> accessToken) (\s@SetUserMFAPreference' {} a -> s {accessToken = a} :: SetUserMFAPreference) Core.. Core._Sensitive
+setUserMFAPreference_accessToken :: Lens.Lens' SetUserMFAPreference Prelude.Text
+setUserMFAPreference_accessToken = Lens.lens (\SetUserMFAPreference' {accessToken} -> accessToken) (\s@SetUserMFAPreference' {} a -> s {accessToken = a} :: SetUserMFAPreference) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest SetUserMFAPreference where
   type
@@ -113,49 +114,52 @@ instance Core.AWSRequest SetUserMFAPreference where
     Response.receiveEmpty
       ( \s h x ->
           SetUserMFAPreferenceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetUserMFAPreference
+instance Prelude.Hashable SetUserMFAPreference
 
-instance Core.NFData SetUserMFAPreference
+instance Prelude.NFData SetUserMFAPreference
 
 instance Core.ToHeaders SetUserMFAPreference where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.SetUserMFAPreference" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetUserMFAPreference where
   toJSON SetUserMFAPreference' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SoftwareTokenMfaSettings" Core..=)
-              Core.<$> softwareTokenMfaSettings,
-            ("SMSMfaSettings" Core..=) Core.<$> sMSMfaSettings,
-            Core.Just ("AccessToken" Core..= accessToken)
+              Prelude.<$> softwareTokenMfaSettings,
+            ("SMSMfaSettings" Core..=)
+              Prelude.<$> sMSMfaSettings,
+            Prelude.Just ("AccessToken" Core..= accessToken)
           ]
       )
 
 instance Core.ToPath SetUserMFAPreference where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetUserMFAPreference where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetUserMFAPreferenceResponse' smart constructor.
 data SetUserMFAPreferenceResponse = SetUserMFAPreferenceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetUserMFAPreferenceResponse' with all optional fields omitted.
@@ -168,7 +172,7 @@ data SetUserMFAPreferenceResponse = SetUserMFAPreferenceResponse'
 -- 'httpStatus', 'setUserMFAPreferenceResponse_httpStatus' - The response's http status code.
 newSetUserMFAPreferenceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetUserMFAPreferenceResponse
 newSetUserMFAPreferenceResponse pHttpStatus_ =
   SetUserMFAPreferenceResponse'
@@ -177,7 +181,7 @@ newSetUserMFAPreferenceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setUserMFAPreferenceResponse_httpStatus :: Lens.Lens' SetUserMFAPreferenceResponse Core.Int
+setUserMFAPreferenceResponse_httpStatus :: Lens.Lens' SetUserMFAPreferenceResponse Prelude.Int
 setUserMFAPreferenceResponse_httpStatus = Lens.lens (\SetUserMFAPreferenceResponse' {httpStatus} -> httpStatus) (\s@SetUserMFAPreferenceResponse' {} a -> s {httpStatus = a} :: SetUserMFAPreferenceResponse)
 
-instance Core.NFData SetUserMFAPreferenceResponse
+instance Prelude.NFData SetUserMFAPreferenceResponse

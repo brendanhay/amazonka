@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.InstanceSpecification where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The instance details to specify which volumes should be snapshotted.
 --
 -- /See:/ 'newInstanceSpecification' smart constructor.
 data InstanceSpecification = InstanceSpecification'
   { -- | The instance to specify which volumes should be snapshotted.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Excludes the root volume from being snapshotted.
-    excludeBootVolume :: Core.Maybe Core.Bool
+    excludeBootVolume :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceSpecification' with all optional fields omitted.
@@ -49,25 +50,26 @@ newInstanceSpecification ::
   InstanceSpecification
 newInstanceSpecification =
   InstanceSpecification'
-    { instanceId = Core.Nothing,
-      excludeBootVolume = Core.Nothing
+    { instanceId =
+        Prelude.Nothing,
+      excludeBootVolume = Prelude.Nothing
     }
 
 -- | The instance to specify which volumes should be snapshotted.
-instanceSpecification_instanceId :: Lens.Lens' InstanceSpecification (Core.Maybe Core.Text)
+instanceSpecification_instanceId :: Lens.Lens' InstanceSpecification (Prelude.Maybe Prelude.Text)
 instanceSpecification_instanceId = Lens.lens (\InstanceSpecification' {instanceId} -> instanceId) (\s@InstanceSpecification' {} a -> s {instanceId = a} :: InstanceSpecification)
 
 -- | Excludes the root volume from being snapshotted.
-instanceSpecification_excludeBootVolume :: Lens.Lens' InstanceSpecification (Core.Maybe Core.Bool)
+instanceSpecification_excludeBootVolume :: Lens.Lens' InstanceSpecification (Prelude.Maybe Prelude.Bool)
 instanceSpecification_excludeBootVolume = Lens.lens (\InstanceSpecification' {excludeBootVolume} -> excludeBootVolume) (\s@InstanceSpecification' {} a -> s {excludeBootVolume = a} :: InstanceSpecification)
 
-instance Core.Hashable InstanceSpecification
+instance Prelude.Hashable InstanceSpecification
 
-instance Core.NFData InstanceSpecification
+instance Prelude.NFData InstanceSpecification
 
 instance Core.ToQuery InstanceSpecification where
   toQuery InstanceSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "InstanceId" Core.=: instanceId,
         "ExcludeBootVolume" Core.=: excludeBootVolume
       ]

@@ -87,6 +87,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -96,15 +97,15 @@ data GetClip = GetClip'
     -- media clip.
     --
     -- You must specify either the StreamName or the StreamARN.
-    streamARN :: Core.Maybe Core.Text,
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream for which to retrieve the media clip.
     --
     -- You must specify either the StreamName or the StreamARN.
-    streamName :: Core.Maybe Core.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The time range of the requested clip and the source of the timestamps.
     clipFragmentSelector :: ClipFragmentSelector
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetClip' with all optional fields omitted.
@@ -130,8 +131,8 @@ newGetClip ::
   GetClip
 newGetClip pClipFragmentSelector_ =
   GetClip'
-    { streamARN = Core.Nothing,
-      streamName = Core.Nothing,
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
       clipFragmentSelector = pClipFragmentSelector_
     }
 
@@ -139,13 +140,13 @@ newGetClip pClipFragmentSelector_ =
 -- media clip.
 --
 -- You must specify either the StreamName or the StreamARN.
-getClip_streamARN :: Lens.Lens' GetClip (Core.Maybe Core.Text)
+getClip_streamARN :: Lens.Lens' GetClip (Prelude.Maybe Prelude.Text)
 getClip_streamARN = Lens.lens (\GetClip' {streamARN} -> streamARN) (\s@GetClip' {} a -> s {streamARN = a} :: GetClip)
 
 -- | The name of the stream for which to retrieve the media clip.
 --
 -- You must specify either the StreamName or the StreamARN.
-getClip_streamName :: Lens.Lens' GetClip (Core.Maybe Core.Text)
+getClip_streamName :: Lens.Lens' GetClip (Prelude.Maybe Prelude.Text)
 getClip_streamName = Lens.lens (\GetClip' {streamName} -> streamName) (\s@GetClip' {} a -> s {streamName = a} :: GetClip)
 
 -- | The time range of the requested clip and the source of the timestamps.
@@ -159,25 +160,25 @@ instance Core.AWSRequest GetClip where
     Response.receiveBody
       ( \s h x ->
           GetClipResponse'
-            Core.<$> (h Core..#? "Content-Type")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.pure x)
+            Prelude.<$> (h Core..#? "Content-Type")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure x)
       )
 
-instance Core.Hashable GetClip
+instance Prelude.Hashable GetClip
 
-instance Core.NFData GetClip
+instance Prelude.NFData GetClip
 
 instance Core.ToHeaders GetClip where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetClip where
   toJSON GetClip' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StreamARN" Core..=) Core.<$> streamARN,
-            ("StreamName" Core..=) Core.<$> streamName,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("StreamName" Core..=) Prelude.<$> streamName,
+            Prelude.Just
               ( "ClipFragmentSelector"
                   Core..= clipFragmentSelector
               )
@@ -185,24 +186,24 @@ instance Core.ToJSON GetClip where
       )
 
 instance Core.ToPath GetClip where
-  toPath = Core.const "/getClip"
+  toPath = Prelude.const "/getClip"
 
 instance Core.ToQuery GetClip where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetClipResponse' smart constructor.
 data GetClipResponse = GetClipResponse'
   { -- | The content type of the media in the requested clip.
-    contentType :: Core.Maybe Core.Text,
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Traditional MP4 file that contains the media clip from the specified
     -- video stream. The output will contain the first 100 MB or the first 200
     -- fragments from the specified start timestamp. For more information, see
     -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
     payload :: Core.ResponseBody
   }
-  deriving (Core.Show, Core.Generic)
+  deriving (Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetClipResponse' with all optional fields omitted.
@@ -222,23 +223,23 @@ data GetClipResponse = GetClipResponse'
 -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
 newGetClipResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'payload'
   Core.ResponseBody ->
   GetClipResponse
 newGetClipResponse pHttpStatus_ pPayload_ =
   GetClipResponse'
-    { contentType = Core.Nothing,
+    { contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       payload = pPayload_
     }
 
 -- | The content type of the media in the requested clip.
-getClipResponse_contentType :: Lens.Lens' GetClipResponse (Core.Maybe Core.Text)
+getClipResponse_contentType :: Lens.Lens' GetClipResponse (Prelude.Maybe Prelude.Text)
 getClipResponse_contentType = Lens.lens (\GetClipResponse' {contentType} -> contentType) (\s@GetClipResponse' {} a -> s {contentType = a} :: GetClipResponse)
 
 -- | The response's http status code.
-getClipResponse_httpStatus :: Lens.Lens' GetClipResponse Core.Int
+getClipResponse_httpStatus :: Lens.Lens' GetClipResponse Prelude.Int
 getClipResponse_httpStatus = Lens.lens (\GetClipResponse' {httpStatus} -> httpStatus) (\s@GetClipResponse' {} a -> s {httpStatus = a} :: GetClipResponse)
 
 -- | Traditional MP4 file that contains the media clip from the specified

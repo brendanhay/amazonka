@@ -72,6 +72,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,11 +84,11 @@ data ListRetirableGrants = ListRetirableGrants'
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 100, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter in a subsequent request after you receive a response
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The retiring principal for which to list grants. Enter a principal in
     -- your AWS account.
     --
@@ -99,9 +100,9 @@ data ListRetirableGrants = ListRetirableGrants'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
     -- in the Example ARNs section of the /Amazon Web Services General
     -- Reference/.
-    retiringPrincipal :: Core.Text
+    retiringPrincipal :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRetirableGrants' with all optional fields omitted.
@@ -135,12 +136,12 @@ data ListRetirableGrants = ListRetirableGrants'
 -- Reference/.
 newListRetirableGrants ::
   -- | 'retiringPrincipal'
-  Core.Text ->
+  Prelude.Text ->
   ListRetirableGrants
 newListRetirableGrants pRetiringPrincipal_ =
   ListRetirableGrants'
-    { limit = Core.Nothing,
-      marker = Core.Nothing,
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       retiringPrincipal = pRetiringPrincipal_
     }
 
@@ -150,13 +151,13 @@ newListRetirableGrants pRetiringPrincipal_ =
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
-listRetirableGrants_limit :: Lens.Lens' ListRetirableGrants (Core.Maybe Core.Natural)
+listRetirableGrants_limit :: Lens.Lens' ListRetirableGrants (Prelude.Maybe Prelude.Natural)
 listRetirableGrants_limit = Lens.lens (\ListRetirableGrants' {limit} -> limit) (\s@ListRetirableGrants' {} a -> s {limit = a} :: ListRetirableGrants)
 
 -- | Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
-listRetirableGrants_marker :: Lens.Lens' ListRetirableGrants (Core.Maybe Core.Text)
+listRetirableGrants_marker :: Lens.Lens' ListRetirableGrants (Prelude.Maybe Prelude.Text)
 listRetirableGrants_marker = Lens.lens (\ListRetirableGrants' {marker} -> marker) (\s@ListRetirableGrants' {} a -> s {marker = a} :: ListRetirableGrants)
 
 -- | The retiring principal for which to list grants. Enter a principal in
@@ -170,7 +171,7 @@ listRetirableGrants_marker = Lens.lens (\ListRetirableGrants' {marker} -> marker
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
 -- in the Example ARNs section of the /Amazon Web Services General
 -- Reference/.
-listRetirableGrants_retiringPrincipal :: Lens.Lens' ListRetirableGrants Core.Text
+listRetirableGrants_retiringPrincipal :: Lens.Lens' ListRetirableGrants Prelude.Text
 listRetirableGrants_retiringPrincipal = Lens.lens (\ListRetirableGrants' {retiringPrincipal} -> retiringPrincipal) (\s@ListRetirableGrants' {} a -> s {retiringPrincipal = a} :: ListRetirableGrants)
 
 instance Core.AWSRequest ListRetirableGrants where
@@ -182,36 +183,38 @@ instance Core.AWSRequest ListRetirableGrants where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable ListRetirableGrants
+instance Prelude.Hashable ListRetirableGrants
 
-instance Core.NFData ListRetirableGrants
+instance Prelude.NFData ListRetirableGrants
 
 instance Core.ToHeaders ListRetirableGrants where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.ListRetirableGrants" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListRetirableGrants where
   toJSON ListRetirableGrants' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Limit" Core..=) Core.<$> limit,
-            ("Marker" Core..=) Core.<$> marker,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("Marker" Core..=) Prelude.<$> marker,
+            Prelude.Just
               ("RetiringPrincipal" Core..= retiringPrincipal)
           ]
       )
 
 instance Core.ToPath ListRetirableGrants where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListRetirableGrants where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

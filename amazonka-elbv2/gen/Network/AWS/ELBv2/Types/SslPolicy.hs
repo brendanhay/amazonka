@@ -22,19 +22,20 @@ module Network.AWS.ELBv2.Types.SslPolicy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.Cipher
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a policy used for SSL negotiation.
 --
 -- /See:/ 'newSslPolicy' smart constructor.
 data SslPolicy = SslPolicy'
   { -- | The ciphers.
-    ciphers :: Core.Maybe [Cipher],
+    ciphers :: Prelude.Maybe [Cipher],
     -- | The name of the policy.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The protocols.
-    sslProtocols :: Core.Maybe [Core.Text]
+    sslProtocols :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SslPolicy' with all optional fields omitted.
@@ -53,34 +54,34 @@ newSslPolicy ::
   SslPolicy
 newSslPolicy =
   SslPolicy'
-    { ciphers = Core.Nothing,
-      name = Core.Nothing,
-      sslProtocols = Core.Nothing
+    { ciphers = Prelude.Nothing,
+      name = Prelude.Nothing,
+      sslProtocols = Prelude.Nothing
     }
 
 -- | The ciphers.
-sslPolicy_ciphers :: Lens.Lens' SslPolicy (Core.Maybe [Cipher])
-sslPolicy_ciphers = Lens.lens (\SslPolicy' {ciphers} -> ciphers) (\s@SslPolicy' {} a -> s {ciphers = a} :: SslPolicy) Core.. Lens.mapping Lens._Coerce
+sslPolicy_ciphers :: Lens.Lens' SslPolicy (Prelude.Maybe [Cipher])
+sslPolicy_ciphers = Lens.lens (\SslPolicy' {ciphers} -> ciphers) (\s@SslPolicy' {} a -> s {ciphers = a} :: SslPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the policy.
-sslPolicy_name :: Lens.Lens' SslPolicy (Core.Maybe Core.Text)
+sslPolicy_name :: Lens.Lens' SslPolicy (Prelude.Maybe Prelude.Text)
 sslPolicy_name = Lens.lens (\SslPolicy' {name} -> name) (\s@SslPolicy' {} a -> s {name = a} :: SslPolicy)
 
 -- | The protocols.
-sslPolicy_sslProtocols :: Lens.Lens' SslPolicy (Core.Maybe [Core.Text])
-sslPolicy_sslProtocols = Lens.lens (\SslPolicy' {sslProtocols} -> sslProtocols) (\s@SslPolicy' {} a -> s {sslProtocols = a} :: SslPolicy) Core.. Lens.mapping Lens._Coerce
+sslPolicy_sslProtocols :: Lens.Lens' SslPolicy (Prelude.Maybe [Prelude.Text])
+sslPolicy_sslProtocols = Lens.lens (\SslPolicy' {sslProtocols} -> sslProtocols) (\s@SslPolicy' {} a -> s {sslProtocols = a} :: SslPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML SslPolicy where
   parseXML x =
     SslPolicy'
-      Core.<$> ( x Core..@? "Ciphers" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "Name")
-      Core.<*> ( x Core..@? "SslProtocols" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "Ciphers" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "Name")
+      Prelude.<*> ( x Core..@? "SslProtocols" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable SslPolicy
+instance Prelude.Hashable SslPolicy
 
-instance Core.NFData SslPolicy
+instance Prelude.NFData SslPolicy

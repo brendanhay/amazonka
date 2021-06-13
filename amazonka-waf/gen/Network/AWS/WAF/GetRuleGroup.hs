@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -61,9 +62,9 @@ import Network.AWS.WAF.Types
 data GetRuleGroup = GetRuleGroup'
   { -- | The @RuleGroupId@ of the RuleGroup that you want to get. @RuleGroupId@
     -- is returned by CreateRuleGroup and by ListRuleGroups.
-    ruleGroupId :: Core.Text
+    ruleGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRuleGroup' with all optional fields omitted.
@@ -77,14 +78,14 @@ data GetRuleGroup = GetRuleGroup'
 -- is returned by CreateRuleGroup and by ListRuleGroups.
 newGetRuleGroup ::
   -- | 'ruleGroupId'
-  Core.Text ->
+  Prelude.Text ->
   GetRuleGroup
 newGetRuleGroup pRuleGroupId_ =
   GetRuleGroup' {ruleGroupId = pRuleGroupId_}
 
 -- | The @RuleGroupId@ of the RuleGroup that you want to get. @RuleGroupId@
 -- is returned by CreateRuleGroup and by ListRuleGroups.
-getRuleGroup_ruleGroupId :: Lens.Lens' GetRuleGroup Core.Text
+getRuleGroup_ruleGroupId :: Lens.Lens' GetRuleGroup Prelude.Text
 getRuleGroup_ruleGroupId = Lens.lens (\GetRuleGroup' {ruleGroupId} -> ruleGroupId) (\s@GetRuleGroup' {} a -> s {ruleGroupId = a} :: GetRuleGroup)
 
 instance Core.AWSRequest GetRuleGroup where
@@ -94,47 +95,51 @@ instance Core.AWSRequest GetRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           GetRuleGroupResponse'
-            Core.<$> (x Core..?> "RuleGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RuleGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRuleGroup
+instance Prelude.Hashable GetRuleGroup
 
-instance Core.NFData GetRuleGroup
+instance Prelude.NFData GetRuleGroup
 
 instance Core.ToHeaders GetRuleGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSWAF_20150824.GetRuleGroup" :: Core.ByteString),
+              Core.=# ( "AWSWAF_20150824.GetRuleGroup" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRuleGroup where
   toJSON GetRuleGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RuleGroupId" Core..= ruleGroupId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RuleGroupId" Core..= ruleGroupId)]
       )
 
 instance Core.ToPath GetRuleGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRuleGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRuleGroupResponse' smart constructor.
 data GetRuleGroupResponse = GetRuleGroupResponse'
   { -- | Information about the RuleGroup that you specified in the @GetRuleGroup@
     -- request.
-    ruleGroup :: Core.Maybe RuleGroup,
+    ruleGroup :: Prelude.Maybe RuleGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRuleGroupResponse' with all optional fields omitted.
@@ -150,21 +155,21 @@ data GetRuleGroupResponse = GetRuleGroupResponse'
 -- 'httpStatus', 'getRuleGroupResponse_httpStatus' - The response's http status code.
 newGetRuleGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRuleGroupResponse
 newGetRuleGroupResponse pHttpStatus_ =
   GetRuleGroupResponse'
-    { ruleGroup = Core.Nothing,
+    { ruleGroup = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the RuleGroup that you specified in the @GetRuleGroup@
 -- request.
-getRuleGroupResponse_ruleGroup :: Lens.Lens' GetRuleGroupResponse (Core.Maybe RuleGroup)
+getRuleGroupResponse_ruleGroup :: Lens.Lens' GetRuleGroupResponse (Prelude.Maybe RuleGroup)
 getRuleGroupResponse_ruleGroup = Lens.lens (\GetRuleGroupResponse' {ruleGroup} -> ruleGroup) (\s@GetRuleGroupResponse' {} a -> s {ruleGroup = a} :: GetRuleGroupResponse)
 
 -- | The response's http status code.
-getRuleGroupResponse_httpStatus :: Lens.Lens' GetRuleGroupResponse Core.Int
+getRuleGroupResponse_httpStatus :: Lens.Lens' GetRuleGroupResponse Prelude.Int
 getRuleGroupResponse_httpStatus = Lens.lens (\GetRuleGroupResponse' {httpStatus} -> httpStatus) (\s@GetRuleGroupResponse' {} a -> s {httpStatus = a} :: GetRuleGroupResponse)
 
-instance Core.NFData GetRuleGroupResponse
+instance Prelude.NFData GetRuleGroupResponse

@@ -24,6 +24,7 @@ import Network.AWS.AWSHealth.Types.EventStatusCode
 import Network.AWS.AWSHealth.Types.EventTypeCategory
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about an AWS Health event.
 --
@@ -48,7 +49,7 @@ import qualified Network.AWS.Lens as Lens
 data Event = Event'
   { -- | The category of the event. Possible values are @issue@,
     -- @scheduledChange@, and @accountNotification@.
-    eventTypeCategory :: Core.Maybe EventTypeCategory,
+    eventTypeCategory :: Prelude.Maybe EventTypeCategory,
     -- | This parameter specifies if the AWS Health event is a public AWS service
     -- event or an account-specific event.
     --
@@ -63,34 +64,34 @@ data Event = Event'
     --
     -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
     --     you specified in the request is invalid or doesn\'t exist.
-    eventScopeCode :: Core.Maybe EventScopeCode,
+    eventScopeCode :: Prelude.Maybe EventScopeCode,
     -- | The date and time that the event began.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The AWS service that is affected by the event. For example, @EC2@,
     -- @RDS@.
-    service :: Core.Maybe Core.Text,
+    service :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event. Format:
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
     -- Example:
     -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event ended.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The AWS Availability Zone of the event. For example, us-east-1a.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The most recent status of the event. Possible values are @open@,
     -- @closed@, and @upcoming@.
-    statusCode :: Core.Maybe EventStatusCode,
+    statusCode :: Prelude.Maybe EventStatusCode,
     -- | The unique identifier for the event type. The format is
     -- @AWS_SERVICE_DESCRIPTION @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
-    eventTypeCode :: Core.Maybe Core.Text,
+    eventTypeCode :: Prelude.Maybe Prelude.Text,
     -- | The AWS region name of the event.
-    region :: Core.Maybe Core.Text,
+    region :: Prelude.Maybe Prelude.Text,
     -- | The most recent date and time that the event was updated.
-    lastUpdatedTime :: Core.Maybe Core.POSIX
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Event' with all optional fields omitted.
@@ -146,22 +147,22 @@ newEvent ::
   Event
 newEvent =
   Event'
-    { eventTypeCategory = Core.Nothing,
-      eventScopeCode = Core.Nothing,
-      startTime = Core.Nothing,
-      service = Core.Nothing,
-      arn = Core.Nothing,
-      endTime = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      statusCode = Core.Nothing,
-      eventTypeCode = Core.Nothing,
-      region = Core.Nothing,
-      lastUpdatedTime = Core.Nothing
+    { eventTypeCategory = Prelude.Nothing,
+      eventScopeCode = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      service = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      statusCode = Prelude.Nothing,
+      eventTypeCode = Prelude.Nothing,
+      region = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing
     }
 
 -- | The category of the event. Possible values are @issue@,
 -- @scheduledChange@, and @accountNotification@.
-event_eventTypeCategory :: Lens.Lens' Event (Core.Maybe EventTypeCategory)
+event_eventTypeCategory :: Lens.Lens' Event (Prelude.Maybe EventTypeCategory)
 event_eventTypeCategory = Lens.lens (\Event' {eventTypeCategory} -> eventTypeCategory) (\s@Event' {} a -> s {eventTypeCategory = a} :: Event)
 
 -- | This parameter specifies if the AWS Health event is a public AWS service
@@ -178,51 +179,51 @@ event_eventTypeCategory = Lens.lens (\Event' {eventTypeCategory} -> eventTypeCat
 --
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
-event_eventScopeCode :: Lens.Lens' Event (Core.Maybe EventScopeCode)
+event_eventScopeCode :: Lens.Lens' Event (Prelude.Maybe EventScopeCode)
 event_eventScopeCode = Lens.lens (\Event' {eventScopeCode} -> eventScopeCode) (\s@Event' {} a -> s {eventScopeCode = a} :: Event)
 
 -- | The date and time that the event began.
-event_startTime :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
-event_startTime = Lens.lens (\Event' {startTime} -> startTime) (\s@Event' {} a -> s {startTime = a} :: Event) Core.. Lens.mapping Core._Time
+event_startTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_startTime = Lens.lens (\Event' {startTime} -> startTime) (\s@Event' {} a -> s {startTime = a} :: Event) Prelude.. Lens.mapping Core._Time
 
 -- | The AWS service that is affected by the event. For example, @EC2@,
 -- @RDS@.
-event_service :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_service :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_service = Lens.lens (\Event' {service} -> service) (\s@Event' {} a -> s {service = a} :: Event)
 
 -- | The unique identifier for the event. Format:
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
 -- Example:
 -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-event_arn :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_arn :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_arn = Lens.lens (\Event' {arn} -> arn) (\s@Event' {} a -> s {arn = a} :: Event)
 
 -- | The date and time that the event ended.
-event_endTime :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
-event_endTime = Lens.lens (\Event' {endTime} -> endTime) (\s@Event' {} a -> s {endTime = a} :: Event) Core.. Lens.mapping Core._Time
+event_endTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_endTime = Lens.lens (\Event' {endTime} -> endTime) (\s@Event' {} a -> s {endTime = a} :: Event) Prelude.. Lens.mapping Core._Time
 
 -- | The AWS Availability Zone of the event. For example, us-east-1a.
-event_availabilityZone :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_availabilityZone :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_availabilityZone = Lens.lens (\Event' {availabilityZone} -> availabilityZone) (\s@Event' {} a -> s {availabilityZone = a} :: Event)
 
 -- | The most recent status of the event. Possible values are @open@,
 -- @closed@, and @upcoming@.
-event_statusCode :: Lens.Lens' Event (Core.Maybe EventStatusCode)
+event_statusCode :: Lens.Lens' Event (Prelude.Maybe EventStatusCode)
 event_statusCode = Lens.lens (\Event' {statusCode} -> statusCode) (\s@Event' {} a -> s {statusCode = a} :: Event)
 
 -- | The unique identifier for the event type. The format is
 -- @AWS_SERVICE_DESCRIPTION @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
-event_eventTypeCode :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_eventTypeCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventTypeCode = Lens.lens (\Event' {eventTypeCode} -> eventTypeCode) (\s@Event' {} a -> s {eventTypeCode = a} :: Event)
 
 -- | The AWS region name of the event.
-event_region :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_region :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_region = Lens.lens (\Event' {region} -> region) (\s@Event' {} a -> s {region = a} :: Event)
 
 -- | The most recent date and time that the event was updated.
-event_lastUpdatedTime :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
-event_lastUpdatedTime = Lens.lens (\Event' {lastUpdatedTime} -> lastUpdatedTime) (\s@Event' {} a -> s {lastUpdatedTime = a} :: Event) Core.. Lens.mapping Core._Time
+event_lastUpdatedTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_lastUpdatedTime = Lens.lens (\Event' {lastUpdatedTime} -> lastUpdatedTime) (\s@Event' {} a -> s {lastUpdatedTime = a} :: Event) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Event where
   parseJSON =
@@ -230,19 +231,19 @@ instance Core.FromJSON Event where
       "Event"
       ( \x ->
           Event'
-            Core.<$> (x Core..:? "eventTypeCategory")
-            Core.<*> (x Core..:? "eventScopeCode")
-            Core.<*> (x Core..:? "startTime")
-            Core.<*> (x Core..:? "service")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "endTime")
-            Core.<*> (x Core..:? "availabilityZone")
-            Core.<*> (x Core..:? "statusCode")
-            Core.<*> (x Core..:? "eventTypeCode")
-            Core.<*> (x Core..:? "region")
-            Core.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<$> (x Core..:? "eventTypeCategory")
+            Prelude.<*> (x Core..:? "eventScopeCode")
+            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Core..:? "service")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "endTime")
+            Prelude.<*> (x Core..:? "availabilityZone")
+            Prelude.<*> (x Core..:? "statusCode")
+            Prelude.<*> (x Core..:? "eventTypeCode")
+            Prelude.<*> (x Core..:? "region")
+            Prelude.<*> (x Core..:? "lastUpdatedTime")
       )
 
-instance Core.Hashable Event
+instance Prelude.Hashable Event
 
-instance Core.NFData Event
+instance Prelude.NFData Event

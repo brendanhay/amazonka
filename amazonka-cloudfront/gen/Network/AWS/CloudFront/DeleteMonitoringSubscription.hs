@@ -42,15 +42,16 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteMonitoringSubscription' smart constructor.
 data DeleteMonitoringSubscription = DeleteMonitoringSubscription'
   { -- | The ID of the distribution that you are disabling metrics for.
-    distributionId :: Core.Text
+    distributionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMonitoringSubscription' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteMonitoringSubscription = DeleteMonitoringSubscription'
 -- 'distributionId', 'deleteMonitoringSubscription_distributionId' - The ID of the distribution that you are disabling metrics for.
 newDeleteMonitoringSubscription ::
   -- | 'distributionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMonitoringSubscription
 newDeleteMonitoringSubscription pDistributionId_ =
   DeleteMonitoringSubscription'
@@ -72,7 +73,7 @@ newDeleteMonitoringSubscription pDistributionId_ =
     }
 
 -- | The ID of the distribution that you are disabling metrics for.
-deleteMonitoringSubscription_distributionId :: Lens.Lens' DeleteMonitoringSubscription Core.Text
+deleteMonitoringSubscription_distributionId :: Lens.Lens' DeleteMonitoringSubscription Prelude.Text
 deleteMonitoringSubscription_distributionId = Lens.lens (\DeleteMonitoringSubscription' {distributionId} -> distributionId) (\s@DeleteMonitoringSubscription' {} a -> s {distributionId = a} :: DeleteMonitoringSubscription)
 
 instance Core.AWSRequest DeleteMonitoringSubscription where
@@ -84,33 +85,35 @@ instance Core.AWSRequest DeleteMonitoringSubscription where
     Response.receiveEmpty
       ( \s h x ->
           DeleteMonitoringSubscriptionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteMonitoringSubscription
+instance
+  Prelude.Hashable
+    DeleteMonitoringSubscription
 
-instance Core.NFData DeleteMonitoringSubscription
+instance Prelude.NFData DeleteMonitoringSubscription
 
 instance Core.ToHeaders DeleteMonitoringSubscription where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteMonitoringSubscription where
   toPath DeleteMonitoringSubscription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/distributions/",
         Core.toBS distributionId,
         "/monitoring-subscription"
       ]
 
 instance Core.ToQuery DeleteMonitoringSubscription where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMonitoringSubscriptionResponse' smart constructor.
 data DeleteMonitoringSubscriptionResponse = DeleteMonitoringSubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMonitoringSubscriptionResponse' with all optional fields omitted.
@@ -123,7 +126,7 @@ data DeleteMonitoringSubscriptionResponse = DeleteMonitoringSubscriptionResponse
 -- 'httpStatus', 'deleteMonitoringSubscriptionResponse_httpStatus' - The response's http status code.
 newDeleteMonitoringSubscriptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteMonitoringSubscriptionResponse
 newDeleteMonitoringSubscriptionResponse pHttpStatus_ =
   DeleteMonitoringSubscriptionResponse'
@@ -132,9 +135,9 @@ newDeleteMonitoringSubscriptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteMonitoringSubscriptionResponse_httpStatus :: Lens.Lens' DeleteMonitoringSubscriptionResponse Core.Int
+deleteMonitoringSubscriptionResponse_httpStatus :: Lens.Lens' DeleteMonitoringSubscriptionResponse Prelude.Int
 deleteMonitoringSubscriptionResponse_httpStatus = Lens.lens (\DeleteMonitoringSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DeleteMonitoringSubscriptionResponse' {} a -> s {httpStatus = a} :: DeleteMonitoringSubscriptionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteMonitoringSubscriptionResponse

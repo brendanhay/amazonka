@@ -21,17 +21,18 @@ module Network.AWS.OpsWorks.Types.ChefConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Chef configuration.
 --
 -- /See:/ 'newChefConfiguration' smart constructor.
 data ChefConfiguration = ChefConfiguration'
   { -- | Whether to enable Berkshelf.
-    manageBerkshelf :: Core.Maybe Core.Bool,
+    manageBerkshelf :: Prelude.Maybe Prelude.Bool,
     -- | The Berkshelf version.
-    berkshelfVersion :: Core.Maybe Core.Text
+    berkshelfVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChefConfiguration' with all optional fields omitted.
@@ -48,16 +49,17 @@ newChefConfiguration ::
   ChefConfiguration
 newChefConfiguration =
   ChefConfiguration'
-    { manageBerkshelf = Core.Nothing,
-      berkshelfVersion = Core.Nothing
+    { manageBerkshelf =
+        Prelude.Nothing,
+      berkshelfVersion = Prelude.Nothing
     }
 
 -- | Whether to enable Berkshelf.
-chefConfiguration_manageBerkshelf :: Lens.Lens' ChefConfiguration (Core.Maybe Core.Bool)
+chefConfiguration_manageBerkshelf :: Lens.Lens' ChefConfiguration (Prelude.Maybe Prelude.Bool)
 chefConfiguration_manageBerkshelf = Lens.lens (\ChefConfiguration' {manageBerkshelf} -> manageBerkshelf) (\s@ChefConfiguration' {} a -> s {manageBerkshelf = a} :: ChefConfiguration)
 
 -- | The Berkshelf version.
-chefConfiguration_berkshelfVersion :: Lens.Lens' ChefConfiguration (Core.Maybe Core.Text)
+chefConfiguration_berkshelfVersion :: Lens.Lens' ChefConfiguration (Prelude.Maybe Prelude.Text)
 chefConfiguration_berkshelfVersion = Lens.lens (\ChefConfiguration' {berkshelfVersion} -> berkshelfVersion) (\s@ChefConfiguration' {} a -> s {berkshelfVersion = a} :: ChefConfiguration)
 
 instance Core.FromJSON ChefConfiguration where
@@ -66,21 +68,21 @@ instance Core.FromJSON ChefConfiguration where
       "ChefConfiguration"
       ( \x ->
           ChefConfiguration'
-            Core.<$> (x Core..:? "ManageBerkshelf")
-            Core.<*> (x Core..:? "BerkshelfVersion")
+            Prelude.<$> (x Core..:? "ManageBerkshelf")
+            Prelude.<*> (x Core..:? "BerkshelfVersion")
       )
 
-instance Core.Hashable ChefConfiguration
+instance Prelude.Hashable ChefConfiguration
 
-instance Core.NFData ChefConfiguration
+instance Prelude.NFData ChefConfiguration
 
 instance Core.ToJSON ChefConfiguration where
   toJSON ChefConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ManageBerkshelf" Core..=)
-              Core.<$> manageBerkshelf,
+              Prelude.<$> manageBerkshelf,
             ("BerkshelfVersion" Core..=)
-              Core.<$> berkshelfVersion
+              Prelude.<$> berkshelfVersion
           ]
       )

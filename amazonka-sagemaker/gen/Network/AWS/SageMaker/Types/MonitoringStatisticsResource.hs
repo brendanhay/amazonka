@@ -21,15 +21,16 @@ module Network.AWS.SageMaker.Types.MonitoringStatisticsResource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The statistics resource for a monitoring job.
 --
 -- /See:/ 'newMonitoringStatisticsResource' smart constructor.
 data MonitoringStatisticsResource = MonitoringStatisticsResource'
   { -- | The Amazon S3 URI for the statistics resource.
-    s3Uri :: Core.Maybe Core.Text
+    s3Uri :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringStatisticsResource' with all optional fields omitted.
@@ -43,10 +44,13 @@ data MonitoringStatisticsResource = MonitoringStatisticsResource'
 newMonitoringStatisticsResource ::
   MonitoringStatisticsResource
 newMonitoringStatisticsResource =
-  MonitoringStatisticsResource' {s3Uri = Core.Nothing}
+  MonitoringStatisticsResource'
+    { s3Uri =
+        Prelude.Nothing
+    }
 
 -- | The Amazon S3 URI for the statistics resource.
-monitoringStatisticsResource_s3Uri :: Lens.Lens' MonitoringStatisticsResource (Core.Maybe Core.Text)
+monitoringStatisticsResource_s3Uri :: Lens.Lens' MonitoringStatisticsResource (Prelude.Maybe Prelude.Text)
 monitoringStatisticsResource_s3Uri = Lens.lens (\MonitoringStatisticsResource' {s3Uri} -> s3Uri) (\s@MonitoringStatisticsResource' {} a -> s {s3Uri = a} :: MonitoringStatisticsResource)
 
 instance Core.FromJSON MonitoringStatisticsResource where
@@ -55,14 +59,18 @@ instance Core.FromJSON MonitoringStatisticsResource where
       "MonitoringStatisticsResource"
       ( \x ->
           MonitoringStatisticsResource'
-            Core.<$> (x Core..:? "S3Uri")
+            Prelude.<$> (x Core..:? "S3Uri")
       )
 
-instance Core.Hashable MonitoringStatisticsResource
+instance
+  Prelude.Hashable
+    MonitoringStatisticsResource
 
-instance Core.NFData MonitoringStatisticsResource
+instance Prelude.NFData MonitoringStatisticsResource
 
 instance Core.ToJSON MonitoringStatisticsResource where
   toJSON MonitoringStatisticsResource' {..} =
     Core.object
-      (Core.catMaybes [("S3Uri" Core..=) Core.<$> s3Uri])
+      ( Prelude.catMaybes
+          [("S3Uri" Core..=) Prelude.<$> s3Uri]
+      )

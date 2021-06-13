@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Summary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.S3Object
 
 -- | The S3 bucket that contains the training summary. The training summary
@@ -32,9 +33,9 @@ import Network.AWS.Rekognition.Types.S3Object
 --
 -- /See:/ 'newSummary' smart constructor.
 data Summary = Summary'
-  { s3Object :: Core.Maybe S3Object
+  { s3Object :: Prelude.Maybe S3Object
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Summary' with all optional fields omitted.
@@ -47,18 +48,18 @@ data Summary = Summary'
 -- 's3Object', 'summary_s3Object' - Undocumented member.
 newSummary ::
   Summary
-newSummary = Summary' {s3Object = Core.Nothing}
+newSummary = Summary' {s3Object = Prelude.Nothing}
 
 -- | Undocumented member.
-summary_s3Object :: Lens.Lens' Summary (Core.Maybe S3Object)
+summary_s3Object :: Lens.Lens' Summary (Prelude.Maybe S3Object)
 summary_s3Object = Lens.lens (\Summary' {s3Object} -> s3Object) (\s@Summary' {} a -> s {s3Object = a} :: Summary)
 
 instance Core.FromJSON Summary where
   parseJSON =
     Core.withObject
       "Summary"
-      (\x -> Summary' Core.<$> (x Core..:? "S3Object"))
+      (\x -> Summary' Prelude.<$> (x Core..:? "S3Object"))
 
-instance Core.Hashable Summary
+instance Prelude.Hashable Summary
 
-instance Core.NFData Summary
+instance Prelude.NFData Summary

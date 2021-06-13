@@ -52,6 +52,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +60,9 @@ import qualified Network.AWS.Response as Response
 data BatchGetResourceConfig = BatchGetResourceConfig'
   { -- | A list of resource keys to be processed with the current request. Each
     -- element in the list consists of the resource type and resource ID.
-    resourceKeys :: Core.NonEmpty ResourceKey
+    resourceKeys :: Prelude.NonEmpty ResourceKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetResourceConfig' with all optional fields omitted.
@@ -75,7 +76,7 @@ data BatchGetResourceConfig = BatchGetResourceConfig'
 -- element in the list consists of the resource type and resource ID.
 newBatchGetResourceConfig ::
   -- | 'resourceKeys'
-  Core.NonEmpty ResourceKey ->
+  Prelude.NonEmpty ResourceKey ->
   BatchGetResourceConfig
 newBatchGetResourceConfig pResourceKeys_ =
   BatchGetResourceConfig'
@@ -85,8 +86,8 @@ newBatchGetResourceConfig pResourceKeys_ =
 
 -- | A list of resource keys to be processed with the current request. Each
 -- element in the list consists of the resource type and resource ID.
-batchGetResourceConfig_resourceKeys :: Lens.Lens' BatchGetResourceConfig (Core.NonEmpty ResourceKey)
-batchGetResourceConfig_resourceKeys = Lens.lens (\BatchGetResourceConfig' {resourceKeys} -> resourceKeys) (\s@BatchGetResourceConfig' {} a -> s {resourceKeys = a} :: BatchGetResourceConfig) Core.. Lens._Coerce
+batchGetResourceConfig_resourceKeys :: Lens.Lens' BatchGetResourceConfig (Prelude.NonEmpty ResourceKey)
+batchGetResourceConfig_resourceKeys = Lens.lens (\BatchGetResourceConfig' {resourceKeys} -> resourceKeys) (\s@BatchGetResourceConfig' {} a -> s {resourceKeys = a} :: BatchGetResourceConfig) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetResourceConfig where
   type
@@ -97,42 +98,44 @@ instance Core.AWSRequest BatchGetResourceConfig where
     Response.receiveJSON
       ( \s h x ->
           BatchGetResourceConfigResponse'
-            Core.<$> (x Core..?> "unprocessedResourceKeys")
-            Core.<*> ( x Core..?> "baseConfigurationItems"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "unprocessedResourceKeys")
+            Prelude.<*> ( x Core..?> "baseConfigurationItems"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetResourceConfig
+instance Prelude.Hashable BatchGetResourceConfig
 
-instance Core.NFData BatchGetResourceConfig
+instance Prelude.NFData BatchGetResourceConfig
 
 instance Core.ToHeaders BatchGetResourceConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.BatchGetResourceConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetResourceConfig where
   toJSON BatchGetResourceConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("resourceKeys" Core..= resourceKeys)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("resourceKeys" Core..= resourceKeys)]
       )
 
 instance Core.ToPath BatchGetResourceConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetResourceConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetResourceConfigResponse' smart constructor.
 data BatchGetResourceConfigResponse = BatchGetResourceConfigResponse'
@@ -141,13 +144,13 @@ data BatchGetResourceConfigResponse = BatchGetResourceConfigResponse'
     -- ResourceKeys, so the value can be directly provided to a subsequent
     -- BatchGetResourceConfig operation. If there are no unprocessed resource
     -- keys, the response contains an empty unprocessedResourceKeys list.
-    unprocessedResourceKeys :: Core.Maybe (Core.NonEmpty ResourceKey),
+    unprocessedResourceKeys :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
     -- | A list that contains the current configuration of one or more resources.
-    baseConfigurationItems :: Core.Maybe [BaseConfigurationItem],
+    baseConfigurationItems :: Prelude.Maybe [BaseConfigurationItem],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetResourceConfigResponse' with all optional fields omitted.
@@ -168,13 +171,13 @@ data BatchGetResourceConfigResponse = BatchGetResourceConfigResponse'
 -- 'httpStatus', 'batchGetResourceConfigResponse_httpStatus' - The response's http status code.
 newBatchGetResourceConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetResourceConfigResponse
 newBatchGetResourceConfigResponse pHttpStatus_ =
   BatchGetResourceConfigResponse'
     { unprocessedResourceKeys =
-        Core.Nothing,
-      baseConfigurationItems = Core.Nothing,
+        Prelude.Nothing,
+      baseConfigurationItems = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -183,15 +186,17 @@ newBatchGetResourceConfigResponse pHttpStatus_ =
 -- ResourceKeys, so the value can be directly provided to a subsequent
 -- BatchGetResourceConfig operation. If there are no unprocessed resource
 -- keys, the response contains an empty unprocessedResourceKeys list.
-batchGetResourceConfigResponse_unprocessedResourceKeys :: Lens.Lens' BatchGetResourceConfigResponse (Core.Maybe (Core.NonEmpty ResourceKey))
-batchGetResourceConfigResponse_unprocessedResourceKeys = Lens.lens (\BatchGetResourceConfigResponse' {unprocessedResourceKeys} -> unprocessedResourceKeys) (\s@BatchGetResourceConfigResponse' {} a -> s {unprocessedResourceKeys = a} :: BatchGetResourceConfigResponse) Core.. Lens.mapping Lens._Coerce
+batchGetResourceConfigResponse_unprocessedResourceKeys :: Lens.Lens' BatchGetResourceConfigResponse (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
+batchGetResourceConfigResponse_unprocessedResourceKeys = Lens.lens (\BatchGetResourceConfigResponse' {unprocessedResourceKeys} -> unprocessedResourceKeys) (\s@BatchGetResourceConfigResponse' {} a -> s {unprocessedResourceKeys = a} :: BatchGetResourceConfigResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list that contains the current configuration of one or more resources.
-batchGetResourceConfigResponse_baseConfigurationItems :: Lens.Lens' BatchGetResourceConfigResponse (Core.Maybe [BaseConfigurationItem])
-batchGetResourceConfigResponse_baseConfigurationItems = Lens.lens (\BatchGetResourceConfigResponse' {baseConfigurationItems} -> baseConfigurationItems) (\s@BatchGetResourceConfigResponse' {} a -> s {baseConfigurationItems = a} :: BatchGetResourceConfigResponse) Core.. Lens.mapping Lens._Coerce
+batchGetResourceConfigResponse_baseConfigurationItems :: Lens.Lens' BatchGetResourceConfigResponse (Prelude.Maybe [BaseConfigurationItem])
+batchGetResourceConfigResponse_baseConfigurationItems = Lens.lens (\BatchGetResourceConfigResponse' {baseConfigurationItems} -> baseConfigurationItems) (\s@BatchGetResourceConfigResponse' {} a -> s {baseConfigurationItems = a} :: BatchGetResourceConfigResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetResourceConfigResponse_httpStatus :: Lens.Lens' BatchGetResourceConfigResponse Core.Int
+batchGetResourceConfigResponse_httpStatus :: Lens.Lens' BatchGetResourceConfigResponse Prelude.Int
 batchGetResourceConfigResponse_httpStatus = Lens.lens (\BatchGetResourceConfigResponse' {httpStatus} -> httpStatus) (\s@BatchGetResourceConfigResponse' {} a -> s {httpStatus = a} :: BatchGetResourceConfigResponse)
 
-instance Core.NFData BatchGetResourceConfigResponse
+instance
+  Prelude.NFData
+    BatchGetResourceConfigResponse

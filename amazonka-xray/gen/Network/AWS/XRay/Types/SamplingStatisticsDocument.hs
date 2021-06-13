@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.SamplingStatisticsDocument where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Request sampling results for a single rule from a service. Results are
 -- for the last 10 seconds unless the service has been assigned a longer
@@ -29,19 +30,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSamplingStatisticsDocument' smart constructor.
 data SamplingStatisticsDocument = SamplingStatisticsDocument'
   { -- | The number of requests recorded with borrowed reservoir quota.
-    borrowCount :: Core.Maybe Core.Natural,
+    borrowCount :: Prelude.Maybe Prelude.Natural,
     -- | The name of the sampling rule.
-    ruleName :: Core.Text,
+    ruleName :: Prelude.Text,
     -- | A unique identifier for the service in hexadecimal.
-    clientID :: Core.Text,
+    clientID :: Prelude.Text,
     -- | The current time.
     timestamp :: Core.POSIX,
     -- | The number of requests that matched the rule.
-    requestCount :: Core.Natural,
+    requestCount :: Prelude.Natural,
     -- | The number of requests recorded.
-    sampledCount :: Core.Natural
+    sampledCount :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SamplingStatisticsDocument' with all optional fields omitted.
@@ -64,15 +65,15 @@ data SamplingStatisticsDocument = SamplingStatisticsDocument'
 -- 'sampledCount', 'samplingStatisticsDocument_sampledCount' - The number of requests recorded.
 newSamplingStatisticsDocument ::
   -- | 'ruleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientID'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'timestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'requestCount'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'sampledCount'
-  Core.Natural ->
+  Prelude.Natural ->
   SamplingStatisticsDocument
 newSamplingStatisticsDocument
   pRuleName_
@@ -82,7 +83,7 @@ newSamplingStatisticsDocument
   pSampledCount_ =
     SamplingStatisticsDocument'
       { borrowCount =
-          Core.Nothing,
+          Prelude.Nothing,
         ruleName = pRuleName_,
         clientID = pClientID_,
         timestamp = Core._Time Lens.# pTimestamp_,
@@ -91,42 +92,42 @@ newSamplingStatisticsDocument
       }
 
 -- | The number of requests recorded with borrowed reservoir quota.
-samplingStatisticsDocument_borrowCount :: Lens.Lens' SamplingStatisticsDocument (Core.Maybe Core.Natural)
+samplingStatisticsDocument_borrowCount :: Lens.Lens' SamplingStatisticsDocument (Prelude.Maybe Prelude.Natural)
 samplingStatisticsDocument_borrowCount = Lens.lens (\SamplingStatisticsDocument' {borrowCount} -> borrowCount) (\s@SamplingStatisticsDocument' {} a -> s {borrowCount = a} :: SamplingStatisticsDocument)
 
 -- | The name of the sampling rule.
-samplingStatisticsDocument_ruleName :: Lens.Lens' SamplingStatisticsDocument Core.Text
+samplingStatisticsDocument_ruleName :: Lens.Lens' SamplingStatisticsDocument Prelude.Text
 samplingStatisticsDocument_ruleName = Lens.lens (\SamplingStatisticsDocument' {ruleName} -> ruleName) (\s@SamplingStatisticsDocument' {} a -> s {ruleName = a} :: SamplingStatisticsDocument)
 
 -- | A unique identifier for the service in hexadecimal.
-samplingStatisticsDocument_clientID :: Lens.Lens' SamplingStatisticsDocument Core.Text
+samplingStatisticsDocument_clientID :: Lens.Lens' SamplingStatisticsDocument Prelude.Text
 samplingStatisticsDocument_clientID = Lens.lens (\SamplingStatisticsDocument' {clientID} -> clientID) (\s@SamplingStatisticsDocument' {} a -> s {clientID = a} :: SamplingStatisticsDocument)
 
 -- | The current time.
-samplingStatisticsDocument_timestamp :: Lens.Lens' SamplingStatisticsDocument Core.UTCTime
-samplingStatisticsDocument_timestamp = Lens.lens (\SamplingStatisticsDocument' {timestamp} -> timestamp) (\s@SamplingStatisticsDocument' {} a -> s {timestamp = a} :: SamplingStatisticsDocument) Core.. Core._Time
+samplingStatisticsDocument_timestamp :: Lens.Lens' SamplingStatisticsDocument Prelude.UTCTime
+samplingStatisticsDocument_timestamp = Lens.lens (\SamplingStatisticsDocument' {timestamp} -> timestamp) (\s@SamplingStatisticsDocument' {} a -> s {timestamp = a} :: SamplingStatisticsDocument) Prelude.. Core._Time
 
 -- | The number of requests that matched the rule.
-samplingStatisticsDocument_requestCount :: Lens.Lens' SamplingStatisticsDocument Core.Natural
+samplingStatisticsDocument_requestCount :: Lens.Lens' SamplingStatisticsDocument Prelude.Natural
 samplingStatisticsDocument_requestCount = Lens.lens (\SamplingStatisticsDocument' {requestCount} -> requestCount) (\s@SamplingStatisticsDocument' {} a -> s {requestCount = a} :: SamplingStatisticsDocument)
 
 -- | The number of requests recorded.
-samplingStatisticsDocument_sampledCount :: Lens.Lens' SamplingStatisticsDocument Core.Natural
+samplingStatisticsDocument_sampledCount :: Lens.Lens' SamplingStatisticsDocument Prelude.Natural
 samplingStatisticsDocument_sampledCount = Lens.lens (\SamplingStatisticsDocument' {sampledCount} -> sampledCount) (\s@SamplingStatisticsDocument' {} a -> s {sampledCount = a} :: SamplingStatisticsDocument)
 
-instance Core.Hashable SamplingStatisticsDocument
+instance Prelude.Hashable SamplingStatisticsDocument
 
-instance Core.NFData SamplingStatisticsDocument
+instance Prelude.NFData SamplingStatisticsDocument
 
 instance Core.ToJSON SamplingStatisticsDocument where
   toJSON SamplingStatisticsDocument' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("BorrowCount" Core..=) Core.<$> borrowCount,
-            Core.Just ("RuleName" Core..= ruleName),
-            Core.Just ("ClientID" Core..= clientID),
-            Core.Just ("Timestamp" Core..= timestamp),
-            Core.Just ("RequestCount" Core..= requestCount),
-            Core.Just ("SampledCount" Core..= sampledCount)
+      ( Prelude.catMaybes
+          [ ("BorrowCount" Core..=) Prelude.<$> borrowCount,
+            Prelude.Just ("RuleName" Core..= ruleName),
+            Prelude.Just ("ClientID" Core..= clientID),
+            Prelude.Just ("Timestamp" Core..= timestamp),
+            Prelude.Just ("RequestCount" Core..= requestCount),
+            Prelude.Just ("SampledCount" Core..= sampledCount)
           ]
       )

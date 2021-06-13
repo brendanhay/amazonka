@@ -23,6 +23,7 @@ import Network.AWS.CloudFront.Types.CachedMethods
 import Network.AWS.CloudFront.Types.Method
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that controls which HTTP methods CloudFront processes and
 -- forwards to your Amazon S3 bucket or your custom origin. There are three
@@ -42,17 +43,17 @@ import qualified Network.AWS.Lens as Lens
 --
 -- /See:/ 'newAllowedMethods' smart constructor.
 data AllowedMethods = AllowedMethods'
-  { cachedMethods :: Core.Maybe CachedMethods,
+  { cachedMethods :: Prelude.Maybe CachedMethods,
     -- | The number of HTTP methods that you want CloudFront to forward to your
     -- origin. Valid values are 2 (for @GET@ and @HEAD@ requests), 3 (for
     -- @GET@, @HEAD@, and @OPTIONS@ requests) and 7 (for
     -- @GET, HEAD, OPTIONS, PUT, PATCH, POST@, and @DELETE@ requests).
-    quantity :: Core.Int,
+    quantity :: Prelude.Int,
     -- | A complex type that contains the HTTP methods that you want CloudFront
     -- to process and forward to your origin.
     items :: [Method]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AllowedMethods' with all optional fields omitted.
@@ -73,47 +74,47 @@ data AllowedMethods = AllowedMethods'
 -- to process and forward to your origin.
 newAllowedMethods ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   AllowedMethods
 newAllowedMethods pQuantity_ =
   AllowedMethods'
-    { cachedMethods = Core.Nothing,
+    { cachedMethods = Prelude.Nothing,
       quantity = pQuantity_,
-      items = Core.mempty
+      items = Prelude.mempty
     }
 
 -- | Undocumented member.
-allowedMethods_cachedMethods :: Lens.Lens' AllowedMethods (Core.Maybe CachedMethods)
+allowedMethods_cachedMethods :: Lens.Lens' AllowedMethods (Prelude.Maybe CachedMethods)
 allowedMethods_cachedMethods = Lens.lens (\AllowedMethods' {cachedMethods} -> cachedMethods) (\s@AllowedMethods' {} a -> s {cachedMethods = a} :: AllowedMethods)
 
 -- | The number of HTTP methods that you want CloudFront to forward to your
 -- origin. Valid values are 2 (for @GET@ and @HEAD@ requests), 3 (for
 -- @GET@, @HEAD@, and @OPTIONS@ requests) and 7 (for
 -- @GET, HEAD, OPTIONS, PUT, PATCH, POST@, and @DELETE@ requests).
-allowedMethods_quantity :: Lens.Lens' AllowedMethods Core.Int
+allowedMethods_quantity :: Lens.Lens' AllowedMethods Prelude.Int
 allowedMethods_quantity = Lens.lens (\AllowedMethods' {quantity} -> quantity) (\s@AllowedMethods' {} a -> s {quantity = a} :: AllowedMethods)
 
 -- | A complex type that contains the HTTP methods that you want CloudFront
 -- to process and forward to your origin.
 allowedMethods_items :: Lens.Lens' AllowedMethods [Method]
-allowedMethods_items = Lens.lens (\AllowedMethods' {items} -> items) (\s@AllowedMethods' {} a -> s {items = a} :: AllowedMethods) Core.. Lens._Coerce
+allowedMethods_items = Lens.lens (\AllowedMethods' {items} -> items) (\s@AllowedMethods' {} a -> s {items = a} :: AllowedMethods) Prelude.. Lens._Coerce
 
 instance Core.FromXML AllowedMethods where
   parseXML x =
     AllowedMethods'
-      Core.<$> (x Core..@? "CachedMethods")
-      Core.<*> (x Core..@ "Quantity")
-      Core.<*> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.parseXMLList "Method"
-               )
+      Prelude.<$> (x Core..@? "CachedMethods")
+      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.parseXMLList "Method"
+                  )
 
-instance Core.Hashable AllowedMethods
+instance Prelude.Hashable AllowedMethods
 
-instance Core.NFData AllowedMethods
+instance Prelude.NFData AllowedMethods
 
 instance Core.ToXML AllowedMethods where
   toXML AllowedMethods' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "CachedMethods" Core.@= cachedMethods,
         "Quantity" Core.@= quantity,
         "Items" Core.@= Core.toXMLList "Method" items

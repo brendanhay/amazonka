@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +54,12 @@ data UntagRole = UntagRole'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text,
+    roleName :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified role.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagRole' with all optional fields omitted.
@@ -79,12 +80,12 @@ data UntagRole = UntagRole'
 -- keys are removed from the specified role.
 newUntagRole ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   UntagRole
 newUntagRole pRoleName_ =
   UntagRole'
     { roleName = pRoleName_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The name of the IAM role from which you want to remove tags.
@@ -93,34 +94,36 @@ newUntagRole pRoleName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-untagRole_roleName :: Lens.Lens' UntagRole Core.Text
+untagRole_roleName :: Lens.Lens' UntagRole Prelude.Text
 untagRole_roleName = Lens.lens (\UntagRole' {roleName} -> roleName) (\s@UntagRole' {} a -> s {roleName = a} :: UntagRole)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified role.
-untagRole_tagKeys :: Lens.Lens' UntagRole [Core.Text]
-untagRole_tagKeys = Lens.lens (\UntagRole' {tagKeys} -> tagKeys) (\s@UntagRole' {} a -> s {tagKeys = a} :: UntagRole) Core.. Lens._Coerce
+untagRole_tagKeys :: Lens.Lens' UntagRole [Prelude.Text]
+untagRole_tagKeys = Lens.lens (\UntagRole' {tagKeys} -> tagKeys) (\s@UntagRole' {} a -> s {tagKeys = a} :: UntagRole) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagRole where
   type AWSResponse UntagRole = UntagRoleResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagRoleResponse'
 
-instance Core.Hashable UntagRole
+instance Prelude.Hashable UntagRole
 
-instance Core.NFData UntagRole
+instance Prelude.NFData UntagRole
 
 instance Core.ToHeaders UntagRole where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagRole where
   toQuery UntagRole' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("UntagRole" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("UntagRole" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
@@ -129,7 +132,7 @@ instance Core.ToQuery UntagRole where
 data UntagRoleResponse = UntagRoleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagRoleResponse' with all optional fields omitted.
@@ -139,4 +142,4 @@ newUntagRoleResponse ::
   UntagRoleResponse
 newUntagRoleResponse = UntagRoleResponse'
 
-instance Core.NFData UntagRoleResponse
+instance Prelude.NFData UntagRoleResponse

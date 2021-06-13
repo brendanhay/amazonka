@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -59,11 +60,11 @@ data DeleteBucketOwnershipControls = DeleteBucketOwnershipControls'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket whose @OwnershipControls@ you want to delete.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketOwnershipControls' with all optional fields omitted.
@@ -85,14 +86,14 @@ newDeleteBucketOwnershipControls ::
 newDeleteBucketOwnershipControls pBucket_ =
   DeleteBucketOwnershipControls'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' DeleteBucketOwnershipControls (Core.Maybe Core.Text)
+deleteBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' DeleteBucketOwnershipControls (Prelude.Maybe Prelude.Text)
 deleteBucketOwnershipControls_expectedBucketOwner = Lens.lens (\DeleteBucketOwnershipControls' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketOwnershipControls' {} a -> s {expectedBucketOwner = a} :: DeleteBucketOwnershipControls)
 
 -- | The Amazon S3 bucket whose @OwnershipControls@ you want to delete.
@@ -111,30 +112,33 @@ instance
     Response.receiveNull
       DeleteBucketOwnershipControlsResponse'
 
-instance Core.Hashable DeleteBucketOwnershipControls
+instance
+  Prelude.Hashable
+    DeleteBucketOwnershipControls
 
-instance Core.NFData DeleteBucketOwnershipControls
+instance Prelude.NFData DeleteBucketOwnershipControls
 
 instance Core.ToHeaders DeleteBucketOwnershipControls where
   toHeaders DeleteBucketOwnershipControls' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath DeleteBucketOwnershipControls where
   toPath DeleteBucketOwnershipControls' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery DeleteBucketOwnershipControls where
   toQuery =
-    Core.const (Core.mconcat ["ownershipControls"])
+    Prelude.const
+      (Prelude.mconcat ["ownershipControls"])
 
 -- | /See:/ 'newDeleteBucketOwnershipControlsResponse' smart constructor.
 data DeleteBucketOwnershipControlsResponse = DeleteBucketOwnershipControlsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketOwnershipControlsResponse' with all optional fields omitted.
@@ -146,5 +150,5 @@ newDeleteBucketOwnershipControlsResponse =
   DeleteBucketOwnershipControlsResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteBucketOwnershipControlsResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.UserProfileDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.UserProfileStatus
 
 -- | The user profile details.
@@ -28,17 +29,17 @@ import Network.AWS.SageMaker.Types.UserProfileStatus
 -- /See:/ 'newUserProfileDetails' smart constructor.
 data UserProfileDetails = UserProfileDetails'
   { -- | The status.
-    status :: Core.Maybe UserProfileStatus,
+    status :: Prelude.Maybe UserProfileStatus,
     -- | The creation time.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The user profile name.
-    userProfileName :: Core.Maybe Core.Text,
+    userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The domain ID.
-    domainId :: Core.Maybe Core.Text,
+    domainId :: Prelude.Maybe Prelude.Text,
     -- | The last modified time.
-    lastModifiedTime :: Core.Maybe Core.POSIX
+    lastModifiedTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserProfileDetails' with all optional fields omitted.
@@ -61,32 +62,32 @@ newUserProfileDetails ::
   UserProfileDetails
 newUserProfileDetails =
   UserProfileDetails'
-    { status = Core.Nothing,
-      creationTime = Core.Nothing,
-      userProfileName = Core.Nothing,
-      domainId = Core.Nothing,
-      lastModifiedTime = Core.Nothing
+    { status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      userProfileName = Prelude.Nothing,
+      domainId = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing
     }
 
 -- | The status.
-userProfileDetails_status :: Lens.Lens' UserProfileDetails (Core.Maybe UserProfileStatus)
+userProfileDetails_status :: Lens.Lens' UserProfileDetails (Prelude.Maybe UserProfileStatus)
 userProfileDetails_status = Lens.lens (\UserProfileDetails' {status} -> status) (\s@UserProfileDetails' {} a -> s {status = a} :: UserProfileDetails)
 
 -- | The creation time.
-userProfileDetails_creationTime :: Lens.Lens' UserProfileDetails (Core.Maybe Core.UTCTime)
-userProfileDetails_creationTime = Lens.lens (\UserProfileDetails' {creationTime} -> creationTime) (\s@UserProfileDetails' {} a -> s {creationTime = a} :: UserProfileDetails) Core.. Lens.mapping Core._Time
+userProfileDetails_creationTime :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.UTCTime)
+userProfileDetails_creationTime = Lens.lens (\UserProfileDetails' {creationTime} -> creationTime) (\s@UserProfileDetails' {} a -> s {creationTime = a} :: UserProfileDetails) Prelude.. Lens.mapping Core._Time
 
 -- | The user profile name.
-userProfileDetails_userProfileName :: Lens.Lens' UserProfileDetails (Core.Maybe Core.Text)
+userProfileDetails_userProfileName :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
 userProfileDetails_userProfileName = Lens.lens (\UserProfileDetails' {userProfileName} -> userProfileName) (\s@UserProfileDetails' {} a -> s {userProfileName = a} :: UserProfileDetails)
 
 -- | The domain ID.
-userProfileDetails_domainId :: Lens.Lens' UserProfileDetails (Core.Maybe Core.Text)
+userProfileDetails_domainId :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
 userProfileDetails_domainId = Lens.lens (\UserProfileDetails' {domainId} -> domainId) (\s@UserProfileDetails' {} a -> s {domainId = a} :: UserProfileDetails)
 
 -- | The last modified time.
-userProfileDetails_lastModifiedTime :: Lens.Lens' UserProfileDetails (Core.Maybe Core.UTCTime)
-userProfileDetails_lastModifiedTime = Lens.lens (\UserProfileDetails' {lastModifiedTime} -> lastModifiedTime) (\s@UserProfileDetails' {} a -> s {lastModifiedTime = a} :: UserProfileDetails) Core.. Lens.mapping Core._Time
+userProfileDetails_lastModifiedTime :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.UTCTime)
+userProfileDetails_lastModifiedTime = Lens.lens (\UserProfileDetails' {lastModifiedTime} -> lastModifiedTime) (\s@UserProfileDetails' {} a -> s {lastModifiedTime = a} :: UserProfileDetails) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON UserProfileDetails where
   parseJSON =
@@ -94,13 +95,13 @@ instance Core.FromJSON UserProfileDetails where
       "UserProfileDetails"
       ( \x ->
           UserProfileDetails'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "UserProfileName")
-            Core.<*> (x Core..:? "DomainId")
-            Core.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "UserProfileName")
+            Prelude.<*> (x Core..:? "DomainId")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
       )
 
-instance Core.Hashable UserProfileDetails
+instance Prelude.Hashable UserProfileDetails
 
-instance Core.NFData UserProfileDetails
+instance Prelude.NFData UserProfileDetails

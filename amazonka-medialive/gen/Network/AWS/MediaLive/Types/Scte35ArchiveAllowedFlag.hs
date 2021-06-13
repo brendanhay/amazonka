@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Corresponds to the archive_allowed parameter. A value of
 -- ARCHIVE_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35
@@ -37,15 +38,15 @@ newtype Scte35ArchiveAllowedFlag = Scte35ArchiveAllowedFlag'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

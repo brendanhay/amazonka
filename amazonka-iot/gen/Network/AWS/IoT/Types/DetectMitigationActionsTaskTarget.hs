@@ -21,19 +21,20 @@ module Network.AWS.IoT.Types.DetectMitigationActionsTaskTarget where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The target of a mitigation action task.
 --
 -- /See:/ 'newDetectMitigationActionsTaskTarget' smart constructor.
 data DetectMitigationActionsTaskTarget = DetectMitigationActionsTaskTarget'
   { -- | The unique identifiers of the violations.
-    violationIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    violationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the behavior.
-    behaviorName :: Core.Maybe Core.Text,
+    behaviorName :: Prelude.Maybe Prelude.Text,
     -- | The name of the security profile.
-    securityProfileName :: Core.Maybe Core.Text
+    securityProfileName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectMitigationActionsTaskTarget' with all optional fields omitted.
@@ -53,21 +54,21 @@ newDetectMitigationActionsTaskTarget ::
 newDetectMitigationActionsTaskTarget =
   DetectMitigationActionsTaskTarget'
     { violationIds =
-        Core.Nothing,
-      behaviorName = Core.Nothing,
-      securityProfileName = Core.Nothing
+        Prelude.Nothing,
+      behaviorName = Prelude.Nothing,
+      securityProfileName = Prelude.Nothing
     }
 
 -- | The unique identifiers of the violations.
-detectMitigationActionsTaskTarget_violationIds :: Lens.Lens' DetectMitigationActionsTaskTarget (Core.Maybe (Core.NonEmpty Core.Text))
-detectMitigationActionsTaskTarget_violationIds = Lens.lens (\DetectMitigationActionsTaskTarget' {violationIds} -> violationIds) (\s@DetectMitigationActionsTaskTarget' {} a -> s {violationIds = a} :: DetectMitigationActionsTaskTarget) Core.. Lens.mapping Lens._Coerce
+detectMitigationActionsTaskTarget_violationIds :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+detectMitigationActionsTaskTarget_violationIds = Lens.lens (\DetectMitigationActionsTaskTarget' {violationIds} -> violationIds) (\s@DetectMitigationActionsTaskTarget' {} a -> s {violationIds = a} :: DetectMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the behavior.
-detectMitigationActionsTaskTarget_behaviorName :: Lens.Lens' DetectMitigationActionsTaskTarget (Core.Maybe Core.Text)
+detectMitigationActionsTaskTarget_behaviorName :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe Prelude.Text)
 detectMitigationActionsTaskTarget_behaviorName = Lens.lens (\DetectMitigationActionsTaskTarget' {behaviorName} -> behaviorName) (\s@DetectMitigationActionsTaskTarget' {} a -> s {behaviorName = a} :: DetectMitigationActionsTaskTarget)
 
 -- | The name of the security profile.
-detectMitigationActionsTaskTarget_securityProfileName :: Lens.Lens' DetectMitigationActionsTaskTarget (Core.Maybe Core.Text)
+detectMitigationActionsTaskTarget_securityProfileName :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe Prelude.Text)
 detectMitigationActionsTaskTarget_securityProfileName = Lens.lens (\DetectMitigationActionsTaskTarget' {securityProfileName} -> securityProfileName) (\s@DetectMitigationActionsTaskTarget' {} a -> s {securityProfileName = a} :: DetectMitigationActionsTaskTarget)
 
 instance
@@ -79,17 +80,17 @@ instance
       "DetectMitigationActionsTaskTarget"
       ( \x ->
           DetectMitigationActionsTaskTarget'
-            Core.<$> (x Core..:? "violationIds")
-            Core.<*> (x Core..:? "behaviorName")
-            Core.<*> (x Core..:? "securityProfileName")
+            Prelude.<$> (x Core..:? "violationIds")
+            Prelude.<*> (x Core..:? "behaviorName")
+            Prelude.<*> (x Core..:? "securityProfileName")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DetectMitigationActionsTaskTarget
 
 instance
-  Core.NFData
+  Prelude.NFData
     DetectMitigationActionsTaskTarget
 
 instance
@@ -98,10 +99,10 @@ instance
   where
   toJSON DetectMitigationActionsTaskTarget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("violationIds" Core..=) Core.<$> violationIds,
-            ("behaviorName" Core..=) Core.<$> behaviorName,
+      ( Prelude.catMaybes
+          [ ("violationIds" Core..=) Prelude.<$> violationIds,
+            ("behaviorName" Core..=) Prelude.<$> behaviorName,
             ("securityProfileName" Core..=)
-              Core.<$> securityProfileName
+              Prelude.<$> securityProfileName
           ]
       )

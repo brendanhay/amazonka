@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAllocateStaticIp' smart constructor.
 data AllocateStaticIp = AllocateStaticIp'
   { -- | The name of the static IP address.
-    staticIpName :: Core.Text
+    staticIpName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AllocateStaticIp' with all optional fields omitted.
@@ -63,13 +64,13 @@ data AllocateStaticIp = AllocateStaticIp'
 -- 'staticIpName', 'allocateStaticIp_staticIpName' - The name of the static IP address.
 newAllocateStaticIp ::
   -- | 'staticIpName'
-  Core.Text ->
+  Prelude.Text ->
   AllocateStaticIp
 newAllocateStaticIp pStaticIpName_ =
   AllocateStaticIp' {staticIpName = pStaticIpName_}
 
 -- | The name of the static IP address.
-allocateStaticIp_staticIpName :: Lens.Lens' AllocateStaticIp Core.Text
+allocateStaticIp_staticIpName :: Lens.Lens' AllocateStaticIp Prelude.Text
 allocateStaticIp_staticIpName = Lens.lens (\AllocateStaticIp' {staticIpName} -> staticIpName) (\s@AllocateStaticIp' {} a -> s {staticIpName = a} :: AllocateStaticIp)
 
 instance Core.AWSRequest AllocateStaticIp where
@@ -81,50 +82,52 @@ instance Core.AWSRequest AllocateStaticIp where
     Response.receiveJSON
       ( \s h x ->
           AllocateStaticIpResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AllocateStaticIp
+instance Prelude.Hashable AllocateStaticIp
 
-instance Core.NFData AllocateStaticIp
+instance Prelude.NFData AllocateStaticIp
 
 instance Core.ToHeaders AllocateStaticIp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.AllocateStaticIp" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AllocateStaticIp where
   toJSON AllocateStaticIp' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("staticIpName" Core..= staticIpName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("staticIpName" Core..= staticIpName)]
       )
 
 instance Core.ToPath AllocateStaticIp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AllocateStaticIp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAllocateStaticIpResponse' smart constructor.
 data AllocateStaticIpResponse = AllocateStaticIpResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AllocateStaticIpResponse' with all optional fields omitted.
@@ -141,23 +144,23 @@ data AllocateStaticIpResponse = AllocateStaticIpResponse'
 -- 'httpStatus', 'allocateStaticIpResponse_httpStatus' - The response's http status code.
 newAllocateStaticIpResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AllocateStaticIpResponse
 newAllocateStaticIpResponse pHttpStatus_ =
   AllocateStaticIpResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-allocateStaticIpResponse_operations :: Lens.Lens' AllocateStaticIpResponse (Core.Maybe [Operation])
-allocateStaticIpResponse_operations = Lens.lens (\AllocateStaticIpResponse' {operations} -> operations) (\s@AllocateStaticIpResponse' {} a -> s {operations = a} :: AllocateStaticIpResponse) Core.. Lens.mapping Lens._Coerce
+allocateStaticIpResponse_operations :: Lens.Lens' AllocateStaticIpResponse (Prelude.Maybe [Operation])
+allocateStaticIpResponse_operations = Lens.lens (\AllocateStaticIpResponse' {operations} -> operations) (\s@AllocateStaticIpResponse' {} a -> s {operations = a} :: AllocateStaticIpResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-allocateStaticIpResponse_httpStatus :: Lens.Lens' AllocateStaticIpResponse Core.Int
+allocateStaticIpResponse_httpStatus :: Lens.Lens' AllocateStaticIpResponse Prelude.Int
 allocateStaticIpResponse_httpStatus = Lens.lens (\AllocateStaticIpResponse' {httpStatus} -> httpStatus) (\s@AllocateStaticIpResponse' {} a -> s {httpStatus = a} :: AllocateStaticIpResponse)
 
-instance Core.NFData AllocateStaticIpResponse
+instance Prelude.NFData AllocateStaticIpResponse

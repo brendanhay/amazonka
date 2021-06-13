@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -62,12 +63,12 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
     -- -   @AWS_SERVICECATALOG@ - List default portfolios
     --
     -- -   @IMPORTED@ - List imported portfolios
-    portfolioShareType :: Core.Maybe PortfolioShareType,
+    portfolioShareType :: Prelude.Maybe PortfolioShareType,
     -- | The maximum number of items to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -75,9 +76,9 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAcceptedPortfolioShares' with all optional fields omitted.
@@ -114,10 +115,10 @@ newListAcceptedPortfolioShares ::
 newListAcceptedPortfolioShares =
   ListAcceptedPortfolioShares'
     { portfolioShareType =
-        Core.Nothing,
-      pageSize = Core.Nothing,
-      pageToken = Core.Nothing,
-      acceptLanguage = Core.Nothing
+        Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
 
 -- | The type of shared portfolios to list. The default is to list imported
@@ -129,16 +130,16 @@ newListAcceptedPortfolioShares =
 -- -   @AWS_SERVICECATALOG@ - List default portfolios
 --
 -- -   @IMPORTED@ - List imported portfolios
-listAcceptedPortfolioShares_portfolioShareType :: Lens.Lens' ListAcceptedPortfolioShares (Core.Maybe PortfolioShareType)
+listAcceptedPortfolioShares_portfolioShareType :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe PortfolioShareType)
 listAcceptedPortfolioShares_portfolioShareType = Lens.lens (\ListAcceptedPortfolioShares' {portfolioShareType} -> portfolioShareType) (\s@ListAcceptedPortfolioShares' {} a -> s {portfolioShareType = a} :: ListAcceptedPortfolioShares)
 
 -- | The maximum number of items to return with this call.
-listAcceptedPortfolioShares_pageSize :: Lens.Lens' ListAcceptedPortfolioShares (Core.Maybe Core.Natural)
+listAcceptedPortfolioShares_pageSize :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Natural)
 listAcceptedPortfolioShares_pageSize = Lens.lens (\ListAcceptedPortfolioShares' {pageSize} -> pageSize) (\s@ListAcceptedPortfolioShares' {} a -> s {pageSize = a} :: ListAcceptedPortfolioShares)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-listAcceptedPortfolioShares_pageToken :: Lens.Lens' ListAcceptedPortfolioShares (Core.Maybe Core.Text)
+listAcceptedPortfolioShares_pageToken :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Text)
 listAcceptedPortfolioShares_pageToken = Lens.lens (\ListAcceptedPortfolioShares' {pageToken} -> pageToken) (\s@ListAcceptedPortfolioShares' {} a -> s {pageToken = a} :: ListAcceptedPortfolioShares)
 
 -- | The language code.
@@ -148,7 +149,7 @@ listAcceptedPortfolioShares_pageToken = Lens.lens (\ListAcceptedPortfolioShares'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-listAcceptedPortfolioShares_acceptLanguage :: Lens.Lens' ListAcceptedPortfolioShares (Core.Maybe Core.Text)
+listAcceptedPortfolioShares_acceptLanguage :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Text)
 listAcceptedPortfolioShares_acceptLanguage = Lens.lens (\ListAcceptedPortfolioShares' {acceptLanguage} -> acceptLanguage) (\s@ListAcceptedPortfolioShares' {} a -> s {acceptLanguage = a} :: ListAcceptedPortfolioShares)
 
 instance Core.AWSPager ListAcceptedPortfolioShares where
@@ -156,22 +157,22 @@ instance Core.AWSPager ListAcceptedPortfolioShares where
     | Core.stop
         ( rs
             Lens.^? listAcceptedPortfolioSharesResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAcceptedPortfolioSharesResponse_portfolioDetails
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAcceptedPortfolioShares_pageToken
+          Prelude.& listAcceptedPortfolioShares_pageToken
           Lens..~ rs
           Lens.^? listAcceptedPortfolioSharesResponse_nextPageToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAcceptedPortfolioShares where
   type
@@ -182,57 +183,62 @@ instance Core.AWSRequest ListAcceptedPortfolioShares where
     Response.receiveJSON
       ( \s h x ->
           ListAcceptedPortfolioSharesResponse'
-            Core.<$> (x Core..?> "PortfolioDetails" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "PortfolioDetails"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAcceptedPortfolioShares
+instance Prelude.Hashable ListAcceptedPortfolioShares
 
-instance Core.NFData ListAcceptedPortfolioShares
+instance Prelude.NFData ListAcceptedPortfolioShares
 
 instance Core.ToHeaders ListAcceptedPortfolioShares where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.ListAcceptedPortfolioShares" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListAcceptedPortfolioShares where
   toJSON ListAcceptedPortfolioShares' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PortfolioShareType" Core..=)
-              Core.<$> portfolioShareType,
-            ("PageSize" Core..=) Core.<$> pageSize,
-            ("PageToken" Core..=) Core.<$> pageToken,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+              Prelude.<$> portfolioShareType,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 
 instance Core.ToPath ListAcceptedPortfolioShares where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListAcceptedPortfolioShares where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAcceptedPortfolioSharesResponse' smart constructor.
 data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
   { -- | Information about the portfolios.
-    portfolioDetails :: Core.Maybe [PortfolioDetail],
+    portfolioDetails :: Prelude.Maybe [PortfolioDetail],
     -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAcceptedPortfolioSharesResponse' with all optional fields omitted.
@@ -250,29 +256,29 @@ data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
 -- 'httpStatus', 'listAcceptedPortfolioSharesResponse_httpStatus' - The response's http status code.
 newListAcceptedPortfolioSharesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAcceptedPortfolioSharesResponse
 newListAcceptedPortfolioSharesResponse pHttpStatus_ =
   ListAcceptedPortfolioSharesResponse'
     { portfolioDetails =
-        Core.Nothing,
-      nextPageToken = Core.Nothing,
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the portfolios.
-listAcceptedPortfolioSharesResponse_portfolioDetails :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Core.Maybe [PortfolioDetail])
-listAcceptedPortfolioSharesResponse_portfolioDetails = Lens.lens (\ListAcceptedPortfolioSharesResponse' {portfolioDetails} -> portfolioDetails) (\s@ListAcceptedPortfolioSharesResponse' {} a -> s {portfolioDetails = a} :: ListAcceptedPortfolioSharesResponse) Core.. Lens.mapping Lens._Coerce
+listAcceptedPortfolioSharesResponse_portfolioDetails :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Prelude.Maybe [PortfolioDetail])
+listAcceptedPortfolioSharesResponse_portfolioDetails = Lens.lens (\ListAcceptedPortfolioSharesResponse' {portfolioDetails} -> portfolioDetails) (\s@ListAcceptedPortfolioSharesResponse' {} a -> s {portfolioDetails = a} :: ListAcceptedPortfolioSharesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-listAcceptedPortfolioSharesResponse_nextPageToken :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Core.Maybe Core.Text)
+listAcceptedPortfolioSharesResponse_nextPageToken :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Prelude.Maybe Prelude.Text)
 listAcceptedPortfolioSharesResponse_nextPageToken = Lens.lens (\ListAcceptedPortfolioSharesResponse' {nextPageToken} -> nextPageToken) (\s@ListAcceptedPortfolioSharesResponse' {} a -> s {nextPageToken = a} :: ListAcceptedPortfolioSharesResponse)
 
 -- | The response's http status code.
-listAcceptedPortfolioSharesResponse_httpStatus :: Lens.Lens' ListAcceptedPortfolioSharesResponse Core.Int
+listAcceptedPortfolioSharesResponse_httpStatus :: Lens.Lens' ListAcceptedPortfolioSharesResponse Prelude.Int
 listAcceptedPortfolioSharesResponse_httpStatus = Lens.lens (\ListAcceptedPortfolioSharesResponse' {httpStatus} -> httpStatus) (\s@ListAcceptedPortfolioSharesResponse' {} a -> s {httpStatus = a} :: ListAcceptedPortfolioSharesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListAcceptedPortfolioSharesResponse

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this setting only in audio-only outputs. Choose MPEG-2 Transport
 -- Stream (M2TS) to create a file in an MPEG2-TS container. Keep the
@@ -39,15 +40,15 @@ newtype HlsAudioOnlyContainer = HlsAudioOnlyContainer'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

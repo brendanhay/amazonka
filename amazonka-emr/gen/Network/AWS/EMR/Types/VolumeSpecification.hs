@@ -21,6 +21,7 @@ module Network.AWS.EMR.Types.VolumeSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
 -- will be requested for the EBS volume attached to an EC2 instance in the
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 data VolumeSpecification = VolumeSpecification'
   { -- | The number of I\/O operations per second (IOPS) that the volume
     -- supports.
-    iops :: Core.Maybe Core.Int,
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The volume type. Volume types supported are gp2, io1, standard.
-    volumeType :: Core.Text,
+    volumeType :: Prelude.Text,
     -- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024.
     -- If the volume type is EBS-optimized, the minimum value is 10.
-    sizeInGB :: Core.Int
+    sizeInGB :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VolumeSpecification' with all optional fields omitted.
@@ -56,29 +57,29 @@ data VolumeSpecification = VolumeSpecification'
 -- If the volume type is EBS-optimized, the minimum value is 10.
 newVolumeSpecification ::
   -- | 'volumeType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sizeInGB'
-  Core.Int ->
+  Prelude.Int ->
   VolumeSpecification
 newVolumeSpecification pVolumeType_ pSizeInGB_ =
   VolumeSpecification'
-    { iops = Core.Nothing,
+    { iops = Prelude.Nothing,
       volumeType = pVolumeType_,
       sizeInGB = pSizeInGB_
     }
 
 -- | The number of I\/O operations per second (IOPS) that the volume
 -- supports.
-volumeSpecification_iops :: Lens.Lens' VolumeSpecification (Core.Maybe Core.Int)
+volumeSpecification_iops :: Lens.Lens' VolumeSpecification (Prelude.Maybe Prelude.Int)
 volumeSpecification_iops = Lens.lens (\VolumeSpecification' {iops} -> iops) (\s@VolumeSpecification' {} a -> s {iops = a} :: VolumeSpecification)
 
 -- | The volume type. Volume types supported are gp2, io1, standard.
-volumeSpecification_volumeType :: Lens.Lens' VolumeSpecification Core.Text
+volumeSpecification_volumeType :: Lens.Lens' VolumeSpecification Prelude.Text
 volumeSpecification_volumeType = Lens.lens (\VolumeSpecification' {volumeType} -> volumeType) (\s@VolumeSpecification' {} a -> s {volumeType = a} :: VolumeSpecification)
 
 -- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024.
 -- If the volume type is EBS-optimized, the minimum value is 10.
-volumeSpecification_sizeInGB :: Lens.Lens' VolumeSpecification Core.Int
+volumeSpecification_sizeInGB :: Lens.Lens' VolumeSpecification Prelude.Int
 volumeSpecification_sizeInGB = Lens.lens (\VolumeSpecification' {sizeInGB} -> sizeInGB) (\s@VolumeSpecification' {} a -> s {sizeInGB = a} :: VolumeSpecification)
 
 instance Core.FromJSON VolumeSpecification where
@@ -87,21 +88,21 @@ instance Core.FromJSON VolumeSpecification where
       "VolumeSpecification"
       ( \x ->
           VolumeSpecification'
-            Core.<$> (x Core..:? "Iops")
-            Core.<*> (x Core..: "VolumeType")
-            Core.<*> (x Core..: "SizeInGB")
+            Prelude.<$> (x Core..:? "Iops")
+            Prelude.<*> (x Core..: "VolumeType")
+            Prelude.<*> (x Core..: "SizeInGB")
       )
 
-instance Core.Hashable VolumeSpecification
+instance Prelude.Hashable VolumeSpecification
 
-instance Core.NFData VolumeSpecification
+instance Prelude.NFData VolumeSpecification
 
 instance Core.ToJSON VolumeSpecification where
   toJSON VolumeSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Iops" Core..=) Core.<$> iops,
-            Core.Just ("VolumeType" Core..= volumeType),
-            Core.Just ("SizeInGB" Core..= sizeInGB)
+      ( Prelude.catMaybes
+          [ ("Iops" Core..=) Prelude.<$> iops,
+            Prelude.Just ("VolumeType" Core..= volumeType),
+            Prelude.Just ("SizeInGB" Core..= sizeInGB)
           ]
       )

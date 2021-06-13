@@ -24,6 +24,7 @@ import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains all the information that is used to uniquely identify a typed
 -- link. The parameters discussed in this topic are used to uniquely
@@ -44,7 +45,7 @@ data TypedLinkSpecifier = TypedLinkSpecifier'
     -- | Identifies the attribute value to update.
     identityAttributeValues :: [AttributeNameAndValue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TypedLinkSpecifier' with all optional fields omitted.
@@ -78,7 +79,7 @@ newTypedLinkSpecifier
           pTypedLinkFacet_,
         sourceObjectReference = pSourceObjectReference_,
         targetObjectReference = pTargetObjectReference_,
-        identityAttributeValues = Core.mempty
+        identityAttributeValues = Prelude.mempty
       }
 
 -- | Identifies the typed link facet that is associated with the typed link.
@@ -95,7 +96,7 @@ typedLinkSpecifier_targetObjectReference = Lens.lens (\TypedLinkSpecifier' {targ
 
 -- | Identifies the attribute value to update.
 typedLinkSpecifier_identityAttributeValues :: Lens.Lens' TypedLinkSpecifier [AttributeNameAndValue]
-typedLinkSpecifier_identityAttributeValues = Lens.lens (\TypedLinkSpecifier' {identityAttributeValues} -> identityAttributeValues) (\s@TypedLinkSpecifier' {} a -> s {identityAttributeValues = a} :: TypedLinkSpecifier) Core.. Lens._Coerce
+typedLinkSpecifier_identityAttributeValues = Lens.lens (\TypedLinkSpecifier' {identityAttributeValues} -> identityAttributeValues) (\s@TypedLinkSpecifier' {} a -> s {identityAttributeValues = a} :: TypedLinkSpecifier) Prelude.. Lens._Coerce
 
 instance Core.FromJSON TypedLinkSpecifier where
   parseJSON =
@@ -103,32 +104,33 @@ instance Core.FromJSON TypedLinkSpecifier where
       "TypedLinkSpecifier"
       ( \x ->
           TypedLinkSpecifier'
-            Core.<$> (x Core..: "TypedLinkFacet")
-            Core.<*> (x Core..: "SourceObjectReference")
-            Core.<*> (x Core..: "TargetObjectReference")
-            Core.<*> ( x Core..:? "IdentityAttributeValues"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..: "TypedLinkFacet")
+            Prelude.<*> (x Core..: "SourceObjectReference")
+            Prelude.<*> (x Core..: "TargetObjectReference")
+            Prelude.<*> ( x Core..:? "IdentityAttributeValues"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable TypedLinkSpecifier
+instance Prelude.Hashable TypedLinkSpecifier
 
-instance Core.NFData TypedLinkSpecifier
+instance Prelude.NFData TypedLinkSpecifier
 
 instance Core.ToJSON TypedLinkSpecifier where
   toJSON TypedLinkSpecifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TypedLinkFacet" Core..= typedLinkFacet),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("TypedLinkFacet" Core..= typedLinkFacet),
+            Prelude.Just
               ( "SourceObjectReference"
                   Core..= sourceObjectReference
               ),
-            Core.Just
+            Prelude.Just
               ( "TargetObjectReference"
                   Core..= targetObjectReference
               ),
-            Core.Just
+            Prelude.Just
               ( "IdentityAttributeValues"
                   Core..= identityAttributeValues
               )

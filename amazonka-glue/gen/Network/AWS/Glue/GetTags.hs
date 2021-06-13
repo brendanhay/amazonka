@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetTags = GetTags'
   { -- | The Amazon Resource Name (ARN) of the resource for which to retrieve
     -- tags.
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTags' with all optional fields omitted.
@@ -65,14 +66,14 @@ data GetTags = GetTags'
 -- tags.
 newGetTags ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   GetTags
 newGetTags pResourceArn_ =
   GetTags' {resourceArn = pResourceArn_}
 
 -- | The Amazon Resource Name (ARN) of the resource for which to retrieve
 -- tags.
-getTags_resourceArn :: Lens.Lens' GetTags Core.Text
+getTags_resourceArn :: Lens.Lens' GetTags Prelude.Text
 getTags_resourceArn = Lens.lens (\GetTags' {resourceArn} -> resourceArn) (\s@GetTags' {} a -> s {resourceArn = a} :: GetTags)
 
 instance Core.AWSRequest GetTags where
@@ -82,46 +83,48 @@ instance Core.AWSRequest GetTags where
     Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Core.<$> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTags
+instance Prelude.Hashable GetTags
 
-instance Core.NFData GetTags
+instance Prelude.NFData GetTags
 
 instance Core.ToHeaders GetTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetTags" :: Core.ByteString),
+              Core.=# ("AWSGlue.GetTags" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetTags where
   toJSON GetTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ResourceArn" Core..= resourceArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
       )
 
 instance Core.ToPath GetTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTagsResponse' smart constructor.
 data GetTagsResponse = GetTagsResponse'
   { -- | The requested tags.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTagsResponse' with all optional fields omitted.
@@ -136,20 +139,20 @@ data GetTagsResponse = GetTagsResponse'
 -- 'httpStatus', 'getTagsResponse_httpStatus' - The response's http status code.
 newGetTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTagsResponse
 newGetTagsResponse pHttpStatus_ =
   GetTagsResponse'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested tags.
-getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Core.. Lens.mapping Lens._Coerce
+getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Core.Int
+getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Prelude.Int
 getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpStatus) (\s@GetTagsResponse' {} a -> s {httpStatus = a} :: GetTagsResponse)
 
-instance Core.NFData GetTagsResponse
+instance Prelude.NFData GetTagsResponse

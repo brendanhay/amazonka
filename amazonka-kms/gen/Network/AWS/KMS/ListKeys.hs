@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,13 +77,13 @@ data ListKeys = ListKeys'
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 1000, inclusive. If you do not include a value, it defaults to 100.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter in a subsequent request after you receive a response
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListKeys' with all optional fields omitted.
@@ -106,8 +107,8 @@ newListKeys ::
   ListKeys
 newListKeys =
   ListKeys'
-    { limit = Core.Nothing,
-      marker = Core.Nothing
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Use this parameter to specify the maximum number of items to return.
@@ -116,33 +117,33 @@ newListKeys =
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 1000, inclusive. If you do not include a value, it defaults to 100.
-listKeys_limit :: Lens.Lens' ListKeys (Core.Maybe Core.Natural)
+listKeys_limit :: Lens.Lens' ListKeys (Prelude.Maybe Prelude.Natural)
 listKeys_limit = Lens.lens (\ListKeys' {limit} -> limit) (\s@ListKeys' {} a -> s {limit = a} :: ListKeys)
 
 -- | Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
-listKeys_marker :: Lens.Lens' ListKeys (Core.Maybe Core.Text)
+listKeys_marker :: Lens.Lens' ListKeys (Prelude.Maybe Prelude.Text)
 listKeys_marker = Lens.lens (\ListKeys' {marker} -> marker) (\s@ListKeys' {} a -> s {marker = a} :: ListKeys)
 
 instance Core.AWSPager ListKeys where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listKeysResponse_truncated Core.. Lens._Just
+            Lens.^? listKeysResponse_truncated Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listKeysResponse_nextMarker Core.. Lens._Just
+            Lens.^? listKeysResponse_nextMarker Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listKeys_marker
+          Prelude.& listKeys_marker
           Lens..~ rs
-          Lens.^? listKeysResponse_nextMarker Core.. Lens._Just
+          Lens.^? listKeysResponse_nextMarker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListKeys where
   type AWSResponse ListKeys = ListKeysResponse
@@ -151,58 +152,60 @@ instance Core.AWSRequest ListKeys where
     Response.receiveJSON
       ( \s h x ->
           ListKeysResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "Keys" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Truncated")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Truncated")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListKeys
+instance Prelude.Hashable ListKeys
 
-instance Core.NFData ListKeys
+instance Prelude.NFData ListKeys
 
 instance Core.ToHeaders ListKeys where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.ListKeys" :: Core.ByteString),
+              Core.=# ("TrentService.ListKeys" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListKeys where
   toJSON ListKeys' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Limit" Core..=) Core.<$> limit,
-            ("Marker" Core..=) Core.<$> marker
+      ( Prelude.catMaybes
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 
 instance Core.ToPath ListKeys where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListKeys where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListKeysResponse' smart constructor.
 data ListKeysResponse = ListKeysResponse'
   { -- | When @Truncated@ is true, this element is present and contains the value
     -- to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | A list of customer master keys (CMKs).
-    keys :: Core.Maybe [KeyListEntry],
+    keys :: Prelude.Maybe [KeyListEntry],
     -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
-    truncated :: Core.Maybe Core.Bool,
+    truncated :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListKeysResponse' with all optional fields omitted.
@@ -225,34 +228,34 @@ data ListKeysResponse = ListKeysResponse'
 -- 'httpStatus', 'listKeysResponse_httpStatus' - The response's http status code.
 newListKeysResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListKeysResponse
 newListKeysResponse pHttpStatus_ =
   ListKeysResponse'
-    { nextMarker = Core.Nothing,
-      keys = Core.Nothing,
-      truncated = Core.Nothing,
+    { nextMarker = Prelude.Nothing,
+      keys = Prelude.Nothing,
+      truncated = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
-listKeysResponse_nextMarker :: Lens.Lens' ListKeysResponse (Core.Maybe Core.Text)
+listKeysResponse_nextMarker :: Lens.Lens' ListKeysResponse (Prelude.Maybe Prelude.Text)
 listKeysResponse_nextMarker = Lens.lens (\ListKeysResponse' {nextMarker} -> nextMarker) (\s@ListKeysResponse' {} a -> s {nextMarker = a} :: ListKeysResponse)
 
 -- | A list of customer master keys (CMKs).
-listKeysResponse_keys :: Lens.Lens' ListKeysResponse (Core.Maybe [KeyListEntry])
-listKeysResponse_keys = Lens.lens (\ListKeysResponse' {keys} -> keys) (\s@ListKeysResponse' {} a -> s {keys = a} :: ListKeysResponse) Core.. Lens.mapping Lens._Coerce
+listKeysResponse_keys :: Lens.Lens' ListKeysResponse (Prelude.Maybe [KeyListEntry])
+listKeysResponse_keys = Lens.lens (\ListKeysResponse' {keys} -> keys) (\s@ListKeysResponse' {} a -> s {keys = a} :: ListKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
-listKeysResponse_truncated :: Lens.Lens' ListKeysResponse (Core.Maybe Core.Bool)
+listKeysResponse_truncated :: Lens.Lens' ListKeysResponse (Prelude.Maybe Prelude.Bool)
 listKeysResponse_truncated = Lens.lens (\ListKeysResponse' {truncated} -> truncated) (\s@ListKeysResponse' {} a -> s {truncated = a} :: ListKeysResponse)
 
 -- | The response's http status code.
-listKeysResponse_httpStatus :: Lens.Lens' ListKeysResponse Core.Int
+listKeysResponse_httpStatus :: Lens.Lens' ListKeysResponse Prelude.Int
 listKeysResponse_httpStatus = Lens.lens (\ListKeysResponse' {httpStatus} -> httpStatus) (\s@ListKeysResponse' {} a -> s {httpStatus = a} :: ListKeysResponse)
 
-instance Core.NFData ListKeysResponse
+instance Prelude.NFData ListKeysResponse

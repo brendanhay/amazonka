@@ -72,15 +72,16 @@ where
 import Network.AWS.ApplicationAutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutScheduledAction' smart constructor.
 data PutScheduledAction = PutScheduledAction'
   { -- | The date and time for this scheduled action to start, in UTC.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time for the recurring schedule to end, in UTC.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies the time zone used when setting a scheduled action by using an
     -- at or cron expression. If a time zone is not provided, UTC is used by
     -- default.
@@ -88,13 +89,13 @@ data PutScheduledAction = PutScheduledAction'
     -- Valid values are the canonical names of the IANA time zones supported by
     -- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
     -- information, see <https://www.joda.org/joda-time/timezones.html>.
-    timezone :: Core.Maybe Core.Text,
+    timezone :: Prelude.Maybe Prelude.Text,
     -- | The new minimum and maximum capacity. You can set both values or just
     -- one. At the scheduled time, if the current capacity is below the minimum
     -- capacity, Application Auto Scaling scales out to the minimum capacity.
     -- If the current capacity is above the maximum capacity, Application Auto
     -- Scaling scales in to the maximum capacity.
-    scalableTargetAction :: Core.Maybe ScalableTargetAction,
+    scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
     -- | The schedule for this action. The following formats are supported:
     --
     -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
@@ -119,14 +120,14 @@ data PutScheduledAction = PutScheduledAction'
     -- For more information and examples, see
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
     -- in the /Application Auto Scaling User Guide/.
-    schedule :: Core.Maybe Core.Text,
+    schedule :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the AWS service that provides the resource. For a
     -- resource provided by your own application or service, use
     -- @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace,
     -- | The name of the scheduled action. This name must be unique among all
     -- other scheduled actions on the specified scalable target.
-    scheduledActionName :: Core.Text,
+    scheduledActionName :: Prelude.Text,
     -- | The identifier of the resource associated with the scheduled action.
     -- This string consists of the resource type and unique identifier.
     --
@@ -187,7 +188,7 @@ data PutScheduledAction = PutScheduledAction'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
     --
@@ -246,7 +247,7 @@ data PutScheduledAction = PutScheduledAction'
     --     GiB) for brokers in an Amazon MSK cluster.
     scalableDimension :: ScalableDimension
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutScheduledAction' with all optional fields omitted.
@@ -427,9 +428,9 @@ newPutScheduledAction ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'scheduledActionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   PutScheduledAction
@@ -439,11 +440,11 @@ newPutScheduledAction
   pResourceId_
   pScalableDimension_ =
     PutScheduledAction'
-      { startTime = Core.Nothing,
-        endTime = Core.Nothing,
-        timezone = Core.Nothing,
-        scalableTargetAction = Core.Nothing,
-        schedule = Core.Nothing,
+      { startTime = Prelude.Nothing,
+        endTime = Prelude.Nothing,
+        timezone = Prelude.Nothing,
+        scalableTargetAction = Prelude.Nothing,
+        schedule = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         scheduledActionName = pScheduledActionName_,
         resourceId = pResourceId_,
@@ -451,12 +452,12 @@ newPutScheduledAction
       }
 
 -- | The date and time for this scheduled action to start, in UTC.
-putScheduledAction_startTime :: Lens.Lens' PutScheduledAction (Core.Maybe Core.UTCTime)
-putScheduledAction_startTime = Lens.lens (\PutScheduledAction' {startTime} -> startTime) (\s@PutScheduledAction' {} a -> s {startTime = a} :: PutScheduledAction) Core.. Lens.mapping Core._Time
+putScheduledAction_startTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledAction_startTime = Lens.lens (\PutScheduledAction' {startTime} -> startTime) (\s@PutScheduledAction' {} a -> s {startTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time for the recurring schedule to end, in UTC.
-putScheduledAction_endTime :: Lens.Lens' PutScheduledAction (Core.Maybe Core.UTCTime)
-putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTime) (\s@PutScheduledAction' {} a -> s {endTime = a} :: PutScheduledAction) Core.. Lens.mapping Core._Time
+putScheduledAction_endTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTime) (\s@PutScheduledAction' {} a -> s {endTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies the time zone used when setting a scheduled action by using an
 -- at or cron expression. If a time zone is not provided, UTC is used by
@@ -465,7 +466,7 @@ putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTim
 -- Valid values are the canonical names of the IANA time zones supported by
 -- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
 -- information, see <https://www.joda.org/joda-time/timezones.html>.
-putScheduledAction_timezone :: Lens.Lens' PutScheduledAction (Core.Maybe Core.Text)
+putScheduledAction_timezone :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.Text)
 putScheduledAction_timezone = Lens.lens (\PutScheduledAction' {timezone} -> timezone) (\s@PutScheduledAction' {} a -> s {timezone = a} :: PutScheduledAction)
 
 -- | The new minimum and maximum capacity. You can set both values or just
@@ -473,7 +474,7 @@ putScheduledAction_timezone = Lens.lens (\PutScheduledAction' {timezone} -> time
 -- capacity, Application Auto Scaling scales out to the minimum capacity.
 -- If the current capacity is above the maximum capacity, Application Auto
 -- Scaling scales in to the maximum capacity.
-putScheduledAction_scalableTargetAction :: Lens.Lens' PutScheduledAction (Core.Maybe ScalableTargetAction)
+putScheduledAction_scalableTargetAction :: Lens.Lens' PutScheduledAction (Prelude.Maybe ScalableTargetAction)
 putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@PutScheduledAction' {} a -> s {scalableTargetAction = a} :: PutScheduledAction)
 
 -- | The schedule for this action. The following formats are supported:
@@ -500,7 +501,7 @@ putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scala
 -- For more information and examples, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
 -- in the /Application Auto Scaling User Guide/.
-putScheduledAction_schedule :: Lens.Lens' PutScheduledAction (Core.Maybe Core.Text)
+putScheduledAction_schedule :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.Text)
 putScheduledAction_schedule = Lens.lens (\PutScheduledAction' {schedule} -> schedule) (\s@PutScheduledAction' {} a -> s {schedule = a} :: PutScheduledAction)
 
 -- | The namespace of the AWS service that provides the resource. For a
@@ -511,7 +512,7 @@ putScheduledAction_serviceNamespace = Lens.lens (\PutScheduledAction' {serviceNa
 
 -- | The name of the scheduled action. This name must be unique among all
 -- other scheduled actions on the specified scalable target.
-putScheduledAction_scheduledActionName :: Lens.Lens' PutScheduledAction Core.Text
+putScheduledAction_scheduledActionName :: Lens.Lens' PutScheduledAction Prelude.Text
 putScheduledAction_scheduledActionName = Lens.lens (\PutScheduledAction' {scheduledActionName} -> scheduledActionName) (\s@PutScheduledAction' {} a -> s {scheduledActionName = a} :: PutScheduledAction)
 
 -- | The identifier of the resource associated with the scheduled action.
@@ -574,7 +575,7 @@ putScheduledAction_scheduledActionName = Lens.lens (\PutScheduledAction' {schedu
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-putScheduledAction_resourceId :: Lens.Lens' PutScheduledAction Core.Text
+putScheduledAction_resourceId :: Lens.Lens' PutScheduledAction Prelude.Text
 putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> resourceId) (\s@PutScheduledAction' {} a -> s {resourceId = a} :: PutScheduledAction)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -645,58 +646,60 @@ instance Core.AWSRequest PutScheduledAction where
     Response.receiveEmpty
       ( \s h x ->
           PutScheduledActionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutScheduledAction
+instance Prelude.Hashable PutScheduledAction
 
-instance Core.NFData PutScheduledAction
+instance Prelude.NFData PutScheduledAction
 
 instance Core.ToHeaders PutScheduledAction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AnyScaleFrontendService.PutScheduledAction" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutScheduledAction where
   toJSON PutScheduledAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StartTime" Core..=) Core.<$> startTime,
-            ("EndTime" Core..=) Core.<$> endTime,
-            ("Timezone" Core..=) Core.<$> timezone,
+      ( Prelude.catMaybes
+          [ ("StartTime" Core..=) Prelude.<$> startTime,
+            ("EndTime" Core..=) Prelude.<$> endTime,
+            ("Timezone" Core..=) Prelude.<$> timezone,
             ("ScalableTargetAction" Core..=)
-              Core.<$> scalableTargetAction,
-            ("Schedule" Core..=) Core.<$> schedule,
-            Core.Just
+              Prelude.<$> scalableTargetAction,
+            ("Schedule" Core..=) Prelude.<$> schedule,
+            Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace),
-            Core.Just
+            Prelude.Just
               ("ScheduledActionName" Core..= scheduledActionName),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just
               ("ScalableDimension" Core..= scalableDimension)
           ]
       )
 
 instance Core.ToPath PutScheduledAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutScheduledAction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutScheduledActionResponse' smart constructor.
 data PutScheduledActionResponse = PutScheduledActionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutScheduledActionResponse' with all optional fields omitted.
@@ -709,7 +712,7 @@ data PutScheduledActionResponse = PutScheduledActionResponse'
 -- 'httpStatus', 'putScheduledActionResponse_httpStatus' - The response's http status code.
 newPutScheduledActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutScheduledActionResponse
 newPutScheduledActionResponse pHttpStatus_ =
   PutScheduledActionResponse'
@@ -718,7 +721,7 @@ newPutScheduledActionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putScheduledActionResponse_httpStatus :: Lens.Lens' PutScheduledActionResponse Core.Int
+putScheduledActionResponse_httpStatus :: Lens.Lens' PutScheduledActionResponse Prelude.Int
 putScheduledActionResponse_httpStatus = Lens.lens (\PutScheduledActionResponse' {httpStatus} -> httpStatus) (\s@PutScheduledActionResponse' {} a -> s {httpStatus = a} :: PutScheduledActionResponse)
 
-instance Core.NFData PutScheduledActionResponse
+instance Prelude.NFData PutScheduledActionResponse

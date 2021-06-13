@@ -43,19 +43,20 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutDestinationPolicy' smart constructor.
 data PutDestinationPolicy = PutDestinationPolicy'
   { -- | A name for an existing destination.
-    destinationName :: Core.Text,
+    destinationName :: Prelude.Text,
     -- | An IAM policy document that authorizes cross-account users to deliver
     -- their log events to the associated destination. This can be up to 5120
     -- bytes.
-    accessPolicy :: Core.Text
+    accessPolicy :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutDestinationPolicy' with all optional fields omitted.
@@ -72,9 +73,9 @@ data PutDestinationPolicy = PutDestinationPolicy'
 -- bytes.
 newPutDestinationPolicy ::
   -- | 'destinationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accessPolicy'
-  Core.Text ->
+  Prelude.Text ->
   PutDestinationPolicy
 newPutDestinationPolicy
   pDestinationName_
@@ -86,13 +87,13 @@ newPutDestinationPolicy
       }
 
 -- | A name for an existing destination.
-putDestinationPolicy_destinationName :: Lens.Lens' PutDestinationPolicy Core.Text
+putDestinationPolicy_destinationName :: Lens.Lens' PutDestinationPolicy Prelude.Text
 putDestinationPolicy_destinationName = Lens.lens (\PutDestinationPolicy' {destinationName} -> destinationName) (\s@PutDestinationPolicy' {} a -> s {destinationName = a} :: PutDestinationPolicy)
 
 -- | An IAM policy document that authorizes cross-account users to deliver
 -- their log events to the associated destination. This can be up to 5120
 -- bytes.
-putDestinationPolicy_accessPolicy :: Lens.Lens' PutDestinationPolicy Core.Text
+putDestinationPolicy_accessPolicy :: Lens.Lens' PutDestinationPolicy Prelude.Text
 putDestinationPolicy_accessPolicy = Lens.lens (\PutDestinationPolicy' {accessPolicy} -> accessPolicy) (\s@PutDestinationPolicy' {} a -> s {accessPolicy = a} :: PutDestinationPolicy)
 
 instance Core.AWSRequest PutDestinationPolicy where
@@ -103,44 +104,46 @@ instance Core.AWSRequest PutDestinationPolicy where
   response =
     Response.receiveNull PutDestinationPolicyResponse'
 
-instance Core.Hashable PutDestinationPolicy
+instance Prelude.Hashable PutDestinationPolicy
 
-instance Core.NFData PutDestinationPolicy
+instance Prelude.NFData PutDestinationPolicy
 
 instance Core.ToHeaders PutDestinationPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.PutDestinationPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutDestinationPolicy where
   toJSON PutDestinationPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("destinationName" Core..= destinationName),
-            Core.Just ("accessPolicy" Core..= accessPolicy)
+            Prelude.Just ("accessPolicy" Core..= accessPolicy)
           ]
       )
 
 instance Core.ToPath PutDestinationPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutDestinationPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutDestinationPolicyResponse' smart constructor.
 data PutDestinationPolicyResponse = PutDestinationPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutDestinationPolicyResponse' with all optional fields omitted.
@@ -151,4 +154,4 @@ newPutDestinationPolicyResponse ::
 newPutDestinationPolicyResponse =
   PutDestinationPolicyResponse'
 
-instance Core.NFData PutDestinationPolicyResponse
+instance Prelude.NFData PutDestinationPolicyResponse

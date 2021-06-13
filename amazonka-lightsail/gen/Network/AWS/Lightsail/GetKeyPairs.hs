@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data GetKeyPairs = GetKeyPairs'
     -- To get a page token, perform an initial @GetKeyPairs@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Core.Maybe Core.Text
+    pageToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetKeyPairs' with all optional fields omitted.
@@ -75,34 +76,36 @@ data GetKeyPairs = GetKeyPairs'
 newGetKeyPairs ::
   GetKeyPairs
 newGetKeyPairs =
-  GetKeyPairs' {pageToken = Core.Nothing}
+  GetKeyPairs' {pageToken = Prelude.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetKeyPairs@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
-getKeyPairs_pageToken :: Lens.Lens' GetKeyPairs (Core.Maybe Core.Text)
+getKeyPairs_pageToken :: Lens.Lens' GetKeyPairs (Prelude.Maybe Prelude.Text)
 getKeyPairs_pageToken = Lens.lens (\GetKeyPairs' {pageToken} -> pageToken) (\s@GetKeyPairs' {} a -> s {pageToken = a} :: GetKeyPairs)
 
 instance Core.AWSPager GetKeyPairs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getKeyPairsResponse_nextPageToken Core.. Lens._Just
+            Lens.^? getKeyPairsResponse_nextPageToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getKeyPairsResponse_keyPairs Core.. Lens._Just
+            Lens.^? getKeyPairsResponse_keyPairs Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getKeyPairs_pageToken
+          Prelude.& getKeyPairs_pageToken
           Lens..~ rs
-          Lens.^? getKeyPairsResponse_nextPageToken Core.. Lens._Just
+          Lens.^? getKeyPairsResponse_nextPageToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetKeyPairs where
   type AWSResponse GetKeyPairs = GetKeyPairsResponse
@@ -111,45 +114,47 @@ instance Core.AWSRequest GetKeyPairs where
     Response.receiveJSON
       ( \s h x ->
           GetKeyPairsResponse'
-            Core.<$> (x Core..?> "keyPairs" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "nextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "keyPairs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetKeyPairs
+instance Prelude.Hashable GetKeyPairs
 
-instance Core.NFData GetKeyPairs
+instance Prelude.NFData GetKeyPairs
 
 instance Core.ToHeaders GetKeyPairs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetKeyPairs" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetKeyPairs where
   toJSON GetKeyPairs' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pageToken" Core..=) Core.<$> pageToken]
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
       )
 
 instance Core.ToPath GetKeyPairs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetKeyPairs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetKeyPairsResponse' smart constructor.
 data GetKeyPairsResponse = GetKeyPairsResponse'
   { -- | An array of key-value pairs containing information about the key pairs.
-    keyPairs :: Core.Maybe [KeyPair],
+    keyPairs :: Prelude.Maybe [KeyPair],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -157,11 +162,11 @@ data GetKeyPairsResponse = GetKeyPairsResponse'
     --
     -- To get the next page of results, perform another @GetKeyPairs@ request
     -- and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetKeyPairsResponse' with all optional fields omitted.
@@ -184,18 +189,18 @@ data GetKeyPairsResponse = GetKeyPairsResponse'
 -- 'httpStatus', 'getKeyPairsResponse_httpStatus' - The response's http status code.
 newGetKeyPairsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetKeyPairsResponse
 newGetKeyPairsResponse pHttpStatus_ =
   GetKeyPairsResponse'
-    { keyPairs = Core.Nothing,
-      nextPageToken = Core.Nothing,
+    { keyPairs = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs containing information about the key pairs.
-getKeyPairsResponse_keyPairs :: Lens.Lens' GetKeyPairsResponse (Core.Maybe [KeyPair])
-getKeyPairsResponse_keyPairs = Lens.lens (\GetKeyPairsResponse' {keyPairs} -> keyPairs) (\s@GetKeyPairsResponse' {} a -> s {keyPairs = a} :: GetKeyPairsResponse) Core.. Lens.mapping Lens._Coerce
+getKeyPairsResponse_keyPairs :: Lens.Lens' GetKeyPairsResponse (Prelude.Maybe [KeyPair])
+getKeyPairsResponse_keyPairs = Lens.lens (\GetKeyPairsResponse' {keyPairs} -> keyPairs) (\s@GetKeyPairsResponse' {} a -> s {keyPairs = a} :: GetKeyPairsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -204,11 +209,11 @@ getKeyPairsResponse_keyPairs = Lens.lens (\GetKeyPairsResponse' {keyPairs} -> ke
 --
 -- To get the next page of results, perform another @GetKeyPairs@ request
 -- and specify the next page token using the @pageToken@ parameter.
-getKeyPairsResponse_nextPageToken :: Lens.Lens' GetKeyPairsResponse (Core.Maybe Core.Text)
+getKeyPairsResponse_nextPageToken :: Lens.Lens' GetKeyPairsResponse (Prelude.Maybe Prelude.Text)
 getKeyPairsResponse_nextPageToken = Lens.lens (\GetKeyPairsResponse' {nextPageToken} -> nextPageToken) (\s@GetKeyPairsResponse' {} a -> s {nextPageToken = a} :: GetKeyPairsResponse)
 
 -- | The response's http status code.
-getKeyPairsResponse_httpStatus :: Lens.Lens' GetKeyPairsResponse Core.Int
+getKeyPairsResponse_httpStatus :: Lens.Lens' GetKeyPairsResponse Prelude.Int
 getKeyPairsResponse_httpStatus = Lens.lens (\GetKeyPairsResponse' {httpStatus} -> httpStatus) (\s@GetKeyPairsResponse' {} a -> s {httpStatus = a} :: GetKeyPairsResponse)
 
-instance Core.NFData GetKeyPairsResponse
+instance Prelude.NFData GetKeyPairsResponse

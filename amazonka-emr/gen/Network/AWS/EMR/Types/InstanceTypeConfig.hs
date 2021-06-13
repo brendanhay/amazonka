@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.Configuration
 import Network.AWS.EMR.Types.EbsConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An instance type configuration for each instance type in an instance
 -- fleet, which determines the EC2 instances Amazon EMR attempts to
@@ -36,31 +37,31 @@ import qualified Network.AWS.Lens as Lens
 data InstanceTypeConfig = InstanceTypeConfig'
   { -- | The configuration of Amazon Elastic Block Storage (Amazon EBS) attached
     -- to each instance as defined by @InstanceType@.
-    ebsConfiguration :: Core.Maybe EbsConfiguration,
+    ebsConfiguration :: Prelude.Maybe EbsConfiguration,
     -- | A configuration classification that applies when provisioning cluster
     -- instances, which can include configurations for applications and
     -- software that run on the cluster.
-    configurations :: Core.Maybe [Configuration],
+    configurations :: Prelude.Maybe [Configuration],
     -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
     -- Instance as defined by @InstanceType@. Expressed as a number (for
     -- example, 20 specifies 20%). If neither @BidPrice@ nor
     -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
     -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-    bidPriceAsPercentageOfOnDemandPrice :: Core.Maybe Core.Double,
+    bidPriceAsPercentageOfOnDemandPrice :: Prelude.Maybe Prelude.Double,
     -- | The bid price for each EC2 Spot Instance type as defined by
     -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
     -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
     -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-    bidPrice :: Core.Maybe Core.Text,
+    bidPrice :: Prelude.Maybe Prelude.Text,
     -- | The number of units that a provisioned instance of this type provides
     -- toward fulfilling the target capacities defined in InstanceFleetConfig.
     -- This value is 1 for a master instance fleet, and must be 1 or greater
     -- for core and task instance fleets. Defaults to 1 if not specified.
-    weightedCapacity :: Core.Maybe Core.Natural,
+    weightedCapacity :: Prelude.Maybe Prelude.Natural,
     -- | An EC2 instance type, such as @m3.xlarge@.
-    instanceType :: Core.Text
+    instanceType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceTypeConfig' with all optional fields omitted.
@@ -96,72 +97,74 @@ data InstanceTypeConfig = InstanceTypeConfig'
 -- 'instanceType', 'instanceTypeConfig_instanceType' - An EC2 instance type, such as @m3.xlarge@.
 newInstanceTypeConfig ::
   -- | 'instanceType'
-  Core.Text ->
+  Prelude.Text ->
   InstanceTypeConfig
 newInstanceTypeConfig pInstanceType_ =
   InstanceTypeConfig'
     { ebsConfiguration =
-        Core.Nothing,
-      configurations = Core.Nothing,
-      bidPriceAsPercentageOfOnDemandPrice = Core.Nothing,
-      bidPrice = Core.Nothing,
-      weightedCapacity = Core.Nothing,
+        Prelude.Nothing,
+      configurations = Prelude.Nothing,
+      bidPriceAsPercentageOfOnDemandPrice =
+        Prelude.Nothing,
+      bidPrice = Prelude.Nothing,
+      weightedCapacity = Prelude.Nothing,
       instanceType = pInstanceType_
     }
 
 -- | The configuration of Amazon Elastic Block Storage (Amazon EBS) attached
 -- to each instance as defined by @InstanceType@.
-instanceTypeConfig_ebsConfiguration :: Lens.Lens' InstanceTypeConfig (Core.Maybe EbsConfiguration)
+instanceTypeConfig_ebsConfiguration :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe EbsConfiguration)
 instanceTypeConfig_ebsConfiguration = Lens.lens (\InstanceTypeConfig' {ebsConfiguration} -> ebsConfiguration) (\s@InstanceTypeConfig' {} a -> s {ebsConfiguration = a} :: InstanceTypeConfig)
 
 -- | A configuration classification that applies when provisioning cluster
 -- instances, which can include configurations for applications and
 -- software that run on the cluster.
-instanceTypeConfig_configurations :: Lens.Lens' InstanceTypeConfig (Core.Maybe [Configuration])
-instanceTypeConfig_configurations = Lens.lens (\InstanceTypeConfig' {configurations} -> configurations) (\s@InstanceTypeConfig' {} a -> s {configurations = a} :: InstanceTypeConfig) Core.. Lens.mapping Lens._Coerce
+instanceTypeConfig_configurations :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe [Configuration])
+instanceTypeConfig_configurations = Lens.lens (\InstanceTypeConfig' {configurations} -> configurations) (\s@InstanceTypeConfig' {} a -> s {configurations = a} :: InstanceTypeConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
 -- Instance as defined by @InstanceType@. Expressed as a number (for
 -- example, 20 specifies 20%). If neither @BidPrice@ nor
 -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
 -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice :: Lens.Lens' InstanceTypeConfig (Core.Maybe Core.Double)
+instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Double)
 instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice = Lens.lens (\InstanceTypeConfig' {bidPriceAsPercentageOfOnDemandPrice} -> bidPriceAsPercentageOfOnDemandPrice) (\s@InstanceTypeConfig' {} a -> s {bidPriceAsPercentageOfOnDemandPrice = a} :: InstanceTypeConfig)
 
 -- | The bid price for each EC2 Spot Instance type as defined by
 -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
 -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
 -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-instanceTypeConfig_bidPrice :: Lens.Lens' InstanceTypeConfig (Core.Maybe Core.Text)
+instanceTypeConfig_bidPrice :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Text)
 instanceTypeConfig_bidPrice = Lens.lens (\InstanceTypeConfig' {bidPrice} -> bidPrice) (\s@InstanceTypeConfig' {} a -> s {bidPrice = a} :: InstanceTypeConfig)
 
 -- | The number of units that a provisioned instance of this type provides
 -- toward fulfilling the target capacities defined in InstanceFleetConfig.
 -- This value is 1 for a master instance fleet, and must be 1 or greater
 -- for core and task instance fleets. Defaults to 1 if not specified.
-instanceTypeConfig_weightedCapacity :: Lens.Lens' InstanceTypeConfig (Core.Maybe Core.Natural)
+instanceTypeConfig_weightedCapacity :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Natural)
 instanceTypeConfig_weightedCapacity = Lens.lens (\InstanceTypeConfig' {weightedCapacity} -> weightedCapacity) (\s@InstanceTypeConfig' {} a -> s {weightedCapacity = a} :: InstanceTypeConfig)
 
 -- | An EC2 instance type, such as @m3.xlarge@.
-instanceTypeConfig_instanceType :: Lens.Lens' InstanceTypeConfig Core.Text
+instanceTypeConfig_instanceType :: Lens.Lens' InstanceTypeConfig Prelude.Text
 instanceTypeConfig_instanceType = Lens.lens (\InstanceTypeConfig' {instanceType} -> instanceType) (\s@InstanceTypeConfig' {} a -> s {instanceType = a} :: InstanceTypeConfig)
 
-instance Core.Hashable InstanceTypeConfig
+instance Prelude.Hashable InstanceTypeConfig
 
-instance Core.NFData InstanceTypeConfig
+instance Prelude.NFData InstanceTypeConfig
 
 instance Core.ToJSON InstanceTypeConfig where
   toJSON InstanceTypeConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EbsConfiguration" Core..=)
-              Core.<$> ebsConfiguration,
-            ("Configurations" Core..=) Core.<$> configurations,
+              Prelude.<$> ebsConfiguration,
+            ("Configurations" Core..=)
+              Prelude.<$> configurations,
             ("BidPriceAsPercentageOfOnDemandPrice" Core..=)
-              Core.<$> bidPriceAsPercentageOfOnDemandPrice,
-            ("BidPrice" Core..=) Core.<$> bidPrice,
+              Prelude.<$> bidPriceAsPercentageOfOnDemandPrice,
+            ("BidPrice" Core..=) Prelude.<$> bidPrice,
             ("WeightedCapacity" Core..=)
-              Core.<$> weightedCapacity,
-            Core.Just ("InstanceType" Core..= instanceType)
+              Prelude.<$> weightedCapacity,
+            Prelude.Just ("InstanceType" Core..= instanceType)
           ]
       )

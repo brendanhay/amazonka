@@ -67,6 +67,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -88,7 +89,7 @@ data CreateAssociation = CreateAssociation'
     -- as well. If you need to ensure that there won\'t be more than max-errors
     -- failed executions, set MaxConcurrency to 1 so that executions proceed
     -- one at a time.
-    maxErrors :: Core.Maybe Core.Text,
+    maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The instance ID.
     --
     -- @InstanceId@ has been deprecated. To specify an instance ID for an
@@ -99,26 +100,26 @@ data CreateAssociation = CreateAssociation'
     -- @MaxErrors@, @MaxConcurrency@, @OutputLocation@, or
     -- @ScheduleExpression@. To use these parameters, you must use the
     -- @Targets@ parameter.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The severity level to assign to the association.
-    complianceSeverity :: Core.Maybe AssociationComplianceSeverity,
+    complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
     -- | Specify the target for the association. This target is required for
     -- associations that use an Automation document and target resources by
     -- using rate controls.
-    automationTargetParameterName :: Core.Maybe Core.Text,
+    automationTargetParameterName :: Prelude.Maybe Prelude.Text,
     -- | The targets for the association. You can target instances by using tags,
     -- AWS Resource Groups, all instances in an AWS account, or individual
     -- instance IDs. For more information about choosing targets for an
     -- association, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html Using targets and rate controls with State Manager associations>
     -- in the /AWS Systems Manager User Guide/.
-    targets :: Core.Maybe [Target],
+    targets :: Prelude.Maybe [Target],
     -- | A location is a combination of AWS Regions and AWS accounts where you
     -- want to run the association. Use this action to create an association in
     -- multiple Regions and multiple accounts.
-    targetLocations :: Core.Maybe (Core.NonEmpty TargetLocation),
+    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
     -- | A cron expression when the association will be applied to the target(s).
-    scheduleExpression :: Core.Maybe Core.Text,
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
@@ -129,22 +130,22 @@ data CreateAssociation = CreateAssociation'
     -- is allowed to run. During the next association interval, the new
     -- instance will process its association within the limit specified for
     -- MaxConcurrency.
-    maxConcurrency :: Core.Maybe Core.Text,
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | Specify a descriptive name for the association.
-    associationName :: Core.Maybe Core.Text,
+    associationName :: Prelude.Maybe Prelude.Text,
     -- | The document version you want to associate with the target(s). Can be a
     -- specific version or the default version.
-    documentVersion :: Core.Maybe Core.Text,
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the runtime configuration of the document.
-    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | An S3 bucket where you want to store the output details of the request.
-    outputLocation :: Core.Maybe InstanceAssociationOutputLocation,
+    outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
     -- | By default, when you create a new associations, the system runs it
     -- immediately after it is created and then according to the schedule you
     -- specified. Specify this option if you don\'t want an association to run
     -- immediately after you create it. This parameter is not supported for
     -- rate expressions.
-    applyOnlyAtCronInterval :: Core.Maybe Core.Bool,
+    applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
     -- | The mode for generating association compliance. You can specify @AUTO@
     -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
     -- association execution to determine the compliance status. If the
@@ -158,7 +159,7 @@ data CreateAssociation = CreateAssociation'
     -- PutComplianceItems API action.
     --
     -- By default, all associations use @AUTO@ mode.
-    syncCompliance :: Core.Maybe AssociationSyncCompliance,
+    syncCompliance :: Prelude.Maybe AssociationSyncCompliance,
     -- | The name of the SSM document that contains the configuration information
     -- for the instance. You can specify Command or Automation documents.
     --
@@ -177,9 +178,9 @@ data CreateAssociation = CreateAssociation'
     -- For AWS-predefined documents and SSM documents you created in your
     -- account, you only need to specify the document name. For example,
     -- @AWS-ApplyPatchBaseline@ or @My-Document@.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAssociation' with all optional fields omitted.
@@ -295,24 +296,24 @@ data CreateAssociation = CreateAssociation'
 -- @AWS-ApplyPatchBaseline@ or @My-Document@.
 newCreateAssociation ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateAssociation
 newCreateAssociation pName_ =
   CreateAssociation'
-    { maxErrors = Core.Nothing,
-      instanceId = Core.Nothing,
-      complianceSeverity = Core.Nothing,
-      automationTargetParameterName = Core.Nothing,
-      targets = Core.Nothing,
-      targetLocations = Core.Nothing,
-      scheduleExpression = Core.Nothing,
-      maxConcurrency = Core.Nothing,
-      associationName = Core.Nothing,
-      documentVersion = Core.Nothing,
-      parameters = Core.Nothing,
-      outputLocation = Core.Nothing,
-      applyOnlyAtCronInterval = Core.Nothing,
-      syncCompliance = Core.Nothing,
+    { maxErrors = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      complianceSeverity = Prelude.Nothing,
+      automationTargetParameterName = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      targetLocations = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      maxConcurrency = Prelude.Nothing,
+      associationName = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      outputLocation = Prelude.Nothing,
+      applyOnlyAtCronInterval = Prelude.Nothing,
+      syncCompliance = Prelude.Nothing,
       name = pName_
     }
 
@@ -331,7 +332,7 @@ newCreateAssociation pName_ =
 -- as well. If you need to ensure that there won\'t be more than max-errors
 -- failed executions, set MaxConcurrency to 1 so that executions proceed
 -- one at a time.
-createAssociation_maxErrors :: Lens.Lens' CreateAssociation (Core.Maybe Core.Text)
+createAssociation_maxErrors :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_maxErrors = Lens.lens (\CreateAssociation' {maxErrors} -> maxErrors) (\s@CreateAssociation' {} a -> s {maxErrors = a} :: CreateAssociation)
 
 -- | The instance ID.
@@ -344,17 +345,17 @@ createAssociation_maxErrors = Lens.lens (\CreateAssociation' {maxErrors} -> maxE
 -- @MaxErrors@, @MaxConcurrency@, @OutputLocation@, or
 -- @ScheduleExpression@. To use these parameters, you must use the
 -- @Targets@ parameter.
-createAssociation_instanceId :: Lens.Lens' CreateAssociation (Core.Maybe Core.Text)
+createAssociation_instanceId :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_instanceId = Lens.lens (\CreateAssociation' {instanceId} -> instanceId) (\s@CreateAssociation' {} a -> s {instanceId = a} :: CreateAssociation)
 
 -- | The severity level to assign to the association.
-createAssociation_complianceSeverity :: Lens.Lens' CreateAssociation (Core.Maybe AssociationComplianceSeverity)
+createAssociation_complianceSeverity :: Lens.Lens' CreateAssociation (Prelude.Maybe AssociationComplianceSeverity)
 createAssociation_complianceSeverity = Lens.lens (\CreateAssociation' {complianceSeverity} -> complianceSeverity) (\s@CreateAssociation' {} a -> s {complianceSeverity = a} :: CreateAssociation)
 
 -- | Specify the target for the association. This target is required for
 -- associations that use an Automation document and target resources by
 -- using rate controls.
-createAssociation_automationTargetParameterName :: Lens.Lens' CreateAssociation (Core.Maybe Core.Text)
+createAssociation_automationTargetParameterName :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_automationTargetParameterName = Lens.lens (\CreateAssociation' {automationTargetParameterName} -> automationTargetParameterName) (\s@CreateAssociation' {} a -> s {automationTargetParameterName = a} :: CreateAssociation)
 
 -- | The targets for the association. You can target instances by using tags,
@@ -363,17 +364,17 @@ createAssociation_automationTargetParameterName = Lens.lens (\CreateAssociation'
 -- association, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html Using targets and rate controls with State Manager associations>
 -- in the /AWS Systems Manager User Guide/.
-createAssociation_targets :: Lens.Lens' CreateAssociation (Core.Maybe [Target])
-createAssociation_targets = Lens.lens (\CreateAssociation' {targets} -> targets) (\s@CreateAssociation' {} a -> s {targets = a} :: CreateAssociation) Core.. Lens.mapping Lens._Coerce
+createAssociation_targets :: Lens.Lens' CreateAssociation (Prelude.Maybe [Target])
+createAssociation_targets = Lens.lens (\CreateAssociation' {targets} -> targets) (\s@CreateAssociation' {} a -> s {targets = a} :: CreateAssociation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A location is a combination of AWS Regions and AWS accounts where you
 -- want to run the association. Use this action to create an association in
 -- multiple Regions and multiple accounts.
-createAssociation_targetLocations :: Lens.Lens' CreateAssociation (Core.Maybe (Core.NonEmpty TargetLocation))
-createAssociation_targetLocations = Lens.lens (\CreateAssociation' {targetLocations} -> targetLocations) (\s@CreateAssociation' {} a -> s {targetLocations = a} :: CreateAssociation) Core.. Lens.mapping Lens._Coerce
+createAssociation_targetLocations :: Lens.Lens' CreateAssociation (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
+createAssociation_targetLocations = Lens.lens (\CreateAssociation' {targetLocations} -> targetLocations) (\s@CreateAssociation' {} a -> s {targetLocations = a} :: CreateAssociation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A cron expression when the association will be applied to the target(s).
-createAssociation_scheduleExpression :: Lens.Lens' CreateAssociation (Core.Maybe Core.Text)
+createAssociation_scheduleExpression :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_scheduleExpression = Lens.lens (\CreateAssociation' {scheduleExpression} -> scheduleExpression) (\s@CreateAssociation' {} a -> s {scheduleExpression = a} :: CreateAssociation)
 
 -- | The maximum number of targets allowed to run the association at the same
@@ -386,24 +387,24 @@ createAssociation_scheduleExpression = Lens.lens (\CreateAssociation' {scheduleE
 -- is allowed to run. During the next association interval, the new
 -- instance will process its association within the limit specified for
 -- MaxConcurrency.
-createAssociation_maxConcurrency :: Lens.Lens' CreateAssociation (Core.Maybe Core.Text)
+createAssociation_maxConcurrency :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_maxConcurrency = Lens.lens (\CreateAssociation' {maxConcurrency} -> maxConcurrency) (\s@CreateAssociation' {} a -> s {maxConcurrency = a} :: CreateAssociation)
 
 -- | Specify a descriptive name for the association.
-createAssociation_associationName :: Lens.Lens' CreateAssociation (Core.Maybe Core.Text)
+createAssociation_associationName :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_associationName = Lens.lens (\CreateAssociation' {associationName} -> associationName) (\s@CreateAssociation' {} a -> s {associationName = a} :: CreateAssociation)
 
 -- | The document version you want to associate with the target(s). Can be a
 -- specific version or the default version.
-createAssociation_documentVersion :: Lens.Lens' CreateAssociation (Core.Maybe Core.Text)
+createAssociation_documentVersion :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Text)
 createAssociation_documentVersion = Lens.lens (\CreateAssociation' {documentVersion} -> documentVersion) (\s@CreateAssociation' {} a -> s {documentVersion = a} :: CreateAssociation)
 
 -- | The parameters for the runtime configuration of the document.
-createAssociation_parameters :: Lens.Lens' CreateAssociation (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-createAssociation_parameters = Lens.lens (\CreateAssociation' {parameters} -> parameters) (\s@CreateAssociation' {} a -> s {parameters = a} :: CreateAssociation) Core.. Lens.mapping Lens._Coerce
+createAssociation_parameters :: Lens.Lens' CreateAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+createAssociation_parameters = Lens.lens (\CreateAssociation' {parameters} -> parameters) (\s@CreateAssociation' {} a -> s {parameters = a} :: CreateAssociation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An S3 bucket where you want to store the output details of the request.
-createAssociation_outputLocation :: Lens.Lens' CreateAssociation (Core.Maybe InstanceAssociationOutputLocation)
+createAssociation_outputLocation :: Lens.Lens' CreateAssociation (Prelude.Maybe InstanceAssociationOutputLocation)
 createAssociation_outputLocation = Lens.lens (\CreateAssociation' {outputLocation} -> outputLocation) (\s@CreateAssociation' {} a -> s {outputLocation = a} :: CreateAssociation)
 
 -- | By default, when you create a new associations, the system runs it
@@ -411,7 +412,7 @@ createAssociation_outputLocation = Lens.lens (\CreateAssociation' {outputLocatio
 -- specified. Specify this option if you don\'t want an association to run
 -- immediately after you create it. This parameter is not supported for
 -- rate expressions.
-createAssociation_applyOnlyAtCronInterval :: Lens.Lens' CreateAssociation (Core.Maybe Core.Bool)
+createAssociation_applyOnlyAtCronInterval :: Lens.Lens' CreateAssociation (Prelude.Maybe Prelude.Bool)
 createAssociation_applyOnlyAtCronInterval = Lens.lens (\CreateAssociation' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@CreateAssociation' {} a -> s {applyOnlyAtCronInterval = a} :: CreateAssociation)
 
 -- | The mode for generating association compliance. You can specify @AUTO@
@@ -427,7 +428,7 @@ createAssociation_applyOnlyAtCronInterval = Lens.lens (\CreateAssociation' {appl
 -- PutComplianceItems API action.
 --
 -- By default, all associations use @AUTO@ mode.
-createAssociation_syncCompliance :: Lens.Lens' CreateAssociation (Core.Maybe AssociationSyncCompliance)
+createAssociation_syncCompliance :: Lens.Lens' CreateAssociation (Prelude.Maybe AssociationSyncCompliance)
 createAssociation_syncCompliance = Lens.lens (\CreateAssociation' {syncCompliance} -> syncCompliance) (\s@CreateAssociation' {} a -> s {syncCompliance = a} :: CreateAssociation)
 
 -- | The name of the SSM document that contains the configuration information
@@ -448,7 +449,7 @@ createAssociation_syncCompliance = Lens.lens (\CreateAssociation' {syncComplianc
 -- For AWS-predefined documents and SSM documents you created in your
 -- account, you only need to specify the document name. For example,
 -- @AWS-ApplyPatchBaseline@ or @My-Document@.
-createAssociation_name :: Lens.Lens' CreateAssociation Core.Text
+createAssociation_name :: Lens.Lens' CreateAssociation Prelude.Text
 createAssociation_name = Lens.lens (\CreateAssociation' {name} -> name) (\s@CreateAssociation' {} a -> s {name = a} :: CreateAssociation)
 
 instance Core.AWSRequest CreateAssociation where
@@ -460,65 +461,75 @@ instance Core.AWSRequest CreateAssociation where
     Response.receiveJSON
       ( \s h x ->
           CreateAssociationResponse'
-            Core.<$> (x Core..?> "AssociationDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AssociationDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateAssociation
+instance Prelude.Hashable CreateAssociation
 
-instance Core.NFData CreateAssociation
+instance Prelude.NFData CreateAssociation
 
 instance Core.ToHeaders CreateAssociation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.CreateAssociation" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.CreateAssociation" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateAssociation where
   toJSON CreateAssociation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxErrors" Core..=) Core.<$> maxErrors,
-            ("InstanceId" Core..=) Core.<$> instanceId,
+      ( Prelude.catMaybes
+          [ ("MaxErrors" Core..=) Prelude.<$> maxErrors,
+            ("InstanceId" Core..=) Prelude.<$> instanceId,
             ("ComplianceSeverity" Core..=)
-              Core.<$> complianceSeverity,
+              Prelude.<$> complianceSeverity,
             ("AutomationTargetParameterName" Core..=)
-              Core.<$> automationTargetParameterName,
-            ("Targets" Core..=) Core.<$> targets,
-            ("TargetLocations" Core..=) Core.<$> targetLocations,
+              Prelude.<$> automationTargetParameterName,
+            ("Targets" Core..=) Prelude.<$> targets,
+            ("TargetLocations" Core..=)
+              Prelude.<$> targetLocations,
             ("ScheduleExpression" Core..=)
-              Core.<$> scheduleExpression,
-            ("MaxConcurrency" Core..=) Core.<$> maxConcurrency,
-            ("AssociationName" Core..=) Core.<$> associationName,
-            ("DocumentVersion" Core..=) Core.<$> documentVersion,
-            ("Parameters" Core..=) Core.<$> parameters,
-            ("OutputLocation" Core..=) Core.<$> outputLocation,
+              Prelude.<$> scheduleExpression,
+            ("MaxConcurrency" Core..=)
+              Prelude.<$> maxConcurrency,
+            ("AssociationName" Core..=)
+              Prelude.<$> associationName,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion,
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("OutputLocation" Core..=)
+              Prelude.<$> outputLocation,
             ("ApplyOnlyAtCronInterval" Core..=)
-              Core.<$> applyOnlyAtCronInterval,
-            ("SyncCompliance" Core..=) Core.<$> syncCompliance,
-            Core.Just ("Name" Core..= name)
+              Prelude.<$> applyOnlyAtCronInterval,
+            ("SyncCompliance" Core..=)
+              Prelude.<$> syncCompliance,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateAssociation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAssociation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAssociationResponse' smart constructor.
 data CreateAssociationResponse = CreateAssociationResponse'
   { -- | Information about the association.
-    associationDescription :: Core.Maybe AssociationDescription,
+    associationDescription :: Prelude.Maybe AssociationDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAssociationResponse' with all optional fields omitted.
@@ -533,21 +544,21 @@ data CreateAssociationResponse = CreateAssociationResponse'
 -- 'httpStatus', 'createAssociationResponse_httpStatus' - The response's http status code.
 newCreateAssociationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAssociationResponse
 newCreateAssociationResponse pHttpStatus_ =
   CreateAssociationResponse'
     { associationDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the association.
-createAssociationResponse_associationDescription :: Lens.Lens' CreateAssociationResponse (Core.Maybe AssociationDescription)
+createAssociationResponse_associationDescription :: Lens.Lens' CreateAssociationResponse (Prelude.Maybe AssociationDescription)
 createAssociationResponse_associationDescription = Lens.lens (\CreateAssociationResponse' {associationDescription} -> associationDescription) (\s@CreateAssociationResponse' {} a -> s {associationDescription = a} :: CreateAssociationResponse)
 
 -- | The response's http status code.
-createAssociationResponse_httpStatus :: Lens.Lens' CreateAssociationResponse Core.Int
+createAssociationResponse_httpStatus :: Lens.Lens' CreateAssociationResponse Prelude.Int
 createAssociationResponse_httpStatus = Lens.lens (\CreateAssociationResponse' {httpStatus} -> httpStatus) (\s@CreateAssociationResponse' {} a -> s {httpStatus = a} :: CreateAssociationResponse)
 
-instance Core.NFData CreateAssociationResponse
+instance Prelude.NFData CreateAssociationResponse

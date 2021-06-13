@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.HlsSegmentControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to SINGLE_FILE, emits program as a single media resource (.ts)
 -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
@@ -35,15 +36,15 @@ newtype HlsSegmentControl = HlsSegmentControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

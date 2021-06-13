@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ import qualified Network.AWS.Response as Response
 data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subscription definition.
-    subscriptionDefinitionId :: Core.Text,
+    subscriptionDefinitionId :: Prelude.Text,
     -- | The ID of the subscription definition version. This value maps to the
     -- \'\'Version\'\' property of the corresponding \'\'VersionInformation\'\'
     -- object, which is returned by \'\'ListSubscriptionDefinitionVersions\'\'
@@ -66,9 +67,9 @@ data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
     -- subscription definition, the value also maps to the
     -- \'\'LatestVersion\'\' property of the corresponding
     -- \'\'DefinitionInformation\'\' object.
-    subscriptionDefinitionVersionId :: Core.Text
+    subscriptionDefinitionVersionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionDefinitionVersion' with all optional fields omitted.
@@ -92,16 +93,16 @@ data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
 -- \'\'DefinitionInformation\'\' object.
 newGetSubscriptionDefinitionVersion ::
   -- | 'subscriptionDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'subscriptionDefinitionVersionId'
-  Core.Text ->
+  Prelude.Text ->
   GetSubscriptionDefinitionVersion
 newGetSubscriptionDefinitionVersion
   pSubscriptionDefinitionId_
   pSubscriptionDefinitionVersionId_ =
     GetSubscriptionDefinitionVersion'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         subscriptionDefinitionId =
           pSubscriptionDefinitionId_,
         subscriptionDefinitionVersionId =
@@ -110,11 +111,11 @@ newGetSubscriptionDefinitionVersion
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-getSubscriptionDefinitionVersion_nextToken :: Lens.Lens' GetSubscriptionDefinitionVersion (Core.Maybe Core.Text)
+getSubscriptionDefinitionVersion_nextToken :: Lens.Lens' GetSubscriptionDefinitionVersion (Prelude.Maybe Prelude.Text)
 getSubscriptionDefinitionVersion_nextToken = Lens.lens (\GetSubscriptionDefinitionVersion' {nextToken} -> nextToken) (\s@GetSubscriptionDefinitionVersion' {} a -> s {nextToken = a} :: GetSubscriptionDefinitionVersion)
 
 -- | The ID of the subscription definition.
-getSubscriptionDefinitionVersion_subscriptionDefinitionId :: Lens.Lens' GetSubscriptionDefinitionVersion Core.Text
+getSubscriptionDefinitionVersion_subscriptionDefinitionId :: Lens.Lens' GetSubscriptionDefinitionVersion Prelude.Text
 getSubscriptionDefinitionVersion_subscriptionDefinitionId = Lens.lens (\GetSubscriptionDefinitionVersion' {subscriptionDefinitionId} -> subscriptionDefinitionId) (\s@GetSubscriptionDefinitionVersion' {} a -> s {subscriptionDefinitionId = a} :: GetSubscriptionDefinitionVersion)
 
 -- | The ID of the subscription definition version. This value maps to the
@@ -124,7 +125,7 @@ getSubscriptionDefinitionVersion_subscriptionDefinitionId = Lens.lens (\GetSubsc
 -- subscription definition, the value also maps to the
 -- \'\'LatestVersion\'\' property of the corresponding
 -- \'\'DefinitionInformation\'\' object.
-getSubscriptionDefinitionVersion_subscriptionDefinitionVersionId :: Lens.Lens' GetSubscriptionDefinitionVersion Core.Text
+getSubscriptionDefinitionVersion_subscriptionDefinitionVersionId :: Lens.Lens' GetSubscriptionDefinitionVersion Prelude.Text
 getSubscriptionDefinitionVersion_subscriptionDefinitionVersionId = Lens.lens (\GetSubscriptionDefinitionVersion' {subscriptionDefinitionVersionId} -> subscriptionDefinitionVersionId) (\s@GetSubscriptionDefinitionVersion' {} a -> s {subscriptionDefinitionVersionId = a} :: GetSubscriptionDefinitionVersion)
 
 instance
@@ -139,36 +140,40 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSubscriptionDefinitionVersionResponse'
-            Core.<$> (x Core..?> "CreationTimestamp")
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "Id")
-            Core.<*> (x Core..?> "Version")
-            Core.<*> (x Core..?> "Definition")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetSubscriptionDefinitionVersion
 
-instance Core.NFData GetSubscriptionDefinitionVersion
+instance
+  Prelude.NFData
+    GetSubscriptionDefinitionVersion
 
 instance
   Core.ToHeaders
     GetSubscriptionDefinitionVersion
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetSubscriptionDefinitionVersion where
   toPath GetSubscriptionDefinitionVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/subscriptions/",
         Core.toBS subscriptionDefinitionId,
         "/versions/",
@@ -180,28 +185,28 @@ instance
     GetSubscriptionDefinitionVersion
   where
   toQuery GetSubscriptionDefinitionVersion' {..} =
-    Core.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Core.=: nextToken]
 
 -- | /See:/ 'newGetSubscriptionDefinitionVersionResponse' smart constructor.
 data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersionResponse'
   { -- | The time, in milliseconds since the epoch, when the subscription
     -- definition version was created.
-    creationTimestamp :: Core.Maybe Core.Text,
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the subscription definition version.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subscription definition version.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The version of the subscription definition version.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | Information about the subscription definition version.
-    definition :: Core.Maybe SubscriptionDefinitionVersion,
+    definition :: Prelude.Maybe SubscriptionDefinitionVersion,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionDefinitionVersionResponse' with all optional fields omitted.
@@ -228,51 +233,51 @@ data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersion
 -- 'httpStatus', 'getSubscriptionDefinitionVersionResponse_httpStatus' - The response's http status code.
 newGetSubscriptionDefinitionVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSubscriptionDefinitionVersionResponse
 newGetSubscriptionDefinitionVersionResponse
   pHttpStatus_ =
     GetSubscriptionDefinitionVersionResponse'
       { creationTimestamp =
-          Core.Nothing,
-        nextToken = Core.Nothing,
-        arn = Core.Nothing,
-        id = Core.Nothing,
-        version = Core.Nothing,
-        definition = Core.Nothing,
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        arn = Prelude.Nothing,
+        id = Prelude.Nothing,
+        version = Prelude.Nothing,
+        definition = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The time, in milliseconds since the epoch, when the subscription
 -- definition version was created.
-getSubscriptionDefinitionVersionResponse_creationTimestamp :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Core.Maybe Core.Text)
+getSubscriptionDefinitionVersionResponse_creationTimestamp :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getSubscriptionDefinitionVersionResponse_creationTimestamp = Lens.lens (\GetSubscriptionDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetSubscriptionDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: GetSubscriptionDefinitionVersionResponse)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-getSubscriptionDefinitionVersionResponse_nextToken :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Core.Maybe Core.Text)
+getSubscriptionDefinitionVersionResponse_nextToken :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getSubscriptionDefinitionVersionResponse_nextToken = Lens.lens (\GetSubscriptionDefinitionVersionResponse' {nextToken} -> nextToken) (\s@GetSubscriptionDefinitionVersionResponse' {} a -> s {nextToken = a} :: GetSubscriptionDefinitionVersionResponse)
 
 -- | The ARN of the subscription definition version.
-getSubscriptionDefinitionVersionResponse_arn :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Core.Maybe Core.Text)
+getSubscriptionDefinitionVersionResponse_arn :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getSubscriptionDefinitionVersionResponse_arn = Lens.lens (\GetSubscriptionDefinitionVersionResponse' {arn} -> arn) (\s@GetSubscriptionDefinitionVersionResponse' {} a -> s {arn = a} :: GetSubscriptionDefinitionVersionResponse)
 
 -- | The ID of the subscription definition version.
-getSubscriptionDefinitionVersionResponse_id :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Core.Maybe Core.Text)
+getSubscriptionDefinitionVersionResponse_id :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getSubscriptionDefinitionVersionResponse_id = Lens.lens (\GetSubscriptionDefinitionVersionResponse' {id} -> id) (\s@GetSubscriptionDefinitionVersionResponse' {} a -> s {id = a} :: GetSubscriptionDefinitionVersionResponse)
 
 -- | The version of the subscription definition version.
-getSubscriptionDefinitionVersionResponse_version :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Core.Maybe Core.Text)
+getSubscriptionDefinitionVersionResponse_version :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getSubscriptionDefinitionVersionResponse_version = Lens.lens (\GetSubscriptionDefinitionVersionResponse' {version} -> version) (\s@GetSubscriptionDefinitionVersionResponse' {} a -> s {version = a} :: GetSubscriptionDefinitionVersionResponse)
 
 -- | Information about the subscription definition version.
-getSubscriptionDefinitionVersionResponse_definition :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Core.Maybe SubscriptionDefinitionVersion)
+getSubscriptionDefinitionVersionResponse_definition :: Lens.Lens' GetSubscriptionDefinitionVersionResponse (Prelude.Maybe SubscriptionDefinitionVersion)
 getSubscriptionDefinitionVersionResponse_definition = Lens.lens (\GetSubscriptionDefinitionVersionResponse' {definition} -> definition) (\s@GetSubscriptionDefinitionVersionResponse' {} a -> s {definition = a} :: GetSubscriptionDefinitionVersionResponse)
 
 -- | The response's http status code.
-getSubscriptionDefinitionVersionResponse_httpStatus :: Lens.Lens' GetSubscriptionDefinitionVersionResponse Core.Int
+getSubscriptionDefinitionVersionResponse_httpStatus :: Lens.Lens' GetSubscriptionDefinitionVersionResponse Prelude.Int
 getSubscriptionDefinitionVersionResponse_httpStatus = Lens.lens (\GetSubscriptionDefinitionVersionResponse' {httpStatus} -> httpStatus) (\s@GetSubscriptionDefinitionVersionResponse' {} a -> s {httpStatus = a} :: GetSubscriptionDefinitionVersionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetSubscriptionDefinitionVersionResponse

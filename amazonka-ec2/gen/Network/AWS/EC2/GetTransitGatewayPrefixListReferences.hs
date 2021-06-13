@@ -50,22 +50,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayPrefixListReferences' smart constructor.
 data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferences'
   { -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @attachment.resource-id@ - The ID of the resource for the
@@ -87,11 +88,11 @@ data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferenc
     --
     -- -   @state@ - The state of the prefix list reference (@pending@ |
     --     @available@ | @modifying@ | @deleting@).
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Core.Text
+    transitGatewayRouteTableId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTransitGatewayPrefixListReferences' with all optional fields omitted.
@@ -137,35 +138,35 @@ data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferenc
 -- 'transitGatewayRouteTableId', 'getTransitGatewayPrefixListReferences_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 newGetTransitGatewayPrefixListReferences ::
   -- | 'transitGatewayRouteTableId'
-  Core.Text ->
+  Prelude.Text ->
   GetTransitGatewayPrefixListReferences
 newGetTransitGatewayPrefixListReferences
   pTransitGatewayRouteTableId_ =
     GetTransitGatewayPrefixListReferences'
       { nextToken =
-          Core.Nothing,
-        dryRun = Core.Nothing,
-        maxResults = Core.Nothing,
-        filters = Core.Nothing,
+          Prelude.Nothing,
+        dryRun = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        filters = Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
       }
 
 -- | The token for the next page of results.
-getTransitGatewayPrefixListReferences_nextToken :: Lens.Lens' GetTransitGatewayPrefixListReferences (Core.Maybe Core.Text)
+getTransitGatewayPrefixListReferences_nextToken :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe Prelude.Text)
 getTransitGatewayPrefixListReferences_nextToken = Lens.lens (\GetTransitGatewayPrefixListReferences' {nextToken} -> nextToken) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {nextToken = a} :: GetTransitGatewayPrefixListReferences)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getTransitGatewayPrefixListReferences_dryRun :: Lens.Lens' GetTransitGatewayPrefixListReferences (Core.Maybe Core.Bool)
+getTransitGatewayPrefixListReferences_dryRun :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe Prelude.Bool)
 getTransitGatewayPrefixListReferences_dryRun = Lens.lens (\GetTransitGatewayPrefixListReferences' {dryRun} -> dryRun) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {dryRun = a} :: GetTransitGatewayPrefixListReferences)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-getTransitGatewayPrefixListReferences_maxResults :: Lens.Lens' GetTransitGatewayPrefixListReferences (Core.Maybe Core.Natural)
+getTransitGatewayPrefixListReferences_maxResults :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe Prelude.Natural)
 getTransitGatewayPrefixListReferences_maxResults = Lens.lens (\GetTransitGatewayPrefixListReferences' {maxResults} -> maxResults) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {maxResults = a} :: GetTransitGatewayPrefixListReferences)
 
 -- | One or more filters. The possible values are:
@@ -189,11 +190,11 @@ getTransitGatewayPrefixListReferences_maxResults = Lens.lens (\GetTransitGateway
 --
 -- -   @state@ - The state of the prefix list reference (@pending@ |
 --     @available@ | @modifying@ | @deleting@).
-getTransitGatewayPrefixListReferences_filters :: Lens.Lens' GetTransitGatewayPrefixListReferences (Core.Maybe [Filter])
-getTransitGatewayPrefixListReferences_filters = Lens.lens (\GetTransitGatewayPrefixListReferences' {filters} -> filters) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {filters = a} :: GetTransitGatewayPrefixListReferences) Core.. Lens.mapping Lens._Coerce
+getTransitGatewayPrefixListReferences_filters :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe [Filter])
+getTransitGatewayPrefixListReferences_filters = Lens.lens (\GetTransitGatewayPrefixListReferences' {filters} -> filters) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {filters = a} :: GetTransitGatewayPrefixListReferences) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the transit gateway route table.
-getTransitGatewayPrefixListReferences_transitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayPrefixListReferences Core.Text
+getTransitGatewayPrefixListReferences_transitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayPrefixListReferences Prelude.Text
 getTransitGatewayPrefixListReferences_transitGatewayRouteTableId = Lens.lens (\GetTransitGatewayPrefixListReferences' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {transitGatewayRouteTableId = a} :: GetTransitGatewayPrefixListReferences)
 
 instance
@@ -204,22 +205,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getTransitGatewayPrefixListReferencesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getTransitGatewayPrefixListReferencesResponse_transitGatewayPrefixListReferences
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getTransitGatewayPrefixListReferences_nextToken
+          Prelude.& getTransitGatewayPrefixListReferences_nextToken
           Lens..~ rs
             Lens.^? getTransitGatewayPrefixListReferencesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -234,50 +235,51 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayPrefixListReferencesResponse'
-            Core.<$> (x Core..@? "nextToken")
-              Core.<*> ( x Core..@? "transitGatewayPrefixListReferenceSet"
-                           Core..!@ Core.mempty
-                           Core.>>= Core.may (Core.parseXMLList "item")
-                       )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "transitGatewayPrefixListReferenceSet"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetTransitGatewayPrefixListReferences
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetTransitGatewayPrefixListReferences
 
 instance
   Core.ToHeaders
     GetTransitGatewayPrefixListReferences
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     GetTransitGatewayPrefixListReferences
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetTransitGatewayPrefixListReferences
   where
   toQuery GetTransitGatewayPrefixListReferences' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "GetTransitGatewayPrefixListReferences" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters),
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "TransitGatewayRouteTableId"
           Core.=: transitGatewayRouteTableId
       ]
@@ -286,13 +288,13 @@ instance
 data GetTransitGatewayPrefixListReferencesResponse = GetTransitGatewayPrefixListReferencesResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the prefix list references.
-    transitGatewayPrefixListReferences :: Core.Maybe [TransitGatewayPrefixListReference],
+    transitGatewayPrefixListReferences :: Prelude.Maybe [TransitGatewayPrefixListReference],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTransitGatewayPrefixListReferencesResponse' with all optional fields omitted.
@@ -310,31 +312,31 @@ data GetTransitGatewayPrefixListReferencesResponse = GetTransitGatewayPrefixList
 -- 'httpStatus', 'getTransitGatewayPrefixListReferencesResponse_httpStatus' - The response's http status code.
 newGetTransitGatewayPrefixListReferencesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTransitGatewayPrefixListReferencesResponse
 newGetTransitGatewayPrefixListReferencesResponse
   pHttpStatus_ =
     GetTransitGatewayPrefixListReferencesResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         transitGatewayPrefixListReferences =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-getTransitGatewayPrefixListReferencesResponse_nextToken :: Lens.Lens' GetTransitGatewayPrefixListReferencesResponse (Core.Maybe Core.Text)
+getTransitGatewayPrefixListReferencesResponse_nextToken :: Lens.Lens' GetTransitGatewayPrefixListReferencesResponse (Prelude.Maybe Prelude.Text)
 getTransitGatewayPrefixListReferencesResponse_nextToken = Lens.lens (\GetTransitGatewayPrefixListReferencesResponse' {nextToken} -> nextToken) (\s@GetTransitGatewayPrefixListReferencesResponse' {} a -> s {nextToken = a} :: GetTransitGatewayPrefixListReferencesResponse)
 
 -- | Information about the prefix list references.
-getTransitGatewayPrefixListReferencesResponse_transitGatewayPrefixListReferences :: Lens.Lens' GetTransitGatewayPrefixListReferencesResponse (Core.Maybe [TransitGatewayPrefixListReference])
-getTransitGatewayPrefixListReferencesResponse_transitGatewayPrefixListReferences = Lens.lens (\GetTransitGatewayPrefixListReferencesResponse' {transitGatewayPrefixListReferences} -> transitGatewayPrefixListReferences) (\s@GetTransitGatewayPrefixListReferencesResponse' {} a -> s {transitGatewayPrefixListReferences = a} :: GetTransitGatewayPrefixListReferencesResponse) Core.. Lens.mapping Lens._Coerce
+getTransitGatewayPrefixListReferencesResponse_transitGatewayPrefixListReferences :: Lens.Lens' GetTransitGatewayPrefixListReferencesResponse (Prelude.Maybe [TransitGatewayPrefixListReference])
+getTransitGatewayPrefixListReferencesResponse_transitGatewayPrefixListReferences = Lens.lens (\GetTransitGatewayPrefixListReferencesResponse' {transitGatewayPrefixListReferences} -> transitGatewayPrefixListReferences) (\s@GetTransitGatewayPrefixListReferencesResponse' {} a -> s {transitGatewayPrefixListReferences = a} :: GetTransitGatewayPrefixListReferencesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTransitGatewayPrefixListReferencesResponse_httpStatus :: Lens.Lens' GetTransitGatewayPrefixListReferencesResponse Core.Int
+getTransitGatewayPrefixListReferencesResponse_httpStatus :: Lens.Lens' GetTransitGatewayPrefixListReferencesResponse Prelude.Int
 getTransitGatewayPrefixListReferencesResponse_httpStatus = Lens.lens (\GetTransitGatewayPrefixListReferencesResponse' {httpStatus} -> httpStatus) (\s@GetTransitGatewayPrefixListReferencesResponse' {} a -> s {httpStatus = a} :: GetTransitGatewayPrefixListReferencesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetTransitGatewayPrefixListReferencesResponse

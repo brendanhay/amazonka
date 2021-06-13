@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An Amazon Pinpoint analytics endpoint.
 --
@@ -34,9 +35,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAnalyticsMetadataType' smart constructor.
 data AnalyticsMetadataType = AnalyticsMetadataType'
   { -- | The endpoint ID.
-    analyticsEndpointId :: Core.Maybe Core.Text
+    analyticsEndpointId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalyticsMetadataType' with all optional fields omitted.
@@ -52,22 +53,22 @@ newAnalyticsMetadataType ::
 newAnalyticsMetadataType =
   AnalyticsMetadataType'
     { analyticsEndpointId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The endpoint ID.
-analyticsMetadataType_analyticsEndpointId :: Lens.Lens' AnalyticsMetadataType (Core.Maybe Core.Text)
+analyticsMetadataType_analyticsEndpointId :: Lens.Lens' AnalyticsMetadataType (Prelude.Maybe Prelude.Text)
 analyticsMetadataType_analyticsEndpointId = Lens.lens (\AnalyticsMetadataType' {analyticsEndpointId} -> analyticsEndpointId) (\s@AnalyticsMetadataType' {} a -> s {analyticsEndpointId = a} :: AnalyticsMetadataType)
 
-instance Core.Hashable AnalyticsMetadataType
+instance Prelude.Hashable AnalyticsMetadataType
 
-instance Core.NFData AnalyticsMetadataType
+instance Prelude.NFData AnalyticsMetadataType
 
 instance Core.ToJSON AnalyticsMetadataType where
   toJSON AnalyticsMetadataType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AnalyticsEndpointId" Core..=)
-              Core.<$> analyticsEndpointId
+              Prelude.<$> analyticsEndpointId
           ]
       )

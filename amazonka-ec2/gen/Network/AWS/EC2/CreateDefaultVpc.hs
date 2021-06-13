@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,9 +66,9 @@ data CreateDefaultVpc = CreateDefaultVpc'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDefaultVpc' with all optional fields omitted.
@@ -84,13 +85,13 @@ data CreateDefaultVpc = CreateDefaultVpc'
 newCreateDefaultVpc ::
   CreateDefaultVpc
 newCreateDefaultVpc =
-  CreateDefaultVpc' {dryRun = Core.Nothing}
+  CreateDefaultVpc' {dryRun = Prelude.Nothing}
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createDefaultVpc_dryRun :: Lens.Lens' CreateDefaultVpc (Core.Maybe Core.Bool)
+createDefaultVpc_dryRun :: Lens.Lens' CreateDefaultVpc (Prelude.Maybe Prelude.Bool)
 createDefaultVpc_dryRun = Lens.lens (\CreateDefaultVpc' {dryRun} -> dryRun) (\s@CreateDefaultVpc' {} a -> s {dryRun = a} :: CreateDefaultVpc)
 
 instance Core.AWSRequest CreateDefaultVpc where
@@ -102,37 +103,38 @@ instance Core.AWSRequest CreateDefaultVpc where
     Response.receiveXML
       ( \s h x ->
           CreateDefaultVpcResponse'
-            Core.<$> (x Core..@? "vpc")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "vpc")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDefaultVpc
+instance Prelude.Hashable CreateDefaultVpc
 
-instance Core.NFData CreateDefaultVpc
+instance Prelude.NFData CreateDefaultVpc
 
 instance Core.ToHeaders CreateDefaultVpc where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateDefaultVpc where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDefaultVpc where
   toQuery CreateDefaultVpc' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDefaultVpc" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateDefaultVpc" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newCreateDefaultVpcResponse' smart constructor.
 data CreateDefaultVpcResponse = CreateDefaultVpcResponse'
   { -- | Information about the VPC.
-    vpc :: Core.Maybe Vpc,
+    vpc :: Prelude.Maybe Vpc,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDefaultVpcResponse' with all optional fields omitted.
@@ -147,20 +149,20 @@ data CreateDefaultVpcResponse = CreateDefaultVpcResponse'
 -- 'httpStatus', 'createDefaultVpcResponse_httpStatus' - The response's http status code.
 newCreateDefaultVpcResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDefaultVpcResponse
 newCreateDefaultVpcResponse pHttpStatus_ =
   CreateDefaultVpcResponse'
-    { vpc = Core.Nothing,
+    { vpc = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the VPC.
-createDefaultVpcResponse_vpc :: Lens.Lens' CreateDefaultVpcResponse (Core.Maybe Vpc)
+createDefaultVpcResponse_vpc :: Lens.Lens' CreateDefaultVpcResponse (Prelude.Maybe Vpc)
 createDefaultVpcResponse_vpc = Lens.lens (\CreateDefaultVpcResponse' {vpc} -> vpc) (\s@CreateDefaultVpcResponse' {} a -> s {vpc = a} :: CreateDefaultVpcResponse)
 
 -- | The response's http status code.
-createDefaultVpcResponse_httpStatus :: Lens.Lens' CreateDefaultVpcResponse Core.Int
+createDefaultVpcResponse_httpStatus :: Lens.Lens' CreateDefaultVpcResponse Prelude.Int
 createDefaultVpcResponse_httpStatus = Lens.lens (\CreateDefaultVpcResponse' {httpStatus} -> httpStatus) (\s@CreateDefaultVpcResponse' {} a -> s {httpStatus = a} :: CreateDefaultVpcResponse)
 
-instance Core.NFData CreateDefaultVpcResponse
+instance Prelude.NFData CreateDefaultVpcResponse

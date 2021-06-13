@@ -21,6 +21,7 @@ module Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Properties that describe the AWS principal that created the
 -- @BlockPublicAccessConfiguration@ using the
@@ -34,9 +35,9 @@ data BlockPublicAccessConfigurationMetadata = BlockPublicAccessConfigurationMeta
     creationDateTime :: Core.POSIX,
     -- | The Amazon Resource Name that created or last modified the
     -- configuration.
-    createdByArn :: Core.Text
+    createdByArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BlockPublicAccessConfigurationMetadata' with all optional fields omitted.
@@ -52,9 +53,9 @@ data BlockPublicAccessConfigurationMetadata = BlockPublicAccessConfigurationMeta
 -- configuration.
 newBlockPublicAccessConfigurationMetadata ::
   -- | 'creationDateTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'createdByArn'
-  Core.Text ->
+  Prelude.Text ->
   BlockPublicAccessConfigurationMetadata
 newBlockPublicAccessConfigurationMetadata
   pCreationDateTime_
@@ -67,12 +68,12 @@ newBlockPublicAccessConfigurationMetadata
       }
 
 -- | The date and time that the configuration was created.
-blockPublicAccessConfigurationMetadata_creationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Core.UTCTime
-blockPublicAccessConfigurationMetadata_creationDateTime = Lens.lens (\BlockPublicAccessConfigurationMetadata' {creationDateTime} -> creationDateTime) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata) Core.. Core._Time
+blockPublicAccessConfigurationMetadata_creationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Prelude.UTCTime
+blockPublicAccessConfigurationMetadata_creationDateTime = Lens.lens (\BlockPublicAccessConfigurationMetadata' {creationDateTime} -> creationDateTime) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata) Prelude.. Core._Time
 
 -- | The Amazon Resource Name that created or last modified the
 -- configuration.
-blockPublicAccessConfigurationMetadata_createdByArn :: Lens.Lens' BlockPublicAccessConfigurationMetadata Core.Text
+blockPublicAccessConfigurationMetadata_createdByArn :: Lens.Lens' BlockPublicAccessConfigurationMetadata Prelude.Text
 blockPublicAccessConfigurationMetadata_createdByArn = Lens.lens (\BlockPublicAccessConfigurationMetadata' {createdByArn} -> createdByArn) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {createdByArn = a} :: BlockPublicAccessConfigurationMetadata)
 
 instance
@@ -84,14 +85,14 @@ instance
       "BlockPublicAccessConfigurationMetadata"
       ( \x ->
           BlockPublicAccessConfigurationMetadata'
-            Core.<$> (x Core..: "CreationDateTime")
-            Core.<*> (x Core..: "CreatedByArn")
+            Prelude.<$> (x Core..: "CreationDateTime")
+            Prelude.<*> (x Core..: "CreatedByArn")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BlockPublicAccessConfigurationMetadata
 
 instance
-  Core.NFData
+  Prelude.NFData
     BlockPublicAccessConfigurationMetadata

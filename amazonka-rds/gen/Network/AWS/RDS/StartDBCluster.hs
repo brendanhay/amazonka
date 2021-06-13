@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,9 +58,9 @@ import qualified Network.AWS.Response as Response
 data StartDBCluster = StartDBCluster'
   { -- | The DB cluster identifier of the Amazon Aurora DB cluster to be started.
     -- This parameter is stored as a lowercase string.
-    dbClusterIdentifier :: Core.Text
+    dbClusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartDBCluster' with all optional fields omitted.
@@ -73,7 +74,7 @@ data StartDBCluster = StartDBCluster'
 -- This parameter is stored as a lowercase string.
 newStartDBCluster ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   StartDBCluster
 newStartDBCluster pDBClusterIdentifier_ =
   StartDBCluster'
@@ -83,7 +84,7 @@ newStartDBCluster pDBClusterIdentifier_ =
 
 -- | The DB cluster identifier of the Amazon Aurora DB cluster to be started.
 -- This parameter is stored as a lowercase string.
-startDBCluster_dbClusterIdentifier :: Lens.Lens' StartDBCluster Core.Text
+startDBCluster_dbClusterIdentifier :: Lens.Lens' StartDBCluster Prelude.Text
 startDBCluster_dbClusterIdentifier = Lens.lens (\StartDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@StartDBCluster' {} a -> s {dbClusterIdentifier = a} :: StartDBCluster)
 
 instance Core.AWSRequest StartDBCluster where
@@ -96,36 +97,37 @@ instance Core.AWSRequest StartDBCluster where
       "StartDBClusterResult"
       ( \s h x ->
           StartDBClusterResponse'
-            Core.<$> (x Core..@? "DBCluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartDBCluster
+instance Prelude.Hashable StartDBCluster
 
-instance Core.NFData StartDBCluster
+instance Prelude.NFData StartDBCluster
 
 instance Core.ToHeaders StartDBCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath StartDBCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartDBCluster where
   toQuery StartDBCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("StartDBCluster" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("StartDBCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newStartDBClusterResponse' smart constructor.
 data StartDBClusterResponse = StartDBClusterResponse'
-  { dbCluster :: Core.Maybe DBCluster,
+  { dbCluster :: Prelude.Maybe DBCluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartDBClusterResponse' with all optional fields omitted.
@@ -140,20 +142,21 @@ data StartDBClusterResponse = StartDBClusterResponse'
 -- 'httpStatus', 'startDBClusterResponse_httpStatus' - The response's http status code.
 newStartDBClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartDBClusterResponse
 newStartDBClusterResponse pHttpStatus_ =
   StartDBClusterResponse'
-    { dbCluster = Core.Nothing,
+    { dbCluster =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-startDBClusterResponse_dbCluster :: Lens.Lens' StartDBClusterResponse (Core.Maybe DBCluster)
+startDBClusterResponse_dbCluster :: Lens.Lens' StartDBClusterResponse (Prelude.Maybe DBCluster)
 startDBClusterResponse_dbCluster = Lens.lens (\StartDBClusterResponse' {dbCluster} -> dbCluster) (\s@StartDBClusterResponse' {} a -> s {dbCluster = a} :: StartDBClusterResponse)
 
 -- | The response's http status code.
-startDBClusterResponse_httpStatus :: Lens.Lens' StartDBClusterResponse Core.Int
+startDBClusterResponse_httpStatus :: Lens.Lens' StartDBClusterResponse Prelude.Int
 startDBClusterResponse_httpStatus = Lens.lens (\StartDBClusterResponse' {httpStatus} -> httpStatus) (\s@StartDBClusterResponse' {} a -> s {httpStatus = a} :: StartDBClusterResponse)
 
-instance Core.NFData StartDBClusterResponse
+instance Prelude.NFData StartDBClusterResponse

@@ -22,17 +22,18 @@ module Network.AWS.CloudFormation.Types.StackInstanceFilter where
 import Network.AWS.CloudFormation.Types.StackInstanceFilterName
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status that stack instances are filtered by.
 --
 -- /See:/ 'newStackInstanceFilter' smart constructor.
 data StackInstanceFilter = StackInstanceFilter'
   { -- | The status to filter by.
-    values :: Core.Maybe Core.Text,
+    values :: Prelude.Maybe Prelude.Text,
     -- | The type of filter to apply.
-    name :: Core.Maybe StackInstanceFilterName
+    name :: Prelude.Maybe StackInstanceFilterName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackInstanceFilter' with all optional fields omitted.
@@ -49,23 +50,23 @@ newStackInstanceFilter ::
   StackInstanceFilter
 newStackInstanceFilter =
   StackInstanceFilter'
-    { values = Core.Nothing,
-      name = Core.Nothing
+    { values = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The status to filter by.
-stackInstanceFilter_values :: Lens.Lens' StackInstanceFilter (Core.Maybe Core.Text)
+stackInstanceFilter_values :: Lens.Lens' StackInstanceFilter (Prelude.Maybe Prelude.Text)
 stackInstanceFilter_values = Lens.lens (\StackInstanceFilter' {values} -> values) (\s@StackInstanceFilter' {} a -> s {values = a} :: StackInstanceFilter)
 
 -- | The type of filter to apply.
-stackInstanceFilter_name :: Lens.Lens' StackInstanceFilter (Core.Maybe StackInstanceFilterName)
+stackInstanceFilter_name :: Lens.Lens' StackInstanceFilter (Prelude.Maybe StackInstanceFilterName)
 stackInstanceFilter_name = Lens.lens (\StackInstanceFilter' {name} -> name) (\s@StackInstanceFilter' {} a -> s {name = a} :: StackInstanceFilter)
 
-instance Core.Hashable StackInstanceFilter
+instance Prelude.Hashable StackInstanceFilter
 
-instance Core.NFData StackInstanceFilter
+instance Prelude.NFData StackInstanceFilter
 
 instance Core.ToQuery StackInstanceFilter where
   toQuery StackInstanceFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Values" Core.=: values, "Name" Core.=: name]

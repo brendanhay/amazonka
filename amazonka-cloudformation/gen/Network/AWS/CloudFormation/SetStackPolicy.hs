@@ -40,6 +40,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,16 +52,16 @@ data SetStackPolicy = SetStackPolicy'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
     -- in the AWS CloudFormation User Guide. You can specify either the
     -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
-    stackPolicyBody :: Core.Maybe Core.Text,
+    stackPolicyBody :: Prelude.Maybe Prelude.Text,
     -- | Location of a file containing the stack policy. The URL must point to a
     -- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
     -- as the stack. You can specify either the @StackPolicyBody@ or the
     -- @StackPolicyURL@ parameter, but not both.
-    stackPolicyURL :: Core.Maybe Core.Text,
+    stackPolicyURL :: Prelude.Maybe Prelude.Text,
     -- | The name or unique stack ID that you want to associate a policy with.
-    stackName :: Core.Text
+    stackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetStackPolicy' with all optional fields omitted.
@@ -83,12 +84,12 @@ data SetStackPolicy = SetStackPolicy'
 -- 'stackName', 'setStackPolicy_stackName' - The name or unique stack ID that you want to associate a policy with.
 newSetStackPolicy ::
   -- | 'stackName'
-  Core.Text ->
+  Prelude.Text ->
   SetStackPolicy
 newSetStackPolicy pStackName_ =
   SetStackPolicy'
-    { stackPolicyBody = Core.Nothing,
-      stackPolicyURL = Core.Nothing,
+    { stackPolicyBody = Prelude.Nothing,
+      stackPolicyURL = Prelude.Nothing,
       stackName = pStackName_
     }
 
@@ -96,18 +97,18 @@ newSetStackPolicy pStackName_ =
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
 -- in the AWS CloudFormation User Guide. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
-setStackPolicy_stackPolicyBody :: Lens.Lens' SetStackPolicy (Core.Maybe Core.Text)
+setStackPolicy_stackPolicyBody :: Lens.Lens' SetStackPolicy (Prelude.Maybe Prelude.Text)
 setStackPolicy_stackPolicyBody = Lens.lens (\SetStackPolicy' {stackPolicyBody} -> stackPolicyBody) (\s@SetStackPolicy' {} a -> s {stackPolicyBody = a} :: SetStackPolicy)
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
 -- as the stack. You can specify either the @StackPolicyBody@ or the
 -- @StackPolicyURL@ parameter, but not both.
-setStackPolicy_stackPolicyURL :: Lens.Lens' SetStackPolicy (Core.Maybe Core.Text)
+setStackPolicy_stackPolicyURL :: Lens.Lens' SetStackPolicy (Prelude.Maybe Prelude.Text)
 setStackPolicy_stackPolicyURL = Lens.lens (\SetStackPolicy' {stackPolicyURL} -> stackPolicyURL) (\s@SetStackPolicy' {} a -> s {stackPolicyURL = a} :: SetStackPolicy)
 
 -- | The name or unique stack ID that you want to associate a policy with.
-setStackPolicy_stackName :: Lens.Lens' SetStackPolicy Core.Text
+setStackPolicy_stackName :: Lens.Lens' SetStackPolicy Prelude.Text
 setStackPolicy_stackName = Lens.lens (\SetStackPolicy' {stackName} -> stackName) (\s@SetStackPolicy' {} a -> s {stackName = a} :: SetStackPolicy)
 
 instance Core.AWSRequest SetStackPolicy where
@@ -118,22 +119,23 @@ instance Core.AWSRequest SetStackPolicy where
   response =
     Response.receiveNull SetStackPolicyResponse'
 
-instance Core.Hashable SetStackPolicy
+instance Prelude.Hashable SetStackPolicy
 
-instance Core.NFData SetStackPolicy
+instance Prelude.NFData SetStackPolicy
 
 instance Core.ToHeaders SetStackPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetStackPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetStackPolicy where
   toQuery SetStackPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetStackPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("SetStackPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "StackPolicyBody" Core.=: stackPolicyBody,
         "StackPolicyURL" Core.=: stackPolicyURL,
         "StackName" Core.=: stackName
@@ -143,7 +145,7 @@ instance Core.ToQuery SetStackPolicy where
 data SetStackPolicyResponse = SetStackPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetStackPolicyResponse' with all optional fields omitted.
@@ -153,4 +155,4 @@ newSetStackPolicyResponse ::
   SetStackPolicyResponse
 newSetStackPolicyResponse = SetStackPolicyResponse'
 
-instance Core.NFData SetStackPolicyResponse
+instance Prelude.NFData SetStackPolicyResponse

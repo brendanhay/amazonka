@@ -72,6 +72,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -79,19 +80,19 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newSignalWorkflowExecution' smart constructor.
 data SignalWorkflowExecution = SignalWorkflowExecution'
   { -- | The runId of the workflow execution to signal.
-    runId :: Core.Maybe Core.Text,
+    runId :: Prelude.Maybe Prelude.Text,
     -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
     -- workflow execution\'s history.
-    input :: Core.Maybe Core.Text,
+    input :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain containing the workflow execution to signal.
-    domain :: Core.Text,
+    domain :: Prelude.Text,
     -- | The workflowId of the workflow execution to signal.
-    workflowId :: Core.Text,
+    workflowId :: Prelude.Text,
     -- | The name of the signal. This name must be meaningful to the target
     -- workflow.
-    signalName :: Core.Text
+    signalName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SignalWorkflowExecution' with all optional fields omitted.
@@ -114,44 +115,44 @@ data SignalWorkflowExecution = SignalWorkflowExecution'
 -- workflow.
 newSignalWorkflowExecution ::
   -- | 'domain'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'workflowId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'signalName'
-  Core.Text ->
+  Prelude.Text ->
   SignalWorkflowExecution
 newSignalWorkflowExecution
   pDomain_
   pWorkflowId_
   pSignalName_ =
     SignalWorkflowExecution'
-      { runId = Core.Nothing,
-        input = Core.Nothing,
+      { runId = Prelude.Nothing,
+        input = Prelude.Nothing,
         domain = pDomain_,
         workflowId = pWorkflowId_,
         signalName = pSignalName_
       }
 
 -- | The runId of the workflow execution to signal.
-signalWorkflowExecution_runId :: Lens.Lens' SignalWorkflowExecution (Core.Maybe Core.Text)
+signalWorkflowExecution_runId :: Lens.Lens' SignalWorkflowExecution (Prelude.Maybe Prelude.Text)
 signalWorkflowExecution_runId = Lens.lens (\SignalWorkflowExecution' {runId} -> runId) (\s@SignalWorkflowExecution' {} a -> s {runId = a} :: SignalWorkflowExecution)
 
 -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
 -- workflow execution\'s history.
-signalWorkflowExecution_input :: Lens.Lens' SignalWorkflowExecution (Core.Maybe Core.Text)
+signalWorkflowExecution_input :: Lens.Lens' SignalWorkflowExecution (Prelude.Maybe Prelude.Text)
 signalWorkflowExecution_input = Lens.lens (\SignalWorkflowExecution' {input} -> input) (\s@SignalWorkflowExecution' {} a -> s {input = a} :: SignalWorkflowExecution)
 
 -- | The name of the domain containing the workflow execution to signal.
-signalWorkflowExecution_domain :: Lens.Lens' SignalWorkflowExecution Core.Text
+signalWorkflowExecution_domain :: Lens.Lens' SignalWorkflowExecution Prelude.Text
 signalWorkflowExecution_domain = Lens.lens (\SignalWorkflowExecution' {domain} -> domain) (\s@SignalWorkflowExecution' {} a -> s {domain = a} :: SignalWorkflowExecution)
 
 -- | The workflowId of the workflow execution to signal.
-signalWorkflowExecution_workflowId :: Lens.Lens' SignalWorkflowExecution Core.Text
+signalWorkflowExecution_workflowId :: Lens.Lens' SignalWorkflowExecution Prelude.Text
 signalWorkflowExecution_workflowId = Lens.lens (\SignalWorkflowExecution' {workflowId} -> workflowId) (\s@SignalWorkflowExecution' {} a -> s {workflowId = a} :: SignalWorkflowExecution)
 
 -- | The name of the signal. This name must be meaningful to the target
 -- workflow.
-signalWorkflowExecution_signalName :: Lens.Lens' SignalWorkflowExecution Core.Text
+signalWorkflowExecution_signalName :: Lens.Lens' SignalWorkflowExecution Prelude.Text
 signalWorkflowExecution_signalName = Lens.lens (\SignalWorkflowExecution' {signalName} -> signalName) (\s@SignalWorkflowExecution' {} a -> s {signalName = a} :: SignalWorkflowExecution)
 
 instance Core.AWSRequest SignalWorkflowExecution where
@@ -163,46 +164,48 @@ instance Core.AWSRequest SignalWorkflowExecution where
     Response.receiveNull
       SignalWorkflowExecutionResponse'
 
-instance Core.Hashable SignalWorkflowExecution
+instance Prelude.Hashable SignalWorkflowExecution
 
-instance Core.NFData SignalWorkflowExecution
+instance Prelude.NFData SignalWorkflowExecution
 
 instance Core.ToHeaders SignalWorkflowExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.SignalWorkflowExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SignalWorkflowExecution where
   toJSON SignalWorkflowExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("runId" Core..=) Core.<$> runId,
-            ("input" Core..=) Core.<$> input,
-            Core.Just ("domain" Core..= domain),
-            Core.Just ("workflowId" Core..= workflowId),
-            Core.Just ("signalName" Core..= signalName)
+      ( Prelude.catMaybes
+          [ ("runId" Core..=) Prelude.<$> runId,
+            ("input" Core..=) Prelude.<$> input,
+            Prelude.Just ("domain" Core..= domain),
+            Prelude.Just ("workflowId" Core..= workflowId),
+            Prelude.Just ("signalName" Core..= signalName)
           ]
       )
 
 instance Core.ToPath SignalWorkflowExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SignalWorkflowExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSignalWorkflowExecutionResponse' smart constructor.
 data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SignalWorkflowExecutionResponse' with all optional fields omitted.
@@ -213,4 +216,6 @@ newSignalWorkflowExecutionResponse ::
 newSignalWorkflowExecutionResponse =
   SignalWorkflowExecutionResponse'
 
-instance Core.NFData SignalWorkflowExecutionResponse
+instance
+  Prelude.NFData
+    SignalWorkflowExecutionResponse

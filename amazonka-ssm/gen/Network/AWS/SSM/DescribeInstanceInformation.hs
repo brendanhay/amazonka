@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -66,11 +67,11 @@ import Network.AWS.SSM.Types
 data DescribeInstanceInformation = DescribeInstanceInformation'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | This is a legacy method. We recommend that you don\'t use this method.
     -- Instead, use the @Filters@ data type. @Filters@ enables you to return
     -- instance information by filtering based on tags applied to managed
@@ -78,14 +79,14 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
     --
     -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
     -- an exception error.
-    instanceInformationFilterList :: Core.Maybe [InstanceInformationFilter],
+    instanceInformationFilterList :: Prelude.Maybe [InstanceInformationFilter],
     -- | One or more filters. Use a filter to return a more specific list of
     -- instances. You can filter based on tags applied to EC2 instances. Use
     -- this @Filters@ data type instead of @InstanceInformationFilterList@,
     -- which is deprecated.
-    filters :: Core.Maybe [InstanceInformationStringFilter]
+    filters :: Prelude.Maybe [InstanceInformationStringFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceInformation' with all optional fields omitted.
@@ -119,21 +120,22 @@ newDescribeInstanceInformation ::
 newDescribeInstanceInformation =
   DescribeInstanceInformation'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
-      instanceInformationFilterList = Core.Nothing,
-      filters = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      instanceInformationFilterList =
+        Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeInstanceInformation_nextToken :: Lens.Lens' DescribeInstanceInformation (Core.Maybe Core.Text)
+describeInstanceInformation_nextToken :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Text)
 describeInstanceInformation_nextToken = Lens.lens (\DescribeInstanceInformation' {nextToken} -> nextToken) (\s@DescribeInstanceInformation' {} a -> s {nextToken = a} :: DescribeInstanceInformation)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeInstanceInformation_maxResults :: Lens.Lens' DescribeInstanceInformation (Core.Maybe Core.Natural)
+describeInstanceInformation_maxResults :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Natural)
 describeInstanceInformation_maxResults = Lens.lens (\DescribeInstanceInformation' {maxResults} -> maxResults) (\s@DescribeInstanceInformation' {} a -> s {maxResults = a} :: DescribeInstanceInformation)
 
 -- | This is a legacy method. We recommend that you don\'t use this method.
@@ -143,37 +145,37 @@ describeInstanceInformation_maxResults = Lens.lens (\DescribeInstanceInformation
 --
 -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
 -- an exception error.
-describeInstanceInformation_instanceInformationFilterList :: Lens.Lens' DescribeInstanceInformation (Core.Maybe [InstanceInformationFilter])
-describeInstanceInformation_instanceInformationFilterList = Lens.lens (\DescribeInstanceInformation' {instanceInformationFilterList} -> instanceInformationFilterList) (\s@DescribeInstanceInformation' {} a -> s {instanceInformationFilterList = a} :: DescribeInstanceInformation) Core.. Lens.mapping Lens._Coerce
+describeInstanceInformation_instanceInformationFilterList :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationFilter])
+describeInstanceInformation_instanceInformationFilterList = Lens.lens (\DescribeInstanceInformation' {instanceInformationFilterList} -> instanceInformationFilterList) (\s@DescribeInstanceInformation' {} a -> s {instanceInformationFilterList = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- instances. You can filter based on tags applied to EC2 instances. Use
 -- this @Filters@ data type instead of @InstanceInformationFilterList@,
 -- which is deprecated.
-describeInstanceInformation_filters :: Lens.Lens' DescribeInstanceInformation (Core.Maybe [InstanceInformationStringFilter])
-describeInstanceInformation_filters = Lens.lens (\DescribeInstanceInformation' {filters} -> filters) (\s@DescribeInstanceInformation' {} a -> s {filters = a} :: DescribeInstanceInformation) Core.. Lens.mapping Lens._Coerce
+describeInstanceInformation_filters :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationStringFilter])
+describeInstanceInformation_filters = Lens.lens (\DescribeInstanceInformation' {filters} -> filters) (\s@DescribeInstanceInformation' {} a -> s {filters = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeInstanceInformation where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeInstanceInformationResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceInformationResponse_instanceInformationList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeInstanceInformation_nextToken
+          Prelude.& describeInstanceInformation_nextToken
           Lens..~ rs
           Lens.^? describeInstanceInformationResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceInformation where
   type
@@ -184,59 +186,61 @@ instance Core.AWSRequest DescribeInstanceInformation where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceInformationResponse'
-            Core.<$> ( x Core..?> "InstanceInformationList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "InstanceInformationList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeInstanceInformation
+instance Prelude.Hashable DescribeInstanceInformation
 
-instance Core.NFData DescribeInstanceInformation
+instance Prelude.NFData DescribeInstanceInformation
 
 instance Core.ToHeaders DescribeInstanceInformation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DescribeInstanceInformation" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeInstanceInformation where
   toJSON DescribeInstanceInformation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("InstanceInformationFilterList" Core..=)
-              Core.<$> instanceInformationFilterList,
-            ("Filters" Core..=) Core.<$> filters
+              Prelude.<$> instanceInformationFilterList,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath DescribeInstanceInformation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeInstanceInformation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeInstanceInformationResponse' smart constructor.
 data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
   { -- | The instance information list.
-    instanceInformationList :: Core.Maybe [InstanceInformation],
+    instanceInformationList :: Prelude.Maybe [InstanceInformation],
     -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceInformationResponse' with all optional fields omitted.
@@ -254,29 +258,29 @@ data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
 -- 'httpStatus', 'describeInstanceInformationResponse_httpStatus' - The response's http status code.
 newDescribeInstanceInformationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeInstanceInformationResponse
 newDescribeInstanceInformationResponse pHttpStatus_ =
   DescribeInstanceInformationResponse'
     { instanceInformationList =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The instance information list.
-describeInstanceInformationResponse_instanceInformationList :: Lens.Lens' DescribeInstanceInformationResponse (Core.Maybe [InstanceInformation])
-describeInstanceInformationResponse_instanceInformationList = Lens.lens (\DescribeInstanceInformationResponse' {instanceInformationList} -> instanceInformationList) (\s@DescribeInstanceInformationResponse' {} a -> s {instanceInformationList = a} :: DescribeInstanceInformationResponse) Core.. Lens.mapping Lens._Coerce
+describeInstanceInformationResponse_instanceInformationList :: Lens.Lens' DescribeInstanceInformationResponse (Prelude.Maybe [InstanceInformation])
+describeInstanceInformationResponse_instanceInformationList = Lens.lens (\DescribeInstanceInformationResponse' {instanceInformationList} -> instanceInformationList) (\s@DescribeInstanceInformationResponse' {} a -> s {instanceInformationList = a} :: DescribeInstanceInformationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describeInstanceInformationResponse_nextToken :: Lens.Lens' DescribeInstanceInformationResponse (Core.Maybe Core.Text)
+describeInstanceInformationResponse_nextToken :: Lens.Lens' DescribeInstanceInformationResponse (Prelude.Maybe Prelude.Text)
 describeInstanceInformationResponse_nextToken = Lens.lens (\DescribeInstanceInformationResponse' {nextToken} -> nextToken) (\s@DescribeInstanceInformationResponse' {} a -> s {nextToken = a} :: DescribeInstanceInformationResponse)
 
 -- | The response's http status code.
-describeInstanceInformationResponse_httpStatus :: Lens.Lens' DescribeInstanceInformationResponse Core.Int
+describeInstanceInformationResponse_httpStatus :: Lens.Lens' DescribeInstanceInformationResponse Prelude.Int
 describeInstanceInformationResponse_httpStatus = Lens.lens (\DescribeInstanceInformationResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceInformationResponse' {} a -> s {httpStatus = a} :: DescribeInstanceInformationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeInstanceInformationResponse

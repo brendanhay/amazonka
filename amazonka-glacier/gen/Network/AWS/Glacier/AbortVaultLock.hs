@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,11 +70,11 @@ data AbortVaultLock = AbortVaultLock'
     -- (hyphen), in which case Amazon Glacier uses the AWS account ID
     -- associated with the credentials used to sign the request. If you specify
     -- your account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text
+    vaultName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AbortVaultLock' with all optional fields omitted.
@@ -93,9 +94,9 @@ data AbortVaultLock = AbortVaultLock'
 -- 'vaultName', 'abortVaultLock_vaultName' - The name of the vault.
 newAbortVaultLock ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   AbortVaultLock
 newAbortVaultLock pAccountId_ pVaultName_ =
   AbortVaultLock'
@@ -109,11 +110,11 @@ newAbortVaultLock pAccountId_ pVaultName_ =
 -- (hyphen), in which case Amazon Glacier uses the AWS account ID
 -- associated with the credentials used to sign the request. If you specify
 -- your account ID, do not include any hyphens (\'-\') in the ID.
-abortVaultLock_accountId :: Lens.Lens' AbortVaultLock Core.Text
+abortVaultLock_accountId :: Lens.Lens' AbortVaultLock Prelude.Text
 abortVaultLock_accountId = Lens.lens (\AbortVaultLock' {accountId} -> accountId) (\s@AbortVaultLock' {} a -> s {accountId = a} :: AbortVaultLock)
 
 -- | The name of the vault.
-abortVaultLock_vaultName :: Lens.Lens' AbortVaultLock Core.Text
+abortVaultLock_vaultName :: Lens.Lens' AbortVaultLock Prelude.Text
 abortVaultLock_vaultName = Lens.lens (\AbortVaultLock' {vaultName} -> vaultName) (\s@AbortVaultLock' {} a -> s {vaultName = a} :: AbortVaultLock)
 
 instance Core.AWSRequest AbortVaultLock where
@@ -122,20 +123,20 @@ instance Core.AWSRequest AbortVaultLock where
       AbortVaultLockResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.delete defaultService
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull AbortVaultLockResponse'
 
-instance Core.Hashable AbortVaultLock
+instance Prelude.Hashable AbortVaultLock
 
-instance Core.NFData AbortVaultLock
+instance Prelude.NFData AbortVaultLock
 
 instance Core.ToHeaders AbortVaultLock where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AbortVaultLock where
   toPath AbortVaultLock' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -144,13 +145,13 @@ instance Core.ToPath AbortVaultLock where
       ]
 
 instance Core.ToQuery AbortVaultLock where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAbortVaultLockResponse' smart constructor.
 data AbortVaultLockResponse = AbortVaultLockResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AbortVaultLockResponse' with all optional fields omitted.
@@ -160,4 +161,4 @@ newAbortVaultLockResponse ::
   AbortVaultLockResponse
 newAbortVaultLockResponse = AbortVaultLockResponse'
 
-instance Core.NFData AbortVaultLockResponse
+instance Prelude.NFData AbortVaultLockResponse

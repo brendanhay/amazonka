@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.ExtensionField where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional X-headers to include in the Delivery Status Notification
 -- (DSN) when an email that Amazon SES receives on your behalf bounces.
@@ -33,12 +34,12 @@ data ExtensionField = ExtensionField'
   { -- | The name of the header to add. Must be between 1 and 50 characters,
     -- inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and
     -- dashes only.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value of the header to add. Must be less than 2048 characters, and
     -- must not contain newline characters (\"\\r\" or \"\\n\").
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExtensionField' with all optional fields omitted.
@@ -56,9 +57,9 @@ data ExtensionField = ExtensionField'
 -- must not contain newline characters (\"\\r\" or \"\\n\").
 newExtensionField ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   ExtensionField
 newExtensionField pName_ pValue_ =
   ExtensionField' {name = pName_, value = pValue_}
@@ -66,19 +67,19 @@ newExtensionField pName_ pValue_ =
 -- | The name of the header to add. Must be between 1 and 50 characters,
 -- inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and
 -- dashes only.
-extensionField_name :: Lens.Lens' ExtensionField Core.Text
+extensionField_name :: Lens.Lens' ExtensionField Prelude.Text
 extensionField_name = Lens.lens (\ExtensionField' {name} -> name) (\s@ExtensionField' {} a -> s {name = a} :: ExtensionField)
 
 -- | The value of the header to add. Must be less than 2048 characters, and
 -- must not contain newline characters (\"\\r\" or \"\\n\").
-extensionField_value :: Lens.Lens' ExtensionField Core.Text
+extensionField_value :: Lens.Lens' ExtensionField Prelude.Text
 extensionField_value = Lens.lens (\ExtensionField' {value} -> value) (\s@ExtensionField' {} a -> s {value = a} :: ExtensionField)
 
-instance Core.Hashable ExtensionField
+instance Prelude.Hashable ExtensionField
 
-instance Core.NFData ExtensionField
+instance Prelude.NFData ExtensionField
 
 instance Core.ToQuery ExtensionField where
   toQuery ExtensionField' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Name" Core.=: name, "Value" Core.=: value]

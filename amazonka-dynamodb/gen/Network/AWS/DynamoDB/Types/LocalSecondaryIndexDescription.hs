@@ -23,13 +23,14 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a local secondary index.
 --
 -- /See:/ 'newLocalSecondaryIndexDescription' smart constructor.
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
   { -- | Represents the name of the local secondary index.
-    indexName :: Core.Maybe Core.Text,
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The complete key schema for the local secondary index, consisting of one
     -- or more pairs of attribute names and key types:
     --
@@ -46,23 +47,23 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
     -- \"range attribute\" derives from the way DynamoDB stores items with the
     -- same partition key physically close together, in sorted order by the
     -- sort key value.
-    keySchema :: Core.Maybe (Core.NonEmpty KeySchemaElement),
+    keySchema :: Prelude.Maybe (Prelude.NonEmpty KeySchemaElement),
     -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
-    indexArn :: Core.Maybe Core.Text,
+    indexArn :: Prelude.Maybe Prelude.Text,
     -- | Represents attributes that are copied (projected) from the table into
     -- the global secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
-    projection :: Core.Maybe Projection,
+    projection :: Prelude.Maybe Projection,
     -- | The total size of the specified index, in bytes. DynamoDB updates this
     -- value approximately every six hours. Recent changes might not be
     -- reflected in this value.
-    indexSizeBytes :: Core.Maybe Core.Integer,
+    indexSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The number of items in the specified index. DynamoDB updates this value
     -- approximately every six hours. Recent changes might not be reflected in
     -- this value.
-    itemCount :: Core.Maybe Core.Integer
+    itemCount :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LocalSecondaryIndexDescription' with all optional fields omitted.
@@ -109,16 +110,16 @@ newLocalSecondaryIndexDescription ::
 newLocalSecondaryIndexDescription =
   LocalSecondaryIndexDescription'
     { indexName =
-        Core.Nothing,
-      keySchema = Core.Nothing,
-      indexArn = Core.Nothing,
-      projection = Core.Nothing,
-      indexSizeBytes = Core.Nothing,
-      itemCount = Core.Nothing
+        Prelude.Nothing,
+      keySchema = Prelude.Nothing,
+      indexArn = Prelude.Nothing,
+      projection = Prelude.Nothing,
+      indexSizeBytes = Prelude.Nothing,
+      itemCount = Prelude.Nothing
     }
 
 -- | Represents the name of the local secondary index.
-localSecondaryIndexDescription_indexName :: Lens.Lens' LocalSecondaryIndexDescription (Core.Maybe Core.Text)
+localSecondaryIndexDescription_indexName :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
 localSecondaryIndexDescription_indexName = Lens.lens (\LocalSecondaryIndexDescription' {indexName} -> indexName) (\s@LocalSecondaryIndexDescription' {} a -> s {indexName = a} :: LocalSecondaryIndexDescription)
 
 -- | The complete key schema for the local secondary index, consisting of one
@@ -137,29 +138,29 @@ localSecondaryIndexDescription_indexName = Lens.lens (\LocalSecondaryIndexDescri
 -- \"range attribute\" derives from the way DynamoDB stores items with the
 -- same partition key physically close together, in sorted order by the
 -- sort key value.
-localSecondaryIndexDescription_keySchema :: Lens.Lens' LocalSecondaryIndexDescription (Core.Maybe (Core.NonEmpty KeySchemaElement))
-localSecondaryIndexDescription_keySchema = Lens.lens (\LocalSecondaryIndexDescription' {keySchema} -> keySchema) (\s@LocalSecondaryIndexDescription' {} a -> s {keySchema = a} :: LocalSecondaryIndexDescription) Core.. Lens.mapping Lens._Coerce
+localSecondaryIndexDescription_keySchema :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe (Prelude.NonEmpty KeySchemaElement))
+localSecondaryIndexDescription_keySchema = Lens.lens (\LocalSecondaryIndexDescription' {keySchema} -> keySchema) (\s@LocalSecondaryIndexDescription' {} a -> s {keySchema = a} :: LocalSecondaryIndexDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
-localSecondaryIndexDescription_indexArn :: Lens.Lens' LocalSecondaryIndexDescription (Core.Maybe Core.Text)
+localSecondaryIndexDescription_indexArn :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
 localSecondaryIndexDescription_indexArn = Lens.lens (\LocalSecondaryIndexDescription' {indexArn} -> indexArn) (\s@LocalSecondaryIndexDescription' {} a -> s {indexArn = a} :: LocalSecondaryIndexDescription)
 
 -- | Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key
 -- attributes and index key attributes, which are automatically projected.
-localSecondaryIndexDescription_projection :: Lens.Lens' LocalSecondaryIndexDescription (Core.Maybe Projection)
+localSecondaryIndexDescription_projection :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Projection)
 localSecondaryIndexDescription_projection = Lens.lens (\LocalSecondaryIndexDescription' {projection} -> projection) (\s@LocalSecondaryIndexDescription' {} a -> s {projection = a} :: LocalSecondaryIndexDescription)
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be
 -- reflected in this value.
-localSecondaryIndexDescription_indexSizeBytes :: Lens.Lens' LocalSecondaryIndexDescription (Core.Maybe Core.Integer)
+localSecondaryIndexDescription_indexSizeBytes :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
 localSecondaryIndexDescription_indexSizeBytes = Lens.lens (\LocalSecondaryIndexDescription' {indexSizeBytes} -> indexSizeBytes) (\s@LocalSecondaryIndexDescription' {} a -> s {indexSizeBytes = a} :: LocalSecondaryIndexDescription)
 
 -- | The number of items in the specified index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
-localSecondaryIndexDescription_itemCount :: Lens.Lens' LocalSecondaryIndexDescription (Core.Maybe Core.Integer)
+localSecondaryIndexDescription_itemCount :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
 localSecondaryIndexDescription_itemCount = Lens.lens (\LocalSecondaryIndexDescription' {itemCount} -> itemCount) (\s@LocalSecondaryIndexDescription' {} a -> s {itemCount = a} :: LocalSecondaryIndexDescription)
 
 instance Core.FromJSON LocalSecondaryIndexDescription where
@@ -168,14 +169,18 @@ instance Core.FromJSON LocalSecondaryIndexDescription where
       "LocalSecondaryIndexDescription"
       ( \x ->
           LocalSecondaryIndexDescription'
-            Core.<$> (x Core..:? "IndexName")
-            Core.<*> (x Core..:? "KeySchema")
-            Core.<*> (x Core..:? "IndexArn")
-            Core.<*> (x Core..:? "Projection")
-            Core.<*> (x Core..:? "IndexSizeBytes")
-            Core.<*> (x Core..:? "ItemCount")
+            Prelude.<$> (x Core..:? "IndexName")
+            Prelude.<*> (x Core..:? "KeySchema")
+            Prelude.<*> (x Core..:? "IndexArn")
+            Prelude.<*> (x Core..:? "Projection")
+            Prelude.<*> (x Core..:? "IndexSizeBytes")
+            Prelude.<*> (x Core..:? "ItemCount")
       )
 
-instance Core.Hashable LocalSecondaryIndexDescription
+instance
+  Prelude.Hashable
+    LocalSecondaryIndexDescription
 
-instance Core.NFData LocalSecondaryIndexDescription
+instance
+  Prelude.NFData
+    LocalSecondaryIndexDescription

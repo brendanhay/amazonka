@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -57,15 +58,15 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
     -- resources of this type are included in the protection group. You must
     -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
     -- set it for any other @Pattern@ setting.
-    resourceType :: Core.Maybe ProtectedResourceType,
+    resourceType :: Prelude.Maybe ProtectedResourceType,
     -- | The Amazon Resource Names (ARNs) of the resources to include in the
     -- protection group. You must set this when you set @Pattern@ to
     -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-    members :: Core.Maybe [Core.Text],
+    members :: Prelude.Maybe [Prelude.Text],
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
-    protectionGroupId :: Core.Text,
+    protectionGroupId :: Prelude.Text,
     -- | Defines how AWS Shield combines resource data for the group in order to
     -- detect, mitigate, and report events.
     --
@@ -88,7 +89,7 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
     -- resources of a specified resource type.
     pattern' :: ProtectionGroupPattern
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProtectionGroup' with all optional fields omitted.
@@ -133,7 +134,7 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
 -- resources of a specified resource type.
 newUpdateProtectionGroup ::
   -- | 'protectionGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'aggregation'
   ProtectionGroupAggregation ->
   -- | 'pattern''
@@ -144,8 +145,9 @@ newUpdateProtectionGroup
   pAggregation_
   pPattern_ =
     UpdateProtectionGroup'
-      { resourceType = Core.Nothing,
-        members = Core.Nothing,
+      { resourceType =
+          Prelude.Nothing,
+        members = Prelude.Nothing,
         protectionGroupId = pProtectionGroupId_,
         aggregation = pAggregation_,
         pattern' = pPattern_
@@ -155,19 +157,19 @@ newUpdateProtectionGroup
 -- resources of this type are included in the protection group. You must
 -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
 -- set it for any other @Pattern@ setting.
-updateProtectionGroup_resourceType :: Lens.Lens' UpdateProtectionGroup (Core.Maybe ProtectedResourceType)
+updateProtectionGroup_resourceType :: Lens.Lens' UpdateProtectionGroup (Prelude.Maybe ProtectedResourceType)
 updateProtectionGroup_resourceType = Lens.lens (\UpdateProtectionGroup' {resourceType} -> resourceType) (\s@UpdateProtectionGroup' {} a -> s {resourceType = a} :: UpdateProtectionGroup)
 
 -- | The Amazon Resource Names (ARNs) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-updateProtectionGroup_members :: Lens.Lens' UpdateProtectionGroup (Core.Maybe [Core.Text])
-updateProtectionGroup_members = Lens.lens (\UpdateProtectionGroup' {members} -> members) (\s@UpdateProtectionGroup' {} a -> s {members = a} :: UpdateProtectionGroup) Core.. Lens.mapping Lens._Coerce
+updateProtectionGroup_members :: Lens.Lens' UpdateProtectionGroup (Prelude.Maybe [Prelude.Text])
+updateProtectionGroup_members = Lens.lens (\UpdateProtectionGroup' {members} -> members) (\s@UpdateProtectionGroup' {} a -> s {members = a} :: UpdateProtectionGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
-updateProtectionGroup_protectionGroupId :: Lens.Lens' UpdateProtectionGroup Core.Text
+updateProtectionGroup_protectionGroupId :: Lens.Lens' UpdateProtectionGroup Prelude.Text
 updateProtectionGroup_protectionGroupId = Lens.lens (\UpdateProtectionGroup' {protectionGroupId} -> protectionGroupId) (\s@UpdateProtectionGroup' {} a -> s {protectionGroupId = a} :: UpdateProtectionGroup)
 
 -- | Defines how AWS Shield combines resource data for the group in order to
@@ -204,51 +206,53 @@ instance Core.AWSRequest UpdateProtectionGroup where
     Response.receiveEmpty
       ( \s h x ->
           UpdateProtectionGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateProtectionGroup
+instance Prelude.Hashable UpdateProtectionGroup
 
-instance Core.NFData UpdateProtectionGroup
+instance Prelude.NFData UpdateProtectionGroup
 
 instance Core.ToHeaders UpdateProtectionGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.UpdateProtectionGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateProtectionGroup where
   toJSON UpdateProtectionGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceType" Core..=) Core.<$> resourceType,
-            ("Members" Core..=) Core.<$> members,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
+            ("Members" Core..=) Prelude.<$> members,
+            Prelude.Just
               ("ProtectionGroupId" Core..= protectionGroupId),
-            Core.Just ("Aggregation" Core..= aggregation),
-            Core.Just ("Pattern" Core..= pattern')
+            Prelude.Just ("Aggregation" Core..= aggregation),
+            Prelude.Just ("Pattern" Core..= pattern')
           ]
       )
 
 instance Core.ToPath UpdateProtectionGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateProtectionGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProtectionGroupResponse' smart constructor.
 data UpdateProtectionGroupResponse = UpdateProtectionGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProtectionGroupResponse' with all optional fields omitted.
@@ -261,7 +265,7 @@ data UpdateProtectionGroupResponse = UpdateProtectionGroupResponse'
 -- 'httpStatus', 'updateProtectionGroupResponse_httpStatus' - The response's http status code.
 newUpdateProtectionGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateProtectionGroupResponse
 newUpdateProtectionGroupResponse pHttpStatus_ =
   UpdateProtectionGroupResponse'
@@ -270,7 +274,7 @@ newUpdateProtectionGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateProtectionGroupResponse_httpStatus :: Lens.Lens' UpdateProtectionGroupResponse Core.Int
+updateProtectionGroupResponse_httpStatus :: Lens.Lens' UpdateProtectionGroupResponse Prelude.Int
 updateProtectionGroupResponse_httpStatus = Lens.lens (\UpdateProtectionGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateProtectionGroupResponse' {} a -> s {httpStatus = a} :: UpdateProtectionGroupResponse)
 
-instance Core.NFData UpdateProtectionGroupResponse
+instance Prelude.NFData UpdateProtectionGroupResponse

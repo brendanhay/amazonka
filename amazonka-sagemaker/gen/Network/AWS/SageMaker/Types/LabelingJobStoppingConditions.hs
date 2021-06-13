@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.LabelingJobStoppingConditions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of conditions for stopping a labeling job. If any of the
 -- conditions are met, the job is automatically stopped. You can use these
@@ -32,11 +33,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLabelingJobStoppingConditions' smart constructor.
 data LabelingJobStoppingConditions = LabelingJobStoppingConditions'
   { -- | The maximum number of input data objects that should be labeled.
-    maxPercentageOfInputDatasetLabeled :: Core.Maybe Core.Natural,
+    maxPercentageOfInputDatasetLabeled :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of objects that can be labeled by human workers.
-    maxHumanLabeledObjectCount :: Core.Maybe Core.Natural
+    maxHumanLabeledObjectCount :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelingJobStoppingConditions' with all optional fields omitted.
@@ -54,16 +55,16 @@ newLabelingJobStoppingConditions ::
 newLabelingJobStoppingConditions =
   LabelingJobStoppingConditions'
     { maxPercentageOfInputDatasetLabeled =
-        Core.Nothing,
-      maxHumanLabeledObjectCount = Core.Nothing
+        Prelude.Nothing,
+      maxHumanLabeledObjectCount = Prelude.Nothing
     }
 
 -- | The maximum number of input data objects that should be labeled.
-labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled :: Lens.Lens' LabelingJobStoppingConditions (Core.Maybe Core.Natural)
+labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled :: Lens.Lens' LabelingJobStoppingConditions (Prelude.Maybe Prelude.Natural)
 labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled = Lens.lens (\LabelingJobStoppingConditions' {maxPercentageOfInputDatasetLabeled} -> maxPercentageOfInputDatasetLabeled) (\s@LabelingJobStoppingConditions' {} a -> s {maxPercentageOfInputDatasetLabeled = a} :: LabelingJobStoppingConditions)
 
 -- | The maximum number of objects that can be labeled by human workers.
-labelingJobStoppingConditions_maxHumanLabeledObjectCount :: Lens.Lens' LabelingJobStoppingConditions (Core.Maybe Core.Natural)
+labelingJobStoppingConditions_maxHumanLabeledObjectCount :: Lens.Lens' LabelingJobStoppingConditions (Prelude.Maybe Prelude.Natural)
 labelingJobStoppingConditions_maxHumanLabeledObjectCount = Lens.lens (\LabelingJobStoppingConditions' {maxHumanLabeledObjectCount} -> maxHumanLabeledObjectCount) (\s@LabelingJobStoppingConditions' {} a -> s {maxHumanLabeledObjectCount = a} :: LabelingJobStoppingConditions)
 
 instance Core.FromJSON LabelingJobStoppingConditions where
@@ -72,21 +73,23 @@ instance Core.FromJSON LabelingJobStoppingConditions where
       "LabelingJobStoppingConditions"
       ( \x ->
           LabelingJobStoppingConditions'
-            Core.<$> (x Core..:? "MaxPercentageOfInputDatasetLabeled")
-            Core.<*> (x Core..:? "MaxHumanLabeledObjectCount")
+            Prelude.<$> (x Core..:? "MaxPercentageOfInputDatasetLabeled")
+            Prelude.<*> (x Core..:? "MaxHumanLabeledObjectCount")
       )
 
-instance Core.Hashable LabelingJobStoppingConditions
+instance
+  Prelude.Hashable
+    LabelingJobStoppingConditions
 
-instance Core.NFData LabelingJobStoppingConditions
+instance Prelude.NFData LabelingJobStoppingConditions
 
 instance Core.ToJSON LabelingJobStoppingConditions where
   toJSON LabelingJobStoppingConditions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MaxPercentageOfInputDatasetLabeled" Core..=)
-              Core.<$> maxPercentageOfInputDatasetLabeled,
+              Prelude.<$> maxPercentageOfInputDatasetLabeled,
             ("MaxHumanLabeledObjectCount" Core..=)
-              Core.<$> maxHumanLabeledObjectCount
+              Prelude.<$> maxHumanLabeledObjectCount
           ]
       )

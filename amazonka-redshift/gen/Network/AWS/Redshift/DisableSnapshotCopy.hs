@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -60,9 +61,9 @@ data DisableSnapshotCopy = DisableSnapshotCopy'
     --
     -- Constraints: Must be the valid name of an existing cluster that has
     -- cross-region snapshot copy enabled.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableSnapshotCopy' with all optional fields omitted.
@@ -79,7 +80,7 @@ data DisableSnapshotCopy = DisableSnapshotCopy'
 -- cross-region snapshot copy enabled.
 newDisableSnapshotCopy ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DisableSnapshotCopy
 newDisableSnapshotCopy pClusterIdentifier_ =
   DisableSnapshotCopy'
@@ -92,7 +93,7 @@ newDisableSnapshotCopy pClusterIdentifier_ =
 --
 -- Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
-disableSnapshotCopy_clusterIdentifier :: Lens.Lens' DisableSnapshotCopy Core.Text
+disableSnapshotCopy_clusterIdentifier :: Lens.Lens' DisableSnapshotCopy Prelude.Text
 disableSnapshotCopy_clusterIdentifier = Lens.lens (\DisableSnapshotCopy' {clusterIdentifier} -> clusterIdentifier) (\s@DisableSnapshotCopy' {} a -> s {clusterIdentifier = a} :: DisableSnapshotCopy)
 
 instance Core.AWSRequest DisableSnapshotCopy where
@@ -105,36 +106,37 @@ instance Core.AWSRequest DisableSnapshotCopy where
       "DisableSnapshotCopyResult"
       ( \s h x ->
           DisableSnapshotCopyResponse'
-            Core.<$> (x Core..@? "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisableSnapshotCopy
+instance Prelude.Hashable DisableSnapshotCopy
 
-instance Core.NFData DisableSnapshotCopy
+instance Prelude.NFData DisableSnapshotCopy
 
 instance Core.ToHeaders DisableSnapshotCopy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisableSnapshotCopy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableSnapshotCopy where
   toQuery DisableSnapshotCopy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableSnapshotCopy" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DisableSnapshotCopy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newDisableSnapshotCopyResponse' smart constructor.
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableSnapshotCopyResponse' with all optional fields omitted.
@@ -149,21 +151,21 @@ data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
 -- 'httpStatus', 'disableSnapshotCopyResponse_httpStatus' - The response's http status code.
 newDisableSnapshotCopyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisableSnapshotCopyResponse
 newDisableSnapshotCopyResponse pHttpStatus_ =
   DisableSnapshotCopyResponse'
     { cluster =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-disableSnapshotCopyResponse_cluster :: Lens.Lens' DisableSnapshotCopyResponse (Core.Maybe Cluster)
+disableSnapshotCopyResponse_cluster :: Lens.Lens' DisableSnapshotCopyResponse (Prelude.Maybe Cluster)
 disableSnapshotCopyResponse_cluster = Lens.lens (\DisableSnapshotCopyResponse' {cluster} -> cluster) (\s@DisableSnapshotCopyResponse' {} a -> s {cluster = a} :: DisableSnapshotCopyResponse)
 
 -- | The response's http status code.
-disableSnapshotCopyResponse_httpStatus :: Lens.Lens' DisableSnapshotCopyResponse Core.Int
+disableSnapshotCopyResponse_httpStatus :: Lens.Lens' DisableSnapshotCopyResponse Prelude.Int
 disableSnapshotCopyResponse_httpStatus = Lens.lens (\DisableSnapshotCopyResponse' {httpStatus} -> httpStatus) (\s@DisableSnapshotCopyResponse' {} a -> s {httpStatus = a} :: DisableSnapshotCopyResponse)
 
-instance Core.NFData DisableSnapshotCopyResponse
+instance Prelude.NFData DisableSnapshotCopyResponse

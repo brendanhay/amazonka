@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -57,11 +58,11 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetGroupQuery' smart constructor.
 data GetGroupQuery = GetGroupQuery'
   { -- | Don\'t use this parameter. Use @Group@ instead.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The name or the ARN of the resource group to query.
-    group' :: Core.Maybe Core.Text
+    group' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroupQuery' with all optional fields omitted.
@@ -78,16 +79,16 @@ newGetGroupQuery ::
   GetGroupQuery
 newGetGroupQuery =
   GetGroupQuery'
-    { groupName = Core.Nothing,
-      group' = Core.Nothing
+    { groupName = Prelude.Nothing,
+      group' = Prelude.Nothing
     }
 
 -- | Don\'t use this parameter. Use @Group@ instead.
-getGroupQuery_groupName :: Lens.Lens' GetGroupQuery (Core.Maybe Core.Text)
+getGroupQuery_groupName :: Lens.Lens' GetGroupQuery (Prelude.Maybe Prelude.Text)
 getGroupQuery_groupName = Lens.lens (\GetGroupQuery' {groupName} -> groupName) (\s@GetGroupQuery' {} a -> s {groupName = a} :: GetGroupQuery)
 
 -- | The name or the ARN of the resource group to query.
-getGroupQuery_group :: Lens.Lens' GetGroupQuery (Core.Maybe Core.Text)
+getGroupQuery_group :: Lens.Lens' GetGroupQuery (Prelude.Maybe Prelude.Text)
 getGroupQuery_group = Lens.lens (\GetGroupQuery' {group'} -> group') (\s@GetGroupQuery' {} a -> s {group' = a} :: GetGroupQuery)
 
 instance Core.AWSRequest GetGroupQuery where
@@ -99,42 +100,42 @@ instance Core.AWSRequest GetGroupQuery where
     Response.receiveJSON
       ( \s h x ->
           GetGroupQueryResponse'
-            Core.<$> (x Core..?> "GroupQuery")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GroupQuery")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetGroupQuery
+instance Prelude.Hashable GetGroupQuery
 
-instance Core.NFData GetGroupQuery
+instance Prelude.NFData GetGroupQuery
 
 instance Core.ToHeaders GetGroupQuery where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetGroupQuery where
   toJSON GetGroupQuery' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GroupName" Core..=) Core.<$> groupName,
-            ("Group" Core..=) Core.<$> group'
+      ( Prelude.catMaybes
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("Group" Core..=) Prelude.<$> group'
           ]
       )
 
 instance Core.ToPath GetGroupQuery where
-  toPath = Core.const "/get-group-query"
+  toPath = Prelude.const "/get-group-query"
 
 instance Core.ToQuery GetGroupQuery where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupQueryResponse' smart constructor.
 data GetGroupQueryResponse = GetGroupQueryResponse'
   { -- | The resource query associated with the specified group. For more
     -- information about resource queries, see
     -- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
-    groupQuery :: Core.Maybe GroupQuery,
+    groupQuery :: Prelude.Maybe GroupQuery,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroupQueryResponse' with all optional fields omitted.
@@ -151,22 +152,23 @@ data GetGroupQueryResponse = GetGroupQueryResponse'
 -- 'httpStatus', 'getGroupQueryResponse_httpStatus' - The response's http status code.
 newGetGroupQueryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetGroupQueryResponse
 newGetGroupQueryResponse pHttpStatus_ =
   GetGroupQueryResponse'
-    { groupQuery = Core.Nothing,
+    { groupQuery =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The resource query associated with the specified group. For more
 -- information about resource queries, see
 -- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
-getGroupQueryResponse_groupQuery :: Lens.Lens' GetGroupQueryResponse (Core.Maybe GroupQuery)
+getGroupQueryResponse_groupQuery :: Lens.Lens' GetGroupQueryResponse (Prelude.Maybe GroupQuery)
 getGroupQueryResponse_groupQuery = Lens.lens (\GetGroupQueryResponse' {groupQuery} -> groupQuery) (\s@GetGroupQueryResponse' {} a -> s {groupQuery = a} :: GetGroupQueryResponse)
 
 -- | The response's http status code.
-getGroupQueryResponse_httpStatus :: Lens.Lens' GetGroupQueryResponse Core.Int
+getGroupQueryResponse_httpStatus :: Lens.Lens' GetGroupQueryResponse Prelude.Int
 getGroupQueryResponse_httpStatus = Lens.lens (\GetGroupQueryResponse' {httpStatus} -> httpStatus) (\s@GetGroupQueryResponse' {} a -> s {httpStatus = a} :: GetGroupQueryResponse)
 
-instance Core.NFData GetGroupQueryResponse
+instance Prelude.NFData GetGroupQueryResponse

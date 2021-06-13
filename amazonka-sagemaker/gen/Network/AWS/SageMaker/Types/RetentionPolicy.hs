@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.RetentionPolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.RetentionType
 
 -- | The retention policy for data stored on an Amazon Elastic File System
@@ -32,9 +33,9 @@ data RetentionPolicy = RetentionPolicy'
     -- EFS volume.
     --
     -- Specify @Delete@ to delete the data stored on the EFS volume.
-    homeEfsFileSystem :: Core.Maybe RetentionType
+    homeEfsFileSystem :: Prelude.Maybe RetentionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetentionPolicy' with all optional fields omitted.
@@ -51,24 +52,27 @@ data RetentionPolicy = RetentionPolicy'
 newRetentionPolicy ::
   RetentionPolicy
 newRetentionPolicy =
-  RetentionPolicy' {homeEfsFileSystem = Core.Nothing}
+  RetentionPolicy'
+    { homeEfsFileSystem =
+        Prelude.Nothing
+    }
 
 -- | The default is @Retain@, which specifies to keep the data stored on the
 -- EFS volume.
 --
 -- Specify @Delete@ to delete the data stored on the EFS volume.
-retentionPolicy_homeEfsFileSystem :: Lens.Lens' RetentionPolicy (Core.Maybe RetentionType)
+retentionPolicy_homeEfsFileSystem :: Lens.Lens' RetentionPolicy (Prelude.Maybe RetentionType)
 retentionPolicy_homeEfsFileSystem = Lens.lens (\RetentionPolicy' {homeEfsFileSystem} -> homeEfsFileSystem) (\s@RetentionPolicy' {} a -> s {homeEfsFileSystem = a} :: RetentionPolicy)
 
-instance Core.Hashable RetentionPolicy
+instance Prelude.Hashable RetentionPolicy
 
-instance Core.NFData RetentionPolicy
+instance Prelude.NFData RetentionPolicy
 
 instance Core.ToJSON RetentionPolicy where
   toJSON RetentionPolicy' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("HomeEfsFileSystem" Core..=)
-              Core.<$> homeEfsFileSystem
+              Prelude.<$> homeEfsFileSystem
           ]
       )

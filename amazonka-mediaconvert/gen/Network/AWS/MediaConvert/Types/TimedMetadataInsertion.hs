@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.TimedMetadataInsertion where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.Id3Insertion
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3
 -- tags in any HLS outputs. To include timed metadata, you must enable it
@@ -31,9 +32,9 @@ import Network.AWS.MediaConvert.Types.Id3Insertion
 -- /See:/ 'newTimedMetadataInsertion' smart constructor.
 data TimedMetadataInsertion = TimedMetadataInsertion'
   { -- | Id3Insertions contains the array of Id3Insertion instances.
-    id3Insertions :: Core.Maybe [Id3Insertion]
+    id3Insertions :: Prelude.Maybe [Id3Insertion]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimedMetadataInsertion' with all optional fields omitted.
@@ -49,12 +50,12 @@ newTimedMetadataInsertion ::
 newTimedMetadataInsertion =
   TimedMetadataInsertion'
     { id3Insertions =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Id3Insertions contains the array of Id3Insertion instances.
-timedMetadataInsertion_id3Insertions :: Lens.Lens' TimedMetadataInsertion (Core.Maybe [Id3Insertion])
-timedMetadataInsertion_id3Insertions = Lens.lens (\TimedMetadataInsertion' {id3Insertions} -> id3Insertions) (\s@TimedMetadataInsertion' {} a -> s {id3Insertions = a} :: TimedMetadataInsertion) Core.. Lens.mapping Lens._Coerce
+timedMetadataInsertion_id3Insertions :: Lens.Lens' TimedMetadataInsertion (Prelude.Maybe [Id3Insertion])
+timedMetadataInsertion_id3Insertions = Lens.lens (\TimedMetadataInsertion' {id3Insertions} -> id3Insertions) (\s@TimedMetadataInsertion' {} a -> s {id3Insertions = a} :: TimedMetadataInsertion) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON TimedMetadataInsertion where
   parseJSON =
@@ -62,16 +63,18 @@ instance Core.FromJSON TimedMetadataInsertion where
       "TimedMetadataInsertion"
       ( \x ->
           TimedMetadataInsertion'
-            Core.<$> (x Core..:? "id3Insertions" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "id3Insertions" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable TimedMetadataInsertion
+instance Prelude.Hashable TimedMetadataInsertion
 
-instance Core.NFData TimedMetadataInsertion
+instance Prelude.NFData TimedMetadataInsertion
 
 instance Core.ToJSON TimedMetadataInsertion where
   toJSON TimedMetadataInsertion' {..} =
     Core.object
-      ( Core.catMaybes
-          [("id3Insertions" Core..=) Core.<$> id3Insertions]
+      ( Prelude.catMaybes
+          [ ("id3Insertions" Core..=)
+              Prelude.<$> id3Insertions
+          ]
       )

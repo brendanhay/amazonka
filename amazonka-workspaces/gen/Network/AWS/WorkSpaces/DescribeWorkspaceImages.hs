@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -56,16 +57,16 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newDescribeWorkspaceImages' smart constructor.
 data DescribeWorkspaceImages = DescribeWorkspaceImages'
   { -- | The type (owned or shared) of the image.
-    imageType :: Core.Maybe ImageType,
+    imageType :: Prelude.Maybe ImageType,
     -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the image.
-    imageIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    imageIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of items to return.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkspaceImages' with all optional fields omitted.
@@ -87,27 +88,28 @@ newDescribeWorkspaceImages ::
   DescribeWorkspaceImages
 newDescribeWorkspaceImages =
   DescribeWorkspaceImages'
-    { imageType = Core.Nothing,
-      nextToken = Core.Nothing,
-      imageIds = Core.Nothing,
-      maxResults = Core.Nothing
+    { imageType =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      imageIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The type (owned or shared) of the image.
-describeWorkspaceImages_imageType :: Lens.Lens' DescribeWorkspaceImages (Core.Maybe ImageType)
+describeWorkspaceImages_imageType :: Lens.Lens' DescribeWorkspaceImages (Prelude.Maybe ImageType)
 describeWorkspaceImages_imageType = Lens.lens (\DescribeWorkspaceImages' {imageType} -> imageType) (\s@DescribeWorkspaceImages' {} a -> s {imageType = a} :: DescribeWorkspaceImages)
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
-describeWorkspaceImages_nextToken :: Lens.Lens' DescribeWorkspaceImages (Core.Maybe Core.Text)
+describeWorkspaceImages_nextToken :: Lens.Lens' DescribeWorkspaceImages (Prelude.Maybe Prelude.Text)
 describeWorkspaceImages_nextToken = Lens.lens (\DescribeWorkspaceImages' {nextToken} -> nextToken) (\s@DescribeWorkspaceImages' {} a -> s {nextToken = a} :: DescribeWorkspaceImages)
 
 -- | The identifier of the image.
-describeWorkspaceImages_imageIds :: Lens.Lens' DescribeWorkspaceImages (Core.Maybe (Core.NonEmpty Core.Text))
-describeWorkspaceImages_imageIds = Lens.lens (\DescribeWorkspaceImages' {imageIds} -> imageIds) (\s@DescribeWorkspaceImages' {} a -> s {imageIds = a} :: DescribeWorkspaceImages) Core.. Lens.mapping Lens._Coerce
+describeWorkspaceImages_imageIds :: Lens.Lens' DescribeWorkspaceImages (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeWorkspaceImages_imageIds = Lens.lens (\DescribeWorkspaceImages' {imageIds} -> imageIds) (\s@DescribeWorkspaceImages' {} a -> s {imageIds = a} :: DescribeWorkspaceImages) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of items to return.
-describeWorkspaceImages_maxResults :: Lens.Lens' DescribeWorkspaceImages (Core.Maybe Core.Natural)
+describeWorkspaceImages_maxResults :: Lens.Lens' DescribeWorkspaceImages (Prelude.Maybe Prelude.Natural)
 describeWorkspaceImages_maxResults = Lens.lens (\DescribeWorkspaceImages' {maxResults} -> maxResults) (\s@DescribeWorkspaceImages' {} a -> s {maxResults = a} :: DescribeWorkspaceImages)
 
 instance Core.AWSPager DescribeWorkspaceImages where
@@ -115,22 +117,22 @@ instance Core.AWSPager DescribeWorkspaceImages where
     | Core.stop
         ( rs
             Lens.^? describeWorkspaceImagesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeWorkspaceImagesResponse_images
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeWorkspaceImages_nextToken
+          Prelude.& describeWorkspaceImages_nextToken
           Lens..~ rs
           Lens.^? describeWorkspaceImagesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeWorkspaceImages where
   type
@@ -141,56 +143,58 @@ instance Core.AWSRequest DescribeWorkspaceImages where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceImagesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Images" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeWorkspaceImages
+instance Prelude.Hashable DescribeWorkspaceImages
 
-instance Core.NFData DescribeWorkspaceImages
+instance Prelude.NFData DescribeWorkspaceImages
 
 instance Core.ToHeaders DescribeWorkspaceImages where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DescribeWorkspaceImages" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeWorkspaceImages where
   toJSON DescribeWorkspaceImages' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ImageType" Core..=) Core.<$> imageType,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("ImageIds" Core..=) Core.<$> imageIds,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("ImageType" Core..=) Prelude.<$> imageType,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ImageIds" Core..=) Prelude.<$> imageIds,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath DescribeWorkspaceImages where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeWorkspaceImages where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkspaceImagesResponse' smart constructor.
 data DescribeWorkspaceImagesResponse = DescribeWorkspaceImagesResponse'
   { -- | The token to use to retrieve the next set of results, or null if no more
     -- results are available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the images.
-    images :: Core.Maybe [WorkspaceImage],
+    images :: Prelude.Maybe [WorkspaceImage],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkspaceImagesResponse' with all optional fields omitted.
@@ -208,27 +212,29 @@ data DescribeWorkspaceImagesResponse = DescribeWorkspaceImagesResponse'
 -- 'httpStatus', 'describeWorkspaceImagesResponse_httpStatus' - The response's http status code.
 newDescribeWorkspaceImagesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeWorkspaceImagesResponse
 newDescribeWorkspaceImagesResponse pHttpStatus_ =
   DescribeWorkspaceImagesResponse'
     { nextToken =
-        Core.Nothing,
-      images = Core.Nothing,
+        Prelude.Nothing,
+      images = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next set of results, or null if no more
 -- results are available.
-describeWorkspaceImagesResponse_nextToken :: Lens.Lens' DescribeWorkspaceImagesResponse (Core.Maybe Core.Text)
+describeWorkspaceImagesResponse_nextToken :: Lens.Lens' DescribeWorkspaceImagesResponse (Prelude.Maybe Prelude.Text)
 describeWorkspaceImagesResponse_nextToken = Lens.lens (\DescribeWorkspaceImagesResponse' {nextToken} -> nextToken) (\s@DescribeWorkspaceImagesResponse' {} a -> s {nextToken = a} :: DescribeWorkspaceImagesResponse)
 
 -- | Information about the images.
-describeWorkspaceImagesResponse_images :: Lens.Lens' DescribeWorkspaceImagesResponse (Core.Maybe [WorkspaceImage])
-describeWorkspaceImagesResponse_images = Lens.lens (\DescribeWorkspaceImagesResponse' {images} -> images) (\s@DescribeWorkspaceImagesResponse' {} a -> s {images = a} :: DescribeWorkspaceImagesResponse) Core.. Lens.mapping Lens._Coerce
+describeWorkspaceImagesResponse_images :: Lens.Lens' DescribeWorkspaceImagesResponse (Prelude.Maybe [WorkspaceImage])
+describeWorkspaceImagesResponse_images = Lens.lens (\DescribeWorkspaceImagesResponse' {images} -> images) (\s@DescribeWorkspaceImagesResponse' {} a -> s {images = a} :: DescribeWorkspaceImagesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeWorkspaceImagesResponse_httpStatus :: Lens.Lens' DescribeWorkspaceImagesResponse Core.Int
+describeWorkspaceImagesResponse_httpStatus :: Lens.Lens' DescribeWorkspaceImagesResponse Prelude.Int
 describeWorkspaceImagesResponse_httpStatus = Lens.lens (\DescribeWorkspaceImagesResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkspaceImagesResponse' {} a -> s {httpStatus = a} :: DescribeWorkspaceImagesResponse)
 
-instance Core.NFData DescribeWorkspaceImagesResponse
+instance
+  Prelude.NFData
+    DescribeWorkspaceImagesResponse

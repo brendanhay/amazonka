@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -59,9 +60,9 @@ data GetSizeConstraintSet = GetSizeConstraintSet'
   { -- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to get.
     -- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
     -- ListSizeConstraintSets.
-    sizeConstraintSetId :: Core.Text
+    sizeConstraintSetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSizeConstraintSet' with all optional fields omitted.
@@ -76,7 +77,7 @@ data GetSizeConstraintSet = GetSizeConstraintSet'
 -- ListSizeConstraintSets.
 newGetSizeConstraintSet ::
   -- | 'sizeConstraintSetId'
-  Core.Text ->
+  Prelude.Text ->
   GetSizeConstraintSet
 newGetSizeConstraintSet pSizeConstraintSetId_ =
   GetSizeConstraintSet'
@@ -87,7 +88,7 @@ newGetSizeConstraintSet pSizeConstraintSetId_ =
 -- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to get.
 -- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
 -- ListSizeConstraintSets.
-getSizeConstraintSet_sizeConstraintSetId :: Lens.Lens' GetSizeConstraintSet Core.Text
+getSizeConstraintSet_sizeConstraintSetId :: Lens.Lens' GetSizeConstraintSet Prelude.Text
 getSizeConstraintSet_sizeConstraintSetId = Lens.lens (\GetSizeConstraintSet' {sizeConstraintSetId} -> sizeConstraintSetId) (\s@GetSizeConstraintSet' {} a -> s {sizeConstraintSetId = a} :: GetSizeConstraintSet)
 
 instance Core.AWSRequest GetSizeConstraintSet where
@@ -99,41 +100,43 @@ instance Core.AWSRequest GetSizeConstraintSet where
     Response.receiveJSON
       ( \s h x ->
           GetSizeConstraintSetResponse'
-            Core.<$> (x Core..?> "SizeConstraintSet")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SizeConstraintSet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSizeConstraintSet
+instance Prelude.Hashable GetSizeConstraintSet
 
-instance Core.NFData GetSizeConstraintSet
+instance Prelude.NFData GetSizeConstraintSet
 
 instance Core.ToHeaders GetSizeConstraintSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.GetSizeConstraintSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSizeConstraintSet where
   toJSON GetSizeConstraintSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SizeConstraintSetId" Core..= sizeConstraintSetId)
           ]
       )
 
 instance Core.ToPath GetSizeConstraintSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSizeConstraintSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSizeConstraintSetResponse' smart constructor.
 data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
@@ -149,11 +152,11 @@ data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
     --     @ComparisonOperator@, and @Size@
     --
     -- -   FieldToMatch: Contains @Data@ and @Type@
-    sizeConstraintSet :: Core.Maybe SizeConstraintSet,
+    sizeConstraintSet :: Prelude.Maybe SizeConstraintSet,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSizeConstraintSetResponse' with all optional fields omitted.
@@ -179,12 +182,12 @@ data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
 -- 'httpStatus', 'getSizeConstraintSetResponse_httpStatus' - The response's http status code.
 newGetSizeConstraintSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSizeConstraintSetResponse
 newGetSizeConstraintSetResponse pHttpStatus_ =
   GetSizeConstraintSetResponse'
     { sizeConstraintSet =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -200,11 +203,11 @@ newGetSizeConstraintSetResponse pHttpStatus_ =
 --     @ComparisonOperator@, and @Size@
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
-getSizeConstraintSetResponse_sizeConstraintSet :: Lens.Lens' GetSizeConstraintSetResponse (Core.Maybe SizeConstraintSet)
+getSizeConstraintSetResponse_sizeConstraintSet :: Lens.Lens' GetSizeConstraintSetResponse (Prelude.Maybe SizeConstraintSet)
 getSizeConstraintSetResponse_sizeConstraintSet = Lens.lens (\GetSizeConstraintSetResponse' {sizeConstraintSet} -> sizeConstraintSet) (\s@GetSizeConstraintSetResponse' {} a -> s {sizeConstraintSet = a} :: GetSizeConstraintSetResponse)
 
 -- | The response's http status code.
-getSizeConstraintSetResponse_httpStatus :: Lens.Lens' GetSizeConstraintSetResponse Core.Int
+getSizeConstraintSetResponse_httpStatus :: Lens.Lens' GetSizeConstraintSetResponse Prelude.Int
 getSizeConstraintSetResponse_httpStatus = Lens.lens (\GetSizeConstraintSetResponse' {httpStatus} -> httpStatus) (\s@GetSizeConstraintSetResponse' {} a -> s {httpStatus = a} :: GetSizeConstraintSetResponse)
 
-instance Core.NFData GetSizeConstraintSetResponse
+instance Prelude.NFData GetSizeConstraintSetResponse

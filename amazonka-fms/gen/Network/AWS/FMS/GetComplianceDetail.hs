@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,12 +63,12 @@ import qualified Network.AWS.Response as Response
 data GetComplianceDetail = GetComplianceDetail'
   { -- | The ID of the policy that you want to get the details for. @PolicyId@ is
     -- returned by @PutPolicy@ and by @ListPolicies@.
-    policyId :: Core.Text,
+    policyId :: Prelude.Text,
     -- | The AWS account that owns the resources that you want to get the details
     -- for.
-    memberAccount :: Core.Text
+    memberAccount :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetComplianceDetail' with all optional fields omitted.
@@ -84,9 +85,9 @@ data GetComplianceDetail = GetComplianceDetail'
 -- for.
 newGetComplianceDetail ::
   -- | 'policyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'memberAccount'
-  Core.Text ->
+  Prelude.Text ->
   GetComplianceDetail
 newGetComplianceDetail pPolicyId_ pMemberAccount_ =
   GetComplianceDetail'
@@ -96,12 +97,12 @@ newGetComplianceDetail pPolicyId_ pMemberAccount_ =
 
 -- | The ID of the policy that you want to get the details for. @PolicyId@ is
 -- returned by @PutPolicy@ and by @ListPolicies@.
-getComplianceDetail_policyId :: Lens.Lens' GetComplianceDetail Core.Text
+getComplianceDetail_policyId :: Lens.Lens' GetComplianceDetail Prelude.Text
 getComplianceDetail_policyId = Lens.lens (\GetComplianceDetail' {policyId} -> policyId) (\s@GetComplianceDetail' {} a -> s {policyId = a} :: GetComplianceDetail)
 
 -- | The AWS account that owns the resources that you want to get the details
 -- for.
-getComplianceDetail_memberAccount :: Lens.Lens' GetComplianceDetail Core.Text
+getComplianceDetail_memberAccount :: Lens.Lens' GetComplianceDetail Prelude.Text
 getComplianceDetail_memberAccount = Lens.lens (\GetComplianceDetail' {memberAccount} -> memberAccount) (\s@GetComplianceDetail' {} a -> s {memberAccount = a} :: GetComplianceDetail)
 
 instance Core.AWSRequest GetComplianceDetail where
@@ -113,51 +114,54 @@ instance Core.AWSRequest GetComplianceDetail where
     Response.receiveJSON
       ( \s h x ->
           GetComplianceDetailResponse'
-            Core.<$> (x Core..?> "PolicyComplianceDetail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PolicyComplianceDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetComplianceDetail
+instance Prelude.Hashable GetComplianceDetail
 
-instance Core.NFData GetComplianceDetail
+instance Prelude.NFData GetComplianceDetail
 
 instance Core.ToHeaders GetComplianceDetail where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.GetComplianceDetail" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetComplianceDetail where
   toJSON GetComplianceDetail' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("PolicyId" Core..= policyId),
-            Core.Just ("MemberAccount" Core..= memberAccount)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("PolicyId" Core..= policyId),
+            Prelude.Just
+              ("MemberAccount" Core..= memberAccount)
           ]
       )
 
 instance Core.ToPath GetComplianceDetail where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetComplianceDetail where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetComplianceDetailResponse' smart constructor.
 data GetComplianceDetailResponse = GetComplianceDetailResponse'
   { -- | Information about the resources and the policy that you specified in the
     -- @GetComplianceDetail@ request.
-    policyComplianceDetail :: Core.Maybe PolicyComplianceDetail,
+    policyComplianceDetail :: Prelude.Maybe PolicyComplianceDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetComplianceDetailResponse' with all optional fields omitted.
@@ -173,22 +177,22 @@ data GetComplianceDetailResponse = GetComplianceDetailResponse'
 -- 'httpStatus', 'getComplianceDetailResponse_httpStatus' - The response's http status code.
 newGetComplianceDetailResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetComplianceDetailResponse
 newGetComplianceDetailResponse pHttpStatus_ =
   GetComplianceDetailResponse'
     { policyComplianceDetail =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the resources and the policy that you specified in the
 -- @GetComplianceDetail@ request.
-getComplianceDetailResponse_policyComplianceDetail :: Lens.Lens' GetComplianceDetailResponse (Core.Maybe PolicyComplianceDetail)
+getComplianceDetailResponse_policyComplianceDetail :: Lens.Lens' GetComplianceDetailResponse (Prelude.Maybe PolicyComplianceDetail)
 getComplianceDetailResponse_policyComplianceDetail = Lens.lens (\GetComplianceDetailResponse' {policyComplianceDetail} -> policyComplianceDetail) (\s@GetComplianceDetailResponse' {} a -> s {policyComplianceDetail = a} :: GetComplianceDetailResponse)
 
 -- | The response's http status code.
-getComplianceDetailResponse_httpStatus :: Lens.Lens' GetComplianceDetailResponse Core.Int
+getComplianceDetailResponse_httpStatus :: Lens.Lens' GetComplianceDetailResponse Prelude.Int
 getComplianceDetailResponse_httpStatus = Lens.lens (\GetComplianceDetailResponse' {httpStatus} -> httpStatus) (\s@GetComplianceDetailResponse' {} a -> s {httpStatus = a} :: GetComplianceDetailResponse)
 
-instance Core.NFData GetComplianceDetailResponse
+instance Prelude.NFData GetComplianceDetailResponse

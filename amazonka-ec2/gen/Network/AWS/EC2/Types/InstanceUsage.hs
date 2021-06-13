@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.InstanceUsage where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Capacity Reservation usage.
 --
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data InstanceUsage = InstanceUsage'
   { -- | The ID of the AWS account that is making use of the Capacity
     -- Reservation.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The number of instances the AWS account currently has in the Capacity
     -- Reservation.
-    usedInstanceCount :: Core.Maybe Core.Int
+    usedInstanceCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceUsage' with all optional fields omitted.
@@ -53,26 +54,26 @@ newInstanceUsage ::
   InstanceUsage
 newInstanceUsage =
   InstanceUsage'
-    { accountId = Core.Nothing,
-      usedInstanceCount = Core.Nothing
+    { accountId = Prelude.Nothing,
+      usedInstanceCount = Prelude.Nothing
     }
 
 -- | The ID of the AWS account that is making use of the Capacity
 -- Reservation.
-instanceUsage_accountId :: Lens.Lens' InstanceUsage (Core.Maybe Core.Text)
+instanceUsage_accountId :: Lens.Lens' InstanceUsage (Prelude.Maybe Prelude.Text)
 instanceUsage_accountId = Lens.lens (\InstanceUsage' {accountId} -> accountId) (\s@InstanceUsage' {} a -> s {accountId = a} :: InstanceUsage)
 
 -- | The number of instances the AWS account currently has in the Capacity
 -- Reservation.
-instanceUsage_usedInstanceCount :: Lens.Lens' InstanceUsage (Core.Maybe Core.Int)
+instanceUsage_usedInstanceCount :: Lens.Lens' InstanceUsage (Prelude.Maybe Prelude.Int)
 instanceUsage_usedInstanceCount = Lens.lens (\InstanceUsage' {usedInstanceCount} -> usedInstanceCount) (\s@InstanceUsage' {} a -> s {usedInstanceCount = a} :: InstanceUsage)
 
 instance Core.FromXML InstanceUsage where
   parseXML x =
     InstanceUsage'
-      Core.<$> (x Core..@? "accountId")
-      Core.<*> (x Core..@? "usedInstanceCount")
+      Prelude.<$> (x Core..@? "accountId")
+      Prelude.<*> (x Core..@? "usedInstanceCount")
 
-instance Core.Hashable InstanceUsage
+instance Prelude.Hashable InstanceUsage
 
-instance Core.NFData InstanceUsage
+instance Prelude.NFData InstanceUsage

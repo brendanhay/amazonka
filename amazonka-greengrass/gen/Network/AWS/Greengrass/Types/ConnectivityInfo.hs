@@ -21,21 +21,22 @@ module Network.AWS.Greengrass.Types.ConnectivityInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a Greengrass core\'s connectivity.
 --
 -- /See:/ 'newConnectivityInfo' smart constructor.
 data ConnectivityInfo = ConnectivityInfo'
   { -- | The ID of the connectivity information.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | Metadata for this endpoint.
-    metadata :: Core.Maybe Core.Text,
+    metadata :: Prelude.Maybe Prelude.Text,
     -- | The port of the Greengrass core. Usually 8883.
-    portNumber :: Core.Maybe Core.Int,
+    portNumber :: Prelude.Maybe Prelude.Int,
     -- | The endpoint for the Greengrass core. Can be an IP address or DNS.
-    hostAddress :: Core.Maybe Core.Text
+    hostAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectivityInfo' with all optional fields omitted.
@@ -56,26 +57,26 @@ newConnectivityInfo ::
   ConnectivityInfo
 newConnectivityInfo =
   ConnectivityInfo'
-    { id = Core.Nothing,
-      metadata = Core.Nothing,
-      portNumber = Core.Nothing,
-      hostAddress = Core.Nothing
+    { id = Prelude.Nothing,
+      metadata = Prelude.Nothing,
+      portNumber = Prelude.Nothing,
+      hostAddress = Prelude.Nothing
     }
 
 -- | The ID of the connectivity information.
-connectivityInfo_id :: Lens.Lens' ConnectivityInfo (Core.Maybe Core.Text)
+connectivityInfo_id :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
 connectivityInfo_id = Lens.lens (\ConnectivityInfo' {id} -> id) (\s@ConnectivityInfo' {} a -> s {id = a} :: ConnectivityInfo)
 
 -- | Metadata for this endpoint.
-connectivityInfo_metadata :: Lens.Lens' ConnectivityInfo (Core.Maybe Core.Text)
+connectivityInfo_metadata :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
 connectivityInfo_metadata = Lens.lens (\ConnectivityInfo' {metadata} -> metadata) (\s@ConnectivityInfo' {} a -> s {metadata = a} :: ConnectivityInfo)
 
 -- | The port of the Greengrass core. Usually 8883.
-connectivityInfo_portNumber :: Lens.Lens' ConnectivityInfo (Core.Maybe Core.Int)
+connectivityInfo_portNumber :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Int)
 connectivityInfo_portNumber = Lens.lens (\ConnectivityInfo' {portNumber} -> portNumber) (\s@ConnectivityInfo' {} a -> s {portNumber = a} :: ConnectivityInfo)
 
 -- | The endpoint for the Greengrass core. Can be an IP address or DNS.
-connectivityInfo_hostAddress :: Lens.Lens' ConnectivityInfo (Core.Maybe Core.Text)
+connectivityInfo_hostAddress :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
 connectivityInfo_hostAddress = Lens.lens (\ConnectivityInfo' {hostAddress} -> hostAddress) (\s@ConnectivityInfo' {} a -> s {hostAddress = a} :: ConnectivityInfo)
 
 instance Core.FromJSON ConnectivityInfo where
@@ -84,23 +85,23 @@ instance Core.FromJSON ConnectivityInfo where
       "ConnectivityInfo"
       ( \x ->
           ConnectivityInfo'
-            Core.<$> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Metadata")
-            Core.<*> (x Core..:? "PortNumber")
-            Core.<*> (x Core..:? "HostAddress")
+            Prelude.<$> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Metadata")
+            Prelude.<*> (x Core..:? "PortNumber")
+            Prelude.<*> (x Core..:? "HostAddress")
       )
 
-instance Core.Hashable ConnectivityInfo
+instance Prelude.Hashable ConnectivityInfo
 
-instance Core.NFData ConnectivityInfo
+instance Prelude.NFData ConnectivityInfo
 
 instance Core.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Id" Core..=) Core.<$> id,
-            ("Metadata" Core..=) Core.<$> metadata,
-            ("PortNumber" Core..=) Core.<$> portNumber,
-            ("HostAddress" Core..=) Core.<$> hostAddress
+      ( Prelude.catMaybes
+          [ ("Id" Core..=) Prelude.<$> id,
+            ("Metadata" Core..=) Prelude.<$> metadata,
+            ("PortNumber" Core..=) Prelude.<$> portNumber,
+            ("HostAddress" Core..=) Prelude.<$> hostAddress
           ]
       )

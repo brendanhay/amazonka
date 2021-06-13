@@ -21,25 +21,26 @@ module Network.AWS.IoT.Types.ProvisioningTemplateSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of information about a fleet provisioning template.
 --
 -- /See:/ 'newProvisioningTemplateSummary' smart constructor.
 data ProvisioningTemplateSummary = ProvisioningTemplateSummary'
   { -- | The name of the fleet provisioning template.
-    templateName :: Core.Maybe Core.Text,
+    templateName :: Prelude.Maybe Prelude.Text,
     -- | The date when the fleet provisioning template summary was last modified.
-    lastModifiedDate :: Core.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | True if the fleet provision template is enabled, otherwise false.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The date when the fleet provisioning template summary was created.
-    creationDate :: Core.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The description of the fleet provisioning template.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the fleet provisioning template.
-    templateArn :: Core.Maybe Core.Text
+    templateArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisioningTemplateSummary' with all optional fields omitted.
@@ -65,36 +66,36 @@ newProvisioningTemplateSummary ::
 newProvisioningTemplateSummary =
   ProvisioningTemplateSummary'
     { templateName =
-        Core.Nothing,
-      lastModifiedDate = Core.Nothing,
-      enabled = Core.Nothing,
-      creationDate = Core.Nothing,
-      description = Core.Nothing,
-      templateArn = Core.Nothing
+        Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      description = Prelude.Nothing,
+      templateArn = Prelude.Nothing
     }
 
 -- | The name of the fleet provisioning template.
-provisioningTemplateSummary_templateName :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.Text)
+provisioningTemplateSummary_templateName :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.Text)
 provisioningTemplateSummary_templateName = Lens.lens (\ProvisioningTemplateSummary' {templateName} -> templateName) (\s@ProvisioningTemplateSummary' {} a -> s {templateName = a} :: ProvisioningTemplateSummary)
 
 -- | The date when the fleet provisioning template summary was last modified.
-provisioningTemplateSummary_lastModifiedDate :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.UTCTime)
-provisioningTemplateSummary_lastModifiedDate = Lens.lens (\ProvisioningTemplateSummary' {lastModifiedDate} -> lastModifiedDate) (\s@ProvisioningTemplateSummary' {} a -> s {lastModifiedDate = a} :: ProvisioningTemplateSummary) Core.. Lens.mapping Core._Time
+provisioningTemplateSummary_lastModifiedDate :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.UTCTime)
+provisioningTemplateSummary_lastModifiedDate = Lens.lens (\ProvisioningTemplateSummary' {lastModifiedDate} -> lastModifiedDate) (\s@ProvisioningTemplateSummary' {} a -> s {lastModifiedDate = a} :: ProvisioningTemplateSummary) Prelude.. Lens.mapping Core._Time
 
 -- | True if the fleet provision template is enabled, otherwise false.
-provisioningTemplateSummary_enabled :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.Bool)
+provisioningTemplateSummary_enabled :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.Bool)
 provisioningTemplateSummary_enabled = Lens.lens (\ProvisioningTemplateSummary' {enabled} -> enabled) (\s@ProvisioningTemplateSummary' {} a -> s {enabled = a} :: ProvisioningTemplateSummary)
 
 -- | The date when the fleet provisioning template summary was created.
-provisioningTemplateSummary_creationDate :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.UTCTime)
-provisioningTemplateSummary_creationDate = Lens.lens (\ProvisioningTemplateSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateSummary) Core.. Lens.mapping Core._Time
+provisioningTemplateSummary_creationDate :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.UTCTime)
+provisioningTemplateSummary_creationDate = Lens.lens (\ProvisioningTemplateSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the fleet provisioning template.
-provisioningTemplateSummary_description :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.Text)
+provisioningTemplateSummary_description :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.Text)
 provisioningTemplateSummary_description = Lens.lens (\ProvisioningTemplateSummary' {description} -> description) (\s@ProvisioningTemplateSummary' {} a -> s {description = a} :: ProvisioningTemplateSummary)
 
 -- | The ARN of the fleet provisioning template.
-provisioningTemplateSummary_templateArn :: Lens.Lens' ProvisioningTemplateSummary (Core.Maybe Core.Text)
+provisioningTemplateSummary_templateArn :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.Text)
 provisioningTemplateSummary_templateArn = Lens.lens (\ProvisioningTemplateSummary' {templateArn} -> templateArn) (\s@ProvisioningTemplateSummary' {} a -> s {templateArn = a} :: ProvisioningTemplateSummary)
 
 instance Core.FromJSON ProvisioningTemplateSummary where
@@ -103,14 +104,14 @@ instance Core.FromJSON ProvisioningTemplateSummary where
       "ProvisioningTemplateSummary"
       ( \x ->
           ProvisioningTemplateSummary'
-            Core.<$> (x Core..:? "templateName")
-            Core.<*> (x Core..:? "lastModifiedDate")
-            Core.<*> (x Core..:? "enabled")
-            Core.<*> (x Core..:? "creationDate")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "templateArn")
+            Prelude.<$> (x Core..:? "templateName")
+            Prelude.<*> (x Core..:? "lastModifiedDate")
+            Prelude.<*> (x Core..:? "enabled")
+            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "templateArn")
       )
 
-instance Core.Hashable ProvisioningTemplateSummary
+instance Prelude.Hashable ProvisioningTemplateSummary
 
-instance Core.NFData ProvisioningTemplateSummary
+instance Prelude.NFData ProvisioningTemplateSummary

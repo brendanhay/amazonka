@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data GetApnsVoipSandboxChannel = GetApnsVoipSandboxChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApnsVoipSandboxChannel' with all optional fields omitted.
@@ -66,7 +67,7 @@ data GetApnsVoipSandboxChannel = GetApnsVoipSandboxChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetApnsVoipSandboxChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetApnsVoipSandboxChannel
 newGetApnsVoipSandboxChannel pApplicationId_ =
   GetApnsVoipSandboxChannel'
@@ -76,7 +77,7 @@ newGetApnsVoipSandboxChannel pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getApnsVoipSandboxChannel_applicationId :: Lens.Lens' GetApnsVoipSandboxChannel Core.Text
+getApnsVoipSandboxChannel_applicationId :: Lens.Lens' GetApnsVoipSandboxChannel Prelude.Text
 getApnsVoipSandboxChannel_applicationId = Lens.lens (\GetApnsVoipSandboxChannel' {applicationId} -> applicationId) (\s@GetApnsVoipSandboxChannel' {} a -> s {applicationId = a} :: GetApnsVoipSandboxChannel)
 
 instance Core.AWSRequest GetApnsVoipSandboxChannel where
@@ -88,41 +89,43 @@ instance Core.AWSRequest GetApnsVoipSandboxChannel where
     Response.receiveJSON
       ( \s h x ->
           GetApnsVoipSandboxChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetApnsVoipSandboxChannel
+instance Prelude.Hashable GetApnsVoipSandboxChannel
 
-instance Core.NFData GetApnsVoipSandboxChannel
+instance Prelude.NFData GetApnsVoipSandboxChannel
 
 instance Core.ToHeaders GetApnsVoipSandboxChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetApnsVoipSandboxChannel where
   toPath GetApnsVoipSandboxChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/apns_voip_sandbox"
       ]
 
 instance Core.ToQuery GetApnsVoipSandboxChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApnsVoipSandboxChannelResponse' smart constructor.
 data GetApnsVoipSandboxChannelResponse = GetApnsVoipSandboxChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     aPNSVoipSandboxChannelResponse :: APNSVoipSandboxChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApnsVoipSandboxChannelResponse' with all optional fields omitted.
@@ -137,7 +140,7 @@ data GetApnsVoipSandboxChannelResponse = GetApnsVoipSandboxChannelResponse'
 -- 'aPNSVoipSandboxChannelResponse', 'getApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse' - Undocumented member.
 newGetApnsVoipSandboxChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'aPNSVoipSandboxChannelResponse'
   APNSVoipSandboxChannelResponse ->
   GetApnsVoipSandboxChannelResponse
@@ -152,7 +155,7 @@ newGetApnsVoipSandboxChannelResponse
       }
 
 -- | The response's http status code.
-getApnsVoipSandboxChannelResponse_httpStatus :: Lens.Lens' GetApnsVoipSandboxChannelResponse Core.Int
+getApnsVoipSandboxChannelResponse_httpStatus :: Lens.Lens' GetApnsVoipSandboxChannelResponse Prelude.Int
 getApnsVoipSandboxChannelResponse_httpStatus = Lens.lens (\GetApnsVoipSandboxChannelResponse' {httpStatus} -> httpStatus) (\s@GetApnsVoipSandboxChannelResponse' {} a -> s {httpStatus = a} :: GetApnsVoipSandboxChannelResponse)
 
 -- | Undocumented member.
@@ -160,5 +163,5 @@ getApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse :: Lens.Lens' G
 getApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse = Lens.lens (\GetApnsVoipSandboxChannelResponse' {aPNSVoipSandboxChannelResponse} -> aPNSVoipSandboxChannelResponse) (\s@GetApnsVoipSandboxChannelResponse' {} a -> s {aPNSVoipSandboxChannelResponse = a} :: GetApnsVoipSandboxChannelResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetApnsVoipSandboxChannelResponse

@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +62,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
   { -- | Name of the Amazon Kinesis Analytics application to delete.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | You can use the @DescribeApplication@ operation to get this value.
     createTimestamp :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplication' with all optional fields omitted.
@@ -80,9 +81,9 @@ data DeleteApplication = DeleteApplication'
 -- 'createTimestamp', 'deleteApplication_createTimestamp' - You can use the @DescribeApplication@ operation to get this value.
 newDeleteApplication ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createTimestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   DeleteApplication
 newDeleteApplication
   pApplicationName_
@@ -95,12 +96,12 @@ newDeleteApplication
       }
 
 -- | Name of the Amazon Kinesis Analytics application to delete.
-deleteApplication_applicationName :: Lens.Lens' DeleteApplication Core.Text
+deleteApplication_applicationName :: Lens.Lens' DeleteApplication Prelude.Text
 deleteApplication_applicationName = Lens.lens (\DeleteApplication' {applicationName} -> applicationName) (\s@DeleteApplication' {} a -> s {applicationName = a} :: DeleteApplication)
 
 -- | You can use the @DescribeApplication@ operation to get this value.
-deleteApplication_createTimestamp :: Lens.Lens' DeleteApplication Core.UTCTime
-deleteApplication_createTimestamp = Lens.lens (\DeleteApplication' {createTimestamp} -> createTimestamp) (\s@DeleteApplication' {} a -> s {createTimestamp = a} :: DeleteApplication) Core.. Core._Time
+deleteApplication_createTimestamp :: Lens.Lens' DeleteApplication Prelude.UTCTime
+deleteApplication_createTimestamp = Lens.lens (\DeleteApplication' {createTimestamp} -> createTimestamp) (\s@DeleteApplication' {} a -> s {createTimestamp = a} :: DeleteApplication) Prelude.. Core._Time
 
 instance Core.AWSRequest DeleteApplication where
   type
@@ -111,51 +112,53 @@ instance Core.AWSRequest DeleteApplication where
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteApplication
+instance Prelude.Hashable DeleteApplication
 
-instance Core.NFData DeleteApplication
+instance Prelude.NFData DeleteApplication
 
 instance Core.ToHeaders DeleteApplication where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "KinesisAnalytics_20150814.DeleteApplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteApplication where
   toJSON DeleteApplication' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ApplicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ("CreateTimestamp" Core..= createTimestamp)
           ]
       )
 
 instance Core.ToPath DeleteApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteApplication where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationResponse' with all optional fields omitted.
@@ -168,7 +171,7 @@ data DeleteApplicationResponse = DeleteApplicationResponse'
 -- 'httpStatus', 'deleteApplicationResponse_httpStatus' - The response's http status code.
 newDeleteApplicationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteApplicationResponse
 newDeleteApplicationResponse pHttpStatus_ =
   DeleteApplicationResponse'
@@ -177,7 +180,7 @@ newDeleteApplicationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteApplicationResponse_httpStatus :: Lens.Lens' DeleteApplicationResponse Core.Int
+deleteApplicationResponse_httpStatus :: Lens.Lens' DeleteApplicationResponse Prelude.Int
 deleteApplicationResponse_httpStatus = Lens.lens (\DeleteApplicationResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationResponse' {} a -> s {httpStatus = a} :: DeleteApplicationResponse)
 
-instance Core.NFData DeleteApplicationResponse
+instance Prelude.NFData DeleteApplicationResponse

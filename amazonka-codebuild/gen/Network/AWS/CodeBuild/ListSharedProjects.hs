@@ -49,6 +49,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +60,7 @@ data ListSharedProjects = ListSharedProjects'
     -- -   @ASCENDING@: List in ascending order.
     --
     -- -   @DESCENDING@: List in descending order.
-    sortOrder :: Core.Maybe SortOrderType,
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
@@ -67,11 +68,11 @@ data ListSharedProjects = ListSharedProjects'
     -- token to the call. To get all of the items in the list, keep calling
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of paginated shared build projects returned per
     -- response. Use @nextToken@ to iterate pages in the list of returned
     -- @Project@ objects. The default value is 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The criterion to be used to list build projects shared with the current
     -- AWS account or user. Valid values include:
     --
@@ -79,9 +80,9 @@ data ListSharedProjects = ListSharedProjects'
     --
     -- -   @MODIFIED_TIME@: List based on when information about the shared
     --     project was last changed.
-    sortBy :: Core.Maybe SharedResourceSortByType
+    sortBy :: Prelude.Maybe SharedResourceSortByType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSharedProjects' with all optional fields omitted.
@@ -120,10 +121,10 @@ newListSharedProjects ::
   ListSharedProjects
 newListSharedProjects =
   ListSharedProjects'
-    { sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      sortBy = Core.Nothing
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
 
 -- | The order in which to list shared build projects. Valid values include:
@@ -131,7 +132,7 @@ newListSharedProjects =
 -- -   @ASCENDING@: List in ascending order.
 --
 -- -   @DESCENDING@: List in descending order.
-listSharedProjects_sortOrder :: Lens.Lens' ListSharedProjects (Core.Maybe SortOrderType)
+listSharedProjects_sortOrder :: Lens.Lens' ListSharedProjects (Prelude.Maybe SortOrderType)
 listSharedProjects_sortOrder = Lens.lens (\ListSharedProjects' {sortOrder} -> sortOrder) (\s@ListSharedProjects' {} a -> s {sortOrder = a} :: ListSharedProjects)
 
 -- | During a previous call, the maximum number of items that can be returned
@@ -141,13 +142,13 @@ listSharedProjects_sortOrder = Lens.lens (\ListSharedProjects' {sortOrder} -> so
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
-listSharedProjects_nextToken :: Lens.Lens' ListSharedProjects (Core.Maybe Core.Text)
+listSharedProjects_nextToken :: Lens.Lens' ListSharedProjects (Prelude.Maybe Prelude.Text)
 listSharedProjects_nextToken = Lens.lens (\ListSharedProjects' {nextToken} -> nextToken) (\s@ListSharedProjects' {} a -> s {nextToken = a} :: ListSharedProjects)
 
 -- | The maximum number of paginated shared build projects returned per
 -- response. Use @nextToken@ to iterate pages in the list of returned
 -- @Project@ objects. The default value is 100.
-listSharedProjects_maxResults :: Lens.Lens' ListSharedProjects (Core.Maybe Core.Natural)
+listSharedProjects_maxResults :: Lens.Lens' ListSharedProjects (Prelude.Maybe Prelude.Natural)
 listSharedProjects_maxResults = Lens.lens (\ListSharedProjects' {maxResults} -> maxResults) (\s@ListSharedProjects' {} a -> s {maxResults = a} :: ListSharedProjects)
 
 -- | The criterion to be used to list build projects shared with the current
@@ -157,7 +158,7 @@ listSharedProjects_maxResults = Lens.lens (\ListSharedProjects' {maxResults} -> 
 --
 -- -   @MODIFIED_TIME@: List based on when information about the shared
 --     project was last changed.
-listSharedProjects_sortBy :: Lens.Lens' ListSharedProjects (Core.Maybe SharedResourceSortByType)
+listSharedProjects_sortBy :: Lens.Lens' ListSharedProjects (Prelude.Maybe SharedResourceSortByType)
 listSharedProjects_sortBy = Lens.lens (\ListSharedProjects' {sortBy} -> sortBy) (\s@ListSharedProjects' {} a -> s {sortBy = a} :: ListSharedProjects)
 
 instance Core.AWSPager ListSharedProjects where
@@ -165,22 +166,23 @@ instance Core.AWSPager ListSharedProjects where
     | Core.stop
         ( rs
             Lens.^? listSharedProjectsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSharedProjectsResponse_projects Core.. Lens._Just
-              Core.. Lens.to Core.toList
+            Lens.^? listSharedProjectsResponse_projects
+              Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listSharedProjects_nextToken
+          Prelude.& listSharedProjects_nextToken
           Lens..~ rs
           Lens.^? listSharedProjectsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSharedProjects where
   type
@@ -191,44 +193,46 @@ instance Core.AWSRequest ListSharedProjects where
     Response.receiveJSON
       ( \s h x ->
           ListSharedProjectsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "projects")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "projects")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListSharedProjects
+instance Prelude.Hashable ListSharedProjects
 
-instance Core.NFData ListSharedProjects
+instance Prelude.NFData ListSharedProjects
 
 instance Core.ToHeaders ListSharedProjects where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.ListSharedProjects" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListSharedProjects where
   toJSON ListSharedProjects' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("sortOrder" Core..=) Core.<$> sortOrder,
-            ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("sortBy" Core..=) Core.<$> sortBy
+      ( Prelude.catMaybes
+          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("sortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
 instance Core.ToPath ListSharedProjects where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListSharedProjects where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSharedProjectsResponse' smart constructor.
 data ListSharedProjectsResponse = ListSharedProjectsResponse'
@@ -239,14 +243,14 @@ data ListSharedProjectsResponse = ListSharedProjectsResponse'
     -- token to the call. To get all of the items in the list, keep calling
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of ARNs for the build projects shared with the current AWS
     -- account or user.
-    projects :: Core.Maybe (Core.NonEmpty Core.Text),
+    projects :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSharedProjectsResponse' with all optional fields omitted.
@@ -270,13 +274,13 @@ data ListSharedProjectsResponse = ListSharedProjectsResponse'
 -- 'httpStatus', 'listSharedProjectsResponse_httpStatus' - The response's http status code.
 newListSharedProjectsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListSharedProjectsResponse
 newListSharedProjectsResponse pHttpStatus_ =
   ListSharedProjectsResponse'
     { nextToken =
-        Core.Nothing,
-      projects = Core.Nothing,
+        Prelude.Nothing,
+      projects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -287,16 +291,16 @@ newListSharedProjectsResponse pHttpStatus_ =
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
-listSharedProjectsResponse_nextToken :: Lens.Lens' ListSharedProjectsResponse (Core.Maybe Core.Text)
+listSharedProjectsResponse_nextToken :: Lens.Lens' ListSharedProjectsResponse (Prelude.Maybe Prelude.Text)
 listSharedProjectsResponse_nextToken = Lens.lens (\ListSharedProjectsResponse' {nextToken} -> nextToken) (\s@ListSharedProjectsResponse' {} a -> s {nextToken = a} :: ListSharedProjectsResponse)
 
 -- | The list of ARNs for the build projects shared with the current AWS
 -- account or user.
-listSharedProjectsResponse_projects :: Lens.Lens' ListSharedProjectsResponse (Core.Maybe (Core.NonEmpty Core.Text))
-listSharedProjectsResponse_projects = Lens.lens (\ListSharedProjectsResponse' {projects} -> projects) (\s@ListSharedProjectsResponse' {} a -> s {projects = a} :: ListSharedProjectsResponse) Core.. Lens.mapping Lens._Coerce
+listSharedProjectsResponse_projects :: Lens.Lens' ListSharedProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listSharedProjectsResponse_projects = Lens.lens (\ListSharedProjectsResponse' {projects} -> projects) (\s@ListSharedProjectsResponse' {} a -> s {projects = a} :: ListSharedProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSharedProjectsResponse_httpStatus :: Lens.Lens' ListSharedProjectsResponse Core.Int
+listSharedProjectsResponse_httpStatus :: Lens.Lens' ListSharedProjectsResponse Prelude.Int
 listSharedProjectsResponse_httpStatus = Lens.lens (\ListSharedProjectsResponse' {httpStatus} -> httpStatus) (\s@ListSharedProjectsResponse' {} a -> s {httpStatus = a} :: ListSharedProjectsResponse)
 
-instance Core.NFData ListSharedProjectsResponse
+instance Prelude.NFData ListSharedProjectsResponse

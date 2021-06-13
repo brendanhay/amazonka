@@ -54,32 +54,33 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
   { -- | The tags to assign to the NAT gateway.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
     --
     -- Constraint: Maximum 64 ASCII characters.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The allocation ID of an Elastic IP address to associate with the NAT
     -- gateway. If the Elastic IP address is associated with another resource,
     -- you must first disassociate it.
-    allocationId :: Core.Text,
+    allocationId :: Prelude.Text,
     -- | The subnet in which to create the NAT gateway.
-    subnetId :: Core.Text
+    subnetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateNatGateway' with all optional fields omitted.
@@ -109,28 +110,29 @@ data CreateNatGateway = CreateNatGateway'
 -- 'subnetId', 'createNatGateway_subnetId' - The subnet in which to create the NAT gateway.
 newCreateNatGateway ::
   -- | 'allocationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'subnetId'
-  Core.Text ->
+  Prelude.Text ->
   CreateNatGateway
 newCreateNatGateway pAllocationId_ pSubnetId_ =
   CreateNatGateway'
-    { tagSpecifications = Core.Nothing,
-      dryRun = Core.Nothing,
-      clientToken = Core.Nothing,
+    { tagSpecifications =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       allocationId = pAllocationId_,
       subnetId = pSubnetId_
     }
 
 -- | The tags to assign to the NAT gateway.
-createNatGateway_tagSpecifications :: Lens.Lens' CreateNatGateway (Core.Maybe [TagSpecification])
-createNatGateway_tagSpecifications = Lens.lens (\CreateNatGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateNatGateway' {} a -> s {tagSpecifications = a} :: CreateNatGateway) Core.. Lens.mapping Lens._Coerce
+createNatGateway_tagSpecifications :: Lens.Lens' CreateNatGateway (Prelude.Maybe [TagSpecification])
+createNatGateway_tagSpecifications = Lens.lens (\CreateNatGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateNatGateway' {} a -> s {tagSpecifications = a} :: CreateNatGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createNatGateway_dryRun :: Lens.Lens' CreateNatGateway (Core.Maybe Core.Bool)
+createNatGateway_dryRun :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Bool)
 createNatGateway_dryRun = Lens.lens (\CreateNatGateway' {dryRun} -> dryRun) (\s@CreateNatGateway' {} a -> s {dryRun = a} :: CreateNatGateway)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
@@ -138,17 +140,17 @@ createNatGateway_dryRun = Lens.lens (\CreateNatGateway' {dryRun} -> dryRun) (\s@
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 --
 -- Constraint: Maximum 64 ASCII characters.
-createNatGateway_clientToken :: Lens.Lens' CreateNatGateway (Core.Maybe Core.Text)
+createNatGateway_clientToken :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
 createNatGateway_clientToken = Lens.lens (\CreateNatGateway' {clientToken} -> clientToken) (\s@CreateNatGateway' {} a -> s {clientToken = a} :: CreateNatGateway)
 
 -- | The allocation ID of an Elastic IP address to associate with the NAT
 -- gateway. If the Elastic IP address is associated with another resource,
 -- you must first disassociate it.
-createNatGateway_allocationId :: Lens.Lens' CreateNatGateway Core.Text
+createNatGateway_allocationId :: Lens.Lens' CreateNatGateway Prelude.Text
 createNatGateway_allocationId = Lens.lens (\CreateNatGateway' {allocationId} -> allocationId) (\s@CreateNatGateway' {} a -> s {allocationId = a} :: CreateNatGateway)
 
 -- | The subnet in which to create the NAT gateway.
-createNatGateway_subnetId :: Lens.Lens' CreateNatGateway Core.Text
+createNatGateway_subnetId :: Lens.Lens' CreateNatGateway Prelude.Text
 createNatGateway_subnetId = Lens.lens (\CreateNatGateway' {subnetId} -> subnetId) (\s@CreateNatGateway' {} a -> s {subnetId = a} :: CreateNatGateway)
 
 instance Core.AWSRequest CreateNatGateway where
@@ -160,30 +162,31 @@ instance Core.AWSRequest CreateNatGateway where
     Response.receiveXML
       ( \s h x ->
           CreateNatGatewayResponse'
-            Core.<$> (x Core..@? "natGateway")
-            Core.<*> (x Core..@? "clientToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "natGateway")
+            Prelude.<*> (x Core..@? "clientToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateNatGateway
+instance Prelude.Hashable CreateNatGateway
 
-instance Core.NFData CreateNatGateway
+instance Prelude.NFData CreateNatGateway
 
 instance Core.ToHeaders CreateNatGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateNatGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateNatGateway where
   toQuery CreateNatGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateNatGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateNatGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "ClientToken" Core.=: clientToken,
@@ -194,14 +197,14 @@ instance Core.ToQuery CreateNatGateway where
 -- | /See:/ 'newCreateNatGatewayResponse' smart constructor.
 data CreateNatGatewayResponse = CreateNatGatewayResponse'
   { -- | Information about the NAT gateway.
-    natGateway :: Core.Maybe NatGateway,
+    natGateway :: Prelude.Maybe NatGateway,
     -- | Unique, case-sensitive identifier to ensure the idempotency of the
     -- request. Only returned if a client token was provided in the request.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateNatGatewayResponse' with all optional fields omitted.
@@ -219,27 +222,27 @@ data CreateNatGatewayResponse = CreateNatGatewayResponse'
 -- 'httpStatus', 'createNatGatewayResponse_httpStatus' - The response's http status code.
 newCreateNatGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateNatGatewayResponse
 newCreateNatGatewayResponse pHttpStatus_ =
   CreateNatGatewayResponse'
     { natGateway =
-        Core.Nothing,
-      clientToken = Core.Nothing,
+        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the NAT gateway.
-createNatGatewayResponse_natGateway :: Lens.Lens' CreateNatGatewayResponse (Core.Maybe NatGateway)
+createNatGatewayResponse_natGateway :: Lens.Lens' CreateNatGatewayResponse (Prelude.Maybe NatGateway)
 createNatGatewayResponse_natGateway = Lens.lens (\CreateNatGatewayResponse' {natGateway} -> natGateway) (\s@CreateNatGatewayResponse' {} a -> s {natGateway = a} :: CreateNatGatewayResponse)
 
 -- | Unique, case-sensitive identifier to ensure the idempotency of the
 -- request. Only returned if a client token was provided in the request.
-createNatGatewayResponse_clientToken :: Lens.Lens' CreateNatGatewayResponse (Core.Maybe Core.Text)
+createNatGatewayResponse_clientToken :: Lens.Lens' CreateNatGatewayResponse (Prelude.Maybe Prelude.Text)
 createNatGatewayResponse_clientToken = Lens.lens (\CreateNatGatewayResponse' {clientToken} -> clientToken) (\s@CreateNatGatewayResponse' {} a -> s {clientToken = a} :: CreateNatGatewayResponse)
 
 -- | The response's http status code.
-createNatGatewayResponse_httpStatus :: Lens.Lens' CreateNatGatewayResponse Core.Int
+createNatGatewayResponse_httpStatus :: Lens.Lens' CreateNatGatewayResponse Prelude.Int
 createNatGatewayResponse_httpStatus = Lens.lens (\CreateNatGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateNatGatewayResponse' {} a -> s {httpStatus = a} :: CreateNatGatewayResponse)
 
-instance Core.NFData CreateNatGatewayResponse
+instance Prelude.NFData CreateNatGatewayResponse

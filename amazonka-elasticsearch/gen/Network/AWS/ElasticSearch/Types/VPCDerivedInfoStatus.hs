@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import Network.AWS.ElasticSearch.Types.VPCDerivedInfo
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the VPC options for the specified Elasticsearch domain.
 --
@@ -34,7 +35,7 @@ data VPCDerivedInfoStatus = VPCDerivedInfoStatus'
     -- domain.
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VPCDerivedInfoStatus' with all optional fields omitted.
@@ -75,9 +76,10 @@ instance Core.FromJSON VPCDerivedInfoStatus where
       "VPCDerivedInfoStatus"
       ( \x ->
           VPCDerivedInfoStatus'
-            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..: "Options")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable VPCDerivedInfoStatus
+instance Prelude.Hashable VPCDerivedInfoStatus
 
-instance Core.NFData VPCDerivedInfoStatus
+instance Prelude.NFData VPCDerivedInfoStatus

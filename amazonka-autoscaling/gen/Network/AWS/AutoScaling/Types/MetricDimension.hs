@@ -21,17 +21,18 @@ module Network.AWS.AutoScaling.Types.MetricDimension where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the dimension of a metric.
 --
 -- /See:/ 'newMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
   { -- | The name of the dimension.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value of the dimension.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricDimension' with all optional fields omitted.
@@ -46,31 +47,31 @@ data MetricDimension = MetricDimension'
 -- 'value', 'metricDimension_value' - The value of the dimension.
 newMetricDimension ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   MetricDimension
 newMetricDimension pName_ pValue_ =
   MetricDimension' {name = pName_, value = pValue_}
 
 -- | The name of the dimension.
-metricDimension_name :: Lens.Lens' MetricDimension Core.Text
+metricDimension_name :: Lens.Lens' MetricDimension Prelude.Text
 metricDimension_name = Lens.lens (\MetricDimension' {name} -> name) (\s@MetricDimension' {} a -> s {name = a} :: MetricDimension)
 
 -- | The value of the dimension.
-metricDimension_value :: Lens.Lens' MetricDimension Core.Text
+metricDimension_value :: Lens.Lens' MetricDimension Prelude.Text
 metricDimension_value = Lens.lens (\MetricDimension' {value} -> value) (\s@MetricDimension' {} a -> s {value = a} :: MetricDimension)
 
 instance Core.FromXML MetricDimension where
   parseXML x =
     MetricDimension'
-      Core.<$> (x Core..@ "Name") Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable MetricDimension
+instance Prelude.Hashable MetricDimension
 
-instance Core.NFData MetricDimension
+instance Prelude.NFData MetricDimension
 
 instance Core.ToQuery MetricDimension where
   toQuery MetricDimension' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Name" Core.=: name, "Value" Core.=: value]

@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,7 +71,7 @@ data CreatePolicy = CreatePolicy'
     -- If any one of the tags is invalid or if you exceed the allowed maximum
     -- number of tags, then the entire request fails and the resource is not
     -- created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A friendly description of the policy.
     --
     -- Typically used to store information about the permissions defined in the
@@ -78,7 +79,7 @@ data CreatePolicy = CreatePolicy'
     --
     -- The policy description is immutable. After a value is assigned, it
     -- cannot be changed.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The path for the policy.
     --
     -- For more information about paths, see
@@ -95,13 +96,13 @@ data CreatePolicy = CreatePolicy'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the policy.
     --
     -- IAM user, group, role, and policy names must be unique within the
     -- account. Names are not distinguished by case. For example, you cannot
     -- create resources named both \"MyResource\" and \"myresource\".
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The JSON policy document that you want to use as the content for the new
     -- policy.
     --
@@ -121,9 +122,9 @@ data CreatePolicy = CreatePolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyDocument :: Core.Text
+    policyDocument :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePolicy' with all optional fields omitted.
@@ -195,15 +196,15 @@ data CreatePolicy = CreatePolicy'
 --     carriage return (@\\u000D@)
 newCreatePolicy ::
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyDocument'
-  Core.Text ->
+  Prelude.Text ->
   CreatePolicy
 newCreatePolicy pPolicyName_ pPolicyDocument_ =
   CreatePolicy'
-    { tags = Core.Nothing,
-      description = Core.Nothing,
-      path = Core.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      path = Prelude.Nothing,
       policyName = pPolicyName_,
       policyDocument = pPolicyDocument_
     }
@@ -217,8 +218,8 @@ newCreatePolicy pPolicyName_ pPolicyDocument_ =
 -- If any one of the tags is invalid or if you exceed the allowed maximum
 -- number of tags, then the entire request fails and the resource is not
 -- created.
-createPolicy_tags :: Lens.Lens' CreatePolicy (Core.Maybe [Tag])
-createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Core.. Lens.mapping Lens._Coerce
+createPolicy_tags :: Lens.Lens' CreatePolicy (Prelude.Maybe [Tag])
+createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A friendly description of the policy.
 --
@@ -227,7 +228,7 @@ createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' 
 --
 -- The policy description is immutable. After a value is assigned, it
 -- cannot be changed.
-createPolicy_description :: Lens.Lens' CreatePolicy (Core.Maybe Core.Text)
+createPolicy_description :: Lens.Lens' CreatePolicy (Prelude.Maybe Prelude.Text)
 createPolicy_description = Lens.lens (\CreatePolicy' {description} -> description) (\s@CreatePolicy' {} a -> s {description = a} :: CreatePolicy)
 
 -- | The path for the policy.
@@ -246,7 +247,7 @@ createPolicy_description = Lens.lens (\CreatePolicy' {description} -> descriptio
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-createPolicy_path :: Lens.Lens' CreatePolicy (Core.Maybe Core.Text)
+createPolicy_path :: Lens.Lens' CreatePolicy (Prelude.Maybe Prelude.Text)
 createPolicy_path = Lens.lens (\CreatePolicy' {path} -> path) (\s@CreatePolicy' {} a -> s {path = a} :: CreatePolicy)
 
 -- | The friendly name of the policy.
@@ -254,7 +255,7 @@ createPolicy_path = Lens.lens (\CreatePolicy' {path} -> path) (\s@CreatePolicy' 
 -- IAM user, group, role, and policy names must be unique within the
 -- account. Names are not distinguished by case. For example, you cannot
 -- create resources named both \"MyResource\" and \"myresource\".
-createPolicy_policyName :: Lens.Lens' CreatePolicy Core.Text
+createPolicy_policyName :: Lens.Lens' CreatePolicy Prelude.Text
 createPolicy_policyName = Lens.lens (\CreatePolicy' {policyName} -> policyName) (\s@CreatePolicy' {} a -> s {policyName = a} :: CreatePolicy)
 
 -- | The JSON policy document that you want to use as the content for the new
@@ -276,7 +277,7 @@ createPolicy_policyName = Lens.lens (\CreatePolicy' {policyName} -> policyName) 
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-createPolicy_policyDocument :: Lens.Lens' CreatePolicy Core.Text
+createPolicy_policyDocument :: Lens.Lens' CreatePolicy Prelude.Text
 createPolicy_policyDocument = Lens.lens (\CreatePolicy' {policyDocument} -> policyDocument) (\s@CreatePolicy' {} a -> s {policyDocument = a} :: CreatePolicy)
 
 instance Core.AWSRequest CreatePolicy where
@@ -287,29 +288,30 @@ instance Core.AWSRequest CreatePolicy where
       "CreatePolicyResult"
       ( \s h x ->
           CreatePolicyResponse'
-            Core.<$> (x Core..@? "Policy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePolicy
+instance Prelude.Hashable CreatePolicy
 
-instance Core.NFData CreatePolicy
+instance Prelude.NFData CreatePolicy
 
 instance Core.ToHeaders CreatePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreatePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePolicy where
   toQuery CreatePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("CreatePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "Description" Core.=: description,
         "Path" Core.=: path,
         "PolicyName" Core.=: policyName,
@@ -321,11 +323,11 @@ instance Core.ToQuery CreatePolicy where
 -- /See:/ 'newCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
   { -- | A structure containing details about the new policy.
-    policy :: Core.Maybe Policy,
+    policy :: Prelude.Maybe Policy,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePolicyResponse' with all optional fields omitted.
@@ -340,20 +342,20 @@ data CreatePolicyResponse = CreatePolicyResponse'
 -- 'httpStatus', 'createPolicyResponse_httpStatus' - The response's http status code.
 newCreatePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePolicyResponse
 newCreatePolicyResponse pHttpStatus_ =
   CreatePolicyResponse'
-    { policy = Core.Nothing,
+    { policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure containing details about the new policy.
-createPolicyResponse_policy :: Lens.Lens' CreatePolicyResponse (Core.Maybe Policy)
+createPolicyResponse_policy :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Policy)
 createPolicyResponse_policy = Lens.lens (\CreatePolicyResponse' {policy} -> policy) (\s@CreatePolicyResponse' {} a -> s {policy = a} :: CreatePolicyResponse)
 
 -- | The response's http status code.
-createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Core.Int
+createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Prelude.Int
 createPolicyResponse_httpStatus = Lens.lens (\CreatePolicyResponse' {httpStatus} -> httpStatus) (\s@CreatePolicyResponse' {} a -> s {httpStatus = a} :: CreatePolicyResponse)
 
-instance Core.NFData CreatePolicyResponse
+instance Prelude.NFData CreatePolicyResponse

@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,16 +65,16 @@ data GetSlotTypes = GetSlotTypes'
     -- response to this API call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch next page of slot types, specify the
     -- pagination token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Substring to match in slot type names. A slot type will be returned if
     -- any part of its name matches the substring. For example, \"xyz\" matches
     -- both \"xyzabc\" and \"abcxyz.\"
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of slot types to return in the response. The default
     -- is 10.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSlotTypes' with all optional fields omitted.
@@ -98,47 +99,47 @@ newGetSlotTypes ::
   GetSlotTypes
 newGetSlotTypes =
   GetSlotTypes'
-    { nextToken = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A pagination token that fetches the next page of slot types. If the
 -- response to this API call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch next page of slot types, specify the
 -- pagination token in the next request.
-getSlotTypes_nextToken :: Lens.Lens' GetSlotTypes (Core.Maybe Core.Text)
+getSlotTypes_nextToken :: Lens.Lens' GetSlotTypes (Prelude.Maybe Prelude.Text)
 getSlotTypes_nextToken = Lens.lens (\GetSlotTypes' {nextToken} -> nextToken) (\s@GetSlotTypes' {} a -> s {nextToken = a} :: GetSlotTypes)
 
 -- | Substring to match in slot type names. A slot type will be returned if
 -- any part of its name matches the substring. For example, \"xyz\" matches
 -- both \"xyzabc\" and \"abcxyz.\"
-getSlotTypes_nameContains :: Lens.Lens' GetSlotTypes (Core.Maybe Core.Text)
+getSlotTypes_nameContains :: Lens.Lens' GetSlotTypes (Prelude.Maybe Prelude.Text)
 getSlotTypes_nameContains = Lens.lens (\GetSlotTypes' {nameContains} -> nameContains) (\s@GetSlotTypes' {} a -> s {nameContains = a} :: GetSlotTypes)
 
 -- | The maximum number of slot types to return in the response. The default
 -- is 10.
-getSlotTypes_maxResults :: Lens.Lens' GetSlotTypes (Core.Maybe Core.Natural)
+getSlotTypes_maxResults :: Lens.Lens' GetSlotTypes (Prelude.Maybe Prelude.Natural)
 getSlotTypes_maxResults = Lens.lens (\GetSlotTypes' {maxResults} -> maxResults) (\s@GetSlotTypes' {} a -> s {maxResults = a} :: GetSlotTypes)
 
 instance Core.AWSPager GetSlotTypes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getSlotTypesResponse_nextToken Core.. Lens._Just
+            Lens.^? getSlotTypesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getSlotTypesResponse_slotTypes Core.. Lens._Just
+            Lens.^? getSlotTypesResponse_slotTypes Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getSlotTypes_nextToken
+          Prelude.& getSlotTypes_nextToken
           Lens..~ rs
-          Lens.^? getSlotTypesResponse_nextToken Core.. Lens._Just
+          Lens.^? getSlotTypesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSlotTypes where
   type AWSResponse GetSlotTypes = GetSlotTypesResponse
@@ -147,30 +148,32 @@ instance Core.AWSRequest GetSlotTypes where
     Response.receiveJSON
       ( \s h x ->
           GetSlotTypesResponse'
-            Core.<$> (x Core..?> "slotTypes" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "slotTypes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSlotTypes
+instance Prelude.Hashable GetSlotTypes
 
-instance Core.NFData GetSlotTypes
+instance Prelude.NFData GetSlotTypes
 
 instance Core.ToHeaders GetSlotTypes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetSlotTypes where
-  toPath = Core.const "/slottypes/"
+  toPath = Prelude.const "/slottypes/"
 
 instance Core.ToQuery GetSlotTypes where
   toQuery GetSlotTypes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "nameContains" Core.=: nameContains,
         "maxResults" Core.=: maxResults
@@ -180,14 +183,14 @@ instance Core.ToQuery GetSlotTypes where
 data GetSlotTypesResponse = GetSlotTypesResponse'
   { -- | An array of objects, one for each slot type, that provides information
     -- such as the name of the slot type, the version, and a description.
-    slotTypes :: Core.Maybe [SlotTypeMetadata],
+    slotTypes :: Prelude.Maybe [SlotTypeMetadata],
     -- | If the response is truncated, it includes a pagination token that you
     -- can specify in your next request to fetch the next page of slot types.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSlotTypesResponse' with all optional fields omitted.
@@ -206,27 +209,27 @@ data GetSlotTypesResponse = GetSlotTypesResponse'
 -- 'httpStatus', 'getSlotTypesResponse_httpStatus' - The response's http status code.
 newGetSlotTypesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSlotTypesResponse
 newGetSlotTypesResponse pHttpStatus_ =
   GetSlotTypesResponse'
-    { slotTypes = Core.Nothing,
-      nextToken = Core.Nothing,
+    { slotTypes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects, one for each slot type, that provides information
 -- such as the name of the slot type, the version, and a description.
-getSlotTypesResponse_slotTypes :: Lens.Lens' GetSlotTypesResponse (Core.Maybe [SlotTypeMetadata])
-getSlotTypesResponse_slotTypes = Lens.lens (\GetSlotTypesResponse' {slotTypes} -> slotTypes) (\s@GetSlotTypesResponse' {} a -> s {slotTypes = a} :: GetSlotTypesResponse) Core.. Lens.mapping Lens._Coerce
+getSlotTypesResponse_slotTypes :: Lens.Lens' GetSlotTypesResponse (Prelude.Maybe [SlotTypeMetadata])
+getSlotTypesResponse_slotTypes = Lens.lens (\GetSlotTypesResponse' {slotTypes} -> slotTypes) (\s@GetSlotTypesResponse' {} a -> s {slotTypes = a} :: GetSlotTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the response is truncated, it includes a pagination token that you
 -- can specify in your next request to fetch the next page of slot types.
-getSlotTypesResponse_nextToken :: Lens.Lens' GetSlotTypesResponse (Core.Maybe Core.Text)
+getSlotTypesResponse_nextToken :: Lens.Lens' GetSlotTypesResponse (Prelude.Maybe Prelude.Text)
 getSlotTypesResponse_nextToken = Lens.lens (\GetSlotTypesResponse' {nextToken} -> nextToken) (\s@GetSlotTypesResponse' {} a -> s {nextToken = a} :: GetSlotTypesResponse)
 
 -- | The response's http status code.
-getSlotTypesResponse_httpStatus :: Lens.Lens' GetSlotTypesResponse Core.Int
+getSlotTypesResponse_httpStatus :: Lens.Lens' GetSlotTypesResponse Prelude.Int
 getSlotTypesResponse_httpStatus = Lens.lens (\GetSlotTypesResponse' {httpStatus} -> httpStatus) (\s@GetSlotTypesResponse' {} a -> s {httpStatus = a} :: GetSlotTypesResponse)
 
-instance Core.NFData GetSlotTypesResponse
+instance Prelude.NFData GetSlotTypesResponse

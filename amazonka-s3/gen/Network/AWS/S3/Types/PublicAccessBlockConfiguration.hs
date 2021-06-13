@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.PublicAccessBlockConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | The PublicAccessBlock configuration that you want to apply to this
@@ -38,7 +39,7 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
     --
     -- Enabling this setting doesn\'t affect the persistence of any existing
     -- ACLs and doesn\'t prevent new public ACLs from being set.
-    ignorePublicAcls :: Core.Maybe Core.Bool,
+    ignorePublicAcls :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether Amazon S3 should block public access control lists
     -- (ACLs) for this bucket and objects in this bucket. Setting this element
     -- to @TRUE@ causes the following behavior:
@@ -51,7 +52,7 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
     -- -   PUT Bucket calls fail if the request includes a public ACL.
     --
     -- Enabling this setting doesn\'t affect existing policies or ACLs.
-    blockPublicAcls :: Core.Maybe Core.Bool,
+    blockPublicAcls :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether Amazon S3 should restrict public bucket policies for
     -- this bucket. Setting this element to @TRUE@ restricts access to this
     -- bucket to only AWS service principals and authorized users within this
@@ -61,16 +62,16 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
     -- except that public and cross-account access within any public bucket
     -- policy, including non-public delegation to specific accounts, is
     -- blocked.
-    restrictPublicBuckets :: Core.Maybe Core.Bool,
+    restrictPublicBuckets :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether Amazon S3 should block public bucket policies for this
     -- bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls
     -- to PUT Bucket policy if the specified bucket policy allows public
     -- access.
     --
     -- Enabling this setting doesn\'t affect existing bucket policies.
-    blockPublicPolicy :: Core.Maybe Core.Bool
+    blockPublicPolicy :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublicAccessBlockConfiguration' with all optional fields omitted.
@@ -121,10 +122,10 @@ newPublicAccessBlockConfiguration ::
 newPublicAccessBlockConfiguration =
   PublicAccessBlockConfiguration'
     { ignorePublicAcls =
-        Core.Nothing,
-      blockPublicAcls = Core.Nothing,
-      restrictPublicBuckets = Core.Nothing,
-      blockPublicPolicy = Core.Nothing
+        Prelude.Nothing,
+      blockPublicAcls = Prelude.Nothing,
+      restrictPublicBuckets = Prelude.Nothing,
+      blockPublicPolicy = Prelude.Nothing
     }
 
 -- | Specifies whether Amazon S3 should ignore public ACLs for this bucket
@@ -133,7 +134,7 @@ newPublicAccessBlockConfiguration =
 --
 -- Enabling this setting doesn\'t affect the persistence of any existing
 -- ACLs and doesn\'t prevent new public ACLs from being set.
-publicAccessBlockConfiguration_ignorePublicAcls :: Lens.Lens' PublicAccessBlockConfiguration (Core.Maybe Core.Bool)
+publicAccessBlockConfiguration_ignorePublicAcls :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
 publicAccessBlockConfiguration_ignorePublicAcls = Lens.lens (\PublicAccessBlockConfiguration' {ignorePublicAcls} -> ignorePublicAcls) (\s@PublicAccessBlockConfiguration' {} a -> s {ignorePublicAcls = a} :: PublicAccessBlockConfiguration)
 
 -- | Specifies whether Amazon S3 should block public access control lists
@@ -148,7 +149,7 @@ publicAccessBlockConfiguration_ignorePublicAcls = Lens.lens (\PublicAccessBlockC
 -- -   PUT Bucket calls fail if the request includes a public ACL.
 --
 -- Enabling this setting doesn\'t affect existing policies or ACLs.
-publicAccessBlockConfiguration_blockPublicAcls :: Lens.Lens' PublicAccessBlockConfiguration (Core.Maybe Core.Bool)
+publicAccessBlockConfiguration_blockPublicAcls :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
 publicAccessBlockConfiguration_blockPublicAcls = Lens.lens (\PublicAccessBlockConfiguration' {blockPublicAcls} -> blockPublicAcls) (\s@PublicAccessBlockConfiguration' {} a -> s {blockPublicAcls = a} :: PublicAccessBlockConfiguration)
 
 -- | Specifies whether Amazon S3 should restrict public bucket policies for
@@ -160,7 +161,7 @@ publicAccessBlockConfiguration_blockPublicAcls = Lens.lens (\PublicAccessBlockCo
 -- except that public and cross-account access within any public bucket
 -- policy, including non-public delegation to specific accounts, is
 -- blocked.
-publicAccessBlockConfiguration_restrictPublicBuckets :: Lens.Lens' PublicAccessBlockConfiguration (Core.Maybe Core.Bool)
+publicAccessBlockConfiguration_restrictPublicBuckets :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
 publicAccessBlockConfiguration_restrictPublicBuckets = Lens.lens (\PublicAccessBlockConfiguration' {restrictPublicBuckets} -> restrictPublicBuckets) (\s@PublicAccessBlockConfiguration' {} a -> s {restrictPublicBuckets = a} :: PublicAccessBlockConfiguration)
 
 -- | Specifies whether Amazon S3 should block public bucket policies for this
@@ -169,24 +170,28 @@ publicAccessBlockConfiguration_restrictPublicBuckets = Lens.lens (\PublicAccessB
 -- access.
 --
 -- Enabling this setting doesn\'t affect existing bucket policies.
-publicAccessBlockConfiguration_blockPublicPolicy :: Lens.Lens' PublicAccessBlockConfiguration (Core.Maybe Core.Bool)
+publicAccessBlockConfiguration_blockPublicPolicy :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
 publicAccessBlockConfiguration_blockPublicPolicy = Lens.lens (\PublicAccessBlockConfiguration' {blockPublicPolicy} -> blockPublicPolicy) (\s@PublicAccessBlockConfiguration' {} a -> s {blockPublicPolicy = a} :: PublicAccessBlockConfiguration)
 
 instance Core.FromXML PublicAccessBlockConfiguration where
   parseXML x =
     PublicAccessBlockConfiguration'
-      Core.<$> (x Core..@? "IgnorePublicAcls")
-      Core.<*> (x Core..@? "BlockPublicAcls")
-      Core.<*> (x Core..@? "RestrictPublicBuckets")
-      Core.<*> (x Core..@? "BlockPublicPolicy")
+      Prelude.<$> (x Core..@? "IgnorePublicAcls")
+      Prelude.<*> (x Core..@? "BlockPublicAcls")
+      Prelude.<*> (x Core..@? "RestrictPublicBuckets")
+      Prelude.<*> (x Core..@? "BlockPublicPolicy")
 
-instance Core.Hashable PublicAccessBlockConfiguration
+instance
+  Prelude.Hashable
+    PublicAccessBlockConfiguration
 
-instance Core.NFData PublicAccessBlockConfiguration
+instance
+  Prelude.NFData
+    PublicAccessBlockConfiguration
 
 instance Core.ToXML PublicAccessBlockConfiguration where
   toXML PublicAccessBlockConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "IgnorePublicAcls" Core.@= ignorePublicAcls,
         "BlockPublicAcls" Core.@= blockPublicAcls,
         "RestrictPublicBuckets"

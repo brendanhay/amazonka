@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,17 +58,17 @@ import qualified Network.AWS.Response as Response
 data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
   { -- | The prefix to match. If you don\'t specify a value, no prefix filter is
     -- applied.
-    filterNamePrefix :: Core.Maybe Core.Text,
+    filterNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the log group.
-    logGroupName :: Core.Text
+    logGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSubscriptionFilters' with all optional fields omitted.
@@ -89,34 +90,34 @@ data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
 -- 'logGroupName', 'describeSubscriptionFilters_logGroupName' - The name of the log group.
 newDescribeSubscriptionFilters ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeSubscriptionFilters
 newDescribeSubscriptionFilters pLogGroupName_ =
   DescribeSubscriptionFilters'
     { filterNamePrefix =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      limit = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      limit = Prelude.Nothing,
       logGroupName = pLogGroupName_
     }
 
 -- | The prefix to match. If you don\'t specify a value, no prefix filter is
 -- applied.
-describeSubscriptionFilters_filterNamePrefix :: Lens.Lens' DescribeSubscriptionFilters (Core.Maybe Core.Text)
+describeSubscriptionFilters_filterNamePrefix :: Lens.Lens' DescribeSubscriptionFilters (Prelude.Maybe Prelude.Text)
 describeSubscriptionFilters_filterNamePrefix = Lens.lens (\DescribeSubscriptionFilters' {filterNamePrefix} -> filterNamePrefix) (\s@DescribeSubscriptionFilters' {} a -> s {filterNamePrefix = a} :: DescribeSubscriptionFilters)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeSubscriptionFilters_nextToken :: Lens.Lens' DescribeSubscriptionFilters (Core.Maybe Core.Text)
+describeSubscriptionFilters_nextToken :: Lens.Lens' DescribeSubscriptionFilters (Prelude.Maybe Prelude.Text)
 describeSubscriptionFilters_nextToken = Lens.lens (\DescribeSubscriptionFilters' {nextToken} -> nextToken) (\s@DescribeSubscriptionFilters' {} a -> s {nextToken = a} :: DescribeSubscriptionFilters)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
-describeSubscriptionFilters_limit :: Lens.Lens' DescribeSubscriptionFilters (Core.Maybe Core.Natural)
+describeSubscriptionFilters_limit :: Lens.Lens' DescribeSubscriptionFilters (Prelude.Maybe Prelude.Natural)
 describeSubscriptionFilters_limit = Lens.lens (\DescribeSubscriptionFilters' {limit} -> limit) (\s@DescribeSubscriptionFilters' {} a -> s {limit = a} :: DescribeSubscriptionFilters)
 
 -- | The name of the log group.
-describeSubscriptionFilters_logGroupName :: Lens.Lens' DescribeSubscriptionFilters Core.Text
+describeSubscriptionFilters_logGroupName :: Lens.Lens' DescribeSubscriptionFilters Prelude.Text
 describeSubscriptionFilters_logGroupName = Lens.lens (\DescribeSubscriptionFilters' {logGroupName} -> logGroupName) (\s@DescribeSubscriptionFilters' {} a -> s {logGroupName = a} :: DescribeSubscriptionFilters)
 
 instance Core.AWSPager DescribeSubscriptionFilters where
@@ -124,22 +125,22 @@ instance Core.AWSPager DescribeSubscriptionFilters where
     | Core.stop
         ( rs
             Lens.^? describeSubscriptionFiltersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSubscriptionFiltersResponse_subscriptionFilters
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeSubscriptionFilters_nextToken
+          Prelude.& describeSubscriptionFilters_nextToken
           Lens..~ rs
           Lens.^? describeSubscriptionFiltersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSubscriptionFilters where
   type
@@ -150,57 +151,59 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
     Response.receiveJSON
       ( \s h x ->
           DescribeSubscriptionFiltersResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> ( x Core..?> "subscriptionFilters"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "subscriptionFilters"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSubscriptionFilters
+instance Prelude.Hashable DescribeSubscriptionFilters
 
-instance Core.NFData DescribeSubscriptionFilters
+instance Prelude.NFData DescribeSubscriptionFilters
 
 instance Core.ToHeaders DescribeSubscriptionFilters where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.DescribeSubscriptionFilters" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeSubscriptionFilters where
   toJSON DescribeSubscriptionFilters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("filterNamePrefix" Core..=)
-              Core.<$> filterNamePrefix,
-            ("nextToken" Core..=) Core.<$> nextToken,
-            ("limit" Core..=) Core.<$> limit,
-            Core.Just ("logGroupName" Core..= logGroupName)
+              Prelude.<$> filterNamePrefix,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("logGroupName" Core..= logGroupName)
           ]
       )
 
 instance Core.ToPath DescribeSubscriptionFilters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeSubscriptionFilters where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSubscriptionFiltersResponse' smart constructor.
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
-  { nextToken :: Core.Maybe Core.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
     -- | The subscription filters.
-    subscriptionFilters :: Core.Maybe [SubscriptionFilter],
+    subscriptionFilters :: Prelude.Maybe [SubscriptionFilter],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSubscriptionFiltersResponse' with all optional fields omitted.
@@ -217,28 +220,28 @@ data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
 -- 'httpStatus', 'describeSubscriptionFiltersResponse_httpStatus' - The response's http status code.
 newDescribeSubscriptionFiltersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSubscriptionFiltersResponse
 newDescribeSubscriptionFiltersResponse pHttpStatus_ =
   DescribeSubscriptionFiltersResponse'
     { nextToken =
-        Core.Nothing,
-      subscriptionFilters = Core.Nothing,
+        Prelude.Nothing,
+      subscriptionFilters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeSubscriptionFiltersResponse_nextToken :: Lens.Lens' DescribeSubscriptionFiltersResponse (Core.Maybe Core.Text)
+describeSubscriptionFiltersResponse_nextToken :: Lens.Lens' DescribeSubscriptionFiltersResponse (Prelude.Maybe Prelude.Text)
 describeSubscriptionFiltersResponse_nextToken = Lens.lens (\DescribeSubscriptionFiltersResponse' {nextToken} -> nextToken) (\s@DescribeSubscriptionFiltersResponse' {} a -> s {nextToken = a} :: DescribeSubscriptionFiltersResponse)
 
 -- | The subscription filters.
-describeSubscriptionFiltersResponse_subscriptionFilters :: Lens.Lens' DescribeSubscriptionFiltersResponse (Core.Maybe [SubscriptionFilter])
-describeSubscriptionFiltersResponse_subscriptionFilters = Lens.lens (\DescribeSubscriptionFiltersResponse' {subscriptionFilters} -> subscriptionFilters) (\s@DescribeSubscriptionFiltersResponse' {} a -> s {subscriptionFilters = a} :: DescribeSubscriptionFiltersResponse) Core.. Lens.mapping Lens._Coerce
+describeSubscriptionFiltersResponse_subscriptionFilters :: Lens.Lens' DescribeSubscriptionFiltersResponse (Prelude.Maybe [SubscriptionFilter])
+describeSubscriptionFiltersResponse_subscriptionFilters = Lens.lens (\DescribeSubscriptionFiltersResponse' {subscriptionFilters} -> subscriptionFilters) (\s@DescribeSubscriptionFiltersResponse' {} a -> s {subscriptionFilters = a} :: DescribeSubscriptionFiltersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSubscriptionFiltersResponse_httpStatus :: Lens.Lens' DescribeSubscriptionFiltersResponse Core.Int
+describeSubscriptionFiltersResponse_httpStatus :: Lens.Lens' DescribeSubscriptionFiltersResponse Prelude.Int
 describeSubscriptionFiltersResponse_httpStatus = Lens.lens (\DescribeSubscriptionFiltersResponse' {httpStatus} -> httpStatus) (\s@DescribeSubscriptionFiltersResponse' {} a -> s {httpStatus = a} :: DescribeSubscriptionFiltersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeSubscriptionFiltersResponse

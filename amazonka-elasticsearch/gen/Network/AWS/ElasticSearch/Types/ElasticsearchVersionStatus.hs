@@ -22,6 +22,7 @@ module Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the Elasticsearch version options for the specified
 -- Elasticsearch domain.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 data ElasticsearchVersionStatus = ElasticsearchVersionStatus'
   { -- | Specifies the Elasticsearch version for the specified Elasticsearch
     -- domain.
-    options :: Core.Text,
+    options :: Prelude.Text,
     -- | Specifies the status of the Elasticsearch version options for the
     -- specified Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ElasticsearchVersionStatus' with all optional fields omitted.
@@ -52,7 +53,7 @@ data ElasticsearchVersionStatus = ElasticsearchVersionStatus'
 -- specified Elasticsearch domain.
 newElasticsearchVersionStatus ::
   -- | 'options'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   OptionStatus ->
   ElasticsearchVersionStatus
@@ -64,7 +65,7 @@ newElasticsearchVersionStatus pOptions_ pStatus_ =
 
 -- | Specifies the Elasticsearch version for the specified Elasticsearch
 -- domain.
-elasticsearchVersionStatus_options :: Lens.Lens' ElasticsearchVersionStatus Core.Text
+elasticsearchVersionStatus_options :: Lens.Lens' ElasticsearchVersionStatus Prelude.Text
 elasticsearchVersionStatus_options = Lens.lens (\ElasticsearchVersionStatus' {options} -> options) (\s@ElasticsearchVersionStatus' {} a -> s {options = a} :: ElasticsearchVersionStatus)
 
 -- | Specifies the status of the Elasticsearch version options for the
@@ -78,9 +79,10 @@ instance Core.FromJSON ElasticsearchVersionStatus where
       "ElasticsearchVersionStatus"
       ( \x ->
           ElasticsearchVersionStatus'
-            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..: "Options")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable ElasticsearchVersionStatus
+instance Prelude.Hashable ElasticsearchVersionStatus
 
-instance Core.NFData ElasticsearchVersionStatus
+instance Prelude.NFData ElasticsearchVersionStatus

@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -48,11 +49,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newRevokeIpRules' smart constructor.
 data RevokeIpRules = RevokeIpRules'
   { -- | The identifier of the group.
-    groupId :: Core.Text,
+    groupId :: Prelude.Text,
     -- | The rules to remove from the group.
-    userRules :: [Core.Text]
+    userRules :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RevokeIpRules' with all optional fields omitted.
@@ -67,21 +68,21 @@ data RevokeIpRules = RevokeIpRules'
 -- 'userRules', 'revokeIpRules_userRules' - The rules to remove from the group.
 newRevokeIpRules ::
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   RevokeIpRules
 newRevokeIpRules pGroupId_ =
   RevokeIpRules'
     { groupId = pGroupId_,
-      userRules = Core.mempty
+      userRules = Prelude.mempty
     }
 
 -- | The identifier of the group.
-revokeIpRules_groupId :: Lens.Lens' RevokeIpRules Core.Text
+revokeIpRules_groupId :: Lens.Lens' RevokeIpRules Prelude.Text
 revokeIpRules_groupId = Lens.lens (\RevokeIpRules' {groupId} -> groupId) (\s@RevokeIpRules' {} a -> s {groupId = a} :: RevokeIpRules)
 
 -- | The rules to remove from the group.
-revokeIpRules_userRules :: Lens.Lens' RevokeIpRules [Core.Text]
-revokeIpRules_userRules = Lens.lens (\RevokeIpRules' {userRules} -> userRules) (\s@RevokeIpRules' {} a -> s {userRules = a} :: RevokeIpRules) Core.. Lens._Coerce
+revokeIpRules_userRules :: Lens.Lens' RevokeIpRules [Prelude.Text]
+revokeIpRules_userRules = Lens.lens (\RevokeIpRules' {userRules} -> userRules) (\s@RevokeIpRules' {} a -> s {userRules = a} :: RevokeIpRules) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RevokeIpRules where
   type
@@ -92,47 +93,49 @@ instance Core.AWSRequest RevokeIpRules where
     Response.receiveEmpty
       ( \s h x ->
           RevokeIpRulesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RevokeIpRules
+instance Prelude.Hashable RevokeIpRules
 
-instance Core.NFData RevokeIpRules
+instance Prelude.NFData RevokeIpRules
 
 instance Core.ToHeaders RevokeIpRules where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.RevokeIpRules" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RevokeIpRules where
   toJSON RevokeIpRules' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GroupId" Core..= groupId),
-            Core.Just ("UserRules" Core..= userRules)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GroupId" Core..= groupId),
+            Prelude.Just ("UserRules" Core..= userRules)
           ]
       )
 
 instance Core.ToPath RevokeIpRules where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RevokeIpRules where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokeIpRulesResponse' smart constructor.
 data RevokeIpRulesResponse = RevokeIpRulesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RevokeIpRulesResponse' with all optional fields omitted.
@@ -145,13 +148,13 @@ data RevokeIpRulesResponse = RevokeIpRulesResponse'
 -- 'httpStatus', 'revokeIpRulesResponse_httpStatus' - The response's http status code.
 newRevokeIpRulesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RevokeIpRulesResponse
 newRevokeIpRulesResponse pHttpStatus_ =
   RevokeIpRulesResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-revokeIpRulesResponse_httpStatus :: Lens.Lens' RevokeIpRulesResponse Core.Int
+revokeIpRulesResponse_httpStatus :: Lens.Lens' RevokeIpRulesResponse Prelude.Int
 revokeIpRulesResponse_httpStatus = Lens.lens (\RevokeIpRulesResponse' {httpStatus} -> httpStatus) (\s@RevokeIpRulesResponse' {} a -> s {httpStatus = a} :: RevokeIpRulesResponse)
 
-instance Core.NFData RevokeIpRulesResponse
+instance Prelude.NFData RevokeIpRulesResponse

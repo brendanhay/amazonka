@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enable this setting to insert the EXT-X-SESSION-KEY element into the
 -- master playlist. This allows for offline Apple HLS FairPlay content
@@ -36,15 +37,15 @@ newtype HlsOfflineEncrypted = HlsOfflineEncrypted'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

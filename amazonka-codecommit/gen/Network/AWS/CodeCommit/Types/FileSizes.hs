@@ -21,19 +21,20 @@ module Network.AWS.CodeCommit.Types.FileSizes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the size of files in a merge or pull request.
 --
 -- /See:/ 'newFileSizes' smart constructor.
 data FileSizes = FileSizes'
   { -- | The size of a file in the source of a merge or pull request.
-    source :: Core.Maybe Core.Integer,
+    source :: Prelude.Maybe Prelude.Integer,
     -- | The size of a file in the destination of a merge or pull request.
-    destination :: Core.Maybe Core.Integer,
+    destination :: Prelude.Maybe Prelude.Integer,
     -- | The size of a file in the base of a merge or pull request.
-    base :: Core.Maybe Core.Integer
+    base :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FileSizes' with all optional fields omitted.
@@ -52,21 +53,21 @@ newFileSizes ::
   FileSizes
 newFileSizes =
   FileSizes'
-    { source = Core.Nothing,
-      destination = Core.Nothing,
-      base = Core.Nothing
+    { source = Prelude.Nothing,
+      destination = Prelude.Nothing,
+      base = Prelude.Nothing
     }
 
 -- | The size of a file in the source of a merge or pull request.
-fileSizes_source :: Lens.Lens' FileSizes (Core.Maybe Core.Integer)
+fileSizes_source :: Lens.Lens' FileSizes (Prelude.Maybe Prelude.Integer)
 fileSizes_source = Lens.lens (\FileSizes' {source} -> source) (\s@FileSizes' {} a -> s {source = a} :: FileSizes)
 
 -- | The size of a file in the destination of a merge or pull request.
-fileSizes_destination :: Lens.Lens' FileSizes (Core.Maybe Core.Integer)
+fileSizes_destination :: Lens.Lens' FileSizes (Prelude.Maybe Prelude.Integer)
 fileSizes_destination = Lens.lens (\FileSizes' {destination} -> destination) (\s@FileSizes' {} a -> s {destination = a} :: FileSizes)
 
 -- | The size of a file in the base of a merge or pull request.
-fileSizes_base :: Lens.Lens' FileSizes (Core.Maybe Core.Integer)
+fileSizes_base :: Lens.Lens' FileSizes (Prelude.Maybe Prelude.Integer)
 fileSizes_base = Lens.lens (\FileSizes' {base} -> base) (\s@FileSizes' {} a -> s {base = a} :: FileSizes)
 
 instance Core.FromJSON FileSizes where
@@ -75,11 +76,11 @@ instance Core.FromJSON FileSizes where
       "FileSizes"
       ( \x ->
           FileSizes'
-            Core.<$> (x Core..:? "source")
-            Core.<*> (x Core..:? "destination")
-            Core.<*> (x Core..:? "base")
+            Prelude.<$> (x Core..:? "source")
+            Prelude.<*> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "base")
       )
 
-instance Core.Hashable FileSizes
+instance Prelude.Hashable FileSizes
 
-instance Core.NFData FileSizes
+instance Prelude.NFData FileSizes

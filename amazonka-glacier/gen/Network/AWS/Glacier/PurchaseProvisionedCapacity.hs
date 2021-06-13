@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ data PurchaseProvisionedCapacity = PurchaseProvisionedCapacity'
     -- which case Amazon S3 Glacier uses the AWS account ID associated with the
     -- credentials used to sign the request. If you use an account ID, don\'t
     -- include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text
+    accountId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PurchaseProvisionedCapacity' with all optional fields omitted.
@@ -71,7 +72,7 @@ data PurchaseProvisionedCapacity = PurchaseProvisionedCapacity'
 -- include any hyphens (\'-\') in the ID.
 newPurchaseProvisionedCapacity ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   PurchaseProvisionedCapacity
 newPurchaseProvisionedCapacity pAccountId_ =
   PurchaseProvisionedCapacity'
@@ -84,7 +85,7 @@ newPurchaseProvisionedCapacity pAccountId_ =
 -- which case Amazon S3 Glacier uses the AWS account ID associated with the
 -- credentials used to sign the request. If you use an account ID, don\'t
 -- include any hyphens (\'-\') in the ID.
-purchaseProvisionedCapacity_accountId :: Lens.Lens' PurchaseProvisionedCapacity Core.Text
+purchaseProvisionedCapacity_accountId :: Lens.Lens' PurchaseProvisionedCapacity Prelude.Text
 purchaseProvisionedCapacity_accountId = Lens.lens (\PurchaseProvisionedCapacity' {accountId} -> accountId) (\s@PurchaseProvisionedCapacity' {} a -> s {accountId = a} :: PurchaseProvisionedCapacity)
 
 instance Core.AWSRequest PurchaseProvisionedCapacity where
@@ -93,41 +94,41 @@ instance Core.AWSRequest PurchaseProvisionedCapacity where
       PurchaseProvisionedCapacityResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.postJSON defaultService
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PurchaseProvisionedCapacityResponse'
-            Core.<$> (h Core..#? "x-amz-capacity-id")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "x-amz-capacity-id")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PurchaseProvisionedCapacity
+instance Prelude.Hashable PurchaseProvisionedCapacity
 
-instance Core.NFData PurchaseProvisionedCapacity
+instance Prelude.NFData PurchaseProvisionedCapacity
 
 instance Core.ToHeaders PurchaseProvisionedCapacity where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON PurchaseProvisionedCapacity where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath PurchaseProvisionedCapacity where
   toPath PurchaseProvisionedCapacity' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS accountId, "/provisioned-capacity"]
 
 instance Core.ToQuery PurchaseProvisionedCapacity where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPurchaseProvisionedCapacityResponse' smart constructor.
 data PurchaseProvisionedCapacityResponse = PurchaseProvisionedCapacityResponse'
   { -- | The ID that identifies the provisioned capacity unit.
-    capacityId :: Core.Maybe Core.Text,
+    capacityId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PurchaseProvisionedCapacityResponse' with all optional fields omitted.
@@ -142,23 +143,23 @@ data PurchaseProvisionedCapacityResponse = PurchaseProvisionedCapacityResponse'
 -- 'httpStatus', 'purchaseProvisionedCapacityResponse_httpStatus' - The response's http status code.
 newPurchaseProvisionedCapacityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PurchaseProvisionedCapacityResponse
 newPurchaseProvisionedCapacityResponse pHttpStatus_ =
   PurchaseProvisionedCapacityResponse'
     { capacityId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID that identifies the provisioned capacity unit.
-purchaseProvisionedCapacityResponse_capacityId :: Lens.Lens' PurchaseProvisionedCapacityResponse (Core.Maybe Core.Text)
+purchaseProvisionedCapacityResponse_capacityId :: Lens.Lens' PurchaseProvisionedCapacityResponse (Prelude.Maybe Prelude.Text)
 purchaseProvisionedCapacityResponse_capacityId = Lens.lens (\PurchaseProvisionedCapacityResponse' {capacityId} -> capacityId) (\s@PurchaseProvisionedCapacityResponse' {} a -> s {capacityId = a} :: PurchaseProvisionedCapacityResponse)
 
 -- | The response's http status code.
-purchaseProvisionedCapacityResponse_httpStatus :: Lens.Lens' PurchaseProvisionedCapacityResponse Core.Int
+purchaseProvisionedCapacityResponse_httpStatus :: Lens.Lens' PurchaseProvisionedCapacityResponse Prelude.Int
 purchaseProvisionedCapacityResponse_httpStatus = Lens.lens (\PurchaseProvisionedCapacityResponse' {httpStatus} -> httpStatus) (\s@PurchaseProvisionedCapacityResponse' {} a -> s {httpStatus = a} :: PurchaseProvisionedCapacityResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PurchaseProvisionedCapacityResponse

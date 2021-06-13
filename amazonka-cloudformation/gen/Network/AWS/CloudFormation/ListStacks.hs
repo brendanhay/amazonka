@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,14 +60,14 @@ import qualified Network.AWS.Response as Response
 data ListStacks = ListStacks'
   { -- | A string that identifies the next page of stacks that you want to
     -- retrieve.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Stack status to use as a filter. Specify one or more stack status codes
     -- to list only stacks with the specified status codes. For a complete list
     -- of stack status codes, see the @StackStatus@ parameter of the Stack data
     -- type.
-    stackStatusFilter :: Core.Maybe [StackStatus]
+    stackStatusFilter :: Prelude.Maybe [StackStatus]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStacks' with all optional fields omitted.
@@ -87,40 +88,41 @@ newListStacks ::
   ListStacks
 newListStacks =
   ListStacks'
-    { nextToken = Core.Nothing,
-      stackStatusFilter = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      stackStatusFilter = Prelude.Nothing
     }
 
 -- | A string that identifies the next page of stacks that you want to
 -- retrieve.
-listStacks_nextToken :: Lens.Lens' ListStacks (Core.Maybe Core.Text)
+listStacks_nextToken :: Lens.Lens' ListStacks (Prelude.Maybe Prelude.Text)
 listStacks_nextToken = Lens.lens (\ListStacks' {nextToken} -> nextToken) (\s@ListStacks' {} a -> s {nextToken = a} :: ListStacks)
 
 -- | Stack status to use as a filter. Specify one or more stack status codes
 -- to list only stacks with the specified status codes. For a complete list
 -- of stack status codes, see the @StackStatus@ parameter of the Stack data
 -- type.
-listStacks_stackStatusFilter :: Lens.Lens' ListStacks (Core.Maybe [StackStatus])
-listStacks_stackStatusFilter = Lens.lens (\ListStacks' {stackStatusFilter} -> stackStatusFilter) (\s@ListStacks' {} a -> s {stackStatusFilter = a} :: ListStacks) Core.. Lens.mapping Lens._Coerce
+listStacks_stackStatusFilter :: Lens.Lens' ListStacks (Prelude.Maybe [StackStatus])
+listStacks_stackStatusFilter = Lens.lens (\ListStacks' {stackStatusFilter} -> stackStatusFilter) (\s@ListStacks' {} a -> s {stackStatusFilter = a} :: ListStacks) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListStacks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listStacksResponse_nextToken Core.. Lens._Just
+            Lens.^? listStacksResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listStacksResponse_stackSummaries Core.. Lens._Just
+            Lens.^? listStacksResponse_stackSummaries
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listStacks_nextToken
+          Prelude.& listStacks_nextToken
           Lens..~ rs
-          Lens.^? listStacksResponse_nextToken Core.. Lens._Just
+          Lens.^? listStacksResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStacks where
   type AWSResponse ListStacks = ListStacksResponse
@@ -130,33 +132,35 @@ instance Core.AWSRequest ListStacks where
       "ListStacksResult"
       ( \s h x ->
           ListStacksResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "StackSummaries" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "StackSummaries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListStacks
+instance Prelude.Hashable ListStacks
 
-instance Core.NFData ListStacks
+instance Prelude.NFData ListStacks
 
 instance Core.ToHeaders ListStacks where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListStacks where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListStacks where
   toQuery ListStacks' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("ListStacks" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListStacks" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "StackStatusFilter"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> stackStatusFilter
+                Prelude.<$> stackStatusFilter
             )
       ]
 
@@ -166,14 +170,14 @@ instance Core.ToQuery ListStacks where
 data ListStacksResponse = ListStacksResponse'
   { -- | If the output exceeds 1 MB in size, a string that identifies the next
     -- page of stacks. If no additional page exists, this value is null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @StackSummary@ structures containing information about the
     -- specified stacks.
-    stackSummaries :: Core.Maybe [StackSummary],
+    stackSummaries :: Prelude.Maybe [StackSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStacksResponse' with all optional fields omitted.
@@ -192,27 +196,27 @@ data ListStacksResponse = ListStacksResponse'
 -- 'httpStatus', 'listStacksResponse_httpStatus' - The response's http status code.
 newListStacksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListStacksResponse
 newListStacksResponse pHttpStatus_ =
   ListStacksResponse'
-    { nextToken = Core.Nothing,
-      stackSummaries = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      stackSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next
 -- page of stacks. If no additional page exists, this value is null.
-listStacksResponse_nextToken :: Lens.Lens' ListStacksResponse (Core.Maybe Core.Text)
+listStacksResponse_nextToken :: Lens.Lens' ListStacksResponse (Prelude.Maybe Prelude.Text)
 listStacksResponse_nextToken = Lens.lens (\ListStacksResponse' {nextToken} -> nextToken) (\s@ListStacksResponse' {} a -> s {nextToken = a} :: ListStacksResponse)
 
 -- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
-listStacksResponse_stackSummaries :: Lens.Lens' ListStacksResponse (Core.Maybe [StackSummary])
-listStacksResponse_stackSummaries = Lens.lens (\ListStacksResponse' {stackSummaries} -> stackSummaries) (\s@ListStacksResponse' {} a -> s {stackSummaries = a} :: ListStacksResponse) Core.. Lens.mapping Lens._Coerce
+listStacksResponse_stackSummaries :: Lens.Lens' ListStacksResponse (Prelude.Maybe [StackSummary])
+listStacksResponse_stackSummaries = Lens.lens (\ListStacksResponse' {stackSummaries} -> stackSummaries) (\s@ListStacksResponse' {} a -> s {stackSummaries = a} :: ListStacksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listStacksResponse_httpStatus :: Lens.Lens' ListStacksResponse Core.Int
+listStacksResponse_httpStatus :: Lens.Lens' ListStacksResponse Prelude.Int
 listStacksResponse_httpStatus = Lens.lens (\ListStacksResponse' {httpStatus} -> httpStatus) (\s@ListStacksResponse' {} a -> s {httpStatus = a} :: ListStacksResponse)
 
-instance Core.NFData ListStacksResponse
+instance Prelude.NFData ListStacksResponse

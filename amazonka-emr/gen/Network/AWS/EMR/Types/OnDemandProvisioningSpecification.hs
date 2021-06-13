@@ -22,6 +22,7 @@ module Network.AWS.EMR.Types.OnDemandProvisioningSpecification where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The launch specification for On-Demand Instances in the instance fleet,
 -- which determines the allocation strategy.
@@ -37,7 +38,7 @@ data OnDemandProvisioningSpecification = OnDemandProvisioningSpecification'
     -- the lowest price first.
     allocationStrategy :: OnDemandProvisioningAllocationStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OnDemandProvisioningSpecification' with all optional fields omitted.
@@ -76,15 +77,15 @@ instance
       "OnDemandProvisioningSpecification"
       ( \x ->
           OnDemandProvisioningSpecification'
-            Core.<$> (x Core..: "AllocationStrategy")
+            Prelude.<$> (x Core..: "AllocationStrategy")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OnDemandProvisioningSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     OnDemandProvisioningSpecification
 
 instance
@@ -93,8 +94,8 @@ instance
   where
   toJSON OnDemandProvisioningSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("AllocationStrategy" Core..= allocationStrategy)
           ]
       )

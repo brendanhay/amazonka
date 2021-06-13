@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,14 +64,14 @@ import qualified Network.AWS.Response as Response
 data DescribeIndexFields = DescribeIndexFields'
   { -- | Whether to display the deployed configuration (@true@) or include any
     -- pending changes (@false@). Defaults to @false@.
-    deployed :: Core.Maybe Core.Bool,
+    deployed :: Prelude.Maybe Prelude.Bool,
     -- | A list of the index fields you want to describe. If not specified,
     -- information is returned for all configured index fields.
-    fieldNames :: Core.Maybe [Core.Text],
+    fieldNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the domain you want to describe.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeIndexFields' with all optional fields omitted.
@@ -89,27 +90,27 @@ data DescribeIndexFields = DescribeIndexFields'
 -- 'domainName', 'describeIndexFields_domainName' - The name of the domain you want to describe.
 newDescribeIndexFields ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeIndexFields
 newDescribeIndexFields pDomainName_ =
   DescribeIndexFields'
-    { deployed = Core.Nothing,
-      fieldNames = Core.Nothing,
+    { deployed = Prelude.Nothing,
+      fieldNames = Prelude.Nothing,
       domainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-describeIndexFields_deployed :: Lens.Lens' DescribeIndexFields (Core.Maybe Core.Bool)
+describeIndexFields_deployed :: Lens.Lens' DescribeIndexFields (Prelude.Maybe Prelude.Bool)
 describeIndexFields_deployed = Lens.lens (\DescribeIndexFields' {deployed} -> deployed) (\s@DescribeIndexFields' {} a -> s {deployed = a} :: DescribeIndexFields)
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
-describeIndexFields_fieldNames :: Lens.Lens' DescribeIndexFields (Core.Maybe [Core.Text])
-describeIndexFields_fieldNames = Lens.lens (\DescribeIndexFields' {fieldNames} -> fieldNames) (\s@DescribeIndexFields' {} a -> s {fieldNames = a} :: DescribeIndexFields) Core.. Lens.mapping Lens._Coerce
+describeIndexFields_fieldNames :: Lens.Lens' DescribeIndexFields (Prelude.Maybe [Prelude.Text])
+describeIndexFields_fieldNames = Lens.lens (\DescribeIndexFields' {fieldNames} -> fieldNames) (\s@DescribeIndexFields' {} a -> s {fieldNames = a} :: DescribeIndexFields) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the domain you want to describe.
-describeIndexFields_domainName :: Lens.Lens' DescribeIndexFields Core.Text
+describeIndexFields_domainName :: Lens.Lens' DescribeIndexFields Prelude.Text
 describeIndexFields_domainName = Lens.lens (\DescribeIndexFields' {domainName} -> domainName) (\s@DescribeIndexFields' {} a -> s {domainName = a} :: DescribeIndexFields)
 
 instance Core.AWSRequest DescribeIndexFields where
@@ -122,32 +123,33 @@ instance Core.AWSRequest DescribeIndexFields where
       "DescribeIndexFieldsResult"
       ( \s h x ->
           DescribeIndexFieldsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "IndexFields" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "IndexFields" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable DescribeIndexFields
+instance Prelude.Hashable DescribeIndexFields
 
-instance Core.NFData DescribeIndexFields
+instance Prelude.NFData DescribeIndexFields
 
 instance Core.ToHeaders DescribeIndexFields where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeIndexFields where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeIndexFields where
   toQuery DescribeIndexFields' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeIndexFields" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("DescribeIndexFields" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "Deployed" Core.=: deployed,
         "FieldNames"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> fieldNames),
+            (Core.toQueryList "member" Prelude.<$> fieldNames),
         "DomainName" Core.=: domainName
       ]
 
@@ -157,11 +159,11 @@ instance Core.ToQuery DescribeIndexFields where
 -- /See:/ 'newDescribeIndexFieldsResponse' smart constructor.
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The index fields configured for the domain.
     indexFields :: [IndexFieldStatus]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeIndexFieldsResponse' with all optional fields omitted.
@@ -176,21 +178,21 @@ data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
 -- 'indexFields', 'describeIndexFieldsResponse_indexFields' - The index fields configured for the domain.
 newDescribeIndexFieldsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeIndexFieldsResponse
 newDescribeIndexFieldsResponse pHttpStatus_ =
   DescribeIndexFieldsResponse'
     { httpStatus =
         pHttpStatus_,
-      indexFields = Core.mempty
+      indexFields = Prelude.mempty
     }
 
 -- | The response's http status code.
-describeIndexFieldsResponse_httpStatus :: Lens.Lens' DescribeIndexFieldsResponse Core.Int
+describeIndexFieldsResponse_httpStatus :: Lens.Lens' DescribeIndexFieldsResponse Prelude.Int
 describeIndexFieldsResponse_httpStatus = Lens.lens (\DescribeIndexFieldsResponse' {httpStatus} -> httpStatus) (\s@DescribeIndexFieldsResponse' {} a -> s {httpStatus = a} :: DescribeIndexFieldsResponse)
 
 -- | The index fields configured for the domain.
 describeIndexFieldsResponse_indexFields :: Lens.Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-describeIndexFieldsResponse_indexFields = Lens.lens (\DescribeIndexFieldsResponse' {indexFields} -> indexFields) (\s@DescribeIndexFieldsResponse' {} a -> s {indexFields = a} :: DescribeIndexFieldsResponse) Core.. Lens._Coerce
+describeIndexFieldsResponse_indexFields = Lens.lens (\DescribeIndexFieldsResponse' {indexFields} -> indexFields) (\s@DescribeIndexFieldsResponse' {} a -> s {indexFields = a} :: DescribeIndexFieldsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DescribeIndexFieldsResponse
+instance Prelude.NFData DescribeIndexFieldsResponse

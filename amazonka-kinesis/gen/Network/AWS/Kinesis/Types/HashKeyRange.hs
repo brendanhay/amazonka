@@ -21,6 +21,7 @@ module Network.AWS.Kinesis.Types.HashKeyRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newHashKeyRange' smart constructor.
 data HashKeyRange = HashKeyRange'
   { -- | The starting hash key of the hash key range.
-    startingHashKey :: Core.Text,
+    startingHashKey :: Prelude.Text,
     -- | The ending hash key of the hash key range.
-    endingHashKey :: Core.Text
+    endingHashKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HashKeyRange' with all optional fields omitted.
@@ -47,9 +48,9 @@ data HashKeyRange = HashKeyRange'
 -- 'endingHashKey', 'hashKeyRange_endingHashKey' - The ending hash key of the hash key range.
 newHashKeyRange ::
   -- | 'startingHashKey'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endingHashKey'
-  Core.Text ->
+  Prelude.Text ->
   HashKeyRange
 newHashKeyRange pStartingHashKey_ pEndingHashKey_ =
   HashKeyRange'
@@ -58,11 +59,11 @@ newHashKeyRange pStartingHashKey_ pEndingHashKey_ =
     }
 
 -- | The starting hash key of the hash key range.
-hashKeyRange_startingHashKey :: Lens.Lens' HashKeyRange Core.Text
+hashKeyRange_startingHashKey :: Lens.Lens' HashKeyRange Prelude.Text
 hashKeyRange_startingHashKey = Lens.lens (\HashKeyRange' {startingHashKey} -> startingHashKey) (\s@HashKeyRange' {} a -> s {startingHashKey = a} :: HashKeyRange)
 
 -- | The ending hash key of the hash key range.
-hashKeyRange_endingHashKey :: Lens.Lens' HashKeyRange Core.Text
+hashKeyRange_endingHashKey :: Lens.Lens' HashKeyRange Prelude.Text
 hashKeyRange_endingHashKey = Lens.lens (\HashKeyRange' {endingHashKey} -> endingHashKey) (\s@HashKeyRange' {} a -> s {endingHashKey = a} :: HashKeyRange)
 
 instance Core.FromJSON HashKeyRange where
@@ -71,10 +72,10 @@ instance Core.FromJSON HashKeyRange where
       "HashKeyRange"
       ( \x ->
           HashKeyRange'
-            Core.<$> (x Core..: "StartingHashKey")
-            Core.<*> (x Core..: "EndingHashKey")
+            Prelude.<$> (x Core..: "StartingHashKey")
+            Prelude.<*> (x Core..: "EndingHashKey")
       )
 
-instance Core.Hashable HashKeyRange
+instance Prelude.Hashable HashKeyRange
 
-instance Core.NFData HashKeyRange
+instance Prelude.NFData HashKeyRange

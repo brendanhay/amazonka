@@ -25,6 +25,7 @@ import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate
 import Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutputUpdate
 import Network.AWS.KinesisAnalytics.Types.LambdaOutputUpdate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes updates to the output configuration identified by the
 -- @OutputId@.
@@ -33,23 +34,23 @@ import qualified Network.AWS.Lens as Lens
 data OutputUpdate = OutputUpdate'
   { -- | Describes an Amazon Kinesis Firehose delivery stream as the destination
     -- for the output.
-    kinesisFirehoseOutputUpdate :: Core.Maybe KinesisFirehoseOutputUpdate,
+    kinesisFirehoseOutputUpdate :: Prelude.Maybe KinesisFirehoseOutputUpdate,
     -- | Describes the data format when records are written to the destination.
     -- For more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
-    destinationSchemaUpdate :: Core.Maybe DestinationSchema,
+    destinationSchemaUpdate :: Prelude.Maybe DestinationSchema,
     -- | Describes an Amazon Kinesis stream as the destination for the output.
-    kinesisStreamsOutputUpdate :: Core.Maybe KinesisStreamsOutputUpdate,
+    kinesisStreamsOutputUpdate :: Prelude.Maybe KinesisStreamsOutputUpdate,
     -- | If you want to specify a different in-application stream for this output
     -- configuration, use this field to specify the new in-application stream
     -- name.
-    nameUpdate :: Core.Maybe Core.Text,
+    nameUpdate :: Prelude.Maybe Prelude.Text,
     -- | Describes an AWS Lambda function as the destination for the output.
-    lambdaOutputUpdate :: Core.Maybe LambdaOutputUpdate,
+    lambdaOutputUpdate :: Prelude.Maybe LambdaOutputUpdate,
     -- | Identifies the specific output configuration that you want to update.
-    outputId :: Core.Text
+    outputId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputUpdate' with all optional fields omitted.
@@ -77,65 +78,65 @@ data OutputUpdate = OutputUpdate'
 -- 'outputId', 'outputUpdate_outputId' - Identifies the specific output configuration that you want to update.
 newOutputUpdate ::
   -- | 'outputId'
-  Core.Text ->
+  Prelude.Text ->
   OutputUpdate
 newOutputUpdate pOutputId_ =
   OutputUpdate'
     { kinesisFirehoseOutputUpdate =
-        Core.Nothing,
-      destinationSchemaUpdate = Core.Nothing,
-      kinesisStreamsOutputUpdate = Core.Nothing,
-      nameUpdate = Core.Nothing,
-      lambdaOutputUpdate = Core.Nothing,
+        Prelude.Nothing,
+      destinationSchemaUpdate = Prelude.Nothing,
+      kinesisStreamsOutputUpdate = Prelude.Nothing,
+      nameUpdate = Prelude.Nothing,
+      lambdaOutputUpdate = Prelude.Nothing,
       outputId = pOutputId_
     }
 
 -- | Describes an Amazon Kinesis Firehose delivery stream as the destination
 -- for the output.
-outputUpdate_kinesisFirehoseOutputUpdate :: Lens.Lens' OutputUpdate (Core.Maybe KinesisFirehoseOutputUpdate)
+outputUpdate_kinesisFirehoseOutputUpdate :: Lens.Lens' OutputUpdate (Prelude.Maybe KinesisFirehoseOutputUpdate)
 outputUpdate_kinesisFirehoseOutputUpdate = Lens.lens (\OutputUpdate' {kinesisFirehoseOutputUpdate} -> kinesisFirehoseOutputUpdate) (\s@OutputUpdate' {} a -> s {kinesisFirehoseOutputUpdate = a} :: OutputUpdate)
 
 -- | Describes the data format when records are written to the destination.
 -- For more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
-outputUpdate_destinationSchemaUpdate :: Lens.Lens' OutputUpdate (Core.Maybe DestinationSchema)
+outputUpdate_destinationSchemaUpdate :: Lens.Lens' OutputUpdate (Prelude.Maybe DestinationSchema)
 outputUpdate_destinationSchemaUpdate = Lens.lens (\OutputUpdate' {destinationSchemaUpdate} -> destinationSchemaUpdate) (\s@OutputUpdate' {} a -> s {destinationSchemaUpdate = a} :: OutputUpdate)
 
 -- | Describes an Amazon Kinesis stream as the destination for the output.
-outputUpdate_kinesisStreamsOutputUpdate :: Lens.Lens' OutputUpdate (Core.Maybe KinesisStreamsOutputUpdate)
+outputUpdate_kinesisStreamsOutputUpdate :: Lens.Lens' OutputUpdate (Prelude.Maybe KinesisStreamsOutputUpdate)
 outputUpdate_kinesisStreamsOutputUpdate = Lens.lens (\OutputUpdate' {kinesisStreamsOutputUpdate} -> kinesisStreamsOutputUpdate) (\s@OutputUpdate' {} a -> s {kinesisStreamsOutputUpdate = a} :: OutputUpdate)
 
 -- | If you want to specify a different in-application stream for this output
 -- configuration, use this field to specify the new in-application stream
 -- name.
-outputUpdate_nameUpdate :: Lens.Lens' OutputUpdate (Core.Maybe Core.Text)
+outputUpdate_nameUpdate :: Lens.Lens' OutputUpdate (Prelude.Maybe Prelude.Text)
 outputUpdate_nameUpdate = Lens.lens (\OutputUpdate' {nameUpdate} -> nameUpdate) (\s@OutputUpdate' {} a -> s {nameUpdate = a} :: OutputUpdate)
 
 -- | Describes an AWS Lambda function as the destination for the output.
-outputUpdate_lambdaOutputUpdate :: Lens.Lens' OutputUpdate (Core.Maybe LambdaOutputUpdate)
+outputUpdate_lambdaOutputUpdate :: Lens.Lens' OutputUpdate (Prelude.Maybe LambdaOutputUpdate)
 outputUpdate_lambdaOutputUpdate = Lens.lens (\OutputUpdate' {lambdaOutputUpdate} -> lambdaOutputUpdate) (\s@OutputUpdate' {} a -> s {lambdaOutputUpdate = a} :: OutputUpdate)
 
 -- | Identifies the specific output configuration that you want to update.
-outputUpdate_outputId :: Lens.Lens' OutputUpdate Core.Text
+outputUpdate_outputId :: Lens.Lens' OutputUpdate Prelude.Text
 outputUpdate_outputId = Lens.lens (\OutputUpdate' {outputId} -> outputId) (\s@OutputUpdate' {} a -> s {outputId = a} :: OutputUpdate)
 
-instance Core.Hashable OutputUpdate
+instance Prelude.Hashable OutputUpdate
 
-instance Core.NFData OutputUpdate
+instance Prelude.NFData OutputUpdate
 
 instance Core.ToJSON OutputUpdate where
   toJSON OutputUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("KinesisFirehoseOutputUpdate" Core..=)
-              Core.<$> kinesisFirehoseOutputUpdate,
+              Prelude.<$> kinesisFirehoseOutputUpdate,
             ("DestinationSchemaUpdate" Core..=)
-              Core.<$> destinationSchemaUpdate,
+              Prelude.<$> destinationSchemaUpdate,
             ("KinesisStreamsOutputUpdate" Core..=)
-              Core.<$> kinesisStreamsOutputUpdate,
-            ("NameUpdate" Core..=) Core.<$> nameUpdate,
+              Prelude.<$> kinesisStreamsOutputUpdate,
+            ("NameUpdate" Core..=) Prelude.<$> nameUpdate,
             ("LambdaOutputUpdate" Core..=)
-              Core.<$> lambdaOutputUpdate,
-            Core.Just ("OutputId" Core..= outputId)
+              Prelude.<$> lambdaOutputUpdate,
+            Prelude.Just ("OutputId" Core..= outputId)
           ]
       )

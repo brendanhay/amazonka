@@ -22,6 +22,7 @@ module Network.AWS.CodePipeline.Types.ActionTypeIdentifier where
 import Network.AWS.CodePipeline.Types.ActionCategory
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the category, owner, provider, and version of the action type.
 --
@@ -43,14 +44,14 @@ data ActionTypeIdentifier = ActionTypeIdentifier'
     -- -   @Invoke@
     category :: ActionCategory,
     -- | The creator of the action type being called: @AWS@ or @ThirdParty@.
-    owner :: Core.Text,
+    owner :: Prelude.Text,
     -- | The provider of the action type being called. The provider name is
     -- supplied when the action type is created.
-    provider :: Core.Text,
+    provider :: Prelude.Text,
     -- | A string that describes the action type version.
-    version :: Core.Text
+    version :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionTypeIdentifier' with all optional fields omitted.
@@ -85,11 +86,11 @@ newActionTypeIdentifier ::
   -- | 'category'
   ActionCategory ->
   -- | 'owner'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'provider'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Text ->
+  Prelude.Text ->
   ActionTypeIdentifier
 newActionTypeIdentifier
   pCategory_
@@ -121,16 +122,16 @@ actionTypeIdentifier_category :: Lens.Lens' ActionTypeIdentifier ActionCategory
 actionTypeIdentifier_category = Lens.lens (\ActionTypeIdentifier' {category} -> category) (\s@ActionTypeIdentifier' {} a -> s {category = a} :: ActionTypeIdentifier)
 
 -- | The creator of the action type being called: @AWS@ or @ThirdParty@.
-actionTypeIdentifier_owner :: Lens.Lens' ActionTypeIdentifier Core.Text
+actionTypeIdentifier_owner :: Lens.Lens' ActionTypeIdentifier Prelude.Text
 actionTypeIdentifier_owner = Lens.lens (\ActionTypeIdentifier' {owner} -> owner) (\s@ActionTypeIdentifier' {} a -> s {owner = a} :: ActionTypeIdentifier)
 
 -- | The provider of the action type being called. The provider name is
 -- supplied when the action type is created.
-actionTypeIdentifier_provider :: Lens.Lens' ActionTypeIdentifier Core.Text
+actionTypeIdentifier_provider :: Lens.Lens' ActionTypeIdentifier Prelude.Text
 actionTypeIdentifier_provider = Lens.lens (\ActionTypeIdentifier' {provider} -> provider) (\s@ActionTypeIdentifier' {} a -> s {provider = a} :: ActionTypeIdentifier)
 
 -- | A string that describes the action type version.
-actionTypeIdentifier_version :: Lens.Lens' ActionTypeIdentifier Core.Text
+actionTypeIdentifier_version :: Lens.Lens' ActionTypeIdentifier Prelude.Text
 actionTypeIdentifier_version = Lens.lens (\ActionTypeIdentifier' {version} -> version) (\s@ActionTypeIdentifier' {} a -> s {version = a} :: ActionTypeIdentifier)
 
 instance Core.FromJSON ActionTypeIdentifier where
@@ -139,23 +140,23 @@ instance Core.FromJSON ActionTypeIdentifier where
       "ActionTypeIdentifier"
       ( \x ->
           ActionTypeIdentifier'
-            Core.<$> (x Core..: "category")
-            Core.<*> (x Core..: "owner")
-            Core.<*> (x Core..: "provider")
-            Core.<*> (x Core..: "version")
+            Prelude.<$> (x Core..: "category")
+            Prelude.<*> (x Core..: "owner")
+            Prelude.<*> (x Core..: "provider")
+            Prelude.<*> (x Core..: "version")
       )
 
-instance Core.Hashable ActionTypeIdentifier
+instance Prelude.Hashable ActionTypeIdentifier
 
-instance Core.NFData ActionTypeIdentifier
+instance Prelude.NFData ActionTypeIdentifier
 
 instance Core.ToJSON ActionTypeIdentifier where
   toJSON ActionTypeIdentifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("category" Core..= category),
-            Core.Just ("owner" Core..= owner),
-            Core.Just ("provider" Core..= provider),
-            Core.Just ("version" Core..= version)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("category" Core..= category),
+            Prelude.Just ("owner" Core..= owner),
+            Prelude.Just ("provider" Core..= provider),
+            Prelude.Just ("version" Core..= version)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.EndpointsResponse where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointResponse
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about all the endpoints that are associated with a
 -- user ID.
@@ -32,7 +33,7 @@ data EndpointsResponse = EndpointsResponse'
     -- user ID.
     item :: [EndpointResponse]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EndpointsResponse' with all optional fields omitted.
@@ -47,12 +48,12 @@ data EndpointsResponse = EndpointsResponse'
 newEndpointsResponse ::
   EndpointsResponse
 newEndpointsResponse =
-  EndpointsResponse' {item = Core.mempty}
+  EndpointsResponse' {item = Prelude.mempty}
 
 -- | An array of responses, one for each endpoint that\'s associated with the
 -- user ID.
 endpointsResponse_item :: Lens.Lens' EndpointsResponse [EndpointResponse]
-endpointsResponse_item = Lens.lens (\EndpointsResponse' {item} -> item) (\s@EndpointsResponse' {} a -> s {item = a} :: EndpointsResponse) Core.. Lens._Coerce
+endpointsResponse_item = Lens.lens (\EndpointsResponse' {item} -> item) (\s@EndpointsResponse' {} a -> s {item = a} :: EndpointsResponse) Prelude.. Lens._Coerce
 
 instance Core.FromJSON EndpointsResponse where
   parseJSON =
@@ -60,9 +61,9 @@ instance Core.FromJSON EndpointsResponse where
       "EndpointsResponse"
       ( \x ->
           EndpointsResponse'
-            Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable EndpointsResponse
+instance Prelude.Hashable EndpointsResponse
 
-instance Core.NFData EndpointsResponse
+instance Prelude.NFData EndpointsResponse

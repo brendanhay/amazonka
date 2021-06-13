@@ -51,13 +51,14 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAttachInstancesToLoadBalancer' smart constructor.
 data AttachInstancesToLoadBalancer = AttachInstancesToLoadBalancer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | An array of strings representing the instance name(s) you want to attach
     -- to your load balancer.
     --
@@ -67,9 +68,9 @@ data AttachInstancesToLoadBalancer = AttachInstancesToLoadBalancer'
     -- There are no additional limits on the number of instances you can attach
     -- to your load balancer, aside from the limit of Lightsail instances you
     -- can create in your account (20).
-    instanceNames :: [Core.Text]
+    instanceNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachInstancesToLoadBalancer' with all optional fields omitted.
@@ -92,17 +93,17 @@ data AttachInstancesToLoadBalancer = AttachInstancesToLoadBalancer'
 -- can create in your account (20).
 newAttachInstancesToLoadBalancer ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   AttachInstancesToLoadBalancer
 newAttachInstancesToLoadBalancer pLoadBalancerName_ =
   AttachInstancesToLoadBalancer'
     { loadBalancerName =
         pLoadBalancerName_,
-      instanceNames = Core.mempty
+      instanceNames = Prelude.mempty
     }
 
 -- | The name of the load balancer.
-attachInstancesToLoadBalancer_loadBalancerName :: Lens.Lens' AttachInstancesToLoadBalancer Core.Text
+attachInstancesToLoadBalancer_loadBalancerName :: Lens.Lens' AttachInstancesToLoadBalancer Prelude.Text
 attachInstancesToLoadBalancer_loadBalancerName = Lens.lens (\AttachInstancesToLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@AttachInstancesToLoadBalancer' {} a -> s {loadBalancerName = a} :: AttachInstancesToLoadBalancer)
 
 -- | An array of strings representing the instance name(s) you want to attach
@@ -114,8 +115,8 @@ attachInstancesToLoadBalancer_loadBalancerName = Lens.lens (\AttachInstancesToLo
 -- There are no additional limits on the number of instances you can attach
 -- to your load balancer, aside from the limit of Lightsail instances you
 -- can create in your account (20).
-attachInstancesToLoadBalancer_instanceNames :: Lens.Lens' AttachInstancesToLoadBalancer [Core.Text]
-attachInstancesToLoadBalancer_instanceNames = Lens.lens (\AttachInstancesToLoadBalancer' {instanceNames} -> instanceNames) (\s@AttachInstancesToLoadBalancer' {} a -> s {instanceNames = a} :: AttachInstancesToLoadBalancer) Core.. Lens._Coerce
+attachInstancesToLoadBalancer_instanceNames :: Lens.Lens' AttachInstancesToLoadBalancer [Prelude.Text]
+attachInstancesToLoadBalancer_instanceNames = Lens.lens (\AttachInstancesToLoadBalancer' {instanceNames} -> instanceNames) (\s@AttachInstancesToLoadBalancer' {} a -> s {instanceNames = a} :: AttachInstancesToLoadBalancer) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -129,53 +130,58 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AttachInstancesToLoadBalancerResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AttachInstancesToLoadBalancer
+instance
+  Prelude.Hashable
+    AttachInstancesToLoadBalancer
 
-instance Core.NFData AttachInstancesToLoadBalancer
+instance Prelude.NFData AttachInstancesToLoadBalancer
 
 instance Core.ToHeaders AttachInstancesToLoadBalancer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.AttachInstancesToLoadBalancer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AttachInstancesToLoadBalancer where
   toJSON AttachInstancesToLoadBalancer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName),
-            Core.Just ("instanceNames" Core..= instanceNames)
+            Prelude.Just
+              ("instanceNames" Core..= instanceNames)
           ]
       )
 
 instance Core.ToPath AttachInstancesToLoadBalancer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AttachInstancesToLoadBalancer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachInstancesToLoadBalancerResponse' smart constructor.
 data AttachInstancesToLoadBalancerResponse = AttachInstancesToLoadBalancerResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachInstancesToLoadBalancerResponse' with all optional fields omitted.
@@ -192,25 +198,25 @@ data AttachInstancesToLoadBalancerResponse = AttachInstancesToLoadBalancerRespon
 -- 'httpStatus', 'attachInstancesToLoadBalancerResponse_httpStatus' - The response's http status code.
 newAttachInstancesToLoadBalancerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AttachInstancesToLoadBalancerResponse
 newAttachInstancesToLoadBalancerResponse pHttpStatus_ =
   AttachInstancesToLoadBalancerResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-attachInstancesToLoadBalancerResponse_operations :: Lens.Lens' AttachInstancesToLoadBalancerResponse (Core.Maybe [Operation])
-attachInstancesToLoadBalancerResponse_operations = Lens.lens (\AttachInstancesToLoadBalancerResponse' {operations} -> operations) (\s@AttachInstancesToLoadBalancerResponse' {} a -> s {operations = a} :: AttachInstancesToLoadBalancerResponse) Core.. Lens.mapping Lens._Coerce
+attachInstancesToLoadBalancerResponse_operations :: Lens.Lens' AttachInstancesToLoadBalancerResponse (Prelude.Maybe [Operation])
+attachInstancesToLoadBalancerResponse_operations = Lens.lens (\AttachInstancesToLoadBalancerResponse' {operations} -> operations) (\s@AttachInstancesToLoadBalancerResponse' {} a -> s {operations = a} :: AttachInstancesToLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-attachInstancesToLoadBalancerResponse_httpStatus :: Lens.Lens' AttachInstancesToLoadBalancerResponse Core.Int
+attachInstancesToLoadBalancerResponse_httpStatus :: Lens.Lens' AttachInstancesToLoadBalancerResponse Prelude.Int
 attachInstancesToLoadBalancerResponse_httpStatus = Lens.lens (\AttachInstancesToLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@AttachInstancesToLoadBalancerResponse' {} a -> s {httpStatus = a} :: AttachInstancesToLoadBalancerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AttachInstancesToLoadBalancerResponse

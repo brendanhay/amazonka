@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.LabelDetection where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Label
 
 -- | Information about a label detected in a video analysis request and the
@@ -29,12 +30,12 @@ import Network.AWS.Rekognition.Types.Label
 -- /See:/ 'newLabelDetection' smart constructor.
 data LabelDetection = LabelDetection'
   { -- | Details about the detected label.
-    label :: Core.Maybe Label,
+    label :: Prelude.Maybe Label,
     -- | Time, in milliseconds from the start of the video, that the label was
     -- detected.
-    timestamp :: Core.Maybe Core.Integer
+    timestamp :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelDetection' with all optional fields omitted.
@@ -52,17 +53,17 @@ newLabelDetection ::
   LabelDetection
 newLabelDetection =
   LabelDetection'
-    { label = Core.Nothing,
-      timestamp = Core.Nothing
+    { label = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
 
 -- | Details about the detected label.
-labelDetection_label :: Lens.Lens' LabelDetection (Core.Maybe Label)
+labelDetection_label :: Lens.Lens' LabelDetection (Prelude.Maybe Label)
 labelDetection_label = Lens.lens (\LabelDetection' {label} -> label) (\s@LabelDetection' {} a -> s {label = a} :: LabelDetection)
 
 -- | Time, in milliseconds from the start of the video, that the label was
 -- detected.
-labelDetection_timestamp :: Lens.Lens' LabelDetection (Core.Maybe Core.Integer)
+labelDetection_timestamp :: Lens.Lens' LabelDetection (Prelude.Maybe Prelude.Integer)
 labelDetection_timestamp = Lens.lens (\LabelDetection' {timestamp} -> timestamp) (\s@LabelDetection' {} a -> s {timestamp = a} :: LabelDetection)
 
 instance Core.FromJSON LabelDetection where
@@ -71,10 +72,10 @@ instance Core.FromJSON LabelDetection where
       "LabelDetection"
       ( \x ->
           LabelDetection'
-            Core.<$> (x Core..:? "Label")
-            Core.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Core..:? "Label")
+            Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Core.Hashable LabelDetection
+instance Prelude.Hashable LabelDetection
 
-instance Core.NFData LabelDetection
+instance Prelude.NFData LabelDetection

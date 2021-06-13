@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,17 +61,17 @@ data PutAnomalyDetector = PutAnomalyDetector'
     -- and updating the model. You can specify as many as 10 time ranges.
     --
     -- The configuration can also include the time zone to use for the metric.
-    configuration :: Core.Maybe AnomalyDetectorConfiguration,
+    configuration :: Prelude.Maybe AnomalyDetectorConfiguration,
     -- | The metric dimensions to create the anomaly detection model for.
-    dimensions :: Core.Maybe [Dimension],
+    dimensions :: Prelude.Maybe [Dimension],
     -- | The namespace of the metric to create the anomaly detection model for.
-    namespace :: Core.Text,
+    namespace :: Prelude.Text,
     -- | The name of the metric to create the anomaly detection model for.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The statistic to use for the metric and the anomaly detection model.
-    stat :: Core.Text
+    stat :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutAnomalyDetector' with all optional fields omitted.
@@ -95,16 +96,17 @@ data PutAnomalyDetector = PutAnomalyDetector'
 -- 'stat', 'putAnomalyDetector_stat' - The statistic to use for the metric and the anomaly detection model.
 newPutAnomalyDetector ::
   -- | 'namespace'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stat'
-  Core.Text ->
+  Prelude.Text ->
   PutAnomalyDetector
 newPutAnomalyDetector pNamespace_ pMetricName_ pStat_ =
   PutAnomalyDetector'
-    { configuration = Core.Nothing,
-      dimensions = Core.Nothing,
+    { configuration =
+        Prelude.Nothing,
+      dimensions = Prelude.Nothing,
       namespace = pNamespace_,
       metricName = pMetricName_,
       stat = pStat_
@@ -115,23 +117,23 @@ newPutAnomalyDetector pNamespace_ pMetricName_ pStat_ =
 -- and updating the model. You can specify as many as 10 time ranges.
 --
 -- The configuration can also include the time zone to use for the metric.
-putAnomalyDetector_configuration :: Lens.Lens' PutAnomalyDetector (Core.Maybe AnomalyDetectorConfiguration)
+putAnomalyDetector_configuration :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe AnomalyDetectorConfiguration)
 putAnomalyDetector_configuration = Lens.lens (\PutAnomalyDetector' {configuration} -> configuration) (\s@PutAnomalyDetector' {} a -> s {configuration = a} :: PutAnomalyDetector)
 
 -- | The metric dimensions to create the anomaly detection model for.
-putAnomalyDetector_dimensions :: Lens.Lens' PutAnomalyDetector (Core.Maybe [Dimension])
-putAnomalyDetector_dimensions = Lens.lens (\PutAnomalyDetector' {dimensions} -> dimensions) (\s@PutAnomalyDetector' {} a -> s {dimensions = a} :: PutAnomalyDetector) Core.. Lens.mapping Lens._Coerce
+putAnomalyDetector_dimensions :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe [Dimension])
+putAnomalyDetector_dimensions = Lens.lens (\PutAnomalyDetector' {dimensions} -> dimensions) (\s@PutAnomalyDetector' {} a -> s {dimensions = a} :: PutAnomalyDetector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace of the metric to create the anomaly detection model for.
-putAnomalyDetector_namespace :: Lens.Lens' PutAnomalyDetector Core.Text
+putAnomalyDetector_namespace :: Lens.Lens' PutAnomalyDetector Prelude.Text
 putAnomalyDetector_namespace = Lens.lens (\PutAnomalyDetector' {namespace} -> namespace) (\s@PutAnomalyDetector' {} a -> s {namespace = a} :: PutAnomalyDetector)
 
 -- | The name of the metric to create the anomaly detection model for.
-putAnomalyDetector_metricName :: Lens.Lens' PutAnomalyDetector Core.Text
+putAnomalyDetector_metricName :: Lens.Lens' PutAnomalyDetector Prelude.Text
 putAnomalyDetector_metricName = Lens.lens (\PutAnomalyDetector' {metricName} -> metricName) (\s@PutAnomalyDetector' {} a -> s {metricName = a} :: PutAnomalyDetector)
 
 -- | The statistic to use for the metric and the anomaly detection model.
-putAnomalyDetector_stat :: Lens.Lens' PutAnomalyDetector Core.Text
+putAnomalyDetector_stat :: Lens.Lens' PutAnomalyDetector Prelude.Text
 putAnomalyDetector_stat = Lens.lens (\PutAnomalyDetector' {stat} -> stat) (\s@PutAnomalyDetector' {} a -> s {stat = a} :: PutAnomalyDetector)
 
 instance Core.AWSRequest PutAnomalyDetector where
@@ -144,29 +146,30 @@ instance Core.AWSRequest PutAnomalyDetector where
       "PutAnomalyDetectorResult"
       ( \s h x ->
           PutAnomalyDetectorResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutAnomalyDetector
+instance Prelude.Hashable PutAnomalyDetector
 
-instance Core.NFData PutAnomalyDetector
+instance Prelude.NFData PutAnomalyDetector
 
 instance Core.ToHeaders PutAnomalyDetector where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PutAnomalyDetector where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutAnomalyDetector where
   toQuery PutAnomalyDetector' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PutAnomalyDetector" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("PutAnomalyDetector" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "Configuration" Core.=: configuration,
         "Dimensions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> dimensions),
+            (Core.toQueryList "member" Prelude.<$> dimensions),
         "Namespace" Core.=: namespace,
         "MetricName" Core.=: metricName,
         "Stat" Core.=: stat
@@ -175,9 +178,9 @@ instance Core.ToQuery PutAnomalyDetector where
 -- | /See:/ 'newPutAnomalyDetectorResponse' smart constructor.
 data PutAnomalyDetectorResponse = PutAnomalyDetectorResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutAnomalyDetectorResponse' with all optional fields omitted.
@@ -190,7 +193,7 @@ data PutAnomalyDetectorResponse = PutAnomalyDetectorResponse'
 -- 'httpStatus', 'putAnomalyDetectorResponse_httpStatus' - The response's http status code.
 newPutAnomalyDetectorResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutAnomalyDetectorResponse
 newPutAnomalyDetectorResponse pHttpStatus_ =
   PutAnomalyDetectorResponse'
@@ -199,7 +202,7 @@ newPutAnomalyDetectorResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putAnomalyDetectorResponse_httpStatus :: Lens.Lens' PutAnomalyDetectorResponse Core.Int
+putAnomalyDetectorResponse_httpStatus :: Lens.Lens' PutAnomalyDetectorResponse Prelude.Int
 putAnomalyDetectorResponse_httpStatus = Lens.lens (\PutAnomalyDetectorResponse' {httpStatus} -> httpStatus) (\s@PutAnomalyDetectorResponse' {} a -> s {httpStatus = a} :: PutAnomalyDetectorResponse)
 
-instance Core.NFData PutAnomalyDetectorResponse
+instance Prelude.NFData PutAnomalyDetectorResponse

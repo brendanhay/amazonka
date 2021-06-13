@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.Certificate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an SSL server certificate.
 --
@@ -30,11 +31,11 @@ data Certificate = Certificate'
     -- this value when specifying a certificate as an input. This value is not
     -- included in the output when describing a listener, but is included when
     -- describing listener certificates.
-    isDefault :: Core.Maybe Core.Bool,
+    isDefault :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the certificate.
-    certificateArn :: Core.Maybe Core.Text
+    certificateArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Certificate' with all optional fields omitted.
@@ -54,34 +55,34 @@ newCertificate ::
   Certificate
 newCertificate =
   Certificate'
-    { isDefault = Core.Nothing,
-      certificateArn = Core.Nothing
+    { isDefault = Prelude.Nothing,
+      certificateArn = Prelude.Nothing
     }
 
 -- | Indicates whether the certificate is the default certificate. Do not set
 -- this value when specifying a certificate as an input. This value is not
 -- included in the output when describing a listener, but is included when
 -- describing listener certificates.
-certificate_isDefault :: Lens.Lens' Certificate (Core.Maybe Core.Bool)
+certificate_isDefault :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Bool)
 certificate_isDefault = Lens.lens (\Certificate' {isDefault} -> isDefault) (\s@Certificate' {} a -> s {isDefault = a} :: Certificate)
 
 -- | The Amazon Resource Name (ARN) of the certificate.
-certificate_certificateArn :: Lens.Lens' Certificate (Core.Maybe Core.Text)
+certificate_certificateArn :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certificateArn) (\s@Certificate' {} a -> s {certificateArn = a} :: Certificate)
 
 instance Core.FromXML Certificate where
   parseXML x =
     Certificate'
-      Core.<$> (x Core..@? "IsDefault")
-      Core.<*> (x Core..@? "CertificateArn")
+      Prelude.<$> (x Core..@? "IsDefault")
+      Prelude.<*> (x Core..@? "CertificateArn")
 
-instance Core.Hashable Certificate
+instance Prelude.Hashable Certificate
 
-instance Core.NFData Certificate
+instance Prelude.NFData Certificate
 
 instance Core.ToQuery Certificate where
   toQuery Certificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "IsDefault" Core.=: isDefault,
         "CertificateArn" Core.=: certificateArn
       ]

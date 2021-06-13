@@ -22,6 +22,7 @@ module Network.AWS.DMS.Types.OracleSettings where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.CharLengthSemantics
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information that defines an Oracle endpoint.
 --
@@ -32,38 +33,38 @@ data OracleSettings = OracleSettings'
     --
     -- If a task is set to limited LOB mode and this option is set to @true@,
     -- the task fails instead of truncating the LOB data.
-    failTasksOnLobTruncation :: Core.Maybe Core.Bool,
+    failTasksOnLobTruncation :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the number of seconds that the system waits before resending a
     -- query.
     --
     -- Example: @retryInterval=6;@
-    retryInterval :: Core.Maybe Core.Int,
+    retryInterval :: Prelude.Maybe Prelude.Int,
     -- | Required only if your Oracle endpoint uses Advanced Storage Manager
     -- (ASM). The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerOracleAsmSecret@ that contains the Oracle ASM connection
     -- details for the Oracle endpoint.
-    secretsManagerOracleAsmSecretId :: Core.Maybe Core.Text,
+    secretsManagerOracleAsmSecretId :: Prelude.Maybe Prelude.Text,
     -- | Set this attribute to @false@ in order to use the Binary Reader to
     -- capture change data for an Amazon RDS for Oracle as the source. This
     -- tells the DMS instance to not access redo logs through any specified
     -- path prefix replacement using direct file access.
-    accessAlternateDirectly :: Core.Maybe Core.Bool,
+    accessAlternateDirectly :: Prelude.Maybe Prelude.Bool,
     -- | Set this attribute to @true@ in order to use the Binary Reader to
     -- capture change data for an Amazon RDS for Oracle as the source. This
     -- tells the DMS instance to use any specified prefix replacement to access
     -- all online redo logs.
-    useAlternateFolderForOnline :: Core.Maybe Core.Bool,
+    useAlternateFolderForOnline :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the number scale. You can select a scale up to 38, or you can
     -- select FLOAT. By default, the NUMBER data type is converted to precision
     -- 38, scale 10.
     --
     -- Example: @numberDataTypeScale=12@
-    numberDatatypeScale :: Core.Maybe Core.Int,
+    numberDatatypeScale :: Prelude.Maybe Prelude.Int,
     -- | Set this string attribute to the required value in order to use the
     -- Binary Reader to capture change data for an Amazon RDS for Oracle as the
     -- source. This value specifies the default Oracle root used to access the
     -- redo logs.
-    oraclePathPrefix :: Core.Maybe Core.Text,
+    oraclePathPrefix :: Prelude.Maybe Prelude.Text,
     -- | For an Oracle source endpoint, the name of a key used for the
     -- transparent data encryption (TDE) of the columns and tablespaces in an
     -- Oracle source database that is encrypted using TDE. The key value is the
@@ -73,45 +74,45 @@ data OracleSettings = OracleSettings'
     -- connection attribute in
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption Supported encryption methods for using Oracle as a source for AWS DMS>
     -- in the /AWS Database Migration Service User Guide/.
-    securityDbEncryptionName :: Core.Maybe Core.Text,
+    securityDbEncryptionName :: Prelude.Maybe Prelude.Text,
     -- | Set this attribute with @archivedLogDestId@ in a primary\/ standby
     -- setup. This attribute is useful in the case of a switchover. In this
     -- case, AWS DMS needs to know which destination to get archive redo logs
     -- from to read changes. This need arises because the previous primary
     -- instance is now a standby instance after switchover.
-    additionalArchivedLogDestId :: Core.Maybe Core.Int,
+    additionalArchivedLogDestId :: Prelude.Maybe Prelude.Int,
     -- | For an Oracle source endpoint, your Oracle Automatic Storage Management
     -- (ASM) password. You can set this value from the @ asm_user_password @
     -- value. You set this value as part of the comma-separated value that you
     -- set to the @Password@ request parameter when you create the endpoint to
     -- access transaction logs using Binary Reader. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
-    asmPassword :: Core.Maybe (Core.Sensitive Core.Text),
+    asmPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerSecret@ that contains the Oracle endpoint connection
     -- details.
-    secretsManagerSecretId :: Core.Maybe Core.Text,
+    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | When this field is set to @Y@, AWS DMS only accesses the archived redo
     -- logs. If the archived redo logs are stored on Oracle ASM only, the AWS
     -- DMS user account needs to be granted ASM privileges.
-    archivedLogsOnly :: Core.Maybe Core.Bool,
+    archivedLogsOnly :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, this attribute specifies a parallel load when
     -- @useDirectPathFullLoad@ is set to @Y@. This attribute also only applies
     -- when you use the AWS DMS parallel load feature. Note that the target
     -- table cannot have any constraints or indexes.
-    directPathParallelLoad :: Core.Maybe Core.Bool,
+    directPathParallelLoad :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, this attribute helps to increase the commit rate on
     -- the Oracle target database by writing directly to tables and not writing
     -- a trail to database logs.
-    directPathNoLog :: Core.Maybe Core.Bool,
+    directPathNoLog :: Prelude.Maybe Prelude.Bool,
     -- | Fully qualified domain name of the endpoint.
-    serverName :: Core.Maybe Core.Text,
+    serverName :: Prelude.Maybe Prelude.Text,
     -- | For an Oracle source endpoint, your ASM server address. You can set this
     -- value from the @asm_server@ value. You set @asm_server@ as part of the
     -- extra connection attribute string to access an Oracle server with Binary
     -- Reader that uses ASM. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
-    asmServer :: Core.Maybe Core.Text,
+    asmServer :: Prelude.Maybe Prelude.Text,
     -- | For an Oracle source endpoint, the transparent data encryption (TDE)
     -- password required by AWM DMS to access Oracle redo logs encrypted by TDE
     -- using Binary Reader. It is also the @ TDE_Password @ part of the
@@ -120,50 +121,50 @@ data OracleSettings = OracleSettings'
     -- to this @SecurityDbEncryptionName@ setting. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption Supported encryption methods for using Oracle as a source for AWS DMS>
     -- in the /AWS Database Migration Service User Guide/.
-    securityDbEncryption :: Core.Maybe (Core.Sensitive Core.Text),
+    securityDbEncryption :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | When set to @true@, this attribute supports tablespace replication.
-    readTableSpaceName :: Core.Maybe Core.Bool,
+    readTableSpaceName :: Prelude.Maybe Prelude.Bool,
     -- | Endpoint connection password.
-    password :: Core.Maybe (Core.Sensitive Core.Text),
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Set this attribute to @true@ to enable replication of Oracle tables
     -- containing columns that are nested tables or defined types.
-    allowSelectNestedTables :: Core.Maybe Core.Bool,
+    allowSelectNestedTables :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the destination of the archived redo logs. The value should be
     -- the same as the DEST_ID number in the v$archived_log table. When working
     -- with multiple log destinations (DEST_ID), we recommend that you to
     -- specify an archived redo logs location identifier. Doing this improves
     -- performance by ensuring that the correct logs are accessed from the
     -- outset.
-    archivedLogDestId :: Core.Maybe Core.Int,
+    archivedLogDestId :: Prelude.Maybe Prelude.Int,
     -- | Set this attribute to true in order to use the Binary Reader to capture
     -- change data for an Amazon RDS for Oracle as the source. This setting
     -- tells DMS instance to replace the default Oracle root with the specified
     -- @usePathPrefix@ setting to access the redo logs.
-    replacePathPrefix :: Core.Maybe Core.Bool,
+    replacePathPrefix :: Prelude.Maybe Prelude.Bool,
     -- | Endpoint TCP port.
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | Set this attribute to change the number of read-ahead blocks that DMS
     -- configures to perform a Change Data Capture (CDC) load using Oracle
     -- Automatic Storage Management (ASM). You can specify an integer value
     -- between 1000 (the default) and 200,000 (the maximum).
-    readAheadBlocks :: Core.Maybe Core.Int,
+    readAheadBlocks :: Prelude.Maybe Prelude.Int,
     -- | Set this string attribute to the required value in order to use the
     -- Binary Reader to capture change data for an Amazon RDS for Oracle as the
     -- source. This value specifies the path prefix used to replace the default
     -- Oracle root to access the redo logs.
-    usePathPrefix :: Core.Maybe Core.Text,
+    usePathPrefix :: Prelude.Maybe Prelude.Text,
     -- | For an Oracle source endpoint, your ASM user name. You can set this
     -- value from the @asm_user@ value. You set @asm_user@ as part of the extra
     -- connection attribute string to access an Oracle server with Binary
     -- Reader that uses ASM. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
-    asmUser :: Core.Maybe Core.Text,
+    asmUser :: Prelude.Maybe Prelude.Text,
     -- | Endpoint connection user name.
-    username :: Core.Maybe Core.Text,
+    username :: Prelude.Maybe Prelude.Text,
     -- | Set this attribute to enable homogenous tablespace replication and
     -- create existing tables or indexes under the same tablespace on the
     -- target.
-    enableHomogenousTablespace :: Core.Maybe Core.Bool,
+    enableHomogenousTablespace :: Prelude.Maybe Prelude.Bool,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
     -- DMS as the trusted entity and grants the required permissions to access
     -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
@@ -178,27 +179,27 @@ data OracleSettings = OracleSettings'
     -- @SecretsManagerSecretId@ required to access it, see
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
     -- in the /AWS Database Migration Service User Guide/.
-    secretsManagerAccessRoleArn :: Core.Maybe Core.Text,
+    secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Set this attribute to change the number of threads that DMS configures
     -- to perform a Change Data Capture (CDC) load using Oracle Automatic
     -- Storage Management (ASM). You can specify an integer value between 2
     -- (the default) and 8 (the maximum). Use this attribute together with the
     -- @readAheadBlocks@ attribute.
-    parallelAsmReadThreads :: Core.Maybe Core.Int,
+    parallelAsmReadThreads :: Prelude.Maybe Prelude.Int,
     -- | Specifies whether the length of a character column is in bytes or in
     -- characters. To indicate that the character column length is in
     -- characters, set this attribute to @CHAR@. Otherwise, the character
     -- column length is in bytes.
     --
     -- Example: @charLengthSemantics=CHAR;@
-    charLengthSemantics :: Core.Maybe CharLengthSemantics,
+    charLengthSemantics :: Prelude.Maybe CharLengthSemantics,
     -- | Set this attribute to set up table-level supplemental logging for the
     -- Oracle database. This attribute enables PRIMARY KEY supplemental logging
     -- on all tables selected for a migration task.
     --
     -- If you use this option, you still need to enable database-level
     -- supplemental logging.
-    addSupplementalLogging :: Core.Maybe Core.Bool,
+    addSupplementalLogging :: Prelude.Maybe Prelude.Bool,
     -- | Required only if your Oracle endpoint uses Advanced Storage Manager
     -- (ASM). The full ARN of the IAM role that specifies AWS DMS as the
     -- trusted entity and grants the required permissions to access the
@@ -216,11 +217,11 @@ data OracleSettings = OracleSettings'
     -- @SecretsManagerOracleAsmSecretId@ required to access it, see
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
     -- in the /AWS Database Migration Service User Guide/.
-    secretsManagerOracleAsmAccessRoleArn :: Core.Maybe Core.Text,
+    secretsManagerOracleAsmAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Database name for the endpoint.
-    databaseName :: Core.Maybe Core.Text
+    databaseName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OracleSettings' with all optional fields omitted.
@@ -426,40 +427,41 @@ newOracleSettings ::
 newOracleSettings =
   OracleSettings'
     { failTasksOnLobTruncation =
-        Core.Nothing,
-      retryInterval = Core.Nothing,
-      secretsManagerOracleAsmSecretId = Core.Nothing,
-      accessAlternateDirectly = Core.Nothing,
-      useAlternateFolderForOnline = Core.Nothing,
-      numberDatatypeScale = Core.Nothing,
-      oraclePathPrefix = Core.Nothing,
-      securityDbEncryptionName = Core.Nothing,
-      additionalArchivedLogDestId = Core.Nothing,
-      asmPassword = Core.Nothing,
-      secretsManagerSecretId = Core.Nothing,
-      archivedLogsOnly = Core.Nothing,
-      directPathParallelLoad = Core.Nothing,
-      directPathNoLog = Core.Nothing,
-      serverName = Core.Nothing,
-      asmServer = Core.Nothing,
-      securityDbEncryption = Core.Nothing,
-      readTableSpaceName = Core.Nothing,
-      password = Core.Nothing,
-      allowSelectNestedTables = Core.Nothing,
-      archivedLogDestId = Core.Nothing,
-      replacePathPrefix = Core.Nothing,
-      port = Core.Nothing,
-      readAheadBlocks = Core.Nothing,
-      usePathPrefix = Core.Nothing,
-      asmUser = Core.Nothing,
-      username = Core.Nothing,
-      enableHomogenousTablespace = Core.Nothing,
-      secretsManagerAccessRoleArn = Core.Nothing,
-      parallelAsmReadThreads = Core.Nothing,
-      charLengthSemantics = Core.Nothing,
-      addSupplementalLogging = Core.Nothing,
-      secretsManagerOracleAsmAccessRoleArn = Core.Nothing,
-      databaseName = Core.Nothing
+        Prelude.Nothing,
+      retryInterval = Prelude.Nothing,
+      secretsManagerOracleAsmSecretId = Prelude.Nothing,
+      accessAlternateDirectly = Prelude.Nothing,
+      useAlternateFolderForOnline = Prelude.Nothing,
+      numberDatatypeScale = Prelude.Nothing,
+      oraclePathPrefix = Prelude.Nothing,
+      securityDbEncryptionName = Prelude.Nothing,
+      additionalArchivedLogDestId = Prelude.Nothing,
+      asmPassword = Prelude.Nothing,
+      secretsManagerSecretId = Prelude.Nothing,
+      archivedLogsOnly = Prelude.Nothing,
+      directPathParallelLoad = Prelude.Nothing,
+      directPathNoLog = Prelude.Nothing,
+      serverName = Prelude.Nothing,
+      asmServer = Prelude.Nothing,
+      securityDbEncryption = Prelude.Nothing,
+      readTableSpaceName = Prelude.Nothing,
+      password = Prelude.Nothing,
+      allowSelectNestedTables = Prelude.Nothing,
+      archivedLogDestId = Prelude.Nothing,
+      replacePathPrefix = Prelude.Nothing,
+      port = Prelude.Nothing,
+      readAheadBlocks = Prelude.Nothing,
+      usePathPrefix = Prelude.Nothing,
+      asmUser = Prelude.Nothing,
+      username = Prelude.Nothing,
+      enableHomogenousTablespace = Prelude.Nothing,
+      secretsManagerAccessRoleArn = Prelude.Nothing,
+      parallelAsmReadThreads = Prelude.Nothing,
+      charLengthSemantics = Prelude.Nothing,
+      addSupplementalLogging = Prelude.Nothing,
+      secretsManagerOracleAsmAccessRoleArn =
+        Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
 
 -- | When set to @true@, this attribute causes a task to fail if the actual
@@ -467,35 +469,35 @@ newOracleSettings =
 --
 -- If a task is set to limited LOB mode and this option is set to @true@,
 -- the task fails instead of truncating the LOB data.
-oracleSettings_failTasksOnLobTruncation :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_failTasksOnLobTruncation :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_failTasksOnLobTruncation = Lens.lens (\OracleSettings' {failTasksOnLobTruncation} -> failTasksOnLobTruncation) (\s@OracleSettings' {} a -> s {failTasksOnLobTruncation = a} :: OracleSettings)
 
 -- | Specifies the number of seconds that the system waits before resending a
 -- query.
 --
 -- Example: @retryInterval=6;@
-oracleSettings_retryInterval :: Lens.Lens' OracleSettings (Core.Maybe Core.Int)
+oracleSettings_retryInterval :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Int)
 oracleSettings_retryInterval = Lens.lens (\OracleSettings' {retryInterval} -> retryInterval) (\s@OracleSettings' {} a -> s {retryInterval = a} :: OracleSettings)
 
 -- | Required only if your Oracle endpoint uses Advanced Storage Manager
 -- (ASM). The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerOracleAsmSecret@ that contains the Oracle ASM connection
 -- details for the Oracle endpoint.
-oracleSettings_secretsManagerOracleAsmSecretId :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_secretsManagerOracleAsmSecretId :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_secretsManagerOracleAsmSecretId = Lens.lens (\OracleSettings' {secretsManagerOracleAsmSecretId} -> secretsManagerOracleAsmSecretId) (\s@OracleSettings' {} a -> s {secretsManagerOracleAsmSecretId = a} :: OracleSettings)
 
 -- | Set this attribute to @false@ in order to use the Binary Reader to
 -- capture change data for an Amazon RDS for Oracle as the source. This
 -- tells the DMS instance to not access redo logs through any specified
 -- path prefix replacement using direct file access.
-oracleSettings_accessAlternateDirectly :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_accessAlternateDirectly :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_accessAlternateDirectly = Lens.lens (\OracleSettings' {accessAlternateDirectly} -> accessAlternateDirectly) (\s@OracleSettings' {} a -> s {accessAlternateDirectly = a} :: OracleSettings)
 
 -- | Set this attribute to @true@ in order to use the Binary Reader to
 -- capture change data for an Amazon RDS for Oracle as the source. This
 -- tells the DMS instance to use any specified prefix replacement to access
 -- all online redo logs.
-oracleSettings_useAlternateFolderForOnline :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_useAlternateFolderForOnline :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_useAlternateFolderForOnline = Lens.lens (\OracleSettings' {useAlternateFolderForOnline} -> useAlternateFolderForOnline) (\s@OracleSettings' {} a -> s {useAlternateFolderForOnline = a} :: OracleSettings)
 
 -- | Specifies the number scale. You can select a scale up to 38, or you can
@@ -503,14 +505,14 @@ oracleSettings_useAlternateFolderForOnline = Lens.lens (\OracleSettings' {useAlt
 -- 38, scale 10.
 --
 -- Example: @numberDataTypeScale=12@
-oracleSettings_numberDatatypeScale :: Lens.Lens' OracleSettings (Core.Maybe Core.Int)
+oracleSettings_numberDatatypeScale :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Int)
 oracleSettings_numberDatatypeScale = Lens.lens (\OracleSettings' {numberDatatypeScale} -> numberDatatypeScale) (\s@OracleSettings' {} a -> s {numberDatatypeScale = a} :: OracleSettings)
 
 -- | Set this string attribute to the required value in order to use the
 -- Binary Reader to capture change data for an Amazon RDS for Oracle as the
 -- source. This value specifies the default Oracle root used to access the
 -- redo logs.
-oracleSettings_oraclePathPrefix :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_oraclePathPrefix :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_oraclePathPrefix = Lens.lens (\OracleSettings' {oraclePathPrefix} -> oraclePathPrefix) (\s@OracleSettings' {} a -> s {oraclePathPrefix = a} :: OracleSettings)
 
 -- | For an Oracle source endpoint, the name of a key used for the
@@ -522,7 +524,7 @@ oracleSettings_oraclePathPrefix = Lens.lens (\OracleSettings' {oraclePathPrefix}
 -- connection attribute in
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption Supported encryption methods for using Oracle as a source for AWS DMS>
 -- in the /AWS Database Migration Service User Guide/.
-oracleSettings_securityDbEncryptionName :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_securityDbEncryptionName :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_securityDbEncryptionName = Lens.lens (\OracleSettings' {securityDbEncryptionName} -> securityDbEncryptionName) (\s@OracleSettings' {} a -> s {securityDbEncryptionName = a} :: OracleSettings)
 
 -- | Set this attribute with @archivedLogDestId@ in a primary\/ standby
@@ -530,7 +532,7 @@ oracleSettings_securityDbEncryptionName = Lens.lens (\OracleSettings' {securityD
 -- case, AWS DMS needs to know which destination to get archive redo logs
 -- from to read changes. This need arises because the previous primary
 -- instance is now a standby instance after switchover.
-oracleSettings_additionalArchivedLogDestId :: Lens.Lens' OracleSettings (Core.Maybe Core.Int)
+oracleSettings_additionalArchivedLogDestId :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Int)
 oracleSettings_additionalArchivedLogDestId = Lens.lens (\OracleSettings' {additionalArchivedLogDestId} -> additionalArchivedLogDestId) (\s@OracleSettings' {} a -> s {additionalArchivedLogDestId = a} :: OracleSettings)
 
 -- | For an Oracle source endpoint, your Oracle Automatic Storage Management
@@ -539,36 +541,36 @@ oracleSettings_additionalArchivedLogDestId = Lens.lens (\OracleSettings' {additi
 -- set to the @Password@ request parameter when you create the endpoint to
 -- access transaction logs using Binary Reader. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
-oracleSettings_asmPassword :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
-oracleSettings_asmPassword = Lens.lens (\OracleSettings' {asmPassword} -> asmPassword) (\s@OracleSettings' {} a -> s {asmPassword = a} :: OracleSettings) Core.. Lens.mapping Core._Sensitive
+oracleSettings_asmPassword :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
+oracleSettings_asmPassword = Lens.lens (\OracleSettings' {asmPassword} -> asmPassword) (\s@OracleSettings' {} a -> s {asmPassword = a} :: OracleSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the Oracle endpoint connection
 -- details.
-oracleSettings_secretsManagerSecretId :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_secretsManagerSecretId :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_secretsManagerSecretId = Lens.lens (\OracleSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@OracleSettings' {} a -> s {secretsManagerSecretId = a} :: OracleSettings)
 
 -- | When this field is set to @Y@, AWS DMS only accesses the archived redo
 -- logs. If the archived redo logs are stored on Oracle ASM only, the AWS
 -- DMS user account needs to be granted ASM privileges.
-oracleSettings_archivedLogsOnly :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_archivedLogsOnly :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_archivedLogsOnly = Lens.lens (\OracleSettings' {archivedLogsOnly} -> archivedLogsOnly) (\s@OracleSettings' {} a -> s {archivedLogsOnly = a} :: OracleSettings)
 
 -- | When set to @true@, this attribute specifies a parallel load when
 -- @useDirectPathFullLoad@ is set to @Y@. This attribute also only applies
 -- when you use the AWS DMS parallel load feature. Note that the target
 -- table cannot have any constraints or indexes.
-oracleSettings_directPathParallelLoad :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_directPathParallelLoad :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_directPathParallelLoad = Lens.lens (\OracleSettings' {directPathParallelLoad} -> directPathParallelLoad) (\s@OracleSettings' {} a -> s {directPathParallelLoad = a} :: OracleSettings)
 
 -- | When set to @true@, this attribute helps to increase the commit rate on
 -- the Oracle target database by writing directly to tables and not writing
 -- a trail to database logs.
-oracleSettings_directPathNoLog :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_directPathNoLog :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_directPathNoLog = Lens.lens (\OracleSettings' {directPathNoLog} -> directPathNoLog) (\s@OracleSettings' {} a -> s {directPathNoLog = a} :: OracleSettings)
 
 -- | Fully qualified domain name of the endpoint.
-oracleSettings_serverName :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_serverName :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_serverName = Lens.lens (\OracleSettings' {serverName} -> serverName) (\s@OracleSettings' {} a -> s {serverName = a} :: OracleSettings)
 
 -- | For an Oracle source endpoint, your ASM server address. You can set this
@@ -576,7 +578,7 @@ oracleSettings_serverName = Lens.lens (\OracleSettings' {serverName} -> serverNa
 -- extra connection attribute string to access an Oracle server with Binary
 -- Reader that uses ASM. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
-oracleSettings_asmServer :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_asmServer :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_asmServer = Lens.lens (\OracleSettings' {asmServer} -> asmServer) (\s@OracleSettings' {} a -> s {asmServer = a} :: OracleSettings)
 
 -- | For an Oracle source endpoint, the transparent data encryption (TDE)
@@ -587,20 +589,20 @@ oracleSettings_asmServer = Lens.lens (\OracleSettings' {asmServer} -> asmServer)
 -- to this @SecurityDbEncryptionName@ setting. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption Supported encryption methods for using Oracle as a source for AWS DMS>
 -- in the /AWS Database Migration Service User Guide/.
-oracleSettings_securityDbEncryption :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
-oracleSettings_securityDbEncryption = Lens.lens (\OracleSettings' {securityDbEncryption} -> securityDbEncryption) (\s@OracleSettings' {} a -> s {securityDbEncryption = a} :: OracleSettings) Core.. Lens.mapping Core._Sensitive
+oracleSettings_securityDbEncryption :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
+oracleSettings_securityDbEncryption = Lens.lens (\OracleSettings' {securityDbEncryption} -> securityDbEncryption) (\s@OracleSettings' {} a -> s {securityDbEncryption = a} :: OracleSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | When set to @true@, this attribute supports tablespace replication.
-oracleSettings_readTableSpaceName :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_readTableSpaceName :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_readTableSpaceName = Lens.lens (\OracleSettings' {readTableSpaceName} -> readTableSpaceName) (\s@OracleSettings' {} a -> s {readTableSpaceName = a} :: OracleSettings)
 
 -- | Endpoint connection password.
-oracleSettings_password :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
-oracleSettings_password = Lens.lens (\OracleSettings' {password} -> password) (\s@OracleSettings' {} a -> s {password = a} :: OracleSettings) Core.. Lens.mapping Core._Sensitive
+oracleSettings_password :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
+oracleSettings_password = Lens.lens (\OracleSettings' {password} -> password) (\s@OracleSettings' {} a -> s {password = a} :: OracleSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Set this attribute to @true@ to enable replication of Oracle tables
 -- containing columns that are nested tables or defined types.
-oracleSettings_allowSelectNestedTables :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_allowSelectNestedTables :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_allowSelectNestedTables = Lens.lens (\OracleSettings' {allowSelectNestedTables} -> allowSelectNestedTables) (\s@OracleSettings' {} a -> s {allowSelectNestedTables = a} :: OracleSettings)
 
 -- | Specifies the destination of the archived redo logs. The value should be
@@ -609,32 +611,32 @@ oracleSettings_allowSelectNestedTables = Lens.lens (\OracleSettings' {allowSelec
 -- specify an archived redo logs location identifier. Doing this improves
 -- performance by ensuring that the correct logs are accessed from the
 -- outset.
-oracleSettings_archivedLogDestId :: Lens.Lens' OracleSettings (Core.Maybe Core.Int)
+oracleSettings_archivedLogDestId :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Int)
 oracleSettings_archivedLogDestId = Lens.lens (\OracleSettings' {archivedLogDestId} -> archivedLogDestId) (\s@OracleSettings' {} a -> s {archivedLogDestId = a} :: OracleSettings)
 
 -- | Set this attribute to true in order to use the Binary Reader to capture
 -- change data for an Amazon RDS for Oracle as the source. This setting
 -- tells DMS instance to replace the default Oracle root with the specified
 -- @usePathPrefix@ setting to access the redo logs.
-oracleSettings_replacePathPrefix :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_replacePathPrefix :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_replacePathPrefix = Lens.lens (\OracleSettings' {replacePathPrefix} -> replacePathPrefix) (\s@OracleSettings' {} a -> s {replacePathPrefix = a} :: OracleSettings)
 
 -- | Endpoint TCP port.
-oracleSettings_port :: Lens.Lens' OracleSettings (Core.Maybe Core.Int)
+oracleSettings_port :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Int)
 oracleSettings_port = Lens.lens (\OracleSettings' {port} -> port) (\s@OracleSettings' {} a -> s {port = a} :: OracleSettings)
 
 -- | Set this attribute to change the number of read-ahead blocks that DMS
 -- configures to perform a Change Data Capture (CDC) load using Oracle
 -- Automatic Storage Management (ASM). You can specify an integer value
 -- between 1000 (the default) and 200,000 (the maximum).
-oracleSettings_readAheadBlocks :: Lens.Lens' OracleSettings (Core.Maybe Core.Int)
+oracleSettings_readAheadBlocks :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Int)
 oracleSettings_readAheadBlocks = Lens.lens (\OracleSettings' {readAheadBlocks} -> readAheadBlocks) (\s@OracleSettings' {} a -> s {readAheadBlocks = a} :: OracleSettings)
 
 -- | Set this string attribute to the required value in order to use the
 -- Binary Reader to capture change data for an Amazon RDS for Oracle as the
 -- source. This value specifies the path prefix used to replace the default
 -- Oracle root to access the redo logs.
-oracleSettings_usePathPrefix :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_usePathPrefix :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_usePathPrefix = Lens.lens (\OracleSettings' {usePathPrefix} -> usePathPrefix) (\s@OracleSettings' {} a -> s {usePathPrefix = a} :: OracleSettings)
 
 -- | For an Oracle source endpoint, your ASM user name. You can set this
@@ -642,17 +644,17 @@ oracleSettings_usePathPrefix = Lens.lens (\OracleSettings' {usePathPrefix} -> us
 -- connection attribute string to access an Oracle server with Binary
 -- Reader that uses ASM. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
-oracleSettings_asmUser :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_asmUser :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_asmUser = Lens.lens (\OracleSettings' {asmUser} -> asmUser) (\s@OracleSettings' {} a -> s {asmUser = a} :: OracleSettings)
 
 -- | Endpoint connection user name.
-oracleSettings_username :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_username :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_username = Lens.lens (\OracleSettings' {username} -> username) (\s@OracleSettings' {} a -> s {username = a} :: OracleSettings)
 
 -- | Set this attribute to enable homogenous tablespace replication and
 -- create existing tables or indexes under the same tablespace on the
 -- target.
-oracleSettings_enableHomogenousTablespace :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_enableHomogenousTablespace :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_enableHomogenousTablespace = Lens.lens (\OracleSettings' {enableHomogenousTablespace} -> enableHomogenousTablespace) (\s@OracleSettings' {} a -> s {enableHomogenousTablespace = a} :: OracleSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
@@ -669,7 +671,7 @@ oracleSettings_enableHomogenousTablespace = Lens.lens (\OracleSettings' {enableH
 -- @SecretsManagerSecretId@ required to access it, see
 -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
 -- in the /AWS Database Migration Service User Guide/.
-oracleSettings_secretsManagerAccessRoleArn :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_secretsManagerAccessRoleArn :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_secretsManagerAccessRoleArn = Lens.lens (\OracleSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@OracleSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: OracleSettings)
 
 -- | Set this attribute to change the number of threads that DMS configures
@@ -677,7 +679,7 @@ oracleSettings_secretsManagerAccessRoleArn = Lens.lens (\OracleSettings' {secret
 -- Storage Management (ASM). You can specify an integer value between 2
 -- (the default) and 8 (the maximum). Use this attribute together with the
 -- @readAheadBlocks@ attribute.
-oracleSettings_parallelAsmReadThreads :: Lens.Lens' OracleSettings (Core.Maybe Core.Int)
+oracleSettings_parallelAsmReadThreads :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Int)
 oracleSettings_parallelAsmReadThreads = Lens.lens (\OracleSettings' {parallelAsmReadThreads} -> parallelAsmReadThreads) (\s@OracleSettings' {} a -> s {parallelAsmReadThreads = a} :: OracleSettings)
 
 -- | Specifies whether the length of a character column is in bytes or in
@@ -686,7 +688,7 @@ oracleSettings_parallelAsmReadThreads = Lens.lens (\OracleSettings' {parallelAsm
 -- column length is in bytes.
 --
 -- Example: @charLengthSemantics=CHAR;@
-oracleSettings_charLengthSemantics :: Lens.Lens' OracleSettings (Core.Maybe CharLengthSemantics)
+oracleSettings_charLengthSemantics :: Lens.Lens' OracleSettings (Prelude.Maybe CharLengthSemantics)
 oracleSettings_charLengthSemantics = Lens.lens (\OracleSettings' {charLengthSemantics} -> charLengthSemantics) (\s@OracleSettings' {} a -> s {charLengthSemantics = a} :: OracleSettings)
 
 -- | Set this attribute to set up table-level supplemental logging for the
@@ -695,7 +697,7 @@ oracleSettings_charLengthSemantics = Lens.lens (\OracleSettings' {charLengthSema
 --
 -- If you use this option, you still need to enable database-level
 -- supplemental logging.
-oracleSettings_addSupplementalLogging :: Lens.Lens' OracleSettings (Core.Maybe Core.Bool)
+oracleSettings_addSupplementalLogging :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_addSupplementalLogging = Lens.lens (\OracleSettings' {addSupplementalLogging} -> addSupplementalLogging) (\s@OracleSettings' {} a -> s {addSupplementalLogging = a} :: OracleSettings)
 
 -- | Required only if your Oracle endpoint uses Advanced Storage Manager
@@ -715,11 +717,11 @@ oracleSettings_addSupplementalLogging = Lens.lens (\OracleSettings' {addSuppleme
 -- @SecretsManagerOracleAsmSecretId@ required to access it, see
 -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
 -- in the /AWS Database Migration Service User Guide/.
-oracleSettings_secretsManagerOracleAsmAccessRoleArn :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_secretsManagerOracleAsmAccessRoleArn :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_secretsManagerOracleAsmAccessRoleArn = Lens.lens (\OracleSettings' {secretsManagerOracleAsmAccessRoleArn} -> secretsManagerOracleAsmAccessRoleArn) (\s@OracleSettings' {} a -> s {secretsManagerOracleAsmAccessRoleArn = a} :: OracleSettings)
 
 -- | Database name for the endpoint.
-oracleSettings_databaseName :: Lens.Lens' OracleSettings (Core.Maybe Core.Text)
+oracleSettings_databaseName :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_databaseName = Lens.lens (\OracleSettings' {databaseName} -> databaseName) (\s@OracleSettings' {} a -> s {databaseName = a} :: OracleSettings)
 
 instance Core.FromJSON OracleSettings where
@@ -728,105 +730,107 @@ instance Core.FromJSON OracleSettings where
       "OracleSettings"
       ( \x ->
           OracleSettings'
-            Core.<$> (x Core..:? "FailTasksOnLobTruncation")
-            Core.<*> (x Core..:? "RetryInterval")
-            Core.<*> (x Core..:? "SecretsManagerOracleAsmSecretId")
-            Core.<*> (x Core..:? "AccessAlternateDirectly")
-            Core.<*> (x Core..:? "UseAlternateFolderForOnline")
-            Core.<*> (x Core..:? "NumberDatatypeScale")
-            Core.<*> (x Core..:? "OraclePathPrefix")
-            Core.<*> (x Core..:? "SecurityDbEncryptionName")
-            Core.<*> (x Core..:? "AdditionalArchivedLogDestId")
-            Core.<*> (x Core..:? "AsmPassword")
-            Core.<*> (x Core..:? "SecretsManagerSecretId")
-            Core.<*> (x Core..:? "ArchivedLogsOnly")
-            Core.<*> (x Core..:? "DirectPathParallelLoad")
-            Core.<*> (x Core..:? "DirectPathNoLog")
-            Core.<*> (x Core..:? "ServerName")
-            Core.<*> (x Core..:? "AsmServer")
-            Core.<*> (x Core..:? "SecurityDbEncryption")
-            Core.<*> (x Core..:? "ReadTableSpaceName")
-            Core.<*> (x Core..:? "Password")
-            Core.<*> (x Core..:? "AllowSelectNestedTables")
-            Core.<*> (x Core..:? "ArchivedLogDestId")
-            Core.<*> (x Core..:? "ReplacePathPrefix")
-            Core.<*> (x Core..:? "Port")
-            Core.<*> (x Core..:? "ReadAheadBlocks")
-            Core.<*> (x Core..:? "UsePathPrefix")
-            Core.<*> (x Core..:? "AsmUser")
-            Core.<*> (x Core..:? "Username")
-            Core.<*> (x Core..:? "EnableHomogenousTablespace")
-            Core.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Core.<*> (x Core..:? "ParallelAsmReadThreads")
-            Core.<*> (x Core..:? "CharLengthSemantics")
-            Core.<*> (x Core..:? "AddSupplementalLogging")
-            Core.<*> (x Core..:? "SecretsManagerOracleAsmAccessRoleArn")
-            Core.<*> (x Core..:? "DatabaseName")
+            Prelude.<$> (x Core..:? "FailTasksOnLobTruncation")
+            Prelude.<*> (x Core..:? "RetryInterval")
+            Prelude.<*> (x Core..:? "SecretsManagerOracleAsmSecretId")
+            Prelude.<*> (x Core..:? "AccessAlternateDirectly")
+            Prelude.<*> (x Core..:? "UseAlternateFolderForOnline")
+            Prelude.<*> (x Core..:? "NumberDatatypeScale")
+            Prelude.<*> (x Core..:? "OraclePathPrefix")
+            Prelude.<*> (x Core..:? "SecurityDbEncryptionName")
+            Prelude.<*> (x Core..:? "AdditionalArchivedLogDestId")
+            Prelude.<*> (x Core..:? "AsmPassword")
+            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Core..:? "ArchivedLogsOnly")
+            Prelude.<*> (x Core..:? "DirectPathParallelLoad")
+            Prelude.<*> (x Core..:? "DirectPathNoLog")
+            Prelude.<*> (x Core..:? "ServerName")
+            Prelude.<*> (x Core..:? "AsmServer")
+            Prelude.<*> (x Core..:? "SecurityDbEncryption")
+            Prelude.<*> (x Core..:? "ReadTableSpaceName")
+            Prelude.<*> (x Core..:? "Password")
+            Prelude.<*> (x Core..:? "AllowSelectNestedTables")
+            Prelude.<*> (x Core..:? "ArchivedLogDestId")
+            Prelude.<*> (x Core..:? "ReplacePathPrefix")
+            Prelude.<*> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "ReadAheadBlocks")
+            Prelude.<*> (x Core..:? "UsePathPrefix")
+            Prelude.<*> (x Core..:? "AsmUser")
+            Prelude.<*> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "EnableHomogenousTablespace")
+            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Core..:? "ParallelAsmReadThreads")
+            Prelude.<*> (x Core..:? "CharLengthSemantics")
+            Prelude.<*> (x Core..:? "AddSupplementalLogging")
+            Prelude.<*> (x Core..:? "SecretsManagerOracleAsmAccessRoleArn")
+            Prelude.<*> (x Core..:? "DatabaseName")
       )
 
-instance Core.Hashable OracleSettings
+instance Prelude.Hashable OracleSettings
 
-instance Core.NFData OracleSettings
+instance Prelude.NFData OracleSettings
 
 instance Core.ToJSON OracleSettings where
   toJSON OracleSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("FailTasksOnLobTruncation" Core..=)
-              Core.<$> failTasksOnLobTruncation,
-            ("RetryInterval" Core..=) Core.<$> retryInterval,
+              Prelude.<$> failTasksOnLobTruncation,
+            ("RetryInterval" Core..=) Prelude.<$> retryInterval,
             ("SecretsManagerOracleAsmSecretId" Core..=)
-              Core.<$> secretsManagerOracleAsmSecretId,
+              Prelude.<$> secretsManagerOracleAsmSecretId,
             ("AccessAlternateDirectly" Core..=)
-              Core.<$> accessAlternateDirectly,
+              Prelude.<$> accessAlternateDirectly,
             ("UseAlternateFolderForOnline" Core..=)
-              Core.<$> useAlternateFolderForOnline,
+              Prelude.<$> useAlternateFolderForOnline,
             ("NumberDatatypeScale" Core..=)
-              Core.<$> numberDatatypeScale,
+              Prelude.<$> numberDatatypeScale,
             ("OraclePathPrefix" Core..=)
-              Core.<$> oraclePathPrefix,
+              Prelude.<$> oraclePathPrefix,
             ("SecurityDbEncryptionName" Core..=)
-              Core.<$> securityDbEncryptionName,
+              Prelude.<$> securityDbEncryptionName,
             ("AdditionalArchivedLogDestId" Core..=)
-              Core.<$> additionalArchivedLogDestId,
-            ("AsmPassword" Core..=) Core.<$> asmPassword,
+              Prelude.<$> additionalArchivedLogDestId,
+            ("AsmPassword" Core..=) Prelude.<$> asmPassword,
             ("SecretsManagerSecretId" Core..=)
-              Core.<$> secretsManagerSecretId,
+              Prelude.<$> secretsManagerSecretId,
             ("ArchivedLogsOnly" Core..=)
-              Core.<$> archivedLogsOnly,
+              Prelude.<$> archivedLogsOnly,
             ("DirectPathParallelLoad" Core..=)
-              Core.<$> directPathParallelLoad,
-            ("DirectPathNoLog" Core..=) Core.<$> directPathNoLog,
-            ("ServerName" Core..=) Core.<$> serverName,
-            ("AsmServer" Core..=) Core.<$> asmServer,
+              Prelude.<$> directPathParallelLoad,
+            ("DirectPathNoLog" Core..=)
+              Prelude.<$> directPathNoLog,
+            ("ServerName" Core..=) Prelude.<$> serverName,
+            ("AsmServer" Core..=) Prelude.<$> asmServer,
             ("SecurityDbEncryption" Core..=)
-              Core.<$> securityDbEncryption,
+              Prelude.<$> securityDbEncryption,
             ("ReadTableSpaceName" Core..=)
-              Core.<$> readTableSpaceName,
-            ("Password" Core..=) Core.<$> password,
+              Prelude.<$> readTableSpaceName,
+            ("Password" Core..=) Prelude.<$> password,
             ("AllowSelectNestedTables" Core..=)
-              Core.<$> allowSelectNestedTables,
+              Prelude.<$> allowSelectNestedTables,
             ("ArchivedLogDestId" Core..=)
-              Core.<$> archivedLogDestId,
+              Prelude.<$> archivedLogDestId,
             ("ReplacePathPrefix" Core..=)
-              Core.<$> replacePathPrefix,
-            ("Port" Core..=) Core.<$> port,
-            ("ReadAheadBlocks" Core..=) Core.<$> readAheadBlocks,
-            ("UsePathPrefix" Core..=) Core.<$> usePathPrefix,
-            ("AsmUser" Core..=) Core.<$> asmUser,
-            ("Username" Core..=) Core.<$> username,
+              Prelude.<$> replacePathPrefix,
+            ("Port" Core..=) Prelude.<$> port,
+            ("ReadAheadBlocks" Core..=)
+              Prelude.<$> readAheadBlocks,
+            ("UsePathPrefix" Core..=) Prelude.<$> usePathPrefix,
+            ("AsmUser" Core..=) Prelude.<$> asmUser,
+            ("Username" Core..=) Prelude.<$> username,
             ("EnableHomogenousTablespace" Core..=)
-              Core.<$> enableHomogenousTablespace,
+              Prelude.<$> enableHomogenousTablespace,
             ("SecretsManagerAccessRoleArn" Core..=)
-              Core.<$> secretsManagerAccessRoleArn,
+              Prelude.<$> secretsManagerAccessRoleArn,
             ("ParallelAsmReadThreads" Core..=)
-              Core.<$> parallelAsmReadThreads,
+              Prelude.<$> parallelAsmReadThreads,
             ("CharLengthSemantics" Core..=)
-              Core.<$> charLengthSemantics,
+              Prelude.<$> charLengthSemantics,
             ("AddSupplementalLogging" Core..=)
-              Core.<$> addSupplementalLogging,
+              Prelude.<$> addSupplementalLogging,
             ("SecretsManagerOracleAsmAccessRoleArn" Core..=)
-              Core.<$> secretsManagerOracleAsmAccessRoleArn,
-            ("DatabaseName" Core..=) Core.<$> databaseName
+              Prelude.<$> secretsManagerOracleAsmAccessRoleArn,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.InputDeviceTransferType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type of device transfer. INCOMING for an input device that is being
 -- transferred to you, OUTGOING for an input device that you are
@@ -36,15 +37,15 @@ newtype InputDeviceTransferType = InputDeviceTransferType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

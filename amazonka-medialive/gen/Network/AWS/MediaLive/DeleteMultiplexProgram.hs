@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteMultiplexProgram' smart constructor.
 data DeleteMultiplexProgram = DeleteMultiplexProgram'
   { -- | The ID of the multiplex that the program belongs to.
-    multiplexId :: Core.Text,
+    multiplexId :: Prelude.Text,
     -- | The multiplex program name.
-    programName :: Core.Text
+    programName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMultiplexProgram' with all optional fields omitted.
@@ -74,9 +75,9 @@ data DeleteMultiplexProgram = DeleteMultiplexProgram'
 -- 'programName', 'deleteMultiplexProgram_programName' - The multiplex program name.
 newDeleteMultiplexProgram ::
   -- | 'multiplexId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'programName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMultiplexProgram
 newDeleteMultiplexProgram pMultiplexId_ pProgramName_ =
   DeleteMultiplexProgram'
@@ -86,11 +87,11 @@ newDeleteMultiplexProgram pMultiplexId_ pProgramName_ =
     }
 
 -- | The ID of the multiplex that the program belongs to.
-deleteMultiplexProgram_multiplexId :: Lens.Lens' DeleteMultiplexProgram Core.Text
+deleteMultiplexProgram_multiplexId :: Lens.Lens' DeleteMultiplexProgram Prelude.Text
 deleteMultiplexProgram_multiplexId = Lens.lens (\DeleteMultiplexProgram' {multiplexId} -> multiplexId) (\s@DeleteMultiplexProgram' {} a -> s {multiplexId = a} :: DeleteMultiplexProgram)
 
 -- | The multiplex program name.
-deleteMultiplexProgram_programName :: Lens.Lens' DeleteMultiplexProgram Core.Text
+deleteMultiplexProgram_programName :: Lens.Lens' DeleteMultiplexProgram Prelude.Text
 deleteMultiplexProgram_programName = Lens.lens (\DeleteMultiplexProgram' {programName} -> programName) (\s@DeleteMultiplexProgram' {} a -> s {programName = a} :: DeleteMultiplexProgram)
 
 instance Core.AWSRequest DeleteMultiplexProgram where
@@ -102,30 +103,34 @@ instance Core.AWSRequest DeleteMultiplexProgram where
     Response.receiveJSON
       ( \s h x ->
           DeleteMultiplexProgramResponse'
-            Core.<$> (x Core..?> "packetIdentifiersMap")
-            Core.<*> (x Core..?> "multiplexProgramSettings")
-            Core.<*> (x Core..?> "channelId")
-            Core.<*> (x Core..?> "programName")
-            Core.<*> (x Core..?> "pipelineDetails" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "packetIdentifiersMap")
+            Prelude.<*> (x Core..?> "multiplexProgramSettings")
+            Prelude.<*> (x Core..?> "channelId")
+            Prelude.<*> (x Core..?> "programName")
+            Prelude.<*> ( x Core..?> "pipelineDetails"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteMultiplexProgram
+instance Prelude.Hashable DeleteMultiplexProgram
 
-instance Core.NFData DeleteMultiplexProgram
+instance Prelude.NFData DeleteMultiplexProgram
 
 instance Core.ToHeaders DeleteMultiplexProgram where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteMultiplexProgram where
   toPath DeleteMultiplexProgram' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/prod/multiplexes/",
         Core.toBS multiplexId,
         "/programs/",
@@ -133,30 +138,30 @@ instance Core.ToPath DeleteMultiplexProgram where
       ]
 
 instance Core.ToQuery DeleteMultiplexProgram where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DeleteMultiplexProgramResponse
 --
 -- /See:/ 'newDeleteMultiplexProgramResponse' smart constructor.
 data DeleteMultiplexProgramResponse = DeleteMultiplexProgramResponse'
   { -- | The packet identifier map for this multiplex program.
-    packetIdentifiersMap :: Core.Maybe MultiplexProgramPacketIdentifiersMap,
+    packetIdentifiersMap :: Prelude.Maybe MultiplexProgramPacketIdentifiersMap,
     -- | The settings for this multiplex program.
-    multiplexProgramSettings :: Core.Maybe MultiplexProgramSettings,
+    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
     -- | The MediaLive channel associated with the program.
-    channelId :: Core.Maybe Core.Text,
+    channelId :: Prelude.Maybe Prelude.Text,
     -- | The name of the multiplex program.
-    programName :: Core.Maybe Core.Text,
+    programName :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the current sources for the specified program
     -- in the specified multiplex. Keep in mind that each multiplex pipeline
     -- connects to both pipelines in a given source channel (the channel
     -- identified by the program). But only one of those channel pipelines is
     -- ever active at one time.
-    pipelineDetails :: Core.Maybe [MultiplexProgramPipelineDetail],
+    pipelineDetails :: Prelude.Maybe [MultiplexProgramPipelineDetail],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMultiplexProgramResponse' with all optional fields omitted.
@@ -183,33 +188,33 @@ data DeleteMultiplexProgramResponse = DeleteMultiplexProgramResponse'
 -- 'httpStatus', 'deleteMultiplexProgramResponse_httpStatus' - The response's http status code.
 newDeleteMultiplexProgramResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteMultiplexProgramResponse
 newDeleteMultiplexProgramResponse pHttpStatus_ =
   DeleteMultiplexProgramResponse'
     { packetIdentifiersMap =
-        Core.Nothing,
-      multiplexProgramSettings = Core.Nothing,
-      channelId = Core.Nothing,
-      programName = Core.Nothing,
-      pipelineDetails = Core.Nothing,
+        Prelude.Nothing,
+      multiplexProgramSettings = Prelude.Nothing,
+      channelId = Prelude.Nothing,
+      programName = Prelude.Nothing,
+      pipelineDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The packet identifier map for this multiplex program.
-deleteMultiplexProgramResponse_packetIdentifiersMap :: Lens.Lens' DeleteMultiplexProgramResponse (Core.Maybe MultiplexProgramPacketIdentifiersMap)
+deleteMultiplexProgramResponse_packetIdentifiersMap :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe MultiplexProgramPacketIdentifiersMap)
 deleteMultiplexProgramResponse_packetIdentifiersMap = Lens.lens (\DeleteMultiplexProgramResponse' {packetIdentifiersMap} -> packetIdentifiersMap) (\s@DeleteMultiplexProgramResponse' {} a -> s {packetIdentifiersMap = a} :: DeleteMultiplexProgramResponse)
 
 -- | The settings for this multiplex program.
-deleteMultiplexProgramResponse_multiplexProgramSettings :: Lens.Lens' DeleteMultiplexProgramResponse (Core.Maybe MultiplexProgramSettings)
+deleteMultiplexProgramResponse_multiplexProgramSettings :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe MultiplexProgramSettings)
 deleteMultiplexProgramResponse_multiplexProgramSettings = Lens.lens (\DeleteMultiplexProgramResponse' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@DeleteMultiplexProgramResponse' {} a -> s {multiplexProgramSettings = a} :: DeleteMultiplexProgramResponse)
 
 -- | The MediaLive channel associated with the program.
-deleteMultiplexProgramResponse_channelId :: Lens.Lens' DeleteMultiplexProgramResponse (Core.Maybe Core.Text)
+deleteMultiplexProgramResponse_channelId :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
 deleteMultiplexProgramResponse_channelId = Lens.lens (\DeleteMultiplexProgramResponse' {channelId} -> channelId) (\s@DeleteMultiplexProgramResponse' {} a -> s {channelId = a} :: DeleteMultiplexProgramResponse)
 
 -- | The name of the multiplex program.
-deleteMultiplexProgramResponse_programName :: Lens.Lens' DeleteMultiplexProgramResponse (Core.Maybe Core.Text)
+deleteMultiplexProgramResponse_programName :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
 deleteMultiplexProgramResponse_programName = Lens.lens (\DeleteMultiplexProgramResponse' {programName} -> programName) (\s@DeleteMultiplexProgramResponse' {} a -> s {programName = a} :: DeleteMultiplexProgramResponse)
 
 -- | Contains information about the current sources for the specified program
@@ -217,11 +222,13 @@ deleteMultiplexProgramResponse_programName = Lens.lens (\DeleteMultiplexProgramR
 -- connects to both pipelines in a given source channel (the channel
 -- identified by the program). But only one of those channel pipelines is
 -- ever active at one time.
-deleteMultiplexProgramResponse_pipelineDetails :: Lens.Lens' DeleteMultiplexProgramResponse (Core.Maybe [MultiplexProgramPipelineDetail])
-deleteMultiplexProgramResponse_pipelineDetails = Lens.lens (\DeleteMultiplexProgramResponse' {pipelineDetails} -> pipelineDetails) (\s@DeleteMultiplexProgramResponse' {} a -> s {pipelineDetails = a} :: DeleteMultiplexProgramResponse) Core.. Lens.mapping Lens._Coerce
+deleteMultiplexProgramResponse_pipelineDetails :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe [MultiplexProgramPipelineDetail])
+deleteMultiplexProgramResponse_pipelineDetails = Lens.lens (\DeleteMultiplexProgramResponse' {pipelineDetails} -> pipelineDetails) (\s@DeleteMultiplexProgramResponse' {} a -> s {pipelineDetails = a} :: DeleteMultiplexProgramResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteMultiplexProgramResponse_httpStatus :: Lens.Lens' DeleteMultiplexProgramResponse Core.Int
+deleteMultiplexProgramResponse_httpStatus :: Lens.Lens' DeleteMultiplexProgramResponse Prelude.Int
 deleteMultiplexProgramResponse_httpStatus = Lens.lens (\DeleteMultiplexProgramResponse' {httpStatus} -> httpStatus) (\s@DeleteMultiplexProgramResponse' {} a -> s {httpStatus = a} :: DeleteMultiplexProgramResponse)
 
-instance Core.NFData DeleteMultiplexProgramResponse
+instance
+  Prelude.NFData
+    DeleteMultiplexProgramResponse

@@ -38,6 +38,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,9 +47,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeregisterOnPremisesInstance' smart constructor.
 data DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
   { -- | The name of the on-premises instance to deregister.
-    instanceName :: Core.Text
+    instanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterOnPremisesInstance' with all optional fields omitted.
@@ -61,7 +62,7 @@ data DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
 -- 'instanceName', 'deregisterOnPremisesInstance_instanceName' - The name of the on-premises instance to deregister.
 newDeregisterOnPremisesInstance ::
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterOnPremisesInstance
 newDeregisterOnPremisesInstance pInstanceName_ =
   DeregisterOnPremisesInstance'
@@ -70,7 +71,7 @@ newDeregisterOnPremisesInstance pInstanceName_ =
     }
 
 -- | The name of the on-premises instance to deregister.
-deregisterOnPremisesInstance_instanceName :: Lens.Lens' DeregisterOnPremisesInstance Core.Text
+deregisterOnPremisesInstance_instanceName :: Lens.Lens' DeregisterOnPremisesInstance Prelude.Text
 deregisterOnPremisesInstance_instanceName = Lens.lens (\DeregisterOnPremisesInstance' {instanceName} -> instanceName) (\s@DeregisterOnPremisesInstance' {} a -> s {instanceName = a} :: DeregisterOnPremisesInstance)
 
 instance Core.AWSRequest DeregisterOnPremisesInstance where
@@ -82,41 +83,45 @@ instance Core.AWSRequest DeregisterOnPremisesInstance where
     Response.receiveNull
       DeregisterOnPremisesInstanceResponse'
 
-instance Core.Hashable DeregisterOnPremisesInstance
+instance
+  Prelude.Hashable
+    DeregisterOnPremisesInstance
 
-instance Core.NFData DeregisterOnPremisesInstance
+instance Prelude.NFData DeregisterOnPremisesInstance
 
 instance Core.ToHeaders DeregisterOnPremisesInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.DeregisterOnPremisesInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeregisterOnPremisesInstance where
   toJSON DeregisterOnPremisesInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("instanceName" Core..= instanceName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("instanceName" Core..= instanceName)]
       )
 
 instance Core.ToPath DeregisterOnPremisesInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterOnPremisesInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterOnPremisesInstanceResponse' smart constructor.
 data DeregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterOnPremisesInstanceResponse' with all optional fields omitted.
@@ -128,5 +133,5 @@ newDeregisterOnPremisesInstanceResponse =
   DeregisterOnPremisesInstanceResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeregisterOnPremisesInstanceResponse

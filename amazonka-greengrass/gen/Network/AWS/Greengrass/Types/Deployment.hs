@@ -22,24 +22,25 @@ module Network.AWS.Greengrass.Types.Deployment where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.DeploymentType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a deployment.
 --
 -- /See:/ 'newDeployment' smart constructor.
 data Deployment = Deployment'
   { -- | The ID of the deployment.
-    deploymentId :: Core.Maybe Core.Text,
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The type of the deployment.
-    deploymentType :: Core.Maybe DeploymentType,
+    deploymentType :: Prelude.Maybe DeploymentType,
     -- | The time, in milliseconds since the epoch, when the deployment was
     -- created.
-    createdAt :: Core.Maybe Core.Text,
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the deployment.
-    deploymentArn :: Core.Maybe Core.Text,
+    deploymentArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the group for this deployment.
-    groupArn :: Core.Maybe Core.Text
+    groupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Deployment' with all optional fields omitted.
@@ -63,32 +64,32 @@ newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { deploymentId = Core.Nothing,
-      deploymentType = Core.Nothing,
-      createdAt = Core.Nothing,
-      deploymentArn = Core.Nothing,
-      groupArn = Core.Nothing
+    { deploymentId = Prelude.Nothing,
+      deploymentType = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      deploymentArn = Prelude.Nothing,
+      groupArn = Prelude.Nothing
     }
 
 -- | The ID of the deployment.
-deployment_deploymentId :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_deploymentId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_deploymentId = Lens.lens (\Deployment' {deploymentId} -> deploymentId) (\s@Deployment' {} a -> s {deploymentId = a} :: Deployment)
 
 -- | The type of the deployment.
-deployment_deploymentType :: Lens.Lens' Deployment (Core.Maybe DeploymentType)
+deployment_deploymentType :: Lens.Lens' Deployment (Prelude.Maybe DeploymentType)
 deployment_deploymentType = Lens.lens (\Deployment' {deploymentType} -> deploymentType) (\s@Deployment' {} a -> s {deploymentType = a} :: Deployment)
 
 -- | The time, in milliseconds since the epoch, when the deployment was
 -- created.
-deployment_createdAt :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_createdAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment)
 
 -- | The ARN of the deployment.
-deployment_deploymentArn :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_deploymentArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_deploymentArn = Lens.lens (\Deployment' {deploymentArn} -> deploymentArn) (\s@Deployment' {} a -> s {deploymentArn = a} :: Deployment)
 
 -- | The ARN of the group for this deployment.
-deployment_groupArn :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_groupArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_groupArn = Lens.lens (\Deployment' {groupArn} -> groupArn) (\s@Deployment' {} a -> s {groupArn = a} :: Deployment)
 
 instance Core.FromJSON Deployment where
@@ -97,13 +98,13 @@ instance Core.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Core.<$> (x Core..:? "DeploymentId")
-            Core.<*> (x Core..:? "DeploymentType")
-            Core.<*> (x Core..:? "CreatedAt")
-            Core.<*> (x Core..:? "DeploymentArn")
-            Core.<*> (x Core..:? "GroupArn")
+            Prelude.<$> (x Core..:? "DeploymentId")
+            Prelude.<*> (x Core..:? "DeploymentType")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "DeploymentArn")
+            Prelude.<*> (x Core..:? "GroupArn")
       )
 
-instance Core.Hashable Deployment
+instance Prelude.Hashable Deployment
 
-instance Core.NFData Deployment
+instance Prelude.NFData Deployment

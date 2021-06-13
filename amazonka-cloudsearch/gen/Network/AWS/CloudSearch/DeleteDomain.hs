@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteDomain' smart constructor.
 data DeleteDomain = DeleteDomain'
   { -- | The name of the domain you want to permanently delete.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDomain' with all optional fields omitted.
@@ -69,13 +70,13 @@ data DeleteDomain = DeleteDomain'
 -- 'domainName', 'deleteDomain_domainName' - The name of the domain you want to permanently delete.
 newDeleteDomain ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDomain
 newDeleteDomain pDomainName_ =
   DeleteDomain' {domainName = pDomainName_}
 
 -- | The name of the domain you want to permanently delete.
-deleteDomain_domainName :: Lens.Lens' DeleteDomain Core.Text
+deleteDomain_domainName :: Lens.Lens' DeleteDomain Prelude.Text
 deleteDomain_domainName = Lens.lens (\DeleteDomain' {domainName} -> domainName) (\s@DeleteDomain' {} a -> s {domainName = a} :: DeleteDomain)
 
 instance Core.AWSRequest DeleteDomain where
@@ -86,26 +87,27 @@ instance Core.AWSRequest DeleteDomain where
       "DeleteDomainResult"
       ( \s h x ->
           DeleteDomainResponse'
-            Core.<$> (x Core..@? "DomainStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DomainStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDomain
+instance Prelude.Hashable DeleteDomain
 
-instance Core.NFData DeleteDomain
+instance Prelude.NFData DeleteDomain
 
 instance Core.ToHeaders DeleteDomain where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDomain where
   toQuery DeleteDomain' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDomain" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("DeleteDomain" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainName" Core.=: domainName
       ]
 
@@ -115,11 +117,11 @@ instance Core.ToQuery DeleteDomain where
 --
 -- /See:/ 'newDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  { domainStatus :: Core.Maybe DomainStatus,
+  { domainStatus :: Prelude.Maybe DomainStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainResponse' with all optional fields omitted.
@@ -134,20 +136,21 @@ data DeleteDomainResponse = DeleteDomainResponse'
 -- 'httpStatus', 'deleteDomainResponse_httpStatus' - The response's http status code.
 newDeleteDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDomainResponse
 newDeleteDomainResponse pHttpStatus_ =
   DeleteDomainResponse'
-    { domainStatus = Core.Nothing,
+    { domainStatus =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteDomainResponse_domainStatus :: Lens.Lens' DeleteDomainResponse (Core.Maybe DomainStatus)
+deleteDomainResponse_domainStatus :: Lens.Lens' DeleteDomainResponse (Prelude.Maybe DomainStatus)
 deleteDomainResponse_domainStatus = Lens.lens (\DeleteDomainResponse' {domainStatus} -> domainStatus) (\s@DeleteDomainResponse' {} a -> s {domainStatus = a} :: DeleteDomainResponse)
 
 -- | The response's http status code.
-deleteDomainResponse_httpStatus :: Lens.Lens' DeleteDomainResponse Core.Int
+deleteDomainResponse_httpStatus :: Lens.Lens' DeleteDomainResponse Prelude.Int
 deleteDomainResponse_httpStatus = Lens.lens (\DeleteDomainResponse' {httpStatus} -> httpStatus) (\s@DeleteDomainResponse' {} a -> s {httpStatus = a} :: DeleteDomainResponse)
 
-instance Core.NFData DeleteDomainResponse
+instance Prelude.NFData DeleteDomainResponse

@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.AddPrefixListEntry where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An entry for a prefix list.
 --
@@ -30,11 +31,11 @@ data AddPrefixListEntry = AddPrefixListEntry'
   { -- | A description for the entry.
     --
     -- Constraints: Up to 255 characters in length.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The CIDR block.
-    cidr :: Core.Text
+    cidr :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddPrefixListEntry' with all optional fields omitted.
@@ -51,31 +52,31 @@ data AddPrefixListEntry = AddPrefixListEntry'
 -- 'cidr', 'addPrefixListEntry_cidr' - The CIDR block.
 newAddPrefixListEntry ::
   -- | 'cidr'
-  Core.Text ->
+  Prelude.Text ->
   AddPrefixListEntry
 newAddPrefixListEntry pCidr_ =
   AddPrefixListEntry'
-    { description = Core.Nothing,
+    { description = Prelude.Nothing,
       cidr = pCidr_
     }
 
 -- | A description for the entry.
 --
 -- Constraints: Up to 255 characters in length.
-addPrefixListEntry_description :: Lens.Lens' AddPrefixListEntry (Core.Maybe Core.Text)
+addPrefixListEntry_description :: Lens.Lens' AddPrefixListEntry (Prelude.Maybe Prelude.Text)
 addPrefixListEntry_description = Lens.lens (\AddPrefixListEntry' {description} -> description) (\s@AddPrefixListEntry' {} a -> s {description = a} :: AddPrefixListEntry)
 
 -- | The CIDR block.
-addPrefixListEntry_cidr :: Lens.Lens' AddPrefixListEntry Core.Text
+addPrefixListEntry_cidr :: Lens.Lens' AddPrefixListEntry Prelude.Text
 addPrefixListEntry_cidr = Lens.lens (\AddPrefixListEntry' {cidr} -> cidr) (\s@AddPrefixListEntry' {} a -> s {cidr = a} :: AddPrefixListEntry)
 
-instance Core.Hashable AddPrefixListEntry
+instance Prelude.Hashable AddPrefixListEntry
 
-instance Core.NFData AddPrefixListEntry
+instance Prelude.NFData AddPrefixListEntry
 
 instance Core.ToQuery AddPrefixListEntry where
   toQuery AddPrefixListEntry' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Description" Core.=: description,
         "Cidr" Core.=: cidr
       ]

@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -47,11 +48,11 @@ import Network.AWS.WorkDocs.Types
 data DeactivateUser = DeactivateUser'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the user.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeactivateUser' with all optional fields omitted.
@@ -67,21 +68,22 @@ data DeactivateUser = DeactivateUser'
 -- 'userId', 'deactivateUser_userId' - The ID of the user.
 newDeactivateUser ::
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   DeactivateUser
 newDeactivateUser pUserId_ =
   DeactivateUser'
-    { authenticationToken = Core.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
       userId = pUserId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-deactivateUser_authenticationToken :: Lens.Lens' DeactivateUser (Core.Maybe Core.Text)
-deactivateUser_authenticationToken = Lens.lens (\DeactivateUser' {authenticationToken} -> authenticationToken) (\s@DeactivateUser' {} a -> s {authenticationToken = a} :: DeactivateUser) Core.. Lens.mapping Core._Sensitive
+deactivateUser_authenticationToken :: Lens.Lens' DeactivateUser (Prelude.Maybe Prelude.Text)
+deactivateUser_authenticationToken = Lens.lens (\DeactivateUser' {authenticationToken} -> authenticationToken) (\s@DeactivateUser' {} a -> s {authenticationToken = a} :: DeactivateUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the user.
-deactivateUser_userId :: Lens.Lens' DeactivateUser Core.Text
+deactivateUser_userId :: Lens.Lens' DeactivateUser Prelude.Text
 deactivateUser_userId = Lens.lens (\DeactivateUser' {userId} -> userId) (\s@DeactivateUser' {} a -> s {userId = a} :: DeactivateUser)
 
 instance Core.AWSRequest DeactivateUser where
@@ -92,31 +94,31 @@ instance Core.AWSRequest DeactivateUser where
   response =
     Response.receiveNull DeactivateUserResponse'
 
-instance Core.Hashable DeactivateUser
+instance Prelude.Hashable DeactivateUser
 
-instance Core.NFData DeactivateUser
+instance Prelude.NFData DeactivateUser
 
 instance Core.ToHeaders DeactivateUser where
   toHeaders DeactivateUser' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DeactivateUser where
   toPath DeactivateUser' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/api/v1/users/", Core.toBS userId, "/activation"]
 
 instance Core.ToQuery DeactivateUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeactivateUserResponse' smart constructor.
 data DeactivateUserResponse = DeactivateUserResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeactivateUserResponse' with all optional fields omitted.
@@ -126,4 +128,4 @@ newDeactivateUserResponse ::
   DeactivateUserResponse
 newDeactivateUserResponse = DeactivateUserResponse'
 
-instance Core.NFData DeactivateUserResponse
+instance Prelude.NFData DeactivateUserResponse

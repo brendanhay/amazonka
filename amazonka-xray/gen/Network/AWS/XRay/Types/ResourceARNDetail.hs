@@ -21,15 +21,16 @@ module Network.AWS.XRay.Types.ResourceARNDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of resources ARNs corresponding to the segments in a trace.
 --
 -- /See:/ 'newResourceARNDetail' smart constructor.
 data ResourceARNDetail = ResourceARNDetail'
   { -- | The ARN of a corresponding resource.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceARNDetail' with all optional fields omitted.
@@ -43,10 +44,10 @@ data ResourceARNDetail = ResourceARNDetail'
 newResourceARNDetail ::
   ResourceARNDetail
 newResourceARNDetail =
-  ResourceARNDetail' {arn = Core.Nothing}
+  ResourceARNDetail' {arn = Prelude.Nothing}
 
 -- | The ARN of a corresponding resource.
-resourceARNDetail_arn :: Lens.Lens' ResourceARNDetail (Core.Maybe Core.Text)
+resourceARNDetail_arn :: Lens.Lens' ResourceARNDetail (Prelude.Maybe Prelude.Text)
 resourceARNDetail_arn = Lens.lens (\ResourceARNDetail' {arn} -> arn) (\s@ResourceARNDetail' {} a -> s {arn = a} :: ResourceARNDetail)
 
 instance Core.FromJSON ResourceARNDetail where
@@ -54,9 +55,9 @@ instance Core.FromJSON ResourceARNDetail where
     Core.withObject
       "ResourceARNDetail"
       ( \x ->
-          ResourceARNDetail' Core.<$> (x Core..:? "ARN")
+          ResourceARNDetail' Prelude.<$> (x Core..:? "ARN")
       )
 
-instance Core.Hashable ResourceARNDetail
+instance Prelude.Hashable ResourceARNDetail
 
-instance Core.NFData ResourceARNDetail
+instance Prelude.NFData ResourceARNDetail

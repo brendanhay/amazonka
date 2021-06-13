@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +57,7 @@ data DeleteJobExecution = DeleteJobExecution'
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
     -- The @namespaceId@ feature is in public preview.
-    namespaceId :: Core.Maybe Core.Text,
+    namespaceId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) When true, you can delete a job execution which is
     -- \"IN_PROGRESS\". Otherwise, you can only delete a job execution which is
     -- in a terminal state (\"SUCCEEDED\", \"FAILED\", \"REJECTED\",
@@ -67,20 +68,20 @@ data DeleteJobExecution = DeleteJobExecution'
     -- to be unable to access job information or update the job execution
     -- status. Use caution and ensure that the device is able to recover to a
     -- valid state.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the job whose execution on a particular device will be
     -- deleted.
-    jobId :: Core.Text,
+    jobId :: Prelude.Text,
     -- | The name of the thing whose job execution will be deleted.
-    thingName :: Core.Text,
+    thingName :: Prelude.Text,
     -- | The ID of the job execution to be deleted. The @executionNumber@ refers
     -- to the execution of a particular job on a particular device.
     --
     -- Note that once a job execution is deleted, the @executionNumber@ may be
     -- reused by IoT, so be sure you get and use the correct value here.
-    executionNumber :: Core.Integer
+    executionNumber :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteJobExecution' with all optional fields omitted.
@@ -123,19 +124,19 @@ data DeleteJobExecution = DeleteJobExecution'
 -- reused by IoT, so be sure you get and use the correct value here.
 newDeleteJobExecution ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'executionNumber'
-  Core.Integer ->
+  Prelude.Integer ->
   DeleteJobExecution
 newDeleteJobExecution
   pJobId_
   pThingName_
   pExecutionNumber_ =
     DeleteJobExecution'
-      { namespaceId = Core.Nothing,
-        force = Core.Nothing,
+      { namespaceId = Prelude.Nothing,
+        force = Prelude.Nothing,
         jobId = pJobId_,
         thingName = pThingName_,
         executionNumber = pExecutionNumber_
@@ -150,7 +151,7 @@ newDeleteJobExecution
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
-deleteJobExecution_namespaceId :: Lens.Lens' DeleteJobExecution (Core.Maybe Core.Text)
+deleteJobExecution_namespaceId :: Lens.Lens' DeleteJobExecution (Prelude.Maybe Prelude.Text)
 deleteJobExecution_namespaceId = Lens.lens (\DeleteJobExecution' {namespaceId} -> namespaceId) (\s@DeleteJobExecution' {} a -> s {namespaceId = a} :: DeleteJobExecution)
 
 -- | (Optional) When true, you can delete a job execution which is
@@ -163,16 +164,16 @@ deleteJobExecution_namespaceId = Lens.lens (\DeleteJobExecution' {namespaceId} -
 -- to be unable to access job information or update the job execution
 -- status. Use caution and ensure that the device is able to recover to a
 -- valid state.
-deleteJobExecution_force :: Lens.Lens' DeleteJobExecution (Core.Maybe Core.Bool)
+deleteJobExecution_force :: Lens.Lens' DeleteJobExecution (Prelude.Maybe Prelude.Bool)
 deleteJobExecution_force = Lens.lens (\DeleteJobExecution' {force} -> force) (\s@DeleteJobExecution' {} a -> s {force = a} :: DeleteJobExecution)
 
 -- | The ID of the job whose execution on a particular device will be
 -- deleted.
-deleteJobExecution_jobId :: Lens.Lens' DeleteJobExecution Core.Text
+deleteJobExecution_jobId :: Lens.Lens' DeleteJobExecution Prelude.Text
 deleteJobExecution_jobId = Lens.lens (\DeleteJobExecution' {jobId} -> jobId) (\s@DeleteJobExecution' {} a -> s {jobId = a} :: DeleteJobExecution)
 
 -- | The name of the thing whose job execution will be deleted.
-deleteJobExecution_thingName :: Lens.Lens' DeleteJobExecution Core.Text
+deleteJobExecution_thingName :: Lens.Lens' DeleteJobExecution Prelude.Text
 deleteJobExecution_thingName = Lens.lens (\DeleteJobExecution' {thingName} -> thingName) (\s@DeleteJobExecution' {} a -> s {thingName = a} :: DeleteJobExecution)
 
 -- | The ID of the job execution to be deleted. The @executionNumber@ refers
@@ -180,7 +181,7 @@ deleteJobExecution_thingName = Lens.lens (\DeleteJobExecution' {thingName} -> th
 --
 -- Note that once a job execution is deleted, the @executionNumber@ may be
 -- reused by IoT, so be sure you get and use the correct value here.
-deleteJobExecution_executionNumber :: Lens.Lens' DeleteJobExecution Core.Integer
+deleteJobExecution_executionNumber :: Lens.Lens' DeleteJobExecution Prelude.Integer
 deleteJobExecution_executionNumber = Lens.lens (\DeleteJobExecution' {executionNumber} -> executionNumber) (\s@DeleteJobExecution' {} a -> s {executionNumber = a} :: DeleteJobExecution)
 
 instance Core.AWSRequest DeleteJobExecution where
@@ -191,16 +192,16 @@ instance Core.AWSRequest DeleteJobExecution where
   response =
     Response.receiveNull DeleteJobExecutionResponse'
 
-instance Core.Hashable DeleteJobExecution
+instance Prelude.Hashable DeleteJobExecution
 
-instance Core.NFData DeleteJobExecution
+instance Prelude.NFData DeleteJobExecution
 
 instance Core.ToHeaders DeleteJobExecution where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteJobExecution where
   toPath DeleteJobExecution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/things/",
         Core.toBS thingName,
         "/jobs/",
@@ -211,7 +212,7 @@ instance Core.ToPath DeleteJobExecution where
 
 instance Core.ToQuery DeleteJobExecution where
   toQuery DeleteJobExecution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "namespaceId" Core.=: namespaceId,
         "force" Core.=: force
       ]
@@ -220,7 +221,7 @@ instance Core.ToQuery DeleteJobExecution where
 data DeleteJobExecutionResponse = DeleteJobExecutionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteJobExecutionResponse' with all optional fields omitted.
@@ -231,4 +232,4 @@ newDeleteJobExecutionResponse ::
 newDeleteJobExecutionResponse =
   DeleteJobExecutionResponse'
 
-instance Core.NFData DeleteJobExecutionResponse
+instance Prelude.NFData DeleteJobExecutionResponse

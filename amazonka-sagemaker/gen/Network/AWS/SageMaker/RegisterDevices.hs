@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -46,13 +47,13 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newRegisterDevices' smart constructor.
 data RegisterDevices = RegisterDevices'
   { -- | The tags associated with devices.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the fleet.
-    deviceFleetName :: Core.Text,
+    deviceFleetName :: Prelude.Text,
     -- | A list of devices to register with SageMaker Edge Manager.
     devices :: [Device]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterDevices' with all optional fields omitted.
@@ -69,26 +70,26 @@ data RegisterDevices = RegisterDevices'
 -- 'devices', 'registerDevices_devices' - A list of devices to register with SageMaker Edge Manager.
 newRegisterDevices ::
   -- | 'deviceFleetName'
-  Core.Text ->
+  Prelude.Text ->
   RegisterDevices
 newRegisterDevices pDeviceFleetName_ =
   RegisterDevices'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       deviceFleetName = pDeviceFleetName_,
-      devices = Core.mempty
+      devices = Prelude.mempty
     }
 
 -- | The tags associated with devices.
-registerDevices_tags :: Lens.Lens' RegisterDevices (Core.Maybe [Tag])
-registerDevices_tags = Lens.lens (\RegisterDevices' {tags} -> tags) (\s@RegisterDevices' {} a -> s {tags = a} :: RegisterDevices) Core.. Lens.mapping Lens._Coerce
+registerDevices_tags :: Lens.Lens' RegisterDevices (Prelude.Maybe [Tag])
+registerDevices_tags = Lens.lens (\RegisterDevices' {tags} -> tags) (\s@RegisterDevices' {} a -> s {tags = a} :: RegisterDevices) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the fleet.
-registerDevices_deviceFleetName :: Lens.Lens' RegisterDevices Core.Text
+registerDevices_deviceFleetName :: Lens.Lens' RegisterDevices Prelude.Text
 registerDevices_deviceFleetName = Lens.lens (\RegisterDevices' {deviceFleetName} -> deviceFleetName) (\s@RegisterDevices' {} a -> s {deviceFleetName = a} :: RegisterDevices)
 
 -- | A list of devices to register with SageMaker Edge Manager.
 registerDevices_devices :: Lens.Lens' RegisterDevices [Device]
-registerDevices_devices = Lens.lens (\RegisterDevices' {devices} -> devices) (\s@RegisterDevices' {} a -> s {devices = a} :: RegisterDevices) Core.. Lens._Coerce
+registerDevices_devices = Lens.lens (\RegisterDevices' {devices} -> devices) (\s@RegisterDevices' {} a -> s {devices = a} :: RegisterDevices) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RegisterDevices where
   type
@@ -98,43 +99,45 @@ instance Core.AWSRequest RegisterDevices where
   response =
     Response.receiveNull RegisterDevicesResponse'
 
-instance Core.Hashable RegisterDevices
+instance Prelude.Hashable RegisterDevices
 
-instance Core.NFData RegisterDevices
+instance Prelude.NFData RegisterDevices
 
 instance Core.ToHeaders RegisterDevices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.RegisterDevices" :: Core.ByteString),
+              Core.=# ("SageMaker.RegisterDevices" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RegisterDevices where
   toJSON RegisterDevices' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("DeviceFleetName" Core..= deviceFleetName),
-            Core.Just ("Devices" Core..= devices)
+            Prelude.Just ("Devices" Core..= devices)
           ]
       )
 
 instance Core.ToPath RegisterDevices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterDevices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterDevicesResponse' smart constructor.
 data RegisterDevicesResponse = RegisterDevicesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterDevicesResponse' with all optional fields omitted.
@@ -144,4 +147,4 @@ newRegisterDevicesResponse ::
   RegisterDevicesResponse
 newRegisterDevicesResponse = RegisterDevicesResponse'
 
-instance Core.NFData RegisterDevicesResponse
+instance Prelude.NFData RegisterDevicesResponse

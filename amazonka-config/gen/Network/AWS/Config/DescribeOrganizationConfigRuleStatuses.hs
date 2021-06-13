@@ -54,6 +54,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,17 +62,17 @@ import qualified Network.AWS.Response as Response
 data DescribeOrganizationConfigRuleStatuses = DescribeOrganizationConfigRuleStatuses'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The names of organization config rules for which you want status
     -- details. If you do not specify any names, AWS Config returns details for
     -- all your organization AWS Confg rules.
-    organizationConfigRuleNames :: Core.Maybe [Core.Text],
+    organizationConfigRuleNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of @OrganizationConfigRuleStatuses@ returned on each
     -- page. If you do no specify a number, AWS Config uses the default. The
     -- default is 100.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationConfigRuleStatuses' with all optional fields omitted.
@@ -96,27 +97,27 @@ newDescribeOrganizationConfigRuleStatuses ::
 newDescribeOrganizationConfigRuleStatuses =
   DescribeOrganizationConfigRuleStatuses'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       organizationConfigRuleNames =
-        Core.Nothing,
-      limit = Core.Nothing
+        Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describeOrganizationConfigRuleStatuses_nextToken :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Core.Maybe Core.Text)
+describeOrganizationConfigRuleStatuses_nextToken :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe Prelude.Text)
 describeOrganizationConfigRuleStatuses_nextToken = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {nextToken} -> nextToken) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {nextToken = a} :: DescribeOrganizationConfigRuleStatuses)
 
 -- | The names of organization config rules for which you want status
 -- details. If you do not specify any names, AWS Config returns details for
 -- all your organization AWS Confg rules.
-describeOrganizationConfigRuleStatuses_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Core.Maybe [Core.Text])
-describeOrganizationConfigRuleStatuses_organizationConfigRuleNames = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {organizationConfigRuleNames} -> organizationConfigRuleNames) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRuleStatuses) Core.. Lens.mapping Lens._Coerce
+describeOrganizationConfigRuleStatuses_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe [Prelude.Text])
+describeOrganizationConfigRuleStatuses_organizationConfigRuleNames = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {organizationConfigRuleNames} -> organizationConfigRuleNames) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRuleStatuses) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of @OrganizationConfigRuleStatuses@ returned on each
 -- page. If you do no specify a number, AWS Config uses the default. The
 -- default is 100.
-describeOrganizationConfigRuleStatuses_limit :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Core.Maybe Core.Natural)
+describeOrganizationConfigRuleStatuses_limit :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe Prelude.Natural)
 describeOrganizationConfigRuleStatuses_limit = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {limit} -> limit) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {limit = a} :: DescribeOrganizationConfigRuleStatuses)
 
 instance
@@ -132,19 +133,19 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationConfigRuleStatusesResponse'
-            Core.<$> (x Core..?> "NextToken")
-              Core.<*> ( x Core..?> "OrganizationConfigRuleStatuses"
-                           Core..!@ Core.mempty
-                       )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "OrganizationConfigRuleStatuses"
+                              Core..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeOrganizationConfigRuleStatuses
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeOrganizationConfigRuleStatuses
 
 instance
@@ -152,14 +153,16 @@ instance
     DescribeOrganizationConfigRuleStatuses
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DescribeOrganizationConfigRuleStatuses" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -169,11 +172,11 @@ instance
   where
   toJSON DescribeOrganizationConfigRuleStatuses' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("OrganizationConfigRuleNames" Core..=)
-              Core.<$> organizationConfigRuleNames,
-            ("Limit" Core..=) Core.<$> limit
+              Prelude.<$> organizationConfigRuleNames,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
@@ -181,25 +184,25 @@ instance
   Core.ToPath
     DescribeOrganizationConfigRuleStatuses
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeOrganizationConfigRuleStatuses
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationConfigRuleStatusesResponse' smart constructor.
 data DescribeOrganizationConfigRuleStatusesResponse = DescribeOrganizationConfigRuleStatusesResponse'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @OrganizationConfigRuleStatus@ objects.
-    organizationConfigRuleStatuses :: Core.Maybe [OrganizationConfigRuleStatus],
+    organizationConfigRuleStatuses :: Prelude.Maybe [OrganizationConfigRuleStatus],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationConfigRuleStatusesResponse' with all optional fields omitted.
@@ -217,31 +220,31 @@ data DescribeOrganizationConfigRuleStatusesResponse = DescribeOrganizationConfig
 -- 'httpStatus', 'describeOrganizationConfigRuleStatusesResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationConfigRuleStatusesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeOrganizationConfigRuleStatusesResponse
 newDescribeOrganizationConfigRuleStatusesResponse
   pHttpStatus_ =
     DescribeOrganizationConfigRuleStatusesResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         organizationConfigRuleStatuses =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describeOrganizationConfigRuleStatusesResponse_nextToken :: Lens.Lens' DescribeOrganizationConfigRuleStatusesResponse (Core.Maybe Core.Text)
+describeOrganizationConfigRuleStatusesResponse_nextToken :: Lens.Lens' DescribeOrganizationConfigRuleStatusesResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationConfigRuleStatusesResponse_nextToken = Lens.lens (\DescribeOrganizationConfigRuleStatusesResponse' {nextToken} -> nextToken) (\s@DescribeOrganizationConfigRuleStatusesResponse' {} a -> s {nextToken = a} :: DescribeOrganizationConfigRuleStatusesResponse)
 
 -- | A list of @OrganizationConfigRuleStatus@ objects.
-describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses :: Lens.Lens' DescribeOrganizationConfigRuleStatusesResponse (Core.Maybe [OrganizationConfigRuleStatus])
-describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses = Lens.lens (\DescribeOrganizationConfigRuleStatusesResponse' {organizationConfigRuleStatuses} -> organizationConfigRuleStatuses) (\s@DescribeOrganizationConfigRuleStatusesResponse' {} a -> s {organizationConfigRuleStatuses = a} :: DescribeOrganizationConfigRuleStatusesResponse) Core.. Lens.mapping Lens._Coerce
+describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses :: Lens.Lens' DescribeOrganizationConfigRuleStatusesResponse (Prelude.Maybe [OrganizationConfigRuleStatus])
+describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses = Lens.lens (\DescribeOrganizationConfigRuleStatusesResponse' {organizationConfigRuleStatuses} -> organizationConfigRuleStatuses) (\s@DescribeOrganizationConfigRuleStatusesResponse' {} a -> s {organizationConfigRuleStatuses = a} :: DescribeOrganizationConfigRuleStatusesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeOrganizationConfigRuleStatusesResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigRuleStatusesResponse Core.Int
+describeOrganizationConfigRuleStatusesResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigRuleStatusesResponse Prelude.Int
 describeOrganizationConfigRuleStatusesResponse_httpStatus = Lens.lens (\DescribeOrganizationConfigRuleStatusesResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationConfigRuleStatusesResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationConfigRuleStatusesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeOrganizationConfigRuleStatusesResponse

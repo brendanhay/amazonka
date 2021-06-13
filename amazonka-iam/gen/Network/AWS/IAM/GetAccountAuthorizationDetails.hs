@@ -64,6 +64,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,7 +77,7 @@ data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
     -- The format for this parameter is a comma-separated (if more than one)
     -- list of strings. Each string value in the list must be one of the valid
     -- values listed below.
-    filter' :: Core.Maybe [EntityType],
+    filter' :: Prelude.Maybe [EntityType],
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -86,14 +87,14 @@ data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountAuthorizationDetails' with all optional fields omitted.
@@ -130,9 +131,9 @@ newGetAccountAuthorizationDetails ::
 newGetAccountAuthorizationDetails =
   GetAccountAuthorizationDetails'
     { filter' =
-        Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+        Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A list of entity types used to filter the results. Only the entities
@@ -142,8 +143,8 @@ newGetAccountAuthorizationDetails =
 -- The format for this parameter is a comma-separated (if more than one)
 -- list of strings. Each string value in the list must be one of the valid
 -- values listed below.
-getAccountAuthorizationDetails_filter :: Lens.Lens' GetAccountAuthorizationDetails (Core.Maybe [EntityType])
-getAccountAuthorizationDetails_filter = Lens.lens (\GetAccountAuthorizationDetails' {filter'} -> filter') (\s@GetAccountAuthorizationDetails' {} a -> s {filter' = a} :: GetAccountAuthorizationDetails) Core.. Lens.mapping Lens._Coerce
+getAccountAuthorizationDetails_filter :: Lens.Lens' GetAccountAuthorizationDetails (Prelude.Maybe [EntityType])
+getAccountAuthorizationDetails_filter = Lens.lens (\GetAccountAuthorizationDetails' {filter'} -> filter') (\s@GetAccountAuthorizationDetails' {} a -> s {filter' = a} :: GetAccountAuthorizationDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -154,14 +155,14 @@ getAccountAuthorizationDetails_filter = Lens.lens (\GetAccountAuthorizationDetai
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-getAccountAuthorizationDetails_maxItems :: Lens.Lens' GetAccountAuthorizationDetails (Core.Maybe Core.Natural)
+getAccountAuthorizationDetails_maxItems :: Lens.Lens' GetAccountAuthorizationDetails (Prelude.Maybe Prelude.Natural)
 getAccountAuthorizationDetails_maxItems = Lens.lens (\GetAccountAuthorizationDetails' {maxItems} -> maxItems) (\s@GetAccountAuthorizationDetails' {} a -> s {maxItems = a} :: GetAccountAuthorizationDetails)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-getAccountAuthorizationDetails_marker :: Lens.Lens' GetAccountAuthorizationDetails (Core.Maybe Core.Text)
+getAccountAuthorizationDetails_marker :: Lens.Lens' GetAccountAuthorizationDetails (Prelude.Maybe Prelude.Text)
 getAccountAuthorizationDetails_marker = Lens.lens (\GetAccountAuthorizationDetails' {marker} -> marker) (\s@GetAccountAuthorizationDetails' {} a -> s {marker = a} :: GetAccountAuthorizationDetails)
 
 instance Core.AWSPager GetAccountAuthorizationDetails where
@@ -169,22 +170,22 @@ instance Core.AWSPager GetAccountAuthorizationDetails where
     | Core.stop
         ( rs
             Lens.^? getAccountAuthorizationDetailsResponse_isTruncated
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
             Lens.^? getAccountAuthorizationDetailsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getAccountAuthorizationDetails_marker
+          Prelude.& getAccountAuthorizationDetails_marker
           Lens..~ rs
           Lens.^? getAccountAuthorizationDetailsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -199,47 +200,52 @@ instance
       "GetAccountAuthorizationDetailsResult"
       ( \s h x ->
           GetAccountAuthorizationDetailsResponse'
-            Core.<$> ( x Core..@? "RoleDetailList" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> ( x Core..@? "GroupDetailList" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> ( x Core..@? "Policies" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "IsTruncated")
-            Core.<*> ( x Core..@? "UserDetailList" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "RoleDetailList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> ( x Core..@? "GroupDetailList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> ( x Core..@? "Policies" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> ( x Core..@? "UserDetailList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAccountAuthorizationDetails
+instance
+  Prelude.Hashable
+    GetAccountAuthorizationDetails
 
-instance Core.NFData GetAccountAuthorizationDetails
+instance
+  Prelude.NFData
+    GetAccountAuthorizationDetails
 
 instance
   Core.ToHeaders
     GetAccountAuthorizationDetails
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAccountAuthorizationDetails where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAccountAuthorizationDetails where
   toQuery GetAccountAuthorizationDetails' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "GetAccountAuthorizationDetails" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "Filter"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> filter'),
+            (Core.toQueryList "member" Prelude.<$> filter'),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker
       ]
@@ -250,11 +256,11 @@ instance Core.ToQuery GetAccountAuthorizationDetails where
 -- /See:/ 'newGetAccountAuthorizationDetailsResponse' smart constructor.
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
   { -- | A list containing information about IAM roles.
-    roleDetailList :: Core.Maybe [RoleDetail],
+    roleDetailList :: Prelude.Maybe [RoleDetail],
     -- | A list containing information about IAM groups.
-    groupDetailList :: Core.Maybe [GroupDetail],
+    groupDetailList :: Prelude.Maybe [GroupDetail],
     -- | A list containing information about managed policies.
-    policies :: Core.Maybe [ManagedPolicyDetail],
+    policies :: Prelude.Maybe [ManagedPolicyDetail],
     -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -262,17 +268,17 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | A list containing information about IAM users.
-    userDetailList :: Core.Maybe [UserDetail],
+    userDetailList :: Prelude.Maybe [UserDetail],
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountAuthorizationDetailsResponse' with all optional fields omitted.
@@ -305,32 +311,32 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
 -- 'httpStatus', 'getAccountAuthorizationDetailsResponse_httpStatus' - The response's http status code.
 newGetAccountAuthorizationDetailsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAccountAuthorizationDetailsResponse
 newGetAccountAuthorizationDetailsResponse
   pHttpStatus_ =
     GetAccountAuthorizationDetailsResponse'
       { roleDetailList =
-          Core.Nothing,
-        groupDetailList = Core.Nothing,
-        policies = Core.Nothing,
-        isTruncated = Core.Nothing,
-        userDetailList = Core.Nothing,
-        marker = Core.Nothing,
+          Prelude.Nothing,
+        groupDetailList = Prelude.Nothing,
+        policies = Prelude.Nothing,
+        isTruncated = Prelude.Nothing,
+        userDetailList = Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list containing information about IAM roles.
-getAccountAuthorizationDetailsResponse_roleDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Core.Maybe [RoleDetail])
-getAccountAuthorizationDetailsResponse_roleDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {roleDetailList} -> roleDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {roleDetailList = a} :: GetAccountAuthorizationDetailsResponse) Core.. Lens.mapping Lens._Coerce
+getAccountAuthorizationDetailsResponse_roleDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [RoleDetail])
+getAccountAuthorizationDetailsResponse_roleDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {roleDetailList} -> roleDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {roleDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list containing information about IAM groups.
-getAccountAuthorizationDetailsResponse_groupDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Core.Maybe [GroupDetail])
-getAccountAuthorizationDetailsResponse_groupDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {groupDetailList} -> groupDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {groupDetailList = a} :: GetAccountAuthorizationDetailsResponse) Core.. Lens.mapping Lens._Coerce
+getAccountAuthorizationDetailsResponse_groupDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [GroupDetail])
+getAccountAuthorizationDetailsResponse_groupDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {groupDetailList} -> groupDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {groupDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list containing information about managed policies.
-getAccountAuthorizationDetailsResponse_policies :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Core.Maybe [ManagedPolicyDetail])
-getAccountAuthorizationDetailsResponse_policies = Lens.lens (\GetAccountAuthorizationDetailsResponse' {policies} -> policies) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {policies = a} :: GetAccountAuthorizationDetailsResponse) Core.. Lens.mapping Lens._Coerce
+getAccountAuthorizationDetailsResponse_policies :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [ManagedPolicyDetail])
+getAccountAuthorizationDetailsResponse_policies = Lens.lens (\GetAccountAuthorizationDetailsResponse' {policies} -> policies) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {policies = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -339,23 +345,23 @@ getAccountAuthorizationDetailsResponse_policies = Lens.lens (\GetAccountAuthoriz
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-getAccountAuthorizationDetailsResponse_isTruncated :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Core.Maybe Core.Bool)
+getAccountAuthorizationDetailsResponse_isTruncated :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe Prelude.Bool)
 getAccountAuthorizationDetailsResponse_isTruncated = Lens.lens (\GetAccountAuthorizationDetailsResponse' {isTruncated} -> isTruncated) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {isTruncated = a} :: GetAccountAuthorizationDetailsResponse)
 
 -- | A list containing information about IAM users.
-getAccountAuthorizationDetailsResponse_userDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Core.Maybe [UserDetail])
-getAccountAuthorizationDetailsResponse_userDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {userDetailList} -> userDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {userDetailList = a} :: GetAccountAuthorizationDetailsResponse) Core.. Lens.mapping Lens._Coerce
+getAccountAuthorizationDetailsResponse_userDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [UserDetail])
+getAccountAuthorizationDetailsResponse_userDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {userDetailList} -> userDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {userDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-getAccountAuthorizationDetailsResponse_marker :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Core.Maybe Core.Text)
+getAccountAuthorizationDetailsResponse_marker :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe Prelude.Text)
 getAccountAuthorizationDetailsResponse_marker = Lens.lens (\GetAccountAuthorizationDetailsResponse' {marker} -> marker) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {marker = a} :: GetAccountAuthorizationDetailsResponse)
 
 -- | The response's http status code.
-getAccountAuthorizationDetailsResponse_httpStatus :: Lens.Lens' GetAccountAuthorizationDetailsResponse Core.Int
+getAccountAuthorizationDetailsResponse_httpStatus :: Lens.Lens' GetAccountAuthorizationDetailsResponse Prelude.Int
 getAccountAuthorizationDetailsResponse_httpStatus = Lens.lens (\GetAccountAuthorizationDetailsResponse' {httpStatus} -> httpStatus) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {httpStatus = a} :: GetAccountAuthorizationDetailsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetAccountAuthorizationDetailsResponse

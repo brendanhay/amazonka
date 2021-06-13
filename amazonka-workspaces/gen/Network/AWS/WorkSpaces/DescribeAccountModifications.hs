@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -53,9 +54,9 @@ import Network.AWS.WorkSpaces.Types
 data DescribeAccountModifications = DescribeAccountModifications'
   { -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountModifications' with all optional fields omitted.
@@ -72,12 +73,12 @@ newDescribeAccountModifications ::
 newDescribeAccountModifications =
   DescribeAccountModifications'
     { nextToken =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
-describeAccountModifications_nextToken :: Lens.Lens' DescribeAccountModifications (Core.Maybe Core.Text)
+describeAccountModifications_nextToken :: Lens.Lens' DescribeAccountModifications (Prelude.Maybe Prelude.Text)
 describeAccountModifications_nextToken = Lens.lens (\DescribeAccountModifications' {nextToken} -> nextToken) (\s@DescribeAccountModifications' {} a -> s {nextToken = a} :: DescribeAccountModifications)
 
 instance Core.AWSPager DescribeAccountModifications where
@@ -85,22 +86,22 @@ instance Core.AWSPager DescribeAccountModifications where
     | Core.stop
         ( rs
             Lens.^? describeAccountModificationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAccountModificationsResponse_accountModifications
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeAccountModifications_nextToken
+          Prelude.& describeAccountModifications_nextToken
           Lens..~ rs
           Lens.^? describeAccountModificationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccountModifications where
   type
@@ -111,54 +112,58 @@ instance Core.AWSRequest DescribeAccountModifications where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountModificationsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "AccountModifications"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "AccountModifications"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAccountModifications
+instance
+  Prelude.Hashable
+    DescribeAccountModifications
 
-instance Core.NFData DescribeAccountModifications
+instance Prelude.NFData DescribeAccountModifications
 
 instance Core.ToHeaders DescribeAccountModifications where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DescribeAccountModifications" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeAccountModifications where
   toJSON DescribeAccountModifications' {..} =
     Core.object
-      ( Core.catMaybes
-          [("NextToken" Core..=) Core.<$> nextToken]
+      ( Prelude.catMaybes
+          [("NextToken" Core..=) Prelude.<$> nextToken]
       )
 
 instance Core.ToPath DescribeAccountModifications where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAccountModifications where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccountModificationsResponse' smart constructor.
 data DescribeAccountModificationsResponse = DescribeAccountModificationsResponse'
   { -- | The token to use to retrieve the next set of results, or null if no more
     -- results are available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of modifications to the configuration of BYOL.
-    accountModifications :: Core.Maybe [AccountModification],
+    accountModifications :: Prelude.Maybe [AccountModification],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountModificationsResponse' with all optional fields omitted.
@@ -176,29 +181,30 @@ data DescribeAccountModificationsResponse = DescribeAccountModificationsResponse
 -- 'httpStatus', 'describeAccountModificationsResponse_httpStatus' - The response's http status code.
 newDescribeAccountModificationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAccountModificationsResponse
 newDescribeAccountModificationsResponse pHttpStatus_ =
   DescribeAccountModificationsResponse'
     { nextToken =
-        Core.Nothing,
-      accountModifications = Core.Nothing,
+        Prelude.Nothing,
+      accountModifications =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next set of results, or null if no more
 -- results are available.
-describeAccountModificationsResponse_nextToken :: Lens.Lens' DescribeAccountModificationsResponse (Core.Maybe Core.Text)
+describeAccountModificationsResponse_nextToken :: Lens.Lens' DescribeAccountModificationsResponse (Prelude.Maybe Prelude.Text)
 describeAccountModificationsResponse_nextToken = Lens.lens (\DescribeAccountModificationsResponse' {nextToken} -> nextToken) (\s@DescribeAccountModificationsResponse' {} a -> s {nextToken = a} :: DescribeAccountModificationsResponse)
 
 -- | The list of modifications to the configuration of BYOL.
-describeAccountModificationsResponse_accountModifications :: Lens.Lens' DescribeAccountModificationsResponse (Core.Maybe [AccountModification])
-describeAccountModificationsResponse_accountModifications = Lens.lens (\DescribeAccountModificationsResponse' {accountModifications} -> accountModifications) (\s@DescribeAccountModificationsResponse' {} a -> s {accountModifications = a} :: DescribeAccountModificationsResponse) Core.. Lens.mapping Lens._Coerce
+describeAccountModificationsResponse_accountModifications :: Lens.Lens' DescribeAccountModificationsResponse (Prelude.Maybe [AccountModification])
+describeAccountModificationsResponse_accountModifications = Lens.lens (\DescribeAccountModificationsResponse' {accountModifications} -> accountModifications) (\s@DescribeAccountModificationsResponse' {} a -> s {accountModifications = a} :: DescribeAccountModificationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAccountModificationsResponse_httpStatus :: Lens.Lens' DescribeAccountModificationsResponse Core.Int
+describeAccountModificationsResponse_httpStatus :: Lens.Lens' DescribeAccountModificationsResponse Prelude.Int
 describeAccountModificationsResponse_httpStatus = Lens.lens (\DescribeAccountModificationsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountModificationsResponse' {} a -> s {httpStatus = a} :: DescribeAccountModificationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAccountModificationsResponse

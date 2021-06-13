@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -62,14 +63,14 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newDescribeRootFolders' smart constructor.
 data DescribeRootFolders = DescribeRootFolders'
   { -- | The maximum number of items to return.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token.
-    authenticationToken :: Core.Sensitive Core.Text
+    authenticationToken :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRootFolders' with all optional fields omitted.
@@ -87,48 +88,50 @@ data DescribeRootFolders = DescribeRootFolders'
 -- 'authenticationToken', 'describeRootFolders_authenticationToken' - Amazon WorkDocs authentication token.
 newDescribeRootFolders ::
   -- | 'authenticationToken'
-  Core.Text ->
+  Prelude.Text ->
   DescribeRootFolders
 newDescribeRootFolders pAuthenticationToken_ =
   DescribeRootFolders'
-    { limit = Core.Nothing,
-      marker = Core.Nothing,
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       authenticationToken =
         Core._Sensitive Lens.# pAuthenticationToken_
     }
 
 -- | The maximum number of items to return.
-describeRootFolders_limit :: Lens.Lens' DescribeRootFolders (Core.Maybe Core.Natural)
+describeRootFolders_limit :: Lens.Lens' DescribeRootFolders (Prelude.Maybe Prelude.Natural)
 describeRootFolders_limit = Lens.lens (\DescribeRootFolders' {limit} -> limit) (\s@DescribeRootFolders' {} a -> s {limit = a} :: DescribeRootFolders)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeRootFolders_marker :: Lens.Lens' DescribeRootFolders (Core.Maybe Core.Text)
+describeRootFolders_marker :: Lens.Lens' DescribeRootFolders (Prelude.Maybe Prelude.Text)
 describeRootFolders_marker = Lens.lens (\DescribeRootFolders' {marker} -> marker) (\s@DescribeRootFolders' {} a -> s {marker = a} :: DescribeRootFolders)
 
 -- | Amazon WorkDocs authentication token.
-describeRootFolders_authenticationToken :: Lens.Lens' DescribeRootFolders Core.Text
-describeRootFolders_authenticationToken = Lens.lens (\DescribeRootFolders' {authenticationToken} -> authenticationToken) (\s@DescribeRootFolders' {} a -> s {authenticationToken = a} :: DescribeRootFolders) Core.. Core._Sensitive
+describeRootFolders_authenticationToken :: Lens.Lens' DescribeRootFolders Prelude.Text
+describeRootFolders_authenticationToken = Lens.lens (\DescribeRootFolders' {authenticationToken} -> authenticationToken) (\s@DescribeRootFolders' {} a -> s {authenticationToken = a} :: DescribeRootFolders) Prelude.. Core._Sensitive
 
 instance Core.AWSPager DescribeRootFolders where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeRootFoldersResponse_marker Core.. Lens._Just
+            Lens.^? describeRootFoldersResponse_marker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRootFoldersResponse_folders
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeRootFolders_marker
+          Prelude.& describeRootFolders_marker
           Lens..~ rs
-          Lens.^? describeRootFoldersResponse_marker Core.. Lens._Just
+          Lens.^? describeRootFoldersResponse_marker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRootFolders where
   type
@@ -139,41 +142,41 @@ instance Core.AWSRequest DescribeRootFolders where
     Response.receiveJSON
       ( \s h x ->
           DescribeRootFoldersResponse'
-            Core.<$> (x Core..?> "Folders" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Folders" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRootFolders
+instance Prelude.Hashable DescribeRootFolders
 
-instance Core.NFData DescribeRootFolders
+instance Prelude.NFData DescribeRootFolders
 
 instance Core.ToHeaders DescribeRootFolders where
   toHeaders DescribeRootFolders' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DescribeRootFolders where
-  toPath = Core.const "/api/v1/me/root"
+  toPath = Prelude.const "/api/v1/me/root"
 
 instance Core.ToQuery DescribeRootFolders where
   toQuery DescribeRootFolders' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["limit" Core.=: limit, "marker" Core.=: marker]
 
 -- | /See:/ 'newDescribeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
   { -- | The user\'s special folders.
-    folders :: Core.Maybe [FolderMetadata],
+    folders :: Prelude.Maybe [FolderMetadata],
     -- | The marker for the next set of results.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRootFoldersResponse' with all optional fields omitted.
@@ -190,26 +193,26 @@ data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
 -- 'httpStatus', 'describeRootFoldersResponse_httpStatus' - The response's http status code.
 newDescribeRootFoldersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRootFoldersResponse
 newDescribeRootFoldersResponse pHttpStatus_ =
   DescribeRootFoldersResponse'
     { folders =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user\'s special folders.
-describeRootFoldersResponse_folders :: Lens.Lens' DescribeRootFoldersResponse (Core.Maybe [FolderMetadata])
-describeRootFoldersResponse_folders = Lens.lens (\DescribeRootFoldersResponse' {folders} -> folders) (\s@DescribeRootFoldersResponse' {} a -> s {folders = a} :: DescribeRootFoldersResponse) Core.. Lens.mapping Lens._Coerce
+describeRootFoldersResponse_folders :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe [FolderMetadata])
+describeRootFoldersResponse_folders = Lens.lens (\DescribeRootFoldersResponse' {folders} -> folders) (\s@DescribeRootFoldersResponse' {} a -> s {folders = a} :: DescribeRootFoldersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker for the next set of results.
-describeRootFoldersResponse_marker :: Lens.Lens' DescribeRootFoldersResponse (Core.Maybe Core.Text)
+describeRootFoldersResponse_marker :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe Prelude.Text)
 describeRootFoldersResponse_marker = Lens.lens (\DescribeRootFoldersResponse' {marker} -> marker) (\s@DescribeRootFoldersResponse' {} a -> s {marker = a} :: DescribeRootFoldersResponse)
 
 -- | The response's http status code.
-describeRootFoldersResponse_httpStatus :: Lens.Lens' DescribeRootFoldersResponse Core.Int
+describeRootFoldersResponse_httpStatus :: Lens.Lens' DescribeRootFoldersResponse Prelude.Int
 describeRootFoldersResponse_httpStatus = Lens.lens (\DescribeRootFoldersResponse' {httpStatus} -> httpStatus) (\s@DescribeRootFoldersResponse' {} a -> s {httpStatus = a} :: DescribeRootFoldersResponse)
 
-instance Core.NFData DescribeRootFoldersResponse
+instance Prelude.NFData DescribeRootFoldersResponse

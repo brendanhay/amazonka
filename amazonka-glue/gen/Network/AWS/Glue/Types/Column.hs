@@ -21,21 +21,22 @@ module Network.AWS.Glue.Types.Column where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A column in a @Table@.
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
   { -- | A free-form text comment.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The data type of the @Column@.
-    type' :: Core.Maybe Core.Text,
+    type' :: Prelude.Maybe Prelude.Text,
     -- | These key-value pairs define properties associated with the column.
-    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the @Column@.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Column' with all optional fields omitted.
@@ -54,30 +55,30 @@ data Column = Column'
 -- 'name', 'column_name' - The name of the @Column@.
 newColumn ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Column
 newColumn pName_ =
   Column'
-    { comment = Core.Nothing,
-      type' = Core.Nothing,
-      parameters = Core.Nothing,
+    { comment = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       name = pName_
     }
 
 -- | A free-form text comment.
-column_comment :: Lens.Lens' Column (Core.Maybe Core.Text)
+column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
 column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s {comment = a} :: Column)
 
 -- | The data type of the @Column@.
-column_type :: Lens.Lens' Column (Core.Maybe Core.Text)
+column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
 -- | These key-value pairs define properties associated with the column.
-column_parameters :: Lens.Lens' Column (Core.Maybe (Core.HashMap Core.Text Core.Text))
-column_parameters = Lens.lens (\Column' {parameters} -> parameters) (\s@Column' {} a -> s {parameters = a} :: Column) Core.. Lens.mapping Lens._Coerce
+column_parameters :: Lens.Lens' Column (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+column_parameters = Lens.lens (\Column' {parameters} -> parameters) (\s@Column' {} a -> s {parameters = a} :: Column) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the @Column@.
-column_name :: Lens.Lens' Column Core.Text
+column_name :: Lens.Lens' Column Prelude.Text
 column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = a} :: Column)
 
 instance Core.FromJSON Column where
@@ -86,23 +87,23 @@ instance Core.FromJSON Column where
       "Column"
       ( \x ->
           Column'
-            Core.<$> (x Core..:? "Comment")
-            Core.<*> (x Core..:? "Type")
-            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..:? "Comment")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable Column
+instance Prelude.Hashable Column
 
-instance Core.NFData Column
+instance Prelude.NFData Column
 
 instance Core.ToJSON Column where
   toJSON Column' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Comment" Core..=) Core.<$> comment,
-            ("Type" Core..=) Core.<$> type',
-            ("Parameters" Core..=) Core.<$> parameters,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Comment" Core..=) Prelude.<$> comment,
+            ("Type" Core..=) Prelude.<$> type',
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Core..= name)
           ]
       )

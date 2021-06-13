@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the possible values for a continuous hyperparameter.
 --
 -- /See:/ 'newContinuousParameterRangeSpecification' smart constructor.
 data ContinuousParameterRangeSpecification = ContinuousParameterRangeSpecification'
   { -- | The minimum floating-point value allowed.
-    minValue :: Core.Text,
+    minValue :: Prelude.Text,
     -- | The maximum floating-point value allowed.
-    maxValue :: Core.Text
+    maxValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContinuousParameterRangeSpecification' with all optional fields omitted.
@@ -46,9 +47,9 @@ data ContinuousParameterRangeSpecification = ContinuousParameterRangeSpecificati
 -- 'maxValue', 'continuousParameterRangeSpecification_maxValue' - The maximum floating-point value allowed.
 newContinuousParameterRangeSpecification ::
   -- | 'minValue'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'maxValue'
-  Core.Text ->
+  Prelude.Text ->
   ContinuousParameterRangeSpecification
 newContinuousParameterRangeSpecification
   pMinValue_
@@ -60,11 +61,11 @@ newContinuousParameterRangeSpecification
       }
 
 -- | The minimum floating-point value allowed.
-continuousParameterRangeSpecification_minValue :: Lens.Lens' ContinuousParameterRangeSpecification Core.Text
+continuousParameterRangeSpecification_minValue :: Lens.Lens' ContinuousParameterRangeSpecification Prelude.Text
 continuousParameterRangeSpecification_minValue = Lens.lens (\ContinuousParameterRangeSpecification' {minValue} -> minValue) (\s@ContinuousParameterRangeSpecification' {} a -> s {minValue = a} :: ContinuousParameterRangeSpecification)
 
 -- | The maximum floating-point value allowed.
-continuousParameterRangeSpecification_maxValue :: Lens.Lens' ContinuousParameterRangeSpecification Core.Text
+continuousParameterRangeSpecification_maxValue :: Lens.Lens' ContinuousParameterRangeSpecification Prelude.Text
 continuousParameterRangeSpecification_maxValue = Lens.lens (\ContinuousParameterRangeSpecification' {maxValue} -> maxValue) (\s@ContinuousParameterRangeSpecification' {} a -> s {maxValue = a} :: ContinuousParameterRangeSpecification)
 
 instance
@@ -76,16 +77,16 @@ instance
       "ContinuousParameterRangeSpecification"
       ( \x ->
           ContinuousParameterRangeSpecification'
-            Core.<$> (x Core..: "MinValue")
-            Core.<*> (x Core..: "MaxValue")
+            Prelude.<$> (x Core..: "MinValue")
+            Prelude.<*> (x Core..: "MaxValue")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ContinuousParameterRangeSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     ContinuousParameterRangeSpecification
 
 instance
@@ -94,8 +95,8 @@ instance
   where
   toJSON ContinuousParameterRangeSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("MinValue" Core..= minValue),
-            Core.Just ("MaxValue" Core..= maxValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("MinValue" Core..= minValue),
+            Prelude.Just ("MaxValue" Core..= maxValue)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.DataQualityJobInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 
 -- | The input for the data quality monitoring job. Currently endpoints are
@@ -30,7 +31,7 @@ import Network.AWS.SageMaker.Types.EndpointInput
 data DataQualityJobInput = DataQualityJobInput'
   { endpointInput :: EndpointInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataQualityJobInput' with all optional fields omitted.
@@ -61,16 +62,18 @@ instance Core.FromJSON DataQualityJobInput where
       "DataQualityJobInput"
       ( \x ->
           DataQualityJobInput'
-            Core.<$> (x Core..: "EndpointInput")
+            Prelude.<$> (x Core..: "EndpointInput")
       )
 
-instance Core.Hashable DataQualityJobInput
+instance Prelude.Hashable DataQualityJobInput
 
-instance Core.NFData DataQualityJobInput
+instance Prelude.NFData DataQualityJobInput
 
 instance Core.ToJSON DataQualityJobInput where
   toJSON DataQualityJobInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("EndpointInput" Core..= endpointInput)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("EndpointInput" Core..= endpointInput)
+          ]
       )

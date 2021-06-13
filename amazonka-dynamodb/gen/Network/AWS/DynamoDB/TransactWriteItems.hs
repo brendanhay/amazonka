@@ -101,6 +101,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -110,8 +111,8 @@ data TransactWriteItems = TransactWriteItems'
     -- @SIZE@, the response includes statistics about item collections (if
     -- any), that were modified during the operation and are returned in the
     -- response. If set to @NONE@ (the default), no statistics are returned.
-    returnItemCollectionMetrics :: Core.Maybe ReturnItemCollectionMetrics,
-    returnConsumedCapacity :: Core.Maybe ReturnConsumedCapacity,
+    returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
+    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | Providing a @ClientRequestToken@ makes the call to @TransactWriteItems@
     -- idempotent, meaning that multiple identical calls have the same effect
     -- as one single call.
@@ -133,15 +134,15 @@ data TransactWriteItems = TransactWriteItems'
     -- If you submit a request with the same client token but a change in other
     -- parameters within the 10-minute idempotency window, DynamoDB returns an
     -- @IdempotentParameterMismatch@ exception.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which
     -- contains a @ConditionCheck@, @Put@, @Update@, or @Delete@ object. These
     -- can operate on items in different tables, but the tables must reside in
     -- the same AWS account and Region, and no two of them can operate on the
     -- same item.
-    transactItems :: Core.NonEmpty TransactWriteItem
+    transactItems :: Prelude.NonEmpty TransactWriteItem
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransactWriteItems' with all optional fields omitted.
@@ -187,14 +188,14 @@ data TransactWriteItems = TransactWriteItems'
 -- same item.
 newTransactWriteItems ::
   -- | 'transactItems'
-  Core.NonEmpty TransactWriteItem ->
+  Prelude.NonEmpty TransactWriteItem ->
   TransactWriteItems
 newTransactWriteItems pTransactItems_ =
   TransactWriteItems'
     { returnItemCollectionMetrics =
-        Core.Nothing,
-      returnConsumedCapacity = Core.Nothing,
-      clientRequestToken = Core.Nothing,
+        Prelude.Nothing,
+      returnConsumedCapacity = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       transactItems = Lens._Coerce Lens.# pTransactItems_
     }
 
@@ -202,11 +203,11 @@ newTransactWriteItems pTransactItems_ =
 -- @SIZE@, the response includes statistics about item collections (if
 -- any), that were modified during the operation and are returned in the
 -- response. If set to @NONE@ (the default), no statistics are returned.
-transactWriteItems_returnItemCollectionMetrics :: Lens.Lens' TransactWriteItems (Core.Maybe ReturnItemCollectionMetrics)
+transactWriteItems_returnItemCollectionMetrics :: Lens.Lens' TransactWriteItems (Prelude.Maybe ReturnItemCollectionMetrics)
 transactWriteItems_returnItemCollectionMetrics = Lens.lens (\TransactWriteItems' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@TransactWriteItems' {} a -> s {returnItemCollectionMetrics = a} :: TransactWriteItems)
 
 -- | Undocumented member.
-transactWriteItems_returnConsumedCapacity :: Lens.Lens' TransactWriteItems (Core.Maybe ReturnConsumedCapacity)
+transactWriteItems_returnConsumedCapacity :: Lens.Lens' TransactWriteItems (Prelude.Maybe ReturnConsumedCapacity)
 transactWriteItems_returnConsumedCapacity = Lens.lens (\TransactWriteItems' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@TransactWriteItems' {} a -> s {returnConsumedCapacity = a} :: TransactWriteItems)
 
 -- | Providing a @ClientRequestToken@ makes the call to @TransactWriteItems@
@@ -230,7 +231,7 @@ transactWriteItems_returnConsumedCapacity = Lens.lens (\TransactWriteItems' {ret
 -- If you submit a request with the same client token but a change in other
 -- parameters within the 10-minute idempotency window, DynamoDB returns an
 -- @IdempotentParameterMismatch@ exception.
-transactWriteItems_clientRequestToken :: Lens.Lens' TransactWriteItems (Core.Maybe Core.Text)
+transactWriteItems_clientRequestToken :: Lens.Lens' TransactWriteItems (Prelude.Maybe Prelude.Text)
 transactWriteItems_clientRequestToken = Lens.lens (\TransactWriteItems' {clientRequestToken} -> clientRequestToken) (\s@TransactWriteItems' {} a -> s {clientRequestToken = a} :: TransactWriteItems)
 
 -- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which
@@ -238,8 +239,8 @@ transactWriteItems_clientRequestToken = Lens.lens (\TransactWriteItems' {clientR
 -- can operate on items in different tables, but the tables must reside in
 -- the same AWS account and Region, and no two of them can operate on the
 -- same item.
-transactWriteItems_transactItems :: Lens.Lens' TransactWriteItems (Core.NonEmpty TransactWriteItem)
-transactWriteItems_transactItems = Lens.lens (\TransactWriteItems' {transactItems} -> transactItems) (\s@TransactWriteItems' {} a -> s {transactItems = a} :: TransactWriteItems) Core.. Lens._Coerce
+transactWriteItems_transactItems :: Lens.Lens' TransactWriteItems (Prelude.NonEmpty TransactWriteItem)
+transactWriteItems_transactItems = Lens.lens (\TransactWriteItems' {transactItems} -> transactItems) (\s@TransactWriteItems' {} a -> s {transactItems = a} :: TransactWriteItems) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TransactWriteItems where
   type
@@ -250,64 +251,69 @@ instance Core.AWSRequest TransactWriteItems where
     Response.receiveJSON
       ( \s h x ->
           TransactWriteItemsResponse'
-            Core.<$> ( x Core..?> "ItemCollectionMetrics"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "ConsumedCapacity" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ItemCollectionMetrics"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "ConsumedCapacity"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TransactWriteItems
+instance Prelude.Hashable TransactWriteItems
 
-instance Core.NFData TransactWriteItems
+instance Prelude.NFData TransactWriteItems
 
 instance Core.ToHeaders TransactWriteItems where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.TransactWriteItems" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TransactWriteItems where
   toJSON TransactWriteItems' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReturnItemCollectionMetrics" Core..=)
-              Core.<$> returnItemCollectionMetrics,
+              Prelude.<$> returnItemCollectionMetrics,
             ("ReturnConsumedCapacity" Core..=)
-              Core.<$> returnConsumedCapacity,
+              Prelude.<$> returnConsumedCapacity,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just ("TransactItems" Core..= transactItems)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just
+              ("TransactItems" Core..= transactItems)
           ]
       )
 
 instance Core.ToPath TransactWriteItems where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TransactWriteItems where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTransactWriteItemsResponse' smart constructor.
 data TransactWriteItemsResponse = TransactWriteItemsResponse'
   { -- | A list of tables that were processed by @TransactWriteItems@ and, for
     -- each table, information about any item collections that were affected by
     -- individual @UpdateItem@, @PutItem@, or @DeleteItem@ operations.
-    itemCollectionMetrics :: Core.Maybe (Core.HashMap Core.Text [ItemCollectionMetrics]),
+    itemCollectionMetrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ItemCollectionMetrics]),
     -- | The capacity units consumed by the entire @TransactWriteItems@
     -- operation. The values of the list are ordered according to the ordering
     -- of the @TransactItems@ request parameter.
-    consumedCapacity :: Core.Maybe [ConsumedCapacity],
+    consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransactWriteItemsResponse' with all optional fields omitted.
@@ -328,30 +334,30 @@ data TransactWriteItemsResponse = TransactWriteItemsResponse'
 -- 'httpStatus', 'transactWriteItemsResponse_httpStatus' - The response's http status code.
 newTransactWriteItemsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TransactWriteItemsResponse
 newTransactWriteItemsResponse pHttpStatus_ =
   TransactWriteItemsResponse'
     { itemCollectionMetrics =
-        Core.Nothing,
-      consumedCapacity = Core.Nothing,
+        Prelude.Nothing,
+      consumedCapacity = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of tables that were processed by @TransactWriteItems@ and, for
 -- each table, information about any item collections that were affected by
 -- individual @UpdateItem@, @PutItem@, or @DeleteItem@ operations.
-transactWriteItemsResponse_itemCollectionMetrics :: Lens.Lens' TransactWriteItemsResponse (Core.Maybe (Core.HashMap Core.Text [ItemCollectionMetrics]))
-transactWriteItemsResponse_itemCollectionMetrics = Lens.lens (\TransactWriteItemsResponse' {itemCollectionMetrics} -> itemCollectionMetrics) (\s@TransactWriteItemsResponse' {} a -> s {itemCollectionMetrics = a} :: TransactWriteItemsResponse) Core.. Lens.mapping Lens._Coerce
+transactWriteItemsResponse_itemCollectionMetrics :: Lens.Lens' TransactWriteItemsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ItemCollectionMetrics]))
+transactWriteItemsResponse_itemCollectionMetrics = Lens.lens (\TransactWriteItemsResponse' {itemCollectionMetrics} -> itemCollectionMetrics) (\s@TransactWriteItemsResponse' {} a -> s {itemCollectionMetrics = a} :: TransactWriteItemsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The capacity units consumed by the entire @TransactWriteItems@
 -- operation. The values of the list are ordered according to the ordering
 -- of the @TransactItems@ request parameter.
-transactWriteItemsResponse_consumedCapacity :: Lens.Lens' TransactWriteItemsResponse (Core.Maybe [ConsumedCapacity])
-transactWriteItemsResponse_consumedCapacity = Lens.lens (\TransactWriteItemsResponse' {consumedCapacity} -> consumedCapacity) (\s@TransactWriteItemsResponse' {} a -> s {consumedCapacity = a} :: TransactWriteItemsResponse) Core.. Lens.mapping Lens._Coerce
+transactWriteItemsResponse_consumedCapacity :: Lens.Lens' TransactWriteItemsResponse (Prelude.Maybe [ConsumedCapacity])
+transactWriteItemsResponse_consumedCapacity = Lens.lens (\TransactWriteItemsResponse' {consumedCapacity} -> consumedCapacity) (\s@TransactWriteItemsResponse' {} a -> s {consumedCapacity = a} :: TransactWriteItemsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-transactWriteItemsResponse_httpStatus :: Lens.Lens' TransactWriteItemsResponse Core.Int
+transactWriteItemsResponse_httpStatus :: Lens.Lens' TransactWriteItemsResponse Prelude.Int
 transactWriteItemsResponse_httpStatus = Lens.lens (\TransactWriteItemsResponse' {httpStatus} -> httpStatus) (\s@TransactWriteItemsResponse' {} a -> s {httpStatus = a} :: TransactWriteItemsResponse)
 
-instance Core.NFData TransactWriteItemsResponse
+instance Prelude.NFData TransactWriteItemsResponse

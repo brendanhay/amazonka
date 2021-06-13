@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -52,11 +53,11 @@ import Network.AWS.WorkMail.Types
 data GetMailboxDetails = GetMailboxDetails'
   { -- | The identifier for the organization that contains the user whose mailbox
     -- details are being requested.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The identifier for the user whose mailbox details are being requested.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMailboxDetails' with all optional fields omitted.
@@ -72,9 +73,9 @@ data GetMailboxDetails = GetMailboxDetails'
 -- 'userId', 'getMailboxDetails_userId' - The identifier for the user whose mailbox details are being requested.
 newGetMailboxDetails ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   GetMailboxDetails
 newGetMailboxDetails pOrganizationId_ pUserId_ =
   GetMailboxDetails'
@@ -85,11 +86,11 @@ newGetMailboxDetails pOrganizationId_ pUserId_ =
 
 -- | The identifier for the organization that contains the user whose mailbox
 -- details are being requested.
-getMailboxDetails_organizationId :: Lens.Lens' GetMailboxDetails Core.Text
+getMailboxDetails_organizationId :: Lens.Lens' GetMailboxDetails Prelude.Text
 getMailboxDetails_organizationId = Lens.lens (\GetMailboxDetails' {organizationId} -> organizationId) (\s@GetMailboxDetails' {} a -> s {organizationId = a} :: GetMailboxDetails)
 
 -- | The identifier for the user whose mailbox details are being requested.
-getMailboxDetails_userId :: Lens.Lens' GetMailboxDetails Core.Text
+getMailboxDetails_userId :: Lens.Lens' GetMailboxDetails Prelude.Text
 getMailboxDetails_userId = Lens.lens (\GetMailboxDetails' {userId} -> userId) (\s@GetMailboxDetails' {} a -> s {userId = a} :: GetMailboxDetails)
 
 instance Core.AWSRequest GetMailboxDetails where
@@ -101,53 +102,56 @@ instance Core.AWSRequest GetMailboxDetails where
     Response.receiveJSON
       ( \s h x ->
           GetMailboxDetailsResponse'
-            Core.<$> (x Core..?> "MailboxQuota")
-            Core.<*> (x Core..?> "MailboxSize")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "MailboxQuota")
+            Prelude.<*> (x Core..?> "MailboxSize")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetMailboxDetails
+instance Prelude.Hashable GetMailboxDetails
 
-instance Core.NFData GetMailboxDetails
+instance Prelude.NFData GetMailboxDetails
 
 instance Core.ToHeaders GetMailboxDetails where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.GetMailboxDetails" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetMailboxDetails where
   toJSON GetMailboxDetails' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("UserId" Core..= userId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("UserId" Core..= userId)
           ]
       )
 
 instance Core.ToPath GetMailboxDetails where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetMailboxDetails where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMailboxDetailsResponse' smart constructor.
 data GetMailboxDetailsResponse = GetMailboxDetailsResponse'
   { -- | The maximum allowed mailbox size, in MB, for the specified user.
-    mailboxQuota :: Core.Maybe Core.Natural,
+    mailboxQuota :: Prelude.Maybe Prelude.Natural,
     -- | The current mailbox size, in MB, for the specified user.
-    mailboxSize :: Core.Maybe Core.Double,
+    mailboxSize :: Prelude.Maybe Prelude.Double,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMailboxDetailsResponse' with all optional fields omitted.
@@ -164,26 +168,26 @@ data GetMailboxDetailsResponse = GetMailboxDetailsResponse'
 -- 'httpStatus', 'getMailboxDetailsResponse_httpStatus' - The response's http status code.
 newGetMailboxDetailsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetMailboxDetailsResponse
 newGetMailboxDetailsResponse pHttpStatus_ =
   GetMailboxDetailsResponse'
     { mailboxQuota =
-        Core.Nothing,
-      mailboxSize = Core.Nothing,
+        Prelude.Nothing,
+      mailboxSize = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The maximum allowed mailbox size, in MB, for the specified user.
-getMailboxDetailsResponse_mailboxQuota :: Lens.Lens' GetMailboxDetailsResponse (Core.Maybe Core.Natural)
+getMailboxDetailsResponse_mailboxQuota :: Lens.Lens' GetMailboxDetailsResponse (Prelude.Maybe Prelude.Natural)
 getMailboxDetailsResponse_mailboxQuota = Lens.lens (\GetMailboxDetailsResponse' {mailboxQuota} -> mailboxQuota) (\s@GetMailboxDetailsResponse' {} a -> s {mailboxQuota = a} :: GetMailboxDetailsResponse)
 
 -- | The current mailbox size, in MB, for the specified user.
-getMailboxDetailsResponse_mailboxSize :: Lens.Lens' GetMailboxDetailsResponse (Core.Maybe Core.Double)
+getMailboxDetailsResponse_mailboxSize :: Lens.Lens' GetMailboxDetailsResponse (Prelude.Maybe Prelude.Double)
 getMailboxDetailsResponse_mailboxSize = Lens.lens (\GetMailboxDetailsResponse' {mailboxSize} -> mailboxSize) (\s@GetMailboxDetailsResponse' {} a -> s {mailboxSize = a} :: GetMailboxDetailsResponse)
 
 -- | The response's http status code.
-getMailboxDetailsResponse_httpStatus :: Lens.Lens' GetMailboxDetailsResponse Core.Int
+getMailboxDetailsResponse_httpStatus :: Lens.Lens' GetMailboxDetailsResponse Prelude.Int
 getMailboxDetailsResponse_httpStatus = Lens.lens (\GetMailboxDetailsResponse' {httpStatus} -> httpStatus) (\s@GetMailboxDetailsResponse' {} a -> s {httpStatus = a} :: GetMailboxDetailsResponse)
 
-instance Core.NFData GetMailboxDetailsResponse
+instance Prelude.NFData GetMailboxDetailsResponse

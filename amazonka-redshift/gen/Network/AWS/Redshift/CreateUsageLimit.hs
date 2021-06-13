@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,14 +65,14 @@ data CreateUsageLimit = CreateUsageLimit'
   { -- | The action that Amazon Redshift takes when the limit is reached. The
     -- default is log. For more information about this parameter, see
     -- UsageLimit.
-    breachAction :: Core.Maybe UsageLimitBreachAction,
+    breachAction :: Prelude.Maybe UsageLimitBreachAction,
     -- | A list of tag instances.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The time period that the amount applies to. A @weekly@ period begins on
     -- Sunday. The default is @monthly@.
-    period :: Core.Maybe UsageLimitPeriod,
+    period :: Prelude.Maybe UsageLimitPeriod,
     -- | The identifier of the cluster that you want to limit usage.
-    clusterIdentifier :: Core.Text,
+    clusterIdentifier :: Prelude.Text,
     -- | The Amazon Redshift feature that you want to limit.
     featureType :: UsageLimitFeatureType,
     -- | The type of limit. Depending on the feature type, this can be based on a
@@ -82,9 +83,9 @@ data CreateUsageLimit = CreateUsageLimit'
     -- | The limit amount. If time-based, this amount is in minutes. If
     -- data-based, this amount is in terabytes (TB). The value must be a
     -- positive number.
-    amount :: Core.Integer
+    amount :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUsageLimit' with all optional fields omitted.
@@ -117,13 +118,13 @@ data CreateUsageLimit = CreateUsageLimit'
 -- positive number.
 newCreateUsageLimit ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'featureType'
   UsageLimitFeatureType ->
   -- | 'limitType'
   UsageLimitLimitType ->
   -- | 'amount'
-  Core.Integer ->
+  Prelude.Integer ->
   CreateUsageLimit
 newCreateUsageLimit
   pClusterIdentifier_
@@ -131,9 +132,9 @@ newCreateUsageLimit
   pLimitType_
   pAmount_ =
     CreateUsageLimit'
-      { breachAction = Core.Nothing,
-        tags = Core.Nothing,
-        period = Core.Nothing,
+      { breachAction = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        period = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         featureType = pFeatureType_,
         limitType = pLimitType_,
@@ -143,20 +144,20 @@ newCreateUsageLimit
 -- | The action that Amazon Redshift takes when the limit is reached. The
 -- default is log. For more information about this parameter, see
 -- UsageLimit.
-createUsageLimit_breachAction :: Lens.Lens' CreateUsageLimit (Core.Maybe UsageLimitBreachAction)
+createUsageLimit_breachAction :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitBreachAction)
 createUsageLimit_breachAction = Lens.lens (\CreateUsageLimit' {breachAction} -> breachAction) (\s@CreateUsageLimit' {} a -> s {breachAction = a} :: CreateUsageLimit)
 
 -- | A list of tag instances.
-createUsageLimit_tags :: Lens.Lens' CreateUsageLimit (Core.Maybe [Tag])
-createUsageLimit_tags = Lens.lens (\CreateUsageLimit' {tags} -> tags) (\s@CreateUsageLimit' {} a -> s {tags = a} :: CreateUsageLimit) Core.. Lens.mapping Lens._Coerce
+createUsageLimit_tags :: Lens.Lens' CreateUsageLimit (Prelude.Maybe [Tag])
+createUsageLimit_tags = Lens.lens (\CreateUsageLimit' {tags} -> tags) (\s@CreateUsageLimit' {} a -> s {tags = a} :: CreateUsageLimit) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time period that the amount applies to. A @weekly@ period begins on
 -- Sunday. The default is @monthly@.
-createUsageLimit_period :: Lens.Lens' CreateUsageLimit (Core.Maybe UsageLimitPeriod)
+createUsageLimit_period :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitPeriod)
 createUsageLimit_period = Lens.lens (\CreateUsageLimit' {period} -> period) (\s@CreateUsageLimit' {} a -> s {period = a} :: CreateUsageLimit)
 
 -- | The identifier of the cluster that you want to limit usage.
-createUsageLimit_clusterIdentifier :: Lens.Lens' CreateUsageLimit Core.Text
+createUsageLimit_clusterIdentifier :: Lens.Lens' CreateUsageLimit Prelude.Text
 createUsageLimit_clusterIdentifier = Lens.lens (\CreateUsageLimit' {clusterIdentifier} -> clusterIdentifier) (\s@CreateUsageLimit' {} a -> s {clusterIdentifier = a} :: CreateUsageLimit)
 
 -- | The Amazon Redshift feature that you want to limit.
@@ -173,7 +174,7 @@ createUsageLimit_limitType = Lens.lens (\CreateUsageLimit' {limitType} -> limitT
 -- | The limit amount. If time-based, this amount is in minutes. If
 -- data-based, this amount is in terabytes (TB). The value must be a
 -- positive number.
-createUsageLimit_amount :: Lens.Lens' CreateUsageLimit Core.Integer
+createUsageLimit_amount :: Lens.Lens' CreateUsageLimit Prelude.Integer
 createUsageLimit_amount = Lens.lens (\CreateUsageLimit' {amount} -> amount) (\s@CreateUsageLimit' {} a -> s {amount = a} :: CreateUsageLimit)
 
 instance Core.AWSRequest CreateUsageLimit where
@@ -184,25 +185,27 @@ instance Core.AWSRequest CreateUsageLimit where
       "CreateUsageLimitResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable CreateUsageLimit
+instance Prelude.Hashable CreateUsageLimit
 
-instance Core.NFData CreateUsageLimit
+instance Prelude.NFData CreateUsageLimit
 
 instance Core.ToHeaders CreateUsageLimit where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateUsageLimit where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateUsageLimit where
   toQuery CreateUsageLimit' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateUsageLimit" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("CreateUsageLimit" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "BreachAction" Core.=: breachAction,
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "Period" Core.=: period,
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "FeatureType" Core.=: featureType,

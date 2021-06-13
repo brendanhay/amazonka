@@ -141,6 +141,7 @@ import Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
 import Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange
 import Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-30@ of the Amazon Kinesis Video Streams Archived Media SDK configuration.
@@ -155,7 +156,7 @@ defaultService =
       Core._serviceVersion = "2017-09-30",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError =
         Core.parseJSONError "KinesisVideoArchivedMedia",
@@ -171,95 +172,97 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | One or more frames in the requested clip could not be parsed based on
 -- the specified codec.
-_InvalidMediaFrameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidMediaFrameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidMediaFrameException =
   Core._MatchServiceError
     defaultService
     "InvalidMediaFrameException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Kinesis Video Streams has throttled the request because you have
 -- exceeded the limit of allowed client calls. Try making the call later.
-_ClientLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClientLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClientLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ClientLimitExceededException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The codec private data in at least one of the tracks of the video stream
 -- is not valid for this operation.
-_InvalidCodecPrivateDataException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidCodecPrivateDataException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidCodecPrivateDataException =
   Core._MatchServiceError
     defaultService
     "InvalidCodecPrivateDataException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A streaming session was requested for a stream that does not retain data
 -- (that is, has a @DataRetentionInHours@ of 0).
-_NoDataRetentionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoDataRetentionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoDataRetentionException =
   Core._MatchServiceError
     defaultService
     "NoDataRetentionException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The type of the media (for example, h.264 or h.265 video or ACC or G.711
 -- audio) could not be determined from the codec IDs of the tracks in the
 -- first fragment for a playback session. The codec ID for track 1 should
 -- be @V_MPEG\/ISO\/AVC@ and, optionally, the codec ID for track 2 should
 -- be @A_AAC@.
-_UnsupportedStreamMediaTypeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedStreamMediaTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedStreamMediaTypeException =
   Core._MatchServiceError
     defaultService
     "UnsupportedStreamMediaTypeException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | @GetMedia@ throws this error when Kinesis Video Streams can\'t find the
 -- stream that you specified.
@@ -269,36 +272,36 @@ _UnsupportedStreamMediaTypeException =
 -- @LIVE_REPLAY@is requested for a stream that has no fragments within the
 -- requested time range, or if a session with a @PlaybackMode@ of @LIVE@ is
 -- requested for a stream that has no fragments within the last 30 seconds.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | No codec private data was found in at least one of tracks of the video
 -- stream.
-_MissingCodecPrivateDataException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MissingCodecPrivateDataException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingCodecPrivateDataException =
   Core._MatchServiceError
     defaultService
     "MissingCodecPrivateDataException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Status Code: 403, The caller is not authorized to perform an operation
 -- on the given stream, or the token has expired.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
     "NotAuthorizedException"
-    Core.. Core.hasStatus 401
+    Prelude.. Core.hasStatus 401
 
 -- | A specified parameter exceeds its restrictions, is not supported, or
 -- can\'t be used.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
     "InvalidArgumentException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400

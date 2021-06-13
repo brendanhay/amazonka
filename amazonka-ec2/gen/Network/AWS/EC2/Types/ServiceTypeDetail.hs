@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ServiceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the type of service for a VPC endpoint.
 --
 -- /See:/ 'newServiceTypeDetail' smart constructor.
 data ServiceTypeDetail = ServiceTypeDetail'
   { -- | The type of service.
-    serviceType :: Core.Maybe ServiceType
+    serviceType :: Prelude.Maybe ServiceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceTypeDetail' with all optional fields omitted.
@@ -45,17 +46,17 @@ data ServiceTypeDetail = ServiceTypeDetail'
 newServiceTypeDetail ::
   ServiceTypeDetail
 newServiceTypeDetail =
-  ServiceTypeDetail' {serviceType = Core.Nothing}
+  ServiceTypeDetail' {serviceType = Prelude.Nothing}
 
 -- | The type of service.
-serviceTypeDetail_serviceType :: Lens.Lens' ServiceTypeDetail (Core.Maybe ServiceType)
+serviceTypeDetail_serviceType :: Lens.Lens' ServiceTypeDetail (Prelude.Maybe ServiceType)
 serviceTypeDetail_serviceType = Lens.lens (\ServiceTypeDetail' {serviceType} -> serviceType) (\s@ServiceTypeDetail' {} a -> s {serviceType = a} :: ServiceTypeDetail)
 
 instance Core.FromXML ServiceTypeDetail where
   parseXML x =
     ServiceTypeDetail'
-      Core.<$> (x Core..@? "serviceType")
+      Prelude.<$> (x Core..@? "serviceType")
 
-instance Core.Hashable ServiceTypeDetail
+instance Prelude.Hashable ServiceTypeDetail
 
-instance Core.NFData ServiceTypeDetail
+instance Prelude.NFData ServiceTypeDetail

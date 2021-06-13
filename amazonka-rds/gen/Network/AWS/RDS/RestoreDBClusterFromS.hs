@@ -90,6 +90,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -104,13 +105,13 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- Constraints:
     --
     -- -   Must be a value from 1 to 35
-    backupRetentionPeriod :: Core.Maybe Core.Int,
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether the DB cluster has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
     -- enabled. By default, deletion protection is disabled.
-    deletionProtection :: Core.Maybe Core.Bool,
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether the restored DB cluster is encrypted.
-    storageEncrypted :: Core.Maybe Core.Bool,
+    storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The daily time range during which automated backups are created if
     -- automated backups are enabled using the @BackupRetentionPeriod@
     -- parameter.
@@ -129,10 +130,10 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- -   Must not conflict with the preferred maintenance window.
     --
     -- -   Must be at least 30 minutes.
-    preferredBackupWindow :: Core.Maybe Core.Text,
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | A list of Availability Zones (AZs) where instances in the restored DB
     -- cluster can be created.
-    availabilityZones :: Core.Maybe [Core.Text],
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates whether to enable mapping of AWS Identity and
     -- Access Management (IAM) accounts to database accounts. By default,
     -- mapping is disabled.
@@ -140,20 +141,20 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
     -- in the /Amazon Aurora User Guide./
-    enableIAMDatabaseAuthentication :: Core.Maybe Core.Bool,
+    enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | The list of logs that the restored DB cluster is to export to CloudWatch
     -- Logs. The values in the list depend on the DB engine being used. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
     -- in the /Amazon Aurora User Guide/.
-    enableCloudwatchLogsExports :: Core.Maybe [Core.Text],
+    enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates that the restored DB cluster should be associated
     -- with the specified option group.
     --
     -- Permanent options can\'t be removed from an option group. An option
     -- group can\'t be removed from a DB cluster once it is associated with a
     -- DB cluster.
-    optionGroupName :: Core.Maybe Core.Text,
+    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | Specify the Active Directory directory ID to restore the DB cluster in.
     -- The domain must be created prior to this operation.
     --
@@ -162,17 +163,17 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
     -- in the /Amazon Aurora User Guide/.
-    domain :: Core.Maybe Core.Text,
+    domain :: Prelude.Maybe Prelude.Text,
     -- | A DB subnet group to associate with the restored DB cluster.
     --
     -- Constraints: If supplied, must match the name of an existing
     -- DBSubnetGroup.
     --
     -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Core.Maybe Core.Text,
+    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | A list of EC2 VPC security groups to associate with the restored DB
     -- cluster.
-    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The AWS KMS key identifier for an encrypted DB cluster.
     --
     -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
@@ -183,7 +184,7 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
     -- default CMK. There is a default CMK for your AWS account. Your AWS
     -- account has a different default CMK for each AWS Region.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the database engine to use.
     --
     -- To list all of the available engine versions for @aurora@ (for MySQL
@@ -209,7 +210,7 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- __Aurora PostgreSQL__
     --
     -- Example: @9.6.3@, @10.7@
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range during which system maintenance can occur, in
     -- Universal Coordinated Time (UTC).
     --
@@ -224,28 +225,28 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
     --
     -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates that the restored DB cluster should be associated
     -- with the specified CharacterSet.
-    characterSetName :: Core.Maybe Core.Text,
-    tags :: Core.Maybe [Tag],
+    characterSetName :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
     -- | The port number on which the instances in the restored DB cluster accept
     -- connections.
     --
     -- Default: @3306@
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | Specify the name of the IAM role to be used when making API calls to the
     -- Directory Service.
-    domainIAMRoleName :: Core.Maybe Core.Text,
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to copy all tags from the restored DB
     -- cluster to snapshots of the restored DB cluster. The default is not to
     -- copy them.
-    copyTagsToSnapshot :: Core.Maybe Core.Bool,
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The prefix for all of the file names that contain the data used to
     -- create the Amazon Aurora DB cluster. If you do not specify a
     -- __SourceS3Prefix__ value, then the Amazon Aurora DB cluster is created
     -- by using all of the files in the Amazon S3 bucket.
-    s3Prefix :: Core.Maybe Core.Text,
+    s3Prefix :: Prelude.Maybe Prelude.Text,
     -- | The target backtrack window, in seconds. To disable backtracking, set
     -- this value to 0.
     --
@@ -257,7 +258,7 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     --
     -- -   If specified, this value must be set to a number from 0 to 259,200
     --     (72 hours).
-    backtrackWindow :: Core.Maybe Core.Integer,
+    backtrackWindow :: Prelude.Maybe Prelude.Integer,
     -- | The name of the DB cluster parameter group to associate with the
     -- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
     -- used.
@@ -266,9 +267,9 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     --
     -- -   If supplied, must match the name of an existing
     --     DBClusterParameterGroup.
-    dbClusterParameterGroupName :: Core.Maybe Core.Text,
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The database name for the restored DB cluster.
-    databaseName :: Core.Maybe Core.Text,
+    databaseName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster to create from the source data in the Amazon
     -- S3 bucket. This parameter isn\'t case-sensitive.
     --
@@ -281,12 +282,12 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     --
     -- Example: @my-cluster1@
-    dbClusterIdentifier :: Core.Text,
+    dbClusterIdentifier :: Prelude.Text,
     -- | The name of the database engine to be used for this DB cluster.
     --
     -- Valid Values: @aurora@ (for MySQL 5.6-compatible Aurora), @aurora-mysql@
     -- (for MySQL 5.7-compatible Aurora), and @aurora-postgresql@
-    engine :: Core.Text,
+    engine :: Prelude.Text,
     -- | The name of the master user for the restored DB cluster.
     --
     -- Constraints:
@@ -296,32 +297,32 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- -   First character must be a letter.
     --
     -- -   Can\'t be a reserved word for the chosen database engine.
-    masterUsername :: Core.Text,
+    masterUsername :: Prelude.Text,
     -- | The password for the master database user. This password can contain any
     -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
     --
     -- Constraints: Must contain from 8 to 41 characters.
-    masterUserPassword :: Core.Text,
+    masterUserPassword :: Prelude.Text,
     -- | The identifier for the database engine that was backed up to create the
     -- files stored in the Amazon S3 bucket.
     --
     -- Valid values: @mysql@
-    sourceEngine :: Core.Text,
+    sourceEngine :: Prelude.Text,
     -- | The version of the database that the backup files were created from.
     --
     -- MySQL versions 5.5, 5.6, and 5.7 are supported.
     --
     -- Example: @5.6.40@, @5.7.28@
-    sourceEngineVersion :: Core.Text,
+    sourceEngineVersion :: Prelude.Text,
     -- | The name of the Amazon S3 bucket that contains the data used to create
     -- the Amazon Aurora DB cluster.
-    s3BucketName :: Core.Text,
+    s3BucketName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
     -- (IAM) role that authorizes Amazon RDS to access the Amazon S3 bucket on
     -- your behalf.
-    s3IngestionRoleArn :: Core.Text
+    s3IngestionRoleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreDBClusterFromS' with all optional fields omitted.
@@ -557,21 +558,21 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 -- your behalf.
 newRestoreDBClusterFromS ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'engine'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'masterUsername'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'masterUserPassword'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceEngine'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceEngineVersion'
-  Core.Text ->
+  Prelude.Text ->
   -- | 's3BucketName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 's3IngestionRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   RestoreDBClusterFromS
 newRestoreDBClusterFromS
   pDBClusterIdentifier_
@@ -584,29 +585,29 @@ newRestoreDBClusterFromS
   pS3IngestionRoleArn_ =
     RestoreDBClusterFromS'
       { backupRetentionPeriod =
-          Core.Nothing,
-        deletionProtection = Core.Nothing,
-        storageEncrypted = Core.Nothing,
-        preferredBackupWindow = Core.Nothing,
-        availabilityZones = Core.Nothing,
-        enableIAMDatabaseAuthentication = Core.Nothing,
-        enableCloudwatchLogsExports = Core.Nothing,
-        optionGroupName = Core.Nothing,
-        domain = Core.Nothing,
-        dbSubnetGroupName = Core.Nothing,
-        vpcSecurityGroupIds = Core.Nothing,
-        kmsKeyId = Core.Nothing,
-        engineVersion = Core.Nothing,
-        preferredMaintenanceWindow = Core.Nothing,
-        characterSetName = Core.Nothing,
-        tags = Core.Nothing,
-        port = Core.Nothing,
-        domainIAMRoleName = Core.Nothing,
-        copyTagsToSnapshot = Core.Nothing,
-        s3Prefix = Core.Nothing,
-        backtrackWindow = Core.Nothing,
-        dbClusterParameterGroupName = Core.Nothing,
-        databaseName = Core.Nothing,
+          Prelude.Nothing,
+        deletionProtection = Prelude.Nothing,
+        storageEncrypted = Prelude.Nothing,
+        preferredBackupWindow = Prelude.Nothing,
+        availabilityZones = Prelude.Nothing,
+        enableIAMDatabaseAuthentication = Prelude.Nothing,
+        enableCloudwatchLogsExports = Prelude.Nothing,
+        optionGroupName = Prelude.Nothing,
+        domain = Prelude.Nothing,
+        dbSubnetGroupName = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        engineVersion = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
+        characterSetName = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        port = Prelude.Nothing,
+        domainIAMRoleName = Prelude.Nothing,
+        copyTagsToSnapshot = Prelude.Nothing,
+        s3Prefix = Prelude.Nothing,
+        backtrackWindow = Prelude.Nothing,
+        dbClusterParameterGroupName = Prelude.Nothing,
+        databaseName = Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
         engine = pEngine_,
         masterUsername = pMasterUsername_,
@@ -625,17 +626,17 @@ newRestoreDBClusterFromS
 -- Constraints:
 --
 -- -   Must be a value from 1 to 35
-restoreDBClusterFromS_backupRetentionPeriod :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Int)
+restoreDBClusterFromS_backupRetentionPeriod :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Int)
 restoreDBClusterFromS_backupRetentionPeriod = Lens.lens (\RestoreDBClusterFromS' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@RestoreDBClusterFromS' {} a -> s {backupRetentionPeriod = a} :: RestoreDBClusterFromS)
 
 -- | A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled.
-restoreDBClusterFromS_deletionProtection :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Bool)
+restoreDBClusterFromS_deletionProtection :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
 restoreDBClusterFromS_deletionProtection = Lens.lens (\RestoreDBClusterFromS' {deletionProtection} -> deletionProtection) (\s@RestoreDBClusterFromS' {} a -> s {deletionProtection = a} :: RestoreDBClusterFromS)
 
 -- | A value that indicates whether the restored DB cluster is encrypted.
-restoreDBClusterFromS_storageEncrypted :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Bool)
+restoreDBClusterFromS_storageEncrypted :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
 restoreDBClusterFromS_storageEncrypted = Lens.lens (\RestoreDBClusterFromS' {storageEncrypted} -> storageEncrypted) (\s@RestoreDBClusterFromS' {} a -> s {storageEncrypted = a} :: RestoreDBClusterFromS)
 
 -- | The daily time range during which automated backups are created if
@@ -656,13 +657,13 @@ restoreDBClusterFromS_storageEncrypted = Lens.lens (\RestoreDBClusterFromS' {sto
 -- -   Must not conflict with the preferred maintenance window.
 --
 -- -   Must be at least 30 minutes.
-restoreDBClusterFromS_preferredBackupWindow :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_preferredBackupWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_preferredBackupWindow = Lens.lens (\RestoreDBClusterFromS' {preferredBackupWindow} -> preferredBackupWindow) (\s@RestoreDBClusterFromS' {} a -> s {preferredBackupWindow = a} :: RestoreDBClusterFromS)
 
 -- | A list of Availability Zones (AZs) where instances in the restored DB
 -- cluster can be created.
-restoreDBClusterFromS_availabilityZones :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe [Core.Text])
-restoreDBClusterFromS_availabilityZones = Lens.lens (\RestoreDBClusterFromS' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromS' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromS) Core.. Lens.mapping Lens._Coerce
+restoreDBClusterFromS_availabilityZones :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
+restoreDBClusterFromS_availabilityZones = Lens.lens (\RestoreDBClusterFromS' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromS' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates whether to enable mapping of AWS Identity and
 -- Access Management (IAM) accounts to database accounts. By default,
@@ -671,7 +672,7 @@ restoreDBClusterFromS_availabilityZones = Lens.lens (\RestoreDBClusterFromS' {av
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
 -- in the /Amazon Aurora User Guide./
-restoreDBClusterFromS_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Bool)
+restoreDBClusterFromS_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
 restoreDBClusterFromS_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBClusterFromS' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@RestoreDBClusterFromS' {} a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBClusterFromS)
 
 -- | The list of logs that the restored DB cluster is to export to CloudWatch
@@ -679,8 +680,8 @@ restoreDBClusterFromS_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBClu
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon Aurora User Guide/.
-restoreDBClusterFromS_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe [Core.Text])
-restoreDBClusterFromS_enableCloudwatchLogsExports = Lens.lens (\RestoreDBClusterFromS' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBClusterFromS' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBClusterFromS) Core.. Lens.mapping Lens._Coerce
+restoreDBClusterFromS_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
+restoreDBClusterFromS_enableCloudwatchLogsExports = Lens.lens (\RestoreDBClusterFromS' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBClusterFromS' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates that the restored DB cluster should be associated
 -- with the specified option group.
@@ -688,7 +689,7 @@ restoreDBClusterFromS_enableCloudwatchLogsExports = Lens.lens (\RestoreDBCluster
 -- Permanent options can\'t be removed from an option group. An option
 -- group can\'t be removed from a DB cluster once it is associated with a
 -- DB cluster.
-restoreDBClusterFromS_optionGroupName :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_optionGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_optionGroupName = Lens.lens (\RestoreDBClusterFromS' {optionGroupName} -> optionGroupName) (\s@RestoreDBClusterFromS' {} a -> s {optionGroupName = a} :: RestoreDBClusterFromS)
 
 -- | Specify the Active Directory directory ID to restore the DB cluster in.
@@ -699,7 +700,7 @@ restoreDBClusterFromS_optionGroupName = Lens.lens (\RestoreDBClusterFromS' {opti
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
 -- in the /Amazon Aurora User Guide/.
-restoreDBClusterFromS_domain :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_domain :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_domain = Lens.lens (\RestoreDBClusterFromS' {domain} -> domain) (\s@RestoreDBClusterFromS' {} a -> s {domain = a} :: RestoreDBClusterFromS)
 
 -- | A DB subnet group to associate with the restored DB cluster.
@@ -708,13 +709,13 @@ restoreDBClusterFromS_domain = Lens.lens (\RestoreDBClusterFromS' {domain} -> do
 -- DBSubnetGroup.
 --
 -- Example: @mySubnetgroup@
-restoreDBClusterFromS_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_dbSubnetGroupName = Lens.lens (\RestoreDBClusterFromS' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterFromS' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterFromS)
 
 -- | A list of EC2 VPC security groups to associate with the restored DB
 -- cluster.
-restoreDBClusterFromS_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe [Core.Text])
-restoreDBClusterFromS_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromS' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterFromS' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterFromS) Core.. Lens.mapping Lens._Coerce
+restoreDBClusterFromS_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
+restoreDBClusterFromS_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromS' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterFromS' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS KMS key identifier for an encrypted DB cluster.
 --
@@ -726,7 +727,7 @@ restoreDBClusterFromS_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromS' {
 -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
 -- default CMK. There is a default CMK for your AWS account. Your AWS
 -- account has a different default CMK for each AWS Region.
-restoreDBClusterFromS_kmsKeyId :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_kmsKeyId :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_kmsKeyId = Lens.lens (\RestoreDBClusterFromS' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBClusterFromS' {} a -> s {kmsKeyId = a} :: RestoreDBClusterFromS)
 
 -- | The version number of the database engine to use.
@@ -754,7 +755,7 @@ restoreDBClusterFromS_kmsKeyId = Lens.lens (\RestoreDBClusterFromS' {kmsKeyId} -
 -- __Aurora PostgreSQL__
 --
 -- Example: @9.6.3@, @10.7@
-restoreDBClusterFromS_engineVersion :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_engineVersion :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_engineVersion = Lens.lens (\RestoreDBClusterFromS' {engineVersion} -> engineVersion) (\s@RestoreDBClusterFromS' {} a -> s {engineVersion = a} :: RestoreDBClusterFromS)
 
 -- | The weekly time range during which system maintenance can occur, in
@@ -771,41 +772,41 @@ restoreDBClusterFromS_engineVersion = Lens.lens (\RestoreDBClusterFromS' {engine
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
 --
 -- Constraints: Minimum 30-minute window.
-restoreDBClusterFromS_preferredMaintenanceWindow :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_preferredMaintenanceWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_preferredMaintenanceWindow = Lens.lens (\RestoreDBClusterFromS' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreDBClusterFromS' {} a -> s {preferredMaintenanceWindow = a} :: RestoreDBClusterFromS)
 
 -- | A value that indicates that the restored DB cluster should be associated
 -- with the specified CharacterSet.
-restoreDBClusterFromS_characterSetName :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_characterSetName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_characterSetName = Lens.lens (\RestoreDBClusterFromS' {characterSetName} -> characterSetName) (\s@RestoreDBClusterFromS' {} a -> s {characterSetName = a} :: RestoreDBClusterFromS)
 
 -- | Undocumented member.
-restoreDBClusterFromS_tags :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe [Tag])
-restoreDBClusterFromS_tags = Lens.lens (\RestoreDBClusterFromS' {tags} -> tags) (\s@RestoreDBClusterFromS' {} a -> s {tags = a} :: RestoreDBClusterFromS) Core.. Lens.mapping Lens._Coerce
+restoreDBClusterFromS_tags :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Tag])
+restoreDBClusterFromS_tags = Lens.lens (\RestoreDBClusterFromS' {tags} -> tags) (\s@RestoreDBClusterFromS' {} a -> s {tags = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The port number on which the instances in the restored DB cluster accept
 -- connections.
 --
 -- Default: @3306@
-restoreDBClusterFromS_port :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Int)
+restoreDBClusterFromS_port :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Int)
 restoreDBClusterFromS_port = Lens.lens (\RestoreDBClusterFromS' {port} -> port) (\s@RestoreDBClusterFromS' {} a -> s {port = a} :: RestoreDBClusterFromS)
 
 -- | Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
-restoreDBClusterFromS_domainIAMRoleName :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_domainIAMRoleName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_domainIAMRoleName = Lens.lens (\RestoreDBClusterFromS' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBClusterFromS' {} a -> s {domainIAMRoleName = a} :: RestoreDBClusterFromS)
 
 -- | A value that indicates whether to copy all tags from the restored DB
 -- cluster to snapshots of the restored DB cluster. The default is not to
 -- copy them.
-restoreDBClusterFromS_copyTagsToSnapshot :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Bool)
+restoreDBClusterFromS_copyTagsToSnapshot :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
 restoreDBClusterFromS_copyTagsToSnapshot = Lens.lens (\RestoreDBClusterFromS' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBClusterFromS' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBClusterFromS)
 
 -- | The prefix for all of the file names that contain the data used to
 -- create the Amazon Aurora DB cluster. If you do not specify a
 -- __SourceS3Prefix__ value, then the Amazon Aurora DB cluster is created
 -- by using all of the files in the Amazon S3 bucket.
-restoreDBClusterFromS_s3Prefix :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_s3Prefix :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_s3Prefix = Lens.lens (\RestoreDBClusterFromS' {s3Prefix} -> s3Prefix) (\s@RestoreDBClusterFromS' {} a -> s {s3Prefix = a} :: RestoreDBClusterFromS)
 
 -- | The target backtrack window, in seconds. To disable backtracking, set
@@ -819,7 +820,7 @@ restoreDBClusterFromS_s3Prefix = Lens.lens (\RestoreDBClusterFromS' {s3Prefix} -
 --
 -- -   If specified, this value must be set to a number from 0 to 259,200
 --     (72 hours).
-restoreDBClusterFromS_backtrackWindow :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Integer)
+restoreDBClusterFromS_backtrackWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Integer)
 restoreDBClusterFromS_backtrackWindow = Lens.lens (\RestoreDBClusterFromS' {backtrackWindow} -> backtrackWindow) (\s@RestoreDBClusterFromS' {} a -> s {backtrackWindow = a} :: RestoreDBClusterFromS)
 
 -- | The name of the DB cluster parameter group to associate with the
@@ -830,11 +831,11 @@ restoreDBClusterFromS_backtrackWindow = Lens.lens (\RestoreDBClusterFromS' {back
 --
 -- -   If supplied, must match the name of an existing
 --     DBClusterParameterGroup.
-restoreDBClusterFromS_dbClusterParameterGroupName :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_dbClusterParameterGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_dbClusterParameterGroupName = Lens.lens (\RestoreDBClusterFromS' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@RestoreDBClusterFromS' {} a -> s {dbClusterParameterGroupName = a} :: RestoreDBClusterFromS)
 
 -- | The database name for the restored DB cluster.
-restoreDBClusterFromS_databaseName :: Lens.Lens' RestoreDBClusterFromS (Core.Maybe Core.Text)
+restoreDBClusterFromS_databaseName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_databaseName = Lens.lens (\RestoreDBClusterFromS' {databaseName} -> databaseName) (\s@RestoreDBClusterFromS' {} a -> s {databaseName = a} :: RestoreDBClusterFromS)
 
 -- | The name of the DB cluster to create from the source data in the Amazon
@@ -849,14 +850,14 @@ restoreDBClusterFromS_databaseName = Lens.lens (\RestoreDBClusterFromS' {databas
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @my-cluster1@
-restoreDBClusterFromS_dbClusterIdentifier :: Lens.Lens' RestoreDBClusterFromS Core.Text
+restoreDBClusterFromS_dbClusterIdentifier :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_dbClusterIdentifier = Lens.lens (\RestoreDBClusterFromS' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@RestoreDBClusterFromS' {} a -> s {dbClusterIdentifier = a} :: RestoreDBClusterFromS)
 
 -- | The name of the database engine to be used for this DB cluster.
 --
 -- Valid Values: @aurora@ (for MySQL 5.6-compatible Aurora), @aurora-mysql@
 -- (for MySQL 5.7-compatible Aurora), and @aurora-postgresql@
-restoreDBClusterFromS_engine :: Lens.Lens' RestoreDBClusterFromS Core.Text
+restoreDBClusterFromS_engine :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_engine = Lens.lens (\RestoreDBClusterFromS' {engine} -> engine) (\s@RestoreDBClusterFromS' {} a -> s {engine = a} :: RestoreDBClusterFromS)
 
 -- | The name of the master user for the restored DB cluster.
@@ -868,21 +869,21 @@ restoreDBClusterFromS_engine = Lens.lens (\RestoreDBClusterFromS' {engine} -> en
 -- -   First character must be a letter.
 --
 -- -   Can\'t be a reserved word for the chosen database engine.
-restoreDBClusterFromS_masterUsername :: Lens.Lens' RestoreDBClusterFromS Core.Text
+restoreDBClusterFromS_masterUsername :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_masterUsername = Lens.lens (\RestoreDBClusterFromS' {masterUsername} -> masterUsername) (\s@RestoreDBClusterFromS' {} a -> s {masterUsername = a} :: RestoreDBClusterFromS)
 
 -- | The password for the master database user. This password can contain any
 -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
 -- Constraints: Must contain from 8 to 41 characters.
-restoreDBClusterFromS_masterUserPassword :: Lens.Lens' RestoreDBClusterFromS Core.Text
+restoreDBClusterFromS_masterUserPassword :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_masterUserPassword = Lens.lens (\RestoreDBClusterFromS' {masterUserPassword} -> masterUserPassword) (\s@RestoreDBClusterFromS' {} a -> s {masterUserPassword = a} :: RestoreDBClusterFromS)
 
 -- | The identifier for the database engine that was backed up to create the
 -- files stored in the Amazon S3 bucket.
 --
 -- Valid values: @mysql@
-restoreDBClusterFromS_sourceEngine :: Lens.Lens' RestoreDBClusterFromS Core.Text
+restoreDBClusterFromS_sourceEngine :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_sourceEngine = Lens.lens (\RestoreDBClusterFromS' {sourceEngine} -> sourceEngine) (\s@RestoreDBClusterFromS' {} a -> s {sourceEngine = a} :: RestoreDBClusterFromS)
 
 -- | The version of the database that the backup files were created from.
@@ -890,18 +891,18 @@ restoreDBClusterFromS_sourceEngine = Lens.lens (\RestoreDBClusterFromS' {sourceE
 -- MySQL versions 5.5, 5.6, and 5.7 are supported.
 --
 -- Example: @5.6.40@, @5.7.28@
-restoreDBClusterFromS_sourceEngineVersion :: Lens.Lens' RestoreDBClusterFromS Core.Text
+restoreDBClusterFromS_sourceEngineVersion :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_sourceEngineVersion = Lens.lens (\RestoreDBClusterFromS' {sourceEngineVersion} -> sourceEngineVersion) (\s@RestoreDBClusterFromS' {} a -> s {sourceEngineVersion = a} :: RestoreDBClusterFromS)
 
 -- | The name of the Amazon S3 bucket that contains the data used to create
 -- the Amazon Aurora DB cluster.
-restoreDBClusterFromS_s3BucketName :: Lens.Lens' RestoreDBClusterFromS Core.Text
+restoreDBClusterFromS_s3BucketName :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_s3BucketName = Lens.lens (\RestoreDBClusterFromS' {s3BucketName} -> s3BucketName) (\s@RestoreDBClusterFromS' {} a -> s {s3BucketName = a} :: RestoreDBClusterFromS)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 -- (IAM) role that authorizes Amazon RDS to access the Amazon S3 bucket on
 -- your behalf.
-restoreDBClusterFromS_s3IngestionRoleArn :: Lens.Lens' RestoreDBClusterFromS Core.Text
+restoreDBClusterFromS_s3IngestionRoleArn :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_s3IngestionRoleArn = Lens.lens (\RestoreDBClusterFromS' {s3IngestionRoleArn} -> s3IngestionRoleArn) (\s@RestoreDBClusterFromS' {} a -> s {s3IngestionRoleArn = a} :: RestoreDBClusterFromS)
 
 instance Core.AWSRequest RestoreDBClusterFromS where
@@ -914,26 +915,27 @@ instance Core.AWSRequest RestoreDBClusterFromS where
       "RestoreDBClusterFromS3Result"
       ( \s h x ->
           RestoreDBClusterFromSResponse'
-            Core.<$> (x Core..@? "DBCluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RestoreDBClusterFromS
+instance Prelude.Hashable RestoreDBClusterFromS
 
-instance Core.NFData RestoreDBClusterFromS
+instance Prelude.NFData RestoreDBClusterFromS
 
 instance Core.ToHeaders RestoreDBClusterFromS where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RestoreDBClusterFromS where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RestoreDBClusterFromS where
   toQuery RestoreDBClusterFromS' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RestoreDBClusterFromS" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("RestoreDBClusterFromS" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "BackupRetentionPeriod"
           Core.=: backupRetentionPeriod,
         "DeletionProtection" Core.=: deletionProtection,
@@ -943,14 +945,14 @@ instance Core.ToQuery RestoreDBClusterFromS where
         "AvailabilityZones"
           Core.=: Core.toQuery
             ( Core.toQueryList "AvailabilityZone"
-                Core.<$> availabilityZones
+                Prelude.<$> availabilityZones
             ),
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,
         "EnableCloudwatchLogsExports"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> enableCloudwatchLogsExports
+                Prelude.<$> enableCloudwatchLogsExports
             ),
         "OptionGroupName" Core.=: optionGroupName,
         "Domain" Core.=: domain,
@@ -958,7 +960,7 @@ instance Core.ToQuery RestoreDBClusterFromS where
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
-                Core.<$> vpcSecurityGroupIds
+                Prelude.<$> vpcSecurityGroupIds
             ),
         "KmsKeyId" Core.=: kmsKeyId,
         "EngineVersion" Core.=: engineVersion,
@@ -966,7 +968,8 @@ instance Core.ToQuery RestoreDBClusterFromS where
           Core.=: preferredMaintenanceWindow,
         "CharacterSetName" Core.=: characterSetName,
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "Port" Core.=: port,
         "DomainIAMRoleName" Core.=: domainIAMRoleName,
         "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
@@ -987,11 +990,11 @@ instance Core.ToQuery RestoreDBClusterFromS where
 
 -- | /See:/ 'newRestoreDBClusterFromSResponse' smart constructor.
 data RestoreDBClusterFromSResponse = RestoreDBClusterFromSResponse'
-  { dbCluster :: Core.Maybe DBCluster,
+  { dbCluster :: Prelude.Maybe DBCluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreDBClusterFromSResponse' with all optional fields omitted.
@@ -1006,21 +1009,21 @@ data RestoreDBClusterFromSResponse = RestoreDBClusterFromSResponse'
 -- 'httpStatus', 'restoreDBClusterFromSResponse_httpStatus' - The response's http status code.
 newRestoreDBClusterFromSResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RestoreDBClusterFromSResponse
 newRestoreDBClusterFromSResponse pHttpStatus_ =
   RestoreDBClusterFromSResponse'
     { dbCluster =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-restoreDBClusterFromSResponse_dbCluster :: Lens.Lens' RestoreDBClusterFromSResponse (Core.Maybe DBCluster)
+restoreDBClusterFromSResponse_dbCluster :: Lens.Lens' RestoreDBClusterFromSResponse (Prelude.Maybe DBCluster)
 restoreDBClusterFromSResponse_dbCluster = Lens.lens (\RestoreDBClusterFromSResponse' {dbCluster} -> dbCluster) (\s@RestoreDBClusterFromSResponse' {} a -> s {dbCluster = a} :: RestoreDBClusterFromSResponse)
 
 -- | The response's http status code.
-restoreDBClusterFromSResponse_httpStatus :: Lens.Lens' RestoreDBClusterFromSResponse Core.Int
+restoreDBClusterFromSResponse_httpStatus :: Lens.Lens' RestoreDBClusterFromSResponse Prelude.Int
 restoreDBClusterFromSResponse_httpStatus = Lens.lens (\RestoreDBClusterFromSResponse' {httpStatus} -> httpStatus) (\s@RestoreDBClusterFromSResponse' {} a -> s {httpStatus = a} :: RestoreDBClusterFromSResponse)
 
-instance Core.NFData RestoreDBClusterFromSResponse
+instance Prelude.NFData RestoreDBClusterFromSResponse

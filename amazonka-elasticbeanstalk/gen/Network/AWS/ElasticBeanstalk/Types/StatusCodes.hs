@@ -21,6 +21,7 @@ module Network.AWS.ElasticBeanstalk.Types.StatusCodes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the percentage of requests over the last 10 seconds that
 -- resulted in each type of status code response. For more information, see
@@ -30,18 +31,18 @@ import qualified Network.AWS.Lens as Lens
 data StatusCodes = StatusCodes'
   { -- | The percentage of requests over the last 10 seconds that resulted in a
     -- 3xx (300, 301, etc.) status code.
-    status3xx :: Core.Maybe Core.Int,
+    status3xx :: Prelude.Maybe Prelude.Int,
     -- | The percentage of requests over the last 10 seconds that resulted in a
     -- 5xx (500, 501, etc.) status code.
-    status5xx :: Core.Maybe Core.Int,
+    status5xx :: Prelude.Maybe Prelude.Int,
     -- | The percentage of requests over the last 10 seconds that resulted in a
     -- 2xx (200, 201, etc.) status code.
-    status2xx :: Core.Maybe Core.Int,
+    status2xx :: Prelude.Maybe Prelude.Int,
     -- | The percentage of requests over the last 10 seconds that resulted in a
     -- 4xx (400, 401, etc.) status code.
-    status4xx :: Core.Maybe Core.Int
+    status4xx :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StatusCodes' with all optional fields omitted.
@@ -66,40 +67,40 @@ newStatusCodes ::
   StatusCodes
 newStatusCodes =
   StatusCodes'
-    { status3xx = Core.Nothing,
-      status5xx = Core.Nothing,
-      status2xx = Core.Nothing,
-      status4xx = Core.Nothing
+    { status3xx = Prelude.Nothing,
+      status5xx = Prelude.Nothing,
+      status2xx = Prelude.Nothing,
+      status4xx = Prelude.Nothing
     }
 
 -- | The percentage of requests over the last 10 seconds that resulted in a
 -- 3xx (300, 301, etc.) status code.
-statusCodes_status3xx :: Lens.Lens' StatusCodes (Core.Maybe Core.Int)
+statusCodes_status3xx :: Lens.Lens' StatusCodes (Prelude.Maybe Prelude.Int)
 statusCodes_status3xx = Lens.lens (\StatusCodes' {status3xx} -> status3xx) (\s@StatusCodes' {} a -> s {status3xx = a} :: StatusCodes)
 
 -- | The percentage of requests over the last 10 seconds that resulted in a
 -- 5xx (500, 501, etc.) status code.
-statusCodes_status5xx :: Lens.Lens' StatusCodes (Core.Maybe Core.Int)
+statusCodes_status5xx :: Lens.Lens' StatusCodes (Prelude.Maybe Prelude.Int)
 statusCodes_status5xx = Lens.lens (\StatusCodes' {status5xx} -> status5xx) (\s@StatusCodes' {} a -> s {status5xx = a} :: StatusCodes)
 
 -- | The percentage of requests over the last 10 seconds that resulted in a
 -- 2xx (200, 201, etc.) status code.
-statusCodes_status2xx :: Lens.Lens' StatusCodes (Core.Maybe Core.Int)
+statusCodes_status2xx :: Lens.Lens' StatusCodes (Prelude.Maybe Prelude.Int)
 statusCodes_status2xx = Lens.lens (\StatusCodes' {status2xx} -> status2xx) (\s@StatusCodes' {} a -> s {status2xx = a} :: StatusCodes)
 
 -- | The percentage of requests over the last 10 seconds that resulted in a
 -- 4xx (400, 401, etc.) status code.
-statusCodes_status4xx :: Lens.Lens' StatusCodes (Core.Maybe Core.Int)
+statusCodes_status4xx :: Lens.Lens' StatusCodes (Prelude.Maybe Prelude.Int)
 statusCodes_status4xx = Lens.lens (\StatusCodes' {status4xx} -> status4xx) (\s@StatusCodes' {} a -> s {status4xx = a} :: StatusCodes)
 
 instance Core.FromXML StatusCodes where
   parseXML x =
     StatusCodes'
-      Core.<$> (x Core..@? "Status3xx")
-      Core.<*> (x Core..@? "Status5xx")
-      Core.<*> (x Core..@? "Status2xx")
-      Core.<*> (x Core..@? "Status4xx")
+      Prelude.<$> (x Core..@? "Status3xx")
+      Prelude.<*> (x Core..@? "Status5xx")
+      Prelude.<*> (x Core..@? "Status2xx")
+      Prelude.<*> (x Core..@? "Status4xx")
 
-instance Core.Hashable StatusCodes
+instance Prelude.Hashable StatusCodes
 
-instance Core.NFData StatusCodes
+instance Prelude.NFData StatusCodes

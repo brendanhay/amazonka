@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.GeoLocation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A complex type that contains information about a geographic location.
@@ -47,7 +48,7 @@ data GeoLocation = GeoLocation'
     --
     -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
     -- @SubdivisionCode@ returns an @InvalidInput@ error.
-    continentCode :: Core.Maybe Core.Text,
+    continentCode :: Prelude.Maybe Prelude.Text,
     -- | For geolocation resource record sets, the two-letter code for a state of
     -- the United States. Route 53 doesn\'t support any other values for
     -- @SubdivisionCode@. For a list of state abbreviations, see
@@ -56,14 +57,14 @@ data GeoLocation = GeoLocation'
     --
     -- If you specify @subdivisioncode@, you must also specify @US@ for
     -- @CountryCode@.
-    subdivisionCode :: Core.Maybe Core.Text,
+    subdivisionCode :: Prelude.Maybe Prelude.Text,
     -- | For geolocation resource record sets, the two-letter code for a country.
     --
     -- Amazon Route 53 uses the two-letter country codes that are specified in
     -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
-    countryCode :: Core.Maybe Core.Text
+    countryCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GeoLocation' with all optional fields omitted.
@@ -111,9 +112,9 @@ newGeoLocation ::
   GeoLocation
 newGeoLocation =
   GeoLocation'
-    { continentCode = Core.Nothing,
-      subdivisionCode = Core.Nothing,
-      countryCode = Core.Nothing
+    { continentCode = Prelude.Nothing,
+      subdivisionCode = Prelude.Nothing,
+      countryCode = Prelude.Nothing
     }
 
 -- | The two-letter code for the continent.
@@ -136,7 +137,7 @@ newGeoLocation =
 --
 -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
 -- @SubdivisionCode@ returns an @InvalidInput@ error.
-geoLocation_continentCode :: Lens.Lens' GeoLocation (Core.Maybe Core.Text)
+geoLocation_continentCode :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Text)
 geoLocation_continentCode = Lens.lens (\GeoLocation' {continentCode} -> continentCode) (\s@GeoLocation' {} a -> s {continentCode = a} :: GeoLocation)
 
 -- | For geolocation resource record sets, the two-letter code for a state of
@@ -147,30 +148,30 @@ geoLocation_continentCode = Lens.lens (\GeoLocation' {continentCode} -> continen
 --
 -- If you specify @subdivisioncode@, you must also specify @US@ for
 -- @CountryCode@.
-geoLocation_subdivisionCode :: Lens.Lens' GeoLocation (Core.Maybe Core.Text)
+geoLocation_subdivisionCode :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Text)
 geoLocation_subdivisionCode = Lens.lens (\GeoLocation' {subdivisionCode} -> subdivisionCode) (\s@GeoLocation' {} a -> s {subdivisionCode = a} :: GeoLocation)
 
 -- | For geolocation resource record sets, the two-letter code for a country.
 --
 -- Amazon Route 53 uses the two-letter country codes that are specified in
 -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
-geoLocation_countryCode :: Lens.Lens' GeoLocation (Core.Maybe Core.Text)
+geoLocation_countryCode :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Text)
 geoLocation_countryCode = Lens.lens (\GeoLocation' {countryCode} -> countryCode) (\s@GeoLocation' {} a -> s {countryCode = a} :: GeoLocation)
 
 instance Core.FromXML GeoLocation where
   parseXML x =
     GeoLocation'
-      Core.<$> (x Core..@? "ContinentCode")
-      Core.<*> (x Core..@? "SubdivisionCode")
-      Core.<*> (x Core..@? "CountryCode")
+      Prelude.<$> (x Core..@? "ContinentCode")
+      Prelude.<*> (x Core..@? "SubdivisionCode")
+      Prelude.<*> (x Core..@? "CountryCode")
 
-instance Core.Hashable GeoLocation
+instance Prelude.Hashable GeoLocation
 
-instance Core.NFData GeoLocation
+instance Prelude.NFData GeoLocation
 
 instance Core.ToXML GeoLocation where
   toXML GeoLocation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ContinentCode" Core.@= continentCode,
         "SubdivisionCode" Core.@= subdivisionCode,
         "CountryCode" Core.@= countryCode

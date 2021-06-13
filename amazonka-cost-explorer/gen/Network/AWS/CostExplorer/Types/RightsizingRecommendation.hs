@@ -25,23 +25,24 @@ import Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
 import Network.AWS.CostExplorer.Types.RightsizingType
 import Network.AWS.CostExplorer.Types.TerminateRecommendationDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Recommendations to rightsize resources.
 --
 -- /See:/ 'newRightsizingRecommendation' smart constructor.
 data RightsizingRecommendation = RightsizingRecommendation'
   { -- | The account that this recommendation is for.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | Details for termination recommendations.
-    terminateRecommendationDetail :: Core.Maybe TerminateRecommendationDetail,
+    terminateRecommendationDetail :: Prelude.Maybe TerminateRecommendationDetail,
     -- | Recommendation to either terminate or modify the resource.
-    rightsizingType :: Core.Maybe RightsizingType,
+    rightsizingType :: Prelude.Maybe RightsizingType,
     -- | Context regarding the current instance.
-    currentInstance :: Core.Maybe CurrentInstance,
+    currentInstance :: Prelude.Maybe CurrentInstance,
     -- | Details for modification recommendations.
-    modifyRecommendationDetail :: Core.Maybe ModifyRecommendationDetail
+    modifyRecommendationDetail :: Prelude.Maybe ModifyRecommendationDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RightsizingRecommendation' with all optional fields omitted.
@@ -65,31 +66,31 @@ newRightsizingRecommendation ::
 newRightsizingRecommendation =
   RightsizingRecommendation'
     { accountId =
-        Core.Nothing,
-      terminateRecommendationDetail = Core.Nothing,
-      rightsizingType = Core.Nothing,
-      currentInstance = Core.Nothing,
-      modifyRecommendationDetail = Core.Nothing
+        Prelude.Nothing,
+      terminateRecommendationDetail = Prelude.Nothing,
+      rightsizingType = Prelude.Nothing,
+      currentInstance = Prelude.Nothing,
+      modifyRecommendationDetail = Prelude.Nothing
     }
 
 -- | The account that this recommendation is for.
-rightsizingRecommendation_accountId :: Lens.Lens' RightsizingRecommendation (Core.Maybe Core.Text)
+rightsizingRecommendation_accountId :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe Prelude.Text)
 rightsizingRecommendation_accountId = Lens.lens (\RightsizingRecommendation' {accountId} -> accountId) (\s@RightsizingRecommendation' {} a -> s {accountId = a} :: RightsizingRecommendation)
 
 -- | Details for termination recommendations.
-rightsizingRecommendation_terminateRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Core.Maybe TerminateRecommendationDetail)
+rightsizingRecommendation_terminateRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe TerminateRecommendationDetail)
 rightsizingRecommendation_terminateRecommendationDetail = Lens.lens (\RightsizingRecommendation' {terminateRecommendationDetail} -> terminateRecommendationDetail) (\s@RightsizingRecommendation' {} a -> s {terminateRecommendationDetail = a} :: RightsizingRecommendation)
 
 -- | Recommendation to either terminate or modify the resource.
-rightsizingRecommendation_rightsizingType :: Lens.Lens' RightsizingRecommendation (Core.Maybe RightsizingType)
+rightsizingRecommendation_rightsizingType :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe RightsizingType)
 rightsizingRecommendation_rightsizingType = Lens.lens (\RightsizingRecommendation' {rightsizingType} -> rightsizingType) (\s@RightsizingRecommendation' {} a -> s {rightsizingType = a} :: RightsizingRecommendation)
 
 -- | Context regarding the current instance.
-rightsizingRecommendation_currentInstance :: Lens.Lens' RightsizingRecommendation (Core.Maybe CurrentInstance)
+rightsizingRecommendation_currentInstance :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe CurrentInstance)
 rightsizingRecommendation_currentInstance = Lens.lens (\RightsizingRecommendation' {currentInstance} -> currentInstance) (\s@RightsizingRecommendation' {} a -> s {currentInstance = a} :: RightsizingRecommendation)
 
 -- | Details for modification recommendations.
-rightsizingRecommendation_modifyRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Core.Maybe ModifyRecommendationDetail)
+rightsizingRecommendation_modifyRecommendationDetail :: Lens.Lens' RightsizingRecommendation (Prelude.Maybe ModifyRecommendationDetail)
 rightsizingRecommendation_modifyRecommendationDetail = Lens.lens (\RightsizingRecommendation' {modifyRecommendationDetail} -> modifyRecommendationDetail) (\s@RightsizingRecommendation' {} a -> s {modifyRecommendationDetail = a} :: RightsizingRecommendation)
 
 instance Core.FromJSON RightsizingRecommendation where
@@ -98,13 +99,13 @@ instance Core.FromJSON RightsizingRecommendation where
       "RightsizingRecommendation"
       ( \x ->
           RightsizingRecommendation'
-            Core.<$> (x Core..:? "AccountId")
-            Core.<*> (x Core..:? "TerminateRecommendationDetail")
-            Core.<*> (x Core..:? "RightsizingType")
-            Core.<*> (x Core..:? "CurrentInstance")
-            Core.<*> (x Core..:? "ModifyRecommendationDetail")
+            Prelude.<$> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "TerminateRecommendationDetail")
+            Prelude.<*> (x Core..:? "RightsizingType")
+            Prelude.<*> (x Core..:? "CurrentInstance")
+            Prelude.<*> (x Core..:? "ModifyRecommendationDetail")
       )
 
-instance Core.Hashable RightsizingRecommendation
+instance Prelude.Hashable RightsizingRecommendation
 
-instance Core.NFData RightsizingRecommendation
+instance Prelude.NFData RightsizingRecommendation

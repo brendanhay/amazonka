@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ScalingAction
 import Network.AWS.EMR.Types.ScalingTrigger
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A scale-in or scale-out rule that defines scaling activity, including
 -- the CloudWatch metric alarm that triggers activity, how EC2 instances
@@ -33,17 +34,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newScalingRule' smart constructor.
 data ScalingRule = ScalingRule'
   { -- | A friendly, more verbose description of the automatic scaling rule.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name used to identify an automatic scaling rule. Rule names must be
     -- unique within a scaling policy.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The conditions that trigger an automatic scaling activity.
     action :: ScalingAction,
     -- | The CloudWatch alarm definition that determines when automatic scaling
     -- activity is triggered.
     trigger :: ScalingTrigger
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingRule' with all optional fields omitted.
@@ -64,7 +65,7 @@ data ScalingRule = ScalingRule'
 -- activity is triggered.
 newScalingRule ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'action'
   ScalingAction ->
   -- | 'trigger'
@@ -72,19 +73,19 @@ newScalingRule ::
   ScalingRule
 newScalingRule pName_ pAction_ pTrigger_ =
   ScalingRule'
-    { description = Core.Nothing,
+    { description = Prelude.Nothing,
       name = pName_,
       action = pAction_,
       trigger = pTrigger_
     }
 
 -- | A friendly, more verbose description of the automatic scaling rule.
-scalingRule_description :: Lens.Lens' ScalingRule (Core.Maybe Core.Text)
+scalingRule_description :: Lens.Lens' ScalingRule (Prelude.Maybe Prelude.Text)
 scalingRule_description = Lens.lens (\ScalingRule' {description} -> description) (\s@ScalingRule' {} a -> s {description = a} :: ScalingRule)
 
 -- | The name used to identify an automatic scaling rule. Rule names must be
 -- unique within a scaling policy.
-scalingRule_name :: Lens.Lens' ScalingRule Core.Text
+scalingRule_name :: Lens.Lens' ScalingRule Prelude.Text
 scalingRule_name = Lens.lens (\ScalingRule' {name} -> name) (\s@ScalingRule' {} a -> s {name = a} :: ScalingRule)
 
 -- | The conditions that trigger an automatic scaling activity.
@@ -102,23 +103,23 @@ instance Core.FromJSON ScalingRule where
       "ScalingRule"
       ( \x ->
           ScalingRule'
-            Core.<$> (x Core..:? "Description")
-            Core.<*> (x Core..: "Name")
-            Core.<*> (x Core..: "Action")
-            Core.<*> (x Core..: "Trigger")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "Action")
+            Prelude.<*> (x Core..: "Trigger")
       )
 
-instance Core.Hashable ScalingRule
+instance Prelude.Hashable ScalingRule
 
-instance Core.NFData ScalingRule
+instance Prelude.NFData ScalingRule
 
 instance Core.ToJSON ScalingRule where
   toJSON ScalingRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Action" Core..= action),
-            Core.Just ("Trigger" Core..= trigger)
+      ( Prelude.catMaybes
+          [ ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Action" Core..= action),
+            Prelude.Just ("Trigger" Core..= trigger)
           ]
       )

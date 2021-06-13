@@ -26,6 +26,7 @@ import Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
 import Network.AWS.MediaConvert.Types.CmafKeyProviderType
 import Network.AWS.MediaConvert.Types.SpekeKeyProviderCmaf
 import Network.AWS.MediaConvert.Types.StaticKeyProvider
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for CMAF encryption
 --
@@ -35,27 +36,27 @@ data CmafEncryptionSettings = CmafEncryptionSettings'
     -- encryption with a SPEKE-compliant key provider. If your output group
     -- type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider
     -- settings instead.
-    spekeKeyProvider :: Core.Maybe SpekeKeyProviderCmaf,
+    spekeKeyProvider :: Prelude.Maybe SpekeKeyProviderCmaf,
     -- | Specify the encryption scheme that you want the service to use when
     -- encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or
     -- AES_CTR (AES-CTR).
-    encryptionMethod :: Core.Maybe CmafEncryptionType,
+    encryptionMethod :: Prelude.Maybe CmafEncryptionType,
     -- | This is a 128-bit, 16-byte hex value represented by a 32-character text
     -- string. If this parameter is not set then the Initialization Vector will
     -- follow the segment number by default.
-    constantInitializationVector :: Core.Maybe Core.Text,
+    constantInitializationVector :: Prelude.Maybe Prelude.Text,
     -- | When you use DRM with CMAF outputs, choose whether the service writes
     -- the 128-bit encryption initialization vector in the HLS and DASH
     -- manifests.
-    initializationVectorInManifest :: Core.Maybe CmafInitializationVectorInManifest,
+    initializationVectorInManifest :: Prelude.Maybe CmafInitializationVectorInManifest,
     -- | Use these settings to set up encryption with a static key provider.
-    staticKeyProvider :: Core.Maybe StaticKeyProvider,
+    staticKeyProvider :: Prelude.Maybe StaticKeyProvider,
     -- | Specify whether your DRM encryption key is static or from a key provider
     -- that follows the SPEKE standard. For more information about SPEKE, see
     -- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
-    type' :: Core.Maybe CmafKeyProviderType
+    type' :: Prelude.Maybe CmafKeyProviderType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CmafEncryptionSettings' with all optional fields omitted.
@@ -92,47 +93,47 @@ newCmafEncryptionSettings ::
 newCmafEncryptionSettings =
   CmafEncryptionSettings'
     { spekeKeyProvider =
-        Core.Nothing,
-      encryptionMethod = Core.Nothing,
-      constantInitializationVector = Core.Nothing,
-      initializationVectorInManifest = Core.Nothing,
-      staticKeyProvider = Core.Nothing,
-      type' = Core.Nothing
+        Prelude.Nothing,
+      encryptionMethod = Prelude.Nothing,
+      constantInitializationVector = Prelude.Nothing,
+      initializationVectorInManifest = Prelude.Nothing,
+      staticKeyProvider = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | If your output group type is CMAF, use these settings when doing DRM
 -- encryption with a SPEKE-compliant key provider. If your output group
 -- type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider
 -- settings instead.
-cmafEncryptionSettings_spekeKeyProvider :: Lens.Lens' CmafEncryptionSettings (Core.Maybe SpekeKeyProviderCmaf)
+cmafEncryptionSettings_spekeKeyProvider :: Lens.Lens' CmafEncryptionSettings (Prelude.Maybe SpekeKeyProviderCmaf)
 cmafEncryptionSettings_spekeKeyProvider = Lens.lens (\CmafEncryptionSettings' {spekeKeyProvider} -> spekeKeyProvider) (\s@CmafEncryptionSettings' {} a -> s {spekeKeyProvider = a} :: CmafEncryptionSettings)
 
 -- | Specify the encryption scheme that you want the service to use when
 -- encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or
 -- AES_CTR (AES-CTR).
-cmafEncryptionSettings_encryptionMethod :: Lens.Lens' CmafEncryptionSettings (Core.Maybe CmafEncryptionType)
+cmafEncryptionSettings_encryptionMethod :: Lens.Lens' CmafEncryptionSettings (Prelude.Maybe CmafEncryptionType)
 cmafEncryptionSettings_encryptionMethod = Lens.lens (\CmafEncryptionSettings' {encryptionMethod} -> encryptionMethod) (\s@CmafEncryptionSettings' {} a -> s {encryptionMethod = a} :: CmafEncryptionSettings)
 
 -- | This is a 128-bit, 16-byte hex value represented by a 32-character text
 -- string. If this parameter is not set then the Initialization Vector will
 -- follow the segment number by default.
-cmafEncryptionSettings_constantInitializationVector :: Lens.Lens' CmafEncryptionSettings (Core.Maybe Core.Text)
+cmafEncryptionSettings_constantInitializationVector :: Lens.Lens' CmafEncryptionSettings (Prelude.Maybe Prelude.Text)
 cmafEncryptionSettings_constantInitializationVector = Lens.lens (\CmafEncryptionSettings' {constantInitializationVector} -> constantInitializationVector) (\s@CmafEncryptionSettings' {} a -> s {constantInitializationVector = a} :: CmafEncryptionSettings)
 
 -- | When you use DRM with CMAF outputs, choose whether the service writes
 -- the 128-bit encryption initialization vector in the HLS and DASH
 -- manifests.
-cmafEncryptionSettings_initializationVectorInManifest :: Lens.Lens' CmafEncryptionSettings (Core.Maybe CmafInitializationVectorInManifest)
+cmafEncryptionSettings_initializationVectorInManifest :: Lens.Lens' CmafEncryptionSettings (Prelude.Maybe CmafInitializationVectorInManifest)
 cmafEncryptionSettings_initializationVectorInManifest = Lens.lens (\CmafEncryptionSettings' {initializationVectorInManifest} -> initializationVectorInManifest) (\s@CmafEncryptionSettings' {} a -> s {initializationVectorInManifest = a} :: CmafEncryptionSettings)
 
 -- | Use these settings to set up encryption with a static key provider.
-cmafEncryptionSettings_staticKeyProvider :: Lens.Lens' CmafEncryptionSettings (Core.Maybe StaticKeyProvider)
+cmafEncryptionSettings_staticKeyProvider :: Lens.Lens' CmafEncryptionSettings (Prelude.Maybe StaticKeyProvider)
 cmafEncryptionSettings_staticKeyProvider = Lens.lens (\CmafEncryptionSettings' {staticKeyProvider} -> staticKeyProvider) (\s@CmafEncryptionSettings' {} a -> s {staticKeyProvider = a} :: CmafEncryptionSettings)
 
 -- | Specify whether your DRM encryption key is static or from a key provider
 -- that follows the SPEKE standard. For more information about SPEKE, see
 -- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
-cmafEncryptionSettings_type :: Lens.Lens' CmafEncryptionSettings (Core.Maybe CmafKeyProviderType)
+cmafEncryptionSettings_type :: Lens.Lens' CmafEncryptionSettings (Prelude.Maybe CmafKeyProviderType)
 cmafEncryptionSettings_type = Lens.lens (\CmafEncryptionSettings' {type'} -> type') (\s@CmafEncryptionSettings' {} a -> s {type' = a} :: CmafEncryptionSettings)
 
 instance Core.FromJSON CmafEncryptionSettings where
@@ -141,32 +142,32 @@ instance Core.FromJSON CmafEncryptionSettings where
       "CmafEncryptionSettings"
       ( \x ->
           CmafEncryptionSettings'
-            Core.<$> (x Core..:? "spekeKeyProvider")
-            Core.<*> (x Core..:? "encryptionMethod")
-            Core.<*> (x Core..:? "constantInitializationVector")
-            Core.<*> (x Core..:? "initializationVectorInManifest")
-            Core.<*> (x Core..:? "staticKeyProvider")
-            Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "spekeKeyProvider")
+            Prelude.<*> (x Core..:? "encryptionMethod")
+            Prelude.<*> (x Core..:? "constantInitializationVector")
+            Prelude.<*> (x Core..:? "initializationVectorInManifest")
+            Prelude.<*> (x Core..:? "staticKeyProvider")
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable CmafEncryptionSettings
+instance Prelude.Hashable CmafEncryptionSettings
 
-instance Core.NFData CmafEncryptionSettings
+instance Prelude.NFData CmafEncryptionSettings
 
 instance Core.ToJSON CmafEncryptionSettings where
   toJSON CmafEncryptionSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("spekeKeyProvider" Core..=)
-              Core.<$> spekeKeyProvider,
+              Prelude.<$> spekeKeyProvider,
             ("encryptionMethod" Core..=)
-              Core.<$> encryptionMethod,
+              Prelude.<$> encryptionMethod,
             ("constantInitializationVector" Core..=)
-              Core.<$> constantInitializationVector,
+              Prelude.<$> constantInitializationVector,
             ("initializationVectorInManifest" Core..=)
-              Core.<$> initializationVectorInManifest,
+              Prelude.<$> initializationVectorInManifest,
             ("staticKeyProvider" Core..=)
-              Core.<$> staticKeyProvider,
-            ("type" Core..=) Core.<$> type'
+              Prelude.<$> staticKeyProvider,
+            ("type" Core..=) Prelude.<$> type'
           ]
       )

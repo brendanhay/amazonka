@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +62,7 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the way in which the Capacity Reservation ends. A Capacity
     -- Reservation can have one of the following end types:
     --
@@ -72,10 +73,10 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
     -- -   @limited@ - The Capacity Reservation expires automatically at a
     --     specified date and time. You must provide an @EndDate@ value if
     --     @EndDateType@ is @limited@.
-    endDateType :: Core.Maybe EndDateType,
+    endDateType :: Prelude.Maybe EndDateType,
     -- | Reserved. Capacity Reservations you have created are accepted by
     -- default.
-    accept :: Core.Maybe Core.Bool,
+    accept :: Prelude.Maybe Prelude.Bool,
     -- | The date and time at which the Capacity Reservation expires. When a
     -- Capacity Reservation expires, the reserved capacity is released and you
     -- can no longer launch instances into it. The Capacity Reservation\'s
@@ -88,13 +89,13 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
     --
     -- You must provide an @EndDate@ value if @EndDateType@ is @limited@. Omit
     -- @EndDate@ if @EndDateType@ is @unlimited@.
-    endDate :: Core.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Core.ISO8601,
     -- | The number of instances for which to reserve capacity.
-    instanceCount :: Core.Maybe Core.Int,
+    instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The ID of the Capacity Reservation.
-    capacityReservationId :: Core.Text
+    capacityReservationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyCapacityReservation' with all optional fields omitted.
@@ -141,15 +142,16 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
 -- 'capacityReservationId', 'modifyCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation.
 newModifyCapacityReservation ::
   -- | 'capacityReservationId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyCapacityReservation
 newModifyCapacityReservation pCapacityReservationId_ =
   ModifyCapacityReservation'
-    { dryRun = Core.Nothing,
-      endDateType = Core.Nothing,
-      accept = Core.Nothing,
-      endDate = Core.Nothing,
-      instanceCount = Core.Nothing,
+    { dryRun =
+        Prelude.Nothing,
+      endDateType = Prelude.Nothing,
+      accept = Prelude.Nothing,
+      endDate = Prelude.Nothing,
+      instanceCount = Prelude.Nothing,
       capacityReservationId = pCapacityReservationId_
     }
 
@@ -157,7 +159,7 @@ newModifyCapacityReservation pCapacityReservationId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyCapacityReservation_dryRun :: Lens.Lens' ModifyCapacityReservation (Core.Maybe Core.Bool)
+modifyCapacityReservation_dryRun :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Bool)
 modifyCapacityReservation_dryRun = Lens.lens (\ModifyCapacityReservation' {dryRun} -> dryRun) (\s@ModifyCapacityReservation' {} a -> s {dryRun = a} :: ModifyCapacityReservation)
 
 -- | Indicates the way in which the Capacity Reservation ends. A Capacity
@@ -170,12 +172,12 @@ modifyCapacityReservation_dryRun = Lens.lens (\ModifyCapacityReservation' {dryRu
 -- -   @limited@ - The Capacity Reservation expires automatically at a
 --     specified date and time. You must provide an @EndDate@ value if
 --     @EndDateType@ is @limited@.
-modifyCapacityReservation_endDateType :: Lens.Lens' ModifyCapacityReservation (Core.Maybe EndDateType)
+modifyCapacityReservation_endDateType :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe EndDateType)
 modifyCapacityReservation_endDateType = Lens.lens (\ModifyCapacityReservation' {endDateType} -> endDateType) (\s@ModifyCapacityReservation' {} a -> s {endDateType = a} :: ModifyCapacityReservation)
 
 -- | Reserved. Capacity Reservations you have created are accepted by
 -- default.
-modifyCapacityReservation_accept :: Lens.Lens' ModifyCapacityReservation (Core.Maybe Core.Bool)
+modifyCapacityReservation_accept :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Bool)
 modifyCapacityReservation_accept = Lens.lens (\ModifyCapacityReservation' {accept} -> accept) (\s@ModifyCapacityReservation' {} a -> s {accept = a} :: ModifyCapacityReservation)
 
 -- | The date and time at which the Capacity Reservation expires. When a
@@ -190,15 +192,15 @@ modifyCapacityReservation_accept = Lens.lens (\ModifyCapacityReservation' {accep
 --
 -- You must provide an @EndDate@ value if @EndDateType@ is @limited@. Omit
 -- @EndDate@ if @EndDateType@ is @unlimited@.
-modifyCapacityReservation_endDate :: Lens.Lens' ModifyCapacityReservation (Core.Maybe Core.UTCTime)
-modifyCapacityReservation_endDate = Lens.lens (\ModifyCapacityReservation' {endDate} -> endDate) (\s@ModifyCapacityReservation' {} a -> s {endDate = a} :: ModifyCapacityReservation) Core.. Lens.mapping Core._Time
+modifyCapacityReservation_endDate :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.UTCTime)
+modifyCapacityReservation_endDate = Lens.lens (\ModifyCapacityReservation' {endDate} -> endDate) (\s@ModifyCapacityReservation' {} a -> s {endDate = a} :: ModifyCapacityReservation) Prelude.. Lens.mapping Core._Time
 
 -- | The number of instances for which to reserve capacity.
-modifyCapacityReservation_instanceCount :: Lens.Lens' ModifyCapacityReservation (Core.Maybe Core.Int)
+modifyCapacityReservation_instanceCount :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Int)
 modifyCapacityReservation_instanceCount = Lens.lens (\ModifyCapacityReservation' {instanceCount} -> instanceCount) (\s@ModifyCapacityReservation' {} a -> s {instanceCount = a} :: ModifyCapacityReservation)
 
 -- | The ID of the Capacity Reservation.
-modifyCapacityReservation_capacityReservationId :: Lens.Lens' ModifyCapacityReservation Core.Text
+modifyCapacityReservation_capacityReservationId :: Lens.Lens' ModifyCapacityReservation Prelude.Text
 modifyCapacityReservation_capacityReservationId = Lens.lens (\ModifyCapacityReservation' {capacityReservationId} -> capacityReservationId) (\s@ModifyCapacityReservation' {} a -> s {capacityReservationId = a} :: ModifyCapacityReservation)
 
 instance Core.AWSRequest ModifyCapacityReservation where
@@ -210,26 +212,27 @@ instance Core.AWSRequest ModifyCapacityReservation where
     Response.receiveXML
       ( \s h x ->
           ModifyCapacityReservationResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyCapacityReservation
+instance Prelude.Hashable ModifyCapacityReservation
 
-instance Core.NFData ModifyCapacityReservation
+instance Prelude.NFData ModifyCapacityReservation
 
 instance Core.ToHeaders ModifyCapacityReservation where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyCapacityReservation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyCapacityReservation where
   toQuery ModifyCapacityReservation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCapacityReservation" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyCapacityReservation" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "EndDateType" Core.=: endDateType,
         "Accept" Core.=: accept,
@@ -242,11 +245,11 @@ instance Core.ToQuery ModifyCapacityReservation where
 -- | /See:/ 'newModifyCapacityReservationResponse' smart constructor.
 data ModifyCapacityReservationResponse = ModifyCapacityReservationResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyCapacityReservationResponse' with all optional fields omitted.
@@ -261,23 +264,23 @@ data ModifyCapacityReservationResponse = ModifyCapacityReservationResponse'
 -- 'httpStatus', 'modifyCapacityReservationResponse_httpStatus' - The response's http status code.
 newModifyCapacityReservationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyCapacityReservationResponse
 newModifyCapacityReservationResponse pHttpStatus_ =
   ModifyCapacityReservationResponse'
     { return' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-modifyCapacityReservationResponse_return :: Lens.Lens' ModifyCapacityReservationResponse (Core.Maybe Core.Bool)
+modifyCapacityReservationResponse_return :: Lens.Lens' ModifyCapacityReservationResponse (Prelude.Maybe Prelude.Bool)
 modifyCapacityReservationResponse_return = Lens.lens (\ModifyCapacityReservationResponse' {return'} -> return') (\s@ModifyCapacityReservationResponse' {} a -> s {return' = a} :: ModifyCapacityReservationResponse)
 
 -- | The response's http status code.
-modifyCapacityReservationResponse_httpStatus :: Lens.Lens' ModifyCapacityReservationResponse Core.Int
+modifyCapacityReservationResponse_httpStatus :: Lens.Lens' ModifyCapacityReservationResponse Prelude.Int
 modifyCapacityReservationResponse_httpStatus = Lens.lens (\ModifyCapacityReservationResponse' {httpStatus} -> httpStatus) (\s@ModifyCapacityReservationResponse' {} a -> s {httpStatus = a} :: ModifyCapacityReservationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyCapacityReservationResponse

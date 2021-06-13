@@ -21,18 +21,19 @@ module Network.AWS.Batch.Types.ContainerSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing summary details of a container within a job.
 --
 -- /See:/ 'newContainerSummary' smart constructor.
 data ContainerSummary = ContainerSummary'
   { -- | The exit code to return upon completion.
-    exitCode :: Core.Maybe Core.Int,
+    exitCode :: Prelude.Maybe Prelude.Int,
     -- | A short (255 max characters) human-readable string to provide additional
     -- details about a running or stopped container.
-    reason :: Core.Maybe Core.Text
+    reason :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerSummary' with all optional fields omitted.
@@ -50,17 +51,17 @@ newContainerSummary ::
   ContainerSummary
 newContainerSummary =
   ContainerSummary'
-    { exitCode = Core.Nothing,
-      reason = Core.Nothing
+    { exitCode = Prelude.Nothing,
+      reason = Prelude.Nothing
     }
 
 -- | The exit code to return upon completion.
-containerSummary_exitCode :: Lens.Lens' ContainerSummary (Core.Maybe Core.Int)
+containerSummary_exitCode :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Int)
 containerSummary_exitCode = Lens.lens (\ContainerSummary' {exitCode} -> exitCode) (\s@ContainerSummary' {} a -> s {exitCode = a} :: ContainerSummary)
 
 -- | A short (255 max characters) human-readable string to provide additional
 -- details about a running or stopped container.
-containerSummary_reason :: Lens.Lens' ContainerSummary (Core.Maybe Core.Text)
+containerSummary_reason :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Text)
 containerSummary_reason = Lens.lens (\ContainerSummary' {reason} -> reason) (\s@ContainerSummary' {} a -> s {reason = a} :: ContainerSummary)
 
 instance Core.FromJSON ContainerSummary where
@@ -69,10 +70,10 @@ instance Core.FromJSON ContainerSummary where
       "ContainerSummary"
       ( \x ->
           ContainerSummary'
-            Core.<$> (x Core..:? "exitCode")
-            Core.<*> (x Core..:? "reason")
+            Prelude.<$> (x Core..:? "exitCode")
+            Prelude.<*> (x Core..:? "reason")
       )
 
-instance Core.Hashable ContainerSummary
+instance Prelude.Hashable ContainerSummary
 
-instance Core.NFData ContainerSummary
+instance Prelude.NFData ContainerSummary

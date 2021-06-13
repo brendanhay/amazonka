@@ -40,15 +40,16 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisableAlarmActions' smart constructor.
 data DisableAlarmActions = DisableAlarmActions'
   { -- | The names of the alarms.
-    alarmNames :: [Core.Text]
+    alarmNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableAlarmActions' with all optional fields omitted.
@@ -62,11 +63,11 @@ data DisableAlarmActions = DisableAlarmActions'
 newDisableAlarmActions ::
   DisableAlarmActions
 newDisableAlarmActions =
-  DisableAlarmActions' {alarmNames = Core.mempty}
+  DisableAlarmActions' {alarmNames = Prelude.mempty}
 
 -- | The names of the alarms.
-disableAlarmActions_alarmNames :: Lens.Lens' DisableAlarmActions [Core.Text]
-disableAlarmActions_alarmNames = Lens.lens (\DisableAlarmActions' {alarmNames} -> alarmNames) (\s@DisableAlarmActions' {} a -> s {alarmNames = a} :: DisableAlarmActions) Core.. Lens._Coerce
+disableAlarmActions_alarmNames :: Lens.Lens' DisableAlarmActions [Prelude.Text]
+disableAlarmActions_alarmNames = Lens.lens (\DisableAlarmActions' {alarmNames} -> alarmNames) (\s@DisableAlarmActions' {} a -> s {alarmNames = a} :: DisableAlarmActions) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DisableAlarmActions where
   type
@@ -76,22 +77,23 @@ instance Core.AWSRequest DisableAlarmActions where
   response =
     Response.receiveNull DisableAlarmActionsResponse'
 
-instance Core.Hashable DisableAlarmActions
+instance Prelude.Hashable DisableAlarmActions
 
-instance Core.NFData DisableAlarmActions
+instance Prelude.NFData DisableAlarmActions
 
 instance Core.ToHeaders DisableAlarmActions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisableAlarmActions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableAlarmActions where
   toQuery DisableAlarmActions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableAlarmActions" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("DisableAlarmActions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "AlarmNames"
           Core.=: Core.toQueryList "member" alarmNames
       ]
@@ -100,7 +102,7 @@ instance Core.ToQuery DisableAlarmActions where
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableAlarmActionsResponse' with all optional fields omitted.
@@ -111,4 +113,4 @@ newDisableAlarmActionsResponse ::
 newDisableAlarmActionsResponse =
   DisableAlarmActionsResponse'
 
-instance Core.NFData DisableAlarmActionsResponse
+instance Prelude.NFData DisableAlarmActionsResponse

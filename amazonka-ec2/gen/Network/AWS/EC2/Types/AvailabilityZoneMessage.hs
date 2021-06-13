@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.AvailabilityZoneMessage where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a message about an Availability Zone, Local Zone, or
 -- Wavelength Zone.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAvailabilityZoneMessage' smart constructor.
 data AvailabilityZoneMessage = AvailabilityZoneMessage'
   { -- | The message about the Availability Zone, Local Zone, or Wavelength Zone.
-    message :: Core.Maybe Core.Text
+    message :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AvailabilityZoneMessage' with all optional fields omitted.
@@ -45,17 +46,17 @@ data AvailabilityZoneMessage = AvailabilityZoneMessage'
 newAvailabilityZoneMessage ::
   AvailabilityZoneMessage
 newAvailabilityZoneMessage =
-  AvailabilityZoneMessage' {message = Core.Nothing}
+  AvailabilityZoneMessage' {message = Prelude.Nothing}
 
 -- | The message about the Availability Zone, Local Zone, or Wavelength Zone.
-availabilityZoneMessage_message :: Lens.Lens' AvailabilityZoneMessage (Core.Maybe Core.Text)
+availabilityZoneMessage_message :: Lens.Lens' AvailabilityZoneMessage (Prelude.Maybe Prelude.Text)
 availabilityZoneMessage_message = Lens.lens (\AvailabilityZoneMessage' {message} -> message) (\s@AvailabilityZoneMessage' {} a -> s {message = a} :: AvailabilityZoneMessage)
 
 instance Core.FromXML AvailabilityZoneMessage where
   parseXML x =
     AvailabilityZoneMessage'
-      Core.<$> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
 
-instance Core.Hashable AvailabilityZoneMessage
+instance Prelude.Hashable AvailabilityZoneMessage
 
-instance Core.NFData AvailabilityZoneMessage
+instance Prelude.NFData AvailabilityZoneMessage

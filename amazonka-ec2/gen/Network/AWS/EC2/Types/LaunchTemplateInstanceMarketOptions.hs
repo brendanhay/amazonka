@@ -24,17 +24,18 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptions
 import Network.AWS.EC2.Types.MarketType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The market (purchasing) option for the instances.
 --
 -- /See:/ 'newLaunchTemplateInstanceMarketOptions' smart constructor.
 data LaunchTemplateInstanceMarketOptions = LaunchTemplateInstanceMarketOptions'
   { -- | The market type.
-    marketType :: Core.Maybe MarketType,
+    marketType :: Prelude.Maybe MarketType,
     -- | The options for Spot Instances.
-    spotOptions :: Core.Maybe LaunchTemplateSpotMarketOptions
+    spotOptions :: Prelude.Maybe LaunchTemplateSpotMarketOptions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateInstanceMarketOptions' with all optional fields omitted.
@@ -52,16 +53,16 @@ newLaunchTemplateInstanceMarketOptions ::
 newLaunchTemplateInstanceMarketOptions =
   LaunchTemplateInstanceMarketOptions'
     { marketType =
-        Core.Nothing,
-      spotOptions = Core.Nothing
+        Prelude.Nothing,
+      spotOptions = Prelude.Nothing
     }
 
 -- | The market type.
-launchTemplateInstanceMarketOptions_marketType :: Lens.Lens' LaunchTemplateInstanceMarketOptions (Core.Maybe MarketType)
+launchTemplateInstanceMarketOptions_marketType :: Lens.Lens' LaunchTemplateInstanceMarketOptions (Prelude.Maybe MarketType)
 launchTemplateInstanceMarketOptions_marketType = Lens.lens (\LaunchTemplateInstanceMarketOptions' {marketType} -> marketType) (\s@LaunchTemplateInstanceMarketOptions' {} a -> s {marketType = a} :: LaunchTemplateInstanceMarketOptions)
 
 -- | The options for Spot Instances.
-launchTemplateInstanceMarketOptions_spotOptions :: Lens.Lens' LaunchTemplateInstanceMarketOptions (Core.Maybe LaunchTemplateSpotMarketOptions)
+launchTemplateInstanceMarketOptions_spotOptions :: Lens.Lens' LaunchTemplateInstanceMarketOptions (Prelude.Maybe LaunchTemplateSpotMarketOptions)
 launchTemplateInstanceMarketOptions_spotOptions = Lens.lens (\LaunchTemplateInstanceMarketOptions' {spotOptions} -> spotOptions) (\s@LaunchTemplateInstanceMarketOptions' {} a -> s {spotOptions = a} :: LaunchTemplateInstanceMarketOptions)
 
 instance
@@ -70,13 +71,13 @@ instance
   where
   parseXML x =
     LaunchTemplateInstanceMarketOptions'
-      Core.<$> (x Core..@? "marketType")
-      Core.<*> (x Core..@? "spotOptions")
+      Prelude.<$> (x Core..@? "marketType")
+      Prelude.<*> (x Core..@? "spotOptions")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateInstanceMarketOptions
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateInstanceMarketOptions

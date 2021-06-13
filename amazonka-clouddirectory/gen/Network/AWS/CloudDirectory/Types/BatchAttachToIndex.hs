@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchAttachToIndex where
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Attaches the specified object to the specified index inside a BatchRead
 -- operation. For more information, see AttachToIndex and
@@ -34,7 +35,7 @@ data BatchAttachToIndex = BatchAttachToIndex'
     -- | A reference to the object that you are attaching to the index.
     targetReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAttachToIndex' with all optional fields omitted.
@@ -70,16 +71,17 @@ batchAttachToIndex_indexReference = Lens.lens (\BatchAttachToIndex' {indexRefere
 batchAttachToIndex_targetReference :: Lens.Lens' BatchAttachToIndex ObjectReference
 batchAttachToIndex_targetReference = Lens.lens (\BatchAttachToIndex' {targetReference} -> targetReference) (\s@BatchAttachToIndex' {} a -> s {targetReference = a} :: BatchAttachToIndex)
 
-instance Core.Hashable BatchAttachToIndex
+instance Prelude.Hashable BatchAttachToIndex
 
-instance Core.NFData BatchAttachToIndex
+instance Prelude.NFData BatchAttachToIndex
 
 instance Core.ToJSON BatchAttachToIndex where
   toJSON BatchAttachToIndex' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("IndexReference" Core..= indexReference),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("IndexReference" Core..= indexReference),
+            Prelude.Just
               ("TargetReference" Core..= targetReference)
           ]
       )

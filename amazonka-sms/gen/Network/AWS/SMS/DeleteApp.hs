@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -51,15 +52,15 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newDeleteApp' smart constructor.
 data DeleteApp = DeleteApp'
   { -- | The ID of the application.
-    appId :: Core.Maybe Core.Text,
+    appId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to stop all replication jobs corresponding to the
     -- servers in the application while deleting the application.
-    forceStopAppReplication :: Core.Maybe Core.Bool,
+    forceStopAppReplication :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether to terminate the stack corresponding to the
     -- application while deleting the application.
-    forceTerminateApp :: Core.Maybe Core.Bool
+    forceTerminateApp :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApp' with all optional fields omitted.
@@ -80,23 +81,23 @@ newDeleteApp ::
   DeleteApp
 newDeleteApp =
   DeleteApp'
-    { appId = Core.Nothing,
-      forceStopAppReplication = Core.Nothing,
-      forceTerminateApp = Core.Nothing
+    { appId = Prelude.Nothing,
+      forceStopAppReplication = Prelude.Nothing,
+      forceTerminateApp = Prelude.Nothing
     }
 
 -- | The ID of the application.
-deleteApp_appId :: Lens.Lens' DeleteApp (Core.Maybe Core.Text)
+deleteApp_appId :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Text)
 deleteApp_appId = Lens.lens (\DeleteApp' {appId} -> appId) (\s@DeleteApp' {} a -> s {appId = a} :: DeleteApp)
 
 -- | Indicates whether to stop all replication jobs corresponding to the
 -- servers in the application while deleting the application.
-deleteApp_forceStopAppReplication :: Lens.Lens' DeleteApp (Core.Maybe Core.Bool)
+deleteApp_forceStopAppReplication :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Bool)
 deleteApp_forceStopAppReplication = Lens.lens (\DeleteApp' {forceStopAppReplication} -> forceStopAppReplication) (\s@DeleteApp' {} a -> s {forceStopAppReplication = a} :: DeleteApp)
 
 -- | Indicates whether to terminate the stack corresponding to the
 -- application while deleting the application.
-deleteApp_forceTerminateApp :: Lens.Lens' DeleteApp (Core.Maybe Core.Bool)
+deleteApp_forceTerminateApp :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Bool)
 deleteApp_forceTerminateApp = Lens.lens (\DeleteApp' {forceTerminateApp} -> forceTerminateApp) (\s@DeleteApp' {} a -> s {forceTerminateApp = a} :: DeleteApp)
 
 instance Core.AWSRequest DeleteApp where
@@ -106,50 +107,52 @@ instance Core.AWSRequest DeleteApp where
     Response.receiveEmpty
       ( \s h x ->
           DeleteAppResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteApp
+instance Prelude.Hashable DeleteApp
 
-instance Core.NFData DeleteApp
+instance Prelude.NFData DeleteApp
 
 instance Core.ToHeaders DeleteApp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.DeleteApp" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("appId" Core..=) Core.<$> appId,
+      ( Prelude.catMaybes
+          [ ("appId" Core..=) Prelude.<$> appId,
             ("forceStopAppReplication" Core..=)
-              Core.<$> forceStopAppReplication,
+              Prelude.<$> forceStopAppReplication,
             ("forceTerminateApp" Core..=)
-              Core.<$> forceTerminateApp
+              Prelude.<$> forceTerminateApp
           ]
       )
 
 instance Core.ToPath DeleteApp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteApp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAppResponse' with all optional fields omitted.
@@ -162,13 +165,13 @@ data DeleteAppResponse = DeleteAppResponse'
 -- 'httpStatus', 'deleteAppResponse_httpStatus' - The response's http status code.
 newDeleteAppResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteAppResponse
 newDeleteAppResponse pHttpStatus_ =
   DeleteAppResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteAppResponse_httpStatus :: Lens.Lens' DeleteAppResponse Core.Int
+deleteAppResponse_httpStatus :: Lens.Lens' DeleteAppResponse Prelude.Int
 deleteAppResponse_httpStatus = Lens.lens (\DeleteAppResponse' {httpStatus} -> httpStatus) (\s@DeleteAppResponse' {} a -> s {httpStatus = a} :: DeleteAppResponse)
 
-instance Core.NFData DeleteAppResponse
+instance Prelude.NFData DeleteAppResponse

@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'
   { -- | The Amazon Resource Name (ARN) of the rule.
-    ruleArn :: Core.Text
+    ruleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRule' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DeleteRule = DeleteRule'
 -- 'ruleArn', 'deleteRule_ruleArn' - The Amazon Resource Name (ARN) of the rule.
 newDeleteRule ::
   -- | 'ruleArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRule
 newDeleteRule pRuleArn_ =
   DeleteRule' {ruleArn = pRuleArn_}
 
 -- | The Amazon Resource Name (ARN) of the rule.
-deleteRule_ruleArn :: Lens.Lens' DeleteRule Core.Text
+deleteRule_ruleArn :: Lens.Lens' DeleteRule Prelude.Text
 deleteRule_ruleArn = Lens.lens (\DeleteRule' {ruleArn} -> ruleArn) (\s@DeleteRule' {} a -> s {ruleArn = a} :: DeleteRule)
 
 instance Core.AWSRequest DeleteRule where
@@ -81,33 +82,35 @@ instance Core.AWSRequest DeleteRule where
       "DeleteRuleResult"
       ( \s h x ->
           DeleteRuleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRule
+instance Prelude.Hashable DeleteRule
 
-instance Core.NFData DeleteRule
+instance Prelude.NFData DeleteRule
 
 instance Core.ToHeaders DeleteRule where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRule where
   toQuery DeleteRule' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("DeleteRule" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteRule" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "RuleArn" Core.=: ruleArn
       ]
 
 -- | /See:/ 'newDeleteRuleResponse' smart constructor.
 data DeleteRuleResponse = DeleteRuleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRuleResponse' with all optional fields omitted.
@@ -120,13 +123,13 @@ data DeleteRuleResponse = DeleteRuleResponse'
 -- 'httpStatus', 'deleteRuleResponse_httpStatus' - The response's http status code.
 newDeleteRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRuleResponse
 newDeleteRuleResponse pHttpStatus_ =
   DeleteRuleResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteRuleResponse_httpStatus :: Lens.Lens' DeleteRuleResponse Core.Int
+deleteRuleResponse_httpStatus :: Lens.Lens' DeleteRuleResponse Prelude.Int
 deleteRuleResponse_httpStatus = Lens.lens (\DeleteRuleResponse' {httpStatus} -> httpStatus) (\s@DeleteRuleResponse' {} a -> s {httpStatus = a} :: DeleteRuleResponse)
 
-instance Core.NFData DeleteRuleResponse
+instance Prelude.NFData DeleteRuleResponse

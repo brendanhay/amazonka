@@ -30,6 +30,7 @@ import Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings
 import Network.AWS.MediaConvert.Types.OutputGroup
 import Network.AWS.MediaConvert.Types.TimecodeConfig
 import Network.AWS.MediaConvert.Types.TimedMetadataInsertion
+import qualified Network.AWS.Prelude as Prelude
 
 -- | JobSettings contains all the transcode settings for a job.
 --
@@ -37,14 +38,14 @@ import Network.AWS.MediaConvert.Types.TimedMetadataInsertion
 data JobSettings = JobSettings'
   { -- | When specified, this offset (in milliseconds) is added to the input Ad
     -- Avail PTS time.
-    adAvailOffset :: Core.Maybe Core.Int,
+    adAvailOffset :: Prelude.Maybe Prelude.Int,
     -- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3
     -- tags in any HLS outputs. To include timed metadata, you must enable it
     -- here, enable it in each output container, and specify tags and timecodes
     -- in ID3 insertion (Id3Insertion) objects.
-    timedMetadataInsertion :: Core.Maybe TimedMetadataInsertion,
+    timedMetadataInsertion :: Prelude.Maybe TimedMetadataInsertion,
     -- | Settings for Event Signaling And Messaging (ESAM).
-    esam :: Core.Maybe EsamSettings,
+    esam :: Prelude.Maybe EsamSettings,
     -- | Ignore these settings unless you are using Nielsen non-linear
     -- watermarking. Specify the values that MediaConvert uses to generate and
     -- place Nielsen watermarks in your output audio. In addition to specifying
@@ -53,13 +54,13 @@ data JobSettings = JobSettings'
     -- implementation is currently with the following Nielsen versions: Nielsen
     -- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7
     -- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
-    nielsenNonLinearWatermark :: Core.Maybe NielsenNonLinearWatermarkSettings,
+    nielsenNonLinearWatermark :: Prelude.Maybe NielsenNonLinearWatermarkSettings,
     -- | Overlay motion graphics on top of your video. The motion graphics that
     -- you specify here appear on all outputs in all output groups.
-    motionImageInserter :: Core.Maybe MotionImageInserter,
+    motionImageInserter :: Prelude.Maybe MotionImageInserter,
     -- | Settings for ad avail blanking. Video can be blanked or overlaid with an
     -- image, and audio muted during SCTE-35 triggered ad avails.
-    availBlanking :: Core.Maybe AvailBlanking,
+    availBlanking :: Prelude.Maybe AvailBlanking,
     -- | Settings for your Nielsen configuration. If you don\'t do Nielsen
     -- measurement and analytics, ignore these settings. When you enable
     -- Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM
@@ -68,7 +69,7 @@ data JobSettings = JobSettings'
     -- nielsenConfiguration in your JSON job specification. Even if you don\'t
     -- include any children of nielsenConfiguration, you still enable the
     -- setting.
-    nielsenConfiguration :: Core.Maybe NielsenConfiguration,
+    nielsenConfiguration :: Prelude.Maybe NielsenConfiguration,
     -- | (OutputGroups) contains one group of settings for each set of outputs
     -- that share a common package type. All unpackaged files (MPEG-4, MPEG-2
     -- TS, Quicktime, MXF, and no container) are grouped in a single output
@@ -80,16 +81,16 @@ data JobSettings = JobSettings'
     -- DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings *
     -- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,
     -- CmafGroupSettings
-    outputGroups :: Core.Maybe [OutputGroup],
+    outputGroups :: Prelude.Maybe [OutputGroup],
     -- | Use Inputs (inputs) to define source file used in the transcode job.
     -- There can be multiple inputs add in a job. These inputs will be
     -- concantenated together to create the output.
-    inputs :: Core.Maybe [Input],
+    inputs :: Prelude.Maybe [Input],
     -- | Contains settings used to acquire and adjust timecode information from
     -- inputs.
-    timecodeConfig :: Core.Maybe TimecodeConfig
+    timecodeConfig :: Prelude.Maybe TimecodeConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobSettings' with all optional fields omitted.
@@ -155,32 +156,32 @@ newJobSettings ::
   JobSettings
 newJobSettings =
   JobSettings'
-    { adAvailOffset = Core.Nothing,
-      timedMetadataInsertion = Core.Nothing,
-      esam = Core.Nothing,
-      nielsenNonLinearWatermark = Core.Nothing,
-      motionImageInserter = Core.Nothing,
-      availBlanking = Core.Nothing,
-      nielsenConfiguration = Core.Nothing,
-      outputGroups = Core.Nothing,
-      inputs = Core.Nothing,
-      timecodeConfig = Core.Nothing
+    { adAvailOffset = Prelude.Nothing,
+      timedMetadataInsertion = Prelude.Nothing,
+      esam = Prelude.Nothing,
+      nielsenNonLinearWatermark = Prelude.Nothing,
+      motionImageInserter = Prelude.Nothing,
+      availBlanking = Prelude.Nothing,
+      nielsenConfiguration = Prelude.Nothing,
+      outputGroups = Prelude.Nothing,
+      inputs = Prelude.Nothing,
+      timecodeConfig = Prelude.Nothing
     }
 
 -- | When specified, this offset (in milliseconds) is added to the input Ad
 -- Avail PTS time.
-jobSettings_adAvailOffset :: Lens.Lens' JobSettings (Core.Maybe Core.Int)
+jobSettings_adAvailOffset :: Lens.Lens' JobSettings (Prelude.Maybe Prelude.Int)
 jobSettings_adAvailOffset = Lens.lens (\JobSettings' {adAvailOffset} -> adAvailOffset) (\s@JobSettings' {} a -> s {adAvailOffset = a} :: JobSettings)
 
 -- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3
 -- tags in any HLS outputs. To include timed metadata, you must enable it
 -- here, enable it in each output container, and specify tags and timecodes
 -- in ID3 insertion (Id3Insertion) objects.
-jobSettings_timedMetadataInsertion :: Lens.Lens' JobSettings (Core.Maybe TimedMetadataInsertion)
+jobSettings_timedMetadataInsertion :: Lens.Lens' JobSettings (Prelude.Maybe TimedMetadataInsertion)
 jobSettings_timedMetadataInsertion = Lens.lens (\JobSettings' {timedMetadataInsertion} -> timedMetadataInsertion) (\s@JobSettings' {} a -> s {timedMetadataInsertion = a} :: JobSettings)
 
 -- | Settings for Event Signaling And Messaging (ESAM).
-jobSettings_esam :: Lens.Lens' JobSettings (Core.Maybe EsamSettings)
+jobSettings_esam :: Lens.Lens' JobSettings (Prelude.Maybe EsamSettings)
 jobSettings_esam = Lens.lens (\JobSettings' {esam} -> esam) (\s@JobSettings' {} a -> s {esam = a} :: JobSettings)
 
 -- | Ignore these settings unless you are using Nielsen non-linear
@@ -191,17 +192,17 @@ jobSettings_esam = Lens.lens (\JobSettings' {esam} -> esam) (\s@JobSettings' {} 
 -- implementation is currently with the following Nielsen versions: Nielsen
 -- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7
 -- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
-jobSettings_nielsenNonLinearWatermark :: Lens.Lens' JobSettings (Core.Maybe NielsenNonLinearWatermarkSettings)
+jobSettings_nielsenNonLinearWatermark :: Lens.Lens' JobSettings (Prelude.Maybe NielsenNonLinearWatermarkSettings)
 jobSettings_nielsenNonLinearWatermark = Lens.lens (\JobSettings' {nielsenNonLinearWatermark} -> nielsenNonLinearWatermark) (\s@JobSettings' {} a -> s {nielsenNonLinearWatermark = a} :: JobSettings)
 
 -- | Overlay motion graphics on top of your video. The motion graphics that
 -- you specify here appear on all outputs in all output groups.
-jobSettings_motionImageInserter :: Lens.Lens' JobSettings (Core.Maybe MotionImageInserter)
+jobSettings_motionImageInserter :: Lens.Lens' JobSettings (Prelude.Maybe MotionImageInserter)
 jobSettings_motionImageInserter = Lens.lens (\JobSettings' {motionImageInserter} -> motionImageInserter) (\s@JobSettings' {} a -> s {motionImageInserter = a} :: JobSettings)
 
 -- | Settings for ad avail blanking. Video can be blanked or overlaid with an
 -- image, and audio muted during SCTE-35 triggered ad avails.
-jobSettings_availBlanking :: Lens.Lens' JobSettings (Core.Maybe AvailBlanking)
+jobSettings_availBlanking :: Lens.Lens' JobSettings (Prelude.Maybe AvailBlanking)
 jobSettings_availBlanking = Lens.lens (\JobSettings' {availBlanking} -> availBlanking) (\s@JobSettings' {} a -> s {availBlanking = a} :: JobSettings)
 
 -- | Settings for your Nielsen configuration. If you don\'t do Nielsen
@@ -212,7 +213,7 @@ jobSettings_availBlanking = Lens.lens (\JobSettings' {availBlanking} -> availBla
 -- nielsenConfiguration in your JSON job specification. Even if you don\'t
 -- include any children of nielsenConfiguration, you still enable the
 -- setting.
-jobSettings_nielsenConfiguration :: Lens.Lens' JobSettings (Core.Maybe NielsenConfiguration)
+jobSettings_nielsenConfiguration :: Lens.Lens' JobSettings (Prelude.Maybe NielsenConfiguration)
 jobSettings_nielsenConfiguration = Lens.lens (\JobSettings' {nielsenConfiguration} -> nielsenConfiguration) (\s@JobSettings' {} a -> s {nielsenConfiguration = a} :: JobSettings)
 
 -- | (OutputGroups) contains one group of settings for each set of outputs
@@ -226,18 +227,18 @@ jobSettings_nielsenConfiguration = Lens.lens (\JobSettings' {nielsenConfiguratio
 -- DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings *
 -- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,
 -- CmafGroupSettings
-jobSettings_outputGroups :: Lens.Lens' JobSettings (Core.Maybe [OutputGroup])
-jobSettings_outputGroups = Lens.lens (\JobSettings' {outputGroups} -> outputGroups) (\s@JobSettings' {} a -> s {outputGroups = a} :: JobSettings) Core.. Lens.mapping Lens._Coerce
+jobSettings_outputGroups :: Lens.Lens' JobSettings (Prelude.Maybe [OutputGroup])
+jobSettings_outputGroups = Lens.lens (\JobSettings' {outputGroups} -> outputGroups) (\s@JobSettings' {} a -> s {outputGroups = a} :: JobSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use Inputs (inputs) to define source file used in the transcode job.
 -- There can be multiple inputs add in a job. These inputs will be
 -- concantenated together to create the output.
-jobSettings_inputs :: Lens.Lens' JobSettings (Core.Maybe [Input])
-jobSettings_inputs = Lens.lens (\JobSettings' {inputs} -> inputs) (\s@JobSettings' {} a -> s {inputs = a} :: JobSettings) Core.. Lens.mapping Lens._Coerce
+jobSettings_inputs :: Lens.Lens' JobSettings (Prelude.Maybe [Input])
+jobSettings_inputs = Lens.lens (\JobSettings' {inputs} -> inputs) (\s@JobSettings' {} a -> s {inputs = a} :: JobSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contains settings used to acquire and adjust timecode information from
 -- inputs.
-jobSettings_timecodeConfig :: Lens.Lens' JobSettings (Core.Maybe TimecodeConfig)
+jobSettings_timecodeConfig :: Lens.Lens' JobSettings (Prelude.Maybe TimecodeConfig)
 jobSettings_timecodeConfig = Lens.lens (\JobSettings' {timecodeConfig} -> timecodeConfig) (\s@JobSettings' {} a -> s {timecodeConfig = a} :: JobSettings)
 
 instance Core.FromJSON JobSettings where
@@ -246,39 +247,40 @@ instance Core.FromJSON JobSettings where
       "JobSettings"
       ( \x ->
           JobSettings'
-            Core.<$> (x Core..:? "adAvailOffset")
-            Core.<*> (x Core..:? "timedMetadataInsertion")
-            Core.<*> (x Core..:? "esam")
-            Core.<*> (x Core..:? "nielsenNonLinearWatermark")
-            Core.<*> (x Core..:? "motionImageInserter")
-            Core.<*> (x Core..:? "availBlanking")
-            Core.<*> (x Core..:? "nielsenConfiguration")
-            Core.<*> (x Core..:? "outputGroups" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "inputs" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "timecodeConfig")
+            Prelude.<$> (x Core..:? "adAvailOffset")
+            Prelude.<*> (x Core..:? "timedMetadataInsertion")
+            Prelude.<*> (x Core..:? "esam")
+            Prelude.<*> (x Core..:? "nielsenNonLinearWatermark")
+            Prelude.<*> (x Core..:? "motionImageInserter")
+            Prelude.<*> (x Core..:? "availBlanking")
+            Prelude.<*> (x Core..:? "nielsenConfiguration")
+            Prelude.<*> (x Core..:? "outputGroups" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "inputs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "timecodeConfig")
       )
 
-instance Core.Hashable JobSettings
+instance Prelude.Hashable JobSettings
 
-instance Core.NFData JobSettings
+instance Prelude.NFData JobSettings
 
 instance Core.ToJSON JobSettings where
   toJSON JobSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("adAvailOffset" Core..=) Core.<$> adAvailOffset,
+      ( Prelude.catMaybes
+          [ ("adAvailOffset" Core..=) Prelude.<$> adAvailOffset,
             ("timedMetadataInsertion" Core..=)
-              Core.<$> timedMetadataInsertion,
-            ("esam" Core..=) Core.<$> esam,
+              Prelude.<$> timedMetadataInsertion,
+            ("esam" Core..=) Prelude.<$> esam,
             ("nielsenNonLinearWatermark" Core..=)
-              Core.<$> nielsenNonLinearWatermark,
+              Prelude.<$> nielsenNonLinearWatermark,
             ("motionImageInserter" Core..=)
-              Core.<$> motionImageInserter,
-            ("availBlanking" Core..=) Core.<$> availBlanking,
+              Prelude.<$> motionImageInserter,
+            ("availBlanking" Core..=) Prelude.<$> availBlanking,
             ("nielsenConfiguration" Core..=)
-              Core.<$> nielsenConfiguration,
-            ("outputGroups" Core..=) Core.<$> outputGroups,
-            ("inputs" Core..=) Core.<$> inputs,
-            ("timecodeConfig" Core..=) Core.<$> timecodeConfig
+              Prelude.<$> nielsenConfiguration,
+            ("outputGroups" Core..=) Prelude.<$> outputGroups,
+            ("inputs" Core..=) Prelude.<$> inputs,
+            ("timecodeConfig" Core..=)
+              Prelude.<$> timecodeConfig
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.SharingSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.NotebookOutputOption
 
 -- | Specifies options when sharing an Amazon SageMaker Studio notebook.
@@ -33,15 +34,15 @@ data SharingSettings = SharingSettings'
   { -- | When @NotebookOutputOption@ is @Allowed@, the AWS Key Management Service
     -- (KMS) encryption key ID used to encrypt the notebook cell output in the
     -- Amazon S3 bucket.
-    s3KmsKeyId :: Core.Maybe Core.Text,
+    s3KmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to
     -- store the shared notebook snapshots.
-    s3OutputPath :: Core.Maybe Core.Text,
+    s3OutputPath :: Prelude.Maybe Prelude.Text,
     -- | Whether to include the notebook cell output when sharing the notebook.
     -- The default is @Disabled@.
-    notebookOutputOption :: Core.Maybe NotebookOutputOption
+    notebookOutputOption :: Prelude.Maybe NotebookOutputOption
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SharingSettings' with all optional fields omitted.
@@ -64,25 +65,25 @@ newSharingSettings ::
   SharingSettings
 newSharingSettings =
   SharingSettings'
-    { s3KmsKeyId = Core.Nothing,
-      s3OutputPath = Core.Nothing,
-      notebookOutputOption = Core.Nothing
+    { s3KmsKeyId = Prelude.Nothing,
+      s3OutputPath = Prelude.Nothing,
+      notebookOutputOption = Prelude.Nothing
     }
 
 -- | When @NotebookOutputOption@ is @Allowed@, the AWS Key Management Service
 -- (KMS) encryption key ID used to encrypt the notebook cell output in the
 -- Amazon S3 bucket.
-sharingSettings_s3KmsKeyId :: Lens.Lens' SharingSettings (Core.Maybe Core.Text)
+sharingSettings_s3KmsKeyId :: Lens.Lens' SharingSettings (Prelude.Maybe Prelude.Text)
 sharingSettings_s3KmsKeyId = Lens.lens (\SharingSettings' {s3KmsKeyId} -> s3KmsKeyId) (\s@SharingSettings' {} a -> s {s3KmsKeyId = a} :: SharingSettings)
 
 -- | When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to
 -- store the shared notebook snapshots.
-sharingSettings_s3OutputPath :: Lens.Lens' SharingSettings (Core.Maybe Core.Text)
+sharingSettings_s3OutputPath :: Lens.Lens' SharingSettings (Prelude.Maybe Prelude.Text)
 sharingSettings_s3OutputPath = Lens.lens (\SharingSettings' {s3OutputPath} -> s3OutputPath) (\s@SharingSettings' {} a -> s {s3OutputPath = a} :: SharingSettings)
 
 -- | Whether to include the notebook cell output when sharing the notebook.
 -- The default is @Disabled@.
-sharingSettings_notebookOutputOption :: Lens.Lens' SharingSettings (Core.Maybe NotebookOutputOption)
+sharingSettings_notebookOutputOption :: Lens.Lens' SharingSettings (Prelude.Maybe NotebookOutputOption)
 sharingSettings_notebookOutputOption = Lens.lens (\SharingSettings' {notebookOutputOption} -> notebookOutputOption) (\s@SharingSettings' {} a -> s {notebookOutputOption = a} :: SharingSettings)
 
 instance Core.FromJSON SharingSettings where
@@ -91,22 +92,22 @@ instance Core.FromJSON SharingSettings where
       "SharingSettings"
       ( \x ->
           SharingSettings'
-            Core.<$> (x Core..:? "S3KmsKeyId")
-            Core.<*> (x Core..:? "S3OutputPath")
-            Core.<*> (x Core..:? "NotebookOutputOption")
+            Prelude.<$> (x Core..:? "S3KmsKeyId")
+            Prelude.<*> (x Core..:? "S3OutputPath")
+            Prelude.<*> (x Core..:? "NotebookOutputOption")
       )
 
-instance Core.Hashable SharingSettings
+instance Prelude.Hashable SharingSettings
 
-instance Core.NFData SharingSettings
+instance Prelude.NFData SharingSettings
 
 instance Core.ToJSON SharingSettings where
   toJSON SharingSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("S3KmsKeyId" Core..=) Core.<$> s3KmsKeyId,
-            ("S3OutputPath" Core..=) Core.<$> s3OutputPath,
+      ( Prelude.catMaybes
+          [ ("S3KmsKeyId" Core..=) Prelude.<$> s3KmsKeyId,
+            ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
             ("NotebookOutputOption" Core..=)
-              Core.<$> notebookOutputOption
+              Prelude.<$> notebookOutputOption
           ]
       )

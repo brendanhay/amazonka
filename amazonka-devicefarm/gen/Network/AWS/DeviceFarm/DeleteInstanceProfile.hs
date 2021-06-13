@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteInstanceProfile = DeleteInstanceProfile'
   { -- | The Amazon Resource Name (ARN) of the instance profile you are
     -- requesting to delete.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceProfile' with all optional fields omitted.
@@ -65,14 +66,14 @@ data DeleteInstanceProfile = DeleteInstanceProfile'
 -- requesting to delete.
 newDeleteInstanceProfile ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInstanceProfile
 newDeleteInstanceProfile pArn_ =
   DeleteInstanceProfile' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the instance profile you are
 -- requesting to delete.
-deleteInstanceProfile_arn :: Lens.Lens' DeleteInstanceProfile Core.Text
+deleteInstanceProfile_arn :: Lens.Lens' DeleteInstanceProfile Prelude.Text
 deleteInstanceProfile_arn = Lens.lens (\DeleteInstanceProfile' {arn} -> arn) (\s@DeleteInstanceProfile' {} a -> s {arn = a} :: DeleteInstanceProfile)
 
 instance Core.AWSRequest DeleteInstanceProfile where
@@ -84,43 +85,47 @@ instance Core.AWSRequest DeleteInstanceProfile where
     Response.receiveEmpty
       ( \s h x ->
           DeleteInstanceProfileResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteInstanceProfile
+instance Prelude.Hashable DeleteInstanceProfile
 
-instance Core.NFData DeleteInstanceProfile
+instance Prelude.NFData DeleteInstanceProfile
 
 instance Core.ToHeaders DeleteInstanceProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.DeleteInstanceProfile" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteInstanceProfile where
   toJSON DeleteInstanceProfile' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
 instance Core.ToPath DeleteInstanceProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInstanceProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInstanceProfileResponse' smart constructor.
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceProfileResponse' with all optional fields omitted.
@@ -133,7 +138,7 @@ data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse'
 -- 'httpStatus', 'deleteInstanceProfileResponse_httpStatus' - The response's http status code.
 newDeleteInstanceProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteInstanceProfileResponse
 newDeleteInstanceProfileResponse pHttpStatus_ =
   DeleteInstanceProfileResponse'
@@ -142,7 +147,7 @@ newDeleteInstanceProfileResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteInstanceProfileResponse_httpStatus :: Lens.Lens' DeleteInstanceProfileResponse Core.Int
+deleteInstanceProfileResponse_httpStatus :: Lens.Lens' DeleteInstanceProfileResponse Prelude.Int
 deleteInstanceProfileResponse_httpStatus = Lens.lens (\DeleteInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteInstanceProfileResponse' {} a -> s {httpStatus = a} :: DeleteInstanceProfileResponse)
 
-instance Core.NFData DeleteInstanceProfileResponse
+instance Prelude.NFData DeleteInstanceProfileResponse

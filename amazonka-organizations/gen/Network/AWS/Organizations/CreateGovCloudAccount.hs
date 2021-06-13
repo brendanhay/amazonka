@@ -165,6 +165,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -193,7 +194,7 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
     -- validate this parameter. The pattern can include uppercase letters,
     -- lowercase letters, digits with no spaces, and any of the following
     -- characters: =,.\@-
-    roleName :: Core.Maybe Core.Text,
+    roleName :: Prelude.Maybe Prelude.Text,
     -- | If set to @ALLOW@, the new linked account in the commercial Region
     -- enables IAM users to access account billing information /if/ they have
     -- the required permissions. If set to @DENY@, only the root user of the
@@ -205,7 +206,7 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
     -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
     -- IAM users and roles with the required permissions can access billing
     -- information for the new account.
-    iamUserAccessToBilling :: Core.Maybe IAMUserAccessToBilling,
+    iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
     -- | A list of tags that you want to attach to the newly created account.
     -- These tags are attached to the commercial account associated with the
     -- GovCloud account, and not to the GovCloud account itself. To add tags to
@@ -221,7 +222,7 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
     -- If any one of the tags is invalid or if you exceed the allowed number of
     -- tags for an account, then the entire request fails and the account is
     -- not created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The email address of the owner to assign to the new member account in
     -- the commercial Region. This email address must not already be associated
     -- with another AWS account. You must use a valid email address to complete
@@ -230,11 +231,11 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
     -- all request parameters for @CreateGovCloudAccount@, the request for the
     -- email address for the AWS GovCloud (US) account originates from the
     -- commercial Region, not from the AWS GovCloud (US) Region.
-    email :: Core.Sensitive Core.Text,
+    email :: Core.Sensitive Prelude.Text,
     -- | The friendly name of the member account.
-    accountName :: Core.Sensitive Core.Text
+    accountName :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGovCloudAccount' with all optional fields omitted.
@@ -308,15 +309,15 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
 -- 'accountName', 'createGovCloudAccount_accountName' - The friendly name of the member account.
 newCreateGovCloudAccount ::
   -- | 'email'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accountName'
-  Core.Text ->
+  Prelude.Text ->
   CreateGovCloudAccount
 newCreateGovCloudAccount pEmail_ pAccountName_ =
   CreateGovCloudAccount'
-    { roleName = Core.Nothing,
-      iamUserAccessToBilling = Core.Nothing,
-      tags = Core.Nothing,
+    { roleName = Prelude.Nothing,
+      iamUserAccessToBilling = Prelude.Nothing,
+      tags = Prelude.Nothing,
       email = Core._Sensitive Lens.# pEmail_,
       accountName = Core._Sensitive Lens.# pAccountName_
     }
@@ -344,7 +345,7 @@ newCreateGovCloudAccount pEmail_ pAccountName_ =
 -- validate this parameter. The pattern can include uppercase letters,
 -- lowercase letters, digits with no spaces, and any of the following
 -- characters: =,.\@-
-createGovCloudAccount_roleName :: Lens.Lens' CreateGovCloudAccount (Core.Maybe Core.Text)
+createGovCloudAccount_roleName :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe Prelude.Text)
 createGovCloudAccount_roleName = Lens.lens (\CreateGovCloudAccount' {roleName} -> roleName) (\s@CreateGovCloudAccount' {} a -> s {roleName = a} :: CreateGovCloudAccount)
 
 -- | If set to @ALLOW@, the new linked account in the commercial Region
@@ -358,7 +359,7 @@ createGovCloudAccount_roleName = Lens.lens (\CreateGovCloudAccount' {roleName} -
 -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
 -- IAM users and roles with the required permissions can access billing
 -- information for the new account.
-createGovCloudAccount_iamUserAccessToBilling :: Lens.Lens' CreateGovCloudAccount (Core.Maybe IAMUserAccessToBilling)
+createGovCloudAccount_iamUserAccessToBilling :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe IAMUserAccessToBilling)
 createGovCloudAccount_iamUserAccessToBilling = Lens.lens (\CreateGovCloudAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateGovCloudAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateGovCloudAccount)
 
 -- | A list of tags that you want to attach to the newly created account.
@@ -376,8 +377,8 @@ createGovCloudAccount_iamUserAccessToBilling = Lens.lens (\CreateGovCloudAccount
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for an account, then the entire request fails and the account is
 -- not created.
-createGovCloudAccount_tags :: Lens.Lens' CreateGovCloudAccount (Core.Maybe [Tag])
-createGovCloudAccount_tags = Lens.lens (\CreateGovCloudAccount' {tags} -> tags) (\s@CreateGovCloudAccount' {} a -> s {tags = a} :: CreateGovCloudAccount) Core.. Lens.mapping Lens._Coerce
+createGovCloudAccount_tags :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe [Tag])
+createGovCloudAccount_tags = Lens.lens (\CreateGovCloudAccount' {tags} -> tags) (\s@CreateGovCloudAccount' {} a -> s {tags = a} :: CreateGovCloudAccount) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The email address of the owner to assign to the new member account in
 -- the commercial Region. This email address must not already be associated
@@ -387,12 +388,12 @@ createGovCloudAccount_tags = Lens.lens (\CreateGovCloudAccount' {tags} -> tags) 
 -- all request parameters for @CreateGovCloudAccount@, the request for the
 -- email address for the AWS GovCloud (US) account originates from the
 -- commercial Region, not from the AWS GovCloud (US) Region.
-createGovCloudAccount_email :: Lens.Lens' CreateGovCloudAccount Core.Text
-createGovCloudAccount_email = Lens.lens (\CreateGovCloudAccount' {email} -> email) (\s@CreateGovCloudAccount' {} a -> s {email = a} :: CreateGovCloudAccount) Core.. Core._Sensitive
+createGovCloudAccount_email :: Lens.Lens' CreateGovCloudAccount Prelude.Text
+createGovCloudAccount_email = Lens.lens (\CreateGovCloudAccount' {email} -> email) (\s@CreateGovCloudAccount' {} a -> s {email = a} :: CreateGovCloudAccount) Prelude.. Core._Sensitive
 
 -- | The friendly name of the member account.
-createGovCloudAccount_accountName :: Lens.Lens' CreateGovCloudAccount Core.Text
-createGovCloudAccount_accountName = Lens.lens (\CreateGovCloudAccount' {accountName} -> accountName) (\s@CreateGovCloudAccount' {} a -> s {accountName = a} :: CreateGovCloudAccount) Core.. Core._Sensitive
+createGovCloudAccount_accountName :: Lens.Lens' CreateGovCloudAccount Prelude.Text
+createGovCloudAccount_accountName = Lens.lens (\CreateGovCloudAccount' {accountName} -> accountName) (\s@CreateGovCloudAccount' {} a -> s {accountName = a} :: CreateGovCloudAccount) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest CreateGovCloudAccount where
   type
@@ -403,53 +404,55 @@ instance Core.AWSRequest CreateGovCloudAccount where
     Response.receiveJSON
       ( \s h x ->
           CreateGovCloudAccountResponse'
-            Core.<$> (x Core..?> "CreateAccountStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreateAccountStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateGovCloudAccount
+instance Prelude.Hashable CreateGovCloudAccount
 
-instance Core.NFData CreateGovCloudAccount
+instance Prelude.NFData CreateGovCloudAccount
 
 instance Core.ToHeaders CreateGovCloudAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.CreateGovCloudAccount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateGovCloudAccount where
   toJSON CreateGovCloudAccount' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleName" Core..=) Core.<$> roleName,
+      ( Prelude.catMaybes
+          [ ("RoleName" Core..=) Prelude.<$> roleName,
             ("IamUserAccessToBilling" Core..=)
-              Core.<$> iamUserAccessToBilling,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("Email" Core..= email),
-            Core.Just ("AccountName" Core..= accountName)
+              Prelude.<$> iamUserAccessToBilling,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Email" Core..= email),
+            Prelude.Just ("AccountName" Core..= accountName)
           ]
       )
 
 instance Core.ToPath CreateGovCloudAccount where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateGovCloudAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGovCloudAccountResponse' smart constructor.
 data CreateGovCloudAccountResponse = CreateGovCloudAccountResponse'
-  { createAccountStatus :: Core.Maybe CreateAccountStatus,
+  { createAccountStatus :: Prelude.Maybe CreateAccountStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGovCloudAccountResponse' with all optional fields omitted.
@@ -464,21 +467,21 @@ data CreateGovCloudAccountResponse = CreateGovCloudAccountResponse'
 -- 'httpStatus', 'createGovCloudAccountResponse_httpStatus' - The response's http status code.
 newCreateGovCloudAccountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateGovCloudAccountResponse
 newCreateGovCloudAccountResponse pHttpStatus_ =
   CreateGovCloudAccountResponse'
     { createAccountStatus =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createGovCloudAccountResponse_createAccountStatus :: Lens.Lens' CreateGovCloudAccountResponse (Core.Maybe CreateAccountStatus)
+createGovCloudAccountResponse_createAccountStatus :: Lens.Lens' CreateGovCloudAccountResponse (Prelude.Maybe CreateAccountStatus)
 createGovCloudAccountResponse_createAccountStatus = Lens.lens (\CreateGovCloudAccountResponse' {createAccountStatus} -> createAccountStatus) (\s@CreateGovCloudAccountResponse' {} a -> s {createAccountStatus = a} :: CreateGovCloudAccountResponse)
 
 -- | The response's http status code.
-createGovCloudAccountResponse_httpStatus :: Lens.Lens' CreateGovCloudAccountResponse Core.Int
+createGovCloudAccountResponse_httpStatus :: Lens.Lens' CreateGovCloudAccountResponse Prelude.Int
 createGovCloudAccountResponse_httpStatus = Lens.lens (\CreateGovCloudAccountResponse' {httpStatus} -> httpStatus) (\s@CreateGovCloudAccountResponse' {} a -> s {httpStatus = a} :: CreateGovCloudAccountResponse)
 
-instance Core.NFData CreateGovCloudAccountResponse
+instance Prelude.NFData CreateGovCloudAccountResponse

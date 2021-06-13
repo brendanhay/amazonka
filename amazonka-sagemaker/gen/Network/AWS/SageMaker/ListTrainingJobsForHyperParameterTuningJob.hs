@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -57,25 +58,25 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListTrainingJobsForHyperParameterTuningJob' smart constructor.
 data ListTrainingJobsForHyperParameterTuningJob = ListTrainingJobsForHyperParameterTuningJob'
   { -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous
     -- @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of training
     -- jobs, use the token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of training jobs to return. The default value is 10.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The field to sort results by. The default is @Name@.
     --
     -- If the value of this field is @FinalObjectiveMetricValue@, any training
     -- jobs that did not return an objective metric are not listed.
-    sortBy :: Core.Maybe TrainingJobSortByOptions,
+    sortBy :: Prelude.Maybe TrainingJobSortByOptions,
     -- | A filter that returns only training jobs with the specified status.
-    statusEquals :: Core.Maybe TrainingJobStatus,
+    statusEquals :: Prelude.Maybe TrainingJobStatus,
     -- | The name of the tuning job whose training jobs you want to list.
-    hyperParameterTuningJobName :: Core.Text
+    hyperParameterTuningJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTrainingJobsForHyperParameterTuningJob' with all optional fields omitted.
@@ -104,49 +105,49 @@ data ListTrainingJobsForHyperParameterTuningJob = ListTrainingJobsForHyperParame
 -- 'hyperParameterTuningJobName', 'listTrainingJobsForHyperParameterTuningJob_hyperParameterTuningJobName' - The name of the tuning job whose training jobs you want to list.
 newListTrainingJobsForHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
-  Core.Text ->
+  Prelude.Text ->
   ListTrainingJobsForHyperParameterTuningJob
 newListTrainingJobsForHyperParameterTuningJob
   pHyperParameterTuningJobName_ =
     ListTrainingJobsForHyperParameterTuningJob'
       { sortOrder =
-          Core.Nothing,
-        nextToken = Core.Nothing,
-        maxResults = Core.Nothing,
-        sortBy = Core.Nothing,
-        statusEquals = Core.Nothing,
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        sortBy = Prelude.Nothing,
+        statusEquals = Prelude.Nothing,
         hyperParameterTuningJobName =
           pHyperParameterTuningJobName_
       }
 
 -- | The sort order for results. The default is @Ascending@.
-listTrainingJobsForHyperParameterTuningJob_sortOrder :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe SortOrder)
+listTrainingJobsForHyperParameterTuningJob_sortOrder :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe SortOrder)
 listTrainingJobsForHyperParameterTuningJob_sortOrder = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {sortOrder} -> sortOrder) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {sortOrder = a} :: ListTrainingJobsForHyperParameterTuningJob)
 
 -- | If the result of the previous
 -- @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of training
 -- jobs, use the token in the next request.
-listTrainingJobsForHyperParameterTuningJob_nextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe Core.Text)
+listTrainingJobsForHyperParameterTuningJob_nextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe Prelude.Text)
 listTrainingJobsForHyperParameterTuningJob_nextToken = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {nextToken} -> nextToken) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {nextToken = a} :: ListTrainingJobsForHyperParameterTuningJob)
 
 -- | The maximum number of training jobs to return. The default value is 10.
-listTrainingJobsForHyperParameterTuningJob_maxResults :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe Core.Natural)
+listTrainingJobsForHyperParameterTuningJob_maxResults :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe Prelude.Natural)
 listTrainingJobsForHyperParameterTuningJob_maxResults = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {maxResults} -> maxResults) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {maxResults = a} :: ListTrainingJobsForHyperParameterTuningJob)
 
 -- | The field to sort results by. The default is @Name@.
 --
 -- If the value of this field is @FinalObjectiveMetricValue@, any training
 -- jobs that did not return an objective metric are not listed.
-listTrainingJobsForHyperParameterTuningJob_sortBy :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe TrainingJobSortByOptions)
+listTrainingJobsForHyperParameterTuningJob_sortBy :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe TrainingJobSortByOptions)
 listTrainingJobsForHyperParameterTuningJob_sortBy = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {sortBy} -> sortBy) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {sortBy = a} :: ListTrainingJobsForHyperParameterTuningJob)
 
 -- | A filter that returns only training jobs with the specified status.
-listTrainingJobsForHyperParameterTuningJob_statusEquals :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe TrainingJobStatus)
+listTrainingJobsForHyperParameterTuningJob_statusEquals :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe TrainingJobStatus)
 listTrainingJobsForHyperParameterTuningJob_statusEquals = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {statusEquals} -> statusEquals) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {statusEquals = a} :: ListTrainingJobsForHyperParameterTuningJob)
 
 -- | The name of the tuning job whose training jobs you want to list.
-listTrainingJobsForHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob Core.Text
+listTrainingJobsForHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob Prelude.Text
 listTrainingJobsForHyperParameterTuningJob_hyperParameterTuningJobName = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobName = a} :: ListTrainingJobsForHyperParameterTuningJob)
 
 instance
@@ -157,21 +158,21 @@ instance
     | Core.stop
         ( rs
             Lens.^? listTrainingJobsForHyperParameterTuningJobResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listTrainingJobsForHyperParameterTuningJobResponse_trainingJobSummaries
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTrainingJobsForHyperParameterTuningJob_nextToken
+          Prelude.& listTrainingJobsForHyperParameterTuningJob_nextToken
           Lens..~ rs
             Lens.^? listTrainingJobsForHyperParameterTuningJobResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -186,19 +187,19 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListTrainingJobsForHyperParameterTuningJobResponse'
-            Core.<$> (x Core..?> "NextToken")
-              Core.<*> (Core.pure (Core.fromEnum s))
-              Core.<*> ( x Core..?> "TrainingJobSummaries"
-                           Core..!@ Core.mempty
-                       )
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> ( x Core..?> "TrainingJobSummaries"
+                              Core..!@ Prelude.mempty
+                          )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ListTrainingJobsForHyperParameterTuningJob
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListTrainingJobsForHyperParameterTuningJob
 
 instance
@@ -206,14 +207,16 @@ instance
     ListTrainingJobsForHyperParameterTuningJob
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.ListTrainingJobsForHyperParameterTuningJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -224,13 +227,13 @@ instance
   toJSON
     ListTrainingJobsForHyperParameterTuningJob' {..} =
       Core.object
-        ( Core.catMaybes
-            [ ("SortOrder" Core..=) Core.<$> sortOrder,
-              ("NextToken" Core..=) Core.<$> nextToken,
-              ("MaxResults" Core..=) Core.<$> maxResults,
-              ("SortBy" Core..=) Core.<$> sortBy,
-              ("StatusEquals" Core..=) Core.<$> statusEquals,
-              Core.Just
+        ( Prelude.catMaybes
+            [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+              ("NextToken" Core..=) Prelude.<$> nextToken,
+              ("MaxResults" Core..=) Prelude.<$> maxResults,
+              ("SortBy" Core..=) Prelude.<$> sortBy,
+              ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+              Prelude.Just
                 ( "HyperParameterTuningJobName"
                     Core..= hyperParameterTuningJobName
                 )
@@ -241,27 +244,27 @@ instance
   Core.ToPath
     ListTrainingJobsForHyperParameterTuningJob
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ListTrainingJobsForHyperParameterTuningJob
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTrainingJobsForHyperParameterTuningJobResponse' smart constructor.
 data ListTrainingJobsForHyperParameterTuningJobResponse = ListTrainingJobsForHyperParameterTuningJobResponse'
   { -- | If the result of this @ListTrainingJobsForHyperParameterTuningJob@
     -- request was truncated, the response includes a @NextToken@. To retrieve
     -- the next set of training jobs, use the token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of TrainingJobSummary objects that describe the training jobs
     -- that the @ListTrainingJobsForHyperParameterTuningJob@ request returned.
     trainingJobSummaries :: [HyperParameterTrainingJobSummary]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTrainingJobsForHyperParameterTuningJobResponse' with all optional fields omitted.
@@ -281,34 +284,34 @@ data ListTrainingJobsForHyperParameterTuningJobResponse = ListTrainingJobsForHyp
 -- that the @ListTrainingJobsForHyperParameterTuningJob@ request returned.
 newListTrainingJobsForHyperParameterTuningJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTrainingJobsForHyperParameterTuningJobResponse
 newListTrainingJobsForHyperParameterTuningJobResponse
   pHttpStatus_ =
     ListTrainingJobsForHyperParameterTuningJobResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_,
         trainingJobSummaries =
-          Core.mempty
+          Prelude.mempty
       }
 
 -- | If the result of this @ListTrainingJobsForHyperParameterTuningJob@
 -- request was truncated, the response includes a @NextToken@. To retrieve
 -- the next set of training jobs, use the token in the next request.
-listTrainingJobsForHyperParameterTuningJobResponse_nextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse (Core.Maybe Core.Text)
+listTrainingJobsForHyperParameterTuningJobResponse_nextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse (Prelude.Maybe Prelude.Text)
 listTrainingJobsForHyperParameterTuningJobResponse_nextToken = Lens.lens (\ListTrainingJobsForHyperParameterTuningJobResponse' {nextToken} -> nextToken) (\s@ListTrainingJobsForHyperParameterTuningJobResponse' {} a -> s {nextToken = a} :: ListTrainingJobsForHyperParameterTuningJobResponse)
 
 -- | The response's http status code.
-listTrainingJobsForHyperParameterTuningJobResponse_httpStatus :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse Core.Int
+listTrainingJobsForHyperParameterTuningJobResponse_httpStatus :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse Prelude.Int
 listTrainingJobsForHyperParameterTuningJobResponse_httpStatus = Lens.lens (\ListTrainingJobsForHyperParameterTuningJobResponse' {httpStatus} -> httpStatus) (\s@ListTrainingJobsForHyperParameterTuningJobResponse' {} a -> s {httpStatus = a} :: ListTrainingJobsForHyperParameterTuningJobResponse)
 
 -- | A list of TrainingJobSummary objects that describe the training jobs
 -- that the @ListTrainingJobsForHyperParameterTuningJob@ request returned.
 listTrainingJobsForHyperParameterTuningJobResponse_trainingJobSummaries :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse [HyperParameterTrainingJobSummary]
-listTrainingJobsForHyperParameterTuningJobResponse_trainingJobSummaries = Lens.lens (\ListTrainingJobsForHyperParameterTuningJobResponse' {trainingJobSummaries} -> trainingJobSummaries) (\s@ListTrainingJobsForHyperParameterTuningJobResponse' {} a -> s {trainingJobSummaries = a} :: ListTrainingJobsForHyperParameterTuningJobResponse) Core.. Lens._Coerce
+listTrainingJobsForHyperParameterTuningJobResponse_trainingJobSummaries = Lens.lens (\ListTrainingJobsForHyperParameterTuningJobResponse' {trainingJobSummaries} -> trainingJobSummaries) (\s@ListTrainingJobsForHyperParameterTuningJobResponse' {} a -> s {trainingJobSummaries = a} :: ListTrainingJobsForHyperParameterTuningJobResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListTrainingJobsForHyperParameterTuningJobResponse

@@ -44,6 +44,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,16 +58,16 @@ data SetInstanceHealth = SetInstanceHealth'
     -- For more information about the health check grace period, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html CreateAutoScalingGroup>
     -- in the /Amazon EC2 Auto Scaling API Reference/.
-    shouldRespectGracePeriod :: Core.Maybe Core.Bool,
+    shouldRespectGracePeriod :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The health status of the instance. Set to @Healthy@ to have the instance
     -- remain in service. Set to @Unhealthy@ to have the instance be out of
     -- service. Amazon EC2 Auto Scaling terminates and replaces the unhealthy
     -- instance.
-    healthStatus :: Core.Text
+    healthStatus :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetInstanceHealth' with all optional fields omitted.
@@ -93,14 +94,14 @@ data SetInstanceHealth = SetInstanceHealth'
 -- instance.
 newSetInstanceHealth ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'healthStatus'
-  Core.Text ->
+  Prelude.Text ->
   SetInstanceHealth
 newSetInstanceHealth pInstanceId_ pHealthStatus_ =
   SetInstanceHealth'
     { shouldRespectGracePeriod =
-        Core.Nothing,
+        Prelude.Nothing,
       instanceId = pInstanceId_,
       healthStatus = pHealthStatus_
     }
@@ -113,18 +114,18 @@ newSetInstanceHealth pInstanceId_ pHealthStatus_ =
 -- For more information about the health check grace period, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html CreateAutoScalingGroup>
 -- in the /Amazon EC2 Auto Scaling API Reference/.
-setInstanceHealth_shouldRespectGracePeriod :: Lens.Lens' SetInstanceHealth (Core.Maybe Core.Bool)
+setInstanceHealth_shouldRespectGracePeriod :: Lens.Lens' SetInstanceHealth (Prelude.Maybe Prelude.Bool)
 setInstanceHealth_shouldRespectGracePeriod = Lens.lens (\SetInstanceHealth' {shouldRespectGracePeriod} -> shouldRespectGracePeriod) (\s@SetInstanceHealth' {} a -> s {shouldRespectGracePeriod = a} :: SetInstanceHealth)
 
 -- | The ID of the instance.
-setInstanceHealth_instanceId :: Lens.Lens' SetInstanceHealth Core.Text
+setInstanceHealth_instanceId :: Lens.Lens' SetInstanceHealth Prelude.Text
 setInstanceHealth_instanceId = Lens.lens (\SetInstanceHealth' {instanceId} -> instanceId) (\s@SetInstanceHealth' {} a -> s {instanceId = a} :: SetInstanceHealth)
 
 -- | The health status of the instance. Set to @Healthy@ to have the instance
 -- remain in service. Set to @Unhealthy@ to have the instance be out of
 -- service. Amazon EC2 Auto Scaling terminates and replaces the unhealthy
 -- instance.
-setInstanceHealth_healthStatus :: Lens.Lens' SetInstanceHealth Core.Text
+setInstanceHealth_healthStatus :: Lens.Lens' SetInstanceHealth Prelude.Text
 setInstanceHealth_healthStatus = Lens.lens (\SetInstanceHealth' {healthStatus} -> healthStatus) (\s@SetInstanceHealth' {} a -> s {healthStatus = a} :: SetInstanceHealth)
 
 instance Core.AWSRequest SetInstanceHealth where
@@ -135,22 +136,23 @@ instance Core.AWSRequest SetInstanceHealth where
   response =
     Response.receiveNull SetInstanceHealthResponse'
 
-instance Core.Hashable SetInstanceHealth
+instance Prelude.Hashable SetInstanceHealth
 
-instance Core.NFData SetInstanceHealth
+instance Prelude.NFData SetInstanceHealth
 
 instance Core.ToHeaders SetInstanceHealth where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetInstanceHealth where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetInstanceHealth where
   toQuery SetInstanceHealth' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetInstanceHealth" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("SetInstanceHealth" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "ShouldRespectGracePeriod"
           Core.=: shouldRespectGracePeriod,
         "InstanceId" Core.=: instanceId,
@@ -161,7 +163,7 @@ instance Core.ToQuery SetInstanceHealth where
 data SetInstanceHealthResponse = SetInstanceHealthResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetInstanceHealthResponse' with all optional fields omitted.
@@ -172,4 +174,4 @@ newSetInstanceHealthResponse ::
 newSetInstanceHealthResponse =
   SetInstanceHealthResponse'
 
-instance Core.NFData SetInstanceHealthResponse
+instance Prelude.NFData SetInstanceHealthResponse

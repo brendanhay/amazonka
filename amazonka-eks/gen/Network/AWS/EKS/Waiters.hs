@@ -22,6 +22,7 @@ import Network.AWS.EKS.DescribeNodegroup
 import Network.AWS.EKS.Lens
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newClusterActive :: Core.Wait DescribeCluster
@@ -34,26 +35,26 @@ newClusterActive =
         [ Core.matchAll
             "DELETING"
             Core.AcceptFailure
-            ( describeClusterResponse_cluster Core.. Lens._Just
-                Core.. cluster_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( describeClusterResponse_cluster Core.. Lens._Just
-                Core.. cluster_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
-            ( describeClusterResponse_cluster Core.. Lens._Just
-                Core.. cluster_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -70,19 +71,19 @@ newNodegroupActive =
             "CREATE_FAILED"
             Core.AcceptFailure
             ( describeNodegroupResponse_nodegroup
-                Core.. Lens._Just
-                Core.. nodegroup_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. nodegroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
             ( describeNodegroupResponse_nodegroup
-                Core.. Lens._Just
-                Core.. nodegroup_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. nodegroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -99,10 +100,10 @@ newNodegroupDeleted =
             "DELETE_FAILED"
             Core.AcceptFailure
             ( describeNodegroupResponse_nodegroup
-                Core.. Lens._Just
-                Core.. nodegroup_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. nodegroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"
@@ -121,18 +122,18 @@ newClusterDeleted =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptFailure
-            ( describeClusterResponse_cluster Core.. Lens._Just
-                Core.. cluster_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "CREATING"
             Core.AcceptFailure
-            ( describeClusterResponse_cluster Core.. Lens._Just
-                Core.. cluster_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"
@@ -151,18 +152,18 @@ newAddonActive =
         [ Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
-            ( describeAddonResponse_addon Core.. Lens._Just
-                Core.. addon_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeAddonResponse_addon Prelude.. Lens._Just
+                Prelude.. addon_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
-            ( describeAddonResponse_addon Core.. Lens._Just
-                Core.. addon_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeAddonResponse_addon Prelude.. Lens._Just
+                Prelude.. addon_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -178,10 +179,10 @@ newAddonDeleted =
         [ Core.matchAll
             "DELETE_FAILED"
             Core.AcceptFailure
-            ( describeAddonResponse_addon Core.. Lens._Just
-                Core.. addon_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeAddonResponse_addon Prelude.. Lens._Just
+                Prelude.. addon_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"

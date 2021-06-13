@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -62,22 +63,22 @@ data CreatePrivateDnsNamespace = CreatePrivateDnsNamespace'
     -- @CreatePrivateDnsNamespace@ requests to be retried without the risk of
     -- executing the operation twice. @CreatorRequestId@ can be any unique
     -- string, for example, a date\/time stamp.
-    creatorRequestId :: Core.Maybe Core.Text,
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The tags to add to the namespace. Each tag consists of a key and an
     -- optional value, both of which you define. Tag keys can have a maximum
     -- character length of 128 characters, and tag values can have a maximum
     -- length of 256 characters.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A description for the namespace.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name that you want to assign to this namespace. When you create a
     -- private DNS namespace, AWS Cloud Map automatically creates an Amazon
     -- Route 53 private hosted zone that has the same name as the namespace.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The ID of the Amazon VPC that you want to associate the namespace with.
-    vpc :: Core.Text
+    vpc :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePrivateDnsNamespace' with all optional fields omitted.
@@ -106,16 +107,16 @@ data CreatePrivateDnsNamespace = CreatePrivateDnsNamespace'
 -- 'vpc', 'createPrivateDnsNamespace_vpc' - The ID of the Amazon VPC that you want to associate the namespace with.
 newCreatePrivateDnsNamespace ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpc'
-  Core.Text ->
+  Prelude.Text ->
   CreatePrivateDnsNamespace
 newCreatePrivateDnsNamespace pName_ pVpc_ =
   CreatePrivateDnsNamespace'
     { creatorRequestId =
-        Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       vpc = pVpc_
     }
@@ -124,28 +125,28 @@ newCreatePrivateDnsNamespace pName_ pVpc_ =
 -- @CreatePrivateDnsNamespace@ requests to be retried without the risk of
 -- executing the operation twice. @CreatorRequestId@ can be any unique
 -- string, for example, a date\/time stamp.
-createPrivateDnsNamespace_creatorRequestId :: Lens.Lens' CreatePrivateDnsNamespace (Core.Maybe Core.Text)
+createPrivateDnsNamespace_creatorRequestId :: Lens.Lens' CreatePrivateDnsNamespace (Prelude.Maybe Prelude.Text)
 createPrivateDnsNamespace_creatorRequestId = Lens.lens (\CreatePrivateDnsNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreatePrivateDnsNamespace' {} a -> s {creatorRequestId = a} :: CreatePrivateDnsNamespace)
 
 -- | The tags to add to the namespace. Each tag consists of a key and an
 -- optional value, both of which you define. Tag keys can have a maximum
 -- character length of 128 characters, and tag values can have a maximum
 -- length of 256 characters.
-createPrivateDnsNamespace_tags :: Lens.Lens' CreatePrivateDnsNamespace (Core.Maybe [Tag])
-createPrivateDnsNamespace_tags = Lens.lens (\CreatePrivateDnsNamespace' {tags} -> tags) (\s@CreatePrivateDnsNamespace' {} a -> s {tags = a} :: CreatePrivateDnsNamespace) Core.. Lens.mapping Lens._Coerce
+createPrivateDnsNamespace_tags :: Lens.Lens' CreatePrivateDnsNamespace (Prelude.Maybe [Tag])
+createPrivateDnsNamespace_tags = Lens.lens (\CreatePrivateDnsNamespace' {tags} -> tags) (\s@CreatePrivateDnsNamespace' {} a -> s {tags = a} :: CreatePrivateDnsNamespace) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description for the namespace.
-createPrivateDnsNamespace_description :: Lens.Lens' CreatePrivateDnsNamespace (Core.Maybe Core.Text)
+createPrivateDnsNamespace_description :: Lens.Lens' CreatePrivateDnsNamespace (Prelude.Maybe Prelude.Text)
 createPrivateDnsNamespace_description = Lens.lens (\CreatePrivateDnsNamespace' {description} -> description) (\s@CreatePrivateDnsNamespace' {} a -> s {description = a} :: CreatePrivateDnsNamespace)
 
 -- | The name that you want to assign to this namespace. When you create a
 -- private DNS namespace, AWS Cloud Map automatically creates an Amazon
 -- Route 53 private hosted zone that has the same name as the namespace.
-createPrivateDnsNamespace_name :: Lens.Lens' CreatePrivateDnsNamespace Core.Text
+createPrivateDnsNamespace_name :: Lens.Lens' CreatePrivateDnsNamespace Prelude.Text
 createPrivateDnsNamespace_name = Lens.lens (\CreatePrivateDnsNamespace' {name} -> name) (\s@CreatePrivateDnsNamespace' {} a -> s {name = a} :: CreatePrivateDnsNamespace)
 
 -- | The ID of the Amazon VPC that you want to associate the namespace with.
-createPrivateDnsNamespace_vpc :: Lens.Lens' CreatePrivateDnsNamespace Core.Text
+createPrivateDnsNamespace_vpc :: Lens.Lens' CreatePrivateDnsNamespace Prelude.Text
 createPrivateDnsNamespace_vpc = Lens.lens (\CreatePrivateDnsNamespace' {vpc} -> vpc) (\s@CreatePrivateDnsNamespace' {} a -> s {vpc = a} :: CreatePrivateDnsNamespace)
 
 instance Core.AWSRequest CreatePrivateDnsNamespace where
@@ -157,56 +158,58 @@ instance Core.AWSRequest CreatePrivateDnsNamespace where
     Response.receiveJSON
       ( \s h x ->
           CreatePrivateDnsNamespaceResponse'
-            Core.<$> (x Core..?> "OperationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePrivateDnsNamespace
+instance Prelude.Hashable CreatePrivateDnsNamespace
 
-instance Core.NFData CreatePrivateDnsNamespace
+instance Prelude.NFData CreatePrivateDnsNamespace
 
 instance Core.ToHeaders CreatePrivateDnsNamespace where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePrivateDnsNamespace where
   toJSON CreatePrivateDnsNamespace' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CreatorRequestId" Core..=)
-              Core.<$> creatorRequestId,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Vpc" Core..= vpc)
+              Prelude.<$> creatorRequestId,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Vpc" Core..= vpc)
           ]
       )
 
 instance Core.ToPath CreatePrivateDnsNamespace where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePrivateDnsNamespace where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePrivateDnsNamespaceResponse' smart constructor.
 data CreatePrivateDnsNamespaceResponse = CreatePrivateDnsNamespaceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. To get the status of the operation, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePrivateDnsNamespaceResponse' with all optional fields omitted.
@@ -223,25 +226,25 @@ data CreatePrivateDnsNamespaceResponse = CreatePrivateDnsNamespaceResponse'
 -- 'httpStatus', 'createPrivateDnsNamespaceResponse_httpStatus' - The response's http status code.
 newCreatePrivateDnsNamespaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePrivateDnsNamespaceResponse
 newCreatePrivateDnsNamespaceResponse pHttpStatus_ =
   CreatePrivateDnsNamespaceResponse'
     { operationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-createPrivateDnsNamespaceResponse_operationId :: Lens.Lens' CreatePrivateDnsNamespaceResponse (Core.Maybe Core.Text)
+createPrivateDnsNamespaceResponse_operationId :: Lens.Lens' CreatePrivateDnsNamespaceResponse (Prelude.Maybe Prelude.Text)
 createPrivateDnsNamespaceResponse_operationId = Lens.lens (\CreatePrivateDnsNamespaceResponse' {operationId} -> operationId) (\s@CreatePrivateDnsNamespaceResponse' {} a -> s {operationId = a} :: CreatePrivateDnsNamespaceResponse)
 
 -- | The response's http status code.
-createPrivateDnsNamespaceResponse_httpStatus :: Lens.Lens' CreatePrivateDnsNamespaceResponse Core.Int
+createPrivateDnsNamespaceResponse_httpStatus :: Lens.Lens' CreatePrivateDnsNamespaceResponse Prelude.Int
 createPrivateDnsNamespaceResponse_httpStatus = Lens.lens (\CreatePrivateDnsNamespaceResponse' {httpStatus} -> httpStatus) (\s@CreatePrivateDnsNamespaceResponse' {} a -> s {httpStatus = a} :: CreatePrivateDnsNamespaceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreatePrivateDnsNamespaceResponse

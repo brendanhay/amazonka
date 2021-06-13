@@ -83,6 +83,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -90,7 +91,7 @@ import qualified Network.AWS.Response as Response
 data LeaveOrganization = LeaveOrganization'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LeaveOrganization' with all optional fields omitted.
@@ -108,37 +109,39 @@ instance Core.AWSRequest LeaveOrganization where
   response =
     Response.receiveNull LeaveOrganizationResponse'
 
-instance Core.Hashable LeaveOrganization
+instance Prelude.Hashable LeaveOrganization
 
-instance Core.NFData LeaveOrganization
+instance Prelude.NFData LeaveOrganization
 
 instance Core.ToHeaders LeaveOrganization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.LeaveOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON LeaveOrganization where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath LeaveOrganization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery LeaveOrganization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newLeaveOrganizationResponse' smart constructor.
 data LeaveOrganizationResponse = LeaveOrganizationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LeaveOrganizationResponse' with all optional fields omitted.
@@ -149,4 +152,4 @@ newLeaveOrganizationResponse ::
 newLeaveOrganizationResponse =
   LeaveOrganizationResponse'
 
-instance Core.NFData LeaveOrganizationResponse
+instance Prelude.NFData LeaveOrganizationResponse

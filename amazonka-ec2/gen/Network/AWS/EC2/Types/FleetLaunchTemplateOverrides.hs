@@ -24,33 +24,34 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.PlacementResponse
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes overrides for a launch template.
 --
 -- /See:/ 'newFleetLaunchTemplateOverrides' smart constructor.
 data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
   { -- | The instance type.
-    instanceType :: Core.Maybe InstanceType,
+    instanceType :: Prelude.Maybe InstanceType,
     -- | The location where the instance launched, if applicable.
-    placement :: Core.Maybe PlacementResponse,
+    placement :: Prelude.Maybe PlacementResponse,
     -- | The priority for the launch template override. If __AllocationStrategy__
     -- is set to @prioritized@, EC2 Fleet uses priority to determine which
     -- launch template override to use first in fulfilling On-Demand capacity.
     -- The highest priority is launched first. Valid values are whole numbers
     -- starting at @0@. The lower the number, the higher the priority. If no
     -- number is set, the override has the lowest priority.
-    priority :: Core.Maybe Core.Double,
+    priority :: Prelude.Maybe Prelude.Double,
     -- | The Availability Zone in which to launch the instances.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The maximum price per unit hour that you are willing to pay for a Spot
     -- Instance.
-    maxPrice :: Core.Maybe Core.Text,
+    maxPrice :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet in which to launch the instances.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The number of units provided by the specified instance type.
-    weightedCapacity :: Core.Maybe Core.Double
+    weightedCapacity :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetLaunchTemplateOverrides' with all optional fields omitted.
@@ -84,21 +85,21 @@ newFleetLaunchTemplateOverrides ::
 newFleetLaunchTemplateOverrides =
   FleetLaunchTemplateOverrides'
     { instanceType =
-        Core.Nothing,
-      placement = Core.Nothing,
-      priority = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      maxPrice = Core.Nothing,
-      subnetId = Core.Nothing,
-      weightedCapacity = Core.Nothing
+        Prelude.Nothing,
+      placement = Prelude.Nothing,
+      priority = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      maxPrice = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      weightedCapacity = Prelude.Nothing
     }
 
 -- | The instance type.
-fleetLaunchTemplateOverrides_instanceType :: Lens.Lens' FleetLaunchTemplateOverrides (Core.Maybe InstanceType)
+fleetLaunchTemplateOverrides_instanceType :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe InstanceType)
 fleetLaunchTemplateOverrides_instanceType = Lens.lens (\FleetLaunchTemplateOverrides' {instanceType} -> instanceType) (\s@FleetLaunchTemplateOverrides' {} a -> s {instanceType = a} :: FleetLaunchTemplateOverrides)
 
 -- | The location where the instance launched, if applicable.
-fleetLaunchTemplateOverrides_placement :: Lens.Lens' FleetLaunchTemplateOverrides (Core.Maybe PlacementResponse)
+fleetLaunchTemplateOverrides_placement :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe PlacementResponse)
 fleetLaunchTemplateOverrides_placement = Lens.lens (\FleetLaunchTemplateOverrides' {placement} -> placement) (\s@FleetLaunchTemplateOverrides' {} a -> s {placement = a} :: FleetLaunchTemplateOverrides)
 
 -- | The priority for the launch template override. If __AllocationStrategy__
@@ -107,37 +108,39 @@ fleetLaunchTemplateOverrides_placement = Lens.lens (\FleetLaunchTemplateOverride
 -- The highest priority is launched first. Valid values are whole numbers
 -- starting at @0@. The lower the number, the higher the priority. If no
 -- number is set, the override has the lowest priority.
-fleetLaunchTemplateOverrides_priority :: Lens.Lens' FleetLaunchTemplateOverrides (Core.Maybe Core.Double)
+fleetLaunchTemplateOverrides_priority :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
 fleetLaunchTemplateOverrides_priority = Lens.lens (\FleetLaunchTemplateOverrides' {priority} -> priority) (\s@FleetLaunchTemplateOverrides' {} a -> s {priority = a} :: FleetLaunchTemplateOverrides)
 
 -- | The Availability Zone in which to launch the instances.
-fleetLaunchTemplateOverrides_availabilityZone :: Lens.Lens' FleetLaunchTemplateOverrides (Core.Maybe Core.Text)
+fleetLaunchTemplateOverrides_availabilityZone :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateOverrides_availabilityZone = Lens.lens (\FleetLaunchTemplateOverrides' {availabilityZone} -> availabilityZone) (\s@FleetLaunchTemplateOverrides' {} a -> s {availabilityZone = a} :: FleetLaunchTemplateOverrides)
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance.
-fleetLaunchTemplateOverrides_maxPrice :: Lens.Lens' FleetLaunchTemplateOverrides (Core.Maybe Core.Text)
+fleetLaunchTemplateOverrides_maxPrice :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateOverrides_maxPrice = Lens.lens (\FleetLaunchTemplateOverrides' {maxPrice} -> maxPrice) (\s@FleetLaunchTemplateOverrides' {} a -> s {maxPrice = a} :: FleetLaunchTemplateOverrides)
 
 -- | The ID of the subnet in which to launch the instances.
-fleetLaunchTemplateOverrides_subnetId :: Lens.Lens' FleetLaunchTemplateOverrides (Core.Maybe Core.Text)
+fleetLaunchTemplateOverrides_subnetId :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateOverrides_subnetId = Lens.lens (\FleetLaunchTemplateOverrides' {subnetId} -> subnetId) (\s@FleetLaunchTemplateOverrides' {} a -> s {subnetId = a} :: FleetLaunchTemplateOverrides)
 
 -- | The number of units provided by the specified instance type.
-fleetLaunchTemplateOverrides_weightedCapacity :: Lens.Lens' FleetLaunchTemplateOverrides (Core.Maybe Core.Double)
+fleetLaunchTemplateOverrides_weightedCapacity :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
 fleetLaunchTemplateOverrides_weightedCapacity = Lens.lens (\FleetLaunchTemplateOverrides' {weightedCapacity} -> weightedCapacity) (\s@FleetLaunchTemplateOverrides' {} a -> s {weightedCapacity = a} :: FleetLaunchTemplateOverrides)
 
 instance Core.FromXML FleetLaunchTemplateOverrides where
   parseXML x =
     FleetLaunchTemplateOverrides'
-      Core.<$> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "placement")
-      Core.<*> (x Core..@? "priority")
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "maxPrice")
-      Core.<*> (x Core..@? "subnetId")
-      Core.<*> (x Core..@? "weightedCapacity")
+      Prelude.<$> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "placement")
+      Prelude.<*> (x Core..@? "priority")
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "maxPrice")
+      Prelude.<*> (x Core..@? "subnetId")
+      Prelude.<*> (x Core..@? "weightedCapacity")
 
-instance Core.Hashable FleetLaunchTemplateOverrides
+instance
+  Prelude.Hashable
+    FleetLaunchTemplateOverrides
 
-instance Core.NFData FleetLaunchTemplateOverrides
+instance Prelude.NFData FleetLaunchTemplateOverrides

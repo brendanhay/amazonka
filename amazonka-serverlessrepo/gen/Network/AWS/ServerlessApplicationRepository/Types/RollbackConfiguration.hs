@@ -21,6 +21,7 @@ module Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration w
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger
 
 -- | This property corresponds to the /AWS CloudFormation
@@ -33,14 +34,14 @@ data RollbackConfiguration = RollbackConfiguration'
     -- CloudFormation
     -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration>/
     -- Data Type.
-    monitoringTimeInMinutes :: Core.Maybe Core.Int,
+    monitoringTimeInMinutes :: Prelude.Maybe Prelude.Int,
     -- | This property corresponds to the content of the same name for the /AWS
     -- CloudFormation
     -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration>/
     -- Data Type.
-    rollbackTriggers :: Core.Maybe [RollbackTrigger]
+    rollbackTriggers :: Prelude.Maybe [RollbackTrigger]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RollbackConfiguration' with all optional fields omitted.
@@ -64,35 +65,35 @@ newRollbackConfiguration ::
 newRollbackConfiguration =
   RollbackConfiguration'
     { monitoringTimeInMinutes =
-        Core.Nothing,
-      rollbackTriggers = Core.Nothing
+        Prelude.Nothing,
+      rollbackTriggers = Prelude.Nothing
     }
 
 -- | This property corresponds to the content of the same name for the /AWS
 -- CloudFormation
 -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration>/
 -- Data Type.
-rollbackConfiguration_monitoringTimeInMinutes :: Lens.Lens' RollbackConfiguration (Core.Maybe Core.Int)
+rollbackConfiguration_monitoringTimeInMinutes :: Lens.Lens' RollbackConfiguration (Prelude.Maybe Prelude.Int)
 rollbackConfiguration_monitoringTimeInMinutes = Lens.lens (\RollbackConfiguration' {monitoringTimeInMinutes} -> monitoringTimeInMinutes) (\s@RollbackConfiguration' {} a -> s {monitoringTimeInMinutes = a} :: RollbackConfiguration)
 
 -- | This property corresponds to the content of the same name for the /AWS
 -- CloudFormation
 -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration>/
 -- Data Type.
-rollbackConfiguration_rollbackTriggers :: Lens.Lens' RollbackConfiguration (Core.Maybe [RollbackTrigger])
-rollbackConfiguration_rollbackTriggers = Lens.lens (\RollbackConfiguration' {rollbackTriggers} -> rollbackTriggers) (\s@RollbackConfiguration' {} a -> s {rollbackTriggers = a} :: RollbackConfiguration) Core.. Lens.mapping Lens._Coerce
+rollbackConfiguration_rollbackTriggers :: Lens.Lens' RollbackConfiguration (Prelude.Maybe [RollbackTrigger])
+rollbackConfiguration_rollbackTriggers = Lens.lens (\RollbackConfiguration' {rollbackTriggers} -> rollbackTriggers) (\s@RollbackConfiguration' {} a -> s {rollbackTriggers = a} :: RollbackConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable RollbackConfiguration
+instance Prelude.Hashable RollbackConfiguration
 
-instance Core.NFData RollbackConfiguration
+instance Prelude.NFData RollbackConfiguration
 
 instance Core.ToJSON RollbackConfiguration where
   toJSON RollbackConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("monitoringTimeInMinutes" Core..=)
-              Core.<$> monitoringTimeInMinutes,
+              Prelude.<$> monitoringTimeInMinutes,
             ("rollbackTriggers" Core..=)
-              Core.<$> rollbackTriggers
+              Prelude.<$> rollbackTriggers
           ]
       )

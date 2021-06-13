@@ -46,17 +46,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSecurityConfigurations' smart constructor.
 data GetSecurityConfigurations = GetSecurityConfigurations'
   { -- | A continuation token, if this is a continuation call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSecurityConfigurations' with all optional fields omitted.
@@ -74,16 +75,16 @@ newGetSecurityConfigurations ::
 newGetSecurityConfigurations =
   GetSecurityConfigurations'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A continuation token, if this is a continuation call.
-getSecurityConfigurations_nextToken :: Lens.Lens' GetSecurityConfigurations (Core.Maybe Core.Text)
+getSecurityConfigurations_nextToken :: Lens.Lens' GetSecurityConfigurations (Prelude.Maybe Prelude.Text)
 getSecurityConfigurations_nextToken = Lens.lens (\GetSecurityConfigurations' {nextToken} -> nextToken) (\s@GetSecurityConfigurations' {} a -> s {nextToken = a} :: GetSecurityConfigurations)
 
 -- | The maximum number of results to return.
-getSecurityConfigurations_maxResults :: Lens.Lens' GetSecurityConfigurations (Core.Maybe Core.Natural)
+getSecurityConfigurations_maxResults :: Lens.Lens' GetSecurityConfigurations (Prelude.Maybe Prelude.Natural)
 getSecurityConfigurations_maxResults = Lens.lens (\GetSecurityConfigurations' {maxResults} -> maxResults) (\s@GetSecurityConfigurations' {} a -> s {maxResults = a} :: GetSecurityConfigurations)
 
 instance Core.AWSPager GetSecurityConfigurations where
@@ -91,22 +92,22 @@ instance Core.AWSPager GetSecurityConfigurations where
     | Core.stop
         ( rs
             Lens.^? getSecurityConfigurationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getSecurityConfigurationsResponse_securityConfigurations
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getSecurityConfigurations_nextToken
+          Prelude.& getSecurityConfigurations_nextToken
           Lens..~ rs
           Lens.^? getSecurityConfigurationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSecurityConfigurations where
   type
@@ -117,56 +118,58 @@ instance Core.AWSRequest GetSecurityConfigurations where
     Response.receiveJSON
       ( \s h x ->
           GetSecurityConfigurationsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "SecurityConfigurations"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "SecurityConfigurations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSecurityConfigurations
+instance Prelude.Hashable GetSecurityConfigurations
 
-instance Core.NFData GetSecurityConfigurations
+instance Prelude.NFData GetSecurityConfigurations
 
 instance Core.ToHeaders GetSecurityConfigurations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.GetSecurityConfigurations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSecurityConfigurations where
   toJSON GetSecurityConfigurations' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath GetSecurityConfigurations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSecurityConfigurations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSecurityConfigurationsResponse' smart constructor.
 data GetSecurityConfigurationsResponse = GetSecurityConfigurationsResponse'
   { -- | A continuation token, if there are more security configurations to
     -- return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of security configurations.
-    securityConfigurations :: Core.Maybe [SecurityConfiguration],
+    securityConfigurations :: Prelude.Maybe [SecurityConfiguration],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSecurityConfigurationsResponse' with all optional fields omitted.
@@ -184,29 +187,29 @@ data GetSecurityConfigurationsResponse = GetSecurityConfigurationsResponse'
 -- 'httpStatus', 'getSecurityConfigurationsResponse_httpStatus' - The response's http status code.
 newGetSecurityConfigurationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSecurityConfigurationsResponse
 newGetSecurityConfigurationsResponse pHttpStatus_ =
   GetSecurityConfigurationsResponse'
     { nextToken =
-        Core.Nothing,
-      securityConfigurations = Core.Nothing,
+        Prelude.Nothing,
+      securityConfigurations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token, if there are more security configurations to
 -- return.
-getSecurityConfigurationsResponse_nextToken :: Lens.Lens' GetSecurityConfigurationsResponse (Core.Maybe Core.Text)
+getSecurityConfigurationsResponse_nextToken :: Lens.Lens' GetSecurityConfigurationsResponse (Prelude.Maybe Prelude.Text)
 getSecurityConfigurationsResponse_nextToken = Lens.lens (\GetSecurityConfigurationsResponse' {nextToken} -> nextToken) (\s@GetSecurityConfigurationsResponse' {} a -> s {nextToken = a} :: GetSecurityConfigurationsResponse)
 
 -- | A list of security configurations.
-getSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' GetSecurityConfigurationsResponse (Core.Maybe [SecurityConfiguration])
-getSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\GetSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@GetSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: GetSecurityConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
+getSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' GetSecurityConfigurationsResponse (Prelude.Maybe [SecurityConfiguration])
+getSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\GetSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@GetSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: GetSecurityConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getSecurityConfigurationsResponse_httpStatus :: Lens.Lens' GetSecurityConfigurationsResponse Core.Int
+getSecurityConfigurationsResponse_httpStatus :: Lens.Lens' GetSecurityConfigurationsResponse Prelude.Int
 getSecurityConfigurationsResponse_httpStatus = Lens.lens (\GetSecurityConfigurationsResponse' {httpStatus} -> httpStatus) (\s@GetSecurityConfigurationsResponse' {} a -> s {httpStatus = a} :: GetSecurityConfigurationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetSecurityConfigurationsResponse

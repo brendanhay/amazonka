@@ -55,15 +55,16 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopKeyPhrasesDetectionJob' smart constructor.
 data StopKeyPhrasesDetectionJob = StopKeyPhrasesDetectionJob'
   { -- | The identifier of the key phrases detection job to stop.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopKeyPhrasesDetectionJob' with all optional fields omitted.
@@ -76,13 +77,13 @@ data StopKeyPhrasesDetectionJob = StopKeyPhrasesDetectionJob'
 -- 'jobId', 'stopKeyPhrasesDetectionJob_jobId' - The identifier of the key phrases detection job to stop.
 newStopKeyPhrasesDetectionJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   StopKeyPhrasesDetectionJob
 newStopKeyPhrasesDetectionJob pJobId_ =
   StopKeyPhrasesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the key phrases detection job to stop.
-stopKeyPhrasesDetectionJob_jobId :: Lens.Lens' StopKeyPhrasesDetectionJob Core.Text
+stopKeyPhrasesDetectionJob_jobId :: Lens.Lens' StopKeyPhrasesDetectionJob Prelude.Text
 stopKeyPhrasesDetectionJob_jobId = Lens.lens (\StopKeyPhrasesDetectionJob' {jobId} -> jobId) (\s@StopKeyPhrasesDetectionJob' {} a -> s {jobId = a} :: StopKeyPhrasesDetectionJob)
 
 instance Core.AWSRequest StopKeyPhrasesDetectionJob where
@@ -94,51 +95,55 @@ instance Core.AWSRequest StopKeyPhrasesDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopKeyPhrasesDetectionJobResponse'
-            Core.<$> (x Core..?> "JobStatus")
-            Core.<*> (x Core..?> "JobId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopKeyPhrasesDetectionJob
+instance Prelude.Hashable StopKeyPhrasesDetectionJob
 
-instance Core.NFData StopKeyPhrasesDetectionJob
+instance Prelude.NFData StopKeyPhrasesDetectionJob
 
 instance Core.ToHeaders StopKeyPhrasesDetectionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.StopKeyPhrasesDetectionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopKeyPhrasesDetectionJob where
   toJSON StopKeyPhrasesDetectionJob' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
 instance Core.ToPath StopKeyPhrasesDetectionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopKeyPhrasesDetectionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopKeyPhrasesDetectionJobResponse' smart constructor.
 data StopKeyPhrasesDetectionJobResponse = StopKeyPhrasesDetectionJobResponse'
   { -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
     -- the job was previously stopped with the @StopKeyPhrasesDetectionJob@
     -- operation.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The identifier of the key phrases detection job to stop.
-    jobId :: Core.Maybe Core.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopKeyPhrasesDetectionJobResponse' with all optional fields omitted.
@@ -157,30 +162,30 @@ data StopKeyPhrasesDetectionJobResponse = StopKeyPhrasesDetectionJobResponse'
 -- 'httpStatus', 'stopKeyPhrasesDetectionJobResponse_httpStatus' - The response's http status code.
 newStopKeyPhrasesDetectionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopKeyPhrasesDetectionJobResponse
 newStopKeyPhrasesDetectionJobResponse pHttpStatus_ =
   StopKeyPhrasesDetectionJobResponse'
     { jobStatus =
-        Core.Nothing,
-      jobId = Core.Nothing,
+        Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopKeyPhrasesDetectionJob@
 -- operation.
-stopKeyPhrasesDetectionJobResponse_jobStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Core.Maybe JobStatus)
+stopKeyPhrasesDetectionJobResponse_jobStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Prelude.Maybe JobStatus)
 stopKeyPhrasesDetectionJobResponse_jobStatus = Lens.lens (\StopKeyPhrasesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopKeyPhrasesDetectionJobResponse' {} a -> s {jobStatus = a} :: StopKeyPhrasesDetectionJobResponse)
 
 -- | The identifier of the key phrases detection job to stop.
-stopKeyPhrasesDetectionJobResponse_jobId :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Core.Maybe Core.Text)
+stopKeyPhrasesDetectionJobResponse_jobId :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Prelude.Maybe Prelude.Text)
 stopKeyPhrasesDetectionJobResponse_jobId = Lens.lens (\StopKeyPhrasesDetectionJobResponse' {jobId} -> jobId) (\s@StopKeyPhrasesDetectionJobResponse' {} a -> s {jobId = a} :: StopKeyPhrasesDetectionJobResponse)
 
 -- | The response's http status code.
-stopKeyPhrasesDetectionJobResponse_httpStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse Core.Int
+stopKeyPhrasesDetectionJobResponse_httpStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse Prelude.Int
 stopKeyPhrasesDetectionJobResponse_httpStatus = Lens.lens (\StopKeyPhrasesDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StopKeyPhrasesDetectionJobResponse' {} a -> s {httpStatus = a} :: StopKeyPhrasesDetectionJobResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StopKeyPhrasesDetectionJobResponse

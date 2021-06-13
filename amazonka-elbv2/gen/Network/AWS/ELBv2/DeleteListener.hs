@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteListener' smart constructor.
 data DeleteListener = DeleteListener'
   { -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Core.Text
+    listenerArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteListener' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DeleteListener = DeleteListener'
 -- 'listenerArn', 'deleteListener_listenerArn' - The Amazon Resource Name (ARN) of the listener.
 newDeleteListener ::
   -- | 'listenerArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteListener
 newDeleteListener pListenerArn_ =
   DeleteListener' {listenerArn = pListenerArn_}
 
 -- | The Amazon Resource Name (ARN) of the listener.
-deleteListener_listenerArn :: Lens.Lens' DeleteListener Core.Text
+deleteListener_listenerArn :: Lens.Lens' DeleteListener Prelude.Text
 deleteListener_listenerArn = Lens.lens (\DeleteListener' {listenerArn} -> listenerArn) (\s@DeleteListener' {} a -> s {listenerArn = a} :: DeleteListener)
 
 instance Core.AWSRequest DeleteListener where
@@ -84,34 +85,35 @@ instance Core.AWSRequest DeleteListener where
       "DeleteListenerResult"
       ( \s h x ->
           DeleteListenerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteListener
+instance Prelude.Hashable DeleteListener
 
-instance Core.NFData DeleteListener
+instance Prelude.NFData DeleteListener
 
 instance Core.ToHeaders DeleteListener where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteListener where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteListener where
   toQuery DeleteListener' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteListener" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("DeleteListener" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "ListenerArn" Core.=: listenerArn
       ]
 
 -- | /See:/ 'newDeleteListenerResponse' smart constructor.
 data DeleteListenerResponse = DeleteListenerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteListenerResponse' with all optional fields omitted.
@@ -124,13 +126,13 @@ data DeleteListenerResponse = DeleteListenerResponse'
 -- 'httpStatus', 'deleteListenerResponse_httpStatus' - The response's http status code.
 newDeleteListenerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteListenerResponse
 newDeleteListenerResponse pHttpStatus_ =
   DeleteListenerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteListenerResponse_httpStatus :: Lens.Lens' DeleteListenerResponse Core.Int
+deleteListenerResponse_httpStatus :: Lens.Lens' DeleteListenerResponse Prelude.Int
 deleteListenerResponse_httpStatus = Lens.lens (\DeleteListenerResponse' {httpStatus} -> httpStatus) (\s@DeleteListenerResponse' {} a -> s {httpStatus = a} :: DeleteListenerResponse)
 
-instance Core.NFData DeleteListenerResponse
+instance Prelude.NFData DeleteListenerResponse

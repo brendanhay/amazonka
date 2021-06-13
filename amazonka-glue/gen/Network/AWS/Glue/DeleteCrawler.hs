@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteCrawler' smart constructor.
 data DeleteCrawler = DeleteCrawler'
   { -- | The name of the crawler to remove.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCrawler' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DeleteCrawler = DeleteCrawler'
 -- 'name', 'deleteCrawler_name' - The name of the crawler to remove.
 newDeleteCrawler ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCrawler
 newDeleteCrawler pName_ =
   DeleteCrawler' {name = pName_}
 
 -- | The name of the crawler to remove.
-deleteCrawler_name :: Lens.Lens' DeleteCrawler Core.Text
+deleteCrawler_name :: Lens.Lens' DeleteCrawler Prelude.Text
 deleteCrawler_name = Lens.lens (\DeleteCrawler' {name} -> name) (\s@DeleteCrawler' {} a -> s {name = a} :: DeleteCrawler)
 
 instance Core.AWSRequest DeleteCrawler where
@@ -81,41 +82,45 @@ instance Core.AWSRequest DeleteCrawler where
     Response.receiveEmpty
       ( \s h x ->
           DeleteCrawlerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteCrawler
+instance Prelude.Hashable DeleteCrawler
 
-instance Core.NFData DeleteCrawler
+instance Prelude.NFData DeleteCrawler
 
 instance Core.ToHeaders DeleteCrawler where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteCrawler" :: Core.ByteString),
+              Core.=# ("AWSGlue.DeleteCrawler" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteCrawler where
   toJSON DeleteCrawler' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteCrawler where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCrawler where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCrawlerResponse' smart constructor.
 data DeleteCrawlerResponse = DeleteCrawlerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCrawlerResponse' with all optional fields omitted.
@@ -128,13 +133,13 @@ data DeleteCrawlerResponse = DeleteCrawlerResponse'
 -- 'httpStatus', 'deleteCrawlerResponse_httpStatus' - The response's http status code.
 newDeleteCrawlerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteCrawlerResponse
 newDeleteCrawlerResponse pHttpStatus_ =
   DeleteCrawlerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteCrawlerResponse_httpStatus :: Lens.Lens' DeleteCrawlerResponse Core.Int
+deleteCrawlerResponse_httpStatus :: Lens.Lens' DeleteCrawlerResponse Prelude.Int
 deleteCrawlerResponse_httpStatus = Lens.lens (\DeleteCrawlerResponse' {httpStatus} -> httpStatus) (\s@DeleteCrawlerResponse' {} a -> s {httpStatus = a} :: DeleteCrawlerResponse)
 
-instance Core.NFData DeleteCrawlerResponse
+instance Prelude.NFData DeleteCrawlerResponse

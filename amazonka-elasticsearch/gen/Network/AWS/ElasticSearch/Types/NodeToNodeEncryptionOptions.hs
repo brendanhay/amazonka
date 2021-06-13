@@ -21,15 +21,16 @@ module Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the node-to-node encryption options.
 --
 -- /See:/ 'newNodeToNodeEncryptionOptions' smart constructor.
 data NodeToNodeEncryptionOptions = NodeToNodeEncryptionOptions'
   { -- | Specify true to enable node-to-node encryption.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeToNodeEncryptionOptions' with all optional fields omitted.
@@ -45,11 +46,11 @@ newNodeToNodeEncryptionOptions ::
 newNodeToNodeEncryptionOptions =
   NodeToNodeEncryptionOptions'
     { enabled =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specify true to enable node-to-node encryption.
-nodeToNodeEncryptionOptions_enabled :: Lens.Lens' NodeToNodeEncryptionOptions (Core.Maybe Core.Bool)
+nodeToNodeEncryptionOptions_enabled :: Lens.Lens' NodeToNodeEncryptionOptions (Prelude.Maybe Prelude.Bool)
 nodeToNodeEncryptionOptions_enabled = Lens.lens (\NodeToNodeEncryptionOptions' {enabled} -> enabled) (\s@NodeToNodeEncryptionOptions' {} a -> s {enabled = a} :: NodeToNodeEncryptionOptions)
 
 instance Core.FromJSON NodeToNodeEncryptionOptions where
@@ -58,16 +59,16 @@ instance Core.FromJSON NodeToNodeEncryptionOptions where
       "NodeToNodeEncryptionOptions"
       ( \x ->
           NodeToNodeEncryptionOptions'
-            Core.<$> (x Core..:? "Enabled")
+            Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Core.Hashable NodeToNodeEncryptionOptions
+instance Prelude.Hashable NodeToNodeEncryptionOptions
 
-instance Core.NFData NodeToNodeEncryptionOptions
+instance Prelude.NFData NodeToNodeEncryptionOptions
 
 instance Core.ToJSON NodeToNodeEncryptionOptions where
   toJSON NodeToNodeEncryptionOptions' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Enabled" Core..=) Core.<$> enabled]
+      ( Prelude.catMaybes
+          [("Enabled" Core..=) Prelude.<$> enabled]
       )

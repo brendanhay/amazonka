@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowTypeFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to filter workflow execution query results by type. Each parameter,
 -- if specified, defines a rule that must be satisfied by each returned
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newWorkflowTypeFilter' smart constructor.
 data WorkflowTypeFilter = WorkflowTypeFilter'
   { -- | Version of the workflow type.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | Name of the workflow type.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowTypeFilter' with all optional fields omitted.
@@ -48,31 +49,31 @@ data WorkflowTypeFilter = WorkflowTypeFilter'
 -- 'name', 'workflowTypeFilter_name' - Name of the workflow type.
 newWorkflowTypeFilter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   WorkflowTypeFilter
 newWorkflowTypeFilter pName_ =
   WorkflowTypeFilter'
-    { version = Core.Nothing,
+    { version = Prelude.Nothing,
       name = pName_
     }
 
 -- | Version of the workflow type.
-workflowTypeFilter_version :: Lens.Lens' WorkflowTypeFilter (Core.Maybe Core.Text)
+workflowTypeFilter_version :: Lens.Lens' WorkflowTypeFilter (Prelude.Maybe Prelude.Text)
 workflowTypeFilter_version = Lens.lens (\WorkflowTypeFilter' {version} -> version) (\s@WorkflowTypeFilter' {} a -> s {version = a} :: WorkflowTypeFilter)
 
 -- | Name of the workflow type.
-workflowTypeFilter_name :: Lens.Lens' WorkflowTypeFilter Core.Text
+workflowTypeFilter_name :: Lens.Lens' WorkflowTypeFilter Prelude.Text
 workflowTypeFilter_name = Lens.lens (\WorkflowTypeFilter' {name} -> name) (\s@WorkflowTypeFilter' {} a -> s {name = a} :: WorkflowTypeFilter)
 
-instance Core.Hashable WorkflowTypeFilter
+instance Prelude.Hashable WorkflowTypeFilter
 
-instance Core.NFData WorkflowTypeFilter
+instance Prelude.NFData WorkflowTypeFilter
 
 instance Core.ToJSON WorkflowTypeFilter where
   toJSON WorkflowTypeFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("version" Core..=) Core.<$> version,
-            Core.Just ("name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("version" Core..=) Prelude.<$> version,
+            Prelude.Just ("name" Core..= name)
           ]
       )

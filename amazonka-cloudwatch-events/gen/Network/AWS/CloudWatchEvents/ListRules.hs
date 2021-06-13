@@ -52,6 +52,7 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,16 +60,16 @@ import qualified Network.AWS.Response as Response
 data ListRules = ListRules'
   { -- | The token returned by a previous call to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the event bus to list the rules for. If you omit
     -- this, the default event bus is used.
-    eventBusName :: Core.Maybe Core.Text,
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The prefix matching the rule name.
-    namePrefix :: Core.Maybe Core.Text,
+    namePrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRules' with all optional fields omitted.
@@ -91,48 +92,48 @@ newListRules ::
   ListRules
 newListRules =
   ListRules'
-    { nextToken = Core.Nothing,
-      eventBusName = Core.Nothing,
-      namePrefix = Core.Nothing,
-      limit = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      namePrefix = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
-listRules_nextToken :: Lens.Lens' ListRules (Core.Maybe Core.Text)
+listRules_nextToken :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
 listRules_nextToken = Lens.lens (\ListRules' {nextToken} -> nextToken) (\s@ListRules' {} a -> s {nextToken = a} :: ListRules)
 
 -- | The name or ARN of the event bus to list the rules for. If you omit
 -- this, the default event bus is used.
-listRules_eventBusName :: Lens.Lens' ListRules (Core.Maybe Core.Text)
+listRules_eventBusName :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
 listRules_eventBusName = Lens.lens (\ListRules' {eventBusName} -> eventBusName) (\s@ListRules' {} a -> s {eventBusName = a} :: ListRules)
 
 -- | The prefix matching the rule name.
-listRules_namePrefix :: Lens.Lens' ListRules (Core.Maybe Core.Text)
+listRules_namePrefix :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
 listRules_namePrefix = Lens.lens (\ListRules' {namePrefix} -> namePrefix) (\s@ListRules' {} a -> s {namePrefix = a} :: ListRules)
 
 -- | The maximum number of results to return.
-listRules_limit :: Lens.Lens' ListRules (Core.Maybe Core.Natural)
+listRules_limit :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Natural)
 listRules_limit = Lens.lens (\ListRules' {limit} -> limit) (\s@ListRules' {} a -> s {limit = a} :: ListRules)
 
 instance Core.AWSPager ListRules where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRulesResponse_nextToken Core.. Lens._Just
+            Lens.^? listRulesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRulesResponse_rules Core.. Lens._Just
+            Lens.^? listRulesResponse_rules Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listRules_nextToken
+          Prelude.& listRules_nextToken
           Lens..~ rs
-          Lens.^? listRulesResponse_nextToken Core.. Lens._Just
+          Lens.^? listRulesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRules where
   type AWSResponse ListRules = ListRulesResponse
@@ -141,54 +142,56 @@ instance Core.AWSRequest ListRules where
     Response.receiveJSON
       ( \s h x ->
           ListRulesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Rules" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListRules
+instance Prelude.Hashable ListRules
 
-instance Core.NFData ListRules
+instance Prelude.NFData ListRules
 
 instance Core.ToHeaders ListRules where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.ListRules" :: Core.ByteString),
+              Core.=# ("AWSEvents.ListRules" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListRules where
   toJSON ListRules' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("EventBusName" Core..=) Core.<$> eventBusName,
-            ("NamePrefix" Core..=) Core.<$> namePrefix,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            ("NamePrefix" Core..=) Prelude.<$> namePrefix,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListRules where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListRules where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRulesResponse' smart constructor.
 data ListRulesResponse = ListRulesResponse'
   { -- | Indicates whether there are additional results to retrieve. If there are
     -- no more results, the value is null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The rules that match the specified criteria.
-    rules :: Core.Maybe [Rule],
+    rules :: Prelude.Maybe [Rule],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRulesResponse' with all optional fields omitted.
@@ -206,26 +209,26 @@ data ListRulesResponse = ListRulesResponse'
 -- 'httpStatus', 'listRulesResponse_httpStatus' - The response's http status code.
 newListRulesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRulesResponse
 newListRulesResponse pHttpStatus_ =
   ListRulesResponse'
-    { nextToken = Core.Nothing,
-      rules = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      rules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Indicates whether there are additional results to retrieve. If there are
 -- no more results, the value is null.
-listRulesResponse_nextToken :: Lens.Lens' ListRulesResponse (Core.Maybe Core.Text)
+listRulesResponse_nextToken :: Lens.Lens' ListRulesResponse (Prelude.Maybe Prelude.Text)
 listRulesResponse_nextToken = Lens.lens (\ListRulesResponse' {nextToken} -> nextToken) (\s@ListRulesResponse' {} a -> s {nextToken = a} :: ListRulesResponse)
 
 -- | The rules that match the specified criteria.
-listRulesResponse_rules :: Lens.Lens' ListRulesResponse (Core.Maybe [Rule])
-listRulesResponse_rules = Lens.lens (\ListRulesResponse' {rules} -> rules) (\s@ListRulesResponse' {} a -> s {rules = a} :: ListRulesResponse) Core.. Lens.mapping Lens._Coerce
+listRulesResponse_rules :: Lens.Lens' ListRulesResponse (Prelude.Maybe [Rule])
+listRulesResponse_rules = Lens.lens (\ListRulesResponse' {rules} -> rules) (\s@ListRulesResponse' {} a -> s {rules = a} :: ListRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRulesResponse_httpStatus :: Lens.Lens' ListRulesResponse Core.Int
+listRulesResponse_httpStatus :: Lens.Lens' ListRulesResponse Prelude.Int
 listRulesResponse_httpStatus = Lens.lens (\ListRulesResponse' {httpStatus} -> httpStatus) (\s@ListRulesResponse' {} a -> s {httpStatus = a} :: ListRulesResponse)
 
-instance Core.NFData ListRulesResponse
+instance Prelude.NFData ListRulesResponse

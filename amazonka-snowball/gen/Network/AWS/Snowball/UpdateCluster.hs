@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -60,27 +61,27 @@ data UpdateCluster = UpdateCluster'
     -- this cluster. To create a role ARN, use the
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
     -- API action in AWS Identity and Access Management (IAM).
-    roleARN :: Core.Maybe Core.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The updated shipping option value of this cluster\'s ShippingDetails
     -- object.
-    shippingOption :: Core.Maybe ShippingOption,
+    shippingOption :: Prelude.Maybe ShippingOption,
     -- | The updated arrays of JobResource objects that can include updated
     -- S3Resource objects or LambdaResource objects.
-    resources :: Core.Maybe JobResource,
+    resources :: Prelude.Maybe JobResource,
     -- | The updated description of this cluster.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the updated Address object.
-    addressId :: Core.Maybe Core.Text,
+    addressId :: Prelude.Maybe Prelude.Text,
     -- | The updated ID for the forwarding address for a cluster. This field is
     -- not supported in most regions.
-    forwardingAddressId :: Core.Maybe Core.Text,
+    forwardingAddressId :: Prelude.Maybe Prelude.Text,
     -- | The new or updated Notification object.
-    notification :: Core.Maybe Notification,
+    notification :: Prelude.Maybe Notification,
     -- | The cluster ID of the cluster that you want to update, for example
     -- @CID123e4567-e89b-12d3-a456-426655440000@.
-    clusterId :: Core.Text
+    clusterId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCluster' with all optional fields omitted.
@@ -114,17 +115,17 @@ data UpdateCluster = UpdateCluster'
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
 newUpdateCluster ::
   -- | 'clusterId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateCluster
 newUpdateCluster pClusterId_ =
   UpdateCluster'
-    { roleARN = Core.Nothing,
-      shippingOption = Core.Nothing,
-      resources = Core.Nothing,
-      description = Core.Nothing,
-      addressId = Core.Nothing,
-      forwardingAddressId = Core.Nothing,
-      notification = Core.Nothing,
+    { roleARN = Prelude.Nothing,
+      shippingOption = Prelude.Nothing,
+      resources = Prelude.Nothing,
+      description = Prelude.Nothing,
+      addressId = Prelude.Nothing,
+      forwardingAddressId = Prelude.Nothing,
+      notification = Prelude.Nothing,
       clusterId = pClusterId_
     }
 
@@ -132,39 +133,39 @@ newUpdateCluster pClusterId_ =
 -- this cluster. To create a role ARN, use the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
 -- API action in AWS Identity and Access Management (IAM).
-updateCluster_roleARN :: Lens.Lens' UpdateCluster (Core.Maybe Core.Text)
+updateCluster_roleARN :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
 updateCluster_roleARN = Lens.lens (\UpdateCluster' {roleARN} -> roleARN) (\s@UpdateCluster' {} a -> s {roleARN = a} :: UpdateCluster)
 
 -- | The updated shipping option value of this cluster\'s ShippingDetails
 -- object.
-updateCluster_shippingOption :: Lens.Lens' UpdateCluster (Core.Maybe ShippingOption)
+updateCluster_shippingOption :: Lens.Lens' UpdateCluster (Prelude.Maybe ShippingOption)
 updateCluster_shippingOption = Lens.lens (\UpdateCluster' {shippingOption} -> shippingOption) (\s@UpdateCluster' {} a -> s {shippingOption = a} :: UpdateCluster)
 
 -- | The updated arrays of JobResource objects that can include updated
 -- S3Resource objects or LambdaResource objects.
-updateCluster_resources :: Lens.Lens' UpdateCluster (Core.Maybe JobResource)
+updateCluster_resources :: Lens.Lens' UpdateCluster (Prelude.Maybe JobResource)
 updateCluster_resources = Lens.lens (\UpdateCluster' {resources} -> resources) (\s@UpdateCluster' {} a -> s {resources = a} :: UpdateCluster)
 
 -- | The updated description of this cluster.
-updateCluster_description :: Lens.Lens' UpdateCluster (Core.Maybe Core.Text)
+updateCluster_description :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
 updateCluster_description = Lens.lens (\UpdateCluster' {description} -> description) (\s@UpdateCluster' {} a -> s {description = a} :: UpdateCluster)
 
 -- | The ID of the updated Address object.
-updateCluster_addressId :: Lens.Lens' UpdateCluster (Core.Maybe Core.Text)
+updateCluster_addressId :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
 updateCluster_addressId = Lens.lens (\UpdateCluster' {addressId} -> addressId) (\s@UpdateCluster' {} a -> s {addressId = a} :: UpdateCluster)
 
 -- | The updated ID for the forwarding address for a cluster. This field is
 -- not supported in most regions.
-updateCluster_forwardingAddressId :: Lens.Lens' UpdateCluster (Core.Maybe Core.Text)
+updateCluster_forwardingAddressId :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
 updateCluster_forwardingAddressId = Lens.lens (\UpdateCluster' {forwardingAddressId} -> forwardingAddressId) (\s@UpdateCluster' {} a -> s {forwardingAddressId = a} :: UpdateCluster)
 
 -- | The new or updated Notification object.
-updateCluster_notification :: Lens.Lens' UpdateCluster (Core.Maybe Notification)
+updateCluster_notification :: Lens.Lens' UpdateCluster (Prelude.Maybe Notification)
 updateCluster_notification = Lens.lens (\UpdateCluster' {notification} -> notification) (\s@UpdateCluster' {} a -> s {notification = a} :: UpdateCluster)
 
 -- | The cluster ID of the cluster that you want to update, for example
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
-updateCluster_clusterId :: Lens.Lens' UpdateCluster Core.Text
+updateCluster_clusterId :: Lens.Lens' UpdateCluster Prelude.Text
 updateCluster_clusterId = Lens.lens (\UpdateCluster' {clusterId} -> clusterId) (\s@UpdateCluster' {} a -> s {clusterId = a} :: UpdateCluster)
 
 instance Core.AWSRequest UpdateCluster where
@@ -176,54 +177,57 @@ instance Core.AWSRequest UpdateCluster where
     Response.receiveEmpty
       ( \s h x ->
           UpdateClusterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateCluster
+instance Prelude.Hashable UpdateCluster
 
-instance Core.NFData UpdateCluster
+instance Prelude.NFData UpdateCluster
 
 instance Core.ToHeaders UpdateCluster where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.UpdateCluster" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateCluster where
   toJSON UpdateCluster' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleARN" Core..=) Core.<$> roleARN,
-            ("ShippingOption" Core..=) Core.<$> shippingOption,
-            ("Resources" Core..=) Core.<$> resources,
-            ("Description" Core..=) Core.<$> description,
-            ("AddressId" Core..=) Core.<$> addressId,
+      ( Prelude.catMaybes
+          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
+            ("ShippingOption" Core..=)
+              Prelude.<$> shippingOption,
+            ("Resources" Core..=) Prelude.<$> resources,
+            ("Description" Core..=) Prelude.<$> description,
+            ("AddressId" Core..=) Prelude.<$> addressId,
             ("ForwardingAddressId" Core..=)
-              Core.<$> forwardingAddressId,
-            ("Notification" Core..=) Core.<$> notification,
-            Core.Just ("ClusterId" Core..= clusterId)
+              Prelude.<$> forwardingAddressId,
+            ("Notification" Core..=) Prelude.<$> notification,
+            Prelude.Just ("ClusterId" Core..= clusterId)
           ]
       )
 
 instance Core.ToPath UpdateCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateCluster where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateClusterResponse' smart constructor.
 data UpdateClusterResponse = UpdateClusterResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateClusterResponse' with all optional fields omitted.
@@ -236,13 +240,13 @@ data UpdateClusterResponse = UpdateClusterResponse'
 -- 'httpStatus', 'updateClusterResponse_httpStatus' - The response's http status code.
 newUpdateClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateClusterResponse
 newUpdateClusterResponse pHttpStatus_ =
   UpdateClusterResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateClusterResponse_httpStatus :: Lens.Lens' UpdateClusterResponse Core.Int
+updateClusterResponse_httpStatus :: Lens.Lens' UpdateClusterResponse Prelude.Int
 updateClusterResponse_httpStatus = Lens.lens (\UpdateClusterResponse' {httpStatus} -> httpStatus) (\s@UpdateClusterResponse' {} a -> s {httpStatus = a} :: UpdateClusterResponse)
 
-instance Core.NFData UpdateClusterResponse
+instance Prelude.NFData UpdateClusterResponse

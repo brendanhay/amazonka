@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,7 +66,7 @@ data SendContactMethodVerification = SendContactMethodVerification'
   { -- | The protocol to verify, such as @Email@ or @SMS@ (text messaging).
     protocol :: ContactMethodVerificationProtocol
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendContactMethodVerification' with all optional fields omitted.
@@ -102,50 +103,54 @@ instance
     Response.receiveJSON
       ( \s h x ->
           SendContactMethodVerificationResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SendContactMethodVerification
+instance
+  Prelude.Hashable
+    SendContactMethodVerification
 
-instance Core.NFData SendContactMethodVerification
+instance Prelude.NFData SendContactMethodVerification
 
 instance Core.ToHeaders SendContactMethodVerification where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.SendContactMethodVerification" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SendContactMethodVerification where
   toJSON SendContactMethodVerification' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("protocol" Core..= protocol)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("protocol" Core..= protocol)]
       )
 
 instance Core.ToPath SendContactMethodVerification where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SendContactMethodVerification where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendContactMethodVerificationResponse' smart constructor.
 data SendContactMethodVerificationResponse = SendContactMethodVerificationResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendContactMethodVerificationResponse' with all optional fields omitted.
@@ -162,25 +167,25 @@ data SendContactMethodVerificationResponse = SendContactMethodVerificationRespon
 -- 'httpStatus', 'sendContactMethodVerificationResponse_httpStatus' - The response's http status code.
 newSendContactMethodVerificationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SendContactMethodVerificationResponse
 newSendContactMethodVerificationResponse pHttpStatus_ =
   SendContactMethodVerificationResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-sendContactMethodVerificationResponse_operations :: Lens.Lens' SendContactMethodVerificationResponse (Core.Maybe [Operation])
-sendContactMethodVerificationResponse_operations = Lens.lens (\SendContactMethodVerificationResponse' {operations} -> operations) (\s@SendContactMethodVerificationResponse' {} a -> s {operations = a} :: SendContactMethodVerificationResponse) Core.. Lens.mapping Lens._Coerce
+sendContactMethodVerificationResponse_operations :: Lens.Lens' SendContactMethodVerificationResponse (Prelude.Maybe [Operation])
+sendContactMethodVerificationResponse_operations = Lens.lens (\SendContactMethodVerificationResponse' {operations} -> operations) (\s@SendContactMethodVerificationResponse' {} a -> s {operations = a} :: SendContactMethodVerificationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-sendContactMethodVerificationResponse_httpStatus :: Lens.Lens' SendContactMethodVerificationResponse Core.Int
+sendContactMethodVerificationResponse_httpStatus :: Lens.Lens' SendContactMethodVerificationResponse Prelude.Int
 sendContactMethodVerificationResponse_httpStatus = Lens.lens (\SendContactMethodVerificationResponse' {httpStatus} -> httpStatus) (\s@SendContactMethodVerificationResponse' {} a -> s {httpStatus = a} :: SendContactMethodVerificationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     SendContactMethodVerificationResponse

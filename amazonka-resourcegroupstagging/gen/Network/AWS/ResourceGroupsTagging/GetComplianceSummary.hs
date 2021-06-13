@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
 import qualified Network.AWS.Response as Response
@@ -77,23 +78,23 @@ data GetComplianceSummary = GetComplianceSummary'
     -- still to return. You should always check the @PaginationToken@ response
     -- value to see if there are more results. You can specify a minimum of 1
     -- and a maximum value of 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies a list of AWS Regions to limit the output by. If you use this
     -- parameter, the count of returned noncompliant resources includes only
     -- resources in the specified Regions.
-    regionFilters :: Core.Maybe (Core.NonEmpty Core.Text),
+    regionFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies target identifiers (usually, specific account IDs) to limit
     -- the output by. If you use this parameter, the count of returned
     -- noncompliant resources includes only resources with the specified target
     -- IDs.
-    targetIdFilters :: Core.Maybe (Core.NonEmpty Core.Text),
+    targetIdFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies a @PaginationToken@ response value from a previous request to
     -- indicate that you want the next page of results. Leave this parameter
     -- empty in your initial request.
-    paginationToken :: Core.Maybe Core.Text,
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies a list of attributes to group the counts of noncompliant
     -- resources by. If supplied, the counts are sorted by those attributes.
-    groupBy :: Core.Maybe [GroupByAttribute],
+    groupBy :: Prelude.Maybe [GroupByAttribute],
     -- | Specifies that you want the response to include information for only
     -- resources of the specified types. The format of each resource type is
     -- @service[:resourceType]@. For example, specifying a resource type of
@@ -116,14 +117,14 @@ data GetComplianceSummary = GetComplianceSummary'
     -- You can specify multiple resource types by using a comma separated
     -- array. The array can include up to 100 items. Note that the length
     -- constraint requirement applies to each resource type filter.
-    resourceTypeFilters :: Core.Maybe [Core.Text],
+    resourceTypeFilters :: Prelude.Maybe [Prelude.Text],
     -- | Specifies that you want the response to include information for only
     -- resources that have tags with the specified tag keys. If you use this
     -- parameter, the count of returned noncompliant resources includes only
     -- resources that have the specified tag keys.
-    tagKeyFilters :: Core.Maybe (Core.NonEmpty Core.Text)
+    tagKeyFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetComplianceSummary' with all optional fields omitted.
@@ -186,13 +187,13 @@ newGetComplianceSummary ::
   GetComplianceSummary
 newGetComplianceSummary =
   GetComplianceSummary'
-    { maxResults = Core.Nothing,
-      regionFilters = Core.Nothing,
-      targetIdFilters = Core.Nothing,
-      paginationToken = Core.Nothing,
-      groupBy = Core.Nothing,
-      resourceTypeFilters = Core.Nothing,
-      tagKeyFilters = Core.Nothing
+    { maxResults = Prelude.Nothing,
+      regionFilters = Prelude.Nothing,
+      targetIdFilters = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
+      groupBy = Prelude.Nothing,
+      resourceTypeFilters = Prelude.Nothing,
+      tagKeyFilters = Prelude.Nothing
     }
 
 -- | Specifies the maximum number of results to be returned in each page. A
@@ -200,32 +201,32 @@ newGetComplianceSummary =
 -- still to return. You should always check the @PaginationToken@ response
 -- value to see if there are more results. You can specify a minimum of 1
 -- and a maximum value of 100.
-getComplianceSummary_maxResults :: Lens.Lens' GetComplianceSummary (Core.Maybe Core.Natural)
+getComplianceSummary_maxResults :: Lens.Lens' GetComplianceSummary (Prelude.Maybe Prelude.Natural)
 getComplianceSummary_maxResults = Lens.lens (\GetComplianceSummary' {maxResults} -> maxResults) (\s@GetComplianceSummary' {} a -> s {maxResults = a} :: GetComplianceSummary)
 
 -- | Specifies a list of AWS Regions to limit the output by. If you use this
 -- parameter, the count of returned noncompliant resources includes only
 -- resources in the specified Regions.
-getComplianceSummary_regionFilters :: Lens.Lens' GetComplianceSummary (Core.Maybe (Core.NonEmpty Core.Text))
-getComplianceSummary_regionFilters = Lens.lens (\GetComplianceSummary' {regionFilters} -> regionFilters) (\s@GetComplianceSummary' {} a -> s {regionFilters = a} :: GetComplianceSummary) Core.. Lens.mapping Lens._Coerce
+getComplianceSummary_regionFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getComplianceSummary_regionFilters = Lens.lens (\GetComplianceSummary' {regionFilters} -> regionFilters) (\s@GetComplianceSummary' {} a -> s {regionFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies target identifiers (usually, specific account IDs) to limit
 -- the output by. If you use this parameter, the count of returned
 -- noncompliant resources includes only resources with the specified target
 -- IDs.
-getComplianceSummary_targetIdFilters :: Lens.Lens' GetComplianceSummary (Core.Maybe (Core.NonEmpty Core.Text))
-getComplianceSummary_targetIdFilters = Lens.lens (\GetComplianceSummary' {targetIdFilters} -> targetIdFilters) (\s@GetComplianceSummary' {} a -> s {targetIdFilters = a} :: GetComplianceSummary) Core.. Lens.mapping Lens._Coerce
+getComplianceSummary_targetIdFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getComplianceSummary_targetIdFilters = Lens.lens (\GetComplianceSummary' {targetIdFilters} -> targetIdFilters) (\s@GetComplianceSummary' {} a -> s {targetIdFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies a @PaginationToken@ response value from a previous request to
 -- indicate that you want the next page of results. Leave this parameter
 -- empty in your initial request.
-getComplianceSummary_paginationToken :: Lens.Lens' GetComplianceSummary (Core.Maybe Core.Text)
+getComplianceSummary_paginationToken :: Lens.Lens' GetComplianceSummary (Prelude.Maybe Prelude.Text)
 getComplianceSummary_paginationToken = Lens.lens (\GetComplianceSummary' {paginationToken} -> paginationToken) (\s@GetComplianceSummary' {} a -> s {paginationToken = a} :: GetComplianceSummary)
 
 -- | Specifies a list of attributes to group the counts of noncompliant
 -- resources by. If supplied, the counts are sorted by those attributes.
-getComplianceSummary_groupBy :: Lens.Lens' GetComplianceSummary (Core.Maybe [GroupByAttribute])
-getComplianceSummary_groupBy = Lens.lens (\GetComplianceSummary' {groupBy} -> groupBy) (\s@GetComplianceSummary' {} a -> s {groupBy = a} :: GetComplianceSummary) Core.. Lens.mapping Lens._Coerce
+getComplianceSummary_groupBy :: Lens.Lens' GetComplianceSummary (Prelude.Maybe [GroupByAttribute])
+getComplianceSummary_groupBy = Lens.lens (\GetComplianceSummary' {groupBy} -> groupBy) (\s@GetComplianceSummary' {} a -> s {groupBy = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies that you want the response to include information for only
 -- resources of the specified types. The format of each resource type is
@@ -249,37 +250,37 @@ getComplianceSummary_groupBy = Lens.lens (\GetComplianceSummary' {groupBy} -> gr
 -- You can specify multiple resource types by using a comma separated
 -- array. The array can include up to 100 items. Note that the length
 -- constraint requirement applies to each resource type filter.
-getComplianceSummary_resourceTypeFilters :: Lens.Lens' GetComplianceSummary (Core.Maybe [Core.Text])
-getComplianceSummary_resourceTypeFilters = Lens.lens (\GetComplianceSummary' {resourceTypeFilters} -> resourceTypeFilters) (\s@GetComplianceSummary' {} a -> s {resourceTypeFilters = a} :: GetComplianceSummary) Core.. Lens.mapping Lens._Coerce
+getComplianceSummary_resourceTypeFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe [Prelude.Text])
+getComplianceSummary_resourceTypeFilters = Lens.lens (\GetComplianceSummary' {resourceTypeFilters} -> resourceTypeFilters) (\s@GetComplianceSummary' {} a -> s {resourceTypeFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies that you want the response to include information for only
 -- resources that have tags with the specified tag keys. If you use this
 -- parameter, the count of returned noncompliant resources includes only
 -- resources that have the specified tag keys.
-getComplianceSummary_tagKeyFilters :: Lens.Lens' GetComplianceSummary (Core.Maybe (Core.NonEmpty Core.Text))
-getComplianceSummary_tagKeyFilters = Lens.lens (\GetComplianceSummary' {tagKeyFilters} -> tagKeyFilters) (\s@GetComplianceSummary' {} a -> s {tagKeyFilters = a} :: GetComplianceSummary) Core.. Lens.mapping Lens._Coerce
+getComplianceSummary_tagKeyFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getComplianceSummary_tagKeyFilters = Lens.lens (\GetComplianceSummary' {tagKeyFilters} -> tagKeyFilters) (\s@GetComplianceSummary' {} a -> s {tagKeyFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager GetComplianceSummary where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? getComplianceSummaryResponse_paginationToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getComplianceSummaryResponse_summaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getComplianceSummary_paginationToken
+          Prelude.& getComplianceSummary_paginationToken
           Lens..~ rs
           Lens.^? getComplianceSummaryResponse_paginationToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetComplianceSummary where
   type
@@ -290,48 +291,52 @@ instance Core.AWSRequest GetComplianceSummary where
     Response.receiveJSON
       ( \s h x ->
           GetComplianceSummaryResponse'
-            Core.<$> (x Core..?> "PaginationToken")
-            Core.<*> (x Core..?> "SummaryList" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PaginationToken")
+            Prelude.<*> (x Core..?> "SummaryList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetComplianceSummary
+instance Prelude.Hashable GetComplianceSummary
 
-instance Core.NFData GetComplianceSummary
+instance Prelude.NFData GetComplianceSummary
 
 instance Core.ToHeaders GetComplianceSummary where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetComplianceSummary where
   toJSON GetComplianceSummary' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxResults" Core..=) Core.<$> maxResults,
-            ("RegionFilters" Core..=) Core.<$> regionFilters,
-            ("TargetIdFilters" Core..=) Core.<$> targetIdFilters,
-            ("PaginationToken" Core..=) Core.<$> paginationToken,
-            ("GroupBy" Core..=) Core.<$> groupBy,
+      ( Prelude.catMaybes
+          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("RegionFilters" Core..=) Prelude.<$> regionFilters,
+            ("TargetIdFilters" Core..=)
+              Prelude.<$> targetIdFilters,
+            ("PaginationToken" Core..=)
+              Prelude.<$> paginationToken,
+            ("GroupBy" Core..=) Prelude.<$> groupBy,
             ("ResourceTypeFilters" Core..=)
-              Core.<$> resourceTypeFilters,
-            ("TagKeyFilters" Core..=) Core.<$> tagKeyFilters
+              Prelude.<$> resourceTypeFilters,
+            ("TagKeyFilters" Core..=) Prelude.<$> tagKeyFilters
           ]
       )
 
 instance Core.ToPath GetComplianceSummary where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetComplianceSummary where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetComplianceSummaryResponse' smart constructor.
 data GetComplianceSummaryResponse = GetComplianceSummaryResponse'
@@ -339,13 +344,13 @@ data GetComplianceSummaryResponse = GetComplianceSummaryResponse'
     -- response contains. To receive the next part of the response, specify
     -- this response value as the @PaginationToken@ value in the request for
     -- the next page.
-    paginationToken :: Core.Maybe Core.Text,
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | A table that shows counts of noncompliant resources.
-    summaryList :: Core.Maybe [Summary],
+    summaryList :: Prelude.Maybe [Summary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetComplianceSummaryResponse' with all optional fields omitted.
@@ -365,13 +370,13 @@ data GetComplianceSummaryResponse = GetComplianceSummaryResponse'
 -- 'httpStatus', 'getComplianceSummaryResponse_httpStatus' - The response's http status code.
 newGetComplianceSummaryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetComplianceSummaryResponse
 newGetComplianceSummaryResponse pHttpStatus_ =
   GetComplianceSummaryResponse'
     { paginationToken =
-        Core.Nothing,
-      summaryList = Core.Nothing,
+        Prelude.Nothing,
+      summaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -379,15 +384,15 @@ newGetComplianceSummaryResponse pHttpStatus_ =
 -- response contains. To receive the next part of the response, specify
 -- this response value as the @PaginationToken@ value in the request for
 -- the next page.
-getComplianceSummaryResponse_paginationToken :: Lens.Lens' GetComplianceSummaryResponse (Core.Maybe Core.Text)
+getComplianceSummaryResponse_paginationToken :: Lens.Lens' GetComplianceSummaryResponse (Prelude.Maybe Prelude.Text)
 getComplianceSummaryResponse_paginationToken = Lens.lens (\GetComplianceSummaryResponse' {paginationToken} -> paginationToken) (\s@GetComplianceSummaryResponse' {} a -> s {paginationToken = a} :: GetComplianceSummaryResponse)
 
 -- | A table that shows counts of noncompliant resources.
-getComplianceSummaryResponse_summaryList :: Lens.Lens' GetComplianceSummaryResponse (Core.Maybe [Summary])
-getComplianceSummaryResponse_summaryList = Lens.lens (\GetComplianceSummaryResponse' {summaryList} -> summaryList) (\s@GetComplianceSummaryResponse' {} a -> s {summaryList = a} :: GetComplianceSummaryResponse) Core.. Lens.mapping Lens._Coerce
+getComplianceSummaryResponse_summaryList :: Lens.Lens' GetComplianceSummaryResponse (Prelude.Maybe [Summary])
+getComplianceSummaryResponse_summaryList = Lens.lens (\GetComplianceSummaryResponse' {summaryList} -> summaryList) (\s@GetComplianceSummaryResponse' {} a -> s {summaryList = a} :: GetComplianceSummaryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getComplianceSummaryResponse_httpStatus :: Lens.Lens' GetComplianceSummaryResponse Core.Int
+getComplianceSummaryResponse_httpStatus :: Lens.Lens' GetComplianceSummaryResponse Prelude.Int
 getComplianceSummaryResponse_httpStatus = Lens.lens (\GetComplianceSummaryResponse' {httpStatus} -> httpStatus) (\s@GetComplianceSummaryResponse' {} a -> s {httpStatus = a} :: GetComplianceSummaryResponse)
 
-instance Core.NFData GetComplianceSummaryResponse
+instance Prelude.NFData GetComplianceSummaryResponse

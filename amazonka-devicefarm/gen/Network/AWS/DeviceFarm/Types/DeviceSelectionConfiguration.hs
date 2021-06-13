@@ -22,6 +22,7 @@ module Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.DeviceFilter
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the device filters used in a test run and the maximum number
 -- of devices to be included in the run. It is passed in as the
@@ -113,9 +114,9 @@ data DeviceSelectionConfiguration = DeviceSelectionConfiguration'
     --     -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
     filters :: [DeviceFilter],
     -- | The maximum number of devices to be included in a test run.
-    maxDevices :: Core.Int
+    maxDevices :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeviceSelectionConfiguration' with all optional fields omitted.
@@ -211,12 +212,12 @@ data DeviceSelectionConfiguration = DeviceSelectionConfiguration'
 -- 'maxDevices', 'deviceSelectionConfiguration_maxDevices' - The maximum number of devices to be included in a test run.
 newDeviceSelectionConfiguration ::
   -- | 'maxDevices'
-  Core.Int ->
+  Prelude.Int ->
   DeviceSelectionConfiguration
 newDeviceSelectionConfiguration pMaxDevices_ =
   DeviceSelectionConfiguration'
     { filters =
-        Core.mempty,
+        Prelude.mempty,
       maxDevices = pMaxDevices_
     }
 
@@ -303,21 +304,23 @@ newDeviceSelectionConfiguration pMaxDevices_ =
 --
 --     -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
 deviceSelectionConfiguration_filters :: Lens.Lens' DeviceSelectionConfiguration [DeviceFilter]
-deviceSelectionConfiguration_filters = Lens.lens (\DeviceSelectionConfiguration' {filters} -> filters) (\s@DeviceSelectionConfiguration' {} a -> s {filters = a} :: DeviceSelectionConfiguration) Core.. Lens._Coerce
+deviceSelectionConfiguration_filters = Lens.lens (\DeviceSelectionConfiguration' {filters} -> filters) (\s@DeviceSelectionConfiguration' {} a -> s {filters = a} :: DeviceSelectionConfiguration) Prelude.. Lens._Coerce
 
 -- | The maximum number of devices to be included in a test run.
-deviceSelectionConfiguration_maxDevices :: Lens.Lens' DeviceSelectionConfiguration Core.Int
+deviceSelectionConfiguration_maxDevices :: Lens.Lens' DeviceSelectionConfiguration Prelude.Int
 deviceSelectionConfiguration_maxDevices = Lens.lens (\DeviceSelectionConfiguration' {maxDevices} -> maxDevices) (\s@DeviceSelectionConfiguration' {} a -> s {maxDevices = a} :: DeviceSelectionConfiguration)
 
-instance Core.Hashable DeviceSelectionConfiguration
+instance
+  Prelude.Hashable
+    DeviceSelectionConfiguration
 
-instance Core.NFData DeviceSelectionConfiguration
+instance Prelude.NFData DeviceSelectionConfiguration
 
 instance Core.ToJSON DeviceSelectionConfiguration where
   toJSON DeviceSelectionConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("filters" Core..= filters),
-            Core.Just ("maxDevices" Core..= maxDevices)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("filters" Core..= filters),
+            Prelude.Just ("maxDevices" Core..= maxDevices)
           ]
       )

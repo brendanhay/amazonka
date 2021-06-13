@@ -97,6 +97,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -107,10 +108,10 @@ data CreateBuild = CreateBuild'
   { -- | Version information that is associated with a build or script. Version
     -- strings do not need to be unique. You can use UpdateBuild to change this
     -- value later.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with a build. Build names do not
     -- need to be unique. You can use UpdateBuild to change this value later.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The location where your game build files are stored. Use this parameter
     -- only when creating a build using files that are stored in an S3 bucket
     -- that you own. Identify an S3 bucket name and key, which must in the same
@@ -120,7 +121,7 @@ data CreateBuild = CreateBuild'
     -- you must have IAM PassRole permission. For more details on IAM roles and
     -- PassRole permissions, see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
-    storageLocation :: Core.Maybe S3Location,
+    storageLocation :: Prelude.Maybe S3Location,
     -- | A list of labels to assign to the new build resource. Tags are
     -- developer-defined key-value pairs. Tagging AWS resources are useful for
     -- resource management, access management and cost allocation. For more
@@ -130,16 +131,16 @@ data CreateBuild = CreateBuild'
     -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The operating system that the game server binaries are built to run on.
     -- This value determines the type of fleet resources that you can use for
     -- this build. If your game build contains multiple executables, they all
     -- must run on the same operating system. If an operating system is not
     -- specified when creating a build, Amazon GameLift uses the default value
     -- (WINDOWS_2012). This value cannot be changed later.
-    operatingSystem :: Core.Maybe OperatingSystem
+    operatingSystem :: Prelude.Maybe OperatingSystem
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBuild' with all optional fields omitted.
@@ -186,22 +187,22 @@ newCreateBuild ::
   CreateBuild
 newCreateBuild =
   CreateBuild'
-    { version = Core.Nothing,
-      name = Core.Nothing,
-      storageLocation = Core.Nothing,
-      tags = Core.Nothing,
-      operatingSystem = Core.Nothing
+    { version = Prelude.Nothing,
+      name = Prelude.Nothing,
+      storageLocation = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing
     }
 
 -- | Version information that is associated with a build or script. Version
 -- strings do not need to be unique. You can use UpdateBuild to change this
 -- value later.
-createBuild_version :: Lens.Lens' CreateBuild (Core.Maybe Core.Text)
+createBuild_version :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
 createBuild_version = Lens.lens (\CreateBuild' {version} -> version) (\s@CreateBuild' {} a -> s {version = a} :: CreateBuild)
 
 -- | A descriptive label that is associated with a build. Build names do not
 -- need to be unique. You can use UpdateBuild to change this value later.
-createBuild_name :: Lens.Lens' CreateBuild (Core.Maybe Core.Text)
+createBuild_name :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
 createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} a -> s {name = a} :: CreateBuild)
 
 -- | The location where your game build files are stored. Use this parameter
@@ -213,7 +214,7 @@ createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} 
 -- you must have IAM PassRole permission. For more details on IAM roles and
 -- PassRole permissions, see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
-createBuild_storageLocation :: Lens.Lens' CreateBuild (Core.Maybe S3Location)
+createBuild_storageLocation :: Lens.Lens' CreateBuild (Prelude.Maybe S3Location)
 createBuild_storageLocation = Lens.lens (\CreateBuild' {storageLocation} -> storageLocation) (\s@CreateBuild' {} a -> s {storageLocation = a} :: CreateBuild)
 
 -- | A list of labels to assign to the new build resource. Tags are
@@ -225,8 +226,8 @@ createBuild_storageLocation = Lens.lens (\CreateBuild' {storageLocation} -> stor
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
-createBuild_tags :: Lens.Lens' CreateBuild (Core.Maybe [Tag])
-createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} a -> s {tags = a} :: CreateBuild) Core.. Lens.mapping Lens._Coerce
+createBuild_tags :: Lens.Lens' CreateBuild (Prelude.Maybe [Tag])
+createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} a -> s {tags = a} :: CreateBuild) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The operating system that the game server binaries are built to run on.
 -- This value determines the type of fleet resources that you can use for
@@ -234,7 +235,7 @@ createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} 
 -- must run on the same operating system. If an operating system is not
 -- specified when creating a build, Amazon GameLift uses the default value
 -- (WINDOWS_2012). This value cannot be changed later.
-createBuild_operatingSystem :: Lens.Lens' CreateBuild (Core.Maybe OperatingSystem)
+createBuild_operatingSystem :: Lens.Lens' CreateBuild (Prelude.Maybe OperatingSystem)
 createBuild_operatingSystem = Lens.lens (\CreateBuild' {operatingSystem} -> operatingSystem) (\s@CreateBuild' {} a -> s {operatingSystem = a} :: CreateBuild)
 
 instance Core.AWSRequest CreateBuild where
@@ -244,45 +245,48 @@ instance Core.AWSRequest CreateBuild where
     Response.receiveJSON
       ( \s h x ->
           CreateBuildResponse'
-            Core.<$> (x Core..?> "Build")
-            Core.<*> (x Core..?> "StorageLocation")
-            Core.<*> (x Core..?> "UploadCredentials")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Build")
+            Prelude.<*> (x Core..?> "StorageLocation")
+            Prelude.<*> (x Core..?> "UploadCredentials")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateBuild
+instance Prelude.Hashable CreateBuild
 
-instance Core.NFData CreateBuild
+instance Prelude.NFData CreateBuild
 
 instance Core.ToHeaders CreateBuild where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.CreateBuild" :: Core.ByteString),
+              Core.=# ("GameLift.CreateBuild" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateBuild where
   toJSON CreateBuild' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Version" Core..=) Core.<$> version,
-            ("Name" Core..=) Core.<$> name,
-            ("StorageLocation" Core..=) Core.<$> storageLocation,
-            ("Tags" Core..=) Core.<$> tags,
+      ( Prelude.catMaybes
+          [ ("Version" Core..=) Prelude.<$> version,
+            ("Name" Core..=) Prelude.<$> name,
+            ("StorageLocation" Core..=)
+              Prelude.<$> storageLocation,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("OperatingSystem" Core..=)
-              Core.<$> operatingSystem
+              Prelude.<$> operatingSystem
           ]
       )
 
 instance Core.ToPath CreateBuild where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateBuild where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -290,20 +294,20 @@ instance Core.ToQuery CreateBuild where
 data CreateBuildResponse = CreateBuildResponse'
   { -- | The newly created build resource, including a unique build IDs and
     -- status.
-    build :: Core.Maybe Build,
+    build :: Prelude.Maybe Build,
     -- | Amazon S3 location for your game build file, including bucket name and
     -- key.
-    storageLocation :: Core.Maybe S3Location,
+    storageLocation :: Prelude.Maybe S3Location,
     -- | This element is returned only when the operation is called without a
     -- storage location. It contains credentials to use when you are uploading
     -- a build file to an S3 bucket that is owned by Amazon GameLift.
     -- Credentials have a limited life span. To refresh these credentials, call
     -- RequestUploadCredentials.
-    uploadCredentials :: Core.Maybe (Core.Sensitive AwsCredentials),
+    uploadCredentials :: Prelude.Maybe (Core.Sensitive AwsCredentials),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBuildResponse' with all optional fields omitted.
@@ -328,24 +332,24 @@ data CreateBuildResponse = CreateBuildResponse'
 -- 'httpStatus', 'createBuildResponse_httpStatus' - The response's http status code.
 newCreateBuildResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateBuildResponse
 newCreateBuildResponse pHttpStatus_ =
   CreateBuildResponse'
-    { build = Core.Nothing,
-      storageLocation = Core.Nothing,
-      uploadCredentials = Core.Nothing,
+    { build = Prelude.Nothing,
+      storageLocation = Prelude.Nothing,
+      uploadCredentials = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The newly created build resource, including a unique build IDs and
 -- status.
-createBuildResponse_build :: Lens.Lens' CreateBuildResponse (Core.Maybe Build)
+createBuildResponse_build :: Lens.Lens' CreateBuildResponse (Prelude.Maybe Build)
 createBuildResponse_build = Lens.lens (\CreateBuildResponse' {build} -> build) (\s@CreateBuildResponse' {} a -> s {build = a} :: CreateBuildResponse)
 
 -- | Amazon S3 location for your game build file, including bucket name and
 -- key.
-createBuildResponse_storageLocation :: Lens.Lens' CreateBuildResponse (Core.Maybe S3Location)
+createBuildResponse_storageLocation :: Lens.Lens' CreateBuildResponse (Prelude.Maybe S3Location)
 createBuildResponse_storageLocation = Lens.lens (\CreateBuildResponse' {storageLocation} -> storageLocation) (\s@CreateBuildResponse' {} a -> s {storageLocation = a} :: CreateBuildResponse)
 
 -- | This element is returned only when the operation is called without a
@@ -353,11 +357,11 @@ createBuildResponse_storageLocation = Lens.lens (\CreateBuildResponse' {storageL
 -- a build file to an S3 bucket that is owned by Amazon GameLift.
 -- Credentials have a limited life span. To refresh these credentials, call
 -- RequestUploadCredentials.
-createBuildResponse_uploadCredentials :: Lens.Lens' CreateBuildResponse (Core.Maybe AwsCredentials)
-createBuildResponse_uploadCredentials = Lens.lens (\CreateBuildResponse' {uploadCredentials} -> uploadCredentials) (\s@CreateBuildResponse' {} a -> s {uploadCredentials = a} :: CreateBuildResponse) Core.. Lens.mapping Core._Sensitive
+createBuildResponse_uploadCredentials :: Lens.Lens' CreateBuildResponse (Prelude.Maybe AwsCredentials)
+createBuildResponse_uploadCredentials = Lens.lens (\CreateBuildResponse' {uploadCredentials} -> uploadCredentials) (\s@CreateBuildResponse' {} a -> s {uploadCredentials = a} :: CreateBuildResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
-createBuildResponse_httpStatus :: Lens.Lens' CreateBuildResponse Core.Int
+createBuildResponse_httpStatus :: Lens.Lens' CreateBuildResponse Prelude.Int
 createBuildResponse_httpStatus = Lens.lens (\CreateBuildResponse' {httpStatus} -> httpStatus) (\s@CreateBuildResponse' {} a -> s {httpStatus = a} :: CreateBuildResponse)
 
-instance Core.NFData CreateBuildResponse
+instance Prelude.NFData CreateBuildResponse

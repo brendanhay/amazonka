@@ -22,15 +22,16 @@ module Network.AWS.IoTAnalytics.Types.ParquetConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.SchemaDefinition
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the configuration information of the Parquet format.
 --
 -- /See:/ 'newParquetConfiguration' smart constructor.
 data ParquetConfiguration = ParquetConfiguration'
   { -- | Information needed to define a schema.
-    schemaDefinition :: Core.Maybe SchemaDefinition
+    schemaDefinition :: Prelude.Maybe SchemaDefinition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParquetConfiguration' with all optional fields omitted.
@@ -46,11 +47,11 @@ newParquetConfiguration ::
 newParquetConfiguration =
   ParquetConfiguration'
     { schemaDefinition =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Information needed to define a schema.
-parquetConfiguration_schemaDefinition :: Lens.Lens' ParquetConfiguration (Core.Maybe SchemaDefinition)
+parquetConfiguration_schemaDefinition :: Lens.Lens' ParquetConfiguration (Prelude.Maybe SchemaDefinition)
 parquetConfiguration_schemaDefinition = Lens.lens (\ParquetConfiguration' {schemaDefinition} -> schemaDefinition) (\s@ParquetConfiguration' {} a -> s {schemaDefinition = a} :: ParquetConfiguration)
 
 instance Core.FromJSON ParquetConfiguration where
@@ -59,18 +60,18 @@ instance Core.FromJSON ParquetConfiguration where
       "ParquetConfiguration"
       ( \x ->
           ParquetConfiguration'
-            Core.<$> (x Core..:? "schemaDefinition")
+            Prelude.<$> (x Core..:? "schemaDefinition")
       )
 
-instance Core.Hashable ParquetConfiguration
+instance Prelude.Hashable ParquetConfiguration
 
-instance Core.NFData ParquetConfiguration
+instance Prelude.NFData ParquetConfiguration
 
 instance Core.ToJSON ParquetConfiguration where
   toJSON ParquetConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("schemaDefinition" Core..=)
-              Core.<$> schemaDefinition
+              Prelude.<$> schemaDefinition
           ]
       )

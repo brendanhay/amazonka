@@ -59,6 +59,7 @@ where
 import Network.AWS.CognitoIdentity.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,21 +69,21 @@ import qualified Network.AWS.Response as Response
 data MergeDeveloperIdentities = MergeDeveloperIdentities'
   { -- | User identifier for the source user. The value should be a
     -- @DeveloperUserIdentifier@.
-    sourceUserIdentifier :: Core.Text,
+    sourceUserIdentifier :: Prelude.Text,
     -- | User identifier for the destination user. The value should be a
     -- @DeveloperUserIdentifier@.
-    destinationUserIdentifier :: Core.Text,
+    destinationUserIdentifier :: Prelude.Text,
     -- | The \"domain\" by which Cognito will refer to your users. This is a
     -- (pseudo) domain name that you provide while creating an identity pool.
     -- This name acts as a placeholder that allows your backend and the Cognito
     -- service to communicate about the developer provider. For the
     -- @DeveloperProviderName@, you can use letters as well as period (.),
     -- underscore (_), and dash (-).
-    developerProviderName :: Core.Text,
+    developerProviderName :: Prelude.Text,
     -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Core.Text
+    identityPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MergeDeveloperIdentities' with all optional fields omitted.
@@ -108,13 +109,13 @@ data MergeDeveloperIdentities = MergeDeveloperIdentities'
 -- 'identityPoolId', 'mergeDeveloperIdentities_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newMergeDeveloperIdentities ::
   -- | 'sourceUserIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationUserIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'developerProviderName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   MergeDeveloperIdentities
 newMergeDeveloperIdentities
   pSourceUserIdentifier_
@@ -132,12 +133,12 @@ newMergeDeveloperIdentities
 
 -- | User identifier for the source user. The value should be a
 -- @DeveloperUserIdentifier@.
-mergeDeveloperIdentities_sourceUserIdentifier :: Lens.Lens' MergeDeveloperIdentities Core.Text
+mergeDeveloperIdentities_sourceUserIdentifier :: Lens.Lens' MergeDeveloperIdentities Prelude.Text
 mergeDeveloperIdentities_sourceUserIdentifier = Lens.lens (\MergeDeveloperIdentities' {sourceUserIdentifier} -> sourceUserIdentifier) (\s@MergeDeveloperIdentities' {} a -> s {sourceUserIdentifier = a} :: MergeDeveloperIdentities)
 
 -- | User identifier for the destination user. The value should be a
 -- @DeveloperUserIdentifier@.
-mergeDeveloperIdentities_destinationUserIdentifier :: Lens.Lens' MergeDeveloperIdentities Core.Text
+mergeDeveloperIdentities_destinationUserIdentifier :: Lens.Lens' MergeDeveloperIdentities Prelude.Text
 mergeDeveloperIdentities_destinationUserIdentifier = Lens.lens (\MergeDeveloperIdentities' {destinationUserIdentifier} -> destinationUserIdentifier) (\s@MergeDeveloperIdentities' {} a -> s {destinationUserIdentifier = a} :: MergeDeveloperIdentities)
 
 -- | The \"domain\" by which Cognito will refer to your users. This is a
@@ -146,11 +147,11 @@ mergeDeveloperIdentities_destinationUserIdentifier = Lens.lens (\MergeDeveloperI
 -- service to communicate about the developer provider. For the
 -- @DeveloperProviderName@, you can use letters as well as period (.),
 -- underscore (_), and dash (-).
-mergeDeveloperIdentities_developerProviderName :: Lens.Lens' MergeDeveloperIdentities Core.Text
+mergeDeveloperIdentities_developerProviderName :: Lens.Lens' MergeDeveloperIdentities Prelude.Text
 mergeDeveloperIdentities_developerProviderName = Lens.lens (\MergeDeveloperIdentities' {developerProviderName} -> developerProviderName) (\s@MergeDeveloperIdentities' {} a -> s {developerProviderName = a} :: MergeDeveloperIdentities)
 
 -- | An identity pool ID in the format REGION:GUID.
-mergeDeveloperIdentities_identityPoolId :: Lens.Lens' MergeDeveloperIdentities Core.Text
+mergeDeveloperIdentities_identityPoolId :: Lens.Lens' MergeDeveloperIdentities Prelude.Text
 mergeDeveloperIdentities_identityPoolId = Lens.lens (\MergeDeveloperIdentities' {identityPoolId} -> identityPoolId) (\s@MergeDeveloperIdentities' {} a -> s {identityPoolId = a} :: MergeDeveloperIdentities)
 
 instance Core.AWSRequest MergeDeveloperIdentities where
@@ -162,63 +163,66 @@ instance Core.AWSRequest MergeDeveloperIdentities where
     Response.receiveJSON
       ( \s h x ->
           MergeDeveloperIdentitiesResponse'
-            Core.<$> (x Core..?> "IdentityId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "IdentityId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable MergeDeveloperIdentities
+instance Prelude.Hashable MergeDeveloperIdentities
 
-instance Core.NFData MergeDeveloperIdentities
+instance Prelude.NFData MergeDeveloperIdentities
 
 instance Core.ToHeaders MergeDeveloperIdentities where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityService.MergeDeveloperIdentities" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON MergeDeveloperIdentities where
   toJSON MergeDeveloperIdentities' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "SourceUserIdentifier"
                   Core..= sourceUserIdentifier
               ),
-            Core.Just
+            Prelude.Just
               ( "DestinationUserIdentifier"
                   Core..= destinationUserIdentifier
               ),
-            Core.Just
+            Prelude.Just
               ( "DeveloperProviderName"
                   Core..= developerProviderName
               ),
-            Core.Just ("IdentityPoolId" Core..= identityPoolId)
+            Prelude.Just
+              ("IdentityPoolId" Core..= identityPoolId)
           ]
       )
 
 instance Core.ToPath MergeDeveloperIdentities where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery MergeDeveloperIdentities where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful @MergeDeveloperIdentities@ action.
 --
 -- /See:/ 'newMergeDeveloperIdentitiesResponse' smart constructor.
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Core.Maybe Core.Text,
+    identityId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MergeDeveloperIdentitiesResponse' with all optional fields omitted.
@@ -233,21 +237,23 @@ data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
 -- 'httpStatus', 'mergeDeveloperIdentitiesResponse_httpStatus' - The response's http status code.
 newMergeDeveloperIdentitiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   MergeDeveloperIdentitiesResponse
 newMergeDeveloperIdentitiesResponse pHttpStatus_ =
   MergeDeveloperIdentitiesResponse'
     { identityId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID.
-mergeDeveloperIdentitiesResponse_identityId :: Lens.Lens' MergeDeveloperIdentitiesResponse (Core.Maybe Core.Text)
+mergeDeveloperIdentitiesResponse_identityId :: Lens.Lens' MergeDeveloperIdentitiesResponse (Prelude.Maybe Prelude.Text)
 mergeDeveloperIdentitiesResponse_identityId = Lens.lens (\MergeDeveloperIdentitiesResponse' {identityId} -> identityId) (\s@MergeDeveloperIdentitiesResponse' {} a -> s {identityId = a} :: MergeDeveloperIdentitiesResponse)
 
 -- | The response's http status code.
-mergeDeveloperIdentitiesResponse_httpStatus :: Lens.Lens' MergeDeveloperIdentitiesResponse Core.Int
+mergeDeveloperIdentitiesResponse_httpStatus :: Lens.Lens' MergeDeveloperIdentitiesResponse Prelude.Int
 mergeDeveloperIdentitiesResponse_httpStatus = Lens.lens (\MergeDeveloperIdentitiesResponse' {httpStatus} -> httpStatus) (\s@MergeDeveloperIdentitiesResponse' {} a -> s {httpStatus = a} :: MergeDeveloperIdentitiesResponse)
 
-instance Core.NFData MergeDeveloperIdentitiesResponse
+instance
+  Prelude.NFData
+    MergeDeveloperIdentitiesResponse

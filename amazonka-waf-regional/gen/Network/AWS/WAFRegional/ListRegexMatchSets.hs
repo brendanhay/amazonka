@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -64,14 +65,14 @@ data ListRegexMatchSets = ListRegexMatchSets'
     -- @ByteMatchSets@. For the second and subsequent @ListRegexMatchSets@
     -- requests, specify the value of @NextMarker@ from the previous response
     -- to get information about another batch of @RegexMatchSet@ objects.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of @RegexMatchSet@ objects that you want AWS WAF to
     -- return for this request. If you have more @RegexMatchSet@ objects than
     -- the number you specify for @Limit@, the response includes a @NextMarker@
     -- value that you can use to get another batch of @RegexMatchSet@ objects.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRegexMatchSets' with all optional fields omitted.
@@ -96,8 +97,8 @@ newListRegexMatchSets ::
   ListRegexMatchSets
 newListRegexMatchSets =
   ListRegexMatchSets'
-    { nextMarker = Core.Nothing,
-      limit = Core.Nothing
+    { nextMarker = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @RegexMatchSet@
@@ -106,14 +107,14 @@ newListRegexMatchSets =
 -- @ByteMatchSets@. For the second and subsequent @ListRegexMatchSets@
 -- requests, specify the value of @NextMarker@ from the previous response
 -- to get information about another batch of @RegexMatchSet@ objects.
-listRegexMatchSets_nextMarker :: Lens.Lens' ListRegexMatchSets (Core.Maybe Core.Text)
+listRegexMatchSets_nextMarker :: Lens.Lens' ListRegexMatchSets (Prelude.Maybe Prelude.Text)
 listRegexMatchSets_nextMarker = Lens.lens (\ListRegexMatchSets' {nextMarker} -> nextMarker) (\s@ListRegexMatchSets' {} a -> s {nextMarker = a} :: ListRegexMatchSets)
 
 -- | Specifies the number of @RegexMatchSet@ objects that you want AWS WAF to
 -- return for this request. If you have more @RegexMatchSet@ objects than
 -- the number you specify for @Limit@, the response includes a @NextMarker@
 -- value that you can use to get another batch of @RegexMatchSet@ objects.
-listRegexMatchSets_limit :: Lens.Lens' ListRegexMatchSets (Core.Maybe Core.Natural)
+listRegexMatchSets_limit :: Lens.Lens' ListRegexMatchSets (Prelude.Maybe Prelude.Natural)
 listRegexMatchSets_limit = Lens.lens (\ListRegexMatchSets' {limit} -> limit) (\s@ListRegexMatchSets' {} a -> s {limit = a} :: ListRegexMatchSets)
 
 instance Core.AWSRequest ListRegexMatchSets where
@@ -125,42 +126,44 @@ instance Core.AWSRequest ListRegexMatchSets where
     Response.receiveJSON
       ( \s h x ->
           ListRegexMatchSetsResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "RegexMatchSets" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "RegexMatchSets" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListRegexMatchSets
+instance Prelude.Hashable ListRegexMatchSets
 
-instance Core.NFData ListRegexMatchSets
+instance Prelude.NFData ListRegexMatchSets
 
 instance Core.ToHeaders ListRegexMatchSets where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.ListRegexMatchSets" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListRegexMatchSets where
   toJSON ListRegexMatchSets' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextMarker" Core..=) Core.<$> nextMarker,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListRegexMatchSets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListRegexMatchSets where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRegexMatchSetsResponse' smart constructor.
 data ListRegexMatchSetsResponse = ListRegexMatchSetsResponse'
@@ -169,13 +172,13 @@ data ListRegexMatchSetsResponse = ListRegexMatchSetsResponse'
     -- @NextMarker@ value. To list more @RegexMatchSet@ objects, submit another
     -- @ListRegexMatchSets@ request, and specify the @NextMarker@ value from
     -- the response in the @NextMarker@ value in the next request.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | An array of RegexMatchSetSummary objects.
-    regexMatchSets :: Core.Maybe [RegexMatchSetSummary],
+    regexMatchSets :: Prelude.Maybe [RegexMatchSetSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRegexMatchSetsResponse' with all optional fields omitted.
@@ -196,13 +199,13 @@ data ListRegexMatchSetsResponse = ListRegexMatchSetsResponse'
 -- 'httpStatus', 'listRegexMatchSetsResponse_httpStatus' - The response's http status code.
 newListRegexMatchSetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRegexMatchSetsResponse
 newListRegexMatchSetsResponse pHttpStatus_ =
   ListRegexMatchSetsResponse'
     { nextMarker =
-        Core.Nothing,
-      regexMatchSets = Core.Nothing,
+        Prelude.Nothing,
+      regexMatchSets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -211,15 +214,15 @@ newListRegexMatchSetsResponse pHttpStatus_ =
 -- @NextMarker@ value. To list more @RegexMatchSet@ objects, submit another
 -- @ListRegexMatchSets@ request, and specify the @NextMarker@ value from
 -- the response in the @NextMarker@ value in the next request.
-listRegexMatchSetsResponse_nextMarker :: Lens.Lens' ListRegexMatchSetsResponse (Core.Maybe Core.Text)
+listRegexMatchSetsResponse_nextMarker :: Lens.Lens' ListRegexMatchSetsResponse (Prelude.Maybe Prelude.Text)
 listRegexMatchSetsResponse_nextMarker = Lens.lens (\ListRegexMatchSetsResponse' {nextMarker} -> nextMarker) (\s@ListRegexMatchSetsResponse' {} a -> s {nextMarker = a} :: ListRegexMatchSetsResponse)
 
 -- | An array of RegexMatchSetSummary objects.
-listRegexMatchSetsResponse_regexMatchSets :: Lens.Lens' ListRegexMatchSetsResponse (Core.Maybe [RegexMatchSetSummary])
-listRegexMatchSetsResponse_regexMatchSets = Lens.lens (\ListRegexMatchSetsResponse' {regexMatchSets} -> regexMatchSets) (\s@ListRegexMatchSetsResponse' {} a -> s {regexMatchSets = a} :: ListRegexMatchSetsResponse) Core.. Lens.mapping Lens._Coerce
+listRegexMatchSetsResponse_regexMatchSets :: Lens.Lens' ListRegexMatchSetsResponse (Prelude.Maybe [RegexMatchSetSummary])
+listRegexMatchSetsResponse_regexMatchSets = Lens.lens (\ListRegexMatchSetsResponse' {regexMatchSets} -> regexMatchSets) (\s@ListRegexMatchSetsResponse' {} a -> s {regexMatchSets = a} :: ListRegexMatchSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRegexMatchSetsResponse_httpStatus :: Lens.Lens' ListRegexMatchSetsResponse Core.Int
+listRegexMatchSetsResponse_httpStatus :: Lens.Lens' ListRegexMatchSetsResponse Prelude.Int
 listRegexMatchSetsResponse_httpStatus = Lens.lens (\ListRegexMatchSetsResponse' {httpStatus} -> httpStatus) (\s@ListRegexMatchSetsResponse' {} a -> s {httpStatus = a} :: ListRegexMatchSetsResponse)
 
-instance Core.NFData ListRegexMatchSetsResponse
+instance Prelude.NFData ListRegexMatchSetsResponse

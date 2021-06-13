@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.ThingTypeProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The ThingTypeProperties contains information about the thing type
 -- including: a thing type description, and a list of searchable thing
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newThingTypeProperties' smart constructor.
 data ThingTypeProperties = ThingTypeProperties'
   { -- | A list of searchable thing attribute names.
-    searchableAttributes :: Core.Maybe [Core.Text],
+    searchableAttributes :: Prelude.Maybe [Prelude.Text],
     -- | The description of the thing type.
-    thingTypeDescription :: Core.Maybe Core.Text
+    thingTypeDescription :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ThingTypeProperties' with all optional fields omitted.
@@ -51,16 +52,16 @@ newThingTypeProperties ::
 newThingTypeProperties =
   ThingTypeProperties'
     { searchableAttributes =
-        Core.Nothing,
-      thingTypeDescription = Core.Nothing
+        Prelude.Nothing,
+      thingTypeDescription = Prelude.Nothing
     }
 
 -- | A list of searchable thing attribute names.
-thingTypeProperties_searchableAttributes :: Lens.Lens' ThingTypeProperties (Core.Maybe [Core.Text])
-thingTypeProperties_searchableAttributes = Lens.lens (\ThingTypeProperties' {searchableAttributes} -> searchableAttributes) (\s@ThingTypeProperties' {} a -> s {searchableAttributes = a} :: ThingTypeProperties) Core.. Lens.mapping Lens._Coerce
+thingTypeProperties_searchableAttributes :: Lens.Lens' ThingTypeProperties (Prelude.Maybe [Prelude.Text])
+thingTypeProperties_searchableAttributes = Lens.lens (\ThingTypeProperties' {searchableAttributes} -> searchableAttributes) (\s@ThingTypeProperties' {} a -> s {searchableAttributes = a} :: ThingTypeProperties) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the thing type.
-thingTypeProperties_thingTypeDescription :: Lens.Lens' ThingTypeProperties (Core.Maybe Core.Text)
+thingTypeProperties_thingTypeDescription :: Lens.Lens' ThingTypeProperties (Prelude.Maybe Prelude.Text)
 thingTypeProperties_thingTypeDescription = Lens.lens (\ThingTypeProperties' {thingTypeDescription} -> thingTypeDescription) (\s@ThingTypeProperties' {} a -> s {thingTypeDescription = a} :: ThingTypeProperties)
 
 instance Core.FromJSON ThingTypeProperties where
@@ -69,23 +70,23 @@ instance Core.FromJSON ThingTypeProperties where
       "ThingTypeProperties"
       ( \x ->
           ThingTypeProperties'
-            Core.<$> ( x Core..:? "searchableAttributes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "thingTypeDescription")
+            Prelude.<$> ( x Core..:? "searchableAttributes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "thingTypeDescription")
       )
 
-instance Core.Hashable ThingTypeProperties
+instance Prelude.Hashable ThingTypeProperties
 
-instance Core.NFData ThingTypeProperties
+instance Prelude.NFData ThingTypeProperties
 
 instance Core.ToJSON ThingTypeProperties where
   toJSON ThingTypeProperties' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("searchableAttributes" Core..=)
-              Core.<$> searchableAttributes,
+              Prelude.<$> searchableAttributes,
             ("thingTypeDescription" Core..=)
-              Core.<$> thingTypeDescription
+              Prelude.<$> thingTypeDescription
           ]
       )

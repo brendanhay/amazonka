@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -56,11 +57,11 @@ data ListClusters = ListClusters'
   { -- | HTTP requests are stateless. To identify what object comes \"next\" in
     -- the list of @ClusterListEntry@ objects, you have the option of
     -- specifying @NextToken@ as the starting point for your returned list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of @ClusterListEntry@ objects to return.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListClusters' with all optional fields omitted.
@@ -79,39 +80,39 @@ newListClusters ::
   ListClusters
 newListClusters =
   ListClusters'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | HTTP requests are stateless. To identify what object comes \"next\" in
 -- the list of @ClusterListEntry@ objects, you have the option of
 -- specifying @NextToken@ as the starting point for your returned list.
-listClusters_nextToken :: Lens.Lens' ListClusters (Core.Maybe Core.Text)
+listClusters_nextToken :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
 listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s@ListClusters' {} a -> s {nextToken = a} :: ListClusters)
 
 -- | The number of @ClusterListEntry@ objects to return.
-listClusters_maxResults :: Lens.Lens' ListClusters (Core.Maybe Core.Natural)
+listClusters_maxResults :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Natural)
 listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) (\s@ListClusters' {} a -> s {maxResults = a} :: ListClusters)
 
 instance Core.AWSPager ListClusters where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listClustersResponse_nextToken Core.. Lens._Just
+            Lens.^? listClustersResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listClustersResponse_clusterListEntries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listClusters_nextToken
+          Prelude.& listClusters_nextToken
           Lens..~ rs
-          Lens.^? listClustersResponse_nextToken Core.. Lens._Just
+          Lens.^? listClustersResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClusters where
   type AWSResponse ListClusters = ListClustersResponse
@@ -120,58 +121,60 @@ instance Core.AWSRequest ListClusters where
     Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "ClusterListEntries"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ClusterListEntries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListClusters
+instance Prelude.Hashable ListClusters
 
-instance Core.NFData ListClusters
+instance Prelude.NFData ListClusters
 
 instance Core.ToHeaders ListClusters where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.ListClusters" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListClusters where
   toJSON ListClusters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListClusters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListClusters where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
   { -- | HTTP requests are stateless. If you use the automatically generated
     -- @NextToken@ value in your next @ClusterListEntry@ call, your list of
     -- returned clusters will start from this point in the array.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Each @ClusterListEntry@ object contains a cluster\'s state, a cluster\'s
     -- ID, and other important status information.
-    clusterListEntries :: Core.Maybe [ClusterListEntry],
+    clusterListEntries :: Prelude.Maybe [ClusterListEntry],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListClustersResponse' with all optional fields omitted.
@@ -191,28 +194,28 @@ data ListClustersResponse = ListClustersResponse'
 -- 'httpStatus', 'listClustersResponse_httpStatus' - The response's http status code.
 newListClustersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListClustersResponse
 newListClustersResponse pHttpStatus_ =
   ListClustersResponse'
-    { nextToken = Core.Nothing,
-      clusterListEntries = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      clusterListEntries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @ClusterListEntry@ call, your list of
 -- returned clusters will start from this point in the array.
-listClustersResponse_nextToken :: Lens.Lens' ListClustersResponse (Core.Maybe Core.Text)
+listClustersResponse_nextToken :: Lens.Lens' ListClustersResponse (Prelude.Maybe Prelude.Text)
 listClustersResponse_nextToken = Lens.lens (\ListClustersResponse' {nextToken} -> nextToken) (\s@ListClustersResponse' {} a -> s {nextToken = a} :: ListClustersResponse)
 
 -- | Each @ClusterListEntry@ object contains a cluster\'s state, a cluster\'s
 -- ID, and other important status information.
-listClustersResponse_clusterListEntries :: Lens.Lens' ListClustersResponse (Core.Maybe [ClusterListEntry])
-listClustersResponse_clusterListEntries = Lens.lens (\ListClustersResponse' {clusterListEntries} -> clusterListEntries) (\s@ListClustersResponse' {} a -> s {clusterListEntries = a} :: ListClustersResponse) Core.. Lens.mapping Lens._Coerce
+listClustersResponse_clusterListEntries :: Lens.Lens' ListClustersResponse (Prelude.Maybe [ClusterListEntry])
+listClustersResponse_clusterListEntries = Lens.lens (\ListClustersResponse' {clusterListEntries} -> clusterListEntries) (\s@ListClustersResponse' {} a -> s {clusterListEntries = a} :: ListClustersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listClustersResponse_httpStatus :: Lens.Lens' ListClustersResponse Core.Int
+listClustersResponse_httpStatus :: Lens.Lens' ListClustersResponse Prelude.Int
 listClustersResponse_httpStatus = Lens.lens (\ListClustersResponse' {httpStatus} -> httpStatus) (\s@ListClustersResponse' {} a -> s {httpStatus = a} :: ListClustersResponse)
 
-instance Core.NFData ListClustersResponse
+instance Prelude.NFData ListClustersResponse

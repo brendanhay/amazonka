@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3Storage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this to store channel data in an S3 bucket managed by AWS IoT
 -- Analytics. You cannot change the choice of service-managed or
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 data ServiceManagedChannelS3Storage = ServiceManagedChannelS3Storage'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceManagedChannelS3Storage' with all optional fields omitted.
@@ -45,11 +46,15 @@ instance Core.FromJSON ServiceManagedChannelS3Storage where
   parseJSON =
     Core.withObject
       "ServiceManagedChannelS3Storage"
-      (\x -> Core.pure ServiceManagedChannelS3Storage')
+      (\x -> Prelude.pure ServiceManagedChannelS3Storage')
 
-instance Core.Hashable ServiceManagedChannelS3Storage
+instance
+  Prelude.Hashable
+    ServiceManagedChannelS3Storage
 
-instance Core.NFData ServiceManagedChannelS3Storage
+instance
+  Prelude.NFData
+    ServiceManagedChannelS3Storage
 
 instance Core.ToJSON ServiceManagedChannelS3Storage where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

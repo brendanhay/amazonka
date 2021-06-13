@@ -46,19 +46,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDatasets' smart constructor.
 data ListDatasets = ListDatasets'
   { -- | The token for the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in this request.
     --
     -- The default value is 100.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDatasets' with all optional fields omitted.
@@ -77,39 +78,39 @@ newListDatasets ::
   ListDatasets
 newListDatasets =
   ListDatasets'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token for the next set of results.
-listDatasets_nextToken :: Lens.Lens' ListDatasets (Core.Maybe Core.Text)
+listDatasets_nextToken :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
 listDatasets_nextToken = Lens.lens (\ListDatasets' {nextToken} -> nextToken) (\s@ListDatasets' {} a -> s {nextToken = a} :: ListDatasets)
 
 -- | The maximum number of results to return in this request.
 --
 -- The default value is 100.
-listDatasets_maxResults :: Lens.Lens' ListDatasets (Core.Maybe Core.Natural)
+listDatasets_maxResults :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Natural)
 listDatasets_maxResults = Lens.lens (\ListDatasets' {maxResults} -> maxResults) (\s@ListDatasets' {} a -> s {maxResults = a} :: ListDatasets)
 
 instance Core.AWSPager ListDatasets where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDatasetsResponse_nextToken Core.. Lens._Just
+            Lens.^? listDatasetsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDatasetsResponse_datasetSummaries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDatasets_nextToken
+          Prelude.& listDatasets_nextToken
           Lens..~ rs
-          Lens.^? listDatasetsResponse_nextToken Core.. Lens._Just
+          Lens.^? listDatasetsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatasets where
   type AWSResponse ListDatasets = ListDatasetsResponse
@@ -118,24 +119,26 @@ instance Core.AWSRequest ListDatasets where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "datasetSummaries" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "datasetSummaries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDatasets
+instance Prelude.Hashable ListDatasets
 
-instance Core.NFData ListDatasets
+instance Prelude.NFData ListDatasets
 
 instance Core.ToHeaders ListDatasets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListDatasets where
-  toPath = Core.const "/datasets"
+  toPath = Prelude.const "/datasets"
 
 instance Core.ToQuery ListDatasets where
   toQuery ListDatasets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -144,13 +147,13 @@ instance Core.ToQuery ListDatasets where
 data ListDatasetsResponse = ListDatasetsResponse'
   { -- | The token to retrieve the next set of results, or @null@ if there are no
     -- more results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @DatasetSummary@ objects.
-    datasetSummaries :: Core.Maybe [DatasetSummary],
+    datasetSummaries :: Prelude.Maybe [DatasetSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDatasetsResponse' with all optional fields omitted.
@@ -168,26 +171,26 @@ data ListDatasetsResponse = ListDatasetsResponse'
 -- 'httpStatus', 'listDatasetsResponse_httpStatus' - The response's http status code.
 newListDatasetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDatasetsResponse
 newListDatasetsResponse pHttpStatus_ =
   ListDatasetsResponse'
-    { nextToken = Core.Nothing,
-      datasetSummaries = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      datasetSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
-listDatasetsResponse_nextToken :: Lens.Lens' ListDatasetsResponse (Core.Maybe Core.Text)
+listDatasetsResponse_nextToken :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Text)
 listDatasetsResponse_nextToken = Lens.lens (\ListDatasetsResponse' {nextToken} -> nextToken) (\s@ListDatasetsResponse' {} a -> s {nextToken = a} :: ListDatasetsResponse)
 
 -- | A list of @DatasetSummary@ objects.
-listDatasetsResponse_datasetSummaries :: Lens.Lens' ListDatasetsResponse (Core.Maybe [DatasetSummary])
-listDatasetsResponse_datasetSummaries = Lens.lens (\ListDatasetsResponse' {datasetSummaries} -> datasetSummaries) (\s@ListDatasetsResponse' {} a -> s {datasetSummaries = a} :: ListDatasetsResponse) Core.. Lens.mapping Lens._Coerce
+listDatasetsResponse_datasetSummaries :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe [DatasetSummary])
+listDatasetsResponse_datasetSummaries = Lens.lens (\ListDatasetsResponse' {datasetSummaries} -> datasetSummaries) (\s@ListDatasetsResponse' {} a -> s {datasetSummaries = a} :: ListDatasetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDatasetsResponse_httpStatus :: Lens.Lens' ListDatasetsResponse Core.Int
+listDatasetsResponse_httpStatus :: Lens.Lens' ListDatasetsResponse Prelude.Int
 listDatasetsResponse_httpStatus = Lens.lens (\ListDatasetsResponse' {httpStatus} -> httpStatus) (\s@ListDatasetsResponse' {} a -> s {httpStatus = a} :: ListDatasetsResponse)
 
-instance Core.NFData ListDatasetsResponse
+instance Prelude.NFData ListDatasetsResponse

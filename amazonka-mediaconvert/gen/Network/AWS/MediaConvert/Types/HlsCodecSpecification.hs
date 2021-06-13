@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.HlsCodecSpecification
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
 -- playlist generation.
@@ -35,15 +36,15 @@ newtype HlsCodecSpecification = HlsCodecSpecification'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

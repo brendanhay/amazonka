@@ -21,6 +21,7 @@ module Network.AWS.Route53Domains.Types.DomainSuggestion where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about one suggested domain name.
 --
@@ -64,11 +65,11 @@ data DomainSuggestion = DomainSuggestion'
     --
     -- [UNAVAILABLE_RESTRICTED]
     --     The domain name is forbidden.
-    availability :: Core.Maybe Core.Text,
+    availability :: Prelude.Maybe Prelude.Text,
     -- | A suggested domain name.
-    domainName :: Core.Maybe Core.Text
+    domainName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainSuggestion' with all optional fields omitted.
@@ -122,8 +123,8 @@ newDomainSuggestion ::
   DomainSuggestion
 newDomainSuggestion =
   DomainSuggestion'
-    { availability = Core.Nothing,
-      domainName = Core.Nothing
+    { availability = Prelude.Nothing,
+      domainName = Prelude.Nothing
     }
 
 -- | Whether the domain name is available for registering.
@@ -164,11 +165,11 @@ newDomainSuggestion =
 --
 -- [UNAVAILABLE_RESTRICTED]
 --     The domain name is forbidden.
-domainSuggestion_availability :: Lens.Lens' DomainSuggestion (Core.Maybe Core.Text)
+domainSuggestion_availability :: Lens.Lens' DomainSuggestion (Prelude.Maybe Prelude.Text)
 domainSuggestion_availability = Lens.lens (\DomainSuggestion' {availability} -> availability) (\s@DomainSuggestion' {} a -> s {availability = a} :: DomainSuggestion)
 
 -- | A suggested domain name.
-domainSuggestion_domainName :: Lens.Lens' DomainSuggestion (Core.Maybe Core.Text)
+domainSuggestion_domainName :: Lens.Lens' DomainSuggestion (Prelude.Maybe Prelude.Text)
 domainSuggestion_domainName = Lens.lens (\DomainSuggestion' {domainName} -> domainName) (\s@DomainSuggestion' {} a -> s {domainName = a} :: DomainSuggestion)
 
 instance Core.FromJSON DomainSuggestion where
@@ -177,10 +178,10 @@ instance Core.FromJSON DomainSuggestion where
       "DomainSuggestion"
       ( \x ->
           DomainSuggestion'
-            Core.<$> (x Core..:? "Availability")
-            Core.<*> (x Core..:? "DomainName")
+            Prelude.<$> (x Core..:? "Availability")
+            Prelude.<*> (x Core..:? "DomainName")
       )
 
-instance Core.Hashable DomainSuggestion
+instance Prelude.Hashable DomainSuggestion
 
-instance Core.NFData DomainSuggestion
+instance Prelude.NFData DomainSuggestion

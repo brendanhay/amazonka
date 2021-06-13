@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.DBClusterSnapshotAttribute
 
 -- | Contains the results of a successful call to the
@@ -33,12 +34,12 @@ import Network.AWS.RDS.Types.DBClusterSnapshotAttribute
 -- /See:/ 'newDBClusterSnapshotAttributesResult' smart constructor.
 data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
   { -- | The list of attributes and values for the manual DB cluster snapshot.
-    dbClusterSnapshotAttributes :: Core.Maybe [DBClusterSnapshotAttribute],
+    dbClusterSnapshotAttributes :: Prelude.Maybe [DBClusterSnapshotAttribute],
     -- | The identifier of the manual DB cluster snapshot that the attributes
     -- apply to.
-    dbClusterSnapshotIdentifier :: Core.Maybe Core.Text
+    dbClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBClusterSnapshotAttributesResult' with all optional fields omitted.
@@ -57,18 +58,18 @@ newDBClusterSnapshotAttributesResult ::
 newDBClusterSnapshotAttributesResult =
   DBClusterSnapshotAttributesResult'
     { dbClusterSnapshotAttributes =
-        Core.Nothing,
+        Prelude.Nothing,
       dbClusterSnapshotIdentifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The list of attributes and values for the manual DB cluster snapshot.
-dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: Lens.Lens' DBClusterSnapshotAttributesResult (Core.Maybe [DBClusterSnapshotAttribute])
-dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotAttributes} -> dbClusterSnapshotAttributes) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotAttributes = a} :: DBClusterSnapshotAttributesResult) Core.. Lens.mapping Lens._Coerce
+dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: Lens.Lens' DBClusterSnapshotAttributesResult (Prelude.Maybe [DBClusterSnapshotAttribute])
+dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotAttributes} -> dbClusterSnapshotAttributes) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotAttributes = a} :: DBClusterSnapshotAttributesResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the manual DB cluster snapshot that the attributes
 -- apply to.
-dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: Lens.Lens' DBClusterSnapshotAttributesResult (Core.Maybe Core.Text)
+dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: Lens.Lens' DBClusterSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
 dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotIdentifier} -> dbClusterSnapshotIdentifier) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotIdentifier = a} :: DBClusterSnapshotAttributesResult)
 
 instance
@@ -77,17 +78,17 @@ instance
   where
   parseXML x =
     DBClusterSnapshotAttributesResult'
-      Core.<$> ( x Core..@? "DBClusterSnapshotAttributes"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "DBClusterSnapshotAttribute")
-               )
-      Core.<*> (x Core..@? "DBClusterSnapshotIdentifier")
+      Prelude.<$> ( x Core..@? "DBClusterSnapshotAttributes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "DBClusterSnapshotAttribute")
+                  )
+      Prelude.<*> (x Core..@? "DBClusterSnapshotIdentifier")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DBClusterSnapshotAttributesResult
 
 instance
-  Core.NFData
+  Prelude.NFData
     DBClusterSnapshotAttributesResult

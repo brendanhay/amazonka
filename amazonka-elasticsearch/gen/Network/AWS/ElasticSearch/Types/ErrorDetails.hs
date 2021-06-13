@@ -21,13 +21,14 @@ module Network.AWS.ElasticSearch.Types.ErrorDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-  { errorType :: Core.Maybe Core.Text,
-    errorMessage :: Core.Maybe Core.Text
+  { errorType :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ErrorDetails' with all optional fields omitted.
@@ -44,16 +45,16 @@ newErrorDetails ::
   ErrorDetails
 newErrorDetails =
   ErrorDetails'
-    { errorType = Core.Nothing,
-      errorMessage = Core.Nothing
+    { errorType = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | Undocumented member.
-errorDetails_errorType :: Lens.Lens' ErrorDetails (Core.Maybe Core.Text)
+errorDetails_errorType :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
 errorDetails_errorType = Lens.lens (\ErrorDetails' {errorType} -> errorType) (\s@ErrorDetails' {} a -> s {errorType = a} :: ErrorDetails)
 
 -- | Undocumented member.
-errorDetails_errorMessage :: Lens.Lens' ErrorDetails (Core.Maybe Core.Text)
+errorDetails_errorMessage :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
 errorDetails_errorMessage = Lens.lens (\ErrorDetails' {errorMessage} -> errorMessage) (\s@ErrorDetails' {} a -> s {errorMessage = a} :: ErrorDetails)
 
 instance Core.FromJSON ErrorDetails where
@@ -62,10 +63,10 @@ instance Core.FromJSON ErrorDetails where
       "ErrorDetails"
       ( \x ->
           ErrorDetails'
-            Core.<$> (x Core..:? "ErrorType")
-            Core.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorType")
+            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Core.Hashable ErrorDetails
+instance Prelude.Hashable ErrorDetails
 
-instance Core.NFData ErrorDetails
+instance Prelude.NFData ErrorDetails

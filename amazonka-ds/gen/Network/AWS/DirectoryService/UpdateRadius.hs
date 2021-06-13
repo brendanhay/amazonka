@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data UpdateRadius = UpdateRadius'
   { -- | The identifier of the directory for which to update the RADIUS server
     -- information.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | A RadiusSettings object that contains information about the RADIUS
     -- server.
     radiusSettings :: RadiusSettings
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRadius' with all optional fields omitted.
@@ -74,7 +75,7 @@ data UpdateRadius = UpdateRadius'
 -- server.
 newUpdateRadius ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'radiusSettings'
   RadiusSettings ->
   UpdateRadius
@@ -86,7 +87,7 @@ newUpdateRadius pDirectoryId_ pRadiusSettings_ =
 
 -- | The identifier of the directory for which to update the RADIUS server
 -- information.
-updateRadius_directoryId :: Lens.Lens' UpdateRadius Core.Text
+updateRadius_directoryId :: Lens.Lens' UpdateRadius Prelude.Text
 updateRadius_directoryId = Lens.lens (\UpdateRadius' {directoryId} -> directoryId) (\s@UpdateRadius' {} a -> s {directoryId = a} :: UpdateRadius)
 
 -- | A RadiusSettings object that contains information about the RADIUS
@@ -101,49 +102,52 @@ instance Core.AWSRequest UpdateRadius where
     Response.receiveEmpty
       ( \s h x ->
           UpdateRadiusResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateRadius
+instance Prelude.Hashable UpdateRadius
 
-instance Core.NFData UpdateRadius
+instance Prelude.NFData UpdateRadius
 
 instance Core.ToHeaders UpdateRadius where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.UpdateRadius" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRadius where
   toJSON UpdateRadius' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("RadiusSettings" Core..= radiusSettings)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just
+              ("RadiusSettings" Core..= radiusSettings)
           ]
       )
 
 instance Core.ToPath UpdateRadius where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRadius where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the UpdateRadius operation.
 --
 -- /See:/ 'newUpdateRadiusResponse' smart constructor.
 data UpdateRadiusResponse = UpdateRadiusResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRadiusResponse' with all optional fields omitted.
@@ -156,13 +160,13 @@ data UpdateRadiusResponse = UpdateRadiusResponse'
 -- 'httpStatus', 'updateRadiusResponse_httpStatus' - The response's http status code.
 newUpdateRadiusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateRadiusResponse
 newUpdateRadiusResponse pHttpStatus_ =
   UpdateRadiusResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateRadiusResponse_httpStatus :: Lens.Lens' UpdateRadiusResponse Core.Int
+updateRadiusResponse_httpStatus :: Lens.Lens' UpdateRadiusResponse Prelude.Int
 updateRadiusResponse_httpStatus = Lens.lens (\UpdateRadiusResponse' {httpStatus} -> httpStatus) (\s@UpdateRadiusResponse' {} a -> s {httpStatus = a} :: UpdateRadiusResponse)
 
-instance Core.NFData UpdateRadiusResponse
+instance Prelude.NFData UpdateRadiusResponse

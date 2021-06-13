@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Translate.Types
@@ -58,11 +59,11 @@ data TranslateText = TranslateText'
   { -- | The name of the terminology list file to be used in the TranslateText
     -- request. You can use 1 terminology list at most in a @TranslateText@
     -- request. Terminology lists can contain a maximum of 256 terms.
-    terminologyNames :: Core.Maybe [Core.Text],
+    terminologyNames :: Prelude.Maybe [Prelude.Text],
     -- | The text to translate. The text string can be a maximum of 5,000 bytes
     -- long. Depending on your character set, this may be fewer than 5,000
     -- characters.
-    text :: Core.Text,
+    text :: Prelude.Text,
     -- | The language code for the language of the source text. The language must
     -- be a language supported by Amazon Translate. For a list of language
     -- codes, see what-is-languages.
@@ -72,12 +73,12 @@ data TranslateText = TranslateText'
     -- @auto@, Amazon Translate will call
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html Amazon Comprehend>
     -- to determine the source language.
-    sourceLanguageCode :: Core.Text,
+    sourceLanguageCode :: Prelude.Text,
     -- | The language code requested for the language of the target text. The
     -- language must be a language supported by Amazon Translate.
-    targetLanguageCode :: Core.Text
+    targetLanguageCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TranslateText' with all optional fields omitted.
@@ -109,18 +110,18 @@ data TranslateText = TranslateText'
 -- language must be a language supported by Amazon Translate.
 newTranslateText ::
   -- | 'text'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceLanguageCode'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetLanguageCode'
-  Core.Text ->
+  Prelude.Text ->
   TranslateText
 newTranslateText
   pText_
   pSourceLanguageCode_
   pTargetLanguageCode_ =
     TranslateText'
-      { terminologyNames = Core.Nothing,
+      { terminologyNames = Prelude.Nothing,
         text = pText_,
         sourceLanguageCode = pSourceLanguageCode_,
         targetLanguageCode = pTargetLanguageCode_
@@ -129,13 +130,13 @@ newTranslateText
 -- | The name of the terminology list file to be used in the TranslateText
 -- request. You can use 1 terminology list at most in a @TranslateText@
 -- request. Terminology lists can contain a maximum of 256 terms.
-translateText_terminologyNames :: Lens.Lens' TranslateText (Core.Maybe [Core.Text])
-translateText_terminologyNames = Lens.lens (\TranslateText' {terminologyNames} -> terminologyNames) (\s@TranslateText' {} a -> s {terminologyNames = a} :: TranslateText) Core.. Lens.mapping Lens._Coerce
+translateText_terminologyNames :: Lens.Lens' TranslateText (Prelude.Maybe [Prelude.Text])
+translateText_terminologyNames = Lens.lens (\TranslateText' {terminologyNames} -> terminologyNames) (\s@TranslateText' {} a -> s {terminologyNames = a} :: TranslateText) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The text to translate. The text string can be a maximum of 5,000 bytes
 -- long. Depending on your character set, this may be fewer than 5,000
 -- characters.
-translateText_text :: Lens.Lens' TranslateText Core.Text
+translateText_text :: Lens.Lens' TranslateText Prelude.Text
 translateText_text = Lens.lens (\TranslateText' {text} -> text) (\s@TranslateText' {} a -> s {text = a} :: TranslateText)
 
 -- | The language code for the language of the source text. The language must
@@ -147,12 +148,12 @@ translateText_text = Lens.lens (\TranslateText' {text} -> text) (\s@TranslateTex
 -- @auto@, Amazon Translate will call
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html Amazon Comprehend>
 -- to determine the source language.
-translateText_sourceLanguageCode :: Lens.Lens' TranslateText Core.Text
+translateText_sourceLanguageCode :: Lens.Lens' TranslateText Prelude.Text
 translateText_sourceLanguageCode = Lens.lens (\TranslateText' {sourceLanguageCode} -> sourceLanguageCode) (\s@TranslateText' {} a -> s {sourceLanguageCode = a} :: TranslateText)
 
 -- | The language code requested for the language of the target text. The
 -- language must be a language supported by Amazon Translate.
-translateText_targetLanguageCode :: Lens.Lens' TranslateText Core.Text
+translateText_targetLanguageCode :: Lens.Lens' TranslateText Prelude.Text
 translateText_targetLanguageCode = Lens.lens (\TranslateText' {targetLanguageCode} -> targetLanguageCode) (\s@TranslateText' {} a -> s {targetLanguageCode = a} :: TranslateText)
 
 instance Core.AWSRequest TranslateText where
@@ -164,67 +165,69 @@ instance Core.AWSRequest TranslateText where
     Response.receiveJSON
       ( \s h x ->
           TranslateTextResponse'
-            Core.<$> ( x Core..?> "AppliedTerminologies"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "TranslatedText")
-            Core.<*> (x Core..:> "SourceLanguageCode")
-            Core.<*> (x Core..:> "TargetLanguageCode")
+            Prelude.<$> ( x Core..?> "AppliedTerminologies"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "TranslatedText")
+            Prelude.<*> (x Core..:> "SourceLanguageCode")
+            Prelude.<*> (x Core..:> "TargetLanguageCode")
       )
 
-instance Core.Hashable TranslateText
+instance Prelude.Hashable TranslateText
 
-instance Core.NFData TranslateText
+instance Prelude.NFData TranslateText
 
 instance Core.ToHeaders TranslateText where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShineFrontendService_20170701.TranslateText" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TranslateText where
   toJSON TranslateText' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("TerminologyNames" Core..=)
-              Core.<$> terminologyNames,
-            Core.Just ("Text" Core..= text),
-            Core.Just
+              Prelude.<$> terminologyNames,
+            Prelude.Just ("Text" Core..= text),
+            Prelude.Just
               ("SourceLanguageCode" Core..= sourceLanguageCode),
-            Core.Just
+            Prelude.Just
               ("TargetLanguageCode" Core..= targetLanguageCode)
           ]
       )
 
 instance Core.ToPath TranslateText where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TranslateText where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTranslateTextResponse' smart constructor.
 data TranslateTextResponse = TranslateTextResponse'
   { -- | The names of the custom terminologies applied to the input text by
     -- Amazon Translate for the translated text response.
-    appliedTerminologies :: Core.Maybe [AppliedTerminology],
+    appliedTerminologies :: Prelude.Maybe [AppliedTerminology],
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The translated text.
-    translatedText :: Core.Text,
+    translatedText :: Prelude.Text,
     -- | The language code for the language of the source text.
-    sourceLanguageCode :: Core.Text,
+    sourceLanguageCode :: Prelude.Text,
     -- | The language code for the language of the target text.
-    targetLanguageCode :: Core.Text
+    targetLanguageCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TranslateTextResponse' with all optional fields omitted.
@@ -246,13 +249,13 @@ data TranslateTextResponse = TranslateTextResponse'
 -- 'targetLanguageCode', 'translateTextResponse_targetLanguageCode' - The language code for the language of the target text.
 newTranslateTextResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'translatedText'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceLanguageCode'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetLanguageCode'
-  Core.Text ->
+  Prelude.Text ->
   TranslateTextResponse
 newTranslateTextResponse
   pHttpStatus_
@@ -261,7 +264,7 @@ newTranslateTextResponse
   pTargetLanguageCode_ =
     TranslateTextResponse'
       { appliedTerminologies =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         translatedText = pTranslatedText_,
         sourceLanguageCode = pSourceLanguageCode_,
@@ -270,23 +273,23 @@ newTranslateTextResponse
 
 -- | The names of the custom terminologies applied to the input text by
 -- Amazon Translate for the translated text response.
-translateTextResponse_appliedTerminologies :: Lens.Lens' TranslateTextResponse (Core.Maybe [AppliedTerminology])
-translateTextResponse_appliedTerminologies = Lens.lens (\TranslateTextResponse' {appliedTerminologies} -> appliedTerminologies) (\s@TranslateTextResponse' {} a -> s {appliedTerminologies = a} :: TranslateTextResponse) Core.. Lens.mapping Lens._Coerce
+translateTextResponse_appliedTerminologies :: Lens.Lens' TranslateTextResponse (Prelude.Maybe [AppliedTerminology])
+translateTextResponse_appliedTerminologies = Lens.lens (\TranslateTextResponse' {appliedTerminologies} -> appliedTerminologies) (\s@TranslateTextResponse' {} a -> s {appliedTerminologies = a} :: TranslateTextResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-translateTextResponse_httpStatus :: Lens.Lens' TranslateTextResponse Core.Int
+translateTextResponse_httpStatus :: Lens.Lens' TranslateTextResponse Prelude.Int
 translateTextResponse_httpStatus = Lens.lens (\TranslateTextResponse' {httpStatus} -> httpStatus) (\s@TranslateTextResponse' {} a -> s {httpStatus = a} :: TranslateTextResponse)
 
 -- | The translated text.
-translateTextResponse_translatedText :: Lens.Lens' TranslateTextResponse Core.Text
+translateTextResponse_translatedText :: Lens.Lens' TranslateTextResponse Prelude.Text
 translateTextResponse_translatedText = Lens.lens (\TranslateTextResponse' {translatedText} -> translatedText) (\s@TranslateTextResponse' {} a -> s {translatedText = a} :: TranslateTextResponse)
 
 -- | The language code for the language of the source text.
-translateTextResponse_sourceLanguageCode :: Lens.Lens' TranslateTextResponse Core.Text
+translateTextResponse_sourceLanguageCode :: Lens.Lens' TranslateTextResponse Prelude.Text
 translateTextResponse_sourceLanguageCode = Lens.lens (\TranslateTextResponse' {sourceLanguageCode} -> sourceLanguageCode) (\s@TranslateTextResponse' {} a -> s {sourceLanguageCode = a} :: TranslateTextResponse)
 
 -- | The language code for the language of the target text.
-translateTextResponse_targetLanguageCode :: Lens.Lens' TranslateTextResponse Core.Text
+translateTextResponse_targetLanguageCode :: Lens.Lens' TranslateTextResponse Prelude.Text
 translateTextResponse_targetLanguageCode = Lens.lens (\TranslateTextResponse' {targetLanguageCode} -> targetLanguageCode) (\s@TranslateTextResponse' {} a -> s {targetLanguageCode = a} :: TranslateTextResponse)
 
-instance Core.NFData TranslateTextResponse
+instance Prelude.NFData TranslateTextResponse

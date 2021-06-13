@@ -22,21 +22,22 @@ module Network.AWS.Config.Types.Relationship where
 import Network.AWS.Config.Types.ResourceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The relationship of the related resource to the main resource.
 --
 -- /See:/ 'newRelationship' smart constructor.
 data Relationship = Relationship'
   { -- | The ID of the related resource (for example, @sg-xxxxxx@).
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The resource type of the related resource.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The type of relationship with the related resource.
-    relationshipName :: Core.Maybe Core.Text,
+    relationshipName :: Prelude.Maybe Prelude.Text,
     -- | The custom name of the related resource, if available.
-    resourceName :: Core.Maybe Core.Text
+    resourceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Relationship' with all optional fields omitted.
@@ -57,26 +58,26 @@ newRelationship ::
   Relationship
 newRelationship =
   Relationship'
-    { resourceId = Core.Nothing,
-      resourceType = Core.Nothing,
-      relationshipName = Core.Nothing,
-      resourceName = Core.Nothing
+    { resourceId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      relationshipName = Prelude.Nothing,
+      resourceName = Prelude.Nothing
     }
 
 -- | The ID of the related resource (for example, @sg-xxxxxx@).
-relationship_resourceId :: Lens.Lens' Relationship (Core.Maybe Core.Text)
+relationship_resourceId :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
 relationship_resourceId = Lens.lens (\Relationship' {resourceId} -> resourceId) (\s@Relationship' {} a -> s {resourceId = a} :: Relationship)
 
 -- | The resource type of the related resource.
-relationship_resourceType :: Lens.Lens' Relationship (Core.Maybe ResourceType)
+relationship_resourceType :: Lens.Lens' Relationship (Prelude.Maybe ResourceType)
 relationship_resourceType = Lens.lens (\Relationship' {resourceType} -> resourceType) (\s@Relationship' {} a -> s {resourceType = a} :: Relationship)
 
 -- | The type of relationship with the related resource.
-relationship_relationshipName :: Lens.Lens' Relationship (Core.Maybe Core.Text)
+relationship_relationshipName :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
 relationship_relationshipName = Lens.lens (\Relationship' {relationshipName} -> relationshipName) (\s@Relationship' {} a -> s {relationshipName = a} :: Relationship)
 
 -- | The custom name of the related resource, if available.
-relationship_resourceName :: Lens.Lens' Relationship (Core.Maybe Core.Text)
+relationship_resourceName :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
 relationship_resourceName = Lens.lens (\Relationship' {resourceName} -> resourceName) (\s@Relationship' {} a -> s {resourceName = a} :: Relationship)
 
 instance Core.FromJSON Relationship where
@@ -85,12 +86,12 @@ instance Core.FromJSON Relationship where
       "Relationship"
       ( \x ->
           Relationship'
-            Core.<$> (x Core..:? "resourceId")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "relationshipName")
-            Core.<*> (x Core..:? "resourceName")
+            Prelude.<$> (x Core..:? "resourceId")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "relationshipName")
+            Prelude.<*> (x Core..:? "resourceName")
       )
 
-instance Core.Hashable Relationship
+instance Prelude.Hashable Relationship
 
-instance Core.NFData Relationship
+instance Prelude.NFData Relationship

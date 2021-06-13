@@ -21,6 +21,7 @@ module Network.AWS.Route53Domains.Types.Nameserver where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Nameserver includes the following elements.
 --
@@ -33,13 +34,13 @@ data Nameserver = Nameserver'
     -- ns.example.com.
     --
     -- Constraints: The list can contain only one IPv4 and one IPv6 address.
-    glueIps :: Core.Maybe [Core.Text],
+    glueIps :: Prelude.Maybe [Prelude.Text],
     -- | The fully qualified host name of the name server.
     --
     -- Constraint: Maximum 255 characters
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Nameserver' with all optional fields omitted.
@@ -62,10 +63,13 @@ data Nameserver = Nameserver'
 -- Constraint: Maximum 255 characters
 newNameserver ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Nameserver
 newNameserver pName_ =
-  Nameserver' {glueIps = Core.Nothing, name = pName_}
+  Nameserver'
+    { glueIps = Prelude.Nothing,
+      name = pName_
+    }
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required
 -- only when the name of the name server is a subdomain of the domain. For
@@ -74,13 +78,13 @@ newNameserver pName_ =
 -- ns.example.com.
 --
 -- Constraints: The list can contain only one IPv4 and one IPv6 address.
-nameserver_glueIps :: Lens.Lens' Nameserver (Core.Maybe [Core.Text])
-nameserver_glueIps = Lens.lens (\Nameserver' {glueIps} -> glueIps) (\s@Nameserver' {} a -> s {glueIps = a} :: Nameserver) Core.. Lens.mapping Lens._Coerce
+nameserver_glueIps :: Lens.Lens' Nameserver (Prelude.Maybe [Prelude.Text])
+nameserver_glueIps = Lens.lens (\Nameserver' {glueIps} -> glueIps) (\s@Nameserver' {} a -> s {glueIps = a} :: Nameserver) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The fully qualified host name of the name server.
 --
 -- Constraint: Maximum 255 characters
-nameserver_name :: Lens.Lens' Nameserver Core.Text
+nameserver_name :: Lens.Lens' Nameserver Prelude.Text
 nameserver_name = Lens.lens (\Nameserver' {name} -> name) (\s@Nameserver' {} a -> s {name = a} :: Nameserver)
 
 instance Core.FromJSON Nameserver where
@@ -89,19 +93,19 @@ instance Core.FromJSON Nameserver where
       "Nameserver"
       ( \x ->
           Nameserver'
-            Core.<$> (x Core..:? "GlueIps" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..:? "GlueIps" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable Nameserver
+instance Prelude.Hashable Nameserver
 
-instance Core.NFData Nameserver
+instance Prelude.NFData Nameserver
 
 instance Core.ToJSON Nameserver where
   toJSON Nameserver' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GlueIps" Core..=) Core.<$> glueIps,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("GlueIps" Core..=) Prelude.<$> glueIps,
+            Prelude.Just ("Name" Core..= name)
           ]
       )

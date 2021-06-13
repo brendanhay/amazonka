@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +59,13 @@ data GetPackageVersionHistory = GetPackageVersionHistory'
   { -- | Used for pagination. Only necessary if a previous API call includes a
     -- non-null NextToken value. If provided, returns results for the next
     -- page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Limits results to a maximum number of versions.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Returns an audit history of versions of the package.
-    packageID :: Core.Text
+    packageID :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPackageVersionHistory' with all optional fields omitted.
@@ -83,27 +84,28 @@ data GetPackageVersionHistory = GetPackageVersionHistory'
 -- 'packageID', 'getPackageVersionHistory_packageID' - Returns an audit history of versions of the package.
 newGetPackageVersionHistory ::
   -- | 'packageID'
-  Core.Text ->
+  Prelude.Text ->
   GetPackageVersionHistory
 newGetPackageVersionHistory pPackageID_ =
   GetPackageVersionHistory'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       packageID = pPackageID_
     }
 
 -- | Used for pagination. Only necessary if a previous API call includes a
 -- non-null NextToken value. If provided, returns results for the next
 -- page.
-getPackageVersionHistory_nextToken :: Lens.Lens' GetPackageVersionHistory (Core.Maybe Core.Text)
+getPackageVersionHistory_nextToken :: Lens.Lens' GetPackageVersionHistory (Prelude.Maybe Prelude.Text)
 getPackageVersionHistory_nextToken = Lens.lens (\GetPackageVersionHistory' {nextToken} -> nextToken) (\s@GetPackageVersionHistory' {} a -> s {nextToken = a} :: GetPackageVersionHistory)
 
 -- | Limits results to a maximum number of versions.
-getPackageVersionHistory_maxResults :: Lens.Lens' GetPackageVersionHistory (Core.Maybe Core.Int)
+getPackageVersionHistory_maxResults :: Lens.Lens' GetPackageVersionHistory (Prelude.Maybe Prelude.Int)
 getPackageVersionHistory_maxResults = Lens.lens (\GetPackageVersionHistory' {maxResults} -> maxResults) (\s@GetPackageVersionHistory' {} a -> s {maxResults = a} :: GetPackageVersionHistory)
 
 -- | Returns an audit history of versions of the package.
-getPackageVersionHistory_packageID :: Lens.Lens' GetPackageVersionHistory Core.Text
+getPackageVersionHistory_packageID :: Lens.Lens' GetPackageVersionHistory Prelude.Text
 getPackageVersionHistory_packageID = Lens.lens (\GetPackageVersionHistory' {packageID} -> packageID) (\s@GetPackageVersionHistory' {} a -> s {packageID = a} :: GetPackageVersionHistory)
 
 instance Core.AWSRequest GetPackageVersionHistory where
@@ -115,24 +117,24 @@ instance Core.AWSRequest GetPackageVersionHistory where
     Response.receiveJSON
       ( \s h x ->
           GetPackageVersionHistoryResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "PackageID")
-            Core.<*> ( x Core..?> "PackageVersionHistoryList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "PackageID")
+            Prelude.<*> ( x Core..?> "PackageVersionHistoryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPackageVersionHistory
+instance Prelude.Hashable GetPackageVersionHistory
 
-instance Core.NFData GetPackageVersionHistory
+instance Prelude.NFData GetPackageVersionHistory
 
 instance Core.ToHeaders GetPackageVersionHistory where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetPackageVersionHistory where
   toPath GetPackageVersionHistory' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-01-01/packages/",
         Core.toBS packageID,
         "/history"
@@ -140,7 +142,7 @@ instance Core.ToPath GetPackageVersionHistory where
 
 instance Core.ToQuery GetPackageVersionHistory where
   toQuery GetPackageVersionHistory' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -150,14 +152,14 @@ instance Core.ToQuery GetPackageVersionHistory where
 --
 -- /See:/ 'newGetPackageVersionHistoryResponse' smart constructor.
 data GetPackageVersionHistoryResponse = GetPackageVersionHistoryResponse'
-  { nextToken :: Core.Maybe Core.Text,
-    packageID :: Core.Maybe Core.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    packageID :: Prelude.Maybe Prelude.Text,
     -- | List of @PackageVersionHistory@ objects.
-    packageVersionHistoryList :: Core.Maybe [PackageVersionHistory],
+    packageVersionHistoryList :: Prelude.Maybe [PackageVersionHistory],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPackageVersionHistoryResponse' with all optional fields omitted.
@@ -176,31 +178,34 @@ data GetPackageVersionHistoryResponse = GetPackageVersionHistoryResponse'
 -- 'httpStatus', 'getPackageVersionHistoryResponse_httpStatus' - The response's http status code.
 newGetPackageVersionHistoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPackageVersionHistoryResponse
 newGetPackageVersionHistoryResponse pHttpStatus_ =
   GetPackageVersionHistoryResponse'
     { nextToken =
-        Core.Nothing,
-      packageID = Core.Nothing,
-      packageVersionHistoryList = Core.Nothing,
+        Prelude.Nothing,
+      packageID = Prelude.Nothing,
+      packageVersionHistoryList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getPackageVersionHistoryResponse_nextToken :: Lens.Lens' GetPackageVersionHistoryResponse (Core.Maybe Core.Text)
+getPackageVersionHistoryResponse_nextToken :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionHistoryResponse_nextToken = Lens.lens (\GetPackageVersionHistoryResponse' {nextToken} -> nextToken) (\s@GetPackageVersionHistoryResponse' {} a -> s {nextToken = a} :: GetPackageVersionHistoryResponse)
 
 -- | Undocumented member.
-getPackageVersionHistoryResponse_packageID :: Lens.Lens' GetPackageVersionHistoryResponse (Core.Maybe Core.Text)
+getPackageVersionHistoryResponse_packageID :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionHistoryResponse_packageID = Lens.lens (\GetPackageVersionHistoryResponse' {packageID} -> packageID) (\s@GetPackageVersionHistoryResponse' {} a -> s {packageID = a} :: GetPackageVersionHistoryResponse)
 
 -- | List of @PackageVersionHistory@ objects.
-getPackageVersionHistoryResponse_packageVersionHistoryList :: Lens.Lens' GetPackageVersionHistoryResponse (Core.Maybe [PackageVersionHistory])
-getPackageVersionHistoryResponse_packageVersionHistoryList = Lens.lens (\GetPackageVersionHistoryResponse' {packageVersionHistoryList} -> packageVersionHistoryList) (\s@GetPackageVersionHistoryResponse' {} a -> s {packageVersionHistoryList = a} :: GetPackageVersionHistoryResponse) Core.. Lens.mapping Lens._Coerce
+getPackageVersionHistoryResponse_packageVersionHistoryList :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe [PackageVersionHistory])
+getPackageVersionHistoryResponse_packageVersionHistoryList = Lens.lens (\GetPackageVersionHistoryResponse' {packageVersionHistoryList} -> packageVersionHistoryList) (\s@GetPackageVersionHistoryResponse' {} a -> s {packageVersionHistoryList = a} :: GetPackageVersionHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getPackageVersionHistoryResponse_httpStatus :: Lens.Lens' GetPackageVersionHistoryResponse Core.Int
+getPackageVersionHistoryResponse_httpStatus :: Lens.Lens' GetPackageVersionHistoryResponse Prelude.Int
 getPackageVersionHistoryResponse_httpStatus = Lens.lens (\GetPackageVersionHistoryResponse' {httpStatus} -> httpStatus) (\s@GetPackageVersionHistoryResponse' {} a -> s {httpStatus = a} :: GetPackageVersionHistoryResponse)
 
-instance Core.NFData GetPackageVersionHistoryResponse
+instance
+  Prelude.NFData
+    GetPackageVersionHistoryResponse

@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -66,7 +67,7 @@ data ListTrafficPolicies = ListTrafficPolicies'
     -- is @true@, and the value of @TrafficPolicyIdMarker@ is the ID of the
     -- first traffic policy that Route 53 will return if you submit another
     -- request.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | (Conditional) For your first request to @ListTrafficPolicies@, don\'t
     -- include the @TrafficPolicyIdMarker@ parameter.
     --
@@ -76,9 +77,9 @@ data ListTrafficPolicies = ListTrafficPolicies'
     -- @ListTrafficPolicies@. For the value of @TrafficPolicyIdMarker@, specify
     -- the value of @TrafficPolicyIdMarker@ that was returned in the previous
     -- response.
-    trafficPolicyIdMarker :: Core.Maybe Core.Text
+    trafficPolicyIdMarker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTrafficPolicies' with all optional fields omitted.
@@ -108,8 +109,8 @@ newListTrafficPolicies ::
   ListTrafficPolicies
 newListTrafficPolicies =
   ListTrafficPolicies'
-    { maxItems = Core.Nothing,
-      trafficPolicyIdMarker = Core.Nothing
+    { maxItems = Prelude.Nothing,
+      trafficPolicyIdMarker = Prelude.Nothing
     }
 
 -- | (Optional) The maximum number of traffic policies that you want Amazon
@@ -118,7 +119,7 @@ newListTrafficPolicies =
 -- is @true@, and the value of @TrafficPolicyIdMarker@ is the ID of the
 -- first traffic policy that Route 53 will return if you submit another
 -- request.
-listTrafficPolicies_maxItems :: Lens.Lens' ListTrafficPolicies (Core.Maybe Core.Text)
+listTrafficPolicies_maxItems :: Lens.Lens' ListTrafficPolicies (Prelude.Maybe Prelude.Text)
 listTrafficPolicies_maxItems = Lens.lens (\ListTrafficPolicies' {maxItems} -> maxItems) (\s@ListTrafficPolicies' {} a -> s {maxItems = a} :: ListTrafficPolicies)
 
 -- | (Conditional) For your first request to @ListTrafficPolicies@, don\'t
@@ -130,7 +131,7 @@ listTrafficPolicies_maxItems = Lens.lens (\ListTrafficPolicies' {maxItems} -> ma
 -- @ListTrafficPolicies@. For the value of @TrafficPolicyIdMarker@, specify
 -- the value of @TrafficPolicyIdMarker@ that was returned in the previous
 -- response.
-listTrafficPolicies_trafficPolicyIdMarker :: Lens.Lens' ListTrafficPolicies (Core.Maybe Core.Text)
+listTrafficPolicies_trafficPolicyIdMarker :: Lens.Lens' ListTrafficPolicies (Prelude.Maybe Prelude.Text)
 listTrafficPolicies_trafficPolicyIdMarker = Lens.lens (\ListTrafficPolicies' {trafficPolicyIdMarker} -> trafficPolicyIdMarker) (\s@ListTrafficPolicies' {} a -> s {trafficPolicyIdMarker = a} :: ListTrafficPolicies)
 
 instance Core.AWSRequest ListTrafficPolicies where
@@ -142,29 +143,29 @@ instance Core.AWSRequest ListTrafficPolicies where
     Response.receiveXML
       ( \s h x ->
           ListTrafficPoliciesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "TrafficPolicySummaries"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "TrafficPolicySummary"
-                     )
-            Core.<*> (x Core..@ "IsTruncated")
-            Core.<*> (x Core..@ "TrafficPolicyIdMarker")
-            Core.<*> (x Core..@ "MaxItems")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "TrafficPolicySummaries"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "TrafficPolicySummary"
+                        )
+            Prelude.<*> (x Core..@ "IsTruncated")
+            Prelude.<*> (x Core..@ "TrafficPolicyIdMarker")
+            Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Core.Hashable ListTrafficPolicies
+instance Prelude.Hashable ListTrafficPolicies
 
-instance Core.NFData ListTrafficPolicies
+instance Prelude.NFData ListTrafficPolicies
 
 instance Core.ToHeaders ListTrafficPolicies where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListTrafficPolicies where
-  toPath = Core.const "/2013-04-01/trafficpolicies"
+  toPath = Prelude.const "/2013-04-01/trafficpolicies"
 
 instance Core.ToQuery ListTrafficPolicies where
   toQuery ListTrafficPolicies' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "maxitems" Core.=: maxItems,
         "trafficpolicyid" Core.=: trafficPolicyIdMarker
       ]
@@ -174,7 +175,7 @@ instance Core.ToQuery ListTrafficPolicies where
 -- /See:/ 'newListTrafficPoliciesResponse' smart constructor.
 data ListTrafficPoliciesResponse = ListTrafficPoliciesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list that contains one @TrafficPolicySummary@ element for each traffic
     -- policy that was created by the current AWS account.
     trafficPolicySummaries :: [TrafficPolicySummary],
@@ -183,16 +184,16 @@ data ListTrafficPoliciesResponse = ListTrafficPoliciesResponse'
     -- traffic policies by submitting another @ListTrafficPolicies@ request and
     -- specifying the value of @TrafficPolicyIdMarker@ in the
     -- @TrafficPolicyIdMarker@ request parameter.
-    isTruncated :: Core.Bool,
+    isTruncated :: Prelude.Bool,
     -- | If the value of @IsTruncated@ is @true@, @TrafficPolicyIdMarker@ is the
     -- ID of the first traffic policy in the next group of @MaxItems@ traffic
     -- policies.
-    trafficPolicyIdMarker :: Core.Text,
+    trafficPolicyIdMarker :: Prelude.Text,
     -- | The value that you specified for the @MaxItems@ parameter in the
     -- @ListTrafficPolicies@ request that produced the current response.
-    maxItems :: Core.Text
+    maxItems :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTrafficPoliciesResponse' with all optional fields omitted.
@@ -221,13 +222,13 @@ data ListTrafficPoliciesResponse = ListTrafficPoliciesResponse'
 -- @ListTrafficPolicies@ request that produced the current response.
 newListTrafficPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'isTruncated'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'trafficPolicyIdMarker'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'maxItems'
-  Core.Text ->
+  Prelude.Text ->
   ListTrafficPoliciesResponse
 newListTrafficPoliciesResponse
   pHttpStatus_
@@ -237,7 +238,7 @@ newListTrafficPoliciesResponse
     ListTrafficPoliciesResponse'
       { httpStatus =
           pHttpStatus_,
-        trafficPolicySummaries = Core.mempty,
+        trafficPolicySummaries = Prelude.mempty,
         isTruncated = pIsTruncated_,
         trafficPolicyIdMarker =
           pTrafficPolicyIdMarker_,
@@ -245,31 +246,31 @@ newListTrafficPoliciesResponse
       }
 
 -- | The response's http status code.
-listTrafficPoliciesResponse_httpStatus :: Lens.Lens' ListTrafficPoliciesResponse Core.Int
+listTrafficPoliciesResponse_httpStatus :: Lens.Lens' ListTrafficPoliciesResponse Prelude.Int
 listTrafficPoliciesResponse_httpStatus = Lens.lens (\ListTrafficPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListTrafficPoliciesResponse' {} a -> s {httpStatus = a} :: ListTrafficPoliciesResponse)
 
 -- | A list that contains one @TrafficPolicySummary@ element for each traffic
 -- policy that was created by the current AWS account.
 listTrafficPoliciesResponse_trafficPolicySummaries :: Lens.Lens' ListTrafficPoliciesResponse [TrafficPolicySummary]
-listTrafficPoliciesResponse_trafficPolicySummaries = Lens.lens (\ListTrafficPoliciesResponse' {trafficPolicySummaries} -> trafficPolicySummaries) (\s@ListTrafficPoliciesResponse' {} a -> s {trafficPolicySummaries = a} :: ListTrafficPoliciesResponse) Core.. Lens._Coerce
+listTrafficPoliciesResponse_trafficPolicySummaries = Lens.lens (\ListTrafficPoliciesResponse' {trafficPolicySummaries} -> trafficPolicySummaries) (\s@ListTrafficPoliciesResponse' {} a -> s {trafficPolicySummaries = a} :: ListTrafficPoliciesResponse) Prelude.. Lens._Coerce
 
 -- | A flag that indicates whether there are more traffic policies to be
 -- listed. If the response was truncated, you can get the next group of
 -- traffic policies by submitting another @ListTrafficPolicies@ request and
 -- specifying the value of @TrafficPolicyIdMarker@ in the
 -- @TrafficPolicyIdMarker@ request parameter.
-listTrafficPoliciesResponse_isTruncated :: Lens.Lens' ListTrafficPoliciesResponse Core.Bool
+listTrafficPoliciesResponse_isTruncated :: Lens.Lens' ListTrafficPoliciesResponse Prelude.Bool
 listTrafficPoliciesResponse_isTruncated = Lens.lens (\ListTrafficPoliciesResponse' {isTruncated} -> isTruncated) (\s@ListTrafficPoliciesResponse' {} a -> s {isTruncated = a} :: ListTrafficPoliciesResponse)
 
 -- | If the value of @IsTruncated@ is @true@, @TrafficPolicyIdMarker@ is the
 -- ID of the first traffic policy in the next group of @MaxItems@ traffic
 -- policies.
-listTrafficPoliciesResponse_trafficPolicyIdMarker :: Lens.Lens' ListTrafficPoliciesResponse Core.Text
+listTrafficPoliciesResponse_trafficPolicyIdMarker :: Lens.Lens' ListTrafficPoliciesResponse Prelude.Text
 listTrafficPoliciesResponse_trafficPolicyIdMarker = Lens.lens (\ListTrafficPoliciesResponse' {trafficPolicyIdMarker} -> trafficPolicyIdMarker) (\s@ListTrafficPoliciesResponse' {} a -> s {trafficPolicyIdMarker = a} :: ListTrafficPoliciesResponse)
 
 -- | The value that you specified for the @MaxItems@ parameter in the
 -- @ListTrafficPolicies@ request that produced the current response.
-listTrafficPoliciesResponse_maxItems :: Lens.Lens' ListTrafficPoliciesResponse Core.Text
+listTrafficPoliciesResponse_maxItems :: Lens.Lens' ListTrafficPoliciesResponse Prelude.Text
 listTrafficPoliciesResponse_maxItems = Lens.lens (\ListTrafficPoliciesResponse' {maxItems} -> maxItems) (\s@ListTrafficPoliciesResponse' {} a -> s {maxItems = a} :: ListTrafficPoliciesResponse)
 
-instance Core.NFData ListTrafficPoliciesResponse
+instance Prelude.NFData ListTrafficPoliciesResponse

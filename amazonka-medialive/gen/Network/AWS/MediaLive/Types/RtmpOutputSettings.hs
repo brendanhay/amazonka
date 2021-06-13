@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputLocationRef
 import Network.AWS.MediaLive.Types.RtmpOutputCertificateMode
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Rtmp Output Settings
 --
@@ -31,18 +32,18 @@ data RtmpOutputSettings = RtmpOutputSettings'
   { -- | If set to verifyAuthenticity, verify the tls certificate chain to a
     -- trusted Certificate Authority (CA). This will cause rtmps outputs with
     -- self-signed certificates to fail.
-    certificateMode :: Core.Maybe RtmpOutputCertificateMode,
+    certificateMode :: Prelude.Maybe RtmpOutputCertificateMode,
     -- | Number of retry attempts.
-    numRetries :: Core.Maybe Core.Natural,
+    numRetries :: Prelude.Maybe Prelude.Natural,
     -- | Number of seconds to wait before retrying a connection to the Flash
     -- Media server if the connection is lost.
-    connectionRetryInterval :: Core.Maybe Core.Natural,
+    connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
     -- | The RTMP endpoint excluding the stream name (eg.
     -- rtmp:\/\/host\/appname). For connection to Akamai, a username and
     -- password must be supplied. URI fields accept format identifiers.
     destination :: OutputLocationRef
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RtmpOutputSettings' with all optional fields omitted.
@@ -70,25 +71,26 @@ newRtmpOutputSettings ::
   RtmpOutputSettings
 newRtmpOutputSettings pDestination_ =
   RtmpOutputSettings'
-    { certificateMode = Core.Nothing,
-      numRetries = Core.Nothing,
-      connectionRetryInterval = Core.Nothing,
+    { certificateMode =
+        Prelude.Nothing,
+      numRetries = Prelude.Nothing,
+      connectionRetryInterval = Prelude.Nothing,
       destination = pDestination_
     }
 
 -- | If set to verifyAuthenticity, verify the tls certificate chain to a
 -- trusted Certificate Authority (CA). This will cause rtmps outputs with
 -- self-signed certificates to fail.
-rtmpOutputSettings_certificateMode :: Lens.Lens' RtmpOutputSettings (Core.Maybe RtmpOutputCertificateMode)
+rtmpOutputSettings_certificateMode :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe RtmpOutputCertificateMode)
 rtmpOutputSettings_certificateMode = Lens.lens (\RtmpOutputSettings' {certificateMode} -> certificateMode) (\s@RtmpOutputSettings' {} a -> s {certificateMode = a} :: RtmpOutputSettings)
 
 -- | Number of retry attempts.
-rtmpOutputSettings_numRetries :: Lens.Lens' RtmpOutputSettings (Core.Maybe Core.Natural)
+rtmpOutputSettings_numRetries :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe Prelude.Natural)
 rtmpOutputSettings_numRetries = Lens.lens (\RtmpOutputSettings' {numRetries} -> numRetries) (\s@RtmpOutputSettings' {} a -> s {numRetries = a} :: RtmpOutputSettings)
 
 -- | Number of seconds to wait before retrying a connection to the Flash
 -- Media server if the connection is lost.
-rtmpOutputSettings_connectionRetryInterval :: Lens.Lens' RtmpOutputSettings (Core.Maybe Core.Natural)
+rtmpOutputSettings_connectionRetryInterval :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe Prelude.Natural)
 rtmpOutputSettings_connectionRetryInterval = Lens.lens (\RtmpOutputSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@RtmpOutputSettings' {} a -> s {connectionRetryInterval = a} :: RtmpOutputSettings)
 
 -- | The RTMP endpoint excluding the stream name (eg.
@@ -103,25 +105,25 @@ instance Core.FromJSON RtmpOutputSettings where
       "RtmpOutputSettings"
       ( \x ->
           RtmpOutputSettings'
-            Core.<$> (x Core..:? "certificateMode")
-            Core.<*> (x Core..:? "numRetries")
-            Core.<*> (x Core..:? "connectionRetryInterval")
-            Core.<*> (x Core..: "destination")
+            Prelude.<$> (x Core..:? "certificateMode")
+            Prelude.<*> (x Core..:? "numRetries")
+            Prelude.<*> (x Core..:? "connectionRetryInterval")
+            Prelude.<*> (x Core..: "destination")
       )
 
-instance Core.Hashable RtmpOutputSettings
+instance Prelude.Hashable RtmpOutputSettings
 
-instance Core.NFData RtmpOutputSettings
+instance Prelude.NFData RtmpOutputSettings
 
 instance Core.ToJSON RtmpOutputSettings where
   toJSON RtmpOutputSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("certificateMode" Core..=)
-              Core.<$> certificateMode,
-            ("numRetries" Core..=) Core.<$> numRetries,
+              Prelude.<$> certificateMode,
+            ("numRetries" Core..=) Prelude.<$> numRetries,
             ("connectionRetryInterval" Core..=)
-              Core.<$> connectionRetryInterval,
-            Core.Just ("destination" Core..= destination)
+              Prelude.<$> connectionRetryInterval,
+            Prelude.Just ("destination" Core..= destination)
           ]
       )

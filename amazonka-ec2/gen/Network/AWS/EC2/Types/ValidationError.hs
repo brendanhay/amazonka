@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.ValidationError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The error code and error message that is returned for a parameter or
 -- parameter combination that is not valid when a new launch template or
@@ -32,13 +33,13 @@ data ValidationError = ValidationError'
   { -- | The error message that describes why the parameter or parameter
     -- combination is not valid. For more information about error messages, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code that indicates why the parameter or parameter combination
     -- is not valid. For more information about error codes, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidationError' with all optional fields omitted.
@@ -59,27 +60,28 @@ newValidationError ::
   ValidationError
 newValidationError =
   ValidationError'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The error message that describes why the parameter or parameter
 -- combination is not valid. For more information about error messages, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
-validationError_message :: Lens.Lens' ValidationError (Core.Maybe Core.Text)
+validationError_message :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
 validationError_message = Lens.lens (\ValidationError' {message} -> message) (\s@ValidationError' {} a -> s {message = a} :: ValidationError)
 
 -- | The error code that indicates why the parameter or parameter combination
 -- is not valid. For more information about error codes, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
-validationError_code :: Lens.Lens' ValidationError (Core.Maybe Core.Text)
+validationError_code :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
 validationError_code = Lens.lens (\ValidationError' {code} -> code) (\s@ValidationError' {} a -> s {code = a} :: ValidationError)
 
 instance Core.FromXML ValidationError where
   parseXML x =
     ValidationError'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable ValidationError
+instance Prelude.Hashable ValidationError
 
-instance Core.NFData ValidationError
+instance Prelude.NFData ValidationError

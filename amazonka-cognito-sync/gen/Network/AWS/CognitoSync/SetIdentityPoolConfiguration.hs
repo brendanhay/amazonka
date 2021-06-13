@@ -50,6 +50,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +59,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetIdentityPoolConfiguration' smart constructor.
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
   { -- | Options to apply to this identity pool for push synchronization.
-    pushSync :: Core.Maybe PushSync,
+    pushSync :: Prelude.Maybe PushSync,
     -- | Options to apply to this identity pool for Amazon Cognito streams.
-    cognitoStreams :: Core.Maybe CognitoStreams,
+    cognitoStreams :: Prelude.Maybe CognitoStreams,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. This is the ID of the pool to modify.
-    identityPoolId :: Core.Text
+    identityPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetIdentityPoolConfiguration' with all optional fields omitted.
@@ -85,28 +86,28 @@ data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
 -- Cognito. This is the ID of the pool to modify.
 newSetIdentityPoolConfiguration ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   SetIdentityPoolConfiguration
 newSetIdentityPoolConfiguration pIdentityPoolId_ =
   SetIdentityPoolConfiguration'
     { pushSync =
-        Core.Nothing,
-      cognitoStreams = Core.Nothing,
+        Prelude.Nothing,
+      cognitoStreams = Prelude.Nothing,
       identityPoolId = pIdentityPoolId_
     }
 
 -- | Options to apply to this identity pool for push synchronization.
-setIdentityPoolConfiguration_pushSync :: Lens.Lens' SetIdentityPoolConfiguration (Core.Maybe PushSync)
+setIdentityPoolConfiguration_pushSync :: Lens.Lens' SetIdentityPoolConfiguration (Prelude.Maybe PushSync)
 setIdentityPoolConfiguration_pushSync = Lens.lens (\SetIdentityPoolConfiguration' {pushSync} -> pushSync) (\s@SetIdentityPoolConfiguration' {} a -> s {pushSync = a} :: SetIdentityPoolConfiguration)
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
-setIdentityPoolConfiguration_cognitoStreams :: Lens.Lens' SetIdentityPoolConfiguration (Core.Maybe CognitoStreams)
+setIdentityPoolConfiguration_cognitoStreams :: Lens.Lens' SetIdentityPoolConfiguration (Prelude.Maybe CognitoStreams)
 setIdentityPoolConfiguration_cognitoStreams = Lens.lens (\SetIdentityPoolConfiguration' {cognitoStreams} -> cognitoStreams) (\s@SetIdentityPoolConfiguration' {} a -> s {cognitoStreams = a} :: SetIdentityPoolConfiguration)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. This is the ID of the pool to modify.
-setIdentityPoolConfiguration_identityPoolId :: Lens.Lens' SetIdentityPoolConfiguration Core.Text
+setIdentityPoolConfiguration_identityPoolId :: Lens.Lens' SetIdentityPoolConfiguration Prelude.Text
 setIdentityPoolConfiguration_identityPoolId = Lens.lens (\SetIdentityPoolConfiguration' {identityPoolId} -> identityPoolId) (\s@SetIdentityPoolConfiguration' {} a -> s {identityPoolId = a} :: SetIdentityPoolConfiguration)
 
 instance Core.AWSRequest SetIdentityPoolConfiguration where
@@ -118,44 +119,49 @@ instance Core.AWSRequest SetIdentityPoolConfiguration where
     Response.receiveJSON
       ( \s h x ->
           SetIdentityPoolConfigurationResponse'
-            Core.<$> (x Core..?> "IdentityPoolId")
-            Core.<*> (x Core..?> "PushSync")
-            Core.<*> (x Core..?> "CognitoStreams")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "IdentityPoolId")
+            Prelude.<*> (x Core..?> "PushSync")
+            Prelude.<*> (x Core..?> "CognitoStreams")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetIdentityPoolConfiguration
+instance
+  Prelude.Hashable
+    SetIdentityPoolConfiguration
 
-instance Core.NFData SetIdentityPoolConfiguration
+instance Prelude.NFData SetIdentityPoolConfiguration
 
 instance Core.ToHeaders SetIdentityPoolConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetIdentityPoolConfiguration where
   toJSON SetIdentityPoolConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PushSync" Core..=) Core.<$> pushSync,
-            ("CognitoStreams" Core..=) Core.<$> cognitoStreams
+      ( Prelude.catMaybes
+          [ ("PushSync" Core..=) Prelude.<$> pushSync,
+            ("CognitoStreams" Core..=)
+              Prelude.<$> cognitoStreams
           ]
       )
 
 instance Core.ToPath SetIdentityPoolConfiguration where
   toPath SetIdentityPoolConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/identitypools/",
         Core.toBS identityPoolId,
         "/configuration"
       ]
 
 instance Core.ToQuery SetIdentityPoolConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the SetIdentityPoolConfiguration operation
 --
@@ -164,15 +170,15 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito.
-    identityPoolId :: Core.Maybe Core.Text,
+    identityPoolId :: Prelude.Maybe Prelude.Text,
     -- | Options to apply to this identity pool for push synchronization.
-    pushSync :: Core.Maybe PushSync,
+    pushSync :: Prelude.Maybe PushSync,
     -- | Options to apply to this identity pool for Amazon Cognito streams.
-    cognitoStreams :: Core.Maybe CognitoStreams,
+    cognitoStreams :: Prelude.Maybe CognitoStreams,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetIdentityPoolConfigurationResponse' with all optional fields omitted.
@@ -193,35 +199,35 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
 -- 'httpStatus', 'setIdentityPoolConfigurationResponse_httpStatus' - The response's http status code.
 newSetIdentityPoolConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetIdentityPoolConfigurationResponse
 newSetIdentityPoolConfigurationResponse pHttpStatus_ =
   SetIdentityPoolConfigurationResponse'
     { identityPoolId =
-        Core.Nothing,
-      pushSync = Core.Nothing,
-      cognitoStreams = Core.Nothing,
+        Prelude.Nothing,
+      pushSync = Prelude.Nothing,
+      cognitoStreams = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito.
-setIdentityPoolConfigurationResponse_identityPoolId :: Lens.Lens' SetIdentityPoolConfigurationResponse (Core.Maybe Core.Text)
+setIdentityPoolConfigurationResponse_identityPoolId :: Lens.Lens' SetIdentityPoolConfigurationResponse (Prelude.Maybe Prelude.Text)
 setIdentityPoolConfigurationResponse_identityPoolId = Lens.lens (\SetIdentityPoolConfigurationResponse' {identityPoolId} -> identityPoolId) (\s@SetIdentityPoolConfigurationResponse' {} a -> s {identityPoolId = a} :: SetIdentityPoolConfigurationResponse)
 
 -- | Options to apply to this identity pool for push synchronization.
-setIdentityPoolConfigurationResponse_pushSync :: Lens.Lens' SetIdentityPoolConfigurationResponse (Core.Maybe PushSync)
+setIdentityPoolConfigurationResponse_pushSync :: Lens.Lens' SetIdentityPoolConfigurationResponse (Prelude.Maybe PushSync)
 setIdentityPoolConfigurationResponse_pushSync = Lens.lens (\SetIdentityPoolConfigurationResponse' {pushSync} -> pushSync) (\s@SetIdentityPoolConfigurationResponse' {} a -> s {pushSync = a} :: SetIdentityPoolConfigurationResponse)
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
-setIdentityPoolConfigurationResponse_cognitoStreams :: Lens.Lens' SetIdentityPoolConfigurationResponse (Core.Maybe CognitoStreams)
+setIdentityPoolConfigurationResponse_cognitoStreams :: Lens.Lens' SetIdentityPoolConfigurationResponse (Prelude.Maybe CognitoStreams)
 setIdentityPoolConfigurationResponse_cognitoStreams = Lens.lens (\SetIdentityPoolConfigurationResponse' {cognitoStreams} -> cognitoStreams) (\s@SetIdentityPoolConfigurationResponse' {} a -> s {cognitoStreams = a} :: SetIdentityPoolConfigurationResponse)
 
 -- | The response's http status code.
-setIdentityPoolConfigurationResponse_httpStatus :: Lens.Lens' SetIdentityPoolConfigurationResponse Core.Int
+setIdentityPoolConfigurationResponse_httpStatus :: Lens.Lens' SetIdentityPoolConfigurationResponse Prelude.Int
 setIdentityPoolConfigurationResponse_httpStatus = Lens.lens (\SetIdentityPoolConfigurationResponse' {httpStatus} -> httpStatus) (\s@SetIdentityPoolConfigurationResponse' {} a -> s {httpStatus = a} :: SetIdentityPoolConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetIdentityPoolConfigurationResponse

@@ -30,57 +30,58 @@ import Network.AWS.EC2.Types.NetworkInterfaceStatus
 import Network.AWS.EC2.Types.NetworkInterfaceType
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a network interface.
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
   { -- | Any security groups for the network interface.
-    groups :: Core.Maybe [GroupIdentifier],
+    groups :: Prelude.Maybe [GroupIdentifier],
     -- | The status of the network interface.
-    status :: Core.Maybe NetworkInterfaceStatus,
+    status :: Prelude.Maybe NetworkInterfaceStatus,
     -- | The AWS account ID of the owner of the network interface.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The private IPv4 addresses associated with the network interface.
-    privateIpAddresses :: Core.Maybe [NetworkInterfacePrivateIpAddress],
+    privateIpAddresses :: Prelude.Maybe [NetworkInterfacePrivateIpAddress],
     -- | The network interface attachment.
-    attachment :: Core.Maybe NetworkInterfaceAttachment,
+    attachment :: Prelude.Maybe NetworkInterfaceAttachment,
     -- | The MAC address.
-    macAddress :: Core.Maybe Core.Text,
+    macAddress :: Prelude.Maybe Prelude.Text,
     -- | The association information for an Elastic IP address (IPv4) associated
     -- with the network interface.
-    association :: Core.Maybe NetworkInterfaceAssociation,
+    association :: Prelude.Maybe NetworkInterfaceAssociation,
     -- | The IPv6 addresses associated with the network interface.
-    ipv6Addresses :: Core.Maybe [NetworkInterfaceIpv6Address],
+    ipv6Addresses :: Prelude.Maybe [NetworkInterfaceIpv6Address],
     -- | Indicates whether the network interface is being managed by AWS.
-    requesterManaged :: Core.Maybe Core.Bool,
+    requesterManaged :: Prelude.Maybe Prelude.Bool,
     -- | The alias or AWS account ID of the principal or service that created the
     -- network interface.
-    requesterId :: Core.Maybe Core.Text,
+    requesterId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the network interface.
-    tagSet :: Core.Maybe [Tag],
+    tagSet :: Prelude.Maybe [Tag],
     -- | The type of network interface.
-    interfaceType :: Core.Maybe NetworkInterfaceType,
+    interfaceType :: Prelude.Maybe NetworkInterfaceType,
     -- | Indicates whether traffic to or from the instance is validated.
-    sourceDestCheck :: Core.Maybe Core.Bool,
+    sourceDestCheck :: Prelude.Maybe Prelude.Bool,
     -- | The Availability Zone.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | A description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The private DNS name.
-    privateDnsName :: Core.Maybe Core.Text,
+    privateDnsName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 address of the network interface within the subnet.
-    privateIpAddress :: Core.Maybe Core.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkInterface' with all optional fields omitted.
@@ -137,149 +138,150 @@ newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { groups = Core.Nothing,
-      status = Core.Nothing,
-      ownerId = Core.Nothing,
-      privateIpAddresses = Core.Nothing,
-      attachment = Core.Nothing,
-      macAddress = Core.Nothing,
-      association = Core.Nothing,
-      ipv6Addresses = Core.Nothing,
-      requesterManaged = Core.Nothing,
-      requesterId = Core.Nothing,
-      outpostArn = Core.Nothing,
-      tagSet = Core.Nothing,
-      interfaceType = Core.Nothing,
-      sourceDestCheck = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      networkInterfaceId = Core.Nothing,
-      subnetId = Core.Nothing,
-      description = Core.Nothing,
-      privateDnsName = Core.Nothing,
-      vpcId = Core.Nothing,
-      privateIpAddress = Core.Nothing
+    { groups = Prelude.Nothing,
+      status = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
+      privateIpAddresses = Prelude.Nothing,
+      attachment = Prelude.Nothing,
+      macAddress = Prelude.Nothing,
+      association = Prelude.Nothing,
+      ipv6Addresses = Prelude.Nothing,
+      requesterManaged = Prelude.Nothing,
+      requesterId = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      tagSet = Prelude.Nothing,
+      interfaceType = Prelude.Nothing,
+      sourceDestCheck = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      privateDnsName = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
 
 -- | Any security groups for the network interface.
-networkInterface_groups :: Lens.Lens' NetworkInterface (Core.Maybe [GroupIdentifier])
-networkInterface_groups = Lens.lens (\NetworkInterface' {groups} -> groups) (\s@NetworkInterface' {} a -> s {groups = a} :: NetworkInterface) Core.. Lens.mapping Lens._Coerce
+networkInterface_groups :: Lens.Lens' NetworkInterface (Prelude.Maybe [GroupIdentifier])
+networkInterface_groups = Lens.lens (\NetworkInterface' {groups} -> groups) (\s@NetworkInterface' {} a -> s {groups = a} :: NetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The status of the network interface.
-networkInterface_status :: Lens.Lens' NetworkInterface (Core.Maybe NetworkInterfaceStatus)
+networkInterface_status :: Lens.Lens' NetworkInterface (Prelude.Maybe NetworkInterfaceStatus)
 networkInterface_status = Lens.lens (\NetworkInterface' {status} -> status) (\s@NetworkInterface' {} a -> s {status = a} :: NetworkInterface)
 
 -- | The AWS account ID of the owner of the network interface.
-networkInterface_ownerId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_ownerId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_ownerId = Lens.lens (\NetworkInterface' {ownerId} -> ownerId) (\s@NetworkInterface' {} a -> s {ownerId = a} :: NetworkInterface)
 
 -- | The private IPv4 addresses associated with the network interface.
-networkInterface_privateIpAddresses :: Lens.Lens' NetworkInterface (Core.Maybe [NetworkInterfacePrivateIpAddress])
-networkInterface_privateIpAddresses = Lens.lens (\NetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@NetworkInterface' {} a -> s {privateIpAddresses = a} :: NetworkInterface) Core.. Lens.mapping Lens._Coerce
+networkInterface_privateIpAddresses :: Lens.Lens' NetworkInterface (Prelude.Maybe [NetworkInterfacePrivateIpAddress])
+networkInterface_privateIpAddresses = Lens.lens (\NetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@NetworkInterface' {} a -> s {privateIpAddresses = a} :: NetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The network interface attachment.
-networkInterface_attachment :: Lens.Lens' NetworkInterface (Core.Maybe NetworkInterfaceAttachment)
+networkInterface_attachment :: Lens.Lens' NetworkInterface (Prelude.Maybe NetworkInterfaceAttachment)
 networkInterface_attachment = Lens.lens (\NetworkInterface' {attachment} -> attachment) (\s@NetworkInterface' {} a -> s {attachment = a} :: NetworkInterface)
 
 -- | The MAC address.
-networkInterface_macAddress :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_macAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macAddress) (\s@NetworkInterface' {} a -> s {macAddress = a} :: NetworkInterface)
 
 -- | The association information for an Elastic IP address (IPv4) associated
 -- with the network interface.
-networkInterface_association :: Lens.Lens' NetworkInterface (Core.Maybe NetworkInterfaceAssociation)
+networkInterface_association :: Lens.Lens' NetworkInterface (Prelude.Maybe NetworkInterfaceAssociation)
 networkInterface_association = Lens.lens (\NetworkInterface' {association} -> association) (\s@NetworkInterface' {} a -> s {association = a} :: NetworkInterface)
 
 -- | The IPv6 addresses associated with the network interface.
-networkInterface_ipv6Addresses :: Lens.Lens' NetworkInterface (Core.Maybe [NetworkInterfaceIpv6Address])
-networkInterface_ipv6Addresses = Lens.lens (\NetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@NetworkInterface' {} a -> s {ipv6Addresses = a} :: NetworkInterface) Core.. Lens.mapping Lens._Coerce
+networkInterface_ipv6Addresses :: Lens.Lens' NetworkInterface (Prelude.Maybe [NetworkInterfaceIpv6Address])
+networkInterface_ipv6Addresses = Lens.lens (\NetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@NetworkInterface' {} a -> s {ipv6Addresses = a} :: NetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the network interface is being managed by AWS.
-networkInterface_requesterManaged :: Lens.Lens' NetworkInterface (Core.Maybe Core.Bool)
+networkInterface_requesterManaged :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Bool)
 networkInterface_requesterManaged = Lens.lens (\NetworkInterface' {requesterManaged} -> requesterManaged) (\s@NetworkInterface' {} a -> s {requesterManaged = a} :: NetworkInterface)
 
 -- | The alias or AWS account ID of the principal or service that created the
 -- network interface.
-networkInterface_requesterId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_requesterId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_requesterId = Lens.lens (\NetworkInterface' {requesterId} -> requesterId) (\s@NetworkInterface' {} a -> s {requesterId = a} :: NetworkInterface)
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
-networkInterface_outpostArn :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_outpostArn :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_outpostArn = Lens.lens (\NetworkInterface' {outpostArn} -> outpostArn) (\s@NetworkInterface' {} a -> s {outpostArn = a} :: NetworkInterface)
 
 -- | Any tags assigned to the network interface.
-networkInterface_tagSet :: Lens.Lens' NetworkInterface (Core.Maybe [Tag])
-networkInterface_tagSet = Lens.lens (\NetworkInterface' {tagSet} -> tagSet) (\s@NetworkInterface' {} a -> s {tagSet = a} :: NetworkInterface) Core.. Lens.mapping Lens._Coerce
+networkInterface_tagSet :: Lens.Lens' NetworkInterface (Prelude.Maybe [Tag])
+networkInterface_tagSet = Lens.lens (\NetworkInterface' {tagSet} -> tagSet) (\s@NetworkInterface' {} a -> s {tagSet = a} :: NetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of network interface.
-networkInterface_interfaceType :: Lens.Lens' NetworkInterface (Core.Maybe NetworkInterfaceType)
+networkInterface_interfaceType :: Lens.Lens' NetworkInterface (Prelude.Maybe NetworkInterfaceType)
 networkInterface_interfaceType = Lens.lens (\NetworkInterface' {interfaceType} -> interfaceType) (\s@NetworkInterface' {} a -> s {interfaceType = a} :: NetworkInterface)
 
 -- | Indicates whether traffic to or from the instance is validated.
-networkInterface_sourceDestCheck :: Lens.Lens' NetworkInterface (Core.Maybe Core.Bool)
+networkInterface_sourceDestCheck :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Bool)
 networkInterface_sourceDestCheck = Lens.lens (\NetworkInterface' {sourceDestCheck} -> sourceDestCheck) (\s@NetworkInterface' {} a -> s {sourceDestCheck = a} :: NetworkInterface)
 
 -- | The Availability Zone.
-networkInterface_availabilityZone :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_availabilityZone :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_availabilityZone = Lens.lens (\NetworkInterface' {availabilityZone} -> availabilityZone) (\s@NetworkInterface' {} a -> s {availabilityZone = a} :: NetworkInterface)
 
 -- | The ID of the network interface.
-networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@NetworkInterface' {} a -> s {networkInterfaceId = a} :: NetworkInterface)
 
 -- | The ID of the subnet.
-networkInterface_subnetId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_subnetId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_subnetId = Lens.lens (\NetworkInterface' {subnetId} -> subnetId) (\s@NetworkInterface' {} a -> s {subnetId = a} :: NetworkInterface)
 
 -- | A description.
-networkInterface_description :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_description :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_description = Lens.lens (\NetworkInterface' {description} -> description) (\s@NetworkInterface' {} a -> s {description = a} :: NetworkInterface)
 
 -- | The private DNS name.
-networkInterface_privateDnsName :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_privateDnsName :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_privateDnsName = Lens.lens (\NetworkInterface' {privateDnsName} -> privateDnsName) (\s@NetworkInterface' {} a -> s {privateDnsName = a} :: NetworkInterface)
 
 -- | The ID of the VPC.
-networkInterface_vpcId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_vpcId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_vpcId = Lens.lens (\NetworkInterface' {vpcId} -> vpcId) (\s@NetworkInterface' {} a -> s {vpcId = a} :: NetworkInterface)
 
 -- | The IPv4 address of the network interface within the subnet.
-networkInterface_privateIpAddress :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_privateIpAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_privateIpAddress = Lens.lens (\NetworkInterface' {privateIpAddress} -> privateIpAddress) (\s@NetworkInterface' {} a -> s {privateIpAddress = a} :: NetworkInterface)
 
 instance Core.FromXML NetworkInterface where
   parseXML x =
     NetworkInterface'
-      Core.<$> ( x Core..@? "groupSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "status")
-      Core.<*> (x Core..@? "ownerId")
-      Core.<*> ( x Core..@? "privateIpAddressesSet"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "attachment")
-      Core.<*> (x Core..@? "macAddress")
-      Core.<*> (x Core..@? "association")
-      Core.<*> ( x Core..@? "ipv6AddressesSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "requesterManaged")
-      Core.<*> (x Core..@? "requesterId")
-      Core.<*> (x Core..@? "outpostArn")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "interfaceType")
-      Core.<*> (x Core..@? "sourceDestCheck")
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "networkInterfaceId")
-      Core.<*> (x Core..@? "subnetId")
-      Core.<*> (x Core..@? "description")
-      Core.<*> (x Core..@? "privateDnsName")
-      Core.<*> (x Core..@? "vpcId")
-      Core.<*> (x Core..@? "privateIpAddress")
+      Prelude.<$> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<*> ( x Core..@? "privateIpAddressesSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "attachment")
+      Prelude.<*> (x Core..@? "macAddress")
+      Prelude.<*> (x Core..@? "association")
+      Prelude.<*> ( x Core..@? "ipv6AddressesSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "requesterManaged")
+      Prelude.<*> (x Core..@? "requesterId")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "interfaceType")
+      Prelude.<*> (x Core..@? "sourceDestCheck")
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "networkInterfaceId")
+      Prelude.<*> (x Core..@? "subnetId")
+      Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "privateDnsName")
+      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Core..@? "privateIpAddress")
 
-instance Core.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface
 
-instance Core.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface

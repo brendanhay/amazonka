@@ -48,15 +48,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeChannel' smart constructor.
 data DescribeChannel = DescribeChannel'
   { -- | The ID of a Channel.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeChannel' with all optional fields omitted.
@@ -69,12 +70,12 @@ data DescribeChannel = DescribeChannel'
 -- 'id', 'describeChannel_id' - The ID of a Channel.
 newDescribeChannel ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DescribeChannel
 newDescribeChannel pId_ = DescribeChannel' {id = pId_}
 
 -- | The ID of a Channel.
-describeChannel_id :: Lens.Lens' DescribeChannel Core.Text
+describeChannel_id :: Lens.Lens' DescribeChannel Prelude.Text
 describeChannel_id = Lens.lens (\DescribeChannel' {id} -> id) (\s@DescribeChannel' {} a -> s {id = a} :: DescribeChannel)
 
 instance Core.AWSRequest DescribeChannel where
@@ -86,52 +87,54 @@ instance Core.AWSRequest DescribeChannel where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelResponse'
-            Core.<$> (x Core..?> "egressAccessLogs")
-            Core.<*> (x Core..?> "hlsIngest")
-            Core.<*> (x Core..?> "arn")
-            Core.<*> (x Core..?> "id")
-            Core.<*> (x Core..?> "ingressAccessLogs")
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "description")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "egressAccessLogs")
+            Prelude.<*> (x Core..?> "hlsIngest")
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "ingressAccessLogs")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeChannel
+instance Prelude.Hashable DescribeChannel
 
-instance Core.NFData DescribeChannel
+instance Prelude.NFData DescribeChannel
 
 instance Core.ToHeaders DescribeChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeChannel where
   toPath DescribeChannel' {..} =
-    Core.mconcat ["/channels/", Core.toBS id]
+    Prelude.mconcat ["/channels/", Core.toBS id]
 
 instance Core.ToQuery DescribeChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { egressAccessLogs :: Core.Maybe EgressAccessLogs,
-    hlsIngest :: Core.Maybe HlsIngest,
+  { egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
+    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
-    id :: Core.Maybe Core.Text,
-    ingressAccessLogs :: Core.Maybe IngressAccessLogs,
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    id :: Prelude.Maybe Prelude.Text,
+    ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short text description of the Channel.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeChannelResponse' with all optional fields omitted.
@@ -158,51 +161,51 @@ data DescribeChannelResponse = DescribeChannelResponse'
 -- 'httpStatus', 'describeChannelResponse_httpStatus' - The response's http status code.
 newDescribeChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeChannelResponse
 newDescribeChannelResponse pHttpStatus_ =
   DescribeChannelResponse'
     { egressAccessLogs =
-        Core.Nothing,
-      hlsIngest = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      ingressAccessLogs = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
+        Prelude.Nothing,
+      hlsIngest = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      ingressAccessLogs = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeChannelResponse_egressAccessLogs :: Lens.Lens' DescribeChannelResponse (Core.Maybe EgressAccessLogs)
+describeChannelResponse_egressAccessLogs :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe EgressAccessLogs)
 describeChannelResponse_egressAccessLogs = Lens.lens (\DescribeChannelResponse' {egressAccessLogs} -> egressAccessLogs) (\s@DescribeChannelResponse' {} a -> s {egressAccessLogs = a} :: DescribeChannelResponse)
 
 -- | Undocumented member.
-describeChannelResponse_hlsIngest :: Lens.Lens' DescribeChannelResponse (Core.Maybe HlsIngest)
+describeChannelResponse_hlsIngest :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe HlsIngest)
 describeChannelResponse_hlsIngest = Lens.lens (\DescribeChannelResponse' {hlsIngest} -> hlsIngest) (\s@DescribeChannelResponse' {} a -> s {hlsIngest = a} :: DescribeChannelResponse)
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
-describeChannelResponse_arn :: Lens.Lens' DescribeChannelResponse (Core.Maybe Core.Text)
+describeChannelResponse_arn :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
 describeChannelResponse_arn = Lens.lens (\DescribeChannelResponse' {arn} -> arn) (\s@DescribeChannelResponse' {} a -> s {arn = a} :: DescribeChannelResponse)
 
 -- | The ID of the Channel.
-describeChannelResponse_id :: Lens.Lens' DescribeChannelResponse (Core.Maybe Core.Text)
+describeChannelResponse_id :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
 describeChannelResponse_id = Lens.lens (\DescribeChannelResponse' {id} -> id) (\s@DescribeChannelResponse' {} a -> s {id = a} :: DescribeChannelResponse)
 
 -- | Undocumented member.
-describeChannelResponse_ingressAccessLogs :: Lens.Lens' DescribeChannelResponse (Core.Maybe IngressAccessLogs)
+describeChannelResponse_ingressAccessLogs :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe IngressAccessLogs)
 describeChannelResponse_ingressAccessLogs = Lens.lens (\DescribeChannelResponse' {ingressAccessLogs} -> ingressAccessLogs) (\s@DescribeChannelResponse' {} a -> s {ingressAccessLogs = a} :: DescribeChannelResponse)
 
 -- | Undocumented member.
-describeChannelResponse_tags :: Lens.Lens' DescribeChannelResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> tags) (\s@DescribeChannelResponse' {} a -> s {tags = a} :: DescribeChannelResponse) Core.. Lens.mapping Lens._Coerce
+describeChannelResponse_tags :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> tags) (\s@DescribeChannelResponse' {} a -> s {tags = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A short text description of the Channel.
-describeChannelResponse_description :: Lens.Lens' DescribeChannelResponse (Core.Maybe Core.Text)
+describeChannelResponse_description :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
 describeChannelResponse_description = Lens.lens (\DescribeChannelResponse' {description} -> description) (\s@DescribeChannelResponse' {} a -> s {description = a} :: DescribeChannelResponse)
 
 -- | The response's http status code.
-describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Core.Int
+describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int
 describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpStatus} -> httpStatus) (\s@DescribeChannelResponse' {} a -> s {httpStatus = a} :: DescribeChannelResponse)
 
-instance Core.NFData DescribeChannelResponse
+instance Prelude.NFData DescribeChannelResponse

@@ -21,15 +21,16 @@ module Network.AWS.ElasticBeanstalk.Types.Instance where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The description of an Amazon EC2 instance.
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The ID of the Amazon EC2 instance.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -42,15 +43,15 @@ data Instance = Instance'
 -- 'id', 'instance_id' - The ID of the Amazon EC2 instance.
 newInstance ::
   Instance
-newInstance = Instance' {id = Core.Nothing}
+newInstance = Instance' {id = Prelude.Nothing}
 
 -- | The ID of the Amazon EC2 instance.
-instance_id :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
 
 instance Core.FromXML Instance where
-  parseXML x = Instance' Core.<$> (x Core..@? "Id")
+  parseXML x = Instance' Prelude.<$> (x Core..@? "Id")
 
-instance Core.Hashable Instance
+instance Prelude.Hashable Instance
 
-instance Core.NFData Instance
+instance Prelude.NFData Instance

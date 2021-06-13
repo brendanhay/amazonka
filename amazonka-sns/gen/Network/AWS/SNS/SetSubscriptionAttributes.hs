@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -49,9 +50,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newSetSubscriptionAttributes' smart constructor.
 data SetSubscriptionAttributes = SetSubscriptionAttributes'
   { -- | The new value for the attribute in JSON format.
-    attributeValue :: Core.Maybe Core.Text,
+    attributeValue :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the subscription to modify.
-    subscriptionArn :: Core.Text,
+    subscriptionArn :: Prelude.Text,
     -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special
@@ -91,9 +92,9 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes'
     --     see
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
     --     in the /Amazon SNS Developer Guide/.
-    attributeName :: Core.Text
+    attributeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetSubscriptionAttributes' with all optional fields omitted.
@@ -148,26 +149,26 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes'
 --     in the /Amazon SNS Developer Guide/.
 newSetSubscriptionAttributes ::
   -- | 'subscriptionArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attributeName'
-  Core.Text ->
+  Prelude.Text ->
   SetSubscriptionAttributes
 newSetSubscriptionAttributes
   pSubscriptionArn_
   pAttributeName_ =
     SetSubscriptionAttributes'
       { attributeValue =
-          Core.Nothing,
+          Prelude.Nothing,
         subscriptionArn = pSubscriptionArn_,
         attributeName = pAttributeName_
       }
 
 -- | The new value for the attribute in JSON format.
-setSubscriptionAttributes_attributeValue :: Lens.Lens' SetSubscriptionAttributes (Core.Maybe Core.Text)
+setSubscriptionAttributes_attributeValue :: Lens.Lens' SetSubscriptionAttributes (Prelude.Maybe Prelude.Text)
 setSubscriptionAttributes_attributeValue = Lens.lens (\SetSubscriptionAttributes' {attributeValue} -> attributeValue) (\s@SetSubscriptionAttributes' {} a -> s {attributeValue = a} :: SetSubscriptionAttributes)
 
 -- | The ARN of the subscription to modify.
-setSubscriptionAttributes_subscriptionArn :: Lens.Lens' SetSubscriptionAttributes Core.Text
+setSubscriptionAttributes_subscriptionArn :: Lens.Lens' SetSubscriptionAttributes Prelude.Text
 setSubscriptionAttributes_subscriptionArn = Lens.lens (\SetSubscriptionAttributes' {subscriptionArn} -> subscriptionArn) (\s@SetSubscriptionAttributes' {} a -> s {subscriptionArn = a} :: SetSubscriptionAttributes)
 
 -- | A map of attributes with their corresponding values.
@@ -209,7 +210,7 @@ setSubscriptionAttributes_subscriptionArn = Lens.lens (\SetSubscriptionAttribute
 --     see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
-setSubscriptionAttributes_attributeName :: Lens.Lens' SetSubscriptionAttributes Core.Text
+setSubscriptionAttributes_attributeName :: Lens.Lens' SetSubscriptionAttributes Prelude.Text
 setSubscriptionAttributes_attributeName = Lens.lens (\SetSubscriptionAttributes' {attributeName} -> attributeName) (\s@SetSubscriptionAttributes' {} a -> s {attributeName = a} :: SetSubscriptionAttributes)
 
 instance Core.AWSRequest SetSubscriptionAttributes where
@@ -221,22 +222,23 @@ instance Core.AWSRequest SetSubscriptionAttributes where
     Response.receiveNull
       SetSubscriptionAttributesResponse'
 
-instance Core.Hashable SetSubscriptionAttributes
+instance Prelude.Hashable SetSubscriptionAttributes
 
-instance Core.NFData SetSubscriptionAttributes
+instance Prelude.NFData SetSubscriptionAttributes
 
 instance Core.ToHeaders SetSubscriptionAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetSubscriptionAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetSubscriptionAttributes where
   toQuery SetSubscriptionAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetSubscriptionAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("SetSubscriptionAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "AttributeValue" Core.=: attributeValue,
         "SubscriptionArn" Core.=: subscriptionArn,
         "AttributeName" Core.=: attributeName
@@ -246,7 +248,7 @@ instance Core.ToQuery SetSubscriptionAttributes where
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetSubscriptionAttributesResponse' with all optional fields omitted.
@@ -258,5 +260,5 @@ newSetSubscriptionAttributesResponse =
   SetSubscriptionAttributesResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetSubscriptionAttributesResponse

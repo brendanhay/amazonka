@@ -48,17 +48,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetSecurityGroups' smart constructor.
 data SetSecurityGroups = SetSecurityGroups'
   { -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Core.Text,
+    loadBalancerArn :: Prelude.Text,
     -- | The IDs of the security groups.
-    securityGroups :: [Core.Text]
+    securityGroups :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetSecurityGroups' with all optional fields omitted.
@@ -73,22 +74,22 @@ data SetSecurityGroups = SetSecurityGroups'
 -- 'securityGroups', 'setSecurityGroups_securityGroups' - The IDs of the security groups.
 newSetSecurityGroups ::
   -- | 'loadBalancerArn'
-  Core.Text ->
+  Prelude.Text ->
   SetSecurityGroups
 newSetSecurityGroups pLoadBalancerArn_ =
   SetSecurityGroups'
     { loadBalancerArn =
         pLoadBalancerArn_,
-      securityGroups = Core.mempty
+      securityGroups = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-setSecurityGroups_loadBalancerArn :: Lens.Lens' SetSecurityGroups Core.Text
+setSecurityGroups_loadBalancerArn :: Lens.Lens' SetSecurityGroups Prelude.Text
 setSecurityGroups_loadBalancerArn = Lens.lens (\SetSecurityGroups' {loadBalancerArn} -> loadBalancerArn) (\s@SetSecurityGroups' {} a -> s {loadBalancerArn = a} :: SetSecurityGroups)
 
 -- | The IDs of the security groups.
-setSecurityGroups_securityGroups :: Lens.Lens' SetSecurityGroups [Core.Text]
-setSecurityGroups_securityGroups = Lens.lens (\SetSecurityGroups' {securityGroups} -> securityGroups) (\s@SetSecurityGroups' {} a -> s {securityGroups = a} :: SetSecurityGroups) Core.. Lens._Coerce
+setSecurityGroups_securityGroups :: Lens.Lens' SetSecurityGroups [Prelude.Text]
+setSecurityGroups_securityGroups = Lens.lens (\SetSecurityGroups' {securityGroups} -> securityGroups) (\s@SetSecurityGroups' {} a -> s {securityGroups = a} :: SetSecurityGroups) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest SetSecurityGroups where
   type
@@ -100,28 +101,30 @@ instance Core.AWSRequest SetSecurityGroups where
       "SetSecurityGroupsResult"
       ( \s h x ->
           SetSecurityGroupsResponse'
-            Core.<$> ( x Core..@? "SecurityGroupIds" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "SecurityGroupIds"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetSecurityGroups
+instance Prelude.Hashable SetSecurityGroups
 
-instance Core.NFData SetSecurityGroups
+instance Prelude.NFData SetSecurityGroups
 
 instance Core.ToHeaders SetSecurityGroups where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetSecurityGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetSecurityGroups where
   toQuery SetSecurityGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetSecurityGroups" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("SetSecurityGroups" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "LoadBalancerArn" Core.=: loadBalancerArn,
         "SecurityGroups"
           Core.=: Core.toQueryList "member" securityGroups
@@ -130,11 +133,11 @@ instance Core.ToQuery SetSecurityGroups where
 -- | /See:/ 'newSetSecurityGroupsResponse' smart constructor.
 data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
   { -- | The IDs of the security groups associated with the load balancer.
-    securityGroupIds :: Core.Maybe [Core.Text],
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetSecurityGroupsResponse' with all optional fields omitted.
@@ -149,21 +152,21 @@ data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
 -- 'httpStatus', 'setSecurityGroupsResponse_httpStatus' - The response's http status code.
 newSetSecurityGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetSecurityGroupsResponse
 newSetSecurityGroupsResponse pHttpStatus_ =
   SetSecurityGroupsResponse'
     { securityGroupIds =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IDs of the security groups associated with the load balancer.
-setSecurityGroupsResponse_securityGroupIds :: Lens.Lens' SetSecurityGroupsResponse (Core.Maybe [Core.Text])
-setSecurityGroupsResponse_securityGroupIds = Lens.lens (\SetSecurityGroupsResponse' {securityGroupIds} -> securityGroupIds) (\s@SetSecurityGroupsResponse' {} a -> s {securityGroupIds = a} :: SetSecurityGroupsResponse) Core.. Lens.mapping Lens._Coerce
+setSecurityGroupsResponse_securityGroupIds :: Lens.Lens' SetSecurityGroupsResponse (Prelude.Maybe [Prelude.Text])
+setSecurityGroupsResponse_securityGroupIds = Lens.lens (\SetSecurityGroupsResponse' {securityGroupIds} -> securityGroupIds) (\s@SetSecurityGroupsResponse' {} a -> s {securityGroupIds = a} :: SetSecurityGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-setSecurityGroupsResponse_httpStatus :: Lens.Lens' SetSecurityGroupsResponse Core.Int
+setSecurityGroupsResponse_httpStatus :: Lens.Lens' SetSecurityGroupsResponse Prelude.Int
 setSecurityGroupsResponse_httpStatus = Lens.lens (\SetSecurityGroupsResponse' {httpStatus} -> httpStatus) (\s@SetSecurityGroupsResponse' {} a -> s {httpStatus = a} :: SetSecurityGroupsResponse)
 
-instance Core.NFData SetSecurityGroupsResponse
+instance Prelude.NFData SetSecurityGroupsResponse

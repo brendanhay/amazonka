@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.BatchScheduleActionCreateRequest where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleAction
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of schedule actions to create (in a request) or that have been
 -- created (in a response).
@@ -31,7 +32,7 @@ data BatchScheduleActionCreateRequest = BatchScheduleActionCreateRequest'
   { -- | A list of schedule actions to create.
     scheduleActions :: [ScheduleAction]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchScheduleActionCreateRequest' with all optional fields omitted.
@@ -47,24 +48,26 @@ newBatchScheduleActionCreateRequest ::
 newBatchScheduleActionCreateRequest =
   BatchScheduleActionCreateRequest'
     { scheduleActions =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of schedule actions to create.
 batchScheduleActionCreateRequest_scheduleActions :: Lens.Lens' BatchScheduleActionCreateRequest [ScheduleAction]
-batchScheduleActionCreateRequest_scheduleActions = Lens.lens (\BatchScheduleActionCreateRequest' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateRequest' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateRequest) Core.. Lens._Coerce
+batchScheduleActionCreateRequest_scheduleActions = Lens.lens (\BatchScheduleActionCreateRequest' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateRequest' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateRequest) Prelude.. Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchScheduleActionCreateRequest
 
-instance Core.NFData BatchScheduleActionCreateRequest
+instance
+  Prelude.NFData
+    BatchScheduleActionCreateRequest
 
 instance Core.ToJSON BatchScheduleActionCreateRequest where
   toJSON BatchScheduleActionCreateRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("scheduleActions" Core..= scheduleActions)
           ]
       )

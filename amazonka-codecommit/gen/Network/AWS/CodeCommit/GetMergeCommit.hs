@@ -49,6 +49,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,23 +60,23 @@ data GetMergeCommit = GetMergeCommit'
     -- file has differences in both branches. If LINE_LEVEL is specified, a
     -- conflict is considered not mergeable if the same file in both branches
     -- has differences on the same line.
-    conflictDetailLevel :: Core.Maybe ConflictDetailLevelTypeEnum,
+    conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
     -- | Specifies which branch to use when resolving conflicts, or whether to
     -- attempt automatically merging two versions of a file. The default is
     -- NONE, which requires any conflicts to be resolved manually before the
     -- merge operation is successful.
-    conflictResolutionStrategy :: Core.Maybe ConflictResolutionStrategyTypeEnum,
+    conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
     -- | The name of the repository that contains the merge commit about which
     -- you want to get information.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The branch, tag, HEAD, or other fully qualified reference used to
     -- identify a commit (for example, a branch name or a full commit ID).
-    sourceCommitSpecifier :: Core.Text,
+    sourceCommitSpecifier :: Prelude.Text,
     -- | The branch, tag, HEAD, or other fully qualified reference used to
     -- identify a commit (for example, a branch name or a full commit ID).
-    destinationCommitSpecifier :: Core.Text
+    destinationCommitSpecifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMergeCommit' with all optional fields omitted.
@@ -106,19 +107,20 @@ data GetMergeCommit = GetMergeCommit'
 -- identify a commit (for example, a branch name or a full commit ID).
 newGetMergeCommit ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceCommitSpecifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationCommitSpecifier'
-  Core.Text ->
+  Prelude.Text ->
   GetMergeCommit
 newGetMergeCommit
   pRepositoryName_
   pSourceCommitSpecifier_
   pDestinationCommitSpecifier_ =
     GetMergeCommit'
-      { conflictDetailLevel = Core.Nothing,
-        conflictResolutionStrategy = Core.Nothing,
+      { conflictDetailLevel =
+          Prelude.Nothing,
+        conflictResolutionStrategy = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         sourceCommitSpecifier = pSourceCommitSpecifier_,
         destinationCommitSpecifier =
@@ -130,29 +132,29 @@ newGetMergeCommit
 -- file has differences in both branches. If LINE_LEVEL is specified, a
 -- conflict is considered not mergeable if the same file in both branches
 -- has differences on the same line.
-getMergeCommit_conflictDetailLevel :: Lens.Lens' GetMergeCommit (Core.Maybe ConflictDetailLevelTypeEnum)
+getMergeCommit_conflictDetailLevel :: Lens.Lens' GetMergeCommit (Prelude.Maybe ConflictDetailLevelTypeEnum)
 getMergeCommit_conflictDetailLevel = Lens.lens (\GetMergeCommit' {conflictDetailLevel} -> conflictDetailLevel) (\s@GetMergeCommit' {} a -> s {conflictDetailLevel = a} :: GetMergeCommit)
 
 -- | Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
 -- NONE, which requires any conflicts to be resolved manually before the
 -- merge operation is successful.
-getMergeCommit_conflictResolutionStrategy :: Lens.Lens' GetMergeCommit (Core.Maybe ConflictResolutionStrategyTypeEnum)
+getMergeCommit_conflictResolutionStrategy :: Lens.Lens' GetMergeCommit (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
 getMergeCommit_conflictResolutionStrategy = Lens.lens (\GetMergeCommit' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@GetMergeCommit' {} a -> s {conflictResolutionStrategy = a} :: GetMergeCommit)
 
 -- | The name of the repository that contains the merge commit about which
 -- you want to get information.
-getMergeCommit_repositoryName :: Lens.Lens' GetMergeCommit Core.Text
+getMergeCommit_repositoryName :: Lens.Lens' GetMergeCommit Prelude.Text
 getMergeCommit_repositoryName = Lens.lens (\GetMergeCommit' {repositoryName} -> repositoryName) (\s@GetMergeCommit' {} a -> s {repositoryName = a} :: GetMergeCommit)
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, a branch name or a full commit ID).
-getMergeCommit_sourceCommitSpecifier :: Lens.Lens' GetMergeCommit Core.Text
+getMergeCommit_sourceCommitSpecifier :: Lens.Lens' GetMergeCommit Prelude.Text
 getMergeCommit_sourceCommitSpecifier = Lens.lens (\GetMergeCommit' {sourceCommitSpecifier} -> sourceCommitSpecifier) (\s@GetMergeCommit' {} a -> s {sourceCommitSpecifier = a} :: GetMergeCommit)
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, a branch name or a full commit ID).
-getMergeCommit_destinationCommitSpecifier :: Lens.Lens' GetMergeCommit Core.Text
+getMergeCommit_destinationCommitSpecifier :: Lens.Lens' GetMergeCommit Prelude.Text
 getMergeCommit_destinationCommitSpecifier = Lens.lens (\GetMergeCommit' {destinationCommitSpecifier} -> destinationCommitSpecifier) (\s@GetMergeCommit' {} a -> s {destinationCommitSpecifier = a} :: GetMergeCommit)
 
 instance Core.AWSRequest GetMergeCommit where
@@ -164,44 +166,47 @@ instance Core.AWSRequest GetMergeCommit where
     Response.receiveJSON
       ( \s h x ->
           GetMergeCommitResponse'
-            Core.<$> (x Core..?> "baseCommitId")
-            Core.<*> (x Core..?> "mergedCommitId")
-            Core.<*> (x Core..?> "sourceCommitId")
-            Core.<*> (x Core..?> "destinationCommitId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "baseCommitId")
+            Prelude.<*> (x Core..?> "mergedCommitId")
+            Prelude.<*> (x Core..?> "sourceCommitId")
+            Prelude.<*> (x Core..?> "destinationCommitId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetMergeCommit
+instance Prelude.Hashable GetMergeCommit
 
-instance Core.NFData GetMergeCommit
+instance Prelude.NFData GetMergeCommit
 
 instance Core.ToHeaders GetMergeCommit where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.GetMergeCommit" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetMergeCommit where
   toJSON GetMergeCommit' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("conflictDetailLevel" Core..=)
-              Core.<$> conflictDetailLevel,
+              Prelude.<$> conflictDetailLevel,
             ("conflictResolutionStrategy" Core..=)
-              Core.<$> conflictResolutionStrategy,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just
+              Prelude.<$> conflictResolutionStrategy,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just
               ( "sourceCommitSpecifier"
                   Core..= sourceCommitSpecifier
               ),
-            Core.Just
+            Prelude.Just
               ( "destinationCommitSpecifier"
                   Core..= destinationCommitSpecifier
               )
@@ -209,29 +214,29 @@ instance Core.ToJSON GetMergeCommit where
       )
 
 instance Core.ToPath GetMergeCommit where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetMergeCommit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMergeCommitResponse' smart constructor.
 data GetMergeCommitResponse = GetMergeCommitResponse'
   { -- | The commit ID of the merge base.
-    baseCommitId :: Core.Maybe Core.Text,
+    baseCommitId :: Prelude.Maybe Prelude.Text,
     -- | The commit ID for the merge commit created when the source branch was
     -- merged into the destination branch. If the fast-forward merge strategy
     -- was used, there is no merge commit.
-    mergedCommitId :: Core.Maybe Core.Text,
+    mergedCommitId :: Prelude.Maybe Prelude.Text,
     -- | The commit ID of the source commit specifier that was used in the merge
     -- evaluation.
-    sourceCommitId :: Core.Maybe Core.Text,
+    sourceCommitId :: Prelude.Maybe Prelude.Text,
     -- | The commit ID of the destination commit specifier that was used in the
     -- merge evaluation.
-    destinationCommitId :: Core.Maybe Core.Text,
+    destinationCommitId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMergeCommitResponse' with all optional fields omitted.
@@ -256,40 +261,40 @@ data GetMergeCommitResponse = GetMergeCommitResponse'
 -- 'httpStatus', 'getMergeCommitResponse_httpStatus' - The response's http status code.
 newGetMergeCommitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetMergeCommitResponse
 newGetMergeCommitResponse pHttpStatus_ =
   GetMergeCommitResponse'
     { baseCommitId =
-        Core.Nothing,
-      mergedCommitId = Core.Nothing,
-      sourceCommitId = Core.Nothing,
-      destinationCommitId = Core.Nothing,
+        Prelude.Nothing,
+      mergedCommitId = Prelude.Nothing,
+      sourceCommitId = Prelude.Nothing,
+      destinationCommitId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The commit ID of the merge base.
-getMergeCommitResponse_baseCommitId :: Lens.Lens' GetMergeCommitResponse (Core.Maybe Core.Text)
+getMergeCommitResponse_baseCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
 getMergeCommitResponse_baseCommitId = Lens.lens (\GetMergeCommitResponse' {baseCommitId} -> baseCommitId) (\s@GetMergeCommitResponse' {} a -> s {baseCommitId = a} :: GetMergeCommitResponse)
 
 -- | The commit ID for the merge commit created when the source branch was
 -- merged into the destination branch. If the fast-forward merge strategy
 -- was used, there is no merge commit.
-getMergeCommitResponse_mergedCommitId :: Lens.Lens' GetMergeCommitResponse (Core.Maybe Core.Text)
+getMergeCommitResponse_mergedCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
 getMergeCommitResponse_mergedCommitId = Lens.lens (\GetMergeCommitResponse' {mergedCommitId} -> mergedCommitId) (\s@GetMergeCommitResponse' {} a -> s {mergedCommitId = a} :: GetMergeCommitResponse)
 
 -- | The commit ID of the source commit specifier that was used in the merge
 -- evaluation.
-getMergeCommitResponse_sourceCommitId :: Lens.Lens' GetMergeCommitResponse (Core.Maybe Core.Text)
+getMergeCommitResponse_sourceCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
 getMergeCommitResponse_sourceCommitId = Lens.lens (\GetMergeCommitResponse' {sourceCommitId} -> sourceCommitId) (\s@GetMergeCommitResponse' {} a -> s {sourceCommitId = a} :: GetMergeCommitResponse)
 
 -- | The commit ID of the destination commit specifier that was used in the
 -- merge evaluation.
-getMergeCommitResponse_destinationCommitId :: Lens.Lens' GetMergeCommitResponse (Core.Maybe Core.Text)
+getMergeCommitResponse_destinationCommitId :: Lens.Lens' GetMergeCommitResponse (Prelude.Maybe Prelude.Text)
 getMergeCommitResponse_destinationCommitId = Lens.lens (\GetMergeCommitResponse' {destinationCommitId} -> destinationCommitId) (\s@GetMergeCommitResponse' {} a -> s {destinationCommitId = a} :: GetMergeCommitResponse)
 
 -- | The response's http status code.
-getMergeCommitResponse_httpStatus :: Lens.Lens' GetMergeCommitResponse Core.Int
+getMergeCommitResponse_httpStatus :: Lens.Lens' GetMergeCommitResponse Prelude.Int
 getMergeCommitResponse_httpStatus = Lens.lens (\GetMergeCommitResponse' {httpStatus} -> httpStatus) (\s@GetMergeCommitResponse' {} a -> s {httpStatus = a} :: GetMergeCommitResponse)
 
-instance Core.NFData GetMergeCommitResponse
+instance Prelude.NFData GetMergeCommitResponse

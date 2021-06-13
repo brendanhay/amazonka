@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.ExportTaskS3LocationRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the destination for an export image task.
 --
 -- /See:/ 'newExportTaskS3LocationRequest' smart constructor.
 data ExportTaskS3LocationRequest = ExportTaskS3LocationRequest'
   { -- | The prefix (logical hierarchy) in the bucket.
-    s3Prefix :: Core.Maybe Core.Text,
+    s3Prefix :: Prelude.Maybe Prelude.Text,
     -- | The destination Amazon S3 bucket.
-    s3Bucket :: Core.Text
+    s3Bucket :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportTaskS3LocationRequest' with all optional fields omitted.
@@ -47,30 +48,30 @@ data ExportTaskS3LocationRequest = ExportTaskS3LocationRequest'
 -- 's3Bucket', 'exportTaskS3LocationRequest_s3Bucket' - The destination Amazon S3 bucket.
 newExportTaskS3LocationRequest ::
   -- | 's3Bucket'
-  Core.Text ->
+  Prelude.Text ->
   ExportTaskS3LocationRequest
 newExportTaskS3LocationRequest pS3Bucket_ =
   ExportTaskS3LocationRequest'
     { s3Prefix =
-        Core.Nothing,
+        Prelude.Nothing,
       s3Bucket = pS3Bucket_
     }
 
 -- | The prefix (logical hierarchy) in the bucket.
-exportTaskS3LocationRequest_s3Prefix :: Lens.Lens' ExportTaskS3LocationRequest (Core.Maybe Core.Text)
+exportTaskS3LocationRequest_s3Prefix :: Lens.Lens' ExportTaskS3LocationRequest (Prelude.Maybe Prelude.Text)
 exportTaskS3LocationRequest_s3Prefix = Lens.lens (\ExportTaskS3LocationRequest' {s3Prefix} -> s3Prefix) (\s@ExportTaskS3LocationRequest' {} a -> s {s3Prefix = a} :: ExportTaskS3LocationRequest)
 
 -- | The destination Amazon S3 bucket.
-exportTaskS3LocationRequest_s3Bucket :: Lens.Lens' ExportTaskS3LocationRequest Core.Text
+exportTaskS3LocationRequest_s3Bucket :: Lens.Lens' ExportTaskS3LocationRequest Prelude.Text
 exportTaskS3LocationRequest_s3Bucket = Lens.lens (\ExportTaskS3LocationRequest' {s3Bucket} -> s3Bucket) (\s@ExportTaskS3LocationRequest' {} a -> s {s3Bucket = a} :: ExportTaskS3LocationRequest)
 
-instance Core.Hashable ExportTaskS3LocationRequest
+instance Prelude.Hashable ExportTaskS3LocationRequest
 
-instance Core.NFData ExportTaskS3LocationRequest
+instance Prelude.NFData ExportTaskS3LocationRequest
 
 instance Core.ToQuery ExportTaskS3LocationRequest where
   toQuery ExportTaskS3LocationRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "S3Prefix" Core.=: s3Prefix,
         "S3Bucket" Core.=: s3Bucket
       ]

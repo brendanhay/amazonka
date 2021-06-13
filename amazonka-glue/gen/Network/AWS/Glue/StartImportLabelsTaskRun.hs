@@ -72,20 +72,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartImportLabelsTaskRun' smart constructor.
 data StartImportLabelsTaskRun = StartImportLabelsTaskRun'
   { -- | Indicates whether to overwrite your existing labels.
-    replaceAllLabels :: Core.Maybe Core.Bool,
+    replaceAllLabels :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier of the machine learning transform.
-    transformId :: Core.Text,
+    transformId :: Prelude.Text,
     -- | The Amazon Simple Storage Service (Amazon S3) path from where you import
     -- the labels.
-    inputS3Path :: Core.Text
+    inputS3Path :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartImportLabelsTaskRun' with all optional fields omitted.
@@ -103,31 +104,31 @@ data StartImportLabelsTaskRun = StartImportLabelsTaskRun'
 -- the labels.
 newStartImportLabelsTaskRun ::
   -- | 'transformId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputS3Path'
-  Core.Text ->
+  Prelude.Text ->
   StartImportLabelsTaskRun
 newStartImportLabelsTaskRun
   pTransformId_
   pInputS3Path_ =
     StartImportLabelsTaskRun'
       { replaceAllLabels =
-          Core.Nothing,
+          Prelude.Nothing,
         transformId = pTransformId_,
         inputS3Path = pInputS3Path_
       }
 
 -- | Indicates whether to overwrite your existing labels.
-startImportLabelsTaskRun_replaceAllLabels :: Lens.Lens' StartImportLabelsTaskRun (Core.Maybe Core.Bool)
+startImportLabelsTaskRun_replaceAllLabels :: Lens.Lens' StartImportLabelsTaskRun (Prelude.Maybe Prelude.Bool)
 startImportLabelsTaskRun_replaceAllLabels = Lens.lens (\StartImportLabelsTaskRun' {replaceAllLabels} -> replaceAllLabels) (\s@StartImportLabelsTaskRun' {} a -> s {replaceAllLabels = a} :: StartImportLabelsTaskRun)
 
 -- | The unique identifier of the machine learning transform.
-startImportLabelsTaskRun_transformId :: Lens.Lens' StartImportLabelsTaskRun Core.Text
+startImportLabelsTaskRun_transformId :: Lens.Lens' StartImportLabelsTaskRun Prelude.Text
 startImportLabelsTaskRun_transformId = Lens.lens (\StartImportLabelsTaskRun' {transformId} -> transformId) (\s@StartImportLabelsTaskRun' {} a -> s {transformId = a} :: StartImportLabelsTaskRun)
 
 -- | The Amazon Simple Storage Service (Amazon S3) path from where you import
 -- the labels.
-startImportLabelsTaskRun_inputS3Path :: Lens.Lens' StartImportLabelsTaskRun Core.Text
+startImportLabelsTaskRun_inputS3Path :: Lens.Lens' StartImportLabelsTaskRun Prelude.Text
 startImportLabelsTaskRun_inputS3Path = Lens.lens (\StartImportLabelsTaskRun' {inputS3Path} -> inputS3Path) (\s@StartImportLabelsTaskRun' {} a -> s {inputS3Path = a} :: StartImportLabelsTaskRun)
 
 instance Core.AWSRequest StartImportLabelsTaskRun where
@@ -139,52 +140,54 @@ instance Core.AWSRequest StartImportLabelsTaskRun where
     Response.receiveJSON
       ( \s h x ->
           StartImportLabelsTaskRunResponse'
-            Core.<$> (x Core..?> "TaskRunId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TaskRunId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartImportLabelsTaskRun
+instance Prelude.Hashable StartImportLabelsTaskRun
 
-instance Core.NFData StartImportLabelsTaskRun
+instance Prelude.NFData StartImportLabelsTaskRun
 
 instance Core.ToHeaders StartImportLabelsTaskRun where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.StartImportLabelsTaskRun" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartImportLabelsTaskRun where
   toJSON StartImportLabelsTaskRun' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReplaceAllLabels" Core..=)
-              Core.<$> replaceAllLabels,
-            Core.Just ("TransformId" Core..= transformId),
-            Core.Just ("InputS3Path" Core..= inputS3Path)
+              Prelude.<$> replaceAllLabels,
+            Prelude.Just ("TransformId" Core..= transformId),
+            Prelude.Just ("InputS3Path" Core..= inputS3Path)
           ]
       )
 
 instance Core.ToPath StartImportLabelsTaskRun where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartImportLabelsTaskRun where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImportLabelsTaskRunResponse' smart constructor.
 data StartImportLabelsTaskRunResponse = StartImportLabelsTaskRunResponse'
   { -- | The unique identifier for the task run.
-    taskRunId :: Core.Maybe Core.Text,
+    taskRunId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartImportLabelsTaskRunResponse' with all optional fields omitted.
@@ -199,21 +202,23 @@ data StartImportLabelsTaskRunResponse = StartImportLabelsTaskRunResponse'
 -- 'httpStatus', 'startImportLabelsTaskRunResponse_httpStatus' - The response's http status code.
 newStartImportLabelsTaskRunResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartImportLabelsTaskRunResponse
 newStartImportLabelsTaskRunResponse pHttpStatus_ =
   StartImportLabelsTaskRunResponse'
     { taskRunId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique identifier for the task run.
-startImportLabelsTaskRunResponse_taskRunId :: Lens.Lens' StartImportLabelsTaskRunResponse (Core.Maybe Core.Text)
+startImportLabelsTaskRunResponse_taskRunId :: Lens.Lens' StartImportLabelsTaskRunResponse (Prelude.Maybe Prelude.Text)
 startImportLabelsTaskRunResponse_taskRunId = Lens.lens (\StartImportLabelsTaskRunResponse' {taskRunId} -> taskRunId) (\s@StartImportLabelsTaskRunResponse' {} a -> s {taskRunId = a} :: StartImportLabelsTaskRunResponse)
 
 -- | The response's http status code.
-startImportLabelsTaskRunResponse_httpStatus :: Lens.Lens' StartImportLabelsTaskRunResponse Core.Int
+startImportLabelsTaskRunResponse_httpStatus :: Lens.Lens' StartImportLabelsTaskRunResponse Prelude.Int
 startImportLabelsTaskRunResponse_httpStatus = Lens.lens (\StartImportLabelsTaskRunResponse' {httpStatus} -> httpStatus) (\s@StartImportLabelsTaskRunResponse' {} a -> s {httpStatus = a} :: StartImportLabelsTaskRunResponse)
 
-instance Core.NFData StartImportLabelsTaskRunResponse
+instance
+  Prelude.NFData
+    StartImportLabelsTaskRunResponse

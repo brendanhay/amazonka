@@ -42,15 +42,16 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeEventsDetectionJob' smart constructor.
 data DescribeEventsDetectionJob = DescribeEventsDetectionJob'
   { -- | The identifier of the events detection job.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventsDetectionJob' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DescribeEventsDetectionJob = DescribeEventsDetectionJob'
 -- 'jobId', 'describeEventsDetectionJob_jobId' - The identifier of the events detection job.
 newDescribeEventsDetectionJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeEventsDetectionJob
 newDescribeEventsDetectionJob pJobId_ =
   DescribeEventsDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the events detection job.
-describeEventsDetectionJob_jobId :: Lens.Lens' DescribeEventsDetectionJob Core.Text
+describeEventsDetectionJob_jobId :: Lens.Lens' DescribeEventsDetectionJob Prelude.Text
 describeEventsDetectionJob_jobId = Lens.lens (\DescribeEventsDetectionJob' {jobId} -> jobId) (\s@DescribeEventsDetectionJob' {} a -> s {jobId = a} :: DescribeEventsDetectionJob)
 
 instance Core.AWSRequest DescribeEventsDetectionJob where
@@ -81,47 +82,51 @@ instance Core.AWSRequest DescribeEventsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsDetectionJobResponse'
-            Core.<$> (x Core..?> "EventsDetectionJobProperties")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "EventsDetectionJobProperties")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEventsDetectionJob
+instance Prelude.Hashable DescribeEventsDetectionJob
 
-instance Core.NFData DescribeEventsDetectionJob
+instance Prelude.NFData DescribeEventsDetectionJob
 
 instance Core.ToHeaders DescribeEventsDetectionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DescribeEventsDetectionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEventsDetectionJob where
   toJSON DescribeEventsDetectionJob' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
 instance Core.ToPath DescribeEventsDetectionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEventsDetectionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventsDetectionJobResponse' smart constructor.
 data DescribeEventsDetectionJobResponse = DescribeEventsDetectionJobResponse'
   { -- | An object that contains the properties associated with an event
     -- detection job.
-    eventsDetectionJobProperties :: Core.Maybe EventsDetectionJobProperties,
+    eventsDetectionJobProperties :: Prelude.Maybe EventsDetectionJobProperties,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventsDetectionJobResponse' with all optional fields omitted.
@@ -137,24 +142,24 @@ data DescribeEventsDetectionJobResponse = DescribeEventsDetectionJobResponse'
 -- 'httpStatus', 'describeEventsDetectionJobResponse_httpStatus' - The response's http status code.
 newDescribeEventsDetectionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEventsDetectionJobResponse
 newDescribeEventsDetectionJobResponse pHttpStatus_ =
   DescribeEventsDetectionJobResponse'
     { eventsDetectionJobProperties =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the properties associated with an event
 -- detection job.
-describeEventsDetectionJobResponse_eventsDetectionJobProperties :: Lens.Lens' DescribeEventsDetectionJobResponse (Core.Maybe EventsDetectionJobProperties)
+describeEventsDetectionJobResponse_eventsDetectionJobProperties :: Lens.Lens' DescribeEventsDetectionJobResponse (Prelude.Maybe EventsDetectionJobProperties)
 describeEventsDetectionJobResponse_eventsDetectionJobProperties = Lens.lens (\DescribeEventsDetectionJobResponse' {eventsDetectionJobProperties} -> eventsDetectionJobProperties) (\s@DescribeEventsDetectionJobResponse' {} a -> s {eventsDetectionJobProperties = a} :: DescribeEventsDetectionJobResponse)
 
 -- | The response's http status code.
-describeEventsDetectionJobResponse_httpStatus :: Lens.Lens' DescribeEventsDetectionJobResponse Core.Int
+describeEventsDetectionJobResponse_httpStatus :: Lens.Lens' DescribeEventsDetectionJobResponse Prelude.Int
 describeEventsDetectionJobResponse_httpStatus = Lens.lens (\DescribeEventsDetectionJobResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsDetectionJobResponse' {} a -> s {httpStatus = a} :: DescribeEventsDetectionJobResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeEventsDetectionJobResponse

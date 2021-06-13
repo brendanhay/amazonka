@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,17 +55,17 @@ data GetSegmentExportJobs = GetSegmentExportJobs'
   { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Core.Maybe Core.Text,
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The NextToken string that specifies which page of results to return in a
     -- paginated response.
-    token :: Core.Maybe Core.Text,
+    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the segment.
-    segmentId :: Core.Text,
+    segmentId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSegmentExportJobs' with all optional fields omitted.
@@ -87,14 +88,14 @@ data GetSegmentExportJobs = GetSegmentExportJobs'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetSegmentExportJobs ::
   -- | 'segmentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetSegmentExportJobs
 newGetSegmentExportJobs pSegmentId_ pApplicationId_ =
   GetSegmentExportJobs'
-    { pageSize = Core.Nothing,
-      token = Core.Nothing,
+    { pageSize = Prelude.Nothing,
+      token = Prelude.Nothing,
       segmentId = pSegmentId_,
       applicationId = pApplicationId_
     }
@@ -102,21 +103,21 @@ newGetSegmentExportJobs pSegmentId_ pApplicationId_ =
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getSegmentExportJobs_pageSize :: Lens.Lens' GetSegmentExportJobs (Core.Maybe Core.Text)
+getSegmentExportJobs_pageSize :: Lens.Lens' GetSegmentExportJobs (Prelude.Maybe Prelude.Text)
 getSegmentExportJobs_pageSize = Lens.lens (\GetSegmentExportJobs' {pageSize} -> pageSize) (\s@GetSegmentExportJobs' {} a -> s {pageSize = a} :: GetSegmentExportJobs)
 
 -- | The NextToken string that specifies which page of results to return in a
 -- paginated response.
-getSegmentExportJobs_token :: Lens.Lens' GetSegmentExportJobs (Core.Maybe Core.Text)
+getSegmentExportJobs_token :: Lens.Lens' GetSegmentExportJobs (Prelude.Maybe Prelude.Text)
 getSegmentExportJobs_token = Lens.lens (\GetSegmentExportJobs' {token} -> token) (\s@GetSegmentExportJobs' {} a -> s {token = a} :: GetSegmentExportJobs)
 
 -- | The unique identifier for the segment.
-getSegmentExportJobs_segmentId :: Lens.Lens' GetSegmentExportJobs Core.Text
+getSegmentExportJobs_segmentId :: Lens.Lens' GetSegmentExportJobs Prelude.Text
 getSegmentExportJobs_segmentId = Lens.lens (\GetSegmentExportJobs' {segmentId} -> segmentId) (\s@GetSegmentExportJobs' {} a -> s {segmentId = a} :: GetSegmentExportJobs)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getSegmentExportJobs_applicationId :: Lens.Lens' GetSegmentExportJobs Core.Text
+getSegmentExportJobs_applicationId :: Lens.Lens' GetSegmentExportJobs Prelude.Text
 getSegmentExportJobs_applicationId = Lens.lens (\GetSegmentExportJobs' {applicationId} -> applicationId) (\s@GetSegmentExportJobs' {} a -> s {applicationId = a} :: GetSegmentExportJobs)
 
 instance Core.AWSRequest GetSegmentExportJobs where
@@ -128,26 +129,28 @@ instance Core.AWSRequest GetSegmentExportJobs where
     Response.receiveJSON
       ( \s h x ->
           GetSegmentExportJobsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetSegmentExportJobs
+instance Prelude.Hashable GetSegmentExportJobs
 
-instance Core.NFData GetSegmentExportJobs
+instance Prelude.NFData GetSegmentExportJobs
 
 instance Core.ToHeaders GetSegmentExportJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetSegmentExportJobs where
   toPath GetSegmentExportJobs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/segments/",
@@ -157,16 +160,16 @@ instance Core.ToPath GetSegmentExportJobs where
 
 instance Core.ToQuery GetSegmentExportJobs where
   toQuery GetSegmentExportJobs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetSegmentExportJobsResponse' smart constructor.
 data GetSegmentExportJobsResponse = GetSegmentExportJobsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     exportJobsResponse :: ExportJobsResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSegmentExportJobsResponse' with all optional fields omitted.
@@ -181,7 +184,7 @@ data GetSegmentExportJobsResponse = GetSegmentExportJobsResponse'
 -- 'exportJobsResponse', 'getSegmentExportJobsResponse_exportJobsResponse' - Undocumented member.
 newGetSegmentExportJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'exportJobsResponse'
   ExportJobsResponse ->
   GetSegmentExportJobsResponse
@@ -195,11 +198,11 @@ newGetSegmentExportJobsResponse
       }
 
 -- | The response's http status code.
-getSegmentExportJobsResponse_httpStatus :: Lens.Lens' GetSegmentExportJobsResponse Core.Int
+getSegmentExportJobsResponse_httpStatus :: Lens.Lens' GetSegmentExportJobsResponse Prelude.Int
 getSegmentExportJobsResponse_httpStatus = Lens.lens (\GetSegmentExportJobsResponse' {httpStatus} -> httpStatus) (\s@GetSegmentExportJobsResponse' {} a -> s {httpStatus = a} :: GetSegmentExportJobsResponse)
 
 -- | Undocumented member.
 getSegmentExportJobsResponse_exportJobsResponse :: Lens.Lens' GetSegmentExportJobsResponse ExportJobsResponse
 getSegmentExportJobsResponse_exportJobsResponse = Lens.lens (\GetSegmentExportJobsResponse' {exportJobsResponse} -> exportJobsResponse) (\s@GetSegmentExportJobsResponse' {} a -> s {exportJobsResponse = a} :: GetSegmentExportJobsResponse)
 
-instance Core.NFData GetSegmentExportJobsResponse
+instance Prelude.NFData GetSegmentExportJobsResponse

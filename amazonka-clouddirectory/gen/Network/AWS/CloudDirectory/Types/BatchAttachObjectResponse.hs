@@ -21,15 +21,16 @@ module Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output batch AttachObject response operation.
 --
 -- /See:/ 'newBatchAttachObjectResponse' smart constructor.
 data BatchAttachObjectResponse = BatchAttachObjectResponse'
   { -- | The @ObjectIdentifier@ of the object that has been attached.
-    attachedObjectIdentifier :: Core.Maybe Core.Text
+    attachedObjectIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAttachObjectResponse' with all optional fields omitted.
@@ -45,11 +46,11 @@ newBatchAttachObjectResponse ::
 newBatchAttachObjectResponse =
   BatchAttachObjectResponse'
     { attachedObjectIdentifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the object that has been attached.
-batchAttachObjectResponse_attachedObjectIdentifier :: Lens.Lens' BatchAttachObjectResponse (Core.Maybe Core.Text)
+batchAttachObjectResponse_attachedObjectIdentifier :: Lens.Lens' BatchAttachObjectResponse (Prelude.Maybe Prelude.Text)
 batchAttachObjectResponse_attachedObjectIdentifier = Lens.lens (\BatchAttachObjectResponse' {attachedObjectIdentifier} -> attachedObjectIdentifier) (\s@BatchAttachObjectResponse' {} a -> s {attachedObjectIdentifier = a} :: BatchAttachObjectResponse)
 
 instance Core.FromJSON BatchAttachObjectResponse where
@@ -58,9 +59,9 @@ instance Core.FromJSON BatchAttachObjectResponse where
       "BatchAttachObjectResponse"
       ( \x ->
           BatchAttachObjectResponse'
-            Core.<$> (x Core..:? "attachedObjectIdentifier")
+            Prelude.<$> (x Core..:? "attachedObjectIdentifier")
       )
 
-instance Core.Hashable BatchAttachObjectResponse
+instance Prelude.Hashable BatchAttachObjectResponse
 
-instance Core.NFData BatchAttachObjectResponse
+instance Prelude.NFData BatchAttachObjectResponse

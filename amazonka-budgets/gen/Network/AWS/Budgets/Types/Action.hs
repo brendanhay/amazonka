@@ -28,14 +28,15 @@ import Network.AWS.Budgets.Types.NotificationType
 import Network.AWS.Budgets.Types.Subscriber
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A budget action resource.
 --
 -- /See:/ 'newAction' smart constructor.
 data Action = Action'
   { -- | A system-generated universally unique identifier (UUID) for the action.
-    actionId :: Core.Text,
-    budgetName :: Core.Text,
+    actionId :: Prelude.Text,
+    budgetName :: Prelude.Text,
     notificationType :: NotificationType,
     -- | The type of action. This defines the type of tasks that can be carried
     -- out by this action. This field also determines the format for
@@ -47,14 +48,14 @@ data Action = Action'
     definition :: Definition,
     -- | The role passed for action execution and reversion. Roles and actions
     -- must be in the same account.
-    executionRoleArn :: Core.Text,
+    executionRoleArn :: Prelude.Text,
     -- | This specifies if the action needs manual or automatic approval.
     approvalModel :: ApprovalModel,
     -- | The status of action.
     status :: ActionStatus,
-    subscribers :: Core.NonEmpty Subscriber
+    subscribers :: Prelude.NonEmpty Subscriber
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Action' with all optional fields omitted.
@@ -88,9 +89,9 @@ data Action = Action'
 -- 'subscribers', 'action_subscribers' - Undocumented member.
 newAction ::
   -- | 'actionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'budgetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'notificationType'
   NotificationType ->
   -- | 'actionType'
@@ -100,13 +101,13 @@ newAction ::
   -- | 'definition'
   Definition ->
   -- | 'executionRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'approvalModel'
   ApprovalModel ->
   -- | 'status'
   ActionStatus ->
   -- | 'subscribers'
-  Core.NonEmpty Subscriber ->
+  Prelude.NonEmpty Subscriber ->
   Action
 newAction
   pActionId_
@@ -133,11 +134,11 @@ newAction
       }
 
 -- | A system-generated universally unique identifier (UUID) for the action.
-action_actionId :: Lens.Lens' Action Core.Text
+action_actionId :: Lens.Lens' Action Prelude.Text
 action_actionId = Lens.lens (\Action' {actionId} -> actionId) (\s@Action' {} a -> s {actionId = a} :: Action)
 
 -- | Undocumented member.
-action_budgetName :: Lens.Lens' Action Core.Text
+action_budgetName :: Lens.Lens' Action Prelude.Text
 action_budgetName = Lens.lens (\Action' {budgetName} -> budgetName) (\s@Action' {} a -> s {budgetName = a} :: Action)
 
 -- | Undocumented member.
@@ -160,7 +161,7 @@ action_definition = Lens.lens (\Action' {definition} -> definition) (\s@Action' 
 
 -- | The role passed for action execution and reversion. Roles and actions
 -- must be in the same account.
-action_executionRoleArn :: Lens.Lens' Action Core.Text
+action_executionRoleArn :: Lens.Lens' Action Prelude.Text
 action_executionRoleArn = Lens.lens (\Action' {executionRoleArn} -> executionRoleArn) (\s@Action' {} a -> s {executionRoleArn = a} :: Action)
 
 -- | This specifies if the action needs manual or automatic approval.
@@ -172,8 +173,8 @@ action_status :: Lens.Lens' Action ActionStatus
 action_status = Lens.lens (\Action' {status} -> status) (\s@Action' {} a -> s {status = a} :: Action)
 
 -- | Undocumented member.
-action_subscribers :: Lens.Lens' Action (Core.NonEmpty Subscriber)
-action_subscribers = Lens.lens (\Action' {subscribers} -> subscribers) (\s@Action' {} a -> s {subscribers = a} :: Action) Core.. Lens._Coerce
+action_subscribers :: Lens.Lens' Action (Prelude.NonEmpty Subscriber)
+action_subscribers = Lens.lens (\Action' {subscribers} -> subscribers) (\s@Action' {} a -> s {subscribers = a} :: Action) Prelude.. Lens._Coerce
 
 instance Core.FromJSON Action where
   parseJSON =
@@ -181,18 +182,18 @@ instance Core.FromJSON Action where
       "Action"
       ( \x ->
           Action'
-            Core.<$> (x Core..: "ActionId")
-            Core.<*> (x Core..: "BudgetName")
-            Core.<*> (x Core..: "NotificationType")
-            Core.<*> (x Core..: "ActionType")
-            Core.<*> (x Core..: "ActionThreshold")
-            Core.<*> (x Core..: "Definition")
-            Core.<*> (x Core..: "ExecutionRoleArn")
-            Core.<*> (x Core..: "ApprovalModel")
-            Core.<*> (x Core..: "Status")
-            Core.<*> (x Core..: "Subscribers")
+            Prelude.<$> (x Core..: "ActionId")
+            Prelude.<*> (x Core..: "BudgetName")
+            Prelude.<*> (x Core..: "NotificationType")
+            Prelude.<*> (x Core..: "ActionType")
+            Prelude.<*> (x Core..: "ActionThreshold")
+            Prelude.<*> (x Core..: "Definition")
+            Prelude.<*> (x Core..: "ExecutionRoleArn")
+            Prelude.<*> (x Core..: "ApprovalModel")
+            Prelude.<*> (x Core..: "Status")
+            Prelude.<*> (x Core..: "Subscribers")
       )
 
-instance Core.Hashable Action
+instance Prelude.Hashable Action
 
-instance Core.NFData Action
+instance Prelude.NFData Action

@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.VolumeStatusName
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a volume status.
 --
 -- /See:/ 'newVolumeStatusDetails' smart constructor.
 data VolumeStatusDetails = VolumeStatusDetails'
   { -- | The intended status of the volume status.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The name of the volume status.
-    name :: Core.Maybe VolumeStatusName
+    name :: Prelude.Maybe VolumeStatusName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VolumeStatusDetails' with all optional fields omitted.
@@ -50,23 +51,23 @@ newVolumeStatusDetails ::
   VolumeStatusDetails
 newVolumeStatusDetails =
   VolumeStatusDetails'
-    { status = Core.Nothing,
-      name = Core.Nothing
+    { status = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The intended status of the volume status.
-volumeStatusDetails_status :: Lens.Lens' VolumeStatusDetails (Core.Maybe Core.Text)
+volumeStatusDetails_status :: Lens.Lens' VolumeStatusDetails (Prelude.Maybe Prelude.Text)
 volumeStatusDetails_status = Lens.lens (\VolumeStatusDetails' {status} -> status) (\s@VolumeStatusDetails' {} a -> s {status = a} :: VolumeStatusDetails)
 
 -- | The name of the volume status.
-volumeStatusDetails_name :: Lens.Lens' VolumeStatusDetails (Core.Maybe VolumeStatusName)
+volumeStatusDetails_name :: Lens.Lens' VolumeStatusDetails (Prelude.Maybe VolumeStatusName)
 volumeStatusDetails_name = Lens.lens (\VolumeStatusDetails' {name} -> name) (\s@VolumeStatusDetails' {} a -> s {name = a} :: VolumeStatusDetails)
 
 instance Core.FromXML VolumeStatusDetails where
   parseXML x =
     VolumeStatusDetails'
-      Core.<$> (x Core..@? "status") Core.<*> (x Core..@? "name")
+      Prelude.<$> (x Core..@? "status") Prelude.<*> (x Core..@? "name")
 
-instance Core.Hashable VolumeStatusDetails
+instance Prelude.Hashable VolumeStatusDetails
 
-instance Core.NFData VolumeStatusDetails
+instance Prelude.NFData VolumeStatusDetails

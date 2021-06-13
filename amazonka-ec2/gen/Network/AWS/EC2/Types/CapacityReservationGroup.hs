@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.CapacityReservationGroup where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a resource group to which a Capacity Reservation has been
 -- added.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCapacityReservationGroup' smart constructor.
 data CapacityReservationGroup = CapacityReservationGroup'
   { -- | The ID of the AWS account that owns the resource group.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource group.
-    groupArn :: Core.Maybe Core.Text
+    groupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CapacityReservationGroup' with all optional fields omitted.
@@ -50,24 +51,25 @@ newCapacityReservationGroup ::
   CapacityReservationGroup
 newCapacityReservationGroup =
   CapacityReservationGroup'
-    { ownerId = Core.Nothing,
-      groupArn = Core.Nothing
+    { ownerId =
+        Prelude.Nothing,
+      groupArn = Prelude.Nothing
     }
 
 -- | The ID of the AWS account that owns the resource group.
-capacityReservationGroup_ownerId :: Lens.Lens' CapacityReservationGroup (Core.Maybe Core.Text)
+capacityReservationGroup_ownerId :: Lens.Lens' CapacityReservationGroup (Prelude.Maybe Prelude.Text)
 capacityReservationGroup_ownerId = Lens.lens (\CapacityReservationGroup' {ownerId} -> ownerId) (\s@CapacityReservationGroup' {} a -> s {ownerId = a} :: CapacityReservationGroup)
 
 -- | The ARN of the resource group.
-capacityReservationGroup_groupArn :: Lens.Lens' CapacityReservationGroup (Core.Maybe Core.Text)
+capacityReservationGroup_groupArn :: Lens.Lens' CapacityReservationGroup (Prelude.Maybe Prelude.Text)
 capacityReservationGroup_groupArn = Lens.lens (\CapacityReservationGroup' {groupArn} -> groupArn) (\s@CapacityReservationGroup' {} a -> s {groupArn = a} :: CapacityReservationGroup)
 
 instance Core.FromXML CapacityReservationGroup where
   parseXML x =
     CapacityReservationGroup'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "groupArn")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "groupArn")
 
-instance Core.Hashable CapacityReservationGroup
+instance Prelude.Hashable CapacityReservationGroup
 
-instance Core.NFData CapacityReservationGroup
+instance Prelude.NFData CapacityReservationGroup

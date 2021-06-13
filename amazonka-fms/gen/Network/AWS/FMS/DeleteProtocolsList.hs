@@ -38,6 +38,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,9 +47,9 @@ data DeleteProtocolsList = DeleteProtocolsList'
   { -- | The ID of the protocols list that you want to delete. You can retrieve
     -- this ID from @PutProtocolsList@, @ListProtocolsLists@, and
     -- @GetProtocolsLost@.
-    listId :: Core.Text
+    listId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProtocolsList' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteProtocolsList = DeleteProtocolsList'
 -- @GetProtocolsLost@.
 newDeleteProtocolsList ::
   -- | 'listId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteProtocolsList
 newDeleteProtocolsList pListId_ =
   DeleteProtocolsList' {listId = pListId_}
@@ -71,7 +72,7 @@ newDeleteProtocolsList pListId_ =
 -- | The ID of the protocols list that you want to delete. You can retrieve
 -- this ID from @PutProtocolsList@, @ListProtocolsLists@, and
 -- @GetProtocolsLost@.
-deleteProtocolsList_listId :: Lens.Lens' DeleteProtocolsList Core.Text
+deleteProtocolsList_listId :: Lens.Lens' DeleteProtocolsList Prelude.Text
 deleteProtocolsList_listId = Lens.lens (\DeleteProtocolsList' {listId} -> listId) (\s@DeleteProtocolsList' {} a -> s {listId = a} :: DeleteProtocolsList)
 
 instance Core.AWSRequest DeleteProtocolsList where
@@ -82,41 +83,43 @@ instance Core.AWSRequest DeleteProtocolsList where
   response =
     Response.receiveNull DeleteProtocolsListResponse'
 
-instance Core.Hashable DeleteProtocolsList
+instance Prelude.Hashable DeleteProtocolsList
 
-instance Core.NFData DeleteProtocolsList
+instance Prelude.NFData DeleteProtocolsList
 
 instance Core.ToHeaders DeleteProtocolsList where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.DeleteProtocolsList" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteProtocolsList where
   toJSON DeleteProtocolsList' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ListId" Core..= listId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ListId" Core..= listId)]
       )
 
 instance Core.ToPath DeleteProtocolsList where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteProtocolsList where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProtocolsListResponse' smart constructor.
 data DeleteProtocolsListResponse = DeleteProtocolsListResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProtocolsListResponse' with all optional fields omitted.
@@ -127,4 +130,4 @@ newDeleteProtocolsListResponse ::
 newDeleteProtocolsListResponse =
   DeleteProtocolsListResponse'
 
-instance Core.NFData DeleteProtocolsListResponse
+instance Prelude.NFData DeleteProtocolsListResponse

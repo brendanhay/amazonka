@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.DeleteClusterSnapshotMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- |
@@ -33,14 +34,14 @@ data DeleteClusterSnapshotMessage = DeleteClusterSnapshotMessage'
     -- cluster name.
     --
     -- Constraints: Must be the name of valid cluster.
-    snapshotClusterIdentifier :: Core.Maybe Core.Text,
+    snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the manual snapshot to be deleted.
     --
     -- Constraints: Must be the name of an existing snapshot that is in the
     -- @available@, @failed@, or @cancelled@ state.
-    snapshotIdentifier :: Core.Text
+    snapshotIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterSnapshotMessage' with all optional fields omitted.
@@ -63,12 +64,12 @@ data DeleteClusterSnapshotMessage = DeleteClusterSnapshotMessage'
 -- @available@, @failed@, or @cancelled@ state.
 newDeleteClusterSnapshotMessage ::
   -- | 'snapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DeleteClusterSnapshotMessage
 newDeleteClusterSnapshotMessage pSnapshotIdentifier_ =
   DeleteClusterSnapshotMessage'
     { snapshotClusterIdentifier =
-        Core.Nothing,
+        Prelude.Nothing,
       snapshotIdentifier = pSnapshotIdentifier_
     }
 
@@ -78,23 +79,25 @@ newDeleteClusterSnapshotMessage pSnapshotIdentifier_ =
 -- cluster name.
 --
 -- Constraints: Must be the name of valid cluster.
-deleteClusterSnapshotMessage_snapshotClusterIdentifier :: Lens.Lens' DeleteClusterSnapshotMessage (Core.Maybe Core.Text)
+deleteClusterSnapshotMessage_snapshotClusterIdentifier :: Lens.Lens' DeleteClusterSnapshotMessage (Prelude.Maybe Prelude.Text)
 deleteClusterSnapshotMessage_snapshotClusterIdentifier = Lens.lens (\DeleteClusterSnapshotMessage' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@DeleteClusterSnapshotMessage' {} a -> s {snapshotClusterIdentifier = a} :: DeleteClusterSnapshotMessage)
 
 -- | The unique identifier of the manual snapshot to be deleted.
 --
 -- Constraints: Must be the name of an existing snapshot that is in the
 -- @available@, @failed@, or @cancelled@ state.
-deleteClusterSnapshotMessage_snapshotIdentifier :: Lens.Lens' DeleteClusterSnapshotMessage Core.Text
+deleteClusterSnapshotMessage_snapshotIdentifier :: Lens.Lens' DeleteClusterSnapshotMessage Prelude.Text
 deleteClusterSnapshotMessage_snapshotIdentifier = Lens.lens (\DeleteClusterSnapshotMessage' {snapshotIdentifier} -> snapshotIdentifier) (\s@DeleteClusterSnapshotMessage' {} a -> s {snapshotIdentifier = a} :: DeleteClusterSnapshotMessage)
 
-instance Core.Hashable DeleteClusterSnapshotMessage
+instance
+  Prelude.Hashable
+    DeleteClusterSnapshotMessage
 
-instance Core.NFData DeleteClusterSnapshotMessage
+instance Prelude.NFData DeleteClusterSnapshotMessage
 
 instance Core.ToQuery DeleteClusterSnapshotMessage where
   toQuery DeleteClusterSnapshotMessage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SnapshotClusterIdentifier"
           Core.=: snapshotClusterIdentifier,
         "SnapshotIdentifier" Core.=: snapshotIdentifier

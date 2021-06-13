@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -60,9 +61,9 @@ import Network.AWS.StepFunctions.Types
 data DescribeStateMachineForExecution = DescribeStateMachineForExecution'
   { -- | The Amazon Resource Name (ARN) of the execution you want state machine
     -- information for.
-    executionArn :: Core.Text
+    executionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStateMachineForExecution' with all optional fields omitted.
@@ -76,7 +77,7 @@ data DescribeStateMachineForExecution = DescribeStateMachineForExecution'
 -- information for.
 newDescribeStateMachineForExecution ::
   -- | 'executionArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeStateMachineForExecution
 newDescribeStateMachineForExecution pExecutionArn_ =
   DescribeStateMachineForExecution'
@@ -86,7 +87,7 @@ newDescribeStateMachineForExecution pExecutionArn_ =
 
 -- | The Amazon Resource Name (ARN) of the execution you want state machine
 -- information for.
-describeStateMachineForExecution_executionArn :: Lens.Lens' DescribeStateMachineForExecution Core.Text
+describeStateMachineForExecution_executionArn :: Lens.Lens' DescribeStateMachineForExecution Prelude.Text
 describeStateMachineForExecution_executionArn = Lens.lens (\DescribeStateMachineForExecution' {executionArn} -> executionArn) (\s@DescribeStateMachineForExecution' {} a -> s {executionArn = a} :: DescribeStateMachineForExecution)
 
 instance
@@ -101,77 +102,81 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeStateMachineForExecutionResponse'
-            Core.<$> (x Core..?> "tracingConfiguration")
-            Core.<*> (x Core..?> "loggingConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "stateMachineArn")
-            Core.<*> (x Core..:> "name")
-            Core.<*> (x Core..:> "definition")
-            Core.<*> (x Core..:> "roleArn")
-            Core.<*> (x Core..:> "updateDate")
+            Prelude.<$> (x Core..?> "tracingConfiguration")
+            Prelude.<*> (x Core..?> "loggingConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "stateMachineArn")
+            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Core..:> "definition")
+            Prelude.<*> (x Core..:> "roleArn")
+            Prelude.<*> (x Core..:> "updateDate")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeStateMachineForExecution
 
-instance Core.NFData DescribeStateMachineForExecution
+instance
+  Prelude.NFData
+    DescribeStateMachineForExecution
 
 instance
   Core.ToHeaders
     DescribeStateMachineForExecution
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSStepFunctions.DescribeStateMachineForExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeStateMachineForExecution where
   toJSON DescribeStateMachineForExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("executionArn" Core..= executionArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("executionArn" Core..= executionArn)]
       )
 
 instance Core.ToPath DescribeStateMachineForExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeStateMachineForExecution
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStateMachineForExecutionResponse' smart constructor.
 data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecutionResponse'
   { -- | Selects whether AWS X-Ray tracing is enabled.
-    tracingConfiguration :: Core.Maybe TracingConfiguration,
-    loggingConfiguration :: Core.Maybe LoggingConfiguration,
+    tracingConfiguration :: Prelude.Maybe TracingConfiguration,
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the state machine associated with the
     -- execution.
-    stateMachineArn :: Core.Text,
+    stateMachineArn :: Prelude.Text,
     -- | The name of the state machine associated with the execution.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The Amazon States Language definition of the state machine. See
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-    definition :: Core.Sensitive Core.Text,
+    definition :: Core.Sensitive Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for
     -- the execution.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The date and time the state machine associated with an execution was
     -- updated. For a newly created state machine, this is the creation date.
     updateDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStateMachineForExecutionResponse' with all optional fields omitted.
@@ -202,17 +207,17 @@ data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecution
 -- updated. For a newly created state machine, this is the creation date.
 newDescribeStateMachineForExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'stateMachineArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'definition'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'updateDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   DescribeStateMachineForExecutionResponse
 newDescribeStateMachineForExecutionResponse
   pHttpStatus_
@@ -223,9 +228,9 @@ newDescribeStateMachineForExecutionResponse
   pUpdateDate_ =
     DescribeStateMachineForExecutionResponse'
       { tracingConfiguration =
-          Core.Nothing,
+          Prelude.Nothing,
         loggingConfiguration =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         stateMachineArn =
           pStateMachineArn_,
@@ -239,41 +244,41 @@ newDescribeStateMachineForExecutionResponse
       }
 
 -- | Selects whether AWS X-Ray tracing is enabled.
-describeStateMachineForExecutionResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Core.Maybe TracingConfiguration)
+describeStateMachineForExecutionResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Prelude.Maybe TracingConfiguration)
 describeStateMachineForExecutionResponse_tracingConfiguration = Lens.lens (\DescribeStateMachineForExecutionResponse' {tracingConfiguration} -> tracingConfiguration) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {tracingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
 
 -- | Undocumented member.
-describeStateMachineForExecutionResponse_loggingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Core.Maybe LoggingConfiguration)
+describeStateMachineForExecutionResponse_loggingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Prelude.Maybe LoggingConfiguration)
 describeStateMachineForExecutionResponse_loggingConfiguration = Lens.lens (\DescribeStateMachineForExecutionResponse' {loggingConfiguration} -> loggingConfiguration) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {loggingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
 
 -- | The response's http status code.
-describeStateMachineForExecutionResponse_httpStatus :: Lens.Lens' DescribeStateMachineForExecutionResponse Core.Int
+describeStateMachineForExecutionResponse_httpStatus :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.Int
 describeStateMachineForExecutionResponse_httpStatus = Lens.lens (\DescribeStateMachineForExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {httpStatus = a} :: DescribeStateMachineForExecutionResponse)
 
 -- | The Amazon Resource Name (ARN) of the state machine associated with the
 -- execution.
-describeStateMachineForExecutionResponse_stateMachineArn :: Lens.Lens' DescribeStateMachineForExecutionResponse Core.Text
+describeStateMachineForExecutionResponse_stateMachineArn :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.Text
 describeStateMachineForExecutionResponse_stateMachineArn = Lens.lens (\DescribeStateMachineForExecutionResponse' {stateMachineArn} -> stateMachineArn) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {stateMachineArn = a} :: DescribeStateMachineForExecutionResponse)
 
 -- | The name of the state machine associated with the execution.
-describeStateMachineForExecutionResponse_name :: Lens.Lens' DescribeStateMachineForExecutionResponse Core.Text
+describeStateMachineForExecutionResponse_name :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.Text
 describeStateMachineForExecutionResponse_name = Lens.lens (\DescribeStateMachineForExecutionResponse' {name} -> name) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {name = a} :: DescribeStateMachineForExecutionResponse)
 
 -- | The Amazon States Language definition of the state machine. See
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-describeStateMachineForExecutionResponse_definition :: Lens.Lens' DescribeStateMachineForExecutionResponse Core.Text
-describeStateMachineForExecutionResponse_definition = Lens.lens (\DescribeStateMachineForExecutionResponse' {definition} -> definition) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {definition = a} :: DescribeStateMachineForExecutionResponse) Core.. Core._Sensitive
+describeStateMachineForExecutionResponse_definition :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.Text
+describeStateMachineForExecutionResponse_definition = Lens.lens (\DescribeStateMachineForExecutionResponse' {definition} -> definition) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {definition = a} :: DescribeStateMachineForExecutionResponse) Prelude.. Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for
 -- the execution.
-describeStateMachineForExecutionResponse_roleArn :: Lens.Lens' DescribeStateMachineForExecutionResponse Core.Text
+describeStateMachineForExecutionResponse_roleArn :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.Text
 describeStateMachineForExecutionResponse_roleArn = Lens.lens (\DescribeStateMachineForExecutionResponse' {roleArn} -> roleArn) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {roleArn = a} :: DescribeStateMachineForExecutionResponse)
 
 -- | The date and time the state machine associated with an execution was
 -- updated. For a newly created state machine, this is the creation date.
-describeStateMachineForExecutionResponse_updateDate :: Lens.Lens' DescribeStateMachineForExecutionResponse Core.UTCTime
-describeStateMachineForExecutionResponse_updateDate = Lens.lens (\DescribeStateMachineForExecutionResponse' {updateDate} -> updateDate) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {updateDate = a} :: DescribeStateMachineForExecutionResponse) Core.. Core._Time
+describeStateMachineForExecutionResponse_updateDate :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.UTCTime
+describeStateMachineForExecutionResponse_updateDate = Lens.lens (\DescribeStateMachineForExecutionResponse' {updateDate} -> updateDate) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {updateDate = a} :: DescribeStateMachineForExecutionResponse) Prelude.. Core._Time
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeStateMachineForExecutionResponse

@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -61,9 +62,9 @@ data PurgeQueue = PurgeQueue'
     -- messages.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Core.Text
+    queueUrl :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PurgeQueue' with all optional fields omitted.
@@ -79,7 +80,7 @@ data PurgeQueue = PurgeQueue'
 -- Queue URLs and names are case-sensitive.
 newPurgeQueue ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   PurgeQueue
 newPurgeQueue pQueueUrl_ =
   PurgeQueue' {queueUrl = pQueueUrl_}
@@ -88,7 +89,7 @@ newPurgeQueue pQueueUrl_ =
 -- messages.
 --
 -- Queue URLs and names are case-sensitive.
-purgeQueue_queueUrl :: Lens.Lens' PurgeQueue Core.Text
+purgeQueue_queueUrl :: Lens.Lens' PurgeQueue Prelude.Text
 purgeQueue_queueUrl = Lens.lens (\PurgeQueue' {queueUrl} -> queueUrl) (\s@PurgeQueue' {} a -> s {queueUrl = a} :: PurgeQueue)
 
 instance Core.AWSRequest PurgeQueue where
@@ -96,21 +97,23 @@ instance Core.AWSRequest PurgeQueue where
   request = Request.postQuery defaultService
   response = Response.receiveNull PurgeQueueResponse'
 
-instance Core.Hashable PurgeQueue
+instance Prelude.Hashable PurgeQueue
 
-instance Core.NFData PurgeQueue
+instance Prelude.NFData PurgeQueue
 
 instance Core.ToHeaders PurgeQueue where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PurgeQueue where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PurgeQueue where
   toQuery PurgeQueue' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("PurgeQueue" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("PurgeQueue" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueUrl" Core.=: queueUrl
       ]
 
@@ -118,7 +121,7 @@ instance Core.ToQuery PurgeQueue where
 data PurgeQueueResponse = PurgeQueueResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PurgeQueueResponse' with all optional fields omitted.
@@ -128,4 +131,4 @@ newPurgeQueueResponse ::
   PurgeQueueResponse
 newPurgeQueueResponse = PurgeQueueResponse'
 
-instance Core.NFData PurgeQueueResponse
+instance Prelude.NFData PurgeQueueResponse

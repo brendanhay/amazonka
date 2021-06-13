@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -59,11 +60,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDisassociateTrialComponent' smart constructor.
 data DisassociateTrialComponent = DisassociateTrialComponent'
   { -- | The name of the component to disassociate from the trial.
-    trialComponentName :: Core.Text,
+    trialComponentName :: Prelude.Text,
     -- | The name of the trial to disassociate from.
-    trialName :: Core.Text
+    trialName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateTrialComponent' with all optional fields omitted.
@@ -78,9 +79,9 @@ data DisassociateTrialComponent = DisassociateTrialComponent'
 -- 'trialName', 'disassociateTrialComponent_trialName' - The name of the trial to disassociate from.
 newDisassociateTrialComponent ::
   -- | 'trialComponentName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'trialName'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateTrialComponent
 newDisassociateTrialComponent
   pTrialComponentName_
@@ -92,11 +93,11 @@ newDisassociateTrialComponent
       }
 
 -- | The name of the component to disassociate from the trial.
-disassociateTrialComponent_trialComponentName :: Lens.Lens' DisassociateTrialComponent Core.Text
+disassociateTrialComponent_trialComponentName :: Lens.Lens' DisassociateTrialComponent Prelude.Text
 disassociateTrialComponent_trialComponentName = Lens.lens (\DisassociateTrialComponent' {trialComponentName} -> trialComponentName) (\s@DisassociateTrialComponent' {} a -> s {trialComponentName = a} :: DisassociateTrialComponent)
 
 -- | The name of the trial to disassociate from.
-disassociateTrialComponent_trialName :: Lens.Lens' DisassociateTrialComponent Core.Text
+disassociateTrialComponent_trialName :: Lens.Lens' DisassociateTrialComponent Prelude.Text
 disassociateTrialComponent_trialName = Lens.lens (\DisassociateTrialComponent' {trialName} -> trialName) (\s@DisassociateTrialComponent' {} a -> s {trialName = a} :: DisassociateTrialComponent)
 
 instance Core.AWSRequest DisassociateTrialComponent where
@@ -108,54 +109,56 @@ instance Core.AWSRequest DisassociateTrialComponent where
     Response.receiveJSON
       ( \s h x ->
           DisassociateTrialComponentResponse'
-            Core.<$> (x Core..?> "TrialArn")
-            Core.<*> (x Core..?> "TrialComponentArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TrialArn")
+            Prelude.<*> (x Core..?> "TrialComponentArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateTrialComponent
+instance Prelude.Hashable DisassociateTrialComponent
 
-instance Core.NFData DisassociateTrialComponent
+instance Prelude.NFData DisassociateTrialComponent
 
 instance Core.ToHeaders DisassociateTrialComponent where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.DisassociateTrialComponent" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateTrialComponent where
   toJSON DisassociateTrialComponent' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("TrialComponentName" Core..= trialComponentName),
-            Core.Just ("TrialName" Core..= trialName)
+            Prelude.Just ("TrialName" Core..= trialName)
           ]
       )
 
 instance Core.ToPath DisassociateTrialComponent where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateTrialComponent where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateTrialComponentResponse' smart constructor.
 data DisassociateTrialComponentResponse = DisassociateTrialComponentResponse'
   { -- | The Amazon Resource Name (ARN) of the trial.
-    trialArn :: Core.Maybe Core.Text,
+    trialArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the trial component.
-    trialComponentArn :: Core.Maybe Core.Text,
+    trialComponentArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateTrialComponentResponse' with all optional fields omitted.
@@ -172,28 +175,28 @@ data DisassociateTrialComponentResponse = DisassociateTrialComponentResponse'
 -- 'httpStatus', 'disassociateTrialComponentResponse_httpStatus' - The response's http status code.
 newDisassociateTrialComponentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateTrialComponentResponse
 newDisassociateTrialComponentResponse pHttpStatus_ =
   DisassociateTrialComponentResponse'
     { trialArn =
-        Core.Nothing,
-      trialComponentArn = Core.Nothing,
+        Prelude.Nothing,
+      trialComponentArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the trial.
-disassociateTrialComponentResponse_trialArn :: Lens.Lens' DisassociateTrialComponentResponse (Core.Maybe Core.Text)
+disassociateTrialComponentResponse_trialArn :: Lens.Lens' DisassociateTrialComponentResponse (Prelude.Maybe Prelude.Text)
 disassociateTrialComponentResponse_trialArn = Lens.lens (\DisassociateTrialComponentResponse' {trialArn} -> trialArn) (\s@DisassociateTrialComponentResponse' {} a -> s {trialArn = a} :: DisassociateTrialComponentResponse)
 
 -- | The ARN of the trial component.
-disassociateTrialComponentResponse_trialComponentArn :: Lens.Lens' DisassociateTrialComponentResponse (Core.Maybe Core.Text)
+disassociateTrialComponentResponse_trialComponentArn :: Lens.Lens' DisassociateTrialComponentResponse (Prelude.Maybe Prelude.Text)
 disassociateTrialComponentResponse_trialComponentArn = Lens.lens (\DisassociateTrialComponentResponse' {trialComponentArn} -> trialComponentArn) (\s@DisassociateTrialComponentResponse' {} a -> s {trialComponentArn = a} :: DisassociateTrialComponentResponse)
 
 -- | The response's http status code.
-disassociateTrialComponentResponse_httpStatus :: Lens.Lens' DisassociateTrialComponentResponse Core.Int
+disassociateTrialComponentResponse_httpStatus :: Lens.Lens' DisassociateTrialComponentResponse Prelude.Int
 disassociateTrialComponentResponse_httpStatus = Lens.lens (\DisassociateTrialComponentResponse' {httpStatus} -> httpStatus) (\s@DisassociateTrialComponentResponse' {} a -> s {httpStatus = a} :: DisassociateTrialComponentResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateTrialComponentResponse

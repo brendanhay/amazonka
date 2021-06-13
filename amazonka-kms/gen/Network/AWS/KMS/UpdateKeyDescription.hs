@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,11 +76,11 @@ data UpdateKeyDescription = UpdateKeyDescription'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text,
+    keyId :: Prelude.Text,
     -- | New description for the CMK.
-    description :: Core.Text
+    description :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateKeyDescription' with all optional fields omitted.
@@ -105,9 +106,9 @@ data UpdateKeyDescription = UpdateKeyDescription'
 -- 'description', 'updateKeyDescription_description' - New description for the CMK.
 newUpdateKeyDescription ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   UpdateKeyDescription
 newUpdateKeyDescription pKeyId_ pDescription_ =
   UpdateKeyDescription'
@@ -127,11 +128,11 @@ newUpdateKeyDescription pKeyId_ pDescription_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-updateKeyDescription_keyId :: Lens.Lens' UpdateKeyDescription Core.Text
+updateKeyDescription_keyId :: Lens.Lens' UpdateKeyDescription Prelude.Text
 updateKeyDescription_keyId = Lens.lens (\UpdateKeyDescription' {keyId} -> keyId) (\s@UpdateKeyDescription' {} a -> s {keyId = a} :: UpdateKeyDescription)
 
 -- | New description for the CMK.
-updateKeyDescription_description :: Lens.Lens' UpdateKeyDescription Core.Text
+updateKeyDescription_description :: Lens.Lens' UpdateKeyDescription Prelude.Text
 updateKeyDescription_description = Lens.lens (\UpdateKeyDescription' {description} -> description) (\s@UpdateKeyDescription' {} a -> s {description = a} :: UpdateKeyDescription)
 
 instance Core.AWSRequest UpdateKeyDescription where
@@ -142,43 +143,45 @@ instance Core.AWSRequest UpdateKeyDescription where
   response =
     Response.receiveNull UpdateKeyDescriptionResponse'
 
-instance Core.Hashable UpdateKeyDescription
+instance Prelude.Hashable UpdateKeyDescription
 
-instance Core.NFData UpdateKeyDescription
+instance Prelude.NFData UpdateKeyDescription
 
 instance Core.ToHeaders UpdateKeyDescription where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.UpdateKeyDescription" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateKeyDescription where
   toJSON UpdateKeyDescription' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("KeyId" Core..= keyId),
-            Core.Just ("Description" Core..= description)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just ("Description" Core..= description)
           ]
       )
 
 instance Core.ToPath UpdateKeyDescription where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateKeyDescription where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateKeyDescriptionResponse' smart constructor.
 data UpdateKeyDescriptionResponse = UpdateKeyDescriptionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateKeyDescriptionResponse' with all optional fields omitted.
@@ -189,4 +192,4 @@ newUpdateKeyDescriptionResponse ::
 newUpdateKeyDescriptionResponse =
   UpdateKeyDescriptionResponse'
 
-instance Core.NFData UpdateKeyDescriptionResponse
+instance Prelude.NFData UpdateKeyDescriptionResponse

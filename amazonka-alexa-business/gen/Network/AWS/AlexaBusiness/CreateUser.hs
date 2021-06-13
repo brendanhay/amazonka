@@ -47,26 +47,27 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
   { -- | The email address for the user.
-    email :: Core.Maybe Core.Text,
+    email :: Prelude.Maybe Prelude.Text,
     -- | The tags for the user.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A unique, user-specified identifier for this request that ensures
     -- idempotency.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The first name for the user.
-    firstName :: Core.Maybe Core.Text,
+    firstName :: Prelude.Maybe Prelude.Text,
     -- | The last name for the user.
-    lastName :: Core.Maybe Core.Text,
+    lastName :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the user.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUser' with all optional fields omitted.
@@ -90,41 +91,41 @@ data CreateUser = CreateUser'
 -- 'userId', 'createUser_userId' - The ARN for the user.
 newCreateUser ::
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   CreateUser
 newCreateUser pUserId_ =
   CreateUser'
-    { email = Core.Nothing,
-      tags = Core.Nothing,
-      clientRequestToken = Core.Nothing,
-      firstName = Core.Nothing,
-      lastName = Core.Nothing,
+    { email = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      firstName = Prelude.Nothing,
+      lastName = Prelude.Nothing,
       userId = pUserId_
     }
 
 -- | The email address for the user.
-createUser_email :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
+createUser_email :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_email = Lens.lens (\CreateUser' {email} -> email) (\s@CreateUser' {} a -> s {email = a} :: CreateUser)
 
 -- | The tags for the user.
-createUser_tags :: Lens.Lens' CreateUser (Core.Maybe [Tag])
-createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Core.. Lens.mapping Lens._Coerce
+createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe [Tag])
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique, user-specified identifier for this request that ensures
 -- idempotency.
-createUser_clientRequestToken :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
+createUser_clientRequestToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_clientRequestToken = Lens.lens (\CreateUser' {clientRequestToken} -> clientRequestToken) (\s@CreateUser' {} a -> s {clientRequestToken = a} :: CreateUser)
 
 -- | The first name for the user.
-createUser_firstName :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
+createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser)
 
 -- | The last name for the user.
-createUser_lastName :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
+createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser)
 
 -- | The ARN for the user.
-createUser_userId :: Lens.Lens' CreateUser Core.Text
+createUser_userId :: Lens.Lens' CreateUser Prelude.Text
 createUser_userId = Lens.lens (\CreateUser' {userId} -> userId) (\s@CreateUser' {} a -> s {userId = a} :: CreateUser)
 
 instance Core.AWSRequest CreateUser where
@@ -134,53 +135,57 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Core.<$> (x Core..?> "UserArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UserArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateUser
+instance Prelude.Hashable CreateUser
 
-instance Core.NFData CreateUser
+instance Prelude.NFData CreateUser
 
 instance Core.ToHeaders CreateUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.CreateUser" :: Core.ByteString),
+              Core.=# ( "AlexaForBusiness.CreateUser" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Email" Core..=) Core.<$> email,
-            ("Tags" Core..=) Core.<$> tags,
+      ( Prelude.catMaybes
+          [ ("Email" Core..=) Prelude.<$> email,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            ("FirstName" Core..=) Core.<$> firstName,
-            ("LastName" Core..=) Core.<$> lastName,
-            Core.Just ("UserId" Core..= userId)
+              Prelude.<$> clientRequestToken,
+            ("FirstName" Core..=) Prelude.<$> firstName,
+            ("LastName" Core..=) Prelude.<$> lastName,
+            Prelude.Just ("UserId" Core..= userId)
           ]
       )
 
 instance Core.ToPath CreateUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
   { -- | The ARN of the newly created user in the response.
-    userArn :: Core.Maybe Core.Text,
+    userArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUserResponse' with all optional fields omitted.
@@ -195,20 +200,20 @@ data CreateUserResponse = CreateUserResponse'
 -- 'httpStatus', 'createUserResponse_httpStatus' - The response's http status code.
 newCreateUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateUserResponse
 newCreateUserResponse pHttpStatus_ =
   CreateUserResponse'
-    { userArn = Core.Nothing,
+    { userArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the newly created user in the response.
-createUserResponse_userArn :: Lens.Lens' CreateUserResponse (Core.Maybe Core.Text)
+createUserResponse_userArn :: Lens.Lens' CreateUserResponse (Prelude.Maybe Prelude.Text)
 createUserResponse_userArn = Lens.lens (\CreateUserResponse' {userArn} -> userArn) (\s@CreateUserResponse' {} a -> s {userArn = a} :: CreateUserResponse)
 
 -- | The response's http status code.
-createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Core.Int
+createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Prelude.Int
 createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> httpStatus) (\s@CreateUserResponse' {} a -> s {httpStatus = a} :: CreateUserResponse)
 
-instance Core.NFData CreateUserResponse
+instance Prelude.NFData CreateUserResponse

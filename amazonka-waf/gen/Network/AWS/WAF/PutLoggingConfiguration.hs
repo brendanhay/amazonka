@@ -72,6 +72,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -86,7 +87,7 @@ data PutLoggingConfiguration = PutLoggingConfiguration'
     -- following values: @URI@, @QUERY_STRING@, @HEADER@, or @METHOD@.
     loggingConfiguration :: LoggingConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutLoggingConfiguration' with all optional fields omitted.
@@ -130,32 +131,34 @@ instance Core.AWSRequest PutLoggingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           PutLoggingConfigurationResponse'
-            Core.<$> (x Core..?> "LoggingConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "LoggingConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutLoggingConfiguration
+instance Prelude.Hashable PutLoggingConfiguration
 
-instance Core.NFData PutLoggingConfiguration
+instance Prelude.NFData PutLoggingConfiguration
 
 instance Core.ToHeaders PutLoggingConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.PutLoggingConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutLoggingConfiguration where
   toJSON PutLoggingConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "LoggingConfiguration"
                   Core..= loggingConfiguration
               )
@@ -163,19 +166,19 @@ instance Core.ToJSON PutLoggingConfiguration where
       )
 
 instance Core.ToPath PutLoggingConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutLoggingConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLoggingConfigurationResponse' smart constructor.
 data PutLoggingConfigurationResponse = PutLoggingConfigurationResponse'
   { -- | The LoggingConfiguration that you submitted in the request.
-    loggingConfiguration :: Core.Maybe LoggingConfiguration,
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutLoggingConfigurationResponse' with all optional fields omitted.
@@ -190,21 +193,23 @@ data PutLoggingConfigurationResponse = PutLoggingConfigurationResponse'
 -- 'httpStatus', 'putLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newPutLoggingConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutLoggingConfigurationResponse
 newPutLoggingConfigurationResponse pHttpStatus_ =
   PutLoggingConfigurationResponse'
     { loggingConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The LoggingConfiguration that you submitted in the request.
-putLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' PutLoggingConfigurationResponse (Core.Maybe LoggingConfiguration)
+putLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' PutLoggingConfigurationResponse (Prelude.Maybe LoggingConfiguration)
 putLoggingConfigurationResponse_loggingConfiguration = Lens.lens (\PutLoggingConfigurationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@PutLoggingConfigurationResponse' {} a -> s {loggingConfiguration = a} :: PutLoggingConfigurationResponse)
 
 -- | The response's http status code.
-putLoggingConfigurationResponse_httpStatus :: Lens.Lens' PutLoggingConfigurationResponse Core.Int
+putLoggingConfigurationResponse_httpStatus :: Lens.Lens' PutLoggingConfigurationResponse Prelude.Int
 putLoggingConfigurationResponse_httpStatus = Lens.lens (\PutLoggingConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutLoggingConfigurationResponse' {} a -> s {httpStatus = a} :: PutLoggingConfigurationResponse)
 
-instance Core.NFData PutLoggingConfigurationResponse
+instance
+  Prelude.NFData
+    PutLoggingConfigurationResponse

@@ -21,6 +21,7 @@ module Network.AWS.CodeCommit.Types.SourceFileSpecifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a source file that is part of changes made in a
 -- commit.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSourceFileSpecifier' smart constructor.
 data SourceFileSpecifier = SourceFileSpecifier'
   { -- | Whether to remove the source file from the parent commit.
-    isMove :: Core.Maybe Core.Bool,
+    isMove :: Prelude.Maybe Prelude.Bool,
     -- | The full path to the file, including the name of the file.
-    filePath :: Core.Text
+    filePath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceFileSpecifier' with all optional fields omitted.
@@ -47,31 +48,31 @@ data SourceFileSpecifier = SourceFileSpecifier'
 -- 'filePath', 'sourceFileSpecifier_filePath' - The full path to the file, including the name of the file.
 newSourceFileSpecifier ::
   -- | 'filePath'
-  Core.Text ->
+  Prelude.Text ->
   SourceFileSpecifier
 newSourceFileSpecifier pFilePath_ =
   SourceFileSpecifier'
-    { isMove = Core.Nothing,
+    { isMove = Prelude.Nothing,
       filePath = pFilePath_
     }
 
 -- | Whether to remove the source file from the parent commit.
-sourceFileSpecifier_isMove :: Lens.Lens' SourceFileSpecifier (Core.Maybe Core.Bool)
+sourceFileSpecifier_isMove :: Lens.Lens' SourceFileSpecifier (Prelude.Maybe Prelude.Bool)
 sourceFileSpecifier_isMove = Lens.lens (\SourceFileSpecifier' {isMove} -> isMove) (\s@SourceFileSpecifier' {} a -> s {isMove = a} :: SourceFileSpecifier)
 
 -- | The full path to the file, including the name of the file.
-sourceFileSpecifier_filePath :: Lens.Lens' SourceFileSpecifier Core.Text
+sourceFileSpecifier_filePath :: Lens.Lens' SourceFileSpecifier Prelude.Text
 sourceFileSpecifier_filePath = Lens.lens (\SourceFileSpecifier' {filePath} -> filePath) (\s@SourceFileSpecifier' {} a -> s {filePath = a} :: SourceFileSpecifier)
 
-instance Core.Hashable SourceFileSpecifier
+instance Prelude.Hashable SourceFileSpecifier
 
-instance Core.NFData SourceFileSpecifier
+instance Prelude.NFData SourceFileSpecifier
 
 instance Core.ToJSON SourceFileSpecifier where
   toJSON SourceFileSpecifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("isMove" Core..=) Core.<$> isMove,
-            Core.Just ("filePath" Core..= filePath)
+      ( Prelude.catMaybes
+          [ ("isMove" Core..=) Prelude.<$> isMove,
+            Prelude.Just ("filePath" Core..= filePath)
           ]
       )

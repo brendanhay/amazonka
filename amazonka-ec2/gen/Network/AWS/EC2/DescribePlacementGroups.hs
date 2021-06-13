@@ -48,23 +48,24 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
   { -- | The IDs of the placement groups.
-    groupIds :: Core.Maybe [Core.Text],
+    groupIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The names of the placement groups.
     --
     -- Default: Describes all your placement groups, or only those otherwise
     -- specified.
-    groupNames :: Core.Maybe [Core.Text],
+    groupNames :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @group-name@ - The name of the placement group.
@@ -84,9 +85,9 @@ data DescribePlacementGroups = DescribePlacementGroups'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources that have a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePlacementGroups' with all optional fields omitted.
@@ -131,29 +132,30 @@ newDescribePlacementGroups ::
   DescribePlacementGroups
 newDescribePlacementGroups =
   DescribePlacementGroups'
-    { groupIds = Core.Nothing,
-      dryRun = Core.Nothing,
-      groupNames = Core.Nothing,
-      filters = Core.Nothing
+    { groupIds =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      groupNames = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The IDs of the placement groups.
-describePlacementGroups_groupIds :: Lens.Lens' DescribePlacementGroups (Core.Maybe [Core.Text])
-describePlacementGroups_groupIds = Lens.lens (\DescribePlacementGroups' {groupIds} -> groupIds) (\s@DescribePlacementGroups' {} a -> s {groupIds = a} :: DescribePlacementGroups) Core.. Lens.mapping Lens._Coerce
+describePlacementGroups_groupIds :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Prelude.Text])
+describePlacementGroups_groupIds = Lens.lens (\DescribePlacementGroups' {groupIds} -> groupIds) (\s@DescribePlacementGroups' {} a -> s {groupIds = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describePlacementGroups_dryRun :: Lens.Lens' DescribePlacementGroups (Core.Maybe Core.Bool)
+describePlacementGroups_dryRun :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe Prelude.Bool)
 describePlacementGroups_dryRun = Lens.lens (\DescribePlacementGroups' {dryRun} -> dryRun) (\s@DescribePlacementGroups' {} a -> s {dryRun = a} :: DescribePlacementGroups)
 
 -- | The names of the placement groups.
 --
 -- Default: Describes all your placement groups, or only those otherwise
 -- specified.
-describePlacementGroups_groupNames :: Lens.Lens' DescribePlacementGroups (Core.Maybe [Core.Text])
-describePlacementGroups_groupNames = Lens.lens (\DescribePlacementGroups' {groupNames} -> groupNames) (\s@DescribePlacementGroups' {} a -> s {groupNames = a} :: DescribePlacementGroups) Core.. Lens.mapping Lens._Coerce
+describePlacementGroups_groupNames :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Prelude.Text])
+describePlacementGroups_groupNames = Lens.lens (\DescribePlacementGroups' {groupNames} -> groupNames) (\s@DescribePlacementGroups' {} a -> s {groupNames = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -174,8 +176,8 @@ describePlacementGroups_groupNames = Lens.lens (\DescribePlacementGroups' {group
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources that have a tag with a specific key,
 --     regardless of the tag value.
-describePlacementGroups_filters :: Lens.Lens' DescribePlacementGroups (Core.Maybe [Filter])
-describePlacementGroups_filters = Lens.lens (\DescribePlacementGroups' {filters} -> filters) (\s@DescribePlacementGroups' {} a -> s {filters = a} :: DescribePlacementGroups) Core.. Lens.mapping Lens._Coerce
+describePlacementGroups_filters :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Filter])
+describePlacementGroups_filters = Lens.lens (\DescribePlacementGroups' {filters} -> filters) (\s@DescribePlacementGroups' {} a -> s {filters = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribePlacementGroups where
   type
@@ -186,45 +188,49 @@ instance Core.AWSRequest DescribePlacementGroups where
     Response.receiveXML
       ( \s h x ->
           DescribePlacementGroupsResponse'
-            Core.<$> ( x Core..@? "placementGroupSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "placementGroupSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribePlacementGroups
+instance Prelude.Hashable DescribePlacementGroups
 
-instance Core.NFData DescribePlacementGroups
+instance Prelude.NFData DescribePlacementGroups
 
 instance Core.ToHeaders DescribePlacementGroups where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribePlacementGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePlacementGroups where
   toQuery DescribePlacementGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePlacementGroups" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribePlacementGroups" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "GroupId" Core.<$> groupIds),
+          (Core.toQueryList "GroupId" Prelude.<$> groupIds),
         "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "GroupName" Core.<$> groupNames),
+          ( Core.toQueryList "GroupName"
+              Prelude.<$> groupNames
+          ),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribePlacementGroupsResponse' smart constructor.
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
   { -- | Information about the placement groups.
-    placementGroups :: Core.Maybe [PlacementGroup],
+    placementGroups :: Prelude.Maybe [PlacementGroup],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePlacementGroupsResponse' with all optional fields omitted.
@@ -239,21 +245,23 @@ data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
 -- 'httpStatus', 'describePlacementGroupsResponse_httpStatus' - The response's http status code.
 newDescribePlacementGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePlacementGroupsResponse
 newDescribePlacementGroupsResponse pHttpStatus_ =
   DescribePlacementGroupsResponse'
     { placementGroups =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the placement groups.
-describePlacementGroupsResponse_placementGroups :: Lens.Lens' DescribePlacementGroupsResponse (Core.Maybe [PlacementGroup])
-describePlacementGroupsResponse_placementGroups = Lens.lens (\DescribePlacementGroupsResponse' {placementGroups} -> placementGroups) (\s@DescribePlacementGroupsResponse' {} a -> s {placementGroups = a} :: DescribePlacementGroupsResponse) Core.. Lens.mapping Lens._Coerce
+describePlacementGroupsResponse_placementGroups :: Lens.Lens' DescribePlacementGroupsResponse (Prelude.Maybe [PlacementGroup])
+describePlacementGroupsResponse_placementGroups = Lens.lens (\DescribePlacementGroupsResponse' {placementGroups} -> placementGroups) (\s@DescribePlacementGroupsResponse' {} a -> s {placementGroups = a} :: DescribePlacementGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePlacementGroupsResponse_httpStatus :: Lens.Lens' DescribePlacementGroupsResponse Core.Int
+describePlacementGroupsResponse_httpStatus :: Lens.Lens' DescribePlacementGroupsResponse Prelude.Int
 describePlacementGroupsResponse_httpStatus = Lens.lens (\DescribePlacementGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribePlacementGroupsResponse' {} a -> s {httpStatus = a} :: DescribePlacementGroupsResponse)
 
-instance Core.NFData DescribePlacementGroupsResponse
+instance
+  Prelude.NFData
+    DescribePlacementGroupsResponse

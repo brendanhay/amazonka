@@ -44,6 +44,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,14 +52,14 @@ import qualified Network.AWS.Response as Response
 data DetectSyntax = DetectSyntax'
   { -- | A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF
     -- encoded characters.
-    text :: Core.Sensitive Core.Text,
+    text :: Core.Sensitive Prelude.Text,
     -- | The language code of the input documents. You can specify any of the
     -- following languages supported by Amazon Comprehend: German (\"de\"),
     -- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
     -- or Portuguese (\"pt\").
     languageCode :: SyntaxLanguageCode
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectSyntax' with all optional fields omitted.
@@ -77,7 +78,7 @@ data DetectSyntax = DetectSyntax'
 -- or Portuguese (\"pt\").
 newDetectSyntax ::
   -- | 'text'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'languageCode'
   SyntaxLanguageCode ->
   DetectSyntax
@@ -89,8 +90,8 @@ newDetectSyntax pText_ pLanguageCode_ =
 
 -- | A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF
 -- encoded characters.
-detectSyntax_text :: Lens.Lens' DetectSyntax Core.Text
-detectSyntax_text = Lens.lens (\DetectSyntax' {text} -> text) (\s@DetectSyntax' {} a -> s {text = a} :: DetectSyntax) Core.. Core._Sensitive
+detectSyntax_text :: Lens.Lens' DetectSyntax Prelude.Text
+detectSyntax_text = Lens.lens (\DetectSyntax' {text} -> text) (\s@DetectSyntax' {} a -> s {text = a} :: DetectSyntax) Prelude.. Core._Sensitive
 
 -- | The language code of the input documents. You can specify any of the
 -- following languages supported by Amazon Comprehend: German (\"de\"),
@@ -106,41 +107,43 @@ instance Core.AWSRequest DetectSyntax where
     Response.receiveJSON
       ( \s h x ->
           DetectSyntaxResponse'
-            Core.<$> (x Core..?> "SyntaxTokens" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SyntaxTokens" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetectSyntax
+instance Prelude.Hashable DetectSyntax
 
-instance Core.NFData DetectSyntax
+instance Prelude.NFData DetectSyntax
 
 instance Core.ToHeaders DetectSyntax where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DetectSyntax" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetectSyntax where
   toJSON DetectSyntax' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Text" Core..= text),
-            Core.Just ("LanguageCode" Core..= languageCode)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Text" Core..= text),
+            Prelude.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
 instance Core.ToPath DetectSyntax where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetectSyntax where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectSyntaxResponse' smart constructor.
 data DetectSyntaxResponse = DetectSyntaxResponse'
@@ -148,11 +151,11 @@ data DetectSyntaxResponse = DetectSyntaxResponse'
     -- response provides the text, the token type, where the text begins and
     -- ends, and the level of confidence that Amazon Comprehend has that the
     -- token is correct. For a list of token types, see how-syntax.
-    syntaxTokens :: Core.Maybe [SyntaxToken],
+    syntaxTokens :: Prelude.Maybe [SyntaxToken],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectSyntaxResponse' with all optional fields omitted.
@@ -170,11 +173,12 @@ data DetectSyntaxResponse = DetectSyntaxResponse'
 -- 'httpStatus', 'detectSyntaxResponse_httpStatus' - The response's http status code.
 newDetectSyntaxResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetectSyntaxResponse
 newDetectSyntaxResponse pHttpStatus_ =
   DetectSyntaxResponse'
-    { syntaxTokens = Core.Nothing,
+    { syntaxTokens =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -182,11 +186,11 @@ newDetectSyntaxResponse pHttpStatus_ =
 -- response provides the text, the token type, where the text begins and
 -- ends, and the level of confidence that Amazon Comprehend has that the
 -- token is correct. For a list of token types, see how-syntax.
-detectSyntaxResponse_syntaxTokens :: Lens.Lens' DetectSyntaxResponse (Core.Maybe [SyntaxToken])
-detectSyntaxResponse_syntaxTokens = Lens.lens (\DetectSyntaxResponse' {syntaxTokens} -> syntaxTokens) (\s@DetectSyntaxResponse' {} a -> s {syntaxTokens = a} :: DetectSyntaxResponse) Core.. Lens.mapping Lens._Coerce
+detectSyntaxResponse_syntaxTokens :: Lens.Lens' DetectSyntaxResponse (Prelude.Maybe [SyntaxToken])
+detectSyntaxResponse_syntaxTokens = Lens.lens (\DetectSyntaxResponse' {syntaxTokens} -> syntaxTokens) (\s@DetectSyntaxResponse' {} a -> s {syntaxTokens = a} :: DetectSyntaxResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detectSyntaxResponse_httpStatus :: Lens.Lens' DetectSyntaxResponse Core.Int
+detectSyntaxResponse_httpStatus :: Lens.Lens' DetectSyntaxResponse Prelude.Int
 detectSyntaxResponse_httpStatus = Lens.lens (\DetectSyntaxResponse' {httpStatus} -> httpStatus) (\s@DetectSyntaxResponse' {} a -> s {httpStatus = a} :: DetectSyntaxResponse)
 
-instance Core.NFData DetectSyntaxResponse
+instance Prelude.NFData DetectSyntaxResponse

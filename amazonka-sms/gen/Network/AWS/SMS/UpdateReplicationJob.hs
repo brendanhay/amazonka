@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -55,15 +56,15 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newUpdateReplicationJob' smart constructor.
 data UpdateReplicationJob = UpdateReplicationJob'
   { -- | The start time of the next replication run.
-    nextReplicationRunStartTime :: Core.Maybe Core.POSIX,
+    nextReplicationRunStartTime :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
     -- after the maximum number is reached and a new AMI is created.
-    numberOfRecentAmisToKeep :: Core.Maybe Core.Int,
+    numberOfRecentAmisToKeep :: Prelude.Maybe Prelude.Int,
     -- | When true, the replication job produces encrypted AMIs. For more
     -- information, @KmsKeyId@.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The name of the IAM role to be used by AWS SMS.
-    roleName :: Core.Maybe Core.Text,
+    roleName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
     -- This value can be any of the following:
     --
@@ -77,18 +78,18 @@ data UpdateReplicationJob = UpdateReplicationJob'
     --
     -- If encrypted is enabled but a KMS key ID is not specified, the
     -- customer\'s default KMS key for Amazon EBS is used.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time between consecutive replication runs, in hours.
-    frequency :: Core.Maybe Core.Int,
+    frequency :: Prelude.Maybe Prelude.Int,
     -- | The description of the replication job.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The license type to be used for the AMI created by a successful
     -- replication run.
-    licenseType :: Core.Maybe LicenseType,
+    licenseType :: Prelude.Maybe LicenseType,
     -- | The ID of the replication job.
-    replicationJobId :: Core.Text
+    replicationJobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateReplicationJob' with all optional fields omitted.
@@ -132,38 +133,38 @@ data UpdateReplicationJob = UpdateReplicationJob'
 -- 'replicationJobId', 'updateReplicationJob_replicationJobId' - The ID of the replication job.
 newUpdateReplicationJob ::
   -- | 'replicationJobId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateReplicationJob
 newUpdateReplicationJob pReplicationJobId_ =
   UpdateReplicationJob'
     { nextReplicationRunStartTime =
-        Core.Nothing,
-      numberOfRecentAmisToKeep = Core.Nothing,
-      encrypted = Core.Nothing,
-      roleName = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      frequency = Core.Nothing,
-      description = Core.Nothing,
-      licenseType = Core.Nothing,
+        Prelude.Nothing,
+      numberOfRecentAmisToKeep = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      roleName = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      frequency = Prelude.Nothing,
+      description = Prelude.Nothing,
+      licenseType = Prelude.Nothing,
       replicationJobId = pReplicationJobId_
     }
 
 -- | The start time of the next replication run.
-updateReplicationJob_nextReplicationRunStartTime :: Lens.Lens' UpdateReplicationJob (Core.Maybe Core.UTCTime)
-updateReplicationJob_nextReplicationRunStartTime = Lens.lens (\UpdateReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@UpdateReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: UpdateReplicationJob) Core.. Lens.mapping Core._Time
+updateReplicationJob_nextReplicationRunStartTime :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.UTCTime)
+updateReplicationJob_nextReplicationRunStartTime = Lens.lens (\UpdateReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@UpdateReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: UpdateReplicationJob) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
 -- after the maximum number is reached and a new AMI is created.
-updateReplicationJob_numberOfRecentAmisToKeep :: Lens.Lens' UpdateReplicationJob (Core.Maybe Core.Int)
+updateReplicationJob_numberOfRecentAmisToKeep :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Int)
 updateReplicationJob_numberOfRecentAmisToKeep = Lens.lens (\UpdateReplicationJob' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@UpdateReplicationJob' {} a -> s {numberOfRecentAmisToKeep = a} :: UpdateReplicationJob)
 
 -- | When true, the replication job produces encrypted AMIs. For more
 -- information, @KmsKeyId@.
-updateReplicationJob_encrypted :: Lens.Lens' UpdateReplicationJob (Core.Maybe Core.Bool)
+updateReplicationJob_encrypted :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Bool)
 updateReplicationJob_encrypted = Lens.lens (\UpdateReplicationJob' {encrypted} -> encrypted) (\s@UpdateReplicationJob' {} a -> s {encrypted = a} :: UpdateReplicationJob)
 
 -- | The name of the IAM role to be used by AWS SMS.
-updateReplicationJob_roleName :: Lens.Lens' UpdateReplicationJob (Core.Maybe Core.Text)
+updateReplicationJob_roleName :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
 updateReplicationJob_roleName = Lens.lens (\UpdateReplicationJob' {roleName} -> roleName) (\s@UpdateReplicationJob' {} a -> s {roleName = a} :: UpdateReplicationJob)
 
 -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -179,24 +180,24 @@ updateReplicationJob_roleName = Lens.lens (\UpdateReplicationJob' {roleName} -> 
 --
 -- If encrypted is enabled but a KMS key ID is not specified, the
 -- customer\'s default KMS key for Amazon EBS is used.
-updateReplicationJob_kmsKeyId :: Lens.Lens' UpdateReplicationJob (Core.Maybe Core.Text)
+updateReplicationJob_kmsKeyId :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
 updateReplicationJob_kmsKeyId = Lens.lens (\UpdateReplicationJob' {kmsKeyId} -> kmsKeyId) (\s@UpdateReplicationJob' {} a -> s {kmsKeyId = a} :: UpdateReplicationJob)
 
 -- | The time between consecutive replication runs, in hours.
-updateReplicationJob_frequency :: Lens.Lens' UpdateReplicationJob (Core.Maybe Core.Int)
+updateReplicationJob_frequency :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Int)
 updateReplicationJob_frequency = Lens.lens (\UpdateReplicationJob' {frequency} -> frequency) (\s@UpdateReplicationJob' {} a -> s {frequency = a} :: UpdateReplicationJob)
 
 -- | The description of the replication job.
-updateReplicationJob_description :: Lens.Lens' UpdateReplicationJob (Core.Maybe Core.Text)
+updateReplicationJob_description :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
 updateReplicationJob_description = Lens.lens (\UpdateReplicationJob' {description} -> description) (\s@UpdateReplicationJob' {} a -> s {description = a} :: UpdateReplicationJob)
 
 -- | The license type to be used for the AMI created by a successful
 -- replication run.
-updateReplicationJob_licenseType :: Lens.Lens' UpdateReplicationJob (Core.Maybe LicenseType)
+updateReplicationJob_licenseType :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe LicenseType)
 updateReplicationJob_licenseType = Lens.lens (\UpdateReplicationJob' {licenseType} -> licenseType) (\s@UpdateReplicationJob' {} a -> s {licenseType = a} :: UpdateReplicationJob)
 
 -- | The ID of the replication job.
-updateReplicationJob_replicationJobId :: Lens.Lens' UpdateReplicationJob Core.Text
+updateReplicationJob_replicationJobId :: Lens.Lens' UpdateReplicationJob Prelude.Text
 updateReplicationJob_replicationJobId = Lens.lens (\UpdateReplicationJob' {replicationJobId} -> replicationJobId) (\s@UpdateReplicationJob' {} a -> s {replicationJobId = a} :: UpdateReplicationJob)
 
 instance Core.AWSRequest UpdateReplicationJob where
@@ -208,57 +209,59 @@ instance Core.AWSRequest UpdateReplicationJob where
     Response.receiveEmpty
       ( \s h x ->
           UpdateReplicationJobResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateReplicationJob
+instance Prelude.Hashable UpdateReplicationJob
 
-instance Core.NFData UpdateReplicationJob
+instance Prelude.NFData UpdateReplicationJob
 
 instance Core.ToHeaders UpdateReplicationJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateReplicationJob where
   toJSON UpdateReplicationJob' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("nextReplicationRunStartTime" Core..=)
-              Core.<$> nextReplicationRunStartTime,
+              Prelude.<$> nextReplicationRunStartTime,
             ("numberOfRecentAmisToKeep" Core..=)
-              Core.<$> numberOfRecentAmisToKeep,
-            ("encrypted" Core..=) Core.<$> encrypted,
-            ("roleName" Core..=) Core.<$> roleName,
-            ("kmsKeyId" Core..=) Core.<$> kmsKeyId,
-            ("frequency" Core..=) Core.<$> frequency,
-            ("description" Core..=) Core.<$> description,
-            ("licenseType" Core..=) Core.<$> licenseType,
-            Core.Just
+              Prelude.<$> numberOfRecentAmisToKeep,
+            ("encrypted" Core..=) Prelude.<$> encrypted,
+            ("roleName" Core..=) Prelude.<$> roleName,
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("frequency" Core..=) Prelude.<$> frequency,
+            ("description" Core..=) Prelude.<$> description,
+            ("licenseType" Core..=) Prelude.<$> licenseType,
+            Prelude.Just
               ("replicationJobId" Core..= replicationJobId)
           ]
       )
 
 instance Core.ToPath UpdateReplicationJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateReplicationJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateReplicationJobResponse' smart constructor.
 data UpdateReplicationJobResponse = UpdateReplicationJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateReplicationJobResponse' with all optional fields omitted.
@@ -271,7 +274,7 @@ data UpdateReplicationJobResponse = UpdateReplicationJobResponse'
 -- 'httpStatus', 'updateReplicationJobResponse_httpStatus' - The response's http status code.
 newUpdateReplicationJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateReplicationJobResponse
 newUpdateReplicationJobResponse pHttpStatus_ =
   UpdateReplicationJobResponse'
@@ -280,7 +283,7 @@ newUpdateReplicationJobResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateReplicationJobResponse_httpStatus :: Lens.Lens' UpdateReplicationJobResponse Core.Int
+updateReplicationJobResponse_httpStatus :: Lens.Lens' UpdateReplicationJobResponse Prelude.Int
 updateReplicationJobResponse_httpStatus = Lens.lens (\UpdateReplicationJobResponse' {httpStatus} -> httpStatus) (\s@UpdateReplicationJobResponse' {} a -> s {httpStatus = a} :: UpdateReplicationJobResponse)
 
-instance Core.NFData UpdateReplicationJobResponse
+instance Prelude.NFData UpdateReplicationJobResponse

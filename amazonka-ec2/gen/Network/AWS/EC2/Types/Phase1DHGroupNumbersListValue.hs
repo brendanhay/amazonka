@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.Phase1DHGroupNumbersListValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Diffie-Hellmann group number for phase 1 IKE negotiations.
 --
 -- /See:/ 'newPhase1DHGroupNumbersListValue' smart constructor.
 data Phase1DHGroupNumbersListValue = Phase1DHGroupNumbersListValue'
   { -- | The Diffie-Hellmann group number.
-    value :: Core.Maybe Core.Int
+    value :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Phase1DHGroupNumbersListValue' with all optional fields omitted.
@@ -46,18 +47,20 @@ newPhase1DHGroupNumbersListValue ::
 newPhase1DHGroupNumbersListValue =
   Phase1DHGroupNumbersListValue'
     { value =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Diffie-Hellmann group number.
-phase1DHGroupNumbersListValue_value :: Lens.Lens' Phase1DHGroupNumbersListValue (Core.Maybe Core.Int)
+phase1DHGroupNumbersListValue_value :: Lens.Lens' Phase1DHGroupNumbersListValue (Prelude.Maybe Prelude.Int)
 phase1DHGroupNumbersListValue_value = Lens.lens (\Phase1DHGroupNumbersListValue' {value} -> value) (\s@Phase1DHGroupNumbersListValue' {} a -> s {value = a} :: Phase1DHGroupNumbersListValue)
 
 instance Core.FromXML Phase1DHGroupNumbersListValue where
   parseXML x =
     Phase1DHGroupNumbersListValue'
-      Core.<$> (x Core..@? "value")
+      Prelude.<$> (x Core..@? "value")
 
-instance Core.Hashable Phase1DHGroupNumbersListValue
+instance
+  Prelude.Hashable
+    Phase1DHGroupNumbersListValue
 
-instance Core.NFData Phase1DHGroupNumbersListValue
+instance Prelude.NFData Phase1DHGroupNumbersListValue

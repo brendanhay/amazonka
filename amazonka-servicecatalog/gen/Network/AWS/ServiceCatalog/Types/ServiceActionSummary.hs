@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.ServiceActionSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
 
 -- | Detailed information about the self-service action.
@@ -28,15 +29,15 @@ import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
 -- /See:/ 'newServiceActionSummary' smart constructor.
 data ServiceActionSummary = ServiceActionSummary'
   { -- | The self-service action identifier.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
-    definitionType :: Core.Maybe ServiceActionDefinitionType,
+    definitionType :: Prelude.Maybe ServiceActionDefinitionType,
     -- | The self-service action name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The self-service action description.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceActionSummary' with all optional fields omitted.
@@ -57,26 +58,26 @@ newServiceActionSummary ::
   ServiceActionSummary
 newServiceActionSummary =
   ServiceActionSummary'
-    { id = Core.Nothing,
-      definitionType = Core.Nothing,
-      name = Core.Nothing,
-      description = Core.Nothing
+    { id = Prelude.Nothing,
+      definitionType = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The self-service action identifier.
-serviceActionSummary_id :: Lens.Lens' ServiceActionSummary (Core.Maybe Core.Text)
+serviceActionSummary_id :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
 serviceActionSummary_id = Lens.lens (\ServiceActionSummary' {id} -> id) (\s@ServiceActionSummary' {} a -> s {id = a} :: ServiceActionSummary)
 
 -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
-serviceActionSummary_definitionType :: Lens.Lens' ServiceActionSummary (Core.Maybe ServiceActionDefinitionType)
+serviceActionSummary_definitionType :: Lens.Lens' ServiceActionSummary (Prelude.Maybe ServiceActionDefinitionType)
 serviceActionSummary_definitionType = Lens.lens (\ServiceActionSummary' {definitionType} -> definitionType) (\s@ServiceActionSummary' {} a -> s {definitionType = a} :: ServiceActionSummary)
 
 -- | The self-service action name.
-serviceActionSummary_name :: Lens.Lens' ServiceActionSummary (Core.Maybe Core.Text)
+serviceActionSummary_name :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
 serviceActionSummary_name = Lens.lens (\ServiceActionSummary' {name} -> name) (\s@ServiceActionSummary' {} a -> s {name = a} :: ServiceActionSummary)
 
 -- | The self-service action description.
-serviceActionSummary_description :: Lens.Lens' ServiceActionSummary (Core.Maybe Core.Text)
+serviceActionSummary_description :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
 serviceActionSummary_description = Lens.lens (\ServiceActionSummary' {description} -> description) (\s@ServiceActionSummary' {} a -> s {description = a} :: ServiceActionSummary)
 
 instance Core.FromJSON ServiceActionSummary where
@@ -85,12 +86,12 @@ instance Core.FromJSON ServiceActionSummary where
       "ServiceActionSummary"
       ( \x ->
           ServiceActionSummary'
-            Core.<$> (x Core..:? "Id")
-            Core.<*> (x Core..:? "DefinitionType")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "DefinitionType")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Description")
       )
 
-instance Core.Hashable ServiceActionSummary
+instance Prelude.Hashable ServiceActionSummary
 
-instance Core.NFData ServiceActionSummary
+instance Prelude.NFData ServiceActionSummary

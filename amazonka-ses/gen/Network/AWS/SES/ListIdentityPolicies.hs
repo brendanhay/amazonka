@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -73,9 +74,9 @@ data ListIdentityPolicies = ListIdentityPolicies'
     -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
     --
     -- To successfully call this API, you must own the identity.
-    identity :: Core.Text
+    identity :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIdentityPolicies' with all optional fields omitted.
@@ -94,7 +95,7 @@ data ListIdentityPolicies = ListIdentityPolicies'
 -- To successfully call this API, you must own the identity.
 newListIdentityPolicies ::
   -- | 'identity'
-  Core.Text ->
+  Prelude.Text ->
   ListIdentityPolicies
 newListIdentityPolicies pIdentity_ =
   ListIdentityPolicies' {identity = pIdentity_}
@@ -106,7 +107,7 @@ newListIdentityPolicies pIdentity_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-listIdentityPolicies_identity :: Lens.Lens' ListIdentityPolicies Core.Text
+listIdentityPolicies_identity :: Lens.Lens' ListIdentityPolicies Prelude.Text
 listIdentityPolicies_identity = Lens.lens (\ListIdentityPolicies' {identity} -> identity) (\s@ListIdentityPolicies' {} a -> s {identity = a} :: ListIdentityPolicies)
 
 instance Core.AWSRequest ListIdentityPolicies where
@@ -119,28 +120,29 @@ instance Core.AWSRequest ListIdentityPolicies where
       "ListIdentityPoliciesResult"
       ( \s h x ->
           ListIdentityPoliciesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "PolicyNames" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "PolicyNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListIdentityPolicies
+instance Prelude.Hashable ListIdentityPolicies
 
-instance Core.NFData ListIdentityPolicies
+instance Prelude.NFData ListIdentityPolicies
 
 instance Core.ToHeaders ListIdentityPolicies where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListIdentityPolicies where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListIdentityPolicies where
   toQuery ListIdentityPolicies' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListIdentityPolicies" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("ListIdentityPolicies" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Identity" Core.=: identity
       ]
 
@@ -150,11 +152,11 @@ instance Core.ToQuery ListIdentityPolicies where
 -- /See:/ 'newListIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of names of policies that apply to the specified identity.
-    policyNames :: [Core.Text]
+    policyNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIdentityPoliciesResponse' with all optional fields omitted.
@@ -169,21 +171,21 @@ data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
 -- 'policyNames', 'listIdentityPoliciesResponse_policyNames' - A list of names of policies that apply to the specified identity.
 newListIdentityPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListIdentityPoliciesResponse
 newListIdentityPoliciesResponse pHttpStatus_ =
   ListIdentityPoliciesResponse'
     { httpStatus =
         pHttpStatus_,
-      policyNames = Core.mempty
+      policyNames = Prelude.mempty
     }
 
 -- | The response's http status code.
-listIdentityPoliciesResponse_httpStatus :: Lens.Lens' ListIdentityPoliciesResponse Core.Int
+listIdentityPoliciesResponse_httpStatus :: Lens.Lens' ListIdentityPoliciesResponse Prelude.Int
 listIdentityPoliciesResponse_httpStatus = Lens.lens (\ListIdentityPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListIdentityPoliciesResponse' {} a -> s {httpStatus = a} :: ListIdentityPoliciesResponse)
 
 -- | A list of names of policies that apply to the specified identity.
-listIdentityPoliciesResponse_policyNames :: Lens.Lens' ListIdentityPoliciesResponse [Core.Text]
-listIdentityPoliciesResponse_policyNames = Lens.lens (\ListIdentityPoliciesResponse' {policyNames} -> policyNames) (\s@ListIdentityPoliciesResponse' {} a -> s {policyNames = a} :: ListIdentityPoliciesResponse) Core.. Lens._Coerce
+listIdentityPoliciesResponse_policyNames :: Lens.Lens' ListIdentityPoliciesResponse [Prelude.Text]
+listIdentityPoliciesResponse_policyNames = Lens.lens (\ListIdentityPoliciesResponse' {policyNames} -> policyNames) (\s@ListIdentityPoliciesResponse' {} a -> s {policyNames = a} :: ListIdentityPoliciesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListIdentityPoliciesResponse
+instance Prelude.NFData ListIdentityPoliciesResponse

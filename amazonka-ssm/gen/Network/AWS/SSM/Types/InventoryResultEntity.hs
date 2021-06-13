@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.InventoryResultEntity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InventoryResultItem
 
 -- | Inventory query results.
@@ -28,13 +29,13 @@ import Network.AWS.SSM.Types.InventoryResultItem
 -- /See:/ 'newInventoryResultEntity' smart constructor.
 data InventoryResultEntity = InventoryResultEntity'
   { -- | The data section in the inventory result entity JSON.
-    data' :: Core.Maybe (Core.HashMap Core.Text InventoryResultItem),
+    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text InventoryResultItem),
     -- | ID of the inventory result entity. For example, for managed instance
     -- inventory the result will be the managed instance ID. For EC2 instance
     -- inventory, the result will be the instance ID.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryResultEntity' with all optional fields omitted.
@@ -53,18 +54,18 @@ newInventoryResultEntity ::
   InventoryResultEntity
 newInventoryResultEntity =
   InventoryResultEntity'
-    { data' = Core.Nothing,
-      id = Core.Nothing
+    { data' = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The data section in the inventory result entity JSON.
-inventoryResultEntity_data :: Lens.Lens' InventoryResultEntity (Core.Maybe (Core.HashMap Core.Text InventoryResultItem))
-inventoryResultEntity_data = Lens.lens (\InventoryResultEntity' {data'} -> data') (\s@InventoryResultEntity' {} a -> s {data' = a} :: InventoryResultEntity) Core.. Lens.mapping Lens._Coerce
+inventoryResultEntity_data :: Lens.Lens' InventoryResultEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text InventoryResultItem))
+inventoryResultEntity_data = Lens.lens (\InventoryResultEntity' {data'} -> data') (\s@InventoryResultEntity' {} a -> s {data' = a} :: InventoryResultEntity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | ID of the inventory result entity. For example, for managed instance
 -- inventory the result will be the managed instance ID. For EC2 instance
 -- inventory, the result will be the instance ID.
-inventoryResultEntity_id :: Lens.Lens' InventoryResultEntity (Core.Maybe Core.Text)
+inventoryResultEntity_id :: Lens.Lens' InventoryResultEntity (Prelude.Maybe Prelude.Text)
 inventoryResultEntity_id = Lens.lens (\InventoryResultEntity' {id} -> id) (\s@InventoryResultEntity' {} a -> s {id = a} :: InventoryResultEntity)
 
 instance Core.FromJSON InventoryResultEntity where
@@ -73,10 +74,10 @@ instance Core.FromJSON InventoryResultEntity where
       "InventoryResultEntity"
       ( \x ->
           InventoryResultEntity'
-            Core.<$> (x Core..:? "Data" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "Data" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Id")
       )
 
-instance Core.Hashable InventoryResultEntity
+instance Prelude.Hashable InventoryResultEntity
 
-instance Core.NFData InventoryResultEntity
+instance Prelude.NFData InventoryResultEntity

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.FinalHyperParameterTuningJobObjectiveMetric w
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType
 
 -- | Shows the final value for the objective metric for a training job that
@@ -32,13 +33,13 @@ import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType
 data FinalHyperParameterTuningJobObjectiveMetric = FinalHyperParameterTuningJobObjectiveMetric'
   { -- | Whether to minimize or maximize the objective metric. Valid values are
     -- Minimize and Maximize.
-    type' :: Core.Maybe HyperParameterTuningJobObjectiveType,
+    type' :: Prelude.Maybe HyperParameterTuningJobObjectiveType,
     -- | The name of the objective metric.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The value of the objective metric.
-    value :: Core.Double
+    value :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FinalHyperParameterTuningJobObjectiveMetric' with all optional fields omitted.
@@ -56,31 +57,31 @@ data FinalHyperParameterTuningJobObjectiveMetric = FinalHyperParameterTuningJobO
 -- 'value', 'finalHyperParameterTuningJobObjectiveMetric_value' - The value of the objective metric.
 newFinalHyperParameterTuningJobObjectiveMetric ::
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Double ->
+  Prelude.Double ->
   FinalHyperParameterTuningJobObjectiveMetric
 newFinalHyperParameterTuningJobObjectiveMetric
   pMetricName_
   pValue_ =
     FinalHyperParameterTuningJobObjectiveMetric'
       { type' =
-          Core.Nothing,
+          Prelude.Nothing,
         metricName = pMetricName_,
         value = pValue_
       }
 
 -- | Whether to minimize or maximize the objective metric. Valid values are
 -- Minimize and Maximize.
-finalHyperParameterTuningJobObjectiveMetric_type :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric (Core.Maybe HyperParameterTuningJobObjectiveType)
+finalHyperParameterTuningJobObjectiveMetric_type :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric (Prelude.Maybe HyperParameterTuningJobObjectiveType)
 finalHyperParameterTuningJobObjectiveMetric_type = Lens.lens (\FinalHyperParameterTuningJobObjectiveMetric' {type'} -> type') (\s@FinalHyperParameterTuningJobObjectiveMetric' {} a -> s {type' = a} :: FinalHyperParameterTuningJobObjectiveMetric)
 
 -- | The name of the objective metric.
-finalHyperParameterTuningJobObjectiveMetric_metricName :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Core.Text
+finalHyperParameterTuningJobObjectiveMetric_metricName :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Prelude.Text
 finalHyperParameterTuningJobObjectiveMetric_metricName = Lens.lens (\FinalHyperParameterTuningJobObjectiveMetric' {metricName} -> metricName) (\s@FinalHyperParameterTuningJobObjectiveMetric' {} a -> s {metricName = a} :: FinalHyperParameterTuningJobObjectiveMetric)
 
 -- | The value of the objective metric.
-finalHyperParameterTuningJobObjectiveMetric_value :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Core.Double
+finalHyperParameterTuningJobObjectiveMetric_value :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Prelude.Double
 finalHyperParameterTuningJobObjectiveMetric_value = Lens.lens (\FinalHyperParameterTuningJobObjectiveMetric' {value} -> value) (\s@FinalHyperParameterTuningJobObjectiveMetric' {} a -> s {value = a} :: FinalHyperParameterTuningJobObjectiveMetric)
 
 instance
@@ -92,15 +93,15 @@ instance
       "FinalHyperParameterTuningJobObjectiveMetric"
       ( \x ->
           FinalHyperParameterTuningJobObjectiveMetric'
-            Core.<$> (x Core..:? "Type")
-            Core.<*> (x Core..: "MetricName")
-            Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..:? "Type")
+              Prelude.<*> (x Core..: "MetricName")
+              Prelude.<*> (x Core..: "Value")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FinalHyperParameterTuningJobObjectiveMetric
 
 instance
-  Core.NFData
+  Prelude.NFData
     FinalHyperParameterTuningJobObjectiveMetric

@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetGroup' smart constructor.
 data GetGroup = GetGroup'
   { -- | Deprecated - don\'t use this parameter. Use @Group@ instead.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The name or the ARN of the resource group to retrieve.
-    group' :: Core.Maybe Core.Text
+    group' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroup' with all optional fields omitted.
@@ -76,16 +77,16 @@ newGetGroup ::
   GetGroup
 newGetGroup =
   GetGroup'
-    { groupName = Core.Nothing,
-      group' = Core.Nothing
+    { groupName = Prelude.Nothing,
+      group' = Prelude.Nothing
     }
 
 -- | Deprecated - don\'t use this parameter. Use @Group@ instead.
-getGroup_groupName :: Lens.Lens' GetGroup (Core.Maybe Core.Text)
+getGroup_groupName :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
 getGroup_groupName = Lens.lens (\GetGroup' {groupName} -> groupName) (\s@GetGroup' {} a -> s {groupName = a} :: GetGroup)
 
 -- | The name or the ARN of the resource group to retrieve.
-getGroup_group :: Lens.Lens' GetGroup (Core.Maybe Core.Text)
+getGroup_group :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
 getGroup_group = Lens.lens (\GetGroup' {group'} -> group') (\s@GetGroup' {} a -> s {group' = a} :: GetGroup)
 
 instance Core.AWSRequest GetGroup where
@@ -95,40 +96,40 @@ instance Core.AWSRequest GetGroup where
     Response.receiveJSON
       ( \s h x ->
           GetGroupResponse'
-            Core.<$> (x Core..?> "Group")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Group")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetGroup
+instance Prelude.Hashable GetGroup
 
-instance Core.NFData GetGroup
+instance Prelude.NFData GetGroup
 
 instance Core.ToHeaders GetGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetGroup where
   toJSON GetGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GroupName" Core..=) Core.<$> groupName,
-            ("Group" Core..=) Core.<$> group'
+      ( Prelude.catMaybes
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("Group" Core..=) Prelude.<$> group'
           ]
       )
 
 instance Core.ToPath GetGroup where
-  toPath = Core.const "/get-group"
+  toPath = Prelude.const "/get-group"
 
 instance Core.ToQuery GetGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
   { -- | A full description of the resource group.
-    group' :: Core.Maybe Group,
+    group' :: Prelude.Maybe Group,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroupResponse' with all optional fields omitted.
@@ -143,20 +144,20 @@ data GetGroupResponse = GetGroupResponse'
 -- 'httpStatus', 'getGroupResponse_httpStatus' - The response's http status code.
 newGetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetGroupResponse
 newGetGroupResponse pHttpStatus_ =
   GetGroupResponse'
-    { group' = Core.Nothing,
+    { group' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A full description of the resource group.
-getGroupResponse_group :: Lens.Lens' GetGroupResponse (Core.Maybe Group)
+getGroupResponse_group :: Lens.Lens' GetGroupResponse (Prelude.Maybe Group)
 getGroupResponse_group = Lens.lens (\GetGroupResponse' {group'} -> group') (\s@GetGroupResponse' {} a -> s {group' = a} :: GetGroupResponse)
 
 -- | The response's http status code.
-getGroupResponse_httpStatus :: Lens.Lens' GetGroupResponse Core.Int
+getGroupResponse_httpStatus :: Lens.Lens' GetGroupResponse Prelude.Int
 getGroupResponse_httpStatus = Lens.lens (\GetGroupResponse' {httpStatus} -> httpStatus) (\s@GetGroupResponse' {} a -> s {httpStatus = a} :: GetGroupResponse)
 
-instance Core.NFData GetGroupResponse
+instance Prelude.NFData GetGroupResponse

@@ -82,6 +82,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -96,20 +97,20 @@ data InitiateMultipartUpload = InitiateMultipartUpload'
     -- for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8
     -- MB), and so on. The minimum allowable part size is 1 MB, and the maximum
     -- is 4 GB (4096 MB).
-    archiveDescription :: Core.Maybe Core.Text,
+    archiveDescription :: Prelude.Maybe Prelude.Text,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text,
+    vaultName :: Prelude.Text,
     -- | The size of each part except the last, in bytes. The last part can be
     -- smaller than this part size.
-    partSize :: Core.Text
+    partSize :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InitiateMultipartUpload' with all optional fields omitted.
@@ -138,11 +139,11 @@ data InitiateMultipartUpload = InitiateMultipartUpload'
 -- smaller than this part size.
 newInitiateMultipartUpload ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'partSize'
-  Core.Text ->
+  Prelude.Text ->
   InitiateMultipartUpload
 newInitiateMultipartUpload
   pAccountId_
@@ -150,7 +151,7 @@ newInitiateMultipartUpload
   pPartSize_ =
     InitiateMultipartUpload'
       { archiveDescription =
-          Core.Nothing,
+          Prelude.Nothing,
         accountId = pAccountId_,
         vaultName = pVaultName_,
         partSize = pPartSize_
@@ -162,7 +163,7 @@ newInitiateMultipartUpload
 -- for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8
 -- MB), and so on. The minimum allowable part size is 1 MB, and the maximum
 -- is 4 GB (4096 MB).
-initiateMultipartUpload_archiveDescription :: Lens.Lens' InitiateMultipartUpload (Core.Maybe Core.Text)
+initiateMultipartUpload_archiveDescription :: Lens.Lens' InitiateMultipartUpload (Prelude.Maybe Prelude.Text)
 initiateMultipartUpload_archiveDescription = Lens.lens (\InitiateMultipartUpload' {archiveDescription} -> archiveDescription) (\s@InitiateMultipartUpload' {} a -> s {archiveDescription = a} :: InitiateMultipartUpload)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -170,16 +171,16 @@ initiateMultipartUpload_archiveDescription = Lens.lens (\InitiateMultipartUpload
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-initiateMultipartUpload_accountId :: Lens.Lens' InitiateMultipartUpload Core.Text
+initiateMultipartUpload_accountId :: Lens.Lens' InitiateMultipartUpload Prelude.Text
 initiateMultipartUpload_accountId = Lens.lens (\InitiateMultipartUpload' {accountId} -> accountId) (\s@InitiateMultipartUpload' {} a -> s {accountId = a} :: InitiateMultipartUpload)
 
 -- | The name of the vault.
-initiateMultipartUpload_vaultName :: Lens.Lens' InitiateMultipartUpload Core.Text
+initiateMultipartUpload_vaultName :: Lens.Lens' InitiateMultipartUpload Prelude.Text
 initiateMultipartUpload_vaultName = Lens.lens (\InitiateMultipartUpload' {vaultName} -> vaultName) (\s@InitiateMultipartUpload' {} a -> s {vaultName = a} :: InitiateMultipartUpload)
 
 -- | The size of each part except the last, in bytes. The last part can be
 -- smaller than this part size.
-initiateMultipartUpload_partSize :: Lens.Lens' InitiateMultipartUpload Core.Text
+initiateMultipartUpload_partSize :: Lens.Lens' InitiateMultipartUpload Prelude.Text
 initiateMultipartUpload_partSize = Lens.lens (\InitiateMultipartUpload' {partSize} -> partSize) (\s@InitiateMultipartUpload' {} a -> s {partSize = a} :: InitiateMultipartUpload)
 
 instance Core.AWSRequest InitiateMultipartUpload where
@@ -188,34 +189,34 @@ instance Core.AWSRequest InitiateMultipartUpload where
       InitiateMultipartUploadResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.postJSON defaultService
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           InitiateMultipartUploadResponse'
-            Core.<$> (h Core..#? "x-amz-multipart-upload-id")
-            Core.<*> (h Core..#? "Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "x-amz-multipart-upload-id")
+            Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable InitiateMultipartUpload
+instance Prelude.Hashable InitiateMultipartUpload
 
-instance Core.NFData InitiateMultipartUpload
+instance Prelude.NFData InitiateMultipartUpload
 
 instance Core.ToHeaders InitiateMultipartUpload where
   toHeaders InitiateMultipartUpload' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-archive-description"
           Core.=# archiveDescription,
         "x-amz-part-size" Core.=# partSize
       ]
 
 instance Core.ToJSON InitiateMultipartUpload where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath InitiateMultipartUpload where
   toPath InitiateMultipartUpload' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -224,7 +225,7 @@ instance Core.ToPath InitiateMultipartUpload where
       ]
 
 instance Core.ToQuery InitiateMultipartUpload where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The Amazon S3 Glacier response to your request.
 --
@@ -232,14 +233,14 @@ instance Core.ToQuery InitiateMultipartUpload where
 data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
   { -- | The ID of the multipart upload. This value is also included as part of
     -- the location.
-    uploadId :: Core.Maybe Core.Text,
+    uploadId :: Prelude.Maybe Prelude.Text,
     -- | The relative URI path of the multipart upload ID Amazon S3 Glacier
     -- created.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InitiateMultipartUploadResponse' with all optional fields omitted.
@@ -258,28 +259,30 @@ data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
 -- 'httpStatus', 'initiateMultipartUploadResponse_httpStatus' - The response's http status code.
 newInitiateMultipartUploadResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   InitiateMultipartUploadResponse
 newInitiateMultipartUploadResponse pHttpStatus_ =
   InitiateMultipartUploadResponse'
     { uploadId =
-        Core.Nothing,
-      location = Core.Nothing,
+        Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the multipart upload. This value is also included as part of
 -- the location.
-initiateMultipartUploadResponse_uploadId :: Lens.Lens' InitiateMultipartUploadResponse (Core.Maybe Core.Text)
+initiateMultipartUploadResponse_uploadId :: Lens.Lens' InitiateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
 initiateMultipartUploadResponse_uploadId = Lens.lens (\InitiateMultipartUploadResponse' {uploadId} -> uploadId) (\s@InitiateMultipartUploadResponse' {} a -> s {uploadId = a} :: InitiateMultipartUploadResponse)
 
 -- | The relative URI path of the multipart upload ID Amazon S3 Glacier
 -- created.
-initiateMultipartUploadResponse_location :: Lens.Lens' InitiateMultipartUploadResponse (Core.Maybe Core.Text)
+initiateMultipartUploadResponse_location :: Lens.Lens' InitiateMultipartUploadResponse (Prelude.Maybe Prelude.Text)
 initiateMultipartUploadResponse_location = Lens.lens (\InitiateMultipartUploadResponse' {location} -> location) (\s@InitiateMultipartUploadResponse' {} a -> s {location = a} :: InitiateMultipartUploadResponse)
 
 -- | The response's http status code.
-initiateMultipartUploadResponse_httpStatus :: Lens.Lens' InitiateMultipartUploadResponse Core.Int
+initiateMultipartUploadResponse_httpStatus :: Lens.Lens' InitiateMultipartUploadResponse Prelude.Int
 initiateMultipartUploadResponse_httpStatus = Lens.lens (\InitiateMultipartUploadResponse' {httpStatus} -> httpStatus) (\s@InitiateMultipartUploadResponse' {} a -> s {httpStatus = a} :: InitiateMultipartUploadResponse)
 
-instance Core.NFData InitiateMultipartUploadResponse
+instance
+  Prelude.NFData
+    InitiateMultipartUploadResponse

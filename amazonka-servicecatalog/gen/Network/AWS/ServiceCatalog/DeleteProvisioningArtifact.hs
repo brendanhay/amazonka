@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -61,13 +62,13 @@ data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
-    productId :: Core.Text,
+    productId :: Prelude.Text,
     -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Core.Text
+    provisioningArtifactId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisioningArtifact' with all optional fields omitted.
@@ -90,16 +91,16 @@ data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
 -- 'provisioningArtifactId', 'deleteProvisioningArtifact_provisioningArtifactId' - The identifier of the provisioning artifact.
 newDeleteProvisioningArtifact ::
   -- | 'productId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'provisioningArtifactId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteProvisioningArtifact
 newDeleteProvisioningArtifact
   pProductId_
   pProvisioningArtifactId_ =
     DeleteProvisioningArtifact'
       { acceptLanguage =
-          Core.Nothing,
+          Prelude.Nothing,
         productId = pProductId_,
         provisioningArtifactId =
           pProvisioningArtifactId_
@@ -112,15 +113,15 @@ newDeleteProvisioningArtifact
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deleteProvisioningArtifact_acceptLanguage :: Lens.Lens' DeleteProvisioningArtifact (Core.Maybe Core.Text)
+deleteProvisioningArtifact_acceptLanguage :: Lens.Lens' DeleteProvisioningArtifact (Prelude.Maybe Prelude.Text)
 deleteProvisioningArtifact_acceptLanguage = Lens.lens (\DeleteProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@DeleteProvisioningArtifact' {} a -> s {acceptLanguage = a} :: DeleteProvisioningArtifact)
 
 -- | The product identifier.
-deleteProvisioningArtifact_productId :: Lens.Lens' DeleteProvisioningArtifact Core.Text
+deleteProvisioningArtifact_productId :: Lens.Lens' DeleteProvisioningArtifact Prelude.Text
 deleteProvisioningArtifact_productId = Lens.lens (\DeleteProvisioningArtifact' {productId} -> productId) (\s@DeleteProvisioningArtifact' {} a -> s {productId = a} :: DeleteProvisioningArtifact)
 
 -- | The identifier of the provisioning artifact.
-deleteProvisioningArtifact_provisioningArtifactId :: Lens.Lens' DeleteProvisioningArtifact Core.Text
+deleteProvisioningArtifact_provisioningArtifactId :: Lens.Lens' DeleteProvisioningArtifact Prelude.Text
 deleteProvisioningArtifact_provisioningArtifactId = Lens.lens (\DeleteProvisioningArtifact' {provisioningArtifactId} -> provisioningArtifactId) (\s@DeleteProvisioningArtifact' {} a -> s {provisioningArtifactId = a} :: DeleteProvisioningArtifact)
 
 instance Core.AWSRequest DeleteProvisioningArtifact where
@@ -132,33 +133,36 @@ instance Core.AWSRequest DeleteProvisioningArtifact where
     Response.receiveEmpty
       ( \s h x ->
           DeleteProvisioningArtifactResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteProvisioningArtifact
+instance Prelude.Hashable DeleteProvisioningArtifact
 
-instance Core.NFData DeleteProvisioningArtifact
+instance Prelude.NFData DeleteProvisioningArtifact
 
 instance Core.ToHeaders DeleteProvisioningArtifact where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DeleteProvisioningArtifact" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteProvisioningArtifact where
   toJSON DeleteProvisioningArtifact' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("ProductId" Core..= productId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("ProductId" Core..= productId),
+            Prelude.Just
               ( "ProvisioningArtifactId"
                   Core..= provisioningArtifactId
               )
@@ -166,17 +170,17 @@ instance Core.ToJSON DeleteProvisioningArtifact where
       )
 
 instance Core.ToPath DeleteProvisioningArtifact where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteProvisioningArtifact where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProvisioningArtifactResponse' smart constructor.
 data DeleteProvisioningArtifactResponse = DeleteProvisioningArtifactResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisioningArtifactResponse' with all optional fields omitted.
@@ -189,7 +193,7 @@ data DeleteProvisioningArtifactResponse = DeleteProvisioningArtifactResponse'
 -- 'httpStatus', 'deleteProvisioningArtifactResponse_httpStatus' - The response's http status code.
 newDeleteProvisioningArtifactResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteProvisioningArtifactResponse
 newDeleteProvisioningArtifactResponse pHttpStatus_ =
   DeleteProvisioningArtifactResponse'
@@ -198,9 +202,9 @@ newDeleteProvisioningArtifactResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteProvisioningArtifactResponse_httpStatus :: Lens.Lens' DeleteProvisioningArtifactResponse Core.Int
+deleteProvisioningArtifactResponse_httpStatus :: Lens.Lens' DeleteProvisioningArtifactResponse Prelude.Int
 deleteProvisioningArtifactResponse_httpStatus = Lens.lens (\DeleteProvisioningArtifactResponse' {httpStatus} -> httpStatus) (\s@DeleteProvisioningArtifactResponse' {} a -> s {httpStatus = a} :: DeleteProvisioningArtifactResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteProvisioningArtifactResponse

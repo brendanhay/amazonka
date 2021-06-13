@@ -23,19 +23,20 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetStateCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an EC2 Fleet that was successfully deleted.
 --
 -- /See:/ 'newDeleteFleetSuccessItem' smart constructor.
 data DeleteFleetSuccessItem = DeleteFleetSuccessItem'
   { -- | The ID of the EC2 Fleet.
-    fleetId :: Core.Maybe Core.Text,
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the EC2 Fleet.
-    currentFleetState :: Core.Maybe FleetStateCode,
+    currentFleetState :: Prelude.Maybe FleetStateCode,
     -- | The previous state of the EC2 Fleet.
-    previousFleetState :: Core.Maybe FleetStateCode
+    previousFleetState :: Prelude.Maybe FleetStateCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFleetSuccessItem' with all optional fields omitted.
@@ -54,30 +55,30 @@ newDeleteFleetSuccessItem ::
   DeleteFleetSuccessItem
 newDeleteFleetSuccessItem =
   DeleteFleetSuccessItem'
-    { fleetId = Core.Nothing,
-      currentFleetState = Core.Nothing,
-      previousFleetState = Core.Nothing
+    { fleetId = Prelude.Nothing,
+      currentFleetState = Prelude.Nothing,
+      previousFleetState = Prelude.Nothing
     }
 
 -- | The ID of the EC2 Fleet.
-deleteFleetSuccessItem_fleetId :: Lens.Lens' DeleteFleetSuccessItem (Core.Maybe Core.Text)
+deleteFleetSuccessItem_fleetId :: Lens.Lens' DeleteFleetSuccessItem (Prelude.Maybe Prelude.Text)
 deleteFleetSuccessItem_fleetId = Lens.lens (\DeleteFleetSuccessItem' {fleetId} -> fleetId) (\s@DeleteFleetSuccessItem' {} a -> s {fleetId = a} :: DeleteFleetSuccessItem)
 
 -- | The current state of the EC2 Fleet.
-deleteFleetSuccessItem_currentFleetState :: Lens.Lens' DeleteFleetSuccessItem (Core.Maybe FleetStateCode)
+deleteFleetSuccessItem_currentFleetState :: Lens.Lens' DeleteFleetSuccessItem (Prelude.Maybe FleetStateCode)
 deleteFleetSuccessItem_currentFleetState = Lens.lens (\DeleteFleetSuccessItem' {currentFleetState} -> currentFleetState) (\s@DeleteFleetSuccessItem' {} a -> s {currentFleetState = a} :: DeleteFleetSuccessItem)
 
 -- | The previous state of the EC2 Fleet.
-deleteFleetSuccessItem_previousFleetState :: Lens.Lens' DeleteFleetSuccessItem (Core.Maybe FleetStateCode)
+deleteFleetSuccessItem_previousFleetState :: Lens.Lens' DeleteFleetSuccessItem (Prelude.Maybe FleetStateCode)
 deleteFleetSuccessItem_previousFleetState = Lens.lens (\DeleteFleetSuccessItem' {previousFleetState} -> previousFleetState) (\s@DeleteFleetSuccessItem' {} a -> s {previousFleetState = a} :: DeleteFleetSuccessItem)
 
 instance Core.FromXML DeleteFleetSuccessItem where
   parseXML x =
     DeleteFleetSuccessItem'
-      Core.<$> (x Core..@? "fleetId")
-      Core.<*> (x Core..@? "currentFleetState")
-      Core.<*> (x Core..@? "previousFleetState")
+      Prelude.<$> (x Core..@? "fleetId")
+      Prelude.<*> (x Core..@? "currentFleetState")
+      Prelude.<*> (x Core..@? "previousFleetState")
 
-instance Core.Hashable DeleteFleetSuccessItem
+instance Prelude.Hashable DeleteFleetSuccessItem
 
-instance Core.NFData DeleteFleetSuccessItem
+instance Prelude.NFData DeleteFleetSuccessItem

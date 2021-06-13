@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.Segment where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A segment from a trace that has been ingested by the X-Ray service. The
 -- segment can be compiled from documents uploaded with PutTraceSegments,
@@ -34,11 +35,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSegment' smart constructor.
 data Segment = Segment'
   { -- | The segment\'s ID.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The segment document.
-    document :: Core.Maybe Core.Text
+    document :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Segment' with all optional fields omitted.
@@ -55,16 +56,16 @@ newSegment ::
   Segment
 newSegment =
   Segment'
-    { id = Core.Nothing,
-      document = Core.Nothing
+    { id = Prelude.Nothing,
+      document = Prelude.Nothing
     }
 
 -- | The segment\'s ID.
-segment_id :: Lens.Lens' Segment (Core.Maybe Core.Text)
+segment_id :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
 segment_id = Lens.lens (\Segment' {id} -> id) (\s@Segment' {} a -> s {id = a} :: Segment)
 
 -- | The segment document.
-segment_document :: Lens.Lens' Segment (Core.Maybe Core.Text)
+segment_document :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
 segment_document = Lens.lens (\Segment' {document} -> document) (\s@Segment' {} a -> s {document = a} :: Segment)
 
 instance Core.FromJSON Segment where
@@ -73,9 +74,10 @@ instance Core.FromJSON Segment where
       "Segment"
       ( \x ->
           Segment'
-            Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Document")
+            Prelude.<$> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Document")
       )
 
-instance Core.Hashable Segment
+instance Prelude.Hashable Segment
 
-instance Core.NFData Segment
+instance Prelude.NFData Segment

@@ -92,6 +92,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -99,21 +100,21 @@ import qualified Network.AWS.Response as Response
 data UpdateGameServer = UpdateGameServer'
   { -- | Indicates whether the game server is available or is currently hosting
     -- gameplay.
-    utilizationStatus :: Core.Maybe GameServerUtilizationStatus,
+    utilizationStatus :: Prelude.Maybe GameServerUtilizationStatus,
     -- | A set of custom game server properties, formatted as a single string
     -- value. This data is passed to a game client or service when it requests
     -- information on game servers using ListGameServers or ClaimGameServer.
-    gameServerData :: Core.Maybe Core.Text,
+    gameServerData :: Prelude.Maybe Prelude.Text,
     -- | Indicates health status of the game server. A request that includes this
     -- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
-    healthCheck :: Core.Maybe GameServerHealthCheck,
+    healthCheck :: Prelude.Maybe GameServerHealthCheck,
     -- | A unique identifier for the game server group where the game server is
     -- running. Use either the GameServerGroup name or ARN value.
-    gameServerGroupName :: Core.Text,
+    gameServerGroupName :: Prelude.Text,
     -- | A custom string that uniquely identifies the game server to update.
-    gameServerId :: Core.Text
+    gameServerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGameServer' with all optional fields omitted.
@@ -139,44 +140,45 @@ data UpdateGameServer = UpdateGameServer'
 -- 'gameServerId', 'updateGameServer_gameServerId' - A custom string that uniquely identifies the game server to update.
 newUpdateGameServer ::
   -- | 'gameServerGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'gameServerId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateGameServer
 newUpdateGameServer
   pGameServerGroupName_
   pGameServerId_ =
     UpdateGameServer'
-      { utilizationStatus = Core.Nothing,
-        gameServerData = Core.Nothing,
-        healthCheck = Core.Nothing,
+      { utilizationStatus =
+          Prelude.Nothing,
+        gameServerData = Prelude.Nothing,
+        healthCheck = Prelude.Nothing,
         gameServerGroupName = pGameServerGroupName_,
         gameServerId = pGameServerId_
       }
 
 -- | Indicates whether the game server is available or is currently hosting
 -- gameplay.
-updateGameServer_utilizationStatus :: Lens.Lens' UpdateGameServer (Core.Maybe GameServerUtilizationStatus)
+updateGameServer_utilizationStatus :: Lens.Lens' UpdateGameServer (Prelude.Maybe GameServerUtilizationStatus)
 updateGameServer_utilizationStatus = Lens.lens (\UpdateGameServer' {utilizationStatus} -> utilizationStatus) (\s@UpdateGameServer' {} a -> s {utilizationStatus = a} :: UpdateGameServer)
 
 -- | A set of custom game server properties, formatted as a single string
 -- value. This data is passed to a game client or service when it requests
 -- information on game servers using ListGameServers or ClaimGameServer.
-updateGameServer_gameServerData :: Lens.Lens' UpdateGameServer (Core.Maybe Core.Text)
+updateGameServer_gameServerData :: Lens.Lens' UpdateGameServer (Prelude.Maybe Prelude.Text)
 updateGameServer_gameServerData = Lens.lens (\UpdateGameServer' {gameServerData} -> gameServerData) (\s@UpdateGameServer' {} a -> s {gameServerData = a} :: UpdateGameServer)
 
 -- | Indicates health status of the game server. A request that includes this
 -- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
-updateGameServer_healthCheck :: Lens.Lens' UpdateGameServer (Core.Maybe GameServerHealthCheck)
+updateGameServer_healthCheck :: Lens.Lens' UpdateGameServer (Prelude.Maybe GameServerHealthCheck)
 updateGameServer_healthCheck = Lens.lens (\UpdateGameServer' {healthCheck} -> healthCheck) (\s@UpdateGameServer' {} a -> s {healthCheck = a} :: UpdateGameServer)
 
 -- | A unique identifier for the game server group where the game server is
 -- running. Use either the GameServerGroup name or ARN value.
-updateGameServer_gameServerGroupName :: Lens.Lens' UpdateGameServer Core.Text
+updateGameServer_gameServerGroupName :: Lens.Lens' UpdateGameServer Prelude.Text
 updateGameServer_gameServerGroupName = Lens.lens (\UpdateGameServer' {gameServerGroupName} -> gameServerGroupName) (\s@UpdateGameServer' {} a -> s {gameServerGroupName = a} :: UpdateGameServer)
 
 -- | A custom string that uniquely identifies the game server to update.
-updateGameServer_gameServerId :: Lens.Lens' UpdateGameServer Core.Text
+updateGameServer_gameServerId :: Lens.Lens' UpdateGameServer Prelude.Text
 updateGameServer_gameServerId = Lens.lens (\UpdateGameServer' {gameServerId} -> gameServerId) (\s@UpdateGameServer' {} a -> s {gameServerId = a} :: UpdateGameServer)
 
 instance Core.AWSRequest UpdateGameServer where
@@ -188,53 +190,56 @@ instance Core.AWSRequest UpdateGameServer where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameServerResponse'
-            Core.<$> (x Core..?> "GameServer")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameServer")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateGameServer
+instance Prelude.Hashable UpdateGameServer
 
-instance Core.NFData UpdateGameServer
+instance Prelude.NFData UpdateGameServer
 
 instance Core.ToHeaders UpdateGameServer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateGameServer" :: Core.ByteString),
+              Core.=# ("GameLift.UpdateGameServer" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateGameServer where
   toJSON UpdateGameServer' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("UtilizationStatus" Core..=)
-              Core.<$> utilizationStatus,
-            ("GameServerData" Core..=) Core.<$> gameServerData,
-            ("HealthCheck" Core..=) Core.<$> healthCheck,
-            Core.Just
+              Prelude.<$> utilizationStatus,
+            ("GameServerData" Core..=)
+              Prelude.<$> gameServerData,
+            ("HealthCheck" Core..=) Prelude.<$> healthCheck,
+            Prelude.Just
               ("GameServerGroupName" Core..= gameServerGroupName),
-            Core.Just ("GameServerId" Core..= gameServerId)
+            Prelude.Just ("GameServerId" Core..= gameServerId)
           ]
       )
 
 instance Core.ToPath UpdateGameServer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateGameServer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGameServerResponse' smart constructor.
 data UpdateGameServerResponse = UpdateGameServerResponse'
   { -- | Object that describes the newly updated game server.
-    gameServer :: Core.Maybe GameServer,
+    gameServer :: Prelude.Maybe GameServer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGameServerResponse' with all optional fields omitted.
@@ -249,21 +254,21 @@ data UpdateGameServerResponse = UpdateGameServerResponse'
 -- 'httpStatus', 'updateGameServerResponse_httpStatus' - The response's http status code.
 newUpdateGameServerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateGameServerResponse
 newUpdateGameServerResponse pHttpStatus_ =
   UpdateGameServerResponse'
     { gameServer =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the newly updated game server.
-updateGameServerResponse_gameServer :: Lens.Lens' UpdateGameServerResponse (Core.Maybe GameServer)
+updateGameServerResponse_gameServer :: Lens.Lens' UpdateGameServerResponse (Prelude.Maybe GameServer)
 updateGameServerResponse_gameServer = Lens.lens (\UpdateGameServerResponse' {gameServer} -> gameServer) (\s@UpdateGameServerResponse' {} a -> s {gameServer = a} :: UpdateGameServerResponse)
 
 -- | The response's http status code.
-updateGameServerResponse_httpStatus :: Lens.Lens' UpdateGameServerResponse Core.Int
+updateGameServerResponse_httpStatus :: Lens.Lens' UpdateGameServerResponse Prelude.Int
 updateGameServerResponse_httpStatus = Lens.lens (\UpdateGameServerResponse' {httpStatus} -> httpStatus) (\s@UpdateGameServerResponse' {} a -> s {httpStatus = a} :: UpdateGameServerResponse)
 
-instance Core.NFData UpdateGameServerResponse
+instance Prelude.NFData UpdateGameServerResponse

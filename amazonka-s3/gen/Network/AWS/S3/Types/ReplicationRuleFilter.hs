@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ReplicationRuleFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ReplicationRuleAndOperator
 import Network.AWS.S3.Types.Tag
@@ -38,7 +39,7 @@ data ReplicationRuleFilter = ReplicationRuleFilter'
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | A container for specifying rule filters. The filters determine the
     -- subset of objects to which the rule applies. This element is required
     -- only if you specify more than one filter. For example:
@@ -48,13 +49,13 @@ data ReplicationRuleFilter = ReplicationRuleFilter'
     --
     -- -   If you specify a filter based on multiple tags, wrap the @Tag@
     --     elements in an @And@ tag.
-    and :: Core.Maybe ReplicationRuleAndOperator,
+    and :: Prelude.Maybe ReplicationRuleAndOperator,
     -- | A container for specifying a tag key and value.
     --
     -- The rule applies only to objects that have the tag in their tag set.
-    tag :: Core.Maybe Tag
+    tag :: Prelude.Maybe Tag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationRuleFilter' with all optional fields omitted.
@@ -89,9 +90,9 @@ newReplicationRuleFilter ::
   ReplicationRuleFilter
 newReplicationRuleFilter =
   ReplicationRuleFilter'
-    { prefix = Core.Nothing,
-      and = Core.Nothing,
-      tag = Core.Nothing
+    { prefix = Prelude.Nothing,
+      and = Prelude.Nothing,
+      tag = Prelude.Nothing
     }
 
 -- | An object key name prefix that identifies the subset of objects to which
@@ -101,7 +102,7 @@ newReplicationRuleFilter =
 -- (such as carriage returns) when using XML requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-replicationRuleFilter_prefix :: Lens.Lens' ReplicationRuleFilter (Core.Maybe Core.Text)
+replicationRuleFilter_prefix :: Lens.Lens' ReplicationRuleFilter (Prelude.Maybe Prelude.Text)
 replicationRuleFilter_prefix = Lens.lens (\ReplicationRuleFilter' {prefix} -> prefix) (\s@ReplicationRuleFilter' {} a -> s {prefix = a} :: ReplicationRuleFilter)
 
 -- | A container for specifying rule filters. The filters determine the
@@ -113,29 +114,29 @@ replicationRuleFilter_prefix = Lens.lens (\ReplicationRuleFilter' {prefix} -> pr
 --
 -- -   If you specify a filter based on multiple tags, wrap the @Tag@
 --     elements in an @And@ tag.
-replicationRuleFilter_and :: Lens.Lens' ReplicationRuleFilter (Core.Maybe ReplicationRuleAndOperator)
+replicationRuleFilter_and :: Lens.Lens' ReplicationRuleFilter (Prelude.Maybe ReplicationRuleAndOperator)
 replicationRuleFilter_and = Lens.lens (\ReplicationRuleFilter' {and} -> and) (\s@ReplicationRuleFilter' {} a -> s {and = a} :: ReplicationRuleFilter)
 
 -- | A container for specifying a tag key and value.
 --
 -- The rule applies only to objects that have the tag in their tag set.
-replicationRuleFilter_tag :: Lens.Lens' ReplicationRuleFilter (Core.Maybe Tag)
+replicationRuleFilter_tag :: Lens.Lens' ReplicationRuleFilter (Prelude.Maybe Tag)
 replicationRuleFilter_tag = Lens.lens (\ReplicationRuleFilter' {tag} -> tag) (\s@ReplicationRuleFilter' {} a -> s {tag = a} :: ReplicationRuleFilter)
 
 instance Core.FromXML ReplicationRuleFilter where
   parseXML x =
     ReplicationRuleFilter'
-      Core.<$> (x Core..@? "Prefix")
-      Core.<*> (x Core..@? "And")
-      Core.<*> (x Core..@? "Tag")
+      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "And")
+      Prelude.<*> (x Core..@? "Tag")
 
-instance Core.Hashable ReplicationRuleFilter
+instance Prelude.Hashable ReplicationRuleFilter
 
-instance Core.NFData ReplicationRuleFilter
+instance Prelude.NFData ReplicationRuleFilter
 
 instance Core.ToXML ReplicationRuleFilter where
   toXML ReplicationRuleFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Prefix" Core.@= prefix,
         "And" Core.@= and,
         "Tag" Core.@= tag

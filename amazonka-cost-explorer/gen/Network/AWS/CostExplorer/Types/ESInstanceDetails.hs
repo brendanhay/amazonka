@@ -21,6 +21,7 @@ module Network.AWS.CostExplorer.Types.ESInstanceDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the Amazon ES instances that AWS recommends that you
 -- purchase.
@@ -28,17 +29,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newESInstanceDetails' smart constructor.
 data ESInstanceDetails = ESInstanceDetails'
   { -- | The class of instance that AWS recommends.
-    instanceClass :: Core.Maybe Core.Text,
+    instanceClass :: Prelude.Maybe Prelude.Text,
     -- | Whether the recommendation is for a current-generation instance.
-    currentGeneration :: Core.Maybe Core.Bool,
+    currentGeneration :: Prelude.Maybe Prelude.Bool,
     -- | Whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Core.Maybe Core.Bool,
+    sizeFlexEligible :: Prelude.Maybe Prelude.Bool,
     -- | The size of instance that AWS recommends.
-    instanceSize :: Core.Maybe Core.Text,
+    instanceSize :: Prelude.Maybe Prelude.Text,
     -- | The AWS Region of the recommended reservation.
-    region :: Core.Maybe Core.Text
+    region :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ESInstanceDetails' with all optional fields omitted.
@@ -61,31 +62,31 @@ newESInstanceDetails ::
   ESInstanceDetails
 newESInstanceDetails =
   ESInstanceDetails'
-    { instanceClass = Core.Nothing,
-      currentGeneration = Core.Nothing,
-      sizeFlexEligible = Core.Nothing,
-      instanceSize = Core.Nothing,
-      region = Core.Nothing
+    { instanceClass = Prelude.Nothing,
+      currentGeneration = Prelude.Nothing,
+      sizeFlexEligible = Prelude.Nothing,
+      instanceSize = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | The class of instance that AWS recommends.
-eSInstanceDetails_instanceClass :: Lens.Lens' ESInstanceDetails (Core.Maybe Core.Text)
+eSInstanceDetails_instanceClass :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Text)
 eSInstanceDetails_instanceClass = Lens.lens (\ESInstanceDetails' {instanceClass} -> instanceClass) (\s@ESInstanceDetails' {} a -> s {instanceClass = a} :: ESInstanceDetails)
 
 -- | Whether the recommendation is for a current-generation instance.
-eSInstanceDetails_currentGeneration :: Lens.Lens' ESInstanceDetails (Core.Maybe Core.Bool)
+eSInstanceDetails_currentGeneration :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Bool)
 eSInstanceDetails_currentGeneration = Lens.lens (\ESInstanceDetails' {currentGeneration} -> currentGeneration) (\s@ESInstanceDetails' {} a -> s {currentGeneration = a} :: ESInstanceDetails)
 
 -- | Whether the recommended reservation is size flexible.
-eSInstanceDetails_sizeFlexEligible :: Lens.Lens' ESInstanceDetails (Core.Maybe Core.Bool)
+eSInstanceDetails_sizeFlexEligible :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Bool)
 eSInstanceDetails_sizeFlexEligible = Lens.lens (\ESInstanceDetails' {sizeFlexEligible} -> sizeFlexEligible) (\s@ESInstanceDetails' {} a -> s {sizeFlexEligible = a} :: ESInstanceDetails)
 
 -- | The size of instance that AWS recommends.
-eSInstanceDetails_instanceSize :: Lens.Lens' ESInstanceDetails (Core.Maybe Core.Text)
+eSInstanceDetails_instanceSize :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Text)
 eSInstanceDetails_instanceSize = Lens.lens (\ESInstanceDetails' {instanceSize} -> instanceSize) (\s@ESInstanceDetails' {} a -> s {instanceSize = a} :: ESInstanceDetails)
 
 -- | The AWS Region of the recommended reservation.
-eSInstanceDetails_region :: Lens.Lens' ESInstanceDetails (Core.Maybe Core.Text)
+eSInstanceDetails_region :: Lens.Lens' ESInstanceDetails (Prelude.Maybe Prelude.Text)
 eSInstanceDetails_region = Lens.lens (\ESInstanceDetails' {region} -> region) (\s@ESInstanceDetails' {} a -> s {region = a} :: ESInstanceDetails)
 
 instance Core.FromJSON ESInstanceDetails where
@@ -94,13 +95,13 @@ instance Core.FromJSON ESInstanceDetails where
       "ESInstanceDetails"
       ( \x ->
           ESInstanceDetails'
-            Core.<$> (x Core..:? "InstanceClass")
-            Core.<*> (x Core..:? "CurrentGeneration")
-            Core.<*> (x Core..:? "SizeFlexEligible")
-            Core.<*> (x Core..:? "InstanceSize")
-            Core.<*> (x Core..:? "Region")
+            Prelude.<$> (x Core..:? "InstanceClass")
+            Prelude.<*> (x Core..:? "CurrentGeneration")
+            Prelude.<*> (x Core..:? "SizeFlexEligible")
+            Prelude.<*> (x Core..:? "InstanceSize")
+            Prelude.<*> (x Core..:? "Region")
       )
 
-instance Core.Hashable ESInstanceDetails
+instance Prelude.Hashable ESInstanceDetails
 
-instance Core.NFData ESInstanceDetails
+instance Prelude.NFData ESInstanceDetails

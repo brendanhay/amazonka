@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.M3u8NielsenId3Behavior
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | M3u8 Nielsen Id3 Behavior
 newtype M3u8NielsenId3Behavior = M3u8NielsenId3Behavior'
@@ -34,15 +35,15 @@ newtype M3u8NielsenId3Behavior = M3u8NielsenId3Behavior'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

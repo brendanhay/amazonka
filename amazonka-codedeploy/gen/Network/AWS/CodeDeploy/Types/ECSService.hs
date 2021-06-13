@@ -21,6 +21,7 @@ module Network.AWS.CodeDeploy.Types.ECSService where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the service and cluster names used to identify an Amazon ECS
 -- deployment\'s target.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newECSService' smart constructor.
 data ECSService = ECSService'
   { -- | The name of the target Amazon ECS service.
-    serviceName :: Core.Maybe Core.Text,
+    serviceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster that the Amazon ECS service is associated with.
-    clusterName :: Core.Maybe Core.Text
+    clusterName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ECSService' with all optional fields omitted.
@@ -49,16 +50,16 @@ newECSService ::
   ECSService
 newECSService =
   ECSService'
-    { serviceName = Core.Nothing,
-      clusterName = Core.Nothing
+    { serviceName = Prelude.Nothing,
+      clusterName = Prelude.Nothing
     }
 
 -- | The name of the target Amazon ECS service.
-eCSService_serviceName :: Lens.Lens' ECSService (Core.Maybe Core.Text)
+eCSService_serviceName :: Lens.Lens' ECSService (Prelude.Maybe Prelude.Text)
 eCSService_serviceName = Lens.lens (\ECSService' {serviceName} -> serviceName) (\s@ECSService' {} a -> s {serviceName = a} :: ECSService)
 
 -- | The name of the cluster that the Amazon ECS service is associated with.
-eCSService_clusterName :: Lens.Lens' ECSService (Core.Maybe Core.Text)
+eCSService_clusterName :: Lens.Lens' ECSService (Prelude.Maybe Prelude.Text)
 eCSService_clusterName = Lens.lens (\ECSService' {clusterName} -> clusterName) (\s@ECSService' {} a -> s {clusterName = a} :: ECSService)
 
 instance Core.FromJSON ECSService where
@@ -67,19 +68,19 @@ instance Core.FromJSON ECSService where
       "ECSService"
       ( \x ->
           ECSService'
-            Core.<$> (x Core..:? "serviceName")
-            Core.<*> (x Core..:? "clusterName")
+            Prelude.<$> (x Core..:? "serviceName")
+            Prelude.<*> (x Core..:? "clusterName")
       )
 
-instance Core.Hashable ECSService
+instance Prelude.Hashable ECSService
 
-instance Core.NFData ECSService
+instance Prelude.NFData ECSService
 
 instance Core.ToJSON ECSService where
   toJSON ECSService' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("serviceName" Core..=) Core.<$> serviceName,
-            ("clusterName" Core..=) Core.<$> clusterName
+      ( Prelude.catMaybes
+          [ ("serviceName" Core..=) Prelude.<$> serviceName,
+            ("clusterName" Core..=) Prelude.<$> clusterName
           ]
       )

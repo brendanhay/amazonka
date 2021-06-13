@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ data DeleteManagedPrefixList = DeleteManagedPrefixList'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the prefix list.
-    prefixListId :: Core.Text
+    prefixListId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteManagedPrefixList' with all optional fields omitted.
@@ -75,11 +76,11 @@ data DeleteManagedPrefixList = DeleteManagedPrefixList'
 -- 'prefixListId', 'deleteManagedPrefixList_prefixListId' - The ID of the prefix list.
 newDeleteManagedPrefixList ::
   -- | 'prefixListId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteManagedPrefixList
 newDeleteManagedPrefixList pPrefixListId_ =
   DeleteManagedPrefixList'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       prefixListId = pPrefixListId_
     }
 
@@ -87,11 +88,11 @@ newDeleteManagedPrefixList pPrefixListId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteManagedPrefixList_dryRun :: Lens.Lens' DeleteManagedPrefixList (Core.Maybe Core.Bool)
+deleteManagedPrefixList_dryRun :: Lens.Lens' DeleteManagedPrefixList (Prelude.Maybe Prelude.Bool)
 deleteManagedPrefixList_dryRun = Lens.lens (\DeleteManagedPrefixList' {dryRun} -> dryRun) (\s@DeleteManagedPrefixList' {} a -> s {dryRun = a} :: DeleteManagedPrefixList)
 
 -- | The ID of the prefix list.
-deleteManagedPrefixList_prefixListId :: Lens.Lens' DeleteManagedPrefixList Core.Text
+deleteManagedPrefixList_prefixListId :: Lens.Lens' DeleteManagedPrefixList Prelude.Text
 deleteManagedPrefixList_prefixListId = Lens.lens (\DeleteManagedPrefixList' {prefixListId} -> prefixListId) (\s@DeleteManagedPrefixList' {} a -> s {prefixListId = a} :: DeleteManagedPrefixList)
 
 instance Core.AWSRequest DeleteManagedPrefixList where
@@ -103,26 +104,27 @@ instance Core.AWSRequest DeleteManagedPrefixList where
     Response.receiveXML
       ( \s h x ->
           DeleteManagedPrefixListResponse'
-            Core.<$> (x Core..@? "prefixList")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "prefixList")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteManagedPrefixList
+instance Prelude.Hashable DeleteManagedPrefixList
 
-instance Core.NFData DeleteManagedPrefixList
+instance Prelude.NFData DeleteManagedPrefixList
 
 instance Core.ToHeaders DeleteManagedPrefixList where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteManagedPrefixList where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteManagedPrefixList where
   toQuery DeleteManagedPrefixList' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteManagedPrefixList" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteManagedPrefixList" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "PrefixListId" Core.=: prefixListId
       ]
@@ -130,11 +132,11 @@ instance Core.ToQuery DeleteManagedPrefixList where
 -- | /See:/ 'newDeleteManagedPrefixListResponse' smart constructor.
 data DeleteManagedPrefixListResponse = DeleteManagedPrefixListResponse'
   { -- | Information about the prefix list.
-    prefixList :: Core.Maybe ManagedPrefixList,
+    prefixList :: Prelude.Maybe ManagedPrefixList,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteManagedPrefixListResponse' with all optional fields omitted.
@@ -149,21 +151,23 @@ data DeleteManagedPrefixListResponse = DeleteManagedPrefixListResponse'
 -- 'httpStatus', 'deleteManagedPrefixListResponse_httpStatus' - The response's http status code.
 newDeleteManagedPrefixListResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteManagedPrefixListResponse
 newDeleteManagedPrefixListResponse pHttpStatus_ =
   DeleteManagedPrefixListResponse'
     { prefixList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the prefix list.
-deleteManagedPrefixListResponse_prefixList :: Lens.Lens' DeleteManagedPrefixListResponse (Core.Maybe ManagedPrefixList)
+deleteManagedPrefixListResponse_prefixList :: Lens.Lens' DeleteManagedPrefixListResponse (Prelude.Maybe ManagedPrefixList)
 deleteManagedPrefixListResponse_prefixList = Lens.lens (\DeleteManagedPrefixListResponse' {prefixList} -> prefixList) (\s@DeleteManagedPrefixListResponse' {} a -> s {prefixList = a} :: DeleteManagedPrefixListResponse)
 
 -- | The response's http status code.
-deleteManagedPrefixListResponse_httpStatus :: Lens.Lens' DeleteManagedPrefixListResponse Core.Int
+deleteManagedPrefixListResponse_httpStatus :: Lens.Lens' DeleteManagedPrefixListResponse Prelude.Int
 deleteManagedPrefixListResponse_httpStatus = Lens.lens (\DeleteManagedPrefixListResponse' {httpStatus} -> httpStatus) (\s@DeleteManagedPrefixListResponse' {} a -> s {httpStatus = a} :: DeleteManagedPrefixListResponse)
 
-instance Core.NFData DeleteManagedPrefixListResponse
+instance
+  Prelude.NFData
+    DeleteManagedPrefixListResponse

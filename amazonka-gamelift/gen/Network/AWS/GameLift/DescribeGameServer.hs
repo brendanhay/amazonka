@@ -69,6 +69,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,12 +77,12 @@ import qualified Network.AWS.Response as Response
 data DescribeGameServer = DescribeGameServer'
   { -- | A unique identifier for the game server group where the game server is
     -- running. Use either the GameServerGroup name or ARN value.
-    gameServerGroupName :: Core.Text,
+    gameServerGroupName :: Prelude.Text,
     -- | A custom string that uniquely identifies the game server information to
     -- be retrieved.
-    gameServerId :: Core.Text
+    gameServerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGameServer' with all optional fields omitted.
@@ -98,9 +99,9 @@ data DescribeGameServer = DescribeGameServer'
 -- be retrieved.
 newDescribeGameServer ::
   -- | 'gameServerGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'gameServerId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeGameServer
 newDescribeGameServer
   pGameServerGroupName_
@@ -113,12 +114,12 @@ newDescribeGameServer
 
 -- | A unique identifier for the game server group where the game server is
 -- running. Use either the GameServerGroup name or ARN value.
-describeGameServer_gameServerGroupName :: Lens.Lens' DescribeGameServer Core.Text
+describeGameServer_gameServerGroupName :: Lens.Lens' DescribeGameServer Prelude.Text
 describeGameServer_gameServerGroupName = Lens.lens (\DescribeGameServer' {gameServerGroupName} -> gameServerGroupName) (\s@DescribeGameServer' {} a -> s {gameServerGroupName = a} :: DescribeGameServer)
 
 -- | A custom string that uniquely identifies the game server information to
 -- be retrieved.
-describeGameServer_gameServerId :: Lens.Lens' DescribeGameServer Core.Text
+describeGameServer_gameServerId :: Lens.Lens' DescribeGameServer Prelude.Text
 describeGameServer_gameServerId = Lens.lens (\DescribeGameServer' {gameServerId} -> gameServerId) (\s@DescribeGameServer' {} a -> s {gameServerId = a} :: DescribeGameServer)
 
 instance Core.AWSRequest DescribeGameServer where
@@ -130,49 +131,53 @@ instance Core.AWSRequest DescribeGameServer where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameServerResponse'
-            Core.<$> (x Core..?> "GameServer")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameServer")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeGameServer
+instance Prelude.Hashable DescribeGameServer
 
-instance Core.NFData DescribeGameServer
+instance Prelude.NFData DescribeGameServer
 
 instance Core.ToHeaders DescribeGameServer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DescribeGameServer" :: Core.ByteString),
+              Core.=# ( "GameLift.DescribeGameServer" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeGameServer where
   toJSON DescribeGameServer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("GameServerGroupName" Core..= gameServerGroupName),
-            Core.Just ("GameServerId" Core..= gameServerId)
+            Prelude.Just ("GameServerId" Core..= gameServerId)
           ]
       )
 
 instance Core.ToPath DescribeGameServer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeGameServer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGameServerResponse' smart constructor.
 data DescribeGameServerResponse = DescribeGameServerResponse'
   { -- | Object that describes the requested game server.
-    gameServer :: Core.Maybe GameServer,
+    gameServer :: Prelude.Maybe GameServer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGameServerResponse' with all optional fields omitted.
@@ -187,21 +192,21 @@ data DescribeGameServerResponse = DescribeGameServerResponse'
 -- 'httpStatus', 'describeGameServerResponse_httpStatus' - The response's http status code.
 newDescribeGameServerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeGameServerResponse
 newDescribeGameServerResponse pHttpStatus_ =
   DescribeGameServerResponse'
     { gameServer =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the requested game server.
-describeGameServerResponse_gameServer :: Lens.Lens' DescribeGameServerResponse (Core.Maybe GameServer)
+describeGameServerResponse_gameServer :: Lens.Lens' DescribeGameServerResponse (Prelude.Maybe GameServer)
 describeGameServerResponse_gameServer = Lens.lens (\DescribeGameServerResponse' {gameServer} -> gameServer) (\s@DescribeGameServerResponse' {} a -> s {gameServer = a} :: DescribeGameServerResponse)
 
 -- | The response's http status code.
-describeGameServerResponse_httpStatus :: Lens.Lens' DescribeGameServerResponse Core.Int
+describeGameServerResponse_httpStatus :: Lens.Lens' DescribeGameServerResponse Prelude.Int
 describeGameServerResponse_httpStatus = Lens.lens (\DescribeGameServerResponse' {httpStatus} -> httpStatus) (\s@DescribeGameServerResponse' {} a -> s {httpStatus = a} :: DescribeGameServerResponse)
 
-instance Core.NFData DescribeGameServerResponse
+instance Prelude.NFData DescribeGameServerResponse

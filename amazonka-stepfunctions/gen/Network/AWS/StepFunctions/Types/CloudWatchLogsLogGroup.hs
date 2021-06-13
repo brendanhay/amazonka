@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data CloudWatchLogsLogGroup = CloudWatchLogsLogGroup'
   { -- | The ARN of the the CloudWatch log group to which you want your logs
     -- emitted to. The ARN must end with @:*@
-    logGroupArn :: Core.Maybe Core.Text
+    logGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudWatchLogsLogGroup' with all optional fields omitted.
@@ -45,11 +46,14 @@ data CloudWatchLogsLogGroup = CloudWatchLogsLogGroup'
 newCloudWatchLogsLogGroup ::
   CloudWatchLogsLogGroup
 newCloudWatchLogsLogGroup =
-  CloudWatchLogsLogGroup' {logGroupArn = Core.Nothing}
+  CloudWatchLogsLogGroup'
+    { logGroupArn =
+        Prelude.Nothing
+    }
 
 -- | The ARN of the the CloudWatch log group to which you want your logs
 -- emitted to. The ARN must end with @:*@
-cloudWatchLogsLogGroup_logGroupArn :: Lens.Lens' CloudWatchLogsLogGroup (Core.Maybe Core.Text)
+cloudWatchLogsLogGroup_logGroupArn :: Lens.Lens' CloudWatchLogsLogGroup (Prelude.Maybe Prelude.Text)
 cloudWatchLogsLogGroup_logGroupArn = Lens.lens (\CloudWatchLogsLogGroup' {logGroupArn} -> logGroupArn) (\s@CloudWatchLogsLogGroup' {} a -> s {logGroupArn = a} :: CloudWatchLogsLogGroup)
 
 instance Core.FromJSON CloudWatchLogsLogGroup where
@@ -58,16 +62,16 @@ instance Core.FromJSON CloudWatchLogsLogGroup where
       "CloudWatchLogsLogGroup"
       ( \x ->
           CloudWatchLogsLogGroup'
-            Core.<$> (x Core..:? "logGroupArn")
+            Prelude.<$> (x Core..:? "logGroupArn")
       )
 
-instance Core.Hashable CloudWatchLogsLogGroup
+instance Prelude.Hashable CloudWatchLogsLogGroup
 
-instance Core.NFData CloudWatchLogsLogGroup
+instance Prelude.NFData CloudWatchLogsLogGroup
 
 instance Core.ToJSON CloudWatchLogsLogGroup where
   toJSON CloudWatchLogsLogGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [("logGroupArn" Core..=) Core.<$> logGroupArn]
+      ( Prelude.catMaybes
+          [("logGroupArn" Core..=) Prelude.<$> logGroupArn]
       )

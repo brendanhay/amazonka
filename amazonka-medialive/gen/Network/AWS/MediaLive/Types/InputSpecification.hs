@@ -24,19 +24,20 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputCodec
 import Network.AWS.MediaLive.Types.InputMaximumBitrate
 import Network.AWS.MediaLive.Types.InputResolution
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for InputSpecification
 --
 -- /See:/ 'newInputSpecification' smart constructor.
 data InputSpecification = InputSpecification'
   { -- | Input codec
-    codec :: Core.Maybe InputCodec,
+    codec :: Prelude.Maybe InputCodec,
     -- | Maximum input bitrate, categorized coarsely
-    maximumBitrate :: Core.Maybe InputMaximumBitrate,
+    maximumBitrate :: Prelude.Maybe InputMaximumBitrate,
     -- | Input resolution, categorized coarsely
-    resolution :: Core.Maybe InputResolution
+    resolution :: Prelude.Maybe InputResolution
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputSpecification' with all optional fields omitted.
@@ -55,21 +56,21 @@ newInputSpecification ::
   InputSpecification
 newInputSpecification =
   InputSpecification'
-    { codec = Core.Nothing,
-      maximumBitrate = Core.Nothing,
-      resolution = Core.Nothing
+    { codec = Prelude.Nothing,
+      maximumBitrate = Prelude.Nothing,
+      resolution = Prelude.Nothing
     }
 
 -- | Input codec
-inputSpecification_codec :: Lens.Lens' InputSpecification (Core.Maybe InputCodec)
+inputSpecification_codec :: Lens.Lens' InputSpecification (Prelude.Maybe InputCodec)
 inputSpecification_codec = Lens.lens (\InputSpecification' {codec} -> codec) (\s@InputSpecification' {} a -> s {codec = a} :: InputSpecification)
 
 -- | Maximum input bitrate, categorized coarsely
-inputSpecification_maximumBitrate :: Lens.Lens' InputSpecification (Core.Maybe InputMaximumBitrate)
+inputSpecification_maximumBitrate :: Lens.Lens' InputSpecification (Prelude.Maybe InputMaximumBitrate)
 inputSpecification_maximumBitrate = Lens.lens (\InputSpecification' {maximumBitrate} -> maximumBitrate) (\s@InputSpecification' {} a -> s {maximumBitrate = a} :: InputSpecification)
 
 -- | Input resolution, categorized coarsely
-inputSpecification_resolution :: Lens.Lens' InputSpecification (Core.Maybe InputResolution)
+inputSpecification_resolution :: Lens.Lens' InputSpecification (Prelude.Maybe InputResolution)
 inputSpecification_resolution = Lens.lens (\InputSpecification' {resolution} -> resolution) (\s@InputSpecification' {} a -> s {resolution = a} :: InputSpecification)
 
 instance Core.FromJSON InputSpecification where
@@ -78,21 +79,22 @@ instance Core.FromJSON InputSpecification where
       "InputSpecification"
       ( \x ->
           InputSpecification'
-            Core.<$> (x Core..:? "codec")
-            Core.<*> (x Core..:? "maximumBitrate")
-            Core.<*> (x Core..:? "resolution")
+            Prelude.<$> (x Core..:? "codec")
+            Prelude.<*> (x Core..:? "maximumBitrate")
+            Prelude.<*> (x Core..:? "resolution")
       )
 
-instance Core.Hashable InputSpecification
+instance Prelude.Hashable InputSpecification
 
-instance Core.NFData InputSpecification
+instance Prelude.NFData InputSpecification
 
 instance Core.ToJSON InputSpecification where
   toJSON InputSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("codec" Core..=) Core.<$> codec,
-            ("maximumBitrate" Core..=) Core.<$> maximumBitrate,
-            ("resolution" Core..=) Core.<$> resolution
+      ( Prelude.catMaybes
+          [ ("codec" Core..=) Prelude.<$> codec,
+            ("maximumBitrate" Core..=)
+              Prelude.<$> maximumBitrate,
+            ("resolution" Core..=) Prelude.<$> resolution
           ]
       )

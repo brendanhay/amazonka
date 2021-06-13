@@ -69,6 +69,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,19 +81,19 @@ data ListVaults = ListVaults'
   { -- | The maximum number of vaults to be returned. The default limit is 10.
     -- The number of vaults returned might be fewer than the specified limit,
     -- but the number of returned vaults never exceeds the limit.
-    limit :: Core.Maybe Core.Text,
+    limit :: Prelude.Maybe Prelude.Text,
     -- | A string used for pagination. The marker specifies the vault ARN after
     -- which the listing of vaults should begin.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The @AccountId@ value is the AWS account ID. This value must match the
     -- AWS account ID associated with the credentials used to sign the request.
     -- You can either specify an AWS account ID or optionally a single \'@-@\'
     -- (hyphen), in which case Amazon Glacier uses the AWS account ID
     -- associated with the credentials used to sign the request. If you specify
     -- your account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text
+    accountId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListVaults' with all optional fields omitted.
@@ -117,24 +118,24 @@ data ListVaults = ListVaults'
 -- your account ID, do not include any hyphens (\'-\') in the ID.
 newListVaults ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   ListVaults
 newListVaults pAccountId_ =
   ListVaults'
-    { limit = Core.Nothing,
-      marker = Core.Nothing,
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       accountId = pAccountId_
     }
 
 -- | The maximum number of vaults to be returned. The default limit is 10.
 -- The number of vaults returned might be fewer than the specified limit,
 -- but the number of returned vaults never exceeds the limit.
-listVaults_limit :: Lens.Lens' ListVaults (Core.Maybe Core.Text)
+listVaults_limit :: Lens.Lens' ListVaults (Prelude.Maybe Prelude.Text)
 listVaults_limit = Lens.lens (\ListVaults' {limit} -> limit) (\s@ListVaults' {} a -> s {limit = a} :: ListVaults)
 
 -- | A string used for pagination. The marker specifies the vault ARN after
 -- which the listing of vaults should begin.
-listVaults_marker :: Lens.Lens' ListVaults (Core.Maybe Core.Text)
+listVaults_marker :: Lens.Lens' ListVaults (Prelude.Maybe Prelude.Text)
 listVaults_marker = Lens.lens (\ListVaults' {marker} -> marker) (\s@ListVaults' {} a -> s {marker = a} :: ListVaults)
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -143,56 +144,57 @@ listVaults_marker = Lens.lens (\ListVaults' {marker} -> marker) (\s@ListVaults' 
 -- (hyphen), in which case Amazon Glacier uses the AWS account ID
 -- associated with the credentials used to sign the request. If you specify
 -- your account ID, do not include any hyphens (\'-\') in the ID.
-listVaults_accountId :: Lens.Lens' ListVaults Core.Text
+listVaults_accountId :: Lens.Lens' ListVaults Prelude.Text
 listVaults_accountId = Lens.lens (\ListVaults' {accountId} -> accountId) (\s@ListVaults' {} a -> s {accountId = a} :: ListVaults)
 
 instance Core.AWSPager ListVaults where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listVaultsResponse_marker Core.. Lens._Just
+            Lens.^? listVaultsResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listVaultsResponse_vaultList Core.. Lens._Just
+            Lens.^? listVaultsResponse_vaultList Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listVaults_marker
+          Prelude.& listVaults_marker
           Lens..~ rs
-          Lens.^? listVaultsResponse_marker Core.. Lens._Just
+          Lens.^? listVaultsResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVaults where
   type AWSResponse ListVaults = ListVaultsResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.get defaultService
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListVaultsResponse'
-            Core.<$> (x Core..?> "VaultList" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "VaultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListVaults
+instance Prelude.Hashable ListVaults
 
-instance Core.NFData ListVaults
+instance Prelude.NFData ListVaults
 
 instance Core.ToHeaders ListVaults where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListVaults where
   toPath ListVaults' {..} =
-    Core.mconcat ["/", Core.toBS accountId, "/vaults"]
+    Prelude.mconcat
+      ["/", Core.toBS accountId, "/vaults"]
 
 instance Core.ToQuery ListVaults where
   toQuery ListVaults' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["limit" Core.=: limit, "marker" Core.=: marker]
 
 -- | Contains the Amazon S3 Glacier response to your request.
@@ -200,15 +202,15 @@ instance Core.ToQuery ListVaults where
 -- /See:/ 'newListVaultsResponse' smart constructor.
 data ListVaultsResponse = ListVaultsResponse'
   { -- | List of vaults.
-    vaultList :: Core.Maybe [DescribeVaultOutput],
+    vaultList :: Prelude.Maybe [DescribeVaultOutput],
     -- | The vault ARN at which to continue pagination of the results. You use
     -- the marker in another List Vaults request to obtain more vaults in the
     -- list.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListVaultsResponse' with all optional fields omitted.
@@ -227,27 +229,27 @@ data ListVaultsResponse = ListVaultsResponse'
 -- 'httpStatus', 'listVaultsResponse_httpStatus' - The response's http status code.
 newListVaultsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListVaultsResponse
 newListVaultsResponse pHttpStatus_ =
   ListVaultsResponse'
-    { vaultList = Core.Nothing,
-      marker = Core.Nothing,
+    { vaultList = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | List of vaults.
-listVaultsResponse_vaultList :: Lens.Lens' ListVaultsResponse (Core.Maybe [DescribeVaultOutput])
-listVaultsResponse_vaultList = Lens.lens (\ListVaultsResponse' {vaultList} -> vaultList) (\s@ListVaultsResponse' {} a -> s {vaultList = a} :: ListVaultsResponse) Core.. Lens.mapping Lens._Coerce
+listVaultsResponse_vaultList :: Lens.Lens' ListVaultsResponse (Prelude.Maybe [DescribeVaultOutput])
+listVaultsResponse_vaultList = Lens.lens (\ListVaultsResponse' {vaultList} -> vaultList) (\s@ListVaultsResponse' {} a -> s {vaultList = a} :: ListVaultsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The vault ARN at which to continue pagination of the results. You use
 -- the marker in another List Vaults request to obtain more vaults in the
 -- list.
-listVaultsResponse_marker :: Lens.Lens' ListVaultsResponse (Core.Maybe Core.Text)
+listVaultsResponse_marker :: Lens.Lens' ListVaultsResponse (Prelude.Maybe Prelude.Text)
 listVaultsResponse_marker = Lens.lens (\ListVaultsResponse' {marker} -> marker) (\s@ListVaultsResponse' {} a -> s {marker = a} :: ListVaultsResponse)
 
 -- | The response's http status code.
-listVaultsResponse_httpStatus :: Lens.Lens' ListVaultsResponse Core.Int
+listVaultsResponse_httpStatus :: Lens.Lens' ListVaultsResponse Prelude.Int
 listVaultsResponse_httpStatus = Lens.lens (\ListVaultsResponse' {httpStatus} -> httpStatus) (\s@ListVaultsResponse' {} a -> s {httpStatus = a} :: ListVaultsResponse)
 
-instance Core.NFData ListVaultsResponse
+instance Prelude.NFData ListVaultsResponse

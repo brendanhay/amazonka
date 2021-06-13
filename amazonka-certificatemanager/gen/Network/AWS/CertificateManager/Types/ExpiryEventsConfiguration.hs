@@ -21,6 +21,7 @@ module Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Object containing expiration events options associated with an AWS
 -- account.
@@ -31,9 +32,9 @@ data ExpiryEventsConfiguration = ExpiryEventsConfiguration'
     -- starts generating @EventBridge@ events. ACM sends one event per day per
     -- certificate until the certificate expires. By default, accounts receive
     -- events starting 45 days before certificate expiration.
-    daysBeforeExpiry :: Core.Maybe Core.Natural
+    daysBeforeExpiry :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExpiryEventsConfiguration' with all optional fields omitted.
@@ -52,14 +53,14 @@ newExpiryEventsConfiguration ::
 newExpiryEventsConfiguration =
   ExpiryEventsConfiguration'
     { daysBeforeExpiry =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies the number of days prior to certificate expiration when ACM
 -- starts generating @EventBridge@ events. ACM sends one event per day per
 -- certificate until the certificate expires. By default, accounts receive
 -- events starting 45 days before certificate expiration.
-expiryEventsConfiguration_daysBeforeExpiry :: Lens.Lens' ExpiryEventsConfiguration (Core.Maybe Core.Natural)
+expiryEventsConfiguration_daysBeforeExpiry :: Lens.Lens' ExpiryEventsConfiguration (Prelude.Maybe Prelude.Natural)
 expiryEventsConfiguration_daysBeforeExpiry = Lens.lens (\ExpiryEventsConfiguration' {daysBeforeExpiry} -> daysBeforeExpiry) (\s@ExpiryEventsConfiguration' {} a -> s {daysBeforeExpiry = a} :: ExpiryEventsConfiguration)
 
 instance Core.FromJSON ExpiryEventsConfiguration where
@@ -68,18 +69,18 @@ instance Core.FromJSON ExpiryEventsConfiguration where
       "ExpiryEventsConfiguration"
       ( \x ->
           ExpiryEventsConfiguration'
-            Core.<$> (x Core..:? "DaysBeforeExpiry")
+            Prelude.<$> (x Core..:? "DaysBeforeExpiry")
       )
 
-instance Core.Hashable ExpiryEventsConfiguration
+instance Prelude.Hashable ExpiryEventsConfiguration
 
-instance Core.NFData ExpiryEventsConfiguration
+instance Prelude.NFData ExpiryEventsConfiguration
 
 instance Core.ToJSON ExpiryEventsConfiguration where
   toJSON ExpiryEventsConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DaysBeforeExpiry" Core..=)
-              Core.<$> daysBeforeExpiry
+              Prelude.<$> daysBeforeExpiry
           ]
       )

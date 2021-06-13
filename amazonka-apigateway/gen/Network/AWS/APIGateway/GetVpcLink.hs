@@ -47,6 +47,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ import qualified Network.AWS.Response as Response
 data GetVpcLink = GetVpcLink'
   { -- | [Required] The identifier of the VpcLink. It is used in an Integration
     -- to reference this VpcLink.
-    vpcLinkId :: Core.Text
+    vpcLinkId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetVpcLink' with all optional fields omitted.
@@ -72,14 +73,14 @@ data GetVpcLink = GetVpcLink'
 -- to reference this VpcLink.
 newGetVpcLink ::
   -- | 'vpcLinkId'
-  Core.Text ->
+  Prelude.Text ->
   GetVpcLink
 newGetVpcLink pVpcLinkId_ =
   GetVpcLink' {vpcLinkId = pVpcLinkId_}
 
 -- | [Required] The identifier of the VpcLink. It is used in an Integration
 -- to reference this VpcLink.
-getVpcLink_vpcLinkId :: Lens.Lens' GetVpcLink Core.Text
+getVpcLink_vpcLinkId :: Lens.Lens' GetVpcLink Prelude.Text
 getVpcLink_vpcLinkId = Lens.lens (\GetVpcLink' {vpcLinkId} -> vpcLinkId) (\s@GetVpcLink' {} a -> s {vpcLinkId = a} :: GetVpcLink)
 
 instance Core.AWSRequest GetVpcLink where
@@ -89,22 +90,22 @@ instance Core.AWSRequest GetVpcLink where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetVpcLink
+instance Prelude.Hashable GetVpcLink
 
-instance Core.NFData GetVpcLink
+instance Prelude.NFData GetVpcLink
 
 instance Core.ToHeaders GetVpcLink where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetVpcLink where
   toPath GetVpcLink' {..} =
-    Core.mconcat ["/vpclinks/", Core.toBS vpcLinkId]
+    Prelude.mconcat ["/vpclinks/", Core.toBS vpcLinkId]
 
 instance Core.ToQuery GetVpcLink where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

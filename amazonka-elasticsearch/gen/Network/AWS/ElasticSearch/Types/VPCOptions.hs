@@ -21,6 +21,7 @@ module Network.AWS.ElasticSearch.Types.VPCOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Options to specify the subnets and security groups for VPC endpoint. For
 -- more information, see
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newVPCOptions' smart constructor.
 data VPCOptions = VPCOptions'
   { -- | Specifies the security groups for VPC endpoint.
-    securityGroupIds :: Core.Maybe [Core.Text],
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the subnets for VPC endpoint.
-    subnetIds :: Core.Maybe [Core.Text]
+    subnetIds :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VPCOptions' with all optional fields omitted.
@@ -50,28 +51,28 @@ newVPCOptions ::
   VPCOptions
 newVPCOptions =
   VPCOptions'
-    { securityGroupIds = Core.Nothing,
-      subnetIds = Core.Nothing
+    { securityGroupIds = Prelude.Nothing,
+      subnetIds = Prelude.Nothing
     }
 
 -- | Specifies the security groups for VPC endpoint.
-vPCOptions_securityGroupIds :: Lens.Lens' VPCOptions (Core.Maybe [Core.Text])
-vPCOptions_securityGroupIds = Lens.lens (\VPCOptions' {securityGroupIds} -> securityGroupIds) (\s@VPCOptions' {} a -> s {securityGroupIds = a} :: VPCOptions) Core.. Lens.mapping Lens._Coerce
+vPCOptions_securityGroupIds :: Lens.Lens' VPCOptions (Prelude.Maybe [Prelude.Text])
+vPCOptions_securityGroupIds = Lens.lens (\VPCOptions' {securityGroupIds} -> securityGroupIds) (\s@VPCOptions' {} a -> s {securityGroupIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the subnets for VPC endpoint.
-vPCOptions_subnetIds :: Lens.Lens' VPCOptions (Core.Maybe [Core.Text])
-vPCOptions_subnetIds = Lens.lens (\VPCOptions' {subnetIds} -> subnetIds) (\s@VPCOptions' {} a -> s {subnetIds = a} :: VPCOptions) Core.. Lens.mapping Lens._Coerce
+vPCOptions_subnetIds :: Lens.Lens' VPCOptions (Prelude.Maybe [Prelude.Text])
+vPCOptions_subnetIds = Lens.lens (\VPCOptions' {subnetIds} -> subnetIds) (\s@VPCOptions' {} a -> s {subnetIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable VPCOptions
+instance Prelude.Hashable VPCOptions
 
-instance Core.NFData VPCOptions
+instance Prelude.NFData VPCOptions
 
 instance Core.ToJSON VPCOptions where
   toJSON VPCOptions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SecurityGroupIds" Core..=)
-              Core.<$> securityGroupIds,
-            ("SubnetIds" Core..=) Core.<$> subnetIds
+              Prelude.<$> securityGroupIds,
+            ("SubnetIds" Core..=) Prelude.<$> subnetIds
           ]
       )

@@ -43,6 +43,7 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data DisassociateSkillGroupFromRoom = DisassociateSkillGroupFromRoom'
   { -- | The ARN of the room from which the skill group is to be disassociated.
     -- Required.
-    roomArn :: Core.Maybe Core.Text,
+    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the skill group to disassociate from a room. Required.
-    skillGroupArn :: Core.Maybe Core.Text
+    skillGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateSkillGroupFromRoom' with all optional fields omitted.
@@ -73,17 +74,17 @@ newDisassociateSkillGroupFromRoom ::
 newDisassociateSkillGroupFromRoom =
   DisassociateSkillGroupFromRoom'
     { roomArn =
-        Core.Nothing,
-      skillGroupArn = Core.Nothing
+        Prelude.Nothing,
+      skillGroupArn = Prelude.Nothing
     }
 
 -- | The ARN of the room from which the skill group is to be disassociated.
 -- Required.
-disassociateSkillGroupFromRoom_roomArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Core.Maybe Core.Text)
+disassociateSkillGroupFromRoom_roomArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Prelude.Maybe Prelude.Text)
 disassociateSkillGroupFromRoom_roomArn = Lens.lens (\DisassociateSkillGroupFromRoom' {roomArn} -> roomArn) (\s@DisassociateSkillGroupFromRoom' {} a -> s {roomArn = a} :: DisassociateSkillGroupFromRoom)
 
 -- | The ARN of the skill group to disassociate from a room. Required.
-disassociateSkillGroupFromRoom_skillGroupArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Core.Maybe Core.Text)
+disassociateSkillGroupFromRoom_skillGroupArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Prelude.Maybe Prelude.Text)
 disassociateSkillGroupFromRoom_skillGroupArn = Lens.lens (\DisassociateSkillGroupFromRoom' {skillGroupArn} -> skillGroupArn) (\s@DisassociateSkillGroupFromRoom' {} a -> s {skillGroupArn = a} :: DisassociateSkillGroupFromRoom)
 
 instance
@@ -98,50 +99,56 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DisassociateSkillGroupFromRoomResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateSkillGroupFromRoom
+instance
+  Prelude.Hashable
+    DisassociateSkillGroupFromRoom
 
-instance Core.NFData DisassociateSkillGroupFromRoom
+instance
+  Prelude.NFData
+    DisassociateSkillGroupFromRoom
 
 instance
   Core.ToHeaders
     DisassociateSkillGroupFromRoom
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.DisassociateSkillGroupFromRoom" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateSkillGroupFromRoom where
   toJSON DisassociateSkillGroupFromRoom' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoomArn" Core..=) Core.<$> roomArn,
-            ("SkillGroupArn" Core..=) Core.<$> skillGroupArn
+      ( Prelude.catMaybes
+          [ ("RoomArn" Core..=) Prelude.<$> roomArn,
+            ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn
           ]
       )
 
 instance Core.ToPath DisassociateSkillGroupFromRoom where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateSkillGroupFromRoom where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateSkillGroupFromRoomResponse' smart constructor.
 data DisassociateSkillGroupFromRoomResponse = DisassociateSkillGroupFromRoomResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateSkillGroupFromRoomResponse' with all optional fields omitted.
@@ -154,7 +161,7 @@ data DisassociateSkillGroupFromRoomResponse = DisassociateSkillGroupFromRoomResp
 -- 'httpStatus', 'disassociateSkillGroupFromRoomResponse_httpStatus' - The response's http status code.
 newDisassociateSkillGroupFromRoomResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateSkillGroupFromRoomResponse
 newDisassociateSkillGroupFromRoomResponse
   pHttpStatus_ =
@@ -164,9 +171,9 @@ newDisassociateSkillGroupFromRoomResponse
       }
 
 -- | The response's http status code.
-disassociateSkillGroupFromRoomResponse_httpStatus :: Lens.Lens' DisassociateSkillGroupFromRoomResponse Core.Int
+disassociateSkillGroupFromRoomResponse_httpStatus :: Lens.Lens' DisassociateSkillGroupFromRoomResponse Prelude.Int
 disassociateSkillGroupFromRoomResponse_httpStatus = Lens.lens (\DisassociateSkillGroupFromRoomResponse' {httpStatus} -> httpStatus) (\s@DisassociateSkillGroupFromRoomResponse' {} a -> s {httpStatus = a} :: DisassociateSkillGroupFromRoomResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateSkillGroupFromRoomResponse

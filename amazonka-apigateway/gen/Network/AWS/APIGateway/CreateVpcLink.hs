@@ -53,6 +53,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,17 +67,17 @@ data CreateVpcLink = CreateVpcLink'
   { -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the VPC link.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | [Required] The name used to label and identify the VPC link.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | [Required] The ARN of the network load balancer of the VPC targeted by
     -- the VPC link. The network load balancer must be owned by the same AWS
     -- account of the API owner.
-    targetArns :: [Core.Text]
+    targetArns :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcLink' with all optional fields omitted.
@@ -99,35 +100,35 @@ data CreateVpcLink = CreateVpcLink'
 -- account of the API owner.
 newCreateVpcLink ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateVpcLink
 newCreateVpcLink pName_ =
   CreateVpcLink'
-    { tags = Core.Nothing,
-      description = Core.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
-      targetArns = Core.mempty
+      targetArns = Prelude.mempty
     }
 
 -- | The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
-createVpcLink_tags :: Lens.Lens' CreateVpcLink (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createVpcLink_tags = Lens.lens (\CreateVpcLink' {tags} -> tags) (\s@CreateVpcLink' {} a -> s {tags = a} :: CreateVpcLink) Core.. Lens.mapping Lens._Coerce
+createVpcLink_tags :: Lens.Lens' CreateVpcLink (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createVpcLink_tags = Lens.lens (\CreateVpcLink' {tags} -> tags) (\s@CreateVpcLink' {} a -> s {tags = a} :: CreateVpcLink) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the VPC link.
-createVpcLink_description :: Lens.Lens' CreateVpcLink (Core.Maybe Core.Text)
+createVpcLink_description :: Lens.Lens' CreateVpcLink (Prelude.Maybe Prelude.Text)
 createVpcLink_description = Lens.lens (\CreateVpcLink' {description} -> description) (\s@CreateVpcLink' {} a -> s {description = a} :: CreateVpcLink)
 
 -- | [Required] The name used to label and identify the VPC link.
-createVpcLink_name :: Lens.Lens' CreateVpcLink Core.Text
+createVpcLink_name :: Lens.Lens' CreateVpcLink Prelude.Text
 createVpcLink_name = Lens.lens (\CreateVpcLink' {name} -> name) (\s@CreateVpcLink' {} a -> s {name = a} :: CreateVpcLink)
 
 -- | [Required] The ARN of the network load balancer of the VPC targeted by
 -- the VPC link. The network load balancer must be owned by the same AWS
 -- account of the API owner.
-createVpcLink_targetArns :: Lens.Lens' CreateVpcLink [Core.Text]
-createVpcLink_targetArns = Lens.lens (\CreateVpcLink' {targetArns} -> targetArns) (\s@CreateVpcLink' {} a -> s {targetArns = a} :: CreateVpcLink) Core.. Lens._Coerce
+createVpcLink_targetArns :: Lens.Lens' CreateVpcLink [Prelude.Text]
+createVpcLink_targetArns = Lens.lens (\CreateVpcLink' {targetArns} -> targetArns) (\s@CreateVpcLink' {} a -> s {targetArns = a} :: CreateVpcLink) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateVpcLink where
   type AWSResponse CreateVpcLink = VpcLink
@@ -136,32 +137,32 @@ instance Core.AWSRequest CreateVpcLink where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreateVpcLink
+instance Prelude.Hashable CreateVpcLink
 
-instance Core.NFData CreateVpcLink
+instance Prelude.NFData CreateVpcLink
 
 instance Core.ToHeaders CreateVpcLink where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON CreateVpcLink where
   toJSON CreateVpcLink' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            ("description" Core..=) Core.<$> description,
-            Core.Just ("name" Core..= name),
-            Core.Just ("targetArns" Core..= targetArns)
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("targetArns" Core..= targetArns)
           ]
       )
 
 instance Core.ToPath CreateVpcLink where
-  toPath = Core.const "/vpclinks"
+  toPath = Prelude.const "/vpclinks"
 
 instance Core.ToQuery CreateVpcLink where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

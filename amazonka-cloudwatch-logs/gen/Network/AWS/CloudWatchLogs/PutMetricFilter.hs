@@ -47,21 +47,22 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutMetricFilter' smart constructor.
 data PutMetricFilter = PutMetricFilter'
   { -- | The name of the log group.
-    logGroupName :: Core.Text,
+    logGroupName :: Prelude.Text,
     -- | A name for the metric filter.
-    filterName :: Core.Text,
+    filterName :: Prelude.Text,
     -- | A filter pattern for extracting metric data out of ingested log events.
-    filterPattern :: Core.Text,
+    filterPattern :: Prelude.Text,
     -- | A collection of information that defines how metric data gets emitted.
-    metricTransformations :: Core.NonEmpty MetricTransformation
+    metricTransformations :: Prelude.NonEmpty MetricTransformation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutMetricFilter' with all optional fields omitted.
@@ -80,13 +81,13 @@ data PutMetricFilter = PutMetricFilter'
 -- 'metricTransformations', 'putMetricFilter_metricTransformations' - A collection of information that defines how metric data gets emitted.
 newPutMetricFilter ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filterName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filterPattern'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricTransformations'
-  Core.NonEmpty MetricTransformation ->
+  Prelude.NonEmpty MetricTransformation ->
   PutMetricFilter
 newPutMetricFilter
   pLogGroupName_
@@ -102,20 +103,20 @@ newPutMetricFilter
       }
 
 -- | The name of the log group.
-putMetricFilter_logGroupName :: Lens.Lens' PutMetricFilter Core.Text
+putMetricFilter_logGroupName :: Lens.Lens' PutMetricFilter Prelude.Text
 putMetricFilter_logGroupName = Lens.lens (\PutMetricFilter' {logGroupName} -> logGroupName) (\s@PutMetricFilter' {} a -> s {logGroupName = a} :: PutMetricFilter)
 
 -- | A name for the metric filter.
-putMetricFilter_filterName :: Lens.Lens' PutMetricFilter Core.Text
+putMetricFilter_filterName :: Lens.Lens' PutMetricFilter Prelude.Text
 putMetricFilter_filterName = Lens.lens (\PutMetricFilter' {filterName} -> filterName) (\s@PutMetricFilter' {} a -> s {filterName = a} :: PutMetricFilter)
 
 -- | A filter pattern for extracting metric data out of ingested log events.
-putMetricFilter_filterPattern :: Lens.Lens' PutMetricFilter Core.Text
+putMetricFilter_filterPattern :: Lens.Lens' PutMetricFilter Prelude.Text
 putMetricFilter_filterPattern = Lens.lens (\PutMetricFilter' {filterPattern} -> filterPattern) (\s@PutMetricFilter' {} a -> s {filterPattern = a} :: PutMetricFilter)
 
 -- | A collection of information that defines how metric data gets emitted.
-putMetricFilter_metricTransformations :: Lens.Lens' PutMetricFilter (Core.NonEmpty MetricTransformation)
-putMetricFilter_metricTransformations = Lens.lens (\PutMetricFilter' {metricTransformations} -> metricTransformations) (\s@PutMetricFilter' {} a -> s {metricTransformations = a} :: PutMetricFilter) Core.. Lens._Coerce
+putMetricFilter_metricTransformations :: Lens.Lens' PutMetricFilter (Prelude.NonEmpty MetricTransformation)
+putMetricFilter_metricTransformations = Lens.lens (\PutMetricFilter' {metricTransformations} -> metricTransformations) (\s@PutMetricFilter' {} a -> s {metricTransformations = a} :: PutMetricFilter) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutMetricFilter where
   type
@@ -125,29 +126,33 @@ instance Core.AWSRequest PutMetricFilter where
   response =
     Response.receiveNull PutMetricFilterResponse'
 
-instance Core.Hashable PutMetricFilter
+instance Prelude.Hashable PutMetricFilter
 
-instance Core.NFData PutMetricFilter
+instance Prelude.NFData PutMetricFilter
 
 instance Core.ToHeaders PutMetricFilter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.PutMetricFilter" :: Core.ByteString),
+              Core.=# ( "Logs_20140328.PutMetricFilter" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutMetricFilter where
   toJSON PutMetricFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("logGroupName" Core..= logGroupName),
-            Core.Just ("filterName" Core..= filterName),
-            Core.Just ("filterPattern" Core..= filterPattern),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just ("filterName" Core..= filterName),
+            Prelude.Just ("filterPattern" Core..= filterPattern),
+            Prelude.Just
               ( "metricTransformations"
                   Core..= metricTransformations
               )
@@ -155,16 +160,16 @@ instance Core.ToJSON PutMetricFilter where
       )
 
 instance Core.ToPath PutMetricFilter where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutMetricFilter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutMetricFilterResponse' smart constructor.
 data PutMetricFilterResponse = PutMetricFilterResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutMetricFilterResponse' with all optional fields omitted.
@@ -174,4 +179,4 @@ newPutMetricFilterResponse ::
   PutMetricFilterResponse
 newPutMetricFilterResponse = PutMetricFilterResponse'
 
-instance Core.NFData PutMetricFilterResponse
+instance Prelude.NFData PutMetricFilterResponse

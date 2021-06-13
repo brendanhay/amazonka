@@ -51,25 +51,26 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
   { -- | The token to retrieve the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An optional filter that lets you search for jobs that have the specified
     -- status.
-    status :: Core.Maybe JobStatus,
+    status :: Prelude.Maybe JobStatus,
     -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
     -- complete after all those things specified as targets have completed the
     -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
     -- change is detected in a target. For example, a job will run on a thing
     -- when the thing is added to a target group, even after the job was
     -- completed by all things originally in the group.
-    targetSelection :: Core.Maybe TargetSelection,
+    targetSelection :: Prelude.Maybe TargetSelection,
     -- | The maximum number of results to return per request.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, AWS IoT Core sends jobs
@@ -79,13 +80,13 @@ data ListJobs = ListJobs'
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
     -- The @namespaceId@ feature is in public preview.
-    namespaceId :: Core.Maybe Core.Text,
+    namespaceId :: Prelude.Maybe Prelude.Text,
     -- | A filter that limits the returned jobs to those for the specified group.
-    thingGroupName :: Core.Maybe Core.Text,
+    thingGroupName :: Prelude.Maybe Prelude.Text,
     -- | A filter that limits the returned jobs to those for the specified group.
-    thingGroupId :: Core.Maybe Core.Text
+    thingGroupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobs' with all optional fields omitted.
@@ -126,22 +127,22 @@ newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { nextToken = Core.Nothing,
-      status = Core.Nothing,
-      targetSelection = Core.Nothing,
-      maxResults = Core.Nothing,
-      namespaceId = Core.Nothing,
-      thingGroupName = Core.Nothing,
-      thingGroupId = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      targetSelection = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      namespaceId = Prelude.Nothing,
+      thingGroupName = Prelude.Nothing,
+      thingGroupId = Prelude.Nothing
     }
 
 -- | The token to retrieve the next set of results.
-listJobs_nextToken :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
 -- | An optional filter that lets you search for jobs that have the specified
 -- status.
-listJobs_status :: Lens.Lens' ListJobs (Core.Maybe JobStatus)
+listJobs_status :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
 listJobs_status = Lens.lens (\ListJobs' {status} -> status) (\s@ListJobs' {} a -> s {status = a} :: ListJobs)
 
 -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
@@ -150,11 +151,11 @@ listJobs_status = Lens.lens (\ListJobs' {status} -> status) (\s@ListJobs' {} a -
 -- change is detected in a target. For example, a job will run on a thing
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
-listJobs_targetSelection :: Lens.Lens' ListJobs (Core.Maybe TargetSelection)
+listJobs_targetSelection :: Lens.Lens' ListJobs (Prelude.Maybe TargetSelection)
 listJobs_targetSelection = Lens.lens (\ListJobs' {targetSelection} -> targetSelection) (\s@ListJobs' {} a -> s {targetSelection = a} :: ListJobs)
 
 -- | The maximum number of results to return per request.
-listJobs_maxResults :: Lens.Lens' ListJobs (Core.Maybe Core.Natural)
+listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
 listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
 
 -- | The namespace used to indicate that a job is a customer-managed job.
@@ -166,33 +167,35 @@ listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@List
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
-listJobs_namespaceId :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+listJobs_namespaceId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_namespaceId = Lens.lens (\ListJobs' {namespaceId} -> namespaceId) (\s@ListJobs' {} a -> s {namespaceId = a} :: ListJobs)
 
 -- | A filter that limits the returned jobs to those for the specified group.
-listJobs_thingGroupName :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+listJobs_thingGroupName :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_thingGroupName = Lens.lens (\ListJobs' {thingGroupName} -> thingGroupName) (\s@ListJobs' {} a -> s {thingGroupName = a} :: ListJobs)
 
 -- | A filter that limits the returned jobs to those for the specified group.
-listJobs_thingGroupId :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+listJobs_thingGroupId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_thingGroupId = Lens.lens (\ListJobs' {thingGroupId} -> thingGroupId) (\s@ListJobs' {} a -> s {thingGroupId = a} :: ListJobs)
 
 instance Core.AWSPager ListJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listJobsResponse_nextToken Core.. Lens._Just
+            Lens.^? listJobsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
-        (rs Lens.^? listJobsResponse_jobs Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+        ( rs
+            Lens.^? listJobsResponse_jobs Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listJobs_nextToken
+          Prelude.& listJobs_nextToken
           Lens..~ rs
-          Lens.^? listJobsResponse_nextToken Core.. Lens._Just
+          Lens.^? listJobsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -201,24 +204,24 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "jobs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListJobs
+instance Prelude.Hashable ListJobs
 
-instance Core.NFData ListJobs
+instance Prelude.NFData ListJobs
 
 instance Core.ToHeaders ListJobs where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListJobs where
-  toPath = Core.const "/jobs"
+  toPath = Prelude.const "/jobs"
 
 instance Core.ToQuery ListJobs where
   toQuery ListJobs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "status" Core.=: status,
         "targetSelection" Core.=: targetSelection,
@@ -232,13 +235,13 @@ instance Core.ToQuery ListJobs where
 data ListJobsResponse = ListJobsResponse'
   { -- | The token for the next set of results, or __null__ if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of jobs.
-    jobs :: Core.Maybe [JobSummary],
+    jobs :: Prelude.Maybe [JobSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobsResponse' with all optional fields omitted.
@@ -256,26 +259,26 @@ data ListJobsResponse = ListJobsResponse'
 -- 'httpStatus', 'listJobsResponse_httpStatus' - The response's http status code.
 newListJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListJobsResponse
 newListJobsResponse pHttpStatus_ =
   ListJobsResponse'
-    { nextToken = Core.Nothing,
-      jobs = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      jobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of results, or __null__ if there are no
 -- additional results.
-listJobsResponse_nextToken :: Lens.Lens' ListJobsResponse (Core.Maybe Core.Text)
+listJobsResponse_nextToken :: Lens.Lens' ListJobsResponse (Prelude.Maybe Prelude.Text)
 listJobsResponse_nextToken = Lens.lens (\ListJobsResponse' {nextToken} -> nextToken) (\s@ListJobsResponse' {} a -> s {nextToken = a} :: ListJobsResponse)
 
 -- | A list of jobs.
-listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Core.Maybe [JobSummary])
-listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Core.. Lens.mapping Lens._Coerce
+listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [JobSummary])
+listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Core.Int
+listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int
 listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> httpStatus) (\s@ListJobsResponse' {} a -> s {httpStatus = a} :: ListJobsResponse)
 
-instance Core.NFData ListJobsResponse
+instance Prelude.NFData ListJobsResponse

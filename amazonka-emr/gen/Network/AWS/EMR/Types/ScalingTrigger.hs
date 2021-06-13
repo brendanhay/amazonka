@@ -22,6 +22,7 @@ module Network.AWS.EMR.Types.ScalingTrigger where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.CloudWatchAlarmDefinition
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The conditions that trigger an automatic scaling activity.
 --
@@ -32,7 +33,7 @@ data ScalingTrigger = ScalingTrigger'
     -- begins.
     cloudWatchAlarmDefinition :: CloudWatchAlarmDefinition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingTrigger' with all optional fields omitted.
@@ -67,18 +68,18 @@ instance Core.FromJSON ScalingTrigger where
       "ScalingTrigger"
       ( \x ->
           ScalingTrigger'
-            Core.<$> (x Core..: "CloudWatchAlarmDefinition")
+            Prelude.<$> (x Core..: "CloudWatchAlarmDefinition")
       )
 
-instance Core.Hashable ScalingTrigger
+instance Prelude.Hashable ScalingTrigger
 
-instance Core.NFData ScalingTrigger
+instance Prelude.NFData ScalingTrigger
 
 instance Core.ToJSON ScalingTrigger where
   toJSON ScalingTrigger' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "CloudWatchAlarmDefinition"
                   Core..= cloudWatchAlarmDefinition
               )

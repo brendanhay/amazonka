@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTData.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +53,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPublish' smart constructor.
 data Publish = Publish'
   { -- | The state information, in JSON format.
-    payload :: Core.Maybe Core.ByteString,
+    payload :: Prelude.Maybe Prelude.ByteString,
     -- | The Quality of Service (QoS) level.
-    qos :: Core.Maybe Core.Natural,
+    qos :: Prelude.Maybe Prelude.Natural,
     -- | The name of the MQTT topic.
-    topic :: Core.Text
+    topic :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Publish' with all optional fields omitted.
@@ -75,25 +76,25 @@ data Publish = Publish'
 -- 'topic', 'publish_topic' - The name of the MQTT topic.
 newPublish ::
   -- | 'topic'
-  Core.Text ->
+  Prelude.Text ->
   Publish
 newPublish pTopic_ =
   Publish'
-    { payload = Core.Nothing,
-      qos = Core.Nothing,
+    { payload = Prelude.Nothing,
+      qos = Prelude.Nothing,
       topic = pTopic_
     }
 
 -- | The state information, in JSON format.
-publish_payload :: Lens.Lens' Publish (Core.Maybe Core.ByteString)
+publish_payload :: Lens.Lens' Publish (Prelude.Maybe Prelude.ByteString)
 publish_payload = Lens.lens (\Publish' {payload} -> payload) (\s@Publish' {} a -> s {payload = a} :: Publish)
 
 -- | The Quality of Service (QoS) level.
-publish_qos :: Lens.Lens' Publish (Core.Maybe Core.Natural)
+publish_qos :: Lens.Lens' Publish (Prelude.Maybe Prelude.Natural)
 publish_qos = Lens.lens (\Publish' {qos} -> qos) (\s@Publish' {} a -> s {qos = a} :: Publish)
 
 -- | The name of the MQTT topic.
-publish_topic :: Lens.Lens' Publish Core.Text
+publish_topic :: Lens.Lens' Publish Prelude.Text
 publish_topic = Lens.lens (\Publish' {topic} -> topic) (\s@Publish' {} a -> s {topic = a} :: Publish)
 
 instance Core.AWSRequest Publish where
@@ -101,29 +102,29 @@ instance Core.AWSRequest Publish where
   request = Request.postBody defaultService
   response = Response.receiveNull PublishResponse'
 
-instance Core.Hashable Publish
+instance Prelude.Hashable Publish
 
-instance Core.NFData Publish
+instance Prelude.NFData Publish
 
 instance Core.ToBody Publish where
   toBody Publish' {..} = Core.toBody payload
 
 instance Core.ToHeaders Publish where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath Publish where
   toPath Publish' {..} =
-    Core.mconcat ["/topics/", Core.toBS topic]
+    Prelude.mconcat ["/topics/", Core.toBS topic]
 
 instance Core.ToQuery Publish where
   toQuery Publish' {..} =
-    Core.mconcat ["qos" Core.=: qos]
+    Prelude.mconcat ["qos" Core.=: qos]
 
 -- | /See:/ 'newPublishResponse' smart constructor.
 data PublishResponse = PublishResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublishResponse' with all optional fields omitted.
@@ -133,4 +134,4 @@ newPublishResponse ::
   PublishResponse
 newPublishResponse = PublishResponse'
 
-instance Core.NFData PublishResponse
+instance Prelude.NFData PublishResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.SourceAlgorithmSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.SourceAlgorithm
 
 -- | A list of algorithms that were used to create a model package.
@@ -28,9 +29,9 @@ import Network.AWS.SageMaker.Types.SourceAlgorithm
 -- /See:/ 'newSourceAlgorithmSpecification' smart constructor.
 data SourceAlgorithmSpecification = SourceAlgorithmSpecification'
   { -- | A list of the algorithms that were used to create a model package.
-    sourceAlgorithms :: Core.NonEmpty SourceAlgorithm
+    sourceAlgorithms :: Prelude.NonEmpty SourceAlgorithm
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceAlgorithmSpecification' with all optional fields omitted.
@@ -43,7 +44,7 @@ data SourceAlgorithmSpecification = SourceAlgorithmSpecification'
 -- 'sourceAlgorithms', 'sourceAlgorithmSpecification_sourceAlgorithms' - A list of the algorithms that were used to create a model package.
 newSourceAlgorithmSpecification ::
   -- | 'sourceAlgorithms'
-  Core.NonEmpty SourceAlgorithm ->
+  Prelude.NonEmpty SourceAlgorithm ->
   SourceAlgorithmSpecification
 newSourceAlgorithmSpecification pSourceAlgorithms_ =
   SourceAlgorithmSpecification'
@@ -52,8 +53,8 @@ newSourceAlgorithmSpecification pSourceAlgorithms_ =
     }
 
 -- | A list of the algorithms that were used to create a model package.
-sourceAlgorithmSpecification_sourceAlgorithms :: Lens.Lens' SourceAlgorithmSpecification (Core.NonEmpty SourceAlgorithm)
-sourceAlgorithmSpecification_sourceAlgorithms = Lens.lens (\SourceAlgorithmSpecification' {sourceAlgorithms} -> sourceAlgorithms) (\s@SourceAlgorithmSpecification' {} a -> s {sourceAlgorithms = a} :: SourceAlgorithmSpecification) Core.. Lens._Coerce
+sourceAlgorithmSpecification_sourceAlgorithms :: Lens.Lens' SourceAlgorithmSpecification (Prelude.NonEmpty SourceAlgorithm)
+sourceAlgorithmSpecification_sourceAlgorithms = Lens.lens (\SourceAlgorithmSpecification' {sourceAlgorithms} -> sourceAlgorithms) (\s@SourceAlgorithmSpecification' {} a -> s {sourceAlgorithms = a} :: SourceAlgorithmSpecification) Prelude.. Lens._Coerce
 
 instance Core.FromJSON SourceAlgorithmSpecification where
   parseJSON =
@@ -61,18 +62,20 @@ instance Core.FromJSON SourceAlgorithmSpecification where
       "SourceAlgorithmSpecification"
       ( \x ->
           SourceAlgorithmSpecification'
-            Core.<$> (x Core..: "SourceAlgorithms")
+            Prelude.<$> (x Core..: "SourceAlgorithms")
       )
 
-instance Core.Hashable SourceAlgorithmSpecification
+instance
+  Prelude.Hashable
+    SourceAlgorithmSpecification
 
-instance Core.NFData SourceAlgorithmSpecification
+instance Prelude.NFData SourceAlgorithmSpecification
 
 instance Core.ToJSON SourceAlgorithmSpecification where
   toJSON SourceAlgorithmSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SourceAlgorithms" Core..= sourceAlgorithms)
           ]
       )

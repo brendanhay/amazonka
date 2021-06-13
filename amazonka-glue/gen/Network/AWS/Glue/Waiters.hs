@@ -19,3 +19,4 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Lens
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude

@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +57,13 @@ data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectPr
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    openIDConnectProviderArn :: Core.Text,
+    openIDConnectProviderArn :: Prelude.Text,
     -- | The client ID (also known as audience) to remove from the IAM OIDC
     -- provider resource. For more information about client IDs, see
     -- CreateOpenIDConnectProvider.
-    clientID :: Core.Text
+    clientID :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveClientIDFromOpenIDConnectProvider' with all optional fields omitted.
@@ -85,9 +86,9 @@ data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectPr
 -- CreateOpenIDConnectProvider.
 newRemoveClientIDFromOpenIDConnectProvider ::
   -- | 'openIDConnectProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientID'
-  Core.Text ->
+  Prelude.Text ->
   RemoveClientIDFromOpenIDConnectProvider
 newRemoveClientIDFromOpenIDConnectProvider
   pOpenIDConnectProviderArn_
@@ -105,13 +106,13 @@ newRemoveClientIDFromOpenIDConnectProvider
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-removeClientIDFromOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' RemoveClientIDFromOpenIDConnectProvider Core.Text
+removeClientIDFromOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' RemoveClientIDFromOpenIDConnectProvider Prelude.Text
 removeClientIDFromOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\RemoveClientIDFromOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@RemoveClientIDFromOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: RemoveClientIDFromOpenIDConnectProvider)
 
 -- | The client ID (also known as audience) to remove from the IAM OIDC
 -- provider resource. For more information about client IDs, see
 -- CreateOpenIDConnectProvider.
-removeClientIDFromOpenIDConnectProvider_clientID :: Lens.Lens' RemoveClientIDFromOpenIDConnectProvider Core.Text
+removeClientIDFromOpenIDConnectProvider_clientID :: Lens.Lens' RemoveClientIDFromOpenIDConnectProvider Prelude.Text
 removeClientIDFromOpenIDConnectProvider_clientID = Lens.lens (\RemoveClientIDFromOpenIDConnectProvider' {clientID} -> clientID) (\s@RemoveClientIDFromOpenIDConnectProvider' {} a -> s {clientID = a} :: RemoveClientIDFromOpenIDConnectProvider)
 
 instance
@@ -128,36 +129,37 @@ instance
       RemoveClientIDFromOpenIDConnectProviderResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RemoveClientIDFromOpenIDConnectProvider
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveClientIDFromOpenIDConnectProvider
 
 instance
   Core.ToHeaders
     RemoveClientIDFromOpenIDConnectProvider
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     RemoveClientIDFromOpenIDConnectProvider
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     RemoveClientIDFromOpenIDConnectProvider
   where
   toQuery RemoveClientIDFromOpenIDConnectProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "RemoveClientIDFromOpenIDConnectProvider" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "OpenIDConnectProviderArn"
           Core.=: openIDConnectProviderArn,
         "ClientID" Core.=: clientID
@@ -167,7 +169,7 @@ instance
 data RemoveClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveClientIDFromOpenIDConnectProviderResponse' with all optional fields omitted.
@@ -179,5 +181,5 @@ newRemoveClientIDFromOpenIDConnectProviderResponse =
   RemoveClientIDFromOpenIDConnectProviderResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveClientIDFromOpenIDConnectProviderResponse

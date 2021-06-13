@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.AccelerateConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.BucketAccelerateStatus
 
@@ -32,9 +33,9 @@ import Network.AWS.S3.Types.BucketAccelerateStatus
 -- /See:/ 'newAccelerateConfiguration' smart constructor.
 data AccelerateConfiguration = AccelerateConfiguration'
   { -- | Specifies the transfer acceleration status of the bucket.
-    status :: Core.Maybe BucketAccelerateStatus
+    status :: Prelude.Maybe BucketAccelerateStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccelerateConfiguration' with all optional fields omitted.
@@ -48,16 +49,16 @@ data AccelerateConfiguration = AccelerateConfiguration'
 newAccelerateConfiguration ::
   AccelerateConfiguration
 newAccelerateConfiguration =
-  AccelerateConfiguration' {status = Core.Nothing}
+  AccelerateConfiguration' {status = Prelude.Nothing}
 
 -- | Specifies the transfer acceleration status of the bucket.
-accelerateConfiguration_status :: Lens.Lens' AccelerateConfiguration (Core.Maybe BucketAccelerateStatus)
+accelerateConfiguration_status :: Lens.Lens' AccelerateConfiguration (Prelude.Maybe BucketAccelerateStatus)
 accelerateConfiguration_status = Lens.lens (\AccelerateConfiguration' {status} -> status) (\s@AccelerateConfiguration' {} a -> s {status = a} :: AccelerateConfiguration)
 
-instance Core.Hashable AccelerateConfiguration
+instance Prelude.Hashable AccelerateConfiguration
 
-instance Core.NFData AccelerateConfiguration
+instance Prelude.NFData AccelerateConfiguration
 
 instance Core.ToXML AccelerateConfiguration where
   toXML AccelerateConfiguration' {..} =
-    Core.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Core.@= status]

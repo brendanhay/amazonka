@@ -22,6 +22,7 @@ module Network.AWS.MigrationHub.Types.ApplicationState where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.ApplicationStatus
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The state of an application discovered through Migration Hub import, the
 -- AWS Agentless Discovery Connector, or the AWS Application Discovery
@@ -31,13 +32,13 @@ import Network.AWS.MigrationHub.Types.ApplicationStatus
 data ApplicationState = ApplicationState'
   { -- | The configurationId from the Application Discovery Service that uniquely
     -- identifies an application.
-    applicationId :: Core.Maybe Core.Text,
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The current status of an application.
-    applicationStatus :: Core.Maybe ApplicationStatus,
+    applicationStatus :: Prelude.Maybe ApplicationStatus,
     -- | The timestamp when the application status was last updated.
-    lastUpdatedTime :: Core.Maybe Core.POSIX
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationState' with all optional fields omitted.
@@ -57,23 +58,23 @@ newApplicationState ::
   ApplicationState
 newApplicationState =
   ApplicationState'
-    { applicationId = Core.Nothing,
-      applicationStatus = Core.Nothing,
-      lastUpdatedTime = Core.Nothing
+    { applicationId = Prelude.Nothing,
+      applicationStatus = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing
     }
 
 -- | The configurationId from the Application Discovery Service that uniquely
 -- identifies an application.
-applicationState_applicationId :: Lens.Lens' ApplicationState (Core.Maybe Core.Text)
+applicationState_applicationId :: Lens.Lens' ApplicationState (Prelude.Maybe Prelude.Text)
 applicationState_applicationId = Lens.lens (\ApplicationState' {applicationId} -> applicationId) (\s@ApplicationState' {} a -> s {applicationId = a} :: ApplicationState)
 
 -- | The current status of an application.
-applicationState_applicationStatus :: Lens.Lens' ApplicationState (Core.Maybe ApplicationStatus)
+applicationState_applicationStatus :: Lens.Lens' ApplicationState (Prelude.Maybe ApplicationStatus)
 applicationState_applicationStatus = Lens.lens (\ApplicationState' {applicationStatus} -> applicationStatus) (\s@ApplicationState' {} a -> s {applicationStatus = a} :: ApplicationState)
 
 -- | The timestamp when the application status was last updated.
-applicationState_lastUpdatedTime :: Lens.Lens' ApplicationState (Core.Maybe Core.UTCTime)
-applicationState_lastUpdatedTime = Lens.lens (\ApplicationState' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationState' {} a -> s {lastUpdatedTime = a} :: ApplicationState) Core.. Lens.mapping Core._Time
+applicationState_lastUpdatedTime :: Lens.Lens' ApplicationState (Prelude.Maybe Prelude.UTCTime)
+applicationState_lastUpdatedTime = Lens.lens (\ApplicationState' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationState' {} a -> s {lastUpdatedTime = a} :: ApplicationState) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ApplicationState where
   parseJSON =
@@ -81,11 +82,11 @@ instance Core.FromJSON ApplicationState where
       "ApplicationState"
       ( \x ->
           ApplicationState'
-            Core.<$> (x Core..:? "ApplicationId")
-            Core.<*> (x Core..:? "ApplicationStatus")
-            Core.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<$> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "ApplicationStatus")
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
       )
 
-instance Core.Hashable ApplicationState
+instance Prelude.Hashable ApplicationState
 
-instance Core.NFData ApplicationState
+instance Prelude.NFData ApplicationState

@@ -29,6 +29,7 @@ module Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Choose one of the following audio normalization algorithms: ITU-R
 -- BS.1770-1: Ungated loudness. A measurement of ungated average loudness
@@ -46,15 +47,15 @@ newtype AudioNormalizationAlgorithm = AudioNormalizationAlgorithm'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -67,6 +67,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,9 +86,9 @@ data DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteImportedKeyMaterial' with all optional fields omitted.
@@ -112,7 +113,7 @@ data DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newDeleteImportedKeyMaterial ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteImportedKeyMaterial
 newDeleteImportedKeyMaterial pKeyId_ =
   DeleteImportedKeyMaterial' {keyId = pKeyId_}
@@ -130,7 +131,7 @@ newDeleteImportedKeyMaterial pKeyId_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-deleteImportedKeyMaterial_keyId :: Lens.Lens' DeleteImportedKeyMaterial Core.Text
+deleteImportedKeyMaterial_keyId :: Lens.Lens' DeleteImportedKeyMaterial Prelude.Text
 deleteImportedKeyMaterial_keyId = Lens.lens (\DeleteImportedKeyMaterial' {keyId} -> keyId) (\s@DeleteImportedKeyMaterial' {} a -> s {keyId = a} :: DeleteImportedKeyMaterial)
 
 instance Core.AWSRequest DeleteImportedKeyMaterial where
@@ -142,39 +143,43 @@ instance Core.AWSRequest DeleteImportedKeyMaterial where
     Response.receiveNull
       DeleteImportedKeyMaterialResponse'
 
-instance Core.Hashable DeleteImportedKeyMaterial
+instance Prelude.Hashable DeleteImportedKeyMaterial
 
-instance Core.NFData DeleteImportedKeyMaterial
+instance Prelude.NFData DeleteImportedKeyMaterial
 
 instance Core.ToHeaders DeleteImportedKeyMaterial where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.DeleteImportedKeyMaterial" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteImportedKeyMaterial where
   toJSON DeleteImportedKeyMaterial' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("KeyId" Core..= keyId)]
+      )
 
 instance Core.ToPath DeleteImportedKeyMaterial where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteImportedKeyMaterial where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteImportedKeyMaterialResponse' smart constructor.
 data DeleteImportedKeyMaterialResponse = DeleteImportedKeyMaterialResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteImportedKeyMaterialResponse' with all optional fields omitted.
@@ -186,5 +191,5 @@ newDeleteImportedKeyMaterialResponse =
   DeleteImportedKeyMaterialResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteImportedKeyMaterialResponse

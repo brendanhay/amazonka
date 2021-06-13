@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision
 -- MaxCLL and MaxFALL properies.
@@ -36,15 +37,15 @@ newtype DolbyVisionLevel6Mode = DolbyVisionLevel6Mode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

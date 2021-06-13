@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -55,12 +56,12 @@ data BatchAssociateServiceActionWithProvisioningArtifact = BatchAssociateService
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | One or more associations, each consisting of the Action ID, the Product
     -- ID, and the Provisioning Artifact ID.
-    serviceActionAssociations :: Core.NonEmpty ServiceActionAssociation
+    serviceActionAssociations :: Prelude.NonEmpty ServiceActionAssociation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAssociateServiceActionWithProvisioningArtifact' with all optional fields omitted.
@@ -82,13 +83,13 @@ data BatchAssociateServiceActionWithProvisioningArtifact = BatchAssociateService
 -- ID, and the Provisioning Artifact ID.
 newBatchAssociateServiceActionWithProvisioningArtifact ::
   -- | 'serviceActionAssociations'
-  Core.NonEmpty ServiceActionAssociation ->
+  Prelude.NonEmpty ServiceActionAssociation ->
   BatchAssociateServiceActionWithProvisioningArtifact
 newBatchAssociateServiceActionWithProvisioningArtifact
   pServiceActionAssociations_ =
     BatchAssociateServiceActionWithProvisioningArtifact'
       { acceptLanguage =
-          Core.Nothing,
+          Prelude.Nothing,
         serviceActionAssociations =
           Lens._Coerce
             Lens.# pServiceActionAssociations_
@@ -101,13 +102,13 @@ newBatchAssociateServiceActionWithProvisioningArtifact
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-batchAssociateServiceActionWithProvisioningArtifact_acceptLanguage :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifact (Core.Maybe Core.Text)
+batchAssociateServiceActionWithProvisioningArtifact_acceptLanguage :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifact (Prelude.Maybe Prelude.Text)
 batchAssociateServiceActionWithProvisioningArtifact_acceptLanguage = Lens.lens (\BatchAssociateServiceActionWithProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@BatchAssociateServiceActionWithProvisioningArtifact' {} a -> s {acceptLanguage = a} :: BatchAssociateServiceActionWithProvisioningArtifact)
 
 -- | One or more associations, each consisting of the Action ID, the Product
 -- ID, and the Provisioning Artifact ID.
-batchAssociateServiceActionWithProvisioningArtifact_serviceActionAssociations :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifact (Core.NonEmpty ServiceActionAssociation)
-batchAssociateServiceActionWithProvisioningArtifact_serviceActionAssociations = Lens.lens (\BatchAssociateServiceActionWithProvisioningArtifact' {serviceActionAssociations} -> serviceActionAssociations) (\s@BatchAssociateServiceActionWithProvisioningArtifact' {} a -> s {serviceActionAssociations = a} :: BatchAssociateServiceActionWithProvisioningArtifact) Core.. Lens._Coerce
+batchAssociateServiceActionWithProvisioningArtifact_serviceActionAssociations :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifact (Prelude.NonEmpty ServiceActionAssociation)
+batchAssociateServiceActionWithProvisioningArtifact_serviceActionAssociations = Lens.lens (\BatchAssociateServiceActionWithProvisioningArtifact' {serviceActionAssociations} -> serviceActionAssociations) (\s@BatchAssociateServiceActionWithProvisioningArtifact' {} a -> s {serviceActionAssociations = a} :: BatchAssociateServiceActionWithProvisioningArtifact) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -122,18 +123,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateServiceActionWithProvisioningArtifactResponse'
-            Core.<$> ( x Core..?> "FailedServiceActionAssociations"
-                         Core..!@ Core.mempty
-                     )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "FailedServiceActionAssociations"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchAssociateServiceActionWithProvisioningArtifact
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchAssociateServiceActionWithProvisioningArtifact
 
 instance
@@ -141,14 +142,16 @@ instance
     BatchAssociateServiceActionWithProvisioningArtifact
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -159,9 +162,10 @@ instance
   toJSON
     BatchAssociateServiceActionWithProvisioningArtifact' {..} =
       Core.object
-        ( Core.catMaybes
-            [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-              Core.Just
+        ( Prelude.catMaybes
+            [ ("AcceptLanguage" Core..=)
+                Prelude.<$> acceptLanguage,
+              Prelude.Just
                 ( "ServiceActionAssociations"
                     Core..= serviceActionAssociations
                 )
@@ -172,23 +176,23 @@ instance
   Core.ToPath
     BatchAssociateServiceActionWithProvisioningArtifact
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     BatchAssociateServiceActionWithProvisioningArtifact
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchAssociateServiceActionWithProvisioningArtifactResponse' smart constructor.
 data BatchAssociateServiceActionWithProvisioningArtifactResponse = BatchAssociateServiceActionWithProvisioningArtifactResponse'
   { -- | An object that contains a list of errors, along with information to help
     -- you identify the self-service action.
-    failedServiceActionAssociations :: Core.Maybe [FailedServiceActionAssociation],
+    failedServiceActionAssociations :: Prelude.Maybe [FailedServiceActionAssociation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAssociateServiceActionWithProvisioningArtifactResponse' with all optional fields omitted.
@@ -204,26 +208,26 @@ data BatchAssociateServiceActionWithProvisioningArtifactResponse = BatchAssociat
 -- 'httpStatus', 'batchAssociateServiceActionWithProvisioningArtifactResponse_httpStatus' - The response's http status code.
 newBatchAssociateServiceActionWithProvisioningArtifactResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchAssociateServiceActionWithProvisioningArtifactResponse
 newBatchAssociateServiceActionWithProvisioningArtifactResponse
   pHttpStatus_ =
     BatchAssociateServiceActionWithProvisioningArtifactResponse'
       { failedServiceActionAssociations =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | An object that contains a list of errors, along with information to help
 -- you identify the self-service action.
-batchAssociateServiceActionWithProvisioningArtifactResponse_failedServiceActionAssociations :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifactResponse (Core.Maybe [FailedServiceActionAssociation])
-batchAssociateServiceActionWithProvisioningArtifactResponse_failedServiceActionAssociations = Lens.lens (\BatchAssociateServiceActionWithProvisioningArtifactResponse' {failedServiceActionAssociations} -> failedServiceActionAssociations) (\s@BatchAssociateServiceActionWithProvisioningArtifactResponse' {} a -> s {failedServiceActionAssociations = a} :: BatchAssociateServiceActionWithProvisioningArtifactResponse) Core.. Lens.mapping Lens._Coerce
+batchAssociateServiceActionWithProvisioningArtifactResponse_failedServiceActionAssociations :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifactResponse (Prelude.Maybe [FailedServiceActionAssociation])
+batchAssociateServiceActionWithProvisioningArtifactResponse_failedServiceActionAssociations = Lens.lens (\BatchAssociateServiceActionWithProvisioningArtifactResponse' {failedServiceActionAssociations} -> failedServiceActionAssociations) (\s@BatchAssociateServiceActionWithProvisioningArtifactResponse' {} a -> s {failedServiceActionAssociations = a} :: BatchAssociateServiceActionWithProvisioningArtifactResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchAssociateServiceActionWithProvisioningArtifactResponse_httpStatus :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifactResponse Core.Int
+batchAssociateServiceActionWithProvisioningArtifactResponse_httpStatus :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifactResponse Prelude.Int
 batchAssociateServiceActionWithProvisioningArtifactResponse_httpStatus = Lens.lens (\BatchAssociateServiceActionWithProvisioningArtifactResponse' {httpStatus} -> httpStatus) (\s@BatchAssociateServiceActionWithProvisioningArtifactResponse' {} a -> s {httpStatus = a} :: BatchAssociateServiceActionWithProvisioningArtifactResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchAssociateServiceActionWithProvisioningArtifactResponse

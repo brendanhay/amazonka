@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowExecutionConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.TaskList
 
@@ -32,7 +33,7 @@ import Network.AWS.SWF.Types.TaskList
 -- /See:/ 'newWorkflowExecutionConfiguration' smart constructor.
 data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
   { -- | The IAM role attached to the child workflow execution.
-    lambdaRole :: Core.Maybe Core.Text,
+    lambdaRole :: Prelude.Maybe Prelude.Text,
     -- | The priority assigned to decision tasks for this workflow execution.
     -- Valid values are integers that range from Java\'s @Integer.MIN_VALUE@
     -- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
@@ -41,18 +42,18 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
     -- For more information about setting task priority, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
-    taskPriority :: Core.Maybe Core.Text,
+    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The maximum duration allowed for decision tasks for this workflow
     -- execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    taskStartToCloseTimeout :: Core.Text,
+    taskStartToCloseTimeout :: Prelude.Text,
     -- | The total duration for this workflow execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    executionStartToCloseTimeout :: Core.Text,
+    executionStartToCloseTimeout :: Prelude.Text,
     -- | The task list used for the decision tasks generated for this workflow
     -- execution.
     taskList :: TaskList,
@@ -73,7 +74,7 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
     --     run.
     childPolicy :: ChildPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionConfiguration' with all optional fields omitted.
@@ -125,9 +126,9 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
 --     run.
 newWorkflowExecutionConfiguration ::
   -- | 'taskStartToCloseTimeout'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'executionStartToCloseTimeout'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'taskList'
   TaskList ->
   -- | 'childPolicy'
@@ -140,8 +141,8 @@ newWorkflowExecutionConfiguration
   pChildPolicy_ =
     WorkflowExecutionConfiguration'
       { lambdaRole =
-          Core.Nothing,
-        taskPriority = Core.Nothing,
+          Prelude.Nothing,
+        taskPriority = Prelude.Nothing,
         taskStartToCloseTimeout =
           pTaskStartToCloseTimeout_,
         executionStartToCloseTimeout =
@@ -151,7 +152,7 @@ newWorkflowExecutionConfiguration
       }
 
 -- | The IAM role attached to the child workflow execution.
-workflowExecutionConfiguration_lambdaRole :: Lens.Lens' WorkflowExecutionConfiguration (Core.Maybe Core.Text)
+workflowExecutionConfiguration_lambdaRole :: Lens.Lens' WorkflowExecutionConfiguration (Prelude.Maybe Prelude.Text)
 workflowExecutionConfiguration_lambdaRole = Lens.lens (\WorkflowExecutionConfiguration' {lambdaRole} -> lambdaRole) (\s@WorkflowExecutionConfiguration' {} a -> s {lambdaRole = a} :: WorkflowExecutionConfiguration)
 
 -- | The priority assigned to decision tasks for this workflow execution.
@@ -162,7 +163,7 @@ workflowExecutionConfiguration_lambdaRole = Lens.lens (\WorkflowExecutionConfigu
 -- For more information about setting task priority, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
-workflowExecutionConfiguration_taskPriority :: Lens.Lens' WorkflowExecutionConfiguration (Core.Maybe Core.Text)
+workflowExecutionConfiguration_taskPriority :: Lens.Lens' WorkflowExecutionConfiguration (Prelude.Maybe Prelude.Text)
 workflowExecutionConfiguration_taskPriority = Lens.lens (\WorkflowExecutionConfiguration' {taskPriority} -> taskPriority) (\s@WorkflowExecutionConfiguration' {} a -> s {taskPriority = a} :: WorkflowExecutionConfiguration)
 
 -- | The maximum duration allowed for decision tasks for this workflow
@@ -170,14 +171,14 @@ workflowExecutionConfiguration_taskPriority = Lens.lens (\WorkflowExecutionConfi
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-workflowExecutionConfiguration_taskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionConfiguration Core.Text
+workflowExecutionConfiguration_taskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionConfiguration Prelude.Text
 workflowExecutionConfiguration_taskStartToCloseTimeout = Lens.lens (\WorkflowExecutionConfiguration' {taskStartToCloseTimeout} -> taskStartToCloseTimeout) (\s@WorkflowExecutionConfiguration' {} a -> s {taskStartToCloseTimeout = a} :: WorkflowExecutionConfiguration)
 
 -- | The total duration for this workflow execution.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-workflowExecutionConfiguration_executionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionConfiguration Core.Text
+workflowExecutionConfiguration_executionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionConfiguration Prelude.Text
 workflowExecutionConfiguration_executionStartToCloseTimeout = Lens.lens (\WorkflowExecutionConfiguration' {executionStartToCloseTimeout} -> executionStartToCloseTimeout) (\s@WorkflowExecutionConfiguration' {} a -> s {executionStartToCloseTimeout = a} :: WorkflowExecutionConfiguration)
 
 -- | The task list used for the decision tasks generated for this workflow
@@ -209,14 +210,18 @@ instance Core.FromJSON WorkflowExecutionConfiguration where
       "WorkflowExecutionConfiguration"
       ( \x ->
           WorkflowExecutionConfiguration'
-            Core.<$> (x Core..:? "lambdaRole")
-            Core.<*> (x Core..:? "taskPriority")
-            Core.<*> (x Core..: "taskStartToCloseTimeout")
-            Core.<*> (x Core..: "executionStartToCloseTimeout")
-            Core.<*> (x Core..: "taskList")
-            Core.<*> (x Core..: "childPolicy")
+            Prelude.<$> (x Core..:? "lambdaRole")
+            Prelude.<*> (x Core..:? "taskPriority")
+            Prelude.<*> (x Core..: "taskStartToCloseTimeout")
+            Prelude.<*> (x Core..: "executionStartToCloseTimeout")
+            Prelude.<*> (x Core..: "taskList")
+            Prelude.<*> (x Core..: "childPolicy")
       )
 
-instance Core.Hashable WorkflowExecutionConfiguration
+instance
+  Prelude.Hashable
+    WorkflowExecutionConfiguration
 
-instance Core.NFData WorkflowExecutionConfiguration
+instance
+  Prelude.NFData
+    WorkflowExecutionConfiguration

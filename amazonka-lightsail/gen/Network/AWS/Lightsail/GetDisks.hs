@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data GetDisks = GetDisks'
     -- To get a page token, perform an initial @GetDisks@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Core.Maybe Core.Text
+    pageToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDisks' with all optional fields omitted.
@@ -75,32 +76,34 @@ data GetDisks = GetDisks'
 -- you can specify as the page token in a subsequent request.
 newGetDisks ::
   GetDisks
-newGetDisks = GetDisks' {pageToken = Core.Nothing}
+newGetDisks = GetDisks' {pageToken = Prelude.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetDisks@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
-getDisks_pageToken :: Lens.Lens' GetDisks (Core.Maybe Core.Text)
+getDisks_pageToken :: Lens.Lens' GetDisks (Prelude.Maybe Prelude.Text)
 getDisks_pageToken = Lens.lens (\GetDisks' {pageToken} -> pageToken) (\s@GetDisks' {} a -> s {pageToken = a} :: GetDisks)
 
 instance Core.AWSPager GetDisks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getDisksResponse_nextPageToken Core.. Lens._Just
+            Lens.^? getDisksResponse_nextPageToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
-        (rs Lens.^? getDisksResponse_disks Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+        ( rs
+            Lens.^? getDisksResponse_disks Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getDisks_pageToken
+          Prelude.& getDisks_pageToken
           Lens..~ rs
-          Lens.^? getDisksResponse_nextPageToken Core.. Lens._Just
+          Lens.^? getDisksResponse_nextPageToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDisks where
   type AWSResponse GetDisks = GetDisksResponse
@@ -109,38 +112,42 @@ instance Core.AWSRequest GetDisks where
     Response.receiveJSON
       ( \s h x ->
           GetDisksResponse'
-            Core.<$> (x Core..?> "nextPageToken")
-            Core.<*> (x Core..?> "disks" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "disks" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDisks
+instance Prelude.Hashable GetDisks
 
-instance Core.NFData GetDisks
+instance Prelude.NFData GetDisks
 
 instance Core.ToHeaders GetDisks where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Lightsail_20161128.GetDisks" :: Core.ByteString),
+              Core.=# ( "Lightsail_20161128.GetDisks" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDisks where
   toJSON GetDisks' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pageToken" Core..=) Core.<$> pageToken]
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
       )
 
 instance Core.ToPath GetDisks where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDisks where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDisksResponse' smart constructor.
 data GetDisksResponse = GetDisksResponse'
@@ -151,14 +158,14 @@ data GetDisksResponse = GetDisksResponse'
     --
     -- To get the next page of results, perform another @GetDisks@ request and
     -- specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | An array of objects containing information about all block storage
     -- disks.
-    disks :: Core.Maybe [Disk],
+    disks :: Prelude.Maybe [Disk],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDisksResponse' with all optional fields omitted.
@@ -182,12 +189,12 @@ data GetDisksResponse = GetDisksResponse'
 -- 'httpStatus', 'getDisksResponse_httpStatus' - The response's http status code.
 newGetDisksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDisksResponse
 newGetDisksResponse pHttpStatus_ =
   GetDisksResponse'
-    { nextPageToken = Core.Nothing,
-      disks = Core.Nothing,
+    { nextPageToken = Prelude.Nothing,
+      disks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -198,16 +205,16 @@ newGetDisksResponse pHttpStatus_ =
 --
 -- To get the next page of results, perform another @GetDisks@ request and
 -- specify the next page token using the @pageToken@ parameter.
-getDisksResponse_nextPageToken :: Lens.Lens' GetDisksResponse (Core.Maybe Core.Text)
+getDisksResponse_nextPageToken :: Lens.Lens' GetDisksResponse (Prelude.Maybe Prelude.Text)
 getDisksResponse_nextPageToken = Lens.lens (\GetDisksResponse' {nextPageToken} -> nextPageToken) (\s@GetDisksResponse' {} a -> s {nextPageToken = a} :: GetDisksResponse)
 
 -- | An array of objects containing information about all block storage
 -- disks.
-getDisksResponse_disks :: Lens.Lens' GetDisksResponse (Core.Maybe [Disk])
-getDisksResponse_disks = Lens.lens (\GetDisksResponse' {disks} -> disks) (\s@GetDisksResponse' {} a -> s {disks = a} :: GetDisksResponse) Core.. Lens.mapping Lens._Coerce
+getDisksResponse_disks :: Lens.Lens' GetDisksResponse (Prelude.Maybe [Disk])
+getDisksResponse_disks = Lens.lens (\GetDisksResponse' {disks} -> disks) (\s@GetDisksResponse' {} a -> s {disks = a} :: GetDisksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDisksResponse_httpStatus :: Lens.Lens' GetDisksResponse Core.Int
+getDisksResponse_httpStatus :: Lens.Lens' GetDisksResponse Prelude.Int
 getDisksResponse_httpStatus = Lens.lens (\GetDisksResponse' {httpStatus} -> httpStatus) (\s@GetDisksResponse' {} a -> s {httpStatus = a} :: GetDisksResponse)
 
-instance Core.NFData GetDisksResponse
+instance Prelude.NFData GetDisksResponse

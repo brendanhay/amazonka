@@ -54,25 +54,26 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMLTaskRuns' smart constructor.
 data GetMLTaskRuns = GetMLTaskRuns'
   { -- | A token for pagination of the results. The default is empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the
     -- task run.
-    filter' :: Core.Maybe TaskRunFilterCriteria,
+    filter' :: Prelude.Maybe TaskRunFilterCriteria,
     -- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the
     -- task run.
-    sort :: Core.Maybe TaskRunSortCriteria,
+    sort :: Prelude.Maybe TaskRunSortCriteria,
     -- | The unique identifier of the machine learning transform.
-    transformId :: Core.Text
+    transformId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMLTaskRuns' with all optional fields omitted.
@@ -95,37 +96,37 @@ data GetMLTaskRuns = GetMLTaskRuns'
 -- 'transformId', 'getMLTaskRuns_transformId' - The unique identifier of the machine learning transform.
 newGetMLTaskRuns ::
   -- | 'transformId'
-  Core.Text ->
+  Prelude.Text ->
   GetMLTaskRuns
 newGetMLTaskRuns pTransformId_ =
   GetMLTaskRuns'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filter' = Core.Nothing,
-      sort = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      sort = Prelude.Nothing,
       transformId = pTransformId_
     }
 
 -- | A token for pagination of the results. The default is empty.
-getMLTaskRuns_nextToken :: Lens.Lens' GetMLTaskRuns (Core.Maybe Core.Text)
+getMLTaskRuns_nextToken :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe Prelude.Text)
 getMLTaskRuns_nextToken = Lens.lens (\GetMLTaskRuns' {nextToken} -> nextToken) (\s@GetMLTaskRuns' {} a -> s {nextToken = a} :: GetMLTaskRuns)
 
 -- | The maximum number of results to return.
-getMLTaskRuns_maxResults :: Lens.Lens' GetMLTaskRuns (Core.Maybe Core.Natural)
+getMLTaskRuns_maxResults :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe Prelude.Natural)
 getMLTaskRuns_maxResults = Lens.lens (\GetMLTaskRuns' {maxResults} -> maxResults) (\s@GetMLTaskRuns' {} a -> s {maxResults = a} :: GetMLTaskRuns)
 
 -- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the
 -- task run.
-getMLTaskRuns_filter :: Lens.Lens' GetMLTaskRuns (Core.Maybe TaskRunFilterCriteria)
+getMLTaskRuns_filter :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe TaskRunFilterCriteria)
 getMLTaskRuns_filter = Lens.lens (\GetMLTaskRuns' {filter'} -> filter') (\s@GetMLTaskRuns' {} a -> s {filter' = a} :: GetMLTaskRuns)
 
 -- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the
 -- task run.
-getMLTaskRuns_sort :: Lens.Lens' GetMLTaskRuns (Core.Maybe TaskRunSortCriteria)
+getMLTaskRuns_sort :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe TaskRunSortCriteria)
 getMLTaskRuns_sort = Lens.lens (\GetMLTaskRuns' {sort} -> sort) (\s@GetMLTaskRuns' {} a -> s {sort = a} :: GetMLTaskRuns)
 
 -- | The unique identifier of the machine learning transform.
-getMLTaskRuns_transformId :: Lens.Lens' GetMLTaskRuns Core.Text
+getMLTaskRuns_transformId :: Lens.Lens' GetMLTaskRuns Prelude.Text
 getMLTaskRuns_transformId = Lens.lens (\GetMLTaskRuns' {transformId} -> transformId) (\s@GetMLTaskRuns' {} a -> s {transformId = a} :: GetMLTaskRuns)
 
 instance Core.AWSRequest GetMLTaskRuns where
@@ -137,54 +138,56 @@ instance Core.AWSRequest GetMLTaskRuns where
     Response.receiveJSON
       ( \s h x ->
           GetMLTaskRunsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "TaskRuns" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "TaskRuns" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetMLTaskRuns
+instance Prelude.Hashable GetMLTaskRuns
 
-instance Core.NFData GetMLTaskRuns
+instance Prelude.NFData GetMLTaskRuns
 
 instance Core.ToHeaders GetMLTaskRuns where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetMLTaskRuns" :: Core.ByteString),
+              Core.=# ("AWSGlue.GetMLTaskRuns" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetMLTaskRuns where
   toJSON GetMLTaskRuns' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filter" Core..=) Core.<$> filter',
-            ("Sort" Core..=) Core.<$> sort,
-            Core.Just ("TransformId" Core..= transformId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filter" Core..=) Prelude.<$> filter',
+            ("Sort" Core..=) Prelude.<$> sort,
+            Prelude.Just ("TransformId" Core..= transformId)
           ]
       )
 
 instance Core.ToPath GetMLTaskRuns where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetMLTaskRuns where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMLTaskRunsResponse' smart constructor.
 data GetMLTaskRunsResponse = GetMLTaskRunsResponse'
   { -- | A pagination token, if more results are available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of task runs that are associated with the transform.
-    taskRuns :: Core.Maybe [TaskRun],
+    taskRuns :: Prelude.Maybe [TaskRun],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMLTaskRunsResponse' with all optional fields omitted.
@@ -201,25 +204,25 @@ data GetMLTaskRunsResponse = GetMLTaskRunsResponse'
 -- 'httpStatus', 'getMLTaskRunsResponse_httpStatus' - The response's http status code.
 newGetMLTaskRunsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetMLTaskRunsResponse
 newGetMLTaskRunsResponse pHttpStatus_ =
   GetMLTaskRunsResponse'
-    { nextToken = Core.Nothing,
-      taskRuns = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      taskRuns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A pagination token, if more results are available.
-getMLTaskRunsResponse_nextToken :: Lens.Lens' GetMLTaskRunsResponse (Core.Maybe Core.Text)
+getMLTaskRunsResponse_nextToken :: Lens.Lens' GetMLTaskRunsResponse (Prelude.Maybe Prelude.Text)
 getMLTaskRunsResponse_nextToken = Lens.lens (\GetMLTaskRunsResponse' {nextToken} -> nextToken) (\s@GetMLTaskRunsResponse' {} a -> s {nextToken = a} :: GetMLTaskRunsResponse)
 
 -- | A list of task runs that are associated with the transform.
-getMLTaskRunsResponse_taskRuns :: Lens.Lens' GetMLTaskRunsResponse (Core.Maybe [TaskRun])
-getMLTaskRunsResponse_taskRuns = Lens.lens (\GetMLTaskRunsResponse' {taskRuns} -> taskRuns) (\s@GetMLTaskRunsResponse' {} a -> s {taskRuns = a} :: GetMLTaskRunsResponse) Core.. Lens.mapping Lens._Coerce
+getMLTaskRunsResponse_taskRuns :: Lens.Lens' GetMLTaskRunsResponse (Prelude.Maybe [TaskRun])
+getMLTaskRunsResponse_taskRuns = Lens.lens (\GetMLTaskRunsResponse' {taskRuns} -> taskRuns) (\s@GetMLTaskRunsResponse' {} a -> s {taskRuns = a} :: GetMLTaskRunsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getMLTaskRunsResponse_httpStatus :: Lens.Lens' GetMLTaskRunsResponse Core.Int
+getMLTaskRunsResponse_httpStatus :: Lens.Lens' GetMLTaskRunsResponse Prelude.Int
 getMLTaskRunsResponse_httpStatus = Lens.lens (\GetMLTaskRunsResponse' {httpStatus} -> httpStatus) (\s@GetMLTaskRunsResponse' {} a -> s {httpStatus = a} :: GetMLTaskRunsResponse)
 
-instance Core.NFData GetMLTaskRunsResponse
+instance Prelude.NFData GetMLTaskRunsResponse

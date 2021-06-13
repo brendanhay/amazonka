@@ -23,19 +23,20 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ResourceIdentifier
 import Network.AWS.IoT.Types.ResourceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a related resource.
 --
 -- /See:/ 'newRelatedResource' smart constructor.
 data RelatedResource = RelatedResource'
   { -- | Other information about the resource.
-    additionalInfo :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    additionalInfo :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of resource.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | Information that identifies the resource.
-    resourceIdentifier :: Core.Maybe ResourceIdentifier
+    resourceIdentifier :: Prelude.Maybe ResourceIdentifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RelatedResource' with all optional fields omitted.
@@ -54,21 +55,21 @@ newRelatedResource ::
   RelatedResource
 newRelatedResource =
   RelatedResource'
-    { additionalInfo = Core.Nothing,
-      resourceType = Core.Nothing,
-      resourceIdentifier = Core.Nothing
+    { additionalInfo = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      resourceIdentifier = Prelude.Nothing
     }
 
 -- | Other information about the resource.
-relatedResource_additionalInfo :: Lens.Lens' RelatedResource (Core.Maybe (Core.HashMap Core.Text Core.Text))
-relatedResource_additionalInfo = Lens.lens (\RelatedResource' {additionalInfo} -> additionalInfo) (\s@RelatedResource' {} a -> s {additionalInfo = a} :: RelatedResource) Core.. Lens.mapping Lens._Coerce
+relatedResource_additionalInfo :: Lens.Lens' RelatedResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+relatedResource_additionalInfo = Lens.lens (\RelatedResource' {additionalInfo} -> additionalInfo) (\s@RelatedResource' {} a -> s {additionalInfo = a} :: RelatedResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of resource.
-relatedResource_resourceType :: Lens.Lens' RelatedResource (Core.Maybe ResourceType)
+relatedResource_resourceType :: Lens.Lens' RelatedResource (Prelude.Maybe ResourceType)
 relatedResource_resourceType = Lens.lens (\RelatedResource' {resourceType} -> resourceType) (\s@RelatedResource' {} a -> s {resourceType = a} :: RelatedResource)
 
 -- | Information that identifies the resource.
-relatedResource_resourceIdentifier :: Lens.Lens' RelatedResource (Core.Maybe ResourceIdentifier)
+relatedResource_resourceIdentifier :: Lens.Lens' RelatedResource (Prelude.Maybe ResourceIdentifier)
 relatedResource_resourceIdentifier = Lens.lens (\RelatedResource' {resourceIdentifier} -> resourceIdentifier) (\s@RelatedResource' {} a -> s {resourceIdentifier = a} :: RelatedResource)
 
 instance Core.FromJSON RelatedResource where
@@ -77,11 +78,11 @@ instance Core.FromJSON RelatedResource where
       "RelatedResource"
       ( \x ->
           RelatedResource'
-            Core.<$> (x Core..:? "additionalInfo" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "resourceIdentifier")
+            Prelude.<$> (x Core..:? "additionalInfo" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "resourceIdentifier")
       )
 
-instance Core.Hashable RelatedResource
+instance Prelude.Hashable RelatedResource
 
-instance Core.NFData RelatedResource
+instance Prelude.NFData RelatedResource

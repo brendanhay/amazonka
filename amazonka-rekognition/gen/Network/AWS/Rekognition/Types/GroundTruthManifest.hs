@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.GroundTruthManifest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.S3Object
 
 -- | The S3 bucket that contains an Amazon Sagemaker Ground Truth format
@@ -28,9 +29,9 @@ import Network.AWS.Rekognition.Types.S3Object
 --
 -- /See:/ 'newGroundTruthManifest' smart constructor.
 data GroundTruthManifest = GroundTruthManifest'
-  { s3Object :: Core.Maybe S3Object
+  { s3Object :: Prelude.Maybe S3Object
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroundTruthManifest' with all optional fields omitted.
@@ -44,10 +45,10 @@ data GroundTruthManifest = GroundTruthManifest'
 newGroundTruthManifest ::
   GroundTruthManifest
 newGroundTruthManifest =
-  GroundTruthManifest' {s3Object = Core.Nothing}
+  GroundTruthManifest' {s3Object = Prelude.Nothing}
 
 -- | Undocumented member.
-groundTruthManifest_s3Object :: Lens.Lens' GroundTruthManifest (Core.Maybe S3Object)
+groundTruthManifest_s3Object :: Lens.Lens' GroundTruthManifest (Prelude.Maybe S3Object)
 groundTruthManifest_s3Object = Lens.lens (\GroundTruthManifest' {s3Object} -> s3Object) (\s@GroundTruthManifest' {} a -> s {s3Object = a} :: GroundTruthManifest)
 
 instance Core.FromJSON GroundTruthManifest where
@@ -56,16 +57,16 @@ instance Core.FromJSON GroundTruthManifest where
       "GroundTruthManifest"
       ( \x ->
           GroundTruthManifest'
-            Core.<$> (x Core..:? "S3Object")
+            Prelude.<$> (x Core..:? "S3Object")
       )
 
-instance Core.Hashable GroundTruthManifest
+instance Prelude.Hashable GroundTruthManifest
 
-instance Core.NFData GroundTruthManifest
+instance Prelude.NFData GroundTruthManifest
 
 instance Core.ToJSON GroundTruthManifest where
   toJSON GroundTruthManifest' {..} =
     Core.object
-      ( Core.catMaybes
-          [("S3Object" Core..=) Core.<$> s3Object]
+      ( Prelude.catMaybes
+          [("S3Object" Core..=) Prelude.<$> s3Object]
       )

@@ -53,15 +53,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSlotType' smart constructor.
 data DeleteSlotType = DeleteSlotType'
   { -- | The name of the slot type. The name is case sensitive.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSlotType' with all optional fields omitted.
@@ -74,13 +75,13 @@ data DeleteSlotType = DeleteSlotType'
 -- 'name', 'deleteSlotType_name' - The name of the slot type. The name is case sensitive.
 newDeleteSlotType ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSlotType
 newDeleteSlotType pName_ =
   DeleteSlotType' {name = pName_}
 
 -- | The name of the slot type. The name is case sensitive.
-deleteSlotType_name :: Lens.Lens' DeleteSlotType Core.Text
+deleteSlotType_name :: Lens.Lens' DeleteSlotType Prelude.Text
 deleteSlotType_name = Lens.lens (\DeleteSlotType' {name} -> name) (\s@DeleteSlotType' {} a -> s {name = a} :: DeleteSlotType)
 
 instance Core.AWSRequest DeleteSlotType where
@@ -91,31 +92,33 @@ instance Core.AWSRequest DeleteSlotType where
   response =
     Response.receiveNull DeleteSlotTypeResponse'
 
-instance Core.Hashable DeleteSlotType
+instance Prelude.Hashable DeleteSlotType
 
-instance Core.NFData DeleteSlotType
+instance Prelude.NFData DeleteSlotType
 
 instance Core.ToHeaders DeleteSlotType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteSlotType where
   toPath DeleteSlotType' {..} =
-    Core.mconcat ["/slottypes/", Core.toBS name]
+    Prelude.mconcat ["/slottypes/", Core.toBS name]
 
 instance Core.ToQuery DeleteSlotType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSlotTypeResponse' smart constructor.
 data DeleteSlotTypeResponse = DeleteSlotTypeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSlotTypeResponse' with all optional fields omitted.
@@ -125,4 +128,4 @@ newDeleteSlotTypeResponse ::
   DeleteSlotTypeResponse
 newDeleteSlotTypeResponse = DeleteSlotTypeResponse'
 
-instance Core.NFData DeleteSlotTypeResponse
+instance Prelude.NFData DeleteSlotTypeResponse

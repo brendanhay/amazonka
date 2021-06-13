@@ -23,6 +23,7 @@ import Network.AWS.CloudSearch.Types.OptionStatus
 import Network.AWS.CloudSearch.Types.ScalingParameters
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status and configuration of a search domain\'s scaling parameters.
 --
@@ -31,7 +32,7 @@ data ScalingParametersStatus = ScalingParametersStatus'
   { options :: ScalingParameters,
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingParametersStatus' with all optional fields omitted.
@@ -67,8 +68,9 @@ scalingParametersStatus_status = Lens.lens (\ScalingParametersStatus' {status} -
 instance Core.FromXML ScalingParametersStatus where
   parseXML x =
     ScalingParametersStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Options")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable ScalingParametersStatus
+instance Prelude.Hashable ScalingParametersStatus
 
-instance Core.NFData ScalingParametersStatus
+instance Prelude.NFData ScalingParametersStatus

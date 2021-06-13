@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -54,11 +55,11 @@ data DeleteServiceAction = DeleteServiceAction'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceAction' with all optional fields omitted.
@@ -79,11 +80,12 @@ data DeleteServiceAction = DeleteServiceAction'
 -- 'id', 'deleteServiceAction_id' - The self-service action identifier. For example, @act-fs7abcd89wxyz@.
 newDeleteServiceAction ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteServiceAction
 newDeleteServiceAction pId_ =
   DeleteServiceAction'
-    { acceptLanguage = Core.Nothing,
+    { acceptLanguage =
+        Prelude.Nothing,
       id = pId_
     }
 
@@ -94,11 +96,11 @@ newDeleteServiceAction pId_ =
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deleteServiceAction_acceptLanguage :: Lens.Lens' DeleteServiceAction (Core.Maybe Core.Text)
+deleteServiceAction_acceptLanguage :: Lens.Lens' DeleteServiceAction (Prelude.Maybe Prelude.Text)
 deleteServiceAction_acceptLanguage = Lens.lens (\DeleteServiceAction' {acceptLanguage} -> acceptLanguage) (\s@DeleteServiceAction' {} a -> s {acceptLanguage = a} :: DeleteServiceAction)
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-deleteServiceAction_id :: Lens.Lens' DeleteServiceAction Core.Text
+deleteServiceAction_id :: Lens.Lens' DeleteServiceAction Prelude.Text
 deleteServiceAction_id = Lens.lens (\DeleteServiceAction' {id} -> id) (\s@DeleteServiceAction' {} a -> s {id = a} :: DeleteServiceAction)
 
 instance Core.AWSRequest DeleteServiceAction where
@@ -110,47 +112,50 @@ instance Core.AWSRequest DeleteServiceAction where
     Response.receiveEmpty
       ( \s h x ->
           DeleteServiceActionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteServiceAction
+instance Prelude.Hashable DeleteServiceAction
 
-instance Core.NFData DeleteServiceAction
+instance Prelude.NFData DeleteServiceAction
 
 instance Core.ToHeaders DeleteServiceAction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DeleteServiceAction" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteServiceAction where
   toJSON DeleteServiceAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("Id" Core..= id)
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("Id" Core..= id)
           ]
       )
 
 instance Core.ToPath DeleteServiceAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteServiceAction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServiceActionResponse' smart constructor.
 data DeleteServiceActionResponse = DeleteServiceActionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceActionResponse' with all optional fields omitted.
@@ -163,7 +168,7 @@ data DeleteServiceActionResponse = DeleteServiceActionResponse'
 -- 'httpStatus', 'deleteServiceActionResponse_httpStatus' - The response's http status code.
 newDeleteServiceActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteServiceActionResponse
 newDeleteServiceActionResponse pHttpStatus_ =
   DeleteServiceActionResponse'
@@ -172,7 +177,7 @@ newDeleteServiceActionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteServiceActionResponse_httpStatus :: Lens.Lens' DeleteServiceActionResponse Core.Int
+deleteServiceActionResponse_httpStatus :: Lens.Lens' DeleteServiceActionResponse Prelude.Int
 deleteServiceActionResponse_httpStatus = Lens.lens (\DeleteServiceActionResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceActionResponse' {} a -> s {httpStatus = a} :: DeleteServiceActionResponse)
 
-instance Core.NFData DeleteServiceActionResponse
+instance Prelude.NFData DeleteServiceActionResponse

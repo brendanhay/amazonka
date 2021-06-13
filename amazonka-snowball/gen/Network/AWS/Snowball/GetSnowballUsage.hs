@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -52,7 +53,7 @@ import Network.AWS.Snowball.Types
 data GetSnowballUsage = GetSnowballUsage'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSnowballUsage' with all optional fields omitted.
@@ -71,48 +72,50 @@ instance Core.AWSRequest GetSnowballUsage where
     Response.receiveJSON
       ( \s h x ->
           GetSnowballUsageResponse'
-            Core.<$> (x Core..?> "SnowballsInUse")
-            Core.<*> (x Core..?> "SnowballLimit")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SnowballsInUse")
+            Prelude.<*> (x Core..?> "SnowballLimit")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSnowballUsage
+instance Prelude.Hashable GetSnowballUsage
 
-instance Core.NFData GetSnowballUsage
+instance Prelude.NFData GetSnowballUsage
 
 instance Core.ToHeaders GetSnowballUsage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.GetSnowballUsage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSnowballUsage where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetSnowballUsage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSnowballUsage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSnowballUsageResponse' smart constructor.
 data GetSnowballUsageResponse = GetSnowballUsageResponse'
   { -- | The number of Snow devices that this account is currently using.
-    snowballsInUse :: Core.Maybe Core.Int,
+    snowballsInUse :: Prelude.Maybe Prelude.Int,
     -- | The service limit for number of Snow devices this account can have at
     -- once. The default service limit is 1 (one).
-    snowballLimit :: Core.Maybe Core.Int,
+    snowballLimit :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSnowballUsageResponse' with all optional fields omitted.
@@ -130,27 +133,27 @@ data GetSnowballUsageResponse = GetSnowballUsageResponse'
 -- 'httpStatus', 'getSnowballUsageResponse_httpStatus' - The response's http status code.
 newGetSnowballUsageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSnowballUsageResponse
 newGetSnowballUsageResponse pHttpStatus_ =
   GetSnowballUsageResponse'
     { snowballsInUse =
-        Core.Nothing,
-      snowballLimit = Core.Nothing,
+        Prelude.Nothing,
+      snowballLimit = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of Snow devices that this account is currently using.
-getSnowballUsageResponse_snowballsInUse :: Lens.Lens' GetSnowballUsageResponse (Core.Maybe Core.Int)
+getSnowballUsageResponse_snowballsInUse :: Lens.Lens' GetSnowballUsageResponse (Prelude.Maybe Prelude.Int)
 getSnowballUsageResponse_snowballsInUse = Lens.lens (\GetSnowballUsageResponse' {snowballsInUse} -> snowballsInUse) (\s@GetSnowballUsageResponse' {} a -> s {snowballsInUse = a} :: GetSnowballUsageResponse)
 
 -- | The service limit for number of Snow devices this account can have at
 -- once. The default service limit is 1 (one).
-getSnowballUsageResponse_snowballLimit :: Lens.Lens' GetSnowballUsageResponse (Core.Maybe Core.Int)
+getSnowballUsageResponse_snowballLimit :: Lens.Lens' GetSnowballUsageResponse (Prelude.Maybe Prelude.Int)
 getSnowballUsageResponse_snowballLimit = Lens.lens (\GetSnowballUsageResponse' {snowballLimit} -> snowballLimit) (\s@GetSnowballUsageResponse' {} a -> s {snowballLimit = a} :: GetSnowballUsageResponse)
 
 -- | The response's http status code.
-getSnowballUsageResponse_httpStatus :: Lens.Lens' GetSnowballUsageResponse Core.Int
+getSnowballUsageResponse_httpStatus :: Lens.Lens' GetSnowballUsageResponse Prelude.Int
 getSnowballUsageResponse_httpStatus = Lens.lens (\GetSnowballUsageResponse' {httpStatus} -> httpStatus) (\s@GetSnowballUsageResponse' {} a -> s {httpStatus = a} :: GetSnowballUsageResponse)
 
-instance Core.NFData GetSnowballUsageResponse
+instance Prelude.NFData GetSnowballUsageResponse

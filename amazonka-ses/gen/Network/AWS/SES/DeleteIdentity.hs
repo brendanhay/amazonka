@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -54,9 +55,9 @@ import Network.AWS.SES.Types
 data DeleteIdentity = DeleteIdentity'
   { -- | The identity to be removed from the list of identities for the AWS
     -- Account.
-    identity :: Core.Text
+    identity :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentity' with all optional fields omitted.
@@ -70,14 +71,14 @@ data DeleteIdentity = DeleteIdentity'
 -- Account.
 newDeleteIdentity ::
   -- | 'identity'
-  Core.Text ->
+  Prelude.Text ->
   DeleteIdentity
 newDeleteIdentity pIdentity_ =
   DeleteIdentity' {identity = pIdentity_}
 
 -- | The identity to be removed from the list of identities for the AWS
 -- Account.
-deleteIdentity_identity :: Lens.Lens' DeleteIdentity Core.Text
+deleteIdentity_identity :: Lens.Lens' DeleteIdentity Prelude.Text
 deleteIdentity_identity = Lens.lens (\DeleteIdentity' {identity} -> identity) (\s@DeleteIdentity' {} a -> s {identity = a} :: DeleteIdentity)
 
 instance Core.AWSRequest DeleteIdentity where
@@ -90,25 +91,26 @@ instance Core.AWSRequest DeleteIdentity where
       "DeleteIdentityResult"
       ( \s h x ->
           DeleteIdentityResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteIdentity
+instance Prelude.Hashable DeleteIdentity
 
-instance Core.NFData DeleteIdentity
+instance Prelude.NFData DeleteIdentity
 
 instance Core.ToHeaders DeleteIdentity where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteIdentity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteIdentity where
   toQuery DeleteIdentity' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteIdentity" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("DeleteIdentity" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Identity" Core.=: identity
       ]
 
@@ -117,9 +119,9 @@ instance Core.ToQuery DeleteIdentity where
 -- /See:/ 'newDeleteIdentityResponse' smart constructor.
 data DeleteIdentityResponse = DeleteIdentityResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityResponse' with all optional fields omitted.
@@ -132,13 +134,13 @@ data DeleteIdentityResponse = DeleteIdentityResponse'
 -- 'httpStatus', 'deleteIdentityResponse_httpStatus' - The response's http status code.
 newDeleteIdentityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteIdentityResponse
 newDeleteIdentityResponse pHttpStatus_ =
   DeleteIdentityResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteIdentityResponse_httpStatus :: Lens.Lens' DeleteIdentityResponse Core.Int
+deleteIdentityResponse_httpStatus :: Lens.Lens' DeleteIdentityResponse Prelude.Int
 deleteIdentityResponse_httpStatus = Lens.lens (\DeleteIdentityResponse' {httpStatus} -> httpStatus) (\s@DeleteIdentityResponse' {} a -> s {httpStatus = a} :: DeleteIdentityResponse)
 
-instance Core.NFData DeleteIdentityResponse
+instance Prelude.NFData DeleteIdentityResponse

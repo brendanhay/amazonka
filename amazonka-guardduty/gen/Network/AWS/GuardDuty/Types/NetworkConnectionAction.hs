@@ -25,6 +25,7 @@ import Network.AWS.GuardDuty.Types.LocalPortDetails
 import Network.AWS.GuardDuty.Types.RemoteIpDetails
 import Network.AWS.GuardDuty.Types.RemotePortDetails
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the NETWORK_CONNECTION action described in
 -- the finding.
@@ -32,21 +33,21 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newNetworkConnectionAction' smart constructor.
 data NetworkConnectionAction = NetworkConnectionAction'
   { -- | The remote port information of the connection.
-    remotePortDetails :: Core.Maybe RemotePortDetails,
+    remotePortDetails :: Prelude.Maybe RemotePortDetails,
     -- | The local port information of the connection.
-    localPortDetails :: Core.Maybe LocalPortDetails,
+    localPortDetails :: Prelude.Maybe LocalPortDetails,
     -- | The network connection direction.
-    connectionDirection :: Core.Maybe Core.Text,
+    connectionDirection :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether EC2 blocked the network connection to your instance.
-    blocked :: Core.Maybe Core.Bool,
+    blocked :: Prelude.Maybe Prelude.Bool,
     -- | The remote IP information of the connection.
-    remoteIpDetails :: Core.Maybe RemoteIpDetails,
+    remoteIpDetails :: Prelude.Maybe RemoteIpDetails,
     -- | The local IP information of the connection.
-    localIpDetails :: Core.Maybe LocalIpDetails,
+    localIpDetails :: Prelude.Maybe LocalIpDetails,
     -- | The network connection protocol.
-    protocol :: Core.Maybe Core.Text
+    protocol :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkConnectionAction' with all optional fields omitted.
@@ -74,41 +75,41 @@ newNetworkConnectionAction ::
 newNetworkConnectionAction =
   NetworkConnectionAction'
     { remotePortDetails =
-        Core.Nothing,
-      localPortDetails = Core.Nothing,
-      connectionDirection = Core.Nothing,
-      blocked = Core.Nothing,
-      remoteIpDetails = Core.Nothing,
-      localIpDetails = Core.Nothing,
-      protocol = Core.Nothing
+        Prelude.Nothing,
+      localPortDetails = Prelude.Nothing,
+      connectionDirection = Prelude.Nothing,
+      blocked = Prelude.Nothing,
+      remoteIpDetails = Prelude.Nothing,
+      localIpDetails = Prelude.Nothing,
+      protocol = Prelude.Nothing
     }
 
 -- | The remote port information of the connection.
-networkConnectionAction_remotePortDetails :: Lens.Lens' NetworkConnectionAction (Core.Maybe RemotePortDetails)
+networkConnectionAction_remotePortDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe RemotePortDetails)
 networkConnectionAction_remotePortDetails = Lens.lens (\NetworkConnectionAction' {remotePortDetails} -> remotePortDetails) (\s@NetworkConnectionAction' {} a -> s {remotePortDetails = a} :: NetworkConnectionAction)
 
 -- | The local port information of the connection.
-networkConnectionAction_localPortDetails :: Lens.Lens' NetworkConnectionAction (Core.Maybe LocalPortDetails)
+networkConnectionAction_localPortDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe LocalPortDetails)
 networkConnectionAction_localPortDetails = Lens.lens (\NetworkConnectionAction' {localPortDetails} -> localPortDetails) (\s@NetworkConnectionAction' {} a -> s {localPortDetails = a} :: NetworkConnectionAction)
 
 -- | The network connection direction.
-networkConnectionAction_connectionDirection :: Lens.Lens' NetworkConnectionAction (Core.Maybe Core.Text)
+networkConnectionAction_connectionDirection :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe Prelude.Text)
 networkConnectionAction_connectionDirection = Lens.lens (\NetworkConnectionAction' {connectionDirection} -> connectionDirection) (\s@NetworkConnectionAction' {} a -> s {connectionDirection = a} :: NetworkConnectionAction)
 
 -- | Indicates whether EC2 blocked the network connection to your instance.
-networkConnectionAction_blocked :: Lens.Lens' NetworkConnectionAction (Core.Maybe Core.Bool)
+networkConnectionAction_blocked :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe Prelude.Bool)
 networkConnectionAction_blocked = Lens.lens (\NetworkConnectionAction' {blocked} -> blocked) (\s@NetworkConnectionAction' {} a -> s {blocked = a} :: NetworkConnectionAction)
 
 -- | The remote IP information of the connection.
-networkConnectionAction_remoteIpDetails :: Lens.Lens' NetworkConnectionAction (Core.Maybe RemoteIpDetails)
+networkConnectionAction_remoteIpDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe RemoteIpDetails)
 networkConnectionAction_remoteIpDetails = Lens.lens (\NetworkConnectionAction' {remoteIpDetails} -> remoteIpDetails) (\s@NetworkConnectionAction' {} a -> s {remoteIpDetails = a} :: NetworkConnectionAction)
 
 -- | The local IP information of the connection.
-networkConnectionAction_localIpDetails :: Lens.Lens' NetworkConnectionAction (Core.Maybe LocalIpDetails)
+networkConnectionAction_localIpDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe LocalIpDetails)
 networkConnectionAction_localIpDetails = Lens.lens (\NetworkConnectionAction' {localIpDetails} -> localIpDetails) (\s@NetworkConnectionAction' {} a -> s {localIpDetails = a} :: NetworkConnectionAction)
 
 -- | The network connection protocol.
-networkConnectionAction_protocol :: Lens.Lens' NetworkConnectionAction (Core.Maybe Core.Text)
+networkConnectionAction_protocol :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe Prelude.Text)
 networkConnectionAction_protocol = Lens.lens (\NetworkConnectionAction' {protocol} -> protocol) (\s@NetworkConnectionAction' {} a -> s {protocol = a} :: NetworkConnectionAction)
 
 instance Core.FromJSON NetworkConnectionAction where
@@ -117,15 +118,15 @@ instance Core.FromJSON NetworkConnectionAction where
       "NetworkConnectionAction"
       ( \x ->
           NetworkConnectionAction'
-            Core.<$> (x Core..:? "remotePortDetails")
-            Core.<*> (x Core..:? "localPortDetails")
-            Core.<*> (x Core..:? "connectionDirection")
-            Core.<*> (x Core..:? "blocked")
-            Core.<*> (x Core..:? "remoteIpDetails")
-            Core.<*> (x Core..:? "localIpDetails")
-            Core.<*> (x Core..:? "protocol")
+            Prelude.<$> (x Core..:? "remotePortDetails")
+            Prelude.<*> (x Core..:? "localPortDetails")
+            Prelude.<*> (x Core..:? "connectionDirection")
+            Prelude.<*> (x Core..:? "blocked")
+            Prelude.<*> (x Core..:? "remoteIpDetails")
+            Prelude.<*> (x Core..:? "localIpDetails")
+            Prelude.<*> (x Core..:? "protocol")
       )
 
-instance Core.Hashable NetworkConnectionAction
+instance Prelude.Hashable NetworkConnectionAction
 
-instance Core.NFData NetworkConnectionAction
+instance Prelude.NFData NetworkConnectionAction

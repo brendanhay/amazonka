@@ -23,13 +23,14 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.TargetHealthReasonEnum
 import Network.AWS.ELBv2.Types.TargetHealthStateEnum
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the current health of a target.
 --
 -- /See:/ 'newTargetHealth' smart constructor.
 data TargetHealth = TargetHealth'
   { -- | The state of the target.
-    state :: Core.Maybe TargetHealthStateEnum,
+    state :: Prelude.Maybe TargetHealthStateEnum,
     -- | The reason code.
     --
     -- If the target state is @healthy@, a reason code is not provided.
@@ -92,12 +93,12 @@ data TargetHealth = TargetHealth'
     --
     -- -   @Elb.InternalError@ - Target health is unavailable due to an
     --     internal error. Applies only to Network Load Balancers.
-    reason :: Core.Maybe TargetHealthReasonEnum,
+    reason :: Prelude.Maybe TargetHealthReasonEnum,
     -- | A description of the target health that provides additional details. If
     -- the state is @healthy@, a description is not provided.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetHealth' with all optional fields omitted.
@@ -178,13 +179,13 @@ newTargetHealth ::
   TargetHealth
 newTargetHealth =
   TargetHealth'
-    { state = Core.Nothing,
-      reason = Core.Nothing,
-      description = Core.Nothing
+    { state = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The state of the target.
-targetHealth_state :: Lens.Lens' TargetHealth (Core.Maybe TargetHealthStateEnum)
+targetHealth_state :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthStateEnum)
 targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealth' {} a -> s {state = a} :: TargetHealth)
 
 -- | The reason code.
@@ -249,21 +250,21 @@ targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealt
 --
 -- -   @Elb.InternalError@ - Target health is unavailable due to an
 --     internal error. Applies only to Network Load Balancers.
-targetHealth_reason :: Lens.Lens' TargetHealth (Core.Maybe TargetHealthReasonEnum)
+targetHealth_reason :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthReasonEnum)
 targetHealth_reason = Lens.lens (\TargetHealth' {reason} -> reason) (\s@TargetHealth' {} a -> s {reason = a} :: TargetHealth)
 
 -- | A description of the target health that provides additional details. If
 -- the state is @healthy@, a description is not provided.
-targetHealth_description :: Lens.Lens' TargetHealth (Core.Maybe Core.Text)
+targetHealth_description :: Lens.Lens' TargetHealth (Prelude.Maybe Prelude.Text)
 targetHealth_description = Lens.lens (\TargetHealth' {description} -> description) (\s@TargetHealth' {} a -> s {description = a} :: TargetHealth)
 
 instance Core.FromXML TargetHealth where
   parseXML x =
     TargetHealth'
-      Core.<$> (x Core..@? "State")
-      Core.<*> (x Core..@? "Reason")
-      Core.<*> (x Core..@? "Description")
+      Prelude.<$> (x Core..@? "State")
+      Prelude.<*> (x Core..@? "Reason")
+      Prelude.<*> (x Core..@? "Description")
 
-instance Core.Hashable TargetHealth
+instance Prelude.Hashable TargetHealth
 
-instance Core.NFData TargetHealth
+instance Prelude.NFData TargetHealth

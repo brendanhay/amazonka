@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.XssMatchSet where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.XssMatchTuple
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -42,7 +43,7 @@ import Network.AWS.WAF.Types.XssMatchTuple
 -- /See:/ 'newXssMatchSet' smart constructor.
 data XssMatchSet = XssMatchSet'
   { -- | The name, if any, of the @XssMatchSet@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for an @XssMatchSet@. You use @XssMatchSetId@ to get
     -- information about an @XssMatchSet@ (see GetXssMatchSet), update an
     -- @XssMatchSet@ (see UpdateXssMatchSet), insert an @XssMatchSet@ into a
@@ -51,12 +52,12 @@ data XssMatchSet = XssMatchSet'
     --
     -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
     -- ListXssMatchSets.
-    xssMatchSetId :: Core.Text,
+    xssMatchSetId :: Prelude.Text,
     -- | Specifies the parts of web requests that you want to inspect for
     -- cross-site scripting attacks.
     xssMatchTuples :: [XssMatchTuple]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'XssMatchSet' with all optional fields omitted.
@@ -81,17 +82,17 @@ data XssMatchSet = XssMatchSet'
 -- cross-site scripting attacks.
 newXssMatchSet ::
   -- | 'xssMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   XssMatchSet
 newXssMatchSet pXssMatchSetId_ =
   XssMatchSet'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       xssMatchSetId = pXssMatchSetId_,
-      xssMatchTuples = Core.mempty
+      xssMatchTuples = Prelude.mempty
     }
 
 -- | The name, if any, of the @XssMatchSet@.
-xssMatchSet_name :: Lens.Lens' XssMatchSet (Core.Maybe Core.Text)
+xssMatchSet_name :: Lens.Lens' XssMatchSet (Prelude.Maybe Prelude.Text)
 xssMatchSet_name = Lens.lens (\XssMatchSet' {name} -> name) (\s@XssMatchSet' {} a -> s {name = a} :: XssMatchSet)
 
 -- | A unique identifier for an @XssMatchSet@. You use @XssMatchSetId@ to get
@@ -102,13 +103,13 @@ xssMatchSet_name = Lens.lens (\XssMatchSet' {name} -> name) (\s@XssMatchSet' {} 
 --
 -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
 -- ListXssMatchSets.
-xssMatchSet_xssMatchSetId :: Lens.Lens' XssMatchSet Core.Text
+xssMatchSet_xssMatchSetId :: Lens.Lens' XssMatchSet Prelude.Text
 xssMatchSet_xssMatchSetId = Lens.lens (\XssMatchSet' {xssMatchSetId} -> xssMatchSetId) (\s@XssMatchSet' {} a -> s {xssMatchSetId = a} :: XssMatchSet)
 
 -- | Specifies the parts of web requests that you want to inspect for
 -- cross-site scripting attacks.
 xssMatchSet_xssMatchTuples :: Lens.Lens' XssMatchSet [XssMatchTuple]
-xssMatchSet_xssMatchTuples = Lens.lens (\XssMatchSet' {xssMatchTuples} -> xssMatchTuples) (\s@XssMatchSet' {} a -> s {xssMatchTuples = a} :: XssMatchSet) Core.. Lens._Coerce
+xssMatchSet_xssMatchTuples = Lens.lens (\XssMatchSet' {xssMatchTuples} -> xssMatchTuples) (\s@XssMatchSet' {} a -> s {xssMatchTuples = a} :: XssMatchSet) Prelude.. Lens._Coerce
 
 instance Core.FromJSON XssMatchSet where
   parseJSON =
@@ -116,11 +117,13 @@ instance Core.FromJSON XssMatchSet where
       "XssMatchSet"
       ( \x ->
           XssMatchSet'
-            Core.<$> (x Core..:? "Name")
-            Core.<*> (x Core..: "XssMatchSetId")
-            Core.<*> (x Core..:? "XssMatchTuples" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..: "XssMatchSetId")
+            Prelude.<*> ( x Core..:? "XssMatchTuples"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable XssMatchSet
+instance Prelude.Hashable XssMatchSet
 
-instance Core.NFData XssMatchSet
+instance Prelude.NFData XssMatchSet

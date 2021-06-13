@@ -24,6 +24,7 @@ import Network.AWS.Glue.Types.BackfillError
 import Network.AWS.Glue.Types.KeySchemaElement
 import Network.AWS.Glue.Types.PartitionIndexStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A descriptor for a partition index in a table.
 --
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data PartitionIndexDescriptor = PartitionIndexDescriptor'
   { -- | A list of errors that can occur when registering partition indexes for
     -- an existing table.
-    backfillErrors :: Core.Maybe [BackfillError],
+    backfillErrors :: Prelude.Maybe [BackfillError],
     -- | The name of the partition index.
-    indexName :: Core.Text,
+    indexName :: Prelude.Text,
     -- | A list of one or more keys, as @KeySchemaElement@ structures, for the
     -- partition index.
-    keys :: Core.NonEmpty KeySchemaElement,
+    keys :: Prelude.NonEmpty KeySchemaElement,
     -- | The status of the partition index.
     --
     -- The possible statuses are:
@@ -51,7 +52,7 @@ data PartitionIndexDescriptor = PartitionIndexDescriptor'
     -- -   DELETING: The index is deleted from the list of indexes.
     indexStatus :: PartitionIndexStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PartitionIndexDescriptor' with all optional fields omitted.
@@ -83,9 +84,9 @@ data PartitionIndexDescriptor = PartitionIndexDescriptor'
 -- -   DELETING: The index is deleted from the list of indexes.
 newPartitionIndexDescriptor ::
   -- | 'indexName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'keys'
-  Core.NonEmpty KeySchemaElement ->
+  Prelude.NonEmpty KeySchemaElement ->
   -- | 'indexStatus'
   PartitionIndexStatus ->
   PartitionIndexDescriptor
@@ -95,7 +96,7 @@ newPartitionIndexDescriptor
   pIndexStatus_ =
     PartitionIndexDescriptor'
       { backfillErrors =
-          Core.Nothing,
+          Prelude.Nothing,
         indexName = pIndexName_,
         keys = Lens._Coerce Lens.# pKeys_,
         indexStatus = pIndexStatus_
@@ -103,17 +104,17 @@ newPartitionIndexDescriptor
 
 -- | A list of errors that can occur when registering partition indexes for
 -- an existing table.
-partitionIndexDescriptor_backfillErrors :: Lens.Lens' PartitionIndexDescriptor (Core.Maybe [BackfillError])
-partitionIndexDescriptor_backfillErrors = Lens.lens (\PartitionIndexDescriptor' {backfillErrors} -> backfillErrors) (\s@PartitionIndexDescriptor' {} a -> s {backfillErrors = a} :: PartitionIndexDescriptor) Core.. Lens.mapping Lens._Coerce
+partitionIndexDescriptor_backfillErrors :: Lens.Lens' PartitionIndexDescriptor (Prelude.Maybe [BackfillError])
+partitionIndexDescriptor_backfillErrors = Lens.lens (\PartitionIndexDescriptor' {backfillErrors} -> backfillErrors) (\s@PartitionIndexDescriptor' {} a -> s {backfillErrors = a} :: PartitionIndexDescriptor) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the partition index.
-partitionIndexDescriptor_indexName :: Lens.Lens' PartitionIndexDescriptor Core.Text
+partitionIndexDescriptor_indexName :: Lens.Lens' PartitionIndexDescriptor Prelude.Text
 partitionIndexDescriptor_indexName = Lens.lens (\PartitionIndexDescriptor' {indexName} -> indexName) (\s@PartitionIndexDescriptor' {} a -> s {indexName = a} :: PartitionIndexDescriptor)
 
 -- | A list of one or more keys, as @KeySchemaElement@ structures, for the
 -- partition index.
-partitionIndexDescriptor_keys :: Lens.Lens' PartitionIndexDescriptor (Core.NonEmpty KeySchemaElement)
-partitionIndexDescriptor_keys = Lens.lens (\PartitionIndexDescriptor' {keys} -> keys) (\s@PartitionIndexDescriptor' {} a -> s {keys = a} :: PartitionIndexDescriptor) Core.. Lens._Coerce
+partitionIndexDescriptor_keys :: Lens.Lens' PartitionIndexDescriptor (Prelude.NonEmpty KeySchemaElement)
+partitionIndexDescriptor_keys = Lens.lens (\PartitionIndexDescriptor' {keys} -> keys) (\s@PartitionIndexDescriptor' {} a -> s {keys = a} :: PartitionIndexDescriptor) Prelude.. Lens._Coerce
 
 -- | The status of the partition index.
 --
@@ -136,12 +137,12 @@ instance Core.FromJSON PartitionIndexDescriptor where
       "PartitionIndexDescriptor"
       ( \x ->
           PartitionIndexDescriptor'
-            Core.<$> (x Core..:? "BackfillErrors" Core..!= Core.mempty)
-            Core.<*> (x Core..: "IndexName")
-            Core.<*> (x Core..: "Keys")
-            Core.<*> (x Core..: "IndexStatus")
+            Prelude.<$> (x Core..:? "BackfillErrors" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "IndexName")
+            Prelude.<*> (x Core..: "Keys")
+            Prelude.<*> (x Core..: "IndexStatus")
       )
 
-instance Core.Hashable PartitionIndexDescriptor
+instance Prelude.Hashable PartitionIndexDescriptor
 
-instance Core.NFData PartitionIndexDescriptor
+instance Prelude.NFData PartitionIndexDescriptor

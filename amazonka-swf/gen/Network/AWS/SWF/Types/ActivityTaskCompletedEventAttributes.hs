@@ -21,24 +21,25 @@ module Network.AWS.SWF.Types.ActivityTaskCompletedEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @ActivityTaskCompleted@ event.
 --
 -- /See:/ 'newActivityTaskCompletedEventAttributes' smart constructor.
 data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes'
   { -- | The results of the activity task.
-    result :: Core.Maybe Core.Text,
+    result :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
     -- activity task was scheduled. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    scheduledEventId :: Core.Integer,
+    scheduledEventId :: Prelude.Integer,
     -- | The ID of the @ActivityTaskStarted@ event recorded when this activity
     -- task was started. This information can be useful for diagnosing problems
     -- by tracing back the chain of events leading up to this event.
-    startedEventId :: Core.Integer
+    startedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivityTaskCompletedEventAttributes' with all optional fields omitted.
@@ -60,35 +61,35 @@ data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
 -- by tracing back the chain of events leading up to this event.
 newActivityTaskCompletedEventAttributes ::
   -- | 'scheduledEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'startedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   ActivityTaskCompletedEventAttributes
 newActivityTaskCompletedEventAttributes
   pScheduledEventId_
   pStartedEventId_ =
     ActivityTaskCompletedEventAttributes'
       { result =
-          Core.Nothing,
+          Prelude.Nothing,
         scheduledEventId = pScheduledEventId_,
         startedEventId = pStartedEventId_
       }
 
 -- | The results of the activity task.
-activityTaskCompletedEventAttributes_result :: Lens.Lens' ActivityTaskCompletedEventAttributes (Core.Maybe Core.Text)
+activityTaskCompletedEventAttributes_result :: Lens.Lens' ActivityTaskCompletedEventAttributes (Prelude.Maybe Prelude.Text)
 activityTaskCompletedEventAttributes_result = Lens.lens (\ActivityTaskCompletedEventAttributes' {result} -> result) (\s@ActivityTaskCompletedEventAttributes' {} a -> s {result = a} :: ActivityTaskCompletedEventAttributes)
 
 -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-activityTaskCompletedEventAttributes_scheduledEventId :: Lens.Lens' ActivityTaskCompletedEventAttributes Core.Integer
+activityTaskCompletedEventAttributes_scheduledEventId :: Lens.Lens' ActivityTaskCompletedEventAttributes Prelude.Integer
 activityTaskCompletedEventAttributes_scheduledEventId = Lens.lens (\ActivityTaskCompletedEventAttributes' {scheduledEventId} -> scheduledEventId) (\s@ActivityTaskCompletedEventAttributes' {} a -> s {scheduledEventId = a} :: ActivityTaskCompletedEventAttributes)
 
 -- | The ID of the @ActivityTaskStarted@ event recorded when this activity
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
-activityTaskCompletedEventAttributes_startedEventId :: Lens.Lens' ActivityTaskCompletedEventAttributes Core.Integer
+activityTaskCompletedEventAttributes_startedEventId :: Lens.Lens' ActivityTaskCompletedEventAttributes Prelude.Integer
 activityTaskCompletedEventAttributes_startedEventId = Lens.lens (\ActivityTaskCompletedEventAttributes' {startedEventId} -> startedEventId) (\s@ActivityTaskCompletedEventAttributes' {} a -> s {startedEventId = a} :: ActivityTaskCompletedEventAttributes)
 
 instance
@@ -100,15 +101,15 @@ instance
       "ActivityTaskCompletedEventAttributes"
       ( \x ->
           ActivityTaskCompletedEventAttributes'
-            Core.<$> (x Core..:? "result")
-            Core.<*> (x Core..: "scheduledEventId")
-            Core.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Core..:? "result")
+            Prelude.<*> (x Core..: "scheduledEventId")
+            Prelude.<*> (x Core..: "startedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ActivityTaskCompletedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ActivityTaskCompletedEventAttributes

@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.EncryptionEntities where
 import Network.AWS.CloudFront.Types.EncryptionEntity
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Complex data type for field-level encryption profiles that includes all
 -- of the encryption entities.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 data EncryptionEntities = EncryptionEntities'
   { -- | An array of field patterns in a field-level encryption content
     -- type-profile mapping.
-    items :: Core.Maybe [EncryptionEntity],
+    items :: Prelude.Maybe [EncryptionEntity],
     -- | Number of field pattern items in a field-level encryption content
     -- type-profile mapping.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EncryptionEntities' with all optional fields omitted.
@@ -52,41 +53,43 @@ data EncryptionEntities = EncryptionEntities'
 -- type-profile mapping.
 newEncryptionEntities ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   EncryptionEntities
 newEncryptionEntities pQuantity_ =
   EncryptionEntities'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       quantity = pQuantity_
     }
 
 -- | An array of field patterns in a field-level encryption content
 -- type-profile mapping.
-encryptionEntities_items :: Lens.Lens' EncryptionEntities (Core.Maybe [EncryptionEntity])
-encryptionEntities_items = Lens.lens (\EncryptionEntities' {items} -> items) (\s@EncryptionEntities' {} a -> s {items = a} :: EncryptionEntities) Core.. Lens.mapping Lens._Coerce
+encryptionEntities_items :: Lens.Lens' EncryptionEntities (Prelude.Maybe [EncryptionEntity])
+encryptionEntities_items = Lens.lens (\EncryptionEntities' {items} -> items) (\s@EncryptionEntities' {} a -> s {items = a} :: EncryptionEntities) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Number of field pattern items in a field-level encryption content
 -- type-profile mapping.
-encryptionEntities_quantity :: Lens.Lens' EncryptionEntities Core.Int
+encryptionEntities_quantity :: Lens.Lens' EncryptionEntities Prelude.Int
 encryptionEntities_quantity = Lens.lens (\EncryptionEntities' {quantity} -> quantity) (\s@EncryptionEntities' {} a -> s {quantity = a} :: EncryptionEntities)
 
 instance Core.FromXML EncryptionEntities where
   parseXML x =
     EncryptionEntities'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "EncryptionEntity")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "EncryptionEntity")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable EncryptionEntities
+instance Prelude.Hashable EncryptionEntities
 
-instance Core.NFData EncryptionEntities
+instance Prelude.NFData EncryptionEntities
 
 instance Core.ToXML EncryptionEntities where
   toXML EncryptionEntities' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
           Core.@= Core.toXML
-            (Core.toXMLList "EncryptionEntity" Core.<$> items),
+            ( Core.toXMLList "EncryptionEntity"
+                Prelude.<$> items
+            ),
         "Quantity" Core.@= quantity
       ]

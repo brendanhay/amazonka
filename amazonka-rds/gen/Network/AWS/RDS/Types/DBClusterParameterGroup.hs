@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBClusterParameterGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the details of an Amazon RDS DB cluster parameter group.
 --
@@ -30,17 +31,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDBClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
   { -- | The Amazon Resource Name (ARN) for the DB cluster parameter group.
-    dbClusterParameterGroupArn :: Core.Maybe Core.Text,
+    dbClusterParameterGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB parameter group family that this DB cluster parameter
     -- group is compatible with.
-    dbParameterGroupFamily :: Core.Maybe Core.Text,
+    dbParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | Provides the customer-specified description for this DB cluster
     -- parameter group.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster parameter group.
-    dbClusterParameterGroupName :: Core.Maybe Core.Text
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBClusterParameterGroup' with all optional fields omitted.
@@ -64,38 +65,38 @@ newDBClusterParameterGroup ::
 newDBClusterParameterGroup =
   DBClusterParameterGroup'
     { dbClusterParameterGroupArn =
-        Core.Nothing,
-      dbParameterGroupFamily = Core.Nothing,
-      description = Core.Nothing,
-      dbClusterParameterGroupName = Core.Nothing
+        Prelude.Nothing,
+      dbParameterGroupFamily = Prelude.Nothing,
+      description = Prelude.Nothing,
+      dbClusterParameterGroupName = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the DB cluster parameter group.
-dbClusterParameterGroup_dbClusterParameterGroupArn :: Lens.Lens' DBClusterParameterGroup (Core.Maybe Core.Text)
+dbClusterParameterGroup_dbClusterParameterGroupArn :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
 dbClusterParameterGroup_dbClusterParameterGroupArn = Lens.lens (\DBClusterParameterGroup' {dbClusterParameterGroupArn} -> dbClusterParameterGroupArn) (\s@DBClusterParameterGroup' {} a -> s {dbClusterParameterGroupArn = a} :: DBClusterParameterGroup)
 
 -- | The name of the DB parameter group family that this DB cluster parameter
 -- group is compatible with.
-dbClusterParameterGroup_dbParameterGroupFamily :: Lens.Lens' DBClusterParameterGroup (Core.Maybe Core.Text)
+dbClusterParameterGroup_dbParameterGroupFamily :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
 dbClusterParameterGroup_dbParameterGroupFamily = Lens.lens (\DBClusterParameterGroup' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@DBClusterParameterGroup' {} a -> s {dbParameterGroupFamily = a} :: DBClusterParameterGroup)
 
 -- | Provides the customer-specified description for this DB cluster
 -- parameter group.
-dbClusterParameterGroup_description :: Lens.Lens' DBClusterParameterGroup (Core.Maybe Core.Text)
+dbClusterParameterGroup_description :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
 dbClusterParameterGroup_description = Lens.lens (\DBClusterParameterGroup' {description} -> description) (\s@DBClusterParameterGroup' {} a -> s {description = a} :: DBClusterParameterGroup)
 
 -- | The name of the DB cluster parameter group.
-dbClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroup (Core.Maybe Core.Text)
+dbClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
 dbClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\DBClusterParameterGroup' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@DBClusterParameterGroup' {} a -> s {dbClusterParameterGroupName = a} :: DBClusterParameterGroup)
 
 instance Core.FromXML DBClusterParameterGroup where
   parseXML x =
     DBClusterParameterGroup'
-      Core.<$> (x Core..@? "DBClusterParameterGroupArn")
-      Core.<*> (x Core..@? "DBParameterGroupFamily")
-      Core.<*> (x Core..@? "Description")
-      Core.<*> (x Core..@? "DBClusterParameterGroupName")
+      Prelude.<$> (x Core..@? "DBClusterParameterGroupArn")
+      Prelude.<*> (x Core..@? "DBParameterGroupFamily")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "DBClusterParameterGroupName")
 
-instance Core.Hashable DBClusterParameterGroup
+instance Prelude.Hashable DBClusterParameterGroup
 
-instance Core.NFData DBClusterParameterGroup
+instance Prelude.NFData DBClusterParameterGroup

@@ -23,6 +23,7 @@ import Network.AWS.IAM.GetUser
 import Network.AWS.IAM.Lens
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.IAM.GetUser' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newUserExists :: Core.Wait GetUser

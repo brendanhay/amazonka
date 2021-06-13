@@ -58,6 +58,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,20 +66,20 @@ import qualified Network.AWS.Response as Response
 data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig'
   { -- | The name of the real-time log configuration whose associated
     -- distributions you want to list.
-    realtimeLogConfigName :: Core.Maybe Core.Text,
+    realtimeLogConfigName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the real-time log configuration whose
     -- associated distributions you want to list.
-    realtimeLogConfigArn :: Core.Maybe Core.Text,
+    realtimeLogConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of distributions that you want in the response.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of distributions. The response includes distributions in the
     -- list that occur after the marker. To get the next page of the list, set
     -- this field’s value to the value of @NextMarker@ from the current page’s
     -- response.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsByRealtimeLogConfig' with all optional fields omitted.
@@ -106,24 +107,25 @@ newListDistributionsByRealtimeLogConfig ::
 newListDistributionsByRealtimeLogConfig =
   ListDistributionsByRealtimeLogConfig'
     { realtimeLogConfigName =
-        Core.Nothing,
-      realtimeLogConfigArn = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+        Prelude.Nothing,
+      realtimeLogConfigArn =
+        Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The name of the real-time log configuration whose associated
 -- distributions you want to list.
-listDistributionsByRealtimeLogConfig_realtimeLogConfigName :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Core.Maybe Core.Text)
+listDistributionsByRealtimeLogConfig_realtimeLogConfigName :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_realtimeLogConfigName = Lens.lens (\ListDistributionsByRealtimeLogConfig' {realtimeLogConfigName} -> realtimeLogConfigName) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {realtimeLogConfigName = a} :: ListDistributionsByRealtimeLogConfig)
 
 -- | The Amazon Resource Name (ARN) of the real-time log configuration whose
 -- associated distributions you want to list.
-listDistributionsByRealtimeLogConfig_realtimeLogConfigArn :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Core.Maybe Core.Text)
+listDistributionsByRealtimeLogConfig_realtimeLogConfigArn :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_realtimeLogConfigArn = Lens.lens (\ListDistributionsByRealtimeLogConfig' {realtimeLogConfigArn} -> realtimeLogConfigArn) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {realtimeLogConfigArn = a} :: ListDistributionsByRealtimeLogConfig)
 
 -- | The maximum number of distributions that you want in the response.
-listDistributionsByRealtimeLogConfig_maxItems :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Core.Maybe Core.Text)
+listDistributionsByRealtimeLogConfig_maxItems :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_maxItems = Lens.lens (\ListDistributionsByRealtimeLogConfig' {maxItems} -> maxItems) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {maxItems = a} :: ListDistributionsByRealtimeLogConfig)
 
 -- | Use this field when paginating results to indicate where to begin in
@@ -131,7 +133,7 @@ listDistributionsByRealtimeLogConfig_maxItems = Lens.lens (\ListDistributionsByR
 -- list that occur after the marker. To get the next page of the list, set
 -- this field’s value to the value of @NextMarker@ from the current page’s
 -- response.
-listDistributionsByRealtimeLogConfig_marker :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Core.Maybe Core.Text)
+listDistributionsByRealtimeLogConfig_marker :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_marker = Lens.lens (\ListDistributionsByRealtimeLogConfig' {marker} -> marker) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {marker = a} :: ListDistributionsByRealtimeLogConfig)
 
 instance
@@ -146,16 +148,16 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListDistributionsByRealtimeLogConfigResponse'
-            Core.<$> (Core.parseXML x)
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ListDistributionsByRealtimeLogConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListDistributionsByRealtimeLogConfig
 
 instance
@@ -170,28 +172,28 @@ instance
   Core.ToHeaders
     ListDistributionsByRealtimeLogConfig
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ListDistributionsByRealtimeLogConfig
   where
   toPath =
-    Core.const
+    Prelude.const
       "/2020-05-31/distributionsByRealtimeLogConfig/"
 
 instance
   Core.ToQuery
     ListDistributionsByRealtimeLogConfig
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance
   Core.ToXML
     ListDistributionsByRealtimeLogConfig
   where
   toXML ListDistributionsByRealtimeLogConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "RealtimeLogConfigName"
           Core.@= realtimeLogConfigName,
         "RealtimeLogConfigArn" Core.@= realtimeLogConfigArn,
@@ -201,11 +203,11 @@ instance
 
 -- | /See:/ 'newListDistributionsByRealtimeLogConfigResponse' smart constructor.
 data ListDistributionsByRealtimeLogConfigResponse = ListDistributionsByRealtimeLogConfigResponse'
-  { distributionList :: Core.Maybe DistributionList,
+  { distributionList :: Prelude.Maybe DistributionList,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsByRealtimeLogConfigResponse' with all optional fields omitted.
@@ -220,24 +222,24 @@ data ListDistributionsByRealtimeLogConfigResponse = ListDistributionsByRealtimeL
 -- 'httpStatus', 'listDistributionsByRealtimeLogConfigResponse_httpStatus' - The response's http status code.
 newListDistributionsByRealtimeLogConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDistributionsByRealtimeLogConfigResponse
 newListDistributionsByRealtimeLogConfigResponse
   pHttpStatus_ =
     ListDistributionsByRealtimeLogConfigResponse'
       { distributionList =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-listDistributionsByRealtimeLogConfigResponse_distributionList :: Lens.Lens' ListDistributionsByRealtimeLogConfigResponse (Core.Maybe DistributionList)
+listDistributionsByRealtimeLogConfigResponse_distributionList :: Lens.Lens' ListDistributionsByRealtimeLogConfigResponse (Prelude.Maybe DistributionList)
 listDistributionsByRealtimeLogConfigResponse_distributionList = Lens.lens (\ListDistributionsByRealtimeLogConfigResponse' {distributionList} -> distributionList) (\s@ListDistributionsByRealtimeLogConfigResponse' {} a -> s {distributionList = a} :: ListDistributionsByRealtimeLogConfigResponse)
 
 -- | The response's http status code.
-listDistributionsByRealtimeLogConfigResponse_httpStatus :: Lens.Lens' ListDistributionsByRealtimeLogConfigResponse Core.Int
+listDistributionsByRealtimeLogConfigResponse_httpStatus :: Lens.Lens' ListDistributionsByRealtimeLogConfigResponse Prelude.Int
 listDistributionsByRealtimeLogConfigResponse_httpStatus = Lens.lens (\ListDistributionsByRealtimeLogConfigResponse' {httpStatus} -> httpStatus) (\s@ListDistributionsByRealtimeLogConfigResponse' {} a -> s {httpStatus = a} :: ListDistributionsByRealtimeLogConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListDistributionsByRealtimeLogConfigResponse

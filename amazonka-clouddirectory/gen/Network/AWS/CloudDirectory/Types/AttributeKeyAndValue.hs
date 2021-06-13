@@ -23,6 +23,7 @@ import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The combination of an attribute key and an attribute value.
 --
@@ -33,7 +34,7 @@ data AttributeKeyAndValue = AttributeKeyAndValue'
     -- | The value of the attribute.
     value :: TypedAttributeValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttributeKeyAndValue' with all optional fields omitted.
@@ -69,18 +70,18 @@ instance Core.FromJSON AttributeKeyAndValue where
       "AttributeKeyAndValue"
       ( \x ->
           AttributeKeyAndValue'
-            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable AttributeKeyAndValue
+instance Prelude.Hashable AttributeKeyAndValue
 
-instance Core.NFData AttributeKeyAndValue
+instance Prelude.NFData AttributeKeyAndValue
 
 instance Core.ToJSON AttributeKeyAndValue where
   toJSON AttributeKeyAndValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

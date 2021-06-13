@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.ThingConnectivity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The connectivity status of the thing.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data ThingConnectivity = ThingConnectivity'
   { -- | True if the thing is connected to the AWS IoT service; false if it is
     -- not connected.
-    connected :: Core.Maybe Core.Bool,
+    connected :: Prelude.Maybe Prelude.Bool,
     -- | The epoch time (in milliseconds) when the thing last connected or
     -- disconnected. If the thing has been disconnected for more than a few
     -- weeks, the time value might be missing.
-    timestamp :: Core.Maybe Core.Integer
+    timestamp :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ThingConnectivity' with all optional fields omitted.
@@ -54,19 +55,19 @@ newThingConnectivity ::
   ThingConnectivity
 newThingConnectivity =
   ThingConnectivity'
-    { connected = Core.Nothing,
-      timestamp = Core.Nothing
+    { connected = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
 
 -- | True if the thing is connected to the AWS IoT service; false if it is
 -- not connected.
-thingConnectivity_connected :: Lens.Lens' ThingConnectivity (Core.Maybe Core.Bool)
+thingConnectivity_connected :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Bool)
 thingConnectivity_connected = Lens.lens (\ThingConnectivity' {connected} -> connected) (\s@ThingConnectivity' {} a -> s {connected = a} :: ThingConnectivity)
 
 -- | The epoch time (in milliseconds) when the thing last connected or
 -- disconnected. If the thing has been disconnected for more than a few
 -- weeks, the time value might be missing.
-thingConnectivity_timestamp :: Lens.Lens' ThingConnectivity (Core.Maybe Core.Integer)
+thingConnectivity_timestamp :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Integer)
 thingConnectivity_timestamp = Lens.lens (\ThingConnectivity' {timestamp} -> timestamp) (\s@ThingConnectivity' {} a -> s {timestamp = a} :: ThingConnectivity)
 
 instance Core.FromJSON ThingConnectivity where
@@ -75,10 +76,10 @@ instance Core.FromJSON ThingConnectivity where
       "ThingConnectivity"
       ( \x ->
           ThingConnectivity'
-            Core.<$> (x Core..:? "connected")
-            Core.<*> (x Core..:? "timestamp")
+            Prelude.<$> (x Core..:? "connected")
+            Prelude.<*> (x Core..:? "timestamp")
       )
 
-instance Core.Hashable ThingConnectivity
+instance Prelude.Hashable ThingConnectivity
 
-instance Core.NFData ThingConnectivity
+instance Prelude.NFData ThingConnectivity

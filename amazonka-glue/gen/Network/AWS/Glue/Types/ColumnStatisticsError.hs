@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ColumnStatistics
 import Network.AWS.Glue.Types.ErrorDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Encapsulates a @ColumnStatistics@ object that failed and the reason for
 -- failure.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newColumnStatisticsError' smart constructor.
 data ColumnStatisticsError = ColumnStatisticsError'
   { -- | The @ColumnStatistics@ of the column.
-    columnStatistics :: Core.Maybe ColumnStatistics,
+    columnStatistics :: Prelude.Maybe ColumnStatistics,
     -- | An error message with the reason for the failure of an operation.
-    error :: Core.Maybe ErrorDetail
+    error :: Prelude.Maybe ErrorDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ColumnStatisticsError' with all optional fields omitted.
@@ -52,16 +53,16 @@ newColumnStatisticsError ::
 newColumnStatisticsError =
   ColumnStatisticsError'
     { columnStatistics =
-        Core.Nothing,
-      error = Core.Nothing
+        Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | The @ColumnStatistics@ of the column.
-columnStatisticsError_columnStatistics :: Lens.Lens' ColumnStatisticsError (Core.Maybe ColumnStatistics)
+columnStatisticsError_columnStatistics :: Lens.Lens' ColumnStatisticsError (Prelude.Maybe ColumnStatistics)
 columnStatisticsError_columnStatistics = Lens.lens (\ColumnStatisticsError' {columnStatistics} -> columnStatistics) (\s@ColumnStatisticsError' {} a -> s {columnStatistics = a} :: ColumnStatisticsError)
 
 -- | An error message with the reason for the failure of an operation.
-columnStatisticsError_error :: Lens.Lens' ColumnStatisticsError (Core.Maybe ErrorDetail)
+columnStatisticsError_error :: Lens.Lens' ColumnStatisticsError (Prelude.Maybe ErrorDetail)
 columnStatisticsError_error = Lens.lens (\ColumnStatisticsError' {error} -> error) (\s@ColumnStatisticsError' {} a -> s {error = a} :: ColumnStatisticsError)
 
 instance Core.FromJSON ColumnStatisticsError where
@@ -70,10 +71,10 @@ instance Core.FromJSON ColumnStatisticsError where
       "ColumnStatisticsError"
       ( \x ->
           ColumnStatisticsError'
-            Core.<$> (x Core..:? "ColumnStatistics")
-            Core.<*> (x Core..:? "Error")
+            Prelude.<$> (x Core..:? "ColumnStatistics")
+            Prelude.<*> (x Core..:? "Error")
       )
 
-instance Core.Hashable ColumnStatisticsError
+instance Prelude.Hashable ColumnStatisticsError
 
-instance Core.NFData ColumnStatisticsError
+instance Prelude.NFData ColumnStatisticsError

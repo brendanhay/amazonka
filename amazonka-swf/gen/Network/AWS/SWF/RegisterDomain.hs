@@ -61,6 +61,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -71,9 +72,9 @@ data RegisterDomain = RegisterDomain'
     --
     -- Tags may only contain unicode letters, digits, whitespace, or these
     -- symbols: @_ . : \/ = + - \@@.
-    tags :: Core.Maybe [ResourceTag],
+    tags :: Prelude.Maybe [ResourceTag],
     -- | A text description of the domain.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Name of the domain to register. The name must be unique in the region
     -- that the domain is registered in.
     --
@@ -81,7 +82,7 @@ data RegisterDomain = RegisterDomain'
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- /be/ the literal string @arn@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The duration (in days) that records and histories of workflow executions
     -- on the domain should be kept by the service. After the retention period,
     -- the workflow execution isn\'t available in the results of visibility
@@ -95,9 +96,9 @@ data RegisterDomain = RegisterDomain'
     -- information about Amazon SWF service limits, see:
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits>
     -- in the /Amazon SWF Developer Guide/.
-    workflowExecutionRetentionPeriodInDays :: Core.Text
+    workflowExecutionRetentionPeriodInDays :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterDomain' with all optional fields omitted.
@@ -137,16 +138,16 @@ data RegisterDomain = RegisterDomain'
 -- in the /Amazon SWF Developer Guide/.
 newRegisterDomain ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'workflowExecutionRetentionPeriodInDays'
-  Core.Text ->
+  Prelude.Text ->
   RegisterDomain
 newRegisterDomain
   pName_
   pWorkflowExecutionRetentionPeriodInDays_ =
     RegisterDomain'
-      { tags = Core.Nothing,
-        description = Core.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         name = pName_,
         workflowExecutionRetentionPeriodInDays =
           pWorkflowExecutionRetentionPeriodInDays_
@@ -156,11 +157,11 @@ newRegisterDomain
 --
 -- Tags may only contain unicode letters, digits, whitespace, or these
 -- symbols: @_ . : \/ = + - \@@.
-registerDomain_tags :: Lens.Lens' RegisterDomain (Core.Maybe [ResourceTag])
-registerDomain_tags = Lens.lens (\RegisterDomain' {tags} -> tags) (\s@RegisterDomain' {} a -> s {tags = a} :: RegisterDomain) Core.. Lens.mapping Lens._Coerce
+registerDomain_tags :: Lens.Lens' RegisterDomain (Prelude.Maybe [ResourceTag])
+registerDomain_tags = Lens.lens (\RegisterDomain' {tags} -> tags) (\s@RegisterDomain' {} a -> s {tags = a} :: RegisterDomain) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A text description of the domain.
-registerDomain_description :: Lens.Lens' RegisterDomain (Core.Maybe Core.Text)
+registerDomain_description :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Text)
 registerDomain_description = Lens.lens (\RegisterDomain' {description} -> description) (\s@RegisterDomain' {} a -> s {description = a} :: RegisterDomain)
 
 -- | Name of the domain to register. The name must be unique in the region
@@ -170,7 +171,7 @@ registerDomain_description = Lens.lens (\RegisterDomain' {description} -> descri
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- /be/ the literal string @arn@.
-registerDomain_name :: Lens.Lens' RegisterDomain Core.Text
+registerDomain_name :: Lens.Lens' RegisterDomain Prelude.Text
 registerDomain_name = Lens.lens (\RegisterDomain' {name} -> name) (\s@RegisterDomain' {} a -> s {name = a} :: RegisterDomain)
 
 -- | The duration (in days) that records and histories of workflow executions
@@ -186,7 +187,7 @@ registerDomain_name = Lens.lens (\RegisterDomain' {name} -> name) (\s@RegisterDo
 -- information about Amazon SWF service limits, see:
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits>
 -- in the /Amazon SWF Developer Guide/.
-registerDomain_workflowExecutionRetentionPeriodInDays :: Lens.Lens' RegisterDomain Core.Text
+registerDomain_workflowExecutionRetentionPeriodInDays :: Lens.Lens' RegisterDomain Prelude.Text
 registerDomain_workflowExecutionRetentionPeriodInDays = Lens.lens (\RegisterDomain' {workflowExecutionRetentionPeriodInDays} -> workflowExecutionRetentionPeriodInDays) (\s@RegisterDomain' {} a -> s {workflowExecutionRetentionPeriodInDays = a} :: RegisterDomain)
 
 instance Core.AWSRequest RegisterDomain where
@@ -197,31 +198,33 @@ instance Core.AWSRequest RegisterDomain where
   response =
     Response.receiveNull RegisterDomainResponse'
 
-instance Core.Hashable RegisterDomain
+instance Prelude.Hashable RegisterDomain
 
-instance Core.NFData RegisterDomain
+instance Prelude.NFData RegisterDomain
 
 instance Core.ToHeaders RegisterDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.RegisterDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RegisterDomain where
   toJSON RegisterDomain' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            ("description" Core..=) Core.<$> description,
-            Core.Just ("name" Core..= name),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just
               ( "workflowExecutionRetentionPeriodInDays"
                   Core..= workflowExecutionRetentionPeriodInDays
               )
@@ -229,16 +232,16 @@ instance Core.ToJSON RegisterDomain where
       )
 
 instance Core.ToPath RegisterDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterDomainResponse' with all optional fields omitted.
@@ -248,4 +251,4 @@ newRegisterDomainResponse ::
   RegisterDomainResponse
 newRegisterDomainResponse = RegisterDomainResponse'
 
-instance Core.NFData RegisterDomainResponse
+instance Prelude.NFData RegisterDomainResponse

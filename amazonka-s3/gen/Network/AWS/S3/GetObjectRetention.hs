@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -57,11 +58,11 @@ data GetObjectRetention = GetObjectRetention'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The version ID for the object whose retention settings you want to
     -- retrieve.
-    versionId :: Core.Maybe ObjectVersionId,
-    requestPayer :: Core.Maybe RequestPayer,
+    versionId :: Prelude.Maybe ObjectVersionId,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the object whose retention settings you want
     -- to retrieve.
     --
@@ -78,7 +79,7 @@ data GetObjectRetention = GetObjectRetention'
     -- retrieve.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectRetention' with all optional fields omitted.
@@ -120,9 +121,9 @@ newGetObjectRetention ::
 newGetObjectRetention pBucket_ pKey_ =
   GetObjectRetention'
     { expectedBucketOwner =
-        Core.Nothing,
-      versionId = Core.Nothing,
-      requestPayer = Core.Nothing,
+        Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -130,16 +131,16 @@ newGetObjectRetention pBucket_ pKey_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getObjectRetention_expectedBucketOwner :: Lens.Lens' GetObjectRetention (Core.Maybe Core.Text)
+getObjectRetention_expectedBucketOwner :: Lens.Lens' GetObjectRetention (Prelude.Maybe Prelude.Text)
 getObjectRetention_expectedBucketOwner = Lens.lens (\GetObjectRetention' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectRetention' {} a -> s {expectedBucketOwner = a} :: GetObjectRetention)
 
 -- | The version ID for the object whose retention settings you want to
 -- retrieve.
-getObjectRetention_versionId :: Lens.Lens' GetObjectRetention (Core.Maybe ObjectVersionId)
+getObjectRetention_versionId :: Lens.Lens' GetObjectRetention (Prelude.Maybe ObjectVersionId)
 getObjectRetention_versionId = Lens.lens (\GetObjectRetention' {versionId} -> versionId) (\s@GetObjectRetention' {} a -> s {versionId = a} :: GetObjectRetention)
 
 -- | Undocumented member.
-getObjectRetention_requestPayer :: Lens.Lens' GetObjectRetention (Core.Maybe RequestPayer)
+getObjectRetention_requestPayer :: Lens.Lens' GetObjectRetention (Prelude.Maybe RequestPayer)
 getObjectRetention_requestPayer = Lens.lens (\GetObjectRetention' {requestPayer} -> requestPayer) (\s@GetObjectRetention' {} a -> s {requestPayer = a} :: GetObjectRetention)
 
 -- | The bucket name containing the object whose retention settings you want
@@ -170,17 +171,17 @@ instance Core.AWSRequest GetObjectRetention where
     Response.receiveXML
       ( \s h x ->
           GetObjectRetentionResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetObjectRetention
+instance Prelude.Hashable GetObjectRetention
 
-instance Core.NFData GetObjectRetention
+instance Prelude.NFData GetObjectRetention
 
 instance Core.ToHeaders GetObjectRetention where
   toHeaders GetObjectRetention' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer
@@ -188,22 +189,22 @@ instance Core.ToHeaders GetObjectRetention where
 
 instance Core.ToPath GetObjectRetention where
   toPath GetObjectRetention' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS bucket, "/", Core.toBS key]
 
 instance Core.ToQuery GetObjectRetention where
   toQuery GetObjectRetention' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["versionId" Core.=: versionId, "retention"]
 
 -- | /See:/ 'newGetObjectRetentionResponse' smart constructor.
 data GetObjectRetentionResponse = GetObjectRetentionResponse'
   { -- | The container element for an object\'s retention settings.
-    retention :: Core.Maybe ObjectLockRetention,
+    retention :: Prelude.Maybe ObjectLockRetention,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectRetentionResponse' with all optional fields omitted.
@@ -218,21 +219,21 @@ data GetObjectRetentionResponse = GetObjectRetentionResponse'
 -- 'httpStatus', 'getObjectRetentionResponse_httpStatus' - The response's http status code.
 newGetObjectRetentionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetObjectRetentionResponse
 newGetObjectRetentionResponse pHttpStatus_ =
   GetObjectRetentionResponse'
     { retention =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The container element for an object\'s retention settings.
-getObjectRetentionResponse_retention :: Lens.Lens' GetObjectRetentionResponse (Core.Maybe ObjectLockRetention)
+getObjectRetentionResponse_retention :: Lens.Lens' GetObjectRetentionResponse (Prelude.Maybe ObjectLockRetention)
 getObjectRetentionResponse_retention = Lens.lens (\GetObjectRetentionResponse' {retention} -> retention) (\s@GetObjectRetentionResponse' {} a -> s {retention = a} :: GetObjectRetentionResponse)
 
 -- | The response's http status code.
-getObjectRetentionResponse_httpStatus :: Lens.Lens' GetObjectRetentionResponse Core.Int
+getObjectRetentionResponse_httpStatus :: Lens.Lens' GetObjectRetentionResponse Prelude.Int
 getObjectRetentionResponse_httpStatus = Lens.lens (\GetObjectRetentionResponse' {httpStatus} -> httpStatus) (\s@GetObjectRetentionResponse' {} a -> s {httpStatus = a} :: GetObjectRetentionResponse)
 
-instance Core.NFData GetObjectRetentionResponse
+instance Prelude.NFData GetObjectRetentionResponse

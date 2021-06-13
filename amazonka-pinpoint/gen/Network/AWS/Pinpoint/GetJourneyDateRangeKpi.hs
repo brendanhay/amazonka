@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,27 +58,27 @@ data GetJourneyDateRangeKpi = GetJourneyDateRangeKpi'
   { -- | The string that specifies which page of results to return in a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Core.Maybe Core.Text,
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The first date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
     -- should also be fewer than 90 days from the current day.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The last date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier for the journey.
-    journeyId :: Core.Text,
+    journeyId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     -- | The name of the metric, also referred to as a /key performance indicator
     -- (KPI)/, to retrieve data for. This value describes the associated metric
     -- and consists of two or more terms, which are comprised of lowercase
@@ -85,9 +86,9 @@ data GetJourneyDateRangeKpi = GetJourneyDateRangeKpi'
     -- email-open-rate and successful-delivery-rate. For a list of valid
     -- values, see the
     -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-    kpiName :: Core.Text
+    kpiName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJourneyDateRangeKpi' with all optional fields omitted.
@@ -130,21 +131,22 @@ data GetJourneyDateRangeKpi = GetJourneyDateRangeKpi'
 -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
 newGetJourneyDateRangeKpi ::
   -- | 'journeyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'kpiName'
-  Core.Text ->
+  Prelude.Text ->
   GetJourneyDateRangeKpi
 newGetJourneyDateRangeKpi
   pJourneyId_
   pApplicationId_
   pKpiName_ =
     GetJourneyDateRangeKpi'
-      { nextToken = Core.Nothing,
-        pageSize = Core.Nothing,
-        startTime = Core.Nothing,
-        endTime = Core.Nothing,
+      { nextToken =
+          Prelude.Nothing,
+        pageSize = Prelude.Nothing,
+        startTime = Prelude.Nothing,
+        endTime = Prelude.Nothing,
         journeyId = pJourneyId_,
         applicationId = pApplicationId_,
         kpiName = pKpiName_
@@ -153,13 +155,13 @@ newGetJourneyDateRangeKpi
 -- | The string that specifies which page of results to return in a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getJourneyDateRangeKpi_nextToken :: Lens.Lens' GetJourneyDateRangeKpi (Core.Maybe Core.Text)
+getJourneyDateRangeKpi_nextToken :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.Text)
 getJourneyDateRangeKpi_nextToken = Lens.lens (\GetJourneyDateRangeKpi' {nextToken} -> nextToken) (\s@GetJourneyDateRangeKpi' {} a -> s {nextToken = a} :: GetJourneyDateRangeKpi)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getJourneyDateRangeKpi_pageSize :: Lens.Lens' GetJourneyDateRangeKpi (Core.Maybe Core.Text)
+getJourneyDateRangeKpi_pageSize :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.Text)
 getJourneyDateRangeKpi_pageSize = Lens.lens (\GetJourneyDateRangeKpi' {pageSize} -> pageSize) (\s@GetJourneyDateRangeKpi' {} a -> s {pageSize = a} :: GetJourneyDateRangeKpi)
 
 -- | The first date and time to retrieve data for, as part of an inclusive
@@ -167,23 +169,23 @@ getJourneyDateRangeKpi_pageSize = Lens.lens (\GetJourneyDateRangeKpi' {pageSize}
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
 -- should also be fewer than 90 days from the current day.
-getJourneyDateRangeKpi_startTime :: Lens.Lens' GetJourneyDateRangeKpi (Core.Maybe Core.UTCTime)
-getJourneyDateRangeKpi_startTime = Lens.lens (\GetJourneyDateRangeKpi' {startTime} -> startTime) (\s@GetJourneyDateRangeKpi' {} a -> s {startTime = a} :: GetJourneyDateRangeKpi) Core.. Lens.mapping Core._Time
+getJourneyDateRangeKpi_startTime :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
+getJourneyDateRangeKpi_startTime = Lens.lens (\GetJourneyDateRangeKpi' {startTime} -> startTime) (\s@GetJourneyDateRangeKpi' {} a -> s {startTime = a} :: GetJourneyDateRangeKpi) Prelude.. Lens.mapping Core._Time
 
 -- | The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-getJourneyDateRangeKpi_endTime :: Lens.Lens' GetJourneyDateRangeKpi (Core.Maybe Core.UTCTime)
-getJourneyDateRangeKpi_endTime = Lens.lens (\GetJourneyDateRangeKpi' {endTime} -> endTime) (\s@GetJourneyDateRangeKpi' {} a -> s {endTime = a} :: GetJourneyDateRangeKpi) Core.. Lens.mapping Core._Time
+getJourneyDateRangeKpi_endTime :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
+getJourneyDateRangeKpi_endTime = Lens.lens (\GetJourneyDateRangeKpi' {endTime} -> endTime) (\s@GetJourneyDateRangeKpi' {} a -> s {endTime = a} :: GetJourneyDateRangeKpi) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier for the journey.
-getJourneyDateRangeKpi_journeyId :: Lens.Lens' GetJourneyDateRangeKpi Core.Text
+getJourneyDateRangeKpi_journeyId :: Lens.Lens' GetJourneyDateRangeKpi Prelude.Text
 getJourneyDateRangeKpi_journeyId = Lens.lens (\GetJourneyDateRangeKpi' {journeyId} -> journeyId) (\s@GetJourneyDateRangeKpi' {} a -> s {journeyId = a} :: GetJourneyDateRangeKpi)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getJourneyDateRangeKpi_applicationId :: Lens.Lens' GetJourneyDateRangeKpi Core.Text
+getJourneyDateRangeKpi_applicationId :: Lens.Lens' GetJourneyDateRangeKpi Prelude.Text
 getJourneyDateRangeKpi_applicationId = Lens.lens (\GetJourneyDateRangeKpi' {applicationId} -> applicationId) (\s@GetJourneyDateRangeKpi' {} a -> s {applicationId = a} :: GetJourneyDateRangeKpi)
 
 -- | The name of the metric, also referred to as a /key performance indicator
@@ -193,7 +195,7 @@ getJourneyDateRangeKpi_applicationId = Lens.lens (\GetJourneyDateRangeKpi' {appl
 -- email-open-rate and successful-delivery-rate. For a list of valid
 -- values, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-getJourneyDateRangeKpi_kpiName :: Lens.Lens' GetJourneyDateRangeKpi Core.Text
+getJourneyDateRangeKpi_kpiName :: Lens.Lens' GetJourneyDateRangeKpi Prelude.Text
 getJourneyDateRangeKpi_kpiName = Lens.lens (\GetJourneyDateRangeKpi' {kpiName} -> kpiName) (\s@GetJourneyDateRangeKpi' {} a -> s {kpiName = a} :: GetJourneyDateRangeKpi)
 
 instance Core.AWSRequest GetJourneyDateRangeKpi where
@@ -205,26 +207,28 @@ instance Core.AWSRequest GetJourneyDateRangeKpi where
     Response.receiveJSON
       ( \s h x ->
           GetJourneyDateRangeKpiResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetJourneyDateRangeKpi
+instance Prelude.Hashable GetJourneyDateRangeKpi
 
-instance Core.NFData GetJourneyDateRangeKpi
+instance Prelude.NFData GetJourneyDateRangeKpi
 
 instance Core.ToHeaders GetJourneyDateRangeKpi where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetJourneyDateRangeKpi where
   toPath GetJourneyDateRangeKpi' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/journeys/",
@@ -235,7 +239,7 @@ instance Core.ToPath GetJourneyDateRangeKpi where
 
 instance Core.ToQuery GetJourneyDateRangeKpi where
   toQuery GetJourneyDateRangeKpi' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "next-token" Core.=: nextToken,
         "page-size" Core.=: pageSize,
         "start-time" Core.=: startTime,
@@ -245,10 +249,10 @@ instance Core.ToQuery GetJourneyDateRangeKpi where
 -- | /See:/ 'newGetJourneyDateRangeKpiResponse' smart constructor.
 data GetJourneyDateRangeKpiResponse = GetJourneyDateRangeKpiResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     journeyDateRangeKpiResponse :: JourneyDateRangeKpiResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJourneyDateRangeKpiResponse' with all optional fields omitted.
@@ -263,7 +267,7 @@ data GetJourneyDateRangeKpiResponse = GetJourneyDateRangeKpiResponse'
 -- 'journeyDateRangeKpiResponse', 'getJourneyDateRangeKpiResponse_journeyDateRangeKpiResponse' - Undocumented member.
 newGetJourneyDateRangeKpiResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'journeyDateRangeKpiResponse'
   JourneyDateRangeKpiResponse ->
   GetJourneyDateRangeKpiResponse
@@ -278,11 +282,13 @@ newGetJourneyDateRangeKpiResponse
       }
 
 -- | The response's http status code.
-getJourneyDateRangeKpiResponse_httpStatus :: Lens.Lens' GetJourneyDateRangeKpiResponse Core.Int
+getJourneyDateRangeKpiResponse_httpStatus :: Lens.Lens' GetJourneyDateRangeKpiResponse Prelude.Int
 getJourneyDateRangeKpiResponse_httpStatus = Lens.lens (\GetJourneyDateRangeKpiResponse' {httpStatus} -> httpStatus) (\s@GetJourneyDateRangeKpiResponse' {} a -> s {httpStatus = a} :: GetJourneyDateRangeKpiResponse)
 
 -- | Undocumented member.
 getJourneyDateRangeKpiResponse_journeyDateRangeKpiResponse :: Lens.Lens' GetJourneyDateRangeKpiResponse JourneyDateRangeKpiResponse
 getJourneyDateRangeKpiResponse_journeyDateRangeKpiResponse = Lens.lens (\GetJourneyDateRangeKpiResponse' {journeyDateRangeKpiResponse} -> journeyDateRangeKpiResponse) (\s@GetJourneyDateRangeKpiResponse' {} a -> s {journeyDateRangeKpiResponse = a} :: GetJourneyDateRangeKpiResponse)
 
-instance Core.NFData GetJourneyDateRangeKpiResponse
+instance
+  Prelude.NFData
+    GetJourneyDateRangeKpiResponse

@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.KeyGroupSummary where
 import Network.AWS.CloudFront.Types.KeyGroup
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a key group.
 --
@@ -30,7 +31,7 @@ data KeyGroupSummary = KeyGroupSummary'
   { -- | A key group.
     keyGroup :: KeyGroup
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeyGroupSummary' with all optional fields omitted.
@@ -54,8 +55,8 @@ keyGroupSummary_keyGroup = Lens.lens (\KeyGroupSummary' {keyGroup} -> keyGroup) 
 
 instance Core.FromXML KeyGroupSummary where
   parseXML x =
-    KeyGroupSummary' Core.<$> (x Core..@ "KeyGroup")
+    KeyGroupSummary' Prelude.<$> (x Core..@ "KeyGroup")
 
-instance Core.Hashable KeyGroupSummary
+instance Prelude.Hashable KeyGroupSummary
 
-instance Core.NFData KeyGroupSummary
+instance Prelude.NFData KeyGroupSummary

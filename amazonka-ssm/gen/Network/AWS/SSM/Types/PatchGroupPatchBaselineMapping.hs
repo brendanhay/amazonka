@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.PatchGroupPatchBaselineMapping where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.PatchBaselineIdentity
 
 -- | The mapping between a patch group and the patch baseline the patch group
@@ -29,11 +30,11 @@ import Network.AWS.SSM.Types.PatchBaselineIdentity
 -- /See:/ 'newPatchGroupPatchBaselineMapping' smart constructor.
 data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
   { -- | The patch baseline the patch group is registered with.
-    baselineIdentity :: Core.Maybe PatchBaselineIdentity,
+    baselineIdentity :: Prelude.Maybe PatchBaselineIdentity,
     -- | The name of the patch group registered with the patch baseline.
-    patchGroup :: Core.Maybe Core.Text
+    patchGroup :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PatchGroupPatchBaselineMapping' with all optional fields omitted.
@@ -51,16 +52,16 @@ newPatchGroupPatchBaselineMapping ::
 newPatchGroupPatchBaselineMapping =
   PatchGroupPatchBaselineMapping'
     { baselineIdentity =
-        Core.Nothing,
-      patchGroup = Core.Nothing
+        Prelude.Nothing,
+      patchGroup = Prelude.Nothing
     }
 
 -- | The patch baseline the patch group is registered with.
-patchGroupPatchBaselineMapping_baselineIdentity :: Lens.Lens' PatchGroupPatchBaselineMapping (Core.Maybe PatchBaselineIdentity)
+patchGroupPatchBaselineMapping_baselineIdentity :: Lens.Lens' PatchGroupPatchBaselineMapping (Prelude.Maybe PatchBaselineIdentity)
 patchGroupPatchBaselineMapping_baselineIdentity = Lens.lens (\PatchGroupPatchBaselineMapping' {baselineIdentity} -> baselineIdentity) (\s@PatchGroupPatchBaselineMapping' {} a -> s {baselineIdentity = a} :: PatchGroupPatchBaselineMapping)
 
 -- | The name of the patch group registered with the patch baseline.
-patchGroupPatchBaselineMapping_patchGroup :: Lens.Lens' PatchGroupPatchBaselineMapping (Core.Maybe Core.Text)
+patchGroupPatchBaselineMapping_patchGroup :: Lens.Lens' PatchGroupPatchBaselineMapping (Prelude.Maybe Prelude.Text)
 patchGroupPatchBaselineMapping_patchGroup = Lens.lens (\PatchGroupPatchBaselineMapping' {patchGroup} -> patchGroup) (\s@PatchGroupPatchBaselineMapping' {} a -> s {patchGroup = a} :: PatchGroupPatchBaselineMapping)
 
 instance Core.FromJSON PatchGroupPatchBaselineMapping where
@@ -69,10 +70,14 @@ instance Core.FromJSON PatchGroupPatchBaselineMapping where
       "PatchGroupPatchBaselineMapping"
       ( \x ->
           PatchGroupPatchBaselineMapping'
-            Core.<$> (x Core..:? "BaselineIdentity")
-            Core.<*> (x Core..:? "PatchGroup")
+            Prelude.<$> (x Core..:? "BaselineIdentity")
+            Prelude.<*> (x Core..:? "PatchGroup")
       )
 
-instance Core.Hashable PatchGroupPatchBaselineMapping
+instance
+  Prelude.Hashable
+    PatchGroupPatchBaselineMapping
 
-instance Core.NFData PatchGroupPatchBaselineMapping
+instance
+  Prelude.NFData
+    PatchGroupPatchBaselineMapping

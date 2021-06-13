@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TrialComponentSourceDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingJob
 import Network.AWS.SageMaker.Types.TrainingJob
 import Network.AWS.SageMaker.Types.TransformJob
@@ -32,17 +33,17 @@ import Network.AWS.SageMaker.Types.TransformJob
 data TrialComponentSourceDetail = TrialComponentSourceDetail'
   { -- | Information about a processing job that\'s the source of a trial
     -- component.
-    processingJob :: Core.Maybe ProcessingJob,
+    processingJob :: Prelude.Maybe ProcessingJob,
     -- | Information about a training job that\'s the source of a trial
     -- component.
-    trainingJob :: Core.Maybe TrainingJob,
+    trainingJob :: Prelude.Maybe TrainingJob,
     -- | Information about a transform job that\'s the source of a trial
     -- component.
-    transformJob :: Core.Maybe TransformJob,
+    transformJob :: Prelude.Maybe TransformJob,
     -- | The Amazon Resource Name (ARN) of the source.
-    sourceArn :: Core.Maybe Core.Text
+    sourceArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrialComponentSourceDetail' with all optional fields omitted.
@@ -67,29 +68,29 @@ newTrialComponentSourceDetail ::
 newTrialComponentSourceDetail =
   TrialComponentSourceDetail'
     { processingJob =
-        Core.Nothing,
-      trainingJob = Core.Nothing,
-      transformJob = Core.Nothing,
-      sourceArn = Core.Nothing
+        Prelude.Nothing,
+      trainingJob = Prelude.Nothing,
+      transformJob = Prelude.Nothing,
+      sourceArn = Prelude.Nothing
     }
 
 -- | Information about a processing job that\'s the source of a trial
 -- component.
-trialComponentSourceDetail_processingJob :: Lens.Lens' TrialComponentSourceDetail (Core.Maybe ProcessingJob)
+trialComponentSourceDetail_processingJob :: Lens.Lens' TrialComponentSourceDetail (Prelude.Maybe ProcessingJob)
 trialComponentSourceDetail_processingJob = Lens.lens (\TrialComponentSourceDetail' {processingJob} -> processingJob) (\s@TrialComponentSourceDetail' {} a -> s {processingJob = a} :: TrialComponentSourceDetail)
 
 -- | Information about a training job that\'s the source of a trial
 -- component.
-trialComponentSourceDetail_trainingJob :: Lens.Lens' TrialComponentSourceDetail (Core.Maybe TrainingJob)
+trialComponentSourceDetail_trainingJob :: Lens.Lens' TrialComponentSourceDetail (Prelude.Maybe TrainingJob)
 trialComponentSourceDetail_trainingJob = Lens.lens (\TrialComponentSourceDetail' {trainingJob} -> trainingJob) (\s@TrialComponentSourceDetail' {} a -> s {trainingJob = a} :: TrialComponentSourceDetail)
 
 -- | Information about a transform job that\'s the source of a trial
 -- component.
-trialComponentSourceDetail_transformJob :: Lens.Lens' TrialComponentSourceDetail (Core.Maybe TransformJob)
+trialComponentSourceDetail_transformJob :: Lens.Lens' TrialComponentSourceDetail (Prelude.Maybe TransformJob)
 trialComponentSourceDetail_transformJob = Lens.lens (\TrialComponentSourceDetail' {transformJob} -> transformJob) (\s@TrialComponentSourceDetail' {} a -> s {transformJob = a} :: TrialComponentSourceDetail)
 
 -- | The Amazon Resource Name (ARN) of the source.
-trialComponentSourceDetail_sourceArn :: Lens.Lens' TrialComponentSourceDetail (Core.Maybe Core.Text)
+trialComponentSourceDetail_sourceArn :: Lens.Lens' TrialComponentSourceDetail (Prelude.Maybe Prelude.Text)
 trialComponentSourceDetail_sourceArn = Lens.lens (\TrialComponentSourceDetail' {sourceArn} -> sourceArn) (\s@TrialComponentSourceDetail' {} a -> s {sourceArn = a} :: TrialComponentSourceDetail)
 
 instance Core.FromJSON TrialComponentSourceDetail where
@@ -98,12 +99,12 @@ instance Core.FromJSON TrialComponentSourceDetail where
       "TrialComponentSourceDetail"
       ( \x ->
           TrialComponentSourceDetail'
-            Core.<$> (x Core..:? "ProcessingJob")
-            Core.<*> (x Core..:? "TrainingJob")
-            Core.<*> (x Core..:? "TransformJob")
-            Core.<*> (x Core..:? "SourceArn")
+            Prelude.<$> (x Core..:? "ProcessingJob")
+            Prelude.<*> (x Core..:? "TrainingJob")
+            Prelude.<*> (x Core..:? "TransformJob")
+            Prelude.<*> (x Core..:? "SourceArn")
       )
 
-instance Core.Hashable TrialComponentSourceDetail
+instance Prelude.Hashable TrialComponentSourceDetail
 
-instance Core.NFData TrialComponentSourceDetail
+instance Prelude.NFData TrialComponentSourceDetail

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetSpotCapacityRebalance
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The strategies for managing your Spot Instances that are at an elevated
 -- risk of being interrupted.
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 data FleetSpotMaintenanceStrategies = FleetSpotMaintenanceStrategies'
   { -- | The strategy to use when Amazon EC2 emits a signal that your Spot
     -- Instance is at an elevated risk of being interrupted.
-    capacityRebalance :: Core.Maybe FleetSpotCapacityRebalance
+    capacityRebalance :: Prelude.Maybe FleetSpotCapacityRebalance
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetSpotMaintenanceStrategies' with all optional fields omitted.
@@ -50,19 +51,23 @@ newFleetSpotMaintenanceStrategies ::
 newFleetSpotMaintenanceStrategies =
   FleetSpotMaintenanceStrategies'
     { capacityRebalance =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot
 -- Instance is at an elevated risk of being interrupted.
-fleetSpotMaintenanceStrategies_capacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategies (Core.Maybe FleetSpotCapacityRebalance)
+fleetSpotMaintenanceStrategies_capacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategies (Prelude.Maybe FleetSpotCapacityRebalance)
 fleetSpotMaintenanceStrategies_capacityRebalance = Lens.lens (\FleetSpotMaintenanceStrategies' {capacityRebalance} -> capacityRebalance) (\s@FleetSpotMaintenanceStrategies' {} a -> s {capacityRebalance = a} :: FleetSpotMaintenanceStrategies)
 
 instance Core.FromXML FleetSpotMaintenanceStrategies where
   parseXML x =
     FleetSpotMaintenanceStrategies'
-      Core.<$> (x Core..@? "capacityRebalance")
+      Prelude.<$> (x Core..@? "capacityRebalance")
 
-instance Core.Hashable FleetSpotMaintenanceStrategies
+instance
+  Prelude.Hashable
+    FleetSpotMaintenanceStrategies
 
-instance Core.NFData FleetSpotMaintenanceStrategies
+instance
+  Prelude.NFData
+    FleetSpotMaintenanceStrategies

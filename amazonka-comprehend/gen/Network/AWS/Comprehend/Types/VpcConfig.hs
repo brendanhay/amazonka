@@ -21,6 +21,7 @@ module Network.AWS.Comprehend.Types.VpcConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for the job. For more
@@ -36,16 +37,16 @@ data VpcConfig = VpcConfig'
     -- preceded by \"sg-\", for instance: \"sg-03b388029b0a285ea\". For more
     -- information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html Security Groups for your VPC>.
-    securityGroupIds :: Core.NonEmpty Core.Text,
+    securityGroupIds :: Prelude.NonEmpty Prelude.Text,
     -- | The ID for each subnet being used in your private VPC. This subnet is a
     -- subset of the a range of IPv4 addresses used by the VPC and is specific
     -- to a given availability zone in the VPC’s region. This ID number is
     -- preceded by \"subnet-\", for instance: \"subnet-04ccf456919e69055\". For
     -- more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>.
-    subnets :: Core.NonEmpty Core.Text
+    subnets :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcConfig' with all optional fields omitted.
@@ -71,9 +72,9 @@ data VpcConfig = VpcConfig'
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>.
 newVpcConfig ::
   -- | 'securityGroupIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'subnets'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   VpcConfig
 newVpcConfig pSecurityGroupIds_ pSubnets_ =
   VpcConfig'
@@ -89,8 +90,8 @@ newVpcConfig pSecurityGroupIds_ pSubnets_ =
 -- preceded by \"sg-\", for instance: \"sg-03b388029b0a285ea\". For more
 -- information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html Security Groups for your VPC>.
-vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Core.NonEmpty Core.Text)
-vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Core.. Lens._Coerce
+vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
+vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Lens._Coerce
 
 -- | The ID for each subnet being used in your private VPC. This subnet is a
 -- subset of the a range of IPv4 addresses used by the VPC and is specific
@@ -98,8 +99,8 @@ vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securi
 -- preceded by \"subnet-\", for instance: \"subnet-04ccf456919e69055\". For
 -- more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>.
-vpcConfig_subnets :: Lens.Lens' VpcConfig (Core.NonEmpty Core.Text)
-vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Core.. Lens._Coerce
+vpcConfig_subnets :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
+vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Lens._Coerce
 
 instance Core.FromJSON VpcConfig where
   parseJSON =
@@ -107,20 +108,20 @@ instance Core.FromJSON VpcConfig where
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Core.<$> (x Core..: "SecurityGroupIds")
-            Core.<*> (x Core..: "Subnets")
+            Prelude.<$> (x Core..: "SecurityGroupIds")
+            Prelude.<*> (x Core..: "Subnets")
       )
 
-instance Core.Hashable VpcConfig
+instance Prelude.Hashable VpcConfig
 
-instance Core.NFData VpcConfig
+instance Prelude.NFData VpcConfig
 
 instance Core.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SecurityGroupIds" Core..= securityGroupIds),
-            Core.Just ("Subnets" Core..= subnets)
+            Prelude.Just ("Subnets" Core..= subnets)
           ]
       )

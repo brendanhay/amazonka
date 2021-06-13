@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. Choose Include (INCLUDE) to have MediaConvert mark up your
 -- DASH manifest with elements for embedded 608 captions. This markup
@@ -39,15 +40,15 @@ newtype MpdAccessibilityCaptionHints = MpdAccessibilityCaptionHints'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

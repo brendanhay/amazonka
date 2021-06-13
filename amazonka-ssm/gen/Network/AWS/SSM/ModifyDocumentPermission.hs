@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -55,23 +56,23 @@ import Network.AWS.SSM.Types
 data ModifyDocumentPermission = ModifyDocumentPermission'
   { -- | The AWS user accounts that should have access to the document. The
     -- account IDs can either be a group of account IDs or /All/.
-    accountIdsToAdd :: Core.Maybe [Core.Text],
+    accountIdsToAdd :: Prelude.Maybe [Prelude.Text],
     -- | (Optional) The version of the document to share. If it\'s not specified,
     -- the system choose the @Default@ version to share.
-    sharedDocumentVersion :: Core.Maybe Core.Text,
+    sharedDocumentVersion :: Prelude.Maybe Prelude.Text,
     -- | The AWS user accounts that should no longer have access to the document.
     -- The AWS user account can either be a group of account IDs or /All/. This
     -- action has a higher priority than /AccountIdsToAdd/. If you specify an
     -- account ID to add and the same ID to remove, the system removes access
     -- to the document.
-    accountIdsToRemove :: Core.Maybe [Core.Text],
+    accountIdsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The name of the document that you want to share.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The permission type for the document. The permission type can be
     -- /Share/.
     permissionType :: DocumentPermissionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDocumentPermission' with all optional fields omitted.
@@ -99,28 +100,28 @@ data ModifyDocumentPermission = ModifyDocumentPermission'
 -- /Share/.
 newModifyDocumentPermission ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'permissionType'
   DocumentPermissionType ->
   ModifyDocumentPermission
 newModifyDocumentPermission pName_ pPermissionType_ =
   ModifyDocumentPermission'
     { accountIdsToAdd =
-        Core.Nothing,
-      sharedDocumentVersion = Core.Nothing,
-      accountIdsToRemove = Core.Nothing,
+        Prelude.Nothing,
+      sharedDocumentVersion = Prelude.Nothing,
+      accountIdsToRemove = Prelude.Nothing,
       name = pName_,
       permissionType = pPermissionType_
     }
 
 -- | The AWS user accounts that should have access to the document. The
 -- account IDs can either be a group of account IDs or /All/.
-modifyDocumentPermission_accountIdsToAdd :: Lens.Lens' ModifyDocumentPermission (Core.Maybe [Core.Text])
-modifyDocumentPermission_accountIdsToAdd = Lens.lens (\ModifyDocumentPermission' {accountIdsToAdd} -> accountIdsToAdd) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToAdd = a} :: ModifyDocumentPermission) Core.. Lens.mapping Lens._Coerce
+modifyDocumentPermission_accountIdsToAdd :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe [Prelude.Text])
+modifyDocumentPermission_accountIdsToAdd = Lens.lens (\ModifyDocumentPermission' {accountIdsToAdd} -> accountIdsToAdd) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToAdd = a} :: ModifyDocumentPermission) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Optional) The version of the document to share. If it\'s not specified,
 -- the system choose the @Default@ version to share.
-modifyDocumentPermission_sharedDocumentVersion :: Lens.Lens' ModifyDocumentPermission (Core.Maybe Core.Text)
+modifyDocumentPermission_sharedDocumentVersion :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe Prelude.Text)
 modifyDocumentPermission_sharedDocumentVersion = Lens.lens (\ModifyDocumentPermission' {sharedDocumentVersion} -> sharedDocumentVersion) (\s@ModifyDocumentPermission' {} a -> s {sharedDocumentVersion = a} :: ModifyDocumentPermission)
 
 -- | The AWS user accounts that should no longer have access to the document.
@@ -128,11 +129,11 @@ modifyDocumentPermission_sharedDocumentVersion = Lens.lens (\ModifyDocumentPermi
 -- action has a higher priority than /AccountIdsToAdd/. If you specify an
 -- account ID to add and the same ID to remove, the system removes access
 -- to the document.
-modifyDocumentPermission_accountIdsToRemove :: Lens.Lens' ModifyDocumentPermission (Core.Maybe [Core.Text])
-modifyDocumentPermission_accountIdsToRemove = Lens.lens (\ModifyDocumentPermission' {accountIdsToRemove} -> accountIdsToRemove) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToRemove = a} :: ModifyDocumentPermission) Core.. Lens.mapping Lens._Coerce
+modifyDocumentPermission_accountIdsToRemove :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe [Prelude.Text])
+modifyDocumentPermission_accountIdsToRemove = Lens.lens (\ModifyDocumentPermission' {accountIdsToRemove} -> accountIdsToRemove) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToRemove = a} :: ModifyDocumentPermission) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the document that you want to share.
-modifyDocumentPermission_name :: Lens.Lens' ModifyDocumentPermission Core.Text
+modifyDocumentPermission_name :: Lens.Lens' ModifyDocumentPermission Prelude.Text
 modifyDocumentPermission_name = Lens.lens (\ModifyDocumentPermission' {name} -> name) (\s@ModifyDocumentPermission' {} a -> s {name = a} :: ModifyDocumentPermission)
 
 -- | The permission type for the document. The permission type can be
@@ -149,53 +150,56 @@ instance Core.AWSRequest ModifyDocumentPermission where
     Response.receiveEmpty
       ( \s h x ->
           ModifyDocumentPermissionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyDocumentPermission
+instance Prelude.Hashable ModifyDocumentPermission
 
-instance Core.NFData ModifyDocumentPermission
+instance Prelude.NFData ModifyDocumentPermission
 
 instance Core.ToHeaders ModifyDocumentPermission where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.ModifyDocumentPermission" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyDocumentPermission where
   toJSON ModifyDocumentPermission' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AccountIdsToAdd" Core..=)
-              Core.<$> accountIdsToAdd,
+              Prelude.<$> accountIdsToAdd,
             ("SharedDocumentVersion" Core..=)
-              Core.<$> sharedDocumentVersion,
+              Prelude.<$> sharedDocumentVersion,
             ("AccountIdsToRemove" Core..=)
-              Core.<$> accountIdsToRemove,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("PermissionType" Core..= permissionType)
+              Prelude.<$> accountIdsToRemove,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
+              ("PermissionType" Core..= permissionType)
           ]
       )
 
 instance Core.ToPath ModifyDocumentPermission where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyDocumentPermission where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyDocumentPermissionResponse' smart constructor.
 data ModifyDocumentPermissionResponse = ModifyDocumentPermissionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDocumentPermissionResponse' with all optional fields omitted.
@@ -208,7 +212,7 @@ data ModifyDocumentPermissionResponse = ModifyDocumentPermissionResponse'
 -- 'httpStatus', 'modifyDocumentPermissionResponse_httpStatus' - The response's http status code.
 newModifyDocumentPermissionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyDocumentPermissionResponse
 newModifyDocumentPermissionResponse pHttpStatus_ =
   ModifyDocumentPermissionResponse'
@@ -217,7 +221,9 @@ newModifyDocumentPermissionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-modifyDocumentPermissionResponse_httpStatus :: Lens.Lens' ModifyDocumentPermissionResponse Core.Int
+modifyDocumentPermissionResponse_httpStatus :: Lens.Lens' ModifyDocumentPermissionResponse Prelude.Int
 modifyDocumentPermissionResponse_httpStatus = Lens.lens (\ModifyDocumentPermissionResponse' {httpStatus} -> httpStatus) (\s@ModifyDocumentPermissionResponse' {} a -> s {httpStatus = a} :: ModifyDocumentPermissionResponse)
 
-instance Core.NFData ModifyDocumentPermissionResponse
+instance
+  Prelude.NFData
+    ModifyDocumentPermissionResponse

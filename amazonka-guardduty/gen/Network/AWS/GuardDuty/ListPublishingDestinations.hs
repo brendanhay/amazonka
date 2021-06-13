@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,13 +56,13 @@ data ListPublishingDestinations = ListPublishingDestinations'
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in the response.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the detector to retrieve publishing destinations for.
-    detectorId :: Core.Text
+    detectorId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPublishingDestinations' with all optional fields omitted.
@@ -81,13 +82,13 @@ data ListPublishingDestinations = ListPublishingDestinations'
 -- 'detectorId', 'listPublishingDestinations_detectorId' - The ID of the detector to retrieve publishing destinations for.
 newListPublishingDestinations ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   ListPublishingDestinations
 newListPublishingDestinations pDetectorId_ =
   ListPublishingDestinations'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       detectorId = pDetectorId_
     }
 
@@ -95,15 +96,15 @@ newListPublishingDestinations pDetectorId_ =
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
-listPublishingDestinations_nextToken :: Lens.Lens' ListPublishingDestinations (Core.Maybe Core.Text)
+listPublishingDestinations_nextToken :: Lens.Lens' ListPublishingDestinations (Prelude.Maybe Prelude.Text)
 listPublishingDestinations_nextToken = Lens.lens (\ListPublishingDestinations' {nextToken} -> nextToken) (\s@ListPublishingDestinations' {} a -> s {nextToken = a} :: ListPublishingDestinations)
 
 -- | The maximum number of results to return in the response.
-listPublishingDestinations_maxResults :: Lens.Lens' ListPublishingDestinations (Core.Maybe Core.Natural)
+listPublishingDestinations_maxResults :: Lens.Lens' ListPublishingDestinations (Prelude.Maybe Prelude.Natural)
 listPublishingDestinations_maxResults = Lens.lens (\ListPublishingDestinations' {maxResults} -> maxResults) (\s@ListPublishingDestinations' {} a -> s {maxResults = a} :: ListPublishingDestinations)
 
 -- | The ID of the detector to retrieve publishing destinations for.
-listPublishingDestinations_detectorId :: Lens.Lens' ListPublishingDestinations Core.Text
+listPublishingDestinations_detectorId :: Lens.Lens' ListPublishingDestinations Prelude.Text
 listPublishingDestinations_detectorId = Lens.lens (\ListPublishingDestinations' {detectorId} -> detectorId) (\s@ListPublishingDestinations' {} a -> s {detectorId = a} :: ListPublishingDestinations)
 
 instance Core.AWSRequest ListPublishingDestinations where
@@ -115,27 +116,29 @@ instance Core.AWSRequest ListPublishingDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListPublishingDestinationsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "destinations" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListPublishingDestinations
+instance Prelude.Hashable ListPublishingDestinations
 
-instance Core.NFData ListPublishingDestinations
+instance Prelude.NFData ListPublishingDestinations
 
 instance Core.ToHeaders ListPublishingDestinations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListPublishingDestinations where
   toPath ListPublishingDestinations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/publishingDestination"
@@ -143,7 +146,7 @@ instance Core.ToPath ListPublishingDestinations where
 
 instance Core.ToQuery ListPublishingDestinations where
   toQuery ListPublishingDestinations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -154,14 +157,14 @@ data ListPublishingDestinationsResponse = ListPublishingDestinationsResponse'
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A @Destinations@ object that includes information about each publishing
     -- destination returned.
     destinations :: [Destination]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPublishingDestinationsResponse' with all optional fields omitted.
@@ -182,32 +185,32 @@ data ListPublishingDestinationsResponse = ListPublishingDestinationsResponse'
 -- destination returned.
 newListPublishingDestinationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPublishingDestinationsResponse
 newListPublishingDestinationsResponse pHttpStatus_ =
   ListPublishingDestinationsResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      destinations = Core.mempty
+      destinations = Prelude.mempty
     }
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
-listPublishingDestinationsResponse_nextToken :: Lens.Lens' ListPublishingDestinationsResponse (Core.Maybe Core.Text)
+listPublishingDestinationsResponse_nextToken :: Lens.Lens' ListPublishingDestinationsResponse (Prelude.Maybe Prelude.Text)
 listPublishingDestinationsResponse_nextToken = Lens.lens (\ListPublishingDestinationsResponse' {nextToken} -> nextToken) (\s@ListPublishingDestinationsResponse' {} a -> s {nextToken = a} :: ListPublishingDestinationsResponse)
 
 -- | The response's http status code.
-listPublishingDestinationsResponse_httpStatus :: Lens.Lens' ListPublishingDestinationsResponse Core.Int
+listPublishingDestinationsResponse_httpStatus :: Lens.Lens' ListPublishingDestinationsResponse Prelude.Int
 listPublishingDestinationsResponse_httpStatus = Lens.lens (\ListPublishingDestinationsResponse' {httpStatus} -> httpStatus) (\s@ListPublishingDestinationsResponse' {} a -> s {httpStatus = a} :: ListPublishingDestinationsResponse)
 
 -- | A @Destinations@ object that includes information about each publishing
 -- destination returned.
 listPublishingDestinationsResponse_destinations :: Lens.Lens' ListPublishingDestinationsResponse [Destination]
-listPublishingDestinationsResponse_destinations = Lens.lens (\ListPublishingDestinationsResponse' {destinations} -> destinations) (\s@ListPublishingDestinationsResponse' {} a -> s {destinations = a} :: ListPublishingDestinationsResponse) Core.. Lens._Coerce
+listPublishingDestinationsResponse_destinations = Lens.lens (\ListPublishingDestinationsResponse' {destinations} -> destinations) (\s@ListPublishingDestinationsResponse' {} a -> s {destinations = a} :: ListPublishingDestinationsResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListPublishingDestinationsResponse

@@ -21,6 +21,7 @@ module Network.AWS.ElasticBeanstalk.Types.EnvironmentTier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the properties of an environment tier
 --
@@ -31,7 +32,7 @@ data EnvironmentTier = EnvironmentTier'
     --
     -- This member is deprecated. Any specific version that you set may become
     -- out of date. We recommend leaving it unspecified.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of this environment tier.
     --
     -- Valid values:
@@ -39,7 +40,7 @@ data EnvironmentTier = EnvironmentTier'
     -- -   For /Web server tier/ – @WebServer@
     --
     -- -   For /Worker tier/ – @Worker@
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The type of this environment tier.
     --
     -- Valid values:
@@ -47,9 +48,9 @@ data EnvironmentTier = EnvironmentTier'
     -- -   For /Web server tier/ – @Standard@
     --
     -- -   For /Worker tier/ – @SQS\/HTTP@
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentTier' with all optional fields omitted.
@@ -84,9 +85,9 @@ newEnvironmentTier ::
   EnvironmentTier
 newEnvironmentTier =
   EnvironmentTier'
-    { version = Core.Nothing,
-      name = Core.Nothing,
-      type' = Core.Nothing
+    { version = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The version of this environment tier. When you don\'t set a value to it,
@@ -94,7 +95,7 @@ newEnvironmentTier =
 --
 -- This member is deprecated. Any specific version that you set may become
 -- out of date. We recommend leaving it unspecified.
-environmentTier_version :: Lens.Lens' EnvironmentTier (Core.Maybe Core.Text)
+environmentTier_version :: Lens.Lens' EnvironmentTier (Prelude.Maybe Prelude.Text)
 environmentTier_version = Lens.lens (\EnvironmentTier' {version} -> version) (\s@EnvironmentTier' {} a -> s {version = a} :: EnvironmentTier)
 
 -- | The name of this environment tier.
@@ -104,7 +105,7 @@ environmentTier_version = Lens.lens (\EnvironmentTier' {version} -> version) (\s
 -- -   For /Web server tier/ – @WebServer@
 --
 -- -   For /Worker tier/ – @Worker@
-environmentTier_name :: Lens.Lens' EnvironmentTier (Core.Maybe Core.Text)
+environmentTier_name :: Lens.Lens' EnvironmentTier (Prelude.Maybe Prelude.Text)
 environmentTier_name = Lens.lens (\EnvironmentTier' {name} -> name) (\s@EnvironmentTier' {} a -> s {name = a} :: EnvironmentTier)
 
 -- | The type of this environment tier.
@@ -114,23 +115,23 @@ environmentTier_name = Lens.lens (\EnvironmentTier' {name} -> name) (\s@Environm
 -- -   For /Web server tier/ – @Standard@
 --
 -- -   For /Worker tier/ – @SQS\/HTTP@
-environmentTier_type :: Lens.Lens' EnvironmentTier (Core.Maybe Core.Text)
+environmentTier_type :: Lens.Lens' EnvironmentTier (Prelude.Maybe Prelude.Text)
 environmentTier_type = Lens.lens (\EnvironmentTier' {type'} -> type') (\s@EnvironmentTier' {} a -> s {type' = a} :: EnvironmentTier)
 
 instance Core.FromXML EnvironmentTier where
   parseXML x =
     EnvironmentTier'
-      Core.<$> (x Core..@? "Version")
-      Core.<*> (x Core..@? "Name")
-      Core.<*> (x Core..@? "Type")
+      Prelude.<$> (x Core..@? "Version")
+      Prelude.<*> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "Type")
 
-instance Core.Hashable EnvironmentTier
+instance Prelude.Hashable EnvironmentTier
 
-instance Core.NFData EnvironmentTier
+instance Prelude.NFData EnvironmentTier
 
 instance Core.ToQuery EnvironmentTier where
   toQuery EnvironmentTier' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Version" Core.=: version,
         "Name" Core.=: name,
         "Type" Core.=: type'

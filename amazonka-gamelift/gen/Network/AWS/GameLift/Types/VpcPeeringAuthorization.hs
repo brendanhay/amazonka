@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.VpcPeeringAuthorization where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an authorization for a VPC peering connection between the VPC
 -- for an Amazon GameLift fleet and another VPC on an account you have
@@ -45,25 +46,25 @@ data VpcPeeringAuthorization = VpcPeeringAuthorization'
   { -- | Time stamp indicating when this authorization was issued. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- \"1469498468.057\").
-    creationTime :: Core.Maybe Core.POSIX,
-    peerVpcAwsAccountId :: Core.Maybe Core.Text,
+    creationTime :: Prelude.Maybe Core.POSIX,
+    peerVpcAwsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Time stamp indicating when this authorization expires (24 hours after
     -- issuance). Format is a number expressed in Unix time as milliseconds
     -- (for example \"1469498468.057\").
-    expirationTime :: Core.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Core.POSIX,
     -- | A unique identifier for the AWS account that you use to manage your
     -- Amazon GameLift fleet. You can find your Account ID in the AWS
     -- Management Console under account settings.
-    gameLiftAwsAccountId :: Core.Maybe Core.Text,
+    gameLiftAwsAccountId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a VPC with resources to be accessed by your
     -- Amazon GameLift fleet. The VPC must be in the same Region where your
     -- fleet is deployed. Look up a VPC ID using the
     -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
     -- Management Console. Learn more about VPC peering in
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
-    peerVpcId :: Core.Maybe Core.Text
+    peerVpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcPeeringAuthorization' with all optional fields omitted.
@@ -98,33 +99,33 @@ newVpcPeeringAuthorization ::
 newVpcPeeringAuthorization =
   VpcPeeringAuthorization'
     { creationTime =
-        Core.Nothing,
-      peerVpcAwsAccountId = Core.Nothing,
-      expirationTime = Core.Nothing,
-      gameLiftAwsAccountId = Core.Nothing,
-      peerVpcId = Core.Nothing
+        Prelude.Nothing,
+      peerVpcAwsAccountId = Prelude.Nothing,
+      expirationTime = Prelude.Nothing,
+      gameLiftAwsAccountId = Prelude.Nothing,
+      peerVpcId = Prelude.Nothing
     }
 
 -- | Time stamp indicating when this authorization was issued. Format is a
 -- number expressed in Unix time as milliseconds (for example
 -- \"1469498468.057\").
-vpcPeeringAuthorization_creationTime :: Lens.Lens' VpcPeeringAuthorization (Core.Maybe Core.UTCTime)
-vpcPeeringAuthorization_creationTime = Lens.lens (\VpcPeeringAuthorization' {creationTime} -> creationTime) (\s@VpcPeeringAuthorization' {} a -> s {creationTime = a} :: VpcPeeringAuthorization) Core.. Lens.mapping Core._Time
+vpcPeeringAuthorization_creationTime :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.UTCTime)
+vpcPeeringAuthorization_creationTime = Lens.lens (\VpcPeeringAuthorization' {creationTime} -> creationTime) (\s@VpcPeeringAuthorization' {} a -> s {creationTime = a} :: VpcPeeringAuthorization) Prelude.. Lens.mapping Core._Time
 
 -- |
-vpcPeeringAuthorization_peerVpcAwsAccountId :: Lens.Lens' VpcPeeringAuthorization (Core.Maybe Core.Text)
+vpcPeeringAuthorization_peerVpcAwsAccountId :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.Text)
 vpcPeeringAuthorization_peerVpcAwsAccountId = Lens.lens (\VpcPeeringAuthorization' {peerVpcAwsAccountId} -> peerVpcAwsAccountId) (\s@VpcPeeringAuthorization' {} a -> s {peerVpcAwsAccountId = a} :: VpcPeeringAuthorization)
 
 -- | Time stamp indicating when this authorization expires (24 hours after
 -- issuance). Format is a number expressed in Unix time as milliseconds
 -- (for example \"1469498468.057\").
-vpcPeeringAuthorization_expirationTime :: Lens.Lens' VpcPeeringAuthorization (Core.Maybe Core.UTCTime)
-vpcPeeringAuthorization_expirationTime = Lens.lens (\VpcPeeringAuthorization' {expirationTime} -> expirationTime) (\s@VpcPeeringAuthorization' {} a -> s {expirationTime = a} :: VpcPeeringAuthorization) Core.. Lens.mapping Core._Time
+vpcPeeringAuthorization_expirationTime :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.UTCTime)
+vpcPeeringAuthorization_expirationTime = Lens.lens (\VpcPeeringAuthorization' {expirationTime} -> expirationTime) (\s@VpcPeeringAuthorization' {} a -> s {expirationTime = a} :: VpcPeeringAuthorization) Prelude.. Lens.mapping Core._Time
 
 -- | A unique identifier for the AWS account that you use to manage your
 -- Amazon GameLift fleet. You can find your Account ID in the AWS
 -- Management Console under account settings.
-vpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' VpcPeeringAuthorization (Core.Maybe Core.Text)
+vpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.Text)
 vpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\VpcPeeringAuthorization' {gameLiftAwsAccountId} -> gameLiftAwsAccountId) (\s@VpcPeeringAuthorization' {} a -> s {gameLiftAwsAccountId = a} :: VpcPeeringAuthorization)
 
 -- | A unique identifier for a VPC with resources to be accessed by your
@@ -133,7 +134,7 @@ vpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\VpcPeeringAuthorizati
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
 -- Management Console. Learn more about VPC peering in
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
-vpcPeeringAuthorization_peerVpcId :: Lens.Lens' VpcPeeringAuthorization (Core.Maybe Core.Text)
+vpcPeeringAuthorization_peerVpcId :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.Text)
 vpcPeeringAuthorization_peerVpcId = Lens.lens (\VpcPeeringAuthorization' {peerVpcId} -> peerVpcId) (\s@VpcPeeringAuthorization' {} a -> s {peerVpcId = a} :: VpcPeeringAuthorization)
 
 instance Core.FromJSON VpcPeeringAuthorization where
@@ -142,13 +143,13 @@ instance Core.FromJSON VpcPeeringAuthorization where
       "VpcPeeringAuthorization"
       ( \x ->
           VpcPeeringAuthorization'
-            Core.<$> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "PeerVpcAwsAccountId")
-            Core.<*> (x Core..:? "ExpirationTime")
-            Core.<*> (x Core..:? "GameLiftAwsAccountId")
-            Core.<*> (x Core..:? "PeerVpcId")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "PeerVpcAwsAccountId")
+            Prelude.<*> (x Core..:? "ExpirationTime")
+            Prelude.<*> (x Core..:? "GameLiftAwsAccountId")
+            Prelude.<*> (x Core..:? "PeerVpcId")
       )
 
-instance Core.Hashable VpcPeeringAuthorization
+instance Prelude.Hashable VpcPeeringAuthorization
 
-instance Core.NFData VpcPeeringAuthorization
+instance Prelude.NFData VpcPeeringAuthorization

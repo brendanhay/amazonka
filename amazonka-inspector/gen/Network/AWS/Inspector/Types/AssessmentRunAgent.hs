@@ -24,6 +24,7 @@ import Network.AWS.Inspector.Types.AgentHealth
 import Network.AWS.Inspector.Types.AgentHealthCode
 import Network.AWS.Inspector.Types.TelemetryMetadata
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector agent. This data type is
 -- used as a response element in the ListAssessmentRunAgents action.
@@ -31,14 +32,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAssessmentRunAgent' smart constructor.
 data AssessmentRunAgent = AssessmentRunAgent'
   { -- | The description for the agent health code.
-    agentHealthDetails :: Core.Maybe Core.Text,
+    agentHealthDetails :: Prelude.Maybe Prelude.Text,
     -- | The Auto Scaling group of the EC2 instance that is specified by the
     -- agent ID.
-    autoScalingGroup :: Core.Maybe Core.Text,
+    autoScalingGroup :: Prelude.Maybe Prelude.Text,
     -- | The AWS account of the EC2 instance where the agent is installed.
-    agentId :: Core.Text,
+    agentId :: Prelude.Text,
     -- | The ARN of the assessment run that is associated with the agent.
-    assessmentRunArn :: Core.Text,
+    assessmentRunArn :: Prelude.Text,
     -- | The current health state of the agent.
     agentHealth :: AgentHealth,
     -- | The detailed health state of the agent.
@@ -47,7 +48,7 @@ data AssessmentRunAgent = AssessmentRunAgent'
     -- agent.
     telemetryMetadata :: [TelemetryMetadata]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssessmentRunAgent' with all optional fields omitted.
@@ -74,9 +75,9 @@ data AssessmentRunAgent = AssessmentRunAgent'
 -- agent.
 newAssessmentRunAgent ::
   -- | 'agentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'assessmentRunArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'agentHealth'
   AgentHealth ->
   -- | 'agentHealthCode'
@@ -89,30 +90,30 @@ newAssessmentRunAgent
   pAgentHealthCode_ =
     AssessmentRunAgent'
       { agentHealthDetails =
-          Core.Nothing,
-        autoScalingGroup = Core.Nothing,
+          Prelude.Nothing,
+        autoScalingGroup = Prelude.Nothing,
         agentId = pAgentId_,
         assessmentRunArn = pAssessmentRunArn_,
         agentHealth = pAgentHealth_,
         agentHealthCode = pAgentHealthCode_,
-        telemetryMetadata = Core.mempty
+        telemetryMetadata = Prelude.mempty
       }
 
 -- | The description for the agent health code.
-assessmentRunAgent_agentHealthDetails :: Lens.Lens' AssessmentRunAgent (Core.Maybe Core.Text)
+assessmentRunAgent_agentHealthDetails :: Lens.Lens' AssessmentRunAgent (Prelude.Maybe Prelude.Text)
 assessmentRunAgent_agentHealthDetails = Lens.lens (\AssessmentRunAgent' {agentHealthDetails} -> agentHealthDetails) (\s@AssessmentRunAgent' {} a -> s {agentHealthDetails = a} :: AssessmentRunAgent)
 
 -- | The Auto Scaling group of the EC2 instance that is specified by the
 -- agent ID.
-assessmentRunAgent_autoScalingGroup :: Lens.Lens' AssessmentRunAgent (Core.Maybe Core.Text)
+assessmentRunAgent_autoScalingGroup :: Lens.Lens' AssessmentRunAgent (Prelude.Maybe Prelude.Text)
 assessmentRunAgent_autoScalingGroup = Lens.lens (\AssessmentRunAgent' {autoScalingGroup} -> autoScalingGroup) (\s@AssessmentRunAgent' {} a -> s {autoScalingGroup = a} :: AssessmentRunAgent)
 
 -- | The AWS account of the EC2 instance where the agent is installed.
-assessmentRunAgent_agentId :: Lens.Lens' AssessmentRunAgent Core.Text
+assessmentRunAgent_agentId :: Lens.Lens' AssessmentRunAgent Prelude.Text
 assessmentRunAgent_agentId = Lens.lens (\AssessmentRunAgent' {agentId} -> agentId) (\s@AssessmentRunAgent' {} a -> s {agentId = a} :: AssessmentRunAgent)
 
 -- | The ARN of the assessment run that is associated with the agent.
-assessmentRunAgent_assessmentRunArn :: Lens.Lens' AssessmentRunAgent Core.Text
+assessmentRunAgent_assessmentRunArn :: Lens.Lens' AssessmentRunAgent Prelude.Text
 assessmentRunAgent_assessmentRunArn = Lens.lens (\AssessmentRunAgent' {assessmentRunArn} -> assessmentRunArn) (\s@AssessmentRunAgent' {} a -> s {assessmentRunArn = a} :: AssessmentRunAgent)
 
 -- | The current health state of the agent.
@@ -126,7 +127,7 @@ assessmentRunAgent_agentHealthCode = Lens.lens (\AssessmentRunAgent' {agentHealt
 -- | The Amazon Inspector application data metrics that are collected by the
 -- agent.
 assessmentRunAgent_telemetryMetadata :: Lens.Lens' AssessmentRunAgent [TelemetryMetadata]
-assessmentRunAgent_telemetryMetadata = Lens.lens (\AssessmentRunAgent' {telemetryMetadata} -> telemetryMetadata) (\s@AssessmentRunAgent' {} a -> s {telemetryMetadata = a} :: AssessmentRunAgent) Core.. Lens._Coerce
+assessmentRunAgent_telemetryMetadata = Lens.lens (\AssessmentRunAgent' {telemetryMetadata} -> telemetryMetadata) (\s@AssessmentRunAgent' {} a -> s {telemetryMetadata = a} :: AssessmentRunAgent) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AssessmentRunAgent where
   parseJSON =
@@ -134,17 +135,17 @@ instance Core.FromJSON AssessmentRunAgent where
       "AssessmentRunAgent"
       ( \x ->
           AssessmentRunAgent'
-            Core.<$> (x Core..:? "agentHealthDetails")
-            Core.<*> (x Core..:? "autoScalingGroup")
-            Core.<*> (x Core..: "agentId")
-            Core.<*> (x Core..: "assessmentRunArn")
-            Core.<*> (x Core..: "agentHealth")
-            Core.<*> (x Core..: "agentHealthCode")
-            Core.<*> ( x Core..:? "telemetryMetadata"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "agentHealthDetails")
+            Prelude.<*> (x Core..:? "autoScalingGroup")
+            Prelude.<*> (x Core..: "agentId")
+            Prelude.<*> (x Core..: "assessmentRunArn")
+            Prelude.<*> (x Core..: "agentHealth")
+            Prelude.<*> (x Core..: "agentHealthCode")
+            Prelude.<*> ( x Core..:? "telemetryMetadata"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable AssessmentRunAgent
+instance Prelude.Hashable AssessmentRunAgent
 
-instance Core.NFData AssessmentRunAgent
+instance Prelude.NFData AssessmentRunAgent

@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.CachedMethods where
 import Network.AWS.CloudFront.Types.Method
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that controls whether CloudFront caches the response to
 -- requests using the specified HTTP methods. There are two choices:
@@ -41,12 +42,12 @@ data CachedMethods = CachedMethods'
     -- responses. Valid values are @2@ (for caching responses to @GET@ and
     -- @HEAD@ requests) and @3@ (for caching responses to @GET@, @HEAD@, and
     -- @OPTIONS@ requests).
-    quantity :: Core.Int,
+    quantity :: Prelude.Int,
     -- | A complex type that contains the HTTP methods that you want CloudFront
     -- to cache responses to.
     items :: [Method]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CachedMethods' with all optional fields omitted.
@@ -65,41 +66,41 @@ data CachedMethods = CachedMethods'
 -- to cache responses to.
 newCachedMethods ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   CachedMethods
 newCachedMethods pQuantity_ =
   CachedMethods'
     { quantity = pQuantity_,
-      items = Core.mempty
+      items = Prelude.mempty
     }
 
 -- | The number of HTTP methods for which you want CloudFront to cache
 -- responses. Valid values are @2@ (for caching responses to @GET@ and
 -- @HEAD@ requests) and @3@ (for caching responses to @GET@, @HEAD@, and
 -- @OPTIONS@ requests).
-cachedMethods_quantity :: Lens.Lens' CachedMethods Core.Int
+cachedMethods_quantity :: Lens.Lens' CachedMethods Prelude.Int
 cachedMethods_quantity = Lens.lens (\CachedMethods' {quantity} -> quantity) (\s@CachedMethods' {} a -> s {quantity = a} :: CachedMethods)
 
 -- | A complex type that contains the HTTP methods that you want CloudFront
 -- to cache responses to.
 cachedMethods_items :: Lens.Lens' CachedMethods [Method]
-cachedMethods_items = Lens.lens (\CachedMethods' {items} -> items) (\s@CachedMethods' {} a -> s {items = a} :: CachedMethods) Core.. Lens._Coerce
+cachedMethods_items = Lens.lens (\CachedMethods' {items} -> items) (\s@CachedMethods' {} a -> s {items = a} :: CachedMethods) Prelude.. Lens._Coerce
 
 instance Core.FromXML CachedMethods where
   parseXML x =
     CachedMethods'
-      Core.<$> (x Core..@ "Quantity")
-      Core.<*> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.parseXMLList "Method"
-               )
+      Prelude.<$> (x Core..@ "Quantity")
+      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.parseXMLList "Method"
+                  )
 
-instance Core.Hashable CachedMethods
+instance Prelude.Hashable CachedMethods
 
-instance Core.NFData CachedMethods
+instance Prelude.NFData CachedMethods
 
 instance Core.ToXML CachedMethods where
   toXML CachedMethods' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Quantity" Core.@= quantity,
         "Items" Core.@= Core.toXMLList "Method" items
       ]

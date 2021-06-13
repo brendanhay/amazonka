@@ -25,6 +25,7 @@ import Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult
 import Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult
 import Network.AWS.GuardDuty.Types.S3LogsConfigurationResult
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the status of data sources for the detector.
 --
@@ -43,7 +44,7 @@ data DataSourceConfigurationsResult = DataSourceConfigurationsResult'
     -- as a data source.
     s3Logs :: S3LogsConfigurationResult
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataSourceConfigurationsResult' with all optional fields omitted.
@@ -113,12 +114,16 @@ instance Core.FromJSON DataSourceConfigurationsResult where
       "DataSourceConfigurationsResult"
       ( \x ->
           DataSourceConfigurationsResult'
-            Core.<$> (x Core..: "cloudTrail")
-            Core.<*> (x Core..: "dnsLogs")
-            Core.<*> (x Core..: "flowLogs")
-            Core.<*> (x Core..: "s3Logs")
+            Prelude.<$> (x Core..: "cloudTrail")
+            Prelude.<*> (x Core..: "dnsLogs")
+            Prelude.<*> (x Core..: "flowLogs")
+            Prelude.<*> (x Core..: "s3Logs")
       )
 
-instance Core.Hashable DataSourceConfigurationsResult
+instance
+  Prelude.Hashable
+    DataSourceConfigurationsResult
 
-instance Core.NFData DataSourceConfigurationsResult
+instance
+  Prelude.NFData
+    DataSourceConfigurationsResult

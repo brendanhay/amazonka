@@ -22,6 +22,7 @@ module Network.AWS.CloudSearch.Types.ScalingParameters where
 import Network.AWS.CloudSearch.Types.PartitionInstanceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 data ScalingParameters = ScalingParameters'
   { -- | The number of replicas you want to preconfigure for each index
     -- partition.
-    desiredReplicationCount :: Core.Maybe Core.Natural,
+    desiredReplicationCount :: Prelude.Maybe Prelude.Natural,
     -- | The number of partitions you want to preconfigure for your domain. Only
     -- valid when you select @m2.2xlarge@ as the desired instance type.
-    desiredPartitionCount :: Core.Maybe Core.Natural,
+    desiredPartitionCount :: Prelude.Maybe Prelude.Natural,
     -- | The instance type that you want to preconfigure for your domain. For
     -- example, @search.m1.small@.
-    desiredInstanceType :: Core.Maybe PartitionInstanceType
+    desiredInstanceType :: Prelude.Maybe PartitionInstanceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingParameters' with all optional fields omitted.
@@ -61,40 +62,40 @@ newScalingParameters ::
 newScalingParameters =
   ScalingParameters'
     { desiredReplicationCount =
-        Core.Nothing,
-      desiredPartitionCount = Core.Nothing,
-      desiredInstanceType = Core.Nothing
+        Prelude.Nothing,
+      desiredPartitionCount = Prelude.Nothing,
+      desiredInstanceType = Prelude.Nothing
     }
 
 -- | The number of replicas you want to preconfigure for each index
 -- partition.
-scalingParameters_desiredReplicationCount :: Lens.Lens' ScalingParameters (Core.Maybe Core.Natural)
+scalingParameters_desiredReplicationCount :: Lens.Lens' ScalingParameters (Prelude.Maybe Prelude.Natural)
 scalingParameters_desiredReplicationCount = Lens.lens (\ScalingParameters' {desiredReplicationCount} -> desiredReplicationCount) (\s@ScalingParameters' {} a -> s {desiredReplicationCount = a} :: ScalingParameters)
 
 -- | The number of partitions you want to preconfigure for your domain. Only
 -- valid when you select @m2.2xlarge@ as the desired instance type.
-scalingParameters_desiredPartitionCount :: Lens.Lens' ScalingParameters (Core.Maybe Core.Natural)
+scalingParameters_desiredPartitionCount :: Lens.Lens' ScalingParameters (Prelude.Maybe Prelude.Natural)
 scalingParameters_desiredPartitionCount = Lens.lens (\ScalingParameters' {desiredPartitionCount} -> desiredPartitionCount) (\s@ScalingParameters' {} a -> s {desiredPartitionCount = a} :: ScalingParameters)
 
 -- | The instance type that you want to preconfigure for your domain. For
 -- example, @search.m1.small@.
-scalingParameters_desiredInstanceType :: Lens.Lens' ScalingParameters (Core.Maybe PartitionInstanceType)
+scalingParameters_desiredInstanceType :: Lens.Lens' ScalingParameters (Prelude.Maybe PartitionInstanceType)
 scalingParameters_desiredInstanceType = Lens.lens (\ScalingParameters' {desiredInstanceType} -> desiredInstanceType) (\s@ScalingParameters' {} a -> s {desiredInstanceType = a} :: ScalingParameters)
 
 instance Core.FromXML ScalingParameters where
   parseXML x =
     ScalingParameters'
-      Core.<$> (x Core..@? "DesiredReplicationCount")
-      Core.<*> (x Core..@? "DesiredPartitionCount")
-      Core.<*> (x Core..@? "DesiredInstanceType")
+      Prelude.<$> (x Core..@? "DesiredReplicationCount")
+      Prelude.<*> (x Core..@? "DesiredPartitionCount")
+      Prelude.<*> (x Core..@? "DesiredInstanceType")
 
-instance Core.Hashable ScalingParameters
+instance Prelude.Hashable ScalingParameters
 
-instance Core.NFData ScalingParameters
+instance Prelude.NFData ScalingParameters
 
 instance Core.ToQuery ScalingParameters where
   toQuery ScalingParameters' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "DesiredReplicationCount"
           Core.=: desiredReplicationCount,
         "DesiredPartitionCount"

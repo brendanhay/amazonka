@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.InstallationMediaFailureCause where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the cause of an installation media failure. Installation media
 -- is used for a DB engine that requires an on-premises customer provided
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newInstallationMediaFailureCause' smart constructor.
 data InstallationMediaFailureCause = InstallationMediaFailureCause'
   { -- | The reason that an installation media import failed.
-    message :: Core.Maybe Core.Text
+    message :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstallationMediaFailureCause' with all optional fields omitted.
@@ -47,18 +48,20 @@ newInstallationMediaFailureCause ::
 newInstallationMediaFailureCause =
   InstallationMediaFailureCause'
     { message =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The reason that an installation media import failed.
-installationMediaFailureCause_message :: Lens.Lens' InstallationMediaFailureCause (Core.Maybe Core.Text)
+installationMediaFailureCause_message :: Lens.Lens' InstallationMediaFailureCause (Prelude.Maybe Prelude.Text)
 installationMediaFailureCause_message = Lens.lens (\InstallationMediaFailureCause' {message} -> message) (\s@InstallationMediaFailureCause' {} a -> s {message = a} :: InstallationMediaFailureCause)
 
 instance Core.FromXML InstallationMediaFailureCause where
   parseXML x =
     InstallationMediaFailureCause'
-      Core.<$> (x Core..@? "Message")
+      Prelude.<$> (x Core..@? "Message")
 
-instance Core.Hashable InstallationMediaFailureCause
+instance
+  Prelude.Hashable
+    InstallationMediaFailureCause
 
-instance Core.NFData InstallationMediaFailureCause
+instance Prelude.NFData InstallationMediaFailureCause

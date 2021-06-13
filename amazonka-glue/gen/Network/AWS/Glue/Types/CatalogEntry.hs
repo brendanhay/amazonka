@@ -21,17 +21,18 @@ module Network.AWS.Glue.Types.CatalogEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a table definition in the AWS Glue Data Catalog.
 --
 -- /See:/ 'newCatalogEntry' smart constructor.
 data CatalogEntry = CatalogEntry'
   { -- | The database in which the table metadata resides.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the table in question.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CatalogEntry' with all optional fields omitted.
@@ -46,9 +47,9 @@ data CatalogEntry = CatalogEntry'
 -- 'tableName', 'catalogEntry_tableName' - The name of the table in question.
 newCatalogEntry ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   CatalogEntry
 newCatalogEntry pDatabaseName_ pTableName_ =
   CatalogEntry'
@@ -57,22 +58,22 @@ newCatalogEntry pDatabaseName_ pTableName_ =
     }
 
 -- | The database in which the table metadata resides.
-catalogEntry_databaseName :: Lens.Lens' CatalogEntry Core.Text
+catalogEntry_databaseName :: Lens.Lens' CatalogEntry Prelude.Text
 catalogEntry_databaseName = Lens.lens (\CatalogEntry' {databaseName} -> databaseName) (\s@CatalogEntry' {} a -> s {databaseName = a} :: CatalogEntry)
 
 -- | The name of the table in question.
-catalogEntry_tableName :: Lens.Lens' CatalogEntry Core.Text
+catalogEntry_tableName :: Lens.Lens' CatalogEntry Prelude.Text
 catalogEntry_tableName = Lens.lens (\CatalogEntry' {tableName} -> tableName) (\s@CatalogEntry' {} a -> s {tableName = a} :: CatalogEntry)
 
-instance Core.Hashable CatalogEntry
+instance Prelude.Hashable CatalogEntry
 
-instance Core.NFData CatalogEntry
+instance Prelude.NFData CatalogEntry
 
 instance Core.ToJSON CatalogEntry where
   toJSON CatalogEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )

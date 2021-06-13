@@ -23,6 +23,7 @@ import Network.AWS.CertificateManagerPCA.Types.AccessDescription
 import Network.AWS.CertificateManagerPCA.Types.KeyUsage
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the certificate extensions to be added to the certificate
 -- signing request (CSR).
@@ -34,12 +35,12 @@ data CsrExtensions = CsrExtensions'
     -- information, see
     -- <https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access>
     -- in RFC 5280.
-    subjectInformationAccess :: Core.Maybe [AccessDescription],
+    subjectInformationAccess :: Prelude.Maybe [AccessDescription],
     -- | Indicates the purpose of the certificate and of the key contained in the
     -- certificate.
-    keyUsage :: Core.Maybe KeyUsage
+    keyUsage :: Prelude.Maybe KeyUsage
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CsrExtensions' with all optional fields omitted.
@@ -62,8 +63,8 @@ newCsrExtensions ::
 newCsrExtensions =
   CsrExtensions'
     { subjectInformationAccess =
-        Core.Nothing,
-      keyUsage = Core.Nothing
+        Prelude.Nothing,
+      keyUsage = Prelude.Nothing
     }
 
 -- | For CA certificates, provides a path to additional information
@@ -71,12 +72,12 @@ newCsrExtensions =
 -- information, see
 -- <https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access>
 -- in RFC 5280.
-csrExtensions_subjectInformationAccess :: Lens.Lens' CsrExtensions (Core.Maybe [AccessDescription])
-csrExtensions_subjectInformationAccess = Lens.lens (\CsrExtensions' {subjectInformationAccess} -> subjectInformationAccess) (\s@CsrExtensions' {} a -> s {subjectInformationAccess = a} :: CsrExtensions) Core.. Lens.mapping Lens._Coerce
+csrExtensions_subjectInformationAccess :: Lens.Lens' CsrExtensions (Prelude.Maybe [AccessDescription])
+csrExtensions_subjectInformationAccess = Lens.lens (\CsrExtensions' {subjectInformationAccess} -> subjectInformationAccess) (\s@CsrExtensions' {} a -> s {subjectInformationAccess = a} :: CsrExtensions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates the purpose of the certificate and of the key contained in the
 -- certificate.
-csrExtensions_keyUsage :: Lens.Lens' CsrExtensions (Core.Maybe KeyUsage)
+csrExtensions_keyUsage :: Lens.Lens' CsrExtensions (Prelude.Maybe KeyUsage)
 csrExtensions_keyUsage = Lens.lens (\CsrExtensions' {keyUsage} -> keyUsage) (\s@CsrExtensions' {} a -> s {keyUsage = a} :: CsrExtensions)
 
 instance Core.FromJSON CsrExtensions where
@@ -85,22 +86,22 @@ instance Core.FromJSON CsrExtensions where
       "CsrExtensions"
       ( \x ->
           CsrExtensions'
-            Core.<$> ( x Core..:? "SubjectInformationAccess"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "KeyUsage")
+            Prelude.<$> ( x Core..:? "SubjectInformationAccess"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "KeyUsage")
       )
 
-instance Core.Hashable CsrExtensions
+instance Prelude.Hashable CsrExtensions
 
-instance Core.NFData CsrExtensions
+instance Prelude.NFData CsrExtensions
 
 instance Core.ToJSON CsrExtensions where
   toJSON CsrExtensions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SubjectInformationAccess" Core..=)
-              Core.<$> subjectInformationAccess,
-            ("KeyUsage" Core..=) Core.<$> keyUsage
+              Prelude.<$> subjectInformationAccess,
+            ("KeyUsage" Core..=) Prelude.<$> keyUsage
           ]
       )

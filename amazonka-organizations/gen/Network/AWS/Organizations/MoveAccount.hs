@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ data MoveAccount = MoveAccount'
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The unique identifier (ID) of the root or organizational unit that you
     -- want to move the account from.
     --
@@ -67,7 +68,7 @@ data MoveAccount = MoveAccount'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    sourceParentId :: Core.Text,
+    sourceParentId :: Prelude.Text,
     -- | The unique identifier (ID) of the root or organizational unit that you
     -- want to move the account to.
     --
@@ -81,9 +82,9 @@ data MoveAccount = MoveAccount'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    destinationParentId :: Core.Text
+    destinationParentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MoveAccount' with all optional fields omitted.
@@ -127,11 +128,11 @@ data MoveAccount = MoveAccount'
 --     dash and from 8 to 32 additional lowercase letters or digits.
 newMoveAccount ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceParentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationParentId'
-  Core.Text ->
+  Prelude.Text ->
   MoveAccount
 newMoveAccount
   pAccountId_
@@ -147,7 +148,7 @@ newMoveAccount
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-moveAccount_accountId :: Lens.Lens' MoveAccount Core.Text
+moveAccount_accountId :: Lens.Lens' MoveAccount Prelude.Text
 moveAccount_accountId = Lens.lens (\MoveAccount' {accountId} -> accountId) (\s@MoveAccount' {} a -> s {accountId = a} :: MoveAccount)
 
 -- | The unique identifier (ID) of the root or organizational unit that you
@@ -163,7 +164,7 @@ moveAccount_accountId = Lens.lens (\MoveAccount' {accountId} -> accountId) (\s@M
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-moveAccount_sourceParentId :: Lens.Lens' MoveAccount Core.Text
+moveAccount_sourceParentId :: Lens.Lens' MoveAccount Prelude.Text
 moveAccount_sourceParentId = Lens.lens (\MoveAccount' {sourceParentId} -> sourceParentId) (\s@MoveAccount' {} a -> s {sourceParentId = a} :: MoveAccount)
 
 -- | The unique identifier (ID) of the root or organizational unit that you
@@ -179,7 +180,7 @@ moveAccount_sourceParentId = Lens.lens (\MoveAccount' {sourceParentId} -> source
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-moveAccount_destinationParentId :: Lens.Lens' MoveAccount Core.Text
+moveAccount_destinationParentId :: Lens.Lens' MoveAccount Prelude.Text
 moveAccount_destinationParentId = Lens.lens (\MoveAccount' {destinationParentId} -> destinationParentId) (\s@MoveAccount' {} a -> s {destinationParentId = a} :: MoveAccount)
 
 instance Core.AWSRequest MoveAccount where
@@ -187,45 +188,48 @@ instance Core.AWSRequest MoveAccount where
   request = Request.postJSON defaultService
   response = Response.receiveNull MoveAccountResponse'
 
-instance Core.Hashable MoveAccount
+instance Prelude.Hashable MoveAccount
 
-instance Core.NFData MoveAccount
+instance Prelude.NFData MoveAccount
 
 instance Core.ToHeaders MoveAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.MoveAccount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON MoveAccount where
   toJSON MoveAccount' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AccountId" Core..= accountId),
-            Core.Just ("SourceParentId" Core..= sourceParentId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just
+              ("SourceParentId" Core..= sourceParentId),
+            Prelude.Just
               ("DestinationParentId" Core..= destinationParentId)
           ]
       )
 
 instance Core.ToPath MoveAccount where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery MoveAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMoveAccountResponse' smart constructor.
 data MoveAccountResponse = MoveAccountResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MoveAccountResponse' with all optional fields omitted.
@@ -235,4 +239,4 @@ newMoveAccountResponse ::
   MoveAccountResponse
 newMoveAccountResponse = MoveAccountResponse'
 
-instance Core.NFData MoveAccountResponse
+instance Prelude.NFData MoveAccountResponse

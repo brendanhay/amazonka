@@ -21,6 +21,7 @@ module Network.AWS.LexModels.Types.SlotDefaultValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A default value for a slot.
 --
@@ -35,9 +36,9 @@ data SlotDefaultValue = SlotDefaultValue'
     --     \"attribute.\"
     --
     -- -   @\'value\'@ - The discrete value \"value.\"
-    defaultValue :: Core.Text
+    defaultValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SlotDefaultValue' with all optional fields omitted.
@@ -58,7 +59,7 @@ data SlotDefaultValue = SlotDefaultValue'
 -- -   @\'value\'@ - The discrete value \"value.\"
 newSlotDefaultValue ::
   -- | 'defaultValue'
-  Core.Text ->
+  Prelude.Text ->
   SlotDefaultValue
 newSlotDefaultValue pDefaultValue_ =
   SlotDefaultValue' {defaultValue = pDefaultValue_}
@@ -72,7 +73,7 @@ newSlotDefaultValue pDefaultValue_ =
 --     \"attribute.\"
 --
 -- -   @\'value\'@ - The discrete value \"value.\"
-slotDefaultValue_defaultValue :: Lens.Lens' SlotDefaultValue Core.Text
+slotDefaultValue_defaultValue :: Lens.Lens' SlotDefaultValue Prelude.Text
 slotDefaultValue_defaultValue = Lens.lens (\SlotDefaultValue' {defaultValue} -> defaultValue) (\s@SlotDefaultValue' {} a -> s {defaultValue = a} :: SlotDefaultValue)
 
 instance Core.FromJSON SlotDefaultValue where
@@ -81,16 +82,16 @@ instance Core.FromJSON SlotDefaultValue where
       "SlotDefaultValue"
       ( \x ->
           SlotDefaultValue'
-            Core.<$> (x Core..: "defaultValue")
+            Prelude.<$> (x Core..: "defaultValue")
       )
 
-instance Core.Hashable SlotDefaultValue
+instance Prelude.Hashable SlotDefaultValue
 
-instance Core.NFData SlotDefaultValue
+instance Prelude.NFData SlotDefaultValue
 
 instance Core.ToJSON SlotDefaultValue where
   toJSON SlotDefaultValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("defaultValue" Core..= defaultValue)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("defaultValue" Core..= defaultValue)]
       )

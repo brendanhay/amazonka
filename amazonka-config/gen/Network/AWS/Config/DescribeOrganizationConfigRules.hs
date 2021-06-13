@@ -50,6 +50,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,17 +58,17 @@ import qualified Network.AWS.Response as Response
 data DescribeOrganizationConfigRules = DescribeOrganizationConfigRules'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The names of organization config rules for which you want details. If
     -- you do not specify any names, AWS Config returns details for all your
     -- organization config rules.
-    organizationConfigRuleNames :: Core.Maybe [Core.Text],
+    organizationConfigRuleNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of organization config rules returned on each page.
     -- If you do no specify a number, AWS Config uses the default. The default
     -- is 100.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationConfigRules' with all optional fields omitted.
@@ -92,26 +93,27 @@ newDescribeOrganizationConfigRules ::
 newDescribeOrganizationConfigRules =
   DescribeOrganizationConfigRules'
     { nextToken =
-        Core.Nothing,
-      organizationConfigRuleNames = Core.Nothing,
-      limit = Core.Nothing
+        Prelude.Nothing,
+      organizationConfigRuleNames =
+        Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describeOrganizationConfigRules_nextToken :: Lens.Lens' DescribeOrganizationConfigRules (Core.Maybe Core.Text)
+describeOrganizationConfigRules_nextToken :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe Prelude.Text)
 describeOrganizationConfigRules_nextToken = Lens.lens (\DescribeOrganizationConfigRules' {nextToken} -> nextToken) (\s@DescribeOrganizationConfigRules' {} a -> s {nextToken = a} :: DescribeOrganizationConfigRules)
 
 -- | The names of organization config rules for which you want details. If
 -- you do not specify any names, AWS Config returns details for all your
 -- organization config rules.
-describeOrganizationConfigRules_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRules (Core.Maybe [Core.Text])
-describeOrganizationConfigRules_organizationConfigRuleNames = Lens.lens (\DescribeOrganizationConfigRules' {organizationConfigRuleNames} -> organizationConfigRuleNames) (\s@DescribeOrganizationConfigRules' {} a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRules) Core.. Lens.mapping Lens._Coerce
+describeOrganizationConfigRules_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe [Prelude.Text])
+describeOrganizationConfigRules_organizationConfigRuleNames = Lens.lens (\DescribeOrganizationConfigRules' {organizationConfigRuleNames} -> organizationConfigRuleNames) (\s@DescribeOrganizationConfigRules' {} a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRules) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of organization config rules returned on each page.
 -- If you do no specify a number, AWS Config uses the default. The default
 -- is 100.
-describeOrganizationConfigRules_limit :: Lens.Lens' DescribeOrganizationConfigRules (Core.Maybe Core.Natural)
+describeOrganizationConfigRules_limit :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe Prelude.Natural)
 describeOrganizationConfigRules_limit = Lens.lens (\DescribeOrganizationConfigRules' {limit} -> limit) (\s@DescribeOrganizationConfigRules' {} a -> s {limit = a} :: DescribeOrganizationConfigRules)
 
 instance
@@ -126,63 +128,67 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationConfigRulesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "OrganizationConfigRules"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "OrganizationConfigRules"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeOrganizationConfigRules
 
-instance Core.NFData DescribeOrganizationConfigRules
+instance
+  Prelude.NFData
+    DescribeOrganizationConfigRules
 
 instance
   Core.ToHeaders
     DescribeOrganizationConfigRules
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DescribeOrganizationConfigRules" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeOrganizationConfigRules where
   toJSON DescribeOrganizationConfigRules' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("OrganizationConfigRuleNames" Core..=)
-              Core.<$> organizationConfigRuleNames,
-            ("Limit" Core..=) Core.<$> limit
+              Prelude.<$> organizationConfigRuleNames,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath DescribeOrganizationConfigRules where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeOrganizationConfigRules where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationConfigRulesResponse' smart constructor.
 data DescribeOrganizationConfigRulesResponse = DescribeOrganizationConfigRulesResponse'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns a list of @OrganizationConfigRule@ objects.
-    organizationConfigRules :: Core.Maybe [OrganizationConfigRule],
+    organizationConfigRules :: Prelude.Maybe [OrganizationConfigRule],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationConfigRulesResponse' with all optional fields omitted.
@@ -200,31 +206,31 @@ data DescribeOrganizationConfigRulesResponse = DescribeOrganizationConfigRulesRe
 -- 'httpStatus', 'describeOrganizationConfigRulesResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationConfigRulesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeOrganizationConfigRulesResponse
 newDescribeOrganizationConfigRulesResponse
   pHttpStatus_ =
     DescribeOrganizationConfigRulesResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         organizationConfigRules =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describeOrganizationConfigRulesResponse_nextToken :: Lens.Lens' DescribeOrganizationConfigRulesResponse (Core.Maybe Core.Text)
+describeOrganizationConfigRulesResponse_nextToken :: Lens.Lens' DescribeOrganizationConfigRulesResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationConfigRulesResponse_nextToken = Lens.lens (\DescribeOrganizationConfigRulesResponse' {nextToken} -> nextToken) (\s@DescribeOrganizationConfigRulesResponse' {} a -> s {nextToken = a} :: DescribeOrganizationConfigRulesResponse)
 
 -- | Returns a list of @OrganizationConfigRule@ objects.
-describeOrganizationConfigRulesResponse_organizationConfigRules :: Lens.Lens' DescribeOrganizationConfigRulesResponse (Core.Maybe [OrganizationConfigRule])
-describeOrganizationConfigRulesResponse_organizationConfigRules = Lens.lens (\DescribeOrganizationConfigRulesResponse' {organizationConfigRules} -> organizationConfigRules) (\s@DescribeOrganizationConfigRulesResponse' {} a -> s {organizationConfigRules = a} :: DescribeOrganizationConfigRulesResponse) Core.. Lens.mapping Lens._Coerce
+describeOrganizationConfigRulesResponse_organizationConfigRules :: Lens.Lens' DescribeOrganizationConfigRulesResponse (Prelude.Maybe [OrganizationConfigRule])
+describeOrganizationConfigRulesResponse_organizationConfigRules = Lens.lens (\DescribeOrganizationConfigRulesResponse' {organizationConfigRules} -> organizationConfigRules) (\s@DescribeOrganizationConfigRulesResponse' {} a -> s {organizationConfigRules = a} :: DescribeOrganizationConfigRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeOrganizationConfigRulesResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigRulesResponse Core.Int
+describeOrganizationConfigRulesResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigRulesResponse Prelude.Int
 describeOrganizationConfigRulesResponse_httpStatus = Lens.lens (\DescribeOrganizationConfigRulesResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationConfigRulesResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationConfigRulesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeOrganizationConfigRulesResponse

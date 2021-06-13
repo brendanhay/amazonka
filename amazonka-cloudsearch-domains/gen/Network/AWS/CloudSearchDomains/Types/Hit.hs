@@ -21,22 +21,23 @@ module Network.AWS.CloudSearchDomains.Types.Hit where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a document that matches the search request.
 --
 -- /See:/ 'newHit' smart constructor.
 data Hit = Hit'
   { -- | The document ID of a document that matches the search request.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The expressions returned from a document that matches the search
     -- request.
-    exprs :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    exprs :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The fields returned from a document that matches the search request.
-    fields :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The highlights returned from a document that matches the search request.
-    highlights :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    highlights :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Hit' with all optional fields omitted.
@@ -58,28 +59,28 @@ newHit ::
   Hit
 newHit =
   Hit'
-    { id = Core.Nothing,
-      exprs = Core.Nothing,
-      fields = Core.Nothing,
-      highlights = Core.Nothing
+    { id = Prelude.Nothing,
+      exprs = Prelude.Nothing,
+      fields = Prelude.Nothing,
+      highlights = Prelude.Nothing
     }
 
 -- | The document ID of a document that matches the search request.
-hit_id :: Lens.Lens' Hit (Core.Maybe Core.Text)
+hit_id :: Lens.Lens' Hit (Prelude.Maybe Prelude.Text)
 hit_id = Lens.lens (\Hit' {id} -> id) (\s@Hit' {} a -> s {id = a} :: Hit)
 
 -- | The expressions returned from a document that matches the search
 -- request.
-hit_exprs :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Core.Text Core.Text))
-hit_exprs = Lens.lens (\Hit' {exprs} -> exprs) (\s@Hit' {} a -> s {exprs = a} :: Hit) Core.. Lens.mapping Lens._Coerce
+hit_exprs :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+hit_exprs = Lens.lens (\Hit' {exprs} -> exprs) (\s@Hit' {} a -> s {exprs = a} :: Hit) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The fields returned from a document that matches the search request.
-hit_fields :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-hit_fields = Lens.lens (\Hit' {fields} -> fields) (\s@Hit' {} a -> s {fields = a} :: Hit) Core.. Lens.mapping Lens._Coerce
+hit_fields :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+hit_fields = Lens.lens (\Hit' {fields} -> fields) (\s@Hit' {} a -> s {fields = a} :: Hit) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The highlights returned from a document that matches the search request.
-hit_highlights :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Core.Text Core.Text))
-hit_highlights = Lens.lens (\Hit' {highlights} -> highlights) (\s@Hit' {} a -> s {highlights = a} :: Hit) Core.. Lens.mapping Lens._Coerce
+hit_highlights :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+hit_highlights = Lens.lens (\Hit' {highlights} -> highlights) (\s@Hit' {} a -> s {highlights = a} :: Hit) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Hit where
   parseJSON =
@@ -87,12 +88,12 @@ instance Core.FromJSON Hit where
       "Hit"
       ( \x ->
           Hit'
-            Core.<$> (x Core..:? "id")
-            Core.<*> (x Core..:? "exprs" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "fields" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "highlights" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "exprs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "highlights" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Hit
+instance Prelude.Hashable Hit
 
-instance Core.NFData Hit
+instance Prelude.NFData Hit

@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -73,7 +74,7 @@ import Network.AWS.StepFunctions.Types
 -- | /See:/ 'newCreateStateMachine' smart constructor.
 data CreateStateMachine = CreateStateMachine'
   { -- | Selects whether AWS X-Ray tracing is enabled.
-    tracingConfiguration :: Core.Maybe TracingConfiguration,
+    tracingConfiguration :: Prelude.Maybe TracingConfiguration,
     -- | Tags to be added when creating a state machine.
     --
     -- An array of key-value pairs. For more information, see
@@ -83,18 +84,18 @@ data CreateStateMachine = CreateStateMachine'
     --
     -- Tags may only contain Unicode letters, digits, white space, or these
     -- symbols: @_ . : \/ = + - \@@.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Defines what execution history events are logged and where they are
     -- logged.
     --
     -- By default, the @level@ is set to @OFF@. For more information see
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
     -- in the AWS Step Functions User Guide.
-    loggingConfiguration :: Core.Maybe LoggingConfiguration,
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | Determines whether a Standard or Express state machine is created. The
     -- default is @STANDARD@. You cannot update the @type@ of a state machine
     -- once it has been created.
-    type' :: Core.Maybe StateMachineType,
+    type' :: Prelude.Maybe StateMachineType,
     -- | The name of the state machine.
     --
     -- A name must /not/ contain:
@@ -111,15 +112,15 @@ data CreateStateMachine = CreateStateMachine'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The Amazon States Language definition of the state machine. See
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-    definition :: Core.Sensitive Core.Text,
+    definition :: Core.Sensitive Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to use for this state
     -- machine.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStateMachine' with all optional fields omitted.
@@ -176,26 +177,26 @@ data CreateStateMachine = CreateStateMachine'
 -- machine.
 newCreateStateMachine ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'definition'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateStateMachine
 newCreateStateMachine pName_ pDefinition_ pRoleArn_ =
   CreateStateMachine'
     { tracingConfiguration =
-        Core.Nothing,
-      tags = Core.Nothing,
-      loggingConfiguration = Core.Nothing,
-      type' = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      loggingConfiguration = Prelude.Nothing,
+      type' = Prelude.Nothing,
       name = pName_,
       definition = Core._Sensitive Lens.# pDefinition_,
       roleArn = pRoleArn_
     }
 
 -- | Selects whether AWS X-Ray tracing is enabled.
-createStateMachine_tracingConfiguration :: Lens.Lens' CreateStateMachine (Core.Maybe TracingConfiguration)
+createStateMachine_tracingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe TracingConfiguration)
 createStateMachine_tracingConfiguration = Lens.lens (\CreateStateMachine' {tracingConfiguration} -> tracingConfiguration) (\s@CreateStateMachine' {} a -> s {tracingConfiguration = a} :: CreateStateMachine)
 
 -- | Tags to be added when creating a state machine.
@@ -207,8 +208,8 @@ createStateMachine_tracingConfiguration = Lens.lens (\CreateStateMachine' {traci
 --
 -- Tags may only contain Unicode letters, digits, white space, or these
 -- symbols: @_ . : \/ = + - \@@.
-createStateMachine_tags :: Lens.Lens' CreateStateMachine (Core.Maybe [Tag])
-createStateMachine_tags = Lens.lens (\CreateStateMachine' {tags} -> tags) (\s@CreateStateMachine' {} a -> s {tags = a} :: CreateStateMachine) Core.. Lens.mapping Lens._Coerce
+createStateMachine_tags :: Lens.Lens' CreateStateMachine (Prelude.Maybe [Tag])
+createStateMachine_tags = Lens.lens (\CreateStateMachine' {tags} -> tags) (\s@CreateStateMachine' {} a -> s {tags = a} :: CreateStateMachine) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Defines what execution history events are logged and where they are
 -- logged.
@@ -216,13 +217,13 @@ createStateMachine_tags = Lens.lens (\CreateStateMachine' {tags} -> tags) (\s@Cr
 -- By default, the @level@ is set to @OFF@. For more information see
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
 -- in the AWS Step Functions User Guide.
-createStateMachine_loggingConfiguration :: Lens.Lens' CreateStateMachine (Core.Maybe LoggingConfiguration)
+createStateMachine_loggingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe LoggingConfiguration)
 createStateMachine_loggingConfiguration = Lens.lens (\CreateStateMachine' {loggingConfiguration} -> loggingConfiguration) (\s@CreateStateMachine' {} a -> s {loggingConfiguration = a} :: CreateStateMachine)
 
 -- | Determines whether a Standard or Express state machine is created. The
 -- default is @STANDARD@. You cannot update the @type@ of a state machine
 -- once it has been created.
-createStateMachine_type :: Lens.Lens' CreateStateMachine (Core.Maybe StateMachineType)
+createStateMachine_type :: Lens.Lens' CreateStateMachine (Prelude.Maybe StateMachineType)
 createStateMachine_type = Lens.lens (\CreateStateMachine' {type'} -> type') (\s@CreateStateMachine' {} a -> s {type' = a} :: CreateStateMachine)
 
 -- | The name of the state machine.
@@ -241,17 +242,17 @@ createStateMachine_type = Lens.lens (\CreateStateMachine' {type'} -> type') (\s@
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-createStateMachine_name :: Lens.Lens' CreateStateMachine Core.Text
+createStateMachine_name :: Lens.Lens' CreateStateMachine Prelude.Text
 createStateMachine_name = Lens.lens (\CreateStateMachine' {name} -> name) (\s@CreateStateMachine' {} a -> s {name = a} :: CreateStateMachine)
 
 -- | The Amazon States Language definition of the state machine. See
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-createStateMachine_definition :: Lens.Lens' CreateStateMachine Core.Text
-createStateMachine_definition = Lens.lens (\CreateStateMachine' {definition} -> definition) (\s@CreateStateMachine' {} a -> s {definition = a} :: CreateStateMachine) Core.. Core._Sensitive
+createStateMachine_definition :: Lens.Lens' CreateStateMachine Prelude.Text
+createStateMachine_definition = Lens.lens (\CreateStateMachine' {definition} -> definition) (\s@CreateStateMachine' {} a -> s {definition = a} :: CreateStateMachine) Prelude.. Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role to use for this state
 -- machine.
-createStateMachine_roleArn :: Lens.Lens' CreateStateMachine Core.Text
+createStateMachine_roleArn :: Lens.Lens' CreateStateMachine Prelude.Text
 createStateMachine_roleArn = Lens.lens (\CreateStateMachine' {roleArn} -> roleArn) (\s@CreateStateMachine' {} a -> s {roleArn = a} :: CreateStateMachine)
 
 instance Core.AWSRequest CreateStateMachine where
@@ -263,61 +264,63 @@ instance Core.AWSRequest CreateStateMachine where
     Response.receiveJSON
       ( \s h x ->
           CreateStateMachineResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "stateMachineArn")
-            Core.<*> (x Core..:> "creationDate")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "stateMachineArn")
+            Prelude.<*> (x Core..:> "creationDate")
       )
 
-instance Core.Hashable CreateStateMachine
+instance Prelude.Hashable CreateStateMachine
 
-instance Core.NFData CreateStateMachine
+instance Prelude.NFData CreateStateMachine
 
 instance Core.ToHeaders CreateStateMachine where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSStepFunctions.CreateStateMachine" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateStateMachine where
   toJSON CreateStateMachine' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("tracingConfiguration" Core..=)
-              Core.<$> tracingConfiguration,
-            ("tags" Core..=) Core.<$> tags,
+              Prelude.<$> tracingConfiguration,
+            ("tags" Core..=) Prelude.<$> tags,
             ("loggingConfiguration" Core..=)
-              Core.<$> loggingConfiguration,
-            ("type" Core..=) Core.<$> type',
-            Core.Just ("name" Core..= name),
-            Core.Just ("definition" Core..= definition),
-            Core.Just ("roleArn" Core..= roleArn)
+              Prelude.<$> loggingConfiguration,
+            ("type" Core..=) Prelude.<$> type',
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("definition" Core..= definition),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )
 
 instance Core.ToPath CreateStateMachine where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateStateMachine where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStateMachineResponse' smart constructor.
 data CreateStateMachineResponse = CreateStateMachineResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) that identifies the created state
     -- machine.
-    stateMachineArn :: Core.Text,
+    stateMachineArn :: Prelude.Text,
     -- | The date the state machine is created.
     creationDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStateMachineResponse' with all optional fields omitted.
@@ -335,11 +338,11 @@ data CreateStateMachineResponse = CreateStateMachineResponse'
 -- 'creationDate', 'createStateMachineResponse_creationDate' - The date the state machine is created.
 newCreateStateMachineResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'stateMachineArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   CreateStateMachineResponse
 newCreateStateMachineResponse
   pHttpStatus_
@@ -353,16 +356,16 @@ newCreateStateMachineResponse
       }
 
 -- | The response's http status code.
-createStateMachineResponse_httpStatus :: Lens.Lens' CreateStateMachineResponse Core.Int
+createStateMachineResponse_httpStatus :: Lens.Lens' CreateStateMachineResponse Prelude.Int
 createStateMachineResponse_httpStatus = Lens.lens (\CreateStateMachineResponse' {httpStatus} -> httpStatus) (\s@CreateStateMachineResponse' {} a -> s {httpStatus = a} :: CreateStateMachineResponse)
 
 -- | The Amazon Resource Name (ARN) that identifies the created state
 -- machine.
-createStateMachineResponse_stateMachineArn :: Lens.Lens' CreateStateMachineResponse Core.Text
+createStateMachineResponse_stateMachineArn :: Lens.Lens' CreateStateMachineResponse Prelude.Text
 createStateMachineResponse_stateMachineArn = Lens.lens (\CreateStateMachineResponse' {stateMachineArn} -> stateMachineArn) (\s@CreateStateMachineResponse' {} a -> s {stateMachineArn = a} :: CreateStateMachineResponse)
 
 -- | The date the state machine is created.
-createStateMachineResponse_creationDate :: Lens.Lens' CreateStateMachineResponse Core.UTCTime
-createStateMachineResponse_creationDate = Lens.lens (\CreateStateMachineResponse' {creationDate} -> creationDate) (\s@CreateStateMachineResponse' {} a -> s {creationDate = a} :: CreateStateMachineResponse) Core.. Core._Time
+createStateMachineResponse_creationDate :: Lens.Lens' CreateStateMachineResponse Prelude.UTCTime
+createStateMachineResponse_creationDate = Lens.lens (\CreateStateMachineResponse' {creationDate} -> creationDate) (\s@CreateStateMachineResponse' {} a -> s {creationDate = a} :: CreateStateMachineResponse) Prelude.. Core._Time
 
-instance Core.NFData CreateStateMachineResponse
+instance Prelude.NFData CreateStateMachineResponse

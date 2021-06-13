@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A key-value pair (the value is optional) that you can define and assign
 -- to AWS resources. If you specify a tag that already exists, the tag
@@ -33,11 +34,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The value of the key-value tag. The value is optional.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The key of the key-value tag.
-    key :: Core.Text
+    key :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -52,17 +53,17 @@ data Tag = Tag'
 -- 'key', 'tag_key' - The key of the key-value tag.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ =
-  Tag' {value = Core.Nothing, key = pKey_}
+  Tag' {value = Prelude.Nothing, key = pKey_}
 
 -- | The value of the key-value tag. The value is optional.
-tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 -- | The key of the key-value tag.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -71,18 +72,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..:? "Value") Core.<*> (x Core..: "Key")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..: "Key")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Value" Core..=) Core.<$> value,
-            Core.Just ("Key" Core..= key)
+      ( Prelude.catMaybes
+          [ ("Value" Core..=) Prelude.<$> value,
+            Prelude.Just ("Key" Core..= key)
           ]
       )

@@ -42,15 +42,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBusinessReportSchedule' smart constructor.
 data DeleteBusinessReportSchedule = DeleteBusinessReportSchedule'
   { -- | The ARN of the business report schedule.
-    scheduleArn :: Core.Text
+    scheduleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBusinessReportSchedule' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteBusinessReportSchedule = DeleteBusinessReportSchedule'
 -- 'scheduleArn', 'deleteBusinessReportSchedule_scheduleArn' - The ARN of the business report schedule.
 newDeleteBusinessReportSchedule ::
   -- | 'scheduleArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBusinessReportSchedule
 newDeleteBusinessReportSchedule pScheduleArn_ =
   DeleteBusinessReportSchedule'
@@ -72,7 +73,7 @@ newDeleteBusinessReportSchedule pScheduleArn_ =
     }
 
 -- | The ARN of the business report schedule.
-deleteBusinessReportSchedule_scheduleArn :: Lens.Lens' DeleteBusinessReportSchedule Core.Text
+deleteBusinessReportSchedule_scheduleArn :: Lens.Lens' DeleteBusinessReportSchedule Prelude.Text
 deleteBusinessReportSchedule_scheduleArn = Lens.lens (\DeleteBusinessReportSchedule' {scheduleArn} -> scheduleArn) (\s@DeleteBusinessReportSchedule' {} a -> s {scheduleArn = a} :: DeleteBusinessReportSchedule)
 
 instance Core.AWSRequest DeleteBusinessReportSchedule where
@@ -84,45 +85,49 @@ instance Core.AWSRequest DeleteBusinessReportSchedule where
     Response.receiveEmpty
       ( \s h x ->
           DeleteBusinessReportScheduleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteBusinessReportSchedule
+instance
+  Prelude.Hashable
+    DeleteBusinessReportSchedule
 
-instance Core.NFData DeleteBusinessReportSchedule
+instance Prelude.NFData DeleteBusinessReportSchedule
 
 instance Core.ToHeaders DeleteBusinessReportSchedule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.DeleteBusinessReportSchedule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteBusinessReportSchedule where
   toJSON DeleteBusinessReportSchedule' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ScheduleArn" Core..= scheduleArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ScheduleArn" Core..= scheduleArn)]
       )
 
 instance Core.ToPath DeleteBusinessReportSchedule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteBusinessReportSchedule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBusinessReportScheduleResponse' smart constructor.
 data DeleteBusinessReportScheduleResponse = DeleteBusinessReportScheduleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBusinessReportScheduleResponse' with all optional fields omitted.
@@ -135,7 +140,7 @@ data DeleteBusinessReportScheduleResponse = DeleteBusinessReportScheduleResponse
 -- 'httpStatus', 'deleteBusinessReportScheduleResponse_httpStatus' - The response's http status code.
 newDeleteBusinessReportScheduleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteBusinessReportScheduleResponse
 newDeleteBusinessReportScheduleResponse pHttpStatus_ =
   DeleteBusinessReportScheduleResponse'
@@ -144,9 +149,9 @@ newDeleteBusinessReportScheduleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteBusinessReportScheduleResponse_httpStatus :: Lens.Lens' DeleteBusinessReportScheduleResponse Core.Int
+deleteBusinessReportScheduleResponse_httpStatus :: Lens.Lens' DeleteBusinessReportScheduleResponse Prelude.Int
 deleteBusinessReportScheduleResponse_httpStatus = Lens.lens (\DeleteBusinessReportScheduleResponse' {httpStatus} -> httpStatus) (\s@DeleteBusinessReportScheduleResponse' {} a -> s {httpStatus = a} :: DeleteBusinessReportScheduleResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteBusinessReportScheduleResponse

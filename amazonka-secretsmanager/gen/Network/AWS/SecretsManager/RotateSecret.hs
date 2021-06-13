@@ -106,6 +106,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -113,10 +114,10 @@ import Network.AWS.SecretsManager.Types
 -- | /See:/ 'newRotateSecret' smart constructor.
 data RotateSecret = RotateSecret'
   { -- | A structure that defines the rotation configuration for this secret.
-    rotationRules :: Core.Maybe RotationRulesType,
+    rotationRules :: Prelude.Maybe RotationRulesType,
     -- | (Optional) Specifies the ARN of the Lambda function that can rotate the
     -- secret.
-    rotationLambdaARN :: Core.Maybe Core.Text,
+    rotationLambdaARN :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies a unique identifier for the new version of the
     -- secret that helps ensure idempotency.
     --
@@ -138,7 +139,7 @@ data RotateSecret = RotateSecret'
     -- duplicate versions if there are failures and retries during the
     -- function\'s processing. This value becomes the @VersionId@ of the new
     -- version.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret that you want to rotate. You can specify either the
     -- Amazon Resource Name (ARN) or the friendly name of the secret.
     --
@@ -160,9 +161,9 @@ data RotateSecret = RotateSecret'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Core.Text
+    secretId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RotateSecret' with all optional fields omitted.
@@ -222,23 +223,23 @@ data RotateSecret = RotateSecret'
 -- /AccessDeniedException/ error, depending on your permissions.
 newRotateSecret ::
   -- | 'secretId'
-  Core.Text ->
+  Prelude.Text ->
   RotateSecret
 newRotateSecret pSecretId_ =
   RotateSecret'
-    { rotationRules = Core.Nothing,
-      rotationLambdaARN = Core.Nothing,
-      clientRequestToken = Core.Nothing,
+    { rotationRules = Prelude.Nothing,
+      rotationLambdaARN = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       secretId = pSecretId_
     }
 
 -- | A structure that defines the rotation configuration for this secret.
-rotateSecret_rotationRules :: Lens.Lens' RotateSecret (Core.Maybe RotationRulesType)
+rotateSecret_rotationRules :: Lens.Lens' RotateSecret (Prelude.Maybe RotationRulesType)
 rotateSecret_rotationRules = Lens.lens (\RotateSecret' {rotationRules} -> rotationRules) (\s@RotateSecret' {} a -> s {rotationRules = a} :: RotateSecret)
 
 -- | (Optional) Specifies the ARN of the Lambda function that can rotate the
 -- secret.
-rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Core.Maybe Core.Text)
+rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
 rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -> rotationLambdaARN) (\s@RotateSecret' {} a -> s {rotationLambdaARN = a} :: RotateSecret)
 
 -- | (Optional) Specifies a unique identifier for the new version of the
@@ -262,7 +263,7 @@ rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -
 -- duplicate versions if there are failures and retries during the
 -- function\'s processing. This value becomes the @VersionId@ of the new
 -- version.
-rotateSecret_clientRequestToken :: Lens.Lens' RotateSecret (Core.Maybe Core.Text)
+rotateSecret_clientRequestToken :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
 rotateSecret_clientRequestToken = Lens.lens (\RotateSecret' {clientRequestToken} -> clientRequestToken) (\s@RotateSecret' {} a -> s {clientRequestToken = a} :: RotateSecret)
 
 -- | Specifies the secret that you want to rotate. You can specify either the
@@ -286,7 +287,7 @@ rotateSecret_clientRequestToken = Lens.lens (\RotateSecret' {clientRequestToken}
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-rotateSecret_secretId :: Lens.Lens' RotateSecret Core.Text
+rotateSecret_secretId :: Lens.Lens' RotateSecret Prelude.Text
 rotateSecret_secretId = Lens.lens (\RotateSecret' {secretId} -> secretId) (\s@RotateSecret' {} a -> s {secretId = a} :: RotateSecret)
 
 instance Core.AWSRequest RotateSecret where
@@ -296,59 +297,63 @@ instance Core.AWSRequest RotateSecret where
     Response.receiveJSON
       ( \s h x ->
           RotateSecretResponse'
-            Core.<$> (x Core..?> "ARN")
-            Core.<*> (x Core..?> "VersionId")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RotateSecret
+instance Prelude.Hashable RotateSecret
 
-instance Core.NFData RotateSecret
+instance Prelude.NFData RotateSecret
 
 instance Core.ToHeaders RotateSecret where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("secretsmanager.RotateSecret" :: Core.ByteString),
+              Core.=# ( "secretsmanager.RotateSecret" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RotateSecret where
   toJSON RotateSecret' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RotationRules" Core..=) Core.<$> rotationRules,
+      ( Prelude.catMaybes
+          [ ("RotationRules" Core..=) Prelude.<$> rotationRules,
             ("RotationLambdaARN" Core..=)
-              Core.<$> rotationLambdaARN,
+              Prelude.<$> rotationLambdaARN,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just ("SecretId" Core..= secretId)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just ("SecretId" Core..= secretId)
           ]
       )
 
 instance Core.ToPath RotateSecret where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RotateSecret where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRotateSecretResponse' smart constructor.
 data RotateSecretResponse = RotateSecretResponse'
   { -- | The ARN of the secret.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the new version of the secret created by the rotation started
     -- by this request.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RotateSecretResponse' with all optional fields omitted.
@@ -368,31 +373,31 @@ data RotateSecretResponse = RotateSecretResponse'
 -- 'httpStatus', 'rotateSecretResponse_httpStatus' - The response's http status code.
 newRotateSecretResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RotateSecretResponse
 newRotateSecretResponse pHttpStatus_ =
   RotateSecretResponse'
-    { arn = Core.Nothing,
-      versionId = Core.Nothing,
-      name = Core.Nothing,
+    { arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret.
-rotateSecretResponse_arn :: Lens.Lens' RotateSecretResponse (Core.Maybe Core.Text)
+rotateSecretResponse_arn :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
 rotateSecretResponse_arn = Lens.lens (\RotateSecretResponse' {arn} -> arn) (\s@RotateSecretResponse' {} a -> s {arn = a} :: RotateSecretResponse)
 
 -- | The ID of the new version of the secret created by the rotation started
 -- by this request.
-rotateSecretResponse_versionId :: Lens.Lens' RotateSecretResponse (Core.Maybe Core.Text)
+rotateSecretResponse_versionId :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
 rotateSecretResponse_versionId = Lens.lens (\RotateSecretResponse' {versionId} -> versionId) (\s@RotateSecretResponse' {} a -> s {versionId = a} :: RotateSecretResponse)
 
 -- | The friendly name of the secret.
-rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Core.Maybe Core.Text)
+rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
 rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\s@RotateSecretResponse' {} a -> s {name = a} :: RotateSecretResponse)
 
 -- | The response's http status code.
-rotateSecretResponse_httpStatus :: Lens.Lens' RotateSecretResponse Core.Int
+rotateSecretResponse_httpStatus :: Lens.Lens' RotateSecretResponse Prelude.Int
 rotateSecretResponse_httpStatus = Lens.lens (\RotateSecretResponse' {httpStatus} -> httpStatus) (\s@RotateSecretResponse' {} a -> s {httpStatus = a} :: RotateSecretResponse)
 
-instance Core.NFData RotateSecretResponse
+instance Prelude.NFData RotateSecretResponse

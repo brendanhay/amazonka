@@ -21,6 +21,7 @@ module Network.AWS.AlexaBusiness.Types.RoomSkillParameter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A skill parameter associated with a room.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data RoomSkillParameter = RoomSkillParameter'
   { -- | The parameter key of a room skill parameter. ParameterKey is an
     -- enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.
-    parameterKey :: Core.Text,
+    parameterKey :: Prelude.Text,
     -- | The parameter value of a room skill parameter.
-    parameterValue :: Core.Text
+    parameterValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RoomSkillParameter' with all optional fields omitted.
@@ -48,9 +49,9 @@ data RoomSkillParameter = RoomSkillParameter'
 -- 'parameterValue', 'roomSkillParameter_parameterValue' - The parameter value of a room skill parameter.
 newRoomSkillParameter ::
   -- | 'parameterKey'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'parameterValue'
-  Core.Text ->
+  Prelude.Text ->
   RoomSkillParameter
 newRoomSkillParameter pParameterKey_ pParameterValue_ =
   RoomSkillParameter'
@@ -60,11 +61,11 @@ newRoomSkillParameter pParameterKey_ pParameterValue_ =
 
 -- | The parameter key of a room skill parameter. ParameterKey is an
 -- enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.
-roomSkillParameter_parameterKey :: Lens.Lens' RoomSkillParameter Core.Text
+roomSkillParameter_parameterKey :: Lens.Lens' RoomSkillParameter Prelude.Text
 roomSkillParameter_parameterKey = Lens.lens (\RoomSkillParameter' {parameterKey} -> parameterKey) (\s@RoomSkillParameter' {} a -> s {parameterKey = a} :: RoomSkillParameter)
 
 -- | The parameter value of a room skill parameter.
-roomSkillParameter_parameterValue :: Lens.Lens' RoomSkillParameter Core.Text
+roomSkillParameter_parameterValue :: Lens.Lens' RoomSkillParameter Prelude.Text
 roomSkillParameter_parameterValue = Lens.lens (\RoomSkillParameter' {parameterValue} -> parameterValue) (\s@RoomSkillParameter' {} a -> s {parameterValue = a} :: RoomSkillParameter)
 
 instance Core.FromJSON RoomSkillParameter where
@@ -73,19 +74,20 @@ instance Core.FromJSON RoomSkillParameter where
       "RoomSkillParameter"
       ( \x ->
           RoomSkillParameter'
-            Core.<$> (x Core..: "ParameterKey")
-            Core.<*> (x Core..: "ParameterValue")
+            Prelude.<$> (x Core..: "ParameterKey")
+            Prelude.<*> (x Core..: "ParameterValue")
       )
 
-instance Core.Hashable RoomSkillParameter
+instance Prelude.Hashable RoomSkillParameter
 
-instance Core.NFData RoomSkillParameter
+instance Prelude.NFData RoomSkillParameter
 
 instance Core.ToJSON RoomSkillParameter where
   toJSON RoomSkillParameter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ParameterKey" Core..= parameterKey),
-            Core.Just ("ParameterValue" Core..= parameterValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ParameterKey" Core..= parameterKey),
+            Prelude.Just
+              ("ParameterValue" Core..= parameterValue)
           ]
       )

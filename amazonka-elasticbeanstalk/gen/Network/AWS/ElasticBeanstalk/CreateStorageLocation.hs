@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data CreateStorageLocation = CreateStorageLocation'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStorageLocation' with all optional fields omitted.
@@ -71,27 +72,28 @@ instance Core.AWSRequest CreateStorageLocation where
       "CreateStorageLocationResult"
       ( \s h x ->
           CreateStorageLocationResponse'
-            Core.<$> (x Core..@? "S3Bucket")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "S3Bucket")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateStorageLocation
+instance Prelude.Hashable CreateStorageLocation
 
-instance Core.NFData CreateStorageLocation
+instance Prelude.NFData CreateStorageLocation
 
 instance Core.ToHeaders CreateStorageLocation where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateStorageLocation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateStorageLocation where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("CreateStorageLocation" :: Core.ByteString),
-            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
+              Core.=: ("CreateStorageLocation" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 
@@ -100,11 +102,11 @@ instance Core.ToQuery CreateStorageLocation where
 -- /See:/ 'newCreateStorageLocationResponse' smart constructor.
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
   { -- | The name of the Amazon S3 bucket created.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStorageLocationResponse' with all optional fields omitted.
@@ -119,21 +121,21 @@ data CreateStorageLocationResponse = CreateStorageLocationResponse'
 -- 'httpStatus', 'createStorageLocationResponse_httpStatus' - The response's http status code.
 newCreateStorageLocationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateStorageLocationResponse
 newCreateStorageLocationResponse pHttpStatus_ =
   CreateStorageLocationResponse'
     { s3Bucket =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the Amazon S3 bucket created.
-createStorageLocationResponse_s3Bucket :: Lens.Lens' CreateStorageLocationResponse (Core.Maybe Core.Text)
+createStorageLocationResponse_s3Bucket :: Lens.Lens' CreateStorageLocationResponse (Prelude.Maybe Prelude.Text)
 createStorageLocationResponse_s3Bucket = Lens.lens (\CreateStorageLocationResponse' {s3Bucket} -> s3Bucket) (\s@CreateStorageLocationResponse' {} a -> s {s3Bucket = a} :: CreateStorageLocationResponse)
 
 -- | The response's http status code.
-createStorageLocationResponse_httpStatus :: Lens.Lens' CreateStorageLocationResponse Core.Int
+createStorageLocationResponse_httpStatus :: Lens.Lens' CreateStorageLocationResponse Prelude.Int
 createStorageLocationResponse_httpStatus = Lens.lens (\CreateStorageLocationResponse' {httpStatus} -> httpStatus) (\s@CreateStorageLocationResponse' {} a -> s {httpStatus = a} :: CreateStorageLocationResponse)
 
-instance Core.NFData CreateStorageLocationResponse
+instance Prelude.NFData CreateStorageLocationResponse

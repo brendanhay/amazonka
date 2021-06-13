@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TransformJob where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.BatchStrategy
 import Network.AWS.SageMaker.Types.DataProcessing
 import Network.AWS.SageMaker.Types.ExperimentConfig
@@ -38,18 +39,18 @@ import Network.AWS.SageMaker.Types.TransformResources
 -- /See:/ 'newTransformJob' smart constructor.
 data TransformJob = TransformJob'
   { -- | A timestamp that shows when the transform Job was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the labeling job that created the
     -- transform job.
-    labelingJobArn :: Core.Maybe Core.Text,
+    labelingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the transform job.
-    transformJobName :: Core.Maybe Core.Text,
+    transformJobName :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the transform job starts on ML instances. You are billed
     -- for the time interval between this time and the value of
     -- @TransformEndTime@.
-    transformStartTime :: Core.Maybe Core.POSIX,
-    transformOutput :: Core.Maybe TransformOutput,
-    experimentConfig :: Core.Maybe ExperimentConfig,
+    transformStartTime :: Prelude.Maybe Core.POSIX,
+    transformOutput :: Prelude.Maybe TransformOutput,
+    experimentConfig :: Prelude.Maybe ExperimentConfig,
     -- | The maximum number of parallel requests that can be sent to each
     -- instance in a transform job. If @MaxConcurrentTransforms@ is set to 0 or
     -- left unset, SageMaker checks the optional execution-parameters to
@@ -57,10 +58,10 @@ data TransformJob = TransformJob'
     -- execution-parameters endpoint is not enabled, the default value is 1.
     -- For built-in algorithms, you don\'t need to set a value for
     -- @MaxConcurrentTransforms@.
-    maxConcurrentTransforms :: Core.Maybe Core.Natural,
+    maxConcurrentTransforms :: Prelude.Maybe Prelude.Natural,
     -- | The environment variables to set in the Docker container. We support up
     -- to 16 key and values entries in the map.
-    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The maximum allowed size of the payload, in MB. A payload is the data
     -- portion of a record (without metadata). The value in @MaxPayloadInMB@
     -- must be greater than, or equal to, the size of a single record. To
@@ -71,12 +72,12 @@ data TransformJob = TransformJob'
     -- and is transmitted using HTTP chunked encoding, set the value to 0. This
     -- feature works only in supported algorithms. Currently, SageMaker
     -- built-in algorithms do not support HTTP chunked encoding.
-    maxPayloadInMB :: Core.Maybe Core.Natural,
+    maxPayloadInMB :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the number of records to include in a mini-batch for an HTTP
     -- inference request. A record is a single unit of input data that
     -- inference can be made on. For example, a single line in a CSV file is a
     -- record.
-    batchStrategy :: Core.Maybe BatchStrategy,
+    batchStrategy :: Prelude.Maybe BatchStrategy,
     -- | The status of the transform job.
     --
     -- Transform job statuses are:
@@ -92,28 +93,28 @@ data TransformJob = TransformJob'
     -- -   @Stopping@ - The transform job is stopping.
     --
     -- -   @Stopped@ - The transform job has stopped.
-    transformJobStatus :: Core.Maybe TransformJobStatus,
+    transformJobStatus :: Prelude.Maybe TransformJobStatus,
     -- | The Amazon Resource Name (ARN) of the AutoML job that created the
     -- transform job.
-    autoMLJobArn :: Core.Maybe Core.Text,
+    autoMLJobArn :: Prelude.Maybe Prelude.Text,
     -- | If the transform job failed, the reason it failed.
-    failureReason :: Core.Maybe Core.Text,
-    modelClientConfig :: Core.Maybe ModelClientConfig,
+    failureReason :: Prelude.Maybe Prelude.Text,
+    modelClientConfig :: Prelude.Maybe ModelClientConfig,
     -- | A list of tags associated with the transform job.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Indicates when the transform job has been completed, or has stopped or
     -- failed. You are billed for the time interval between this time and the
     -- value of @TransformStartTime@.
-    transformEndTime :: Core.Maybe Core.POSIX,
+    transformEndTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the transform job.
-    transformJobArn :: Core.Maybe Core.Text,
-    dataProcessing :: Core.Maybe DataProcessing,
+    transformJobArn :: Prelude.Maybe Prelude.Text,
+    dataProcessing :: Prelude.Maybe DataProcessing,
     -- | The name of the model associated with the transform job.
-    modelName :: Core.Maybe Core.Text,
-    transformResources :: Core.Maybe TransformResources,
-    transformInput :: Core.Maybe TransformInput
+    modelName :: Prelude.Maybe Prelude.Text,
+    transformResources :: Prelude.Maybe TransformResources,
+    transformInput :: Prelude.Maybe TransformInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransformJob' with all optional fields omitted.
@@ -207,54 +208,54 @@ newTransformJob ::
   TransformJob
 newTransformJob =
   TransformJob'
-    { creationTime = Core.Nothing,
-      labelingJobArn = Core.Nothing,
-      transformJobName = Core.Nothing,
-      transformStartTime = Core.Nothing,
-      transformOutput = Core.Nothing,
-      experimentConfig = Core.Nothing,
-      maxConcurrentTransforms = Core.Nothing,
-      environment = Core.Nothing,
-      maxPayloadInMB = Core.Nothing,
-      batchStrategy = Core.Nothing,
-      transformJobStatus = Core.Nothing,
-      autoMLJobArn = Core.Nothing,
-      failureReason = Core.Nothing,
-      modelClientConfig = Core.Nothing,
-      tags = Core.Nothing,
-      transformEndTime = Core.Nothing,
-      transformJobArn = Core.Nothing,
-      dataProcessing = Core.Nothing,
-      modelName = Core.Nothing,
-      transformResources = Core.Nothing,
-      transformInput = Core.Nothing
+    { creationTime = Prelude.Nothing,
+      labelingJobArn = Prelude.Nothing,
+      transformJobName = Prelude.Nothing,
+      transformStartTime = Prelude.Nothing,
+      transformOutput = Prelude.Nothing,
+      experimentConfig = Prelude.Nothing,
+      maxConcurrentTransforms = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      maxPayloadInMB = Prelude.Nothing,
+      batchStrategy = Prelude.Nothing,
+      transformJobStatus = Prelude.Nothing,
+      autoMLJobArn = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      modelClientConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      transformEndTime = Prelude.Nothing,
+      transformJobArn = Prelude.Nothing,
+      dataProcessing = Prelude.Nothing,
+      modelName = Prelude.Nothing,
+      transformResources = Prelude.Nothing,
+      transformInput = Prelude.Nothing
     }
 
 -- | A timestamp that shows when the transform Job was created.
-transformJob_creationTime :: Lens.Lens' TransformJob (Core.Maybe Core.UTCTime)
-transformJob_creationTime = Lens.lens (\TransformJob' {creationTime} -> creationTime) (\s@TransformJob' {} a -> s {creationTime = a} :: TransformJob) Core.. Lens.mapping Core._Time
+transformJob_creationTime :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.UTCTime)
+transformJob_creationTime = Lens.lens (\TransformJob' {creationTime} -> creationTime) (\s@TransformJob' {} a -> s {creationTime = a} :: TransformJob) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the labeling job that created the
 -- transform job.
-transformJob_labelingJobArn :: Lens.Lens' TransformJob (Core.Maybe Core.Text)
+transformJob_labelingJobArn :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Text)
 transformJob_labelingJobArn = Lens.lens (\TransformJob' {labelingJobArn} -> labelingJobArn) (\s@TransformJob' {} a -> s {labelingJobArn = a} :: TransformJob)
 
 -- | The name of the transform job.
-transformJob_transformJobName :: Lens.Lens' TransformJob (Core.Maybe Core.Text)
+transformJob_transformJobName :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Text)
 transformJob_transformJobName = Lens.lens (\TransformJob' {transformJobName} -> transformJobName) (\s@TransformJob' {} a -> s {transformJobName = a} :: TransformJob)
 
 -- | Indicates when the transform job starts on ML instances. You are billed
 -- for the time interval between this time and the value of
 -- @TransformEndTime@.
-transformJob_transformStartTime :: Lens.Lens' TransformJob (Core.Maybe Core.UTCTime)
-transformJob_transformStartTime = Lens.lens (\TransformJob' {transformStartTime} -> transformStartTime) (\s@TransformJob' {} a -> s {transformStartTime = a} :: TransformJob) Core.. Lens.mapping Core._Time
+transformJob_transformStartTime :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.UTCTime)
+transformJob_transformStartTime = Lens.lens (\TransformJob' {transformStartTime} -> transformStartTime) (\s@TransformJob' {} a -> s {transformStartTime = a} :: TransformJob) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-transformJob_transformOutput :: Lens.Lens' TransformJob (Core.Maybe TransformOutput)
+transformJob_transformOutput :: Lens.Lens' TransformJob (Prelude.Maybe TransformOutput)
 transformJob_transformOutput = Lens.lens (\TransformJob' {transformOutput} -> transformOutput) (\s@TransformJob' {} a -> s {transformOutput = a} :: TransformJob)
 
 -- | Undocumented member.
-transformJob_experimentConfig :: Lens.Lens' TransformJob (Core.Maybe ExperimentConfig)
+transformJob_experimentConfig :: Lens.Lens' TransformJob (Prelude.Maybe ExperimentConfig)
 transformJob_experimentConfig = Lens.lens (\TransformJob' {experimentConfig} -> experimentConfig) (\s@TransformJob' {} a -> s {experimentConfig = a} :: TransformJob)
 
 -- | The maximum number of parallel requests that can be sent to each
@@ -264,13 +265,13 @@ transformJob_experimentConfig = Lens.lens (\TransformJob' {experimentConfig} -> 
 -- execution-parameters endpoint is not enabled, the default value is 1.
 -- For built-in algorithms, you don\'t need to set a value for
 -- @MaxConcurrentTransforms@.
-transformJob_maxConcurrentTransforms :: Lens.Lens' TransformJob (Core.Maybe Core.Natural)
+transformJob_maxConcurrentTransforms :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Natural)
 transformJob_maxConcurrentTransforms = Lens.lens (\TransformJob' {maxConcurrentTransforms} -> maxConcurrentTransforms) (\s@TransformJob' {} a -> s {maxConcurrentTransforms = a} :: TransformJob)
 
 -- | The environment variables to set in the Docker container. We support up
 -- to 16 key and values entries in the map.
-transformJob_environment :: Lens.Lens' TransformJob (Core.Maybe (Core.HashMap Core.Text Core.Text))
-transformJob_environment = Lens.lens (\TransformJob' {environment} -> environment) (\s@TransformJob' {} a -> s {environment = a} :: TransformJob) Core.. Lens.mapping Lens._Coerce
+transformJob_environment :: Lens.Lens' TransformJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+transformJob_environment = Lens.lens (\TransformJob' {environment} -> environment) (\s@TransformJob' {} a -> s {environment = a} :: TransformJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum allowed size of the payload, in MB. A payload is the data
 -- portion of a record (without metadata). The value in @MaxPayloadInMB@
@@ -282,14 +283,14 @@ transformJob_environment = Lens.lens (\TransformJob' {environment} -> environmen
 -- and is transmitted using HTTP chunked encoding, set the value to 0. This
 -- feature works only in supported algorithms. Currently, SageMaker
 -- built-in algorithms do not support HTTP chunked encoding.
-transformJob_maxPayloadInMB :: Lens.Lens' TransformJob (Core.Maybe Core.Natural)
+transformJob_maxPayloadInMB :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Natural)
 transformJob_maxPayloadInMB = Lens.lens (\TransformJob' {maxPayloadInMB} -> maxPayloadInMB) (\s@TransformJob' {} a -> s {maxPayloadInMB = a} :: TransformJob)
 
 -- | Specifies the number of records to include in a mini-batch for an HTTP
 -- inference request. A record is a single unit of input data that
 -- inference can be made on. For example, a single line in a CSV file is a
 -- record.
-transformJob_batchStrategy :: Lens.Lens' TransformJob (Core.Maybe BatchStrategy)
+transformJob_batchStrategy :: Lens.Lens' TransformJob (Prelude.Maybe BatchStrategy)
 transformJob_batchStrategy = Lens.lens (\TransformJob' {batchStrategy} -> batchStrategy) (\s@TransformJob' {} a -> s {batchStrategy = a} :: TransformJob)
 
 -- | The status of the transform job.
@@ -307,50 +308,50 @@ transformJob_batchStrategy = Lens.lens (\TransformJob' {batchStrategy} -> batchS
 -- -   @Stopping@ - The transform job is stopping.
 --
 -- -   @Stopped@ - The transform job has stopped.
-transformJob_transformJobStatus :: Lens.Lens' TransformJob (Core.Maybe TransformJobStatus)
+transformJob_transformJobStatus :: Lens.Lens' TransformJob (Prelude.Maybe TransformJobStatus)
 transformJob_transformJobStatus = Lens.lens (\TransformJob' {transformJobStatus} -> transformJobStatus) (\s@TransformJob' {} a -> s {transformJobStatus = a} :: TransformJob)
 
 -- | The Amazon Resource Name (ARN) of the AutoML job that created the
 -- transform job.
-transformJob_autoMLJobArn :: Lens.Lens' TransformJob (Core.Maybe Core.Text)
+transformJob_autoMLJobArn :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Text)
 transformJob_autoMLJobArn = Lens.lens (\TransformJob' {autoMLJobArn} -> autoMLJobArn) (\s@TransformJob' {} a -> s {autoMLJobArn = a} :: TransformJob)
 
 -- | If the transform job failed, the reason it failed.
-transformJob_failureReason :: Lens.Lens' TransformJob (Core.Maybe Core.Text)
+transformJob_failureReason :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Text)
 transformJob_failureReason = Lens.lens (\TransformJob' {failureReason} -> failureReason) (\s@TransformJob' {} a -> s {failureReason = a} :: TransformJob)
 
 -- | Undocumented member.
-transformJob_modelClientConfig :: Lens.Lens' TransformJob (Core.Maybe ModelClientConfig)
+transformJob_modelClientConfig :: Lens.Lens' TransformJob (Prelude.Maybe ModelClientConfig)
 transformJob_modelClientConfig = Lens.lens (\TransformJob' {modelClientConfig} -> modelClientConfig) (\s@TransformJob' {} a -> s {modelClientConfig = a} :: TransformJob)
 
 -- | A list of tags associated with the transform job.
-transformJob_tags :: Lens.Lens' TransformJob (Core.Maybe [Tag])
-transformJob_tags = Lens.lens (\TransformJob' {tags} -> tags) (\s@TransformJob' {} a -> s {tags = a} :: TransformJob) Core.. Lens.mapping Lens._Coerce
+transformJob_tags :: Lens.Lens' TransformJob (Prelude.Maybe [Tag])
+transformJob_tags = Lens.lens (\TransformJob' {tags} -> tags) (\s@TransformJob' {} a -> s {tags = a} :: TransformJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates when the transform job has been completed, or has stopped or
 -- failed. You are billed for the time interval between this time and the
 -- value of @TransformStartTime@.
-transformJob_transformEndTime :: Lens.Lens' TransformJob (Core.Maybe Core.UTCTime)
-transformJob_transformEndTime = Lens.lens (\TransformJob' {transformEndTime} -> transformEndTime) (\s@TransformJob' {} a -> s {transformEndTime = a} :: TransformJob) Core.. Lens.mapping Core._Time
+transformJob_transformEndTime :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.UTCTime)
+transformJob_transformEndTime = Lens.lens (\TransformJob' {transformEndTime} -> transformEndTime) (\s@TransformJob' {} a -> s {transformEndTime = a} :: TransformJob) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the transform job.
-transformJob_transformJobArn :: Lens.Lens' TransformJob (Core.Maybe Core.Text)
+transformJob_transformJobArn :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Text)
 transformJob_transformJobArn = Lens.lens (\TransformJob' {transformJobArn} -> transformJobArn) (\s@TransformJob' {} a -> s {transformJobArn = a} :: TransformJob)
 
 -- | Undocumented member.
-transformJob_dataProcessing :: Lens.Lens' TransformJob (Core.Maybe DataProcessing)
+transformJob_dataProcessing :: Lens.Lens' TransformJob (Prelude.Maybe DataProcessing)
 transformJob_dataProcessing = Lens.lens (\TransformJob' {dataProcessing} -> dataProcessing) (\s@TransformJob' {} a -> s {dataProcessing = a} :: TransformJob)
 
 -- | The name of the model associated with the transform job.
-transformJob_modelName :: Lens.Lens' TransformJob (Core.Maybe Core.Text)
+transformJob_modelName :: Lens.Lens' TransformJob (Prelude.Maybe Prelude.Text)
 transformJob_modelName = Lens.lens (\TransformJob' {modelName} -> modelName) (\s@TransformJob' {} a -> s {modelName = a} :: TransformJob)
 
 -- | Undocumented member.
-transformJob_transformResources :: Lens.Lens' TransformJob (Core.Maybe TransformResources)
+transformJob_transformResources :: Lens.Lens' TransformJob (Prelude.Maybe TransformResources)
 transformJob_transformResources = Lens.lens (\TransformJob' {transformResources} -> transformResources) (\s@TransformJob' {} a -> s {transformResources = a} :: TransformJob)
 
 -- | Undocumented member.
-transformJob_transformInput :: Lens.Lens' TransformJob (Core.Maybe TransformInput)
+transformJob_transformInput :: Lens.Lens' TransformJob (Prelude.Maybe TransformInput)
 transformJob_transformInput = Lens.lens (\TransformJob' {transformInput} -> transformInput) (\s@TransformJob' {} a -> s {transformInput = a} :: TransformJob)
 
 instance Core.FromJSON TransformJob where
@@ -359,29 +360,29 @@ instance Core.FromJSON TransformJob where
       "TransformJob"
       ( \x ->
           TransformJob'
-            Core.<$> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "LabelingJobArn")
-            Core.<*> (x Core..:? "TransformJobName")
-            Core.<*> (x Core..:? "TransformStartTime")
-            Core.<*> (x Core..:? "TransformOutput")
-            Core.<*> (x Core..:? "ExperimentConfig")
-            Core.<*> (x Core..:? "MaxConcurrentTransforms")
-            Core.<*> (x Core..:? "Environment" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "MaxPayloadInMB")
-            Core.<*> (x Core..:? "BatchStrategy")
-            Core.<*> (x Core..:? "TransformJobStatus")
-            Core.<*> (x Core..:? "AutoMLJobArn")
-            Core.<*> (x Core..:? "FailureReason")
-            Core.<*> (x Core..:? "ModelClientConfig")
-            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "TransformEndTime")
-            Core.<*> (x Core..:? "TransformJobArn")
-            Core.<*> (x Core..:? "DataProcessing")
-            Core.<*> (x Core..:? "ModelName")
-            Core.<*> (x Core..:? "TransformResources")
-            Core.<*> (x Core..:? "TransformInput")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "LabelingJobArn")
+            Prelude.<*> (x Core..:? "TransformJobName")
+            Prelude.<*> (x Core..:? "TransformStartTime")
+            Prelude.<*> (x Core..:? "TransformOutput")
+            Prelude.<*> (x Core..:? "ExperimentConfig")
+            Prelude.<*> (x Core..:? "MaxConcurrentTransforms")
+            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "MaxPayloadInMB")
+            Prelude.<*> (x Core..:? "BatchStrategy")
+            Prelude.<*> (x Core..:? "TransformJobStatus")
+            Prelude.<*> (x Core..:? "AutoMLJobArn")
+            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "ModelClientConfig")
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TransformEndTime")
+            Prelude.<*> (x Core..:? "TransformJobArn")
+            Prelude.<*> (x Core..:? "DataProcessing")
+            Prelude.<*> (x Core..:? "ModelName")
+            Prelude.<*> (x Core..:? "TransformResources")
+            Prelude.<*> (x Core..:? "TransformInput")
       )
 
-instance Core.Hashable TransformJob
+instance Prelude.Hashable TransformJob
 
-instance Core.NFData TransformJob
+instance Prelude.NFData TransformJob

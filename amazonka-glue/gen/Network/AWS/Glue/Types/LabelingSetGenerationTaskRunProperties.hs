@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration properties for a labeling set generation task
 -- run.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data LabelingSetGenerationTaskRunProperties = LabelingSetGenerationTaskRunProperties'
   { -- | The Amazon Simple Storage Service (Amazon S3) path where you will
     -- generate the labeling set.
-    outputS3Path :: Core.Maybe Core.Text
+    outputS3Path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelingSetGenerationTaskRunProperties' with all optional fields omitted.
@@ -48,12 +49,12 @@ newLabelingSetGenerationTaskRunProperties ::
 newLabelingSetGenerationTaskRunProperties =
   LabelingSetGenerationTaskRunProperties'
     { outputS3Path =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Simple Storage Service (Amazon S3) path where you will
 -- generate the labeling set.
-labelingSetGenerationTaskRunProperties_outputS3Path :: Lens.Lens' LabelingSetGenerationTaskRunProperties (Core.Maybe Core.Text)
+labelingSetGenerationTaskRunProperties_outputS3Path :: Lens.Lens' LabelingSetGenerationTaskRunProperties (Prelude.Maybe Prelude.Text)
 labelingSetGenerationTaskRunProperties_outputS3Path = Lens.lens (\LabelingSetGenerationTaskRunProperties' {outputS3Path} -> outputS3Path) (\s@LabelingSetGenerationTaskRunProperties' {} a -> s {outputS3Path = a} :: LabelingSetGenerationTaskRunProperties)
 
 instance
@@ -65,13 +66,13 @@ instance
       "LabelingSetGenerationTaskRunProperties"
       ( \x ->
           LabelingSetGenerationTaskRunProperties'
-            Core.<$> (x Core..:? "OutputS3Path")
+            Prelude.<$> (x Core..:? "OutputS3Path")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LabelingSetGenerationTaskRunProperties
 
 instance
-  Core.NFData
+  Prelude.NFData
     LabelingSetGenerationTaskRunProperties

@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,14 +72,14 @@ data DeleteVoiceTemplate = DeleteVoiceTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVoiceTemplate' with all optional fields omitted.
@@ -117,11 +118,11 @@ data DeleteVoiceTemplate = DeleteVoiceTemplate'
 -- (-). Template names are case sensitive.
 newDeleteVoiceTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVoiceTemplate
 newDeleteVoiceTemplate pTemplateName_ =
   DeleteVoiceTemplate'
-    { version = Core.Nothing,
+    { version = Prelude.Nothing,
       templateName = pTemplateName_
     }
 
@@ -147,14 +148,14 @@ newDeleteVoiceTemplate pTemplateName_ =
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-deleteVoiceTemplate_version :: Lens.Lens' DeleteVoiceTemplate (Core.Maybe Core.Text)
+deleteVoiceTemplate_version :: Lens.Lens' DeleteVoiceTemplate (Prelude.Maybe Prelude.Text)
 deleteVoiceTemplate_version = Lens.lens (\DeleteVoiceTemplate' {version} -> version) (\s@DeleteVoiceTemplate' {} a -> s {version = a} :: DeleteVoiceTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-deleteVoiceTemplate_templateName :: Lens.Lens' DeleteVoiceTemplate Core.Text
+deleteVoiceTemplate_templateName :: Lens.Lens' DeleteVoiceTemplate Prelude.Text
 deleteVoiceTemplate_templateName = Lens.lens (\DeleteVoiceTemplate' {templateName} -> templateName) (\s@DeleteVoiceTemplate' {} a -> s {templateName = a} :: DeleteVoiceTemplate)
 
 instance Core.AWSRequest DeleteVoiceTemplate where
@@ -166,39 +167,41 @@ instance Core.AWSRequest DeleteVoiceTemplate where
     Response.receiveJSON
       ( \s h x ->
           DeleteVoiceTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteVoiceTemplate
+instance Prelude.Hashable DeleteVoiceTemplate
 
-instance Core.NFData DeleteVoiceTemplate
+instance Prelude.NFData DeleteVoiceTemplate
 
 instance Core.ToHeaders DeleteVoiceTemplate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteVoiceTemplate where
   toPath DeleteVoiceTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/templates/", Core.toBS templateName, "/voice"]
 
 instance Core.ToQuery DeleteVoiceTemplate where
   toQuery DeleteVoiceTemplate' {..} =
-    Core.mconcat ["version" Core.=: version]
+    Prelude.mconcat ["version" Core.=: version]
 
 -- | /See:/ 'newDeleteVoiceTemplateResponse' smart constructor.
 data DeleteVoiceTemplateResponse = DeleteVoiceTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     messageBody :: MessageBody
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVoiceTemplateResponse' with all optional fields omitted.
@@ -213,7 +216,7 @@ data DeleteVoiceTemplateResponse = DeleteVoiceTemplateResponse'
 -- 'messageBody', 'deleteVoiceTemplateResponse_messageBody' - Undocumented member.
 newDeleteVoiceTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'messageBody'
   MessageBody ->
   DeleteVoiceTemplateResponse
@@ -227,11 +230,11 @@ newDeleteVoiceTemplateResponse
       }
 
 -- | The response's http status code.
-deleteVoiceTemplateResponse_httpStatus :: Lens.Lens' DeleteVoiceTemplateResponse Core.Int
+deleteVoiceTemplateResponse_httpStatus :: Lens.Lens' DeleteVoiceTemplateResponse Prelude.Int
 deleteVoiceTemplateResponse_httpStatus = Lens.lens (\DeleteVoiceTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteVoiceTemplateResponse' {} a -> s {httpStatus = a} :: DeleteVoiceTemplateResponse)
 
 -- | Undocumented member.
 deleteVoiceTemplateResponse_messageBody :: Lens.Lens' DeleteVoiceTemplateResponse MessageBody
 deleteVoiceTemplateResponse_messageBody = Lens.lens (\DeleteVoiceTemplateResponse' {messageBody} -> messageBody) (\s@DeleteVoiceTemplateResponse' {} a -> s {messageBody = a} :: DeleteVoiceTemplateResponse)
 
-instance Core.NFData DeleteVoiceTemplateResponse
+instance Prelude.NFData DeleteVoiceTemplateResponse

@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.Av1QvbrSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for quality-defined variable bitrate encoding with the AV1
 -- codec. Required when you set Rate control mode to QVBR. Not valid when
@@ -36,7 +37,7 @@ data Av1QvbrSettings = Av1QvbrSettings'
     -- level to the nearest third of a whole number. For example, if you set
     -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
     -- actual QVBR quality level is 7.33.
-    qvbrQualityLevelFineTune :: Core.Maybe Core.Double,
+    qvbrQualityLevelFineTune :: Prelude.Maybe Prelude.Double,
     -- | Required when you use QVBR rate control mode. That is, when you specify
     -- qvbrSettings within av1Settings. Specify the general target quality
     -- level for this output, from 1 to 10. Use higher numbers for greater
@@ -46,9 +47,9 @@ data Av1QvbrSettings = Av1QvbrSettings'
     -- value for the setting qvbrQualityLevelFineTune. For example, if you want
     -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
     -- qvbrQualityLevelFineTune to .33.
-    qvbrQualityLevel :: Core.Maybe Core.Natural
+    qvbrQualityLevel :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Av1QvbrSettings' with all optional fields omitted.
@@ -80,8 +81,8 @@ newAv1QvbrSettings ::
 newAv1QvbrSettings =
   Av1QvbrSettings'
     { qvbrQualityLevelFineTune =
-        Core.Nothing,
-      qvbrQualityLevel = Core.Nothing
+        Prelude.Nothing,
+      qvbrQualityLevel = Prelude.Nothing
     }
 
 -- | Optional. Specify a value here to set the QVBR quality to a level that
@@ -91,7 +92,7 @@ newAv1QvbrSettings =
 -- level to the nearest third of a whole number. For example, if you set
 -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
 -- actual QVBR quality level is 7.33.
-av1QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' Av1QvbrSettings (Core.Maybe Core.Double)
+av1QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' Av1QvbrSettings (Prelude.Maybe Prelude.Double)
 av1QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\Av1QvbrSettings' {qvbrQualityLevelFineTune} -> qvbrQualityLevelFineTune) (\s@Av1QvbrSettings' {} a -> s {qvbrQualityLevelFineTune = a} :: Av1QvbrSettings)
 
 -- | Required when you use QVBR rate control mode. That is, when you specify
@@ -103,7 +104,7 @@ av1QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\Av1QvbrSettings' {qvbrQua
 -- value for the setting qvbrQualityLevelFineTune. For example, if you want
 -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
 -- qvbrQualityLevelFineTune to .33.
-av1QvbrSettings_qvbrQualityLevel :: Lens.Lens' Av1QvbrSettings (Core.Maybe Core.Natural)
+av1QvbrSettings_qvbrQualityLevel :: Lens.Lens' Av1QvbrSettings (Prelude.Maybe Prelude.Natural)
 av1QvbrSettings_qvbrQualityLevel = Lens.lens (\Av1QvbrSettings' {qvbrQualityLevel} -> qvbrQualityLevel) (\s@Av1QvbrSettings' {} a -> s {qvbrQualityLevel = a} :: Av1QvbrSettings)
 
 instance Core.FromJSON Av1QvbrSettings where
@@ -112,21 +113,21 @@ instance Core.FromJSON Av1QvbrSettings where
       "Av1QvbrSettings"
       ( \x ->
           Av1QvbrSettings'
-            Core.<$> (x Core..:? "qvbrQualityLevelFineTune")
-            Core.<*> (x Core..:? "qvbrQualityLevel")
+            Prelude.<$> (x Core..:? "qvbrQualityLevelFineTune")
+            Prelude.<*> (x Core..:? "qvbrQualityLevel")
       )
 
-instance Core.Hashable Av1QvbrSettings
+instance Prelude.Hashable Av1QvbrSettings
 
-instance Core.NFData Av1QvbrSettings
+instance Prelude.NFData Av1QvbrSettings
 
 instance Core.ToJSON Av1QvbrSettings where
   toJSON Av1QvbrSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("qvbrQualityLevelFineTune" Core..=)
-              Core.<$> qvbrQualityLevelFineTune,
+              Prelude.<$> qvbrQualityLevelFineTune,
             ("qvbrQualityLevel" Core..=)
-              Core.<$> qvbrQualityLevel
+              Prelude.<$> qvbrQualityLevel
           ]
       )

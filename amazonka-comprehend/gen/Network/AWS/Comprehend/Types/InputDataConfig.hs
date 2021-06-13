@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.InputDataConfig where
 import Network.AWS.Comprehend.Types.InputFormat
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The input properties for a topic detection job.
 --
@@ -36,7 +37,7 @@ data InputDataConfig = InputDataConfig'
     -- -   @ONE_DOC_PER_LINE@ - Each line in a file is considered a separate
     --     document. Use this option when you are processing many short
     --     documents, such as text messages.
-    inputFormat :: Core.Maybe InputFormat,
+    inputFormat :: Prelude.Maybe InputFormat,
     -- | The Amazon S3 URI for the input data. The URI must be in same region as
     -- the API endpoint that you are calling. The URI can point to a single
     -- input file or it can provide the prefix for a collection of data files.
@@ -45,9 +46,9 @@ data InputDataConfig = InputDataConfig'
     -- prefix is a single file, Amazon Comprehend uses that file as input. If
     -- more than one file begins with the prefix, Amazon Comprehend uses all of
     -- them as input.
-    s3Uri :: Core.Text
+    s3Uri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputDataConfig' with all optional fields omitted.
@@ -77,11 +78,11 @@ data InputDataConfig = InputDataConfig'
 -- them as input.
 newInputDataConfig ::
   -- | 's3Uri'
-  Core.Text ->
+  Prelude.Text ->
   InputDataConfig
 newInputDataConfig pS3Uri_ =
   InputDataConfig'
-    { inputFormat = Core.Nothing,
+    { inputFormat = Prelude.Nothing,
       s3Uri = pS3Uri_
     }
 
@@ -94,7 +95,7 @@ newInputDataConfig pS3Uri_ =
 -- -   @ONE_DOC_PER_LINE@ - Each line in a file is considered a separate
 --     document. Use this option when you are processing many short
 --     documents, such as text messages.
-inputDataConfig_inputFormat :: Lens.Lens' InputDataConfig (Core.Maybe InputFormat)
+inputDataConfig_inputFormat :: Lens.Lens' InputDataConfig (Prelude.Maybe InputFormat)
 inputDataConfig_inputFormat = Lens.lens (\InputDataConfig' {inputFormat} -> inputFormat) (\s@InputDataConfig' {} a -> s {inputFormat = a} :: InputDataConfig)
 
 -- | The Amazon S3 URI for the input data. The URI must be in same region as
@@ -105,7 +106,7 @@ inputDataConfig_inputFormat = Lens.lens (\InputDataConfig' {inputFormat} -> inpu
 -- prefix is a single file, Amazon Comprehend uses that file as input. If
 -- more than one file begins with the prefix, Amazon Comprehend uses all of
 -- them as input.
-inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Core.Text
+inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@InputDataConfig' {} a -> s {s3Uri = a} :: InputDataConfig)
 
 instance Core.FromJSON InputDataConfig where
@@ -114,19 +115,19 @@ instance Core.FromJSON InputDataConfig where
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Core.<$> (x Core..:? "InputFormat")
-            Core.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Core..:? "InputFormat")
+            Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Core.Hashable InputDataConfig
+instance Prelude.Hashable InputDataConfig
 
-instance Core.NFData InputDataConfig
+instance Prelude.NFData InputDataConfig
 
 instance Core.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InputFormat" Core..=) Core.<$> inputFormat,
-            Core.Just ("S3Uri" Core..= s3Uri)
+      ( Prelude.catMaybes
+          [ ("InputFormat" Core..=) Prelude.<$> inputFormat,
+            Prelude.Just ("S3Uri" Core..= s3Uri)
           ]
       )

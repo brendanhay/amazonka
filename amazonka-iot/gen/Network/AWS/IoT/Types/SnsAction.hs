@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.SnsAction where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.MessageFormat
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to publish to an Amazon SNS topic.
 --
@@ -34,13 +35,13 @@ data SnsAction = SnsAction'
     -- read more about SNS message formats, see
     -- <https://docs.aws.amazon.com/sns/latest/dg/json-formats.html> refer to
     -- their official documentation.
-    messageFormat :: Core.Maybe MessageFormat,
+    messageFormat :: Prelude.Maybe MessageFormat,
     -- | The ARN of the SNS topic.
-    targetArn :: Core.Text,
+    targetArn :: Prelude.Text,
     -- | The ARN of the IAM role that grants access.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SnsAction' with all optional fields omitted.
@@ -63,13 +64,13 @@ data SnsAction = SnsAction'
 -- 'roleArn', 'snsAction_roleArn' - The ARN of the IAM role that grants access.
 newSnsAction ::
   -- | 'targetArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   SnsAction
 newSnsAction pTargetArn_ pRoleArn_ =
   SnsAction'
-    { messageFormat = Core.Nothing,
+    { messageFormat = Prelude.Nothing,
       targetArn = pTargetArn_,
       roleArn = pRoleArn_
     }
@@ -81,15 +82,15 @@ newSnsAction pTargetArn_ pRoleArn_ =
 -- read more about SNS message formats, see
 -- <https://docs.aws.amazon.com/sns/latest/dg/json-formats.html> refer to
 -- their official documentation.
-snsAction_messageFormat :: Lens.Lens' SnsAction (Core.Maybe MessageFormat)
+snsAction_messageFormat :: Lens.Lens' SnsAction (Prelude.Maybe MessageFormat)
 snsAction_messageFormat = Lens.lens (\SnsAction' {messageFormat} -> messageFormat) (\s@SnsAction' {} a -> s {messageFormat = a} :: SnsAction)
 
 -- | The ARN of the SNS topic.
-snsAction_targetArn :: Lens.Lens' SnsAction Core.Text
+snsAction_targetArn :: Lens.Lens' SnsAction Prelude.Text
 snsAction_targetArn = Lens.lens (\SnsAction' {targetArn} -> targetArn) (\s@SnsAction' {} a -> s {targetArn = a} :: SnsAction)
 
 -- | The ARN of the IAM role that grants access.
-snsAction_roleArn :: Lens.Lens' SnsAction Core.Text
+snsAction_roleArn :: Lens.Lens' SnsAction Prelude.Text
 snsAction_roleArn = Lens.lens (\SnsAction' {roleArn} -> roleArn) (\s@SnsAction' {} a -> s {roleArn = a} :: SnsAction)
 
 instance Core.FromJSON SnsAction where
@@ -98,21 +99,21 @@ instance Core.FromJSON SnsAction where
       "SnsAction"
       ( \x ->
           SnsAction'
-            Core.<$> (x Core..:? "messageFormat")
-            Core.<*> (x Core..: "targetArn")
-            Core.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Core..:? "messageFormat")
+            Prelude.<*> (x Core..: "targetArn")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Core.Hashable SnsAction
+instance Prelude.Hashable SnsAction
 
-instance Core.NFData SnsAction
+instance Prelude.NFData SnsAction
 
 instance Core.ToJSON SnsAction where
   toJSON SnsAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("messageFormat" Core..=) Core.<$> messageFormat,
-            Core.Just ("targetArn" Core..= targetArn),
-            Core.Just ("roleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ ("messageFormat" Core..=) Prelude.<$> messageFormat,
+            Prelude.Just ("targetArn" Core..= targetArn),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

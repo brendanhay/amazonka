@@ -64,6 +64,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -71,14 +72,14 @@ import Network.AWS.Support.Types
 -- | /See:/ 'newDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
   { -- | A JSON-formatted list of service codes available for AWS services.
-    serviceCodeList :: Core.Maybe [Core.Text],
+    serviceCodeList :: Prelude.Maybe [Prelude.Text],
     -- | The ISO 639-1 code for the language in which AWS provides support. AWS
     -- Support currently supports English (\"en\") and Japanese (\"ja\").
     -- Language parameters must be passed explicitly for operations that take
     -- them.
-    language :: Core.Maybe Core.Text
+    language :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeServices' with all optional fields omitted.
@@ -98,19 +99,20 @@ newDescribeServices ::
   DescribeServices
 newDescribeServices =
   DescribeServices'
-    { serviceCodeList = Core.Nothing,
-      language = Core.Nothing
+    { serviceCodeList =
+        Prelude.Nothing,
+      language = Prelude.Nothing
     }
 
 -- | A JSON-formatted list of service codes available for AWS services.
-describeServices_serviceCodeList :: Lens.Lens' DescribeServices (Core.Maybe [Core.Text])
-describeServices_serviceCodeList = Lens.lens (\DescribeServices' {serviceCodeList} -> serviceCodeList) (\s@DescribeServices' {} a -> s {serviceCodeList = a} :: DescribeServices) Core.. Lens.mapping Lens._Coerce
+describeServices_serviceCodeList :: Lens.Lens' DescribeServices (Prelude.Maybe [Prelude.Text])
+describeServices_serviceCodeList = Lens.lens (\DescribeServices' {serviceCodeList} -> serviceCodeList) (\s@DescribeServices' {} a -> s {serviceCodeList = a} :: DescribeServices) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-describeServices_language :: Lens.Lens' DescribeServices (Core.Maybe Core.Text)
+describeServices_language :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_language = Lens.lens (\DescribeServices' {language} -> language) (\s@DescribeServices' {} a -> s {language = a} :: DescribeServices)
 
 instance Core.AWSRequest DescribeServices where
@@ -122,53 +124,55 @@ instance Core.AWSRequest DescribeServices where
     Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Core.<$> (x Core..?> "services" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "services" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeServices
+instance Prelude.Hashable DescribeServices
 
-instance Core.NFData DescribeServices
+instance Prelude.NFData DescribeServices
 
 instance Core.ToHeaders DescribeServices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSSupport_20130415.DescribeServices" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeServices where
   toJSON DescribeServices' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("serviceCodeList" Core..=)
-              Core.<$> serviceCodeList,
-            ("language" Core..=) Core.<$> language
+              Prelude.<$> serviceCodeList,
+            ("language" Core..=) Prelude.<$> language
           ]
       )
 
 instance Core.ToPath DescribeServices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeServices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The list of AWS services returned by the DescribeServices operation.
 --
 -- /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
   { -- | A JSON-formatted list of AWS services.
-    services :: Core.Maybe [SupportService],
+    services :: Prelude.Maybe [SupportService],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeServicesResponse' with all optional fields omitted.
@@ -183,20 +187,21 @@ data DescribeServicesResponse = DescribeServicesResponse'
 -- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.
 newDescribeServicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeServicesResponse
 newDescribeServicesResponse pHttpStatus_ =
   DescribeServicesResponse'
-    { services = Core.Nothing,
+    { services =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A JSON-formatted list of AWS services.
-describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Core.Maybe [SupportService])
-describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Core.. Lens.mapping Lens._Coerce
+describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [SupportService])
+describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Core.Int
+describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Prelude.Int
 describeServicesResponse_httpStatus = Lens.lens (\DescribeServicesResponse' {httpStatus} -> httpStatus) (\s@DescribeServicesResponse' {} a -> s {httpStatus = a} :: DescribeServicesResponse)
 
-instance Core.NFData DescribeServicesResponse
+instance Prelude.NFData DescribeServicesResponse

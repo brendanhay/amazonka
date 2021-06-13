@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data DescribeExclusions = DescribeExclusions'
   { -- | The locale into which you want to translate the exclusion\'s title,
     -- description, and recommendation.
-    locale :: Core.Maybe Locale,
+    locale :: Prelude.Maybe Locale,
     -- | The list of ARNs that specify the exclusions that you want to describe.
-    exclusionArns :: Core.NonEmpty Core.Text
+    exclusionArns :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeExclusions' with all optional fields omitted.
@@ -71,22 +72,22 @@ data DescribeExclusions = DescribeExclusions'
 -- 'exclusionArns', 'describeExclusions_exclusionArns' - The list of ARNs that specify the exclusions that you want to describe.
 newDescribeExclusions ::
   -- | 'exclusionArns'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DescribeExclusions
 newDescribeExclusions pExclusionArns_ =
   DescribeExclusions'
-    { locale = Core.Nothing,
+    { locale = Prelude.Nothing,
       exclusionArns = Lens._Coerce Lens.# pExclusionArns_
     }
 
 -- | The locale into which you want to translate the exclusion\'s title,
 -- description, and recommendation.
-describeExclusions_locale :: Lens.Lens' DescribeExclusions (Core.Maybe Locale)
+describeExclusions_locale :: Lens.Lens' DescribeExclusions (Prelude.Maybe Locale)
 describeExclusions_locale = Lens.lens (\DescribeExclusions' {locale} -> locale) (\s@DescribeExclusions' {} a -> s {locale = a} :: DescribeExclusions)
 
 -- | The list of ARNs that specify the exclusions that you want to describe.
-describeExclusions_exclusionArns :: Lens.Lens' DescribeExclusions (Core.NonEmpty Core.Text)
-describeExclusions_exclusionArns = Lens.lens (\DescribeExclusions' {exclusionArns} -> exclusionArns) (\s@DescribeExclusions' {} a -> s {exclusionArns = a} :: DescribeExclusions) Core.. Lens._Coerce
+describeExclusions_exclusionArns :: Lens.Lens' DescribeExclusions (Prelude.NonEmpty Prelude.Text)
+describeExclusions_exclusionArns = Lens.lens (\DescribeExclusions' {exclusionArns} -> exclusionArns) (\s@DescribeExclusions' {} a -> s {exclusionArns = a} :: DescribeExclusions) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeExclusions where
   type
@@ -97,54 +98,57 @@ instance Core.AWSRequest DescribeExclusions where
     Response.receiveJSON
       ( \s h x ->
           DescribeExclusionsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "exclusions" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "failedItems" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "exclusions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable DescribeExclusions
+instance Prelude.Hashable DescribeExclusions
 
-instance Core.NFData DescribeExclusions
+instance Prelude.NFData DescribeExclusions
 
 instance Core.ToHeaders DescribeExclusions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.DescribeExclusions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeExclusions where
   toJSON DescribeExclusions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("locale" Core..=) Core.<$> locale,
-            Core.Just ("exclusionArns" Core..= exclusionArns)
+      ( Prelude.catMaybes
+          [ ("locale" Core..=) Prelude.<$> locale,
+            Prelude.Just
+              ("exclusionArns" Core..= exclusionArns)
           ]
       )
 
 instance Core.ToPath DescribeExclusions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeExclusions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExclusionsResponse' smart constructor.
 data DescribeExclusionsResponse = DescribeExclusionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the exclusions.
-    exclusions :: Core.HashMap Core.Text Exclusion,
+    exclusions :: Prelude.HashMap Prelude.Text Exclusion,
     -- | Exclusion details that cannot be described. An error code is provided
     -- for each failed item.
-    failedItems :: Core.HashMap Core.Text FailedItemDetails
+    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeExclusionsResponse' with all optional fields omitted.
@@ -162,27 +166,27 @@ data DescribeExclusionsResponse = DescribeExclusionsResponse'
 -- for each failed item.
 newDescribeExclusionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeExclusionsResponse
 newDescribeExclusionsResponse pHttpStatus_ =
   DescribeExclusionsResponse'
     { httpStatus =
         pHttpStatus_,
-      exclusions = Core.mempty,
-      failedItems = Core.mempty
+      exclusions = Prelude.mempty,
+      failedItems = Prelude.mempty
     }
 
 -- | The response's http status code.
-describeExclusionsResponse_httpStatus :: Lens.Lens' DescribeExclusionsResponse Core.Int
+describeExclusionsResponse_httpStatus :: Lens.Lens' DescribeExclusionsResponse Prelude.Int
 describeExclusionsResponse_httpStatus = Lens.lens (\DescribeExclusionsResponse' {httpStatus} -> httpStatus) (\s@DescribeExclusionsResponse' {} a -> s {httpStatus = a} :: DescribeExclusionsResponse)
 
 -- | Information about the exclusions.
-describeExclusionsResponse_exclusions :: Lens.Lens' DescribeExclusionsResponse (Core.HashMap Core.Text Exclusion)
-describeExclusionsResponse_exclusions = Lens.lens (\DescribeExclusionsResponse' {exclusions} -> exclusions) (\s@DescribeExclusionsResponse' {} a -> s {exclusions = a} :: DescribeExclusionsResponse) Core.. Lens._Coerce
+describeExclusionsResponse_exclusions :: Lens.Lens' DescribeExclusionsResponse (Prelude.HashMap Prelude.Text Exclusion)
+describeExclusionsResponse_exclusions = Lens.lens (\DescribeExclusionsResponse' {exclusions} -> exclusions) (\s@DescribeExclusionsResponse' {} a -> s {exclusions = a} :: DescribeExclusionsResponse) Prelude.. Lens._Coerce
 
 -- | Exclusion details that cannot be described. An error code is provided
 -- for each failed item.
-describeExclusionsResponse_failedItems :: Lens.Lens' DescribeExclusionsResponse (Core.HashMap Core.Text FailedItemDetails)
-describeExclusionsResponse_failedItems = Lens.lens (\DescribeExclusionsResponse' {failedItems} -> failedItems) (\s@DescribeExclusionsResponse' {} a -> s {failedItems = a} :: DescribeExclusionsResponse) Core.. Lens._Coerce
+describeExclusionsResponse_failedItems :: Lens.Lens' DescribeExclusionsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
+describeExclusionsResponse_failedItems = Lens.lens (\DescribeExclusionsResponse' {failedItems} -> failedItems) (\s@DescribeExclusionsResponse' {} a -> s {failedItems = a} :: DescribeExclusionsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DescribeExclusionsResponse
+instance Prelude.NFData DescribeExclusionsResponse

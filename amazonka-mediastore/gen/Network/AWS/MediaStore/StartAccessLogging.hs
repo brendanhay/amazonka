@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartAccessLogging' smart constructor.
 data StartAccessLogging = StartAccessLogging'
   { -- | The name of the container that you want to start access logging on.
-    containerName :: Core.Text
+    containerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartAccessLogging' with all optional fields omitted.
@@ -64,7 +65,7 @@ data StartAccessLogging = StartAccessLogging'
 -- 'containerName', 'startAccessLogging_containerName' - The name of the container that you want to start access logging on.
 newStartAccessLogging ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   StartAccessLogging
 newStartAccessLogging pContainerName_ =
   StartAccessLogging'
@@ -73,7 +74,7 @@ newStartAccessLogging pContainerName_ =
     }
 
 -- | The name of the container that you want to start access logging on.
-startAccessLogging_containerName :: Lens.Lens' StartAccessLogging Core.Text
+startAccessLogging_containerName :: Lens.Lens' StartAccessLogging Prelude.Text
 startAccessLogging_containerName = Lens.lens (\StartAccessLogging' {containerName} -> containerName) (\s@StartAccessLogging' {} a -> s {containerName = a} :: StartAccessLogging)
 
 instance Core.AWSRequest StartAccessLogging where
@@ -85,45 +86,49 @@ instance Core.AWSRequest StartAccessLogging where
     Response.receiveEmpty
       ( \s h x ->
           StartAccessLoggingResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartAccessLogging
+instance Prelude.Hashable StartAccessLogging
 
-instance Core.NFData StartAccessLogging
+instance Prelude.NFData StartAccessLogging
 
 instance Core.ToHeaders StartAccessLogging where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.StartAccessLogging" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartAccessLogging where
   toJSON StartAccessLogging' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
       )
 
 instance Core.ToPath StartAccessLogging where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartAccessLogging where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAccessLoggingResponse' smart constructor.
 data StartAccessLoggingResponse = StartAccessLoggingResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartAccessLoggingResponse' with all optional fields omitted.
@@ -136,7 +141,7 @@ data StartAccessLoggingResponse = StartAccessLoggingResponse'
 -- 'httpStatus', 'startAccessLoggingResponse_httpStatus' - The response's http status code.
 newStartAccessLoggingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartAccessLoggingResponse
 newStartAccessLoggingResponse pHttpStatus_ =
   StartAccessLoggingResponse'
@@ -145,7 +150,7 @@ newStartAccessLoggingResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startAccessLoggingResponse_httpStatus :: Lens.Lens' StartAccessLoggingResponse Core.Int
+startAccessLoggingResponse_httpStatus :: Lens.Lens' StartAccessLoggingResponse Prelude.Int
 startAccessLoggingResponse_httpStatus = Lens.lens (\StartAccessLoggingResponse' {httpStatus} -> httpStatus) (\s@StartAccessLoggingResponse' {} a -> s {httpStatus = a} :: StartAccessLoggingResponse)
 
-instance Core.NFData StartAccessLoggingResponse
+instance Prelude.NFData StartAccessLoggingResponse

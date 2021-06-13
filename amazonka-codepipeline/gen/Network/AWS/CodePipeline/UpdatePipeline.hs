@@ -45,6 +45,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +56,7 @@ data UpdatePipeline = UpdatePipeline'
   { -- | The name of the pipeline to be updated.
     pipeline :: PipelineDeclaration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePipeline' with all optional fields omitted.
@@ -86,50 +87,52 @@ instance Core.AWSRequest UpdatePipeline where
     Response.receiveJSON
       ( \s h x ->
           UpdatePipelineResponse'
-            Core.<$> (x Core..?> "pipeline")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "pipeline")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdatePipeline
+instance Prelude.Hashable UpdatePipeline
 
-instance Core.NFData UpdatePipeline
+instance Prelude.NFData UpdatePipeline
 
 instance Core.ToHeaders UpdatePipeline where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.UpdatePipeline" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("pipeline" Core..= pipeline)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("pipeline" Core..= pipeline)]
       )
 
 instance Core.ToPath UpdatePipeline where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdatePipeline where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdatePipeline@ action.
 --
 -- /See:/ 'newUpdatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
   { -- | The structure of the updated pipeline.
-    pipeline :: Core.Maybe PipelineDeclaration,
+    pipeline :: Prelude.Maybe PipelineDeclaration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePipelineResponse' with all optional fields omitted.
@@ -144,20 +147,20 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
 -- 'httpStatus', 'updatePipelineResponse_httpStatus' - The response's http status code.
 newUpdatePipelineResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdatePipelineResponse
 newUpdatePipelineResponse pHttpStatus_ =
   UpdatePipelineResponse'
-    { pipeline = Core.Nothing,
+    { pipeline = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The structure of the updated pipeline.
-updatePipelineResponse_pipeline :: Lens.Lens' UpdatePipelineResponse (Core.Maybe PipelineDeclaration)
+updatePipelineResponse_pipeline :: Lens.Lens' UpdatePipelineResponse (Prelude.Maybe PipelineDeclaration)
 updatePipelineResponse_pipeline = Lens.lens (\UpdatePipelineResponse' {pipeline} -> pipeline) (\s@UpdatePipelineResponse' {} a -> s {pipeline = a} :: UpdatePipelineResponse)
 
 -- | The response's http status code.
-updatePipelineResponse_httpStatus :: Lens.Lens' UpdatePipelineResponse Core.Int
+updatePipelineResponse_httpStatus :: Lens.Lens' UpdatePipelineResponse Prelude.Int
 updatePipelineResponse_httpStatus = Lens.lens (\UpdatePipelineResponse' {httpStatus} -> httpStatus) (\s@UpdatePipelineResponse' {} a -> s {httpStatus = a} :: UpdatePipelineResponse)
 
-instance Core.NFData UpdatePipelineResponse
+instance Prelude.NFData UpdatePipelineResponse

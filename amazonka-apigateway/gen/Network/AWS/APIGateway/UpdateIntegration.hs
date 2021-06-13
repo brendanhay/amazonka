@@ -58,6 +58,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,16 +68,16 @@ import qualified Network.AWS.Response as Response
 data UpdateIntegration = UpdateIntegration'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] Represents an update integration request\'s resource
     -- identifier.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | [Required] Represents an update integration request\'s HTTP method.
-    httpMethod :: Core.Text
+    httpMethod :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateIntegration' with all optional fields omitted.
@@ -97,18 +98,19 @@ data UpdateIntegration = UpdateIntegration'
 -- 'httpMethod', 'updateIntegration_httpMethod' - [Required] Represents an update integration request\'s HTTP method.
 newUpdateIntegration ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpMethod'
-  Core.Text ->
+  Prelude.Text ->
   UpdateIntegration
 newUpdateIntegration
   pRestApiId_
   pResourceId_
   pHttpMethod_ =
     UpdateIntegration'
-      { patchOperations = Core.Nothing,
+      { patchOperations =
+          Prelude.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_
@@ -116,20 +118,20 @@ newUpdateIntegration
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateIntegration_patchOperations :: Lens.Lens' UpdateIntegration (Core.Maybe [PatchOperation])
-updateIntegration_patchOperations = Lens.lens (\UpdateIntegration' {patchOperations} -> patchOperations) (\s@UpdateIntegration' {} a -> s {patchOperations = a} :: UpdateIntegration) Core.. Lens.mapping Lens._Coerce
+updateIntegration_patchOperations :: Lens.Lens' UpdateIntegration (Prelude.Maybe [PatchOperation])
+updateIntegration_patchOperations = Lens.lens (\UpdateIntegration' {patchOperations} -> patchOperations) (\s@UpdateIntegration' {} a -> s {patchOperations = a} :: UpdateIntegration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateIntegration_restApiId :: Lens.Lens' UpdateIntegration Core.Text
+updateIntegration_restApiId :: Lens.Lens' UpdateIntegration Prelude.Text
 updateIntegration_restApiId = Lens.lens (\UpdateIntegration' {restApiId} -> restApiId) (\s@UpdateIntegration' {} a -> s {restApiId = a} :: UpdateIntegration)
 
 -- | [Required] Represents an update integration request\'s resource
 -- identifier.
-updateIntegration_resourceId :: Lens.Lens' UpdateIntegration Core.Text
+updateIntegration_resourceId :: Lens.Lens' UpdateIntegration Prelude.Text
 updateIntegration_resourceId = Lens.lens (\UpdateIntegration' {resourceId} -> resourceId) (\s@UpdateIntegration' {} a -> s {resourceId = a} :: UpdateIntegration)
 
 -- | [Required] Represents an update integration request\'s HTTP method.
-updateIntegration_httpMethod :: Lens.Lens' UpdateIntegration Core.Text
+updateIntegration_httpMethod :: Lens.Lens' UpdateIntegration Prelude.Text
 updateIntegration_httpMethod = Lens.lens (\UpdateIntegration' {httpMethod} -> httpMethod) (\s@UpdateIntegration' {} a -> s {httpMethod = a} :: UpdateIntegration)
 
 instance Core.AWSRequest UpdateIntegration where
@@ -139,31 +141,31 @@ instance Core.AWSRequest UpdateIntegration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateIntegration
+instance Prelude.Hashable UpdateIntegration
 
-instance Core.NFData UpdateIntegration
+instance Prelude.NFData UpdateIntegration
 
 instance Core.ToHeaders UpdateIntegration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateIntegration where
   toJSON UpdateIntegration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateIntegration where
   toPath UpdateIntegration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -174,4 +176,4 @@ instance Core.ToPath UpdateIntegration where
       ]
 
 instance Core.ToQuery UpdateIntegration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

@@ -25,37 +25,38 @@ import Network.AWS.Lightsail.Types.DomainEntry
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a domain where you are storing recordsets in Lightsail.
 --
 -- /See:/ 'newDomain' smart constructor.
 data Domain = Domain'
   { -- | The date when the domain recordset was created.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the domain recordset (e.g.,
     -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The resource type.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
-    supportCode :: Core.Maybe Core.Text,
+    supportCode :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
     -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The AWS Region and Availability Zones where the domain recordset was
     -- created.
-    location :: Core.Maybe ResourceLocation,
+    location :: Prelude.Maybe ResourceLocation,
     -- | An array of key-value pairs containing information about the domain
     -- entries.
-    domainEntries :: Core.Maybe [DomainEntry]
+    domainEntries :: Prelude.Maybe [DomainEntry]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Domain' with all optional fields omitted.
@@ -92,55 +93,55 @@ newDomain ::
   Domain
 newDomain =
   Domain'
-    { createdAt = Core.Nothing,
-      arn = Core.Nothing,
-      resourceType = Core.Nothing,
-      supportCode = Core.Nothing,
-      name = Core.Nothing,
-      tags = Core.Nothing,
-      location = Core.Nothing,
-      domainEntries = Core.Nothing
+    { createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      supportCode = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      location = Prelude.Nothing,
+      domainEntries = Prelude.Nothing
     }
 
 -- | The date when the domain recordset was created.
-domain_createdAt :: Lens.Lens' Domain (Core.Maybe Core.UTCTime)
-domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Core.. Lens.mapping Core._Time
+domain_createdAt :: Lens.Lens' Domain (Prelude.Maybe Prelude.UTCTime)
+domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the domain recordset (e.g.,
 -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
-domain_arn :: Lens.Lens' Domain (Core.Maybe Core.Text)
+domain_arn :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_arn = Lens.lens (\Domain' {arn} -> arn) (\s@Domain' {} a -> s {arn = a} :: Domain)
 
 -- | The resource type.
-domain_resourceType :: Lens.Lens' Domain (Core.Maybe ResourceType)
+domain_resourceType :: Lens.Lens' Domain (Prelude.Maybe ResourceType)
 domain_resourceType = Lens.lens (\Domain' {resourceType} -> resourceType) (\s@Domain' {} a -> s {resourceType = a} :: Domain)
 
 -- | The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
-domain_supportCode :: Lens.Lens' Domain (Core.Maybe Core.Text)
+domain_supportCode :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_supportCode = Lens.lens (\Domain' {supportCode} -> supportCode) (\s@Domain' {} a -> s {supportCode = a} :: Domain)
 
 -- | The name of the domain.
-domain_name :: Lens.Lens' Domain (Core.Maybe Core.Text)
+domain_name :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = a} :: Domain)
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
 -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-domain_tags :: Lens.Lens' Domain (Core.Maybe [Tag])
-domain_tags = Lens.lens (\Domain' {tags} -> tags) (\s@Domain' {} a -> s {tags = a} :: Domain) Core.. Lens.mapping Lens._Coerce
+domain_tags :: Lens.Lens' Domain (Prelude.Maybe [Tag])
+domain_tags = Lens.lens (\Domain' {tags} -> tags) (\s@Domain' {} a -> s {tags = a} :: Domain) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS Region and Availability Zones where the domain recordset was
 -- created.
-domain_location :: Lens.Lens' Domain (Core.Maybe ResourceLocation)
+domain_location :: Lens.Lens' Domain (Prelude.Maybe ResourceLocation)
 domain_location = Lens.lens (\Domain' {location} -> location) (\s@Domain' {} a -> s {location = a} :: Domain)
 
 -- | An array of key-value pairs containing information about the domain
 -- entries.
-domain_domainEntries :: Lens.Lens' Domain (Core.Maybe [DomainEntry])
-domain_domainEntries = Lens.lens (\Domain' {domainEntries} -> domainEntries) (\s@Domain' {} a -> s {domainEntries = a} :: Domain) Core.. Lens.mapping Lens._Coerce
+domain_domainEntries :: Lens.Lens' Domain (Prelude.Maybe [DomainEntry])
+domain_domainEntries = Lens.lens (\Domain' {domainEntries} -> domainEntries) (\s@Domain' {} a -> s {domainEntries = a} :: Domain) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Domain where
   parseJSON =
@@ -148,16 +149,16 @@ instance Core.FromJSON Domain where
       "Domain"
       ( \x ->
           Domain'
-            Core.<$> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "supportCode")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "location")
-            Core.<*> (x Core..:? "domainEntries" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "domainEntries" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Domain
+instance Prelude.Hashable Domain
 
-instance Core.NFData Domain
+instance Prelude.NFData Domain

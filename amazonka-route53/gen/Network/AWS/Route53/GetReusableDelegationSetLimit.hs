@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -65,7 +66,7 @@ data GetReusableDelegationSetLimit = GetReusableDelegationSetLimit'
     -- | The ID of the delegation set that you want to get the limit for.
     delegationSetId :: ResourceId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetReusableDelegationSetLimit' with all optional fields omitted.
@@ -116,21 +117,23 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetReusableDelegationSetLimitResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "Limit")
-            Core.<*> (x Core..@ "Count")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Limit")
+            Prelude.<*> (x Core..@ "Count")
       )
 
-instance Core.Hashable GetReusableDelegationSetLimit
+instance
+  Prelude.Hashable
+    GetReusableDelegationSetLimit
 
-instance Core.NFData GetReusableDelegationSetLimit
+instance Prelude.NFData GetReusableDelegationSetLimit
 
 instance Core.ToHeaders GetReusableDelegationSetLimit where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetReusableDelegationSetLimit where
   toPath GetReusableDelegationSetLimit' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2013-04-01/reusabledelegationsetlimit/",
         Core.toBS delegationSetId,
         "/",
@@ -138,22 +141,22 @@ instance Core.ToPath GetReusableDelegationSetLimit where
       ]
 
 instance Core.ToQuery GetReusableDelegationSetLimit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the requested limit.
 --
 -- /See:/ 'newGetReusableDelegationSetLimitResponse' smart constructor.
 data GetReusableDelegationSetLimitResponse = GetReusableDelegationSetLimitResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The current setting for the limit on hosted zones that you can associate
     -- with the specified reusable delegation set.
     limit :: ReusableDelegationSetLimit,
     -- | The current number of hosted zones that you can associate with the
     -- specified reusable delegation set.
-    count :: Core.Natural
+    count :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetReusableDelegationSetLimitResponse' with all optional fields omitted.
@@ -172,11 +175,11 @@ data GetReusableDelegationSetLimitResponse = GetReusableDelegationSetLimitRespon
 -- specified reusable delegation set.
 newGetReusableDelegationSetLimitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'limit'
   ReusableDelegationSetLimit ->
   -- | 'count'
-  Core.Natural ->
+  Prelude.Natural ->
   GetReusableDelegationSetLimitResponse
 newGetReusableDelegationSetLimitResponse
   pHttpStatus_
@@ -190,7 +193,7 @@ newGetReusableDelegationSetLimitResponse
       }
 
 -- | The response's http status code.
-getReusableDelegationSetLimitResponse_httpStatus :: Lens.Lens' GetReusableDelegationSetLimitResponse Core.Int
+getReusableDelegationSetLimitResponse_httpStatus :: Lens.Lens' GetReusableDelegationSetLimitResponse Prelude.Int
 getReusableDelegationSetLimitResponse_httpStatus = Lens.lens (\GetReusableDelegationSetLimitResponse' {httpStatus} -> httpStatus) (\s@GetReusableDelegationSetLimitResponse' {} a -> s {httpStatus = a} :: GetReusableDelegationSetLimitResponse)
 
 -- | The current setting for the limit on hosted zones that you can associate
@@ -200,9 +203,9 @@ getReusableDelegationSetLimitResponse_limit = Lens.lens (\GetReusableDelegationS
 
 -- | The current number of hosted zones that you can associate with the
 -- specified reusable delegation set.
-getReusableDelegationSetLimitResponse_count :: Lens.Lens' GetReusableDelegationSetLimitResponse Core.Natural
+getReusableDelegationSetLimitResponse_count :: Lens.Lens' GetReusableDelegationSetLimitResponse Prelude.Natural
 getReusableDelegationSetLimitResponse_count = Lens.lens (\GetReusableDelegationSetLimitResponse' {count} -> count) (\s@GetReusableDelegationSetLimitResponse' {} a -> s {count = a} :: GetReusableDelegationSetLimitResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetReusableDelegationSetLimitResponse

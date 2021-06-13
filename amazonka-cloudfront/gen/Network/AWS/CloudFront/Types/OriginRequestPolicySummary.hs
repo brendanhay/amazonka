@@ -23,6 +23,7 @@ import Network.AWS.CloudFront.Types.OriginRequestPolicy
 import Network.AWS.CloudFront.Types.OriginRequestPolicyType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains an origin request policy.
 --
@@ -34,7 +35,7 @@ data OriginRequestPolicySummary = OriginRequestPolicySummary'
     -- | The origin request policy.
     originRequestPolicy :: OriginRequestPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicySummary' with all optional fields omitted.
@@ -74,9 +75,9 @@ originRequestPolicySummary_originRequestPolicy = Lens.lens (\OriginRequestPolicy
 instance Core.FromXML OriginRequestPolicySummary where
   parseXML x =
     OriginRequestPolicySummary'
-      Core.<$> (x Core..@ "Type")
-      Core.<*> (x Core..@ "OriginRequestPolicy")
+      Prelude.<$> (x Core..@ "Type")
+      Prelude.<*> (x Core..@ "OriginRequestPolicy")
 
-instance Core.Hashable OriginRequestPolicySummary
+instance Prelude.Hashable OriginRequestPolicySummary
 
-instance Core.NFData OriginRequestPolicySummary
+instance Prelude.NFData OriginRequestPolicySummary

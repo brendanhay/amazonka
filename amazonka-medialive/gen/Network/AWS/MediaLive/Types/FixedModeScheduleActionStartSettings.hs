@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Start time for the action.
 --
@@ -31,9 +32,9 @@ data FixedModeScheduleActionStartSettings = FixedModeScheduleActionStartSettings
     -- schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the
     -- letters are digits (for example, mm might be 01) except for the two
     -- constants \"T\" for time and \"Z\" for \"UTC format\".
-    time :: Core.Text
+    time :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FixedModeScheduleActionStartSettings' with all optional fields omitted.
@@ -50,7 +51,7 @@ data FixedModeScheduleActionStartSettings = FixedModeScheduleActionStartSettings
 -- constants \"T\" for time and \"Z\" for \"UTC format\".
 newFixedModeScheduleActionStartSettings ::
   -- | 'time'
-  Core.Text ->
+  Prelude.Text ->
   FixedModeScheduleActionStartSettings
 newFixedModeScheduleActionStartSettings pTime_ =
   FixedModeScheduleActionStartSettings'
@@ -63,7 +64,7 @@ newFixedModeScheduleActionStartSettings pTime_ =
 -- schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the
 -- letters are digits (for example, mm might be 01) except for the two
 -- constants \"T\" for time and \"Z\" for \"UTC format\".
-fixedModeScheduleActionStartSettings_time :: Lens.Lens' FixedModeScheduleActionStartSettings Core.Text
+fixedModeScheduleActionStartSettings_time :: Lens.Lens' FixedModeScheduleActionStartSettings Prelude.Text
 fixedModeScheduleActionStartSettings_time = Lens.lens (\FixedModeScheduleActionStartSettings' {time} -> time) (\s@FixedModeScheduleActionStartSettings' {} a -> s {time = a} :: FixedModeScheduleActionStartSettings)
 
 instance
@@ -75,15 +76,15 @@ instance
       "FixedModeScheduleActionStartSettings"
       ( \x ->
           FixedModeScheduleActionStartSettings'
-            Core.<$> (x Core..: "time")
+            Prelude.<$> (x Core..: "time")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FixedModeScheduleActionStartSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     FixedModeScheduleActionStartSettings
 
 instance
@@ -92,4 +93,6 @@ instance
   where
   toJSON FixedModeScheduleActionStartSettings' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("time" Core..= time)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("time" Core..= time)]
+      )

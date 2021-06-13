@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ResourceType
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The tags specification for the launch template.
 --
@@ -33,11 +34,11 @@ data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationReque
     -- tagging on creation are @instance@ and @volume@. To tag a resource after
     -- it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The tags to apply to the resource.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateTagSpecificationRequest' with all optional fields omitted.
@@ -58,27 +59,27 @@ newLaunchTemplateTagSpecificationRequest ::
 newLaunchTemplateTagSpecificationRequest =
   LaunchTemplateTagSpecificationRequest'
     { resourceType =
-        Core.Nothing,
-      tags = Core.Nothing
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The type of resource to tag. Currently, the resource types that support
 -- tagging on creation are @instance@ and @volume@. To tag a resource after
 -- it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-launchTemplateTagSpecificationRequest_resourceType :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Core.Maybe ResourceType)
+launchTemplateTagSpecificationRequest_resourceType :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Prelude.Maybe ResourceType)
 launchTemplateTagSpecificationRequest_resourceType = Lens.lens (\LaunchTemplateTagSpecificationRequest' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecificationRequest)
 
 -- | The tags to apply to the resource.
-launchTemplateTagSpecificationRequest_tags :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Core.Maybe [Tag])
-launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecificationRequest' {tags} -> tags) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {tags = a} :: LaunchTemplateTagSpecificationRequest) Core.. Lens.mapping Lens._Coerce
+launchTemplateTagSpecificationRequest_tags :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Prelude.Maybe [Tag])
+launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecificationRequest' {tags} -> tags) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {tags = a} :: LaunchTemplateTagSpecificationRequest) Prelude.. Lens.mapping Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateTagSpecificationRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateTagSpecificationRequest
 
 instance
@@ -86,7 +87,8 @@ instance
     LaunchTemplateTagSpecificationRequest
   where
   toQuery LaunchTemplateTagSpecificationRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ResourceType" Core.=: resourceType,
-        Core.toQuery (Core.toQueryList "Tag" Core.<$> tags)
+        Core.toQuery
+          (Core.toQueryList "Tag" Prelude.<$> tags)
       ]

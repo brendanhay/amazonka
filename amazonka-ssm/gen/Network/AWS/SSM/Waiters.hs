@@ -17,6 +17,7 @@ module Network.AWS.SSM.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.GetCommandInvocation
 import Network.AWS.SSM.Lens
 import Network.AWS.SSM.Types
@@ -33,57 +34,57 @@ newCommandExecuted =
             "Pending"
             Core.AcceptRetry
             ( getCommandInvocationResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "InProgress"
             Core.AcceptRetry
             ( getCommandInvocationResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Delayed"
             Core.AcceptRetry
             ( getCommandInvocationResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Success"
             Core.AcceptSuccess
             ( getCommandInvocationResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Cancelled"
             Core.AcceptFailure
             ( getCommandInvocationResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "TimedOut"
             Core.AcceptFailure
             ( getCommandInvocationResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( getCommandInvocationResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Cancelling"
             Core.AcceptFailure
             ( getCommandInvocationResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

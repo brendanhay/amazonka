@@ -50,17 +50,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeCostCategoryDefinition' smart constructor.
 data DescribeCostCategoryDefinition = DescribeCostCategoryDefinition'
   { -- | The date when the Cost Category was effective.
-    effectiveOn :: Core.Maybe Core.Text,
+    effectiveOn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for your Cost Category.
-    costCategoryArn :: Core.Text
+    costCategoryArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCostCategoryDefinition' with all optional fields omitted.
@@ -75,21 +76,21 @@ data DescribeCostCategoryDefinition = DescribeCostCategoryDefinition'
 -- 'costCategoryArn', 'describeCostCategoryDefinition_costCategoryArn' - The unique identifier for your Cost Category.
 newDescribeCostCategoryDefinition ::
   -- | 'costCategoryArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeCostCategoryDefinition
 newDescribeCostCategoryDefinition pCostCategoryArn_ =
   DescribeCostCategoryDefinition'
     { effectiveOn =
-        Core.Nothing,
+        Prelude.Nothing,
       costCategoryArn = pCostCategoryArn_
     }
 
 -- | The date when the Cost Category was effective.
-describeCostCategoryDefinition_effectiveOn :: Lens.Lens' DescribeCostCategoryDefinition (Core.Maybe Core.Text)
+describeCostCategoryDefinition_effectiveOn :: Lens.Lens' DescribeCostCategoryDefinition (Prelude.Maybe Prelude.Text)
 describeCostCategoryDefinition_effectiveOn = Lens.lens (\DescribeCostCategoryDefinition' {effectiveOn} -> effectiveOn) (\s@DescribeCostCategoryDefinition' {} a -> s {effectiveOn = a} :: DescribeCostCategoryDefinition)
 
 -- | The unique identifier for your Cost Category.
-describeCostCategoryDefinition_costCategoryArn :: Lens.Lens' DescribeCostCategoryDefinition Core.Text
+describeCostCategoryDefinition_costCategoryArn :: Lens.Lens' DescribeCostCategoryDefinition Prelude.Text
 describeCostCategoryDefinition_costCategoryArn = Lens.lens (\DescribeCostCategoryDefinition' {costCategoryArn} -> costCategoryArn) (\s@DescribeCostCategoryDefinition' {} a -> s {costCategoryArn = a} :: DescribeCostCategoryDefinition)
 
 instance
@@ -104,53 +105,59 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeCostCategoryDefinitionResponse'
-            Core.<$> (x Core..?> "CostCategory")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CostCategory")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeCostCategoryDefinition
+instance
+  Prelude.Hashable
+    DescribeCostCategoryDefinition
 
-instance Core.NFData DescribeCostCategoryDefinition
+instance
+  Prelude.NFData
+    DescribeCostCategoryDefinition
 
 instance
   Core.ToHeaders
     DescribeCostCategoryDefinition
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSInsightsIndexService.DescribeCostCategoryDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeCostCategoryDefinition where
   toJSON DescribeCostCategoryDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EffectiveOn" Core..=) Core.<$> effectiveOn,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("EffectiveOn" Core..=) Prelude.<$> effectiveOn,
+            Prelude.Just
               ("CostCategoryArn" Core..= costCategoryArn)
           ]
       )
 
 instance Core.ToPath DescribeCostCategoryDefinition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeCostCategoryDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCostCategoryDefinitionResponse' smart constructor.
 data DescribeCostCategoryDefinitionResponse = DescribeCostCategoryDefinitionResponse'
-  { costCategory :: Core.Maybe CostCategory,
+  { costCategory :: Prelude.Maybe CostCategory,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCostCategoryDefinitionResponse' with all optional fields omitted.
@@ -165,24 +172,24 @@ data DescribeCostCategoryDefinitionResponse = DescribeCostCategoryDefinitionResp
 -- 'httpStatus', 'describeCostCategoryDefinitionResponse_httpStatus' - The response's http status code.
 newDescribeCostCategoryDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeCostCategoryDefinitionResponse
 newDescribeCostCategoryDefinitionResponse
   pHttpStatus_ =
     DescribeCostCategoryDefinitionResponse'
       { costCategory =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-describeCostCategoryDefinitionResponse_costCategory :: Lens.Lens' DescribeCostCategoryDefinitionResponse (Core.Maybe CostCategory)
+describeCostCategoryDefinitionResponse_costCategory :: Lens.Lens' DescribeCostCategoryDefinitionResponse (Prelude.Maybe CostCategory)
 describeCostCategoryDefinitionResponse_costCategory = Lens.lens (\DescribeCostCategoryDefinitionResponse' {costCategory} -> costCategory) (\s@DescribeCostCategoryDefinitionResponse' {} a -> s {costCategory = a} :: DescribeCostCategoryDefinitionResponse)
 
 -- | The response's http status code.
-describeCostCategoryDefinitionResponse_httpStatus :: Lens.Lens' DescribeCostCategoryDefinitionResponse Core.Int
+describeCostCategoryDefinitionResponse_httpStatus :: Lens.Lens' DescribeCostCategoryDefinitionResponse Prelude.Int
 describeCostCategoryDefinitionResponse_httpStatus = Lens.lens (\DescribeCostCategoryDefinitionResponse' {httpStatus} -> httpStatus) (\s@DescribeCostCategoryDefinitionResponse' {} a -> s {httpStatus = a} :: DescribeCostCategoryDefinitionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeCostCategoryDefinitionResponse

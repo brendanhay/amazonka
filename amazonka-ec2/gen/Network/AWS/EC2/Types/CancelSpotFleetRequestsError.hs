@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CancelBatchErrorCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Spot Fleet error.
 --
 -- /See:/ 'newCancelSpotFleetRequestsError' smart constructor.
 data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
   { -- | The description for the error code.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    code :: Core.Maybe CancelBatchErrorCode
+    code :: Prelude.Maybe CancelBatchErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelSpotFleetRequestsError' with all optional fields omitted.
@@ -51,23 +52,26 @@ newCancelSpotFleetRequestsError ::
 newCancelSpotFleetRequestsError =
   CancelSpotFleetRequestsError'
     { message =
-        Core.Nothing,
-      code = Core.Nothing
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The description for the error code.
-cancelSpotFleetRequestsError_message :: Lens.Lens' CancelSpotFleetRequestsError (Core.Maybe Core.Text)
+cancelSpotFleetRequestsError_message :: Lens.Lens' CancelSpotFleetRequestsError (Prelude.Maybe Prelude.Text)
 cancelSpotFleetRequestsError_message = Lens.lens (\CancelSpotFleetRequestsError' {message} -> message) (\s@CancelSpotFleetRequestsError' {} a -> s {message = a} :: CancelSpotFleetRequestsError)
 
 -- | The error code.
-cancelSpotFleetRequestsError_code :: Lens.Lens' CancelSpotFleetRequestsError (Core.Maybe CancelBatchErrorCode)
+cancelSpotFleetRequestsError_code :: Lens.Lens' CancelSpotFleetRequestsError (Prelude.Maybe CancelBatchErrorCode)
 cancelSpotFleetRequestsError_code = Lens.lens (\CancelSpotFleetRequestsError' {code} -> code) (\s@CancelSpotFleetRequestsError' {} a -> s {code = a} :: CancelSpotFleetRequestsError)
 
 instance Core.FromXML CancelSpotFleetRequestsError where
   parseXML x =
     CancelSpotFleetRequestsError'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable CancelSpotFleetRequestsError
+instance
+  Prelude.Hashable
+    CancelSpotFleetRequestsError
 
-instance Core.NFData CancelSpotFleetRequestsError
+instance Prelude.NFData CancelSpotFleetRequestsError

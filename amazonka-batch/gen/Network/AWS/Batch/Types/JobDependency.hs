@@ -22,17 +22,18 @@ module Network.AWS.Batch.Types.JobDependency where
 import Network.AWS.Batch.Types.ArrayJobDependency
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an AWS Batch job dependency.
 --
 -- /See:/ 'newJobDependency' smart constructor.
 data JobDependency = JobDependency'
   { -- | The type of the job dependency.
-    type' :: Core.Maybe ArrayJobDependency,
+    type' :: Prelude.Maybe ArrayJobDependency,
     -- | The job ID of the AWS Batch job associated with this dependency.
-    jobId :: Core.Maybe Core.Text
+    jobId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobDependency' with all optional fields omitted.
@@ -49,16 +50,16 @@ newJobDependency ::
   JobDependency
 newJobDependency =
   JobDependency'
-    { type' = Core.Nothing,
-      jobId = Core.Nothing
+    { type' = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
 
 -- | The type of the job dependency.
-jobDependency_type :: Lens.Lens' JobDependency (Core.Maybe ArrayJobDependency)
+jobDependency_type :: Lens.Lens' JobDependency (Prelude.Maybe ArrayJobDependency)
 jobDependency_type = Lens.lens (\JobDependency' {type'} -> type') (\s@JobDependency' {} a -> s {type' = a} :: JobDependency)
 
 -- | The job ID of the AWS Batch job associated with this dependency.
-jobDependency_jobId :: Lens.Lens' JobDependency (Core.Maybe Core.Text)
+jobDependency_jobId :: Lens.Lens' JobDependency (Prelude.Maybe Prelude.Text)
 jobDependency_jobId = Lens.lens (\JobDependency' {jobId} -> jobId) (\s@JobDependency' {} a -> s {jobId = a} :: JobDependency)
 
 instance Core.FromJSON JobDependency where
@@ -67,18 +68,18 @@ instance Core.FromJSON JobDependency where
       "JobDependency"
       ( \x ->
           JobDependency'
-            Core.<$> (x Core..:? "type") Core.<*> (x Core..:? "jobId")
+            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "jobId")
       )
 
-instance Core.Hashable JobDependency
+instance Prelude.Hashable JobDependency
 
-instance Core.NFData JobDependency
+instance Prelude.NFData JobDependency
 
 instance Core.ToJSON JobDependency where
   toJSON JobDependency' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("type" Core..=) Core.<$> type',
-            ("jobId" Core..=) Core.<$> jobId
+      ( Prelude.catMaybes
+          [ ("type" Core..=) Prelude.<$> type',
+            ("jobId" Core..=) Prelude.<$> jobId
           ]
       )

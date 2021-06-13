@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.StepExecutionFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.StepExecutionFilterKey
 
 -- | A filter to limit the amount of step execution information returned by
@@ -33,9 +34,9 @@ data StepExecutionFilter = StepExecutionFilter'
     -- StartTimeBefore, StartTimeAfter.
     key :: StepExecutionFilterKey,
     -- | The values of the filter key.
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StepExecutionFilter' with all optional fields omitted.
@@ -54,7 +55,7 @@ newStepExecutionFilter ::
   -- | 'key'
   StepExecutionFilterKey ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   StepExecutionFilter
 newStepExecutionFilter pKey_ pValues_ =
   StepExecutionFilter'
@@ -69,18 +70,18 @@ stepExecutionFilter_key :: Lens.Lens' StepExecutionFilter StepExecutionFilterKey
 stepExecutionFilter_key = Lens.lens (\StepExecutionFilter' {key} -> key) (\s@StepExecutionFilter' {} a -> s {key = a} :: StepExecutionFilter)
 
 -- | The values of the filter key.
-stepExecutionFilter_values :: Lens.Lens' StepExecutionFilter (Core.NonEmpty Core.Text)
-stepExecutionFilter_values = Lens.lens (\StepExecutionFilter' {values} -> values) (\s@StepExecutionFilter' {} a -> s {values = a} :: StepExecutionFilter) Core.. Lens._Coerce
+stepExecutionFilter_values :: Lens.Lens' StepExecutionFilter (Prelude.NonEmpty Prelude.Text)
+stepExecutionFilter_values = Lens.lens (\StepExecutionFilter' {values} -> values) (\s@StepExecutionFilter' {} a -> s {values = a} :: StepExecutionFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable StepExecutionFilter
+instance Prelude.Hashable StepExecutionFilter
 
-instance Core.NFData StepExecutionFilter
+instance Prelude.NFData StepExecutionFilter
 
 instance Core.ToJSON StepExecutionFilter where
   toJSON StepExecutionFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

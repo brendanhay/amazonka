@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,13 +71,13 @@ data CreateAdditionalAssignmentsForHIT = CreateAdditionalAssignmentsForHIT'
     -- system from a previous call using the same @UniqueRequestToken@,
     -- subsequent calls will return an error with a message containing the
     -- request ID.
-    uniqueRequestToken :: Core.Maybe Core.Text,
+    uniqueRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the HIT to extend.
-    hITId :: Core.Text,
+    hITId :: Prelude.Text,
     -- | The number of additional assignments to request for this HIT.
-    numberOfAdditionalAssignments :: Core.Int
+    numberOfAdditionalAssignments :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAdditionalAssignmentsForHIT' with all optional fields omitted.
@@ -99,16 +100,16 @@ data CreateAdditionalAssignmentsForHIT = CreateAdditionalAssignmentsForHIT'
 -- 'numberOfAdditionalAssignments', 'createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments' - The number of additional assignments to request for this HIT.
 newCreateAdditionalAssignmentsForHIT ::
   -- | 'hITId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'numberOfAdditionalAssignments'
-  Core.Int ->
+  Prelude.Int ->
   CreateAdditionalAssignmentsForHIT
 newCreateAdditionalAssignmentsForHIT
   pHITId_
   pNumberOfAdditionalAssignments_ =
     CreateAdditionalAssignmentsForHIT'
       { uniqueRequestToken =
-          Core.Nothing,
+          Prelude.Nothing,
         hITId = pHITId_,
         numberOfAdditionalAssignments =
           pNumberOfAdditionalAssignments_
@@ -121,15 +122,15 @@ newCreateAdditionalAssignmentsForHIT
 -- system from a previous call using the same @UniqueRequestToken@,
 -- subsequent calls will return an error with a message containing the
 -- request ID.
-createAdditionalAssignmentsForHIT_uniqueRequestToken :: Lens.Lens' CreateAdditionalAssignmentsForHIT (Core.Maybe Core.Text)
+createAdditionalAssignmentsForHIT_uniqueRequestToken :: Lens.Lens' CreateAdditionalAssignmentsForHIT (Prelude.Maybe Prelude.Text)
 createAdditionalAssignmentsForHIT_uniqueRequestToken = Lens.lens (\CreateAdditionalAssignmentsForHIT' {uniqueRequestToken} -> uniqueRequestToken) (\s@CreateAdditionalAssignmentsForHIT' {} a -> s {uniqueRequestToken = a} :: CreateAdditionalAssignmentsForHIT)
 
 -- | The ID of the HIT to extend.
-createAdditionalAssignmentsForHIT_hITId :: Lens.Lens' CreateAdditionalAssignmentsForHIT Core.Text
+createAdditionalAssignmentsForHIT_hITId :: Lens.Lens' CreateAdditionalAssignmentsForHIT Prelude.Text
 createAdditionalAssignmentsForHIT_hITId = Lens.lens (\CreateAdditionalAssignmentsForHIT' {hITId} -> hITId) (\s@CreateAdditionalAssignmentsForHIT' {} a -> s {hITId = a} :: CreateAdditionalAssignmentsForHIT)
 
 -- | The number of additional assignments to request for this HIT.
-createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments :: Lens.Lens' CreateAdditionalAssignmentsForHIT Core.Int
+createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments :: Lens.Lens' CreateAdditionalAssignmentsForHIT Prelude.Int
 createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments = Lens.lens (\CreateAdditionalAssignmentsForHIT' {numberOfAdditionalAssignments} -> numberOfAdditionalAssignments) (\s@CreateAdditionalAssignmentsForHIT' {} a -> s {numberOfAdditionalAssignments = a} :: CreateAdditionalAssignmentsForHIT)
 
 instance
@@ -144,15 +145,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           CreateAdditionalAssignmentsForHITResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateAdditionalAssignmentsForHIT
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateAdditionalAssignmentsForHIT
 
 instance
@@ -160,14 +161,16 @@ instance
     CreateAdditionalAssignmentsForHIT
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -177,11 +180,11 @@ instance
   where
   toJSON CreateAdditionalAssignmentsForHIT' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("UniqueRequestToken" Core..=)
-              Core.<$> uniqueRequestToken,
-            Core.Just ("HITId" Core..= hITId),
-            Core.Just
+              Prelude.<$> uniqueRequestToken,
+            Prelude.Just ("HITId" Core..= hITId),
+            Prelude.Just
               ( "NumberOfAdditionalAssignments"
                   Core..= numberOfAdditionalAssignments
               )
@@ -192,20 +195,20 @@ instance
   Core.ToPath
     CreateAdditionalAssignmentsForHIT
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     CreateAdditionalAssignmentsForHIT
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAdditionalAssignmentsForHITResponse' smart constructor.
 data CreateAdditionalAssignmentsForHITResponse = CreateAdditionalAssignmentsForHITResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAdditionalAssignmentsForHITResponse' with all optional fields omitted.
@@ -218,7 +221,7 @@ data CreateAdditionalAssignmentsForHITResponse = CreateAdditionalAssignmentsForH
 -- 'httpStatus', 'createAdditionalAssignmentsForHITResponse_httpStatus' - The response's http status code.
 newCreateAdditionalAssignmentsForHITResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAdditionalAssignmentsForHITResponse
 newCreateAdditionalAssignmentsForHITResponse
   pHttpStatus_ =
@@ -228,9 +231,9 @@ newCreateAdditionalAssignmentsForHITResponse
       }
 
 -- | The response's http status code.
-createAdditionalAssignmentsForHITResponse_httpStatus :: Lens.Lens' CreateAdditionalAssignmentsForHITResponse Core.Int
+createAdditionalAssignmentsForHITResponse_httpStatus :: Lens.Lens' CreateAdditionalAssignmentsForHITResponse Prelude.Int
 createAdditionalAssignmentsForHITResponse_httpStatus = Lens.lens (\CreateAdditionalAssignmentsForHITResponse' {httpStatus} -> httpStatus) (\s@CreateAdditionalAssignmentsForHITResponse' {} a -> s {httpStatus = a} :: CreateAdditionalAssignmentsForHITResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateAdditionalAssignmentsForHITResponse

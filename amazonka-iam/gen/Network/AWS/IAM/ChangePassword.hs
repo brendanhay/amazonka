@@ -48,13 +48,14 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newChangePassword' smart constructor.
 data ChangePassword = ChangePassword'
   { -- | The IAM user\'s current password.
-    oldPassword :: Core.Sensitive Core.Text,
+    oldPassword :: Core.Sensitive Prelude.Text,
     -- | The new password. The new password must conform to the AWS account\'s
     -- password policy, if one exists.
     --
@@ -67,9 +68,9 @@ data ChangePassword = ChangePassword'
     -- However, many tools, such as the AWS Management Console, might restrict
     -- the ability to type certain characters because they have special meaning
     -- within that tool.
-    newPassword' :: Core.Sensitive Core.Text
+    newPassword' :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangePassword' with all optional fields omitted.
@@ -95,9 +96,9 @@ data ChangePassword = ChangePassword'
 -- within that tool.
 newChangePassword ::
   -- | 'oldPassword'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'newPassword''
-  Core.Text ->
+  Prelude.Text ->
   ChangePassword
 newChangePassword pOldPassword_ pNewPassword_ =
   ChangePassword'
@@ -107,8 +108,8 @@ newChangePassword pOldPassword_ pNewPassword_ =
     }
 
 -- | The IAM user\'s current password.
-changePassword_oldPassword :: Lens.Lens' ChangePassword Core.Text
-changePassword_oldPassword = Lens.lens (\ChangePassword' {oldPassword} -> oldPassword) (\s@ChangePassword' {} a -> s {oldPassword = a} :: ChangePassword) Core.. Core._Sensitive
+changePassword_oldPassword :: Lens.Lens' ChangePassword Prelude.Text
+changePassword_oldPassword = Lens.lens (\ChangePassword' {oldPassword} -> oldPassword) (\s@ChangePassword' {} a -> s {oldPassword = a} :: ChangePassword) Prelude.. Core._Sensitive
 
 -- | The new password. The new password must conform to the AWS account\'s
 -- password policy, if one exists.
@@ -122,8 +123,8 @@ changePassword_oldPassword = Lens.lens (\ChangePassword' {oldPassword} -> oldPas
 -- However, many tools, such as the AWS Management Console, might restrict
 -- the ability to type certain characters because they have special meaning
 -- within that tool.
-changePassword_newPassword :: Lens.Lens' ChangePassword Core.Text
-changePassword_newPassword = Lens.lens (\ChangePassword' {newPassword'} -> newPassword') (\s@ChangePassword' {} a -> s {newPassword' = a} :: ChangePassword) Core.. Core._Sensitive
+changePassword_newPassword :: Lens.Lens' ChangePassword Prelude.Text
+changePassword_newPassword = Lens.lens (\ChangePassword' {newPassword'} -> newPassword') (\s@ChangePassword' {} a -> s {newPassword' = a} :: ChangePassword) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest ChangePassword where
   type
@@ -133,22 +134,23 @@ instance Core.AWSRequest ChangePassword where
   response =
     Response.receiveNull ChangePasswordResponse'
 
-instance Core.Hashable ChangePassword
+instance Prelude.Hashable ChangePassword
 
-instance Core.NFData ChangePassword
+instance Prelude.NFData ChangePassword
 
 instance Core.ToHeaders ChangePassword where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ChangePassword where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ChangePassword where
   toQuery ChangePassword' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ChangePassword" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ChangePassword" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "OldPassword" Core.=: oldPassword,
         "NewPassword" Core.=: newPassword'
       ]
@@ -157,7 +159,7 @@ instance Core.ToQuery ChangePassword where
 data ChangePasswordResponse = ChangePasswordResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangePasswordResponse' with all optional fields omitted.
@@ -167,4 +169,4 @@ newChangePasswordResponse ::
   ChangePasswordResponse
 newChangePasswordResponse = ChangePasswordResponse'
 
-instance Core.NFData ChangePasswordResponse
+instance Prelude.NFData ChangePasswordResponse

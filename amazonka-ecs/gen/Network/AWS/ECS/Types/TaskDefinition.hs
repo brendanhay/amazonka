@@ -32,6 +32,7 @@ import Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint
 import Network.AWS.ECS.Types.TaskDefinitionStatus
 import Network.AWS.ECS.Types.Volume
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a task definition which describes the container and
 -- volume definitions of an Amazon Elastic Container Service task. You can
@@ -42,7 +43,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTaskDefinition' smart constructor.
 data TaskDefinition = TaskDefinition'
   { -- | The status of the task definition.
-    status :: Core.Maybe TaskDefinitionStatus,
+    status :: Prelude.Maybe TaskDefinitionStatus,
     -- | The short name or full Amazon Resource Name (ARN) of the AWS Identity
     -- and Access Management (IAM) role that grants containers in the task
     -- permission to call AWS APIs on your behalf. For more information, see
@@ -55,7 +56,7 @@ data TaskDefinition = TaskDefinition'
     -- advantage of the feature. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html Windows IAM Roles for Tasks>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    taskRoleArn :: Core.Maybe Core.Text,
+    taskRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The amount (in MiB) of memory used by the task.
     --
     -- If using the EC2 launch type, you must specify either a task-level
@@ -83,13 +84,13 @@ data TaskDefinition = TaskDefinition'
     --
     -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
     --     Available @cpu@ values: 4096 (4 vCPU)
-    memory :: Core.Maybe Core.Text,
+    memory :: Prelude.Maybe Prelude.Text,
     -- | A list of container definitions in JSON format that describe the
     -- different containers that make up your task. For more information about
     -- container definition parameters and defaults, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    containerDefinitions :: Core.Maybe [ContainerDefinition],
+    containerDefinitions :: Prelude.Maybe [ContainerDefinition],
     -- | The process namespace to use for the containers in the task. The valid
     -- values are @host@ or @task@. If @host@ is specified, then all containers
     -- within the tasks that specified the @host@ PID mode on the same
@@ -106,17 +107,17 @@ data TaskDefinition = TaskDefinition'
     --
     -- This parameter is not supported for Windows containers or tasks using
     -- the Fargate launch type.
-    pidMode :: Core.Maybe PidMode,
+    pidMode :: Prelude.Maybe PidMode,
     -- | The launch type the task requires. If no value is specified, it will
     -- default to @EC2@. Valid values include @EC2@ and @FARGATE@.
-    requiresCompatibilities :: Core.Maybe [Compatibility],
+    requiresCompatibilities :: Prelude.Maybe [Compatibility],
     -- | The Amazon Resource Name (ARN) of the task execution role that grants
     -- the Amazon ECS container agent permission to make AWS API calls on your
     -- behalf. The task execution IAM role is required depending on the
     -- requirements of your task. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    executionRoleArn :: Core.Maybe Core.Text,
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The list of volume definitions for the task.
     --
     -- If your tasks are using the Fargate launch type, the @host@ and
@@ -126,18 +127,18 @@ data TaskDefinition = TaskDefinition'
     -- see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html Amazon ECS Task Definitions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    volumes :: Core.Maybe [Volume],
+    volumes :: Prelude.Maybe [Volume],
     -- | The launch type to use with your task. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    compatibilities :: Core.Maybe [Compatibility],
+    compatibilities :: Prelude.Maybe [Compatibility],
     -- | The Unix timestamp for when the task definition was registered.
-    registeredAt :: Core.Maybe Core.POSIX,
+    registeredAt :: Prelude.Maybe Core.POSIX,
     -- | The Elastic Inference accelerator associated with the task.
-    inferenceAccelerators :: Core.Maybe [InferenceAccelerator],
+    inferenceAccelerators :: Prelude.Maybe [InferenceAccelerator],
     -- | An array of placement constraint objects to use for tasks. This field is
     -- not valid if you are using the Fargate launch type for your task.
-    placementConstraints :: Core.Maybe [TaskDefinitionPlacementConstraint],
+    placementConstraints :: Prelude.Maybe [TaskDefinitionPlacementConstraint],
     -- | The configuration details for the App Mesh proxy.
     --
     -- Your Amazon ECS container instances require at least version 1.26.0 of
@@ -148,12 +149,12 @@ data TaskDefinition = TaskDefinition'
     -- @ecs-init@. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized Linux AMI>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    proxyConfiguration :: Core.Maybe ProxyConfiguration,
+    proxyConfiguration :: Prelude.Maybe ProxyConfiguration,
     -- | The Unix timestamp for when the task definition was deregistered.
-    deregisteredAt :: Core.Maybe Core.POSIX,
+    deregisteredAt :: Prelude.Maybe Core.POSIX,
     -- | The container instance attributes required by your task. This field is
     -- not valid if you are using the Fargate launch type for your task.
-    requiresAttributes :: Core.Maybe [Attribute],
+    requiresAttributes :: Prelude.Maybe [Attribute],
     -- | The IPC resource namespace to use for the containers in the task. The
     -- valid values are @host@, @task@, or @none@. If @host@ is specified, then
     -- all containers within the tasks that specified the @host@ IPC mode on
@@ -186,7 +187,7 @@ data TaskDefinition = TaskDefinition'
     --
     -- This parameter is not supported for Windows containers or tasks using
     -- the Fargate launch type.
-    ipcMode :: Core.Maybe IpcMode,
+    ipcMode :: Prelude.Maybe IpcMode,
     -- | The number of @cpu@ units used by the task. If you are using the EC2
     -- launch type, this field is optional and any value can be used. If you
     -- are using the Fargate launch type, this field is required and you must
@@ -207,7 +208,7 @@ data TaskDefinition = TaskDefinition'
     --
     -- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
     --     30720 (30 GB) in increments of 1024 (1 GB)
-    cpu :: Core.Maybe Core.Text,
+    cpu :: Prelude.Maybe Prelude.Text,
     -- | The name of a family that this task definition is registered to. Up to
     -- 255 letters (uppercase and lowercase), numbers, hyphens, and underscores
     -- are allowed.
@@ -216,16 +217,16 @@ data TaskDefinition = TaskDefinition'
     -- the first task definition that you registered to a family a revision
     -- number of 1. Amazon ECS gives sequential revision numbers to each task
     -- definition that you add.
-    family :: Core.Maybe Core.Text,
+    family :: Prelude.Maybe Prelude.Text,
     -- | The revision of the task in a particular family. The revision is a
     -- version number of a task definition in a family. When you register a
     -- task definition for the first time, the revision is @1@. Each time that
     -- you register a new revision of a task definition in the same family, the
     -- revision value always increases by one, even if you have deregistered
     -- previous revisions in this family.
-    revision :: Core.Maybe Core.Int,
+    revision :: Prelude.Maybe Prelude.Int,
     -- | The principal that registered the task definition.
-    registeredBy :: Core.Maybe Core.Text,
+    registeredBy :: Prelude.Maybe Prelude.Text,
     -- | The Docker networking mode to use for the containers in the task. The
     -- valid values are @none@, @bridge@, @awsvpc@, and @host@. If no network
     -- mode is specified, the default is @bridge@.
@@ -273,11 +274,11 @@ data TaskDefinition = TaskDefinition'
     -- For more information, see
     -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
     -- in the /Docker run reference/.
-    networkMode :: Core.Maybe NetworkMode,
+    networkMode :: Prelude.Maybe NetworkMode,
     -- | The full Amazon Resource Name (ARN) of the task definition.
-    taskDefinitionArn :: Core.Maybe Core.Text
+    taskDefinitionArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TaskDefinition' with all optional fields omitted.
@@ -525,32 +526,32 @@ newTaskDefinition ::
   TaskDefinition
 newTaskDefinition =
   TaskDefinition'
-    { status = Core.Nothing,
-      taskRoleArn = Core.Nothing,
-      memory = Core.Nothing,
-      containerDefinitions = Core.Nothing,
-      pidMode = Core.Nothing,
-      requiresCompatibilities = Core.Nothing,
-      executionRoleArn = Core.Nothing,
-      volumes = Core.Nothing,
-      compatibilities = Core.Nothing,
-      registeredAt = Core.Nothing,
-      inferenceAccelerators = Core.Nothing,
-      placementConstraints = Core.Nothing,
-      proxyConfiguration = Core.Nothing,
-      deregisteredAt = Core.Nothing,
-      requiresAttributes = Core.Nothing,
-      ipcMode = Core.Nothing,
-      cpu = Core.Nothing,
-      family = Core.Nothing,
-      revision = Core.Nothing,
-      registeredBy = Core.Nothing,
-      networkMode = Core.Nothing,
-      taskDefinitionArn = Core.Nothing
+    { status = Prelude.Nothing,
+      taskRoleArn = Prelude.Nothing,
+      memory = Prelude.Nothing,
+      containerDefinitions = Prelude.Nothing,
+      pidMode = Prelude.Nothing,
+      requiresCompatibilities = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
+      volumes = Prelude.Nothing,
+      compatibilities = Prelude.Nothing,
+      registeredAt = Prelude.Nothing,
+      inferenceAccelerators = Prelude.Nothing,
+      placementConstraints = Prelude.Nothing,
+      proxyConfiguration = Prelude.Nothing,
+      deregisteredAt = Prelude.Nothing,
+      requiresAttributes = Prelude.Nothing,
+      ipcMode = Prelude.Nothing,
+      cpu = Prelude.Nothing,
+      family = Prelude.Nothing,
+      revision = Prelude.Nothing,
+      registeredBy = Prelude.Nothing,
+      networkMode = Prelude.Nothing,
+      taskDefinitionArn = Prelude.Nothing
     }
 
 -- | The status of the task definition.
-taskDefinition_status :: Lens.Lens' TaskDefinition (Core.Maybe TaskDefinitionStatus)
+taskDefinition_status :: Lens.Lens' TaskDefinition (Prelude.Maybe TaskDefinitionStatus)
 taskDefinition_status = Lens.lens (\TaskDefinition' {status} -> status) (\s@TaskDefinition' {} a -> s {status = a} :: TaskDefinition)
 
 -- | The short name or full Amazon Resource Name (ARN) of the AWS Identity
@@ -565,7 +566,7 @@ taskDefinition_status = Lens.lens (\TaskDefinition' {status} -> status) (\s@Task
 -- advantage of the feature. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html Windows IAM Roles for Tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-taskDefinition_taskRoleArn :: Lens.Lens' TaskDefinition (Core.Maybe Core.Text)
+taskDefinition_taskRoleArn :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.Text)
 taskDefinition_taskRoleArn = Lens.lens (\TaskDefinition' {taskRoleArn} -> taskRoleArn) (\s@TaskDefinition' {} a -> s {taskRoleArn = a} :: TaskDefinition)
 
 -- | The amount (in MiB) of memory used by the task.
@@ -595,7 +596,7 @@ taskDefinition_taskRoleArn = Lens.lens (\TaskDefinition' {taskRoleArn} -> taskRo
 --
 -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 --     Available @cpu@ values: 4096 (4 vCPU)
-taskDefinition_memory :: Lens.Lens' TaskDefinition (Core.Maybe Core.Text)
+taskDefinition_memory :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.Text)
 taskDefinition_memory = Lens.lens (\TaskDefinition' {memory} -> memory) (\s@TaskDefinition' {} a -> s {memory = a} :: TaskDefinition)
 
 -- | A list of container definitions in JSON format that describe the
@@ -603,8 +604,8 @@ taskDefinition_memory = Lens.lens (\TaskDefinition' {memory} -> memory) (\s@Task
 -- container definition parameters and defaults, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-taskDefinition_containerDefinitions :: Lens.Lens' TaskDefinition (Core.Maybe [ContainerDefinition])
-taskDefinition_containerDefinitions = Lens.lens (\TaskDefinition' {containerDefinitions} -> containerDefinitions) (\s@TaskDefinition' {} a -> s {containerDefinitions = a} :: TaskDefinition) Core.. Lens.mapping Lens._Coerce
+taskDefinition_containerDefinitions :: Lens.Lens' TaskDefinition (Prelude.Maybe [ContainerDefinition])
+taskDefinition_containerDefinitions = Lens.lens (\TaskDefinition' {containerDefinitions} -> containerDefinitions) (\s@TaskDefinition' {} a -> s {containerDefinitions = a} :: TaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The process namespace to use for the containers in the task. The valid
 -- values are @host@ or @task@. If @host@ is specified, then all containers
@@ -622,13 +623,13 @@ taskDefinition_containerDefinitions = Lens.lens (\TaskDefinition' {containerDefi
 --
 -- This parameter is not supported for Windows containers or tasks using
 -- the Fargate launch type.
-taskDefinition_pidMode :: Lens.Lens' TaskDefinition (Core.Maybe PidMode)
+taskDefinition_pidMode :: Lens.Lens' TaskDefinition (Prelude.Maybe PidMode)
 taskDefinition_pidMode = Lens.lens (\TaskDefinition' {pidMode} -> pidMode) (\s@TaskDefinition' {} a -> s {pidMode = a} :: TaskDefinition)
 
 -- | The launch type the task requires. If no value is specified, it will
 -- default to @EC2@. Valid values include @EC2@ and @FARGATE@.
-taskDefinition_requiresCompatibilities :: Lens.Lens' TaskDefinition (Core.Maybe [Compatibility])
-taskDefinition_requiresCompatibilities = Lens.lens (\TaskDefinition' {requiresCompatibilities} -> requiresCompatibilities) (\s@TaskDefinition' {} a -> s {requiresCompatibilities = a} :: TaskDefinition) Core.. Lens.mapping Lens._Coerce
+taskDefinition_requiresCompatibilities :: Lens.Lens' TaskDefinition (Prelude.Maybe [Compatibility])
+taskDefinition_requiresCompatibilities = Lens.lens (\TaskDefinition' {requiresCompatibilities} -> requiresCompatibilities) (\s@TaskDefinition' {} a -> s {requiresCompatibilities = a} :: TaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the task execution role that grants
 -- the Amazon ECS container agent permission to make AWS API calls on your
@@ -636,7 +637,7 @@ taskDefinition_requiresCompatibilities = Lens.lens (\TaskDefinition' {requiresCo
 -- requirements of your task. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-taskDefinition_executionRoleArn :: Lens.Lens' TaskDefinition (Core.Maybe Core.Text)
+taskDefinition_executionRoleArn :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.Text)
 taskDefinition_executionRoleArn = Lens.lens (\TaskDefinition' {executionRoleArn} -> executionRoleArn) (\s@TaskDefinition' {} a -> s {executionRoleArn = a} :: TaskDefinition)
 
 -- | The list of volume definitions for the task.
@@ -648,27 +649,27 @@ taskDefinition_executionRoleArn = Lens.lens (\TaskDefinition' {executionRoleArn}
 -- see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html Amazon ECS Task Definitions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-taskDefinition_volumes :: Lens.Lens' TaskDefinition (Core.Maybe [Volume])
-taskDefinition_volumes = Lens.lens (\TaskDefinition' {volumes} -> volumes) (\s@TaskDefinition' {} a -> s {volumes = a} :: TaskDefinition) Core.. Lens.mapping Lens._Coerce
+taskDefinition_volumes :: Lens.Lens' TaskDefinition (Prelude.Maybe [Volume])
+taskDefinition_volumes = Lens.lens (\TaskDefinition' {volumes} -> volumes) (\s@TaskDefinition' {} a -> s {volumes = a} :: TaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The launch type to use with your task. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-taskDefinition_compatibilities :: Lens.Lens' TaskDefinition (Core.Maybe [Compatibility])
-taskDefinition_compatibilities = Lens.lens (\TaskDefinition' {compatibilities} -> compatibilities) (\s@TaskDefinition' {} a -> s {compatibilities = a} :: TaskDefinition) Core.. Lens.mapping Lens._Coerce
+taskDefinition_compatibilities :: Lens.Lens' TaskDefinition (Prelude.Maybe [Compatibility])
+taskDefinition_compatibilities = Lens.lens (\TaskDefinition' {compatibilities} -> compatibilities) (\s@TaskDefinition' {} a -> s {compatibilities = a} :: TaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Unix timestamp for when the task definition was registered.
-taskDefinition_registeredAt :: Lens.Lens' TaskDefinition (Core.Maybe Core.UTCTime)
-taskDefinition_registeredAt = Lens.lens (\TaskDefinition' {registeredAt} -> registeredAt) (\s@TaskDefinition' {} a -> s {registeredAt = a} :: TaskDefinition) Core.. Lens.mapping Core._Time
+taskDefinition_registeredAt :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.UTCTime)
+taskDefinition_registeredAt = Lens.lens (\TaskDefinition' {registeredAt} -> registeredAt) (\s@TaskDefinition' {} a -> s {registeredAt = a} :: TaskDefinition) Prelude.. Lens.mapping Core._Time
 
 -- | The Elastic Inference accelerator associated with the task.
-taskDefinition_inferenceAccelerators :: Lens.Lens' TaskDefinition (Core.Maybe [InferenceAccelerator])
-taskDefinition_inferenceAccelerators = Lens.lens (\TaskDefinition' {inferenceAccelerators} -> inferenceAccelerators) (\s@TaskDefinition' {} a -> s {inferenceAccelerators = a} :: TaskDefinition) Core.. Lens.mapping Lens._Coerce
+taskDefinition_inferenceAccelerators :: Lens.Lens' TaskDefinition (Prelude.Maybe [InferenceAccelerator])
+taskDefinition_inferenceAccelerators = Lens.lens (\TaskDefinition' {inferenceAccelerators} -> inferenceAccelerators) (\s@TaskDefinition' {} a -> s {inferenceAccelerators = a} :: TaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of placement constraint objects to use for tasks. This field is
 -- not valid if you are using the Fargate launch type for your task.
-taskDefinition_placementConstraints :: Lens.Lens' TaskDefinition (Core.Maybe [TaskDefinitionPlacementConstraint])
-taskDefinition_placementConstraints = Lens.lens (\TaskDefinition' {placementConstraints} -> placementConstraints) (\s@TaskDefinition' {} a -> s {placementConstraints = a} :: TaskDefinition) Core.. Lens.mapping Lens._Coerce
+taskDefinition_placementConstraints :: Lens.Lens' TaskDefinition (Prelude.Maybe [TaskDefinitionPlacementConstraint])
+taskDefinition_placementConstraints = Lens.lens (\TaskDefinition' {placementConstraints} -> placementConstraints) (\s@TaskDefinition' {} a -> s {placementConstraints = a} :: TaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The configuration details for the App Mesh proxy.
 --
@@ -680,17 +681,17 @@ taskDefinition_placementConstraints = Lens.lens (\TaskDefinition' {placementCons
 -- @ecs-init@. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized Linux AMI>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-taskDefinition_proxyConfiguration :: Lens.Lens' TaskDefinition (Core.Maybe ProxyConfiguration)
+taskDefinition_proxyConfiguration :: Lens.Lens' TaskDefinition (Prelude.Maybe ProxyConfiguration)
 taskDefinition_proxyConfiguration = Lens.lens (\TaskDefinition' {proxyConfiguration} -> proxyConfiguration) (\s@TaskDefinition' {} a -> s {proxyConfiguration = a} :: TaskDefinition)
 
 -- | The Unix timestamp for when the task definition was deregistered.
-taskDefinition_deregisteredAt :: Lens.Lens' TaskDefinition (Core.Maybe Core.UTCTime)
-taskDefinition_deregisteredAt = Lens.lens (\TaskDefinition' {deregisteredAt} -> deregisteredAt) (\s@TaskDefinition' {} a -> s {deregisteredAt = a} :: TaskDefinition) Core.. Lens.mapping Core._Time
+taskDefinition_deregisteredAt :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.UTCTime)
+taskDefinition_deregisteredAt = Lens.lens (\TaskDefinition' {deregisteredAt} -> deregisteredAt) (\s@TaskDefinition' {} a -> s {deregisteredAt = a} :: TaskDefinition) Prelude.. Lens.mapping Core._Time
 
 -- | The container instance attributes required by your task. This field is
 -- not valid if you are using the Fargate launch type for your task.
-taskDefinition_requiresAttributes :: Lens.Lens' TaskDefinition (Core.Maybe [Attribute])
-taskDefinition_requiresAttributes = Lens.lens (\TaskDefinition' {requiresAttributes} -> requiresAttributes) (\s@TaskDefinition' {} a -> s {requiresAttributes = a} :: TaskDefinition) Core.. Lens.mapping Lens._Coerce
+taskDefinition_requiresAttributes :: Lens.Lens' TaskDefinition (Prelude.Maybe [Attribute])
+taskDefinition_requiresAttributes = Lens.lens (\TaskDefinition' {requiresAttributes} -> requiresAttributes) (\s@TaskDefinition' {} a -> s {requiresAttributes = a} :: TaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IPC resource namespace to use for the containers in the task. The
 -- valid values are @host@, @task@, or @none@. If @host@ is specified, then
@@ -724,7 +725,7 @@ taskDefinition_requiresAttributes = Lens.lens (\TaskDefinition' {requiresAttribu
 --
 -- This parameter is not supported for Windows containers or tasks using
 -- the Fargate launch type.
-taskDefinition_ipcMode :: Lens.Lens' TaskDefinition (Core.Maybe IpcMode)
+taskDefinition_ipcMode :: Lens.Lens' TaskDefinition (Prelude.Maybe IpcMode)
 taskDefinition_ipcMode = Lens.lens (\TaskDefinition' {ipcMode} -> ipcMode) (\s@TaskDefinition' {} a -> s {ipcMode = a} :: TaskDefinition)
 
 -- | The number of @cpu@ units used by the task. If you are using the EC2
@@ -747,7 +748,7 @@ taskDefinition_ipcMode = Lens.lens (\TaskDefinition' {ipcMode} -> ipcMode) (\s@T
 --
 -- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
 --     30720 (30 GB) in increments of 1024 (1 GB)
-taskDefinition_cpu :: Lens.Lens' TaskDefinition (Core.Maybe Core.Text)
+taskDefinition_cpu :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.Text)
 taskDefinition_cpu = Lens.lens (\TaskDefinition' {cpu} -> cpu) (\s@TaskDefinition' {} a -> s {cpu = a} :: TaskDefinition)
 
 -- | The name of a family that this task definition is registered to. Up to
@@ -758,7 +759,7 @@ taskDefinition_cpu = Lens.lens (\TaskDefinition' {cpu} -> cpu) (\s@TaskDefinitio
 -- the first task definition that you registered to a family a revision
 -- number of 1. Amazon ECS gives sequential revision numbers to each task
 -- definition that you add.
-taskDefinition_family :: Lens.Lens' TaskDefinition (Core.Maybe Core.Text)
+taskDefinition_family :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.Text)
 taskDefinition_family = Lens.lens (\TaskDefinition' {family} -> family) (\s@TaskDefinition' {} a -> s {family = a} :: TaskDefinition)
 
 -- | The revision of the task in a particular family. The revision is a
@@ -767,11 +768,11 @@ taskDefinition_family = Lens.lens (\TaskDefinition' {family} -> family) (\s@Task
 -- you register a new revision of a task definition in the same family, the
 -- revision value always increases by one, even if you have deregistered
 -- previous revisions in this family.
-taskDefinition_revision :: Lens.Lens' TaskDefinition (Core.Maybe Core.Int)
+taskDefinition_revision :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.Int)
 taskDefinition_revision = Lens.lens (\TaskDefinition' {revision} -> revision) (\s@TaskDefinition' {} a -> s {revision = a} :: TaskDefinition)
 
 -- | The principal that registered the task definition.
-taskDefinition_registeredBy :: Lens.Lens' TaskDefinition (Core.Maybe Core.Text)
+taskDefinition_registeredBy :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.Text)
 taskDefinition_registeredBy = Lens.lens (\TaskDefinition' {registeredBy} -> registeredBy) (\s@TaskDefinition' {} a -> s {registeredBy = a} :: TaskDefinition)
 
 -- | The Docker networking mode to use for the containers in the task. The
@@ -821,11 +822,11 @@ taskDefinition_registeredBy = Lens.lens (\TaskDefinition' {registeredBy} -> regi
 -- For more information, see
 -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
 -- in the /Docker run reference/.
-taskDefinition_networkMode :: Lens.Lens' TaskDefinition (Core.Maybe NetworkMode)
+taskDefinition_networkMode :: Lens.Lens' TaskDefinition (Prelude.Maybe NetworkMode)
 taskDefinition_networkMode = Lens.lens (\TaskDefinition' {networkMode} -> networkMode) (\s@TaskDefinition' {} a -> s {networkMode = a} :: TaskDefinition)
 
 -- | The full Amazon Resource Name (ARN) of the task definition.
-taskDefinition_taskDefinitionArn :: Lens.Lens' TaskDefinition (Core.Maybe Core.Text)
+taskDefinition_taskDefinitionArn :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.Text)
 taskDefinition_taskDefinitionArn = Lens.lens (\TaskDefinition' {taskDefinitionArn} -> taskDefinitionArn) (\s@TaskDefinition' {} a -> s {taskDefinitionArn = a} :: TaskDefinition)
 
 instance Core.FromJSON TaskDefinition where
@@ -834,40 +835,42 @@ instance Core.FromJSON TaskDefinition where
       "TaskDefinition"
       ( \x ->
           TaskDefinition'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "taskRoleArn")
-            Core.<*> (x Core..:? "memory")
-            Core.<*> ( x Core..:? "containerDefinitions"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "pidMode")
-            Core.<*> ( x Core..:? "requiresCompatibilities"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "executionRoleArn")
-            Core.<*> (x Core..:? "volumes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "compatibilities" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "registeredAt")
-            Core.<*> ( x Core..:? "inferenceAccelerators"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "placementConstraints"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "proxyConfiguration")
-            Core.<*> (x Core..:? "deregisteredAt")
-            Core.<*> ( x Core..:? "requiresAttributes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "ipcMode")
-            Core.<*> (x Core..:? "cpu")
-            Core.<*> (x Core..:? "family")
-            Core.<*> (x Core..:? "revision")
-            Core.<*> (x Core..:? "registeredBy")
-            Core.<*> (x Core..:? "networkMode")
-            Core.<*> (x Core..:? "taskDefinitionArn")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "taskRoleArn")
+            Prelude.<*> (x Core..:? "memory")
+            Prelude.<*> ( x Core..:? "containerDefinitions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "pidMode")
+            Prelude.<*> ( x Core..:? "requiresCompatibilities"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "executionRoleArn")
+            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "compatibilities"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "registeredAt")
+            Prelude.<*> ( x Core..:? "inferenceAccelerators"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "placementConstraints"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "proxyConfiguration")
+            Prelude.<*> (x Core..:? "deregisteredAt")
+            Prelude.<*> ( x Core..:? "requiresAttributes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ipcMode")
+            Prelude.<*> (x Core..:? "cpu")
+            Prelude.<*> (x Core..:? "family")
+            Prelude.<*> (x Core..:? "revision")
+            Prelude.<*> (x Core..:? "registeredBy")
+            Prelude.<*> (x Core..:? "networkMode")
+            Prelude.<*> (x Core..:? "taskDefinitionArn")
       )
 
-instance Core.Hashable TaskDefinition
+instance Prelude.Hashable TaskDefinition
 
-instance Core.NFData TaskDefinition
+instance Prelude.NFData TaskDefinition

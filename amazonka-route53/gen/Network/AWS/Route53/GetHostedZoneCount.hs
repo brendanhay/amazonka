@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -50,7 +51,7 @@ import Network.AWS.Route53.Types
 data GetHostedZoneCount = GetHostedZoneCount'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHostedZoneCount' with all optional fields omitted.
@@ -69,22 +70,22 @@ instance Core.AWSRequest GetHostedZoneCount where
     Response.receiveXML
       ( \s h x ->
           GetHostedZoneCountResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "HostedZoneCount")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "HostedZoneCount")
       )
 
-instance Core.Hashable GetHostedZoneCount
+instance Prelude.Hashable GetHostedZoneCount
 
-instance Core.NFData GetHostedZoneCount
+instance Prelude.NFData GetHostedZoneCount
 
 instance Core.ToHeaders GetHostedZoneCount where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetHostedZoneCount where
-  toPath = Core.const "/2013-04-01/hostedzonecount"
+  toPath = Prelude.const "/2013-04-01/hostedzonecount"
 
 instance Core.ToQuery GetHostedZoneCount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the response to a @GetHostedZoneCount@
 -- request.
@@ -92,12 +93,12 @@ instance Core.ToQuery GetHostedZoneCount where
 -- /See:/ 'newGetHostedZoneCountResponse' smart constructor.
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The total number of public and private hosted zones that are associated
     -- with the current AWS account.
-    hostedZoneCount :: Core.Integer
+    hostedZoneCount :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHostedZoneCountResponse' with all optional fields omitted.
@@ -113,9 +114,9 @@ data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
 -- with the current AWS account.
 newGetHostedZoneCountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'hostedZoneCount'
-  Core.Integer ->
+  Prelude.Integer ->
   GetHostedZoneCountResponse
 newGetHostedZoneCountResponse
   pHttpStatus_
@@ -127,12 +128,12 @@ newGetHostedZoneCountResponse
       }
 
 -- | The response's http status code.
-getHostedZoneCountResponse_httpStatus :: Lens.Lens' GetHostedZoneCountResponse Core.Int
+getHostedZoneCountResponse_httpStatus :: Lens.Lens' GetHostedZoneCountResponse Prelude.Int
 getHostedZoneCountResponse_httpStatus = Lens.lens (\GetHostedZoneCountResponse' {httpStatus} -> httpStatus) (\s@GetHostedZoneCountResponse' {} a -> s {httpStatus = a} :: GetHostedZoneCountResponse)
 
 -- | The total number of public and private hosted zones that are associated
 -- with the current AWS account.
-getHostedZoneCountResponse_hostedZoneCount :: Lens.Lens' GetHostedZoneCountResponse Core.Integer
+getHostedZoneCountResponse_hostedZoneCount :: Lens.Lens' GetHostedZoneCountResponse Prelude.Integer
 getHostedZoneCountResponse_hostedZoneCount = Lens.lens (\GetHostedZoneCountResponse' {hostedZoneCount} -> hostedZoneCount) (\s@GetHostedZoneCountResponse' {} a -> s {hostedZoneCount = a} :: GetHostedZoneCountResponse)
 
-instance Core.NFData GetHostedZoneCountResponse
+instance Prelude.NFData GetHostedZoneCountResponse

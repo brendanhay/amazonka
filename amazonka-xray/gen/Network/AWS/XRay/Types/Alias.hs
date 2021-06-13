@@ -21,19 +21,20 @@ module Network.AWS.XRay.Types.Alias where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An alias for an edge.
 --
 -- /See:/ 'newAlias' smart constructor.
 data Alias = Alias'
   { -- | A list of names for the alias, including the canonical name.
-    names :: Core.Maybe [Core.Text],
+    names :: Prelude.Maybe [Prelude.Text],
     -- | The canonical name of the alias.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The type of the alias.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Alias' with all optional fields omitted.
@@ -52,21 +53,21 @@ newAlias ::
   Alias
 newAlias =
   Alias'
-    { names = Core.Nothing,
-      name = Core.Nothing,
-      type' = Core.Nothing
+    { names = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | A list of names for the alias, including the canonical name.
-alias_names :: Lens.Lens' Alias (Core.Maybe [Core.Text])
-alias_names = Lens.lens (\Alias' {names} -> names) (\s@Alias' {} a -> s {names = a} :: Alias) Core.. Lens.mapping Lens._Coerce
+alias_names :: Lens.Lens' Alias (Prelude.Maybe [Prelude.Text])
+alias_names = Lens.lens (\Alias' {names} -> names) (\s@Alias' {} a -> s {names = a} :: Alias) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The canonical name of the alias.
-alias_name :: Lens.Lens' Alias (Core.Maybe Core.Text)
+alias_name :: Lens.Lens' Alias (Prelude.Maybe Prelude.Text)
 alias_name = Lens.lens (\Alias' {name} -> name) (\s@Alias' {} a -> s {name = a} :: Alias)
 
 -- | The type of the alias.
-alias_type :: Lens.Lens' Alias (Core.Maybe Core.Text)
+alias_type :: Lens.Lens' Alias (Prelude.Maybe Prelude.Text)
 alias_type = Lens.lens (\Alias' {type'} -> type') (\s@Alias' {} a -> s {type' = a} :: Alias)
 
 instance Core.FromJSON Alias where
@@ -75,11 +76,11 @@ instance Core.FromJSON Alias where
       "Alias"
       ( \x ->
           Alias'
-            Core.<$> (x Core..:? "Names" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Names" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable Alias
+instance Prelude.Hashable Alias
 
-instance Core.NFData Alias
+instance Prelude.NFData Alias

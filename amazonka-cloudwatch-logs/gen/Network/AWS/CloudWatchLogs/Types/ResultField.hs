@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchLogs.Types.ResultField where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains one field from one log event returned by a CloudWatch Logs
 -- Insights query, along with the value of that field.
@@ -32,11 +33,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResultField' smart constructor.
 data ResultField = ResultField'
   { -- | The value of this field.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The log event field.
-    field :: Core.Maybe Core.Text
+    field :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResultField' with all optional fields omitted.
@@ -53,16 +54,16 @@ newResultField ::
   ResultField
 newResultField =
   ResultField'
-    { value = Core.Nothing,
-      field = Core.Nothing
+    { value = Prelude.Nothing,
+      field = Prelude.Nothing
     }
 
 -- | The value of this field.
-resultField_value :: Lens.Lens' ResultField (Core.Maybe Core.Text)
+resultField_value :: Lens.Lens' ResultField (Prelude.Maybe Prelude.Text)
 resultField_value = Lens.lens (\ResultField' {value} -> value) (\s@ResultField' {} a -> s {value = a} :: ResultField)
 
 -- | The log event field.
-resultField_field :: Lens.Lens' ResultField (Core.Maybe Core.Text)
+resultField_field :: Lens.Lens' ResultField (Prelude.Maybe Prelude.Text)
 resultField_field = Lens.lens (\ResultField' {field} -> field) (\s@ResultField' {} a -> s {field = a} :: ResultField)
 
 instance Core.FromJSON ResultField where
@@ -71,9 +72,10 @@ instance Core.FromJSON ResultField where
       "ResultField"
       ( \x ->
           ResultField'
-            Core.<$> (x Core..:? "value") Core.<*> (x Core..:? "field")
+            Prelude.<$> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "field")
       )
 
-instance Core.Hashable ResultField
+instance Prelude.Hashable ResultField
 
-instance Core.NFData ResultField
+instance Prelude.NFData ResultField

@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,10 +68,10 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
   { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of items to be returned in a response. The default is @20@,
     -- with a minimum value of @1@.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The value by which you want to sort the data.
     --
     -- The following values are supported for @Key@:
@@ -90,9 +91,9 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
     -- -   @AmortizedUpfrontCommitment@
     --
     -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
-    sortBy :: Core.Maybe SortDefinition,
+    sortBy :: Prelude.Maybe SortDefinition,
     -- | The data type.
-    dataType :: Core.Maybe [SavingsPlansDataType],
+    dataType :: Prelude.Maybe [SavingsPlansDataType],
     -- | Filters Savings Plans utilization coverage data for active Savings Plans
     -- dimensions. You can filter data with the following dimensions:
     --
@@ -110,14 +111,14 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
     -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
     -- object as the other operations, but only @AND@ is supported among each
     -- dimension.
-    filter' :: Core.Maybe Expression,
+    filter' :: Prelude.Maybe Expression,
     -- | The time period that you want the usage and costs for. The @Start@ date
     -- must be within 13 months. The @End@ date must be after the @Start@ date,
     -- and before the current date. Future dates can\'t be used as an @End@
     -- date.
     timePeriod :: DateInterval
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSavingsPlansUtilizationDetails' with all optional fields omitted.
@@ -185,23 +186,23 @@ newGetSavingsPlansUtilizationDetails ::
 newGetSavingsPlansUtilizationDetails pTimePeriod_ =
   GetSavingsPlansUtilizationDetails'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
-      sortBy = Core.Nothing,
-      dataType = Core.Nothing,
-      filter' = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      dataType = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       timePeriod = pTimePeriod_
     }
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
-getSavingsPlansUtilizationDetails_nextToken :: Lens.Lens' GetSavingsPlansUtilizationDetails (Core.Maybe Core.Text)
+getSavingsPlansUtilizationDetails_nextToken :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe Prelude.Text)
 getSavingsPlansUtilizationDetails_nextToken = Lens.lens (\GetSavingsPlansUtilizationDetails' {nextToken} -> nextToken) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {nextToken = a} :: GetSavingsPlansUtilizationDetails)
 
 -- | The number of items to be returned in a response. The default is @20@,
 -- with a minimum value of @1@.
-getSavingsPlansUtilizationDetails_maxResults :: Lens.Lens' GetSavingsPlansUtilizationDetails (Core.Maybe Core.Natural)
+getSavingsPlansUtilizationDetails_maxResults :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe Prelude.Natural)
 getSavingsPlansUtilizationDetails_maxResults = Lens.lens (\GetSavingsPlansUtilizationDetails' {maxResults} -> maxResults) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {maxResults = a} :: GetSavingsPlansUtilizationDetails)
 
 -- | The value by which you want to sort the data.
@@ -223,12 +224,12 @@ getSavingsPlansUtilizationDetails_maxResults = Lens.lens (\GetSavingsPlansUtiliz
 -- -   @AmortizedUpfrontCommitment@
 --
 -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
-getSavingsPlansUtilizationDetails_sortBy :: Lens.Lens' GetSavingsPlansUtilizationDetails (Core.Maybe SortDefinition)
+getSavingsPlansUtilizationDetails_sortBy :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe SortDefinition)
 getSavingsPlansUtilizationDetails_sortBy = Lens.lens (\GetSavingsPlansUtilizationDetails' {sortBy} -> sortBy) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {sortBy = a} :: GetSavingsPlansUtilizationDetails)
 
 -- | The data type.
-getSavingsPlansUtilizationDetails_dataType :: Lens.Lens' GetSavingsPlansUtilizationDetails (Core.Maybe [SavingsPlansDataType])
-getSavingsPlansUtilizationDetails_dataType = Lens.lens (\GetSavingsPlansUtilizationDetails' {dataType} -> dataType) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {dataType = a} :: GetSavingsPlansUtilizationDetails) Core.. Lens.mapping Lens._Coerce
+getSavingsPlansUtilizationDetails_dataType :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe [SavingsPlansDataType])
+getSavingsPlansUtilizationDetails_dataType = Lens.lens (\GetSavingsPlansUtilizationDetails' {dataType} -> dataType) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {dataType = a} :: GetSavingsPlansUtilizationDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Filters Savings Plans utilization coverage data for active Savings Plans
 -- dimensions. You can filter data with the following dimensions:
@@ -247,7 +248,7 @@ getSavingsPlansUtilizationDetails_dataType = Lens.lens (\GetSavingsPlansUtilizat
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
 -- object as the other operations, but only @AND@ is supported among each
 -- dimension.
-getSavingsPlansUtilizationDetails_filter :: Lens.Lens' GetSavingsPlansUtilizationDetails (Core.Maybe Expression)
+getSavingsPlansUtilizationDetails_filter :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe Expression)
 getSavingsPlansUtilizationDetails_filter = Lens.lens (\GetSavingsPlansUtilizationDetails' {filter'} -> filter') (\s@GetSavingsPlansUtilizationDetails' {} a -> s {filter' = a} :: GetSavingsPlansUtilizationDetails)
 
 -- | The time period that you want the usage and costs for. The @Start@ date
@@ -269,21 +270,21 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansUtilizationDetailsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Total")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "SavingsPlansUtilizationDetails"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..:> "TimePeriod")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (x Core..?> "Total")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> ( x Core..?> "SavingsPlansUtilizationDetails"
+                              Core..!@ Prelude.mempty
+                          )
+              Prelude.<*> (x Core..:> "TimePeriod")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetSavingsPlansUtilizationDetails
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetSavingsPlansUtilizationDetails
 
 instance
@@ -291,14 +292,16 @@ instance
     GetSavingsPlansUtilizationDetails
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -308,13 +311,13 @@ instance
   where
   toJSON GetSavingsPlansUtilizationDetails' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("SortBy" Core..=) Core.<$> sortBy,
-            ("DataType" Core..=) Core.<$> dataType,
-            ("Filter" Core..=) Core.<$> filter',
-            Core.Just ("TimePeriod" Core..= timePeriod)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("DataType" Core..=) Prelude.<$> dataType,
+            ("Filter" Core..=) Prelude.<$> filter',
+            Prelude.Just ("TimePeriod" Core..= timePeriod)
           ]
       )
 
@@ -322,30 +325,30 @@ instance
   Core.ToPath
     GetSavingsPlansUtilizationDetails
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetSavingsPlansUtilizationDetails
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSavingsPlansUtilizationDetailsResponse' smart constructor.
 data GetSavingsPlansUtilizationDetailsResponse = GetSavingsPlansUtilizationDetailsResponse'
   { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total Savings Plans utilization, regardless of time period.
-    total :: Core.Maybe SavingsPlansUtilizationAggregates,
+    total :: Prelude.Maybe SavingsPlansUtilizationAggregates,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Retrieves a single daily or monthly Savings Plans utilization rate and
     -- details for your account.
     savingsPlansUtilizationDetails :: [SavingsPlansUtilizationDetail],
     timePeriod :: DateInterval
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSavingsPlansUtilizationDetailsResponse' with all optional fields omitted.
@@ -369,7 +372,7 @@ data GetSavingsPlansUtilizationDetailsResponse = GetSavingsPlansUtilizationDetai
 -- 'timePeriod', 'getSavingsPlansUtilizationDetailsResponse_timePeriod' - Undocumented member.
 newGetSavingsPlansUtilizationDetailsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'timePeriod'
   DateInterval ->
   GetSavingsPlansUtilizationDetailsResponse
@@ -378,37 +381,37 @@ newGetSavingsPlansUtilizationDetailsResponse
   pTimePeriod_ =
     GetSavingsPlansUtilizationDetailsResponse'
       { nextToken =
-          Core.Nothing,
-        total = Core.Nothing,
+          Prelude.Nothing,
+        total = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         savingsPlansUtilizationDetails =
-          Core.mempty,
+          Prelude.mempty,
         timePeriod = pTimePeriod_
       }
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
-getSavingsPlansUtilizationDetailsResponse_nextToken :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse (Core.Maybe Core.Text)
+getSavingsPlansUtilizationDetailsResponse_nextToken :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse (Prelude.Maybe Prelude.Text)
 getSavingsPlansUtilizationDetailsResponse_nextToken = Lens.lens (\GetSavingsPlansUtilizationDetailsResponse' {nextToken} -> nextToken) (\s@GetSavingsPlansUtilizationDetailsResponse' {} a -> s {nextToken = a} :: GetSavingsPlansUtilizationDetailsResponse)
 
 -- | The total Savings Plans utilization, regardless of time period.
-getSavingsPlansUtilizationDetailsResponse_total :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse (Core.Maybe SavingsPlansUtilizationAggregates)
+getSavingsPlansUtilizationDetailsResponse_total :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse (Prelude.Maybe SavingsPlansUtilizationAggregates)
 getSavingsPlansUtilizationDetailsResponse_total = Lens.lens (\GetSavingsPlansUtilizationDetailsResponse' {total} -> total) (\s@GetSavingsPlansUtilizationDetailsResponse' {} a -> s {total = a} :: GetSavingsPlansUtilizationDetailsResponse)
 
 -- | The response's http status code.
-getSavingsPlansUtilizationDetailsResponse_httpStatus :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse Core.Int
+getSavingsPlansUtilizationDetailsResponse_httpStatus :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse Prelude.Int
 getSavingsPlansUtilizationDetailsResponse_httpStatus = Lens.lens (\GetSavingsPlansUtilizationDetailsResponse' {httpStatus} -> httpStatus) (\s@GetSavingsPlansUtilizationDetailsResponse' {} a -> s {httpStatus = a} :: GetSavingsPlansUtilizationDetailsResponse)
 
 -- | Retrieves a single daily or monthly Savings Plans utilization rate and
 -- details for your account.
 getSavingsPlansUtilizationDetailsResponse_savingsPlansUtilizationDetails :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse [SavingsPlansUtilizationDetail]
-getSavingsPlansUtilizationDetailsResponse_savingsPlansUtilizationDetails = Lens.lens (\GetSavingsPlansUtilizationDetailsResponse' {savingsPlansUtilizationDetails} -> savingsPlansUtilizationDetails) (\s@GetSavingsPlansUtilizationDetailsResponse' {} a -> s {savingsPlansUtilizationDetails = a} :: GetSavingsPlansUtilizationDetailsResponse) Core.. Lens._Coerce
+getSavingsPlansUtilizationDetailsResponse_savingsPlansUtilizationDetails = Lens.lens (\GetSavingsPlansUtilizationDetailsResponse' {savingsPlansUtilizationDetails} -> savingsPlansUtilizationDetails) (\s@GetSavingsPlansUtilizationDetailsResponse' {} a -> s {savingsPlansUtilizationDetails = a} :: GetSavingsPlansUtilizationDetailsResponse) Prelude.. Lens._Coerce
 
 -- | Undocumented member.
 getSavingsPlansUtilizationDetailsResponse_timePeriod :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse DateInterval
 getSavingsPlansUtilizationDetailsResponse_timePeriod = Lens.lens (\GetSavingsPlansUtilizationDetailsResponse' {timePeriod} -> timePeriod) (\s@GetSavingsPlansUtilizationDetailsResponse' {} a -> s {timePeriod = a} :: GetSavingsPlansUtilizationDetailsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetSavingsPlansUtilizationDetailsResponse

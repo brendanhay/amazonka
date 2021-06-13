@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.ResultRow where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ResultRowValue
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the results of a query that retrieved the data for a standard
 -- metric that applies to an application, campaign, or journey.
@@ -36,7 +37,7 @@ data ResultRow = ResultRow'
     -- metric that applies to an application, campaign, or journey.
     values :: [ResultRowValue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResultRow' with all optional fields omitted.
@@ -56,20 +57,20 @@ newResultRow ::
   ResultRow
 newResultRow =
   ResultRow'
-    { groupedBys = Core.mempty,
-      values = Core.mempty
+    { groupedBys = Prelude.mempty,
+      values = Prelude.mempty
     }
 
 -- | An array of objects that defines the field and field values that were
 -- used to group data in a result set that contains multiple results. This
 -- value is null if the data in a result set isn’t grouped.
 resultRow_groupedBys :: Lens.Lens' ResultRow [ResultRowValue]
-resultRow_groupedBys = Lens.lens (\ResultRow' {groupedBys} -> groupedBys) (\s@ResultRow' {} a -> s {groupedBys = a} :: ResultRow) Core.. Lens._Coerce
+resultRow_groupedBys = Lens.lens (\ResultRow' {groupedBys} -> groupedBys) (\s@ResultRow' {} a -> s {groupedBys = a} :: ResultRow) Prelude.. Lens._Coerce
 
 -- | An array of objects that provides pre-aggregated values for a standard
 -- metric that applies to an application, campaign, or journey.
 resultRow_values :: Lens.Lens' ResultRow [ResultRowValue]
-resultRow_values = Lens.lens (\ResultRow' {values} -> values) (\s@ResultRow' {} a -> s {values = a} :: ResultRow) Core.. Lens._Coerce
+resultRow_values = Lens.lens (\ResultRow' {values} -> values) (\s@ResultRow' {} a -> s {values = a} :: ResultRow) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ResultRow where
   parseJSON =
@@ -77,10 +78,10 @@ instance Core.FromJSON ResultRow where
       "ResultRow"
       ( \x ->
           ResultRow'
-            Core.<$> (x Core..:? "GroupedBys" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "GroupedBys" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ResultRow
+instance Prelude.Hashable ResultRow
 
-instance Core.NFData ResultRow
+instance Prelude.NFData ResultRow

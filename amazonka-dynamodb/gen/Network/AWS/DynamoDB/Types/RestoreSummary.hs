@@ -21,6 +21,7 @@ module Network.AWS.DynamoDB.Types.RestoreSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details for the restore.
 --
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 data RestoreSummary = RestoreSummary'
   { -- | The Amazon Resource Name (ARN) of the backup from which the table was
     -- restored.
-    sourceBackupArn :: Core.Maybe Core.Text,
+    sourceBackupArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the source table of the backup that is being restored.
-    sourceTableArn :: Core.Maybe Core.Text,
+    sourceTableArn :: Prelude.Maybe Prelude.Text,
     -- | Point in time or source backup time.
     restoreDateTime :: Core.POSIX,
     -- | Indicates if a restore is in progress or not.
-    restoreInProgress :: Core.Bool
+    restoreInProgress :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreSummary' with all optional fields omitted.
@@ -56,16 +57,16 @@ data RestoreSummary = RestoreSummary'
 -- 'restoreInProgress', 'restoreSummary_restoreInProgress' - Indicates if a restore is in progress or not.
 newRestoreSummary ::
   -- | 'restoreDateTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'restoreInProgress'
-  Core.Bool ->
+  Prelude.Bool ->
   RestoreSummary
 newRestoreSummary
   pRestoreDateTime_
   pRestoreInProgress_ =
     RestoreSummary'
-      { sourceBackupArn = Core.Nothing,
-        sourceTableArn = Core.Nothing,
+      { sourceBackupArn = Prelude.Nothing,
+        sourceTableArn = Prelude.Nothing,
         restoreDateTime =
           Core._Time Lens.# pRestoreDateTime_,
         restoreInProgress = pRestoreInProgress_
@@ -73,19 +74,19 @@ newRestoreSummary
 
 -- | The Amazon Resource Name (ARN) of the backup from which the table was
 -- restored.
-restoreSummary_sourceBackupArn :: Lens.Lens' RestoreSummary (Core.Maybe Core.Text)
+restoreSummary_sourceBackupArn :: Lens.Lens' RestoreSummary (Prelude.Maybe Prelude.Text)
 restoreSummary_sourceBackupArn = Lens.lens (\RestoreSummary' {sourceBackupArn} -> sourceBackupArn) (\s@RestoreSummary' {} a -> s {sourceBackupArn = a} :: RestoreSummary)
 
 -- | The ARN of the source table of the backup that is being restored.
-restoreSummary_sourceTableArn :: Lens.Lens' RestoreSummary (Core.Maybe Core.Text)
+restoreSummary_sourceTableArn :: Lens.Lens' RestoreSummary (Prelude.Maybe Prelude.Text)
 restoreSummary_sourceTableArn = Lens.lens (\RestoreSummary' {sourceTableArn} -> sourceTableArn) (\s@RestoreSummary' {} a -> s {sourceTableArn = a} :: RestoreSummary)
 
 -- | Point in time or source backup time.
-restoreSummary_restoreDateTime :: Lens.Lens' RestoreSummary Core.UTCTime
-restoreSummary_restoreDateTime = Lens.lens (\RestoreSummary' {restoreDateTime} -> restoreDateTime) (\s@RestoreSummary' {} a -> s {restoreDateTime = a} :: RestoreSummary) Core.. Core._Time
+restoreSummary_restoreDateTime :: Lens.Lens' RestoreSummary Prelude.UTCTime
+restoreSummary_restoreDateTime = Lens.lens (\RestoreSummary' {restoreDateTime} -> restoreDateTime) (\s@RestoreSummary' {} a -> s {restoreDateTime = a} :: RestoreSummary) Prelude.. Core._Time
 
 -- | Indicates if a restore is in progress or not.
-restoreSummary_restoreInProgress :: Lens.Lens' RestoreSummary Core.Bool
+restoreSummary_restoreInProgress :: Lens.Lens' RestoreSummary Prelude.Bool
 restoreSummary_restoreInProgress = Lens.lens (\RestoreSummary' {restoreInProgress} -> restoreInProgress) (\s@RestoreSummary' {} a -> s {restoreInProgress = a} :: RestoreSummary)
 
 instance Core.FromJSON RestoreSummary where
@@ -94,12 +95,12 @@ instance Core.FromJSON RestoreSummary where
       "RestoreSummary"
       ( \x ->
           RestoreSummary'
-            Core.<$> (x Core..:? "SourceBackupArn")
-            Core.<*> (x Core..:? "SourceTableArn")
-            Core.<*> (x Core..: "RestoreDateTime")
-            Core.<*> (x Core..: "RestoreInProgress")
+            Prelude.<$> (x Core..:? "SourceBackupArn")
+            Prelude.<*> (x Core..:? "SourceTableArn")
+            Prelude.<*> (x Core..: "RestoreDateTime")
+            Prelude.<*> (x Core..: "RestoreInProgress")
       )
 
-instance Core.Hashable RestoreSummary
+instance Prelude.Hashable RestoreSummary
 
-instance Core.NFData RestoreSummary
+instance Prelude.NFData RestoreSummary

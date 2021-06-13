@@ -21,17 +21,18 @@ module Network.AWS.DeviceFarm.Types.OfferingPromotion where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an offering promotion.
 --
 -- /See:/ 'newOfferingPromotion' smart constructor.
 data OfferingPromotion = OfferingPromotion'
   { -- | The ID of the offering promotion.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | A string that describes the offering promotion.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OfferingPromotion' with all optional fields omitted.
@@ -48,16 +49,16 @@ newOfferingPromotion ::
   OfferingPromotion
 newOfferingPromotion =
   OfferingPromotion'
-    { id = Core.Nothing,
-      description = Core.Nothing
+    { id = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The ID of the offering promotion.
-offeringPromotion_id :: Lens.Lens' OfferingPromotion (Core.Maybe Core.Text)
+offeringPromotion_id :: Lens.Lens' OfferingPromotion (Prelude.Maybe Prelude.Text)
 offeringPromotion_id = Lens.lens (\OfferingPromotion' {id} -> id) (\s@OfferingPromotion' {} a -> s {id = a} :: OfferingPromotion)
 
 -- | A string that describes the offering promotion.
-offeringPromotion_description :: Lens.Lens' OfferingPromotion (Core.Maybe Core.Text)
+offeringPromotion_description :: Lens.Lens' OfferingPromotion (Prelude.Maybe Prelude.Text)
 offeringPromotion_description = Lens.lens (\OfferingPromotion' {description} -> description) (\s@OfferingPromotion' {} a -> s {description = a} :: OfferingPromotion)
 
 instance Core.FromJSON OfferingPromotion where
@@ -66,10 +67,10 @@ instance Core.FromJSON OfferingPromotion where
       "OfferingPromotion"
       ( \x ->
           OfferingPromotion'
-            Core.<$> (x Core..:? "id")
-            Core.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "description")
       )
 
-instance Core.Hashable OfferingPromotion
+instance Prelude.Hashable OfferingPromotion
 
-instance Core.NFData OfferingPromotion
+instance Prelude.NFData OfferingPromotion

@@ -21,15 +21,16 @@ module Network.AWS.MQ.Types.EngineVersion where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Id of the engine version.
 --
 -- /See:/ 'newEngineVersion' smart constructor.
 data EngineVersion = EngineVersion'
   { -- | Id for the version.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EngineVersion' with all optional fields omitted.
@@ -43,18 +44,20 @@ data EngineVersion = EngineVersion'
 newEngineVersion ::
   EngineVersion
 newEngineVersion =
-  EngineVersion' {name = Core.Nothing}
+  EngineVersion' {name = Prelude.Nothing}
 
 -- | Id for the version.
-engineVersion_name :: Lens.Lens' EngineVersion (Core.Maybe Core.Text)
+engineVersion_name :: Lens.Lens' EngineVersion (Prelude.Maybe Prelude.Text)
 engineVersion_name = Lens.lens (\EngineVersion' {name} -> name) (\s@EngineVersion' {} a -> s {name = a} :: EngineVersion)
 
 instance Core.FromJSON EngineVersion where
   parseJSON =
     Core.withObject
       "EngineVersion"
-      (\x -> EngineVersion' Core.<$> (x Core..:? "name"))
+      ( \x ->
+          EngineVersion' Prelude.<$> (x Core..:? "name")
+      )
 
-instance Core.Hashable EngineVersion
+instance Prelude.Hashable EngineVersion
 
-instance Core.NFData EngineVersion
+instance Prelude.NFData EngineVersion

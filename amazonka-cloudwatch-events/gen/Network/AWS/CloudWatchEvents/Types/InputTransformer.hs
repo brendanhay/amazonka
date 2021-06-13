@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.InputTransformer where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the parameters needed for you to provide custom input to a
 -- target based on one or more pieces of data extracted from the event.
@@ -36,7 +37,7 @@ data InputTransformer = InputTransformer'
     -- JSON dot notation, not bracket notation.
     --
     -- The keys cannot start with \"AWS.\"
-    inputPathsMap :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    inputPathsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Input template where you specify placeholders that will be filled with
     -- the values of the keys from @InputPathsMap@ to customize the data sent
     -- to the target. Enclose each @InputPathsMaps@ value in brackets:
@@ -85,9 +86,9 @@ data InputTransformer = InputTransformer'
     -- @\"InputTemplate\": \'{\"myInstance\": \<instance>,\"myStatus\": \"\<instance> is in state \\\"\<status>\\\"\"}\'@
     --
     -- @}@
-    inputTemplate :: Core.Text
+    inputTemplate :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputTransformer' with all optional fields omitted.
@@ -157,11 +158,11 @@ data InputTransformer = InputTransformer'
 -- @}@
 newInputTransformer ::
   -- | 'inputTemplate'
-  Core.Text ->
+  Prelude.Text ->
   InputTransformer
 newInputTransformer pInputTemplate_ =
   InputTransformer'
-    { inputPathsMap = Core.Nothing,
+    { inputPathsMap = Prelude.Nothing,
       inputTemplate = pInputTemplate_
     }
 
@@ -174,8 +175,8 @@ newInputTransformer pInputTemplate_ =
 -- JSON dot notation, not bracket notation.
 --
 -- The keys cannot start with \"AWS.\"
-inputTransformer_inputPathsMap :: Lens.Lens' InputTransformer (Core.Maybe (Core.HashMap Core.Text Core.Text))
-inputTransformer_inputPathsMap = Lens.lens (\InputTransformer' {inputPathsMap} -> inputPathsMap) (\s@InputTransformer' {} a -> s {inputPathsMap = a} :: InputTransformer) Core.. Lens.mapping Lens._Coerce
+inputTransformer_inputPathsMap :: Lens.Lens' InputTransformer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+inputTransformer_inputPathsMap = Lens.lens (\InputTransformer' {inputPathsMap} -> inputPathsMap) (\s@InputTransformer' {} a -> s {inputPathsMap = a} :: InputTransformer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Input template where you specify placeholders that will be filled with
 -- the values of the keys from @InputPathsMap@ to customize the data sent
@@ -225,7 +226,7 @@ inputTransformer_inputPathsMap = Lens.lens (\InputTransformer' {inputPathsMap} -
 -- @\"InputTemplate\": \'{\"myInstance\": \<instance>,\"myStatus\": \"\<instance> is in state \\\"\<status>\\\"\"}\'@
 --
 -- @}@
-inputTransformer_inputTemplate :: Lens.Lens' InputTransformer Core.Text
+inputTransformer_inputTemplate :: Lens.Lens' InputTransformer Prelude.Text
 inputTransformer_inputTemplate = Lens.lens (\InputTransformer' {inputTemplate} -> inputTemplate) (\s@InputTransformer' {} a -> s {inputTemplate = a} :: InputTransformer)
 
 instance Core.FromJSON InputTransformer where
@@ -234,19 +235,20 @@ instance Core.FromJSON InputTransformer where
       "InputTransformer"
       ( \x ->
           InputTransformer'
-            Core.<$> (x Core..:? "InputPathsMap" Core..!= Core.mempty)
-            Core.<*> (x Core..: "InputTemplate")
+            Prelude.<$> (x Core..:? "InputPathsMap" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "InputTemplate")
       )
 
-instance Core.Hashable InputTransformer
+instance Prelude.Hashable InputTransformer
 
-instance Core.NFData InputTransformer
+instance Prelude.NFData InputTransformer
 
 instance Core.ToJSON InputTransformer where
   toJSON InputTransformer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InputPathsMap" Core..=) Core.<$> inputPathsMap,
-            Core.Just ("InputTemplate" Core..= inputTemplate)
+      ( Prelude.catMaybes
+          [ ("InputPathsMap" Core..=) Prelude.<$> inputPathsMap,
+            Prelude.Just
+              ("InputTemplate" Core..= inputTemplate)
           ]
       )

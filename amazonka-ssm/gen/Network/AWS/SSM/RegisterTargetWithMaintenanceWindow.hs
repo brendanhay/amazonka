@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -54,16 +55,16 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newRegisterTargetWithMaintenanceWindow' smart constructor.
 data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
   { -- | An optional name for the target.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | An optional description for the target.
-    description :: Core.Maybe (Core.Sensitive Core.Text),
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | User-provided value that will be included in any CloudWatch events
     -- raised while running tasks for these targets in this maintenance window.
-    ownerInformation :: Core.Maybe (Core.Sensitive Core.Text),
+    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | User-provided idempotency token.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window the target should be registered with.
-    windowId :: Core.Text,
+    windowId :: Prelude.Text,
     -- | The type of target being registered with the maintenance window.
     resourceType :: MaintenanceWindowResourceType,
     -- | The targets to register with the maintenance window. In other words, the
@@ -108,7 +109,7 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
     -- in the /AWS Systems Manager User Guide/.
     targets :: [Target]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterTargetWithMaintenanceWindow' with all optional fields omitted.
@@ -173,7 +174,7 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 -- in the /AWS Systems Manager User Guide/.
 newRegisterTargetWithMaintenanceWindow ::
   -- | 'windowId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
   MaintenanceWindowResourceType ->
   RegisterTargetWithMaintenanceWindow
@@ -182,34 +183,34 @@ newRegisterTargetWithMaintenanceWindow
   pResourceType_ =
     RegisterTargetWithMaintenanceWindow'
       { name =
-          Core.Nothing,
-        description = Core.Nothing,
-        ownerInformation = Core.Nothing,
-        clientToken = Core.Nothing,
+          Prelude.Nothing,
+        description = Prelude.Nothing,
+        ownerInformation = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         windowId = pWindowId_,
         resourceType = pResourceType_,
-        targets = Core.mempty
+        targets = Prelude.mempty
       }
 
 -- | An optional name for the target.
-registerTargetWithMaintenanceWindow_name :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Core.Maybe Core.Text)
+registerTargetWithMaintenanceWindow_name :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindow_name = Lens.lens (\RegisterTargetWithMaintenanceWindow' {name} -> name) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {name = a} :: RegisterTargetWithMaintenanceWindow)
 
 -- | An optional description for the target.
-registerTargetWithMaintenanceWindow_description :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Core.Maybe Core.Text)
-registerTargetWithMaintenanceWindow_description = Lens.lens (\RegisterTargetWithMaintenanceWindow' {description} -> description) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTargetWithMaintenanceWindow) Core.. Lens.mapping Core._Sensitive
+registerTargetWithMaintenanceWindow_description :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_description = Lens.lens (\RegisterTargetWithMaintenanceWindow' {description} -> description) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
 -- | User-provided value that will be included in any CloudWatch events
 -- raised while running tasks for these targets in this maintenance window.
-registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Core.Maybe Core.Text)
-registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Core.. Lens.mapping Core._Sensitive
+registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
 -- | User-provided idempotency token.
-registerTargetWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Core.Maybe Core.Text)
+registerTargetWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindow_clientToken = Lens.lens (\RegisterTargetWithMaintenanceWindow' {clientToken} -> clientToken) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {clientToken = a} :: RegisterTargetWithMaintenanceWindow)
 
 -- | The ID of the maintenance window the target should be registered with.
-registerTargetWithMaintenanceWindow_windowId :: Lens.Lens' RegisterTargetWithMaintenanceWindow Core.Text
+registerTargetWithMaintenanceWindow_windowId :: Lens.Lens' RegisterTargetWithMaintenanceWindow Prelude.Text
 registerTargetWithMaintenanceWindow_windowId = Lens.lens (\RegisterTargetWithMaintenanceWindow' {windowId} -> windowId) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {windowId = a} :: RegisterTargetWithMaintenanceWindow)
 
 -- | The type of target being registered with the maintenance window.
@@ -257,7 +258,7 @@ registerTargetWithMaintenanceWindow_resourceType = Lens.lens (\RegisterTargetWit
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window>
 -- in the /AWS Systems Manager User Guide/.
 registerTargetWithMaintenanceWindow_targets :: Lens.Lens' RegisterTargetWithMaintenanceWindow [Target]
-registerTargetWithMaintenanceWindow_targets = Lens.lens (\RegisterTargetWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTargetWithMaintenanceWindow) Core.. Lens._Coerce
+registerTargetWithMaintenanceWindow_targets = Lens.lens (\RegisterTargetWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -271,16 +272,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RegisterTargetWithMaintenanceWindowResponse'
-            Core.<$> (x Core..?> "WindowTargetId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "WindowTargetId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RegisterTargetWithMaintenanceWindow
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterTargetWithMaintenanceWindow
 
 instance
@@ -288,14 +289,16 @@ instance
     RegisterTargetWithMaintenanceWindow
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.RegisterTargetWithMaintenanceWindow" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -305,15 +308,15 @@ instance
   where
   toJSON RegisterTargetWithMaintenanceWindow' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            ("Description" Core..=) Core.<$> description,
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Description" Core..=) Prelude.<$> description,
             ("OwnerInformation" Core..=)
-              Core.<$> ownerInformation,
-            ("ClientToken" Core..=) Core.<$> clientToken,
-            Core.Just ("WindowId" Core..= windowId),
-            Core.Just ("ResourceType" Core..= resourceType),
-            Core.Just ("Targets" Core..= targets)
+              Prelude.<$> ownerInformation,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            Prelude.Just ("WindowId" Core..= windowId),
+            Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just ("Targets" Core..= targets)
           ]
       )
 
@@ -321,22 +324,22 @@ instance
   Core.ToPath
     RegisterTargetWithMaintenanceWindow
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     RegisterTargetWithMaintenanceWindow
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterTargetWithMaintenanceWindowResponse' smart constructor.
 data RegisterTargetWithMaintenanceWindowResponse = RegisterTargetWithMaintenanceWindowResponse'
   { -- | The ID of the target definition in this maintenance window.
-    windowTargetId :: Core.Maybe Core.Text,
+    windowTargetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterTargetWithMaintenanceWindowResponse' with all optional fields omitted.
@@ -351,24 +354,24 @@ data RegisterTargetWithMaintenanceWindowResponse = RegisterTargetWithMaintenance
 -- 'httpStatus', 'registerTargetWithMaintenanceWindowResponse_httpStatus' - The response's http status code.
 newRegisterTargetWithMaintenanceWindowResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterTargetWithMaintenanceWindowResponse
 newRegisterTargetWithMaintenanceWindowResponse
   pHttpStatus_ =
     RegisterTargetWithMaintenanceWindowResponse'
       { windowTargetId =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The ID of the target definition in this maintenance window.
-registerTargetWithMaintenanceWindowResponse_windowTargetId :: Lens.Lens' RegisterTargetWithMaintenanceWindowResponse (Core.Maybe Core.Text)
+registerTargetWithMaintenanceWindowResponse_windowTargetId :: Lens.Lens' RegisterTargetWithMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindowResponse_windowTargetId = Lens.lens (\RegisterTargetWithMaintenanceWindowResponse' {windowTargetId} -> windowTargetId) (\s@RegisterTargetWithMaintenanceWindowResponse' {} a -> s {windowTargetId = a} :: RegisterTargetWithMaintenanceWindowResponse)
 
 -- | The response's http status code.
-registerTargetWithMaintenanceWindowResponse_httpStatus :: Lens.Lens' RegisterTargetWithMaintenanceWindowResponse Core.Int
+registerTargetWithMaintenanceWindowResponse_httpStatus :: Lens.Lens' RegisterTargetWithMaintenanceWindowResponse Prelude.Int
 registerTargetWithMaintenanceWindowResponse_httpStatus = Lens.lens (\RegisterTargetWithMaintenanceWindowResponse' {httpStatus} -> httpStatus) (\s@RegisterTargetWithMaintenanceWindowResponse' {} a -> s {httpStatus = a} :: RegisterTargetWithMaintenanceWindowResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterTargetWithMaintenanceWindowResponse

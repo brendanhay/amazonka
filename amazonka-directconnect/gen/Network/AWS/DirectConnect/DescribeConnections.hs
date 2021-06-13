@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeConnections' smart constructor.
 data DescribeConnections = DescribeConnections'
   { -- | The ID of the connection.
-    connectionId :: Core.Maybe Core.Text
+    connectionId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConnections' with all optional fields omitted.
@@ -63,10 +64,13 @@ data DescribeConnections = DescribeConnections'
 newDescribeConnections ::
   DescribeConnections
 newDescribeConnections =
-  DescribeConnections' {connectionId = Core.Nothing}
+  DescribeConnections'
+    { connectionId =
+        Prelude.Nothing
+    }
 
 -- | The ID of the connection.
-describeConnections_connectionId :: Lens.Lens' DescribeConnections (Core.Maybe Core.Text)
+describeConnections_connectionId :: Lens.Lens' DescribeConnections (Prelude.Maybe Prelude.Text)
 describeConnections_connectionId = Lens.lens (\DescribeConnections' {connectionId} -> connectionId) (\s@DescribeConnections' {} a -> s {connectionId = a} :: DescribeConnections)
 
 instance Core.AWSRequest DescribeConnections where
@@ -76,32 +80,34 @@ instance Core.AWSRequest DescribeConnections where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable DescribeConnections
+instance Prelude.Hashable DescribeConnections
 
-instance Core.NFData DescribeConnections
+instance Prelude.NFData DescribeConnections
 
 instance Core.ToHeaders DescribeConnections where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.DescribeConnections" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeConnections where
   toJSON DescribeConnections' {..} =
     Core.object
-      ( Core.catMaybes
-          [("connectionId" Core..=) Core.<$> connectionId]
+      ( Prelude.catMaybes
+          [("connectionId" Core..=) Prelude.<$> connectionId]
       )
 
 instance Core.ToPath DescribeConnections where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeConnections where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

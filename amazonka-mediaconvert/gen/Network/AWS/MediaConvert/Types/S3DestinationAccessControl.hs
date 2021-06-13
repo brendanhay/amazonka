@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.S3DestinationAccessControl where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. Have MediaConvert automatically apply Amazon S3 access control
 -- for the outputs in this output group. When you don\'t use this setting,
@@ -30,9 +31,9 @@ import Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
 -- /See:/ 'newS3DestinationAccessControl' smart constructor.
 data S3DestinationAccessControl = S3DestinationAccessControl'
   { -- | Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
-    cannedAcl :: Core.Maybe S3ObjectCannedAcl
+    cannedAcl :: Prelude.Maybe S3ObjectCannedAcl
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3DestinationAccessControl' with all optional fields omitted.
@@ -48,11 +49,11 @@ newS3DestinationAccessControl ::
 newS3DestinationAccessControl =
   S3DestinationAccessControl'
     { cannedAcl =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
-s3DestinationAccessControl_cannedAcl :: Lens.Lens' S3DestinationAccessControl (Core.Maybe S3ObjectCannedAcl)
+s3DestinationAccessControl_cannedAcl :: Lens.Lens' S3DestinationAccessControl (Prelude.Maybe S3ObjectCannedAcl)
 s3DestinationAccessControl_cannedAcl = Lens.lens (\S3DestinationAccessControl' {cannedAcl} -> cannedAcl) (\s@S3DestinationAccessControl' {} a -> s {cannedAcl = a} :: S3DestinationAccessControl)
 
 instance Core.FromJSON S3DestinationAccessControl where
@@ -61,16 +62,16 @@ instance Core.FromJSON S3DestinationAccessControl where
       "S3DestinationAccessControl"
       ( \x ->
           S3DestinationAccessControl'
-            Core.<$> (x Core..:? "cannedAcl")
+            Prelude.<$> (x Core..:? "cannedAcl")
       )
 
-instance Core.Hashable S3DestinationAccessControl
+instance Prelude.Hashable S3DestinationAccessControl
 
-instance Core.NFData S3DestinationAccessControl
+instance Prelude.NFData S3DestinationAccessControl
 
 instance Core.ToJSON S3DestinationAccessControl where
   toJSON S3DestinationAccessControl' {..} =
     Core.object
-      ( Core.catMaybes
-          [("cannedAcl" Core..=) Core.<$> cannedAcl]
+      ( Prelude.catMaybes
+          [("cannedAcl" Core..=) Prelude.<$> cannedAcl]
       )

@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,14 +53,14 @@ data BatchRead = BatchRead'
   { -- | Represents the manner and timing in which the successful write or update
     -- of an object is reflected in a subsequent read operation of that same
     -- object.
-    consistencyLevel :: Core.Maybe ConsistencyLevel,
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory.
     -- For more information, see arns.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | A list of operations that are part of the batch.
     operations :: [BatchReadOperation]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchRead' with all optional fields omitted.
@@ -79,29 +80,29 @@ data BatchRead = BatchRead'
 -- 'operations', 'batchRead_operations' - A list of operations that are part of the batch.
 newBatchRead ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   BatchRead
 newBatchRead pDirectoryArn_ =
   BatchRead'
-    { consistencyLevel = Core.Nothing,
+    { consistencyLevel = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
-      operations = Core.mempty
+      operations = Prelude.mempty
     }
 
 -- | Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
-batchRead_consistencyLevel :: Lens.Lens' BatchRead (Core.Maybe ConsistencyLevel)
+batchRead_consistencyLevel :: Lens.Lens' BatchRead (Prelude.Maybe ConsistencyLevel)
 batchRead_consistencyLevel = Lens.lens (\BatchRead' {consistencyLevel} -> consistencyLevel) (\s@BatchRead' {} a -> s {consistencyLevel = a} :: BatchRead)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory.
 -- For more information, see arns.
-batchRead_directoryArn :: Lens.Lens' BatchRead Core.Text
+batchRead_directoryArn :: Lens.Lens' BatchRead Prelude.Text
 batchRead_directoryArn = Lens.lens (\BatchRead' {directoryArn} -> directoryArn) (\s@BatchRead' {} a -> s {directoryArn = a} :: BatchRead)
 
 -- | A list of operations that are part of the batch.
 batchRead_operations :: Lens.Lens' BatchRead [BatchReadOperation]
-batchRead_operations = Lens.lens (\BatchRead' {operations} -> operations) (\s@BatchRead' {} a -> s {operations = a} :: BatchRead) Core.. Lens._Coerce
+batchRead_operations = Lens.lens (\BatchRead' {operations} -> operations) (\s@BatchRead' {} a -> s {operations = a} :: BatchRead) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchRead where
   type AWSResponse BatchRead = BatchReadResponse
@@ -110,17 +111,17 @@ instance Core.AWSRequest BatchRead where
     Response.receiveJSON
       ( \s h x ->
           BatchReadResponse'
-            Core.<$> (x Core..?> "Responses" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Responses" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchRead
+instance Prelude.Hashable BatchRead
 
-instance Core.NFData BatchRead
+instance Prelude.NFData BatchRead
 
 instance Core.ToHeaders BatchRead where
   toHeaders BatchRead' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-consistency-level" Core.=# consistencyLevel,
         "x-amz-data-partition" Core.=# directoryArn
       ]
@@ -128,26 +129,26 @@ instance Core.ToHeaders BatchRead where
 instance Core.ToJSON BatchRead where
   toJSON BatchRead' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Operations" Core..= operations)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Operations" Core..= operations)]
       )
 
 instance Core.ToPath BatchRead where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/batchread"
 
 instance Core.ToQuery BatchRead where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchReadResponse' smart constructor.
 data BatchReadResponse = BatchReadResponse'
   { -- | A list of all the responses for each batch read.
-    responses :: Core.Maybe [BatchReadOperationResponse],
+    responses :: Prelude.Maybe [BatchReadOperationResponse],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchReadResponse' with all optional fields omitted.
@@ -162,20 +163,20 @@ data BatchReadResponse = BatchReadResponse'
 -- 'httpStatus', 'batchReadResponse_httpStatus' - The response's http status code.
 newBatchReadResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchReadResponse
 newBatchReadResponse pHttpStatus_ =
   BatchReadResponse'
-    { responses = Core.Nothing,
+    { responses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of all the responses for each batch read.
-batchReadResponse_responses :: Lens.Lens' BatchReadResponse (Core.Maybe [BatchReadOperationResponse])
-batchReadResponse_responses = Lens.lens (\BatchReadResponse' {responses} -> responses) (\s@BatchReadResponse' {} a -> s {responses = a} :: BatchReadResponse) Core.. Lens.mapping Lens._Coerce
+batchReadResponse_responses :: Lens.Lens' BatchReadResponse (Prelude.Maybe [BatchReadOperationResponse])
+batchReadResponse_responses = Lens.lens (\BatchReadResponse' {responses} -> responses) (\s@BatchReadResponse' {} a -> s {responses = a} :: BatchReadResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchReadResponse_httpStatus :: Lens.Lens' BatchReadResponse Core.Int
+batchReadResponse_httpStatus :: Lens.Lens' BatchReadResponse Prelude.Int
 batchReadResponse_httpStatus = Lens.lens (\BatchReadResponse' {httpStatus} -> httpStatus) (\s@BatchReadResponse' {} a -> s {httpStatus = a} :: BatchReadResponse)
 
-instance Core.NFData BatchReadResponse
+instance Prelude.NFData BatchReadResponse

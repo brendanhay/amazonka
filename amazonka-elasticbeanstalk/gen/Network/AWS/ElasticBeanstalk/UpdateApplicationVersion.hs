@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,19 +56,19 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateApplicationVersion' smart constructor.
 data UpdateApplicationVersion = UpdateApplicationVersion'
   { -- | A new description for this version.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the application associated with this version.
     --
     -- If no application is found with this name, @UpdateApplication@ returns
     -- an @InvalidParameterValue@ error.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The name of the version to update.
     --
     -- If no application version is found with this label, @UpdateApplication@
     -- returns an @InvalidParameterValue@ error.
-    versionLabel :: Core.Text
+    versionLabel :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationVersion' with all optional fields omitted.
@@ -90,36 +91,36 @@ data UpdateApplicationVersion = UpdateApplicationVersion'
 -- returns an @InvalidParameterValue@ error.
 newUpdateApplicationVersion ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'versionLabel'
-  Core.Text ->
+  Prelude.Text ->
   UpdateApplicationVersion
 newUpdateApplicationVersion
   pApplicationName_
   pVersionLabel_ =
     UpdateApplicationVersion'
       { description =
-          Core.Nothing,
+          Prelude.Nothing,
         applicationName = pApplicationName_,
         versionLabel = pVersionLabel_
       }
 
 -- | A new description for this version.
-updateApplicationVersion_description :: Lens.Lens' UpdateApplicationVersion (Core.Maybe Core.Text)
+updateApplicationVersion_description :: Lens.Lens' UpdateApplicationVersion (Prelude.Maybe Prelude.Text)
 updateApplicationVersion_description = Lens.lens (\UpdateApplicationVersion' {description} -> description) (\s@UpdateApplicationVersion' {} a -> s {description = a} :: UpdateApplicationVersion)
 
 -- | The name of the application associated with this version.
 --
 -- If no application is found with this name, @UpdateApplication@ returns
 -- an @InvalidParameterValue@ error.
-updateApplicationVersion_applicationName :: Lens.Lens' UpdateApplicationVersion Core.Text
+updateApplicationVersion_applicationName :: Lens.Lens' UpdateApplicationVersion Prelude.Text
 updateApplicationVersion_applicationName = Lens.lens (\UpdateApplicationVersion' {applicationName} -> applicationName) (\s@UpdateApplicationVersion' {} a -> s {applicationName = a} :: UpdateApplicationVersion)
 
 -- | The name of the version to update.
 --
 -- If no application version is found with this label, @UpdateApplication@
 -- returns an @InvalidParameterValue@ error.
-updateApplicationVersion_versionLabel :: Lens.Lens' UpdateApplicationVersion Core.Text
+updateApplicationVersion_versionLabel :: Lens.Lens' UpdateApplicationVersion Prelude.Text
 updateApplicationVersion_versionLabel = Lens.lens (\UpdateApplicationVersion' {versionLabel} -> versionLabel) (\s@UpdateApplicationVersion' {} a -> s {versionLabel = a} :: UpdateApplicationVersion)
 
 instance Core.AWSRequest UpdateApplicationVersion where
@@ -132,22 +133,23 @@ instance Core.AWSRequest UpdateApplicationVersion where
       "UpdateApplicationVersionResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable UpdateApplicationVersion
+instance Prelude.Hashable UpdateApplicationVersion
 
-instance Core.NFData UpdateApplicationVersion
+instance Prelude.NFData UpdateApplicationVersion
 
 instance Core.ToHeaders UpdateApplicationVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateApplicationVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateApplicationVersion where
   toQuery UpdateApplicationVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateApplicationVersion" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("UpdateApplicationVersion" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Description" Core.=: description,
         "ApplicationName" Core.=: applicationName,
         "VersionLabel" Core.=: versionLabel

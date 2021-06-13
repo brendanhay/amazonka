@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,9 +51,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteTrial' smart constructor.
 data DeleteTrial = DeleteTrial'
   { -- | The name of the trial to delete.
-    trialName :: Core.Text
+    trialName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTrial' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DeleteTrial = DeleteTrial'
 -- 'trialName', 'deleteTrial_trialName' - The name of the trial to delete.
 newDeleteTrial ::
   -- | 'trialName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTrial
 newDeleteTrial pTrialName_ =
   DeleteTrial' {trialName = pTrialName_}
 
 -- | The name of the trial to delete.
-deleteTrial_trialName :: Lens.Lens' DeleteTrial Core.Text
+deleteTrial_trialName :: Lens.Lens' DeleteTrial Prelude.Text
 deleteTrial_trialName = Lens.lens (\DeleteTrial' {trialName} -> trialName) (\s@DeleteTrial' {} a -> s {trialName = a} :: DeleteTrial)
 
 instance Core.AWSRequest DeleteTrial where
@@ -81,46 +82,48 @@ instance Core.AWSRequest DeleteTrial where
     Response.receiveJSON
       ( \s h x ->
           DeleteTrialResponse'
-            Core.<$> (x Core..?> "TrialArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TrialArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTrial
+instance Prelude.Hashable DeleteTrial
 
-instance Core.NFData DeleteTrial
+instance Prelude.NFData DeleteTrial
 
 instance Core.ToHeaders DeleteTrial where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteTrial" :: Core.ByteString),
+              Core.=# ("SageMaker.DeleteTrial" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteTrial where
   toJSON DeleteTrial' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("TrialName" Core..= trialName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("TrialName" Core..= trialName)]
       )
 
 instance Core.ToPath DeleteTrial where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTrial where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTrialResponse' smart constructor.
 data DeleteTrialResponse = DeleteTrialResponse'
   { -- | The Amazon Resource Name (ARN) of the trial that is being deleted.
-    trialArn :: Core.Maybe Core.Text,
+    trialArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTrialResponse' with all optional fields omitted.
@@ -135,20 +138,20 @@ data DeleteTrialResponse = DeleteTrialResponse'
 -- 'httpStatus', 'deleteTrialResponse_httpStatus' - The response's http status code.
 newDeleteTrialResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTrialResponse
 newDeleteTrialResponse pHttpStatus_ =
   DeleteTrialResponse'
-    { trialArn = Core.Nothing,
+    { trialArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the trial that is being deleted.
-deleteTrialResponse_trialArn :: Lens.Lens' DeleteTrialResponse (Core.Maybe Core.Text)
+deleteTrialResponse_trialArn :: Lens.Lens' DeleteTrialResponse (Prelude.Maybe Prelude.Text)
 deleteTrialResponse_trialArn = Lens.lens (\DeleteTrialResponse' {trialArn} -> trialArn) (\s@DeleteTrialResponse' {} a -> s {trialArn = a} :: DeleteTrialResponse)
 
 -- | The response's http status code.
-deleteTrialResponse_httpStatus :: Lens.Lens' DeleteTrialResponse Core.Int
+deleteTrialResponse_httpStatus :: Lens.Lens' DeleteTrialResponse Prelude.Int
 deleteTrialResponse_httpStatus = Lens.lens (\DeleteTrialResponse' {httpStatus} -> httpStatus) (\s@DeleteTrialResponse' {} a -> s {httpStatus = a} :: DeleteTrialResponse)
 
-instance Core.NFData DeleteTrialResponse
+instance Prelude.NFData DeleteTrialResponse

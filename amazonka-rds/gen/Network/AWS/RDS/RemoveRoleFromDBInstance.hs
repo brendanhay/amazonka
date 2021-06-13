@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -47,16 +48,16 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newRemoveRoleFromDBInstance' smart constructor.
 data RemoveRoleFromDBInstance = RemoveRoleFromDBInstance'
   { -- | The name of the DB instance to disassociate the IAM role from.
-    dbInstanceIdentifier :: Core.Text,
+    dbInstanceIdentifier :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the
     -- DB instance, for example, @arn:aws:iam::123456789012:role\/AccessRole@.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The name of the feature for the DB instance that the IAM role is to be
     -- disassociated from. For the list of supported feature names, see
     -- @DBEngineVersion@.
-    featureName :: Core.Text
+    featureName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveRoleFromDBInstance' with all optional fields omitted.
@@ -76,11 +77,11 @@ data RemoveRoleFromDBInstance = RemoveRoleFromDBInstance'
 -- @DBEngineVersion@.
 newRemoveRoleFromDBInstance ::
   -- | 'dbInstanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'featureName'
-  Core.Text ->
+  Prelude.Text ->
   RemoveRoleFromDBInstance
 newRemoveRoleFromDBInstance
   pDBInstanceIdentifier_
@@ -94,18 +95,18 @@ newRemoveRoleFromDBInstance
       }
 
 -- | The name of the DB instance to disassociate the IAM role from.
-removeRoleFromDBInstance_dbInstanceIdentifier :: Lens.Lens' RemoveRoleFromDBInstance Core.Text
+removeRoleFromDBInstance_dbInstanceIdentifier :: Lens.Lens' RemoveRoleFromDBInstance Prelude.Text
 removeRoleFromDBInstance_dbInstanceIdentifier = Lens.lens (\RemoveRoleFromDBInstance' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@RemoveRoleFromDBInstance' {} a -> s {dbInstanceIdentifier = a} :: RemoveRoleFromDBInstance)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the
 -- DB instance, for example, @arn:aws:iam::123456789012:role\/AccessRole@.
-removeRoleFromDBInstance_roleArn :: Lens.Lens' RemoveRoleFromDBInstance Core.Text
+removeRoleFromDBInstance_roleArn :: Lens.Lens' RemoveRoleFromDBInstance Prelude.Text
 removeRoleFromDBInstance_roleArn = Lens.lens (\RemoveRoleFromDBInstance' {roleArn} -> roleArn) (\s@RemoveRoleFromDBInstance' {} a -> s {roleArn = a} :: RemoveRoleFromDBInstance)
 
 -- | The name of the feature for the DB instance that the IAM role is to be
 -- disassociated from. For the list of supported feature names, see
 -- @DBEngineVersion@.
-removeRoleFromDBInstance_featureName :: Lens.Lens' RemoveRoleFromDBInstance Core.Text
+removeRoleFromDBInstance_featureName :: Lens.Lens' RemoveRoleFromDBInstance Prelude.Text
 removeRoleFromDBInstance_featureName = Lens.lens (\RemoveRoleFromDBInstance' {featureName} -> featureName) (\s@RemoveRoleFromDBInstance' {} a -> s {featureName = a} :: RemoveRoleFromDBInstance)
 
 instance Core.AWSRequest RemoveRoleFromDBInstance where
@@ -117,22 +118,23 @@ instance Core.AWSRequest RemoveRoleFromDBInstance where
     Response.receiveNull
       RemoveRoleFromDBInstanceResponse'
 
-instance Core.Hashable RemoveRoleFromDBInstance
+instance Prelude.Hashable RemoveRoleFromDBInstance
 
-instance Core.NFData RemoveRoleFromDBInstance
+instance Prelude.NFData RemoveRoleFromDBInstance
 
 instance Core.ToHeaders RemoveRoleFromDBInstance where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RemoveRoleFromDBInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveRoleFromDBInstance where
   toQuery RemoveRoleFromDBInstance' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveRoleFromDBInstance" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("RemoveRoleFromDBInstance" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
         "RoleArn" Core.=: roleArn,
         "FeatureName" Core.=: featureName
@@ -142,7 +144,7 @@ instance Core.ToQuery RemoveRoleFromDBInstance where
 data RemoveRoleFromDBInstanceResponse = RemoveRoleFromDBInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveRoleFromDBInstanceResponse' with all optional fields omitted.
@@ -153,4 +155,6 @@ newRemoveRoleFromDBInstanceResponse ::
 newRemoveRoleFromDBInstanceResponse =
   RemoveRoleFromDBInstanceResponse'
 
-instance Core.NFData RemoveRoleFromDBInstanceResponse
+instance
+  Prelude.NFData
+    RemoveRoleFromDBInstanceResponse

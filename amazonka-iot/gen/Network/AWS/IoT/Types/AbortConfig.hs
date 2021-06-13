@@ -22,15 +22,16 @@ module Network.AWS.IoT.Types.AbortConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AbortCriteria
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The criteria that determine when and how a job abort takes place.
 --
 -- /See:/ 'newAbortConfig' smart constructor.
 data AbortConfig = AbortConfig'
   { -- | The list of criteria that determine when and how to abort the job.
-    criteriaList :: Core.NonEmpty AbortCriteria
+    criteriaList :: Prelude.NonEmpty AbortCriteria
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AbortConfig' with all optional fields omitted.
@@ -43,7 +44,7 @@ data AbortConfig = AbortConfig'
 -- 'criteriaList', 'abortConfig_criteriaList' - The list of criteria that determine when and how to abort the job.
 newAbortConfig ::
   -- | 'criteriaList'
-  Core.NonEmpty AbortCriteria ->
+  Prelude.NonEmpty AbortCriteria ->
   AbortConfig
 newAbortConfig pCriteriaList_ =
   AbortConfig'
@@ -52,24 +53,24 @@ newAbortConfig pCriteriaList_ =
     }
 
 -- | The list of criteria that determine when and how to abort the job.
-abortConfig_criteriaList :: Lens.Lens' AbortConfig (Core.NonEmpty AbortCriteria)
-abortConfig_criteriaList = Lens.lens (\AbortConfig' {criteriaList} -> criteriaList) (\s@AbortConfig' {} a -> s {criteriaList = a} :: AbortConfig) Core.. Lens._Coerce
+abortConfig_criteriaList :: Lens.Lens' AbortConfig (Prelude.NonEmpty AbortCriteria)
+abortConfig_criteriaList = Lens.lens (\AbortConfig' {criteriaList} -> criteriaList) (\s@AbortConfig' {} a -> s {criteriaList = a} :: AbortConfig) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AbortConfig where
   parseJSON =
     Core.withObject
       "AbortConfig"
       ( \x ->
-          AbortConfig' Core.<$> (x Core..: "criteriaList")
+          AbortConfig' Prelude.<$> (x Core..: "criteriaList")
       )
 
-instance Core.Hashable AbortConfig
+instance Prelude.Hashable AbortConfig
 
-instance Core.NFData AbortConfig
+instance Prelude.NFData AbortConfig
 
 instance Core.ToJSON AbortConfig where
   toJSON AbortConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("criteriaList" Core..= criteriaList)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("criteriaList" Core..= criteriaList)]
       )

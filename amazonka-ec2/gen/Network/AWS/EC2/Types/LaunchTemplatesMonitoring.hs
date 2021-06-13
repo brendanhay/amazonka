@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.LaunchTemplatesMonitoring where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the monitoring for the instance.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data LaunchTemplatesMonitoring = LaunchTemplatesMonitoring'
   { -- | Indicates whether detailed monitoring is enabled. Otherwise, basic
     -- monitoring is enabled.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplatesMonitoring' with all optional fields omitted.
@@ -46,18 +47,21 @@ data LaunchTemplatesMonitoring = LaunchTemplatesMonitoring'
 newLaunchTemplatesMonitoring ::
   LaunchTemplatesMonitoring
 newLaunchTemplatesMonitoring =
-  LaunchTemplatesMonitoring' {enabled = Core.Nothing}
+  LaunchTemplatesMonitoring'
+    { enabled =
+        Prelude.Nothing
+    }
 
 -- | Indicates whether detailed monitoring is enabled. Otherwise, basic
 -- monitoring is enabled.
-launchTemplatesMonitoring_enabled :: Lens.Lens' LaunchTemplatesMonitoring (Core.Maybe Core.Bool)
+launchTemplatesMonitoring_enabled :: Lens.Lens' LaunchTemplatesMonitoring (Prelude.Maybe Prelude.Bool)
 launchTemplatesMonitoring_enabled = Lens.lens (\LaunchTemplatesMonitoring' {enabled} -> enabled) (\s@LaunchTemplatesMonitoring' {} a -> s {enabled = a} :: LaunchTemplatesMonitoring)
 
 instance Core.FromXML LaunchTemplatesMonitoring where
   parseXML x =
     LaunchTemplatesMonitoring'
-      Core.<$> (x Core..@? "enabled")
+      Prelude.<$> (x Core..@? "enabled")
 
-instance Core.Hashable LaunchTemplatesMonitoring
+instance Prelude.Hashable LaunchTemplatesMonitoring
 
-instance Core.NFData LaunchTemplatesMonitoring
+instance Prelude.NFData LaunchTemplatesMonitoring

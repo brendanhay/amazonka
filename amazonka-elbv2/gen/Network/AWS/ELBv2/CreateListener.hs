@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,23 +76,23 @@ data CreateListener = CreateListener'
     -- in the /Application Load Balancers Guide/ and
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
     -- in the /Network Load Balancers Guide/.
-    sslPolicy :: Core.Maybe Core.Text,
+    sslPolicy :: Prelude.Maybe Prelude.Text,
     -- | The tags to assign to the listener.
-    tags :: Core.Maybe (Core.NonEmpty Tag),
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The port on which the load balancer is listening. You cannot specify a
     -- port for a Gateway Load Balancer.
-    port :: Core.Maybe Core.Natural,
+    port :: Prelude.Maybe Prelude.Natural,
     -- | The protocol for connections from clients to the load balancer. For
     -- Application Load Balancers, the supported protocols are HTTP and HTTPS.
     -- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
     -- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
     -- mode is enabled. You cannot specify a protocol for a Gateway Load
     -- Balancer.
-    protocol :: Core.Maybe ProtocolEnum,
+    protocol :: Prelude.Maybe ProtocolEnum,
     -- | [HTTPS and TLS listeners] The default certificate for the listener. You
     -- must provide exactly one certificate. Set @CertificateArn@ to the
     -- certificate ARN but do not set @IsDefault@.
-    certificates :: Core.Maybe [Certificate],
+    certificates :: Prelude.Maybe [Certificate],
     -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
     -- (ALPN) policy. You can specify one policy name. The following are the
     -- possible values:
@@ -109,13 +110,13 @@ data CreateListener = CreateListener'
     -- For more information, see
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
     -- in the /Network Load Balancers Guide/.
-    alpnPolicy :: Core.Maybe [Core.Text],
+    alpnPolicy :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Core.Text,
+    loadBalancerArn :: Prelude.Text,
     -- | The actions for the default rule.
     defaultActions :: [Action]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateListener' with all optional fields omitted.
@@ -173,18 +174,18 @@ data CreateListener = CreateListener'
 -- 'defaultActions', 'createListener_defaultActions' - The actions for the default rule.
 newCreateListener ::
   -- | 'loadBalancerArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateListener
 newCreateListener pLoadBalancerArn_ =
   CreateListener'
-    { sslPolicy = Core.Nothing,
-      tags = Core.Nothing,
-      port = Core.Nothing,
-      protocol = Core.Nothing,
-      certificates = Core.Nothing,
-      alpnPolicy = Core.Nothing,
+    { sslPolicy = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      port = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      certificates = Prelude.Nothing,
+      alpnPolicy = Prelude.Nothing,
       loadBalancerArn = pLoadBalancerArn_,
-      defaultActions = Core.mempty
+      defaultActions = Prelude.mempty
     }
 
 -- | [HTTPS and TLS listeners] The security policy that defines which
@@ -195,16 +196,16 @@ newCreateListener pLoadBalancerArn_ =
 -- in the /Application Load Balancers Guide/ and
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
 -- in the /Network Load Balancers Guide/.
-createListener_sslPolicy :: Lens.Lens' CreateListener (Core.Maybe Core.Text)
+createListener_sslPolicy :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Text)
 createListener_sslPolicy = Lens.lens (\CreateListener' {sslPolicy} -> sslPolicy) (\s@CreateListener' {} a -> s {sslPolicy = a} :: CreateListener)
 
 -- | The tags to assign to the listener.
-createListener_tags :: Lens.Lens' CreateListener (Core.Maybe (Core.NonEmpty Tag))
-createListener_tags = Lens.lens (\CreateListener' {tags} -> tags) (\s@CreateListener' {} a -> s {tags = a} :: CreateListener) Core.. Lens.mapping Lens._Coerce
+createListener_tags :: Lens.Lens' CreateListener (Prelude.Maybe (Prelude.NonEmpty Tag))
+createListener_tags = Lens.lens (\CreateListener' {tags} -> tags) (\s@CreateListener' {} a -> s {tags = a} :: CreateListener) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The port on which the load balancer is listening. You cannot specify a
 -- port for a Gateway Load Balancer.
-createListener_port :: Lens.Lens' CreateListener (Core.Maybe Core.Natural)
+createListener_port :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Natural)
 createListener_port = Lens.lens (\CreateListener' {port} -> port) (\s@CreateListener' {} a -> s {port = a} :: CreateListener)
 
 -- | The protocol for connections from clients to the load balancer. For
@@ -213,14 +214,14 @@ createListener_port = Lens.lens (\CreateListener' {port} -> port) (\s@CreateList
 -- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
 -- mode is enabled. You cannot specify a protocol for a Gateway Load
 -- Balancer.
-createListener_protocol :: Lens.Lens' CreateListener (Core.Maybe ProtocolEnum)
+createListener_protocol :: Lens.Lens' CreateListener (Prelude.Maybe ProtocolEnum)
 createListener_protocol = Lens.lens (\CreateListener' {protocol} -> protocol) (\s@CreateListener' {} a -> s {protocol = a} :: CreateListener)
 
 -- | [HTTPS and TLS listeners] The default certificate for the listener. You
 -- must provide exactly one certificate. Set @CertificateArn@ to the
 -- certificate ARN but do not set @IsDefault@.
-createListener_certificates :: Lens.Lens' CreateListener (Core.Maybe [Certificate])
-createListener_certificates = Lens.lens (\CreateListener' {certificates} -> certificates) (\s@CreateListener' {} a -> s {certificates = a} :: CreateListener) Core.. Lens.mapping Lens._Coerce
+createListener_certificates :: Lens.Lens' CreateListener (Prelude.Maybe [Certificate])
+createListener_certificates = Lens.lens (\CreateListener' {certificates} -> certificates) (\s@CreateListener' {} a -> s {certificates = a} :: CreateListener) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
 -- (ALPN) policy. You can specify one policy name. The following are the
@@ -239,16 +240,16 @@ createListener_certificates = Lens.lens (\CreateListener' {certificates} -> cert
 -- For more information, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
 -- in the /Network Load Balancers Guide/.
-createListener_alpnPolicy :: Lens.Lens' CreateListener (Core.Maybe [Core.Text])
-createListener_alpnPolicy = Lens.lens (\CreateListener' {alpnPolicy} -> alpnPolicy) (\s@CreateListener' {} a -> s {alpnPolicy = a} :: CreateListener) Core.. Lens.mapping Lens._Coerce
+createListener_alpnPolicy :: Lens.Lens' CreateListener (Prelude.Maybe [Prelude.Text])
+createListener_alpnPolicy = Lens.lens (\CreateListener' {alpnPolicy} -> alpnPolicy) (\s@CreateListener' {} a -> s {alpnPolicy = a} :: CreateListener) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-createListener_loadBalancerArn :: Lens.Lens' CreateListener Core.Text
+createListener_loadBalancerArn :: Lens.Lens' CreateListener Prelude.Text
 createListener_loadBalancerArn = Lens.lens (\CreateListener' {loadBalancerArn} -> loadBalancerArn) (\s@CreateListener' {} a -> s {loadBalancerArn = a} :: CreateListener)
 
 -- | The actions for the default rule.
 createListener_defaultActions :: Lens.Lens' CreateListener [Action]
-createListener_defaultActions = Lens.lens (\CreateListener' {defaultActions} -> defaultActions) (\s@CreateListener' {} a -> s {defaultActions = a} :: CreateListener) Core.. Lens._Coerce
+createListener_defaultActions = Lens.lens (\CreateListener' {defaultActions} -> defaultActions) (\s@CreateListener' {} a -> s {defaultActions = a} :: CreateListener) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateListener where
   type
@@ -260,40 +261,41 @@ instance Core.AWSRequest CreateListener where
       "CreateListenerResult"
       ( \s h x ->
           CreateListenerResponse'
-            Core.<$> ( x Core..@? "Listeners" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateListener
+instance Prelude.Hashable CreateListener
 
-instance Core.NFData CreateListener
+instance Prelude.NFData CreateListener
 
 instance Core.ToHeaders CreateListener where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateListener where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateListener where
   toQuery CreateListener' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateListener" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("CreateListener" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "SslPolicy" Core.=: sslPolicy,
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "Port" Core.=: port,
         "Protocol" Core.=: protocol,
         "Certificates"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> certificates),
+            (Core.toQueryList "member" Prelude.<$> certificates),
         "AlpnPolicy"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> alpnPolicy),
+            (Core.toQueryList "member" Prelude.<$> alpnPolicy),
         "LoadBalancerArn" Core.=: loadBalancerArn,
         "DefaultActions"
           Core.=: Core.toQueryList "member" defaultActions
@@ -302,11 +304,11 @@ instance Core.ToQuery CreateListener where
 -- | /See:/ 'newCreateListenerResponse' smart constructor.
 data CreateListenerResponse = CreateListenerResponse'
   { -- | Information about the listener.
-    listeners :: Core.Maybe [Listener],
+    listeners :: Prelude.Maybe [Listener],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateListenerResponse' with all optional fields omitted.
@@ -321,20 +323,21 @@ data CreateListenerResponse = CreateListenerResponse'
 -- 'httpStatus', 'createListenerResponse_httpStatus' - The response's http status code.
 newCreateListenerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateListenerResponse
 newCreateListenerResponse pHttpStatus_ =
   CreateListenerResponse'
-    { listeners = Core.Nothing,
+    { listeners =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the listener.
-createListenerResponse_listeners :: Lens.Lens' CreateListenerResponse (Core.Maybe [Listener])
-createListenerResponse_listeners = Lens.lens (\CreateListenerResponse' {listeners} -> listeners) (\s@CreateListenerResponse' {} a -> s {listeners = a} :: CreateListenerResponse) Core.. Lens.mapping Lens._Coerce
+createListenerResponse_listeners :: Lens.Lens' CreateListenerResponse (Prelude.Maybe [Listener])
+createListenerResponse_listeners = Lens.lens (\CreateListenerResponse' {listeners} -> listeners) (\s@CreateListenerResponse' {} a -> s {listeners = a} :: CreateListenerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createListenerResponse_httpStatus :: Lens.Lens' CreateListenerResponse Core.Int
+createListenerResponse_httpStatus :: Lens.Lens' CreateListenerResponse Prelude.Int
 createListenerResponse_httpStatus = Lens.lens (\CreateListenerResponse' {httpStatus} -> httpStatus) (\s@CreateListenerResponse' {} a -> s {httpStatus = a} :: CreateListenerResponse)
 
-instance Core.NFData CreateListenerResponse
+instance Prelude.NFData CreateListenerResponse

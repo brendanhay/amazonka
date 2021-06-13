@@ -32,6 +32,7 @@ import Network.AWS.CloudFront.Types.Restrictions
 import Network.AWS.CloudFront.Types.ViewerCertificate
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of the information about a CloudFront distribution.
 --
@@ -46,25 +47,25 @@ data DistributionSummary = DistributionSummary'
     -- For more information about ICP recordals, see
     -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
     -- in /Getting Started with AWS services in China/.
-    aliasICPRecordals :: Core.Maybe [AliasICPRecordal],
+    aliasICPRecordals :: Prelude.Maybe [AliasICPRecordal],
     -- | A complex type that contains information about origin groups for this
     -- distribution.
-    originGroups :: Core.Maybe OriginGroups,
+    originGroups :: Prelude.Maybe OriginGroups,
     -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The ARN (Amazon Resource Name) for the distribution. For example:
     -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
     -- @123456789012@ is your AWS account ID.
-    arn :: Core.Text,
+    arn :: Prelude.Text,
     -- | The current status of the distribution. When the status is @Deployed@,
     -- the distribution\'s information is propagated to all CloudFront edge
     -- locations.
-    status :: Core.Text,
+    status :: Prelude.Text,
     -- | The date and time the distribution was last modified.
     lastModifiedTime :: Core.ISO8601,
     -- | The domain name that corresponds to the distribution, for example,
     -- @d111111abcdef8.cloudfront.net@.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | A complex type that contains information about CNAMEs (alternate domain
     -- names), if any, for this distribution.
     aliases :: Aliases,
@@ -82,12 +83,12 @@ data DistributionSummary = DistributionSummary'
     -- elements.
     customErrorResponses :: CustomErrorResponses,
     -- | The comment originally specified when this distribution was created.
-    comment :: Core.Text,
+    comment :: Prelude.Text,
     -- | A complex type that contains information about price class for this
     -- streaming distribution.
     priceClass :: PriceClass,
     -- | Whether the distribution is enabled to accept user requests for content.
-    enabled :: Core.Bool,
+    enabled :: Prelude.Bool,
     -- | A complex type that determines the distribution’s SSL\/TLS configuration
     -- for communicating with viewers.
     viewerCertificate :: ViewerCertificate,
@@ -95,7 +96,7 @@ data DistributionSummary = DistributionSummary'
     -- distribution of your content.
     restrictions :: Restrictions,
     -- | The Web ACL Id (if any) associated with the distribution.
-    webACLId :: Core.Text,
+    webACLId :: Prelude.Text,
     -- | Specify the maximum HTTP version that you want viewers to use to
     -- communicate with CloudFront. The default value for new web distributions
     -- is @http2@. Viewers that don\'t support @HTTP\/2@ will automatically use
@@ -103,9 +104,9 @@ data DistributionSummary = DistributionSummary'
     httpVersion :: HttpVersion,
     -- | Whether CloudFront responds to IPv6 DNS requests with an IPv6 address
     -- for your distribution.
-    isIPV6Enabled :: Core.Bool
+    isIPV6Enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DistributionSummary' with all optional fields omitted.
@@ -183,15 +184,15 @@ data DistributionSummary = DistributionSummary'
 -- for your distribution.
 newDistributionSummary ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'aliases'
   Aliases ->
   -- | 'origins'
@@ -203,21 +204,21 @@ newDistributionSummary ::
   -- | 'customErrorResponses'
   CustomErrorResponses ->
   -- | 'comment'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'priceClass'
   PriceClass ->
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'viewerCertificate'
   ViewerCertificate ->
   -- | 'restrictions'
   Restrictions ->
   -- | 'webACLId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpVersion'
   HttpVersion ->
   -- | 'isIPV6Enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   DistributionSummary
 newDistributionSummary
   pId_
@@ -240,8 +241,8 @@ newDistributionSummary
   pIsIPV6Enabled_ =
     DistributionSummary'
       { aliasICPRecordals =
-          Core.Nothing,
-        originGroups = Core.Nothing,
+          Prelude.Nothing,
+        originGroups = Prelude.Nothing,
         id = pId_,
         arn = pARN_,
         status = pStatus_,
@@ -272,37 +273,37 @@ newDistributionSummary
 -- For more information about ICP recordals, see
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
 -- in /Getting Started with AWS services in China/.
-distributionSummary_aliasICPRecordals :: Lens.Lens' DistributionSummary (Core.Maybe [AliasICPRecordal])
-distributionSummary_aliasICPRecordals = Lens.lens (\DistributionSummary' {aliasICPRecordals} -> aliasICPRecordals) (\s@DistributionSummary' {} a -> s {aliasICPRecordals = a} :: DistributionSummary) Core.. Lens.mapping Lens._Coerce
+distributionSummary_aliasICPRecordals :: Lens.Lens' DistributionSummary (Prelude.Maybe [AliasICPRecordal])
+distributionSummary_aliasICPRecordals = Lens.lens (\DistributionSummary' {aliasICPRecordals} -> aliasICPRecordals) (\s@DistributionSummary' {} a -> s {aliasICPRecordals = a} :: DistributionSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A complex type that contains information about origin groups for this
 -- distribution.
-distributionSummary_originGroups :: Lens.Lens' DistributionSummary (Core.Maybe OriginGroups)
+distributionSummary_originGroups :: Lens.Lens' DistributionSummary (Prelude.Maybe OriginGroups)
 distributionSummary_originGroups = Lens.lens (\DistributionSummary' {originGroups} -> originGroups) (\s@DistributionSummary' {} a -> s {originGroups = a} :: DistributionSummary)
 
 -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
-distributionSummary_id :: Lens.Lens' DistributionSummary Core.Text
+distributionSummary_id :: Lens.Lens' DistributionSummary Prelude.Text
 distributionSummary_id = Lens.lens (\DistributionSummary' {id} -> id) (\s@DistributionSummary' {} a -> s {id = a} :: DistributionSummary)
 
 -- | The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
 -- @123456789012@ is your AWS account ID.
-distributionSummary_arn :: Lens.Lens' DistributionSummary Core.Text
+distributionSummary_arn :: Lens.Lens' DistributionSummary Prelude.Text
 distributionSummary_arn = Lens.lens (\DistributionSummary' {arn} -> arn) (\s@DistributionSummary' {} a -> s {arn = a} :: DistributionSummary)
 
 -- | The current status of the distribution. When the status is @Deployed@,
 -- the distribution\'s information is propagated to all CloudFront edge
 -- locations.
-distributionSummary_status :: Lens.Lens' DistributionSummary Core.Text
+distributionSummary_status :: Lens.Lens' DistributionSummary Prelude.Text
 distributionSummary_status = Lens.lens (\DistributionSummary' {status} -> status) (\s@DistributionSummary' {} a -> s {status = a} :: DistributionSummary)
 
 -- | The date and time the distribution was last modified.
-distributionSummary_lastModifiedTime :: Lens.Lens' DistributionSummary Core.UTCTime
-distributionSummary_lastModifiedTime = Lens.lens (\DistributionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@DistributionSummary' {} a -> s {lastModifiedTime = a} :: DistributionSummary) Core.. Core._Time
+distributionSummary_lastModifiedTime :: Lens.Lens' DistributionSummary Prelude.UTCTime
+distributionSummary_lastModifiedTime = Lens.lens (\DistributionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@DistributionSummary' {} a -> s {lastModifiedTime = a} :: DistributionSummary) Prelude.. Core._Time
 
 -- | The domain name that corresponds to the distribution, for example,
 -- @d111111abcdef8.cloudfront.net@.
-distributionSummary_domainName :: Lens.Lens' DistributionSummary Core.Text
+distributionSummary_domainName :: Lens.Lens' DistributionSummary Prelude.Text
 distributionSummary_domainName = Lens.lens (\DistributionSummary' {domainName} -> domainName) (\s@DistributionSummary' {} a -> s {domainName = a} :: DistributionSummary)
 
 -- | A complex type that contains information about CNAMEs (alternate domain
@@ -332,7 +333,7 @@ distributionSummary_customErrorResponses :: Lens.Lens' DistributionSummary Custo
 distributionSummary_customErrorResponses = Lens.lens (\DistributionSummary' {customErrorResponses} -> customErrorResponses) (\s@DistributionSummary' {} a -> s {customErrorResponses = a} :: DistributionSummary)
 
 -- | The comment originally specified when this distribution was created.
-distributionSummary_comment :: Lens.Lens' DistributionSummary Core.Text
+distributionSummary_comment :: Lens.Lens' DistributionSummary Prelude.Text
 distributionSummary_comment = Lens.lens (\DistributionSummary' {comment} -> comment) (\s@DistributionSummary' {} a -> s {comment = a} :: DistributionSummary)
 
 -- | A complex type that contains information about price class for this
@@ -341,7 +342,7 @@ distributionSummary_priceClass :: Lens.Lens' DistributionSummary PriceClass
 distributionSummary_priceClass = Lens.lens (\DistributionSummary' {priceClass} -> priceClass) (\s@DistributionSummary' {} a -> s {priceClass = a} :: DistributionSummary)
 
 -- | Whether the distribution is enabled to accept user requests for content.
-distributionSummary_enabled :: Lens.Lens' DistributionSummary Core.Bool
+distributionSummary_enabled :: Lens.Lens' DistributionSummary Prelude.Bool
 distributionSummary_enabled = Lens.lens (\DistributionSummary' {enabled} -> enabled) (\s@DistributionSummary' {} a -> s {enabled = a} :: DistributionSummary)
 
 -- | A complex type that determines the distribution’s SSL\/TLS configuration
@@ -355,7 +356,7 @@ distributionSummary_restrictions :: Lens.Lens' DistributionSummary Restrictions
 distributionSummary_restrictions = Lens.lens (\DistributionSummary' {restrictions} -> restrictions) (\s@DistributionSummary' {} a -> s {restrictions = a} :: DistributionSummary)
 
 -- | The Web ACL Id (if any) associated with the distribution.
-distributionSummary_webACLId :: Lens.Lens' DistributionSummary Core.Text
+distributionSummary_webACLId :: Lens.Lens' DistributionSummary Prelude.Text
 distributionSummary_webACLId = Lens.lens (\DistributionSummary' {webACLId} -> webACLId) (\s@DistributionSummary' {} a -> s {webACLId = a} :: DistributionSummary)
 
 -- | Specify the maximum HTTP version that you want viewers to use to
@@ -367,35 +368,36 @@ distributionSummary_httpVersion = Lens.lens (\DistributionSummary' {httpVersion}
 
 -- | Whether CloudFront responds to IPv6 DNS requests with an IPv6 address
 -- for your distribution.
-distributionSummary_isIPV6Enabled :: Lens.Lens' DistributionSummary Core.Bool
+distributionSummary_isIPV6Enabled :: Lens.Lens' DistributionSummary Prelude.Bool
 distributionSummary_isIPV6Enabled = Lens.lens (\DistributionSummary' {isIPV6Enabled} -> isIPV6Enabled) (\s@DistributionSummary' {} a -> s {isIPV6Enabled = a} :: DistributionSummary)
 
 instance Core.FromXML DistributionSummary where
   parseXML x =
     DistributionSummary'
-      Core.<$> ( x Core..@? "AliasICPRecordals" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "AliasICPRecordal")
-               )
-      Core.<*> (x Core..@? "OriginGroups")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "ARN")
-      Core.<*> (x Core..@ "Status")
-      Core.<*> (x Core..@ "LastModifiedTime")
-      Core.<*> (x Core..@ "DomainName")
-      Core.<*> (x Core..@ "Aliases")
-      Core.<*> (x Core..@ "Origins")
-      Core.<*> (x Core..@ "DefaultCacheBehavior")
-      Core.<*> (x Core..@ "CacheBehaviors")
-      Core.<*> (x Core..@ "CustomErrorResponses")
-      Core.<*> (x Core..@ "Comment")
-      Core.<*> (x Core..@ "PriceClass")
-      Core.<*> (x Core..@ "Enabled")
-      Core.<*> (x Core..@ "ViewerCertificate")
-      Core.<*> (x Core..@ "Restrictions")
-      Core.<*> (x Core..@ "WebACLId")
-      Core.<*> (x Core..@ "HttpVersion")
-      Core.<*> (x Core..@ "IsIPV6Enabled")
+      Prelude.<$> ( x Core..@? "AliasICPRecordals"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "AliasICPRecordal")
+                  )
+      Prelude.<*> (x Core..@? "OriginGroups")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "ARN")
+      Prelude.<*> (x Core..@ "Status")
+      Prelude.<*> (x Core..@ "LastModifiedTime")
+      Prelude.<*> (x Core..@ "DomainName")
+      Prelude.<*> (x Core..@ "Aliases")
+      Prelude.<*> (x Core..@ "Origins")
+      Prelude.<*> (x Core..@ "DefaultCacheBehavior")
+      Prelude.<*> (x Core..@ "CacheBehaviors")
+      Prelude.<*> (x Core..@ "CustomErrorResponses")
+      Prelude.<*> (x Core..@ "Comment")
+      Prelude.<*> (x Core..@ "PriceClass")
+      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<*> (x Core..@ "ViewerCertificate")
+      Prelude.<*> (x Core..@ "Restrictions")
+      Prelude.<*> (x Core..@ "WebACLId")
+      Prelude.<*> (x Core..@ "HttpVersion")
+      Prelude.<*> (x Core..@ "IsIPV6Enabled")
 
-instance Core.Hashable DistributionSummary
+instance Prelude.Hashable DistributionSummary
 
-instance Core.NFData DistributionSummary
+instance Prelude.NFData DistributionSummary

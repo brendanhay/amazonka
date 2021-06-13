@@ -78,6 +78,7 @@ where
 import Network.AWS.CloudHSM.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,12 +88,12 @@ import qualified Network.AWS.Response as Response
 data DescribeHsm = DescribeHsm'
   { -- | The serial number of the HSM. Either the @HsmArn@ or the
     -- @HsmSerialNumber@ parameter must be specified.
-    hsmSerialNumber :: Core.Maybe Core.Text,
+    hsmSerialNumber :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter
     -- must be specified.
-    hsmArn :: Core.Maybe Core.Text
+    hsmArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHsm' with all optional fields omitted.
@@ -111,18 +112,18 @@ newDescribeHsm ::
   DescribeHsm
 newDescribeHsm =
   DescribeHsm'
-    { hsmSerialNumber = Core.Nothing,
-      hsmArn = Core.Nothing
+    { hsmSerialNumber = Prelude.Nothing,
+      hsmArn = Prelude.Nothing
     }
 
 -- | The serial number of the HSM. Either the @HsmArn@ or the
 -- @HsmSerialNumber@ parameter must be specified.
-describeHsm_hsmSerialNumber :: Lens.Lens' DescribeHsm (Core.Maybe Core.Text)
+describeHsm_hsmSerialNumber :: Lens.Lens' DescribeHsm (Prelude.Maybe Prelude.Text)
 describeHsm_hsmSerialNumber = Lens.lens (\DescribeHsm' {hsmSerialNumber} -> hsmSerialNumber) (\s@DescribeHsm' {} a -> s {hsmSerialNumber = a} :: DescribeHsm)
 
 -- | The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter
 -- must be specified.
-describeHsm_hsmArn :: Lens.Lens' DescribeHsm (Core.Maybe Core.Text)
+describeHsm_hsmArn :: Lens.Lens' DescribeHsm (Prelude.Maybe Prelude.Text)
 describeHsm_hsmArn = Lens.lens (\DescribeHsm' {hsmArn} -> hsmArn) (\s@DescribeHsm' {} a -> s {hsmArn = a} :: DescribeHsm)
 
 instance Core.AWSRequest DescribeHsm where
@@ -132,113 +133,115 @@ instance Core.AWSRequest DescribeHsm where
     Response.receiveJSON
       ( \s h x ->
           DescribeHsmResponse'
-            Core.<$> (x Core..?> "SubscriptionStartDate")
-            Core.<*> (x Core..?> "IamRoleArn")
-            Core.<*> (x Core..?> "Status")
-            Core.<*> (x Core..?> "Partitions" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "StatusDetails")
-            Core.<*> (x Core..?> "EniIp")
-            Core.<*> (x Core..?> "SubscriptionType")
-            Core.<*> (x Core..?> "ServerCertLastUpdated")
-            Core.<*> (x Core..?> "EniId")
-            Core.<*> (x Core..?> "AvailabilityZone")
-            Core.<*> (x Core..?> "SshPublicKey")
-            Core.<*> (x Core..?> "HsmType")
-            Core.<*> (x Core..?> "SubnetId")
-            Core.<*> (x Core..?> "VendorName")
-            Core.<*> (x Core..?> "ServerCertUri")
-            Core.<*> (x Core..?> "HsmArn")
-            Core.<*> (x Core..?> "SerialNumber")
-            Core.<*> (x Core..?> "SshKeyLastUpdated")
-            Core.<*> (x Core..?> "SubscriptionEndDate")
-            Core.<*> (x Core..?> "VpcId")
-            Core.<*> (x Core..?> "SoftwareVersion")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SubscriptionStartDate")
+            Prelude.<*> (x Core..?> "IamRoleArn")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "StatusDetails")
+            Prelude.<*> (x Core..?> "EniIp")
+            Prelude.<*> (x Core..?> "SubscriptionType")
+            Prelude.<*> (x Core..?> "ServerCertLastUpdated")
+            Prelude.<*> (x Core..?> "EniId")
+            Prelude.<*> (x Core..?> "AvailabilityZone")
+            Prelude.<*> (x Core..?> "SshPublicKey")
+            Prelude.<*> (x Core..?> "HsmType")
+            Prelude.<*> (x Core..?> "SubnetId")
+            Prelude.<*> (x Core..?> "VendorName")
+            Prelude.<*> (x Core..?> "ServerCertUri")
+            Prelude.<*> (x Core..?> "HsmArn")
+            Prelude.<*> (x Core..?> "SerialNumber")
+            Prelude.<*> (x Core..?> "SshKeyLastUpdated")
+            Prelude.<*> (x Core..?> "SubscriptionEndDate")
+            Prelude.<*> (x Core..?> "VpcId")
+            Prelude.<*> (x Core..?> "SoftwareVersion")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeHsm
+instance Prelude.Hashable DescribeHsm
 
-instance Core.NFData DescribeHsm
+instance Prelude.NFData DescribeHsm
 
 instance Core.ToHeaders DescribeHsm where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CloudHsmFrontendService.DescribeHsm" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeHsm where
   toJSON DescribeHsm' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("HsmSerialNumber" Core..=)
-              Core.<$> hsmSerialNumber,
-            ("HsmArn" Core..=) Core.<$> hsmArn
+              Prelude.<$> hsmSerialNumber,
+            ("HsmArn" Core..=) Prelude.<$> hsmArn
           ]
       )
 
 instance Core.ToPath DescribeHsm where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeHsm where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the DescribeHsm operation.
 --
 -- /See:/ 'newDescribeHsmResponse' smart constructor.
 data DescribeHsmResponse = DescribeHsmResponse'
   { -- | The subscription start date.
-    subscriptionStartDate :: Core.Maybe Core.Text,
+    subscriptionStartDate :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role assigned to the HSM.
-    iamRoleArn :: Core.Maybe Core.Text,
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the HSM.
-    status :: Core.Maybe HsmStatus,
+    status :: Prelude.Maybe HsmStatus,
     -- | The list of partitions on the HSM.
-    partitions :: Core.Maybe [Core.Text],
+    partitions :: Prelude.Maybe [Prelude.Text],
     -- | Contains additional information about the status of the HSM.
-    statusDetails :: Core.Maybe Core.Text,
+    statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The IP address assigned to the HSM\'s ENI.
-    eniIp :: Core.Maybe Core.Text,
-    subscriptionType :: Core.Maybe SubscriptionType,
+    eniIp :: Prelude.Maybe Prelude.Text,
+    subscriptionType :: Prelude.Maybe SubscriptionType,
     -- | The date and time that the server certificate was last updated.
-    serverCertLastUpdated :: Core.Maybe Core.Text,
+    serverCertLastUpdated :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the elastic network interface (ENI) attached to the
     -- HSM.
-    eniId :: Core.Maybe Core.Text,
+    eniId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone that the HSM is in.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The public SSH key.
-    sshPublicKey :: Core.Maybe Core.Text,
+    sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The HSM model type.
-    hsmType :: Core.Maybe Core.Text,
+    hsmType :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the subnet that the HSM is in.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The name of the HSM vendor.
-    vendorName :: Core.Maybe Core.Text,
+    vendorName :: Prelude.Maybe Prelude.Text,
     -- | The URI of the certificate server.
-    serverCertUri :: Core.Maybe Core.Text,
+    serverCertUri :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the HSM.
-    hsmArn :: Core.Maybe Core.Text,
+    hsmArn :: Prelude.Maybe Prelude.Text,
     -- | The serial number of the HSM.
-    serialNumber :: Core.Maybe Core.Text,
+    serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the SSH key was last updated.
-    sshKeyLastUpdated :: Core.Maybe Core.Text,
+    sshKeyLastUpdated :: Prelude.Maybe Prelude.Text,
     -- | The subscription end date.
-    subscriptionEndDate :: Core.Maybe Core.Text,
+    subscriptionEndDate :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the VPC that the HSM is in.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The HSM software version.
-    softwareVersion :: Core.Maybe Core.Text,
+    softwareVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHsmResponse' with all optional fields omitted.
@@ -294,122 +297,122 @@ data DescribeHsmResponse = DescribeHsmResponse'
 -- 'httpStatus', 'describeHsmResponse_httpStatus' - The response's http status code.
 newDescribeHsmResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeHsmResponse
 newDescribeHsmResponse pHttpStatus_ =
   DescribeHsmResponse'
     { subscriptionStartDate =
-        Core.Nothing,
-      iamRoleArn = Core.Nothing,
-      status = Core.Nothing,
-      partitions = Core.Nothing,
-      statusDetails = Core.Nothing,
-      eniIp = Core.Nothing,
-      subscriptionType = Core.Nothing,
-      serverCertLastUpdated = Core.Nothing,
-      eniId = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      sshPublicKey = Core.Nothing,
-      hsmType = Core.Nothing,
-      subnetId = Core.Nothing,
-      vendorName = Core.Nothing,
-      serverCertUri = Core.Nothing,
-      hsmArn = Core.Nothing,
-      serialNumber = Core.Nothing,
-      sshKeyLastUpdated = Core.Nothing,
-      subscriptionEndDate = Core.Nothing,
-      vpcId = Core.Nothing,
-      softwareVersion = Core.Nothing,
+        Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      partitions = Prelude.Nothing,
+      statusDetails = Prelude.Nothing,
+      eniIp = Prelude.Nothing,
+      subscriptionType = Prelude.Nothing,
+      serverCertLastUpdated = Prelude.Nothing,
+      eniId = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      sshPublicKey = Prelude.Nothing,
+      hsmType = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      vendorName = Prelude.Nothing,
+      serverCertUri = Prelude.Nothing,
+      hsmArn = Prelude.Nothing,
+      serialNumber = Prelude.Nothing,
+      sshKeyLastUpdated = Prelude.Nothing,
+      subscriptionEndDate = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      softwareVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The subscription start date.
-describeHsmResponse_subscriptionStartDate :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_subscriptionStartDate :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_subscriptionStartDate = Lens.lens (\DescribeHsmResponse' {subscriptionStartDate} -> subscriptionStartDate) (\s@DescribeHsmResponse' {} a -> s {subscriptionStartDate = a} :: DescribeHsmResponse)
 
 -- | The ARN of the IAM role assigned to the HSM.
-describeHsmResponse_iamRoleArn :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_iamRoleArn :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_iamRoleArn = Lens.lens (\DescribeHsmResponse' {iamRoleArn} -> iamRoleArn) (\s@DescribeHsmResponse' {} a -> s {iamRoleArn = a} :: DescribeHsmResponse)
 
 -- | The status of the HSM.
-describeHsmResponse_status :: Lens.Lens' DescribeHsmResponse (Core.Maybe HsmStatus)
+describeHsmResponse_status :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe HsmStatus)
 describeHsmResponse_status = Lens.lens (\DescribeHsmResponse' {status} -> status) (\s@DescribeHsmResponse' {} a -> s {status = a} :: DescribeHsmResponse)
 
 -- | The list of partitions on the HSM.
-describeHsmResponse_partitions :: Lens.Lens' DescribeHsmResponse (Core.Maybe [Core.Text])
-describeHsmResponse_partitions = Lens.lens (\DescribeHsmResponse' {partitions} -> partitions) (\s@DescribeHsmResponse' {} a -> s {partitions = a} :: DescribeHsmResponse) Core.. Lens.mapping Lens._Coerce
+describeHsmResponse_partitions :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe [Prelude.Text])
+describeHsmResponse_partitions = Lens.lens (\DescribeHsmResponse' {partitions} -> partitions) (\s@DescribeHsmResponse' {} a -> s {partitions = a} :: DescribeHsmResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contains additional information about the status of the HSM.
-describeHsmResponse_statusDetails :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_statusDetails :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_statusDetails = Lens.lens (\DescribeHsmResponse' {statusDetails} -> statusDetails) (\s@DescribeHsmResponse' {} a -> s {statusDetails = a} :: DescribeHsmResponse)
 
 -- | The IP address assigned to the HSM\'s ENI.
-describeHsmResponse_eniIp :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_eniIp :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_eniIp = Lens.lens (\DescribeHsmResponse' {eniIp} -> eniIp) (\s@DescribeHsmResponse' {} a -> s {eniIp = a} :: DescribeHsmResponse)
 
 -- | Undocumented member.
-describeHsmResponse_subscriptionType :: Lens.Lens' DescribeHsmResponse (Core.Maybe SubscriptionType)
+describeHsmResponse_subscriptionType :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe SubscriptionType)
 describeHsmResponse_subscriptionType = Lens.lens (\DescribeHsmResponse' {subscriptionType} -> subscriptionType) (\s@DescribeHsmResponse' {} a -> s {subscriptionType = a} :: DescribeHsmResponse)
 
 -- | The date and time that the server certificate was last updated.
-describeHsmResponse_serverCertLastUpdated :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_serverCertLastUpdated :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_serverCertLastUpdated = Lens.lens (\DescribeHsmResponse' {serverCertLastUpdated} -> serverCertLastUpdated) (\s@DescribeHsmResponse' {} a -> s {serverCertLastUpdated = a} :: DescribeHsmResponse)
 
 -- | The identifier of the elastic network interface (ENI) attached to the
 -- HSM.
-describeHsmResponse_eniId :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_eniId :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_eniId = Lens.lens (\DescribeHsmResponse' {eniId} -> eniId) (\s@DescribeHsmResponse' {} a -> s {eniId = a} :: DescribeHsmResponse)
 
 -- | The Availability Zone that the HSM is in.
-describeHsmResponse_availabilityZone :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_availabilityZone :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_availabilityZone = Lens.lens (\DescribeHsmResponse' {availabilityZone} -> availabilityZone) (\s@DescribeHsmResponse' {} a -> s {availabilityZone = a} :: DescribeHsmResponse)
 
 -- | The public SSH key.
-describeHsmResponse_sshPublicKey :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_sshPublicKey :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_sshPublicKey = Lens.lens (\DescribeHsmResponse' {sshPublicKey} -> sshPublicKey) (\s@DescribeHsmResponse' {} a -> s {sshPublicKey = a} :: DescribeHsmResponse)
 
 -- | The HSM model type.
-describeHsmResponse_hsmType :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_hsmType :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_hsmType = Lens.lens (\DescribeHsmResponse' {hsmType} -> hsmType) (\s@DescribeHsmResponse' {} a -> s {hsmType = a} :: DescribeHsmResponse)
 
 -- | The identifier of the subnet that the HSM is in.
-describeHsmResponse_subnetId :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_subnetId :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_subnetId = Lens.lens (\DescribeHsmResponse' {subnetId} -> subnetId) (\s@DescribeHsmResponse' {} a -> s {subnetId = a} :: DescribeHsmResponse)
 
 -- | The name of the HSM vendor.
-describeHsmResponse_vendorName :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_vendorName :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_vendorName = Lens.lens (\DescribeHsmResponse' {vendorName} -> vendorName) (\s@DescribeHsmResponse' {} a -> s {vendorName = a} :: DescribeHsmResponse)
 
 -- | The URI of the certificate server.
-describeHsmResponse_serverCertUri :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_serverCertUri :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_serverCertUri = Lens.lens (\DescribeHsmResponse' {serverCertUri} -> serverCertUri) (\s@DescribeHsmResponse' {} a -> s {serverCertUri = a} :: DescribeHsmResponse)
 
 -- | The ARN of the HSM.
-describeHsmResponse_hsmArn :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_hsmArn :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_hsmArn = Lens.lens (\DescribeHsmResponse' {hsmArn} -> hsmArn) (\s@DescribeHsmResponse' {} a -> s {hsmArn = a} :: DescribeHsmResponse)
 
 -- | The serial number of the HSM.
-describeHsmResponse_serialNumber :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_serialNumber :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_serialNumber = Lens.lens (\DescribeHsmResponse' {serialNumber} -> serialNumber) (\s@DescribeHsmResponse' {} a -> s {serialNumber = a} :: DescribeHsmResponse)
 
 -- | The date and time that the SSH key was last updated.
-describeHsmResponse_sshKeyLastUpdated :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_sshKeyLastUpdated :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_sshKeyLastUpdated = Lens.lens (\DescribeHsmResponse' {sshKeyLastUpdated} -> sshKeyLastUpdated) (\s@DescribeHsmResponse' {} a -> s {sshKeyLastUpdated = a} :: DescribeHsmResponse)
 
 -- | The subscription end date.
-describeHsmResponse_subscriptionEndDate :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_subscriptionEndDate :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_subscriptionEndDate = Lens.lens (\DescribeHsmResponse' {subscriptionEndDate} -> subscriptionEndDate) (\s@DescribeHsmResponse' {} a -> s {subscriptionEndDate = a} :: DescribeHsmResponse)
 
 -- | The identifier of the VPC that the HSM is in.
-describeHsmResponse_vpcId :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_vpcId :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_vpcId = Lens.lens (\DescribeHsmResponse' {vpcId} -> vpcId) (\s@DescribeHsmResponse' {} a -> s {vpcId = a} :: DescribeHsmResponse)
 
 -- | The HSM software version.
-describeHsmResponse_softwareVersion :: Lens.Lens' DescribeHsmResponse (Core.Maybe Core.Text)
+describeHsmResponse_softwareVersion :: Lens.Lens' DescribeHsmResponse (Prelude.Maybe Prelude.Text)
 describeHsmResponse_softwareVersion = Lens.lens (\DescribeHsmResponse' {softwareVersion} -> softwareVersion) (\s@DescribeHsmResponse' {} a -> s {softwareVersion = a} :: DescribeHsmResponse)
 
 -- | The response's http status code.
-describeHsmResponse_httpStatus :: Lens.Lens' DescribeHsmResponse Core.Int
+describeHsmResponse_httpStatus :: Lens.Lens' DescribeHsmResponse Prelude.Int
 describeHsmResponse_httpStatus = Lens.lens (\DescribeHsmResponse' {httpStatus} -> httpStatus) (\s@DescribeHsmResponse' {} a -> s {httpStatus = a} :: DescribeHsmResponse)
 
-instance Core.NFData DescribeHsmResponse
+instance Prelude.NFData DescribeHsmResponse

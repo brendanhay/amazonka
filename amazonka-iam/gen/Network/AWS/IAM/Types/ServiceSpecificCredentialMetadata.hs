@@ -22,6 +22,7 @@ module Network.AWS.IAM.Types.ServiceSpecificCredentialMetadata where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.StatusType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains additional details about a service-specific credential.
 --
@@ -29,22 +30,22 @@ import qualified Network.AWS.Lens as Lens
 data ServiceSpecificCredentialMetadata = ServiceSpecificCredentialMetadata'
   { -- | The name of the IAM user associated with the service-specific
     -- credential.
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The status of the service-specific credential. @Active@ means that the
     -- key is valid for API calls, while @Inactive@ means it is not.
     status :: StatusType,
     -- | The generated user name for the service-specific credential.
-    serviceUserName :: Core.Text,
+    serviceUserName :: Prelude.Text,
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- service-specific credential were created.
     createDate :: Core.ISO8601,
     -- | The unique identifier for the service-specific credential.
-    serviceSpecificCredentialId :: Core.Text,
+    serviceSpecificCredentialId :: Prelude.Text,
     -- | The name of the service associated with the service-specific credential.
-    serviceName :: Core.Text
+    serviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceSpecificCredentialMetadata' with all optional fields omitted.
@@ -71,17 +72,17 @@ data ServiceSpecificCredentialMetadata = ServiceSpecificCredentialMetadata'
 -- 'serviceName', 'serviceSpecificCredentialMetadata_serviceName' - The name of the service associated with the service-specific credential.
 newServiceSpecificCredentialMetadata ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   StatusType ->
   -- | 'serviceUserName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'serviceSpecificCredentialId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   ServiceSpecificCredentialMetadata
 newServiceSpecificCredentialMetadata
   pUserName_
@@ -104,7 +105,7 @@ newServiceSpecificCredentialMetadata
 
 -- | The name of the IAM user associated with the service-specific
 -- credential.
-serviceSpecificCredentialMetadata_userName :: Lens.Lens' ServiceSpecificCredentialMetadata Core.Text
+serviceSpecificCredentialMetadata_userName :: Lens.Lens' ServiceSpecificCredentialMetadata Prelude.Text
 serviceSpecificCredentialMetadata_userName = Lens.lens (\ServiceSpecificCredentialMetadata' {userName} -> userName) (\s@ServiceSpecificCredentialMetadata' {} a -> s {userName = a} :: ServiceSpecificCredentialMetadata)
 
 -- | The status of the service-specific credential. @Active@ means that the
@@ -113,21 +114,21 @@ serviceSpecificCredentialMetadata_status :: Lens.Lens' ServiceSpecificCredential
 serviceSpecificCredentialMetadata_status = Lens.lens (\ServiceSpecificCredentialMetadata' {status} -> status) (\s@ServiceSpecificCredentialMetadata' {} a -> s {status = a} :: ServiceSpecificCredentialMetadata)
 
 -- | The generated user name for the service-specific credential.
-serviceSpecificCredentialMetadata_serviceUserName :: Lens.Lens' ServiceSpecificCredentialMetadata Core.Text
+serviceSpecificCredentialMetadata_serviceUserName :: Lens.Lens' ServiceSpecificCredentialMetadata Prelude.Text
 serviceSpecificCredentialMetadata_serviceUserName = Lens.lens (\ServiceSpecificCredentialMetadata' {serviceUserName} -> serviceUserName) (\s@ServiceSpecificCredentialMetadata' {} a -> s {serviceUserName = a} :: ServiceSpecificCredentialMetadata)
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- service-specific credential were created.
-serviceSpecificCredentialMetadata_createDate :: Lens.Lens' ServiceSpecificCredentialMetadata Core.UTCTime
-serviceSpecificCredentialMetadata_createDate = Lens.lens (\ServiceSpecificCredentialMetadata' {createDate} -> createDate) (\s@ServiceSpecificCredentialMetadata' {} a -> s {createDate = a} :: ServiceSpecificCredentialMetadata) Core.. Core._Time
+serviceSpecificCredentialMetadata_createDate :: Lens.Lens' ServiceSpecificCredentialMetadata Prelude.UTCTime
+serviceSpecificCredentialMetadata_createDate = Lens.lens (\ServiceSpecificCredentialMetadata' {createDate} -> createDate) (\s@ServiceSpecificCredentialMetadata' {} a -> s {createDate = a} :: ServiceSpecificCredentialMetadata) Prelude.. Core._Time
 
 -- | The unique identifier for the service-specific credential.
-serviceSpecificCredentialMetadata_serviceSpecificCredentialId :: Lens.Lens' ServiceSpecificCredentialMetadata Core.Text
+serviceSpecificCredentialMetadata_serviceSpecificCredentialId :: Lens.Lens' ServiceSpecificCredentialMetadata Prelude.Text
 serviceSpecificCredentialMetadata_serviceSpecificCredentialId = Lens.lens (\ServiceSpecificCredentialMetadata' {serviceSpecificCredentialId} -> serviceSpecificCredentialId) (\s@ServiceSpecificCredentialMetadata' {} a -> s {serviceSpecificCredentialId = a} :: ServiceSpecificCredentialMetadata)
 
 -- | The name of the service associated with the service-specific credential.
-serviceSpecificCredentialMetadata_serviceName :: Lens.Lens' ServiceSpecificCredentialMetadata Core.Text
+serviceSpecificCredentialMetadata_serviceName :: Lens.Lens' ServiceSpecificCredentialMetadata Prelude.Text
 serviceSpecificCredentialMetadata_serviceName = Lens.lens (\ServiceSpecificCredentialMetadata' {serviceName} -> serviceName) (\s@ServiceSpecificCredentialMetadata' {} a -> s {serviceName = a} :: ServiceSpecificCredentialMetadata)
 
 instance
@@ -136,17 +137,17 @@ instance
   where
   parseXML x =
     ServiceSpecificCredentialMetadata'
-      Core.<$> (x Core..@ "UserName")
-      Core.<*> (x Core..@ "Status")
-      Core.<*> (x Core..@ "ServiceUserName")
-      Core.<*> (x Core..@ "CreateDate")
-      Core.<*> (x Core..@ "ServiceSpecificCredentialId")
-      Core.<*> (x Core..@ "ServiceName")
+      Prelude.<$> (x Core..@ "UserName")
+      Prelude.<*> (x Core..@ "Status")
+      Prelude.<*> (x Core..@ "ServiceUserName")
+      Prelude.<*> (x Core..@ "CreateDate")
+      Prelude.<*> (x Core..@ "ServiceSpecificCredentialId")
+      Prelude.<*> (x Core..@ "ServiceName")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ServiceSpecificCredentialMetadata
 
 instance
-  Core.NFData
+  Prelude.NFData
     ServiceSpecificCredentialMetadata

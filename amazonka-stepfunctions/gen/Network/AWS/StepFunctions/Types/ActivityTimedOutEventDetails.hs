@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an activity timeout that occurred during an
 -- execution.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newActivityTimedOutEventDetails' smart constructor.
 data ActivityTimedOutEventDetails = ActivityTimedOutEventDetails'
   { -- | A more detailed explanation of the cause of the timeout.
-    cause :: Core.Maybe (Core.Sensitive Core.Text),
+    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The error code of the failure.
-    error :: Core.Maybe (Core.Sensitive Core.Text)
+    error :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivityTimedOutEventDetails' with all optional fields omitted.
@@ -49,17 +50,18 @@ newActivityTimedOutEventDetails ::
   ActivityTimedOutEventDetails
 newActivityTimedOutEventDetails =
   ActivityTimedOutEventDetails'
-    { cause = Core.Nothing,
-      error = Core.Nothing
+    { cause =
+        Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | A more detailed explanation of the cause of the timeout.
-activityTimedOutEventDetails_cause :: Lens.Lens' ActivityTimedOutEventDetails (Core.Maybe Core.Text)
-activityTimedOutEventDetails_cause = Lens.lens (\ActivityTimedOutEventDetails' {cause} -> cause) (\s@ActivityTimedOutEventDetails' {} a -> s {cause = a} :: ActivityTimedOutEventDetails) Core.. Lens.mapping Core._Sensitive
+activityTimedOutEventDetails_cause :: Lens.Lens' ActivityTimedOutEventDetails (Prelude.Maybe Prelude.Text)
+activityTimedOutEventDetails_cause = Lens.lens (\ActivityTimedOutEventDetails' {cause} -> cause) (\s@ActivityTimedOutEventDetails' {} a -> s {cause = a} :: ActivityTimedOutEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
-activityTimedOutEventDetails_error :: Lens.Lens' ActivityTimedOutEventDetails (Core.Maybe Core.Text)
-activityTimedOutEventDetails_error = Lens.lens (\ActivityTimedOutEventDetails' {error} -> error) (\s@ActivityTimedOutEventDetails' {} a -> s {error = a} :: ActivityTimedOutEventDetails) Core.. Lens.mapping Core._Sensitive
+activityTimedOutEventDetails_error :: Lens.Lens' ActivityTimedOutEventDetails (Prelude.Maybe Prelude.Text)
+activityTimedOutEventDetails_error = Lens.lens (\ActivityTimedOutEventDetails' {error} -> error) (\s@ActivityTimedOutEventDetails' {} a -> s {error = a} :: ActivityTimedOutEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON ActivityTimedOutEventDetails where
   parseJSON =
@@ -67,9 +69,12 @@ instance Core.FromJSON ActivityTimedOutEventDetails where
       "ActivityTimedOutEventDetails"
       ( \x ->
           ActivityTimedOutEventDetails'
-            Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")
+            Prelude.<$> (x Core..:? "cause")
+            Prelude.<*> (x Core..:? "error")
       )
 
-instance Core.Hashable ActivityTimedOutEventDetails
+instance
+  Prelude.Hashable
+    ActivityTimedOutEventDetails
 
-instance Core.NFData ActivityTimedOutEventDetails
+instance Prelude.NFData ActivityTimedOutEventDetails

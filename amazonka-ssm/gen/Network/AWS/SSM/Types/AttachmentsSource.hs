@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.AttachmentsSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AttachmentsSourceKey
 
 -- | Identifying information about a document attachment, including the file
@@ -31,7 +32,7 @@ import Network.AWS.SSM.Types.AttachmentsSourceKey
 data AttachmentsSource = AttachmentsSource'
   { -- | The key of a key-value pair that identifies the location of an
     -- attachment to a document.
-    key :: Core.Maybe AttachmentsSourceKey,
+    key :: Prelude.Maybe AttachmentsSourceKey,
     -- | The value of a key-value pair that identifies the location of an
     -- attachment to a document. The format for __Value__ depends on the type
     -- of key you specify.
@@ -58,11 +59,11 @@ data AttachmentsSource = AttachmentsSource'
     --     document name only. For example:
     --
     --     @\"Values\": [ \"arn:aws:ssm:us-east-2:111122223333:document\/OtherAccountDocument\/3\/their-file.py\" ]@
-    values :: Core.Maybe (Core.NonEmpty Core.Text),
+    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the document attachment file.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachmentsSource' with all optional fields omitted.
@@ -107,14 +108,14 @@ newAttachmentsSource ::
   AttachmentsSource
 newAttachmentsSource =
   AttachmentsSource'
-    { key = Core.Nothing,
-      values = Core.Nothing,
-      name = Core.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The key of a key-value pair that identifies the location of an
 -- attachment to a document.
-attachmentsSource_key :: Lens.Lens' AttachmentsSource (Core.Maybe AttachmentsSourceKey)
+attachmentsSource_key :: Lens.Lens' AttachmentsSource (Prelude.Maybe AttachmentsSourceKey)
 attachmentsSource_key = Lens.lens (\AttachmentsSource' {key} -> key) (\s@AttachmentsSource' {} a -> s {key = a} :: AttachmentsSource)
 
 -- | The value of a key-value pair that identifies the location of an
@@ -143,23 +144,23 @@ attachmentsSource_key = Lens.lens (\AttachmentsSource' {key} -> key) (\s@Attachm
 --     document name only. For example:
 --
 --     @\"Values\": [ \"arn:aws:ssm:us-east-2:111122223333:document\/OtherAccountDocument\/3\/their-file.py\" ]@
-attachmentsSource_values :: Lens.Lens' AttachmentsSource (Core.Maybe (Core.NonEmpty Core.Text))
-attachmentsSource_values = Lens.lens (\AttachmentsSource' {values} -> values) (\s@AttachmentsSource' {} a -> s {values = a} :: AttachmentsSource) Core.. Lens.mapping Lens._Coerce
+attachmentsSource_values :: Lens.Lens' AttachmentsSource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+attachmentsSource_values = Lens.lens (\AttachmentsSource' {values} -> values) (\s@AttachmentsSource' {} a -> s {values = a} :: AttachmentsSource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the document attachment file.
-attachmentsSource_name :: Lens.Lens' AttachmentsSource (Core.Maybe Core.Text)
+attachmentsSource_name :: Lens.Lens' AttachmentsSource (Prelude.Maybe Prelude.Text)
 attachmentsSource_name = Lens.lens (\AttachmentsSource' {name} -> name) (\s@AttachmentsSource' {} a -> s {name = a} :: AttachmentsSource)
 
-instance Core.Hashable AttachmentsSource
+instance Prelude.Hashable AttachmentsSource
 
-instance Core.NFData AttachmentsSource
+instance Prelude.NFData AttachmentsSource
 
 instance Core.ToJSON AttachmentsSource where
   toJSON AttachmentsSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Values" Core..=) Core.<$> values,
-            ("Name" Core..=) Core.<$> name
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

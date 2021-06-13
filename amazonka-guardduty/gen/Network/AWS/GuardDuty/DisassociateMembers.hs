@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,12 +52,12 @@ import qualified Network.AWS.Response as Response
 data DisassociateMembers = DisassociateMembers'
   { -- | The unique ID of the detector of the GuardDuty account whose members you
     -- want to disassociate from the administrator account.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | A list of account IDs of the GuardDuty member accounts that you want to
     -- disassociate from the administrator account.
-    accountIds :: Core.NonEmpty Core.Text
+    accountIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateMembers' with all optional fields omitted.
@@ -73,9 +74,9 @@ data DisassociateMembers = DisassociateMembers'
 -- disassociate from the administrator account.
 newDisassociateMembers ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accountIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DisassociateMembers
 newDisassociateMembers pDetectorId_ pAccountIds_ =
   DisassociateMembers'
@@ -85,13 +86,13 @@ newDisassociateMembers pDetectorId_ pAccountIds_ =
 
 -- | The unique ID of the detector of the GuardDuty account whose members you
 -- want to disassociate from the administrator account.
-disassociateMembers_detectorId :: Lens.Lens' DisassociateMembers Core.Text
+disassociateMembers_detectorId :: Lens.Lens' DisassociateMembers Prelude.Text
 disassociateMembers_detectorId = Lens.lens (\DisassociateMembers' {detectorId} -> detectorId) (\s@DisassociateMembers' {} a -> s {detectorId = a} :: DisassociateMembers)
 
 -- | A list of account IDs of the GuardDuty member accounts that you want to
 -- disassociate from the administrator account.
-disassociateMembers_accountIds :: Lens.Lens' DisassociateMembers (Core.NonEmpty Core.Text)
-disassociateMembers_accountIds = Lens.lens (\DisassociateMembers' {accountIds} -> accountIds) (\s@DisassociateMembers' {} a -> s {accountIds = a} :: DisassociateMembers) Core.. Lens._Coerce
+disassociateMembers_accountIds :: Lens.Lens' DisassociateMembers (Prelude.NonEmpty Prelude.Text)
+disassociateMembers_accountIds = Lens.lens (\DisassociateMembers' {accountIds} -> accountIds) (\s@DisassociateMembers' {} a -> s {accountIds = a} :: DisassociateMembers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DisassociateMembers where
   type
@@ -102,52 +103,54 @@ instance Core.AWSRequest DisassociateMembers where
     Response.receiveJSON
       ( \s h x ->
           DisassociateMembersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "unprocessedAccounts"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable DisassociateMembers
+instance Prelude.Hashable DisassociateMembers
 
-instance Core.NFData DisassociateMembers
+instance Prelude.NFData DisassociateMembers
 
 instance Core.ToHeaders DisassociateMembers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateMembers where
   toJSON DisassociateMembers' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("accountIds" Core..= accountIds)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("accountIds" Core..= accountIds)]
       )
 
 instance Core.ToPath DisassociateMembers where
   toPath DisassociateMembers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/member/disassociate"
       ]
 
 instance Core.ToQuery DisassociateMembers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateMembersResponse' smart constructor.
 data DisassociateMembersResponse = DisassociateMembersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of objects that contain the unprocessed account and a result
     -- string that explains why it was unprocessed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateMembersResponse' with all optional fields omitted.
@@ -163,22 +166,22 @@ data DisassociateMembersResponse = DisassociateMembersResponse'
 -- string that explains why it was unprocessed.
 newDisassociateMembersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateMembersResponse
 newDisassociateMembersResponse pHttpStatus_ =
   DisassociateMembersResponse'
     { httpStatus =
         pHttpStatus_,
-      unprocessedAccounts = Core.mempty
+      unprocessedAccounts = Prelude.mempty
     }
 
 -- | The response's http status code.
-disassociateMembersResponse_httpStatus :: Lens.Lens' DisassociateMembersResponse Core.Int
+disassociateMembersResponse_httpStatus :: Lens.Lens' DisassociateMembersResponse Prelude.Int
 disassociateMembersResponse_httpStatus = Lens.lens (\DisassociateMembersResponse' {httpStatus} -> httpStatus) (\s@DisassociateMembersResponse' {} a -> s {httpStatus = a} :: DisassociateMembersResponse)
 
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 disassociateMembersResponse_unprocessedAccounts :: Lens.Lens' DisassociateMembersResponse [UnprocessedAccount]
-disassociateMembersResponse_unprocessedAccounts = Lens.lens (\DisassociateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DisassociateMembersResponse' {} a -> s {unprocessedAccounts = a} :: DisassociateMembersResponse) Core.. Lens._Coerce
+disassociateMembersResponse_unprocessedAccounts = Lens.lens (\DisassociateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DisassociateMembersResponse' {} a -> s {unprocessedAccounts = a} :: DisassociateMembersResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DisassociateMembersResponse
+instance Prelude.NFData DisassociateMembersResponse

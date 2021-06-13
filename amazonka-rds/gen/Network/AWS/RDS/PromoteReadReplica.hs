@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -73,7 +74,7 @@ data PromoteReadReplica = PromoteReadReplica'
     -- -   Must be a value from 0 to 35.
     --
     -- -   Can\'t be set to 0 if the DB instance is a source to read replicas.
-    backupRetentionPeriod :: Core.Maybe Core.Int,
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The daily time range during which automated backups are created if
     -- automated backups are enabled, using the @BackupRetentionPeriod@
     -- parameter.
@@ -92,7 +93,7 @@ data PromoteReadReplica = PromoteReadReplica'
     -- -   Must not conflict with the preferred maintenance window.
     --
     -- -   Must be at least 30 minutes.
-    preferredBackupWindow :: Core.Maybe Core.Text,
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | The DB instance identifier. This value is stored as a lowercase string.
     --
     -- Constraints:
@@ -100,9 +101,9 @@ data PromoteReadReplica = PromoteReadReplica'
     -- -   Must match the identifier of an existing read replica DB instance.
     --
     -- Example: @mydbinstance@
-    dbInstanceIdentifier :: Core.Text
+    dbInstanceIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PromoteReadReplica' with all optional fields omitted.
@@ -152,13 +153,13 @@ data PromoteReadReplica = PromoteReadReplica'
 -- Example: @mydbinstance@
 newPromoteReadReplica ::
   -- | 'dbInstanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   PromoteReadReplica
 newPromoteReadReplica pDBInstanceIdentifier_ =
   PromoteReadReplica'
     { backupRetentionPeriod =
-        Core.Nothing,
-      preferredBackupWindow = Core.Nothing,
+        Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
 
@@ -173,7 +174,7 @@ newPromoteReadReplica pDBInstanceIdentifier_ =
 -- -   Must be a value from 0 to 35.
 --
 -- -   Can\'t be set to 0 if the DB instance is a source to read replicas.
-promoteReadReplica_backupRetentionPeriod :: Lens.Lens' PromoteReadReplica (Core.Maybe Core.Int)
+promoteReadReplica_backupRetentionPeriod :: Lens.Lens' PromoteReadReplica (Prelude.Maybe Prelude.Int)
 promoteReadReplica_backupRetentionPeriod = Lens.lens (\PromoteReadReplica' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@PromoteReadReplica' {} a -> s {backupRetentionPeriod = a} :: PromoteReadReplica)
 
 -- | The daily time range during which automated backups are created if
@@ -194,7 +195,7 @@ promoteReadReplica_backupRetentionPeriod = Lens.lens (\PromoteReadReplica' {back
 -- -   Must not conflict with the preferred maintenance window.
 --
 -- -   Must be at least 30 minutes.
-promoteReadReplica_preferredBackupWindow :: Lens.Lens' PromoteReadReplica (Core.Maybe Core.Text)
+promoteReadReplica_preferredBackupWindow :: Lens.Lens' PromoteReadReplica (Prelude.Maybe Prelude.Text)
 promoteReadReplica_preferredBackupWindow = Lens.lens (\PromoteReadReplica' {preferredBackupWindow} -> preferredBackupWindow) (\s@PromoteReadReplica' {} a -> s {preferredBackupWindow = a} :: PromoteReadReplica)
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
@@ -204,7 +205,7 @@ promoteReadReplica_preferredBackupWindow = Lens.lens (\PromoteReadReplica' {pref
 -- -   Must match the identifier of an existing read replica DB instance.
 --
 -- Example: @mydbinstance@
-promoteReadReplica_dbInstanceIdentifier :: Lens.Lens' PromoteReadReplica Core.Text
+promoteReadReplica_dbInstanceIdentifier :: Lens.Lens' PromoteReadReplica Prelude.Text
 promoteReadReplica_dbInstanceIdentifier = Lens.lens (\PromoteReadReplica' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@PromoteReadReplica' {} a -> s {dbInstanceIdentifier = a} :: PromoteReadReplica)
 
 instance Core.AWSRequest PromoteReadReplica where
@@ -217,26 +218,27 @@ instance Core.AWSRequest PromoteReadReplica where
       "PromoteReadReplicaResult"
       ( \s h x ->
           PromoteReadReplicaResponse'
-            Core.<$> (x Core..@? "DBInstance")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PromoteReadReplica
+instance Prelude.Hashable PromoteReadReplica
 
-instance Core.NFData PromoteReadReplica
+instance Prelude.NFData PromoteReadReplica
 
 instance Core.ToHeaders PromoteReadReplica where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PromoteReadReplica where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PromoteReadReplica where
   toQuery PromoteReadReplica' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PromoteReadReplica" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("PromoteReadReplica" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "BackupRetentionPeriod"
           Core.=: backupRetentionPeriod,
         "PreferredBackupWindow"
@@ -246,11 +248,11 @@ instance Core.ToQuery PromoteReadReplica where
 
 -- | /See:/ 'newPromoteReadReplicaResponse' smart constructor.
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
-  { dbInstance :: Core.Maybe DBInstance,
+  { dbInstance :: Prelude.Maybe DBInstance,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PromoteReadReplicaResponse' with all optional fields omitted.
@@ -265,21 +267,21 @@ data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
 -- 'httpStatus', 'promoteReadReplicaResponse_httpStatus' - The response's http status code.
 newPromoteReadReplicaResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PromoteReadReplicaResponse
 newPromoteReadReplicaResponse pHttpStatus_ =
   PromoteReadReplicaResponse'
     { dbInstance =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-promoteReadReplicaResponse_dbInstance :: Lens.Lens' PromoteReadReplicaResponse (Core.Maybe DBInstance)
+promoteReadReplicaResponse_dbInstance :: Lens.Lens' PromoteReadReplicaResponse (Prelude.Maybe DBInstance)
 promoteReadReplicaResponse_dbInstance = Lens.lens (\PromoteReadReplicaResponse' {dbInstance} -> dbInstance) (\s@PromoteReadReplicaResponse' {} a -> s {dbInstance = a} :: PromoteReadReplicaResponse)
 
 -- | The response's http status code.
-promoteReadReplicaResponse_httpStatus :: Lens.Lens' PromoteReadReplicaResponse Core.Int
+promoteReadReplicaResponse_httpStatus :: Lens.Lens' PromoteReadReplicaResponse Prelude.Int
 promoteReadReplicaResponse_httpStatus = Lens.lens (\PromoteReadReplicaResponse' {httpStatus} -> httpStatus) (\s@PromoteReadReplicaResponse' {} a -> s {httpStatus = a} :: PromoteReadReplicaResponse)
 
-instance Core.NFData PromoteReadReplicaResponse
+instance Prelude.NFData PromoteReadReplicaResponse

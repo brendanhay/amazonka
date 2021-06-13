@@ -24,17 +24,18 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptionsRequest
 import Network.AWS.EC2.Types.MarketType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The market (purchasing) option for the instances.
 --
 -- /See:/ 'newLaunchTemplateInstanceMarketOptionsRequest' smart constructor.
 data LaunchTemplateInstanceMarketOptionsRequest = LaunchTemplateInstanceMarketOptionsRequest'
   { -- | The market type.
-    marketType :: Core.Maybe MarketType,
+    marketType :: Prelude.Maybe MarketType,
     -- | The options for Spot Instances.
-    spotOptions :: Core.Maybe LaunchTemplateSpotMarketOptionsRequest
+    spotOptions :: Prelude.Maybe LaunchTemplateSpotMarketOptionsRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateInstanceMarketOptionsRequest' with all optional fields omitted.
@@ -52,24 +53,24 @@ newLaunchTemplateInstanceMarketOptionsRequest ::
 newLaunchTemplateInstanceMarketOptionsRequest =
   LaunchTemplateInstanceMarketOptionsRequest'
     { marketType =
-        Core.Nothing,
-      spotOptions = Core.Nothing
+        Prelude.Nothing,
+      spotOptions = Prelude.Nothing
     }
 
 -- | The market type.
-launchTemplateInstanceMarketOptionsRequest_marketType :: Lens.Lens' LaunchTemplateInstanceMarketOptionsRequest (Core.Maybe MarketType)
+launchTemplateInstanceMarketOptionsRequest_marketType :: Lens.Lens' LaunchTemplateInstanceMarketOptionsRequest (Prelude.Maybe MarketType)
 launchTemplateInstanceMarketOptionsRequest_marketType = Lens.lens (\LaunchTemplateInstanceMarketOptionsRequest' {marketType} -> marketType) (\s@LaunchTemplateInstanceMarketOptionsRequest' {} a -> s {marketType = a} :: LaunchTemplateInstanceMarketOptionsRequest)
 
 -- | The options for Spot Instances.
-launchTemplateInstanceMarketOptionsRequest_spotOptions :: Lens.Lens' LaunchTemplateInstanceMarketOptionsRequest (Core.Maybe LaunchTemplateSpotMarketOptionsRequest)
+launchTemplateInstanceMarketOptionsRequest_spotOptions :: Lens.Lens' LaunchTemplateInstanceMarketOptionsRequest (Prelude.Maybe LaunchTemplateSpotMarketOptionsRequest)
 launchTemplateInstanceMarketOptionsRequest_spotOptions = Lens.lens (\LaunchTemplateInstanceMarketOptionsRequest' {spotOptions} -> spotOptions) (\s@LaunchTemplateInstanceMarketOptionsRequest' {} a -> s {spotOptions = a} :: LaunchTemplateInstanceMarketOptionsRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateInstanceMarketOptionsRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateInstanceMarketOptionsRequest
 
 instance
@@ -78,7 +79,7 @@ instance
   where
   toQuery
     LaunchTemplateInstanceMarketOptionsRequest' {..} =
-      Core.mconcat
+      Prelude.mconcat
         [ "MarketType" Core.=: marketType,
           "SpotOptions" Core.=: spotOptions
         ]

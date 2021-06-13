@@ -43,6 +43,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DescribeEntitiesDetectionJob = DescribeEntitiesDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
     -- operation returns this identifier in its response.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEntitiesDetectionJob' with all optional fields omitted.
@@ -66,14 +67,14 @@ data DescribeEntitiesDetectionJob = DescribeEntitiesDetectionJob'
 -- operation returns this identifier in its response.
 newDescribeEntitiesDetectionJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeEntitiesDetectionJob
 newDescribeEntitiesDetectionJob pJobId_ =
   DescribeEntitiesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The
 -- operation returns this identifier in its response.
-describeEntitiesDetectionJob_jobId :: Lens.Lens' DescribeEntitiesDetectionJob Core.Text
+describeEntitiesDetectionJob_jobId :: Lens.Lens' DescribeEntitiesDetectionJob Prelude.Text
 describeEntitiesDetectionJob_jobId = Lens.lens (\DescribeEntitiesDetectionJob' {jobId} -> jobId) (\s@DescribeEntitiesDetectionJob' {} a -> s {jobId = a} :: DescribeEntitiesDetectionJob)
 
 instance Core.AWSRequest DescribeEntitiesDetectionJob where
@@ -85,47 +86,53 @@ instance Core.AWSRequest DescribeEntitiesDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeEntitiesDetectionJobResponse'
-            Core.<$> (x Core..?> "EntitiesDetectionJobProperties")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "EntitiesDetectionJobProperties")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEntitiesDetectionJob
+instance
+  Prelude.Hashable
+    DescribeEntitiesDetectionJob
 
-instance Core.NFData DescribeEntitiesDetectionJob
+instance Prelude.NFData DescribeEntitiesDetectionJob
 
 instance Core.ToHeaders DescribeEntitiesDetectionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DescribeEntitiesDetectionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEntitiesDetectionJob where
   toJSON DescribeEntitiesDetectionJob' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
 instance Core.ToPath DescribeEntitiesDetectionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEntitiesDetectionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEntitiesDetectionJobResponse' smart constructor.
 data DescribeEntitiesDetectionJobResponse = DescribeEntitiesDetectionJobResponse'
   { -- | An object that contains the properties associated with an entities
     -- detection job.
-    entitiesDetectionJobProperties :: Core.Maybe EntitiesDetectionJobProperties,
+    entitiesDetectionJobProperties :: Prelude.Maybe EntitiesDetectionJobProperties,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEntitiesDetectionJobResponse' with all optional fields omitted.
@@ -141,24 +148,24 @@ data DescribeEntitiesDetectionJobResponse = DescribeEntitiesDetectionJobResponse
 -- 'httpStatus', 'describeEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
 newDescribeEntitiesDetectionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEntitiesDetectionJobResponse
 newDescribeEntitiesDetectionJobResponse pHttpStatus_ =
   DescribeEntitiesDetectionJobResponse'
     { entitiesDetectionJobProperties =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the properties associated with an entities
 -- detection job.
-describeEntitiesDetectionJobResponse_entitiesDetectionJobProperties :: Lens.Lens' DescribeEntitiesDetectionJobResponse (Core.Maybe EntitiesDetectionJobProperties)
+describeEntitiesDetectionJobResponse_entitiesDetectionJobProperties :: Lens.Lens' DescribeEntitiesDetectionJobResponse (Prelude.Maybe EntitiesDetectionJobProperties)
 describeEntitiesDetectionJobResponse_entitiesDetectionJobProperties = Lens.lens (\DescribeEntitiesDetectionJobResponse' {entitiesDetectionJobProperties} -> entitiesDetectionJobProperties) (\s@DescribeEntitiesDetectionJobResponse' {} a -> s {entitiesDetectionJobProperties = a} :: DescribeEntitiesDetectionJobResponse)
 
 -- | The response's http status code.
-describeEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' DescribeEntitiesDetectionJobResponse Core.Int
+describeEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' DescribeEntitiesDetectionJobResponse Prelude.Int
 describeEntitiesDetectionJobResponse_httpStatus = Lens.lens (\DescribeEntitiesDetectionJobResponse' {httpStatus} -> httpStatus) (\s@DescribeEntitiesDetectionJobResponse' {} a -> s {httpStatus = a} :: DescribeEntitiesDetectionJobResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeEntitiesDetectionJobResponse

@@ -22,17 +22,18 @@ module Network.AWS.CloudSearch.Types.DomainEndpointOptions where
 import Network.AWS.CloudSearch.Types.TLSSecurityPolicy
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The domain\'s endpoint options.
 --
 -- /See:/ 'newDomainEndpointOptions' smart constructor.
 data DomainEndpointOptions = DomainEndpointOptions'
   { -- | Whether the domain is HTTPS only enabled.
-    enforceHTTPS :: Core.Maybe Core.Bool,
+    enforceHTTPS :: Prelude.Maybe Prelude.Bool,
     -- | The minimum required TLS version
-    tLSSecurityPolicy :: Core.Maybe TLSSecurityPolicy
+    tLSSecurityPolicy :: Prelude.Maybe TLSSecurityPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainEndpointOptions' with all optional fields omitted.
@@ -49,31 +50,32 @@ newDomainEndpointOptions ::
   DomainEndpointOptions
 newDomainEndpointOptions =
   DomainEndpointOptions'
-    { enforceHTTPS = Core.Nothing,
-      tLSSecurityPolicy = Core.Nothing
+    { enforceHTTPS =
+        Prelude.Nothing,
+      tLSSecurityPolicy = Prelude.Nothing
     }
 
 -- | Whether the domain is HTTPS only enabled.
-domainEndpointOptions_enforceHTTPS :: Lens.Lens' DomainEndpointOptions (Core.Maybe Core.Bool)
+domainEndpointOptions_enforceHTTPS :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe Prelude.Bool)
 domainEndpointOptions_enforceHTTPS = Lens.lens (\DomainEndpointOptions' {enforceHTTPS} -> enforceHTTPS) (\s@DomainEndpointOptions' {} a -> s {enforceHTTPS = a} :: DomainEndpointOptions)
 
 -- | The minimum required TLS version
-domainEndpointOptions_tLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Core.Maybe TLSSecurityPolicy)
+domainEndpointOptions_tLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe TLSSecurityPolicy)
 domainEndpointOptions_tLSSecurityPolicy = Lens.lens (\DomainEndpointOptions' {tLSSecurityPolicy} -> tLSSecurityPolicy) (\s@DomainEndpointOptions' {} a -> s {tLSSecurityPolicy = a} :: DomainEndpointOptions)
 
 instance Core.FromXML DomainEndpointOptions where
   parseXML x =
     DomainEndpointOptions'
-      Core.<$> (x Core..@? "EnforceHTTPS")
-      Core.<*> (x Core..@? "TLSSecurityPolicy")
+      Prelude.<$> (x Core..@? "EnforceHTTPS")
+      Prelude.<*> (x Core..@? "TLSSecurityPolicy")
 
-instance Core.Hashable DomainEndpointOptions
+instance Prelude.Hashable DomainEndpointOptions
 
-instance Core.NFData DomainEndpointOptions
+instance Prelude.NFData DomainEndpointOptions
 
 instance Core.ToQuery DomainEndpointOptions where
   toQuery DomainEndpointOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "EnforceHTTPS" Core.=: enforceHTTPS,
         "TLSSecurityPolicy" Core.=: tLSSecurityPolicy
       ]

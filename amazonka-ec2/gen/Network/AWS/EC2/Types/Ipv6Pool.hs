@@ -24,21 +24,22 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PoolCidrBlock
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IPv6 address pool.
 --
 -- /See:/ 'newIpv6Pool' smart constructor.
 data Ipv6Pool = Ipv6Pool'
   { -- | The ID of the address pool.
-    poolId :: Core.Maybe Core.Text,
+    poolId :: Prelude.Maybe Prelude.Text,
     -- | The CIDR blocks for the address pool.
-    poolCidrBlocks :: Core.Maybe [PoolCidrBlock],
+    poolCidrBlocks :: Prelude.Maybe [PoolCidrBlock],
     -- | Any tags for the address pool.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The description for the address pool.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Ipv6Pool' with all optional fields omitted.
@@ -59,40 +60,41 @@ newIpv6Pool ::
   Ipv6Pool
 newIpv6Pool =
   Ipv6Pool'
-    { poolId = Core.Nothing,
-      poolCidrBlocks = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing
+    { poolId = Prelude.Nothing,
+      poolCidrBlocks = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The ID of the address pool.
-ipv6Pool_poolId :: Lens.Lens' Ipv6Pool (Core.Maybe Core.Text)
+ipv6Pool_poolId :: Lens.Lens' Ipv6Pool (Prelude.Maybe Prelude.Text)
 ipv6Pool_poolId = Lens.lens (\Ipv6Pool' {poolId} -> poolId) (\s@Ipv6Pool' {} a -> s {poolId = a} :: Ipv6Pool)
 
 -- | The CIDR blocks for the address pool.
-ipv6Pool_poolCidrBlocks :: Lens.Lens' Ipv6Pool (Core.Maybe [PoolCidrBlock])
-ipv6Pool_poolCidrBlocks = Lens.lens (\Ipv6Pool' {poolCidrBlocks} -> poolCidrBlocks) (\s@Ipv6Pool' {} a -> s {poolCidrBlocks = a} :: Ipv6Pool) Core.. Lens.mapping Lens._Coerce
+ipv6Pool_poolCidrBlocks :: Lens.Lens' Ipv6Pool (Prelude.Maybe [PoolCidrBlock])
+ipv6Pool_poolCidrBlocks = Lens.lens (\Ipv6Pool' {poolCidrBlocks} -> poolCidrBlocks) (\s@Ipv6Pool' {} a -> s {poolCidrBlocks = a} :: Ipv6Pool) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any tags for the address pool.
-ipv6Pool_tags :: Lens.Lens' Ipv6Pool (Core.Maybe [Tag])
-ipv6Pool_tags = Lens.lens (\Ipv6Pool' {tags} -> tags) (\s@Ipv6Pool' {} a -> s {tags = a} :: Ipv6Pool) Core.. Lens.mapping Lens._Coerce
+ipv6Pool_tags :: Lens.Lens' Ipv6Pool (Prelude.Maybe [Tag])
+ipv6Pool_tags = Lens.lens (\Ipv6Pool' {tags} -> tags) (\s@Ipv6Pool' {} a -> s {tags = a} :: Ipv6Pool) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description for the address pool.
-ipv6Pool_description :: Lens.Lens' Ipv6Pool (Core.Maybe Core.Text)
+ipv6Pool_description :: Lens.Lens' Ipv6Pool (Prelude.Maybe Prelude.Text)
 ipv6Pool_description = Lens.lens (\Ipv6Pool' {description} -> description) (\s@Ipv6Pool' {} a -> s {description = a} :: Ipv6Pool)
 
 instance Core.FromXML Ipv6Pool where
   parseXML x =
     Ipv6Pool'
-      Core.<$> (x Core..@? "poolId")
-      Core.<*> ( x Core..@? "poolCidrBlockSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "description")
+      Prelude.<$> (x Core..@? "poolId")
+      Prelude.<*> ( x Core..@? "poolCidrBlockSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "description")
 
-instance Core.Hashable Ipv6Pool
+instance Prelude.Hashable Ipv6Pool
 
-instance Core.NFData Ipv6Pool
+instance Prelude.NFData Ipv6Pool

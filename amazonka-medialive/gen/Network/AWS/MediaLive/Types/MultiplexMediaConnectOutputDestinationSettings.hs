@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSetting
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Multiplex MediaConnect output destination settings.
 --
 -- /See:/ 'newMultiplexMediaConnectOutputDestinationSettings' smart constructor.
 data MultiplexMediaConnectOutputDestinationSettings = MultiplexMediaConnectOutputDestinationSettings'
   { -- | The MediaConnect entitlement ARN available as a Flow source.
-    entitlementArn :: Core.Maybe Core.Text
+    entitlementArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiplexMediaConnectOutputDestinationSettings' with all optional fields omitted.
@@ -45,11 +46,11 @@ newMultiplexMediaConnectOutputDestinationSettings ::
 newMultiplexMediaConnectOutputDestinationSettings =
   MultiplexMediaConnectOutputDestinationSettings'
     { entitlementArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The MediaConnect entitlement ARN available as a Flow source.
-multiplexMediaConnectOutputDestinationSettings_entitlementArn :: Lens.Lens' MultiplexMediaConnectOutputDestinationSettings (Core.Maybe Core.Text)
+multiplexMediaConnectOutputDestinationSettings_entitlementArn :: Lens.Lens' MultiplexMediaConnectOutputDestinationSettings (Prelude.Maybe Prelude.Text)
 multiplexMediaConnectOutputDestinationSettings_entitlementArn = Lens.lens (\MultiplexMediaConnectOutputDestinationSettings' {entitlementArn} -> entitlementArn) (\s@MultiplexMediaConnectOutputDestinationSettings' {} a -> s {entitlementArn = a} :: MultiplexMediaConnectOutputDestinationSettings)
 
 instance
@@ -61,13 +62,13 @@ instance
       "MultiplexMediaConnectOutputDestinationSettings"
       ( \x ->
           MultiplexMediaConnectOutputDestinationSettings'
-            Core.<$> (x Core..:? "entitlementArn")
+            Prelude.<$> (x Core..:? "entitlementArn")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     MultiplexMediaConnectOutputDestinationSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     MultiplexMediaConnectOutputDestinationSettings

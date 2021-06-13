@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -48,11 +49,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newModifyClientProperties' smart constructor.
 data ModifyClientProperties = ModifyClientProperties'
   { -- | The resource identifiers, in the form of directory IDs.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | Information about the Amazon WorkSpaces client.
     clientProperties :: ClientProperties
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyClientProperties' with all optional fields omitted.
@@ -67,7 +68,7 @@ data ModifyClientProperties = ModifyClientProperties'
 -- 'clientProperties', 'modifyClientProperties_clientProperties' - Information about the Amazon WorkSpaces client.
 newModifyClientProperties ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientProperties'
   ClientProperties ->
   ModifyClientProperties
@@ -80,7 +81,7 @@ newModifyClientProperties
       }
 
 -- | The resource identifiers, in the form of directory IDs.
-modifyClientProperties_resourceId :: Lens.Lens' ModifyClientProperties Core.Text
+modifyClientProperties_resourceId :: Lens.Lens' ModifyClientProperties Prelude.Text
 modifyClientProperties_resourceId = Lens.lens (\ModifyClientProperties' {resourceId} -> resourceId) (\s@ModifyClientProperties' {} a -> s {resourceId = a} :: ModifyClientProperties)
 
 -- | Information about the Amazon WorkSpaces client.
@@ -96,48 +97,50 @@ instance Core.AWSRequest ModifyClientProperties where
     Response.receiveEmpty
       ( \s h x ->
           ModifyClientPropertiesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyClientProperties
+instance Prelude.Hashable ModifyClientProperties
 
-instance Core.NFData ModifyClientProperties
+instance Prelude.NFData ModifyClientProperties
 
 instance Core.ToHeaders ModifyClientProperties where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.ModifyClientProperties" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyClientProperties where
   toJSON ModifyClientProperties' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just
               ("ClientProperties" Core..= clientProperties)
           ]
       )
 
 instance Core.ToPath ModifyClientProperties where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyClientProperties where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyClientPropertiesResponse' smart constructor.
 data ModifyClientPropertiesResponse = ModifyClientPropertiesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyClientPropertiesResponse' with all optional fields omitted.
@@ -150,7 +153,7 @@ data ModifyClientPropertiesResponse = ModifyClientPropertiesResponse'
 -- 'httpStatus', 'modifyClientPropertiesResponse_httpStatus' - The response's http status code.
 newModifyClientPropertiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyClientPropertiesResponse
 newModifyClientPropertiesResponse pHttpStatus_ =
   ModifyClientPropertiesResponse'
@@ -159,7 +162,9 @@ newModifyClientPropertiesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-modifyClientPropertiesResponse_httpStatus :: Lens.Lens' ModifyClientPropertiesResponse Core.Int
+modifyClientPropertiesResponse_httpStatus :: Lens.Lens' ModifyClientPropertiesResponse Prelude.Int
 modifyClientPropertiesResponse_httpStatus = Lens.lens (\ModifyClientPropertiesResponse' {httpStatus} -> httpStatus) (\s@ModifyClientPropertiesResponse' {} a -> s {httpStatus = a} :: ModifyClientPropertiesResponse)
 
-instance Core.NFData ModifyClientPropertiesResponse
+instance
+  Prelude.NFData
+    ModifyClientPropertiesResponse

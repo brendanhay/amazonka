@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.ContentModerationDetection where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.ModerationLabel
 
 -- | Information about an unsafe content label detection in a stored video.
@@ -29,11 +30,11 @@ import Network.AWS.Rekognition.Types.ModerationLabel
 data ContentModerationDetection = ContentModerationDetection'
   { -- | Time, in milliseconds from the beginning of the video, that the unsafe
     -- content label was detected.
-    timestamp :: Core.Maybe Core.Integer,
+    timestamp :: Prelude.Maybe Prelude.Integer,
     -- | The unsafe content label detected by in the stored video.
-    moderationLabel :: Core.Maybe ModerationLabel
+    moderationLabel :: Prelude.Maybe ModerationLabel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContentModerationDetection' with all optional fields omitted.
@@ -52,17 +53,17 @@ newContentModerationDetection ::
 newContentModerationDetection =
   ContentModerationDetection'
     { timestamp =
-        Core.Nothing,
-      moderationLabel = Core.Nothing
+        Prelude.Nothing,
+      moderationLabel = Prelude.Nothing
     }
 
 -- | Time, in milliseconds from the beginning of the video, that the unsafe
 -- content label was detected.
-contentModerationDetection_timestamp :: Lens.Lens' ContentModerationDetection (Core.Maybe Core.Integer)
+contentModerationDetection_timestamp :: Lens.Lens' ContentModerationDetection (Prelude.Maybe Prelude.Integer)
 contentModerationDetection_timestamp = Lens.lens (\ContentModerationDetection' {timestamp} -> timestamp) (\s@ContentModerationDetection' {} a -> s {timestamp = a} :: ContentModerationDetection)
 
 -- | The unsafe content label detected by in the stored video.
-contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Core.Maybe ModerationLabel)
+contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Prelude.Maybe ModerationLabel)
 contentModerationDetection_moderationLabel = Lens.lens (\ContentModerationDetection' {moderationLabel} -> moderationLabel) (\s@ContentModerationDetection' {} a -> s {moderationLabel = a} :: ContentModerationDetection)
 
 instance Core.FromJSON ContentModerationDetection where
@@ -71,10 +72,10 @@ instance Core.FromJSON ContentModerationDetection where
       "ContentModerationDetection"
       ( \x ->
           ContentModerationDetection'
-            Core.<$> (x Core..:? "Timestamp")
-            Core.<*> (x Core..:? "ModerationLabel")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "ModerationLabel")
       )
 
-instance Core.Hashable ContentModerationDetection
+instance Prelude.Hashable ContentModerationDetection
 
-instance Core.NFData ContentModerationDetection
+instance Prelude.NFData ContentModerationDetection

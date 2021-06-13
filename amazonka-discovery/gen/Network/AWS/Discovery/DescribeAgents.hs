@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,23 +59,23 @@ data DescribeAgents = DescribeAgents'
   { -- | The agent or the Connector IDs for which you want information. If you
     -- specify no IDs, the system returns information about all
     -- agents\/Connectors associated with your AWS user account.
-    agentIds :: Core.Maybe [Core.Text],
+    agentIds :: Prelude.Maybe [Prelude.Text],
     -- | Token to retrieve the next set of results. For example, if you
     -- previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but
     -- set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
     -- results along with a token. Use that token in this query to get the next
     -- set of 10.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of agents\/Connectors to return in a single page of
     -- output. The maximum value is 100.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | You can filter the request using various logical operators and a
     -- /key/-/value/ format. For example:
     --
     -- @{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}@
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAgents' with all optional fields omitted.
@@ -105,56 +106,58 @@ newDescribeAgents ::
   DescribeAgents
 newDescribeAgents =
   DescribeAgents'
-    { agentIds = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { agentIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The agent or the Connector IDs for which you want information. If you
 -- specify no IDs, the system returns information about all
 -- agents\/Connectors associated with your AWS user account.
-describeAgents_agentIds :: Lens.Lens' DescribeAgents (Core.Maybe [Core.Text])
-describeAgents_agentIds = Lens.lens (\DescribeAgents' {agentIds} -> agentIds) (\s@DescribeAgents' {} a -> s {agentIds = a} :: DescribeAgents) Core.. Lens.mapping Lens._Coerce
+describeAgents_agentIds :: Lens.Lens' DescribeAgents (Prelude.Maybe [Prelude.Text])
+describeAgents_agentIds = Lens.lens (\DescribeAgents' {agentIds} -> agentIds) (\s@DescribeAgents' {} a -> s {agentIds = a} :: DescribeAgents) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Token to retrieve the next set of results. For example, if you
 -- previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but
 -- set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
 -- results along with a token. Use that token in this query to get the next
 -- set of 10.
-describeAgents_nextToken :: Lens.Lens' DescribeAgents (Core.Maybe Core.Text)
+describeAgents_nextToken :: Lens.Lens' DescribeAgents (Prelude.Maybe Prelude.Text)
 describeAgents_nextToken = Lens.lens (\DescribeAgents' {nextToken} -> nextToken) (\s@DescribeAgents' {} a -> s {nextToken = a} :: DescribeAgents)
 
 -- | The total number of agents\/Connectors to return in a single page of
 -- output. The maximum value is 100.
-describeAgents_maxResults :: Lens.Lens' DescribeAgents (Core.Maybe Core.Int)
+describeAgents_maxResults :: Lens.Lens' DescribeAgents (Prelude.Maybe Prelude.Int)
 describeAgents_maxResults = Lens.lens (\DescribeAgents' {maxResults} -> maxResults) (\s@DescribeAgents' {} a -> s {maxResults = a} :: DescribeAgents)
 
 -- | You can filter the request using various logical operators and a
 -- /key/-/value/ format. For example:
 --
 -- @{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}@
-describeAgents_filters :: Lens.Lens' DescribeAgents (Core.Maybe [Filter])
-describeAgents_filters = Lens.lens (\DescribeAgents' {filters} -> filters) (\s@DescribeAgents' {} a -> s {filters = a} :: DescribeAgents) Core.. Lens.mapping Lens._Coerce
+describeAgents_filters :: Lens.Lens' DescribeAgents (Prelude.Maybe [Filter])
+describeAgents_filters = Lens.lens (\DescribeAgents' {filters} -> filters) (\s@DescribeAgents' {} a -> s {filters = a} :: DescribeAgents) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeAgents where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeAgentsResponse_nextToken Core.. Lens._Just
+            Lens.^? describeAgentsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeAgentsResponse_agentsInfo Core.. Lens._Just
+            Lens.^? describeAgentsResponse_agentsInfo
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeAgents_nextToken
+          Prelude.& describeAgents_nextToken
           Lens..~ rs
-          Lens.^? describeAgentsResponse_nextToken Core.. Lens._Just
+          Lens.^? describeAgentsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAgents where
   type
@@ -165,44 +168,46 @@ instance Core.AWSRequest DescribeAgents where
     Response.receiveJSON
       ( \s h x ->
           DescribeAgentsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "agentsInfo" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "agentsInfo" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAgents
+instance Prelude.Hashable DescribeAgents
 
-instance Core.NFData DescribeAgents
+instance Prelude.NFData DescribeAgents
 
 instance Core.ToHeaders DescribeAgents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSPoseidonService_V2015_11_01.DescribeAgents" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeAgents where
   toJSON DescribeAgents' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("agentIds" Core..=) Core.<$> agentIds,
-            ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("agentIds" Core..=) Prelude.<$> agentIds,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath DescribeAgents where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAgents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAgentsResponse' smart constructor.
 data DescribeAgentsResponse = DescribeAgentsResponse'
@@ -211,18 +216,18 @@ data DescribeAgentsResponse = DescribeAgentsResponse'
     -- @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
     -- results along with this token. Use this token in the next query to
     -- retrieve the next set of 10.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Lists agents or the Connector by ID or lists all agents\/Connectors
     -- associated with your user account if you did not specify an
     -- agent\/Connector ID. The output includes agent\/Connector IDs, IP
     -- addresses, media access control (MAC) addresses, agent\/Connector
     -- health, host name where the agent\/Connector resides, and the version
     -- number of each agent\/Connector.
-    agentsInfo :: Core.Maybe [AgentInfo],
+    agentsInfo :: Prelude.Maybe [AgentInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAgentsResponse' with all optional fields omitted.
@@ -248,12 +253,13 @@ data DescribeAgentsResponse = DescribeAgentsResponse'
 -- 'httpStatus', 'describeAgentsResponse_httpStatus' - The response's http status code.
 newDescribeAgentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAgentsResponse
 newDescribeAgentsResponse pHttpStatus_ =
   DescribeAgentsResponse'
-    { nextToken = Core.Nothing,
-      agentsInfo = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      agentsInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -262,7 +268,7 @@ newDescribeAgentsResponse pHttpStatus_ =
 -- @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
 -- results along with this token. Use this token in the next query to
 -- retrieve the next set of 10.
-describeAgentsResponse_nextToken :: Lens.Lens' DescribeAgentsResponse (Core.Maybe Core.Text)
+describeAgentsResponse_nextToken :: Lens.Lens' DescribeAgentsResponse (Prelude.Maybe Prelude.Text)
 describeAgentsResponse_nextToken = Lens.lens (\DescribeAgentsResponse' {nextToken} -> nextToken) (\s@DescribeAgentsResponse' {} a -> s {nextToken = a} :: DescribeAgentsResponse)
 
 -- | Lists agents or the Connector by ID or lists all agents\/Connectors
@@ -271,11 +277,11 @@ describeAgentsResponse_nextToken = Lens.lens (\DescribeAgentsResponse' {nextToke
 -- addresses, media access control (MAC) addresses, agent\/Connector
 -- health, host name where the agent\/Connector resides, and the version
 -- number of each agent\/Connector.
-describeAgentsResponse_agentsInfo :: Lens.Lens' DescribeAgentsResponse (Core.Maybe [AgentInfo])
-describeAgentsResponse_agentsInfo = Lens.lens (\DescribeAgentsResponse' {agentsInfo} -> agentsInfo) (\s@DescribeAgentsResponse' {} a -> s {agentsInfo = a} :: DescribeAgentsResponse) Core.. Lens.mapping Lens._Coerce
+describeAgentsResponse_agentsInfo :: Lens.Lens' DescribeAgentsResponse (Prelude.Maybe [AgentInfo])
+describeAgentsResponse_agentsInfo = Lens.lens (\DescribeAgentsResponse' {agentsInfo} -> agentsInfo) (\s@DescribeAgentsResponse' {} a -> s {agentsInfo = a} :: DescribeAgentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAgentsResponse_httpStatus :: Lens.Lens' DescribeAgentsResponse Core.Int
+describeAgentsResponse_httpStatus :: Lens.Lens' DescribeAgentsResponse Prelude.Int
 describeAgentsResponse_httpStatus = Lens.lens (\DescribeAgentsResponse' {httpStatus} -> httpStatus) (\s@DescribeAgentsResponse' {} a -> s {httpStatus = a} :: DescribeAgentsResponse)
 
-instance Core.NFData DescribeAgentsResponse
+instance Prelude.NFData DescribeAgentsResponse

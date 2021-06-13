@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.IotSiteWiseAction where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.PutAssetPropertyValueEntry
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to send data from an MQTT message that triggered the
 -- rule to AWS IoT SiteWise asset properties.
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newIotSiteWiseAction' smart constructor.
 data IotSiteWiseAction = IotSiteWiseAction'
   { -- | A list of asset property value entries.
-    putAssetPropertyValueEntries :: Core.NonEmpty PutAssetPropertyValueEntry,
+    putAssetPropertyValueEntries :: Prelude.NonEmpty PutAssetPropertyValueEntry,
     -- | The ARN of the role that grants AWS IoT permission to send an asset
     -- property value to AWS IoTSiteWise.
     -- (@\"Action\": \"iotsitewise:BatchPutAssetPropertyValue\"@). The trust
     -- policy can restrict access to specific asset hierarchy paths.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IotSiteWiseAction' with all optional fields omitted.
@@ -54,9 +55,9 @@ data IotSiteWiseAction = IotSiteWiseAction'
 -- policy can restrict access to specific asset hierarchy paths.
 newIotSiteWiseAction ::
   -- | 'putAssetPropertyValueEntries'
-  Core.NonEmpty PutAssetPropertyValueEntry ->
+  Prelude.NonEmpty PutAssetPropertyValueEntry ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   IotSiteWiseAction
 newIotSiteWiseAction
   pPutAssetPropertyValueEntries_
@@ -68,14 +69,14 @@ newIotSiteWiseAction
       }
 
 -- | A list of asset property value entries.
-iotSiteWiseAction_putAssetPropertyValueEntries :: Lens.Lens' IotSiteWiseAction (Core.NonEmpty PutAssetPropertyValueEntry)
-iotSiteWiseAction_putAssetPropertyValueEntries = Lens.lens (\IotSiteWiseAction' {putAssetPropertyValueEntries} -> putAssetPropertyValueEntries) (\s@IotSiteWiseAction' {} a -> s {putAssetPropertyValueEntries = a} :: IotSiteWiseAction) Core.. Lens._Coerce
+iotSiteWiseAction_putAssetPropertyValueEntries :: Lens.Lens' IotSiteWiseAction (Prelude.NonEmpty PutAssetPropertyValueEntry)
+iotSiteWiseAction_putAssetPropertyValueEntries = Lens.lens (\IotSiteWiseAction' {putAssetPropertyValueEntries} -> putAssetPropertyValueEntries) (\s@IotSiteWiseAction' {} a -> s {putAssetPropertyValueEntries = a} :: IotSiteWiseAction) Prelude.. Lens._Coerce
 
 -- | The ARN of the role that grants AWS IoT permission to send an asset
 -- property value to AWS IoTSiteWise.
 -- (@\"Action\": \"iotsitewise:BatchPutAssetPropertyValue\"@). The trust
 -- policy can restrict access to specific asset hierarchy paths.
-iotSiteWiseAction_roleArn :: Lens.Lens' IotSiteWiseAction Core.Text
+iotSiteWiseAction_roleArn :: Lens.Lens' IotSiteWiseAction Prelude.Text
 iotSiteWiseAction_roleArn = Lens.lens (\IotSiteWiseAction' {roleArn} -> roleArn) (\s@IotSiteWiseAction' {} a -> s {roleArn = a} :: IotSiteWiseAction)
 
 instance Core.FromJSON IotSiteWiseAction where
@@ -84,22 +85,22 @@ instance Core.FromJSON IotSiteWiseAction where
       "IotSiteWiseAction"
       ( \x ->
           IotSiteWiseAction'
-            Core.<$> (x Core..: "putAssetPropertyValueEntries")
-            Core.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Core..: "putAssetPropertyValueEntries")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Core.Hashable IotSiteWiseAction
+instance Prelude.Hashable IotSiteWiseAction
 
-instance Core.NFData IotSiteWiseAction
+instance Prelude.NFData IotSiteWiseAction
 
 instance Core.ToJSON IotSiteWiseAction where
   toJSON IotSiteWiseAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "putAssetPropertyValueEntries"
                   Core..= putAssetPropertyValueEntries
               ),
-            Core.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

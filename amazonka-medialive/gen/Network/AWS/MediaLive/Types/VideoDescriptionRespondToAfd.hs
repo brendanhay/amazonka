@@ -28,6 +28,7 @@ module Network.AWS.MediaLive.Types.VideoDescriptionRespondToAfd
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Video Description Respond To Afd
 newtype VideoDescriptionRespondToAfd = VideoDescriptionRespondToAfd'
@@ -35,15 +36,15 @@ newtype VideoDescriptionRespondToAfd = VideoDescriptionRespondToAfd'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.H265TemporalIds
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enables temporal layer identifiers in the encoded bitstream. Up to 3
 -- layers are supported depending on GOP structure: I- and P-frames form
@@ -42,15 +43,15 @@ newtype H265TemporalIds = H265TemporalIds'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

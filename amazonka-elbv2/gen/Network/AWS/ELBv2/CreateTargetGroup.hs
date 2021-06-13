@@ -69,6 +69,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,14 +79,14 @@ data CreateTargetGroup = CreateTargetGroup'
     -- @lambda@, health checks are disabled by default but can be enabled. If
     -- the target type is @instance@ or @ip@, health checks are always enabled
     -- and cannot be disabled.
-    healthCheckEnabled :: Core.Maybe Core.Bool,
+    healthCheckEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The protocol the load balancer uses when performing health checks on
     -- targets. For Application Load Balancers, the default is HTTP. For
     -- Network Load Balancers and Gateway Load Balancers, the default is TCP.
     -- The TCP protocol is not supported for health checks if the protocol of
     -- the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP
     -- protocols are not supported for health checks.
-    healthCheckProtocol :: Core.Maybe ProtocolEnum,
+    healthCheckProtocol :: Prelude.Maybe ProtocolEnum,
     -- | The type of target that you must specify when registering targets with
     -- this target group. You can\'t specify targets for a target group using
     -- more than one target type.
@@ -100,20 +101,20 @@ data CreateTargetGroup = CreateTargetGroup'
     --     can\'t specify publicly routable IP addresses.
     --
     -- -   @lambda@ - Register a single Lambda function as a target.
-    targetType :: Core.Maybe TargetTypeEnum,
+    targetType :: Prelude.Maybe TargetTypeEnum,
     -- | The port the load balancer uses when performing health checks on
     -- targets. If the protocol is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the
     -- default is @traffic-port@, which is the port on which each target
     -- receives traffic from the load balancer. If the protocol is GENEVE, the
     -- default is port 80.
-    healthCheckPort :: Core.Maybe Core.Text,
+    healthCheckPort :: Prelude.Maybe Prelude.Text,
     -- | The amount of time, in seconds, during which no response from a target
     -- means a failed health check. For target groups with a protocol of HTTP,
     -- HTTPS, or GENEVE, the default is 5 seconds. For target groups with a
     -- protocol of TCP or TLS, this value must be 6 seconds for HTTP health
     -- checks and 10 seconds for TCP and HTTPS health checks. If the target
     -- type is @lambda@, the default is 30 seconds.
-    healthCheckTimeoutSeconds :: Core.Maybe Core.Natural,
+    healthCheckTimeoutSeconds :: Prelude.Maybe Prelude.Natural,
     -- | [HTTP\/HTTPS health checks] The destination for health checks on the
     -- targets.
     --
@@ -122,61 +123,61 @@ data CreateTargetGroup = CreateTargetGroup'
     -- [GRPC protocol version] The path of a custom health check method with
     -- the format \/package.service\/method. The default is
     -- \/AWS.ALB\/healthcheck.
-    healthCheckPath :: Core.Maybe Core.Text,
+    healthCheckPath :: Prelude.Maybe Prelude.Text,
     -- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
     -- for a successful response from a target.
-    matcher :: Core.Maybe Matcher,
+    matcher :: Prelude.Maybe Matcher,
     -- | [HTTP\/HTTPS protocol] The protocol version. Specify @GRPC@ to send
     -- requests to targets using gRPC. Specify @HTTP2@ to send requests to
     -- targets using HTTP\/2. The default is @HTTP1@, which sends requests to
     -- targets using HTTP\/1.1.
-    protocolVersion :: Core.Maybe Core.Text,
+    protocolVersion :: Prelude.Maybe Prelude.Text,
     -- | The number of consecutive health checks successes required before
     -- considering an unhealthy target healthy. For target groups with a
     -- protocol of HTTP or HTTPS, the default is 5. For target groups with a
     -- protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is
     -- @lambda@, the default is 5.
-    healthyThresholdCount :: Core.Maybe Core.Natural,
+    healthyThresholdCount :: Prelude.Maybe Prelude.Natural,
     -- | The tags to assign to the target group.
-    tags :: Core.Maybe (Core.NonEmpty Tag),
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The port on which the targets receive traffic. This port is used unless
     -- you specify a port override when registering the target. If the target
     -- is a Lambda function, this parameter does not apply. If the protocol is
     -- GENEVE, the supported port is 6081.
-    port :: Core.Maybe Core.Natural,
+    port :: Prelude.Maybe Prelude.Natural,
     -- | The approximate amount of time, in seconds, between health checks of an
     -- individual target. If the target group protocol is TCP, TLS, UDP, or
     -- TCP_UDP, the supported values are 10 and 30 seconds. If the target group
     -- protocol is HTTP or HTTPS, the default is 30 seconds. If the target
     -- group protocol is GENEVE, the default is 10 seconds. If the target type
     -- is @lambda@, the default is 35 seconds.
-    healthCheckIntervalSeconds :: Core.Maybe Core.Natural,
+    healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The protocol to use for routing traffic to the targets. For Application
     -- Load Balancers, the supported protocols are HTTP and HTTPS. For Network
     -- Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP.
     -- For Gateway Load Balancers, the supported protocol is GENEVE. A TCP_UDP
     -- listener must be associated with a TCP_UDP target group. If the target
     -- is a Lambda function, this parameter does not apply.
-    protocol :: Core.Maybe ProtocolEnum,
+    protocol :: Prelude.Maybe ProtocolEnum,
     -- | The identifier of the virtual private cloud (VPC). If the target is a
     -- Lambda function, this parameter does not apply. Otherwise, this
     -- parameter is required.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The number of consecutive health check failures required before
     -- considering a target unhealthy. If the target group protocol is HTTP or
     -- HTTPS, the default is 2. If the target group protocol is TCP or TLS,
     -- this value must be the same as the healthy threshold count. If the
     -- target group protocol is GENEVE, the default is 3. If the target type is
     -- @lambda@, the default is 2.
-    unhealthyThresholdCount :: Core.Maybe Core.Natural,
+    unhealthyThresholdCount :: Prelude.Maybe Prelude.Natural,
     -- | The name of the target group.
     --
     -- This name must be unique per region per account, can have a maximum of
     -- 32 characters, must contain only alphanumeric characters or hyphens, and
     -- must not begin or end with a hyphen.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTargetGroup' with all optional fields omitted.
@@ -288,26 +289,26 @@ data CreateTargetGroup = CreateTargetGroup'
 -- must not begin or end with a hyphen.
 newCreateTargetGroup ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateTargetGroup
 newCreateTargetGroup pName_ =
   CreateTargetGroup'
     { healthCheckEnabled =
-        Core.Nothing,
-      healthCheckProtocol = Core.Nothing,
-      targetType = Core.Nothing,
-      healthCheckPort = Core.Nothing,
-      healthCheckTimeoutSeconds = Core.Nothing,
-      healthCheckPath = Core.Nothing,
-      matcher = Core.Nothing,
-      protocolVersion = Core.Nothing,
-      healthyThresholdCount = Core.Nothing,
-      tags = Core.Nothing,
-      port = Core.Nothing,
-      healthCheckIntervalSeconds = Core.Nothing,
-      protocol = Core.Nothing,
-      vpcId = Core.Nothing,
-      unhealthyThresholdCount = Core.Nothing,
+        Prelude.Nothing,
+      healthCheckProtocol = Prelude.Nothing,
+      targetType = Prelude.Nothing,
+      healthCheckPort = Prelude.Nothing,
+      healthCheckTimeoutSeconds = Prelude.Nothing,
+      healthCheckPath = Prelude.Nothing,
+      matcher = Prelude.Nothing,
+      protocolVersion = Prelude.Nothing,
+      healthyThresholdCount = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      port = Prelude.Nothing,
+      healthCheckIntervalSeconds = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      unhealthyThresholdCount = Prelude.Nothing,
       name = pName_
     }
 
@@ -315,7 +316,7 @@ newCreateTargetGroup pName_ =
 -- @lambda@, health checks are disabled by default but can be enabled. If
 -- the target type is @instance@ or @ip@, health checks are always enabled
 -- and cannot be disabled.
-createTargetGroup_healthCheckEnabled :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Bool)
+createTargetGroup_healthCheckEnabled :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Bool)
 createTargetGroup_healthCheckEnabled = Lens.lens (\CreateTargetGroup' {healthCheckEnabled} -> healthCheckEnabled) (\s@CreateTargetGroup' {} a -> s {healthCheckEnabled = a} :: CreateTargetGroup)
 
 -- | The protocol the load balancer uses when performing health checks on
@@ -324,7 +325,7 @@ createTargetGroup_healthCheckEnabled = Lens.lens (\CreateTargetGroup' {healthChe
 -- The TCP protocol is not supported for health checks if the protocol of
 -- the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP
 -- protocols are not supported for health checks.
-createTargetGroup_healthCheckProtocol :: Lens.Lens' CreateTargetGroup (Core.Maybe ProtocolEnum)
+createTargetGroup_healthCheckProtocol :: Lens.Lens' CreateTargetGroup (Prelude.Maybe ProtocolEnum)
 createTargetGroup_healthCheckProtocol = Lens.lens (\CreateTargetGroup' {healthCheckProtocol} -> healthCheckProtocol) (\s@CreateTargetGroup' {} a -> s {healthCheckProtocol = a} :: CreateTargetGroup)
 
 -- | The type of target that you must specify when registering targets with
@@ -341,7 +342,7 @@ createTargetGroup_healthCheckProtocol = Lens.lens (\CreateTargetGroup' {healthCh
 --     can\'t specify publicly routable IP addresses.
 --
 -- -   @lambda@ - Register a single Lambda function as a target.
-createTargetGroup_targetType :: Lens.Lens' CreateTargetGroup (Core.Maybe TargetTypeEnum)
+createTargetGroup_targetType :: Lens.Lens' CreateTargetGroup (Prelude.Maybe TargetTypeEnum)
 createTargetGroup_targetType = Lens.lens (\CreateTargetGroup' {targetType} -> targetType) (\s@CreateTargetGroup' {} a -> s {targetType = a} :: CreateTargetGroup)
 
 -- | The port the load balancer uses when performing health checks on
@@ -349,7 +350,7 @@ createTargetGroup_targetType = Lens.lens (\CreateTargetGroup' {targetType} -> ta
 -- default is @traffic-port@, which is the port on which each target
 -- receives traffic from the load balancer. If the protocol is GENEVE, the
 -- default is port 80.
-createTargetGroup_healthCheckPort :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Text)
+createTargetGroup_healthCheckPort :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Text)
 createTargetGroup_healthCheckPort = Lens.lens (\CreateTargetGroup' {healthCheckPort} -> healthCheckPort) (\s@CreateTargetGroup' {} a -> s {healthCheckPort = a} :: CreateTargetGroup)
 
 -- | The amount of time, in seconds, during which no response from a target
@@ -358,7 +359,7 @@ createTargetGroup_healthCheckPort = Lens.lens (\CreateTargetGroup' {healthCheckP
 -- protocol of TCP or TLS, this value must be 6 seconds for HTTP health
 -- checks and 10 seconds for TCP and HTTPS health checks. If the target
 -- type is @lambda@, the default is 30 seconds.
-createTargetGroup_healthCheckTimeoutSeconds :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Natural)
+createTargetGroup_healthCheckTimeoutSeconds :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Natural)
 createTargetGroup_healthCheckTimeoutSeconds = Lens.lens (\CreateTargetGroup' {healthCheckTimeoutSeconds} -> healthCheckTimeoutSeconds) (\s@CreateTargetGroup' {} a -> s {healthCheckTimeoutSeconds = a} :: CreateTargetGroup)
 
 -- | [HTTP\/HTTPS health checks] The destination for health checks on the
@@ -369,19 +370,19 @@ createTargetGroup_healthCheckTimeoutSeconds = Lens.lens (\CreateTargetGroup' {he
 -- [GRPC protocol version] The path of a custom health check method with
 -- the format \/package.service\/method. The default is
 -- \/AWS.ALB\/healthcheck.
-createTargetGroup_healthCheckPath :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Text)
+createTargetGroup_healthCheckPath :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Text)
 createTargetGroup_healthCheckPath = Lens.lens (\CreateTargetGroup' {healthCheckPath} -> healthCheckPath) (\s@CreateTargetGroup' {} a -> s {healthCheckPath = a} :: CreateTargetGroup)
 
 -- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
 -- for a successful response from a target.
-createTargetGroup_matcher :: Lens.Lens' CreateTargetGroup (Core.Maybe Matcher)
+createTargetGroup_matcher :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Matcher)
 createTargetGroup_matcher = Lens.lens (\CreateTargetGroup' {matcher} -> matcher) (\s@CreateTargetGroup' {} a -> s {matcher = a} :: CreateTargetGroup)
 
 -- | [HTTP\/HTTPS protocol] The protocol version. Specify @GRPC@ to send
 -- requests to targets using gRPC. Specify @HTTP2@ to send requests to
 -- targets using HTTP\/2. The default is @HTTP1@, which sends requests to
 -- targets using HTTP\/1.1.
-createTargetGroup_protocolVersion :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Text)
+createTargetGroup_protocolVersion :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Text)
 createTargetGroup_protocolVersion = Lens.lens (\CreateTargetGroup' {protocolVersion} -> protocolVersion) (\s@CreateTargetGroup' {} a -> s {protocolVersion = a} :: CreateTargetGroup)
 
 -- | The number of consecutive health checks successes required before
@@ -389,18 +390,18 @@ createTargetGroup_protocolVersion = Lens.lens (\CreateTargetGroup' {protocolVers
 -- protocol of HTTP or HTTPS, the default is 5. For target groups with a
 -- protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is
 -- @lambda@, the default is 5.
-createTargetGroup_healthyThresholdCount :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Natural)
+createTargetGroup_healthyThresholdCount :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Natural)
 createTargetGroup_healthyThresholdCount = Lens.lens (\CreateTargetGroup' {healthyThresholdCount} -> healthyThresholdCount) (\s@CreateTargetGroup' {} a -> s {healthyThresholdCount = a} :: CreateTargetGroup)
 
 -- | The tags to assign to the target group.
-createTargetGroup_tags :: Lens.Lens' CreateTargetGroup (Core.Maybe (Core.NonEmpty Tag))
-createTargetGroup_tags = Lens.lens (\CreateTargetGroup' {tags} -> tags) (\s@CreateTargetGroup' {} a -> s {tags = a} :: CreateTargetGroup) Core.. Lens.mapping Lens._Coerce
+createTargetGroup_tags :: Lens.Lens' CreateTargetGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
+createTargetGroup_tags = Lens.lens (\CreateTargetGroup' {tags} -> tags) (\s@CreateTargetGroup' {} a -> s {tags = a} :: CreateTargetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The port on which the targets receive traffic. This port is used unless
 -- you specify a port override when registering the target. If the target
 -- is a Lambda function, this parameter does not apply. If the protocol is
 -- GENEVE, the supported port is 6081.
-createTargetGroup_port :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Natural)
+createTargetGroup_port :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Natural)
 createTargetGroup_port = Lens.lens (\CreateTargetGroup' {port} -> port) (\s@CreateTargetGroup' {} a -> s {port = a} :: CreateTargetGroup)
 
 -- | The approximate amount of time, in seconds, between health checks of an
@@ -409,7 +410,7 @@ createTargetGroup_port = Lens.lens (\CreateTargetGroup' {port} -> port) (\s@Crea
 -- protocol is HTTP or HTTPS, the default is 30 seconds. If the target
 -- group protocol is GENEVE, the default is 10 seconds. If the target type
 -- is @lambda@, the default is 35 seconds.
-createTargetGroup_healthCheckIntervalSeconds :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Natural)
+createTargetGroup_healthCheckIntervalSeconds :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Natural)
 createTargetGroup_healthCheckIntervalSeconds = Lens.lens (\CreateTargetGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@CreateTargetGroup' {} a -> s {healthCheckIntervalSeconds = a} :: CreateTargetGroup)
 
 -- | The protocol to use for routing traffic to the targets. For Application
@@ -418,13 +419,13 @@ createTargetGroup_healthCheckIntervalSeconds = Lens.lens (\CreateTargetGroup' {h
 -- For Gateway Load Balancers, the supported protocol is GENEVE. A TCP_UDP
 -- listener must be associated with a TCP_UDP target group. If the target
 -- is a Lambda function, this parameter does not apply.
-createTargetGroup_protocol :: Lens.Lens' CreateTargetGroup (Core.Maybe ProtocolEnum)
+createTargetGroup_protocol :: Lens.Lens' CreateTargetGroup (Prelude.Maybe ProtocolEnum)
 createTargetGroup_protocol = Lens.lens (\CreateTargetGroup' {protocol} -> protocol) (\s@CreateTargetGroup' {} a -> s {protocol = a} :: CreateTargetGroup)
 
 -- | The identifier of the virtual private cloud (VPC). If the target is a
 -- Lambda function, this parameter does not apply. Otherwise, this
 -- parameter is required.
-createTargetGroup_vpcId :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Text)
+createTargetGroup_vpcId :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Text)
 createTargetGroup_vpcId = Lens.lens (\CreateTargetGroup' {vpcId} -> vpcId) (\s@CreateTargetGroup' {} a -> s {vpcId = a} :: CreateTargetGroup)
 
 -- | The number of consecutive health check failures required before
@@ -433,7 +434,7 @@ createTargetGroup_vpcId = Lens.lens (\CreateTargetGroup' {vpcId} -> vpcId) (\s@C
 -- this value must be the same as the healthy threshold count. If the
 -- target group protocol is GENEVE, the default is 3. If the target type is
 -- @lambda@, the default is 2.
-createTargetGroup_unhealthyThresholdCount :: Lens.Lens' CreateTargetGroup (Core.Maybe Core.Natural)
+createTargetGroup_unhealthyThresholdCount :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Natural)
 createTargetGroup_unhealthyThresholdCount = Lens.lens (\CreateTargetGroup' {unhealthyThresholdCount} -> unhealthyThresholdCount) (\s@CreateTargetGroup' {} a -> s {unhealthyThresholdCount = a} :: CreateTargetGroup)
 
 -- | The name of the target group.
@@ -441,7 +442,7 @@ createTargetGroup_unhealthyThresholdCount = Lens.lens (\CreateTargetGroup' {unhe
 -- This name must be unique per region per account, can have a maximum of
 -- 32 characters, must contain only alphanumeric characters or hyphens, and
 -- must not begin or end with a hyphen.
-createTargetGroup_name :: Lens.Lens' CreateTargetGroup Core.Text
+createTargetGroup_name :: Lens.Lens' CreateTargetGroup Prelude.Text
 createTargetGroup_name = Lens.lens (\CreateTargetGroup' {name} -> name) (\s@CreateTargetGroup' {} a -> s {name = a} :: CreateTargetGroup)
 
 instance Core.AWSRequest CreateTargetGroup where
@@ -454,28 +455,29 @@ instance Core.AWSRequest CreateTargetGroup where
       "CreateTargetGroupResult"
       ( \s h x ->
           CreateTargetGroupResponse'
-            Core.<$> ( x Core..@? "TargetGroups" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "TargetGroups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTargetGroup
+instance Prelude.Hashable CreateTargetGroup
 
-instance Core.NFData CreateTargetGroup
+instance Prelude.NFData CreateTargetGroup
 
 instance Core.ToHeaders CreateTargetGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTargetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTargetGroup where
   toQuery CreateTargetGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTargetGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("CreateTargetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "HealthCheckEnabled" Core.=: healthCheckEnabled,
         "HealthCheckProtocol" Core.=: healthCheckProtocol,
         "TargetType" Core.=: targetType,
@@ -489,7 +491,7 @@ instance Core.ToQuery CreateTargetGroup where
           Core.=: healthyThresholdCount,
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "Port" Core.=: port,
         "HealthCheckIntervalSeconds"
           Core.=: healthCheckIntervalSeconds,
@@ -503,11 +505,11 @@ instance Core.ToQuery CreateTargetGroup where
 -- | /See:/ 'newCreateTargetGroupResponse' smart constructor.
 data CreateTargetGroupResponse = CreateTargetGroupResponse'
   { -- | Information about the target group.
-    targetGroups :: Core.Maybe [TargetGroup],
+    targetGroups :: Prelude.Maybe [TargetGroup],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTargetGroupResponse' with all optional fields omitted.
@@ -522,21 +524,21 @@ data CreateTargetGroupResponse = CreateTargetGroupResponse'
 -- 'httpStatus', 'createTargetGroupResponse_httpStatus' - The response's http status code.
 newCreateTargetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTargetGroupResponse
 newCreateTargetGroupResponse pHttpStatus_ =
   CreateTargetGroupResponse'
     { targetGroups =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the target group.
-createTargetGroupResponse_targetGroups :: Lens.Lens' CreateTargetGroupResponse (Core.Maybe [TargetGroup])
-createTargetGroupResponse_targetGroups = Lens.lens (\CreateTargetGroupResponse' {targetGroups} -> targetGroups) (\s@CreateTargetGroupResponse' {} a -> s {targetGroups = a} :: CreateTargetGroupResponse) Core.. Lens.mapping Lens._Coerce
+createTargetGroupResponse_targetGroups :: Lens.Lens' CreateTargetGroupResponse (Prelude.Maybe [TargetGroup])
+createTargetGroupResponse_targetGroups = Lens.lens (\CreateTargetGroupResponse' {targetGroups} -> targetGroups) (\s@CreateTargetGroupResponse' {} a -> s {targetGroups = a} :: CreateTargetGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createTargetGroupResponse_httpStatus :: Lens.Lens' CreateTargetGroupResponse Core.Int
+createTargetGroupResponse_httpStatus :: Lens.Lens' CreateTargetGroupResponse Prelude.Int
 createTargetGroupResponse_httpStatus = Lens.lens (\CreateTargetGroupResponse' {httpStatus} -> httpStatus) (\s@CreateTargetGroupResponse' {} a -> s {httpStatus = a} :: CreateTargetGroupResponse)
 
-instance Core.NFData CreateTargetGroupResponse
+instance Prelude.NFData CreateTargetGroupResponse

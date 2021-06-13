@@ -58,6 +58,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,61 +68,61 @@ import qualified Network.AWS.Response as Response
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
   { -- | Information about an on-premises instance tag set. The deployment group
     -- includes only on-premises instances identified by all the tag groups.
-    onPremisesTagSet :: Core.Maybe OnPremisesTagSet,
+    onPremisesTagSet :: Prelude.Maybe OnPremisesTagSet,
     -- | A replacement ARN for the service role, if you want to change it.
-    serviceRoleArn :: Core.Maybe Core.Text,
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The replacement deployment configuration name to use, if you want to
     -- change it.
-    deploymentConfigName :: Core.Maybe Core.Text,
+    deploymentConfigName :: Prelude.Maybe Prelude.Text,
     -- | Information for an automatic rollback configuration that is added or
     -- changed when a deployment group is updated.
-    autoRollbackConfiguration :: Core.Maybe AutoRollbackConfiguration,
+    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
     -- | Information about triggers to change when the deployment group is
     -- updated. For examples, see
     -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Edit a Trigger in a CodeDeploy Deployment Group>
     -- in the /AWS CodeDeploy User Guide/.
-    triggerConfigurations :: Core.Maybe [TriggerConfig],
+    triggerConfigurations :: Prelude.Maybe [TriggerConfig],
     -- | The replacement set of Amazon EC2 tags on which to filter, if you want
     -- to change them. To keep the existing tags, enter their names. To remove
     -- tags, do not enter any tag names.
-    ec2TagFilters :: Core.Maybe [EC2TagFilter],
+    ec2TagFilters :: Prelude.Maybe [EC2TagFilter],
     -- | The replacement set of on-premises instance tags on which to filter, if
     -- you want to change them. To keep the existing tags, enter their names.
     -- To remove tags, do not enter any tag names.
-    onPremisesInstanceTagFilters :: Core.Maybe [TagFilter],
+    onPremisesInstanceTagFilters :: Prelude.Maybe [TagFilter],
     -- | Information about the load balancer used in a deployment.
-    loadBalancerInfo :: Core.Maybe LoadBalancerInfo,
+    loadBalancerInfo :: Prelude.Maybe LoadBalancerInfo,
     -- | Information about groups of tags applied to on-premises instances. The
     -- deployment group includes only EC2 instances identified by all the tag
     -- groups.
-    ec2TagSet :: Core.Maybe EC2TagSet,
+    ec2TagSet :: Prelude.Maybe EC2TagSet,
     -- | Information about blue\/green deployment options for a deployment group.
-    blueGreenDeploymentConfiguration :: Core.Maybe BlueGreenDeploymentConfiguration,
+    blueGreenDeploymentConfiguration :: Prelude.Maybe BlueGreenDeploymentConfiguration,
     -- | The replacement list of Auto Scaling groups to be included in the
     -- deployment group, if you want to change them. To keep the Auto Scaling
     -- groups, enter their names. To remove Auto Scaling groups, do not enter
     -- any Auto Scaling group names.
-    autoScalingGroups :: Core.Maybe [Core.Text],
+    autoScalingGroups :: Prelude.Maybe [Prelude.Text],
     -- | Information about the type of deployment, either in-place or
     -- blue\/green, you want to run and whether to route deployment traffic
     -- behind a load balancer.
-    deploymentStyle :: Core.Maybe DeploymentStyle,
+    deploymentStyle :: Prelude.Maybe DeploymentStyle,
     -- | Information to add or change about Amazon CloudWatch alarms when the
     -- deployment group is updated.
-    alarmConfiguration :: Core.Maybe AlarmConfiguration,
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The target Amazon ECS services in the deployment group. This applies
     -- only to deployment groups that use the Amazon ECS compute platform. A
     -- target Amazon ECS service is specified as an Amazon ECS cluster and
     -- service name pair using the format @\<clustername>:\<servicename>@.
-    ecsServices :: Core.Maybe [ECSService],
+    ecsServices :: Prelude.Maybe [ECSService],
     -- | The new name of the deployment group, if you want to change it.
-    newDeploymentGroupName' :: Core.Maybe Core.Text,
+    newDeploymentGroupName' :: Prelude.Maybe Prelude.Text,
     -- | The application name that corresponds to the deployment group to update.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The current name of the deployment group.
-    currentDeploymentGroupName :: Core.Text
+    currentDeploymentGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeploymentGroup' with all optional fields omitted.
@@ -187,30 +188,30 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 -- 'currentDeploymentGroupName', 'updateDeploymentGroup_currentDeploymentGroupName' - The current name of the deployment group.
 newUpdateDeploymentGroup ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'currentDeploymentGroupName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDeploymentGroup
 newUpdateDeploymentGroup
   pApplicationName_
   pCurrentDeploymentGroupName_ =
     UpdateDeploymentGroup'
       { onPremisesTagSet =
-          Core.Nothing,
-        serviceRoleArn = Core.Nothing,
-        deploymentConfigName = Core.Nothing,
-        autoRollbackConfiguration = Core.Nothing,
-        triggerConfigurations = Core.Nothing,
-        ec2TagFilters = Core.Nothing,
-        onPremisesInstanceTagFilters = Core.Nothing,
-        loadBalancerInfo = Core.Nothing,
-        ec2TagSet = Core.Nothing,
-        blueGreenDeploymentConfiguration = Core.Nothing,
-        autoScalingGroups = Core.Nothing,
-        deploymentStyle = Core.Nothing,
-        alarmConfiguration = Core.Nothing,
-        ecsServices = Core.Nothing,
-        newDeploymentGroupName' = Core.Nothing,
+          Prelude.Nothing,
+        serviceRoleArn = Prelude.Nothing,
+        deploymentConfigName = Prelude.Nothing,
+        autoRollbackConfiguration = Prelude.Nothing,
+        triggerConfigurations = Prelude.Nothing,
+        ec2TagFilters = Prelude.Nothing,
+        onPremisesInstanceTagFilters = Prelude.Nothing,
+        loadBalancerInfo = Prelude.Nothing,
+        ec2TagSet = Prelude.Nothing,
+        blueGreenDeploymentConfiguration = Prelude.Nothing,
+        autoScalingGroups = Prelude.Nothing,
+        deploymentStyle = Prelude.Nothing,
+        alarmConfiguration = Prelude.Nothing,
+        ecsServices = Prelude.Nothing,
+        newDeploymentGroupName' = Prelude.Nothing,
         applicationName = pApplicationName_,
         currentDeploymentGroupName =
           pCurrentDeploymentGroupName_
@@ -218,91 +219,91 @@ newUpdateDeploymentGroup
 
 -- | Information about an on-premises instance tag set. The deployment group
 -- includes only on-premises instances identified by all the tag groups.
-updateDeploymentGroup_onPremisesTagSet :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe OnPremisesTagSet)
+updateDeploymentGroup_onPremisesTagSet :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe OnPremisesTagSet)
 updateDeploymentGroup_onPremisesTagSet = Lens.lens (\UpdateDeploymentGroup' {onPremisesTagSet} -> onPremisesTagSet) (\s@UpdateDeploymentGroup' {} a -> s {onPremisesTagSet = a} :: UpdateDeploymentGroup)
 
 -- | A replacement ARN for the service role, if you want to change it.
-updateDeploymentGroup_serviceRoleArn :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe Core.Text)
+updateDeploymentGroup_serviceRoleArn :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe Prelude.Text)
 updateDeploymentGroup_serviceRoleArn = Lens.lens (\UpdateDeploymentGroup' {serviceRoleArn} -> serviceRoleArn) (\s@UpdateDeploymentGroup' {} a -> s {serviceRoleArn = a} :: UpdateDeploymentGroup)
 
 -- | The replacement deployment configuration name to use, if you want to
 -- change it.
-updateDeploymentGroup_deploymentConfigName :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe Core.Text)
+updateDeploymentGroup_deploymentConfigName :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe Prelude.Text)
 updateDeploymentGroup_deploymentConfigName = Lens.lens (\UpdateDeploymentGroup' {deploymentConfigName} -> deploymentConfigName) (\s@UpdateDeploymentGroup' {} a -> s {deploymentConfigName = a} :: UpdateDeploymentGroup)
 
 -- | Information for an automatic rollback configuration that is added or
 -- changed when a deployment group is updated.
-updateDeploymentGroup_autoRollbackConfiguration :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe AutoRollbackConfiguration)
+updateDeploymentGroup_autoRollbackConfiguration :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe AutoRollbackConfiguration)
 updateDeploymentGroup_autoRollbackConfiguration = Lens.lens (\UpdateDeploymentGroup' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@UpdateDeploymentGroup' {} a -> s {autoRollbackConfiguration = a} :: UpdateDeploymentGroup)
 
 -- | Information about triggers to change when the deployment group is
 -- updated. For examples, see
 -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Edit a Trigger in a CodeDeploy Deployment Group>
 -- in the /AWS CodeDeploy User Guide/.
-updateDeploymentGroup_triggerConfigurations :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe [TriggerConfig])
-updateDeploymentGroup_triggerConfigurations = Lens.lens (\UpdateDeploymentGroup' {triggerConfigurations} -> triggerConfigurations) (\s@UpdateDeploymentGroup' {} a -> s {triggerConfigurations = a} :: UpdateDeploymentGroup) Core.. Lens.mapping Lens._Coerce
+updateDeploymentGroup_triggerConfigurations :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe [TriggerConfig])
+updateDeploymentGroup_triggerConfigurations = Lens.lens (\UpdateDeploymentGroup' {triggerConfigurations} -> triggerConfigurations) (\s@UpdateDeploymentGroup' {} a -> s {triggerConfigurations = a} :: UpdateDeploymentGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The replacement set of Amazon EC2 tags on which to filter, if you want
 -- to change them. To keep the existing tags, enter their names. To remove
 -- tags, do not enter any tag names.
-updateDeploymentGroup_ec2TagFilters :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe [EC2TagFilter])
-updateDeploymentGroup_ec2TagFilters = Lens.lens (\UpdateDeploymentGroup' {ec2TagFilters} -> ec2TagFilters) (\s@UpdateDeploymentGroup' {} a -> s {ec2TagFilters = a} :: UpdateDeploymentGroup) Core.. Lens.mapping Lens._Coerce
+updateDeploymentGroup_ec2TagFilters :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe [EC2TagFilter])
+updateDeploymentGroup_ec2TagFilters = Lens.lens (\UpdateDeploymentGroup' {ec2TagFilters} -> ec2TagFilters) (\s@UpdateDeploymentGroup' {} a -> s {ec2TagFilters = a} :: UpdateDeploymentGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The replacement set of on-premises instance tags on which to filter, if
 -- you want to change them. To keep the existing tags, enter their names.
 -- To remove tags, do not enter any tag names.
-updateDeploymentGroup_onPremisesInstanceTagFilters :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe [TagFilter])
-updateDeploymentGroup_onPremisesInstanceTagFilters = Lens.lens (\UpdateDeploymentGroup' {onPremisesInstanceTagFilters} -> onPremisesInstanceTagFilters) (\s@UpdateDeploymentGroup' {} a -> s {onPremisesInstanceTagFilters = a} :: UpdateDeploymentGroup) Core.. Lens.mapping Lens._Coerce
+updateDeploymentGroup_onPremisesInstanceTagFilters :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe [TagFilter])
+updateDeploymentGroup_onPremisesInstanceTagFilters = Lens.lens (\UpdateDeploymentGroup' {onPremisesInstanceTagFilters} -> onPremisesInstanceTagFilters) (\s@UpdateDeploymentGroup' {} a -> s {onPremisesInstanceTagFilters = a} :: UpdateDeploymentGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the load balancer used in a deployment.
-updateDeploymentGroup_loadBalancerInfo :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe LoadBalancerInfo)
+updateDeploymentGroup_loadBalancerInfo :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe LoadBalancerInfo)
 updateDeploymentGroup_loadBalancerInfo = Lens.lens (\UpdateDeploymentGroup' {loadBalancerInfo} -> loadBalancerInfo) (\s@UpdateDeploymentGroup' {} a -> s {loadBalancerInfo = a} :: UpdateDeploymentGroup)
 
 -- | Information about groups of tags applied to on-premises instances. The
 -- deployment group includes only EC2 instances identified by all the tag
 -- groups.
-updateDeploymentGroup_ec2TagSet :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe EC2TagSet)
+updateDeploymentGroup_ec2TagSet :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe EC2TagSet)
 updateDeploymentGroup_ec2TagSet = Lens.lens (\UpdateDeploymentGroup' {ec2TagSet} -> ec2TagSet) (\s@UpdateDeploymentGroup' {} a -> s {ec2TagSet = a} :: UpdateDeploymentGroup)
 
 -- | Information about blue\/green deployment options for a deployment group.
-updateDeploymentGroup_blueGreenDeploymentConfiguration :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe BlueGreenDeploymentConfiguration)
+updateDeploymentGroup_blueGreenDeploymentConfiguration :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe BlueGreenDeploymentConfiguration)
 updateDeploymentGroup_blueGreenDeploymentConfiguration = Lens.lens (\UpdateDeploymentGroup' {blueGreenDeploymentConfiguration} -> blueGreenDeploymentConfiguration) (\s@UpdateDeploymentGroup' {} a -> s {blueGreenDeploymentConfiguration = a} :: UpdateDeploymentGroup)
 
 -- | The replacement list of Auto Scaling groups to be included in the
 -- deployment group, if you want to change them. To keep the Auto Scaling
 -- groups, enter their names. To remove Auto Scaling groups, do not enter
 -- any Auto Scaling group names.
-updateDeploymentGroup_autoScalingGroups :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe [Core.Text])
-updateDeploymentGroup_autoScalingGroups = Lens.lens (\UpdateDeploymentGroup' {autoScalingGroups} -> autoScalingGroups) (\s@UpdateDeploymentGroup' {} a -> s {autoScalingGroups = a} :: UpdateDeploymentGroup) Core.. Lens.mapping Lens._Coerce
+updateDeploymentGroup_autoScalingGroups :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe [Prelude.Text])
+updateDeploymentGroup_autoScalingGroups = Lens.lens (\UpdateDeploymentGroup' {autoScalingGroups} -> autoScalingGroups) (\s@UpdateDeploymentGroup' {} a -> s {autoScalingGroups = a} :: UpdateDeploymentGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the type of deployment, either in-place or
 -- blue\/green, you want to run and whether to route deployment traffic
 -- behind a load balancer.
-updateDeploymentGroup_deploymentStyle :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe DeploymentStyle)
+updateDeploymentGroup_deploymentStyle :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe DeploymentStyle)
 updateDeploymentGroup_deploymentStyle = Lens.lens (\UpdateDeploymentGroup' {deploymentStyle} -> deploymentStyle) (\s@UpdateDeploymentGroup' {} a -> s {deploymentStyle = a} :: UpdateDeploymentGroup)
 
 -- | Information to add or change about Amazon CloudWatch alarms when the
 -- deployment group is updated.
-updateDeploymentGroup_alarmConfiguration :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe AlarmConfiguration)
+updateDeploymentGroup_alarmConfiguration :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe AlarmConfiguration)
 updateDeploymentGroup_alarmConfiguration = Lens.lens (\UpdateDeploymentGroup' {alarmConfiguration} -> alarmConfiguration) (\s@UpdateDeploymentGroup' {} a -> s {alarmConfiguration = a} :: UpdateDeploymentGroup)
 
 -- | The target Amazon ECS services in the deployment group. This applies
 -- only to deployment groups that use the Amazon ECS compute platform. A
 -- target Amazon ECS service is specified as an Amazon ECS cluster and
 -- service name pair using the format @\<clustername>:\<servicename>@.
-updateDeploymentGroup_ecsServices :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe [ECSService])
-updateDeploymentGroup_ecsServices = Lens.lens (\UpdateDeploymentGroup' {ecsServices} -> ecsServices) (\s@UpdateDeploymentGroup' {} a -> s {ecsServices = a} :: UpdateDeploymentGroup) Core.. Lens.mapping Lens._Coerce
+updateDeploymentGroup_ecsServices :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe [ECSService])
+updateDeploymentGroup_ecsServices = Lens.lens (\UpdateDeploymentGroup' {ecsServices} -> ecsServices) (\s@UpdateDeploymentGroup' {} a -> s {ecsServices = a} :: UpdateDeploymentGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new name of the deployment group, if you want to change it.
-updateDeploymentGroup_newDeploymentGroupName :: Lens.Lens' UpdateDeploymentGroup (Core.Maybe Core.Text)
+updateDeploymentGroup_newDeploymentGroupName :: Lens.Lens' UpdateDeploymentGroup (Prelude.Maybe Prelude.Text)
 updateDeploymentGroup_newDeploymentGroupName = Lens.lens (\UpdateDeploymentGroup' {newDeploymentGroupName'} -> newDeploymentGroupName') (\s@UpdateDeploymentGroup' {} a -> s {newDeploymentGroupName' = a} :: UpdateDeploymentGroup)
 
 -- | The application name that corresponds to the deployment group to update.
-updateDeploymentGroup_applicationName :: Lens.Lens' UpdateDeploymentGroup Core.Text
+updateDeploymentGroup_applicationName :: Lens.Lens' UpdateDeploymentGroup Prelude.Text
 updateDeploymentGroup_applicationName = Lens.lens (\UpdateDeploymentGroup' {applicationName} -> applicationName) (\s@UpdateDeploymentGroup' {} a -> s {applicationName = a} :: UpdateDeploymentGroup)
 
 -- | The current name of the deployment group.
-updateDeploymentGroup_currentDeploymentGroupName :: Lens.Lens' UpdateDeploymentGroup Core.Text
+updateDeploymentGroup_currentDeploymentGroupName :: Lens.Lens' UpdateDeploymentGroup Prelude.Text
 updateDeploymentGroup_currentDeploymentGroupName = Lens.lens (\UpdateDeploymentGroup' {currentDeploymentGroupName} -> currentDeploymentGroupName) (\s@UpdateDeploymentGroup' {} a -> s {currentDeploymentGroupName = a} :: UpdateDeploymentGroup)
 
 instance Core.AWSRequest UpdateDeploymentGroup where
@@ -314,59 +315,65 @@ instance Core.AWSRequest UpdateDeploymentGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateDeploymentGroupResponse'
-            Core.<$> (x Core..?> "hooksNotCleanedUp" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "hooksNotCleanedUp"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDeploymentGroup
+instance Prelude.Hashable UpdateDeploymentGroup
 
-instance Core.NFData UpdateDeploymentGroup
+instance Prelude.NFData UpdateDeploymentGroup
 
 instance Core.ToHeaders UpdateDeploymentGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.UpdateDeploymentGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDeploymentGroup where
   toJSON UpdateDeploymentGroup' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("onPremisesTagSet" Core..=)
-              Core.<$> onPremisesTagSet,
-            ("serviceRoleArn" Core..=) Core.<$> serviceRoleArn,
+              Prelude.<$> onPremisesTagSet,
+            ("serviceRoleArn" Core..=)
+              Prelude.<$> serviceRoleArn,
             ("deploymentConfigName" Core..=)
-              Core.<$> deploymentConfigName,
+              Prelude.<$> deploymentConfigName,
             ("autoRollbackConfiguration" Core..=)
-              Core.<$> autoRollbackConfiguration,
+              Prelude.<$> autoRollbackConfiguration,
             ("triggerConfigurations" Core..=)
-              Core.<$> triggerConfigurations,
-            ("ec2TagFilters" Core..=) Core.<$> ec2TagFilters,
+              Prelude.<$> triggerConfigurations,
+            ("ec2TagFilters" Core..=) Prelude.<$> ec2TagFilters,
             ("onPremisesInstanceTagFilters" Core..=)
-              Core.<$> onPremisesInstanceTagFilters,
+              Prelude.<$> onPremisesInstanceTagFilters,
             ("loadBalancerInfo" Core..=)
-              Core.<$> loadBalancerInfo,
-            ("ec2TagSet" Core..=) Core.<$> ec2TagSet,
+              Prelude.<$> loadBalancerInfo,
+            ("ec2TagSet" Core..=) Prelude.<$> ec2TagSet,
             ("blueGreenDeploymentConfiguration" Core..=)
-              Core.<$> blueGreenDeploymentConfiguration,
+              Prelude.<$> blueGreenDeploymentConfiguration,
             ("autoScalingGroups" Core..=)
-              Core.<$> autoScalingGroups,
-            ("deploymentStyle" Core..=) Core.<$> deploymentStyle,
+              Prelude.<$> autoScalingGroups,
+            ("deploymentStyle" Core..=)
+              Prelude.<$> deploymentStyle,
             ("alarmConfiguration" Core..=)
-              Core.<$> alarmConfiguration,
-            ("ecsServices" Core..=) Core.<$> ecsServices,
+              Prelude.<$> alarmConfiguration,
+            ("ecsServices" Core..=) Prelude.<$> ecsServices,
             ("newDeploymentGroupName" Core..=)
-              Core.<$> newDeploymentGroupName',
-            Core.Just
+              Prelude.<$> newDeploymentGroupName',
+            Prelude.Just
               ("applicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ( "currentDeploymentGroupName"
                   Core..= currentDeploymentGroupName
               )
@@ -374,10 +381,10 @@ instance Core.ToJSON UpdateDeploymentGroup where
       )
 
 instance Core.ToPath UpdateDeploymentGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDeploymentGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateDeploymentGroup@ operation.
 --
@@ -388,11 +395,11 @@ data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     -- removed all corresponding Auto Scaling lifecycle event hooks from the
     -- AWS account. If the output contains data, AWS CodeDeploy could not
     -- remove some Auto Scaling lifecycle event hooks from the AWS account.
-    hooksNotCleanedUp :: Core.Maybe [AutoScalingGroup],
+    hooksNotCleanedUp :: Prelude.Maybe [AutoScalingGroup],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeploymentGroupResponse' with all optional fields omitted.
@@ -411,12 +418,12 @@ data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
 -- 'httpStatus', 'updateDeploymentGroupResponse_httpStatus' - The response's http status code.
 newUpdateDeploymentGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDeploymentGroupResponse
 newUpdateDeploymentGroupResponse pHttpStatus_ =
   UpdateDeploymentGroupResponse'
     { hooksNotCleanedUp =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -425,11 +432,11 @@ newUpdateDeploymentGroupResponse pHttpStatus_ =
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
 -- AWS account. If the output contains data, AWS CodeDeploy could not
 -- remove some Auto Scaling lifecycle event hooks from the AWS account.
-updateDeploymentGroupResponse_hooksNotCleanedUp :: Lens.Lens' UpdateDeploymentGroupResponse (Core.Maybe [AutoScalingGroup])
-updateDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\UpdateDeploymentGroupResponse' {hooksNotCleanedUp} -> hooksNotCleanedUp) (\s@UpdateDeploymentGroupResponse' {} a -> s {hooksNotCleanedUp = a} :: UpdateDeploymentGroupResponse) Core.. Lens.mapping Lens._Coerce
+updateDeploymentGroupResponse_hooksNotCleanedUp :: Lens.Lens' UpdateDeploymentGroupResponse (Prelude.Maybe [AutoScalingGroup])
+updateDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\UpdateDeploymentGroupResponse' {hooksNotCleanedUp} -> hooksNotCleanedUp) (\s@UpdateDeploymentGroupResponse' {} a -> s {hooksNotCleanedUp = a} :: UpdateDeploymentGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateDeploymentGroupResponse_httpStatus :: Lens.Lens' UpdateDeploymentGroupResponse Core.Int
+updateDeploymentGroupResponse_httpStatus :: Lens.Lens' UpdateDeploymentGroupResponse Prelude.Int
 updateDeploymentGroupResponse_httpStatus = Lens.lens (\UpdateDeploymentGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateDeploymentGroupResponse' {} a -> s {httpStatus = a} :: UpdateDeploymentGroupResponse)
 
-instance Core.NFData UpdateDeploymentGroupResponse
+instance Prelude.NFData UpdateDeploymentGroupResponse

@@ -23,6 +23,7 @@ import Network.AWS.Comprehend.Types.AugmentedManifestsListItem
 import Network.AWS.Comprehend.Types.DocumentClassifierDataFormat
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The input properties for training a document classifier.
 --
@@ -37,7 +38,7 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     --
     -- This parameter is required if you set @DataFormat@ to
     -- @AUGMENTED_MANIFEST@.
-    augmentedManifests :: Core.Maybe [AugmentedManifestsListItem],
+    augmentedManifests :: Prelude.Maybe [AugmentedManifestsListItem],
     -- | The format of your training data:
     --
     -- -   @COMPREHEND_CSV@: A two-column CSV file, where labels are provided
@@ -55,7 +56,7 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     --
     -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
     -- as the default.
-    dataFormat :: Core.Maybe DocumentClassifierDataFormat,
+    dataFormat :: Prelude.Maybe DocumentClassifierDataFormat,
     -- | Indicates the delimiter used to separate each label for training a
     -- multi-label classifier. The default delimiter between labels is a pipe
     -- (|). You can use a different character as a delimiter (if it\'s an
@@ -63,7 +64,7 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- training documents use a delimiter other than the default or the
     -- delimiter you specify, the labels on that line will be combined to make
     -- a single unique label, such as LABELLABELLABEL.
-    labelDelimiter :: Core.Maybe Core.Text,
+    labelDelimiter :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 URI for the input data. The S3 bucket must be in the same
     -- region as the API endpoint that you are calling. The URI can point to a
     -- single input file or it can provide the prefix for a collection of input
@@ -75,9 +76,9 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- them as input.
     --
     -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
-    s3Uri :: Core.Maybe Core.Text
+    s3Uri :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentClassifierInputDataConfig' with all optional fields omitted.
@@ -136,10 +137,10 @@ newDocumentClassifierInputDataConfig ::
 newDocumentClassifierInputDataConfig =
   DocumentClassifierInputDataConfig'
     { augmentedManifests =
-        Core.Nothing,
-      dataFormat = Core.Nothing,
-      labelDelimiter = Core.Nothing,
-      s3Uri = Core.Nothing
+        Prelude.Nothing,
+      dataFormat = Prelude.Nothing,
+      labelDelimiter = Prelude.Nothing,
+      s3Uri = Prelude.Nothing
     }
 
 -- | A list of augmented manifest files that provide training data for your
@@ -148,8 +149,8 @@ newDocumentClassifierInputDataConfig =
 --
 -- This parameter is required if you set @DataFormat@ to
 -- @AUGMENTED_MANIFEST@.
-documentClassifierInputDataConfig_augmentedManifests :: Lens.Lens' DocumentClassifierInputDataConfig (Core.Maybe [AugmentedManifestsListItem])
-documentClassifierInputDataConfig_augmentedManifests = Lens.lens (\DocumentClassifierInputDataConfig' {augmentedManifests} -> augmentedManifests) (\s@DocumentClassifierInputDataConfig' {} a -> s {augmentedManifests = a} :: DocumentClassifierInputDataConfig) Core.. Lens.mapping Lens._Coerce
+documentClassifierInputDataConfig_augmentedManifests :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe [AugmentedManifestsListItem])
+documentClassifierInputDataConfig_augmentedManifests = Lens.lens (\DocumentClassifierInputDataConfig' {augmentedManifests} -> augmentedManifests) (\s@DocumentClassifierInputDataConfig' {} a -> s {augmentedManifests = a} :: DocumentClassifierInputDataConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The format of your training data:
 --
@@ -168,7 +169,7 @@ documentClassifierInputDataConfig_augmentedManifests = Lens.lens (\DocumentClass
 --
 -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
 -- as the default.
-documentClassifierInputDataConfig_dataFormat :: Lens.Lens' DocumentClassifierInputDataConfig (Core.Maybe DocumentClassifierDataFormat)
+documentClassifierInputDataConfig_dataFormat :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe DocumentClassifierDataFormat)
 documentClassifierInputDataConfig_dataFormat = Lens.lens (\DocumentClassifierInputDataConfig' {dataFormat} -> dataFormat) (\s@DocumentClassifierInputDataConfig' {} a -> s {dataFormat = a} :: DocumentClassifierInputDataConfig)
 
 -- | Indicates the delimiter used to separate each label for training a
@@ -178,7 +179,7 @@ documentClassifierInputDataConfig_dataFormat = Lens.lens (\DocumentClassifierInp
 -- training documents use a delimiter other than the default or the
 -- delimiter you specify, the labels on that line will be combined to make
 -- a single unique label, such as LABELLABELLABEL.
-documentClassifierInputDataConfig_labelDelimiter :: Lens.Lens' DocumentClassifierInputDataConfig (Core.Maybe Core.Text)
+documentClassifierInputDataConfig_labelDelimiter :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe Prelude.Text)
 documentClassifierInputDataConfig_labelDelimiter = Lens.lens (\DocumentClassifierInputDataConfig' {labelDelimiter} -> labelDelimiter) (\s@DocumentClassifierInputDataConfig' {} a -> s {labelDelimiter = a} :: DocumentClassifierInputDataConfig)
 
 -- | The Amazon S3 URI for the input data. The S3 bucket must be in the same
@@ -192,7 +193,7 @@ documentClassifierInputDataConfig_labelDelimiter = Lens.lens (\DocumentClassifie
 -- them as input.
 --
 -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
-documentClassifierInputDataConfig_s3Uri :: Lens.Lens' DocumentClassifierInputDataConfig (Core.Maybe Core.Text)
+documentClassifierInputDataConfig_s3Uri :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe Prelude.Text)
 documentClassifierInputDataConfig_s3Uri = Lens.lens (\DocumentClassifierInputDataConfig' {s3Uri} -> s3Uri) (\s@DocumentClassifierInputDataConfig' {} a -> s {s3Uri = a} :: DocumentClassifierInputDataConfig)
 
 instance
@@ -204,20 +205,20 @@ instance
       "DocumentClassifierInputDataConfig"
       ( \x ->
           DocumentClassifierInputDataConfig'
-            Core.<$> ( x Core..:? "AugmentedManifests"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "DataFormat")
-            Core.<*> (x Core..:? "LabelDelimiter")
-            Core.<*> (x Core..:? "S3Uri")
+            Prelude.<$> ( x Core..:? "AugmentedManifests"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "DataFormat")
+            Prelude.<*> (x Core..:? "LabelDelimiter")
+            Prelude.<*> (x Core..:? "S3Uri")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DocumentClassifierInputDataConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     DocumentClassifierInputDataConfig
 
 instance
@@ -226,11 +227,12 @@ instance
   where
   toJSON DocumentClassifierInputDataConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AugmentedManifests" Core..=)
-              Core.<$> augmentedManifests,
-            ("DataFormat" Core..=) Core.<$> dataFormat,
-            ("LabelDelimiter" Core..=) Core.<$> labelDelimiter,
-            ("S3Uri" Core..=) Core.<$> s3Uri
+              Prelude.<$> augmentedManifests,
+            ("DataFormat" Core..=) Prelude.<$> dataFormat,
+            ("LabelDelimiter" Core..=)
+              Prelude.<$> labelDelimiter,
+            ("S3Uri" Core..=) Prelude.<$> s3Uri
           ]
       )

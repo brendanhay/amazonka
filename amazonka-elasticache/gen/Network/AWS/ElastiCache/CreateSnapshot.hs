@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,16 +58,16 @@ import qualified Network.AWS.Response as Response
 data CreateSnapshot = CreateSnapshot'
   { -- | The identifier of an existing replication group. The snapshot is created
     -- from this replication group.
-    replicationGroupId :: Core.Maybe Core.Text,
+    replicationGroupId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of an existing cluster. The snapshot is created from this
     -- cluster.
-    cacheClusterId :: Core.Maybe Core.Text,
+    cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key used to encrypt the snapshot.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A name for the snapshot being created.
-    snapshotName :: Core.Text
+    snapshotName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshot' with all optional fields omitted.
@@ -87,32 +88,33 @@ data CreateSnapshot = CreateSnapshot'
 -- 'snapshotName', 'createSnapshot_snapshotName' - A name for the snapshot being created.
 newCreateSnapshot ::
   -- | 'snapshotName'
-  Core.Text ->
+  Prelude.Text ->
   CreateSnapshot
 newCreateSnapshot pSnapshotName_ =
   CreateSnapshot'
-    { replicationGroupId = Core.Nothing,
-      cacheClusterId = Core.Nothing,
-      kmsKeyId = Core.Nothing,
+    { replicationGroupId =
+        Prelude.Nothing,
+      cacheClusterId = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       snapshotName = pSnapshotName_
     }
 
 -- | The identifier of an existing replication group. The snapshot is created
 -- from this replication group.
-createSnapshot_replicationGroupId :: Lens.Lens' CreateSnapshot (Core.Maybe Core.Text)
+createSnapshot_replicationGroupId :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_replicationGroupId = Lens.lens (\CreateSnapshot' {replicationGroupId} -> replicationGroupId) (\s@CreateSnapshot' {} a -> s {replicationGroupId = a} :: CreateSnapshot)
 
 -- | The identifier of an existing cluster. The snapshot is created from this
 -- cluster.
-createSnapshot_cacheClusterId :: Lens.Lens' CreateSnapshot (Core.Maybe Core.Text)
+createSnapshot_cacheClusterId :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_cacheClusterId = Lens.lens (\CreateSnapshot' {cacheClusterId} -> cacheClusterId) (\s@CreateSnapshot' {} a -> s {cacheClusterId = a} :: CreateSnapshot)
 
 -- | The ID of the KMS key used to encrypt the snapshot.
-createSnapshot_kmsKeyId :: Lens.Lens' CreateSnapshot (Core.Maybe Core.Text)
+createSnapshot_kmsKeyId :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_kmsKeyId = Lens.lens (\CreateSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CreateSnapshot' {} a -> s {kmsKeyId = a} :: CreateSnapshot)
 
 -- | A name for the snapshot being created.
-createSnapshot_snapshotName :: Lens.Lens' CreateSnapshot Core.Text
+createSnapshot_snapshotName :: Lens.Lens' CreateSnapshot Prelude.Text
 createSnapshot_snapshotName = Lens.lens (\CreateSnapshot' {snapshotName} -> snapshotName) (\s@CreateSnapshot' {} a -> s {snapshotName = a} :: CreateSnapshot)
 
 instance Core.AWSRequest CreateSnapshot where
@@ -125,26 +127,27 @@ instance Core.AWSRequest CreateSnapshot where
       "CreateSnapshotResult"
       ( \s h x ->
           CreateSnapshotResponse'
-            Core.<$> (x Core..@? "Snapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSnapshot
+instance Prelude.Hashable CreateSnapshot
 
-instance Core.NFData CreateSnapshot
+instance Prelude.NFData CreateSnapshot
 
 instance Core.ToHeaders CreateSnapshot where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateSnapshot where
   toQuery CreateSnapshot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSnapshot" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("CreateSnapshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "ReplicationGroupId" Core.=: replicationGroupId,
         "CacheClusterId" Core.=: cacheClusterId,
         "KmsKeyId" Core.=: kmsKeyId,
@@ -153,11 +156,11 @@ instance Core.ToQuery CreateSnapshot where
 
 -- | /See:/ 'newCreateSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-  { snapshot :: Core.Maybe Snapshot,
+  { snapshot :: Prelude.Maybe Snapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshotResponse' with all optional fields omitted.
@@ -172,20 +175,20 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 -- 'httpStatus', 'createSnapshotResponse_httpStatus' - The response's http status code.
 newCreateSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSnapshotResponse
 newCreateSnapshotResponse pHttpStatus_ =
   CreateSnapshotResponse'
-    { snapshot = Core.Nothing,
+    { snapshot = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createSnapshotResponse_snapshot :: Lens.Lens' CreateSnapshotResponse (Core.Maybe Snapshot)
+createSnapshotResponse_snapshot :: Lens.Lens' CreateSnapshotResponse (Prelude.Maybe Snapshot)
 createSnapshotResponse_snapshot = Lens.lens (\CreateSnapshotResponse' {snapshot} -> snapshot) (\s@CreateSnapshotResponse' {} a -> s {snapshot = a} :: CreateSnapshotResponse)
 
 -- | The response's http status code.
-createSnapshotResponse_httpStatus :: Lens.Lens' CreateSnapshotResponse Core.Int
+createSnapshotResponse_httpStatus :: Lens.Lens' CreateSnapshotResponse Prelude.Int
 createSnapshotResponse_httpStatus = Lens.lens (\CreateSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotResponse' {} a -> s {httpStatus = a} :: CreateSnapshotResponse)
 
-instance Core.NFData CreateSnapshotResponse
+instance Prelude.NFData CreateSnapshotResponse

@@ -44,17 +44,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListWorkflows' smart constructor.
 data ListWorkflows = ListWorkflows'
   { -- | A continuation token, if this is a continuation request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of a list to return.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWorkflows' with all optional fields omitted.
@@ -71,16 +72,16 @@ newListWorkflows ::
   ListWorkflows
 newListWorkflows =
   ListWorkflows'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A continuation token, if this is a continuation request.
-listWorkflows_nextToken :: Lens.Lens' ListWorkflows (Core.Maybe Core.Text)
+listWorkflows_nextToken :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Text)
 listWorkflows_nextToken = Lens.lens (\ListWorkflows' {nextToken} -> nextToken) (\s@ListWorkflows' {} a -> s {nextToken = a} :: ListWorkflows)
 
 -- | The maximum size of a list to return.
-listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Core.Maybe Core.Natural)
+listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Natural)
 listWorkflows_maxResults = Lens.lens (\ListWorkflows' {maxResults} -> maxResults) (\s@ListWorkflows' {} a -> s {maxResults = a} :: ListWorkflows)
 
 instance Core.AWSRequest ListWorkflows where
@@ -92,51 +93,53 @@ instance Core.AWSRequest ListWorkflows where
     Response.receiveJSON
       ( \s h x ->
           ListWorkflowsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Workflows")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Workflows")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListWorkflows
+instance Prelude.Hashable ListWorkflows
 
-instance Core.NFData ListWorkflows
+instance Prelude.NFData ListWorkflows
 
 instance Core.ToHeaders ListWorkflows where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListWorkflows" :: Core.ByteString),
+              Core.=# ("AWSGlue.ListWorkflows" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListWorkflows where
   toJSON ListWorkflows' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListWorkflows where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListWorkflows where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWorkflowsResponse' smart constructor.
 data ListWorkflowsResponse = ListWorkflowsResponse'
   { -- | A continuation token, if not all workflow names have been returned.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | List of names of workflows in the account.
-    workflows :: Core.Maybe (Core.NonEmpty Core.Text),
+    workflows :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWorkflowsResponse' with all optional fields omitted.
@@ -153,25 +156,25 @@ data ListWorkflowsResponse = ListWorkflowsResponse'
 -- 'httpStatus', 'listWorkflowsResponse_httpStatus' - The response's http status code.
 newListWorkflowsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListWorkflowsResponse
 newListWorkflowsResponse pHttpStatus_ =
   ListWorkflowsResponse'
-    { nextToken = Core.Nothing,
-      workflows = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      workflows = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token, if not all workflow names have been returned.
-listWorkflowsResponse_nextToken :: Lens.Lens' ListWorkflowsResponse (Core.Maybe Core.Text)
+listWorkflowsResponse_nextToken :: Lens.Lens' ListWorkflowsResponse (Prelude.Maybe Prelude.Text)
 listWorkflowsResponse_nextToken = Lens.lens (\ListWorkflowsResponse' {nextToken} -> nextToken) (\s@ListWorkflowsResponse' {} a -> s {nextToken = a} :: ListWorkflowsResponse)
 
 -- | List of names of workflows in the account.
-listWorkflowsResponse_workflows :: Lens.Lens' ListWorkflowsResponse (Core.Maybe (Core.NonEmpty Core.Text))
-listWorkflowsResponse_workflows = Lens.lens (\ListWorkflowsResponse' {workflows} -> workflows) (\s@ListWorkflowsResponse' {} a -> s {workflows = a} :: ListWorkflowsResponse) Core.. Lens.mapping Lens._Coerce
+listWorkflowsResponse_workflows :: Lens.Lens' ListWorkflowsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listWorkflowsResponse_workflows = Lens.lens (\ListWorkflowsResponse' {workflows} -> workflows) (\s@ListWorkflowsResponse' {} a -> s {workflows = a} :: ListWorkflowsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listWorkflowsResponse_httpStatus :: Lens.Lens' ListWorkflowsResponse Core.Int
+listWorkflowsResponse_httpStatus :: Lens.Lens' ListWorkflowsResponse Prelude.Int
 listWorkflowsResponse_httpStatus = Lens.lens (\ListWorkflowsResponse' {httpStatus} -> httpStatus) (\s@ListWorkflowsResponse' {} a -> s {httpStatus = a} :: ListWorkflowsResponse)
 
-instance Core.NFData ListWorkflowsResponse
+instance Prelude.NFData ListWorkflowsResponse

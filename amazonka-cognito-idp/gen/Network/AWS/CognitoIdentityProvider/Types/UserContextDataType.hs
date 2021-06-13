@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.UserContextDataType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
@@ -31,9 +32,9 @@ data UserContextDataType = UserContextDataType'
   { -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
-    encodedData :: Core.Maybe Core.Text
+    encodedData :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserContextDataType' with all optional fields omitted.
@@ -49,21 +50,21 @@ data UserContextDataType = UserContextDataType'
 newUserContextDataType ::
   UserContextDataType
 newUserContextDataType =
-  UserContextDataType' {encodedData = Core.Nothing}
+  UserContextDataType' {encodedData = Prelude.Nothing}
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
-userContextDataType_encodedData :: Lens.Lens' UserContextDataType (Core.Maybe Core.Text)
+userContextDataType_encodedData :: Lens.Lens' UserContextDataType (Prelude.Maybe Prelude.Text)
 userContextDataType_encodedData = Lens.lens (\UserContextDataType' {encodedData} -> encodedData) (\s@UserContextDataType' {} a -> s {encodedData = a} :: UserContextDataType)
 
-instance Core.Hashable UserContextDataType
+instance Prelude.Hashable UserContextDataType
 
-instance Core.NFData UserContextDataType
+instance Prelude.NFData UserContextDataType
 
 instance Core.ToJSON UserContextDataType where
   toJSON UserContextDataType' {..} =
     Core.object
-      ( Core.catMaybes
-          [("EncodedData" Core..=) Core.<$> encodedData]
+      ( Prelude.catMaybes
+          [("EncodedData" Core..=) Prelude.<$> encodedData]
       )

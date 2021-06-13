@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,13 +56,13 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newModifySnapshotSchedule' smart constructor.
 data ModifySnapshotSchedule = ModifySnapshotSchedule'
   { -- | A unique alphanumeric identifier of the schedule to modify.
-    scheduleIdentifier :: Core.Text,
+    scheduleIdentifier :: Prelude.Text,
     -- | An updated list of schedule definitions. A schedule definition is made
     -- up of schedule expressions, for example, \"cron(30 12 *)\" or \"rate(12
     -- hours)\".
-    scheduleDefinitions :: [Core.Text]
+    scheduleDefinitions :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySnapshotSchedule' with all optional fields omitted.
@@ -78,24 +79,24 @@ data ModifySnapshotSchedule = ModifySnapshotSchedule'
 -- hours)\".
 newModifySnapshotSchedule ::
   -- | 'scheduleIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ModifySnapshotSchedule
 newModifySnapshotSchedule pScheduleIdentifier_ =
   ModifySnapshotSchedule'
     { scheduleIdentifier =
         pScheduleIdentifier_,
-      scheduleDefinitions = Core.mempty
+      scheduleDefinitions = Prelude.mempty
     }
 
 -- | A unique alphanumeric identifier of the schedule to modify.
-modifySnapshotSchedule_scheduleIdentifier :: Lens.Lens' ModifySnapshotSchedule Core.Text
+modifySnapshotSchedule_scheduleIdentifier :: Lens.Lens' ModifySnapshotSchedule Prelude.Text
 modifySnapshotSchedule_scheduleIdentifier = Lens.lens (\ModifySnapshotSchedule' {scheduleIdentifier} -> scheduleIdentifier) (\s@ModifySnapshotSchedule' {} a -> s {scheduleIdentifier = a} :: ModifySnapshotSchedule)
 
 -- | An updated list of schedule definitions. A schedule definition is made
 -- up of schedule expressions, for example, \"cron(30 12 *)\" or \"rate(12
 -- hours)\".
-modifySnapshotSchedule_scheduleDefinitions :: Lens.Lens' ModifySnapshotSchedule [Core.Text]
-modifySnapshotSchedule_scheduleDefinitions = Lens.lens (\ModifySnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@ModifySnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: ModifySnapshotSchedule) Core.. Lens._Coerce
+modifySnapshotSchedule_scheduleDefinitions :: Lens.Lens' ModifySnapshotSchedule [Prelude.Text]
+modifySnapshotSchedule_scheduleDefinitions = Lens.lens (\ModifySnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@ModifySnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: ModifySnapshotSchedule) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ModifySnapshotSchedule where
   type
@@ -107,22 +108,23 @@ instance Core.AWSRequest ModifySnapshotSchedule where
       "ModifySnapshotScheduleResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable ModifySnapshotSchedule
+instance Prelude.Hashable ModifySnapshotSchedule
 
-instance Core.NFData ModifySnapshotSchedule
+instance Prelude.NFData ModifySnapshotSchedule
 
 instance Core.ToHeaders ModifySnapshotSchedule where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifySnapshotSchedule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifySnapshotSchedule where
   toQuery ModifySnapshotSchedule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySnapshotSchedule" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("ModifySnapshotSchedule" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ScheduleIdentifier" Core.=: scheduleIdentifier,
         "ScheduleDefinitions"
           Core.=: Core.toQueryList

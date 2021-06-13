@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetThingRuntimeConfiguration' smart constructor.
 data GetThingRuntimeConfiguration = GetThingRuntimeConfiguration'
   { -- | The thing name.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetThingRuntimeConfiguration' with all optional fields omitted.
@@ -63,7 +64,7 @@ data GetThingRuntimeConfiguration = GetThingRuntimeConfiguration'
 -- 'thingName', 'getThingRuntimeConfiguration_thingName' - The thing name.
 newGetThingRuntimeConfiguration ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   GetThingRuntimeConfiguration
 newGetThingRuntimeConfiguration pThingName_ =
   GetThingRuntimeConfiguration'
@@ -72,7 +73,7 @@ newGetThingRuntimeConfiguration pThingName_ =
     }
 
 -- | The thing name.
-getThingRuntimeConfiguration_thingName :: Lens.Lens' GetThingRuntimeConfiguration Core.Text
+getThingRuntimeConfiguration_thingName :: Lens.Lens' GetThingRuntimeConfiguration Prelude.Text
 getThingRuntimeConfiguration_thingName = Lens.lens (\GetThingRuntimeConfiguration' {thingName} -> thingName) (\s@GetThingRuntimeConfiguration' {} a -> s {thingName = a} :: GetThingRuntimeConfiguration)
 
 instance Core.AWSRequest GetThingRuntimeConfiguration where
@@ -84,42 +85,46 @@ instance Core.AWSRequest GetThingRuntimeConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetThingRuntimeConfigurationResponse'
-            Core.<$> (x Core..?> "RuntimeConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RuntimeConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetThingRuntimeConfiguration
+instance
+  Prelude.Hashable
+    GetThingRuntimeConfiguration
 
-instance Core.NFData GetThingRuntimeConfiguration
+instance Prelude.NFData GetThingRuntimeConfiguration
 
 instance Core.ToHeaders GetThingRuntimeConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetThingRuntimeConfiguration where
   toPath GetThingRuntimeConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/things/",
         Core.toBS thingName,
         "/runtimeconfig"
       ]
 
 instance Core.ToQuery GetThingRuntimeConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetThingRuntimeConfigurationResponse' smart constructor.
 data GetThingRuntimeConfigurationResponse = GetThingRuntimeConfigurationResponse'
   { -- | Runtime configuration for a thing.
-    runtimeConfiguration :: Core.Maybe RuntimeConfiguration,
+    runtimeConfiguration :: Prelude.Maybe RuntimeConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetThingRuntimeConfigurationResponse' with all optional fields omitted.
@@ -134,23 +139,23 @@ data GetThingRuntimeConfigurationResponse = GetThingRuntimeConfigurationResponse
 -- 'httpStatus', 'getThingRuntimeConfigurationResponse_httpStatus' - The response's http status code.
 newGetThingRuntimeConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetThingRuntimeConfigurationResponse
 newGetThingRuntimeConfigurationResponse pHttpStatus_ =
   GetThingRuntimeConfigurationResponse'
     { runtimeConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Runtime configuration for a thing.
-getThingRuntimeConfigurationResponse_runtimeConfiguration :: Lens.Lens' GetThingRuntimeConfigurationResponse (Core.Maybe RuntimeConfiguration)
+getThingRuntimeConfigurationResponse_runtimeConfiguration :: Lens.Lens' GetThingRuntimeConfigurationResponse (Prelude.Maybe RuntimeConfiguration)
 getThingRuntimeConfigurationResponse_runtimeConfiguration = Lens.lens (\GetThingRuntimeConfigurationResponse' {runtimeConfiguration} -> runtimeConfiguration) (\s@GetThingRuntimeConfigurationResponse' {} a -> s {runtimeConfiguration = a} :: GetThingRuntimeConfigurationResponse)
 
 -- | The response's http status code.
-getThingRuntimeConfigurationResponse_httpStatus :: Lens.Lens' GetThingRuntimeConfigurationResponse Core.Int
+getThingRuntimeConfigurationResponse_httpStatus :: Lens.Lens' GetThingRuntimeConfigurationResponse Prelude.Int
 getThingRuntimeConfigurationResponse_httpStatus = Lens.lens (\GetThingRuntimeConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetThingRuntimeConfigurationResponse' {} a -> s {httpStatus = a} :: GetThingRuntimeConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetThingRuntimeConfigurationResponse

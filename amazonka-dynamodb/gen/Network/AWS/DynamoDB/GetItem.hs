@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,11 +75,11 @@ data GetItem = GetItem'
     -- For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
-    projectionExpression :: Core.Maybe Core.Text,
+    projectionExpression :: Prelude.Maybe Prelude.Text,
     -- | Determines the read consistency model: If set to @true@, then the
     -- operation uses strongly consistent reads; otherwise, the operation uses
     -- eventually consistent reads.
-    consistentRead :: Core.Maybe Core.Bool,
+    consistentRead :: Prelude.Maybe Prelude.Bool,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -116,15 +117,15 @@ data GetItem = GetItem'
     -- For more information on expression attribute names, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
-    returnConsumedCapacity :: Core.Maybe ReturnConsumedCapacity,
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
     -- in the /Amazon DynamoDB Developer Guide/.
-    attributesToGet :: Core.Maybe (Core.NonEmpty Core.Text),
+    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the table containing the requested item.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | A map of attribute names to @AttributeValue@ objects, representing the
     -- primary key of the item to retrieve.
     --
@@ -132,9 +133,9 @@ data GetItem = GetItem'
     -- example, with a simple primary key, you only need to provide a value for
     -- the partition key. For a composite primary key, you must provide values
     -- for both the partition key and the sort key.
-    key :: Core.HashMap Core.Text AttributeValue
+    key :: Prelude.HashMap Prelude.Text AttributeValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetItem' with all optional fields omitted.
@@ -216,17 +217,17 @@ data GetItem = GetItem'
 -- for both the partition key and the sort key.
 newGetItem ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   GetItem
 newGetItem pTableName_ =
   GetItem'
-    { projectionExpression = Core.Nothing,
-      consistentRead = Core.Nothing,
-      expressionAttributeNames = Core.Nothing,
-      returnConsumedCapacity = Core.Nothing,
-      attributesToGet = Core.Nothing,
+    { projectionExpression = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      returnConsumedCapacity = Prelude.Nothing,
+      attributesToGet = Prelude.Nothing,
       tableName = pTableName_,
-      key = Core.mempty
+      key = Prelude.mempty
     }
 
 -- | A string that identifies one or more attributes to retrieve from the
@@ -240,13 +241,13 @@ newGetItem pTableName_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-getItem_projectionExpression :: Lens.Lens' GetItem (Core.Maybe Core.Text)
+getItem_projectionExpression :: Lens.Lens' GetItem (Prelude.Maybe Prelude.Text)
 getItem_projectionExpression = Lens.lens (\GetItem' {projectionExpression} -> projectionExpression) (\s@GetItem' {} a -> s {projectionExpression = a} :: GetItem)
 
 -- | Determines the read consistency model: If set to @true@, then the
 -- operation uses strongly consistent reads; otherwise, the operation uses
 -- eventually consistent reads.
-getItem_consistentRead :: Lens.Lens' GetItem (Core.Maybe Core.Bool)
+getItem_consistentRead :: Lens.Lens' GetItem (Prelude.Maybe Prelude.Bool)
 getItem_consistentRead = Lens.lens (\GetItem' {consistentRead} -> consistentRead) (\s@GetItem' {} a -> s {consistentRead = a} :: GetItem)
 
 -- | One or more substitution tokens for attribute names in an expression.
@@ -286,22 +287,22 @@ getItem_consistentRead = Lens.lens (\GetItem' {consistentRead} -> consistentRead
 -- For more information on expression attribute names, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-getItem_expressionAttributeNames :: Lens.Lens' GetItem (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getItem_expressionAttributeNames = Lens.lens (\GetItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@GetItem' {} a -> s {expressionAttributeNames = a} :: GetItem) Core.. Lens.mapping Lens._Coerce
+getItem_expressionAttributeNames :: Lens.Lens' GetItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getItem_expressionAttributeNames = Lens.lens (\GetItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@GetItem' {} a -> s {expressionAttributeNames = a} :: GetItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getItem_returnConsumedCapacity :: Lens.Lens' GetItem (Core.Maybe ReturnConsumedCapacity)
+getItem_returnConsumedCapacity :: Lens.Lens' GetItem (Prelude.Maybe ReturnConsumedCapacity)
 getItem_returnConsumedCapacity = Lens.lens (\GetItem' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@GetItem' {} a -> s {returnConsumedCapacity = a} :: GetItem)
 
 -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
 -- in the /Amazon DynamoDB Developer Guide/.
-getItem_attributesToGet :: Lens.Lens' GetItem (Core.Maybe (Core.NonEmpty Core.Text))
-getItem_attributesToGet = Lens.lens (\GetItem' {attributesToGet} -> attributesToGet) (\s@GetItem' {} a -> s {attributesToGet = a} :: GetItem) Core.. Lens.mapping Lens._Coerce
+getItem_attributesToGet :: Lens.Lens' GetItem (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getItem_attributesToGet = Lens.lens (\GetItem' {attributesToGet} -> attributesToGet) (\s@GetItem' {} a -> s {attributesToGet = a} :: GetItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the table containing the requested item.
-getItem_tableName :: Lens.Lens' GetItem Core.Text
+getItem_tableName :: Lens.Lens' GetItem Prelude.Text
 getItem_tableName = Lens.lens (\GetItem' {tableName} -> tableName) (\s@GetItem' {} a -> s {tableName = a} :: GetItem)
 
 -- | A map of attribute names to @AttributeValue@ objects, representing the
@@ -311,8 +312,8 @@ getItem_tableName = Lens.lens (\GetItem' {tableName} -> tableName) (\s@GetItem' 
 -- example, with a simple primary key, you only need to provide a value for
 -- the partition key. For a composite primary key, you must provide values
 -- for both the partition key and the sort key.
-getItem_key :: Lens.Lens' GetItem (Core.HashMap Core.Text AttributeValue)
-getItem_key = Lens.lens (\GetItem' {key} -> key) (\s@GetItem' {} a -> s {key = a} :: GetItem) Core.. Lens._Coerce
+getItem_key :: Lens.Lens' GetItem (Prelude.HashMap Prelude.Text AttributeValue)
+getItem_key = Lens.lens (\GetItem' {key} -> key) (\s@GetItem' {} a -> s {key = a} :: GetItem) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetItem where
   type AWSResponse GetItem = GetItemResponse
@@ -321,48 +322,52 @@ instance Core.AWSRequest GetItem where
     Response.receiveJSON
       ( \s h x ->
           GetItemResponse'
-            Core.<$> (x Core..?> "Item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ConsumedCapacity")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ConsumedCapacity")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetItem
+instance Prelude.Hashable GetItem
 
-instance Core.NFData GetItem
+instance Prelude.NFData GetItem
 
 instance Core.ToHeaders GetItem where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DynamoDB_20120810.GetItem" :: Core.ByteString),
+              Core.=# ("DynamoDB_20120810.GetItem" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetItem where
   toJSON GetItem' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProjectionExpression" Core..=)
-              Core.<$> projectionExpression,
-            ("ConsistentRead" Core..=) Core.<$> consistentRead,
+              Prelude.<$> projectionExpression,
+            ("ConsistentRead" Core..=)
+              Prelude.<$> consistentRead,
             ("ExpressionAttributeNames" Core..=)
-              Core.<$> expressionAttributeNames,
+              Prelude.<$> expressionAttributeNames,
             ("ReturnConsumedCapacity" Core..=)
-              Core.<$> returnConsumedCapacity,
-            ("AttributesToGet" Core..=) Core.<$> attributesToGet,
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just ("Key" Core..= key)
+              Prelude.<$> returnConsumedCapacity,
+            ("AttributesToGet" Core..=)
+              Prelude.<$> attributesToGet,
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just ("Key" Core..= key)
           ]
       )
 
 instance Core.ToPath GetItem where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetItem where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetItem@ operation.
 --
@@ -370,7 +375,7 @@ instance Core.ToQuery GetItem where
 data GetItemResponse = GetItemResponse'
   { -- | A map of attribute names to @AttributeValue@ objects, as specified by
     -- @ProjectionExpression@.
-    item :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
+    item :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The capacity units consumed by the @GetItem@ operation. The data
     -- returned includes the total provisioned throughput consumed, along with
     -- statistics for the table and any indexes involved in the operation.
@@ -378,11 +383,11 @@ data GetItemResponse = GetItemResponse'
     -- parameter was specified. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
     -- in the /Amazon DynamoDB Developer Guide/.
-    consumedCapacity :: Core.Maybe ConsumedCapacity,
+    consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetItemResponse' with all optional fields omitted.
@@ -406,19 +411,19 @@ data GetItemResponse = GetItemResponse'
 -- 'httpStatus', 'getItemResponse_httpStatus' - The response's http status code.
 newGetItemResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetItemResponse
 newGetItemResponse pHttpStatus_ =
   GetItemResponse'
-    { item = Core.Nothing,
-      consumedCapacity = Core.Nothing,
+    { item = Prelude.Nothing,
+      consumedCapacity = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A map of attribute names to @AttributeValue@ objects, as specified by
 -- @ProjectionExpression@.
-getItemResponse_item :: Lens.Lens' GetItemResponse (Core.Maybe (Core.HashMap Core.Text AttributeValue))
-getItemResponse_item = Lens.lens (\GetItemResponse' {item} -> item) (\s@GetItemResponse' {} a -> s {item = a} :: GetItemResponse) Core.. Lens.mapping Lens._Coerce
+getItemResponse_item :: Lens.Lens' GetItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+getItemResponse_item = Lens.lens (\GetItemResponse' {item} -> item) (\s@GetItemResponse' {} a -> s {item = a} :: GetItemResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The capacity units consumed by the @GetItem@ operation. The data
 -- returned includes the total provisioned throughput consumed, along with
@@ -427,11 +432,11 @@ getItemResponse_item = Lens.lens (\GetItemResponse' {item} -> item) (\s@GetItemR
 -- parameter was specified. For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
 -- in the /Amazon DynamoDB Developer Guide/.
-getItemResponse_consumedCapacity :: Lens.Lens' GetItemResponse (Core.Maybe ConsumedCapacity)
+getItemResponse_consumedCapacity :: Lens.Lens' GetItemResponse (Prelude.Maybe ConsumedCapacity)
 getItemResponse_consumedCapacity = Lens.lens (\GetItemResponse' {consumedCapacity} -> consumedCapacity) (\s@GetItemResponse' {} a -> s {consumedCapacity = a} :: GetItemResponse)
 
 -- | The response's http status code.
-getItemResponse_httpStatus :: Lens.Lens' GetItemResponse Core.Int
+getItemResponse_httpStatus :: Lens.Lens' GetItemResponse Prelude.Int
 getItemResponse_httpStatus = Lens.lens (\GetItemResponse' {httpStatus} -> httpStatus) (\s@GetItemResponse' {} a -> s {httpStatus = a} :: GetItemResponse)
 
-instance Core.NFData GetItemResponse
+instance Prelude.NFData GetItemResponse

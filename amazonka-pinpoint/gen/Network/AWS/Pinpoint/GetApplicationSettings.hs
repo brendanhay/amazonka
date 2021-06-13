@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetApplicationSettings = GetApplicationSettings'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApplicationSettings' with all optional fields omitted.
@@ -65,7 +66,7 @@ data GetApplicationSettings = GetApplicationSettings'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetApplicationSettings ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetApplicationSettings
 newGetApplicationSettings pApplicationId_ =
   GetApplicationSettings'
@@ -75,7 +76,7 @@ newGetApplicationSettings pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getApplicationSettings_applicationId :: Lens.Lens' GetApplicationSettings Core.Text
+getApplicationSettings_applicationId :: Lens.Lens' GetApplicationSettings Prelude.Text
 getApplicationSettings_applicationId = Lens.lens (\GetApplicationSettings' {applicationId} -> applicationId) (\s@GetApplicationSettings' {} a -> s {applicationId = a} :: GetApplicationSettings)
 
 instance Core.AWSRequest GetApplicationSettings where
@@ -87,38 +88,40 @@ instance Core.AWSRequest GetApplicationSettings where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationSettingsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetApplicationSettings
+instance Prelude.Hashable GetApplicationSettings
 
-instance Core.NFData GetApplicationSettings
+instance Prelude.NFData GetApplicationSettings
 
 instance Core.ToHeaders GetApplicationSettings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetApplicationSettings where
   toPath GetApplicationSettings' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apps/", Core.toBS applicationId, "/settings"]
 
 instance Core.ToQuery GetApplicationSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationSettingsResponse' smart constructor.
 data GetApplicationSettingsResponse = GetApplicationSettingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     applicationSettingsResource :: ApplicationSettingsResource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApplicationSettingsResponse' with all optional fields omitted.
@@ -133,7 +136,7 @@ data GetApplicationSettingsResponse = GetApplicationSettingsResponse'
 -- 'applicationSettingsResource', 'getApplicationSettingsResponse_applicationSettingsResource' - Undocumented member.
 newGetApplicationSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'applicationSettingsResource'
   ApplicationSettingsResource ->
   GetApplicationSettingsResponse
@@ -148,11 +151,13 @@ newGetApplicationSettingsResponse
       }
 
 -- | The response's http status code.
-getApplicationSettingsResponse_httpStatus :: Lens.Lens' GetApplicationSettingsResponse Core.Int
+getApplicationSettingsResponse_httpStatus :: Lens.Lens' GetApplicationSettingsResponse Prelude.Int
 getApplicationSettingsResponse_httpStatus = Lens.lens (\GetApplicationSettingsResponse' {httpStatus} -> httpStatus) (\s@GetApplicationSettingsResponse' {} a -> s {httpStatus = a} :: GetApplicationSettingsResponse)
 
 -- | Undocumented member.
 getApplicationSettingsResponse_applicationSettingsResource :: Lens.Lens' GetApplicationSettingsResponse ApplicationSettingsResource
 getApplicationSettingsResponse_applicationSettingsResource = Lens.lens (\GetApplicationSettingsResponse' {applicationSettingsResource} -> applicationSettingsResource) (\s@GetApplicationSettingsResponse' {} a -> s {applicationSettingsResource = a} :: GetApplicationSettingsResponse)
 
-instance Core.NFData GetApplicationSettingsResponse
+instance
+  Prelude.NFData
+    GetApplicationSettingsResponse

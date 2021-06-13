@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,16 +57,16 @@ data CreateFlowDefinition = CreateFlowDefinition'
   { -- | Container for configuring the source of human task requests. Use to
     -- specify if Amazon Rekognition or Amazon Textract is used as an
     -- integration source.
-    humanLoopRequestSource :: Core.Maybe HumanLoopRequestSource,
+    humanLoopRequestSource :: Prelude.Maybe HumanLoopRequestSource,
     -- | An array of key-value pairs that contain metadata to help you categorize
     -- and organize a flow definition. Each tag consists of a key and a value,
     -- both of which you define.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | An object containing information about the events that trigger a human
     -- workflow.
-    humanLoopActivationConfig :: Core.Maybe HumanLoopActivationConfig,
+    humanLoopActivationConfig :: Prelude.Maybe HumanLoopActivationConfig,
     -- | The name of your flow definition.
-    flowDefinitionName :: Core.Text,
+    flowDefinitionName :: Prelude.Text,
     -- | An object containing information about the tasks the human reviewers
     -- will perform.
     humanLoopConfig :: HumanLoopConfig,
@@ -75,9 +76,9 @@ data CreateFlowDefinition = CreateFlowDefinition'
     -- | The Amazon Resource Name (ARN) of the role needed to call other services
     -- on your behalf. For example,
     -- @arn:aws:iam::1234567890:role\/service-role\/AmazonSageMaker-ExecutionRole-20180111T151298@.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFlowDefinition' with all optional fields omitted.
@@ -111,13 +112,13 @@ data CreateFlowDefinition = CreateFlowDefinition'
 -- @arn:aws:iam::1234567890:role\/service-role\/AmazonSageMaker-ExecutionRole-20180111T151298@.
 newCreateFlowDefinition ::
   -- | 'flowDefinitionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'humanLoopConfig'
   HumanLoopConfig ->
   -- | 'outputConfig'
   FlowDefinitionOutputConfig ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateFlowDefinition
 newCreateFlowDefinition
   pFlowDefinitionName_
@@ -126,9 +127,9 @@ newCreateFlowDefinition
   pRoleArn_ =
     CreateFlowDefinition'
       { humanLoopRequestSource =
-          Core.Nothing,
-        tags = Core.Nothing,
-        humanLoopActivationConfig = Core.Nothing,
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
+        humanLoopActivationConfig = Prelude.Nothing,
         flowDefinitionName = pFlowDefinitionName_,
         humanLoopConfig = pHumanLoopConfig_,
         outputConfig = pOutputConfig_,
@@ -138,22 +139,22 @@ newCreateFlowDefinition
 -- | Container for configuring the source of human task requests. Use to
 -- specify if Amazon Rekognition or Amazon Textract is used as an
 -- integration source.
-createFlowDefinition_humanLoopRequestSource :: Lens.Lens' CreateFlowDefinition (Core.Maybe HumanLoopRequestSource)
+createFlowDefinition_humanLoopRequestSource :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe HumanLoopRequestSource)
 createFlowDefinition_humanLoopRequestSource = Lens.lens (\CreateFlowDefinition' {humanLoopRequestSource} -> humanLoopRequestSource) (\s@CreateFlowDefinition' {} a -> s {humanLoopRequestSource = a} :: CreateFlowDefinition)
 
 -- | An array of key-value pairs that contain metadata to help you categorize
 -- and organize a flow definition. Each tag consists of a key and a value,
 -- both of which you define.
-createFlowDefinition_tags :: Lens.Lens' CreateFlowDefinition (Core.Maybe [Tag])
-createFlowDefinition_tags = Lens.lens (\CreateFlowDefinition' {tags} -> tags) (\s@CreateFlowDefinition' {} a -> s {tags = a} :: CreateFlowDefinition) Core.. Lens.mapping Lens._Coerce
+createFlowDefinition_tags :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe [Tag])
+createFlowDefinition_tags = Lens.lens (\CreateFlowDefinition' {tags} -> tags) (\s@CreateFlowDefinition' {} a -> s {tags = a} :: CreateFlowDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An object containing information about the events that trigger a human
 -- workflow.
-createFlowDefinition_humanLoopActivationConfig :: Lens.Lens' CreateFlowDefinition (Core.Maybe HumanLoopActivationConfig)
+createFlowDefinition_humanLoopActivationConfig :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe HumanLoopActivationConfig)
 createFlowDefinition_humanLoopActivationConfig = Lens.lens (\CreateFlowDefinition' {humanLoopActivationConfig} -> humanLoopActivationConfig) (\s@CreateFlowDefinition' {} a -> s {humanLoopActivationConfig = a} :: CreateFlowDefinition)
 
 -- | The name of your flow definition.
-createFlowDefinition_flowDefinitionName :: Lens.Lens' CreateFlowDefinition Core.Text
+createFlowDefinition_flowDefinitionName :: Lens.Lens' CreateFlowDefinition Prelude.Text
 createFlowDefinition_flowDefinitionName = Lens.lens (\CreateFlowDefinition' {flowDefinitionName} -> flowDefinitionName) (\s@CreateFlowDefinition' {} a -> s {flowDefinitionName = a} :: CreateFlowDefinition)
 
 -- | An object containing information about the tasks the human reviewers
@@ -169,7 +170,7 @@ createFlowDefinition_outputConfig = Lens.lens (\CreateFlowDefinition' {outputCon
 -- | The Amazon Resource Name (ARN) of the role needed to call other services
 -- on your behalf. For example,
 -- @arn:aws:iam::1234567890:role\/service-role\/AmazonSageMaker-ExecutionRole-20180111T151298@.
-createFlowDefinition_roleArn :: Lens.Lens' CreateFlowDefinition Core.Text
+createFlowDefinition_roleArn :: Lens.Lens' CreateFlowDefinition Prelude.Text
 createFlowDefinition_roleArn = Lens.lens (\CreateFlowDefinition' {roleArn} -> roleArn) (\s@CreateFlowDefinition' {} a -> s {roleArn = a} :: CreateFlowDefinition)
 
 instance Core.AWSRequest CreateFlowDefinition where
@@ -181,59 +182,61 @@ instance Core.AWSRequest CreateFlowDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateFlowDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "FlowDefinitionArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "FlowDefinitionArn")
       )
 
-instance Core.Hashable CreateFlowDefinition
+instance Prelude.Hashable CreateFlowDefinition
 
-instance Core.NFData CreateFlowDefinition
+instance Prelude.NFData CreateFlowDefinition
 
 instance Core.ToHeaders CreateFlowDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.CreateFlowDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateFlowDefinition where
   toJSON CreateFlowDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("HumanLoopRequestSource" Core..=)
-              Core.<$> humanLoopRequestSource,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> humanLoopRequestSource,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("HumanLoopActivationConfig" Core..=)
-              Core.<$> humanLoopActivationConfig,
-            Core.Just
+              Prelude.<$> humanLoopActivationConfig,
+            Prelude.Just
               ("FlowDefinitionName" Core..= flowDefinitionName),
-            Core.Just
+            Prelude.Just
               ("HumanLoopConfig" Core..= humanLoopConfig),
-            Core.Just ("OutputConfig" Core..= outputConfig),
-            Core.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("OutputConfig" Core..= outputConfig),
+            Prelude.Just ("RoleArn" Core..= roleArn)
           ]
       )
 
 instance Core.ToPath CreateFlowDefinition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateFlowDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFlowDefinitionResponse' smart constructor.
 data CreateFlowDefinitionResponse = CreateFlowDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the flow definition you create.
-    flowDefinitionArn :: Core.Text
+    flowDefinitionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFlowDefinitionResponse' with all optional fields omitted.
@@ -248,9 +251,9 @@ data CreateFlowDefinitionResponse = CreateFlowDefinitionResponse'
 -- 'flowDefinitionArn', 'createFlowDefinitionResponse_flowDefinitionArn' - The Amazon Resource Name (ARN) of the flow definition you create.
 newCreateFlowDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'flowDefinitionArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateFlowDefinitionResponse
 newCreateFlowDefinitionResponse
   pHttpStatus_
@@ -262,11 +265,11 @@ newCreateFlowDefinitionResponse
       }
 
 -- | The response's http status code.
-createFlowDefinitionResponse_httpStatus :: Lens.Lens' CreateFlowDefinitionResponse Core.Int
+createFlowDefinitionResponse_httpStatus :: Lens.Lens' CreateFlowDefinitionResponse Prelude.Int
 createFlowDefinitionResponse_httpStatus = Lens.lens (\CreateFlowDefinitionResponse' {httpStatus} -> httpStatus) (\s@CreateFlowDefinitionResponse' {} a -> s {httpStatus = a} :: CreateFlowDefinitionResponse)
 
 -- | The Amazon Resource Name (ARN) of the flow definition you create.
-createFlowDefinitionResponse_flowDefinitionArn :: Lens.Lens' CreateFlowDefinitionResponse Core.Text
+createFlowDefinitionResponse_flowDefinitionArn :: Lens.Lens' CreateFlowDefinitionResponse Prelude.Text
 createFlowDefinitionResponse_flowDefinitionArn = Lens.lens (\CreateFlowDefinitionResponse' {flowDefinitionArn} -> flowDefinitionArn) (\s@CreateFlowDefinitionResponse' {} a -> s {flowDefinitionArn = a} :: CreateFlowDefinitionResponse)
 
-instance Core.NFData CreateFlowDefinitionResponse
+instance Prelude.NFData CreateFlowDefinitionResponse

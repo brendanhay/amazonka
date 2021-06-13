@@ -17,6 +17,7 @@ module Network.AWS.RDS.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.DescribeDBClusterSnapshots
 import Network.AWS.RDS.DescribeDBInstances
 import Network.AWS.RDS.DescribeDBSnapshots
@@ -35,7 +36,7 @@ newDBSnapshotDeleted =
             Core.True
             Core.AcceptSuccess
             ( describeDBSnapshotsResponse_dbSnapshots
-                Core.. Lens._Just
+                Prelude.. Lens._Just
             ),
           Core.matchError
             "DBSnapshotNotFound"
@@ -46,12 +47,12 @@ newDBSnapshotDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -59,12 +60,12 @@ newDBSnapshotDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -72,12 +73,12 @@ newDBSnapshotDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "resetting-master-credentials"
@@ -85,12 +86,12 @@ newDBSnapshotDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -112,12 +113,12 @@ newDBSnapshotCompleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -136,12 +137,12 @@ newDBInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -149,12 +150,12 @@ newDBInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -162,12 +163,12 @@ newDBInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -175,12 +176,12 @@ newDBInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-restore"
@@ -188,12 +189,12 @@ newDBInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-parameters"
@@ -201,12 +202,12 @@ newDBInstanceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -225,12 +226,12 @@ newDBSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -238,12 +239,12 @@ newDBSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -251,12 +252,12 @@ newDBSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -264,12 +265,12 @@ newDBSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-restore"
@@ -277,12 +278,12 @@ newDBSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-parameters"
@@ -290,12 +291,12 @@ newDBSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBSnapshotsResponse_dbSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -313,7 +314,7 @@ newDBClusterSnapshotDeleted =
             Core.True
             Core.AcceptSuccess
             ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                Core.. Lens._Just
+                Prelude.. Lens._Just
             ),
           Core.matchError
             "DBClusterSnapshotNotFoundFault"
@@ -324,12 +325,12 @@ newDBClusterSnapshotDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -337,12 +338,12 @@ newDBClusterSnapshotDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -350,12 +351,12 @@ newDBClusterSnapshotDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "resetting-master-credentials"
@@ -363,12 +364,12 @@ newDBClusterSnapshotDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -385,7 +386,7 @@ newDBInstanceDeleted =
             Core.True
             Core.AcceptSuccess
             ( describeDBInstancesResponse_dbInstances
-                Core.. Lens._Just
+                Prelude.. Lens._Just
             ),
           Core.matchError
             "DBInstanceNotFound"
@@ -396,12 +397,12 @@ newDBInstanceDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -409,12 +410,12 @@ newDBInstanceDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -422,12 +423,12 @@ newDBInstanceDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "resetting-master-credentials"
@@ -435,12 +436,12 @@ newDBInstanceDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBInstancesResponse_dbInstances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbInstance_dbInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -460,12 +461,12 @@ newDBClusterSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -473,12 +474,12 @@ newDBClusterSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -486,12 +487,12 @@ newDBClusterSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -499,12 +500,12 @@ newDBClusterSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-restore"
@@ -512,12 +513,12 @@ newDBClusterSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-parameters"
@@ -525,12 +526,12 @@ newDBClusterSnapshotAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dbClusterSnapshot_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

@@ -43,17 +43,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateTrigger' smart constructor.
 data UpdateTrigger = UpdateTrigger'
   { -- | The name of the trigger to update.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The new values with which to update the trigger.
     triggerUpdate :: TriggerUpdate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTrigger' with all optional fields omitted.
@@ -68,7 +69,7 @@ data UpdateTrigger = UpdateTrigger'
 -- 'triggerUpdate', 'updateTrigger_triggerUpdate' - The new values with which to update the trigger.
 newUpdateTrigger ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'triggerUpdate'
   TriggerUpdate ->
   UpdateTrigger
@@ -79,7 +80,7 @@ newUpdateTrigger pName_ pTriggerUpdate_ =
     }
 
 -- | The name of the trigger to update.
-updateTrigger_name :: Lens.Lens' UpdateTrigger Core.Text
+updateTrigger_name :: Lens.Lens' UpdateTrigger Prelude.Text
 updateTrigger_name = Lens.lens (\UpdateTrigger' {name} -> name) (\s@UpdateTrigger' {} a -> s {name = a} :: UpdateTrigger)
 
 -- | The new values with which to update the trigger.
@@ -95,48 +96,51 @@ instance Core.AWSRequest UpdateTrigger where
     Response.receiveJSON
       ( \s h x ->
           UpdateTriggerResponse'
-            Core.<$> (x Core..?> "Trigger")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Trigger")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateTrigger
+instance Prelude.Hashable UpdateTrigger
 
-instance Core.NFData UpdateTrigger
+instance Prelude.NFData UpdateTrigger
 
 instance Core.ToHeaders UpdateTrigger where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateTrigger" :: Core.ByteString),
+              Core.=# ("AWSGlue.UpdateTrigger" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateTrigger where
   toJSON UpdateTrigger' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("TriggerUpdate" Core..= triggerUpdate)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just
+              ("TriggerUpdate" Core..= triggerUpdate)
           ]
       )
 
 instance Core.ToPath UpdateTrigger where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateTrigger where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTriggerResponse' smart constructor.
 data UpdateTriggerResponse = UpdateTriggerResponse'
   { -- | The resulting trigger definition.
-    trigger :: Core.Maybe Trigger,
+    trigger :: Prelude.Maybe Trigger,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTriggerResponse' with all optional fields omitted.
@@ -151,20 +155,20 @@ data UpdateTriggerResponse = UpdateTriggerResponse'
 -- 'httpStatus', 'updateTriggerResponse_httpStatus' - The response's http status code.
 newUpdateTriggerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateTriggerResponse
 newUpdateTriggerResponse pHttpStatus_ =
   UpdateTriggerResponse'
-    { trigger = Core.Nothing,
+    { trigger = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The resulting trigger definition.
-updateTriggerResponse_trigger :: Lens.Lens' UpdateTriggerResponse (Core.Maybe Trigger)
+updateTriggerResponse_trigger :: Lens.Lens' UpdateTriggerResponse (Prelude.Maybe Trigger)
 updateTriggerResponse_trigger = Lens.lens (\UpdateTriggerResponse' {trigger} -> trigger) (\s@UpdateTriggerResponse' {} a -> s {trigger = a} :: UpdateTriggerResponse)
 
 -- | The response's http status code.
-updateTriggerResponse_httpStatus :: Lens.Lens' UpdateTriggerResponse Core.Int
+updateTriggerResponse_httpStatus :: Lens.Lens' UpdateTriggerResponse Prelude.Int
 updateTriggerResponse_httpStatus = Lens.lens (\UpdateTriggerResponse' {httpStatus} -> httpStatus) (\s@UpdateTriggerResponse' {} a -> s {httpStatus = a} :: UpdateTriggerResponse)
 
-instance Core.NFData UpdateTriggerResponse
+instance Prelude.NFData UpdateTriggerResponse

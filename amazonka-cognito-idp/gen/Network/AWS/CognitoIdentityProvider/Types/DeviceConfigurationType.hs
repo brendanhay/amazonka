@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.DeviceConfigurationType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration for the user pool\'s device tracking.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data DeviceConfigurationType = DeviceConfigurationType'
   { -- | Indicates whether a challenge is required on a new device. Only
     -- applicable to a new device.
-    challengeRequiredOnNewDevice :: Core.Maybe Core.Bool,
+    challengeRequiredOnNewDevice :: Prelude.Maybe Prelude.Bool,
     -- | If true, a device is only remembered on user prompt.
-    deviceOnlyRememberedOnUserPrompt :: Core.Maybe Core.Bool
+    deviceOnlyRememberedOnUserPrompt :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeviceConfigurationType' with all optional fields omitted.
@@ -51,17 +52,17 @@ newDeviceConfigurationType ::
 newDeviceConfigurationType =
   DeviceConfigurationType'
     { challengeRequiredOnNewDevice =
-        Core.Nothing,
-      deviceOnlyRememberedOnUserPrompt = Core.Nothing
+        Prelude.Nothing,
+      deviceOnlyRememberedOnUserPrompt = Prelude.Nothing
     }
 
 -- | Indicates whether a challenge is required on a new device. Only
 -- applicable to a new device.
-deviceConfigurationType_challengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Core.Maybe Core.Bool)
+deviceConfigurationType_challengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
 deviceConfigurationType_challengeRequiredOnNewDevice = Lens.lens (\DeviceConfigurationType' {challengeRequiredOnNewDevice} -> challengeRequiredOnNewDevice) (\s@DeviceConfigurationType' {} a -> s {challengeRequiredOnNewDevice = a} :: DeviceConfigurationType)
 
 -- | If true, a device is only remembered on user prompt.
-deviceConfigurationType_deviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Core.Maybe Core.Bool)
+deviceConfigurationType_deviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
 deviceConfigurationType_deviceOnlyRememberedOnUserPrompt = Lens.lens (\DeviceConfigurationType' {deviceOnlyRememberedOnUserPrompt} -> deviceOnlyRememberedOnUserPrompt) (\s@DeviceConfigurationType' {} a -> s {deviceOnlyRememberedOnUserPrompt = a} :: DeviceConfigurationType)
 
 instance Core.FromJSON DeviceConfigurationType where
@@ -70,21 +71,21 @@ instance Core.FromJSON DeviceConfigurationType where
       "DeviceConfigurationType"
       ( \x ->
           DeviceConfigurationType'
-            Core.<$> (x Core..:? "ChallengeRequiredOnNewDevice")
-            Core.<*> (x Core..:? "DeviceOnlyRememberedOnUserPrompt")
+            Prelude.<$> (x Core..:? "ChallengeRequiredOnNewDevice")
+            Prelude.<*> (x Core..:? "DeviceOnlyRememberedOnUserPrompt")
       )
 
-instance Core.Hashable DeviceConfigurationType
+instance Prelude.Hashable DeviceConfigurationType
 
-instance Core.NFData DeviceConfigurationType
+instance Prelude.NFData DeviceConfigurationType
 
 instance Core.ToJSON DeviceConfigurationType where
   toJSON DeviceConfigurationType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ChallengeRequiredOnNewDevice" Core..=)
-              Core.<$> challengeRequiredOnNewDevice,
+              Prelude.<$> challengeRequiredOnNewDevice,
             ("DeviceOnlyRememberedOnUserPrompt" Core..=)
-              Core.<$> deviceOnlyRememberedOnUserPrompt
+              Prelude.<$> deviceOnlyRememberedOnUserPrompt
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MonitoringInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 
 -- | The inputs for a monitoring job.
@@ -30,7 +31,7 @@ data MonitoringInput = MonitoringInput'
   { -- | The endpoint for a monitoring job.
     endpointInput :: EndpointInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringInput' with all optional fields omitted.
@@ -58,16 +59,18 @@ instance Core.FromJSON MonitoringInput where
       "MonitoringInput"
       ( \x ->
           MonitoringInput'
-            Core.<$> (x Core..: "EndpointInput")
+            Prelude.<$> (x Core..: "EndpointInput")
       )
 
-instance Core.Hashable MonitoringInput
+instance Prelude.Hashable MonitoringInput
 
-instance Core.NFData MonitoringInput
+instance Prelude.NFData MonitoringInput
 
 instance Core.ToJSON MonitoringInput where
   toJSON MonitoringInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("EndpointInput" Core..= endpointInput)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("EndpointInput" Core..= endpointInput)
+          ]
       )

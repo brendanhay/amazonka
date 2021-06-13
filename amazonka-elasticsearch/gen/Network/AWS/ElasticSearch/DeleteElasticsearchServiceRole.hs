@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data DeleteElasticsearchServiceRole = DeleteElasticsearchServiceRole'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteElasticsearchServiceRole' with all optional fields omitted.
@@ -70,27 +71,31 @@ instance
     Response.receiveNull
       DeleteElasticsearchServiceRoleResponse'
 
-instance Core.Hashable DeleteElasticsearchServiceRole
+instance
+  Prelude.Hashable
+    DeleteElasticsearchServiceRole
 
-instance Core.NFData DeleteElasticsearchServiceRole
+instance
+  Prelude.NFData
+    DeleteElasticsearchServiceRole
 
 instance
   Core.ToHeaders
     DeleteElasticsearchServiceRole
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteElasticsearchServiceRole where
-  toPath = Core.const "/2015-01-01/es/role"
+  toPath = Prelude.const "/2015-01-01/es/role"
 
 instance Core.ToQuery DeleteElasticsearchServiceRole where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteElasticsearchServiceRoleResponse' smart constructor.
 data DeleteElasticsearchServiceRoleResponse = DeleteElasticsearchServiceRoleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteElasticsearchServiceRoleResponse' with all optional fields omitted.
@@ -102,5 +107,5 @@ newDeleteElasticsearchServiceRoleResponse =
   DeleteElasticsearchServiceRoleResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteElasticsearchServiceRoleResponse

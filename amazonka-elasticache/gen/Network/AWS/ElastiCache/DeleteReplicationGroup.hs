@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,18 +64,18 @@ import qualified Network.AWS.Response as Response
 data DeleteReplicationGroup = DeleteReplicationGroup'
   { -- | If set to @true@, all of the read replicas are deleted, but the primary
     -- node is retained.
-    retainPrimaryCluster :: Core.Maybe Core.Bool,
+    retainPrimaryCluster :: Prelude.Maybe Prelude.Bool,
     -- | The name of a final node group (shard) snapshot. ElastiCache creates the
     -- snapshot from the primary node in the cluster, rather than one of the
     -- replicas; this is to ensure that it captures the freshest data. After
     -- the final snapshot is taken, the replication group is immediately
     -- deleted.
-    finalSnapshotIdentifier :: Core.Maybe Core.Text,
+    finalSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the cluster to be deleted. This parameter is not case
     -- sensitive.
-    replicationGroupId :: Core.Text
+    replicationGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationGroup' with all optional fields omitted.
@@ -97,19 +98,19 @@ data DeleteReplicationGroup = DeleteReplicationGroup'
 -- sensitive.
 newDeleteReplicationGroup ::
   -- | 'replicationGroupId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteReplicationGroup
 newDeleteReplicationGroup pReplicationGroupId_ =
   DeleteReplicationGroup'
     { retainPrimaryCluster =
-        Core.Nothing,
-      finalSnapshotIdentifier = Core.Nothing,
+        Prelude.Nothing,
+      finalSnapshotIdentifier = Prelude.Nothing,
       replicationGroupId = pReplicationGroupId_
     }
 
 -- | If set to @true@, all of the read replicas are deleted, but the primary
 -- node is retained.
-deleteReplicationGroup_retainPrimaryCluster :: Lens.Lens' DeleteReplicationGroup (Core.Maybe Core.Bool)
+deleteReplicationGroup_retainPrimaryCluster :: Lens.Lens' DeleteReplicationGroup (Prelude.Maybe Prelude.Bool)
 deleteReplicationGroup_retainPrimaryCluster = Lens.lens (\DeleteReplicationGroup' {retainPrimaryCluster} -> retainPrimaryCluster) (\s@DeleteReplicationGroup' {} a -> s {retainPrimaryCluster = a} :: DeleteReplicationGroup)
 
 -- | The name of a final node group (shard) snapshot. ElastiCache creates the
@@ -117,12 +118,12 @@ deleteReplicationGroup_retainPrimaryCluster = Lens.lens (\DeleteReplicationGroup
 -- replicas; this is to ensure that it captures the freshest data. After
 -- the final snapshot is taken, the replication group is immediately
 -- deleted.
-deleteReplicationGroup_finalSnapshotIdentifier :: Lens.Lens' DeleteReplicationGroup (Core.Maybe Core.Text)
+deleteReplicationGroup_finalSnapshotIdentifier :: Lens.Lens' DeleteReplicationGroup (Prelude.Maybe Prelude.Text)
 deleteReplicationGroup_finalSnapshotIdentifier = Lens.lens (\DeleteReplicationGroup' {finalSnapshotIdentifier} -> finalSnapshotIdentifier) (\s@DeleteReplicationGroup' {} a -> s {finalSnapshotIdentifier = a} :: DeleteReplicationGroup)
 
 -- | The identifier for the cluster to be deleted. This parameter is not case
 -- sensitive.
-deleteReplicationGroup_replicationGroupId :: Lens.Lens' DeleteReplicationGroup Core.Text
+deleteReplicationGroup_replicationGroupId :: Lens.Lens' DeleteReplicationGroup Prelude.Text
 deleteReplicationGroup_replicationGroupId = Lens.lens (\DeleteReplicationGroup' {replicationGroupId} -> replicationGroupId) (\s@DeleteReplicationGroup' {} a -> s {replicationGroupId = a} :: DeleteReplicationGroup)
 
 instance Core.AWSRequest DeleteReplicationGroup where
@@ -135,26 +136,27 @@ instance Core.AWSRequest DeleteReplicationGroup where
       "DeleteReplicationGroupResult"
       ( \s h x ->
           DeleteReplicationGroupResponse'
-            Core.<$> (x Core..@? "ReplicationGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ReplicationGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteReplicationGroup
+instance Prelude.Hashable DeleteReplicationGroup
 
-instance Core.NFData DeleteReplicationGroup
+instance Prelude.NFData DeleteReplicationGroup
 
 instance Core.ToHeaders DeleteReplicationGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteReplicationGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteReplicationGroup where
   toQuery DeleteReplicationGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteReplicationGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("DeleteReplicationGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "RetainPrimaryCluster" Core.=: retainPrimaryCluster,
         "FinalSnapshotIdentifier"
           Core.=: finalSnapshotIdentifier,
@@ -163,11 +165,11 @@ instance Core.ToQuery DeleteReplicationGroup where
 
 -- | /See:/ 'newDeleteReplicationGroupResponse' smart constructor.
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
-  { replicationGroup :: Core.Maybe ReplicationGroup,
+  { replicationGroup :: Prelude.Maybe ReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationGroupResponse' with all optional fields omitted.
@@ -182,21 +184,23 @@ data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
 -- 'httpStatus', 'deleteReplicationGroupResponse_httpStatus' - The response's http status code.
 newDeleteReplicationGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteReplicationGroupResponse
 newDeleteReplicationGroupResponse pHttpStatus_ =
   DeleteReplicationGroupResponse'
     { replicationGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteReplicationGroupResponse_replicationGroup :: Lens.Lens' DeleteReplicationGroupResponse (Core.Maybe ReplicationGroup)
+deleteReplicationGroupResponse_replicationGroup :: Lens.Lens' DeleteReplicationGroupResponse (Prelude.Maybe ReplicationGroup)
 deleteReplicationGroupResponse_replicationGroup = Lens.lens (\DeleteReplicationGroupResponse' {replicationGroup} -> replicationGroup) (\s@DeleteReplicationGroupResponse' {} a -> s {replicationGroup = a} :: DeleteReplicationGroupResponse)
 
 -- | The response's http status code.
-deleteReplicationGroupResponse_httpStatus :: Lens.Lens' DeleteReplicationGroupResponse Core.Int
+deleteReplicationGroupResponse_httpStatus :: Lens.Lens' DeleteReplicationGroupResponse Prelude.Int
 deleteReplicationGroupResponse_httpStatus = Lens.lens (\DeleteReplicationGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteReplicationGroupResponse' {} a -> s {httpStatus = a} :: DeleteReplicationGroupResponse)
 
-instance Core.NFData DeleteReplicationGroupResponse
+instance
+  Prelude.NFData
+    DeleteReplicationGroupResponse

@@ -46,25 +46,26 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetObjectAttributes' smart constructor.
 data GetObjectAttributes = GetObjectAttributes'
   { -- | The consistency level at which to retrieve the attributes on an object.
-    consistencyLevel :: Core.Maybe ConsistencyLevel,
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where the object resides.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | Reference that identifies the object whose attributes will be retrieved.
     objectReference :: ObjectReference,
     -- | Identifier for the facet whose attributes will be retrieved. See
     -- SchemaFacet for details.
     schemaFacet :: SchemaFacet,
     -- | List of attribute names whose values will be retrieved.
-    attributeNames :: [Core.Text]
+    attributeNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectAttributes' with all optional fields omitted.
@@ -87,7 +88,7 @@ data GetObjectAttributes = GetObjectAttributes'
 -- 'attributeNames', 'getObjectAttributes_attributeNames' - List of attribute names whose values will be retrieved.
 newGetObjectAttributes ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'objectReference'
   ObjectReference ->
   -- | 'schemaFacet'
@@ -99,20 +100,20 @@ newGetObjectAttributes
   pSchemaFacet_ =
     GetObjectAttributes'
       { consistencyLevel =
-          Core.Nothing,
+          Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_,
         schemaFacet = pSchemaFacet_,
-        attributeNames = Core.mempty
+        attributeNames = Prelude.mempty
       }
 
 -- | The consistency level at which to retrieve the attributes on an object.
-getObjectAttributes_consistencyLevel :: Lens.Lens' GetObjectAttributes (Core.Maybe ConsistencyLevel)
+getObjectAttributes_consistencyLevel :: Lens.Lens' GetObjectAttributes (Prelude.Maybe ConsistencyLevel)
 getObjectAttributes_consistencyLevel = Lens.lens (\GetObjectAttributes' {consistencyLevel} -> consistencyLevel) (\s@GetObjectAttributes' {} a -> s {consistencyLevel = a} :: GetObjectAttributes)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the object resides.
-getObjectAttributes_directoryArn :: Lens.Lens' GetObjectAttributes Core.Text
+getObjectAttributes_directoryArn :: Lens.Lens' GetObjectAttributes Prelude.Text
 getObjectAttributes_directoryArn = Lens.lens (\GetObjectAttributes' {directoryArn} -> directoryArn) (\s@GetObjectAttributes' {} a -> s {directoryArn = a} :: GetObjectAttributes)
 
 -- | Reference that identifies the object whose attributes will be retrieved.
@@ -125,8 +126,8 @@ getObjectAttributes_schemaFacet :: Lens.Lens' GetObjectAttributes SchemaFacet
 getObjectAttributes_schemaFacet = Lens.lens (\GetObjectAttributes' {schemaFacet} -> schemaFacet) (\s@GetObjectAttributes' {} a -> s {schemaFacet = a} :: GetObjectAttributes)
 
 -- | List of attribute names whose values will be retrieved.
-getObjectAttributes_attributeNames :: Lens.Lens' GetObjectAttributes [Core.Text]
-getObjectAttributes_attributeNames = Lens.lens (\GetObjectAttributes' {attributeNames} -> attributeNames) (\s@GetObjectAttributes' {} a -> s {attributeNames = a} :: GetObjectAttributes) Core.. Lens._Coerce
+getObjectAttributes_attributeNames :: Lens.Lens' GetObjectAttributes [Prelude.Text]
+getObjectAttributes_attributeNames = Lens.lens (\GetObjectAttributes' {attributeNames} -> attributeNames) (\s@GetObjectAttributes' {} a -> s {attributeNames = a} :: GetObjectAttributes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetObjectAttributes where
   type
@@ -137,17 +138,17 @@ instance Core.AWSRequest GetObjectAttributes where
     Response.receiveJSON
       ( \s h x ->
           GetObjectAttributesResponse'
-            Core.<$> (x Core..?> "Attributes" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetObjectAttributes
+instance Prelude.Hashable GetObjectAttributes
 
-instance Core.NFData GetObjectAttributes
+instance Prelude.NFData GetObjectAttributes
 
 instance Core.ToHeaders GetObjectAttributes where
   toHeaders GetObjectAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-consistency-level" Core.=# consistencyLevel,
         "x-amz-data-partition" Core.=# directoryArn
       ]
@@ -155,30 +156,31 @@ instance Core.ToHeaders GetObjectAttributes where
 instance Core.ToJSON GetObjectAttributes where
   toJSON GetObjectAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ObjectReference" Core..= objectReference),
-            Core.Just ("SchemaFacet" Core..= schemaFacet),
-            Core.Just ("AttributeNames" Core..= attributeNames)
+            Prelude.Just ("SchemaFacet" Core..= schemaFacet),
+            Prelude.Just
+              ("AttributeNames" Core..= attributeNames)
           ]
       )
 
 instance Core.ToPath GetObjectAttributes where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/object/attributes/get"
 
 instance Core.ToQuery GetObjectAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetObjectAttributesResponse' smart constructor.
 data GetObjectAttributesResponse = GetObjectAttributesResponse'
   { -- | The attributes that are associated with the object.
-    attributes :: Core.Maybe [AttributeKeyAndValue],
+    attributes :: Prelude.Maybe [AttributeKeyAndValue],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectAttributesResponse' with all optional fields omitted.
@@ -193,21 +195,21 @@ data GetObjectAttributesResponse = GetObjectAttributesResponse'
 -- 'httpStatus', 'getObjectAttributesResponse_httpStatus' - The response's http status code.
 newGetObjectAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetObjectAttributesResponse
 newGetObjectAttributesResponse pHttpStatus_ =
   GetObjectAttributesResponse'
     { attributes =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The attributes that are associated with the object.
-getObjectAttributesResponse_attributes :: Lens.Lens' GetObjectAttributesResponse (Core.Maybe [AttributeKeyAndValue])
-getObjectAttributesResponse_attributes = Lens.lens (\GetObjectAttributesResponse' {attributes} -> attributes) (\s@GetObjectAttributesResponse' {} a -> s {attributes = a} :: GetObjectAttributesResponse) Core.. Lens.mapping Lens._Coerce
+getObjectAttributesResponse_attributes :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
+getObjectAttributesResponse_attributes = Lens.lens (\GetObjectAttributesResponse' {attributes} -> attributes) (\s@GetObjectAttributesResponse' {} a -> s {attributes = a} :: GetObjectAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getObjectAttributesResponse_httpStatus :: Lens.Lens' GetObjectAttributesResponse Core.Int
+getObjectAttributesResponse_httpStatus :: Lens.Lens' GetObjectAttributesResponse Prelude.Int
 getObjectAttributesResponse_httpStatus = Lens.lens (\GetObjectAttributesResponse' {httpStatus} -> httpStatus) (\s@GetObjectAttributesResponse' {} a -> s {httpStatus = a} :: GetObjectAttributesResponse)
 
-instance Core.NFData GetObjectAttributesResponse
+instance Prelude.NFData GetObjectAttributesResponse

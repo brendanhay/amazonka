@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -46,9 +47,9 @@ import Network.AWS.Transcribe.Types
 data DeleteMedicalTranscriptionJob = DeleteMedicalTranscriptionJob'
   { -- | The name you provide to the @DeleteMedicalTranscriptionJob@ object to
     -- delete a transcription job.
-    medicalTranscriptionJobName :: Core.Text
+    medicalTranscriptionJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMedicalTranscriptionJob' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteMedicalTranscriptionJob = DeleteMedicalTranscriptionJob'
 -- delete a transcription job.
 newDeleteMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMedicalTranscriptionJob
 newDeleteMedicalTranscriptionJob
   pMedicalTranscriptionJobName_ =
@@ -73,7 +74,7 @@ newDeleteMedicalTranscriptionJob
 
 -- | The name you provide to the @DeleteMedicalTranscriptionJob@ object to
 -- delete a transcription job.
-deleteMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' DeleteMedicalTranscriptionJob Core.Text
+deleteMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' DeleteMedicalTranscriptionJob Prelude.Text
 deleteMedicalTranscriptionJob_medicalTranscriptionJobName = Lens.lens (\DeleteMedicalTranscriptionJob' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@DeleteMedicalTranscriptionJob' {} a -> s {medicalTranscriptionJobName = a} :: DeleteMedicalTranscriptionJob)
 
 instance
@@ -88,28 +89,32 @@ instance
     Response.receiveNull
       DeleteMedicalTranscriptionJobResponse'
 
-instance Core.Hashable DeleteMedicalTranscriptionJob
+instance
+  Prelude.Hashable
+    DeleteMedicalTranscriptionJob
 
-instance Core.NFData DeleteMedicalTranscriptionJob
+instance Prelude.NFData DeleteMedicalTranscriptionJob
 
 instance Core.ToHeaders DeleteMedicalTranscriptionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.DeleteMedicalTranscriptionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteMedicalTranscriptionJob where
   toJSON DeleteMedicalTranscriptionJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "MedicalTranscriptionJobName"
                   Core..= medicalTranscriptionJobName
               )
@@ -117,16 +122,16 @@ instance Core.ToJSON DeleteMedicalTranscriptionJob where
       )
 
 instance Core.ToPath DeleteMedicalTranscriptionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteMedicalTranscriptionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMedicalTranscriptionJobResponse' smart constructor.
 data DeleteMedicalTranscriptionJobResponse = DeleteMedicalTranscriptionJobResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMedicalTranscriptionJobResponse' with all optional fields omitted.
@@ -138,5 +143,5 @@ newDeleteMedicalTranscriptionJobResponse =
   DeleteMedicalTranscriptionJobResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteMedicalTranscriptionJobResponse

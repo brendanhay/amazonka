@@ -57,6 +57,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,13 +65,13 @@ import qualified Network.AWS.Response as Response
 data UpdateKeyGroup = UpdateKeyGroup'
   { -- | The version of the key group that you are updating. The version is the
     -- key group’s @ETag@ value.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The key group configuration.
     keyGroupConfig :: KeyGroupConfig,
     -- | The identifier of the key group that you are updating.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateKeyGroup' with all optional fields omitted.
@@ -90,18 +91,18 @@ newUpdateKeyGroup ::
   -- | 'keyGroupConfig'
   KeyGroupConfig ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateKeyGroup
 newUpdateKeyGroup pKeyGroupConfig_ pId_ =
   UpdateKeyGroup'
-    { ifMatch = Core.Nothing,
+    { ifMatch = Prelude.Nothing,
       keyGroupConfig = pKeyGroupConfig_,
       id = pId_
     }
 
 -- | The version of the key group that you are updating. The version is the
 -- key group’s @ETag@ value.
-updateKeyGroup_ifMatch :: Lens.Lens' UpdateKeyGroup (Core.Maybe Core.Text)
+updateKeyGroup_ifMatch :: Lens.Lens' UpdateKeyGroup (Prelude.Maybe Prelude.Text)
 updateKeyGroup_ifMatch = Lens.lens (\UpdateKeyGroup' {ifMatch} -> ifMatch) (\s@UpdateKeyGroup' {} a -> s {ifMatch = a} :: UpdateKeyGroup)
 
 -- | The key group configuration.
@@ -109,7 +110,7 @@ updateKeyGroup_keyGroupConfig :: Lens.Lens' UpdateKeyGroup KeyGroupConfig
 updateKeyGroup_keyGroupConfig = Lens.lens (\UpdateKeyGroup' {keyGroupConfig} -> keyGroupConfig) (\s@UpdateKeyGroup' {} a -> s {keyGroupConfig = a} :: UpdateKeyGroup)
 
 -- | The identifier of the key group that you are updating.
-updateKeyGroup_id :: Lens.Lens' UpdateKeyGroup Core.Text
+updateKeyGroup_id :: Lens.Lens' UpdateKeyGroup Prelude.Text
 updateKeyGroup_id = Lens.lens (\UpdateKeyGroup' {id} -> id) (\s@UpdateKeyGroup' {} a -> s {id = a} :: UpdateKeyGroup)
 
 instance Core.AWSRequest UpdateKeyGroup where
@@ -121,14 +122,14 @@ instance Core.AWSRequest UpdateKeyGroup where
     Response.receiveXML
       ( \s h x ->
           UpdateKeyGroupResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateKeyGroup
+instance Prelude.Hashable UpdateKeyGroup
 
-instance Core.NFData UpdateKeyGroup
+instance Prelude.NFData UpdateKeyGroup
 
 instance Core.ToElement UpdateKeyGroup where
   toElement UpdateKeyGroup' {..} =
@@ -138,26 +139,26 @@ instance Core.ToElement UpdateKeyGroup where
 
 instance Core.ToHeaders UpdateKeyGroup where
   toHeaders UpdateKeyGroup' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath UpdateKeyGroup where
   toPath UpdateKeyGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/key-group/", Core.toBS id]
 
 instance Core.ToQuery UpdateKeyGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateKeyGroupResponse' smart constructor.
 data UpdateKeyGroupResponse = UpdateKeyGroupResponse'
   { -- | The identifier for this version of the key group.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The key group that was just updated.
-    keyGroup :: Core.Maybe KeyGroup,
+    keyGroup :: Prelude.Maybe KeyGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateKeyGroupResponse' with all optional fields omitted.
@@ -174,25 +175,25 @@ data UpdateKeyGroupResponse = UpdateKeyGroupResponse'
 -- 'httpStatus', 'updateKeyGroupResponse_httpStatus' - The response's http status code.
 newUpdateKeyGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateKeyGroupResponse
 newUpdateKeyGroupResponse pHttpStatus_ =
   UpdateKeyGroupResponse'
-    { eTag = Core.Nothing,
-      keyGroup = Core.Nothing,
+    { eTag = Prelude.Nothing,
+      keyGroup = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier for this version of the key group.
-updateKeyGroupResponse_eTag :: Lens.Lens' UpdateKeyGroupResponse (Core.Maybe Core.Text)
+updateKeyGroupResponse_eTag :: Lens.Lens' UpdateKeyGroupResponse (Prelude.Maybe Prelude.Text)
 updateKeyGroupResponse_eTag = Lens.lens (\UpdateKeyGroupResponse' {eTag} -> eTag) (\s@UpdateKeyGroupResponse' {} a -> s {eTag = a} :: UpdateKeyGroupResponse)
 
 -- | The key group that was just updated.
-updateKeyGroupResponse_keyGroup :: Lens.Lens' UpdateKeyGroupResponse (Core.Maybe KeyGroup)
+updateKeyGroupResponse_keyGroup :: Lens.Lens' UpdateKeyGroupResponse (Prelude.Maybe KeyGroup)
 updateKeyGroupResponse_keyGroup = Lens.lens (\UpdateKeyGroupResponse' {keyGroup} -> keyGroup) (\s@UpdateKeyGroupResponse' {} a -> s {keyGroup = a} :: UpdateKeyGroupResponse)
 
 -- | The response's http status code.
-updateKeyGroupResponse_httpStatus :: Lens.Lens' UpdateKeyGroupResponse Core.Int
+updateKeyGroupResponse_httpStatus :: Lens.Lens' UpdateKeyGroupResponse Prelude.Int
 updateKeyGroupResponse_httpStatus = Lens.lens (\UpdateKeyGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateKeyGroupResponse' {} a -> s {httpStatus = a} :: UpdateKeyGroupResponse)
 
-instance Core.NFData UpdateKeyGroupResponse
+instance Prelude.NFData UpdateKeyGroupResponse

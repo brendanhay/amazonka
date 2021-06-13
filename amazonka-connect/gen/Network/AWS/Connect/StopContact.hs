@@ -42,17 +42,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopContact' smart constructor.
 data StopContact = StopContact'
   { -- | The ID of the contact.
-    contactId :: Core.Text,
+    contactId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopContact' with all optional fields omitted.
@@ -67,9 +68,9 @@ data StopContact = StopContact'
 -- 'instanceId', 'stopContact_instanceId' - The identifier of the Amazon Connect instance.
 newStopContact ::
   -- | 'contactId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   StopContact
 newStopContact pContactId_ pInstanceId_ =
   StopContact'
@@ -78,11 +79,11 @@ newStopContact pContactId_ pInstanceId_ =
     }
 
 -- | The ID of the contact.
-stopContact_contactId :: Lens.Lens' StopContact Core.Text
+stopContact_contactId :: Lens.Lens' StopContact Prelude.Text
 stopContact_contactId = Lens.lens (\StopContact' {contactId} -> contactId) (\s@StopContact' {} a -> s {contactId = a} :: StopContact)
 
 -- | The identifier of the Amazon Connect instance.
-stopContact_instanceId :: Lens.Lens' StopContact Core.Text
+stopContact_instanceId :: Lens.Lens' StopContact Prelude.Text
 stopContact_instanceId = Lens.lens (\StopContact' {instanceId} -> instanceId) (\s@StopContact' {} a -> s {instanceId = a} :: StopContact)
 
 instance Core.AWSRequest StopContact where
@@ -92,43 +93,45 @@ instance Core.AWSRequest StopContact where
     Response.receiveEmpty
       ( \s h x ->
           StopContactResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopContact
+instance Prelude.Hashable StopContact
 
-instance Core.NFData StopContact
+instance Prelude.NFData StopContact
 
 instance Core.ToHeaders StopContact where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopContact where
   toJSON StopContact' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ContactId" Core..= contactId),
-            Core.Just ("InstanceId" Core..= instanceId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ContactId" Core..= contactId),
+            Prelude.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
 instance Core.ToPath StopContact where
-  toPath = Core.const "/contact/stop"
+  toPath = Prelude.const "/contact/stop"
 
 instance Core.ToQuery StopContact where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopContactResponse' smart constructor.
 data StopContactResponse = StopContactResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopContactResponse' with all optional fields omitted.
@@ -141,13 +144,13 @@ data StopContactResponse = StopContactResponse'
 -- 'httpStatus', 'stopContactResponse_httpStatus' - The response's http status code.
 newStopContactResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopContactResponse
 newStopContactResponse pHttpStatus_ =
   StopContactResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-stopContactResponse_httpStatus :: Lens.Lens' StopContactResponse Core.Int
+stopContactResponse_httpStatus :: Lens.Lens' StopContactResponse Prelude.Int
 stopContactResponse_httpStatus = Lens.lens (\StopContactResponse' {httpStatus} -> httpStatus) (\s@StopContactResponse' {} a -> s {httpStatus = a} :: StopContactResponse)
 
-instance Core.NFData StopContactResponse
+instance Prelude.NFData StopContactResponse

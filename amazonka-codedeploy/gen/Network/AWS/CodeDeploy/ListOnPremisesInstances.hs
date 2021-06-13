@@ -51,6 +51,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,10 +62,10 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
   { -- | An identifier returned from the previous list on-premises instances
     -- call. It can be used to return the next set of on-premises instances in
     -- the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The on-premises instance tags that are used to restrict the on-premises
     -- instance names returned.
-    tagFilters :: Core.Maybe [TagFilter],
+    tagFilters :: Prelude.Maybe [TagFilter],
     -- | The registration status of the on-premises instances:
     --
     -- -   @Deregistered@: Include deregistered on-premises instances in the
@@ -72,9 +73,9 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
     --
     -- -   @Registered@: Include registered on-premises instances in the
     --     resulting list.
-    registrationStatus :: Core.Maybe RegistrationStatus
+    registrationStatus :: Prelude.Maybe RegistrationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOnPremisesInstances' with all optional fields omitted.
@@ -102,21 +103,22 @@ newListOnPremisesInstances ::
   ListOnPremisesInstances
 newListOnPremisesInstances =
   ListOnPremisesInstances'
-    { nextToken = Core.Nothing,
-      tagFilters = Core.Nothing,
-      registrationStatus = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      tagFilters = Prelude.Nothing,
+      registrationStatus = Prelude.Nothing
     }
 
 -- | An identifier returned from the previous list on-premises instances
 -- call. It can be used to return the next set of on-premises instances in
 -- the list.
-listOnPremisesInstances_nextToken :: Lens.Lens' ListOnPremisesInstances (Core.Maybe Core.Text)
+listOnPremisesInstances_nextToken :: Lens.Lens' ListOnPremisesInstances (Prelude.Maybe Prelude.Text)
 listOnPremisesInstances_nextToken = Lens.lens (\ListOnPremisesInstances' {nextToken} -> nextToken) (\s@ListOnPremisesInstances' {} a -> s {nextToken = a} :: ListOnPremisesInstances)
 
 -- | The on-premises instance tags that are used to restrict the on-premises
 -- instance names returned.
-listOnPremisesInstances_tagFilters :: Lens.Lens' ListOnPremisesInstances (Core.Maybe [TagFilter])
-listOnPremisesInstances_tagFilters = Lens.lens (\ListOnPremisesInstances' {tagFilters} -> tagFilters) (\s@ListOnPremisesInstances' {} a -> s {tagFilters = a} :: ListOnPremisesInstances) Core.. Lens.mapping Lens._Coerce
+listOnPremisesInstances_tagFilters :: Lens.Lens' ListOnPremisesInstances (Prelude.Maybe [TagFilter])
+listOnPremisesInstances_tagFilters = Lens.lens (\ListOnPremisesInstances' {tagFilters} -> tagFilters) (\s@ListOnPremisesInstances' {} a -> s {tagFilters = a} :: ListOnPremisesInstances) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The registration status of the on-premises instances:
 --
@@ -125,7 +127,7 @@ listOnPremisesInstances_tagFilters = Lens.lens (\ListOnPremisesInstances' {tagFi
 --
 -- -   @Registered@: Include registered on-premises instances in the
 --     resulting list.
-listOnPremisesInstances_registrationStatus :: Lens.Lens' ListOnPremisesInstances (Core.Maybe RegistrationStatus)
+listOnPremisesInstances_registrationStatus :: Lens.Lens' ListOnPremisesInstances (Prelude.Maybe RegistrationStatus)
 listOnPremisesInstances_registrationStatus = Lens.lens (\ListOnPremisesInstances' {registrationStatus} -> registrationStatus) (\s@ListOnPremisesInstances' {} a -> s {registrationStatus = a} :: ListOnPremisesInstances)
 
 instance Core.AWSPager ListOnPremisesInstances where
@@ -133,22 +135,22 @@ instance Core.AWSPager ListOnPremisesInstances where
     | Core.stop
         ( rs
             Lens.^? listOnPremisesInstancesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOnPremisesInstancesResponse_instanceNames
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listOnPremisesInstances_nextToken
+          Prelude.& listOnPremisesInstances_nextToken
           Lens..~ rs
           Lens.^? listOnPremisesInstancesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOnPremisesInstances where
   type
@@ -159,44 +161,46 @@ instance Core.AWSRequest ListOnPremisesInstances where
     Response.receiveJSON
       ( \s h x ->
           ListOnPremisesInstancesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "instanceNames" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "instanceNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListOnPremisesInstances
+instance Prelude.Hashable ListOnPremisesInstances
 
-instance Core.NFData ListOnPremisesInstances
+instance Prelude.NFData ListOnPremisesInstances
 
 instance Core.ToHeaders ListOnPremisesInstances where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.ListOnPremisesInstances" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListOnPremisesInstances where
   toJSON ListOnPremisesInstances' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("tagFilters" Core..=) Core.<$> tagFilters,
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("tagFilters" Core..=) Prelude.<$> tagFilters,
             ("registrationStatus" Core..=)
-              Core.<$> registrationStatus
+              Prelude.<$> registrationStatus
           ]
       )
 
 instance Core.ToPath ListOnPremisesInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListOnPremisesInstances where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of the list on-premises instances operation.
 --
@@ -205,13 +209,13 @@ data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
   { -- | If a large amount of information is returned, an identifier is also
     -- returned. It can be used in a subsequent list on-premises instances call
     -- to return the next set of on-premises instances in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of matching on-premises instance names.
-    instanceNames :: Core.Maybe [Core.Text],
+    instanceNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOnPremisesInstancesResponse' with all optional fields omitted.
@@ -230,28 +234,30 @@ data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
 -- 'httpStatus', 'listOnPremisesInstancesResponse_httpStatus' - The response's http status code.
 newListOnPremisesInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListOnPremisesInstancesResponse
 newListOnPremisesInstancesResponse pHttpStatus_ =
   ListOnPremisesInstancesResponse'
     { nextToken =
-        Core.Nothing,
-      instanceNames = Core.Nothing,
+        Prelude.Nothing,
+      instanceNames = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent list on-premises instances call
 -- to return the next set of on-premises instances in the list.
-listOnPremisesInstancesResponse_nextToken :: Lens.Lens' ListOnPremisesInstancesResponse (Core.Maybe Core.Text)
+listOnPremisesInstancesResponse_nextToken :: Lens.Lens' ListOnPremisesInstancesResponse (Prelude.Maybe Prelude.Text)
 listOnPremisesInstancesResponse_nextToken = Lens.lens (\ListOnPremisesInstancesResponse' {nextToken} -> nextToken) (\s@ListOnPremisesInstancesResponse' {} a -> s {nextToken = a} :: ListOnPremisesInstancesResponse)
 
 -- | The list of matching on-premises instance names.
-listOnPremisesInstancesResponse_instanceNames :: Lens.Lens' ListOnPremisesInstancesResponse (Core.Maybe [Core.Text])
-listOnPremisesInstancesResponse_instanceNames = Lens.lens (\ListOnPremisesInstancesResponse' {instanceNames} -> instanceNames) (\s@ListOnPremisesInstancesResponse' {} a -> s {instanceNames = a} :: ListOnPremisesInstancesResponse) Core.. Lens.mapping Lens._Coerce
+listOnPremisesInstancesResponse_instanceNames :: Lens.Lens' ListOnPremisesInstancesResponse (Prelude.Maybe [Prelude.Text])
+listOnPremisesInstancesResponse_instanceNames = Lens.lens (\ListOnPremisesInstancesResponse' {instanceNames} -> instanceNames) (\s@ListOnPremisesInstancesResponse' {} a -> s {instanceNames = a} :: ListOnPremisesInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOnPremisesInstancesResponse_httpStatus :: Lens.Lens' ListOnPremisesInstancesResponse Core.Int
+listOnPremisesInstancesResponse_httpStatus :: Lens.Lens' ListOnPremisesInstancesResponse Prelude.Int
 listOnPremisesInstancesResponse_httpStatus = Lens.lens (\ListOnPremisesInstancesResponse' {httpStatus} -> httpStatus) (\s@ListOnPremisesInstancesResponse' {} a -> s {httpStatus = a} :: ListOnPremisesInstancesResponse)
 
-instance Core.NFData ListOnPremisesInstancesResponse
+instance
+  Prelude.NFData
+    ListOnPremisesInstancesResponse

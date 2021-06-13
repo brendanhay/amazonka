@@ -21,6 +21,7 @@ module Network.AWS.WorkDocs.Types.PermissionInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.RolePermissionType
 import Network.AWS.WorkDocs.Types.RoleType
 
@@ -29,11 +30,11 @@ import Network.AWS.WorkDocs.Types.RoleType
 -- /See:/ 'newPermissionInfo' smart constructor.
 data PermissionInfo = PermissionInfo'
   { -- | The role of the user.
-    role' :: Core.Maybe RoleType,
+    role' :: Prelude.Maybe RoleType,
     -- | The type of permissions.
-    type' :: Core.Maybe RolePermissionType
+    type' :: Prelude.Maybe RolePermissionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PermissionInfo' with all optional fields omitted.
@@ -50,16 +51,16 @@ newPermissionInfo ::
   PermissionInfo
 newPermissionInfo =
   PermissionInfo'
-    { role' = Core.Nothing,
-      type' = Core.Nothing
+    { role' = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The role of the user.
-permissionInfo_role :: Lens.Lens' PermissionInfo (Core.Maybe RoleType)
+permissionInfo_role :: Lens.Lens' PermissionInfo (Prelude.Maybe RoleType)
 permissionInfo_role = Lens.lens (\PermissionInfo' {role'} -> role') (\s@PermissionInfo' {} a -> s {role' = a} :: PermissionInfo)
 
 -- | The type of permissions.
-permissionInfo_type :: Lens.Lens' PermissionInfo (Core.Maybe RolePermissionType)
+permissionInfo_type :: Lens.Lens' PermissionInfo (Prelude.Maybe RolePermissionType)
 permissionInfo_type = Lens.lens (\PermissionInfo' {type'} -> type') (\s@PermissionInfo' {} a -> s {type' = a} :: PermissionInfo)
 
 instance Core.FromJSON PermissionInfo where
@@ -68,9 +69,9 @@ instance Core.FromJSON PermissionInfo where
       "PermissionInfo"
       ( \x ->
           PermissionInfo'
-            Core.<$> (x Core..:? "Role") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Role") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable PermissionInfo
+instance Prelude.Hashable PermissionInfo
 
-instance Core.NFData PermissionInfo
+instance Prelude.NFData PermissionInfo

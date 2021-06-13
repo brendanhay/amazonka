@@ -48,15 +48,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribePlatformVersion' smart constructor.
 data DescribePlatformVersion = DescribePlatformVersion'
   { -- | The ARN of the platform version.
-    platformArn :: Core.Maybe Core.Text
+    platformArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePlatformVersion' with all optional fields omitted.
@@ -72,11 +73,11 @@ newDescribePlatformVersion ::
 newDescribePlatformVersion =
   DescribePlatformVersion'
     { platformArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ARN of the platform version.
-describePlatformVersion_platformArn :: Lens.Lens' DescribePlatformVersion (Core.Maybe Core.Text)
+describePlatformVersion_platformArn :: Lens.Lens' DescribePlatformVersion (Prelude.Maybe Prelude.Text)
 describePlatformVersion_platformArn = Lens.lens (\DescribePlatformVersion' {platformArn} -> platformArn) (\s@DescribePlatformVersion' {} a -> s {platformArn = a} :: DescribePlatformVersion)
 
 instance Core.AWSRequest DescribePlatformVersion where
@@ -89,37 +90,38 @@ instance Core.AWSRequest DescribePlatformVersion where
       "DescribePlatformVersionResult"
       ( \s h x ->
           DescribePlatformVersionResponse'
-            Core.<$> (x Core..@? "PlatformDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "PlatformDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribePlatformVersion
+instance Prelude.Hashable DescribePlatformVersion
 
-instance Core.NFData DescribePlatformVersion
+instance Prelude.NFData DescribePlatformVersion
 
 instance Core.ToHeaders DescribePlatformVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribePlatformVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePlatformVersion where
   toQuery DescribePlatformVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePlatformVersion" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("DescribePlatformVersion" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "PlatformArn" Core.=: platformArn
       ]
 
 -- | /See:/ 'newDescribePlatformVersionResponse' smart constructor.
 data DescribePlatformVersionResponse = DescribePlatformVersionResponse'
   { -- | Detailed information about the platform version.
-    platformDescription :: Core.Maybe PlatformDescription,
+    platformDescription :: Prelude.Maybe PlatformDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePlatformVersionResponse' with all optional fields omitted.
@@ -134,21 +136,23 @@ data DescribePlatformVersionResponse = DescribePlatformVersionResponse'
 -- 'httpStatus', 'describePlatformVersionResponse_httpStatus' - The response's http status code.
 newDescribePlatformVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePlatformVersionResponse
 newDescribePlatformVersionResponse pHttpStatus_ =
   DescribePlatformVersionResponse'
     { platformDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Detailed information about the platform version.
-describePlatformVersionResponse_platformDescription :: Lens.Lens' DescribePlatformVersionResponse (Core.Maybe PlatformDescription)
+describePlatformVersionResponse_platformDescription :: Lens.Lens' DescribePlatformVersionResponse (Prelude.Maybe PlatformDescription)
 describePlatformVersionResponse_platformDescription = Lens.lens (\DescribePlatformVersionResponse' {platformDescription} -> platformDescription) (\s@DescribePlatformVersionResponse' {} a -> s {platformDescription = a} :: DescribePlatformVersionResponse)
 
 -- | The response's http status code.
-describePlatformVersionResponse_httpStatus :: Lens.Lens' DescribePlatformVersionResponse Core.Int
+describePlatformVersionResponse_httpStatus :: Lens.Lens' DescribePlatformVersionResponse Prelude.Int
 describePlatformVersionResponse_httpStatus = Lens.lens (\DescribePlatformVersionResponse' {httpStatus} -> httpStatus) (\s@DescribePlatformVersionResponse' {} a -> s {httpStatus = a} :: DescribePlatformVersionResponse)
 
-instance Core.NFData DescribePlatformVersionResponse
+instance
+  Prelude.NFData
+    DescribePlatformVersionResponse

@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,9 +62,9 @@ data DeleteDBSecurityGroup = DeleteDBSecurityGroup'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- -   Must not be \"Default\"
-    dbSecurityGroupName :: Core.Text
+    dbSecurityGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBSecurityGroup' with all optional fields omitted.
@@ -88,7 +89,7 @@ data DeleteDBSecurityGroup = DeleteDBSecurityGroup'
 -- -   Must not be \"Default\"
 newDeleteDBSecurityGroup ::
   -- | 'dbSecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDBSecurityGroup
 newDeleteDBSecurityGroup pDBSecurityGroupName_ =
   DeleteDBSecurityGroup'
@@ -109,7 +110,7 @@ newDeleteDBSecurityGroup pDBSecurityGroupName_ =
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- -   Must not be \"Default\"
-deleteDBSecurityGroup_dbSecurityGroupName :: Lens.Lens' DeleteDBSecurityGroup Core.Text
+deleteDBSecurityGroup_dbSecurityGroupName :: Lens.Lens' DeleteDBSecurityGroup Prelude.Text
 deleteDBSecurityGroup_dbSecurityGroupName = Lens.lens (\DeleteDBSecurityGroup' {dbSecurityGroupName} -> dbSecurityGroupName) (\s@DeleteDBSecurityGroup' {} a -> s {dbSecurityGroupName = a} :: DeleteDBSecurityGroup)
 
 instance Core.AWSRequest DeleteDBSecurityGroup where
@@ -120,22 +121,23 @@ instance Core.AWSRequest DeleteDBSecurityGroup where
   response =
     Response.receiveNull DeleteDBSecurityGroupResponse'
 
-instance Core.Hashable DeleteDBSecurityGroup
+instance Prelude.Hashable DeleteDBSecurityGroup
 
-instance Core.NFData DeleteDBSecurityGroup
+instance Prelude.NFData DeleteDBSecurityGroup
 
 instance Core.ToHeaders DeleteDBSecurityGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDBSecurityGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDBSecurityGroup where
   toQuery DeleteDBSecurityGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBSecurityGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeleteDBSecurityGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBSecurityGroupName" Core.=: dbSecurityGroupName
       ]
 
@@ -143,7 +145,7 @@ instance Core.ToQuery DeleteDBSecurityGroup where
 data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBSecurityGroupResponse' with all optional fields omitted.
@@ -154,4 +156,4 @@ newDeleteDBSecurityGroupResponse ::
 newDeleteDBSecurityGroupResponse =
   DeleteDBSecurityGroupResponse'
 
-instance Core.NFData DeleteDBSecurityGroupResponse
+instance Prelude.NFData DeleteDBSecurityGroupResponse

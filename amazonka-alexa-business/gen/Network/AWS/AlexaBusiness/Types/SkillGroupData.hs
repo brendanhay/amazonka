@@ -21,19 +21,20 @@ module Network.AWS.AlexaBusiness.Types.SkillGroupData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The attributes of a skill group.
 --
 -- /See:/ 'newSkillGroupData' smart constructor.
 data SkillGroupData = SkillGroupData'
   { -- | The skill group name of a skill group.
-    skillGroupName :: Core.Maybe Core.Text,
+    skillGroupName :: Prelude.Maybe Prelude.Text,
     -- | The description of a skill group.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The skill group ARN of a skill group.
-    skillGroupArn :: Core.Maybe Core.Text
+    skillGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SkillGroupData' with all optional fields omitted.
@@ -52,21 +53,21 @@ newSkillGroupData ::
   SkillGroupData
 newSkillGroupData =
   SkillGroupData'
-    { skillGroupName = Core.Nothing,
-      description = Core.Nothing,
-      skillGroupArn = Core.Nothing
+    { skillGroupName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      skillGroupArn = Prelude.Nothing
     }
 
 -- | The skill group name of a skill group.
-skillGroupData_skillGroupName :: Lens.Lens' SkillGroupData (Core.Maybe Core.Text)
+skillGroupData_skillGroupName :: Lens.Lens' SkillGroupData (Prelude.Maybe Prelude.Text)
 skillGroupData_skillGroupName = Lens.lens (\SkillGroupData' {skillGroupName} -> skillGroupName) (\s@SkillGroupData' {} a -> s {skillGroupName = a} :: SkillGroupData)
 
 -- | The description of a skill group.
-skillGroupData_description :: Lens.Lens' SkillGroupData (Core.Maybe Core.Text)
+skillGroupData_description :: Lens.Lens' SkillGroupData (Prelude.Maybe Prelude.Text)
 skillGroupData_description = Lens.lens (\SkillGroupData' {description} -> description) (\s@SkillGroupData' {} a -> s {description = a} :: SkillGroupData)
 
 -- | The skill group ARN of a skill group.
-skillGroupData_skillGroupArn :: Lens.Lens' SkillGroupData (Core.Maybe Core.Text)
+skillGroupData_skillGroupArn :: Lens.Lens' SkillGroupData (Prelude.Maybe Prelude.Text)
 skillGroupData_skillGroupArn = Lens.lens (\SkillGroupData' {skillGroupArn} -> skillGroupArn) (\s@SkillGroupData' {} a -> s {skillGroupArn = a} :: SkillGroupData)
 
 instance Core.FromJSON SkillGroupData where
@@ -75,11 +76,11 @@ instance Core.FromJSON SkillGroupData where
       "SkillGroupData"
       ( \x ->
           SkillGroupData'
-            Core.<$> (x Core..:? "SkillGroupName")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "SkillGroupArn")
+            Prelude.<$> (x Core..:? "SkillGroupName")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "SkillGroupArn")
       )
 
-instance Core.Hashable SkillGroupData
+instance Prelude.Hashable SkillGroupData
 
-instance Core.NFData SkillGroupData
+instance Prelude.NFData SkillGroupData

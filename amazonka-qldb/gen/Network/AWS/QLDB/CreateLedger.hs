@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -63,22 +64,22 @@ data CreateLedger = CreateLedger'
     -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
     -- operation to set the flag to @false@. The QLDB console disables deletion
     -- protection for you when you use it to delete a ledger.
-    deletionProtection :: Core.Maybe Core.Bool,
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The key-value pairs to add as tags to the ledger that you want to
     -- create. Tag keys are case sensitive. Tag values are case sensitive and
     -- can be null.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the ledger that you want to create. The name must be unique
     -- among all of your ledgers in the current AWS Region.
     --
     -- Naming constraints for ledger names are defined in
     -- <https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming Quotas in Amazon QLDB>
     -- in the /Amazon QLDB Developer Guide/.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The permissions mode to assign to the ledger that you want to create.
     permissionsMode :: PermissionsMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLedger' with all optional fields omitted.
@@ -112,14 +113,14 @@ data CreateLedger = CreateLedger'
 -- 'permissionsMode', 'createLedger_permissionsMode' - The permissions mode to assign to the ledger that you want to create.
 newCreateLedger ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'permissionsMode'
   PermissionsMode ->
   CreateLedger
 newCreateLedger pName_ pPermissionsMode_ =
   CreateLedger'
-    { deletionProtection = Core.Nothing,
-      tags = Core.Nothing,
+    { deletionProtection = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       permissionsMode = pPermissionsMode_
     }
@@ -133,14 +134,14 @@ newCreateLedger pName_ pPermissionsMode_ =
 -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
 -- operation to set the flag to @false@. The QLDB console disables deletion
 -- protection for you when you use it to delete a ledger.
-createLedger_deletionProtection :: Lens.Lens' CreateLedger (Core.Maybe Core.Bool)
+createLedger_deletionProtection :: Lens.Lens' CreateLedger (Prelude.Maybe Prelude.Bool)
 createLedger_deletionProtection = Lens.lens (\CreateLedger' {deletionProtection} -> deletionProtection) (\s@CreateLedger' {} a -> s {deletionProtection = a} :: CreateLedger)
 
 -- | The key-value pairs to add as tags to the ledger that you want to
 -- create. Tag keys are case sensitive. Tag values are case sensitive and
 -- can be null.
-createLedger_tags :: Lens.Lens' CreateLedger (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createLedger_tags = Lens.lens (\CreateLedger' {tags} -> tags) (\s@CreateLedger' {} a -> s {tags = a} :: CreateLedger) Core.. Lens.mapping Lens._Coerce
+createLedger_tags :: Lens.Lens' CreateLedger (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createLedger_tags = Lens.lens (\CreateLedger' {tags} -> tags) (\s@CreateLedger' {} a -> s {tags = a} :: CreateLedger) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the ledger that you want to create. The name must be unique
 -- among all of your ledgers in the current AWS Region.
@@ -148,7 +149,7 @@ createLedger_tags = Lens.lens (\CreateLedger' {tags} -> tags) (\s@CreateLedger' 
 -- Naming constraints for ledger names are defined in
 -- <https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming Quotas in Amazon QLDB>
 -- in the /Amazon QLDB Developer Guide/.
-createLedger_name :: Lens.Lens' CreateLedger Core.Text
+createLedger_name :: Lens.Lens' CreateLedger Prelude.Text
 createLedger_name = Lens.lens (\CreateLedger' {name} -> name) (\s@CreateLedger' {} a -> s {name = a} :: CreateLedger)
 
 -- | The permissions mode to assign to the ledger that you want to create.
@@ -162,45 +163,47 @@ instance Core.AWSRequest CreateLedger where
     Response.receiveJSON
       ( \s h x ->
           CreateLedgerResponse'
-            Core.<$> (x Core..?> "DeletionProtection")
-            Core.<*> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "State")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (x Core..?> "CreationDateTime")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DeletionProtection")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "CreationDateTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateLedger
+instance Prelude.Hashable CreateLedger
 
-instance Core.NFData CreateLedger
+instance Prelude.NFData CreateLedger
 
 instance Core.ToHeaders CreateLedger where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateLedger where
   toJSON CreateLedger' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DeletionProtection" Core..=)
-              Core.<$> deletionProtection,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("Name" Core..= name),
-            Core.Just
+              Prelude.<$> deletionProtection,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ("PermissionsMode" Core..= permissionsMode)
           ]
       )
 
 instance Core.ToPath CreateLedger where
-  toPath = Core.const "/ledgers"
+  toPath = Prelude.const "/ledgers"
 
 instance Core.ToQuery CreateLedger where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLedgerResponse' smart constructor.
 data CreateLedgerResponse = CreateLedgerResponse'
@@ -213,21 +216,21 @@ data CreateLedgerResponse = CreateLedgerResponse'
     -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
     -- operation to set the flag to @false@. The QLDB console disables deletion
     -- protection for you when you use it to delete a ledger.
-    deletionProtection :: Core.Maybe Core.Bool,
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) for the ledger.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the ledger.
-    state :: Core.Maybe LedgerState,
+    state :: Prelude.Maybe LedgerState,
     -- | The name of the ledger.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
-    creationDateTime :: Core.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLedgerResponse' with all optional fields omitted.
@@ -260,16 +263,16 @@ data CreateLedgerResponse = CreateLedgerResponse'
 -- 'httpStatus', 'createLedgerResponse_httpStatus' - The response's http status code.
 newCreateLedgerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateLedgerResponse
 newCreateLedgerResponse pHttpStatus_ =
   CreateLedgerResponse'
     { deletionProtection =
-        Core.Nothing,
-      arn = Core.Nothing,
-      state = Core.Nothing,
-      name = Core.Nothing,
-      creationDateTime = Core.Nothing,
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      state = Prelude.Nothing,
+      name = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -282,29 +285,29 @@ newCreateLedgerResponse pHttpStatus_ =
 -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
 -- operation to set the flag to @false@. The QLDB console disables deletion
 -- protection for you when you use it to delete a ledger.
-createLedgerResponse_deletionProtection :: Lens.Lens' CreateLedgerResponse (Core.Maybe Core.Bool)
+createLedgerResponse_deletionProtection :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Bool)
 createLedgerResponse_deletionProtection = Lens.lens (\CreateLedgerResponse' {deletionProtection} -> deletionProtection) (\s@CreateLedgerResponse' {} a -> s {deletionProtection = a} :: CreateLedgerResponse)
 
 -- | The Amazon Resource Name (ARN) for the ledger.
-createLedgerResponse_arn :: Lens.Lens' CreateLedgerResponse (Core.Maybe Core.Text)
+createLedgerResponse_arn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
 createLedgerResponse_arn = Lens.lens (\CreateLedgerResponse' {arn} -> arn) (\s@CreateLedgerResponse' {} a -> s {arn = a} :: CreateLedgerResponse)
 
 -- | The current status of the ledger.
-createLedgerResponse_state :: Lens.Lens' CreateLedgerResponse (Core.Maybe LedgerState)
+createLedgerResponse_state :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe LedgerState)
 createLedgerResponse_state = Lens.lens (\CreateLedgerResponse' {state} -> state) (\s@CreateLedgerResponse' {} a -> s {state = a} :: CreateLedgerResponse)
 
 -- | The name of the ledger.
-createLedgerResponse_name :: Lens.Lens' CreateLedgerResponse (Core.Maybe Core.Text)
+createLedgerResponse_name :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
 createLedgerResponse_name = Lens.lens (\CreateLedgerResponse' {name} -> name) (\s@CreateLedgerResponse' {} a -> s {name = a} :: CreateLedgerResponse)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
-createLedgerResponse_creationDateTime :: Lens.Lens' CreateLedgerResponse (Core.Maybe Core.UTCTime)
-createLedgerResponse_creationDateTime = Lens.lens (\CreateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@CreateLedgerResponse' {} a -> s {creationDateTime = a} :: CreateLedgerResponse) Core.. Lens.mapping Core._Time
+createLedgerResponse_creationDateTime :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.UTCTime)
+createLedgerResponse_creationDateTime = Lens.lens (\CreateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@CreateLedgerResponse' {} a -> s {creationDateTime = a} :: CreateLedgerResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-createLedgerResponse_httpStatus :: Lens.Lens' CreateLedgerResponse Core.Int
+createLedgerResponse_httpStatus :: Lens.Lens' CreateLedgerResponse Prelude.Int
 createLedgerResponse_httpStatus = Lens.lens (\CreateLedgerResponse' {httpStatus} -> httpStatus) (\s@CreateLedgerResponse' {} a -> s {httpStatus = a} :: CreateLedgerResponse)
 
-instance Core.NFData CreateLedgerResponse
+instance Prelude.NFData CreateLedgerResponse

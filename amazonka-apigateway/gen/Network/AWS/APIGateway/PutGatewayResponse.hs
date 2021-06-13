@@ -50,6 +50,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,14 +61,14 @@ import qualified Network.AWS.Response as Response
 data PutGatewayResponse = PutGatewayResponse'
   { -- | Response templates of the GatewayResponse as a string-to-string map of
     -- key-value pairs.
-    responseTemplates :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The HTTP status code of the GatewayResponse.
-    statusCode :: Core.Maybe Core.Text,
+    statusCode :: Prelude.Maybe Prelude.Text,
     -- | Response parameters (paths, query strings and headers) of the
     -- GatewayResponse as a string-to-string map of key-value pairs.
-    responseParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required]
     --
     -- The response type of the associated GatewayResponse. Valid values are
@@ -94,7 +95,7 @@ data PutGatewayResponse = PutGatewayResponse'
     -- -   UNSUPPORTED_MEDIA_TYPE
     responseType :: GatewayResponseType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutGatewayResponse' with all optional fields omitted.
@@ -140,36 +141,36 @@ data PutGatewayResponse = PutGatewayResponse'
 -- -   UNSUPPORTED_MEDIA_TYPE
 newPutGatewayResponse ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'responseType'
   GatewayResponseType ->
   PutGatewayResponse
 newPutGatewayResponse pRestApiId_ pResponseType_ =
   PutGatewayResponse'
     { responseTemplates =
-        Core.Nothing,
-      statusCode = Core.Nothing,
-      responseParameters = Core.Nothing,
+        Prelude.Nothing,
+      statusCode = Prelude.Nothing,
+      responseParameters = Prelude.Nothing,
       restApiId = pRestApiId_,
       responseType = pResponseType_
     }
 
 -- | Response templates of the GatewayResponse as a string-to-string map of
 -- key-value pairs.
-putGatewayResponse_responseTemplates :: Lens.Lens' PutGatewayResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-putGatewayResponse_responseTemplates = Lens.lens (\PutGatewayResponse' {responseTemplates} -> responseTemplates) (\s@PutGatewayResponse' {} a -> s {responseTemplates = a} :: PutGatewayResponse) Core.. Lens.mapping Lens._Coerce
+putGatewayResponse_responseTemplates :: Lens.Lens' PutGatewayResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putGatewayResponse_responseTemplates = Lens.lens (\PutGatewayResponse' {responseTemplates} -> responseTemplates) (\s@PutGatewayResponse' {} a -> s {responseTemplates = a} :: PutGatewayResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The HTTP status code of the GatewayResponse.
-putGatewayResponse_statusCode :: Lens.Lens' PutGatewayResponse (Core.Maybe Core.Text)
+putGatewayResponse_statusCode :: Lens.Lens' PutGatewayResponse (Prelude.Maybe Prelude.Text)
 putGatewayResponse_statusCode = Lens.lens (\PutGatewayResponse' {statusCode} -> statusCode) (\s@PutGatewayResponse' {} a -> s {statusCode = a} :: PutGatewayResponse)
 
 -- | Response parameters (paths, query strings and headers) of the
 -- GatewayResponse as a string-to-string map of key-value pairs.
-putGatewayResponse_responseParameters :: Lens.Lens' PutGatewayResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-putGatewayResponse_responseParameters = Lens.lens (\PutGatewayResponse' {responseParameters} -> responseParameters) (\s@PutGatewayResponse' {} a -> s {responseParameters = a} :: PutGatewayResponse) Core.. Lens.mapping Lens._Coerce
+putGatewayResponse_responseParameters :: Lens.Lens' PutGatewayResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putGatewayResponse_responseParameters = Lens.lens (\PutGatewayResponse' {responseParameters} -> responseParameters) (\s@PutGatewayResponse' {} a -> s {responseParameters = a} :: PutGatewayResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-putGatewayResponse_restApiId :: Lens.Lens' PutGatewayResponse Core.Text
+putGatewayResponse_restApiId :: Lens.Lens' PutGatewayResponse Prelude.Text
 putGatewayResponse_restApiId = Lens.lens (\PutGatewayResponse' {restApiId} -> restApiId) (\s@PutGatewayResponse' {} a -> s {restApiId = a} :: PutGatewayResponse)
 
 -- | [Required]
@@ -206,34 +207,34 @@ instance Core.AWSRequest PutGatewayResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable PutGatewayResponse
+instance Prelude.Hashable PutGatewayResponse
 
-instance Core.NFData PutGatewayResponse
+instance Prelude.NFData PutGatewayResponse
 
 instance Core.ToHeaders PutGatewayResponse where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON PutGatewayResponse where
   toJSON PutGatewayResponse' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("responseTemplates" Core..=)
-              Core.<$> responseTemplates,
-            ("statusCode" Core..=) Core.<$> statusCode,
+              Prelude.<$> responseTemplates,
+            ("statusCode" Core..=) Prelude.<$> statusCode,
             ("responseParameters" Core..=)
-              Core.<$> responseParameters
+              Prelude.<$> responseParameters
           ]
       )
 
 instance Core.ToPath PutGatewayResponse where
   toPath PutGatewayResponse' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/gatewayresponses/",
@@ -241,4 +242,4 @@ instance Core.ToPath PutGatewayResponse where
       ]
 
 instance Core.ToQuery PutGatewayResponse where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

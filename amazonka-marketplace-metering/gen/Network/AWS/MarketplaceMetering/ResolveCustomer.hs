@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +58,9 @@ data ResolveCustomer = ResolveCustomer'
   { -- | When a buyer visits your website during the registration process, the
     -- buyer submits a registration token through the browser. The registration
     -- token is resolved to obtain a CustomerIdentifier and product code.
-    registrationToken :: Core.Text
+    registrationToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResolveCustomer' with all optional fields omitted.
@@ -74,7 +75,7 @@ data ResolveCustomer = ResolveCustomer'
 -- token is resolved to obtain a CustomerIdentifier and product code.
 newResolveCustomer ::
   -- | 'registrationToken'
-  Core.Text ->
+  Prelude.Text ->
   ResolveCustomer
 newResolveCustomer pRegistrationToken_ =
   ResolveCustomer'
@@ -85,7 +86,7 @@ newResolveCustomer pRegistrationToken_ =
 -- | When a buyer visits your website during the registration process, the
 -- buyer submits a registration token through the browser. The registration
 -- token is resolved to obtain a CustomerIdentifier and product code.
-resolveCustomer_registrationToken :: Lens.Lens' ResolveCustomer Core.Text
+resolveCustomer_registrationToken :: Lens.Lens' ResolveCustomer Prelude.Text
 resolveCustomer_registrationToken = Lens.lens (\ResolveCustomer' {registrationToken} -> registrationToken) (\s@ResolveCustomer' {} a -> s {registrationToken = a} :: ResolveCustomer)
 
 instance Core.AWSRequest ResolveCustomer where
@@ -97,42 +98,44 @@ instance Core.AWSRequest ResolveCustomer where
     Response.receiveJSON
       ( \s h x ->
           ResolveCustomerResponse'
-            Core.<$> (x Core..?> "CustomerIdentifier")
-            Core.<*> (x Core..?> "ProductCode")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CustomerIdentifier")
+            Prelude.<*> (x Core..?> "ProductCode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResolveCustomer
+instance Prelude.Hashable ResolveCustomer
 
-instance Core.NFData ResolveCustomer
+instance Prelude.NFData ResolveCustomer
 
 instance Core.ToHeaders ResolveCustomer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMPMeteringService.ResolveCustomer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ResolveCustomer where
   toJSON ResolveCustomer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("RegistrationToken" Core..= registrationToken)
           ]
       )
 
 instance Core.ToPath ResolveCustomer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResolveCustomer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of the ResolveCustomer operation. Contains the
 -- CustomerIdentifier and product code.
@@ -142,15 +145,15 @@ data ResolveCustomerResponse = ResolveCustomerResponse'
   { -- | The CustomerIdentifier is used to identify an individual customer in
     -- your application. Calls to BatchMeterUsage require CustomerIdentifiers
     -- for each UsageRecord.
-    customerIdentifier :: Core.Maybe Core.Text,
+    customerIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The product code is returned to confirm that the buyer is registering
     -- for your product. Subsequent BatchMeterUsage calls should be made using
     -- this product code.
-    productCode :: Core.Maybe Core.Text,
+    productCode :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResolveCustomerResponse' with all optional fields omitted.
@@ -171,30 +174,30 @@ data ResolveCustomerResponse = ResolveCustomerResponse'
 -- 'httpStatus', 'resolveCustomerResponse_httpStatus' - The response's http status code.
 newResolveCustomerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResolveCustomerResponse
 newResolveCustomerResponse pHttpStatus_ =
   ResolveCustomerResponse'
     { customerIdentifier =
-        Core.Nothing,
-      productCode = Core.Nothing,
+        Prelude.Nothing,
+      productCode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The CustomerIdentifier is used to identify an individual customer in
 -- your application. Calls to BatchMeterUsage require CustomerIdentifiers
 -- for each UsageRecord.
-resolveCustomerResponse_customerIdentifier :: Lens.Lens' ResolveCustomerResponse (Core.Maybe Core.Text)
+resolveCustomerResponse_customerIdentifier :: Lens.Lens' ResolveCustomerResponse (Prelude.Maybe Prelude.Text)
 resolveCustomerResponse_customerIdentifier = Lens.lens (\ResolveCustomerResponse' {customerIdentifier} -> customerIdentifier) (\s@ResolveCustomerResponse' {} a -> s {customerIdentifier = a} :: ResolveCustomerResponse)
 
 -- | The product code is returned to confirm that the buyer is registering
 -- for your product. Subsequent BatchMeterUsage calls should be made using
 -- this product code.
-resolveCustomerResponse_productCode :: Lens.Lens' ResolveCustomerResponse (Core.Maybe Core.Text)
+resolveCustomerResponse_productCode :: Lens.Lens' ResolveCustomerResponse (Prelude.Maybe Prelude.Text)
 resolveCustomerResponse_productCode = Lens.lens (\ResolveCustomerResponse' {productCode} -> productCode) (\s@ResolveCustomerResponse' {} a -> s {productCode = a} :: ResolveCustomerResponse)
 
 -- | The response's http status code.
-resolveCustomerResponse_httpStatus :: Lens.Lens' ResolveCustomerResponse Core.Int
+resolveCustomerResponse_httpStatus :: Lens.Lens' ResolveCustomerResponse Prelude.Int
 resolveCustomerResponse_httpStatus = Lens.lens (\ResolveCustomerResponse' {httpStatus} -> httpStatus) (\s@ResolveCustomerResponse' {} a -> s {httpStatus = a} :: ResolveCustomerResponse)
 
-instance Core.NFData ResolveCustomerResponse
+instance Prelude.NFData ResolveCustomerResponse

@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.SourceSelectionCriteria where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ReplicaModifications
 import Network.AWS.S3.Types.SseKmsEncryptedObjects
@@ -43,13 +44,13 @@ data SourceSelectionCriteria = SourceSelectionCriteria'
     -- If you don\'t specify the @Filter@ element, Amazon S3 assumes that the
     -- replication configuration is the earlier version, V1. In the earlier
     -- version, this element is not allowed
-    replicaModifications :: Core.Maybe ReplicaModifications,
+    replicaModifications :: Prelude.Maybe ReplicaModifications,
     -- | A container for filter information for the selection of Amazon S3
     -- objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@
     -- in the replication configuration, this element is required.
-    sseKmsEncryptedObjects :: Core.Maybe SseKmsEncryptedObjects
+    sseKmsEncryptedObjects :: Prelude.Maybe SseKmsEncryptedObjects
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceSelectionCriteria' with all optional fields omitted.
@@ -77,8 +78,8 @@ newSourceSelectionCriteria ::
 newSourceSelectionCriteria =
   SourceSelectionCriteria'
     { replicaModifications =
-        Core.Nothing,
-      sseKmsEncryptedObjects = Core.Nothing
+        Prelude.Nothing,
+      sseKmsEncryptedObjects = Prelude.Nothing
     }
 
 -- | A filter that you can specify for selections for modifications on
@@ -90,28 +91,28 @@ newSourceSelectionCriteria =
 -- If you don\'t specify the @Filter@ element, Amazon S3 assumes that the
 -- replication configuration is the earlier version, V1. In the earlier
 -- version, this element is not allowed
-sourceSelectionCriteria_replicaModifications :: Lens.Lens' SourceSelectionCriteria (Core.Maybe ReplicaModifications)
+sourceSelectionCriteria_replicaModifications :: Lens.Lens' SourceSelectionCriteria (Prelude.Maybe ReplicaModifications)
 sourceSelectionCriteria_replicaModifications = Lens.lens (\SourceSelectionCriteria' {replicaModifications} -> replicaModifications) (\s@SourceSelectionCriteria' {} a -> s {replicaModifications = a} :: SourceSelectionCriteria)
 
 -- | A container for filter information for the selection of Amazon S3
 -- objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@
 -- in the replication configuration, this element is required.
-sourceSelectionCriteria_sseKmsEncryptedObjects :: Lens.Lens' SourceSelectionCriteria (Core.Maybe SseKmsEncryptedObjects)
+sourceSelectionCriteria_sseKmsEncryptedObjects :: Lens.Lens' SourceSelectionCriteria (Prelude.Maybe SseKmsEncryptedObjects)
 sourceSelectionCriteria_sseKmsEncryptedObjects = Lens.lens (\SourceSelectionCriteria' {sseKmsEncryptedObjects} -> sseKmsEncryptedObjects) (\s@SourceSelectionCriteria' {} a -> s {sseKmsEncryptedObjects = a} :: SourceSelectionCriteria)
 
 instance Core.FromXML SourceSelectionCriteria where
   parseXML x =
     SourceSelectionCriteria'
-      Core.<$> (x Core..@? "ReplicaModifications")
-      Core.<*> (x Core..@? "SseKmsEncryptedObjects")
+      Prelude.<$> (x Core..@? "ReplicaModifications")
+      Prelude.<*> (x Core..@? "SseKmsEncryptedObjects")
 
-instance Core.Hashable SourceSelectionCriteria
+instance Prelude.Hashable SourceSelectionCriteria
 
-instance Core.NFData SourceSelectionCriteria
+instance Prelude.NFData SourceSelectionCriteria
 
 instance Core.ToXML SourceSelectionCriteria where
   toXML SourceSelectionCriteria' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ReplicaModifications" Core.@= replicaModifications,
         "SseKmsEncryptedObjects"
           Core.@= sseKmsEncryptedObjects

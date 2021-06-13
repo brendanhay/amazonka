@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +62,7 @@ data GetObject = GetObject'
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>. AWS
     -- Elemental MediaStore ignores this header for partially uploaded objects
     -- that have streaming upload availability.
-    range :: Core.Maybe Core.Text,
+    range :: Prelude.Maybe Prelude.Text,
     -- | The path (including the file name) where the object is stored in the
     -- container. Format: \<folder name>\/\<folder name>\/\<file name>
     --
@@ -88,9 +89,9 @@ data GetObject = GetObject'
     -- The file can have the same name inside and outside of AWS Elemental
     -- MediaStore, or it can have the same name. The file name can include or
     -- omit an extension.
-    path :: Core.Text
+    path :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObject' with all optional fields omitted.
@@ -134,17 +135,17 @@ data GetObject = GetObject'
 -- omit an extension.
 newGetObject ::
   -- | 'path'
-  Core.Text ->
+  Prelude.Text ->
   GetObject
 newGetObject pPath_ =
-  GetObject' {range = Core.Nothing, path = pPath_}
+  GetObject' {range = Prelude.Nothing, path = pPath_}
 
 -- | The range bytes of an object to retrieve. For more information about the
 -- @Range@ header, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>. AWS
 -- Elemental MediaStore ignores this header for partially uploaded objects
 -- that have streaming upload availability.
-getObject_range :: Lens.Lens' GetObject (Core.Maybe Core.Text)
+getObject_range :: Lens.Lens' GetObject (Prelude.Maybe Prelude.Text)
 getObject_range = Lens.lens (\GetObject' {range} -> range) (\s@GetObject' {} a -> s {range = a} :: GetObject)
 
 -- | The path (including the file name) where the object is stored in the
@@ -173,7 +174,7 @@ getObject_range = Lens.lens (\GetObject' {range} -> range) (\s@GetObject' {} a -
 -- The file can have the same name inside and outside of AWS Elemental
 -- MediaStore, or it can have the same name. The file name can include or
 -- omit an extension.
-getObject_path :: Lens.Lens' GetObject Core.Text
+getObject_path :: Lens.Lens' GetObject Prelude.Text
 getObject_path = Lens.lens (\GetObject' {path} -> path) (\s@GetObject' {} a -> s {path = a} :: GetObject)
 
 instance Core.AWSRequest GetObject where
@@ -183,58 +184,58 @@ instance Core.AWSRequest GetObject where
     Response.receiveBody
       ( \s h x ->
           GetObjectResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (h Core..#? "Content-Type")
-            Core.<*> (h Core..#? "Content-Range")
-            Core.<*> (h Core..#? "Content-Length")
-            Core.<*> (h Core..#? "Last-Modified")
-            Core.<*> (h Core..#? "Cache-Control")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.pure x)
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Core..#? "Content-Range")
+            Prelude.<*> (h Core..#? "Content-Length")
+            Prelude.<*> (h Core..#? "Last-Modified")
+            Prelude.<*> (h Core..#? "Cache-Control")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure x)
       )
 
-instance Core.Hashable GetObject
+instance Prelude.Hashable GetObject
 
-instance Core.NFData GetObject
+instance Prelude.NFData GetObject
 
 instance Core.ToHeaders GetObject where
   toHeaders GetObject' {..} =
-    Core.mconcat ["Range" Core.=# range]
+    Prelude.mconcat ["Range" Core.=# range]
 
 instance Core.ToPath GetObject where
   toPath GetObject' {..} =
-    Core.mconcat ["/", Core.toBS path]
+    Prelude.mconcat ["/", Core.toBS path]
 
 instance Core.ToQuery GetObject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetObjectResponse' smart constructor.
 data GetObjectResponse = GetObjectResponse'
   { -- | The ETag that represents a unique instance of the object.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The content type of the object.
-    contentType :: Core.Maybe Core.Text,
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The range of bytes to retrieve.
-    contentRange :: Core.Maybe Core.Text,
+    contentRange :: Prelude.Maybe Prelude.Text,
     -- | The length of the object in bytes.
-    contentLength :: Core.Maybe Core.Natural,
+    contentLength :: Prelude.Maybe Prelude.Natural,
     -- | The date and time that the object was last modified.
-    lastModified :: Core.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Core.POSIX,
     -- | An optional @CacheControl@ header that allows the caller to control the
     -- object\'s cache behavior. Headers can be passed in as specified in the
     -- HTTP spec at
     -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
     --
     -- Headers with a custom user-defined value are also accepted.
-    cacheControl :: Core.Maybe Core.Text,
+    cacheControl :: Prelude.Maybe Prelude.Text,
     -- | The HTML status code of the request. Status codes ranging from 200 to
     -- 299 indicate success. All other status codes indicate the type of error
     -- that occurred.
-    statusCode :: Core.Int,
+    statusCode :: Prelude.Int,
     -- | The bytes of the object.
     body :: Core.ResponseBody
   }
-  deriving (Core.Show, Core.Generic)
+  deriving (Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectResponse' with all optional fields omitted.
@@ -268,41 +269,41 @@ data GetObjectResponse = GetObjectResponse'
 -- 'body', 'getObjectResponse_body' - The bytes of the object.
 newGetObjectResponse ::
   -- | 'statusCode'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'body'
   Core.ResponseBody ->
   GetObjectResponse
 newGetObjectResponse pStatusCode_ pBody_ =
   GetObjectResponse'
-    { eTag = Core.Nothing,
-      contentType = Core.Nothing,
-      contentRange = Core.Nothing,
-      contentLength = Core.Nothing,
-      lastModified = Core.Nothing,
-      cacheControl = Core.Nothing,
+    { eTag = Prelude.Nothing,
+      contentType = Prelude.Nothing,
+      contentRange = Prelude.Nothing,
+      contentLength = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
       statusCode = pStatusCode_,
       body = pBody_
     }
 
 -- | The ETag that represents a unique instance of the object.
-getObjectResponse_eTag :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_eTag :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_eTag = Lens.lens (\GetObjectResponse' {eTag} -> eTag) (\s@GetObjectResponse' {} a -> s {eTag = a} :: GetObjectResponse)
 
 -- | The content type of the object.
-getObjectResponse_contentType :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_contentType :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_contentType = Lens.lens (\GetObjectResponse' {contentType} -> contentType) (\s@GetObjectResponse' {} a -> s {contentType = a} :: GetObjectResponse)
 
 -- | The range of bytes to retrieve.
-getObjectResponse_contentRange :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_contentRange :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_contentRange = Lens.lens (\GetObjectResponse' {contentRange} -> contentRange) (\s@GetObjectResponse' {} a -> s {contentRange = a} :: GetObjectResponse)
 
 -- | The length of the object in bytes.
-getObjectResponse_contentLength :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Natural)
+getObjectResponse_contentLength :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Natural)
 getObjectResponse_contentLength = Lens.lens (\GetObjectResponse' {contentLength} -> contentLength) (\s@GetObjectResponse' {} a -> s {contentLength = a} :: GetObjectResponse)
 
 -- | The date and time that the object was last modified.
-getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Core.Maybe Core.UTCTime)
-getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Core.. Lens.mapping Core._Time
+getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
+getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
@@ -310,13 +311,13 @@ getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -
 -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
 --
 -- Headers with a custom user-defined value are also accepted.
-getObjectResponse_cacheControl :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Text)
+getObjectResponse_cacheControl :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_cacheControl = Lens.lens (\GetObjectResponse' {cacheControl} -> cacheControl) (\s@GetObjectResponse' {} a -> s {cacheControl = a} :: GetObjectResponse)
 
 -- | The HTML status code of the request. Status codes ranging from 200 to
 -- 299 indicate success. All other status codes indicate the type of error
 -- that occurred.
-getObjectResponse_statusCode :: Lens.Lens' GetObjectResponse Core.Int
+getObjectResponse_statusCode :: Lens.Lens' GetObjectResponse Prelude.Int
 getObjectResponse_statusCode = Lens.lens (\GetObjectResponse' {statusCode} -> statusCode) (\s@GetObjectResponse' {} a -> s {statusCode = a} :: GetObjectResponse)
 
 -- | The bytes of the object.

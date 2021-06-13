@@ -47,20 +47,21 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateIdentityProvider' smart constructor.
 data CreateIdentityProvider = CreateIdentityProvider'
   { -- | A list of identity provider identifiers.
-    idpIdentifiers :: Core.Maybe [Core.Text],
+    idpIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | A mapping of identity provider attributes to standard and custom user
     -- pool attributes.
-    attributeMapping :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The user pool ID.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The identity provider name.
-    providerName :: Core.Text,
+    providerName :: Prelude.Text,
     -- | The identity provider type.
     providerType :: IdentityProviderTypeType,
     -- | The identity provider details. The following list describes the provider
@@ -125,9 +126,9 @@ data CreateIdentityProvider = CreateIdentityProvider'
     --     -   MetadataFile OR MetadataURL
     --
     --     -   IDPSignout /optional/
-    providerDetails :: Core.HashMap Core.Text Core.Text
+    providerDetails :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateIdentityProvider' with all optional fields omitted.
@@ -212,9 +213,9 @@ data CreateIdentityProvider = CreateIdentityProvider'
 --     -   IDPSignout /optional/
 newCreateIdentityProvider ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'providerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'providerType'
   IdentityProviderTypeType ->
   CreateIdentityProvider
@@ -224,29 +225,29 @@ newCreateIdentityProvider
   pProviderType_ =
     CreateIdentityProvider'
       { idpIdentifiers =
-          Core.Nothing,
-        attributeMapping = Core.Nothing,
+          Prelude.Nothing,
+        attributeMapping = Prelude.Nothing,
         userPoolId = pUserPoolId_,
         providerName = pProviderName_,
         providerType = pProviderType_,
-        providerDetails = Core.mempty
+        providerDetails = Prelude.mempty
       }
 
 -- | A list of identity provider identifiers.
-createIdentityProvider_idpIdentifiers :: Lens.Lens' CreateIdentityProvider (Core.Maybe [Core.Text])
-createIdentityProvider_idpIdentifiers = Lens.lens (\CreateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@CreateIdentityProvider' {} a -> s {idpIdentifiers = a} :: CreateIdentityProvider) Core.. Lens.mapping Lens._Coerce
+createIdentityProvider_idpIdentifiers :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe [Prelude.Text])
+createIdentityProvider_idpIdentifiers = Lens.lens (\CreateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@CreateIdentityProvider' {} a -> s {idpIdentifiers = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A mapping of identity provider attributes to standard and custom user
 -- pool attributes.
-createIdentityProvider_attributeMapping :: Lens.Lens' CreateIdentityProvider (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createIdentityProvider_attributeMapping = Lens.lens (\CreateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@CreateIdentityProvider' {} a -> s {attributeMapping = a} :: CreateIdentityProvider) Core.. Lens.mapping Lens._Coerce
+createIdentityProvider_attributeMapping :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createIdentityProvider_attributeMapping = Lens.lens (\CreateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@CreateIdentityProvider' {} a -> s {attributeMapping = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID.
-createIdentityProvider_userPoolId :: Lens.Lens' CreateIdentityProvider Core.Text
+createIdentityProvider_userPoolId :: Lens.Lens' CreateIdentityProvider Prelude.Text
 createIdentityProvider_userPoolId = Lens.lens (\CreateIdentityProvider' {userPoolId} -> userPoolId) (\s@CreateIdentityProvider' {} a -> s {userPoolId = a} :: CreateIdentityProvider)
 
 -- | The identity provider name.
-createIdentityProvider_providerName :: Lens.Lens' CreateIdentityProvider Core.Text
+createIdentityProvider_providerName :: Lens.Lens' CreateIdentityProvider Prelude.Text
 createIdentityProvider_providerName = Lens.lens (\CreateIdentityProvider' {providerName} -> providerName) (\s@CreateIdentityProvider' {} a -> s {providerName = a} :: CreateIdentityProvider)
 
 -- | The identity provider type.
@@ -315,8 +316,8 @@ createIdentityProvider_providerType = Lens.lens (\CreateIdentityProvider' {provi
 --     -   MetadataFile OR MetadataURL
 --
 --     -   IDPSignout /optional/
-createIdentityProvider_providerDetails :: Lens.Lens' CreateIdentityProvider (Core.HashMap Core.Text Core.Text)
-createIdentityProvider_providerDetails = Lens.lens (\CreateIdentityProvider' {providerDetails} -> providerDetails) (\s@CreateIdentityProvider' {} a -> s {providerDetails = a} :: CreateIdentityProvider) Core.. Lens._Coerce
+createIdentityProvider_providerDetails :: Lens.Lens' CreateIdentityProvider (Prelude.HashMap Prelude.Text Prelude.Text)
+createIdentityProvider_providerDetails = Lens.lens (\CreateIdentityProvider' {providerDetails} -> providerDetails) (\s@CreateIdentityProvider' {} a -> s {providerDetails = a} :: CreateIdentityProvider) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateIdentityProvider where
   type
@@ -327,56 +328,59 @@ instance Core.AWSRequest CreateIdentityProvider where
     Response.receiveJSON
       ( \s h x ->
           CreateIdentityProviderResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "IdentityProvider")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "IdentityProvider")
       )
 
-instance Core.Hashable CreateIdentityProvider
+instance Prelude.Hashable CreateIdentityProvider
 
-instance Core.NFData CreateIdentityProvider
+instance Prelude.NFData CreateIdentityProvider
 
 instance Core.ToHeaders CreateIdentityProvider where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.CreateIdentityProvider" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateIdentityProvider where
   toJSON CreateIdentityProvider' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IdpIdentifiers" Core..=) Core.<$> idpIdentifiers,
+      ( Prelude.catMaybes
+          [ ("IdpIdentifiers" Core..=)
+              Prelude.<$> idpIdentifiers,
             ("AttributeMapping" Core..=)
-              Core.<$> attributeMapping,
-            Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("ProviderName" Core..= providerName),
-            Core.Just ("ProviderType" Core..= providerType),
-            Core.Just
+              Prelude.<$> attributeMapping,
+            Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("ProviderName" Core..= providerName),
+            Prelude.Just ("ProviderType" Core..= providerType),
+            Prelude.Just
               ("ProviderDetails" Core..= providerDetails)
           ]
       )
 
 instance Core.ToPath CreateIdentityProvider where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateIdentityProvider where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIdentityProviderResponse' smart constructor.
 data CreateIdentityProviderResponse = CreateIdentityProviderResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The newly created identity provider object.
     identityProvider :: IdentityProviderType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateIdentityProviderResponse' with all optional fields omitted.
@@ -391,7 +395,7 @@ data CreateIdentityProviderResponse = CreateIdentityProviderResponse'
 -- 'identityProvider', 'createIdentityProviderResponse_identityProvider' - The newly created identity provider object.
 newCreateIdentityProviderResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'identityProvider'
   IdentityProviderType ->
   CreateIdentityProviderResponse
@@ -405,11 +409,13 @@ newCreateIdentityProviderResponse
       }
 
 -- | The response's http status code.
-createIdentityProviderResponse_httpStatus :: Lens.Lens' CreateIdentityProviderResponse Core.Int
+createIdentityProviderResponse_httpStatus :: Lens.Lens' CreateIdentityProviderResponse Prelude.Int
 createIdentityProviderResponse_httpStatus = Lens.lens (\CreateIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@CreateIdentityProviderResponse' {} a -> s {httpStatus = a} :: CreateIdentityProviderResponse)
 
 -- | The newly created identity provider object.
 createIdentityProviderResponse_identityProvider :: Lens.Lens' CreateIdentityProviderResponse IdentityProviderType
 createIdentityProviderResponse_identityProvider = Lens.lens (\CreateIdentityProviderResponse' {identityProvider} -> identityProvider) (\s@CreateIdentityProviderResponse' {} a -> s {identityProvider = a} :: CreateIdentityProviderResponse)
 
-instance Core.NFData CreateIdentityProviderResponse
+instance
+  Prelude.NFData
+    CreateIdentityProviderResponse

@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -61,33 +62,33 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListAppImageConfigs' smart constructor.
 data ListAppImageConfigs = ListAppImageConfigs'
   { -- | The sort order. The default value is @Descending@.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the previous call to @ListImages@ didn\'t return the full set of
     -- AppImageConfigs, the call returns a token for getting the next set of
     -- AppImageConfigs.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only AppImageConfigs whose name contains the
     -- specified string.
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of AppImageConfigs to return in the response. The
     -- default value is 10.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only AppImageConfigs modified on or before the
     -- specified time.
-    modifiedTimeBefore :: Core.Maybe Core.POSIX,
+    modifiedTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only AppImageConfigs created on or before the
     -- specified time.
-    creationTimeBefore :: Core.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The property used to sort results. The default value is @CreationTime@.
-    sortBy :: Core.Maybe AppImageConfigSortKey,
+    sortBy :: Prelude.Maybe AppImageConfigSortKey,
     -- | A filter that returns only AppImageConfigs created on or after the
     -- specified time.
-    creationTimeAfter :: Core.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only AppImageConfigs modified on or after the
     -- specified time.
-    modifiedTimeAfter :: Core.Maybe Core.POSIX
+    modifiedTimeAfter :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAppImageConfigs' with all optional fields omitted.
@@ -126,82 +127,82 @@ newListAppImageConfigs ::
   ListAppImageConfigs
 newListAppImageConfigs =
   ListAppImageConfigs'
-    { sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing,
-      modifiedTimeBefore = Core.Nothing,
-      creationTimeBefore = Core.Nothing,
-      sortBy = Core.Nothing,
-      creationTimeAfter = Core.Nothing,
-      modifiedTimeAfter = Core.Nothing
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      modifiedTimeBefore = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
+      modifiedTimeAfter = Prelude.Nothing
     }
 
 -- | The sort order. The default value is @Descending@.
-listAppImageConfigs_sortOrder :: Lens.Lens' ListAppImageConfigs (Core.Maybe SortOrder)
+listAppImageConfigs_sortOrder :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe SortOrder)
 listAppImageConfigs_sortOrder = Lens.lens (\ListAppImageConfigs' {sortOrder} -> sortOrder) (\s@ListAppImageConfigs' {} a -> s {sortOrder = a} :: ListAppImageConfigs)
 
 -- | If the previous call to @ListImages@ didn\'t return the full set of
 -- AppImageConfigs, the call returns a token for getting the next set of
 -- AppImageConfigs.
-listAppImageConfigs_nextToken :: Lens.Lens' ListAppImageConfigs (Core.Maybe Core.Text)
+listAppImageConfigs_nextToken :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.Text)
 listAppImageConfigs_nextToken = Lens.lens (\ListAppImageConfigs' {nextToken} -> nextToken) (\s@ListAppImageConfigs' {} a -> s {nextToken = a} :: ListAppImageConfigs)
 
 -- | A filter that returns only AppImageConfigs whose name contains the
 -- specified string.
-listAppImageConfigs_nameContains :: Lens.Lens' ListAppImageConfigs (Core.Maybe Core.Text)
+listAppImageConfigs_nameContains :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.Text)
 listAppImageConfigs_nameContains = Lens.lens (\ListAppImageConfigs' {nameContains} -> nameContains) (\s@ListAppImageConfigs' {} a -> s {nameContains = a} :: ListAppImageConfigs)
 
 -- | The maximum number of AppImageConfigs to return in the response. The
 -- default value is 10.
-listAppImageConfigs_maxResults :: Lens.Lens' ListAppImageConfigs (Core.Maybe Core.Natural)
+listAppImageConfigs_maxResults :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.Natural)
 listAppImageConfigs_maxResults = Lens.lens (\ListAppImageConfigs' {maxResults} -> maxResults) (\s@ListAppImageConfigs' {} a -> s {maxResults = a} :: ListAppImageConfigs)
 
 -- | A filter that returns only AppImageConfigs modified on or before the
 -- specified time.
-listAppImageConfigs_modifiedTimeBefore :: Lens.Lens' ListAppImageConfigs (Core.Maybe Core.UTCTime)
-listAppImageConfigs_modifiedTimeBefore = Lens.lens (\ListAppImageConfigs' {modifiedTimeBefore} -> modifiedTimeBefore) (\s@ListAppImageConfigs' {} a -> s {modifiedTimeBefore = a} :: ListAppImageConfigs) Core.. Lens.mapping Core._Time
+listAppImageConfigs_modifiedTimeBefore :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
+listAppImageConfigs_modifiedTimeBefore = Lens.lens (\ListAppImageConfigs' {modifiedTimeBefore} -> modifiedTimeBefore) (\s@ListAppImageConfigs' {} a -> s {modifiedTimeBefore = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only AppImageConfigs created on or before the
 -- specified time.
-listAppImageConfigs_creationTimeBefore :: Lens.Lens' ListAppImageConfigs (Core.Maybe Core.UTCTime)
-listAppImageConfigs_creationTimeBefore = Lens.lens (\ListAppImageConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAppImageConfigs' {} a -> s {creationTimeBefore = a} :: ListAppImageConfigs) Core.. Lens.mapping Core._Time
+listAppImageConfigs_creationTimeBefore :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
+listAppImageConfigs_creationTimeBefore = Lens.lens (\ListAppImageConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAppImageConfigs' {} a -> s {creationTimeBefore = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Core._Time
 
 -- | The property used to sort results. The default value is @CreationTime@.
-listAppImageConfigs_sortBy :: Lens.Lens' ListAppImageConfigs (Core.Maybe AppImageConfigSortKey)
+listAppImageConfigs_sortBy :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe AppImageConfigSortKey)
 listAppImageConfigs_sortBy = Lens.lens (\ListAppImageConfigs' {sortBy} -> sortBy) (\s@ListAppImageConfigs' {} a -> s {sortBy = a} :: ListAppImageConfigs)
 
 -- | A filter that returns only AppImageConfigs created on or after the
 -- specified time.
-listAppImageConfigs_creationTimeAfter :: Lens.Lens' ListAppImageConfigs (Core.Maybe Core.UTCTime)
-listAppImageConfigs_creationTimeAfter = Lens.lens (\ListAppImageConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListAppImageConfigs' {} a -> s {creationTimeAfter = a} :: ListAppImageConfigs) Core.. Lens.mapping Core._Time
+listAppImageConfigs_creationTimeAfter :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
+listAppImageConfigs_creationTimeAfter = Lens.lens (\ListAppImageConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListAppImageConfigs' {} a -> s {creationTimeAfter = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only AppImageConfigs modified on or after the
 -- specified time.
-listAppImageConfigs_modifiedTimeAfter :: Lens.Lens' ListAppImageConfigs (Core.Maybe Core.UTCTime)
-listAppImageConfigs_modifiedTimeAfter = Lens.lens (\ListAppImageConfigs' {modifiedTimeAfter} -> modifiedTimeAfter) (\s@ListAppImageConfigs' {} a -> s {modifiedTimeAfter = a} :: ListAppImageConfigs) Core.. Lens.mapping Core._Time
+listAppImageConfigs_modifiedTimeAfter :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
+listAppImageConfigs_modifiedTimeAfter = Lens.lens (\ListAppImageConfigs' {modifiedTimeAfter} -> modifiedTimeAfter) (\s@ListAppImageConfigs' {} a -> s {modifiedTimeAfter = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListAppImageConfigs where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? listAppImageConfigsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAppImageConfigsResponse_appImageConfigs
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAppImageConfigs_nextToken
+          Prelude.& listAppImageConfigs_nextToken
           Lens..~ rs
           Lens.^? listAppImageConfigsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAppImageConfigs where
   type
@@ -212,62 +213,68 @@ instance Core.AWSRequest ListAppImageConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListAppImageConfigsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "AppImageConfigs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "AppImageConfigs"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAppImageConfigs
+instance Prelude.Hashable ListAppImageConfigs
 
-instance Core.NFData ListAppImageConfigs
+instance Prelude.NFData ListAppImageConfigs
 
 instance Core.ToHeaders ListAppImageConfigs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListAppImageConfigs" :: Core.ByteString),
+              Core.=# ( "SageMaker.ListAppImageConfigs" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListAppImageConfigs where
   toJSON ListAppImageConfigs' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("NameContains" Core..=) Core.<$> nameContains,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ModifiedTimeBefore" Core..=)
-              Core.<$> modifiedTimeBefore,
+              Prelude.<$> modifiedTimeBefore,
             ("CreationTimeBefore" Core..=)
-              Core.<$> creationTimeBefore,
-            ("SortBy" Core..=) Core.<$> sortBy,
+              Prelude.<$> creationTimeBefore,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("CreationTimeAfter" Core..=)
-              Core.<$> creationTimeAfter,
+              Prelude.<$> creationTimeAfter,
             ("ModifiedTimeAfter" Core..=)
-              Core.<$> modifiedTimeAfter
+              Prelude.<$> modifiedTimeAfter
           ]
       )
 
 instance Core.ToPath ListAppImageConfigs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListAppImageConfigs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAppImageConfigsResponse' smart constructor.
 data ListAppImageConfigsResponse = ListAppImageConfigsResponse'
   { -- | A token for getting the next set of AppImageConfigs, if there are any.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of AppImageConfigs and their properties.
-    appImageConfigs :: Core.Maybe [AppImageConfigDetails],
+    appImageConfigs :: Prelude.Maybe [AppImageConfigDetails],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAppImageConfigsResponse' with all optional fields omitted.
@@ -284,26 +291,26 @@ data ListAppImageConfigsResponse = ListAppImageConfigsResponse'
 -- 'httpStatus', 'listAppImageConfigsResponse_httpStatus' - The response's http status code.
 newListAppImageConfigsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAppImageConfigsResponse
 newListAppImageConfigsResponse pHttpStatus_ =
   ListAppImageConfigsResponse'
     { nextToken =
-        Core.Nothing,
-      appImageConfigs = Core.Nothing,
+        Prelude.Nothing,
+      appImageConfigs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token for getting the next set of AppImageConfigs, if there are any.
-listAppImageConfigsResponse_nextToken :: Lens.Lens' ListAppImageConfigsResponse (Core.Maybe Core.Text)
+listAppImageConfigsResponse_nextToken :: Lens.Lens' ListAppImageConfigsResponse (Prelude.Maybe Prelude.Text)
 listAppImageConfigsResponse_nextToken = Lens.lens (\ListAppImageConfigsResponse' {nextToken} -> nextToken) (\s@ListAppImageConfigsResponse' {} a -> s {nextToken = a} :: ListAppImageConfigsResponse)
 
 -- | A list of AppImageConfigs and their properties.
-listAppImageConfigsResponse_appImageConfigs :: Lens.Lens' ListAppImageConfigsResponse (Core.Maybe [AppImageConfigDetails])
-listAppImageConfigsResponse_appImageConfigs = Lens.lens (\ListAppImageConfigsResponse' {appImageConfigs} -> appImageConfigs) (\s@ListAppImageConfigsResponse' {} a -> s {appImageConfigs = a} :: ListAppImageConfigsResponse) Core.. Lens.mapping Lens._Coerce
+listAppImageConfigsResponse_appImageConfigs :: Lens.Lens' ListAppImageConfigsResponse (Prelude.Maybe [AppImageConfigDetails])
+listAppImageConfigsResponse_appImageConfigs = Lens.lens (\ListAppImageConfigsResponse' {appImageConfigs} -> appImageConfigs) (\s@ListAppImageConfigsResponse' {} a -> s {appImageConfigs = a} :: ListAppImageConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAppImageConfigsResponse_httpStatus :: Lens.Lens' ListAppImageConfigsResponse Core.Int
+listAppImageConfigsResponse_httpStatus :: Lens.Lens' ListAppImageConfigsResponse Prelude.Int
 listAppImageConfigsResponse_httpStatus = Lens.lens (\ListAppImageConfigsResponse' {httpStatus} -> httpStatus) (\s@ListAppImageConfigsResponse' {} a -> s {httpStatus = a} :: ListAppImageConfigsResponse)
 
-instance Core.NFData ListAppImageConfigsResponse
+instance Prelude.NFData ListAppImageConfigsResponse

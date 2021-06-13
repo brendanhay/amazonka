@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.RuleGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -50,10 +51,10 @@ data RuleGroup = RuleGroup'
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @RuleGroup@.
-    metricName :: Core.Maybe Core.Text,
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | The friendly name or description for the @RuleGroup@. You can\'t change
     -- the name of a @RuleGroup@ after you create it.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a @RuleGroup@. You use @RuleGroupId@ to get more
     -- information about a @RuleGroup@ (see GetRuleGroup), update a @RuleGroup@
     -- (see UpdateRuleGroup), insert a @RuleGroup@ into a @WebACL@ or delete a
@@ -61,9 +62,9 @@ data RuleGroup = RuleGroup'
     -- WAF (see DeleteRuleGroup).
     --
     -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-    ruleGroupId :: Core.Text
+    ruleGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RuleGroup' with all optional fields omitted.
@@ -92,12 +93,12 @@ data RuleGroup = RuleGroup'
 -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
 newRuleGroup ::
   -- | 'ruleGroupId'
-  Core.Text ->
+  Prelude.Text ->
   RuleGroup
 newRuleGroup pRuleGroupId_ =
   RuleGroup'
-    { metricName = Core.Nothing,
-      name = Core.Nothing,
+    { metricName = Prelude.Nothing,
+      name = Prelude.Nothing,
       ruleGroupId = pRuleGroupId_
     }
 
@@ -107,12 +108,12 @@ newRuleGroup pRuleGroupId_ =
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @RuleGroup@.
-ruleGroup_metricName :: Lens.Lens' RuleGroup (Core.Maybe Core.Text)
+ruleGroup_metricName :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
 ruleGroup_metricName = Lens.lens (\RuleGroup' {metricName} -> metricName) (\s@RuleGroup' {} a -> s {metricName = a} :: RuleGroup)
 
 -- | The friendly name or description for the @RuleGroup@. You can\'t change
 -- the name of a @RuleGroup@ after you create it.
-ruleGroup_name :: Lens.Lens' RuleGroup (Core.Maybe Core.Text)
+ruleGroup_name :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
 ruleGroup_name = Lens.lens (\RuleGroup' {name} -> name) (\s@RuleGroup' {} a -> s {name = a} :: RuleGroup)
 
 -- | A unique identifier for a @RuleGroup@. You use @RuleGroupId@ to get more
@@ -122,7 +123,7 @@ ruleGroup_name = Lens.lens (\RuleGroup' {name} -> name) (\s@RuleGroup' {} a -> s
 -- WAF (see DeleteRuleGroup).
 --
 -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-ruleGroup_ruleGroupId :: Lens.Lens' RuleGroup Core.Text
+ruleGroup_ruleGroupId :: Lens.Lens' RuleGroup Prelude.Text
 ruleGroup_ruleGroupId = Lens.lens (\RuleGroup' {ruleGroupId} -> ruleGroupId) (\s@RuleGroup' {} a -> s {ruleGroupId = a} :: RuleGroup)
 
 instance Core.FromJSON RuleGroup where
@@ -131,11 +132,11 @@ instance Core.FromJSON RuleGroup where
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            Core.<$> (x Core..:? "MetricName")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..: "RuleGroupId")
+            Prelude.<$> (x Core..:? "MetricName")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..: "RuleGroupId")
       )
 
-instance Core.Hashable RuleGroup
+instance Prelude.Hashable RuleGroup
 
-instance Core.NFData RuleGroup
+instance Prelude.NFData RuleGroup

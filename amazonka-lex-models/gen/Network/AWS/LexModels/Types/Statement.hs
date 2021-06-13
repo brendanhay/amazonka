@@ -22,6 +22,7 @@ module Network.AWS.LexModels.Types.Statement where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Message
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of messages that convey information to the user. At
 -- runtime, Amazon Lex selects the message to convey.
@@ -33,11 +34,11 @@ data Statement = Statement'
     -- API, Amazon Lex includes the response card in the response. It
     -- substitutes all of the session attributes and slot values for
     -- placeholders in the response card.
-    responseCard :: Core.Maybe Core.Text,
+    responseCard :: Prelude.Maybe Prelude.Text,
     -- | A collection of message objects.
-    messages :: Core.NonEmpty Message
+    messages :: Prelude.NonEmpty Message
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Statement' with all optional fields omitted.
@@ -56,11 +57,11 @@ data Statement = Statement'
 -- 'messages', 'statement_messages' - A collection of message objects.
 newStatement ::
   -- | 'messages'
-  Core.NonEmpty Message ->
+  Prelude.NonEmpty Message ->
   Statement
 newStatement pMessages_ =
   Statement'
-    { responseCard = Core.Nothing,
+    { responseCard = Prelude.Nothing,
       messages = Lens._Coerce Lens.# pMessages_
     }
 
@@ -69,12 +70,12 @@ newStatement pMessages_ =
 -- API, Amazon Lex includes the response card in the response. It
 -- substitutes all of the session attributes and slot values for
 -- placeholders in the response card.
-statement_responseCard :: Lens.Lens' Statement (Core.Maybe Core.Text)
+statement_responseCard :: Lens.Lens' Statement (Prelude.Maybe Prelude.Text)
 statement_responseCard = Lens.lens (\Statement' {responseCard} -> responseCard) (\s@Statement' {} a -> s {responseCard = a} :: Statement)
 
 -- | A collection of message objects.
-statement_messages :: Lens.Lens' Statement (Core.NonEmpty Message)
-statement_messages = Lens.lens (\Statement' {messages} -> messages) (\s@Statement' {} a -> s {messages = a} :: Statement) Core.. Lens._Coerce
+statement_messages :: Lens.Lens' Statement (Prelude.NonEmpty Message)
+statement_messages = Lens.lens (\Statement' {messages} -> messages) (\s@Statement' {} a -> s {messages = a} :: Statement) Prelude.. Lens._Coerce
 
 instance Core.FromJSON Statement where
   parseJSON =
@@ -82,19 +83,19 @@ instance Core.FromJSON Statement where
       "Statement"
       ( \x ->
           Statement'
-            Core.<$> (x Core..:? "responseCard")
-            Core.<*> (x Core..: "messages")
+            Prelude.<$> (x Core..:? "responseCard")
+            Prelude.<*> (x Core..: "messages")
       )
 
-instance Core.Hashable Statement
+instance Prelude.Hashable Statement
 
-instance Core.NFData Statement
+instance Prelude.NFData Statement
 
 instance Core.ToJSON Statement where
   toJSON Statement' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("responseCard" Core..=) Core.<$> responseCard,
-            Core.Just ("messages" Core..= messages)
+      ( Prelude.catMaybes
+          [ ("responseCard" Core..=) Prelude.<$> responseCard,
+            Prelude.Just ("messages" Core..= messages)
           ]
       )

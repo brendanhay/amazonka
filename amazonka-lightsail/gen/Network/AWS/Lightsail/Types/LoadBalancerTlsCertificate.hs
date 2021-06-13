@@ -29,6 +29,7 @@ import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateStatus
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a load balancer SSL\/TLS certificate.
 --
@@ -39,18 +40,18 @@ import Network.AWS.Lightsail.Types.Tag
 data LoadBalancerTlsCertificate = LoadBalancerTlsCertificate'
   { -- | The validation status of the SSL\/TLS certificate. Valid values are
     -- below.
-    status :: Core.Maybe LoadBalancerTlsCertificateStatus,
+    status :: Prelude.Maybe LoadBalancerTlsCertificateStatus,
     -- | The timestamp when the SSL\/TLS certificate is first valid.
-    notBefore :: Core.Maybe Core.POSIX,
+    notBefore :: Prelude.Maybe Core.POSIX,
     -- | The serial number of the certificate.
-    serial :: Core.Maybe Core.Text,
+    serial :: Prelude.Maybe Prelude.Text,
     -- | When @true@, the SSL\/TLS certificate is attached to the Lightsail load
     -- balancer.
-    isAttached :: Core.Maybe Core.Bool,
+    isAttached :: Prelude.Maybe Prelude.Bool,
     -- | The time when you created your SSL\/TLS certificate.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the SSL\/TLS certificate.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The resource type (e.g., @LoadBalancerTlsCertificate@).
     --
     -- -   __@Instance@__ - A Lightsail instance (a virtual private server)
@@ -73,23 +74,23 @@ data LoadBalancerTlsCertificate = LoadBalancerTlsCertificate'
     -- -   __@Disk@__ - A Lightsail block storage disk
     --
     -- -   __@DiskSnapshot@__ - A block storage disk snapshot
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about your Lightsail load balancer or SSL\/TLS
     -- certificate. This code enables our support team to look up your
     -- Lightsail information more easily.
-    supportCode :: Core.Maybe Core.Text,
+    supportCode :: Prelude.Maybe Prelude.Text,
     -- | An array of strings that specify the alternate domains (e.g.,
     -- @example2.com@) and subdomains (e.g., @blog.example.com@) for the
     -- certificate.
-    subjectAlternativeNames :: Core.Maybe [Core.Text],
+    subjectAlternativeNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the SSL\/TLS certificate (e.g., @my-certificate@).
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The domain name for your SSL\/TLS certificate.
-    domainName :: Core.Maybe Core.Text,
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | The name of the entity that is associated with the public key contained
     -- in the certificate.
-    subject :: Core.Maybe Core.Text,
+    subject :: Prelude.Maybe Prelude.Text,
     -- | The validation failure reason, if any, of the certificate.
     --
     -- The following failure reasons are possible:
@@ -143,40 +144,40 @@ data LoadBalancerTlsCertificate = LoadBalancerTlsCertificate'
     --     typographical error in one or more of the domain names in the
     --     certificate request. Try to request a certificate again, correcting
     --     any spelling errors or typos that were in the failed request.
-    failureReason :: Core.Maybe LoadBalancerTlsCertificateFailureReason,
+    failureReason :: Prelude.Maybe LoadBalancerTlsCertificateFailureReason,
     -- | The reason the certificate was revoked. This value is present only when
     -- the certificate status is @REVOKED@.
-    revocationReason :: Core.Maybe LoadBalancerTlsCertificateRevocationReason,
+    revocationReason :: Prelude.Maybe LoadBalancerTlsCertificateRevocationReason,
     -- | The timestamp when the certificate was revoked. This value is present
     -- only when the certificate status is @REVOKED@.
-    revokedAt :: Core.Maybe Core.POSIX,
+    revokedAt :: Prelude.Maybe Core.POSIX,
     -- | The timestamp when the SSL\/TLS certificate expires.
-    notAfter :: Core.Maybe Core.POSIX,
+    notAfter :: Prelude.Maybe Core.POSIX,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
     -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The algorithm that was used to sign the certificate.
-    signatureAlgorithm :: Core.Maybe Core.Text,
+    signatureAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The issuer of the certificate.
-    issuer :: Core.Maybe Core.Text,
+    issuer :: Prelude.Maybe Prelude.Text,
     -- | The time when the SSL\/TLS certificate was issued.
-    issuedAt :: Core.Maybe Core.POSIX,
+    issuedAt :: Prelude.Maybe Core.POSIX,
     -- | The algorithm used to generate the key pair (the public and private
     -- key).
-    keyAlgorithm :: Core.Maybe Core.Text,
+    keyAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | An array of LoadBalancerTlsCertificateDomainValidationRecord objects
     -- describing the records.
-    domainValidationRecords :: Core.Maybe [LoadBalancerTlsCertificateDomainValidationRecord],
+    domainValidationRecords :: Prelude.Maybe [LoadBalancerTlsCertificateDomainValidationRecord],
     -- | The AWS Region and Availability Zone where you created your certificate.
-    location :: Core.Maybe ResourceLocation,
+    location :: Prelude.Maybe ResourceLocation,
     -- | The load balancer name where your SSL\/TLS certificate is attached.
-    loadBalancerName :: Core.Maybe Core.Text,
+    loadBalancerName :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the status of the certificate renewal managed
     -- by Lightsail.
-    renewalSummary :: Core.Maybe LoadBalancerTlsCertificateRenewalSummary
+    renewalSummary :: Prelude.Maybe LoadBalancerTlsCertificateRenewalSummary
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerTlsCertificate' with all optional fields omitted.
@@ -327,57 +328,58 @@ newLoadBalancerTlsCertificate ::
   LoadBalancerTlsCertificate
 newLoadBalancerTlsCertificate =
   LoadBalancerTlsCertificate'
-    { status = Core.Nothing,
-      notBefore = Core.Nothing,
-      serial = Core.Nothing,
-      isAttached = Core.Nothing,
-      createdAt = Core.Nothing,
-      arn = Core.Nothing,
-      resourceType = Core.Nothing,
-      supportCode = Core.Nothing,
-      subjectAlternativeNames = Core.Nothing,
-      name = Core.Nothing,
-      domainName = Core.Nothing,
-      subject = Core.Nothing,
-      failureReason = Core.Nothing,
-      revocationReason = Core.Nothing,
-      revokedAt = Core.Nothing,
-      notAfter = Core.Nothing,
-      tags = Core.Nothing,
-      signatureAlgorithm = Core.Nothing,
-      issuer = Core.Nothing,
-      issuedAt = Core.Nothing,
-      keyAlgorithm = Core.Nothing,
-      domainValidationRecords = Core.Nothing,
-      location = Core.Nothing,
-      loadBalancerName = Core.Nothing,
-      renewalSummary = Core.Nothing
+    { status =
+        Prelude.Nothing,
+      notBefore = Prelude.Nothing,
+      serial = Prelude.Nothing,
+      isAttached = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      supportCode = Prelude.Nothing,
+      subjectAlternativeNames = Prelude.Nothing,
+      name = Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      subject = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      revocationReason = Prelude.Nothing,
+      revokedAt = Prelude.Nothing,
+      notAfter = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      signatureAlgorithm = Prelude.Nothing,
+      issuer = Prelude.Nothing,
+      issuedAt = Prelude.Nothing,
+      keyAlgorithm = Prelude.Nothing,
+      domainValidationRecords = Prelude.Nothing,
+      location = Prelude.Nothing,
+      loadBalancerName = Prelude.Nothing,
+      renewalSummary = Prelude.Nothing
     }
 
 -- | The validation status of the SSL\/TLS certificate. Valid values are
 -- below.
-loadBalancerTlsCertificate_status :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe LoadBalancerTlsCertificateStatus)
+loadBalancerTlsCertificate_status :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe LoadBalancerTlsCertificateStatus)
 loadBalancerTlsCertificate_status = Lens.lens (\LoadBalancerTlsCertificate' {status} -> status) (\s@LoadBalancerTlsCertificate' {} a -> s {status = a} :: LoadBalancerTlsCertificate)
 
 -- | The timestamp when the SSL\/TLS certificate is first valid.
-loadBalancerTlsCertificate_notBefore :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.UTCTime)
-loadBalancerTlsCertificate_notBefore = Lens.lens (\LoadBalancerTlsCertificate' {notBefore} -> notBefore) (\s@LoadBalancerTlsCertificate' {} a -> s {notBefore = a} :: LoadBalancerTlsCertificate) Core.. Lens.mapping Core._Time
+loadBalancerTlsCertificate_notBefore :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.UTCTime)
+loadBalancerTlsCertificate_notBefore = Lens.lens (\LoadBalancerTlsCertificate' {notBefore} -> notBefore) (\s@LoadBalancerTlsCertificate' {} a -> s {notBefore = a} :: LoadBalancerTlsCertificate) Prelude.. Lens.mapping Core._Time
 
 -- | The serial number of the certificate.
-loadBalancerTlsCertificate_serial :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_serial :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_serial = Lens.lens (\LoadBalancerTlsCertificate' {serial} -> serial) (\s@LoadBalancerTlsCertificate' {} a -> s {serial = a} :: LoadBalancerTlsCertificate)
 
 -- | When @true@, the SSL\/TLS certificate is attached to the Lightsail load
 -- balancer.
-loadBalancerTlsCertificate_isAttached :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Bool)
+loadBalancerTlsCertificate_isAttached :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Bool)
 loadBalancerTlsCertificate_isAttached = Lens.lens (\LoadBalancerTlsCertificate' {isAttached} -> isAttached) (\s@LoadBalancerTlsCertificate' {} a -> s {isAttached = a} :: LoadBalancerTlsCertificate)
 
 -- | The time when you created your SSL\/TLS certificate.
-loadBalancerTlsCertificate_createdAt :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.UTCTime)
-loadBalancerTlsCertificate_createdAt = Lens.lens (\LoadBalancerTlsCertificate' {createdAt} -> createdAt) (\s@LoadBalancerTlsCertificate' {} a -> s {createdAt = a} :: LoadBalancerTlsCertificate) Core.. Lens.mapping Core._Time
+loadBalancerTlsCertificate_createdAt :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.UTCTime)
+loadBalancerTlsCertificate_createdAt = Lens.lens (\LoadBalancerTlsCertificate' {createdAt} -> createdAt) (\s@LoadBalancerTlsCertificate' {} a -> s {createdAt = a} :: LoadBalancerTlsCertificate) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the SSL\/TLS certificate.
-loadBalancerTlsCertificate_arn :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_arn :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_arn = Lens.lens (\LoadBalancerTlsCertificate' {arn} -> arn) (\s@LoadBalancerTlsCertificate' {} a -> s {arn = a} :: LoadBalancerTlsCertificate)
 
 -- | The resource type (e.g., @LoadBalancerTlsCertificate@).
@@ -402,33 +404,33 @@ loadBalancerTlsCertificate_arn = Lens.lens (\LoadBalancerTlsCertificate' {arn} -
 -- -   __@Disk@__ - A Lightsail block storage disk
 --
 -- -   __@DiskSnapshot@__ - A block storage disk snapshot
-loadBalancerTlsCertificate_resourceType :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe ResourceType)
+loadBalancerTlsCertificate_resourceType :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe ResourceType)
 loadBalancerTlsCertificate_resourceType = Lens.lens (\LoadBalancerTlsCertificate' {resourceType} -> resourceType) (\s@LoadBalancerTlsCertificate' {} a -> s {resourceType = a} :: LoadBalancerTlsCertificate)
 
 -- | The support code. Include this code in your email to support when you
 -- have questions about your Lightsail load balancer or SSL\/TLS
 -- certificate. This code enables our support team to look up your
 -- Lightsail information more easily.
-loadBalancerTlsCertificate_supportCode :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_supportCode :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_supportCode = Lens.lens (\LoadBalancerTlsCertificate' {supportCode} -> supportCode) (\s@LoadBalancerTlsCertificate' {} a -> s {supportCode = a} :: LoadBalancerTlsCertificate)
 
 -- | An array of strings that specify the alternate domains (e.g.,
 -- @example2.com@) and subdomains (e.g., @blog.example.com@) for the
 -- certificate.
-loadBalancerTlsCertificate_subjectAlternativeNames :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe [Core.Text])
-loadBalancerTlsCertificate_subjectAlternativeNames = Lens.lens (\LoadBalancerTlsCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@LoadBalancerTlsCertificate' {} a -> s {subjectAlternativeNames = a} :: LoadBalancerTlsCertificate) Core.. Lens.mapping Lens._Coerce
+loadBalancerTlsCertificate_subjectAlternativeNames :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe [Prelude.Text])
+loadBalancerTlsCertificate_subjectAlternativeNames = Lens.lens (\LoadBalancerTlsCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@LoadBalancerTlsCertificate' {} a -> s {subjectAlternativeNames = a} :: LoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the SSL\/TLS certificate (e.g., @my-certificate@).
-loadBalancerTlsCertificate_name :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_name :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_name = Lens.lens (\LoadBalancerTlsCertificate' {name} -> name) (\s@LoadBalancerTlsCertificate' {} a -> s {name = a} :: LoadBalancerTlsCertificate)
 
 -- | The domain name for your SSL\/TLS certificate.
-loadBalancerTlsCertificate_domainName :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_domainName :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_domainName = Lens.lens (\LoadBalancerTlsCertificate' {domainName} -> domainName) (\s@LoadBalancerTlsCertificate' {} a -> s {domainName = a} :: LoadBalancerTlsCertificate)
 
 -- | The name of the entity that is associated with the public key contained
 -- in the certificate.
-loadBalancerTlsCertificate_subject :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_subject :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_subject = Lens.lens (\LoadBalancerTlsCertificate' {subject} -> subject) (\s@LoadBalancerTlsCertificate' {} a -> s {subject = a} :: LoadBalancerTlsCertificate)
 
 -- | The validation failure reason, if any, of the certificate.
@@ -484,62 +486,62 @@ loadBalancerTlsCertificate_subject = Lens.lens (\LoadBalancerTlsCertificate' {su
 --     typographical error in one or more of the domain names in the
 --     certificate request. Try to request a certificate again, correcting
 --     any spelling errors or typos that were in the failed request.
-loadBalancerTlsCertificate_failureReason :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe LoadBalancerTlsCertificateFailureReason)
+loadBalancerTlsCertificate_failureReason :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe LoadBalancerTlsCertificateFailureReason)
 loadBalancerTlsCertificate_failureReason = Lens.lens (\LoadBalancerTlsCertificate' {failureReason} -> failureReason) (\s@LoadBalancerTlsCertificate' {} a -> s {failureReason = a} :: LoadBalancerTlsCertificate)
 
 -- | The reason the certificate was revoked. This value is present only when
 -- the certificate status is @REVOKED@.
-loadBalancerTlsCertificate_revocationReason :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe LoadBalancerTlsCertificateRevocationReason)
+loadBalancerTlsCertificate_revocationReason :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe LoadBalancerTlsCertificateRevocationReason)
 loadBalancerTlsCertificate_revocationReason = Lens.lens (\LoadBalancerTlsCertificate' {revocationReason} -> revocationReason) (\s@LoadBalancerTlsCertificate' {} a -> s {revocationReason = a} :: LoadBalancerTlsCertificate)
 
 -- | The timestamp when the certificate was revoked. This value is present
 -- only when the certificate status is @REVOKED@.
-loadBalancerTlsCertificate_revokedAt :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.UTCTime)
-loadBalancerTlsCertificate_revokedAt = Lens.lens (\LoadBalancerTlsCertificate' {revokedAt} -> revokedAt) (\s@LoadBalancerTlsCertificate' {} a -> s {revokedAt = a} :: LoadBalancerTlsCertificate) Core.. Lens.mapping Core._Time
+loadBalancerTlsCertificate_revokedAt :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.UTCTime)
+loadBalancerTlsCertificate_revokedAt = Lens.lens (\LoadBalancerTlsCertificate' {revokedAt} -> revokedAt) (\s@LoadBalancerTlsCertificate' {} a -> s {revokedAt = a} :: LoadBalancerTlsCertificate) Prelude.. Lens.mapping Core._Time
 
 -- | The timestamp when the SSL\/TLS certificate expires.
-loadBalancerTlsCertificate_notAfter :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.UTCTime)
-loadBalancerTlsCertificate_notAfter = Lens.lens (\LoadBalancerTlsCertificate' {notAfter} -> notAfter) (\s@LoadBalancerTlsCertificate' {} a -> s {notAfter = a} :: LoadBalancerTlsCertificate) Core.. Lens.mapping Core._Time
+loadBalancerTlsCertificate_notAfter :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.UTCTime)
+loadBalancerTlsCertificate_notAfter = Lens.lens (\LoadBalancerTlsCertificate' {notAfter} -> notAfter) (\s@LoadBalancerTlsCertificate' {} a -> s {notAfter = a} :: LoadBalancerTlsCertificate) Prelude.. Lens.mapping Core._Time
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
 -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-loadBalancerTlsCertificate_tags :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe [Tag])
-loadBalancerTlsCertificate_tags = Lens.lens (\LoadBalancerTlsCertificate' {tags} -> tags) (\s@LoadBalancerTlsCertificate' {} a -> s {tags = a} :: LoadBalancerTlsCertificate) Core.. Lens.mapping Lens._Coerce
+loadBalancerTlsCertificate_tags :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe [Tag])
+loadBalancerTlsCertificate_tags = Lens.lens (\LoadBalancerTlsCertificate' {tags} -> tags) (\s@LoadBalancerTlsCertificate' {} a -> s {tags = a} :: LoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The algorithm that was used to sign the certificate.
-loadBalancerTlsCertificate_signatureAlgorithm :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_signatureAlgorithm :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_signatureAlgorithm = Lens.lens (\LoadBalancerTlsCertificate' {signatureAlgorithm} -> signatureAlgorithm) (\s@LoadBalancerTlsCertificate' {} a -> s {signatureAlgorithm = a} :: LoadBalancerTlsCertificate)
 
 -- | The issuer of the certificate.
-loadBalancerTlsCertificate_issuer :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_issuer :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_issuer = Lens.lens (\LoadBalancerTlsCertificate' {issuer} -> issuer) (\s@LoadBalancerTlsCertificate' {} a -> s {issuer = a} :: LoadBalancerTlsCertificate)
 
 -- | The time when the SSL\/TLS certificate was issued.
-loadBalancerTlsCertificate_issuedAt :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.UTCTime)
-loadBalancerTlsCertificate_issuedAt = Lens.lens (\LoadBalancerTlsCertificate' {issuedAt} -> issuedAt) (\s@LoadBalancerTlsCertificate' {} a -> s {issuedAt = a} :: LoadBalancerTlsCertificate) Core.. Lens.mapping Core._Time
+loadBalancerTlsCertificate_issuedAt :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.UTCTime)
+loadBalancerTlsCertificate_issuedAt = Lens.lens (\LoadBalancerTlsCertificate' {issuedAt} -> issuedAt) (\s@LoadBalancerTlsCertificate' {} a -> s {issuedAt = a} :: LoadBalancerTlsCertificate) Prelude.. Lens.mapping Core._Time
 
 -- | The algorithm used to generate the key pair (the public and private
 -- key).
-loadBalancerTlsCertificate_keyAlgorithm :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_keyAlgorithm :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_keyAlgorithm = Lens.lens (\LoadBalancerTlsCertificate' {keyAlgorithm} -> keyAlgorithm) (\s@LoadBalancerTlsCertificate' {} a -> s {keyAlgorithm = a} :: LoadBalancerTlsCertificate)
 
 -- | An array of LoadBalancerTlsCertificateDomainValidationRecord objects
 -- describing the records.
-loadBalancerTlsCertificate_domainValidationRecords :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe [LoadBalancerTlsCertificateDomainValidationRecord])
-loadBalancerTlsCertificate_domainValidationRecords = Lens.lens (\LoadBalancerTlsCertificate' {domainValidationRecords} -> domainValidationRecords) (\s@LoadBalancerTlsCertificate' {} a -> s {domainValidationRecords = a} :: LoadBalancerTlsCertificate) Core.. Lens.mapping Lens._Coerce
+loadBalancerTlsCertificate_domainValidationRecords :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe [LoadBalancerTlsCertificateDomainValidationRecord])
+loadBalancerTlsCertificate_domainValidationRecords = Lens.lens (\LoadBalancerTlsCertificate' {domainValidationRecords} -> domainValidationRecords) (\s@LoadBalancerTlsCertificate' {} a -> s {domainValidationRecords = a} :: LoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS Region and Availability Zone where you created your certificate.
-loadBalancerTlsCertificate_location :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe ResourceLocation)
+loadBalancerTlsCertificate_location :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe ResourceLocation)
 loadBalancerTlsCertificate_location = Lens.lens (\LoadBalancerTlsCertificate' {location} -> location) (\s@LoadBalancerTlsCertificate' {} a -> s {location = a} :: LoadBalancerTlsCertificate)
 
 -- | The load balancer name where your SSL\/TLS certificate is attached.
-loadBalancerTlsCertificate_loadBalancerName :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe Core.Text)
+loadBalancerTlsCertificate_loadBalancerName :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificate_loadBalancerName = Lens.lens (\LoadBalancerTlsCertificate' {loadBalancerName} -> loadBalancerName) (\s@LoadBalancerTlsCertificate' {} a -> s {loadBalancerName = a} :: LoadBalancerTlsCertificate)
 
 -- | An object that describes the status of the certificate renewal managed
 -- by Lightsail.
-loadBalancerTlsCertificate_renewalSummary :: Lens.Lens' LoadBalancerTlsCertificate (Core.Maybe LoadBalancerTlsCertificateRenewalSummary)
+loadBalancerTlsCertificate_renewalSummary :: Lens.Lens' LoadBalancerTlsCertificate (Prelude.Maybe LoadBalancerTlsCertificateRenewalSummary)
 loadBalancerTlsCertificate_renewalSummary = Lens.lens (\LoadBalancerTlsCertificate' {renewalSummary} -> renewalSummary) (\s@LoadBalancerTlsCertificate' {} a -> s {renewalSummary = a} :: LoadBalancerTlsCertificate)
 
 instance Core.FromJSON LoadBalancerTlsCertificate where
@@ -548,37 +550,37 @@ instance Core.FromJSON LoadBalancerTlsCertificate where
       "LoadBalancerTlsCertificate"
       ( \x ->
           LoadBalancerTlsCertificate'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "notBefore")
-            Core.<*> (x Core..:? "serial")
-            Core.<*> (x Core..:? "isAttached")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "supportCode")
-            Core.<*> ( x Core..:? "subjectAlternativeNames"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "domainName")
-            Core.<*> (x Core..:? "subject")
-            Core.<*> (x Core..:? "failureReason")
-            Core.<*> (x Core..:? "revocationReason")
-            Core.<*> (x Core..:? "revokedAt")
-            Core.<*> (x Core..:? "notAfter")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "signatureAlgorithm")
-            Core.<*> (x Core..:? "issuer")
-            Core.<*> (x Core..:? "issuedAt")
-            Core.<*> (x Core..:? "keyAlgorithm")
-            Core.<*> ( x Core..:? "domainValidationRecords"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "location")
-            Core.<*> (x Core..:? "loadBalancerName")
-            Core.<*> (x Core..:? "renewalSummary")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "notBefore")
+            Prelude.<*> (x Core..:? "serial")
+            Prelude.<*> (x Core..:? "isAttached")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> ( x Core..:? "subjectAlternativeNames"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "domainName")
+            Prelude.<*> (x Core..:? "subject")
+            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<*> (x Core..:? "revocationReason")
+            Prelude.<*> (x Core..:? "revokedAt")
+            Prelude.<*> (x Core..:? "notAfter")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "signatureAlgorithm")
+            Prelude.<*> (x Core..:? "issuer")
+            Prelude.<*> (x Core..:? "issuedAt")
+            Prelude.<*> (x Core..:? "keyAlgorithm")
+            Prelude.<*> ( x Core..:? "domainValidationRecords"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "loadBalancerName")
+            Prelude.<*> (x Core..:? "renewalSummary")
       )
 
-instance Core.Hashable LoadBalancerTlsCertificate
+instance Prelude.Hashable LoadBalancerTlsCertificate
 
-instance Core.NFData LoadBalancerTlsCertificate
+instance Prelude.NFData LoadBalancerTlsCertificate

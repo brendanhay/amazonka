@@ -23,21 +23,22 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AuditTaskStatus
 import Network.AWS.IoT.Types.AuditTaskType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The audits that were performed.
 --
 -- /See:/ 'newAuditTaskMetadata' smart constructor.
 data AuditTaskMetadata = AuditTaskMetadata'
   { -- | The ID of this audit.
-    taskId :: Core.Maybe Core.Text,
+    taskId :: Prelude.Maybe Prelude.Text,
     -- | The status of this audit. One of \"IN_PROGRESS\", \"COMPLETED\",
     -- \"FAILED\", or \"CANCELED\".
-    taskStatus :: Core.Maybe AuditTaskStatus,
+    taskStatus :: Prelude.Maybe AuditTaskStatus,
     -- | The type of this audit. One of \"ON_DEMAND_AUDIT_TASK\" or
     -- \"SCHEDULED_AUDIT_TASK\".
-    taskType :: Core.Maybe AuditTaskType
+    taskType :: Prelude.Maybe AuditTaskType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuditTaskMetadata' with all optional fields omitted.
@@ -58,23 +59,23 @@ newAuditTaskMetadata ::
   AuditTaskMetadata
 newAuditTaskMetadata =
   AuditTaskMetadata'
-    { taskId = Core.Nothing,
-      taskStatus = Core.Nothing,
-      taskType = Core.Nothing
+    { taskId = Prelude.Nothing,
+      taskStatus = Prelude.Nothing,
+      taskType = Prelude.Nothing
     }
 
 -- | The ID of this audit.
-auditTaskMetadata_taskId :: Lens.Lens' AuditTaskMetadata (Core.Maybe Core.Text)
+auditTaskMetadata_taskId :: Lens.Lens' AuditTaskMetadata (Prelude.Maybe Prelude.Text)
 auditTaskMetadata_taskId = Lens.lens (\AuditTaskMetadata' {taskId} -> taskId) (\s@AuditTaskMetadata' {} a -> s {taskId = a} :: AuditTaskMetadata)
 
 -- | The status of this audit. One of \"IN_PROGRESS\", \"COMPLETED\",
 -- \"FAILED\", or \"CANCELED\".
-auditTaskMetadata_taskStatus :: Lens.Lens' AuditTaskMetadata (Core.Maybe AuditTaskStatus)
+auditTaskMetadata_taskStatus :: Lens.Lens' AuditTaskMetadata (Prelude.Maybe AuditTaskStatus)
 auditTaskMetadata_taskStatus = Lens.lens (\AuditTaskMetadata' {taskStatus} -> taskStatus) (\s@AuditTaskMetadata' {} a -> s {taskStatus = a} :: AuditTaskMetadata)
 
 -- | The type of this audit. One of \"ON_DEMAND_AUDIT_TASK\" or
 -- \"SCHEDULED_AUDIT_TASK\".
-auditTaskMetadata_taskType :: Lens.Lens' AuditTaskMetadata (Core.Maybe AuditTaskType)
+auditTaskMetadata_taskType :: Lens.Lens' AuditTaskMetadata (Prelude.Maybe AuditTaskType)
 auditTaskMetadata_taskType = Lens.lens (\AuditTaskMetadata' {taskType} -> taskType) (\s@AuditTaskMetadata' {} a -> s {taskType = a} :: AuditTaskMetadata)
 
 instance Core.FromJSON AuditTaskMetadata where
@@ -83,11 +84,11 @@ instance Core.FromJSON AuditTaskMetadata where
       "AuditTaskMetadata"
       ( \x ->
           AuditTaskMetadata'
-            Core.<$> (x Core..:? "taskId")
-            Core.<*> (x Core..:? "taskStatus")
-            Core.<*> (x Core..:? "taskType")
+            Prelude.<$> (x Core..:? "taskId")
+            Prelude.<*> (x Core..:? "taskStatus")
+            Prelude.<*> (x Core..:? "taskType")
       )
 
-instance Core.Hashable AuditTaskMetadata
+instance Prelude.Hashable AuditTaskMetadata
 
-instance Core.NFData AuditTaskMetadata
+instance Prelude.NFData AuditTaskMetadata

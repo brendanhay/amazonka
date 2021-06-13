@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,20 +55,20 @@ data UpdateQueue = UpdateQueue'
     -- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that
     -- are running when you pause the queue continue to run until they finish
     -- or result in an error.
-    status :: Core.Maybe QueueStatus,
+    status :: Prelude.Maybe QueueStatus,
     -- | The new details of your pricing plan for your reserved queue. When you
     -- set up a new pricing plan to replace an expired one, you enter into
     -- another 12-month commitment. When you add capacity to your queue by
     -- increasing the number of RTS, you extend the term of your commitment to
     -- 12 months from when you add capacity. After you make these commitments,
     -- you can\'t cancel them.
-    reservationPlanSettings :: Core.Maybe ReservationPlanSettings,
+    reservationPlanSettings :: Prelude.Maybe ReservationPlanSettings,
     -- | The new description for the queue, if you are changing it.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the queue that you are modifying.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateQueue' with all optional fields omitted.
@@ -94,13 +95,13 @@ data UpdateQueue = UpdateQueue'
 -- 'name', 'updateQueue_name' - The name of the queue that you are modifying.
 newUpdateQueue ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdateQueue
 newUpdateQueue pName_ =
   UpdateQueue'
-    { status = Core.Nothing,
-      reservationPlanSettings = Core.Nothing,
-      description = Core.Nothing,
+    { status = Prelude.Nothing,
+      reservationPlanSettings = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_
     }
 
@@ -108,7 +109,7 @@ newUpdateQueue pName_ =
 -- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that
 -- are running when you pause the queue continue to run until they finish
 -- or result in an error.
-updateQueue_status :: Lens.Lens' UpdateQueue (Core.Maybe QueueStatus)
+updateQueue_status :: Lens.Lens' UpdateQueue (Prelude.Maybe QueueStatus)
 updateQueue_status = Lens.lens (\UpdateQueue' {status} -> status) (\s@UpdateQueue' {} a -> s {status = a} :: UpdateQueue)
 
 -- | The new details of your pricing plan for your reserved queue. When you
@@ -117,15 +118,15 @@ updateQueue_status = Lens.lens (\UpdateQueue' {status} -> status) (\s@UpdateQueu
 -- increasing the number of RTS, you extend the term of your commitment to
 -- 12 months from when you add capacity. After you make these commitments,
 -- you can\'t cancel them.
-updateQueue_reservationPlanSettings :: Lens.Lens' UpdateQueue (Core.Maybe ReservationPlanSettings)
+updateQueue_reservationPlanSettings :: Lens.Lens' UpdateQueue (Prelude.Maybe ReservationPlanSettings)
 updateQueue_reservationPlanSettings = Lens.lens (\UpdateQueue' {reservationPlanSettings} -> reservationPlanSettings) (\s@UpdateQueue' {} a -> s {reservationPlanSettings = a} :: UpdateQueue)
 
 -- | The new description for the queue, if you are changing it.
-updateQueue_description :: Lens.Lens' UpdateQueue (Core.Maybe Core.Text)
+updateQueue_description :: Lens.Lens' UpdateQueue (Prelude.Maybe Prelude.Text)
 updateQueue_description = Lens.lens (\UpdateQueue' {description} -> description) (\s@UpdateQueue' {} a -> s {description = a} :: UpdateQueue)
 
 -- | The name of the queue that you are modifying.
-updateQueue_name :: Lens.Lens' UpdateQueue Core.Text
+updateQueue_name :: Lens.Lens' UpdateQueue Prelude.Text
 updateQueue_name = Lens.lens (\UpdateQueue' {name} -> name) (\s@UpdateQueue' {} a -> s {name = a} :: UpdateQueue)
 
 instance Core.AWSRequest UpdateQueue where
@@ -135,41 +136,43 @@ instance Core.AWSRequest UpdateQueue where
     Response.receiveJSON
       ( \s h x ->
           UpdateQueueResponse'
-            Core.<$> (x Core..?> "queue")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "queue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateQueue
+instance Prelude.Hashable UpdateQueue
 
-instance Core.NFData UpdateQueue
+instance Prelude.NFData UpdateQueue
 
 instance Core.ToHeaders UpdateQueue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateQueue where
   toJSON UpdateQueue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("status" Core..=) Core.<$> status,
+      ( Prelude.catMaybes
+          [ ("status" Core..=) Prelude.<$> status,
             ("reservationPlanSettings" Core..=)
-              Core.<$> reservationPlanSettings,
-            ("description" Core..=) Core.<$> description
+              Prelude.<$> reservationPlanSettings,
+            ("description" Core..=) Prelude.<$> description
           ]
       )
 
 instance Core.ToPath UpdateQueue where
   toPath UpdateQueue' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2017-08-29/queues/", Core.toBS name]
 
 instance Core.ToQuery UpdateQueue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQueueResponse' smart constructor.
 data UpdateQueueResponse = UpdateQueueResponse'
@@ -178,11 +181,11 @@ data UpdateQueueResponse = UpdateQueueResponse'
     -- you don\'t specify a queue, the service sends all jobs through the
     -- default queue. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
-    queue :: Core.Maybe Queue,
+    queue :: Prelude.Maybe Queue,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueResponse' with all optional fields omitted.
@@ -201,11 +204,11 @@ data UpdateQueueResponse = UpdateQueueResponse'
 -- 'httpStatus', 'updateQueueResponse_httpStatus' - The response's http status code.
 newUpdateQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateQueueResponse
 newUpdateQueueResponse pHttpStatus_ =
   UpdateQueueResponse'
-    { queue = Core.Nothing,
+    { queue = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -214,11 +217,11 @@ newUpdateQueueResponse pHttpStatus_ =
 -- you don\'t specify a queue, the service sends all jobs through the
 -- default queue. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
-updateQueueResponse_queue :: Lens.Lens' UpdateQueueResponse (Core.Maybe Queue)
+updateQueueResponse_queue :: Lens.Lens' UpdateQueueResponse (Prelude.Maybe Queue)
 updateQueueResponse_queue = Lens.lens (\UpdateQueueResponse' {queue} -> queue) (\s@UpdateQueueResponse' {} a -> s {queue = a} :: UpdateQueueResponse)
 
 -- | The response's http status code.
-updateQueueResponse_httpStatus :: Lens.Lens' UpdateQueueResponse Core.Int
+updateQueueResponse_httpStatus :: Lens.Lens' UpdateQueueResponse Prelude.Int
 updateQueueResponse_httpStatus = Lens.lens (\UpdateQueueResponse' {httpStatus} -> httpStatus) (\s@UpdateQueueResponse' {} a -> s {httpStatus = a} :: UpdateQueueResponse)
 
-instance Core.NFData UpdateQueueResponse
+instance Prelude.NFData UpdateQueueResponse

@@ -24,21 +24,22 @@ import Network.AWS.AutoScalingPlans.Types.ScalingInstruction
 import Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a scaling plan.
 --
 -- /See:/ 'newScalingPlan' smart constructor.
 data ScalingPlan = ScalingPlan'
   { -- | A simple message about the current status of the scaling plan.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The Unix time stamp when the scaling plan was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Unix time stamp when the scaling plan entered the current status.
-    statusStartTime :: Core.Maybe Core.POSIX,
+    statusStartTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the scaling plan.
-    scalingPlanName :: Core.Text,
+    scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan.
-    scalingPlanVersion :: Core.Integer,
+    scalingPlanVersion :: Prelude.Integer,
     -- | A CloudFormation stack or a set of tags. You can create one scaling plan
     -- per application source.
     applicationSource :: ApplicationSource,
@@ -64,7 +65,7 @@ data ScalingPlan = ScalingPlan'
     -- -   @UpdateFailed@ - The scaling plan could not be updated.
     statusCode :: ScalingPlanStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingPlan' with all optional fields omitted.
@@ -109,9 +110,9 @@ data ScalingPlan = ScalingPlan'
 -- -   @UpdateFailed@ - The scaling plan could not be updated.
 newScalingPlan ::
   -- | 'scalingPlanName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalingPlanVersion'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'applicationSource'
   ApplicationSource ->
   -- | 'statusCode'
@@ -123,34 +124,34 @@ newScalingPlan
   pApplicationSource_
   pStatusCode_ =
     ScalingPlan'
-      { statusMessage = Core.Nothing,
-        creationTime = Core.Nothing,
-        statusStartTime = Core.Nothing,
+      { statusMessage = Prelude.Nothing,
+        creationTime = Prelude.Nothing,
+        statusStartTime = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_,
         applicationSource = pApplicationSource_,
-        scalingInstructions = Core.mempty,
+        scalingInstructions = Prelude.mempty,
         statusCode = pStatusCode_
       }
 
 -- | A simple message about the current status of the scaling plan.
-scalingPlan_statusMessage :: Lens.Lens' ScalingPlan (Core.Maybe Core.Text)
+scalingPlan_statusMessage :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.Text)
 scalingPlan_statusMessage = Lens.lens (\ScalingPlan' {statusMessage} -> statusMessage) (\s@ScalingPlan' {} a -> s {statusMessage = a} :: ScalingPlan)
 
 -- | The Unix time stamp when the scaling plan was created.
-scalingPlan_creationTime :: Lens.Lens' ScalingPlan (Core.Maybe Core.UTCTime)
-scalingPlan_creationTime = Lens.lens (\ScalingPlan' {creationTime} -> creationTime) (\s@ScalingPlan' {} a -> s {creationTime = a} :: ScalingPlan) Core.. Lens.mapping Core._Time
+scalingPlan_creationTime :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.UTCTime)
+scalingPlan_creationTime = Lens.lens (\ScalingPlan' {creationTime} -> creationTime) (\s@ScalingPlan' {} a -> s {creationTime = a} :: ScalingPlan) Prelude.. Lens.mapping Core._Time
 
 -- | The Unix time stamp when the scaling plan entered the current status.
-scalingPlan_statusStartTime :: Lens.Lens' ScalingPlan (Core.Maybe Core.UTCTime)
-scalingPlan_statusStartTime = Lens.lens (\ScalingPlan' {statusStartTime} -> statusStartTime) (\s@ScalingPlan' {} a -> s {statusStartTime = a} :: ScalingPlan) Core.. Lens.mapping Core._Time
+scalingPlan_statusStartTime :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.UTCTime)
+scalingPlan_statusStartTime = Lens.lens (\ScalingPlan' {statusStartTime} -> statusStartTime) (\s@ScalingPlan' {} a -> s {statusStartTime = a} :: ScalingPlan) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the scaling plan.
-scalingPlan_scalingPlanName :: Lens.Lens' ScalingPlan Core.Text
+scalingPlan_scalingPlanName :: Lens.Lens' ScalingPlan Prelude.Text
 scalingPlan_scalingPlanName = Lens.lens (\ScalingPlan' {scalingPlanName} -> scalingPlanName) (\s@ScalingPlan' {} a -> s {scalingPlanName = a} :: ScalingPlan)
 
 -- | The version number of the scaling plan.
-scalingPlan_scalingPlanVersion :: Lens.Lens' ScalingPlan Core.Integer
+scalingPlan_scalingPlanVersion :: Lens.Lens' ScalingPlan Prelude.Integer
 scalingPlan_scalingPlanVersion = Lens.lens (\ScalingPlan' {scalingPlanVersion} -> scalingPlanVersion) (\s@ScalingPlan' {} a -> s {scalingPlanVersion = a} :: ScalingPlan)
 
 -- | A CloudFormation stack or a set of tags. You can create one scaling plan
@@ -160,7 +161,7 @@ scalingPlan_applicationSource = Lens.lens (\ScalingPlan' {applicationSource} -> 
 
 -- | The scaling instructions.
 scalingPlan_scalingInstructions :: Lens.Lens' ScalingPlan [ScalingInstruction]
-scalingPlan_scalingInstructions = Lens.lens (\ScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@ScalingPlan' {} a -> s {scalingInstructions = a} :: ScalingPlan) Core.. Lens._Coerce
+scalingPlan_scalingInstructions = Lens.lens (\ScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@ScalingPlan' {} a -> s {scalingInstructions = a} :: ScalingPlan) Prelude.. Lens._Coerce
 
 -- | The status of the scaling plan.
 --
@@ -189,18 +190,18 @@ instance Core.FromJSON ScalingPlan where
       "ScalingPlan"
       ( \x ->
           ScalingPlan'
-            Core.<$> (x Core..:? "StatusMessage")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "StatusStartTime")
-            Core.<*> (x Core..: "ScalingPlanName")
-            Core.<*> (x Core..: "ScalingPlanVersion")
-            Core.<*> (x Core..: "ApplicationSource")
-            Core.<*> ( x Core..:? "ScalingInstructions"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..: "StatusCode")
+            Prelude.<$> (x Core..:? "StatusMessage")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "StatusStartTime")
+            Prelude.<*> (x Core..: "ScalingPlanName")
+            Prelude.<*> (x Core..: "ScalingPlanVersion")
+            Prelude.<*> (x Core..: "ApplicationSource")
+            Prelude.<*> ( x Core..:? "ScalingInstructions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "StatusCode")
       )
 
-instance Core.Hashable ScalingPlan
+instance Prelude.Hashable ScalingPlan
 
-instance Core.NFData ScalingPlan
+instance Prelude.NFData ScalingPlan

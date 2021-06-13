@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,22 +68,22 @@ data UploadLayerPart = UploadLayerPart'
   { -- | The AWS account ID associated with the registry to which you are
     -- uploading layer parts. If you do not specify a registry, the default
     -- registry is assumed.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to which you are uploading layer parts.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The upload ID from a previous InitiateLayerUpload operation to associate
     -- with the layer part upload.
-    uploadId :: Core.Text,
+    uploadId :: Prelude.Text,
     -- | The position of the first byte of the layer part witin the overall image
     -- layer.
-    partFirstByte :: Core.Natural,
+    partFirstByte :: Prelude.Natural,
     -- | The position of the last byte of the layer part within the overall image
     -- layer.
-    partLastByte :: Core.Natural,
+    partLastByte :: Prelude.Natural,
     -- | The base64-encoded layer part payload.
     layerPartBlob :: Core.Base64
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadLayerPart' with all optional fields omitted.
@@ -114,15 +115,15 @@ data UploadLayerPart = UploadLayerPart'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newUploadLayerPart ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'uploadId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'partFirstByte'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'partLastByte'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'layerPartBlob'
-  Core.ByteString ->
+  Prelude.ByteString ->
   UploadLayerPart
 newUploadLayerPart
   pRepositoryName_
@@ -131,7 +132,7 @@ newUploadLayerPart
   pPartLastByte_
   pLayerPartBlob_ =
     UploadLayerPart'
-      { registryId = Core.Nothing,
+      { registryId = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         uploadId = pUploadId_,
         partFirstByte = pPartFirstByte_,
@@ -142,26 +143,26 @@ newUploadLayerPart
 -- | The AWS account ID associated with the registry to which you are
 -- uploading layer parts. If you do not specify a registry, the default
 -- registry is assumed.
-uploadLayerPart_registryId :: Lens.Lens' UploadLayerPart (Core.Maybe Core.Text)
+uploadLayerPart_registryId :: Lens.Lens' UploadLayerPart (Prelude.Maybe Prelude.Text)
 uploadLayerPart_registryId = Lens.lens (\UploadLayerPart' {registryId} -> registryId) (\s@UploadLayerPart' {} a -> s {registryId = a} :: UploadLayerPart)
 
 -- | The name of the repository to which you are uploading layer parts.
-uploadLayerPart_repositoryName :: Lens.Lens' UploadLayerPart Core.Text
+uploadLayerPart_repositoryName :: Lens.Lens' UploadLayerPart Prelude.Text
 uploadLayerPart_repositoryName = Lens.lens (\UploadLayerPart' {repositoryName} -> repositoryName) (\s@UploadLayerPart' {} a -> s {repositoryName = a} :: UploadLayerPart)
 
 -- | The upload ID from a previous InitiateLayerUpload operation to associate
 -- with the layer part upload.
-uploadLayerPart_uploadId :: Lens.Lens' UploadLayerPart Core.Text
+uploadLayerPart_uploadId :: Lens.Lens' UploadLayerPart Prelude.Text
 uploadLayerPart_uploadId = Lens.lens (\UploadLayerPart' {uploadId} -> uploadId) (\s@UploadLayerPart' {} a -> s {uploadId = a} :: UploadLayerPart)
 
 -- | The position of the first byte of the layer part witin the overall image
 -- layer.
-uploadLayerPart_partFirstByte :: Lens.Lens' UploadLayerPart Core.Natural
+uploadLayerPart_partFirstByte :: Lens.Lens' UploadLayerPart Prelude.Natural
 uploadLayerPart_partFirstByte = Lens.lens (\UploadLayerPart' {partFirstByte} -> partFirstByte) (\s@UploadLayerPart' {} a -> s {partFirstByte = a} :: UploadLayerPart)
 
 -- | The position of the last byte of the layer part within the overall image
 -- layer.
-uploadLayerPart_partLastByte :: Lens.Lens' UploadLayerPart Core.Natural
+uploadLayerPart_partLastByte :: Lens.Lens' UploadLayerPart Prelude.Natural
 uploadLayerPart_partLastByte = Lens.lens (\UploadLayerPart' {partLastByte} -> partLastByte) (\s@UploadLayerPart' {} a -> s {partLastByte = a} :: UploadLayerPart)
 
 -- | The base64-encoded layer part payload.--
@@ -169,8 +170,8 @@ uploadLayerPart_partLastByte = Lens.lens (\UploadLayerPart' {partLastByte} -> pa
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-uploadLayerPart_layerPartBlob :: Lens.Lens' UploadLayerPart Core.ByteString
-uploadLayerPart_layerPartBlob = Lens.lens (\UploadLayerPart' {layerPartBlob} -> layerPartBlob) (\s@UploadLayerPart' {} a -> s {layerPartBlob = a} :: UploadLayerPart) Core.. Core._Base64
+uploadLayerPart_layerPartBlob :: Lens.Lens' UploadLayerPart Prelude.ByteString
+uploadLayerPart_layerPartBlob = Lens.lens (\UploadLayerPart' {layerPartBlob} -> layerPartBlob) (\s@UploadLayerPart' {} a -> s {layerPartBlob = a} :: UploadLayerPart) Prelude.. Core._Base64
 
 instance Core.AWSRequest UploadLayerPart where
   type
@@ -181,63 +182,67 @@ instance Core.AWSRequest UploadLayerPart where
     Response.receiveJSON
       ( \s h x ->
           UploadLayerPartResponse'
-            Core.<$> (x Core..?> "uploadId")
-            Core.<*> (x Core..?> "registryId")
-            Core.<*> (x Core..?> "repositoryName")
-            Core.<*> (x Core..?> "lastByteReceived")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "uploadId")
+            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "lastByteReceived")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UploadLayerPart
+instance Prelude.Hashable UploadLayerPart
 
-instance Core.NFData UploadLayerPart
+instance Prelude.NFData UploadLayerPart
 
 instance Core.ToHeaders UploadLayerPart where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UploadLayerPart where
   toJSON UploadLayerPart' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("registryId" Core..=) Core.<$> registryId,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just ("uploadId" Core..= uploadId),
-            Core.Just ("partFirstByte" Core..= partFirstByte),
-            Core.Just ("partLastByte" Core..= partLastByte),
-            Core.Just ("layerPartBlob" Core..= layerPartBlob)
+      ( Prelude.catMaybes
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("uploadId" Core..= uploadId),
+            Prelude.Just ("partFirstByte" Core..= partFirstByte),
+            Prelude.Just ("partLastByte" Core..= partLastByte),
+            Prelude.Just
+              ("layerPartBlob" Core..= layerPartBlob)
           ]
       )
 
 instance Core.ToPath UploadLayerPart where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UploadLayerPart where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUploadLayerPartResponse' smart constructor.
 data UploadLayerPartResponse = UploadLayerPartResponse'
   { -- | The upload ID associated with the request.
-    uploadId :: Core.Maybe Core.Text,
+    uploadId :: Prelude.Maybe Prelude.Text,
     -- | The registry ID associated with the request.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository name associated with the request.
-    repositoryName :: Core.Maybe Core.Text,
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The integer value of the last byte received in the request.
-    lastByteReceived :: Core.Maybe Core.Natural,
+    lastByteReceived :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadLayerPartResponse' with all optional fields omitted.
@@ -258,35 +263,36 @@ data UploadLayerPartResponse = UploadLayerPartResponse'
 -- 'httpStatus', 'uploadLayerPartResponse_httpStatus' - The response's http status code.
 newUploadLayerPartResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UploadLayerPartResponse
 newUploadLayerPartResponse pHttpStatus_ =
   UploadLayerPartResponse'
-    { uploadId = Core.Nothing,
-      registryId = Core.Nothing,
-      repositoryName = Core.Nothing,
-      lastByteReceived = Core.Nothing,
+    { uploadId =
+        Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      lastByteReceived = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The upload ID associated with the request.
-uploadLayerPartResponse_uploadId :: Lens.Lens' UploadLayerPartResponse (Core.Maybe Core.Text)
+uploadLayerPartResponse_uploadId :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
 uploadLayerPartResponse_uploadId = Lens.lens (\UploadLayerPartResponse' {uploadId} -> uploadId) (\s@UploadLayerPartResponse' {} a -> s {uploadId = a} :: UploadLayerPartResponse)
 
 -- | The registry ID associated with the request.
-uploadLayerPartResponse_registryId :: Lens.Lens' UploadLayerPartResponse (Core.Maybe Core.Text)
+uploadLayerPartResponse_registryId :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
 uploadLayerPartResponse_registryId = Lens.lens (\UploadLayerPartResponse' {registryId} -> registryId) (\s@UploadLayerPartResponse' {} a -> s {registryId = a} :: UploadLayerPartResponse)
 
 -- | The repository name associated with the request.
-uploadLayerPartResponse_repositoryName :: Lens.Lens' UploadLayerPartResponse (Core.Maybe Core.Text)
+uploadLayerPartResponse_repositoryName :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
 uploadLayerPartResponse_repositoryName = Lens.lens (\UploadLayerPartResponse' {repositoryName} -> repositoryName) (\s@UploadLayerPartResponse' {} a -> s {repositoryName = a} :: UploadLayerPartResponse)
 
 -- | The integer value of the last byte received in the request.
-uploadLayerPartResponse_lastByteReceived :: Lens.Lens' UploadLayerPartResponse (Core.Maybe Core.Natural)
+uploadLayerPartResponse_lastByteReceived :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Natural)
 uploadLayerPartResponse_lastByteReceived = Lens.lens (\UploadLayerPartResponse' {lastByteReceived} -> lastByteReceived) (\s@UploadLayerPartResponse' {} a -> s {lastByteReceived = a} :: UploadLayerPartResponse)
 
 -- | The response's http status code.
-uploadLayerPartResponse_httpStatus :: Lens.Lens' UploadLayerPartResponse Core.Int
+uploadLayerPartResponse_httpStatus :: Lens.Lens' UploadLayerPartResponse Prelude.Int
 uploadLayerPartResponse_httpStatus = Lens.lens (\UploadLayerPartResponse' {httpStatus} -> httpStatus) (\s@UploadLayerPartResponse' {} a -> s {httpStatus = a} :: UploadLayerPartResponse)
 
-instance Core.NFData UploadLayerPartResponse
+instance Prelude.NFData UploadLayerPartResponse

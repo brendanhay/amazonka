@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,7 +72,7 @@ data ListChildren = ListChildren'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -82,7 +83,7 @@ data ListChildren = ListChildren'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier (ID) for the parent root or OU whose children you
     -- want to list.
     --
@@ -96,11 +97,11 @@ data ListChildren = ListChildren'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    parentId :: Core.Text,
+    parentId :: Prelude.Text,
     -- | Filters the output to include only the specified child type.
     childType :: ChildType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListChildren' with all optional fields omitted.
@@ -144,14 +145,14 @@ data ListChildren = ListChildren'
 -- 'childType', 'listChildren_childType' - Filters the output to include only the specified child type.
 newListChildren ::
   -- | 'parentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'childType'
   ChildType ->
   ListChildren
 newListChildren pParentId_ pChildType_ =
   ListChildren'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       parentId = pParentId_,
       childType = pChildType_
     }
@@ -161,7 +162,7 @@ newListChildren pParentId_ pChildType_ =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listChildren_nextToken :: Lens.Lens' ListChildren (Core.Maybe Core.Text)
+listChildren_nextToken :: Lens.Lens' ListChildren (Prelude.Maybe Prelude.Text)
 listChildren_nextToken = Lens.lens (\ListChildren' {nextToken} -> nextToken) (\s@ListChildren' {} a -> s {nextToken = a} :: ListChildren)
 
 -- | The total number of results that you want included on each page of the
@@ -174,7 +175,7 @@ listChildren_nextToken = Lens.lens (\ListChildren' {nextToken} -> nextToken) (\s
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listChildren_maxResults :: Lens.Lens' ListChildren (Core.Maybe Core.Natural)
+listChildren_maxResults :: Lens.Lens' ListChildren (Prelude.Maybe Prelude.Natural)
 listChildren_maxResults = Lens.lens (\ListChildren' {maxResults} -> maxResults) (\s@ListChildren' {} a -> s {maxResults = a} :: ListChildren)
 
 -- | The unique identifier (ID) for the parent root or OU whose children you
@@ -190,7 +191,7 @@ listChildren_maxResults = Lens.lens (\ListChildren' {maxResults} -> maxResults) 
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-listChildren_parentId :: Lens.Lens' ListChildren Core.Text
+listChildren_parentId :: Lens.Lens' ListChildren Prelude.Text
 listChildren_parentId = Lens.lens (\ListChildren' {parentId} -> parentId) (\s@ListChildren' {} a -> s {parentId = a} :: ListChildren)
 
 -- | Filters the output to include only the specified child type.
@@ -201,20 +202,20 @@ instance Core.AWSPager ListChildren where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listChildrenResponse_nextToken Core.. Lens._Just
+            Lens.^? listChildrenResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listChildrenResponse_children Core.. Lens._Just
+            Lens.^? listChildrenResponse_children Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listChildren_nextToken
+          Prelude.& listChildren_nextToken
           Lens..~ rs
-          Lens.^? listChildrenResponse_nextToken Core.. Lens._Just
+          Lens.^? listChildrenResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListChildren where
   type AWSResponse ListChildren = ListChildrenResponse
@@ -223,44 +224,46 @@ instance Core.AWSRequest ListChildren where
     Response.receiveJSON
       ( \s h x ->
           ListChildrenResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Children" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Children" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListChildren
+instance Prelude.Hashable ListChildren
 
-instance Core.NFData ListChildren
+instance Prelude.NFData ListChildren
 
 instance Core.ToHeaders ListChildren where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.ListChildren" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListChildren where
   toJSON ListChildren' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("ParentId" Core..= parentId),
-            Core.Just ("ChildType" Core..= childType)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("ParentId" Core..= parentId),
+            Prelude.Just ("ChildType" Core..= childType)
           ]
       )
 
 instance Core.ToPath ListChildren where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListChildren where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListChildrenResponse' smart constructor.
 data ListChildrenResponse = ListChildrenResponse'
@@ -269,13 +272,13 @@ data ListChildrenResponse = ListChildrenResponse'
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of children of the specified parent container.
-    children :: Core.Maybe [Child],
+    children :: Prelude.Maybe [Child],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListChildrenResponse' with all optional fields omitted.
@@ -296,12 +299,12 @@ data ListChildrenResponse = ListChildrenResponse'
 -- 'httpStatus', 'listChildrenResponse_httpStatus' - The response's http status code.
 newListChildrenResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListChildrenResponse
 newListChildrenResponse pHttpStatus_ =
   ListChildrenResponse'
-    { nextToken = Core.Nothing,
-      children = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      children = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -310,15 +313,15 @@ newListChildrenResponse pHttpStatus_ =
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listChildrenResponse_nextToken :: Lens.Lens' ListChildrenResponse (Core.Maybe Core.Text)
+listChildrenResponse_nextToken :: Lens.Lens' ListChildrenResponse (Prelude.Maybe Prelude.Text)
 listChildrenResponse_nextToken = Lens.lens (\ListChildrenResponse' {nextToken} -> nextToken) (\s@ListChildrenResponse' {} a -> s {nextToken = a} :: ListChildrenResponse)
 
 -- | The list of children of the specified parent container.
-listChildrenResponse_children :: Lens.Lens' ListChildrenResponse (Core.Maybe [Child])
-listChildrenResponse_children = Lens.lens (\ListChildrenResponse' {children} -> children) (\s@ListChildrenResponse' {} a -> s {children = a} :: ListChildrenResponse) Core.. Lens.mapping Lens._Coerce
+listChildrenResponse_children :: Lens.Lens' ListChildrenResponse (Prelude.Maybe [Child])
+listChildrenResponse_children = Lens.lens (\ListChildrenResponse' {children} -> children) (\s@ListChildrenResponse' {} a -> s {children = a} :: ListChildrenResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listChildrenResponse_httpStatus :: Lens.Lens' ListChildrenResponse Core.Int
+listChildrenResponse_httpStatus :: Lens.Lens' ListChildrenResponse Prelude.Int
 listChildrenResponse_httpStatus = Lens.lens (\ListChildrenResponse' {httpStatus} -> httpStatus) (\s@ListChildrenResponse' {} a -> s {httpStatus = a} :: ListChildrenResponse)
 
-instance Core.NFData ListChildrenResponse
+instance Prelude.NFData ListChildrenResponse

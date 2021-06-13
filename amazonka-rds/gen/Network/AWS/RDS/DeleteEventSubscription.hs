@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteEventSubscription' smart constructor.
 data DeleteEventSubscription = DeleteEventSubscription'
   { -- | The name of the RDS event notification subscription you want to delete.
-    subscriptionName :: Core.Text
+    subscriptionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEventSubscription' with all optional fields omitted.
@@ -65,7 +66,7 @@ data DeleteEventSubscription = DeleteEventSubscription'
 -- 'subscriptionName', 'deleteEventSubscription_subscriptionName' - The name of the RDS event notification subscription you want to delete.
 newDeleteEventSubscription ::
   -- | 'subscriptionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEventSubscription
 newDeleteEventSubscription pSubscriptionName_ =
   DeleteEventSubscription'
@@ -74,7 +75,7 @@ newDeleteEventSubscription pSubscriptionName_ =
     }
 
 -- | The name of the RDS event notification subscription you want to delete.
-deleteEventSubscription_subscriptionName :: Lens.Lens' DeleteEventSubscription Core.Text
+deleteEventSubscription_subscriptionName :: Lens.Lens' DeleteEventSubscription Prelude.Text
 deleteEventSubscription_subscriptionName = Lens.lens (\DeleteEventSubscription' {subscriptionName} -> subscriptionName) (\s@DeleteEventSubscription' {} a -> s {subscriptionName = a} :: DeleteEventSubscription)
 
 instance Core.AWSRequest DeleteEventSubscription where
@@ -87,36 +88,37 @@ instance Core.AWSRequest DeleteEventSubscription where
       "DeleteEventSubscriptionResult"
       ( \s h x ->
           DeleteEventSubscriptionResponse'
-            Core.<$> (x Core..@? "EventSubscription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "EventSubscription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteEventSubscription
+instance Prelude.Hashable DeleteEventSubscription
 
-instance Core.NFData DeleteEventSubscription
+instance Prelude.NFData DeleteEventSubscription
 
 instance Core.ToHeaders DeleteEventSubscription where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteEventSubscription where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteEventSubscription where
   toQuery DeleteEventSubscription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteEventSubscription" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeleteEventSubscription" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "SubscriptionName" Core.=: subscriptionName
       ]
 
 -- | /See:/ 'newDeleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
-  { eventSubscription :: Core.Maybe EventSubscription,
+  { eventSubscription :: Prelude.Maybe EventSubscription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEventSubscriptionResponse' with all optional fields omitted.
@@ -131,21 +133,23 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
 -- 'httpStatus', 'deleteEventSubscriptionResponse_httpStatus' - The response's http status code.
 newDeleteEventSubscriptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteEventSubscriptionResponse
 newDeleteEventSubscriptionResponse pHttpStatus_ =
   DeleteEventSubscriptionResponse'
     { eventSubscription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteEventSubscriptionResponse_eventSubscription :: Lens.Lens' DeleteEventSubscriptionResponse (Core.Maybe EventSubscription)
+deleteEventSubscriptionResponse_eventSubscription :: Lens.Lens' DeleteEventSubscriptionResponse (Prelude.Maybe EventSubscription)
 deleteEventSubscriptionResponse_eventSubscription = Lens.lens (\DeleteEventSubscriptionResponse' {eventSubscription} -> eventSubscription) (\s@DeleteEventSubscriptionResponse' {} a -> s {eventSubscription = a} :: DeleteEventSubscriptionResponse)
 
 -- | The response's http status code.
-deleteEventSubscriptionResponse_httpStatus :: Lens.Lens' DeleteEventSubscriptionResponse Core.Int
+deleteEventSubscriptionResponse_httpStatus :: Lens.Lens' DeleteEventSubscriptionResponse Prelude.Int
 deleteEventSubscriptionResponse_httpStatus = Lens.lens (\DeleteEventSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DeleteEventSubscriptionResponse' {} a -> s {httpStatus = a} :: DeleteEventSubscriptionResponse)
 
-instance Core.NFData DeleteEventSubscriptionResponse
+instance
+  Prelude.NFData
+    DeleteEventSubscriptionResponse

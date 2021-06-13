@@ -45,19 +45,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTestGridSessionActions' smart constructor.
 data ListTestGridSessionActions = ListTestGridSessionActions'
   { -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of sessions to return per response.
-    maxResult :: Core.Maybe Core.Natural,
+    maxResult :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the session to retrieve.
-    sessionArn :: Core.Text
+    sessionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTestGridSessionActions' with all optional fields omitted.
@@ -74,26 +75,26 @@ data ListTestGridSessionActions = ListTestGridSessionActions'
 -- 'sessionArn', 'listTestGridSessionActions_sessionArn' - The ARN of the session to retrieve.
 newListTestGridSessionActions ::
   -- | 'sessionArn'
-  Core.Text ->
+  Prelude.Text ->
   ListTestGridSessionActions
 newListTestGridSessionActions pSessionArn_ =
   ListTestGridSessionActions'
     { nextToken =
-        Core.Nothing,
-      maxResult = Core.Nothing,
+        Prelude.Nothing,
+      maxResult = Prelude.Nothing,
       sessionArn = pSessionArn_
     }
 
 -- | Pagination token.
-listTestGridSessionActions_nextToken :: Lens.Lens' ListTestGridSessionActions (Core.Maybe Core.Text)
+listTestGridSessionActions_nextToken :: Lens.Lens' ListTestGridSessionActions (Prelude.Maybe Prelude.Text)
 listTestGridSessionActions_nextToken = Lens.lens (\ListTestGridSessionActions' {nextToken} -> nextToken) (\s@ListTestGridSessionActions' {} a -> s {nextToken = a} :: ListTestGridSessionActions)
 
 -- | The maximum number of sessions to return per response.
-listTestGridSessionActions_maxResult :: Lens.Lens' ListTestGridSessionActions (Core.Maybe Core.Natural)
+listTestGridSessionActions_maxResult :: Lens.Lens' ListTestGridSessionActions (Prelude.Maybe Prelude.Natural)
 listTestGridSessionActions_maxResult = Lens.lens (\ListTestGridSessionActions' {maxResult} -> maxResult) (\s@ListTestGridSessionActions' {} a -> s {maxResult = a} :: ListTestGridSessionActions)
 
 -- | The ARN of the session to retrieve.
-listTestGridSessionActions_sessionArn :: Lens.Lens' ListTestGridSessionActions Core.Text
+listTestGridSessionActions_sessionArn :: Lens.Lens' ListTestGridSessionActions Prelude.Text
 listTestGridSessionActions_sessionArn = Lens.lens (\ListTestGridSessionActions' {sessionArn} -> sessionArn) (\s@ListTestGridSessionActions' {} a -> s {sessionArn = a} :: ListTestGridSessionActions)
 
 instance Core.AWSRequest ListTestGridSessionActions where
@@ -105,54 +106,56 @@ instance Core.AWSRequest ListTestGridSessionActions where
     Response.receiveJSON
       ( \s h x ->
           ListTestGridSessionActionsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "actions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "actions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTestGridSessionActions
+instance Prelude.Hashable ListTestGridSessionActions
 
-instance Core.NFData ListTestGridSessionActions
+instance Prelude.NFData ListTestGridSessionActions
 
 instance Core.ToHeaders ListTestGridSessionActions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.ListTestGridSessionActions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTestGridSessionActions where
   toJSON ListTestGridSessionActions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResult" Core..=) Core.<$> maxResult,
-            Core.Just ("sessionArn" Core..= sessionArn)
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResult" Core..=) Prelude.<$> maxResult,
+            Prelude.Just ("sessionArn" Core..= sessionArn)
           ]
       )
 
 instance Core.ToPath ListTestGridSessionActions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTestGridSessionActions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTestGridSessionActionsResponse' smart constructor.
 data ListTestGridSessionActionsResponse = ListTestGridSessionActionsResponse'
   { -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The action taken by the session.
-    actions :: Core.Maybe [TestGridSessionAction],
+    actions :: Prelude.Maybe [TestGridSessionAction],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTestGridSessionActionsResponse' with all optional fields omitted.
@@ -169,28 +172,28 @@ data ListTestGridSessionActionsResponse = ListTestGridSessionActionsResponse'
 -- 'httpStatus', 'listTestGridSessionActionsResponse_httpStatus' - The response's http status code.
 newListTestGridSessionActionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTestGridSessionActionsResponse
 newListTestGridSessionActionsResponse pHttpStatus_ =
   ListTestGridSessionActionsResponse'
     { nextToken =
-        Core.Nothing,
-      actions = Core.Nothing,
+        Prelude.Nothing,
+      actions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token.
-listTestGridSessionActionsResponse_nextToken :: Lens.Lens' ListTestGridSessionActionsResponse (Core.Maybe Core.Text)
+listTestGridSessionActionsResponse_nextToken :: Lens.Lens' ListTestGridSessionActionsResponse (Prelude.Maybe Prelude.Text)
 listTestGridSessionActionsResponse_nextToken = Lens.lens (\ListTestGridSessionActionsResponse' {nextToken} -> nextToken) (\s@ListTestGridSessionActionsResponse' {} a -> s {nextToken = a} :: ListTestGridSessionActionsResponse)
 
 -- | The action taken by the session.
-listTestGridSessionActionsResponse_actions :: Lens.Lens' ListTestGridSessionActionsResponse (Core.Maybe [TestGridSessionAction])
-listTestGridSessionActionsResponse_actions = Lens.lens (\ListTestGridSessionActionsResponse' {actions} -> actions) (\s@ListTestGridSessionActionsResponse' {} a -> s {actions = a} :: ListTestGridSessionActionsResponse) Core.. Lens.mapping Lens._Coerce
+listTestGridSessionActionsResponse_actions :: Lens.Lens' ListTestGridSessionActionsResponse (Prelude.Maybe [TestGridSessionAction])
+listTestGridSessionActionsResponse_actions = Lens.lens (\ListTestGridSessionActionsResponse' {actions} -> actions) (\s@ListTestGridSessionActionsResponse' {} a -> s {actions = a} :: ListTestGridSessionActionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTestGridSessionActionsResponse_httpStatus :: Lens.Lens' ListTestGridSessionActionsResponse Core.Int
+listTestGridSessionActionsResponse_httpStatus :: Lens.Lens' ListTestGridSessionActionsResponse Prelude.Int
 listTestGridSessionActionsResponse_httpStatus = Lens.lens (\ListTestGridSessionActionsResponse' {httpStatus} -> httpStatus) (\s@ListTestGridSessionActionsResponse' {} a -> s {httpStatus = a} :: ListTestGridSessionActionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListTestGridSessionActionsResponse

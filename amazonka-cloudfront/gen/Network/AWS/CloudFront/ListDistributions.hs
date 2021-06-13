@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +54,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListDistributions' smart constructor.
 data ListDistributions = ListDistributions'
   { -- | The maximum number of distributions you want in the response body.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use this when paginating results to indicate where to begin in your list
     -- of distributions. The results include distributions in the list that
     -- occur after the marker. To get the next page of results, set the
     -- @Marker@ to the value of the @NextMarker@ from the current page\'s
     -- response (which is also the ID of the last distribution on that page).
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDistributions' with all optional fields omitted.
@@ -82,12 +83,12 @@ newListDistributions ::
   ListDistributions
 newListDistributions =
   ListDistributions'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The maximum number of distributions you want in the response body.
-listDistributions_maxItems :: Lens.Lens' ListDistributions (Core.Maybe Core.Text)
+listDistributions_maxItems :: Lens.Lens' ListDistributions (Prelude.Maybe Prelude.Text)
 listDistributions_maxItems = Lens.lens (\ListDistributions' {maxItems} -> maxItems) (\s@ListDistributions' {} a -> s {maxItems = a} :: ListDistributions)
 
 -- | Use this when paginating results to indicate where to begin in your list
@@ -95,7 +96,7 @@ listDistributions_maxItems = Lens.lens (\ListDistributions' {maxItems} -> maxIte
 -- occur after the marker. To get the next page of results, set the
 -- @Marker@ to the value of the @NextMarker@ from the current page\'s
 -- response (which is also the ID of the last distribution on that page).
-listDistributions_marker :: Lens.Lens' ListDistributions (Core.Maybe Core.Text)
+listDistributions_marker :: Lens.Lens' ListDistributions (Prelude.Maybe Prelude.Text)
 listDistributions_marker = Lens.lens (\ListDistributions' {marker} -> marker) (\s@ListDistributions' {} a -> s {marker = a} :: ListDistributions)
 
 instance Core.AWSPager ListDistributions where
@@ -103,24 +104,24 @@ instance Core.AWSPager ListDistributions where
     | Core.stop
         ( rs
             Lens.^. listDistributionsResponse_distributionList
-              Core.. distributionList_isTruncated
+              Prelude.. distributionList_isTruncated
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
             Lens.^? listDistributionsResponse_distributionList
-              Core.. distributionList_nextMarker
-              Core.. Lens._Just
+              Prelude.. distributionList_nextMarker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDistributions_marker
+          Prelude.& listDistributions_marker
           Lens..~ rs
           Lens.^? listDistributionsResponse_distributionList
-            Core.. distributionList_nextMarker
-            Core.. Lens._Just
+            Prelude.. distributionList_nextMarker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDistributions where
   type
@@ -131,23 +132,23 @@ instance Core.AWSRequest ListDistributions where
     Response.receiveXML
       ( \s h x ->
           ListDistributionsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.parseXML x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.parseXML x)
       )
 
-instance Core.Hashable ListDistributions
+instance Prelude.Hashable ListDistributions
 
-instance Core.NFData ListDistributions
+instance Prelude.NFData ListDistributions
 
 instance Core.ToHeaders ListDistributions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListDistributions where
-  toPath = Core.const "/2020-05-31/distribution"
+  toPath = Prelude.const "/2020-05-31/distribution"
 
 instance Core.ToQuery ListDistributions where
   toQuery ListDistributions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker
       ]
@@ -157,11 +158,11 @@ instance Core.ToQuery ListDistributions where
 -- /See:/ 'newListDistributionsResponse' smart constructor.
 data ListDistributionsResponse = ListDistributionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The @DistributionList@ type.
     distributionList :: DistributionList
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsResponse' with all optional fields omitted.
@@ -176,7 +177,7 @@ data ListDistributionsResponse = ListDistributionsResponse'
 -- 'distributionList', 'listDistributionsResponse_distributionList' - The @DistributionList@ type.
 newListDistributionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'distributionList'
   DistributionList ->
   ListDistributionsResponse
@@ -190,11 +191,11 @@ newListDistributionsResponse
       }
 
 -- | The response's http status code.
-listDistributionsResponse_httpStatus :: Lens.Lens' ListDistributionsResponse Core.Int
+listDistributionsResponse_httpStatus :: Lens.Lens' ListDistributionsResponse Prelude.Int
 listDistributionsResponse_httpStatus = Lens.lens (\ListDistributionsResponse' {httpStatus} -> httpStatus) (\s@ListDistributionsResponse' {} a -> s {httpStatus = a} :: ListDistributionsResponse)
 
 -- | The @DistributionList@ type.
 listDistributionsResponse_distributionList :: Lens.Lens' ListDistributionsResponse DistributionList
 listDistributionsResponse_distributionList = Lens.lens (\ListDistributionsResponse' {distributionList} -> distributionList) (\s@ListDistributionsResponse' {} a -> s {distributionList = a} :: ListDistributionsResponse)
 
-instance Core.NFData ListDistributionsResponse
+instance Prelude.NFData ListDistributionsResponse

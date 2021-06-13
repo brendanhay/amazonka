@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ValidationError
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The error codes and error messages that are returned for the parameters
 -- or parameter combinations that are not valid when a new launch template
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newValidationWarning' smart constructor.
 data ValidationWarning = ValidationWarning'
   { -- | The error codes and error messages.
-    errors :: Core.Maybe [ValidationError]
+    errors :: Prelude.Maybe [ValidationError]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidationWarning' with all optional fields omitted.
@@ -47,19 +48,19 @@ data ValidationWarning = ValidationWarning'
 newValidationWarning ::
   ValidationWarning
 newValidationWarning =
-  ValidationWarning' {errors = Core.Nothing}
+  ValidationWarning' {errors = Prelude.Nothing}
 
 -- | The error codes and error messages.
-validationWarning_errors :: Lens.Lens' ValidationWarning (Core.Maybe [ValidationError])
-validationWarning_errors = Lens.lens (\ValidationWarning' {errors} -> errors) (\s@ValidationWarning' {} a -> s {errors = a} :: ValidationWarning) Core.. Lens.mapping Lens._Coerce
+validationWarning_errors :: Lens.Lens' ValidationWarning (Prelude.Maybe [ValidationError])
+validationWarning_errors = Lens.lens (\ValidationWarning' {errors} -> errors) (\s@ValidationWarning' {} a -> s {errors = a} :: ValidationWarning) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML ValidationWarning where
   parseXML x =
     ValidationWarning'
-      Core.<$> ( x Core..@? "errorSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> ( x Core..@? "errorSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable ValidationWarning
+instance Prelude.Hashable ValidationWarning
 
-instance Core.NFData ValidationWarning
+instance Prelude.NFData ValidationWarning

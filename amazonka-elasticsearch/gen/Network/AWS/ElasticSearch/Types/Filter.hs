@@ -21,6 +21,7 @@ module Network.AWS.ElasticSearch.Types.Filter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter used to limit results when describing inbound or outbound
 -- cross-cluster search connections. Multiple values can be specified per
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
   { -- | Contains one or more values for the filter.
-    values :: Core.Maybe (Core.NonEmpty Core.Text),
+    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies the name of the filter.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -50,25 +51,28 @@ data Filter = Filter'
 newFilter ::
   Filter
 newFilter =
-  Filter' {values = Core.Nothing, name = Core.Nothing}
+  Filter'
+    { values = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
 
 -- | Contains one or more values for the filter.
-filter_values :: Lens.Lens' Filter (Core.Maybe (Core.NonEmpty Core.Text))
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens.mapping Lens._Coerce
+filter_values :: Lens.Lens' Filter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the name of the filter.
-filter_name :: Lens.Lens' Filter (Core.Maybe Core.Text)
+filter_name :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
-instance Core.Hashable Filter
+instance Prelude.Hashable Filter
 
-instance Core.NFData Filter
+instance Prelude.NFData Filter
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Values" Core..=) Core.<$> values,
-            ("Name" Core..=) Core.<$> name
+      ( Prelude.catMaybes
+          [ ("Values" Core..=) Prelude.<$> values,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

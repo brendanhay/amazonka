@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Tiering where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.IntelligentTieringAccessTier
 
@@ -35,13 +36,13 @@ data Tiering = Tiering'
     -- number of days specified for Archive Access tier must be at least 90
     -- days and Deep Archive Access tier must be at least 180 days. The maximum
     -- can be up to 2 years (730 days).
-    days :: Core.Int,
+    days :: Prelude.Int,
     -- | S3 Intelligent-Tiering access tier. See
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access Storage class for automatically optimizing frequently and infrequently accessed objects>
     -- for a list of access tiers in the S3 Intelligent-Tiering storage class.
     accessTier :: IntelligentTieringAccessTier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tiering' with all optional fields omitted.
@@ -62,7 +63,7 @@ data Tiering = Tiering'
 -- for a list of access tiers in the S3 Intelligent-Tiering storage class.
 newTiering ::
   -- | 'days'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'accessTier'
   IntelligentTieringAccessTier ->
   Tiering
@@ -74,7 +75,7 @@ newTiering pDays_ pAccessTier_ =
 -- number of days specified for Archive Access tier must be at least 90
 -- days and Deep Archive Access tier must be at least 180 days. The maximum
 -- can be up to 2 years (730 days).
-tiering_days :: Lens.Lens' Tiering Core.Int
+tiering_days :: Lens.Lens' Tiering Prelude.Int
 tiering_days = Lens.lens (\Tiering' {days} -> days) (\s@Tiering' {} a -> s {days = a} :: Tiering)
 
 -- | S3 Intelligent-Tiering access tier. See
@@ -86,15 +87,16 @@ tiering_accessTier = Lens.lens (\Tiering' {accessTier} -> accessTier) (\s@Tierin
 instance Core.FromXML Tiering where
   parseXML x =
     Tiering'
-      Core.<$> (x Core..@ "Days") Core.<*> (x Core..@ "AccessTier")
+      Prelude.<$> (x Core..@ "Days")
+      Prelude.<*> (x Core..@ "AccessTier")
 
-instance Core.Hashable Tiering
+instance Prelude.Hashable Tiering
 
-instance Core.NFData Tiering
+instance Prelude.NFData Tiering
 
 instance Core.ToXML Tiering where
   toXML Tiering' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Days" Core.@= days,
         "AccessTier" Core.@= accessTier
       ]

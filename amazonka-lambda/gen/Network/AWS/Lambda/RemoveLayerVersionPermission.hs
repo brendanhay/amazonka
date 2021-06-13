@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,15 +52,15 @@ data RemoveLayerVersionPermission = RemoveLayerVersionPermission'
   { -- | Only update the policy if the revision ID matches the ID specified. Use
     -- this option to avoid modifying a policy that has changed since you last
     -- read it.
-    revisionId :: Core.Maybe Core.Text,
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Core.Text,
+    layerName :: Prelude.Text,
     -- | The version number.
-    versionNumber :: Core.Integer,
+    versionNumber :: Prelude.Integer,
     -- | The identifier that was specified when the statement was added.
-    statementId :: Core.Text
+    statementId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveLayerVersionPermission' with all optional fields omitted.
@@ -80,11 +81,11 @@ data RemoveLayerVersionPermission = RemoveLayerVersionPermission'
 -- 'statementId', 'removeLayerVersionPermission_statementId' - The identifier that was specified when the statement was added.
 newRemoveLayerVersionPermission ::
   -- | 'layerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'versionNumber'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'statementId'
-  Core.Text ->
+  Prelude.Text ->
   RemoveLayerVersionPermission
 newRemoveLayerVersionPermission
   pLayerName_
@@ -92,7 +93,7 @@ newRemoveLayerVersionPermission
   pStatementId_ =
     RemoveLayerVersionPermission'
       { revisionId =
-          Core.Nothing,
+          Prelude.Nothing,
         layerName = pLayerName_,
         versionNumber = pVersionNumber_,
         statementId = pStatementId_
@@ -101,19 +102,19 @@ newRemoveLayerVersionPermission
 -- | Only update the policy if the revision ID matches the ID specified. Use
 -- this option to avoid modifying a policy that has changed since you last
 -- read it.
-removeLayerVersionPermission_revisionId :: Lens.Lens' RemoveLayerVersionPermission (Core.Maybe Core.Text)
+removeLayerVersionPermission_revisionId :: Lens.Lens' RemoveLayerVersionPermission (Prelude.Maybe Prelude.Text)
 removeLayerVersionPermission_revisionId = Lens.lens (\RemoveLayerVersionPermission' {revisionId} -> revisionId) (\s@RemoveLayerVersionPermission' {} a -> s {revisionId = a} :: RemoveLayerVersionPermission)
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
-removeLayerVersionPermission_layerName :: Lens.Lens' RemoveLayerVersionPermission Core.Text
+removeLayerVersionPermission_layerName :: Lens.Lens' RemoveLayerVersionPermission Prelude.Text
 removeLayerVersionPermission_layerName = Lens.lens (\RemoveLayerVersionPermission' {layerName} -> layerName) (\s@RemoveLayerVersionPermission' {} a -> s {layerName = a} :: RemoveLayerVersionPermission)
 
 -- | The version number.
-removeLayerVersionPermission_versionNumber :: Lens.Lens' RemoveLayerVersionPermission Core.Integer
+removeLayerVersionPermission_versionNumber :: Lens.Lens' RemoveLayerVersionPermission Prelude.Integer
 removeLayerVersionPermission_versionNumber = Lens.lens (\RemoveLayerVersionPermission' {versionNumber} -> versionNumber) (\s@RemoveLayerVersionPermission' {} a -> s {versionNumber = a} :: RemoveLayerVersionPermission)
 
 -- | The identifier that was specified when the statement was added.
-removeLayerVersionPermission_statementId :: Lens.Lens' RemoveLayerVersionPermission Core.Text
+removeLayerVersionPermission_statementId :: Lens.Lens' RemoveLayerVersionPermission Prelude.Text
 removeLayerVersionPermission_statementId = Lens.lens (\RemoveLayerVersionPermission' {statementId} -> statementId) (\s@RemoveLayerVersionPermission' {} a -> s {statementId = a} :: RemoveLayerVersionPermission)
 
 instance Core.AWSRequest RemoveLayerVersionPermission where
@@ -125,16 +126,18 @@ instance Core.AWSRequest RemoveLayerVersionPermission where
     Response.receiveNull
       RemoveLayerVersionPermissionResponse'
 
-instance Core.Hashable RemoveLayerVersionPermission
+instance
+  Prelude.Hashable
+    RemoveLayerVersionPermission
 
-instance Core.NFData RemoveLayerVersionPermission
+instance Prelude.NFData RemoveLayerVersionPermission
 
 instance Core.ToHeaders RemoveLayerVersionPermission where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RemoveLayerVersionPermission where
   toPath RemoveLayerVersionPermission' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2018-10-31/layers/",
         Core.toBS layerName,
         "/versions/",
@@ -145,13 +148,13 @@ instance Core.ToPath RemoveLayerVersionPermission where
 
 instance Core.ToQuery RemoveLayerVersionPermission where
   toQuery RemoveLayerVersionPermission' {..} =
-    Core.mconcat ["RevisionId" Core.=: revisionId]
+    Prelude.mconcat ["RevisionId" Core.=: revisionId]
 
 -- | /See:/ 'newRemoveLayerVersionPermissionResponse' smart constructor.
 data RemoveLayerVersionPermissionResponse = RemoveLayerVersionPermissionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveLayerVersionPermissionResponse' with all optional fields omitted.
@@ -163,5 +166,5 @@ newRemoveLayerVersionPermissionResponse =
   RemoveLayerVersionPermissionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveLayerVersionPermissionResponse

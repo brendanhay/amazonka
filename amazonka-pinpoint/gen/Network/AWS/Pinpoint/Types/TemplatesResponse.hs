@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.TemplatesResponse where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.TemplateResponse
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about all the message templates that are associated
 -- with your Amazon Pinpoint account.
@@ -31,13 +32,13 @@ data TemplatesResponse = TemplatesResponse'
   { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of responses, one for each message template that\'s associated
     -- with your Amazon Pinpoint account and meets any filter criteria that you
     -- specified in the request.
     item :: [TemplateResponse]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TemplatesResponse' with all optional fields omitted.
@@ -58,21 +59,21 @@ newTemplatesResponse ::
   TemplatesResponse
 newTemplatesResponse =
   TemplatesResponse'
-    { nextToken = Core.Nothing,
-      item = Core.mempty
+    { nextToken = Prelude.Nothing,
+      item = Prelude.mempty
     }
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
-templatesResponse_nextToken :: Lens.Lens' TemplatesResponse (Core.Maybe Core.Text)
+templatesResponse_nextToken :: Lens.Lens' TemplatesResponse (Prelude.Maybe Prelude.Text)
 templatesResponse_nextToken = Lens.lens (\TemplatesResponse' {nextToken} -> nextToken) (\s@TemplatesResponse' {} a -> s {nextToken = a} :: TemplatesResponse)
 
 -- | An array of responses, one for each message template that\'s associated
 -- with your Amazon Pinpoint account and meets any filter criteria that you
 -- specified in the request.
 templatesResponse_item :: Lens.Lens' TemplatesResponse [TemplateResponse]
-templatesResponse_item = Lens.lens (\TemplatesResponse' {item} -> item) (\s@TemplatesResponse' {} a -> s {item = a} :: TemplatesResponse) Core.. Lens._Coerce
+templatesResponse_item = Lens.lens (\TemplatesResponse' {item} -> item) (\s@TemplatesResponse' {} a -> s {item = a} :: TemplatesResponse) Prelude.. Lens._Coerce
 
 instance Core.FromJSON TemplatesResponse where
   parseJSON =
@@ -80,10 +81,10 @@ instance Core.FromJSON TemplatesResponse where
       "TemplatesResponse"
       ( \x ->
           TemplatesResponse'
-            Core.<$> (x Core..:? "NextToken")
-            Core.<*> (x Core..:? "Item" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable TemplatesResponse
+instance Prelude.Hashable TemplatesResponse
 
-instance Core.NFData TemplatesResponse
+instance Prelude.NFData TemplatesResponse

@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.OpsEntity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsEntityItem
 
 -- | The result of the query.
@@ -28,11 +29,11 @@ import Network.AWS.SSM.Types.OpsEntityItem
 -- /See:/ 'newOpsEntity' smart constructor.
 data OpsEntity = OpsEntity'
   { -- | The data returned by the query.
-    data' :: Core.Maybe (Core.HashMap Core.Text OpsEntityItem),
+    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsEntityItem),
     -- | The query ID.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpsEntity' with all optional fields omitted.
@@ -48,14 +49,17 @@ data OpsEntity = OpsEntity'
 newOpsEntity ::
   OpsEntity
 newOpsEntity =
-  OpsEntity' {data' = Core.Nothing, id = Core.Nothing}
+  OpsEntity'
+    { data' = Prelude.Nothing,
+      id = Prelude.Nothing
+    }
 
 -- | The data returned by the query.
-opsEntity_data :: Lens.Lens' OpsEntity (Core.Maybe (Core.HashMap Core.Text OpsEntityItem))
-opsEntity_data = Lens.lens (\OpsEntity' {data'} -> data') (\s@OpsEntity' {} a -> s {data' = a} :: OpsEntity) Core.. Lens.mapping Lens._Coerce
+opsEntity_data :: Lens.Lens' OpsEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsEntityItem))
+opsEntity_data = Lens.lens (\OpsEntity' {data'} -> data') (\s@OpsEntity' {} a -> s {data' = a} :: OpsEntity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The query ID.
-opsEntity_id :: Lens.Lens' OpsEntity (Core.Maybe Core.Text)
+opsEntity_id :: Lens.Lens' OpsEntity (Prelude.Maybe Prelude.Text)
 opsEntity_id = Lens.lens (\OpsEntity' {id} -> id) (\s@OpsEntity' {} a -> s {id = a} :: OpsEntity)
 
 instance Core.FromJSON OpsEntity where
@@ -64,10 +68,10 @@ instance Core.FromJSON OpsEntity where
       "OpsEntity"
       ( \x ->
           OpsEntity'
-            Core.<$> (x Core..:? "Data" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "Data" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Id")
       )
 
-instance Core.Hashable OpsEntity
+instance Prelude.Hashable OpsEntity
 
-instance Core.NFData OpsEntity
+instance Prelude.NFData OpsEntity

@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -44,9 +45,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteDataQualityJobDefinition' smart constructor.
 data DeleteDataQualityJobDefinition = DeleteDataQualityJobDefinition'
   { -- | The name of the data quality monitoring job definition to delete.
-    jobDefinitionName :: Core.Text
+    jobDefinitionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDataQualityJobDefinition' with all optional fields omitted.
@@ -59,7 +60,7 @@ data DeleteDataQualityJobDefinition = DeleteDataQualityJobDefinition'
 -- 'jobDefinitionName', 'deleteDataQualityJobDefinition_jobDefinitionName' - The name of the data quality monitoring job definition to delete.
 newDeleteDataQualityJobDefinition ::
   -- | 'jobDefinitionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDataQualityJobDefinition
 newDeleteDataQualityJobDefinition pJobDefinitionName_ =
   DeleteDataQualityJobDefinition'
@@ -68,7 +69,7 @@ newDeleteDataQualityJobDefinition pJobDefinitionName_ =
     }
 
 -- | The name of the data quality monitoring job definition to delete.
-deleteDataQualityJobDefinition_jobDefinitionName :: Lens.Lens' DeleteDataQualityJobDefinition Core.Text
+deleteDataQualityJobDefinition_jobDefinitionName :: Lens.Lens' DeleteDataQualityJobDefinition Prelude.Text
 deleteDataQualityJobDefinition_jobDefinitionName = Lens.lens (\DeleteDataQualityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@DeleteDataQualityJobDefinition' {} a -> s {jobDefinitionName = a} :: DeleteDataQualityJobDefinition)
 
 instance
@@ -83,46 +84,52 @@ instance
     Response.receiveNull
       DeleteDataQualityJobDefinitionResponse'
 
-instance Core.Hashable DeleteDataQualityJobDefinition
+instance
+  Prelude.Hashable
+    DeleteDataQualityJobDefinition
 
-instance Core.NFData DeleteDataQualityJobDefinition
+instance
+  Prelude.NFData
+    DeleteDataQualityJobDefinition
 
 instance
   Core.ToHeaders
     DeleteDataQualityJobDefinition
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.DeleteDataQualityJobDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDataQualityJobDefinition where
   toJSON DeleteDataQualityJobDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("JobDefinitionName" Core..= jobDefinitionName)
           ]
       )
 
 instance Core.ToPath DeleteDataQualityJobDefinition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDataQualityJobDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDataQualityJobDefinitionResponse' smart constructor.
 data DeleteDataQualityJobDefinitionResponse = DeleteDataQualityJobDefinitionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDataQualityJobDefinitionResponse' with all optional fields omitted.
@@ -134,5 +141,5 @@ newDeleteDataQualityJobDefinitionResponse =
   DeleteDataQualityJobDefinitionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteDataQualityJobDefinitionResponse

@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteClassifier' smart constructor.
 data DeleteClassifier = DeleteClassifier'
   { -- | Name of the classifier to remove.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClassifier' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteClassifier = DeleteClassifier'
 -- 'name', 'deleteClassifier_name' - Name of the classifier to remove.
 newDeleteClassifier ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteClassifier
 newDeleteClassifier pName_ =
   DeleteClassifier' {name = pName_}
 
 -- | Name of the classifier to remove.
-deleteClassifier_name :: Lens.Lens' DeleteClassifier Core.Text
+deleteClassifier_name :: Lens.Lens' DeleteClassifier Prelude.Text
 deleteClassifier_name = Lens.lens (\DeleteClassifier' {name} -> name) (\s@DeleteClassifier' {} a -> s {name = a} :: DeleteClassifier)
 
 instance Core.AWSRequest DeleteClassifier where
@@ -80,41 +81,45 @@ instance Core.AWSRequest DeleteClassifier where
     Response.receiveEmpty
       ( \s h x ->
           DeleteClassifierResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteClassifier
+instance Prelude.Hashable DeleteClassifier
 
-instance Core.NFData DeleteClassifier
+instance Prelude.NFData DeleteClassifier
 
 instance Core.ToHeaders DeleteClassifier where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteClassifier" :: Core.ByteString),
+              Core.=# ("AWSGlue.DeleteClassifier" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteClassifier where
   toJSON DeleteClassifier' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteClassifier where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteClassifier where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteClassifierResponse' smart constructor.
 data DeleteClassifierResponse = DeleteClassifierResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClassifierResponse' with all optional fields omitted.
@@ -127,7 +132,7 @@ data DeleteClassifierResponse = DeleteClassifierResponse'
 -- 'httpStatus', 'deleteClassifierResponse_httpStatus' - The response's http status code.
 newDeleteClassifierResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteClassifierResponse
 newDeleteClassifierResponse pHttpStatus_ =
   DeleteClassifierResponse'
@@ -136,7 +141,7 @@ newDeleteClassifierResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteClassifierResponse_httpStatus :: Lens.Lens' DeleteClassifierResponse Core.Int
+deleteClassifierResponse_httpStatus :: Lens.Lens' DeleteClassifierResponse Prelude.Int
 deleteClassifierResponse_httpStatus = Lens.lens (\DeleteClassifierResponse' {httpStatus} -> httpStatus) (\s@DeleteClassifierResponse' {} a -> s {httpStatus = a} :: DeleteClassifierResponse)
 
-instance Core.NFData DeleteClassifierResponse
+instance Prelude.NFData DeleteClassifierResponse

@@ -55,6 +55,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,32 +63,32 @@ import qualified Network.AWS.Response as Response
 data GetMergeConflicts = GetMergeConflicts'
   { -- | An enumeration token that, when provided in a request, returns the next
     -- batch of the results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of files to include in the output.
-    maxConflictFiles :: Core.Maybe Core.Int,
+    maxConflictFiles :: Prelude.Maybe Prelude.Int,
     -- | The level of conflict detail to use. If unspecified, the default
     -- FILE_LEVEL is used, which returns a not-mergeable result if the same
     -- file has differences in both branches. If LINE_LEVEL is specified, a
     -- conflict is considered not mergeable if the same file in both branches
     -- has differences on the same line.
-    conflictDetailLevel :: Core.Maybe ConflictDetailLevelTypeEnum,
+    conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
     -- | Specifies which branch to use when resolving conflicts, or whether to
     -- attempt automatically merging two versions of a file. The default is
     -- NONE, which requires any conflicts to be resolved manually before the
     -- merge operation is successful.
-    conflictResolutionStrategy :: Core.Maybe ConflictResolutionStrategyTypeEnum,
+    conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
     -- | The name of the repository where the pull request was created.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The branch, tag, HEAD, or other fully qualified reference used to
     -- identify a commit (for example, a branch name or a full commit ID).
-    destinationCommitSpecifier :: Core.Text,
+    destinationCommitSpecifier :: Prelude.Text,
     -- | The branch, tag, HEAD, or other fully qualified reference used to
     -- identify a commit (for example, a branch name or a full commit ID).
-    sourceCommitSpecifier :: Core.Text,
+    sourceCommitSpecifier :: Prelude.Text,
     -- | The merge option or strategy you want to use to merge the code.
     mergeOption :: MergeOptionTypeEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMergeConflicts' with all optional fields omitted.
@@ -124,11 +125,11 @@ data GetMergeConflicts = GetMergeConflicts'
 -- 'mergeOption', 'getMergeConflicts_mergeOption' - The merge option or strategy you want to use to merge the code.
 newGetMergeConflicts ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationCommitSpecifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceCommitSpecifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'mergeOption'
   MergeOptionTypeEnum ->
   GetMergeConflicts
@@ -138,10 +139,10 @@ newGetMergeConflicts
   pSourceCommitSpecifier_
   pMergeOption_ =
     GetMergeConflicts'
-      { nextToken = Core.Nothing,
-        maxConflictFiles = Core.Nothing,
-        conflictDetailLevel = Core.Nothing,
-        conflictResolutionStrategy = Core.Nothing,
+      { nextToken = Prelude.Nothing,
+        maxConflictFiles = Prelude.Nothing,
+        conflictDetailLevel = Prelude.Nothing,
+        conflictResolutionStrategy = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         destinationCommitSpecifier =
           pDestinationCommitSpecifier_,
@@ -151,11 +152,11 @@ newGetMergeConflicts
 
 -- | An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
-getMergeConflicts_nextToken :: Lens.Lens' GetMergeConflicts (Core.Maybe Core.Text)
+getMergeConflicts_nextToken :: Lens.Lens' GetMergeConflicts (Prelude.Maybe Prelude.Text)
 getMergeConflicts_nextToken = Lens.lens (\GetMergeConflicts' {nextToken} -> nextToken) (\s@GetMergeConflicts' {} a -> s {nextToken = a} :: GetMergeConflicts)
 
 -- | The maximum number of files to include in the output.
-getMergeConflicts_maxConflictFiles :: Lens.Lens' GetMergeConflicts (Core.Maybe Core.Int)
+getMergeConflicts_maxConflictFiles :: Lens.Lens' GetMergeConflicts (Prelude.Maybe Prelude.Int)
 getMergeConflicts_maxConflictFiles = Lens.lens (\GetMergeConflicts' {maxConflictFiles} -> maxConflictFiles) (\s@GetMergeConflicts' {} a -> s {maxConflictFiles = a} :: GetMergeConflicts)
 
 -- | The level of conflict detail to use. If unspecified, the default
@@ -163,28 +164,28 @@ getMergeConflicts_maxConflictFiles = Lens.lens (\GetMergeConflicts' {maxConflict
 -- file has differences in both branches. If LINE_LEVEL is specified, a
 -- conflict is considered not mergeable if the same file in both branches
 -- has differences on the same line.
-getMergeConflicts_conflictDetailLevel :: Lens.Lens' GetMergeConflicts (Core.Maybe ConflictDetailLevelTypeEnum)
+getMergeConflicts_conflictDetailLevel :: Lens.Lens' GetMergeConflicts (Prelude.Maybe ConflictDetailLevelTypeEnum)
 getMergeConflicts_conflictDetailLevel = Lens.lens (\GetMergeConflicts' {conflictDetailLevel} -> conflictDetailLevel) (\s@GetMergeConflicts' {} a -> s {conflictDetailLevel = a} :: GetMergeConflicts)
 
 -- | Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
 -- NONE, which requires any conflicts to be resolved manually before the
 -- merge operation is successful.
-getMergeConflicts_conflictResolutionStrategy :: Lens.Lens' GetMergeConflicts (Core.Maybe ConflictResolutionStrategyTypeEnum)
+getMergeConflicts_conflictResolutionStrategy :: Lens.Lens' GetMergeConflicts (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
 getMergeConflicts_conflictResolutionStrategy = Lens.lens (\GetMergeConflicts' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@GetMergeConflicts' {} a -> s {conflictResolutionStrategy = a} :: GetMergeConflicts)
 
 -- | The name of the repository where the pull request was created.
-getMergeConflicts_repositoryName :: Lens.Lens' GetMergeConflicts Core.Text
+getMergeConflicts_repositoryName :: Lens.Lens' GetMergeConflicts Prelude.Text
 getMergeConflicts_repositoryName = Lens.lens (\GetMergeConflicts' {repositoryName} -> repositoryName) (\s@GetMergeConflicts' {} a -> s {repositoryName = a} :: GetMergeConflicts)
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, a branch name or a full commit ID).
-getMergeConflicts_destinationCommitSpecifier :: Lens.Lens' GetMergeConflicts Core.Text
+getMergeConflicts_destinationCommitSpecifier :: Lens.Lens' GetMergeConflicts Prelude.Text
 getMergeConflicts_destinationCommitSpecifier = Lens.lens (\GetMergeConflicts' {destinationCommitSpecifier} -> destinationCommitSpecifier) (\s@GetMergeConflicts' {} a -> s {destinationCommitSpecifier = a} :: GetMergeConflicts)
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, a branch name or a full commit ID).
-getMergeConflicts_sourceCommitSpecifier :: Lens.Lens' GetMergeConflicts Core.Text
+getMergeConflicts_sourceCommitSpecifier :: Lens.Lens' GetMergeConflicts Prelude.Text
 getMergeConflicts_sourceCommitSpecifier = Lens.lens (\GetMergeConflicts' {sourceCommitSpecifier} -> sourceCommitSpecifier) (\s@GetMergeConflicts' {} a -> s {sourceCommitSpecifier = a} :: GetMergeConflicts)
 
 -- | The merge option or strategy you want to use to merge the code.
@@ -200,87 +201,90 @@ instance Core.AWSRequest GetMergeConflicts where
     Response.receiveJSON
       ( \s h x ->
           GetMergeConflictsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "baseCommitId")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "mergeable")
-            Core.<*> (x Core..:> "destinationCommitId")
-            Core.<*> (x Core..:> "sourceCommitId")
-            Core.<*> ( x Core..?> "conflictMetadataList"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "baseCommitId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "mergeable")
+            Prelude.<*> (x Core..:> "destinationCommitId")
+            Prelude.<*> (x Core..:> "sourceCommitId")
+            Prelude.<*> ( x Core..?> "conflictMetadataList"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable GetMergeConflicts
+instance Prelude.Hashable GetMergeConflicts
 
-instance Core.NFData GetMergeConflicts
+instance Prelude.NFData GetMergeConflicts
 
 instance Core.ToHeaders GetMergeConflicts where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.GetMergeConflicts" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetMergeConflicts where
   toJSON GetMergeConflicts' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxConflictFiles" Core..=)
-              Core.<$> maxConflictFiles,
+              Prelude.<$> maxConflictFiles,
             ("conflictDetailLevel" Core..=)
-              Core.<$> conflictDetailLevel,
+              Prelude.<$> conflictDetailLevel,
             ("conflictResolutionStrategy" Core..=)
-              Core.<$> conflictResolutionStrategy,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just
+              Prelude.<$> conflictResolutionStrategy,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just
               ( "destinationCommitSpecifier"
                   Core..= destinationCommitSpecifier
               ),
-            Core.Just
+            Prelude.Just
               ( "sourceCommitSpecifier"
                   Core..= sourceCommitSpecifier
               ),
-            Core.Just ("mergeOption" Core..= mergeOption)
+            Prelude.Just ("mergeOption" Core..= mergeOption)
           ]
       )
 
 instance Core.ToPath GetMergeConflicts where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetMergeConflicts where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMergeConflictsResponse' smart constructor.
 data GetMergeConflictsResponse = GetMergeConflictsResponse'
   { -- | An enumeration token that can be used in a request to return the next
     -- batch of the results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The commit ID of the merge base.
-    baseCommitId :: Core.Maybe Core.Text,
+    baseCommitId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A Boolean value that indicates whether the code is mergeable by the
     -- specified merge option.
-    mergeable :: Core.Bool,
+    mergeable :: Prelude.Bool,
     -- | The commit ID of the destination commit specifier that was used in the
     -- merge evaluation.
-    destinationCommitId :: Core.Text,
+    destinationCommitId :: Prelude.Text,
     -- | The commit ID of the source commit specifier that was used in the merge
     -- evaluation.
-    sourceCommitId :: Core.Text,
+    sourceCommitId :: Prelude.Text,
     -- | A list of metadata for any conflicting files. If the specified merge
     -- strategy is FAST_FORWARD_MERGE, this list is always empty.
     conflictMetadataList :: [ConflictMetadata]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMergeConflictsResponse' with all optional fields omitted.
@@ -310,13 +314,13 @@ data GetMergeConflictsResponse = GetMergeConflictsResponse'
 -- strategy is FAST_FORWARD_MERGE, this list is always empty.
 newGetMergeConflictsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'mergeable'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'destinationCommitId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceCommitId'
-  Core.Text ->
+  Prelude.Text ->
   GetMergeConflictsResponse
 newGetMergeConflictsResponse
   pHttpStatus_
@@ -325,46 +329,46 @@ newGetMergeConflictsResponse
   pSourceCommitId_ =
     GetMergeConflictsResponse'
       { nextToken =
-          Core.Nothing,
-        baseCommitId = Core.Nothing,
+          Prelude.Nothing,
+        baseCommitId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         mergeable = pMergeable_,
         destinationCommitId = pDestinationCommitId_,
         sourceCommitId = pSourceCommitId_,
-        conflictMetadataList = Core.mempty
+        conflictMetadataList = Prelude.mempty
       }
 
 -- | An enumeration token that can be used in a request to return the next
 -- batch of the results.
-getMergeConflictsResponse_nextToken :: Lens.Lens' GetMergeConflictsResponse (Core.Maybe Core.Text)
+getMergeConflictsResponse_nextToken :: Lens.Lens' GetMergeConflictsResponse (Prelude.Maybe Prelude.Text)
 getMergeConflictsResponse_nextToken = Lens.lens (\GetMergeConflictsResponse' {nextToken} -> nextToken) (\s@GetMergeConflictsResponse' {} a -> s {nextToken = a} :: GetMergeConflictsResponse)
 
 -- | The commit ID of the merge base.
-getMergeConflictsResponse_baseCommitId :: Lens.Lens' GetMergeConflictsResponse (Core.Maybe Core.Text)
+getMergeConflictsResponse_baseCommitId :: Lens.Lens' GetMergeConflictsResponse (Prelude.Maybe Prelude.Text)
 getMergeConflictsResponse_baseCommitId = Lens.lens (\GetMergeConflictsResponse' {baseCommitId} -> baseCommitId) (\s@GetMergeConflictsResponse' {} a -> s {baseCommitId = a} :: GetMergeConflictsResponse)
 
 -- | The response's http status code.
-getMergeConflictsResponse_httpStatus :: Lens.Lens' GetMergeConflictsResponse Core.Int
+getMergeConflictsResponse_httpStatus :: Lens.Lens' GetMergeConflictsResponse Prelude.Int
 getMergeConflictsResponse_httpStatus = Lens.lens (\GetMergeConflictsResponse' {httpStatus} -> httpStatus) (\s@GetMergeConflictsResponse' {} a -> s {httpStatus = a} :: GetMergeConflictsResponse)
 
 -- | A Boolean value that indicates whether the code is mergeable by the
 -- specified merge option.
-getMergeConflictsResponse_mergeable :: Lens.Lens' GetMergeConflictsResponse Core.Bool
+getMergeConflictsResponse_mergeable :: Lens.Lens' GetMergeConflictsResponse Prelude.Bool
 getMergeConflictsResponse_mergeable = Lens.lens (\GetMergeConflictsResponse' {mergeable} -> mergeable) (\s@GetMergeConflictsResponse' {} a -> s {mergeable = a} :: GetMergeConflictsResponse)
 
 -- | The commit ID of the destination commit specifier that was used in the
 -- merge evaluation.
-getMergeConflictsResponse_destinationCommitId :: Lens.Lens' GetMergeConflictsResponse Core.Text
+getMergeConflictsResponse_destinationCommitId :: Lens.Lens' GetMergeConflictsResponse Prelude.Text
 getMergeConflictsResponse_destinationCommitId = Lens.lens (\GetMergeConflictsResponse' {destinationCommitId} -> destinationCommitId) (\s@GetMergeConflictsResponse' {} a -> s {destinationCommitId = a} :: GetMergeConflictsResponse)
 
 -- | The commit ID of the source commit specifier that was used in the merge
 -- evaluation.
-getMergeConflictsResponse_sourceCommitId :: Lens.Lens' GetMergeConflictsResponse Core.Text
+getMergeConflictsResponse_sourceCommitId :: Lens.Lens' GetMergeConflictsResponse Prelude.Text
 getMergeConflictsResponse_sourceCommitId = Lens.lens (\GetMergeConflictsResponse' {sourceCommitId} -> sourceCommitId) (\s@GetMergeConflictsResponse' {} a -> s {sourceCommitId = a} :: GetMergeConflictsResponse)
 
 -- | A list of metadata for any conflicting files. If the specified merge
 -- strategy is FAST_FORWARD_MERGE, this list is always empty.
 getMergeConflictsResponse_conflictMetadataList :: Lens.Lens' GetMergeConflictsResponse [ConflictMetadata]
-getMergeConflictsResponse_conflictMetadataList = Lens.lens (\GetMergeConflictsResponse' {conflictMetadataList} -> conflictMetadataList) (\s@GetMergeConflictsResponse' {} a -> s {conflictMetadataList = a} :: GetMergeConflictsResponse) Core.. Lens._Coerce
+getMergeConflictsResponse_conflictMetadataList = Lens.lens (\GetMergeConflictsResponse' {conflictMetadataList} -> conflictMetadataList) (\s@GetMergeConflictsResponse' {} a -> s {conflictMetadataList = a} :: GetMergeConflictsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData GetMergeConflictsResponse
+instance Prelude.NFData GetMergeConflictsResponse

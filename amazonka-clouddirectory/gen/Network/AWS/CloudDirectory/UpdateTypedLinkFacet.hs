@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 data UpdateTypedLinkFacet = UpdateTypedLinkFacet'
   { -- | The Amazon Resource Name (ARN) that is associated with the schema. For
     -- more information, see arns.
-    schemaArn :: Core.Text,
+    schemaArn :: Prelude.Text,
     -- | The unique name of the typed link facet.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Attributes update structure.
     attributeUpdates :: [TypedLinkFacetAttributeUpdate],
     -- | The order of identity attributes for the facet, from most significant to
@@ -67,9 +68,9 @@ data UpdateTypedLinkFacet = UpdateTypedLinkFacet'
     -- are supplied to any API calls. For more information about identity
     -- attributes, see
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-    identityAttributeOrder :: [Core.Text]
+    identityAttributeOrder :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTypedLinkFacet' with all optional fields omitted.
@@ -98,30 +99,30 @@ data UpdateTypedLinkFacet = UpdateTypedLinkFacet'
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 newUpdateTypedLinkFacet ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdateTypedLinkFacet
 newUpdateTypedLinkFacet pSchemaArn_ pName_ =
   UpdateTypedLinkFacet'
     { schemaArn = pSchemaArn_,
       name = pName_,
-      attributeUpdates = Core.mempty,
-      identityAttributeOrder = Core.mempty
+      attributeUpdates = Prelude.mempty,
+      identityAttributeOrder = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For
 -- more information, see arns.
-updateTypedLinkFacet_schemaArn :: Lens.Lens' UpdateTypedLinkFacet Core.Text
+updateTypedLinkFacet_schemaArn :: Lens.Lens' UpdateTypedLinkFacet Prelude.Text
 updateTypedLinkFacet_schemaArn = Lens.lens (\UpdateTypedLinkFacet' {schemaArn} -> schemaArn) (\s@UpdateTypedLinkFacet' {} a -> s {schemaArn = a} :: UpdateTypedLinkFacet)
 
 -- | The unique name of the typed link facet.
-updateTypedLinkFacet_name :: Lens.Lens' UpdateTypedLinkFacet Core.Text
+updateTypedLinkFacet_name :: Lens.Lens' UpdateTypedLinkFacet Prelude.Text
 updateTypedLinkFacet_name = Lens.lens (\UpdateTypedLinkFacet' {name} -> name) (\s@UpdateTypedLinkFacet' {} a -> s {name = a} :: UpdateTypedLinkFacet)
 
 -- | Attributes update structure.
 updateTypedLinkFacet_attributeUpdates :: Lens.Lens' UpdateTypedLinkFacet [TypedLinkFacetAttributeUpdate]
-updateTypedLinkFacet_attributeUpdates = Lens.lens (\UpdateTypedLinkFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateTypedLinkFacet' {} a -> s {attributeUpdates = a} :: UpdateTypedLinkFacet) Core.. Lens._Coerce
+updateTypedLinkFacet_attributeUpdates = Lens.lens (\UpdateTypedLinkFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateTypedLinkFacet' {} a -> s {attributeUpdates = a} :: UpdateTypedLinkFacet) Prelude.. Lens._Coerce
 
 -- | The order of identity attributes for the facet, from most significant to
 -- least significant. The ability to filter typed links considers the order
@@ -133,8 +134,8 @@ updateTypedLinkFacet_attributeUpdates = Lens.lens (\UpdateTypedLinkFacet' {attri
 -- are supplied to any API calls. For more information about identity
 -- attributes, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-updateTypedLinkFacet_identityAttributeOrder :: Lens.Lens' UpdateTypedLinkFacet [Core.Text]
-updateTypedLinkFacet_identityAttributeOrder = Lens.lens (\UpdateTypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@UpdateTypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: UpdateTypedLinkFacet) Core.. Lens._Coerce
+updateTypedLinkFacet_identityAttributeOrder :: Lens.Lens' UpdateTypedLinkFacet [Prelude.Text]
+updateTypedLinkFacet_identityAttributeOrder = Lens.lens (\UpdateTypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@UpdateTypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: UpdateTypedLinkFacet) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateTypedLinkFacet where
   type
@@ -145,26 +146,26 @@ instance Core.AWSRequest UpdateTypedLinkFacet where
     Response.receiveEmpty
       ( \s h x ->
           UpdateTypedLinkFacetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateTypedLinkFacet
+instance Prelude.Hashable UpdateTypedLinkFacet
 
-instance Core.NFData UpdateTypedLinkFacet
+instance Prelude.NFData UpdateTypedLinkFacet
 
 instance Core.ToHeaders UpdateTypedLinkFacet where
   toHeaders UpdateTypedLinkFacet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON UpdateTypedLinkFacet where
   toJSON UpdateTypedLinkFacet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ("AttributeUpdates" Core..= attributeUpdates),
-            Core.Just
+            Prelude.Just
               ( "IdentityAttributeOrder"
                   Core..= identityAttributeOrder
               )
@@ -173,18 +174,18 @@ instance Core.ToJSON UpdateTypedLinkFacet where
 
 instance Core.ToPath UpdateTypedLinkFacet where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/facet"
 
 instance Core.ToQuery UpdateTypedLinkFacet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTypedLinkFacetResponse' smart constructor.
 data UpdateTypedLinkFacetResponse = UpdateTypedLinkFacetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTypedLinkFacetResponse' with all optional fields omitted.
@@ -197,7 +198,7 @@ data UpdateTypedLinkFacetResponse = UpdateTypedLinkFacetResponse'
 -- 'httpStatus', 'updateTypedLinkFacetResponse_httpStatus' - The response's http status code.
 newUpdateTypedLinkFacetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateTypedLinkFacetResponse
 newUpdateTypedLinkFacetResponse pHttpStatus_ =
   UpdateTypedLinkFacetResponse'
@@ -206,7 +207,7 @@ newUpdateTypedLinkFacetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateTypedLinkFacetResponse_httpStatus :: Lens.Lens' UpdateTypedLinkFacetResponse Core.Int
+updateTypedLinkFacetResponse_httpStatus :: Lens.Lens' UpdateTypedLinkFacetResponse Prelude.Int
 updateTypedLinkFacetResponse_httpStatus = Lens.lens (\UpdateTypedLinkFacetResponse' {httpStatus} -> httpStatus) (\s@UpdateTypedLinkFacetResponse' {} a -> s {httpStatus = a} :: UpdateTypedLinkFacetResponse)
 
-instance Core.NFData UpdateTypedLinkFacetResponse
+instance Prelude.NFData UpdateTypedLinkFacetResponse

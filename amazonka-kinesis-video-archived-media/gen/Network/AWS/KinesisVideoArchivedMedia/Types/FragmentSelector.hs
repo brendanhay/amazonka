@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
 import Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the timestamp range and timestamp origin of a range of
 -- fragments.
@@ -51,7 +52,7 @@ data FragmentSelector = FragmentSelector'
     -- | The range of timestamps to return.
     timestampRange :: TimestampRange
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FragmentSelector' with all optional fields omitted.
@@ -87,18 +88,19 @@ fragmentSelector_fragmentSelectorType = Lens.lens (\FragmentSelector' {fragmentS
 fragmentSelector_timestampRange :: Lens.Lens' FragmentSelector TimestampRange
 fragmentSelector_timestampRange = Lens.lens (\FragmentSelector' {timestampRange} -> timestampRange) (\s@FragmentSelector' {} a -> s {timestampRange = a} :: FragmentSelector)
 
-instance Core.Hashable FragmentSelector
+instance Prelude.Hashable FragmentSelector
 
-instance Core.NFData FragmentSelector
+instance Prelude.NFData FragmentSelector
 
 instance Core.ToJSON FragmentSelector where
   toJSON FragmentSelector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "FragmentSelectorType"
                   Core..= fragmentSelectorType
               ),
-            Core.Just ("TimestampRange" Core..= timestampRange)
+            Prelude.Just
+              ("TimestampRange" Core..= timestampRange)
           ]
       )

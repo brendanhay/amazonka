@@ -31,33 +31,34 @@ import Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings
 import Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
 import Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings
 import Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Holds the settings for a single schedule action.
 --
 -- /See:/ 'newScheduleActionSettings' smart constructor.
 data ScheduleActionSettings = ScheduleActionSettings'
   { -- | Action to switch the input
-    inputSwitchSettings :: Core.Maybe InputSwitchScheduleActionSettings,
+    inputSwitchSettings :: Prelude.Maybe InputSwitchScheduleActionSettings,
     -- | Action to insert SCTE-35 time_signal message
-    scte35TimeSignalSettings :: Core.Maybe Scte35TimeSignalScheduleActionSettings,
+    scte35TimeSignalSettings :: Prelude.Maybe Scte35TimeSignalScheduleActionSettings,
     -- | Action to insert HLS metadata
-    hlsTimedMetadataSettings :: Core.Maybe HlsTimedMetadataScheduleActionSettings,
+    hlsTimedMetadataSettings :: Prelude.Maybe HlsTimedMetadataScheduleActionSettings,
     -- | Action to activate a static image overlay
-    staticImageActivateSettings :: Core.Maybe StaticImageActivateScheduleActionSettings,
+    staticImageActivateSettings :: Prelude.Maybe StaticImageActivateScheduleActionSettings,
     -- | Action to pause or unpause one or both channel pipelines
-    pauseStateSettings :: Core.Maybe PauseStateScheduleActionSettings,
+    pauseStateSettings :: Prelude.Maybe PauseStateScheduleActionSettings,
     -- | Action to insert SCTE-35 splice_insert message
-    scte35SpliceInsertSettings :: Core.Maybe Scte35SpliceInsertScheduleActionSettings,
+    scte35SpliceInsertSettings :: Prelude.Maybe Scte35SpliceInsertScheduleActionSettings,
     -- | Action to insert SCTE-35 return_to_network message
-    scte35ReturnToNetworkSettings :: Core.Maybe Scte35ReturnToNetworkScheduleActionSettings,
+    scte35ReturnToNetworkSettings :: Prelude.Maybe Scte35ReturnToNetworkScheduleActionSettings,
     -- | Action to insert HLS ID3 segment tagging
-    hlsId3SegmentTaggingSettings :: Core.Maybe HlsId3SegmentTaggingScheduleActionSettings,
+    hlsId3SegmentTaggingSettings :: Prelude.Maybe HlsId3SegmentTaggingScheduleActionSettings,
     -- | Action to deactivate a static image overlay
-    staticImageDeactivateSettings :: Core.Maybe StaticImageDeactivateScheduleActionSettings,
+    staticImageDeactivateSettings :: Prelude.Maybe StaticImageDeactivateScheduleActionSettings,
     -- | Action to prepare an input for a future immediate input switch
-    inputPrepareSettings :: Core.Maybe InputPrepareScheduleActionSettings
+    inputPrepareSettings :: Prelude.Maybe InputPrepareScheduleActionSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduleActionSettings' with all optional fields omitted.
@@ -91,56 +92,56 @@ newScheduleActionSettings ::
 newScheduleActionSettings =
   ScheduleActionSettings'
     { inputSwitchSettings =
-        Core.Nothing,
-      scte35TimeSignalSettings = Core.Nothing,
-      hlsTimedMetadataSettings = Core.Nothing,
-      staticImageActivateSettings = Core.Nothing,
-      pauseStateSettings = Core.Nothing,
-      scte35SpliceInsertSettings = Core.Nothing,
-      scte35ReturnToNetworkSettings = Core.Nothing,
-      hlsId3SegmentTaggingSettings = Core.Nothing,
-      staticImageDeactivateSettings = Core.Nothing,
-      inputPrepareSettings = Core.Nothing
+        Prelude.Nothing,
+      scte35TimeSignalSettings = Prelude.Nothing,
+      hlsTimedMetadataSettings = Prelude.Nothing,
+      staticImageActivateSettings = Prelude.Nothing,
+      pauseStateSettings = Prelude.Nothing,
+      scte35SpliceInsertSettings = Prelude.Nothing,
+      scte35ReturnToNetworkSettings = Prelude.Nothing,
+      hlsId3SegmentTaggingSettings = Prelude.Nothing,
+      staticImageDeactivateSettings = Prelude.Nothing,
+      inputPrepareSettings = Prelude.Nothing
     }
 
 -- | Action to switch the input
-scheduleActionSettings_inputSwitchSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe InputSwitchScheduleActionSettings)
+scheduleActionSettings_inputSwitchSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe InputSwitchScheduleActionSettings)
 scheduleActionSettings_inputSwitchSettings = Lens.lens (\ScheduleActionSettings' {inputSwitchSettings} -> inputSwitchSettings) (\s@ScheduleActionSettings' {} a -> s {inputSwitchSettings = a} :: ScheduleActionSettings)
 
 -- | Action to insert SCTE-35 time_signal message
-scheduleActionSettings_scte35TimeSignalSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Scte35TimeSignalScheduleActionSettings)
+scheduleActionSettings_scte35TimeSignalSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe Scte35TimeSignalScheduleActionSettings)
 scheduleActionSettings_scte35TimeSignalSettings = Lens.lens (\ScheduleActionSettings' {scte35TimeSignalSettings} -> scte35TimeSignalSettings) (\s@ScheduleActionSettings' {} a -> s {scte35TimeSignalSettings = a} :: ScheduleActionSettings)
 
 -- | Action to insert HLS metadata
-scheduleActionSettings_hlsTimedMetadataSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe HlsTimedMetadataScheduleActionSettings)
+scheduleActionSettings_hlsTimedMetadataSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe HlsTimedMetadataScheduleActionSettings)
 scheduleActionSettings_hlsTimedMetadataSettings = Lens.lens (\ScheduleActionSettings' {hlsTimedMetadataSettings} -> hlsTimedMetadataSettings) (\s@ScheduleActionSettings' {} a -> s {hlsTimedMetadataSettings = a} :: ScheduleActionSettings)
 
 -- | Action to activate a static image overlay
-scheduleActionSettings_staticImageActivateSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe StaticImageActivateScheduleActionSettings)
+scheduleActionSettings_staticImageActivateSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe StaticImageActivateScheduleActionSettings)
 scheduleActionSettings_staticImageActivateSettings = Lens.lens (\ScheduleActionSettings' {staticImageActivateSettings} -> staticImageActivateSettings) (\s@ScheduleActionSettings' {} a -> s {staticImageActivateSettings = a} :: ScheduleActionSettings)
 
 -- | Action to pause or unpause one or both channel pipelines
-scheduleActionSettings_pauseStateSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe PauseStateScheduleActionSettings)
+scheduleActionSettings_pauseStateSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe PauseStateScheduleActionSettings)
 scheduleActionSettings_pauseStateSettings = Lens.lens (\ScheduleActionSettings' {pauseStateSettings} -> pauseStateSettings) (\s@ScheduleActionSettings' {} a -> s {pauseStateSettings = a} :: ScheduleActionSettings)
 
 -- | Action to insert SCTE-35 splice_insert message
-scheduleActionSettings_scte35SpliceInsertSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Scte35SpliceInsertScheduleActionSettings)
+scheduleActionSettings_scte35SpliceInsertSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe Scte35SpliceInsertScheduleActionSettings)
 scheduleActionSettings_scte35SpliceInsertSettings = Lens.lens (\ScheduleActionSettings' {scte35SpliceInsertSettings} -> scte35SpliceInsertSettings) (\s@ScheduleActionSettings' {} a -> s {scte35SpliceInsertSettings = a} :: ScheduleActionSettings)
 
 -- | Action to insert SCTE-35 return_to_network message
-scheduleActionSettings_scte35ReturnToNetworkSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Scte35ReturnToNetworkScheduleActionSettings)
+scheduleActionSettings_scte35ReturnToNetworkSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe Scte35ReturnToNetworkScheduleActionSettings)
 scheduleActionSettings_scte35ReturnToNetworkSettings = Lens.lens (\ScheduleActionSettings' {scte35ReturnToNetworkSettings} -> scte35ReturnToNetworkSettings) (\s@ScheduleActionSettings' {} a -> s {scte35ReturnToNetworkSettings = a} :: ScheduleActionSettings)
 
 -- | Action to insert HLS ID3 segment tagging
-scheduleActionSettings_hlsId3SegmentTaggingSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe HlsId3SegmentTaggingScheduleActionSettings)
+scheduleActionSettings_hlsId3SegmentTaggingSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe HlsId3SegmentTaggingScheduleActionSettings)
 scheduleActionSettings_hlsId3SegmentTaggingSettings = Lens.lens (\ScheduleActionSettings' {hlsId3SegmentTaggingSettings} -> hlsId3SegmentTaggingSettings) (\s@ScheduleActionSettings' {} a -> s {hlsId3SegmentTaggingSettings = a} :: ScheduleActionSettings)
 
 -- | Action to deactivate a static image overlay
-scheduleActionSettings_staticImageDeactivateSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe StaticImageDeactivateScheduleActionSettings)
+scheduleActionSettings_staticImageDeactivateSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe StaticImageDeactivateScheduleActionSettings)
 scheduleActionSettings_staticImageDeactivateSettings = Lens.lens (\ScheduleActionSettings' {staticImageDeactivateSettings} -> staticImageDeactivateSettings) (\s@ScheduleActionSettings' {} a -> s {staticImageDeactivateSettings = a} :: ScheduleActionSettings)
 
 -- | Action to prepare an input for a future immediate input switch
-scheduleActionSettings_inputPrepareSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe InputPrepareScheduleActionSettings)
+scheduleActionSettings_inputPrepareSettings :: Lens.Lens' ScheduleActionSettings (Prelude.Maybe InputPrepareScheduleActionSettings)
 scheduleActionSettings_inputPrepareSettings = Lens.lens (\ScheduleActionSettings' {inputPrepareSettings} -> inputPrepareSettings) (\s@ScheduleActionSettings' {} a -> s {inputPrepareSettings = a} :: ScheduleActionSettings)
 
 instance Core.FromJSON ScheduleActionSettings where
@@ -149,45 +150,45 @@ instance Core.FromJSON ScheduleActionSettings where
       "ScheduleActionSettings"
       ( \x ->
           ScheduleActionSettings'
-            Core.<$> (x Core..:? "inputSwitchSettings")
-            Core.<*> (x Core..:? "scte35TimeSignalSettings")
-            Core.<*> (x Core..:? "hlsTimedMetadataSettings")
-            Core.<*> (x Core..:? "staticImageActivateSettings")
-            Core.<*> (x Core..:? "pauseStateSettings")
-            Core.<*> (x Core..:? "scte35SpliceInsertSettings")
-            Core.<*> (x Core..:? "scte35ReturnToNetworkSettings")
-            Core.<*> (x Core..:? "hlsId3SegmentTaggingSettings")
-            Core.<*> (x Core..:? "staticImageDeactivateSettings")
-            Core.<*> (x Core..:? "inputPrepareSettings")
+            Prelude.<$> (x Core..:? "inputSwitchSettings")
+            Prelude.<*> (x Core..:? "scte35TimeSignalSettings")
+            Prelude.<*> (x Core..:? "hlsTimedMetadataSettings")
+            Prelude.<*> (x Core..:? "staticImageActivateSettings")
+            Prelude.<*> (x Core..:? "pauseStateSettings")
+            Prelude.<*> (x Core..:? "scte35SpliceInsertSettings")
+            Prelude.<*> (x Core..:? "scte35ReturnToNetworkSettings")
+            Prelude.<*> (x Core..:? "hlsId3SegmentTaggingSettings")
+            Prelude.<*> (x Core..:? "staticImageDeactivateSettings")
+            Prelude.<*> (x Core..:? "inputPrepareSettings")
       )
 
-instance Core.Hashable ScheduleActionSettings
+instance Prelude.Hashable ScheduleActionSettings
 
-instance Core.NFData ScheduleActionSettings
+instance Prelude.NFData ScheduleActionSettings
 
 instance Core.ToJSON ScheduleActionSettings where
   toJSON ScheduleActionSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("inputSwitchSettings" Core..=)
-              Core.<$> inputSwitchSettings,
+              Prelude.<$> inputSwitchSettings,
             ("scte35TimeSignalSettings" Core..=)
-              Core.<$> scte35TimeSignalSettings,
+              Prelude.<$> scte35TimeSignalSettings,
             ("hlsTimedMetadataSettings" Core..=)
-              Core.<$> hlsTimedMetadataSettings,
+              Prelude.<$> hlsTimedMetadataSettings,
             ("staticImageActivateSettings" Core..=)
-              Core.<$> staticImageActivateSettings,
+              Prelude.<$> staticImageActivateSettings,
             ("pauseStateSettings" Core..=)
-              Core.<$> pauseStateSettings,
+              Prelude.<$> pauseStateSettings,
             ("scte35SpliceInsertSettings" Core..=)
-              Core.<$> scte35SpliceInsertSettings,
+              Prelude.<$> scte35SpliceInsertSettings,
             ("scte35ReturnToNetworkSettings" Core..=)
-              Core.<$> scte35ReturnToNetworkSettings,
+              Prelude.<$> scte35ReturnToNetworkSettings,
             ("hlsId3SegmentTaggingSettings" Core..=)
-              Core.<$> hlsId3SegmentTaggingSettings,
+              Prelude.<$> hlsId3SegmentTaggingSettings,
             ("staticImageDeactivateSettings" Core..=)
-              Core.<$> staticImageDeactivateSettings,
+              Prelude.<$> staticImageDeactivateSettings,
             ("inputPrepareSettings" Core..=)
-              Core.<$> inputPrepareSettings
+              Prelude.<$> inputPrepareSettings
           ]
       )

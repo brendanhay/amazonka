@@ -21,15 +21,16 @@ module Network.AWS.SWF.Types.TaskList where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a task list.
 --
 -- /See:/ 'newTaskList' smart constructor.
 data TaskList = TaskList'
   { -- | The name of the task list.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TaskList' with all optional fields omitted.
@@ -42,25 +43,27 @@ data TaskList = TaskList'
 -- 'name', 'taskList_name' - The name of the task list.
 newTaskList ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   TaskList
 newTaskList pName_ = TaskList' {name = pName_}
 
 -- | The name of the task list.
-taskList_name :: Lens.Lens' TaskList Core.Text
+taskList_name :: Lens.Lens' TaskList Prelude.Text
 taskList_name = Lens.lens (\TaskList' {name} -> name) (\s@TaskList' {} a -> s {name = a} :: TaskList)
 
 instance Core.FromJSON TaskList where
   parseJSON =
     Core.withObject
       "TaskList"
-      (\x -> TaskList' Core.<$> (x Core..: "name"))
+      (\x -> TaskList' Prelude.<$> (x Core..: "name"))
 
-instance Core.Hashable TaskList
+instance Prelude.Hashable TaskList
 
-instance Core.NFData TaskList
+instance Prelude.NFData TaskList
 
 instance Core.ToJSON TaskList where
   toJSON TaskList' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("name" Core..= name)]
+      )

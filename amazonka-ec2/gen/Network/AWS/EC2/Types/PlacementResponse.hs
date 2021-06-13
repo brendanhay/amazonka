@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.PlacementResponse where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the placement of an instance.
 --
 -- /See:/ 'newPlacementResponse' smart constructor.
 data PlacementResponse = PlacementResponse'
   { -- | The name of the placement group that the instance is in.
-    groupName :: Core.Maybe Core.Text
+    groupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PlacementResponse' with all optional fields omitted.
@@ -44,17 +45,17 @@ data PlacementResponse = PlacementResponse'
 newPlacementResponse ::
   PlacementResponse
 newPlacementResponse =
-  PlacementResponse' {groupName = Core.Nothing}
+  PlacementResponse' {groupName = Prelude.Nothing}
 
 -- | The name of the placement group that the instance is in.
-placementResponse_groupName :: Lens.Lens' PlacementResponse (Core.Maybe Core.Text)
+placementResponse_groupName :: Lens.Lens' PlacementResponse (Prelude.Maybe Prelude.Text)
 placementResponse_groupName = Lens.lens (\PlacementResponse' {groupName} -> groupName) (\s@PlacementResponse' {} a -> s {groupName = a} :: PlacementResponse)
 
 instance Core.FromXML PlacementResponse where
   parseXML x =
     PlacementResponse'
-      Core.<$> (x Core..@? "groupName")
+      Prelude.<$> (x Core..@? "groupName")
 
-instance Core.Hashable PlacementResponse
+instance Prelude.Hashable PlacementResponse
 
-instance Core.NFData PlacementResponse
+instance Prelude.NFData PlacementResponse

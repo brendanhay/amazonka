@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Eac3PassthroughControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it
 -- is present on the input. this detection is dynamic over the life of the
@@ -38,15 +39,15 @@ newtype Eac3PassthroughControl = Eac3PassthroughControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,19 +52,19 @@ import qualified Network.AWS.Response as Response
 data UpdateTable = UpdateTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
     -- the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | By default, @UpdateTable@ always creates an archived version of the
     -- table before updating it. However, if @skipArchive@ is set to true,
     -- @UpdateTable@ does not create the archived version.
-    skipArchive :: Core.Maybe Core.Bool,
+    skipArchive :: Prelude.Maybe Prelude.Bool,
     -- | The name of the catalog database in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | An updated @TableInput@ object to define the metadata table in the
     -- catalog.
     tableInput :: TableInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTable' with all optional fields omitted.
@@ -87,32 +88,32 @@ data UpdateTable = UpdateTable'
 -- catalog.
 newUpdateTable ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableInput'
   TableInput ->
   UpdateTable
 newUpdateTable pDatabaseName_ pTableInput_ =
   UpdateTable'
-    { catalogId = Core.Nothing,
-      skipArchive = Core.Nothing,
+    { catalogId = Prelude.Nothing,
+      skipArchive = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableInput = pTableInput_
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
 -- the AWS account ID is used by default.
-updateTable_catalogId :: Lens.Lens' UpdateTable (Core.Maybe Core.Text)
+updateTable_catalogId :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Text)
 updateTable_catalogId = Lens.lens (\UpdateTable' {catalogId} -> catalogId) (\s@UpdateTable' {} a -> s {catalogId = a} :: UpdateTable)
 
 -- | By default, @UpdateTable@ always creates an archived version of the
 -- table before updating it. However, if @skipArchive@ is set to true,
 -- @UpdateTable@ does not create the archived version.
-updateTable_skipArchive :: Lens.Lens' UpdateTable (Core.Maybe Core.Bool)
+updateTable_skipArchive :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Bool)
 updateTable_skipArchive = Lens.lens (\UpdateTable' {skipArchive} -> skipArchive) (\s@UpdateTable' {} a -> s {skipArchive = a} :: UpdateTable)
 
 -- | The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
-updateTable_databaseName :: Lens.Lens' UpdateTable Core.Text
+updateTable_databaseName :: Lens.Lens' UpdateTable Prelude.Text
 updateTable_databaseName = Lens.lens (\UpdateTable' {databaseName} -> databaseName) (\s@UpdateTable' {} a -> s {databaseName = a} :: UpdateTable)
 
 -- | An updated @TableInput@ object to define the metadata table in the
@@ -127,47 +128,49 @@ instance Core.AWSRequest UpdateTable where
     Response.receiveEmpty
       ( \s h x ->
           UpdateTableResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateTable
+instance Prelude.Hashable UpdateTable
 
-instance Core.NFData UpdateTable
+instance Prelude.NFData UpdateTable
 
 instance Core.ToHeaders UpdateTable where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateTable" :: Core.ByteString),
+              Core.=# ("AWSGlue.UpdateTable" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            ("SkipArchive" Core..=) Core.<$> skipArchive,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableInput" Core..= tableInput)
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("SkipArchive" Core..=) Prelude.<$> skipArchive,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableInput" Core..= tableInput)
           ]
       )
 
 instance Core.ToPath UpdateTable where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateTable where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTableResponse' smart constructor.
 data UpdateTableResponse = UpdateTableResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTableResponse' with all optional fields omitted.
@@ -180,13 +183,13 @@ data UpdateTableResponse = UpdateTableResponse'
 -- 'httpStatus', 'updateTableResponse_httpStatus' - The response's http status code.
 newUpdateTableResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateTableResponse
 newUpdateTableResponse pHttpStatus_ =
   UpdateTableResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateTableResponse_httpStatus :: Lens.Lens' UpdateTableResponse Core.Int
+updateTableResponse_httpStatus :: Lens.Lens' UpdateTableResponse Prelude.Int
 updateTableResponse_httpStatus = Lens.lens (\UpdateTableResponse' {httpStatus} -> httpStatus) (\s@UpdateTableResponse' {} a -> s {httpStatus = a} :: UpdateTableResponse)
 
-instance Core.NFData UpdateTableResponse
+instance Prelude.NFData UpdateTableResponse

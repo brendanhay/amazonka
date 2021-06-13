@@ -56,21 +56,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
   { -- | Name of the Amazon Kinesis Analytics application to update.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The current application version ID. You can use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to get this value.
-    currentApplicationVersionId :: Core.Natural,
+    currentApplicationVersionId :: Prelude.Natural,
     -- | Describes application updates.
     applicationUpdate :: ApplicationUpdate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplication' with all optional fields omitted.
@@ -89,9 +90,9 @@ data UpdateApplication = UpdateApplication'
 -- 'applicationUpdate', 'updateApplication_applicationUpdate' - Describes application updates.
 newUpdateApplication ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'currentApplicationVersionId'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'applicationUpdate'
   ApplicationUpdate ->
   UpdateApplication
@@ -108,13 +109,13 @@ newUpdateApplication
       }
 
 -- | Name of the Amazon Kinesis Analytics application to update.
-updateApplication_applicationName :: Lens.Lens' UpdateApplication Core.Text
+updateApplication_applicationName :: Lens.Lens' UpdateApplication Prelude.Text
 updateApplication_applicationName = Lens.lens (\UpdateApplication' {applicationName} -> applicationName) (\s@UpdateApplication' {} a -> s {applicationName = a} :: UpdateApplication)
 
 -- | The current application version ID. You can use the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
 -- operation to get this value.
-updateApplication_currentApplicationVersionId :: Lens.Lens' UpdateApplication Core.Natural
+updateApplication_currentApplicationVersionId :: Lens.Lens' UpdateApplication Prelude.Natural
 updateApplication_currentApplicationVersionId = Lens.lens (\UpdateApplication' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@UpdateApplication' {} a -> s {currentApplicationVersionId = a} :: UpdateApplication)
 
 -- | Describes application updates.
@@ -130,53 +131,55 @@ instance Core.AWSRequest UpdateApplication where
     Response.receiveEmpty
       ( \s h x ->
           UpdateApplicationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication
 
-instance Core.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "KinesisAnalytics_20150814.UpdateApplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ApplicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ( "CurrentApplicationVersionId"
                   Core..= currentApplicationVersionId
               ),
-            Core.Just
+            Prelude.Just
               ("ApplicationUpdate" Core..= applicationUpdate)
           ]
       )
 
 instance Core.ToPath UpdateApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateApplication where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.
 data UpdateApplicationResponse = UpdateApplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationResponse' with all optional fields omitted.
@@ -189,7 +192,7 @@ data UpdateApplicationResponse = UpdateApplicationResponse'
 -- 'httpStatus', 'updateApplicationResponse_httpStatus' - The response's http status code.
 newUpdateApplicationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateApplicationResponse
 newUpdateApplicationResponse pHttpStatus_ =
   UpdateApplicationResponse'
@@ -198,7 +201,7 @@ newUpdateApplicationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateApplicationResponse_httpStatus :: Lens.Lens' UpdateApplicationResponse Core.Int
+updateApplicationResponse_httpStatus :: Lens.Lens' UpdateApplicationResponse Prelude.Int
 updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {httpStatus} -> httpStatus) (\s@UpdateApplicationResponse' {} a -> s {httpStatus = a} :: UpdateApplicationResponse)
 
-instance Core.NFData UpdateApplicationResponse
+instance Prelude.NFData UpdateApplicationResponse

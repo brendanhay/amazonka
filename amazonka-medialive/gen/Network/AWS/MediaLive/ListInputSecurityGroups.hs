@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,10 +54,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListInputSecurityGroups' smart constructor.
 data ListInputSecurityGroups = ListInputSecurityGroups'
-  { nextToken :: Core.Maybe Core.Text,
-    maxResults :: Core.Maybe Core.Natural
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInputSecurityGroups' with all optional fields omitted.
@@ -73,16 +74,17 @@ newListInputSecurityGroups ::
   ListInputSecurityGroups
 newListInputSecurityGroups =
   ListInputSecurityGroups'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Undocumented member.
-listInputSecurityGroups_nextToken :: Lens.Lens' ListInputSecurityGroups (Core.Maybe Core.Text)
+listInputSecurityGroups_nextToken :: Lens.Lens' ListInputSecurityGroups (Prelude.Maybe Prelude.Text)
 listInputSecurityGroups_nextToken = Lens.lens (\ListInputSecurityGroups' {nextToken} -> nextToken) (\s@ListInputSecurityGroups' {} a -> s {nextToken = a} :: ListInputSecurityGroups)
 
 -- | Undocumented member.
-listInputSecurityGroups_maxResults :: Lens.Lens' ListInputSecurityGroups (Core.Maybe Core.Natural)
+listInputSecurityGroups_maxResults :: Lens.Lens' ListInputSecurityGroups (Prelude.Maybe Prelude.Natural)
 listInputSecurityGroups_maxResults = Lens.lens (\ListInputSecurityGroups' {maxResults} -> maxResults) (\s@ListInputSecurityGroups' {} a -> s {maxResults = a} :: ListInputSecurityGroups)
 
 instance Core.AWSPager ListInputSecurityGroups where
@@ -90,22 +92,22 @@ instance Core.AWSPager ListInputSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? listInputSecurityGroupsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInputSecurityGroupsResponse_inputSecurityGroups
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listInputSecurityGroups_nextToken
+          Prelude.& listInputSecurityGroups_nextToken
           Lens..~ rs
           Lens.^? listInputSecurityGroupsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputSecurityGroups where
   type
@@ -116,32 +118,34 @@ instance Core.AWSRequest ListInputSecurityGroups where
     Response.receiveJSON
       ( \s h x ->
           ListInputSecurityGroupsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> ( x Core..?> "inputSecurityGroups"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "inputSecurityGroups"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListInputSecurityGroups
+instance Prelude.Hashable ListInputSecurityGroups
 
-instance Core.NFData ListInputSecurityGroups
+instance Prelude.NFData ListInputSecurityGroups
 
 instance Core.ToHeaders ListInputSecurityGroups where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListInputSecurityGroups where
-  toPath = Core.const "/prod/inputSecurityGroups"
+  toPath = Prelude.const "/prod/inputSecurityGroups"
 
 instance Core.ToQuery ListInputSecurityGroups where
   toQuery ListInputSecurityGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -150,13 +154,13 @@ instance Core.ToQuery ListInputSecurityGroups where
 --
 -- /See:/ 'newListInputSecurityGroupsResponse' smart constructor.
 data ListInputSecurityGroupsResponse = ListInputSecurityGroupsResponse'
-  { nextToken :: Core.Maybe Core.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
     -- | List of input security groups
-    inputSecurityGroups :: Core.Maybe [InputSecurityGroup],
+    inputSecurityGroups :: Prelude.Maybe [InputSecurityGroup],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInputSecurityGroupsResponse' with all optional fields omitted.
@@ -173,26 +177,28 @@ data ListInputSecurityGroupsResponse = ListInputSecurityGroupsResponse'
 -- 'httpStatus', 'listInputSecurityGroupsResponse_httpStatus' - The response's http status code.
 newListInputSecurityGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListInputSecurityGroupsResponse
 newListInputSecurityGroupsResponse pHttpStatus_ =
   ListInputSecurityGroupsResponse'
     { nextToken =
-        Core.Nothing,
-      inputSecurityGroups = Core.Nothing,
+        Prelude.Nothing,
+      inputSecurityGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listInputSecurityGroupsResponse_nextToken :: Lens.Lens' ListInputSecurityGroupsResponse (Core.Maybe Core.Text)
+listInputSecurityGroupsResponse_nextToken :: Lens.Lens' ListInputSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
 listInputSecurityGroupsResponse_nextToken = Lens.lens (\ListInputSecurityGroupsResponse' {nextToken} -> nextToken) (\s@ListInputSecurityGroupsResponse' {} a -> s {nextToken = a} :: ListInputSecurityGroupsResponse)
 
 -- | List of input security groups
-listInputSecurityGroupsResponse_inputSecurityGroups :: Lens.Lens' ListInputSecurityGroupsResponse (Core.Maybe [InputSecurityGroup])
-listInputSecurityGroupsResponse_inputSecurityGroups = Lens.lens (\ListInputSecurityGroupsResponse' {inputSecurityGroups} -> inputSecurityGroups) (\s@ListInputSecurityGroupsResponse' {} a -> s {inputSecurityGroups = a} :: ListInputSecurityGroupsResponse) Core.. Lens.mapping Lens._Coerce
+listInputSecurityGroupsResponse_inputSecurityGroups :: Lens.Lens' ListInputSecurityGroupsResponse (Prelude.Maybe [InputSecurityGroup])
+listInputSecurityGroupsResponse_inputSecurityGroups = Lens.lens (\ListInputSecurityGroupsResponse' {inputSecurityGroups} -> inputSecurityGroups) (\s@ListInputSecurityGroupsResponse' {} a -> s {inputSecurityGroups = a} :: ListInputSecurityGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInputSecurityGroupsResponse_httpStatus :: Lens.Lens' ListInputSecurityGroupsResponse Core.Int
+listInputSecurityGroupsResponse_httpStatus :: Lens.Lens' ListInputSecurityGroupsResponse Prelude.Int
 listInputSecurityGroupsResponse_httpStatus = Lens.lens (\ListInputSecurityGroupsResponse' {httpStatus} -> httpStatus) (\s@ListInputSecurityGroupsResponse' {} a -> s {httpStatus = a} :: ListInputSecurityGroupsResponse)
 
-instance Core.NFData ListInputSecurityGroupsResponse
+instance
+  Prelude.NFData
+    ListInputSecurityGroupsResponse

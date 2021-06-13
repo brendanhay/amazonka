@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem 
 import Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Individual item from the list of entity types in the metadata of an
 -- entity recognizer.
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 data EntityRecognizerMetadataEntityTypesListItem = EntityRecognizerMetadataEntityTypesListItem'
   { -- | Indicates the number of times the given entity type was seen in the
     -- training data.
-    numberOfTrainMentions :: Core.Maybe Core.Int,
+    numberOfTrainMentions :: Prelude.Maybe Prelude.Int,
     -- | Detailed information about the accuracy of the entity recognizer for a
     -- specific item on the list of entity types.
-    evaluationMetrics :: Core.Maybe EntityTypesEvaluationMetrics,
+    evaluationMetrics :: Prelude.Maybe EntityTypesEvaluationMetrics,
     -- | Type of entity from the list of entity types in the metadata of an
     -- entity recognizer.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EntityRecognizerMetadataEntityTypesListItem' with all optional fields omitted.
@@ -61,25 +62,25 @@ newEntityRecognizerMetadataEntityTypesListItem ::
 newEntityRecognizerMetadataEntityTypesListItem =
   EntityRecognizerMetadataEntityTypesListItem'
     { numberOfTrainMentions =
-        Core.Nothing,
+        Prelude.Nothing,
       evaluationMetrics =
-        Core.Nothing,
-      type' = Core.Nothing
+        Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | Indicates the number of times the given entity type was seen in the
 -- training data.
-entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Core.Maybe Core.Int)
+entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Prelude.Maybe Prelude.Int)
 entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions = Lens.lens (\EntityRecognizerMetadataEntityTypesListItem' {numberOfTrainMentions} -> numberOfTrainMentions) (\s@EntityRecognizerMetadataEntityTypesListItem' {} a -> s {numberOfTrainMentions = a} :: EntityRecognizerMetadataEntityTypesListItem)
 
 -- | Detailed information about the accuracy of the entity recognizer for a
 -- specific item on the list of entity types.
-entityRecognizerMetadataEntityTypesListItem_evaluationMetrics :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Core.Maybe EntityTypesEvaluationMetrics)
+entityRecognizerMetadataEntityTypesListItem_evaluationMetrics :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Prelude.Maybe EntityTypesEvaluationMetrics)
 entityRecognizerMetadataEntityTypesListItem_evaluationMetrics = Lens.lens (\EntityRecognizerMetadataEntityTypesListItem' {evaluationMetrics} -> evaluationMetrics) (\s@EntityRecognizerMetadataEntityTypesListItem' {} a -> s {evaluationMetrics = a} :: EntityRecognizerMetadataEntityTypesListItem)
 
 -- | Type of entity from the list of entity types in the metadata of an
 -- entity recognizer.
-entityRecognizerMetadataEntityTypesListItem_type :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Core.Maybe Core.Text)
+entityRecognizerMetadataEntityTypesListItem_type :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Prelude.Maybe Prelude.Text)
 entityRecognizerMetadataEntityTypesListItem_type = Lens.lens (\EntityRecognizerMetadataEntityTypesListItem' {type'} -> type') (\s@EntityRecognizerMetadataEntityTypesListItem' {} a -> s {type' = a} :: EntityRecognizerMetadataEntityTypesListItem)
 
 instance
@@ -91,15 +92,15 @@ instance
       "EntityRecognizerMetadataEntityTypesListItem"
       ( \x ->
           EntityRecognizerMetadataEntityTypesListItem'
-            Core.<$> (x Core..:? "NumberOfTrainMentions")
-            Core.<*> (x Core..:? "EvaluationMetrics")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "NumberOfTrainMentions")
+              Prelude.<*> (x Core..:? "EvaluationMetrics")
+              Prelude.<*> (x Core..:? "Type")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     EntityRecognizerMetadataEntityTypesListItem
 
 instance
-  Core.NFData
+  Prelude.NFData
     EntityRecognizerMetadataEntityTypesListItem

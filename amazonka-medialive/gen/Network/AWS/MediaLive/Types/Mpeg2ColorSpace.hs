@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.Mpeg2ColorSpace
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Mpeg2 Color Space
 newtype Mpeg2ColorSpace = Mpeg2ColorSpace'
@@ -34,15 +35,15 @@ newtype Mpeg2ColorSpace = Mpeg2ColorSpace'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +59,12 @@ import qualified Network.AWS.Response as Response
 data CreateDomainEntry = CreateDomainEntry'
   { -- | The domain name (e.g., @example.com@) for which you want to create the
     -- domain entry.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | An array of key-value pairs containing information about the domain
     -- entry request.
     domainEntry :: DomainEntry
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDomainEntry' with all optional fields omitted.
@@ -80,7 +81,7 @@ data CreateDomainEntry = CreateDomainEntry'
 -- entry request.
 newCreateDomainEntry ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'domainEntry'
   DomainEntry ->
   CreateDomainEntry
@@ -92,7 +93,7 @@ newCreateDomainEntry pDomainName_ pDomainEntry_ =
 
 -- | The domain name (e.g., @example.com@) for which you want to create the
 -- domain entry.
-createDomainEntry_domainName :: Lens.Lens' CreateDomainEntry Core.Text
+createDomainEntry_domainName :: Lens.Lens' CreateDomainEntry Prelude.Text
 createDomainEntry_domainName = Lens.lens (\CreateDomainEntry' {domainName} -> domainName) (\s@CreateDomainEntry' {} a -> s {domainName = a} :: CreateDomainEntry)
 
 -- | An array of key-value pairs containing information about the domain
@@ -109,52 +110,54 @@ instance Core.AWSRequest CreateDomainEntry where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainEntryResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDomainEntry
+instance Prelude.Hashable CreateDomainEntry
 
-instance Core.NFData CreateDomainEntry
+instance Prelude.NFData CreateDomainEntry
 
 instance Core.ToHeaders CreateDomainEntry where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateDomainEntry" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDomainEntry where
   toJSON CreateDomainEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("domainName" Core..= domainName),
-            Core.Just ("domainEntry" Core..= domainEntry)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("domainName" Core..= domainName),
+            Prelude.Just ("domainEntry" Core..= domainEntry)
           ]
       )
 
 instance Core.ToPath CreateDomainEntry where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDomainEntry where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDomainEntryResponse' smart constructor.
 data CreateDomainEntryResponse = CreateDomainEntryResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDomainEntryResponse' with all optional fields omitted.
@@ -171,23 +174,23 @@ data CreateDomainEntryResponse = CreateDomainEntryResponse'
 -- 'httpStatus', 'createDomainEntryResponse_httpStatus' - The response's http status code.
 newCreateDomainEntryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDomainEntryResponse
 newCreateDomainEntryResponse pHttpStatus_ =
   CreateDomainEntryResponse'
     { operation =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createDomainEntryResponse_operation :: Lens.Lens' CreateDomainEntryResponse (Core.Maybe Operation)
+createDomainEntryResponse_operation :: Lens.Lens' CreateDomainEntryResponse (Prelude.Maybe Operation)
 createDomainEntryResponse_operation = Lens.lens (\CreateDomainEntryResponse' {operation} -> operation) (\s@CreateDomainEntryResponse' {} a -> s {operation = a} :: CreateDomainEntryResponse)
 
 -- | The response's http status code.
-createDomainEntryResponse_httpStatus :: Lens.Lens' CreateDomainEntryResponse Core.Int
+createDomainEntryResponse_httpStatus :: Lens.Lens' CreateDomainEntryResponse Prelude.Int
 createDomainEntryResponse_httpStatus = Lens.lens (\CreateDomainEntryResponse' {httpStatus} -> httpStatus) (\s@CreateDomainEntryResponse' {} a -> s {httpStatus = a} :: CreateDomainEntryResponse)
 
-instance Core.NFData CreateDomainEntryResponse
+instance Prelude.NFData CreateDomainEntryResponse

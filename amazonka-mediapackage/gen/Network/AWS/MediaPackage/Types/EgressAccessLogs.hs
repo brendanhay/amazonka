@@ -21,15 +21,16 @@ module Network.AWS.MediaPackage.Types.EgressAccessLogs where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configure egress access logging.
 --
 -- /See:/ 'newEgressAccessLogs' smart constructor.
 data EgressAccessLogs = EgressAccessLogs'
   { -- | Customize the log group name.
-    logGroupName :: Core.Maybe Core.Text
+    logGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EgressAccessLogs' with all optional fields omitted.
@@ -43,10 +44,10 @@ data EgressAccessLogs = EgressAccessLogs'
 newEgressAccessLogs ::
   EgressAccessLogs
 newEgressAccessLogs =
-  EgressAccessLogs' {logGroupName = Core.Nothing}
+  EgressAccessLogs' {logGroupName = Prelude.Nothing}
 
 -- | Customize the log group name.
-egressAccessLogs_logGroupName :: Lens.Lens' EgressAccessLogs (Core.Maybe Core.Text)
+egressAccessLogs_logGroupName :: Lens.Lens' EgressAccessLogs (Prelude.Maybe Prelude.Text)
 egressAccessLogs_logGroupName = Lens.lens (\EgressAccessLogs' {logGroupName} -> logGroupName) (\s@EgressAccessLogs' {} a -> s {logGroupName = a} :: EgressAccessLogs)
 
 instance Core.FromJSON EgressAccessLogs where
@@ -55,16 +56,16 @@ instance Core.FromJSON EgressAccessLogs where
       "EgressAccessLogs"
       ( \x ->
           EgressAccessLogs'
-            Core.<$> (x Core..:? "logGroupName")
+            Prelude.<$> (x Core..:? "logGroupName")
       )
 
-instance Core.Hashable EgressAccessLogs
+instance Prelude.Hashable EgressAccessLogs
 
-instance Core.NFData EgressAccessLogs
+instance Prelude.NFData EgressAccessLogs
 
 instance Core.ToJSON EgressAccessLogs where
   toJSON EgressAccessLogs' {..} =
     Core.object
-      ( Core.catMaybes
-          [("logGroupName" Core..=) Core.<$> logGroupName]
+      ( Prelude.catMaybes
+          [("logGroupName" Core..=) Prelude.<$> logGroupName]
       )

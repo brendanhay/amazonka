@@ -57,18 +57,19 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
   { -- | The instance IDs for the deployment targets.
-    instanceIds :: Core.Maybe [Core.Text],
+    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The app ID. This parameter is required for app deployments, but not for
     -- other deployment commands.
-    appId :: Core.Maybe Core.Text,
+    appId :: Prelude.Maybe Prelude.Text,
     -- | A user-defined comment.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | A string that contains user-defined, custom JSON. You can use this
     -- parameter to override some corresponding default stack configuration
     -- JSON values. The string should be in the following format:
@@ -79,16 +80,16 @@ data CreateDeployment = CreateDeployment'
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
     -- and
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON>.
-    customJson :: Core.Maybe Core.Text,
+    customJson :: Prelude.Maybe Prelude.Text,
     -- | The layer IDs for the deployment targets.
-    layerIds :: Core.Maybe [Core.Text],
+    layerIds :: Prelude.Maybe [Prelude.Text],
     -- | The stack ID.
-    stackId :: Core.Text,
+    stackId :: Prelude.Text,
     -- | A @DeploymentCommand@ object that specifies the deployment command and
     -- any associated arguments.
     command :: DeploymentCommand
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDeployment' with all optional fields omitted.
@@ -124,32 +125,32 @@ data CreateDeployment = CreateDeployment'
 -- any associated arguments.
 newCreateDeployment ::
   -- | 'stackId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'command'
   DeploymentCommand ->
   CreateDeployment
 newCreateDeployment pStackId_ pCommand_ =
   CreateDeployment'
-    { instanceIds = Core.Nothing,
-      appId = Core.Nothing,
-      comment = Core.Nothing,
-      customJson = Core.Nothing,
-      layerIds = Core.Nothing,
+    { instanceIds = Prelude.Nothing,
+      appId = Prelude.Nothing,
+      comment = Prelude.Nothing,
+      customJson = Prelude.Nothing,
+      layerIds = Prelude.Nothing,
       stackId = pStackId_,
       command = pCommand_
     }
 
 -- | The instance IDs for the deployment targets.
-createDeployment_instanceIds :: Lens.Lens' CreateDeployment (Core.Maybe [Core.Text])
-createDeployment_instanceIds = Lens.lens (\CreateDeployment' {instanceIds} -> instanceIds) (\s@CreateDeployment' {} a -> s {instanceIds = a} :: CreateDeployment) Core.. Lens.mapping Lens._Coerce
+createDeployment_instanceIds :: Lens.Lens' CreateDeployment (Prelude.Maybe [Prelude.Text])
+createDeployment_instanceIds = Lens.lens (\CreateDeployment' {instanceIds} -> instanceIds) (\s@CreateDeployment' {} a -> s {instanceIds = a} :: CreateDeployment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The app ID. This parameter is required for app deployments, but not for
 -- other deployment commands.
-createDeployment_appId :: Lens.Lens' CreateDeployment (Core.Maybe Core.Text)
+createDeployment_appId :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_appId = Lens.lens (\CreateDeployment' {appId} -> appId) (\s@CreateDeployment' {} a -> s {appId = a} :: CreateDeployment)
 
 -- | A user-defined comment.
-createDeployment_comment :: Lens.Lens' CreateDeployment (Core.Maybe Core.Text)
+createDeployment_comment :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_comment = Lens.lens (\CreateDeployment' {comment} -> comment) (\s@CreateDeployment' {} a -> s {comment = a} :: CreateDeployment)
 
 -- | A string that contains user-defined, custom JSON. You can use this
@@ -162,15 +163,15 @@ createDeployment_comment = Lens.lens (\CreateDeployment' {comment} -> comment) (
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
 -- and
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON>.
-createDeployment_customJson :: Lens.Lens' CreateDeployment (Core.Maybe Core.Text)
+createDeployment_customJson :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_customJson = Lens.lens (\CreateDeployment' {customJson} -> customJson) (\s@CreateDeployment' {} a -> s {customJson = a} :: CreateDeployment)
 
 -- | The layer IDs for the deployment targets.
-createDeployment_layerIds :: Lens.Lens' CreateDeployment (Core.Maybe [Core.Text])
-createDeployment_layerIds = Lens.lens (\CreateDeployment' {layerIds} -> layerIds) (\s@CreateDeployment' {} a -> s {layerIds = a} :: CreateDeployment) Core.. Lens.mapping Lens._Coerce
+createDeployment_layerIds :: Lens.Lens' CreateDeployment (Prelude.Maybe [Prelude.Text])
+createDeployment_layerIds = Lens.lens (\CreateDeployment' {layerIds} -> layerIds) (\s@CreateDeployment' {} a -> s {layerIds = a} :: CreateDeployment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The stack ID.
-createDeployment_stackId :: Lens.Lens' CreateDeployment Core.Text
+createDeployment_stackId :: Lens.Lens' CreateDeployment Prelude.Text
 createDeployment_stackId = Lens.lens (\CreateDeployment' {stackId} -> stackId) (\s@CreateDeployment' {} a -> s {stackId = a} :: CreateDeployment)
 
 -- | A @DeploymentCommand@ object that specifies the deployment command and
@@ -187,46 +188,48 @@ instance Core.AWSRequest CreateDeployment where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            Core.<$> (x Core..?> "DeploymentId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DeploymentId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDeployment
+instance Prelude.Hashable CreateDeployment
 
-instance Core.NFData CreateDeployment
+instance Prelude.NFData CreateDeployment
 
 instance Core.ToHeaders CreateDeployment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.CreateDeployment" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InstanceIds" Core..=) Core.<$> instanceIds,
-            ("AppId" Core..=) Core.<$> appId,
-            ("Comment" Core..=) Core.<$> comment,
-            ("CustomJson" Core..=) Core.<$> customJson,
-            ("LayerIds" Core..=) Core.<$> layerIds,
-            Core.Just ("StackId" Core..= stackId),
-            Core.Just ("Command" Core..= command)
+      ( Prelude.catMaybes
+          [ ("InstanceIds" Core..=) Prelude.<$> instanceIds,
+            ("AppId" Core..=) Prelude.<$> appId,
+            ("Comment" Core..=) Prelude.<$> comment,
+            ("CustomJson" Core..=) Prelude.<$> customJson,
+            ("LayerIds" Core..=) Prelude.<$> layerIds,
+            Prelude.Just ("StackId" Core..= stackId),
+            Prelude.Just ("Command" Core..= command)
           ]
       )
 
 instance Core.ToPath CreateDeployment where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDeployment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateDeployment@ request.
 --
@@ -234,11 +237,11 @@ instance Core.ToQuery CreateDeployment where
 data CreateDeploymentResponse = CreateDeploymentResponse'
   { -- | The deployment ID, which can be used with other requests to identify the
     -- deployment.
-    deploymentId :: Core.Maybe Core.Text,
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDeploymentResponse' with all optional fields omitted.
@@ -254,22 +257,22 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 -- 'httpStatus', 'createDeploymentResponse_httpStatus' - The response's http status code.
 newCreateDeploymentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDeploymentResponse
 newCreateDeploymentResponse pHttpStatus_ =
   CreateDeploymentResponse'
     { deploymentId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The deployment ID, which can be used with other requests to identify the
 -- deployment.
-createDeploymentResponse_deploymentId :: Lens.Lens' CreateDeploymentResponse (Core.Maybe Core.Text)
+createDeploymentResponse_deploymentId :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.Text)
 createDeploymentResponse_deploymentId = Lens.lens (\CreateDeploymentResponse' {deploymentId} -> deploymentId) (\s@CreateDeploymentResponse' {} a -> s {deploymentId = a} :: CreateDeploymentResponse)
 
 -- | The response's http status code.
-createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Core.Int
+createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Prelude.Int
 createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentResponse' {} a -> s {httpStatus = a} :: CreateDeploymentResponse)
 
-instance Core.NFData CreateDeploymentResponse
+instance Prelude.NFData CreateDeploymentResponse

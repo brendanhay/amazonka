@@ -25,6 +25,7 @@ import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TransitGatewayMulticastDomainOptions
 import Network.AWS.EC2.Types.TransitGatewayMulticastDomainState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the transit gateway multicast domain.
 --
@@ -32,23 +33,23 @@ import qualified Network.AWS.Lens as Lens
 data TransitGatewayMulticastDomain = TransitGatewayMulticastDomain'
   { -- | The ID of the AWS account that owns the transit gateway multiicast
     -- domain.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The time the transit gateway multicast domain was created.
-    creationTime :: Core.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Core.ISO8601,
     -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Core.Maybe Core.Text,
+    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
     -- | The options for the transit gateway multicast domain.
-    options :: Core.Maybe TransitGatewayMulticastDomainOptions,
+    options :: Prelude.Maybe TransitGatewayMulticastDomainOptions,
     -- | The state of the transit gateway multicast domain.
-    state :: Core.Maybe TransitGatewayMulticastDomainState,
+    state :: Prelude.Maybe TransitGatewayMulticastDomainState,
     -- | The tags for the transit gateway multicast domain.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the transit gateway multicast domain.
-    transitGatewayMulticastDomainArn :: Core.Maybe Core.Text,
+    transitGatewayMulticastDomainArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Core.Maybe Core.Text
+    transitGatewayId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayMulticastDomain' with all optional fields omitted.
@@ -79,65 +80,67 @@ newTransitGatewayMulticastDomain ::
 newTransitGatewayMulticastDomain =
   TransitGatewayMulticastDomain'
     { ownerId =
-        Core.Nothing,
-      creationTime = Core.Nothing,
+        Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       transitGatewayMulticastDomainId =
-        Core.Nothing,
-      options = Core.Nothing,
-      state = Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      options = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
       transitGatewayMulticastDomainArn =
-        Core.Nothing,
-      transitGatewayId = Core.Nothing
+        Prelude.Nothing,
+      transitGatewayId = Prelude.Nothing
     }
 
 -- | The ID of the AWS account that owns the transit gateway multiicast
 -- domain.
-transitGatewayMulticastDomain_ownerId :: Lens.Lens' TransitGatewayMulticastDomain (Core.Maybe Core.Text)
+transitGatewayMulticastDomain_ownerId :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastDomain_ownerId = Lens.lens (\TransitGatewayMulticastDomain' {ownerId} -> ownerId) (\s@TransitGatewayMulticastDomain' {} a -> s {ownerId = a} :: TransitGatewayMulticastDomain)
 
 -- | The time the transit gateway multicast domain was created.
-transitGatewayMulticastDomain_creationTime :: Lens.Lens' TransitGatewayMulticastDomain (Core.Maybe Core.UTCTime)
-transitGatewayMulticastDomain_creationTime = Lens.lens (\TransitGatewayMulticastDomain' {creationTime} -> creationTime) (\s@TransitGatewayMulticastDomain' {} a -> s {creationTime = a} :: TransitGatewayMulticastDomain) Core.. Lens.mapping Core._Time
+transitGatewayMulticastDomain_creationTime :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.UTCTime)
+transitGatewayMulticastDomain_creationTime = Lens.lens (\TransitGatewayMulticastDomain' {creationTime} -> creationTime) (\s@TransitGatewayMulticastDomain' {} a -> s {creationTime = a} :: TransitGatewayMulticastDomain) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the transit gateway multicast domain.
-transitGatewayMulticastDomain_transitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastDomain (Core.Maybe Core.Text)
+transitGatewayMulticastDomain_transitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastDomain_transitGatewayMulticastDomainId = Lens.lens (\TransitGatewayMulticastDomain' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@TransitGatewayMulticastDomain' {} a -> s {transitGatewayMulticastDomainId = a} :: TransitGatewayMulticastDomain)
 
 -- | The options for the transit gateway multicast domain.
-transitGatewayMulticastDomain_options :: Lens.Lens' TransitGatewayMulticastDomain (Core.Maybe TransitGatewayMulticastDomainOptions)
+transitGatewayMulticastDomain_options :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe TransitGatewayMulticastDomainOptions)
 transitGatewayMulticastDomain_options = Lens.lens (\TransitGatewayMulticastDomain' {options} -> options) (\s@TransitGatewayMulticastDomain' {} a -> s {options = a} :: TransitGatewayMulticastDomain)
 
 -- | The state of the transit gateway multicast domain.
-transitGatewayMulticastDomain_state :: Lens.Lens' TransitGatewayMulticastDomain (Core.Maybe TransitGatewayMulticastDomainState)
+transitGatewayMulticastDomain_state :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe TransitGatewayMulticastDomainState)
 transitGatewayMulticastDomain_state = Lens.lens (\TransitGatewayMulticastDomain' {state} -> state) (\s@TransitGatewayMulticastDomain' {} a -> s {state = a} :: TransitGatewayMulticastDomain)
 
 -- | The tags for the transit gateway multicast domain.
-transitGatewayMulticastDomain_tags :: Lens.Lens' TransitGatewayMulticastDomain (Core.Maybe [Tag])
-transitGatewayMulticastDomain_tags = Lens.lens (\TransitGatewayMulticastDomain' {tags} -> tags) (\s@TransitGatewayMulticastDomain' {} a -> s {tags = a} :: TransitGatewayMulticastDomain) Core.. Lens.mapping Lens._Coerce
+transitGatewayMulticastDomain_tags :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe [Tag])
+transitGatewayMulticastDomain_tags = Lens.lens (\TransitGatewayMulticastDomain' {tags} -> tags) (\s@TransitGatewayMulticastDomain' {} a -> s {tags = a} :: TransitGatewayMulticastDomain) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the transit gateway multicast domain.
-transitGatewayMulticastDomain_transitGatewayMulticastDomainArn :: Lens.Lens' TransitGatewayMulticastDomain (Core.Maybe Core.Text)
+transitGatewayMulticastDomain_transitGatewayMulticastDomainArn :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastDomain_transitGatewayMulticastDomainArn = Lens.lens (\TransitGatewayMulticastDomain' {transitGatewayMulticastDomainArn} -> transitGatewayMulticastDomainArn) (\s@TransitGatewayMulticastDomain' {} a -> s {transitGatewayMulticastDomainArn = a} :: TransitGatewayMulticastDomain)
 
 -- | The ID of the transit gateway.
-transitGatewayMulticastDomain_transitGatewayId :: Lens.Lens' TransitGatewayMulticastDomain (Core.Maybe Core.Text)
+transitGatewayMulticastDomain_transitGatewayId :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastDomain_transitGatewayId = Lens.lens (\TransitGatewayMulticastDomain' {transitGatewayId} -> transitGatewayId) (\s@TransitGatewayMulticastDomain' {} a -> s {transitGatewayId = a} :: TransitGatewayMulticastDomain)
 
 instance Core.FromXML TransitGatewayMulticastDomain where
   parseXML x =
     TransitGatewayMulticastDomain'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "creationTime")
-      Core.<*> (x Core..@? "transitGatewayMulticastDomainId")
-      Core.<*> (x Core..@? "options")
-      Core.<*> (x Core..@? "state")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "transitGatewayMulticastDomainArn")
-      Core.<*> (x Core..@? "transitGatewayId")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<*> (x Core..@? "transitGatewayMulticastDomainId")
+      Prelude.<*> (x Core..@? "options")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "transitGatewayMulticastDomainArn")
+      Prelude.<*> (x Core..@? "transitGatewayId")
 
-instance Core.Hashable TransitGatewayMulticastDomain
+instance
+  Prelude.Hashable
+    TransitGatewayMulticastDomain
 
-instance Core.NFData TransitGatewayMulticastDomain
+instance Prelude.NFData TransitGatewayMulticastDomain

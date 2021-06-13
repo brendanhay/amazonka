@@ -39,15 +39,16 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteConfigurationAggregator' smart constructor.
 data DeleteConfigurationAggregator = DeleteConfigurationAggregator'
   { -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Core.Text
+    configurationAggregatorName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationAggregator' with all optional fields omitted.
@@ -60,7 +61,7 @@ data DeleteConfigurationAggregator = DeleteConfigurationAggregator'
 -- 'configurationAggregatorName', 'deleteConfigurationAggregator_configurationAggregatorName' - The name of the configuration aggregator.
 newDeleteConfigurationAggregator ::
   -- | 'configurationAggregatorName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConfigurationAggregator
 newDeleteConfigurationAggregator
   pConfigurationAggregatorName_ =
@@ -70,7 +71,7 @@ newDeleteConfigurationAggregator
       }
 
 -- | The name of the configuration aggregator.
-deleteConfigurationAggregator_configurationAggregatorName :: Lens.Lens' DeleteConfigurationAggregator Core.Text
+deleteConfigurationAggregator_configurationAggregatorName :: Lens.Lens' DeleteConfigurationAggregator Prelude.Text
 deleteConfigurationAggregator_configurationAggregatorName = Lens.lens (\DeleteConfigurationAggregator' {configurationAggregatorName} -> configurationAggregatorName) (\s@DeleteConfigurationAggregator' {} a -> s {configurationAggregatorName = a} :: DeleteConfigurationAggregator)
 
 instance
@@ -85,28 +86,32 @@ instance
     Response.receiveNull
       DeleteConfigurationAggregatorResponse'
 
-instance Core.Hashable DeleteConfigurationAggregator
+instance
+  Prelude.Hashable
+    DeleteConfigurationAggregator
 
-instance Core.NFData DeleteConfigurationAggregator
+instance Prelude.NFData DeleteConfigurationAggregator
 
 instance Core.ToHeaders DeleteConfigurationAggregator where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteConfigurationAggregator" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteConfigurationAggregator where
   toJSON DeleteConfigurationAggregator' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ConfigurationAggregatorName"
                   Core..= configurationAggregatorName
               )
@@ -114,16 +119,16 @@ instance Core.ToJSON DeleteConfigurationAggregator where
       )
 
 instance Core.ToPath DeleteConfigurationAggregator where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteConfigurationAggregator where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConfigurationAggregatorResponse' smart constructor.
 data DeleteConfigurationAggregatorResponse = DeleteConfigurationAggregatorResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationAggregatorResponse' with all optional fields omitted.
@@ -135,5 +140,5 @@ newDeleteConfigurationAggregatorResponse =
   DeleteConfigurationAggregatorResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteConfigurationAggregatorResponse

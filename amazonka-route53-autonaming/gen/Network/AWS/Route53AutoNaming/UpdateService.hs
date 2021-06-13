@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -70,11 +71,11 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newUpdateService' smart constructor.
 data UpdateService = UpdateService'
   { -- | The ID of the service that you want to update.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | A complex type that contains the new settings for the service.
     service :: ServiceChange
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateService' with all optional fields omitted.
@@ -89,7 +90,7 @@ data UpdateService = UpdateService'
 -- 'service', 'updateService_service' - A complex type that contains the new settings for the service.
 newUpdateService ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'service'
   ServiceChange ->
   UpdateService
@@ -97,7 +98,7 @@ newUpdateService pId_ pService_ =
   UpdateService' {id = pId_, service = pService_}
 
 -- | The ID of the service that you want to update.
-updateService_id :: Lens.Lens' UpdateService Core.Text
+updateService_id :: Lens.Lens' UpdateService Prelude.Text
 updateService_id = Lens.lens (\UpdateService' {id} -> id) (\s@UpdateService' {} a -> s {id = a} :: UpdateService)
 
 -- | A complex type that contains the new settings for the service.
@@ -113,52 +114,54 @@ instance Core.AWSRequest UpdateService where
     Response.receiveJSON
       ( \s h x ->
           UpdateServiceResponse'
-            Core.<$> (x Core..?> "OperationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateService
+instance Prelude.Hashable UpdateService
 
-instance Core.NFData UpdateService
+instance Prelude.NFData UpdateService
 
 instance Core.ToHeaders UpdateService where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.UpdateService" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateService where
   toJSON UpdateService' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Id" Core..= id),
-            Core.Just ("Service" Core..= service)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Id" Core..= id),
+            Prelude.Just ("Service" Core..= service)
           ]
       )
 
 instance Core.ToPath UpdateService where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateService where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. To get the status of the operation, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceResponse' with all optional fields omitted.
@@ -175,22 +178,23 @@ data UpdateServiceResponse = UpdateServiceResponse'
 -- 'httpStatus', 'updateServiceResponse_httpStatus' - The response's http status code.
 newUpdateServiceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateServiceResponse
 newUpdateServiceResponse pHttpStatus_ =
   UpdateServiceResponse'
-    { operationId = Core.Nothing,
+    { operationId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-updateServiceResponse_operationId :: Lens.Lens' UpdateServiceResponse (Core.Maybe Core.Text)
+updateServiceResponse_operationId :: Lens.Lens' UpdateServiceResponse (Prelude.Maybe Prelude.Text)
 updateServiceResponse_operationId = Lens.lens (\UpdateServiceResponse' {operationId} -> operationId) (\s@UpdateServiceResponse' {} a -> s {operationId = a} :: UpdateServiceResponse)
 
 -- | The response's http status code.
-updateServiceResponse_httpStatus :: Lens.Lens' UpdateServiceResponse Core.Int
+updateServiceResponse_httpStatus :: Lens.Lens' UpdateServiceResponse Prelude.Int
 updateServiceResponse_httpStatus = Lens.lens (\UpdateServiceResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceResponse' {} a -> s {httpStatus = a} :: UpdateServiceResponse)
 
-instance Core.NFData UpdateServiceResponse
+instance Prelude.NFData UpdateServiceResponse

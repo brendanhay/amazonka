@@ -21,19 +21,20 @@ module Network.AWS.DAX.Types.ParameterGroupStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of a parameter group.
 --
 -- /See:/ 'newParameterGroupStatus' smart constructor.
 data ParameterGroupStatus = ParameterGroupStatus'
   { -- | The node IDs of one or more nodes to be rebooted.
-    nodeIdsToReboot :: Core.Maybe [Core.Text],
+    nodeIdsToReboot :: Prelude.Maybe [Prelude.Text],
     -- | The name of the parameter group.
-    parameterGroupName :: Core.Maybe Core.Text,
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The status of parameter updates.
-    parameterApplyStatus :: Core.Maybe Core.Text
+    parameterApplyStatus :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterGroupStatus' with all optional fields omitted.
@@ -53,21 +54,21 @@ newParameterGroupStatus ::
 newParameterGroupStatus =
   ParameterGroupStatus'
     { nodeIdsToReboot =
-        Core.Nothing,
-      parameterGroupName = Core.Nothing,
-      parameterApplyStatus = Core.Nothing
+        Prelude.Nothing,
+      parameterGroupName = Prelude.Nothing,
+      parameterApplyStatus = Prelude.Nothing
     }
 
 -- | The node IDs of one or more nodes to be rebooted.
-parameterGroupStatus_nodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Core.Maybe [Core.Text])
-parameterGroupStatus_nodeIdsToReboot = Lens.lens (\ParameterGroupStatus' {nodeIdsToReboot} -> nodeIdsToReboot) (\s@ParameterGroupStatus' {} a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus) Core.. Lens.mapping Lens._Coerce
+parameterGroupStatus_nodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe [Prelude.Text])
+parameterGroupStatus_nodeIdsToReboot = Lens.lens (\ParameterGroupStatus' {nodeIdsToReboot} -> nodeIdsToReboot) (\s@ParameterGroupStatus' {} a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the parameter group.
-parameterGroupStatus_parameterGroupName :: Lens.Lens' ParameterGroupStatus (Core.Maybe Core.Text)
+parameterGroupStatus_parameterGroupName :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe Prelude.Text)
 parameterGroupStatus_parameterGroupName = Lens.lens (\ParameterGroupStatus' {parameterGroupName} -> parameterGroupName) (\s@ParameterGroupStatus' {} a -> s {parameterGroupName = a} :: ParameterGroupStatus)
 
 -- | The status of parameter updates.
-parameterGroupStatus_parameterApplyStatus :: Lens.Lens' ParameterGroupStatus (Core.Maybe Core.Text)
+parameterGroupStatus_parameterApplyStatus :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe Prelude.Text)
 parameterGroupStatus_parameterApplyStatus = Lens.lens (\ParameterGroupStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@ParameterGroupStatus' {} a -> s {parameterApplyStatus = a} :: ParameterGroupStatus)
 
 instance Core.FromJSON ParameterGroupStatus where
@@ -76,11 +77,13 @@ instance Core.FromJSON ParameterGroupStatus where
       "ParameterGroupStatus"
       ( \x ->
           ParameterGroupStatus'
-            Core.<$> (x Core..:? "NodeIdsToReboot" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ParameterGroupName")
-            Core.<*> (x Core..:? "ParameterApplyStatus")
+            Prelude.<$> ( x Core..:? "NodeIdsToReboot"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ParameterGroupName")
+            Prelude.<*> (x Core..:? "ParameterApplyStatus")
       )
 
-instance Core.Hashable ParameterGroupStatus
+instance Prelude.Hashable ParameterGroupStatus
 
-instance Core.NFData ParameterGroupStatus
+instance Prelude.NFData ParameterGroupStatus

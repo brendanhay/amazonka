@@ -52,6 +52,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ data ListInstances = ListInstances'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInstances' with all optional fields omitted.
@@ -83,39 +84,39 @@ newListInstances ::
   ListInstances
 newListInstances =
   ListInstances'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listInstances_nextToken :: Lens.Lens' ListInstances (Core.Maybe Core.Text)
+listInstances_nextToken :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
 listInstances_nextToken = Lens.lens (\ListInstances' {nextToken} -> nextToken) (\s@ListInstances' {} a -> s {nextToken = a} :: ListInstances)
 
 -- | The maximum number of results to return per page.
-listInstances_maxResults :: Lens.Lens' ListInstances (Core.Maybe Core.Natural)
+listInstances_maxResults :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Natural)
 listInstances_maxResults = Lens.lens (\ListInstances' {maxResults} -> maxResults) (\s@ListInstances' {} a -> s {maxResults = a} :: ListInstances)
 
 instance Core.AWSPager ListInstances where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listInstancesResponse_nextToken Core.. Lens._Just
+            Lens.^? listInstancesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstancesResponse_instanceSummaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listInstances_nextToken
+          Prelude.& listInstances_nextToken
           Lens..~ rs
-          Lens.^? listInstancesResponse_nextToken Core.. Lens._Just
+          Lens.^? listInstancesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstances where
   type
@@ -126,32 +127,34 @@ instance Core.AWSRequest ListInstances where
     Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "InstanceSummaryList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "InstanceSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListInstances
+instance Prelude.Hashable ListInstances
 
-instance Core.NFData ListInstances
+instance Prelude.NFData ListInstances
 
 instance Core.ToHeaders ListInstances where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListInstances where
-  toPath = Core.const "/instance"
+  toPath = Prelude.const "/instance"
 
 instance Core.ToQuery ListInstances where
   toQuery ListInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -160,13 +163,13 @@ instance Core.ToQuery ListInstances where
 data ListInstancesResponse = ListInstancesResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the instances.
-    instanceSummaryList :: Core.Maybe [InstanceSummary],
+    instanceSummaryList :: Prelude.Maybe [InstanceSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInstancesResponse' with all optional fields omitted.
@@ -184,26 +187,26 @@ data ListInstancesResponse = ListInstancesResponse'
 -- 'httpStatus', 'listInstancesResponse_httpStatus' - The response's http status code.
 newListInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListInstancesResponse
 newListInstancesResponse pHttpStatus_ =
   ListInstancesResponse'
-    { nextToken = Core.Nothing,
-      instanceSummaryList = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      instanceSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Core.Maybe Core.Text)
+listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Prelude.Maybe Prelude.Text)
 listInstancesResponse_nextToken = Lens.lens (\ListInstancesResponse' {nextToken} -> nextToken) (\s@ListInstancesResponse' {} a -> s {nextToken = a} :: ListInstancesResponse)
 
 -- | Information about the instances.
-listInstancesResponse_instanceSummaryList :: Lens.Lens' ListInstancesResponse (Core.Maybe [InstanceSummary])
-listInstancesResponse_instanceSummaryList = Lens.lens (\ListInstancesResponse' {instanceSummaryList} -> instanceSummaryList) (\s@ListInstancesResponse' {} a -> s {instanceSummaryList = a} :: ListInstancesResponse) Core.. Lens.mapping Lens._Coerce
+listInstancesResponse_instanceSummaryList :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceSummary])
+listInstancesResponse_instanceSummaryList = Lens.lens (\ListInstancesResponse' {instanceSummaryList} -> instanceSummaryList) (\s@ListInstancesResponse' {} a -> s {instanceSummaryList = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Core.Int
+listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Prelude.Int
 listInstancesResponse_httpStatus = Lens.lens (\ListInstancesResponse' {httpStatus} -> httpStatus) (\s@ListInstancesResponse' {} a -> s {httpStatus = a} :: ListInstancesResponse)
 
-instance Core.NFData ListInstancesResponse
+instance Prelude.NFData ListInstancesResponse

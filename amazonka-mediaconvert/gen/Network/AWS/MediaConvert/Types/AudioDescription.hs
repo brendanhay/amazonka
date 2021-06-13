@@ -28,6 +28,7 @@ import Network.AWS.MediaConvert.Types.AudioNormalizationSettings
 import Network.AWS.MediaConvert.Types.AudioTypeControl
 import Network.AWS.MediaConvert.Types.LanguageCode
 import Network.AWS.MediaConvert.Types.RemixSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Description of audio output
 --
@@ -38,7 +39,7 @@ data AudioDescription = AudioDescription'
     -- Input Language Code\' is not selected or when \'Follow Input Language
     -- Code\' is selected but there is no ISO 639 language code specified by
     -- the input.
-    languageCode :: Core.Maybe LanguageCode,
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | Specify the language for this audio output track. The service puts this
     -- language code into your output audio track when you set Language code
     -- control (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED).
@@ -50,12 +51,12 @@ data AudioDescription = AudioDescription'
     -- specification. Streaming outputs are those that are in one of the
     -- following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
     -- Streaming.
-    customLanguageCode :: Core.Maybe Core.Text,
+    customLanguageCode :: Prelude.Maybe Prelude.Text,
     -- | Applies only if Follow Input Audio Type is unchecked (false). A number
     -- between 0 and 255. The following are defined in ISO-IEC 13818-1: 0 =
     -- Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually
     -- Impaired Commentary, 4-255 = Reserved.
-    audioType :: Core.Maybe Core.Natural,
+    audioType :: Prelude.Maybe Prelude.Natural,
     -- | Audio codec settings (CodecSettings) under (AudioDescriptions) contains
     -- the group of settings related to audio encoding. The settings in this
     -- group vary depending on the value that you choose for Audio codec
@@ -65,7 +66,7 @@ data AudioDescription = AudioDescription'
     -- WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
     -- * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS,
     -- OpusSettings
-    codecSettings :: Core.Maybe AudioCodecSettings,
+    codecSettings :: Prelude.Maybe AudioCodecSettings,
     -- | Specify which source for language code takes precedence for this audio
     -- track. When you choose Follow input (FOLLOW_INPUT), the service uses the
     -- language code from the input track if it\'s present. If there\'s no
@@ -73,7 +74,7 @@ data AudioDescription = AudioDescription'
     -- specify in the setting Language code (languageCode or
     -- customLanguageCode). When you choose Use configured (USE_CONFIGURED),
     -- the service uses the language code that you specify.
-    languageCodeControl :: Core.Maybe AudioLanguageCodeControl,
+    languageCodeControl :: Prelude.Maybe AudioLanguageCodeControl,
     -- | When you mimic a multi-channel audio layout with multiple mono-channel
     -- tracks, you can tag each channel layout manually. For example, you would
     -- tag the tracks that contain your left, right, and center audio with Left
@@ -82,7 +83,7 @@ data AudioDescription = AudioDescription'
     -- audio layout tagging, your output must be in a QuickTime (.mov)
     -- container; your audio codec must be AAC, WAV, or AIFF; and you must set
     -- up your audio track to have only one channel.
-    audioChannelTaggingSettings :: Core.Maybe AudioChannelTaggingSettings,
+    audioChannelTaggingSettings :: Prelude.Maybe AudioChannelTaggingSettings,
     -- | Specifies which audio data to use from each input. In the simplest case,
     -- specify an \"Audio Selector\":#inputs-audio_selector by name based on
     -- its order within each input. For example if you specify \"Audio Selector
@@ -94,27 +95,27 @@ data AudioDescription = AudioDescription'
     -- Group\":#inputs-audio_selector_group name may be specified, with similar
     -- default\/silence behavior. If no audio_source_name is specified, then
     -- \"Audio Selector 1\" will be chosen automatically.
-    audioSourceName :: Core.Maybe Core.Text,
+    audioSourceName :: Prelude.Maybe Prelude.Text,
     -- | When set to FOLLOW_INPUT, if the input contains an ISO 639 audio_type,
     -- then that value is passed through to the output. If the input contains
     -- no ISO 639 audio_type, the value in Audio Type is included in the
     -- output. Otherwise the value in Audio Type is included in the output.
     -- Note that this field and audioType are both ignored if
     -- audioDescriptionBroadcasterMix is set to BROADCASTER_MIXED_AD.
-    audioTypeControl :: Core.Maybe AudioTypeControl,
+    audioTypeControl :: Prelude.Maybe AudioTypeControl,
     -- | Advanced audio remixing settings.
-    remixSettings :: Core.Maybe RemixSettings,
+    remixSettings :: Prelude.Maybe RemixSettings,
     -- | Advanced audio normalization settings. Ignore these settings unless you
     -- need to comply with a loudness standard.
-    audioNormalizationSettings :: Core.Maybe AudioNormalizationSettings,
+    audioNormalizationSettings :: Prelude.Maybe AudioNormalizationSettings,
     -- | Specify a label for this output audio stream. For example, \"English\",
     -- \"Director commentary\", or \"track_2\". For streaming outputs,
     -- MediaConvert passes this information into destination manifests for
     -- display on the end-viewer\'s player device. For outputs in other output
     -- groups, the service ignores this setting.
-    streamName :: Core.Maybe Core.Text
+    streamName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioDescription' with all optional fields omitted.
@@ -207,17 +208,17 @@ newAudioDescription ::
   AudioDescription
 newAudioDescription =
   AudioDescription'
-    { languageCode = Core.Nothing,
-      customLanguageCode = Core.Nothing,
-      audioType = Core.Nothing,
-      codecSettings = Core.Nothing,
-      languageCodeControl = Core.Nothing,
-      audioChannelTaggingSettings = Core.Nothing,
-      audioSourceName = Core.Nothing,
-      audioTypeControl = Core.Nothing,
-      remixSettings = Core.Nothing,
-      audioNormalizationSettings = Core.Nothing,
-      streamName = Core.Nothing
+    { languageCode = Prelude.Nothing,
+      customLanguageCode = Prelude.Nothing,
+      audioType = Prelude.Nothing,
+      codecSettings = Prelude.Nothing,
+      languageCodeControl = Prelude.Nothing,
+      audioChannelTaggingSettings = Prelude.Nothing,
+      audioSourceName = Prelude.Nothing,
+      audioTypeControl = Prelude.Nothing,
+      remixSettings = Prelude.Nothing,
+      audioNormalizationSettings = Prelude.Nothing,
+      streamName = Prelude.Nothing
     }
 
 -- | Indicates the language of the audio output track. The ISO 639 language
@@ -225,7 +226,7 @@ newAudioDescription =
 -- Input Language Code\' is not selected or when \'Follow Input Language
 -- Code\' is selected but there is no ISO 639 language code specified by
 -- the input.
-audioDescription_languageCode :: Lens.Lens' AudioDescription (Core.Maybe LanguageCode)
+audioDescription_languageCode :: Lens.Lens' AudioDescription (Prelude.Maybe LanguageCode)
 audioDescription_languageCode = Lens.lens (\AudioDescription' {languageCode} -> languageCode) (\s@AudioDescription' {} a -> s {languageCode = a} :: AudioDescription)
 
 -- | Specify the language for this audio output track. The service puts this
@@ -239,14 +240,14 @@ audioDescription_languageCode = Lens.lens (\AudioDescription' {languageCode} -> 
 -- specification. Streaming outputs are those that are in one of the
 -- following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
 -- Streaming.
-audioDescription_customLanguageCode :: Lens.Lens' AudioDescription (Core.Maybe Core.Text)
+audioDescription_customLanguageCode :: Lens.Lens' AudioDescription (Prelude.Maybe Prelude.Text)
 audioDescription_customLanguageCode = Lens.lens (\AudioDescription' {customLanguageCode} -> customLanguageCode) (\s@AudioDescription' {} a -> s {customLanguageCode = a} :: AudioDescription)
 
 -- | Applies only if Follow Input Audio Type is unchecked (false). A number
 -- between 0 and 255. The following are defined in ISO-IEC 13818-1: 0 =
 -- Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually
 -- Impaired Commentary, 4-255 = Reserved.
-audioDescription_audioType :: Lens.Lens' AudioDescription (Core.Maybe Core.Natural)
+audioDescription_audioType :: Lens.Lens' AudioDescription (Prelude.Maybe Prelude.Natural)
 audioDescription_audioType = Lens.lens (\AudioDescription' {audioType} -> audioType) (\s@AudioDescription' {} a -> s {audioType = a} :: AudioDescription)
 
 -- | Audio codec settings (CodecSettings) under (AudioDescriptions) contains
@@ -258,7 +259,7 @@ audioDescription_audioType = Lens.lens (\AudioDescription' {audioType} -> audioT
 -- WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
 -- * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS,
 -- OpusSettings
-audioDescription_codecSettings :: Lens.Lens' AudioDescription (Core.Maybe AudioCodecSettings)
+audioDescription_codecSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioCodecSettings)
 audioDescription_codecSettings = Lens.lens (\AudioDescription' {codecSettings} -> codecSettings) (\s@AudioDescription' {} a -> s {codecSettings = a} :: AudioDescription)
 
 -- | Specify which source for language code takes precedence for this audio
@@ -268,7 +269,7 @@ audioDescription_codecSettings = Lens.lens (\AudioDescription' {codecSettings} -
 -- specify in the setting Language code (languageCode or
 -- customLanguageCode). When you choose Use configured (USE_CONFIGURED),
 -- the service uses the language code that you specify.
-audioDescription_languageCodeControl :: Lens.Lens' AudioDescription (Core.Maybe AudioLanguageCodeControl)
+audioDescription_languageCodeControl :: Lens.Lens' AudioDescription (Prelude.Maybe AudioLanguageCodeControl)
 audioDescription_languageCodeControl = Lens.lens (\AudioDescription' {languageCodeControl} -> languageCodeControl) (\s@AudioDescription' {} a -> s {languageCodeControl = a} :: AudioDescription)
 
 -- | When you mimic a multi-channel audio layout with multiple mono-channel
@@ -279,7 +280,7 @@ audioDescription_languageCodeControl = Lens.lens (\AudioDescription' {languageCo
 -- audio layout tagging, your output must be in a QuickTime (.mov)
 -- container; your audio codec must be AAC, WAV, or AIFF; and you must set
 -- up your audio track to have only one channel.
-audioDescription_audioChannelTaggingSettings :: Lens.Lens' AudioDescription (Core.Maybe AudioChannelTaggingSettings)
+audioDescription_audioChannelTaggingSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioChannelTaggingSettings)
 audioDescription_audioChannelTaggingSettings = Lens.lens (\AudioDescription' {audioChannelTaggingSettings} -> audioChannelTaggingSettings) (\s@AudioDescription' {} a -> s {audioChannelTaggingSettings = a} :: AudioDescription)
 
 -- | Specifies which audio data to use from each input. In the simplest case,
@@ -293,7 +294,7 @@ audioDescription_audioChannelTaggingSettings = Lens.lens (\AudioDescription' {au
 -- Group\":#inputs-audio_selector_group name may be specified, with similar
 -- default\/silence behavior. If no audio_source_name is specified, then
 -- \"Audio Selector 1\" will be chosen automatically.
-audioDescription_audioSourceName :: Lens.Lens' AudioDescription (Core.Maybe Core.Text)
+audioDescription_audioSourceName :: Lens.Lens' AudioDescription (Prelude.Maybe Prelude.Text)
 audioDescription_audioSourceName = Lens.lens (\AudioDescription' {audioSourceName} -> audioSourceName) (\s@AudioDescription' {} a -> s {audioSourceName = a} :: AudioDescription)
 
 -- | When set to FOLLOW_INPUT, if the input contains an ISO 639 audio_type,
@@ -302,16 +303,16 @@ audioDescription_audioSourceName = Lens.lens (\AudioDescription' {audioSourceNam
 -- output. Otherwise the value in Audio Type is included in the output.
 -- Note that this field and audioType are both ignored if
 -- audioDescriptionBroadcasterMix is set to BROADCASTER_MIXED_AD.
-audioDescription_audioTypeControl :: Lens.Lens' AudioDescription (Core.Maybe AudioTypeControl)
+audioDescription_audioTypeControl :: Lens.Lens' AudioDescription (Prelude.Maybe AudioTypeControl)
 audioDescription_audioTypeControl = Lens.lens (\AudioDescription' {audioTypeControl} -> audioTypeControl) (\s@AudioDescription' {} a -> s {audioTypeControl = a} :: AudioDescription)
 
 -- | Advanced audio remixing settings.
-audioDescription_remixSettings :: Lens.Lens' AudioDescription (Core.Maybe RemixSettings)
+audioDescription_remixSettings :: Lens.Lens' AudioDescription (Prelude.Maybe RemixSettings)
 audioDescription_remixSettings = Lens.lens (\AudioDescription' {remixSettings} -> remixSettings) (\s@AudioDescription' {} a -> s {remixSettings = a} :: AudioDescription)
 
 -- | Advanced audio normalization settings. Ignore these settings unless you
 -- need to comply with a loudness standard.
-audioDescription_audioNormalizationSettings :: Lens.Lens' AudioDescription (Core.Maybe AudioNormalizationSettings)
+audioDescription_audioNormalizationSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioNormalizationSettings)
 audioDescription_audioNormalizationSettings = Lens.lens (\AudioDescription' {audioNormalizationSettings} -> audioNormalizationSettings) (\s@AudioDescription' {} a -> s {audioNormalizationSettings = a} :: AudioDescription)
 
 -- | Specify a label for this output audio stream. For example, \"English\",
@@ -319,7 +320,7 @@ audioDescription_audioNormalizationSettings = Lens.lens (\AudioDescription' {aud
 -- MediaConvert passes this information into destination manifests for
 -- display on the end-viewer\'s player device. For outputs in other output
 -- groups, the service ignores this setting.
-audioDescription_streamName :: Lens.Lens' AudioDescription (Core.Maybe Core.Text)
+audioDescription_streamName :: Lens.Lens' AudioDescription (Prelude.Maybe Prelude.Text)
 audioDescription_streamName = Lens.lens (\AudioDescription' {streamName} -> streamName) (\s@AudioDescription' {} a -> s {streamName = a} :: AudioDescription)
 
 instance Core.FromJSON AudioDescription where
@@ -328,42 +329,43 @@ instance Core.FromJSON AudioDescription where
       "AudioDescription"
       ( \x ->
           AudioDescription'
-            Core.<$> (x Core..:? "languageCode")
-            Core.<*> (x Core..:? "customLanguageCode")
-            Core.<*> (x Core..:? "audioType")
-            Core.<*> (x Core..:? "codecSettings")
-            Core.<*> (x Core..:? "languageCodeControl")
-            Core.<*> (x Core..:? "audioChannelTaggingSettings")
-            Core.<*> (x Core..:? "audioSourceName")
-            Core.<*> (x Core..:? "audioTypeControl")
-            Core.<*> (x Core..:? "remixSettings")
-            Core.<*> (x Core..:? "audioNormalizationSettings")
-            Core.<*> (x Core..:? "streamName")
+            Prelude.<$> (x Core..:? "languageCode")
+            Prelude.<*> (x Core..:? "customLanguageCode")
+            Prelude.<*> (x Core..:? "audioType")
+            Prelude.<*> (x Core..:? "codecSettings")
+            Prelude.<*> (x Core..:? "languageCodeControl")
+            Prelude.<*> (x Core..:? "audioChannelTaggingSettings")
+            Prelude.<*> (x Core..:? "audioSourceName")
+            Prelude.<*> (x Core..:? "audioTypeControl")
+            Prelude.<*> (x Core..:? "remixSettings")
+            Prelude.<*> (x Core..:? "audioNormalizationSettings")
+            Prelude.<*> (x Core..:? "streamName")
       )
 
-instance Core.Hashable AudioDescription
+instance Prelude.Hashable AudioDescription
 
-instance Core.NFData AudioDescription
+instance Prelude.NFData AudioDescription
 
 instance Core.ToJSON AudioDescription where
   toJSON AudioDescription' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("languageCode" Core..=) Core.<$> languageCode,
+      ( Prelude.catMaybes
+          [ ("languageCode" Core..=) Prelude.<$> languageCode,
             ("customLanguageCode" Core..=)
-              Core.<$> customLanguageCode,
-            ("audioType" Core..=) Core.<$> audioType,
-            ("codecSettings" Core..=) Core.<$> codecSettings,
+              Prelude.<$> customLanguageCode,
+            ("audioType" Core..=) Prelude.<$> audioType,
+            ("codecSettings" Core..=) Prelude.<$> codecSettings,
             ("languageCodeControl" Core..=)
-              Core.<$> languageCodeControl,
+              Prelude.<$> languageCodeControl,
             ("audioChannelTaggingSettings" Core..=)
-              Core.<$> audioChannelTaggingSettings,
-            ("audioSourceName" Core..=) Core.<$> audioSourceName,
+              Prelude.<$> audioChannelTaggingSettings,
+            ("audioSourceName" Core..=)
+              Prelude.<$> audioSourceName,
             ("audioTypeControl" Core..=)
-              Core.<$> audioTypeControl,
-            ("remixSettings" Core..=) Core.<$> remixSettings,
+              Prelude.<$> audioTypeControl,
+            ("remixSettings" Core..=) Prelude.<$> remixSettings,
             ("audioNormalizationSettings" Core..=)
-              Core.<$> audioNormalizationSettings,
-            ("streamName" Core..=) Core.<$> streamName
+              Prelude.<$> audioNormalizationSettings,
+            ("streamName" Core..=) Prelude.<$> streamName
           ]
       )

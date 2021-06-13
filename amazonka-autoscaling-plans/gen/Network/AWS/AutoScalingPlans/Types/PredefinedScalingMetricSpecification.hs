@@ -22,6 +22,7 @@ module Network.AWS.AutoScalingPlans.Types.PredefinedScalingMetricSpecification w
 import Network.AWS.AutoScalingPlans.Types.ScalingMetricType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a predefined metric that can be used for dynamic scaling as
 -- part of a target tracking scaling policy.
@@ -54,12 +55,12 @@ data PredefinedScalingMetricSpecification = PredefinedScalingMetricSpecification
     -- API operation. To find the ARN for the target group, use the
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
     -- API operation.
-    resourceLabel :: Core.Maybe Core.Text,
+    resourceLabel :: Prelude.Maybe Prelude.Text,
     -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only
     -- to Auto Scaling groups, Spot Fleet requests, and ECS services.
     predefinedScalingMetricType :: ScalingMetricType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PredefinedScalingMetricSpecification' with all optional fields omitted.
@@ -106,7 +107,7 @@ newPredefinedScalingMetricSpecification
   pPredefinedScalingMetricType_ =
     PredefinedScalingMetricSpecification'
       { resourceLabel =
-          Core.Nothing,
+          Prelude.Nothing,
         predefinedScalingMetricType =
           pPredefinedScalingMetricType_
       }
@@ -137,7 +138,7 @@ newPredefinedScalingMetricSpecification
 -- API operation. To find the ARN for the target group, use the
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
-predefinedScalingMetricSpecification_resourceLabel :: Lens.Lens' PredefinedScalingMetricSpecification (Core.Maybe Core.Text)
+predefinedScalingMetricSpecification_resourceLabel :: Lens.Lens' PredefinedScalingMetricSpecification (Prelude.Maybe Prelude.Text)
 predefinedScalingMetricSpecification_resourceLabel = Lens.lens (\PredefinedScalingMetricSpecification' {resourceLabel} -> resourceLabel) (\s@PredefinedScalingMetricSpecification' {} a -> s {resourceLabel = a} :: PredefinedScalingMetricSpecification)
 
 -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only
@@ -154,16 +155,16 @@ instance
       "PredefinedScalingMetricSpecification"
       ( \x ->
           PredefinedScalingMetricSpecification'
-            Core.<$> (x Core..:? "ResourceLabel")
-            Core.<*> (x Core..: "PredefinedScalingMetricType")
+            Prelude.<$> (x Core..:? "ResourceLabel")
+            Prelude.<*> (x Core..: "PredefinedScalingMetricType")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PredefinedScalingMetricSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     PredefinedScalingMetricSpecification
 
 instance
@@ -172,9 +173,9 @@ instance
   where
   toJSON PredefinedScalingMetricSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceLabel" Core..=) Core.<$> resourceLabel,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ResourceLabel" Core..=) Prelude.<$> resourceLabel,
+            Prelude.Just
               ( "PredefinedScalingMetricType"
                   Core..= predefinedScalingMetricType
               )

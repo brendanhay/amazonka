@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -45,7 +46,7 @@ import Network.AWS.SMS.Types
 data DeleteServerCatalog = DeleteServerCatalog'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServerCatalog' with all optional fields omitted.
@@ -64,41 +65,43 @@ instance Core.AWSRequest DeleteServerCatalog where
     Response.receiveEmpty
       ( \s h x ->
           DeleteServerCatalogResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteServerCatalog
+instance Prelude.Hashable DeleteServerCatalog
 
-instance Core.NFData DeleteServerCatalog
+instance Prelude.NFData DeleteServerCatalog
 
 instance Core.ToHeaders DeleteServerCatalog where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteServerCatalog where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DeleteServerCatalog where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteServerCatalog where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServerCatalogResponse' smart constructor.
 data DeleteServerCatalogResponse = DeleteServerCatalogResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServerCatalogResponse' with all optional fields omitted.
@@ -111,7 +114,7 @@ data DeleteServerCatalogResponse = DeleteServerCatalogResponse'
 -- 'httpStatus', 'deleteServerCatalogResponse_httpStatus' - The response's http status code.
 newDeleteServerCatalogResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteServerCatalogResponse
 newDeleteServerCatalogResponse pHttpStatus_ =
   DeleteServerCatalogResponse'
@@ -120,7 +123,7 @@ newDeleteServerCatalogResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteServerCatalogResponse_httpStatus :: Lens.Lens' DeleteServerCatalogResponse Core.Int
+deleteServerCatalogResponse_httpStatus :: Lens.Lens' DeleteServerCatalogResponse Prelude.Int
 deleteServerCatalogResponse_httpStatus = Lens.lens (\DeleteServerCatalogResponse' {httpStatus} -> httpStatus) (\s@DeleteServerCatalogResponse' {} a -> s {httpStatus = a} :: DeleteServerCatalogResponse)
 
-instance Core.NFData DeleteServerCatalogResponse
+instance Prelude.NFData DeleteServerCatalogResponse

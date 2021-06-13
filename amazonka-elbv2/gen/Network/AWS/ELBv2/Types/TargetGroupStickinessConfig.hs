@@ -21,19 +21,20 @@ module Network.AWS.ELBv2.Types.TargetGroupStickinessConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the target group stickiness for a rule.
 --
 -- /See:/ 'newTargetGroupStickinessConfig' smart constructor.
 data TargetGroupStickinessConfig = TargetGroupStickinessConfig'
   { -- | Indicates whether target group stickiness is enabled.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The time period, in seconds, during which requests from a client should
     -- be routed to the same target group. The range is 1-604800 seconds (7
     -- days).
-    durationSeconds :: Core.Maybe Core.Int
+    durationSeconds :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetGroupStickinessConfig' with all optional fields omitted.
@@ -53,33 +54,33 @@ newTargetGroupStickinessConfig ::
 newTargetGroupStickinessConfig =
   TargetGroupStickinessConfig'
     { enabled =
-        Core.Nothing,
-      durationSeconds = Core.Nothing
+        Prelude.Nothing,
+      durationSeconds = Prelude.Nothing
     }
 
 -- | Indicates whether target group stickiness is enabled.
-targetGroupStickinessConfig_enabled :: Lens.Lens' TargetGroupStickinessConfig (Core.Maybe Core.Bool)
+targetGroupStickinessConfig_enabled :: Lens.Lens' TargetGroupStickinessConfig (Prelude.Maybe Prelude.Bool)
 targetGroupStickinessConfig_enabled = Lens.lens (\TargetGroupStickinessConfig' {enabled} -> enabled) (\s@TargetGroupStickinessConfig' {} a -> s {enabled = a} :: TargetGroupStickinessConfig)
 
 -- | The time period, in seconds, during which requests from a client should
 -- be routed to the same target group. The range is 1-604800 seconds (7
 -- days).
-targetGroupStickinessConfig_durationSeconds :: Lens.Lens' TargetGroupStickinessConfig (Core.Maybe Core.Int)
+targetGroupStickinessConfig_durationSeconds :: Lens.Lens' TargetGroupStickinessConfig (Prelude.Maybe Prelude.Int)
 targetGroupStickinessConfig_durationSeconds = Lens.lens (\TargetGroupStickinessConfig' {durationSeconds} -> durationSeconds) (\s@TargetGroupStickinessConfig' {} a -> s {durationSeconds = a} :: TargetGroupStickinessConfig)
 
 instance Core.FromXML TargetGroupStickinessConfig where
   parseXML x =
     TargetGroupStickinessConfig'
-      Core.<$> (x Core..@? "Enabled")
-      Core.<*> (x Core..@? "DurationSeconds")
+      Prelude.<$> (x Core..@? "Enabled")
+      Prelude.<*> (x Core..@? "DurationSeconds")
 
-instance Core.Hashable TargetGroupStickinessConfig
+instance Prelude.Hashable TargetGroupStickinessConfig
 
-instance Core.NFData TargetGroupStickinessConfig
+instance Prelude.NFData TargetGroupStickinessConfig
 
 instance Core.ToQuery TargetGroupStickinessConfig where
   toQuery TargetGroupStickinessConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Enabled" Core.=: enabled,
         "DurationSeconds" Core.=: durationSeconds
       ]

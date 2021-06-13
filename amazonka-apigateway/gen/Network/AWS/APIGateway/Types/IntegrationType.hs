@@ -30,6 +30,7 @@ module Network.AWS.APIGateway.Types.IntegrationType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The integration type. The valid value is @HTTP@ for integrating an API
 -- method with an HTTP backend; @AWS@ with any AWS service endpoints;
@@ -41,15 +42,15 @@ newtype IntegrationType = IntegrationType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

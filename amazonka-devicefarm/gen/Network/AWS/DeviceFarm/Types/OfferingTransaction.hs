@@ -23,23 +23,24 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.MonetaryAmount
 import Network.AWS.DeviceFarm.Types.OfferingStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the metadata of an offering transaction.
 --
 -- /See:/ 'newOfferingTransaction' smart constructor.
 data OfferingTransaction = OfferingTransaction'
   { -- | The status of an offering transaction.
-    offeringStatus :: Core.Maybe OfferingStatus,
+    offeringStatus :: Prelude.Maybe OfferingStatus,
     -- | The date on which an offering transaction was created.
-    createdOn :: Core.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Core.POSIX,
     -- | The cost of an offering transaction.
-    cost :: Core.Maybe MonetaryAmount,
+    cost :: Prelude.Maybe MonetaryAmount,
     -- | The transaction ID of the offering transaction.
-    transactionId :: Core.Maybe Core.Text,
+    transactionId :: Prelude.Maybe Prelude.Text,
     -- | The ID that corresponds to a device offering promotion.
-    offeringPromotionId :: Core.Maybe Core.Text
+    offeringPromotionId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OfferingTransaction' with all optional fields omitted.
@@ -62,31 +63,32 @@ newOfferingTransaction ::
   OfferingTransaction
 newOfferingTransaction =
   OfferingTransaction'
-    { offeringStatus = Core.Nothing,
-      createdOn = Core.Nothing,
-      cost = Core.Nothing,
-      transactionId = Core.Nothing,
-      offeringPromotionId = Core.Nothing
+    { offeringStatus =
+        Prelude.Nothing,
+      createdOn = Prelude.Nothing,
+      cost = Prelude.Nothing,
+      transactionId = Prelude.Nothing,
+      offeringPromotionId = Prelude.Nothing
     }
 
 -- | The status of an offering transaction.
-offeringTransaction_offeringStatus :: Lens.Lens' OfferingTransaction (Core.Maybe OfferingStatus)
+offeringTransaction_offeringStatus :: Lens.Lens' OfferingTransaction (Prelude.Maybe OfferingStatus)
 offeringTransaction_offeringStatus = Lens.lens (\OfferingTransaction' {offeringStatus} -> offeringStatus) (\s@OfferingTransaction' {} a -> s {offeringStatus = a} :: OfferingTransaction)
 
 -- | The date on which an offering transaction was created.
-offeringTransaction_createdOn :: Lens.Lens' OfferingTransaction (Core.Maybe Core.UTCTime)
-offeringTransaction_createdOn = Lens.lens (\OfferingTransaction' {createdOn} -> createdOn) (\s@OfferingTransaction' {} a -> s {createdOn = a} :: OfferingTransaction) Core.. Lens.mapping Core._Time
+offeringTransaction_createdOn :: Lens.Lens' OfferingTransaction (Prelude.Maybe Prelude.UTCTime)
+offeringTransaction_createdOn = Lens.lens (\OfferingTransaction' {createdOn} -> createdOn) (\s@OfferingTransaction' {} a -> s {createdOn = a} :: OfferingTransaction) Prelude.. Lens.mapping Core._Time
 
 -- | The cost of an offering transaction.
-offeringTransaction_cost :: Lens.Lens' OfferingTransaction (Core.Maybe MonetaryAmount)
+offeringTransaction_cost :: Lens.Lens' OfferingTransaction (Prelude.Maybe MonetaryAmount)
 offeringTransaction_cost = Lens.lens (\OfferingTransaction' {cost} -> cost) (\s@OfferingTransaction' {} a -> s {cost = a} :: OfferingTransaction)
 
 -- | The transaction ID of the offering transaction.
-offeringTransaction_transactionId :: Lens.Lens' OfferingTransaction (Core.Maybe Core.Text)
+offeringTransaction_transactionId :: Lens.Lens' OfferingTransaction (Prelude.Maybe Prelude.Text)
 offeringTransaction_transactionId = Lens.lens (\OfferingTransaction' {transactionId} -> transactionId) (\s@OfferingTransaction' {} a -> s {transactionId = a} :: OfferingTransaction)
 
 -- | The ID that corresponds to a device offering promotion.
-offeringTransaction_offeringPromotionId :: Lens.Lens' OfferingTransaction (Core.Maybe Core.Text)
+offeringTransaction_offeringPromotionId :: Lens.Lens' OfferingTransaction (Prelude.Maybe Prelude.Text)
 offeringTransaction_offeringPromotionId = Lens.lens (\OfferingTransaction' {offeringPromotionId} -> offeringPromotionId) (\s@OfferingTransaction' {} a -> s {offeringPromotionId = a} :: OfferingTransaction)
 
 instance Core.FromJSON OfferingTransaction where
@@ -95,13 +97,13 @@ instance Core.FromJSON OfferingTransaction where
       "OfferingTransaction"
       ( \x ->
           OfferingTransaction'
-            Core.<$> (x Core..:? "offeringStatus")
-            Core.<*> (x Core..:? "createdOn")
-            Core.<*> (x Core..:? "cost")
-            Core.<*> (x Core..:? "transactionId")
-            Core.<*> (x Core..:? "offeringPromotionId")
+            Prelude.<$> (x Core..:? "offeringStatus")
+            Prelude.<*> (x Core..:? "createdOn")
+            Prelude.<*> (x Core..:? "cost")
+            Prelude.<*> (x Core..:? "transactionId")
+            Prelude.<*> (x Core..:? "offeringPromotionId")
       )
 
-instance Core.Hashable OfferingTransaction
+instance Prelude.Hashable OfferingTransaction
 
-instance Core.NFData OfferingTransaction
+instance Prelude.NFData OfferingTransaction

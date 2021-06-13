@@ -24,24 +24,25 @@ import Network.AWS.Batch.Types.JQState
 import Network.AWS.Batch.Types.JQStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the details of an AWS Batch job queue.
 --
 -- /See:/ 'newJobQueueDetail' smart constructor.
 data JobQueueDetail = JobQueueDetail'
   { -- | The status of the job queue (for example, @CREATING@ or @VALID@).
-    status :: Core.Maybe JQStatus,
+    status :: Prelude.Maybe JQStatus,
     -- | The tags applied to the job queue. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your AWS Batch resources>
     -- in /AWS Batch User Guide/.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short, human-readable string to provide additional details about the
     -- current status of the job queue.
-    statusReason :: Core.Maybe Core.Text,
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the job queue.
-    jobQueueName :: Core.Text,
+    jobQueueName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the job queue.
-    jobQueueArn :: Core.Text,
+    jobQueueArn :: Prelude.Text,
     -- | Describes the ability of the queue to accept new jobs. If the job queue
     -- state is @ENABLED@, it\'s able to accept jobs. If the job queue state is
     -- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
@@ -55,13 +56,13 @@ data JobQueueDetail = JobQueueDetail'
     -- priority value of @1@. All of the compute environments must be either
     -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
     -- Fargate compute environments cannot be mixed.
-    priority :: Core.Int,
+    priority :: Prelude.Int,
     -- | The compute environments that are attached to the job queue and the
     -- order that job placement is preferred. Compute environments are selected
     -- for job placement in ascending order.
     computeEnvironmentOrder :: [ComputeEnvironmentOrder]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobQueueDetail' with all optional fields omitted.
@@ -103,13 +104,13 @@ data JobQueueDetail = JobQueueDetail'
 -- for job placement in ascending order.
 newJobQueueDetail ::
   -- | 'jobQueueName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobQueueArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'state'
   JQState ->
   -- | 'priority'
-  Core.Int ->
+  Prelude.Int ->
   JobQueueDetail
 newJobQueueDetail
   pJobQueueName_
@@ -117,37 +118,37 @@ newJobQueueDetail
   pState_
   pPriority_ =
     JobQueueDetail'
-      { status = Core.Nothing,
-        tags = Core.Nothing,
-        statusReason = Core.Nothing,
+      { status = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        statusReason = Prelude.Nothing,
         jobQueueName = pJobQueueName_,
         jobQueueArn = pJobQueueArn_,
         state = pState_,
         priority = pPriority_,
-        computeEnvironmentOrder = Core.mempty
+        computeEnvironmentOrder = Prelude.mempty
       }
 
 -- | The status of the job queue (for example, @CREATING@ or @VALID@).
-jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Core.Maybe JQStatus)
+jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Prelude.Maybe JQStatus)
 jobQueueDetail_status = Lens.lens (\JobQueueDetail' {status} -> status) (\s@JobQueueDetail' {} a -> s {status = a} :: JobQueueDetail)
 
 -- | The tags applied to the job queue. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your AWS Batch resources>
 -- in /AWS Batch User Guide/.
-jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Core.Maybe (Core.HashMap Core.Text Core.Text))
-jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Core.. Lens.mapping Lens._Coerce
+jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A short, human-readable string to provide additional details about the
 -- current status of the job queue.
-jobQueueDetail_statusReason :: Lens.Lens' JobQueueDetail (Core.Maybe Core.Text)
+jobQueueDetail_statusReason :: Lens.Lens' JobQueueDetail (Prelude.Maybe Prelude.Text)
 jobQueueDetail_statusReason = Lens.lens (\JobQueueDetail' {statusReason} -> statusReason) (\s@JobQueueDetail' {} a -> s {statusReason = a} :: JobQueueDetail)
 
 -- | The name of the job queue.
-jobQueueDetail_jobQueueName :: Lens.Lens' JobQueueDetail Core.Text
+jobQueueDetail_jobQueueName :: Lens.Lens' JobQueueDetail Prelude.Text
 jobQueueDetail_jobQueueName = Lens.lens (\JobQueueDetail' {jobQueueName} -> jobQueueName) (\s@JobQueueDetail' {} a -> s {jobQueueName = a} :: JobQueueDetail)
 
 -- | The Amazon Resource Name (ARN) of the job queue.
-jobQueueDetail_jobQueueArn :: Lens.Lens' JobQueueDetail Core.Text
+jobQueueDetail_jobQueueArn :: Lens.Lens' JobQueueDetail Prelude.Text
 jobQueueDetail_jobQueueArn = Lens.lens (\JobQueueDetail' {jobQueueArn} -> jobQueueArn) (\s@JobQueueDetail' {} a -> s {jobQueueArn = a} :: JobQueueDetail)
 
 -- | Describes the ability of the queue to accept new jobs. If the job queue
@@ -165,14 +166,14 @@ jobQueueDetail_state = Lens.lens (\JobQueueDetail' {state} -> state) (\s@JobQueu
 -- priority value of @1@. All of the compute environments must be either
 -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
 -- Fargate compute environments cannot be mixed.
-jobQueueDetail_priority :: Lens.Lens' JobQueueDetail Core.Int
+jobQueueDetail_priority :: Lens.Lens' JobQueueDetail Prelude.Int
 jobQueueDetail_priority = Lens.lens (\JobQueueDetail' {priority} -> priority) (\s@JobQueueDetail' {} a -> s {priority = a} :: JobQueueDetail)
 
 -- | The compute environments that are attached to the job queue and the
 -- order that job placement is preferred. Compute environments are selected
 -- for job placement in ascending order.
 jobQueueDetail_computeEnvironmentOrder :: Lens.Lens' JobQueueDetail [ComputeEnvironmentOrder]
-jobQueueDetail_computeEnvironmentOrder = Lens.lens (\JobQueueDetail' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@JobQueueDetail' {} a -> s {computeEnvironmentOrder = a} :: JobQueueDetail) Core.. Lens._Coerce
+jobQueueDetail_computeEnvironmentOrder = Lens.lens (\JobQueueDetail' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@JobQueueDetail' {} a -> s {computeEnvironmentOrder = a} :: JobQueueDetail) Prelude.. Lens._Coerce
 
 instance Core.FromJSON JobQueueDetail where
   parseJSON =
@@ -180,18 +181,18 @@ instance Core.FromJSON JobQueueDetail where
       "JobQueueDetail"
       ( \x ->
           JobQueueDetail'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "statusReason")
-            Core.<*> (x Core..: "jobQueueName")
-            Core.<*> (x Core..: "jobQueueArn")
-            Core.<*> (x Core..: "state")
-            Core.<*> (x Core..: "priority")
-            Core.<*> ( x Core..:? "computeEnvironmentOrder"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..: "jobQueueName")
+            Prelude.<*> (x Core..: "jobQueueArn")
+            Prelude.<*> (x Core..: "state")
+            Prelude.<*> (x Core..: "priority")
+            Prelude.<*> ( x Core..:? "computeEnvironmentOrder"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable JobQueueDetail
+instance Prelude.Hashable JobQueueDetail
 
-instance Core.NFData JobQueueDetail
+instance Prelude.NFData JobQueueDetail

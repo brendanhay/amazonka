@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.DeleteRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a request to perform a @DeleteItem@ operation on an item.
 --
@@ -31,9 +32,9 @@ data DeleteRequest = DeleteRequest'
     -- key of the item to delete. All of the table\'s primary key attributes
     -- must be specified, and their data types must match those of the table\'s
     -- key schema.
-    key :: Core.HashMap Core.Text AttributeValue
+    key :: Prelude.HashMap Prelude.Text AttributeValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRequest' with all optional fields omitted.
@@ -49,14 +50,15 @@ data DeleteRequest = DeleteRequest'
 -- key schema.
 newDeleteRequest ::
   DeleteRequest
-newDeleteRequest = DeleteRequest' {key = Core.mempty}
+newDeleteRequest =
+  DeleteRequest' {key = Prelude.mempty}
 
 -- | A map of attribute name to attribute values, representing the primary
 -- key of the item to delete. All of the table\'s primary key attributes
 -- must be specified, and their data types must match those of the table\'s
 -- key schema.
-deleteRequest_key :: Lens.Lens' DeleteRequest (Core.HashMap Core.Text AttributeValue)
-deleteRequest_key = Lens.lens (\DeleteRequest' {key} -> key) (\s@DeleteRequest' {} a -> s {key = a} :: DeleteRequest) Core.. Lens._Coerce
+deleteRequest_key :: Lens.Lens' DeleteRequest (Prelude.HashMap Prelude.Text AttributeValue)
+deleteRequest_key = Lens.lens (\DeleteRequest' {key} -> key) (\s@DeleteRequest' {} a -> s {key = a} :: DeleteRequest) Prelude.. Lens._Coerce
 
 instance Core.FromJSON DeleteRequest where
   parseJSON =
@@ -64,14 +66,16 @@ instance Core.FromJSON DeleteRequest where
       "DeleteRequest"
       ( \x ->
           DeleteRequest'
-            Core.<$> (x Core..:? "Key" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Key" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable DeleteRequest
+instance Prelude.Hashable DeleteRequest
 
-instance Core.NFData DeleteRequest
+instance Prelude.NFData DeleteRequest
 
 instance Core.ToJSON DeleteRequest where
   toJSON DeleteRequest' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Key" Core..= key)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Key" Core..= key)]
+      )

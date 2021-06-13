@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.EndpointRequest where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the settings of a public endpoint for an Amazon Lightsail
 -- container service.
@@ -30,13 +31,13 @@ import Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
 data EndpointRequest = EndpointRequest'
   { -- | An object that describes the health check configuration of the
     -- container.
-    healthCheck :: Core.Maybe ContainerServiceHealthCheckConfig,
+    healthCheck :: Prelude.Maybe ContainerServiceHealthCheckConfig,
     -- | The name of the container for the endpoint.
-    containerName :: Core.Text,
+    containerName :: Prelude.Text,
     -- | The port of the container to which traffic is forwarded to.
-    containerPort :: Core.Int
+    containerPort :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EndpointRequest' with all optional fields omitted.
@@ -54,40 +55,41 @@ data EndpointRequest = EndpointRequest'
 -- 'containerPort', 'endpointRequest_containerPort' - The port of the container to which traffic is forwarded to.
 newEndpointRequest ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'containerPort'
-  Core.Int ->
+  Prelude.Int ->
   EndpointRequest
 newEndpointRequest pContainerName_ pContainerPort_ =
   EndpointRequest'
-    { healthCheck = Core.Nothing,
+    { healthCheck = Prelude.Nothing,
       containerName = pContainerName_,
       containerPort = pContainerPort_
     }
 
 -- | An object that describes the health check configuration of the
 -- container.
-endpointRequest_healthCheck :: Lens.Lens' EndpointRequest (Core.Maybe ContainerServiceHealthCheckConfig)
+endpointRequest_healthCheck :: Lens.Lens' EndpointRequest (Prelude.Maybe ContainerServiceHealthCheckConfig)
 endpointRequest_healthCheck = Lens.lens (\EndpointRequest' {healthCheck} -> healthCheck) (\s@EndpointRequest' {} a -> s {healthCheck = a} :: EndpointRequest)
 
 -- | The name of the container for the endpoint.
-endpointRequest_containerName :: Lens.Lens' EndpointRequest Core.Text
+endpointRequest_containerName :: Lens.Lens' EndpointRequest Prelude.Text
 endpointRequest_containerName = Lens.lens (\EndpointRequest' {containerName} -> containerName) (\s@EndpointRequest' {} a -> s {containerName = a} :: EndpointRequest)
 
 -- | The port of the container to which traffic is forwarded to.
-endpointRequest_containerPort :: Lens.Lens' EndpointRequest Core.Int
+endpointRequest_containerPort :: Lens.Lens' EndpointRequest Prelude.Int
 endpointRequest_containerPort = Lens.lens (\EndpointRequest' {containerPort} -> containerPort) (\s@EndpointRequest' {} a -> s {containerPort = a} :: EndpointRequest)
 
-instance Core.Hashable EndpointRequest
+instance Prelude.Hashable EndpointRequest
 
-instance Core.NFData EndpointRequest
+instance Prelude.NFData EndpointRequest
 
 instance Core.ToJSON EndpointRequest where
   toJSON EndpointRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("healthCheck" Core..=) Core.<$> healthCheck,
-            Core.Just ("containerName" Core..= containerName),
-            Core.Just ("containerPort" Core..= containerPort)
+      ( Prelude.catMaybes
+          [ ("healthCheck" Core..=) Prelude.<$> healthCheck,
+            Prelude.Just ("containerName" Core..= containerName),
+            Prelude.Just
+              ("containerPort" Core..= containerPort)
           ]
       )

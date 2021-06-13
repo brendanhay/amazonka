@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.FaultRootCauseService where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.FaultRootCauseEntity
 
 -- | A collection of fields identifying the services in a trace summary
@@ -29,19 +30,19 @@ import Network.AWS.XRay.Types.FaultRootCauseEntity
 -- /See:/ 'newFaultRootCauseService' smart constructor.
 data FaultRootCauseService = FaultRootCauseService'
   { -- | A collection of associated service names.
-    names :: Core.Maybe [Core.Text],
+    names :: Prelude.Maybe [Prelude.Text],
     -- | The account ID associated to the service.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating if the service is inferred from the trace.
-    inferred :: Core.Maybe Core.Bool,
+    inferred :: Prelude.Maybe Prelude.Bool,
     -- | The service name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The path of root cause entities found on the service.
-    entityPath :: Core.Maybe [FaultRootCauseEntity],
+    entityPath :: Prelude.Maybe [FaultRootCauseEntity],
     -- | The type associated to the service.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FaultRootCauseService' with all optional fields omitted.
@@ -66,36 +67,36 @@ newFaultRootCauseService ::
   FaultRootCauseService
 newFaultRootCauseService =
   FaultRootCauseService'
-    { names = Core.Nothing,
-      accountId = Core.Nothing,
-      inferred = Core.Nothing,
-      name = Core.Nothing,
-      entityPath = Core.Nothing,
-      type' = Core.Nothing
+    { names = Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      inferred = Prelude.Nothing,
+      name = Prelude.Nothing,
+      entityPath = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | A collection of associated service names.
-faultRootCauseService_names :: Lens.Lens' FaultRootCauseService (Core.Maybe [Core.Text])
-faultRootCauseService_names = Lens.lens (\FaultRootCauseService' {names} -> names) (\s@FaultRootCauseService' {} a -> s {names = a} :: FaultRootCauseService) Core.. Lens.mapping Lens._Coerce
+faultRootCauseService_names :: Lens.Lens' FaultRootCauseService (Prelude.Maybe [Prelude.Text])
+faultRootCauseService_names = Lens.lens (\FaultRootCauseService' {names} -> names) (\s@FaultRootCauseService' {} a -> s {names = a} :: FaultRootCauseService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The account ID associated to the service.
-faultRootCauseService_accountId :: Lens.Lens' FaultRootCauseService (Core.Maybe Core.Text)
+faultRootCauseService_accountId :: Lens.Lens' FaultRootCauseService (Prelude.Maybe Prelude.Text)
 faultRootCauseService_accountId = Lens.lens (\FaultRootCauseService' {accountId} -> accountId) (\s@FaultRootCauseService' {} a -> s {accountId = a} :: FaultRootCauseService)
 
 -- | A Boolean value indicating if the service is inferred from the trace.
-faultRootCauseService_inferred :: Lens.Lens' FaultRootCauseService (Core.Maybe Core.Bool)
+faultRootCauseService_inferred :: Lens.Lens' FaultRootCauseService (Prelude.Maybe Prelude.Bool)
 faultRootCauseService_inferred = Lens.lens (\FaultRootCauseService' {inferred} -> inferred) (\s@FaultRootCauseService' {} a -> s {inferred = a} :: FaultRootCauseService)
 
 -- | The service name.
-faultRootCauseService_name :: Lens.Lens' FaultRootCauseService (Core.Maybe Core.Text)
+faultRootCauseService_name :: Lens.Lens' FaultRootCauseService (Prelude.Maybe Prelude.Text)
 faultRootCauseService_name = Lens.lens (\FaultRootCauseService' {name} -> name) (\s@FaultRootCauseService' {} a -> s {name = a} :: FaultRootCauseService)
 
 -- | The path of root cause entities found on the service.
-faultRootCauseService_entityPath :: Lens.Lens' FaultRootCauseService (Core.Maybe [FaultRootCauseEntity])
-faultRootCauseService_entityPath = Lens.lens (\FaultRootCauseService' {entityPath} -> entityPath) (\s@FaultRootCauseService' {} a -> s {entityPath = a} :: FaultRootCauseService) Core.. Lens.mapping Lens._Coerce
+faultRootCauseService_entityPath :: Lens.Lens' FaultRootCauseService (Prelude.Maybe [FaultRootCauseEntity])
+faultRootCauseService_entityPath = Lens.lens (\FaultRootCauseService' {entityPath} -> entityPath) (\s@FaultRootCauseService' {} a -> s {entityPath = a} :: FaultRootCauseService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type associated to the service.
-faultRootCauseService_type :: Lens.Lens' FaultRootCauseService (Core.Maybe Core.Text)
+faultRootCauseService_type :: Lens.Lens' FaultRootCauseService (Prelude.Maybe Prelude.Text)
 faultRootCauseService_type = Lens.lens (\FaultRootCauseService' {type'} -> type') (\s@FaultRootCauseService' {} a -> s {type' = a} :: FaultRootCauseService)
 
 instance Core.FromJSON FaultRootCauseService where
@@ -104,14 +105,14 @@ instance Core.FromJSON FaultRootCauseService where
       "FaultRootCauseService"
       ( \x ->
           FaultRootCauseService'
-            Core.<$> (x Core..:? "Names" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "AccountId")
-            Core.<*> (x Core..:? "Inferred")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "EntityPath" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Names" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "Inferred")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "EntityPath" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable FaultRootCauseService
+instance Prelude.Hashable FaultRootCauseService
 
-instance Core.NFData FaultRootCauseService
+instance Prelude.NFData FaultRootCauseService

@@ -23,29 +23,30 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a request to perform a @DeleteItem@ operation.
 --
 -- /See:/ 'newDelete' smart constructor.
 data Delete = Delete'
   { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE and ALL_OLD.
-    returnValuesOnConditionCheckFailure :: Core.Maybe ReturnValuesOnConditionCheckFailure,
+    returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
     -- | One or more substitution tokens for attribute names in an expression.
-    expressionAttributeNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A condition that must be satisfied in order for a conditional delete to
     -- succeed.
-    conditionExpression :: Core.Maybe Core.Text,
+    conditionExpression :: Prelude.Maybe Prelude.Text,
     -- | The primary key of the item to be deleted. Each element consists of an
     -- attribute name and a value for that attribute.
-    key :: Core.HashMap Core.Text AttributeValue,
+    key :: Prelude.HashMap Prelude.Text AttributeValue,
     -- | Name of the table in which the item to be deleted resides.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Delete' with all optional fields omitted.
@@ -72,63 +73,65 @@ data Delete = Delete'
 -- 'tableName', 'delete_tableName' - Name of the table in which the item to be deleted resides.
 newDelete ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   Delete
 newDelete pTableName_ =
   Delete'
-    { expressionAttributeValues = Core.Nothing,
-      returnValuesOnConditionCheckFailure = Core.Nothing,
-      expressionAttributeNames = Core.Nothing,
-      conditionExpression = Core.Nothing,
-      key = Core.mempty,
+    { expressionAttributeValues =
+        Prelude.Nothing,
+      returnValuesOnConditionCheckFailure =
+        Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      conditionExpression = Prelude.Nothing,
+      key = Prelude.mempty,
       tableName = pTableName_
     }
 
 -- | One or more values that can be substituted in an expression.
-delete_expressionAttributeValues :: Lens.Lens' Delete (Core.Maybe (Core.HashMap Core.Text AttributeValue))
-delete_expressionAttributeValues = Lens.lens (\Delete' {expressionAttributeValues} -> expressionAttributeValues) (\s@Delete' {} a -> s {expressionAttributeValues = a} :: Delete) Core.. Lens.mapping Lens._Coerce
+delete_expressionAttributeValues :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+delete_expressionAttributeValues = Lens.lens (\Delete' {expressionAttributeValues} -> expressionAttributeValues) (\s@Delete' {} a -> s {expressionAttributeValues = a} :: Delete) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE and ALL_OLD.
-delete_returnValuesOnConditionCheckFailure :: Lens.Lens' Delete (Core.Maybe ReturnValuesOnConditionCheckFailure)
+delete_returnValuesOnConditionCheckFailure :: Lens.Lens' Delete (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
 delete_returnValuesOnConditionCheckFailure = Lens.lens (\Delete' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@Delete' {} a -> s {returnValuesOnConditionCheckFailure = a} :: Delete)
 
 -- | One or more substitution tokens for attribute names in an expression.
-delete_expressionAttributeNames :: Lens.Lens' Delete (Core.Maybe (Core.HashMap Core.Text Core.Text))
-delete_expressionAttributeNames = Lens.lens (\Delete' {expressionAttributeNames} -> expressionAttributeNames) (\s@Delete' {} a -> s {expressionAttributeNames = a} :: Delete) Core.. Lens.mapping Lens._Coerce
+delete_expressionAttributeNames :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+delete_expressionAttributeNames = Lens.lens (\Delete' {expressionAttributeNames} -> expressionAttributeNames) (\s@Delete' {} a -> s {expressionAttributeNames = a} :: Delete) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A condition that must be satisfied in order for a conditional delete to
 -- succeed.
-delete_conditionExpression :: Lens.Lens' Delete (Core.Maybe Core.Text)
+delete_conditionExpression :: Lens.Lens' Delete (Prelude.Maybe Prelude.Text)
 delete_conditionExpression = Lens.lens (\Delete' {conditionExpression} -> conditionExpression) (\s@Delete' {} a -> s {conditionExpression = a} :: Delete)
 
 -- | The primary key of the item to be deleted. Each element consists of an
 -- attribute name and a value for that attribute.
-delete_key :: Lens.Lens' Delete (Core.HashMap Core.Text AttributeValue)
-delete_key = Lens.lens (\Delete' {key} -> key) (\s@Delete' {} a -> s {key = a} :: Delete) Core.. Lens._Coerce
+delete_key :: Lens.Lens' Delete (Prelude.HashMap Prelude.Text AttributeValue)
+delete_key = Lens.lens (\Delete' {key} -> key) (\s@Delete' {} a -> s {key = a} :: Delete) Prelude.. Lens._Coerce
 
 -- | Name of the table in which the item to be deleted resides.
-delete_tableName :: Lens.Lens' Delete Core.Text
+delete_tableName :: Lens.Lens' Delete Prelude.Text
 delete_tableName = Lens.lens (\Delete' {tableName} -> tableName) (\s@Delete' {} a -> s {tableName = a} :: Delete)
 
-instance Core.Hashable Delete
+instance Prelude.Hashable Delete
 
-instance Core.NFData Delete
+instance Prelude.NFData Delete
 
 instance Core.ToJSON Delete where
   toJSON Delete' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExpressionAttributeValues" Core..=)
-              Core.<$> expressionAttributeValues,
+              Prelude.<$> expressionAttributeValues,
             ("ReturnValuesOnConditionCheckFailure" Core..=)
-              Core.<$> returnValuesOnConditionCheckFailure,
+              Prelude.<$> returnValuesOnConditionCheckFailure,
             ("ExpressionAttributeNames" Core..=)
-              Core.<$> expressionAttributeNames,
+              Prelude.<$> expressionAttributeNames,
             ("ConditionExpression" Core..=)
-              Core.<$> conditionExpression,
-            Core.Just ("Key" Core..= key),
-            Core.Just ("TableName" Core..= tableName)
+              Prelude.<$> conditionExpression,
+            Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )

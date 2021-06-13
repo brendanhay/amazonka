@@ -21,23 +21,24 @@ module Network.AWS.CognitoSync.Types.IdentityPoolUsage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Usage information for the identity pool.
 --
 -- /See:/ 'newIdentityPoolUsage' smart constructor.
 data IdentityPoolUsage = IdentityPoolUsage'
   { -- | Date on which the identity pool was last modified.
-    lastModifiedDate :: Core.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Core.Maybe Core.Text,
+    identityPoolId :: Prelude.Maybe Prelude.Text,
     -- | Number of sync sessions for the identity pool.
-    syncSessionsCount :: Core.Maybe Core.Integer,
+    syncSessionsCount :: Prelude.Maybe Prelude.Integer,
     -- | Data storage information for the identity pool.
-    dataStorage :: Core.Maybe Core.Integer
+    dataStorage :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IdentityPoolUsage' with all optional fields omitted.
@@ -60,28 +61,29 @@ newIdentityPoolUsage ::
   IdentityPoolUsage
 newIdentityPoolUsage =
   IdentityPoolUsage'
-    { lastModifiedDate = Core.Nothing,
-      identityPoolId = Core.Nothing,
-      syncSessionsCount = Core.Nothing,
-      dataStorage = Core.Nothing
+    { lastModifiedDate =
+        Prelude.Nothing,
+      identityPoolId = Prelude.Nothing,
+      syncSessionsCount = Prelude.Nothing,
+      dataStorage = Prelude.Nothing
     }
 
 -- | Date on which the identity pool was last modified.
-identityPoolUsage_lastModifiedDate :: Lens.Lens' IdentityPoolUsage (Core.Maybe Core.UTCTime)
-identityPoolUsage_lastModifiedDate = Lens.lens (\IdentityPoolUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityPoolUsage' {} a -> s {lastModifiedDate = a} :: IdentityPoolUsage) Core.. Lens.mapping Core._Time
+identityPoolUsage_lastModifiedDate :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.UTCTime)
+identityPoolUsage_lastModifiedDate = Lens.lens (\IdentityPoolUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityPoolUsage' {} a -> s {lastModifiedDate = a} :: IdentityPoolUsage) Prelude.. Lens.mapping Core._Time
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-identityPoolUsage_identityPoolId :: Lens.Lens' IdentityPoolUsage (Core.Maybe Core.Text)
+identityPoolUsage_identityPoolId :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Text)
 identityPoolUsage_identityPoolId = Lens.lens (\IdentityPoolUsage' {identityPoolId} -> identityPoolId) (\s@IdentityPoolUsage' {} a -> s {identityPoolId = a} :: IdentityPoolUsage)
 
 -- | Number of sync sessions for the identity pool.
-identityPoolUsage_syncSessionsCount :: Lens.Lens' IdentityPoolUsage (Core.Maybe Core.Integer)
+identityPoolUsage_syncSessionsCount :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Integer)
 identityPoolUsage_syncSessionsCount = Lens.lens (\IdentityPoolUsage' {syncSessionsCount} -> syncSessionsCount) (\s@IdentityPoolUsage' {} a -> s {syncSessionsCount = a} :: IdentityPoolUsage)
 
 -- | Data storage information for the identity pool.
-identityPoolUsage_dataStorage :: Lens.Lens' IdentityPoolUsage (Core.Maybe Core.Integer)
+identityPoolUsage_dataStorage :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Integer)
 identityPoolUsage_dataStorage = Lens.lens (\IdentityPoolUsage' {dataStorage} -> dataStorage) (\s@IdentityPoolUsage' {} a -> s {dataStorage = a} :: IdentityPoolUsage)
 
 instance Core.FromJSON IdentityPoolUsage where
@@ -90,12 +92,12 @@ instance Core.FromJSON IdentityPoolUsage where
       "IdentityPoolUsage"
       ( \x ->
           IdentityPoolUsage'
-            Core.<$> (x Core..:? "LastModifiedDate")
-            Core.<*> (x Core..:? "IdentityPoolId")
-            Core.<*> (x Core..:? "SyncSessionsCount")
-            Core.<*> (x Core..:? "DataStorage")
+            Prelude.<$> (x Core..:? "LastModifiedDate")
+            Prelude.<*> (x Core..:? "IdentityPoolId")
+            Prelude.<*> (x Core..:? "SyncSessionsCount")
+            Prelude.<*> (x Core..:? "DataStorage")
       )
 
-instance Core.Hashable IdentityPoolUsage
+instance Prelude.Hashable IdentityPoolUsage
 
-instance Core.NFData IdentityPoolUsage
+instance Prelude.NFData IdentityPoolUsage

@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
   { -- | The Amazon Resource Name (ARN) of the role that grants permission to AWS
     -- IoT to access information about your devices, policies, certificates,
     -- and other items as required when performing an audit.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies which audit checks are enabled and disabled for this account.
     -- Use @DescribeAccountAuditConfiguration@ to see the list of all checks,
     -- including those that are currently enabled.
@@ -68,11 +69,11 @@ data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
     --
     -- On the first call to @UpdateAccountAuditConfiguration@, this parameter
     -- is required and must specify at least one enabled check.
-    auditCheckConfigurations :: Core.Maybe (Core.HashMap Core.Text AuditCheckConfiguration),
+    auditCheckConfigurations :: Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckConfiguration),
     -- | Information about the targets to which audit notifications are sent.
-    auditNotificationTargetConfigurations :: Core.Maybe (Core.HashMap AuditNotificationType AuditNotificationTarget)
+    auditNotificationTargetConfigurations :: Prelude.Maybe (Prelude.HashMap AuditNotificationType AuditNotificationTarget)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAccountAuditConfiguration' with all optional fields omitted.
@@ -107,16 +108,16 @@ newUpdateAccountAuditConfiguration ::
 newUpdateAccountAuditConfiguration =
   UpdateAccountAuditConfiguration'
     { roleArn =
-        Core.Nothing,
-      auditCheckConfigurations = Core.Nothing,
+        Prelude.Nothing,
+      auditCheckConfigurations = Prelude.Nothing,
       auditNotificationTargetConfigurations =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the role that grants permission to AWS
 -- IoT to access information about your devices, policies, certificates,
 -- and other items as required when performing an audit.
-updateAccountAuditConfiguration_roleArn :: Lens.Lens' UpdateAccountAuditConfiguration (Core.Maybe Core.Text)
+updateAccountAuditConfiguration_roleArn :: Lens.Lens' UpdateAccountAuditConfiguration (Prelude.Maybe Prelude.Text)
 updateAccountAuditConfiguration_roleArn = Lens.lens (\UpdateAccountAuditConfiguration' {roleArn} -> roleArn) (\s@UpdateAccountAuditConfiguration' {} a -> s {roleArn = a} :: UpdateAccountAuditConfiguration)
 
 -- | Specifies which audit checks are enabled and disabled for this account.
@@ -133,12 +134,12 @@ updateAccountAuditConfiguration_roleArn = Lens.lens (\UpdateAccountAuditConfigur
 --
 -- On the first call to @UpdateAccountAuditConfiguration@, this parameter
 -- is required and must specify at least one enabled check.
-updateAccountAuditConfiguration_auditCheckConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Core.Maybe (Core.HashMap Core.Text AuditCheckConfiguration))
-updateAccountAuditConfiguration_auditCheckConfigurations = Lens.lens (\UpdateAccountAuditConfiguration' {auditCheckConfigurations} -> auditCheckConfigurations) (\s@UpdateAccountAuditConfiguration' {} a -> s {auditCheckConfigurations = a} :: UpdateAccountAuditConfiguration) Core.. Lens.mapping Lens._Coerce
+updateAccountAuditConfiguration_auditCheckConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckConfiguration))
+updateAccountAuditConfiguration_auditCheckConfigurations = Lens.lens (\UpdateAccountAuditConfiguration' {auditCheckConfigurations} -> auditCheckConfigurations) (\s@UpdateAccountAuditConfiguration' {} a -> s {auditCheckConfigurations = a} :: UpdateAccountAuditConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the targets to which audit notifications are sent.
-updateAccountAuditConfiguration_auditNotificationTargetConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Core.Maybe (Core.HashMap AuditNotificationType AuditNotificationTarget))
-updateAccountAuditConfiguration_auditNotificationTargetConfigurations = Lens.lens (\UpdateAccountAuditConfiguration' {auditNotificationTargetConfigurations} -> auditNotificationTargetConfigurations) (\s@UpdateAccountAuditConfiguration' {} a -> s {auditNotificationTargetConfigurations = a} :: UpdateAccountAuditConfiguration) Core.. Lens.mapping Lens._Coerce
+updateAccountAuditConfiguration_auditNotificationTargetConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Prelude.Maybe (Prelude.HashMap AuditNotificationType AuditNotificationTarget))
+updateAccountAuditConfiguration_auditNotificationTargetConfigurations = Lens.lens (\UpdateAccountAuditConfiguration' {auditNotificationTargetConfigurations} -> auditNotificationTargetConfigurations) (\s@UpdateAccountAuditConfiguration' {} a -> s {auditNotificationTargetConfigurations = a} :: UpdateAccountAuditConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -152,45 +153,47 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           UpdateAccountAuditConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateAccountAuditConfiguration
 
-instance Core.NFData UpdateAccountAuditConfiguration
+instance
+  Prelude.NFData
+    UpdateAccountAuditConfiguration
 
 instance
   Core.ToHeaders
     UpdateAccountAuditConfiguration
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateAccountAuditConfiguration where
   toJSON UpdateAccountAuditConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("roleArn" Core..=) Core.<$> roleArn,
+      ( Prelude.catMaybes
+          [ ("roleArn" Core..=) Prelude.<$> roleArn,
             ("auditCheckConfigurations" Core..=)
-              Core.<$> auditCheckConfigurations,
+              Prelude.<$> auditCheckConfigurations,
             ("auditNotificationTargetConfigurations" Core..=)
-              Core.<$> auditNotificationTargetConfigurations
+              Prelude.<$> auditNotificationTargetConfigurations
           ]
       )
 
 instance Core.ToPath UpdateAccountAuditConfiguration where
-  toPath = Core.const "/audit/configuration"
+  toPath = Prelude.const "/audit/configuration"
 
 instance Core.ToQuery UpdateAccountAuditConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAccountAuditConfigurationResponse' smart constructor.
 data UpdateAccountAuditConfigurationResponse = UpdateAccountAuditConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAccountAuditConfigurationResponse' with all optional fields omitted.
@@ -203,7 +206,7 @@ data UpdateAccountAuditConfigurationResponse = UpdateAccountAuditConfigurationRe
 -- 'httpStatus', 'updateAccountAuditConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateAccountAuditConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateAccountAuditConfigurationResponse
 newUpdateAccountAuditConfigurationResponse
   pHttpStatus_ =
@@ -213,9 +216,9 @@ newUpdateAccountAuditConfigurationResponse
       }
 
 -- | The response's http status code.
-updateAccountAuditConfigurationResponse_httpStatus :: Lens.Lens' UpdateAccountAuditConfigurationResponse Core.Int
+updateAccountAuditConfigurationResponse_httpStatus :: Lens.Lens' UpdateAccountAuditConfigurationResponse Prelude.Int
 updateAccountAuditConfigurationResponse_httpStatus = Lens.lens (\UpdateAccountAuditConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateAccountAuditConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateAccountAuditConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateAccountAuditConfigurationResponse

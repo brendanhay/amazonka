@@ -23,6 +23,7 @@ import Network.AWS.CloudDirectory.Types.FacetStyle
 import Network.AWS.CloudDirectory.Types.ObjectType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains @Name@, @ARN@, @Attributes@, @ Rules@, and
 -- @ObjectTypes@. See
@@ -35,14 +36,14 @@ data Facet = Facet'
     -- @Static@ and @Dynamic@. For static facets, all attributes must be
     -- defined in the schema. For dynamic facets, attributes can be defined
     -- during data plane operations.
-    facetStyle :: Core.Maybe FacetStyle,
+    facetStyle :: Prelude.Maybe FacetStyle,
     -- | The name of the Facet.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The object type that is associated with the facet. See
     -- CreateFacetRequest$ObjectType for more details.
-    objectType :: Core.Maybe ObjectType
+    objectType :: Prelude.Maybe ObjectType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Facet' with all optional fields omitted.
@@ -65,25 +66,25 @@ newFacet ::
   Facet
 newFacet =
   Facet'
-    { facetStyle = Core.Nothing,
-      name = Core.Nothing,
-      objectType = Core.Nothing
+    { facetStyle = Prelude.Nothing,
+      name = Prelude.Nothing,
+      objectType = Prelude.Nothing
     }
 
 -- | There are two different styles that you can define on any given facet,
 -- @Static@ and @Dynamic@. For static facets, all attributes must be
 -- defined in the schema. For dynamic facets, attributes can be defined
 -- during data plane operations.
-facet_facetStyle :: Lens.Lens' Facet (Core.Maybe FacetStyle)
+facet_facetStyle :: Lens.Lens' Facet (Prelude.Maybe FacetStyle)
 facet_facetStyle = Lens.lens (\Facet' {facetStyle} -> facetStyle) (\s@Facet' {} a -> s {facetStyle = a} :: Facet)
 
 -- | The name of the Facet.
-facet_name :: Lens.Lens' Facet (Core.Maybe Core.Text)
+facet_name :: Lens.Lens' Facet (Prelude.Maybe Prelude.Text)
 facet_name = Lens.lens (\Facet' {name} -> name) (\s@Facet' {} a -> s {name = a} :: Facet)
 
 -- | The object type that is associated with the facet. See
 -- CreateFacetRequest$ObjectType for more details.
-facet_objectType :: Lens.Lens' Facet (Core.Maybe ObjectType)
+facet_objectType :: Lens.Lens' Facet (Prelude.Maybe ObjectType)
 facet_objectType = Lens.lens (\Facet' {objectType} -> objectType) (\s@Facet' {} a -> s {objectType = a} :: Facet)
 
 instance Core.FromJSON Facet where
@@ -92,11 +93,11 @@ instance Core.FromJSON Facet where
       "Facet"
       ( \x ->
           Facet'
-            Core.<$> (x Core..:? "FacetStyle")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "ObjectType")
+            Prelude.<$> (x Core..:? "FacetStyle")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ObjectType")
       )
 
-instance Core.Hashable Facet
+instance Prelude.Hashable Facet
 
-instance Core.NFData Facet
+instance Prelude.NFData Facet

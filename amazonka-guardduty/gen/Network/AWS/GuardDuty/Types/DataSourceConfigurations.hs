@@ -22,15 +22,16 @@ module Network.AWS.GuardDuty.Types.DataSourceConfigurations where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.S3LogsConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about which data sources are enabled.
 --
 -- /See:/ 'newDataSourceConfigurations' smart constructor.
 data DataSourceConfigurations = DataSourceConfigurations'
   { -- | Describes whether S3 data event logs are enabled as a data source.
-    s3Logs :: Core.Maybe S3LogsConfiguration
+    s3Logs :: Prelude.Maybe S3LogsConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataSourceConfigurations' with all optional fields omitted.
@@ -44,17 +45,19 @@ data DataSourceConfigurations = DataSourceConfigurations'
 newDataSourceConfigurations ::
   DataSourceConfigurations
 newDataSourceConfigurations =
-  DataSourceConfigurations' {s3Logs = Core.Nothing}
+  DataSourceConfigurations' {s3Logs = Prelude.Nothing}
 
 -- | Describes whether S3 data event logs are enabled as a data source.
-dataSourceConfigurations_s3Logs :: Lens.Lens' DataSourceConfigurations (Core.Maybe S3LogsConfiguration)
+dataSourceConfigurations_s3Logs :: Lens.Lens' DataSourceConfigurations (Prelude.Maybe S3LogsConfiguration)
 dataSourceConfigurations_s3Logs = Lens.lens (\DataSourceConfigurations' {s3Logs} -> s3Logs) (\s@DataSourceConfigurations' {} a -> s {s3Logs = a} :: DataSourceConfigurations)
 
-instance Core.Hashable DataSourceConfigurations
+instance Prelude.Hashable DataSourceConfigurations
 
-instance Core.NFData DataSourceConfigurations
+instance Prelude.NFData DataSourceConfigurations
 
 instance Core.ToJSON DataSourceConfigurations where
   toJSON DataSourceConfigurations' {..} =
     Core.object
-      (Core.catMaybes [("s3Logs" Core..=) Core.<$> s3Logs])
+      ( Prelude.catMaybes
+          [("s3Logs" Core..=) Prelude.<$> s3Logs]
+      )

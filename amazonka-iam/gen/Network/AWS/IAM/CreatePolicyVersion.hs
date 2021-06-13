@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,14 +71,14 @@ data CreatePolicyVersion = CreatePolicyVersion'
     -- For more information about managed policy versions, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
     -- in the /IAM User Guide/.
-    setAsDefault :: Core.Maybe Core.Bool,
+    setAsDefault :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the IAM policy to which you want to
     -- add a new version.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Core.Text,
+    policyArn :: Prelude.Text,
     -- | The JSON policy document that you want to use as the content for this
     -- new version of the policy.
     --
@@ -97,9 +98,9 @@ data CreatePolicyVersion = CreatePolicyVersion'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyDocument :: Core.Text
+    policyDocument :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePolicyVersion' with all optional fields omitted.
@@ -147,13 +148,14 @@ data CreatePolicyVersion = CreatePolicyVersion'
 --     carriage return (@\\u000D@)
 newCreatePolicyVersion ::
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyDocument'
-  Core.Text ->
+  Prelude.Text ->
   CreatePolicyVersion
 newCreatePolicyVersion pPolicyArn_ pPolicyDocument_ =
   CreatePolicyVersion'
-    { setAsDefault = Core.Nothing,
+    { setAsDefault =
+        Prelude.Nothing,
       policyArn = pPolicyArn_,
       policyDocument = pPolicyDocument_
     }
@@ -167,7 +169,7 @@ newCreatePolicyVersion pPolicyArn_ pPolicyDocument_ =
 -- For more information about managed policy versions, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
 -- in the /IAM User Guide/.
-createPolicyVersion_setAsDefault :: Lens.Lens' CreatePolicyVersion (Core.Maybe Core.Bool)
+createPolicyVersion_setAsDefault :: Lens.Lens' CreatePolicyVersion (Prelude.Maybe Prelude.Bool)
 createPolicyVersion_setAsDefault = Lens.lens (\CreatePolicyVersion' {setAsDefault} -> setAsDefault) (\s@CreatePolicyVersion' {} a -> s {setAsDefault = a} :: CreatePolicyVersion)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy to which you want to
@@ -176,7 +178,7 @@ createPolicyVersion_setAsDefault = Lens.lens (\CreatePolicyVersion' {setAsDefaul
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-createPolicyVersion_policyArn :: Lens.Lens' CreatePolicyVersion Core.Text
+createPolicyVersion_policyArn :: Lens.Lens' CreatePolicyVersion Prelude.Text
 createPolicyVersion_policyArn = Lens.lens (\CreatePolicyVersion' {policyArn} -> policyArn) (\s@CreatePolicyVersion' {} a -> s {policyArn = a} :: CreatePolicyVersion)
 
 -- | The JSON policy document that you want to use as the content for this
@@ -198,7 +200,7 @@ createPolicyVersion_policyArn = Lens.lens (\CreatePolicyVersion' {policyArn} -> 
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-createPolicyVersion_policyDocument :: Lens.Lens' CreatePolicyVersion Core.Text
+createPolicyVersion_policyDocument :: Lens.Lens' CreatePolicyVersion Prelude.Text
 createPolicyVersion_policyDocument = Lens.lens (\CreatePolicyVersion' {policyDocument} -> policyDocument) (\s@CreatePolicyVersion' {} a -> s {policyDocument = a} :: CreatePolicyVersion)
 
 instance Core.AWSRequest CreatePolicyVersion where
@@ -211,26 +213,27 @@ instance Core.AWSRequest CreatePolicyVersion where
       "CreatePolicyVersionResult"
       ( \s h x ->
           CreatePolicyVersionResponse'
-            Core.<$> (x Core..@? "PolicyVersion")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "PolicyVersion")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePolicyVersion
+instance Prelude.Hashable CreatePolicyVersion
 
-instance Core.NFData CreatePolicyVersion
+instance Prelude.NFData CreatePolicyVersion
 
 instance Core.ToHeaders CreatePolicyVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreatePolicyVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePolicyVersion where
   toQuery CreatePolicyVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePolicyVersion" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("CreatePolicyVersion" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "SetAsDefault" Core.=: setAsDefault,
         "PolicyArn" Core.=: policyArn,
         "PolicyDocument" Core.=: policyDocument
@@ -241,11 +244,11 @@ instance Core.ToQuery CreatePolicyVersion where
 -- /See:/ 'newCreatePolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
   { -- | A structure containing details about the new policy version.
-    policyVersion :: Core.Maybe PolicyVersion,
+    policyVersion :: Prelude.Maybe PolicyVersion,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePolicyVersionResponse' with all optional fields omitted.
@@ -260,21 +263,21 @@ data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
 -- 'httpStatus', 'createPolicyVersionResponse_httpStatus' - The response's http status code.
 newCreatePolicyVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePolicyVersionResponse
 newCreatePolicyVersionResponse pHttpStatus_ =
   CreatePolicyVersionResponse'
     { policyVersion =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure containing details about the new policy version.
-createPolicyVersionResponse_policyVersion :: Lens.Lens' CreatePolicyVersionResponse (Core.Maybe PolicyVersion)
+createPolicyVersionResponse_policyVersion :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe PolicyVersion)
 createPolicyVersionResponse_policyVersion = Lens.lens (\CreatePolicyVersionResponse' {policyVersion} -> policyVersion) (\s@CreatePolicyVersionResponse' {} a -> s {policyVersion = a} :: CreatePolicyVersionResponse)
 
 -- | The response's http status code.
-createPolicyVersionResponse_httpStatus :: Lens.Lens' CreatePolicyVersionResponse Core.Int
+createPolicyVersionResponse_httpStatus :: Lens.Lens' CreatePolicyVersionResponse Prelude.Int
 createPolicyVersionResponse_httpStatus = Lens.lens (\CreatePolicyVersionResponse' {httpStatus} -> httpStatus) (\s@CreatePolicyVersionResponse' {} a -> s {httpStatus = a} :: CreatePolicyVersionResponse)
 
-instance Core.NFData CreatePolicyVersionResponse
+instance Prelude.NFData CreatePolicyVersionResponse

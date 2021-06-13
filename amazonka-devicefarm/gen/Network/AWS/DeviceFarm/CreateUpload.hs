@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +54,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateUpload' smart constructor.
 data CreateUpload = CreateUpload'
   { -- | The upload\'s content type (for example, @application\/octet-stream@).
-    contentType :: Core.Maybe Core.Text,
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the project for the upload.
-    projectArn :: Core.Text,
+    projectArn :: Prelude.Text,
     -- | The upload\'s file name. The name should not contain any forward slashes
     -- (@\/@). If you are uploading an iOS app, the file name must end with the
     -- @.ipa@ extension. If you are uploading an Android app, the file name
     -- must end with the @.apk@ extension. For all others, the file name must
     -- end with the @.zip@ file extension.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The upload\'s upload type.
     --
     -- Must be one of the following values:
@@ -134,7 +135,7 @@ data CreateUpload = CreateUpload'
     -- throws an @ArgumentException@ error.
     type' :: UploadType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUpload' with all optional fields omitted.
@@ -226,26 +227,26 @@ data CreateUpload = CreateUpload'
 -- throws an @ArgumentException@ error.
 newCreateUpload ::
   -- | 'projectArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   UploadType ->
   CreateUpload
 newCreateUpload pProjectArn_ pName_ pType_ =
   CreateUpload'
-    { contentType = Core.Nothing,
+    { contentType = Prelude.Nothing,
       projectArn = pProjectArn_,
       name = pName_,
       type' = pType_
     }
 
 -- | The upload\'s content type (for example, @application\/octet-stream@).
-createUpload_contentType :: Lens.Lens' CreateUpload (Core.Maybe Core.Text)
+createUpload_contentType :: Lens.Lens' CreateUpload (Prelude.Maybe Prelude.Text)
 createUpload_contentType = Lens.lens (\CreateUpload' {contentType} -> contentType) (\s@CreateUpload' {} a -> s {contentType = a} :: CreateUpload)
 
 -- | The ARN of the project for the upload.
-createUpload_projectArn :: Lens.Lens' CreateUpload Core.Text
+createUpload_projectArn :: Lens.Lens' CreateUpload Prelude.Text
 createUpload_projectArn = Lens.lens (\CreateUpload' {projectArn} -> projectArn) (\s@CreateUpload' {} a -> s {projectArn = a} :: CreateUpload)
 
 -- | The upload\'s file name. The name should not contain any forward slashes
@@ -253,7 +254,7 @@ createUpload_projectArn = Lens.lens (\CreateUpload' {projectArn} -> projectArn) 
 -- @.ipa@ extension. If you are uploading an Android app, the file name
 -- must end with the @.apk@ extension. For all others, the file name must
 -- end with the @.zip@ file extension.
-createUpload_name :: Lens.Lens' CreateUpload Core.Text
+createUpload_name :: Lens.Lens' CreateUpload Prelude.Text
 createUpload_name = Lens.lens (\CreateUpload' {name} -> name) (\s@CreateUpload' {} a -> s {name = a} :: CreateUpload)
 
 -- | The upload\'s upload type.
@@ -336,54 +337,56 @@ instance Core.AWSRequest CreateUpload where
     Response.receiveJSON
       ( \s h x ->
           CreateUploadResponse'
-            Core.<$> (x Core..?> "upload")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "upload")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateUpload
+instance Prelude.Hashable CreateUpload
 
-instance Core.NFData CreateUpload
+instance Prelude.NFData CreateUpload
 
 instance Core.ToHeaders CreateUpload where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.CreateUpload" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateUpload where
   toJSON CreateUpload' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("contentType" Core..=) Core.<$> contentType,
-            Core.Just ("projectArn" Core..= projectArn),
-            Core.Just ("name" Core..= name),
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("contentType" Core..=) Prelude.<$> contentType,
+            Prelude.Just ("projectArn" Core..= projectArn),
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("type" Core..= type')
           ]
       )
 
 instance Core.ToPath CreateUpload where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateUpload where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a create upload request.
 --
 -- /See:/ 'newCreateUploadResponse' smart constructor.
 data CreateUploadResponse = CreateUploadResponse'
   { -- | The newly created upload.
-    upload :: Core.Maybe Upload,
+    upload :: Prelude.Maybe Upload,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUploadResponse' with all optional fields omitted.
@@ -398,20 +401,20 @@ data CreateUploadResponse = CreateUploadResponse'
 -- 'httpStatus', 'createUploadResponse_httpStatus' - The response's http status code.
 newCreateUploadResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateUploadResponse
 newCreateUploadResponse pHttpStatus_ =
   CreateUploadResponse'
-    { upload = Core.Nothing,
+    { upload = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The newly created upload.
-createUploadResponse_upload :: Lens.Lens' CreateUploadResponse (Core.Maybe Upload)
+createUploadResponse_upload :: Lens.Lens' CreateUploadResponse (Prelude.Maybe Upload)
 createUploadResponse_upload = Lens.lens (\CreateUploadResponse' {upload} -> upload) (\s@CreateUploadResponse' {} a -> s {upload = a} :: CreateUploadResponse)
 
 -- | The response's http status code.
-createUploadResponse_httpStatus :: Lens.Lens' CreateUploadResponse Core.Int
+createUploadResponse_httpStatus :: Lens.Lens' CreateUploadResponse Prelude.Int
 createUploadResponse_httpStatus = Lens.lens (\CreateUploadResponse' {httpStatus} -> httpStatus) (\s@CreateUploadResponse' {} a -> s {httpStatus = a} :: CreateUploadResponse)
 
-instance Core.NFData CreateUploadResponse
+instance Prelude.NFData CreateUploadResponse

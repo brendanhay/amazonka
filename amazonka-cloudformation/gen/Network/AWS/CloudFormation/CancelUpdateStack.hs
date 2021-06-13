@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ data CancelUpdateStack = CancelUpdateStack'
     -- that you\'re not attempting to cancel an update on a stack with the same
     -- name. You might retry @CancelUpdateStack@ requests to ensure that AWS
     -- CloudFormation successfully received them.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name or the unique stack ID that is associated with the stack.
-    stackName :: Core.Text
+    stackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelUpdateStack' with all optional fields omitted.
@@ -78,12 +79,12 @@ data CancelUpdateStack = CancelUpdateStack'
 -- 'stackName', 'cancelUpdateStack_stackName' - The name or the unique stack ID that is associated with the stack.
 newCancelUpdateStack ::
   -- | 'stackName'
-  Core.Text ->
+  Prelude.Text ->
   CancelUpdateStack
 newCancelUpdateStack pStackName_ =
   CancelUpdateStack'
     { clientRequestToken =
-        Core.Nothing,
+        Prelude.Nothing,
       stackName = pStackName_
     }
 
@@ -92,11 +93,11 @@ newCancelUpdateStack pStackName_ =
 -- that you\'re not attempting to cancel an update on a stack with the same
 -- name. You might retry @CancelUpdateStack@ requests to ensure that AWS
 -- CloudFormation successfully received them.
-cancelUpdateStack_clientRequestToken :: Lens.Lens' CancelUpdateStack (Core.Maybe Core.Text)
+cancelUpdateStack_clientRequestToken :: Lens.Lens' CancelUpdateStack (Prelude.Maybe Prelude.Text)
 cancelUpdateStack_clientRequestToken = Lens.lens (\CancelUpdateStack' {clientRequestToken} -> clientRequestToken) (\s@CancelUpdateStack' {} a -> s {clientRequestToken = a} :: CancelUpdateStack)
 
 -- | The name or the unique stack ID that is associated with the stack.
-cancelUpdateStack_stackName :: Lens.Lens' CancelUpdateStack Core.Text
+cancelUpdateStack_stackName :: Lens.Lens' CancelUpdateStack Prelude.Text
 cancelUpdateStack_stackName = Lens.lens (\CancelUpdateStack' {stackName} -> stackName) (\s@CancelUpdateStack' {} a -> s {stackName = a} :: CancelUpdateStack)
 
 instance Core.AWSRequest CancelUpdateStack where
@@ -107,22 +108,23 @@ instance Core.AWSRequest CancelUpdateStack where
   response =
     Response.receiveNull CancelUpdateStackResponse'
 
-instance Core.Hashable CancelUpdateStack
+instance Prelude.Hashable CancelUpdateStack
 
-instance Core.NFData CancelUpdateStack
+instance Prelude.NFData CancelUpdateStack
 
 instance Core.ToHeaders CancelUpdateStack where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CancelUpdateStack where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelUpdateStack where
   toQuery CancelUpdateStack' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CancelUpdateStack" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("CancelUpdateStack" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "ClientRequestToken" Core.=: clientRequestToken,
         "StackName" Core.=: stackName
       ]
@@ -131,7 +133,7 @@ instance Core.ToQuery CancelUpdateStack where
 data CancelUpdateStackResponse = CancelUpdateStackResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelUpdateStackResponse' with all optional fields omitted.
@@ -142,4 +144,4 @@ newCancelUpdateStackResponse ::
 newCancelUpdateStackResponse =
   CancelUpdateStackResponse'
 
-instance Core.NFData CancelUpdateStackResponse
+instance Prelude.NFData CancelUpdateStackResponse

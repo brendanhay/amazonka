@@ -28,6 +28,7 @@ module Network.AWS.MQ.Types.SanitizationWarningReason
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The reason for which the XML elements or attributes were sanitized.
 newtype SanitizationWarningReason = SanitizationWarningReason'
@@ -35,15 +36,15 @@ newtype SanitizationWarningReason = SanitizationWarningReason'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

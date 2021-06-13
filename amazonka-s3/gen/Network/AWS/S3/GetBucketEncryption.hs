@@ -62,6 +62,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -71,12 +72,12 @@ data GetBucketEncryption = GetBucketEncryption'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket from which the server-side encryption
     -- configuration is retrieved.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketEncryption' with all optional fields omitted.
@@ -99,14 +100,14 @@ newGetBucketEncryption ::
 newGetBucketEncryption pBucket_ =
   GetBucketEncryption'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketEncryption_expectedBucketOwner :: Lens.Lens' GetBucketEncryption (Core.Maybe Core.Text)
+getBucketEncryption_expectedBucketOwner :: Lens.Lens' GetBucketEncryption (Prelude.Maybe Prelude.Text)
 getBucketEncryption_expectedBucketOwner = Lens.lens (\GetBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketEncryption' {} a -> s {expectedBucketOwner = a} :: GetBucketEncryption)
 
 -- | The name of the bucket from which the server-side encryption
@@ -123,35 +124,36 @@ instance Core.AWSRequest GetBucketEncryption where
     Response.receiveXML
       ( \s h x ->
           GetBucketEncryptionResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBucketEncryption
+instance Prelude.Hashable GetBucketEncryption
 
-instance Core.NFData GetBucketEncryption
+instance Prelude.NFData GetBucketEncryption
 
 instance Core.ToHeaders GetBucketEncryption where
   toHeaders GetBucketEncryption' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetBucketEncryption where
   toPath GetBucketEncryption' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery GetBucketEncryption where
-  toQuery = Core.const (Core.mconcat ["encryption"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["encryption"])
 
 -- | /See:/ 'newGetBucketEncryptionResponse' smart constructor.
 data GetBucketEncryptionResponse = GetBucketEncryptionResponse'
-  { serverSideEncryptionConfiguration :: Core.Maybe ServerSideEncryptionConfiguration,
+  { serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketEncryptionResponse' with all optional fields omitted.
@@ -166,21 +168,21 @@ data GetBucketEncryptionResponse = GetBucketEncryptionResponse'
 -- 'httpStatus', 'getBucketEncryptionResponse_httpStatus' - The response's http status code.
 newGetBucketEncryptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBucketEncryptionResponse
 newGetBucketEncryptionResponse pHttpStatus_ =
   GetBucketEncryptionResponse'
     { serverSideEncryptionConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getBucketEncryptionResponse_serverSideEncryptionConfiguration :: Lens.Lens' GetBucketEncryptionResponse (Core.Maybe ServerSideEncryptionConfiguration)
+getBucketEncryptionResponse_serverSideEncryptionConfiguration :: Lens.Lens' GetBucketEncryptionResponse (Prelude.Maybe ServerSideEncryptionConfiguration)
 getBucketEncryptionResponse_serverSideEncryptionConfiguration = Lens.lens (\GetBucketEncryptionResponse' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@GetBucketEncryptionResponse' {} a -> s {serverSideEncryptionConfiguration = a} :: GetBucketEncryptionResponse)
 
 -- | The response's http status code.
-getBucketEncryptionResponse_httpStatus :: Lens.Lens' GetBucketEncryptionResponse Core.Int
+getBucketEncryptionResponse_httpStatus :: Lens.Lens' GetBucketEncryptionResponse Prelude.Int
 getBucketEncryptionResponse_httpStatus = Lens.lens (\GetBucketEncryptionResponse' {httpStatus} -> httpStatus) (\s@GetBucketEncryptionResponse' {} a -> s {httpStatus = a} :: GetBucketEncryptionResponse)
 
-instance Core.NFData GetBucketEncryptionResponse
+instance Prelude.NFData GetBucketEncryptionResponse

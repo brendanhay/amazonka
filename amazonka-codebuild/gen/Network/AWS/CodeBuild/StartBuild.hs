@@ -72,6 +72,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,7 +90,7 @@ data StartBuild = StartBuild'
     -- not provided or is set to an empty string, the source code must contain
     -- a buildspec file in its root directory. For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
-    buildspecOverride :: Core.Maybe Core.Text,
+    buildspecOverride :: Prelude.Maybe Prelude.Text,
     -- | The version of the build input to be built, for this build only. If not
     -- specified, the latest version is used. If specified, the contents
     -- depends on the source provider:
@@ -121,42 +122,42 @@ data StartBuild = StartBuild'
     -- For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
     -- in the /AWS CodeBuild User Guide/.
-    sourceVersion :: Core.Maybe Core.Text,
+    sourceVersion :: Prelude.Maybe Prelude.Text,
     -- | A set of environment variables that overrides, for this build only, the
     -- latest ones already defined in the build project.
-    environmentVariablesOverride :: Core.Maybe [EnvironmentVariable],
+    environmentVariablesOverride :: Prelude.Maybe [EnvironmentVariable],
     -- | A unique, case sensitive identifier you provide to ensure the
     -- idempotency of the StartBuild request. The token is included in the
     -- StartBuild request and is valid for 5 minutes. If you repeat the
     -- StartBuild request with the same token, but change a parameter, AWS
     -- CodeBuild returns a parameter mismatch error.
-    idempotencyToken :: Core.Maybe Core.Text,
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | A location that overrides, for this build, the source location for the
     -- one defined in the build project.
-    sourceLocationOverride :: Core.Maybe Core.Text,
+    sourceLocationOverride :: Prelude.Maybe Prelude.Text,
     -- | Log settings for this build that override the log settings defined in
     -- the build project.
-    logsConfigOverride :: Core.Maybe LogsConfig,
+    logsConfigOverride :: Prelude.Maybe LogsConfig,
     -- | Build output artifact settings that override, for this build only, the
     -- latest ones already defined in the build project.
-    artifactsOverride :: Core.Maybe ProjectArtifacts,
+    artifactsOverride :: Prelude.Maybe ProjectArtifacts,
     -- | An authorization type for this build that overrides the one defined in
     -- the build project. This override applies only if the build project\'s
     -- source is BitBucket or GitHub.
-    sourceAuthOverride :: Core.Maybe SourceAuth,
+    sourceAuthOverride :: Prelude.Maybe SourceAuth,
     -- | The name of an image for this build that overrides the one specified in
     -- the build project.
-    imageOverride :: Core.Maybe Core.Text,
+    imageOverride :: Prelude.Maybe Prelude.Text,
     -- | The number of minutes a build is allowed to be queued before it times
     -- out.
-    queuedTimeoutInMinutesOverride :: Core.Maybe Core.Natural,
+    queuedTimeoutInMinutesOverride :: Prelude.Maybe Prelude.Natural,
     -- | Enable this flag to override the insecure SSL setting that is specified
     -- in the build project. The insecure SSL setting determines whether to
     -- ignore SSL warnings while connecting to the project source code. This
     -- override applies only if the build\'s source is GitHub Enterprise.
-    insecureSslOverride :: Core.Maybe Core.Bool,
+    insecureSslOverride :: Prelude.Maybe Prelude.Bool,
     -- | An array of @ProjectSource@ objects.
-    secondarySourcesOverride :: Core.Maybe [ProjectSource],
+    secondarySourcesOverride :: Prelude.Maybe [ProjectSource],
     -- | Set to true to report to your source provider the status of a build\'s
     -- start and completion. If you use this option with a source provider
     -- other than GitHub, GitHub Enterprise, or Bitbucket, an
@@ -171,20 +172,20 @@ data StartBuild = StartBuild'
     --
     -- The status of a build triggered by a webhook is always reported to your
     -- source provider.
-    reportBuildStatusOverride :: Core.Maybe Core.Bool,
+    reportBuildStatusOverride :: Prelude.Maybe Prelude.Bool,
     -- | The name of a service role for this build that overrides the one
     -- specified in the build project.
-    serviceRoleOverride :: Core.Maybe Core.Text,
+    serviceRoleOverride :: Prelude.Maybe Prelude.Text,
     -- | The credentials for access to a private registry.
-    registryCredentialOverride :: Core.Maybe RegistryCredential,
+    registryCredentialOverride :: Prelude.Maybe RegistryCredential,
     -- | An array of @ProjectSourceVersion@ objects that specify one or more
     -- versions of the project\'s secondary sources to be used for this build
     -- only.
-    secondarySourcesVersionOverride :: Core.Maybe [ProjectSourceVersion],
+    secondarySourcesVersionOverride :: Prelude.Maybe [ProjectSourceVersion],
     -- | Contains information that defines how the build project reports the
     -- build status to the source provider. This option is only used when the
     -- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.
-    buildStatusConfigOverride :: Core.Maybe BuildStatusConfig,
+    buildStatusConfigOverride :: Prelude.Maybe BuildStatusConfig,
     -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that
     -- overrides the one specified in the build project. The CMK key encrypts
     -- the build output artifacts.
@@ -194,24 +195,24 @@ data StartBuild = StartBuild'
     --
     -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
     -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-    encryptionKeyOverride :: Core.Maybe Core.Text,
+    encryptionKeyOverride :: Prelude.Maybe Prelude.Text,
     -- | Enable this flag to override privileged mode in the build project.
-    privilegedModeOverride :: Core.Maybe Core.Bool,
+    privilegedModeOverride :: Prelude.Maybe Prelude.Bool,
     -- | Information about the Git submodules configuration for this build of an
     -- AWS CodeBuild build project.
-    gitSubmodulesConfigOverride :: Core.Maybe GitSubmodulesConfig,
+    gitSubmodulesConfigOverride :: Prelude.Maybe GitSubmodulesConfig,
     -- | The name of a compute type for this build that overrides the one
     -- specified in the build project.
-    computeTypeOverride :: Core.Maybe ComputeType,
+    computeTypeOverride :: Prelude.Maybe ComputeType,
     -- | The name of a certificate for this build that overrides the one
     -- specified in the build project.
-    certificateOverride :: Core.Maybe Core.Text,
+    certificateOverride :: Prelude.Maybe Prelude.Text,
     -- | A source input type, for this build, that overrides the source input
     -- defined in the build project.
-    sourceTypeOverride :: Core.Maybe SourceType,
+    sourceTypeOverride :: Prelude.Maybe SourceType,
     -- | A container type for this build that overrides the one specified in the
     -- build project.
-    environmentTypeOverride :: Core.Maybe EnvironmentType,
+    environmentTypeOverride :: Prelude.Maybe EnvironmentType,
     -- | The type of credentials AWS CodeBuild uses to pull images in your build.
     -- There are two valid values:
     --
@@ -227,28 +228,28 @@ data StartBuild = StartBuild'
     -- When using a cross-account or private registry image, you must use
     -- @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image,
     -- you must use @CODEBUILD@ credentials.
-    imagePullCredentialsTypeOverride :: Core.Maybe ImagePullCredentialsType,
+    imagePullCredentialsTypeOverride :: Prelude.Maybe ImagePullCredentialsType,
     -- | An array of @ProjectArtifacts@ objects.
-    secondaryArtifactsOverride :: Core.Maybe [ProjectArtifacts],
+    secondaryArtifactsOverride :: Prelude.Maybe [ProjectArtifacts],
     -- | The user-defined depth of history, with a minimum value of 0, that
     -- overrides, for this build only, any previous depth of history defined in
     -- the build project.
-    gitCloneDepthOverride :: Core.Maybe Core.Natural,
+    gitCloneDepthOverride :: Prelude.Maybe Prelude.Natural,
     -- | A ProjectCache object specified for this build that overrides the one
     -- defined in the build project.
-    cacheOverride :: Core.Maybe ProjectCache,
+    cacheOverride :: Prelude.Maybe ProjectCache,
     -- | The number of build timeout minutes, from 5 to 480 (8 hours), that
     -- overrides, for this build only, the latest setting already defined in
     -- the build project.
-    timeoutInMinutesOverride :: Core.Maybe Core.Natural,
+    timeoutInMinutesOverride :: Prelude.Maybe Prelude.Natural,
     -- | Specifies if session debugging is enabled for this build. For more
     -- information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager>.
-    debugSessionEnabled :: Core.Maybe Core.Bool,
+    debugSessionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the AWS CodeBuild build project to start running a build.
-    projectName :: Core.Text
+    projectName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartBuild' with all optional fields omitted.
@@ -429,40 +430,40 @@ data StartBuild = StartBuild'
 -- 'projectName', 'startBuild_projectName' - The name of the AWS CodeBuild build project to start running a build.
 newStartBuild ::
   -- | 'projectName'
-  Core.Text ->
+  Prelude.Text ->
   StartBuild
 newStartBuild pProjectName_ =
   StartBuild'
-    { buildspecOverride = Core.Nothing,
-      sourceVersion = Core.Nothing,
-      environmentVariablesOverride = Core.Nothing,
-      idempotencyToken = Core.Nothing,
-      sourceLocationOverride = Core.Nothing,
-      logsConfigOverride = Core.Nothing,
-      artifactsOverride = Core.Nothing,
-      sourceAuthOverride = Core.Nothing,
-      imageOverride = Core.Nothing,
-      queuedTimeoutInMinutesOverride = Core.Nothing,
-      insecureSslOverride = Core.Nothing,
-      secondarySourcesOverride = Core.Nothing,
-      reportBuildStatusOverride = Core.Nothing,
-      serviceRoleOverride = Core.Nothing,
-      registryCredentialOverride = Core.Nothing,
-      secondarySourcesVersionOverride = Core.Nothing,
-      buildStatusConfigOverride = Core.Nothing,
-      encryptionKeyOverride = Core.Nothing,
-      privilegedModeOverride = Core.Nothing,
-      gitSubmodulesConfigOverride = Core.Nothing,
-      computeTypeOverride = Core.Nothing,
-      certificateOverride = Core.Nothing,
-      sourceTypeOverride = Core.Nothing,
-      environmentTypeOverride = Core.Nothing,
-      imagePullCredentialsTypeOverride = Core.Nothing,
-      secondaryArtifactsOverride = Core.Nothing,
-      gitCloneDepthOverride = Core.Nothing,
-      cacheOverride = Core.Nothing,
-      timeoutInMinutesOverride = Core.Nothing,
-      debugSessionEnabled = Core.Nothing,
+    { buildspecOverride = Prelude.Nothing,
+      sourceVersion = Prelude.Nothing,
+      environmentVariablesOverride = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
+      sourceLocationOverride = Prelude.Nothing,
+      logsConfigOverride = Prelude.Nothing,
+      artifactsOverride = Prelude.Nothing,
+      sourceAuthOverride = Prelude.Nothing,
+      imageOverride = Prelude.Nothing,
+      queuedTimeoutInMinutesOverride = Prelude.Nothing,
+      insecureSslOverride = Prelude.Nothing,
+      secondarySourcesOverride = Prelude.Nothing,
+      reportBuildStatusOverride = Prelude.Nothing,
+      serviceRoleOverride = Prelude.Nothing,
+      registryCredentialOverride = Prelude.Nothing,
+      secondarySourcesVersionOverride = Prelude.Nothing,
+      buildStatusConfigOverride = Prelude.Nothing,
+      encryptionKeyOverride = Prelude.Nothing,
+      privilegedModeOverride = Prelude.Nothing,
+      gitSubmodulesConfigOverride = Prelude.Nothing,
+      computeTypeOverride = Prelude.Nothing,
+      certificateOverride = Prelude.Nothing,
+      sourceTypeOverride = Prelude.Nothing,
+      environmentTypeOverride = Prelude.Nothing,
+      imagePullCredentialsTypeOverride = Prelude.Nothing,
+      secondaryArtifactsOverride = Prelude.Nothing,
+      gitCloneDepthOverride = Prelude.Nothing,
+      cacheOverride = Prelude.Nothing,
+      timeoutInMinutesOverride = Prelude.Nothing,
+      debugSessionEnabled = Prelude.Nothing,
       projectName = pProjectName_
     }
 
@@ -478,7 +479,7 @@ newStartBuild pProjectName_ =
 -- not provided or is set to an empty string, the source code must contain
 -- a buildspec file in its root directory. For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
-startBuild_buildspecOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Text)
+startBuild_buildspecOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Text)
 startBuild_buildspecOverride = Lens.lens (\StartBuild' {buildspecOverride} -> buildspecOverride) (\s@StartBuild' {} a -> s {buildspecOverride = a} :: StartBuild)
 
 -- | The version of the build input to be built, for this build only. If not
@@ -512,63 +513,63 @@ startBuild_buildspecOverride = Lens.lens (\StartBuild' {buildspecOverride} -> bu
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
 -- in the /AWS CodeBuild User Guide/.
-startBuild_sourceVersion :: Lens.Lens' StartBuild (Core.Maybe Core.Text)
+startBuild_sourceVersion :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Text)
 startBuild_sourceVersion = Lens.lens (\StartBuild' {sourceVersion} -> sourceVersion) (\s@StartBuild' {} a -> s {sourceVersion = a} :: StartBuild)
 
 -- | A set of environment variables that overrides, for this build only, the
 -- latest ones already defined in the build project.
-startBuild_environmentVariablesOverride :: Lens.Lens' StartBuild (Core.Maybe [EnvironmentVariable])
-startBuild_environmentVariablesOverride = Lens.lens (\StartBuild' {environmentVariablesOverride} -> environmentVariablesOverride) (\s@StartBuild' {} a -> s {environmentVariablesOverride = a} :: StartBuild) Core.. Lens.mapping Lens._Coerce
+startBuild_environmentVariablesOverride :: Lens.Lens' StartBuild (Prelude.Maybe [EnvironmentVariable])
+startBuild_environmentVariablesOverride = Lens.lens (\StartBuild' {environmentVariablesOverride} -> environmentVariablesOverride) (\s@StartBuild' {} a -> s {environmentVariablesOverride = a} :: StartBuild) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique, case sensitive identifier you provide to ensure the
 -- idempotency of the StartBuild request. The token is included in the
 -- StartBuild request and is valid for 5 minutes. If you repeat the
 -- StartBuild request with the same token, but change a parameter, AWS
 -- CodeBuild returns a parameter mismatch error.
-startBuild_idempotencyToken :: Lens.Lens' StartBuild (Core.Maybe Core.Text)
+startBuild_idempotencyToken :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Text)
 startBuild_idempotencyToken = Lens.lens (\StartBuild' {idempotencyToken} -> idempotencyToken) (\s@StartBuild' {} a -> s {idempotencyToken = a} :: StartBuild)
 
 -- | A location that overrides, for this build, the source location for the
 -- one defined in the build project.
-startBuild_sourceLocationOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Text)
+startBuild_sourceLocationOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Text)
 startBuild_sourceLocationOverride = Lens.lens (\StartBuild' {sourceLocationOverride} -> sourceLocationOverride) (\s@StartBuild' {} a -> s {sourceLocationOverride = a} :: StartBuild)
 
 -- | Log settings for this build that override the log settings defined in
 -- the build project.
-startBuild_logsConfigOverride :: Lens.Lens' StartBuild (Core.Maybe LogsConfig)
+startBuild_logsConfigOverride :: Lens.Lens' StartBuild (Prelude.Maybe LogsConfig)
 startBuild_logsConfigOverride = Lens.lens (\StartBuild' {logsConfigOverride} -> logsConfigOverride) (\s@StartBuild' {} a -> s {logsConfigOverride = a} :: StartBuild)
 
 -- | Build output artifact settings that override, for this build only, the
 -- latest ones already defined in the build project.
-startBuild_artifactsOverride :: Lens.Lens' StartBuild (Core.Maybe ProjectArtifacts)
+startBuild_artifactsOverride :: Lens.Lens' StartBuild (Prelude.Maybe ProjectArtifacts)
 startBuild_artifactsOverride = Lens.lens (\StartBuild' {artifactsOverride} -> artifactsOverride) (\s@StartBuild' {} a -> s {artifactsOverride = a} :: StartBuild)
 
 -- | An authorization type for this build that overrides the one defined in
 -- the build project. This override applies only if the build project\'s
 -- source is BitBucket or GitHub.
-startBuild_sourceAuthOverride :: Lens.Lens' StartBuild (Core.Maybe SourceAuth)
+startBuild_sourceAuthOverride :: Lens.Lens' StartBuild (Prelude.Maybe SourceAuth)
 startBuild_sourceAuthOverride = Lens.lens (\StartBuild' {sourceAuthOverride} -> sourceAuthOverride) (\s@StartBuild' {} a -> s {sourceAuthOverride = a} :: StartBuild)
 
 -- | The name of an image for this build that overrides the one specified in
 -- the build project.
-startBuild_imageOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Text)
+startBuild_imageOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Text)
 startBuild_imageOverride = Lens.lens (\StartBuild' {imageOverride} -> imageOverride) (\s@StartBuild' {} a -> s {imageOverride = a} :: StartBuild)
 
 -- | The number of minutes a build is allowed to be queued before it times
 -- out.
-startBuild_queuedTimeoutInMinutesOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Natural)
+startBuild_queuedTimeoutInMinutesOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Natural)
 startBuild_queuedTimeoutInMinutesOverride = Lens.lens (\StartBuild' {queuedTimeoutInMinutesOverride} -> queuedTimeoutInMinutesOverride) (\s@StartBuild' {} a -> s {queuedTimeoutInMinutesOverride = a} :: StartBuild)
 
 -- | Enable this flag to override the insecure SSL setting that is specified
 -- in the build project. The insecure SSL setting determines whether to
 -- ignore SSL warnings while connecting to the project source code. This
 -- override applies only if the build\'s source is GitHub Enterprise.
-startBuild_insecureSslOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Bool)
+startBuild_insecureSslOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Bool)
 startBuild_insecureSslOverride = Lens.lens (\StartBuild' {insecureSslOverride} -> insecureSslOverride) (\s@StartBuild' {} a -> s {insecureSslOverride = a} :: StartBuild)
 
 -- | An array of @ProjectSource@ objects.
-startBuild_secondarySourcesOverride :: Lens.Lens' StartBuild (Core.Maybe [ProjectSource])
-startBuild_secondarySourcesOverride = Lens.lens (\StartBuild' {secondarySourcesOverride} -> secondarySourcesOverride) (\s@StartBuild' {} a -> s {secondarySourcesOverride = a} :: StartBuild) Core.. Lens.mapping Lens._Coerce
+startBuild_secondarySourcesOverride :: Lens.Lens' StartBuild (Prelude.Maybe [ProjectSource])
+startBuild_secondarySourcesOverride = Lens.lens (\StartBuild' {secondarySourcesOverride} -> secondarySourcesOverride) (\s@StartBuild' {} a -> s {secondarySourcesOverride = a} :: StartBuild) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Set to true to report to your source provider the status of a build\'s
 -- start and completion. If you use this option with a source provider
@@ -584,28 +585,28 @@ startBuild_secondarySourcesOverride = Lens.lens (\StartBuild' {secondarySourcesO
 --
 -- The status of a build triggered by a webhook is always reported to your
 -- source provider.
-startBuild_reportBuildStatusOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Bool)
+startBuild_reportBuildStatusOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Bool)
 startBuild_reportBuildStatusOverride = Lens.lens (\StartBuild' {reportBuildStatusOverride} -> reportBuildStatusOverride) (\s@StartBuild' {} a -> s {reportBuildStatusOverride = a} :: StartBuild)
 
 -- | The name of a service role for this build that overrides the one
 -- specified in the build project.
-startBuild_serviceRoleOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Text)
+startBuild_serviceRoleOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Text)
 startBuild_serviceRoleOverride = Lens.lens (\StartBuild' {serviceRoleOverride} -> serviceRoleOverride) (\s@StartBuild' {} a -> s {serviceRoleOverride = a} :: StartBuild)
 
 -- | The credentials for access to a private registry.
-startBuild_registryCredentialOverride :: Lens.Lens' StartBuild (Core.Maybe RegistryCredential)
+startBuild_registryCredentialOverride :: Lens.Lens' StartBuild (Prelude.Maybe RegistryCredential)
 startBuild_registryCredentialOverride = Lens.lens (\StartBuild' {registryCredentialOverride} -> registryCredentialOverride) (\s@StartBuild' {} a -> s {registryCredentialOverride = a} :: StartBuild)
 
 -- | An array of @ProjectSourceVersion@ objects that specify one or more
 -- versions of the project\'s secondary sources to be used for this build
 -- only.
-startBuild_secondarySourcesVersionOverride :: Lens.Lens' StartBuild (Core.Maybe [ProjectSourceVersion])
-startBuild_secondarySourcesVersionOverride = Lens.lens (\StartBuild' {secondarySourcesVersionOverride} -> secondarySourcesVersionOverride) (\s@StartBuild' {} a -> s {secondarySourcesVersionOverride = a} :: StartBuild) Core.. Lens.mapping Lens._Coerce
+startBuild_secondarySourcesVersionOverride :: Lens.Lens' StartBuild (Prelude.Maybe [ProjectSourceVersion])
+startBuild_secondarySourcesVersionOverride = Lens.lens (\StartBuild' {secondarySourcesVersionOverride} -> secondarySourcesVersionOverride) (\s@StartBuild' {} a -> s {secondarySourcesVersionOverride = a} :: StartBuild) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contains information that defines how the build project reports the
 -- build status to the source provider. This option is only used when the
 -- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.
-startBuild_buildStatusConfigOverride :: Lens.Lens' StartBuild (Core.Maybe BuildStatusConfig)
+startBuild_buildStatusConfigOverride :: Lens.Lens' StartBuild (Prelude.Maybe BuildStatusConfig)
 startBuild_buildStatusConfigOverride = Lens.lens (\StartBuild' {buildStatusConfigOverride} -> buildStatusConfigOverride) (\s@StartBuild' {} a -> s {buildStatusConfigOverride = a} :: StartBuild)
 
 -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that
@@ -617,36 +618,36 @@ startBuild_buildStatusConfigOverride = Lens.lens (\StartBuild' {buildStatusConfi
 --
 -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
 -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-startBuild_encryptionKeyOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Text)
+startBuild_encryptionKeyOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Text)
 startBuild_encryptionKeyOverride = Lens.lens (\StartBuild' {encryptionKeyOverride} -> encryptionKeyOverride) (\s@StartBuild' {} a -> s {encryptionKeyOverride = a} :: StartBuild)
 
 -- | Enable this flag to override privileged mode in the build project.
-startBuild_privilegedModeOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Bool)
+startBuild_privilegedModeOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Bool)
 startBuild_privilegedModeOverride = Lens.lens (\StartBuild' {privilegedModeOverride} -> privilegedModeOverride) (\s@StartBuild' {} a -> s {privilegedModeOverride = a} :: StartBuild)
 
 -- | Information about the Git submodules configuration for this build of an
 -- AWS CodeBuild build project.
-startBuild_gitSubmodulesConfigOverride :: Lens.Lens' StartBuild (Core.Maybe GitSubmodulesConfig)
+startBuild_gitSubmodulesConfigOverride :: Lens.Lens' StartBuild (Prelude.Maybe GitSubmodulesConfig)
 startBuild_gitSubmodulesConfigOverride = Lens.lens (\StartBuild' {gitSubmodulesConfigOverride} -> gitSubmodulesConfigOverride) (\s@StartBuild' {} a -> s {gitSubmodulesConfigOverride = a} :: StartBuild)
 
 -- | The name of a compute type for this build that overrides the one
 -- specified in the build project.
-startBuild_computeTypeOverride :: Lens.Lens' StartBuild (Core.Maybe ComputeType)
+startBuild_computeTypeOverride :: Lens.Lens' StartBuild (Prelude.Maybe ComputeType)
 startBuild_computeTypeOverride = Lens.lens (\StartBuild' {computeTypeOverride} -> computeTypeOverride) (\s@StartBuild' {} a -> s {computeTypeOverride = a} :: StartBuild)
 
 -- | The name of a certificate for this build that overrides the one
 -- specified in the build project.
-startBuild_certificateOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Text)
+startBuild_certificateOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Text)
 startBuild_certificateOverride = Lens.lens (\StartBuild' {certificateOverride} -> certificateOverride) (\s@StartBuild' {} a -> s {certificateOverride = a} :: StartBuild)
 
 -- | A source input type, for this build, that overrides the source input
 -- defined in the build project.
-startBuild_sourceTypeOverride :: Lens.Lens' StartBuild (Core.Maybe SourceType)
+startBuild_sourceTypeOverride :: Lens.Lens' StartBuild (Prelude.Maybe SourceType)
 startBuild_sourceTypeOverride = Lens.lens (\StartBuild' {sourceTypeOverride} -> sourceTypeOverride) (\s@StartBuild' {} a -> s {sourceTypeOverride = a} :: StartBuild)
 
 -- | A container type for this build that overrides the one specified in the
 -- build project.
-startBuild_environmentTypeOverride :: Lens.Lens' StartBuild (Core.Maybe EnvironmentType)
+startBuild_environmentTypeOverride :: Lens.Lens' StartBuild (Prelude.Maybe EnvironmentType)
 startBuild_environmentTypeOverride = Lens.lens (\StartBuild' {environmentTypeOverride} -> environmentTypeOverride) (\s@StartBuild' {} a -> s {environmentTypeOverride = a} :: StartBuild)
 
 -- | The type of credentials AWS CodeBuild uses to pull images in your build.
@@ -664,38 +665,38 @@ startBuild_environmentTypeOverride = Lens.lens (\StartBuild' {environmentTypeOve
 -- When using a cross-account or private registry image, you must use
 -- @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image,
 -- you must use @CODEBUILD@ credentials.
-startBuild_imagePullCredentialsTypeOverride :: Lens.Lens' StartBuild (Core.Maybe ImagePullCredentialsType)
+startBuild_imagePullCredentialsTypeOverride :: Lens.Lens' StartBuild (Prelude.Maybe ImagePullCredentialsType)
 startBuild_imagePullCredentialsTypeOverride = Lens.lens (\StartBuild' {imagePullCredentialsTypeOverride} -> imagePullCredentialsTypeOverride) (\s@StartBuild' {} a -> s {imagePullCredentialsTypeOverride = a} :: StartBuild)
 
 -- | An array of @ProjectArtifacts@ objects.
-startBuild_secondaryArtifactsOverride :: Lens.Lens' StartBuild (Core.Maybe [ProjectArtifacts])
-startBuild_secondaryArtifactsOverride = Lens.lens (\StartBuild' {secondaryArtifactsOverride} -> secondaryArtifactsOverride) (\s@StartBuild' {} a -> s {secondaryArtifactsOverride = a} :: StartBuild) Core.. Lens.mapping Lens._Coerce
+startBuild_secondaryArtifactsOverride :: Lens.Lens' StartBuild (Prelude.Maybe [ProjectArtifacts])
+startBuild_secondaryArtifactsOverride = Lens.lens (\StartBuild' {secondaryArtifactsOverride} -> secondaryArtifactsOverride) (\s@StartBuild' {} a -> s {secondaryArtifactsOverride = a} :: StartBuild) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user-defined depth of history, with a minimum value of 0, that
 -- overrides, for this build only, any previous depth of history defined in
 -- the build project.
-startBuild_gitCloneDepthOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Natural)
+startBuild_gitCloneDepthOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Natural)
 startBuild_gitCloneDepthOverride = Lens.lens (\StartBuild' {gitCloneDepthOverride} -> gitCloneDepthOverride) (\s@StartBuild' {} a -> s {gitCloneDepthOverride = a} :: StartBuild)
 
 -- | A ProjectCache object specified for this build that overrides the one
 -- defined in the build project.
-startBuild_cacheOverride :: Lens.Lens' StartBuild (Core.Maybe ProjectCache)
+startBuild_cacheOverride :: Lens.Lens' StartBuild (Prelude.Maybe ProjectCache)
 startBuild_cacheOverride = Lens.lens (\StartBuild' {cacheOverride} -> cacheOverride) (\s@StartBuild' {} a -> s {cacheOverride = a} :: StartBuild)
 
 -- | The number of build timeout minutes, from 5 to 480 (8 hours), that
 -- overrides, for this build only, the latest setting already defined in
 -- the build project.
-startBuild_timeoutInMinutesOverride :: Lens.Lens' StartBuild (Core.Maybe Core.Natural)
+startBuild_timeoutInMinutesOverride :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Natural)
 startBuild_timeoutInMinutesOverride = Lens.lens (\StartBuild' {timeoutInMinutesOverride} -> timeoutInMinutesOverride) (\s@StartBuild' {} a -> s {timeoutInMinutesOverride = a} :: StartBuild)
 
 -- | Specifies if session debugging is enabled for this build. For more
 -- information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager>.
-startBuild_debugSessionEnabled :: Lens.Lens' StartBuild (Core.Maybe Core.Bool)
+startBuild_debugSessionEnabled :: Lens.Lens' StartBuild (Prelude.Maybe Prelude.Bool)
 startBuild_debugSessionEnabled = Lens.lens (\StartBuild' {debugSessionEnabled} -> debugSessionEnabled) (\s@StartBuild' {} a -> s {debugSessionEnabled = a} :: StartBuild)
 
 -- | The name of the AWS CodeBuild build project to start running a build.
-startBuild_projectName :: Lens.Lens' StartBuild Core.Text
+startBuild_projectName :: Lens.Lens' StartBuild Prelude.Text
 startBuild_projectName = Lens.lens (\StartBuild' {projectName} -> projectName) (\s@StartBuild' {} a -> s {projectName = a} :: StartBuild)
 
 instance Core.AWSRequest StartBuild where
@@ -705,104 +706,108 @@ instance Core.AWSRequest StartBuild where
     Response.receiveJSON
       ( \s h x ->
           StartBuildResponse'
-            Core.<$> (x Core..?> "build")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "build")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartBuild
+instance Prelude.Hashable StartBuild
 
-instance Core.NFData StartBuild
+instance Prelude.NFData StartBuild
 
 instance Core.ToHeaders StartBuild where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("CodeBuild_20161006.StartBuild" :: Core.ByteString),
+              Core.=# ( "CodeBuild_20161006.StartBuild" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartBuild where
   toJSON StartBuild' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("buildspecOverride" Core..=)
-              Core.<$> buildspecOverride,
-            ("sourceVersion" Core..=) Core.<$> sourceVersion,
+              Prelude.<$> buildspecOverride,
+            ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
             ("environmentVariablesOverride" Core..=)
-              Core.<$> environmentVariablesOverride,
+              Prelude.<$> environmentVariablesOverride,
             ("idempotencyToken" Core..=)
-              Core.<$> idempotencyToken,
+              Prelude.<$> idempotencyToken,
             ("sourceLocationOverride" Core..=)
-              Core.<$> sourceLocationOverride,
+              Prelude.<$> sourceLocationOverride,
             ("logsConfigOverride" Core..=)
-              Core.<$> logsConfigOverride,
+              Prelude.<$> logsConfigOverride,
             ("artifactsOverride" Core..=)
-              Core.<$> artifactsOverride,
+              Prelude.<$> artifactsOverride,
             ("sourceAuthOverride" Core..=)
-              Core.<$> sourceAuthOverride,
-            ("imageOverride" Core..=) Core.<$> imageOverride,
+              Prelude.<$> sourceAuthOverride,
+            ("imageOverride" Core..=) Prelude.<$> imageOverride,
             ("queuedTimeoutInMinutesOverride" Core..=)
-              Core.<$> queuedTimeoutInMinutesOverride,
+              Prelude.<$> queuedTimeoutInMinutesOverride,
             ("insecureSslOverride" Core..=)
-              Core.<$> insecureSslOverride,
+              Prelude.<$> insecureSslOverride,
             ("secondarySourcesOverride" Core..=)
-              Core.<$> secondarySourcesOverride,
+              Prelude.<$> secondarySourcesOverride,
             ("reportBuildStatusOverride" Core..=)
-              Core.<$> reportBuildStatusOverride,
+              Prelude.<$> reportBuildStatusOverride,
             ("serviceRoleOverride" Core..=)
-              Core.<$> serviceRoleOverride,
+              Prelude.<$> serviceRoleOverride,
             ("registryCredentialOverride" Core..=)
-              Core.<$> registryCredentialOverride,
+              Prelude.<$> registryCredentialOverride,
             ("secondarySourcesVersionOverride" Core..=)
-              Core.<$> secondarySourcesVersionOverride,
+              Prelude.<$> secondarySourcesVersionOverride,
             ("buildStatusConfigOverride" Core..=)
-              Core.<$> buildStatusConfigOverride,
+              Prelude.<$> buildStatusConfigOverride,
             ("encryptionKeyOverride" Core..=)
-              Core.<$> encryptionKeyOverride,
+              Prelude.<$> encryptionKeyOverride,
             ("privilegedModeOverride" Core..=)
-              Core.<$> privilegedModeOverride,
+              Prelude.<$> privilegedModeOverride,
             ("gitSubmodulesConfigOverride" Core..=)
-              Core.<$> gitSubmodulesConfigOverride,
+              Prelude.<$> gitSubmodulesConfigOverride,
             ("computeTypeOverride" Core..=)
-              Core.<$> computeTypeOverride,
+              Prelude.<$> computeTypeOverride,
             ("certificateOverride" Core..=)
-              Core.<$> certificateOverride,
+              Prelude.<$> certificateOverride,
             ("sourceTypeOverride" Core..=)
-              Core.<$> sourceTypeOverride,
+              Prelude.<$> sourceTypeOverride,
             ("environmentTypeOverride" Core..=)
-              Core.<$> environmentTypeOverride,
+              Prelude.<$> environmentTypeOverride,
             ("imagePullCredentialsTypeOverride" Core..=)
-              Core.<$> imagePullCredentialsTypeOverride,
+              Prelude.<$> imagePullCredentialsTypeOverride,
             ("secondaryArtifactsOverride" Core..=)
-              Core.<$> secondaryArtifactsOverride,
+              Prelude.<$> secondaryArtifactsOverride,
             ("gitCloneDepthOverride" Core..=)
-              Core.<$> gitCloneDepthOverride,
-            ("cacheOverride" Core..=) Core.<$> cacheOverride,
+              Prelude.<$> gitCloneDepthOverride,
+            ("cacheOverride" Core..=) Prelude.<$> cacheOverride,
             ("timeoutInMinutesOverride" Core..=)
-              Core.<$> timeoutInMinutesOverride,
+              Prelude.<$> timeoutInMinutesOverride,
             ("debugSessionEnabled" Core..=)
-              Core.<$> debugSessionEnabled,
-            Core.Just ("projectName" Core..= projectName)
+              Prelude.<$> debugSessionEnabled,
+            Prelude.Just ("projectName" Core..= projectName)
           ]
       )
 
 instance Core.ToPath StartBuild where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartBuild where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBuildResponse' smart constructor.
 data StartBuildResponse = StartBuildResponse'
   { -- | Information about the build to be run.
-    build :: Core.Maybe Build,
+    build :: Prelude.Maybe Build,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartBuildResponse' with all optional fields omitted.
@@ -817,20 +822,20 @@ data StartBuildResponse = StartBuildResponse'
 -- 'httpStatus', 'startBuildResponse_httpStatus' - The response's http status code.
 newStartBuildResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartBuildResponse
 newStartBuildResponse pHttpStatus_ =
   StartBuildResponse'
-    { build = Core.Nothing,
+    { build = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the build to be run.
-startBuildResponse_build :: Lens.Lens' StartBuildResponse (Core.Maybe Build)
+startBuildResponse_build :: Lens.Lens' StartBuildResponse (Prelude.Maybe Build)
 startBuildResponse_build = Lens.lens (\StartBuildResponse' {build} -> build) (\s@StartBuildResponse' {} a -> s {build = a} :: StartBuildResponse)
 
 -- | The response's http status code.
-startBuildResponse_httpStatus :: Lens.Lens' StartBuildResponse Core.Int
+startBuildResponse_httpStatus :: Lens.Lens' StartBuildResponse Prelude.Int
 startBuildResponse_httpStatus = Lens.lens (\StartBuildResponse' {httpStatus} -> httpStatus) (\s@StartBuildResponse' {} a -> s {httpStatus = a} :: StartBuildResponse)
 
-instance Core.NFData StartBuildResponse
+instance Prelude.NFData StartBuildResponse

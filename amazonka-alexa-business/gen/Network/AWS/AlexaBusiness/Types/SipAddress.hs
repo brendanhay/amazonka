@@ -22,17 +22,18 @@ module Network.AWS.AlexaBusiness.Types.SipAddress where
 import Network.AWS.AlexaBusiness.Types.SipType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The SIP address for the contact containing the URI and SIP address type.
 --
 -- /See:/ 'newSipAddress' smart constructor.
 data SipAddress = SipAddress'
   { -- | The URI for the SIP address.
-    uri :: Core.Sensitive Core.Text,
+    uri :: Core.Sensitive Prelude.Text,
     -- | The type of the SIP address.
     type' :: Core.Sensitive SipType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SipAddress' with all optional fields omitted.
@@ -47,7 +48,7 @@ data SipAddress = SipAddress'
 -- 'type'', 'sipAddress_type' - The type of the SIP address.
 newSipAddress ::
   -- | 'uri'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   SipType ->
   SipAddress
@@ -58,12 +59,12 @@ newSipAddress pUri_ pType_ =
     }
 
 -- | The URI for the SIP address.
-sipAddress_uri :: Lens.Lens' SipAddress Core.Text
-sipAddress_uri = Lens.lens (\SipAddress' {uri} -> uri) (\s@SipAddress' {} a -> s {uri = a} :: SipAddress) Core.. Core._Sensitive
+sipAddress_uri :: Lens.Lens' SipAddress Prelude.Text
+sipAddress_uri = Lens.lens (\SipAddress' {uri} -> uri) (\s@SipAddress' {} a -> s {uri = a} :: SipAddress) Prelude.. Core._Sensitive
 
 -- | The type of the SIP address.
 sipAddress_type :: Lens.Lens' SipAddress SipType
-sipAddress_type = Lens.lens (\SipAddress' {type'} -> type') (\s@SipAddress' {} a -> s {type' = a} :: SipAddress) Core.. Core._Sensitive
+sipAddress_type = Lens.lens (\SipAddress' {type'} -> type') (\s@SipAddress' {} a -> s {type' = a} :: SipAddress) Prelude.. Core._Sensitive
 
 instance Core.FromJSON SipAddress where
   parseJSON =
@@ -71,18 +72,18 @@ instance Core.FromJSON SipAddress where
       "SipAddress"
       ( \x ->
           SipAddress'
-            Core.<$> (x Core..: "Uri") Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..: "Uri") Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable SipAddress
+instance Prelude.Hashable SipAddress
 
-instance Core.NFData SipAddress
+instance Prelude.NFData SipAddress
 
 instance Core.ToJSON SipAddress where
   toJSON SipAddress' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Uri" Core..= uri),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Uri" Core..= uri),
+            Prelude.Just ("Type" Core..= type')
           ]
       )

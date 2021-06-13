@@ -48,18 +48,19 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDomainEntry' smart constructor.
 data UpdateDomainEntry = UpdateDomainEntry'
   { -- | The name of the domain recordset to update.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | An array of key-value pairs containing information about the domain
     -- entry.
     domainEntry :: DomainEntry
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainEntry' with all optional fields omitted.
@@ -75,7 +76,7 @@ data UpdateDomainEntry = UpdateDomainEntry'
 -- entry.
 newUpdateDomainEntry ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'domainEntry'
   DomainEntry ->
   UpdateDomainEntry
@@ -86,7 +87,7 @@ newUpdateDomainEntry pDomainName_ pDomainEntry_ =
     }
 
 -- | The name of the domain recordset to update.
-updateDomainEntry_domainName :: Lens.Lens' UpdateDomainEntry Core.Text
+updateDomainEntry_domainName :: Lens.Lens' UpdateDomainEntry Prelude.Text
 updateDomainEntry_domainName = Lens.lens (\UpdateDomainEntry' {domainName} -> domainName) (\s@UpdateDomainEntry' {} a -> s {domainName = a} :: UpdateDomainEntry)
 
 -- | An array of key-value pairs containing information about the domain
@@ -103,52 +104,54 @@ instance Core.AWSRequest UpdateDomainEntry where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainEntryResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDomainEntry
+instance Prelude.Hashable UpdateDomainEntry
 
-instance Core.NFData UpdateDomainEntry
+instance Prelude.NFData UpdateDomainEntry
 
 instance Core.ToHeaders UpdateDomainEntry where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.UpdateDomainEntry" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDomainEntry where
   toJSON UpdateDomainEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("domainName" Core..= domainName),
-            Core.Just ("domainEntry" Core..= domainEntry)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("domainName" Core..= domainName),
+            Prelude.Just ("domainEntry" Core..= domainEntry)
           ]
       )
 
 instance Core.ToPath UpdateDomainEntry where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDomainEntry where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDomainEntryResponse' smart constructor.
 data UpdateDomainEntryResponse = UpdateDomainEntryResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainEntryResponse' with all optional fields omitted.
@@ -165,23 +168,23 @@ data UpdateDomainEntryResponse = UpdateDomainEntryResponse'
 -- 'httpStatus', 'updateDomainEntryResponse_httpStatus' - The response's http status code.
 newUpdateDomainEntryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDomainEntryResponse
 newUpdateDomainEntryResponse pHttpStatus_ =
   UpdateDomainEntryResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-updateDomainEntryResponse_operations :: Lens.Lens' UpdateDomainEntryResponse (Core.Maybe [Operation])
-updateDomainEntryResponse_operations = Lens.lens (\UpdateDomainEntryResponse' {operations} -> operations) (\s@UpdateDomainEntryResponse' {} a -> s {operations = a} :: UpdateDomainEntryResponse) Core.. Lens.mapping Lens._Coerce
+updateDomainEntryResponse_operations :: Lens.Lens' UpdateDomainEntryResponse (Prelude.Maybe [Operation])
+updateDomainEntryResponse_operations = Lens.lens (\UpdateDomainEntryResponse' {operations} -> operations) (\s@UpdateDomainEntryResponse' {} a -> s {operations = a} :: UpdateDomainEntryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateDomainEntryResponse_httpStatus :: Lens.Lens' UpdateDomainEntryResponse Core.Int
+updateDomainEntryResponse_httpStatus :: Lens.Lens' UpdateDomainEntryResponse Prelude.Int
 updateDomainEntryResponse_httpStatus = Lens.lens (\UpdateDomainEntryResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainEntryResponse' {} a -> s {httpStatus = a} :: UpdateDomainEntryResponse)
 
-instance Core.NFData UpdateDomainEntryResponse
+instance Prelude.NFData UpdateDomainEntryResponse

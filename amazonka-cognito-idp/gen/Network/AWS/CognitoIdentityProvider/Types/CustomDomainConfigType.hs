@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration for a custom domain that hosts the sign-up and sign-in
 -- webpages for your application.
@@ -30,9 +31,9 @@ data CustomDomainConfigType = CustomDomainConfigType'
   { -- | The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL
     -- certificate. You use this certificate for the subdomain of your custom
     -- domain.
-    certificateArn :: Core.Text
+    certificateArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomDomainConfigType' with all optional fields omitted.
@@ -47,7 +48,7 @@ data CustomDomainConfigType = CustomDomainConfigType'
 -- domain.
 newCustomDomainConfigType ::
   -- | 'certificateArn'
-  Core.Text ->
+  Prelude.Text ->
   CustomDomainConfigType
 newCustomDomainConfigType pCertificateArn_ =
   CustomDomainConfigType'
@@ -58,7 +59,7 @@ newCustomDomainConfigType pCertificateArn_ =
 -- | The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL
 -- certificate. You use this certificate for the subdomain of your custom
 -- domain.
-customDomainConfigType_certificateArn :: Lens.Lens' CustomDomainConfigType Core.Text
+customDomainConfigType_certificateArn :: Lens.Lens' CustomDomainConfigType Prelude.Text
 customDomainConfigType_certificateArn = Lens.lens (\CustomDomainConfigType' {certificateArn} -> certificateArn) (\s@CustomDomainConfigType' {} a -> s {certificateArn = a} :: CustomDomainConfigType)
 
 instance Core.FromJSON CustomDomainConfigType where
@@ -67,18 +68,18 @@ instance Core.FromJSON CustomDomainConfigType where
       "CustomDomainConfigType"
       ( \x ->
           CustomDomainConfigType'
-            Core.<$> (x Core..: "CertificateArn")
+            Prelude.<$> (x Core..: "CertificateArn")
       )
 
-instance Core.Hashable CustomDomainConfigType
+instance Prelude.Hashable CustomDomainConfigType
 
-instance Core.NFData CustomDomainConfigType
+instance Prelude.NFData CustomDomainConfigType
 
 instance Core.ToJSON CustomDomainConfigType where
   toJSON CustomDomainConfigType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CertificateArn" Core..= certificateArn)
           ]
       )

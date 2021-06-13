@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +64,7 @@ data UpdateAccessKey = UpdateAccessKey'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Maybe Core.Text,
+    userName :: Prelude.Maybe Prelude.Text,
     -- | The access key ID of the secret access key you want to update.
     --
     -- This parameter allows (through its
@@ -75,7 +76,7 @@ data UpdateAccessKey = UpdateAccessKey'
     -- means that the key cannot be used.
     status :: StatusType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAccessKey' with all optional fields omitted.
@@ -109,7 +110,7 @@ newUpdateAccessKey ::
   UpdateAccessKey
 newUpdateAccessKey pAccessKeyId_ pStatus_ =
   UpdateAccessKey'
-    { userName = Core.Nothing,
+    { userName = Prelude.Nothing,
       accessKeyId = pAccessKeyId_,
       status = pStatus_
     }
@@ -120,7 +121,7 @@ newUpdateAccessKey pAccessKeyId_ pStatus_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateAccessKey_userName :: Lens.Lens' UpdateAccessKey (Core.Maybe Core.Text)
+updateAccessKey_userName :: Lens.Lens' UpdateAccessKey (Prelude.Maybe Prelude.Text)
 updateAccessKey_userName = Lens.lens (\UpdateAccessKey' {userName} -> userName) (\s@UpdateAccessKey' {} a -> s {userName = a} :: UpdateAccessKey)
 
 -- | The access key ID of the secret access key you want to update.
@@ -145,22 +146,23 @@ instance Core.AWSRequest UpdateAccessKey where
   response =
     Response.receiveNull UpdateAccessKeyResponse'
 
-instance Core.Hashable UpdateAccessKey
+instance Prelude.Hashable UpdateAccessKey
 
-instance Core.NFData UpdateAccessKey
+instance Prelude.NFData UpdateAccessKey
 
 instance Core.ToHeaders UpdateAccessKey where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateAccessKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateAccessKey where
   toQuery UpdateAccessKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateAccessKey" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UpdateAccessKey" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "AccessKeyId" Core.=: accessKeyId,
         "Status" Core.=: status
@@ -170,7 +172,7 @@ instance Core.ToQuery UpdateAccessKey where
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAccessKeyResponse' with all optional fields omitted.
@@ -180,4 +182,4 @@ newUpdateAccessKeyResponse ::
   UpdateAccessKeyResponse
 newUpdateAccessKeyResponse = UpdateAccessKeyResponse'
 
-instance Core.NFData UpdateAccessKeyResponse
+instance Prelude.NFData UpdateAccessKeyResponse

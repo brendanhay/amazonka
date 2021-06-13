@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ data DeleteRouteTable = DeleteRouteTable'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the route table.
-    routeTableId :: Core.Text
+    routeTableId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRouteTable' with all optional fields omitted.
@@ -72,11 +73,11 @@ data DeleteRouteTable = DeleteRouteTable'
 -- 'routeTableId', 'deleteRouteTable_routeTableId' - The ID of the route table.
 newDeleteRouteTable ::
   -- | 'routeTableId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRouteTable
 newDeleteRouteTable pRouteTableId_ =
   DeleteRouteTable'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       routeTableId = pRouteTableId_
     }
 
@@ -84,11 +85,11 @@ newDeleteRouteTable pRouteTableId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteRouteTable_dryRun :: Lens.Lens' DeleteRouteTable (Core.Maybe Core.Bool)
+deleteRouteTable_dryRun :: Lens.Lens' DeleteRouteTable (Prelude.Maybe Prelude.Bool)
 deleteRouteTable_dryRun = Lens.lens (\DeleteRouteTable' {dryRun} -> dryRun) (\s@DeleteRouteTable' {} a -> s {dryRun = a} :: DeleteRouteTable)
 
 -- | The ID of the route table.
-deleteRouteTable_routeTableId :: Lens.Lens' DeleteRouteTable Core.Text
+deleteRouteTable_routeTableId :: Lens.Lens' DeleteRouteTable Prelude.Text
 deleteRouteTable_routeTableId = Lens.lens (\DeleteRouteTable' {routeTableId} -> routeTableId) (\s@DeleteRouteTable' {} a -> s {routeTableId = a} :: DeleteRouteTable)
 
 instance Core.AWSRequest DeleteRouteTable where
@@ -99,22 +100,23 @@ instance Core.AWSRequest DeleteRouteTable where
   response =
     Response.receiveNull DeleteRouteTableResponse'
 
-instance Core.Hashable DeleteRouteTable
+instance Prelude.Hashable DeleteRouteTable
 
-instance Core.NFData DeleteRouteTable
+instance Prelude.NFData DeleteRouteTable
 
 instance Core.ToHeaders DeleteRouteTable where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteRouteTable where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRouteTable where
   toQuery DeleteRouteTable' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteRouteTable" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteRouteTable" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "RouteTableId" Core.=: routeTableId
       ]
@@ -123,7 +125,7 @@ instance Core.ToQuery DeleteRouteTable where
 data DeleteRouteTableResponse = DeleteRouteTableResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRouteTableResponse' with all optional fields omitted.
@@ -134,4 +136,4 @@ newDeleteRouteTableResponse ::
 newDeleteRouteTableResponse =
   DeleteRouteTableResponse'
 
-instance Core.NFData DeleteRouteTableResponse
+instance Prelude.NFData DeleteRouteTableResponse

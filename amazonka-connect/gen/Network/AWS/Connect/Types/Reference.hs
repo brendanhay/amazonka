@@ -22,6 +22,7 @@ module Network.AWS.Connect.Types.Reference where
 import Network.AWS.Connect.Types.ReferenceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A link that an agent selects to complete a given task. You can have up
 -- to 4,096 UTF-8 bytes across all references for a contact.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data Reference = Reference'
   { -- | A formatted URL that displays to an agent in the Contact Control Panel
     -- (CCP)
-    value :: Core.Text,
+    value :: Prelude.Text,
     -- | A valid URL.
     type' :: ReferenceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Reference' with all optional fields omitted.
@@ -50,7 +51,7 @@ data Reference = Reference'
 -- 'type'', 'reference_type' - A valid URL.
 newReference ::
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   ReferenceType ->
   Reference
@@ -59,22 +60,22 @@ newReference pValue_ pType_ =
 
 -- | A formatted URL that displays to an agent in the Contact Control Panel
 -- (CCP)
-reference_value :: Lens.Lens' Reference Core.Text
+reference_value :: Lens.Lens' Reference Prelude.Text
 reference_value = Lens.lens (\Reference' {value} -> value) (\s@Reference' {} a -> s {value = a} :: Reference)
 
 -- | A valid URL.
 reference_type :: Lens.Lens' Reference ReferenceType
 reference_type = Lens.lens (\Reference' {type'} -> type') (\s@Reference' {} a -> s {type' = a} :: Reference)
 
-instance Core.Hashable Reference
+instance Prelude.Hashable Reference
 
-instance Core.NFData Reference
+instance Prelude.NFData Reference
 
 instance Core.ToJSON Reference where
   toJSON Reference' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Value" Core..= value),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Value" Core..= value),
+            Prelude.Just ("Type" Core..= type')
           ]
       )

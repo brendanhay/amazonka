@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AutoMLChannel where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLDataSource
 import Network.AWS.SageMaker.Types.CompressionType
 
@@ -30,13 +31,13 @@ import Network.AWS.SageMaker.Types.CompressionType
 -- /See:/ 'newAutoMLChannel' smart constructor.
 data AutoMLChannel = AutoMLChannel'
   { -- | You can use Gzip or None. The default value is None.
-    compressionType :: Core.Maybe CompressionType,
+    compressionType :: Prelude.Maybe CompressionType,
     -- | The data source.
     dataSource :: AutoMLDataSource,
     -- | The name of the target variable in supervised learning, a.k.a. \'y\'.
-    targetAttributeName :: Core.Text
+    targetAttributeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoMLChannel' with all optional fields omitted.
@@ -55,17 +56,17 @@ newAutoMLChannel ::
   -- | 'dataSource'
   AutoMLDataSource ->
   -- | 'targetAttributeName'
-  Core.Text ->
+  Prelude.Text ->
   AutoMLChannel
 newAutoMLChannel pDataSource_ pTargetAttributeName_ =
   AutoMLChannel'
-    { compressionType = Core.Nothing,
+    { compressionType = Prelude.Nothing,
       dataSource = pDataSource_,
       targetAttributeName = pTargetAttributeName_
     }
 
 -- | You can use Gzip or None. The default value is None.
-autoMLChannel_compressionType :: Lens.Lens' AutoMLChannel (Core.Maybe CompressionType)
+autoMLChannel_compressionType :: Lens.Lens' AutoMLChannel (Prelude.Maybe CompressionType)
 autoMLChannel_compressionType = Lens.lens (\AutoMLChannel' {compressionType} -> compressionType) (\s@AutoMLChannel' {} a -> s {compressionType = a} :: AutoMLChannel)
 
 -- | The data source.
@@ -73,7 +74,7 @@ autoMLChannel_dataSource :: Lens.Lens' AutoMLChannel AutoMLDataSource
 autoMLChannel_dataSource = Lens.lens (\AutoMLChannel' {dataSource} -> dataSource) (\s@AutoMLChannel' {} a -> s {dataSource = a} :: AutoMLChannel)
 
 -- | The name of the target variable in supervised learning, a.k.a. \'y\'.
-autoMLChannel_targetAttributeName :: Lens.Lens' AutoMLChannel Core.Text
+autoMLChannel_targetAttributeName :: Lens.Lens' AutoMLChannel Prelude.Text
 autoMLChannel_targetAttributeName = Lens.lens (\AutoMLChannel' {targetAttributeName} -> targetAttributeName) (\s@AutoMLChannel' {} a -> s {targetAttributeName = a} :: AutoMLChannel)
 
 instance Core.FromJSON AutoMLChannel where
@@ -82,23 +83,23 @@ instance Core.FromJSON AutoMLChannel where
       "AutoMLChannel"
       ( \x ->
           AutoMLChannel'
-            Core.<$> (x Core..:? "CompressionType")
-            Core.<*> (x Core..: "DataSource")
-            Core.<*> (x Core..: "TargetAttributeName")
+            Prelude.<$> (x Core..:? "CompressionType")
+            Prelude.<*> (x Core..: "DataSource")
+            Prelude.<*> (x Core..: "TargetAttributeName")
       )
 
-instance Core.Hashable AutoMLChannel
+instance Prelude.Hashable AutoMLChannel
 
-instance Core.NFData AutoMLChannel
+instance Prelude.NFData AutoMLChannel
 
 instance Core.ToJSON AutoMLChannel where
   toJSON AutoMLChannel' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CompressionType" Core..=)
-              Core.<$> compressionType,
-            Core.Just ("DataSource" Core..= dataSource),
-            Core.Just
+              Prelude.<$> compressionType,
+            Prelude.Just ("DataSource" Core..= dataSource),
+            Prelude.Just
               ("TargetAttributeName" Core..= targetAttributeName)
           ]
       )

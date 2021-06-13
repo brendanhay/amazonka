@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.InvalidationBatch where
 import Network.AWS.CloudFront.Types.Paths
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An invalidation batch.
 --
@@ -50,9 +51,9 @@ data InvalidationBatch = InvalidationBatch'
     -- invalidation batch request but the content of any @Path@ is different
     -- from the original request, CloudFront returns an
     -- @InvalidationBatchAlreadyExists@ error.
-    callerReference :: Core.Text
+    callerReference :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InvalidationBatch' with all optional fields omitted.
@@ -89,7 +90,7 @@ newInvalidationBatch ::
   -- | 'paths'
   Paths ->
   -- | 'callerReference'
-  Core.Text ->
+  Prelude.Text ->
   InvalidationBatch
 newInvalidationBatch pPaths_ pCallerReference_ =
   InvalidationBatch'
@@ -122,22 +123,22 @@ invalidationBatch_paths = Lens.lens (\InvalidationBatch' {paths} -> paths) (\s@I
 -- invalidation batch request but the content of any @Path@ is different
 -- from the original request, CloudFront returns an
 -- @InvalidationBatchAlreadyExists@ error.
-invalidationBatch_callerReference :: Lens.Lens' InvalidationBatch Core.Text
+invalidationBatch_callerReference :: Lens.Lens' InvalidationBatch Prelude.Text
 invalidationBatch_callerReference = Lens.lens (\InvalidationBatch' {callerReference} -> callerReference) (\s@InvalidationBatch' {} a -> s {callerReference = a} :: InvalidationBatch)
 
 instance Core.FromXML InvalidationBatch where
   parseXML x =
     InvalidationBatch'
-      Core.<$> (x Core..@ "Paths")
-      Core.<*> (x Core..@ "CallerReference")
+      Prelude.<$> (x Core..@ "Paths")
+      Prelude.<*> (x Core..@ "CallerReference")
 
-instance Core.Hashable InvalidationBatch
+instance Prelude.Hashable InvalidationBatch
 
-instance Core.NFData InvalidationBatch
+instance Prelude.NFData InvalidationBatch
 
 instance Core.ToXML InvalidationBatch where
   toXML InvalidationBatch' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Paths" Core.@= paths,
         "CallerReference" Core.@= callerReference
       ]

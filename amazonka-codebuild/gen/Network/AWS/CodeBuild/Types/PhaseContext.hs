@@ -21,6 +21,7 @@ module Network.AWS.CodeBuild.Types.PhaseContext where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional information about a build phase that has an error. You can
 -- use this information for troubleshooting.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data PhaseContext = PhaseContext'
   { -- | An explanation of the build phase\'s context. This might include a
     -- command ID and an exit code.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status code for the context of the build phase.
-    statusCode :: Core.Maybe Core.Text
+    statusCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PhaseContext' with all optional fields omitted.
@@ -51,17 +52,17 @@ newPhaseContext ::
   PhaseContext
 newPhaseContext =
   PhaseContext'
-    { message = Core.Nothing,
-      statusCode = Core.Nothing
+    { message = Prelude.Nothing,
+      statusCode = Prelude.Nothing
     }
 
 -- | An explanation of the build phase\'s context. This might include a
 -- command ID and an exit code.
-phaseContext_message :: Lens.Lens' PhaseContext (Core.Maybe Core.Text)
+phaseContext_message :: Lens.Lens' PhaseContext (Prelude.Maybe Prelude.Text)
 phaseContext_message = Lens.lens (\PhaseContext' {message} -> message) (\s@PhaseContext' {} a -> s {message = a} :: PhaseContext)
 
 -- | The status code for the context of the build phase.
-phaseContext_statusCode :: Lens.Lens' PhaseContext (Core.Maybe Core.Text)
+phaseContext_statusCode :: Lens.Lens' PhaseContext (Prelude.Maybe Prelude.Text)
 phaseContext_statusCode = Lens.lens (\PhaseContext' {statusCode} -> statusCode) (\s@PhaseContext' {} a -> s {statusCode = a} :: PhaseContext)
 
 instance Core.FromJSON PhaseContext where
@@ -70,10 +71,10 @@ instance Core.FromJSON PhaseContext where
       "PhaseContext"
       ( \x ->
           PhaseContext'
-            Core.<$> (x Core..:? "message")
-            Core.<*> (x Core..:? "statusCode")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Core.Hashable PhaseContext
+instance Prelude.Hashable PhaseContext
 
-instance Core.NFData PhaseContext
+instance Prelude.NFData PhaseContext

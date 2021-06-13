@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.PricingDetail where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance offering.
 --
 -- /See:/ 'newPricingDetail' smart constructor.
 data PricingDetail = PricingDetail'
   { -- | The number of reservations available for the price.
-    count :: Core.Maybe Core.Int,
+    count :: Prelude.Maybe Prelude.Int,
     -- | The price per instance.
-    price :: Core.Maybe Core.Double
+    price :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PricingDetail' with all optional fields omitted.
@@ -49,23 +50,23 @@ newPricingDetail ::
   PricingDetail
 newPricingDetail =
   PricingDetail'
-    { count = Core.Nothing,
-      price = Core.Nothing
+    { count = Prelude.Nothing,
+      price = Prelude.Nothing
     }
 
 -- | The number of reservations available for the price.
-pricingDetail_count :: Lens.Lens' PricingDetail (Core.Maybe Core.Int)
+pricingDetail_count :: Lens.Lens' PricingDetail (Prelude.Maybe Prelude.Int)
 pricingDetail_count = Lens.lens (\PricingDetail' {count} -> count) (\s@PricingDetail' {} a -> s {count = a} :: PricingDetail)
 
 -- | The price per instance.
-pricingDetail_price :: Lens.Lens' PricingDetail (Core.Maybe Core.Double)
+pricingDetail_price :: Lens.Lens' PricingDetail (Prelude.Maybe Prelude.Double)
 pricingDetail_price = Lens.lens (\PricingDetail' {price} -> price) (\s@PricingDetail' {} a -> s {price = a} :: PricingDetail)
 
 instance Core.FromXML PricingDetail where
   parseXML x =
     PricingDetail'
-      Core.<$> (x Core..@? "count") Core.<*> (x Core..@? "price")
+      Prelude.<$> (x Core..@? "count") Prelude.<*> (x Core..@? "price")
 
-instance Core.Hashable PricingDetail
+instance Prelude.Hashable PricingDetail
 
-instance Core.NFData PricingDetail
+instance Prelude.NFData PricingDetail

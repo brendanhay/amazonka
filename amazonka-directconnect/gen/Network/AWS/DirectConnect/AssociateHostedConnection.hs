@@ -64,17 +64,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateHostedConnection' smart constructor.
 data AssociateHostedConnection = AssociateHostedConnection'
   { -- | The ID of the hosted connection.
-    connectionId :: Core.Text,
+    connectionId :: Prelude.Text,
     -- | The ID of the interconnect or the LAG.
-    parentConnectionId :: Core.Text
+    parentConnectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateHostedConnection' with all optional fields omitted.
@@ -89,9 +90,9 @@ data AssociateHostedConnection = AssociateHostedConnection'
 -- 'parentConnectionId', 'associateHostedConnection_parentConnectionId' - The ID of the interconnect or the LAG.
 newAssociateHostedConnection ::
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'parentConnectionId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateHostedConnection
 newAssociateHostedConnection
   pConnectionId_
@@ -103,11 +104,11 @@ newAssociateHostedConnection
       }
 
 -- | The ID of the hosted connection.
-associateHostedConnection_connectionId :: Lens.Lens' AssociateHostedConnection Core.Text
+associateHostedConnection_connectionId :: Lens.Lens' AssociateHostedConnection Prelude.Text
 associateHostedConnection_connectionId = Lens.lens (\AssociateHostedConnection' {connectionId} -> connectionId) (\s@AssociateHostedConnection' {} a -> s {connectionId = a} :: AssociateHostedConnection)
 
 -- | The ID of the interconnect or the LAG.
-associateHostedConnection_parentConnectionId :: Lens.Lens' AssociateHostedConnection Core.Text
+associateHostedConnection_parentConnectionId :: Lens.Lens' AssociateHostedConnection Prelude.Text
 associateHostedConnection_parentConnectionId = Lens.lens (\AssociateHostedConnection' {parentConnectionId} -> parentConnectionId) (\s@AssociateHostedConnection' {} a -> s {parentConnectionId = a} :: AssociateHostedConnection)
 
 instance Core.AWSRequest AssociateHostedConnection where
@@ -119,35 +120,37 @@ instance Core.AWSRequest AssociateHostedConnection where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable AssociateHostedConnection
+instance Prelude.Hashable AssociateHostedConnection
 
-instance Core.NFData AssociateHostedConnection
+instance Prelude.NFData AssociateHostedConnection
 
 instance Core.ToHeaders AssociateHostedConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.AssociateHostedConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateHostedConnection where
   toJSON AssociateHostedConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("connectionId" Core..= connectionId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("connectionId" Core..= connectionId),
+            Prelude.Just
               ("parentConnectionId" Core..= parentConnectionId)
           ]
       )
 
 instance Core.ToPath AssociateHostedConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateHostedConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

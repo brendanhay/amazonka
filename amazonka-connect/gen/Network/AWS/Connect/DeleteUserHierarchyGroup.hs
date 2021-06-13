@@ -40,17 +40,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUserHierarchyGroup' smart constructor.
 data DeleteUserHierarchyGroup = DeleteUserHierarchyGroup'
   { -- | The identifier of the hierarchy group.
-    hierarchyGroupId :: Core.Text,
+    hierarchyGroupId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserHierarchyGroup' with all optional fields omitted.
@@ -65,9 +66,9 @@ data DeleteUserHierarchyGroup = DeleteUserHierarchyGroup'
 -- 'instanceId', 'deleteUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance.
 newDeleteUserHierarchyGroup ::
   -- | 'hierarchyGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserHierarchyGroup
 newDeleteUserHierarchyGroup
   pHierarchyGroupId_
@@ -79,11 +80,11 @@ newDeleteUserHierarchyGroup
       }
 
 -- | The identifier of the hierarchy group.
-deleteUserHierarchyGroup_hierarchyGroupId :: Lens.Lens' DeleteUserHierarchyGroup Core.Text
+deleteUserHierarchyGroup_hierarchyGroupId :: Lens.Lens' DeleteUserHierarchyGroup Prelude.Text
 deleteUserHierarchyGroup_hierarchyGroupId = Lens.lens (\DeleteUserHierarchyGroup' {hierarchyGroupId} -> hierarchyGroupId) (\s@DeleteUserHierarchyGroup' {} a -> s {hierarchyGroupId = a} :: DeleteUserHierarchyGroup)
 
 -- | The identifier of the Amazon Connect instance.
-deleteUserHierarchyGroup_instanceId :: Lens.Lens' DeleteUserHierarchyGroup Core.Text
+deleteUserHierarchyGroup_instanceId :: Lens.Lens' DeleteUserHierarchyGroup Prelude.Text
 deleteUserHierarchyGroup_instanceId = Lens.lens (\DeleteUserHierarchyGroup' {instanceId} -> instanceId) (\s@DeleteUserHierarchyGroup' {} a -> s {instanceId = a} :: DeleteUserHierarchyGroup)
 
 instance Core.AWSRequest DeleteUserHierarchyGroup where
@@ -95,22 +96,24 @@ instance Core.AWSRequest DeleteUserHierarchyGroup where
     Response.receiveNull
       DeleteUserHierarchyGroupResponse'
 
-instance Core.Hashable DeleteUserHierarchyGroup
+instance Prelude.Hashable DeleteUserHierarchyGroup
 
-instance Core.NFData DeleteUserHierarchyGroup
+instance Prelude.NFData DeleteUserHierarchyGroup
 
 instance Core.ToHeaders DeleteUserHierarchyGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteUserHierarchyGroup where
   toPath DeleteUserHierarchyGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/user-hierarchy-groups/",
         Core.toBS instanceId,
         "/",
@@ -118,13 +121,13 @@ instance Core.ToPath DeleteUserHierarchyGroup where
       ]
 
 instance Core.ToQuery DeleteUserHierarchyGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserHierarchyGroupResponse' smart constructor.
 data DeleteUserHierarchyGroupResponse = DeleteUserHierarchyGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserHierarchyGroupResponse' with all optional fields omitted.
@@ -135,4 +138,6 @@ newDeleteUserHierarchyGroupResponse ::
 newDeleteUserHierarchyGroupResponse =
   DeleteUserHierarchyGroupResponse'
 
-instance Core.NFData DeleteUserHierarchyGroupResponse
+instance
+  Prelude.NFData
+    DeleteUserHierarchyGroupResponse

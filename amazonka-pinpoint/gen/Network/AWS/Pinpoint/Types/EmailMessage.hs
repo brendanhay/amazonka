@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.RawEmail
 import Network.AWS.Pinpoint.Types.SimpleEmail
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the default settings and content for a one-time email message
 -- that\'s sent directly to an endpoint.
@@ -31,24 +32,24 @@ import Network.AWS.Pinpoint.Types.SimpleEmail
 data EmailMessage = EmailMessage'
   { -- | The email address to forward bounces and complaints to, if feedback
     -- forwarding is enabled.
-    feedbackForwardingAddress :: Core.Maybe Core.Text,
+    feedbackForwardingAddress :: Prelude.Maybe Prelude.Text,
     -- | The email message, represented as a raw MIME message.
-    rawEmail :: Core.Maybe RawEmail,
+    rawEmail :: Prelude.Maybe RawEmail,
     -- | The body of the email message.
-    body :: Core.Maybe Core.Text,
+    body :: Prelude.Maybe Prelude.Text,
     -- | The email message, composed of a subject, a text part, and an HTML part.
-    simpleEmail :: Core.Maybe SimpleEmail,
+    simpleEmail :: Prelude.Maybe SimpleEmail,
     -- | The default message variables to use in the email message. You can
     -- override the default variables with individual address variables.
-    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The reply-to email address(es) for the email message. If a recipient
     -- replies to the email, each reply-to address receives the reply.
-    replyToAddresses :: Core.Maybe [Core.Text],
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The verified email address to send the email message from. The default
     -- value is the FromAddress specified for the email channel.
-    fromAddress :: Core.Maybe Core.Text
+    fromAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EmailMessage' with all optional fields omitted.
@@ -80,63 +81,63 @@ newEmailMessage ::
 newEmailMessage =
   EmailMessage'
     { feedbackForwardingAddress =
-        Core.Nothing,
-      rawEmail = Core.Nothing,
-      body = Core.Nothing,
-      simpleEmail = Core.Nothing,
-      substitutions = Core.Nothing,
-      replyToAddresses = Core.Nothing,
-      fromAddress = Core.Nothing
+        Prelude.Nothing,
+      rawEmail = Prelude.Nothing,
+      body = Prelude.Nothing,
+      simpleEmail = Prelude.Nothing,
+      substitutions = Prelude.Nothing,
+      replyToAddresses = Prelude.Nothing,
+      fromAddress = Prelude.Nothing
     }
 
 -- | The email address to forward bounces and complaints to, if feedback
 -- forwarding is enabled.
-emailMessage_feedbackForwardingAddress :: Lens.Lens' EmailMessage (Core.Maybe Core.Text)
+emailMessage_feedbackForwardingAddress :: Lens.Lens' EmailMessage (Prelude.Maybe Prelude.Text)
 emailMessage_feedbackForwardingAddress = Lens.lens (\EmailMessage' {feedbackForwardingAddress} -> feedbackForwardingAddress) (\s@EmailMessage' {} a -> s {feedbackForwardingAddress = a} :: EmailMessage)
 
 -- | The email message, represented as a raw MIME message.
-emailMessage_rawEmail :: Lens.Lens' EmailMessage (Core.Maybe RawEmail)
+emailMessage_rawEmail :: Lens.Lens' EmailMessage (Prelude.Maybe RawEmail)
 emailMessage_rawEmail = Lens.lens (\EmailMessage' {rawEmail} -> rawEmail) (\s@EmailMessage' {} a -> s {rawEmail = a} :: EmailMessage)
 
 -- | The body of the email message.
-emailMessage_body :: Lens.Lens' EmailMessage (Core.Maybe Core.Text)
+emailMessage_body :: Lens.Lens' EmailMessage (Prelude.Maybe Prelude.Text)
 emailMessage_body = Lens.lens (\EmailMessage' {body} -> body) (\s@EmailMessage' {} a -> s {body = a} :: EmailMessage)
 
 -- | The email message, composed of a subject, a text part, and an HTML part.
-emailMessage_simpleEmail :: Lens.Lens' EmailMessage (Core.Maybe SimpleEmail)
+emailMessage_simpleEmail :: Lens.Lens' EmailMessage (Prelude.Maybe SimpleEmail)
 emailMessage_simpleEmail = Lens.lens (\EmailMessage' {simpleEmail} -> simpleEmail) (\s@EmailMessage' {} a -> s {simpleEmail = a} :: EmailMessage)
 
 -- | The default message variables to use in the email message. You can
 -- override the default variables with individual address variables.
-emailMessage_substitutions :: Lens.Lens' EmailMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-emailMessage_substitutions = Lens.lens (\EmailMessage' {substitutions} -> substitutions) (\s@EmailMessage' {} a -> s {substitutions = a} :: EmailMessage) Core.. Lens.mapping Lens._Coerce
+emailMessage_substitutions :: Lens.Lens' EmailMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+emailMessage_substitutions = Lens.lens (\EmailMessage' {substitutions} -> substitutions) (\s@EmailMessage' {} a -> s {substitutions = a} :: EmailMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The reply-to email address(es) for the email message. If a recipient
 -- replies to the email, each reply-to address receives the reply.
-emailMessage_replyToAddresses :: Lens.Lens' EmailMessage (Core.Maybe [Core.Text])
-emailMessage_replyToAddresses = Lens.lens (\EmailMessage' {replyToAddresses} -> replyToAddresses) (\s@EmailMessage' {} a -> s {replyToAddresses = a} :: EmailMessage) Core.. Lens.mapping Lens._Coerce
+emailMessage_replyToAddresses :: Lens.Lens' EmailMessage (Prelude.Maybe [Prelude.Text])
+emailMessage_replyToAddresses = Lens.lens (\EmailMessage' {replyToAddresses} -> replyToAddresses) (\s@EmailMessage' {} a -> s {replyToAddresses = a} :: EmailMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The verified email address to send the email message from. The default
 -- value is the FromAddress specified for the email channel.
-emailMessage_fromAddress :: Lens.Lens' EmailMessage (Core.Maybe Core.Text)
+emailMessage_fromAddress :: Lens.Lens' EmailMessage (Prelude.Maybe Prelude.Text)
 emailMessage_fromAddress = Lens.lens (\EmailMessage' {fromAddress} -> fromAddress) (\s@EmailMessage' {} a -> s {fromAddress = a} :: EmailMessage)
 
-instance Core.Hashable EmailMessage
+instance Prelude.Hashable EmailMessage
 
-instance Core.NFData EmailMessage
+instance Prelude.NFData EmailMessage
 
 instance Core.ToJSON EmailMessage where
   toJSON EmailMessage' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("FeedbackForwardingAddress" Core..=)
-              Core.<$> feedbackForwardingAddress,
-            ("RawEmail" Core..=) Core.<$> rawEmail,
-            ("Body" Core..=) Core.<$> body,
-            ("SimpleEmail" Core..=) Core.<$> simpleEmail,
-            ("Substitutions" Core..=) Core.<$> substitutions,
+              Prelude.<$> feedbackForwardingAddress,
+            ("RawEmail" Core..=) Prelude.<$> rawEmail,
+            ("Body" Core..=) Prelude.<$> body,
+            ("SimpleEmail" Core..=) Prelude.<$> simpleEmail,
+            ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("ReplyToAddresses" Core..=)
-              Core.<$> replyToAddresses,
-            ("FromAddress" Core..=) Core.<$> fromAddress
+              Prelude.<$> replyToAddresses,
+            ("FromAddress" Core..=) Prelude.<$> fromAddress
           ]
       )

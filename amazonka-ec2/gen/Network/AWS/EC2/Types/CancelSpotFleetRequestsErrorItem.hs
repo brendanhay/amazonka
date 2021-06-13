@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CancelSpotFleetRequestsError
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Spot Fleet request that was not successfully canceled.
 --
 -- /See:/ 'newCancelSpotFleetRequestsErrorItem' smart constructor.
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
   { -- | The error.
-    error :: Core.Maybe CancelSpotFleetRequestsError,
+    error :: Prelude.Maybe CancelSpotFleetRequestsError,
     -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Core.Maybe Core.Text
+    spotFleetRequestId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelSpotFleetRequestsErrorItem' with all optional fields omitted.
@@ -51,16 +52,16 @@ newCancelSpotFleetRequestsErrorItem ::
 newCancelSpotFleetRequestsErrorItem =
   CancelSpotFleetRequestsErrorItem'
     { error =
-        Core.Nothing,
-      spotFleetRequestId = Core.Nothing
+        Prelude.Nothing,
+      spotFleetRequestId = Prelude.Nothing
     }
 
 -- | The error.
-cancelSpotFleetRequestsErrorItem_error :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Core.Maybe CancelSpotFleetRequestsError)
+cancelSpotFleetRequestsErrorItem_error :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Prelude.Maybe CancelSpotFleetRequestsError)
 cancelSpotFleetRequestsErrorItem_error = Lens.lens (\CancelSpotFleetRequestsErrorItem' {error} -> error) (\s@CancelSpotFleetRequestsErrorItem' {} a -> s {error = a} :: CancelSpotFleetRequestsErrorItem)
 
 -- | The ID of the Spot Fleet request.
-cancelSpotFleetRequestsErrorItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Core.Maybe Core.Text)
+cancelSpotFleetRequestsErrorItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Prelude.Maybe Prelude.Text)
 cancelSpotFleetRequestsErrorItem_spotFleetRequestId = Lens.lens (\CancelSpotFleetRequestsErrorItem' {spotFleetRequestId} -> spotFleetRequestId) (\s@CancelSpotFleetRequestsErrorItem' {} a -> s {spotFleetRequestId = a} :: CancelSpotFleetRequestsErrorItem)
 
 instance
@@ -69,11 +70,13 @@ instance
   where
   parseXML x =
     CancelSpotFleetRequestsErrorItem'
-      Core.<$> (x Core..@? "error")
-      Core.<*> (x Core..@? "spotFleetRequestId")
+      Prelude.<$> (x Core..@? "error")
+      Prelude.<*> (x Core..@? "spotFleetRequestId")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CancelSpotFleetRequestsErrorItem
 
-instance Core.NFData CancelSpotFleetRequestsErrorItem
+instance
+  Prelude.NFData
+    CancelSpotFleetRequestsErrorItem

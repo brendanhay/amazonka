@@ -21,6 +21,7 @@ module Network.AWS.Batch.Types.NodeDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the details of a multi-node parallel job node.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data NodeDetails = NodeDetails'
   { -- | Specifies whether the current node is the main node for a multi-node
     -- parallel job.
-    isMainNode :: Core.Maybe Core.Bool,
+    isMainNode :: Prelude.Maybe Prelude.Bool,
     -- | The node index for the node. Node index numbering begins at zero. This
     -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
     -- environment variable.
-    nodeIndex :: Core.Maybe Core.Int
+    nodeIndex :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeDetails' with all optional fields omitted.
@@ -54,19 +55,19 @@ newNodeDetails ::
   NodeDetails
 newNodeDetails =
   NodeDetails'
-    { isMainNode = Core.Nothing,
-      nodeIndex = Core.Nothing
+    { isMainNode = Prelude.Nothing,
+      nodeIndex = Prelude.Nothing
     }
 
 -- | Specifies whether the current node is the main node for a multi-node
 -- parallel job.
-nodeDetails_isMainNode :: Lens.Lens' NodeDetails (Core.Maybe Core.Bool)
+nodeDetails_isMainNode :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Bool)
 nodeDetails_isMainNode = Lens.lens (\NodeDetails' {isMainNode} -> isMainNode) (\s@NodeDetails' {} a -> s {isMainNode = a} :: NodeDetails)
 
 -- | The node index for the node. Node index numbering begins at zero. This
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
 -- environment variable.
-nodeDetails_nodeIndex :: Lens.Lens' NodeDetails (Core.Maybe Core.Int)
+nodeDetails_nodeIndex :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Int)
 nodeDetails_nodeIndex = Lens.lens (\NodeDetails' {nodeIndex} -> nodeIndex) (\s@NodeDetails' {} a -> s {nodeIndex = a} :: NodeDetails)
 
 instance Core.FromJSON NodeDetails where
@@ -75,10 +76,10 @@ instance Core.FromJSON NodeDetails where
       "NodeDetails"
       ( \x ->
           NodeDetails'
-            Core.<$> (x Core..:? "isMainNode")
-            Core.<*> (x Core..:? "nodeIndex")
+            Prelude.<$> (x Core..:? "isMainNode")
+            Prelude.<*> (x Core..:? "nodeIndex")
       )
 
-instance Core.Hashable NodeDetails
+instance Prelude.Hashable NodeDetails
 
-instance Core.NFData NodeDetails
+instance Prelude.NFData NodeDetails

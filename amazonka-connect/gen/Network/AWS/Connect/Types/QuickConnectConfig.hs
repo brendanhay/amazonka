@@ -25,6 +25,7 @@ import Network.AWS.Connect.Types.QuickConnectType
 import Network.AWS.Connect.Types.UserQuickConnectConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains configuration settings for a quick connect.
 --
@@ -32,19 +33,19 @@ import qualified Network.AWS.Lens as Lens
 data QuickConnectConfig = QuickConnectConfig'
   { -- | The user configuration. This is required only if QuickConnectType is
     -- USER.
-    userConfig :: Core.Maybe UserQuickConnectConfig,
+    userConfig :: Prelude.Maybe UserQuickConnectConfig,
     -- | The phone configuration. This is required only if QuickConnectType is
     -- PHONE_NUMBER.
-    phoneConfig :: Core.Maybe PhoneNumberQuickConnectConfig,
+    phoneConfig :: Prelude.Maybe PhoneNumberQuickConnectConfig,
     -- | The queue configuration. This is required only if QuickConnectType is
     -- QUEUE.
-    queueConfig :: Core.Maybe QueueQuickConnectConfig,
+    queueConfig :: Prelude.Maybe QueueQuickConnectConfig,
     -- | The type of quick connect. In the Amazon Connect console, when you
     -- create a quick connect, you are prompted to assign one of the following
     -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     quickConnectType :: QuickConnectType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QuickConnectConfig' with all optional fields omitted.
@@ -72,25 +73,25 @@ newQuickConnectConfig ::
   QuickConnectConfig
 newQuickConnectConfig pQuickConnectType_ =
   QuickConnectConfig'
-    { userConfig = Core.Nothing,
-      phoneConfig = Core.Nothing,
-      queueConfig = Core.Nothing,
+    { userConfig = Prelude.Nothing,
+      phoneConfig = Prelude.Nothing,
+      queueConfig = Prelude.Nothing,
       quickConnectType = pQuickConnectType_
     }
 
 -- | The user configuration. This is required only if QuickConnectType is
 -- USER.
-quickConnectConfig_userConfig :: Lens.Lens' QuickConnectConfig (Core.Maybe UserQuickConnectConfig)
+quickConnectConfig_userConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe UserQuickConnectConfig)
 quickConnectConfig_userConfig = Lens.lens (\QuickConnectConfig' {userConfig} -> userConfig) (\s@QuickConnectConfig' {} a -> s {userConfig = a} :: QuickConnectConfig)
 
 -- | The phone configuration. This is required only if QuickConnectType is
 -- PHONE_NUMBER.
-quickConnectConfig_phoneConfig :: Lens.Lens' QuickConnectConfig (Core.Maybe PhoneNumberQuickConnectConfig)
+quickConnectConfig_phoneConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe PhoneNumberQuickConnectConfig)
 quickConnectConfig_phoneConfig = Lens.lens (\QuickConnectConfig' {phoneConfig} -> phoneConfig) (\s@QuickConnectConfig' {} a -> s {phoneConfig = a} :: QuickConnectConfig)
 
 -- | The queue configuration. This is required only if QuickConnectType is
 -- QUEUE.
-quickConnectConfig_queueConfig :: Lens.Lens' QuickConnectConfig (Core.Maybe QueueQuickConnectConfig)
+quickConnectConfig_queueConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe QueueQuickConnectConfig)
 quickConnectConfig_queueConfig = Lens.lens (\QuickConnectConfig' {queueConfig} -> queueConfig) (\s@QuickConnectConfig' {} a -> s {queueConfig = a} :: QuickConnectConfig)
 
 -- | The type of quick connect. In the Amazon Connect console, when you
@@ -105,24 +106,24 @@ instance Core.FromJSON QuickConnectConfig where
       "QuickConnectConfig"
       ( \x ->
           QuickConnectConfig'
-            Core.<$> (x Core..:? "UserConfig")
-            Core.<*> (x Core..:? "PhoneConfig")
-            Core.<*> (x Core..:? "QueueConfig")
-            Core.<*> (x Core..: "QuickConnectType")
+            Prelude.<$> (x Core..:? "UserConfig")
+            Prelude.<*> (x Core..:? "PhoneConfig")
+            Prelude.<*> (x Core..:? "QueueConfig")
+            Prelude.<*> (x Core..: "QuickConnectType")
       )
 
-instance Core.Hashable QuickConnectConfig
+instance Prelude.Hashable QuickConnectConfig
 
-instance Core.NFData QuickConnectConfig
+instance Prelude.NFData QuickConnectConfig
 
 instance Core.ToJSON QuickConnectConfig where
   toJSON QuickConnectConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("UserConfig" Core..=) Core.<$> userConfig,
-            ("PhoneConfig" Core..=) Core.<$> phoneConfig,
-            ("QueueConfig" Core..=) Core.<$> queueConfig,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("UserConfig" Core..=) Prelude.<$> userConfig,
+            ("PhoneConfig" Core..=) Prelude.<$> phoneConfig,
+            ("QueueConfig" Core..=) Prelude.<$> queueConfig,
+            Prelude.Just
               ("QuickConnectType" Core..= quickConnectType)
           ]
       )

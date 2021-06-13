@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.FlowDefinitionSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.FlowDefinitionStatus
 
 -- | Contains summary information about the flow definition.
@@ -29,17 +30,17 @@ import Network.AWS.SageMaker.Types.FlowDefinitionStatus
 data FlowDefinitionSummary = FlowDefinitionSummary'
   { -- | The reason why the flow definition creation failed. A failure reason is
     -- returned only when the flow definition status is @Failed@.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the flow definition.
-    flowDefinitionName :: Core.Text,
+    flowDefinitionName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the flow definition.
-    flowDefinitionArn :: Core.Text,
+    flowDefinitionArn :: Prelude.Text,
     -- | The status of the flow definition. Valid values:
     flowDefinitionStatus :: FlowDefinitionStatus,
     -- | The timestamp when SageMaker created the flow definition.
     creationTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlowDefinitionSummary' with all optional fields omitted.
@@ -61,13 +62,13 @@ data FlowDefinitionSummary = FlowDefinitionSummary'
 -- 'creationTime', 'flowDefinitionSummary_creationTime' - The timestamp when SageMaker created the flow definition.
 newFlowDefinitionSummary ::
   -- | 'flowDefinitionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'flowDefinitionArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'flowDefinitionStatus'
   FlowDefinitionStatus ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   FlowDefinitionSummary
 newFlowDefinitionSummary
   pFlowDefinitionName_
@@ -76,7 +77,7 @@ newFlowDefinitionSummary
   pCreationTime_ =
     FlowDefinitionSummary'
       { failureReason =
-          Core.Nothing,
+          Prelude.Nothing,
         flowDefinitionName = pFlowDefinitionName_,
         flowDefinitionArn = pFlowDefinitionArn_,
         flowDefinitionStatus = pFlowDefinitionStatus_,
@@ -85,15 +86,15 @@ newFlowDefinitionSummary
 
 -- | The reason why the flow definition creation failed. A failure reason is
 -- returned only when the flow definition status is @Failed@.
-flowDefinitionSummary_failureReason :: Lens.Lens' FlowDefinitionSummary (Core.Maybe Core.Text)
+flowDefinitionSummary_failureReason :: Lens.Lens' FlowDefinitionSummary (Prelude.Maybe Prelude.Text)
 flowDefinitionSummary_failureReason = Lens.lens (\FlowDefinitionSummary' {failureReason} -> failureReason) (\s@FlowDefinitionSummary' {} a -> s {failureReason = a} :: FlowDefinitionSummary)
 
 -- | The name of the flow definition.
-flowDefinitionSummary_flowDefinitionName :: Lens.Lens' FlowDefinitionSummary Core.Text
+flowDefinitionSummary_flowDefinitionName :: Lens.Lens' FlowDefinitionSummary Prelude.Text
 flowDefinitionSummary_flowDefinitionName = Lens.lens (\FlowDefinitionSummary' {flowDefinitionName} -> flowDefinitionName) (\s@FlowDefinitionSummary' {} a -> s {flowDefinitionName = a} :: FlowDefinitionSummary)
 
 -- | The Amazon Resource Name (ARN) of the flow definition.
-flowDefinitionSummary_flowDefinitionArn :: Lens.Lens' FlowDefinitionSummary Core.Text
+flowDefinitionSummary_flowDefinitionArn :: Lens.Lens' FlowDefinitionSummary Prelude.Text
 flowDefinitionSummary_flowDefinitionArn = Lens.lens (\FlowDefinitionSummary' {flowDefinitionArn} -> flowDefinitionArn) (\s@FlowDefinitionSummary' {} a -> s {flowDefinitionArn = a} :: FlowDefinitionSummary)
 
 -- | The status of the flow definition. Valid values:
@@ -101,8 +102,8 @@ flowDefinitionSummary_flowDefinitionStatus :: Lens.Lens' FlowDefinitionSummary F
 flowDefinitionSummary_flowDefinitionStatus = Lens.lens (\FlowDefinitionSummary' {flowDefinitionStatus} -> flowDefinitionStatus) (\s@FlowDefinitionSummary' {} a -> s {flowDefinitionStatus = a} :: FlowDefinitionSummary)
 
 -- | The timestamp when SageMaker created the flow definition.
-flowDefinitionSummary_creationTime :: Lens.Lens' FlowDefinitionSummary Core.UTCTime
-flowDefinitionSummary_creationTime = Lens.lens (\FlowDefinitionSummary' {creationTime} -> creationTime) (\s@FlowDefinitionSummary' {} a -> s {creationTime = a} :: FlowDefinitionSummary) Core.. Core._Time
+flowDefinitionSummary_creationTime :: Lens.Lens' FlowDefinitionSummary Prelude.UTCTime
+flowDefinitionSummary_creationTime = Lens.lens (\FlowDefinitionSummary' {creationTime} -> creationTime) (\s@FlowDefinitionSummary' {} a -> s {creationTime = a} :: FlowDefinitionSummary) Prelude.. Core._Time
 
 instance Core.FromJSON FlowDefinitionSummary where
   parseJSON =
@@ -110,13 +111,13 @@ instance Core.FromJSON FlowDefinitionSummary where
       "FlowDefinitionSummary"
       ( \x ->
           FlowDefinitionSummary'
-            Core.<$> (x Core..:? "FailureReason")
-            Core.<*> (x Core..: "FlowDefinitionName")
-            Core.<*> (x Core..: "FlowDefinitionArn")
-            Core.<*> (x Core..: "FlowDefinitionStatus")
-            Core.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..: "FlowDefinitionName")
+            Prelude.<*> (x Core..: "FlowDefinitionArn")
+            Prelude.<*> (x Core..: "FlowDefinitionStatus")
+            Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Core.Hashable FlowDefinitionSummary
+instance Prelude.Hashable FlowDefinitionSummary
 
-instance Core.NFData FlowDefinitionSummary
+instance Prelude.NFData FlowDefinitionSummary

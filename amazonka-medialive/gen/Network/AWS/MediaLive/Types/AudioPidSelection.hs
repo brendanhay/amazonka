@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.AudioPidSelection where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Pid Selection
 --
 -- /See:/ 'newAudioPidSelection' smart constructor.
 data AudioPidSelection = AudioPidSelection'
   { -- | Selects a specific PID from within a source.
-    pid :: Core.Natural
+    pid :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioPidSelection' with all optional fields omitted.
@@ -42,13 +43,13 @@ data AudioPidSelection = AudioPidSelection'
 -- 'pid', 'audioPidSelection_pid' - Selects a specific PID from within a source.
 newAudioPidSelection ::
   -- | 'pid'
-  Core.Natural ->
+  Prelude.Natural ->
   AudioPidSelection
 newAudioPidSelection pPid_ =
   AudioPidSelection' {pid = pPid_}
 
 -- | Selects a specific PID from within a source.
-audioPidSelection_pid :: Lens.Lens' AudioPidSelection Core.Natural
+audioPidSelection_pid :: Lens.Lens' AudioPidSelection Prelude.Natural
 audioPidSelection_pid = Lens.lens (\AudioPidSelection' {pid} -> pid) (\s@AudioPidSelection' {} a -> s {pid = a} :: AudioPidSelection)
 
 instance Core.FromJSON AudioPidSelection where
@@ -56,14 +57,16 @@ instance Core.FromJSON AudioPidSelection where
     Core.withObject
       "AudioPidSelection"
       ( \x ->
-          AudioPidSelection' Core.<$> (x Core..: "pid")
+          AudioPidSelection' Prelude.<$> (x Core..: "pid")
       )
 
-instance Core.Hashable AudioPidSelection
+instance Prelude.Hashable AudioPidSelection
 
-instance Core.NFData AudioPidSelection
+instance Prelude.NFData AudioPidSelection
 
 instance Core.ToJSON AudioPidSelection where
   toJSON AudioPidSelection' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("pid" Core..= pid)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("pid" Core..= pid)]
+      )

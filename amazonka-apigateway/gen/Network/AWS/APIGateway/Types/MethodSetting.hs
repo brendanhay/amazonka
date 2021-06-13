@@ -22,6 +22,7 @@ module Network.AWS.APIGateway.Types.MethodSetting where
 import Network.AWS.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the method setting properties.
 --
@@ -31,53 +32,53 @@ data MethodSetting = MethodSetting'
     -- affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path
     -- for this setting is @\/{method_setting_key}\/logging\/dataTrace@, and
     -- the value is a Boolean.
-    dataTraceEnabled :: Core.Maybe Core.Bool,
+    dataTraceEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether authorization is required for a cache invalidation
     -- request. The PATCH path for this setting is
     -- @\/{method_setting_key}\/caching\/requireAuthorizationForCacheControl@,
     -- and the value is a Boolean.
-    requireAuthorizationForCacheControl :: Core.Maybe Core.Bool,
+    requireAuthorizationForCacheControl :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the cached responses are encrypted. The PATCH path for
     -- this setting is @\/{method_setting_key}\/caching\/dataEncrypted@, and
     -- the value is a Boolean.
-    cacheDataEncrypted :: Core.Maybe Core.Bool,
+    cacheDataEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the throttling rate limit. The PATCH path for this setting is
     -- @\/{method_setting_key}\/throttling\/rateLimit@, and the value is a
     -- double.
-    throttlingRateLimit :: Core.Maybe Core.Double,
+    throttlingRateLimit :: Prelude.Maybe Prelude.Double,
     -- | Specifies the throttling burst limit. The PATCH path for this setting is
     -- @\/{method_setting_key}\/throttling\/burstLimit@, and the value is an
     -- integer.
-    throttlingBurstLimit :: Core.Maybe Core.Int,
+    throttlingBurstLimit :: Prelude.Maybe Prelude.Int,
     -- | Specifies the time to live (TTL), in seconds, for cached responses. The
     -- higher the TTL, the longer the response will be cached. The PATCH path
     -- for this setting is @\/{method_setting_key}\/caching\/ttlInSeconds@, and
     -- the value is an integer.
-    cacheTtlInSeconds :: Core.Maybe Core.Int,
+    cacheTtlInSeconds :: Prelude.Maybe Prelude.Int,
     -- | Specifies whether responses should be cached and returned for requests.
     -- A cache cluster must be enabled on the stage for responses to be cached.
     -- The PATCH path for this setting is
     -- @\/{method_setting_key}\/caching\/enabled@, and the value is a Boolean.
-    cachingEnabled :: Core.Maybe Core.Bool,
+    cachingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies how to handle unauthorized requests for cache invalidation.
     -- The PATCH path for this setting is
     -- @\/{method_setting_key}\/caching\/unauthorizedCacheControlHeaderStrategy@,
     -- and the available values are @FAIL_WITH_403@,
     -- @SUCCEED_WITH_RESPONSE_HEADER@, @SUCCEED_WITHOUT_RESPONSE_HEADER@.
-    unauthorizedCacheControlHeaderStrategy :: Core.Maybe UnauthorizedCacheControlHeaderStrategy,
+    unauthorizedCacheControlHeaderStrategy :: Prelude.Maybe UnauthorizedCacheControlHeaderStrategy,
     -- | Specifies the logging level for this method, which affects the log
     -- entries pushed to Amazon CloudWatch Logs. The PATCH path for this
     -- setting is @\/{method_setting_key}\/logging\/loglevel@, and the
     -- available levels are @OFF@, @ERROR@, and @INFO@. Choose @ERROR@ to write
     -- only error-level entries to CloudWatch Logs, or choose @INFO@ to include
     -- all @ERROR@ events as well as extra informational events.
-    loggingLevel :: Core.Maybe Core.Text,
+    loggingLevel :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether Amazon CloudWatch metrics are enabled for this method.
     -- The PATCH path for this setting is
     -- @\/{method_setting_key}\/metrics\/enabled@, and the value is a Boolean.
-    metricsEnabled :: Core.Maybe Core.Bool
+    metricsEnabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MethodSetting' with all optional fields omitted.
@@ -139,63 +140,64 @@ newMethodSetting ::
   MethodSetting
 newMethodSetting =
   MethodSetting'
-    { dataTraceEnabled = Core.Nothing,
-      requireAuthorizationForCacheControl = Core.Nothing,
-      cacheDataEncrypted = Core.Nothing,
-      throttlingRateLimit = Core.Nothing,
-      throttlingBurstLimit = Core.Nothing,
-      cacheTtlInSeconds = Core.Nothing,
-      cachingEnabled = Core.Nothing,
+    { dataTraceEnabled = Prelude.Nothing,
+      requireAuthorizationForCacheControl =
+        Prelude.Nothing,
+      cacheDataEncrypted = Prelude.Nothing,
+      throttlingRateLimit = Prelude.Nothing,
+      throttlingBurstLimit = Prelude.Nothing,
+      cacheTtlInSeconds = Prelude.Nothing,
+      cachingEnabled = Prelude.Nothing,
       unauthorizedCacheControlHeaderStrategy =
-        Core.Nothing,
-      loggingLevel = Core.Nothing,
-      metricsEnabled = Core.Nothing
+        Prelude.Nothing,
+      loggingLevel = Prelude.Nothing,
+      metricsEnabled = Prelude.Nothing
     }
 
 -- | Specifies whether data trace logging is enabled for this method, which
 -- affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path
 -- for this setting is @\/{method_setting_key}\/logging\/dataTrace@, and
 -- the value is a Boolean.
-methodSetting_dataTraceEnabled :: Lens.Lens' MethodSetting (Core.Maybe Core.Bool)
+methodSetting_dataTraceEnabled :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
 methodSetting_dataTraceEnabled = Lens.lens (\MethodSetting' {dataTraceEnabled} -> dataTraceEnabled) (\s@MethodSetting' {} a -> s {dataTraceEnabled = a} :: MethodSetting)
 
 -- | Specifies whether authorization is required for a cache invalidation
 -- request. The PATCH path for this setting is
 -- @\/{method_setting_key}\/caching\/requireAuthorizationForCacheControl@,
 -- and the value is a Boolean.
-methodSetting_requireAuthorizationForCacheControl :: Lens.Lens' MethodSetting (Core.Maybe Core.Bool)
+methodSetting_requireAuthorizationForCacheControl :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
 methodSetting_requireAuthorizationForCacheControl = Lens.lens (\MethodSetting' {requireAuthorizationForCacheControl} -> requireAuthorizationForCacheControl) (\s@MethodSetting' {} a -> s {requireAuthorizationForCacheControl = a} :: MethodSetting)
 
 -- | Specifies whether the cached responses are encrypted. The PATCH path for
 -- this setting is @\/{method_setting_key}\/caching\/dataEncrypted@, and
 -- the value is a Boolean.
-methodSetting_cacheDataEncrypted :: Lens.Lens' MethodSetting (Core.Maybe Core.Bool)
+methodSetting_cacheDataEncrypted :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
 methodSetting_cacheDataEncrypted = Lens.lens (\MethodSetting' {cacheDataEncrypted} -> cacheDataEncrypted) (\s@MethodSetting' {} a -> s {cacheDataEncrypted = a} :: MethodSetting)
 
 -- | Specifies the throttling rate limit. The PATCH path for this setting is
 -- @\/{method_setting_key}\/throttling\/rateLimit@, and the value is a
 -- double.
-methodSetting_throttlingRateLimit :: Lens.Lens' MethodSetting (Core.Maybe Core.Double)
+methodSetting_throttlingRateLimit :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Double)
 methodSetting_throttlingRateLimit = Lens.lens (\MethodSetting' {throttlingRateLimit} -> throttlingRateLimit) (\s@MethodSetting' {} a -> s {throttlingRateLimit = a} :: MethodSetting)
 
 -- | Specifies the throttling burst limit. The PATCH path for this setting is
 -- @\/{method_setting_key}\/throttling\/burstLimit@, and the value is an
 -- integer.
-methodSetting_throttlingBurstLimit :: Lens.Lens' MethodSetting (Core.Maybe Core.Int)
+methodSetting_throttlingBurstLimit :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Int)
 methodSetting_throttlingBurstLimit = Lens.lens (\MethodSetting' {throttlingBurstLimit} -> throttlingBurstLimit) (\s@MethodSetting' {} a -> s {throttlingBurstLimit = a} :: MethodSetting)
 
 -- | Specifies the time to live (TTL), in seconds, for cached responses. The
 -- higher the TTL, the longer the response will be cached. The PATCH path
 -- for this setting is @\/{method_setting_key}\/caching\/ttlInSeconds@, and
 -- the value is an integer.
-methodSetting_cacheTtlInSeconds :: Lens.Lens' MethodSetting (Core.Maybe Core.Int)
+methodSetting_cacheTtlInSeconds :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Int)
 methodSetting_cacheTtlInSeconds = Lens.lens (\MethodSetting' {cacheTtlInSeconds} -> cacheTtlInSeconds) (\s@MethodSetting' {} a -> s {cacheTtlInSeconds = a} :: MethodSetting)
 
 -- | Specifies whether responses should be cached and returned for requests.
 -- A cache cluster must be enabled on the stage for responses to be cached.
 -- The PATCH path for this setting is
 -- @\/{method_setting_key}\/caching\/enabled@, and the value is a Boolean.
-methodSetting_cachingEnabled :: Lens.Lens' MethodSetting (Core.Maybe Core.Bool)
+methodSetting_cachingEnabled :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
 methodSetting_cachingEnabled = Lens.lens (\MethodSetting' {cachingEnabled} -> cachingEnabled) (\s@MethodSetting' {} a -> s {cachingEnabled = a} :: MethodSetting)
 
 -- | Specifies how to handle unauthorized requests for cache invalidation.
@@ -203,7 +205,7 @@ methodSetting_cachingEnabled = Lens.lens (\MethodSetting' {cachingEnabled} -> ca
 -- @\/{method_setting_key}\/caching\/unauthorizedCacheControlHeaderStrategy@,
 -- and the available values are @FAIL_WITH_403@,
 -- @SUCCEED_WITH_RESPONSE_HEADER@, @SUCCEED_WITHOUT_RESPONSE_HEADER@.
-methodSetting_unauthorizedCacheControlHeaderStrategy :: Lens.Lens' MethodSetting (Core.Maybe UnauthorizedCacheControlHeaderStrategy)
+methodSetting_unauthorizedCacheControlHeaderStrategy :: Lens.Lens' MethodSetting (Prelude.Maybe UnauthorizedCacheControlHeaderStrategy)
 methodSetting_unauthorizedCacheControlHeaderStrategy = Lens.lens (\MethodSetting' {unauthorizedCacheControlHeaderStrategy} -> unauthorizedCacheControlHeaderStrategy) (\s@MethodSetting' {} a -> s {unauthorizedCacheControlHeaderStrategy = a} :: MethodSetting)
 
 -- | Specifies the logging level for this method, which affects the log
@@ -212,13 +214,13 @@ methodSetting_unauthorizedCacheControlHeaderStrategy = Lens.lens (\MethodSetting
 -- available levels are @OFF@, @ERROR@, and @INFO@. Choose @ERROR@ to write
 -- only error-level entries to CloudWatch Logs, or choose @INFO@ to include
 -- all @ERROR@ events as well as extra informational events.
-methodSetting_loggingLevel :: Lens.Lens' MethodSetting (Core.Maybe Core.Text)
+methodSetting_loggingLevel :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Text)
 methodSetting_loggingLevel = Lens.lens (\MethodSetting' {loggingLevel} -> loggingLevel) (\s@MethodSetting' {} a -> s {loggingLevel = a} :: MethodSetting)
 
 -- | Specifies whether Amazon CloudWatch metrics are enabled for this method.
 -- The PATCH path for this setting is
 -- @\/{method_setting_key}\/metrics\/enabled@, and the value is a Boolean.
-methodSetting_metricsEnabled :: Lens.Lens' MethodSetting (Core.Maybe Core.Bool)
+methodSetting_metricsEnabled :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
 methodSetting_metricsEnabled = Lens.lens (\MethodSetting' {metricsEnabled} -> metricsEnabled) (\s@MethodSetting' {} a -> s {metricsEnabled = a} :: MethodSetting)
 
 instance Core.FromJSON MethodSetting where
@@ -227,18 +229,18 @@ instance Core.FromJSON MethodSetting where
       "MethodSetting"
       ( \x ->
           MethodSetting'
-            Core.<$> (x Core..:? "dataTraceEnabled")
-            Core.<*> (x Core..:? "requireAuthorizationForCacheControl")
-            Core.<*> (x Core..:? "cacheDataEncrypted")
-            Core.<*> (x Core..:? "throttlingRateLimit")
-            Core.<*> (x Core..:? "throttlingBurstLimit")
-            Core.<*> (x Core..:? "cacheTtlInSeconds")
-            Core.<*> (x Core..:? "cachingEnabled")
-            Core.<*> (x Core..:? "unauthorizedCacheControlHeaderStrategy")
-            Core.<*> (x Core..:? "loggingLevel")
-            Core.<*> (x Core..:? "metricsEnabled")
+            Prelude.<$> (x Core..:? "dataTraceEnabled")
+            Prelude.<*> (x Core..:? "requireAuthorizationForCacheControl")
+            Prelude.<*> (x Core..:? "cacheDataEncrypted")
+            Prelude.<*> (x Core..:? "throttlingRateLimit")
+            Prelude.<*> (x Core..:? "throttlingBurstLimit")
+            Prelude.<*> (x Core..:? "cacheTtlInSeconds")
+            Prelude.<*> (x Core..:? "cachingEnabled")
+            Prelude.<*> (x Core..:? "unauthorizedCacheControlHeaderStrategy")
+            Prelude.<*> (x Core..:? "loggingLevel")
+            Prelude.<*> (x Core..:? "metricsEnabled")
       )
 
-instance Core.Hashable MethodSetting
+instance Prelude.Hashable MethodSetting
 
-instance Core.NFData MethodSetting
+instance Prelude.NFData MethodSetting

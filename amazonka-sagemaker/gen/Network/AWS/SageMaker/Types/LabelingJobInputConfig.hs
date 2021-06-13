@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.LabelingJobInputConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.LabelingJobDataAttributes
 import Network.AWS.SageMaker.Types.LabelingJobDataSource
 
@@ -29,11 +30,11 @@ import Network.AWS.SageMaker.Types.LabelingJobDataSource
 -- /See:/ 'newLabelingJobInputConfig' smart constructor.
 data LabelingJobInputConfig = LabelingJobInputConfig'
   { -- | Attributes of the data specified by the customer.
-    dataAttributes :: Core.Maybe LabelingJobDataAttributes,
+    dataAttributes :: Prelude.Maybe LabelingJobDataAttributes,
     -- | The location of the input data.
     dataSource :: LabelingJobDataSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelingJobInputConfig' with all optional fields omitted.
@@ -53,12 +54,12 @@ newLabelingJobInputConfig ::
 newLabelingJobInputConfig pDataSource_ =
   LabelingJobInputConfig'
     { dataAttributes =
-        Core.Nothing,
+        Prelude.Nothing,
       dataSource = pDataSource_
     }
 
 -- | Attributes of the data specified by the customer.
-labelingJobInputConfig_dataAttributes :: Lens.Lens' LabelingJobInputConfig (Core.Maybe LabelingJobDataAttributes)
+labelingJobInputConfig_dataAttributes :: Lens.Lens' LabelingJobInputConfig (Prelude.Maybe LabelingJobDataAttributes)
 labelingJobInputConfig_dataAttributes = Lens.lens (\LabelingJobInputConfig' {dataAttributes} -> dataAttributes) (\s@LabelingJobInputConfig' {} a -> s {dataAttributes = a} :: LabelingJobInputConfig)
 
 -- | The location of the input data.
@@ -71,19 +72,20 @@ instance Core.FromJSON LabelingJobInputConfig where
       "LabelingJobInputConfig"
       ( \x ->
           LabelingJobInputConfig'
-            Core.<$> (x Core..:? "DataAttributes")
-            Core.<*> (x Core..: "DataSource")
+            Prelude.<$> (x Core..:? "DataAttributes")
+            Prelude.<*> (x Core..: "DataSource")
       )
 
-instance Core.Hashable LabelingJobInputConfig
+instance Prelude.Hashable LabelingJobInputConfig
 
-instance Core.NFData LabelingJobInputConfig
+instance Prelude.NFData LabelingJobInputConfig
 
 instance Core.ToJSON LabelingJobInputConfig where
   toJSON LabelingJobInputConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DataAttributes" Core..=) Core.<$> dataAttributes,
-            Core.Just ("DataSource" Core..= dataSource)
+      ( Prelude.catMaybes
+          [ ("DataAttributes" Core..=)
+              Prelude.<$> dataAttributes,
+            Prelude.Just ("DataSource" Core..= dataSource)
           ]
       )

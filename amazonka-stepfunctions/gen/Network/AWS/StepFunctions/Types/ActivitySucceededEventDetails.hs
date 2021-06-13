@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about an activity that successfully terminated during
@@ -30,11 +31,11 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 data ActivitySucceededEventDetails = ActivitySucceededEventDetails'
   { -- | The JSON data output by the activity task. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Core.Maybe (Core.Sensitive Core.Text),
+    output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Contains details about the output of an execution history event.
-    outputDetails :: Core.Maybe HistoryEventExecutionDataDetails
+    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivitySucceededEventDetails' with all optional fields omitted.
@@ -53,17 +54,17 @@ newActivitySucceededEventDetails ::
 newActivitySucceededEventDetails =
   ActivitySucceededEventDetails'
     { output =
-        Core.Nothing,
-      outputDetails = Core.Nothing
+        Prelude.Nothing,
+      outputDetails = Prelude.Nothing
     }
 
 -- | The JSON data output by the activity task. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
-activitySucceededEventDetails_output :: Lens.Lens' ActivitySucceededEventDetails (Core.Maybe Core.Text)
-activitySucceededEventDetails_output = Lens.lens (\ActivitySucceededEventDetails' {output} -> output) (\s@ActivitySucceededEventDetails' {} a -> s {output = a} :: ActivitySucceededEventDetails) Core.. Lens.mapping Core._Sensitive
+activitySucceededEventDetails_output :: Lens.Lens' ActivitySucceededEventDetails (Prelude.Maybe Prelude.Text)
+activitySucceededEventDetails_output = Lens.lens (\ActivitySucceededEventDetails' {output} -> output) (\s@ActivitySucceededEventDetails' {} a -> s {output = a} :: ActivitySucceededEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Contains details about the output of an execution history event.
-activitySucceededEventDetails_outputDetails :: Lens.Lens' ActivitySucceededEventDetails (Core.Maybe HistoryEventExecutionDataDetails)
+activitySucceededEventDetails_outputDetails :: Lens.Lens' ActivitySucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
 activitySucceededEventDetails_outputDetails = Lens.lens (\ActivitySucceededEventDetails' {outputDetails} -> outputDetails) (\s@ActivitySucceededEventDetails' {} a -> s {outputDetails = a} :: ActivitySucceededEventDetails)
 
 instance Core.FromJSON ActivitySucceededEventDetails where
@@ -72,10 +73,12 @@ instance Core.FromJSON ActivitySucceededEventDetails where
       "ActivitySucceededEventDetails"
       ( \x ->
           ActivitySucceededEventDetails'
-            Core.<$> (x Core..:? "output")
-            Core.<*> (x Core..:? "outputDetails")
+            Prelude.<$> (x Core..:? "output")
+            Prelude.<*> (x Core..:? "outputDetails")
       )
 
-instance Core.Hashable ActivitySucceededEventDetails
+instance
+  Prelude.Hashable
+    ActivitySucceededEventDetails
 
-instance Core.NFData ActivitySucceededEventDetails
+instance Prelude.NFData ActivitySucceededEventDetails

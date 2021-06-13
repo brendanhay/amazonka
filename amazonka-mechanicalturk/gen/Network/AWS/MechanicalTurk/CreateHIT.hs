@@ -80,6 +80,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -97,11 +98,11 @@ data CreateHIT = CreateHIT'
     -- unique token expires after 24 hours. Subsequent calls using the same
     -- UniqueRequestToken made after the 24 hour limit could create duplicate
     -- HITs.
-    uniqueRequestToken :: Core.Maybe Core.Text,
+    uniqueRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The number of seconds after an assignment for the HIT has been
     -- submitted, after which the assignment is considered Approved
     -- automatically unless the Requester explicitly rejects it.
-    autoApprovalDelayInSeconds :: Core.Maybe Core.Integer,
+    autoApprovalDelayInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The data the person completing the HIT uses to produce the results.
     --
     -- Constraints: Must be a QuestionForm data structure, an ExternalQuestion
@@ -110,20 +111,20 @@ data CreateHIT = CreateHIT'
     -- whitespace.
     --
     -- Either a Question parameter or a HITLayoutId parameter must be provided.
-    question :: Core.Maybe Core.Text,
+    question :: Prelude.Maybe Prelude.Text,
     -- | The HITLayoutId allows you to use a pre-existing HIT design with
     -- placeholder values and create an additional HIT by providing those
     -- values as HITLayoutParameters.
     --
     -- Constraints: Either a Question parameter or a HITLayoutId parameter must
     -- be provided.
-    hITLayoutId :: Core.Maybe Core.Text,
+    hITLayoutId :: Prelude.Maybe Prelude.Text,
     -- | The HIT-level Review Policy applies to the HIT. You can specify for
     -- Mechanical Turk to take various actions based on the policy.
-    hITReviewPolicy :: Core.Maybe ReviewPolicy,
+    hITReviewPolicy :: Prelude.Maybe ReviewPolicy,
     -- | The number of times the HIT can be accepted and completed before the HIT
     -- becomes unavailable.
-    maxAssignments :: Core.Maybe Core.Int,
+    maxAssignments :: Prelude.Maybe Prelude.Int,
     -- | An arbitrary data field. The RequesterAnnotation parameter lets your
     -- application attach arbitrary data to the HIT for tracking purposes. For
     -- example, this parameter could be an identifier internal to the
@@ -135,52 +136,52 @@ data CreateHIT = CreateHIT'
     --
     -- The RequesterAnnotation parameter may be different for each HIT you
     -- submit. It does not affect how your HITs are grouped.
-    requesterAnnotation :: Core.Maybe Core.Text,
+    requesterAnnotation :: Prelude.Maybe Prelude.Text,
     -- | The Assignment-level Review Policy applies to the assignments under the
     -- HIT. You can specify for Mechanical Turk to take various actions based
     -- on the policy.
-    assignmentReviewPolicy :: Core.Maybe ReviewPolicy,
+    assignmentReviewPolicy :: Prelude.Maybe ReviewPolicy,
     -- | If the HITLayoutId is provided, any placeholder values must be filled in
     -- with values using the HITLayoutParameter structure. For more
     -- information, see HITLayout.
-    hITLayoutParameters :: Core.Maybe [HITLayoutParameter],
+    hITLayoutParameters :: Prelude.Maybe [HITLayoutParameter],
     -- | Conditions that a Worker\'s Qualifications must meet in order to accept
     -- the HIT. A HIT can have between zero and ten Qualification requirements.
     -- All requirements must be met in order for a Worker to accept the HIT.
     -- Additionally, other actions can be restricted using the @ActionsGuarded@
     -- field on each @QualificationRequirement@ structure.
-    qualificationRequirements :: Core.Maybe [QualificationRequirement],
+    qualificationRequirements :: Prelude.Maybe [QualificationRequirement],
     -- | One or more words or phrases that describe the HIT, separated by commas.
     -- These words are used in searches to find HITs.
-    keywords :: Core.Maybe Core.Text,
+    keywords :: Prelude.Maybe Prelude.Text,
     -- | An amount of time, in seconds, after which the HIT is no longer
     -- available for users to accept. After the lifetime of the HIT elapses,
     -- the HIT no longer appears in HIT searches, even if not all of the
     -- assignments for the HIT have been accepted.
-    lifetimeInSeconds :: Core.Integer,
+    lifetimeInSeconds :: Prelude.Integer,
     -- | The amount of time, in seconds, that a Worker has to complete the HIT
     -- after accepting it. If a Worker does not complete the assignment within
     -- the specified duration, the assignment is considered abandoned. If the
     -- HIT is still active (that is, its lifetime has not elapsed), the
     -- assignment becomes available for other users to find and accept.
-    assignmentDurationInSeconds :: Core.Integer,
+    assignmentDurationInSeconds :: Prelude.Integer,
     -- | The amount of money the Requester will pay a Worker for successfully
     -- completing the HIT.
-    reward :: Core.Text,
+    reward :: Prelude.Text,
     -- | The title of the HIT. A title should be short and descriptive about the
     -- kind of task the HIT contains. On the Amazon Mechanical Turk web site,
     -- the HIT title appears in search results, and everywhere the HIT is
     -- mentioned.
-    title :: Core.Text,
+    title :: Prelude.Text,
     -- | A general description of the HIT. A description includes detailed
     -- information about the kind of task the HIT contains. On the Amazon
     -- Mechanical Turk web site, the HIT description appears in the expanded
     -- view of search results, and in the HIT and assignment screens. A good
     -- description gives the user enough information to evaluate the HIT before
     -- accepting it.
-    description :: Core.Text
+    description :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHIT' with all optional fields omitted.
@@ -285,15 +286,15 @@ data CreateHIT = CreateHIT'
 -- accepting it.
 newCreateHIT ::
   -- | 'lifetimeInSeconds'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'assignmentDurationInSeconds'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'reward'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'title'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   CreateHIT
 newCreateHIT
   pLifetimeInSeconds_
@@ -302,17 +303,17 @@ newCreateHIT
   pTitle_
   pDescription_ =
     CreateHIT'
-      { uniqueRequestToken = Core.Nothing,
-        autoApprovalDelayInSeconds = Core.Nothing,
-        question = Core.Nothing,
-        hITLayoutId = Core.Nothing,
-        hITReviewPolicy = Core.Nothing,
-        maxAssignments = Core.Nothing,
-        requesterAnnotation = Core.Nothing,
-        assignmentReviewPolicy = Core.Nothing,
-        hITLayoutParameters = Core.Nothing,
-        qualificationRequirements = Core.Nothing,
-        keywords = Core.Nothing,
+      { uniqueRequestToken = Prelude.Nothing,
+        autoApprovalDelayInSeconds = Prelude.Nothing,
+        question = Prelude.Nothing,
+        hITLayoutId = Prelude.Nothing,
+        hITReviewPolicy = Prelude.Nothing,
+        maxAssignments = Prelude.Nothing,
+        requesterAnnotation = Prelude.Nothing,
+        assignmentReviewPolicy = Prelude.Nothing,
+        hITLayoutParameters = Prelude.Nothing,
+        qualificationRequirements = Prelude.Nothing,
+        keywords = Prelude.Nothing,
         lifetimeInSeconds = pLifetimeInSeconds_,
         assignmentDurationInSeconds =
           pAssignmentDurationInSeconds_,
@@ -333,13 +334,13 @@ newCreateHIT
 -- unique token expires after 24 hours. Subsequent calls using the same
 -- UniqueRequestToken made after the 24 hour limit could create duplicate
 -- HITs.
-createHIT_uniqueRequestToken :: Lens.Lens' CreateHIT (Core.Maybe Core.Text)
+createHIT_uniqueRequestToken :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
 createHIT_uniqueRequestToken = Lens.lens (\CreateHIT' {uniqueRequestToken} -> uniqueRequestToken) (\s@CreateHIT' {} a -> s {uniqueRequestToken = a} :: CreateHIT)
 
 -- | The number of seconds after an assignment for the HIT has been
 -- submitted, after which the assignment is considered Approved
 -- automatically unless the Requester explicitly rejects it.
-createHIT_autoApprovalDelayInSeconds :: Lens.Lens' CreateHIT (Core.Maybe Core.Integer)
+createHIT_autoApprovalDelayInSeconds :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Integer)
 createHIT_autoApprovalDelayInSeconds = Lens.lens (\CreateHIT' {autoApprovalDelayInSeconds} -> autoApprovalDelayInSeconds) (\s@CreateHIT' {} a -> s {autoApprovalDelayInSeconds = a} :: CreateHIT)
 
 -- | The data the person completing the HIT uses to produce the results.
@@ -350,7 +351,7 @@ createHIT_autoApprovalDelayInSeconds = Lens.lens (\CreateHIT' {autoApprovalDelay
 -- whitespace.
 --
 -- Either a Question parameter or a HITLayoutId parameter must be provided.
-createHIT_question :: Lens.Lens' CreateHIT (Core.Maybe Core.Text)
+createHIT_question :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
 createHIT_question = Lens.lens (\CreateHIT' {question} -> question) (\s@CreateHIT' {} a -> s {question = a} :: CreateHIT)
 
 -- | The HITLayoutId allows you to use a pre-existing HIT design with
@@ -359,17 +360,17 @@ createHIT_question = Lens.lens (\CreateHIT' {question} -> question) (\s@CreateHI
 --
 -- Constraints: Either a Question parameter or a HITLayoutId parameter must
 -- be provided.
-createHIT_hITLayoutId :: Lens.Lens' CreateHIT (Core.Maybe Core.Text)
+createHIT_hITLayoutId :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
 createHIT_hITLayoutId = Lens.lens (\CreateHIT' {hITLayoutId} -> hITLayoutId) (\s@CreateHIT' {} a -> s {hITLayoutId = a} :: CreateHIT)
 
 -- | The HIT-level Review Policy applies to the HIT. You can specify for
 -- Mechanical Turk to take various actions based on the policy.
-createHIT_hITReviewPolicy :: Lens.Lens' CreateHIT (Core.Maybe ReviewPolicy)
+createHIT_hITReviewPolicy :: Lens.Lens' CreateHIT (Prelude.Maybe ReviewPolicy)
 createHIT_hITReviewPolicy = Lens.lens (\CreateHIT' {hITReviewPolicy} -> hITReviewPolicy) (\s@CreateHIT' {} a -> s {hITReviewPolicy = a} :: CreateHIT)
 
 -- | The number of times the HIT can be accepted and completed before the HIT
 -- becomes unavailable.
-createHIT_maxAssignments :: Lens.Lens' CreateHIT (Core.Maybe Core.Int)
+createHIT_maxAssignments :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Int)
 createHIT_maxAssignments = Lens.lens (\CreateHIT' {maxAssignments} -> maxAssignments) (\s@CreateHIT' {} a -> s {maxAssignments = a} :: CreateHIT)
 
 -- | An arbitrary data field. The RequesterAnnotation parameter lets your
@@ -383,39 +384,39 @@ createHIT_maxAssignments = Lens.lens (\CreateHIT' {maxAssignments} -> maxAssignm
 --
 -- The RequesterAnnotation parameter may be different for each HIT you
 -- submit. It does not affect how your HITs are grouped.
-createHIT_requesterAnnotation :: Lens.Lens' CreateHIT (Core.Maybe Core.Text)
+createHIT_requesterAnnotation :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
 createHIT_requesterAnnotation = Lens.lens (\CreateHIT' {requesterAnnotation} -> requesterAnnotation) (\s@CreateHIT' {} a -> s {requesterAnnotation = a} :: CreateHIT)
 
 -- | The Assignment-level Review Policy applies to the assignments under the
 -- HIT. You can specify for Mechanical Turk to take various actions based
 -- on the policy.
-createHIT_assignmentReviewPolicy :: Lens.Lens' CreateHIT (Core.Maybe ReviewPolicy)
+createHIT_assignmentReviewPolicy :: Lens.Lens' CreateHIT (Prelude.Maybe ReviewPolicy)
 createHIT_assignmentReviewPolicy = Lens.lens (\CreateHIT' {assignmentReviewPolicy} -> assignmentReviewPolicy) (\s@CreateHIT' {} a -> s {assignmentReviewPolicy = a} :: CreateHIT)
 
 -- | If the HITLayoutId is provided, any placeholder values must be filled in
 -- with values using the HITLayoutParameter structure. For more
 -- information, see HITLayout.
-createHIT_hITLayoutParameters :: Lens.Lens' CreateHIT (Core.Maybe [HITLayoutParameter])
-createHIT_hITLayoutParameters = Lens.lens (\CreateHIT' {hITLayoutParameters} -> hITLayoutParameters) (\s@CreateHIT' {} a -> s {hITLayoutParameters = a} :: CreateHIT) Core.. Lens.mapping Lens._Coerce
+createHIT_hITLayoutParameters :: Lens.Lens' CreateHIT (Prelude.Maybe [HITLayoutParameter])
+createHIT_hITLayoutParameters = Lens.lens (\CreateHIT' {hITLayoutParameters} -> hITLayoutParameters) (\s@CreateHIT' {} a -> s {hITLayoutParameters = a} :: CreateHIT) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Conditions that a Worker\'s Qualifications must meet in order to accept
 -- the HIT. A HIT can have between zero and ten Qualification requirements.
 -- All requirements must be met in order for a Worker to accept the HIT.
 -- Additionally, other actions can be restricted using the @ActionsGuarded@
 -- field on each @QualificationRequirement@ structure.
-createHIT_qualificationRequirements :: Lens.Lens' CreateHIT (Core.Maybe [QualificationRequirement])
-createHIT_qualificationRequirements = Lens.lens (\CreateHIT' {qualificationRequirements} -> qualificationRequirements) (\s@CreateHIT' {} a -> s {qualificationRequirements = a} :: CreateHIT) Core.. Lens.mapping Lens._Coerce
+createHIT_qualificationRequirements :: Lens.Lens' CreateHIT (Prelude.Maybe [QualificationRequirement])
+createHIT_qualificationRequirements = Lens.lens (\CreateHIT' {qualificationRequirements} -> qualificationRequirements) (\s@CreateHIT' {} a -> s {qualificationRequirements = a} :: CreateHIT) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more words or phrases that describe the HIT, separated by commas.
 -- These words are used in searches to find HITs.
-createHIT_keywords :: Lens.Lens' CreateHIT (Core.Maybe Core.Text)
+createHIT_keywords :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
 createHIT_keywords = Lens.lens (\CreateHIT' {keywords} -> keywords) (\s@CreateHIT' {} a -> s {keywords = a} :: CreateHIT)
 
 -- | An amount of time, in seconds, after which the HIT is no longer
 -- available for users to accept. After the lifetime of the HIT elapses,
 -- the HIT no longer appears in HIT searches, even if not all of the
 -- assignments for the HIT have been accepted.
-createHIT_lifetimeInSeconds :: Lens.Lens' CreateHIT Core.Integer
+createHIT_lifetimeInSeconds :: Lens.Lens' CreateHIT Prelude.Integer
 createHIT_lifetimeInSeconds = Lens.lens (\CreateHIT' {lifetimeInSeconds} -> lifetimeInSeconds) (\s@CreateHIT' {} a -> s {lifetimeInSeconds = a} :: CreateHIT)
 
 -- | The amount of time, in seconds, that a Worker has to complete the HIT
@@ -423,19 +424,19 @@ createHIT_lifetimeInSeconds = Lens.lens (\CreateHIT' {lifetimeInSeconds} -> life
 -- the specified duration, the assignment is considered abandoned. If the
 -- HIT is still active (that is, its lifetime has not elapsed), the
 -- assignment becomes available for other users to find and accept.
-createHIT_assignmentDurationInSeconds :: Lens.Lens' CreateHIT Core.Integer
+createHIT_assignmentDurationInSeconds :: Lens.Lens' CreateHIT Prelude.Integer
 createHIT_assignmentDurationInSeconds = Lens.lens (\CreateHIT' {assignmentDurationInSeconds} -> assignmentDurationInSeconds) (\s@CreateHIT' {} a -> s {assignmentDurationInSeconds = a} :: CreateHIT)
 
 -- | The amount of money the Requester will pay a Worker for successfully
 -- completing the HIT.
-createHIT_reward :: Lens.Lens' CreateHIT Core.Text
+createHIT_reward :: Lens.Lens' CreateHIT Prelude.Text
 createHIT_reward = Lens.lens (\CreateHIT' {reward} -> reward) (\s@CreateHIT' {} a -> s {reward = a} :: CreateHIT)
 
 -- | The title of the HIT. A title should be short and descriptive about the
 -- kind of task the HIT contains. On the Amazon Mechanical Turk web site,
 -- the HIT title appears in search results, and everywhere the HIT is
 -- mentioned.
-createHIT_title :: Lens.Lens' CreateHIT Core.Text
+createHIT_title :: Lens.Lens' CreateHIT Prelude.Text
 createHIT_title = Lens.lens (\CreateHIT' {title} -> title) (\s@CreateHIT' {} a -> s {title = a} :: CreateHIT)
 
 -- | A general description of the HIT. A description includes detailed
@@ -444,7 +445,7 @@ createHIT_title = Lens.lens (\CreateHIT' {title} -> title) (\s@CreateHIT' {} a -
 -- view of search results, and in the HIT and assignment screens. A good
 -- description gives the user enough information to evaluate the HIT before
 -- accepting it.
-createHIT_description :: Lens.Lens' CreateHIT Core.Text
+createHIT_description :: Lens.Lens' CreateHIT Prelude.Text
 createHIT_description = Lens.lens (\CreateHIT' {description} -> description) (\s@CreateHIT' {} a -> s {description = a} :: CreateHIT)
 
 instance Core.AWSRequest CreateHIT where
@@ -454,76 +455,80 @@ instance Core.AWSRequest CreateHIT where
     Response.receiveJSON
       ( \s h x ->
           CreateHITResponse'
-            Core.<$> (x Core..?> "HIT")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HIT")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateHIT
+instance Prelude.Hashable CreateHIT
 
-instance Core.NFData CreateHIT
+instance Prelude.NFData CreateHIT
 
 instance Core.ToHeaders CreateHIT where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.CreateHIT" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateHIT where
   toJSON CreateHIT' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("UniqueRequestToken" Core..=)
-              Core.<$> uniqueRequestToken,
+              Prelude.<$> uniqueRequestToken,
             ("AutoApprovalDelayInSeconds" Core..=)
-              Core.<$> autoApprovalDelayInSeconds,
-            ("Question" Core..=) Core.<$> question,
-            ("HITLayoutId" Core..=) Core.<$> hITLayoutId,
-            ("HITReviewPolicy" Core..=) Core.<$> hITReviewPolicy,
-            ("MaxAssignments" Core..=) Core.<$> maxAssignments,
+              Prelude.<$> autoApprovalDelayInSeconds,
+            ("Question" Core..=) Prelude.<$> question,
+            ("HITLayoutId" Core..=) Prelude.<$> hITLayoutId,
+            ("HITReviewPolicy" Core..=)
+              Prelude.<$> hITReviewPolicy,
+            ("MaxAssignments" Core..=)
+              Prelude.<$> maxAssignments,
             ("RequesterAnnotation" Core..=)
-              Core.<$> requesterAnnotation,
+              Prelude.<$> requesterAnnotation,
             ("AssignmentReviewPolicy" Core..=)
-              Core.<$> assignmentReviewPolicy,
+              Prelude.<$> assignmentReviewPolicy,
             ("HITLayoutParameters" Core..=)
-              Core.<$> hITLayoutParameters,
+              Prelude.<$> hITLayoutParameters,
             ("QualificationRequirements" Core..=)
-              Core.<$> qualificationRequirements,
-            ("Keywords" Core..=) Core.<$> keywords,
-            Core.Just
+              Prelude.<$> qualificationRequirements,
+            ("Keywords" Core..=) Prelude.<$> keywords,
+            Prelude.Just
               ("LifetimeInSeconds" Core..= lifetimeInSeconds),
-            Core.Just
+            Prelude.Just
               ( "AssignmentDurationInSeconds"
                   Core..= assignmentDurationInSeconds
               ),
-            Core.Just ("Reward" Core..= reward),
-            Core.Just ("Title" Core..= title),
-            Core.Just ("Description" Core..= description)
+            Prelude.Just ("Reward" Core..= reward),
+            Prelude.Just ("Title" Core..= title),
+            Prelude.Just ("Description" Core..= description)
           ]
       )
 
 instance Core.ToPath CreateHIT where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateHIT where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHITResponse' smart constructor.
 data CreateHITResponse = CreateHITResponse'
   { -- | Contains the newly created HIT data. For a description of the HIT data
     -- structure as it appears in responses, see the HIT Data Structure
     -- documentation.
-    hit :: Core.Maybe HIT,
+    hit :: Prelude.Maybe HIT,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHITResponse' with all optional fields omitted.
@@ -540,22 +545,22 @@ data CreateHITResponse = CreateHITResponse'
 -- 'httpStatus', 'createHITResponse_httpStatus' - The response's http status code.
 newCreateHITResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateHITResponse
 newCreateHITResponse pHttpStatus_ =
   CreateHITResponse'
-    { hit = Core.Nothing,
+    { hit = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the newly created HIT data. For a description of the HIT data
 -- structure as it appears in responses, see the HIT Data Structure
 -- documentation.
-createHITResponse_hit :: Lens.Lens' CreateHITResponse (Core.Maybe HIT)
+createHITResponse_hit :: Lens.Lens' CreateHITResponse (Prelude.Maybe HIT)
 createHITResponse_hit = Lens.lens (\CreateHITResponse' {hit} -> hit) (\s@CreateHITResponse' {} a -> s {hit = a} :: CreateHITResponse)
 
 -- | The response's http status code.
-createHITResponse_httpStatus :: Lens.Lens' CreateHITResponse Core.Int
+createHITResponse_httpStatus :: Lens.Lens' CreateHITResponse Prelude.Int
 createHITResponse_httpStatus = Lens.lens (\CreateHITResponse' {httpStatus} -> httpStatus) (\s@CreateHITResponse' {} a -> s {httpStatus = a} :: CreateHITResponse)
 
-instance Core.NFData CreateHITResponse
+instance Prelude.NFData CreateHITResponse

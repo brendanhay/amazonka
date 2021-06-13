@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -56,15 +57,15 @@ import Network.AWS.WorkMail.Types
 data ListAliases = ListAliases'
   { -- | The token to use to retrieve the next page of results. The first call
     -- does not contain any tokens.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the organization under which the entity exists.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The identifier for the entity for which to list the aliases.
-    entityId :: Core.Text
+    entityId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAliases' with all optional fields omitted.
@@ -84,53 +85,53 @@ data ListAliases = ListAliases'
 -- 'entityId', 'listAliases_entityId' - The identifier for the entity for which to list the aliases.
 newListAliases ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'entityId'
-  Core.Text ->
+  Prelude.Text ->
   ListAliases
 newListAliases pOrganizationId_ pEntityId_ =
   ListAliases'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       organizationId = pOrganizationId_,
       entityId = pEntityId_
     }
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
-listAliases_nextToken :: Lens.Lens' ListAliases (Core.Maybe Core.Text)
+listAliases_nextToken :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_nextToken = Lens.lens (\ListAliases' {nextToken} -> nextToken) (\s@ListAliases' {} a -> s {nextToken = a} :: ListAliases)
 
 -- | The maximum number of results to return in a single call.
-listAliases_maxResults :: Lens.Lens' ListAliases (Core.Maybe Core.Natural)
+listAliases_maxResults :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
 listAliases_maxResults = Lens.lens (\ListAliases' {maxResults} -> maxResults) (\s@ListAliases' {} a -> s {maxResults = a} :: ListAliases)
 
 -- | The identifier for the organization under which the entity exists.
-listAliases_organizationId :: Lens.Lens' ListAliases Core.Text
+listAliases_organizationId :: Lens.Lens' ListAliases Prelude.Text
 listAliases_organizationId = Lens.lens (\ListAliases' {organizationId} -> organizationId) (\s@ListAliases' {} a -> s {organizationId = a} :: ListAliases)
 
 -- | The identifier for the entity for which to list the aliases.
-listAliases_entityId :: Lens.Lens' ListAliases Core.Text
+listAliases_entityId :: Lens.Lens' ListAliases Prelude.Text
 listAliases_entityId = Lens.lens (\ListAliases' {entityId} -> entityId) (\s@ListAliases' {} a -> s {entityId = a} :: ListAliases)
 
 instance Core.AWSPager ListAliases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_nextToken Core.. Lens._Just
+            Lens.^? listAliasesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_aliases Core.. Lens._Just
+            Lens.^? listAliasesResponse_aliases Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAliases_nextToken
+          Prelude.& listAliases_nextToken
           Lens..~ rs
-          Lens.^? listAliasesResponse_nextToken Core.. Lens._Just
+          Lens.^? listAliasesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAliases where
   type AWSResponse ListAliases = ListAliasesResponse
@@ -139,54 +140,59 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Aliases" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAliases
+instance Prelude.Hashable ListAliases
 
-instance Core.NFData ListAliases
+instance Prelude.NFData ListAliases
 
 instance Core.ToHeaders ListAliases where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("WorkMailService.ListAliases" :: Core.ByteString),
+              Core.=# ( "WorkMailService.ListAliases" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListAliases where
   toJSON ListAliases' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("EntityId" Core..= entityId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("EntityId" Core..= entityId)
           ]
       )
 
 instance Core.ToPath ListAliases where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListAliases where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
   { -- | The token to use to retrieve the next page of results. The value is
     -- \"null\" when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The entity\'s paginated aliases.
-    aliases :: Core.Maybe [Core.Text],
+    aliases :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAliasesResponse' with all optional fields omitted.
@@ -204,26 +210,26 @@ data ListAliasesResponse = ListAliasesResponse'
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { nextToken = Core.Nothing,
-      aliases = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      aliases = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. The value is
 -- \"null\" when there are no more results to return.
-listAliasesResponse_nextToken :: Lens.Lens' ListAliasesResponse (Core.Maybe Core.Text)
+listAliasesResponse_nextToken :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
 listAliasesResponse_nextToken = Lens.lens (\ListAliasesResponse' {nextToken} -> nextToken) (\s@ListAliasesResponse' {} a -> s {nextToken = a} :: ListAliasesResponse)
 
 -- | The entity\'s paginated aliases.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Core.Maybe [Core.Text])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Core.. Lens.mapping Lens._Coerce
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [Prelude.Text])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Core.Int
+listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
 listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -> httpStatus) (\s@ListAliasesResponse' {} a -> s {httpStatus = a} :: ListAliasesResponse)
 
-instance Core.NFData ListAliasesResponse
+instance Prelude.NFData ListAliasesResponse

@@ -47,6 +47,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,14 +57,14 @@ data MergePullRequestByFastForward = MergePullRequestByFastForward'
     -- source branch. Pass this value if you want an exception thrown if the
     -- current commit ID of the tip of the source branch does not match this
     -- commit ID.
-    sourceCommitId :: Core.Maybe Core.Text,
+    sourceCommitId :: Prelude.Maybe Prelude.Text,
     -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
-    pullRequestId :: Core.Text,
+    pullRequestId :: Prelude.Text,
     -- | The name of the repository where the pull request was created.
-    repositoryName :: Core.Text
+    repositoryName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MergePullRequestByFastForward' with all optional fields omitted.
@@ -84,16 +85,16 @@ data MergePullRequestByFastForward = MergePullRequestByFastForward'
 -- 'repositoryName', 'mergePullRequestByFastForward_repositoryName' - The name of the repository where the pull request was created.
 newMergePullRequestByFastForward ::
   -- | 'pullRequestId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   MergePullRequestByFastForward
 newMergePullRequestByFastForward
   pPullRequestId_
   pRepositoryName_ =
     MergePullRequestByFastForward'
       { sourceCommitId =
-          Core.Nothing,
+          Prelude.Nothing,
         pullRequestId = pPullRequestId_,
         repositoryName = pRepositoryName_
       }
@@ -102,16 +103,16 @@ newMergePullRequestByFastForward
 -- source branch. Pass this value if you want an exception thrown if the
 -- current commit ID of the tip of the source branch does not match this
 -- commit ID.
-mergePullRequestByFastForward_sourceCommitId :: Lens.Lens' MergePullRequestByFastForward (Core.Maybe Core.Text)
+mergePullRequestByFastForward_sourceCommitId :: Lens.Lens' MergePullRequestByFastForward (Prelude.Maybe Prelude.Text)
 mergePullRequestByFastForward_sourceCommitId = Lens.lens (\MergePullRequestByFastForward' {sourceCommitId} -> sourceCommitId) (\s@MergePullRequestByFastForward' {} a -> s {sourceCommitId = a} :: MergePullRequestByFastForward)
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
-mergePullRequestByFastForward_pullRequestId :: Lens.Lens' MergePullRequestByFastForward Core.Text
+mergePullRequestByFastForward_pullRequestId :: Lens.Lens' MergePullRequestByFastForward Prelude.Text
 mergePullRequestByFastForward_pullRequestId = Lens.lens (\MergePullRequestByFastForward' {pullRequestId} -> pullRequestId) (\s@MergePullRequestByFastForward' {} a -> s {pullRequestId = a} :: MergePullRequestByFastForward)
 
 -- | The name of the repository where the pull request was created.
-mergePullRequestByFastForward_repositoryName :: Lens.Lens' MergePullRequestByFastForward Core.Text
+mergePullRequestByFastForward_repositoryName :: Lens.Lens' MergePullRequestByFastForward Prelude.Text
 mergePullRequestByFastForward_repositoryName = Lens.lens (\MergePullRequestByFastForward' {repositoryName} -> repositoryName) (\s@MergePullRequestByFastForward' {} a -> s {repositoryName = a} :: MergePullRequestByFastForward)
 
 instance
@@ -126,51 +127,57 @@ instance
     Response.receiveJSON
       ( \s h x ->
           MergePullRequestByFastForwardResponse'
-            Core.<$> (x Core..?> "pullRequest")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "pullRequest")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable MergePullRequestByFastForward
+instance
+  Prelude.Hashable
+    MergePullRequestByFastForward
 
-instance Core.NFData MergePullRequestByFastForward
+instance Prelude.NFData MergePullRequestByFastForward
 
 instance Core.ToHeaders MergePullRequestByFastForward where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.MergePullRequestByFastForward" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON MergePullRequestByFastForward where
   toJSON MergePullRequestByFastForward' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("sourceCommitId" Core..=) Core.<$> sourceCommitId,
-            Core.Just ("pullRequestId" Core..= pullRequestId),
-            Core.Just ("repositoryName" Core..= repositoryName)
+      ( Prelude.catMaybes
+          [ ("sourceCommitId" Core..=)
+              Prelude.<$> sourceCommitId,
+            Prelude.Just ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
 instance Core.ToPath MergePullRequestByFastForward where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery MergePullRequestByFastForward where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergePullRequestByFastForwardResponse' smart constructor.
 data MergePullRequestByFastForwardResponse = MergePullRequestByFastForwardResponse'
   { -- | Information about the specified pull request, including the merge.
-    pullRequest :: Core.Maybe PullRequest,
+    pullRequest :: Prelude.Maybe PullRequest,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MergePullRequestByFastForwardResponse' with all optional fields omitted.
@@ -185,23 +192,23 @@ data MergePullRequestByFastForwardResponse = MergePullRequestByFastForwardRespon
 -- 'httpStatus', 'mergePullRequestByFastForwardResponse_httpStatus' - The response's http status code.
 newMergePullRequestByFastForwardResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   MergePullRequestByFastForwardResponse
 newMergePullRequestByFastForwardResponse pHttpStatus_ =
   MergePullRequestByFastForwardResponse'
     { pullRequest =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the specified pull request, including the merge.
-mergePullRequestByFastForwardResponse_pullRequest :: Lens.Lens' MergePullRequestByFastForwardResponse (Core.Maybe PullRequest)
+mergePullRequestByFastForwardResponse_pullRequest :: Lens.Lens' MergePullRequestByFastForwardResponse (Prelude.Maybe PullRequest)
 mergePullRequestByFastForwardResponse_pullRequest = Lens.lens (\MergePullRequestByFastForwardResponse' {pullRequest} -> pullRequest) (\s@MergePullRequestByFastForwardResponse' {} a -> s {pullRequest = a} :: MergePullRequestByFastForwardResponse)
 
 -- | The response's http status code.
-mergePullRequestByFastForwardResponse_httpStatus :: Lens.Lens' MergePullRequestByFastForwardResponse Core.Int
+mergePullRequestByFastForwardResponse_httpStatus :: Lens.Lens' MergePullRequestByFastForwardResponse Prelude.Int
 mergePullRequestByFastForwardResponse_httpStatus = Lens.lens (\MergePullRequestByFastForwardResponse' {httpStatus} -> httpStatus) (\s@MergePullRequestByFastForwardResponse' {} a -> s {httpStatus = a} :: MergePullRequestByFastForwardResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     MergePullRequestByFastForwardResponse

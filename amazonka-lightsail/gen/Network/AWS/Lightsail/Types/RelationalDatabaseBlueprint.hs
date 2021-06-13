@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.RelationalDatabaseBlueprint where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.RelationalDatabaseEngine
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a database image, or blueprint. A blueprint describes the
 -- major engine version of a database.
@@ -29,22 +30,22 @@ import Network.AWS.Lightsail.Types.RelationalDatabaseEngine
 -- /See:/ 'newRelationalDatabaseBlueprint' smart constructor.
 data RelationalDatabaseBlueprint = RelationalDatabaseBlueprint'
   { -- | The description of the database engine for the database blueprint.
-    engineDescription :: Core.Maybe Core.Text,
+    engineDescription :: Prelude.Maybe Prelude.Text,
     -- | The ID for the database blueprint.
-    blueprintId :: Core.Maybe Core.Text,
+    blueprintId :: Prelude.Maybe Prelude.Text,
     -- | The description of the database engine version for the database
     -- blueprint.
-    engineVersionDescription :: Core.Maybe Core.Text,
+    engineVersionDescription :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether the engine version is the default for
     -- the database blueprint.
-    isEngineDefault :: Core.Maybe Core.Bool,
+    isEngineDefault :: Prelude.Maybe Prelude.Bool,
     -- | The database engine version for the database blueprint (for example,
     -- @5.7.23@).
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The database software of the database blueprint (for example, @MySQL@).
-    engine :: Core.Maybe RelationalDatabaseEngine
+    engine :: Prelude.Maybe RelationalDatabaseEngine
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RelationalDatabaseBlueprint' with all optional fields omitted.
@@ -73,39 +74,39 @@ newRelationalDatabaseBlueprint ::
 newRelationalDatabaseBlueprint =
   RelationalDatabaseBlueprint'
     { engineDescription =
-        Core.Nothing,
-      blueprintId = Core.Nothing,
-      engineVersionDescription = Core.Nothing,
-      isEngineDefault = Core.Nothing,
-      engineVersion = Core.Nothing,
-      engine = Core.Nothing
+        Prelude.Nothing,
+      blueprintId = Prelude.Nothing,
+      engineVersionDescription = Prelude.Nothing,
+      isEngineDefault = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      engine = Prelude.Nothing
     }
 
 -- | The description of the database engine for the database blueprint.
-relationalDatabaseBlueprint_engineDescription :: Lens.Lens' RelationalDatabaseBlueprint (Core.Maybe Core.Text)
+relationalDatabaseBlueprint_engineDescription :: Lens.Lens' RelationalDatabaseBlueprint (Prelude.Maybe Prelude.Text)
 relationalDatabaseBlueprint_engineDescription = Lens.lens (\RelationalDatabaseBlueprint' {engineDescription} -> engineDescription) (\s@RelationalDatabaseBlueprint' {} a -> s {engineDescription = a} :: RelationalDatabaseBlueprint)
 
 -- | The ID for the database blueprint.
-relationalDatabaseBlueprint_blueprintId :: Lens.Lens' RelationalDatabaseBlueprint (Core.Maybe Core.Text)
+relationalDatabaseBlueprint_blueprintId :: Lens.Lens' RelationalDatabaseBlueprint (Prelude.Maybe Prelude.Text)
 relationalDatabaseBlueprint_blueprintId = Lens.lens (\RelationalDatabaseBlueprint' {blueprintId} -> blueprintId) (\s@RelationalDatabaseBlueprint' {} a -> s {blueprintId = a} :: RelationalDatabaseBlueprint)
 
 -- | The description of the database engine version for the database
 -- blueprint.
-relationalDatabaseBlueprint_engineVersionDescription :: Lens.Lens' RelationalDatabaseBlueprint (Core.Maybe Core.Text)
+relationalDatabaseBlueprint_engineVersionDescription :: Lens.Lens' RelationalDatabaseBlueprint (Prelude.Maybe Prelude.Text)
 relationalDatabaseBlueprint_engineVersionDescription = Lens.lens (\RelationalDatabaseBlueprint' {engineVersionDescription} -> engineVersionDescription) (\s@RelationalDatabaseBlueprint' {} a -> s {engineVersionDescription = a} :: RelationalDatabaseBlueprint)
 
 -- | A Boolean value indicating whether the engine version is the default for
 -- the database blueprint.
-relationalDatabaseBlueprint_isEngineDefault :: Lens.Lens' RelationalDatabaseBlueprint (Core.Maybe Core.Bool)
+relationalDatabaseBlueprint_isEngineDefault :: Lens.Lens' RelationalDatabaseBlueprint (Prelude.Maybe Prelude.Bool)
 relationalDatabaseBlueprint_isEngineDefault = Lens.lens (\RelationalDatabaseBlueprint' {isEngineDefault} -> isEngineDefault) (\s@RelationalDatabaseBlueprint' {} a -> s {isEngineDefault = a} :: RelationalDatabaseBlueprint)
 
 -- | The database engine version for the database blueprint (for example,
 -- @5.7.23@).
-relationalDatabaseBlueprint_engineVersion :: Lens.Lens' RelationalDatabaseBlueprint (Core.Maybe Core.Text)
+relationalDatabaseBlueprint_engineVersion :: Lens.Lens' RelationalDatabaseBlueprint (Prelude.Maybe Prelude.Text)
 relationalDatabaseBlueprint_engineVersion = Lens.lens (\RelationalDatabaseBlueprint' {engineVersion} -> engineVersion) (\s@RelationalDatabaseBlueprint' {} a -> s {engineVersion = a} :: RelationalDatabaseBlueprint)
 
 -- | The database software of the database blueprint (for example, @MySQL@).
-relationalDatabaseBlueprint_engine :: Lens.Lens' RelationalDatabaseBlueprint (Core.Maybe RelationalDatabaseEngine)
+relationalDatabaseBlueprint_engine :: Lens.Lens' RelationalDatabaseBlueprint (Prelude.Maybe RelationalDatabaseEngine)
 relationalDatabaseBlueprint_engine = Lens.lens (\RelationalDatabaseBlueprint' {engine} -> engine) (\s@RelationalDatabaseBlueprint' {} a -> s {engine = a} :: RelationalDatabaseBlueprint)
 
 instance Core.FromJSON RelationalDatabaseBlueprint where
@@ -114,14 +115,14 @@ instance Core.FromJSON RelationalDatabaseBlueprint where
       "RelationalDatabaseBlueprint"
       ( \x ->
           RelationalDatabaseBlueprint'
-            Core.<$> (x Core..:? "engineDescription")
-            Core.<*> (x Core..:? "blueprintId")
-            Core.<*> (x Core..:? "engineVersionDescription")
-            Core.<*> (x Core..:? "isEngineDefault")
-            Core.<*> (x Core..:? "engineVersion")
-            Core.<*> (x Core..:? "engine")
+            Prelude.<$> (x Core..:? "engineDescription")
+            Prelude.<*> (x Core..:? "blueprintId")
+            Prelude.<*> (x Core..:? "engineVersionDescription")
+            Prelude.<*> (x Core..:? "isEngineDefault")
+            Prelude.<*> (x Core..:? "engineVersion")
+            Prelude.<*> (x Core..:? "engine")
       )
 
-instance Core.Hashable RelationalDatabaseBlueprint
+instance Prelude.Hashable RelationalDatabaseBlueprint
 
-instance Core.NFData RelationalDatabaseBlueprint
+instance Prelude.NFData RelationalDatabaseBlueprint

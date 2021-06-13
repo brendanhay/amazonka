@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -56,19 +57,19 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newGetProvisionedProductOutputs' smart constructor.
 data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
   { -- | The name of the provisioned product that you want the outputs from.
-    provisionedProductName :: Core.Maybe Core.Text,
+    provisionedProductName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioned product that you want the outputs
     -- from.
-    provisionedProductId :: Core.Maybe Core.Text,
+    provisionedProductId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The list of keys that the API should return with their values. If none
     -- are provided, the API will return all outputs of the provisioned
     -- product.
-    outputKeys :: Core.Maybe [Core.Text],
+    outputKeys :: Prelude.Maybe [Prelude.Text],
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -76,9 +77,9 @@ data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetProvisionedProductOutputs' with all optional fields omitted.
@@ -114,36 +115,36 @@ newGetProvisionedProductOutputs ::
 newGetProvisionedProductOutputs =
   GetProvisionedProductOutputs'
     { provisionedProductName =
-        Core.Nothing,
-      provisionedProductId = Core.Nothing,
-      pageSize = Core.Nothing,
-      outputKeys = Core.Nothing,
-      pageToken = Core.Nothing,
-      acceptLanguage = Core.Nothing
+        Prelude.Nothing,
+      provisionedProductId = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      outputKeys = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
 
 -- | The name of the provisioned product that you want the outputs from.
-getProvisionedProductOutputs_provisionedProductName :: Lens.Lens' GetProvisionedProductOutputs (Core.Maybe Core.Text)
+getProvisionedProductOutputs_provisionedProductName :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputs_provisionedProductName = Lens.lens (\GetProvisionedProductOutputs' {provisionedProductName} -> provisionedProductName) (\s@GetProvisionedProductOutputs' {} a -> s {provisionedProductName = a} :: GetProvisionedProductOutputs)
 
 -- | The identifier of the provisioned product that you want the outputs
 -- from.
-getProvisionedProductOutputs_provisionedProductId :: Lens.Lens' GetProvisionedProductOutputs (Core.Maybe Core.Text)
+getProvisionedProductOutputs_provisionedProductId :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputs_provisionedProductId = Lens.lens (\GetProvisionedProductOutputs' {provisionedProductId} -> provisionedProductId) (\s@GetProvisionedProductOutputs' {} a -> s {provisionedProductId = a} :: GetProvisionedProductOutputs)
 
 -- | The maximum number of items to return with this call.
-getProvisionedProductOutputs_pageSize :: Lens.Lens' GetProvisionedProductOutputs (Core.Maybe Core.Natural)
+getProvisionedProductOutputs_pageSize :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Natural)
 getProvisionedProductOutputs_pageSize = Lens.lens (\GetProvisionedProductOutputs' {pageSize} -> pageSize) (\s@GetProvisionedProductOutputs' {} a -> s {pageSize = a} :: GetProvisionedProductOutputs)
 
 -- | The list of keys that the API should return with their values. If none
 -- are provided, the API will return all outputs of the provisioned
 -- product.
-getProvisionedProductOutputs_outputKeys :: Lens.Lens' GetProvisionedProductOutputs (Core.Maybe [Core.Text])
-getProvisionedProductOutputs_outputKeys = Lens.lens (\GetProvisionedProductOutputs' {outputKeys} -> outputKeys) (\s@GetProvisionedProductOutputs' {} a -> s {outputKeys = a} :: GetProvisionedProductOutputs) Core.. Lens.mapping Lens._Coerce
+getProvisionedProductOutputs_outputKeys :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe [Prelude.Text])
+getProvisionedProductOutputs_outputKeys = Lens.lens (\GetProvisionedProductOutputs' {outputKeys} -> outputKeys) (\s@GetProvisionedProductOutputs' {} a -> s {outputKeys = a} :: GetProvisionedProductOutputs) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-getProvisionedProductOutputs_pageToken :: Lens.Lens' GetProvisionedProductOutputs (Core.Maybe Core.Text)
+getProvisionedProductOutputs_pageToken :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputs_pageToken = Lens.lens (\GetProvisionedProductOutputs' {pageToken} -> pageToken) (\s@GetProvisionedProductOutputs' {} a -> s {pageToken = a} :: GetProvisionedProductOutputs)
 
 -- | The language code.
@@ -153,7 +154,7 @@ getProvisionedProductOutputs_pageToken = Lens.lens (\GetProvisionedProductOutput
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-getProvisionedProductOutputs_acceptLanguage :: Lens.Lens' GetProvisionedProductOutputs (Core.Maybe Core.Text)
+getProvisionedProductOutputs_acceptLanguage :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputs_acceptLanguage = Lens.lens (\GetProvisionedProductOutputs' {acceptLanguage} -> acceptLanguage) (\s@GetProvisionedProductOutputs' {} a -> s {acceptLanguage = a} :: GetProvisionedProductOutputs)
 
 instance Core.AWSRequest GetProvisionedProductOutputs where
@@ -165,62 +166,67 @@ instance Core.AWSRequest GetProvisionedProductOutputs where
     Response.receiveJSON
       ( \s h x ->
           GetProvisionedProductOutputsResponse'
-            Core.<$> (x Core..?> "Outputs" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetProvisionedProductOutputs
+instance
+  Prelude.Hashable
+    GetProvisionedProductOutputs
 
-instance Core.NFData GetProvisionedProductOutputs
+instance Prelude.NFData GetProvisionedProductOutputs
 
 instance Core.ToHeaders GetProvisionedProductOutputs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.GetProvisionedProductOutputs" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetProvisionedProductOutputs where
   toJSON GetProvisionedProductOutputs' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProvisionedProductName" Core..=)
-              Core.<$> provisionedProductName,
+              Prelude.<$> provisionedProductName,
             ("ProvisionedProductId" Core..=)
-              Core.<$> provisionedProductId,
-            ("PageSize" Core..=) Core.<$> pageSize,
-            ("OutputKeys" Core..=) Core.<$> outputKeys,
-            ("PageToken" Core..=) Core.<$> pageToken,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+              Prelude.<$> provisionedProductId,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("OutputKeys" Core..=) Prelude.<$> outputKeys,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 
 instance Core.ToPath GetProvisionedProductOutputs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetProvisionedProductOutputs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProvisionedProductOutputsResponse' smart constructor.
 data GetProvisionedProductOutputsResponse = GetProvisionedProductOutputsResponse'
   { -- | Information about the product created as the result of a request. For
     -- example, the output for a CloudFormation-backed product that creates an
     -- S3 bucket would include the S3 bucket URL.
-    outputs :: Core.Maybe [RecordOutput],
+    outputs :: Prelude.Maybe [RecordOutput],
     -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetProvisionedProductOutputsResponse' with all optional fields omitted.
@@ -240,31 +246,31 @@ data GetProvisionedProductOutputsResponse = GetProvisionedProductOutputsResponse
 -- 'httpStatus', 'getProvisionedProductOutputsResponse_httpStatus' - The response's http status code.
 newGetProvisionedProductOutputsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetProvisionedProductOutputsResponse
 newGetProvisionedProductOutputsResponse pHttpStatus_ =
   GetProvisionedProductOutputsResponse'
     { outputs =
-        Core.Nothing,
-      nextPageToken = Core.Nothing,
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the product created as the result of a request. For
 -- example, the output for a CloudFormation-backed product that creates an
 -- S3 bucket would include the S3 bucket URL.
-getProvisionedProductOutputsResponse_outputs :: Lens.Lens' GetProvisionedProductOutputsResponse (Core.Maybe [RecordOutput])
-getProvisionedProductOutputsResponse_outputs = Lens.lens (\GetProvisionedProductOutputsResponse' {outputs} -> outputs) (\s@GetProvisionedProductOutputsResponse' {} a -> s {outputs = a} :: GetProvisionedProductOutputsResponse) Core.. Lens.mapping Lens._Coerce
+getProvisionedProductOutputsResponse_outputs :: Lens.Lens' GetProvisionedProductOutputsResponse (Prelude.Maybe [RecordOutput])
+getProvisionedProductOutputsResponse_outputs = Lens.lens (\GetProvisionedProductOutputsResponse' {outputs} -> outputs) (\s@GetProvisionedProductOutputsResponse' {} a -> s {outputs = a} :: GetProvisionedProductOutputsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-getProvisionedProductOutputsResponse_nextPageToken :: Lens.Lens' GetProvisionedProductOutputsResponse (Core.Maybe Core.Text)
+getProvisionedProductOutputsResponse_nextPageToken :: Lens.Lens' GetProvisionedProductOutputsResponse (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputsResponse_nextPageToken = Lens.lens (\GetProvisionedProductOutputsResponse' {nextPageToken} -> nextPageToken) (\s@GetProvisionedProductOutputsResponse' {} a -> s {nextPageToken = a} :: GetProvisionedProductOutputsResponse)
 
 -- | The response's http status code.
-getProvisionedProductOutputsResponse_httpStatus :: Lens.Lens' GetProvisionedProductOutputsResponse Core.Int
+getProvisionedProductOutputsResponse_httpStatus :: Lens.Lens' GetProvisionedProductOutputsResponse Prelude.Int
 getProvisionedProductOutputsResponse_httpStatus = Lens.lens (\GetProvisionedProductOutputsResponse' {httpStatus} -> httpStatus) (\s@GetProvisionedProductOutputsResponse' {} a -> s {httpStatus = a} :: GetProvisionedProductOutputsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetProvisionedProductOutputsResponse

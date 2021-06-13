@@ -43,6 +43,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetStages' smart constructor.
 data GetStages = GetStages'
   { -- | The stages\' deployment identifiers.
-    deploymentId :: Core.Maybe Core.Text,
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text
+    restApiId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStages' with all optional fields omitted.
@@ -71,20 +72,20 @@ data GetStages = GetStages'
 -- 'restApiId', 'getStages_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetStages ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   GetStages
 newGetStages pRestApiId_ =
   GetStages'
-    { deploymentId = Core.Nothing,
+    { deploymentId = Prelude.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | The stages\' deployment identifiers.
-getStages_deploymentId :: Lens.Lens' GetStages (Core.Maybe Core.Text)
+getStages_deploymentId :: Lens.Lens' GetStages (Prelude.Maybe Prelude.Text)
 getStages_deploymentId = Lens.lens (\GetStages' {deploymentId} -> deploymentId) (\s@GetStages' {} a -> s {deploymentId = a} :: GetStages)
 
 -- | [Required] The string identifier of the associated RestApi.
-getStages_restApiId :: Lens.Lens' GetStages Core.Text
+getStages_restApiId :: Lens.Lens' GetStages Prelude.Text
 getStages_restApiId = Lens.lens (\GetStages' {restApiId} -> restApiId) (\s@GetStages' {} a -> s {restApiId = a} :: GetStages)
 
 instance Core.AWSRequest GetStages where
@@ -94,31 +95,32 @@ instance Core.AWSRequest GetStages where
     Response.receiveJSON
       ( \s h x ->
           GetStagesResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetStages
+instance Prelude.Hashable GetStages
 
-instance Core.NFData GetStages
+instance Prelude.NFData GetStages
 
 instance Core.ToHeaders GetStages where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetStages where
   toPath GetStages' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/restapis/", Core.toBS restApiId, "/stages"]
 
 instance Core.ToQuery GetStages where
   toQuery GetStages' {..} =
-    Core.mconcat ["deploymentId" Core.=: deploymentId]
+    Prelude.mconcat
+      ["deploymentId" Core.=: deploymentId]
 
 -- | A list of Stage resources that are associated with the ApiKey resource.
 --
@@ -127,11 +129,11 @@ instance Core.ToQuery GetStages where
 -- /See:/ 'newGetStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'
   { -- | The current page of elements from this collection.
-    item :: Core.Maybe [Stage],
+    item :: Prelude.Maybe [Stage],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStagesResponse' with all optional fields omitted.
@@ -146,20 +148,20 @@ data GetStagesResponse = GetStagesResponse'
 -- 'httpStatus', 'getStagesResponse_httpStatus' - The response's http status code.
 newGetStagesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetStagesResponse
 newGetStagesResponse pHttpStatus_ =
   GetStagesResponse'
-    { item = Core.Nothing,
+    { item = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getStagesResponse_item :: Lens.Lens' GetStagesResponse (Core.Maybe [Stage])
-getStagesResponse_item = Lens.lens (\GetStagesResponse' {item} -> item) (\s@GetStagesResponse' {} a -> s {item = a} :: GetStagesResponse) Core.. Lens.mapping Lens._Coerce
+getStagesResponse_item :: Lens.Lens' GetStagesResponse (Prelude.Maybe [Stage])
+getStagesResponse_item = Lens.lens (\GetStagesResponse' {item} -> item) (\s@GetStagesResponse' {} a -> s {item = a} :: GetStagesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getStagesResponse_httpStatus :: Lens.Lens' GetStagesResponse Core.Int
+getStagesResponse_httpStatus :: Lens.Lens' GetStagesResponse Prelude.Int
 getStagesResponse_httpStatus = Lens.lens (\GetStagesResponse' {httpStatus} -> httpStatus) (\s@GetStagesResponse' {} a -> s {httpStatus = a} :: GetStagesResponse)
 
-instance Core.NFData GetStagesResponse
+instance Prelude.NFData GetStagesResponse

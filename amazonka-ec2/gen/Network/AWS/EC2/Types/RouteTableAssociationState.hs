@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.RouteTableAssociationStateCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of an association between a route table and a subnet
 -- or gateway.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRouteTableAssociationState' smart constructor.
 data RouteTableAssociationState = RouteTableAssociationState'
   { -- | The status message, if applicable.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The state of the association.
-    state :: Core.Maybe RouteTableAssociationStateCode
+    state :: Prelude.Maybe RouteTableAssociationStateCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RouteTableAssociationState' with all optional fields omitted.
@@ -52,24 +53,24 @@ newRouteTableAssociationState ::
 newRouteTableAssociationState =
   RouteTableAssociationState'
     { statusMessage =
-        Core.Nothing,
-      state = Core.Nothing
+        Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
 -- | The status message, if applicable.
-routeTableAssociationState_statusMessage :: Lens.Lens' RouteTableAssociationState (Core.Maybe Core.Text)
+routeTableAssociationState_statusMessage :: Lens.Lens' RouteTableAssociationState (Prelude.Maybe Prelude.Text)
 routeTableAssociationState_statusMessage = Lens.lens (\RouteTableAssociationState' {statusMessage} -> statusMessage) (\s@RouteTableAssociationState' {} a -> s {statusMessage = a} :: RouteTableAssociationState)
 
 -- | The state of the association.
-routeTableAssociationState_state :: Lens.Lens' RouteTableAssociationState (Core.Maybe RouteTableAssociationStateCode)
+routeTableAssociationState_state :: Lens.Lens' RouteTableAssociationState (Prelude.Maybe RouteTableAssociationStateCode)
 routeTableAssociationState_state = Lens.lens (\RouteTableAssociationState' {state} -> state) (\s@RouteTableAssociationState' {} a -> s {state = a} :: RouteTableAssociationState)
 
 instance Core.FromXML RouteTableAssociationState where
   parseXML x =
     RouteTableAssociationState'
-      Core.<$> (x Core..@? "statusMessage")
-      Core.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "state")
 
-instance Core.Hashable RouteTableAssociationState
+instance Prelude.Hashable RouteTableAssociationState
 
-instance Core.NFData RouteTableAssociationState
+instance Prelude.NFData RouteTableAssociationState

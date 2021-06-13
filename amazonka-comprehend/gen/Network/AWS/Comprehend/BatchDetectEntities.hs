@@ -46,6 +46,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ data BatchDetectEntities = BatchDetectEntities'
   { -- | A list containing the text of the input documents. The list can contain
     -- a maximum of 25 documents. Each document must contain fewer than 5,000
     -- bytes of UTF-8 encoded characters.
-    textList :: Core.Sensitive [Core.Sensitive Core.Text],
+    textList :: Core.Sensitive [Core.Sensitive Prelude.Text],
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
     languageCode :: LanguageCode
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetectEntities' with all optional fields omitted.
@@ -83,15 +84,15 @@ newBatchDetectEntities ::
   BatchDetectEntities
 newBatchDetectEntities pLanguageCode_ =
   BatchDetectEntities'
-    { textList = Core.mempty,
+    { textList = Prelude.mempty,
       languageCode = pLanguageCode_
     }
 
 -- | A list containing the text of the input documents. The list can contain
 -- a maximum of 25 documents. Each document must contain fewer than 5,000
 -- bytes of UTF-8 encoded characters.
-batchDetectEntities_textList :: Lens.Lens' BatchDetectEntities [Core.Text]
-batchDetectEntities_textList = Lens.lens (\BatchDetectEntities' {textList} -> textList) (\s@BatchDetectEntities' {} a -> s {textList = a} :: BatchDetectEntities) Core.. Core._Sensitive Core.. Lens._Coerce
+batchDetectEntities_textList :: Lens.Lens' BatchDetectEntities [Prelude.Text]
+batchDetectEntities_textList = Lens.lens (\BatchDetectEntities' {textList} -> textList) (\s@BatchDetectEntities' {} a -> s {textList = a} :: BatchDetectEntities) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -108,47 +109,49 @@ instance Core.AWSRequest BatchDetectEntities where
     Response.receiveJSON
       ( \s h x ->
           BatchDetectEntitiesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "ResultList" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ErrorList" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable BatchDetectEntities
+instance Prelude.Hashable BatchDetectEntities
 
-instance Core.NFData BatchDetectEntities
+instance Prelude.NFData BatchDetectEntities
 
 instance Core.ToHeaders BatchDetectEntities where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.BatchDetectEntities" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchDetectEntities where
   toJSON BatchDetectEntities' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TextList" Core..= textList),
-            Core.Just ("LanguageCode" Core..= languageCode)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TextList" Core..= textList),
+            Prelude.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
 instance Core.ToPath BatchDetectEntities where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDetectEntities where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDetectEntitiesResponse' smart constructor.
 data BatchDetectEntitiesResponse = BatchDetectEntitiesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of objects containing the results of the operation. The results
     -- are sorted in ascending order by the @Index@ field and match the order
     -- of the documents in the input list. If all of the documents contain an
@@ -160,7 +163,7 @@ data BatchDetectEntitiesResponse = BatchDetectEntitiesResponse'
     -- the batch, the @ErrorList@ is empty.
     errorList :: [BatchItemError]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetectEntitiesResponse' with all optional fields omitted.
@@ -183,18 +186,18 @@ data BatchDetectEntitiesResponse = BatchDetectEntitiesResponse'
 -- the batch, the @ErrorList@ is empty.
 newBatchDetectEntitiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDetectEntitiesResponse
 newBatchDetectEntitiesResponse pHttpStatus_ =
   BatchDetectEntitiesResponse'
     { httpStatus =
         pHttpStatus_,
-      resultList = Core.mempty,
-      errorList = Core.mempty
+      resultList = Prelude.mempty,
+      errorList = Prelude.mempty
     }
 
 -- | The response's http status code.
-batchDetectEntitiesResponse_httpStatus :: Lens.Lens' BatchDetectEntitiesResponse Core.Int
+batchDetectEntitiesResponse_httpStatus :: Lens.Lens' BatchDetectEntitiesResponse Prelude.Int
 batchDetectEntitiesResponse_httpStatus = Lens.lens (\BatchDetectEntitiesResponse' {httpStatus} -> httpStatus) (\s@BatchDetectEntitiesResponse' {} a -> s {httpStatus = a} :: BatchDetectEntitiesResponse)
 
 -- | A list of objects containing the results of the operation. The results
@@ -202,13 +205,13 @@ batchDetectEntitiesResponse_httpStatus = Lens.lens (\BatchDetectEntitiesResponse
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectEntitiesResponse_resultList :: Lens.Lens' BatchDetectEntitiesResponse [BatchDetectEntitiesItemResult]
-batchDetectEntitiesResponse_resultList = Lens.lens (\BatchDetectEntitiesResponse' {resultList} -> resultList) (\s@BatchDetectEntitiesResponse' {} a -> s {resultList = a} :: BatchDetectEntitiesResponse) Core.. Lens._Coerce
+batchDetectEntitiesResponse_resultList = Lens.lens (\BatchDetectEntitiesResponse' {resultList} -> resultList) (\s@BatchDetectEntitiesResponse' {} a -> s {resultList = a} :: BatchDetectEntitiesResponse) Prelude.. Lens._Coerce
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectEntitiesResponse_errorList :: Lens.Lens' BatchDetectEntitiesResponse [BatchItemError]
-batchDetectEntitiesResponse_errorList = Lens.lens (\BatchDetectEntitiesResponse' {errorList} -> errorList) (\s@BatchDetectEntitiesResponse' {} a -> s {errorList = a} :: BatchDetectEntitiesResponse) Core.. Lens._Coerce
+batchDetectEntitiesResponse_errorList = Lens.lens (\BatchDetectEntitiesResponse' {errorList} -> errorList) (\s@BatchDetectEntitiesResponse' {} a -> s {errorList = a} :: BatchDetectEntitiesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData BatchDetectEntitiesResponse
+instance Prelude.NFData BatchDetectEntitiesResponse

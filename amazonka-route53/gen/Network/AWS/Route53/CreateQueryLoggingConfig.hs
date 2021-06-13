@@ -155,6 +155,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -174,9 +175,9 @@ data CreateQueryLoggingConfig = CreateQueryLoggingConfig'
     -- API action, the
     -- <https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html describe-log-groups>
     -- command, or the applicable command in one of the AWS SDKs.
-    cloudWatchLogsLogGroupArn :: Core.Text
+    cloudWatchLogsLogGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateQueryLoggingConfig' with all optional fields omitted.
@@ -203,7 +204,7 @@ newCreateQueryLoggingConfig ::
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'cloudWatchLogsLogGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateQueryLoggingConfig
 newCreateQueryLoggingConfig
   pHostedZoneId_
@@ -230,7 +231,7 @@ createQueryLoggingConfig_hostedZoneId = Lens.lens (\CreateQueryLoggingConfig' {h
 -- API action, the
 -- <https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html describe-log-groups>
 -- command, or the applicable command in one of the AWS SDKs.
-createQueryLoggingConfig_cloudWatchLogsLogGroupArn :: Lens.Lens' CreateQueryLoggingConfig Core.Text
+createQueryLoggingConfig_cloudWatchLogsLogGroupArn :: Lens.Lens' CreateQueryLoggingConfig Prelude.Text
 createQueryLoggingConfig_cloudWatchLogsLogGroupArn = Lens.lens (\CreateQueryLoggingConfig' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@CreateQueryLoggingConfig' {} a -> s {cloudWatchLogsLogGroupArn = a} :: CreateQueryLoggingConfig)
 
 instance Core.AWSRequest CreateQueryLoggingConfig where
@@ -242,14 +243,14 @@ instance Core.AWSRequest CreateQueryLoggingConfig where
     Response.receiveXML
       ( \s h x ->
           CreateQueryLoggingConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "QueryLoggingConfig")
-            Core.<*> (h Core..# "Location")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "QueryLoggingConfig")
+            Prelude.<*> (h Core..# "Location")
       )
 
-instance Core.Hashable CreateQueryLoggingConfig
+instance Prelude.Hashable CreateQueryLoggingConfig
 
-instance Core.NFData CreateQueryLoggingConfig
+instance Prelude.NFData CreateQueryLoggingConfig
 
 instance Core.ToElement CreateQueryLoggingConfig where
   toElement =
@@ -257,17 +258,18 @@ instance Core.ToElement CreateQueryLoggingConfig where
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateQueryLoggingConfigRequest"
 
 instance Core.ToHeaders CreateQueryLoggingConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateQueryLoggingConfig where
-  toPath = Core.const "/2013-04-01/queryloggingconfig"
+  toPath =
+    Prelude.const "/2013-04-01/queryloggingconfig"
 
 instance Core.ToQuery CreateQueryLoggingConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML CreateQueryLoggingConfig where
   toXML CreateQueryLoggingConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "HostedZoneId" Core.@= hostedZoneId,
         "CloudWatchLogsLogGroupArn"
           Core.@= cloudWatchLogsLogGroupArn
@@ -276,15 +278,15 @@ instance Core.ToXML CreateQueryLoggingConfig where
 -- | /See:/ 'newCreateQueryLoggingConfigResponse' smart constructor.
 data CreateQueryLoggingConfigResponse = CreateQueryLoggingConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains the ID for a query logging configuration,
     -- the ID of the hosted zone that you want to log queries for, and the ARN
     -- for the log group that you want Amazon Route 53 to send query logs to.
     queryLoggingConfig :: QueryLoggingConfig,
     -- | The unique URL representing the new query logging configuration.
-    location :: Core.Text
+    location :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateQueryLoggingConfigResponse' with all optional fields omitted.
@@ -303,11 +305,11 @@ data CreateQueryLoggingConfigResponse = CreateQueryLoggingConfigResponse'
 -- 'location', 'createQueryLoggingConfigResponse_location' - The unique URL representing the new query logging configuration.
 newCreateQueryLoggingConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'queryLoggingConfig'
   QueryLoggingConfig ->
   -- | 'location'
-  Core.Text ->
+  Prelude.Text ->
   CreateQueryLoggingConfigResponse
 newCreateQueryLoggingConfigResponse
   pHttpStatus_
@@ -321,7 +323,7 @@ newCreateQueryLoggingConfigResponse
       }
 
 -- | The response's http status code.
-createQueryLoggingConfigResponse_httpStatus :: Lens.Lens' CreateQueryLoggingConfigResponse Core.Int
+createQueryLoggingConfigResponse_httpStatus :: Lens.Lens' CreateQueryLoggingConfigResponse Prelude.Int
 createQueryLoggingConfigResponse_httpStatus = Lens.lens (\CreateQueryLoggingConfigResponse' {httpStatus} -> httpStatus) (\s@CreateQueryLoggingConfigResponse' {} a -> s {httpStatus = a} :: CreateQueryLoggingConfigResponse)
 
 -- | A complex type that contains the ID for a query logging configuration,
@@ -331,7 +333,9 @@ createQueryLoggingConfigResponse_queryLoggingConfig :: Lens.Lens' CreateQueryLog
 createQueryLoggingConfigResponse_queryLoggingConfig = Lens.lens (\CreateQueryLoggingConfigResponse' {queryLoggingConfig} -> queryLoggingConfig) (\s@CreateQueryLoggingConfigResponse' {} a -> s {queryLoggingConfig = a} :: CreateQueryLoggingConfigResponse)
 
 -- | The unique URL representing the new query logging configuration.
-createQueryLoggingConfigResponse_location :: Lens.Lens' CreateQueryLoggingConfigResponse Core.Text
+createQueryLoggingConfigResponse_location :: Lens.Lens' CreateQueryLoggingConfigResponse Prelude.Text
 createQueryLoggingConfigResponse_location = Lens.lens (\CreateQueryLoggingConfigResponse' {location} -> location) (\s@CreateQueryLoggingConfigResponse' {} a -> s {location = a} :: CreateQueryLoggingConfigResponse)
 
-instance Core.NFData CreateQueryLoggingConfigResponse
+instance
+  Prelude.NFData
+    CreateQueryLoggingConfigResponse

@@ -21,6 +21,7 @@ module Network.AWS.LexRuntime.Types.Button where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an option to be shown on the client platform (Facebook,
 -- Slack, etc.)
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newButton' smart constructor.
 data Button = Button'
   { -- | Text that is visible to the user on the button.
-    text :: Core.Text,
+    text :: Prelude.Text,
     -- | The value sent to Amazon Lex when a user chooses the button. For
     -- example, consider button text \"NYC.\" When the user chooses the button,
     -- the value sent can be \"New York City.\"
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Button' with all optional fields omitted.
@@ -51,21 +52,21 @@ data Button = Button'
 -- the value sent can be \"New York City.\"
 newButton ::
   -- | 'text'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Button
 newButton pText_ pValue_ =
   Button' {text = pText_, value = pValue_}
 
 -- | Text that is visible to the user on the button.
-button_text :: Lens.Lens' Button Core.Text
+button_text :: Lens.Lens' Button Prelude.Text
 button_text = Lens.lens (\Button' {text} -> text) (\s@Button' {} a -> s {text = a} :: Button)
 
 -- | The value sent to Amazon Lex when a user chooses the button. For
 -- example, consider button text \"NYC.\" When the user chooses the button,
 -- the value sent can be \"New York City.\"
-button_value :: Lens.Lens' Button Core.Text
+button_value :: Lens.Lens' Button Prelude.Text
 button_value = Lens.lens (\Button' {value} -> value) (\s@Button' {} a -> s {value = a} :: Button)
 
 instance Core.FromJSON Button where
@@ -74,9 +75,9 @@ instance Core.FromJSON Button where
       "Button"
       ( \x ->
           Button'
-            Core.<$> (x Core..: "text") Core.<*> (x Core..: "value")
+            Prelude.<$> (x Core..: "text") Prelude.<*> (x Core..: "value")
       )
 
-instance Core.Hashable Button
+instance Prelude.Hashable Button
 
-instance Core.NFData Button
+instance Prelude.NFData Button

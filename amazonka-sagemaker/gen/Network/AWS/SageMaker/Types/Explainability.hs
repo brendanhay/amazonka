@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.Explainability where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MetricsSource
 
 -- | Contains explainability metrics for a model.
@@ -28,9 +29,9 @@ import Network.AWS.SageMaker.Types.MetricsSource
 -- /See:/ 'newExplainability' smart constructor.
 data Explainability = Explainability'
   { -- | The explainability report for a model.
-    report :: Core.Maybe MetricsSource
+    report :: Prelude.Maybe MetricsSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Explainability' with all optional fields omitted.
@@ -44,10 +45,10 @@ data Explainability = Explainability'
 newExplainability ::
   Explainability
 newExplainability =
-  Explainability' {report = Core.Nothing}
+  Explainability' {report = Prelude.Nothing}
 
 -- | The explainability report for a model.
-explainability_report :: Lens.Lens' Explainability (Core.Maybe MetricsSource)
+explainability_report :: Lens.Lens' Explainability (Prelude.Maybe MetricsSource)
 explainability_report = Lens.lens (\Explainability' {report} -> report) (\s@Explainability' {} a -> s {report = a} :: Explainability)
 
 instance Core.FromJSON Explainability where
@@ -55,14 +56,16 @@ instance Core.FromJSON Explainability where
     Core.withObject
       "Explainability"
       ( \x ->
-          Explainability' Core.<$> (x Core..:? "Report")
+          Explainability' Prelude.<$> (x Core..:? "Report")
       )
 
-instance Core.Hashable Explainability
+instance Prelude.Hashable Explainability
 
-instance Core.NFData Explainability
+instance Prelude.NFData Explainability
 
 instance Core.ToJSON Explainability where
   toJSON Explainability' {..} =
     Core.object
-      (Core.catMaybes [("Report" Core..=) Core.<$> report])
+      ( Prelude.catMaybes
+          [("Report" Core..=) Prelude.<$> report]
+      )

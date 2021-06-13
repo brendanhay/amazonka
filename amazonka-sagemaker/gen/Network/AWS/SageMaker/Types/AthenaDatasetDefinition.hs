@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AthenaDatasetDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AthenaResultCompressionType
 import Network.AWS.SageMaker.Types.AthenaResultFormat
 
@@ -28,19 +29,19 @@ import Network.AWS.SageMaker.Types.AthenaResultFormat
 --
 -- /See:/ 'newAthenaDatasetDefinition' smart constructor.
 data AthenaDatasetDefinition = AthenaDatasetDefinition'
-  { outputCompression :: Core.Maybe AthenaResultCompressionType,
+  { outputCompression :: Prelude.Maybe AthenaResultCompressionType,
     -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt data generated from an Athena query execution.
-    kmsKeyId :: Core.Maybe Core.Text,
-    workGroup :: Core.Maybe Core.Text,
-    catalog :: Core.Text,
-    database :: Core.Text,
-    queryString :: Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    workGroup :: Prelude.Maybe Prelude.Text,
+    catalog :: Prelude.Text,
+    database :: Prelude.Text,
+    queryString :: Prelude.Text,
     -- | The location in Amazon S3 where Athena query results are stored.
-    outputS3Uri :: Core.Text,
+    outputS3Uri :: Prelude.Text,
     outputFormat :: AthenaResultFormat
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AthenaDatasetDefinition' with all optional fields omitted.
@@ -68,13 +69,13 @@ data AthenaDatasetDefinition = AthenaDatasetDefinition'
 -- 'outputFormat', 'athenaDatasetDefinition_outputFormat' - Undocumented member.
 newAthenaDatasetDefinition ::
   -- | 'catalog'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'database'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'queryString'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'outputS3Uri'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'outputFormat'
   AthenaResultFormat ->
   AthenaDatasetDefinition
@@ -86,9 +87,9 @@ newAthenaDatasetDefinition
   pOutputFormat_ =
     AthenaDatasetDefinition'
       { outputCompression =
-          Core.Nothing,
-        kmsKeyId = Core.Nothing,
-        workGroup = Core.Nothing,
+          Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        workGroup = Prelude.Nothing,
         catalog = pCatalog_,
         database = pDatabase_,
         queryString = pQueryString_,
@@ -97,32 +98,32 @@ newAthenaDatasetDefinition
       }
 
 -- | Undocumented member.
-athenaDatasetDefinition_outputCompression :: Lens.Lens' AthenaDatasetDefinition (Core.Maybe AthenaResultCompressionType)
+athenaDatasetDefinition_outputCompression :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe AthenaResultCompressionType)
 athenaDatasetDefinition_outputCompression = Lens.lens (\AthenaDatasetDefinition' {outputCompression} -> outputCompression) (\s@AthenaDatasetDefinition' {} a -> s {outputCompression = a} :: AthenaDatasetDefinition)
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt data generated from an Athena query execution.
-athenaDatasetDefinition_kmsKeyId :: Lens.Lens' AthenaDatasetDefinition (Core.Maybe Core.Text)
+athenaDatasetDefinition_kmsKeyId :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe Prelude.Text)
 athenaDatasetDefinition_kmsKeyId = Lens.lens (\AthenaDatasetDefinition' {kmsKeyId} -> kmsKeyId) (\s@AthenaDatasetDefinition' {} a -> s {kmsKeyId = a} :: AthenaDatasetDefinition)
 
 -- | Undocumented member.
-athenaDatasetDefinition_workGroup :: Lens.Lens' AthenaDatasetDefinition (Core.Maybe Core.Text)
+athenaDatasetDefinition_workGroup :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe Prelude.Text)
 athenaDatasetDefinition_workGroup = Lens.lens (\AthenaDatasetDefinition' {workGroup} -> workGroup) (\s@AthenaDatasetDefinition' {} a -> s {workGroup = a} :: AthenaDatasetDefinition)
 
 -- | Undocumented member.
-athenaDatasetDefinition_catalog :: Lens.Lens' AthenaDatasetDefinition Core.Text
+athenaDatasetDefinition_catalog :: Lens.Lens' AthenaDatasetDefinition Prelude.Text
 athenaDatasetDefinition_catalog = Lens.lens (\AthenaDatasetDefinition' {catalog} -> catalog) (\s@AthenaDatasetDefinition' {} a -> s {catalog = a} :: AthenaDatasetDefinition)
 
 -- | Undocumented member.
-athenaDatasetDefinition_database :: Lens.Lens' AthenaDatasetDefinition Core.Text
+athenaDatasetDefinition_database :: Lens.Lens' AthenaDatasetDefinition Prelude.Text
 athenaDatasetDefinition_database = Lens.lens (\AthenaDatasetDefinition' {database} -> database) (\s@AthenaDatasetDefinition' {} a -> s {database = a} :: AthenaDatasetDefinition)
 
 -- | Undocumented member.
-athenaDatasetDefinition_queryString :: Lens.Lens' AthenaDatasetDefinition Core.Text
+athenaDatasetDefinition_queryString :: Lens.Lens' AthenaDatasetDefinition Prelude.Text
 athenaDatasetDefinition_queryString = Lens.lens (\AthenaDatasetDefinition' {queryString} -> queryString) (\s@AthenaDatasetDefinition' {} a -> s {queryString = a} :: AthenaDatasetDefinition)
 
 -- | The location in Amazon S3 where Athena query results are stored.
-athenaDatasetDefinition_outputS3Uri :: Lens.Lens' AthenaDatasetDefinition Core.Text
+athenaDatasetDefinition_outputS3Uri :: Lens.Lens' AthenaDatasetDefinition Prelude.Text
 athenaDatasetDefinition_outputS3Uri = Lens.lens (\AthenaDatasetDefinition' {outputS3Uri} -> outputS3Uri) (\s@AthenaDatasetDefinition' {} a -> s {outputS3Uri = a} :: AthenaDatasetDefinition)
 
 -- | Undocumented member.
@@ -135,32 +136,32 @@ instance Core.FromJSON AthenaDatasetDefinition where
       "AthenaDatasetDefinition"
       ( \x ->
           AthenaDatasetDefinition'
-            Core.<$> (x Core..:? "OutputCompression")
-            Core.<*> (x Core..:? "KmsKeyId")
-            Core.<*> (x Core..:? "WorkGroup")
-            Core.<*> (x Core..: "Catalog")
-            Core.<*> (x Core..: "Database")
-            Core.<*> (x Core..: "QueryString")
-            Core.<*> (x Core..: "OutputS3Uri")
-            Core.<*> (x Core..: "OutputFormat")
+            Prelude.<$> (x Core..:? "OutputCompression")
+            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "WorkGroup")
+            Prelude.<*> (x Core..: "Catalog")
+            Prelude.<*> (x Core..: "Database")
+            Prelude.<*> (x Core..: "QueryString")
+            Prelude.<*> (x Core..: "OutputS3Uri")
+            Prelude.<*> (x Core..: "OutputFormat")
       )
 
-instance Core.Hashable AthenaDatasetDefinition
+instance Prelude.Hashable AthenaDatasetDefinition
 
-instance Core.NFData AthenaDatasetDefinition
+instance Prelude.NFData AthenaDatasetDefinition
 
 instance Core.ToJSON AthenaDatasetDefinition where
   toJSON AthenaDatasetDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("OutputCompression" Core..=)
-              Core.<$> outputCompression,
-            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            ("WorkGroup" Core..=) Core.<$> workGroup,
-            Core.Just ("Catalog" Core..= catalog),
-            Core.Just ("Database" Core..= database),
-            Core.Just ("QueryString" Core..= queryString),
-            Core.Just ("OutputS3Uri" Core..= outputS3Uri),
-            Core.Just ("OutputFormat" Core..= outputFormat)
+              Prelude.<$> outputCompression,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("WorkGroup" Core..=) Prelude.<$> workGroup,
+            Prelude.Just ("Catalog" Core..= catalog),
+            Prelude.Just ("Database" Core..= database),
+            Prelude.Just ("QueryString" Core..= queryString),
+            Prelude.Just ("OutputS3Uri" Core..= outputS3Uri),
+            Prelude.Just ("OutputFormat" Core..= outputFormat)
           ]
       )

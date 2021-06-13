@@ -21,15 +21,16 @@ module Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType wher
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type used for enabling software token MFA at the user pool level.
 --
 -- /See:/ 'newSoftwareTokenMfaConfigType' smart constructor.
 data SoftwareTokenMfaConfigType = SoftwareTokenMfaConfigType'
   { -- | Specifies whether software token MFA is enabled.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SoftwareTokenMfaConfigType' with all optional fields omitted.
@@ -43,10 +44,13 @@ data SoftwareTokenMfaConfigType = SoftwareTokenMfaConfigType'
 newSoftwareTokenMfaConfigType ::
   SoftwareTokenMfaConfigType
 newSoftwareTokenMfaConfigType =
-  SoftwareTokenMfaConfigType' {enabled = Core.Nothing}
+  SoftwareTokenMfaConfigType'
+    { enabled =
+        Prelude.Nothing
+    }
 
 -- | Specifies whether software token MFA is enabled.
-softwareTokenMfaConfigType_enabled :: Lens.Lens' SoftwareTokenMfaConfigType (Core.Maybe Core.Bool)
+softwareTokenMfaConfigType_enabled :: Lens.Lens' SoftwareTokenMfaConfigType (Prelude.Maybe Prelude.Bool)
 softwareTokenMfaConfigType_enabled = Lens.lens (\SoftwareTokenMfaConfigType' {enabled} -> enabled) (\s@SoftwareTokenMfaConfigType' {} a -> s {enabled = a} :: SoftwareTokenMfaConfigType)
 
 instance Core.FromJSON SoftwareTokenMfaConfigType where
@@ -55,16 +59,16 @@ instance Core.FromJSON SoftwareTokenMfaConfigType where
       "SoftwareTokenMfaConfigType"
       ( \x ->
           SoftwareTokenMfaConfigType'
-            Core.<$> (x Core..:? "Enabled")
+            Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Core.Hashable SoftwareTokenMfaConfigType
+instance Prelude.Hashable SoftwareTokenMfaConfigType
 
-instance Core.NFData SoftwareTokenMfaConfigType
+instance Prelude.NFData SoftwareTokenMfaConfigType
 
 instance Core.ToJSON SoftwareTokenMfaConfigType where
   toJSON SoftwareTokenMfaConfigType' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Enabled" Core..=) Core.<$> enabled]
+      ( Prelude.catMaybes
+          [("Enabled" Core..=) Prelude.<$> enabled]
       )

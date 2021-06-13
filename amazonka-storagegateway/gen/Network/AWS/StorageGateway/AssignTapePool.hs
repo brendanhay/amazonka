@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -63,10 +64,10 @@ data AssignTapePool = AssignTapePool'
     -- calls from the console.
     --
     -- Valid values: @TRUE@ | @FALSE@
-    bypassGovernanceRetention :: Core.Maybe Core.Bool,
+    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
     -- | The unique Amazon Resource Name (ARN) of the virtual tape that you want
     -- to add to the tape pool.
-    tapeARN :: Core.Text,
+    tapeARN :: Prelude.Text,
     -- | The ID of the pool that you want to add your tape to for archiving. The
     -- tape in this pool is archived in the S3 storage class that is associated
     -- with the pool. When you use your backup application to eject the tape,
@@ -74,9 +75,9 @@ data AssignTapePool = AssignTapePool'
     -- Glacier Deep Archive) that corresponds to the pool.
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-    poolId :: Core.Text
+    poolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssignTapePool' with all optional fields omitted.
@@ -107,14 +108,14 @@ data AssignTapePool = AssignTapePool'
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 newAssignTapePool ::
   -- | 'tapeARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'poolId'
-  Core.Text ->
+  Prelude.Text ->
   AssignTapePool
 newAssignTapePool pTapeARN_ pPoolId_ =
   AssignTapePool'
     { bypassGovernanceRetention =
-        Core.Nothing,
+        Prelude.Nothing,
       tapeARN = pTapeARN_,
       poolId = pPoolId_
     }
@@ -127,12 +128,12 @@ newAssignTapePool pTapeARN_ pPoolId_ =
 -- calls from the console.
 --
 -- Valid values: @TRUE@ | @FALSE@
-assignTapePool_bypassGovernanceRetention :: Lens.Lens' AssignTapePool (Core.Maybe Core.Bool)
+assignTapePool_bypassGovernanceRetention :: Lens.Lens' AssignTapePool (Prelude.Maybe Prelude.Bool)
 assignTapePool_bypassGovernanceRetention = Lens.lens (\AssignTapePool' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@AssignTapePool' {} a -> s {bypassGovernanceRetention = a} :: AssignTapePool)
 
 -- | The unique Amazon Resource Name (ARN) of the virtual tape that you want
 -- to add to the tape pool.
-assignTapePool_tapeARN :: Lens.Lens' AssignTapePool Core.Text
+assignTapePool_tapeARN :: Lens.Lens' AssignTapePool Prelude.Text
 assignTapePool_tapeARN = Lens.lens (\AssignTapePool' {tapeARN} -> tapeARN) (\s@AssignTapePool' {} a -> s {tapeARN = a} :: AssignTapePool)
 
 -- | The ID of the pool that you want to add your tape to for archiving. The
@@ -142,7 +143,7 @@ assignTapePool_tapeARN = Lens.lens (\AssignTapePool' {tapeARN} -> tapeARN) (\s@A
 -- Glacier Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-assignTapePool_poolId :: Lens.Lens' AssignTapePool Core.Text
+assignTapePool_poolId :: Lens.Lens' AssignTapePool Prelude.Text
 assignTapePool_poolId = Lens.lens (\AssignTapePool' {poolId} -> poolId) (\s@AssignTapePool' {} a -> s {poolId = a} :: AssignTapePool)
 
 instance Core.AWSRequest AssignTapePool where
@@ -154,53 +155,55 @@ instance Core.AWSRequest AssignTapePool where
     Response.receiveJSON
       ( \s h x ->
           AssignTapePoolResponse'
-            Core.<$> (x Core..?> "TapeARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssignTapePool
+instance Prelude.Hashable AssignTapePool
 
-instance Core.NFData AssignTapePool
+instance Prelude.NFData AssignTapePool
 
 instance Core.ToHeaders AssignTapePool where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.AssignTapePool" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssignTapePool where
   toJSON AssignTapePool' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("BypassGovernanceRetention" Core..=)
-              Core.<$> bypassGovernanceRetention,
-            Core.Just ("TapeARN" Core..= tapeARN),
-            Core.Just ("PoolId" Core..= poolId)
+              Prelude.<$> bypassGovernanceRetention,
+            Prelude.Just ("TapeARN" Core..= tapeARN),
+            Prelude.Just ("PoolId" Core..= poolId)
           ]
       )
 
 instance Core.ToPath AssignTapePool where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssignTapePool where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssignTapePoolResponse' smart constructor.
 data AssignTapePoolResponse = AssignTapePoolResponse'
   { -- | The unique Amazon Resource Names (ARN) of the virtual tape that was
     -- added to the tape pool.
-    tapeARN :: Core.Maybe Core.Text,
+    tapeARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssignTapePoolResponse' with all optional fields omitted.
@@ -216,21 +219,21 @@ data AssignTapePoolResponse = AssignTapePoolResponse'
 -- 'httpStatus', 'assignTapePoolResponse_httpStatus' - The response's http status code.
 newAssignTapePoolResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssignTapePoolResponse
 newAssignTapePoolResponse pHttpStatus_ =
   AssignTapePoolResponse'
-    { tapeARN = Core.Nothing,
+    { tapeARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique Amazon Resource Names (ARN) of the virtual tape that was
 -- added to the tape pool.
-assignTapePoolResponse_tapeARN :: Lens.Lens' AssignTapePoolResponse (Core.Maybe Core.Text)
+assignTapePoolResponse_tapeARN :: Lens.Lens' AssignTapePoolResponse (Prelude.Maybe Prelude.Text)
 assignTapePoolResponse_tapeARN = Lens.lens (\AssignTapePoolResponse' {tapeARN} -> tapeARN) (\s@AssignTapePoolResponse' {} a -> s {tapeARN = a} :: AssignTapePoolResponse)
 
 -- | The response's http status code.
-assignTapePoolResponse_httpStatus :: Lens.Lens' AssignTapePoolResponse Core.Int
+assignTapePoolResponse_httpStatus :: Lens.Lens' AssignTapePoolResponse Prelude.Int
 assignTapePoolResponse_httpStatus = Lens.lens (\AssignTapePoolResponse' {httpStatus} -> httpStatus) (\s@AssignTapePoolResponse' {} a -> s {httpStatus = a} :: AssignTapePoolResponse)
 
-instance Core.NFData AssignTapePoolResponse
+instance Prelude.NFData AssignTapePoolResponse

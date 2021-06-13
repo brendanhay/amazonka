@@ -24,6 +24,7 @@ import Network.AWS.GuardDuty.Types.AccessControlList
 import Network.AWS.GuardDuty.Types.BlockPublicAccess
 import Network.AWS.GuardDuty.Types.BucketPolicy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the bucket level permissions for the S3
 -- bucket.
@@ -32,14 +33,14 @@ import qualified Network.AWS.Lens as Lens
 data BucketLevelPermissions = BucketLevelPermissions'
   { -- | Contains information on which account level S3 Block Public Access
     -- settings are applied to the S3 bucket.
-    blockPublicAccess :: Core.Maybe BlockPublicAccess,
+    blockPublicAccess :: Prelude.Maybe BlockPublicAccess,
     -- | Contains information on the bucket policies for the S3 bucket.
-    bucketPolicy :: Core.Maybe BucketPolicy,
+    bucketPolicy :: Prelude.Maybe BucketPolicy,
     -- | Contains information on how Access Control Policies are applied to the
     -- bucket.
-    accessControlList :: Core.Maybe AccessControlList
+    accessControlList :: Prelude.Maybe AccessControlList
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BucketLevelPermissions' with all optional fields omitted.
@@ -61,23 +62,23 @@ newBucketLevelPermissions ::
 newBucketLevelPermissions =
   BucketLevelPermissions'
     { blockPublicAccess =
-        Core.Nothing,
-      bucketPolicy = Core.Nothing,
-      accessControlList = Core.Nothing
+        Prelude.Nothing,
+      bucketPolicy = Prelude.Nothing,
+      accessControlList = Prelude.Nothing
     }
 
 -- | Contains information on which account level S3 Block Public Access
 -- settings are applied to the S3 bucket.
-bucketLevelPermissions_blockPublicAccess :: Lens.Lens' BucketLevelPermissions (Core.Maybe BlockPublicAccess)
+bucketLevelPermissions_blockPublicAccess :: Lens.Lens' BucketLevelPermissions (Prelude.Maybe BlockPublicAccess)
 bucketLevelPermissions_blockPublicAccess = Lens.lens (\BucketLevelPermissions' {blockPublicAccess} -> blockPublicAccess) (\s@BucketLevelPermissions' {} a -> s {blockPublicAccess = a} :: BucketLevelPermissions)
 
 -- | Contains information on the bucket policies for the S3 bucket.
-bucketLevelPermissions_bucketPolicy :: Lens.Lens' BucketLevelPermissions (Core.Maybe BucketPolicy)
+bucketLevelPermissions_bucketPolicy :: Lens.Lens' BucketLevelPermissions (Prelude.Maybe BucketPolicy)
 bucketLevelPermissions_bucketPolicy = Lens.lens (\BucketLevelPermissions' {bucketPolicy} -> bucketPolicy) (\s@BucketLevelPermissions' {} a -> s {bucketPolicy = a} :: BucketLevelPermissions)
 
 -- | Contains information on how Access Control Policies are applied to the
 -- bucket.
-bucketLevelPermissions_accessControlList :: Lens.Lens' BucketLevelPermissions (Core.Maybe AccessControlList)
+bucketLevelPermissions_accessControlList :: Lens.Lens' BucketLevelPermissions (Prelude.Maybe AccessControlList)
 bucketLevelPermissions_accessControlList = Lens.lens (\BucketLevelPermissions' {accessControlList} -> accessControlList) (\s@BucketLevelPermissions' {} a -> s {accessControlList = a} :: BucketLevelPermissions)
 
 instance Core.FromJSON BucketLevelPermissions where
@@ -86,11 +87,11 @@ instance Core.FromJSON BucketLevelPermissions where
       "BucketLevelPermissions"
       ( \x ->
           BucketLevelPermissions'
-            Core.<$> (x Core..:? "blockPublicAccess")
-            Core.<*> (x Core..:? "bucketPolicy")
-            Core.<*> (x Core..:? "accessControlList")
+            Prelude.<$> (x Core..:? "blockPublicAccess")
+            Prelude.<*> (x Core..:? "bucketPolicy")
+            Prelude.<*> (x Core..:? "accessControlList")
       )
 
-instance Core.Hashable BucketLevelPermissions
+instance Prelude.Hashable BucketLevelPermissions
 
-instance Core.NFData BucketLevelPermissions
+instance Prelude.NFData BucketLevelPermissions

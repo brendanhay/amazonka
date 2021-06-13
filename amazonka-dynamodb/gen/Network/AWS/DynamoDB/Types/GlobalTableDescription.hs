@@ -23,13 +23,14 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.GlobalTableStatus
 import Network.AWS.DynamoDB.Types.ReplicaDescription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the global table.
 --
 -- /See:/ 'newGlobalTableDescription' smart constructor.
 data GlobalTableDescription = GlobalTableDescription'
   { -- | The global table name.
-    globalTableName :: Core.Maybe Core.Text,
+    globalTableName :: Prelude.Maybe Prelude.Text,
     -- | The current state of the global table:
     --
     -- -   @CREATING@ - The global table is being created.
@@ -39,15 +40,15 @@ data GlobalTableDescription = GlobalTableDescription'
     -- -   @DELETING@ - The global table is being deleted.
     --
     -- -   @ACTIVE@ - The global table is ready for use.
-    globalTableStatus :: Core.Maybe GlobalTableStatus,
+    globalTableStatus :: Prelude.Maybe GlobalTableStatus,
     -- | The Regions where the global table has replicas.
-    replicationGroup :: Core.Maybe [ReplicaDescription],
+    replicationGroup :: Prelude.Maybe [ReplicaDescription],
     -- | The creation time of the global table.
-    creationDateTime :: Core.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier of the global table.
-    globalTableArn :: Core.Maybe Core.Text
+    globalTableArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GlobalTableDescription' with all optional fields omitted.
@@ -79,15 +80,15 @@ newGlobalTableDescription ::
 newGlobalTableDescription =
   GlobalTableDescription'
     { globalTableName =
-        Core.Nothing,
-      globalTableStatus = Core.Nothing,
-      replicationGroup = Core.Nothing,
-      creationDateTime = Core.Nothing,
-      globalTableArn = Core.Nothing
+        Prelude.Nothing,
+      globalTableStatus = Prelude.Nothing,
+      replicationGroup = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      globalTableArn = Prelude.Nothing
     }
 
 -- | The global table name.
-globalTableDescription_globalTableName :: Lens.Lens' GlobalTableDescription (Core.Maybe Core.Text)
+globalTableDescription_globalTableName :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
 globalTableDescription_globalTableName = Lens.lens (\GlobalTableDescription' {globalTableName} -> globalTableName) (\s@GlobalTableDescription' {} a -> s {globalTableName = a} :: GlobalTableDescription)
 
 -- | The current state of the global table:
@@ -99,19 +100,19 @@ globalTableDescription_globalTableName = Lens.lens (\GlobalTableDescription' {gl
 -- -   @DELETING@ - The global table is being deleted.
 --
 -- -   @ACTIVE@ - The global table is ready for use.
-globalTableDescription_globalTableStatus :: Lens.Lens' GlobalTableDescription (Core.Maybe GlobalTableStatus)
+globalTableDescription_globalTableStatus :: Lens.Lens' GlobalTableDescription (Prelude.Maybe GlobalTableStatus)
 globalTableDescription_globalTableStatus = Lens.lens (\GlobalTableDescription' {globalTableStatus} -> globalTableStatus) (\s@GlobalTableDescription' {} a -> s {globalTableStatus = a} :: GlobalTableDescription)
 
 -- | The Regions where the global table has replicas.
-globalTableDescription_replicationGroup :: Lens.Lens' GlobalTableDescription (Core.Maybe [ReplicaDescription])
-globalTableDescription_replicationGroup = Lens.lens (\GlobalTableDescription' {replicationGroup} -> replicationGroup) (\s@GlobalTableDescription' {} a -> s {replicationGroup = a} :: GlobalTableDescription) Core.. Lens.mapping Lens._Coerce
+globalTableDescription_replicationGroup :: Lens.Lens' GlobalTableDescription (Prelude.Maybe [ReplicaDescription])
+globalTableDescription_replicationGroup = Lens.lens (\GlobalTableDescription' {replicationGroup} -> replicationGroup) (\s@GlobalTableDescription' {} a -> s {replicationGroup = a} :: GlobalTableDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The creation time of the global table.
-globalTableDescription_creationDateTime :: Lens.Lens' GlobalTableDescription (Core.Maybe Core.UTCTime)
-globalTableDescription_creationDateTime = Lens.lens (\GlobalTableDescription' {creationDateTime} -> creationDateTime) (\s@GlobalTableDescription' {} a -> s {creationDateTime = a} :: GlobalTableDescription) Core.. Lens.mapping Core._Time
+globalTableDescription_creationDateTime :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.UTCTime)
+globalTableDescription_creationDateTime = Lens.lens (\GlobalTableDescription' {creationDateTime} -> creationDateTime) (\s@GlobalTableDescription' {} a -> s {creationDateTime = a} :: GlobalTableDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier of the global table.
-globalTableDescription_globalTableArn :: Lens.Lens' GlobalTableDescription (Core.Maybe Core.Text)
+globalTableDescription_globalTableArn :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
 globalTableDescription_globalTableArn = Lens.lens (\GlobalTableDescription' {globalTableArn} -> globalTableArn) (\s@GlobalTableDescription' {} a -> s {globalTableArn = a} :: GlobalTableDescription)
 
 instance Core.FromJSON GlobalTableDescription where
@@ -120,13 +121,15 @@ instance Core.FromJSON GlobalTableDescription where
       "GlobalTableDescription"
       ( \x ->
           GlobalTableDescription'
-            Core.<$> (x Core..:? "GlobalTableName")
-            Core.<*> (x Core..:? "GlobalTableStatus")
-            Core.<*> (x Core..:? "ReplicationGroup" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "CreationDateTime")
-            Core.<*> (x Core..:? "GlobalTableArn")
+            Prelude.<$> (x Core..:? "GlobalTableName")
+            Prelude.<*> (x Core..:? "GlobalTableStatus")
+            Prelude.<*> ( x Core..:? "ReplicationGroup"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "CreationDateTime")
+            Prelude.<*> (x Core..:? "GlobalTableArn")
       )
 
-instance Core.Hashable GlobalTableDescription
+instance Prelude.Hashable GlobalTableDescription
 
-instance Core.NFData GlobalTableDescription
+instance Prelude.NFData GlobalTableDescription

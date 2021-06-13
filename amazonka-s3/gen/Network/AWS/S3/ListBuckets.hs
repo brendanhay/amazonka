@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -48,7 +49,7 @@ import Network.AWS.S3.Types
 data ListBuckets = ListBuckets'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBuckets' with all optional fields omitted.
@@ -65,36 +66,36 @@ instance Core.AWSRequest ListBuckets where
     Response.receiveXML
       ( \s h x ->
           ListBucketsResponse'
-            Core.<$> ( x Core..@? "Buckets" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "Bucket")
-                     )
-            Core.<*> (x Core..@? "Owner")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Buckets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "Bucket")
+                        )
+            Prelude.<*> (x Core..@? "Owner")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListBuckets
+instance Prelude.Hashable ListBuckets
 
-instance Core.NFData ListBuckets
+instance Prelude.NFData ListBuckets
 
 instance Core.ToHeaders ListBuckets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListBuckets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListBuckets where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBucketsResponse' smart constructor.
 data ListBucketsResponse = ListBucketsResponse'
   { -- | The list of buckets owned by the requestor.
-    buckets :: Core.Maybe [Bucket],
+    buckets :: Prelude.Maybe [Bucket],
     -- | The owner of the buckets listed.
-    owner :: Core.Maybe Owner,
+    owner :: Prelude.Maybe Owner,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBucketsResponse' with all optional fields omitted.
@@ -111,25 +112,25 @@ data ListBucketsResponse = ListBucketsResponse'
 -- 'httpStatus', 'listBucketsResponse_httpStatus' - The response's http status code.
 newListBucketsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListBucketsResponse
 newListBucketsResponse pHttpStatus_ =
   ListBucketsResponse'
-    { buckets = Core.Nothing,
-      owner = Core.Nothing,
+    { buckets = Prelude.Nothing,
+      owner = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of buckets owned by the requestor.
-listBucketsResponse_buckets :: Lens.Lens' ListBucketsResponse (Core.Maybe [Bucket])
-listBucketsResponse_buckets = Lens.lens (\ListBucketsResponse' {buckets} -> buckets) (\s@ListBucketsResponse' {} a -> s {buckets = a} :: ListBucketsResponse) Core.. Lens.mapping Lens._Coerce
+listBucketsResponse_buckets :: Lens.Lens' ListBucketsResponse (Prelude.Maybe [Bucket])
+listBucketsResponse_buckets = Lens.lens (\ListBucketsResponse' {buckets} -> buckets) (\s@ListBucketsResponse' {} a -> s {buckets = a} :: ListBucketsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The owner of the buckets listed.
-listBucketsResponse_owner :: Lens.Lens' ListBucketsResponse (Core.Maybe Owner)
+listBucketsResponse_owner :: Lens.Lens' ListBucketsResponse (Prelude.Maybe Owner)
 listBucketsResponse_owner = Lens.lens (\ListBucketsResponse' {owner} -> owner) (\s@ListBucketsResponse' {} a -> s {owner = a} :: ListBucketsResponse)
 
 -- | The response's http status code.
-listBucketsResponse_httpStatus :: Lens.Lens' ListBucketsResponse Core.Int
+listBucketsResponse_httpStatus :: Lens.Lens' ListBucketsResponse Prelude.Int
 listBucketsResponse_httpStatus = Lens.lens (\ListBucketsResponse' {httpStatus} -> httpStatus) (\s@ListBucketsResponse' {} a -> s {httpStatus = a} :: ListBucketsResponse)
 
-instance Core.NFData ListBucketsResponse
+instance Prelude.NFData ListBucketsResponse

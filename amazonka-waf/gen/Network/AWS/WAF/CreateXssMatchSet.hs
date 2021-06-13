@@ -73,6 +73,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -83,11 +84,11 @@ import Network.AWS.WAF.Types
 data CreateXssMatchSet = CreateXssMatchSet'
   { -- | A friendly name or description for the XssMatchSet that you\'re
     -- creating. You can\'t change @Name@ after you create the @XssMatchSet@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateXssMatchSet' with all optional fields omitted.
@@ -103,9 +104,9 @@ data CreateXssMatchSet = CreateXssMatchSet'
 -- 'changeToken', 'createXssMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newCreateXssMatchSet ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   CreateXssMatchSet
 newCreateXssMatchSet pName_ pChangeToken_ =
   CreateXssMatchSet'
@@ -115,11 +116,11 @@ newCreateXssMatchSet pName_ pChangeToken_ =
 
 -- | A friendly name or description for the XssMatchSet that you\'re
 -- creating. You can\'t change @Name@ after you create the @XssMatchSet@.
-createXssMatchSet_name :: Lens.Lens' CreateXssMatchSet Core.Text
+createXssMatchSet_name :: Lens.Lens' CreateXssMatchSet Prelude.Text
 createXssMatchSet_name = Lens.lens (\CreateXssMatchSet' {name} -> name) (\s@CreateXssMatchSet' {} a -> s {name = a} :: CreateXssMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-createXssMatchSet_changeToken :: Lens.Lens' CreateXssMatchSet Core.Text
+createXssMatchSet_changeToken :: Lens.Lens' CreateXssMatchSet Prelude.Text
 createXssMatchSet_changeToken = Lens.lens (\CreateXssMatchSet' {changeToken} -> changeToken) (\s@CreateXssMatchSet' {} a -> s {changeToken = a} :: CreateXssMatchSet)
 
 instance Core.AWSRequest CreateXssMatchSet where
@@ -131,57 +132,59 @@ instance Core.AWSRequest CreateXssMatchSet where
     Response.receiveJSON
       ( \s h x ->
           CreateXssMatchSetResponse'
-            Core.<$> (x Core..?> "XssMatchSet")
-            Core.<*> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "XssMatchSet")
+            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateXssMatchSet
+instance Prelude.Hashable CreateXssMatchSet
 
-instance Core.NFData CreateXssMatchSet
+instance Prelude.NFData CreateXssMatchSet
 
 instance Core.ToHeaders CreateXssMatchSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.CreateXssMatchSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateXssMatchSet where
   toJSON CreateXssMatchSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath CreateXssMatchSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateXssMatchSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a @CreateXssMatchSet@ request.
 --
 -- /See:/ 'newCreateXssMatchSetResponse' smart constructor.
 data CreateXssMatchSetResponse = CreateXssMatchSetResponse'
   { -- | An XssMatchSet.
-    xssMatchSet :: Core.Maybe XssMatchSet,
+    xssMatchSet :: Prelude.Maybe XssMatchSet,
     -- | The @ChangeToken@ that you used to submit the @CreateXssMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateXssMatchSetResponse' with all optional fields omitted.
@@ -200,28 +203,28 @@ data CreateXssMatchSetResponse = CreateXssMatchSetResponse'
 -- 'httpStatus', 'createXssMatchSetResponse_httpStatus' - The response's http status code.
 newCreateXssMatchSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateXssMatchSetResponse
 newCreateXssMatchSetResponse pHttpStatus_ =
   CreateXssMatchSetResponse'
     { xssMatchSet =
-        Core.Nothing,
-      changeToken = Core.Nothing,
+        Prelude.Nothing,
+      changeToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An XssMatchSet.
-createXssMatchSetResponse_xssMatchSet :: Lens.Lens' CreateXssMatchSetResponse (Core.Maybe XssMatchSet)
+createXssMatchSetResponse_xssMatchSet :: Lens.Lens' CreateXssMatchSetResponse (Prelude.Maybe XssMatchSet)
 createXssMatchSetResponse_xssMatchSet = Lens.lens (\CreateXssMatchSetResponse' {xssMatchSet} -> xssMatchSet) (\s@CreateXssMatchSetResponse' {} a -> s {xssMatchSet = a} :: CreateXssMatchSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateXssMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-createXssMatchSetResponse_changeToken :: Lens.Lens' CreateXssMatchSetResponse (Core.Maybe Core.Text)
+createXssMatchSetResponse_changeToken :: Lens.Lens' CreateXssMatchSetResponse (Prelude.Maybe Prelude.Text)
 createXssMatchSetResponse_changeToken = Lens.lens (\CreateXssMatchSetResponse' {changeToken} -> changeToken) (\s@CreateXssMatchSetResponse' {} a -> s {changeToken = a} :: CreateXssMatchSetResponse)
 
 -- | The response's http status code.
-createXssMatchSetResponse_httpStatus :: Lens.Lens' CreateXssMatchSetResponse Core.Int
+createXssMatchSetResponse_httpStatus :: Lens.Lens' CreateXssMatchSetResponse Prelude.Int
 createXssMatchSetResponse_httpStatus = Lens.lens (\CreateXssMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateXssMatchSetResponse' {} a -> s {httpStatus = a} :: CreateXssMatchSetResponse)
 
-instance Core.NFData CreateXssMatchSetResponse
+instance Prelude.NFData CreateXssMatchSetResponse

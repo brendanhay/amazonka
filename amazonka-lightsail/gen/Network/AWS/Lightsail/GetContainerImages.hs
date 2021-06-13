@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ import qualified Network.AWS.Response as Response
 data GetContainerImages = GetContainerImages'
   { -- | The name of the container service for which to return registered
     -- container images.
-    serviceName :: Core.Text
+    serviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerImages' with all optional fields omitted.
@@ -71,14 +72,14 @@ data GetContainerImages = GetContainerImages'
 -- container images.
 newGetContainerImages ::
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   GetContainerImages
 newGetContainerImages pServiceName_ =
   GetContainerImages' {serviceName = pServiceName_}
 
 -- | The name of the container service for which to return registered
 -- container images.
-getContainerImages_serviceName :: Lens.Lens' GetContainerImages Core.Text
+getContainerImages_serviceName :: Lens.Lens' GetContainerImages Prelude.Text
 getContainerImages_serviceName = Lens.lens (\GetContainerImages' {serviceName} -> serviceName) (\s@GetContainerImages' {} a -> s {serviceName = a} :: GetContainerImages)
 
 instance Core.AWSRequest GetContainerImages where
@@ -90,49 +91,53 @@ instance Core.AWSRequest GetContainerImages where
     Response.receiveJSON
       ( \s h x ->
           GetContainerImagesResponse'
-            Core.<$> (x Core..?> "containerImages" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "containerImages"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetContainerImages
+instance Prelude.Hashable GetContainerImages
 
-instance Core.NFData GetContainerImages
+instance Prelude.NFData GetContainerImages
 
 instance Core.ToHeaders GetContainerImages where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetContainerImages" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetContainerImages where
   toJSON GetContainerImages' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("serviceName" Core..= serviceName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("serviceName" Core..= serviceName)]
       )
 
 instance Core.ToPath GetContainerImages where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetContainerImages where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerImagesResponse' smart constructor.
 data GetContainerImagesResponse = GetContainerImagesResponse'
   { -- | An array of objects that describe container images that are registered
     -- to the container service.
-    containerImages :: Core.Maybe [ContainerImage],
+    containerImages :: Prelude.Maybe [ContainerImage],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerImagesResponse' with all optional fields omitted.
@@ -148,22 +153,22 @@ data GetContainerImagesResponse = GetContainerImagesResponse'
 -- 'httpStatus', 'getContainerImagesResponse_httpStatus' - The response's http status code.
 newGetContainerImagesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetContainerImagesResponse
 newGetContainerImagesResponse pHttpStatus_ =
   GetContainerImagesResponse'
     { containerImages =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe container images that are registered
 -- to the container service.
-getContainerImagesResponse_containerImages :: Lens.Lens' GetContainerImagesResponse (Core.Maybe [ContainerImage])
-getContainerImagesResponse_containerImages = Lens.lens (\GetContainerImagesResponse' {containerImages} -> containerImages) (\s@GetContainerImagesResponse' {} a -> s {containerImages = a} :: GetContainerImagesResponse) Core.. Lens.mapping Lens._Coerce
+getContainerImagesResponse_containerImages :: Lens.Lens' GetContainerImagesResponse (Prelude.Maybe [ContainerImage])
+getContainerImagesResponse_containerImages = Lens.lens (\GetContainerImagesResponse' {containerImages} -> containerImages) (\s@GetContainerImagesResponse' {} a -> s {containerImages = a} :: GetContainerImagesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContainerImagesResponse_httpStatus :: Lens.Lens' GetContainerImagesResponse Core.Int
+getContainerImagesResponse_httpStatus :: Lens.Lens' GetContainerImagesResponse Prelude.Int
 getContainerImagesResponse_httpStatus = Lens.lens (\GetContainerImagesResponse' {httpStatus} -> httpStatus) (\s@GetContainerImagesResponse' {} a -> s {httpStatus = a} :: GetContainerImagesResponse)
 
-instance Core.NFData GetContainerImagesResponse
+instance Prelude.NFData GetContainerImagesResponse

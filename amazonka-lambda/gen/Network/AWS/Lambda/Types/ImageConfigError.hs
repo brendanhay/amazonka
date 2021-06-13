@@ -21,17 +21,18 @@ module Network.AWS.Lambda.Types.ImageConfigError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Error response to GetFunctionConfiguration.
 --
 -- /See:/ 'newImageConfigError' smart constructor.
 data ImageConfigError = ImageConfigError'
   { -- | Error message.
-    message :: Core.Maybe (Core.Sensitive Core.Text),
+    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Error code.
-    errorCode :: Core.Maybe Core.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageConfigError' with all optional fields omitted.
@@ -48,16 +49,16 @@ newImageConfigError ::
   ImageConfigError
 newImageConfigError =
   ImageConfigError'
-    { message = Core.Nothing,
-      errorCode = Core.Nothing
+    { message = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | Error message.
-imageConfigError_message :: Lens.Lens' ImageConfigError (Core.Maybe Core.Text)
-imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Core.. Lens.mapping Core._Sensitive
+imageConfigError_message :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
+imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Error code.
-imageConfigError_errorCode :: Lens.Lens' ImageConfigError (Core.Maybe Core.Text)
+imageConfigError_errorCode :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
 imageConfigError_errorCode = Lens.lens (\ImageConfigError' {errorCode} -> errorCode) (\s@ImageConfigError' {} a -> s {errorCode = a} :: ImageConfigError)
 
 instance Core.FromJSON ImageConfigError where
@@ -66,10 +67,10 @@ instance Core.FromJSON ImageConfigError where
       "ImageConfigError"
       ( \x ->
           ImageConfigError'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable ImageConfigError
+instance Prelude.Hashable ImageConfigError
 
-instance Core.NFData ImageConfigError
+instance Prelude.NFData ImageConfigError

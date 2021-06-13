@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +57,15 @@ data DetachRolePolicy = DetachRolePolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text,
+    roleName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Core.Text
+    policyArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachRolePolicy' with all optional fields omitted.
@@ -89,9 +90,9 @@ data DetachRolePolicy = DetachRolePolicy'
 -- in the /AWS General Reference/.
 newDetachRolePolicy ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   DetachRolePolicy
 newDetachRolePolicy pRoleName_ pPolicyArn_ =
   DetachRolePolicy'
@@ -106,7 +107,7 @@ newDetachRolePolicy pRoleName_ pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-detachRolePolicy_roleName :: Lens.Lens' DetachRolePolicy Core.Text
+detachRolePolicy_roleName :: Lens.Lens' DetachRolePolicy Prelude.Text
 detachRolePolicy_roleName = Lens.lens (\DetachRolePolicy' {roleName} -> roleName) (\s@DetachRolePolicy' {} a -> s {roleName = a} :: DetachRolePolicy)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
@@ -114,7 +115,7 @@ detachRolePolicy_roleName = Lens.lens (\DetachRolePolicy' {roleName} -> roleName
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-detachRolePolicy_policyArn :: Lens.Lens' DetachRolePolicy Core.Text
+detachRolePolicy_policyArn :: Lens.Lens' DetachRolePolicy Prelude.Text
 detachRolePolicy_policyArn = Lens.lens (\DetachRolePolicy' {policyArn} -> policyArn) (\s@DetachRolePolicy' {} a -> s {policyArn = a} :: DetachRolePolicy)
 
 instance Core.AWSRequest DetachRolePolicy where
@@ -125,22 +126,23 @@ instance Core.AWSRequest DetachRolePolicy where
   response =
     Response.receiveNull DetachRolePolicyResponse'
 
-instance Core.Hashable DetachRolePolicy
+instance Prelude.Hashable DetachRolePolicy
 
-instance Core.NFData DetachRolePolicy
+instance Prelude.NFData DetachRolePolicy
 
 instance Core.ToHeaders DetachRolePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetachRolePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachRolePolicy where
   toQuery DetachRolePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachRolePolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DetachRolePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName,
         "PolicyArn" Core.=: policyArn
       ]
@@ -149,7 +151,7 @@ instance Core.ToQuery DetachRolePolicy where
 data DetachRolePolicyResponse = DetachRolePolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachRolePolicyResponse' with all optional fields omitted.
@@ -160,4 +162,4 @@ newDetachRolePolicyResponse ::
 newDetachRolePolicyResponse =
   DetachRolePolicyResponse'
 
-instance Core.NFData DetachRolePolicyResponse
+instance Prelude.NFData DetachRolePolicyResponse

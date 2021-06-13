@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -52,7 +53,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCopyDBParameterGroup' smart constructor.
 data CopyDBParameterGroup = CopyDBParameterGroup'
-  { tags :: Core.Maybe [Tag],
+  { tags :: Prelude.Maybe [Tag],
     -- | The identifier or ARN for the source DB parameter group. For information
     -- about creating an ARN, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
@@ -61,7 +62,7 @@ data CopyDBParameterGroup = CopyDBParameterGroup'
     -- Constraints:
     --
     -- -   Must specify a valid DB parameter group.
-    sourceDBParameterGroupIdentifier :: Core.Text,
+    sourceDBParameterGroupIdentifier :: Prelude.Text,
     -- | The identifier for the copied DB parameter group.
     --
     -- Constraints:
@@ -75,11 +76,11 @@ data CopyDBParameterGroup = CopyDBParameterGroup'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @my-db-parameter-group@
-    targetDBParameterGroupIdentifier :: Core.Text,
+    targetDBParameterGroupIdentifier :: Prelude.Text,
     -- | A description for the copied DB parameter group.
-    targetDBParameterGroupDescription :: Core.Text
+    targetDBParameterGroupDescription :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyDBParameterGroup' with all optional fields omitted.
@@ -117,18 +118,18 @@ data CopyDBParameterGroup = CopyDBParameterGroup'
 -- 'targetDBParameterGroupDescription', 'copyDBParameterGroup_targetDBParameterGroupDescription' - A description for the copied DB parameter group.
 newCopyDBParameterGroup ::
   -- | 'sourceDBParameterGroupIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetDBParameterGroupIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetDBParameterGroupDescription'
-  Core.Text ->
+  Prelude.Text ->
   CopyDBParameterGroup
 newCopyDBParameterGroup
   pSourceDBParameterGroupIdentifier_
   pTargetDBParameterGroupIdentifier_
   pTargetDBParameterGroupDescription_ =
     CopyDBParameterGroup'
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         sourceDBParameterGroupIdentifier =
           pSourceDBParameterGroupIdentifier_,
         targetDBParameterGroupIdentifier =
@@ -138,8 +139,8 @@ newCopyDBParameterGroup
       }
 
 -- | Undocumented member.
-copyDBParameterGroup_tags :: Lens.Lens' CopyDBParameterGroup (Core.Maybe [Tag])
-copyDBParameterGroup_tags = Lens.lens (\CopyDBParameterGroup' {tags} -> tags) (\s@CopyDBParameterGroup' {} a -> s {tags = a} :: CopyDBParameterGroup) Core.. Lens.mapping Lens._Coerce
+copyDBParameterGroup_tags :: Lens.Lens' CopyDBParameterGroup (Prelude.Maybe [Tag])
+copyDBParameterGroup_tags = Lens.lens (\CopyDBParameterGroup' {tags} -> tags) (\s@CopyDBParameterGroup' {} a -> s {tags = a} :: CopyDBParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier or ARN for the source DB parameter group. For information
 -- about creating an ARN, see
@@ -149,7 +150,7 @@ copyDBParameterGroup_tags = Lens.lens (\CopyDBParameterGroup' {tags} -> tags) (\
 -- Constraints:
 --
 -- -   Must specify a valid DB parameter group.
-copyDBParameterGroup_sourceDBParameterGroupIdentifier :: Lens.Lens' CopyDBParameterGroup Core.Text
+copyDBParameterGroup_sourceDBParameterGroupIdentifier :: Lens.Lens' CopyDBParameterGroup Prelude.Text
 copyDBParameterGroup_sourceDBParameterGroupIdentifier = Lens.lens (\CopyDBParameterGroup' {sourceDBParameterGroupIdentifier} -> sourceDBParameterGroupIdentifier) (\s@CopyDBParameterGroup' {} a -> s {sourceDBParameterGroupIdentifier = a} :: CopyDBParameterGroup)
 
 -- | The identifier for the copied DB parameter group.
@@ -165,11 +166,11 @@ copyDBParameterGroup_sourceDBParameterGroupIdentifier = Lens.lens (\CopyDBParame
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-db-parameter-group@
-copyDBParameterGroup_targetDBParameterGroupIdentifier :: Lens.Lens' CopyDBParameterGroup Core.Text
+copyDBParameterGroup_targetDBParameterGroupIdentifier :: Lens.Lens' CopyDBParameterGroup Prelude.Text
 copyDBParameterGroup_targetDBParameterGroupIdentifier = Lens.lens (\CopyDBParameterGroup' {targetDBParameterGroupIdentifier} -> targetDBParameterGroupIdentifier) (\s@CopyDBParameterGroup' {} a -> s {targetDBParameterGroupIdentifier = a} :: CopyDBParameterGroup)
 
 -- | A description for the copied DB parameter group.
-copyDBParameterGroup_targetDBParameterGroupDescription :: Lens.Lens' CopyDBParameterGroup Core.Text
+copyDBParameterGroup_targetDBParameterGroupDescription :: Lens.Lens' CopyDBParameterGroup Prelude.Text
 copyDBParameterGroup_targetDBParameterGroupDescription = Lens.lens (\CopyDBParameterGroup' {targetDBParameterGroupDescription} -> targetDBParameterGroupDescription) (\s@CopyDBParameterGroup' {} a -> s {targetDBParameterGroupDescription = a} :: CopyDBParameterGroup)
 
 instance Core.AWSRequest CopyDBParameterGroup where
@@ -182,28 +183,30 @@ instance Core.AWSRequest CopyDBParameterGroup where
       "CopyDBParameterGroupResult"
       ( \s h x ->
           CopyDBParameterGroupResponse'
-            Core.<$> (x Core..@? "DBParameterGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBParameterGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CopyDBParameterGroup
+instance Prelude.Hashable CopyDBParameterGroup
 
-instance Core.NFData CopyDBParameterGroup
+instance Prelude.NFData CopyDBParameterGroup
 
 instance Core.ToHeaders CopyDBParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CopyDBParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CopyDBParameterGroup where
   toQuery CopyDBParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyDBParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("CopyDBParameterGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "SourceDBParameterGroupIdentifier"
           Core.=: sourceDBParameterGroupIdentifier,
         "TargetDBParameterGroupIdentifier"
@@ -214,11 +217,11 @@ instance Core.ToQuery CopyDBParameterGroup where
 
 -- | /See:/ 'newCopyDBParameterGroupResponse' smart constructor.
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
-  { dbParameterGroup :: Core.Maybe DBParameterGroup,
+  { dbParameterGroup :: Prelude.Maybe DBParameterGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyDBParameterGroupResponse' with all optional fields omitted.
@@ -233,21 +236,21 @@ data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
 -- 'httpStatus', 'copyDBParameterGroupResponse_httpStatus' - The response's http status code.
 newCopyDBParameterGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CopyDBParameterGroupResponse
 newCopyDBParameterGroupResponse pHttpStatus_ =
   CopyDBParameterGroupResponse'
     { dbParameterGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-copyDBParameterGroupResponse_dbParameterGroup :: Lens.Lens' CopyDBParameterGroupResponse (Core.Maybe DBParameterGroup)
+copyDBParameterGroupResponse_dbParameterGroup :: Lens.Lens' CopyDBParameterGroupResponse (Prelude.Maybe DBParameterGroup)
 copyDBParameterGroupResponse_dbParameterGroup = Lens.lens (\CopyDBParameterGroupResponse' {dbParameterGroup} -> dbParameterGroup) (\s@CopyDBParameterGroupResponse' {} a -> s {dbParameterGroup = a} :: CopyDBParameterGroupResponse)
 
 -- | The response's http status code.
-copyDBParameterGroupResponse_httpStatus :: Lens.Lens' CopyDBParameterGroupResponse Core.Int
+copyDBParameterGroupResponse_httpStatus :: Lens.Lens' CopyDBParameterGroupResponse Prelude.Int
 copyDBParameterGroupResponse_httpStatus = Lens.lens (\CopyDBParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CopyDBParameterGroupResponse' {} a -> s {httpStatus = a} :: CopyDBParameterGroupResponse)
 
-instance Core.NFData CopyDBParameterGroupResponse
+instance Prelude.NFData CopyDBParameterGroupResponse

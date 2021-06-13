@@ -21,6 +21,7 @@ module Network.AWS.CodePipeline.Types.InputArtifact where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an artifact to be worked on, such as a test
 -- or build artifact.
@@ -34,9 +35,9 @@ data InputArtifact = InputArtifact'
     -- be the next action in strict sequence from the action that provided the
     -- output artifact. Actions in parallel can declare different output
     -- artifacts, which are in turn consumed by different following actions.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputArtifact' with all optional fields omitted.
@@ -55,7 +56,7 @@ data InputArtifact = InputArtifact'
 -- artifacts, which are in turn consumed by different following actions.
 newInputArtifact ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   InputArtifact
 newInputArtifact pName_ =
   InputArtifact' {name = pName_}
@@ -67,20 +68,24 @@ newInputArtifact pName_ =
 -- be the next action in strict sequence from the action that provided the
 -- output artifact. Actions in parallel can declare different output
 -- artifacts, which are in turn consumed by different following actions.
-inputArtifact_name :: Lens.Lens' InputArtifact Core.Text
+inputArtifact_name :: Lens.Lens' InputArtifact Prelude.Text
 inputArtifact_name = Lens.lens (\InputArtifact' {name} -> name) (\s@InputArtifact' {} a -> s {name = a} :: InputArtifact)
 
 instance Core.FromJSON InputArtifact where
   parseJSON =
     Core.withObject
       "InputArtifact"
-      (\x -> InputArtifact' Core.<$> (x Core..: "name"))
+      ( \x ->
+          InputArtifact' Prelude.<$> (x Core..: "name")
+      )
 
-instance Core.Hashable InputArtifact
+instance Prelude.Hashable InputArtifact
 
-instance Core.NFData InputArtifact
+instance Prelude.NFData InputArtifact
 
 instance Core.ToJSON InputArtifact where
   toJSON InputArtifact' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("name" Core..= name)]
+      )

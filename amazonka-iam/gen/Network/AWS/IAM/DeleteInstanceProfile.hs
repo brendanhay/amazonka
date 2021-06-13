@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ data DeleteInstanceProfile = DeleteInstanceProfile'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    instanceProfileName :: Core.Text
+    instanceProfileName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceProfile' with all optional fields omitted.
@@ -78,7 +79,7 @@ data DeleteInstanceProfile = DeleteInstanceProfile'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteInstanceProfile ::
   -- | 'instanceProfileName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInstanceProfile
 newDeleteInstanceProfile pInstanceProfileName_ =
   DeleteInstanceProfile'
@@ -92,7 +93,7 @@ newDeleteInstanceProfile pInstanceProfileName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteInstanceProfile_instanceProfileName :: Lens.Lens' DeleteInstanceProfile Core.Text
+deleteInstanceProfile_instanceProfileName :: Lens.Lens' DeleteInstanceProfile Prelude.Text
 deleteInstanceProfile_instanceProfileName = Lens.lens (\DeleteInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@DeleteInstanceProfile' {} a -> s {instanceProfileName = a} :: DeleteInstanceProfile)
 
 instance Core.AWSRequest DeleteInstanceProfile where
@@ -103,22 +104,23 @@ instance Core.AWSRequest DeleteInstanceProfile where
   response =
     Response.receiveNull DeleteInstanceProfileResponse'
 
-instance Core.Hashable DeleteInstanceProfile
+instance Prelude.Hashable DeleteInstanceProfile
 
-instance Core.NFData DeleteInstanceProfile
+instance Prelude.NFData DeleteInstanceProfile
 
 instance Core.ToHeaders DeleteInstanceProfile where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteInstanceProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInstanceProfile where
   toQuery DeleteInstanceProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteInstanceProfile" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeleteInstanceProfile" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "InstanceProfileName" Core.=: instanceProfileName
       ]
 
@@ -126,7 +128,7 @@ instance Core.ToQuery DeleteInstanceProfile where
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceProfileResponse' with all optional fields omitted.
@@ -137,4 +139,4 @@ newDeleteInstanceProfileResponse ::
 newDeleteInstanceProfileResponse =
   DeleteInstanceProfileResponse'
 
-instance Core.NFData DeleteInstanceProfileResponse
+instance Prelude.NFData DeleteInstanceProfileResponse

@@ -23,21 +23,22 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AnalysisComponent
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a load balancer target.
 --
 -- /See:/ 'newAnalysisLoadBalancerTarget' smart constructor.
 data AnalysisLoadBalancerTarget = AnalysisLoadBalancerTarget'
   { -- | The IP address.
-    address :: Core.Maybe Core.Text,
+    address :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Information about the instance.
-    instance' :: Core.Maybe AnalysisComponent,
+    instance' :: Prelude.Maybe AnalysisComponent,
     -- | The port on which the target is listening.
-    port :: Core.Maybe Core.Natural
+    port :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalysisLoadBalancerTarget' with all optional fields omitted.
@@ -58,36 +59,37 @@ newAnalysisLoadBalancerTarget ::
   AnalysisLoadBalancerTarget
 newAnalysisLoadBalancerTarget =
   AnalysisLoadBalancerTarget'
-    { address = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      instance' = Core.Nothing,
-      port = Core.Nothing
+    { address =
+        Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      instance' = Prelude.Nothing,
+      port = Prelude.Nothing
     }
 
 -- | The IP address.
-analysisLoadBalancerTarget_address :: Lens.Lens' AnalysisLoadBalancerTarget (Core.Maybe Core.Text)
+analysisLoadBalancerTarget_address :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Text)
 analysisLoadBalancerTarget_address = Lens.lens (\AnalysisLoadBalancerTarget' {address} -> address) (\s@AnalysisLoadBalancerTarget' {} a -> s {address = a} :: AnalysisLoadBalancerTarget)
 
 -- | The Availability Zone.
-analysisLoadBalancerTarget_availabilityZone :: Lens.Lens' AnalysisLoadBalancerTarget (Core.Maybe Core.Text)
+analysisLoadBalancerTarget_availabilityZone :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Text)
 analysisLoadBalancerTarget_availabilityZone = Lens.lens (\AnalysisLoadBalancerTarget' {availabilityZone} -> availabilityZone) (\s@AnalysisLoadBalancerTarget' {} a -> s {availabilityZone = a} :: AnalysisLoadBalancerTarget)
 
 -- | Information about the instance.
-analysisLoadBalancerTarget_instance :: Lens.Lens' AnalysisLoadBalancerTarget (Core.Maybe AnalysisComponent)
+analysisLoadBalancerTarget_instance :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe AnalysisComponent)
 analysisLoadBalancerTarget_instance = Lens.lens (\AnalysisLoadBalancerTarget' {instance'} -> instance') (\s@AnalysisLoadBalancerTarget' {} a -> s {instance' = a} :: AnalysisLoadBalancerTarget)
 
 -- | The port on which the target is listening.
-analysisLoadBalancerTarget_port :: Lens.Lens' AnalysisLoadBalancerTarget (Core.Maybe Core.Natural)
+analysisLoadBalancerTarget_port :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Natural)
 analysisLoadBalancerTarget_port = Lens.lens (\AnalysisLoadBalancerTarget' {port} -> port) (\s@AnalysisLoadBalancerTarget' {} a -> s {port = a} :: AnalysisLoadBalancerTarget)
 
 instance Core.FromXML AnalysisLoadBalancerTarget where
   parseXML x =
     AnalysisLoadBalancerTarget'
-      Core.<$> (x Core..@? "address")
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "instance")
-      Core.<*> (x Core..@? "port")
+      Prelude.<$> (x Core..@? "address")
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "instance")
+      Prelude.<*> (x Core..@? "port")
 
-instance Core.Hashable AnalysisLoadBalancerTarget
+instance Prelude.Hashable AnalysisLoadBalancerTarget
 
-instance Core.NFData AnalysisLoadBalancerTarget
+instance Prelude.NFData AnalysisLoadBalancerTarget

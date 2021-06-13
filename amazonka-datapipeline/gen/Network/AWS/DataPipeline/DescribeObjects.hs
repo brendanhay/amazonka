@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,18 +63,18 @@ data DescribeObjects = DescribeObjects'
     -- this value should be empty. As long as there are more results, continue
     -- to call @DescribeObjects@ with the marker value from the previous call
     -- to retrieve the next set of results.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether any expressions in the object should be evaluated when
     -- the object descriptions are returned.
-    evaluateExpressions :: Core.Maybe Core.Bool,
+    evaluateExpressions :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the pipeline that contains the object definitions.
-    pipelineId :: Core.Text,
+    pipelineId :: Prelude.Text,
     -- | The IDs of the pipeline objects that contain the definitions to be
     -- described. You can pass as many as 25 identifiers in a single call to
     -- @DescribeObjects@.
-    objectIds :: [Core.Text]
+    objectIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeObjects' with all optional fields omitted.
@@ -98,57 +99,57 @@ data DescribeObjects = DescribeObjects'
 -- @DescribeObjects@.
 newDescribeObjects ::
   -- | 'pipelineId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeObjects
 newDescribeObjects pPipelineId_ =
   DescribeObjects'
-    { marker = Core.Nothing,
-      evaluateExpressions = Core.Nothing,
+    { marker = Prelude.Nothing,
+      evaluateExpressions = Prelude.Nothing,
       pipelineId = pPipelineId_,
-      objectIds = Core.mempty
+      objectIds = Prelude.mempty
     }
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @DescribeObjects@ with the marker value from the previous call
 -- to retrieve the next set of results.
-describeObjects_marker :: Lens.Lens' DescribeObjects (Core.Maybe Core.Text)
+describeObjects_marker :: Lens.Lens' DescribeObjects (Prelude.Maybe Prelude.Text)
 describeObjects_marker = Lens.lens (\DescribeObjects' {marker} -> marker) (\s@DescribeObjects' {} a -> s {marker = a} :: DescribeObjects)
 
 -- | Indicates whether any expressions in the object should be evaluated when
 -- the object descriptions are returned.
-describeObjects_evaluateExpressions :: Lens.Lens' DescribeObjects (Core.Maybe Core.Bool)
+describeObjects_evaluateExpressions :: Lens.Lens' DescribeObjects (Prelude.Maybe Prelude.Bool)
 describeObjects_evaluateExpressions = Lens.lens (\DescribeObjects' {evaluateExpressions} -> evaluateExpressions) (\s@DescribeObjects' {} a -> s {evaluateExpressions = a} :: DescribeObjects)
 
 -- | The ID of the pipeline that contains the object definitions.
-describeObjects_pipelineId :: Lens.Lens' DescribeObjects Core.Text
+describeObjects_pipelineId :: Lens.Lens' DescribeObjects Prelude.Text
 describeObjects_pipelineId = Lens.lens (\DescribeObjects' {pipelineId} -> pipelineId) (\s@DescribeObjects' {} a -> s {pipelineId = a} :: DescribeObjects)
 
 -- | The IDs of the pipeline objects that contain the definitions to be
 -- described. You can pass as many as 25 identifiers in a single call to
 -- @DescribeObjects@.
-describeObjects_objectIds :: Lens.Lens' DescribeObjects [Core.Text]
-describeObjects_objectIds = Lens.lens (\DescribeObjects' {objectIds} -> objectIds) (\s@DescribeObjects' {} a -> s {objectIds = a} :: DescribeObjects) Core.. Lens._Coerce
+describeObjects_objectIds :: Lens.Lens' DescribeObjects [Prelude.Text]
+describeObjects_objectIds = Lens.lens (\DescribeObjects' {objectIds} -> objectIds) (\s@DescribeObjects' {} a -> s {objectIds = a} :: DescribeObjects) Prelude.. Lens._Coerce
 
 instance Core.AWSPager DescribeObjects where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeObjectsResponse_hasMoreResults
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? describeObjectsResponse_marker Core.. Lens._Just
+            Lens.^? describeObjectsResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeObjects_marker
+          Prelude.& describeObjects_marker
           Lens..~ rs
-          Lens.^? describeObjectsResponse_marker Core.. Lens._Just
+          Lens.^? describeObjectsResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeObjects where
   type
@@ -159,61 +160,67 @@ instance Core.AWSRequest DescribeObjects where
     Response.receiveJSON
       ( \s h x ->
           DescribeObjectsResponse'
-            Core.<$> (x Core..?> "hasMoreResults")
-            Core.<*> (x Core..?> "marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "pipelineObjects" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "hasMoreResults")
+            Prelude.<*> (x Core..?> "marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "pipelineObjects"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable DescribeObjects
+instance Prelude.Hashable DescribeObjects
 
-instance Core.NFData DescribeObjects
+instance Prelude.NFData DescribeObjects
 
 instance Core.ToHeaders DescribeObjects where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DataPipeline.DescribeObjects" :: Core.ByteString),
+              Core.=# ( "DataPipeline.DescribeObjects" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeObjects where
   toJSON DescribeObjects' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("marker" Core..=) Core.<$> marker,
+      ( Prelude.catMaybes
+          [ ("marker" Core..=) Prelude.<$> marker,
             ("evaluateExpressions" Core..=)
-              Core.<$> evaluateExpressions,
-            Core.Just ("pipelineId" Core..= pipelineId),
-            Core.Just ("objectIds" Core..= objectIds)
+              Prelude.<$> evaluateExpressions,
+            Prelude.Just ("pipelineId" Core..= pipelineId),
+            Prelude.Just ("objectIds" Core..= objectIds)
           ]
       )
 
 instance Core.ToPath DescribeObjects where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeObjects where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of DescribeObjects.
 --
 -- /See:/ 'newDescribeObjectsResponse' smart constructor.
 data DescribeObjectsResponse = DescribeObjectsResponse'
   { -- | Indicates whether there are more results to return.
-    hasMoreResults :: Core.Maybe Core.Bool,
+    hasMoreResults :: Prelude.Maybe Prelude.Bool,
     -- | The starting point for the next page of results. To view the next page
     -- of results, call @DescribeObjects@ again with this marker value. If the
     -- value is null, there are no more results.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | An array of object definitions.
     pipelineObjects :: [PipelineObject]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeObjectsResponse' with all optional fields omitted.
@@ -234,33 +241,33 @@ data DescribeObjectsResponse = DescribeObjectsResponse'
 -- 'pipelineObjects', 'describeObjectsResponse_pipelineObjects' - An array of object definitions.
 newDescribeObjectsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeObjectsResponse
 newDescribeObjectsResponse pHttpStatus_ =
   DescribeObjectsResponse'
     { hasMoreResults =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      pipelineObjects = Core.mempty
+      pipelineObjects = Prelude.mempty
     }
 
 -- | Indicates whether there are more results to return.
-describeObjectsResponse_hasMoreResults :: Lens.Lens' DescribeObjectsResponse (Core.Maybe Core.Bool)
+describeObjectsResponse_hasMoreResults :: Lens.Lens' DescribeObjectsResponse (Prelude.Maybe Prelude.Bool)
 describeObjectsResponse_hasMoreResults = Lens.lens (\DescribeObjectsResponse' {hasMoreResults} -> hasMoreResults) (\s@DescribeObjectsResponse' {} a -> s {hasMoreResults = a} :: DescribeObjectsResponse)
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @DescribeObjects@ again with this marker value. If the
 -- value is null, there are no more results.
-describeObjectsResponse_marker :: Lens.Lens' DescribeObjectsResponse (Core.Maybe Core.Text)
+describeObjectsResponse_marker :: Lens.Lens' DescribeObjectsResponse (Prelude.Maybe Prelude.Text)
 describeObjectsResponse_marker = Lens.lens (\DescribeObjectsResponse' {marker} -> marker) (\s@DescribeObjectsResponse' {} a -> s {marker = a} :: DescribeObjectsResponse)
 
 -- | The response's http status code.
-describeObjectsResponse_httpStatus :: Lens.Lens' DescribeObjectsResponse Core.Int
+describeObjectsResponse_httpStatus :: Lens.Lens' DescribeObjectsResponse Prelude.Int
 describeObjectsResponse_httpStatus = Lens.lens (\DescribeObjectsResponse' {httpStatus} -> httpStatus) (\s@DescribeObjectsResponse' {} a -> s {httpStatus = a} :: DescribeObjectsResponse)
 
 -- | An array of object definitions.
 describeObjectsResponse_pipelineObjects :: Lens.Lens' DescribeObjectsResponse [PipelineObject]
-describeObjectsResponse_pipelineObjects = Lens.lens (\DescribeObjectsResponse' {pipelineObjects} -> pipelineObjects) (\s@DescribeObjectsResponse' {} a -> s {pipelineObjects = a} :: DescribeObjectsResponse) Core.. Lens._Coerce
+describeObjectsResponse_pipelineObjects = Lens.lens (\DescribeObjectsResponse' {pipelineObjects} -> pipelineObjects) (\s@DescribeObjectsResponse' {} a -> s {pipelineObjects = a} :: DescribeObjectsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DescribeObjectsResponse
+instance Prelude.NFData DescribeObjectsResponse

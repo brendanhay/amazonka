@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -48,9 +49,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeletePatchBaseline' smart constructor.
 data DeletePatchBaseline = DeletePatchBaseline'
   { -- | The ID of the patch baseline to delete.
-    baselineId :: Core.Text
+    baselineId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePatchBaseline' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DeletePatchBaseline = DeletePatchBaseline'
 -- 'baselineId', 'deletePatchBaseline_baselineId' - The ID of the patch baseline to delete.
 newDeletePatchBaseline ::
   -- | 'baselineId'
-  Core.Text ->
+  Prelude.Text ->
   DeletePatchBaseline
 newDeletePatchBaseline pBaselineId_ =
   DeletePatchBaseline' {baselineId = pBaselineId_}
 
 -- | The ID of the patch baseline to delete.
-deletePatchBaseline_baselineId :: Lens.Lens' DeletePatchBaseline Core.Text
+deletePatchBaseline_baselineId :: Lens.Lens' DeletePatchBaseline Prelude.Text
 deletePatchBaseline_baselineId = Lens.lens (\DeletePatchBaseline' {baselineId} -> baselineId) (\s@DeletePatchBaseline' {} a -> s {baselineId = a} :: DeletePatchBaseline)
 
 instance Core.AWSRequest DeletePatchBaseline where
@@ -81,46 +82,50 @@ instance Core.AWSRequest DeletePatchBaseline where
     Response.receiveJSON
       ( \s h x ->
           DeletePatchBaselineResponse'
-            Core.<$> (x Core..?> "BaselineId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "BaselineId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeletePatchBaseline
+instance Prelude.Hashable DeletePatchBaseline
 
-instance Core.NFData DeletePatchBaseline
+instance Prelude.NFData DeletePatchBaseline
 
 instance Core.ToHeaders DeletePatchBaseline where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeletePatchBaseline" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.DeletePatchBaseline" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeletePatchBaseline where
   toJSON DeletePatchBaseline' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("BaselineId" Core..= baselineId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("BaselineId" Core..= baselineId)]
       )
 
 instance Core.ToPath DeletePatchBaseline where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePatchBaseline where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePatchBaselineResponse' smart constructor.
 data DeletePatchBaselineResponse = DeletePatchBaselineResponse'
   { -- | The ID of the deleted patch baseline.
-    baselineId :: Core.Maybe Core.Text,
+    baselineId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePatchBaselineResponse' with all optional fields omitted.
@@ -135,21 +140,21 @@ data DeletePatchBaselineResponse = DeletePatchBaselineResponse'
 -- 'httpStatus', 'deletePatchBaselineResponse_httpStatus' - The response's http status code.
 newDeletePatchBaselineResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeletePatchBaselineResponse
 newDeletePatchBaselineResponse pHttpStatus_ =
   DeletePatchBaselineResponse'
     { baselineId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the deleted patch baseline.
-deletePatchBaselineResponse_baselineId :: Lens.Lens' DeletePatchBaselineResponse (Core.Maybe Core.Text)
+deletePatchBaselineResponse_baselineId :: Lens.Lens' DeletePatchBaselineResponse (Prelude.Maybe Prelude.Text)
 deletePatchBaselineResponse_baselineId = Lens.lens (\DeletePatchBaselineResponse' {baselineId} -> baselineId) (\s@DeletePatchBaselineResponse' {} a -> s {baselineId = a} :: DeletePatchBaselineResponse)
 
 -- | The response's http status code.
-deletePatchBaselineResponse_httpStatus :: Lens.Lens' DeletePatchBaselineResponse Core.Int
+deletePatchBaselineResponse_httpStatus :: Lens.Lens' DeletePatchBaselineResponse Prelude.Int
 deletePatchBaselineResponse_httpStatus = Lens.lens (\DeletePatchBaselineResponse' {httpStatus} -> httpStatus) (\s@DeletePatchBaselineResponse' {} a -> s {httpStatus = a} :: DeletePatchBaselineResponse)
 
-instance Core.NFData DeletePatchBaselineResponse
+instance Prelude.NFData DeletePatchBaselineResponse

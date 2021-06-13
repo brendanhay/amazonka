@@ -41,13 +41,14 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
   { -- | The name of the pipeline to update.
-    pipelineName :: Core.Text,
+    pipelineName :: Prelude.Text,
     -- | A list of @PipelineActivity@ objects. Activities perform transformations
     -- on your messages, such as removing, renaming or adding message
     -- attributes; filtering messages based on attribute values; invoking your
@@ -59,9 +60,9 @@ data UpdatePipeline = UpdatePipeline'
     -- contain only one activity. For example:
     --
     -- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
-    pipelineActivities :: Core.NonEmpty PipelineActivity
+    pipelineActivities :: Prelude.NonEmpty PipelineActivity
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePipeline' with all optional fields omitted.
@@ -86,9 +87,9 @@ data UpdatePipeline = UpdatePipeline'
 -- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
 newUpdatePipeline ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'pipelineActivities'
-  Core.NonEmpty PipelineActivity ->
+  Prelude.NonEmpty PipelineActivity ->
   UpdatePipeline
 newUpdatePipeline pPipelineName_ pPipelineActivities_ =
   UpdatePipeline'
@@ -98,7 +99,7 @@ newUpdatePipeline pPipelineName_ pPipelineActivities_ =
     }
 
 -- | The name of the pipeline to update.
-updatePipeline_pipelineName :: Lens.Lens' UpdatePipeline Core.Text
+updatePipeline_pipelineName :: Lens.Lens' UpdatePipeline Prelude.Text
 updatePipeline_pipelineName = Lens.lens (\UpdatePipeline' {pipelineName} -> pipelineName) (\s@UpdatePipeline' {} a -> s {pipelineName = a} :: UpdatePipeline)
 
 -- | A list of @PipelineActivity@ objects. Activities perform transformations
@@ -112,8 +113,8 @@ updatePipeline_pipelineName = Lens.lens (\UpdatePipeline' {pipelineName} -> pipe
 -- contain only one activity. For example:
 --
 -- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
-updatePipeline_pipelineActivities :: Lens.Lens' UpdatePipeline (Core.NonEmpty PipelineActivity)
-updatePipeline_pipelineActivities = Lens.lens (\UpdatePipeline' {pipelineActivities} -> pipelineActivities) (\s@UpdatePipeline' {} a -> s {pipelineActivities = a} :: UpdatePipeline) Core.. Lens._Coerce
+updatePipeline_pipelineActivities :: Lens.Lens' UpdatePipeline (Prelude.NonEmpty PipelineActivity)
+updatePipeline_pipelineActivities = Lens.lens (\UpdatePipeline' {pipelineActivities} -> pipelineActivities) (\s@UpdatePipeline' {} a -> s {pipelineActivities = a} :: UpdatePipeline) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdatePipeline where
   type
@@ -123,35 +124,35 @@ instance Core.AWSRequest UpdatePipeline where
   response =
     Response.receiveNull UpdatePipelineResponse'
 
-instance Core.Hashable UpdatePipeline
+instance Prelude.Hashable UpdatePipeline
 
-instance Core.NFData UpdatePipeline
+instance Prelude.NFData UpdatePipeline
 
 instance Core.ToHeaders UpdatePipeline where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("pipelineActivities" Core..= pipelineActivities)
           ]
       )
 
 instance Core.ToPath UpdatePipeline where
   toPath UpdatePipeline' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/pipelines/", Core.toBS pipelineName]
 
 instance Core.ToQuery UpdatePipeline where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePipelineResponse' with all optional fields omitted.
@@ -161,4 +162,4 @@ newUpdatePipelineResponse ::
   UpdatePipelineResponse
 newUpdatePipelineResponse = UpdatePipelineResponse'
 
-instance Core.NFData UpdatePipelineResponse
+instance Prelude.NFData UpdatePipelineResponse

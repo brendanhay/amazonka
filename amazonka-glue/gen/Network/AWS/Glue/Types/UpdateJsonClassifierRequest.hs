@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.UpdateJsonClassifierRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a JSON classifier to be updated.
 --
@@ -29,11 +30,11 @@ data UpdateJsonClassifierRequest = UpdateJsonClassifierRequest'
   { -- | A @JsonPath@ string defining the JSON data for the classifier to
     -- classify. AWS Glue supports a subset of JsonPath, as described in
     -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
-    jsonPath :: Core.Maybe Core.Text,
+    jsonPath :: Prelude.Maybe Prelude.Text,
     -- | The name of the classifier.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJsonClassifierRequest' with all optional fields omitted.
@@ -50,34 +51,34 @@ data UpdateJsonClassifierRequest = UpdateJsonClassifierRequest'
 -- 'name', 'updateJsonClassifierRequest_name' - The name of the classifier.
 newUpdateJsonClassifierRequest ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdateJsonClassifierRequest
 newUpdateJsonClassifierRequest pName_ =
   UpdateJsonClassifierRequest'
     { jsonPath =
-        Core.Nothing,
+        Prelude.Nothing,
       name = pName_
     }
 
 -- | A @JsonPath@ string defining the JSON data for the classifier to
 -- classify. AWS Glue supports a subset of JsonPath, as described in
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
-updateJsonClassifierRequest_jsonPath :: Lens.Lens' UpdateJsonClassifierRequest (Core.Maybe Core.Text)
+updateJsonClassifierRequest_jsonPath :: Lens.Lens' UpdateJsonClassifierRequest (Prelude.Maybe Prelude.Text)
 updateJsonClassifierRequest_jsonPath = Lens.lens (\UpdateJsonClassifierRequest' {jsonPath} -> jsonPath) (\s@UpdateJsonClassifierRequest' {} a -> s {jsonPath = a} :: UpdateJsonClassifierRequest)
 
 -- | The name of the classifier.
-updateJsonClassifierRequest_name :: Lens.Lens' UpdateJsonClassifierRequest Core.Text
+updateJsonClassifierRequest_name :: Lens.Lens' UpdateJsonClassifierRequest Prelude.Text
 updateJsonClassifierRequest_name = Lens.lens (\UpdateJsonClassifierRequest' {name} -> name) (\s@UpdateJsonClassifierRequest' {} a -> s {name = a} :: UpdateJsonClassifierRequest)
 
-instance Core.Hashable UpdateJsonClassifierRequest
+instance Prelude.Hashable UpdateJsonClassifierRequest
 
-instance Core.NFData UpdateJsonClassifierRequest
+instance Prelude.NFData UpdateJsonClassifierRequest
 
 instance Core.ToJSON UpdateJsonClassifierRequest where
   toJSON UpdateJsonClassifierRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("JsonPath" Core..=) Core.<$> jsonPath,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("JsonPath" Core..=) Prelude.<$> jsonPath,
+            Prelude.Just ("Name" Core..= name)
           ]
       )

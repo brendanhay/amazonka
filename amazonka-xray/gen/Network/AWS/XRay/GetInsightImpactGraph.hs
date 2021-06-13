@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -60,10 +61,10 @@ import Network.AWS.XRay.Types
 data GetInsightImpactGraph = GetInsightImpactGraph'
   { -- | Specify the pagination token returned by a previous request to retrieve
     -- the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The insight\'s unique identifier. Use the GetInsightSummaries action to
     -- retrieve an InsightId.
-    insightId :: Core.Text,
+    insightId :: Prelude.Text,
     -- | The estimated start time of the insight, in Unix time seconds. The
     -- StartTime is inclusive of the value provided and can\'t be more than 30
     -- days old.
@@ -73,7 +74,7 @@ data GetInsightImpactGraph = GetInsightImpactGraph'
     -- time and end time can\'t be more than six hours.
     endTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInsightImpactGraph' with all optional fields omitted.
@@ -98,18 +99,18 @@ data GetInsightImpactGraph = GetInsightImpactGraph'
 -- time and end time can\'t be more than six hours.
 newGetInsightImpactGraph ::
   -- | 'insightId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   GetInsightImpactGraph
 newGetInsightImpactGraph
   pInsightId_
   pStartTime_
   pEndTime_ =
     GetInsightImpactGraph'
-      { nextToken = Core.Nothing,
+      { nextToken = Prelude.Nothing,
         insightId = pInsightId_,
         startTime = Core._Time Lens.# pStartTime_,
         endTime = Core._Time Lens.# pEndTime_
@@ -117,25 +118,25 @@ newGetInsightImpactGraph
 
 -- | Specify the pagination token returned by a previous request to retrieve
 -- the next page of results.
-getInsightImpactGraph_nextToken :: Lens.Lens' GetInsightImpactGraph (Core.Maybe Core.Text)
+getInsightImpactGraph_nextToken :: Lens.Lens' GetInsightImpactGraph (Prelude.Maybe Prelude.Text)
 getInsightImpactGraph_nextToken = Lens.lens (\GetInsightImpactGraph' {nextToken} -> nextToken) (\s@GetInsightImpactGraph' {} a -> s {nextToken = a} :: GetInsightImpactGraph)
 
 -- | The insight\'s unique identifier. Use the GetInsightSummaries action to
 -- retrieve an InsightId.
-getInsightImpactGraph_insightId :: Lens.Lens' GetInsightImpactGraph Core.Text
+getInsightImpactGraph_insightId :: Lens.Lens' GetInsightImpactGraph Prelude.Text
 getInsightImpactGraph_insightId = Lens.lens (\GetInsightImpactGraph' {insightId} -> insightId) (\s@GetInsightImpactGraph' {} a -> s {insightId = a} :: GetInsightImpactGraph)
 
 -- | The estimated start time of the insight, in Unix time seconds. The
 -- StartTime is inclusive of the value provided and can\'t be more than 30
 -- days old.
-getInsightImpactGraph_startTime :: Lens.Lens' GetInsightImpactGraph Core.UTCTime
-getInsightImpactGraph_startTime = Lens.lens (\GetInsightImpactGraph' {startTime} -> startTime) (\s@GetInsightImpactGraph' {} a -> s {startTime = a} :: GetInsightImpactGraph) Core.. Core._Time
+getInsightImpactGraph_startTime :: Lens.Lens' GetInsightImpactGraph Prelude.UTCTime
+getInsightImpactGraph_startTime = Lens.lens (\GetInsightImpactGraph' {startTime} -> startTime) (\s@GetInsightImpactGraph' {} a -> s {startTime = a} :: GetInsightImpactGraph) Prelude.. Core._Time
 
 -- | The estimated end time of the insight, in Unix time seconds. The EndTime
 -- is exclusive of the value provided. The time range between the start
 -- time and end time can\'t be more than six hours.
-getInsightImpactGraph_endTime :: Lens.Lens' GetInsightImpactGraph Core.UTCTime
-getInsightImpactGraph_endTime = Lens.lens (\GetInsightImpactGraph' {endTime} -> endTime) (\s@GetInsightImpactGraph' {} a -> s {endTime = a} :: GetInsightImpactGraph) Core.. Core._Time
+getInsightImpactGraph_endTime :: Lens.Lens' GetInsightImpactGraph Prelude.UTCTime
+getInsightImpactGraph_endTime = Lens.lens (\GetInsightImpactGraph' {endTime} -> endTime) (\s@GetInsightImpactGraph' {} a -> s {endTime = a} :: GetInsightImpactGraph) Prelude.. Core._Time
 
 instance Core.AWSRequest GetInsightImpactGraph where
   type
@@ -146,60 +147,60 @@ instance Core.AWSRequest GetInsightImpactGraph where
     Response.receiveJSON
       ( \s h x ->
           GetInsightImpactGraphResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Services" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ServiceGraphEndTime")
-            Core.<*> (x Core..?> "StartTime")
-            Core.<*> (x Core..?> "EndTime")
-            Core.<*> (x Core..?> "ServiceGraphStartTime")
-            Core.<*> (x Core..?> "InsightId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Services" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ServiceGraphEndTime")
+            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<*> (x Core..?> "EndTime")
+            Prelude.<*> (x Core..?> "ServiceGraphStartTime")
+            Prelude.<*> (x Core..?> "InsightId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInsightImpactGraph
+instance Prelude.Hashable GetInsightImpactGraph
 
-instance Core.NFData GetInsightImpactGraph
+instance Prelude.NFData GetInsightImpactGraph
 
 instance Core.ToHeaders GetInsightImpactGraph where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetInsightImpactGraph where
   toJSON GetInsightImpactGraph' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            Core.Just ("InsightId" Core..= insightId),
-            Core.Just ("StartTime" Core..= startTime),
-            Core.Just ("EndTime" Core..= endTime)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("InsightId" Core..= insightId),
+            Prelude.Just ("StartTime" Core..= startTime),
+            Prelude.Just ("EndTime" Core..= endTime)
           ]
       )
 
 instance Core.ToPath GetInsightImpactGraph where
-  toPath = Core.const "/InsightImpactGraph"
+  toPath = Prelude.const "/InsightImpactGraph"
 
 instance Core.ToQuery GetInsightImpactGraph where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightImpactGraphResponse' smart constructor.
 data GetInsightImpactGraphResponse = GetInsightImpactGraphResponse'
   { -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The AWS instrumented services related to the insight.
-    services :: Core.Maybe [InsightImpactGraphService],
+    services :: Prelude.Maybe [InsightImpactGraphService],
     -- | The time, in Unix seconds, at which the service graph ended.
-    serviceGraphEndTime :: Core.Maybe Core.POSIX,
+    serviceGraphEndTime :: Prelude.Maybe Core.POSIX,
     -- | The provided start time.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The provided end time.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The time, in Unix seconds, at which the service graph started.
-    serviceGraphStartTime :: Core.Maybe Core.POSIX,
+    serviceGraphStartTime :: Prelude.Maybe Core.POSIX,
     -- | The insight\'s unique identifier.
-    insightId :: Core.Maybe Core.Text,
+    insightId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInsightImpactGraphResponse' with all optional fields omitted.
@@ -226,51 +227,51 @@ data GetInsightImpactGraphResponse = GetInsightImpactGraphResponse'
 -- 'httpStatus', 'getInsightImpactGraphResponse_httpStatus' - The response's http status code.
 newGetInsightImpactGraphResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInsightImpactGraphResponse
 newGetInsightImpactGraphResponse pHttpStatus_ =
   GetInsightImpactGraphResponse'
     { nextToken =
-        Core.Nothing,
-      services = Core.Nothing,
-      serviceGraphEndTime = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      serviceGraphStartTime = Core.Nothing,
-      insightId = Core.Nothing,
+        Prelude.Nothing,
+      services = Prelude.Nothing,
+      serviceGraphEndTime = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      serviceGraphStartTime = Prelude.Nothing,
+      insightId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token.
-getInsightImpactGraphResponse_nextToken :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.Text)
+getInsightImpactGraphResponse_nextToken :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe Prelude.Text)
 getInsightImpactGraphResponse_nextToken = Lens.lens (\GetInsightImpactGraphResponse' {nextToken} -> nextToken) (\s@GetInsightImpactGraphResponse' {} a -> s {nextToken = a} :: GetInsightImpactGraphResponse)
 
 -- | The AWS instrumented services related to the insight.
-getInsightImpactGraphResponse_services :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe [InsightImpactGraphService])
-getInsightImpactGraphResponse_services = Lens.lens (\GetInsightImpactGraphResponse' {services} -> services) (\s@GetInsightImpactGraphResponse' {} a -> s {services = a} :: GetInsightImpactGraphResponse) Core.. Lens.mapping Lens._Coerce
+getInsightImpactGraphResponse_services :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe [InsightImpactGraphService])
+getInsightImpactGraphResponse_services = Lens.lens (\GetInsightImpactGraphResponse' {services} -> services) (\s@GetInsightImpactGraphResponse' {} a -> s {services = a} :: GetInsightImpactGraphResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time, in Unix seconds, at which the service graph ended.
-getInsightImpactGraphResponse_serviceGraphEndTime :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.UTCTime)
-getInsightImpactGraphResponse_serviceGraphEndTime = Lens.lens (\GetInsightImpactGraphResponse' {serviceGraphEndTime} -> serviceGraphEndTime) (\s@GetInsightImpactGraphResponse' {} a -> s {serviceGraphEndTime = a} :: GetInsightImpactGraphResponse) Core.. Lens.mapping Core._Time
+getInsightImpactGraphResponse_serviceGraphEndTime :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe Prelude.UTCTime)
+getInsightImpactGraphResponse_serviceGraphEndTime = Lens.lens (\GetInsightImpactGraphResponse' {serviceGraphEndTime} -> serviceGraphEndTime) (\s@GetInsightImpactGraphResponse' {} a -> s {serviceGraphEndTime = a} :: GetInsightImpactGraphResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The provided start time.
-getInsightImpactGraphResponse_startTime :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.UTCTime)
-getInsightImpactGraphResponse_startTime = Lens.lens (\GetInsightImpactGraphResponse' {startTime} -> startTime) (\s@GetInsightImpactGraphResponse' {} a -> s {startTime = a} :: GetInsightImpactGraphResponse) Core.. Lens.mapping Core._Time
+getInsightImpactGraphResponse_startTime :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe Prelude.UTCTime)
+getInsightImpactGraphResponse_startTime = Lens.lens (\GetInsightImpactGraphResponse' {startTime} -> startTime) (\s@GetInsightImpactGraphResponse' {} a -> s {startTime = a} :: GetInsightImpactGraphResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The provided end time.
-getInsightImpactGraphResponse_endTime :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.UTCTime)
-getInsightImpactGraphResponse_endTime = Lens.lens (\GetInsightImpactGraphResponse' {endTime} -> endTime) (\s@GetInsightImpactGraphResponse' {} a -> s {endTime = a} :: GetInsightImpactGraphResponse) Core.. Lens.mapping Core._Time
+getInsightImpactGraphResponse_endTime :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe Prelude.UTCTime)
+getInsightImpactGraphResponse_endTime = Lens.lens (\GetInsightImpactGraphResponse' {endTime} -> endTime) (\s@GetInsightImpactGraphResponse' {} a -> s {endTime = a} :: GetInsightImpactGraphResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The time, in Unix seconds, at which the service graph started.
-getInsightImpactGraphResponse_serviceGraphStartTime :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.UTCTime)
-getInsightImpactGraphResponse_serviceGraphStartTime = Lens.lens (\GetInsightImpactGraphResponse' {serviceGraphStartTime} -> serviceGraphStartTime) (\s@GetInsightImpactGraphResponse' {} a -> s {serviceGraphStartTime = a} :: GetInsightImpactGraphResponse) Core.. Lens.mapping Core._Time
+getInsightImpactGraphResponse_serviceGraphStartTime :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe Prelude.UTCTime)
+getInsightImpactGraphResponse_serviceGraphStartTime = Lens.lens (\GetInsightImpactGraphResponse' {serviceGraphStartTime} -> serviceGraphStartTime) (\s@GetInsightImpactGraphResponse' {} a -> s {serviceGraphStartTime = a} :: GetInsightImpactGraphResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The insight\'s unique identifier.
-getInsightImpactGraphResponse_insightId :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.Text)
+getInsightImpactGraphResponse_insightId :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe Prelude.Text)
 getInsightImpactGraphResponse_insightId = Lens.lens (\GetInsightImpactGraphResponse' {insightId} -> insightId) (\s@GetInsightImpactGraphResponse' {} a -> s {insightId = a} :: GetInsightImpactGraphResponse)
 
 -- | The response's http status code.
-getInsightImpactGraphResponse_httpStatus :: Lens.Lens' GetInsightImpactGraphResponse Core.Int
+getInsightImpactGraphResponse_httpStatus :: Lens.Lens' GetInsightImpactGraphResponse Prelude.Int
 getInsightImpactGraphResponse_httpStatus = Lens.lens (\GetInsightImpactGraphResponse' {httpStatus} -> httpStatus) (\s@GetInsightImpactGraphResponse' {} a -> s {httpStatus = a} :: GetInsightImpactGraphResponse)
 
-instance Core.NFData GetInsightImpactGraphResponse
+instance Prelude.NFData GetInsightImpactGraphResponse

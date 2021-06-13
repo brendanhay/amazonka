@@ -21,23 +21,24 @@ module Network.AWS.SNS.Types.Subscription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 --
 -- /See:/ 'newSubscription' smart constructor.
 data Subscription = Subscription'
   { -- | The ARN of the subscription\'s topic.
-    topicArn :: Core.Maybe Core.Text,
+    topicArn :: Prelude.Maybe Prelude.Text,
     -- | The subscription\'s owner.
-    owner :: Core.Maybe Core.Text,
+    owner :: Prelude.Maybe Prelude.Text,
     -- | The subscription\'s ARN.
-    subscriptionArn :: Core.Maybe Core.Text,
+    subscriptionArn :: Prelude.Maybe Prelude.Text,
     -- | The subscription\'s protocol.
-    protocol :: Core.Maybe Core.Text,
+    protocol :: Prelude.Maybe Prelude.Text,
     -- | The subscription\'s endpoint (format depends on the protocol).
-    endpoint :: Core.Maybe Core.Text
+    endpoint :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Subscription' with all optional fields omitted.
@@ -60,42 +61,42 @@ newSubscription ::
   Subscription
 newSubscription =
   Subscription'
-    { topicArn = Core.Nothing,
-      owner = Core.Nothing,
-      subscriptionArn = Core.Nothing,
-      protocol = Core.Nothing,
-      endpoint = Core.Nothing
+    { topicArn = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      subscriptionArn = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      endpoint = Prelude.Nothing
     }
 
 -- | The ARN of the subscription\'s topic.
-subscription_topicArn :: Lens.Lens' Subscription (Core.Maybe Core.Text)
+subscription_topicArn :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_topicArn = Lens.lens (\Subscription' {topicArn} -> topicArn) (\s@Subscription' {} a -> s {topicArn = a} :: Subscription)
 
 -- | The subscription\'s owner.
-subscription_owner :: Lens.Lens' Subscription (Core.Maybe Core.Text)
+subscription_owner :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_owner = Lens.lens (\Subscription' {owner} -> owner) (\s@Subscription' {} a -> s {owner = a} :: Subscription)
 
 -- | The subscription\'s ARN.
-subscription_subscriptionArn :: Lens.Lens' Subscription (Core.Maybe Core.Text)
+subscription_subscriptionArn :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_subscriptionArn = Lens.lens (\Subscription' {subscriptionArn} -> subscriptionArn) (\s@Subscription' {} a -> s {subscriptionArn = a} :: Subscription)
 
 -- | The subscription\'s protocol.
-subscription_protocol :: Lens.Lens' Subscription (Core.Maybe Core.Text)
+subscription_protocol :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_protocol = Lens.lens (\Subscription' {protocol} -> protocol) (\s@Subscription' {} a -> s {protocol = a} :: Subscription)
 
 -- | The subscription\'s endpoint (format depends on the protocol).
-subscription_endpoint :: Lens.Lens' Subscription (Core.Maybe Core.Text)
+subscription_endpoint :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_endpoint = Lens.lens (\Subscription' {endpoint} -> endpoint) (\s@Subscription' {} a -> s {endpoint = a} :: Subscription)
 
 instance Core.FromXML Subscription where
   parseXML x =
     Subscription'
-      Core.<$> (x Core..@? "TopicArn")
-      Core.<*> (x Core..@? "Owner")
-      Core.<*> (x Core..@? "SubscriptionArn")
-      Core.<*> (x Core..@? "Protocol")
-      Core.<*> (x Core..@? "Endpoint")
+      Prelude.<$> (x Core..@? "TopicArn")
+      Prelude.<*> (x Core..@? "Owner")
+      Prelude.<*> (x Core..@? "SubscriptionArn")
+      Prelude.<*> (x Core..@? "Protocol")
+      Prelude.<*> (x Core..@? "Endpoint")
 
-instance Core.Hashable Subscription
+instance Prelude.Hashable Subscription
 
-instance Core.NFData Subscription
+instance Prelude.NFData Subscription

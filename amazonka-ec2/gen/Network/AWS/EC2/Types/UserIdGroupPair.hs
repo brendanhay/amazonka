@@ -22,22 +22,23 @@ module Network.AWS.EC2.Types.UserIdGroupPair where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a security group and AWS account ID pair.
 --
 -- /See:/ 'newUserIdGroupPair' smart constructor.
 data UserIdGroupPair = UserIdGroupPair'
   { -- | The ID of the VPC peering connection, if applicable.
-    vpcPeeringConnectionId :: Core.Maybe Core.Text,
+    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the security group. In a request, use this parameter for a
     -- security group in EC2-Classic or a default VPC only. For a security
     -- group in a nondefault VPC, use the security group ID.
     --
     -- For a referenced security group in another VPC, this value is not
     -- returned if the referenced security group is deleted.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the security group.
-    groupId :: Core.Maybe Core.Text,
+    groupId :: Prelude.Maybe Prelude.Text,
     -- | The ID of an AWS account.
     --
     -- For a referenced security group in another VPC, the account ID of the
@@ -46,19 +47,19 @@ data UserIdGroupPair = UserIdGroupPair'
     --
     -- [EC2-Classic] Required when adding or removing rules that reference a
     -- security group in another AWS account.
-    userId :: Core.Maybe Core.Text,
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The status of a VPC peering connection, if applicable.
-    peeringStatus :: Core.Maybe Core.Text,
+    peeringStatus :: Prelude.Maybe Prelude.Text,
     -- | A description for the security group rule that references this user ID
     -- group pair.
     --
     -- Constraints: Up to 255 characters in length. Allowed characters are a-z,
     -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=;{}!$*
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC for the referenced security group, if applicable.
-    vpcId :: Core.Maybe Core.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserIdGroupPair' with all optional fields omitted.
@@ -102,17 +103,17 @@ newUserIdGroupPair ::
 newUserIdGroupPair =
   UserIdGroupPair'
     { vpcPeeringConnectionId =
-        Core.Nothing,
-      groupName = Core.Nothing,
-      groupId = Core.Nothing,
-      userId = Core.Nothing,
-      peeringStatus = Core.Nothing,
-      description = Core.Nothing,
-      vpcId = Core.Nothing
+        Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      groupId = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      peeringStatus = Prelude.Nothing,
+      description = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
 -- | The ID of the VPC peering connection, if applicable.
-userIdGroupPair_vpcPeeringConnectionId :: Lens.Lens' UserIdGroupPair (Core.Maybe Core.Text)
+userIdGroupPair_vpcPeeringConnectionId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_vpcPeeringConnectionId = Lens.lens (\UserIdGroupPair' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@UserIdGroupPair' {} a -> s {vpcPeeringConnectionId = a} :: UserIdGroupPair)
 
 -- | The name of the security group. In a request, use this parameter for a
@@ -121,11 +122,11 @@ userIdGroupPair_vpcPeeringConnectionId = Lens.lens (\UserIdGroupPair' {vpcPeerin
 --
 -- For a referenced security group in another VPC, this value is not
 -- returned if the referenced security group is deleted.
-userIdGroupPair_groupName :: Lens.Lens' UserIdGroupPair (Core.Maybe Core.Text)
+userIdGroupPair_groupName :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_groupName = Lens.lens (\UserIdGroupPair' {groupName} -> groupName) (\s@UserIdGroupPair' {} a -> s {groupName = a} :: UserIdGroupPair)
 
 -- | The ID of the security group.
-userIdGroupPair_groupId :: Lens.Lens' UserIdGroupPair (Core.Maybe Core.Text)
+userIdGroupPair_groupId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_groupId = Lens.lens (\UserIdGroupPair' {groupId} -> groupId) (\s@UserIdGroupPair' {} a -> s {groupId = a} :: UserIdGroupPair)
 
 -- | The ID of an AWS account.
@@ -136,11 +137,11 @@ userIdGroupPair_groupId = Lens.lens (\UserIdGroupPair' {groupId} -> groupId) (\s
 --
 -- [EC2-Classic] Required when adding or removing rules that reference a
 -- security group in another AWS account.
-userIdGroupPair_userId :: Lens.Lens' UserIdGroupPair (Core.Maybe Core.Text)
+userIdGroupPair_userId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_userId = Lens.lens (\UserIdGroupPair' {userId} -> userId) (\s@UserIdGroupPair' {} a -> s {userId = a} :: UserIdGroupPair)
 
 -- | The status of a VPC peering connection, if applicable.
-userIdGroupPair_peeringStatus :: Lens.Lens' UserIdGroupPair (Core.Maybe Core.Text)
+userIdGroupPair_peeringStatus :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_peeringStatus = Lens.lens (\UserIdGroupPair' {peeringStatus} -> peeringStatus) (\s@UserIdGroupPair' {} a -> s {peeringStatus = a} :: UserIdGroupPair)
 
 -- | A description for the security group rule that references this user ID
@@ -148,31 +149,31 @@ userIdGroupPair_peeringStatus = Lens.lens (\UserIdGroupPair' {peeringStatus} -> 
 --
 -- Constraints: Up to 255 characters in length. Allowed characters are a-z,
 -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=;{}!$*
-userIdGroupPair_description :: Lens.Lens' UserIdGroupPair (Core.Maybe Core.Text)
+userIdGroupPair_description :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_description = Lens.lens (\UserIdGroupPair' {description} -> description) (\s@UserIdGroupPair' {} a -> s {description = a} :: UserIdGroupPair)
 
 -- | The ID of the VPC for the referenced security group, if applicable.
-userIdGroupPair_vpcId :: Lens.Lens' UserIdGroupPair (Core.Maybe Core.Text)
+userIdGroupPair_vpcId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_vpcId = Lens.lens (\UserIdGroupPair' {vpcId} -> vpcId) (\s@UserIdGroupPair' {} a -> s {vpcId = a} :: UserIdGroupPair)
 
 instance Core.FromXML UserIdGroupPair where
   parseXML x =
     UserIdGroupPair'
-      Core.<$> (x Core..@? "vpcPeeringConnectionId")
-      Core.<*> (x Core..@? "groupName")
-      Core.<*> (x Core..@? "groupId")
-      Core.<*> (x Core..@? "userId")
-      Core.<*> (x Core..@? "peeringStatus")
-      Core.<*> (x Core..@? "description")
-      Core.<*> (x Core..@? "vpcId")
+      Prelude.<$> (x Core..@? "vpcPeeringConnectionId")
+      Prelude.<*> (x Core..@? "groupName")
+      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<*> (x Core..@? "userId")
+      Prelude.<*> (x Core..@? "peeringStatus")
+      Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "vpcId")
 
-instance Core.Hashable UserIdGroupPair
+instance Prelude.Hashable UserIdGroupPair
 
-instance Core.NFData UserIdGroupPair
+instance Prelude.NFData UserIdGroupPair
 
 instance Core.ToQuery UserIdGroupPair where
   toQuery UserIdGroupPair' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "VpcPeeringConnectionId"
           Core.=: vpcPeeringConnectionId,
         "GroupName" Core.=: groupName,

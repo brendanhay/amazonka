@@ -47,6 +47,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +58,9 @@ data DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Core.Text
+    identityPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityPoolUsage' with all optional fields omitted.
@@ -74,7 +75,7 @@ data DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
 -- Cognito. GUID generation is unique within a region.
 newDescribeIdentityPoolUsage ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeIdentityPoolUsage
 newDescribeIdentityPoolUsage pIdentityPoolId_ =
   DescribeIdentityPoolUsage'
@@ -85,7 +86,7 @@ newDescribeIdentityPoolUsage pIdentityPoolId_ =
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-describeIdentityPoolUsage_identityPoolId :: Lens.Lens' DescribeIdentityPoolUsage Core.Text
+describeIdentityPoolUsage_identityPoolId :: Lens.Lens' DescribeIdentityPoolUsage Prelude.Text
 describeIdentityPoolUsage_identityPoolId = Lens.lens (\DescribeIdentityPoolUsage' {identityPoolId} -> identityPoolId) (\s@DescribeIdentityPoolUsage' {} a -> s {identityPoolId = a} :: DescribeIdentityPoolUsage)
 
 instance Core.AWSRequest DescribeIdentityPoolUsage where
@@ -97,41 +98,43 @@ instance Core.AWSRequest DescribeIdentityPoolUsage where
     Response.receiveJSON
       ( \s h x ->
           DescribeIdentityPoolUsageResponse'
-            Core.<$> (x Core..?> "IdentityPoolUsage")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "IdentityPoolUsage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeIdentityPoolUsage
+instance Prelude.Hashable DescribeIdentityPoolUsage
 
-instance Core.NFData DescribeIdentityPoolUsage
+instance Prelude.NFData DescribeIdentityPoolUsage
 
 instance Core.ToHeaders DescribeIdentityPoolUsage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeIdentityPoolUsage where
   toPath DescribeIdentityPoolUsage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/identitypools/", Core.toBS identityPoolId]
 
 instance Core.ToQuery DescribeIdentityPoolUsage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response to a successful DescribeIdentityPoolUsage request.
 --
 -- /See:/ 'newDescribeIdentityPoolUsageResponse' smart constructor.
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
   { -- | Information about the usage of the identity pool.
-    identityPoolUsage :: Core.Maybe IdentityPoolUsage,
+    identityPoolUsage :: Prelude.Maybe IdentityPoolUsage,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityPoolUsageResponse' with all optional fields omitted.
@@ -146,23 +149,23 @@ data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
 -- 'httpStatus', 'describeIdentityPoolUsageResponse_httpStatus' - The response's http status code.
 newDescribeIdentityPoolUsageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeIdentityPoolUsageResponse
 newDescribeIdentityPoolUsageResponse pHttpStatus_ =
   DescribeIdentityPoolUsageResponse'
     { identityPoolUsage =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the usage of the identity pool.
-describeIdentityPoolUsageResponse_identityPoolUsage :: Lens.Lens' DescribeIdentityPoolUsageResponse (Core.Maybe IdentityPoolUsage)
+describeIdentityPoolUsageResponse_identityPoolUsage :: Lens.Lens' DescribeIdentityPoolUsageResponse (Prelude.Maybe IdentityPoolUsage)
 describeIdentityPoolUsageResponse_identityPoolUsage = Lens.lens (\DescribeIdentityPoolUsageResponse' {identityPoolUsage} -> identityPoolUsage) (\s@DescribeIdentityPoolUsageResponse' {} a -> s {identityPoolUsage = a} :: DescribeIdentityPoolUsageResponse)
 
 -- | The response's http status code.
-describeIdentityPoolUsageResponse_httpStatus :: Lens.Lens' DescribeIdentityPoolUsageResponse Core.Int
+describeIdentityPoolUsageResponse_httpStatus :: Lens.Lens' DescribeIdentityPoolUsageResponse Prelude.Int
 describeIdentityPoolUsageResponse_httpStatus = Lens.lens (\DescribeIdentityPoolUsageResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityPoolUsageResponse' {} a -> s {httpStatus = a} :: DescribeIdentityPoolUsageResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeIdentityPoolUsageResponse

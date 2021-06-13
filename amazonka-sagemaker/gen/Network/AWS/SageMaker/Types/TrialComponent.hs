@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TrialComponent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MetadataProperties
 import Network.AWS.SageMaker.Types.Parent
 import Network.AWS.SageMaker.Types.Tag
@@ -39,44 +40,44 @@ data TrialComponent = TrialComponent'
   { -- | An array of the parents of the component. A parent is a trial the
     -- component is associated with and the experiment the trial is part of. A
     -- component might not have any parents.
-    parents :: Core.Maybe [Parent],
-    status :: Core.Maybe TrialComponentStatus,
-    metadataProperties :: Core.Maybe MetadataProperties,
+    parents :: Prelude.Maybe [Parent],
+    status :: Prelude.Maybe TrialComponentStatus,
+    metadataProperties :: Prelude.Maybe MetadataProperties,
     -- | When the component was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | Details of the source of the component.
-    sourceDetail :: Core.Maybe TrialComponentSourceDetail,
+    sourceDetail :: Prelude.Maybe TrialComponentSourceDetail,
     -- | The Amazon Resource Name (ARN) of the trial component.
-    trialComponentArn :: Core.Maybe Core.Text,
+    trialComponentArn :: Prelude.Maybe Prelude.Text,
     -- | When the component started.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) and job type of the source of the
     -- component.
-    source :: Core.Maybe TrialComponentSource,
+    source :: Prelude.Maybe TrialComponentSource,
     -- | When the component ended.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The metrics for the component.
-    metrics :: Core.Maybe [TrialComponentMetricSummary],
+    metrics :: Prelude.Maybe [TrialComponentMetricSummary],
     -- | The list of tags that are associated with the component. You can use
     -- Search API to search on the tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | When the component was last modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The input artifacts of the component.
-    inputArtifacts :: Core.Maybe (Core.HashMap Core.Text TrialComponentArtifact),
-    createdBy :: Core.Maybe UserContext,
-    lastModifiedBy :: Core.Maybe UserContext,
+    inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
+    createdBy :: Prelude.Maybe UserContext,
+    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The name of the component as displayed. If @DisplayName@ isn\'t
     -- specified, @TrialComponentName@ is displayed.
-    displayName :: Core.Maybe Core.Text,
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The hyperparameters of the component.
-    parameters :: Core.Maybe (Core.HashMap Core.Text TrialComponentParameterValue),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The output artifacts of the component.
-    outputArtifacts :: Core.Maybe (Core.HashMap Core.Text TrialComponentArtifact),
+    outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | The name of the trial component.
-    trialComponentName :: Core.Maybe Core.Text
+    trialComponentName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrialComponent' with all optional fields omitted.
@@ -132,106 +133,106 @@ newTrialComponent ::
   TrialComponent
 newTrialComponent =
   TrialComponent'
-    { parents = Core.Nothing,
-      status = Core.Nothing,
-      metadataProperties = Core.Nothing,
-      creationTime = Core.Nothing,
-      sourceDetail = Core.Nothing,
-      trialComponentArn = Core.Nothing,
-      startTime = Core.Nothing,
-      source = Core.Nothing,
-      endTime = Core.Nothing,
-      metrics = Core.Nothing,
-      tags = Core.Nothing,
-      lastModifiedTime = Core.Nothing,
-      inputArtifacts = Core.Nothing,
-      createdBy = Core.Nothing,
-      lastModifiedBy = Core.Nothing,
-      displayName = Core.Nothing,
-      parameters = Core.Nothing,
-      outputArtifacts = Core.Nothing,
-      trialComponentName = Core.Nothing
+    { parents = Prelude.Nothing,
+      status = Prelude.Nothing,
+      metadataProperties = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      sourceDetail = Prelude.Nothing,
+      trialComponentArn = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      source = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      metrics = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      inputArtifacts = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      outputArtifacts = Prelude.Nothing,
+      trialComponentName = Prelude.Nothing
     }
 
 -- | An array of the parents of the component. A parent is a trial the
 -- component is associated with and the experiment the trial is part of. A
 -- component might not have any parents.
-trialComponent_parents :: Lens.Lens' TrialComponent (Core.Maybe [Parent])
-trialComponent_parents = Lens.lens (\TrialComponent' {parents} -> parents) (\s@TrialComponent' {} a -> s {parents = a} :: TrialComponent) Core.. Lens.mapping Lens._Coerce
+trialComponent_parents :: Lens.Lens' TrialComponent (Prelude.Maybe [Parent])
+trialComponent_parents = Lens.lens (\TrialComponent' {parents} -> parents) (\s@TrialComponent' {} a -> s {parents = a} :: TrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-trialComponent_status :: Lens.Lens' TrialComponent (Core.Maybe TrialComponentStatus)
+trialComponent_status :: Lens.Lens' TrialComponent (Prelude.Maybe TrialComponentStatus)
 trialComponent_status = Lens.lens (\TrialComponent' {status} -> status) (\s@TrialComponent' {} a -> s {status = a} :: TrialComponent)
 
 -- | Undocumented member.
-trialComponent_metadataProperties :: Lens.Lens' TrialComponent (Core.Maybe MetadataProperties)
+trialComponent_metadataProperties :: Lens.Lens' TrialComponent (Prelude.Maybe MetadataProperties)
 trialComponent_metadataProperties = Lens.lens (\TrialComponent' {metadataProperties} -> metadataProperties) (\s@TrialComponent' {} a -> s {metadataProperties = a} :: TrialComponent)
 
 -- | When the component was created.
-trialComponent_creationTime :: Lens.Lens' TrialComponent (Core.Maybe Core.UTCTime)
-trialComponent_creationTime = Lens.lens (\TrialComponent' {creationTime} -> creationTime) (\s@TrialComponent' {} a -> s {creationTime = a} :: TrialComponent) Core.. Lens.mapping Core._Time
+trialComponent_creationTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
+trialComponent_creationTime = Lens.lens (\TrialComponent' {creationTime} -> creationTime) (\s@TrialComponent' {} a -> s {creationTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
 
 -- | Details of the source of the component.
-trialComponent_sourceDetail :: Lens.Lens' TrialComponent (Core.Maybe TrialComponentSourceDetail)
+trialComponent_sourceDetail :: Lens.Lens' TrialComponent (Prelude.Maybe TrialComponentSourceDetail)
 trialComponent_sourceDetail = Lens.lens (\TrialComponent' {sourceDetail} -> sourceDetail) (\s@TrialComponent' {} a -> s {sourceDetail = a} :: TrialComponent)
 
 -- | The Amazon Resource Name (ARN) of the trial component.
-trialComponent_trialComponentArn :: Lens.Lens' TrialComponent (Core.Maybe Core.Text)
+trialComponent_trialComponentArn :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.Text)
 trialComponent_trialComponentArn = Lens.lens (\TrialComponent' {trialComponentArn} -> trialComponentArn) (\s@TrialComponent' {} a -> s {trialComponentArn = a} :: TrialComponent)
 
 -- | When the component started.
-trialComponent_startTime :: Lens.Lens' TrialComponent (Core.Maybe Core.UTCTime)
-trialComponent_startTime = Lens.lens (\TrialComponent' {startTime} -> startTime) (\s@TrialComponent' {} a -> s {startTime = a} :: TrialComponent) Core.. Lens.mapping Core._Time
+trialComponent_startTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
+trialComponent_startTime = Lens.lens (\TrialComponent' {startTime} -> startTime) (\s@TrialComponent' {} a -> s {startTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) and job type of the source of the
 -- component.
-trialComponent_source :: Lens.Lens' TrialComponent (Core.Maybe TrialComponentSource)
+trialComponent_source :: Lens.Lens' TrialComponent (Prelude.Maybe TrialComponentSource)
 trialComponent_source = Lens.lens (\TrialComponent' {source} -> source) (\s@TrialComponent' {} a -> s {source = a} :: TrialComponent)
 
 -- | When the component ended.
-trialComponent_endTime :: Lens.Lens' TrialComponent (Core.Maybe Core.UTCTime)
-trialComponent_endTime = Lens.lens (\TrialComponent' {endTime} -> endTime) (\s@TrialComponent' {} a -> s {endTime = a} :: TrialComponent) Core.. Lens.mapping Core._Time
+trialComponent_endTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
+trialComponent_endTime = Lens.lens (\TrialComponent' {endTime} -> endTime) (\s@TrialComponent' {} a -> s {endTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
 
 -- | The metrics for the component.
-trialComponent_metrics :: Lens.Lens' TrialComponent (Core.Maybe [TrialComponentMetricSummary])
-trialComponent_metrics = Lens.lens (\TrialComponent' {metrics} -> metrics) (\s@TrialComponent' {} a -> s {metrics = a} :: TrialComponent) Core.. Lens.mapping Lens._Coerce
+trialComponent_metrics :: Lens.Lens' TrialComponent (Prelude.Maybe [TrialComponentMetricSummary])
+trialComponent_metrics = Lens.lens (\TrialComponent' {metrics} -> metrics) (\s@TrialComponent' {} a -> s {metrics = a} :: TrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of tags that are associated with the component. You can use
 -- Search API to search on the tags.
-trialComponent_tags :: Lens.Lens' TrialComponent (Core.Maybe [Tag])
-trialComponent_tags = Lens.lens (\TrialComponent' {tags} -> tags) (\s@TrialComponent' {} a -> s {tags = a} :: TrialComponent) Core.. Lens.mapping Lens._Coerce
+trialComponent_tags :: Lens.Lens' TrialComponent (Prelude.Maybe [Tag])
+trialComponent_tags = Lens.lens (\TrialComponent' {tags} -> tags) (\s@TrialComponent' {} a -> s {tags = a} :: TrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When the component was last modified.
-trialComponent_lastModifiedTime :: Lens.Lens' TrialComponent (Core.Maybe Core.UTCTime)
-trialComponent_lastModifiedTime = Lens.lens (\TrialComponent' {lastModifiedTime} -> lastModifiedTime) (\s@TrialComponent' {} a -> s {lastModifiedTime = a} :: TrialComponent) Core.. Lens.mapping Core._Time
+trialComponent_lastModifiedTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
+trialComponent_lastModifiedTime = Lens.lens (\TrialComponent' {lastModifiedTime} -> lastModifiedTime) (\s@TrialComponent' {} a -> s {lastModifiedTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
 
 -- | The input artifacts of the component.
-trialComponent_inputArtifacts :: Lens.Lens' TrialComponent (Core.Maybe (Core.HashMap Core.Text TrialComponentArtifact))
-trialComponent_inputArtifacts = Lens.lens (\TrialComponent' {inputArtifacts} -> inputArtifacts) (\s@TrialComponent' {} a -> s {inputArtifacts = a} :: TrialComponent) Core.. Lens.mapping Lens._Coerce
+trialComponent_inputArtifacts :: Lens.Lens' TrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
+trialComponent_inputArtifacts = Lens.lens (\TrialComponent' {inputArtifacts} -> inputArtifacts) (\s@TrialComponent' {} a -> s {inputArtifacts = a} :: TrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-trialComponent_createdBy :: Lens.Lens' TrialComponent (Core.Maybe UserContext)
+trialComponent_createdBy :: Lens.Lens' TrialComponent (Prelude.Maybe UserContext)
 trialComponent_createdBy = Lens.lens (\TrialComponent' {createdBy} -> createdBy) (\s@TrialComponent' {} a -> s {createdBy = a} :: TrialComponent)
 
 -- | Undocumented member.
-trialComponent_lastModifiedBy :: Lens.Lens' TrialComponent (Core.Maybe UserContext)
+trialComponent_lastModifiedBy :: Lens.Lens' TrialComponent (Prelude.Maybe UserContext)
 trialComponent_lastModifiedBy = Lens.lens (\TrialComponent' {lastModifiedBy} -> lastModifiedBy) (\s@TrialComponent' {} a -> s {lastModifiedBy = a} :: TrialComponent)
 
 -- | The name of the component as displayed. If @DisplayName@ isn\'t
 -- specified, @TrialComponentName@ is displayed.
-trialComponent_displayName :: Lens.Lens' TrialComponent (Core.Maybe Core.Text)
+trialComponent_displayName :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.Text)
 trialComponent_displayName = Lens.lens (\TrialComponent' {displayName} -> displayName) (\s@TrialComponent' {} a -> s {displayName = a} :: TrialComponent)
 
 -- | The hyperparameters of the component.
-trialComponent_parameters :: Lens.Lens' TrialComponent (Core.Maybe (Core.HashMap Core.Text TrialComponentParameterValue))
-trialComponent_parameters = Lens.lens (\TrialComponent' {parameters} -> parameters) (\s@TrialComponent' {} a -> s {parameters = a} :: TrialComponent) Core.. Lens.mapping Lens._Coerce
+trialComponent_parameters :: Lens.Lens' TrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
+trialComponent_parameters = Lens.lens (\TrialComponent' {parameters} -> parameters) (\s@TrialComponent' {} a -> s {parameters = a} :: TrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The output artifacts of the component.
-trialComponent_outputArtifacts :: Lens.Lens' TrialComponent (Core.Maybe (Core.HashMap Core.Text TrialComponentArtifact))
-trialComponent_outputArtifacts = Lens.lens (\TrialComponent' {outputArtifacts} -> outputArtifacts) (\s@TrialComponent' {} a -> s {outputArtifacts = a} :: TrialComponent) Core.. Lens.mapping Lens._Coerce
+trialComponent_outputArtifacts :: Lens.Lens' TrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
+trialComponent_outputArtifacts = Lens.lens (\TrialComponent' {outputArtifacts} -> outputArtifacts) (\s@TrialComponent' {} a -> s {outputArtifacts = a} :: TrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the trial component.
-trialComponent_trialComponentName :: Lens.Lens' TrialComponent (Core.Maybe Core.Text)
+trialComponent_trialComponentName :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.Text)
 trialComponent_trialComponentName = Lens.lens (\TrialComponent' {trialComponentName} -> trialComponentName) (\s@TrialComponent' {} a -> s {trialComponentName = a} :: TrialComponent)
 
 instance Core.FromJSON TrialComponent where
@@ -240,27 +241,29 @@ instance Core.FromJSON TrialComponent where
       "TrialComponent"
       ( \x ->
           TrialComponent'
-            Core.<$> (x Core..:? "Parents" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Status")
-            Core.<*> (x Core..:? "MetadataProperties")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "SourceDetail")
-            Core.<*> (x Core..:? "TrialComponentArn")
-            Core.<*> (x Core..:? "StartTime")
-            Core.<*> (x Core..:? "Source")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "Metrics" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "LastModifiedTime")
-            Core.<*> (x Core..:? "InputArtifacts" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "CreatedBy")
-            Core.<*> (x Core..:? "LastModifiedBy")
-            Core.<*> (x Core..:? "DisplayName")
-            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "OutputArtifacts" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "TrialComponentName")
+            Prelude.<$> (x Core..:? "Parents" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "MetadataProperties")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "SourceDetail")
+            Prelude.<*> (x Core..:? "TrialComponentArn")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "Source")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "Metrics" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "InputArtifacts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "OutputArtifacts"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "TrialComponentName")
       )
 
-instance Core.Hashable TrialComponent
+instance Prelude.Hashable TrialComponent
 
-instance Core.NFData TrialComponent
+instance Prelude.NFData TrialComponent

@@ -21,6 +21,7 @@ module Network.AWS.Glacier.Types.InventoryRetrievalJobInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides options for specifying a range inventory retrieval job.
 --
@@ -29,22 +30,22 @@ data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
   { -- | The start of the date range in UTC for vault inventory retrieval that
     -- includes archives created on or after this date. This value should be a
     -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
-    startDate :: Core.Maybe Core.Text,
+    startDate :: Prelude.Maybe Prelude.Text,
     -- | The end of the date range in UTC for vault inventory retrieval that
     -- includes archives created before this date. This value should be a
     -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
-    endDate :: Core.Maybe Core.Text,
+    endDate :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum number of inventory items returned per vault
     -- inventory retrieval request. Valid values are greater than or equal to
     -- 1.
-    limit :: Core.Maybe Core.Text,
+    limit :: Prelude.Maybe Prelude.Text,
     -- | An opaque string that represents where to continue pagination of the
     -- vault inventory retrieval results. You use the marker in a new
     -- __InitiateJob__ request to obtain additional inventory items. If there
     -- are no more inventory items, this value is @null@.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryRetrievalJobInput' with all optional fields omitted.
@@ -75,48 +76,48 @@ newInventoryRetrievalJobInput ::
 newInventoryRetrievalJobInput =
   InventoryRetrievalJobInput'
     { startDate =
-        Core.Nothing,
-      endDate = Core.Nothing,
-      limit = Core.Nothing,
-      marker = Core.Nothing
+        Prelude.Nothing,
+      endDate = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The start of the date range in UTC for vault inventory retrieval that
 -- includes archives created on or after this date. This value should be a
 -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
-inventoryRetrievalJobInput_startDate :: Lens.Lens' InventoryRetrievalJobInput (Core.Maybe Core.Text)
+inventoryRetrievalJobInput_startDate :: Lens.Lens' InventoryRetrievalJobInput (Prelude.Maybe Prelude.Text)
 inventoryRetrievalJobInput_startDate = Lens.lens (\InventoryRetrievalJobInput' {startDate} -> startDate) (\s@InventoryRetrievalJobInput' {} a -> s {startDate = a} :: InventoryRetrievalJobInput)
 
 -- | The end of the date range in UTC for vault inventory retrieval that
 -- includes archives created before this date. This value should be a
 -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
-inventoryRetrievalJobInput_endDate :: Lens.Lens' InventoryRetrievalJobInput (Core.Maybe Core.Text)
+inventoryRetrievalJobInput_endDate :: Lens.Lens' InventoryRetrievalJobInput (Prelude.Maybe Prelude.Text)
 inventoryRetrievalJobInput_endDate = Lens.lens (\InventoryRetrievalJobInput' {endDate} -> endDate) (\s@InventoryRetrievalJobInput' {} a -> s {endDate = a} :: InventoryRetrievalJobInput)
 
 -- | Specifies the maximum number of inventory items returned per vault
 -- inventory retrieval request. Valid values are greater than or equal to
 -- 1.
-inventoryRetrievalJobInput_limit :: Lens.Lens' InventoryRetrievalJobInput (Core.Maybe Core.Text)
+inventoryRetrievalJobInput_limit :: Lens.Lens' InventoryRetrievalJobInput (Prelude.Maybe Prelude.Text)
 inventoryRetrievalJobInput_limit = Lens.lens (\InventoryRetrievalJobInput' {limit} -> limit) (\s@InventoryRetrievalJobInput' {} a -> s {limit = a} :: InventoryRetrievalJobInput)
 
 -- | An opaque string that represents where to continue pagination of the
 -- vault inventory retrieval results. You use the marker in a new
 -- __InitiateJob__ request to obtain additional inventory items. If there
 -- are no more inventory items, this value is @null@.
-inventoryRetrievalJobInput_marker :: Lens.Lens' InventoryRetrievalJobInput (Core.Maybe Core.Text)
+inventoryRetrievalJobInput_marker :: Lens.Lens' InventoryRetrievalJobInput (Prelude.Maybe Prelude.Text)
 inventoryRetrievalJobInput_marker = Lens.lens (\InventoryRetrievalJobInput' {marker} -> marker) (\s@InventoryRetrievalJobInput' {} a -> s {marker = a} :: InventoryRetrievalJobInput)
 
-instance Core.Hashable InventoryRetrievalJobInput
+instance Prelude.Hashable InventoryRetrievalJobInput
 
-instance Core.NFData InventoryRetrievalJobInput
+instance Prelude.NFData InventoryRetrievalJobInput
 
 instance Core.ToJSON InventoryRetrievalJobInput where
   toJSON InventoryRetrievalJobInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StartDate" Core..=) Core.<$> startDate,
-            ("EndDate" Core..=) Core.<$> endDate,
-            ("Limit" Core..=) Core.<$> limit,
-            ("Marker" Core..=) Core.<$> marker
+      ( Prelude.catMaybes
+          [ ("StartDate" Core..=) Prelude.<$> startDate,
+            ("EndDate" Core..=) Prelude.<$> endDate,
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )

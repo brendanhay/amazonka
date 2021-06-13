@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.VolumeType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device for an EBS volume.
 --
@@ -43,15 +44,15 @@ data EbsBlockDevice = EbsBlockDevice'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
     --
     -- This parameter is not returned by .
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the Outpost on which the snapshot is stored.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The throughput that the volume supports, in MiB\/s.
     --
     -- This parameter is valid only for @gp3@ volumes.
     --
     -- Valid Range: Minimum value of 125. Maximum value of 1000.
-    throughput :: Core.Maybe Core.Int,
+    throughput :: Prelude.Maybe Prelude.Int,
     -- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
     -- managed CMK under which the EBS volume is encrypted.
     --
@@ -61,19 +62,19 @@ data EbsBlockDevice = EbsBlockDevice'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet>,
     -- and
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances>.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the EBS volume is deleted on instance termination. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
     -- in the /Amazon EC2 User Guide/.
-    deleteOnTermination :: Core.Maybe Core.Bool,
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the snapshot.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The volume type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
     -- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
     -- you must specify the IOPS that the volume supports.
-    volumeType :: Core.Maybe VolumeType,
+    volumeType :: Prelude.Maybe VolumeType,
     -- | The size of the volume, in GiBs. You must specify either a snapshot ID
     -- or a volume size. If you specify a snapshot, the default is the snapshot
     -- size. You can specify a volume size that is equal to or larger than the
@@ -88,7 +89,7 @@ data EbsBlockDevice = EbsBlockDevice'
     -- -   @st1@ and @sc1@: 125-16,384
     --
     -- -   @standard@: 1-1,024
-    volumeSize :: Core.Maybe Core.Int,
+    volumeSize :: Prelude.Maybe Prelude.Int,
     -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
     -- @io2@ volumes, this represents the number of IOPS that are provisioned
     -- for the volume. For @gp2@ volumes, this represents the baseline
@@ -110,9 +111,9 @@ data EbsBlockDevice = EbsBlockDevice'
     -- This parameter is required for @io1@ and @io2@ volumes. The default for
     -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
     -- @st1@, @sc1@, or @standard@ volumes.
-    iops :: Core.Maybe Core.Int
+    iops :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EbsBlockDevice' with all optional fields omitted.
@@ -208,15 +209,15 @@ newEbsBlockDevice ::
   EbsBlockDevice
 newEbsBlockDevice =
   EbsBlockDevice'
-    { encrypted = Core.Nothing,
-      outpostArn = Core.Nothing,
-      throughput = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      deleteOnTermination = Core.Nothing,
-      snapshotId = Core.Nothing,
-      volumeType = Core.Nothing,
-      volumeSize = Core.Nothing,
-      iops = Core.Nothing
+    { encrypted = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      throughput = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      volumeType = Prelude.Nothing,
+      volumeSize = Prelude.Nothing,
+      iops = Prelude.Nothing
     }
 
 -- | Indicates whether the encryption state of an EBS volume is changed while
@@ -234,11 +235,11 @@ newEbsBlockDevice =
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 --
 -- This parameter is not returned by .
-ebsBlockDevice_encrypted :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Bool)
+ebsBlockDevice_encrypted :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Bool)
 ebsBlockDevice_encrypted = Lens.lens (\EbsBlockDevice' {encrypted} -> encrypted) (\s@EbsBlockDevice' {} a -> s {encrypted = a} :: EbsBlockDevice)
 
 -- | The ARN of the Outpost on which the snapshot is stored.
-ebsBlockDevice_outpostArn :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Text)
+ebsBlockDevice_outpostArn :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
 ebsBlockDevice_outpostArn = Lens.lens (\EbsBlockDevice' {outpostArn} -> outpostArn) (\s@EbsBlockDevice' {} a -> s {outpostArn = a} :: EbsBlockDevice)
 
 -- | The throughput that the volume supports, in MiB\/s.
@@ -246,7 +247,7 @@ ebsBlockDevice_outpostArn = Lens.lens (\EbsBlockDevice' {outpostArn} -> outpostA
 -- This parameter is valid only for @gp3@ volumes.
 --
 -- Valid Range: Minimum value of 125. Maximum value of 1000.
-ebsBlockDevice_throughput :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Int)
+ebsBlockDevice_throughput :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_throughput = Lens.lens (\EbsBlockDevice' {throughput} -> throughput) (\s@EbsBlockDevice' {} a -> s {throughput = a} :: EbsBlockDevice)
 
 -- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
@@ -258,25 +259,25 @@ ebsBlockDevice_throughput = Lens.lens (\EbsBlockDevice' {throughput} -> throughp
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet>,
 -- and
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances>.
-ebsBlockDevice_kmsKeyId :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Text)
+ebsBlockDevice_kmsKeyId :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
 ebsBlockDevice_kmsKeyId = Lens.lens (\EbsBlockDevice' {kmsKeyId} -> kmsKeyId) (\s@EbsBlockDevice' {} a -> s {kmsKeyId = a} :: EbsBlockDevice)
 
 -- | Indicates whether the EBS volume is deleted on instance termination. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
 -- in the /Amazon EC2 User Guide/.
-ebsBlockDevice_deleteOnTermination :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Bool)
+ebsBlockDevice_deleteOnTermination :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Bool)
 ebsBlockDevice_deleteOnTermination = Lens.lens (\EbsBlockDevice' {deleteOnTermination} -> deleteOnTermination) (\s@EbsBlockDevice' {} a -> s {deleteOnTermination = a} :: EbsBlockDevice)
 
 -- | The ID of the snapshot.
-ebsBlockDevice_snapshotId :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Text)
+ebsBlockDevice_snapshotId :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
 ebsBlockDevice_snapshotId = Lens.lens (\EbsBlockDevice' {snapshotId} -> snapshotId) (\s@EbsBlockDevice' {} a -> s {snapshotId = a} :: EbsBlockDevice)
 
 -- | The volume type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
 -- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
 -- you must specify the IOPS that the volume supports.
-ebsBlockDevice_volumeType :: Lens.Lens' EbsBlockDevice (Core.Maybe VolumeType)
+ebsBlockDevice_volumeType :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeType)
 ebsBlockDevice_volumeType = Lens.lens (\EbsBlockDevice' {volumeType} -> volumeType) (\s@EbsBlockDevice' {} a -> s {volumeType = a} :: EbsBlockDevice)
 
 -- | The size of the volume, in GiBs. You must specify either a snapshot ID
@@ -293,7 +294,7 @@ ebsBlockDevice_volumeType = Lens.lens (\EbsBlockDevice' {volumeType} -> volumeTy
 -- -   @st1@ and @sc1@: 125-16,384
 --
 -- -   @standard@: 1-1,024
-ebsBlockDevice_volumeSize :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Int)
+ebsBlockDevice_volumeSize :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSize) (\s@EbsBlockDevice' {} a -> s {volumeSize = a} :: EbsBlockDevice)
 
 -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
@@ -317,29 +318,29 @@ ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSi
 -- This parameter is required for @io1@ and @io2@ volumes. The default for
 -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
 -- @st1@, @sc1@, or @standard@ volumes.
-ebsBlockDevice_iops :: Lens.Lens' EbsBlockDevice (Core.Maybe Core.Int)
+ebsBlockDevice_iops :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_iops = Lens.lens (\EbsBlockDevice' {iops} -> iops) (\s@EbsBlockDevice' {} a -> s {iops = a} :: EbsBlockDevice)
 
 instance Core.FromXML EbsBlockDevice where
   parseXML x =
     EbsBlockDevice'
-      Core.<$> (x Core..@? "encrypted")
-      Core.<*> (x Core..@? "outpostArn")
-      Core.<*> (x Core..@? "throughput")
-      Core.<*> (x Core..@? "KmsKeyId")
-      Core.<*> (x Core..@? "deleteOnTermination")
-      Core.<*> (x Core..@? "snapshotId")
-      Core.<*> (x Core..@? "volumeType")
-      Core.<*> (x Core..@? "volumeSize")
-      Core.<*> (x Core..@? "iops")
+      Prelude.<$> (x Core..@? "encrypted")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> (x Core..@? "throughput")
+      Prelude.<*> (x Core..@? "KmsKeyId")
+      Prelude.<*> (x Core..@? "deleteOnTermination")
+      Prelude.<*> (x Core..@? "snapshotId")
+      Prelude.<*> (x Core..@? "volumeType")
+      Prelude.<*> (x Core..@? "volumeSize")
+      Prelude.<*> (x Core..@? "iops")
 
-instance Core.Hashable EbsBlockDevice
+instance Prelude.Hashable EbsBlockDevice
 
-instance Core.NFData EbsBlockDevice
+instance Prelude.NFData EbsBlockDevice
 
 instance Core.ToQuery EbsBlockDevice where
   toQuery EbsBlockDevice' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Encrypted" Core.=: encrypted,
         "OutpostArn" Core.=: outpostArn,
         "Throughput" Core.=: throughput,

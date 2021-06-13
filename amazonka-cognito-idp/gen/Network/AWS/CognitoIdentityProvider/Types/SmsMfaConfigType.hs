@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType where
 import Network.AWS.CognitoIdentityProvider.Types.SmsConfigurationType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The SMS text message multi-factor authentication (MFA) configuration
 -- type.
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSmsMfaConfigType' smart constructor.
 data SmsMfaConfigType = SmsMfaConfigType'
   { -- | The SMS configuration.
-    smsConfiguration :: Core.Maybe SmsConfigurationType,
+    smsConfiguration :: Prelude.Maybe SmsConfigurationType,
     -- | The SMS authentication message that will be sent to users with the code
     -- they need to sign in. The message must contain the ‘{####}’ placeholder,
     -- which will be replaced with the code. If the message is not included,
     -- and default message will be used.
-    smsAuthenticationMessage :: Core.Maybe Core.Text
+    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SmsMfaConfigType' with all optional fields omitted.
@@ -56,19 +57,20 @@ newSmsMfaConfigType ::
   SmsMfaConfigType
 newSmsMfaConfigType =
   SmsMfaConfigType'
-    { smsConfiguration = Core.Nothing,
-      smsAuthenticationMessage = Core.Nothing
+    { smsConfiguration =
+        Prelude.Nothing,
+      smsAuthenticationMessage = Prelude.Nothing
     }
 
 -- | The SMS configuration.
-smsMfaConfigType_smsConfiguration :: Lens.Lens' SmsMfaConfigType (Core.Maybe SmsConfigurationType)
+smsMfaConfigType_smsConfiguration :: Lens.Lens' SmsMfaConfigType (Prelude.Maybe SmsConfigurationType)
 smsMfaConfigType_smsConfiguration = Lens.lens (\SmsMfaConfigType' {smsConfiguration} -> smsConfiguration) (\s@SmsMfaConfigType' {} a -> s {smsConfiguration = a} :: SmsMfaConfigType)
 
 -- | The SMS authentication message that will be sent to users with the code
 -- they need to sign in. The message must contain the ‘{####}’ placeholder,
 -- which will be replaced with the code. If the message is not included,
 -- and default message will be used.
-smsMfaConfigType_smsAuthenticationMessage :: Lens.Lens' SmsMfaConfigType (Core.Maybe Core.Text)
+smsMfaConfigType_smsAuthenticationMessage :: Lens.Lens' SmsMfaConfigType (Prelude.Maybe Prelude.Text)
 smsMfaConfigType_smsAuthenticationMessage = Lens.lens (\SmsMfaConfigType' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@SmsMfaConfigType' {} a -> s {smsAuthenticationMessage = a} :: SmsMfaConfigType)
 
 instance Core.FromJSON SmsMfaConfigType where
@@ -77,21 +79,21 @@ instance Core.FromJSON SmsMfaConfigType where
       "SmsMfaConfigType"
       ( \x ->
           SmsMfaConfigType'
-            Core.<$> (x Core..:? "SmsConfiguration")
-            Core.<*> (x Core..:? "SmsAuthenticationMessage")
+            Prelude.<$> (x Core..:? "SmsConfiguration")
+            Prelude.<*> (x Core..:? "SmsAuthenticationMessage")
       )
 
-instance Core.Hashable SmsMfaConfigType
+instance Prelude.Hashable SmsMfaConfigType
 
-instance Core.NFData SmsMfaConfigType
+instance Prelude.NFData SmsMfaConfigType
 
 instance Core.ToJSON SmsMfaConfigType where
   toJSON SmsMfaConfigType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SmsConfiguration" Core..=)
-              Core.<$> smsConfiguration,
+              Prelude.<$> smsConfiguration,
             ("SmsAuthenticationMessage" Core..=)
-              Core.<$> smsAuthenticationMessage
+              Prelude.<$> smsAuthenticationMessage
           ]
       )

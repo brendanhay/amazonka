@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteTargetGroup' smart constructor.
 data DeleteTargetGroup = DeleteTargetGroup'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupArn :: Core.Text
+    targetGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTargetGroup' with all optional fields omitted.
@@ -68,7 +69,7 @@ data DeleteTargetGroup = DeleteTargetGroup'
 -- 'targetGroupArn', 'deleteTargetGroup_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
 newDeleteTargetGroup ::
   -- | 'targetGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTargetGroup
 newDeleteTargetGroup pTargetGroupArn_ =
   DeleteTargetGroup'
@@ -77,7 +78,7 @@ newDeleteTargetGroup pTargetGroupArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-deleteTargetGroup_targetGroupArn :: Lens.Lens' DeleteTargetGroup Core.Text
+deleteTargetGroup_targetGroupArn :: Lens.Lens' DeleteTargetGroup Prelude.Text
 deleteTargetGroup_targetGroupArn = Lens.lens (\DeleteTargetGroup' {targetGroupArn} -> targetGroupArn) (\s@DeleteTargetGroup' {} a -> s {targetGroupArn = a} :: DeleteTargetGroup)
 
 instance Core.AWSRequest DeleteTargetGroup where
@@ -90,34 +91,35 @@ instance Core.AWSRequest DeleteTargetGroup where
       "DeleteTargetGroupResult"
       ( \s h x ->
           DeleteTargetGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTargetGroup
+instance Prelude.Hashable DeleteTargetGroup
 
-instance Core.NFData DeleteTargetGroup
+instance Prelude.NFData DeleteTargetGroup
 
 instance Core.ToHeaders DeleteTargetGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTargetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTargetGroup where
   toQuery DeleteTargetGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTargetGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("DeleteTargetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "TargetGroupArn" Core.=: targetGroupArn
       ]
 
 -- | /See:/ 'newDeleteTargetGroupResponse' smart constructor.
 data DeleteTargetGroupResponse = DeleteTargetGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTargetGroupResponse' with all optional fields omitted.
@@ -130,7 +132,7 @@ data DeleteTargetGroupResponse = DeleteTargetGroupResponse'
 -- 'httpStatus', 'deleteTargetGroupResponse_httpStatus' - The response's http status code.
 newDeleteTargetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTargetGroupResponse
 newDeleteTargetGroupResponse pHttpStatus_ =
   DeleteTargetGroupResponse'
@@ -139,7 +141,7 @@ newDeleteTargetGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTargetGroupResponse_httpStatus :: Lens.Lens' DeleteTargetGroupResponse Core.Int
+deleteTargetGroupResponse_httpStatus :: Lens.Lens' DeleteTargetGroupResponse Prelude.Int
 deleteTargetGroupResponse_httpStatus = Lens.lens (\DeleteTargetGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteTargetGroupResponse' {} a -> s {httpStatus = a} :: DeleteTargetGroupResponse)
 
-instance Core.NFData DeleteTargetGroupResponse
+instance Prelude.NFData DeleteTargetGroupResponse

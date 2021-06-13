@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data UpdateVoiceChannel = UpdateVoiceChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     voiceChannelRequest :: VoiceChannelRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateVoiceChannel' with all optional fields omitted.
@@ -70,7 +71,7 @@ data UpdateVoiceChannel = UpdateVoiceChannel'
 -- 'voiceChannelRequest', 'updateVoiceChannel_voiceChannelRequest' - Undocumented member.
 newUpdateVoiceChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'voiceChannelRequest'
   VoiceChannelRequest ->
   UpdateVoiceChannel
@@ -85,7 +86,7 @@ newUpdateVoiceChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateVoiceChannel_applicationId :: Lens.Lens' UpdateVoiceChannel Core.Text
+updateVoiceChannel_applicationId :: Lens.Lens' UpdateVoiceChannel Prelude.Text
 updateVoiceChannel_applicationId = Lens.lens (\UpdateVoiceChannel' {applicationId} -> applicationId) (\s@UpdateVoiceChannel' {} a -> s {applicationId = a} :: UpdateVoiceChannel)
 
 -- | Undocumented member.
@@ -101,50 +102,52 @@ instance Core.AWSRequest UpdateVoiceChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateVoiceChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateVoiceChannel
+instance Prelude.Hashable UpdateVoiceChannel
 
-instance Core.NFData UpdateVoiceChannel
+instance Prelude.NFData UpdateVoiceChannel
 
 instance Core.ToHeaders UpdateVoiceChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateVoiceChannel where
   toJSON UpdateVoiceChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("VoiceChannelRequest" Core..= voiceChannelRequest)
           ]
       )
 
 instance Core.ToPath UpdateVoiceChannel where
   toPath UpdateVoiceChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/voice"
       ]
 
 instance Core.ToQuery UpdateVoiceChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVoiceChannelResponse' smart constructor.
 data UpdateVoiceChannelResponse = UpdateVoiceChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     voiceChannelResponse :: VoiceChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateVoiceChannelResponse' with all optional fields omitted.
@@ -159,7 +162,7 @@ data UpdateVoiceChannelResponse = UpdateVoiceChannelResponse'
 -- 'voiceChannelResponse', 'updateVoiceChannelResponse_voiceChannelResponse' - Undocumented member.
 newUpdateVoiceChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'voiceChannelResponse'
   VoiceChannelResponse ->
   UpdateVoiceChannelResponse
@@ -173,11 +176,11 @@ newUpdateVoiceChannelResponse
       }
 
 -- | The response's http status code.
-updateVoiceChannelResponse_httpStatus :: Lens.Lens' UpdateVoiceChannelResponse Core.Int
+updateVoiceChannelResponse_httpStatus :: Lens.Lens' UpdateVoiceChannelResponse Prelude.Int
 updateVoiceChannelResponse_httpStatus = Lens.lens (\UpdateVoiceChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateVoiceChannelResponse' {} a -> s {httpStatus = a} :: UpdateVoiceChannelResponse)
 
 -- | Undocumented member.
 updateVoiceChannelResponse_voiceChannelResponse :: Lens.Lens' UpdateVoiceChannelResponse VoiceChannelResponse
 updateVoiceChannelResponse_voiceChannelResponse = Lens.lens (\UpdateVoiceChannelResponse' {voiceChannelResponse} -> voiceChannelResponse) (\s@UpdateVoiceChannelResponse' {} a -> s {voiceChannelResponse = a} :: UpdateVoiceChannelResponse)
 
-instance Core.NFData UpdateVoiceChannelResponse
+instance Prelude.NFData UpdateVoiceChannelResponse

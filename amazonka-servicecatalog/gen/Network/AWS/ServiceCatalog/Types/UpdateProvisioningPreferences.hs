@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.UpdateProvisioningPreferences where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.StackSetOperationType
 
 -- | The user-defined preferences that will be applied when updating a
@@ -48,7 +49,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     -- [DELETE]
     --     Deletes a stack instance in the stack set represented by the
     --     provisioned product.
-    stackSetOperationType :: Core.Maybe StackSetOperationType,
+    stackSetOperationType :: Prelude.Maybe StackSetOperationType,
     -- | The number of accounts, per region, for which this operation can fail
     -- before AWS Service Catalog stops the operation in that region. If the
     -- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
@@ -60,7 +61,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     -- @StackSetFailureTolerancePercentage@, but not both.
     --
     -- The default value is @0@ if no value is specified.
-    stackSetFailureToleranceCount :: Core.Maybe Core.Natural,
+    stackSetFailureToleranceCount :: Prelude.Maybe Prelude.Natural,
     -- | One or more AWS accounts that will have access to the provisioned
     -- product.
     --
@@ -72,7 +73,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     --
     -- If no values are specified, the default value is all accounts from the
     -- @STACKSET@ constraint.
-    stackSetAccounts :: Core.Maybe [Core.Text],
+    stackSetAccounts :: Prelude.Maybe [Prelude.Text],
     -- | The percentage of accounts, per region, for which this stack operation
     -- can fail before AWS Service Catalog stops the operation in that region.
     -- If the operation is stopped in a region, AWS Service Catalog doesn\'t
@@ -85,7 +86,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     --
     -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
     -- @StackSetFailureTolerancePercentage@, but not both.
-    stackSetFailureTolerancePercentage :: Core.Maybe Core.Natural,
+    stackSetFailureTolerancePercentage :: Prelude.Maybe Prelude.Natural,
     -- | One or more AWS Regions where the provisioned product will be available.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
@@ -96,7 +97,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     --
     -- If no values are specified, the default value is all regions from the
     -- @STACKSET@ constraint.
-    stackSetRegions :: Core.Maybe [Core.Text],
+    stackSetRegions :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of accounts in which to perform this operation at one
     -- time. This is dependent on the value of @StackSetFailureToleranceCount@.
     -- @StackSetMaxConcurrentCount@ is at most one more than the
@@ -110,7 +111,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     --
     -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
     -- @StackSetMaxConcurrentPercentage@, but not both.
-    stackSetMaxConcurrencyCount :: Core.Maybe Core.Natural,
+    stackSetMaxConcurrencyCount :: Prelude.Maybe Prelude.Natural,
     -- | The maximum percentage of accounts in which to perform this operation at
     -- one time.
     --
@@ -127,9 +128,9 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     --
     -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
     -- @StackSetMaxConcurrentPercentage@, but not both.
-    stackSetMaxConcurrencyPercentage :: Core.Maybe Core.Natural
+    stackSetMaxConcurrencyPercentage :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProvisioningPreferences' with all optional fields omitted.
@@ -242,15 +243,17 @@ newUpdateProvisioningPreferences ::
 newUpdateProvisioningPreferences =
   UpdateProvisioningPreferences'
     { stackSetOperationType =
-        Core.Nothing,
-      stackSetFailureToleranceCount = Core.Nothing,
-      stackSetAccounts = Core.Nothing,
+        Prelude.Nothing,
+      stackSetFailureToleranceCount =
+        Prelude.Nothing,
+      stackSetAccounts = Prelude.Nothing,
       stackSetFailureTolerancePercentage =
-        Core.Nothing,
-      stackSetRegions = Core.Nothing,
-      stackSetMaxConcurrencyCount = Core.Nothing,
+        Prelude.Nothing,
+      stackSetRegions = Prelude.Nothing,
+      stackSetMaxConcurrencyCount =
+        Prelude.Nothing,
       stackSetMaxConcurrencyPercentage =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Determines what action AWS Service Catalog performs to a stack set or a
@@ -272,7 +275,7 @@ newUpdateProvisioningPreferences =
 -- [DELETE]
 --     Deletes a stack instance in the stack set represented by the
 --     provisioned product.
-updateProvisioningPreferences_stackSetOperationType :: Lens.Lens' UpdateProvisioningPreferences (Core.Maybe StackSetOperationType)
+updateProvisioningPreferences_stackSetOperationType :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe StackSetOperationType)
 updateProvisioningPreferences_stackSetOperationType = Lens.lens (\UpdateProvisioningPreferences' {stackSetOperationType} -> stackSetOperationType) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetOperationType = a} :: UpdateProvisioningPreferences)
 
 -- | The number of accounts, per region, for which this operation can fail
@@ -286,7 +289,7 @@ updateProvisioningPreferences_stackSetOperationType = Lens.lens (\UpdateProvisio
 -- @StackSetFailureTolerancePercentage@, but not both.
 --
 -- The default value is @0@ if no value is specified.
-updateProvisioningPreferences_stackSetFailureToleranceCount :: Lens.Lens' UpdateProvisioningPreferences (Core.Maybe Core.Natural)
+updateProvisioningPreferences_stackSetFailureToleranceCount :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 updateProvisioningPreferences_stackSetFailureToleranceCount = Lens.lens (\UpdateProvisioningPreferences' {stackSetFailureToleranceCount} -> stackSetFailureToleranceCount) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetFailureToleranceCount = a} :: UpdateProvisioningPreferences)
 
 -- | One or more AWS accounts that will have access to the provisioned
@@ -300,8 +303,8 @@ updateProvisioningPreferences_stackSetFailureToleranceCount = Lens.lens (\Update
 --
 -- If no values are specified, the default value is all accounts from the
 -- @STACKSET@ constraint.
-updateProvisioningPreferences_stackSetAccounts :: Lens.Lens' UpdateProvisioningPreferences (Core.Maybe [Core.Text])
-updateProvisioningPreferences_stackSetAccounts = Lens.lens (\UpdateProvisioningPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetAccounts = a} :: UpdateProvisioningPreferences) Core.. Lens.mapping Lens._Coerce
+updateProvisioningPreferences_stackSetAccounts :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe [Prelude.Text])
+updateProvisioningPreferences_stackSetAccounts = Lens.lens (\UpdateProvisioningPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetAccounts = a} :: UpdateProvisioningPreferences) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The percentage of accounts, per region, for which this stack operation
 -- can fail before AWS Service Catalog stops the operation in that region.
@@ -315,7 +318,7 @@ updateProvisioningPreferences_stackSetAccounts = Lens.lens (\UpdateProvisioningP
 --
 -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
 -- @StackSetFailureTolerancePercentage@, but not both.
-updateProvisioningPreferences_stackSetFailureTolerancePercentage :: Lens.Lens' UpdateProvisioningPreferences (Core.Maybe Core.Natural)
+updateProvisioningPreferences_stackSetFailureTolerancePercentage :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 updateProvisioningPreferences_stackSetFailureTolerancePercentage = Lens.lens (\UpdateProvisioningPreferences' {stackSetFailureTolerancePercentage} -> stackSetFailureTolerancePercentage) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetFailureTolerancePercentage = a} :: UpdateProvisioningPreferences)
 
 -- | One or more AWS Regions where the provisioned product will be available.
@@ -328,8 +331,8 @@ updateProvisioningPreferences_stackSetFailureTolerancePercentage = Lens.lens (\U
 --
 -- If no values are specified, the default value is all regions from the
 -- @STACKSET@ constraint.
-updateProvisioningPreferences_stackSetRegions :: Lens.Lens' UpdateProvisioningPreferences (Core.Maybe [Core.Text])
-updateProvisioningPreferences_stackSetRegions = Lens.lens (\UpdateProvisioningPreferences' {stackSetRegions} -> stackSetRegions) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetRegions = a} :: UpdateProvisioningPreferences) Core.. Lens.mapping Lens._Coerce
+updateProvisioningPreferences_stackSetRegions :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe [Prelude.Text])
+updateProvisioningPreferences_stackSetRegions = Lens.lens (\UpdateProvisioningPreferences' {stackSetRegions} -> stackSetRegions) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetRegions = a} :: UpdateProvisioningPreferences) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of accounts in which to perform this operation at one
 -- time. This is dependent on the value of @StackSetFailureToleranceCount@.
@@ -344,7 +347,7 @@ updateProvisioningPreferences_stackSetRegions = Lens.lens (\UpdateProvisioningPr
 --
 -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
 -- @StackSetMaxConcurrentPercentage@, but not both.
-updateProvisioningPreferences_stackSetMaxConcurrencyCount :: Lens.Lens' UpdateProvisioningPreferences (Core.Maybe Core.Natural)
+updateProvisioningPreferences_stackSetMaxConcurrencyCount :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 updateProvisioningPreferences_stackSetMaxConcurrencyCount = Lens.lens (\UpdateProvisioningPreferences' {stackSetMaxConcurrencyCount} -> stackSetMaxConcurrencyCount) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyCount = a} :: UpdateProvisioningPreferences)
 
 -- | The maximum percentage of accounts in which to perform this operation at
@@ -363,29 +366,32 @@ updateProvisioningPreferences_stackSetMaxConcurrencyCount = Lens.lens (\UpdatePr
 --
 -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
 -- @StackSetMaxConcurrentPercentage@, but not both.
-updateProvisioningPreferences_stackSetMaxConcurrencyPercentage :: Lens.Lens' UpdateProvisioningPreferences (Core.Maybe Core.Natural)
+updateProvisioningPreferences_stackSetMaxConcurrencyPercentage :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 updateProvisioningPreferences_stackSetMaxConcurrencyPercentage = Lens.lens (\UpdateProvisioningPreferences' {stackSetMaxConcurrencyPercentage} -> stackSetMaxConcurrencyPercentage) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyPercentage = a} :: UpdateProvisioningPreferences)
 
-instance Core.Hashable UpdateProvisioningPreferences
+instance
+  Prelude.Hashable
+    UpdateProvisioningPreferences
 
-instance Core.NFData UpdateProvisioningPreferences
+instance Prelude.NFData UpdateProvisioningPreferences
 
 instance Core.ToJSON UpdateProvisioningPreferences where
   toJSON UpdateProvisioningPreferences' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("StackSetOperationType" Core..=)
-              Core.<$> stackSetOperationType,
+              Prelude.<$> stackSetOperationType,
             ("StackSetFailureToleranceCount" Core..=)
-              Core.<$> stackSetFailureToleranceCount,
+              Prelude.<$> stackSetFailureToleranceCount,
             ("StackSetAccounts" Core..=)
-              Core.<$> stackSetAccounts,
+              Prelude.<$> stackSetAccounts,
             ("StackSetFailureTolerancePercentage" Core..=)
-              Core.<$> stackSetFailureTolerancePercentage,
-            ("StackSetRegions" Core..=) Core.<$> stackSetRegions,
+              Prelude.<$> stackSetFailureTolerancePercentage,
+            ("StackSetRegions" Core..=)
+              Prelude.<$> stackSetRegions,
             ("StackSetMaxConcurrencyCount" Core..=)
-              Core.<$> stackSetMaxConcurrencyCount,
+              Prelude.<$> stackSetMaxConcurrencyCount,
             ("StackSetMaxConcurrencyPercentage" Core..=)
-              Core.<$> stackSetMaxConcurrencyPercentage
+              Prelude.<$> stackSetMaxConcurrencyPercentage
           ]
       )

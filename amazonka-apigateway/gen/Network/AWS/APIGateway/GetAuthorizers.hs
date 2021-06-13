@@ -49,6 +49,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +58,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetAuthorizers' smart constructor.
 data GetAuthorizers = GetAuthorizers'
   { -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int,
+    limit :: Prelude.Maybe Prelude.Int,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text
+    restApiId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAuthorizers' with all optional fields omitted.
@@ -82,46 +83,46 @@ data GetAuthorizers = GetAuthorizers'
 -- 'restApiId', 'getAuthorizers_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetAuthorizers ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   GetAuthorizers
 newGetAuthorizers pRestApiId_ =
   GetAuthorizers'
-    { position = Core.Nothing,
-      limit = Core.Nothing,
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | The current pagination position in the paged result set.
-getAuthorizers_position :: Lens.Lens' GetAuthorizers (Core.Maybe Core.Text)
+getAuthorizers_position :: Lens.Lens' GetAuthorizers (Prelude.Maybe Prelude.Text)
 getAuthorizers_position = Lens.lens (\GetAuthorizers' {position} -> position) (\s@GetAuthorizers' {} a -> s {position = a} :: GetAuthorizers)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getAuthorizers_limit :: Lens.Lens' GetAuthorizers (Core.Maybe Core.Int)
+getAuthorizers_limit :: Lens.Lens' GetAuthorizers (Prelude.Maybe Prelude.Int)
 getAuthorizers_limit = Lens.lens (\GetAuthorizers' {limit} -> limit) (\s@GetAuthorizers' {} a -> s {limit = a} :: GetAuthorizers)
 
 -- | [Required] The string identifier of the associated RestApi.
-getAuthorizers_restApiId :: Lens.Lens' GetAuthorizers Core.Text
+getAuthorizers_restApiId :: Lens.Lens' GetAuthorizers Prelude.Text
 getAuthorizers_restApiId = Lens.lens (\GetAuthorizers' {restApiId} -> restApiId) (\s@GetAuthorizers' {} a -> s {restApiId = a} :: GetAuthorizers)
 
 instance Core.AWSPager GetAuthorizers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getAuthorizersResponse_position Core.. Lens._Just
+            Lens.^? getAuthorizersResponse_position Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getAuthorizersResponse_items Core.. Lens._Just
+            Lens.^? getAuthorizersResponse_items Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getAuthorizers_position
+          Prelude.& getAuthorizers_position
           Lens..~ rs
-          Lens.^? getAuthorizersResponse_position Core.. Lens._Just
+          Lens.^? getAuthorizersResponse_position Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAuthorizers where
   type
@@ -132,32 +133,32 @@ instance Core.AWSRequest GetAuthorizers where
     Response.receiveJSON
       ( \s h x ->
           GetAuthorizersResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAuthorizers
+instance Prelude.Hashable GetAuthorizers
 
-instance Core.NFData GetAuthorizers
+instance Prelude.NFData GetAuthorizers
 
 instance Core.ToHeaders GetAuthorizers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetAuthorizers where
   toPath GetAuthorizers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/restapis/", Core.toBS restApiId, "/authorizers"]
 
 instance Core.ToQuery GetAuthorizers where
   toQuery GetAuthorizers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | Represents a collection of Authorizer resources.
@@ -168,12 +169,12 @@ instance Core.ToQuery GetAuthorizers where
 -- /See:/ 'newGetAuthorizersResponse' smart constructor.
 data GetAuthorizersResponse = GetAuthorizersResponse'
   { -- | The current page of elements from this collection.
-    items :: Core.Maybe [Authorizer],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [Authorizer],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAuthorizersResponse' with all optional fields omitted.
@@ -190,25 +191,25 @@ data GetAuthorizersResponse = GetAuthorizersResponse'
 -- 'httpStatus', 'getAuthorizersResponse_httpStatus' - The response's http status code.
 newGetAuthorizersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAuthorizersResponse
 newGetAuthorizersResponse pHttpStatus_ =
   GetAuthorizersResponse'
-    { items = Core.Nothing,
-      position = Core.Nothing,
+    { items = Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getAuthorizersResponse_items :: Lens.Lens' GetAuthorizersResponse (Core.Maybe [Authorizer])
-getAuthorizersResponse_items = Lens.lens (\GetAuthorizersResponse' {items} -> items) (\s@GetAuthorizersResponse' {} a -> s {items = a} :: GetAuthorizersResponse) Core.. Lens.mapping Lens._Coerce
+getAuthorizersResponse_items :: Lens.Lens' GetAuthorizersResponse (Prelude.Maybe [Authorizer])
+getAuthorizersResponse_items = Lens.lens (\GetAuthorizersResponse' {items} -> items) (\s@GetAuthorizersResponse' {} a -> s {items = a} :: GetAuthorizersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getAuthorizersResponse_position :: Lens.Lens' GetAuthorizersResponse (Core.Maybe Core.Text)
+getAuthorizersResponse_position :: Lens.Lens' GetAuthorizersResponse (Prelude.Maybe Prelude.Text)
 getAuthorizersResponse_position = Lens.lens (\GetAuthorizersResponse' {position} -> position) (\s@GetAuthorizersResponse' {} a -> s {position = a} :: GetAuthorizersResponse)
 
 -- | The response's http status code.
-getAuthorizersResponse_httpStatus :: Lens.Lens' GetAuthorizersResponse Core.Int
+getAuthorizersResponse_httpStatus :: Lens.Lens' GetAuthorizersResponse Prelude.Int
 getAuthorizersResponse_httpStatus = Lens.lens (\GetAuthorizersResponse' {httpStatus} -> httpStatus) (\s@GetAuthorizersResponse' {} a -> s {httpStatus = a} :: GetAuthorizersResponse)
 
-instance Core.NFData GetAuthorizersResponse
+instance Prelude.NFData GetAuthorizersResponse

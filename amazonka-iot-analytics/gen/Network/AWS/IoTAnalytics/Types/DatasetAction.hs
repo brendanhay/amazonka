@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.ContainerDatasetAction
 import Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A @DatasetAction@ object that specifies how data set contents are
 -- automatically created.
@@ -31,16 +32,16 @@ import qualified Network.AWS.Lens as Lens
 data DatasetAction = DatasetAction'
   { -- | The name of the data set action by which data set contents are
     -- automatically created.
-    actionName :: Core.Maybe Core.Text,
+    actionName :: Prelude.Maybe Prelude.Text,
     -- | An @SqlQueryDatasetAction@ object that uses an SQL query to
     -- automatically create data set contents.
-    queryAction :: Core.Maybe SqlQueryDatasetAction,
+    queryAction :: Prelude.Maybe SqlQueryDatasetAction,
     -- | Information that allows the system to run a containerized application to
     -- create the dataset contents. The application must be in a Docker
     -- container along with any required support libraries.
-    containerAction :: Core.Maybe ContainerDatasetAction
+    containerAction :: Prelude.Maybe ContainerDatasetAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatasetAction' with all optional fields omitted.
@@ -63,25 +64,25 @@ newDatasetAction ::
   DatasetAction
 newDatasetAction =
   DatasetAction'
-    { actionName = Core.Nothing,
-      queryAction = Core.Nothing,
-      containerAction = Core.Nothing
+    { actionName = Prelude.Nothing,
+      queryAction = Prelude.Nothing,
+      containerAction = Prelude.Nothing
     }
 
 -- | The name of the data set action by which data set contents are
 -- automatically created.
-datasetAction_actionName :: Lens.Lens' DatasetAction (Core.Maybe Core.Text)
+datasetAction_actionName :: Lens.Lens' DatasetAction (Prelude.Maybe Prelude.Text)
 datasetAction_actionName = Lens.lens (\DatasetAction' {actionName} -> actionName) (\s@DatasetAction' {} a -> s {actionName = a} :: DatasetAction)
 
 -- | An @SqlQueryDatasetAction@ object that uses an SQL query to
 -- automatically create data set contents.
-datasetAction_queryAction :: Lens.Lens' DatasetAction (Core.Maybe SqlQueryDatasetAction)
+datasetAction_queryAction :: Lens.Lens' DatasetAction (Prelude.Maybe SqlQueryDatasetAction)
 datasetAction_queryAction = Lens.lens (\DatasetAction' {queryAction} -> queryAction) (\s@DatasetAction' {} a -> s {queryAction = a} :: DatasetAction)
 
 -- | Information that allows the system to run a containerized application to
 -- create the dataset contents. The application must be in a Docker
 -- container along with any required support libraries.
-datasetAction_containerAction :: Lens.Lens' DatasetAction (Core.Maybe ContainerDatasetAction)
+datasetAction_containerAction :: Lens.Lens' DatasetAction (Prelude.Maybe ContainerDatasetAction)
 datasetAction_containerAction = Lens.lens (\DatasetAction' {containerAction} -> containerAction) (\s@DatasetAction' {} a -> s {containerAction = a} :: DatasetAction)
 
 instance Core.FromJSON DatasetAction where
@@ -90,22 +91,22 @@ instance Core.FromJSON DatasetAction where
       "DatasetAction"
       ( \x ->
           DatasetAction'
-            Core.<$> (x Core..:? "actionName")
-            Core.<*> (x Core..:? "queryAction")
-            Core.<*> (x Core..:? "containerAction")
+            Prelude.<$> (x Core..:? "actionName")
+            Prelude.<*> (x Core..:? "queryAction")
+            Prelude.<*> (x Core..:? "containerAction")
       )
 
-instance Core.Hashable DatasetAction
+instance Prelude.Hashable DatasetAction
 
-instance Core.NFData DatasetAction
+instance Prelude.NFData DatasetAction
 
 instance Core.ToJSON DatasetAction where
   toJSON DatasetAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("actionName" Core..=) Core.<$> actionName,
-            ("queryAction" Core..=) Core.<$> queryAction,
+      ( Prelude.catMaybes
+          [ ("actionName" Core..=) Prelude.<$> actionName,
+            ("queryAction" Core..=) Prelude.<$> queryAction,
             ("containerAction" Core..=)
-              Core.<$> containerAction
+              Prelude.<$> containerAction
           ]
       )

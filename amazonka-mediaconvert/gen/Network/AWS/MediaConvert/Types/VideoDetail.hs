@@ -21,17 +21,18 @@ module Network.AWS.MediaConvert.Types.VideoDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the output\'s video stream
 --
 -- /See:/ 'newVideoDetail' smart constructor.
 data VideoDetail = VideoDetail'
   { -- | Width in pixels for the output
-    widthInPx :: Core.Maybe Core.Int,
+    widthInPx :: Prelude.Maybe Prelude.Int,
     -- | Height in pixels for the output
-    heightInPx :: Core.Maybe Core.Int
+    heightInPx :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VideoDetail' with all optional fields omitted.
@@ -48,16 +49,16 @@ newVideoDetail ::
   VideoDetail
 newVideoDetail =
   VideoDetail'
-    { widthInPx = Core.Nothing,
-      heightInPx = Core.Nothing
+    { widthInPx = Prelude.Nothing,
+      heightInPx = Prelude.Nothing
     }
 
 -- | Width in pixels for the output
-videoDetail_widthInPx :: Lens.Lens' VideoDetail (Core.Maybe Core.Int)
+videoDetail_widthInPx :: Lens.Lens' VideoDetail (Prelude.Maybe Prelude.Int)
 videoDetail_widthInPx = Lens.lens (\VideoDetail' {widthInPx} -> widthInPx) (\s@VideoDetail' {} a -> s {widthInPx = a} :: VideoDetail)
 
 -- | Height in pixels for the output
-videoDetail_heightInPx :: Lens.Lens' VideoDetail (Core.Maybe Core.Int)
+videoDetail_heightInPx :: Lens.Lens' VideoDetail (Prelude.Maybe Prelude.Int)
 videoDetail_heightInPx = Lens.lens (\VideoDetail' {heightInPx} -> heightInPx) (\s@VideoDetail' {} a -> s {heightInPx = a} :: VideoDetail)
 
 instance Core.FromJSON VideoDetail where
@@ -66,10 +67,10 @@ instance Core.FromJSON VideoDetail where
       "VideoDetail"
       ( \x ->
           VideoDetail'
-            Core.<$> (x Core..:? "widthInPx")
-            Core.<*> (x Core..:? "heightInPx")
+            Prelude.<$> (x Core..:? "widthInPx")
+            Prelude.<*> (x Core..:? "heightInPx")
       )
 
-instance Core.Hashable VideoDetail
+instance Prelude.Hashable VideoDetail
 
-instance Core.NFData VideoDetail
+instance Prelude.NFData VideoDetail

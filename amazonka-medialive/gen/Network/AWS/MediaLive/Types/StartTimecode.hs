@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.StartTimecode where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings to identify the start of the clip.
 --
@@ -29,9 +30,9 @@ data StartTimecode = StartTimecode'
   { -- | The timecode for the frame where you want to start the clip. Optional;
     -- if not specified, the clip starts at first frame in the file. Enter the
     -- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-    timecode :: Core.Maybe Core.Text
+    timecode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTimecode' with all optional fields omitted.
@@ -47,12 +48,12 @@ data StartTimecode = StartTimecode'
 newStartTimecode ::
   StartTimecode
 newStartTimecode =
-  StartTimecode' {timecode = Core.Nothing}
+  StartTimecode' {timecode = Prelude.Nothing}
 
 -- | The timecode for the frame where you want to start the clip. Optional;
 -- if not specified, the clip starts at first frame in the file. Enter the
 -- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-startTimecode_timecode :: Lens.Lens' StartTimecode (Core.Maybe Core.Text)
+startTimecode_timecode :: Lens.Lens' StartTimecode (Prelude.Maybe Prelude.Text)
 startTimecode_timecode = Lens.lens (\StartTimecode' {timecode} -> timecode) (\s@StartTimecode' {} a -> s {timecode = a} :: StartTimecode)
 
 instance Core.FromJSON StartTimecode where
@@ -60,16 +61,16 @@ instance Core.FromJSON StartTimecode where
     Core.withObject
       "StartTimecode"
       ( \x ->
-          StartTimecode' Core.<$> (x Core..:? "timecode")
+          StartTimecode' Prelude.<$> (x Core..:? "timecode")
       )
 
-instance Core.Hashable StartTimecode
+instance Prelude.Hashable StartTimecode
 
-instance Core.NFData StartTimecode
+instance Prelude.NFData StartTimecode
 
 instance Core.ToJSON StartTimecode where
   toJSON StartTimecode' {..} =
     Core.object
-      ( Core.catMaybes
-          [("timecode" Core..=) Core.<$> timecode]
+      ( Prelude.catMaybes
+          [("timecode" Core..=) Prelude.<$> timecode]
       )

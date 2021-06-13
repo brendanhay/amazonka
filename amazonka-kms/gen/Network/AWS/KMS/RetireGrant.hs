@@ -75,26 +75,27 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRetireGrant' smart constructor.
 data RetireGrant = RetireGrant'
   { -- | Token that identifies the grant to be retired.
-    grantToken :: Core.Maybe Core.Text,
+    grantToken :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier of the grant to retire. The grant ID is returned in
     -- the response to a @CreateGrant@ operation.
     --
     -- -   Grant ID Example -
     --     0123456789012345678901234567890123456789012345678901234567890123
-    grantId :: Core.Maybe Core.Text,
+    grantId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the CMK associated with the grant.
     --
     -- For example:
     -- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
-    keyId :: Core.Maybe Core.Text
+    keyId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetireGrant' with all optional fields omitted.
@@ -120,13 +121,13 @@ newRetireGrant ::
   RetireGrant
 newRetireGrant =
   RetireGrant'
-    { grantToken = Core.Nothing,
-      grantId = Core.Nothing,
-      keyId = Core.Nothing
+    { grantToken = Prelude.Nothing,
+      grantId = Prelude.Nothing,
+      keyId = Prelude.Nothing
     }
 
 -- | Token that identifies the grant to be retired.
-retireGrant_grantToken :: Lens.Lens' RetireGrant (Core.Maybe Core.Text)
+retireGrant_grantToken :: Lens.Lens' RetireGrant (Prelude.Maybe Prelude.Text)
 retireGrant_grantToken = Lens.lens (\RetireGrant' {grantToken} -> grantToken) (\s@RetireGrant' {} a -> s {grantToken = a} :: RetireGrant)
 
 -- | Unique identifier of the grant to retire. The grant ID is returned in
@@ -134,14 +135,14 @@ retireGrant_grantToken = Lens.lens (\RetireGrant' {grantToken} -> grantToken) (\
 --
 -- -   Grant ID Example -
 --     0123456789012345678901234567890123456789012345678901234567890123
-retireGrant_grantId :: Lens.Lens' RetireGrant (Core.Maybe Core.Text)
+retireGrant_grantId :: Lens.Lens' RetireGrant (Prelude.Maybe Prelude.Text)
 retireGrant_grantId = Lens.lens (\RetireGrant' {grantId} -> grantId) (\s@RetireGrant' {} a -> s {grantId = a} :: RetireGrant)
 
 -- | The Amazon Resource Name (ARN) of the CMK associated with the grant.
 --
 -- For example:
 -- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
-retireGrant_keyId :: Lens.Lens' RetireGrant (Core.Maybe Core.Text)
+retireGrant_keyId :: Lens.Lens' RetireGrant (Prelude.Maybe Prelude.Text)
 retireGrant_keyId = Lens.lens (\RetireGrant' {keyId} -> keyId) (\s@RetireGrant' {} a -> s {keyId = a} :: RetireGrant)
 
 instance Core.AWSRequest RetireGrant where
@@ -149,42 +150,44 @@ instance Core.AWSRequest RetireGrant where
   request = Request.postJSON defaultService
   response = Response.receiveNull RetireGrantResponse'
 
-instance Core.Hashable RetireGrant
+instance Prelude.Hashable RetireGrant
 
-instance Core.NFData RetireGrant
+instance Prelude.NFData RetireGrant
 
 instance Core.ToHeaders RetireGrant where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.RetireGrant" :: Core.ByteString),
+              Core.=# ("TrentService.RetireGrant" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RetireGrant where
   toJSON RetireGrant' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GrantToken" Core..=) Core.<$> grantToken,
-            ("GrantId" Core..=) Core.<$> grantId,
-            ("KeyId" Core..=) Core.<$> keyId
+      ( Prelude.catMaybes
+          [ ("GrantToken" Core..=) Prelude.<$> grantToken,
+            ("GrantId" Core..=) Prelude.<$> grantId,
+            ("KeyId" Core..=) Prelude.<$> keyId
           ]
       )
 
 instance Core.ToPath RetireGrant where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RetireGrant where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRetireGrantResponse' smart constructor.
 data RetireGrantResponse = RetireGrantResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetireGrantResponse' with all optional fields omitted.
@@ -194,4 +197,4 @@ newRetireGrantResponse ::
   RetireGrantResponse
 newRetireGrantResponse = RetireGrantResponse'
 
-instance Core.NFData RetireGrantResponse
+instance Prelude.NFData RetireGrantResponse

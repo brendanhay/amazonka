@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,7 +58,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateClusterSecurityGroup' smart constructor.
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
   { -- | A list of tag instances.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the security group. Amazon Redshift stores the value as a
     -- lowercase string.
     --
@@ -71,11 +72,11 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
     --     account.
     --
     -- Example: @examplesecuritygroup@
-    clusterSecurityGroupName :: Core.Text,
+    clusterSecurityGroupName :: Prelude.Text,
     -- | A description for the security group.
-    description :: Core.Text
+    description :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateClusterSecurityGroup' with all optional fields omitted.
@@ -104,23 +105,23 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
 -- 'description', 'createClusterSecurityGroup_description' - A description for the security group.
 newCreateClusterSecurityGroup ::
   -- | 'clusterSecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   CreateClusterSecurityGroup
 newCreateClusterSecurityGroup
   pClusterSecurityGroupName_
   pDescription_ =
     CreateClusterSecurityGroup'
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         clusterSecurityGroupName =
           pClusterSecurityGroupName_,
         description = pDescription_
       }
 
 -- | A list of tag instances.
-createClusterSecurityGroup_tags :: Lens.Lens' CreateClusterSecurityGroup (Core.Maybe [Tag])
-createClusterSecurityGroup_tags = Lens.lens (\CreateClusterSecurityGroup' {tags} -> tags) (\s@CreateClusterSecurityGroup' {} a -> s {tags = a} :: CreateClusterSecurityGroup) Core.. Lens.mapping Lens._Coerce
+createClusterSecurityGroup_tags :: Lens.Lens' CreateClusterSecurityGroup (Prelude.Maybe [Tag])
+createClusterSecurityGroup_tags = Lens.lens (\CreateClusterSecurityGroup' {tags} -> tags) (\s@CreateClusterSecurityGroup' {} a -> s {tags = a} :: CreateClusterSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -135,11 +136,11 @@ createClusterSecurityGroup_tags = Lens.lens (\CreateClusterSecurityGroup' {tags}
 --     account.
 --
 -- Example: @examplesecuritygroup@
-createClusterSecurityGroup_clusterSecurityGroupName :: Lens.Lens' CreateClusterSecurityGroup Core.Text
+createClusterSecurityGroup_clusterSecurityGroupName :: Lens.Lens' CreateClusterSecurityGroup Prelude.Text
 createClusterSecurityGroup_clusterSecurityGroupName = Lens.lens (\CreateClusterSecurityGroup' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@CreateClusterSecurityGroup' {} a -> s {clusterSecurityGroupName = a} :: CreateClusterSecurityGroup)
 
 -- | A description for the security group.
-createClusterSecurityGroup_description :: Lens.Lens' CreateClusterSecurityGroup Core.Text
+createClusterSecurityGroup_description :: Lens.Lens' CreateClusterSecurityGroup Prelude.Text
 createClusterSecurityGroup_description = Lens.lens (\CreateClusterSecurityGroup' {description} -> description) (\s@CreateClusterSecurityGroup' {} a -> s {description = a} :: CreateClusterSecurityGroup)
 
 instance Core.AWSRequest CreateClusterSecurityGroup where
@@ -152,28 +153,30 @@ instance Core.AWSRequest CreateClusterSecurityGroup where
       "CreateClusterSecurityGroupResult"
       ( \s h x ->
           CreateClusterSecurityGroupResponse'
-            Core.<$> (x Core..@? "ClusterSecurityGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ClusterSecurityGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateClusterSecurityGroup
+instance Prelude.Hashable CreateClusterSecurityGroup
 
-instance Core.NFData CreateClusterSecurityGroup
+instance Prelude.NFData CreateClusterSecurityGroup
 
 instance Core.ToHeaders CreateClusterSecurityGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateClusterSecurityGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateClusterSecurityGroup where
   toQuery CreateClusterSecurityGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateClusterSecurityGroup" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("CreateClusterSecurityGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "ClusterSecurityGroupName"
           Core.=: clusterSecurityGroupName,
         "Description" Core.=: description
@@ -181,11 +184,11 @@ instance Core.ToQuery CreateClusterSecurityGroup where
 
 -- | /See:/ 'newCreateClusterSecurityGroupResponse' smart constructor.
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
-  { clusterSecurityGroup :: Core.Maybe ClusterSecurityGroup,
+  { clusterSecurityGroup :: Prelude.Maybe ClusterSecurityGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateClusterSecurityGroupResponse' with all optional fields omitted.
@@ -200,23 +203,23 @@ data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
 -- 'httpStatus', 'createClusterSecurityGroupResponse_httpStatus' - The response's http status code.
 newCreateClusterSecurityGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateClusterSecurityGroupResponse
 newCreateClusterSecurityGroupResponse pHttpStatus_ =
   CreateClusterSecurityGroupResponse'
     { clusterSecurityGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createClusterSecurityGroupResponse_clusterSecurityGroup :: Lens.Lens' CreateClusterSecurityGroupResponse (Core.Maybe ClusterSecurityGroup)
+createClusterSecurityGroupResponse_clusterSecurityGroup :: Lens.Lens' CreateClusterSecurityGroupResponse (Prelude.Maybe ClusterSecurityGroup)
 createClusterSecurityGroupResponse_clusterSecurityGroup = Lens.lens (\CreateClusterSecurityGroupResponse' {clusterSecurityGroup} -> clusterSecurityGroup) (\s@CreateClusterSecurityGroupResponse' {} a -> s {clusterSecurityGroup = a} :: CreateClusterSecurityGroupResponse)
 
 -- | The response's http status code.
-createClusterSecurityGroupResponse_httpStatus :: Lens.Lens' CreateClusterSecurityGroupResponse Core.Int
+createClusterSecurityGroupResponse_httpStatus :: Lens.Lens' CreateClusterSecurityGroupResponse Prelude.Int
 createClusterSecurityGroupResponse_httpStatus = Lens.lens (\CreateClusterSecurityGroupResponse' {httpStatus} -> httpStatus) (\s@CreateClusterSecurityGroupResponse' {} a -> s {httpStatus = a} :: CreateClusterSecurityGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateClusterSecurityGroupResponse

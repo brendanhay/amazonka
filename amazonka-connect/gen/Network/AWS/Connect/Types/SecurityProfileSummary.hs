@@ -21,19 +21,20 @@ module Network.AWS.Connect.Types.SecurityProfileSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a security profile.
 --
 -- /See:/ 'newSecurityProfileSummary' smart constructor.
 data SecurityProfileSummary = SecurityProfileSummary'
   { -- | The Amazon Resource Name (ARN) of the security profile.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the security profile.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the security profile.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecurityProfileSummary' with all optional fields omitted.
@@ -52,21 +53,21 @@ newSecurityProfileSummary ::
   SecurityProfileSummary
 newSecurityProfileSummary =
   SecurityProfileSummary'
-    { arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the security profile.
-securityProfileSummary_arn :: Lens.Lens' SecurityProfileSummary (Core.Maybe Core.Text)
+securityProfileSummary_arn :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
 securityProfileSummary_arn = Lens.lens (\SecurityProfileSummary' {arn} -> arn) (\s@SecurityProfileSummary' {} a -> s {arn = a} :: SecurityProfileSummary)
 
 -- | The identifier of the security profile.
-securityProfileSummary_id :: Lens.Lens' SecurityProfileSummary (Core.Maybe Core.Text)
+securityProfileSummary_id :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
 securityProfileSummary_id = Lens.lens (\SecurityProfileSummary' {id} -> id) (\s@SecurityProfileSummary' {} a -> s {id = a} :: SecurityProfileSummary)
 
 -- | The name of the security profile.
-securityProfileSummary_name :: Lens.Lens' SecurityProfileSummary (Core.Maybe Core.Text)
+securityProfileSummary_name :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
 securityProfileSummary_name = Lens.lens (\SecurityProfileSummary' {name} -> name) (\s@SecurityProfileSummary' {} a -> s {name = a} :: SecurityProfileSummary)
 
 instance Core.FromJSON SecurityProfileSummary where
@@ -75,11 +76,11 @@ instance Core.FromJSON SecurityProfileSummary where
       "SecurityProfileSummary"
       ( \x ->
           SecurityProfileSummary'
-            Core.<$> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable SecurityProfileSummary
+instance Prelude.Hashable SecurityProfileSummary
 
-instance Core.NFData SecurityProfileSummary
+instance Prelude.NFData SecurityProfileSummary

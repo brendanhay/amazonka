@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,20 +58,20 @@ data DescribeParameters = DescribeParameters'
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | How the parameter is defined. For example, @system@ denotes a
     -- system-defined parameter.
-    source :: Core.Maybe Core.Text,
+    source :: Prelude.Maybe Prelude.Text,
     -- | The name of the parameter group.
-    parameterGroupName :: Core.Text
+    parameterGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeParameters' with all optional fields omitted.
@@ -97,13 +98,13 @@ data DescribeParameters = DescribeParameters'
 -- 'parameterGroupName', 'describeParameters_parameterGroupName' - The name of the parameter group.
 newDescribeParameters ::
   -- | 'parameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeParameters
 newDescribeParameters pParameterGroupName_ =
   DescribeParameters'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      source = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      source = Prelude.Nothing,
       parameterGroupName = pParameterGroupName_
     }
 
@@ -111,7 +112,7 @@ newDescribeParameters pParameterGroupName_ =
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
-describeParameters_nextToken :: Lens.Lens' DescribeParameters (Core.Maybe Core.Text)
+describeParameters_nextToken :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
 describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> nextToken) (\s@DescribeParameters' {} a -> s {nextToken = a} :: DescribeParameters)
 
 -- | The maximum number of results to include in the response. If more
@@ -119,16 +120,16 @@ describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> ne
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
-describeParameters_maxResults :: Lens.Lens' DescribeParameters (Core.Maybe Core.Int)
+describeParameters_maxResults :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Int)
 describeParameters_maxResults = Lens.lens (\DescribeParameters' {maxResults} -> maxResults) (\s@DescribeParameters' {} a -> s {maxResults = a} :: DescribeParameters)
 
 -- | How the parameter is defined. For example, @system@ denotes a
 -- system-defined parameter.
-describeParameters_source :: Lens.Lens' DescribeParameters (Core.Maybe Core.Text)
+describeParameters_source :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
 describeParameters_source = Lens.lens (\DescribeParameters' {source} -> source) (\s@DescribeParameters' {} a -> s {source = a} :: DescribeParameters)
 
 -- | The name of the parameter group.
-describeParameters_parameterGroupName :: Lens.Lens' DescribeParameters Core.Text
+describeParameters_parameterGroupName :: Lens.Lens' DescribeParameters Prelude.Text
 describeParameters_parameterGroupName = Lens.lens (\DescribeParameters' {parameterGroupName} -> parameterGroupName) (\s@DescribeParameters' {} a -> s {parameterGroupName = a} :: DescribeParameters)
 
 instance Core.AWSPager DescribeParameters where
@@ -136,22 +137,22 @@ instance Core.AWSPager DescribeParameters where
     | Core.stop
         ( rs
             Lens.^? describeParametersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeParametersResponse_parameters
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeParameters_nextToken
+          Prelude.& describeParameters_nextToken
           Lens..~ rs
           Lens.^? describeParametersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeParameters where
   type
@@ -162,57 +163,59 @@ instance Core.AWSRequest DescribeParameters where
     Response.receiveJSON
       ( \s h x ->
           DescribeParametersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Parameters" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeParameters
+instance Prelude.Hashable DescribeParameters
 
-instance Core.NFData DescribeParameters
+instance Prelude.NFData DescribeParameters
 
 instance Core.ToHeaders DescribeParameters where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDAXV3.DescribeParameters" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeParameters where
   toJSON DescribeParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Source" Core..=) Core.<$> source,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Source" Core..=) Prelude.<$> source,
+            Prelude.Just
               ("ParameterGroupName" Core..= parameterGroupName)
           ]
       )
 
 instance Core.ToPath DescribeParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeParameters where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeParametersResponse' smart constructor.
 data DescribeParametersResponse = DescribeParametersResponse'
   { -- | Provides an identifier to allow retrieval of paginated results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of parameters within a parameter group. Each element in the list
     -- represents one parameter.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeParametersResponse' with all optional fields omitted.
@@ -230,27 +233,27 @@ data DescribeParametersResponse = DescribeParametersResponse'
 -- 'httpStatus', 'describeParametersResponse_httpStatus' - The response's http status code.
 newDescribeParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeParametersResponse
 newDescribeParametersResponse pHttpStatus_ =
   DescribeParametersResponse'
     { nextToken =
-        Core.Nothing,
-      parameters = Core.Nothing,
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeParametersResponse_nextToken :: Lens.Lens' DescribeParametersResponse (Core.Maybe Core.Text)
+describeParametersResponse_nextToken :: Lens.Lens' DescribeParametersResponse (Prelude.Maybe Prelude.Text)
 describeParametersResponse_nextToken = Lens.lens (\DescribeParametersResponse' {nextToken} -> nextToken) (\s@DescribeParametersResponse' {} a -> s {nextToken = a} :: DescribeParametersResponse)
 
 -- | A list of parameters within a parameter group. Each element in the list
 -- represents one parameter.
-describeParametersResponse_parameters :: Lens.Lens' DescribeParametersResponse (Core.Maybe [Parameter])
-describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Core.. Lens.mapping Lens._Coerce
+describeParametersResponse_parameters :: Lens.Lens' DescribeParametersResponse (Prelude.Maybe [Parameter])
+describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeParametersResponse_httpStatus :: Lens.Lens' DescribeParametersResponse Core.Int
+describeParametersResponse_httpStatus :: Lens.Lens' DescribeParametersResponse Prelude.Int
 describeParametersResponse_httpStatus = Lens.lens (\DescribeParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeParametersResponse' {} a -> s {httpStatus = a} :: DescribeParametersResponse)
 
-instance Core.NFData DescribeParametersResponse
+instance Prelude.NFData DescribeParametersResponse

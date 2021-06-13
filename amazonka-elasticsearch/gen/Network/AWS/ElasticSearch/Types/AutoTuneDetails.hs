@@ -22,6 +22,7 @@ module Network.AWS.ElasticSearch.Types.AutoTuneDetails where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneDetails
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies details of the Auto-Tune action. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 --
 -- /See:/ 'newAutoTuneDetails' smart constructor.
 data AutoTuneDetails = AutoTuneDetails'
-  { scheduledAutoTuneDetails :: Core.Maybe ScheduledAutoTuneDetails
+  { scheduledAutoTuneDetails :: Prelude.Maybe ScheduledAutoTuneDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoTuneDetails' with all optional fields omitted.
@@ -47,11 +48,11 @@ newAutoTuneDetails ::
 newAutoTuneDetails =
   AutoTuneDetails'
     { scheduledAutoTuneDetails =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Undocumented member.
-autoTuneDetails_scheduledAutoTuneDetails :: Lens.Lens' AutoTuneDetails (Core.Maybe ScheduledAutoTuneDetails)
+autoTuneDetails_scheduledAutoTuneDetails :: Lens.Lens' AutoTuneDetails (Prelude.Maybe ScheduledAutoTuneDetails)
 autoTuneDetails_scheduledAutoTuneDetails = Lens.lens (\AutoTuneDetails' {scheduledAutoTuneDetails} -> scheduledAutoTuneDetails) (\s@AutoTuneDetails' {} a -> s {scheduledAutoTuneDetails = a} :: AutoTuneDetails)
 
 instance Core.FromJSON AutoTuneDetails where
@@ -60,9 +61,9 @@ instance Core.FromJSON AutoTuneDetails where
       "AutoTuneDetails"
       ( \x ->
           AutoTuneDetails'
-            Core.<$> (x Core..:? "ScheduledAutoTuneDetails")
+            Prelude.<$> (x Core..:? "ScheduledAutoTuneDetails")
       )
 
-instance Core.Hashable AutoTuneDetails
+instance Prelude.Hashable AutoTuneDetails
 
-instance Core.NFData AutoTuneDetails
+instance Prelude.NFData AutoTuneDetails

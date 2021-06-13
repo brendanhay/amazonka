@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DeleteFileSystemPolicy = DeleteFileSystemPolicy'
   { -- | Specifies the EFS file system for which to delete the
     -- @FileSystemPolicy@.
-    fileSystemId :: Core.Text
+    fileSystemId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFileSystemPolicy' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DeleteFileSystemPolicy = DeleteFileSystemPolicy'
 -- @FileSystemPolicy@.
 newDeleteFileSystemPolicy ::
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFileSystemPolicy
 newDeleteFileSystemPolicy pFileSystemId_ =
   DeleteFileSystemPolicy'
@@ -77,7 +78,7 @@ newDeleteFileSystemPolicy pFileSystemId_ =
 
 -- | Specifies the EFS file system for which to delete the
 -- @FileSystemPolicy@.
-deleteFileSystemPolicy_fileSystemId :: Lens.Lens' DeleteFileSystemPolicy Core.Text
+deleteFileSystemPolicy_fileSystemId :: Lens.Lens' DeleteFileSystemPolicy Prelude.Text
 deleteFileSystemPolicy_fileSystemId = Lens.lens (\DeleteFileSystemPolicy' {fileSystemId} -> fileSystemId) (\s@DeleteFileSystemPolicy' {} a -> s {fileSystemId = a} :: DeleteFileSystemPolicy)
 
 instance Core.AWSRequest DeleteFileSystemPolicy where
@@ -89,29 +90,29 @@ instance Core.AWSRequest DeleteFileSystemPolicy where
     Response.receiveNull
       DeleteFileSystemPolicyResponse'
 
-instance Core.Hashable DeleteFileSystemPolicy
+instance Prelude.Hashable DeleteFileSystemPolicy
 
-instance Core.NFData DeleteFileSystemPolicy
+instance Prelude.NFData DeleteFileSystemPolicy
 
 instance Core.ToHeaders DeleteFileSystemPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteFileSystemPolicy where
   toPath DeleteFileSystemPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-02-01/file-systems/",
         Core.toBS fileSystemId,
         "/policy"
       ]
 
 instance Core.ToQuery DeleteFileSystemPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFileSystemPolicyResponse' smart constructor.
 data DeleteFileSystemPolicyResponse = DeleteFileSystemPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFileSystemPolicyResponse' with all optional fields omitted.
@@ -122,4 +123,6 @@ newDeleteFileSystemPolicyResponse ::
 newDeleteFileSystemPolicyResponse =
   DeleteFileSystemPolicyResponse'
 
-instance Core.NFData DeleteFileSystemPolicyResponse
+instance
+  Prelude.NFData
+    DeleteFileSystemPolicyResponse

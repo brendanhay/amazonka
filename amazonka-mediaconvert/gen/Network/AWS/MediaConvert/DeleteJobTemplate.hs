@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteJobTemplate' smart constructor.
 data DeleteJobTemplate = DeleteJobTemplate'
   { -- | The name of the job template to be deleted.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteJobTemplate' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteJobTemplate = DeleteJobTemplate'
 -- 'name', 'deleteJobTemplate_name' - The name of the job template to be deleted.
 newDeleteJobTemplate ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteJobTemplate
 newDeleteJobTemplate pName_ =
   DeleteJobTemplate' {name = pName_}
 
 -- | The name of the job template to be deleted.
-deleteJobTemplate_name :: Lens.Lens' DeleteJobTemplate Core.Text
+deleteJobTemplate_name :: Lens.Lens' DeleteJobTemplate Prelude.Text
 deleteJobTemplate_name = Lens.lens (\DeleteJobTemplate' {name} -> name) (\s@DeleteJobTemplate' {} a -> s {name = a} :: DeleteJobTemplate)
 
 instance Core.AWSRequest DeleteJobTemplate where
@@ -80,36 +81,38 @@ instance Core.AWSRequest DeleteJobTemplate where
     Response.receiveEmpty
       ( \s h x ->
           DeleteJobTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteJobTemplate
+instance Prelude.Hashable DeleteJobTemplate
 
-instance Core.NFData DeleteJobTemplate
+instance Prelude.NFData DeleteJobTemplate
 
 instance Core.ToHeaders DeleteJobTemplate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteJobTemplate where
   toPath DeleteJobTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2017-08-29/jobTemplates/", Core.toBS name]
 
 instance Core.ToQuery DeleteJobTemplate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteJobTemplateResponse' smart constructor.
 data DeleteJobTemplateResponse = DeleteJobTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteJobTemplateResponse' with all optional fields omitted.
@@ -122,7 +125,7 @@ data DeleteJobTemplateResponse = DeleteJobTemplateResponse'
 -- 'httpStatus', 'deleteJobTemplateResponse_httpStatus' - The response's http status code.
 newDeleteJobTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteJobTemplateResponse
 newDeleteJobTemplateResponse pHttpStatus_ =
   DeleteJobTemplateResponse'
@@ -131,7 +134,7 @@ newDeleteJobTemplateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteJobTemplateResponse_httpStatus :: Lens.Lens' DeleteJobTemplateResponse Core.Int
+deleteJobTemplateResponse_httpStatus :: Lens.Lens' DeleteJobTemplateResponse Prelude.Int
 deleteJobTemplateResponse_httpStatus = Lens.lens (\DeleteJobTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteJobTemplateResponse' {} a -> s {httpStatus = a} :: DeleteJobTemplateResponse)
 
-instance Core.NFData DeleteJobTemplateResponse
+instance Prelude.NFData DeleteJobTemplateResponse

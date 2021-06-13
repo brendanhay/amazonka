@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.HttpUrlDestinationConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | HTTP URL destination configuration used by the topic rule\'s HTTP
 -- action.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data HttpUrlDestinationConfiguration = HttpUrlDestinationConfiguration'
   { -- | The URL AWS IoT uses to confirm ownership of or access to the topic rule
     -- destination URL.
-    confirmationUrl :: Core.Text
+    confirmationUrl :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpUrlDestinationConfiguration' with all optional fields omitted.
@@ -45,7 +46,7 @@ data HttpUrlDestinationConfiguration = HttpUrlDestinationConfiguration'
 -- destination URL.
 newHttpUrlDestinationConfiguration ::
   -- | 'confirmationUrl'
-  Core.Text ->
+  Prelude.Text ->
   HttpUrlDestinationConfiguration
 newHttpUrlDestinationConfiguration pConfirmationUrl_ =
   HttpUrlDestinationConfiguration'
@@ -55,20 +56,22 @@ newHttpUrlDestinationConfiguration pConfirmationUrl_ =
 
 -- | The URL AWS IoT uses to confirm ownership of or access to the topic rule
 -- destination URL.
-httpUrlDestinationConfiguration_confirmationUrl :: Lens.Lens' HttpUrlDestinationConfiguration Core.Text
+httpUrlDestinationConfiguration_confirmationUrl :: Lens.Lens' HttpUrlDestinationConfiguration Prelude.Text
 httpUrlDestinationConfiguration_confirmationUrl = Lens.lens (\HttpUrlDestinationConfiguration' {confirmationUrl} -> confirmationUrl) (\s@HttpUrlDestinationConfiguration' {} a -> s {confirmationUrl = a} :: HttpUrlDestinationConfiguration)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HttpUrlDestinationConfiguration
 
-instance Core.NFData HttpUrlDestinationConfiguration
+instance
+  Prelude.NFData
+    HttpUrlDestinationConfiguration
 
 instance Core.ToJSON HttpUrlDestinationConfiguration where
   toJSON HttpUrlDestinationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("confirmationUrl" Core..= confirmationUrl)
           ]
       )

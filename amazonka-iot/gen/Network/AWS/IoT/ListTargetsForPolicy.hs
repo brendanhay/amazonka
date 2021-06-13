@@ -47,19 +47,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTargetsForPolicy' smart constructor.
 data ListTargetsForPolicy = ListTargetsForPolicy'
   { -- | The maximum number of results to return at one time.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | A marker used to get the next set of results.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The policy name.
-    policyName :: Core.Text
+    policyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTargetsForPolicy' with all optional fields omitted.
@@ -76,25 +77,25 @@ data ListTargetsForPolicy = ListTargetsForPolicy'
 -- 'policyName', 'listTargetsForPolicy_policyName' - The policy name.
 newListTargetsForPolicy ::
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   ListTargetsForPolicy
 newListTargetsForPolicy pPolicyName_ =
   ListTargetsForPolicy'
-    { pageSize = Core.Nothing,
-      marker = Core.Nothing,
+    { pageSize = Prelude.Nothing,
+      marker = Prelude.Nothing,
       policyName = pPolicyName_
     }
 
 -- | The maximum number of results to return at one time.
-listTargetsForPolicy_pageSize :: Lens.Lens' ListTargetsForPolicy (Core.Maybe Core.Natural)
+listTargetsForPolicy_pageSize :: Lens.Lens' ListTargetsForPolicy (Prelude.Maybe Prelude.Natural)
 listTargetsForPolicy_pageSize = Lens.lens (\ListTargetsForPolicy' {pageSize} -> pageSize) (\s@ListTargetsForPolicy' {} a -> s {pageSize = a} :: ListTargetsForPolicy)
 
 -- | A marker used to get the next set of results.
-listTargetsForPolicy_marker :: Lens.Lens' ListTargetsForPolicy (Core.Maybe Core.Text)
+listTargetsForPolicy_marker :: Lens.Lens' ListTargetsForPolicy (Prelude.Maybe Prelude.Text)
 listTargetsForPolicy_marker = Lens.lens (\ListTargetsForPolicy' {marker} -> marker) (\s@ListTargetsForPolicy' {} a -> s {marker = a} :: ListTargetsForPolicy)
 
 -- | The policy name.
-listTargetsForPolicy_policyName :: Lens.Lens' ListTargetsForPolicy Core.Text
+listTargetsForPolicy_policyName :: Lens.Lens' ListTargetsForPolicy Prelude.Text
 listTargetsForPolicy_policyName = Lens.lens (\ListTargetsForPolicy' {policyName} -> policyName) (\s@ListTargetsForPolicy' {} a -> s {policyName = a} :: ListTargetsForPolicy)
 
 instance Core.AWSPager ListTargetsForPolicy where
@@ -102,22 +103,22 @@ instance Core.AWSPager ListTargetsForPolicy where
     | Core.stop
         ( rs
             Lens.^? listTargetsForPolicyResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTargetsForPolicyResponse_targets
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTargetsForPolicy_marker
+          Prelude.& listTargetsForPolicy_marker
           Lens..~ rs
           Lens.^? listTargetsForPolicyResponse_nextMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTargetsForPolicy where
   type
@@ -128,29 +129,29 @@ instance Core.AWSRequest ListTargetsForPolicy where
     Response.receiveJSON
       ( \s h x ->
           ListTargetsForPolicyResponse'
-            Core.<$> (x Core..?> "nextMarker")
-            Core.<*> (x Core..?> "targets" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextMarker")
+            Prelude.<*> (x Core..?> "targets" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTargetsForPolicy
+instance Prelude.Hashable ListTargetsForPolicy
 
-instance Core.NFData ListTargetsForPolicy
+instance Prelude.NFData ListTargetsForPolicy
 
 instance Core.ToHeaders ListTargetsForPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON ListTargetsForPolicy where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath ListTargetsForPolicy where
   toPath ListTargetsForPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/policy-targets/", Core.toBS policyName]
 
 instance Core.ToQuery ListTargetsForPolicy where
   toQuery ListTargetsForPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "pageSize" Core.=: pageSize,
         "marker" Core.=: marker
       ]
@@ -158,13 +159,13 @@ instance Core.ToQuery ListTargetsForPolicy where
 -- | /See:/ 'newListTargetsForPolicyResponse' smart constructor.
 data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
   { -- | A marker used to get the next set of results.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The policy targets.
-    targets :: Core.Maybe [Core.Text],
+    targets :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTargetsForPolicyResponse' with all optional fields omitted.
@@ -181,26 +182,26 @@ data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
 -- 'httpStatus', 'listTargetsForPolicyResponse_httpStatus' - The response's http status code.
 newListTargetsForPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTargetsForPolicyResponse
 newListTargetsForPolicyResponse pHttpStatus_ =
   ListTargetsForPolicyResponse'
     { nextMarker =
-        Core.Nothing,
-      targets = Core.Nothing,
+        Prelude.Nothing,
+      targets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A marker used to get the next set of results.
-listTargetsForPolicyResponse_nextMarker :: Lens.Lens' ListTargetsForPolicyResponse (Core.Maybe Core.Text)
+listTargetsForPolicyResponse_nextMarker :: Lens.Lens' ListTargetsForPolicyResponse (Prelude.Maybe Prelude.Text)
 listTargetsForPolicyResponse_nextMarker = Lens.lens (\ListTargetsForPolicyResponse' {nextMarker} -> nextMarker) (\s@ListTargetsForPolicyResponse' {} a -> s {nextMarker = a} :: ListTargetsForPolicyResponse)
 
 -- | The policy targets.
-listTargetsForPolicyResponse_targets :: Lens.Lens' ListTargetsForPolicyResponse (Core.Maybe [Core.Text])
-listTargetsForPolicyResponse_targets = Lens.lens (\ListTargetsForPolicyResponse' {targets} -> targets) (\s@ListTargetsForPolicyResponse' {} a -> s {targets = a} :: ListTargetsForPolicyResponse) Core.. Lens.mapping Lens._Coerce
+listTargetsForPolicyResponse_targets :: Lens.Lens' ListTargetsForPolicyResponse (Prelude.Maybe [Prelude.Text])
+listTargetsForPolicyResponse_targets = Lens.lens (\ListTargetsForPolicyResponse' {targets} -> targets) (\s@ListTargetsForPolicyResponse' {} a -> s {targets = a} :: ListTargetsForPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTargetsForPolicyResponse_httpStatus :: Lens.Lens' ListTargetsForPolicyResponse Core.Int
+listTargetsForPolicyResponse_httpStatus :: Lens.Lens' ListTargetsForPolicyResponse Prelude.Int
 listTargetsForPolicyResponse_httpStatus = Lens.lens (\ListTargetsForPolicyResponse' {httpStatus} -> httpStatus) (\s@ListTargetsForPolicyResponse' {} a -> s {httpStatus = a} :: ListTargetsForPolicyResponse)
 
-instance Core.NFData ListTargetsForPolicyResponse
+instance Prelude.NFData ListTargetsForPolicyResponse

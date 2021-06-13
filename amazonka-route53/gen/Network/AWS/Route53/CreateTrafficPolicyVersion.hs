@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -62,16 +63,16 @@ import Network.AWS.Route53.Types
 data CreateTrafficPolicyVersion = CreateTrafficPolicyVersion'
   { -- | The comment that you specified in the @CreateTrafficPolicyVersion@
     -- request, if any.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The ID of the traffic policy for which you want to create a new version.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The definition of this version of the traffic policy, in JSON format.
     -- You specified the JSON in the @CreateTrafficPolicyVersion@ request. For
     -- more information about the JSON format, see
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html CreateTrafficPolicy>.
-    document :: Core.Text
+    document :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTrafficPolicyVersion' with all optional fields omitted.
@@ -92,31 +93,32 @@ data CreateTrafficPolicyVersion = CreateTrafficPolicyVersion'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html CreateTrafficPolicy>.
 newCreateTrafficPolicyVersion ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'document'
-  Core.Text ->
+  Prelude.Text ->
   CreateTrafficPolicyVersion
 newCreateTrafficPolicyVersion pId_ pDocument_ =
   CreateTrafficPolicyVersion'
-    { comment = Core.Nothing,
+    { comment =
+        Prelude.Nothing,
       id = pId_,
       document = pDocument_
     }
 
 -- | The comment that you specified in the @CreateTrafficPolicyVersion@
 -- request, if any.
-createTrafficPolicyVersion_comment :: Lens.Lens' CreateTrafficPolicyVersion (Core.Maybe Core.Text)
+createTrafficPolicyVersion_comment :: Lens.Lens' CreateTrafficPolicyVersion (Prelude.Maybe Prelude.Text)
 createTrafficPolicyVersion_comment = Lens.lens (\CreateTrafficPolicyVersion' {comment} -> comment) (\s@CreateTrafficPolicyVersion' {} a -> s {comment = a} :: CreateTrafficPolicyVersion)
 
 -- | The ID of the traffic policy for which you want to create a new version.
-createTrafficPolicyVersion_id :: Lens.Lens' CreateTrafficPolicyVersion Core.Text
+createTrafficPolicyVersion_id :: Lens.Lens' CreateTrafficPolicyVersion Prelude.Text
 createTrafficPolicyVersion_id = Lens.lens (\CreateTrafficPolicyVersion' {id} -> id) (\s@CreateTrafficPolicyVersion' {} a -> s {id = a} :: CreateTrafficPolicyVersion)
 
 -- | The definition of this version of the traffic policy, in JSON format.
 -- You specified the JSON in the @CreateTrafficPolicyVersion@ request. For
 -- more information about the JSON format, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html CreateTrafficPolicy>.
-createTrafficPolicyVersion_document :: Lens.Lens' CreateTrafficPolicyVersion Core.Text
+createTrafficPolicyVersion_document :: Lens.Lens' CreateTrafficPolicyVersion Prelude.Text
 createTrafficPolicyVersion_document = Lens.lens (\CreateTrafficPolicyVersion' {document} -> document) (\s@CreateTrafficPolicyVersion' {} a -> s {document = a} :: CreateTrafficPolicyVersion)
 
 instance Core.AWSRequest CreateTrafficPolicyVersion where
@@ -128,14 +130,14 @@ instance Core.AWSRequest CreateTrafficPolicyVersion where
     Response.receiveXML
       ( \s h x ->
           CreateTrafficPolicyVersionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "TrafficPolicy")
-            Core.<*> (h Core..# "Location")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "TrafficPolicy")
+            Prelude.<*> (h Core..# "Location")
       )
 
-instance Core.Hashable CreateTrafficPolicyVersion
+instance Prelude.Hashable CreateTrafficPolicyVersion
 
-instance Core.NFData CreateTrafficPolicyVersion
+instance Prelude.NFData CreateTrafficPolicyVersion
 
 instance Core.ToElement CreateTrafficPolicyVersion where
   toElement =
@@ -143,19 +145,19 @@ instance Core.ToElement CreateTrafficPolicyVersion where
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyVersionRequest"
 
 instance Core.ToHeaders CreateTrafficPolicyVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTrafficPolicyVersion where
   toPath CreateTrafficPolicyVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2013-04-01/trafficpolicy/", Core.toBS id]
 
 instance Core.ToQuery CreateTrafficPolicyVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML CreateTrafficPolicyVersion where
   toXML CreateTrafficPolicyVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Comment" Core.@= comment,
         "Document" Core.@= document
       ]
@@ -166,14 +168,14 @@ instance Core.ToXML CreateTrafficPolicyVersion where
 -- /See:/ 'newCreateTrafficPolicyVersionResponse' smart constructor.
 data CreateTrafficPolicyVersionResponse = CreateTrafficPolicyVersionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains settings for the new version of the traffic
     -- policy.
     trafficPolicy :: TrafficPolicy,
     -- | A unique URL that represents a new traffic policy version.
-    location :: Core.Text
+    location :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTrafficPolicyVersionResponse' with all optional fields omitted.
@@ -191,11 +193,11 @@ data CreateTrafficPolicyVersionResponse = CreateTrafficPolicyVersionResponse'
 -- 'location', 'createTrafficPolicyVersionResponse_location' - A unique URL that represents a new traffic policy version.
 newCreateTrafficPolicyVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'trafficPolicy'
   TrafficPolicy ->
   -- | 'location'
-  Core.Text ->
+  Prelude.Text ->
   CreateTrafficPolicyVersionResponse
 newCreateTrafficPolicyVersionResponse
   pHttpStatus_
@@ -209,7 +211,7 @@ newCreateTrafficPolicyVersionResponse
       }
 
 -- | The response's http status code.
-createTrafficPolicyVersionResponse_httpStatus :: Lens.Lens' CreateTrafficPolicyVersionResponse Core.Int
+createTrafficPolicyVersionResponse_httpStatus :: Lens.Lens' CreateTrafficPolicyVersionResponse Prelude.Int
 createTrafficPolicyVersionResponse_httpStatus = Lens.lens (\CreateTrafficPolicyVersionResponse' {httpStatus} -> httpStatus) (\s@CreateTrafficPolicyVersionResponse' {} a -> s {httpStatus = a} :: CreateTrafficPolicyVersionResponse)
 
 -- | A complex type that contains settings for the new version of the traffic
@@ -218,9 +220,9 @@ createTrafficPolicyVersionResponse_trafficPolicy :: Lens.Lens' CreateTrafficPoli
 createTrafficPolicyVersionResponse_trafficPolicy = Lens.lens (\CreateTrafficPolicyVersionResponse' {trafficPolicy} -> trafficPolicy) (\s@CreateTrafficPolicyVersionResponse' {} a -> s {trafficPolicy = a} :: CreateTrafficPolicyVersionResponse)
 
 -- | A unique URL that represents a new traffic policy version.
-createTrafficPolicyVersionResponse_location :: Lens.Lens' CreateTrafficPolicyVersionResponse Core.Text
+createTrafficPolicyVersionResponse_location :: Lens.Lens' CreateTrafficPolicyVersionResponse Prelude.Text
 createTrafficPolicyVersionResponse_location = Lens.lens (\CreateTrafficPolicyVersionResponse' {location} -> location) (\s@CreateTrafficPolicyVersionResponse' {} a -> s {location = a} :: CreateTrafficPolicyVersionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateTrafficPolicyVersionResponse

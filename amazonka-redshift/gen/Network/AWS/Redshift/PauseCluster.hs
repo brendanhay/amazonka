@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPauseCluster' smart constructor.
 data PauseCluster = PauseCluster'
   { -- | The identifier of the cluster to be paused.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PauseCluster' with all optional fields omitted.
@@ -66,7 +67,7 @@ data PauseCluster = PauseCluster'
 -- 'clusterIdentifier', 'pauseCluster_clusterIdentifier' - The identifier of the cluster to be paused.
 newPauseCluster ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   PauseCluster
 newPauseCluster pClusterIdentifier_ =
   PauseCluster'
@@ -75,7 +76,7 @@ newPauseCluster pClusterIdentifier_ =
     }
 
 -- | The identifier of the cluster to be paused.
-pauseCluster_clusterIdentifier :: Lens.Lens' PauseCluster Core.Text
+pauseCluster_clusterIdentifier :: Lens.Lens' PauseCluster Prelude.Text
 pauseCluster_clusterIdentifier = Lens.lens (\PauseCluster' {clusterIdentifier} -> clusterIdentifier) (\s@PauseCluster' {} a -> s {clusterIdentifier = a} :: PauseCluster)
 
 instance Core.AWSRequest PauseCluster where
@@ -86,36 +87,37 @@ instance Core.AWSRequest PauseCluster where
       "PauseClusterResult"
       ( \s h x ->
           PauseClusterResponse'
-            Core.<$> (x Core..@? "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PauseCluster
+instance Prelude.Hashable PauseCluster
 
-instance Core.NFData PauseCluster
+instance Prelude.NFData PauseCluster
 
 instance Core.ToHeaders PauseCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PauseCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PauseCluster where
   toQuery PauseCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PauseCluster" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("PauseCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newPauseClusterResponse' smart constructor.
 data PauseClusterResponse = PauseClusterResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PauseClusterResponse' with all optional fields omitted.
@@ -130,20 +132,20 @@ data PauseClusterResponse = PauseClusterResponse'
 -- 'httpStatus', 'pauseClusterResponse_httpStatus' - The response's http status code.
 newPauseClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PauseClusterResponse
 newPauseClusterResponse pHttpStatus_ =
   PauseClusterResponse'
-    { cluster = Core.Nothing,
+    { cluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-pauseClusterResponse_cluster :: Lens.Lens' PauseClusterResponse (Core.Maybe Cluster)
+pauseClusterResponse_cluster :: Lens.Lens' PauseClusterResponse (Prelude.Maybe Cluster)
 pauseClusterResponse_cluster = Lens.lens (\PauseClusterResponse' {cluster} -> cluster) (\s@PauseClusterResponse' {} a -> s {cluster = a} :: PauseClusterResponse)
 
 -- | The response's http status code.
-pauseClusterResponse_httpStatus :: Lens.Lens' PauseClusterResponse Core.Int
+pauseClusterResponse_httpStatus :: Lens.Lens' PauseClusterResponse Prelude.Int
 pauseClusterResponse_httpStatus = Lens.lens (\PauseClusterResponse' {httpStatus} -> httpStatus) (\s@PauseClusterResponse' {} a -> s {httpStatus = a} :: PauseClusterResponse)
 
-instance Core.NFData PauseClusterResponse
+instance Prelude.NFData PauseClusterResponse

@@ -21,15 +21,16 @@ module Network.AWS.GuardDuty.Types.FindingStatistics where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about finding statistics.
 --
 -- /See:/ 'newFindingStatistics' smart constructor.
 data FindingStatistics = FindingStatistics'
   { -- | Represents a map of severity to count statistics for a set of findings.
-    countBySeverity :: Core.Maybe (Core.HashMap Core.Text Core.Int)
+    countBySeverity :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FindingStatistics' with all optional fields omitted.
@@ -43,11 +44,14 @@ data FindingStatistics = FindingStatistics'
 newFindingStatistics ::
   FindingStatistics
 newFindingStatistics =
-  FindingStatistics' {countBySeverity = Core.Nothing}
+  FindingStatistics'
+    { countBySeverity =
+        Prelude.Nothing
+    }
 
 -- | Represents a map of severity to count statistics for a set of findings.
-findingStatistics_countBySeverity :: Lens.Lens' FindingStatistics (Core.Maybe (Core.HashMap Core.Text Core.Int))
-findingStatistics_countBySeverity = Lens.lens (\FindingStatistics' {countBySeverity} -> countBySeverity) (\s@FindingStatistics' {} a -> s {countBySeverity = a} :: FindingStatistics) Core.. Lens.mapping Lens._Coerce
+findingStatistics_countBySeverity :: Lens.Lens' FindingStatistics (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
+findingStatistics_countBySeverity = Lens.lens (\FindingStatistics' {countBySeverity} -> countBySeverity) (\s@FindingStatistics' {} a -> s {countBySeverity = a} :: FindingStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON FindingStatistics where
   parseJSON =
@@ -55,9 +59,11 @@ instance Core.FromJSON FindingStatistics where
       "FindingStatistics"
       ( \x ->
           FindingStatistics'
-            Core.<$> (x Core..:? "countBySeverity" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "countBySeverity"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable FindingStatistics
+instance Prelude.Hashable FindingStatistics
 
-instance Core.NFData FindingStatistics
+instance Prelude.NFData FindingStatistics

@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.VideoSelectorProgramId where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Video Selector Program Id
 --
@@ -29,9 +30,9 @@ data VideoSelectorProgramId = VideoSelectorProgramId'
   { -- | Selects a specific program from within a multi-program transport stream.
     -- If the program doesn\'t exist, the first program within the transport
     -- stream will be selected by default.
-    programId :: Core.Maybe Core.Natural
+    programId :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VideoSelectorProgramId' with all optional fields omitted.
@@ -47,12 +48,15 @@ data VideoSelectorProgramId = VideoSelectorProgramId'
 newVideoSelectorProgramId ::
   VideoSelectorProgramId
 newVideoSelectorProgramId =
-  VideoSelectorProgramId' {programId = Core.Nothing}
+  VideoSelectorProgramId'
+    { programId =
+        Prelude.Nothing
+    }
 
 -- | Selects a specific program from within a multi-program transport stream.
 -- If the program doesn\'t exist, the first program within the transport
 -- stream will be selected by default.
-videoSelectorProgramId_programId :: Lens.Lens' VideoSelectorProgramId (Core.Maybe Core.Natural)
+videoSelectorProgramId_programId :: Lens.Lens' VideoSelectorProgramId (Prelude.Maybe Prelude.Natural)
 videoSelectorProgramId_programId = Lens.lens (\VideoSelectorProgramId' {programId} -> programId) (\s@VideoSelectorProgramId' {} a -> s {programId = a} :: VideoSelectorProgramId)
 
 instance Core.FromJSON VideoSelectorProgramId where
@@ -61,16 +65,16 @@ instance Core.FromJSON VideoSelectorProgramId where
       "VideoSelectorProgramId"
       ( \x ->
           VideoSelectorProgramId'
-            Core.<$> (x Core..:? "programId")
+            Prelude.<$> (x Core..:? "programId")
       )
 
-instance Core.Hashable VideoSelectorProgramId
+instance Prelude.Hashable VideoSelectorProgramId
 
-instance Core.NFData VideoSelectorProgramId
+instance Prelude.NFData VideoSelectorProgramId
 
 instance Core.ToJSON VideoSelectorProgramId where
   toJSON VideoSelectorProgramId' {..} =
     Core.object
-      ( Core.catMaybes
-          [("programId" Core..=) Core.<$> programId]
+      ( Prelude.catMaybes
+          [("programId" Core..=) Prelude.<$> programId]
       )

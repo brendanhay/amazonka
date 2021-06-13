@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data GetEventStream = GetEventStream'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetEventStream' with all optional fields omitted.
@@ -66,14 +67,14 @@ data GetEventStream = GetEventStream'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetEventStream ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetEventStream
 newGetEventStream pApplicationId_ =
   GetEventStream' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getEventStream_applicationId :: Lens.Lens' GetEventStream Core.Text
+getEventStream_applicationId :: Lens.Lens' GetEventStream Prelude.Text
 getEventStream_applicationId = Lens.lens (\GetEventStream' {applicationId} -> applicationId) (\s@GetEventStream' {} a -> s {applicationId = a} :: GetEventStream)
 
 instance Core.AWSRequest GetEventStream where
@@ -85,41 +86,43 @@ instance Core.AWSRequest GetEventStream where
     Response.receiveJSON
       ( \s h x ->
           GetEventStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetEventStream
+instance Prelude.Hashable GetEventStream
 
-instance Core.NFData GetEventStream
+instance Prelude.NFData GetEventStream
 
 instance Core.ToHeaders GetEventStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetEventStream where
   toPath GetEventStream' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/eventstream"
       ]
 
 instance Core.ToQuery GetEventStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventStreamResponse' smart constructor.
 data GetEventStreamResponse = GetEventStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     eventStream :: EventStream
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetEventStreamResponse' with all optional fields omitted.
@@ -134,7 +137,7 @@ data GetEventStreamResponse = GetEventStreamResponse'
 -- 'eventStream', 'getEventStreamResponse_eventStream' - Undocumented member.
 newGetEventStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'eventStream'
   EventStream ->
   GetEventStreamResponse
@@ -145,11 +148,11 @@ newGetEventStreamResponse pHttpStatus_ pEventStream_ =
     }
 
 -- | The response's http status code.
-getEventStreamResponse_httpStatus :: Lens.Lens' GetEventStreamResponse Core.Int
+getEventStreamResponse_httpStatus :: Lens.Lens' GetEventStreamResponse Prelude.Int
 getEventStreamResponse_httpStatus = Lens.lens (\GetEventStreamResponse' {httpStatus} -> httpStatus) (\s@GetEventStreamResponse' {} a -> s {httpStatus = a} :: GetEventStreamResponse)
 
 -- | Undocumented member.
 getEventStreamResponse_eventStream :: Lens.Lens' GetEventStreamResponse EventStream
 getEventStreamResponse_eventStream = Lens.lens (\GetEventStreamResponse' {eventStream} -> eventStream) (\s@GetEventStreamResponse' {} a -> s {eventStream = a} :: GetEventStreamResponse)
 
-instance Core.NFData GetEventStreamResponse
+instance Prelude.NFData GetEventStreamResponse

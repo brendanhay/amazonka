@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,29 +64,29 @@ data GetProtectionStatus = GetProtectionStatus'
     -- retrieve another group of objects. For the second and subsequent
     -- @GetProtectionStatus@ requests, specify the value of @NextToken@ from
     -- the previous response to get information about another batch of objects.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of objects that you want AWS Firewall Manager to
     -- return for this request. If you have more objects than the number that
     -- you specify for @MaxResults@, the response includes a @NextToken@ value
     -- that you can use to get another batch of objects.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The start of the time period to query for the attacks. This is a
     -- @timestamp@ type. The request syntax listing indicates a @number@ type
     -- because the default used by AWS Firewall Manager is Unix time in
     -- seconds. However, any valid @timestamp@ format is allowed.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The end of the time period to query for the attacks. This is a
     -- @timestamp@ type. The request syntax listing indicates a @number@ type
     -- because the default used by AWS Firewall Manager is Unix time in
     -- seconds. However, any valid @timestamp@ format is allowed.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The AWS account that is in scope of the policy that you want to get the
     -- details for.
-    memberAccountId :: Core.Maybe Core.Text,
+    memberAccountId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the policy for which you want to get the attack information.
-    policyId :: Core.Text
+    policyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetProtectionStatus' with all optional fields omitted.
@@ -123,15 +124,15 @@ data GetProtectionStatus = GetProtectionStatus'
 -- 'policyId', 'getProtectionStatus_policyId' - The ID of the policy for which you want to get the attack information.
 newGetProtectionStatus ::
   -- | 'policyId'
-  Core.Text ->
+  Prelude.Text ->
   GetProtectionStatus
 newGetProtectionStatus pPolicyId_ =
   GetProtectionStatus'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      memberAccountId = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      memberAccountId = Prelude.Nothing,
       policyId = pPolicyId_
     }
 
@@ -141,37 +142,37 @@ newGetProtectionStatus pPolicyId_ =
 -- retrieve another group of objects. For the second and subsequent
 -- @GetProtectionStatus@ requests, specify the value of @NextToken@ from
 -- the previous response to get information about another batch of objects.
-getProtectionStatus_nextToken :: Lens.Lens' GetProtectionStatus (Core.Maybe Core.Text)
+getProtectionStatus_nextToken :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.Text)
 getProtectionStatus_nextToken = Lens.lens (\GetProtectionStatus' {nextToken} -> nextToken) (\s@GetProtectionStatus' {} a -> s {nextToken = a} :: GetProtectionStatus)
 
 -- | Specifies the number of objects that you want AWS Firewall Manager to
 -- return for this request. If you have more objects than the number that
 -- you specify for @MaxResults@, the response includes a @NextToken@ value
 -- that you can use to get another batch of objects.
-getProtectionStatus_maxResults :: Lens.Lens' GetProtectionStatus (Core.Maybe Core.Natural)
+getProtectionStatus_maxResults :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.Natural)
 getProtectionStatus_maxResults = Lens.lens (\GetProtectionStatus' {maxResults} -> maxResults) (\s@GetProtectionStatus' {} a -> s {maxResults = a} :: GetProtectionStatus)
 
 -- | The start of the time period to query for the attacks. This is a
 -- @timestamp@ type. The request syntax listing indicates a @number@ type
 -- because the default used by AWS Firewall Manager is Unix time in
 -- seconds. However, any valid @timestamp@ format is allowed.
-getProtectionStatus_startTime :: Lens.Lens' GetProtectionStatus (Core.Maybe Core.UTCTime)
-getProtectionStatus_startTime = Lens.lens (\GetProtectionStatus' {startTime} -> startTime) (\s@GetProtectionStatus' {} a -> s {startTime = a} :: GetProtectionStatus) Core.. Lens.mapping Core._Time
+getProtectionStatus_startTime :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.UTCTime)
+getProtectionStatus_startTime = Lens.lens (\GetProtectionStatus' {startTime} -> startTime) (\s@GetProtectionStatus' {} a -> s {startTime = a} :: GetProtectionStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The end of the time period to query for the attacks. This is a
 -- @timestamp@ type. The request syntax listing indicates a @number@ type
 -- because the default used by AWS Firewall Manager is Unix time in
 -- seconds. However, any valid @timestamp@ format is allowed.
-getProtectionStatus_endTime :: Lens.Lens' GetProtectionStatus (Core.Maybe Core.UTCTime)
-getProtectionStatus_endTime = Lens.lens (\GetProtectionStatus' {endTime} -> endTime) (\s@GetProtectionStatus' {} a -> s {endTime = a} :: GetProtectionStatus) Core.. Lens.mapping Core._Time
+getProtectionStatus_endTime :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.UTCTime)
+getProtectionStatus_endTime = Lens.lens (\GetProtectionStatus' {endTime} -> endTime) (\s@GetProtectionStatus' {} a -> s {endTime = a} :: GetProtectionStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The AWS account that is in scope of the policy that you want to get the
 -- details for.
-getProtectionStatus_memberAccountId :: Lens.Lens' GetProtectionStatus (Core.Maybe Core.Text)
+getProtectionStatus_memberAccountId :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.Text)
 getProtectionStatus_memberAccountId = Lens.lens (\GetProtectionStatus' {memberAccountId} -> memberAccountId) (\s@GetProtectionStatus' {} a -> s {memberAccountId = a} :: GetProtectionStatus)
 
 -- | The ID of the policy for which you want to get the attack information.
-getProtectionStatus_policyId :: Lens.Lens' GetProtectionStatus Core.Text
+getProtectionStatus_policyId :: Lens.Lens' GetProtectionStatus Prelude.Text
 getProtectionStatus_policyId = Lens.lens (\GetProtectionStatus' {policyId} -> policyId) (\s@GetProtectionStatus' {} a -> s {policyId = a} :: GetProtectionStatus)
 
 instance Core.AWSRequest GetProtectionStatus where
@@ -183,48 +184,51 @@ instance Core.AWSRequest GetProtectionStatus where
     Response.receiveJSON
       ( \s h x ->
           GetProtectionStatusResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "AdminAccountId")
-            Core.<*> (x Core..?> "Data")
-            Core.<*> (x Core..?> "ServiceType")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "AdminAccountId")
+            Prelude.<*> (x Core..?> "Data")
+            Prelude.<*> (x Core..?> "ServiceType")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetProtectionStatus
+instance Prelude.Hashable GetProtectionStatus
 
-instance Core.NFData GetProtectionStatus
+instance Prelude.NFData GetProtectionStatus
 
 instance Core.ToHeaders GetProtectionStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.GetProtectionStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetProtectionStatus where
   toJSON GetProtectionStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("StartTime" Core..=) Core.<$> startTime,
-            ("EndTime" Core..=) Core.<$> endTime,
-            ("MemberAccountId" Core..=) Core.<$> memberAccountId,
-            Core.Just ("PolicyId" Core..= policyId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("StartTime" Core..=) Prelude.<$> startTime,
+            ("EndTime" Core..=) Prelude.<$> endTime,
+            ("MemberAccountId" Core..=)
+              Prelude.<$> memberAccountId,
+            Prelude.Just ("PolicyId" Core..= policyId)
           ]
       )
 
 instance Core.ToPath GetProtectionStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetProtectionStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProtectionStatusResponse' smart constructor.
 data GetProtectionStatusResponse = GetProtectionStatusResponse'
@@ -238,9 +242,9 @@ data GetProtectionStatusResponse = GetProtectionStatusResponse'
     -- and make subsequent request calls automatically on your behalf. However,
     -- this feature is not supported by @GetProtectionStatus@. You must submit
     -- subsequent requests with @NextToken@ using your own processes.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AWS Firewall administrator account for this policy.
-    adminAccountId :: Core.Maybe Core.Text,
+    adminAccountId :: Prelude.Maybe Prelude.Text,
     -- | Details about the attack, including the following:
     --
     -- -   Attack type
@@ -254,14 +258,14 @@ data GetProtectionStatusResponse = GetProtectionStatusResponse'
     -- -   End time of the attack (ongoing attacks will not have an end time)
     --
     -- The details are in JSON format.
-    data' :: Core.Maybe Core.Text,
+    data' :: Prelude.Maybe Prelude.Text,
     -- | The service type that is protected by the policy. Currently, this is
     -- always @SHIELD_ADVANCED@.
-    serviceType :: Core.Maybe SecurityServiceType,
+    serviceType :: Prelude.Maybe SecurityServiceType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetProtectionStatusResponse' with all optional fields omitted.
@@ -304,15 +308,15 @@ data GetProtectionStatusResponse = GetProtectionStatusResponse'
 -- 'httpStatus', 'getProtectionStatusResponse_httpStatus' - The response's http status code.
 newGetProtectionStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetProtectionStatusResponse
 newGetProtectionStatusResponse pHttpStatus_ =
   GetProtectionStatusResponse'
     { nextToken =
-        Core.Nothing,
-      adminAccountId = Core.Nothing,
-      data' = Core.Nothing,
-      serviceType = Core.Nothing,
+        Prelude.Nothing,
+      adminAccountId = Prelude.Nothing,
+      data' = Prelude.Nothing,
+      serviceType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -326,11 +330,11 @@ newGetProtectionStatusResponse pHttpStatus_ =
 -- and make subsequent request calls automatically on your behalf. However,
 -- this feature is not supported by @GetProtectionStatus@. You must submit
 -- subsequent requests with @NextToken@ using your own processes.
-getProtectionStatusResponse_nextToken :: Lens.Lens' GetProtectionStatusResponse (Core.Maybe Core.Text)
+getProtectionStatusResponse_nextToken :: Lens.Lens' GetProtectionStatusResponse (Prelude.Maybe Prelude.Text)
 getProtectionStatusResponse_nextToken = Lens.lens (\GetProtectionStatusResponse' {nextToken} -> nextToken) (\s@GetProtectionStatusResponse' {} a -> s {nextToken = a} :: GetProtectionStatusResponse)
 
 -- | The ID of the AWS Firewall administrator account for this policy.
-getProtectionStatusResponse_adminAccountId :: Lens.Lens' GetProtectionStatusResponse (Core.Maybe Core.Text)
+getProtectionStatusResponse_adminAccountId :: Lens.Lens' GetProtectionStatusResponse (Prelude.Maybe Prelude.Text)
 getProtectionStatusResponse_adminAccountId = Lens.lens (\GetProtectionStatusResponse' {adminAccountId} -> adminAccountId) (\s@GetProtectionStatusResponse' {} a -> s {adminAccountId = a} :: GetProtectionStatusResponse)
 
 -- | Details about the attack, including the following:
@@ -346,16 +350,16 @@ getProtectionStatusResponse_adminAccountId = Lens.lens (\GetProtectionStatusResp
 -- -   End time of the attack (ongoing attacks will not have an end time)
 --
 -- The details are in JSON format.
-getProtectionStatusResponse_data :: Lens.Lens' GetProtectionStatusResponse (Core.Maybe Core.Text)
+getProtectionStatusResponse_data :: Lens.Lens' GetProtectionStatusResponse (Prelude.Maybe Prelude.Text)
 getProtectionStatusResponse_data = Lens.lens (\GetProtectionStatusResponse' {data'} -> data') (\s@GetProtectionStatusResponse' {} a -> s {data' = a} :: GetProtectionStatusResponse)
 
 -- | The service type that is protected by the policy. Currently, this is
 -- always @SHIELD_ADVANCED@.
-getProtectionStatusResponse_serviceType :: Lens.Lens' GetProtectionStatusResponse (Core.Maybe SecurityServiceType)
+getProtectionStatusResponse_serviceType :: Lens.Lens' GetProtectionStatusResponse (Prelude.Maybe SecurityServiceType)
 getProtectionStatusResponse_serviceType = Lens.lens (\GetProtectionStatusResponse' {serviceType} -> serviceType) (\s@GetProtectionStatusResponse' {} a -> s {serviceType = a} :: GetProtectionStatusResponse)
 
 -- | The response's http status code.
-getProtectionStatusResponse_httpStatus :: Lens.Lens' GetProtectionStatusResponse Core.Int
+getProtectionStatusResponse_httpStatus :: Lens.Lens' GetProtectionStatusResponse Prelude.Int
 getProtectionStatusResponse_httpStatus = Lens.lens (\GetProtectionStatusResponse' {httpStatus} -> httpStatus) (\s@GetProtectionStatusResponse' {} a -> s {httpStatus = a} :: GetProtectionStatusResponse)
 
-instance Core.NFData GetProtectionStatusResponse
+instance Prelude.NFData GetProtectionStatusResponse

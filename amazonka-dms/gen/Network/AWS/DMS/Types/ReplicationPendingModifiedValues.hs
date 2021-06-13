@@ -21,6 +21,7 @@ module Network.AWS.DMS.Types.ReplicationPendingModifiedValues where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the values of pending modifications to a
 -- replication instance. This data type is an object of the
@@ -32,21 +33,21 @@ data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
   { -- | Specifies whether the replication instance is a Multi-AZ deployment. You
     -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
     -- set to @true@.
-    multiAZ :: Core.Maybe Core.Bool,
+    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | The engine version number of the replication instance.
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The compute and memory capacity of the replication instance as defined
     -- for the specified replication instance class.
     --
     -- For more information on the settings and capacities for the available
     -- replication instance classes, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
-    replicationInstanceClass :: Core.Maybe Core.Text,
+    replicationInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The amount of storage (in gigabytes) that is allocated for the
     -- replication instance.
-    allocatedStorage :: Core.Maybe Core.Int
+    allocatedStorage :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationPendingModifiedValues' with all optional fields omitted.
@@ -76,20 +77,21 @@ newReplicationPendingModifiedValues ::
 newReplicationPendingModifiedValues =
   ReplicationPendingModifiedValues'
     { multiAZ =
-        Core.Nothing,
-      engineVersion = Core.Nothing,
-      replicationInstanceClass = Core.Nothing,
-      allocatedStorage = Core.Nothing
+        Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      replicationInstanceClass =
+        Prelude.Nothing,
+      allocatedStorage = Prelude.Nothing
     }
 
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
-replicationPendingModifiedValues_multiAZ :: Lens.Lens' ReplicationPendingModifiedValues (Core.Maybe Core.Bool)
+replicationPendingModifiedValues_multiAZ :: Lens.Lens' ReplicationPendingModifiedValues (Prelude.Maybe Prelude.Bool)
 replicationPendingModifiedValues_multiAZ = Lens.lens (\ReplicationPendingModifiedValues' {multiAZ} -> multiAZ) (\s@ReplicationPendingModifiedValues' {} a -> s {multiAZ = a} :: ReplicationPendingModifiedValues)
 
 -- | The engine version number of the replication instance.
-replicationPendingModifiedValues_engineVersion :: Lens.Lens' ReplicationPendingModifiedValues (Core.Maybe Core.Text)
+replicationPendingModifiedValues_engineVersion :: Lens.Lens' ReplicationPendingModifiedValues (Prelude.Maybe Prelude.Text)
 replicationPendingModifiedValues_engineVersion = Lens.lens (\ReplicationPendingModifiedValues' {engineVersion} -> engineVersion) (\s@ReplicationPendingModifiedValues' {} a -> s {engineVersion = a} :: ReplicationPendingModifiedValues)
 
 -- | The compute and memory capacity of the replication instance as defined
@@ -98,12 +100,12 @@ replicationPendingModifiedValues_engineVersion = Lens.lens (\ReplicationPendingM
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
-replicationPendingModifiedValues_replicationInstanceClass :: Lens.Lens' ReplicationPendingModifiedValues (Core.Maybe Core.Text)
+replicationPendingModifiedValues_replicationInstanceClass :: Lens.Lens' ReplicationPendingModifiedValues (Prelude.Maybe Prelude.Text)
 replicationPendingModifiedValues_replicationInstanceClass = Lens.lens (\ReplicationPendingModifiedValues' {replicationInstanceClass} -> replicationInstanceClass) (\s@ReplicationPendingModifiedValues' {} a -> s {replicationInstanceClass = a} :: ReplicationPendingModifiedValues)
 
 -- | The amount of storage (in gigabytes) that is allocated for the
 -- replication instance.
-replicationPendingModifiedValues_allocatedStorage :: Lens.Lens' ReplicationPendingModifiedValues (Core.Maybe Core.Int)
+replicationPendingModifiedValues_allocatedStorage :: Lens.Lens' ReplicationPendingModifiedValues (Prelude.Maybe Prelude.Int)
 replicationPendingModifiedValues_allocatedStorage = Lens.lens (\ReplicationPendingModifiedValues' {allocatedStorage} -> allocatedStorage) (\s@ReplicationPendingModifiedValues' {} a -> s {allocatedStorage = a} :: ReplicationPendingModifiedValues)
 
 instance
@@ -115,14 +117,16 @@ instance
       "ReplicationPendingModifiedValues"
       ( \x ->
           ReplicationPendingModifiedValues'
-            Core.<$> (x Core..:? "MultiAZ")
-            Core.<*> (x Core..:? "EngineVersion")
-            Core.<*> (x Core..:? "ReplicationInstanceClass")
-            Core.<*> (x Core..:? "AllocatedStorage")
+            Prelude.<$> (x Core..:? "MultiAZ")
+            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<*> (x Core..:? "ReplicationInstanceClass")
+            Prelude.<*> (x Core..:? "AllocatedStorage")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReplicationPendingModifiedValues
 
-instance Core.NFData ReplicationPendingModifiedValues
+instance
+  Prelude.NFData
+    ReplicationPendingModifiedValues

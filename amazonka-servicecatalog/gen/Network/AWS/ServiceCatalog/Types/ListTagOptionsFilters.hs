@@ -21,19 +21,20 @@ module Network.AWS.ServiceCatalog.Types.ListTagOptionsFilters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters to use when listing TagOptions.
 --
 -- /See:/ 'newListTagOptionsFilters' smart constructor.
 data ListTagOptionsFilters = ListTagOptionsFilters'
   { -- | The TagOption key.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The active state.
-    active :: Core.Maybe Core.Bool,
+    active :: Prelude.Maybe Prelude.Bool,
     -- | The TagOption value.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagOptionsFilters' with all optional fields omitted.
@@ -52,33 +53,33 @@ newListTagOptionsFilters ::
   ListTagOptionsFilters
 newListTagOptionsFilters =
   ListTagOptionsFilters'
-    { key = Core.Nothing,
-      active = Core.Nothing,
-      value = Core.Nothing
+    { key = Prelude.Nothing,
+      active = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The TagOption key.
-listTagOptionsFilters_key :: Lens.Lens' ListTagOptionsFilters (Core.Maybe Core.Text)
+listTagOptionsFilters_key :: Lens.Lens' ListTagOptionsFilters (Prelude.Maybe Prelude.Text)
 listTagOptionsFilters_key = Lens.lens (\ListTagOptionsFilters' {key} -> key) (\s@ListTagOptionsFilters' {} a -> s {key = a} :: ListTagOptionsFilters)
 
 -- | The active state.
-listTagOptionsFilters_active :: Lens.Lens' ListTagOptionsFilters (Core.Maybe Core.Bool)
+listTagOptionsFilters_active :: Lens.Lens' ListTagOptionsFilters (Prelude.Maybe Prelude.Bool)
 listTagOptionsFilters_active = Lens.lens (\ListTagOptionsFilters' {active} -> active) (\s@ListTagOptionsFilters' {} a -> s {active = a} :: ListTagOptionsFilters)
 
 -- | The TagOption value.
-listTagOptionsFilters_value :: Lens.Lens' ListTagOptionsFilters (Core.Maybe Core.Text)
+listTagOptionsFilters_value :: Lens.Lens' ListTagOptionsFilters (Prelude.Maybe Prelude.Text)
 listTagOptionsFilters_value = Lens.lens (\ListTagOptionsFilters' {value} -> value) (\s@ListTagOptionsFilters' {} a -> s {value = a} :: ListTagOptionsFilters)
 
-instance Core.Hashable ListTagOptionsFilters
+instance Prelude.Hashable ListTagOptionsFilters
 
-instance Core.NFData ListTagOptionsFilters
+instance Prelude.NFData ListTagOptionsFilters
 
 instance Core.ToJSON ListTagOptionsFilters where
   toJSON ListTagOptionsFilters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Active" Core..=) Core.<$> active,
-            ("Value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Active" Core..=) Prelude.<$> active,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

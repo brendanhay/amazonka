@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ data GetSAMLProvider = GetSAMLProvider'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    sAMLProviderArn :: Core.Text
+    sAMLProviderArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSAMLProvider' with all optional fields omitted.
@@ -80,7 +81,7 @@ data GetSAMLProvider = GetSAMLProvider'
 -- in the /AWS General Reference/.
 newGetSAMLProvider ::
   -- | 'sAMLProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   GetSAMLProvider
 newGetSAMLProvider pSAMLProviderArn_ =
   GetSAMLProvider'
@@ -94,7 +95,7 @@ newGetSAMLProvider pSAMLProviderArn_ =
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-getSAMLProvider_sAMLProviderArn :: Lens.Lens' GetSAMLProvider Core.Text
+getSAMLProvider_sAMLProviderArn :: Lens.Lens' GetSAMLProvider Prelude.Text
 getSAMLProvider_sAMLProviderArn = Lens.lens (\GetSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@GetSAMLProvider' {} a -> s {sAMLProviderArn = a} :: GetSAMLProvider)
 
 instance Core.AWSRequest GetSAMLProvider where
@@ -107,31 +108,32 @@ instance Core.AWSRequest GetSAMLProvider where
       "GetSAMLProviderResult"
       ( \s h x ->
           GetSAMLProviderResponse'
-            Core.<$> (x Core..@? "CreateDate")
-            Core.<*> (x Core..@? "ValidUntil")
-            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "SAMLMetadataDocument")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "CreateDate")
+            Prelude.<*> (x Core..@? "ValidUntil")
+            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "SAMLMetadataDocument")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSAMLProvider
+instance Prelude.Hashable GetSAMLProvider
 
-instance Core.NFData GetSAMLProvider
+instance Prelude.NFData GetSAMLProvider
 
 instance Core.ToHeaders GetSAMLProvider where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetSAMLProvider where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSAMLProvider where
   toQuery GetSAMLProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSAMLProvider" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("GetSAMLProvider" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "SAMLProviderArn" Core.=: sAMLProviderArn
       ]
 
@@ -140,22 +142,22 @@ instance Core.ToQuery GetSAMLProvider where
 -- /See:/ 'newGetSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
   { -- | The date and time when the SAML provider was created.
-    createDate :: Core.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Core.ISO8601,
     -- | The expiration date and time for the SAML provider.
-    validUntil :: Core.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Core.ISO8601,
     -- | A list of tags that are attached to the specified IAM SAML provider. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The XML metadata document that includes information about an identity
     -- provider.
-    sAMLMetadataDocument :: Core.Maybe Core.Text,
+    sAMLMetadataDocument :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSAMLProviderResponse' with all optional fields omitted.
@@ -181,40 +183,41 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
 -- 'httpStatus', 'getSAMLProviderResponse_httpStatus' - The response's http status code.
 newGetSAMLProviderResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSAMLProviderResponse
 newGetSAMLProviderResponse pHttpStatus_ =
   GetSAMLProviderResponse'
-    { createDate = Core.Nothing,
-      validUntil = Core.Nothing,
-      tags = Core.Nothing,
-      sAMLMetadataDocument = Core.Nothing,
+    { createDate =
+        Prelude.Nothing,
+      validUntil = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      sAMLMetadataDocument = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date and time when the SAML provider was created.
-getSAMLProviderResponse_createDate :: Lens.Lens' GetSAMLProviderResponse (Core.Maybe Core.UTCTime)
-getSAMLProviderResponse_createDate = Lens.lens (\GetSAMLProviderResponse' {createDate} -> createDate) (\s@GetSAMLProviderResponse' {} a -> s {createDate = a} :: GetSAMLProviderResponse) Core.. Lens.mapping Core._Time
+getSAMLProviderResponse_createDate :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
+getSAMLProviderResponse_createDate = Lens.lens (\GetSAMLProviderResponse' {createDate} -> createDate) (\s@GetSAMLProviderResponse' {} a -> s {createDate = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The expiration date and time for the SAML provider.
-getSAMLProviderResponse_validUntil :: Lens.Lens' GetSAMLProviderResponse (Core.Maybe Core.UTCTime)
-getSAMLProviderResponse_validUntil = Lens.lens (\GetSAMLProviderResponse' {validUntil} -> validUntil) (\s@GetSAMLProviderResponse' {} a -> s {validUntil = a} :: GetSAMLProviderResponse) Core.. Lens.mapping Core._Time
+getSAMLProviderResponse_validUntil :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
+getSAMLProviderResponse_validUntil = Lens.lens (\GetSAMLProviderResponse' {validUntil} -> validUntil) (\s@GetSAMLProviderResponse' {} a -> s {validUntil = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A list of tags that are attached to the specified IAM SAML provider. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
-getSAMLProviderResponse_tags :: Lens.Lens' GetSAMLProviderResponse (Core.Maybe [Tag])
-getSAMLProviderResponse_tags = Lens.lens (\GetSAMLProviderResponse' {tags} -> tags) (\s@GetSAMLProviderResponse' {} a -> s {tags = a} :: GetSAMLProviderResponse) Core.. Lens.mapping Lens._Coerce
+getSAMLProviderResponse_tags :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe [Tag])
+getSAMLProviderResponse_tags = Lens.lens (\GetSAMLProviderResponse' {tags} -> tags) (\s@GetSAMLProviderResponse' {} a -> s {tags = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The XML metadata document that includes information about an identity
 -- provider.
-getSAMLProviderResponse_sAMLMetadataDocument :: Lens.Lens' GetSAMLProviderResponse (Core.Maybe Core.Text)
+getSAMLProviderResponse_sAMLMetadataDocument :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.Text)
 getSAMLProviderResponse_sAMLMetadataDocument = Lens.lens (\GetSAMLProviderResponse' {sAMLMetadataDocument} -> sAMLMetadataDocument) (\s@GetSAMLProviderResponse' {} a -> s {sAMLMetadataDocument = a} :: GetSAMLProviderResponse)
 
 -- | The response's http status code.
-getSAMLProviderResponse_httpStatus :: Lens.Lens' GetSAMLProviderResponse Core.Int
+getSAMLProviderResponse_httpStatus :: Lens.Lens' GetSAMLProviderResponse Prelude.Int
 getSAMLProviderResponse_httpStatus = Lens.lens (\GetSAMLProviderResponse' {httpStatus} -> httpStatus) (\s@GetSAMLProviderResponse' {} a -> s {httpStatus = a} :: GetSAMLProviderResponse)
 
-instance Core.NFData GetSAMLProviderResponse
+instance Prelude.NFData GetSAMLProviderResponse

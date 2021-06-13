@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -75,11 +76,11 @@ data EnableLogging = EnableLogging'
     --     -   x5c
     --
     --     -   x7f or larger
-    s3KeyPrefix :: Core.Maybe Core.Text,
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster on which logging is to be started.
     --
     -- Example: @examplecluster@
-    clusterIdentifier :: Core.Text,
+    clusterIdentifier :: Prelude.Text,
     -- | The name of an existing S3 bucket where the log files are to be stored.
     --
     -- Constraints:
@@ -87,9 +88,9 @@ data EnableLogging = EnableLogging'
     -- -   Must be in the same region as the cluster
     --
     -- -   The cluster must have read bucket and put object permissions
-    bucketName :: Core.Text
+    bucketName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableLogging' with all optional fields omitted.
@@ -132,13 +133,13 @@ data EnableLogging = EnableLogging'
 -- -   The cluster must have read bucket and put object permissions
 newEnableLogging ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'bucketName'
-  Core.Text ->
+  Prelude.Text ->
   EnableLogging
 newEnableLogging pClusterIdentifier_ pBucketName_ =
   EnableLogging'
-    { s3KeyPrefix = Core.Nothing,
+    { s3KeyPrefix = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_,
       bucketName = pBucketName_
     }
@@ -162,13 +163,13 @@ newEnableLogging pClusterIdentifier_ pBucketName_ =
 --     -   x5c
 --
 --     -   x7f or larger
-enableLogging_s3KeyPrefix :: Lens.Lens' EnableLogging (Core.Maybe Core.Text)
+enableLogging_s3KeyPrefix :: Lens.Lens' EnableLogging (Prelude.Maybe Prelude.Text)
 enableLogging_s3KeyPrefix = Lens.lens (\EnableLogging' {s3KeyPrefix} -> s3KeyPrefix) (\s@EnableLogging' {} a -> s {s3KeyPrefix = a} :: EnableLogging)
 
 -- | The identifier of the cluster on which logging is to be started.
 --
 -- Example: @examplecluster@
-enableLogging_clusterIdentifier :: Lens.Lens' EnableLogging Core.Text
+enableLogging_clusterIdentifier :: Lens.Lens' EnableLogging Prelude.Text
 enableLogging_clusterIdentifier = Lens.lens (\EnableLogging' {clusterIdentifier} -> clusterIdentifier) (\s@EnableLogging' {} a -> s {clusterIdentifier = a} :: EnableLogging)
 
 -- | The name of an existing S3 bucket where the log files are to be stored.
@@ -178,7 +179,7 @@ enableLogging_clusterIdentifier = Lens.lens (\EnableLogging' {clusterIdentifier}
 -- -   Must be in the same region as the cluster
 --
 -- -   The cluster must have read bucket and put object permissions
-enableLogging_bucketName :: Lens.Lens' EnableLogging Core.Text
+enableLogging_bucketName :: Lens.Lens' EnableLogging Prelude.Text
 enableLogging_bucketName = Lens.lens (\EnableLogging' {bucketName} -> bucketName) (\s@EnableLogging' {} a -> s {bucketName = a} :: EnableLogging)
 
 instance Core.AWSRequest EnableLogging where
@@ -189,22 +190,23 @@ instance Core.AWSRequest EnableLogging where
       "EnableLoggingResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable EnableLogging
+instance Prelude.Hashable EnableLogging
 
-instance Core.NFData EnableLogging
+instance Prelude.NFData EnableLogging
 
 instance Core.ToHeaders EnableLogging where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath EnableLogging where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableLogging where
   toQuery EnableLogging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableLogging" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("EnableLogging" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "S3KeyPrefix" Core.=: s3KeyPrefix,
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "BucketName" Core.=: bucketName

@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,15 +65,15 @@ data ListPlatformVersions = ListPlatformVersions'
     -- identical to the ones specified in the initial request.
     --
     -- If no @NextToken@ is specified, the first page is retrieved.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Criteria for restricting the resulting list of platform versions. The
     -- filter is interpreted as a logical conjunction (AND) of the separate
     -- @PlatformFilter@ terms.
-    filters :: Core.Maybe [PlatformFilter],
+    filters :: Prelude.Maybe [PlatformFilter],
     -- | The maximum number of platform version values returned in one call.
-    maxRecords :: Core.Maybe Core.Natural
+    maxRecords :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPlatformVersions' with all optional fields omitted.
@@ -97,9 +98,9 @@ newListPlatformVersions ::
   ListPlatformVersions
 newListPlatformVersions =
   ListPlatformVersions'
-    { nextToken = Core.Nothing,
-      filters = Core.Nothing,
-      maxRecords = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | For a paginated request. Specify a token from a previous response page
@@ -107,17 +108,17 @@ newListPlatformVersions =
 -- identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
-listPlatformVersions_nextToken :: Lens.Lens' ListPlatformVersions (Core.Maybe Core.Text)
+listPlatformVersions_nextToken :: Lens.Lens' ListPlatformVersions (Prelude.Maybe Prelude.Text)
 listPlatformVersions_nextToken = Lens.lens (\ListPlatformVersions' {nextToken} -> nextToken) (\s@ListPlatformVersions' {} a -> s {nextToken = a} :: ListPlatformVersions)
 
 -- | Criteria for restricting the resulting list of platform versions. The
 -- filter is interpreted as a logical conjunction (AND) of the separate
 -- @PlatformFilter@ terms.
-listPlatformVersions_filters :: Lens.Lens' ListPlatformVersions (Core.Maybe [PlatformFilter])
-listPlatformVersions_filters = Lens.lens (\ListPlatformVersions' {filters} -> filters) (\s@ListPlatformVersions' {} a -> s {filters = a} :: ListPlatformVersions) Core.. Lens.mapping Lens._Coerce
+listPlatformVersions_filters :: Lens.Lens' ListPlatformVersions (Prelude.Maybe [PlatformFilter])
+listPlatformVersions_filters = Lens.lens (\ListPlatformVersions' {filters} -> filters) (\s@ListPlatformVersions' {} a -> s {filters = a} :: ListPlatformVersions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of platform version values returned in one call.
-listPlatformVersions_maxRecords :: Lens.Lens' ListPlatformVersions (Core.Maybe Core.Natural)
+listPlatformVersions_maxRecords :: Lens.Lens' ListPlatformVersions (Prelude.Maybe Prelude.Natural)
 listPlatformVersions_maxRecords = Lens.lens (\ListPlatformVersions' {maxRecords} -> maxRecords) (\s@ListPlatformVersions' {} a -> s {maxRecords = a} :: ListPlatformVersions)
 
 instance Core.AWSPager ListPlatformVersions where
@@ -125,22 +126,22 @@ instance Core.AWSPager ListPlatformVersions where
     | Core.stop
         ( rs
             Lens.^? listPlatformVersionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPlatformVersionsResponse_platformSummaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPlatformVersions_nextToken
+          Prelude.& listPlatformVersions_nextToken
           Lens..~ rs
           Lens.^? listPlatformVersionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlatformVersions where
   type
@@ -152,34 +153,35 @@ instance Core.AWSRequest ListPlatformVersions where
       "ListPlatformVersionsResult"
       ( \s h x ->
           ListPlatformVersionsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "PlatformSummaryList"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "PlatformSummaryList"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPlatformVersions
+instance Prelude.Hashable ListPlatformVersions
 
-instance Core.NFData ListPlatformVersions
+instance Prelude.NFData ListPlatformVersions
 
 instance Core.ToHeaders ListPlatformVersions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListPlatformVersions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListPlatformVersions where
   toQuery ListPlatformVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPlatformVersions" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("ListPlatformVersions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> filters),
+            (Core.toQueryList "member" Prelude.<$> filters),
         "MaxRecords" Core.=: maxRecords
       ]
 
@@ -187,13 +189,13 @@ instance Core.ToQuery ListPlatformVersions where
 data ListPlatformVersionsResponse = ListPlatformVersionsResponse'
   { -- | In a paginated request, if this value isn\'t @null@, it\'s the token
     -- that you can pass in a subsequent request to get the next response page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Summary information about the platform versions.
-    platformSummaryList :: Core.Maybe [PlatformSummary],
+    platformSummaryList :: Prelude.Maybe [PlatformSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPlatformVersionsResponse' with all optional fields omitted.
@@ -211,27 +213,27 @@ data ListPlatformVersionsResponse = ListPlatformVersionsResponse'
 -- 'httpStatus', 'listPlatformVersionsResponse_httpStatus' - The response's http status code.
 newListPlatformVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPlatformVersionsResponse
 newListPlatformVersionsResponse pHttpStatus_ =
   ListPlatformVersionsResponse'
     { nextToken =
-        Core.Nothing,
-      platformSummaryList = Core.Nothing,
+        Prelude.Nothing,
+      platformSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | In a paginated request, if this value isn\'t @null@, it\'s the token
 -- that you can pass in a subsequent request to get the next response page.
-listPlatformVersionsResponse_nextToken :: Lens.Lens' ListPlatformVersionsResponse (Core.Maybe Core.Text)
+listPlatformVersionsResponse_nextToken :: Lens.Lens' ListPlatformVersionsResponse (Prelude.Maybe Prelude.Text)
 listPlatformVersionsResponse_nextToken = Lens.lens (\ListPlatformVersionsResponse' {nextToken} -> nextToken) (\s@ListPlatformVersionsResponse' {} a -> s {nextToken = a} :: ListPlatformVersionsResponse)
 
 -- | Summary information about the platform versions.
-listPlatformVersionsResponse_platformSummaryList :: Lens.Lens' ListPlatformVersionsResponse (Core.Maybe [PlatformSummary])
-listPlatformVersionsResponse_platformSummaryList = Lens.lens (\ListPlatformVersionsResponse' {platformSummaryList} -> platformSummaryList) (\s@ListPlatformVersionsResponse' {} a -> s {platformSummaryList = a} :: ListPlatformVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listPlatformVersionsResponse_platformSummaryList :: Lens.Lens' ListPlatformVersionsResponse (Prelude.Maybe [PlatformSummary])
+listPlatformVersionsResponse_platformSummaryList = Lens.lens (\ListPlatformVersionsResponse' {platformSummaryList} -> platformSummaryList) (\s@ListPlatformVersionsResponse' {} a -> s {platformSummaryList = a} :: ListPlatformVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPlatformVersionsResponse_httpStatus :: Lens.Lens' ListPlatformVersionsResponse Core.Int
+listPlatformVersionsResponse_httpStatus :: Lens.Lens' ListPlatformVersionsResponse Prelude.Int
 listPlatformVersionsResponse_httpStatus = Lens.lens (\ListPlatformVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPlatformVersionsResponse' {} a -> s {httpStatus = a} :: ListPlatformVersionsResponse)
 
-instance Core.NFData ListPlatformVersionsResponse
+instance Prelude.NFData ListPlatformVersionsResponse

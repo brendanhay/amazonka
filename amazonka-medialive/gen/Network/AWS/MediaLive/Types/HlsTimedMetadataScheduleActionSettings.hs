@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for the action to emit HLS metadata
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data HlsTimedMetadataScheduleActionSettings = HlsTimedMetadataScheduleActionSettings'
   { -- | Base64 string formatted according to the ID3 specification:
     -- http:\/\/id3.org\/id3v2.4.0-structure
-    id3 :: Core.Text
+    id3 :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsTimedMetadataScheduleActionSettings' with all optional fields omitted.
@@ -44,7 +45,7 @@ data HlsTimedMetadataScheduleActionSettings = HlsTimedMetadataScheduleActionSett
 -- http:\/\/id3.org\/id3v2.4.0-structure
 newHlsTimedMetadataScheduleActionSettings ::
   -- | 'id3'
-  Core.Text ->
+  Prelude.Text ->
   HlsTimedMetadataScheduleActionSettings
 newHlsTimedMetadataScheduleActionSettings pId3_ =
   HlsTimedMetadataScheduleActionSettings'
@@ -54,7 +55,7 @@ newHlsTimedMetadataScheduleActionSettings pId3_ =
 
 -- | Base64 string formatted according to the ID3 specification:
 -- http:\/\/id3.org\/id3v2.4.0-structure
-hlsTimedMetadataScheduleActionSettings_id3 :: Lens.Lens' HlsTimedMetadataScheduleActionSettings Core.Text
+hlsTimedMetadataScheduleActionSettings_id3 :: Lens.Lens' HlsTimedMetadataScheduleActionSettings Prelude.Text
 hlsTimedMetadataScheduleActionSettings_id3 = Lens.lens (\HlsTimedMetadataScheduleActionSettings' {id3} -> id3) (\s@HlsTimedMetadataScheduleActionSettings' {} a -> s {id3 = a} :: HlsTimedMetadataScheduleActionSettings)
 
 instance
@@ -66,15 +67,15 @@ instance
       "HlsTimedMetadataScheduleActionSettings"
       ( \x ->
           HlsTimedMetadataScheduleActionSettings'
-            Core.<$> (x Core..: "id3")
+            Prelude.<$> (x Core..: "id3")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HlsTimedMetadataScheduleActionSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     HlsTimedMetadataScheduleActionSettings
 
 instance
@@ -83,4 +84,6 @@ instance
   where
   toJSON HlsTimedMetadataScheduleActionSettings' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("id3" Core..= id3)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("id3" Core..= id3)]
+      )

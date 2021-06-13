@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteStream' smart constructor.
 data DeleteStream = DeleteStream'
   { -- | The stream ID.
-    streamId :: Core.Text
+    streamId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStream' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteStream = DeleteStream'
 -- 'streamId', 'deleteStream_streamId' - The stream ID.
 newDeleteStream ::
   -- | 'streamId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteStream
 newDeleteStream pStreamId_ =
   DeleteStream' {streamId = pStreamId_}
 
 -- | The stream ID.
-deleteStream_streamId :: Lens.Lens' DeleteStream Core.Text
+deleteStream_streamId :: Lens.Lens' DeleteStream Prelude.Text
 deleteStream_streamId = Lens.lens (\DeleteStream' {streamId} -> streamId) (\s@DeleteStream' {} a -> s {streamId = a} :: DeleteStream)
 
 instance Core.AWSRequest DeleteStream where
@@ -78,29 +79,29 @@ instance Core.AWSRequest DeleteStream where
     Response.receiveEmpty
       ( \s h x ->
           DeleteStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteStream
+instance Prelude.Hashable DeleteStream
 
-instance Core.NFData DeleteStream
+instance Prelude.NFData DeleteStream
 
 instance Core.ToHeaders DeleteStream where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteStream where
   toPath DeleteStream' {..} =
-    Core.mconcat ["/streams/", Core.toBS streamId]
+    Prelude.mconcat ["/streams/", Core.toBS streamId]
 
 instance Core.ToQuery DeleteStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamResponse' smart constructor.
 data DeleteStreamResponse = DeleteStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamResponse' with all optional fields omitted.
@@ -113,13 +114,13 @@ data DeleteStreamResponse = DeleteStreamResponse'
 -- 'httpStatus', 'deleteStreamResponse_httpStatus' - The response's http status code.
 newDeleteStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteStreamResponse
 newDeleteStreamResponse pHttpStatus_ =
   DeleteStreamResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteStreamResponse_httpStatus :: Lens.Lens' DeleteStreamResponse Core.Int
+deleteStreamResponse_httpStatus :: Lens.Lens' DeleteStreamResponse Prelude.Int
 deleteStreamResponse_httpStatus = Lens.lens (\DeleteStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteStreamResponse' {} a -> s {httpStatus = a} :: DeleteStreamResponse)
 
-instance Core.NFData DeleteStreamResponse
+instance Prelude.NFData DeleteStreamResponse

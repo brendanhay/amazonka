@@ -49,15 +49,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListGlobalTables' smart constructor.
 data ListGlobalTables = ListGlobalTables'
   { -- | Lists the global tables in a specific Region.
-    regionName :: Core.Maybe Core.Text,
+    regionName :: Prelude.Maybe Prelude.Text,
     -- | The first global table name that this operation will evaluate.
-    exclusiveStartGlobalTableName :: Core.Maybe Core.Text,
+    exclusiveStartGlobalTableName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of table names to return, if the parameter is not
     -- specified DynamoDB defaults to 100.
     --
@@ -66,9 +67,9 @@ data ListGlobalTables = ListGlobalTables'
     -- point, with a table name in the @LastEvaluatedGlobalTableName@ to apply
     -- in a subsequent operation to the @ExclusiveStartGlobalTableName@
     -- parameter.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGlobalTables' with all optional fields omitted.
@@ -94,17 +95,17 @@ newListGlobalTables ::
   ListGlobalTables
 newListGlobalTables =
   ListGlobalTables'
-    { regionName = Core.Nothing,
-      exclusiveStartGlobalTableName = Core.Nothing,
-      limit = Core.Nothing
+    { regionName = Prelude.Nothing,
+      exclusiveStartGlobalTableName = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | Lists the global tables in a specific Region.
-listGlobalTables_regionName :: Lens.Lens' ListGlobalTables (Core.Maybe Core.Text)
+listGlobalTables_regionName :: Lens.Lens' ListGlobalTables (Prelude.Maybe Prelude.Text)
 listGlobalTables_regionName = Lens.lens (\ListGlobalTables' {regionName} -> regionName) (\s@ListGlobalTables' {} a -> s {regionName = a} :: ListGlobalTables)
 
 -- | The first global table name that this operation will evaluate.
-listGlobalTables_exclusiveStartGlobalTableName :: Lens.Lens' ListGlobalTables (Core.Maybe Core.Text)
+listGlobalTables_exclusiveStartGlobalTableName :: Lens.Lens' ListGlobalTables (Prelude.Maybe Prelude.Text)
 listGlobalTables_exclusiveStartGlobalTableName = Lens.lens (\ListGlobalTables' {exclusiveStartGlobalTableName} -> exclusiveStartGlobalTableName) (\s@ListGlobalTables' {} a -> s {exclusiveStartGlobalTableName = a} :: ListGlobalTables)
 
 -- | The maximum number of table names to return, if the parameter is not
@@ -115,7 +116,7 @@ listGlobalTables_exclusiveStartGlobalTableName = Lens.lens (\ListGlobalTables' {
 -- point, with a table name in the @LastEvaluatedGlobalTableName@ to apply
 -- in a subsequent operation to the @ExclusiveStartGlobalTableName@
 -- parameter.
-listGlobalTables_limit :: Lens.Lens' ListGlobalTables (Core.Maybe Core.Natural)
+listGlobalTables_limit :: Lens.Lens' ListGlobalTables (Prelude.Maybe Prelude.Natural)
 listGlobalTables_limit = Lens.lens (\ListGlobalTables' {limit} -> limit) (\s@ListGlobalTables' {} a -> s {limit = a} :: ListGlobalTables)
 
 instance Core.AWSRequest ListGlobalTables where
@@ -127,55 +128,57 @@ instance Core.AWSRequest ListGlobalTables where
     Response.receiveJSON
       ( \s h x ->
           ListGlobalTablesResponse'
-            Core.<$> (x Core..?> "LastEvaluatedGlobalTableName")
-            Core.<*> (x Core..?> "GlobalTables" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "LastEvaluatedGlobalTableName")
+            Prelude.<*> (x Core..?> "GlobalTables" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListGlobalTables
+instance Prelude.Hashable ListGlobalTables
 
-instance Core.NFData ListGlobalTables
+instance Prelude.NFData ListGlobalTables
 
 instance Core.ToHeaders ListGlobalTables where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.ListGlobalTables" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListGlobalTables where
   toJSON ListGlobalTables' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RegionName" Core..=) Core.<$> regionName,
+      ( Prelude.catMaybes
+          [ ("RegionName" Core..=) Prelude.<$> regionName,
             ("ExclusiveStartGlobalTableName" Core..=)
-              Core.<$> exclusiveStartGlobalTableName,
-            ("Limit" Core..=) Core.<$> limit
+              Prelude.<$> exclusiveStartGlobalTableName,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListGlobalTables where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListGlobalTables where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGlobalTablesResponse' smart constructor.
 data ListGlobalTablesResponse = ListGlobalTablesResponse'
   { -- | Last evaluated global table name.
-    lastEvaluatedGlobalTableName :: Core.Maybe Core.Text,
+    lastEvaluatedGlobalTableName :: Prelude.Maybe Prelude.Text,
     -- | List of global table names.
-    globalTables :: Core.Maybe [GlobalTable],
+    globalTables :: Prelude.Maybe [GlobalTable],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGlobalTablesResponse' with all optional fields omitted.
@@ -192,26 +195,26 @@ data ListGlobalTablesResponse = ListGlobalTablesResponse'
 -- 'httpStatus', 'listGlobalTablesResponse_httpStatus' - The response's http status code.
 newListGlobalTablesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListGlobalTablesResponse
 newListGlobalTablesResponse pHttpStatus_ =
   ListGlobalTablesResponse'
     { lastEvaluatedGlobalTableName =
-        Core.Nothing,
-      globalTables = Core.Nothing,
+        Prelude.Nothing,
+      globalTables = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Last evaluated global table name.
-listGlobalTablesResponse_lastEvaluatedGlobalTableName :: Lens.Lens' ListGlobalTablesResponse (Core.Maybe Core.Text)
+listGlobalTablesResponse_lastEvaluatedGlobalTableName :: Lens.Lens' ListGlobalTablesResponse (Prelude.Maybe Prelude.Text)
 listGlobalTablesResponse_lastEvaluatedGlobalTableName = Lens.lens (\ListGlobalTablesResponse' {lastEvaluatedGlobalTableName} -> lastEvaluatedGlobalTableName) (\s@ListGlobalTablesResponse' {} a -> s {lastEvaluatedGlobalTableName = a} :: ListGlobalTablesResponse)
 
 -- | List of global table names.
-listGlobalTablesResponse_globalTables :: Lens.Lens' ListGlobalTablesResponse (Core.Maybe [GlobalTable])
-listGlobalTablesResponse_globalTables = Lens.lens (\ListGlobalTablesResponse' {globalTables} -> globalTables) (\s@ListGlobalTablesResponse' {} a -> s {globalTables = a} :: ListGlobalTablesResponse) Core.. Lens.mapping Lens._Coerce
+listGlobalTablesResponse_globalTables :: Lens.Lens' ListGlobalTablesResponse (Prelude.Maybe [GlobalTable])
+listGlobalTablesResponse_globalTables = Lens.lens (\ListGlobalTablesResponse' {globalTables} -> globalTables) (\s@ListGlobalTablesResponse' {} a -> s {globalTables = a} :: ListGlobalTablesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listGlobalTablesResponse_httpStatus :: Lens.Lens' ListGlobalTablesResponse Core.Int
+listGlobalTablesResponse_httpStatus :: Lens.Lens' ListGlobalTablesResponse Prelude.Int
 listGlobalTablesResponse_httpStatus = Lens.lens (\ListGlobalTablesResponse' {httpStatus} -> httpStatus) (\s@ListGlobalTablesResponse' {} a -> s {httpStatus = a} :: ListGlobalTablesResponse)
 
-instance Core.NFData ListGlobalTablesResponse
+instance Prelude.NFData ListGlobalTablesResponse

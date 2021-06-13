@@ -21,15 +21,16 @@ module Network.AWS.SageMaker.Types.TuningJobCompletionCriteria where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The job completion criteria.
 --
 -- /See:/ 'newTuningJobCompletionCriteria' smart constructor.
 data TuningJobCompletionCriteria = TuningJobCompletionCriteria'
   { -- | The value of the objective metric.
-    targetObjectiveMetricValue :: Core.Double
+    targetObjectiveMetricValue :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TuningJobCompletionCriteria' with all optional fields omitted.
@@ -42,7 +43,7 @@ data TuningJobCompletionCriteria = TuningJobCompletionCriteria'
 -- 'targetObjectiveMetricValue', 'tuningJobCompletionCriteria_targetObjectiveMetricValue' - The value of the objective metric.
 newTuningJobCompletionCriteria ::
   -- | 'targetObjectiveMetricValue'
-  Core.Double ->
+  Prelude.Double ->
   TuningJobCompletionCriteria
 newTuningJobCompletionCriteria
   pTargetObjectiveMetricValue_ =
@@ -52,7 +53,7 @@ newTuningJobCompletionCriteria
       }
 
 -- | The value of the objective metric.
-tuningJobCompletionCriteria_targetObjectiveMetricValue :: Lens.Lens' TuningJobCompletionCriteria Core.Double
+tuningJobCompletionCriteria_targetObjectiveMetricValue :: Lens.Lens' TuningJobCompletionCriteria Prelude.Double
 tuningJobCompletionCriteria_targetObjectiveMetricValue = Lens.lens (\TuningJobCompletionCriteria' {targetObjectiveMetricValue} -> targetObjectiveMetricValue) (\s@TuningJobCompletionCriteria' {} a -> s {targetObjectiveMetricValue = a} :: TuningJobCompletionCriteria)
 
 instance Core.FromJSON TuningJobCompletionCriteria where
@@ -61,18 +62,18 @@ instance Core.FromJSON TuningJobCompletionCriteria where
       "TuningJobCompletionCriteria"
       ( \x ->
           TuningJobCompletionCriteria'
-            Core.<$> (x Core..: "TargetObjectiveMetricValue")
+            Prelude.<$> (x Core..: "TargetObjectiveMetricValue")
       )
 
-instance Core.Hashable TuningJobCompletionCriteria
+instance Prelude.Hashable TuningJobCompletionCriteria
 
-instance Core.NFData TuningJobCompletionCriteria
+instance Prelude.NFData TuningJobCompletionCriteria
 
 instance Core.ToJSON TuningJobCompletionCriteria where
   toJSON TuningJobCompletionCriteria' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "TargetObjectiveMetricValue"
                   Core..= targetObjectiveMetricValue
               )

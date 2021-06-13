@@ -22,18 +22,19 @@ module Network.AWS.Connect.Types.Threshold where
 import Network.AWS.Connect.Types.Comparison
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the threshold for service level metrics.
 --
 -- /See:/ 'newThreshold' smart constructor.
 data Threshold = Threshold'
   { -- | The threshold value to compare.
-    thresholdValue :: Core.Maybe Core.Double,
+    thresholdValue :: Prelude.Maybe Prelude.Double,
     -- | The type of comparison. Only \"less than\" (LT) comparisons are
     -- supported.
-    comparison :: Core.Maybe Comparison
+    comparison :: Prelude.Maybe Comparison
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Threshold' with all optional fields omitted.
@@ -51,17 +52,17 @@ newThreshold ::
   Threshold
 newThreshold =
   Threshold'
-    { thresholdValue = Core.Nothing,
-      comparison = Core.Nothing
+    { thresholdValue = Prelude.Nothing,
+      comparison = Prelude.Nothing
     }
 
 -- | The threshold value to compare.
-threshold_thresholdValue :: Lens.Lens' Threshold (Core.Maybe Core.Double)
+threshold_thresholdValue :: Lens.Lens' Threshold (Prelude.Maybe Prelude.Double)
 threshold_thresholdValue = Lens.lens (\Threshold' {thresholdValue} -> thresholdValue) (\s@Threshold' {} a -> s {thresholdValue = a} :: Threshold)
 
 -- | The type of comparison. Only \"less than\" (LT) comparisons are
 -- supported.
-threshold_comparison :: Lens.Lens' Threshold (Core.Maybe Comparison)
+threshold_comparison :: Lens.Lens' Threshold (Prelude.Maybe Comparison)
 threshold_comparison = Lens.lens (\Threshold' {comparison} -> comparison) (\s@Threshold' {} a -> s {comparison = a} :: Threshold)
 
 instance Core.FromJSON Threshold where
@@ -70,19 +71,20 @@ instance Core.FromJSON Threshold where
       "Threshold"
       ( \x ->
           Threshold'
-            Core.<$> (x Core..:? "ThresholdValue")
-            Core.<*> (x Core..:? "Comparison")
+            Prelude.<$> (x Core..:? "ThresholdValue")
+            Prelude.<*> (x Core..:? "Comparison")
       )
 
-instance Core.Hashable Threshold
+instance Prelude.Hashable Threshold
 
-instance Core.NFData Threshold
+instance Prelude.NFData Threshold
 
 instance Core.ToJSON Threshold where
   toJSON Threshold' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ThresholdValue" Core..=) Core.<$> thresholdValue,
-            ("Comparison" Core..=) Core.<$> comparison
+      ( Prelude.catMaybes
+          [ ("ThresholdValue" Core..=)
+              Prelude.<$> thresholdValue,
+            ("Comparison" Core..=) Prelude.<$> comparison
           ]
       )

@@ -51,6 +51,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,14 +68,14 @@ data ListApplicationRevisions = ListApplicationRevisions'
     -- If not specified, the results are sorted in ascending order.
     --
     -- If set to null, the results are sorted in an arbitrary order.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | An identifier returned from the previous @ListApplicationRevisions@
     -- call. It can be used to return the next set of applications in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An Amazon S3 bucket name to limit the search for revisions.
     --
     -- If set to null, all of the user\'s buckets are searched.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | Whether to list revisions based on whether the revision is the target
     -- revision of a deployment group:
     --
@@ -85,10 +86,10 @@ data ListApplicationRevisions = ListApplicationRevisions'
     --     deployment group.
     --
     -- -   @ignore@: List all revisions.
-    deployed :: Core.Maybe ListStateFilterAction,
+    deployed :: Prelude.Maybe ListStateFilterAction,
     -- | A key prefix for the set of Amazon S3 objects to limit the search for
     -- revisions.
-    s3KeyPrefix :: Core.Maybe Core.Text,
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The column name to use to sort the list results:
     --
     -- -   @registerTime@: Sort by the time the revisions were registered with
@@ -102,12 +103,12 @@ data ListApplicationRevisions = ListApplicationRevisions'
     --
     -- If not specified or set to null, the results are returned in an
     -- arbitrary order.
-    sortBy :: Core.Maybe ApplicationRevisionSortBy,
+    sortBy :: Prelude.Maybe ApplicationRevisionSortBy,
     -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
-    applicationName :: Core.Text
+    applicationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListApplicationRevisions' with all optional fields omitted.
@@ -166,16 +167,17 @@ data ListApplicationRevisions = ListApplicationRevisions'
 -- or AWS account.
 newListApplicationRevisions ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   ListApplicationRevisions
 newListApplicationRevisions pApplicationName_ =
   ListApplicationRevisions'
-    { sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      s3Bucket = Core.Nothing,
-      deployed = Core.Nothing,
-      s3KeyPrefix = Core.Nothing,
-      sortBy = Core.Nothing,
+    { sortOrder =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
+      deployed = Prelude.Nothing,
+      s3KeyPrefix = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       applicationName = pApplicationName_
     }
 
@@ -188,18 +190,18 @@ newListApplicationRevisions pApplicationName_ =
 -- If not specified, the results are sorted in ascending order.
 --
 -- If set to null, the results are sorted in an arbitrary order.
-listApplicationRevisions_sortOrder :: Lens.Lens' ListApplicationRevisions (Core.Maybe SortOrder)
+listApplicationRevisions_sortOrder :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe SortOrder)
 listApplicationRevisions_sortOrder = Lens.lens (\ListApplicationRevisions' {sortOrder} -> sortOrder) (\s@ListApplicationRevisions' {} a -> s {sortOrder = a} :: ListApplicationRevisions)
 
 -- | An identifier returned from the previous @ListApplicationRevisions@
 -- call. It can be used to return the next set of applications in the list.
-listApplicationRevisions_nextToken :: Lens.Lens' ListApplicationRevisions (Core.Maybe Core.Text)
+listApplicationRevisions_nextToken :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
 listApplicationRevisions_nextToken = Lens.lens (\ListApplicationRevisions' {nextToken} -> nextToken) (\s@ListApplicationRevisions' {} a -> s {nextToken = a} :: ListApplicationRevisions)
 
 -- | An Amazon S3 bucket name to limit the search for revisions.
 --
 -- If set to null, all of the user\'s buckets are searched.
-listApplicationRevisions_s3Bucket :: Lens.Lens' ListApplicationRevisions (Core.Maybe Core.Text)
+listApplicationRevisions_s3Bucket :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
 listApplicationRevisions_s3Bucket = Lens.lens (\ListApplicationRevisions' {s3Bucket} -> s3Bucket) (\s@ListApplicationRevisions' {} a -> s {s3Bucket = a} :: ListApplicationRevisions)
 
 -- | Whether to list revisions based on whether the revision is the target
@@ -212,12 +214,12 @@ listApplicationRevisions_s3Bucket = Lens.lens (\ListApplicationRevisions' {s3Buc
 --     deployment group.
 --
 -- -   @ignore@: List all revisions.
-listApplicationRevisions_deployed :: Lens.Lens' ListApplicationRevisions (Core.Maybe ListStateFilterAction)
+listApplicationRevisions_deployed :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe ListStateFilterAction)
 listApplicationRevisions_deployed = Lens.lens (\ListApplicationRevisions' {deployed} -> deployed) (\s@ListApplicationRevisions' {} a -> s {deployed = a} :: ListApplicationRevisions)
 
 -- | A key prefix for the set of Amazon S3 objects to limit the search for
 -- revisions.
-listApplicationRevisions_s3KeyPrefix :: Lens.Lens' ListApplicationRevisions (Core.Maybe Core.Text)
+listApplicationRevisions_s3KeyPrefix :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
 listApplicationRevisions_s3KeyPrefix = Lens.lens (\ListApplicationRevisions' {s3KeyPrefix} -> s3KeyPrefix) (\s@ListApplicationRevisions' {} a -> s {s3KeyPrefix = a} :: ListApplicationRevisions)
 
 -- | The column name to use to sort the list results:
@@ -233,12 +235,12 @@ listApplicationRevisions_s3KeyPrefix = Lens.lens (\ListApplicationRevisions' {s3
 --
 -- If not specified or set to null, the results are returned in an
 -- arbitrary order.
-listApplicationRevisions_sortBy :: Lens.Lens' ListApplicationRevisions (Core.Maybe ApplicationRevisionSortBy)
+listApplicationRevisions_sortBy :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe ApplicationRevisionSortBy)
 listApplicationRevisions_sortBy = Lens.lens (\ListApplicationRevisions' {sortBy} -> sortBy) (\s@ListApplicationRevisions' {} a -> s {sortBy = a} :: ListApplicationRevisions)
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
-listApplicationRevisions_applicationName :: Lens.Lens' ListApplicationRevisions Core.Text
+listApplicationRevisions_applicationName :: Lens.Lens' ListApplicationRevisions Prelude.Text
 listApplicationRevisions_applicationName = Lens.lens (\ListApplicationRevisions' {applicationName} -> applicationName) (\s@ListApplicationRevisions' {} a -> s {applicationName = a} :: ListApplicationRevisions)
 
 instance Core.AWSPager ListApplicationRevisions where
@@ -246,22 +248,22 @@ instance Core.AWSPager ListApplicationRevisions where
     | Core.stop
         ( rs
             Lens.^? listApplicationRevisionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationRevisionsResponse_revisions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listApplicationRevisions_nextToken
+          Prelude.& listApplicationRevisions_nextToken
           Lens..~ rs
           Lens.^? listApplicationRevisionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationRevisions where
   type
@@ -272,48 +274,50 @@ instance Core.AWSRequest ListApplicationRevisions where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationRevisionsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "revisions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "revisions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListApplicationRevisions
+instance Prelude.Hashable ListApplicationRevisions
 
-instance Core.NFData ListApplicationRevisions
+instance Prelude.NFData ListApplicationRevisions
 
 instance Core.ToHeaders ListApplicationRevisions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.ListApplicationRevisions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListApplicationRevisions where
   toJSON ListApplicationRevisions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("sortOrder" Core..=) Core.<$> sortOrder,
-            ("nextToken" Core..=) Core.<$> nextToken,
-            ("s3Bucket" Core..=) Core.<$> s3Bucket,
-            ("deployed" Core..=) Core.<$> deployed,
-            ("s3KeyPrefix" Core..=) Core.<$> s3KeyPrefix,
-            ("sortBy" Core..=) Core.<$> sortBy,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
+            ("deployed" Core..=) Prelude.<$> deployed,
+            ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
+            ("sortBy" Core..=) Prelude.<$> sortBy,
+            Prelude.Just
               ("applicationName" Core..= applicationName)
           ]
       )
 
 instance Core.ToPath ListApplicationRevisions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListApplicationRevisions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListApplicationRevisions@ operation.
 --
@@ -322,13 +326,13 @@ data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
   { -- | If a large amount of information is returned, an identifier is also
     -- returned. It can be used in a subsequent list application revisions call
     -- to return the next set of application revisions in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of locations that contain the matching revisions.
-    revisions :: Core.Maybe [RevisionLocation],
+    revisions :: Prelude.Maybe [RevisionLocation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListApplicationRevisionsResponse' with all optional fields omitted.
@@ -347,28 +351,30 @@ data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
 -- 'httpStatus', 'listApplicationRevisionsResponse_httpStatus' - The response's http status code.
 newListApplicationRevisionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListApplicationRevisionsResponse
 newListApplicationRevisionsResponse pHttpStatus_ =
   ListApplicationRevisionsResponse'
     { nextToken =
-        Core.Nothing,
-      revisions = Core.Nothing,
+        Prelude.Nothing,
+      revisions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent list application revisions call
 -- to return the next set of application revisions in the list.
-listApplicationRevisionsResponse_nextToken :: Lens.Lens' ListApplicationRevisionsResponse (Core.Maybe Core.Text)
+listApplicationRevisionsResponse_nextToken :: Lens.Lens' ListApplicationRevisionsResponse (Prelude.Maybe Prelude.Text)
 listApplicationRevisionsResponse_nextToken = Lens.lens (\ListApplicationRevisionsResponse' {nextToken} -> nextToken) (\s@ListApplicationRevisionsResponse' {} a -> s {nextToken = a} :: ListApplicationRevisionsResponse)
 
 -- | A list of locations that contain the matching revisions.
-listApplicationRevisionsResponse_revisions :: Lens.Lens' ListApplicationRevisionsResponse (Core.Maybe [RevisionLocation])
-listApplicationRevisionsResponse_revisions = Lens.lens (\ListApplicationRevisionsResponse' {revisions} -> revisions) (\s@ListApplicationRevisionsResponse' {} a -> s {revisions = a} :: ListApplicationRevisionsResponse) Core.. Lens.mapping Lens._Coerce
+listApplicationRevisionsResponse_revisions :: Lens.Lens' ListApplicationRevisionsResponse (Prelude.Maybe [RevisionLocation])
+listApplicationRevisionsResponse_revisions = Lens.lens (\ListApplicationRevisionsResponse' {revisions} -> revisions) (\s@ListApplicationRevisionsResponse' {} a -> s {revisions = a} :: ListApplicationRevisionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listApplicationRevisionsResponse_httpStatus :: Lens.Lens' ListApplicationRevisionsResponse Core.Int
+listApplicationRevisionsResponse_httpStatus :: Lens.Lens' ListApplicationRevisionsResponse Prelude.Int
 listApplicationRevisionsResponse_httpStatus = Lens.lens (\ListApplicationRevisionsResponse' {httpStatus} -> httpStatus) (\s@ListApplicationRevisionsResponse' {} a -> s {httpStatus = a} :: ListApplicationRevisionsResponse)
 
-instance Core.NFData ListApplicationRevisionsResponse
+instance
+  Prelude.NFData
+    ListApplicationRevisionsResponse

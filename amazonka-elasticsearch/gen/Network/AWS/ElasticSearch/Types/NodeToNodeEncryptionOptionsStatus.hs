@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the node-to-node encryption options for the specified
 -- Elasticsearch domain.
@@ -36,7 +37,7 @@ data NodeToNodeEncryptionOptionsStatus = NodeToNodeEncryptionOptionsStatus'
     -- specified Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeToNodeEncryptionOptionsStatus' with all optional fields omitted.
@@ -85,13 +86,14 @@ instance
       "NodeToNodeEncryptionOptionsStatus"
       ( \x ->
           NodeToNodeEncryptionOptionsStatus'
-            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..: "Options")
+            Prelude.<*> (x Core..: "Status")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     NodeToNodeEncryptionOptionsStatus
 
 instance
-  Core.NFData
+  Prelude.NFData
     NodeToNodeEncryptionOptionsStatus

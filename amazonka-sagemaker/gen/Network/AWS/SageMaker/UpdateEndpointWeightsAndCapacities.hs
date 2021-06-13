@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -54,11 +55,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateEndpointWeightsAndCapacities' smart constructor.
 data UpdateEndpointWeightsAndCapacities = UpdateEndpointWeightsAndCapacities'
   { -- | The name of an existing Amazon SageMaker endpoint.
-    endpointName :: Core.Text,
+    endpointName :: Prelude.Text,
     -- | An object that provides new capacity and weight values for a variant.
-    desiredWeightsAndCapacities :: Core.NonEmpty DesiredWeightAndCapacity
+    desiredWeightsAndCapacities :: Prelude.NonEmpty DesiredWeightAndCapacity
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateEndpointWeightsAndCapacities' with all optional fields omitted.
@@ -73,9 +74,9 @@ data UpdateEndpointWeightsAndCapacities = UpdateEndpointWeightsAndCapacities'
 -- 'desiredWeightsAndCapacities', 'updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities' - An object that provides new capacity and weight values for a variant.
 newUpdateEndpointWeightsAndCapacities ::
   -- | 'endpointName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'desiredWeightsAndCapacities'
-  Core.NonEmpty DesiredWeightAndCapacity ->
+  Prelude.NonEmpty DesiredWeightAndCapacity ->
   UpdateEndpointWeightsAndCapacities
 newUpdateEndpointWeightsAndCapacities
   pEndpointName_
@@ -89,12 +90,12 @@ newUpdateEndpointWeightsAndCapacities
       }
 
 -- | The name of an existing Amazon SageMaker endpoint.
-updateEndpointWeightsAndCapacities_endpointName :: Lens.Lens' UpdateEndpointWeightsAndCapacities Core.Text
+updateEndpointWeightsAndCapacities_endpointName :: Lens.Lens' UpdateEndpointWeightsAndCapacities Prelude.Text
 updateEndpointWeightsAndCapacities_endpointName = Lens.lens (\UpdateEndpointWeightsAndCapacities' {endpointName} -> endpointName) (\s@UpdateEndpointWeightsAndCapacities' {} a -> s {endpointName = a} :: UpdateEndpointWeightsAndCapacities)
 
 -- | An object that provides new capacity and weight values for a variant.
-updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities :: Lens.Lens' UpdateEndpointWeightsAndCapacities (Core.NonEmpty DesiredWeightAndCapacity)
-updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities = Lens.lens (\UpdateEndpointWeightsAndCapacities' {desiredWeightsAndCapacities} -> desiredWeightsAndCapacities) (\s@UpdateEndpointWeightsAndCapacities' {} a -> s {desiredWeightsAndCapacities = a} :: UpdateEndpointWeightsAndCapacities) Core.. Lens._Coerce
+updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities :: Lens.Lens' UpdateEndpointWeightsAndCapacities (Prelude.NonEmpty DesiredWeightAndCapacity)
+updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities = Lens.lens (\UpdateEndpointWeightsAndCapacities' {desiredWeightsAndCapacities} -> desiredWeightsAndCapacities) (\s@UpdateEndpointWeightsAndCapacities' {} a -> s {desiredWeightsAndCapacities = a} :: UpdateEndpointWeightsAndCapacities) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -108,16 +109,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateEndpointWeightsAndCapacitiesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "EndpointArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..:> "EndpointArn")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateEndpointWeightsAndCapacities
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateEndpointWeightsAndCapacities
 
 instance
@@ -125,14 +126,16 @@ instance
     UpdateEndpointWeightsAndCapacities
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.UpdateEndpointWeightsAndCapacities" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -142,9 +145,9 @@ instance
   where
   toJSON UpdateEndpointWeightsAndCapacities' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("EndpointName" Core..= endpointName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("EndpointName" Core..= endpointName),
+            Prelude.Just
               ( "DesiredWeightsAndCapacities"
                   Core..= desiredWeightsAndCapacities
               )
@@ -155,22 +158,22 @@ instance
   Core.ToPath
     UpdateEndpointWeightsAndCapacities
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     UpdateEndpointWeightsAndCapacities
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointWeightsAndCapacitiesResponse' smart constructor.
 data UpdateEndpointWeightsAndCapacitiesResponse = UpdateEndpointWeightsAndCapacitiesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the updated endpoint.
-    endpointArn :: Core.Text
+    endpointArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateEndpointWeightsAndCapacitiesResponse' with all optional fields omitted.
@@ -185,9 +188,9 @@ data UpdateEndpointWeightsAndCapacitiesResponse = UpdateEndpointWeightsAndCapaci
 -- 'endpointArn', 'updateEndpointWeightsAndCapacitiesResponse_endpointArn' - The Amazon Resource Name (ARN) of the updated endpoint.
 newUpdateEndpointWeightsAndCapacitiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateEndpointWeightsAndCapacitiesResponse
 newUpdateEndpointWeightsAndCapacitiesResponse
   pHttpStatus_
@@ -199,13 +202,13 @@ newUpdateEndpointWeightsAndCapacitiesResponse
       }
 
 -- | The response's http status code.
-updateEndpointWeightsAndCapacitiesResponse_httpStatus :: Lens.Lens' UpdateEndpointWeightsAndCapacitiesResponse Core.Int
+updateEndpointWeightsAndCapacitiesResponse_httpStatus :: Lens.Lens' UpdateEndpointWeightsAndCapacitiesResponse Prelude.Int
 updateEndpointWeightsAndCapacitiesResponse_httpStatus = Lens.lens (\UpdateEndpointWeightsAndCapacitiesResponse' {httpStatus} -> httpStatus) (\s@UpdateEndpointWeightsAndCapacitiesResponse' {} a -> s {httpStatus = a} :: UpdateEndpointWeightsAndCapacitiesResponse)
 
 -- | The Amazon Resource Name (ARN) of the updated endpoint.
-updateEndpointWeightsAndCapacitiesResponse_endpointArn :: Lens.Lens' UpdateEndpointWeightsAndCapacitiesResponse Core.Text
+updateEndpointWeightsAndCapacitiesResponse_endpointArn :: Lens.Lens' UpdateEndpointWeightsAndCapacitiesResponse Prelude.Text
 updateEndpointWeightsAndCapacitiesResponse_endpointArn = Lens.lens (\UpdateEndpointWeightsAndCapacitiesResponse' {endpointArn} -> endpointArn) (\s@UpdateEndpointWeightsAndCapacitiesResponse' {} a -> s {endpointArn = a} :: UpdateEndpointWeightsAndCapacitiesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateEndpointWeightsAndCapacitiesResponse

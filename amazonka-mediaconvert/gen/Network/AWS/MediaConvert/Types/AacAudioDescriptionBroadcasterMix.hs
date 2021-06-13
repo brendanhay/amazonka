@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio
 -- + audio description (AD) as a stereo pair. The value for AudioType will
@@ -43,15 +44,15 @@ newtype AacAudioDescriptionBroadcasterMix = AacAudioDescriptionBroadcasterMix'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

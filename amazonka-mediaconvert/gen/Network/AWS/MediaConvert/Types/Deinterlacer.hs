@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm
 import Network.AWS.MediaConvert.Types.DeinterlacerControl
 import Network.AWS.MediaConvert.Types.DeinterlacerMode
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for deinterlacer
 --
@@ -35,13 +36,13 @@ data Deinterlacer = Deinterlacer'
     -- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
     -- source file includes a ticker, such as a scrolling headline at the
     -- bottom of the frame.
-    algorithm :: Core.Maybe DeinterlaceAlgorithm,
+    algorithm :: Prelude.Maybe DeinterlaceAlgorithm,
     -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
     -- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
     -- to progressive. - Inverse telecine converts Hard Telecine 29.97i to
     -- progressive 23.976p. - Adaptive auto-detects and converts to
     -- progressive.
-    mode :: Core.Maybe DeinterlacerMode,
+    mode :: Prelude.Maybe DeinterlacerMode,
     -- | - When set to NORMAL (default), the deinterlacer does not convert frames
     -- that are tagged in metadata as progressive. It will only convert those
     -- that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the
@@ -51,9 +52,9 @@ data Deinterlacer = Deinterlacer'
     -- are not progressive. Do not turn on otherwise; processing frames that
     -- are already progressive into progressive will probably result in lower
     -- quality video.
-    control :: Core.Maybe DeinterlacerControl
+    control :: Prelude.Maybe DeinterlacerControl
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Deinterlacer' with all optional fields omitted.
@@ -89,9 +90,9 @@ newDeinterlacer ::
   Deinterlacer
 newDeinterlacer =
   Deinterlacer'
-    { algorithm = Core.Nothing,
-      mode = Core.Nothing,
-      control = Core.Nothing
+    { algorithm = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      control = Prelude.Nothing
     }
 
 -- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
@@ -100,7 +101,7 @@ newDeinterlacer =
 -- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
 -- source file includes a ticker, such as a scrolling headline at the
 -- bottom of the frame.
-deinterlacer_algorithm :: Lens.Lens' Deinterlacer (Core.Maybe DeinterlaceAlgorithm)
+deinterlacer_algorithm :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlaceAlgorithm)
 deinterlacer_algorithm = Lens.lens (\Deinterlacer' {algorithm} -> algorithm) (\s@Deinterlacer' {} a -> s {algorithm = a} :: Deinterlacer)
 
 -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
@@ -108,7 +109,7 @@ deinterlacer_algorithm = Lens.lens (\Deinterlacer' {algorithm} -> algorithm) (\s
 -- to progressive. - Inverse telecine converts Hard Telecine 29.97i to
 -- progressive 23.976p. - Adaptive auto-detects and converts to
 -- progressive.
-deinterlacer_mode :: Lens.Lens' Deinterlacer (Core.Maybe DeinterlacerMode)
+deinterlacer_mode :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlacerMode)
 deinterlacer_mode = Lens.lens (\Deinterlacer' {mode} -> mode) (\s@Deinterlacer' {} a -> s {mode = a} :: Deinterlacer)
 
 -- | - When set to NORMAL (default), the deinterlacer does not convert frames
@@ -120,7 +121,7 @@ deinterlacer_mode = Lens.lens (\Deinterlacer' {mode} -> mode) (\s@Deinterlacer' 
 -- are not progressive. Do not turn on otherwise; processing frames that
 -- are already progressive into progressive will probably result in lower
 -- quality video.
-deinterlacer_control :: Lens.Lens' Deinterlacer (Core.Maybe DeinterlacerControl)
+deinterlacer_control :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlacerControl)
 deinterlacer_control = Lens.lens (\Deinterlacer' {control} -> control) (\s@Deinterlacer' {} a -> s {control = a} :: Deinterlacer)
 
 instance Core.FromJSON Deinterlacer where
@@ -129,21 +130,21 @@ instance Core.FromJSON Deinterlacer where
       "Deinterlacer"
       ( \x ->
           Deinterlacer'
-            Core.<$> (x Core..:? "algorithm")
-            Core.<*> (x Core..:? "mode")
-            Core.<*> (x Core..:? "control")
+            Prelude.<$> (x Core..:? "algorithm")
+            Prelude.<*> (x Core..:? "mode")
+            Prelude.<*> (x Core..:? "control")
       )
 
-instance Core.Hashable Deinterlacer
+instance Prelude.Hashable Deinterlacer
 
-instance Core.NFData Deinterlacer
+instance Prelude.NFData Deinterlacer
 
 instance Core.ToJSON Deinterlacer where
   toJSON Deinterlacer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("algorithm" Core..=) Core.<$> algorithm,
-            ("mode" Core..=) Core.<$> mode,
-            ("control" Core..=) Core.<$> control
+      ( Prelude.catMaybes
+          [ ("algorithm" Core..=) Prelude.<$> algorithm,
+            ("mode" Core..=) Prelude.<$> mode,
+            ("control" Core..=) Prelude.<$> control
           ]
       )

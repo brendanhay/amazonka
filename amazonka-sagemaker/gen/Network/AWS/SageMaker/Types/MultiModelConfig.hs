@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MultiModelConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ModelCacheSetting
 
 -- | Specifies additional configuration for hosting multi-model endpoints.
@@ -34,9 +35,9 @@ data MultiModelConfig = MultiModelConfig'
     -- number of models that are each invoked infrequently, the endpoint might
     -- perform better if you disable model caching. To disable model caching,
     -- set the value of this parameter to @Disabled@.
-    modelCacheSetting :: Core.Maybe ModelCacheSetting
+    modelCacheSetting :: Prelude.Maybe ModelCacheSetting
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiModelConfig' with all optional fields omitted.
@@ -56,7 +57,10 @@ data MultiModelConfig = MultiModelConfig'
 newMultiModelConfig ::
   MultiModelConfig
 newMultiModelConfig =
-  MultiModelConfig' {modelCacheSetting = Core.Nothing}
+  MultiModelConfig'
+    { modelCacheSetting =
+        Prelude.Nothing
+    }
 
 -- | Whether to cache models for a multi-model endpoint. By default,
 -- multi-model endpoints cache models so that a model does not have to be
@@ -65,7 +69,7 @@ newMultiModelConfig =
 -- number of models that are each invoked infrequently, the endpoint might
 -- perform better if you disable model caching. To disable model caching,
 -- set the value of this parameter to @Disabled@.
-multiModelConfig_modelCacheSetting :: Lens.Lens' MultiModelConfig (Core.Maybe ModelCacheSetting)
+multiModelConfig_modelCacheSetting :: Lens.Lens' MultiModelConfig (Prelude.Maybe ModelCacheSetting)
 multiModelConfig_modelCacheSetting = Lens.lens (\MultiModelConfig' {modelCacheSetting} -> modelCacheSetting) (\s@MultiModelConfig' {} a -> s {modelCacheSetting = a} :: MultiModelConfig)
 
 instance Core.FromJSON MultiModelConfig where
@@ -74,18 +78,18 @@ instance Core.FromJSON MultiModelConfig where
       "MultiModelConfig"
       ( \x ->
           MultiModelConfig'
-            Core.<$> (x Core..:? "ModelCacheSetting")
+            Prelude.<$> (x Core..:? "ModelCacheSetting")
       )
 
-instance Core.Hashable MultiModelConfig
+instance Prelude.Hashable MultiModelConfig
 
-instance Core.NFData MultiModelConfig
+instance Prelude.NFData MultiModelConfig
 
 instance Core.ToJSON MultiModelConfig where
   toJSON MultiModelConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ModelCacheSetting" Core..=)
-              Core.<$> modelCacheSetting
+              Prelude.<$> modelCacheSetting
           ]
       )

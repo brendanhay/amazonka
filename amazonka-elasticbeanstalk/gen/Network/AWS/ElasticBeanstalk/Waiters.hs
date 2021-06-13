@@ -20,6 +20,7 @@ import Network.AWS.ElasticBeanstalk.DescribeEnvironments
 import Network.AWS.ElasticBeanstalk.Lens
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newEnvironmentTerminated :: Core.Wait DescribeEnvironments
@@ -35,12 +36,12 @@ newEnvironmentTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( environmentDescriptionsMessage_environments
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. environmentDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. environmentDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Terminating"
@@ -48,12 +49,12 @@ newEnvironmentTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( environmentDescriptionsMessage_environments
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. environmentDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. environmentDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -72,12 +73,12 @@ newEnvironmentUpdated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( environmentDescriptionsMessage_environments
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. environmentDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. environmentDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Updating"
@@ -85,12 +86,12 @@ newEnvironmentUpdated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( environmentDescriptionsMessage_environments
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. environmentDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. environmentDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -109,12 +110,12 @@ newEnvironmentExists =
             ( Lens.folding
                 ( Lens.concatOf
                     ( environmentDescriptionsMessage_environments
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. environmentDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. environmentDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Launching"
@@ -122,12 +123,12 @@ newEnvironmentExists =
             ( Lens.folding
                 ( Lens.concatOf
                     ( environmentDescriptionsMessage_environments
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. environmentDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. environmentDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

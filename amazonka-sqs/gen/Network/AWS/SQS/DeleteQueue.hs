@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -65,9 +66,9 @@ data DeleteQueue = DeleteQueue'
   { -- | The URL of the Amazon SQS queue to delete.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Core.Text
+    queueUrl :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteQueue' with all optional fields omitted.
@@ -82,7 +83,7 @@ data DeleteQueue = DeleteQueue'
 -- Queue URLs and names are case-sensitive.
 newDeleteQueue ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   DeleteQueue
 newDeleteQueue pQueueUrl_ =
   DeleteQueue' {queueUrl = pQueueUrl_}
@@ -90,7 +91,7 @@ newDeleteQueue pQueueUrl_ =
 -- | The URL of the Amazon SQS queue to delete.
 --
 -- Queue URLs and names are case-sensitive.
-deleteQueue_queueUrl :: Lens.Lens' DeleteQueue Core.Text
+deleteQueue_queueUrl :: Lens.Lens' DeleteQueue Prelude.Text
 deleteQueue_queueUrl = Lens.lens (\DeleteQueue' {queueUrl} -> queueUrl) (\s@DeleteQueue' {} a -> s {queueUrl = a} :: DeleteQueue)
 
 instance Core.AWSRequest DeleteQueue where
@@ -98,21 +99,23 @@ instance Core.AWSRequest DeleteQueue where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteQueueResponse'
 
-instance Core.Hashable DeleteQueue
+instance Prelude.Hashable DeleteQueue
 
-instance Core.NFData DeleteQueue
+instance Prelude.NFData DeleteQueue
 
 instance Core.ToHeaders DeleteQueue where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteQueue where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteQueue where
   toQuery DeleteQueue' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("DeleteQueue" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteQueue" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueUrl" Core.=: queueUrl
       ]
 
@@ -120,7 +123,7 @@ instance Core.ToQuery DeleteQueue where
 data DeleteQueueResponse = DeleteQueueResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteQueueResponse' with all optional fields omitted.
@@ -130,4 +133,4 @@ newDeleteQueueResponse ::
   DeleteQueueResponse
 newDeleteQueueResponse = DeleteQueueResponse'
 
-instance Core.NFData DeleteQueueResponse
+instance Prelude.NFData DeleteQueueResponse

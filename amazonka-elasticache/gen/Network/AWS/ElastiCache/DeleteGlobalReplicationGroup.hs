@@ -58,18 +58,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteGlobalReplicationGroup' smart constructor.
 data DeleteGlobalReplicationGroup = DeleteGlobalReplicationGroup'
   { -- | The name of the Global Datastore
-    globalReplicationGroupId :: Core.Text,
+    globalReplicationGroupId :: Prelude.Text,
     -- | The primary replication group is retained as a standalone replication
     -- group.
-    retainPrimaryReplicationGroup :: Core.Bool
+    retainPrimaryReplicationGroup :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGlobalReplicationGroup' with all optional fields omitted.
@@ -85,9 +86,9 @@ data DeleteGlobalReplicationGroup = DeleteGlobalReplicationGroup'
 -- group.
 newDeleteGlobalReplicationGroup ::
   -- | 'globalReplicationGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'retainPrimaryReplicationGroup'
-  Core.Bool ->
+  Prelude.Bool ->
   DeleteGlobalReplicationGroup
 newDeleteGlobalReplicationGroup
   pGlobalReplicationGroupId_
@@ -100,12 +101,12 @@ newDeleteGlobalReplicationGroup
       }
 
 -- | The name of the Global Datastore
-deleteGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' DeleteGlobalReplicationGroup Core.Text
+deleteGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' DeleteGlobalReplicationGroup Prelude.Text
 deleteGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\DeleteGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@DeleteGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: DeleteGlobalReplicationGroup)
 
 -- | The primary replication group is retained as a standalone replication
 -- group.
-deleteGlobalReplicationGroup_retainPrimaryReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroup Core.Bool
+deleteGlobalReplicationGroup_retainPrimaryReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroup Prelude.Bool
 deleteGlobalReplicationGroup_retainPrimaryReplicationGroup = Lens.lens (\DeleteGlobalReplicationGroup' {retainPrimaryReplicationGroup} -> retainPrimaryReplicationGroup) (\s@DeleteGlobalReplicationGroup' {} a -> s {retainPrimaryReplicationGroup = a} :: DeleteGlobalReplicationGroup)
 
 instance Core.AWSRequest DeleteGlobalReplicationGroup where
@@ -118,26 +119,31 @@ instance Core.AWSRequest DeleteGlobalReplicationGroup where
       "DeleteGlobalReplicationGroupResult"
       ( \s h x ->
           DeleteGlobalReplicationGroupResponse'
-            Core.<$> (x Core..@? "GlobalReplicationGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "GlobalReplicationGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteGlobalReplicationGroup
+instance
+  Prelude.Hashable
+    DeleteGlobalReplicationGroup
 
-instance Core.NFData DeleteGlobalReplicationGroup
+instance Prelude.NFData DeleteGlobalReplicationGroup
 
 instance Core.ToHeaders DeleteGlobalReplicationGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteGlobalReplicationGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteGlobalReplicationGroup where
   toQuery DeleteGlobalReplicationGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteGlobalReplicationGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ( "DeleteGlobalReplicationGroup" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "GlobalReplicationGroupId"
           Core.=: globalReplicationGroupId,
         "RetainPrimaryReplicationGroup"
@@ -146,11 +152,11 @@ instance Core.ToQuery DeleteGlobalReplicationGroup where
 
 -- | /See:/ 'newDeleteGlobalReplicationGroupResponse' smart constructor.
 data DeleteGlobalReplicationGroupResponse = DeleteGlobalReplicationGroupResponse'
-  { globalReplicationGroup :: Core.Maybe GlobalReplicationGroup,
+  { globalReplicationGroup :: Prelude.Maybe GlobalReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGlobalReplicationGroupResponse' with all optional fields omitted.
@@ -165,23 +171,23 @@ data DeleteGlobalReplicationGroupResponse = DeleteGlobalReplicationGroupResponse
 -- 'httpStatus', 'deleteGlobalReplicationGroupResponse_httpStatus' - The response's http status code.
 newDeleteGlobalReplicationGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteGlobalReplicationGroupResponse
 newDeleteGlobalReplicationGroupResponse pHttpStatus_ =
   DeleteGlobalReplicationGroupResponse'
     { globalReplicationGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroupResponse (Core.Maybe GlobalReplicationGroup)
+deleteGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroupResponse (Prelude.Maybe GlobalReplicationGroup)
 deleteGlobalReplicationGroupResponse_globalReplicationGroup = Lens.lens (\DeleteGlobalReplicationGroupResponse' {globalReplicationGroup} -> globalReplicationGroup) (\s@DeleteGlobalReplicationGroupResponse' {} a -> s {globalReplicationGroup = a} :: DeleteGlobalReplicationGroupResponse)
 
 -- | The response's http status code.
-deleteGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' DeleteGlobalReplicationGroupResponse Core.Int
+deleteGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' DeleteGlobalReplicationGroupResponse Prelude.Int
 deleteGlobalReplicationGroupResponse_httpStatus = Lens.lens (\DeleteGlobalReplicationGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGlobalReplicationGroupResponse' {} a -> s {httpStatus = a} :: DeleteGlobalReplicationGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteGlobalReplicationGroupResponse

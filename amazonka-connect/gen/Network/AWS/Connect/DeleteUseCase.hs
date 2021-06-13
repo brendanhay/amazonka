@@ -43,19 +43,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUseCase' smart constructor.
 data DeleteUseCase = DeleteUseCase'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier for the AppIntegration association.
-    integrationAssociationId :: Core.Text,
+    integrationAssociationId :: Prelude.Text,
     -- | The identifier for the use case.
-    useCaseId :: Core.Text
+    useCaseId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUseCase' with all optional fields omitted.
@@ -72,11 +73,11 @@ data DeleteUseCase = DeleteUseCase'
 -- 'useCaseId', 'deleteUseCase_useCaseId' - The identifier for the use case.
 newDeleteUseCase ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'integrationAssociationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'useCaseId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUseCase
 newDeleteUseCase
   pInstanceId_
@@ -90,15 +91,15 @@ newDeleteUseCase
       }
 
 -- | The identifier of the Amazon Connect instance.
-deleteUseCase_instanceId :: Lens.Lens' DeleteUseCase Core.Text
+deleteUseCase_instanceId :: Lens.Lens' DeleteUseCase Prelude.Text
 deleteUseCase_instanceId = Lens.lens (\DeleteUseCase' {instanceId} -> instanceId) (\s@DeleteUseCase' {} a -> s {instanceId = a} :: DeleteUseCase)
 
 -- | The identifier for the AppIntegration association.
-deleteUseCase_integrationAssociationId :: Lens.Lens' DeleteUseCase Core.Text
+deleteUseCase_integrationAssociationId :: Lens.Lens' DeleteUseCase Prelude.Text
 deleteUseCase_integrationAssociationId = Lens.lens (\DeleteUseCase' {integrationAssociationId} -> integrationAssociationId) (\s@DeleteUseCase' {} a -> s {integrationAssociationId = a} :: DeleteUseCase)
 
 -- | The identifier for the use case.
-deleteUseCase_useCaseId :: Lens.Lens' DeleteUseCase Core.Text
+deleteUseCase_useCaseId :: Lens.Lens' DeleteUseCase Prelude.Text
 deleteUseCase_useCaseId = Lens.lens (\DeleteUseCase' {useCaseId} -> useCaseId) (\s@DeleteUseCase' {} a -> s {useCaseId = a} :: DeleteUseCase)
 
 instance Core.AWSRequest DeleteUseCase where
@@ -109,22 +110,24 @@ instance Core.AWSRequest DeleteUseCase where
   response =
     Response.receiveNull DeleteUseCaseResponse'
 
-instance Core.Hashable DeleteUseCase
+instance Prelude.Hashable DeleteUseCase
 
-instance Core.NFData DeleteUseCase
+instance Prelude.NFData DeleteUseCase
 
 instance Core.ToHeaders DeleteUseCase where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteUseCase where
   toPath DeleteUseCase' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/integration-associations/",
@@ -134,13 +137,13 @@ instance Core.ToPath DeleteUseCase where
       ]
 
 instance Core.ToQuery DeleteUseCase where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUseCaseResponse' smart constructor.
 data DeleteUseCaseResponse = DeleteUseCaseResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUseCaseResponse' with all optional fields omitted.
@@ -150,4 +153,4 @@ newDeleteUseCaseResponse ::
   DeleteUseCaseResponse
 newDeleteUseCaseResponse = DeleteUseCaseResponse'
 
-instance Core.NFData DeleteUseCaseResponse
+instance Prelude.NFData DeleteUseCaseResponse

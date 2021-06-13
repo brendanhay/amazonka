@@ -21,17 +21,18 @@ module Network.AWS.AutoScalingPlans.Types.TagFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a tag.
 --
 -- /See:/ 'newTagFilter' smart constructor.
 data TagFilter = TagFilter'
   { -- | The tag key.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The tag values (0 to 20).
-    values :: Core.Maybe [Core.Text]
+    values :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagFilter' with all optional fields omitted.
@@ -48,17 +49,17 @@ newTagFilter ::
   TagFilter
 newTagFilter =
   TagFilter'
-    { key = Core.Nothing,
-      values = Core.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
 
 -- | The tag key.
-tagFilter_key :: Lens.Lens' TagFilter (Core.Maybe Core.Text)
+tagFilter_key :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_key = Lens.lens (\TagFilter' {key} -> key) (\s@TagFilter' {} a -> s {key = a} :: TagFilter)
 
 -- | The tag values (0 to 20).
-tagFilter_values :: Lens.Lens' TagFilter (Core.Maybe [Core.Text])
-tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Core.. Lens.mapping Lens._Coerce
+tagFilter_values :: Lens.Lens' TagFilter (Prelude.Maybe [Prelude.Text])
+tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON TagFilter where
   parseJSON =
@@ -66,19 +67,19 @@ instance Core.FromJSON TagFilter where
       "TagFilter"
       ( \x ->
           TagFilter'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable TagFilter
+instance Prelude.Hashable TagFilter
 
-instance Core.NFData TagFilter
+instance Prelude.NFData TagFilter
 
 instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Values" Core..=) Core.<$> values
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

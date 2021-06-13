@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.MultiplexProgramServiceDescriptor where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Transport stream service descriptor configuration for the Multiplex
 -- program.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMultiplexProgramServiceDescriptor' smart constructor.
 data MultiplexProgramServiceDescriptor = MultiplexProgramServiceDescriptor'
   { -- | Name of the provider.
-    providerName :: Core.Text,
+    providerName :: Prelude.Text,
     -- | Name of the service.
-    serviceName :: Core.Text
+    serviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiplexProgramServiceDescriptor' with all optional fields omitted.
@@ -47,9 +48,9 @@ data MultiplexProgramServiceDescriptor = MultiplexProgramServiceDescriptor'
 -- 'serviceName', 'multiplexProgramServiceDescriptor_serviceName' - Name of the service.
 newMultiplexProgramServiceDescriptor ::
   -- | 'providerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   MultiplexProgramServiceDescriptor
 newMultiplexProgramServiceDescriptor
   pProviderName_
@@ -61,11 +62,11 @@ newMultiplexProgramServiceDescriptor
       }
 
 -- | Name of the provider.
-multiplexProgramServiceDescriptor_providerName :: Lens.Lens' MultiplexProgramServiceDescriptor Core.Text
+multiplexProgramServiceDescriptor_providerName :: Lens.Lens' MultiplexProgramServiceDescriptor Prelude.Text
 multiplexProgramServiceDescriptor_providerName = Lens.lens (\MultiplexProgramServiceDescriptor' {providerName} -> providerName) (\s@MultiplexProgramServiceDescriptor' {} a -> s {providerName = a} :: MultiplexProgramServiceDescriptor)
 
 -- | Name of the service.
-multiplexProgramServiceDescriptor_serviceName :: Lens.Lens' MultiplexProgramServiceDescriptor Core.Text
+multiplexProgramServiceDescriptor_serviceName :: Lens.Lens' MultiplexProgramServiceDescriptor Prelude.Text
 multiplexProgramServiceDescriptor_serviceName = Lens.lens (\MultiplexProgramServiceDescriptor' {serviceName} -> serviceName) (\s@MultiplexProgramServiceDescriptor' {} a -> s {serviceName = a} :: MultiplexProgramServiceDescriptor)
 
 instance
@@ -77,16 +78,16 @@ instance
       "MultiplexProgramServiceDescriptor"
       ( \x ->
           MultiplexProgramServiceDescriptor'
-            Core.<$> (x Core..: "providerName")
-            Core.<*> (x Core..: "serviceName")
+            Prelude.<$> (x Core..: "providerName")
+            Prelude.<*> (x Core..: "serviceName")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     MultiplexProgramServiceDescriptor
 
 instance
-  Core.NFData
+  Prelude.NFData
     MultiplexProgramServiceDescriptor
 
 instance
@@ -95,8 +96,8 @@ instance
   where
   toJSON MultiplexProgramServiceDescriptor' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("providerName" Core..= providerName),
-            Core.Just ("serviceName" Core..= serviceName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("providerName" Core..= providerName),
+            Prelude.Just ("serviceName" Core..= serviceName)
           ]
       )

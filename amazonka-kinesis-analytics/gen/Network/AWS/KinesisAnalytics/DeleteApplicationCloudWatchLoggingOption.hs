@@ -51,22 +51,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteApplicationCloudWatchLoggingOption' smart constructor.
 data DeleteApplicationCloudWatchLoggingOption = DeleteApplicationCloudWatchLoggingOption'
   { -- | The Kinesis Analytics application name.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The version ID of the Kinesis Analytics application.
-    currentApplicationVersionId :: Core.Natural,
+    currentApplicationVersionId :: Prelude.Natural,
     -- | The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to
     -- delete. You can get the @CloudWatchLoggingOptionId@ by using the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation.
-    cloudWatchLoggingOptionId :: Core.Text
+    cloudWatchLoggingOptionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationCloudWatchLoggingOption' with all optional fields omitted.
@@ -86,11 +87,11 @@ data DeleteApplicationCloudWatchLoggingOption = DeleteApplicationCloudWatchLoggi
 -- operation.
 newDeleteApplicationCloudWatchLoggingOption ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'currentApplicationVersionId'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'cloudWatchLoggingOptionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteApplicationCloudWatchLoggingOption
 newDeleteApplicationCloudWatchLoggingOption
   pApplicationName_
@@ -106,18 +107,18 @@ newDeleteApplicationCloudWatchLoggingOption
       }
 
 -- | The Kinesis Analytics application name.
-deleteApplicationCloudWatchLoggingOption_applicationName :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Core.Text
+deleteApplicationCloudWatchLoggingOption_applicationName :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Prelude.Text
 deleteApplicationCloudWatchLoggingOption_applicationName = Lens.lens (\DeleteApplicationCloudWatchLoggingOption' {applicationName} -> applicationName) (\s@DeleteApplicationCloudWatchLoggingOption' {} a -> s {applicationName = a} :: DeleteApplicationCloudWatchLoggingOption)
 
 -- | The version ID of the Kinesis Analytics application.
-deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Core.Natural
+deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Prelude.Natural
 deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId = Lens.lens (\DeleteApplicationCloudWatchLoggingOption' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@DeleteApplicationCloudWatchLoggingOption' {} a -> s {currentApplicationVersionId = a} :: DeleteApplicationCloudWatchLoggingOption)
 
 -- | The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to
 -- delete. You can get the @CloudWatchLoggingOptionId@ by using the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
 -- operation.
-deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Core.Text
+deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Prelude.Text
 deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId = Lens.lens (\DeleteApplicationCloudWatchLoggingOption' {cloudWatchLoggingOptionId} -> cloudWatchLoggingOptionId) (\s@DeleteApplicationCloudWatchLoggingOption' {} a -> s {cloudWatchLoggingOptionId = a} :: DeleteApplicationCloudWatchLoggingOption)
 
 instance
@@ -133,15 +134,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationCloudWatchLoggingOptionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteApplicationCloudWatchLoggingOption
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteApplicationCloudWatchLoggingOption
 
 instance
@@ -149,14 +150,16 @@ instance
     DeleteApplicationCloudWatchLoggingOption
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "KinesisAnalytics_20150814.DeleteApplicationCloudWatchLoggingOption" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -166,14 +169,14 @@ instance
   where
   toJSON DeleteApplicationCloudWatchLoggingOption' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ApplicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ( "CurrentApplicationVersionId"
                   Core..= currentApplicationVersionId
               ),
-            Core.Just
+            Prelude.Just
               ( "CloudWatchLoggingOptionId"
                   Core..= cloudWatchLoggingOptionId
               )
@@ -184,20 +187,20 @@ instance
   Core.ToPath
     DeleteApplicationCloudWatchLoggingOption
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteApplicationCloudWatchLoggingOption
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApplicationCloudWatchLoggingOptionResponse' smart constructor.
 data DeleteApplicationCloudWatchLoggingOptionResponse = DeleteApplicationCloudWatchLoggingOptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationCloudWatchLoggingOptionResponse' with all optional fields omitted.
@@ -210,7 +213,7 @@ data DeleteApplicationCloudWatchLoggingOptionResponse = DeleteApplicationCloudWa
 -- 'httpStatus', 'deleteApplicationCloudWatchLoggingOptionResponse_httpStatus' - The response's http status code.
 newDeleteApplicationCloudWatchLoggingOptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteApplicationCloudWatchLoggingOptionResponse
 newDeleteApplicationCloudWatchLoggingOptionResponse
   pHttpStatus_ =
@@ -220,9 +223,9 @@ newDeleteApplicationCloudWatchLoggingOptionResponse
       }
 
 -- | The response's http status code.
-deleteApplicationCloudWatchLoggingOptionResponse_httpStatus :: Lens.Lens' DeleteApplicationCloudWatchLoggingOptionResponse Core.Int
+deleteApplicationCloudWatchLoggingOptionResponse_httpStatus :: Lens.Lens' DeleteApplicationCloudWatchLoggingOptionResponse Prelude.Int
 deleteApplicationCloudWatchLoggingOptionResponse_httpStatus = Lens.lens (\DeleteApplicationCloudWatchLoggingOptionResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationCloudWatchLoggingOptionResponse' {} a -> s {httpStatus = a} :: DeleteApplicationCloudWatchLoggingOptionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteApplicationCloudWatchLoggingOptionResponse

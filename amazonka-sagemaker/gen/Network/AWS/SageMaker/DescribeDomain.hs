@@ -57,6 +57,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -64,9 +65,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeDomain' smart constructor.
 data DescribeDomain = DescribeDomain'
   { -- | The domain ID.
-    domainId :: Core.Text
+    domainId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomain' with all optional fields omitted.
@@ -79,13 +80,13 @@ data DescribeDomain = DescribeDomain'
 -- 'domainId', 'describeDomain_domainId' - The domain ID.
 newDescribeDomain ::
   -- | 'domainId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDomain
 newDescribeDomain pDomainId_ =
   DescribeDomain' {domainId = pDomainId_}
 
 -- | The domain ID.
-describeDomain_domainId :: Lens.Lens' DescribeDomain Core.Text
+describeDomain_domainId :: Lens.Lens' DescribeDomain Prelude.Text
 describeDomain_domainId = Lens.lens (\DescribeDomain' {domainId} -> domainId) (\s@DescribeDomain' {} a -> s {domainId = a} :: DescribeDomain)
 
 instance Core.AWSRequest DescribeDomain where
@@ -97,86 +98,88 @@ instance Core.AWSRequest DescribeDomain where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (x Core..?> "CreationTime")
-            Core.<*> ( x
-                         Core..?> "SingleSignOnManagedApplicationInstanceId"
-                     )
-            Core.<*> (x Core..?> "AuthMode")
-            Core.<*> (x Core..?> "SubnetIds")
-            Core.<*> (x Core..?> "DomainId")
-            Core.<*> (x Core..?> "DomainArn")
-            Core.<*> (x Core..?> "KmsKeyId")
-            Core.<*> (x Core..?> "DomainName")
-            Core.<*> (x Core..?> "DefaultUserSettings")
-            Core.<*> (x Core..?> "FailureReason")
-            Core.<*> (x Core..?> "HomeEfsFileSystemId")
-            Core.<*> (x Core..?> "LastModifiedTime")
-            Core.<*> (x Core..?> "AppNetworkAccessType")
-            Core.<*> (x Core..?> "HomeEfsFileSystemKmsKeyId")
-            Core.<*> (x Core..?> "Url")
-            Core.<*> (x Core..?> "VpcId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> ( x
+                            Core..?> "SingleSignOnManagedApplicationInstanceId"
+                        )
+            Prelude.<*> (x Core..?> "AuthMode")
+            Prelude.<*> (x Core..?> "SubnetIds")
+            Prelude.<*> (x Core..?> "DomainId")
+            Prelude.<*> (x Core..?> "DomainArn")
+            Prelude.<*> (x Core..?> "KmsKeyId")
+            Prelude.<*> (x Core..?> "DomainName")
+            Prelude.<*> (x Core..?> "DefaultUserSettings")
+            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "HomeEfsFileSystemId")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "AppNetworkAccessType")
+            Prelude.<*> (x Core..?> "HomeEfsFileSystemKmsKeyId")
+            Prelude.<*> (x Core..?> "Url")
+            Prelude.<*> (x Core..?> "VpcId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDomain
+instance Prelude.Hashable DescribeDomain
 
-instance Core.NFData DescribeDomain
+instance Prelude.NFData DescribeDomain
 
 instance Core.ToHeaders DescribeDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeDomain" :: Core.ByteString),
+              Core.=# ("SageMaker.DescribeDomain" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDomain where
   toJSON DescribeDomain' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("DomainId" Core..= domainId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("DomainId" Core..= domainId)]
       )
 
 instance Core.ToPath DescribeDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
   { -- | The status.
-    status :: Core.Maybe DomainStatus,
+    status :: Prelude.Maybe DomainStatus,
     -- | The creation time.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The SSO managed application instance ID.
-    singleSignOnManagedApplicationInstanceId :: Core.Maybe Core.Text,
+    singleSignOnManagedApplicationInstanceId :: Prelude.Maybe Prelude.Text,
     -- | The domain\'s authentication mode.
-    authMode :: Core.Maybe AuthMode,
+    authMode :: Prelude.Maybe AuthMode,
     -- | The VPC subnets that Studio uses for communication.
-    subnetIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    subnetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The domain ID.
-    domainId :: Core.Maybe Core.Text,
+    domainId :: Prelude.Maybe Prelude.Text,
     -- | The domain\'s Amazon Resource Name (ARN).
-    domainArn :: Core.Maybe Core.Text,
+    domainArn :: Prelude.Maybe Prelude.Text,
     -- | The AWS KMS customer managed CMK used to encrypt the EFS volume attached
     -- to the domain.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The domain name.
-    domainName :: Core.Maybe Core.Text,
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | Settings which are applied to all UserProfiles in this domain, if
     -- settings are not explicitly specified in a given UserProfile.
-    defaultUserSettings :: Core.Maybe UserSettings,
+    defaultUserSettings :: Prelude.Maybe UserSettings,
     -- | The failure reason.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-    homeEfsFileSystemId :: Core.Maybe Core.Text,
+    homeEfsFileSystemId :: Prelude.Maybe Prelude.Text,
     -- | The last modified time.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies the VPC used for non-EFS traffic. The default value is
     -- @PublicInternetOnly@.
     --
@@ -185,18 +188,18 @@ data DescribeDomainResponse = DescribeDomainResponse'
     --
     -- -   @VpcOnly@ - All Studio traffic is through the specified VPC and
     --     subnets
-    appNetworkAccessType :: Core.Maybe AppNetworkAccessType,
+    appNetworkAccessType :: Prelude.Maybe AppNetworkAccessType,
     -- | This member is deprecated and replaced with @KmsKeyId@.
-    homeEfsFileSystemKmsKeyId :: Core.Maybe Core.Text,
+    homeEfsFileSystemKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The domain\'s URL.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for
     -- communication.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomainResponse' with all optional fields omitted.
@@ -253,84 +256,84 @@ data DescribeDomainResponse = DescribeDomainResponse'
 -- 'httpStatus', 'describeDomainResponse_httpStatus' - The response's http status code.
 newDescribeDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDomainResponse
 newDescribeDomainResponse pHttpStatus_ =
   DescribeDomainResponse'
-    { status = Core.Nothing,
-      creationTime = Core.Nothing,
+    { status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       singleSignOnManagedApplicationInstanceId =
-        Core.Nothing,
-      authMode = Core.Nothing,
-      subnetIds = Core.Nothing,
-      domainId = Core.Nothing,
-      domainArn = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      domainName = Core.Nothing,
-      defaultUserSettings = Core.Nothing,
-      failureReason = Core.Nothing,
-      homeEfsFileSystemId = Core.Nothing,
-      lastModifiedTime = Core.Nothing,
-      appNetworkAccessType = Core.Nothing,
-      homeEfsFileSystemKmsKeyId = Core.Nothing,
-      url = Core.Nothing,
-      vpcId = Core.Nothing,
+        Prelude.Nothing,
+      authMode = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      domainId = Prelude.Nothing,
+      domainArn = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      defaultUserSettings = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      homeEfsFileSystemId = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      appNetworkAccessType = Prelude.Nothing,
+      homeEfsFileSystemKmsKeyId = Prelude.Nothing,
+      url = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status.
-describeDomainResponse_status :: Lens.Lens' DescribeDomainResponse (Core.Maybe DomainStatus)
+describeDomainResponse_status :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe DomainStatus)
 describeDomainResponse_status = Lens.lens (\DescribeDomainResponse' {status} -> status) (\s@DescribeDomainResponse' {} a -> s {status = a} :: DescribeDomainResponse)
 
 -- | The creation time.
-describeDomainResponse_creationTime :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.UTCTime)
-describeDomainResponse_creationTime = Lens.lens (\DescribeDomainResponse' {creationTime} -> creationTime) (\s@DescribeDomainResponse' {} a -> s {creationTime = a} :: DescribeDomainResponse) Core.. Lens.mapping Core._Time
+describeDomainResponse_creationTime :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.UTCTime)
+describeDomainResponse_creationTime = Lens.lens (\DescribeDomainResponse' {creationTime} -> creationTime) (\s@DescribeDomainResponse' {} a -> s {creationTime = a} :: DescribeDomainResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The SSO managed application instance ID.
-describeDomainResponse_singleSignOnManagedApplicationInstanceId :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_singleSignOnManagedApplicationInstanceId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_singleSignOnManagedApplicationInstanceId = Lens.lens (\DescribeDomainResponse' {singleSignOnManagedApplicationInstanceId} -> singleSignOnManagedApplicationInstanceId) (\s@DescribeDomainResponse' {} a -> s {singleSignOnManagedApplicationInstanceId = a} :: DescribeDomainResponse)
 
 -- | The domain\'s authentication mode.
-describeDomainResponse_authMode :: Lens.Lens' DescribeDomainResponse (Core.Maybe AuthMode)
+describeDomainResponse_authMode :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe AuthMode)
 describeDomainResponse_authMode = Lens.lens (\DescribeDomainResponse' {authMode} -> authMode) (\s@DescribeDomainResponse' {} a -> s {authMode = a} :: DescribeDomainResponse)
 
 -- | The VPC subnets that Studio uses for communication.
-describeDomainResponse_subnetIds :: Lens.Lens' DescribeDomainResponse (Core.Maybe (Core.NonEmpty Core.Text))
-describeDomainResponse_subnetIds = Lens.lens (\DescribeDomainResponse' {subnetIds} -> subnetIds) (\s@DescribeDomainResponse' {} a -> s {subnetIds = a} :: DescribeDomainResponse) Core.. Lens.mapping Lens._Coerce
+describeDomainResponse_subnetIds :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeDomainResponse_subnetIds = Lens.lens (\DescribeDomainResponse' {subnetIds} -> subnetIds) (\s@DescribeDomainResponse' {} a -> s {subnetIds = a} :: DescribeDomainResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The domain ID.
-describeDomainResponse_domainId :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_domainId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_domainId = Lens.lens (\DescribeDomainResponse' {domainId} -> domainId) (\s@DescribeDomainResponse' {} a -> s {domainId = a} :: DescribeDomainResponse)
 
 -- | The domain\'s Amazon Resource Name (ARN).
-describeDomainResponse_domainArn :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_domainArn :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_domainArn = Lens.lens (\DescribeDomainResponse' {domainArn} -> domainArn) (\s@DescribeDomainResponse' {} a -> s {domainArn = a} :: DescribeDomainResponse)
 
 -- | The AWS KMS customer managed CMK used to encrypt the EFS volume attached
 -- to the domain.
-describeDomainResponse_kmsKeyId :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_kmsKeyId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_kmsKeyId = Lens.lens (\DescribeDomainResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeDomainResponse' {} a -> s {kmsKeyId = a} :: DescribeDomainResponse)
 
 -- | The domain name.
-describeDomainResponse_domainName :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_domainName :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_domainName = Lens.lens (\DescribeDomainResponse' {domainName} -> domainName) (\s@DescribeDomainResponse' {} a -> s {domainName = a} :: DescribeDomainResponse)
 
 -- | Settings which are applied to all UserProfiles in this domain, if
 -- settings are not explicitly specified in a given UserProfile.
-describeDomainResponse_defaultUserSettings :: Lens.Lens' DescribeDomainResponse (Core.Maybe UserSettings)
+describeDomainResponse_defaultUserSettings :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe UserSettings)
 describeDomainResponse_defaultUserSettings = Lens.lens (\DescribeDomainResponse' {defaultUserSettings} -> defaultUserSettings) (\s@DescribeDomainResponse' {} a -> s {defaultUserSettings = a} :: DescribeDomainResponse)
 
 -- | The failure reason.
-describeDomainResponse_failureReason :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_failureReason :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_failureReason = Lens.lens (\DescribeDomainResponse' {failureReason} -> failureReason) (\s@DescribeDomainResponse' {} a -> s {failureReason = a} :: DescribeDomainResponse)
 
 -- | The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-describeDomainResponse_homeEfsFileSystemId :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_homeEfsFileSystemId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_homeEfsFileSystemId = Lens.lens (\DescribeDomainResponse' {homeEfsFileSystemId} -> homeEfsFileSystemId) (\s@DescribeDomainResponse' {} a -> s {homeEfsFileSystemId = a} :: DescribeDomainResponse)
 
 -- | The last modified time.
-describeDomainResponse_lastModifiedTime :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.UTCTime)
-describeDomainResponse_lastModifiedTime = Lens.lens (\DescribeDomainResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeDomainResponse' {} a -> s {lastModifiedTime = a} :: DescribeDomainResponse) Core.. Lens.mapping Core._Time
+describeDomainResponse_lastModifiedTime :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.UTCTime)
+describeDomainResponse_lastModifiedTime = Lens.lens (\DescribeDomainResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeDomainResponse' {} a -> s {lastModifiedTime = a} :: DescribeDomainResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies the VPC used for non-EFS traffic. The default value is
 -- @PublicInternetOnly@.
@@ -340,24 +343,24 @@ describeDomainResponse_lastModifiedTime = Lens.lens (\DescribeDomainResponse' {l
 --
 -- -   @VpcOnly@ - All Studio traffic is through the specified VPC and
 --     subnets
-describeDomainResponse_appNetworkAccessType :: Lens.Lens' DescribeDomainResponse (Core.Maybe AppNetworkAccessType)
+describeDomainResponse_appNetworkAccessType :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe AppNetworkAccessType)
 describeDomainResponse_appNetworkAccessType = Lens.lens (\DescribeDomainResponse' {appNetworkAccessType} -> appNetworkAccessType) (\s@DescribeDomainResponse' {} a -> s {appNetworkAccessType = a} :: DescribeDomainResponse)
 
 -- | This member is deprecated and replaced with @KmsKeyId@.
-describeDomainResponse_homeEfsFileSystemKmsKeyId :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_homeEfsFileSystemKmsKeyId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_homeEfsFileSystemKmsKeyId = Lens.lens (\DescribeDomainResponse' {homeEfsFileSystemKmsKeyId} -> homeEfsFileSystemKmsKeyId) (\s@DescribeDomainResponse' {} a -> s {homeEfsFileSystemKmsKeyId = a} :: DescribeDomainResponse)
 
 -- | The domain\'s URL.
-describeDomainResponse_url :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_url :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_url = Lens.lens (\DescribeDomainResponse' {url} -> url) (\s@DescribeDomainResponse' {} a -> s {url = a} :: DescribeDomainResponse)
 
 -- | The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for
 -- communication.
-describeDomainResponse_vpcId :: Lens.Lens' DescribeDomainResponse (Core.Maybe Core.Text)
+describeDomainResponse_vpcId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_vpcId = Lens.lens (\DescribeDomainResponse' {vpcId} -> vpcId) (\s@DescribeDomainResponse' {} a -> s {vpcId = a} :: DescribeDomainResponse)
 
 -- | The response's http status code.
-describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Core.Int
+describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Prelude.Int
 describeDomainResponse_httpStatus = Lens.lens (\DescribeDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainResponse' {} a -> s {httpStatus = a} :: DescribeDomainResponse)
 
-instance Core.NFData DescribeDomainResponse
+instance Prelude.NFData DescribeDomainResponse

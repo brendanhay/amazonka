@@ -96,13 +96,14 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newInvoke' smart constructor.
 data Invoke = Invoke'
   { -- | Set to @Tail@ to include the execution log in the response.
-    logType :: Core.Maybe LogType,
+    logType :: Prelude.Maybe LogType,
     -- | Choose from the following options.
     --
     -- -   @RequestResponse@ (default) - Invoke the function synchronously.
@@ -116,13 +117,13 @@ data Invoke = Invoke'
     --
     -- -   @DryRun@ - Validate parameter values and verify that the user or
     --     role has permission to invoke the function.
-    invocationType :: Core.Maybe InvocationType,
+    invocationType :: Prelude.Maybe InvocationType,
     -- | Specify a version or alias to invoke a published version of the
     -- function.
-    qualifier :: Core.Maybe Core.Text,
+    qualifier :: Prelude.Maybe Prelude.Text,
     -- | Up to 3583 bytes of base64-encoded data about the invoking client to
     -- pass to the function in the context object.
-    clientContext :: Core.Maybe Core.Text,
+    clientContext :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -138,11 +139,11 @@ data Invoke = Invoke'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Core.Text,
+    functionName :: Prelude.Text,
     -- | The JSON that you want to provide to your Lambda function as input.
-    payload :: Core.ByteString
+    payload :: Prelude.ByteString
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Invoke' with all optional fields omitted.
@@ -193,22 +194,22 @@ data Invoke = Invoke'
 -- 'payload', 'invoke_payload' - The JSON that you want to provide to your Lambda function as input.
 newInvoke ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'payload'
-  Core.ByteString ->
+  Prelude.ByteString ->
   Invoke
 newInvoke pFunctionName_ pPayload_ =
   Invoke'
-    { logType = Core.Nothing,
-      invocationType = Core.Nothing,
-      qualifier = Core.Nothing,
-      clientContext = Core.Nothing,
+    { logType = Prelude.Nothing,
+      invocationType = Prelude.Nothing,
+      qualifier = Prelude.Nothing,
+      clientContext = Prelude.Nothing,
       functionName = pFunctionName_,
       payload = pPayload_
     }
 
 -- | Set to @Tail@ to include the execution log in the response.
-invoke_logType :: Lens.Lens' Invoke (Core.Maybe LogType)
+invoke_logType :: Lens.Lens' Invoke (Prelude.Maybe LogType)
 invoke_logType = Lens.lens (\Invoke' {logType} -> logType) (\s@Invoke' {} a -> s {logType = a} :: Invoke)
 
 -- | Choose from the following options.
@@ -224,17 +225,17 @@ invoke_logType = Lens.lens (\Invoke' {logType} -> logType) (\s@Invoke' {} a -> s
 --
 -- -   @DryRun@ - Validate parameter values and verify that the user or
 --     role has permission to invoke the function.
-invoke_invocationType :: Lens.Lens' Invoke (Core.Maybe InvocationType)
+invoke_invocationType :: Lens.Lens' Invoke (Prelude.Maybe InvocationType)
 invoke_invocationType = Lens.lens (\Invoke' {invocationType} -> invocationType) (\s@Invoke' {} a -> s {invocationType = a} :: Invoke)
 
 -- | Specify a version or alias to invoke a published version of the
 -- function.
-invoke_qualifier :: Lens.Lens' Invoke (Core.Maybe Core.Text)
+invoke_qualifier :: Lens.Lens' Invoke (Prelude.Maybe Prelude.Text)
 invoke_qualifier = Lens.lens (\Invoke' {qualifier} -> qualifier) (\s@Invoke' {} a -> s {qualifier = a} :: Invoke)
 
 -- | Up to 3583 bytes of base64-encoded data about the invoking client to
 -- pass to the function in the context object.
-invoke_clientContext :: Lens.Lens' Invoke (Core.Maybe Core.Text)
+invoke_clientContext :: Lens.Lens' Invoke (Prelude.Maybe Prelude.Text)
 invoke_clientContext = Lens.lens (\Invoke' {clientContext} -> clientContext) (\s@Invoke' {} a -> s {clientContext = a} :: Invoke)
 
 -- | The name of the Lambda function, version, or alias.
@@ -252,11 +253,11 @@ invoke_clientContext = Lens.lens (\Invoke' {clientContext} -> clientContext) (\s
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-invoke_functionName :: Lens.Lens' Invoke Core.Text
+invoke_functionName :: Lens.Lens' Invoke Prelude.Text
 invoke_functionName = Lens.lens (\Invoke' {functionName} -> functionName) (\s@Invoke' {} a -> s {functionName = a} :: Invoke)
 
 -- | The JSON that you want to provide to your Lambda function as input.
-invoke_payload :: Lens.Lens' Invoke Core.ByteString
+invoke_payload :: Lens.Lens' Invoke Prelude.ByteString
 invoke_payload = Lens.lens (\Invoke' {payload} -> payload) (\s@Invoke' {} a -> s {payload = a} :: Invoke)
 
 instance Core.AWSRequest Invoke where
@@ -266,23 +267,23 @@ instance Core.AWSRequest Invoke where
     Response.receiveBytes
       ( \s h x ->
           InvokeResponse'
-            Core.<$> (Core.pure (Core.Just x))
-            Core.<*> (h Core..#? "X-Amz-Log-Result")
-            Core.<*> (h Core..#? "X-Amz-Executed-Version")
-            Core.<*> (h Core..#? "X-Amz-Function-Error")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<*> (h Core..#? "X-Amz-Log-Result")
+            Prelude.<*> (h Core..#? "X-Amz-Executed-Version")
+            Prelude.<*> (h Core..#? "X-Amz-Function-Error")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable Invoke
+instance Prelude.Hashable Invoke
 
-instance Core.NFData Invoke
+instance Prelude.NFData Invoke
 
 instance Core.ToBody Invoke where
   toBody Invoke' {..} = Core.toBody payload
 
 instance Core.ToHeaders Invoke where
   toHeaders Invoke' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "X-Amz-Log-Type" Core.=# logType,
         "X-Amz-Invocation-Type" Core.=# invocationType,
         "X-Amz-Client-Context" Core.=# clientContext
@@ -290,7 +291,7 @@ instance Core.ToHeaders Invoke where
 
 instance Core.ToPath Invoke where
   toPath Invoke' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/invocations"
@@ -298,27 +299,27 @@ instance Core.ToPath Invoke where
 
 instance Core.ToQuery Invoke where
   toQuery Invoke' {..} =
-    Core.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]
 
 -- | /See:/ 'newInvokeResponse' smart constructor.
 data InvokeResponse = InvokeResponse'
   { -- | The response from the function, or an error object.
-    payload :: Core.Maybe Core.ByteString,
+    payload :: Prelude.Maybe Prelude.ByteString,
     -- | The last 4 KB of the execution log, which is base64 encoded.
-    logResult :: Core.Maybe Core.Text,
+    logResult :: Prelude.Maybe Prelude.Text,
     -- | The version of the function that executed. When you invoke a function
     -- with an alias, this indicates which version the alias resolved to.
-    executedVersion :: Core.Maybe Core.Text,
+    executedVersion :: Prelude.Maybe Prelude.Text,
     -- | If present, indicates that an error occurred during function execution.
     -- Details about the error are included in the response payload.
-    functionError :: Core.Maybe Core.Text,
+    functionError :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status code is in the 200 range for a successful request. For
     -- the @RequestResponse@ invocation type, this status code is 200. For the
     -- @Event@ invocation type, this status code is 202. For the @DryRun@
     -- invocation type, the status code is 204.
-    statusCode :: Core.Int
+    statusCode :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InvokeResponse' with all optional fields omitted.
@@ -344,40 +345,40 @@ data InvokeResponse = InvokeResponse'
 -- invocation type, the status code is 204.
 newInvokeResponse ::
   -- | 'statusCode'
-  Core.Int ->
+  Prelude.Int ->
   InvokeResponse
 newInvokeResponse pStatusCode_ =
   InvokeResponse'
-    { payload = Core.Nothing,
-      logResult = Core.Nothing,
-      executedVersion = Core.Nothing,
-      functionError = Core.Nothing,
+    { payload = Prelude.Nothing,
+      logResult = Prelude.Nothing,
+      executedVersion = Prelude.Nothing,
+      functionError = Prelude.Nothing,
       statusCode = pStatusCode_
     }
 
 -- | The response from the function, or an error object.
-invokeResponse_payload :: Lens.Lens' InvokeResponse (Core.Maybe Core.ByteString)
+invokeResponse_payload :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.ByteString)
 invokeResponse_payload = Lens.lens (\InvokeResponse' {payload} -> payload) (\s@InvokeResponse' {} a -> s {payload = a} :: InvokeResponse)
 
 -- | The last 4 KB of the execution log, which is base64 encoded.
-invokeResponse_logResult :: Lens.Lens' InvokeResponse (Core.Maybe Core.Text)
+invokeResponse_logResult :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.Text)
 invokeResponse_logResult = Lens.lens (\InvokeResponse' {logResult} -> logResult) (\s@InvokeResponse' {} a -> s {logResult = a} :: InvokeResponse)
 
 -- | The version of the function that executed. When you invoke a function
 -- with an alias, this indicates which version the alias resolved to.
-invokeResponse_executedVersion :: Lens.Lens' InvokeResponse (Core.Maybe Core.Text)
+invokeResponse_executedVersion :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.Text)
 invokeResponse_executedVersion = Lens.lens (\InvokeResponse' {executedVersion} -> executedVersion) (\s@InvokeResponse' {} a -> s {executedVersion = a} :: InvokeResponse)
 
 -- | If present, indicates that an error occurred during function execution.
 -- Details about the error are included in the response payload.
-invokeResponse_functionError :: Lens.Lens' InvokeResponse (Core.Maybe Core.Text)
+invokeResponse_functionError :: Lens.Lens' InvokeResponse (Prelude.Maybe Prelude.Text)
 invokeResponse_functionError = Lens.lens (\InvokeResponse' {functionError} -> functionError) (\s@InvokeResponse' {} a -> s {functionError = a} :: InvokeResponse)
 
 -- | The HTTP status code is in the 200 range for a successful request. For
 -- the @RequestResponse@ invocation type, this status code is 200. For the
 -- @Event@ invocation type, this status code is 202. For the @DryRun@
 -- invocation type, the status code is 204.
-invokeResponse_statusCode :: Lens.Lens' InvokeResponse Core.Int
+invokeResponse_statusCode :: Lens.Lens' InvokeResponse Prelude.Int
 invokeResponse_statusCode = Lens.lens (\InvokeResponse' {statusCode} -> statusCode) (\s@InvokeResponse' {} a -> s {statusCode = a} :: InvokeResponse)
 
-instance Core.NFData InvokeResponse
+instance Prelude.NFData InvokeResponse

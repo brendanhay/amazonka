@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.MetricDimension where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies metric-based criteria for including or excluding endpoints
 -- from a segment. These criteria derive from custom metrics that you
@@ -31,11 +32,11 @@ data MetricDimension = MetricDimension'
   { -- | The operator to use when comparing metric values. Valid values are:
     -- GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, and
     -- EQUAL.
-    comparisonOperator :: Core.Text,
+    comparisonOperator :: Prelude.Text,
     -- | The value to compare.
-    value :: Core.Double
+    value :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricDimension' with all optional fields omitted.
@@ -52,9 +53,9 @@ data MetricDimension = MetricDimension'
 -- 'value', 'metricDimension_value' - The value to compare.
 newMetricDimension ::
   -- | 'comparisonOperator'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Double ->
+  Prelude.Double ->
   MetricDimension
 newMetricDimension pComparisonOperator_ pValue_ =
   MetricDimension'
@@ -66,11 +67,11 @@ newMetricDimension pComparisonOperator_ pValue_ =
 -- | The operator to use when comparing metric values. Valid values are:
 -- GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, and
 -- EQUAL.
-metricDimension_comparisonOperator :: Lens.Lens' MetricDimension Core.Text
+metricDimension_comparisonOperator :: Lens.Lens' MetricDimension Prelude.Text
 metricDimension_comparisonOperator = Lens.lens (\MetricDimension' {comparisonOperator} -> comparisonOperator) (\s@MetricDimension' {} a -> s {comparisonOperator = a} :: MetricDimension)
 
 -- | The value to compare.
-metricDimension_value :: Lens.Lens' MetricDimension Core.Double
+metricDimension_value :: Lens.Lens' MetricDimension Prelude.Double
 metricDimension_value = Lens.lens (\MetricDimension' {value} -> value) (\s@MetricDimension' {} a -> s {value = a} :: MetricDimension)
 
 instance Core.FromJSON MetricDimension where
@@ -79,20 +80,20 @@ instance Core.FromJSON MetricDimension where
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Core.<$> (x Core..: "ComparisonOperator")
-            Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "ComparisonOperator")
+            Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable MetricDimension
+instance Prelude.Hashable MetricDimension
 
-instance Core.NFData MetricDimension
+instance Prelude.NFData MetricDimension
 
 instance Core.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ComparisonOperator" Core..= comparisonOperator),
-            Core.Just ("Value" Core..= value)
+            Prelude.Just ("Value" Core..= value)
           ]
       )

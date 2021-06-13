@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.StateMachineListItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.StateMachineType
 
 -- | Contains details about the state machine.
@@ -28,7 +29,7 @@ import Network.AWS.StepFunctions.Types.StateMachineType
 -- /See:/ 'newStateMachineListItem' smart constructor.
 data StateMachineListItem = StateMachineListItem'
   { -- | The Amazon Resource Name (ARN) that identifies the state machine.
-    stateMachineArn :: Core.Text,
+    stateMachineArn :: Prelude.Text,
     -- | The name of the state machine.
     --
     -- A name must /not/ contain:
@@ -45,12 +46,12 @@ data StateMachineListItem = StateMachineListItem'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Core.Text,
+    name :: Prelude.Text,
     type' :: StateMachineType,
     -- | The date the state machine is created.
     creationDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StateMachineListItem' with all optional fields omitted.
@@ -84,13 +85,13 @@ data StateMachineListItem = StateMachineListItem'
 -- 'creationDate', 'stateMachineListItem_creationDate' - The date the state machine is created.
 newStateMachineListItem ::
   -- | 'stateMachineArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   StateMachineType ->
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   StateMachineListItem
 newStateMachineListItem
   pStateMachineArn_
@@ -106,7 +107,7 @@ newStateMachineListItem
       }
 
 -- | The Amazon Resource Name (ARN) that identifies the state machine.
-stateMachineListItem_stateMachineArn :: Lens.Lens' StateMachineListItem Core.Text
+stateMachineListItem_stateMachineArn :: Lens.Lens' StateMachineListItem Prelude.Text
 stateMachineListItem_stateMachineArn = Lens.lens (\StateMachineListItem' {stateMachineArn} -> stateMachineArn) (\s@StateMachineListItem' {} a -> s {stateMachineArn = a} :: StateMachineListItem)
 
 -- | The name of the state machine.
@@ -125,7 +126,7 @@ stateMachineListItem_stateMachineArn = Lens.lens (\StateMachineListItem' {stateM
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-stateMachineListItem_name :: Lens.Lens' StateMachineListItem Core.Text
+stateMachineListItem_name :: Lens.Lens' StateMachineListItem Prelude.Text
 stateMachineListItem_name = Lens.lens (\StateMachineListItem' {name} -> name) (\s@StateMachineListItem' {} a -> s {name = a} :: StateMachineListItem)
 
 -- |
@@ -133,8 +134,8 @@ stateMachineListItem_type :: Lens.Lens' StateMachineListItem StateMachineType
 stateMachineListItem_type = Lens.lens (\StateMachineListItem' {type'} -> type') (\s@StateMachineListItem' {} a -> s {type' = a} :: StateMachineListItem)
 
 -- | The date the state machine is created.
-stateMachineListItem_creationDate :: Lens.Lens' StateMachineListItem Core.UTCTime
-stateMachineListItem_creationDate = Lens.lens (\StateMachineListItem' {creationDate} -> creationDate) (\s@StateMachineListItem' {} a -> s {creationDate = a} :: StateMachineListItem) Core.. Core._Time
+stateMachineListItem_creationDate :: Lens.Lens' StateMachineListItem Prelude.UTCTime
+stateMachineListItem_creationDate = Lens.lens (\StateMachineListItem' {creationDate} -> creationDate) (\s@StateMachineListItem' {} a -> s {creationDate = a} :: StateMachineListItem) Prelude.. Core._Time
 
 instance Core.FromJSON StateMachineListItem where
   parseJSON =
@@ -142,12 +143,12 @@ instance Core.FromJSON StateMachineListItem where
       "StateMachineListItem"
       ( \x ->
           StateMachineListItem'
-            Core.<$> (x Core..: "stateMachineArn")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "type")
-            Core.<*> (x Core..: "creationDate")
+            Prelude.<$> (x Core..: "stateMachineArn")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "type")
+            Prelude.<*> (x Core..: "creationDate")
       )
 
-instance Core.Hashable StateMachineListItem
+instance Prelude.Hashable StateMachineListItem
 
-instance Core.NFData StateMachineListItem
+instance Prelude.NFData StateMachineListItem

@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 data GetStackPolicy = GetStackPolicy'
   { -- | The name or unique stack ID that is associated with the stack whose
     -- policy you want to get.
-    stackName :: Core.Text
+    stackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStackPolicy' with all optional fields omitted.
@@ -68,14 +69,14 @@ data GetStackPolicy = GetStackPolicy'
 -- policy you want to get.
 newGetStackPolicy ::
   -- | 'stackName'
-  Core.Text ->
+  Prelude.Text ->
   GetStackPolicy
 newGetStackPolicy pStackName_ =
   GetStackPolicy' {stackName = pStackName_}
 
 -- | The name or unique stack ID that is associated with the stack whose
 -- policy you want to get.
-getStackPolicy_stackName :: Lens.Lens' GetStackPolicy Core.Text
+getStackPolicy_stackName :: Lens.Lens' GetStackPolicy Prelude.Text
 getStackPolicy_stackName = Lens.lens (\GetStackPolicy' {stackName} -> stackName) (\s@GetStackPolicy' {} a -> s {stackName = a} :: GetStackPolicy)
 
 instance Core.AWSRequest GetStackPolicy where
@@ -88,26 +89,27 @@ instance Core.AWSRequest GetStackPolicy where
       "GetStackPolicyResult"
       ( \s h x ->
           GetStackPolicyResponse'
-            Core.<$> (x Core..@? "StackPolicyBody")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "StackPolicyBody")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetStackPolicy
+instance Prelude.Hashable GetStackPolicy
 
-instance Core.NFData GetStackPolicy
+instance Prelude.NFData GetStackPolicy
 
 instance Core.ToHeaders GetStackPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetStackPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetStackPolicy where
   toQuery GetStackPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetStackPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("GetStackPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "StackName" Core.=: stackName
       ]
 
@@ -118,11 +120,11 @@ data GetStackPolicyResponse = GetStackPolicyResponse'
   { -- | Structure containing the stack policy body. (For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
     -- in the AWS CloudFormation User Guide.)
-    stackPolicyBody :: Core.Maybe Core.Text,
+    stackPolicyBody :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStackPolicyResponse' with all optional fields omitted.
@@ -139,23 +141,23 @@ data GetStackPolicyResponse = GetStackPolicyResponse'
 -- 'httpStatus', 'getStackPolicyResponse_httpStatus' - The response's http status code.
 newGetStackPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetStackPolicyResponse
 newGetStackPolicyResponse pHttpStatus_ =
   GetStackPolicyResponse'
     { stackPolicyBody =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
 -- in the AWS CloudFormation User Guide.)
-getStackPolicyResponse_stackPolicyBody :: Lens.Lens' GetStackPolicyResponse (Core.Maybe Core.Text)
+getStackPolicyResponse_stackPolicyBody :: Lens.Lens' GetStackPolicyResponse (Prelude.Maybe Prelude.Text)
 getStackPolicyResponse_stackPolicyBody = Lens.lens (\GetStackPolicyResponse' {stackPolicyBody} -> stackPolicyBody) (\s@GetStackPolicyResponse' {} a -> s {stackPolicyBody = a} :: GetStackPolicyResponse)
 
 -- | The response's http status code.
-getStackPolicyResponse_httpStatus :: Lens.Lens' GetStackPolicyResponse Core.Int
+getStackPolicyResponse_httpStatus :: Lens.Lens' GetStackPolicyResponse Prelude.Int
 getStackPolicyResponse_httpStatus = Lens.lens (\GetStackPolicyResponse' {httpStatus} -> httpStatus) (\s@GetStackPolicyResponse' {} a -> s {httpStatus = a} :: GetStackPolicyResponse)
 
-instance Core.NFData GetStackPolicyResponse
+instance Prelude.NFData GetStackPolicyResponse

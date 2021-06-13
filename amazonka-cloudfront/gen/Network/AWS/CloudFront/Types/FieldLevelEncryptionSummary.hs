@@ -23,24 +23,25 @@ import Network.AWS.CloudFront.Types.ContentTypeProfileConfig
 import Network.AWS.CloudFront.Types.QueryArgProfileConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of a field-level encryption item.
 --
 -- /See:/ 'newFieldLevelEncryptionSummary' smart constructor.
 data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
   { -- | An optional comment about the field-level encryption item.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | A summary of a content type-profile mapping.
-    contentTypeProfileConfig :: Core.Maybe ContentTypeProfileConfig,
+    contentTypeProfileConfig :: Prelude.Maybe ContentTypeProfileConfig,
     -- | A summary of a query argument-profile mapping.
-    queryArgProfileConfig :: Core.Maybe QueryArgProfileConfig,
+    queryArgProfileConfig :: Prelude.Maybe QueryArgProfileConfig,
     -- | The unique ID of a field-level encryption item.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The last time that the summary of field-level encryption items was
     -- modified.
     lastModifiedTime :: Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FieldLevelEncryptionSummary' with all optional fields omitted.
@@ -62,53 +63,53 @@ data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
 -- modified.
 newFieldLevelEncryptionSummary ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   FieldLevelEncryptionSummary
 newFieldLevelEncryptionSummary
   pId_
   pLastModifiedTime_ =
     FieldLevelEncryptionSummary'
       { comment =
-          Core.Nothing,
-        contentTypeProfileConfig = Core.Nothing,
-        queryArgProfileConfig = Core.Nothing,
+          Prelude.Nothing,
+        contentTypeProfileConfig = Prelude.Nothing,
+        queryArgProfileConfig = Prelude.Nothing,
         id = pId_,
         lastModifiedTime =
           Core._Time Lens.# pLastModifiedTime_
       }
 
 -- | An optional comment about the field-level encryption item.
-fieldLevelEncryptionSummary_comment :: Lens.Lens' FieldLevelEncryptionSummary (Core.Maybe Core.Text)
+fieldLevelEncryptionSummary_comment :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe Prelude.Text)
 fieldLevelEncryptionSummary_comment = Lens.lens (\FieldLevelEncryptionSummary' {comment} -> comment) (\s@FieldLevelEncryptionSummary' {} a -> s {comment = a} :: FieldLevelEncryptionSummary)
 
 -- | A summary of a content type-profile mapping.
-fieldLevelEncryptionSummary_contentTypeProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Core.Maybe ContentTypeProfileConfig)
+fieldLevelEncryptionSummary_contentTypeProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe ContentTypeProfileConfig)
 fieldLevelEncryptionSummary_contentTypeProfileConfig = Lens.lens (\FieldLevelEncryptionSummary' {contentTypeProfileConfig} -> contentTypeProfileConfig) (\s@FieldLevelEncryptionSummary' {} a -> s {contentTypeProfileConfig = a} :: FieldLevelEncryptionSummary)
 
 -- | A summary of a query argument-profile mapping.
-fieldLevelEncryptionSummary_queryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Core.Maybe QueryArgProfileConfig)
+fieldLevelEncryptionSummary_queryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe QueryArgProfileConfig)
 fieldLevelEncryptionSummary_queryArgProfileConfig = Lens.lens (\FieldLevelEncryptionSummary' {queryArgProfileConfig} -> queryArgProfileConfig) (\s@FieldLevelEncryptionSummary' {} a -> s {queryArgProfileConfig = a} :: FieldLevelEncryptionSummary)
 
 -- | The unique ID of a field-level encryption item.
-fieldLevelEncryptionSummary_id :: Lens.Lens' FieldLevelEncryptionSummary Core.Text
+fieldLevelEncryptionSummary_id :: Lens.Lens' FieldLevelEncryptionSummary Prelude.Text
 fieldLevelEncryptionSummary_id = Lens.lens (\FieldLevelEncryptionSummary' {id} -> id) (\s@FieldLevelEncryptionSummary' {} a -> s {id = a} :: FieldLevelEncryptionSummary)
 
 -- | The last time that the summary of field-level encryption items was
 -- modified.
-fieldLevelEncryptionSummary_lastModifiedTime :: Lens.Lens' FieldLevelEncryptionSummary Core.UTCTime
-fieldLevelEncryptionSummary_lastModifiedTime = Lens.lens (\FieldLevelEncryptionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryptionSummary' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryptionSummary) Core.. Core._Time
+fieldLevelEncryptionSummary_lastModifiedTime :: Lens.Lens' FieldLevelEncryptionSummary Prelude.UTCTime
+fieldLevelEncryptionSummary_lastModifiedTime = Lens.lens (\FieldLevelEncryptionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryptionSummary' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryptionSummary) Prelude.. Core._Time
 
 instance Core.FromXML FieldLevelEncryptionSummary where
   parseXML x =
     FieldLevelEncryptionSummary'
-      Core.<$> (x Core..@? "Comment")
-      Core.<*> (x Core..@? "ContentTypeProfileConfig")
-      Core.<*> (x Core..@? "QueryArgProfileConfig")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "LastModifiedTime")
+      Prelude.<$> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@? "ContentTypeProfileConfig")
+      Prelude.<*> (x Core..@? "QueryArgProfileConfig")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "LastModifiedTime")
 
-instance Core.Hashable FieldLevelEncryptionSummary
+instance Prelude.Hashable FieldLevelEncryptionSummary
 
-instance Core.NFData FieldLevelEncryptionSummary
+instance Prelude.NFData FieldLevelEncryptionSummary

@@ -22,6 +22,7 @@ module Network.AWS.APIGateway.Types.VpcLink where
 import Network.AWS.APIGateway.Types.VpcLinkStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An API Gateway VPC link for a RestApi to access resources in an Amazon
 -- Virtual Private Cloud (VPC).
@@ -37,27 +38,27 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newVpcLink' smart constructor.
 data VpcLink = VpcLink'
   { -- | A description about the VPC link status.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The status of the VPC link. The valid values are @AVAILABLE@, @PENDING@,
     -- @DELETING@, or @FAILED@. Deploying an API will wait if the status is
     -- @PENDING@ and will fail if the status is @DELETING@.
-    status :: Core.Maybe VpcLinkStatus,
+    status :: Prelude.Maybe VpcLinkStatus,
     -- | The identifier of the VpcLink. It is used in an Integration to reference
     -- this VpcLink.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name used to label and identify the VPC link.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network load balancer of the VPC targeted by the VPC
     -- link. The network load balancer must be owned by the same AWS account of
     -- the API owner.
-    targetArns :: Core.Maybe [Core.Text],
+    targetArns :: Prelude.Maybe [Prelude.Text],
     -- | The collection of tags. Each tag element is associated with a given
     -- resource.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the VPC link.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcLink' with all optional fields omitted.
@@ -90,47 +91,47 @@ newVpcLink ::
   VpcLink
 newVpcLink =
   VpcLink'
-    { statusMessage = Core.Nothing,
-      status = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      targetArns = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing
+    { statusMessage = Prelude.Nothing,
+      status = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      targetArns = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | A description about the VPC link status.
-vpcLink_statusMessage :: Lens.Lens' VpcLink (Core.Maybe Core.Text)
+vpcLink_statusMessage :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
 vpcLink_statusMessage = Lens.lens (\VpcLink' {statusMessage} -> statusMessage) (\s@VpcLink' {} a -> s {statusMessage = a} :: VpcLink)
 
 -- | The status of the VPC link. The valid values are @AVAILABLE@, @PENDING@,
 -- @DELETING@, or @FAILED@. Deploying an API will wait if the status is
 -- @PENDING@ and will fail if the status is @DELETING@.
-vpcLink_status :: Lens.Lens' VpcLink (Core.Maybe VpcLinkStatus)
+vpcLink_status :: Lens.Lens' VpcLink (Prelude.Maybe VpcLinkStatus)
 vpcLink_status = Lens.lens (\VpcLink' {status} -> status) (\s@VpcLink' {} a -> s {status = a} :: VpcLink)
 
 -- | The identifier of the VpcLink. It is used in an Integration to reference
 -- this VpcLink.
-vpcLink_id :: Lens.Lens' VpcLink (Core.Maybe Core.Text)
+vpcLink_id :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
 vpcLink_id = Lens.lens (\VpcLink' {id} -> id) (\s@VpcLink' {} a -> s {id = a} :: VpcLink)
 
 -- | The name used to label and identify the VPC link.
-vpcLink_name :: Lens.Lens' VpcLink (Core.Maybe Core.Text)
+vpcLink_name :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
 vpcLink_name = Lens.lens (\VpcLink' {name} -> name) (\s@VpcLink' {} a -> s {name = a} :: VpcLink)
 
 -- | The ARN of the network load balancer of the VPC targeted by the VPC
 -- link. The network load balancer must be owned by the same AWS account of
 -- the API owner.
-vpcLink_targetArns :: Lens.Lens' VpcLink (Core.Maybe [Core.Text])
-vpcLink_targetArns = Lens.lens (\VpcLink' {targetArns} -> targetArns) (\s@VpcLink' {} a -> s {targetArns = a} :: VpcLink) Core.. Lens.mapping Lens._Coerce
+vpcLink_targetArns :: Lens.Lens' VpcLink (Prelude.Maybe [Prelude.Text])
+vpcLink_targetArns = Lens.lens (\VpcLink' {targetArns} -> targetArns) (\s@VpcLink' {} a -> s {targetArns = a} :: VpcLink) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.
-vpcLink_tags :: Lens.Lens' VpcLink (Core.Maybe (Core.HashMap Core.Text Core.Text))
-vpcLink_tags = Lens.lens (\VpcLink' {tags} -> tags) (\s@VpcLink' {} a -> s {tags = a} :: VpcLink) Core.. Lens.mapping Lens._Coerce
+vpcLink_tags :: Lens.Lens' VpcLink (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+vpcLink_tags = Lens.lens (\VpcLink' {tags} -> tags) (\s@VpcLink' {} a -> s {tags = a} :: VpcLink) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the VPC link.
-vpcLink_description :: Lens.Lens' VpcLink (Core.Maybe Core.Text)
+vpcLink_description :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
 vpcLink_description = Lens.lens (\VpcLink' {description} -> description) (\s@VpcLink' {} a -> s {description = a} :: VpcLink)
 
 instance Core.FromJSON VpcLink where
@@ -139,15 +140,15 @@ instance Core.FromJSON VpcLink where
       "VpcLink"
       ( \x ->
           VpcLink'
-            Core.<$> (x Core..:? "statusMessage")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "targetArns" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "statusMessage")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "targetArns" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "description")
       )
 
-instance Core.Hashable VpcLink
+instance Prelude.Hashable VpcLink
 
-instance Core.NFData VpcLink
+instance Prelude.NFData VpcLink

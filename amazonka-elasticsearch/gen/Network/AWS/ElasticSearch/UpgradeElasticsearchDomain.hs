@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,12 +58,12 @@ import qualified Network.AWS.Response as Response
 data UpgradeElasticsearchDomain = UpgradeElasticsearchDomain'
   { -- | This flag, when set to True, indicates that an Upgrade Eligibility Check
     -- needs to be performed. This will not actually perform the Upgrade.
-    performCheckOnly :: Core.Maybe Core.Bool,
-    domainName :: Core.Text,
+    performCheckOnly :: Prelude.Maybe Prelude.Bool,
+    domainName :: Prelude.Text,
     -- | The version of Elasticsearch that you intend to upgrade the domain to.
-    targetVersion :: Core.Text
+    targetVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpgradeElasticsearchDomain' with all optional fields omitted.
@@ -80,31 +81,31 @@ data UpgradeElasticsearchDomain = UpgradeElasticsearchDomain'
 -- 'targetVersion', 'upgradeElasticsearchDomain_targetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
 newUpgradeElasticsearchDomain ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetVersion'
-  Core.Text ->
+  Prelude.Text ->
   UpgradeElasticsearchDomain
 newUpgradeElasticsearchDomain
   pDomainName_
   pTargetVersion_ =
     UpgradeElasticsearchDomain'
       { performCheckOnly =
-          Core.Nothing,
+          Prelude.Nothing,
         domainName = pDomainName_,
         targetVersion = pTargetVersion_
       }
 
 -- | This flag, when set to True, indicates that an Upgrade Eligibility Check
 -- needs to be performed. This will not actually perform the Upgrade.
-upgradeElasticsearchDomain_performCheckOnly :: Lens.Lens' UpgradeElasticsearchDomain (Core.Maybe Core.Bool)
+upgradeElasticsearchDomain_performCheckOnly :: Lens.Lens' UpgradeElasticsearchDomain (Prelude.Maybe Prelude.Bool)
 upgradeElasticsearchDomain_performCheckOnly = Lens.lens (\UpgradeElasticsearchDomain' {performCheckOnly} -> performCheckOnly) (\s@UpgradeElasticsearchDomain' {} a -> s {performCheckOnly = a} :: UpgradeElasticsearchDomain)
 
 -- | Undocumented member.
-upgradeElasticsearchDomain_domainName :: Lens.Lens' UpgradeElasticsearchDomain Core.Text
+upgradeElasticsearchDomain_domainName :: Lens.Lens' UpgradeElasticsearchDomain Prelude.Text
 upgradeElasticsearchDomain_domainName = Lens.lens (\UpgradeElasticsearchDomain' {domainName} -> domainName) (\s@UpgradeElasticsearchDomain' {} a -> s {domainName = a} :: UpgradeElasticsearchDomain)
 
 -- | The version of Elasticsearch that you intend to upgrade the domain to.
-upgradeElasticsearchDomain_targetVersion :: Lens.Lens' UpgradeElasticsearchDomain Core.Text
+upgradeElasticsearchDomain_targetVersion :: Lens.Lens' UpgradeElasticsearchDomain Prelude.Text
 upgradeElasticsearchDomain_targetVersion = Lens.lens (\UpgradeElasticsearchDomain' {targetVersion} -> targetVersion) (\s@UpgradeElasticsearchDomain' {} a -> s {targetVersion = a} :: UpgradeElasticsearchDomain)
 
 instance Core.AWSRequest UpgradeElasticsearchDomain where
@@ -116,35 +117,36 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
     Response.receiveJSON
       ( \s h x ->
           UpgradeElasticsearchDomainResponse'
-            Core.<$> (x Core..?> "TargetVersion")
-            Core.<*> (x Core..?> "DomainName")
-            Core.<*> (x Core..?> "PerformCheckOnly")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TargetVersion")
+            Prelude.<*> (x Core..?> "DomainName")
+            Prelude.<*> (x Core..?> "PerformCheckOnly")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpgradeElasticsearchDomain
+instance Prelude.Hashable UpgradeElasticsearchDomain
 
-instance Core.NFData UpgradeElasticsearchDomain
+instance Prelude.NFData UpgradeElasticsearchDomain
 
 instance Core.ToHeaders UpgradeElasticsearchDomain where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpgradeElasticsearchDomain where
   toJSON UpgradeElasticsearchDomain' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PerformCheckOnly" Core..=)
-              Core.<$> performCheckOnly,
-            Core.Just ("DomainName" Core..= domainName),
-            Core.Just ("TargetVersion" Core..= targetVersion)
+              Prelude.<$> performCheckOnly,
+            Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just
+              ("TargetVersion" Core..= targetVersion)
           ]
       )
 
 instance Core.ToPath UpgradeElasticsearchDomain where
-  toPath = Core.const "/2015-01-01/es/upgradeDomain"
+  toPath = Prelude.const "/2015-01-01/es/upgradeDomain"
 
 instance Core.ToQuery UpgradeElasticsearchDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response returned by @ UpgradeElasticsearchDomain @
 -- operation.
@@ -152,15 +154,15 @@ instance Core.ToQuery UpgradeElasticsearchDomain where
 -- /See:/ 'newUpgradeElasticsearchDomainResponse' smart constructor.
 data UpgradeElasticsearchDomainResponse = UpgradeElasticsearchDomainResponse'
   { -- | The version of Elasticsearch that you intend to upgrade the domain to.
-    targetVersion :: Core.Maybe Core.Text,
-    domainName :: Core.Maybe Core.Text,
+    targetVersion :: Prelude.Maybe Prelude.Text,
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | This flag, when set to True, indicates that an Upgrade Eligibility Check
     -- needs to be performed. This will not actually perform the Upgrade.
-    performCheckOnly :: Core.Maybe Core.Bool,
+    performCheckOnly :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpgradeElasticsearchDomainResponse' with all optional fields omitted.
@@ -180,34 +182,34 @@ data UpgradeElasticsearchDomainResponse = UpgradeElasticsearchDomainResponse'
 -- 'httpStatus', 'upgradeElasticsearchDomainResponse_httpStatus' - The response's http status code.
 newUpgradeElasticsearchDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpgradeElasticsearchDomainResponse
 newUpgradeElasticsearchDomainResponse pHttpStatus_ =
   UpgradeElasticsearchDomainResponse'
     { targetVersion =
-        Core.Nothing,
-      domainName = Core.Nothing,
-      performCheckOnly = Core.Nothing,
+        Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      performCheckOnly = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The version of Elasticsearch that you intend to upgrade the domain to.
-upgradeElasticsearchDomainResponse_targetVersion :: Lens.Lens' UpgradeElasticsearchDomainResponse (Core.Maybe Core.Text)
+upgradeElasticsearchDomainResponse_targetVersion :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe Prelude.Text)
 upgradeElasticsearchDomainResponse_targetVersion = Lens.lens (\UpgradeElasticsearchDomainResponse' {targetVersion} -> targetVersion) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {targetVersion = a} :: UpgradeElasticsearchDomainResponse)
 
 -- | Undocumented member.
-upgradeElasticsearchDomainResponse_domainName :: Lens.Lens' UpgradeElasticsearchDomainResponse (Core.Maybe Core.Text)
+upgradeElasticsearchDomainResponse_domainName :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe Prelude.Text)
 upgradeElasticsearchDomainResponse_domainName = Lens.lens (\UpgradeElasticsearchDomainResponse' {domainName} -> domainName) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {domainName = a} :: UpgradeElasticsearchDomainResponse)
 
 -- | This flag, when set to True, indicates that an Upgrade Eligibility Check
 -- needs to be performed. This will not actually perform the Upgrade.
-upgradeElasticsearchDomainResponse_performCheckOnly :: Lens.Lens' UpgradeElasticsearchDomainResponse (Core.Maybe Core.Bool)
+upgradeElasticsearchDomainResponse_performCheckOnly :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe Prelude.Bool)
 upgradeElasticsearchDomainResponse_performCheckOnly = Lens.lens (\UpgradeElasticsearchDomainResponse' {performCheckOnly} -> performCheckOnly) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {performCheckOnly = a} :: UpgradeElasticsearchDomainResponse)
 
 -- | The response's http status code.
-upgradeElasticsearchDomainResponse_httpStatus :: Lens.Lens' UpgradeElasticsearchDomainResponse Core.Int
+upgradeElasticsearchDomainResponse_httpStatus :: Lens.Lens' UpgradeElasticsearchDomainResponse Prelude.Int
 upgradeElasticsearchDomainResponse_httpStatus = Lens.lens (\UpgradeElasticsearchDomainResponse' {httpStatus} -> httpStatus) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {httpStatus = a} :: UpgradeElasticsearchDomainResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpgradeElasticsearchDomainResponse

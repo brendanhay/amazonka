@@ -74,6 +74,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,9 +85,9 @@ data RemoveAccountFromOrganization = RemoveAccountFromOrganization'
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
-    accountId :: Core.Text
+    accountId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveAccountFromOrganization' with all optional fields omitted.
@@ -103,7 +104,7 @@ data RemoveAccountFromOrganization = RemoveAccountFromOrganization'
 -- string requires exactly 12 digits.
 newRemoveAccountFromOrganization ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   RemoveAccountFromOrganization
 newRemoveAccountFromOrganization pAccountId_ =
   RemoveAccountFromOrganization'
@@ -116,7 +117,7 @@ newRemoveAccountFromOrganization pAccountId_ =
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-removeAccountFromOrganization_accountId :: Lens.Lens' RemoveAccountFromOrganization Core.Text
+removeAccountFromOrganization_accountId :: Lens.Lens' RemoveAccountFromOrganization Prelude.Text
 removeAccountFromOrganization_accountId = Lens.lens (\RemoveAccountFromOrganization' {accountId} -> accountId) (\s@RemoveAccountFromOrganization' {} a -> s {accountId = a} :: RemoveAccountFromOrganization)
 
 instance
@@ -131,41 +132,45 @@ instance
     Response.receiveNull
       RemoveAccountFromOrganizationResponse'
 
-instance Core.Hashable RemoveAccountFromOrganization
+instance
+  Prelude.Hashable
+    RemoveAccountFromOrganization
 
-instance Core.NFData RemoveAccountFromOrganization
+instance Prelude.NFData RemoveAccountFromOrganization
 
 instance Core.ToHeaders RemoveAccountFromOrganization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.RemoveAccountFromOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RemoveAccountFromOrganization where
   toJSON RemoveAccountFromOrganization' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AccountId" Core..= accountId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("AccountId" Core..= accountId)]
       )
 
 instance Core.ToPath RemoveAccountFromOrganization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveAccountFromOrganization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveAccountFromOrganizationResponse' smart constructor.
 data RemoveAccountFromOrganizationResponse = RemoveAccountFromOrganizationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveAccountFromOrganizationResponse' with all optional fields omitted.
@@ -177,5 +182,5 @@ newRemoveAccountFromOrganizationResponse =
   RemoveAccountFromOrganizationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveAccountFromOrganizationResponse

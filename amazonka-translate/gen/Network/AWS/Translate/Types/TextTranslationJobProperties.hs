@@ -21,6 +21,7 @@ module Network.AWS.Translate.Types.TextTranslationJobProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Translate.Types.InputDataConfig
 import Network.AWS.Translate.Types.JobDetails
 import Network.AWS.Translate.Types.JobStatus
@@ -32,45 +33,45 @@ import Network.AWS.Translate.Types.OutputDataConfig
 data TextTranslationJobProperties = TextTranslationJobProperties'
   { -- | A list containing the names of the parallel data resources applied to
     -- the translation job.
-    parallelDataNames :: Core.Maybe [Core.Text],
+    parallelDataNames :: Prelude.Maybe [Prelude.Text],
     -- | The input configuration properties that were specified when the job was
     -- requested.
-    inputDataConfig :: Core.Maybe InputDataConfig,
+    inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The time at which the translation job was submitted.
-    submittedTime :: Core.Maybe Core.POSIX,
+    submittedTime :: Prelude.Maybe Core.POSIX,
     -- | An explanation of any errors that may have occured during the
     -- translation job.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status of the translation job.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The number of documents successfully and unsuccessfully processed during
     -- the translation job.
-    jobDetails :: Core.Maybe JobDetails,
+    jobDetails :: Prelude.Maybe JobDetails,
     -- | The output configuration properties that were specified when the job was
     -- requested.
-    outputDataConfig :: Core.Maybe OutputDataConfig,
+    outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The language code of the language of the target text. The language must
     -- be a language supported by Amazon Translate.
-    targetLanguageCodes :: Core.Maybe (Core.NonEmpty Core.Text),
+    targetLanguageCodes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time at which the translation job ended.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | A list containing the names of the terminologies applied to a
     -- translation job. Only one terminology can be applied per
     -- StartTextTranslationJob request at this time.
-    terminologyNames :: Core.Maybe [Core.Text],
+    terminologyNames :: Prelude.Maybe [Prelude.Text],
     -- | The user-defined name of the translation job.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management
     -- (IAM) role that granted Amazon Translate read access to the job\'s input
     -- data.
-    dataAccessRoleArn :: Core.Maybe Core.Text,
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the translation job.
-    jobId :: Core.Maybe Core.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The language code of the language of the source text. The language must
     -- be a language supported by Amazon Translate.
-    sourceLanguageCode :: Core.Maybe Core.Text
+    sourceLanguageCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TextTranslationJobProperties' with all optional fields omitted.
@@ -123,87 +124,87 @@ newTextTranslationJobProperties ::
 newTextTranslationJobProperties =
   TextTranslationJobProperties'
     { parallelDataNames =
-        Core.Nothing,
-      inputDataConfig = Core.Nothing,
-      submittedTime = Core.Nothing,
-      message = Core.Nothing,
-      jobStatus = Core.Nothing,
-      jobDetails = Core.Nothing,
-      outputDataConfig = Core.Nothing,
-      targetLanguageCodes = Core.Nothing,
-      endTime = Core.Nothing,
-      terminologyNames = Core.Nothing,
-      jobName = Core.Nothing,
-      dataAccessRoleArn = Core.Nothing,
-      jobId = Core.Nothing,
-      sourceLanguageCode = Core.Nothing
+        Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
+      submittedTime = Prelude.Nothing,
+      message = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      jobDetails = Prelude.Nothing,
+      outputDataConfig = Prelude.Nothing,
+      targetLanguageCodes = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      terminologyNames = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      dataAccessRoleArn = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      sourceLanguageCode = Prelude.Nothing
     }
 
 -- | A list containing the names of the parallel data resources applied to
 -- the translation job.
-textTranslationJobProperties_parallelDataNames :: Lens.Lens' TextTranslationJobProperties (Core.Maybe [Core.Text])
-textTranslationJobProperties_parallelDataNames = Lens.lens (\TextTranslationJobProperties' {parallelDataNames} -> parallelDataNames) (\s@TextTranslationJobProperties' {} a -> s {parallelDataNames = a} :: TextTranslationJobProperties) Core.. Lens.mapping Lens._Coerce
+textTranslationJobProperties_parallelDataNames :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe [Prelude.Text])
+textTranslationJobProperties_parallelDataNames = Lens.lens (\TextTranslationJobProperties' {parallelDataNames} -> parallelDataNames) (\s@TextTranslationJobProperties' {} a -> s {parallelDataNames = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The input configuration properties that were specified when the job was
 -- requested.
-textTranslationJobProperties_inputDataConfig :: Lens.Lens' TextTranslationJobProperties (Core.Maybe InputDataConfig)
+textTranslationJobProperties_inputDataConfig :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe InputDataConfig)
 textTranslationJobProperties_inputDataConfig = Lens.lens (\TextTranslationJobProperties' {inputDataConfig} -> inputDataConfig) (\s@TextTranslationJobProperties' {} a -> s {inputDataConfig = a} :: TextTranslationJobProperties)
 
 -- | The time at which the translation job was submitted.
-textTranslationJobProperties_submittedTime :: Lens.Lens' TextTranslationJobProperties (Core.Maybe Core.UTCTime)
-textTranslationJobProperties_submittedTime = Lens.lens (\TextTranslationJobProperties' {submittedTime} -> submittedTime) (\s@TextTranslationJobProperties' {} a -> s {submittedTime = a} :: TextTranslationJobProperties) Core.. Lens.mapping Core._Time
+textTranslationJobProperties_submittedTime :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.UTCTime)
+textTranslationJobProperties_submittedTime = Lens.lens (\TextTranslationJobProperties' {submittedTime} -> submittedTime) (\s@TextTranslationJobProperties' {} a -> s {submittedTime = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | An explanation of any errors that may have occured during the
 -- translation job.
-textTranslationJobProperties_message :: Lens.Lens' TextTranslationJobProperties (Core.Maybe Core.Text)
+textTranslationJobProperties_message :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.Text)
 textTranslationJobProperties_message = Lens.lens (\TextTranslationJobProperties' {message} -> message) (\s@TextTranslationJobProperties' {} a -> s {message = a} :: TextTranslationJobProperties)
 
 -- | The status of the translation job.
-textTranslationJobProperties_jobStatus :: Lens.Lens' TextTranslationJobProperties (Core.Maybe JobStatus)
+textTranslationJobProperties_jobStatus :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe JobStatus)
 textTranslationJobProperties_jobStatus = Lens.lens (\TextTranslationJobProperties' {jobStatus} -> jobStatus) (\s@TextTranslationJobProperties' {} a -> s {jobStatus = a} :: TextTranslationJobProperties)
 
 -- | The number of documents successfully and unsuccessfully processed during
 -- the translation job.
-textTranslationJobProperties_jobDetails :: Lens.Lens' TextTranslationJobProperties (Core.Maybe JobDetails)
+textTranslationJobProperties_jobDetails :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe JobDetails)
 textTranslationJobProperties_jobDetails = Lens.lens (\TextTranslationJobProperties' {jobDetails} -> jobDetails) (\s@TextTranslationJobProperties' {} a -> s {jobDetails = a} :: TextTranslationJobProperties)
 
 -- | The output configuration properties that were specified when the job was
 -- requested.
-textTranslationJobProperties_outputDataConfig :: Lens.Lens' TextTranslationJobProperties (Core.Maybe OutputDataConfig)
+textTranslationJobProperties_outputDataConfig :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe OutputDataConfig)
 textTranslationJobProperties_outputDataConfig = Lens.lens (\TextTranslationJobProperties' {outputDataConfig} -> outputDataConfig) (\s@TextTranslationJobProperties' {} a -> s {outputDataConfig = a} :: TextTranslationJobProperties)
 
 -- | The language code of the language of the target text. The language must
 -- be a language supported by Amazon Translate.
-textTranslationJobProperties_targetLanguageCodes :: Lens.Lens' TextTranslationJobProperties (Core.Maybe (Core.NonEmpty Core.Text))
-textTranslationJobProperties_targetLanguageCodes = Lens.lens (\TextTranslationJobProperties' {targetLanguageCodes} -> targetLanguageCodes) (\s@TextTranslationJobProperties' {} a -> s {targetLanguageCodes = a} :: TextTranslationJobProperties) Core.. Lens.mapping Lens._Coerce
+textTranslationJobProperties_targetLanguageCodes :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+textTranslationJobProperties_targetLanguageCodes = Lens.lens (\TextTranslationJobProperties' {targetLanguageCodes} -> targetLanguageCodes) (\s@TextTranslationJobProperties' {} a -> s {targetLanguageCodes = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time at which the translation job ended.
-textTranslationJobProperties_endTime :: Lens.Lens' TextTranslationJobProperties (Core.Maybe Core.UTCTime)
-textTranslationJobProperties_endTime = Lens.lens (\TextTranslationJobProperties' {endTime} -> endTime) (\s@TextTranslationJobProperties' {} a -> s {endTime = a} :: TextTranslationJobProperties) Core.. Lens.mapping Core._Time
+textTranslationJobProperties_endTime :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.UTCTime)
+textTranslationJobProperties_endTime = Lens.lens (\TextTranslationJobProperties' {endTime} -> endTime) (\s@TextTranslationJobProperties' {} a -> s {endTime = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | A list containing the names of the terminologies applied to a
 -- translation job. Only one terminology can be applied per
 -- StartTextTranslationJob request at this time.
-textTranslationJobProperties_terminologyNames :: Lens.Lens' TextTranslationJobProperties (Core.Maybe [Core.Text])
-textTranslationJobProperties_terminologyNames = Lens.lens (\TextTranslationJobProperties' {terminologyNames} -> terminologyNames) (\s@TextTranslationJobProperties' {} a -> s {terminologyNames = a} :: TextTranslationJobProperties) Core.. Lens.mapping Lens._Coerce
+textTranslationJobProperties_terminologyNames :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe [Prelude.Text])
+textTranslationJobProperties_terminologyNames = Lens.lens (\TextTranslationJobProperties' {terminologyNames} -> terminologyNames) (\s@TextTranslationJobProperties' {} a -> s {terminologyNames = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user-defined name of the translation job.
-textTranslationJobProperties_jobName :: Lens.Lens' TextTranslationJobProperties (Core.Maybe Core.Text)
+textTranslationJobProperties_jobName :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.Text)
 textTranslationJobProperties_jobName = Lens.lens (\TextTranslationJobProperties' {jobName} -> jobName) (\s@TextTranslationJobProperties' {} a -> s {jobName = a} :: TextTranslationJobProperties)
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management
 -- (IAM) role that granted Amazon Translate read access to the job\'s input
 -- data.
-textTranslationJobProperties_dataAccessRoleArn :: Lens.Lens' TextTranslationJobProperties (Core.Maybe Core.Text)
+textTranslationJobProperties_dataAccessRoleArn :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.Text)
 textTranslationJobProperties_dataAccessRoleArn = Lens.lens (\TextTranslationJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@TextTranslationJobProperties' {} a -> s {dataAccessRoleArn = a} :: TextTranslationJobProperties)
 
 -- | The ID of the translation job.
-textTranslationJobProperties_jobId :: Lens.Lens' TextTranslationJobProperties (Core.Maybe Core.Text)
+textTranslationJobProperties_jobId :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.Text)
 textTranslationJobProperties_jobId = Lens.lens (\TextTranslationJobProperties' {jobId} -> jobId) (\s@TextTranslationJobProperties' {} a -> s {jobId = a} :: TextTranslationJobProperties)
 
 -- | The language code of the language of the source text. The language must
 -- be a language supported by Amazon Translate.
-textTranslationJobProperties_sourceLanguageCode :: Lens.Lens' TextTranslationJobProperties (Core.Maybe Core.Text)
+textTranslationJobProperties_sourceLanguageCode :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.Text)
 textTranslationJobProperties_sourceLanguageCode = Lens.lens (\TextTranslationJobProperties' {sourceLanguageCode} -> sourceLanguageCode) (\s@TextTranslationJobProperties' {} a -> s {sourceLanguageCode = a} :: TextTranslationJobProperties)
 
 instance Core.FromJSON TextTranslationJobProperties where
@@ -212,22 +213,28 @@ instance Core.FromJSON TextTranslationJobProperties where
       "TextTranslationJobProperties"
       ( \x ->
           TextTranslationJobProperties'
-            Core.<$> (x Core..:? "ParallelDataNames" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "InputDataConfig")
-            Core.<*> (x Core..:? "SubmittedTime")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "JobStatus")
-            Core.<*> (x Core..:? "JobDetails")
-            Core.<*> (x Core..:? "OutputDataConfig")
-            Core.<*> (x Core..:? "TargetLanguageCodes")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "TerminologyNames" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "DataAccessRoleArn")
-            Core.<*> (x Core..:? "JobId")
-            Core.<*> (x Core..:? "SourceLanguageCode")
+            Prelude.<$> ( x Core..:? "ParallelDataNames"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<*> (x Core..:? "SubmittedTime")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<*> (x Core..:? "JobDetails")
+            Prelude.<*> (x Core..:? "OutputDataConfig")
+            Prelude.<*> (x Core..:? "TargetLanguageCodes")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> ( x Core..:? "TerminologyNames"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "DataAccessRoleArn")
+            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<*> (x Core..:? "SourceLanguageCode")
       )
 
-instance Core.Hashable TextTranslationJobProperties
+instance
+  Prelude.Hashable
+    TextTranslationJobProperties
 
-instance Core.NFData TextTranslationJobProperties
+instance Prelude.NFData TextTranslationJobProperties

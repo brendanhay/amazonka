@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.CapacitySize where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CapacitySizeType
 
 -- | Currently, the @CapacitySize@ API is not supported.
@@ -29,9 +30,9 @@ import Network.AWS.SageMaker.Types.CapacitySizeType
 data CapacitySize = CapacitySize'
   { -- | This API is not supported.
     type' :: CapacitySizeType,
-    value :: Core.Natural
+    value :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CapacitySize' with all optional fields omitted.
@@ -48,7 +49,7 @@ newCapacitySize ::
   -- | 'type''
   CapacitySizeType ->
   -- | 'value'
-  Core.Natural ->
+  Prelude.Natural ->
   CapacitySize
 newCapacitySize pType_ pValue_ =
   CapacitySize' {type' = pType_, value = pValue_}
@@ -58,7 +59,7 @@ capacitySize_type :: Lens.Lens' CapacitySize CapacitySizeType
 capacitySize_type = Lens.lens (\CapacitySize' {type'} -> type') (\s@CapacitySize' {} a -> s {type' = a} :: CapacitySize)
 
 -- |
-capacitySize_value :: Lens.Lens' CapacitySize Core.Natural
+capacitySize_value :: Lens.Lens' CapacitySize Prelude.Natural
 capacitySize_value = Lens.lens (\CapacitySize' {value} -> value) (\s@CapacitySize' {} a -> s {value = a} :: CapacitySize)
 
 instance Core.FromJSON CapacitySize where
@@ -67,18 +68,18 @@ instance Core.FromJSON CapacitySize where
       "CapacitySize"
       ( \x ->
           CapacitySize'
-            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable CapacitySize
+instance Prelude.Hashable CapacitySize
 
-instance Core.NFData CapacitySize
+instance Prelude.NFData CapacitySize
 
 instance Core.ToJSON CapacitySize where
   toJSON CapacitySize' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Type" Core..= type'),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

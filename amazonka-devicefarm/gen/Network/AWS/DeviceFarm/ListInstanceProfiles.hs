@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ data ListInstanceProfiles = ListInstanceProfiles'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An integer that specifies the maximum number of items you want to return
     -- in the API response.
-    maxResults :: Core.Maybe Core.Int
+    maxResults :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInstanceProfiles' with all optional fields omitted.
@@ -79,19 +80,19 @@ newListInstanceProfiles ::
   ListInstanceProfiles
 newListInstanceProfiles =
   ListInstanceProfiles'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listInstanceProfiles_nextToken :: Lens.Lens' ListInstanceProfiles (Core.Maybe Core.Text)
+listInstanceProfiles_nextToken :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Text)
 listInstanceProfiles_nextToken = Lens.lens (\ListInstanceProfiles' {nextToken} -> nextToken) (\s@ListInstanceProfiles' {} a -> s {nextToken = a} :: ListInstanceProfiles)
 
 -- | An integer that specifies the maximum number of items you want to return
 -- in the API response.
-listInstanceProfiles_maxResults :: Lens.Lens' ListInstanceProfiles (Core.Maybe Core.Int)
+listInstanceProfiles_maxResults :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Int)
 listInstanceProfiles_maxResults = Lens.lens (\ListInstanceProfiles' {maxResults} -> maxResults) (\s@ListInstanceProfiles' {} a -> s {maxResults = a} :: ListInstanceProfiles)
 
 instance Core.AWSPager ListInstanceProfiles where
@@ -99,22 +100,22 @@ instance Core.AWSPager ListInstanceProfiles where
     | Core.stop
         ( rs
             Lens.^? listInstanceProfilesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstanceProfilesResponse_instanceProfiles
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listInstanceProfiles_nextToken
+          Prelude.& listInstanceProfiles_nextToken
           Lens..~ rs
           Lens.^? listInstanceProfilesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceProfiles where
   type
@@ -125,54 +126,58 @@ instance Core.AWSRequest ListInstanceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceProfilesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "instanceProfiles" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "instanceProfiles"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListInstanceProfiles
+instance Prelude.Hashable ListInstanceProfiles
 
-instance Core.NFData ListInstanceProfiles
+instance Prelude.NFData ListInstanceProfiles
 
 instance Core.ToHeaders ListInstanceProfiles where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.ListInstanceProfiles" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListInstanceProfiles where
   toJSON ListInstanceProfiles' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListInstanceProfiles where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListInstanceProfiles where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListInstanceProfilesResponse' smart constructor.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
   { -- | An identifier that can be used in the next call to this operation to
     -- return the next set of items in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An object that contains information about your instance profiles.
-    instanceProfiles :: Core.Maybe [InstanceProfile],
+    instanceProfiles :: Prelude.Maybe [InstanceProfile],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInstanceProfilesResponse' with all optional fields omitted.
@@ -190,27 +195,27 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
 -- 'httpStatus', 'listInstanceProfilesResponse_httpStatus' - The response's http status code.
 newListInstanceProfilesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListInstanceProfilesResponse
 newListInstanceProfilesResponse pHttpStatus_ =
   ListInstanceProfilesResponse'
     { nextToken =
-        Core.Nothing,
-      instanceProfiles = Core.Nothing,
+        Prelude.Nothing,
+      instanceProfiles = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier that can be used in the next call to this operation to
 -- return the next set of items in the list.
-listInstanceProfilesResponse_nextToken :: Lens.Lens' ListInstanceProfilesResponse (Core.Maybe Core.Text)
+listInstanceProfilesResponse_nextToken :: Lens.Lens' ListInstanceProfilesResponse (Prelude.Maybe Prelude.Text)
 listInstanceProfilesResponse_nextToken = Lens.lens (\ListInstanceProfilesResponse' {nextToken} -> nextToken) (\s@ListInstanceProfilesResponse' {} a -> s {nextToken = a} :: ListInstanceProfilesResponse)
 
 -- | An object that contains information about your instance profiles.
-listInstanceProfilesResponse_instanceProfiles :: Lens.Lens' ListInstanceProfilesResponse (Core.Maybe [InstanceProfile])
-listInstanceProfilesResponse_instanceProfiles = Lens.lens (\ListInstanceProfilesResponse' {instanceProfiles} -> instanceProfiles) (\s@ListInstanceProfilesResponse' {} a -> s {instanceProfiles = a} :: ListInstanceProfilesResponse) Core.. Lens.mapping Lens._Coerce
+listInstanceProfilesResponse_instanceProfiles :: Lens.Lens' ListInstanceProfilesResponse (Prelude.Maybe [InstanceProfile])
+listInstanceProfilesResponse_instanceProfiles = Lens.lens (\ListInstanceProfilesResponse' {instanceProfiles} -> instanceProfiles) (\s@ListInstanceProfilesResponse' {} a -> s {instanceProfiles = a} :: ListInstanceProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInstanceProfilesResponse_httpStatus :: Lens.Lens' ListInstanceProfilesResponse Core.Int
+listInstanceProfilesResponse_httpStatus :: Lens.Lens' ListInstanceProfilesResponse Prelude.Int
 listInstanceProfilesResponse_httpStatus = Lens.lens (\ListInstanceProfilesResponse' {httpStatus} -> httpStatus) (\s@ListInstanceProfilesResponse' {} a -> s {httpStatus = a} :: ListInstanceProfilesResponse)
 
-instance Core.NFData ListInstanceProfilesResponse
+instance Prelude.NFData ListInstanceProfilesResponse

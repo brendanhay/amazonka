@@ -24,6 +24,7 @@ import Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue
 import Network.AWS.CloudWatch.Types.Dimension
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An anomaly detection model associated with a particular CloudWatch
 -- metric and statistic. You can use the model to display a band of
@@ -32,22 +33,22 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAnomalyDetector' smart constructor.
 data AnomalyDetector = AnomalyDetector'
   { -- | The name of the metric associated with the anomaly detection model.
-    metricName :: Core.Maybe Core.Text,
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | The configuration specifies details about how the anomaly detection
     -- model is to be trained, including time ranges to exclude from use for
     -- training the model, and the time zone to use for the metric.
-    configuration :: Core.Maybe AnomalyDetectorConfiguration,
+    configuration :: Prelude.Maybe AnomalyDetectorConfiguration,
     -- | The current status of the anomaly detector\'s training. The possible
     -- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@
-    stateValue :: Core.Maybe AnomalyDetectorStateValue,
+    stateValue :: Prelude.Maybe AnomalyDetectorStateValue,
     -- | The metric dimensions associated with the anomaly detection model.
-    dimensions :: Core.Maybe [Dimension],
+    dimensions :: Prelude.Maybe [Dimension],
     -- | The namespace of the metric associated with the anomaly detection model.
-    namespace :: Core.Maybe Core.Text,
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | The statistic associated with the anomaly detection model.
-    stat :: Core.Maybe Core.Text
+    stat :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnomalyDetector' with all optional fields omitted.
@@ -75,53 +76,53 @@ newAnomalyDetector ::
   AnomalyDetector
 newAnomalyDetector =
   AnomalyDetector'
-    { metricName = Core.Nothing,
-      configuration = Core.Nothing,
-      stateValue = Core.Nothing,
-      dimensions = Core.Nothing,
-      namespace = Core.Nothing,
-      stat = Core.Nothing
+    { metricName = Prelude.Nothing,
+      configuration = Prelude.Nothing,
+      stateValue = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      stat = Prelude.Nothing
     }
 
 -- | The name of the metric associated with the anomaly detection model.
-anomalyDetector_metricName :: Lens.Lens' AnomalyDetector (Core.Maybe Core.Text)
+anomalyDetector_metricName :: Lens.Lens' AnomalyDetector (Prelude.Maybe Prelude.Text)
 anomalyDetector_metricName = Lens.lens (\AnomalyDetector' {metricName} -> metricName) (\s@AnomalyDetector' {} a -> s {metricName = a} :: AnomalyDetector)
 
 -- | The configuration specifies details about how the anomaly detection
 -- model is to be trained, including time ranges to exclude from use for
 -- training the model, and the time zone to use for the metric.
-anomalyDetector_configuration :: Lens.Lens' AnomalyDetector (Core.Maybe AnomalyDetectorConfiguration)
+anomalyDetector_configuration :: Lens.Lens' AnomalyDetector (Prelude.Maybe AnomalyDetectorConfiguration)
 anomalyDetector_configuration = Lens.lens (\AnomalyDetector' {configuration} -> configuration) (\s@AnomalyDetector' {} a -> s {configuration = a} :: AnomalyDetector)
 
 -- | The current status of the anomaly detector\'s training. The possible
 -- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@
-anomalyDetector_stateValue :: Lens.Lens' AnomalyDetector (Core.Maybe AnomalyDetectorStateValue)
+anomalyDetector_stateValue :: Lens.Lens' AnomalyDetector (Prelude.Maybe AnomalyDetectorStateValue)
 anomalyDetector_stateValue = Lens.lens (\AnomalyDetector' {stateValue} -> stateValue) (\s@AnomalyDetector' {} a -> s {stateValue = a} :: AnomalyDetector)
 
 -- | The metric dimensions associated with the anomaly detection model.
-anomalyDetector_dimensions :: Lens.Lens' AnomalyDetector (Core.Maybe [Dimension])
-anomalyDetector_dimensions = Lens.lens (\AnomalyDetector' {dimensions} -> dimensions) (\s@AnomalyDetector' {} a -> s {dimensions = a} :: AnomalyDetector) Core.. Lens.mapping Lens._Coerce
+anomalyDetector_dimensions :: Lens.Lens' AnomalyDetector (Prelude.Maybe [Dimension])
+anomalyDetector_dimensions = Lens.lens (\AnomalyDetector' {dimensions} -> dimensions) (\s@AnomalyDetector' {} a -> s {dimensions = a} :: AnomalyDetector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace of the metric associated with the anomaly detection model.
-anomalyDetector_namespace :: Lens.Lens' AnomalyDetector (Core.Maybe Core.Text)
+anomalyDetector_namespace :: Lens.Lens' AnomalyDetector (Prelude.Maybe Prelude.Text)
 anomalyDetector_namespace = Lens.lens (\AnomalyDetector' {namespace} -> namespace) (\s@AnomalyDetector' {} a -> s {namespace = a} :: AnomalyDetector)
 
 -- | The statistic associated with the anomaly detection model.
-anomalyDetector_stat :: Lens.Lens' AnomalyDetector (Core.Maybe Core.Text)
+anomalyDetector_stat :: Lens.Lens' AnomalyDetector (Prelude.Maybe Prelude.Text)
 anomalyDetector_stat = Lens.lens (\AnomalyDetector' {stat} -> stat) (\s@AnomalyDetector' {} a -> s {stat = a} :: AnomalyDetector)
 
 instance Core.FromXML AnomalyDetector where
   parseXML x =
     AnomalyDetector'
-      Core.<$> (x Core..@? "MetricName")
-      Core.<*> (x Core..@? "Configuration")
-      Core.<*> (x Core..@? "StateValue")
-      Core.<*> ( x Core..@? "Dimensions" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "Namespace")
-      Core.<*> (x Core..@? "Stat")
+      Prelude.<$> (x Core..@? "MetricName")
+      Prelude.<*> (x Core..@? "Configuration")
+      Prelude.<*> (x Core..@? "StateValue")
+      Prelude.<*> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "Namespace")
+      Prelude.<*> (x Core..@? "Stat")
 
-instance Core.Hashable AnomalyDetector
+instance Prelude.Hashable AnomalyDetector
 
-instance Core.NFData AnomalyDetector
+instance Prelude.NFData AnomalyDetector

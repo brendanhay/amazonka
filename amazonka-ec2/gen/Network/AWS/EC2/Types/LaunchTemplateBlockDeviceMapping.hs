@@ -23,22 +23,23 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LaunchTemplateEbsBlockDevice
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device mapping.
 --
 -- /See:/ 'newLaunchTemplateBlockDeviceMapping' smart constructor.
 data LaunchTemplateBlockDeviceMapping = LaunchTemplateBlockDeviceMapping'
   { -- | Information about the block device for an EBS volume.
-    ebs :: Core.Maybe LaunchTemplateEbsBlockDevice,
+    ebs :: Prelude.Maybe LaunchTemplateEbsBlockDevice,
     -- | To omit the device from the block device mapping, specify an empty
     -- string.
-    noDevice :: Core.Maybe Core.Text,
+    noDevice :: Prelude.Maybe Prelude.Text,
     -- | The virtual device name (ephemeralN).
-    virtualName :: Core.Maybe Core.Text,
+    virtualName :: Prelude.Maybe Prelude.Text,
     -- | The device name.
-    deviceName :: Core.Maybe Core.Text
+    deviceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateBlockDeviceMapping' with all optional fields omitted.
@@ -61,27 +62,27 @@ newLaunchTemplateBlockDeviceMapping ::
 newLaunchTemplateBlockDeviceMapping =
   LaunchTemplateBlockDeviceMapping'
     { ebs =
-        Core.Nothing,
-      noDevice = Core.Nothing,
-      virtualName = Core.Nothing,
-      deviceName = Core.Nothing
+        Prelude.Nothing,
+      noDevice = Prelude.Nothing,
+      virtualName = Prelude.Nothing,
+      deviceName = Prelude.Nothing
     }
 
 -- | Information about the block device for an EBS volume.
-launchTemplateBlockDeviceMapping_ebs :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Core.Maybe LaunchTemplateEbsBlockDevice)
+launchTemplateBlockDeviceMapping_ebs :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Prelude.Maybe LaunchTemplateEbsBlockDevice)
 launchTemplateBlockDeviceMapping_ebs = Lens.lens (\LaunchTemplateBlockDeviceMapping' {ebs} -> ebs) (\s@LaunchTemplateBlockDeviceMapping' {} a -> s {ebs = a} :: LaunchTemplateBlockDeviceMapping)
 
 -- | To omit the device from the block device mapping, specify an empty
 -- string.
-launchTemplateBlockDeviceMapping_noDevice :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Core.Maybe Core.Text)
+launchTemplateBlockDeviceMapping_noDevice :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 launchTemplateBlockDeviceMapping_noDevice = Lens.lens (\LaunchTemplateBlockDeviceMapping' {noDevice} -> noDevice) (\s@LaunchTemplateBlockDeviceMapping' {} a -> s {noDevice = a} :: LaunchTemplateBlockDeviceMapping)
 
 -- | The virtual device name (ephemeralN).
-launchTemplateBlockDeviceMapping_virtualName :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Core.Maybe Core.Text)
+launchTemplateBlockDeviceMapping_virtualName :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 launchTemplateBlockDeviceMapping_virtualName = Lens.lens (\LaunchTemplateBlockDeviceMapping' {virtualName} -> virtualName) (\s@LaunchTemplateBlockDeviceMapping' {} a -> s {virtualName = a} :: LaunchTemplateBlockDeviceMapping)
 
 -- | The device name.
-launchTemplateBlockDeviceMapping_deviceName :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Core.Maybe Core.Text)
+launchTemplateBlockDeviceMapping_deviceName :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 launchTemplateBlockDeviceMapping_deviceName = Lens.lens (\LaunchTemplateBlockDeviceMapping' {deviceName} -> deviceName) (\s@LaunchTemplateBlockDeviceMapping' {} a -> s {deviceName = a} :: LaunchTemplateBlockDeviceMapping)
 
 instance
@@ -90,13 +91,15 @@ instance
   where
   parseXML x =
     LaunchTemplateBlockDeviceMapping'
-      Core.<$> (x Core..@? "ebs")
-      Core.<*> (x Core..@? "noDevice")
-      Core.<*> (x Core..@? "virtualName")
-      Core.<*> (x Core..@? "deviceName")
+      Prelude.<$> (x Core..@? "ebs")
+      Prelude.<*> (x Core..@? "noDevice")
+      Prelude.<*> (x Core..@? "virtualName")
+      Prelude.<*> (x Core..@? "deviceName")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateBlockDeviceMapping
 
-instance Core.NFData LaunchTemplateBlockDeviceMapping
+instance
+  Prelude.NFData
+    LaunchTemplateBlockDeviceMapping

@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -44,9 +45,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newDeleteVocabularyFilter' smart constructor.
 data DeleteVocabularyFilter = DeleteVocabularyFilter'
   { -- | The name of the vocabulary filter to remove.
-    vocabularyFilterName :: Core.Text
+    vocabularyFilterName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVocabularyFilter' with all optional fields omitted.
@@ -59,7 +60,7 @@ data DeleteVocabularyFilter = DeleteVocabularyFilter'
 -- 'vocabularyFilterName', 'deleteVocabularyFilter_vocabularyFilterName' - The name of the vocabulary filter to remove.
 newDeleteVocabularyFilter ::
   -- | 'vocabularyFilterName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVocabularyFilter
 newDeleteVocabularyFilter pVocabularyFilterName_ =
   DeleteVocabularyFilter'
@@ -68,7 +69,7 @@ newDeleteVocabularyFilter pVocabularyFilterName_ =
     }
 
 -- | The name of the vocabulary filter to remove.
-deleteVocabularyFilter_vocabularyFilterName :: Lens.Lens' DeleteVocabularyFilter Core.Text
+deleteVocabularyFilter_vocabularyFilterName :: Lens.Lens' DeleteVocabularyFilter Prelude.Text
 deleteVocabularyFilter_vocabularyFilterName = Lens.lens (\DeleteVocabularyFilter' {vocabularyFilterName} -> vocabularyFilterName) (\s@DeleteVocabularyFilter' {} a -> s {vocabularyFilterName = a} :: DeleteVocabularyFilter)
 
 instance Core.AWSRequest DeleteVocabularyFilter where
@@ -80,28 +81,30 @@ instance Core.AWSRequest DeleteVocabularyFilter where
     Response.receiveNull
       DeleteVocabularyFilterResponse'
 
-instance Core.Hashable DeleteVocabularyFilter
+instance Prelude.Hashable DeleteVocabularyFilter
 
-instance Core.NFData DeleteVocabularyFilter
+instance Prelude.NFData DeleteVocabularyFilter
 
 instance Core.ToHeaders DeleteVocabularyFilter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.DeleteVocabularyFilter" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteVocabularyFilter where
   toJSON DeleteVocabularyFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "VocabularyFilterName"
                   Core..= vocabularyFilterName
               )
@@ -109,16 +112,16 @@ instance Core.ToJSON DeleteVocabularyFilter where
       )
 
 instance Core.ToPath DeleteVocabularyFilter where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVocabularyFilter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVocabularyFilterResponse' smart constructor.
 data DeleteVocabularyFilterResponse = DeleteVocabularyFilterResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVocabularyFilterResponse' with all optional fields omitted.
@@ -129,4 +132,6 @@ newDeleteVocabularyFilterResponse ::
 newDeleteVocabularyFilterResponse =
   DeleteVocabularyFilterResponse'
 
-instance Core.NFData DeleteVocabularyFilterResponse
+instance
+  Prelude.NFData
+    DeleteVocabularyFilterResponse

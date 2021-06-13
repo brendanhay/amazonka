@@ -22,6 +22,7 @@ module Network.AWS.Discovery.Types.ExportInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types.ExportStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information regarding the export status of discovered data. The value is
 -- an array of objects.
@@ -32,27 +33,27 @@ data ExportInfo = ExportInfo'
     -- single export and the exported data is incomplete for the requested time
     -- range. To address this, select a smaller time range for the export by
     -- using @startDate@ and @endDate@.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | A URL for an Amazon S3 bucket where you can review the exported data.
     -- The URL is displayed only if the export succeeded.
-    configurationsDownloadUrl :: Core.Maybe Core.Text,
+    configurationsDownloadUrl :: Prelude.Maybe Prelude.Text,
     -- | The value of @startTime@ parameter in the @StartExportTask@ request. If
     -- no @startTime@ was requested, this result does not appear in
     -- @ExportInfo@.
-    requestedStartTime :: Core.Maybe Core.POSIX,
+    requestedStartTime :: Prelude.Maybe Core.POSIX,
     -- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
     -- requested, this result does not appear in @ExportInfo@.
-    requestedEndTime :: Core.Maybe Core.POSIX,
+    requestedEndTime :: Prelude.Maybe Core.POSIX,
     -- | A unique identifier used to query an export.
-    exportId :: Core.Text,
+    exportId :: Prelude.Text,
     -- | The status of the data export job.
     exportStatus :: ExportStatus,
     -- | A status message provided for API callers.
-    statusMessage :: Core.Text,
+    statusMessage :: Prelude.Text,
     -- | The time that the data export was initiated.
     exportRequestTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportInfo' with all optional fields omitted.
@@ -86,13 +87,13 @@ data ExportInfo = ExportInfo'
 -- 'exportRequestTime', 'exportInfo_exportRequestTime' - The time that the data export was initiated.
 newExportInfo ::
   -- | 'exportId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'exportStatus'
   ExportStatus ->
   -- | 'statusMessage'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'exportRequestTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ExportInfo
 newExportInfo
   pExportId_
@@ -100,10 +101,10 @@ newExportInfo
   pStatusMessage_
   pExportRequestTime_ =
     ExportInfo'
-      { isTruncated = Core.Nothing,
-        configurationsDownloadUrl = Core.Nothing,
-        requestedStartTime = Core.Nothing,
-        requestedEndTime = Core.Nothing,
+      { isTruncated = Prelude.Nothing,
+        configurationsDownloadUrl = Prelude.Nothing,
+        requestedStartTime = Prelude.Nothing,
+        requestedEndTime = Prelude.Nothing,
         exportId = pExportId_,
         exportStatus = pExportStatus_,
         statusMessage = pStatusMessage_,
@@ -115,27 +116,27 @@ newExportInfo
 -- single export and the exported data is incomplete for the requested time
 -- range. To address this, select a smaller time range for the export by
 -- using @startDate@ and @endDate@.
-exportInfo_isTruncated :: Lens.Lens' ExportInfo (Core.Maybe Core.Bool)
+exportInfo_isTruncated :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.Bool)
 exportInfo_isTruncated = Lens.lens (\ExportInfo' {isTruncated} -> isTruncated) (\s@ExportInfo' {} a -> s {isTruncated = a} :: ExportInfo)
 
 -- | A URL for an Amazon S3 bucket where you can review the exported data.
 -- The URL is displayed only if the export succeeded.
-exportInfo_configurationsDownloadUrl :: Lens.Lens' ExportInfo (Core.Maybe Core.Text)
+exportInfo_configurationsDownloadUrl :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.Text)
 exportInfo_configurationsDownloadUrl = Lens.lens (\ExportInfo' {configurationsDownloadUrl} -> configurationsDownloadUrl) (\s@ExportInfo' {} a -> s {configurationsDownloadUrl = a} :: ExportInfo)
 
 -- | The value of @startTime@ parameter in the @StartExportTask@ request. If
 -- no @startTime@ was requested, this result does not appear in
 -- @ExportInfo@.
-exportInfo_requestedStartTime :: Lens.Lens' ExportInfo (Core.Maybe Core.UTCTime)
-exportInfo_requestedStartTime = Lens.lens (\ExportInfo' {requestedStartTime} -> requestedStartTime) (\s@ExportInfo' {} a -> s {requestedStartTime = a} :: ExportInfo) Core.. Lens.mapping Core._Time
+exportInfo_requestedStartTime :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.UTCTime)
+exportInfo_requestedStartTime = Lens.lens (\ExportInfo' {requestedStartTime} -> requestedStartTime) (\s@ExportInfo' {} a -> s {requestedStartTime = a} :: ExportInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
 -- requested, this result does not appear in @ExportInfo@.
-exportInfo_requestedEndTime :: Lens.Lens' ExportInfo (Core.Maybe Core.UTCTime)
-exportInfo_requestedEndTime = Lens.lens (\ExportInfo' {requestedEndTime} -> requestedEndTime) (\s@ExportInfo' {} a -> s {requestedEndTime = a} :: ExportInfo) Core.. Lens.mapping Core._Time
+exportInfo_requestedEndTime :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.UTCTime)
+exportInfo_requestedEndTime = Lens.lens (\ExportInfo' {requestedEndTime} -> requestedEndTime) (\s@ExportInfo' {} a -> s {requestedEndTime = a} :: ExportInfo) Prelude.. Lens.mapping Core._Time
 
 -- | A unique identifier used to query an export.
-exportInfo_exportId :: Lens.Lens' ExportInfo Core.Text
+exportInfo_exportId :: Lens.Lens' ExportInfo Prelude.Text
 exportInfo_exportId = Lens.lens (\ExportInfo' {exportId} -> exportId) (\s@ExportInfo' {} a -> s {exportId = a} :: ExportInfo)
 
 -- | The status of the data export job.
@@ -143,12 +144,12 @@ exportInfo_exportStatus :: Lens.Lens' ExportInfo ExportStatus
 exportInfo_exportStatus = Lens.lens (\ExportInfo' {exportStatus} -> exportStatus) (\s@ExportInfo' {} a -> s {exportStatus = a} :: ExportInfo)
 
 -- | A status message provided for API callers.
-exportInfo_statusMessage :: Lens.Lens' ExportInfo Core.Text
+exportInfo_statusMessage :: Lens.Lens' ExportInfo Prelude.Text
 exportInfo_statusMessage = Lens.lens (\ExportInfo' {statusMessage} -> statusMessage) (\s@ExportInfo' {} a -> s {statusMessage = a} :: ExportInfo)
 
 -- | The time that the data export was initiated.
-exportInfo_exportRequestTime :: Lens.Lens' ExportInfo Core.UTCTime
-exportInfo_exportRequestTime = Lens.lens (\ExportInfo' {exportRequestTime} -> exportRequestTime) (\s@ExportInfo' {} a -> s {exportRequestTime = a} :: ExportInfo) Core.. Core._Time
+exportInfo_exportRequestTime :: Lens.Lens' ExportInfo Prelude.UTCTime
+exportInfo_exportRequestTime = Lens.lens (\ExportInfo' {exportRequestTime} -> exportRequestTime) (\s@ExportInfo' {} a -> s {exportRequestTime = a} :: ExportInfo) Prelude.. Core._Time
 
 instance Core.FromJSON ExportInfo where
   parseJSON =
@@ -156,16 +157,16 @@ instance Core.FromJSON ExportInfo where
       "ExportInfo"
       ( \x ->
           ExportInfo'
-            Core.<$> (x Core..:? "isTruncated")
-            Core.<*> (x Core..:? "configurationsDownloadUrl")
-            Core.<*> (x Core..:? "requestedStartTime")
-            Core.<*> (x Core..:? "requestedEndTime")
-            Core.<*> (x Core..: "exportId")
-            Core.<*> (x Core..: "exportStatus")
-            Core.<*> (x Core..: "statusMessage")
-            Core.<*> (x Core..: "exportRequestTime")
+            Prelude.<$> (x Core..:? "isTruncated")
+            Prelude.<*> (x Core..:? "configurationsDownloadUrl")
+            Prelude.<*> (x Core..:? "requestedStartTime")
+            Prelude.<*> (x Core..:? "requestedEndTime")
+            Prelude.<*> (x Core..: "exportId")
+            Prelude.<*> (x Core..: "exportStatus")
+            Prelude.<*> (x Core..: "statusMessage")
+            Prelude.<*> (x Core..: "exportRequestTime")
       )
 
-instance Core.Hashable ExportInfo
+instance Prelude.Hashable ExportInfo
 
-instance Core.NFData ExportInfo
+instance Prelude.NFData ExportInfo

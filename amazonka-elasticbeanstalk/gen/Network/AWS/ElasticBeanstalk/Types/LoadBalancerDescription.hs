@@ -22,19 +22,20 @@ module Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.Listener
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the details of a LoadBalancer.
 --
 -- /See:/ 'newLoadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
   { -- | The domain name of the LoadBalancer.
-    domain :: Core.Maybe Core.Text,
+    domain :: Prelude.Maybe Prelude.Text,
     -- | A list of Listeners used by the LoadBalancer.
-    listeners :: Core.Maybe [Listener],
+    listeners :: Prelude.Maybe [Listener],
     -- | The name of the LoadBalancer.
-    loadBalancerName :: Core.Maybe Core.Text
+    loadBalancerName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerDescription' with all optional fields omitted.
@@ -53,32 +54,32 @@ newLoadBalancerDescription ::
   LoadBalancerDescription
 newLoadBalancerDescription =
   LoadBalancerDescription'
-    { domain = Core.Nothing,
-      listeners = Core.Nothing,
-      loadBalancerName = Core.Nothing
+    { domain = Prelude.Nothing,
+      listeners = Prelude.Nothing,
+      loadBalancerName = Prelude.Nothing
     }
 
 -- | The domain name of the LoadBalancer.
-loadBalancerDescription_domain :: Lens.Lens' LoadBalancerDescription (Core.Maybe Core.Text)
+loadBalancerDescription_domain :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_domain = Lens.lens (\LoadBalancerDescription' {domain} -> domain) (\s@LoadBalancerDescription' {} a -> s {domain = a} :: LoadBalancerDescription)
 
 -- | A list of Listeners used by the LoadBalancer.
-loadBalancerDescription_listeners :: Lens.Lens' LoadBalancerDescription (Core.Maybe [Listener])
-loadBalancerDescription_listeners = Lens.lens (\LoadBalancerDescription' {listeners} -> listeners) (\s@LoadBalancerDescription' {} a -> s {listeners = a} :: LoadBalancerDescription) Core.. Lens.mapping Lens._Coerce
+loadBalancerDescription_listeners :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Listener])
+loadBalancerDescription_listeners = Lens.lens (\LoadBalancerDescription' {listeners} -> listeners) (\s@LoadBalancerDescription' {} a -> s {listeners = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the LoadBalancer.
-loadBalancerDescription_loadBalancerName :: Lens.Lens' LoadBalancerDescription (Core.Maybe Core.Text)
+loadBalancerDescription_loadBalancerName :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_loadBalancerName = Lens.lens (\LoadBalancerDescription' {loadBalancerName} -> loadBalancerName) (\s@LoadBalancerDescription' {} a -> s {loadBalancerName = a} :: LoadBalancerDescription)
 
 instance Core.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
-      Core.<$> (x Core..@? "Domain")
-      Core.<*> ( x Core..@? "Listeners" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "LoadBalancerName")
+      Prelude.<$> (x Core..@? "Domain")
+      Prelude.<*> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "LoadBalancerName")
 
-instance Core.Hashable LoadBalancerDescription
+instance Prelude.Hashable LoadBalancerDescription
 
-instance Core.NFData LoadBalancerDescription
+instance Prelude.NFData LoadBalancerDescription

@@ -24,6 +24,7 @@ import Network.AWS.ElasticSearch.Types.DomainPackageStatus
 import Network.AWS.ElasticSearch.Types.ErrorDetails
 import Network.AWS.ElasticSearch.Types.PackageType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information on a package that is associated with a domain.
 --
@@ -31,26 +32,26 @@ import qualified Network.AWS.Lens as Lens
 data DomainPackageDetails = DomainPackageDetails'
   { -- | State of the association. Values are
     -- ASSOCIATING\/ASSOCIATION_FAILED\/ACTIVE\/DISSOCIATING\/DISSOCIATION_FAILED.
-    domainPackageStatus :: Core.Maybe DomainPackageStatus,
-    packageVersion :: Core.Maybe Core.Text,
+    domainPackageStatus :: Prelude.Maybe DomainPackageStatus,
+    packageVersion :: Prelude.Maybe Prelude.Text,
     -- | User specified name of the package.
-    packageName :: Core.Maybe Core.Text,
+    packageName :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of the most-recent update to the association status.
-    lastUpdated :: Core.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | Internal ID of the package.
-    packageID :: Core.Maybe Core.Text,
+    packageID :: Prelude.Maybe Prelude.Text,
     -- | Name of the domain you\'ve associated a package with.
-    domainName :: Core.Maybe Core.Text,
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | The relative path on Amazon ES nodes, which can be used as synonym_path
     -- when the package is synonym file.
-    referencePath :: Core.Maybe Core.Text,
+    referencePath :: Prelude.Maybe Prelude.Text,
     -- | Currently supports only TXT-DICTIONARY.
-    packageType :: Core.Maybe PackageType,
+    packageType :: Prelude.Maybe PackageType,
     -- | Additional information if the package is in an error state. Null
     -- otherwise.
-    errorDetails :: Core.Maybe ErrorDetails
+    errorDetails :: Prelude.Maybe ErrorDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainPackageDetails' with all optional fields omitted.
@@ -85,54 +86,54 @@ newDomainPackageDetails ::
 newDomainPackageDetails =
   DomainPackageDetails'
     { domainPackageStatus =
-        Core.Nothing,
-      packageVersion = Core.Nothing,
-      packageName = Core.Nothing,
-      lastUpdated = Core.Nothing,
-      packageID = Core.Nothing,
-      domainName = Core.Nothing,
-      referencePath = Core.Nothing,
-      packageType = Core.Nothing,
-      errorDetails = Core.Nothing
+        Prelude.Nothing,
+      packageVersion = Prelude.Nothing,
+      packageName = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
+      packageID = Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      referencePath = Prelude.Nothing,
+      packageType = Prelude.Nothing,
+      errorDetails = Prelude.Nothing
     }
 
 -- | State of the association. Values are
 -- ASSOCIATING\/ASSOCIATION_FAILED\/ACTIVE\/DISSOCIATING\/DISSOCIATION_FAILED.
-domainPackageDetails_domainPackageStatus :: Lens.Lens' DomainPackageDetails (Core.Maybe DomainPackageStatus)
+domainPackageDetails_domainPackageStatus :: Lens.Lens' DomainPackageDetails (Prelude.Maybe DomainPackageStatus)
 domainPackageDetails_domainPackageStatus = Lens.lens (\DomainPackageDetails' {domainPackageStatus} -> domainPackageStatus) (\s@DomainPackageDetails' {} a -> s {domainPackageStatus = a} :: DomainPackageDetails)
 
 -- | Undocumented member.
-domainPackageDetails_packageVersion :: Lens.Lens' DomainPackageDetails (Core.Maybe Core.Text)
+domainPackageDetails_packageVersion :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageVersion = Lens.lens (\DomainPackageDetails' {packageVersion} -> packageVersion) (\s@DomainPackageDetails' {} a -> s {packageVersion = a} :: DomainPackageDetails)
 
 -- | User specified name of the package.
-domainPackageDetails_packageName :: Lens.Lens' DomainPackageDetails (Core.Maybe Core.Text)
+domainPackageDetails_packageName :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageName = Lens.lens (\DomainPackageDetails' {packageName} -> packageName) (\s@DomainPackageDetails' {} a -> s {packageName = a} :: DomainPackageDetails)
 
 -- | Timestamp of the most-recent update to the association status.
-domainPackageDetails_lastUpdated :: Lens.Lens' DomainPackageDetails (Core.Maybe Core.UTCTime)
-domainPackageDetails_lastUpdated = Lens.lens (\DomainPackageDetails' {lastUpdated} -> lastUpdated) (\s@DomainPackageDetails' {} a -> s {lastUpdated = a} :: DomainPackageDetails) Core.. Lens.mapping Core._Time
+domainPackageDetails_lastUpdated :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.UTCTime)
+domainPackageDetails_lastUpdated = Lens.lens (\DomainPackageDetails' {lastUpdated} -> lastUpdated) (\s@DomainPackageDetails' {} a -> s {lastUpdated = a} :: DomainPackageDetails) Prelude.. Lens.mapping Core._Time
 
 -- | Internal ID of the package.
-domainPackageDetails_packageID :: Lens.Lens' DomainPackageDetails (Core.Maybe Core.Text)
+domainPackageDetails_packageID :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageID = Lens.lens (\DomainPackageDetails' {packageID} -> packageID) (\s@DomainPackageDetails' {} a -> s {packageID = a} :: DomainPackageDetails)
 
 -- | Name of the domain you\'ve associated a package with.
-domainPackageDetails_domainName :: Lens.Lens' DomainPackageDetails (Core.Maybe Core.Text)
+domainPackageDetails_domainName :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_domainName = Lens.lens (\DomainPackageDetails' {domainName} -> domainName) (\s@DomainPackageDetails' {} a -> s {domainName = a} :: DomainPackageDetails)
 
 -- | The relative path on Amazon ES nodes, which can be used as synonym_path
 -- when the package is synonym file.
-domainPackageDetails_referencePath :: Lens.Lens' DomainPackageDetails (Core.Maybe Core.Text)
+domainPackageDetails_referencePath :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_referencePath = Lens.lens (\DomainPackageDetails' {referencePath} -> referencePath) (\s@DomainPackageDetails' {} a -> s {referencePath = a} :: DomainPackageDetails)
 
 -- | Currently supports only TXT-DICTIONARY.
-domainPackageDetails_packageType :: Lens.Lens' DomainPackageDetails (Core.Maybe PackageType)
+domainPackageDetails_packageType :: Lens.Lens' DomainPackageDetails (Prelude.Maybe PackageType)
 domainPackageDetails_packageType = Lens.lens (\DomainPackageDetails' {packageType} -> packageType) (\s@DomainPackageDetails' {} a -> s {packageType = a} :: DomainPackageDetails)
 
 -- | Additional information if the package is in an error state. Null
 -- otherwise.
-domainPackageDetails_errorDetails :: Lens.Lens' DomainPackageDetails (Core.Maybe ErrorDetails)
+domainPackageDetails_errorDetails :: Lens.Lens' DomainPackageDetails (Prelude.Maybe ErrorDetails)
 domainPackageDetails_errorDetails = Lens.lens (\DomainPackageDetails' {errorDetails} -> errorDetails) (\s@DomainPackageDetails' {} a -> s {errorDetails = a} :: DomainPackageDetails)
 
 instance Core.FromJSON DomainPackageDetails where
@@ -141,17 +142,17 @@ instance Core.FromJSON DomainPackageDetails where
       "DomainPackageDetails"
       ( \x ->
           DomainPackageDetails'
-            Core.<$> (x Core..:? "DomainPackageStatus")
-            Core.<*> (x Core..:? "PackageVersion")
-            Core.<*> (x Core..:? "PackageName")
-            Core.<*> (x Core..:? "LastUpdated")
-            Core.<*> (x Core..:? "PackageID")
-            Core.<*> (x Core..:? "DomainName")
-            Core.<*> (x Core..:? "ReferencePath")
-            Core.<*> (x Core..:? "PackageType")
-            Core.<*> (x Core..:? "ErrorDetails")
+            Prelude.<$> (x Core..:? "DomainPackageStatus")
+            Prelude.<*> (x Core..:? "PackageVersion")
+            Prelude.<*> (x Core..:? "PackageName")
+            Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<*> (x Core..:? "PackageID")
+            Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<*> (x Core..:? "ReferencePath")
+            Prelude.<*> (x Core..:? "PackageType")
+            Prelude.<*> (x Core..:? "ErrorDetails")
       )
 
-instance Core.Hashable DomainPackageDetails
+instance Prelude.Hashable DomainPackageDetails
 
-instance Core.NFData DomainPackageDetails
+instance Prelude.NFData DomainPackageDetails

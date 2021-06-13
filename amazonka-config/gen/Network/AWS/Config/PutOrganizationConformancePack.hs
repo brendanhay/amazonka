@@ -76,6 +76,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,28 +86,28 @@ data PutOrganizationConformancePack = PutOrganizationConformancePack'
     -- conformance pack template (max size: 300 KB).
     --
     -- You must have access to read Amazon S3 bucket.
-    templateS3Uri :: Core.Maybe Core.Text,
+    templateS3Uri :: Prelude.Maybe Prelude.Text,
     -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
     --
     -- This field is optional.
-    deliveryS3Bucket :: Core.Maybe Core.Text,
+    deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the Amazon S3 bucket.
     --
     -- This field is optional.
-    deliveryS3KeyPrefix :: Core.Maybe Core.Text,
+    deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | A list of AWS accounts to be excluded from an organization conformance
     -- pack while deploying a conformance pack.
-    excludedAccounts :: Core.Maybe [Core.Text],
+    excludedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | A string containing full conformance pack template body. Structure
     -- containing the template body with a minimum length of 1 byte and a
     -- maximum length of 51,200 bytes.
-    templateBody :: Core.Maybe Core.Text,
+    templateBody :: Prelude.Maybe Prelude.Text,
     -- | A list of @ConformancePackInputParameter@ objects.
-    conformancePackInputParameters :: Core.Maybe [ConformancePackInputParameter],
+    conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
     -- | Name of the organization conformance pack you want to create.
-    organizationConformancePackName :: Core.Text
+    organizationConformancePackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutOrganizationConformancePack' with all optional fields omitted.
@@ -141,19 +142,19 @@ data PutOrganizationConformancePack = PutOrganizationConformancePack'
 -- 'organizationConformancePackName', 'putOrganizationConformancePack_organizationConformancePackName' - Name of the organization conformance pack you want to create.
 newPutOrganizationConformancePack ::
   -- | 'organizationConformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   PutOrganizationConformancePack
 newPutOrganizationConformancePack
   pOrganizationConformancePackName_ =
     PutOrganizationConformancePack'
       { templateS3Uri =
-          Core.Nothing,
-        deliveryS3Bucket = Core.Nothing,
-        deliveryS3KeyPrefix = Core.Nothing,
-        excludedAccounts = Core.Nothing,
-        templateBody = Core.Nothing,
+          Prelude.Nothing,
+        deliveryS3Bucket = Prelude.Nothing,
+        deliveryS3KeyPrefix = Prelude.Nothing,
+        excludedAccounts = Prelude.Nothing,
+        templateBody = Prelude.Nothing,
         conformancePackInputParameters =
-          Core.Nothing,
+          Prelude.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_
       }
@@ -162,38 +163,38 @@ newPutOrganizationConformancePack
 -- conformance pack template (max size: 300 KB).
 --
 -- You must have access to read Amazon S3 bucket.
-putOrganizationConformancePack_templateS3Uri :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe Core.Text)
+putOrganizationConformancePack_templateS3Uri :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePack_templateS3Uri = Lens.lens (\PutOrganizationConformancePack' {templateS3Uri} -> templateS3Uri) (\s@PutOrganizationConformancePack' {} a -> s {templateS3Uri = a} :: PutOrganizationConformancePack)
 
 -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
 --
 -- This field is optional.
-putOrganizationConformancePack_deliveryS3Bucket :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe Core.Text)
+putOrganizationConformancePack_deliveryS3Bucket :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePack_deliveryS3Bucket = Lens.lens (\PutOrganizationConformancePack' {deliveryS3Bucket} -> deliveryS3Bucket) (\s@PutOrganizationConformancePack' {} a -> s {deliveryS3Bucket = a} :: PutOrganizationConformancePack)
 
 -- | The prefix for the Amazon S3 bucket.
 --
 -- This field is optional.
-putOrganizationConformancePack_deliveryS3KeyPrefix :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe Core.Text)
+putOrganizationConformancePack_deliveryS3KeyPrefix :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePack_deliveryS3KeyPrefix = Lens.lens (\PutOrganizationConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@PutOrganizationConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: PutOrganizationConformancePack)
 
 -- | A list of AWS accounts to be excluded from an organization conformance
 -- pack while deploying a conformance pack.
-putOrganizationConformancePack_excludedAccounts :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe [Core.Text])
-putOrganizationConformancePack_excludedAccounts = Lens.lens (\PutOrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConformancePack' {} a -> s {excludedAccounts = a} :: PutOrganizationConformancePack) Core.. Lens.mapping Lens._Coerce
+putOrganizationConformancePack_excludedAccounts :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe [Prelude.Text])
+putOrganizationConformancePack_excludedAccounts = Lens.lens (\PutOrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConformancePack' {} a -> s {excludedAccounts = a} :: PutOrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string containing full conformance pack template body. Structure
 -- containing the template body with a minimum length of 1 byte and a
 -- maximum length of 51,200 bytes.
-putOrganizationConformancePack_templateBody :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe Core.Text)
+putOrganizationConformancePack_templateBody :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePack_templateBody = Lens.lens (\PutOrganizationConformancePack' {templateBody} -> templateBody) (\s@PutOrganizationConformancePack' {} a -> s {templateBody = a} :: PutOrganizationConformancePack)
 
 -- | A list of @ConformancePackInputParameter@ objects.
-putOrganizationConformancePack_conformancePackInputParameters :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe [ConformancePackInputParameter])
-putOrganizationConformancePack_conformancePackInputParameters = Lens.lens (\PutOrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@PutOrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: PutOrganizationConformancePack) Core.. Lens.mapping Lens._Coerce
+putOrganizationConformancePack_conformancePackInputParameters :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
+putOrganizationConformancePack_conformancePackInputParameters = Lens.lens (\PutOrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@PutOrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: PutOrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Name of the organization conformance pack you want to create.
-putOrganizationConformancePack_organizationConformancePackName :: Lens.Lens' PutOrganizationConformancePack Core.Text
+putOrganizationConformancePack_organizationConformancePackName :: Lens.Lens' PutOrganizationConformancePack Prelude.Text
 putOrganizationConformancePack_organizationConformancePackName = Lens.lens (\PutOrganizationConformancePack' {organizationConformancePackName} -> organizationConformancePackName) (\s@PutOrganizationConformancePack' {} a -> s {organizationConformancePackName = a} :: PutOrganizationConformancePack)
 
 instance
@@ -208,45 +209,51 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutOrganizationConformancePackResponse'
-            Core.<$> (x Core..?> "OrganizationConformancePackArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OrganizationConformancePackArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutOrganizationConformancePack
+instance
+  Prelude.Hashable
+    PutOrganizationConformancePack
 
-instance Core.NFData PutOrganizationConformancePack
+instance
+  Prelude.NFData
+    PutOrganizationConformancePack
 
 instance
   Core.ToHeaders
     PutOrganizationConformancePack
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutOrganizationConformancePack" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutOrganizationConformancePack where
   toJSON PutOrganizationConformancePack' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TemplateS3Uri" Core..=) Core.<$> templateS3Uri,
+      ( Prelude.catMaybes
+          [ ("TemplateS3Uri" Core..=) Prelude.<$> templateS3Uri,
             ("DeliveryS3Bucket" Core..=)
-              Core.<$> deliveryS3Bucket,
+              Prelude.<$> deliveryS3Bucket,
             ("DeliveryS3KeyPrefix" Core..=)
-              Core.<$> deliveryS3KeyPrefix,
+              Prelude.<$> deliveryS3KeyPrefix,
             ("ExcludedAccounts" Core..=)
-              Core.<$> excludedAccounts,
-            ("TemplateBody" Core..=) Core.<$> templateBody,
+              Prelude.<$> excludedAccounts,
+            ("TemplateBody" Core..=) Prelude.<$> templateBody,
             ("ConformancePackInputParameters" Core..=)
-              Core.<$> conformancePackInputParameters,
-            Core.Just
+              Prelude.<$> conformancePackInputParameters,
+            Prelude.Just
               ( "OrganizationConformancePackName"
                   Core..= organizationConformancePackName
               )
@@ -254,19 +261,19 @@ instance Core.ToJSON PutOrganizationConformancePack where
       )
 
 instance Core.ToPath PutOrganizationConformancePack where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutOrganizationConformancePack where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutOrganizationConformancePackResponse' smart constructor.
 data PutOrganizationConformancePackResponse = PutOrganizationConformancePackResponse'
   { -- | ARN of the organization conformance pack.
-    organizationConformancePackArn :: Core.Maybe Core.Text,
+    organizationConformancePackArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutOrganizationConformancePackResponse' with all optional fields omitted.
@@ -281,24 +288,24 @@ data PutOrganizationConformancePackResponse = PutOrganizationConformancePackResp
 -- 'httpStatus', 'putOrganizationConformancePackResponse_httpStatus' - The response's http status code.
 newPutOrganizationConformancePackResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutOrganizationConformancePackResponse
 newPutOrganizationConformancePackResponse
   pHttpStatus_ =
     PutOrganizationConformancePackResponse'
       { organizationConformancePackArn =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | ARN of the organization conformance pack.
-putOrganizationConformancePackResponse_organizationConformancePackArn :: Lens.Lens' PutOrganizationConformancePackResponse (Core.Maybe Core.Text)
+putOrganizationConformancePackResponse_organizationConformancePackArn :: Lens.Lens' PutOrganizationConformancePackResponse (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePackResponse_organizationConformancePackArn = Lens.lens (\PutOrganizationConformancePackResponse' {organizationConformancePackArn} -> organizationConformancePackArn) (\s@PutOrganizationConformancePackResponse' {} a -> s {organizationConformancePackArn = a} :: PutOrganizationConformancePackResponse)
 
 -- | The response's http status code.
-putOrganizationConformancePackResponse_httpStatus :: Lens.Lens' PutOrganizationConformancePackResponse Core.Int
+putOrganizationConformancePackResponse_httpStatus :: Lens.Lens' PutOrganizationConformancePackResponse Prelude.Int
 putOrganizationConformancePackResponse_httpStatus = Lens.lens (\PutOrganizationConformancePackResponse' {httpStatus} -> httpStatus) (\s@PutOrganizationConformancePackResponse' {} a -> s {httpStatus = a} :: PutOrganizationConformancePackResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutOrganizationConformancePackResponse

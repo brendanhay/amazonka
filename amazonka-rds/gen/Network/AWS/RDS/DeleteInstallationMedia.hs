@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,9 +56,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteInstallationMedia' smart constructor.
 data DeleteInstallationMedia = DeleteInstallationMedia'
   { -- | The installation medium ID.
-    installationMediaId :: Core.Text
+    installationMediaId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstallationMedia' with all optional fields omitted.
@@ -70,7 +71,7 @@ data DeleteInstallationMedia = DeleteInstallationMedia'
 -- 'installationMediaId', 'deleteInstallationMedia_installationMediaId' - The installation medium ID.
 newDeleteInstallationMedia ::
   -- | 'installationMediaId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInstallationMedia
 newDeleteInstallationMedia pInstallationMediaId_ =
   DeleteInstallationMedia'
@@ -79,7 +80,7 @@ newDeleteInstallationMedia pInstallationMediaId_ =
     }
 
 -- | The installation medium ID.
-deleteInstallationMedia_installationMediaId :: Lens.Lens' DeleteInstallationMedia Core.Text
+deleteInstallationMedia_installationMediaId :: Lens.Lens' DeleteInstallationMedia Prelude.Text
 deleteInstallationMedia_installationMediaId = Lens.lens (\DeleteInstallationMedia' {installationMediaId} -> installationMediaId) (\s@DeleteInstallationMedia' {} a -> s {installationMediaId = a} :: DeleteInstallationMedia)
 
 instance Core.AWSRequest DeleteInstallationMedia where
@@ -92,21 +93,22 @@ instance Core.AWSRequest DeleteInstallationMedia where
       "DeleteInstallationMediaResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable DeleteInstallationMedia
+instance Prelude.Hashable DeleteInstallationMedia
 
-instance Core.NFData DeleteInstallationMedia
+instance Prelude.NFData DeleteInstallationMedia
 
 instance Core.ToHeaders DeleteInstallationMedia where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteInstallationMedia where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInstallationMedia where
   toQuery DeleteInstallationMedia' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteInstallationMedia" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeleteInstallationMedia" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "InstallationMediaId" Core.=: installationMediaId
       ]

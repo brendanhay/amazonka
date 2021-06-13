@@ -22,15 +22,16 @@ module Network.AWS.CognitoIdentityProvider.Types.UserPoolPolicyType where
 import Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The policy associated with a user pool.
 --
 -- /See:/ 'newUserPoolPolicyType' smart constructor.
 data UserPoolPolicyType = UserPoolPolicyType'
   { -- | The password policy.
-    passwordPolicy :: Core.Maybe PasswordPolicyType
+    passwordPolicy :: Prelude.Maybe PasswordPolicyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserPoolPolicyType' with all optional fields omitted.
@@ -44,10 +45,13 @@ data UserPoolPolicyType = UserPoolPolicyType'
 newUserPoolPolicyType ::
   UserPoolPolicyType
 newUserPoolPolicyType =
-  UserPoolPolicyType' {passwordPolicy = Core.Nothing}
+  UserPoolPolicyType'
+    { passwordPolicy =
+        Prelude.Nothing
+    }
 
 -- | The password policy.
-userPoolPolicyType_passwordPolicy :: Lens.Lens' UserPoolPolicyType (Core.Maybe PasswordPolicyType)
+userPoolPolicyType_passwordPolicy :: Lens.Lens' UserPoolPolicyType (Prelude.Maybe PasswordPolicyType)
 userPoolPolicyType_passwordPolicy = Lens.lens (\UserPoolPolicyType' {passwordPolicy} -> passwordPolicy) (\s@UserPoolPolicyType' {} a -> s {passwordPolicy = a} :: UserPoolPolicyType)
 
 instance Core.FromJSON UserPoolPolicyType where
@@ -56,16 +60,18 @@ instance Core.FromJSON UserPoolPolicyType where
       "UserPoolPolicyType"
       ( \x ->
           UserPoolPolicyType'
-            Core.<$> (x Core..:? "PasswordPolicy")
+            Prelude.<$> (x Core..:? "PasswordPolicy")
       )
 
-instance Core.Hashable UserPoolPolicyType
+instance Prelude.Hashable UserPoolPolicyType
 
-instance Core.NFData UserPoolPolicyType
+instance Prelude.NFData UserPoolPolicyType
 
 instance Core.ToJSON UserPoolPolicyType where
   toJSON UserPoolPolicyType' {..} =
     Core.object
-      ( Core.catMaybes
-          [("PasswordPolicy" Core..=) Core.<$> passwordPolicy]
+      ( Prelude.catMaybes
+          [ ("PasswordPolicy" Core..=)
+              Prelude.<$> passwordPolicy
+          ]
       )

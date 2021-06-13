@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSourceStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the status of VPC flow logs as a data source.
 --
@@ -30,7 +31,7 @@ data FlowLogsConfigurationResult = FlowLogsConfigurationResult'
   { -- | Denotes whether VPC flow logs is enabled as a data source.
     status :: DataSourceStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlowLogsConfigurationResult' with all optional fields omitted.
@@ -58,9 +59,9 @@ instance Core.FromJSON FlowLogsConfigurationResult where
       "FlowLogsConfigurationResult"
       ( \x ->
           FlowLogsConfigurationResult'
-            Core.<$> (x Core..: "status")
+            Prelude.<$> (x Core..: "status")
       )
 
-instance Core.Hashable FlowLogsConfigurationResult
+instance Prelude.Hashable FlowLogsConfigurationResult
 
-instance Core.NFData FlowLogsConfigurationResult
+instance Prelude.NFData FlowLogsConfigurationResult

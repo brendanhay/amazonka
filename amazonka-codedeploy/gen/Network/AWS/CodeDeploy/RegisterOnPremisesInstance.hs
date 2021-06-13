@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRegisterOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
   { -- | The ARN of the IAM user to associate with the on-premises instance.
-    iamUserArn :: Core.Maybe Core.Text,
+    iamUserArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM session to associate with the on-premises instance.
-    iamSessionArn :: Core.Maybe Core.Text,
+    iamSessionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the on-premises instance to register.
-    instanceName :: Core.Text
+    instanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterOnPremisesInstance' with all optional fields omitted.
@@ -74,26 +75,26 @@ data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
 -- 'instanceName', 'registerOnPremisesInstance_instanceName' - The name of the on-premises instance to register.
 newRegisterOnPremisesInstance ::
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   RegisterOnPremisesInstance
 newRegisterOnPremisesInstance pInstanceName_ =
   RegisterOnPremisesInstance'
     { iamUserArn =
-        Core.Nothing,
-      iamSessionArn = Core.Nothing,
+        Prelude.Nothing,
+      iamSessionArn = Prelude.Nothing,
       instanceName = pInstanceName_
     }
 
 -- | The ARN of the IAM user to associate with the on-premises instance.
-registerOnPremisesInstance_iamUserArn :: Lens.Lens' RegisterOnPremisesInstance (Core.Maybe Core.Text)
+registerOnPremisesInstance_iamUserArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
 registerOnPremisesInstance_iamUserArn = Lens.lens (\RegisterOnPremisesInstance' {iamUserArn} -> iamUserArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamUserArn = a} :: RegisterOnPremisesInstance)
 
 -- | The ARN of the IAM session to associate with the on-premises instance.
-registerOnPremisesInstance_iamSessionArn :: Lens.Lens' RegisterOnPremisesInstance (Core.Maybe Core.Text)
+registerOnPremisesInstance_iamSessionArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
 registerOnPremisesInstance_iamSessionArn = Lens.lens (\RegisterOnPremisesInstance' {iamSessionArn} -> iamSessionArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamSessionArn = a} :: RegisterOnPremisesInstance)
 
 -- | The name of the on-premises instance to register.
-registerOnPremisesInstance_instanceName :: Lens.Lens' RegisterOnPremisesInstance Core.Text
+registerOnPremisesInstance_instanceName :: Lens.Lens' RegisterOnPremisesInstance Prelude.Text
 registerOnPremisesInstance_instanceName = Lens.lens (\RegisterOnPremisesInstance' {instanceName} -> instanceName) (\s@RegisterOnPremisesInstance' {} a -> s {instanceName = a} :: RegisterOnPremisesInstance)
 
 instance Core.AWSRequest RegisterOnPremisesInstance where
@@ -105,44 +106,46 @@ instance Core.AWSRequest RegisterOnPremisesInstance where
     Response.receiveNull
       RegisterOnPremisesInstanceResponse'
 
-instance Core.Hashable RegisterOnPremisesInstance
+instance Prelude.Hashable RegisterOnPremisesInstance
 
-instance Core.NFData RegisterOnPremisesInstance
+instance Prelude.NFData RegisterOnPremisesInstance
 
 instance Core.ToHeaders RegisterOnPremisesInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.RegisterOnPremisesInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RegisterOnPremisesInstance where
   toJSON RegisterOnPremisesInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("iamUserArn" Core..=) Core.<$> iamUserArn,
-            ("iamSessionArn" Core..=) Core.<$> iamSessionArn,
-            Core.Just ("instanceName" Core..= instanceName)
+      ( Prelude.catMaybes
+          [ ("iamUserArn" Core..=) Prelude.<$> iamUserArn,
+            ("iamSessionArn" Core..=) Prelude.<$> iamSessionArn,
+            Prelude.Just ("instanceName" Core..= instanceName)
           ]
       )
 
 instance Core.ToPath RegisterOnPremisesInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterOnPremisesInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterOnPremisesInstanceResponse' smart constructor.
 data RegisterOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterOnPremisesInstanceResponse' with all optional fields omitted.
@@ -154,5 +157,5 @@ newRegisterOnPremisesInstanceResponse =
   RegisterOnPremisesInstanceResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterOnPremisesInstanceResponse

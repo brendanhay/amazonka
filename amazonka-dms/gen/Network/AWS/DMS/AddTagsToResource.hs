@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ data AddTagsToResource = AddTagsToResource'
     --
     -- For AWS DMS, you can tag a replication instance, an endpoint, or a
     -- replication task.
-    resourceArn :: Core.Text,
+    resourceArn :: Prelude.Text,
     -- | One or more tags to be assigned to the resource.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToResource' with all optional fields omitted.
@@ -83,12 +84,12 @@ data AddTagsToResource = AddTagsToResource'
 -- 'tags', 'addTagsToResource_tags' - One or more tags to be assigned to the resource.
 newAddTagsToResource ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   AddTagsToResource
 newAddTagsToResource pResourceArn_ =
   AddTagsToResource'
     { resourceArn = pResourceArn_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | Identifies the AWS DMS resource to which tags should be added. The value
@@ -96,12 +97,12 @@ newAddTagsToResource pResourceArn_ =
 --
 -- For AWS DMS, you can tag a replication instance, an endpoint, or a
 -- replication task.
-addTagsToResource_resourceArn :: Lens.Lens' AddTagsToResource Core.Text
+addTagsToResource_resourceArn :: Lens.Lens' AddTagsToResource Prelude.Text
 addTagsToResource_resourceArn = Lens.lens (\AddTagsToResource' {resourceArn} -> resourceArn) (\s@AddTagsToResource' {} a -> s {resourceArn = a} :: AddTagsToResource)
 
 -- | One or more tags to be assigned to the resource.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
-addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Core.. Lens._Coerce
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTagsToResource where
   type
@@ -112,49 +113,51 @@ instance Core.AWSRequest AddTagsToResource where
     Response.receiveEmpty
       ( \s h x ->
           AddTagsToResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddTagsToResource
+instance Prelude.Hashable AddTagsToResource
 
-instance Core.NFData AddTagsToResource
+instance Prelude.NFData AddTagsToResource
 
 instance Core.ToHeaders AddTagsToResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.AddTagsToResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTagsToResource where
   toJSON AddTagsToResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceArn" Core..= resourceArn),
-            Core.Just ("Tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath AddTagsToResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTagsToResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newAddTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToResourceResponse' with all optional fields omitted.
@@ -167,7 +170,7 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse'
 -- 'httpStatus', 'addTagsToResourceResponse_httpStatus' - The response's http status code.
 newAddTagsToResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddTagsToResourceResponse
 newAddTagsToResourceResponse pHttpStatus_ =
   AddTagsToResourceResponse'
@@ -176,7 +179,7 @@ newAddTagsToResourceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-addTagsToResourceResponse_httpStatus :: Lens.Lens' AddTagsToResourceResponse Core.Int
+addTagsToResourceResponse_httpStatus :: Lens.Lens' AddTagsToResourceResponse Prelude.Int
 addTagsToResourceResponse_httpStatus = Lens.lens (\AddTagsToResourceResponse' {httpStatus} -> httpStatus) (\s@AddTagsToResourceResponse' {} a -> s {httpStatus = a} :: AddTagsToResourceResponse)
 
-instance Core.NFData AddTagsToResourceResponse
+instance Prelude.NFData AddTagsToResourceResponse

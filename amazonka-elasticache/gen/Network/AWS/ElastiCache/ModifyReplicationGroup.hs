@@ -73,6 +73,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,12 +86,12 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     --
     -- This parameter can be used only with replication group containing
     -- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
-    securityGroupIds :: Core.Maybe [Core.Text],
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | Determines whether a read replica is automatically promoted to
     -- read\/write primary if the existing primary encounters a failure.
     --
     -- Valid values: @true@ | @false@
-    automaticFailoverEnabled :: Core.Maybe Core.Bool,
+    automaticFailoverEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the strategy to use to update the AUTH token. This parameter
     -- must be specified with the @auth-token@ parameter. Possible values:
     --
@@ -100,7 +101,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     --
     -- For more information, see
     -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
-    authTokenUpdateStrategy :: Core.Maybe AuthTokenUpdateStrategyType,
+    authTokenUpdateStrategy :: Prelude.Maybe AuthTokenUpdateStrategyType,
     -- | A list of cache security group names to authorize for the clusters in
     -- this replication group. This change is asynchronously applied as soon as
     -- possible.
@@ -111,12 +112,12 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     --
     -- Constraints: Must contain no more than 255 alphanumeric characters. Must
     -- not be @Default@.
-    cacheSecurityGroupNames :: Core.Maybe [Core.Text],
+    cacheSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | For replication groups with a single primary, if this parameter is
     -- specified, ElastiCache promotes the specified cluster in the specified
     -- replication group to the primary role. The nodes of all other clusters
     -- in the replication group are read replicas.
-    primaryClusterId :: Core.Maybe Core.Text,
+    primaryClusterId :: Prelude.Maybe Prelude.Text,
     -- | The daily time range (in UTC) during which ElastiCache begins taking a
     -- daily snapshot of the node group (shard) specified by
     -- @SnapshottingClusterId@.
@@ -125,23 +126,23 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     --
     -- If you do not specify this parameter, ElastiCache automatically chooses
     -- an appropriate time range.
-    snapshotWindow :: Core.Maybe Core.Text,
+    snapshotWindow :: Prelude.Maybe Prelude.Text,
     -- | The status of the Amazon SNS notification topic for the replication
     -- group. Notifications are sent only if the status is @active@.
     --
     -- Valid values: @active@ | @inactive@
-    notificationTopicStatus :: Core.Maybe Core.Text,
+    notificationTopicStatus :: Prelude.Maybe Prelude.Text,
     -- | A list of users groups to remove, meaning the users in the group no
     -- longer can access thereplication group.
-    userGroupIdsToRemove :: Core.Maybe [Core.Text],
+    userGroupIdsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | A description for the replication group. Maximum length is 255
     -- characters.
-    replicationGroupDescription :: Core.Maybe Core.Text,
+    replicationGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache parameter group to apply to all of the clusters in
     -- this replication group. This change is asynchronously applied as soon as
     -- possible for parameters when the @ApplyImmediately@ parameter is
     -- specified as @true@ for this request.
-    cacheParameterGroupName :: Core.Maybe Core.Text,
+    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The number of days for which ElastiCache retains automatic node group
     -- (shard) snapshots before deleting them. For example, if you set
     -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
@@ -149,19 +150,19 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     --
     -- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
     -- backups are turned off.
-    snapshotRetentionLimit :: Core.Maybe Core.Int,
+    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
     -- | Deprecated. This parameter is not used.
-    nodeGroupId :: Core.Maybe Core.Text,
+    nodeGroupId :: Prelude.Maybe Prelude.Text,
     -- | A list of user group IDs.
-    userGroupIdsToAdd :: Core.Maybe [Core.Text],
+    userGroupIdsToAdd :: Prelude.Maybe [Prelude.Text],
     -- | A flag indicating if you have Multi-AZ enabled to enhance fault
     -- tolerance. For more information, see
     -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>.
-    multiAZEnabled :: Core.Maybe Core.Bool,
+    multiAZEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The cluster ID that is used as the daily snapshot source for the
     -- replication group. This parameter cannot be set for Redis (cluster mode
     -- enabled) replication groups.
-    snapshottingClusterId :: Core.Maybe Core.Text,
+    snapshottingClusterId :: Prelude.Maybe Prelude.Text,
     -- | The upgraded version of the cache engine to be run on the clusters in
     -- the replication group.
     --
@@ -170,7 +171,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- but you cannot downgrade to an earlier engine version. If you want to
     -- use an earlier engine version, you must delete the existing replication
     -- group and create it anew with the earlier engine version.
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies the weekly time range during which maintenance on the cluster
     -- is performed. It is specified as a range in the format
     -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
@@ -193,15 +194,15 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- -   @sat@
     --
     -- Example: @sun:23:00-mon:01:30@
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | A valid cache node type that you want to scale this replication group
     -- to.
-    cacheNodeType :: Core.Maybe Core.Text,
+    cacheNodeType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
     -- notifications are sent.
     --
     -- The Amazon SNS topic owner must be same as the replication group owner.
-    notificationTopicArn :: Core.Maybe Core.Text,
+    notificationTopicArn :: Prelude.Maybe Prelude.Text,
     -- | Reserved parameter. The password used to access a password protected
     -- server. This parameter must be specified with the
     -- @auth-token-update-strategy @ parameter. Password constraints:
@@ -216,9 +217,9 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     --
     -- For more information, see AUTH password at
     -- <http://redis.io/commands/AUTH AUTH>.
-    authToken :: Core.Maybe Core.Text,
+    authToken :: Prelude.Maybe Prelude.Text,
     -- | Removes the user groups that can access this replication group.
-    removeUserGroups :: Core.Maybe Core.Bool,
+    removeUserGroups :: Prelude.Maybe Prelude.Bool,
     -- | If @true@, this parameter causes the modifications in this request and
     -- any pending modifications to be applied, asynchronously and as soon as
     -- possible, regardless of the @PreferredMaintenanceWindow@ setting for the
@@ -231,13 +232,13 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- Valid values: @true@ | @false@
     --
     -- Default: @false@
-    applyImmediately :: Core.Maybe Core.Bool,
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | This parameter is currently disabled.
-    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the replication group to modify.
-    replicationGroupId :: Core.Text
+    replicationGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationGroup' with all optional fields omitted.
@@ -404,34 +405,34 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 -- 'replicationGroupId', 'modifyReplicationGroup_replicationGroupId' - The identifier of the replication group to modify.
 newModifyReplicationGroup ::
   -- | 'replicationGroupId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyReplicationGroup
 newModifyReplicationGroup pReplicationGroupId_ =
   ModifyReplicationGroup'
     { securityGroupIds =
-        Core.Nothing,
-      automaticFailoverEnabled = Core.Nothing,
-      authTokenUpdateStrategy = Core.Nothing,
-      cacheSecurityGroupNames = Core.Nothing,
-      primaryClusterId = Core.Nothing,
-      snapshotWindow = Core.Nothing,
-      notificationTopicStatus = Core.Nothing,
-      userGroupIdsToRemove = Core.Nothing,
-      replicationGroupDescription = Core.Nothing,
-      cacheParameterGroupName = Core.Nothing,
-      snapshotRetentionLimit = Core.Nothing,
-      nodeGroupId = Core.Nothing,
-      userGroupIdsToAdd = Core.Nothing,
-      multiAZEnabled = Core.Nothing,
-      snapshottingClusterId = Core.Nothing,
-      engineVersion = Core.Nothing,
-      preferredMaintenanceWindow = Core.Nothing,
-      cacheNodeType = Core.Nothing,
-      notificationTopicArn = Core.Nothing,
-      authToken = Core.Nothing,
-      removeUserGroups = Core.Nothing,
-      applyImmediately = Core.Nothing,
-      autoMinorVersionUpgrade = Core.Nothing,
+        Prelude.Nothing,
+      automaticFailoverEnabled = Prelude.Nothing,
+      authTokenUpdateStrategy = Prelude.Nothing,
+      cacheSecurityGroupNames = Prelude.Nothing,
+      primaryClusterId = Prelude.Nothing,
+      snapshotWindow = Prelude.Nothing,
+      notificationTopicStatus = Prelude.Nothing,
+      userGroupIdsToRemove = Prelude.Nothing,
+      replicationGroupDescription = Prelude.Nothing,
+      cacheParameterGroupName = Prelude.Nothing,
+      snapshotRetentionLimit = Prelude.Nothing,
+      nodeGroupId = Prelude.Nothing,
+      userGroupIdsToAdd = Prelude.Nothing,
+      multiAZEnabled = Prelude.Nothing,
+      snapshottingClusterId = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      cacheNodeType = Prelude.Nothing,
+      notificationTopicArn = Prelude.Nothing,
+      authToken = Prelude.Nothing,
+      removeUserGroups = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
       replicationGroupId = pReplicationGroupId_
     }
 
@@ -440,14 +441,14 @@ newModifyReplicationGroup pReplicationGroupId_ =
 --
 -- This parameter can be used only with replication group containing
 -- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
-modifyReplicationGroup_securityGroupIds :: Lens.Lens' ModifyReplicationGroup (Core.Maybe [Core.Text])
-modifyReplicationGroup_securityGroupIds = Lens.lens (\ModifyReplicationGroup' {securityGroupIds} -> securityGroupIds) (\s@ModifyReplicationGroup' {} a -> s {securityGroupIds = a} :: ModifyReplicationGroup) Core.. Lens.mapping Lens._Coerce
+modifyReplicationGroup_securityGroupIds :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroup_securityGroupIds = Lens.lens (\ModifyReplicationGroup' {securityGroupIds} -> securityGroupIds) (\s@ModifyReplicationGroup' {} a -> s {securityGroupIds = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Determines whether a read replica is automatically promoted to
 -- read\/write primary if the existing primary encounters a failure.
 --
 -- Valid values: @true@ | @false@
-modifyReplicationGroup_automaticFailoverEnabled :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Bool)
+modifyReplicationGroup_automaticFailoverEnabled :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
 modifyReplicationGroup_automaticFailoverEnabled = Lens.lens (\ModifyReplicationGroup' {automaticFailoverEnabled} -> automaticFailoverEnabled) (\s@ModifyReplicationGroup' {} a -> s {automaticFailoverEnabled = a} :: ModifyReplicationGroup)
 
 -- | Specifies the strategy to use to update the AUTH token. This parameter
@@ -459,7 +460,7 @@ modifyReplicationGroup_automaticFailoverEnabled = Lens.lens (\ModifyReplicationG
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
-modifyReplicationGroup_authTokenUpdateStrategy :: Lens.Lens' ModifyReplicationGroup (Core.Maybe AuthTokenUpdateStrategyType)
+modifyReplicationGroup_authTokenUpdateStrategy :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe AuthTokenUpdateStrategyType)
 modifyReplicationGroup_authTokenUpdateStrategy = Lens.lens (\ModifyReplicationGroup' {authTokenUpdateStrategy} -> authTokenUpdateStrategy) (\s@ModifyReplicationGroup' {} a -> s {authTokenUpdateStrategy = a} :: ModifyReplicationGroup)
 
 -- | A list of cache security group names to authorize for the clusters in
@@ -472,14 +473,14 @@ modifyReplicationGroup_authTokenUpdateStrategy = Lens.lens (\ModifyReplicationGr
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be @Default@.
-modifyReplicationGroup_cacheSecurityGroupNames :: Lens.Lens' ModifyReplicationGroup (Core.Maybe [Core.Text])
-modifyReplicationGroup_cacheSecurityGroupNames = Lens.lens (\ModifyReplicationGroup' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@ModifyReplicationGroup' {} a -> s {cacheSecurityGroupNames = a} :: ModifyReplicationGroup) Core.. Lens.mapping Lens._Coerce
+modifyReplicationGroup_cacheSecurityGroupNames :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroup_cacheSecurityGroupNames = Lens.lens (\ModifyReplicationGroup' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@ModifyReplicationGroup' {} a -> s {cacheSecurityGroupNames = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | For replication groups with a single primary, if this parameter is
 -- specified, ElastiCache promotes the specified cluster in the specified
 -- replication group to the primary role. The nodes of all other clusters
 -- in the replication group are read replicas.
-modifyReplicationGroup_primaryClusterId :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_primaryClusterId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_primaryClusterId = Lens.lens (\ModifyReplicationGroup' {primaryClusterId} -> primaryClusterId) (\s@ModifyReplicationGroup' {} a -> s {primaryClusterId = a} :: ModifyReplicationGroup)
 
 -- | The daily time range (in UTC) during which ElastiCache begins taking a
@@ -490,31 +491,31 @@ modifyReplicationGroup_primaryClusterId = Lens.lens (\ModifyReplicationGroup' {p
 --
 -- If you do not specify this parameter, ElastiCache automatically chooses
 -- an appropriate time range.
-modifyReplicationGroup_snapshotWindow :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_snapshotWindow :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_snapshotWindow = Lens.lens (\ModifyReplicationGroup' {snapshotWindow} -> snapshotWindow) (\s@ModifyReplicationGroup' {} a -> s {snapshotWindow = a} :: ModifyReplicationGroup)
 
 -- | The status of the Amazon SNS notification topic for the replication
 -- group. Notifications are sent only if the status is @active@.
 --
 -- Valid values: @active@ | @inactive@
-modifyReplicationGroup_notificationTopicStatus :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_notificationTopicStatus :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_notificationTopicStatus = Lens.lens (\ModifyReplicationGroup' {notificationTopicStatus} -> notificationTopicStatus) (\s@ModifyReplicationGroup' {} a -> s {notificationTopicStatus = a} :: ModifyReplicationGroup)
 
 -- | A list of users groups to remove, meaning the users in the group no
 -- longer can access thereplication group.
-modifyReplicationGroup_userGroupIdsToRemove :: Lens.Lens' ModifyReplicationGroup (Core.Maybe [Core.Text])
-modifyReplicationGroup_userGroupIdsToRemove = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToRemove} -> userGroupIdsToRemove) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToRemove = a} :: ModifyReplicationGroup) Core.. Lens.mapping Lens._Coerce
+modifyReplicationGroup_userGroupIdsToRemove :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroup_userGroupIdsToRemove = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToRemove} -> userGroupIdsToRemove) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToRemove = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description for the replication group. Maximum length is 255
 -- characters.
-modifyReplicationGroup_replicationGroupDescription :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_replicationGroupDescription :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_replicationGroupDescription = Lens.lens (\ModifyReplicationGroup' {replicationGroupDescription} -> replicationGroupDescription) (\s@ModifyReplicationGroup' {} a -> s {replicationGroupDescription = a} :: ModifyReplicationGroup)
 
 -- | The name of the cache parameter group to apply to all of the clusters in
 -- this replication group. This change is asynchronously applied as soon as
 -- possible for parameters when the @ApplyImmediately@ parameter is
 -- specified as @true@ for this request.
-modifyReplicationGroup_cacheParameterGroupName :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_cacheParameterGroupName :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_cacheParameterGroupName = Lens.lens (\ModifyReplicationGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyReplicationGroup' {} a -> s {cacheParameterGroupName = a} :: ModifyReplicationGroup)
 
 -- | The number of days for which ElastiCache retains automatic node group
@@ -524,27 +525,27 @@ modifyReplicationGroup_cacheParameterGroupName = Lens.lens (\ModifyReplicationGr
 --
 -- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
 -- backups are turned off.
-modifyReplicationGroup_snapshotRetentionLimit :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Int)
+modifyReplicationGroup_snapshotRetentionLimit :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Int)
 modifyReplicationGroup_snapshotRetentionLimit = Lens.lens (\ModifyReplicationGroup' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@ModifyReplicationGroup' {} a -> s {snapshotRetentionLimit = a} :: ModifyReplicationGroup)
 
 -- | Deprecated. This parameter is not used.
-modifyReplicationGroup_nodeGroupId :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_nodeGroupId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_nodeGroupId = Lens.lens (\ModifyReplicationGroup' {nodeGroupId} -> nodeGroupId) (\s@ModifyReplicationGroup' {} a -> s {nodeGroupId = a} :: ModifyReplicationGroup)
 
 -- | A list of user group IDs.
-modifyReplicationGroup_userGroupIdsToAdd :: Lens.Lens' ModifyReplicationGroup (Core.Maybe [Core.Text])
-modifyReplicationGroup_userGroupIdsToAdd = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToAdd} -> userGroupIdsToAdd) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToAdd = a} :: ModifyReplicationGroup) Core.. Lens.mapping Lens._Coerce
+modifyReplicationGroup_userGroupIdsToAdd :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroup_userGroupIdsToAdd = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToAdd} -> userGroupIdsToAdd) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToAdd = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag indicating if you have Multi-AZ enabled to enhance fault
 -- tolerance. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>.
-modifyReplicationGroup_multiAZEnabled :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Bool)
+modifyReplicationGroup_multiAZEnabled :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
 modifyReplicationGroup_multiAZEnabled = Lens.lens (\ModifyReplicationGroup' {multiAZEnabled} -> multiAZEnabled) (\s@ModifyReplicationGroup' {} a -> s {multiAZEnabled = a} :: ModifyReplicationGroup)
 
 -- | The cluster ID that is used as the daily snapshot source for the
 -- replication group. This parameter cannot be set for Redis (cluster mode
 -- enabled) replication groups.
-modifyReplicationGroup_snapshottingClusterId :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_snapshottingClusterId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_snapshottingClusterId = Lens.lens (\ModifyReplicationGroup' {snapshottingClusterId} -> snapshottingClusterId) (\s@ModifyReplicationGroup' {} a -> s {snapshottingClusterId = a} :: ModifyReplicationGroup)
 
 -- | The upgraded version of the cache engine to be run on the clusters in
@@ -555,7 +556,7 @@ modifyReplicationGroup_snapshottingClusterId = Lens.lens (\ModifyReplicationGrou
 -- but you cannot downgrade to an earlier engine version. If you want to
 -- use an earlier engine version, you must delete the existing replication
 -- group and create it anew with the earlier engine version.
-modifyReplicationGroup_engineVersion :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_engineVersion :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_engineVersion = Lens.lens (\ModifyReplicationGroup' {engineVersion} -> engineVersion) (\s@ModifyReplicationGroup' {} a -> s {engineVersion = a} :: ModifyReplicationGroup)
 
 -- | Specifies the weekly time range during which maintenance on the cluster
@@ -580,19 +581,19 @@ modifyReplicationGroup_engineVersion = Lens.lens (\ModifyReplicationGroup' {engi
 -- -   @sat@
 --
 -- Example: @sun:23:00-mon:01:30@
-modifyReplicationGroup_preferredMaintenanceWindow :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_preferredMaintenanceWindow :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_preferredMaintenanceWindow = Lens.lens (\ModifyReplicationGroup' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyReplicationGroup' {} a -> s {preferredMaintenanceWindow = a} :: ModifyReplicationGroup)
 
 -- | A valid cache node type that you want to scale this replication group
 -- to.
-modifyReplicationGroup_cacheNodeType :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_cacheNodeType :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_cacheNodeType = Lens.lens (\ModifyReplicationGroup' {cacheNodeType} -> cacheNodeType) (\s@ModifyReplicationGroup' {} a -> s {cacheNodeType = a} :: ModifyReplicationGroup)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications are sent.
 --
 -- The Amazon SNS topic owner must be same as the replication group owner.
-modifyReplicationGroup_notificationTopicArn :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_notificationTopicArn :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_notificationTopicArn = Lens.lens (\ModifyReplicationGroup' {notificationTopicArn} -> notificationTopicArn) (\s@ModifyReplicationGroup' {} a -> s {notificationTopicArn = a} :: ModifyReplicationGroup)
 
 -- | Reserved parameter. The password used to access a password protected
@@ -609,11 +610,11 @@ modifyReplicationGroup_notificationTopicArn = Lens.lens (\ModifyReplicationGroup
 --
 -- For more information, see AUTH password at
 -- <http://redis.io/commands/AUTH AUTH>.
-modifyReplicationGroup_authToken :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Text)
+modifyReplicationGroup_authToken :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_authToken = Lens.lens (\ModifyReplicationGroup' {authToken} -> authToken) (\s@ModifyReplicationGroup' {} a -> s {authToken = a} :: ModifyReplicationGroup)
 
 -- | Removes the user groups that can access this replication group.
-modifyReplicationGroup_removeUserGroups :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Bool)
+modifyReplicationGroup_removeUserGroups :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
 modifyReplicationGroup_removeUserGroups = Lens.lens (\ModifyReplicationGroup' {removeUserGroups} -> removeUserGroups) (\s@ModifyReplicationGroup' {} a -> s {removeUserGroups = a} :: ModifyReplicationGroup)
 
 -- | If @true@, this parameter causes the modifications in this request and
@@ -628,15 +629,15 @@ modifyReplicationGroup_removeUserGroups = Lens.lens (\ModifyReplicationGroup' {r
 -- Valid values: @true@ | @false@
 --
 -- Default: @false@
-modifyReplicationGroup_applyImmediately :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Bool)
+modifyReplicationGroup_applyImmediately :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
 modifyReplicationGroup_applyImmediately = Lens.lens (\ModifyReplicationGroup' {applyImmediately} -> applyImmediately) (\s@ModifyReplicationGroup' {} a -> s {applyImmediately = a} :: ModifyReplicationGroup)
 
 -- | This parameter is currently disabled.
-modifyReplicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ModifyReplicationGroup (Core.Maybe Core.Bool)
+modifyReplicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
 modifyReplicationGroup_autoMinorVersionUpgrade = Lens.lens (\ModifyReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyReplicationGroup)
 
 -- | The identifier of the replication group to modify.
-modifyReplicationGroup_replicationGroupId :: Lens.Lens' ModifyReplicationGroup Core.Text
+modifyReplicationGroup_replicationGroupId :: Lens.Lens' ModifyReplicationGroup Prelude.Text
 modifyReplicationGroup_replicationGroupId = Lens.lens (\ModifyReplicationGroup' {replicationGroupId} -> replicationGroupId) (\s@ModifyReplicationGroup' {} a -> s {replicationGroupId = a} :: ModifyReplicationGroup)
 
 instance Core.AWSRequest ModifyReplicationGroup where
@@ -649,30 +650,31 @@ instance Core.AWSRequest ModifyReplicationGroup where
       "ModifyReplicationGroupResult"
       ( \s h x ->
           ModifyReplicationGroupResponse'
-            Core.<$> (x Core..@? "ReplicationGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ReplicationGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyReplicationGroup
+instance Prelude.Hashable ModifyReplicationGroup
 
-instance Core.NFData ModifyReplicationGroup
+instance Prelude.NFData ModifyReplicationGroup
 
 instance Core.ToHeaders ModifyReplicationGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyReplicationGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyReplicationGroup where
   toQuery ModifyReplicationGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyReplicationGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("ModifyReplicationGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "SecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "SecurityGroupId"
-                Core.<$> securityGroupIds
+                Prelude.<$> securityGroupIds
             ),
         "AutomaticFailoverEnabled"
           Core.=: automaticFailoverEnabled,
@@ -681,7 +683,7 @@ instance Core.ToQuery ModifyReplicationGroup where
         "CacheSecurityGroupNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "CacheSecurityGroupName"
-                Core.<$> cacheSecurityGroupNames
+                Prelude.<$> cacheSecurityGroupNames
             ),
         "PrimaryClusterId" Core.=: primaryClusterId,
         "SnapshotWindow" Core.=: snapshotWindow,
@@ -690,7 +692,7 @@ instance Core.ToQuery ModifyReplicationGroup where
         "UserGroupIdsToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> userGroupIdsToRemove
+                Prelude.<$> userGroupIdsToRemove
             ),
         "ReplicationGroupDescription"
           Core.=: replicationGroupDescription,
@@ -702,7 +704,7 @@ instance Core.ToQuery ModifyReplicationGroup where
         "UserGroupIdsToAdd"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> userGroupIdsToAdd
+                Prelude.<$> userGroupIdsToAdd
             ),
         "MultiAZEnabled" Core.=: multiAZEnabled,
         "SnapshottingClusterId"
@@ -722,11 +724,11 @@ instance Core.ToQuery ModifyReplicationGroup where
 
 -- | /See:/ 'newModifyReplicationGroupResponse' smart constructor.
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
-  { replicationGroup :: Core.Maybe ReplicationGroup,
+  { replicationGroup :: Prelude.Maybe ReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationGroupResponse' with all optional fields omitted.
@@ -741,21 +743,23 @@ data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
 -- 'httpStatus', 'modifyReplicationGroupResponse_httpStatus' - The response's http status code.
 newModifyReplicationGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyReplicationGroupResponse
 newModifyReplicationGroupResponse pHttpStatus_ =
   ModifyReplicationGroupResponse'
     { replicationGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyReplicationGroupResponse_replicationGroup :: Lens.Lens' ModifyReplicationGroupResponse (Core.Maybe ReplicationGroup)
+modifyReplicationGroupResponse_replicationGroup :: Lens.Lens' ModifyReplicationGroupResponse (Prelude.Maybe ReplicationGroup)
 modifyReplicationGroupResponse_replicationGroup = Lens.lens (\ModifyReplicationGroupResponse' {replicationGroup} -> replicationGroup) (\s@ModifyReplicationGroupResponse' {} a -> s {replicationGroup = a} :: ModifyReplicationGroupResponse)
 
 -- | The response's http status code.
-modifyReplicationGroupResponse_httpStatus :: Lens.Lens' ModifyReplicationGroupResponse Core.Int
+modifyReplicationGroupResponse_httpStatus :: Lens.Lens' ModifyReplicationGroupResponse Prelude.Int
 modifyReplicationGroupResponse_httpStatus = Lens.lens (\ModifyReplicationGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyReplicationGroupResponse' {} a -> s {httpStatus = a} :: ModifyReplicationGroupResponse)
 
-instance Core.NFData ModifyReplicationGroupResponse
+instance
+  Prelude.NFData
+    ModifyReplicationGroupResponse

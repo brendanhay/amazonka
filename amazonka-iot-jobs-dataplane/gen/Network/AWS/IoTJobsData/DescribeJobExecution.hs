@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTJobsData.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,18 +53,18 @@ import qualified Network.AWS.Response as Response
 data DescribeJobExecution = DescribeJobExecution'
   { -- | Optional. When set to true, the response contains the job document. The
     -- default is false.
-    includeJobDocument :: Core.Maybe Core.Bool,
+    includeJobDocument :: Prelude.Maybe Prelude.Bool,
     -- | Optional. A number that identifies a particular job execution on a
     -- particular device. If not specified, the latest job execution is
     -- returned.
-    executionNumber :: Core.Maybe Core.Integer,
+    executionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The unique identifier assigned to this job when it was created.
-    jobId :: Core.Text,
+    jobId :: Prelude.Text,
     -- | The thing name associated with the device the job execution is running
     -- on.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeJobExecution' with all optional fields omitted.
@@ -86,37 +87,37 @@ data DescribeJobExecution = DescribeJobExecution'
 -- on.
 newDescribeJobExecution ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeJobExecution
 newDescribeJobExecution pJobId_ pThingName_ =
   DescribeJobExecution'
     { includeJobDocument =
-        Core.Nothing,
-      executionNumber = Core.Nothing,
+        Prelude.Nothing,
+      executionNumber = Prelude.Nothing,
       jobId = pJobId_,
       thingName = pThingName_
     }
 
 -- | Optional. When set to true, the response contains the job document. The
 -- default is false.
-describeJobExecution_includeJobDocument :: Lens.Lens' DescribeJobExecution (Core.Maybe Core.Bool)
+describeJobExecution_includeJobDocument :: Lens.Lens' DescribeJobExecution (Prelude.Maybe Prelude.Bool)
 describeJobExecution_includeJobDocument = Lens.lens (\DescribeJobExecution' {includeJobDocument} -> includeJobDocument) (\s@DescribeJobExecution' {} a -> s {includeJobDocument = a} :: DescribeJobExecution)
 
 -- | Optional. A number that identifies a particular job execution on a
 -- particular device. If not specified, the latest job execution is
 -- returned.
-describeJobExecution_executionNumber :: Lens.Lens' DescribeJobExecution (Core.Maybe Core.Integer)
+describeJobExecution_executionNumber :: Lens.Lens' DescribeJobExecution (Prelude.Maybe Prelude.Integer)
 describeJobExecution_executionNumber = Lens.lens (\DescribeJobExecution' {executionNumber} -> executionNumber) (\s@DescribeJobExecution' {} a -> s {executionNumber = a} :: DescribeJobExecution)
 
 -- | The unique identifier assigned to this job when it was created.
-describeJobExecution_jobId :: Lens.Lens' DescribeJobExecution Core.Text
+describeJobExecution_jobId :: Lens.Lens' DescribeJobExecution Prelude.Text
 describeJobExecution_jobId = Lens.lens (\DescribeJobExecution' {jobId} -> jobId) (\s@DescribeJobExecution' {} a -> s {jobId = a} :: DescribeJobExecution)
 
 -- | The thing name associated with the device the job execution is running
 -- on.
-describeJobExecution_thingName :: Lens.Lens' DescribeJobExecution Core.Text
+describeJobExecution_thingName :: Lens.Lens' DescribeJobExecution Prelude.Text
 describeJobExecution_thingName = Lens.lens (\DescribeJobExecution' {thingName} -> thingName) (\s@DescribeJobExecution' {} a -> s {thingName = a} :: DescribeJobExecution)
 
 instance Core.AWSRequest DescribeJobExecution where
@@ -128,20 +129,20 @@ instance Core.AWSRequest DescribeJobExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobExecutionResponse'
-            Core.<$> (x Core..?> "execution")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "execution")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeJobExecution
+instance Prelude.Hashable DescribeJobExecution
 
-instance Core.NFData DescribeJobExecution
+instance Prelude.NFData DescribeJobExecution
 
 instance Core.ToHeaders DescribeJobExecution where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeJobExecution where
   toPath DescribeJobExecution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/things/",
         Core.toBS thingName,
         "/jobs/",
@@ -150,7 +151,7 @@ instance Core.ToPath DescribeJobExecution where
 
 instance Core.ToQuery DescribeJobExecution where
   toQuery DescribeJobExecution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "includeJobDocument" Core.=: includeJobDocument,
         "executionNumber" Core.=: executionNumber
       ]
@@ -158,11 +159,11 @@ instance Core.ToQuery DescribeJobExecution where
 -- | /See:/ 'newDescribeJobExecutionResponse' smart constructor.
 data DescribeJobExecutionResponse = DescribeJobExecutionResponse'
   { -- | Contains data about a job execution.
-    execution :: Core.Maybe JobExecution,
+    execution :: Prelude.Maybe JobExecution,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeJobExecutionResponse' with all optional fields omitted.
@@ -177,21 +178,21 @@ data DescribeJobExecutionResponse = DescribeJobExecutionResponse'
 -- 'httpStatus', 'describeJobExecutionResponse_httpStatus' - The response's http status code.
 newDescribeJobExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeJobExecutionResponse
 newDescribeJobExecutionResponse pHttpStatus_ =
   DescribeJobExecutionResponse'
     { execution =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains data about a job execution.
-describeJobExecutionResponse_execution :: Lens.Lens' DescribeJobExecutionResponse (Core.Maybe JobExecution)
+describeJobExecutionResponse_execution :: Lens.Lens' DescribeJobExecutionResponse (Prelude.Maybe JobExecution)
 describeJobExecutionResponse_execution = Lens.lens (\DescribeJobExecutionResponse' {execution} -> execution) (\s@DescribeJobExecutionResponse' {} a -> s {execution = a} :: DescribeJobExecutionResponse)
 
 -- | The response's http status code.
-describeJobExecutionResponse_httpStatus :: Lens.Lens' DescribeJobExecutionResponse Core.Int
+describeJobExecutionResponse_httpStatus :: Lens.Lens' DescribeJobExecutionResponse Prelude.Int
 describeJobExecutionResponse_httpStatus = Lens.lens (\DescribeJobExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribeJobExecutionResponse' {} a -> s {httpStatus = a} :: DescribeJobExecutionResponse)
 
-instance Core.NFData DescribeJobExecutionResponse
+instance Prelude.NFData DescribeJobExecutionResponse

@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.OrganizationConformancePackDetailedStatus where
 import Network.AWS.Config.Types.OrganizationResourceDetailedStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Organization conformance pack creation or deletion status in each member
 -- account. This includes the name of the conformance pack, the status,
@@ -31,17 +32,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOrganizationConformancePackDetailedStatus' smart constructor.
 data OrganizationConformancePackDetailedStatus = OrganizationConformancePackDetailedStatus'
   { -- | The timestamp of the last status update.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | An error message indicating that conformance pack account creation or
     -- deletion has failed due to an error in the member account.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | An error code that is returned when conformance pack creation or
     -- deletion failed in the member account.
-    errorCode :: Core.Maybe Core.Text,
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The 12-digit account ID of a member account.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of conformance pack deployed in the member account.
-    conformancePackName :: Core.Text,
+    conformancePackName :: Prelude.Text,
     -- | Indicates deployment status for conformance pack in a member account.
     -- When master account calls @PutOrganizationConformancePack@ action for
     -- the first time, conformance pack status is created in the member
@@ -81,7 +82,7 @@ data OrganizationConformancePackDetailedStatus = OrganizationConformancePackDeta
     --     member account.
     status :: OrganizationResourceDetailedStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationConformancePackDetailedStatus' with all optional fields omitted.
@@ -142,9 +143,9 @@ data OrganizationConformancePackDetailedStatus = OrganizationConformancePackDeta
 --     member account.
 newOrganizationConformancePackDetailedStatus ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'conformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   OrganizationResourceDetailedStatus ->
   OrganizationConformancePackDetailedStatus
@@ -154,9 +155,9 @@ newOrganizationConformancePackDetailedStatus
   pStatus_ =
     OrganizationConformancePackDetailedStatus'
       { lastUpdateTime =
-          Core.Nothing,
-        errorMessage = Core.Nothing,
-        errorCode = Core.Nothing,
+          Prelude.Nothing,
+        errorMessage = Prelude.Nothing,
+        errorCode = Prelude.Nothing,
         accountId = pAccountId_,
         conformancePackName =
           pConformancePackName_,
@@ -164,25 +165,25 @@ newOrganizationConformancePackDetailedStatus
       }
 
 -- | The timestamp of the last status update.
-organizationConformancePackDetailedStatus_lastUpdateTime :: Lens.Lens' OrganizationConformancePackDetailedStatus (Core.Maybe Core.UTCTime)
-organizationConformancePackDetailedStatus_lastUpdateTime = Lens.lens (\OrganizationConformancePackDetailedStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConformancePackDetailedStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConformancePackDetailedStatus) Core.. Lens.mapping Core._Time
+organizationConformancePackDetailedStatus_lastUpdateTime :: Lens.Lens' OrganizationConformancePackDetailedStatus (Prelude.Maybe Prelude.UTCTime)
+organizationConformancePackDetailedStatus_lastUpdateTime = Lens.lens (\OrganizationConformancePackDetailedStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConformancePackDetailedStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConformancePackDetailedStatus) Prelude.. Lens.mapping Core._Time
 
 -- | An error message indicating that conformance pack account creation or
 -- deletion has failed due to an error in the member account.
-organizationConformancePackDetailedStatus_errorMessage :: Lens.Lens' OrganizationConformancePackDetailedStatus (Core.Maybe Core.Text)
+organizationConformancePackDetailedStatus_errorMessage :: Lens.Lens' OrganizationConformancePackDetailedStatus (Prelude.Maybe Prelude.Text)
 organizationConformancePackDetailedStatus_errorMessage = Lens.lens (\OrganizationConformancePackDetailedStatus' {errorMessage} -> errorMessage) (\s@OrganizationConformancePackDetailedStatus' {} a -> s {errorMessage = a} :: OrganizationConformancePackDetailedStatus)
 
 -- | An error code that is returned when conformance pack creation or
 -- deletion failed in the member account.
-organizationConformancePackDetailedStatus_errorCode :: Lens.Lens' OrganizationConformancePackDetailedStatus (Core.Maybe Core.Text)
+organizationConformancePackDetailedStatus_errorCode :: Lens.Lens' OrganizationConformancePackDetailedStatus (Prelude.Maybe Prelude.Text)
 organizationConformancePackDetailedStatus_errorCode = Lens.lens (\OrganizationConformancePackDetailedStatus' {errorCode} -> errorCode) (\s@OrganizationConformancePackDetailedStatus' {} a -> s {errorCode = a} :: OrganizationConformancePackDetailedStatus)
 
 -- | The 12-digit account ID of a member account.
-organizationConformancePackDetailedStatus_accountId :: Lens.Lens' OrganizationConformancePackDetailedStatus Core.Text
+organizationConformancePackDetailedStatus_accountId :: Lens.Lens' OrganizationConformancePackDetailedStatus Prelude.Text
 organizationConformancePackDetailedStatus_accountId = Lens.lens (\OrganizationConformancePackDetailedStatus' {accountId} -> accountId) (\s@OrganizationConformancePackDetailedStatus' {} a -> s {accountId = a} :: OrganizationConformancePackDetailedStatus)
 
 -- | The name of conformance pack deployed in the member account.
-organizationConformancePackDetailedStatus_conformancePackName :: Lens.Lens' OrganizationConformancePackDetailedStatus Core.Text
+organizationConformancePackDetailedStatus_conformancePackName :: Lens.Lens' OrganizationConformancePackDetailedStatus Prelude.Text
 organizationConformancePackDetailedStatus_conformancePackName = Lens.lens (\OrganizationConformancePackDetailedStatus' {conformancePackName} -> conformancePackName) (\s@OrganizationConformancePackDetailedStatus' {} a -> s {conformancePackName = a} :: OrganizationConformancePackDetailedStatus)
 
 -- | Indicates deployment status for conformance pack in a member account.
@@ -234,18 +235,18 @@ instance
       "OrganizationConformancePackDetailedStatus"
       ( \x ->
           OrganizationConformancePackDetailedStatus'
-            Core.<$> (x Core..:? "LastUpdateTime")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
-            Core.<*> (x Core..: "AccountId")
-            Core.<*> (x Core..: "ConformancePackName")
-            Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..:? "LastUpdateTime")
+              Prelude.<*> (x Core..:? "ErrorMessage")
+              Prelude.<*> (x Core..:? "ErrorCode")
+              Prelude.<*> (x Core..: "AccountId")
+              Prelude.<*> (x Core..: "ConformancePackName")
+              Prelude.<*> (x Core..: "Status")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OrganizationConformancePackDetailedStatus
 
 instance
-  Core.NFData
+  Prelude.NFData
     OrganizationConformancePackDetailedStatus

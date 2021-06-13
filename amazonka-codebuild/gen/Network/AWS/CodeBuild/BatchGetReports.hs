@@ -43,15 +43,16 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchGetReports' smart constructor.
 data BatchGetReports = BatchGetReports'
   { -- | An array of ARNs that identify the @Report@ objects to return.
-    reportArns :: Core.NonEmpty Core.Text
+    reportArns :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetReports' with all optional fields omitted.
@@ -64,7 +65,7 @@ data BatchGetReports = BatchGetReports'
 -- 'reportArns', 'batchGetReports_reportArns' - An array of ARNs that identify the @Report@ objects to return.
 newBatchGetReports ::
   -- | 'reportArns'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   BatchGetReports
 newBatchGetReports pReportArns_ =
   BatchGetReports'
@@ -73,8 +74,8 @@ newBatchGetReports pReportArns_ =
     }
 
 -- | An array of ARNs that identify the @Report@ objects to return.
-batchGetReports_reportArns :: Lens.Lens' BatchGetReports (Core.NonEmpty Core.Text)
-batchGetReports_reportArns = Lens.lens (\BatchGetReports' {reportArns} -> reportArns) (\s@BatchGetReports' {} a -> s {reportArns = a} :: BatchGetReports) Core.. Lens._Coerce
+batchGetReports_reportArns :: Lens.Lens' BatchGetReports (Prelude.NonEmpty Prelude.Text)
+batchGetReports_reportArns = Lens.lens (\BatchGetReports' {reportArns} -> reportArns) (\s@BatchGetReports' {} a -> s {reportArns = a} :: BatchGetReports) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetReports where
   type
@@ -85,52 +86,54 @@ instance Core.AWSRequest BatchGetReports where
     Response.receiveJSON
       ( \s h x ->
           BatchGetReportsResponse'
-            Core.<$> (x Core..?> "reports")
-            Core.<*> (x Core..?> "reportsNotFound")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "reports")
+            Prelude.<*> (x Core..?> "reportsNotFound")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetReports
+instance Prelude.Hashable BatchGetReports
 
-instance Core.NFData BatchGetReports
+instance Prelude.NFData BatchGetReports
 
 instance Core.ToHeaders BatchGetReports where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.BatchGetReports" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetReports where
   toJSON BatchGetReports' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("reportArns" Core..= reportArns)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("reportArns" Core..= reportArns)]
       )
 
 instance Core.ToPath BatchGetReports where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetReports where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetReportsResponse' smart constructor.
 data BatchGetReportsResponse = BatchGetReportsResponse'
   { -- | The array of @Report@ objects returned by @BatchGetReports@.
-    reports :: Core.Maybe (Core.NonEmpty Report),
+    reports :: Prelude.Maybe (Prelude.NonEmpty Report),
     -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
     -- associated with a @Report@.
-    reportsNotFound :: Core.Maybe (Core.NonEmpty Core.Text),
+    reportsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetReportsResponse' with all optional fields omitted.
@@ -148,26 +151,26 @@ data BatchGetReportsResponse = BatchGetReportsResponse'
 -- 'httpStatus', 'batchGetReportsResponse_httpStatus' - The response's http status code.
 newBatchGetReportsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetReportsResponse
 newBatchGetReportsResponse pHttpStatus_ =
   BatchGetReportsResponse'
-    { reports = Core.Nothing,
-      reportsNotFound = Core.Nothing,
+    { reports = Prelude.Nothing,
+      reportsNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The array of @Report@ objects returned by @BatchGetReports@.
-batchGetReportsResponse_reports :: Lens.Lens' BatchGetReportsResponse (Core.Maybe (Core.NonEmpty Report))
-batchGetReportsResponse_reports = Lens.lens (\BatchGetReportsResponse' {reports} -> reports) (\s@BatchGetReportsResponse' {} a -> s {reports = a} :: BatchGetReportsResponse) Core.. Lens.mapping Lens._Coerce
+batchGetReportsResponse_reports :: Lens.Lens' BatchGetReportsResponse (Prelude.Maybe (Prelude.NonEmpty Report))
+batchGetReportsResponse_reports = Lens.lens (\BatchGetReportsResponse' {reports} -> reports) (\s@BatchGetReportsResponse' {} a -> s {reports = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
 -- associated with a @Report@.
-batchGetReportsResponse_reportsNotFound :: Lens.Lens' BatchGetReportsResponse (Core.Maybe (Core.NonEmpty Core.Text))
-batchGetReportsResponse_reportsNotFound = Lens.lens (\BatchGetReportsResponse' {reportsNotFound} -> reportsNotFound) (\s@BatchGetReportsResponse' {} a -> s {reportsNotFound = a} :: BatchGetReportsResponse) Core.. Lens.mapping Lens._Coerce
+batchGetReportsResponse_reportsNotFound :: Lens.Lens' BatchGetReportsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+batchGetReportsResponse_reportsNotFound = Lens.lens (\BatchGetReportsResponse' {reportsNotFound} -> reportsNotFound) (\s@BatchGetReportsResponse' {} a -> s {reportsNotFound = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetReportsResponse_httpStatus :: Lens.Lens' BatchGetReportsResponse Core.Int
+batchGetReportsResponse_httpStatus :: Lens.Lens' BatchGetReportsResponse Prelude.Int
 batchGetReportsResponse_httpStatus = Lens.lens (\BatchGetReportsResponse' {httpStatus} -> httpStatus) (\s@BatchGetReportsResponse' {} a -> s {httpStatus = a} :: BatchGetReportsResponse)
 
-instance Core.NFData BatchGetReportsResponse
+instance Prelude.NFData BatchGetReportsResponse

@@ -53,22 +53,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemoveSchemaVersionMetadata' smart constructor.
 data RemoveSchemaVersionMetadata = RemoveSchemaVersionMetadata'
   { -- | The unique version ID of the schema version.
-    schemaVersionId :: Core.Maybe Core.Text,
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the schema.
-    schemaVersionNumber :: Core.Maybe SchemaVersionNumber,
+    schemaVersionNumber :: Prelude.Maybe SchemaVersionNumber,
     -- | A wrapper structure that may contain the schema name and Amazon Resource
     -- Name (ARN).
-    schemaId :: Core.Maybe SchemaId,
+    schemaId :: Prelude.Maybe SchemaId,
     -- | The value of the metadata key.
     metadataKeyValue :: MetadataKeyValuePair
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveSchemaVersionMetadata' with all optional fields omitted.
@@ -93,23 +94,23 @@ newRemoveSchemaVersionMetadata ::
 newRemoveSchemaVersionMetadata pMetadataKeyValue_ =
   RemoveSchemaVersionMetadata'
     { schemaVersionId =
-        Core.Nothing,
-      schemaVersionNumber = Core.Nothing,
-      schemaId = Core.Nothing,
+        Prelude.Nothing,
+      schemaVersionNumber = Prelude.Nothing,
+      schemaId = Prelude.Nothing,
       metadataKeyValue = pMetadataKeyValue_
     }
 
 -- | The unique version ID of the schema version.
-removeSchemaVersionMetadata_schemaVersionId :: Lens.Lens' RemoveSchemaVersionMetadata (Core.Maybe Core.Text)
+removeSchemaVersionMetadata_schemaVersionId :: Lens.Lens' RemoveSchemaVersionMetadata (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadata_schemaVersionId = Lens.lens (\RemoveSchemaVersionMetadata' {schemaVersionId} -> schemaVersionId) (\s@RemoveSchemaVersionMetadata' {} a -> s {schemaVersionId = a} :: RemoveSchemaVersionMetadata)
 
 -- | The version number of the schema.
-removeSchemaVersionMetadata_schemaVersionNumber :: Lens.Lens' RemoveSchemaVersionMetadata (Core.Maybe SchemaVersionNumber)
+removeSchemaVersionMetadata_schemaVersionNumber :: Lens.Lens' RemoveSchemaVersionMetadata (Prelude.Maybe SchemaVersionNumber)
 removeSchemaVersionMetadata_schemaVersionNumber = Lens.lens (\RemoveSchemaVersionMetadata' {schemaVersionNumber} -> schemaVersionNumber) (\s@RemoveSchemaVersionMetadata' {} a -> s {schemaVersionNumber = a} :: RemoveSchemaVersionMetadata)
 
 -- | A wrapper structure that may contain the schema name and Amazon Resource
 -- Name (ARN).
-removeSchemaVersionMetadata_schemaId :: Lens.Lens' RemoveSchemaVersionMetadata (Core.Maybe SchemaId)
+removeSchemaVersionMetadata_schemaId :: Lens.Lens' RemoveSchemaVersionMetadata (Prelude.Maybe SchemaId)
 removeSchemaVersionMetadata_schemaId = Lens.lens (\RemoveSchemaVersionMetadata' {schemaId} -> schemaId) (\s@RemoveSchemaVersionMetadata' {} a -> s {schemaId = a} :: RemoveSchemaVersionMetadata)
 
 -- | The value of the metadata key.
@@ -125,76 +126,78 @@ instance Core.AWSRequest RemoveSchemaVersionMetadata where
     Response.receiveJSON
       ( \s h x ->
           RemoveSchemaVersionMetadataResponse'
-            Core.<$> (x Core..?> "SchemaArn")
-            Core.<*> (x Core..?> "LatestVersion")
-            Core.<*> (x Core..?> "SchemaVersionId")
-            Core.<*> (x Core..?> "MetadataKey")
-            Core.<*> (x Core..?> "RegistryName")
-            Core.<*> (x Core..?> "VersionNumber")
-            Core.<*> (x Core..?> "SchemaName")
-            Core.<*> (x Core..?> "MetadataValue")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SchemaArn")
+            Prelude.<*> (x Core..?> "LatestVersion")
+            Prelude.<*> (x Core..?> "SchemaVersionId")
+            Prelude.<*> (x Core..?> "MetadataKey")
+            Prelude.<*> (x Core..?> "RegistryName")
+            Prelude.<*> (x Core..?> "VersionNumber")
+            Prelude.<*> (x Core..?> "SchemaName")
+            Prelude.<*> (x Core..?> "MetadataValue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RemoveSchemaVersionMetadata
+instance Prelude.Hashable RemoveSchemaVersionMetadata
 
-instance Core.NFData RemoveSchemaVersionMetadata
+instance Prelude.NFData RemoveSchemaVersionMetadata
 
 instance Core.ToHeaders RemoveSchemaVersionMetadata where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.RemoveSchemaVersionMetadata" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RemoveSchemaVersionMetadata where
   toJSON RemoveSchemaVersionMetadata' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SchemaVersionId" Core..=)
-              Core.<$> schemaVersionId,
+              Prelude.<$> schemaVersionId,
             ("SchemaVersionNumber" Core..=)
-              Core.<$> schemaVersionNumber,
-            ("SchemaId" Core..=) Core.<$> schemaId,
-            Core.Just
+              Prelude.<$> schemaVersionNumber,
+            ("SchemaId" Core..=) Prelude.<$> schemaId,
+            Prelude.Just
               ("MetadataKeyValue" Core..= metadataKeyValue)
           ]
       )
 
 instance Core.ToPath RemoveSchemaVersionMetadata where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveSchemaVersionMetadata where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveSchemaVersionMetadataResponse' smart constructor.
 data RemoveSchemaVersionMetadataResponse = RemoveSchemaVersionMetadataResponse'
   { -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Core.Maybe Core.Text,
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The latest version of the schema.
-    latestVersion :: Core.Maybe Core.Bool,
+    latestVersion :: Prelude.Maybe Prelude.Bool,
     -- | The version ID for the schema version.
-    schemaVersionId :: Core.Maybe Core.Text,
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | The metadata key.
-    metadataKey :: Core.Maybe Core.Text,
+    metadataKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the registry.
-    registryName :: Core.Maybe Core.Text,
+    registryName :: Prelude.Maybe Prelude.Text,
     -- | The version number of the schema.
-    versionNumber :: Core.Maybe Core.Natural,
+    versionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The name of the schema.
-    schemaName :: Core.Maybe Core.Text,
+    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The value of the metadata key.
-    metadataValue :: Core.Maybe Core.Text,
+    metadataValue :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveSchemaVersionMetadataResponse' with all optional fields omitted.
@@ -223,58 +226,58 @@ data RemoveSchemaVersionMetadataResponse = RemoveSchemaVersionMetadataResponse'
 -- 'httpStatus', 'removeSchemaVersionMetadataResponse_httpStatus' - The response's http status code.
 newRemoveSchemaVersionMetadataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RemoveSchemaVersionMetadataResponse
 newRemoveSchemaVersionMetadataResponse pHttpStatus_ =
   RemoveSchemaVersionMetadataResponse'
     { schemaArn =
-        Core.Nothing,
-      latestVersion = Core.Nothing,
-      schemaVersionId = Core.Nothing,
-      metadataKey = Core.Nothing,
-      registryName = Core.Nothing,
-      versionNumber = Core.Nothing,
-      schemaName = Core.Nothing,
-      metadataValue = Core.Nothing,
+        Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
+      schemaVersionId = Prelude.Nothing,
+      metadataKey = Prelude.Nothing,
+      registryName = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
+      metadataValue = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the schema.
-removeSchemaVersionMetadataResponse_schemaArn :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Core.Maybe Core.Text)
+removeSchemaVersionMetadataResponse_schemaArn :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_schemaArn = Lens.lens (\RemoveSchemaVersionMetadataResponse' {schemaArn} -> schemaArn) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {schemaArn = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The latest version of the schema.
-removeSchemaVersionMetadataResponse_latestVersion :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Core.Maybe Core.Bool)
+removeSchemaVersionMetadataResponse_latestVersion :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Bool)
 removeSchemaVersionMetadataResponse_latestVersion = Lens.lens (\RemoveSchemaVersionMetadataResponse' {latestVersion} -> latestVersion) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {latestVersion = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The version ID for the schema version.
-removeSchemaVersionMetadataResponse_schemaVersionId :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Core.Maybe Core.Text)
+removeSchemaVersionMetadataResponse_schemaVersionId :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_schemaVersionId = Lens.lens (\RemoveSchemaVersionMetadataResponse' {schemaVersionId} -> schemaVersionId) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {schemaVersionId = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The metadata key.
-removeSchemaVersionMetadataResponse_metadataKey :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Core.Maybe Core.Text)
+removeSchemaVersionMetadataResponse_metadataKey :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_metadataKey = Lens.lens (\RemoveSchemaVersionMetadataResponse' {metadataKey} -> metadataKey) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {metadataKey = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The name of the registry.
-removeSchemaVersionMetadataResponse_registryName :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Core.Maybe Core.Text)
+removeSchemaVersionMetadataResponse_registryName :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_registryName = Lens.lens (\RemoveSchemaVersionMetadataResponse' {registryName} -> registryName) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {registryName = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The version number of the schema.
-removeSchemaVersionMetadataResponse_versionNumber :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Core.Maybe Core.Natural)
+removeSchemaVersionMetadataResponse_versionNumber :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Natural)
 removeSchemaVersionMetadataResponse_versionNumber = Lens.lens (\RemoveSchemaVersionMetadataResponse' {versionNumber} -> versionNumber) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {versionNumber = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The name of the schema.
-removeSchemaVersionMetadataResponse_schemaName :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Core.Maybe Core.Text)
+removeSchemaVersionMetadataResponse_schemaName :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_schemaName = Lens.lens (\RemoveSchemaVersionMetadataResponse' {schemaName} -> schemaName) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {schemaName = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The value of the metadata key.
-removeSchemaVersionMetadataResponse_metadataValue :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Core.Maybe Core.Text)
+removeSchemaVersionMetadataResponse_metadataValue :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_metadataValue = Lens.lens (\RemoveSchemaVersionMetadataResponse' {metadataValue} -> metadataValue) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {metadataValue = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The response's http status code.
-removeSchemaVersionMetadataResponse_httpStatus :: Lens.Lens' RemoveSchemaVersionMetadataResponse Core.Int
+removeSchemaVersionMetadataResponse_httpStatus :: Lens.Lens' RemoveSchemaVersionMetadataResponse Prelude.Int
 removeSchemaVersionMetadataResponse_httpStatus = Lens.lens (\RemoveSchemaVersionMetadataResponse' {httpStatus} -> httpStatus) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {httpStatus = a} :: RemoveSchemaVersionMetadataResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveSchemaVersionMetadataResponse

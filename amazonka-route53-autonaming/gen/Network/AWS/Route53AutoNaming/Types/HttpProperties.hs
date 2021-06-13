@@ -21,15 +21,16 @@ module Network.AWS.Route53AutoNaming.Types.HttpProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains the name of an HTTP namespace.
 --
 -- /See:/ 'newHttpProperties' smart constructor.
 data HttpProperties = HttpProperties'
   { -- | The name of an HTTP namespace.
-    httpName :: Core.Maybe Core.Text
+    httpName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpProperties' with all optional fields omitted.
@@ -43,10 +44,10 @@ data HttpProperties = HttpProperties'
 newHttpProperties ::
   HttpProperties
 newHttpProperties =
-  HttpProperties' {httpName = Core.Nothing}
+  HttpProperties' {httpName = Prelude.Nothing}
 
 -- | The name of an HTTP namespace.
-httpProperties_httpName :: Lens.Lens' HttpProperties (Core.Maybe Core.Text)
+httpProperties_httpName :: Lens.Lens' HttpProperties (Prelude.Maybe Prelude.Text)
 httpProperties_httpName = Lens.lens (\HttpProperties' {httpName} -> httpName) (\s@HttpProperties' {} a -> s {httpName = a} :: HttpProperties)
 
 instance Core.FromJSON HttpProperties where
@@ -54,9 +55,9 @@ instance Core.FromJSON HttpProperties where
     Core.withObject
       "HttpProperties"
       ( \x ->
-          HttpProperties' Core.<$> (x Core..:? "HttpName")
+          HttpProperties' Prelude.<$> (x Core..:? "HttpName")
       )
 
-instance Core.Hashable HttpProperties
+instance Prelude.Hashable HttpProperties
 
-instance Core.NFData HttpProperties
+instance Prelude.NFData HttpProperties

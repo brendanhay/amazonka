@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,9 +86,9 @@ data DisableKeyRotation = DisableKeyRotation'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableKeyRotation' with all optional fields omitted.
@@ -117,7 +118,7 @@ data DisableKeyRotation = DisableKeyRotation'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newDisableKeyRotation ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   DisableKeyRotation
 newDisableKeyRotation pKeyId_ =
   DisableKeyRotation' {keyId = pKeyId_}
@@ -140,7 +141,7 @@ newDisableKeyRotation pKeyId_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-disableKeyRotation_keyId :: Lens.Lens' DisableKeyRotation Core.Text
+disableKeyRotation_keyId :: Lens.Lens' DisableKeyRotation Prelude.Text
 disableKeyRotation_keyId = Lens.lens (\DisableKeyRotation' {keyId} -> keyId) (\s@DisableKeyRotation' {} a -> s {keyId = a} :: DisableKeyRotation)
 
 instance Core.AWSRequest DisableKeyRotation where
@@ -151,39 +152,43 @@ instance Core.AWSRequest DisableKeyRotation where
   response =
     Response.receiveNull DisableKeyRotationResponse'
 
-instance Core.Hashable DisableKeyRotation
+instance Prelude.Hashable DisableKeyRotation
 
-instance Core.NFData DisableKeyRotation
+instance Prelude.NFData DisableKeyRotation
 
 instance Core.ToHeaders DisableKeyRotation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.DisableKeyRotation" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisableKeyRotation where
   toJSON DisableKeyRotation' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("KeyId" Core..= keyId)]
+      )
 
 instance Core.ToPath DisableKeyRotation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableKeyRotation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableKeyRotationResponse' smart constructor.
 data DisableKeyRotationResponse = DisableKeyRotationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableKeyRotationResponse' with all optional fields omitted.
@@ -194,4 +199,4 @@ newDisableKeyRotationResponse ::
 newDisableKeyRotationResponse =
   DisableKeyRotationResponse'
 
-instance Core.NFData DisableKeyRotationResponse
+instance Prelude.NFData DisableKeyRotationResponse

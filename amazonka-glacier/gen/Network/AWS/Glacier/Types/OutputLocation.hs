@@ -22,6 +22,7 @@ module Network.AWS.Glacier.Types.OutputLocation where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.S3Location
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the location where the select job results are
 -- stored.
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data OutputLocation = OutputLocation'
   { -- | Describes an S3 location that will receive the results of the job
     -- request.
-    s3 :: Core.Maybe S3Location
+    s3 :: Prelude.Maybe S3Location
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputLocation' with all optional fields omitted.
@@ -47,24 +48,26 @@ data OutputLocation = OutputLocation'
 newOutputLocation ::
   OutputLocation
 newOutputLocation =
-  OutputLocation' {s3 = Core.Nothing}
+  OutputLocation' {s3 = Prelude.Nothing}
 
 -- | Describes an S3 location that will receive the results of the job
 -- request.
-outputLocation_s3 :: Lens.Lens' OutputLocation (Core.Maybe S3Location)
+outputLocation_s3 :: Lens.Lens' OutputLocation (Prelude.Maybe S3Location)
 outputLocation_s3 = Lens.lens (\OutputLocation' {s3} -> s3) (\s@OutputLocation' {} a -> s {s3 = a} :: OutputLocation)
 
 instance Core.FromJSON OutputLocation where
   parseJSON =
     Core.withObject
       "OutputLocation"
-      (\x -> OutputLocation' Core.<$> (x Core..:? "S3"))
+      ( \x ->
+          OutputLocation' Prelude.<$> (x Core..:? "S3")
+      )
 
-instance Core.Hashable OutputLocation
+instance Prelude.Hashable OutputLocation
 
-instance Core.NFData OutputLocation
+instance Prelude.NFData OutputLocation
 
 instance Core.ToJSON OutputLocation where
   toJSON OutputLocation' {..} =
     Core.object
-      (Core.catMaybes [("S3" Core..=) Core.<$> s3])
+      (Prelude.catMaybes [("S3" Core..=) Prelude.<$> s3])

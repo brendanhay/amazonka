@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ import qualified Network.AWS.Response as Response
 data CancelReplicationTaskAssessmentRun = CancelReplicationTaskAssessmentRun'
   { -- | Amazon Resource Name (ARN) of the premigration assessment run to be
     -- canceled.
-    replicationTaskAssessmentRunArn :: Core.Text
+    replicationTaskAssessmentRunArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelReplicationTaskAssessmentRun' with all optional fields omitted.
@@ -71,7 +72,7 @@ data CancelReplicationTaskAssessmentRun = CancelReplicationTaskAssessmentRun'
 -- canceled.
 newCancelReplicationTaskAssessmentRun ::
   -- | 'replicationTaskAssessmentRunArn'
-  Core.Text ->
+  Prelude.Text ->
   CancelReplicationTaskAssessmentRun
 newCancelReplicationTaskAssessmentRun
   pReplicationTaskAssessmentRunArn_ =
@@ -82,7 +83,7 @@ newCancelReplicationTaskAssessmentRun
 
 -- | Amazon Resource Name (ARN) of the premigration assessment run to be
 -- canceled.
-cancelReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn :: Lens.Lens' CancelReplicationTaskAssessmentRun Core.Text
+cancelReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn :: Lens.Lens' CancelReplicationTaskAssessmentRun Prelude.Text
 cancelReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn = Lens.lens (\CancelReplicationTaskAssessmentRun' {replicationTaskAssessmentRunArn} -> replicationTaskAssessmentRunArn) (\s@CancelReplicationTaskAssessmentRun' {} a -> s {replicationTaskAssessmentRunArn = a} :: CancelReplicationTaskAssessmentRun)
 
 instance
@@ -97,16 +98,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CancelReplicationTaskAssessmentRunResponse'
-            Core.<$> (x Core..?> "ReplicationTaskAssessmentRun")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ReplicationTaskAssessmentRun")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CancelReplicationTaskAssessmentRun
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelReplicationTaskAssessmentRun
 
 instance
@@ -114,14 +115,16 @@ instance
     CancelReplicationTaskAssessmentRun
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.CancelReplicationTaskAssessmentRun" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -131,8 +134,8 @@ instance
   where
   toJSON CancelReplicationTaskAssessmentRun' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ReplicationTaskAssessmentRunArn"
                   Core..= replicationTaskAssessmentRunArn
               )
@@ -143,13 +146,13 @@ instance
   Core.ToPath
     CancelReplicationTaskAssessmentRun
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     CancelReplicationTaskAssessmentRun
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
@@ -157,11 +160,11 @@ instance
 data CancelReplicationTaskAssessmentRunResponse = CancelReplicationTaskAssessmentRunResponse'
   { -- | The @ReplicationTaskAssessmentRun@ object for the canceled assessment
     -- run.
-    replicationTaskAssessmentRun :: Core.Maybe ReplicationTaskAssessmentRun,
+    replicationTaskAssessmentRun :: Prelude.Maybe ReplicationTaskAssessmentRun,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelReplicationTaskAssessmentRunResponse' with all optional fields omitted.
@@ -177,25 +180,25 @@ data CancelReplicationTaskAssessmentRunResponse = CancelReplicationTaskAssessmen
 -- 'httpStatus', 'cancelReplicationTaskAssessmentRunResponse_httpStatus' - The response's http status code.
 newCancelReplicationTaskAssessmentRunResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelReplicationTaskAssessmentRunResponse
 newCancelReplicationTaskAssessmentRunResponse
   pHttpStatus_ =
     CancelReplicationTaskAssessmentRunResponse'
       { replicationTaskAssessmentRun =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The @ReplicationTaskAssessmentRun@ object for the canceled assessment
 -- run.
-cancelReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun :: Lens.Lens' CancelReplicationTaskAssessmentRunResponse (Core.Maybe ReplicationTaskAssessmentRun)
+cancelReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun :: Lens.Lens' CancelReplicationTaskAssessmentRunResponse (Prelude.Maybe ReplicationTaskAssessmentRun)
 cancelReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun = Lens.lens (\CancelReplicationTaskAssessmentRunResponse' {replicationTaskAssessmentRun} -> replicationTaskAssessmentRun) (\s@CancelReplicationTaskAssessmentRunResponse' {} a -> s {replicationTaskAssessmentRun = a} :: CancelReplicationTaskAssessmentRunResponse)
 
 -- | The response's http status code.
-cancelReplicationTaskAssessmentRunResponse_httpStatus :: Lens.Lens' CancelReplicationTaskAssessmentRunResponse Core.Int
+cancelReplicationTaskAssessmentRunResponse_httpStatus :: Lens.Lens' CancelReplicationTaskAssessmentRunResponse Prelude.Int
 cancelReplicationTaskAssessmentRunResponse_httpStatus = Lens.lens (\CancelReplicationTaskAssessmentRunResponse' {httpStatus} -> httpStatus) (\s@CancelReplicationTaskAssessmentRunResponse' {} a -> s {httpStatus = a} :: CancelReplicationTaskAssessmentRunResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelReplicationTaskAssessmentRunResponse

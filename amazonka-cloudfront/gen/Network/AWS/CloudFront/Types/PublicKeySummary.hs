@@ -21,23 +21,24 @@ module Network.AWS.CloudFront.Types.PublicKeySummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a public key.
 --
 -- /See:/ 'newPublicKeySummary' smart constructor.
 data PublicKeySummary = PublicKeySummary'
   { -- | A comment to describe the public key.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the public key.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | A name to help identify the public key.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The date and time when the public key was uploaded.
     createdTime :: Core.ISO8601,
     -- | The public key.
-    encodedKey :: Core.Text
+    encodedKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublicKeySummary' with all optional fields omitted.
@@ -58,13 +59,13 @@ data PublicKeySummary = PublicKeySummary'
 -- 'encodedKey', 'publicKeySummary_encodedKey' - The public key.
 newPublicKeySummary ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createdTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'encodedKey'
-  Core.Text ->
+  Prelude.Text ->
   PublicKeySummary
 newPublicKeySummary
   pId_
@@ -72,7 +73,7 @@ newPublicKeySummary
   pCreatedTime_
   pEncodedKey_ =
     PublicKeySummary'
-      { comment = Core.Nothing,
+      { comment = Prelude.Nothing,
         id = pId_,
         name = pName_,
         createdTime = Core._Time Lens.# pCreatedTime_,
@@ -80,34 +81,34 @@ newPublicKeySummary
       }
 
 -- | A comment to describe the public key.
-publicKeySummary_comment :: Lens.Lens' PublicKeySummary (Core.Maybe Core.Text)
+publicKeySummary_comment :: Lens.Lens' PublicKeySummary (Prelude.Maybe Prelude.Text)
 publicKeySummary_comment = Lens.lens (\PublicKeySummary' {comment} -> comment) (\s@PublicKeySummary' {} a -> s {comment = a} :: PublicKeySummary)
 
 -- | The identifier of the public key.
-publicKeySummary_id :: Lens.Lens' PublicKeySummary Core.Text
+publicKeySummary_id :: Lens.Lens' PublicKeySummary Prelude.Text
 publicKeySummary_id = Lens.lens (\PublicKeySummary' {id} -> id) (\s@PublicKeySummary' {} a -> s {id = a} :: PublicKeySummary)
 
 -- | A name to help identify the public key.
-publicKeySummary_name :: Lens.Lens' PublicKeySummary Core.Text
+publicKeySummary_name :: Lens.Lens' PublicKeySummary Prelude.Text
 publicKeySummary_name = Lens.lens (\PublicKeySummary' {name} -> name) (\s@PublicKeySummary' {} a -> s {name = a} :: PublicKeySummary)
 
 -- | The date and time when the public key was uploaded.
-publicKeySummary_createdTime :: Lens.Lens' PublicKeySummary Core.UTCTime
-publicKeySummary_createdTime = Lens.lens (\PublicKeySummary' {createdTime} -> createdTime) (\s@PublicKeySummary' {} a -> s {createdTime = a} :: PublicKeySummary) Core.. Core._Time
+publicKeySummary_createdTime :: Lens.Lens' PublicKeySummary Prelude.UTCTime
+publicKeySummary_createdTime = Lens.lens (\PublicKeySummary' {createdTime} -> createdTime) (\s@PublicKeySummary' {} a -> s {createdTime = a} :: PublicKeySummary) Prelude.. Core._Time
 
 -- | The public key.
-publicKeySummary_encodedKey :: Lens.Lens' PublicKeySummary Core.Text
+publicKeySummary_encodedKey :: Lens.Lens' PublicKeySummary Prelude.Text
 publicKeySummary_encodedKey = Lens.lens (\PublicKeySummary' {encodedKey} -> encodedKey) (\s@PublicKeySummary' {} a -> s {encodedKey = a} :: PublicKeySummary)
 
 instance Core.FromXML PublicKeySummary where
   parseXML x =
     PublicKeySummary'
-      Core.<$> (x Core..@? "Comment")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "CreatedTime")
-      Core.<*> (x Core..@ "EncodedKey")
+      Prelude.<$> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "CreatedTime")
+      Prelude.<*> (x Core..@ "EncodedKey")
 
-instance Core.Hashable PublicKeySummary
+instance Prelude.Hashable PublicKeySummary
 
-instance Core.NFData PublicKeySummary
+instance Prelude.NFData PublicKeySummary

@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.TimeRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The time range.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data TimeRange = TimeRange'
   { -- | The start time, in Unix time in seconds. For more information see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-    fromInclusive :: Core.Maybe Core.POSIX,
+    fromInclusive :: Prelude.Maybe Core.POSIX,
     -- | The end time, in Unix time in seconds. For more information see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-    toExclusive :: Core.Maybe Core.POSIX
+    toExclusive :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimeRange' with all optional fields omitted.
@@ -52,19 +53,19 @@ newTimeRange ::
   TimeRange
 newTimeRange =
   TimeRange'
-    { fromInclusive = Core.Nothing,
-      toExclusive = Core.Nothing
+    { fromInclusive = Prelude.Nothing,
+      toExclusive = Prelude.Nothing
     }
 
 -- | The start time, in Unix time in seconds. For more information see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-timeRange_fromInclusive :: Lens.Lens' TimeRange (Core.Maybe Core.UTCTime)
-timeRange_fromInclusive = Lens.lens (\TimeRange' {fromInclusive} -> fromInclusive) (\s@TimeRange' {} a -> s {fromInclusive = a} :: TimeRange) Core.. Lens.mapping Core._Time
+timeRange_fromInclusive :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
+timeRange_fromInclusive = Lens.lens (\TimeRange' {fromInclusive} -> fromInclusive) (\s@TimeRange' {} a -> s {fromInclusive = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 
 -- | The end time, in Unix time in seconds. For more information see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-timeRange_toExclusive :: Lens.Lens' TimeRange (Core.Maybe Core.UTCTime)
-timeRange_toExclusive = Lens.lens (\TimeRange' {toExclusive} -> toExclusive) (\s@TimeRange' {} a -> s {toExclusive = a} :: TimeRange) Core.. Lens.mapping Core._Time
+timeRange_toExclusive :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
+timeRange_toExclusive = Lens.lens (\TimeRange' {toExclusive} -> toExclusive) (\s@TimeRange' {} a -> s {toExclusive = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON TimeRange where
   parseJSON =
@@ -72,19 +73,19 @@ instance Core.FromJSON TimeRange where
       "TimeRange"
       ( \x ->
           TimeRange'
-            Core.<$> (x Core..:? "FromInclusive")
-            Core.<*> (x Core..:? "ToExclusive")
+            Prelude.<$> (x Core..:? "FromInclusive")
+            Prelude.<*> (x Core..:? "ToExclusive")
       )
 
-instance Core.Hashable TimeRange
+instance Prelude.Hashable TimeRange
 
-instance Core.NFData TimeRange
+instance Prelude.NFData TimeRange
 
 instance Core.ToJSON TimeRange where
   toJSON TimeRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("FromInclusive" Core..=) Core.<$> fromInclusive,
-            ("ToExclusive" Core..=) Core.<$> toExclusive
+      ( Prelude.catMaybes
+          [ ("FromInclusive" Core..=) Prelude.<$> fromInclusive,
+            ("ToExclusive" Core..=) Prelude.<$> toExclusive
           ]
       )

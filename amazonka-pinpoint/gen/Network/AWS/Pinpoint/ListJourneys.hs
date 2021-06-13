@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +54,15 @@ data ListJourneys = ListJourneys'
   { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Core.Maybe Core.Text,
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The NextToken string that specifies which page of results to return in a
     -- paginated response.
-    token :: Core.Maybe Core.Text,
+    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJourneys' with all optional fields omitted.
@@ -82,29 +83,29 @@ data ListJourneys = ListJourneys'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newListJourneys ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   ListJourneys
 newListJourneys pApplicationId_ =
   ListJourneys'
-    { pageSize = Core.Nothing,
-      token = Core.Nothing,
+    { pageSize = Prelude.Nothing,
+      token = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-listJourneys_pageSize :: Lens.Lens' ListJourneys (Core.Maybe Core.Text)
+listJourneys_pageSize :: Lens.Lens' ListJourneys (Prelude.Maybe Prelude.Text)
 listJourneys_pageSize = Lens.lens (\ListJourneys' {pageSize} -> pageSize) (\s@ListJourneys' {} a -> s {pageSize = a} :: ListJourneys)
 
 -- | The NextToken string that specifies which page of results to return in a
 -- paginated response.
-listJourneys_token :: Lens.Lens' ListJourneys (Core.Maybe Core.Text)
+listJourneys_token :: Lens.Lens' ListJourneys (Prelude.Maybe Prelude.Text)
 listJourneys_token = Lens.lens (\ListJourneys' {token} -> token) (\s@ListJourneys' {} a -> s {token = a} :: ListJourneys)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-listJourneys_applicationId :: Lens.Lens' ListJourneys Core.Text
+listJourneys_applicationId :: Lens.Lens' ListJourneys Prelude.Text
 listJourneys_applicationId = Lens.lens (\ListJourneys' {applicationId} -> applicationId) (\s@ListJourneys' {} a -> s {applicationId = a} :: ListJourneys)
 
 instance Core.AWSRequest ListJourneys where
@@ -114,40 +115,42 @@ instance Core.AWSRequest ListJourneys where
     Response.receiveJSON
       ( \s h x ->
           ListJourneysResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable ListJourneys
+instance Prelude.Hashable ListJourneys
 
-instance Core.NFData ListJourneys
+instance Prelude.NFData ListJourneys
 
 instance Core.ToHeaders ListJourneys where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListJourneys where
   toPath ListJourneys' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apps/", Core.toBS applicationId, "/journeys"]
 
 instance Core.ToQuery ListJourneys where
   toQuery ListJourneys' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newListJourneysResponse' smart constructor.
 data ListJourneysResponse = ListJourneysResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     journeysResponse :: JourneysResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJourneysResponse' with all optional fields omitted.
@@ -162,7 +165,7 @@ data ListJourneysResponse = ListJourneysResponse'
 -- 'journeysResponse', 'listJourneysResponse_journeysResponse' - Undocumented member.
 newListJourneysResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'journeysResponse'
   JourneysResponse ->
   ListJourneysResponse
@@ -175,11 +178,11 @@ newListJourneysResponse
       }
 
 -- | The response's http status code.
-listJourneysResponse_httpStatus :: Lens.Lens' ListJourneysResponse Core.Int
+listJourneysResponse_httpStatus :: Lens.Lens' ListJourneysResponse Prelude.Int
 listJourneysResponse_httpStatus = Lens.lens (\ListJourneysResponse' {httpStatus} -> httpStatus) (\s@ListJourneysResponse' {} a -> s {httpStatus = a} :: ListJourneysResponse)
 
 -- | Undocumented member.
 listJourneysResponse_journeysResponse :: Lens.Lens' ListJourneysResponse JourneysResponse
 listJourneysResponse_journeysResponse = Lens.lens (\ListJourneysResponse' {journeysResponse} -> journeysResponse) (\s@ListJourneysResponse' {} a -> s {journeysResponse = a} :: ListJourneysResponse)
 
-instance Core.NFData ListJourneysResponse
+instance Prelude.NFData ListJourneysResponse

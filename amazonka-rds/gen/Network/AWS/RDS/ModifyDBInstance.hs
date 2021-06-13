@@ -89,6 +89,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -126,13 +127,13 @@ data ModifyDBInstance = ModifyDBInstance'
     --     running PostgreSQL 9.3.5
     --
     -- -   Can\'t be set to 0 if the DB instance is a source to read replicas
-    backupRetentionPeriod :: Core.Maybe Core.Int,
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether the DB instance has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
     -- enabled. By default, deletion protection is disabled. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-    deletionProtection :: Core.Maybe Core.Bool,
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The daily time range during which automated backups are created if
     -- automated backups are enabled, as determined by the
     -- @BackupRetentionPeriod@ parameter. Changing this parameter doesn\'t
@@ -153,7 +154,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- -   Must not conflict with the preferred maintenance window
     --
     -- -   Must be at least 30 minutes
-    preferredBackupWindow :: Core.Maybe Core.Text,
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | The port number on which the database accepts connections.
     --
     -- The value of the @DBPortNumber@ parameter must not match any of the port
@@ -200,16 +201,16 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Default: @3306@
     --
     -- Valid values: @1150-65535@
-    dbPortNumber :: Core.Maybe Core.Int,
+    dbPortNumber :: Prelude.Maybe Prelude.Int,
     -- | Indicates the certificate that needs to be associated with the instance.
-    cACertificateIdentifier :: Core.Maybe Core.Text,
+    cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable Performance Insights for the DB
     -- instance.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
     -- in the /Amazon Relational Database Service User Guide/.
-    enablePerformanceInsights :: Core.Maybe Core.Bool,
+    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
     -- | A list of DB security groups to authorize on this DB instance. Changing
     -- this setting doesn\'t result in an outage and the change is
     -- asynchronously applied as soon as possible.
@@ -217,7 +218,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Constraints:
     --
     -- -   If supplied, must match existing DBSecurityGroups.
-    dbSecurityGroups :: Core.Maybe [Core.Text],
+    dbSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The upper limit to which Amazon RDS can automatically scale the storage
     -- of the DB instance.
     --
@@ -225,7 +226,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- apply to it, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
     -- in the /Amazon RDS User Guide/.
-    maxAllocatedStorage :: Core.Maybe Core.Int,
+    maxAllocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether to enable mapping of AWS Identity and
     -- Access Management (IAM) accounts to database accounts. By default,
     -- mapping is disabled.
@@ -236,7 +237,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- For more information about IAM database authentication, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
     -- in the /Amazon RDS User Guide./
-    enableIAMDatabaseAuthentication :: Core.Maybe Core.Bool,
+    enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the storage type to be associated with the DB instance.
     --
     -- If you specify Provisioned IOPS (@io1@), you must also include a value
@@ -260,10 +261,10 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Valid values: @standard | gp2 | io1@
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-    storageType :: Core.Maybe Core.Text,
+    storageType :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance class of the DB instance
     -- uses its default processor features.
-    useDefaultProcessorFeatures :: Core.Maybe Core.Bool,
+    useDefaultProcessorFeatures :: Prelude.Maybe Prelude.Bool,
     -- | The interval, in seconds, between points when Enhanced Monitoring
     -- metrics are collected for the DB instance. To disable collecting
     -- Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -272,7 +273,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- @MonitoringInterval@ to a value other than 0.
     --
     -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
-    monitoringInterval :: Core.Maybe Core.Int,
+    monitoringInterval :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates the DB instance should be associated with the
     -- specified option group. Changing this parameter doesn\'t result in an
     -- outage except in the following case and the change is applied during the
@@ -286,7 +287,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- TDE, can\'t be removed from an option group, and that option group
     -- can\'t be removed from a DB instance once it is associated with a DB
     -- instance
-    optionGroupName :: Core.Maybe Core.Text,
+    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | The Active Directory directory ID to move the DB instance to. Specify
     -- @none@ to remove the instance from its current domain. The domain must
     -- be created prior to this operation. Currently, only MySQL, Microsoft SQL
@@ -296,7 +297,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
     -- in the /Amazon RDS User Guide/.
-    domain :: Core.Maybe Core.Text,
+    domain :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether major version upgrades are allowed.
     -- Changing this parameter doesn\'t result in an outage and the change is
     -- asynchronously applied as soon as possible.
@@ -304,7 +305,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Constraints: Major version upgrades must be allowed when specifying a
     -- value for the EngineVersion parameter that is a different major version
     -- than the DB instance\'s current version.
-    allowMajorVersionUpgrade :: Core.Maybe Core.Bool,
+    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
     -- metrics to Amazon CloudWatch Logs. For example,
     -- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
@@ -314,7 +315,7 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- If @MonitoringInterval@ is set to a value other than 0, then you must
     -- supply a @MonitoringRoleArn@ value.
-    monitoringRoleArn :: Core.Maybe Core.Text,
+    monitoringRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The new DB subnet group for the DB instance. You can use this parameter
     -- to move your DB instance to a different VPC. If your DB instance isn\'t
     -- in a VPC, you can also use this parameter to move your DB instance into
@@ -330,7 +331,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- DBSubnetGroup.
     --
     -- Example: @mySubnetGroup@
-    dbSubnetGroupName :: Core.Maybe Core.Text,
+    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The new password for the master user. The password can include any
     -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
     --
@@ -371,12 +372,12 @@ data ModifyDBInstance = ModifyDBInstance'
     -- provides a way to regain access to a primary instance user if the
     -- password is lost. This includes restoring privileges that might have
     -- been accidentally revoked.
-    masterUserPassword :: Core.Maybe Core.Text,
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
     -- Changing this parameter doesn\'t result in an outage and the change is
     -- applied during the next maintenance window unless the @ApplyImmediately@
     -- parameter is enabled for this request.
-    multiAZ :: Core.Maybe Core.Bool,
+    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether the DB instance is publicly accessible.
     --
     -- When the DB instance is publicly accessible, its DNS endpoint resolves
@@ -395,7 +396,7 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Changes to the @PubliclyAccessible@ parameter are applied immediately
     -- regardless of the value of the @ApplyImmediately@ parameter.
-    publiclyAccessible :: Core.Maybe Core.Bool,
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | A list of EC2 VPC security groups to authorize on this DB instance. This
     -- change is asynchronously applied as soon as possible.
     --
@@ -407,7 +408,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Constraints:
     --
     -- -   If supplied, must match existing VpcSecurityGroupIds.
-    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The AWS KMS key identifier for encryption of Performance Insights data.
     --
     -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
@@ -417,7 +418,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Amazon RDS uses your default CMK. There is a default CMK for your AWS
     -- account. Your AWS account has a different default CMK for each AWS
     -- Region.
-    performanceInsightsKMSKeyId :: Core.Maybe Core.Text,
+    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB parameter group to apply to the DB instance. Changing
     -- this setting doesn\'t result in an outage. The parameter group name
     -- itself is changed immediately, but the actual parameter changes are not
@@ -429,7 +430,7 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Constraints: The DB parameter group must be in the same DB parameter
     -- group family as this DB instance.
-    dbParameterGroupName :: Core.Maybe Core.Text,
+    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The version number of the database engine to upgrade to. Changing this
     -- parameter results in an outage and the change is applied during the next
     -- maintenance window unless the @ApplyImmediately@ parameter is enabled
@@ -444,7 +445,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- instance to the default minor version if the current minor version is
     -- lower. For information about valid engine versions, see
     -- @CreateDBInstance@, or call @DescribeDBEngineVersions@.
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range (in UTC) during which system maintenance can
     -- occur, which might result in an outage. Changing this parameter doesn\'t
     -- result in an outage, except in the following situation, and the change
@@ -462,18 +463,18 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
     --
     -- Constraints: Must be at least 30 minutes
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The amount of time, in days, to retain Performance Insights data. Valid
     -- values are 7 or 731 (2 years).
-    performanceInsightsRetentionPeriod :: Core.Maybe Core.Int,
+    performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The license model for the DB instance.
     --
     -- Valid values: @license-included@ | @bring-your-own-license@ |
     -- @general-public-license@
-    licenseModel :: Core.Maybe Core.Text,
+    licenseModel :: Prelude.Maybe Prelude.Text,
     -- | The password for the given ARN from the key store in order to access the
     -- device.
-    tdeCredentialPassword :: Core.Maybe Core.Text,
+    tdeCredentialPassword :: Prelude.Maybe Prelude.Text,
     -- | A value that specifies the order in which an Aurora Replica is promoted
     -- to the primary instance after a failure of the existing primary
     -- instance. For more information, see
@@ -483,12 +484,12 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Default: 1
     --
     -- Valid Values: 0 - 15
-    promotionTier :: Core.Maybe Core.Int,
+    promotionTier :: Prelude.Maybe Prelude.Int,
     -- | The number of CPU cores and the number of threads per core for the DB
     -- instance class of the DB instance.
-    processorFeatures :: Core.Maybe [ProcessorFeature],
+    processorFeatures :: Prelude.Maybe [ProcessorFeature],
     -- | The Amazon Resource Name (ARN) of the recovery point in AWS Backup.
-    awsBackupRecoveryPointArn :: Core.Maybe Core.Text,
+    awsBackupRecoveryPointArn :: Prelude.Maybe Prelude.Text,
     -- | The new compute and memory capacity of the DB instance, for example,
     -- @db.m4.large@. Not all DB instance classes are available in all AWS
     -- Regions, or for all database engines. For the full list of DB instance
@@ -501,10 +502,10 @@ data ModifyDBInstance = ModifyDBInstance'
     -- @ApplyImmediately@ is enabled for this request.
     --
     -- Default: Uses existing setting
-    dbInstanceClass :: Core.Maybe Core.Text,
+    dbInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM role to use when making API calls to the Directory
     -- Service.
-    domainIAMRoleName :: Core.Maybe Core.Text,
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance is restarted when you
     -- rotate your SSL\/TLS certificate.
     --
@@ -528,10 +529,10 @@ data ModifyDBInstance = ModifyDBInstance'
     --     Aurora DB engines, see
     --     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL\/TLS Certificate>
     --     in the /Amazon Aurora User Guide./
-    certificateRotationRestart :: Core.Maybe Core.Bool,
+    certificateRotationRestart :: Prelude.Maybe Prelude.Bool,
     -- | The ARN from the key store with which to associate the instance for TDE
     -- encryption.
-    tdeCredentialArn :: Core.Maybe Core.Text,
+    tdeCredentialArn :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable a customer-owned IP address
     -- (CoIP) for an RDS on Outposts DB instance.
     --
@@ -547,14 +548,14 @@ data ModifyDBInstance = ModifyDBInstance'
     -- For more information about CoIPs, see
     -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
     -- in the /AWS Outposts User Guide/.
-    enableCustomerOwnedIp :: Core.Maybe Core.Bool,
+    enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
     -- | The configuration setting for the log types to be enabled for export to
     -- CloudWatch Logs for a specific DB instance.
     --
     -- A change to the @CloudwatchLogsExportConfiguration@ parameter is always
     -- applied to the DB instance immediately. Therefore, the
     -- @ApplyImmediately@ parameter has no effect.
-    cloudwatchLogsExportConfiguration :: Core.Maybe CloudwatchLogsExportConfiguration,
+    cloudwatchLogsExportConfiguration :: Prelude.Maybe CloudwatchLogsExportConfiguration,
     -- | A value that indicates whether to copy all tags from the DB instance to
     -- snapshots of the DB instance. By default, tags are not copied.
     --
@@ -563,7 +564,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Not applicable. Copying tags to snapshots is managed by the DB cluster.
     -- Setting this value for an Aurora DB instance has no effect on the DB
     -- cluster setting. For more information, see @ModifyDBCluster@.
-    copyTagsToSnapshot :: Core.Maybe Core.Bool,
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | A value that sets the open mode of a replica database to either mounted
     -- or read-only.
     --
@@ -577,7 +578,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
     -- in the /Amazon RDS User Guide/.
-    replicaMode :: Core.Maybe ReplicaMode,
+    replicaMode :: Prelude.Maybe ReplicaMode,
     -- | The new DB instance identifier for the DB instance when renaming a DB
     -- instance. When you change the DB instance identifier, an instance reboot
     -- occurs immediately if you enable @ApplyImmediately@, or will occur
@@ -593,7 +594,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     --
     -- Example: @mydbinstance@
-    newDBInstanceIdentifier' :: Core.Maybe Core.Text,
+    newDBInstanceIdentifier' :: Prelude.Maybe Prelude.Text,
     -- | The new amount of storage (in gibibytes) to allocate for the DB
     -- instance.
     --
@@ -604,7 +605,7 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- For the valid values for allocated storage for each engine, see
     -- @CreateDBInstance@.
-    allocatedStorage :: Core.Maybe Core.Int,
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether the modifications in this request and any
     -- pending modifications are asynchronously applied as soon as possible,
     -- regardless of the @PreferredMaintenanceWindow@ setting for the DB
@@ -618,7 +619,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- in the /Amazon RDS User Guide./ to see the impact of enabling or
     -- disabling @ApplyImmediately@ for each modified parameter and to
     -- determine when the changes are applied.
-    applyImmediately :: Core.Maybe Core.Bool,
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | The new Provisioned IOPS (I\/O operations per second) value for the RDS
     -- instance.
     --
@@ -650,7 +651,7 @@ data ModifyDBInstance = ModifyDBInstance'
     -- so that they are 10% greater than the current value.
     --
     -- Default: Uses existing setting
-    iops :: Core.Maybe Core.Int,
+    iops :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether minor version upgrades are applied
     -- automatically to the DB instance during the maintenance window. Changing
     -- this parameter doesn\'t result in an outage except in the following case
@@ -658,15 +659,15 @@ data ModifyDBInstance = ModifyDBInstance'
     -- results if this parameter is enabled during the maintenance window, and
     -- a newer minor version is available, and RDS has enabled auto patching
     -- for that engine version.
-    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The DB instance identifier. This value is stored as a lowercase string.
     --
     -- Constraints:
     --
     -- -   Must match the identifier of an existing DBInstance.
-    dbInstanceIdentifier :: Core.Text
+    dbInstanceIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBInstance' with all optional fields omitted.
@@ -1245,55 +1246,55 @@ data ModifyDBInstance = ModifyDBInstance'
 -- -   Must match the identifier of an existing DBInstance.
 newModifyDBInstance ::
   -- | 'dbInstanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ModifyDBInstance
 newModifyDBInstance pDBInstanceIdentifier_ =
   ModifyDBInstance'
     { backupRetentionPeriod =
-        Core.Nothing,
-      deletionProtection = Core.Nothing,
-      preferredBackupWindow = Core.Nothing,
-      dbPortNumber = Core.Nothing,
-      cACertificateIdentifier = Core.Nothing,
-      enablePerformanceInsights = Core.Nothing,
-      dbSecurityGroups = Core.Nothing,
-      maxAllocatedStorage = Core.Nothing,
-      enableIAMDatabaseAuthentication = Core.Nothing,
-      storageType = Core.Nothing,
-      useDefaultProcessorFeatures = Core.Nothing,
-      monitoringInterval = Core.Nothing,
-      optionGroupName = Core.Nothing,
-      domain = Core.Nothing,
-      allowMajorVersionUpgrade = Core.Nothing,
-      monitoringRoleArn = Core.Nothing,
-      dbSubnetGroupName = Core.Nothing,
-      masterUserPassword = Core.Nothing,
-      multiAZ = Core.Nothing,
-      publiclyAccessible = Core.Nothing,
-      vpcSecurityGroupIds = Core.Nothing,
-      performanceInsightsKMSKeyId = Core.Nothing,
-      dbParameterGroupName = Core.Nothing,
-      engineVersion = Core.Nothing,
-      preferredMaintenanceWindow = Core.Nothing,
-      performanceInsightsRetentionPeriod = Core.Nothing,
-      licenseModel = Core.Nothing,
-      tdeCredentialPassword = Core.Nothing,
-      promotionTier = Core.Nothing,
-      processorFeatures = Core.Nothing,
-      awsBackupRecoveryPointArn = Core.Nothing,
-      dbInstanceClass = Core.Nothing,
-      domainIAMRoleName = Core.Nothing,
-      certificateRotationRestart = Core.Nothing,
-      tdeCredentialArn = Core.Nothing,
-      enableCustomerOwnedIp = Core.Nothing,
-      cloudwatchLogsExportConfiguration = Core.Nothing,
-      copyTagsToSnapshot = Core.Nothing,
-      replicaMode = Core.Nothing,
-      newDBInstanceIdentifier' = Core.Nothing,
-      allocatedStorage = Core.Nothing,
-      applyImmediately = Core.Nothing,
-      iops = Core.Nothing,
-      autoMinorVersionUpgrade = Core.Nothing,
+        Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
+      dbPortNumber = Prelude.Nothing,
+      cACertificateIdentifier = Prelude.Nothing,
+      enablePerformanceInsights = Prelude.Nothing,
+      dbSecurityGroups = Prelude.Nothing,
+      maxAllocatedStorage = Prelude.Nothing,
+      enableIAMDatabaseAuthentication = Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      useDefaultProcessorFeatures = Prelude.Nothing,
+      monitoringInterval = Prelude.Nothing,
+      optionGroupName = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      allowMajorVersionUpgrade = Prelude.Nothing,
+      monitoringRoleArn = Prelude.Nothing,
+      dbSubnetGroupName = Prelude.Nothing,
+      masterUserPassword = Prelude.Nothing,
+      multiAZ = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
+      performanceInsightsKMSKeyId = Prelude.Nothing,
+      dbParameterGroupName = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      performanceInsightsRetentionPeriod = Prelude.Nothing,
+      licenseModel = Prelude.Nothing,
+      tdeCredentialPassword = Prelude.Nothing,
+      promotionTier = Prelude.Nothing,
+      processorFeatures = Prelude.Nothing,
+      awsBackupRecoveryPointArn = Prelude.Nothing,
+      dbInstanceClass = Prelude.Nothing,
+      domainIAMRoleName = Prelude.Nothing,
+      certificateRotationRestart = Prelude.Nothing,
+      tdeCredentialArn = Prelude.Nothing,
+      enableCustomerOwnedIp = Prelude.Nothing,
+      cloudwatchLogsExportConfiguration = Prelude.Nothing,
+      copyTagsToSnapshot = Prelude.Nothing,
+      replicaMode = Prelude.Nothing,
+      newDBInstanceIdentifier' = Prelude.Nothing,
+      allocatedStorage = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
 
@@ -1326,7 +1327,7 @@ newModifyDBInstance pDBInstanceIdentifier_ =
 --     running PostgreSQL 9.3.5
 --
 -- -   Can\'t be set to 0 if the DB instance is a source to read replicas
-modifyDBInstance_backupRetentionPeriod :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Int)
+modifyDBInstance_backupRetentionPeriod :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_backupRetentionPeriod = Lens.lens (\ModifyDBInstance' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBInstance' {} a -> s {backupRetentionPeriod = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether the DB instance has deletion protection
@@ -1334,7 +1335,7 @@ modifyDBInstance_backupRetentionPeriod = Lens.lens (\ModifyDBInstance' {backupRe
 -- enabled. By default, deletion protection is disabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-modifyDBInstance_deletionProtection :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_deletionProtection :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_deletionProtection = Lens.lens (\ModifyDBInstance' {deletionProtection} -> deletionProtection) (\s@ModifyDBInstance' {} a -> s {deletionProtection = a} :: ModifyDBInstance)
 
 -- | The daily time range during which automated backups are created if
@@ -1357,7 +1358,7 @@ modifyDBInstance_deletionProtection = Lens.lens (\ModifyDBInstance' {deletionPro
 -- -   Must not conflict with the preferred maintenance window
 --
 -- -   Must be at least 30 minutes
-modifyDBInstance_preferredBackupWindow :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_preferredBackupWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_preferredBackupWindow = Lens.lens (\ModifyDBInstance' {preferredBackupWindow} -> preferredBackupWindow) (\s@ModifyDBInstance' {} a -> s {preferredBackupWindow = a} :: ModifyDBInstance)
 
 -- | The port number on which the database accepts connections.
@@ -1406,11 +1407,11 @@ modifyDBInstance_preferredBackupWindow = Lens.lens (\ModifyDBInstance' {preferre
 -- Default: @3306@
 --
 -- Valid values: @1150-65535@
-modifyDBInstance_dbPortNumber :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Int)
+modifyDBInstance_dbPortNumber :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_dbPortNumber = Lens.lens (\ModifyDBInstance' {dbPortNumber} -> dbPortNumber) (\s@ModifyDBInstance' {} a -> s {dbPortNumber = a} :: ModifyDBInstance)
 
 -- | Indicates the certificate that needs to be associated with the instance.
-modifyDBInstance_cACertificateIdentifier :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_cACertificateIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@ModifyDBInstance' {} a -> s {cACertificateIdentifier = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether to enable Performance Insights for the DB
@@ -1419,7 +1420,7 @@ modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACert
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
 -- in the /Amazon Relational Database Service User Guide/.
-modifyDBInstance_enablePerformanceInsights :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_enablePerformanceInsights :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_enablePerformanceInsights = Lens.lens (\ModifyDBInstance' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@ModifyDBInstance' {} a -> s {enablePerformanceInsights = a} :: ModifyDBInstance)
 
 -- | A list of DB security groups to authorize on this DB instance. Changing
@@ -1429,8 +1430,8 @@ modifyDBInstance_enablePerformanceInsights = Lens.lens (\ModifyDBInstance' {enab
 -- Constraints:
 --
 -- -   If supplied, must match existing DBSecurityGroups.
-modifyDBInstance_dbSecurityGroups :: Lens.Lens' ModifyDBInstance (Core.Maybe [Core.Text])
-modifyDBInstance_dbSecurityGroups = Lens.lens (\ModifyDBInstance' {dbSecurityGroups} -> dbSecurityGroups) (\s@ModifyDBInstance' {} a -> s {dbSecurityGroups = a} :: ModifyDBInstance) Core.. Lens.mapping Lens._Coerce
+modifyDBInstance_dbSecurityGroups :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [Prelude.Text])
+modifyDBInstance_dbSecurityGroups = Lens.lens (\ModifyDBInstance' {dbSecurityGroups} -> dbSecurityGroups) (\s@ModifyDBInstance' {} a -> s {dbSecurityGroups = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The upper limit to which Amazon RDS can automatically scale the storage
 -- of the DB instance.
@@ -1439,7 +1440,7 @@ modifyDBInstance_dbSecurityGroups = Lens.lens (\ModifyDBInstance' {dbSecurityGro
 -- apply to it, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
 -- in the /Amazon RDS User Guide/.
-modifyDBInstance_maxAllocatedStorage :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Int)
+modifyDBInstance_maxAllocatedStorage :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_maxAllocatedStorage = Lens.lens (\ModifyDBInstance' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@ModifyDBInstance' {} a -> s {maxAllocatedStorage = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether to enable mapping of AWS Identity and
@@ -1452,7 +1453,7 @@ modifyDBInstance_maxAllocatedStorage = Lens.lens (\ModifyDBInstance' {maxAllocat
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
-modifyDBInstance_enableIAMDatabaseAuthentication :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_enableIAMDatabaseAuthentication :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_enableIAMDatabaseAuthentication = Lens.lens (\ModifyDBInstance' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@ModifyDBInstance' {} a -> s {enableIAMDatabaseAuthentication = a} :: ModifyDBInstance)
 
 -- | Specifies the storage type to be associated with the DB instance.
@@ -1478,12 +1479,12 @@ modifyDBInstance_enableIAMDatabaseAuthentication = Lens.lens (\ModifyDBInstance'
 -- Valid values: @standard | gp2 | io1@
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-modifyDBInstance_storageType :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_storageType :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_storageType = Lens.lens (\ModifyDBInstance' {storageType} -> storageType) (\s@ModifyDBInstance' {} a -> s {storageType = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
-modifyDBInstance_useDefaultProcessorFeatures :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_useDefaultProcessorFeatures :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_useDefaultProcessorFeatures = Lens.lens (\ModifyDBInstance' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@ModifyDBInstance' {} a -> s {useDefaultProcessorFeatures = a} :: ModifyDBInstance)
 
 -- | The interval, in seconds, between points when Enhanced Monitoring
@@ -1494,7 +1495,7 @@ modifyDBInstance_useDefaultProcessorFeatures = Lens.lens (\ModifyDBInstance' {us
 -- @MonitoringInterval@ to a value other than 0.
 --
 -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
-modifyDBInstance_monitoringInterval :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Int)
+modifyDBInstance_monitoringInterval :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_monitoringInterval = Lens.lens (\ModifyDBInstance' {monitoringInterval} -> monitoringInterval) (\s@ModifyDBInstance' {} a -> s {monitoringInterval = a} :: ModifyDBInstance)
 
 -- | A value that indicates the DB instance should be associated with the
@@ -1510,7 +1511,7 @@ modifyDBInstance_monitoringInterval = Lens.lens (\ModifyDBInstance' {monitoringI
 -- TDE, can\'t be removed from an option group, and that option group
 -- can\'t be removed from a DB instance once it is associated with a DB
 -- instance
-modifyDBInstance_optionGroupName :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_optionGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_optionGroupName = Lens.lens (\ModifyDBInstance' {optionGroupName} -> optionGroupName) (\s@ModifyDBInstance' {} a -> s {optionGroupName = a} :: ModifyDBInstance)
 
 -- | The Active Directory directory ID to move the DB instance to. Specify
@@ -1522,7 +1523,7 @@ modifyDBInstance_optionGroupName = Lens.lens (\ModifyDBInstance' {optionGroupNam
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
 -- in the /Amazon RDS User Guide/.
-modifyDBInstance_domain :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_domain :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_domain = Lens.lens (\ModifyDBInstance' {domain} -> domain) (\s@ModifyDBInstance' {} a -> s {domain = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether major version upgrades are allowed.
@@ -1532,7 +1533,7 @@ modifyDBInstance_domain = Lens.lens (\ModifyDBInstance' {domain} -> domain) (\s@
 -- Constraints: Major version upgrades must be allowed when specifying a
 -- value for the EngineVersion parameter that is a different major version
 -- than the DB instance\'s current version.
-modifyDBInstance_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_allowMajorVersionUpgrade = Lens.lens (\ModifyDBInstance' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyDBInstance)
 
 -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
@@ -1544,7 +1545,7 @@ modifyDBInstance_allowMajorVersionUpgrade = Lens.lens (\ModifyDBInstance' {allow
 --
 -- If @MonitoringInterval@ is set to a value other than 0, then you must
 -- supply a @MonitoringRoleArn@ value.
-modifyDBInstance_monitoringRoleArn :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_monitoringRoleArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_monitoringRoleArn = Lens.lens (\ModifyDBInstance' {monitoringRoleArn} -> monitoringRoleArn) (\s@ModifyDBInstance' {} a -> s {monitoringRoleArn = a} :: ModifyDBInstance)
 
 -- | The new DB subnet group for the DB instance. You can use this parameter
@@ -1562,7 +1563,7 @@ modifyDBInstance_monitoringRoleArn = Lens.lens (\ModifyDBInstance' {monitoringRo
 -- DBSubnetGroup.
 --
 -- Example: @mySubnetGroup@
-modifyDBInstance_dbSubnetGroupName :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_dbSubnetGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_dbSubnetGroupName = Lens.lens (\ModifyDBInstance' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@ModifyDBInstance' {} a -> s {dbSubnetGroupName = a} :: ModifyDBInstance)
 
 -- | The new password for the master user. The password can include any
@@ -1605,14 +1606,14 @@ modifyDBInstance_dbSubnetGroupName = Lens.lens (\ModifyDBInstance' {dbSubnetGrou
 -- provides a way to regain access to a primary instance user if the
 -- password is lost. This includes restoring privileges that might have
 -- been accidentally revoked.
-modifyDBInstance_masterUserPassword :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_masterUserPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_masterUserPassword = Lens.lens (\ModifyDBInstance' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBInstance' {} a -> s {masterUserPassword = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
 -- Changing this parameter doesn\'t result in an outage and the change is
 -- applied during the next maintenance window unless the @ApplyImmediately@
 -- parameter is enabled for this request.
-modifyDBInstance_multiAZ :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_multiAZ :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_multiAZ = Lens.lens (\ModifyDBInstance' {multiAZ} -> multiAZ) (\s@ModifyDBInstance' {} a -> s {multiAZ = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether the DB instance is publicly accessible.
@@ -1633,7 +1634,7 @@ modifyDBInstance_multiAZ = Lens.lens (\ModifyDBInstance' {multiAZ} -> multiAZ) (
 --
 -- Changes to the @PubliclyAccessible@ parameter are applied immediately
 -- regardless of the value of the @ApplyImmediately@ parameter.
-modifyDBInstance_publiclyAccessible :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_publiclyAccessible :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_publiclyAccessible = Lens.lens (\ModifyDBInstance' {publiclyAccessible} -> publiclyAccessible) (\s@ModifyDBInstance' {} a -> s {publiclyAccessible = a} :: ModifyDBInstance)
 
 -- | A list of EC2 VPC security groups to authorize on this DB instance. This
@@ -1647,8 +1648,8 @@ modifyDBInstance_publiclyAccessible = Lens.lens (\ModifyDBInstance' {publiclyAcc
 -- Constraints:
 --
 -- -   If supplied, must match existing VpcSecurityGroupIds.
-modifyDBInstance_vpcSecurityGroupIds :: Lens.Lens' ModifyDBInstance (Core.Maybe [Core.Text])
-modifyDBInstance_vpcSecurityGroupIds = Lens.lens (\ModifyDBInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBInstance' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBInstance) Core.. Lens.mapping Lens._Coerce
+modifyDBInstance_vpcSecurityGroupIds :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [Prelude.Text])
+modifyDBInstance_vpcSecurityGroupIds = Lens.lens (\ModifyDBInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBInstance' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS KMS key identifier for encryption of Performance Insights data.
 --
@@ -1659,7 +1660,7 @@ modifyDBInstance_vpcSecurityGroupIds = Lens.lens (\ModifyDBInstance' {vpcSecurit
 -- Amazon RDS uses your default CMK. There is a default CMK for your AWS
 -- account. Your AWS account has a different default CMK for each AWS
 -- Region.
-modifyDBInstance_performanceInsightsKMSKeyId :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_performanceInsightsKMSKeyId :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_performanceInsightsKMSKeyId = Lens.lens (\ModifyDBInstance' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@ModifyDBInstance' {} a -> s {performanceInsightsKMSKeyId = a} :: ModifyDBInstance)
 
 -- | The name of the DB parameter group to apply to the DB instance. Changing
@@ -1673,7 +1674,7 @@ modifyDBInstance_performanceInsightsKMSKeyId = Lens.lens (\ModifyDBInstance' {pe
 --
 -- Constraints: The DB parameter group must be in the same DB parameter
 -- group family as this DB instance.
-modifyDBInstance_dbParameterGroupName :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_dbParameterGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_dbParameterGroupName = Lens.lens (\ModifyDBInstance' {dbParameterGroupName} -> dbParameterGroupName) (\s@ModifyDBInstance' {} a -> s {dbParameterGroupName = a} :: ModifyDBInstance)
 
 -- | The version number of the database engine to upgrade to. Changing this
@@ -1690,7 +1691,7 @@ modifyDBInstance_dbParameterGroupName = Lens.lens (\ModifyDBInstance' {dbParamet
 -- instance to the default minor version if the current minor version is
 -- lower. For information about valid engine versions, see
 -- @CreateDBInstance@, or call @DescribeDBEngineVersions@.
-modifyDBInstance_engineVersion :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_engineVersion :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_engineVersion = Lens.lens (\ModifyDBInstance' {engineVersion} -> engineVersion) (\s@ModifyDBInstance' {} a -> s {engineVersion = a} :: ModifyDBInstance)
 
 -- | The weekly time range (in UTC) during which system maintenance can
@@ -1710,24 +1711,24 @@ modifyDBInstance_engineVersion = Lens.lens (\ModifyDBInstance' {engineVersion} -
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Must be at least 30 minutes
-modifyDBInstance_preferredMaintenanceWindow :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_preferredMaintenanceWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_preferredMaintenanceWindow = Lens.lens (\ModifyDBInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBInstance' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBInstance)
 
 -- | The amount of time, in days, to retain Performance Insights data. Valid
 -- values are 7 or 731 (2 years).
-modifyDBInstance_performanceInsightsRetentionPeriod :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Int)
+modifyDBInstance_performanceInsightsRetentionPeriod :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_performanceInsightsRetentionPeriod = Lens.lens (\ModifyDBInstance' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@ModifyDBInstance' {} a -> s {performanceInsightsRetentionPeriod = a} :: ModifyDBInstance)
 
 -- | The license model for the DB instance.
 --
 -- Valid values: @license-included@ | @bring-your-own-license@ |
 -- @general-public-license@
-modifyDBInstance_licenseModel :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_licenseModel :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_licenseModel = Lens.lens (\ModifyDBInstance' {licenseModel} -> licenseModel) (\s@ModifyDBInstance' {} a -> s {licenseModel = a} :: ModifyDBInstance)
 
 -- | The password for the given ARN from the key store in order to access the
 -- device.
-modifyDBInstance_tdeCredentialPassword :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_tdeCredentialPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_tdeCredentialPassword = Lens.lens (\ModifyDBInstance' {tdeCredentialPassword} -> tdeCredentialPassword) (\s@ModifyDBInstance' {} a -> s {tdeCredentialPassword = a} :: ModifyDBInstance)
 
 -- | A value that specifies the order in which an Aurora Replica is promoted
@@ -1739,16 +1740,16 @@ modifyDBInstance_tdeCredentialPassword = Lens.lens (\ModifyDBInstance' {tdeCrede
 -- Default: 1
 --
 -- Valid Values: 0 - 15
-modifyDBInstance_promotionTier :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Int)
+modifyDBInstance_promotionTier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_promotionTier = Lens.lens (\ModifyDBInstance' {promotionTier} -> promotionTier) (\s@ModifyDBInstance' {} a -> s {promotionTier = a} :: ModifyDBInstance)
 
 -- | The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
-modifyDBInstance_processorFeatures :: Lens.Lens' ModifyDBInstance (Core.Maybe [ProcessorFeature])
-modifyDBInstance_processorFeatures = Lens.lens (\ModifyDBInstance' {processorFeatures} -> processorFeatures) (\s@ModifyDBInstance' {} a -> s {processorFeatures = a} :: ModifyDBInstance) Core.. Lens.mapping Lens._Coerce
+modifyDBInstance_processorFeatures :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [ProcessorFeature])
+modifyDBInstance_processorFeatures = Lens.lens (\ModifyDBInstance' {processorFeatures} -> processorFeatures) (\s@ModifyDBInstance' {} a -> s {processorFeatures = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the recovery point in AWS Backup.
-modifyDBInstance_awsBackupRecoveryPointArn :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_awsBackupRecoveryPointArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_awsBackupRecoveryPointArn = Lens.lens (\ModifyDBInstance' {awsBackupRecoveryPointArn} -> awsBackupRecoveryPointArn) (\s@ModifyDBInstance' {} a -> s {awsBackupRecoveryPointArn = a} :: ModifyDBInstance)
 
 -- | The new compute and memory capacity of the DB instance, for example,
@@ -1763,12 +1764,12 @@ modifyDBInstance_awsBackupRecoveryPointArn = Lens.lens (\ModifyDBInstance' {awsB
 -- @ApplyImmediately@ is enabled for this request.
 --
 -- Default: Uses existing setting
-modifyDBInstance_dbInstanceClass :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_dbInstanceClass :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_dbInstanceClass = Lens.lens (\ModifyDBInstance' {dbInstanceClass} -> dbInstanceClass) (\s@ModifyDBInstance' {} a -> s {dbInstanceClass = a} :: ModifyDBInstance)
 
 -- | The name of the IAM role to use when making API calls to the Directory
 -- Service.
-modifyDBInstance_domainIAMRoleName :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_domainIAMRoleName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_domainIAMRoleName = Lens.lens (\ModifyDBInstance' {domainIAMRoleName} -> domainIAMRoleName) (\s@ModifyDBInstance' {} a -> s {domainIAMRoleName = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether the DB instance is restarted when you
@@ -1794,12 +1795,12 @@ modifyDBInstance_domainIAMRoleName = Lens.lens (\ModifyDBInstance' {domainIAMRol
 --     Aurora DB engines, see
 --     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL\/TLS Certificate>
 --     in the /Amazon Aurora User Guide./
-modifyDBInstance_certificateRotationRestart :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_certificateRotationRestart :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_certificateRotationRestart = Lens.lens (\ModifyDBInstance' {certificateRotationRestart} -> certificateRotationRestart) (\s@ModifyDBInstance' {} a -> s {certificateRotationRestart = a} :: ModifyDBInstance)
 
 -- | The ARN from the key store with which to associate the instance for TDE
 -- encryption.
-modifyDBInstance_tdeCredentialArn :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_tdeCredentialArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_tdeCredentialArn = Lens.lens (\ModifyDBInstance' {tdeCredentialArn} -> tdeCredentialArn) (\s@ModifyDBInstance' {} a -> s {tdeCredentialArn = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether to enable a customer-owned IP address
@@ -1817,7 +1818,7 @@ modifyDBInstance_tdeCredentialArn = Lens.lens (\ModifyDBInstance' {tdeCredential
 -- For more information about CoIPs, see
 -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
 -- in the /AWS Outposts User Guide/.
-modifyDBInstance_enableCustomerOwnedIp :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_enableCustomerOwnedIp :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_enableCustomerOwnedIp = Lens.lens (\ModifyDBInstance' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@ModifyDBInstance' {} a -> s {enableCustomerOwnedIp = a} :: ModifyDBInstance)
 
 -- | The configuration setting for the log types to be enabled for export to
@@ -1826,7 +1827,7 @@ modifyDBInstance_enableCustomerOwnedIp = Lens.lens (\ModifyDBInstance' {enableCu
 -- A change to the @CloudwatchLogsExportConfiguration@ parameter is always
 -- applied to the DB instance immediately. Therefore, the
 -- @ApplyImmediately@ parameter has no effect.
-modifyDBInstance_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBInstance (Core.Maybe CloudwatchLogsExportConfiguration)
+modifyDBInstance_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBInstance (Prelude.Maybe CloudwatchLogsExportConfiguration)
 modifyDBInstance_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBInstance' {cloudwatchLogsExportConfiguration} -> cloudwatchLogsExportConfiguration) (\s@ModifyDBInstance' {} a -> s {cloudwatchLogsExportConfiguration = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether to copy all tags from the DB instance to
@@ -1837,7 +1838,7 @@ modifyDBInstance_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBInstanc
 -- Not applicable. Copying tags to snapshots is managed by the DB cluster.
 -- Setting this value for an Aurora DB instance has no effect on the DB
 -- cluster setting. For more information, see @ModifyDBCluster@.
-modifyDBInstance_copyTagsToSnapshot :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_copyTagsToSnapshot :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_copyTagsToSnapshot = Lens.lens (\ModifyDBInstance' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBInstance' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBInstance)
 
 -- | A value that sets the open mode of a replica database to either mounted
@@ -1853,7 +1854,7 @@ modifyDBInstance_copyTagsToSnapshot = Lens.lens (\ModifyDBInstance' {copyTagsToS
 -- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
 -- in the /Amazon RDS User Guide/.
-modifyDBInstance_replicaMode :: Lens.Lens' ModifyDBInstance (Core.Maybe ReplicaMode)
+modifyDBInstance_replicaMode :: Lens.Lens' ModifyDBInstance (Prelude.Maybe ReplicaMode)
 modifyDBInstance_replicaMode = Lens.lens (\ModifyDBInstance' {replicaMode} -> replicaMode) (\s@ModifyDBInstance' {} a -> s {replicaMode = a} :: ModifyDBInstance)
 
 -- | The new DB instance identifier for the DB instance when renaming a DB
@@ -1871,7 +1872,7 @@ modifyDBInstance_replicaMode = Lens.lens (\ModifyDBInstance' {replicaMode} -> re
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @mydbinstance@
-modifyDBInstance_newDBInstanceIdentifier :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Text)
+modifyDBInstance_newDBInstanceIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_newDBInstanceIdentifier = Lens.lens (\ModifyDBInstance' {newDBInstanceIdentifier'} -> newDBInstanceIdentifier') (\s@ModifyDBInstance' {} a -> s {newDBInstanceIdentifier' = a} :: ModifyDBInstance)
 
 -- | The new amount of storage (in gibibytes) to allocate for the DB
@@ -1884,7 +1885,7 @@ modifyDBInstance_newDBInstanceIdentifier = Lens.lens (\ModifyDBInstance' {newDBI
 --
 -- For the valid values for allocated storage for each engine, see
 -- @CreateDBInstance@.
-modifyDBInstance_allocatedStorage :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Int)
+modifyDBInstance_allocatedStorage :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_allocatedStorage = Lens.lens (\ModifyDBInstance' {allocatedStorage} -> allocatedStorage) (\s@ModifyDBInstance' {} a -> s {allocatedStorage = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether the modifications in this request and any
@@ -1900,7 +1901,7 @@ modifyDBInstance_allocatedStorage = Lens.lens (\ModifyDBInstance' {allocatedStor
 -- in the /Amazon RDS User Guide./ to see the impact of enabling or
 -- disabling @ApplyImmediately@ for each modified parameter and to
 -- determine when the changes are applied.
-modifyDBInstance_applyImmediately :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_applyImmediately :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_applyImmediately = Lens.lens (\ModifyDBInstance' {applyImmediately} -> applyImmediately) (\s@ModifyDBInstance' {} a -> s {applyImmediately = a} :: ModifyDBInstance)
 
 -- | The new Provisioned IOPS (I\/O operations per second) value for the RDS
@@ -1934,7 +1935,7 @@ modifyDBInstance_applyImmediately = Lens.lens (\ModifyDBInstance' {applyImmediat
 -- so that they are 10% greater than the current value.
 --
 -- Default: Uses existing setting
-modifyDBInstance_iops :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Int)
+modifyDBInstance_iops :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_iops = Lens.lens (\ModifyDBInstance' {iops} -> iops) (\s@ModifyDBInstance' {} a -> s {iops = a} :: ModifyDBInstance)
 
 -- | A value that indicates whether minor version upgrades are applied
@@ -1944,7 +1945,7 @@ modifyDBInstance_iops = Lens.lens (\ModifyDBInstance' {iops} -> iops) (\s@Modify
 -- results if this parameter is enabled during the maintenance window, and
 -- a newer minor version is available, and RDS has enabled auto patching
 -- for that engine version.
-modifyDBInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Core.Maybe Core.Bool)
+modifyDBInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyDBInstance)
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
@@ -1952,7 +1953,7 @@ modifyDBInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyDBInstance' {autoMi
 -- Constraints:
 --
 -- -   Must match the identifier of an existing DBInstance.
-modifyDBInstance_dbInstanceIdentifier :: Lens.Lens' ModifyDBInstance Core.Text
+modifyDBInstance_dbInstanceIdentifier :: Lens.Lens' ModifyDBInstance Prelude.Text
 modifyDBInstance_dbInstanceIdentifier = Lens.lens (\ModifyDBInstance' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@ModifyDBInstance' {} a -> s {dbInstanceIdentifier = a} :: ModifyDBInstance)
 
 instance Core.AWSRequest ModifyDBInstance where
@@ -1965,26 +1966,27 @@ instance Core.AWSRequest ModifyDBInstance where
       "ModifyDBInstanceResult"
       ( \s h x ->
           ModifyDBInstanceResponse'
-            Core.<$> (x Core..@? "DBInstance")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyDBInstance
+instance Prelude.Hashable ModifyDBInstance
 
-instance Core.NFData ModifyDBInstance
+instance Prelude.NFData ModifyDBInstance
 
 instance Core.ToHeaders ModifyDBInstance where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyDBInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyDBInstance where
   toQuery ModifyDBInstance' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBInstance" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("ModifyDBInstance" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "BackupRetentionPeriod"
           Core.=: backupRetentionPeriod,
         "DeletionProtection" Core.=: deletionProtection,
@@ -1998,7 +2000,7 @@ instance Core.ToQuery ModifyDBInstance where
         "DBSecurityGroups"
           Core.=: Core.toQuery
             ( Core.toQueryList "DBSecurityGroupName"
-                Core.<$> dbSecurityGroups
+                Prelude.<$> dbSecurityGroups
             ),
         "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
         "EnableIAMDatabaseAuthentication"
@@ -2019,7 +2021,7 @@ instance Core.ToQuery ModifyDBInstance where
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
-                Core.<$> vpcSecurityGroupIds
+                Prelude.<$> vpcSecurityGroupIds
             ),
         "PerformanceInsightsKMSKeyId"
           Core.=: performanceInsightsKMSKeyId,
@@ -2036,7 +2038,7 @@ instance Core.ToQuery ModifyDBInstance where
         "ProcessorFeatures"
           Core.=: Core.toQuery
             ( Core.toQueryList "ProcessorFeature"
-                Core.<$> processorFeatures
+                Prelude.<$> processorFeatures
             ),
         "AwsBackupRecoveryPointArn"
           Core.=: awsBackupRecoveryPointArn,
@@ -2063,11 +2065,11 @@ instance Core.ToQuery ModifyDBInstance where
 
 -- | /See:/ 'newModifyDBInstanceResponse' smart constructor.
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
-  { dbInstance :: Core.Maybe DBInstance,
+  { dbInstance :: Prelude.Maybe DBInstance,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBInstanceResponse' with all optional fields omitted.
@@ -2082,21 +2084,21 @@ data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
 -- 'httpStatus', 'modifyDBInstanceResponse_httpStatus' - The response's http status code.
 newModifyDBInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyDBInstanceResponse
 newModifyDBInstanceResponse pHttpStatus_ =
   ModifyDBInstanceResponse'
     { dbInstance =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyDBInstanceResponse_dbInstance :: Lens.Lens' ModifyDBInstanceResponse (Core.Maybe DBInstance)
+modifyDBInstanceResponse_dbInstance :: Lens.Lens' ModifyDBInstanceResponse (Prelude.Maybe DBInstance)
 modifyDBInstanceResponse_dbInstance = Lens.lens (\ModifyDBInstanceResponse' {dbInstance} -> dbInstance) (\s@ModifyDBInstanceResponse' {} a -> s {dbInstance = a} :: ModifyDBInstanceResponse)
 
 -- | The response's http status code.
-modifyDBInstanceResponse_httpStatus :: Lens.Lens' ModifyDBInstanceResponse Core.Int
+modifyDBInstanceResponse_httpStatus :: Lens.Lens' ModifyDBInstanceResponse Prelude.Int
 modifyDBInstanceResponse_httpStatus = Lens.lens (\ModifyDBInstanceResponse' {httpStatus} -> httpStatus) (\s@ModifyDBInstanceResponse' {} a -> s {httpStatus = a} :: ModifyDBInstanceResponse)
 
-instance Core.NFData ModifyDBInstanceResponse
+instance Prelude.NFData ModifyDBInstanceResponse

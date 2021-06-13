@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.Output where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Output settings. There can be multiple outputs within a group.
 --
@@ -29,18 +30,18 @@ import Network.AWS.MediaLive.Types.OutputSettings
 data Output = Output'
   { -- | The names of the AudioDescriptions used as audio sources for this
     -- output.
-    audioDescriptionNames :: Core.Maybe [Core.Text],
+    audioDescriptionNames :: Prelude.Maybe [Prelude.Text],
     -- | The name used to identify an output.
-    outputName :: Core.Maybe Core.Text,
+    outputName :: Prelude.Maybe Prelude.Text,
     -- | The name of the VideoDescription used as the source for this output.
-    videoDescriptionName :: Core.Maybe Core.Text,
+    videoDescriptionName :: Prelude.Maybe Prelude.Text,
     -- | The names of the CaptionDescriptions used as caption sources for this
     -- output.
-    captionDescriptionNames :: Core.Maybe [Core.Text],
+    captionDescriptionNames :: Prelude.Maybe [Prelude.Text],
     -- | Output type-specific settings.
     outputSettings :: OutputSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Output' with all optional fields omitted.
@@ -67,30 +68,30 @@ newOutput ::
   Output
 newOutput pOutputSettings_ =
   Output'
-    { audioDescriptionNames = Core.Nothing,
-      outputName = Core.Nothing,
-      videoDescriptionName = Core.Nothing,
-      captionDescriptionNames = Core.Nothing,
+    { audioDescriptionNames = Prelude.Nothing,
+      outputName = Prelude.Nothing,
+      videoDescriptionName = Prelude.Nothing,
+      captionDescriptionNames = Prelude.Nothing,
       outputSettings = pOutputSettings_
     }
 
 -- | The names of the AudioDescriptions used as audio sources for this
 -- output.
-output_audioDescriptionNames :: Lens.Lens' Output (Core.Maybe [Core.Text])
-output_audioDescriptionNames = Lens.lens (\Output' {audioDescriptionNames} -> audioDescriptionNames) (\s@Output' {} a -> s {audioDescriptionNames = a} :: Output) Core.. Lens.mapping Lens._Coerce
+output_audioDescriptionNames :: Lens.Lens' Output (Prelude.Maybe [Prelude.Text])
+output_audioDescriptionNames = Lens.lens (\Output' {audioDescriptionNames} -> audioDescriptionNames) (\s@Output' {} a -> s {audioDescriptionNames = a} :: Output) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name used to identify an output.
-output_outputName :: Lens.Lens' Output (Core.Maybe Core.Text)
+output_outputName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
 output_outputName = Lens.lens (\Output' {outputName} -> outputName) (\s@Output' {} a -> s {outputName = a} :: Output)
 
 -- | The name of the VideoDescription used as the source for this output.
-output_videoDescriptionName :: Lens.Lens' Output (Core.Maybe Core.Text)
+output_videoDescriptionName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
 output_videoDescriptionName = Lens.lens (\Output' {videoDescriptionName} -> videoDescriptionName) (\s@Output' {} a -> s {videoDescriptionName = a} :: Output)
 
 -- | The names of the CaptionDescriptions used as caption sources for this
 -- output.
-output_captionDescriptionNames :: Lens.Lens' Output (Core.Maybe [Core.Text])
-output_captionDescriptionNames = Lens.lens (\Output' {captionDescriptionNames} -> captionDescriptionNames) (\s@Output' {} a -> s {captionDescriptionNames = a} :: Output) Core.. Lens.mapping Lens._Coerce
+output_captionDescriptionNames :: Lens.Lens' Output (Prelude.Maybe [Prelude.Text])
+output_captionDescriptionNames = Lens.lens (\Output' {captionDescriptionNames} -> captionDescriptionNames) (\s@Output' {} a -> s {captionDescriptionNames = a} :: Output) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Output type-specific settings.
 output_outputSettings :: Lens.Lens' Output OutputSettings
@@ -102,32 +103,33 @@ instance Core.FromJSON Output where
       "Output"
       ( \x ->
           Output'
-            Core.<$> ( x Core..:? "audioDescriptionNames"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "outputName")
-            Core.<*> (x Core..:? "videoDescriptionName")
-            Core.<*> ( x Core..:? "captionDescriptionNames"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..: "outputSettings")
+            Prelude.<$> ( x Core..:? "audioDescriptionNames"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "outputName")
+            Prelude.<*> (x Core..:? "videoDescriptionName")
+            Prelude.<*> ( x Core..:? "captionDescriptionNames"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "outputSettings")
       )
 
-instance Core.Hashable Output
+instance Prelude.Hashable Output
 
-instance Core.NFData Output
+instance Prelude.NFData Output
 
 instance Core.ToJSON Output where
   toJSON Output' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("audioDescriptionNames" Core..=)
-              Core.<$> audioDescriptionNames,
-            ("outputName" Core..=) Core.<$> outputName,
+              Prelude.<$> audioDescriptionNames,
+            ("outputName" Core..=) Prelude.<$> outputName,
             ("videoDescriptionName" Core..=)
-              Core.<$> videoDescriptionName,
+              Prelude.<$> videoDescriptionName,
             ("captionDescriptionNames" Core..=)
-              Core.<$> captionDescriptionNames,
-            Core.Just ("outputSettings" Core..= outputSettings)
+              Prelude.<$> captionDescriptionNames,
+            Prelude.Just
+              ("outputSettings" Core..= outputSettings)
           ]
       )

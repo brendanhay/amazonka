@@ -44,6 +44,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,16 +82,16 @@ data UpdateUserAttributes = UpdateUserAttributes'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An array of name-value pairs representing user attributes.
     --
     -- For custom attributes, you must prepend the @custom:@ prefix to the
     -- attribute name.
     userAttributes :: [AttributeType],
     -- | The access token for the request to update user attributes.
-    accessToken :: Core.Sensitive Core.Text
+    accessToken :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserAttributes' with all optional fields omitted.
@@ -139,13 +140,13 @@ data UpdateUserAttributes = UpdateUserAttributes'
 -- 'accessToken', 'updateUserAttributes_accessToken' - The access token for the request to update user attributes.
 newUpdateUserAttributes ::
   -- | 'accessToken'
-  Core.Text ->
+  Prelude.Text ->
   UpdateUserAttributes
 newUpdateUserAttributes pAccessToken_ =
   UpdateUserAttributes'
     { clientMetadata =
-        Core.Nothing,
-      userAttributes = Core.mempty,
+        Prelude.Nothing,
+      userAttributes = Prelude.mempty,
       accessToken = Core._Sensitive Lens.# pAccessToken_
     }
 
@@ -179,19 +180,19 @@ newUpdateUserAttributes pAccessToken_ =
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-updateUserAttributes_clientMetadata :: Lens.Lens' UpdateUserAttributes (Core.Maybe (Core.HashMap Core.Text Core.Text))
-updateUserAttributes_clientMetadata = Lens.lens (\UpdateUserAttributes' {clientMetadata} -> clientMetadata) (\s@UpdateUserAttributes' {} a -> s {clientMetadata = a} :: UpdateUserAttributes) Core.. Lens.mapping Lens._Coerce
+updateUserAttributes_clientMetadata :: Lens.Lens' UpdateUserAttributes (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateUserAttributes_clientMetadata = Lens.lens (\UpdateUserAttributes' {clientMetadata} -> clientMetadata) (\s@UpdateUserAttributes' {} a -> s {clientMetadata = a} :: UpdateUserAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of name-value pairs representing user attributes.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the
 -- attribute name.
 updateUserAttributes_userAttributes :: Lens.Lens' UpdateUserAttributes [AttributeType]
-updateUserAttributes_userAttributes = Lens.lens (\UpdateUserAttributes' {userAttributes} -> userAttributes) (\s@UpdateUserAttributes' {} a -> s {userAttributes = a} :: UpdateUserAttributes) Core.. Lens._Coerce
+updateUserAttributes_userAttributes = Lens.lens (\UpdateUserAttributes' {userAttributes} -> userAttributes) (\s@UpdateUserAttributes' {} a -> s {userAttributes = a} :: UpdateUserAttributes) Prelude.. Lens._Coerce
 
 -- | The access token for the request to update user attributes.
-updateUserAttributes_accessToken :: Lens.Lens' UpdateUserAttributes Core.Text
-updateUserAttributes_accessToken = Lens.lens (\UpdateUserAttributes' {accessToken} -> accessToken) (\s@UpdateUserAttributes' {} a -> s {accessToken = a} :: UpdateUserAttributes) Core.. Core._Sensitive
+updateUserAttributes_accessToken :: Lens.Lens' UpdateUserAttributes Prelude.Text
+updateUserAttributes_accessToken = Lens.lens (\UpdateUserAttributes' {accessToken} -> accessToken) (\s@UpdateUserAttributes' {} a -> s {accessToken = a} :: UpdateUserAttributes) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest UpdateUserAttributes where
   type
@@ -202,44 +203,48 @@ instance Core.AWSRequest UpdateUserAttributes where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserAttributesResponse'
-            Core.<$> ( x Core..?> "CodeDeliveryDetailsList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "CodeDeliveryDetailsList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateUserAttributes
+instance Prelude.Hashable UpdateUserAttributes
 
-instance Core.NFData UpdateUserAttributes
+instance Prelude.NFData UpdateUserAttributes
 
 instance Core.ToHeaders UpdateUserAttributes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.UpdateUserAttributes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateUserAttributes where
   toJSON UpdateUserAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
-            Core.Just ("UserAttributes" Core..= userAttributes),
-            Core.Just ("AccessToken" Core..= accessToken)
+      ( Prelude.catMaybes
+          [ ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            Prelude.Just
+              ("UserAttributes" Core..= userAttributes),
+            Prelude.Just ("AccessToken" Core..= accessToken)
           ]
       )
 
 instance Core.ToPath UpdateUserAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateUserAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server for the request to update user
 -- attributes.
@@ -248,11 +253,11 @@ instance Core.ToQuery UpdateUserAttributes where
 data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
   { -- | The code delivery details list from the server for the request to update
     -- user attributes.
-    codeDeliveryDetailsList :: Core.Maybe [CodeDeliveryDetailsType],
+    codeDeliveryDetailsList :: Prelude.Maybe [CodeDeliveryDetailsType],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserAttributesResponse' with all optional fields omitted.
@@ -268,22 +273,22 @@ data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
 -- 'httpStatus', 'updateUserAttributesResponse_httpStatus' - The response's http status code.
 newUpdateUserAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateUserAttributesResponse
 newUpdateUserAttributesResponse pHttpStatus_ =
   UpdateUserAttributesResponse'
     { codeDeliveryDetailsList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The code delivery details list from the server for the request to update
 -- user attributes.
-updateUserAttributesResponse_codeDeliveryDetailsList :: Lens.Lens' UpdateUserAttributesResponse (Core.Maybe [CodeDeliveryDetailsType])
-updateUserAttributesResponse_codeDeliveryDetailsList = Lens.lens (\UpdateUserAttributesResponse' {codeDeliveryDetailsList} -> codeDeliveryDetailsList) (\s@UpdateUserAttributesResponse' {} a -> s {codeDeliveryDetailsList = a} :: UpdateUserAttributesResponse) Core.. Lens.mapping Lens._Coerce
+updateUserAttributesResponse_codeDeliveryDetailsList :: Lens.Lens' UpdateUserAttributesResponse (Prelude.Maybe [CodeDeliveryDetailsType])
+updateUserAttributesResponse_codeDeliveryDetailsList = Lens.lens (\UpdateUserAttributesResponse' {codeDeliveryDetailsList} -> codeDeliveryDetailsList) (\s@UpdateUserAttributesResponse' {} a -> s {codeDeliveryDetailsList = a} :: UpdateUserAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateUserAttributesResponse_httpStatus :: Lens.Lens' UpdateUserAttributesResponse Core.Int
+updateUserAttributesResponse_httpStatus :: Lens.Lens' UpdateUserAttributesResponse Prelude.Int
 updateUserAttributesResponse_httpStatus = Lens.lens (\UpdateUserAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateUserAttributesResponse' {} a -> s {httpStatus = a} :: UpdateUserAttributesResponse)
 
-instance Core.NFData UpdateUserAttributesResponse
+instance Prelude.NFData UpdateUserAttributesResponse

@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetHIT' smart constructor.
 data GetHIT = GetHIT'
   { -- | The ID of the HIT to be retrieved.
-    hITId :: Core.Text
+    hITId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHIT' with all optional fields omitted.
@@ -63,12 +64,12 @@ data GetHIT = GetHIT'
 -- 'hITId', 'getHIT_hITId' - The ID of the HIT to be retrieved.
 newGetHIT ::
   -- | 'hITId'
-  Core.Text ->
+  Prelude.Text ->
   GetHIT
 newGetHIT pHITId_ = GetHIT' {hITId = pHITId_}
 
 -- | The ID of the HIT to be retrieved.
-getHIT_hITId :: Lens.Lens' GetHIT Core.Text
+getHIT_hITId :: Lens.Lens' GetHIT Prelude.Text
 getHIT_hITId = Lens.lens (\GetHIT' {hITId} -> hITId) (\s@GetHIT' {} a -> s {hITId = a} :: GetHIT)
 
 instance Core.AWSRequest GetHIT where
@@ -78,46 +79,50 @@ instance Core.AWSRequest GetHIT where
     Response.receiveJSON
       ( \s h x ->
           GetHITResponse'
-            Core.<$> (x Core..?> "HIT")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HIT")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetHIT
+instance Prelude.Hashable GetHIT
 
-instance Core.NFData GetHIT
+instance Prelude.NFData GetHIT
 
 instance Core.ToHeaders GetHIT where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.GetHIT" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetHIT where
   toJSON GetHIT' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("HITId" Core..= hITId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("HITId" Core..= hITId)]
+      )
 
 instance Core.ToPath GetHIT where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetHIT where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetHITResponse' smart constructor.
 data GetHITResponse = GetHITResponse'
   { -- | Contains the requested HIT data.
-    hit :: Core.Maybe HIT,
+    hit :: Prelude.Maybe HIT,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHITResponse' with all optional fields omitted.
@@ -132,20 +137,20 @@ data GetHITResponse = GetHITResponse'
 -- 'httpStatus', 'getHITResponse_httpStatus' - The response's http status code.
 newGetHITResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetHITResponse
 newGetHITResponse pHttpStatus_ =
   GetHITResponse'
-    { hit = Core.Nothing,
+    { hit = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the requested HIT data.
-getHITResponse_hit :: Lens.Lens' GetHITResponse (Core.Maybe HIT)
+getHITResponse_hit :: Lens.Lens' GetHITResponse (Prelude.Maybe HIT)
 getHITResponse_hit = Lens.lens (\GetHITResponse' {hit} -> hit) (\s@GetHITResponse' {} a -> s {hit = a} :: GetHITResponse)
 
 -- | The response's http status code.
-getHITResponse_httpStatus :: Lens.Lens' GetHITResponse Core.Int
+getHITResponse_httpStatus :: Lens.Lens' GetHITResponse Prelude.Int
 getHITResponse_httpStatus = Lens.lens (\GetHITResponse' {httpStatus} -> httpStatus) (\s@GetHITResponse' {} a -> s {httpStatus = a} :: GetHITResponse)
 
-instance Core.NFData GetHITResponse
+instance Prelude.NFData GetHITResponse

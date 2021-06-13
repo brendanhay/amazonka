@@ -21,6 +21,7 @@ module Network.AWS.ElastiCache.Types.ParameterNameValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a name-value pair that is used to update the value of a
 -- parameter.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newParameterNameValue' smart constructor.
 data ParameterNameValue = ParameterNameValue'
   { -- | The value of the parameter.
-    parameterValue :: Core.Maybe Core.Text,
+    parameterValue :: Prelude.Maybe Prelude.Text,
     -- | The name of the parameter.
-    parameterName :: Core.Maybe Core.Text
+    parameterName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterNameValue' with all optional fields omitted.
@@ -49,25 +50,26 @@ newParameterNameValue ::
   ParameterNameValue
 newParameterNameValue =
   ParameterNameValue'
-    { parameterValue = Core.Nothing,
-      parameterName = Core.Nothing
+    { parameterValue =
+        Prelude.Nothing,
+      parameterName = Prelude.Nothing
     }
 
 -- | The value of the parameter.
-parameterNameValue_parameterValue :: Lens.Lens' ParameterNameValue (Core.Maybe Core.Text)
+parameterNameValue_parameterValue :: Lens.Lens' ParameterNameValue (Prelude.Maybe Prelude.Text)
 parameterNameValue_parameterValue = Lens.lens (\ParameterNameValue' {parameterValue} -> parameterValue) (\s@ParameterNameValue' {} a -> s {parameterValue = a} :: ParameterNameValue)
 
 -- | The name of the parameter.
-parameterNameValue_parameterName :: Lens.Lens' ParameterNameValue (Core.Maybe Core.Text)
+parameterNameValue_parameterName :: Lens.Lens' ParameterNameValue (Prelude.Maybe Prelude.Text)
 parameterNameValue_parameterName = Lens.lens (\ParameterNameValue' {parameterName} -> parameterName) (\s@ParameterNameValue' {} a -> s {parameterName = a} :: ParameterNameValue)
 
-instance Core.Hashable ParameterNameValue
+instance Prelude.Hashable ParameterNameValue
 
-instance Core.NFData ParameterNameValue
+instance Prelude.NFData ParameterNameValue
 
 instance Core.ToQuery ParameterNameValue where
   toQuery ParameterNameValue' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ParameterValue" Core.=: parameterValue,
         "ParameterName" Core.=: parameterName
       ]

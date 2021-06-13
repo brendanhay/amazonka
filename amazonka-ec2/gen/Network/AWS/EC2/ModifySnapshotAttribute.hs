@@ -57,31 +57,32 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
   { -- | A JSON representation of the snapshot attribute modification.
-    createVolumePermission :: Core.Maybe CreateVolumePermissionModifications,
+    createVolumePermission :: Prelude.Maybe CreateVolumePermissionModifications,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The group to modify for the snapshot.
-    groupNames :: Core.Maybe [Core.Text],
+    groupNames :: Prelude.Maybe [Prelude.Text],
     -- | The account ID to modify for the snapshot.
-    userIds :: Core.Maybe [Core.Text],
+    userIds :: Prelude.Maybe [Prelude.Text],
     -- | The snapshot attribute to modify. Only volume creation permissions can
     -- be modified.
-    attribute :: Core.Maybe SnapshotAttributeName,
+    attribute :: Prelude.Maybe SnapshotAttributeName,
     -- | The type of operation to perform to the attribute.
-    operationType :: Core.Maybe OperationType,
+    operationType :: Prelude.Maybe OperationType,
     -- | The ID of the snapshot.
-    snapshotId :: Core.Text
+    snapshotId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySnapshotAttribute' with all optional fields omitted.
@@ -110,50 +111,50 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
 -- 'snapshotId', 'modifySnapshotAttribute_snapshotId' - The ID of the snapshot.
 newModifySnapshotAttribute ::
   -- | 'snapshotId'
-  Core.Text ->
+  Prelude.Text ->
   ModifySnapshotAttribute
 newModifySnapshotAttribute pSnapshotId_ =
   ModifySnapshotAttribute'
     { createVolumePermission =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      groupNames = Core.Nothing,
-      userIds = Core.Nothing,
-      attribute = Core.Nothing,
-      operationType = Core.Nothing,
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      groupNames = Prelude.Nothing,
+      userIds = Prelude.Nothing,
+      attribute = Prelude.Nothing,
+      operationType = Prelude.Nothing,
       snapshotId = pSnapshotId_
     }
 
 -- | A JSON representation of the snapshot attribute modification.
-modifySnapshotAttribute_createVolumePermission :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe CreateVolumePermissionModifications)
+modifySnapshotAttribute_createVolumePermission :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe CreateVolumePermissionModifications)
 modifySnapshotAttribute_createVolumePermission = Lens.lens (\ModifySnapshotAttribute' {createVolumePermission} -> createVolumePermission) (\s@ModifySnapshotAttribute' {} a -> s {createVolumePermission = a} :: ModifySnapshotAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifySnapshotAttribute_dryRun :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe Core.Bool)
+modifySnapshotAttribute_dryRun :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe Prelude.Bool)
 modifySnapshotAttribute_dryRun = Lens.lens (\ModifySnapshotAttribute' {dryRun} -> dryRun) (\s@ModifySnapshotAttribute' {} a -> s {dryRun = a} :: ModifySnapshotAttribute)
 
 -- | The group to modify for the snapshot.
-modifySnapshotAttribute_groupNames :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe [Core.Text])
-modifySnapshotAttribute_groupNames = Lens.lens (\ModifySnapshotAttribute' {groupNames} -> groupNames) (\s@ModifySnapshotAttribute' {} a -> s {groupNames = a} :: ModifySnapshotAttribute) Core.. Lens.mapping Lens._Coerce
+modifySnapshotAttribute_groupNames :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe [Prelude.Text])
+modifySnapshotAttribute_groupNames = Lens.lens (\ModifySnapshotAttribute' {groupNames} -> groupNames) (\s@ModifySnapshotAttribute' {} a -> s {groupNames = a} :: ModifySnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The account ID to modify for the snapshot.
-modifySnapshotAttribute_userIds :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe [Core.Text])
-modifySnapshotAttribute_userIds = Lens.lens (\ModifySnapshotAttribute' {userIds} -> userIds) (\s@ModifySnapshotAttribute' {} a -> s {userIds = a} :: ModifySnapshotAttribute) Core.. Lens.mapping Lens._Coerce
+modifySnapshotAttribute_userIds :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe [Prelude.Text])
+modifySnapshotAttribute_userIds = Lens.lens (\ModifySnapshotAttribute' {userIds} -> userIds) (\s@ModifySnapshotAttribute' {} a -> s {userIds = a} :: ModifySnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The snapshot attribute to modify. Only volume creation permissions can
 -- be modified.
-modifySnapshotAttribute_attribute :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe SnapshotAttributeName)
+modifySnapshotAttribute_attribute :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe SnapshotAttributeName)
 modifySnapshotAttribute_attribute = Lens.lens (\ModifySnapshotAttribute' {attribute} -> attribute) (\s@ModifySnapshotAttribute' {} a -> s {attribute = a} :: ModifySnapshotAttribute)
 
 -- | The type of operation to perform to the attribute.
-modifySnapshotAttribute_operationType :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe OperationType)
+modifySnapshotAttribute_operationType :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe OperationType)
 modifySnapshotAttribute_operationType = Lens.lens (\ModifySnapshotAttribute' {operationType} -> operationType) (\s@ModifySnapshotAttribute' {} a -> s {operationType = a} :: ModifySnapshotAttribute)
 
 -- | The ID of the snapshot.
-modifySnapshotAttribute_snapshotId :: Lens.Lens' ModifySnapshotAttribute Core.Text
+modifySnapshotAttribute_snapshotId :: Lens.Lens' ModifySnapshotAttribute Prelude.Text
 modifySnapshotAttribute_snapshotId = Lens.lens (\ModifySnapshotAttribute' {snapshotId} -> snapshotId) (\s@ModifySnapshotAttribute' {} a -> s {snapshotId = a} :: ModifySnapshotAttribute)
 
 instance Core.AWSRequest ModifySnapshotAttribute where
@@ -165,29 +166,32 @@ instance Core.AWSRequest ModifySnapshotAttribute where
     Response.receiveNull
       ModifySnapshotAttributeResponse'
 
-instance Core.Hashable ModifySnapshotAttribute
+instance Prelude.Hashable ModifySnapshotAttribute
 
-instance Core.NFData ModifySnapshotAttribute
+instance Prelude.NFData ModifySnapshotAttribute
 
 instance Core.ToHeaders ModifySnapshotAttribute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifySnapshotAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifySnapshotAttribute where
   toQuery ModifySnapshotAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySnapshotAttribute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifySnapshotAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "CreateVolumePermission"
           Core.=: createVolumePermission,
         "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "UserGroup" Core.<$> groupNames),
+          ( Core.toQueryList "UserGroup"
+              Prelude.<$> groupNames
+          ),
         Core.toQuery
-          (Core.toQueryList "UserId" Core.<$> userIds),
+          (Core.toQueryList "UserId" Prelude.<$> userIds),
         "Attribute" Core.=: attribute,
         "OperationType" Core.=: operationType,
         "SnapshotId" Core.=: snapshotId
@@ -197,7 +201,7 @@ instance Core.ToQuery ModifySnapshotAttribute where
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySnapshotAttributeResponse' with all optional fields omitted.
@@ -208,4 +212,6 @@ newModifySnapshotAttributeResponse ::
 newModifySnapshotAttributeResponse =
   ModifySnapshotAttributeResponse'
 
-instance Core.NFData ModifySnapshotAttributeResponse
+instance
+  Prelude.NFData
+    ModifySnapshotAttributeResponse

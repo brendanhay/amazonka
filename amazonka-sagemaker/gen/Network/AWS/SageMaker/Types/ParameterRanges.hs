@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ParameterRanges where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CategoricalParameterRange
 import Network.AWS.SageMaker.Types.ContinuousParameterRange
 import Network.AWS.SageMaker.Types.IntegerParameterRange
@@ -40,15 +41,15 @@ import Network.AWS.SageMaker.Types.IntegerParameterRange
 data ParameterRanges = ParameterRanges'
   { -- | The array of IntegerParameterRange objects that specify ranges of
     -- integer hyperparameters that a hyperparameter tuning job searches.
-    integerParameterRanges :: Core.Maybe [IntegerParameterRange],
+    integerParameterRanges :: Prelude.Maybe [IntegerParameterRange],
     -- | The array of CategoricalParameterRange objects that specify ranges of
     -- categorical hyperparameters that a hyperparameter tuning job searches.
-    categoricalParameterRanges :: Core.Maybe [CategoricalParameterRange],
+    categoricalParameterRanges :: Prelude.Maybe [CategoricalParameterRange],
     -- | The array of ContinuousParameterRange objects that specify ranges of
     -- continuous hyperparameters that a hyperparameter tuning job searches.
-    continuousParameterRanges :: Core.Maybe [ContinuousParameterRange]
+    continuousParameterRanges :: Prelude.Maybe [ContinuousParameterRange]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterRanges' with all optional fields omitted.
@@ -71,25 +72,25 @@ newParameterRanges ::
 newParameterRanges =
   ParameterRanges'
     { integerParameterRanges =
-        Core.Nothing,
-      categoricalParameterRanges = Core.Nothing,
-      continuousParameterRanges = Core.Nothing
+        Prelude.Nothing,
+      categoricalParameterRanges = Prelude.Nothing,
+      continuousParameterRanges = Prelude.Nothing
     }
 
 -- | The array of IntegerParameterRange objects that specify ranges of
 -- integer hyperparameters that a hyperparameter tuning job searches.
-parameterRanges_integerParameterRanges :: Lens.Lens' ParameterRanges (Core.Maybe [IntegerParameterRange])
-parameterRanges_integerParameterRanges = Lens.lens (\ParameterRanges' {integerParameterRanges} -> integerParameterRanges) (\s@ParameterRanges' {} a -> s {integerParameterRanges = a} :: ParameterRanges) Core.. Lens.mapping Lens._Coerce
+parameterRanges_integerParameterRanges :: Lens.Lens' ParameterRanges (Prelude.Maybe [IntegerParameterRange])
+parameterRanges_integerParameterRanges = Lens.lens (\ParameterRanges' {integerParameterRanges} -> integerParameterRanges) (\s@ParameterRanges' {} a -> s {integerParameterRanges = a} :: ParameterRanges) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The array of CategoricalParameterRange objects that specify ranges of
 -- categorical hyperparameters that a hyperparameter tuning job searches.
-parameterRanges_categoricalParameterRanges :: Lens.Lens' ParameterRanges (Core.Maybe [CategoricalParameterRange])
-parameterRanges_categoricalParameterRanges = Lens.lens (\ParameterRanges' {categoricalParameterRanges} -> categoricalParameterRanges) (\s@ParameterRanges' {} a -> s {categoricalParameterRanges = a} :: ParameterRanges) Core.. Lens.mapping Lens._Coerce
+parameterRanges_categoricalParameterRanges :: Lens.Lens' ParameterRanges (Prelude.Maybe [CategoricalParameterRange])
+parameterRanges_categoricalParameterRanges = Lens.lens (\ParameterRanges' {categoricalParameterRanges} -> categoricalParameterRanges) (\s@ParameterRanges' {} a -> s {categoricalParameterRanges = a} :: ParameterRanges) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The array of ContinuousParameterRange objects that specify ranges of
 -- continuous hyperparameters that a hyperparameter tuning job searches.
-parameterRanges_continuousParameterRanges :: Lens.Lens' ParameterRanges (Core.Maybe [ContinuousParameterRange])
-parameterRanges_continuousParameterRanges = Lens.lens (\ParameterRanges' {continuousParameterRanges} -> continuousParameterRanges) (\s@ParameterRanges' {} a -> s {continuousParameterRanges = a} :: ParameterRanges) Core.. Lens.mapping Lens._Coerce
+parameterRanges_continuousParameterRanges :: Lens.Lens' ParameterRanges (Prelude.Maybe [ContinuousParameterRange])
+parameterRanges_continuousParameterRanges = Lens.lens (\ParameterRanges' {continuousParameterRanges} -> continuousParameterRanges) (\s@ParameterRanges' {} a -> s {continuousParameterRanges = a} :: ParameterRanges) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ParameterRanges where
   parseJSON =
@@ -97,30 +98,30 @@ instance Core.FromJSON ParameterRanges where
       "ParameterRanges"
       ( \x ->
           ParameterRanges'
-            Core.<$> ( x Core..:? "IntegerParameterRanges"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "CategoricalParameterRanges"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "ContinuousParameterRanges"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "IntegerParameterRanges"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "CategoricalParameterRanges"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "ContinuousParameterRanges"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ParameterRanges
+instance Prelude.Hashable ParameterRanges
 
-instance Core.NFData ParameterRanges
+instance Prelude.NFData ParameterRanges
 
 instance Core.ToJSON ParameterRanges where
   toJSON ParameterRanges' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("IntegerParameterRanges" Core..=)
-              Core.<$> integerParameterRanges,
+              Prelude.<$> integerParameterRanges,
             ("CategoricalParameterRanges" Core..=)
-              Core.<$> categoricalParameterRanges,
+              Prelude.<$> categoricalParameterRanges,
             ("ContinuousParameterRanges" Core..=)
-              Core.<$> continuousParameterRanges
+              Prelude.<$> continuousParameterRanges
           ]
       )

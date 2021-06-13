@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.UserBucketDetails where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Amazon S3 bucket for the disk image.
 --
 -- /See:/ 'newUserBucketDetails' smart constructor.
 data UserBucketDetails = UserBucketDetails'
   { -- | The Amazon S3 bucket from which the disk image was created.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The file name of the disk image.
-    s3Key :: Core.Maybe Core.Text
+    s3Key :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserBucketDetails' with all optional fields omitted.
@@ -49,23 +50,24 @@ newUserBucketDetails ::
   UserBucketDetails
 newUserBucketDetails =
   UserBucketDetails'
-    { s3Bucket = Core.Nothing,
-      s3Key = Core.Nothing
+    { s3Bucket = Prelude.Nothing,
+      s3Key = Prelude.Nothing
     }
 
 -- | The Amazon S3 bucket from which the disk image was created.
-userBucketDetails_s3Bucket :: Lens.Lens' UserBucketDetails (Core.Maybe Core.Text)
+userBucketDetails_s3Bucket :: Lens.Lens' UserBucketDetails (Prelude.Maybe Prelude.Text)
 userBucketDetails_s3Bucket = Lens.lens (\UserBucketDetails' {s3Bucket} -> s3Bucket) (\s@UserBucketDetails' {} a -> s {s3Bucket = a} :: UserBucketDetails)
 
 -- | The file name of the disk image.
-userBucketDetails_s3Key :: Lens.Lens' UserBucketDetails (Core.Maybe Core.Text)
+userBucketDetails_s3Key :: Lens.Lens' UserBucketDetails (Prelude.Maybe Prelude.Text)
 userBucketDetails_s3Key = Lens.lens (\UserBucketDetails' {s3Key} -> s3Key) (\s@UserBucketDetails' {} a -> s {s3Key = a} :: UserBucketDetails)
 
 instance Core.FromXML UserBucketDetails where
   parseXML x =
     UserBucketDetails'
-      Core.<$> (x Core..@? "s3Bucket") Core.<*> (x Core..@? "s3Key")
+      Prelude.<$> (x Core..@? "s3Bucket")
+      Prelude.<*> (x Core..@? "s3Key")
 
-instance Core.Hashable UserBucketDetails
+instance Prelude.Hashable UserBucketDetails
 
-instance Core.NFData UserBucketDetails
+instance Prelude.NFData UserBucketDetails

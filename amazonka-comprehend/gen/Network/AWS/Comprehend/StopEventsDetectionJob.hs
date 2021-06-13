@@ -43,15 +43,16 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopEventsDetectionJob' smart constructor.
 data StopEventsDetectionJob = StopEventsDetectionJob'
   { -- | The identifier of the events detection job to stop.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopEventsDetectionJob' with all optional fields omitted.
@@ -64,13 +65,13 @@ data StopEventsDetectionJob = StopEventsDetectionJob'
 -- 'jobId', 'stopEventsDetectionJob_jobId' - The identifier of the events detection job to stop.
 newStopEventsDetectionJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   StopEventsDetectionJob
 newStopEventsDetectionJob pJobId_ =
   StopEventsDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the events detection job to stop.
-stopEventsDetectionJob_jobId :: Lens.Lens' StopEventsDetectionJob Core.Text
+stopEventsDetectionJob_jobId :: Lens.Lens' StopEventsDetectionJob Prelude.Text
 stopEventsDetectionJob_jobId = Lens.lens (\StopEventsDetectionJob' {jobId} -> jobId) (\s@StopEventsDetectionJob' {} a -> s {jobId = a} :: StopEventsDetectionJob)
 
 instance Core.AWSRequest StopEventsDetectionJob where
@@ -82,49 +83,53 @@ instance Core.AWSRequest StopEventsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopEventsDetectionJobResponse'
-            Core.<$> (x Core..?> "JobStatus")
-            Core.<*> (x Core..?> "JobId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopEventsDetectionJob
+instance Prelude.Hashable StopEventsDetectionJob
 
-instance Core.NFData StopEventsDetectionJob
+instance Prelude.NFData StopEventsDetectionJob
 
 instance Core.ToHeaders StopEventsDetectionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.StopEventsDetectionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopEventsDetectionJob where
   toJSON StopEventsDetectionJob' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
 instance Core.ToPath StopEventsDetectionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopEventsDetectionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopEventsDetectionJobResponse' smart constructor.
 data StopEventsDetectionJobResponse = StopEventsDetectionJobResponse'
   { -- | The status of the events detection job.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The identifier of the events detection job to stop.
-    jobId :: Core.Maybe Core.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopEventsDetectionJobResponse' with all optional fields omitted.
@@ -141,26 +146,28 @@ data StopEventsDetectionJobResponse = StopEventsDetectionJobResponse'
 -- 'httpStatus', 'stopEventsDetectionJobResponse_httpStatus' - The response's http status code.
 newStopEventsDetectionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopEventsDetectionJobResponse
 newStopEventsDetectionJobResponse pHttpStatus_ =
   StopEventsDetectionJobResponse'
     { jobStatus =
-        Core.Nothing,
-      jobId = Core.Nothing,
+        Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the events detection job.
-stopEventsDetectionJobResponse_jobStatus :: Lens.Lens' StopEventsDetectionJobResponse (Core.Maybe JobStatus)
+stopEventsDetectionJobResponse_jobStatus :: Lens.Lens' StopEventsDetectionJobResponse (Prelude.Maybe JobStatus)
 stopEventsDetectionJobResponse_jobStatus = Lens.lens (\StopEventsDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopEventsDetectionJobResponse' {} a -> s {jobStatus = a} :: StopEventsDetectionJobResponse)
 
 -- | The identifier of the events detection job to stop.
-stopEventsDetectionJobResponse_jobId :: Lens.Lens' StopEventsDetectionJobResponse (Core.Maybe Core.Text)
+stopEventsDetectionJobResponse_jobId :: Lens.Lens' StopEventsDetectionJobResponse (Prelude.Maybe Prelude.Text)
 stopEventsDetectionJobResponse_jobId = Lens.lens (\StopEventsDetectionJobResponse' {jobId} -> jobId) (\s@StopEventsDetectionJobResponse' {} a -> s {jobId = a} :: StopEventsDetectionJobResponse)
 
 -- | The response's http status code.
-stopEventsDetectionJobResponse_httpStatus :: Lens.Lens' StopEventsDetectionJobResponse Core.Int
+stopEventsDetectionJobResponse_httpStatus :: Lens.Lens' StopEventsDetectionJobResponse Prelude.Int
 stopEventsDetectionJobResponse_httpStatus = Lens.lens (\StopEventsDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StopEventsDetectionJobResponse' {} a -> s {httpStatus = a} :: StopEventsDetectionJobResponse)
 
-instance Core.NFData StopEventsDetectionJobResponse
+instance
+  Prelude.NFData
+    StopEventsDetectionJobResponse

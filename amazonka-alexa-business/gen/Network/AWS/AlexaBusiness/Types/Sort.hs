@@ -22,17 +22,18 @@ module Network.AWS.AlexaBusiness.Types.Sort where
 import Network.AWS.AlexaBusiness.Types.SortValue
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a sort criteria.
 --
 -- /See:/ 'newSort' smart constructor.
 data Sort = Sort'
   { -- | The sort key of a sort object.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The sort value of a sort object.
     value :: SortValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Sort' with all optional fields omitted.
@@ -47,7 +48,7 @@ data Sort = Sort'
 -- 'value', 'sort_value' - The sort value of a sort object.
 newSort ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
   SortValue ->
   Sort
@@ -55,22 +56,22 @@ newSort pKey_ pValue_ =
   Sort' {key = pKey_, value = pValue_}
 
 -- | The sort key of a sort object.
-sort_key :: Lens.Lens' Sort Core.Text
+sort_key :: Lens.Lens' Sort Prelude.Text
 sort_key = Lens.lens (\Sort' {key} -> key) (\s@Sort' {} a -> s {key = a} :: Sort)
 
 -- | The sort value of a sort object.
 sort_value :: Lens.Lens' Sort SortValue
 sort_value = Lens.lens (\Sort' {value} -> value) (\s@Sort' {} a -> s {value = a} :: Sort)
 
-instance Core.Hashable Sort
+instance Prelude.Hashable Sort
 
-instance Core.NFData Sort
+instance Prelude.NFData Sort
 
 instance Core.ToJSON Sort where
   toJSON Sort' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

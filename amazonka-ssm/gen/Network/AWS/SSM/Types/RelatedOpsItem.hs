@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.RelatedOpsItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An OpsItems that shares something in common with the current OpsItem.
 -- For example, related OpsItems can include OpsItems with similar error
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRelatedOpsItem' smart constructor.
 data RelatedOpsItem = RelatedOpsItem'
   { -- | The ID of an OpsItem related to the current OpsItem.
-    opsItemId :: Core.Text
+    opsItemId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RelatedOpsItem' with all optional fields omitted.
@@ -44,13 +45,13 @@ data RelatedOpsItem = RelatedOpsItem'
 -- 'opsItemId', 'relatedOpsItem_opsItemId' - The ID of an OpsItem related to the current OpsItem.
 newRelatedOpsItem ::
   -- | 'opsItemId'
-  Core.Text ->
+  Prelude.Text ->
   RelatedOpsItem
 newRelatedOpsItem pOpsItemId_ =
   RelatedOpsItem' {opsItemId = pOpsItemId_}
 
 -- | The ID of an OpsItem related to the current OpsItem.
-relatedOpsItem_opsItemId :: Lens.Lens' RelatedOpsItem Core.Text
+relatedOpsItem_opsItemId :: Lens.Lens' RelatedOpsItem Prelude.Text
 relatedOpsItem_opsItemId = Lens.lens (\RelatedOpsItem' {opsItemId} -> opsItemId) (\s@RelatedOpsItem' {} a -> s {opsItemId = a} :: RelatedOpsItem)
 
 instance Core.FromJSON RelatedOpsItem where
@@ -58,16 +59,16 @@ instance Core.FromJSON RelatedOpsItem where
     Core.withObject
       "RelatedOpsItem"
       ( \x ->
-          RelatedOpsItem' Core.<$> (x Core..: "OpsItemId")
+          RelatedOpsItem' Prelude.<$> (x Core..: "OpsItemId")
       )
 
-instance Core.Hashable RelatedOpsItem
+instance Prelude.Hashable RelatedOpsItem
 
-instance Core.NFData RelatedOpsItem
+instance Prelude.NFData RelatedOpsItem
 
 instance Core.ToJSON RelatedOpsItem where
   toJSON RelatedOpsItem' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("OpsItemId" Core..= opsItemId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("OpsItemId" Core..= opsItemId)]
       )

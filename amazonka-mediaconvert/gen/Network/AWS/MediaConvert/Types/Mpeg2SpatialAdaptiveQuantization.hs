@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Mpeg2SpatialAdaptiveQuantization
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
 -- each frame based on spatial variation of content complexity. When you
@@ -49,15 +50,15 @@ newtype Mpeg2SpatialAdaptiveQuantization = Mpeg2SpatialAdaptiveQuantization'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -43,15 +43,16 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEnableDirectory' smart constructor.
 data EnableDirectory = EnableDirectory'
   { -- | The ARN of the directory to enable.
-    directoryArn :: Core.Text
+    directoryArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableDirectory' with all optional fields omitted.
@@ -64,13 +65,13 @@ data EnableDirectory = EnableDirectory'
 -- 'directoryArn', 'enableDirectory_directoryArn' - The ARN of the directory to enable.
 newEnableDirectory ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   EnableDirectory
 newEnableDirectory pDirectoryArn_ =
   EnableDirectory' {directoryArn = pDirectoryArn_}
 
 -- | The ARN of the directory to enable.
-enableDirectory_directoryArn :: Lens.Lens' EnableDirectory Core.Text
+enableDirectory_directoryArn :: Lens.Lens' EnableDirectory Prelude.Text
 enableDirectory_directoryArn = Lens.lens (\EnableDirectory' {directoryArn} -> directoryArn) (\s@EnableDirectory' {} a -> s {directoryArn = a} :: EnableDirectory)
 
 instance Core.AWSRequest EnableDirectory where
@@ -82,38 +83,38 @@ instance Core.AWSRequest EnableDirectory where
     Response.receiveJSON
       ( \s h x ->
           EnableDirectoryResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "DirectoryArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "DirectoryArn")
       )
 
-instance Core.Hashable EnableDirectory
+instance Prelude.Hashable EnableDirectory
 
-instance Core.NFData EnableDirectory
+instance Prelude.NFData EnableDirectory
 
 instance Core.ToHeaders EnableDirectory where
   toHeaders EnableDirectory' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON EnableDirectory where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath EnableDirectory where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/directory/enable"
 
 instance Core.ToQuery EnableDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableDirectoryResponse' smart constructor.
 data EnableDirectoryResponse = EnableDirectoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The ARN of the enabled directory.
-    directoryArn :: Core.Text
+    directoryArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableDirectoryResponse' with all optional fields omitted.
@@ -128,9 +129,9 @@ data EnableDirectoryResponse = EnableDirectoryResponse'
 -- 'directoryArn', 'enableDirectoryResponse_directoryArn' - The ARN of the enabled directory.
 newEnableDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   EnableDirectoryResponse
 newEnableDirectoryResponse
   pHttpStatus_
@@ -141,11 +142,11 @@ newEnableDirectoryResponse
       }
 
 -- | The response's http status code.
-enableDirectoryResponse_httpStatus :: Lens.Lens' EnableDirectoryResponse Core.Int
+enableDirectoryResponse_httpStatus :: Lens.Lens' EnableDirectoryResponse Prelude.Int
 enableDirectoryResponse_httpStatus = Lens.lens (\EnableDirectoryResponse' {httpStatus} -> httpStatus) (\s@EnableDirectoryResponse' {} a -> s {httpStatus = a} :: EnableDirectoryResponse)
 
 -- | The ARN of the enabled directory.
-enableDirectoryResponse_directoryArn :: Lens.Lens' EnableDirectoryResponse Core.Text
+enableDirectoryResponse_directoryArn :: Lens.Lens' EnableDirectoryResponse Prelude.Text
 enableDirectoryResponse_directoryArn = Lens.lens (\EnableDirectoryResponse' {directoryArn} -> directoryArn) (\s@EnableDirectoryResponse' {} a -> s {directoryArn = a} :: EnableDirectoryResponse)
 
-instance Core.NFData EnableDirectoryResponse
+instance Prelude.NFData EnableDirectoryResponse

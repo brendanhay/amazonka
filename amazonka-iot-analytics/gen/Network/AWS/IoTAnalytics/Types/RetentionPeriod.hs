@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.RetentionPeriod where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | How long, in days, message data is kept.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data RetentionPeriod = RetentionPeriod'
   { -- | The number of days that message data is kept. The @unlimited@ parameter
     -- must be false.
-    numberOfDays :: Core.Maybe Core.Natural,
+    numberOfDays :: Prelude.Maybe Prelude.Natural,
     -- | If true, message data is kept indefinitely.
-    unlimited :: Core.Maybe Core.Bool
+    unlimited :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetentionPeriod' with all optional fields omitted.
@@ -50,17 +51,17 @@ newRetentionPeriod ::
   RetentionPeriod
 newRetentionPeriod =
   RetentionPeriod'
-    { numberOfDays = Core.Nothing,
-      unlimited = Core.Nothing
+    { numberOfDays = Prelude.Nothing,
+      unlimited = Prelude.Nothing
     }
 
 -- | The number of days that message data is kept. The @unlimited@ parameter
 -- must be false.
-retentionPeriod_numberOfDays :: Lens.Lens' RetentionPeriod (Core.Maybe Core.Natural)
+retentionPeriod_numberOfDays :: Lens.Lens' RetentionPeriod (Prelude.Maybe Prelude.Natural)
 retentionPeriod_numberOfDays = Lens.lens (\RetentionPeriod' {numberOfDays} -> numberOfDays) (\s@RetentionPeriod' {} a -> s {numberOfDays = a} :: RetentionPeriod)
 
 -- | If true, message data is kept indefinitely.
-retentionPeriod_unlimited :: Lens.Lens' RetentionPeriod (Core.Maybe Core.Bool)
+retentionPeriod_unlimited :: Lens.Lens' RetentionPeriod (Prelude.Maybe Prelude.Bool)
 retentionPeriod_unlimited = Lens.lens (\RetentionPeriod' {unlimited} -> unlimited) (\s@RetentionPeriod' {} a -> s {unlimited = a} :: RetentionPeriod)
 
 instance Core.FromJSON RetentionPeriod where
@@ -69,19 +70,19 @@ instance Core.FromJSON RetentionPeriod where
       "RetentionPeriod"
       ( \x ->
           RetentionPeriod'
-            Core.<$> (x Core..:? "numberOfDays")
-            Core.<*> (x Core..:? "unlimited")
+            Prelude.<$> (x Core..:? "numberOfDays")
+            Prelude.<*> (x Core..:? "unlimited")
       )
 
-instance Core.Hashable RetentionPeriod
+instance Prelude.Hashable RetentionPeriod
 
-instance Core.NFData RetentionPeriod
+instance Prelude.NFData RetentionPeriod
 
 instance Core.ToJSON RetentionPeriod where
   toJSON RetentionPeriod' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("numberOfDays" Core..=) Core.<$> numberOfDays,
-            ("unlimited" Core..=) Core.<$> unlimited
+      ( Prelude.catMaybes
+          [ ("numberOfDays" Core..=) Prelude.<$> numberOfDays,
+            ("unlimited" Core..=) Prelude.<$> unlimited
           ]
       )

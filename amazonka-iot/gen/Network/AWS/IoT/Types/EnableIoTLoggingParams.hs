@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.EnableIoTLoggingParams where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.LogLevel
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters used when defining a mitigation action that enable AWS IoT
 -- logging.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEnableIoTLoggingParams' smart constructor.
 data EnableIoTLoggingParams = EnableIoTLoggingParams'
   { -- | The Amazon Resource Name (ARN) of the IAM role used for logging.
-    roleArnForLogging :: Core.Text,
+    roleArnForLogging :: Prelude.Text,
     -- | Specifies the type of information to be logged.
     logLevel :: LogLevel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableIoTLoggingParams' with all optional fields omitted.
@@ -48,7 +49,7 @@ data EnableIoTLoggingParams = EnableIoTLoggingParams'
 -- 'logLevel', 'enableIoTLoggingParams_logLevel' - Specifies the type of information to be logged.
 newEnableIoTLoggingParams ::
   -- | 'roleArnForLogging'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'logLevel'
   LogLevel ->
   EnableIoTLoggingParams
@@ -62,7 +63,7 @@ newEnableIoTLoggingParams
       }
 
 -- | The Amazon Resource Name (ARN) of the IAM role used for logging.
-enableIoTLoggingParams_roleArnForLogging :: Lens.Lens' EnableIoTLoggingParams Core.Text
+enableIoTLoggingParams_roleArnForLogging :: Lens.Lens' EnableIoTLoggingParams Prelude.Text
 enableIoTLoggingParams_roleArnForLogging = Lens.lens (\EnableIoTLoggingParams' {roleArnForLogging} -> roleArnForLogging) (\s@EnableIoTLoggingParams' {} a -> s {roleArnForLogging = a} :: EnableIoTLoggingParams)
 
 -- | Specifies the type of information to be logged.
@@ -75,20 +76,20 @@ instance Core.FromJSON EnableIoTLoggingParams where
       "EnableIoTLoggingParams"
       ( \x ->
           EnableIoTLoggingParams'
-            Core.<$> (x Core..: "roleArnForLogging")
-            Core.<*> (x Core..: "logLevel")
+            Prelude.<$> (x Core..: "roleArnForLogging")
+            Prelude.<*> (x Core..: "logLevel")
       )
 
-instance Core.Hashable EnableIoTLoggingParams
+instance Prelude.Hashable EnableIoTLoggingParams
 
-instance Core.NFData EnableIoTLoggingParams
+instance Prelude.NFData EnableIoTLoggingParams
 
 instance Core.ToJSON EnableIoTLoggingParams where
   toJSON EnableIoTLoggingParams' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("roleArnForLogging" Core..= roleArnForLogging),
-            Core.Just ("logLevel" Core..= logLevel)
+            Prelude.Just ("logLevel" Core..= logLevel)
           ]
       )

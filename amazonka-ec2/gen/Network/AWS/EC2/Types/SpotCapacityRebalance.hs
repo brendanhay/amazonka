@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ReplacementStrategy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Spot Instance replacement strategy to use when Amazon EC2 emits a
 -- signal that your Spot Instance is at an elevated risk of being
@@ -43,9 +44,9 @@ data SpotCapacityRebalance = SpotCapacityRebalance'
     -- rebalance is not automatically terminated. You can terminate it, or you
     -- can leave it running. You are charged for all instances while they are
     -- running.
-    replacementStrategy :: Core.Maybe ReplacementStrategy
+    replacementStrategy :: Prelude.Maybe ReplacementStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotCapacityRebalance' with all optional fields omitted.
@@ -71,7 +72,7 @@ newSpotCapacityRebalance ::
 newSpotCapacityRebalance =
   SpotCapacityRebalance'
     { replacementStrategy =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The replacement strategy to use. Only available for fleets of type
@@ -85,19 +86,19 @@ newSpotCapacityRebalance =
 -- rebalance is not automatically terminated. You can terminate it, or you
 -- can leave it running. You are charged for all instances while they are
 -- running.
-spotCapacityRebalance_replacementStrategy :: Lens.Lens' SpotCapacityRebalance (Core.Maybe ReplacementStrategy)
+spotCapacityRebalance_replacementStrategy :: Lens.Lens' SpotCapacityRebalance (Prelude.Maybe ReplacementStrategy)
 spotCapacityRebalance_replacementStrategy = Lens.lens (\SpotCapacityRebalance' {replacementStrategy} -> replacementStrategy) (\s@SpotCapacityRebalance' {} a -> s {replacementStrategy = a} :: SpotCapacityRebalance)
 
 instance Core.FromXML SpotCapacityRebalance where
   parseXML x =
     SpotCapacityRebalance'
-      Core.<$> (x Core..@? "replacementStrategy")
+      Prelude.<$> (x Core..@? "replacementStrategy")
 
-instance Core.Hashable SpotCapacityRebalance
+instance Prelude.Hashable SpotCapacityRebalance
 
-instance Core.NFData SpotCapacityRebalance
+instance Prelude.NFData SpotCapacityRebalance
 
 instance Core.ToQuery SpotCapacityRebalance where
   toQuery SpotCapacityRebalance' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["ReplacementStrategy" Core.=: replacementStrategy]

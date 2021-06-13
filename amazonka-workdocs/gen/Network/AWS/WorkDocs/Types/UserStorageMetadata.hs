@@ -21,6 +21,7 @@ module Network.AWS.WorkDocs.Types.UserStorageMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.StorageRuleType
 
 -- | Describes the storage for a user.
@@ -28,11 +29,11 @@ import Network.AWS.WorkDocs.Types.StorageRuleType
 -- /See:/ 'newUserStorageMetadata' smart constructor.
 data UserStorageMetadata = UserStorageMetadata'
   { -- | The storage for a user.
-    storageRule :: Core.Maybe StorageRuleType,
+    storageRule :: Prelude.Maybe StorageRuleType,
     -- | The amount of storage used, in bytes.
-    storageUtilizedInBytes :: Core.Maybe Core.Integer
+    storageUtilizedInBytes :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserStorageMetadata' with all optional fields omitted.
@@ -49,16 +50,16 @@ newUserStorageMetadata ::
   UserStorageMetadata
 newUserStorageMetadata =
   UserStorageMetadata'
-    { storageRule = Core.Nothing,
-      storageUtilizedInBytes = Core.Nothing
+    { storageRule = Prelude.Nothing,
+      storageUtilizedInBytes = Prelude.Nothing
     }
 
 -- | The storage for a user.
-userStorageMetadata_storageRule :: Lens.Lens' UserStorageMetadata (Core.Maybe StorageRuleType)
+userStorageMetadata_storageRule :: Lens.Lens' UserStorageMetadata (Prelude.Maybe StorageRuleType)
 userStorageMetadata_storageRule = Lens.lens (\UserStorageMetadata' {storageRule} -> storageRule) (\s@UserStorageMetadata' {} a -> s {storageRule = a} :: UserStorageMetadata)
 
 -- | The amount of storage used, in bytes.
-userStorageMetadata_storageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Core.Maybe Core.Integer)
+userStorageMetadata_storageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Prelude.Maybe Prelude.Integer)
 userStorageMetadata_storageUtilizedInBytes = Lens.lens (\UserStorageMetadata' {storageUtilizedInBytes} -> storageUtilizedInBytes) (\s@UserStorageMetadata' {} a -> s {storageUtilizedInBytes = a} :: UserStorageMetadata)
 
 instance Core.FromJSON UserStorageMetadata where
@@ -67,10 +68,10 @@ instance Core.FromJSON UserStorageMetadata where
       "UserStorageMetadata"
       ( \x ->
           UserStorageMetadata'
-            Core.<$> (x Core..:? "StorageRule")
-            Core.<*> (x Core..:? "StorageUtilizedInBytes")
+            Prelude.<$> (x Core..:? "StorageRule")
+            Prelude.<*> (x Core..:? "StorageUtilizedInBytes")
       )
 
-instance Core.Hashable UserStorageMetadata
+instance Prelude.Hashable UserStorageMetadata
 
-instance Core.NFData UserStorageMetadata
+instance Prelude.NFData UserStorageMetadata

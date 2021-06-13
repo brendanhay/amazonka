@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,21 +55,21 @@ data ListTemplates = ListTemplates'
   { -- | The string that specifies which page of results to return in a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Core.Maybe Core.Text,
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The type of message template to include in the results. Valid values
     -- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
     -- the results, don\'t include this parameter in your request.
-    templateType :: Core.Maybe Core.Text,
+    templateType :: Prelude.Maybe Prelude.Text,
     -- | The substring to match in the names of the message templates to include
     -- in the results. If you specify this value, Amazon Pinpoint returns only
     -- those templates whose names begin with the value that you specify.
-    prefix :: Core.Maybe Core.Text
+    prefix :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTemplates' with all optional fields omitted.
@@ -97,34 +98,34 @@ newListTemplates ::
   ListTemplates
 newListTemplates =
   ListTemplates'
-    { nextToken = Core.Nothing,
-      pageSize = Core.Nothing,
-      templateType = Core.Nothing,
-      prefix = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      templateType = Prelude.Nothing,
+      prefix = Prelude.Nothing
     }
 
 -- | The string that specifies which page of results to return in a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-listTemplates_nextToken :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
+listTemplates_nextToken :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (\s@ListTemplates' {} a -> s {nextToken = a} :: ListTemplates)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-listTemplates_pageSize :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
+listTemplates_pageSize :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_pageSize = Lens.lens (\ListTemplates' {pageSize} -> pageSize) (\s@ListTemplates' {} a -> s {pageSize = a} :: ListTemplates)
 
 -- | The type of message template to include in the results. Valid values
 -- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
 -- the results, don\'t include this parameter in your request.
-listTemplates_templateType :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
+listTemplates_templateType :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_templateType = Lens.lens (\ListTemplates' {templateType} -> templateType) (\s@ListTemplates' {} a -> s {templateType = a} :: ListTemplates)
 
 -- | The substring to match in the names of the message templates to include
 -- in the results. If you specify this value, Amazon Pinpoint returns only
 -- those templates whose names begin with the value that you specify.
-listTemplates_prefix :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
+listTemplates_prefix :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_prefix = Lens.lens (\ListTemplates' {prefix} -> prefix) (\s@ListTemplates' {} a -> s {prefix = a} :: ListTemplates)
 
 instance Core.AWSRequest ListTemplates where
@@ -136,29 +137,31 @@ instance Core.AWSRequest ListTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListTemplatesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable ListTemplates
+instance Prelude.Hashable ListTemplates
 
-instance Core.NFData ListTemplates
+instance Prelude.NFData ListTemplates
 
 instance Core.ToHeaders ListTemplates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListTemplates where
-  toPath = Core.const "/v1/templates"
+  toPath = Prelude.const "/v1/templates"
 
 instance Core.ToQuery ListTemplates where
   toQuery ListTemplates' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "next-token" Core.=: nextToken,
         "page-size" Core.=: pageSize,
         "template-type" Core.=: templateType,
@@ -168,10 +171,10 @@ instance Core.ToQuery ListTemplates where
 -- | /See:/ 'newListTemplatesResponse' smart constructor.
 data ListTemplatesResponse = ListTemplatesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     templatesResponse :: TemplatesResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTemplatesResponse' with all optional fields omitted.
@@ -186,7 +189,7 @@ data ListTemplatesResponse = ListTemplatesResponse'
 -- 'templatesResponse', 'listTemplatesResponse_templatesResponse' - Undocumented member.
 newListTemplatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'templatesResponse'
   TemplatesResponse ->
   ListTemplatesResponse
@@ -199,11 +202,11 @@ newListTemplatesResponse
       }
 
 -- | The response's http status code.
-listTemplatesResponse_httpStatus :: Lens.Lens' ListTemplatesResponse Core.Int
+listTemplatesResponse_httpStatus :: Lens.Lens' ListTemplatesResponse Prelude.Int
 listTemplatesResponse_httpStatus = Lens.lens (\ListTemplatesResponse' {httpStatus} -> httpStatus) (\s@ListTemplatesResponse' {} a -> s {httpStatus = a} :: ListTemplatesResponse)
 
 -- | Undocumented member.
 listTemplatesResponse_templatesResponse :: Lens.Lens' ListTemplatesResponse TemplatesResponse
 listTemplatesResponse_templatesResponse = Lens.lens (\ListTemplatesResponse' {templatesResponse} -> templatesResponse) (\s@ListTemplatesResponse' {} a -> s {templatesResponse = a} :: ListTemplatesResponse)
 
-instance Core.NFData ListTemplatesResponse
+instance Prelude.NFData ListTemplatesResponse

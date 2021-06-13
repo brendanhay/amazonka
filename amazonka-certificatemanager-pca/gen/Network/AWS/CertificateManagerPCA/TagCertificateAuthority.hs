@@ -50,6 +50,7 @@ where
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ data TagCertificateAuthority = TagCertificateAuthority'
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-    certificateAuthorityArn :: Core.Text,
+    certificateAuthorityArn :: Prelude.Text,
     -- | List of tags to be associated with the CA.
-    tags :: Core.NonEmpty Tag
+    tags :: Prelude.NonEmpty Tag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagCertificateAuthority' with all optional fields omitted.
@@ -83,9 +84,9 @@ data TagCertificateAuthority = TagCertificateAuthority'
 -- 'tags', 'tagCertificateAuthority_tags' - List of tags to be associated with the CA.
 newTagCertificateAuthority ::
   -- | 'certificateAuthorityArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tags'
-  Core.NonEmpty Tag ->
+  Prelude.NonEmpty Tag ->
   TagCertificateAuthority
 newTagCertificateAuthority
   pCertificateAuthorityArn_
@@ -101,12 +102,12 @@ newTagCertificateAuthority
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-tagCertificateAuthority_certificateAuthorityArn :: Lens.Lens' TagCertificateAuthority Core.Text
+tagCertificateAuthority_certificateAuthorityArn :: Lens.Lens' TagCertificateAuthority Prelude.Text
 tagCertificateAuthority_certificateAuthorityArn = Lens.lens (\TagCertificateAuthority' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@TagCertificateAuthority' {} a -> s {certificateAuthorityArn = a} :: TagCertificateAuthority)
 
 -- | List of tags to be associated with the CA.
-tagCertificateAuthority_tags :: Lens.Lens' TagCertificateAuthority (Core.NonEmpty Tag)
-tagCertificateAuthority_tags = Lens.lens (\TagCertificateAuthority' {tags} -> tags) (\s@TagCertificateAuthority' {} a -> s {tags = a} :: TagCertificateAuthority) Core.. Lens._Coerce
+tagCertificateAuthority_tags :: Lens.Lens' TagCertificateAuthority (Prelude.NonEmpty Tag)
+tagCertificateAuthority_tags = Lens.lens (\TagCertificateAuthority' {tags} -> tags) (\s@TagCertificateAuthority' {} a -> s {tags = a} :: TagCertificateAuthority) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagCertificateAuthority where
   type
@@ -117,46 +118,48 @@ instance Core.AWSRequest TagCertificateAuthority where
     Response.receiveNull
       TagCertificateAuthorityResponse'
 
-instance Core.Hashable TagCertificateAuthority
+instance Prelude.Hashable TagCertificateAuthority
 
-instance Core.NFData TagCertificateAuthority
+instance Prelude.NFData TagCertificateAuthority
 
 instance Core.ToHeaders TagCertificateAuthority where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ACMPrivateCA.TagCertificateAuthority" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TagCertificateAuthority where
   toJSON TagCertificateAuthority' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "CertificateAuthorityArn"
                   Core..= certificateAuthorityArn
               ),
-            Core.Just ("Tags" Core..= tags)
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath TagCertificateAuthority where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagCertificateAuthority where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagCertificateAuthorityResponse' smart constructor.
 data TagCertificateAuthorityResponse = TagCertificateAuthorityResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagCertificateAuthorityResponse' with all optional fields omitted.
@@ -167,4 +170,6 @@ newTagCertificateAuthorityResponse ::
 newTagCertificateAuthorityResponse =
   TagCertificateAuthorityResponse'
 
-instance Core.NFData TagCertificateAuthorityResponse
+instance
+  Prelude.NFData
+    TagCertificateAuthorityResponse

@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data GetFieldLevelEncryptionProfileConfig = GetFieldLevelEncryptionProfileConfig'
   { -- | Get the ID for the field-level encryption profile configuration
     -- information.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFieldLevelEncryptionProfileConfig' with all optional fields omitted.
@@ -66,14 +67,14 @@ data GetFieldLevelEncryptionProfileConfig = GetFieldLevelEncryptionProfileConfig
 -- information.
 newGetFieldLevelEncryptionProfileConfig ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetFieldLevelEncryptionProfileConfig
 newGetFieldLevelEncryptionProfileConfig pId_ =
   GetFieldLevelEncryptionProfileConfig' {id = pId_}
 
 -- | Get the ID for the field-level encryption profile configuration
 -- information.
-getFieldLevelEncryptionProfileConfig_id :: Lens.Lens' GetFieldLevelEncryptionProfileConfig Core.Text
+getFieldLevelEncryptionProfileConfig_id :: Lens.Lens' GetFieldLevelEncryptionProfileConfig Prelude.Text
 getFieldLevelEncryptionProfileConfig_id = Lens.lens (\GetFieldLevelEncryptionProfileConfig' {id} -> id) (\s@GetFieldLevelEncryptionProfileConfig' {} a -> s {id = a} :: GetFieldLevelEncryptionProfileConfig)
 
 instance
@@ -88,30 +89,30 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetFieldLevelEncryptionProfileConfigResponse'
-            Core.<$> (h Core..#? "ETag") Core.<*> (Core.parseXML x)
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag") Prelude.<*> (Core.parseXML x)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetFieldLevelEncryptionProfileConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetFieldLevelEncryptionProfileConfig
 
 instance
   Core.ToHeaders
     GetFieldLevelEncryptionProfileConfig
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     GetFieldLevelEncryptionProfileConfig
   where
   toPath GetFieldLevelEncryptionProfileConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/field-level-encryption-profile/",
         Core.toBS id,
         "/config"
@@ -121,19 +122,19 @@ instance
   Core.ToQuery
     GetFieldLevelEncryptionProfileConfig
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFieldLevelEncryptionProfileConfigResponse' smart constructor.
 data GetFieldLevelEncryptionProfileConfigResponse = GetFieldLevelEncryptionProfileConfigResponse'
   { -- | The current version of the field-level encryption profile configuration
     -- result. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | Return the field-level encryption profile configuration information.
-    fieldLevelEncryptionProfileConfig :: Core.Maybe FieldLevelEncryptionProfileConfig,
+    fieldLevelEncryptionProfileConfig :: Prelude.Maybe FieldLevelEncryptionProfileConfig,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFieldLevelEncryptionProfileConfigResponse' with all optional fields omitted.
@@ -151,31 +152,31 @@ data GetFieldLevelEncryptionProfileConfigResponse = GetFieldLevelEncryptionProfi
 -- 'httpStatus', 'getFieldLevelEncryptionProfileConfigResponse_httpStatus' - The response's http status code.
 newGetFieldLevelEncryptionProfileConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetFieldLevelEncryptionProfileConfigResponse
 newGetFieldLevelEncryptionProfileConfigResponse
   pHttpStatus_ =
     GetFieldLevelEncryptionProfileConfigResponse'
       { eTag =
-          Core.Nothing,
+          Prelude.Nothing,
         fieldLevelEncryptionProfileConfig =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current version of the field-level encryption profile configuration
 -- result. For example: @E2QWRUHAPOMQZL@.
-getFieldLevelEncryptionProfileConfigResponse_eTag :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse (Core.Maybe Core.Text)
+getFieldLevelEncryptionProfileConfigResponse_eTag :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse (Prelude.Maybe Prelude.Text)
 getFieldLevelEncryptionProfileConfigResponse_eTag = Lens.lens (\GetFieldLevelEncryptionProfileConfigResponse' {eTag} -> eTag) (\s@GetFieldLevelEncryptionProfileConfigResponse' {} a -> s {eTag = a} :: GetFieldLevelEncryptionProfileConfigResponse)
 
 -- | Return the field-level encryption profile configuration information.
-getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse (Core.Maybe FieldLevelEncryptionProfileConfig)
+getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse (Prelude.Maybe FieldLevelEncryptionProfileConfig)
 getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig = Lens.lens (\GetFieldLevelEncryptionProfileConfigResponse' {fieldLevelEncryptionProfileConfig} -> fieldLevelEncryptionProfileConfig) (\s@GetFieldLevelEncryptionProfileConfigResponse' {} a -> s {fieldLevelEncryptionProfileConfig = a} :: GetFieldLevelEncryptionProfileConfigResponse)
 
 -- | The response's http status code.
-getFieldLevelEncryptionProfileConfigResponse_httpStatus :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse Core.Int
+getFieldLevelEncryptionProfileConfigResponse_httpStatus :: Lens.Lens' GetFieldLevelEncryptionProfileConfigResponse Prelude.Int
 getFieldLevelEncryptionProfileConfigResponse_httpStatus = Lens.lens (\GetFieldLevelEncryptionProfileConfigResponse' {httpStatus} -> httpStatus) (\s@GetFieldLevelEncryptionProfileConfigResponse' {} a -> s {httpStatus = a} :: GetFieldLevelEncryptionProfileConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetFieldLevelEncryptionProfileConfigResponse

@@ -46,17 +46,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeQueue' smart constructor.
 data DescribeQueue = DescribeQueue'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier for the queue.
-    queueId :: Core.Text
+    queueId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeQueue' with all optional fields omitted.
@@ -71,9 +72,9 @@ data DescribeQueue = DescribeQueue'
 -- 'queueId', 'describeQueue_queueId' - The identifier for the queue.
 newDescribeQueue ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'queueId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeQueue
 newDescribeQueue pInstanceId_ pQueueId_ =
   DescribeQueue'
@@ -82,11 +83,11 @@ newDescribeQueue pInstanceId_ pQueueId_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-describeQueue_instanceId :: Lens.Lens' DescribeQueue Core.Text
+describeQueue_instanceId :: Lens.Lens' DescribeQueue Prelude.Text
 describeQueue_instanceId = Lens.lens (\DescribeQueue' {instanceId} -> instanceId) (\s@DescribeQueue' {} a -> s {instanceId = a} :: DescribeQueue)
 
 -- | The identifier for the queue.
-describeQueue_queueId :: Lens.Lens' DescribeQueue Core.Text
+describeQueue_queueId :: Lens.Lens' DescribeQueue Prelude.Text
 describeQueue_queueId = Lens.lens (\DescribeQueue' {queueId} -> queueId) (\s@DescribeQueue' {} a -> s {queueId = a} :: DescribeQueue)
 
 instance Core.AWSRequest DescribeQueue where
@@ -98,26 +99,28 @@ instance Core.AWSRequest DescribeQueue where
     Response.receiveJSON
       ( \s h x ->
           DescribeQueueResponse'
-            Core.<$> (x Core..?> "Queue")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Queue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeQueue
+instance Prelude.Hashable DescribeQueue
 
-instance Core.NFData DescribeQueue
+instance Prelude.NFData DescribeQueue
 
 instance Core.ToHeaders DescribeQueue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeQueue where
   toPath DescribeQueue' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/queues/",
         Core.toBS instanceId,
         "/",
@@ -125,16 +128,16 @@ instance Core.ToPath DescribeQueue where
       ]
 
 instance Core.ToQuery DescribeQueue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeQueueResponse' smart constructor.
 data DescribeQueueResponse = DescribeQueueResponse'
   { -- | The name of the queue.
-    queue :: Core.Maybe Queue,
+    queue :: Prelude.Maybe Queue,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeQueueResponse' with all optional fields omitted.
@@ -149,20 +152,20 @@ data DescribeQueueResponse = DescribeQueueResponse'
 -- 'httpStatus', 'describeQueueResponse_httpStatus' - The response's http status code.
 newDescribeQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeQueueResponse
 newDescribeQueueResponse pHttpStatus_ =
   DescribeQueueResponse'
-    { queue = Core.Nothing,
+    { queue = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the queue.
-describeQueueResponse_queue :: Lens.Lens' DescribeQueueResponse (Core.Maybe Queue)
+describeQueueResponse_queue :: Lens.Lens' DescribeQueueResponse (Prelude.Maybe Queue)
 describeQueueResponse_queue = Lens.lens (\DescribeQueueResponse' {queue} -> queue) (\s@DescribeQueueResponse' {} a -> s {queue = a} :: DescribeQueueResponse)
 
 -- | The response's http status code.
-describeQueueResponse_httpStatus :: Lens.Lens' DescribeQueueResponse Core.Int
+describeQueueResponse_httpStatus :: Lens.Lens' DescribeQueueResponse Prelude.Int
 describeQueueResponse_httpStatus = Lens.lens (\DescribeQueueResponse' {httpStatus} -> httpStatus) (\s@DescribeQueueResponse' {} a -> s {httpStatus = a} :: DescribeQueueResponse)
 
-instance Core.NFData DescribeQueueResponse
+instance Prelude.NFData DescribeQueueResponse

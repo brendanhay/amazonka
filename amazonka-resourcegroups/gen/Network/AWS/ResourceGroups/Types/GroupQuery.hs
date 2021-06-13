@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.GroupQuery where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.ResourceQuery
 
 -- | A mapping of a query attached to a resource group that determines the
@@ -30,12 +31,12 @@ import Network.AWS.ResourceGroups.Types.ResourceQuery
 data GroupQuery = GroupQuery'
   { -- | The name of the resource group that is associated with the specified
     -- resource query.
-    groupName :: Core.Text,
+    groupName :: Prelude.Text,
     -- | The resource query that determines which AWS resources are members of
     -- the associated resource group.
     resourceQuery :: ResourceQuery
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupQuery' with all optional fields omitted.
@@ -52,7 +53,7 @@ data GroupQuery = GroupQuery'
 -- the associated resource group.
 newGroupQuery ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceQuery'
   ResourceQuery ->
   GroupQuery
@@ -64,7 +65,7 @@ newGroupQuery pGroupName_ pResourceQuery_ =
 
 -- | The name of the resource group that is associated with the specified
 -- resource query.
-groupQuery_groupName :: Lens.Lens' GroupQuery Core.Text
+groupQuery_groupName :: Lens.Lens' GroupQuery Prelude.Text
 groupQuery_groupName = Lens.lens (\GroupQuery' {groupName} -> groupName) (\s@GroupQuery' {} a -> s {groupName = a} :: GroupQuery)
 
 -- | The resource query that determines which AWS resources are members of
@@ -78,10 +79,10 @@ instance Core.FromJSON GroupQuery where
       "GroupQuery"
       ( \x ->
           GroupQuery'
-            Core.<$> (x Core..: "GroupName")
-            Core.<*> (x Core..: "ResourceQuery")
+            Prelude.<$> (x Core..: "GroupName")
+            Prelude.<*> (x Core..: "ResourceQuery")
       )
 
-instance Core.Hashable GroupQuery
+instance Prelude.Hashable GroupQuery
 
-instance Core.NFData GroupQuery
+instance Prelude.NFData GroupQuery

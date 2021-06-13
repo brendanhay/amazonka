@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -60,29 +61,29 @@ import Network.AWS.WorkSpaces.Types
 data DescribeWorkspaces = DescribeWorkspaces'
   { -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the bundle. All WorkSpaces that are created from this
     -- bundle are retrieved. You cannot combine this parameter with any other
     -- filter.
-    bundleId :: Core.Maybe Core.Text,
+    bundleId :: Prelude.Maybe Prelude.Text,
     -- | The identifiers of the WorkSpaces. You cannot combine this parameter
     -- with any other filter.
     --
     -- Because the CreateWorkspaces operation is asynchronous, the identifier
     -- it returns is not immediately available. If you immediately call
     -- DescribeWorkspaces with this identifier, no information is returned.
-    workspaceIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    workspaceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The identifier of the directory. In addition, you can optionally specify
     -- a specific directory user (see @UserName@). You cannot combine this
     -- parameter with any other filter.
-    directoryId :: Core.Maybe Core.Text,
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the directory user. You must specify this parameter with
     -- @DirectoryId@.
-    userName :: Core.Maybe Core.Text,
+    userName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkspaces' with all optional fields omitted.
@@ -118,23 +119,23 @@ newDescribeWorkspaces ::
   DescribeWorkspaces
 newDescribeWorkspaces =
   DescribeWorkspaces'
-    { nextToken = Core.Nothing,
-      bundleId = Core.Nothing,
-      workspaceIds = Core.Nothing,
-      directoryId = Core.Nothing,
-      userName = Core.Nothing,
-      limit = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      bundleId = Prelude.Nothing,
+      workspaceIds = Prelude.Nothing,
+      directoryId = Prelude.Nothing,
+      userName = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
-describeWorkspaces_nextToken :: Lens.Lens' DescribeWorkspaces (Core.Maybe Core.Text)
+describeWorkspaces_nextToken :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
 describeWorkspaces_nextToken = Lens.lens (\DescribeWorkspaces' {nextToken} -> nextToken) (\s@DescribeWorkspaces' {} a -> s {nextToken = a} :: DescribeWorkspaces)
 
 -- | The identifier of the bundle. All WorkSpaces that are created from this
 -- bundle are retrieved. You cannot combine this parameter with any other
 -- filter.
-describeWorkspaces_bundleId :: Lens.Lens' DescribeWorkspaces (Core.Maybe Core.Text)
+describeWorkspaces_bundleId :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
 describeWorkspaces_bundleId = Lens.lens (\DescribeWorkspaces' {bundleId} -> bundleId) (\s@DescribeWorkspaces' {} a -> s {bundleId = a} :: DescribeWorkspaces)
 
 -- | The identifiers of the WorkSpaces. You cannot combine this parameter
@@ -143,22 +144,22 @@ describeWorkspaces_bundleId = Lens.lens (\DescribeWorkspaces' {bundleId} -> bund
 -- Because the CreateWorkspaces operation is asynchronous, the identifier
 -- it returns is not immediately available. If you immediately call
 -- DescribeWorkspaces with this identifier, no information is returned.
-describeWorkspaces_workspaceIds :: Lens.Lens' DescribeWorkspaces (Core.Maybe (Core.NonEmpty Core.Text))
-describeWorkspaces_workspaceIds = Lens.lens (\DescribeWorkspaces' {workspaceIds} -> workspaceIds) (\s@DescribeWorkspaces' {} a -> s {workspaceIds = a} :: DescribeWorkspaces) Core.. Lens.mapping Lens._Coerce
+describeWorkspaces_workspaceIds :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeWorkspaces_workspaceIds = Lens.lens (\DescribeWorkspaces' {workspaceIds} -> workspaceIds) (\s@DescribeWorkspaces' {} a -> s {workspaceIds = a} :: DescribeWorkspaces) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the directory. In addition, you can optionally specify
 -- a specific directory user (see @UserName@). You cannot combine this
 -- parameter with any other filter.
-describeWorkspaces_directoryId :: Lens.Lens' DescribeWorkspaces (Core.Maybe Core.Text)
+describeWorkspaces_directoryId :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
 describeWorkspaces_directoryId = Lens.lens (\DescribeWorkspaces' {directoryId} -> directoryId) (\s@DescribeWorkspaces' {} a -> s {directoryId = a} :: DescribeWorkspaces)
 
 -- | The name of the directory user. You must specify this parameter with
 -- @DirectoryId@.
-describeWorkspaces_userName :: Lens.Lens' DescribeWorkspaces (Core.Maybe Core.Text)
+describeWorkspaces_userName :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
 describeWorkspaces_userName = Lens.lens (\DescribeWorkspaces' {userName} -> userName) (\s@DescribeWorkspaces' {} a -> s {userName = a} :: DescribeWorkspaces)
 
 -- | The maximum number of items to return.
-describeWorkspaces_limit :: Lens.Lens' DescribeWorkspaces (Core.Maybe Core.Natural)
+describeWorkspaces_limit :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Natural)
 describeWorkspaces_limit = Lens.lens (\DescribeWorkspaces' {limit} -> limit) (\s@DescribeWorkspaces' {} a -> s {limit = a} :: DescribeWorkspaces)
 
 instance Core.AWSPager DescribeWorkspaces where
@@ -166,22 +167,22 @@ instance Core.AWSPager DescribeWorkspaces where
     | Core.stop
         ( rs
             Lens.^? describeWorkspacesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeWorkspacesResponse_workspaces
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeWorkspaces_nextToken
+          Prelude.& describeWorkspaces_nextToken
           Lens..~ rs
           Lens.^? describeWorkspacesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeWorkspaces where
   type
@@ -192,61 +193,63 @@ instance Core.AWSRequest DescribeWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspacesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Workspaces" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Workspaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeWorkspaces
+instance Prelude.Hashable DescribeWorkspaces
 
-instance Core.NFData DescribeWorkspaces
+instance Prelude.NFData DescribeWorkspaces
 
 instance Core.ToHeaders DescribeWorkspaces where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DescribeWorkspaces" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeWorkspaces where
   toJSON DescribeWorkspaces' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("BundleId" Core..=) Core.<$> bundleId,
-            ("WorkspaceIds" Core..=) Core.<$> workspaceIds,
-            ("DirectoryId" Core..=) Core.<$> directoryId,
-            ("UserName" Core..=) Core.<$> userName,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("BundleId" Core..=) Prelude.<$> bundleId,
+            ("WorkspaceIds" Core..=) Prelude.<$> workspaceIds,
+            ("DirectoryId" Core..=) Prelude.<$> directoryId,
+            ("UserName" Core..=) Prelude.<$> userName,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath DescribeWorkspaces where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeWorkspaces where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
   { -- | The token to use to retrieve the next set of results, or null if no more
     -- results are available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the WorkSpaces.
     --
     -- Because CreateWorkspaces is an asynchronous operation, some of the
     -- returned information could be incomplete.
-    workspaces :: Core.Maybe [Workspace],
+    workspaces :: Prelude.Maybe [Workspace],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkspacesResponse' with all optional fields omitted.
@@ -267,30 +270,30 @@ data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
 -- 'httpStatus', 'describeWorkspacesResponse_httpStatus' - The response's http status code.
 newDescribeWorkspacesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeWorkspacesResponse
 newDescribeWorkspacesResponse pHttpStatus_ =
   DescribeWorkspacesResponse'
     { nextToken =
-        Core.Nothing,
-      workspaces = Core.Nothing,
+        Prelude.Nothing,
+      workspaces = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next set of results, or null if no more
 -- results are available.
-describeWorkspacesResponse_nextToken :: Lens.Lens' DescribeWorkspacesResponse (Core.Maybe Core.Text)
+describeWorkspacesResponse_nextToken :: Lens.Lens' DescribeWorkspacesResponse (Prelude.Maybe Prelude.Text)
 describeWorkspacesResponse_nextToken = Lens.lens (\DescribeWorkspacesResponse' {nextToken} -> nextToken) (\s@DescribeWorkspacesResponse' {} a -> s {nextToken = a} :: DescribeWorkspacesResponse)
 
 -- | Information about the WorkSpaces.
 --
 -- Because CreateWorkspaces is an asynchronous operation, some of the
 -- returned information could be incomplete.
-describeWorkspacesResponse_workspaces :: Lens.Lens' DescribeWorkspacesResponse (Core.Maybe [Workspace])
-describeWorkspacesResponse_workspaces = Lens.lens (\DescribeWorkspacesResponse' {workspaces} -> workspaces) (\s@DescribeWorkspacesResponse' {} a -> s {workspaces = a} :: DescribeWorkspacesResponse) Core.. Lens.mapping Lens._Coerce
+describeWorkspacesResponse_workspaces :: Lens.Lens' DescribeWorkspacesResponse (Prelude.Maybe [Workspace])
+describeWorkspacesResponse_workspaces = Lens.lens (\DescribeWorkspacesResponse' {workspaces} -> workspaces) (\s@DescribeWorkspacesResponse' {} a -> s {workspaces = a} :: DescribeWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeWorkspacesResponse_httpStatus :: Lens.Lens' DescribeWorkspacesResponse Core.Int
+describeWorkspacesResponse_httpStatus :: Lens.Lens' DescribeWorkspacesResponse Prelude.Int
 describeWorkspacesResponse_httpStatus = Lens.lens (\DescribeWorkspacesResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkspacesResponse' {} a -> s {httpStatus = a} :: DescribeWorkspacesResponse)
 
-instance Core.NFData DescribeWorkspacesResponse
+instance Prelude.NFData DescribeWorkspacesResponse

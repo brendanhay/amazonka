@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,13 +49,13 @@ import qualified Network.AWS.Response as Response
 data UnsubscribeFromEvent = UnsubscribeFromEvent'
   { -- | The ARN of the assessment template that is used during the event for
     -- which you want to stop receiving SNS notifications.
-    resourceArn :: Core.Text,
+    resourceArn :: Prelude.Text,
     -- | The event for which you want to stop receiving SNS notifications.
     event :: InspectorEvent,
     -- | The ARN of the SNS topic to which SNS notifications are sent.
-    topicArn :: Core.Text
+    topicArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnsubscribeFromEvent' with all optional fields omitted.
@@ -72,11 +73,11 @@ data UnsubscribeFromEvent = UnsubscribeFromEvent'
 -- 'topicArn', 'unsubscribeFromEvent_topicArn' - The ARN of the SNS topic to which SNS notifications are sent.
 newUnsubscribeFromEvent ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'event'
   InspectorEvent ->
   -- | 'topicArn'
-  Core.Text ->
+  Prelude.Text ->
   UnsubscribeFromEvent
 newUnsubscribeFromEvent
   pResourceArn_
@@ -90,7 +91,7 @@ newUnsubscribeFromEvent
 
 -- | The ARN of the assessment template that is used during the event for
 -- which you want to stop receiving SNS notifications.
-unsubscribeFromEvent_resourceArn :: Lens.Lens' UnsubscribeFromEvent Core.Text
+unsubscribeFromEvent_resourceArn :: Lens.Lens' UnsubscribeFromEvent Prelude.Text
 unsubscribeFromEvent_resourceArn = Lens.lens (\UnsubscribeFromEvent' {resourceArn} -> resourceArn) (\s@UnsubscribeFromEvent' {} a -> s {resourceArn = a} :: UnsubscribeFromEvent)
 
 -- | The event for which you want to stop receiving SNS notifications.
@@ -98,7 +99,7 @@ unsubscribeFromEvent_event :: Lens.Lens' UnsubscribeFromEvent InspectorEvent
 unsubscribeFromEvent_event = Lens.lens (\UnsubscribeFromEvent' {event} -> event) (\s@UnsubscribeFromEvent' {} a -> s {event = a} :: UnsubscribeFromEvent)
 
 -- | The ARN of the SNS topic to which SNS notifications are sent.
-unsubscribeFromEvent_topicArn :: Lens.Lens' UnsubscribeFromEvent Core.Text
+unsubscribeFromEvent_topicArn :: Lens.Lens' UnsubscribeFromEvent Prelude.Text
 unsubscribeFromEvent_topicArn = Lens.lens (\UnsubscribeFromEvent' {topicArn} -> topicArn) (\s@UnsubscribeFromEvent' {} a -> s {topicArn = a} :: UnsubscribeFromEvent)
 
 instance Core.AWSRequest UnsubscribeFromEvent where
@@ -109,44 +110,46 @@ instance Core.AWSRequest UnsubscribeFromEvent where
   response =
     Response.receiveNull UnsubscribeFromEventResponse'
 
-instance Core.Hashable UnsubscribeFromEvent
+instance Prelude.Hashable UnsubscribeFromEvent
 
-instance Core.NFData UnsubscribeFromEvent
+instance Prelude.NFData UnsubscribeFromEvent
 
 instance Core.ToHeaders UnsubscribeFromEvent where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.UnsubscribeFromEvent" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UnsubscribeFromEvent where
   toJSON UnsubscribeFromEvent' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("resourceArn" Core..= resourceArn),
-            Core.Just ("event" Core..= event),
-            Core.Just ("topicArn" Core..= topicArn)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("resourceArn" Core..= resourceArn),
+            Prelude.Just ("event" Core..= event),
+            Prelude.Just ("topicArn" Core..= topicArn)
           ]
       )
 
 instance Core.ToPath UnsubscribeFromEvent where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UnsubscribeFromEvent where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnsubscribeFromEventResponse' smart constructor.
 data UnsubscribeFromEventResponse = UnsubscribeFromEventResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnsubscribeFromEventResponse' with all optional fields omitted.
@@ -157,4 +160,4 @@ newUnsubscribeFromEventResponse ::
 newUnsubscribeFromEventResponse =
   UnsubscribeFromEventResponse'
 
-instance Core.NFData UnsubscribeFromEventResponse
+instance Prelude.NFData UnsubscribeFromEventResponse

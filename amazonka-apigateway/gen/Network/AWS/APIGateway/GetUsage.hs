@@ -52,6 +52,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,20 +62,20 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetUsage' smart constructor.
 data GetUsage = GetUsage'
   { -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int,
+    limit :: Prelude.Maybe Prelude.Int,
     -- | The Id of the API key associated with the resultant usage data.
-    keyId :: Core.Maybe Core.Text,
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | [Required] The Id of the usage plan associated with the usage data.
-    usagePlanId :: Core.Text,
+    usagePlanId :: Prelude.Text,
     -- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
-    startDate :: Core.Text,
+    startDate :: Prelude.Text,
     -- | [Required] The ending date (e.g., 2016-12-31) of the usage data.
-    endDate :: Core.Text
+    endDate :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUsage' with all optional fields omitted.
@@ -98,60 +99,60 @@ data GetUsage = GetUsage'
 -- 'endDate', 'getUsage_endDate' - [Required] The ending date (e.g., 2016-12-31) of the usage data.
 newGetUsage ::
   -- | 'usagePlanId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startDate'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endDate'
-  Core.Text ->
+  Prelude.Text ->
   GetUsage
 newGetUsage pUsagePlanId_ pStartDate_ pEndDate_ =
   GetUsage'
-    { position = Core.Nothing,
-      limit = Core.Nothing,
-      keyId = Core.Nothing,
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      keyId = Prelude.Nothing,
       usagePlanId = pUsagePlanId_,
       startDate = pStartDate_,
       endDate = pEndDate_
     }
 
 -- | The current pagination position in the paged result set.
-getUsage_position :: Lens.Lens' GetUsage (Core.Maybe Core.Text)
+getUsage_position :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Text)
 getUsage_position = Lens.lens (\GetUsage' {position} -> position) (\s@GetUsage' {} a -> s {position = a} :: GetUsage)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getUsage_limit :: Lens.Lens' GetUsage (Core.Maybe Core.Int)
+getUsage_limit :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Int)
 getUsage_limit = Lens.lens (\GetUsage' {limit} -> limit) (\s@GetUsage' {} a -> s {limit = a} :: GetUsage)
 
 -- | The Id of the API key associated with the resultant usage data.
-getUsage_keyId :: Lens.Lens' GetUsage (Core.Maybe Core.Text)
+getUsage_keyId :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Text)
 getUsage_keyId = Lens.lens (\GetUsage' {keyId} -> keyId) (\s@GetUsage' {} a -> s {keyId = a} :: GetUsage)
 
 -- | [Required] The Id of the usage plan associated with the usage data.
-getUsage_usagePlanId :: Lens.Lens' GetUsage Core.Text
+getUsage_usagePlanId :: Lens.Lens' GetUsage Prelude.Text
 getUsage_usagePlanId = Lens.lens (\GetUsage' {usagePlanId} -> usagePlanId) (\s@GetUsage' {} a -> s {usagePlanId = a} :: GetUsage)
 
 -- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
-getUsage_startDate :: Lens.Lens' GetUsage Core.Text
+getUsage_startDate :: Lens.Lens' GetUsage Prelude.Text
 getUsage_startDate = Lens.lens (\GetUsage' {startDate} -> startDate) (\s@GetUsage' {} a -> s {startDate = a} :: GetUsage)
 
 -- | [Required] The ending date (e.g., 2016-12-31) of the usage data.
-getUsage_endDate :: Lens.Lens' GetUsage Core.Text
+getUsage_endDate :: Lens.Lens' GetUsage Prelude.Text
 getUsage_endDate = Lens.lens (\GetUsage' {endDate} -> endDate) (\s@GetUsage' {} a -> s {endDate = a} :: GetUsage)
 
 instance Core.AWSPager GetUsage where
   page rq rs
     | Core.stop
-        (rs Lens.^? usage_position Core.. Lens._Just) =
-      Core.Nothing
+        (rs Lens.^? usage_position Prelude.. Lens._Just) =
+      Prelude.Nothing
     | Core.stop
-        (rs Lens.^? usage_items Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+        (rs Lens.^? usage_items Prelude.. Lens._Just) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getUsage_position
-          Lens..~ rs Lens.^? usage_position Core.. Lens._Just
+          Prelude.& getUsage_position
+          Lens..~ rs Lens.^? usage_position Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUsage where
   type AWSResponse GetUsage = Usage
@@ -160,27 +161,27 @@ instance Core.AWSRequest GetUsage where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetUsage
+instance Prelude.Hashable GetUsage
 
-instance Core.NFData GetUsage
+instance Prelude.NFData GetUsage
 
 instance Core.ToHeaders GetUsage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetUsage where
   toPath GetUsage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/usageplans/", Core.toBS usagePlanId, "/usage"]
 
 instance Core.ToQuery GetUsage where
   toQuery GetUsage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "position" Core.=: position,
         "limit" Core.=: limit,
         "keyId" Core.=: keyId,

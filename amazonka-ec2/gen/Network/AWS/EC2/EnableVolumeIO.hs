@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ data EnableVolumeIO = EnableVolumeIO'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the volume.
-    volumeId :: Core.Text
+    volumeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableVolumeIO' with all optional fields omitted.
@@ -71,11 +72,11 @@ data EnableVolumeIO = EnableVolumeIO'
 -- 'volumeId', 'enableVolumeIO_volumeId' - The ID of the volume.
 newEnableVolumeIO ::
   -- | 'volumeId'
-  Core.Text ->
+  Prelude.Text ->
   EnableVolumeIO
 newEnableVolumeIO pVolumeId_ =
   EnableVolumeIO'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -83,11 +84,11 @@ newEnableVolumeIO pVolumeId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-enableVolumeIO_dryRun :: Lens.Lens' EnableVolumeIO (Core.Maybe Core.Bool)
+enableVolumeIO_dryRun :: Lens.Lens' EnableVolumeIO (Prelude.Maybe Prelude.Bool)
 enableVolumeIO_dryRun = Lens.lens (\EnableVolumeIO' {dryRun} -> dryRun) (\s@EnableVolumeIO' {} a -> s {dryRun = a} :: EnableVolumeIO)
 
 -- | The ID of the volume.
-enableVolumeIO_volumeId :: Lens.Lens' EnableVolumeIO Core.Text
+enableVolumeIO_volumeId :: Lens.Lens' EnableVolumeIO Prelude.Text
 enableVolumeIO_volumeId = Lens.lens (\EnableVolumeIO' {volumeId} -> volumeId) (\s@EnableVolumeIO' {} a -> s {volumeId = a} :: EnableVolumeIO)
 
 instance Core.AWSRequest EnableVolumeIO where
@@ -98,22 +99,23 @@ instance Core.AWSRequest EnableVolumeIO where
   response =
     Response.receiveNull EnableVolumeIOResponse'
 
-instance Core.Hashable EnableVolumeIO
+instance Prelude.Hashable EnableVolumeIO
 
-instance Core.NFData EnableVolumeIO
+instance Prelude.NFData EnableVolumeIO
 
 instance Core.ToHeaders EnableVolumeIO where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath EnableVolumeIO where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableVolumeIO where
   toQuery EnableVolumeIO' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableVolumeIO" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("EnableVolumeIO" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "VolumeId" Core.=: volumeId
       ]
@@ -122,7 +124,7 @@ instance Core.ToQuery EnableVolumeIO where
 data EnableVolumeIOResponse = EnableVolumeIOResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableVolumeIOResponse' with all optional fields omitted.
@@ -132,4 +134,4 @@ newEnableVolumeIOResponse ::
   EnableVolumeIOResponse
 newEnableVolumeIOResponse = EnableVolumeIOResponse'
 
-instance Core.NFData EnableVolumeIOResponse
+instance Prelude.NFData EnableVolumeIOResponse

@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.ElasticGpuSpecificationResponse where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an elastic GPU.
 --
 -- /See:/ 'newElasticGpuSpecificationResponse' smart constructor.
 data ElasticGpuSpecificationResponse = ElasticGpuSpecificationResponse'
   { -- | The elastic GPU type.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ElasticGpuSpecificationResponse' with all optional fields omitted.
@@ -46,20 +47,22 @@ newElasticGpuSpecificationResponse ::
 newElasticGpuSpecificationResponse =
   ElasticGpuSpecificationResponse'
     { type' =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The elastic GPU type.
-elasticGpuSpecificationResponse_type :: Lens.Lens' ElasticGpuSpecificationResponse (Core.Maybe Core.Text)
+elasticGpuSpecificationResponse_type :: Lens.Lens' ElasticGpuSpecificationResponse (Prelude.Maybe Prelude.Text)
 elasticGpuSpecificationResponse_type = Lens.lens (\ElasticGpuSpecificationResponse' {type'} -> type') (\s@ElasticGpuSpecificationResponse' {} a -> s {type' = a} :: ElasticGpuSpecificationResponse)
 
 instance Core.FromXML ElasticGpuSpecificationResponse where
   parseXML x =
     ElasticGpuSpecificationResponse'
-      Core.<$> (x Core..@? "type")
+      Prelude.<$> (x Core..@? "type")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ElasticGpuSpecificationResponse
 
-instance Core.NFData ElasticGpuSpecificationResponse
+instance
+  Prelude.NFData
+    ElasticGpuSpecificationResponse

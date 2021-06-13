@@ -21,19 +21,20 @@ module Network.AWS.Connect.Types.RoutingProfileSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about a routing profile.
 --
 -- /See:/ 'newRoutingProfileSummary' smart constructor.
 data RoutingProfileSummary = RoutingProfileSummary'
   { -- | The Amazon Resource Name (ARN) of the routing profile.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the routing profile.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the routing profile.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RoutingProfileSummary' with all optional fields omitted.
@@ -52,21 +53,21 @@ newRoutingProfileSummary ::
   RoutingProfileSummary
 newRoutingProfileSummary =
   RoutingProfileSummary'
-    { arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the routing profile.
-routingProfileSummary_arn :: Lens.Lens' RoutingProfileSummary (Core.Maybe Core.Text)
+routingProfileSummary_arn :: Lens.Lens' RoutingProfileSummary (Prelude.Maybe Prelude.Text)
 routingProfileSummary_arn = Lens.lens (\RoutingProfileSummary' {arn} -> arn) (\s@RoutingProfileSummary' {} a -> s {arn = a} :: RoutingProfileSummary)
 
 -- | The identifier of the routing profile.
-routingProfileSummary_id :: Lens.Lens' RoutingProfileSummary (Core.Maybe Core.Text)
+routingProfileSummary_id :: Lens.Lens' RoutingProfileSummary (Prelude.Maybe Prelude.Text)
 routingProfileSummary_id = Lens.lens (\RoutingProfileSummary' {id} -> id) (\s@RoutingProfileSummary' {} a -> s {id = a} :: RoutingProfileSummary)
 
 -- | The name of the routing profile.
-routingProfileSummary_name :: Lens.Lens' RoutingProfileSummary (Core.Maybe Core.Text)
+routingProfileSummary_name :: Lens.Lens' RoutingProfileSummary (Prelude.Maybe Prelude.Text)
 routingProfileSummary_name = Lens.lens (\RoutingProfileSummary' {name} -> name) (\s@RoutingProfileSummary' {} a -> s {name = a} :: RoutingProfileSummary)
 
 instance Core.FromJSON RoutingProfileSummary where
@@ -75,11 +76,11 @@ instance Core.FromJSON RoutingProfileSummary where
       "RoutingProfileSummary"
       ( \x ->
           RoutingProfileSummary'
-            Core.<$> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable RoutingProfileSummary
+instance Prelude.Hashable RoutingProfileSummary
 
-instance Core.NFData RoutingProfileSummary
+instance Prelude.NFData RoutingProfileSummary

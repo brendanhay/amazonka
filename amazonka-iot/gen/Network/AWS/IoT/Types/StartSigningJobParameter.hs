@@ -23,19 +23,20 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.Destination
 import Network.AWS.IoT.Types.SigningProfileParameter
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information required to start a signing job.
 --
 -- /See:/ 'newStartSigningJobParameter' smart constructor.
 data StartSigningJobParameter = StartSigningJobParameter'
   { -- | The code-signing profile name.
-    signingProfileName :: Core.Maybe Core.Text,
+    signingProfileName :: Prelude.Maybe Prelude.Text,
     -- | The location to write the code-signed file.
-    destination :: Core.Maybe Destination,
+    destination :: Prelude.Maybe Destination,
     -- | Describes the code-signing profile.
-    signingProfileParameter :: Core.Maybe SigningProfileParameter
+    signingProfileParameter :: Prelude.Maybe SigningProfileParameter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartSigningJobParameter' with all optional fields omitted.
@@ -55,21 +56,21 @@ newStartSigningJobParameter ::
 newStartSigningJobParameter =
   StartSigningJobParameter'
     { signingProfileName =
-        Core.Nothing,
-      destination = Core.Nothing,
-      signingProfileParameter = Core.Nothing
+        Prelude.Nothing,
+      destination = Prelude.Nothing,
+      signingProfileParameter = Prelude.Nothing
     }
 
 -- | The code-signing profile name.
-startSigningJobParameter_signingProfileName :: Lens.Lens' StartSigningJobParameter (Core.Maybe Core.Text)
+startSigningJobParameter_signingProfileName :: Lens.Lens' StartSigningJobParameter (Prelude.Maybe Prelude.Text)
 startSigningJobParameter_signingProfileName = Lens.lens (\StartSigningJobParameter' {signingProfileName} -> signingProfileName) (\s@StartSigningJobParameter' {} a -> s {signingProfileName = a} :: StartSigningJobParameter)
 
 -- | The location to write the code-signed file.
-startSigningJobParameter_destination :: Lens.Lens' StartSigningJobParameter (Core.Maybe Destination)
+startSigningJobParameter_destination :: Lens.Lens' StartSigningJobParameter (Prelude.Maybe Destination)
 startSigningJobParameter_destination = Lens.lens (\StartSigningJobParameter' {destination} -> destination) (\s@StartSigningJobParameter' {} a -> s {destination = a} :: StartSigningJobParameter)
 
 -- | Describes the code-signing profile.
-startSigningJobParameter_signingProfileParameter :: Lens.Lens' StartSigningJobParameter (Core.Maybe SigningProfileParameter)
+startSigningJobParameter_signingProfileParameter :: Lens.Lens' StartSigningJobParameter (Prelude.Maybe SigningProfileParameter)
 startSigningJobParameter_signingProfileParameter = Lens.lens (\StartSigningJobParameter' {signingProfileParameter} -> signingProfileParameter) (\s@StartSigningJobParameter' {} a -> s {signingProfileParameter = a} :: StartSigningJobParameter)
 
 instance Core.FromJSON StartSigningJobParameter where
@@ -78,23 +79,23 @@ instance Core.FromJSON StartSigningJobParameter where
       "StartSigningJobParameter"
       ( \x ->
           StartSigningJobParameter'
-            Core.<$> (x Core..:? "signingProfileName")
-            Core.<*> (x Core..:? "destination")
-            Core.<*> (x Core..:? "signingProfileParameter")
+            Prelude.<$> (x Core..:? "signingProfileName")
+            Prelude.<*> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "signingProfileParameter")
       )
 
-instance Core.Hashable StartSigningJobParameter
+instance Prelude.Hashable StartSigningJobParameter
 
-instance Core.NFData StartSigningJobParameter
+instance Prelude.NFData StartSigningJobParameter
 
 instance Core.ToJSON StartSigningJobParameter where
   toJSON StartSigningJobParameter' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("signingProfileName" Core..=)
-              Core.<$> signingProfileName,
-            ("destination" Core..=) Core.<$> destination,
+              Prelude.<$> signingProfileName,
+            ("destination" Core..=) Prelude.<$> destination,
             ("signingProfileParameter" Core..=)
-              Core.<$> signingProfileParameter
+              Prelude.<$> signingProfileParameter
           ]
       )

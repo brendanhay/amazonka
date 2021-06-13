@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.HITReviewStatus
 import Network.AWS.MechanicalTurk.Types.HITStatus
 import Network.AWS.MechanicalTurk.Types.QualificationRequirement
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The HIT data structure represents a single HIT, including all the
 -- information necessary for a Worker to accept and complete the HIT.
@@ -31,69 +32,69 @@ import Network.AWS.MechanicalTurk.Types.QualificationRequirement
 -- /See:/ 'newHIT' smart constructor.
 data HIT = HIT'
   { -- | The ID of the HIT Group of this HIT.
-    hITGroupId :: Core.Maybe Core.Text,
+    hITGroupId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the HIT was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The length of time, in seconds, that a Worker has to complete the HIT
     -- after accepting it.
-    assignmentDurationInSeconds :: Core.Maybe Core.Integer,
+    assignmentDurationInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The amount of time, in seconds, after the Worker submits an assignment
     -- for the HIT that the results are automatically approved by Amazon
     -- Mechanical Turk. This is the amount of time the Requester has to reject
     -- an assignment submitted by a Worker before the assignment is
     -- auto-approved and the Worker is paid.
-    autoApprovalDelayInSeconds :: Core.Maybe Core.Integer,
+    autoApprovalDelayInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The data the Worker completing the HIT uses produce the results. This is
     -- either either a QuestionForm, HTMLQuestion or an ExternalQuestion data
     -- structure.
-    question :: Core.Maybe Core.Text,
+    question :: Prelude.Maybe Prelude.Text,
     -- | The date and time the HIT expires.
-    expiration :: Core.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Core.POSIX,
     -- | Indicates the review status of the HIT. Valid Values are NotReviewed |
     -- MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
-    hITReviewStatus :: Core.Maybe HITReviewStatus,
+    hITReviewStatus :: Prelude.Maybe HITReviewStatus,
     -- | The title of the HIT.
-    title :: Core.Maybe Core.Text,
+    title :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the HIT.
-    hITId :: Core.Maybe Core.Text,
+    hITId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the HIT Layout of this HIT.
-    hITLayoutId :: Core.Maybe Core.Text,
+    hITLayoutId :: Prelude.Maybe Prelude.Text,
     -- | The number of assignments for this HIT that have been approved or
     -- rejected.
-    numberOfAssignmentsCompleted :: Core.Maybe Core.Int,
-    reward :: Core.Maybe Core.Text,
+    numberOfAssignmentsCompleted :: Prelude.Maybe Prelude.Int,
+    reward :: Prelude.Maybe Prelude.Text,
     -- | The number of times the HIT can be accepted and completed before the HIT
     -- becomes unavailable.
-    maxAssignments :: Core.Maybe Core.Int,
+    maxAssignments :: Prelude.Maybe Prelude.Int,
     -- | The status of the HIT and its assignments. Valid Values are Assignable |
     -- Unassignable | Reviewable | Reviewing | Disposed.
-    hITStatus :: Core.Maybe HITStatus,
+    hITStatus :: Prelude.Maybe HITStatus,
     -- | An arbitrary data field the Requester who created the HIT can use. This
     -- field is visible only to the creator of the HIT.
-    requesterAnnotation :: Core.Maybe Core.Text,
+    requesterAnnotation :: Prelude.Maybe Prelude.Text,
     -- | A general description of the HIT.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The number of assignments for this HIT that are available for Workers to
     -- accept.
-    numberOfAssignmentsAvailable :: Core.Maybe Core.Int,
+    numberOfAssignmentsAvailable :: Prelude.Maybe Prelude.Int,
     -- | The ID of the HIT type of this HIT
-    hITTypeId :: Core.Maybe Core.Text,
+    hITTypeId :: Prelude.Maybe Prelude.Text,
     -- | Conditions that a Worker\'s Qualifications must meet in order to accept
     -- the HIT. A HIT can have between zero and ten Qualification requirements.
     -- All requirements must be met in order for a Worker to accept the HIT.
     -- Additionally, other actions can be restricted using the @ActionsGuarded@
     -- field on each @QualificationRequirement@ structure.
-    qualificationRequirements :: Core.Maybe [QualificationRequirement],
+    qualificationRequirements :: Prelude.Maybe [QualificationRequirement],
     -- | The number of assignments for this HIT that are being previewed or have
     -- been accepted by Workers, but have not yet been submitted, returned, or
     -- abandoned.
-    numberOfAssignmentsPending :: Core.Maybe Core.Int,
+    numberOfAssignmentsPending :: Prelude.Maybe Prelude.Int,
     -- | One or more words or phrases that describe the HIT, separated by commas.
     -- Search terms similar to the keywords of a HIT are more likely to have
     -- the HIT in the search results.
-    keywords :: Core.Maybe Core.Text
+    keywords :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HIT' with all optional fields omitted.
@@ -169,40 +170,40 @@ newHIT ::
   HIT
 newHIT =
   HIT'
-    { hITGroupId = Core.Nothing,
-      creationTime = Core.Nothing,
-      assignmentDurationInSeconds = Core.Nothing,
-      autoApprovalDelayInSeconds = Core.Nothing,
-      question = Core.Nothing,
-      expiration = Core.Nothing,
-      hITReviewStatus = Core.Nothing,
-      title = Core.Nothing,
-      hITId = Core.Nothing,
-      hITLayoutId = Core.Nothing,
-      numberOfAssignmentsCompleted = Core.Nothing,
-      reward = Core.Nothing,
-      maxAssignments = Core.Nothing,
-      hITStatus = Core.Nothing,
-      requesterAnnotation = Core.Nothing,
-      description = Core.Nothing,
-      numberOfAssignmentsAvailable = Core.Nothing,
-      hITTypeId = Core.Nothing,
-      qualificationRequirements = Core.Nothing,
-      numberOfAssignmentsPending = Core.Nothing,
-      keywords = Core.Nothing
+    { hITGroupId = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      assignmentDurationInSeconds = Prelude.Nothing,
+      autoApprovalDelayInSeconds = Prelude.Nothing,
+      question = Prelude.Nothing,
+      expiration = Prelude.Nothing,
+      hITReviewStatus = Prelude.Nothing,
+      title = Prelude.Nothing,
+      hITId = Prelude.Nothing,
+      hITLayoutId = Prelude.Nothing,
+      numberOfAssignmentsCompleted = Prelude.Nothing,
+      reward = Prelude.Nothing,
+      maxAssignments = Prelude.Nothing,
+      hITStatus = Prelude.Nothing,
+      requesterAnnotation = Prelude.Nothing,
+      description = Prelude.Nothing,
+      numberOfAssignmentsAvailable = Prelude.Nothing,
+      hITTypeId = Prelude.Nothing,
+      qualificationRequirements = Prelude.Nothing,
+      numberOfAssignmentsPending = Prelude.Nothing,
+      keywords = Prelude.Nothing
     }
 
 -- | The ID of the HIT Group of this HIT.
-hit_hITGroupId :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_hITGroupId :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_hITGroupId = Lens.lens (\HIT' {hITGroupId} -> hITGroupId) (\s@HIT' {} a -> s {hITGroupId = a} :: HIT)
 
 -- | The date and time the HIT was created.
-hit_creationTime :: Lens.Lens' HIT (Core.Maybe Core.UTCTime)
-hit_creationTime = Lens.lens (\HIT' {creationTime} -> creationTime) (\s@HIT' {} a -> s {creationTime = a} :: HIT) Core.. Lens.mapping Core._Time
+hit_creationTime :: Lens.Lens' HIT (Prelude.Maybe Prelude.UTCTime)
+hit_creationTime = Lens.lens (\HIT' {creationTime} -> creationTime) (\s@HIT' {} a -> s {creationTime = a} :: HIT) Prelude.. Lens.mapping Core._Time
 
 -- | The length of time, in seconds, that a Worker has to complete the HIT
 -- after accepting it.
-hit_assignmentDurationInSeconds :: Lens.Lens' HIT (Core.Maybe Core.Integer)
+hit_assignmentDurationInSeconds :: Lens.Lens' HIT (Prelude.Maybe Prelude.Integer)
 hit_assignmentDurationInSeconds = Lens.lens (\HIT' {assignmentDurationInSeconds} -> assignmentDurationInSeconds) (\s@HIT' {} a -> s {assignmentDurationInSeconds = a} :: HIT)
 
 -- | The amount of time, in seconds, after the Worker submits an assignment
@@ -210,71 +211,71 @@ hit_assignmentDurationInSeconds = Lens.lens (\HIT' {assignmentDurationInSeconds}
 -- Mechanical Turk. This is the amount of time the Requester has to reject
 -- an assignment submitted by a Worker before the assignment is
 -- auto-approved and the Worker is paid.
-hit_autoApprovalDelayInSeconds :: Lens.Lens' HIT (Core.Maybe Core.Integer)
+hit_autoApprovalDelayInSeconds :: Lens.Lens' HIT (Prelude.Maybe Prelude.Integer)
 hit_autoApprovalDelayInSeconds = Lens.lens (\HIT' {autoApprovalDelayInSeconds} -> autoApprovalDelayInSeconds) (\s@HIT' {} a -> s {autoApprovalDelayInSeconds = a} :: HIT)
 
 -- | The data the Worker completing the HIT uses produce the results. This is
 -- either either a QuestionForm, HTMLQuestion or an ExternalQuestion data
 -- structure.
-hit_question :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_question :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_question = Lens.lens (\HIT' {question} -> question) (\s@HIT' {} a -> s {question = a} :: HIT)
 
 -- | The date and time the HIT expires.
-hit_expiration :: Lens.Lens' HIT (Core.Maybe Core.UTCTime)
-hit_expiration = Lens.lens (\HIT' {expiration} -> expiration) (\s@HIT' {} a -> s {expiration = a} :: HIT) Core.. Lens.mapping Core._Time
+hit_expiration :: Lens.Lens' HIT (Prelude.Maybe Prelude.UTCTime)
+hit_expiration = Lens.lens (\HIT' {expiration} -> expiration) (\s@HIT' {} a -> s {expiration = a} :: HIT) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates the review status of the HIT. Valid Values are NotReviewed |
 -- MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
-hit_hITReviewStatus :: Lens.Lens' HIT (Core.Maybe HITReviewStatus)
+hit_hITReviewStatus :: Lens.Lens' HIT (Prelude.Maybe HITReviewStatus)
 hit_hITReviewStatus = Lens.lens (\HIT' {hITReviewStatus} -> hITReviewStatus) (\s@HIT' {} a -> s {hITReviewStatus = a} :: HIT)
 
 -- | The title of the HIT.
-hit_title :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_title :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_title = Lens.lens (\HIT' {title} -> title) (\s@HIT' {} a -> s {title = a} :: HIT)
 
 -- | A unique identifier for the HIT.
-hit_hITId :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_hITId :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_hITId = Lens.lens (\HIT' {hITId} -> hITId) (\s@HIT' {} a -> s {hITId = a} :: HIT)
 
 -- | The ID of the HIT Layout of this HIT.
-hit_hITLayoutId :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_hITLayoutId :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_hITLayoutId = Lens.lens (\HIT' {hITLayoutId} -> hITLayoutId) (\s@HIT' {} a -> s {hITLayoutId = a} :: HIT)
 
 -- | The number of assignments for this HIT that have been approved or
 -- rejected.
-hit_numberOfAssignmentsCompleted :: Lens.Lens' HIT (Core.Maybe Core.Int)
+hit_numberOfAssignmentsCompleted :: Lens.Lens' HIT (Prelude.Maybe Prelude.Int)
 hit_numberOfAssignmentsCompleted = Lens.lens (\HIT' {numberOfAssignmentsCompleted} -> numberOfAssignmentsCompleted) (\s@HIT' {} a -> s {numberOfAssignmentsCompleted = a} :: HIT)
 
 -- | Undocumented member.
-hit_reward :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_reward :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_reward = Lens.lens (\HIT' {reward} -> reward) (\s@HIT' {} a -> s {reward = a} :: HIT)
 
 -- | The number of times the HIT can be accepted and completed before the HIT
 -- becomes unavailable.
-hit_maxAssignments :: Lens.Lens' HIT (Core.Maybe Core.Int)
+hit_maxAssignments :: Lens.Lens' HIT (Prelude.Maybe Prelude.Int)
 hit_maxAssignments = Lens.lens (\HIT' {maxAssignments} -> maxAssignments) (\s@HIT' {} a -> s {maxAssignments = a} :: HIT)
 
 -- | The status of the HIT and its assignments. Valid Values are Assignable |
 -- Unassignable | Reviewable | Reviewing | Disposed.
-hit_hITStatus :: Lens.Lens' HIT (Core.Maybe HITStatus)
+hit_hITStatus :: Lens.Lens' HIT (Prelude.Maybe HITStatus)
 hit_hITStatus = Lens.lens (\HIT' {hITStatus} -> hITStatus) (\s@HIT' {} a -> s {hITStatus = a} :: HIT)
 
 -- | An arbitrary data field the Requester who created the HIT can use. This
 -- field is visible only to the creator of the HIT.
-hit_requesterAnnotation :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_requesterAnnotation :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_requesterAnnotation = Lens.lens (\HIT' {requesterAnnotation} -> requesterAnnotation) (\s@HIT' {} a -> s {requesterAnnotation = a} :: HIT)
 
 -- | A general description of the HIT.
-hit_description :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_description :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_description = Lens.lens (\HIT' {description} -> description) (\s@HIT' {} a -> s {description = a} :: HIT)
 
 -- | The number of assignments for this HIT that are available for Workers to
 -- accept.
-hit_numberOfAssignmentsAvailable :: Lens.Lens' HIT (Core.Maybe Core.Int)
+hit_numberOfAssignmentsAvailable :: Lens.Lens' HIT (Prelude.Maybe Prelude.Int)
 hit_numberOfAssignmentsAvailable = Lens.lens (\HIT' {numberOfAssignmentsAvailable} -> numberOfAssignmentsAvailable) (\s@HIT' {} a -> s {numberOfAssignmentsAvailable = a} :: HIT)
 
 -- | The ID of the HIT type of this HIT
-hit_hITTypeId :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_hITTypeId :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_hITTypeId = Lens.lens (\HIT' {hITTypeId} -> hITTypeId) (\s@HIT' {} a -> s {hITTypeId = a} :: HIT)
 
 -- | Conditions that a Worker\'s Qualifications must meet in order to accept
@@ -282,19 +283,19 @@ hit_hITTypeId = Lens.lens (\HIT' {hITTypeId} -> hITTypeId) (\s@HIT' {} a -> s {h
 -- All requirements must be met in order for a Worker to accept the HIT.
 -- Additionally, other actions can be restricted using the @ActionsGuarded@
 -- field on each @QualificationRequirement@ structure.
-hit_qualificationRequirements :: Lens.Lens' HIT (Core.Maybe [QualificationRequirement])
-hit_qualificationRequirements = Lens.lens (\HIT' {qualificationRequirements} -> qualificationRequirements) (\s@HIT' {} a -> s {qualificationRequirements = a} :: HIT) Core.. Lens.mapping Lens._Coerce
+hit_qualificationRequirements :: Lens.Lens' HIT (Prelude.Maybe [QualificationRequirement])
+hit_qualificationRequirements = Lens.lens (\HIT' {qualificationRequirements} -> qualificationRequirements) (\s@HIT' {} a -> s {qualificationRequirements = a} :: HIT) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of assignments for this HIT that are being previewed or have
 -- been accepted by Workers, but have not yet been submitted, returned, or
 -- abandoned.
-hit_numberOfAssignmentsPending :: Lens.Lens' HIT (Core.Maybe Core.Int)
+hit_numberOfAssignmentsPending :: Lens.Lens' HIT (Prelude.Maybe Prelude.Int)
 hit_numberOfAssignmentsPending = Lens.lens (\HIT' {numberOfAssignmentsPending} -> numberOfAssignmentsPending) (\s@HIT' {} a -> s {numberOfAssignmentsPending = a} :: HIT)
 
 -- | One or more words or phrases that describe the HIT, separated by commas.
 -- Search terms similar to the keywords of a HIT are more likely to have
 -- the HIT in the search results.
-hit_keywords :: Lens.Lens' HIT (Core.Maybe Core.Text)
+hit_keywords :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_keywords = Lens.lens (\HIT' {keywords} -> keywords) (\s@HIT' {} a -> s {keywords = a} :: HIT)
 
 instance Core.FromJSON HIT where
@@ -303,31 +304,31 @@ instance Core.FromJSON HIT where
       "HIT"
       ( \x ->
           HIT'
-            Core.<$> (x Core..:? "HITGroupId")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "AssignmentDurationInSeconds")
-            Core.<*> (x Core..:? "AutoApprovalDelayInSeconds")
-            Core.<*> (x Core..:? "Question")
-            Core.<*> (x Core..:? "Expiration")
-            Core.<*> (x Core..:? "HITReviewStatus")
-            Core.<*> (x Core..:? "Title")
-            Core.<*> (x Core..:? "HITId")
-            Core.<*> (x Core..:? "HITLayoutId")
-            Core.<*> (x Core..:? "NumberOfAssignmentsCompleted")
-            Core.<*> (x Core..:? "Reward")
-            Core.<*> (x Core..:? "MaxAssignments")
-            Core.<*> (x Core..:? "HITStatus")
-            Core.<*> (x Core..:? "RequesterAnnotation")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "NumberOfAssignmentsAvailable")
-            Core.<*> (x Core..:? "HITTypeId")
-            Core.<*> ( x Core..:? "QualificationRequirements"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "NumberOfAssignmentsPending")
-            Core.<*> (x Core..:? "Keywords")
+            Prelude.<$> (x Core..:? "HITGroupId")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "AssignmentDurationInSeconds")
+            Prelude.<*> (x Core..:? "AutoApprovalDelayInSeconds")
+            Prelude.<*> (x Core..:? "Question")
+            Prelude.<*> (x Core..:? "Expiration")
+            Prelude.<*> (x Core..:? "HITReviewStatus")
+            Prelude.<*> (x Core..:? "Title")
+            Prelude.<*> (x Core..:? "HITId")
+            Prelude.<*> (x Core..:? "HITLayoutId")
+            Prelude.<*> (x Core..:? "NumberOfAssignmentsCompleted")
+            Prelude.<*> (x Core..:? "Reward")
+            Prelude.<*> (x Core..:? "MaxAssignments")
+            Prelude.<*> (x Core..:? "HITStatus")
+            Prelude.<*> (x Core..:? "RequesterAnnotation")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "NumberOfAssignmentsAvailable")
+            Prelude.<*> (x Core..:? "HITTypeId")
+            Prelude.<*> ( x Core..:? "QualificationRequirements"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "NumberOfAssignmentsPending")
+            Prelude.<*> (x Core..:? "Keywords")
       )
 
-instance Core.Hashable HIT
+instance Prelude.Hashable HIT
 
-instance Core.NFData HIT
+instance Prelude.NFData HIT

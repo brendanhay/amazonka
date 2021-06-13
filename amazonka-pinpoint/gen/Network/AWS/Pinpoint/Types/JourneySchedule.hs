@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.JourneySchedule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the schedule settings for a journey.
 --
@@ -28,10 +29,10 @@ import qualified Network.AWS.Lens as Lens
 data JourneySchedule = JourneySchedule'
   { -- | The scheduled time, in ISO 8601 format, when the journey began or will
     -- begin.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The scheduled time, in ISO 8601 format, when the journey ended or will
     -- end.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The starting UTC offset for the journey schedule, if the value of the
     -- journey\'s LocalTime property is true. Valid values are: UTC, UTC+01,
     -- UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30,
@@ -39,9 +40,9 @@ data JourneySchedule = JourneySchedule'
     -- UTC+09:30, UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+12:45, UTC+13,
     -- UTC+13:45, UTC-02, UTC-02:30, UTC-03, UTC-03:30, UTC-04, UTC-05, UTC-06,
     -- UTC-07, UTC-08, UTC-09, UTC-09:30, UTC-10, and UTC-11.
-    timezone :: Core.Maybe Core.Text
+    timezone :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JourneySchedule' with all optional fields omitted.
@@ -68,20 +69,20 @@ newJourneySchedule ::
   JourneySchedule
 newJourneySchedule =
   JourneySchedule'
-    { startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      timezone = Core.Nothing
+    { startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      timezone = Prelude.Nothing
     }
 
 -- | The scheduled time, in ISO 8601 format, when the journey began or will
 -- begin.
-journeySchedule_startTime :: Lens.Lens' JourneySchedule (Core.Maybe Core.UTCTime)
-journeySchedule_startTime = Lens.lens (\JourneySchedule' {startTime} -> startTime) (\s@JourneySchedule' {} a -> s {startTime = a} :: JourneySchedule) Core.. Lens.mapping Core._Time
+journeySchedule_startTime :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.UTCTime)
+journeySchedule_startTime = Lens.lens (\JourneySchedule' {startTime} -> startTime) (\s@JourneySchedule' {} a -> s {startTime = a} :: JourneySchedule) Prelude.. Lens.mapping Core._Time
 
 -- | The scheduled time, in ISO 8601 format, when the journey ended or will
 -- end.
-journeySchedule_endTime :: Lens.Lens' JourneySchedule (Core.Maybe Core.UTCTime)
-journeySchedule_endTime = Lens.lens (\JourneySchedule' {endTime} -> endTime) (\s@JourneySchedule' {} a -> s {endTime = a} :: JourneySchedule) Core.. Lens.mapping Core._Time
+journeySchedule_endTime :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.UTCTime)
+journeySchedule_endTime = Lens.lens (\JourneySchedule' {endTime} -> endTime) (\s@JourneySchedule' {} a -> s {endTime = a} :: JourneySchedule) Prelude.. Lens.mapping Core._Time
 
 -- | The starting UTC offset for the journey schedule, if the value of the
 -- journey\'s LocalTime property is true. Valid values are: UTC, UTC+01,
@@ -90,7 +91,7 @@ journeySchedule_endTime = Lens.lens (\JourneySchedule' {endTime} -> endTime) (\s
 -- UTC+09:30, UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+12:45, UTC+13,
 -- UTC+13:45, UTC-02, UTC-02:30, UTC-03, UTC-03:30, UTC-04, UTC-05, UTC-06,
 -- UTC-07, UTC-08, UTC-09, UTC-09:30, UTC-10, and UTC-11.
-journeySchedule_timezone :: Lens.Lens' JourneySchedule (Core.Maybe Core.Text)
+journeySchedule_timezone :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.Text)
 journeySchedule_timezone = Lens.lens (\JourneySchedule' {timezone} -> timezone) (\s@JourneySchedule' {} a -> s {timezone = a} :: JourneySchedule)
 
 instance Core.FromJSON JourneySchedule where
@@ -99,21 +100,21 @@ instance Core.FromJSON JourneySchedule where
       "JourneySchedule"
       ( \x ->
           JourneySchedule'
-            Core.<$> (x Core..:? "StartTime")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "Timezone")
+            Prelude.<$> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "Timezone")
       )
 
-instance Core.Hashable JourneySchedule
+instance Prelude.Hashable JourneySchedule
 
-instance Core.NFData JourneySchedule
+instance Prelude.NFData JourneySchedule
 
 instance Core.ToJSON JourneySchedule where
   toJSON JourneySchedule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StartTime" Core..=) Core.<$> startTime,
-            ("EndTime" Core..=) Core.<$> endTime,
-            ("Timezone" Core..=) Core.<$> timezone
+      ( Prelude.catMaybes
+          [ ("StartTime" Core..=) Prelude.<$> startTime,
+            ("EndTime" Core..=) Prelude.<$> endTime,
+            ("Timezone" Core..=) Prelude.<$> timezone
           ]
       )

@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,13 +48,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteBasePathMapping' smart constructor.
 data DeleteBasePathMapping = DeleteBasePathMapping'
   { -- | [Required] The domain name of the BasePathMapping resource to delete.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | [Required] The base path name of the BasePathMapping resource to delete.
     --
     -- To specify an empty base path, set this parameter to @\'(none)\'@.
-    basePath :: Core.Text
+    basePath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBasePathMapping' with all optional fields omitted.
@@ -70,9 +71,9 @@ data DeleteBasePathMapping = DeleteBasePathMapping'
 -- To specify an empty base path, set this parameter to @\'(none)\'@.
 newDeleteBasePathMapping ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'basePath'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBasePathMapping
 newDeleteBasePathMapping pDomainName_ pBasePath_ =
   DeleteBasePathMapping'
@@ -81,13 +82,13 @@ newDeleteBasePathMapping pDomainName_ pBasePath_ =
     }
 
 -- | [Required] The domain name of the BasePathMapping resource to delete.
-deleteBasePathMapping_domainName :: Lens.Lens' DeleteBasePathMapping Core.Text
+deleteBasePathMapping_domainName :: Lens.Lens' DeleteBasePathMapping Prelude.Text
 deleteBasePathMapping_domainName = Lens.lens (\DeleteBasePathMapping' {domainName} -> domainName) (\s@DeleteBasePathMapping' {} a -> s {domainName = a} :: DeleteBasePathMapping)
 
 -- | [Required] The base path name of the BasePathMapping resource to delete.
 --
 -- To specify an empty base path, set this parameter to @\'(none)\'@.
-deleteBasePathMapping_basePath :: Lens.Lens' DeleteBasePathMapping Core.Text
+deleteBasePathMapping_basePath :: Lens.Lens' DeleteBasePathMapping Prelude.Text
 deleteBasePathMapping_basePath = Lens.lens (\DeleteBasePathMapping' {basePath} -> basePath) (\s@DeleteBasePathMapping' {} a -> s {basePath = a} :: DeleteBasePathMapping)
 
 instance Core.AWSRequest DeleteBasePathMapping where
@@ -98,22 +99,22 @@ instance Core.AWSRequest DeleteBasePathMapping where
   response =
     Response.receiveNull DeleteBasePathMappingResponse'
 
-instance Core.Hashable DeleteBasePathMapping
+instance Prelude.Hashable DeleteBasePathMapping
 
-instance Core.NFData DeleteBasePathMapping
+instance Prelude.NFData DeleteBasePathMapping
 
 instance Core.ToHeaders DeleteBasePathMapping where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteBasePathMapping where
   toPath DeleteBasePathMapping' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/domainnames/",
         Core.toBS domainName,
         "/basepathmappings/",
@@ -121,13 +122,13 @@ instance Core.ToPath DeleteBasePathMapping where
       ]
 
 instance Core.ToQuery DeleteBasePathMapping where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBasePathMappingResponse' smart constructor.
 data DeleteBasePathMappingResponse = DeleteBasePathMappingResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBasePathMappingResponse' with all optional fields omitted.
@@ -138,4 +139,4 @@ newDeleteBasePathMappingResponse ::
 newDeleteBasePathMappingResponse =
   DeleteBasePathMappingResponse'
 
-instance Core.NFData DeleteBasePathMappingResponse
+instance Prelude.NFData DeleteBasePathMappingResponse

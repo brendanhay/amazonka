@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,15 +62,15 @@ data ListConfigurations = ListConfigurations'
     -- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
     -- results along with a token. Use that token in this query to get the next
     -- set of 10.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of items to return. The maximum value is 100.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Certain filter criteria return output that can be sorted in ascending or
     -- descending order. For a list of output characteristics for each filter,
     -- see
     -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
     -- in the /AWS Application Discovery Service User Guide/.
-    orderBy :: Core.Maybe [OrderByElement],
+    orderBy :: Prelude.Maybe [OrderByElement],
     -- | You can filter the request using various logical operators and a
     -- /key/-/value/ format. For example:
     --
@@ -79,11 +80,11 @@ data ListConfigurations = ListConfigurations'
     -- this action, see
     -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
     -- in the /AWS Application Discovery Service User Guide/.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | A valid configuration identified by Application Discovery Service.
     configurationType :: ConfigurationItemType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListConfigurations' with all optional fields omitted.
@@ -124,10 +125,10 @@ newListConfigurations ::
   ListConfigurations
 newListConfigurations pConfigurationType_ =
   ListConfigurations'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      orderBy = Core.Nothing,
-      filters = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      orderBy = Prelude.Nothing,
+      filters = Prelude.Nothing,
       configurationType = pConfigurationType_
     }
 
@@ -136,11 +137,11 @@ newListConfigurations pConfigurationType_ =
 -- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
 -- results along with a token. Use that token in this query to get the next
 -- set of 10.
-listConfigurations_nextToken :: Lens.Lens' ListConfigurations (Core.Maybe Core.Text)
+listConfigurations_nextToken :: Lens.Lens' ListConfigurations (Prelude.Maybe Prelude.Text)
 listConfigurations_nextToken = Lens.lens (\ListConfigurations' {nextToken} -> nextToken) (\s@ListConfigurations' {} a -> s {nextToken = a} :: ListConfigurations)
 
 -- | The total number of items to return. The maximum value is 100.
-listConfigurations_maxResults :: Lens.Lens' ListConfigurations (Core.Maybe Core.Int)
+listConfigurations_maxResults :: Lens.Lens' ListConfigurations (Prelude.Maybe Prelude.Int)
 listConfigurations_maxResults = Lens.lens (\ListConfigurations' {maxResults} -> maxResults) (\s@ListConfigurations' {} a -> s {maxResults = a} :: ListConfigurations)
 
 -- | Certain filter criteria return output that can be sorted in ascending or
@@ -148,8 +149,8 @@ listConfigurations_maxResults = Lens.lens (\ListConfigurations' {maxResults} -> 
 -- see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
 -- in the /AWS Application Discovery Service User Guide/.
-listConfigurations_orderBy :: Lens.Lens' ListConfigurations (Core.Maybe [OrderByElement])
-listConfigurations_orderBy = Lens.lens (\ListConfigurations' {orderBy} -> orderBy) (\s@ListConfigurations' {} a -> s {orderBy = a} :: ListConfigurations) Core.. Lens.mapping Lens._Coerce
+listConfigurations_orderBy :: Lens.Lens' ListConfigurations (Prelude.Maybe [OrderByElement])
+listConfigurations_orderBy = Lens.lens (\ListConfigurations' {orderBy} -> orderBy) (\s@ListConfigurations' {} a -> s {orderBy = a} :: ListConfigurations) Prelude.. Lens.mapping Lens._Coerce
 
 -- | You can filter the request using various logical operators and a
 -- /key/-/value/ format. For example:
@@ -160,8 +161,8 @@ listConfigurations_orderBy = Lens.lens (\ListConfigurations' {orderBy} -> orderB
 -- this action, see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
 -- in the /AWS Application Discovery Service User Guide/.
-listConfigurations_filters :: Lens.Lens' ListConfigurations (Core.Maybe [Filter])
-listConfigurations_filters = Lens.lens (\ListConfigurations' {filters} -> filters) (\s@ListConfigurations' {} a -> s {filters = a} :: ListConfigurations) Core.. Lens.mapping Lens._Coerce
+listConfigurations_filters :: Lens.Lens' ListConfigurations (Prelude.Maybe [Filter])
+listConfigurations_filters = Lens.lens (\ListConfigurations' {filters} -> filters) (\s@ListConfigurations' {} a -> s {filters = a} :: ListConfigurations) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A valid configuration identified by Application Discovery Service.
 listConfigurations_configurationType :: Lens.Lens' ListConfigurations ConfigurationItemType
@@ -172,22 +173,22 @@ instance Core.AWSPager ListConfigurations where
     | Core.stop
         ( rs
             Lens.^? listConfigurationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listConfigurationsResponse_configurations
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listConfigurations_nextToken
+          Prelude.& listConfigurations_nextToken
           Lens..~ rs
           Lens.^? listConfigurationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConfigurations where
   type
@@ -198,46 +199,48 @@ instance Core.AWSRequest ListConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "configurations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "configurations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListConfigurations
+instance Prelude.Hashable ListConfigurations
 
-instance Core.NFData ListConfigurations
+instance Prelude.NFData ListConfigurations
 
 instance Core.ToHeaders ListConfigurations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSPoseidonService_V2015_11_01.ListConfigurations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListConfigurations where
   toJSON ListConfigurations' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("orderBy" Core..=) Core.<$> orderBy,
-            ("filters" Core..=) Core.<$> filters,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("orderBy" Core..=) Prelude.<$> orderBy,
+            ("filters" Core..=) Prelude.<$> filters,
+            Prelude.Just
               ("configurationType" Core..= configurationType)
           ]
       )
 
 instance Core.ToPath ListConfigurations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListConfigurations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConfigurationsResponse' smart constructor.
 data ListConfigurationsResponse = ListConfigurationsResponse'
@@ -246,14 +249,14 @@ data ListConfigurationsResponse = ListConfigurationsResponse'
     -- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
     -- results along with this token. Use this token in the next query to
     -- retrieve the next set of 10.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns configuration details, including the configuration ID, attribute
     -- names, and attribute values.
-    configurations :: Core.Maybe [Core.HashMap Core.Text Core.Text],
+    configurations :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListConfigurationsResponse' with all optional fields omitted.
@@ -275,13 +278,13 @@ data ListConfigurationsResponse = ListConfigurationsResponse'
 -- 'httpStatus', 'listConfigurationsResponse_httpStatus' - The response's http status code.
 newListConfigurationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListConfigurationsResponse
 newListConfigurationsResponse pHttpStatus_ =
   ListConfigurationsResponse'
     { nextToken =
-        Core.Nothing,
-      configurations = Core.Nothing,
+        Prelude.Nothing,
+      configurations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -290,16 +293,16 @@ newListConfigurationsResponse pHttpStatus_ =
 -- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
 -- results along with this token. Use this token in the next query to
 -- retrieve the next set of 10.
-listConfigurationsResponse_nextToken :: Lens.Lens' ListConfigurationsResponse (Core.Maybe Core.Text)
+listConfigurationsResponse_nextToken :: Lens.Lens' ListConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listConfigurationsResponse_nextToken = Lens.lens (\ListConfigurationsResponse' {nextToken} -> nextToken) (\s@ListConfigurationsResponse' {} a -> s {nextToken = a} :: ListConfigurationsResponse)
 
 -- | Returns configuration details, including the configuration ID, attribute
 -- names, and attribute values.
-listConfigurationsResponse_configurations :: Lens.Lens' ListConfigurationsResponse (Core.Maybe [Core.HashMap Core.Text Core.Text])
-listConfigurationsResponse_configurations = Lens.lens (\ListConfigurationsResponse' {configurations} -> configurations) (\s@ListConfigurationsResponse' {} a -> s {configurations = a} :: ListConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
+listConfigurationsResponse_configurations :: Lens.Lens' ListConfigurationsResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
+listConfigurationsResponse_configurations = Lens.lens (\ListConfigurationsResponse' {configurations} -> configurations) (\s@ListConfigurationsResponse' {} a -> s {configurations = a} :: ListConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listConfigurationsResponse_httpStatus :: Lens.Lens' ListConfigurationsResponse Core.Int
+listConfigurationsResponse_httpStatus :: Lens.Lens' ListConfigurationsResponse Prelude.Int
 listConfigurationsResponse_httpStatus = Lens.lens (\ListConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationsResponse' {} a -> s {httpStatus = a} :: ListConfigurationsResponse)
 
-instance Core.NFData ListConfigurationsResponse
+instance Prelude.NFData ListConfigurationsResponse

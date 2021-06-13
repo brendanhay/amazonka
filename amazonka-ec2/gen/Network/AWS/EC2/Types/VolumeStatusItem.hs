@@ -26,27 +26,28 @@ import Network.AWS.EC2.Types.VolumeStatusAttachmentStatus
 import Network.AWS.EC2.Types.VolumeStatusEvent
 import Network.AWS.EC2.Types.VolumeStatusInfo
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the volume status.
 --
 -- /See:/ 'newVolumeStatusItem' smart constructor.
 data VolumeStatusItem = VolumeStatusItem'
   { -- | The volume status.
-    volumeStatus :: Core.Maybe VolumeStatusInfo,
+    volumeStatus :: Prelude.Maybe VolumeStatusInfo,
     -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The volume ID.
-    volumeId :: Core.Maybe Core.Text,
+    volumeId :: Prelude.Maybe Prelude.Text,
     -- | The details of the operation.
-    actions :: Core.Maybe [VolumeStatusAction],
+    actions :: Prelude.Maybe [VolumeStatusAction],
     -- | A list of events associated with the volume.
-    events :: Core.Maybe [VolumeStatusEvent],
+    events :: Prelude.Maybe [VolumeStatusEvent],
     -- | The Availability Zone of the volume.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Information about the instances to which the volume is attached.
-    attachmentStatuses :: Core.Maybe [VolumeStatusAttachmentStatus]
+    attachmentStatuses :: Prelude.Maybe [VolumeStatusAttachmentStatus]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VolumeStatusItem' with all optional fields omitted.
@@ -73,60 +74,61 @@ newVolumeStatusItem ::
   VolumeStatusItem
 newVolumeStatusItem =
   VolumeStatusItem'
-    { volumeStatus = Core.Nothing,
-      outpostArn = Core.Nothing,
-      volumeId = Core.Nothing,
-      actions = Core.Nothing,
-      events = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      attachmentStatuses = Core.Nothing
+    { volumeStatus = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      volumeId = Prelude.Nothing,
+      actions = Prelude.Nothing,
+      events = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      attachmentStatuses = Prelude.Nothing
     }
 
 -- | The volume status.
-volumeStatusItem_volumeStatus :: Lens.Lens' VolumeStatusItem (Core.Maybe VolumeStatusInfo)
+volumeStatusItem_volumeStatus :: Lens.Lens' VolumeStatusItem (Prelude.Maybe VolumeStatusInfo)
 volumeStatusItem_volumeStatus = Lens.lens (\VolumeStatusItem' {volumeStatus} -> volumeStatus) (\s@VolumeStatusItem' {} a -> s {volumeStatus = a} :: VolumeStatusItem)
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
-volumeStatusItem_outpostArn :: Lens.Lens' VolumeStatusItem (Core.Maybe Core.Text)
+volumeStatusItem_outpostArn :: Lens.Lens' VolumeStatusItem (Prelude.Maybe Prelude.Text)
 volumeStatusItem_outpostArn = Lens.lens (\VolumeStatusItem' {outpostArn} -> outpostArn) (\s@VolumeStatusItem' {} a -> s {outpostArn = a} :: VolumeStatusItem)
 
 -- | The volume ID.
-volumeStatusItem_volumeId :: Lens.Lens' VolumeStatusItem (Core.Maybe Core.Text)
+volumeStatusItem_volumeId :: Lens.Lens' VolumeStatusItem (Prelude.Maybe Prelude.Text)
 volumeStatusItem_volumeId = Lens.lens (\VolumeStatusItem' {volumeId} -> volumeId) (\s@VolumeStatusItem' {} a -> s {volumeId = a} :: VolumeStatusItem)
 
 -- | The details of the operation.
-volumeStatusItem_actions :: Lens.Lens' VolumeStatusItem (Core.Maybe [VolumeStatusAction])
-volumeStatusItem_actions = Lens.lens (\VolumeStatusItem' {actions} -> actions) (\s@VolumeStatusItem' {} a -> s {actions = a} :: VolumeStatusItem) Core.. Lens.mapping Lens._Coerce
+volumeStatusItem_actions :: Lens.Lens' VolumeStatusItem (Prelude.Maybe [VolumeStatusAction])
+volumeStatusItem_actions = Lens.lens (\VolumeStatusItem' {actions} -> actions) (\s@VolumeStatusItem' {} a -> s {actions = a} :: VolumeStatusItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of events associated with the volume.
-volumeStatusItem_events :: Lens.Lens' VolumeStatusItem (Core.Maybe [VolumeStatusEvent])
-volumeStatusItem_events = Lens.lens (\VolumeStatusItem' {events} -> events) (\s@VolumeStatusItem' {} a -> s {events = a} :: VolumeStatusItem) Core.. Lens.mapping Lens._Coerce
+volumeStatusItem_events :: Lens.Lens' VolumeStatusItem (Prelude.Maybe [VolumeStatusEvent])
+volumeStatusItem_events = Lens.lens (\VolumeStatusItem' {events} -> events) (\s@VolumeStatusItem' {} a -> s {events = a} :: VolumeStatusItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Availability Zone of the volume.
-volumeStatusItem_availabilityZone :: Lens.Lens' VolumeStatusItem (Core.Maybe Core.Text)
+volumeStatusItem_availabilityZone :: Lens.Lens' VolumeStatusItem (Prelude.Maybe Prelude.Text)
 volumeStatusItem_availabilityZone = Lens.lens (\VolumeStatusItem' {availabilityZone} -> availabilityZone) (\s@VolumeStatusItem' {} a -> s {availabilityZone = a} :: VolumeStatusItem)
 
 -- | Information about the instances to which the volume is attached.
-volumeStatusItem_attachmentStatuses :: Lens.Lens' VolumeStatusItem (Core.Maybe [VolumeStatusAttachmentStatus])
-volumeStatusItem_attachmentStatuses = Lens.lens (\VolumeStatusItem' {attachmentStatuses} -> attachmentStatuses) (\s@VolumeStatusItem' {} a -> s {attachmentStatuses = a} :: VolumeStatusItem) Core.. Lens.mapping Lens._Coerce
+volumeStatusItem_attachmentStatuses :: Lens.Lens' VolumeStatusItem (Prelude.Maybe [VolumeStatusAttachmentStatus])
+volumeStatusItem_attachmentStatuses = Lens.lens (\VolumeStatusItem' {attachmentStatuses} -> attachmentStatuses) (\s@VolumeStatusItem' {} a -> s {attachmentStatuses = a} :: VolumeStatusItem) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML VolumeStatusItem where
   parseXML x =
     VolumeStatusItem'
-      Core.<$> (x Core..@? "volumeStatus")
-      Core.<*> (x Core..@? "outpostArn")
-      Core.<*> (x Core..@? "volumeId")
-      Core.<*> ( x Core..@? "actionsSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "eventsSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> ( x Core..@? "attachmentStatuses" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "volumeStatus")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> (x Core..@? "volumeId")
+      Prelude.<*> ( x Core..@? "actionsSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "eventsSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> ( x Core..@? "attachmentStatuses"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable VolumeStatusItem
+instance Prelude.Hashable VolumeStatusItem
 
-instance Core.NFData VolumeStatusItem
+instance Prelude.NFData VolumeStatusItem

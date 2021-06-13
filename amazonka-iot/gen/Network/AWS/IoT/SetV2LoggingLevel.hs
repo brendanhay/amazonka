@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +50,7 @@ data SetV2LoggingLevel = SetV2LoggingLevel'
     -- | The log level.
     logLevel :: LogLevel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetV2LoggingLevel' with all optional fields omitted.
@@ -90,33 +91,33 @@ instance Core.AWSRequest SetV2LoggingLevel where
   response =
     Response.receiveNull SetV2LoggingLevelResponse'
 
-instance Core.Hashable SetV2LoggingLevel
+instance Prelude.Hashable SetV2LoggingLevel
 
-instance Core.NFData SetV2LoggingLevel
+instance Prelude.NFData SetV2LoggingLevel
 
 instance Core.ToHeaders SetV2LoggingLevel where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON SetV2LoggingLevel where
   toJSON SetV2LoggingLevel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("logTarget" Core..= logTarget),
-            Core.Just ("logLevel" Core..= logLevel)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logTarget" Core..= logTarget),
+            Prelude.Just ("logLevel" Core..= logLevel)
           ]
       )
 
 instance Core.ToPath SetV2LoggingLevel where
-  toPath = Core.const "/v2LoggingLevel"
+  toPath = Prelude.const "/v2LoggingLevel"
 
 instance Core.ToQuery SetV2LoggingLevel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetV2LoggingLevelResponse' smart constructor.
 data SetV2LoggingLevelResponse = SetV2LoggingLevelResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetV2LoggingLevelResponse' with all optional fields omitted.
@@ -127,4 +128,4 @@ newSetV2LoggingLevelResponse ::
 newSetV2LoggingLevelResponse =
   SetV2LoggingLevelResponse'
 
-instance Core.NFData SetV2LoggingLevelResponse
+instance Prelude.NFData SetV2LoggingLevelResponse

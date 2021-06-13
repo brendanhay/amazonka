@@ -22,6 +22,7 @@ module Network.AWS.CloudTrail.Types.InsightSelector where
 import Network.AWS.CloudTrail.Types.InsightType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A JSON string that contains a list of insight types that are logged on a
 -- trail.
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data InsightSelector = InsightSelector'
   { -- | The type of insights to log on a trail. In this release, only
     -- @ApiCallRateInsight@ is supported as an insight type.
-    insightType :: Core.Maybe InsightType
+    insightType :: Prelude.Maybe InsightType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InsightSelector' with all optional fields omitted.
@@ -47,11 +48,11 @@ data InsightSelector = InsightSelector'
 newInsightSelector ::
   InsightSelector
 newInsightSelector =
-  InsightSelector' {insightType = Core.Nothing}
+  InsightSelector' {insightType = Prelude.Nothing}
 
 -- | The type of insights to log on a trail. In this release, only
 -- @ApiCallRateInsight@ is supported as an insight type.
-insightSelector_insightType :: Lens.Lens' InsightSelector (Core.Maybe InsightType)
+insightSelector_insightType :: Lens.Lens' InsightSelector (Prelude.Maybe InsightType)
 insightSelector_insightType = Lens.lens (\InsightSelector' {insightType} -> insightType) (\s@InsightSelector' {} a -> s {insightType = a} :: InsightSelector)
 
 instance Core.FromJSON InsightSelector where
@@ -59,16 +60,17 @@ instance Core.FromJSON InsightSelector where
     Core.withObject
       "InsightSelector"
       ( \x ->
-          InsightSelector' Core.<$> (x Core..:? "InsightType")
+          InsightSelector'
+            Prelude.<$> (x Core..:? "InsightType")
       )
 
-instance Core.Hashable InsightSelector
+instance Prelude.Hashable InsightSelector
 
-instance Core.NFData InsightSelector
+instance Prelude.NFData InsightSelector
 
 instance Core.ToJSON InsightSelector where
   toJSON InsightSelector' {..} =
     Core.object
-      ( Core.catMaybes
-          [("InsightType" Core..=) Core.<$> insightType]
+      ( Prelude.catMaybes
+          [("InsightType" Core..=) Prelude.<$> insightType]
       )

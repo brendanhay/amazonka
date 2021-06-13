@@ -21,6 +21,7 @@ module Network.AWS.Organizations.Types.EnabledServicePrincipal where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains details of a service principal that represents
 -- an AWS service that is enabled to integrate with AWS Organizations.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data EnabledServicePrincipal = EnabledServicePrincipal'
   { -- | The name of the service principal. This is typically in the form of a
     -- URL, such as: @ servicename.amazonaws.com@.
-    servicePrincipal :: Core.Maybe Core.Text,
+    servicePrincipal :: Prelude.Maybe Prelude.Text,
     -- | The date that the service principal was enabled for integration with AWS
     -- Organizations.
-    dateEnabled :: Core.Maybe Core.POSIX
+    dateEnabled :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnabledServicePrincipal' with all optional fields omitted.
@@ -54,19 +55,19 @@ newEnabledServicePrincipal ::
 newEnabledServicePrincipal =
   EnabledServicePrincipal'
     { servicePrincipal =
-        Core.Nothing,
-      dateEnabled = Core.Nothing
+        Prelude.Nothing,
+      dateEnabled = Prelude.Nothing
     }
 
 -- | The name of the service principal. This is typically in the form of a
 -- URL, such as: @ servicename.amazonaws.com@.
-enabledServicePrincipal_servicePrincipal :: Lens.Lens' EnabledServicePrincipal (Core.Maybe Core.Text)
+enabledServicePrincipal_servicePrincipal :: Lens.Lens' EnabledServicePrincipal (Prelude.Maybe Prelude.Text)
 enabledServicePrincipal_servicePrincipal = Lens.lens (\EnabledServicePrincipal' {servicePrincipal} -> servicePrincipal) (\s@EnabledServicePrincipal' {} a -> s {servicePrincipal = a} :: EnabledServicePrincipal)
 
 -- | The date that the service principal was enabled for integration with AWS
 -- Organizations.
-enabledServicePrincipal_dateEnabled :: Lens.Lens' EnabledServicePrincipal (Core.Maybe Core.UTCTime)
-enabledServicePrincipal_dateEnabled = Lens.lens (\EnabledServicePrincipal' {dateEnabled} -> dateEnabled) (\s@EnabledServicePrincipal' {} a -> s {dateEnabled = a} :: EnabledServicePrincipal) Core.. Lens.mapping Core._Time
+enabledServicePrincipal_dateEnabled :: Lens.Lens' EnabledServicePrincipal (Prelude.Maybe Prelude.UTCTime)
+enabledServicePrincipal_dateEnabled = Lens.lens (\EnabledServicePrincipal' {dateEnabled} -> dateEnabled) (\s@EnabledServicePrincipal' {} a -> s {dateEnabled = a} :: EnabledServicePrincipal) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON EnabledServicePrincipal where
   parseJSON =
@@ -74,10 +75,10 @@ instance Core.FromJSON EnabledServicePrincipal where
       "EnabledServicePrincipal"
       ( \x ->
           EnabledServicePrincipal'
-            Core.<$> (x Core..:? "ServicePrincipal")
-            Core.<*> (x Core..:? "DateEnabled")
+            Prelude.<$> (x Core..:? "ServicePrincipal")
+            Prelude.<*> (x Core..:? "DateEnabled")
       )
 
-instance Core.Hashable EnabledServicePrincipal
+instance Prelude.Hashable EnabledServicePrincipal
 
-instance Core.NFData EnabledServicePrincipal
+instance Prelude.NFData EnabledServicePrincipal

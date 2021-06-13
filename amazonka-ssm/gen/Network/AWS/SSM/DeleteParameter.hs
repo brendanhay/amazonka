@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -47,9 +48,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeleteParameter' smart constructor.
 data DeleteParameter = DeleteParameter'
   { -- | The name of the parameter to delete.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteParameter' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteParameter = DeleteParameter'
 -- 'name', 'deleteParameter_name' - The name of the parameter to delete.
 newDeleteParameter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteParameter
 newDeleteParameter pName_ =
   DeleteParameter' {name = pName_}
 
 -- | The name of the parameter to delete.
-deleteParameter_name :: Lens.Lens' DeleteParameter Core.Text
+deleteParameter_name :: Lens.Lens' DeleteParameter Prelude.Text
 deleteParameter_name = Lens.lens (\DeleteParameter' {name} -> name) (\s@DeleteParameter' {} a -> s {name = a} :: DeleteParameter)
 
 instance Core.AWSRequest DeleteParameter where
@@ -80,41 +81,45 @@ instance Core.AWSRequest DeleteParameter where
     Response.receiveEmpty
       ( \s h x ->
           DeleteParameterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteParameter
+instance Prelude.Hashable DeleteParameter
 
-instance Core.NFData DeleteParameter
+instance Prelude.NFData DeleteParameter
 
 instance Core.ToHeaders DeleteParameter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteParameter" :: Core.ByteString),
+              Core.=# ("AmazonSSM.DeleteParameter" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteParameter where
   toJSON DeleteParameter' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteParameter where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteParameter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteParameterResponse' smart constructor.
 data DeleteParameterResponse = DeleteParameterResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteParameterResponse' with all optional fields omitted.
@@ -127,13 +132,13 @@ data DeleteParameterResponse = DeleteParameterResponse'
 -- 'httpStatus', 'deleteParameterResponse_httpStatus' - The response's http status code.
 newDeleteParameterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteParameterResponse
 newDeleteParameterResponse pHttpStatus_ =
   DeleteParameterResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteParameterResponse_httpStatus :: Lens.Lens' DeleteParameterResponse Core.Int
+deleteParameterResponse_httpStatus :: Lens.Lens' DeleteParameterResponse Prelude.Int
 deleteParameterResponse_httpStatus = Lens.lens (\DeleteParameterResponse' {httpStatus} -> httpStatus) (\s@DeleteParameterResponse' {} a -> s {httpStatus = a} :: DeleteParameterResponse)
 
-instance Core.NFData DeleteParameterResponse
+instance Prelude.NFData DeleteParameterResponse

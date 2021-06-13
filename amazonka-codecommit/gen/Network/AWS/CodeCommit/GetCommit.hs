@@ -44,6 +44,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetCommit' smart constructor.
 data GetCommit = GetCommit'
   { -- | The name of the repository to which the commit was made.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The commit ID. Commit IDs are the full SHA ID of the commit.
-    commitId :: Core.Text
+    commitId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCommit' with all optional fields omitted.
@@ -71,9 +72,9 @@ data GetCommit = GetCommit'
 -- 'commitId', 'getCommit_commitId' - The commit ID. Commit IDs are the full SHA ID of the commit.
 newGetCommit ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'commitId'
-  Core.Text ->
+  Prelude.Text ->
   GetCommit
 newGetCommit pRepositoryName_ pCommitId_ =
   GetCommit'
@@ -82,11 +83,11 @@ newGetCommit pRepositoryName_ pCommitId_ =
     }
 
 -- | The name of the repository to which the commit was made.
-getCommit_repositoryName :: Lens.Lens' GetCommit Core.Text
+getCommit_repositoryName :: Lens.Lens' GetCommit Prelude.Text
 getCommit_repositoryName = Lens.lens (\GetCommit' {repositoryName} -> repositoryName) (\s@GetCommit' {} a -> s {repositoryName = a} :: GetCommit)
 
 -- | The commit ID. Commit IDs are the full SHA ID of the commit.
-getCommit_commitId :: Lens.Lens' GetCommit Core.Text
+getCommit_commitId :: Lens.Lens' GetCommit Prelude.Text
 getCommit_commitId = Lens.lens (\GetCommit' {commitId} -> commitId) (\s@GetCommit' {} a -> s {commitId = a} :: GetCommit)
 
 instance Core.AWSRequest GetCommit where
@@ -96,51 +97,56 @@ instance Core.AWSRequest GetCommit where
     Response.receiveJSON
       ( \s h x ->
           GetCommitResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "commit")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "commit")
       )
 
-instance Core.Hashable GetCommit
+instance Prelude.Hashable GetCommit
 
-instance Core.NFData GetCommit
+instance Prelude.NFData GetCommit
 
 instance Core.ToHeaders GetCommit where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("CodeCommit_20150413.GetCommit" :: Core.ByteString),
+              Core.=# ( "CodeCommit_20150413.GetCommit" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetCommit where
   toJSON GetCommit' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just ("commitId" Core..= commitId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("commitId" Core..= commitId)
           ]
       )
 
 instance Core.ToPath GetCommit where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCommit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a get commit operation.
 --
 -- /See:/ 'newGetCommitResponse' smart constructor.
 data GetCommitResponse = GetCommitResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A commit data type object that contains information about the specified
     -- commit.
     commit :: Commit
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCommitResponse' with all optional fields omitted.
@@ -156,7 +162,7 @@ data GetCommitResponse = GetCommitResponse'
 -- commit.
 newGetCommitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'commit'
   Commit ->
   GetCommitResponse
@@ -167,7 +173,7 @@ newGetCommitResponse pHttpStatus_ pCommit_ =
     }
 
 -- | The response's http status code.
-getCommitResponse_httpStatus :: Lens.Lens' GetCommitResponse Core.Int
+getCommitResponse_httpStatus :: Lens.Lens' GetCommitResponse Prelude.Int
 getCommitResponse_httpStatus = Lens.lens (\GetCommitResponse' {httpStatus} -> httpStatus) (\s@GetCommitResponse' {} a -> s {httpStatus = a} :: GetCommitResponse)
 
 -- | A commit data type object that contains information about the specified
@@ -175,4 +181,4 @@ getCommitResponse_httpStatus = Lens.lens (\GetCommitResponse' {httpStatus} -> ht
 getCommitResponse_commit :: Lens.Lens' GetCommitResponse Commit
 getCommitResponse_commit = Lens.lens (\GetCommitResponse' {commit} -> commit) (\s@GetCommitResponse' {} a -> s {commit = a} :: GetCommitResponse)
 
-instance Core.NFData GetCommitResponse
+instance Prelude.NFData GetCommitResponse

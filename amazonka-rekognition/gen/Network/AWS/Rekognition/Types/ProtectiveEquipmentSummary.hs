@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.ProtectiveEquipmentSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information for required items of personal protective equipment
 -- (PPE) detected on persons by a call to DetectProtectiveEquipment. You
@@ -45,16 +46,16 @@ import qualified Network.AWS.Lens as Lens
 data ProtectiveEquipmentSummary = ProtectiveEquipmentSummary'
   { -- | An array of IDs for persons who are wearing detected personal protective
     -- equipment.
-    personsWithRequiredEquipment :: Core.Maybe [Core.Natural],
+    personsWithRequiredEquipment :: Prelude.Maybe [Prelude.Natural],
     -- | An array of IDs for persons where it was not possible to determine if
     -- they are wearing personal protective equipment.
-    personsIndeterminate :: Core.Maybe [Core.Natural],
+    personsIndeterminate :: Prelude.Maybe [Prelude.Natural],
     -- | An array of IDs for persons who are not wearing all of the types of PPE
     -- specified in the RequiredEquipmentTypes field of the detected personal
     -- protective equipment.
-    personsWithoutRequiredEquipment :: Core.Maybe [Core.Natural]
+    personsWithoutRequiredEquipment :: Prelude.Maybe [Prelude.Natural]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProtectiveEquipmentSummary' with all optional fields omitted.
@@ -78,26 +79,27 @@ newProtectiveEquipmentSummary ::
 newProtectiveEquipmentSummary =
   ProtectiveEquipmentSummary'
     { personsWithRequiredEquipment =
-        Core.Nothing,
-      personsIndeterminate = Core.Nothing,
-      personsWithoutRequiredEquipment = Core.Nothing
+        Prelude.Nothing,
+      personsIndeterminate = Prelude.Nothing,
+      personsWithoutRequiredEquipment =
+        Prelude.Nothing
     }
 
 -- | An array of IDs for persons who are wearing detected personal protective
 -- equipment.
-protectiveEquipmentSummary_personsWithRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Core.Maybe [Core.Natural])
-protectiveEquipmentSummary_personsWithRequiredEquipment = Lens.lens (\ProtectiveEquipmentSummary' {personsWithRequiredEquipment} -> personsWithRequiredEquipment) (\s@ProtectiveEquipmentSummary' {} a -> s {personsWithRequiredEquipment = a} :: ProtectiveEquipmentSummary) Core.. Lens.mapping Lens._Coerce
+protectiveEquipmentSummary_personsWithRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Prelude.Maybe [Prelude.Natural])
+protectiveEquipmentSummary_personsWithRequiredEquipment = Lens.lens (\ProtectiveEquipmentSummary' {personsWithRequiredEquipment} -> personsWithRequiredEquipment) (\s@ProtectiveEquipmentSummary' {} a -> s {personsWithRequiredEquipment = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of IDs for persons where it was not possible to determine if
 -- they are wearing personal protective equipment.
-protectiveEquipmentSummary_personsIndeterminate :: Lens.Lens' ProtectiveEquipmentSummary (Core.Maybe [Core.Natural])
-protectiveEquipmentSummary_personsIndeterminate = Lens.lens (\ProtectiveEquipmentSummary' {personsIndeterminate} -> personsIndeterminate) (\s@ProtectiveEquipmentSummary' {} a -> s {personsIndeterminate = a} :: ProtectiveEquipmentSummary) Core.. Lens.mapping Lens._Coerce
+protectiveEquipmentSummary_personsIndeterminate :: Lens.Lens' ProtectiveEquipmentSummary (Prelude.Maybe [Prelude.Natural])
+protectiveEquipmentSummary_personsIndeterminate = Lens.lens (\ProtectiveEquipmentSummary' {personsIndeterminate} -> personsIndeterminate) (\s@ProtectiveEquipmentSummary' {} a -> s {personsIndeterminate = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of IDs for persons who are not wearing all of the types of PPE
 -- specified in the RequiredEquipmentTypes field of the detected personal
 -- protective equipment.
-protectiveEquipmentSummary_personsWithoutRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Core.Maybe [Core.Natural])
-protectiveEquipmentSummary_personsWithoutRequiredEquipment = Lens.lens (\ProtectiveEquipmentSummary' {personsWithoutRequiredEquipment} -> personsWithoutRequiredEquipment) (\s@ProtectiveEquipmentSummary' {} a -> s {personsWithoutRequiredEquipment = a} :: ProtectiveEquipmentSummary) Core.. Lens.mapping Lens._Coerce
+protectiveEquipmentSummary_personsWithoutRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Prelude.Maybe [Prelude.Natural])
+protectiveEquipmentSummary_personsWithoutRequiredEquipment = Lens.lens (\ProtectiveEquipmentSummary' {personsWithoutRequiredEquipment} -> personsWithoutRequiredEquipment) (\s@ProtectiveEquipmentSummary' {} a -> s {personsWithoutRequiredEquipment = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ProtectiveEquipmentSummary where
   parseJSON =
@@ -105,17 +107,17 @@ instance Core.FromJSON ProtectiveEquipmentSummary where
       "ProtectiveEquipmentSummary"
       ( \x ->
           ProtectiveEquipmentSummary'
-            Core.<$> ( x Core..:? "PersonsWithRequiredEquipment"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "PersonsIndeterminate"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "PersonsWithoutRequiredEquipment"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "PersonsWithRequiredEquipment"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "PersonsIndeterminate"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "PersonsWithoutRequiredEquipment"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ProtectiveEquipmentSummary
+instance Prelude.Hashable ProtectiveEquipmentSummary
 
-instance Core.NFData ProtectiveEquipmentSummary
+instance Prelude.NFData ProtectiveEquipmentSummary

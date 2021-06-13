@@ -25,27 +25,28 @@ import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.VpcPeeringConnectionStateReason
 import Network.AWS.EC2.Types.VpcPeeringConnectionVpcInfo
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a VPC peering connection.
 --
 -- /See:/ 'newVpcPeeringConnection' smart constructor.
 data VpcPeeringConnection = VpcPeeringConnection'
   { -- | The status of the VPC peering connection.
-    status :: Core.Maybe VpcPeeringConnectionStateReason,
+    status :: Prelude.Maybe VpcPeeringConnectionStateReason,
     -- | Information about the accepter VPC. CIDR block information is only
     -- returned when describing an active VPC peering connection.
-    accepterVpcInfo :: Core.Maybe VpcPeeringConnectionVpcInfo,
+    accepterVpcInfo :: Prelude.Maybe VpcPeeringConnectionVpcInfo,
     -- | The ID of the VPC peering connection.
-    vpcPeeringConnectionId :: Core.Maybe Core.Text,
+    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
     -- | The time that an unaccepted VPC peering connection will expire.
-    expirationTime :: Core.Maybe Core.ISO8601,
+    expirationTime :: Prelude.Maybe Core.ISO8601,
     -- | Information about the requester VPC. CIDR block information is only
     -- returned when describing an active VPC peering connection.
-    requesterVpcInfo :: Core.Maybe VpcPeeringConnectionVpcInfo,
+    requesterVpcInfo :: Prelude.Maybe VpcPeeringConnectionVpcInfo,
     -- | Any tags assigned to the resource.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcPeeringConnection' with all optional fields omitted.
@@ -72,52 +73,52 @@ newVpcPeeringConnection ::
   VpcPeeringConnection
 newVpcPeeringConnection =
   VpcPeeringConnection'
-    { status = Core.Nothing,
-      accepterVpcInfo = Core.Nothing,
-      vpcPeeringConnectionId = Core.Nothing,
-      expirationTime = Core.Nothing,
-      requesterVpcInfo = Core.Nothing,
-      tags = Core.Nothing
+    { status = Prelude.Nothing,
+      accepterVpcInfo = Prelude.Nothing,
+      vpcPeeringConnectionId = Prelude.Nothing,
+      expirationTime = Prelude.Nothing,
+      requesterVpcInfo = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The status of the VPC peering connection.
-vpcPeeringConnection_status :: Lens.Lens' VpcPeeringConnection (Core.Maybe VpcPeeringConnectionStateReason)
+vpcPeeringConnection_status :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe VpcPeeringConnectionStateReason)
 vpcPeeringConnection_status = Lens.lens (\VpcPeeringConnection' {status} -> status) (\s@VpcPeeringConnection' {} a -> s {status = a} :: VpcPeeringConnection)
 
 -- | Information about the accepter VPC. CIDR block information is only
 -- returned when describing an active VPC peering connection.
-vpcPeeringConnection_accepterVpcInfo :: Lens.Lens' VpcPeeringConnection (Core.Maybe VpcPeeringConnectionVpcInfo)
+vpcPeeringConnection_accepterVpcInfo :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe VpcPeeringConnectionVpcInfo)
 vpcPeeringConnection_accepterVpcInfo = Lens.lens (\VpcPeeringConnection' {accepterVpcInfo} -> accepterVpcInfo) (\s@VpcPeeringConnection' {} a -> s {accepterVpcInfo = a} :: VpcPeeringConnection)
 
 -- | The ID of the VPC peering connection.
-vpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' VpcPeeringConnection (Core.Maybe Core.Text)
+vpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.Text)
 vpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\VpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@VpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: VpcPeeringConnection)
 
 -- | The time that an unaccepted VPC peering connection will expire.
-vpcPeeringConnection_expirationTime :: Lens.Lens' VpcPeeringConnection (Core.Maybe Core.UTCTime)
-vpcPeeringConnection_expirationTime = Lens.lens (\VpcPeeringConnection' {expirationTime} -> expirationTime) (\s@VpcPeeringConnection' {} a -> s {expirationTime = a} :: VpcPeeringConnection) Core.. Lens.mapping Core._Time
+vpcPeeringConnection_expirationTime :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.UTCTime)
+vpcPeeringConnection_expirationTime = Lens.lens (\VpcPeeringConnection' {expirationTime} -> expirationTime) (\s@VpcPeeringConnection' {} a -> s {expirationTime = a} :: VpcPeeringConnection) Prelude.. Lens.mapping Core._Time
 
 -- | Information about the requester VPC. CIDR block information is only
 -- returned when describing an active VPC peering connection.
-vpcPeeringConnection_requesterVpcInfo :: Lens.Lens' VpcPeeringConnection (Core.Maybe VpcPeeringConnectionVpcInfo)
+vpcPeeringConnection_requesterVpcInfo :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe VpcPeeringConnectionVpcInfo)
 vpcPeeringConnection_requesterVpcInfo = Lens.lens (\VpcPeeringConnection' {requesterVpcInfo} -> requesterVpcInfo) (\s@VpcPeeringConnection' {} a -> s {requesterVpcInfo = a} :: VpcPeeringConnection)
 
 -- | Any tags assigned to the resource.
-vpcPeeringConnection_tags :: Lens.Lens' VpcPeeringConnection (Core.Maybe [Tag])
-vpcPeeringConnection_tags = Lens.lens (\VpcPeeringConnection' {tags} -> tags) (\s@VpcPeeringConnection' {} a -> s {tags = a} :: VpcPeeringConnection) Core.. Lens.mapping Lens._Coerce
+vpcPeeringConnection_tags :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe [Tag])
+vpcPeeringConnection_tags = Lens.lens (\VpcPeeringConnection' {tags} -> tags) (\s@VpcPeeringConnection' {} a -> s {tags = a} :: VpcPeeringConnection) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML VpcPeeringConnection where
   parseXML x =
     VpcPeeringConnection'
-      Core.<$> (x Core..@? "status")
-      Core.<*> (x Core..@? "accepterVpcInfo")
-      Core.<*> (x Core..@? "vpcPeeringConnectionId")
-      Core.<*> (x Core..@? "expirationTime")
-      Core.<*> (x Core..@? "requesterVpcInfo")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "accepterVpcInfo")
+      Prelude.<*> (x Core..@? "vpcPeeringConnectionId")
+      Prelude.<*> (x Core..@? "expirationTime")
+      Prelude.<*> (x Core..@? "requesterVpcInfo")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable VpcPeeringConnection
+instance Prelude.Hashable VpcPeeringConnection
 
-instance Core.NFData VpcPeeringConnection
+instance Prelude.NFData VpcPeeringConnection

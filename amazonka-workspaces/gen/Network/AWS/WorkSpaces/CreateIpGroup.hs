@@ -57,6 +57,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -64,15 +65,15 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newCreateIpGroup' smart constructor.
 data CreateIpGroup = CreateIpGroup'
   { -- | The rules to add to the group.
-    userRules :: Core.Maybe [IpRuleItem],
+    userRules :: Prelude.Maybe [IpRuleItem],
     -- | The description of the group.
-    groupDesc :: Core.Maybe Core.Text,
+    groupDesc :: Prelude.Maybe Prelude.Text,
     -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the group.
-    groupName :: Core.Text
+    groupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateIpGroup' with all optional fields omitted.
@@ -91,30 +92,30 @@ data CreateIpGroup = CreateIpGroup'
 -- 'groupName', 'createIpGroup_groupName' - The name of the group.
 newCreateIpGroup ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   CreateIpGroup
 newCreateIpGroup pGroupName_ =
   CreateIpGroup'
-    { userRules = Core.Nothing,
-      groupDesc = Core.Nothing,
-      tags = Core.Nothing,
+    { userRules = Prelude.Nothing,
+      groupDesc = Prelude.Nothing,
+      tags = Prelude.Nothing,
       groupName = pGroupName_
     }
 
 -- | The rules to add to the group.
-createIpGroup_userRules :: Lens.Lens' CreateIpGroup (Core.Maybe [IpRuleItem])
-createIpGroup_userRules = Lens.lens (\CreateIpGroup' {userRules} -> userRules) (\s@CreateIpGroup' {} a -> s {userRules = a} :: CreateIpGroup) Core.. Lens.mapping Lens._Coerce
+createIpGroup_userRules :: Lens.Lens' CreateIpGroup (Prelude.Maybe [IpRuleItem])
+createIpGroup_userRules = Lens.lens (\CreateIpGroup' {userRules} -> userRules) (\s@CreateIpGroup' {} a -> s {userRules = a} :: CreateIpGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the group.
-createIpGroup_groupDesc :: Lens.Lens' CreateIpGroup (Core.Maybe Core.Text)
+createIpGroup_groupDesc :: Lens.Lens' CreateIpGroup (Prelude.Maybe Prelude.Text)
 createIpGroup_groupDesc = Lens.lens (\CreateIpGroup' {groupDesc} -> groupDesc) (\s@CreateIpGroup' {} a -> s {groupDesc = a} :: CreateIpGroup)
 
 -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-createIpGroup_tags :: Lens.Lens' CreateIpGroup (Core.Maybe [Tag])
-createIpGroup_tags = Lens.lens (\CreateIpGroup' {tags} -> tags) (\s@CreateIpGroup' {} a -> s {tags = a} :: CreateIpGroup) Core.. Lens.mapping Lens._Coerce
+createIpGroup_tags :: Lens.Lens' CreateIpGroup (Prelude.Maybe [Tag])
+createIpGroup_tags = Lens.lens (\CreateIpGroup' {tags} -> tags) (\s@CreateIpGroup' {} a -> s {tags = a} :: CreateIpGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the group.
-createIpGroup_groupName :: Lens.Lens' CreateIpGroup Core.Text
+createIpGroup_groupName :: Lens.Lens' CreateIpGroup Prelude.Text
 createIpGroup_groupName = Lens.lens (\CreateIpGroup' {groupName} -> groupName) (\s@CreateIpGroup' {} a -> s {groupName = a} :: CreateIpGroup)
 
 instance Core.AWSRequest CreateIpGroup where
@@ -126,52 +127,54 @@ instance Core.AWSRequest CreateIpGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateIpGroupResponse'
-            Core.<$> (x Core..?> "GroupId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GroupId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateIpGroup
+instance Prelude.Hashable CreateIpGroup
 
-instance Core.NFData CreateIpGroup
+instance Prelude.NFData CreateIpGroup
 
 instance Core.ToHeaders CreateIpGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.CreateIpGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateIpGroup where
   toJSON CreateIpGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("UserRules" Core..=) Core.<$> userRules,
-            ("GroupDesc" Core..=) Core.<$> groupDesc,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("GroupName" Core..= groupName)
+      ( Prelude.catMaybes
+          [ ("UserRules" Core..=) Prelude.<$> userRules,
+            ("GroupDesc" Core..=) Prelude.<$> groupDesc,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("GroupName" Core..= groupName)
           ]
       )
 
 instance Core.ToPath CreateIpGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateIpGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIpGroupResponse' smart constructor.
 data CreateIpGroupResponse = CreateIpGroupResponse'
   { -- | The identifier of the group.
-    groupId :: Core.Maybe Core.Text,
+    groupId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateIpGroupResponse' with all optional fields omitted.
@@ -186,20 +189,20 @@ data CreateIpGroupResponse = CreateIpGroupResponse'
 -- 'httpStatus', 'createIpGroupResponse_httpStatus' - The response's http status code.
 newCreateIpGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateIpGroupResponse
 newCreateIpGroupResponse pHttpStatus_ =
   CreateIpGroupResponse'
-    { groupId = Core.Nothing,
+    { groupId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the group.
-createIpGroupResponse_groupId :: Lens.Lens' CreateIpGroupResponse (Core.Maybe Core.Text)
+createIpGroupResponse_groupId :: Lens.Lens' CreateIpGroupResponse (Prelude.Maybe Prelude.Text)
 createIpGroupResponse_groupId = Lens.lens (\CreateIpGroupResponse' {groupId} -> groupId) (\s@CreateIpGroupResponse' {} a -> s {groupId = a} :: CreateIpGroupResponse)
 
 -- | The response's http status code.
-createIpGroupResponse_httpStatus :: Lens.Lens' CreateIpGroupResponse Core.Int
+createIpGroupResponse_httpStatus :: Lens.Lens' CreateIpGroupResponse Prelude.Int
 createIpGroupResponse_httpStatus = Lens.lens (\CreateIpGroupResponse' {httpStatus} -> httpStatus) (\s@CreateIpGroupResponse' {} a -> s {httpStatus = a} :: CreateIpGroupResponse)
 
-instance Core.NFData CreateIpGroupResponse
+instance Prelude.NFData CreateIpGroupResponse

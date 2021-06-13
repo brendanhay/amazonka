@@ -21,28 +21,29 @@ module Network.AWS.AppStream.Types.Application where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an application in the application catalog.
 --
 -- /See:/ 'newApplication' smart constructor.
 data Application = Application'
   { -- | The URL for the application icon. This URL might be time-limited.
-    iconURL :: Core.Maybe Core.Text,
+    iconURL :: Prelude.Maybe Prelude.Text,
     -- | The path to the application executable in the instance.
-    launchPath :: Core.Maybe Core.Text,
+    launchPath :: Prelude.Maybe Prelude.Text,
     -- | If there is a problem, the application can be disabled after image
     -- creation.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | Additional attributes that describe the application.
-    metadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The arguments that are passed to the application at launch.
-    launchParameters :: Core.Maybe Core.Text,
+    launchParameters :: Prelude.Maybe Prelude.Text,
     -- | The name of the application.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The application name to display.
-    displayName :: Core.Maybe Core.Text
+    displayName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Application' with all optional fields omitted.
@@ -70,42 +71,42 @@ newApplication ::
   Application
 newApplication =
   Application'
-    { iconURL = Core.Nothing,
-      launchPath = Core.Nothing,
-      enabled = Core.Nothing,
-      metadata = Core.Nothing,
-      launchParameters = Core.Nothing,
-      name = Core.Nothing,
-      displayName = Core.Nothing
+    { iconURL = Prelude.Nothing,
+      launchPath = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      metadata = Prelude.Nothing,
+      launchParameters = Prelude.Nothing,
+      name = Prelude.Nothing,
+      displayName = Prelude.Nothing
     }
 
 -- | The URL for the application icon. This URL might be time-limited.
-application_iconURL :: Lens.Lens' Application (Core.Maybe Core.Text)
+application_iconURL :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_iconURL = Lens.lens (\Application' {iconURL} -> iconURL) (\s@Application' {} a -> s {iconURL = a} :: Application)
 
 -- | The path to the application executable in the instance.
-application_launchPath :: Lens.Lens' Application (Core.Maybe Core.Text)
+application_launchPath :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_launchPath = Lens.lens (\Application' {launchPath} -> launchPath) (\s@Application' {} a -> s {launchPath = a} :: Application)
 
 -- | If there is a problem, the application can be disabled after image
 -- creation.
-application_enabled :: Lens.Lens' Application (Core.Maybe Core.Bool)
+application_enabled :: Lens.Lens' Application (Prelude.Maybe Prelude.Bool)
 application_enabled = Lens.lens (\Application' {enabled} -> enabled) (\s@Application' {} a -> s {enabled = a} :: Application)
 
 -- | Additional attributes that describe the application.
-application_metadata :: Lens.Lens' Application (Core.Maybe (Core.HashMap Core.Text Core.Text))
-application_metadata = Lens.lens (\Application' {metadata} -> metadata) (\s@Application' {} a -> s {metadata = a} :: Application) Core.. Lens.mapping Lens._Coerce
+application_metadata :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+application_metadata = Lens.lens (\Application' {metadata} -> metadata) (\s@Application' {} a -> s {metadata = a} :: Application) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The arguments that are passed to the application at launch.
-application_launchParameters :: Lens.Lens' Application (Core.Maybe Core.Text)
+application_launchParameters :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_launchParameters = Lens.lens (\Application' {launchParameters} -> launchParameters) (\s@Application' {} a -> s {launchParameters = a} :: Application)
 
 -- | The name of the application.
-application_name :: Lens.Lens' Application (Core.Maybe Core.Text)
+application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
 
 -- | The application name to display.
-application_displayName :: Lens.Lens' Application (Core.Maybe Core.Text)
+application_displayName :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_displayName = Lens.lens (\Application' {displayName} -> displayName) (\s@Application' {} a -> s {displayName = a} :: Application)
 
 instance Core.FromJSON Application where
@@ -114,15 +115,15 @@ instance Core.FromJSON Application where
       "Application"
       ( \x ->
           Application'
-            Core.<$> (x Core..:? "IconURL")
-            Core.<*> (x Core..:? "LaunchPath")
-            Core.<*> (x Core..:? "Enabled")
-            Core.<*> (x Core..:? "Metadata" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "LaunchParameters")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "DisplayName")
+            Prelude.<$> (x Core..:? "IconURL")
+            Prelude.<*> (x Core..:? "LaunchPath")
+            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "Metadata" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LaunchParameters")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "DisplayName")
       )
 
-instance Core.Hashable Application
+instance Prelude.Hashable Application
 
-instance Core.NFData Application
+instance Prelude.NFData Application

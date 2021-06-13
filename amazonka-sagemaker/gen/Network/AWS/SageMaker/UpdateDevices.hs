@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,11 +46,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateDevices' smart constructor.
 data UpdateDevices = UpdateDevices'
   { -- | The name of the fleet the devices belong to.
-    deviceFleetName :: Core.Text,
+    deviceFleetName :: Prelude.Text,
     -- | List of devices to register with Edge Manager agent.
     devices :: [Device]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDevices' with all optional fields omitted.
@@ -64,21 +65,21 @@ data UpdateDevices = UpdateDevices'
 -- 'devices', 'updateDevices_devices' - List of devices to register with Edge Manager agent.
 newUpdateDevices ::
   -- | 'deviceFleetName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDevices
 newUpdateDevices pDeviceFleetName_ =
   UpdateDevices'
     { deviceFleetName = pDeviceFleetName_,
-      devices = Core.mempty
+      devices = Prelude.mempty
     }
 
 -- | The name of the fleet the devices belong to.
-updateDevices_deviceFleetName :: Lens.Lens' UpdateDevices Core.Text
+updateDevices_deviceFleetName :: Lens.Lens' UpdateDevices Prelude.Text
 updateDevices_deviceFleetName = Lens.lens (\UpdateDevices' {deviceFleetName} -> deviceFleetName) (\s@UpdateDevices' {} a -> s {deviceFleetName = a} :: UpdateDevices)
 
 -- | List of devices to register with Edge Manager agent.
 updateDevices_devices :: Lens.Lens' UpdateDevices [Device]
-updateDevices_devices = Lens.lens (\UpdateDevices' {devices} -> devices) (\s@UpdateDevices' {} a -> s {devices = a} :: UpdateDevices) Core.. Lens._Coerce
+updateDevices_devices = Lens.lens (\UpdateDevices' {devices} -> devices) (\s@UpdateDevices' {} a -> s {devices = a} :: UpdateDevices) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateDevices where
   type
@@ -88,42 +89,44 @@ instance Core.AWSRequest UpdateDevices where
   response =
     Response.receiveNull UpdateDevicesResponse'
 
-instance Core.Hashable UpdateDevices
+instance Prelude.Hashable UpdateDevices
 
-instance Core.NFData UpdateDevices
+instance Prelude.NFData UpdateDevices
 
 instance Core.ToHeaders UpdateDevices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateDevices" :: Core.ByteString),
+              Core.=# ("SageMaker.UpdateDevices" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDevices where
   toJSON UpdateDevices' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("DeviceFleetName" Core..= deviceFleetName),
-            Core.Just ("Devices" Core..= devices)
+            Prelude.Just ("Devices" Core..= devices)
           ]
       )
 
 instance Core.ToPath UpdateDevices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDevices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDevicesResponse' smart constructor.
 data UpdateDevicesResponse = UpdateDevicesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDevicesResponse' with all optional fields omitted.
@@ -133,4 +136,4 @@ newUpdateDevicesResponse ::
   UpdateDevicesResponse
 newUpdateDevicesResponse = UpdateDevicesResponse'
 
-instance Core.NFData UpdateDevicesResponse
+instance Prelude.NFData UpdateDevicesResponse

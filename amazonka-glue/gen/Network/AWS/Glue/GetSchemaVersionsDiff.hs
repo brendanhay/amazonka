@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,7 +71,7 @@ data GetSchemaVersionsDiff = GetSchemaVersionsDiff'
     -- | Refers to @SYNTAX_DIFF@, which is the currently supported diff type.
     schemaDiffType :: SchemaDiffType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSchemaVersionsDiff' with all optional fields omitted.
@@ -150,56 +151,61 @@ instance Core.AWSRequest GetSchemaVersionsDiff where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaVersionsDiffResponse'
-            Core.<$> (x Core..?> "Diff")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Diff")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSchemaVersionsDiff
+instance Prelude.Hashable GetSchemaVersionsDiff
 
-instance Core.NFData GetSchemaVersionsDiff
+instance Prelude.NFData GetSchemaVersionsDiff
 
 instance Core.ToHeaders GetSchemaVersionsDiff where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetSchemaVersionsDiff" :: Core.ByteString),
+              Core.=# ( "AWSGlue.GetSchemaVersionsDiff" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSchemaVersionsDiff where
   toJSON GetSchemaVersionsDiff' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("SchemaId" Core..= schemaId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("SchemaId" Core..= schemaId),
+            Prelude.Just
               ( "FirstSchemaVersionNumber"
                   Core..= firstSchemaVersionNumber
               ),
-            Core.Just
+            Prelude.Just
               ( "SecondSchemaVersionNumber"
                   Core..= secondSchemaVersionNumber
               ),
-            Core.Just ("SchemaDiffType" Core..= schemaDiffType)
+            Prelude.Just
+              ("SchemaDiffType" Core..= schemaDiffType)
           ]
       )
 
 instance Core.ToPath GetSchemaVersionsDiff where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSchemaVersionsDiff where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaVersionsDiffResponse' smart constructor.
 data GetSchemaVersionsDiffResponse = GetSchemaVersionsDiffResponse'
   { -- | The difference between schemas as a string in JsonPatch format.
-    diff :: Core.Maybe Core.Text,
+    diff :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSchemaVersionsDiffResponse' with all optional fields omitted.
@@ -214,20 +220,21 @@ data GetSchemaVersionsDiffResponse = GetSchemaVersionsDiffResponse'
 -- 'httpStatus', 'getSchemaVersionsDiffResponse_httpStatus' - The response's http status code.
 newGetSchemaVersionsDiffResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSchemaVersionsDiffResponse
 newGetSchemaVersionsDiffResponse pHttpStatus_ =
   GetSchemaVersionsDiffResponse'
-    { diff = Core.Nothing,
+    { diff =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The difference between schemas as a string in JsonPatch format.
-getSchemaVersionsDiffResponse_diff :: Lens.Lens' GetSchemaVersionsDiffResponse (Core.Maybe Core.Text)
+getSchemaVersionsDiffResponse_diff :: Lens.Lens' GetSchemaVersionsDiffResponse (Prelude.Maybe Prelude.Text)
 getSchemaVersionsDiffResponse_diff = Lens.lens (\GetSchemaVersionsDiffResponse' {diff} -> diff) (\s@GetSchemaVersionsDiffResponse' {} a -> s {diff = a} :: GetSchemaVersionsDiffResponse)
 
 -- | The response's http status code.
-getSchemaVersionsDiffResponse_httpStatus :: Lens.Lens' GetSchemaVersionsDiffResponse Core.Int
+getSchemaVersionsDiffResponse_httpStatus :: Lens.Lens' GetSchemaVersionsDiffResponse Prelude.Int
 getSchemaVersionsDiffResponse_httpStatus = Lens.lens (\GetSchemaVersionsDiffResponse' {httpStatus} -> httpStatus) (\s@GetSchemaVersionsDiffResponse' {} a -> s {httpStatus = a} :: GetSchemaVersionsDiffResponse)
 
-instance Core.NFData GetSchemaVersionsDiffResponse
+instance Prelude.NFData GetSchemaVersionsDiffResponse

@@ -21,6 +21,7 @@ module Network.AWS.ElasticTranscoder.Types.Encryption where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption settings, if any, that are used for decrypting your input
 -- files or encrypting your output files. If your input file is encrypted,
@@ -39,7 +40,7 @@ data Encryption = Encryption'
     --
     -- The key must also be encrypted by using the Amazon Key Management
     -- Service.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The specific server-side encryption mode that you want Elastic
     -- Transcoder to use when decrypting your input files or encrypting your
     -- output files. Elastic Transcoder supports the following options:
@@ -76,21 +77,21 @@ data Encryption = Encryption'
     -- data are never stored by AWS; therefore, it is important that you safely
     -- manage your encryption keys. If you lose them, you won\'t be able to
     -- unencrypt your data.
-    mode :: Core.Maybe Core.Text,
+    mode :: Prelude.Maybe Prelude.Text,
     -- | The MD5 digest of the key that you used to encrypt your input file, or
     -- that you want Elastic Transcoder to use to encrypt your output file.
     -- Elastic Transcoder uses the key digest as a checksum to make sure your
     -- key was not corrupted in transit. The key MD5 must be base64-encoded,
     -- and it must be exactly 16 bytes long before being base64-encoded.
-    keyMd5 :: Core.Maybe Core.Text,
+    keyMd5 :: Prelude.Maybe Prelude.Text,
     -- | The series of random bits created by a random bit generator, unique for
     -- every encryption operation, that you used to encrypt your input files or
     -- that you want Elastic Transcoder to use to encrypt your output files.
     -- The initialization vector must be base64-encoded, and it must be exactly
     -- 16 bytes long before being base64-encoded.
-    initializationVector :: Core.Maybe Core.Text
+    initializationVector :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Encryption' with all optional fields omitted.
@@ -162,10 +163,10 @@ newEncryption ::
   Encryption
 newEncryption =
   Encryption'
-    { key = Core.Nothing,
-      mode = Core.Nothing,
-      keyMd5 = Core.Nothing,
-      initializationVector = Core.Nothing
+    { key = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      keyMd5 = Prelude.Nothing,
+      initializationVector = Prelude.Nothing
     }
 
 -- | The data encryption key that you want Elastic Transcoder to use to
@@ -177,7 +178,7 @@ newEncryption =
 --
 -- The key must also be encrypted by using the Amazon Key Management
 -- Service.
-encryption_key :: Lens.Lens' Encryption (Core.Maybe Core.Text)
+encryption_key :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_key = Lens.lens (\Encryption' {key} -> key) (\s@Encryption' {} a -> s {key = a} :: Encryption)
 
 -- | The specific server-side encryption mode that you want Elastic
@@ -216,7 +217,7 @@ encryption_key = Lens.lens (\Encryption' {key} -> key) (\s@Encryption' {} a -> s
 -- data are never stored by AWS; therefore, it is important that you safely
 -- manage your encryption keys. If you lose them, you won\'t be able to
 -- unencrypt your data.
-encryption_mode :: Lens.Lens' Encryption (Core.Maybe Core.Text)
+encryption_mode :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_mode = Lens.lens (\Encryption' {mode} -> mode) (\s@Encryption' {} a -> s {mode = a} :: Encryption)
 
 -- | The MD5 digest of the key that you used to encrypt your input file, or
@@ -224,7 +225,7 @@ encryption_mode = Lens.lens (\Encryption' {mode} -> mode) (\s@Encryption' {} a -
 -- Elastic Transcoder uses the key digest as a checksum to make sure your
 -- key was not corrupted in transit. The key MD5 must be base64-encoded,
 -- and it must be exactly 16 bytes long before being base64-encoded.
-encryption_keyMd5 :: Lens.Lens' Encryption (Core.Maybe Core.Text)
+encryption_keyMd5 :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_keyMd5 = Lens.lens (\Encryption' {keyMd5} -> keyMd5) (\s@Encryption' {} a -> s {keyMd5 = a} :: Encryption)
 
 -- | The series of random bits created by a random bit generator, unique for
@@ -232,7 +233,7 @@ encryption_keyMd5 = Lens.lens (\Encryption' {keyMd5} -> keyMd5) (\s@Encryption' 
 -- that you want Elastic Transcoder to use to encrypt your output files.
 -- The initialization vector must be base64-encoded, and it must be exactly
 -- 16 bytes long before being base64-encoded.
-encryption_initializationVector :: Lens.Lens' Encryption (Core.Maybe Core.Text)
+encryption_initializationVector :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_initializationVector = Lens.lens (\Encryption' {initializationVector} -> initializationVector) (\s@Encryption' {} a -> s {initializationVector = a} :: Encryption)
 
 instance Core.FromJSON Encryption where
@@ -241,24 +242,24 @@ instance Core.FromJSON Encryption where
       "Encryption"
       ( \x ->
           Encryption'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Mode")
-            Core.<*> (x Core..:? "KeyMd5")
-            Core.<*> (x Core..:? "InitializationVector")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<*> (x Core..:? "KeyMd5")
+            Prelude.<*> (x Core..:? "InitializationVector")
       )
 
-instance Core.Hashable Encryption
+instance Prelude.Hashable Encryption
 
-instance Core.NFData Encryption
+instance Prelude.NFData Encryption
 
 instance Core.ToJSON Encryption where
   toJSON Encryption' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Mode" Core..=) Core.<$> mode,
-            ("KeyMd5" Core..=) Core.<$> keyMd5,
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Mode" Core..=) Prelude.<$> mode,
+            ("KeyMd5" Core..=) Prelude.<$> keyMd5,
             ("InitializationVector" Core..=)
-              Core.<$> initializationVector
+              Prelude.<$> initializationVector
           ]
       )

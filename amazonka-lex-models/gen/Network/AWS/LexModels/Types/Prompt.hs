@@ -22,6 +22,7 @@ module Network.AWS.LexModels.Types.Prompt where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Message
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Obtains information from the user. To define a prompt, provide one or
 -- more messages and specify the number of attempts to get information from
@@ -35,15 +36,15 @@ data Prompt = Prompt'
     -- @PostText@ API response. It substitutes session attributes and slot
     -- values for placeholders in the response card. For more information, see
     -- ex-resp-card.
-    responseCard :: Core.Maybe Core.Text,
+    responseCard :: Prelude.Maybe Prelude.Text,
     -- | An array of objects, each of which provides a message string and its
     -- type. You can specify the message string in plain text or in Speech
     -- Synthesis Markup Language (SSML).
-    messages :: Core.NonEmpty Message,
+    messages :: Prelude.NonEmpty Message,
     -- | The number of times to prompt the user for information.
-    maxAttempts :: Core.Natural
+    maxAttempts :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Prompt' with all optional fields omitted.
@@ -65,13 +66,13 @@ data Prompt = Prompt'
 -- 'maxAttempts', 'prompt_maxAttempts' - The number of times to prompt the user for information.
 newPrompt ::
   -- | 'messages'
-  Core.NonEmpty Message ->
+  Prelude.NonEmpty Message ->
   -- | 'maxAttempts'
-  Core.Natural ->
+  Prelude.Natural ->
   Prompt
 newPrompt pMessages_ pMaxAttempts_ =
   Prompt'
-    { responseCard = Core.Nothing,
+    { responseCard = Prelude.Nothing,
       messages = Lens._Coerce Lens.# pMessages_,
       maxAttempts = pMaxAttempts_
     }
@@ -80,17 +81,17 @@ newPrompt pMessages_ pMaxAttempts_ =
 -- @PostText@ API response. It substitutes session attributes and slot
 -- values for placeholders in the response card. For more information, see
 -- ex-resp-card.
-prompt_responseCard :: Lens.Lens' Prompt (Core.Maybe Core.Text)
+prompt_responseCard :: Lens.Lens' Prompt (Prelude.Maybe Prelude.Text)
 prompt_responseCard = Lens.lens (\Prompt' {responseCard} -> responseCard) (\s@Prompt' {} a -> s {responseCard = a} :: Prompt)
 
 -- | An array of objects, each of which provides a message string and its
 -- type. You can specify the message string in plain text or in Speech
 -- Synthesis Markup Language (SSML).
-prompt_messages :: Lens.Lens' Prompt (Core.NonEmpty Message)
-prompt_messages = Lens.lens (\Prompt' {messages} -> messages) (\s@Prompt' {} a -> s {messages = a} :: Prompt) Core.. Lens._Coerce
+prompt_messages :: Lens.Lens' Prompt (Prelude.NonEmpty Message)
+prompt_messages = Lens.lens (\Prompt' {messages} -> messages) (\s@Prompt' {} a -> s {messages = a} :: Prompt) Prelude.. Lens._Coerce
 
 -- | The number of times to prompt the user for information.
-prompt_maxAttempts :: Lens.Lens' Prompt Core.Natural
+prompt_maxAttempts :: Lens.Lens' Prompt Prelude.Natural
 prompt_maxAttempts = Lens.lens (\Prompt' {maxAttempts} -> maxAttempts) (\s@Prompt' {} a -> s {maxAttempts = a} :: Prompt)
 
 instance Core.FromJSON Prompt where
@@ -99,21 +100,21 @@ instance Core.FromJSON Prompt where
       "Prompt"
       ( \x ->
           Prompt'
-            Core.<$> (x Core..:? "responseCard")
-            Core.<*> (x Core..: "messages")
-            Core.<*> (x Core..: "maxAttempts")
+            Prelude.<$> (x Core..:? "responseCard")
+            Prelude.<*> (x Core..: "messages")
+            Prelude.<*> (x Core..: "maxAttempts")
       )
 
-instance Core.Hashable Prompt
+instance Prelude.Hashable Prompt
 
-instance Core.NFData Prompt
+instance Prelude.NFData Prompt
 
 instance Core.ToJSON Prompt where
   toJSON Prompt' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("responseCard" Core..=) Core.<$> responseCard,
-            Core.Just ("messages" Core..= messages),
-            Core.Just ("maxAttempts" Core..= maxAttempts)
+      ( Prelude.catMaybes
+          [ ("responseCard" Core..=) Prelude.<$> responseCard,
+            Prelude.Just ("messages" Core..= messages),
+            Prelude.Just ("maxAttempts" Core..= maxAttempts)
           ]
       )

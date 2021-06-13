@@ -24,21 +24,22 @@ import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.Group
 import Network.AWS.CostExplorer.Types.MetricValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The result that is associated with a time period.
 --
 -- /See:/ 'newResultByTime' smart constructor.
 data ResultByTime = ResultByTime'
   { -- | The groups that this time period includes.
-    groups :: Core.Maybe [Group],
+    groups :: Prelude.Maybe [Group],
     -- | The time period that the result covers.
-    timePeriod :: Core.Maybe DateInterval,
+    timePeriod :: Prelude.Maybe DateInterval,
     -- | Whether the result is estimated.
-    estimated :: Core.Maybe Core.Bool,
+    estimated :: Prelude.Maybe Prelude.Bool,
     -- | The total amount of cost or usage accrued during the time period.
-    total :: Core.Maybe (Core.HashMap Core.Text MetricValue)
+    total :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResultByTime' with all optional fields omitted.
@@ -59,27 +60,27 @@ newResultByTime ::
   ResultByTime
 newResultByTime =
   ResultByTime'
-    { groups = Core.Nothing,
-      timePeriod = Core.Nothing,
-      estimated = Core.Nothing,
-      total = Core.Nothing
+    { groups = Prelude.Nothing,
+      timePeriod = Prelude.Nothing,
+      estimated = Prelude.Nothing,
+      total = Prelude.Nothing
     }
 
 -- | The groups that this time period includes.
-resultByTime_groups :: Lens.Lens' ResultByTime (Core.Maybe [Group])
-resultByTime_groups = Lens.lens (\ResultByTime' {groups} -> groups) (\s@ResultByTime' {} a -> s {groups = a} :: ResultByTime) Core.. Lens.mapping Lens._Coerce
+resultByTime_groups :: Lens.Lens' ResultByTime (Prelude.Maybe [Group])
+resultByTime_groups = Lens.lens (\ResultByTime' {groups} -> groups) (\s@ResultByTime' {} a -> s {groups = a} :: ResultByTime) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time period that the result covers.
-resultByTime_timePeriod :: Lens.Lens' ResultByTime (Core.Maybe DateInterval)
+resultByTime_timePeriod :: Lens.Lens' ResultByTime (Prelude.Maybe DateInterval)
 resultByTime_timePeriod = Lens.lens (\ResultByTime' {timePeriod} -> timePeriod) (\s@ResultByTime' {} a -> s {timePeriod = a} :: ResultByTime)
 
 -- | Whether the result is estimated.
-resultByTime_estimated :: Lens.Lens' ResultByTime (Core.Maybe Core.Bool)
+resultByTime_estimated :: Lens.Lens' ResultByTime (Prelude.Maybe Prelude.Bool)
 resultByTime_estimated = Lens.lens (\ResultByTime' {estimated} -> estimated) (\s@ResultByTime' {} a -> s {estimated = a} :: ResultByTime)
 
 -- | The total amount of cost or usage accrued during the time period.
-resultByTime_total :: Lens.Lens' ResultByTime (Core.Maybe (Core.HashMap Core.Text MetricValue))
-resultByTime_total = Lens.lens (\ResultByTime' {total} -> total) (\s@ResultByTime' {} a -> s {total = a} :: ResultByTime) Core.. Lens.mapping Lens._Coerce
+resultByTime_total :: Lens.Lens' ResultByTime (Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue))
+resultByTime_total = Lens.lens (\ResultByTime' {total} -> total) (\s@ResultByTime' {} a -> s {total = a} :: ResultByTime) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ResultByTime where
   parseJSON =
@@ -87,12 +88,12 @@ instance Core.FromJSON ResultByTime where
       "ResultByTime"
       ( \x ->
           ResultByTime'
-            Core.<$> (x Core..:? "Groups" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "TimePeriod")
-            Core.<*> (x Core..:? "Estimated")
-            Core.<*> (x Core..:? "Total" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TimePeriod")
+            Prelude.<*> (x Core..:? "Estimated")
+            Prelude.<*> (x Core..:? "Total" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ResultByTime
+instance Prelude.Hashable ResultByTime
 
-instance Core.NFData ResultByTime
+instance Prelude.NFData ResultByTime

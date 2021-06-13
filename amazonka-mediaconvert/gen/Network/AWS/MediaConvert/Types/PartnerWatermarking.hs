@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.PartnerWatermarking where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If you work with a third party video watermarking partner, use the group
 -- of settings that correspond with your watermarking partner to include
@@ -32,9 +33,9 @@ data PartnerWatermarking = PartnerWatermarking'
   { -- | For forensic video watermarking, MediaConvert supports Nagra NexGuard
     -- File Marker watermarking. MediaConvert supports both PreRelease Content
     -- (NGPR\/G2) and OTT Streaming workflows.
-    nexguardFileMarkerSettings :: Core.Maybe NexGuardFileMarkerSettings
+    nexguardFileMarkerSettings :: Prelude.Maybe NexGuardFileMarkerSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PartnerWatermarking' with all optional fields omitted.
@@ -52,13 +53,13 @@ newPartnerWatermarking ::
 newPartnerWatermarking =
   PartnerWatermarking'
     { nexguardFileMarkerSettings =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | For forensic video watermarking, MediaConvert supports Nagra NexGuard
 -- File Marker watermarking. MediaConvert supports both PreRelease Content
 -- (NGPR\/G2) and OTT Streaming workflows.
-partnerWatermarking_nexguardFileMarkerSettings :: Lens.Lens' PartnerWatermarking (Core.Maybe NexGuardFileMarkerSettings)
+partnerWatermarking_nexguardFileMarkerSettings :: Lens.Lens' PartnerWatermarking (Prelude.Maybe NexGuardFileMarkerSettings)
 partnerWatermarking_nexguardFileMarkerSettings = Lens.lens (\PartnerWatermarking' {nexguardFileMarkerSettings} -> nexguardFileMarkerSettings) (\s@PartnerWatermarking' {} a -> s {nexguardFileMarkerSettings = a} :: PartnerWatermarking)
 
 instance Core.FromJSON PartnerWatermarking where
@@ -67,18 +68,18 @@ instance Core.FromJSON PartnerWatermarking where
       "PartnerWatermarking"
       ( \x ->
           PartnerWatermarking'
-            Core.<$> (x Core..:? "nexguardFileMarkerSettings")
+            Prelude.<$> (x Core..:? "nexguardFileMarkerSettings")
       )
 
-instance Core.Hashable PartnerWatermarking
+instance Prelude.Hashable PartnerWatermarking
 
-instance Core.NFData PartnerWatermarking
+instance Prelude.NFData PartnerWatermarking
 
 instance Core.ToJSON PartnerWatermarking where
   toJSON PartnerWatermarking' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("nexguardFileMarkerSettings" Core..=)
-              Core.<$> nexguardFileMarkerSettings
+              Prelude.<$> nexguardFileMarkerSettings
           ]
       )

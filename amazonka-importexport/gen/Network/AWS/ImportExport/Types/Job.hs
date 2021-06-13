@@ -22,17 +22,18 @@ module Network.AWS.ImportExport.Types.Job where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ImportExport.Types.JobType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Representation of a job returned by the ListJobs operation.
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
   { jobType :: JobType,
-    jobId :: Core.Text,
-    isCanceled :: Core.Bool,
+    jobId :: Prelude.Text,
+    isCanceled :: Prelude.Bool,
     creationDate :: Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Job' with all optional fields omitted.
@@ -53,11 +54,11 @@ newJob ::
   -- | 'jobType'
   JobType ->
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'isCanceled'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   Job
 newJob pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
   Job'
@@ -72,25 +73,25 @@ job_jobType :: Lens.Lens' Job JobType
 job_jobType = Lens.lens (\Job' {jobType} -> jobType) (\s@Job' {} a -> s {jobType = a} :: Job)
 
 -- | Undocumented member.
-job_jobId :: Lens.Lens' Job Core.Text
+job_jobId :: Lens.Lens' Job Prelude.Text
 job_jobId = Lens.lens (\Job' {jobId} -> jobId) (\s@Job' {} a -> s {jobId = a} :: Job)
 
 -- | Undocumented member.
-job_isCanceled :: Lens.Lens' Job Core.Bool
+job_isCanceled :: Lens.Lens' Job Prelude.Bool
 job_isCanceled = Lens.lens (\Job' {isCanceled} -> isCanceled) (\s@Job' {} a -> s {isCanceled = a} :: Job)
 
 -- | Undocumented member.
-job_creationDate :: Lens.Lens' Job Core.UTCTime
-job_creationDate = Lens.lens (\Job' {creationDate} -> creationDate) (\s@Job' {} a -> s {creationDate = a} :: Job) Core.. Core._Time
+job_creationDate :: Lens.Lens' Job Prelude.UTCTime
+job_creationDate = Lens.lens (\Job' {creationDate} -> creationDate) (\s@Job' {} a -> s {creationDate = a} :: Job) Prelude.. Core._Time
 
 instance Core.FromXML Job where
   parseXML x =
     Job'
-      Core.<$> (x Core..@ "JobType")
-      Core.<*> (x Core..@ "JobId")
-      Core.<*> (x Core..@ "IsCanceled")
-      Core.<*> (x Core..@ "CreationDate")
+      Prelude.<$> (x Core..@ "JobType")
+      Prelude.<*> (x Core..@ "JobId")
+      Prelude.<*> (x Core..@ "IsCanceled")
+      Prelude.<*> (x Core..@ "CreationDate")
 
-instance Core.Hashable Job
+instance Prelude.Hashable Job
 
-instance Core.NFData Job
+instance Prelude.NFData Job

@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.ConfusionMatrix where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The confusion matrix shows you what your transform is predicting
 -- accurately and what types of errors it is making.
@@ -33,18 +34,18 @@ import qualified Network.AWS.Lens as Lens
 data ConfusionMatrix = ConfusionMatrix'
   { -- | The number of nonmatches in the data that the transform incorrectly
     -- classified as a match, in the confusion matrix for your transform.
-    numFalsePositives :: Core.Maybe Core.Integer,
+    numFalsePositives :: Prelude.Maybe Prelude.Integer,
     -- | The number of nonmatches in the data that the transform correctly
     -- rejected, in the confusion matrix for your transform.
-    numTrueNegatives :: Core.Maybe Core.Integer,
+    numTrueNegatives :: Prelude.Maybe Prelude.Integer,
     -- | The number of matches in the data that the transform didn\'t find, in
     -- the confusion matrix for your transform.
-    numFalseNegatives :: Core.Maybe Core.Integer,
+    numFalseNegatives :: Prelude.Maybe Prelude.Integer,
     -- | The number of matches in the data that the transform correctly found, in
     -- the confusion matrix for your transform.
-    numTruePositives :: Core.Maybe Core.Integer
+    numTruePositives :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfusionMatrix' with all optional fields omitted.
@@ -69,30 +70,31 @@ newConfusionMatrix ::
   ConfusionMatrix
 newConfusionMatrix =
   ConfusionMatrix'
-    { numFalsePositives = Core.Nothing,
-      numTrueNegatives = Core.Nothing,
-      numFalseNegatives = Core.Nothing,
-      numTruePositives = Core.Nothing
+    { numFalsePositives =
+        Prelude.Nothing,
+      numTrueNegatives = Prelude.Nothing,
+      numFalseNegatives = Prelude.Nothing,
+      numTruePositives = Prelude.Nothing
     }
 
 -- | The number of nonmatches in the data that the transform incorrectly
 -- classified as a match, in the confusion matrix for your transform.
-confusionMatrix_numFalsePositives :: Lens.Lens' ConfusionMatrix (Core.Maybe Core.Integer)
+confusionMatrix_numFalsePositives :: Lens.Lens' ConfusionMatrix (Prelude.Maybe Prelude.Integer)
 confusionMatrix_numFalsePositives = Lens.lens (\ConfusionMatrix' {numFalsePositives} -> numFalsePositives) (\s@ConfusionMatrix' {} a -> s {numFalsePositives = a} :: ConfusionMatrix)
 
 -- | The number of nonmatches in the data that the transform correctly
 -- rejected, in the confusion matrix for your transform.
-confusionMatrix_numTrueNegatives :: Lens.Lens' ConfusionMatrix (Core.Maybe Core.Integer)
+confusionMatrix_numTrueNegatives :: Lens.Lens' ConfusionMatrix (Prelude.Maybe Prelude.Integer)
 confusionMatrix_numTrueNegatives = Lens.lens (\ConfusionMatrix' {numTrueNegatives} -> numTrueNegatives) (\s@ConfusionMatrix' {} a -> s {numTrueNegatives = a} :: ConfusionMatrix)
 
 -- | The number of matches in the data that the transform didn\'t find, in
 -- the confusion matrix for your transform.
-confusionMatrix_numFalseNegatives :: Lens.Lens' ConfusionMatrix (Core.Maybe Core.Integer)
+confusionMatrix_numFalseNegatives :: Lens.Lens' ConfusionMatrix (Prelude.Maybe Prelude.Integer)
 confusionMatrix_numFalseNegatives = Lens.lens (\ConfusionMatrix' {numFalseNegatives} -> numFalseNegatives) (\s@ConfusionMatrix' {} a -> s {numFalseNegatives = a} :: ConfusionMatrix)
 
 -- | The number of matches in the data that the transform correctly found, in
 -- the confusion matrix for your transform.
-confusionMatrix_numTruePositives :: Lens.Lens' ConfusionMatrix (Core.Maybe Core.Integer)
+confusionMatrix_numTruePositives :: Lens.Lens' ConfusionMatrix (Prelude.Maybe Prelude.Integer)
 confusionMatrix_numTruePositives = Lens.lens (\ConfusionMatrix' {numTruePositives} -> numTruePositives) (\s@ConfusionMatrix' {} a -> s {numTruePositives = a} :: ConfusionMatrix)
 
 instance Core.FromJSON ConfusionMatrix where
@@ -101,12 +103,12 @@ instance Core.FromJSON ConfusionMatrix where
       "ConfusionMatrix"
       ( \x ->
           ConfusionMatrix'
-            Core.<$> (x Core..:? "NumFalsePositives")
-            Core.<*> (x Core..:? "NumTrueNegatives")
-            Core.<*> (x Core..:? "NumFalseNegatives")
-            Core.<*> (x Core..:? "NumTruePositives")
+            Prelude.<$> (x Core..:? "NumFalsePositives")
+            Prelude.<*> (x Core..:? "NumTrueNegatives")
+            Prelude.<*> (x Core..:? "NumFalseNegatives")
+            Prelude.<*> (x Core..:? "NumTruePositives")
       )
 
-instance Core.Hashable ConfusionMatrix
+instance Prelude.Hashable ConfusionMatrix
 
-instance Core.NFData ConfusionMatrix
+instance Prelude.NFData ConfusionMatrix

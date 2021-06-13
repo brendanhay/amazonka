@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -65,9 +66,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeCompilationJob' smart constructor.
 data DescribeCompilationJob = DescribeCompilationJob'
   { -- | The name of the model compilation job that you want information about.
-    compilationJobName :: Core.Text
+    compilationJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCompilationJob' with all optional fields omitted.
@@ -80,7 +81,7 @@ data DescribeCompilationJob = DescribeCompilationJob'
 -- 'compilationJobName', 'describeCompilationJob_compilationJobName' - The name of the model compilation job that you want information about.
 newDescribeCompilationJob ::
   -- | 'compilationJobName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeCompilationJob
 newDescribeCompilationJob pCompilationJobName_ =
   DescribeCompilationJob'
@@ -89,7 +90,7 @@ newDescribeCompilationJob pCompilationJobName_ =
     }
 
 -- | The name of the model compilation job that you want information about.
-describeCompilationJob_compilationJobName :: Lens.Lens' DescribeCompilationJob Core.Text
+describeCompilationJob_compilationJobName :: Lens.Lens' DescribeCompilationJob Prelude.Text
 describeCompilationJob_compilationJobName = Lens.lens (\DescribeCompilationJob' {compilationJobName} -> compilationJobName) (\s@DescribeCompilationJob' {} a -> s {compilationJobName = a} :: DescribeCompilationJob)
 
 instance Core.AWSRequest DescribeCompilationJob where
@@ -101,60 +102,62 @@ instance Core.AWSRequest DescribeCompilationJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeCompilationJobResponse'
-            Core.<$> (x Core..?> "ModelDigests")
-            Core.<*> (x Core..?> "CompilationStartTime")
-            Core.<*> (x Core..?> "CompilationEndTime")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "CompilationJobName")
-            Core.<*> (x Core..:> "CompilationJobArn")
-            Core.<*> (x Core..:> "CompilationJobStatus")
-            Core.<*> (x Core..:> "StoppingCondition")
-            Core.<*> (x Core..:> "CreationTime")
-            Core.<*> (x Core..:> "LastModifiedTime")
-            Core.<*> (x Core..:> "FailureReason")
-            Core.<*> (x Core..:> "ModelArtifacts")
-            Core.<*> (x Core..:> "RoleArn")
-            Core.<*> (x Core..:> "InputConfig")
-            Core.<*> (x Core..:> "OutputConfig")
+            Prelude.<$> (x Core..?> "ModelDigests")
+            Prelude.<*> (x Core..?> "CompilationStartTime")
+            Prelude.<*> (x Core..?> "CompilationEndTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "CompilationJobName")
+            Prelude.<*> (x Core..:> "CompilationJobArn")
+            Prelude.<*> (x Core..:> "CompilationJobStatus")
+            Prelude.<*> (x Core..:> "StoppingCondition")
+            Prelude.<*> (x Core..:> "CreationTime")
+            Prelude.<*> (x Core..:> "LastModifiedTime")
+            Prelude.<*> (x Core..:> "FailureReason")
+            Prelude.<*> (x Core..:> "ModelArtifacts")
+            Prelude.<*> (x Core..:> "RoleArn")
+            Prelude.<*> (x Core..:> "InputConfig")
+            Prelude.<*> (x Core..:> "OutputConfig")
       )
 
-instance Core.Hashable DescribeCompilationJob
+instance Prelude.Hashable DescribeCompilationJob
 
-instance Core.NFData DescribeCompilationJob
+instance Prelude.NFData DescribeCompilationJob
 
 instance Core.ToHeaders DescribeCompilationJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.DescribeCompilationJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeCompilationJob where
   toJSON DescribeCompilationJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CompilationJobName" Core..= compilationJobName)
           ]
       )
 
 instance Core.ToPath DescribeCompilationJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeCompilationJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCompilationJobResponse' smart constructor.
 data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
   { -- | Provides a BLAKE2 hash value that identifies the compiled model
     -- artifacts in Amazon S3.
-    modelDigests :: Core.Maybe ModelDigests,
+    modelDigests :: Prelude.Maybe ModelDigests,
     -- | The time when the model compilation job started the @CompilationJob@
     -- instances.
     --
@@ -163,18 +166,18 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
     -- CloudWatch Logs, the start time might be later than this time. That\'s
     -- because it takes time to download the compilation job, which depends on
     -- the size of the compilation job container.
-    compilationStartTime :: Core.Maybe Core.POSIX,
+    compilationStartTime :: Prelude.Maybe Core.POSIX,
     -- | The time when the model compilation job on a compilation job instance
     -- ended. For a successful or stopped job, this is when the job\'s model
     -- artifacts have finished uploading. For a failed job, this is when Amazon
     -- SageMaker detected that the job failed.
-    compilationEndTime :: Core.Maybe Core.POSIX,
+    compilationEndTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The name of the model compilation job.
-    compilationJobName :: Core.Text,
+    compilationJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the model compilation job.
-    compilationJobArn :: Core.Text,
+    compilationJobArn :: Prelude.Text,
     -- | The status of the model compilation job.
     compilationJobStatus :: CompilationJobStatus,
     -- | Specifies a limit to how long a model compilation job can run. When the
@@ -186,13 +189,13 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
     -- | The time that the status of the model compilation job was last modified.
     lastModifiedTime :: Core.POSIX,
     -- | If a model compilation job failed, the reason it failed.
-    failureReason :: Core.Text,
+    failureReason :: Prelude.Text,
     -- | Information about the location in Amazon S3 that has been configured for
     -- storing the model artifacts used in the compilation job.
     modelArtifacts :: ModelArtifacts,
     -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker
     -- assumes to perform the model compilation job.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | Information about the location in Amazon S3 of the input model
     -- artifacts, the name and shape of the expected data inputs, and the
     -- framework in which the model was trained.
@@ -201,7 +204,7 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
     -- target device that the model runs on.
     outputConfig :: OutputConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCompilationJobResponse' with all optional fields omitted.
@@ -260,25 +263,25 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
 -- target device that the model runs on.
 newDescribeCompilationJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'compilationJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'compilationJobArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'compilationJobStatus'
   CompilationJobStatus ->
   -- | 'stoppingCondition'
   StoppingCondition ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'failureReason'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'modelArtifacts'
   ModelArtifacts ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputConfig'
   InputConfig ->
   -- | 'outputConfig'
@@ -299,9 +302,9 @@ newDescribeCompilationJobResponse
   pOutputConfig_ =
     DescribeCompilationJobResponse'
       { modelDigests =
-          Core.Nothing,
-        compilationStartTime = Core.Nothing,
-        compilationEndTime = Core.Nothing,
+          Prelude.Nothing,
+        compilationStartTime = Prelude.Nothing,
+        compilationEndTime = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         compilationJobName = pCompilationJobName_,
         compilationJobArn = pCompilationJobArn_,
@@ -321,7 +324,7 @@ newDescribeCompilationJobResponse
 
 -- | Provides a BLAKE2 hash value that identifies the compiled model
 -- artifacts in Amazon S3.
-describeCompilationJobResponse_modelDigests :: Lens.Lens' DescribeCompilationJobResponse (Core.Maybe ModelDigests)
+describeCompilationJobResponse_modelDigests :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe ModelDigests)
 describeCompilationJobResponse_modelDigests = Lens.lens (\DescribeCompilationJobResponse' {modelDigests} -> modelDigests) (\s@DescribeCompilationJobResponse' {} a -> s {modelDigests = a} :: DescribeCompilationJobResponse)
 
 -- | The time when the model compilation job started the @CompilationJob@
@@ -332,26 +335,26 @@ describeCompilationJobResponse_modelDigests = Lens.lens (\DescribeCompilationJob
 -- CloudWatch Logs, the start time might be later than this time. That\'s
 -- because it takes time to download the compilation job, which depends on
 -- the size of the compilation job container.
-describeCompilationJobResponse_compilationStartTime :: Lens.Lens' DescribeCompilationJobResponse (Core.Maybe Core.UTCTime)
-describeCompilationJobResponse_compilationStartTime = Lens.lens (\DescribeCompilationJobResponse' {compilationStartTime} -> compilationStartTime) (\s@DescribeCompilationJobResponse' {} a -> s {compilationStartTime = a} :: DescribeCompilationJobResponse) Core.. Lens.mapping Core._Time
+describeCompilationJobResponse_compilationStartTime :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeCompilationJobResponse_compilationStartTime = Lens.lens (\DescribeCompilationJobResponse' {compilationStartTime} -> compilationStartTime) (\s@DescribeCompilationJobResponse' {} a -> s {compilationStartTime = a} :: DescribeCompilationJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The time when the model compilation job on a compilation job instance
 -- ended. For a successful or stopped job, this is when the job\'s model
 -- artifacts have finished uploading. For a failed job, this is when Amazon
 -- SageMaker detected that the job failed.
-describeCompilationJobResponse_compilationEndTime :: Lens.Lens' DescribeCompilationJobResponse (Core.Maybe Core.UTCTime)
-describeCompilationJobResponse_compilationEndTime = Lens.lens (\DescribeCompilationJobResponse' {compilationEndTime} -> compilationEndTime) (\s@DescribeCompilationJobResponse' {} a -> s {compilationEndTime = a} :: DescribeCompilationJobResponse) Core.. Lens.mapping Core._Time
+describeCompilationJobResponse_compilationEndTime :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeCompilationJobResponse_compilationEndTime = Lens.lens (\DescribeCompilationJobResponse' {compilationEndTime} -> compilationEndTime) (\s@DescribeCompilationJobResponse' {} a -> s {compilationEndTime = a} :: DescribeCompilationJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeCompilationJobResponse_httpStatus :: Lens.Lens' DescribeCompilationJobResponse Core.Int
+describeCompilationJobResponse_httpStatus :: Lens.Lens' DescribeCompilationJobResponse Prelude.Int
 describeCompilationJobResponse_httpStatus = Lens.lens (\DescribeCompilationJobResponse' {httpStatus} -> httpStatus) (\s@DescribeCompilationJobResponse' {} a -> s {httpStatus = a} :: DescribeCompilationJobResponse)
 
 -- | The name of the model compilation job.
-describeCompilationJobResponse_compilationJobName :: Lens.Lens' DescribeCompilationJobResponse Core.Text
+describeCompilationJobResponse_compilationJobName :: Lens.Lens' DescribeCompilationJobResponse Prelude.Text
 describeCompilationJobResponse_compilationJobName = Lens.lens (\DescribeCompilationJobResponse' {compilationJobName} -> compilationJobName) (\s@DescribeCompilationJobResponse' {} a -> s {compilationJobName = a} :: DescribeCompilationJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the model compilation job.
-describeCompilationJobResponse_compilationJobArn :: Lens.Lens' DescribeCompilationJobResponse Core.Text
+describeCompilationJobResponse_compilationJobArn :: Lens.Lens' DescribeCompilationJobResponse Prelude.Text
 describeCompilationJobResponse_compilationJobArn = Lens.lens (\DescribeCompilationJobResponse' {compilationJobArn} -> compilationJobArn) (\s@DescribeCompilationJobResponse' {} a -> s {compilationJobArn = a} :: DescribeCompilationJobResponse)
 
 -- | The status of the model compilation job.
@@ -365,15 +368,15 @@ describeCompilationJobResponse_stoppingCondition :: Lens.Lens' DescribeCompilati
 describeCompilationJobResponse_stoppingCondition = Lens.lens (\DescribeCompilationJobResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeCompilationJobResponse' {} a -> s {stoppingCondition = a} :: DescribeCompilationJobResponse)
 
 -- | The time that the model compilation job was created.
-describeCompilationJobResponse_creationTime :: Lens.Lens' DescribeCompilationJobResponse Core.UTCTime
-describeCompilationJobResponse_creationTime = Lens.lens (\DescribeCompilationJobResponse' {creationTime} -> creationTime) (\s@DescribeCompilationJobResponse' {} a -> s {creationTime = a} :: DescribeCompilationJobResponse) Core.. Core._Time
+describeCompilationJobResponse_creationTime :: Lens.Lens' DescribeCompilationJobResponse Prelude.UTCTime
+describeCompilationJobResponse_creationTime = Lens.lens (\DescribeCompilationJobResponse' {creationTime} -> creationTime) (\s@DescribeCompilationJobResponse' {} a -> s {creationTime = a} :: DescribeCompilationJobResponse) Prelude.. Core._Time
 
 -- | The time that the status of the model compilation job was last modified.
-describeCompilationJobResponse_lastModifiedTime :: Lens.Lens' DescribeCompilationJobResponse Core.UTCTime
-describeCompilationJobResponse_lastModifiedTime = Lens.lens (\DescribeCompilationJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeCompilationJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeCompilationJobResponse) Core.. Core._Time
+describeCompilationJobResponse_lastModifiedTime :: Lens.Lens' DescribeCompilationJobResponse Prelude.UTCTime
+describeCompilationJobResponse_lastModifiedTime = Lens.lens (\DescribeCompilationJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeCompilationJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeCompilationJobResponse) Prelude.. Core._Time
 
 -- | If a model compilation job failed, the reason it failed.
-describeCompilationJobResponse_failureReason :: Lens.Lens' DescribeCompilationJobResponse Core.Text
+describeCompilationJobResponse_failureReason :: Lens.Lens' DescribeCompilationJobResponse Prelude.Text
 describeCompilationJobResponse_failureReason = Lens.lens (\DescribeCompilationJobResponse' {failureReason} -> failureReason) (\s@DescribeCompilationJobResponse' {} a -> s {failureReason = a} :: DescribeCompilationJobResponse)
 
 -- | Information about the location in Amazon S3 that has been configured for
@@ -383,7 +386,7 @@ describeCompilationJobResponse_modelArtifacts = Lens.lens (\DescribeCompilationJ
 
 -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker
 -- assumes to perform the model compilation job.
-describeCompilationJobResponse_roleArn :: Lens.Lens' DescribeCompilationJobResponse Core.Text
+describeCompilationJobResponse_roleArn :: Lens.Lens' DescribeCompilationJobResponse Prelude.Text
 describeCompilationJobResponse_roleArn = Lens.lens (\DescribeCompilationJobResponse' {roleArn} -> roleArn) (\s@DescribeCompilationJobResponse' {} a -> s {roleArn = a} :: DescribeCompilationJobResponse)
 
 -- | Information about the location in Amazon S3 of the input model
@@ -397,4 +400,6 @@ describeCompilationJobResponse_inputConfig = Lens.lens (\DescribeCompilationJobR
 describeCompilationJobResponse_outputConfig :: Lens.Lens' DescribeCompilationJobResponse OutputConfig
 describeCompilationJobResponse_outputConfig = Lens.lens (\DescribeCompilationJobResponse' {outputConfig} -> outputConfig) (\s@DescribeCompilationJobResponse' {} a -> s {outputConfig = a} :: DescribeCompilationJobResponse)
 
-instance Core.NFData DescribeCompilationJobResponse
+instance
+  Prelude.NFData
+    DescribeCompilationJobResponse

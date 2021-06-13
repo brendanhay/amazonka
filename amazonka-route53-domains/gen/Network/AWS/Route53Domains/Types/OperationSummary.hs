@@ -21,6 +21,7 @@ module Network.AWS.Route53Domains.Types.OperationSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53Domains.Types.OperationStatus
 import Network.AWS.Route53Domains.Types.OperationType
 
@@ -29,7 +30,7 @@ import Network.AWS.Route53Domains.Types.OperationType
 -- /See:/ 'newOperationSummary' smart constructor.
 data OperationSummary = OperationSummary'
   { -- | Identifier returned to track the requested action.
-    operationId :: Core.Text,
+    operationId :: Prelude.Text,
     -- | The current status of the requested operation in the system.
     status :: OperationStatus,
     -- | Type of the action requested.
@@ -37,7 +38,7 @@ data OperationSummary = OperationSummary'
     -- | The date when the request was submitted.
     submittedDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OperationSummary' with all optional fields omitted.
@@ -56,13 +57,13 @@ data OperationSummary = OperationSummary'
 -- 'submittedDate', 'operationSummary_submittedDate' - The date when the request was submitted.
 newOperationSummary ::
   -- | 'operationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   OperationStatus ->
   -- | 'type''
   OperationType ->
   -- | 'submittedDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   OperationSummary
 newOperationSummary
   pOperationId_
@@ -77,7 +78,7 @@ newOperationSummary
       }
 
 -- | Identifier returned to track the requested action.
-operationSummary_operationId :: Lens.Lens' OperationSummary Core.Text
+operationSummary_operationId :: Lens.Lens' OperationSummary Prelude.Text
 operationSummary_operationId = Lens.lens (\OperationSummary' {operationId} -> operationId) (\s@OperationSummary' {} a -> s {operationId = a} :: OperationSummary)
 
 -- | The current status of the requested operation in the system.
@@ -89,8 +90,8 @@ operationSummary_type :: Lens.Lens' OperationSummary OperationType
 operationSummary_type = Lens.lens (\OperationSummary' {type'} -> type') (\s@OperationSummary' {} a -> s {type' = a} :: OperationSummary)
 
 -- | The date when the request was submitted.
-operationSummary_submittedDate :: Lens.Lens' OperationSummary Core.UTCTime
-operationSummary_submittedDate = Lens.lens (\OperationSummary' {submittedDate} -> submittedDate) (\s@OperationSummary' {} a -> s {submittedDate = a} :: OperationSummary) Core.. Core._Time
+operationSummary_submittedDate :: Lens.Lens' OperationSummary Prelude.UTCTime
+operationSummary_submittedDate = Lens.lens (\OperationSummary' {submittedDate} -> submittedDate) (\s@OperationSummary' {} a -> s {submittedDate = a} :: OperationSummary) Prelude.. Core._Time
 
 instance Core.FromJSON OperationSummary where
   parseJSON =
@@ -98,12 +99,12 @@ instance Core.FromJSON OperationSummary where
       "OperationSummary"
       ( \x ->
           OperationSummary'
-            Core.<$> (x Core..: "OperationId")
-            Core.<*> (x Core..: "Status")
-            Core.<*> (x Core..: "Type")
-            Core.<*> (x Core..: "SubmittedDate")
+            Prelude.<$> (x Core..: "OperationId")
+            Prelude.<*> (x Core..: "Status")
+            Prelude.<*> (x Core..: "Type")
+            Prelude.<*> (x Core..: "SubmittedDate")
       )
 
-instance Core.Hashable OperationSummary
+instance Prelude.Hashable OperationSummary
 
-instance Core.NFData OperationSummary
+instance Prelude.NFData OperationSummary

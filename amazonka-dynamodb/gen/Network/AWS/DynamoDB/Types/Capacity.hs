@@ -21,6 +21,7 @@ module Network.AWS.DynamoDB.Types.Capacity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the amount of provisioned throughput capacity consumed on a
 -- table or an index.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 data Capacity = Capacity'
   { -- | The total number of write capacity units consumed on a table or an
     -- index.
-    writeCapacityUnits :: Core.Maybe Core.Double,
+    writeCapacityUnits :: Prelude.Maybe Prelude.Double,
     -- | The total number of capacity units consumed on a table or an index.
-    capacityUnits :: Core.Maybe Core.Double,
+    capacityUnits :: Prelude.Maybe Prelude.Double,
     -- | The total number of read capacity units consumed on a table or an index.
-    readCapacityUnits :: Core.Maybe Core.Double
+    readCapacityUnits :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Capacity' with all optional fields omitted.
@@ -55,22 +56,22 @@ newCapacity ::
   Capacity
 newCapacity =
   Capacity'
-    { writeCapacityUnits = Core.Nothing,
-      capacityUnits = Core.Nothing,
-      readCapacityUnits = Core.Nothing
+    { writeCapacityUnits = Prelude.Nothing,
+      capacityUnits = Prelude.Nothing,
+      readCapacityUnits = Prelude.Nothing
     }
 
 -- | The total number of write capacity units consumed on a table or an
 -- index.
-capacity_writeCapacityUnits :: Lens.Lens' Capacity (Core.Maybe Core.Double)
+capacity_writeCapacityUnits :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Double)
 capacity_writeCapacityUnits = Lens.lens (\Capacity' {writeCapacityUnits} -> writeCapacityUnits) (\s@Capacity' {} a -> s {writeCapacityUnits = a} :: Capacity)
 
 -- | The total number of capacity units consumed on a table or an index.
-capacity_capacityUnits :: Lens.Lens' Capacity (Core.Maybe Core.Double)
+capacity_capacityUnits :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Double)
 capacity_capacityUnits = Lens.lens (\Capacity' {capacityUnits} -> capacityUnits) (\s@Capacity' {} a -> s {capacityUnits = a} :: Capacity)
 
 -- | The total number of read capacity units consumed on a table or an index.
-capacity_readCapacityUnits :: Lens.Lens' Capacity (Core.Maybe Core.Double)
+capacity_readCapacityUnits :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Double)
 capacity_readCapacityUnits = Lens.lens (\Capacity' {readCapacityUnits} -> readCapacityUnits) (\s@Capacity' {} a -> s {readCapacityUnits = a} :: Capacity)
 
 instance Core.FromJSON Capacity where
@@ -79,11 +80,11 @@ instance Core.FromJSON Capacity where
       "Capacity"
       ( \x ->
           Capacity'
-            Core.<$> (x Core..:? "WriteCapacityUnits")
-            Core.<*> (x Core..:? "CapacityUnits")
-            Core.<*> (x Core..:? "ReadCapacityUnits")
+            Prelude.<$> (x Core..:? "WriteCapacityUnits")
+            Prelude.<*> (x Core..:? "CapacityUnits")
+            Prelude.<*> (x Core..:? "ReadCapacityUnits")
       )
 
-instance Core.Hashable Capacity
+instance Prelude.Hashable Capacity
 
-instance Core.NFData Capacity
+instance Prelude.NFData Capacity

@@ -70,6 +70,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,12 +83,12 @@ data TagSAMLProvider = TagSAMLProvider'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    sAMLProviderArn :: Core.Text,
+    sAMLProviderArn :: Prelude.Text,
     -- | The list of tags that you want to attach to the SAML identity provider
     -- in IAM. Each tag consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagSAMLProvider' with all optional fields omitted.
@@ -109,13 +110,13 @@ data TagSAMLProvider = TagSAMLProvider'
 -- in IAM. Each tag consists of a key name and an associated value.
 newTagSAMLProvider ::
   -- | 'sAMLProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   TagSAMLProvider
 newTagSAMLProvider pSAMLProviderArn_ =
   TagSAMLProvider'
     { sAMLProviderArn =
         pSAMLProviderArn_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The ARN of the SAML identity provider in IAM to which you want to add
@@ -125,13 +126,13 @@ newTagSAMLProvider pSAMLProviderArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagSAMLProvider_sAMLProviderArn :: Lens.Lens' TagSAMLProvider Core.Text
+tagSAMLProvider_sAMLProviderArn :: Lens.Lens' TagSAMLProvider Prelude.Text
 tagSAMLProvider_sAMLProviderArn = Lens.lens (\TagSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@TagSAMLProvider' {} a -> s {sAMLProviderArn = a} :: TagSAMLProvider)
 
 -- | The list of tags that you want to attach to the SAML identity provider
 -- in IAM. Each tag consists of a key name and an associated value.
 tagSAMLProvider_tags :: Lens.Lens' TagSAMLProvider [Tag]
-tagSAMLProvider_tags = Lens.lens (\TagSAMLProvider' {tags} -> tags) (\s@TagSAMLProvider' {} a -> s {tags = a} :: TagSAMLProvider) Core.. Lens._Coerce
+tagSAMLProvider_tags = Lens.lens (\TagSAMLProvider' {tags} -> tags) (\s@TagSAMLProvider' {} a -> s {tags = a} :: TagSAMLProvider) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagSAMLProvider where
   type
@@ -141,22 +142,23 @@ instance Core.AWSRequest TagSAMLProvider where
   response =
     Response.receiveNull TagSAMLProviderResponse'
 
-instance Core.Hashable TagSAMLProvider
+instance Prelude.Hashable TagSAMLProvider
 
-instance Core.NFData TagSAMLProvider
+instance Prelude.NFData TagSAMLProvider
 
 instance Core.ToHeaders TagSAMLProvider where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath TagSAMLProvider where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagSAMLProvider where
   toQuery TagSAMLProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("TagSAMLProvider" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("TagSAMLProvider" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "SAMLProviderArn" Core.=: sAMLProviderArn,
         "Tags" Core.=: Core.toQueryList "member" tags
       ]
@@ -165,7 +167,7 @@ instance Core.ToQuery TagSAMLProvider where
 data TagSAMLProviderResponse = TagSAMLProviderResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagSAMLProviderResponse' with all optional fields omitted.
@@ -175,4 +177,4 @@ newTagSAMLProviderResponse ::
   TagSAMLProviderResponse
 newTagSAMLProviderResponse = TagSAMLProviderResponse'
 
-instance Core.NFData TagSAMLProviderResponse
+instance Prelude.NFData TagSAMLProviderResponse

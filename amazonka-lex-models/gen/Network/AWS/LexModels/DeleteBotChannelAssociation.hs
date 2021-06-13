@@ -44,20 +44,21 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBotChannelAssociation' smart constructor.
 data DeleteBotChannelAssociation = DeleteBotChannelAssociation'
   { -- | The name of the association. The name is case sensitive.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The name of the Amazon Lex bot.
-    botName :: Core.Text,
+    botName :: Prelude.Text,
     -- | An alias that points to the specific version of the Amazon Lex bot to
     -- which this association is being made.
-    botAlias :: Core.Text
+    botAlias :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBotChannelAssociation' with all optional fields omitted.
@@ -75,11 +76,11 @@ data DeleteBotChannelAssociation = DeleteBotChannelAssociation'
 -- which this association is being made.
 newDeleteBotChannelAssociation ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'botName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'botAlias'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBotChannelAssociation
 newDeleteBotChannelAssociation
   pName_
@@ -92,16 +93,16 @@ newDeleteBotChannelAssociation
       }
 
 -- | The name of the association. The name is case sensitive.
-deleteBotChannelAssociation_name :: Lens.Lens' DeleteBotChannelAssociation Core.Text
+deleteBotChannelAssociation_name :: Lens.Lens' DeleteBotChannelAssociation Prelude.Text
 deleteBotChannelAssociation_name = Lens.lens (\DeleteBotChannelAssociation' {name} -> name) (\s@DeleteBotChannelAssociation' {} a -> s {name = a} :: DeleteBotChannelAssociation)
 
 -- | The name of the Amazon Lex bot.
-deleteBotChannelAssociation_botName :: Lens.Lens' DeleteBotChannelAssociation Core.Text
+deleteBotChannelAssociation_botName :: Lens.Lens' DeleteBotChannelAssociation Prelude.Text
 deleteBotChannelAssociation_botName = Lens.lens (\DeleteBotChannelAssociation' {botName} -> botName) (\s@DeleteBotChannelAssociation' {} a -> s {botName = a} :: DeleteBotChannelAssociation)
 
 -- | An alias that points to the specific version of the Amazon Lex bot to
 -- which this association is being made.
-deleteBotChannelAssociation_botAlias :: Lens.Lens' DeleteBotChannelAssociation Core.Text
+deleteBotChannelAssociation_botAlias :: Lens.Lens' DeleteBotChannelAssociation Prelude.Text
 deleteBotChannelAssociation_botAlias = Lens.lens (\DeleteBotChannelAssociation' {botAlias} -> botAlias) (\s@DeleteBotChannelAssociation' {} a -> s {botAlias = a} :: DeleteBotChannelAssociation)
 
 instance Core.AWSRequest DeleteBotChannelAssociation where
@@ -113,22 +114,24 @@ instance Core.AWSRequest DeleteBotChannelAssociation where
     Response.receiveNull
       DeleteBotChannelAssociationResponse'
 
-instance Core.Hashable DeleteBotChannelAssociation
+instance Prelude.Hashable DeleteBotChannelAssociation
 
-instance Core.NFData DeleteBotChannelAssociation
+instance Prelude.NFData DeleteBotChannelAssociation
 
 instance Core.ToHeaders DeleteBotChannelAssociation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteBotChannelAssociation where
   toPath DeleteBotChannelAssociation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/bots/",
         Core.toBS botName,
         "/aliases/",
@@ -138,13 +141,13 @@ instance Core.ToPath DeleteBotChannelAssociation where
       ]
 
 instance Core.ToQuery DeleteBotChannelAssociation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBotChannelAssociationResponse' smart constructor.
 data DeleteBotChannelAssociationResponse = DeleteBotChannelAssociationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBotChannelAssociationResponse' with all optional fields omitted.
@@ -156,5 +159,5 @@ newDeleteBotChannelAssociationResponse =
   DeleteBotChannelAssociationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteBotChannelAssociationResponse

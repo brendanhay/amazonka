@@ -21,6 +21,7 @@ module Network.AWS.ElasticBeanstalk.Types.ResourceQuota where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS Elastic Beanstalk quota information for a single resource type
 -- in an AWS account. It reflects the resource\'s limits for this account.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data ResourceQuota = ResourceQuota'
   { -- | The maximum number of instances of this Elastic Beanstalk resource type
     -- that an AWS account can use.
-    maximum :: Core.Maybe Core.Int
+    maximum :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceQuota' with all optional fields omitted.
@@ -46,17 +47,17 @@ data ResourceQuota = ResourceQuota'
 newResourceQuota ::
   ResourceQuota
 newResourceQuota =
-  ResourceQuota' {maximum = Core.Nothing}
+  ResourceQuota' {maximum = Prelude.Nothing}
 
 -- | The maximum number of instances of this Elastic Beanstalk resource type
 -- that an AWS account can use.
-resourceQuota_maximum :: Lens.Lens' ResourceQuota (Core.Maybe Core.Int)
+resourceQuota_maximum :: Lens.Lens' ResourceQuota (Prelude.Maybe Prelude.Int)
 resourceQuota_maximum = Lens.lens (\ResourceQuota' {maximum} -> maximum) (\s@ResourceQuota' {} a -> s {maximum = a} :: ResourceQuota)
 
 instance Core.FromXML ResourceQuota where
   parseXML x =
-    ResourceQuota' Core.<$> (x Core..@? "Maximum")
+    ResourceQuota' Prelude.<$> (x Core..@? "Maximum")
 
-instance Core.Hashable ResourceQuota
+instance Prelude.Hashable ResourceQuota
 
-instance Core.NFData ResourceQuota
+instance Prelude.NFData ResourceQuota

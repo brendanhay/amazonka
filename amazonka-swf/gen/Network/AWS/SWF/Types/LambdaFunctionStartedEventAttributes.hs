@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @LambdaFunctionStarted@ event. It isn\'t set
 -- for other event types.
@@ -30,9 +31,9 @@ data LambdaFunctionStartedEventAttributes = LambdaFunctionStartedEventAttributes
   { -- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
     -- this activity task was scheduled. To help diagnose issues, use this
     -- information to trace back the chain of events leading up to this event.
-    scheduledEventId :: Core.Integer
+    scheduledEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionStartedEventAttributes' with all optional fields omitted.
@@ -47,7 +48,7 @@ data LambdaFunctionStartedEventAttributes = LambdaFunctionStartedEventAttributes
 -- information to trace back the chain of events leading up to this event.
 newLambdaFunctionStartedEventAttributes ::
   -- | 'scheduledEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   LambdaFunctionStartedEventAttributes
 newLambdaFunctionStartedEventAttributes
   pScheduledEventId_ =
@@ -59,7 +60,7 @@ newLambdaFunctionStartedEventAttributes
 -- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
 -- this activity task was scheduled. To help diagnose issues, use this
 -- information to trace back the chain of events leading up to this event.
-lambdaFunctionStartedEventAttributes_scheduledEventId :: Lens.Lens' LambdaFunctionStartedEventAttributes Core.Integer
+lambdaFunctionStartedEventAttributes_scheduledEventId :: Lens.Lens' LambdaFunctionStartedEventAttributes Prelude.Integer
 lambdaFunctionStartedEventAttributes_scheduledEventId = Lens.lens (\LambdaFunctionStartedEventAttributes' {scheduledEventId} -> scheduledEventId) (\s@LambdaFunctionStartedEventAttributes' {} a -> s {scheduledEventId = a} :: LambdaFunctionStartedEventAttributes)
 
 instance
@@ -71,13 +72,13 @@ instance
       "LambdaFunctionStartedEventAttributes"
       ( \x ->
           LambdaFunctionStartedEventAttributes'
-            Core.<$> (x Core..: "scheduledEventId")
+            Prelude.<$> (x Core..: "scheduledEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LambdaFunctionStartedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     LambdaFunctionStartedEventAttributes

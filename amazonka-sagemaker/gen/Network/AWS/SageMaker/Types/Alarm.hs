@@ -21,14 +21,15 @@ module Network.AWS.SageMaker.Types.Alarm where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This API is not supported.
 --
 -- /See:/ 'newAlarm' smart constructor.
 data Alarm = Alarm'
-  { alarmName :: Core.Maybe Core.Text
+  { alarmName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Alarm' with all optional fields omitted.
@@ -41,25 +42,25 @@ data Alarm = Alarm'
 -- 'alarmName', 'alarm_alarmName' -
 newAlarm ::
   Alarm
-newAlarm = Alarm' {alarmName = Core.Nothing}
+newAlarm = Alarm' {alarmName = Prelude.Nothing}
 
 -- |
-alarm_alarmName :: Lens.Lens' Alarm (Core.Maybe Core.Text)
+alarm_alarmName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
 alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 
 instance Core.FromJSON Alarm where
   parseJSON =
     Core.withObject
       "Alarm"
-      (\x -> Alarm' Core.<$> (x Core..:? "AlarmName"))
+      (\x -> Alarm' Prelude.<$> (x Core..:? "AlarmName"))
 
-instance Core.Hashable Alarm
+instance Prelude.Hashable Alarm
 
-instance Core.NFData Alarm
+instance Prelude.NFData Alarm
 
 instance Core.ToJSON Alarm where
   toJSON Alarm' {..} =
     Core.object
-      ( Core.catMaybes
-          [("AlarmName" Core..=) Core.<$> alarmName]
+      ( Prelude.catMaybes
+          [("AlarmName" Core..=) Prelude.<$> alarmName]
       )

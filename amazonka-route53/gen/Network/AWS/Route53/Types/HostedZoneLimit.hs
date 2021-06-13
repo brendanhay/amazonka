@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.HostedZoneLimit where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.HostedZoneLimitType
 
@@ -38,9 +39,9 @@ data HostedZoneLimit = HostedZoneLimit'
     --     that you can associate with the specified private hosted zone.
     type' :: HostedZoneLimitType,
     -- | The current value for the limit that is specified by @Type@.
-    value :: Core.Natural
+    value :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostedZoneLimit' with all optional fields omitted.
@@ -63,7 +64,7 @@ newHostedZoneLimit ::
   -- | 'type''
   HostedZoneLimitType ->
   -- | 'value'
-  Core.Natural ->
+  Prelude.Natural ->
   HostedZoneLimit
 newHostedZoneLimit pType_ pValue_ =
   HostedZoneLimit' {type' = pType_, value = pValue_}
@@ -79,14 +80,14 @@ hostedZoneLimit_type :: Lens.Lens' HostedZoneLimit HostedZoneLimitType
 hostedZoneLimit_type = Lens.lens (\HostedZoneLimit' {type'} -> type') (\s@HostedZoneLimit' {} a -> s {type' = a} :: HostedZoneLimit)
 
 -- | The current value for the limit that is specified by @Type@.
-hostedZoneLimit_value :: Lens.Lens' HostedZoneLimit Core.Natural
+hostedZoneLimit_value :: Lens.Lens' HostedZoneLimit Prelude.Natural
 hostedZoneLimit_value = Lens.lens (\HostedZoneLimit' {value} -> value) (\s@HostedZoneLimit' {} a -> s {value = a} :: HostedZoneLimit)
 
 instance Core.FromXML HostedZoneLimit where
   parseXML x =
     HostedZoneLimit'
-      Core.<$> (x Core..@ "Type") Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@ "Type") Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable HostedZoneLimit
+instance Prelude.Hashable HostedZoneLimit
 
-instance Core.NFData HostedZoneLimit
+instance Prelude.NFData HostedZoneLimit

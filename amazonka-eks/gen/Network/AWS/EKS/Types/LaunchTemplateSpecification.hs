@@ -21,6 +21,7 @@ module Network.AWS.EKS.Types.LaunchTemplateSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a node group launch template specification. The
 -- launch template cannot include
@@ -46,14 +47,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | The ID of the launch template.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The version of the launch template to use. If no version is specified,
     -- then the template\'s default version is used.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateSpecification' with all optional fields omitted.
@@ -73,22 +74,22 @@ newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
-    { id = Core.Nothing,
-      version = Core.Nothing,
-      name = Core.Nothing
+    { id = Prelude.Nothing,
+      version = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The ID of the launch template.
-launchTemplateSpecification_id :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_id :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_id = Lens.lens (\LaunchTemplateSpecification' {id} -> id) (\s@LaunchTemplateSpecification' {} a -> s {id = a} :: LaunchTemplateSpecification)
 
 -- | The version of the launch template to use. If no version is specified,
 -- then the template\'s default version is used.
-launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
 -- | The name of the launch template.
-launchTemplateSpecification_name :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_name :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_name = Lens.lens (\LaunchTemplateSpecification' {name} -> name) (\s@LaunchTemplateSpecification' {} a -> s {name = a} :: LaunchTemplateSpecification)
 
 instance Core.FromJSON LaunchTemplateSpecification where
@@ -97,21 +98,21 @@ instance Core.FromJSON LaunchTemplateSpecification where
       "LaunchTemplateSpecification"
       ( \x ->
           LaunchTemplateSpecification'
-            Core.<$> (x Core..:? "id")
-            Core.<*> (x Core..:? "version")
-            Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable LaunchTemplateSpecification
+instance Prelude.Hashable LaunchTemplateSpecification
 
-instance Core.NFData LaunchTemplateSpecification
+instance Prelude.NFData LaunchTemplateSpecification
 
 instance Core.ToJSON LaunchTemplateSpecification where
   toJSON LaunchTemplateSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("id" Core..=) Core.<$> id,
-            ("version" Core..=) Core.<$> version,
-            ("name" Core..=) Core.<$> name
+      ( Prelude.catMaybes
+          [ ("id" Core..=) Prelude.<$> id,
+            ("version" Core..=) Prelude.<$> version,
+            ("name" Core..=) Prelude.<$> name
           ]
       )

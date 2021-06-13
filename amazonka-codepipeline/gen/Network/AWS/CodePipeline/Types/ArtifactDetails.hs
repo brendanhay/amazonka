@@ -21,17 +21,18 @@ module Network.AWS.CodePipeline.Types.ArtifactDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about the details of an artifact.
 --
 -- /See:/ 'newArtifactDetails' smart constructor.
 data ArtifactDetails = ArtifactDetails'
   { -- | The minimum number of artifacts allowed for the action type.
-    minimumCount :: Core.Natural,
+    minimumCount :: Prelude.Natural,
     -- | The maximum number of artifacts allowed for the action type.
-    maximumCount :: Core.Natural
+    maximumCount :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArtifactDetails' with all optional fields omitted.
@@ -46,9 +47,9 @@ data ArtifactDetails = ArtifactDetails'
 -- 'maximumCount', 'artifactDetails_maximumCount' - The maximum number of artifacts allowed for the action type.
 newArtifactDetails ::
   -- | 'minimumCount'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'maximumCount'
-  Core.Natural ->
+  Prelude.Natural ->
   ArtifactDetails
 newArtifactDetails pMinimumCount_ pMaximumCount_ =
   ArtifactDetails'
@@ -57,11 +58,11 @@ newArtifactDetails pMinimumCount_ pMaximumCount_ =
     }
 
 -- | The minimum number of artifacts allowed for the action type.
-artifactDetails_minimumCount :: Lens.Lens' ArtifactDetails Core.Natural
+artifactDetails_minimumCount :: Lens.Lens' ArtifactDetails Prelude.Natural
 artifactDetails_minimumCount = Lens.lens (\ArtifactDetails' {minimumCount} -> minimumCount) (\s@ArtifactDetails' {} a -> s {minimumCount = a} :: ArtifactDetails)
 
 -- | The maximum number of artifacts allowed for the action type.
-artifactDetails_maximumCount :: Lens.Lens' ArtifactDetails Core.Natural
+artifactDetails_maximumCount :: Lens.Lens' ArtifactDetails Prelude.Natural
 artifactDetails_maximumCount = Lens.lens (\ArtifactDetails' {maximumCount} -> maximumCount) (\s@ArtifactDetails' {} a -> s {maximumCount = a} :: ArtifactDetails)
 
 instance Core.FromJSON ArtifactDetails where
@@ -70,19 +71,19 @@ instance Core.FromJSON ArtifactDetails where
       "ArtifactDetails"
       ( \x ->
           ArtifactDetails'
-            Core.<$> (x Core..: "minimumCount")
-            Core.<*> (x Core..: "maximumCount")
+            Prelude.<$> (x Core..: "minimumCount")
+            Prelude.<*> (x Core..: "maximumCount")
       )
 
-instance Core.Hashable ArtifactDetails
+instance Prelude.Hashable ArtifactDetails
 
-instance Core.NFData ArtifactDetails
+instance Prelude.NFData ArtifactDetails
 
 instance Core.ToJSON ArtifactDetails where
   toJSON ArtifactDetails' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("minimumCount" Core..= minimumCount),
-            Core.Just ("maximumCount" Core..= maximumCount)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("minimumCount" Core..= minimumCount),
+            Prelude.Just ("maximumCount" Core..= maximumCount)
           ]
       )

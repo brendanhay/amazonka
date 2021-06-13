@@ -21,27 +21,28 @@ module Network.AWS.Glue.Types.JobBookmarkEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a point that a job can resume processing.
 --
 -- /See:/ 'newJobBookmarkEntry' smart constructor.
 data JobBookmarkEntry = JobBookmarkEntry'
   { -- | The run ID number.
-    runId :: Core.Maybe Core.Text,
+    runId :: Prelude.Maybe Prelude.Text,
     -- | The bookmark itself.
-    jobBookmark :: Core.Maybe Core.Text,
+    jobBookmark :: Prelude.Maybe Prelude.Text,
     -- | The version of the job.
-    version :: Core.Maybe Core.Int,
+    version :: Prelude.Maybe Prelude.Int,
     -- | The run ID number.
-    run :: Core.Maybe Core.Int,
+    run :: Prelude.Maybe Prelude.Int,
     -- | The name of the job in question.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The unique run identifier associated with the previous job run.
-    previousRunId :: Core.Maybe Core.Text,
+    previousRunId :: Prelude.Maybe Prelude.Text,
     -- | The attempt ID number.
-    attempt :: Core.Maybe Core.Int
+    attempt :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobBookmarkEntry' with all optional fields omitted.
@@ -68,41 +69,41 @@ newJobBookmarkEntry ::
   JobBookmarkEntry
 newJobBookmarkEntry =
   JobBookmarkEntry'
-    { runId = Core.Nothing,
-      jobBookmark = Core.Nothing,
-      version = Core.Nothing,
-      run = Core.Nothing,
-      jobName = Core.Nothing,
-      previousRunId = Core.Nothing,
-      attempt = Core.Nothing
+    { runId = Prelude.Nothing,
+      jobBookmark = Prelude.Nothing,
+      version = Prelude.Nothing,
+      run = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      previousRunId = Prelude.Nothing,
+      attempt = Prelude.Nothing
     }
 
 -- | The run ID number.
-jobBookmarkEntry_runId :: Lens.Lens' JobBookmarkEntry (Core.Maybe Core.Text)
+jobBookmarkEntry_runId :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Text)
 jobBookmarkEntry_runId = Lens.lens (\JobBookmarkEntry' {runId} -> runId) (\s@JobBookmarkEntry' {} a -> s {runId = a} :: JobBookmarkEntry)
 
 -- | The bookmark itself.
-jobBookmarkEntry_jobBookmark :: Lens.Lens' JobBookmarkEntry (Core.Maybe Core.Text)
+jobBookmarkEntry_jobBookmark :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Text)
 jobBookmarkEntry_jobBookmark = Lens.lens (\JobBookmarkEntry' {jobBookmark} -> jobBookmark) (\s@JobBookmarkEntry' {} a -> s {jobBookmark = a} :: JobBookmarkEntry)
 
 -- | The version of the job.
-jobBookmarkEntry_version :: Lens.Lens' JobBookmarkEntry (Core.Maybe Core.Int)
+jobBookmarkEntry_version :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Int)
 jobBookmarkEntry_version = Lens.lens (\JobBookmarkEntry' {version} -> version) (\s@JobBookmarkEntry' {} a -> s {version = a} :: JobBookmarkEntry)
 
 -- | The run ID number.
-jobBookmarkEntry_run :: Lens.Lens' JobBookmarkEntry (Core.Maybe Core.Int)
+jobBookmarkEntry_run :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Int)
 jobBookmarkEntry_run = Lens.lens (\JobBookmarkEntry' {run} -> run) (\s@JobBookmarkEntry' {} a -> s {run = a} :: JobBookmarkEntry)
 
 -- | The name of the job in question.
-jobBookmarkEntry_jobName :: Lens.Lens' JobBookmarkEntry (Core.Maybe Core.Text)
+jobBookmarkEntry_jobName :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Text)
 jobBookmarkEntry_jobName = Lens.lens (\JobBookmarkEntry' {jobName} -> jobName) (\s@JobBookmarkEntry' {} a -> s {jobName = a} :: JobBookmarkEntry)
 
 -- | The unique run identifier associated with the previous job run.
-jobBookmarkEntry_previousRunId :: Lens.Lens' JobBookmarkEntry (Core.Maybe Core.Text)
+jobBookmarkEntry_previousRunId :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Text)
 jobBookmarkEntry_previousRunId = Lens.lens (\JobBookmarkEntry' {previousRunId} -> previousRunId) (\s@JobBookmarkEntry' {} a -> s {previousRunId = a} :: JobBookmarkEntry)
 
 -- | The attempt ID number.
-jobBookmarkEntry_attempt :: Lens.Lens' JobBookmarkEntry (Core.Maybe Core.Int)
+jobBookmarkEntry_attempt :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Int)
 jobBookmarkEntry_attempt = Lens.lens (\JobBookmarkEntry' {attempt} -> attempt) (\s@JobBookmarkEntry' {} a -> s {attempt = a} :: JobBookmarkEntry)
 
 instance Core.FromJSON JobBookmarkEntry where
@@ -111,15 +112,15 @@ instance Core.FromJSON JobBookmarkEntry where
       "JobBookmarkEntry"
       ( \x ->
           JobBookmarkEntry'
-            Core.<$> (x Core..:? "RunId")
-            Core.<*> (x Core..:? "JobBookmark")
-            Core.<*> (x Core..:? "Version")
-            Core.<*> (x Core..:? "Run")
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "PreviousRunId")
-            Core.<*> (x Core..:? "Attempt")
+            Prelude.<$> (x Core..:? "RunId")
+            Prelude.<*> (x Core..:? "JobBookmark")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Run")
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "PreviousRunId")
+            Prelude.<*> (x Core..:? "Attempt")
       )
 
-instance Core.Hashable JobBookmarkEntry
+instance Prelude.Hashable JobBookmarkEntry
 
-instance Core.NFData JobBookmarkEntry
+instance Prelude.NFData JobBookmarkEntry

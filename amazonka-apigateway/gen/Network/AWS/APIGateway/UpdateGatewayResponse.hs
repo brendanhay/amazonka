@@ -48,6 +48,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ import qualified Network.AWS.Response as Response
 data UpdateGatewayResponse = UpdateGatewayResponse'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required]
     --
     -- The response type of the associated GatewayResponse. Valid values are
@@ -87,7 +88,7 @@ data UpdateGatewayResponse = UpdateGatewayResponse'
     -- -   UNSUPPORTED_MEDIA_TYPE
     responseType :: GatewayResponseType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGatewayResponse' with all optional fields omitted.
@@ -128,25 +129,25 @@ data UpdateGatewayResponse = UpdateGatewayResponse'
 -- -   UNSUPPORTED_MEDIA_TYPE
 newUpdateGatewayResponse ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'responseType'
   GatewayResponseType ->
   UpdateGatewayResponse
 newUpdateGatewayResponse pRestApiId_ pResponseType_ =
   UpdateGatewayResponse'
     { patchOperations =
-        Core.Nothing,
+        Prelude.Nothing,
       restApiId = pRestApiId_,
       responseType = pResponseType_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateGatewayResponse_patchOperations :: Lens.Lens' UpdateGatewayResponse (Core.Maybe [PatchOperation])
-updateGatewayResponse_patchOperations = Lens.lens (\UpdateGatewayResponse' {patchOperations} -> patchOperations) (\s@UpdateGatewayResponse' {} a -> s {patchOperations = a} :: UpdateGatewayResponse) Core.. Lens.mapping Lens._Coerce
+updateGatewayResponse_patchOperations :: Lens.Lens' UpdateGatewayResponse (Prelude.Maybe [PatchOperation])
+updateGatewayResponse_patchOperations = Lens.lens (\UpdateGatewayResponse' {patchOperations} -> patchOperations) (\s@UpdateGatewayResponse' {} a -> s {patchOperations = a} :: UpdateGatewayResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateGatewayResponse_restApiId :: Lens.Lens' UpdateGatewayResponse Core.Text
+updateGatewayResponse_restApiId :: Lens.Lens' UpdateGatewayResponse Prelude.Text
 updateGatewayResponse_restApiId = Lens.lens (\UpdateGatewayResponse' {restApiId} -> restApiId) (\s@UpdateGatewayResponse' {} a -> s {restApiId = a} :: UpdateGatewayResponse)
 
 -- | [Required]
@@ -185,31 +186,31 @@ instance Core.AWSRequest UpdateGatewayResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateGatewayResponse
+instance Prelude.Hashable UpdateGatewayResponse
 
-instance Core.NFData UpdateGatewayResponse
+instance Prelude.NFData UpdateGatewayResponse
 
 instance Core.ToHeaders UpdateGatewayResponse where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateGatewayResponse where
   toJSON UpdateGatewayResponse' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateGatewayResponse where
   toPath UpdateGatewayResponse' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/gatewayresponses/",
@@ -217,4 +218,4 @@ instance Core.ToPath UpdateGatewayResponse where
       ]
 
 instance Core.ToQuery UpdateGatewayResponse where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data DescribeDefaultAuthorizer = DescribeDefaultAuthorizer'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDefaultAuthorizer' with all optional fields omitted.
@@ -66,31 +67,31 @@ instance Core.AWSRequest DescribeDefaultAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           DescribeDefaultAuthorizerResponse'
-            Core.<$> (x Core..?> "authorizerDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "authorizerDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDefaultAuthorizer
+instance Prelude.Hashable DescribeDefaultAuthorizer
 
-instance Core.NFData DescribeDefaultAuthorizer
+instance Prelude.NFData DescribeDefaultAuthorizer
 
 instance Core.ToHeaders DescribeDefaultAuthorizer where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDefaultAuthorizer where
-  toPath = Core.const "/default-authorizer"
+  toPath = Prelude.const "/default-authorizer"
 
 instance Core.ToQuery DescribeDefaultAuthorizer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDefaultAuthorizerResponse' smart constructor.
 data DescribeDefaultAuthorizerResponse = DescribeDefaultAuthorizerResponse'
   { -- | The default authorizer\'s description.
-    authorizerDescription :: Core.Maybe AuthorizerDescription,
+    authorizerDescription :: Prelude.Maybe AuthorizerDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDefaultAuthorizerResponse' with all optional fields omitted.
@@ -105,23 +106,23 @@ data DescribeDefaultAuthorizerResponse = DescribeDefaultAuthorizerResponse'
 -- 'httpStatus', 'describeDefaultAuthorizerResponse_httpStatus' - The response's http status code.
 newDescribeDefaultAuthorizerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDefaultAuthorizerResponse
 newDescribeDefaultAuthorizerResponse pHttpStatus_ =
   DescribeDefaultAuthorizerResponse'
     { authorizerDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The default authorizer\'s description.
-describeDefaultAuthorizerResponse_authorizerDescription :: Lens.Lens' DescribeDefaultAuthorizerResponse (Core.Maybe AuthorizerDescription)
+describeDefaultAuthorizerResponse_authorizerDescription :: Lens.Lens' DescribeDefaultAuthorizerResponse (Prelude.Maybe AuthorizerDescription)
 describeDefaultAuthorizerResponse_authorizerDescription = Lens.lens (\DescribeDefaultAuthorizerResponse' {authorizerDescription} -> authorizerDescription) (\s@DescribeDefaultAuthorizerResponse' {} a -> s {authorizerDescription = a} :: DescribeDefaultAuthorizerResponse)
 
 -- | The response's http status code.
-describeDefaultAuthorizerResponse_httpStatus :: Lens.Lens' DescribeDefaultAuthorizerResponse Core.Int
+describeDefaultAuthorizerResponse_httpStatus :: Lens.Lens' DescribeDefaultAuthorizerResponse Prelude.Int
 describeDefaultAuthorizerResponse_httpStatus = Lens.lens (\DescribeDefaultAuthorizerResponse' {httpStatus} -> httpStatus) (\s@DescribeDefaultAuthorizerResponse' {} a -> s {httpStatus = a} :: DescribeDefaultAuthorizerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDefaultAuthorizerResponse

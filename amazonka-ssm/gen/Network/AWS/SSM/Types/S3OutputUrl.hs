@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.S3OutputUrl where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A URL for the S3 bucket where you want to store the results of this
 -- request.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data S3OutputUrl = S3OutputUrl'
   { -- | A URL for an S3 bucket where you want to store the results of this
     -- request.
-    outputUrl :: Core.Maybe Core.Text
+    outputUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3OutputUrl' with all optional fields omitted.
@@ -46,11 +47,11 @@ data S3OutputUrl = S3OutputUrl'
 newS3OutputUrl ::
   S3OutputUrl
 newS3OutputUrl =
-  S3OutputUrl' {outputUrl = Core.Nothing}
+  S3OutputUrl' {outputUrl = Prelude.Nothing}
 
 -- | A URL for an S3 bucket where you want to store the results of this
 -- request.
-s3OutputUrl_outputUrl :: Lens.Lens' S3OutputUrl (Core.Maybe Core.Text)
+s3OutputUrl_outputUrl :: Lens.Lens' S3OutputUrl (Prelude.Maybe Prelude.Text)
 s3OutputUrl_outputUrl = Lens.lens (\S3OutputUrl' {outputUrl} -> outputUrl) (\s@S3OutputUrl' {} a -> s {outputUrl = a} :: S3OutputUrl)
 
 instance Core.FromJSON S3OutputUrl where
@@ -58,9 +59,9 @@ instance Core.FromJSON S3OutputUrl where
     Core.withObject
       "S3OutputUrl"
       ( \x ->
-          S3OutputUrl' Core.<$> (x Core..:? "OutputUrl")
+          S3OutputUrl' Prelude.<$> (x Core..:? "OutputUrl")
       )
 
-instance Core.Hashable S3OutputUrl
+instance Prelude.Hashable S3OutputUrl
 
-instance Core.NFData S3OutputUrl
+instance Prelude.NFData S3OutputUrl

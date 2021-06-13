@@ -22,17 +22,18 @@ module Network.AWS.Lightsail.Types.ResourceLocation where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.RegionName
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the resource location.
 --
 -- /See:/ 'newResourceLocation' smart constructor.
 data ResourceLocation = ResourceLocation'
   { -- | The AWS Region name.
-    regionName :: Core.Maybe RegionName,
+    regionName :: Prelude.Maybe RegionName,
     -- | The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
-    availabilityZone :: Core.Maybe Core.Text
+    availabilityZone :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceLocation' with all optional fields omitted.
@@ -49,16 +50,16 @@ newResourceLocation ::
   ResourceLocation
 newResourceLocation =
   ResourceLocation'
-    { regionName = Core.Nothing,
-      availabilityZone = Core.Nothing
+    { regionName = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing
     }
 
 -- | The AWS Region name.
-resourceLocation_regionName :: Lens.Lens' ResourceLocation (Core.Maybe RegionName)
+resourceLocation_regionName :: Lens.Lens' ResourceLocation (Prelude.Maybe RegionName)
 resourceLocation_regionName = Lens.lens (\ResourceLocation' {regionName} -> regionName) (\s@ResourceLocation' {} a -> s {regionName = a} :: ResourceLocation)
 
 -- | The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
-resourceLocation_availabilityZone :: Lens.Lens' ResourceLocation (Core.Maybe Core.Text)
+resourceLocation_availabilityZone :: Lens.Lens' ResourceLocation (Prelude.Maybe Prelude.Text)
 resourceLocation_availabilityZone = Lens.lens (\ResourceLocation' {availabilityZone} -> availabilityZone) (\s@ResourceLocation' {} a -> s {availabilityZone = a} :: ResourceLocation)
 
 instance Core.FromJSON ResourceLocation where
@@ -67,10 +68,10 @@ instance Core.FromJSON ResourceLocation where
       "ResourceLocation"
       ( \x ->
           ResourceLocation'
-            Core.<$> (x Core..:? "regionName")
-            Core.<*> (x Core..:? "availabilityZone")
+            Prelude.<$> (x Core..:? "regionName")
+            Prelude.<*> (x Core..:? "availabilityZone")
       )
 
-instance Core.Hashable ResourceLocation
+instance Prelude.Hashable ResourceLocation
 
-instance Core.NFData ResourceLocation
+instance Prelude.NFData ResourceLocation

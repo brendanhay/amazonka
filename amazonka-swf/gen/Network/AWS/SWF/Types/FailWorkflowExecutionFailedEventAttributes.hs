@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.FailWorkflowExecutionFailedEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.FailWorkflowExecutionFailedCause
 
 -- | Provides the details of the @FailWorkflowExecutionFailed@ event.
@@ -40,9 +41,9 @@ data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEve
     -- decision task that resulted in the @FailWorkflowExecution@ decision to
     -- fail this execution. This information can be useful for diagnosing
     -- problems by tracing back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Core.Integer
+    decisionTaskCompletedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailWorkflowExecutionFailedEventAttributes' with all optional fields omitted.
@@ -69,7 +70,7 @@ newFailWorkflowExecutionFailedEventAttributes ::
   -- | 'cause'
   FailWorkflowExecutionFailedCause ->
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   FailWorkflowExecutionFailedEventAttributes
 newFailWorkflowExecutionFailedEventAttributes
   pCause_
@@ -96,7 +97,7 @@ failWorkflowExecutionFailedEventAttributes_cause = Lens.lens (\FailWorkflowExecu
 -- decision task that resulted in the @FailWorkflowExecution@ decision to
 -- fail this execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-failWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' FailWorkflowExecutionFailedEventAttributes Core.Integer
+failWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' FailWorkflowExecutionFailedEventAttributes Prelude.Integer
 failWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\FailWorkflowExecutionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@FailWorkflowExecutionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: FailWorkflowExecutionFailedEventAttributes)
 
 instance
@@ -108,14 +109,14 @@ instance
       "FailWorkflowExecutionFailedEventAttributes"
       ( \x ->
           FailWorkflowExecutionFailedEventAttributes'
-            Core.<$> (x Core..: "cause")
-            Core.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Core..: "cause")
+              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FailWorkflowExecutionFailedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     FailWorkflowExecutionFailedEventAttributes

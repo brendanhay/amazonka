@@ -21,6 +21,7 @@ module Network.AWS.Comprehend.Types.DocumentLabel where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies one of the label or labels that categorize the document being
 -- analyzed.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDocumentLabel' smart constructor.
 data DocumentLabel = DocumentLabel'
   { -- | The name of the label.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The confidence score that Amazon Comprehend has this label correctly
     -- attributed.
-    score :: Core.Maybe Core.Double
+    score :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentLabel' with all optional fields omitted.
@@ -51,17 +52,17 @@ newDocumentLabel ::
   DocumentLabel
 newDocumentLabel =
   DocumentLabel'
-    { name = Core.Nothing,
-      score = Core.Nothing
+    { name = Prelude.Nothing,
+      score = Prelude.Nothing
     }
 
 -- | The name of the label.
-documentLabel_name :: Lens.Lens' DocumentLabel (Core.Maybe Core.Text)
+documentLabel_name :: Lens.Lens' DocumentLabel (Prelude.Maybe Prelude.Text)
 documentLabel_name = Lens.lens (\DocumentLabel' {name} -> name) (\s@DocumentLabel' {} a -> s {name = a} :: DocumentLabel)
 
 -- | The confidence score that Amazon Comprehend has this label correctly
 -- attributed.
-documentLabel_score :: Lens.Lens' DocumentLabel (Core.Maybe Core.Double)
+documentLabel_score :: Lens.Lens' DocumentLabel (Prelude.Maybe Prelude.Double)
 documentLabel_score = Lens.lens (\DocumentLabel' {score} -> score) (\s@DocumentLabel' {} a -> s {score = a} :: DocumentLabel)
 
 instance Core.FromJSON DocumentLabel where
@@ -70,9 +71,9 @@ instance Core.FromJSON DocumentLabel where
       "DocumentLabel"
       ( \x ->
           DocumentLabel'
-            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Score")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
       )
 
-instance Core.Hashable DocumentLabel
+instance Prelude.Hashable DocumentLabel
 
-instance Core.NFData DocumentLabel
+instance Prelude.NFData DocumentLabel

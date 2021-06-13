@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.InferenceExecutionConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.InferenceExecutionMode
 
 -- | Specifies details about how containers in a multi-container endpoint are
@@ -36,7 +37,7 @@ data InferenceExecutionConfig = InferenceExecutionConfig'
     -- -   @DIRECT@ - Only the individual container that you specify is run.
     mode :: InferenceExecutionMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InferenceExecutionConfig' with all optional fields omitted.
@@ -74,14 +75,16 @@ instance Core.FromJSON InferenceExecutionConfig where
       "InferenceExecutionConfig"
       ( \x ->
           InferenceExecutionConfig'
-            Core.<$> (x Core..: "Mode")
+            Prelude.<$> (x Core..: "Mode")
       )
 
-instance Core.Hashable InferenceExecutionConfig
+instance Prelude.Hashable InferenceExecutionConfig
 
-instance Core.NFData InferenceExecutionConfig
+instance Prelude.NFData InferenceExecutionConfig
 
 instance Core.ToJSON InferenceExecutionConfig where
   toJSON InferenceExecutionConfig' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Mode" Core..= mode)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Mode" Core..= mode)]
+      )

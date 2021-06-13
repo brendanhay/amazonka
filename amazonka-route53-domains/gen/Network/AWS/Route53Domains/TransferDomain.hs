@@ -91,6 +91,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -103,14 +104,14 @@ data TransferDomain = TransferDomain'
     -- (false). Autorenewal only takes effect after the account is charged.
     --
     -- Default: true
-    autoRenew :: Core.Maybe Core.Bool,
+    autoRenew :: Prelude.Maybe Prelude.Bool,
     -- | Contains details for the host and glue IP addresses.
-    nameservers :: Core.Maybe [Nameserver],
+    nameservers :: Prelude.Maybe [Nameserver],
     -- | The authorization code for the domain. You get this value from the
     -- current registrar.
-    authCode :: Core.Maybe (Core.Sensitive Core.Text),
+    authCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Reserved for future use.
-    idnLangCode :: Core.Maybe Core.Text,
+    idnLangCode :: Prelude.Maybe Prelude.Text,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
@@ -119,7 +120,7 @@ data TransferDomain = TransferDomain'
     -- entered for the technical contact.
     --
     -- Default: @true@
-    privacyProtectTechContact :: Core.Maybe Core.Bool,
+    privacyProtectTechContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
@@ -128,7 +129,7 @@ data TransferDomain = TransferDomain'
     -- entered for the registrant contact (domain owner).
     --
     -- Default: @true@
-    privacyProtectRegistrantContact :: Core.Maybe Core.Bool,
+    privacyProtectRegistrantContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
@@ -137,7 +138,7 @@ data TransferDomain = TransferDomain'
     -- entered for the admin contact.
     --
     -- Default: @true@
-    privacyProtectAdminContact :: Core.Maybe Core.Bool,
+    privacyProtectAdminContact :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain that you want to transfer to Route 53. The
     -- top-level domain (TLD), such as .com, must be a TLD that Route 53
     -- supports. For a list of supported TLDs, see
@@ -155,13 +156,13 @@ data TransferDomain = TransferDomain'
     --
     -- -   Period (.) to separate the labels in the name, such as the @.@ in
     --     @example.com@.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | The number of years that you want to register the domain for. Domains
     -- are registered for a minimum of one year. The maximum period depends on
     -- the top-level domain.
     --
     -- Default: 1
-    durationInYears :: Core.Natural,
+    durationInYears :: Prelude.Natural,
     -- | Provides detailed contact information.
     adminContact :: Core.Sensitive ContactDetail,
     -- | Provides detailed contact information.
@@ -169,7 +170,7 @@ data TransferDomain = TransferDomain'
     -- | Provides detailed contact information.
     techContact :: Core.Sensitive ContactDetail
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransferDomain' with all optional fields omitted.
@@ -249,9 +250,9 @@ data TransferDomain = TransferDomain'
 -- 'techContact', 'transferDomain_techContact' - Provides detailed contact information.
 newTransferDomain ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'durationInYears'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'adminContact'
   ContactDetail ->
   -- | 'registrantContact'
@@ -266,13 +267,13 @@ newTransferDomain
   pRegistrantContact_
   pTechContact_ =
     TransferDomain'
-      { autoRenew = Core.Nothing,
-        nameservers = Core.Nothing,
-        authCode = Core.Nothing,
-        idnLangCode = Core.Nothing,
-        privacyProtectTechContact = Core.Nothing,
-        privacyProtectRegistrantContact = Core.Nothing,
-        privacyProtectAdminContact = Core.Nothing,
+      { autoRenew = Prelude.Nothing,
+        nameservers = Prelude.Nothing,
+        authCode = Prelude.Nothing,
+        idnLangCode = Prelude.Nothing,
+        privacyProtectTechContact = Prelude.Nothing,
+        privacyProtectRegistrantContact = Prelude.Nothing,
+        privacyProtectAdminContact = Prelude.Nothing,
         domainName = pDomainName_,
         durationInYears = pDurationInYears_,
         adminContact = Core._Sensitive Lens.# pAdminContact_,
@@ -285,20 +286,20 @@ newTransferDomain
 -- (false). Autorenewal only takes effect after the account is charged.
 --
 -- Default: true
-transferDomain_autoRenew :: Lens.Lens' TransferDomain (Core.Maybe Core.Bool)
+transferDomain_autoRenew :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
 transferDomain_autoRenew = Lens.lens (\TransferDomain' {autoRenew} -> autoRenew) (\s@TransferDomain' {} a -> s {autoRenew = a} :: TransferDomain)
 
 -- | Contains details for the host and glue IP addresses.
-transferDomain_nameservers :: Lens.Lens' TransferDomain (Core.Maybe [Nameserver])
-transferDomain_nameservers = Lens.lens (\TransferDomain' {nameservers} -> nameservers) (\s@TransferDomain' {} a -> s {nameservers = a} :: TransferDomain) Core.. Lens.mapping Lens._Coerce
+transferDomain_nameservers :: Lens.Lens' TransferDomain (Prelude.Maybe [Nameserver])
+transferDomain_nameservers = Lens.lens (\TransferDomain' {nameservers} -> nameservers) (\s@TransferDomain' {} a -> s {nameservers = a} :: TransferDomain) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The authorization code for the domain. You get this value from the
 -- current registrar.
-transferDomain_authCode :: Lens.Lens' TransferDomain (Core.Maybe Core.Text)
-transferDomain_authCode = Lens.lens (\TransferDomain' {authCode} -> authCode) (\s@TransferDomain' {} a -> s {authCode = a} :: TransferDomain) Core.. Lens.mapping Core._Sensitive
+transferDomain_authCode :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Text)
+transferDomain_authCode = Lens.lens (\TransferDomain' {authCode} -> authCode) (\s@TransferDomain' {} a -> s {authCode = a} :: TransferDomain) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Reserved for future use.
-transferDomain_idnLangCode :: Lens.Lens' TransferDomain (Core.Maybe Core.Text)
+transferDomain_idnLangCode :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Text)
 transferDomain_idnLangCode = Lens.lens (\TransferDomain' {idnLangCode} -> idnLangCode) (\s@TransferDomain' {} a -> s {idnLangCode = a} :: TransferDomain)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -309,7 +310,7 @@ transferDomain_idnLangCode = Lens.lens (\TransferDomain' {idnLangCode} -> idnLan
 -- entered for the technical contact.
 --
 -- Default: @true@
-transferDomain_privacyProtectTechContact :: Lens.Lens' TransferDomain (Core.Maybe Core.Bool)
+transferDomain_privacyProtectTechContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
 transferDomain_privacyProtectTechContact = Lens.lens (\TransferDomain' {privacyProtectTechContact} -> privacyProtectTechContact) (\s@TransferDomain' {} a -> s {privacyProtectTechContact = a} :: TransferDomain)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -320,7 +321,7 @@ transferDomain_privacyProtectTechContact = Lens.lens (\TransferDomain' {privacyP
 -- entered for the registrant contact (domain owner).
 --
 -- Default: @true@
-transferDomain_privacyProtectRegistrantContact :: Lens.Lens' TransferDomain (Core.Maybe Core.Bool)
+transferDomain_privacyProtectRegistrantContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
 transferDomain_privacyProtectRegistrantContact = Lens.lens (\TransferDomain' {privacyProtectRegistrantContact} -> privacyProtectRegistrantContact) (\s@TransferDomain' {} a -> s {privacyProtectRegistrantContact = a} :: TransferDomain)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -331,7 +332,7 @@ transferDomain_privacyProtectRegistrantContact = Lens.lens (\TransferDomain' {pr
 -- entered for the admin contact.
 --
 -- Default: @true@
-transferDomain_privacyProtectAdminContact :: Lens.Lens' TransferDomain (Core.Maybe Core.Bool)
+transferDomain_privacyProtectAdminContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
 transferDomain_privacyProtectAdminContact = Lens.lens (\TransferDomain' {privacyProtectAdminContact} -> privacyProtectAdminContact) (\s@TransferDomain' {} a -> s {privacyProtectAdminContact = a} :: TransferDomain)
 
 -- | The name of the domain that you want to transfer to Route 53. The
@@ -351,7 +352,7 @@ transferDomain_privacyProtectAdminContact = Lens.lens (\TransferDomain' {privacy
 --
 -- -   Period (.) to separate the labels in the name, such as the @.@ in
 --     @example.com@.
-transferDomain_domainName :: Lens.Lens' TransferDomain Core.Text
+transferDomain_domainName :: Lens.Lens' TransferDomain Prelude.Text
 transferDomain_domainName = Lens.lens (\TransferDomain' {domainName} -> domainName) (\s@TransferDomain' {} a -> s {domainName = a} :: TransferDomain)
 
 -- | The number of years that you want to register the domain for. Domains
@@ -359,20 +360,20 @@ transferDomain_domainName = Lens.lens (\TransferDomain' {domainName} -> domainNa
 -- the top-level domain.
 --
 -- Default: 1
-transferDomain_durationInYears :: Lens.Lens' TransferDomain Core.Natural
+transferDomain_durationInYears :: Lens.Lens' TransferDomain Prelude.Natural
 transferDomain_durationInYears = Lens.lens (\TransferDomain' {durationInYears} -> durationInYears) (\s@TransferDomain' {} a -> s {durationInYears = a} :: TransferDomain)
 
 -- | Provides detailed contact information.
 transferDomain_adminContact :: Lens.Lens' TransferDomain ContactDetail
-transferDomain_adminContact = Lens.lens (\TransferDomain' {adminContact} -> adminContact) (\s@TransferDomain' {} a -> s {adminContact = a} :: TransferDomain) Core.. Core._Sensitive
+transferDomain_adminContact = Lens.lens (\TransferDomain' {adminContact} -> adminContact) (\s@TransferDomain' {} a -> s {adminContact = a} :: TransferDomain) Prelude.. Core._Sensitive
 
 -- | Provides detailed contact information.
 transferDomain_registrantContact :: Lens.Lens' TransferDomain ContactDetail
-transferDomain_registrantContact = Lens.lens (\TransferDomain' {registrantContact} -> registrantContact) (\s@TransferDomain' {} a -> s {registrantContact = a} :: TransferDomain) Core.. Core._Sensitive
+transferDomain_registrantContact = Lens.lens (\TransferDomain' {registrantContact} -> registrantContact) (\s@TransferDomain' {} a -> s {registrantContact = a} :: TransferDomain) Prelude.. Core._Sensitive
 
 -- | Provides detailed contact information.
 transferDomain_techContact :: Lens.Lens' TransferDomain ContactDetail
-transferDomain_techContact = Lens.lens (\TransferDomain' {techContact} -> techContact) (\s@TransferDomain' {} a -> s {techContact = a} :: TransferDomain) Core.. Core._Sensitive
+transferDomain_techContact = Lens.lens (\TransferDomain' {techContact} -> techContact) (\s@TransferDomain' {} a -> s {techContact = a} :: TransferDomain) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest TransferDomain where
   type
@@ -383,69 +384,71 @@ instance Core.AWSRequest TransferDomain where
     Response.receiveJSON
       ( \s h x ->
           TransferDomainResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "OperationId")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Core.Hashable TransferDomain
+instance Prelude.Hashable TransferDomain
 
-instance Core.NFData TransferDomain
+instance Prelude.NFData TransferDomain
 
 instance Core.ToHeaders TransferDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.TransferDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TransferDomain where
   toJSON TransferDomain' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AutoRenew" Core..=) Core.<$> autoRenew,
-            ("Nameservers" Core..=) Core.<$> nameservers,
-            ("AuthCode" Core..=) Core.<$> authCode,
-            ("IdnLangCode" Core..=) Core.<$> idnLangCode,
+      ( Prelude.catMaybes
+          [ ("AutoRenew" Core..=) Prelude.<$> autoRenew,
+            ("Nameservers" Core..=) Prelude.<$> nameservers,
+            ("AuthCode" Core..=) Prelude.<$> authCode,
+            ("IdnLangCode" Core..=) Prelude.<$> idnLangCode,
             ("PrivacyProtectTechContact" Core..=)
-              Core.<$> privacyProtectTechContact,
+              Prelude.<$> privacyProtectTechContact,
             ("PrivacyProtectRegistrantContact" Core..=)
-              Core.<$> privacyProtectRegistrantContact,
+              Prelude.<$> privacyProtectRegistrantContact,
             ("PrivacyProtectAdminContact" Core..=)
-              Core.<$> privacyProtectAdminContact,
-            Core.Just ("DomainName" Core..= domainName),
-            Core.Just
+              Prelude.<$> privacyProtectAdminContact,
+            Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just
               ("DurationInYears" Core..= durationInYears),
-            Core.Just ("AdminContact" Core..= adminContact),
-            Core.Just
+            Prelude.Just ("AdminContact" Core..= adminContact),
+            Prelude.Just
               ("RegistrantContact" Core..= registrantContact),
-            Core.Just ("TechContact" Core..= techContact)
+            Prelude.Just ("TechContact" Core..= techContact)
           ]
       )
 
 instance Core.ToPath TransferDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TransferDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The TransferDomain response includes the following element.
 --
 -- /See:/ 'newTransferDomainResponse' smart constructor.
 data TransferDomainResponse = TransferDomainResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Core.Text
+    operationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransferDomainResponse' with all optional fields omitted.
@@ -462,9 +465,9 @@ data TransferDomainResponse = TransferDomainResponse'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
 newTransferDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'operationId'
-  Core.Text ->
+  Prelude.Text ->
   TransferDomainResponse
 newTransferDomainResponse pHttpStatus_ pOperationId_ =
   TransferDomainResponse'
@@ -473,13 +476,13 @@ newTransferDomainResponse pHttpStatus_ pOperationId_ =
     }
 
 -- | The response's http status code.
-transferDomainResponse_httpStatus :: Lens.Lens' TransferDomainResponse Core.Int
+transferDomainResponse_httpStatus :: Lens.Lens' TransferDomainResponse Prelude.Int
 transferDomainResponse_httpStatus = Lens.lens (\TransferDomainResponse' {httpStatus} -> httpStatus) (\s@TransferDomainResponse' {} a -> s {httpStatus = a} :: TransferDomainResponse)
 
 -- | Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-transferDomainResponse_operationId :: Lens.Lens' TransferDomainResponse Core.Text
+transferDomainResponse_operationId :: Lens.Lens' TransferDomainResponse Prelude.Text
 transferDomainResponse_operationId = Lens.lens (\TransferDomainResponse' {operationId} -> operationId) (\s@TransferDomainResponse' {} a -> s {operationId = a} :: TransferDomainResponse)
 
-instance Core.NFData TransferDomainResponse
+instance Prelude.NFData TransferDomainResponse

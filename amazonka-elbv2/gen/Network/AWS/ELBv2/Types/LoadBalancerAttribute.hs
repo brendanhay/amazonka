@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.LoadBalancerAttribute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a load balancer attribute.
 --
@@ -81,11 +82,11 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
     -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
     --     load balancing is enabled. The value is @true@ or @false@. The
     --     default is @false@.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value of the attribute.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerAttribute' with all optional fields omitted.
@@ -156,8 +157,8 @@ newLoadBalancerAttribute ::
   LoadBalancerAttribute
 newLoadBalancerAttribute =
   LoadBalancerAttribute'
-    { key = Core.Nothing,
-      value = Core.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The name of the attribute.
@@ -215,23 +216,23 @@ newLoadBalancerAttribute =
 -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
 --     load balancing is enabled. The value is @true@ or @false@. The
 --     default is @false@.
-loadBalancerAttribute_key :: Lens.Lens' LoadBalancerAttribute (Core.Maybe Core.Text)
+loadBalancerAttribute_key :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
 loadBalancerAttribute_key = Lens.lens (\LoadBalancerAttribute' {key} -> key) (\s@LoadBalancerAttribute' {} a -> s {key = a} :: LoadBalancerAttribute)
 
 -- | The value of the attribute.
-loadBalancerAttribute_value :: Lens.Lens' LoadBalancerAttribute (Core.Maybe Core.Text)
+loadBalancerAttribute_value :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
 loadBalancerAttribute_value = Lens.lens (\LoadBalancerAttribute' {value} -> value) (\s@LoadBalancerAttribute' {} a -> s {value = a} :: LoadBalancerAttribute)
 
 instance Core.FromXML LoadBalancerAttribute where
   parseXML x =
     LoadBalancerAttribute'
-      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
 
-instance Core.Hashable LoadBalancerAttribute
+instance Prelude.Hashable LoadBalancerAttribute
 
-instance Core.NFData LoadBalancerAttribute
+instance Prelude.NFData LoadBalancerAttribute
 
 instance Core.ToQuery LoadBalancerAttribute where
   toQuery LoadBalancerAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Key" Core.=: key, "Value" Core.=: value]

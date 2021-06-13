@@ -45,6 +45,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +55,14 @@ import qualified Network.AWS.Response as Response
 data UpdateDocumentationVersion = UpdateDocumentationVersion'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi..
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The version identifier of the to-be-updated documentation
     -- version.
-    documentationVersion :: Core.Text
+    documentationVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentationVersion' with all optional fields omitted.
@@ -80,32 +81,32 @@ data UpdateDocumentationVersion = UpdateDocumentationVersion'
 -- version.
 newUpdateDocumentationVersion ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'documentationVersion'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDocumentationVersion
 newUpdateDocumentationVersion
   pRestApiId_
   pDocumentationVersion_ =
     UpdateDocumentationVersion'
       { patchOperations =
-          Core.Nothing,
+          Prelude.Nothing,
         restApiId = pRestApiId_,
         documentationVersion = pDocumentationVersion_
       }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateDocumentationVersion_patchOperations :: Lens.Lens' UpdateDocumentationVersion (Core.Maybe [PatchOperation])
-updateDocumentationVersion_patchOperations = Lens.lens (\UpdateDocumentationVersion' {patchOperations} -> patchOperations) (\s@UpdateDocumentationVersion' {} a -> s {patchOperations = a} :: UpdateDocumentationVersion) Core.. Lens.mapping Lens._Coerce
+updateDocumentationVersion_patchOperations :: Lens.Lens' UpdateDocumentationVersion (Prelude.Maybe [PatchOperation])
+updateDocumentationVersion_patchOperations = Lens.lens (\UpdateDocumentationVersion' {patchOperations} -> patchOperations) (\s@UpdateDocumentationVersion' {} a -> s {patchOperations = a} :: UpdateDocumentationVersion) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi..
-updateDocumentationVersion_restApiId :: Lens.Lens' UpdateDocumentationVersion Core.Text
+updateDocumentationVersion_restApiId :: Lens.Lens' UpdateDocumentationVersion Prelude.Text
 updateDocumentationVersion_restApiId = Lens.lens (\UpdateDocumentationVersion' {restApiId} -> restApiId) (\s@UpdateDocumentationVersion' {} a -> s {restApiId = a} :: UpdateDocumentationVersion)
 
 -- | [Required] The version identifier of the to-be-updated documentation
 -- version.
-updateDocumentationVersion_documentationVersion :: Lens.Lens' UpdateDocumentationVersion Core.Text
+updateDocumentationVersion_documentationVersion :: Lens.Lens' UpdateDocumentationVersion Prelude.Text
 updateDocumentationVersion_documentationVersion = Lens.lens (\UpdateDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@UpdateDocumentationVersion' {} a -> s {documentationVersion = a} :: UpdateDocumentationVersion)
 
 instance Core.AWSRequest UpdateDocumentationVersion where
@@ -117,31 +118,31 @@ instance Core.AWSRequest UpdateDocumentationVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateDocumentationVersion
+instance Prelude.Hashable UpdateDocumentationVersion
 
-instance Core.NFData UpdateDocumentationVersion
+instance Prelude.NFData UpdateDocumentationVersion
 
 instance Core.ToHeaders UpdateDocumentationVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateDocumentationVersion where
   toJSON UpdateDocumentationVersion' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateDocumentationVersion where
   toPath UpdateDocumentationVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/documentation/versions/",
@@ -149,4 +150,4 @@ instance Core.ToPath UpdateDocumentationVersion where
       ]
 
 instance Core.ToQuery UpdateDocumentationVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

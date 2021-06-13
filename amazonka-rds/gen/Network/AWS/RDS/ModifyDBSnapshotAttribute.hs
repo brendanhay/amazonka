@@ -64,6 +64,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -81,7 +82,7 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
     -- copy or restore the DB snapshot. If you specify @all@, an AWS account
     -- whose account ID is explicitly added to the @restore@ attribute can
     -- still copy or restore the manual DB snapshot.
-    valuesToRemove :: Core.Maybe [Core.Text],
+    valuesToRemove :: Prelude.Maybe [Prelude.Text],
     -- | A list of DB snapshot attributes to add to the attribute specified by
     -- @AttributeName@.
     --
@@ -90,9 +91,9 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
     -- the manual DB snapshot restorable by any AWS account. Do not add the
     -- @all@ value for any manual DB snapshots that contain private information
     -- that you don\'t want available to all AWS accounts.
-    valuesToAdd :: Core.Maybe [Core.Text],
+    valuesToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the DB snapshot to modify the attributes for.
-    dbSnapshotIdentifier :: Core.Text,
+    dbSnapshotIdentifier :: Prelude.Text,
     -- | The name of the DB snapshot attribute to modify.
     --
     -- To manage authorization for other AWS accounts to copy or restore a
@@ -100,9 +101,9 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
     --
     -- To view the list of attributes available to modify, use the
     -- DescribeDBSnapshotAttributes API action.
-    attributeName :: Core.Text
+    attributeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBSnapshotAttribute' with all optional fields omitted.
@@ -142,17 +143,17 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
 -- DescribeDBSnapshotAttributes API action.
 newModifyDBSnapshotAttribute ::
   -- | 'dbSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attributeName'
-  Core.Text ->
+  Prelude.Text ->
   ModifyDBSnapshotAttribute
 newModifyDBSnapshotAttribute
   pDBSnapshotIdentifier_
   pAttributeName_ =
     ModifyDBSnapshotAttribute'
       { valuesToRemove =
-          Core.Nothing,
-        valuesToAdd = Core.Nothing,
+          Prelude.Nothing,
+        valuesToAdd = Prelude.Nothing,
         dbSnapshotIdentifier = pDBSnapshotIdentifier_,
         attributeName = pAttributeName_
       }
@@ -166,8 +167,8 @@ newModifyDBSnapshotAttribute
 -- copy or restore the DB snapshot. If you specify @all@, an AWS account
 -- whose account ID is explicitly added to the @restore@ attribute can
 -- still copy or restore the manual DB snapshot.
-modifyDBSnapshotAttribute_valuesToRemove :: Lens.Lens' ModifyDBSnapshotAttribute (Core.Maybe [Core.Text])
-modifyDBSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBSnapshotAttribute' {valuesToRemove} -> valuesToRemove) (\s@ModifyDBSnapshotAttribute' {} a -> s {valuesToRemove = a} :: ModifyDBSnapshotAttribute) Core.. Lens.mapping Lens._Coerce
+modifyDBSnapshotAttribute_valuesToRemove :: Lens.Lens' ModifyDBSnapshotAttribute (Prelude.Maybe [Prelude.Text])
+modifyDBSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBSnapshotAttribute' {valuesToRemove} -> valuesToRemove) (\s@ModifyDBSnapshotAttribute' {} a -> s {valuesToRemove = a} :: ModifyDBSnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of DB snapshot attributes to add to the attribute specified by
 -- @AttributeName@.
@@ -177,11 +178,11 @@ modifyDBSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBSnapshotAttribute
 -- the manual DB snapshot restorable by any AWS account. Do not add the
 -- @all@ value for any manual DB snapshots that contain private information
 -- that you don\'t want available to all AWS accounts.
-modifyDBSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBSnapshotAttribute (Core.Maybe [Core.Text])
-modifyDBSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBSnapshotAttribute) Core.. Lens.mapping Lens._Coerce
+modifyDBSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBSnapshotAttribute (Prelude.Maybe [Prelude.Text])
+modifyDBSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBSnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier for the DB snapshot to modify the attributes for.
-modifyDBSnapshotAttribute_dbSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshotAttribute Core.Text
+modifyDBSnapshotAttribute_dbSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshotAttribute Prelude.Text
 modifyDBSnapshotAttribute_dbSnapshotIdentifier = Lens.lens (\ModifyDBSnapshotAttribute' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@ModifyDBSnapshotAttribute' {} a -> s {dbSnapshotIdentifier = a} :: ModifyDBSnapshotAttribute)
 
 -- | The name of the DB snapshot attribute to modify.
@@ -191,7 +192,7 @@ modifyDBSnapshotAttribute_dbSnapshotIdentifier = Lens.lens (\ModifyDBSnapshotAtt
 --
 -- To view the list of attributes available to modify, use the
 -- DescribeDBSnapshotAttributes API action.
-modifyDBSnapshotAttribute_attributeName :: Lens.Lens' ModifyDBSnapshotAttribute Core.Text
+modifyDBSnapshotAttribute_attributeName :: Lens.Lens' ModifyDBSnapshotAttribute Prelude.Text
 modifyDBSnapshotAttribute_attributeName = Lens.lens (\ModifyDBSnapshotAttribute' {attributeName} -> attributeName) (\s@ModifyDBSnapshotAttribute' {} a -> s {attributeName = a} :: ModifyDBSnapshotAttribute)
 
 instance Core.AWSRequest ModifyDBSnapshotAttribute where
@@ -204,35 +205,36 @@ instance Core.AWSRequest ModifyDBSnapshotAttribute where
       "ModifyDBSnapshotAttributeResult"
       ( \s h x ->
           ModifyDBSnapshotAttributeResponse'
-            Core.<$> (x Core..@? "DBSnapshotAttributesResult")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBSnapshotAttributesResult")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyDBSnapshotAttribute
+instance Prelude.Hashable ModifyDBSnapshotAttribute
 
-instance Core.NFData ModifyDBSnapshotAttribute
+instance Prelude.NFData ModifyDBSnapshotAttribute
 
 instance Core.ToHeaders ModifyDBSnapshotAttribute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyDBSnapshotAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyDBSnapshotAttribute where
   toQuery ModifyDBSnapshotAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBSnapshotAttribute" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("ModifyDBSnapshotAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ValuesToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "AttributeValue"
-                Core.<$> valuesToRemove
+                Prelude.<$> valuesToRemove
             ),
         "ValuesToAdd"
           Core.=: Core.toQuery
             ( Core.toQueryList "AttributeValue"
-                Core.<$> valuesToAdd
+                Prelude.<$> valuesToAdd
             ),
         "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
         "AttributeName" Core.=: attributeName
@@ -240,11 +242,11 @@ instance Core.ToQuery ModifyDBSnapshotAttribute where
 
 -- | /See:/ 'newModifyDBSnapshotAttributeResponse' smart constructor.
 data ModifyDBSnapshotAttributeResponse = ModifyDBSnapshotAttributeResponse'
-  { dbSnapshotAttributesResult :: Core.Maybe DBSnapshotAttributesResult,
+  { dbSnapshotAttributesResult :: Prelude.Maybe DBSnapshotAttributesResult,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBSnapshotAttributeResponse' with all optional fields omitted.
@@ -259,23 +261,23 @@ data ModifyDBSnapshotAttributeResponse = ModifyDBSnapshotAttributeResponse'
 -- 'httpStatus', 'modifyDBSnapshotAttributeResponse_httpStatus' - The response's http status code.
 newModifyDBSnapshotAttributeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyDBSnapshotAttributeResponse
 newModifyDBSnapshotAttributeResponse pHttpStatus_ =
   ModifyDBSnapshotAttributeResponse'
     { dbSnapshotAttributesResult =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyDBSnapshotAttributeResponse_dbSnapshotAttributesResult :: Lens.Lens' ModifyDBSnapshotAttributeResponse (Core.Maybe DBSnapshotAttributesResult)
+modifyDBSnapshotAttributeResponse_dbSnapshotAttributesResult :: Lens.Lens' ModifyDBSnapshotAttributeResponse (Prelude.Maybe DBSnapshotAttributesResult)
 modifyDBSnapshotAttributeResponse_dbSnapshotAttributesResult = Lens.lens (\ModifyDBSnapshotAttributeResponse' {dbSnapshotAttributesResult} -> dbSnapshotAttributesResult) (\s@ModifyDBSnapshotAttributeResponse' {} a -> s {dbSnapshotAttributesResult = a} :: ModifyDBSnapshotAttributeResponse)
 
 -- | The response's http status code.
-modifyDBSnapshotAttributeResponse_httpStatus :: Lens.Lens' ModifyDBSnapshotAttributeResponse Core.Int
+modifyDBSnapshotAttributeResponse_httpStatus :: Lens.Lens' ModifyDBSnapshotAttributeResponse Prelude.Int
 modifyDBSnapshotAttributeResponse_httpStatus = Lens.lens (\ModifyDBSnapshotAttributeResponse' {httpStatus} -> httpStatus) (\s@ModifyDBSnapshotAttributeResponse' {} a -> s {httpStatus = a} :: ModifyDBSnapshotAttributeResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyDBSnapshotAttributeResponse

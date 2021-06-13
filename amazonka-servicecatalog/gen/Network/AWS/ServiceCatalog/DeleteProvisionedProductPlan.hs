@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -50,7 +51,7 @@ import Network.AWS.ServiceCatalog.Types
 data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
   { -- | If set to true, AWS Service Catalog stops managing the specified
     -- provisioned product even if it cannot delete the underlying resources.
-    ignoreErrors :: Core.Maybe Core.Bool,
+    ignoreErrors :: Prelude.Maybe Prelude.Bool,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -58,11 +59,11 @@ data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The plan identifier.
-    planId :: Core.Text
+    planId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisionedProductPlan' with all optional fields omitted.
@@ -86,19 +87,19 @@ data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
 -- 'planId', 'deleteProvisionedProductPlan_planId' - The plan identifier.
 newDeleteProvisionedProductPlan ::
   -- | 'planId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteProvisionedProductPlan
 newDeleteProvisionedProductPlan pPlanId_ =
   DeleteProvisionedProductPlan'
     { ignoreErrors =
-        Core.Nothing,
-      acceptLanguage = Core.Nothing,
+        Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       planId = pPlanId_
     }
 
 -- | If set to true, AWS Service Catalog stops managing the specified
 -- provisioned product even if it cannot delete the underlying resources.
-deleteProvisionedProductPlan_ignoreErrors :: Lens.Lens' DeleteProvisionedProductPlan (Core.Maybe Core.Bool)
+deleteProvisionedProductPlan_ignoreErrors :: Lens.Lens' DeleteProvisionedProductPlan (Prelude.Maybe Prelude.Bool)
 deleteProvisionedProductPlan_ignoreErrors = Lens.lens (\DeleteProvisionedProductPlan' {ignoreErrors} -> ignoreErrors) (\s@DeleteProvisionedProductPlan' {} a -> s {ignoreErrors = a} :: DeleteProvisionedProductPlan)
 
 -- | The language code.
@@ -108,11 +109,11 @@ deleteProvisionedProductPlan_ignoreErrors = Lens.lens (\DeleteProvisionedProduct
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deleteProvisionedProductPlan_acceptLanguage :: Lens.Lens' DeleteProvisionedProductPlan (Core.Maybe Core.Text)
+deleteProvisionedProductPlan_acceptLanguage :: Lens.Lens' DeleteProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 deleteProvisionedProductPlan_acceptLanguage = Lens.lens (\DeleteProvisionedProductPlan' {acceptLanguage} -> acceptLanguage) (\s@DeleteProvisionedProductPlan' {} a -> s {acceptLanguage = a} :: DeleteProvisionedProductPlan)
 
 -- | The plan identifier.
-deleteProvisionedProductPlan_planId :: Lens.Lens' DeleteProvisionedProductPlan Core.Text
+deleteProvisionedProductPlan_planId :: Lens.Lens' DeleteProvisionedProductPlan Prelude.Text
 deleteProvisionedProductPlan_planId = Lens.lens (\DeleteProvisionedProductPlan' {planId} -> planId) (\s@DeleteProvisionedProductPlan' {} a -> s {planId = a} :: DeleteProvisionedProductPlan)
 
 instance Core.AWSRequest DeleteProvisionedProductPlan where
@@ -124,48 +125,53 @@ instance Core.AWSRequest DeleteProvisionedProductPlan where
     Response.receiveEmpty
       ( \s h x ->
           DeleteProvisionedProductPlanResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteProvisionedProductPlan
+instance
+  Prelude.Hashable
+    DeleteProvisionedProductPlan
 
-instance Core.NFData DeleteProvisionedProductPlan
+instance Prelude.NFData DeleteProvisionedProductPlan
 
 instance Core.ToHeaders DeleteProvisionedProductPlan where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DeleteProvisionedProductPlan" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteProvisionedProductPlan where
   toJSON DeleteProvisionedProductPlan' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IgnoreErrors" Core..=) Core.<$> ignoreErrors,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("PlanId" Core..= planId)
+      ( Prelude.catMaybes
+          [ ("IgnoreErrors" Core..=) Prelude.<$> ignoreErrors,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("PlanId" Core..= planId)
           ]
       )
 
 instance Core.ToPath DeleteProvisionedProductPlan where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteProvisionedProductPlan where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProvisionedProductPlanResponse' smart constructor.
 data DeleteProvisionedProductPlanResponse = DeleteProvisionedProductPlanResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisionedProductPlanResponse' with all optional fields omitted.
@@ -178,7 +184,7 @@ data DeleteProvisionedProductPlanResponse = DeleteProvisionedProductPlanResponse
 -- 'httpStatus', 'deleteProvisionedProductPlanResponse_httpStatus' - The response's http status code.
 newDeleteProvisionedProductPlanResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteProvisionedProductPlanResponse
 newDeleteProvisionedProductPlanResponse pHttpStatus_ =
   DeleteProvisionedProductPlanResponse'
@@ -187,9 +193,9 @@ newDeleteProvisionedProductPlanResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteProvisionedProductPlanResponse_httpStatus :: Lens.Lens' DeleteProvisionedProductPlanResponse Core.Int
+deleteProvisionedProductPlanResponse_httpStatus :: Lens.Lens' DeleteProvisionedProductPlanResponse Prelude.Int
 deleteProvisionedProductPlanResponse_httpStatus = Lens.lens (\DeleteProvisionedProductPlanResponse' {httpStatus} -> httpStatus) (\s@DeleteProvisionedProductPlanResponse' {} a -> s {httpStatus = a} :: DeleteProvisionedProductPlanResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteProvisionedProductPlanResponse

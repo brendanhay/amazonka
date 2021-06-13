@@ -46,17 +46,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeUser' smart constructor.
 data DescribeUser = DescribeUser'
   { -- | The identifier of the user account.
-    userId :: Core.Text,
+    userId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUser' with all optional fields omitted.
@@ -71,9 +72,9 @@ data DescribeUser = DescribeUser'
 -- 'instanceId', 'describeUser_instanceId' - The identifier of the Amazon Connect instance.
 newDescribeUser ::
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeUser
 newDescribeUser pUserId_ pInstanceId_ =
   DescribeUser'
@@ -82,11 +83,11 @@ newDescribeUser pUserId_ pInstanceId_ =
     }
 
 -- | The identifier of the user account.
-describeUser_userId :: Lens.Lens' DescribeUser Core.Text
+describeUser_userId :: Lens.Lens' DescribeUser Prelude.Text
 describeUser_userId = Lens.lens (\DescribeUser' {userId} -> userId) (\s@DescribeUser' {} a -> s {userId = a} :: DescribeUser)
 
 -- | The identifier of the Amazon Connect instance.
-describeUser_instanceId :: Lens.Lens' DescribeUser Core.Text
+describeUser_instanceId :: Lens.Lens' DescribeUser Prelude.Text
 describeUser_instanceId = Lens.lens (\DescribeUser' {instanceId} -> instanceId) (\s@DescribeUser' {} a -> s {instanceId = a} :: DescribeUser)
 
 instance Core.AWSRequest DescribeUser where
@@ -96,26 +97,28 @@ instance Core.AWSRequest DescribeUser where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Core.<$> (x Core..?> "User")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "User")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeUser
+instance Prelude.Hashable DescribeUser
 
-instance Core.NFData DescribeUser
+instance Prelude.NFData DescribeUser
 
 instance Core.ToHeaders DescribeUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeUser where
   toPath DescribeUser' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/users/",
         Core.toBS instanceId,
         "/",
@@ -123,16 +126,16 @@ instance Core.ToPath DescribeUser where
       ]
 
 instance Core.ToQuery DescribeUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
   { -- | Information about the user account and configuration settings.
-    user :: Core.Maybe User,
+    user :: Prelude.Maybe User,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserResponse' with all optional fields omitted.
@@ -147,20 +150,20 @@ data DescribeUserResponse = DescribeUserResponse'
 -- 'httpStatus', 'describeUserResponse_httpStatus' - The response's http status code.
 newDescribeUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeUserResponse
 newDescribeUserResponse pHttpStatus_ =
   DescribeUserResponse'
-    { user = Core.Nothing,
+    { user = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the user account and configuration settings.
-describeUserResponse_user :: Lens.Lens' DescribeUserResponse (Core.Maybe User)
+describeUserResponse_user :: Lens.Lens' DescribeUserResponse (Prelude.Maybe User)
 describeUserResponse_user = Lens.lens (\DescribeUserResponse' {user} -> user) (\s@DescribeUserResponse' {} a -> s {user = a} :: DescribeUserResponse)
 
 -- | The response's http status code.
-describeUserResponse_httpStatus :: Lens.Lens' DescribeUserResponse Core.Int
+describeUserResponse_httpStatus :: Lens.Lens' DescribeUserResponse Prelude.Int
 describeUserResponse_httpStatus = Lens.lens (\DescribeUserResponse' {httpStatus} -> httpStatus) (\s@DescribeUserResponse' {} a -> s {httpStatus = a} :: DescribeUserResponse)
 
-instance Core.NFData DescribeUserResponse
+instance Prelude.NFData DescribeUserResponse

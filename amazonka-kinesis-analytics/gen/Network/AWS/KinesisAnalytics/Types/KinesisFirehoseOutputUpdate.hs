@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When updating an output configuration using the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html UpdateApplication>
@@ -31,13 +32,13 @@ import qualified Network.AWS.Lens as Lens
 data KinesisFirehoseOutputUpdate = KinesisFirehoseOutputUpdate'
   { -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery
     -- stream to write to.
-    resourceARNUpdate :: Core.Maybe Core.Text,
+    resourceARNUpdate :: Prelude.Maybe Prelude.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream on your behalf. You need to grant the necessary permissions
     -- to this role.
-    roleARNUpdate :: Core.Maybe Core.Text
+    roleARNUpdate :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisFirehoseOutputUpdate' with all optional fields omitted.
@@ -58,31 +59,31 @@ newKinesisFirehoseOutputUpdate ::
 newKinesisFirehoseOutputUpdate =
   KinesisFirehoseOutputUpdate'
     { resourceARNUpdate =
-        Core.Nothing,
-      roleARNUpdate = Core.Nothing
+        Prelude.Nothing,
+      roleARNUpdate = Prelude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery
 -- stream to write to.
-kinesisFirehoseOutputUpdate_resourceARNUpdate :: Lens.Lens' KinesisFirehoseOutputUpdate (Core.Maybe Core.Text)
+kinesisFirehoseOutputUpdate_resourceARNUpdate :: Lens.Lens' KinesisFirehoseOutputUpdate (Prelude.Maybe Prelude.Text)
 kinesisFirehoseOutputUpdate_resourceARNUpdate = Lens.lens (\KinesisFirehoseOutputUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@KinesisFirehoseOutputUpdate' {} a -> s {resourceARNUpdate = a} :: KinesisFirehoseOutputUpdate)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream on your behalf. You need to grant the necessary permissions
 -- to this role.
-kinesisFirehoseOutputUpdate_roleARNUpdate :: Lens.Lens' KinesisFirehoseOutputUpdate (Core.Maybe Core.Text)
+kinesisFirehoseOutputUpdate_roleARNUpdate :: Lens.Lens' KinesisFirehoseOutputUpdate (Prelude.Maybe Prelude.Text)
 kinesisFirehoseOutputUpdate_roleARNUpdate = Lens.lens (\KinesisFirehoseOutputUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@KinesisFirehoseOutputUpdate' {} a -> s {roleARNUpdate = a} :: KinesisFirehoseOutputUpdate)
 
-instance Core.Hashable KinesisFirehoseOutputUpdate
+instance Prelude.Hashable KinesisFirehoseOutputUpdate
 
-instance Core.NFData KinesisFirehoseOutputUpdate
+instance Prelude.NFData KinesisFirehoseOutputUpdate
 
 instance Core.ToJSON KinesisFirehoseOutputUpdate where
   toJSON KinesisFirehoseOutputUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ResourceARNUpdate" Core..=)
-              Core.<$> resourceARNUpdate,
-            ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate
+              Prelude.<$> resourceARNUpdate,
+            ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate
           ]
       )

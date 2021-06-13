@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TrainingJobDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.Channel
 import Network.AWS.SageMaker.Types.OutputDataConfig
 import Network.AWS.SageMaker.Types.ResourceConfig
@@ -32,7 +33,7 @@ import Network.AWS.SageMaker.Types.TrainingInputMode
 -- /See:/ 'newTrainingJobDefinition' smart constructor.
 data TrainingJobDefinition = TrainingJobDefinition'
   { -- | The hyperparameters used for the training job.
-    hyperParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The input mode used by the algorithm for the training job. For the input
     -- modes that Amazon SageMaker algorithms support, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
@@ -44,7 +45,7 @@ data TrainingJobDefinition = TrainingJobDefinition'
     -- SageMaker streams data directly from S3 to the container.
     trainingInputMode :: TrainingInputMode,
     -- | An array of @Channel@ objects, each of which specifies an input source.
-    inputDataConfig :: Core.NonEmpty Channel,
+    inputDataConfig :: Prelude.NonEmpty Channel,
     -- | the path to the S3 bucket where you want to store model artifacts.
     -- Amazon SageMaker creates subfolders for the artifacts.
     outputDataConfig :: OutputDataConfig,
@@ -60,7 +61,7 @@ data TrainingJobDefinition = TrainingJobDefinition'
     -- 120-second window to save the model artifacts.
     stoppingCondition :: StoppingCondition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrainingJobDefinition' with all optional fields omitted.
@@ -101,7 +102,7 @@ newTrainingJobDefinition ::
   -- | 'trainingInputMode'
   TrainingInputMode ->
   -- | 'inputDataConfig'
-  Core.NonEmpty Channel ->
+  Prelude.NonEmpty Channel ->
   -- | 'outputDataConfig'
   OutputDataConfig ->
   -- | 'resourceConfig'
@@ -117,7 +118,7 @@ newTrainingJobDefinition
   pStoppingCondition_ =
     TrainingJobDefinition'
       { hyperParameters =
-          Core.Nothing,
+          Prelude.Nothing,
         trainingInputMode = pTrainingInputMode_,
         inputDataConfig =
           Lens._Coerce Lens.# pInputDataConfig_,
@@ -127,8 +128,8 @@ newTrainingJobDefinition
       }
 
 -- | The hyperparameters used for the training job.
-trainingJobDefinition_hyperParameters :: Lens.Lens' TrainingJobDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
-trainingJobDefinition_hyperParameters = Lens.lens (\TrainingJobDefinition' {hyperParameters} -> hyperParameters) (\s@TrainingJobDefinition' {} a -> s {hyperParameters = a} :: TrainingJobDefinition) Core.. Lens.mapping Lens._Coerce
+trainingJobDefinition_hyperParameters :: Lens.Lens' TrainingJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+trainingJobDefinition_hyperParameters = Lens.lens (\TrainingJobDefinition' {hyperParameters} -> hyperParameters) (\s@TrainingJobDefinition' {} a -> s {hyperParameters = a} :: TrainingJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The input mode used by the algorithm for the training job. For the input
 -- modes that Amazon SageMaker algorithms support, see
@@ -143,8 +144,8 @@ trainingJobDefinition_trainingInputMode :: Lens.Lens' TrainingJobDefinition Trai
 trainingJobDefinition_trainingInputMode = Lens.lens (\TrainingJobDefinition' {trainingInputMode} -> trainingInputMode) (\s@TrainingJobDefinition' {} a -> s {trainingInputMode = a} :: TrainingJobDefinition)
 
 -- | An array of @Channel@ objects, each of which specifies an input source.
-trainingJobDefinition_inputDataConfig :: Lens.Lens' TrainingJobDefinition (Core.NonEmpty Channel)
-trainingJobDefinition_inputDataConfig = Lens.lens (\TrainingJobDefinition' {inputDataConfig} -> inputDataConfig) (\s@TrainingJobDefinition' {} a -> s {inputDataConfig = a} :: TrainingJobDefinition) Core.. Lens._Coerce
+trainingJobDefinition_inputDataConfig :: Lens.Lens' TrainingJobDefinition (Prelude.NonEmpty Channel)
+trainingJobDefinition_inputDataConfig = Lens.lens (\TrainingJobDefinition' {inputDataConfig} -> inputDataConfig) (\s@TrainingJobDefinition' {} a -> s {inputDataConfig = a} :: TrainingJobDefinition) Prelude.. Lens._Coerce
 
 -- | the path to the S3 bucket where you want to store model artifacts.
 -- Amazon SageMaker creates subfolders for the artifacts.
@@ -172,32 +173,35 @@ instance Core.FromJSON TrainingJobDefinition where
       "TrainingJobDefinition"
       ( \x ->
           TrainingJobDefinition'
-            Core.<$> (x Core..:? "HyperParameters" Core..!= Core.mempty)
-            Core.<*> (x Core..: "TrainingInputMode")
-            Core.<*> (x Core..: "InputDataConfig")
-            Core.<*> (x Core..: "OutputDataConfig")
-            Core.<*> (x Core..: "ResourceConfig")
-            Core.<*> (x Core..: "StoppingCondition")
+            Prelude.<$> ( x Core..:? "HyperParameters"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "TrainingInputMode")
+            Prelude.<*> (x Core..: "InputDataConfig")
+            Prelude.<*> (x Core..: "OutputDataConfig")
+            Prelude.<*> (x Core..: "ResourceConfig")
+            Prelude.<*> (x Core..: "StoppingCondition")
       )
 
-instance Core.Hashable TrainingJobDefinition
+instance Prelude.Hashable TrainingJobDefinition
 
-instance Core.NFData TrainingJobDefinition
+instance Prelude.NFData TrainingJobDefinition
 
 instance Core.ToJSON TrainingJobDefinition where
   toJSON TrainingJobDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("HyperParameters" Core..=)
-              Core.<$> hyperParameters,
-            Core.Just
+              Prelude.<$> hyperParameters,
+            Prelude.Just
               ("TrainingInputMode" Core..= trainingInputMode),
-            Core.Just
+            Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
-            Core.Just
+            Prelude.Just
               ("OutputDataConfig" Core..= outputDataConfig),
-            Core.Just ("ResourceConfig" Core..= resourceConfig),
-            Core.Just
+            Prelude.Just
+              ("ResourceConfig" Core..= resourceConfig),
+            Prelude.Just
               ("StoppingCondition" Core..= stoppingCondition)
           ]
       )

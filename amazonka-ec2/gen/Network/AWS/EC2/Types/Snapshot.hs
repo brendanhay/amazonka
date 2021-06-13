@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.SnapshotState
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a snapshot.
 --
@@ -31,18 +32,18 @@ import qualified Network.AWS.Lens as Lens
 data Snapshot = Snapshot'
   { -- | The AWS owner alias, from an Amazon-maintained list (@amazon@). This is
     -- not the user-configured AWS account alias set using the IAM console.
-    ownerAlias :: Core.Maybe Core.Text,
+    ownerAlias :: Prelude.Maybe Prelude.Text,
     -- | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot
     -- copy operation fails (for example, if the proper AWS Key Management
     -- Service (AWS KMS) permissions are not obtained) this field displays
     -- error state details to help you diagnose why the error occurred. This
     -- parameter is only returned by DescribeSnapshots.
-    stateMessage :: Core.Maybe Core.Text,
+    stateMessage :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the AWS Outpost on which the snapshot is stored. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html EBS Local Snapshot on Outposts>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The data encryption key identifier for the snapshot. This value is a
     -- unique identifier that corresponds to the data encryption key that was
     -- used to encrypt the original volume or snapshot copy. Because data
@@ -50,36 +51,36 @@ data Snapshot = Snapshot'
     -- vice versa, if snapshots share the same data encryption key identifier,
     -- then they belong to the same volume\/snapshot lineage. This parameter is
     -- only returned by DescribeSnapshots.
-    dataEncryptionKeyId :: Core.Maybe Core.Text,
+    dataEncryptionKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS
     -- KMS) customer master key (CMK) that was used to protect the volume
     -- encryption key for the parent volume.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the snapshot.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the snapshot. Each snapshot receives a unique identifier when
     -- it is created.
-    snapshotId :: Core.Text,
+    snapshotId :: Prelude.Text,
     -- | The AWS account ID of the EBS snapshot owner.
-    ownerId :: Core.Text,
+    ownerId :: Prelude.Text,
     -- | The ID of the volume that was used to create the snapshot. Snapshots
     -- created by the CopySnapshot action have an arbitrary volume ID that
     -- should not be used for any purpose.
-    volumeId :: Core.Text,
+    volumeId :: Prelude.Text,
     -- | The size of the volume, in GiB.
-    volumeSize :: Core.Int,
+    volumeSize :: Prelude.Int,
     -- | The description for the snapshot.
-    description :: Core.Text,
+    description :: Prelude.Text,
     -- | The time stamp when the snapshot was initiated.
     startTime :: Core.ISO8601,
     -- | The progress of the snapshot, as a percentage.
-    progress :: Core.Text,
+    progress :: Prelude.Text,
     -- | The snapshot state.
     state :: SnapshotState,
     -- | Indicates whether the snapshot is encrypted.
-    encrypted :: Core.Bool
+    encrypted :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Snapshot' with all optional fields omitted.
@@ -139,23 +140,23 @@ data Snapshot = Snapshot'
 -- 'encrypted', 'snapshot_encrypted' - Indicates whether the snapshot is encrypted.
 newSnapshot ::
   -- | 'snapshotId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ownerId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'volumeId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'volumeSize'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'progress'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'state'
   SnapshotState ->
   -- | 'encrypted'
-  Core.Bool ->
+  Prelude.Bool ->
   Snapshot
 newSnapshot
   pSnapshotId_
@@ -168,12 +169,12 @@ newSnapshot
   pState_
   pEncrypted_ =
     Snapshot'
-      { ownerAlias = Core.Nothing,
-        stateMessage = Core.Nothing,
-        outpostArn = Core.Nothing,
-        dataEncryptionKeyId = Core.Nothing,
-        kmsKeyId = Core.Nothing,
-        tags = Core.Nothing,
+      { ownerAlias = Prelude.Nothing,
+        stateMessage = Prelude.Nothing,
+        outpostArn = Prelude.Nothing,
+        dataEncryptionKeyId = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         snapshotId = pSnapshotId_,
         ownerId = pOwnerId_,
         volumeId = pVolumeId_,
@@ -187,7 +188,7 @@ newSnapshot
 
 -- | The AWS owner alias, from an Amazon-maintained list (@amazon@). This is
 -- not the user-configured AWS account alias set using the IAM console.
-snapshot_ownerAlias :: Lens.Lens' Snapshot (Core.Maybe Core.Text)
+snapshot_ownerAlias :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_ownerAlias = Lens.lens (\Snapshot' {ownerAlias} -> ownerAlias) (\s@Snapshot' {} a -> s {ownerAlias = a} :: Snapshot)
 
 -- | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot
@@ -195,14 +196,14 @@ snapshot_ownerAlias = Lens.lens (\Snapshot' {ownerAlias} -> ownerAlias) (\s@Snap
 -- Service (AWS KMS) permissions are not obtained) this field displays
 -- error state details to help you diagnose why the error occurred. This
 -- parameter is only returned by DescribeSnapshots.
-snapshot_stateMessage :: Lens.Lens' Snapshot (Core.Maybe Core.Text)
+snapshot_stateMessage :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_stateMessage = Lens.lens (\Snapshot' {stateMessage} -> stateMessage) (\s@Snapshot' {} a -> s {stateMessage = a} :: Snapshot)
 
 -- | The ARN of the AWS Outpost on which the snapshot is stored. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html EBS Local Snapshot on Outposts>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-snapshot_outpostArn :: Lens.Lens' Snapshot (Core.Maybe Core.Text)
+snapshot_outpostArn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_outpostArn = Lens.lens (\Snapshot' {outpostArn} -> outpostArn) (\s@Snapshot' {} a -> s {outpostArn = a} :: Snapshot)
 
 -- | The data encryption key identifier for the snapshot. This value is a
@@ -212,48 +213,48 @@ snapshot_outpostArn = Lens.lens (\Snapshot' {outpostArn} -> outpostArn) (\s@Snap
 -- vice versa, if snapshots share the same data encryption key identifier,
 -- then they belong to the same volume\/snapshot lineage. This parameter is
 -- only returned by DescribeSnapshots.
-snapshot_dataEncryptionKeyId :: Lens.Lens' Snapshot (Core.Maybe Core.Text)
+snapshot_dataEncryptionKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_dataEncryptionKeyId = Lens.lens (\Snapshot' {dataEncryptionKeyId} -> dataEncryptionKeyId) (\s@Snapshot' {} a -> s {dataEncryptionKeyId = a} :: Snapshot)
 
 -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS
 -- KMS) customer master key (CMK) that was used to protect the volume
 -- encryption key for the parent volume.
-snapshot_kmsKeyId :: Lens.Lens' Snapshot (Core.Maybe Core.Text)
+snapshot_kmsKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' {} a -> s {kmsKeyId = a} :: Snapshot)
 
 -- | Any tags assigned to the snapshot.
-snapshot_tags :: Lens.Lens' Snapshot (Core.Maybe [Tag])
-snapshot_tags = Lens.lens (\Snapshot' {tags} -> tags) (\s@Snapshot' {} a -> s {tags = a} :: Snapshot) Core.. Lens.mapping Lens._Coerce
+snapshot_tags :: Lens.Lens' Snapshot (Prelude.Maybe [Tag])
+snapshot_tags = Lens.lens (\Snapshot' {tags} -> tags) (\s@Snapshot' {} a -> s {tags = a} :: Snapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the snapshot. Each snapshot receives a unique identifier when
 -- it is created.
-snapshot_snapshotId :: Lens.Lens' Snapshot Core.Text
+snapshot_snapshotId :: Lens.Lens' Snapshot Prelude.Text
 snapshot_snapshotId = Lens.lens (\Snapshot' {snapshotId} -> snapshotId) (\s@Snapshot' {} a -> s {snapshotId = a} :: Snapshot)
 
 -- | The AWS account ID of the EBS snapshot owner.
-snapshot_ownerId :: Lens.Lens' Snapshot Core.Text
+snapshot_ownerId :: Lens.Lens' Snapshot Prelude.Text
 snapshot_ownerId = Lens.lens (\Snapshot' {ownerId} -> ownerId) (\s@Snapshot' {} a -> s {ownerId = a} :: Snapshot)
 
 -- | The ID of the volume that was used to create the snapshot. Snapshots
 -- created by the CopySnapshot action have an arbitrary volume ID that
 -- should not be used for any purpose.
-snapshot_volumeId :: Lens.Lens' Snapshot Core.Text
+snapshot_volumeId :: Lens.Lens' Snapshot Prelude.Text
 snapshot_volumeId = Lens.lens (\Snapshot' {volumeId} -> volumeId) (\s@Snapshot' {} a -> s {volumeId = a} :: Snapshot)
 
 -- | The size of the volume, in GiB.
-snapshot_volumeSize :: Lens.Lens' Snapshot Core.Int
+snapshot_volumeSize :: Lens.Lens' Snapshot Prelude.Int
 snapshot_volumeSize = Lens.lens (\Snapshot' {volumeSize} -> volumeSize) (\s@Snapshot' {} a -> s {volumeSize = a} :: Snapshot)
 
 -- | The description for the snapshot.
-snapshot_description :: Lens.Lens' Snapshot Core.Text
+snapshot_description :: Lens.Lens' Snapshot Prelude.Text
 snapshot_description = Lens.lens (\Snapshot' {description} -> description) (\s@Snapshot' {} a -> s {description = a} :: Snapshot)
 
 -- | The time stamp when the snapshot was initiated.
-snapshot_startTime :: Lens.Lens' Snapshot Core.UTCTime
-snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Core.. Core._Time
+snapshot_startTime :: Lens.Lens' Snapshot Prelude.UTCTime
+snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Prelude.. Core._Time
 
 -- | The progress of the snapshot, as a percentage.
-snapshot_progress :: Lens.Lens' Snapshot Core.Text
+snapshot_progress :: Lens.Lens' Snapshot Prelude.Text
 snapshot_progress = Lens.lens (\Snapshot' {progress} -> progress) (\s@Snapshot' {} a -> s {progress = a} :: Snapshot)
 
 -- | The snapshot state.
@@ -261,30 +262,30 @@ snapshot_state :: Lens.Lens' Snapshot SnapshotState
 snapshot_state = Lens.lens (\Snapshot' {state} -> state) (\s@Snapshot' {} a -> s {state = a} :: Snapshot)
 
 -- | Indicates whether the snapshot is encrypted.
-snapshot_encrypted :: Lens.Lens' Snapshot Core.Bool
+snapshot_encrypted :: Lens.Lens' Snapshot Prelude.Bool
 snapshot_encrypted = Lens.lens (\Snapshot' {encrypted} -> encrypted) (\s@Snapshot' {} a -> s {encrypted = a} :: Snapshot)
 
 instance Core.FromXML Snapshot where
   parseXML x =
     Snapshot'
-      Core.<$> (x Core..@? "ownerAlias")
-      Core.<*> (x Core..@? "statusMessage")
-      Core.<*> (x Core..@? "outpostArn")
-      Core.<*> (x Core..@? "dataEncryptionKeyId")
-      Core.<*> (x Core..@? "kmsKeyId")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@ "snapshotId")
-      Core.<*> (x Core..@ "ownerId")
-      Core.<*> (x Core..@ "volumeId")
-      Core.<*> (x Core..@ "volumeSize")
-      Core.<*> (x Core..@ "description")
-      Core.<*> (x Core..@ "startTime")
-      Core.<*> (x Core..@ "progress")
-      Core.<*> (x Core..@ "status")
-      Core.<*> (x Core..@ "encrypted")
+      Prelude.<$> (x Core..@? "ownerAlias")
+      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> (x Core..@? "dataEncryptionKeyId")
+      Prelude.<*> (x Core..@? "kmsKeyId")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@ "snapshotId")
+      Prelude.<*> (x Core..@ "ownerId")
+      Prelude.<*> (x Core..@ "volumeId")
+      Prelude.<*> (x Core..@ "volumeSize")
+      Prelude.<*> (x Core..@ "description")
+      Prelude.<*> (x Core..@ "startTime")
+      Prelude.<*> (x Core..@ "progress")
+      Prelude.<*> (x Core..@ "status")
+      Prelude.<*> (x Core..@ "encrypted")
 
-instance Core.Hashable Snapshot
+instance Prelude.Hashable Snapshot
 
-instance Core.NFData Snapshot
+instance Prelude.NFData Snapshot

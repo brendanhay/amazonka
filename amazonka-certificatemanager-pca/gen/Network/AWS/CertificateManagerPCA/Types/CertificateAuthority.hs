@@ -26,6 +26,7 @@ import Network.AWS.CertificateManagerPCA.Types.FailureReason
 import Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about your private certificate authority (CA). Your
 -- private CA can issue and revoke X.509 digital certificates. Digital
@@ -45,38 +46,38 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCertificateAuthority' smart constructor.
 data CertificateAuthority = CertificateAuthority'
   { -- | Status of your private CA.
-    status :: Core.Maybe CertificateAuthorityStatus,
+    status :: Prelude.Maybe CertificateAuthorityStatus,
     -- | Date and time before which your private CA certificate is not valid.
-    notBefore :: Core.Maybe Core.POSIX,
+    notBefore :: Prelude.Maybe Core.POSIX,
     -- | Information about the certificate revocation list (CRL) created and
     -- maintained by your private CA.
-    revocationConfiguration :: Core.Maybe RevocationConfiguration,
+    revocationConfiguration :: Prelude.Maybe RevocationConfiguration,
     -- | Serial number of your private CA.
-    serial :: Core.Maybe Core.Text,
+    serial :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) for your private certificate authority (CA).
     -- The format is @ 12345678-1234-1234-1234-123456789012 @.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Date and time at which your private CA was created.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | Your private CA configuration.
-    certificateAuthorityConfiguration :: Core.Maybe CertificateAuthorityConfiguration,
+    certificateAuthorityConfiguration :: Prelude.Maybe CertificateAuthorityConfiguration,
     -- | Reason the request to create your private CA failed.
-    failureReason :: Core.Maybe FailureReason,
+    failureReason :: Prelude.Maybe FailureReason,
     -- | Date and time after which your private CA certificate is not valid.
-    notAfter :: Core.Maybe Core.POSIX,
+    notAfter :: Prelude.Maybe Core.POSIX,
     -- | Date and time at which your private CA was last updated.
-    lastStateChangeAt :: Core.Maybe Core.POSIX,
+    lastStateChangeAt :: Prelude.Maybe Core.POSIX,
     -- | Type of your private CA.
-    type' :: Core.Maybe CertificateAuthorityType,
+    type' :: Prelude.Maybe CertificateAuthorityType,
     -- | The AWS account ID that owns the certificate authority.
-    ownerAccount :: Core.Maybe Core.Text,
+    ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The period during which a deleted CA can be restored. For more
     -- information, see the @PermanentDeletionTimeInDays@ parameter of the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest>
     -- action.
-    restorableUntil :: Core.Maybe Core.POSIX
+    restorableUntil :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CertificateAuthority' with all optional fields omitted.
@@ -120,77 +121,77 @@ newCertificateAuthority ::
   CertificateAuthority
 newCertificateAuthority =
   CertificateAuthority'
-    { status = Core.Nothing,
-      notBefore = Core.Nothing,
-      revocationConfiguration = Core.Nothing,
-      serial = Core.Nothing,
-      arn = Core.Nothing,
-      createdAt = Core.Nothing,
-      certificateAuthorityConfiguration = Core.Nothing,
-      failureReason = Core.Nothing,
-      notAfter = Core.Nothing,
-      lastStateChangeAt = Core.Nothing,
-      type' = Core.Nothing,
-      ownerAccount = Core.Nothing,
-      restorableUntil = Core.Nothing
+    { status = Prelude.Nothing,
+      notBefore = Prelude.Nothing,
+      revocationConfiguration = Prelude.Nothing,
+      serial = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      certificateAuthorityConfiguration = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      notAfter = Prelude.Nothing,
+      lastStateChangeAt = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      ownerAccount = Prelude.Nothing,
+      restorableUntil = Prelude.Nothing
     }
 
 -- | Status of your private CA.
-certificateAuthority_status :: Lens.Lens' CertificateAuthority (Core.Maybe CertificateAuthorityStatus)
+certificateAuthority_status :: Lens.Lens' CertificateAuthority (Prelude.Maybe CertificateAuthorityStatus)
 certificateAuthority_status = Lens.lens (\CertificateAuthority' {status} -> status) (\s@CertificateAuthority' {} a -> s {status = a} :: CertificateAuthority)
 
 -- | Date and time before which your private CA certificate is not valid.
-certificateAuthority_notBefore :: Lens.Lens' CertificateAuthority (Core.Maybe Core.UTCTime)
-certificateAuthority_notBefore = Lens.lens (\CertificateAuthority' {notBefore} -> notBefore) (\s@CertificateAuthority' {} a -> s {notBefore = a} :: CertificateAuthority) Core.. Lens.mapping Core._Time
+certificateAuthority_notBefore :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
+certificateAuthority_notBefore = Lens.lens (\CertificateAuthority' {notBefore} -> notBefore) (\s@CertificateAuthority' {} a -> s {notBefore = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
 
 -- | Information about the certificate revocation list (CRL) created and
 -- maintained by your private CA.
-certificateAuthority_revocationConfiguration :: Lens.Lens' CertificateAuthority (Core.Maybe RevocationConfiguration)
+certificateAuthority_revocationConfiguration :: Lens.Lens' CertificateAuthority (Prelude.Maybe RevocationConfiguration)
 certificateAuthority_revocationConfiguration = Lens.lens (\CertificateAuthority' {revocationConfiguration} -> revocationConfiguration) (\s@CertificateAuthority' {} a -> s {revocationConfiguration = a} :: CertificateAuthority)
 
 -- | Serial number of your private CA.
-certificateAuthority_serial :: Lens.Lens' CertificateAuthority (Core.Maybe Core.Text)
+certificateAuthority_serial :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.Text)
 certificateAuthority_serial = Lens.lens (\CertificateAuthority' {serial} -> serial) (\s@CertificateAuthority' {} a -> s {serial = a} :: CertificateAuthority)
 
 -- | Amazon Resource Name (ARN) for your private certificate authority (CA).
 -- The format is @ 12345678-1234-1234-1234-123456789012 @.
-certificateAuthority_arn :: Lens.Lens' CertificateAuthority (Core.Maybe Core.Text)
+certificateAuthority_arn :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.Text)
 certificateAuthority_arn = Lens.lens (\CertificateAuthority' {arn} -> arn) (\s@CertificateAuthority' {} a -> s {arn = a} :: CertificateAuthority)
 
 -- | Date and time at which your private CA was created.
-certificateAuthority_createdAt :: Lens.Lens' CertificateAuthority (Core.Maybe Core.UTCTime)
-certificateAuthority_createdAt = Lens.lens (\CertificateAuthority' {createdAt} -> createdAt) (\s@CertificateAuthority' {} a -> s {createdAt = a} :: CertificateAuthority) Core.. Lens.mapping Core._Time
+certificateAuthority_createdAt :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
+certificateAuthority_createdAt = Lens.lens (\CertificateAuthority' {createdAt} -> createdAt) (\s@CertificateAuthority' {} a -> s {createdAt = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
 
 -- | Your private CA configuration.
-certificateAuthority_certificateAuthorityConfiguration :: Lens.Lens' CertificateAuthority (Core.Maybe CertificateAuthorityConfiguration)
+certificateAuthority_certificateAuthorityConfiguration :: Lens.Lens' CertificateAuthority (Prelude.Maybe CertificateAuthorityConfiguration)
 certificateAuthority_certificateAuthorityConfiguration = Lens.lens (\CertificateAuthority' {certificateAuthorityConfiguration} -> certificateAuthorityConfiguration) (\s@CertificateAuthority' {} a -> s {certificateAuthorityConfiguration = a} :: CertificateAuthority)
 
 -- | Reason the request to create your private CA failed.
-certificateAuthority_failureReason :: Lens.Lens' CertificateAuthority (Core.Maybe FailureReason)
+certificateAuthority_failureReason :: Lens.Lens' CertificateAuthority (Prelude.Maybe FailureReason)
 certificateAuthority_failureReason = Lens.lens (\CertificateAuthority' {failureReason} -> failureReason) (\s@CertificateAuthority' {} a -> s {failureReason = a} :: CertificateAuthority)
 
 -- | Date and time after which your private CA certificate is not valid.
-certificateAuthority_notAfter :: Lens.Lens' CertificateAuthority (Core.Maybe Core.UTCTime)
-certificateAuthority_notAfter = Lens.lens (\CertificateAuthority' {notAfter} -> notAfter) (\s@CertificateAuthority' {} a -> s {notAfter = a} :: CertificateAuthority) Core.. Lens.mapping Core._Time
+certificateAuthority_notAfter :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
+certificateAuthority_notAfter = Lens.lens (\CertificateAuthority' {notAfter} -> notAfter) (\s@CertificateAuthority' {} a -> s {notAfter = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
 
 -- | Date and time at which your private CA was last updated.
-certificateAuthority_lastStateChangeAt :: Lens.Lens' CertificateAuthority (Core.Maybe Core.UTCTime)
-certificateAuthority_lastStateChangeAt = Lens.lens (\CertificateAuthority' {lastStateChangeAt} -> lastStateChangeAt) (\s@CertificateAuthority' {} a -> s {lastStateChangeAt = a} :: CertificateAuthority) Core.. Lens.mapping Core._Time
+certificateAuthority_lastStateChangeAt :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
+certificateAuthority_lastStateChangeAt = Lens.lens (\CertificateAuthority' {lastStateChangeAt} -> lastStateChangeAt) (\s@CertificateAuthority' {} a -> s {lastStateChangeAt = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
 
 -- | Type of your private CA.
-certificateAuthority_type :: Lens.Lens' CertificateAuthority (Core.Maybe CertificateAuthorityType)
+certificateAuthority_type :: Lens.Lens' CertificateAuthority (Prelude.Maybe CertificateAuthorityType)
 certificateAuthority_type = Lens.lens (\CertificateAuthority' {type'} -> type') (\s@CertificateAuthority' {} a -> s {type' = a} :: CertificateAuthority)
 
 -- | The AWS account ID that owns the certificate authority.
-certificateAuthority_ownerAccount :: Lens.Lens' CertificateAuthority (Core.Maybe Core.Text)
+certificateAuthority_ownerAccount :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.Text)
 certificateAuthority_ownerAccount = Lens.lens (\CertificateAuthority' {ownerAccount} -> ownerAccount) (\s@CertificateAuthority' {} a -> s {ownerAccount = a} :: CertificateAuthority)
 
 -- | The period during which a deleted CA can be restored. For more
 -- information, see the @PermanentDeletionTimeInDays@ parameter of the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest>
 -- action.
-certificateAuthority_restorableUntil :: Lens.Lens' CertificateAuthority (Core.Maybe Core.UTCTime)
-certificateAuthority_restorableUntil = Lens.lens (\CertificateAuthority' {restorableUntil} -> restorableUntil) (\s@CertificateAuthority' {} a -> s {restorableUntil = a} :: CertificateAuthority) Core.. Lens.mapping Core._Time
+certificateAuthority_restorableUntil :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
+certificateAuthority_restorableUntil = Lens.lens (\CertificateAuthority' {restorableUntil} -> restorableUntil) (\s@CertificateAuthority' {} a -> s {restorableUntil = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON CertificateAuthority where
   parseJSON =
@@ -198,21 +199,21 @@ instance Core.FromJSON CertificateAuthority where
       "CertificateAuthority"
       ( \x ->
           CertificateAuthority'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "NotBefore")
-            Core.<*> (x Core..:? "RevocationConfiguration")
-            Core.<*> (x Core..:? "Serial")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "CreatedAt")
-            Core.<*> (x Core..:? "CertificateAuthorityConfiguration")
-            Core.<*> (x Core..:? "FailureReason")
-            Core.<*> (x Core..:? "NotAfter")
-            Core.<*> (x Core..:? "LastStateChangeAt")
-            Core.<*> (x Core..:? "Type")
-            Core.<*> (x Core..:? "OwnerAccount")
-            Core.<*> (x Core..:? "RestorableUntil")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "NotBefore")
+            Prelude.<*> (x Core..:? "RevocationConfiguration")
+            Prelude.<*> (x Core..:? "Serial")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "CertificateAuthorityConfiguration")
+            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "NotAfter")
+            Prelude.<*> (x Core..:? "LastStateChangeAt")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "OwnerAccount")
+            Prelude.<*> (x Core..:? "RestorableUntil")
       )
 
-instance Core.Hashable CertificateAuthority
+instance Prelude.Hashable CertificateAuthority
 
-instance Core.NFData CertificateAuthority
+instance Prelude.NFData CertificateAuthority

@@ -49,15 +49,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetConnectorDefinition' smart constructor.
 data GetConnectorDefinition = GetConnectorDefinition'
   { -- | The ID of the connector definition.
-    connectorDefinitionId :: Core.Text
+    connectorDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConnectorDefinition' with all optional fields omitted.
@@ -70,7 +71,7 @@ data GetConnectorDefinition = GetConnectorDefinition'
 -- 'connectorDefinitionId', 'getConnectorDefinition_connectorDefinitionId' - The ID of the connector definition.
 newGetConnectorDefinition ::
   -- | 'connectorDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   GetConnectorDefinition
 newGetConnectorDefinition pConnectorDefinitionId_ =
   GetConnectorDefinition'
@@ -79,7 +80,7 @@ newGetConnectorDefinition pConnectorDefinitionId_ =
     }
 
 -- | The ID of the connector definition.
-getConnectorDefinition_connectorDefinitionId :: Lens.Lens' GetConnectorDefinition Core.Text
+getConnectorDefinition_connectorDefinitionId :: Lens.Lens' GetConnectorDefinition Prelude.Text
 getConnectorDefinition_connectorDefinitionId = Lens.lens (\GetConnectorDefinition' {connectorDefinitionId} -> connectorDefinitionId) (\s@GetConnectorDefinition' {} a -> s {connectorDefinitionId = a} :: GetConnectorDefinition)
 
 instance Core.AWSRequest GetConnectorDefinition where
@@ -91,64 +92,66 @@ instance Core.AWSRequest GetConnectorDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetConnectorDefinitionResponse'
-            Core.<$> (x Core..?> "CreationTimestamp")
-            Core.<*> (x Core..?> "LatestVersionArn")
-            Core.<*> (x Core..?> "LatestVersion")
-            Core.<*> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "Id")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (x Core..?> "LastUpdatedTimestamp")
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "LatestVersionArn")
+            Prelude.<*> (x Core..?> "LatestVersion")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetConnectorDefinition
+instance Prelude.Hashable GetConnectorDefinition
 
-instance Core.NFData GetConnectorDefinition
+instance Prelude.NFData GetConnectorDefinition
 
 instance Core.ToHeaders GetConnectorDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetConnectorDefinition where
   toPath GetConnectorDefinition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/connectors/",
         Core.toBS connectorDefinitionId
       ]
 
 instance Core.ToQuery GetConnectorDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConnectorDefinitionResponse' smart constructor.
 data GetConnectorDefinitionResponse = GetConnectorDefinitionResponse'
   { -- | The time, in milliseconds since the epoch, when the definition was
     -- created.
-    creationTimestamp :: Core.Maybe Core.Text,
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the latest version associated with the definition.
-    latestVersionArn :: Core.Maybe Core.Text,
+    latestVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the latest version associated with the definition.
-    latestVersion :: Core.Maybe Core.Text,
+    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the definition.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the definition.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
-    lastUpdatedTimestamp :: Core.Maybe Core.Text,
+    lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
     -- | Tag(s) attached to the resource arn.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConnectorDefinitionResponse' with all optional fields omitted.
@@ -179,58 +182,60 @@ data GetConnectorDefinitionResponse = GetConnectorDefinitionResponse'
 -- 'httpStatus', 'getConnectorDefinitionResponse_httpStatus' - The response's http status code.
 newGetConnectorDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetConnectorDefinitionResponse
 newGetConnectorDefinitionResponse pHttpStatus_ =
   GetConnectorDefinitionResponse'
     { creationTimestamp =
-        Core.Nothing,
-      latestVersionArn = Core.Nothing,
-      latestVersion = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      lastUpdatedTimestamp = Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      latestVersionArn = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time, in milliseconds since the epoch, when the definition was
 -- created.
-getConnectorDefinitionResponse_creationTimestamp :: Lens.Lens' GetConnectorDefinitionResponse (Core.Maybe Core.Text)
+getConnectorDefinitionResponse_creationTimestamp :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_creationTimestamp = Lens.lens (\GetConnectorDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetConnectorDefinitionResponse' {} a -> s {creationTimestamp = a} :: GetConnectorDefinitionResponse)
 
 -- | The ARN of the latest version associated with the definition.
-getConnectorDefinitionResponse_latestVersionArn :: Lens.Lens' GetConnectorDefinitionResponse (Core.Maybe Core.Text)
+getConnectorDefinitionResponse_latestVersionArn :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_latestVersionArn = Lens.lens (\GetConnectorDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@GetConnectorDefinitionResponse' {} a -> s {latestVersionArn = a} :: GetConnectorDefinitionResponse)
 
 -- | The ID of the latest version associated with the definition.
-getConnectorDefinitionResponse_latestVersion :: Lens.Lens' GetConnectorDefinitionResponse (Core.Maybe Core.Text)
+getConnectorDefinitionResponse_latestVersion :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_latestVersion = Lens.lens (\GetConnectorDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetConnectorDefinitionResponse' {} a -> s {latestVersion = a} :: GetConnectorDefinitionResponse)
 
 -- | The ARN of the definition.
-getConnectorDefinitionResponse_arn :: Lens.Lens' GetConnectorDefinitionResponse (Core.Maybe Core.Text)
+getConnectorDefinitionResponse_arn :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_arn = Lens.lens (\GetConnectorDefinitionResponse' {arn} -> arn) (\s@GetConnectorDefinitionResponse' {} a -> s {arn = a} :: GetConnectorDefinitionResponse)
 
 -- | The ID of the definition.
-getConnectorDefinitionResponse_id :: Lens.Lens' GetConnectorDefinitionResponse (Core.Maybe Core.Text)
+getConnectorDefinitionResponse_id :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_id = Lens.lens (\GetConnectorDefinitionResponse' {id} -> id) (\s@GetConnectorDefinitionResponse' {} a -> s {id = a} :: GetConnectorDefinitionResponse)
 
 -- | The name of the definition.
-getConnectorDefinitionResponse_name :: Lens.Lens' GetConnectorDefinitionResponse (Core.Maybe Core.Text)
+getConnectorDefinitionResponse_name :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_name = Lens.lens (\GetConnectorDefinitionResponse' {name} -> name) (\s@GetConnectorDefinitionResponse' {} a -> s {name = a} :: GetConnectorDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
-getConnectorDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' GetConnectorDefinitionResponse (Core.Maybe Core.Text)
+getConnectorDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetConnectorDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetConnectorDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetConnectorDefinitionResponse)
 
 -- | Tag(s) attached to the resource arn.
-getConnectorDefinitionResponse_tags :: Lens.Lens' GetConnectorDefinitionResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getConnectorDefinitionResponse_tags = Lens.lens (\GetConnectorDefinitionResponse' {tags} -> tags) (\s@GetConnectorDefinitionResponse' {} a -> s {tags = a} :: GetConnectorDefinitionResponse) Core.. Lens.mapping Lens._Coerce
+getConnectorDefinitionResponse_tags :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getConnectorDefinitionResponse_tags = Lens.lens (\GetConnectorDefinitionResponse' {tags} -> tags) (\s@GetConnectorDefinitionResponse' {} a -> s {tags = a} :: GetConnectorDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getConnectorDefinitionResponse_httpStatus :: Lens.Lens' GetConnectorDefinitionResponse Core.Int
+getConnectorDefinitionResponse_httpStatus :: Lens.Lens' GetConnectorDefinitionResponse Prelude.Int
 getConnectorDefinitionResponse_httpStatus = Lens.lens (\GetConnectorDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetConnectorDefinitionResponse' {} a -> s {httpStatus = a} :: GetConnectorDefinitionResponse)
 
-instance Core.NFData GetConnectorDefinitionResponse
+instance
+  Prelude.NFData
+    GetConnectorDefinitionResponse

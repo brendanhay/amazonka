@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -48,9 +49,9 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDescribeTagOption' smart constructor.
 data DescribeTagOption = DescribeTagOption'
   { -- | The TagOption identifier.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTagOption' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DescribeTagOption = DescribeTagOption'
 -- 'id', 'describeTagOption_id' - The TagOption identifier.
 newDescribeTagOption ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DescribeTagOption
 newDescribeTagOption pId_ =
   DescribeTagOption' {id = pId_}
 
 -- | The TagOption identifier.
-describeTagOption_id :: Lens.Lens' DescribeTagOption Core.Text
+describeTagOption_id :: Lens.Lens' DescribeTagOption Prelude.Text
 describeTagOption_id = Lens.lens (\DescribeTagOption' {id} -> id) (\s@DescribeTagOption' {} a -> s {id = a} :: DescribeTagOption)
 
 instance Core.AWSRequest DescribeTagOption where
@@ -81,46 +82,48 @@ instance Core.AWSRequest DescribeTagOption where
     Response.receiveJSON
       ( \s h x ->
           DescribeTagOptionResponse'
-            Core.<$> (x Core..?> "TagOptionDetail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TagOptionDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTagOption
+instance Prelude.Hashable DescribeTagOption
 
-instance Core.NFData DescribeTagOption
+instance Prelude.NFData DescribeTagOption
 
 instance Core.ToHeaders DescribeTagOption where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DescribeTagOption" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeTagOption where
   toJSON DescribeTagOption' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Id" Core..= id)])
+      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
 
 instance Core.ToPath DescribeTagOption where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTagOption where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTagOptionResponse' smart constructor.
 data DescribeTagOptionResponse = DescribeTagOptionResponse'
   { -- | Information about the TagOption.
-    tagOptionDetail :: Core.Maybe TagOptionDetail,
+    tagOptionDetail :: Prelude.Maybe TagOptionDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTagOptionResponse' with all optional fields omitted.
@@ -135,21 +138,21 @@ data DescribeTagOptionResponse = DescribeTagOptionResponse'
 -- 'httpStatus', 'describeTagOptionResponse_httpStatus' - The response's http status code.
 newDescribeTagOptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTagOptionResponse
 newDescribeTagOptionResponse pHttpStatus_ =
   DescribeTagOptionResponse'
     { tagOptionDetail =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the TagOption.
-describeTagOptionResponse_tagOptionDetail :: Lens.Lens' DescribeTagOptionResponse (Core.Maybe TagOptionDetail)
+describeTagOptionResponse_tagOptionDetail :: Lens.Lens' DescribeTagOptionResponse (Prelude.Maybe TagOptionDetail)
 describeTagOptionResponse_tagOptionDetail = Lens.lens (\DescribeTagOptionResponse' {tagOptionDetail} -> tagOptionDetail) (\s@DescribeTagOptionResponse' {} a -> s {tagOptionDetail = a} :: DescribeTagOptionResponse)
 
 -- | The response's http status code.
-describeTagOptionResponse_httpStatus :: Lens.Lens' DescribeTagOptionResponse Core.Int
+describeTagOptionResponse_httpStatus :: Lens.Lens' DescribeTagOptionResponse Prelude.Int
 describeTagOptionResponse_httpStatus = Lens.lens (\DescribeTagOptionResponse' {httpStatus} -> httpStatus) (\s@DescribeTagOptionResponse' {} a -> s {httpStatus = a} :: DescribeTagOptionResponse)
 
-instance Core.NFData DescribeTagOptionResponse
+instance Prelude.NFData DescribeTagOptionResponse

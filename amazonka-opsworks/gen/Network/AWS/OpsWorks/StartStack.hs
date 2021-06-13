@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartStack' smart constructor.
 data StartStack = StartStack'
   { -- | The stack ID.
-    stackId :: Core.Text
+    stackId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartStack' with all optional fields omitted.
@@ -65,13 +66,13 @@ data StartStack = StartStack'
 -- 'stackId', 'startStack_stackId' - The stack ID.
 newStartStack ::
   -- | 'stackId'
-  Core.Text ->
+  Prelude.Text ->
   StartStack
 newStartStack pStackId_ =
   StartStack' {stackId = pStackId_}
 
 -- | The stack ID.
-startStack_stackId :: Lens.Lens' StartStack Core.Text
+startStack_stackId :: Lens.Lens' StartStack Prelude.Text
 startStack_stackId = Lens.lens (\StartStack' {stackId} -> stackId) (\s@StartStack' {} a -> s {stackId = a} :: StartStack)
 
 instance Core.AWSRequest StartStack where
@@ -79,39 +80,43 @@ instance Core.AWSRequest StartStack where
   request = Request.postJSON defaultService
   response = Response.receiveNull StartStackResponse'
 
-instance Core.Hashable StartStack
+instance Prelude.Hashable StartStack
 
-instance Core.NFData StartStack
+instance Prelude.NFData StartStack
 
 instance Core.ToHeaders StartStack where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("OpsWorks_20130218.StartStack" :: Core.ByteString),
+              Core.=# ( "OpsWorks_20130218.StartStack" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartStack where
   toJSON StartStack' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("StackId" Core..= stackId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("StackId" Core..= stackId)]
       )
 
 instance Core.ToPath StartStack where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartStack where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartStackResponse' smart constructor.
 data StartStackResponse = StartStackResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartStackResponse' with all optional fields omitted.
@@ -121,4 +126,4 @@ newStartStackResponse ::
   StartStackResponse
 newStartStackResponse = StartStackResponse'
 
-instance Core.NFData StartStackResponse
+instance Prelude.NFData StartStackResponse

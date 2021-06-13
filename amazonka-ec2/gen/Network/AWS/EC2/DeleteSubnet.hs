@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ data DeleteSubnet = DeleteSubnet'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the subnet.
-    subnetId :: Core.Text
+    subnetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSubnet' with all optional fields omitted.
@@ -71,11 +72,11 @@ data DeleteSubnet = DeleteSubnet'
 -- 'subnetId', 'deleteSubnet_subnetId' - The ID of the subnet.
 newDeleteSubnet ::
   -- | 'subnetId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSubnet
 newDeleteSubnet pSubnetId_ =
   DeleteSubnet'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       subnetId = pSubnetId_
     }
 
@@ -83,11 +84,11 @@ newDeleteSubnet pSubnetId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteSubnet_dryRun :: Lens.Lens' DeleteSubnet (Core.Maybe Core.Bool)
+deleteSubnet_dryRun :: Lens.Lens' DeleteSubnet (Prelude.Maybe Prelude.Bool)
 deleteSubnet_dryRun = Lens.lens (\DeleteSubnet' {dryRun} -> dryRun) (\s@DeleteSubnet' {} a -> s {dryRun = a} :: DeleteSubnet)
 
 -- | The ID of the subnet.
-deleteSubnet_subnetId :: Lens.Lens' DeleteSubnet Core.Text
+deleteSubnet_subnetId :: Lens.Lens' DeleteSubnet Prelude.Text
 deleteSubnet_subnetId = Lens.lens (\DeleteSubnet' {subnetId} -> subnetId) (\s@DeleteSubnet' {} a -> s {subnetId = a} :: DeleteSubnet)
 
 instance Core.AWSRequest DeleteSubnet where
@@ -95,22 +96,23 @@ instance Core.AWSRequest DeleteSubnet where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteSubnetResponse'
 
-instance Core.Hashable DeleteSubnet
+instance Prelude.Hashable DeleteSubnet
 
-instance Core.NFData DeleteSubnet
+instance Prelude.NFData DeleteSubnet
 
 instance Core.ToHeaders DeleteSubnet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteSubnet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSubnet where
   toQuery DeleteSubnet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSubnet" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteSubnet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "SubnetId" Core.=: subnetId
       ]
@@ -119,7 +121,7 @@ instance Core.ToQuery DeleteSubnet where
 data DeleteSubnetResponse = DeleteSubnetResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSubnetResponse' with all optional fields omitted.
@@ -129,4 +131,4 @@ newDeleteSubnetResponse ::
   DeleteSubnetResponse
 newDeleteSubnetResponse = DeleteSubnetResponse'
 
-instance Core.NFData DeleteSubnetResponse
+instance Prelude.NFData DeleteSubnetResponse

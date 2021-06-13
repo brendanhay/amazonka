@@ -21,6 +21,7 @@ module Network.AWS.CodeStar.Types.ProjectStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An indication of whether a project creation or deletion is failed or
 -- successful.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data ProjectStatus = ProjectStatus'
   { -- | In the case of a project creation or deletion failure, a reason for the
     -- failure.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The phase of completion for a project creation or deletion.
-    state :: Core.Text
+    state :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProjectStatus' with all optional fields omitted.
@@ -49,21 +50,21 @@ data ProjectStatus = ProjectStatus'
 -- 'state', 'projectStatus_state' - The phase of completion for a project creation or deletion.
 newProjectStatus ::
   -- | 'state'
-  Core.Text ->
+  Prelude.Text ->
   ProjectStatus
 newProjectStatus pState_ =
   ProjectStatus'
-    { reason = Core.Nothing,
+    { reason = Prelude.Nothing,
       state = pState_
     }
 
 -- | In the case of a project creation or deletion failure, a reason for the
 -- failure.
-projectStatus_reason :: Lens.Lens' ProjectStatus (Core.Maybe Core.Text)
+projectStatus_reason :: Lens.Lens' ProjectStatus (Prelude.Maybe Prelude.Text)
 projectStatus_reason = Lens.lens (\ProjectStatus' {reason} -> reason) (\s@ProjectStatus' {} a -> s {reason = a} :: ProjectStatus)
 
 -- | The phase of completion for a project creation or deletion.
-projectStatus_state :: Lens.Lens' ProjectStatus Core.Text
+projectStatus_state :: Lens.Lens' ProjectStatus Prelude.Text
 projectStatus_state = Lens.lens (\ProjectStatus' {state} -> state) (\s@ProjectStatus' {} a -> s {state = a} :: ProjectStatus)
 
 instance Core.FromJSON ProjectStatus where
@@ -72,9 +73,10 @@ instance Core.FromJSON ProjectStatus where
       "ProjectStatus"
       ( \x ->
           ProjectStatus'
-            Core.<$> (x Core..:? "reason") Core.<*> (x Core..: "state")
+            Prelude.<$> (x Core..:? "reason")
+            Prelude.<*> (x Core..: "state")
       )
 
-instance Core.Hashable ProjectStatus
+instance Prelude.Hashable ProjectStatus
 
-instance Core.NFData ProjectStatus
+instance Prelude.NFData ProjectStatus

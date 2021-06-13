@@ -58,20 +58,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeListenerCertificates' smart constructor.
 data DescribeListenerCertificates = DescribeListenerCertificates'
   { -- | The maximum number of results to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Names (ARN) of the listener.
-    listenerArn :: Core.Text
+    listenerArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeListenerCertificates' with all optional fields omitted.
@@ -89,27 +90,27 @@ data DescribeListenerCertificates = DescribeListenerCertificates'
 -- 'listenerArn', 'describeListenerCertificates_listenerArn' - The Amazon Resource Names (ARN) of the listener.
 newDescribeListenerCertificates ::
   -- | 'listenerArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeListenerCertificates
 newDescribeListenerCertificates pListenerArn_ =
   DescribeListenerCertificates'
     { pageSize =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       listenerArn = pListenerArn_
     }
 
 -- | The maximum number of results to return with this call.
-describeListenerCertificates_pageSize :: Lens.Lens' DescribeListenerCertificates (Core.Maybe Core.Natural)
+describeListenerCertificates_pageSize :: Lens.Lens' DescribeListenerCertificates (Prelude.Maybe Prelude.Natural)
 describeListenerCertificates_pageSize = Lens.lens (\DescribeListenerCertificates' {pageSize} -> pageSize) (\s@DescribeListenerCertificates' {} a -> s {pageSize = a} :: DescribeListenerCertificates)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeListenerCertificates_marker :: Lens.Lens' DescribeListenerCertificates (Core.Maybe Core.Text)
+describeListenerCertificates_marker :: Lens.Lens' DescribeListenerCertificates (Prelude.Maybe Prelude.Text)
 describeListenerCertificates_marker = Lens.lens (\DescribeListenerCertificates' {marker} -> marker) (\s@DescribeListenerCertificates' {} a -> s {marker = a} :: DescribeListenerCertificates)
 
 -- | The Amazon Resource Names (ARN) of the listener.
-describeListenerCertificates_listenerArn :: Lens.Lens' DescribeListenerCertificates Core.Text
+describeListenerCertificates_listenerArn :: Lens.Lens' DescribeListenerCertificates Prelude.Text
 describeListenerCertificates_listenerArn = Lens.lens (\DescribeListenerCertificates' {listenerArn} -> listenerArn) (\s@DescribeListenerCertificates' {} a -> s {listenerArn = a} :: DescribeListenerCertificates)
 
 instance Core.AWSPager DescribeListenerCertificates where
@@ -117,22 +118,22 @@ instance Core.AWSPager DescribeListenerCertificates where
     | Core.stop
         ( rs
             Lens.^? describeListenerCertificatesResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeListenerCertificatesResponse_certificates
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeListenerCertificates_marker
+          Prelude.& describeListenerCertificates_marker
           Lens..~ rs
           Lens.^? describeListenerCertificatesResponse_nextMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeListenerCertificates where
   type
@@ -144,29 +145,34 @@ instance Core.AWSRequest DescribeListenerCertificates where
       "DescribeListenerCertificatesResult"
       ( \s h x ->
           DescribeListenerCertificatesResponse'
-            Core.<$> (x Core..@? "NextMarker")
-            Core.<*> ( x Core..@? "Certificates" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextMarker")
+            Prelude.<*> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeListenerCertificates
+instance
+  Prelude.Hashable
+    DescribeListenerCertificates
 
-instance Core.NFData DescribeListenerCertificates
+instance Prelude.NFData DescribeListenerCertificates
 
 instance Core.ToHeaders DescribeListenerCertificates where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeListenerCertificates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeListenerCertificates where
   toQuery DescribeListenerCertificates' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeListenerCertificates" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ( "DescribeListenerCertificates" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "PageSize" Core.=: pageSize,
         "Marker" Core.=: marker,
         "ListenerArn" Core.=: listenerArn
@@ -176,13 +182,13 @@ instance Core.ToQuery DescribeListenerCertificates where
 data DescribeListenerCertificatesResponse = DescribeListenerCertificatesResponse'
   { -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Information about the certificates.
-    certificates :: Core.Maybe [Certificate],
+    certificates :: Prelude.Maybe [Certificate],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeListenerCertificatesResponse' with all optional fields omitted.
@@ -200,29 +206,29 @@ data DescribeListenerCertificatesResponse = DescribeListenerCertificatesResponse
 -- 'httpStatus', 'describeListenerCertificatesResponse_httpStatus' - The response's http status code.
 newDescribeListenerCertificatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeListenerCertificatesResponse
 newDescribeListenerCertificatesResponse pHttpStatus_ =
   DescribeListenerCertificatesResponse'
     { nextMarker =
-        Core.Nothing,
-      certificates = Core.Nothing,
+        Prelude.Nothing,
+      certificates = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
-describeListenerCertificatesResponse_nextMarker :: Lens.Lens' DescribeListenerCertificatesResponse (Core.Maybe Core.Text)
+describeListenerCertificatesResponse_nextMarker :: Lens.Lens' DescribeListenerCertificatesResponse (Prelude.Maybe Prelude.Text)
 describeListenerCertificatesResponse_nextMarker = Lens.lens (\DescribeListenerCertificatesResponse' {nextMarker} -> nextMarker) (\s@DescribeListenerCertificatesResponse' {} a -> s {nextMarker = a} :: DescribeListenerCertificatesResponse)
 
 -- | Information about the certificates.
-describeListenerCertificatesResponse_certificates :: Lens.Lens' DescribeListenerCertificatesResponse (Core.Maybe [Certificate])
-describeListenerCertificatesResponse_certificates = Lens.lens (\DescribeListenerCertificatesResponse' {certificates} -> certificates) (\s@DescribeListenerCertificatesResponse' {} a -> s {certificates = a} :: DescribeListenerCertificatesResponse) Core.. Lens.mapping Lens._Coerce
+describeListenerCertificatesResponse_certificates :: Lens.Lens' DescribeListenerCertificatesResponse (Prelude.Maybe [Certificate])
+describeListenerCertificatesResponse_certificates = Lens.lens (\DescribeListenerCertificatesResponse' {certificates} -> certificates) (\s@DescribeListenerCertificatesResponse' {} a -> s {certificates = a} :: DescribeListenerCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeListenerCertificatesResponse_httpStatus :: Lens.Lens' DescribeListenerCertificatesResponse Core.Int
+describeListenerCertificatesResponse_httpStatus :: Lens.Lens' DescribeListenerCertificatesResponse Prelude.Int
 describeListenerCertificatesResponse_httpStatus = Lens.lens (\DescribeListenerCertificatesResponse' {httpStatus} -> httpStatus) (\s@DescribeListenerCertificatesResponse' {} a -> s {httpStatus = a} :: DescribeListenerCertificatesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeListenerCertificatesResponse

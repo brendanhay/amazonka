@@ -49,6 +49,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +58,13 @@ data ListGroups = ListGroups'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The limit of the request to list groups.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text
+    userPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGroups' with all optional fields omitted.
@@ -82,47 +83,47 @@ data ListGroups = ListGroups'
 -- 'userPoolId', 'listGroups_userPoolId' - The user pool ID for the user pool.
 newListGroups ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   ListGroups
 newListGroups pUserPoolId_ =
   ListGroups'
-    { nextToken = Core.Nothing,
-      limit = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      limit = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listGroups_nextToken :: Lens.Lens' ListGroups (Core.Maybe Core.Text)
+listGroups_nextToken :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
 listGroups_nextToken = Lens.lens (\ListGroups' {nextToken} -> nextToken) (\s@ListGroups' {} a -> s {nextToken = a} :: ListGroups)
 
 -- | The limit of the request to list groups.
-listGroups_limit :: Lens.Lens' ListGroups (Core.Maybe Core.Natural)
+listGroups_limit :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Natural)
 listGroups_limit = Lens.lens (\ListGroups' {limit} -> limit) (\s@ListGroups' {} a -> s {limit = a} :: ListGroups)
 
 -- | The user pool ID for the user pool.
-listGroups_userPoolId :: Lens.Lens' ListGroups Core.Text
+listGroups_userPoolId :: Lens.Lens' ListGroups Prelude.Text
 listGroups_userPoolId = Lens.lens (\ListGroups' {userPoolId} -> userPoolId) (\s@ListGroups' {} a -> s {userPoolId = a} :: ListGroups)
 
 instance Core.AWSPager ListGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_nextToken Core.. Lens._Just
+            Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_groups Core.. Lens._Just
+            Lens.^? listGroupsResponse_groups Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listGroups_nextToken
+          Prelude.& listGroups_nextToken
           Lens..~ rs
-          Lens.^? listGroupsResponse_nextToken Core.. Lens._Just
+          Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroups where
   type AWSResponse ListGroups = ListGroupsResponse
@@ -131,56 +132,58 @@ instance Core.AWSRequest ListGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            Core.<$> (x Core..?> "Groups" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListGroups
+instance Prelude.Hashable ListGroups
 
-instance Core.NFData ListGroups
+instance Prelude.NFData ListGroups
 
 instance Core.ToHeaders ListGroups where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.ListGroups" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListGroups where
   toJSON ListGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just ("UserPoolId" Core..= userPoolId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
 instance Core.ToPath ListGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
   { -- | The group objects for the groups.
-    groups :: Core.Maybe [GroupType],
+    groups :: Prelude.Maybe [GroupType],
     -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGroupsResponse' with all optional fields omitted.
@@ -199,27 +202,27 @@ data ListGroupsResponse = ListGroupsResponse'
 -- 'httpStatus', 'listGroupsResponse_httpStatus' - The response's http status code.
 newListGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListGroupsResponse
 newListGroupsResponse pHttpStatus_ =
   ListGroupsResponse'
-    { groups = Core.Nothing,
-      nextToken = Core.Nothing,
+    { groups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The group objects for the groups.
-listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Core.Maybe [GroupType])
-listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Core.. Lens.mapping Lens._Coerce
+listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [GroupType])
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listGroupsResponse_nextToken :: Lens.Lens' ListGroupsResponse (Core.Maybe Core.Text)
+listGroupsResponse_nextToken :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Text)
 listGroupsResponse_nextToken = Lens.lens (\ListGroupsResponse' {nextToken} -> nextToken) (\s@ListGroupsResponse' {} a -> s {nextToken = a} :: ListGroupsResponse)
 
 -- | The response's http status code.
-listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Core.Int
+listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Prelude.Int
 listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> httpStatus) (\s@ListGroupsResponse' {} a -> s {httpStatus = a} :: ListGroupsResponse)
 
-instance Core.NFData ListGroupsResponse
+instance Prelude.NFData ListGroupsResponse

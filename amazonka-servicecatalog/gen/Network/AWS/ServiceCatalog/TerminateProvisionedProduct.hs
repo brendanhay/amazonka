@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -59,19 +60,19 @@ import Network.AWS.ServiceCatalog.Types
 data TerminateProvisionedProduct = TerminateProvisionedProduct'
   { -- | The name of the provisioned product. You cannot specify both
     -- @ProvisionedProductName@ and @ProvisionedProductId@.
-    provisionedProductName :: Core.Maybe Core.Text,
+    provisionedProductName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioned product. You cannot specify both
     -- @ProvisionedProductName@ and @ProvisionedProductId@.
-    provisionedProductId :: Core.Maybe Core.Text,
+    provisionedProductId :: Prelude.Maybe Prelude.Text,
     -- | When this boolean parameter is set to true, the
     -- @TerminateProvisionedProduct@ API deletes the Service Catalog
     -- provisioned product. However, it does not remove the CloudFormation
     -- stack, stack set, or the underlying resources of the deleted provisioned
     -- product. The default value is false.
-    retainPhysicalResources :: Core.Maybe Core.Bool,
+    retainPhysicalResources :: Prelude.Maybe Prelude.Bool,
     -- | If set to true, AWS Service Catalog stops managing the specified
     -- provisioned product even if it cannot delete the underlying resources.
-    ignoreErrors :: Core.Maybe Core.Bool,
+    ignoreErrors :: Prelude.Maybe Prelude.Bool,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -79,14 +80,14 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | An idempotency token that uniquely identifies the termination request.
     -- This token is only valid during the termination process. After the
     -- provisioned product is terminated, subsequent requests to terminate the
     -- same provisioned product always return __ResourceNotFound__.
-    terminateToken :: Core.Text
+    terminateToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateProvisionedProduct' with all optional fields omitted.
@@ -125,27 +126,27 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 -- same provisioned product always return __ResourceNotFound__.
 newTerminateProvisionedProduct ::
   -- | 'terminateToken'
-  Core.Text ->
+  Prelude.Text ->
   TerminateProvisionedProduct
 newTerminateProvisionedProduct pTerminateToken_ =
   TerminateProvisionedProduct'
     { provisionedProductName =
-        Core.Nothing,
-      provisionedProductId = Core.Nothing,
-      retainPhysicalResources = Core.Nothing,
-      ignoreErrors = Core.Nothing,
-      acceptLanguage = Core.Nothing,
+        Prelude.Nothing,
+      provisionedProductId = Prelude.Nothing,
+      retainPhysicalResources = Prelude.Nothing,
+      ignoreErrors = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       terminateToken = pTerminateToken_
     }
 
 -- | The name of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
-terminateProvisionedProduct_provisionedProductName :: Lens.Lens' TerminateProvisionedProduct (Core.Maybe Core.Text)
+terminateProvisionedProduct_provisionedProductName :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
 terminateProvisionedProduct_provisionedProductName = Lens.lens (\TerminateProvisionedProduct' {provisionedProductName} -> provisionedProductName) (\s@TerminateProvisionedProduct' {} a -> s {provisionedProductName = a} :: TerminateProvisionedProduct)
 
 -- | The identifier of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
-terminateProvisionedProduct_provisionedProductId :: Lens.Lens' TerminateProvisionedProduct (Core.Maybe Core.Text)
+terminateProvisionedProduct_provisionedProductId :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
 terminateProvisionedProduct_provisionedProductId = Lens.lens (\TerminateProvisionedProduct' {provisionedProductId} -> provisionedProductId) (\s@TerminateProvisionedProduct' {} a -> s {provisionedProductId = a} :: TerminateProvisionedProduct)
 
 -- | When this boolean parameter is set to true, the
@@ -153,12 +154,12 @@ terminateProvisionedProduct_provisionedProductId = Lens.lens (\TerminateProvisio
 -- provisioned product. However, it does not remove the CloudFormation
 -- stack, stack set, or the underlying resources of the deleted provisioned
 -- product. The default value is false.
-terminateProvisionedProduct_retainPhysicalResources :: Lens.Lens' TerminateProvisionedProduct (Core.Maybe Core.Bool)
+terminateProvisionedProduct_retainPhysicalResources :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
 terminateProvisionedProduct_retainPhysicalResources = Lens.lens (\TerminateProvisionedProduct' {retainPhysicalResources} -> retainPhysicalResources) (\s@TerminateProvisionedProduct' {} a -> s {retainPhysicalResources = a} :: TerminateProvisionedProduct)
 
 -- | If set to true, AWS Service Catalog stops managing the specified
 -- provisioned product even if it cannot delete the underlying resources.
-terminateProvisionedProduct_ignoreErrors :: Lens.Lens' TerminateProvisionedProduct (Core.Maybe Core.Bool)
+terminateProvisionedProduct_ignoreErrors :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
 terminateProvisionedProduct_ignoreErrors = Lens.lens (\TerminateProvisionedProduct' {ignoreErrors} -> ignoreErrors) (\s@TerminateProvisionedProduct' {} a -> s {ignoreErrors = a} :: TerminateProvisionedProduct)
 
 -- | The language code.
@@ -168,14 +169,14 @@ terminateProvisionedProduct_ignoreErrors = Lens.lens (\TerminateProvisionedProdu
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-terminateProvisionedProduct_acceptLanguage :: Lens.Lens' TerminateProvisionedProduct (Core.Maybe Core.Text)
+terminateProvisionedProduct_acceptLanguage :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
 terminateProvisionedProduct_acceptLanguage = Lens.lens (\TerminateProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@TerminateProvisionedProduct' {} a -> s {acceptLanguage = a} :: TerminateProvisionedProduct)
 
 -- | An idempotency token that uniquely identifies the termination request.
 -- This token is only valid during the termination process. After the
 -- provisioned product is terminated, subsequent requests to terminate the
 -- same provisioned product always return __ResourceNotFound__.
-terminateProvisionedProduct_terminateToken :: Lens.Lens' TerminateProvisionedProduct Core.Text
+terminateProvisionedProduct_terminateToken :: Lens.Lens' TerminateProvisionedProduct Prelude.Text
 terminateProvisionedProduct_terminateToken = Lens.lens (\TerminateProvisionedProduct' {terminateToken} -> terminateToken) (\s@TerminateProvisionedProduct' {} a -> s {terminateToken = a} :: TerminateProvisionedProduct)
 
 instance Core.AWSRequest TerminateProvisionedProduct where
@@ -187,57 +188,61 @@ instance Core.AWSRequest TerminateProvisionedProduct where
     Response.receiveJSON
       ( \s h x ->
           TerminateProvisionedProductResponse'
-            Core.<$> (x Core..?> "RecordDetail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RecordDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TerminateProvisionedProduct
+instance Prelude.Hashable TerminateProvisionedProduct
 
-instance Core.NFData TerminateProvisionedProduct
+instance Prelude.NFData TerminateProvisionedProduct
 
 instance Core.ToHeaders TerminateProvisionedProduct where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.TerminateProvisionedProduct" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TerminateProvisionedProduct where
   toJSON TerminateProvisionedProduct' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProvisionedProductName" Core..=)
-              Core.<$> provisionedProductName,
+              Prelude.<$> provisionedProductName,
             ("ProvisionedProductId" Core..=)
-              Core.<$> provisionedProductId,
+              Prelude.<$> provisionedProductId,
             ("RetainPhysicalResources" Core..=)
-              Core.<$> retainPhysicalResources,
-            ("IgnoreErrors" Core..=) Core.<$> ignoreErrors,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("TerminateToken" Core..= terminateToken)
+              Prelude.<$> retainPhysicalResources,
+            ("IgnoreErrors" Core..=) Prelude.<$> ignoreErrors,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just
+              ("TerminateToken" Core..= terminateToken)
           ]
       )
 
 instance Core.ToPath TerminateProvisionedProduct where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TerminateProvisionedProduct where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateProvisionedProductResponse' smart constructor.
 data TerminateProvisionedProductResponse = TerminateProvisionedProductResponse'
   { -- | Information about the result of this request.
-    recordDetail :: Core.Maybe RecordDetail,
+    recordDetail :: Prelude.Maybe RecordDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateProvisionedProductResponse' with all optional fields omitted.
@@ -252,23 +257,23 @@ data TerminateProvisionedProductResponse = TerminateProvisionedProductResponse'
 -- 'httpStatus', 'terminateProvisionedProductResponse_httpStatus' - The response's http status code.
 newTerminateProvisionedProductResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TerminateProvisionedProductResponse
 newTerminateProvisionedProductResponse pHttpStatus_ =
   TerminateProvisionedProductResponse'
     { recordDetail =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the result of this request.
-terminateProvisionedProductResponse_recordDetail :: Lens.Lens' TerminateProvisionedProductResponse (Core.Maybe RecordDetail)
+terminateProvisionedProductResponse_recordDetail :: Lens.Lens' TerminateProvisionedProductResponse (Prelude.Maybe RecordDetail)
 terminateProvisionedProductResponse_recordDetail = Lens.lens (\TerminateProvisionedProductResponse' {recordDetail} -> recordDetail) (\s@TerminateProvisionedProductResponse' {} a -> s {recordDetail = a} :: TerminateProvisionedProductResponse)
 
 -- | The response's http status code.
-terminateProvisionedProductResponse_httpStatus :: Lens.Lens' TerminateProvisionedProductResponse Core.Int
+terminateProvisionedProductResponse_httpStatus :: Lens.Lens' TerminateProvisionedProductResponse Prelude.Int
 terminateProvisionedProductResponse_httpStatus = Lens.lens (\TerminateProvisionedProductResponse' {httpStatus} -> httpStatus) (\s@TerminateProvisionedProductResponse' {} a -> s {httpStatus = a} :: TerminateProvisionedProductResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     TerminateProvisionedProductResponse

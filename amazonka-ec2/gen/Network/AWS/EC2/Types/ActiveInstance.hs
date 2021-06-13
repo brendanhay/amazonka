@@ -23,24 +23,25 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceHealthStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a running instance in a Spot Fleet.
 --
 -- /See:/ 'newActiveInstance' smart constructor.
 data ActiveInstance = ActiveInstance'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The instance type.
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Spot Instance request.
-    spotInstanceRequestId :: Core.Maybe Core.Text,
+    spotInstanceRequestId :: Prelude.Maybe Prelude.Text,
     -- | The health status of the instance. If the status of either the instance
     -- status check or the system status check is @impaired@, the health status
     -- of the instance is @unhealthy@. Otherwise, the health status is
     -- @healthy@.
-    instanceHealth :: Core.Maybe InstanceHealthStatus
+    instanceHealth :: Prelude.Maybe InstanceHealthStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActiveInstance' with all optional fields omitted.
@@ -64,39 +65,39 @@ newActiveInstance ::
   ActiveInstance
 newActiveInstance =
   ActiveInstance'
-    { instanceId = Core.Nothing,
-      instanceType = Core.Nothing,
-      spotInstanceRequestId = Core.Nothing,
-      instanceHealth = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      spotInstanceRequestId = Prelude.Nothing,
+      instanceHealth = Prelude.Nothing
     }
 
 -- | The ID of the instance.
-activeInstance_instanceId :: Lens.Lens' ActiveInstance (Core.Maybe Core.Text)
+activeInstance_instanceId :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
 activeInstance_instanceId = Lens.lens (\ActiveInstance' {instanceId} -> instanceId) (\s@ActiveInstance' {} a -> s {instanceId = a} :: ActiveInstance)
 
 -- | The instance type.
-activeInstance_instanceType :: Lens.Lens' ActiveInstance (Core.Maybe Core.Text)
+activeInstance_instanceType :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
 activeInstance_instanceType = Lens.lens (\ActiveInstance' {instanceType} -> instanceType) (\s@ActiveInstance' {} a -> s {instanceType = a} :: ActiveInstance)
 
 -- | The ID of the Spot Instance request.
-activeInstance_spotInstanceRequestId :: Lens.Lens' ActiveInstance (Core.Maybe Core.Text)
+activeInstance_spotInstanceRequestId :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
 activeInstance_spotInstanceRequestId = Lens.lens (\ActiveInstance' {spotInstanceRequestId} -> spotInstanceRequestId) (\s@ActiveInstance' {} a -> s {spotInstanceRequestId = a} :: ActiveInstance)
 
 -- | The health status of the instance. If the status of either the instance
 -- status check or the system status check is @impaired@, the health status
 -- of the instance is @unhealthy@. Otherwise, the health status is
 -- @healthy@.
-activeInstance_instanceHealth :: Lens.Lens' ActiveInstance (Core.Maybe InstanceHealthStatus)
+activeInstance_instanceHealth :: Lens.Lens' ActiveInstance (Prelude.Maybe InstanceHealthStatus)
 activeInstance_instanceHealth = Lens.lens (\ActiveInstance' {instanceHealth} -> instanceHealth) (\s@ActiveInstance' {} a -> s {instanceHealth = a} :: ActiveInstance)
 
 instance Core.FromXML ActiveInstance where
   parseXML x =
     ActiveInstance'
-      Core.<$> (x Core..@? "instanceId")
-      Core.<*> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "spotInstanceRequestId")
-      Core.<*> (x Core..@? "instanceHealth")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "spotInstanceRequestId")
+      Prelude.<*> (x Core..@? "instanceHealth")
 
-instance Core.Hashable ActiveInstance
+instance Prelude.Hashable ActiveInstance
 
-instance Core.NFData ActiveInstance
+instance Prelude.NFData ActiveInstance

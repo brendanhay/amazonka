@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.AttachedPolicy
 import Network.AWS.IAM.Types.PolicyDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an IAM group, including all of the group\'s
 -- policies.
@@ -33,27 +34,27 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newGroupDetail' smart constructor.
 data GroupDetail = GroupDetail'
   { -- | A list of the managed policies attached to the group.
-    attachedManagedPolicies :: Core.Maybe [AttachedPolicy],
+    attachedManagedPolicies :: Prelude.Maybe [AttachedPolicy],
     -- | The friendly name that identifies the group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- group was created.
-    createDate :: Core.Maybe Core.ISO8601,
-    arn :: Core.Maybe Core.Text,
+    createDate :: Prelude.Maybe Core.ISO8601,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The stable and unique string identifying the group. For more information
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    groupId :: Core.Maybe Core.Text,
+    groupId :: Prelude.Maybe Prelude.Text,
     -- | A list of the inline policies embedded in the group.
-    groupPolicyList :: Core.Maybe [PolicyDetail],
+    groupPolicyList :: Prelude.Maybe [PolicyDetail],
     -- | The path to the group. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupDetail' with all optional fields omitted.
@@ -88,66 +89,66 @@ newGroupDetail ::
 newGroupDetail =
   GroupDetail'
     { attachedManagedPolicies =
-        Core.Nothing,
-      groupName = Core.Nothing,
-      createDate = Core.Nothing,
-      arn = Core.Nothing,
-      groupId = Core.Nothing,
-      groupPolicyList = Core.Nothing,
-      path = Core.Nothing
+        Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      groupId = Prelude.Nothing,
+      groupPolicyList = Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | A list of the managed policies attached to the group.
-groupDetail_attachedManagedPolicies :: Lens.Lens' GroupDetail (Core.Maybe [AttachedPolicy])
-groupDetail_attachedManagedPolicies = Lens.lens (\GroupDetail' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@GroupDetail' {} a -> s {attachedManagedPolicies = a} :: GroupDetail) Core.. Lens.mapping Lens._Coerce
+groupDetail_attachedManagedPolicies :: Lens.Lens' GroupDetail (Prelude.Maybe [AttachedPolicy])
+groupDetail_attachedManagedPolicies = Lens.lens (\GroupDetail' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@GroupDetail' {} a -> s {attachedManagedPolicies = a} :: GroupDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The friendly name that identifies the group.
-groupDetail_groupName :: Lens.Lens' GroupDetail (Core.Maybe Core.Text)
+groupDetail_groupName :: Lens.Lens' GroupDetail (Prelude.Maybe Prelude.Text)
 groupDetail_groupName = Lens.lens (\GroupDetail' {groupName} -> groupName) (\s@GroupDetail' {} a -> s {groupName = a} :: GroupDetail)
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- group was created.
-groupDetail_createDate :: Lens.Lens' GroupDetail (Core.Maybe Core.UTCTime)
-groupDetail_createDate = Lens.lens (\GroupDetail' {createDate} -> createDate) (\s@GroupDetail' {} a -> s {createDate = a} :: GroupDetail) Core.. Lens.mapping Core._Time
+groupDetail_createDate :: Lens.Lens' GroupDetail (Prelude.Maybe Prelude.UTCTime)
+groupDetail_createDate = Lens.lens (\GroupDetail' {createDate} -> createDate) (\s@GroupDetail' {} a -> s {createDate = a} :: GroupDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-groupDetail_arn :: Lens.Lens' GroupDetail (Core.Maybe Core.Text)
+groupDetail_arn :: Lens.Lens' GroupDetail (Prelude.Maybe Prelude.Text)
 groupDetail_arn = Lens.lens (\GroupDetail' {arn} -> arn) (\s@GroupDetail' {} a -> s {arn = a} :: GroupDetail)
 
 -- | The stable and unique string identifying the group. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-groupDetail_groupId :: Lens.Lens' GroupDetail (Core.Maybe Core.Text)
+groupDetail_groupId :: Lens.Lens' GroupDetail (Prelude.Maybe Prelude.Text)
 groupDetail_groupId = Lens.lens (\GroupDetail' {groupId} -> groupId) (\s@GroupDetail' {} a -> s {groupId = a} :: GroupDetail)
 
 -- | A list of the inline policies embedded in the group.
-groupDetail_groupPolicyList :: Lens.Lens' GroupDetail (Core.Maybe [PolicyDetail])
-groupDetail_groupPolicyList = Lens.lens (\GroupDetail' {groupPolicyList} -> groupPolicyList) (\s@GroupDetail' {} a -> s {groupPolicyList = a} :: GroupDetail) Core.. Lens.mapping Lens._Coerce
+groupDetail_groupPolicyList :: Lens.Lens' GroupDetail (Prelude.Maybe [PolicyDetail])
+groupDetail_groupPolicyList = Lens.lens (\GroupDetail' {groupPolicyList} -> groupPolicyList) (\s@GroupDetail' {} a -> s {groupPolicyList = a} :: GroupDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path to the group. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-groupDetail_path :: Lens.Lens' GroupDetail (Core.Maybe Core.Text)
+groupDetail_path :: Lens.Lens' GroupDetail (Prelude.Maybe Prelude.Text)
 groupDetail_path = Lens.lens (\GroupDetail' {path} -> path) (\s@GroupDetail' {} a -> s {path = a} :: GroupDetail)
 
 instance Core.FromXML GroupDetail where
   parseXML x =
     GroupDetail'
-      Core.<$> ( x Core..@? "AttachedManagedPolicies"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "GroupName")
-      Core.<*> (x Core..@? "CreateDate")
-      Core.<*> (x Core..@? "Arn")
-      Core.<*> (x Core..@? "GroupId")
-      Core.<*> ( x Core..@? "GroupPolicyList" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "Path")
+      Prelude.<$> ( x Core..@? "AttachedManagedPolicies"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "GroupName")
+      Prelude.<*> (x Core..@? "CreateDate")
+      Prelude.<*> (x Core..@? "Arn")
+      Prelude.<*> (x Core..@? "GroupId")
+      Prelude.<*> ( x Core..@? "GroupPolicyList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "Path")
 
-instance Core.Hashable GroupDetail
+instance Prelude.Hashable GroupDetail
 
-instance Core.NFData GroupDetail
+instance Prelude.NFData GroupDetail

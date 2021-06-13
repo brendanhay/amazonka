@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -59,12 +60,12 @@ import Network.AWS.Shield.Types
 data DisassociateHealthCheck = DisassociateHealthCheck'
   { -- | The unique identifier (ID) for the Protection object to remove the
     -- health check association from.
-    protectionId :: Core.Text,
+    protectionId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the health check that is associated
     -- with the protection.
-    healthCheckArn :: Core.Text
+    healthCheckArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateHealthCheck' with all optional fields omitted.
@@ -81,9 +82,9 @@ data DisassociateHealthCheck = DisassociateHealthCheck'
 -- with the protection.
 newDisassociateHealthCheck ::
   -- | 'protectionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'healthCheckArn'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateHealthCheck
 newDisassociateHealthCheck
   pProtectionId_
@@ -96,12 +97,12 @@ newDisassociateHealthCheck
 
 -- | The unique identifier (ID) for the Protection object to remove the
 -- health check association from.
-disassociateHealthCheck_protectionId :: Lens.Lens' DisassociateHealthCheck Core.Text
+disassociateHealthCheck_protectionId :: Lens.Lens' DisassociateHealthCheck Prelude.Text
 disassociateHealthCheck_protectionId = Lens.lens (\DisassociateHealthCheck' {protectionId} -> protectionId) (\s@DisassociateHealthCheck' {} a -> s {protectionId = a} :: DisassociateHealthCheck)
 
 -- | The Amazon Resource Name (ARN) of the health check that is associated
 -- with the protection.
-disassociateHealthCheck_healthCheckArn :: Lens.Lens' DisassociateHealthCheck Core.Text
+disassociateHealthCheck_healthCheckArn :: Lens.Lens' DisassociateHealthCheck Prelude.Text
 disassociateHealthCheck_healthCheckArn = Lens.lens (\DisassociateHealthCheck' {healthCheckArn} -> healthCheckArn) (\s@DisassociateHealthCheck' {} a -> s {healthCheckArn = a} :: DisassociateHealthCheck)
 
 instance Core.AWSRequest DisassociateHealthCheck where
@@ -113,47 +114,50 @@ instance Core.AWSRequest DisassociateHealthCheck where
     Response.receiveEmpty
       ( \s h x ->
           DisassociateHealthCheckResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateHealthCheck
+instance Prelude.Hashable DisassociateHealthCheck
 
-instance Core.NFData DisassociateHealthCheck
+instance Prelude.NFData DisassociateHealthCheck
 
 instance Core.ToHeaders DisassociateHealthCheck where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.DisassociateHealthCheck" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateHealthCheck where
   toJSON DisassociateHealthCheck' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ProtectionId" Core..= protectionId),
-            Core.Just ("HealthCheckArn" Core..= healthCheckArn)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ProtectionId" Core..= protectionId),
+            Prelude.Just
+              ("HealthCheckArn" Core..= healthCheckArn)
           ]
       )
 
 instance Core.ToPath DisassociateHealthCheck where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateHealthCheck where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateHealthCheckResponse' smart constructor.
 data DisassociateHealthCheckResponse = DisassociateHealthCheckResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateHealthCheckResponse' with all optional fields omitted.
@@ -166,7 +170,7 @@ data DisassociateHealthCheckResponse = DisassociateHealthCheckResponse'
 -- 'httpStatus', 'disassociateHealthCheckResponse_httpStatus' - The response's http status code.
 newDisassociateHealthCheckResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateHealthCheckResponse
 newDisassociateHealthCheckResponse pHttpStatus_ =
   DisassociateHealthCheckResponse'
@@ -175,7 +179,9 @@ newDisassociateHealthCheckResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateHealthCheckResponse_httpStatus :: Lens.Lens' DisassociateHealthCheckResponse Core.Int
+disassociateHealthCheckResponse_httpStatus :: Lens.Lens' DisassociateHealthCheckResponse Prelude.Int
 disassociateHealthCheckResponse_httpStatus = Lens.lens (\DisassociateHealthCheckResponse' {httpStatus} -> httpStatus) (\s@DisassociateHealthCheckResponse' {} a -> s {httpStatus = a} :: DisassociateHealthCheckResponse)
 
-instance Core.NFData DisassociateHealthCheckResponse
+instance
+  Prelude.NFData
+    DisassociateHealthCheckResponse

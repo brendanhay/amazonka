@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -61,9 +62,9 @@ data DeletePermissionPolicy = DeletePermissionPolicy'
     -- delete the policy.
     --
     -- The user making the request must be the owner of the RuleGroup.
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePermissionPolicy' with all optional fields omitted.
@@ -79,7 +80,7 @@ data DeletePermissionPolicy = DeletePermissionPolicy'
 -- The user making the request must be the owner of the RuleGroup.
 newDeletePermissionPolicy ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   DeletePermissionPolicy
 newDeletePermissionPolicy pResourceArn_ =
   DeletePermissionPolicy'
@@ -91,7 +92,7 @@ newDeletePermissionPolicy pResourceArn_ =
 -- delete the policy.
 --
 -- The user making the request must be the owner of the RuleGroup.
-deletePermissionPolicy_resourceArn :: Lens.Lens' DeletePermissionPolicy Core.Text
+deletePermissionPolicy_resourceArn :: Lens.Lens' DeletePermissionPolicy Prelude.Text
 deletePermissionPolicy_resourceArn = Lens.lens (\DeletePermissionPolicy' {resourceArn} -> resourceArn) (\s@DeletePermissionPolicy' {} a -> s {resourceArn = a} :: DeletePermissionPolicy)
 
 instance Core.AWSRequest DeletePermissionPolicy where
@@ -103,45 +104,47 @@ instance Core.AWSRequest DeletePermissionPolicy where
     Response.receiveEmpty
       ( \s h x ->
           DeletePermissionPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeletePermissionPolicy
+instance Prelude.Hashable DeletePermissionPolicy
 
-instance Core.NFData DeletePermissionPolicy
+instance Prelude.NFData DeletePermissionPolicy
 
 instance Core.ToHeaders DeletePermissionPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.DeletePermissionPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeletePermissionPolicy where
   toJSON DeletePermissionPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ResourceArn" Core..= resourceArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
       )
 
 instance Core.ToPath DeletePermissionPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePermissionPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePermissionPolicyResponse' smart constructor.
 data DeletePermissionPolicyResponse = DeletePermissionPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePermissionPolicyResponse' with all optional fields omitted.
@@ -154,7 +157,7 @@ data DeletePermissionPolicyResponse = DeletePermissionPolicyResponse'
 -- 'httpStatus', 'deletePermissionPolicyResponse_httpStatus' - The response's http status code.
 newDeletePermissionPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeletePermissionPolicyResponse
 newDeletePermissionPolicyResponse pHttpStatus_ =
   DeletePermissionPolicyResponse'
@@ -163,7 +166,9 @@ newDeletePermissionPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deletePermissionPolicyResponse_httpStatus :: Lens.Lens' DeletePermissionPolicyResponse Core.Int
+deletePermissionPolicyResponse_httpStatus :: Lens.Lens' DeletePermissionPolicyResponse Prelude.Int
 deletePermissionPolicyResponse_httpStatus = Lens.lens (\DeletePermissionPolicyResponse' {httpStatus} -> httpStatus) (\s@DeletePermissionPolicyResponse' {} a -> s {httpStatus = a} :: DeletePermissionPolicyResponse)
 
-instance Core.NFData DeletePermissionPolicyResponse
+instance
+  Prelude.NFData
+    DeletePermissionPolicyResponse

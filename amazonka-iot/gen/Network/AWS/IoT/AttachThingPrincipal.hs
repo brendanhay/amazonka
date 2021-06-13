@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAttachThingPrincipal' smart constructor.
 data AttachThingPrincipal = AttachThingPrincipal'
   { -- | The name of the thing.
-    thingName :: Core.Text,
+    thingName :: Prelude.Text,
     -- | The principal, which can be a certificate ARN (as returned from the
     -- CreateCertificate operation) or an Amazon Cognito ID.
-    principal :: Core.Text
+    principal :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachThingPrincipal' with all optional fields omitted.
@@ -73,9 +74,9 @@ data AttachThingPrincipal = AttachThingPrincipal'
 -- CreateCertificate operation) or an Amazon Cognito ID.
 newAttachThingPrincipal ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'principal'
-  Core.Text ->
+  Prelude.Text ->
   AttachThingPrincipal
 newAttachThingPrincipal pThingName_ pPrincipal_ =
   AttachThingPrincipal'
@@ -84,12 +85,12 @@ newAttachThingPrincipal pThingName_ pPrincipal_ =
     }
 
 -- | The name of the thing.
-attachThingPrincipal_thingName :: Lens.Lens' AttachThingPrincipal Core.Text
+attachThingPrincipal_thingName :: Lens.Lens' AttachThingPrincipal Prelude.Text
 attachThingPrincipal_thingName = Lens.lens (\AttachThingPrincipal' {thingName} -> thingName) (\s@AttachThingPrincipal' {} a -> s {thingName = a} :: AttachThingPrincipal)
 
 -- | The principal, which can be a certificate ARN (as returned from the
 -- CreateCertificate operation) or an Amazon Cognito ID.
-attachThingPrincipal_principal :: Lens.Lens' AttachThingPrincipal Core.Text
+attachThingPrincipal_principal :: Lens.Lens' AttachThingPrincipal Prelude.Text
 attachThingPrincipal_principal = Lens.lens (\AttachThingPrincipal' {principal} -> principal) (\s@AttachThingPrincipal' {} a -> s {principal = a} :: AttachThingPrincipal)
 
 instance Core.AWSRequest AttachThingPrincipal where
@@ -101,36 +102,37 @@ instance Core.AWSRequest AttachThingPrincipal where
     Response.receiveEmpty
       ( \s h x ->
           AttachThingPrincipalResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AttachThingPrincipal
+instance Prelude.Hashable AttachThingPrincipal
 
-instance Core.NFData AttachThingPrincipal
+instance Prelude.NFData AttachThingPrincipal
 
 instance Core.ToHeaders AttachThingPrincipal where
   toHeaders AttachThingPrincipal' {..} =
-    Core.mconcat ["x-amzn-principal" Core.=# principal]
+    Prelude.mconcat
+      ["x-amzn-principal" Core.=# principal]
 
 instance Core.ToJSON AttachThingPrincipal where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath AttachThingPrincipal where
   toPath AttachThingPrincipal' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/things/", Core.toBS thingName, "/principals"]
 
 instance Core.ToQuery AttachThingPrincipal where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the AttachThingPrincipal operation.
 --
 -- /See:/ 'newAttachThingPrincipalResponse' smart constructor.
 data AttachThingPrincipalResponse = AttachThingPrincipalResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachThingPrincipalResponse' with all optional fields omitted.
@@ -143,7 +145,7 @@ data AttachThingPrincipalResponse = AttachThingPrincipalResponse'
 -- 'httpStatus', 'attachThingPrincipalResponse_httpStatus' - The response's http status code.
 newAttachThingPrincipalResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AttachThingPrincipalResponse
 newAttachThingPrincipalResponse pHttpStatus_ =
   AttachThingPrincipalResponse'
@@ -152,7 +154,7 @@ newAttachThingPrincipalResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-attachThingPrincipalResponse_httpStatus :: Lens.Lens' AttachThingPrincipalResponse Core.Int
+attachThingPrincipalResponse_httpStatus :: Lens.Lens' AttachThingPrincipalResponse Prelude.Int
 attachThingPrincipalResponse_httpStatus = Lens.lens (\AttachThingPrincipalResponse' {httpStatus} -> httpStatus) (\s@AttachThingPrincipalResponse' {} a -> s {httpStatus = a} :: AttachThingPrincipalResponse)
 
-instance Core.NFData AttachThingPrincipalResponse
+instance Prelude.NFData AttachThingPrincipalResponse

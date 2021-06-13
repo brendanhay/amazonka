@@ -33,6 +33,7 @@ module Network.AWS.MediaConvert.Types.Ac3BitstreamMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the bitstream mode for the AC-3 stream that the encoder emits.
 -- For more information about the AC3 bitstream mode, see ATSC A\/52-2012
@@ -42,15 +43,15 @@ newtype Ac3BitstreamMode = Ac3BitstreamMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -21,6 +21,7 @@ module Network.AWS.GuardDuty.Types.Country where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the country where the remote IP address is
 -- located.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCountry' smart constructor.
 data Country = Country'
   { -- | The country name of the remote IP address.
-    countryName :: Core.Maybe Core.Text,
+    countryName :: Prelude.Maybe Prelude.Text,
     -- | The country code of the remote IP address.
-    countryCode :: Core.Maybe Core.Text
+    countryCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Country' with all optional fields omitted.
@@ -49,16 +50,16 @@ newCountry ::
   Country
 newCountry =
   Country'
-    { countryName = Core.Nothing,
-      countryCode = Core.Nothing
+    { countryName = Prelude.Nothing,
+      countryCode = Prelude.Nothing
     }
 
 -- | The country name of the remote IP address.
-country_countryName :: Lens.Lens' Country (Core.Maybe Core.Text)
+country_countryName :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
 country_countryName = Lens.lens (\Country' {countryName} -> countryName) (\s@Country' {} a -> s {countryName = a} :: Country)
 
 -- | The country code of the remote IP address.
-country_countryCode :: Lens.Lens' Country (Core.Maybe Core.Text)
+country_countryCode :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
 country_countryCode = Lens.lens (\Country' {countryCode} -> countryCode) (\s@Country' {} a -> s {countryCode = a} :: Country)
 
 instance Core.FromJSON Country where
@@ -67,10 +68,10 @@ instance Core.FromJSON Country where
       "Country"
       ( \x ->
           Country'
-            Core.<$> (x Core..:? "countryName")
-            Core.<*> (x Core..:? "countryCode")
+            Prelude.<$> (x Core..:? "countryName")
+            Prelude.<*> (x Core..:? "countryCode")
       )
 
-instance Core.Hashable Country
+instance Prelude.Hashable Country
 
-instance Core.NFData Country
+instance Prelude.NFData Country

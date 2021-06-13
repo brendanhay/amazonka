@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.StoppingCondition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a limit to how long a model training or compilation job can
 -- run. It also specifies how long you are willing to wait for a managed
@@ -51,14 +52,14 @@ data StoppingCondition = StoppingCondition'
     -- job can run. If job does not complete during this time, Amazon SageMaker
     -- ends the job. If value is not specified, default value is 1 day. The
     -- maximum value is 28 days.
-    maxRuntimeInSeconds :: Core.Maybe Core.Natural,
+    maxRuntimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum length of time, in seconds, how long you are willing to wait
     -- for a managed spot training job to complete. It is the amount of time
     -- spent waiting for Spot capacity plus the amount of time the training job
     -- runs. It must be equal to or greater than @MaxRuntimeInSeconds@.
-    maxWaitTimeInSeconds :: Core.Maybe Core.Natural
+    maxWaitTimeInSeconds :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StoppingCondition' with all optional fields omitted.
@@ -82,22 +83,22 @@ newStoppingCondition ::
 newStoppingCondition =
   StoppingCondition'
     { maxRuntimeInSeconds =
-        Core.Nothing,
-      maxWaitTimeInSeconds = Core.Nothing
+        Prelude.Nothing,
+      maxWaitTimeInSeconds = Prelude.Nothing
     }
 
 -- | The maximum length of time, in seconds, that the training or compilation
 -- job can run. If job does not complete during this time, Amazon SageMaker
 -- ends the job. If value is not specified, default value is 1 day. The
 -- maximum value is 28 days.
-stoppingCondition_maxRuntimeInSeconds :: Lens.Lens' StoppingCondition (Core.Maybe Core.Natural)
+stoppingCondition_maxRuntimeInSeconds :: Lens.Lens' StoppingCondition (Prelude.Maybe Prelude.Natural)
 stoppingCondition_maxRuntimeInSeconds = Lens.lens (\StoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@StoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: StoppingCondition)
 
 -- | The maximum length of time, in seconds, how long you are willing to wait
 -- for a managed spot training job to complete. It is the amount of time
 -- spent waiting for Spot capacity plus the amount of time the training job
 -- runs. It must be equal to or greater than @MaxRuntimeInSeconds@.
-stoppingCondition_maxWaitTimeInSeconds :: Lens.Lens' StoppingCondition (Core.Maybe Core.Natural)
+stoppingCondition_maxWaitTimeInSeconds :: Lens.Lens' StoppingCondition (Prelude.Maybe Prelude.Natural)
 stoppingCondition_maxWaitTimeInSeconds = Lens.lens (\StoppingCondition' {maxWaitTimeInSeconds} -> maxWaitTimeInSeconds) (\s@StoppingCondition' {} a -> s {maxWaitTimeInSeconds = a} :: StoppingCondition)
 
 instance Core.FromJSON StoppingCondition where
@@ -106,21 +107,21 @@ instance Core.FromJSON StoppingCondition where
       "StoppingCondition"
       ( \x ->
           StoppingCondition'
-            Core.<$> (x Core..:? "MaxRuntimeInSeconds")
-            Core.<*> (x Core..:? "MaxWaitTimeInSeconds")
+            Prelude.<$> (x Core..:? "MaxRuntimeInSeconds")
+            Prelude.<*> (x Core..:? "MaxWaitTimeInSeconds")
       )
 
-instance Core.Hashable StoppingCondition
+instance Prelude.Hashable StoppingCondition
 
-instance Core.NFData StoppingCondition
+instance Prelude.NFData StoppingCondition
 
 instance Core.ToJSON StoppingCondition where
   toJSON StoppingCondition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MaxRuntimeInSeconds" Core..=)
-              Core.<$> maxRuntimeInSeconds,
+              Prelude.<$> maxRuntimeInSeconds,
             ("MaxWaitTimeInSeconds" Core..=)
-              Core.<$> maxWaitTimeInSeconds
+              Prelude.<$> maxWaitTimeInSeconds
           ]
       )

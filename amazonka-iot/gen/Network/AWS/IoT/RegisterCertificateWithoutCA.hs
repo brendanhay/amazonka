@@ -44,17 +44,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterCertificateWithoutCA' smart constructor.
 data RegisterCertificateWithoutCA = RegisterCertificateWithoutCA'
   { -- | The status of the register certificate request.
-    status :: Core.Maybe CertificateStatus,
+    status :: Prelude.Maybe CertificateStatus,
     -- | The certificate data, in PEM format.
-    certificatePem :: Core.Text
+    certificatePem :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterCertificateWithoutCA' with all optional fields omitted.
@@ -69,21 +70,21 @@ data RegisterCertificateWithoutCA = RegisterCertificateWithoutCA'
 -- 'certificatePem', 'registerCertificateWithoutCA_certificatePem' - The certificate data, in PEM format.
 newRegisterCertificateWithoutCA ::
   -- | 'certificatePem'
-  Core.Text ->
+  Prelude.Text ->
   RegisterCertificateWithoutCA
 newRegisterCertificateWithoutCA pCertificatePem_ =
   RegisterCertificateWithoutCA'
     { status =
-        Core.Nothing,
+        Prelude.Nothing,
       certificatePem = pCertificatePem_
     }
 
 -- | The status of the register certificate request.
-registerCertificateWithoutCA_status :: Lens.Lens' RegisterCertificateWithoutCA (Core.Maybe CertificateStatus)
+registerCertificateWithoutCA_status :: Lens.Lens' RegisterCertificateWithoutCA (Prelude.Maybe CertificateStatus)
 registerCertificateWithoutCA_status = Lens.lens (\RegisterCertificateWithoutCA' {status} -> status) (\s@RegisterCertificateWithoutCA' {} a -> s {status = a} :: RegisterCertificateWithoutCA)
 
 -- | The certificate data, in PEM format.
-registerCertificateWithoutCA_certificatePem :: Lens.Lens' RegisterCertificateWithoutCA Core.Text
+registerCertificateWithoutCA_certificatePem :: Lens.Lens' RegisterCertificateWithoutCA Prelude.Text
 registerCertificateWithoutCA_certificatePem = Lens.lens (\RegisterCertificateWithoutCA' {certificatePem} -> certificatePem) (\s@RegisterCertificateWithoutCA' {} a -> s {certificatePem = a} :: RegisterCertificateWithoutCA)
 
 instance Core.AWSRequest RegisterCertificateWithoutCA where
@@ -95,44 +96,47 @@ instance Core.AWSRequest RegisterCertificateWithoutCA where
     Response.receiveJSON
       ( \s h x ->
           RegisterCertificateWithoutCAResponse'
-            Core.<$> (x Core..?> "certificateArn")
-            Core.<*> (x Core..?> "certificateId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "certificateArn")
+            Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RegisterCertificateWithoutCA
+instance
+  Prelude.Hashable
+    RegisterCertificateWithoutCA
 
-instance Core.NFData RegisterCertificateWithoutCA
+instance Prelude.NFData RegisterCertificateWithoutCA
 
 instance Core.ToHeaders RegisterCertificateWithoutCA where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON RegisterCertificateWithoutCA where
   toJSON RegisterCertificateWithoutCA' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("status" Core..=) Core.<$> status,
-            Core.Just ("certificatePem" Core..= certificatePem)
+      ( Prelude.catMaybes
+          [ ("status" Core..=) Prelude.<$> status,
+            Prelude.Just
+              ("certificatePem" Core..= certificatePem)
           ]
       )
 
 instance Core.ToPath RegisterCertificateWithoutCA where
-  toPath = Core.const "/certificate/register-no-ca"
+  toPath = Prelude.const "/certificate/register-no-ca"
 
 instance Core.ToQuery RegisterCertificateWithoutCA where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterCertificateWithoutCAResponse' smart constructor.
 data RegisterCertificateWithoutCAResponse = RegisterCertificateWithoutCAResponse'
   { -- | The Amazon Resource Name (ARN) of the registered certificate.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the registered certificate. (The last part of the certificate
     -- ARN contains the certificate ID.
-    certificateId :: Core.Maybe Core.Text,
+    certificateId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterCertificateWithoutCAResponse' with all optional fields omitted.
@@ -150,29 +154,29 @@ data RegisterCertificateWithoutCAResponse = RegisterCertificateWithoutCAResponse
 -- 'httpStatus', 'registerCertificateWithoutCAResponse_httpStatus' - The response's http status code.
 newRegisterCertificateWithoutCAResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterCertificateWithoutCAResponse
 newRegisterCertificateWithoutCAResponse pHttpStatus_ =
   RegisterCertificateWithoutCAResponse'
     { certificateArn =
-        Core.Nothing,
-      certificateId = Core.Nothing,
+        Prelude.Nothing,
+      certificateId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the registered certificate.
-registerCertificateWithoutCAResponse_certificateArn :: Lens.Lens' RegisterCertificateWithoutCAResponse (Core.Maybe Core.Text)
+registerCertificateWithoutCAResponse_certificateArn :: Lens.Lens' RegisterCertificateWithoutCAResponse (Prelude.Maybe Prelude.Text)
 registerCertificateWithoutCAResponse_certificateArn = Lens.lens (\RegisterCertificateWithoutCAResponse' {certificateArn} -> certificateArn) (\s@RegisterCertificateWithoutCAResponse' {} a -> s {certificateArn = a} :: RegisterCertificateWithoutCAResponse)
 
 -- | The ID of the registered certificate. (The last part of the certificate
 -- ARN contains the certificate ID.
-registerCertificateWithoutCAResponse_certificateId :: Lens.Lens' RegisterCertificateWithoutCAResponse (Core.Maybe Core.Text)
+registerCertificateWithoutCAResponse_certificateId :: Lens.Lens' RegisterCertificateWithoutCAResponse (Prelude.Maybe Prelude.Text)
 registerCertificateWithoutCAResponse_certificateId = Lens.lens (\RegisterCertificateWithoutCAResponse' {certificateId} -> certificateId) (\s@RegisterCertificateWithoutCAResponse' {} a -> s {certificateId = a} :: RegisterCertificateWithoutCAResponse)
 
 -- | The response's http status code.
-registerCertificateWithoutCAResponse_httpStatus :: Lens.Lens' RegisterCertificateWithoutCAResponse Core.Int
+registerCertificateWithoutCAResponse_httpStatus :: Lens.Lens' RegisterCertificateWithoutCAResponse Prelude.Int
 registerCertificateWithoutCAResponse_httpStatus = Lens.lens (\RegisterCertificateWithoutCAResponse' {httpStatus} -> httpStatus) (\s@RegisterCertificateWithoutCAResponse' {} a -> s {httpStatus = a} :: RegisterCertificateWithoutCAResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterCertificateWithoutCAResponse

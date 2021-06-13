@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +58,14 @@ data ListApplicationStates = ListApplicationStates'
   { -- | If a @NextToken@ was returned by a previous call, there are more results
     -- available. To retrieve the next page of results, make the call again
     -- using the returned token in @NextToken@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to be returned per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The configurationIds from the Application Discovery Service that
     -- uniquely identifies your applications.
-    applicationIds :: Core.Maybe (Core.NonEmpty Core.Text)
+    applicationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListApplicationStates' with all optional fields omitted.
@@ -86,47 +87,47 @@ newListApplicationStates ::
   ListApplicationStates
 newListApplicationStates =
   ListApplicationStates'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      applicationIds = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      applicationIds = Prelude.Nothing
     }
 
 -- | If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again
 -- using the returned token in @NextToken@.
-listApplicationStates_nextToken :: Lens.Lens' ListApplicationStates (Core.Maybe Core.Text)
+listApplicationStates_nextToken :: Lens.Lens' ListApplicationStates (Prelude.Maybe Prelude.Text)
 listApplicationStates_nextToken = Lens.lens (\ListApplicationStates' {nextToken} -> nextToken) (\s@ListApplicationStates' {} a -> s {nextToken = a} :: ListApplicationStates)
 
 -- | Maximum number of results to be returned per page.
-listApplicationStates_maxResults :: Lens.Lens' ListApplicationStates (Core.Maybe Core.Natural)
+listApplicationStates_maxResults :: Lens.Lens' ListApplicationStates (Prelude.Maybe Prelude.Natural)
 listApplicationStates_maxResults = Lens.lens (\ListApplicationStates' {maxResults} -> maxResults) (\s@ListApplicationStates' {} a -> s {maxResults = a} :: ListApplicationStates)
 
 -- | The configurationIds from the Application Discovery Service that
 -- uniquely identifies your applications.
-listApplicationStates_applicationIds :: Lens.Lens' ListApplicationStates (Core.Maybe (Core.NonEmpty Core.Text))
-listApplicationStates_applicationIds = Lens.lens (\ListApplicationStates' {applicationIds} -> applicationIds) (\s@ListApplicationStates' {} a -> s {applicationIds = a} :: ListApplicationStates) Core.. Lens.mapping Lens._Coerce
+listApplicationStates_applicationIds :: Lens.Lens' ListApplicationStates (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listApplicationStates_applicationIds = Lens.lens (\ListApplicationStates' {applicationIds} -> applicationIds) (\s@ListApplicationStates' {} a -> s {applicationIds = a} :: ListApplicationStates) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListApplicationStates where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? listApplicationStatesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationStatesResponse_applicationStateList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listApplicationStates_nextToken
+          Prelude.& listApplicationStates_nextToken
           Lens..~ rs
           Lens.^? listApplicationStatesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationStates where
   type
@@ -137,58 +138,61 @@ instance Core.AWSRequest ListApplicationStates where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationStatesResponse'
-            Core.<$> ( x Core..?> "ApplicationStateList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ApplicationStateList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListApplicationStates
+instance Prelude.Hashable ListApplicationStates
 
-instance Core.NFData ListApplicationStates
+instance Prelude.NFData ListApplicationStates
 
 instance Core.ToHeaders ListApplicationStates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMigrationHub.ListApplicationStates" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListApplicationStates where
   toJSON ListApplicationStates' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("ApplicationIds" Core..=) Core.<$> applicationIds
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ApplicationIds" Core..=)
+              Prelude.<$> applicationIds
           ]
       )
 
 instance Core.ToPath ListApplicationStates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListApplicationStates where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListApplicationStatesResponse' smart constructor.
 data ListApplicationStatesResponse = ListApplicationStatesResponse'
   { -- | A list of Applications that exist in Application Discovery Service.
-    applicationStateList :: Core.Maybe [ApplicationState],
+    applicationStateList :: Prelude.Maybe [ApplicationState],
     -- | If a @NextToken@ was returned by a previous call, there are more results
     -- available. To retrieve the next page of results, make the call again
     -- using the returned token in @NextToken@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListApplicationStatesResponse' with all optional fields omitted.
@@ -207,28 +211,28 @@ data ListApplicationStatesResponse = ListApplicationStatesResponse'
 -- 'httpStatus', 'listApplicationStatesResponse_httpStatus' - The response's http status code.
 newListApplicationStatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListApplicationStatesResponse
 newListApplicationStatesResponse pHttpStatus_ =
   ListApplicationStatesResponse'
     { applicationStateList =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of Applications that exist in Application Discovery Service.
-listApplicationStatesResponse_applicationStateList :: Lens.Lens' ListApplicationStatesResponse (Core.Maybe [ApplicationState])
-listApplicationStatesResponse_applicationStateList = Lens.lens (\ListApplicationStatesResponse' {applicationStateList} -> applicationStateList) (\s@ListApplicationStatesResponse' {} a -> s {applicationStateList = a} :: ListApplicationStatesResponse) Core.. Lens.mapping Lens._Coerce
+listApplicationStatesResponse_applicationStateList :: Lens.Lens' ListApplicationStatesResponse (Prelude.Maybe [ApplicationState])
+listApplicationStatesResponse_applicationStateList = Lens.lens (\ListApplicationStatesResponse' {applicationStateList} -> applicationStateList) (\s@ListApplicationStatesResponse' {} a -> s {applicationStateList = a} :: ListApplicationStatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again
 -- using the returned token in @NextToken@.
-listApplicationStatesResponse_nextToken :: Lens.Lens' ListApplicationStatesResponse (Core.Maybe Core.Text)
+listApplicationStatesResponse_nextToken :: Lens.Lens' ListApplicationStatesResponse (Prelude.Maybe Prelude.Text)
 listApplicationStatesResponse_nextToken = Lens.lens (\ListApplicationStatesResponse' {nextToken} -> nextToken) (\s@ListApplicationStatesResponse' {} a -> s {nextToken = a} :: ListApplicationStatesResponse)
 
 -- | The response's http status code.
-listApplicationStatesResponse_httpStatus :: Lens.Lens' ListApplicationStatesResponse Core.Int
+listApplicationStatesResponse_httpStatus :: Lens.Lens' ListApplicationStatesResponse Prelude.Int
 listApplicationStatesResponse_httpStatus = Lens.lens (\ListApplicationStatesResponse' {httpStatus} -> httpStatus) (\s@ListApplicationStatesResponse' {} a -> s {httpStatus = a} :: ListApplicationStatesResponse)
 
-instance Core.NFData ListApplicationStatesResponse
+instance Prelude.NFData ListApplicationStatesResponse

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.M2tsEsRateInPes
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Controls whether to include the ES Rate field in the PES header.
 newtype M2tsEsRateInPes = M2tsEsRateInPes'
@@ -34,15 +35,15 @@ newtype M2tsEsRateInPes = M2tsEsRateInPes'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

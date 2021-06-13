@@ -22,15 +22,16 @@ module Network.AWS.MediaLive.Types.CdiInputSpecification where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.CdiInputResolution
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for CdiInputSpecification
 --
 -- /See:/ 'newCdiInputSpecification' smart constructor.
 data CdiInputSpecification = CdiInputSpecification'
   { -- | Maximum CDI input resolution
-    resolution :: Core.Maybe CdiInputResolution
+    resolution :: Prelude.Maybe CdiInputResolution
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CdiInputSpecification' with all optional fields omitted.
@@ -44,10 +45,13 @@ data CdiInputSpecification = CdiInputSpecification'
 newCdiInputSpecification ::
   CdiInputSpecification
 newCdiInputSpecification =
-  CdiInputSpecification' {resolution = Core.Nothing}
+  CdiInputSpecification'
+    { resolution =
+        Prelude.Nothing
+    }
 
 -- | Maximum CDI input resolution
-cdiInputSpecification_resolution :: Lens.Lens' CdiInputSpecification (Core.Maybe CdiInputResolution)
+cdiInputSpecification_resolution :: Lens.Lens' CdiInputSpecification (Prelude.Maybe CdiInputResolution)
 cdiInputSpecification_resolution = Lens.lens (\CdiInputSpecification' {resolution} -> resolution) (\s@CdiInputSpecification' {} a -> s {resolution = a} :: CdiInputSpecification)
 
 instance Core.FromJSON CdiInputSpecification where
@@ -56,16 +60,16 @@ instance Core.FromJSON CdiInputSpecification where
       "CdiInputSpecification"
       ( \x ->
           CdiInputSpecification'
-            Core.<$> (x Core..:? "resolution")
+            Prelude.<$> (x Core..:? "resolution")
       )
 
-instance Core.Hashable CdiInputSpecification
+instance Prelude.Hashable CdiInputSpecification
 
-instance Core.NFData CdiInputSpecification
+instance Prelude.NFData CdiInputSpecification
 
 instance Core.ToJSON CdiInputSpecification where
   toJSON CdiInputSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [("resolution" Core..=) Core.<$> resolution]
+      ( Prelude.catMaybes
+          [("resolution" Core..=) Prelude.<$> resolution]
       )

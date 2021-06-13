@@ -21,17 +21,18 @@ module Network.AWS.SSM.Types.PatchOrchestratorFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a filter used in Patch Manager APIs.
 --
 -- /See:/ 'newPatchOrchestratorFilter' smart constructor.
 data PatchOrchestratorFilter = PatchOrchestratorFilter'
   { -- | The key for the filter.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value for the filter.
-    values :: Core.Maybe [Core.Text]
+    values :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PatchOrchestratorFilter' with all optional fields omitted.
@@ -48,27 +49,27 @@ newPatchOrchestratorFilter ::
   PatchOrchestratorFilter
 newPatchOrchestratorFilter =
   PatchOrchestratorFilter'
-    { key = Core.Nothing,
-      values = Core.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
 
 -- | The key for the filter.
-patchOrchestratorFilter_key :: Lens.Lens' PatchOrchestratorFilter (Core.Maybe Core.Text)
+patchOrchestratorFilter_key :: Lens.Lens' PatchOrchestratorFilter (Prelude.Maybe Prelude.Text)
 patchOrchestratorFilter_key = Lens.lens (\PatchOrchestratorFilter' {key} -> key) (\s@PatchOrchestratorFilter' {} a -> s {key = a} :: PatchOrchestratorFilter)
 
 -- | The value for the filter.
-patchOrchestratorFilter_values :: Lens.Lens' PatchOrchestratorFilter (Core.Maybe [Core.Text])
-patchOrchestratorFilter_values = Lens.lens (\PatchOrchestratorFilter' {values} -> values) (\s@PatchOrchestratorFilter' {} a -> s {values = a} :: PatchOrchestratorFilter) Core.. Lens.mapping Lens._Coerce
+patchOrchestratorFilter_values :: Lens.Lens' PatchOrchestratorFilter (Prelude.Maybe [Prelude.Text])
+patchOrchestratorFilter_values = Lens.lens (\PatchOrchestratorFilter' {values} -> values) (\s@PatchOrchestratorFilter' {} a -> s {values = a} :: PatchOrchestratorFilter) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable PatchOrchestratorFilter
+instance Prelude.Hashable PatchOrchestratorFilter
 
-instance Core.NFData PatchOrchestratorFilter
+instance Prelude.NFData PatchOrchestratorFilter
 
 instance Core.ToJSON PatchOrchestratorFilter where
   toJSON PatchOrchestratorFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Values" Core..=) Core.<$> values
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

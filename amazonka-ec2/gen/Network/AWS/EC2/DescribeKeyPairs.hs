@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ data DescribeKeyPairs = DescribeKeyPairs'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the key pairs.
-    keyPairIds :: Core.Maybe [Core.Text],
+    keyPairIds :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @key-pair-id@ - The ID of the key pair.
@@ -78,13 +79,13 @@ data DescribeKeyPairs = DescribeKeyPairs'
     --     the filter value. For example, to find all resources that have a tag
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
     --     the filter name and @TeamA@ for the filter value.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | The key pair names.
     --
     -- Default: Describes all your key pairs.
-    keyNames :: Core.Maybe [Core.Text]
+    keyNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeKeyPairs' with all optional fields omitted.
@@ -126,22 +127,22 @@ newDescribeKeyPairs ::
   DescribeKeyPairs
 newDescribeKeyPairs =
   DescribeKeyPairs'
-    { dryRun = Core.Nothing,
-      keyPairIds = Core.Nothing,
-      filters = Core.Nothing,
-      keyNames = Core.Nothing
+    { dryRun = Prelude.Nothing,
+      keyPairIds = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      keyNames = Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeKeyPairs_dryRun :: Lens.Lens' DescribeKeyPairs (Core.Maybe Core.Bool)
+describeKeyPairs_dryRun :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe Prelude.Bool)
 describeKeyPairs_dryRun = Lens.lens (\DescribeKeyPairs' {dryRun} -> dryRun) (\s@DescribeKeyPairs' {} a -> s {dryRun = a} :: DescribeKeyPairs)
 
 -- | The IDs of the key pairs.
-describeKeyPairs_keyPairIds :: Lens.Lens' DescribeKeyPairs (Core.Maybe [Core.Text])
-describeKeyPairs_keyPairIds = Lens.lens (\DescribeKeyPairs' {keyPairIds} -> keyPairIds) (\s@DescribeKeyPairs' {} a -> s {keyPairIds = a} :: DescribeKeyPairs) Core.. Lens.mapping Lens._Coerce
+describeKeyPairs_keyPairIds :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
+describeKeyPairs_keyPairIds = Lens.lens (\DescribeKeyPairs' {keyPairIds} -> keyPairIds) (\s@DescribeKeyPairs' {} a -> s {keyPairIds = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -160,14 +161,14 @@ describeKeyPairs_keyPairIds = Lens.lens (\DescribeKeyPairs' {keyPairIds} -> keyP
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
 --     the filter name and @TeamA@ for the filter value.
-describeKeyPairs_filters :: Lens.Lens' DescribeKeyPairs (Core.Maybe [Filter])
-describeKeyPairs_filters = Lens.lens (\DescribeKeyPairs' {filters} -> filters) (\s@DescribeKeyPairs' {} a -> s {filters = a} :: DescribeKeyPairs) Core.. Lens.mapping Lens._Coerce
+describeKeyPairs_filters :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Filter])
+describeKeyPairs_filters = Lens.lens (\DescribeKeyPairs' {filters} -> filters) (\s@DescribeKeyPairs' {} a -> s {filters = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The key pair names.
 --
 -- Default: Describes all your key pairs.
-describeKeyPairs_keyNames :: Lens.Lens' DescribeKeyPairs (Core.Maybe [Core.Text])
-describeKeyPairs_keyNames = Lens.lens (\DescribeKeyPairs' {keyNames} -> keyNames) (\s@DescribeKeyPairs' {} a -> s {keyNames = a} :: DescribeKeyPairs) Core.. Lens.mapping Lens._Coerce
+describeKeyPairs_keyNames :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
+describeKeyPairs_keyNames = Lens.lens (\DescribeKeyPairs' {keyNames} -> keyNames) (\s@DescribeKeyPairs' {} a -> s {keyNames = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeKeyPairs where
   type
@@ -178,45 +179,48 @@ instance Core.AWSRequest DescribeKeyPairs where
     Response.receiveXML
       ( \s h x ->
           DescribeKeyPairsResponse'
-            Core.<$> ( x Core..@? "keySet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "keySet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeKeyPairs
+instance Prelude.Hashable DescribeKeyPairs
 
-instance Core.NFData DescribeKeyPairs
+instance Prelude.NFData DescribeKeyPairs
 
 instance Core.ToHeaders DescribeKeyPairs where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeKeyPairs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeKeyPairs where
   toQuery DescribeKeyPairs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeKeyPairs" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeKeyPairs" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "KeyPairId" Core.<$> keyPairIds),
+          ( Core.toQueryList "KeyPairId"
+              Prelude.<$> keyPairIds
+          ),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters),
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
-          (Core.toQueryList "KeyName" Core.<$> keyNames)
+          (Core.toQueryList "KeyName" Prelude.<$> keyNames)
       ]
 
 -- | /See:/ 'newDescribeKeyPairsResponse' smart constructor.
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
   { -- | Information about the key pairs.
-    keyPairs :: Core.Maybe [KeyPairInfo],
+    keyPairs :: Prelude.Maybe [KeyPairInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeKeyPairsResponse' with all optional fields omitted.
@@ -231,20 +235,21 @@ data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
 -- 'httpStatus', 'describeKeyPairsResponse_httpStatus' - The response's http status code.
 newDescribeKeyPairsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeKeyPairsResponse
 newDescribeKeyPairsResponse pHttpStatus_ =
   DescribeKeyPairsResponse'
-    { keyPairs = Core.Nothing,
+    { keyPairs =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the key pairs.
-describeKeyPairsResponse_keyPairs :: Lens.Lens' DescribeKeyPairsResponse (Core.Maybe [KeyPairInfo])
-describeKeyPairsResponse_keyPairs = Lens.lens (\DescribeKeyPairsResponse' {keyPairs} -> keyPairs) (\s@DescribeKeyPairsResponse' {} a -> s {keyPairs = a} :: DescribeKeyPairsResponse) Core.. Lens.mapping Lens._Coerce
+describeKeyPairsResponse_keyPairs :: Lens.Lens' DescribeKeyPairsResponse (Prelude.Maybe [KeyPairInfo])
+describeKeyPairsResponse_keyPairs = Lens.lens (\DescribeKeyPairsResponse' {keyPairs} -> keyPairs) (\s@DescribeKeyPairsResponse' {} a -> s {keyPairs = a} :: DescribeKeyPairsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeKeyPairsResponse_httpStatus :: Lens.Lens' DescribeKeyPairsResponse Core.Int
+describeKeyPairsResponse_httpStatus :: Lens.Lens' DescribeKeyPairsResponse Prelude.Int
 describeKeyPairsResponse_httpStatus = Lens.lens (\DescribeKeyPairsResponse' {httpStatus} -> httpStatus) (\s@DescribeKeyPairsResponse' {} a -> s {httpStatus = a} :: DescribeKeyPairsResponse)
 
-instance Core.NFData DescribeKeyPairsResponse
+instance Prelude.NFData DescribeKeyPairsResponse

@@ -21,6 +21,7 @@ module Network.AWS.MechanicalTurk.Types.QualificationRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The QualificationRequest data structure represents a request a Worker
 -- has made for a Qualification.
@@ -29,29 +30,29 @@ import qualified Network.AWS.Lens as Lens
 data QualificationRequest = QualificationRequest'
   { -- | The ID of the Qualification type the Worker is requesting, as returned
     -- by the CreateQualificationType operation.
-    qualificationTypeId :: Core.Maybe Core.Text,
+    qualificationTypeId :: Prelude.Maybe Prelude.Text,
     -- | The Worker\'s answers for the Qualification type\'s test contained in a
     -- QuestionFormAnswers document, if the type has a test and the Worker has
     -- submitted answers. If the Worker does not provide any answers, Answer
     -- may be empty.
-    answer :: Core.Maybe Core.Text,
+    answer :: Prelude.Maybe Prelude.Text,
     -- | The date and time the Qualification request had a status of Submitted.
     -- This is either the time the Worker submitted answers for a Qualification
     -- test, or the time the Worker requested the Qualification if the
     -- Qualification type does not have a test.
-    submitTime :: Core.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Core.POSIX,
     -- | The contents of the Qualification test that was presented to the Worker,
     -- if the type has a test and the Worker has submitted answers. This value
     -- is identical to the QuestionForm associated with the Qualification type
     -- at the time the Worker requests the Qualification.
-    test :: Core.Maybe Core.Text,
+    test :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Worker requesting the Qualification.
-    workerId :: Core.Maybe Core.Text,
+    workerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Qualification request, a unique identifier generated when
     -- the request was submitted.
-    qualificationRequestId :: Core.Maybe Core.Text
+    qualificationRequestId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QualificationRequest' with all optional fields omitted.
@@ -88,47 +89,47 @@ newQualificationRequest ::
 newQualificationRequest =
   QualificationRequest'
     { qualificationTypeId =
-        Core.Nothing,
-      answer = Core.Nothing,
-      submitTime = Core.Nothing,
-      test = Core.Nothing,
-      workerId = Core.Nothing,
-      qualificationRequestId = Core.Nothing
+        Prelude.Nothing,
+      answer = Prelude.Nothing,
+      submitTime = Prelude.Nothing,
+      test = Prelude.Nothing,
+      workerId = Prelude.Nothing,
+      qualificationRequestId = Prelude.Nothing
     }
 
 -- | The ID of the Qualification type the Worker is requesting, as returned
 -- by the CreateQualificationType operation.
-qualificationRequest_qualificationTypeId :: Lens.Lens' QualificationRequest (Core.Maybe Core.Text)
+qualificationRequest_qualificationTypeId :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.Text)
 qualificationRequest_qualificationTypeId = Lens.lens (\QualificationRequest' {qualificationTypeId} -> qualificationTypeId) (\s@QualificationRequest' {} a -> s {qualificationTypeId = a} :: QualificationRequest)
 
 -- | The Worker\'s answers for the Qualification type\'s test contained in a
 -- QuestionFormAnswers document, if the type has a test and the Worker has
 -- submitted answers. If the Worker does not provide any answers, Answer
 -- may be empty.
-qualificationRequest_answer :: Lens.Lens' QualificationRequest (Core.Maybe Core.Text)
+qualificationRequest_answer :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.Text)
 qualificationRequest_answer = Lens.lens (\QualificationRequest' {answer} -> answer) (\s@QualificationRequest' {} a -> s {answer = a} :: QualificationRequest)
 
 -- | The date and time the Qualification request had a status of Submitted.
 -- This is either the time the Worker submitted answers for a Qualification
 -- test, or the time the Worker requested the Qualification if the
 -- Qualification type does not have a test.
-qualificationRequest_submitTime :: Lens.Lens' QualificationRequest (Core.Maybe Core.UTCTime)
-qualificationRequest_submitTime = Lens.lens (\QualificationRequest' {submitTime} -> submitTime) (\s@QualificationRequest' {} a -> s {submitTime = a} :: QualificationRequest) Core.. Lens.mapping Core._Time
+qualificationRequest_submitTime :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.UTCTime)
+qualificationRequest_submitTime = Lens.lens (\QualificationRequest' {submitTime} -> submitTime) (\s@QualificationRequest' {} a -> s {submitTime = a} :: QualificationRequest) Prelude.. Lens.mapping Core._Time
 
 -- | The contents of the Qualification test that was presented to the Worker,
 -- if the type has a test and the Worker has submitted answers. This value
 -- is identical to the QuestionForm associated with the Qualification type
 -- at the time the Worker requests the Qualification.
-qualificationRequest_test :: Lens.Lens' QualificationRequest (Core.Maybe Core.Text)
+qualificationRequest_test :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.Text)
 qualificationRequest_test = Lens.lens (\QualificationRequest' {test} -> test) (\s@QualificationRequest' {} a -> s {test = a} :: QualificationRequest)
 
 -- | The ID of the Worker requesting the Qualification.
-qualificationRequest_workerId :: Lens.Lens' QualificationRequest (Core.Maybe Core.Text)
+qualificationRequest_workerId :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.Text)
 qualificationRequest_workerId = Lens.lens (\QualificationRequest' {workerId} -> workerId) (\s@QualificationRequest' {} a -> s {workerId = a} :: QualificationRequest)
 
 -- | The ID of the Qualification request, a unique identifier generated when
 -- the request was submitted.
-qualificationRequest_qualificationRequestId :: Lens.Lens' QualificationRequest (Core.Maybe Core.Text)
+qualificationRequest_qualificationRequestId :: Lens.Lens' QualificationRequest (Prelude.Maybe Prelude.Text)
 qualificationRequest_qualificationRequestId = Lens.lens (\QualificationRequest' {qualificationRequestId} -> qualificationRequestId) (\s@QualificationRequest' {} a -> s {qualificationRequestId = a} :: QualificationRequest)
 
 instance Core.FromJSON QualificationRequest where
@@ -137,14 +138,14 @@ instance Core.FromJSON QualificationRequest where
       "QualificationRequest"
       ( \x ->
           QualificationRequest'
-            Core.<$> (x Core..:? "QualificationTypeId")
-            Core.<*> (x Core..:? "Answer")
-            Core.<*> (x Core..:? "SubmitTime")
-            Core.<*> (x Core..:? "Test")
-            Core.<*> (x Core..:? "WorkerId")
-            Core.<*> (x Core..:? "QualificationRequestId")
+            Prelude.<$> (x Core..:? "QualificationTypeId")
+            Prelude.<*> (x Core..:? "Answer")
+            Prelude.<*> (x Core..:? "SubmitTime")
+            Prelude.<*> (x Core..:? "Test")
+            Prelude.<*> (x Core..:? "WorkerId")
+            Prelude.<*> (x Core..:? "QualificationRequestId")
       )
 
-instance Core.Hashable QualificationRequest
+instance Prelude.Hashable QualificationRequest
 
-instance Core.NFData QualificationRequest
+instance Prelude.NFData QualificationRequest

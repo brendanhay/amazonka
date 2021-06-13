@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeSchedule' smart constructor.
 data DescribeSchedule = DescribeSchedule'
-  { nextToken :: Core.Maybe Core.Text,
-    maxResults :: Core.Maybe Core.Natural,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Id of the channel whose schedule is being updated.
-    channelId :: Core.Text
+    channelId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSchedule' with all optional fields omitted.
@@ -76,46 +77,48 @@ data DescribeSchedule = DescribeSchedule'
 -- 'channelId', 'describeSchedule_channelId' - Id of the channel whose schedule is being updated.
 newDescribeSchedule ::
   -- | 'channelId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeSchedule
 newDescribeSchedule pChannelId_ =
   DescribeSchedule'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       channelId = pChannelId_
     }
 
 -- | Undocumented member.
-describeSchedule_nextToken :: Lens.Lens' DescribeSchedule (Core.Maybe Core.Text)
+describeSchedule_nextToken :: Lens.Lens' DescribeSchedule (Prelude.Maybe Prelude.Text)
 describeSchedule_nextToken = Lens.lens (\DescribeSchedule' {nextToken} -> nextToken) (\s@DescribeSchedule' {} a -> s {nextToken = a} :: DescribeSchedule)
 
 -- | Undocumented member.
-describeSchedule_maxResults :: Lens.Lens' DescribeSchedule (Core.Maybe Core.Natural)
+describeSchedule_maxResults :: Lens.Lens' DescribeSchedule (Prelude.Maybe Prelude.Natural)
 describeSchedule_maxResults = Lens.lens (\DescribeSchedule' {maxResults} -> maxResults) (\s@DescribeSchedule' {} a -> s {maxResults = a} :: DescribeSchedule)
 
 -- | Id of the channel whose schedule is being updated.
-describeSchedule_channelId :: Lens.Lens' DescribeSchedule Core.Text
+describeSchedule_channelId :: Lens.Lens' DescribeSchedule Prelude.Text
 describeSchedule_channelId = Lens.lens (\DescribeSchedule' {channelId} -> channelId) (\s@DescribeSchedule' {} a -> s {channelId = a} :: DescribeSchedule)
 
 instance Core.AWSPager DescribeSchedule where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeScheduleResponse_nextToken Core.. Lens._Just
+            Lens.^? describeScheduleResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduleResponse_scheduleActions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeSchedule_nextToken
+          Prelude.& describeSchedule_nextToken
           Lens..~ rs
-          Lens.^? describeScheduleResponse_nextToken Core.. Lens._Just
+          Lens.^? describeScheduleResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSchedule where
   type
@@ -126,32 +129,36 @@ instance Core.AWSRequest DescribeSchedule where
     Response.receiveJSON
       ( \s h x ->
           DescribeScheduleResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "scheduleActions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "scheduleActions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSchedule
+instance Prelude.Hashable DescribeSchedule
 
-instance Core.NFData DescribeSchedule
+instance Prelude.NFData DescribeSchedule
 
 instance Core.ToHeaders DescribeSchedule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeSchedule where
   toPath DescribeSchedule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/prod/channels/", Core.toBS channelId, "/schedule"]
 
 instance Core.ToQuery DescribeSchedule where
   toQuery DescribeSchedule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -161,13 +168,13 @@ instance Core.ToQuery DescribeSchedule where
 -- /See:/ 'newDescribeScheduleResponse' smart constructor.
 data DescribeScheduleResponse = DescribeScheduleResponse'
   { -- | The next token; for use in pagination.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of actions in the schedule.
-    scheduleActions :: Core.Maybe [ScheduleAction],
+    scheduleActions :: Prelude.Maybe [ScheduleAction],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduleResponse' with all optional fields omitted.
@@ -184,25 +191,26 @@ data DescribeScheduleResponse = DescribeScheduleResponse'
 -- 'httpStatus', 'describeScheduleResponse_httpStatus' - The response's http status code.
 newDescribeScheduleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScheduleResponse
 newDescribeScheduleResponse pHttpStatus_ =
   DescribeScheduleResponse'
-    { nextToken = Core.Nothing,
-      scheduleActions = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      scheduleActions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The next token; for use in pagination.
-describeScheduleResponse_nextToken :: Lens.Lens' DescribeScheduleResponse (Core.Maybe Core.Text)
+describeScheduleResponse_nextToken :: Lens.Lens' DescribeScheduleResponse (Prelude.Maybe Prelude.Text)
 describeScheduleResponse_nextToken = Lens.lens (\DescribeScheduleResponse' {nextToken} -> nextToken) (\s@DescribeScheduleResponse' {} a -> s {nextToken = a} :: DescribeScheduleResponse)
 
 -- | The list of actions in the schedule.
-describeScheduleResponse_scheduleActions :: Lens.Lens' DescribeScheduleResponse (Core.Maybe [ScheduleAction])
-describeScheduleResponse_scheduleActions = Lens.lens (\DescribeScheduleResponse' {scheduleActions} -> scheduleActions) (\s@DescribeScheduleResponse' {} a -> s {scheduleActions = a} :: DescribeScheduleResponse) Core.. Lens.mapping Lens._Coerce
+describeScheduleResponse_scheduleActions :: Lens.Lens' DescribeScheduleResponse (Prelude.Maybe [ScheduleAction])
+describeScheduleResponse_scheduleActions = Lens.lens (\DescribeScheduleResponse' {scheduleActions} -> scheduleActions) (\s@DescribeScheduleResponse' {} a -> s {scheduleActions = a} :: DescribeScheduleResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScheduleResponse_httpStatus :: Lens.Lens' DescribeScheduleResponse Core.Int
+describeScheduleResponse_httpStatus :: Lens.Lens' DescribeScheduleResponse Prelude.Int
 describeScheduleResponse_httpStatus = Lens.lens (\DescribeScheduleResponse' {httpStatus} -> httpStatus) (\s@DescribeScheduleResponse' {} a -> s {httpStatus = a} :: DescribeScheduleResponse)
 
-instance Core.NFData DescribeScheduleResponse
+instance Prelude.NFData DescribeScheduleResponse

@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.InventoryDestination where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.InventoryS3BucketDestination
 
@@ -32,7 +33,7 @@ data InventoryDestination = InventoryDestination'
     -- prefix (optional) where inventory results are published.
     s3BucketDestination :: InventoryS3BucketDestination
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryDestination' with all optional fields omitted.
@@ -62,13 +63,13 @@ inventoryDestination_s3BucketDestination = Lens.lens (\InventoryDestination' {s3
 instance Core.FromXML InventoryDestination where
   parseXML x =
     InventoryDestination'
-      Core.<$> (x Core..@ "S3BucketDestination")
+      Prelude.<$> (x Core..@ "S3BucketDestination")
 
-instance Core.Hashable InventoryDestination
+instance Prelude.Hashable InventoryDestination
 
-instance Core.NFData InventoryDestination
+instance Prelude.NFData InventoryDestination
 
 instance Core.ToXML InventoryDestination where
   toXML InventoryDestination' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["S3BucketDestination" Core.@= s3BucketDestination]

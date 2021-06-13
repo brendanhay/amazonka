@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.CreditSpecification where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the credit option for CPU usage of a T2, T3, or T3a instance.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data CreditSpecification = CreditSpecification'
   { -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid
     -- values are @standard@ and @unlimited@.
-    cpuCredits :: Core.Maybe Core.Text
+    cpuCredits :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreditSpecification' with all optional fields omitted.
@@ -46,18 +47,18 @@ data CreditSpecification = CreditSpecification'
 newCreditSpecification ::
   CreditSpecification
 newCreditSpecification =
-  CreditSpecification' {cpuCredits = Core.Nothing}
+  CreditSpecification' {cpuCredits = Prelude.Nothing}
 
 -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid
 -- values are @standard@ and @unlimited@.
-creditSpecification_cpuCredits :: Lens.Lens' CreditSpecification (Core.Maybe Core.Text)
+creditSpecification_cpuCredits :: Lens.Lens' CreditSpecification (Prelude.Maybe Prelude.Text)
 creditSpecification_cpuCredits = Lens.lens (\CreditSpecification' {cpuCredits} -> cpuCredits) (\s@CreditSpecification' {} a -> s {cpuCredits = a} :: CreditSpecification)
 
 instance Core.FromXML CreditSpecification where
   parseXML x =
     CreditSpecification'
-      Core.<$> (x Core..@? "cpuCredits")
+      Prelude.<$> (x Core..@? "cpuCredits")
 
-instance Core.Hashable CreditSpecification
+instance Prelude.Hashable CreditSpecification
 
-instance Core.NFData CreditSpecification
+instance Prelude.NFData CreditSpecification

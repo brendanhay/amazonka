@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -71,16 +72,16 @@ import Network.AWS.ServiceCatalog.Types
 data CreatePortfolioShare = CreatePortfolioShare'
   { -- | Enables or disables @TagOptions @ sharing when creating the portfolio
     -- share. If this flag is not provided, TagOptions sharing is disabled.
-    shareTagOptions :: Core.Maybe Core.Bool,
+    shareTagOptions :: Prelude.Maybe Prelude.Bool,
     -- | The AWS account ID. For example, @123456789012@.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The organization node to whom you are going to share. If
     -- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
     -- the node an ListOrganizationPortfolioAccessd its children (when
     -- applies), and a @PortfolioShareToken@ will be returned in the output in
     -- order for the administrator to monitor the status of the
     -- @PortfolioShare@ creation process.
-    organizationNode :: Core.Maybe OrganizationNode,
+    organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -88,11 +89,11 @@ data CreatePortfolioShare = CreatePortfolioShare'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
-    portfolioId :: Core.Text
+    portfolioId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePortfolioShare' with all optional fields omitted.
@@ -125,25 +126,25 @@ data CreatePortfolioShare = CreatePortfolioShare'
 -- 'portfolioId', 'createPortfolioShare_portfolioId' - The portfolio identifier.
 newCreatePortfolioShare ::
   -- | 'portfolioId'
-  Core.Text ->
+  Prelude.Text ->
   CreatePortfolioShare
 newCreatePortfolioShare pPortfolioId_ =
   CreatePortfolioShare'
     { shareTagOptions =
-        Core.Nothing,
-      accountId = Core.Nothing,
-      organizationNode = Core.Nothing,
-      acceptLanguage = Core.Nothing,
+        Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      organizationNode = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
 
 -- | Enables or disables @TagOptions @ sharing when creating the portfolio
 -- share. If this flag is not provided, TagOptions sharing is disabled.
-createPortfolioShare_shareTagOptions :: Lens.Lens' CreatePortfolioShare (Core.Maybe Core.Bool)
+createPortfolioShare_shareTagOptions :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Bool)
 createPortfolioShare_shareTagOptions = Lens.lens (\CreatePortfolioShare' {shareTagOptions} -> shareTagOptions) (\s@CreatePortfolioShare' {} a -> s {shareTagOptions = a} :: CreatePortfolioShare)
 
 -- | The AWS account ID. For example, @123456789012@.
-createPortfolioShare_accountId :: Lens.Lens' CreatePortfolioShare (Core.Maybe Core.Text)
+createPortfolioShare_accountId :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Text)
 createPortfolioShare_accountId = Lens.lens (\CreatePortfolioShare' {accountId} -> accountId) (\s@CreatePortfolioShare' {} a -> s {accountId = a} :: CreatePortfolioShare)
 
 -- | The organization node to whom you are going to share. If
@@ -152,7 +153,7 @@ createPortfolioShare_accountId = Lens.lens (\CreatePortfolioShare' {accountId} -
 -- applies), and a @PortfolioShareToken@ will be returned in the output in
 -- order for the administrator to monitor the status of the
 -- @PortfolioShare@ creation process.
-createPortfolioShare_organizationNode :: Lens.Lens' CreatePortfolioShare (Core.Maybe OrganizationNode)
+createPortfolioShare_organizationNode :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe OrganizationNode)
 createPortfolioShare_organizationNode = Lens.lens (\CreatePortfolioShare' {organizationNode} -> organizationNode) (\s@CreatePortfolioShare' {} a -> s {organizationNode = a} :: CreatePortfolioShare)
 
 -- | The language code.
@@ -162,11 +163,11 @@ createPortfolioShare_organizationNode = Lens.lens (\CreatePortfolioShare' {organ
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-createPortfolioShare_acceptLanguage :: Lens.Lens' CreatePortfolioShare (Core.Maybe Core.Text)
+createPortfolioShare_acceptLanguage :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Text)
 createPortfolioShare_acceptLanguage = Lens.lens (\CreatePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@CreatePortfolioShare' {} a -> s {acceptLanguage = a} :: CreatePortfolioShare)
 
 -- | The portfolio identifier.
-createPortfolioShare_portfolioId :: Lens.Lens' CreatePortfolioShare Core.Text
+createPortfolioShare_portfolioId :: Lens.Lens' CreatePortfolioShare Prelude.Text
 createPortfolioShare_portfolioId = Lens.lens (\CreatePortfolioShare' {portfolioId} -> portfolioId) (\s@CreatePortfolioShare' {} a -> s {portfolioId = a} :: CreatePortfolioShare)
 
 instance Core.AWSRequest CreatePortfolioShare where
@@ -178,56 +179,59 @@ instance Core.AWSRequest CreatePortfolioShare where
     Response.receiveJSON
       ( \s h x ->
           CreatePortfolioShareResponse'
-            Core.<$> (x Core..?> "PortfolioShareToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PortfolioShareToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePortfolioShare
+instance Prelude.Hashable CreatePortfolioShare
 
-instance Core.NFData CreatePortfolioShare
+instance Prelude.NFData CreatePortfolioShare
 
 instance Core.ToHeaders CreatePortfolioShare where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.CreatePortfolioShare" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePortfolioShare where
   toJSON CreatePortfolioShare' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ShareTagOptions" Core..=)
-              Core.<$> shareTagOptions,
-            ("AccountId" Core..=) Core.<$> accountId,
+              Prelude.<$> shareTagOptions,
+            ("AccountId" Core..=) Prelude.<$> accountId,
             ("OrganizationNode" Core..=)
-              Core.<$> organizationNode,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("PortfolioId" Core..= portfolioId)
+              Prelude.<$> organizationNode,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
 instance Core.ToPath CreatePortfolioShare where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePortfolioShare where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePortfolioShareResponse' smart constructor.
 data CreatePortfolioShareResponse = CreatePortfolioShareResponse'
   { -- | The portfolio shares a unique identifier that only returns if the
     -- portfolio is shared to an organization node.
-    portfolioShareToken :: Core.Maybe Core.Text,
+    portfolioShareToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePortfolioShareResponse' with all optional fields omitted.
@@ -243,22 +247,22 @@ data CreatePortfolioShareResponse = CreatePortfolioShareResponse'
 -- 'httpStatus', 'createPortfolioShareResponse_httpStatus' - The response's http status code.
 newCreatePortfolioShareResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePortfolioShareResponse
 newCreatePortfolioShareResponse pHttpStatus_ =
   CreatePortfolioShareResponse'
     { portfolioShareToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The portfolio shares a unique identifier that only returns if the
 -- portfolio is shared to an organization node.
-createPortfolioShareResponse_portfolioShareToken :: Lens.Lens' CreatePortfolioShareResponse (Core.Maybe Core.Text)
+createPortfolioShareResponse_portfolioShareToken :: Lens.Lens' CreatePortfolioShareResponse (Prelude.Maybe Prelude.Text)
 createPortfolioShareResponse_portfolioShareToken = Lens.lens (\CreatePortfolioShareResponse' {portfolioShareToken} -> portfolioShareToken) (\s@CreatePortfolioShareResponse' {} a -> s {portfolioShareToken = a} :: CreatePortfolioShareResponse)
 
 -- | The response's http status code.
-createPortfolioShareResponse_httpStatus :: Lens.Lens' CreatePortfolioShareResponse Core.Int
+createPortfolioShareResponse_httpStatus :: Lens.Lens' CreatePortfolioShareResponse Prelude.Int
 createPortfolioShareResponse_httpStatus = Lens.lens (\CreatePortfolioShareResponse' {httpStatus} -> httpStatus) (\s@CreatePortfolioShareResponse' {} a -> s {httpStatus = a} :: CreatePortfolioShareResponse)
 
-instance Core.NFData CreatePortfolioShareResponse
+instance Prelude.NFData CreatePortfolioShareResponse

@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.PolicyDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an IAM policy, including the policy document.
 --
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPolicyDetail' smart constructor.
 data PolicyDetail = PolicyDetail'
   { -- | The name of the policy.
-    policyName :: Core.Maybe Core.Text,
+    policyName :: Prelude.Maybe Prelude.Text,
     -- | The policy document.
-    policyDocument :: Core.Maybe Core.Text
+    policyDocument :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyDetail' with all optional fields omitted.
@@ -51,24 +52,24 @@ newPolicyDetail ::
   PolicyDetail
 newPolicyDetail =
   PolicyDetail'
-    { policyName = Core.Nothing,
-      policyDocument = Core.Nothing
+    { policyName = Prelude.Nothing,
+      policyDocument = Prelude.Nothing
     }
 
 -- | The name of the policy.
-policyDetail_policyName :: Lens.Lens' PolicyDetail (Core.Maybe Core.Text)
+policyDetail_policyName :: Lens.Lens' PolicyDetail (Prelude.Maybe Prelude.Text)
 policyDetail_policyName = Lens.lens (\PolicyDetail' {policyName} -> policyName) (\s@PolicyDetail' {} a -> s {policyName = a} :: PolicyDetail)
 
 -- | The policy document.
-policyDetail_policyDocument :: Lens.Lens' PolicyDetail (Core.Maybe Core.Text)
+policyDetail_policyDocument :: Lens.Lens' PolicyDetail (Prelude.Maybe Prelude.Text)
 policyDetail_policyDocument = Lens.lens (\PolicyDetail' {policyDocument} -> policyDocument) (\s@PolicyDetail' {} a -> s {policyDocument = a} :: PolicyDetail)
 
 instance Core.FromXML PolicyDetail where
   parseXML x =
     PolicyDetail'
-      Core.<$> (x Core..@? "PolicyName")
-      Core.<*> (x Core..@? "PolicyDocument")
+      Prelude.<$> (x Core..@? "PolicyName")
+      Prelude.<*> (x Core..@? "PolicyDocument")
 
-instance Core.Hashable PolicyDetail
+instance Prelude.Hashable PolicyDetail
 
-instance Core.NFData PolicyDetail
+instance Prelude.NFData PolicyDetail

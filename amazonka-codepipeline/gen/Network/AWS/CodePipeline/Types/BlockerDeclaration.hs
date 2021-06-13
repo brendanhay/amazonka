@@ -22,17 +22,18 @@ module Network.AWS.CodePipeline.Types.BlockerDeclaration where
 import Network.AWS.CodePipeline.Types.BlockerType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Reserved for future use.
 --
 -- /See:/ 'newBlockerDeclaration' smart constructor.
 data BlockerDeclaration = BlockerDeclaration'
   { -- | Reserved for future use.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Reserved for future use.
     type' :: BlockerType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BlockerDeclaration' with all optional fields omitted.
@@ -47,7 +48,7 @@ data BlockerDeclaration = BlockerDeclaration'
 -- 'type'', 'blockerDeclaration_type' - Reserved for future use.
 newBlockerDeclaration ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   BlockerType ->
   BlockerDeclaration
@@ -55,7 +56,7 @@ newBlockerDeclaration pName_ pType_ =
   BlockerDeclaration' {name = pName_, type' = pType_}
 
 -- | Reserved for future use.
-blockerDeclaration_name :: Lens.Lens' BlockerDeclaration Core.Text
+blockerDeclaration_name :: Lens.Lens' BlockerDeclaration Prelude.Text
 blockerDeclaration_name = Lens.lens (\BlockerDeclaration' {name} -> name) (\s@BlockerDeclaration' {} a -> s {name = a} :: BlockerDeclaration)
 
 -- | Reserved for future use.
@@ -68,18 +69,18 @@ instance Core.FromJSON BlockerDeclaration where
       "BlockerDeclaration"
       ( \x ->
           BlockerDeclaration'
-            Core.<$> (x Core..: "name") Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable BlockerDeclaration
+instance Prelude.Hashable BlockerDeclaration
 
-instance Core.NFData BlockerDeclaration
+instance Prelude.NFData BlockerDeclaration
 
 instance Core.ToJSON BlockerDeclaration where
   toJSON BlockerDeclaration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just ("type" Core..= type')
           ]
       )

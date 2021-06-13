@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.MouthOpen where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the mouth on the face is open, and the
 -- confidence level in the determination.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMouthOpen' smart constructor.
 data MouthOpen = MouthOpen'
   { -- | Level of confidence in the determination.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | Boolean value that indicates whether the mouth on the face is open or
     -- not.
-    value :: Core.Maybe Core.Bool
+    value :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MouthOpen' with all optional fields omitted.
@@ -51,17 +52,17 @@ newMouthOpen ::
   MouthOpen
 newMouthOpen =
   MouthOpen'
-    { confidence = Core.Nothing,
-      value = Core.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Level of confidence in the determination.
-mouthOpen_confidence :: Lens.Lens' MouthOpen (Core.Maybe Core.Double)
+mouthOpen_confidence :: Lens.Lens' MouthOpen (Prelude.Maybe Prelude.Double)
 mouthOpen_confidence = Lens.lens (\MouthOpen' {confidence} -> confidence) (\s@MouthOpen' {} a -> s {confidence = a} :: MouthOpen)
 
 -- | Boolean value that indicates whether the mouth on the face is open or
 -- not.
-mouthOpen_value :: Lens.Lens' MouthOpen (Core.Maybe Core.Bool)
+mouthOpen_value :: Lens.Lens' MouthOpen (Prelude.Maybe Prelude.Bool)
 mouthOpen_value = Lens.lens (\MouthOpen' {value} -> value) (\s@MouthOpen' {} a -> s {value = a} :: MouthOpen)
 
 instance Core.FromJSON MouthOpen where
@@ -70,10 +71,10 @@ instance Core.FromJSON MouthOpen where
       "MouthOpen"
       ( \x ->
           MouthOpen'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable MouthOpen
+instance Prelude.Hashable MouthOpen
 
-instance Core.NFData MouthOpen
+instance Prelude.NFData MouthOpen

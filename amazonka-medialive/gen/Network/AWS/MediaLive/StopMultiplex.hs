@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newStopMultiplex' smart constructor.
 data StopMultiplex = StopMultiplex'
   { -- | The ID of the multiplex.
-    multiplexId :: Core.Text
+    multiplexId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopMultiplex' with all optional fields omitted.
@@ -75,13 +76,13 @@ data StopMultiplex = StopMultiplex'
 -- 'multiplexId', 'stopMultiplex_multiplexId' - The ID of the multiplex.
 newStopMultiplex ::
   -- | 'multiplexId'
-  Core.Text ->
+  Prelude.Text ->
   StopMultiplex
 newStopMultiplex pMultiplexId_ =
   StopMultiplex' {multiplexId = pMultiplexId_}
 
 -- | The ID of the multiplex.
-stopMultiplex_multiplexId :: Lens.Lens' StopMultiplex Core.Text
+stopMultiplex_multiplexId :: Lens.Lens' StopMultiplex Prelude.Text
 stopMultiplex_multiplexId = Lens.lens (\StopMultiplex' {multiplexId} -> multiplexId) (\s@StopMultiplex' {} a -> s {multiplexId = a} :: StopMultiplex)
 
 instance Core.AWSRequest StopMultiplex where
@@ -93,74 +94,78 @@ instance Core.AWSRequest StopMultiplex where
     Response.receiveJSON
       ( \s h x ->
           StopMultiplexResponse'
-            Core.<$> (x Core..?> "availabilityZones" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "arn")
-            Core.<*> (x Core..?> "id")
-            Core.<*> (x Core..?> "pipelinesRunningCount")
-            Core.<*> (x Core..?> "programCount")
-            Core.<*> (x Core..?> "destinations" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "state")
-            Core.<*> (x Core..?> "name")
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "multiplexSettings")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "availabilityZones"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "pipelinesRunningCount")
+            Prelude.<*> (x Core..?> "programCount")
+            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "state")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "multiplexSettings")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopMultiplex
+instance Prelude.Hashable StopMultiplex
 
-instance Core.NFData StopMultiplex
+instance Prelude.NFData StopMultiplex
 
 instance Core.ToHeaders StopMultiplex where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopMultiplex where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath StopMultiplex where
   toPath StopMultiplex' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/prod/multiplexes/",
         Core.toBS multiplexId,
         "/stop"
       ]
 
 instance Core.ToQuery StopMultiplex where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for StopMultiplexResponse
 --
 -- /See:/ 'newStopMultiplexResponse' smart constructor.
 data StopMultiplexResponse = StopMultiplexResponse'
   { -- | A list of availability zones for the multiplex.
-    availabilityZones :: Core.Maybe [Core.Text],
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The unique arn of the multiplex.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique id of the multiplex.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Core.Maybe Core.Int,
+    pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
     -- | The number of programs in the multiplex.
-    programCount :: Core.Maybe Core.Int,
+    programCount :: Prelude.Maybe Prelude.Int,
     -- | A list of the multiplex output destinations.
-    destinations :: Core.Maybe [MultiplexOutputDestination],
+    destinations :: Prelude.Maybe [MultiplexOutputDestination],
     -- | The current state of the multiplex.
-    state :: Core.Maybe MultiplexState,
+    state :: Prelude.Maybe MultiplexState,
     -- | The name of the multiplex.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A collection of key-value pairs.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Configuration for a multiplex event.
-    multiplexSettings :: Core.Maybe MultiplexSettings,
+    multiplexSettings :: Prelude.Maybe MultiplexSettings,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopMultiplexResponse' with all optional fields omitted.
@@ -193,66 +198,66 @@ data StopMultiplexResponse = StopMultiplexResponse'
 -- 'httpStatus', 'stopMultiplexResponse_httpStatus' - The response's http status code.
 newStopMultiplexResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopMultiplexResponse
 newStopMultiplexResponse pHttpStatus_ =
   StopMultiplexResponse'
     { availabilityZones =
-        Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      pipelinesRunningCount = Core.Nothing,
-      programCount = Core.Nothing,
-      destinations = Core.Nothing,
-      state = Core.Nothing,
-      name = Core.Nothing,
-      tags = Core.Nothing,
-      multiplexSettings = Core.Nothing,
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      pipelinesRunningCount = Prelude.Nothing,
+      programCount = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      state = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      multiplexSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of availability zones for the multiplex.
-stopMultiplexResponse_availabilityZones :: Lens.Lens' StopMultiplexResponse (Core.Maybe [Core.Text])
-stopMultiplexResponse_availabilityZones = Lens.lens (\StopMultiplexResponse' {availabilityZones} -> availabilityZones) (\s@StopMultiplexResponse' {} a -> s {availabilityZones = a} :: StopMultiplexResponse) Core.. Lens.mapping Lens._Coerce
+stopMultiplexResponse_availabilityZones :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe [Prelude.Text])
+stopMultiplexResponse_availabilityZones = Lens.lens (\StopMultiplexResponse' {availabilityZones} -> availabilityZones) (\s@StopMultiplexResponse' {} a -> s {availabilityZones = a} :: StopMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique arn of the multiplex.
-stopMultiplexResponse_arn :: Lens.Lens' StopMultiplexResponse (Core.Maybe Core.Text)
+stopMultiplexResponse_arn :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Text)
 stopMultiplexResponse_arn = Lens.lens (\StopMultiplexResponse' {arn} -> arn) (\s@StopMultiplexResponse' {} a -> s {arn = a} :: StopMultiplexResponse)
 
 -- | The unique id of the multiplex.
-stopMultiplexResponse_id :: Lens.Lens' StopMultiplexResponse (Core.Maybe Core.Text)
+stopMultiplexResponse_id :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Text)
 stopMultiplexResponse_id = Lens.lens (\StopMultiplexResponse' {id} -> id) (\s@StopMultiplexResponse' {} a -> s {id = a} :: StopMultiplexResponse)
 
 -- | The number of currently healthy pipelines.
-stopMultiplexResponse_pipelinesRunningCount :: Lens.Lens' StopMultiplexResponse (Core.Maybe Core.Int)
+stopMultiplexResponse_pipelinesRunningCount :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Int)
 stopMultiplexResponse_pipelinesRunningCount = Lens.lens (\StopMultiplexResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@StopMultiplexResponse' {} a -> s {pipelinesRunningCount = a} :: StopMultiplexResponse)
 
 -- | The number of programs in the multiplex.
-stopMultiplexResponse_programCount :: Lens.Lens' StopMultiplexResponse (Core.Maybe Core.Int)
+stopMultiplexResponse_programCount :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Int)
 stopMultiplexResponse_programCount = Lens.lens (\StopMultiplexResponse' {programCount} -> programCount) (\s@StopMultiplexResponse' {} a -> s {programCount = a} :: StopMultiplexResponse)
 
 -- | A list of the multiplex output destinations.
-stopMultiplexResponse_destinations :: Lens.Lens' StopMultiplexResponse (Core.Maybe [MultiplexOutputDestination])
-stopMultiplexResponse_destinations = Lens.lens (\StopMultiplexResponse' {destinations} -> destinations) (\s@StopMultiplexResponse' {} a -> s {destinations = a} :: StopMultiplexResponse) Core.. Lens.mapping Lens._Coerce
+stopMultiplexResponse_destinations :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe [MultiplexOutputDestination])
+stopMultiplexResponse_destinations = Lens.lens (\StopMultiplexResponse' {destinations} -> destinations) (\s@StopMultiplexResponse' {} a -> s {destinations = a} :: StopMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The current state of the multiplex.
-stopMultiplexResponse_state :: Lens.Lens' StopMultiplexResponse (Core.Maybe MultiplexState)
+stopMultiplexResponse_state :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe MultiplexState)
 stopMultiplexResponse_state = Lens.lens (\StopMultiplexResponse' {state} -> state) (\s@StopMultiplexResponse' {} a -> s {state = a} :: StopMultiplexResponse)
 
 -- | The name of the multiplex.
-stopMultiplexResponse_name :: Lens.Lens' StopMultiplexResponse (Core.Maybe Core.Text)
+stopMultiplexResponse_name :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Text)
 stopMultiplexResponse_name = Lens.lens (\StopMultiplexResponse' {name} -> name) (\s@StopMultiplexResponse' {} a -> s {name = a} :: StopMultiplexResponse)
 
 -- | A collection of key-value pairs.
-stopMultiplexResponse_tags :: Lens.Lens' StopMultiplexResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-stopMultiplexResponse_tags = Lens.lens (\StopMultiplexResponse' {tags} -> tags) (\s@StopMultiplexResponse' {} a -> s {tags = a} :: StopMultiplexResponse) Core.. Lens.mapping Lens._Coerce
+stopMultiplexResponse_tags :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+stopMultiplexResponse_tags = Lens.lens (\StopMultiplexResponse' {tags} -> tags) (\s@StopMultiplexResponse' {} a -> s {tags = a} :: StopMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Configuration for a multiplex event.
-stopMultiplexResponse_multiplexSettings :: Lens.Lens' StopMultiplexResponse (Core.Maybe MultiplexSettings)
+stopMultiplexResponse_multiplexSettings :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe MultiplexSettings)
 stopMultiplexResponse_multiplexSettings = Lens.lens (\StopMultiplexResponse' {multiplexSettings} -> multiplexSettings) (\s@StopMultiplexResponse' {} a -> s {multiplexSettings = a} :: StopMultiplexResponse)
 
 -- | The response's http status code.
-stopMultiplexResponse_httpStatus :: Lens.Lens' StopMultiplexResponse Core.Int
+stopMultiplexResponse_httpStatus :: Lens.Lens' StopMultiplexResponse Prelude.Int
 stopMultiplexResponse_httpStatus = Lens.lens (\StopMultiplexResponse' {httpStatus} -> httpStatus) (\s@StopMultiplexResponse' {} a -> s {httpStatus = a} :: StopMultiplexResponse)
 
-instance Core.NFData StopMultiplexResponse
+instance Prelude.NFData StopMultiplexResponse

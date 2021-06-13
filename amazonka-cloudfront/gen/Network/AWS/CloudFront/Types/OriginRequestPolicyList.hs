@@ -22,24 +22,25 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicyList where
 import Network.AWS.CloudFront.Types.OriginRequestPolicySummary
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of origin request policies.
 --
 -- /See:/ 'newOriginRequestPolicyList' smart constructor.
 data OriginRequestPolicyList = OriginRequestPolicyList'
   { -- | Contains the origin request policies in the list.
-    items :: Core.Maybe [OriginRequestPolicySummary],
+    items :: Prelude.Maybe [OriginRequestPolicySummary],
     -- | If there are more items in the list than are in this response, this
     -- element is present. It contains the value that you should use in the
     -- @Marker@ field of a subsequent request to continue listing origin
     -- request policies where you left off.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of origin request policies requested.
-    maxItems :: Core.Int,
+    maxItems :: Prelude.Int,
     -- | The total number of origin request policies returned in the response.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicyList' with all optional fields omitted.
@@ -61,48 +62,48 @@ data OriginRequestPolicyList = OriginRequestPolicyList'
 -- 'quantity', 'originRequestPolicyList_quantity' - The total number of origin request policies returned in the response.
 newOriginRequestPolicyList ::
   -- | 'maxItems'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   OriginRequestPolicyList
 newOriginRequestPolicyList pMaxItems_ pQuantity_ =
   OriginRequestPolicyList'
-    { items = Core.Nothing,
-      nextMarker = Core.Nothing,
+    { items = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       maxItems = pMaxItems_,
       quantity = pQuantity_
     }
 
 -- | Contains the origin request policies in the list.
-originRequestPolicyList_items :: Lens.Lens' OriginRequestPolicyList (Core.Maybe [OriginRequestPolicySummary])
-originRequestPolicyList_items = Lens.lens (\OriginRequestPolicyList' {items} -> items) (\s@OriginRequestPolicyList' {} a -> s {items = a} :: OriginRequestPolicyList) Core.. Lens.mapping Lens._Coerce
+originRequestPolicyList_items :: Lens.Lens' OriginRequestPolicyList (Prelude.Maybe [OriginRequestPolicySummary])
+originRequestPolicyList_items = Lens.lens (\OriginRequestPolicyList' {items} -> items) (\s@OriginRequestPolicyList' {} a -> s {items = a} :: OriginRequestPolicyList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the
 -- @Marker@ field of a subsequent request to continue listing origin
 -- request policies where you left off.
-originRequestPolicyList_nextMarker :: Lens.Lens' OriginRequestPolicyList (Core.Maybe Core.Text)
+originRequestPolicyList_nextMarker :: Lens.Lens' OriginRequestPolicyList (Prelude.Maybe Prelude.Text)
 originRequestPolicyList_nextMarker = Lens.lens (\OriginRequestPolicyList' {nextMarker} -> nextMarker) (\s@OriginRequestPolicyList' {} a -> s {nextMarker = a} :: OriginRequestPolicyList)
 
 -- | The maximum number of origin request policies requested.
-originRequestPolicyList_maxItems :: Lens.Lens' OriginRequestPolicyList Core.Int
+originRequestPolicyList_maxItems :: Lens.Lens' OriginRequestPolicyList Prelude.Int
 originRequestPolicyList_maxItems = Lens.lens (\OriginRequestPolicyList' {maxItems} -> maxItems) (\s@OriginRequestPolicyList' {} a -> s {maxItems = a} :: OriginRequestPolicyList)
 
 -- | The total number of origin request policies returned in the response.
-originRequestPolicyList_quantity :: Lens.Lens' OriginRequestPolicyList Core.Int
+originRequestPolicyList_quantity :: Lens.Lens' OriginRequestPolicyList Prelude.Int
 originRequestPolicyList_quantity = Lens.lens (\OriginRequestPolicyList' {quantity} -> quantity) (\s@OriginRequestPolicyList' {} a -> s {quantity = a} :: OriginRequestPolicyList)
 
 instance Core.FromXML OriginRequestPolicyList where
   parseXML x =
     OriginRequestPolicyList'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "OriginRequestPolicySummary")
-               )
-      Core.<*> (x Core..@? "NextMarker")
-      Core.<*> (x Core..@ "MaxItems")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "OriginRequestPolicySummary")
+                  )
+      Prelude.<*> (x Core..@? "NextMarker")
+      Prelude.<*> (x Core..@ "MaxItems")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable OriginRequestPolicyList
+instance Prelude.Hashable OriginRequestPolicyList
 
-instance Core.NFData OriginRequestPolicyList
+instance Prelude.NFData OriginRequestPolicyList

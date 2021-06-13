@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.CACertificate where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.CACertificateStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A CA certificate.
 --
@@ -30,15 +31,15 @@ data CACertificate = CACertificate'
   { -- | The status of the CA certificate.
     --
     -- The status value REGISTER_INACTIVE is deprecated and should not be used.
-    status :: Core.Maybe CACertificateStatus,
+    status :: Prelude.Maybe CACertificateStatus,
     -- | The ARN of the CA certificate.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The date the CA certificate was created.
-    creationDate :: Core.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The ID of the CA certificate.
-    certificateId :: Core.Maybe Core.Text
+    certificateId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CACertificate' with all optional fields omitted.
@@ -61,28 +62,28 @@ newCACertificate ::
   CACertificate
 newCACertificate =
   CACertificate'
-    { status = Core.Nothing,
-      certificateArn = Core.Nothing,
-      creationDate = Core.Nothing,
-      certificateId = Core.Nothing
+    { status = Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      certificateId = Prelude.Nothing
     }
 
 -- | The status of the CA certificate.
 --
 -- The status value REGISTER_INACTIVE is deprecated and should not be used.
-cACertificate_status :: Lens.Lens' CACertificate (Core.Maybe CACertificateStatus)
+cACertificate_status :: Lens.Lens' CACertificate (Prelude.Maybe CACertificateStatus)
 cACertificate_status = Lens.lens (\CACertificate' {status} -> status) (\s@CACertificate' {} a -> s {status = a} :: CACertificate)
 
 -- | The ARN of the CA certificate.
-cACertificate_certificateArn :: Lens.Lens' CACertificate (Core.Maybe Core.Text)
+cACertificate_certificateArn :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.Text)
 cACertificate_certificateArn = Lens.lens (\CACertificate' {certificateArn} -> certificateArn) (\s@CACertificate' {} a -> s {certificateArn = a} :: CACertificate)
 
 -- | The date the CA certificate was created.
-cACertificate_creationDate :: Lens.Lens' CACertificate (Core.Maybe Core.UTCTime)
-cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Core.. Lens.mapping Core._Time
+cACertificate_creationDate :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.UTCTime)
+cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the CA certificate.
-cACertificate_certificateId :: Lens.Lens' CACertificate (Core.Maybe Core.Text)
+cACertificate_certificateId :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.Text)
 cACertificate_certificateId = Lens.lens (\CACertificate' {certificateId} -> certificateId) (\s@CACertificate' {} a -> s {certificateId = a} :: CACertificate)
 
 instance Core.FromJSON CACertificate where
@@ -91,12 +92,12 @@ instance Core.FromJSON CACertificate where
       "CACertificate"
       ( \x ->
           CACertificate'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "certificateArn")
-            Core.<*> (x Core..:? "creationDate")
-            Core.<*> (x Core..:? "certificateId")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "certificateArn")
+            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "certificateId")
       )
 
-instance Core.Hashable CACertificate
+instance Prelude.Hashable CACertificate
 
-instance Core.NFData CACertificate
+instance Prelude.NFData CACertificate

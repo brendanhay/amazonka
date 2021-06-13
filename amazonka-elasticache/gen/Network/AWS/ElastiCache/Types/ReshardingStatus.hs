@@ -22,15 +22,16 @@ module Network.AWS.ElastiCache.Types.ReshardingStatus where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.SlotMigration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of an online resharding operation.
 --
 -- /See:/ 'newReshardingStatus' smart constructor.
 data ReshardingStatus = ReshardingStatus'
   { -- | Represents the progress of an online resharding operation.
-    slotMigration :: Core.Maybe SlotMigration
+    slotMigration :: Prelude.Maybe SlotMigration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReshardingStatus' with all optional fields omitted.
@@ -44,17 +45,17 @@ data ReshardingStatus = ReshardingStatus'
 newReshardingStatus ::
   ReshardingStatus
 newReshardingStatus =
-  ReshardingStatus' {slotMigration = Core.Nothing}
+  ReshardingStatus' {slotMigration = Prelude.Nothing}
 
 -- | Represents the progress of an online resharding operation.
-reshardingStatus_slotMigration :: Lens.Lens' ReshardingStatus (Core.Maybe SlotMigration)
+reshardingStatus_slotMigration :: Lens.Lens' ReshardingStatus (Prelude.Maybe SlotMigration)
 reshardingStatus_slotMigration = Lens.lens (\ReshardingStatus' {slotMigration} -> slotMigration) (\s@ReshardingStatus' {} a -> s {slotMigration = a} :: ReshardingStatus)
 
 instance Core.FromXML ReshardingStatus where
   parseXML x =
     ReshardingStatus'
-      Core.<$> (x Core..@? "SlotMigration")
+      Prelude.<$> (x Core..@? "SlotMigration")
 
-instance Core.Hashable ReshardingStatus
+instance Prelude.Hashable ReshardingStatus
 
-instance Core.NFData ReshardingStatus
+instance Prelude.NFData ReshardingStatus

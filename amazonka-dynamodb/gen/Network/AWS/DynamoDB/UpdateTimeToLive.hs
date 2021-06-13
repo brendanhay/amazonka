@@ -72,6 +72,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,12 +81,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateTimeToLive' smart constructor.
 data UpdateTimeToLive = UpdateTimeToLive'
   { -- | The name of the table to be configured.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | Represents the settings used to enable or disable Time to Live for the
     -- specified table.
     timeToLiveSpecification :: TimeToLiveSpecification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTimeToLive' with all optional fields omitted.
@@ -101,7 +102,7 @@ data UpdateTimeToLive = UpdateTimeToLive'
 -- specified table.
 newUpdateTimeToLive ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'timeToLiveSpecification'
   TimeToLiveSpecification ->
   UpdateTimeToLive
@@ -114,7 +115,7 @@ newUpdateTimeToLive
       }
 
 -- | The name of the table to be configured.
-updateTimeToLive_tableName :: Lens.Lens' UpdateTimeToLive Core.Text
+updateTimeToLive_tableName :: Lens.Lens' UpdateTimeToLive Prelude.Text
 updateTimeToLive_tableName = Lens.lens (\UpdateTimeToLive' {tableName} -> tableName) (\s@UpdateTimeToLive' {} a -> s {tableName = a} :: UpdateTimeToLive)
 
 -- | Represents the settings used to enable or disable Time to Live for the
@@ -131,33 +132,35 @@ instance Core.AWSRequest UpdateTimeToLive where
     Response.receiveJSON
       ( \s h x ->
           UpdateTimeToLiveResponse'
-            Core.<$> (x Core..?> "TimeToLiveSpecification")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TimeToLiveSpecification")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateTimeToLive
+instance Prelude.Hashable UpdateTimeToLive
 
-instance Core.NFData UpdateTimeToLive
+instance Prelude.NFData UpdateTimeToLive
 
 instance Core.ToHeaders UpdateTimeToLive where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.UpdateTimeToLive" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateTimeToLive where
   toJSON UpdateTimeToLive' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TableName" Core..= tableName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just
               ( "TimeToLiveSpecification"
                   Core..= timeToLiveSpecification
               )
@@ -165,19 +168,19 @@ instance Core.ToJSON UpdateTimeToLive where
       )
 
 instance Core.ToPath UpdateTimeToLive where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateTimeToLive where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTimeToLiveResponse' smart constructor.
 data UpdateTimeToLiveResponse = UpdateTimeToLiveResponse'
   { -- | Represents the output of an @UpdateTimeToLive@ operation.
-    timeToLiveSpecification :: Core.Maybe TimeToLiveSpecification,
+    timeToLiveSpecification :: Prelude.Maybe TimeToLiveSpecification,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTimeToLiveResponse' with all optional fields omitted.
@@ -192,21 +195,21 @@ data UpdateTimeToLiveResponse = UpdateTimeToLiveResponse'
 -- 'httpStatus', 'updateTimeToLiveResponse_httpStatus' - The response's http status code.
 newUpdateTimeToLiveResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateTimeToLiveResponse
 newUpdateTimeToLiveResponse pHttpStatus_ =
   UpdateTimeToLiveResponse'
     { timeToLiveSpecification =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents the output of an @UpdateTimeToLive@ operation.
-updateTimeToLiveResponse_timeToLiveSpecification :: Lens.Lens' UpdateTimeToLiveResponse (Core.Maybe TimeToLiveSpecification)
+updateTimeToLiveResponse_timeToLiveSpecification :: Lens.Lens' UpdateTimeToLiveResponse (Prelude.Maybe TimeToLiveSpecification)
 updateTimeToLiveResponse_timeToLiveSpecification = Lens.lens (\UpdateTimeToLiveResponse' {timeToLiveSpecification} -> timeToLiveSpecification) (\s@UpdateTimeToLiveResponse' {} a -> s {timeToLiveSpecification = a} :: UpdateTimeToLiveResponse)
 
 -- | The response's http status code.
-updateTimeToLiveResponse_httpStatus :: Lens.Lens' UpdateTimeToLiveResponse Core.Int
+updateTimeToLiveResponse_httpStatus :: Lens.Lens' UpdateTimeToLiveResponse Prelude.Int
 updateTimeToLiveResponse_httpStatus = Lens.lens (\UpdateTimeToLiveResponse' {httpStatus} -> httpStatus) (\s@UpdateTimeToLiveResponse' {} a -> s {httpStatus = a} :: UpdateTimeToLiveResponse)
 
-instance Core.NFData UpdateTimeToLiveResponse
+instance Prelude.NFData UpdateTimeToLiveResponse

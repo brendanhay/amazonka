@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,13 +83,13 @@ data CreateBackup = CreateBackup'
     --
     -- -   A maximum of 50 user-applied tags is allowed for tag-supported AWS
     --     OpsWorks-CM resources.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A user-defined description of the backup.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the server that you want to back up.
-    serverName :: Core.Text
+    serverName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBackup' with all optional fields omitted.
@@ -122,12 +123,12 @@ data CreateBackup = CreateBackup'
 -- 'serverName', 'createBackup_serverName' - The name of the server that you want to back up.
 newCreateBackup ::
   -- | 'serverName'
-  Core.Text ->
+  Prelude.Text ->
   CreateBackup
 newCreateBackup pServerName_ =
   CreateBackup'
-    { tags = Core.Nothing,
-      description = Core.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       serverName = pServerName_
     }
 
@@ -149,15 +150,15 @@ newCreateBackup pServerName_ =
 --
 -- -   A maximum of 50 user-applied tags is allowed for tag-supported AWS
 --     OpsWorks-CM resources.
-createBackup_tags :: Lens.Lens' CreateBackup (Core.Maybe [Tag])
-createBackup_tags = Lens.lens (\CreateBackup' {tags} -> tags) (\s@CreateBackup' {} a -> s {tags = a} :: CreateBackup) Core.. Lens.mapping Lens._Coerce
+createBackup_tags :: Lens.Lens' CreateBackup (Prelude.Maybe [Tag])
+createBackup_tags = Lens.lens (\CreateBackup' {tags} -> tags) (\s@CreateBackup' {} a -> s {tags = a} :: CreateBackup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A user-defined description of the backup.
-createBackup_description :: Lens.Lens' CreateBackup (Core.Maybe Core.Text)
+createBackup_description :: Lens.Lens' CreateBackup (Prelude.Maybe Prelude.Text)
 createBackup_description = Lens.lens (\CreateBackup' {description} -> description) (\s@CreateBackup' {} a -> s {description = a} :: CreateBackup)
 
 -- | The name of the server that you want to back up.
-createBackup_serverName :: Lens.Lens' CreateBackup Core.Text
+createBackup_serverName :: Lens.Lens' CreateBackup Prelude.Text
 createBackup_serverName = Lens.lens (\CreateBackup' {serverName} -> serverName) (\s@CreateBackup' {} a -> s {serverName = a} :: CreateBackup)
 
 instance Core.AWSRequest CreateBackup where
@@ -167,51 +168,53 @@ instance Core.AWSRequest CreateBackup where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupResponse'
-            Core.<$> (x Core..?> "Backup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Backup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateBackup
+instance Prelude.Hashable CreateBackup
 
-instance Core.NFData CreateBackup
+instance Prelude.NFData CreateBackup
 
 instance Core.ToHeaders CreateBackup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.CreateBackup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateBackup where
   toJSON CreateBackup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("ServerName" Core..= serverName)
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("ServerName" Core..= serverName)
           ]
       )
 
 instance Core.ToPath CreateBackup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateBackup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBackupResponse' smart constructor.
 data CreateBackupResponse = CreateBackupResponse'
   { -- | Backup created by request.
-    backup :: Core.Maybe Backup,
+    backup :: Prelude.Maybe Backup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBackupResponse' with all optional fields omitted.
@@ -226,20 +229,20 @@ data CreateBackupResponse = CreateBackupResponse'
 -- 'httpStatus', 'createBackupResponse_httpStatus' - The response's http status code.
 newCreateBackupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateBackupResponse
 newCreateBackupResponse pHttpStatus_ =
   CreateBackupResponse'
-    { backup = Core.Nothing,
+    { backup = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Backup created by request.
-createBackupResponse_backup :: Lens.Lens' CreateBackupResponse (Core.Maybe Backup)
+createBackupResponse_backup :: Lens.Lens' CreateBackupResponse (Prelude.Maybe Backup)
 createBackupResponse_backup = Lens.lens (\CreateBackupResponse' {backup} -> backup) (\s@CreateBackupResponse' {} a -> s {backup = a} :: CreateBackupResponse)
 
 -- | The response's http status code.
-createBackupResponse_httpStatus :: Lens.Lens' CreateBackupResponse Core.Int
+createBackupResponse_httpStatus :: Lens.Lens' CreateBackupResponse Prelude.Int
 createBackupResponse_httpStatus = Lens.lens (\CreateBackupResponse' {httpStatus} -> httpStatus) (\s@CreateBackupResponse' {} a -> s {httpStatus = a} :: CreateBackupResponse)
 
-instance Core.NFData CreateBackupResponse
+instance Prelude.NFData CreateBackupResponse

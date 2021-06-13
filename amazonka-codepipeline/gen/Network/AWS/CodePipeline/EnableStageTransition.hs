@@ -40,6 +40,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,18 +50,18 @@ import qualified Network.AWS.Response as Response
 data EnableStageTransition = EnableStageTransition'
   { -- | The name of the pipeline in which you want to enable the flow of
     -- artifacts from one stage to another.
-    pipelineName :: Core.Text,
+    pipelineName :: Prelude.Text,
     -- | The name of the stage where you want to enable the transition of
     -- artifacts, either into the stage (inbound) or from that stage to the
     -- next stage (outbound).
-    stageName :: Core.Text,
+    stageName :: Prelude.Text,
     -- | Specifies whether artifacts are allowed to enter the stage and be
     -- processed by the actions in that stage (inbound) or whether already
     -- processed artifacts are allowed to transition to the next stage
     -- (outbound).
     transitionType :: StageTransitionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableStageTransition' with all optional fields omitted.
@@ -83,9 +84,9 @@ data EnableStageTransition = EnableStageTransition'
 -- (outbound).
 newEnableStageTransition ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'transitionType'
   StageTransitionType ->
   EnableStageTransition
@@ -102,13 +103,13 @@ newEnableStageTransition
 
 -- | The name of the pipeline in which you want to enable the flow of
 -- artifacts from one stage to another.
-enableStageTransition_pipelineName :: Lens.Lens' EnableStageTransition Core.Text
+enableStageTransition_pipelineName :: Lens.Lens' EnableStageTransition Prelude.Text
 enableStageTransition_pipelineName = Lens.lens (\EnableStageTransition' {pipelineName} -> pipelineName) (\s@EnableStageTransition' {} a -> s {pipelineName = a} :: EnableStageTransition)
 
 -- | The name of the stage where you want to enable the transition of
 -- artifacts, either into the stage (inbound) or from that stage to the
 -- next stage (outbound).
-enableStageTransition_stageName :: Lens.Lens' EnableStageTransition Core.Text
+enableStageTransition_stageName :: Lens.Lens' EnableStageTransition Prelude.Text
 enableStageTransition_stageName = Lens.lens (\EnableStageTransition' {stageName} -> stageName) (\s@EnableStageTransition' {} a -> s {stageName = a} :: EnableStageTransition)
 
 -- | Specifies whether artifacts are allowed to enter the stage and be
@@ -126,44 +127,47 @@ instance Core.AWSRequest EnableStageTransition where
   response =
     Response.receiveNull EnableStageTransitionResponse'
 
-instance Core.Hashable EnableStageTransition
+instance Prelude.Hashable EnableStageTransition
 
-instance Core.NFData EnableStageTransition
+instance Prelude.NFData EnableStageTransition
 
 instance Core.ToHeaders EnableStageTransition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.EnableStageTransition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableStageTransition where
   toJSON EnableStageTransition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pipelineName" Core..= pipelineName),
-            Core.Just ("stageName" Core..= stageName),
-            Core.Just ("transitionType" Core..= transitionType)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("pipelineName" Core..= pipelineName),
+            Prelude.Just ("stageName" Core..= stageName),
+            Prelude.Just
+              ("transitionType" Core..= transitionType)
           ]
       )
 
 instance Core.ToPath EnableStageTransition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableStageTransition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableStageTransitionResponse' smart constructor.
 data EnableStageTransitionResponse = EnableStageTransitionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableStageTransitionResponse' with all optional fields omitted.
@@ -174,4 +178,4 @@ newEnableStageTransitionResponse ::
 newEnableStageTransitionResponse =
   EnableStageTransitionResponse'
 
-instance Core.NFData EnableStageTransitionResponse
+instance Prelude.NFData EnableStageTransitionResponse

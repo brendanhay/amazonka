@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FecOutputSettings
 import Network.AWS.MediaLive.Types.OutputLocationRef
 import Network.AWS.MediaLive.Types.UdpContainerSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Udp Output Settings
 --
@@ -34,17 +35,17 @@ data UdpOutputSettings = UdpOutputSettings'
     -- maintaining a constant, low-jitter UDP\/RTP output while accommodating
     -- clock recovery, input switching, input disruptions, picture reordering,
     -- etc.
-    bufferMsec :: Core.Maybe Core.Natural,
+    bufferMsec :: Prelude.Maybe Prelude.Natural,
     -- | Settings for enabling and adjusting Forward Error Correction on UDP
     -- outputs.
-    fecOutputSettings :: Core.Maybe FecOutputSettings,
+    fecOutputSettings :: Prelude.Maybe FecOutputSettings,
     -- | Destination address and port number for RTP or UDP packets. Can be
     -- unicast or multicast RTP or UDP (eg. rtp:\/\/239.10.10.10:5001 or
     -- udp:\/\/10.100.100.100:5002).
     destination :: OutputLocationRef,
     containerSettings :: UdpContainerSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UdpOutputSettings' with all optional fields omitted.
@@ -78,8 +79,8 @@ newUdpOutputSettings
   pDestination_
   pContainerSettings_ =
     UdpOutputSettings'
-      { bufferMsec = Core.Nothing,
-        fecOutputSettings = Core.Nothing,
+      { bufferMsec = Prelude.Nothing,
+        fecOutputSettings = Prelude.Nothing,
         destination = pDestination_,
         containerSettings = pContainerSettings_
       }
@@ -89,12 +90,12 @@ newUdpOutputSettings
 -- maintaining a constant, low-jitter UDP\/RTP output while accommodating
 -- clock recovery, input switching, input disruptions, picture reordering,
 -- etc.
-udpOutputSettings_bufferMsec :: Lens.Lens' UdpOutputSettings (Core.Maybe Core.Natural)
+udpOutputSettings_bufferMsec :: Lens.Lens' UdpOutputSettings (Prelude.Maybe Prelude.Natural)
 udpOutputSettings_bufferMsec = Lens.lens (\UdpOutputSettings' {bufferMsec} -> bufferMsec) (\s@UdpOutputSettings' {} a -> s {bufferMsec = a} :: UdpOutputSettings)
 
 -- | Settings for enabling and adjusting Forward Error Correction on UDP
 -- outputs.
-udpOutputSettings_fecOutputSettings :: Lens.Lens' UdpOutputSettings (Core.Maybe FecOutputSettings)
+udpOutputSettings_fecOutputSettings :: Lens.Lens' UdpOutputSettings (Prelude.Maybe FecOutputSettings)
 udpOutputSettings_fecOutputSettings = Lens.lens (\UdpOutputSettings' {fecOutputSettings} -> fecOutputSettings) (\s@UdpOutputSettings' {} a -> s {fecOutputSettings = a} :: UdpOutputSettings)
 
 -- | Destination address and port number for RTP or UDP packets. Can be
@@ -113,25 +114,25 @@ instance Core.FromJSON UdpOutputSettings where
       "UdpOutputSettings"
       ( \x ->
           UdpOutputSettings'
-            Core.<$> (x Core..:? "bufferMsec")
-            Core.<*> (x Core..:? "fecOutputSettings")
-            Core.<*> (x Core..: "destination")
-            Core.<*> (x Core..: "containerSettings")
+            Prelude.<$> (x Core..:? "bufferMsec")
+            Prelude.<*> (x Core..:? "fecOutputSettings")
+            Prelude.<*> (x Core..: "destination")
+            Prelude.<*> (x Core..: "containerSettings")
       )
 
-instance Core.Hashable UdpOutputSettings
+instance Prelude.Hashable UdpOutputSettings
 
-instance Core.NFData UdpOutputSettings
+instance Prelude.NFData UdpOutputSettings
 
 instance Core.ToJSON UdpOutputSettings where
   toJSON UdpOutputSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("bufferMsec" Core..=) Core.<$> bufferMsec,
+      ( Prelude.catMaybes
+          [ ("bufferMsec" Core..=) Prelude.<$> bufferMsec,
             ("fecOutputSettings" Core..=)
-              Core.<$> fecOutputSettings,
-            Core.Just ("destination" Core..= destination),
-            Core.Just
+              Prelude.<$> fecOutputSettings,
+            Prelude.Just ("destination" Core..= destination),
+            Prelude.Just
               ("containerSettings" Core..= containerSettings)
           ]
       )

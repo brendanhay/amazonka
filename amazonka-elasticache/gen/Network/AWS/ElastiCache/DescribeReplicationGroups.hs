@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,12 +64,12 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
     --
     -- If you do not specify this parameter, information about all replication
     -- groups is returned.
-    replicationGroupId :: Core.Maybe Core.Text,
+    replicationGroupId :: Prelude.Maybe Prelude.Text,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -76,9 +77,9 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationGroups' with all optional fields omitted.
@@ -111,9 +112,9 @@ newDescribeReplicationGroups ::
 newDescribeReplicationGroups =
   DescribeReplicationGroups'
     { replicationGroupId =
-        Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The identifier for the replication group to be described. This parameter
@@ -121,14 +122,14 @@ newDescribeReplicationGroups =
 --
 -- If you do not specify this parameter, information about all replication
 -- groups is returned.
-describeReplicationGroups_replicationGroupId :: Lens.Lens' DescribeReplicationGroups (Core.Maybe Core.Text)
+describeReplicationGroups_replicationGroupId :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
 describeReplicationGroups_replicationGroupId = Lens.lens (\DescribeReplicationGroups' {replicationGroupId} -> replicationGroupId) (\s@DescribeReplicationGroups' {} a -> s {replicationGroupId = a} :: DescribeReplicationGroups)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeReplicationGroups_marker :: Lens.Lens' DescribeReplicationGroups (Core.Maybe Core.Text)
+describeReplicationGroups_marker :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
 describeReplicationGroups_marker = Lens.lens (\DescribeReplicationGroups' {marker} -> marker) (\s@DescribeReplicationGroups' {} a -> s {marker = a} :: DescribeReplicationGroups)
 
 -- | The maximum number of records to include in the response. If more
@@ -138,7 +139,7 @@ describeReplicationGroups_marker = Lens.lens (\DescribeReplicationGroups' {marke
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-describeReplicationGroups_maxRecords :: Lens.Lens' DescribeReplicationGroups (Core.Maybe Core.Int)
+describeReplicationGroups_maxRecords :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Int)
 describeReplicationGroups_maxRecords = Lens.lens (\DescribeReplicationGroups' {maxRecords} -> maxRecords) (\s@DescribeReplicationGroups' {} a -> s {maxRecords = a} :: DescribeReplicationGroups)
 
 instance Core.AWSPager DescribeReplicationGroups where
@@ -146,22 +147,22 @@ instance Core.AWSPager DescribeReplicationGroups where
     | Core.stop
         ( rs
             Lens.^? describeReplicationGroupsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReplicationGroupsResponse_replicationGroups
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeReplicationGroups_marker
+          Prelude.& describeReplicationGroups_marker
           Lens..~ rs
           Lens.^? describeReplicationGroupsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReplicationGroups where
   type
@@ -173,29 +174,31 @@ instance Core.AWSRequest DescribeReplicationGroups where
       "DescribeReplicationGroupsResult"
       ( \s h x ->
           DescribeReplicationGroupsResponse'
-            Core.<$> ( x Core..@? "ReplicationGroups" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "ReplicationGroup")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "ReplicationGroups"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "ReplicationGroup")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeReplicationGroups
+instance Prelude.Hashable DescribeReplicationGroups
 
-instance Core.NFData DescribeReplicationGroups
+instance Prelude.NFData DescribeReplicationGroups
 
 instance Core.ToHeaders DescribeReplicationGroups where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeReplicationGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeReplicationGroups where
   toQuery DescribeReplicationGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeReplicationGroups" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("DescribeReplicationGroups" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "ReplicationGroupId" Core.=: replicationGroupId,
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
@@ -207,13 +210,13 @@ instance Core.ToQuery DescribeReplicationGroups where
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
   { -- | A list of replication groups. Each item in the list contains detailed
     -- information about one replication group.
-    replicationGroups :: Core.Maybe [ReplicationGroup],
+    replicationGroups :: Prelude.Maybe [ReplicationGroup],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationGroupsResponse' with all optional fields omitted.
@@ -231,29 +234,29 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
 -- 'httpStatus', 'describeReplicationGroupsResponse_httpStatus' - The response's http status code.
 newDescribeReplicationGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeReplicationGroupsResponse
 newDescribeReplicationGroupsResponse pHttpStatus_ =
   DescribeReplicationGroupsResponse'
     { replicationGroups =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-describeReplicationGroupsResponse_replicationGroups :: Lens.Lens' DescribeReplicationGroupsResponse (Core.Maybe [ReplicationGroup])
-describeReplicationGroupsResponse_replicationGroups = Lens.lens (\DescribeReplicationGroupsResponse' {replicationGroups} -> replicationGroups) (\s@DescribeReplicationGroupsResponse' {} a -> s {replicationGroups = a} :: DescribeReplicationGroupsResponse) Core.. Lens.mapping Lens._Coerce
+describeReplicationGroupsResponse_replicationGroups :: Lens.Lens' DescribeReplicationGroupsResponse (Prelude.Maybe [ReplicationGroup])
+describeReplicationGroupsResponse_replicationGroups = Lens.lens (\DescribeReplicationGroupsResponse' {replicationGroups} -> replicationGroups) (\s@DescribeReplicationGroupsResponse' {} a -> s {replicationGroups = a} :: DescribeReplicationGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeReplicationGroupsResponse_marker :: Lens.Lens' DescribeReplicationGroupsResponse (Core.Maybe Core.Text)
+describeReplicationGroupsResponse_marker :: Lens.Lens' DescribeReplicationGroupsResponse (Prelude.Maybe Prelude.Text)
 describeReplicationGroupsResponse_marker = Lens.lens (\DescribeReplicationGroupsResponse' {marker} -> marker) (\s@DescribeReplicationGroupsResponse' {} a -> s {marker = a} :: DescribeReplicationGroupsResponse)
 
 -- | The response's http status code.
-describeReplicationGroupsResponse_httpStatus :: Lens.Lens' DescribeReplicationGroupsResponse Core.Int
+describeReplicationGroupsResponse_httpStatus :: Lens.Lens' DescribeReplicationGroupsResponse Prelude.Int
 describeReplicationGroupsResponse_httpStatus = Lens.lens (\DescribeReplicationGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeReplicationGroupsResponse' {} a -> s {httpStatus = a} :: DescribeReplicationGroupsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeReplicationGroupsResponse

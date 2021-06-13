@@ -44,20 +44,21 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQueueMaxContacts' smart constructor.
 data UpdateQueueMaxContacts = UpdateQueueMaxContacts'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier for the queue.
-    queueId :: Core.Text,
+    queueId :: Prelude.Text,
     -- | The maximum number of contacts that can be in the queue before it is
     -- considered full.
-    maxContacts :: Core.Natural
+    maxContacts :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueMaxContacts' with all optional fields omitted.
@@ -75,11 +76,11 @@ data UpdateQueueMaxContacts = UpdateQueueMaxContacts'
 -- considered full.
 newUpdateQueueMaxContacts ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'queueId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'maxContacts'
-  Core.Natural ->
+  Prelude.Natural ->
   UpdateQueueMaxContacts
 newUpdateQueueMaxContacts
   pInstanceId_
@@ -92,16 +93,16 @@ newUpdateQueueMaxContacts
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateQueueMaxContacts_instanceId :: Lens.Lens' UpdateQueueMaxContacts Core.Text
+updateQueueMaxContacts_instanceId :: Lens.Lens' UpdateQueueMaxContacts Prelude.Text
 updateQueueMaxContacts_instanceId = Lens.lens (\UpdateQueueMaxContacts' {instanceId} -> instanceId) (\s@UpdateQueueMaxContacts' {} a -> s {instanceId = a} :: UpdateQueueMaxContacts)
 
 -- | The identifier for the queue.
-updateQueueMaxContacts_queueId :: Lens.Lens' UpdateQueueMaxContacts Core.Text
+updateQueueMaxContacts_queueId :: Lens.Lens' UpdateQueueMaxContacts Prelude.Text
 updateQueueMaxContacts_queueId = Lens.lens (\UpdateQueueMaxContacts' {queueId} -> queueId) (\s@UpdateQueueMaxContacts' {} a -> s {queueId = a} :: UpdateQueueMaxContacts)
 
 -- | The maximum number of contacts that can be in the queue before it is
 -- considered full.
-updateQueueMaxContacts_maxContacts :: Lens.Lens' UpdateQueueMaxContacts Core.Natural
+updateQueueMaxContacts_maxContacts :: Lens.Lens' UpdateQueueMaxContacts Prelude.Natural
 updateQueueMaxContacts_maxContacts = Lens.lens (\UpdateQueueMaxContacts' {maxContacts} -> maxContacts) (\s@UpdateQueueMaxContacts' {} a -> s {maxContacts = a} :: UpdateQueueMaxContacts)
 
 instance Core.AWSRequest UpdateQueueMaxContacts where
@@ -113,29 +114,31 @@ instance Core.AWSRequest UpdateQueueMaxContacts where
     Response.receiveNull
       UpdateQueueMaxContactsResponse'
 
-instance Core.Hashable UpdateQueueMaxContacts
+instance Prelude.Hashable UpdateQueueMaxContacts
 
-instance Core.NFData UpdateQueueMaxContacts
+instance Prelude.NFData UpdateQueueMaxContacts
 
 instance Core.ToHeaders UpdateQueueMaxContacts where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateQueueMaxContacts where
   toJSON UpdateQueueMaxContacts' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("MaxContacts" Core..= maxContacts)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("MaxContacts" Core..= maxContacts)]
       )
 
 instance Core.ToPath UpdateQueueMaxContacts where
   toPath UpdateQueueMaxContacts' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/queues/",
         Core.toBS instanceId,
         "/",
@@ -144,13 +147,13 @@ instance Core.ToPath UpdateQueueMaxContacts where
       ]
 
 instance Core.ToQuery UpdateQueueMaxContacts where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQueueMaxContactsResponse' smart constructor.
 data UpdateQueueMaxContactsResponse = UpdateQueueMaxContactsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueMaxContactsResponse' with all optional fields omitted.
@@ -161,4 +164,6 @@ newUpdateQueueMaxContactsResponse ::
 newUpdateQueueMaxContactsResponse =
   UpdateQueueMaxContactsResponse'
 
-instance Core.NFData UpdateQueueMaxContactsResponse
+instance
+  Prelude.NFData
+    UpdateQueueMaxContactsResponse

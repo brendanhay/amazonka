@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.ResourceFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.ResourceFilterName
 
 -- | A filter name and value pair that is used to obtain more specific
@@ -32,9 +33,9 @@ data ResourceFilter = ResourceFilter'
     name :: ResourceFilterName,
     -- | One or more filter values. Allowed filter values vary by resource filter
     -- name, and are case-sensitive.
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceFilter' with all optional fields omitted.
@@ -52,7 +53,7 @@ newResourceFilter ::
   -- | 'name'
   ResourceFilterName ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   ResourceFilter
 newResourceFilter pName_ pValues_ =
   ResourceFilter'
@@ -66,18 +67,18 @@ resourceFilter_name = Lens.lens (\ResourceFilter' {name} -> name) (\s@ResourceFi
 
 -- | One or more filter values. Allowed filter values vary by resource filter
 -- name, and are case-sensitive.
-resourceFilter_values :: Lens.Lens' ResourceFilter (Core.NonEmpty Core.Text)
-resourceFilter_values = Lens.lens (\ResourceFilter' {values} -> values) (\s@ResourceFilter' {} a -> s {values = a} :: ResourceFilter) Core.. Lens._Coerce
+resourceFilter_values :: Lens.Lens' ResourceFilter (Prelude.NonEmpty Prelude.Text)
+resourceFilter_values = Lens.lens (\ResourceFilter' {values} -> values) (\s@ResourceFilter' {} a -> s {values = a} :: ResourceFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable ResourceFilter
+instance Prelude.Hashable ResourceFilter
 
-instance Core.NFData ResourceFilter
+instance Prelude.NFData ResourceFilter
 
 instance Core.ToJSON ResourceFilter where
   toJSON ResourceFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

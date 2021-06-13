@@ -22,17 +22,18 @@ module Network.AWS.CloudFront.Types.OriginGroupMembers where
 import Network.AWS.CloudFront.Types.OriginGroupMember
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type for the origins included in an origin group.
 --
 -- /See:/ 'newOriginGroupMembers' smart constructor.
 data OriginGroupMembers = OriginGroupMembers'
   { -- | The number of origins in an origin group.
-    quantity :: Core.Int,
+    quantity :: Prelude.Int,
     -- | Items (origins) in an origin group.
-    items :: Core.NonEmpty OriginGroupMember
+    items :: Prelude.NonEmpty OriginGroupMember
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginGroupMembers' with all optional fields omitted.
@@ -47,9 +48,9 @@ data OriginGroupMembers = OriginGroupMembers'
 -- 'items', 'originGroupMembers_items' - Items (origins) in an origin group.
 newOriginGroupMembers ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'items'
-  Core.NonEmpty OriginGroupMember ->
+  Prelude.NonEmpty OriginGroupMember ->
   OriginGroupMembers
 newOriginGroupMembers pQuantity_ pItems_ =
   OriginGroupMembers'
@@ -58,28 +59,28 @@ newOriginGroupMembers pQuantity_ pItems_ =
     }
 
 -- | The number of origins in an origin group.
-originGroupMembers_quantity :: Lens.Lens' OriginGroupMembers Core.Int
+originGroupMembers_quantity :: Lens.Lens' OriginGroupMembers Prelude.Int
 originGroupMembers_quantity = Lens.lens (\OriginGroupMembers' {quantity} -> quantity) (\s@OriginGroupMembers' {} a -> s {quantity = a} :: OriginGroupMembers)
 
 -- | Items (origins) in an origin group.
-originGroupMembers_items :: Lens.Lens' OriginGroupMembers (Core.NonEmpty OriginGroupMember)
-originGroupMembers_items = Lens.lens (\OriginGroupMembers' {items} -> items) (\s@OriginGroupMembers' {} a -> s {items = a} :: OriginGroupMembers) Core.. Lens._Coerce
+originGroupMembers_items :: Lens.Lens' OriginGroupMembers (Prelude.NonEmpty OriginGroupMember)
+originGroupMembers_items = Lens.lens (\OriginGroupMembers' {items} -> items) (\s@OriginGroupMembers' {} a -> s {items = a} :: OriginGroupMembers) Prelude.. Lens._Coerce
 
 instance Core.FromXML OriginGroupMembers where
   parseXML x =
     OriginGroupMembers'
-      Core.<$> (x Core..@ "Quantity")
-      Core.<*> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.parseXMLList1 "OriginGroupMember"
-               )
+      Prelude.<$> (x Core..@ "Quantity")
+      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.parseXMLList1 "OriginGroupMember"
+                  )
 
-instance Core.Hashable OriginGroupMembers
+instance Prelude.Hashable OriginGroupMembers
 
-instance Core.NFData OriginGroupMembers
+instance Prelude.NFData OriginGroupMembers
 
 instance Core.ToXML OriginGroupMembers where
   toXML OriginGroupMembers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Quantity" Core.@= quantity,
         "Items"
           Core.@= Core.toXMLList "OriginGroupMember" items

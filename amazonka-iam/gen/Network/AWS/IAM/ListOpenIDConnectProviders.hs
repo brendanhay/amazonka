@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data ListOpenIDConnectProviders = ListOpenIDConnectProviders'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOpenIDConnectProviders' with all optional fields omitted.
@@ -74,30 +75,31 @@ instance Core.AWSRequest ListOpenIDConnectProviders where
       "ListOpenIDConnectProvidersResult"
       ( \s h x ->
           ListOpenIDConnectProvidersResponse'
-            Core.<$> ( x Core..@? "OpenIDConnectProviderList"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "OpenIDConnectProviderList"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListOpenIDConnectProviders
+instance Prelude.Hashable ListOpenIDConnectProviders
 
-instance Core.NFData ListOpenIDConnectProviders
+instance Prelude.NFData ListOpenIDConnectProviders
 
 instance Core.ToHeaders ListOpenIDConnectProviders where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListOpenIDConnectProviders where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListOpenIDConnectProviders where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("ListOpenIDConnectProviders" :: Core.ByteString),
-            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
+              Core.=: ("ListOpenIDConnectProviders" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 
@@ -108,11 +110,11 @@ instance Core.ToQuery ListOpenIDConnectProviders where
 data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
   { -- | The list of IAM OIDC provider resource objects defined in the AWS
     -- account.
-    openIDConnectProviderList :: Core.Maybe [OpenIDConnectProviderListEntry],
+    openIDConnectProviderList :: Prelude.Maybe [OpenIDConnectProviderListEntry],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOpenIDConnectProvidersResponse' with all optional fields omitted.
@@ -128,24 +130,24 @@ data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
 -- 'httpStatus', 'listOpenIDConnectProvidersResponse_httpStatus' - The response's http status code.
 newListOpenIDConnectProvidersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListOpenIDConnectProvidersResponse
 newListOpenIDConnectProvidersResponse pHttpStatus_ =
   ListOpenIDConnectProvidersResponse'
     { openIDConnectProviderList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of IAM OIDC provider resource objects defined in the AWS
 -- account.
-listOpenIDConnectProvidersResponse_openIDConnectProviderList :: Lens.Lens' ListOpenIDConnectProvidersResponse (Core.Maybe [OpenIDConnectProviderListEntry])
-listOpenIDConnectProvidersResponse_openIDConnectProviderList = Lens.lens (\ListOpenIDConnectProvidersResponse' {openIDConnectProviderList} -> openIDConnectProviderList) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {openIDConnectProviderList = a} :: ListOpenIDConnectProvidersResponse) Core.. Lens.mapping Lens._Coerce
+listOpenIDConnectProvidersResponse_openIDConnectProviderList :: Lens.Lens' ListOpenIDConnectProvidersResponse (Prelude.Maybe [OpenIDConnectProviderListEntry])
+listOpenIDConnectProvidersResponse_openIDConnectProviderList = Lens.lens (\ListOpenIDConnectProvidersResponse' {openIDConnectProviderList} -> openIDConnectProviderList) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {openIDConnectProviderList = a} :: ListOpenIDConnectProvidersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOpenIDConnectProvidersResponse_httpStatus :: Lens.Lens' ListOpenIDConnectProvidersResponse Core.Int
+listOpenIDConnectProvidersResponse_httpStatus :: Lens.Lens' ListOpenIDConnectProvidersResponse Prelude.Int
 listOpenIDConnectProvidersResponse_httpStatus = Lens.lens (\ListOpenIDConnectProvidersResponse' {httpStatus} -> httpStatus) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {httpStatus = a} :: ListOpenIDConnectProvidersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListOpenIDConnectProvidersResponse

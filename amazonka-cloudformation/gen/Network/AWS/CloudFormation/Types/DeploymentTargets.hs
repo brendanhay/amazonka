@@ -21,6 +21,7 @@ module Network.AWS.CloudFormation.Types.DeploymentTargets where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | [Service-managed permissions] The AWS Organizations accounts to which
 -- StackSets deploys. StackSets does not deploy stack instances to the
@@ -35,12 +36,12 @@ import qualified Network.AWS.Lens as Lens
 data DeploymentTargets = DeploymentTargets'
   { -- | The organization root ID or organizational unit (OU) IDs to which
     -- StackSets deploys.
-    organizationalUnitIds :: Core.Maybe [Core.Text],
+    organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
     -- | The names of one or more AWS accounts for which you want to deploy stack
     -- set updates.
-    accounts :: Core.Maybe [Core.Text]
+    accounts :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeploymentTargets' with all optional fields omitted.
@@ -60,44 +61,44 @@ newDeploymentTargets ::
 newDeploymentTargets =
   DeploymentTargets'
     { organizationalUnitIds =
-        Core.Nothing,
-      accounts = Core.Nothing
+        Prelude.Nothing,
+      accounts = Prelude.Nothing
     }
 
 -- | The organization root ID or organizational unit (OU) IDs to which
 -- StackSets deploys.
-deploymentTargets_organizationalUnitIds :: Lens.Lens' DeploymentTargets (Core.Maybe [Core.Text])
-deploymentTargets_organizationalUnitIds = Lens.lens (\DeploymentTargets' {organizationalUnitIds} -> organizationalUnitIds) (\s@DeploymentTargets' {} a -> s {organizationalUnitIds = a} :: DeploymentTargets) Core.. Lens.mapping Lens._Coerce
+deploymentTargets_organizationalUnitIds :: Lens.Lens' DeploymentTargets (Prelude.Maybe [Prelude.Text])
+deploymentTargets_organizationalUnitIds = Lens.lens (\DeploymentTargets' {organizationalUnitIds} -> organizationalUnitIds) (\s@DeploymentTargets' {} a -> s {organizationalUnitIds = a} :: DeploymentTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The names of one or more AWS accounts for which you want to deploy stack
 -- set updates.
-deploymentTargets_accounts :: Lens.Lens' DeploymentTargets (Core.Maybe [Core.Text])
-deploymentTargets_accounts = Lens.lens (\DeploymentTargets' {accounts} -> accounts) (\s@DeploymentTargets' {} a -> s {accounts = a} :: DeploymentTargets) Core.. Lens.mapping Lens._Coerce
+deploymentTargets_accounts :: Lens.Lens' DeploymentTargets (Prelude.Maybe [Prelude.Text])
+deploymentTargets_accounts = Lens.lens (\DeploymentTargets' {accounts} -> accounts) (\s@DeploymentTargets' {} a -> s {accounts = a} :: DeploymentTargets) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML DeploymentTargets where
   parseXML x =
     DeploymentTargets'
-      Core.<$> ( x Core..@? "OrganizationalUnitIds"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> ( x Core..@? "Accounts" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "OrganizationalUnitIds"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> ( x Core..@? "Accounts" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable DeploymentTargets
+instance Prelude.Hashable DeploymentTargets
 
-instance Core.NFData DeploymentTargets
+instance Prelude.NFData DeploymentTargets
 
 instance Core.ToQuery DeploymentTargets where
   toQuery DeploymentTargets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "OrganizationalUnitIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> organizationalUnitIds
+                Prelude.<$> organizationalUnitIds
             ),
         "Accounts"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> accounts)
+            (Core.toQueryList "member" Prelude.<$> accounts)
       ]

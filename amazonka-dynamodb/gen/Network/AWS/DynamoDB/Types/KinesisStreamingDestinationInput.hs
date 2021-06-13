@@ -21,15 +21,16 @@ module Network.AWS.DynamoDB.Types.KinesisStreamingDestinationInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newKinesisStreamingDestinationInput' smart constructor.
 data KinesisStreamingDestinationInput = KinesisStreamingDestinationInput'
   { -- | The name of the DynamoDB table.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | The ARN for a Kinesis data stream.
-    streamArn :: Core.Text
+    streamArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisStreamingDestinationInput' with all optional fields omitted.
@@ -44,9 +45,9 @@ data KinesisStreamingDestinationInput = KinesisStreamingDestinationInput'
 -- 'streamArn', 'kinesisStreamingDestinationInput_streamArn' - The ARN for a Kinesis data stream.
 newKinesisStreamingDestinationInput ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'streamArn'
-  Core.Text ->
+  Prelude.Text ->
   KinesisStreamingDestinationInput
 newKinesisStreamingDestinationInput
   pTableName_
@@ -58,24 +59,26 @@ newKinesisStreamingDestinationInput
       }
 
 -- | The name of the DynamoDB table.
-kinesisStreamingDestinationInput_tableName :: Lens.Lens' KinesisStreamingDestinationInput Core.Text
+kinesisStreamingDestinationInput_tableName :: Lens.Lens' KinesisStreamingDestinationInput Prelude.Text
 kinesisStreamingDestinationInput_tableName = Lens.lens (\KinesisStreamingDestinationInput' {tableName} -> tableName) (\s@KinesisStreamingDestinationInput' {} a -> s {tableName = a} :: KinesisStreamingDestinationInput)
 
 -- | The ARN for a Kinesis data stream.
-kinesisStreamingDestinationInput_streamArn :: Lens.Lens' KinesisStreamingDestinationInput Core.Text
+kinesisStreamingDestinationInput_streamArn :: Lens.Lens' KinesisStreamingDestinationInput Prelude.Text
 kinesisStreamingDestinationInput_streamArn = Lens.lens (\KinesisStreamingDestinationInput' {streamArn} -> streamArn) (\s@KinesisStreamingDestinationInput' {} a -> s {streamArn = a} :: KinesisStreamingDestinationInput)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     KinesisStreamingDestinationInput
 
-instance Core.NFData KinesisStreamingDestinationInput
+instance
+  Prelude.NFData
+    KinesisStreamingDestinationInput
 
 instance Core.ToJSON KinesisStreamingDestinationInput where
   toJSON KinesisStreamingDestinationInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TableName" Core..= tableName),
-            Core.Just ("StreamArn" Core..= streamArn)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just ("StreamArn" Core..= streamArn)
           ]
       )

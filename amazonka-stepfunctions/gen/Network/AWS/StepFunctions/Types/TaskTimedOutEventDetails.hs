@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about a resource timeout that occurred during an
 -- execution.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTaskTimedOutEventDetails' smart constructor.
 data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
   { -- | A more detailed explanation of the cause of the failure.
-    cause :: Core.Maybe (Core.Sensitive Core.Text),
+    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The error code of the failure.
-    error :: Core.Maybe (Core.Sensitive Core.Text),
+    error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The action of the resource called by a task state.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
-    resource :: Core.Text
+    resource :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TaskTimedOutEventDetails' with all optional fields omitted.
@@ -55,32 +56,32 @@ data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
 -- 'resource', 'taskTimedOutEventDetails_resource' - The service name of the resource in a task state.
 newTaskTimedOutEventDetails ::
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resource'
-  Core.Text ->
+  Prelude.Text ->
   TaskTimedOutEventDetails
 newTaskTimedOutEventDetails pResourceType_ pResource_ =
   TaskTimedOutEventDetails'
-    { cause = Core.Nothing,
-      error = Core.Nothing,
+    { cause = Prelude.Nothing,
+      error = Prelude.Nothing,
       resourceType = pResourceType_,
       resource = pResource_
     }
 
 -- | A more detailed explanation of the cause of the failure.
-taskTimedOutEventDetails_cause :: Lens.Lens' TaskTimedOutEventDetails (Core.Maybe Core.Text)
-taskTimedOutEventDetails_cause = Lens.lens (\TaskTimedOutEventDetails' {cause} -> cause) (\s@TaskTimedOutEventDetails' {} a -> s {cause = a} :: TaskTimedOutEventDetails) Core.. Lens.mapping Core._Sensitive
+taskTimedOutEventDetails_cause :: Lens.Lens' TaskTimedOutEventDetails (Prelude.Maybe Prelude.Text)
+taskTimedOutEventDetails_cause = Lens.lens (\TaskTimedOutEventDetails' {cause} -> cause) (\s@TaskTimedOutEventDetails' {} a -> s {cause = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
-taskTimedOutEventDetails_error :: Lens.Lens' TaskTimedOutEventDetails (Core.Maybe Core.Text)
-taskTimedOutEventDetails_error = Lens.lens (\TaskTimedOutEventDetails' {error} -> error) (\s@TaskTimedOutEventDetails' {} a -> s {error = a} :: TaskTimedOutEventDetails) Core.. Lens.mapping Core._Sensitive
+taskTimedOutEventDetails_error :: Lens.Lens' TaskTimedOutEventDetails (Prelude.Maybe Prelude.Text)
+taskTimedOutEventDetails_error = Lens.lens (\TaskTimedOutEventDetails' {error} -> error) (\s@TaskTimedOutEventDetails' {} a -> s {error = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The action of the resource called by a task state.
-taskTimedOutEventDetails_resourceType :: Lens.Lens' TaskTimedOutEventDetails Core.Text
+taskTimedOutEventDetails_resourceType :: Lens.Lens' TaskTimedOutEventDetails Prelude.Text
 taskTimedOutEventDetails_resourceType = Lens.lens (\TaskTimedOutEventDetails' {resourceType} -> resourceType) (\s@TaskTimedOutEventDetails' {} a -> s {resourceType = a} :: TaskTimedOutEventDetails)
 
 -- | The service name of the resource in a task state.
-taskTimedOutEventDetails_resource :: Lens.Lens' TaskTimedOutEventDetails Core.Text
+taskTimedOutEventDetails_resource :: Lens.Lens' TaskTimedOutEventDetails Prelude.Text
 taskTimedOutEventDetails_resource = Lens.lens (\TaskTimedOutEventDetails' {resource} -> resource) (\s@TaskTimedOutEventDetails' {} a -> s {resource = a} :: TaskTimedOutEventDetails)
 
 instance Core.FromJSON TaskTimedOutEventDetails where
@@ -89,12 +90,12 @@ instance Core.FromJSON TaskTimedOutEventDetails where
       "TaskTimedOutEventDetails"
       ( \x ->
           TaskTimedOutEventDetails'
-            Core.<$> (x Core..:? "cause")
-            Core.<*> (x Core..:? "error")
-            Core.<*> (x Core..: "resourceType")
-            Core.<*> (x Core..: "resource")
+            Prelude.<$> (x Core..:? "cause")
+            Prelude.<*> (x Core..:? "error")
+            Prelude.<*> (x Core..: "resourceType")
+            Prelude.<*> (x Core..: "resource")
       )
 
-instance Core.Hashable TaskTimedOutEventDetails
+instance Prelude.Hashable TaskTimedOutEventDetails
 
-instance Core.NFData TaskTimedOutEventDetails
+instance Prelude.NFData TaskTimedOutEventDetails

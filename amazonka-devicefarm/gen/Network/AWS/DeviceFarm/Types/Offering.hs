@@ -24,23 +24,24 @@ import Network.AWS.DeviceFarm.Types.DevicePlatform
 import Network.AWS.DeviceFarm.Types.OfferingType
 import Network.AWS.DeviceFarm.Types.RecurringCharge
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the metadata of a device offering.
 --
 -- /See:/ 'newOffering' smart constructor.
 data Offering = Offering'
   { -- | The platform of the device (for example, @ANDROID@ or @IOS@).
-    platform :: Core.Maybe DevicePlatform,
+    platform :: Prelude.Maybe DevicePlatform,
     -- | The ID that corresponds to a device offering.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | A string that describes the offering.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether there are recurring charges for the offering.
-    recurringCharges :: Core.Maybe [RecurringCharge],
+    recurringCharges :: Prelude.Maybe [RecurringCharge],
     -- | The type of offering (for example, @RECURRING@) for a device.
-    type' :: Core.Maybe OfferingType
+    type' :: Prelude.Maybe OfferingType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Offering' with all optional fields omitted.
@@ -63,31 +64,31 @@ newOffering ::
   Offering
 newOffering =
   Offering'
-    { platform = Core.Nothing,
-      id = Core.Nothing,
-      description = Core.Nothing,
-      recurringCharges = Core.Nothing,
-      type' = Core.Nothing
+    { platform = Prelude.Nothing,
+      id = Prelude.Nothing,
+      description = Prelude.Nothing,
+      recurringCharges = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The platform of the device (for example, @ANDROID@ or @IOS@).
-offering_platform :: Lens.Lens' Offering (Core.Maybe DevicePlatform)
+offering_platform :: Lens.Lens' Offering (Prelude.Maybe DevicePlatform)
 offering_platform = Lens.lens (\Offering' {platform} -> platform) (\s@Offering' {} a -> s {platform = a} :: Offering)
 
 -- | The ID that corresponds to a device offering.
-offering_id :: Lens.Lens' Offering (Core.Maybe Core.Text)
+offering_id :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
 offering_id = Lens.lens (\Offering' {id} -> id) (\s@Offering' {} a -> s {id = a} :: Offering)
 
 -- | A string that describes the offering.
-offering_description :: Lens.Lens' Offering (Core.Maybe Core.Text)
+offering_description :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
 offering_description = Lens.lens (\Offering' {description} -> description) (\s@Offering' {} a -> s {description = a} :: Offering)
 
 -- | Specifies whether there are recurring charges for the offering.
-offering_recurringCharges :: Lens.Lens' Offering (Core.Maybe [RecurringCharge])
-offering_recurringCharges = Lens.lens (\Offering' {recurringCharges} -> recurringCharges) (\s@Offering' {} a -> s {recurringCharges = a} :: Offering) Core.. Lens.mapping Lens._Coerce
+offering_recurringCharges :: Lens.Lens' Offering (Prelude.Maybe [RecurringCharge])
+offering_recurringCharges = Lens.lens (\Offering' {recurringCharges} -> recurringCharges) (\s@Offering' {} a -> s {recurringCharges = a} :: Offering) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of offering (for example, @RECURRING@) for a device.
-offering_type :: Lens.Lens' Offering (Core.Maybe OfferingType)
+offering_type :: Lens.Lens' Offering (Prelude.Maybe OfferingType)
 offering_type = Lens.lens (\Offering' {type'} -> type') (\s@Offering' {} a -> s {type' = a} :: Offering)
 
 instance Core.FromJSON Offering where
@@ -96,13 +97,15 @@ instance Core.FromJSON Offering where
       "Offering"
       ( \x ->
           Offering'
-            Core.<$> (x Core..:? "platform")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "recurringCharges" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "platform")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> ( x Core..:? "recurringCharges"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable Offering
+instance Prelude.Hashable Offering
 
-instance Core.NFData Offering
+instance Prelude.NFData Offering

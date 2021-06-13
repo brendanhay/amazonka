@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSourceStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the status of DNS logs as a data source.
 --
@@ -30,7 +31,7 @@ data DNSLogsConfigurationResult = DNSLogsConfigurationResult'
   { -- | Denotes whether DNS logs is enabled as a data source.
     status :: DataSourceStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DNSLogsConfigurationResult' with all optional fields omitted.
@@ -58,9 +59,9 @@ instance Core.FromJSON DNSLogsConfigurationResult where
       "DNSLogsConfigurationResult"
       ( \x ->
           DNSLogsConfigurationResult'
-            Core.<$> (x Core..: "status")
+            Prelude.<$> (x Core..: "status")
       )
 
-instance Core.Hashable DNSLogsConfigurationResult
+instance Prelude.Hashable DNSLogsConfigurationResult
 
-instance Core.NFData DNSLogsConfigurationResult
+instance Prelude.NFData DNSLogsConfigurationResult

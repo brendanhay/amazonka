@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,21 +74,21 @@ data ListUserPolicies = ListUserPolicies'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the user to list policies for.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text
+    userName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListUserPolicies' with all optional fields omitted.
@@ -120,12 +121,12 @@ data ListUserPolicies = ListUserPolicies'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newListUserPolicies ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   ListUserPolicies
 newListUserPolicies pUserName_ =
   ListUserPolicies'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       userName = pUserName_
     }
 
@@ -138,14 +139,14 @@ newListUserPolicies pUserName_ =
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listUserPolicies_maxItems :: Lens.Lens' ListUserPolicies (Core.Maybe Core.Natural)
+listUserPolicies_maxItems :: Lens.Lens' ListUserPolicies (Prelude.Maybe Prelude.Natural)
 listUserPolicies_maxItems = Lens.lens (\ListUserPolicies' {maxItems} -> maxItems) (\s@ListUserPolicies' {} a -> s {maxItems = a} :: ListUserPolicies)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listUserPolicies_marker :: Lens.Lens' ListUserPolicies (Core.Maybe Core.Text)
+listUserPolicies_marker :: Lens.Lens' ListUserPolicies (Prelude.Maybe Prelude.Text)
 listUserPolicies_marker = Lens.lens (\ListUserPolicies' {marker} -> marker) (\s@ListUserPolicies' {} a -> s {marker = a} :: ListUserPolicies)
 
 -- | The name of the user to list policies for.
@@ -154,7 +155,7 @@ listUserPolicies_marker = Lens.lens (\ListUserPolicies' {marker} -> marker) (\s@
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listUserPolicies_userName :: Lens.Lens' ListUserPolicies Core.Text
+listUserPolicies_userName :: Lens.Lens' ListUserPolicies Prelude.Text
 listUserPolicies_userName = Lens.lens (\ListUserPolicies' {userName} -> userName) (\s@ListUserPolicies' {} a -> s {userName = a} :: ListUserPolicies)
 
 instance Core.AWSPager ListUserPolicies where
@@ -162,20 +163,20 @@ instance Core.AWSPager ListUserPolicies where
     | Core.stop
         ( rs
             Lens.^? listUserPoliciesResponse_isTruncated
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listUserPoliciesResponse_marker Core.. Lens._Just
+            Lens.^? listUserPoliciesResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listUserPolicies_marker
+          Prelude.& listUserPolicies_marker
           Lens..~ rs
-          Lens.^? listUserPoliciesResponse_marker Core.. Lens._Just
+          Lens.^? listUserPoliciesResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserPolicies where
   type
@@ -187,30 +188,31 @@ instance Core.AWSRequest ListUserPolicies where
       "ListUserPoliciesResult"
       ( \s h x ->
           ListUserPoliciesResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "PolicyNames" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "PolicyNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListUserPolicies
+instance Prelude.Hashable ListUserPolicies
 
-instance Core.NFData ListUserPolicies
+instance Prelude.NFData ListUserPolicies
 
 instance Core.ToHeaders ListUserPolicies where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListUserPolicies where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListUserPolicies where
   toQuery ListUserPolicies' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListUserPolicies" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListUserPolicies" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "UserName" Core.=: userName
@@ -227,17 +229,17 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of policy names.
-    policyNames :: [Core.Text]
+    policyNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListUserPoliciesResponse' with all optional fields omitted.
@@ -264,15 +266,15 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse'
 -- 'policyNames', 'listUserPoliciesResponse_policyNames' - A list of policy names.
 newListUserPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListUserPoliciesResponse
 newListUserPoliciesResponse pHttpStatus_ =
   ListUserPoliciesResponse'
     { isTruncated =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      policyNames = Core.mempty
+      policyNames = Prelude.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -282,21 +284,21 @@ newListUserPoliciesResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listUserPoliciesResponse_isTruncated :: Lens.Lens' ListUserPoliciesResponse (Core.Maybe Core.Bool)
+listUserPoliciesResponse_isTruncated :: Lens.Lens' ListUserPoliciesResponse (Prelude.Maybe Prelude.Bool)
 listUserPoliciesResponse_isTruncated = Lens.lens (\ListUserPoliciesResponse' {isTruncated} -> isTruncated) (\s@ListUserPoliciesResponse' {} a -> s {isTruncated = a} :: ListUserPoliciesResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listUserPoliciesResponse_marker :: Lens.Lens' ListUserPoliciesResponse (Core.Maybe Core.Text)
+listUserPoliciesResponse_marker :: Lens.Lens' ListUserPoliciesResponse (Prelude.Maybe Prelude.Text)
 listUserPoliciesResponse_marker = Lens.lens (\ListUserPoliciesResponse' {marker} -> marker) (\s@ListUserPoliciesResponse' {} a -> s {marker = a} :: ListUserPoliciesResponse)
 
 -- | The response's http status code.
-listUserPoliciesResponse_httpStatus :: Lens.Lens' ListUserPoliciesResponse Core.Int
+listUserPoliciesResponse_httpStatus :: Lens.Lens' ListUserPoliciesResponse Prelude.Int
 listUserPoliciesResponse_httpStatus = Lens.lens (\ListUserPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListUserPoliciesResponse' {} a -> s {httpStatus = a} :: ListUserPoliciesResponse)
 
 -- | A list of policy names.
-listUserPoliciesResponse_policyNames :: Lens.Lens' ListUserPoliciesResponse [Core.Text]
-listUserPoliciesResponse_policyNames = Lens.lens (\ListUserPoliciesResponse' {policyNames} -> policyNames) (\s@ListUserPoliciesResponse' {} a -> s {policyNames = a} :: ListUserPoliciesResponse) Core.. Lens._Coerce
+listUserPoliciesResponse_policyNames :: Lens.Lens' ListUserPoliciesResponse [Prelude.Text]
+listUserPoliciesResponse_policyNames = Lens.lens (\ListUserPoliciesResponse' {policyNames} -> policyNames) (\s@ListUserPoliciesResponse' {} a -> s {policyNames = a} :: ListUserPoliciesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListUserPoliciesResponse
+instance Prelude.NFData ListUserPoliciesResponse

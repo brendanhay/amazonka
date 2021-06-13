@@ -44,18 +44,19 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetJourney' smart constructor.
 data GetJourney = GetJourney'
   { -- | The unique identifier for the journey.
-    journeyId :: Core.Text,
+    journeyId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJourney' with all optional fields omitted.
@@ -71,9 +72,9 @@ data GetJourney = GetJourney'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetJourney ::
   -- | 'journeyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetJourney
 newGetJourney pJourneyId_ pApplicationId_ =
   GetJourney'
@@ -82,12 +83,12 @@ newGetJourney pJourneyId_ pApplicationId_ =
     }
 
 -- | The unique identifier for the journey.
-getJourney_journeyId :: Lens.Lens' GetJourney Core.Text
+getJourney_journeyId :: Lens.Lens' GetJourney Prelude.Text
 getJourney_journeyId = Lens.lens (\GetJourney' {journeyId} -> journeyId) (\s@GetJourney' {} a -> s {journeyId = a} :: GetJourney)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getJourney_applicationId :: Lens.Lens' GetJourney Core.Text
+getJourney_applicationId :: Lens.Lens' GetJourney Prelude.Text
 getJourney_applicationId = Lens.lens (\GetJourney' {applicationId} -> applicationId) (\s@GetJourney' {} a -> s {applicationId = a} :: GetJourney)
 
 instance Core.AWSRequest GetJourney where
@@ -97,26 +98,28 @@ instance Core.AWSRequest GetJourney where
     Response.receiveJSON
       ( \s h x ->
           GetJourneyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetJourney
+instance Prelude.Hashable GetJourney
 
-instance Core.NFData GetJourney
+instance Prelude.NFData GetJourney
 
 instance Core.ToHeaders GetJourney where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetJourney where
   toPath GetJourney' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/journeys/",
@@ -124,15 +127,15 @@ instance Core.ToPath GetJourney where
       ]
 
 instance Core.ToQuery GetJourney where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetJourneyResponse' smart constructor.
 data GetJourneyResponse = GetJourneyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     journeyResponse :: JourneyResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJourneyResponse' with all optional fields omitted.
@@ -147,7 +150,7 @@ data GetJourneyResponse = GetJourneyResponse'
 -- 'journeyResponse', 'getJourneyResponse_journeyResponse' - Undocumented member.
 newGetJourneyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'journeyResponse'
   JourneyResponse ->
   GetJourneyResponse
@@ -158,11 +161,11 @@ newGetJourneyResponse pHttpStatus_ pJourneyResponse_ =
     }
 
 -- | The response's http status code.
-getJourneyResponse_httpStatus :: Lens.Lens' GetJourneyResponse Core.Int
+getJourneyResponse_httpStatus :: Lens.Lens' GetJourneyResponse Prelude.Int
 getJourneyResponse_httpStatus = Lens.lens (\GetJourneyResponse' {httpStatus} -> httpStatus) (\s@GetJourneyResponse' {} a -> s {httpStatus = a} :: GetJourneyResponse)
 
 -- | Undocumented member.
 getJourneyResponse_journeyResponse :: Lens.Lens' GetJourneyResponse JourneyResponse
 getJourneyResponse_journeyResponse = Lens.lens (\GetJourneyResponse' {journeyResponse} -> journeyResponse) (\s@GetJourneyResponse' {} a -> s {journeyResponse = a} :: GetJourneyResponse)
 
-instance Core.NFData GetJourneyResponse
+instance Prelude.NFData GetJourneyResponse

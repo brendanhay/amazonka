@@ -21,6 +21,7 @@ module Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | One data point related to one contributor.
 --
@@ -34,9 +35,9 @@ data InsightRuleContributorDatapoint = InsightRuleContributorDatapoint'
   { -- | The timestamp of the data point.
     timestamp :: Core.ISO8601,
     -- | The approximate value that this contributor added during this timestamp.
-    approximateValue :: Core.Double
+    approximateValue :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InsightRuleContributorDatapoint' with all optional fields omitted.
@@ -51,9 +52,9 @@ data InsightRuleContributorDatapoint = InsightRuleContributorDatapoint'
 -- 'approximateValue', 'insightRuleContributorDatapoint_approximateValue' - The approximate value that this contributor added during this timestamp.
 newInsightRuleContributorDatapoint ::
   -- | 'timestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'approximateValue'
-  Core.Double ->
+  Prelude.Double ->
   InsightRuleContributorDatapoint
 newInsightRuleContributorDatapoint
   pTimestamp_
@@ -65,21 +66,23 @@ newInsightRuleContributorDatapoint
       }
 
 -- | The timestamp of the data point.
-insightRuleContributorDatapoint_timestamp :: Lens.Lens' InsightRuleContributorDatapoint Core.UTCTime
-insightRuleContributorDatapoint_timestamp = Lens.lens (\InsightRuleContributorDatapoint' {timestamp} -> timestamp) (\s@InsightRuleContributorDatapoint' {} a -> s {timestamp = a} :: InsightRuleContributorDatapoint) Core.. Core._Time
+insightRuleContributorDatapoint_timestamp :: Lens.Lens' InsightRuleContributorDatapoint Prelude.UTCTime
+insightRuleContributorDatapoint_timestamp = Lens.lens (\InsightRuleContributorDatapoint' {timestamp} -> timestamp) (\s@InsightRuleContributorDatapoint' {} a -> s {timestamp = a} :: InsightRuleContributorDatapoint) Prelude.. Core._Time
 
 -- | The approximate value that this contributor added during this timestamp.
-insightRuleContributorDatapoint_approximateValue :: Lens.Lens' InsightRuleContributorDatapoint Core.Double
+insightRuleContributorDatapoint_approximateValue :: Lens.Lens' InsightRuleContributorDatapoint Prelude.Double
 insightRuleContributorDatapoint_approximateValue = Lens.lens (\InsightRuleContributorDatapoint' {approximateValue} -> approximateValue) (\s@InsightRuleContributorDatapoint' {} a -> s {approximateValue = a} :: InsightRuleContributorDatapoint)
 
 instance Core.FromXML InsightRuleContributorDatapoint where
   parseXML x =
     InsightRuleContributorDatapoint'
-      Core.<$> (x Core..@ "Timestamp")
-      Core.<*> (x Core..@ "ApproximateValue")
+      Prelude.<$> (x Core..@ "Timestamp")
+      Prelude.<*> (x Core..@ "ApproximateValue")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InsightRuleContributorDatapoint
 
-instance Core.NFData InsightRuleContributorDatapoint
+instance
+  Prelude.NFData
+    InsightRuleContributorDatapoint

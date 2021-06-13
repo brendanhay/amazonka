@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.HostVolumeProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on a container instance bind mount host volume.
 --
@@ -38,9 +39,9 @@ data HostVolumeProperties = HostVolumeProperties'
     --
     -- If you are using the Fargate launch type, the @sourcePath@ parameter is
     -- not supported.
-    sourcePath :: Core.Maybe Core.Text
+    sourcePath :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostVolumeProperties' with all optional fields omitted.
@@ -65,7 +66,7 @@ data HostVolumeProperties = HostVolumeProperties'
 newHostVolumeProperties ::
   HostVolumeProperties
 newHostVolumeProperties =
-  HostVolumeProperties' {sourcePath = Core.Nothing}
+  HostVolumeProperties' {sourcePath = Prelude.Nothing}
 
 -- | When the @host@ parameter is used, specify a @sourcePath@ to declare the
 -- path on the host container instance that is presented to the container.
@@ -79,7 +80,7 @@ newHostVolumeProperties =
 --
 -- If you are using the Fargate launch type, the @sourcePath@ parameter is
 -- not supported.
-hostVolumeProperties_sourcePath :: Lens.Lens' HostVolumeProperties (Core.Maybe Core.Text)
+hostVolumeProperties_sourcePath :: Lens.Lens' HostVolumeProperties (Prelude.Maybe Prelude.Text)
 hostVolumeProperties_sourcePath = Lens.lens (\HostVolumeProperties' {sourcePath} -> sourcePath) (\s@HostVolumeProperties' {} a -> s {sourcePath = a} :: HostVolumeProperties)
 
 instance Core.FromJSON HostVolumeProperties where
@@ -88,16 +89,16 @@ instance Core.FromJSON HostVolumeProperties where
       "HostVolumeProperties"
       ( \x ->
           HostVolumeProperties'
-            Core.<$> (x Core..:? "sourcePath")
+            Prelude.<$> (x Core..:? "sourcePath")
       )
 
-instance Core.Hashable HostVolumeProperties
+instance Prelude.Hashable HostVolumeProperties
 
-instance Core.NFData HostVolumeProperties
+instance Prelude.NFData HostVolumeProperties
 
 instance Core.ToJSON HostVolumeProperties where
   toJSON HostVolumeProperties' {..} =
     Core.object
-      ( Core.catMaybes
-          [("sourcePath" Core..=) Core.<$> sourcePath]
+      ( Prelude.catMaybes
+          [("sourcePath" Core..=) Prelude.<$> sourcePath]
       )

@@ -45,6 +45,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +60,9 @@ data GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
     -- For this request, you can specify an AWS resource type such as
     -- @AWS::EC2::Instance@. You can specify that the resource type is an AWS
     -- account by specifying @AWS::::Account@.
-    resourceTypes :: Core.Maybe [Core.Text]
+    resourceTypes :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetComplianceSummaryByResourceType' with all optional fields omitted.
@@ -83,7 +84,7 @@ newGetComplianceSummaryByResourceType ::
 newGetComplianceSummaryByResourceType =
   GetComplianceSummaryByResourceType'
     { resourceTypes =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specify one or more resource types to get the number of resources that
@@ -93,8 +94,8 @@ newGetComplianceSummaryByResourceType =
 -- For this request, you can specify an AWS resource type such as
 -- @AWS::EC2::Instance@. You can specify that the resource type is an AWS
 -- account by specifying @AWS::::Account@.
-getComplianceSummaryByResourceType_resourceTypes :: Lens.Lens' GetComplianceSummaryByResourceType (Core.Maybe [Core.Text])
-getComplianceSummaryByResourceType_resourceTypes = Lens.lens (\GetComplianceSummaryByResourceType' {resourceTypes} -> resourceTypes) (\s@GetComplianceSummaryByResourceType' {} a -> s {resourceTypes = a} :: GetComplianceSummaryByResourceType) Core.. Lens.mapping Lens._Coerce
+getComplianceSummaryByResourceType_resourceTypes :: Lens.Lens' GetComplianceSummaryByResourceType (Prelude.Maybe [Prelude.Text])
+getComplianceSummaryByResourceType_resourceTypes = Lens.lens (\GetComplianceSummaryByResourceType' {resourceTypes} -> resourceTypes) (\s@GetComplianceSummaryByResourceType' {} a -> s {resourceTypes = a} :: GetComplianceSummaryByResourceType) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -108,18 +109,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetComplianceSummaryByResourceTypeResponse'
-            Core.<$> ( x Core..?> "ComplianceSummariesByResourceType"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ComplianceSummariesByResourceType"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetComplianceSummaryByResourceType
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetComplianceSummaryByResourceType
 
 instance
@@ -127,14 +128,16 @@ instance
     GetComplianceSummaryByResourceType
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.GetComplianceSummaryByResourceType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -144,21 +147,23 @@ instance
   where
   toJSON GetComplianceSummaryByResourceType' {..} =
     Core.object
-      ( Core.catMaybes
-          [("ResourceTypes" Core..=) Core.<$> resourceTypes]
+      ( Prelude.catMaybes
+          [ ("ResourceTypes" Core..=)
+              Prelude.<$> resourceTypes
+          ]
       )
 
 instance
   Core.ToPath
     GetComplianceSummaryByResourceType
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetComplianceSummaryByResourceType
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
@@ -168,11 +173,11 @@ data GetComplianceSummaryByResourceTypeResponse = GetComplianceSummaryByResource
     -- noncompliant. If one or more resource types were provided with the
     -- request, the numbers are returned for each resource type. The maximum
     -- number returned is 100.
-    complianceSummariesByResourceType :: Core.Maybe [ComplianceSummaryByResourceType],
+    complianceSummariesByResourceType :: Prelude.Maybe [ComplianceSummaryByResourceType],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetComplianceSummaryByResourceTypeResponse' with all optional fields omitted.
@@ -190,13 +195,13 @@ data GetComplianceSummaryByResourceTypeResponse = GetComplianceSummaryByResource
 -- 'httpStatus', 'getComplianceSummaryByResourceTypeResponse_httpStatus' - The response's http status code.
 newGetComplianceSummaryByResourceTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetComplianceSummaryByResourceTypeResponse
 newGetComplianceSummaryByResourceTypeResponse
   pHttpStatus_ =
     GetComplianceSummaryByResourceTypeResponse'
       { complianceSummariesByResourceType =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -204,13 +209,13 @@ newGetComplianceSummaryByResourceTypeResponse
 -- noncompliant. If one or more resource types were provided with the
 -- request, the numbers are returned for each resource type. The maximum
 -- number returned is 100.
-getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse (Core.Maybe [ComplianceSummaryByResourceType])
-getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType = Lens.lens (\GetComplianceSummaryByResourceTypeResponse' {complianceSummariesByResourceType} -> complianceSummariesByResourceType) (\s@GetComplianceSummaryByResourceTypeResponse' {} a -> s {complianceSummariesByResourceType = a} :: GetComplianceSummaryByResourceTypeResponse) Core.. Lens.mapping Lens._Coerce
+getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse (Prelude.Maybe [ComplianceSummaryByResourceType])
+getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType = Lens.lens (\GetComplianceSummaryByResourceTypeResponse' {complianceSummariesByResourceType} -> complianceSummariesByResourceType) (\s@GetComplianceSummaryByResourceTypeResponse' {} a -> s {complianceSummariesByResourceType = a} :: GetComplianceSummaryByResourceTypeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getComplianceSummaryByResourceTypeResponse_httpStatus :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse Core.Int
+getComplianceSummaryByResourceTypeResponse_httpStatus :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse Prelude.Int
 getComplianceSummaryByResourceTypeResponse_httpStatus = Lens.lens (\GetComplianceSummaryByResourceTypeResponse' {httpStatus} -> httpStatus) (\s@GetComplianceSummaryByResourceTypeResponse' {} a -> s {httpStatus = a} :: GetComplianceSummaryByResourceTypeResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetComplianceSummaryByResourceTypeResponse

@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,15 +53,15 @@ import qualified Network.AWS.Response as Response
 data GetPartition = GetPartition'
   { -- | The ID of the Data Catalog where the partition in question resides. If
     -- none is provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partition resides.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the partition\'s table.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | The values that define the partition.
-    partitionValues :: [Core.Text]
+    partitionValues :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPartition' with all optional fields omitted.
@@ -80,34 +81,34 @@ data GetPartition = GetPartition'
 -- 'partitionValues', 'getPartition_partitionValues' - The values that define the partition.
 newGetPartition ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   GetPartition
 newGetPartition pDatabaseName_ pTableName_ =
   GetPartition'
-    { catalogId = Core.Nothing,
+    { catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_,
-      partitionValues = Core.mempty
+      partitionValues = Prelude.mempty
     }
 
 -- | The ID of the Data Catalog where the partition in question resides. If
 -- none is provided, the AWS account ID is used by default.
-getPartition_catalogId :: Lens.Lens' GetPartition (Core.Maybe Core.Text)
+getPartition_catalogId :: Lens.Lens' GetPartition (Prelude.Maybe Prelude.Text)
 getPartition_catalogId = Lens.lens (\GetPartition' {catalogId} -> catalogId) (\s@GetPartition' {} a -> s {catalogId = a} :: GetPartition)
 
 -- | The name of the catalog database where the partition resides.
-getPartition_databaseName :: Lens.Lens' GetPartition Core.Text
+getPartition_databaseName :: Lens.Lens' GetPartition Prelude.Text
 getPartition_databaseName = Lens.lens (\GetPartition' {databaseName} -> databaseName) (\s@GetPartition' {} a -> s {databaseName = a} :: GetPartition)
 
 -- | The name of the partition\'s table.
-getPartition_tableName :: Lens.Lens' GetPartition Core.Text
+getPartition_tableName :: Lens.Lens' GetPartition Prelude.Text
 getPartition_tableName = Lens.lens (\GetPartition' {tableName} -> tableName) (\s@GetPartition' {} a -> s {tableName = a} :: GetPartition)
 
 -- | The values that define the partition.
-getPartition_partitionValues :: Lens.Lens' GetPartition [Core.Text]
-getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> partitionValues) (\s@GetPartition' {} a -> s {partitionValues = a} :: GetPartition) Core.. Lens._Coerce
+getPartition_partitionValues :: Lens.Lens' GetPartition [Prelude.Text]
+getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> partitionValues) (\s@GetPartition' {} a -> s {partitionValues = a} :: GetPartition) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetPartition where
   type AWSResponse GetPartition = GetPartitionResponse
@@ -116,51 +117,53 @@ instance Core.AWSRequest GetPartition where
     Response.receiveJSON
       ( \s h x ->
           GetPartitionResponse'
-            Core.<$> (x Core..?> "Partition")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Partition")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPartition
+instance Prelude.Hashable GetPartition
 
-instance Core.NFData GetPartition
+instance Prelude.NFData GetPartition
 
 instance Core.ToHeaders GetPartition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetPartition" :: Core.ByteString),
+              Core.=# ("AWSGlue.GetPartition" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPartition where
   toJSON GetPartition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just
               ("PartitionValues" Core..= partitionValues)
           ]
       )
 
 instance Core.ToPath GetPartition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPartition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPartitionResponse' smart constructor.
 data GetPartitionResponse = GetPartitionResponse'
   { -- | The requested information, in the form of a @Partition@ object.
-    partition :: Core.Maybe Partition,
+    partition :: Prelude.Maybe Partition,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPartitionResponse' with all optional fields omitted.
@@ -175,20 +178,20 @@ data GetPartitionResponse = GetPartitionResponse'
 -- 'httpStatus', 'getPartitionResponse_httpStatus' - The response's http status code.
 newGetPartitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPartitionResponse
 newGetPartitionResponse pHttpStatus_ =
   GetPartitionResponse'
-    { partition = Core.Nothing,
+    { partition = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested information, in the form of a @Partition@ object.
-getPartitionResponse_partition :: Lens.Lens' GetPartitionResponse (Core.Maybe Partition)
+getPartitionResponse_partition :: Lens.Lens' GetPartitionResponse (Prelude.Maybe Partition)
 getPartitionResponse_partition = Lens.lens (\GetPartitionResponse' {partition} -> partition) (\s@GetPartitionResponse' {} a -> s {partition = a} :: GetPartitionResponse)
 
 -- | The response's http status code.
-getPartitionResponse_httpStatus :: Lens.Lens' GetPartitionResponse Core.Int
+getPartitionResponse_httpStatus :: Lens.Lens' GetPartitionResponse Prelude.Int
 getPartitionResponse_httpStatus = Lens.lens (\GetPartitionResponse' {httpStatus} -> httpStatus) (\s@GetPartitionResponse' {} a -> s {httpStatus = a} :: GetPartitionResponse)
 
-instance Core.NFData GetPartitionResponse
+instance Prelude.NFData GetPartitionResponse

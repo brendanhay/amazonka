@@ -21,19 +21,20 @@ module Network.AWS.SDB.Types.Item where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SDB.Types.Attribute
 
 -- |
 --
 -- /See:/ 'newItem' smart constructor.
 data Item = Item'
-  { alternateNameEncoding :: Core.Maybe Core.Text,
+  { alternateNameEncoding :: Prelude.Maybe Prelude.Text,
     -- | The name of the item.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A list of attributes.
     attributes :: [Attribute]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Item' with all optional fields omitted.
@@ -50,34 +51,34 @@ data Item = Item'
 -- 'attributes', 'item_attributes' - A list of attributes.
 newItem ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Item
 newItem pName_ =
   Item'
-    { alternateNameEncoding = Core.Nothing,
+    { alternateNameEncoding = Prelude.Nothing,
       name = pName_,
-      attributes = Core.mempty
+      attributes = Prelude.mempty
     }
 
 -- |
-item_alternateNameEncoding :: Lens.Lens' Item (Core.Maybe Core.Text)
+item_alternateNameEncoding :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
 item_alternateNameEncoding = Lens.lens (\Item' {alternateNameEncoding} -> alternateNameEncoding) (\s@Item' {} a -> s {alternateNameEncoding = a} :: Item)
 
 -- | The name of the item.
-item_name :: Lens.Lens' Item Core.Text
+item_name :: Lens.Lens' Item Prelude.Text
 item_name = Lens.lens (\Item' {name} -> name) (\s@Item' {} a -> s {name = a} :: Item)
 
 -- | A list of attributes.
 item_attributes :: Lens.Lens' Item [Attribute]
-item_attributes = Lens.lens (\Item' {attributes} -> attributes) (\s@Item' {} a -> s {attributes = a} :: Item) Core.. Lens._Coerce
+item_attributes = Lens.lens (\Item' {attributes} -> attributes) (\s@Item' {} a -> s {attributes = a} :: Item) Prelude.. Lens._Coerce
 
 instance Core.FromXML Item where
   parseXML x =
     Item'
-      Core.<$> (x Core..@? "AlternateNameEncoding")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (Core.parseXMLList "Attribute" x)
+      Prelude.<$> (x Core..@? "AlternateNameEncoding")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (Core.parseXMLList "Attribute" x)
 
-instance Core.Hashable Item
+instance Prelude.Hashable Item
 
-instance Core.NFData Item
+instance Prelude.NFData Item

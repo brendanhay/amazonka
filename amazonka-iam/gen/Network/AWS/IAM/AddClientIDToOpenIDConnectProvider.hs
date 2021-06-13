@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider'
   { -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
     -- resource to add the client ID to. You can get a list of OIDC provider
     -- ARNs by using the ListOpenIDConnectProviders operation.
-    openIDConnectProviderArn :: Core.Text,
+    openIDConnectProviderArn :: Prelude.Text,
     -- | The client ID (also known as audience) to add to the IAM OpenID Connect
     -- provider resource.
-    clientID :: Core.Text
+    clientID :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddClientIDToOpenIDConnectProvider' with all optional fields omitted.
@@ -75,9 +76,9 @@ data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider'
 -- provider resource.
 newAddClientIDToOpenIDConnectProvider ::
   -- | 'openIDConnectProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientID'
-  Core.Text ->
+  Prelude.Text ->
   AddClientIDToOpenIDConnectProvider
 newAddClientIDToOpenIDConnectProvider
   pOpenIDConnectProviderArn_
@@ -91,12 +92,12 @@ newAddClientIDToOpenIDConnectProvider
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- resource to add the client ID to. You can get a list of OIDC provider
 -- ARNs by using the ListOpenIDConnectProviders operation.
-addClientIDToOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' AddClientIDToOpenIDConnectProvider Core.Text
+addClientIDToOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' AddClientIDToOpenIDConnectProvider Prelude.Text
 addClientIDToOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\AddClientIDToOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@AddClientIDToOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: AddClientIDToOpenIDConnectProvider)
 
 -- | The client ID (also known as audience) to add to the IAM OpenID Connect
 -- provider resource.
-addClientIDToOpenIDConnectProvider_clientID :: Lens.Lens' AddClientIDToOpenIDConnectProvider Core.Text
+addClientIDToOpenIDConnectProvider_clientID :: Lens.Lens' AddClientIDToOpenIDConnectProvider Prelude.Text
 addClientIDToOpenIDConnectProvider_clientID = Lens.lens (\AddClientIDToOpenIDConnectProvider' {clientID} -> clientID) (\s@AddClientIDToOpenIDConnectProvider' {} a -> s {clientID = a} :: AddClientIDToOpenIDConnectProvider)
 
 instance
@@ -112,36 +113,37 @@ instance
       AddClientIDToOpenIDConnectProviderResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AddClientIDToOpenIDConnectProvider
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddClientIDToOpenIDConnectProvider
 
 instance
   Core.ToHeaders
     AddClientIDToOpenIDConnectProvider
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     AddClientIDToOpenIDConnectProvider
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AddClientIDToOpenIDConnectProvider
   where
   toQuery AddClientIDToOpenIDConnectProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "AddClientIDToOpenIDConnectProvider" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "OpenIDConnectProviderArn"
           Core.=: openIDConnectProviderArn,
         "ClientID" Core.=: clientID
@@ -151,7 +153,7 @@ instance
 data AddClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddClientIDToOpenIDConnectProviderResponse' with all optional fields omitted.
@@ -163,5 +165,5 @@ newAddClientIDToOpenIDConnectProviderResponse =
   AddClientIDToOpenIDConnectProviderResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddClientIDToOpenIDConnectProviderResponse

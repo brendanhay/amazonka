@@ -70,6 +70,7 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,13 +79,13 @@ data CreateLogGroup = CreateLogGroup'
   { -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
     -- data. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The key-value pairs to use for the tags.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the log group.
-    logGroupName :: Core.Text
+    logGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLogGroup' with all optional fields omitted.
@@ -103,27 +104,27 @@ data CreateLogGroup = CreateLogGroup'
 -- 'logGroupName', 'createLogGroup_logGroupName' - The name of the log group.
 newCreateLogGroup ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   CreateLogGroup
 newCreateLogGroup pLogGroupName_ =
   CreateLogGroup'
-    { kmsKeyId = Core.Nothing,
-      tags = Core.Nothing,
+    { kmsKeyId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       logGroupName = pLogGroupName_
     }
 
 -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
 -- data. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>.
-createLogGroup_kmsKeyId :: Lens.Lens' CreateLogGroup (Core.Maybe Core.Text)
+createLogGroup_kmsKeyId :: Lens.Lens' CreateLogGroup (Prelude.Maybe Prelude.Text)
 createLogGroup_kmsKeyId = Lens.lens (\CreateLogGroup' {kmsKeyId} -> kmsKeyId) (\s@CreateLogGroup' {} a -> s {kmsKeyId = a} :: CreateLogGroup)
 
 -- | The key-value pairs to use for the tags.
-createLogGroup_tags :: Lens.Lens' CreateLogGroup (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createLogGroup_tags = Lens.lens (\CreateLogGroup' {tags} -> tags) (\s@CreateLogGroup' {} a -> s {tags = a} :: CreateLogGroup) Core.. Lens.mapping Lens._Coerce
+createLogGroup_tags :: Lens.Lens' CreateLogGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createLogGroup_tags = Lens.lens (\CreateLogGroup' {tags} -> tags) (\s@CreateLogGroup' {} a -> s {tags = a} :: CreateLogGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the log group.
-createLogGroup_logGroupName :: Lens.Lens' CreateLogGroup Core.Text
+createLogGroup_logGroupName :: Lens.Lens' CreateLogGroup Prelude.Text
 createLogGroup_logGroupName = Lens.lens (\CreateLogGroup' {logGroupName} -> logGroupName) (\s@CreateLogGroup' {} a -> s {logGroupName = a} :: CreateLogGroup)
 
 instance Core.AWSRequest CreateLogGroup where
@@ -134,42 +135,46 @@ instance Core.AWSRequest CreateLogGroup where
   response =
     Response.receiveNull CreateLogGroupResponse'
 
-instance Core.Hashable CreateLogGroup
+instance Prelude.Hashable CreateLogGroup
 
-instance Core.NFData CreateLogGroup
+instance Prelude.NFData CreateLogGroup
 
 instance Core.ToHeaders CreateLogGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.CreateLogGroup" :: Core.ByteString),
+              Core.=# ( "Logs_20140328.CreateLogGroup" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateLogGroup where
   toJSON CreateLogGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("kmsKeyId" Core..=) Core.<$> kmsKeyId,
-            ("tags" Core..=) Core.<$> tags,
-            Core.Just ("logGroupName" Core..= logGroupName)
+      ( Prelude.catMaybes
+          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("logGroupName" Core..= logGroupName)
           ]
       )
 
 instance Core.ToPath CreateLogGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateLogGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLogGroupResponse' smart constructor.
 data CreateLogGroupResponse = CreateLogGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLogGroupResponse' with all optional fields omitted.
@@ -179,4 +184,4 @@ newCreateLogGroupResponse ::
   CreateLogGroupResponse
 newCreateLogGroupResponse = CreateLogGroupResponse'
 
-instance Core.NFData CreateLogGroupResponse
+instance Prelude.NFData CreateLogGroupResponse

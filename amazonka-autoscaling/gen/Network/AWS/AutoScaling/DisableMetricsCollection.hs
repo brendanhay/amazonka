@@ -39,6 +39,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,11 +74,11 @@ data DisableMetricsCollection = DisableMetricsCollection'
     -- -   @GroupTotalCapacity@
     --
     -- If you omit this parameter, all metrics are disabled.
-    metrics :: Core.Maybe [Core.Text],
+    metrics :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text
+    autoScalingGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableMetricsCollection' with all optional fields omitted.
@@ -120,11 +121,12 @@ data DisableMetricsCollection = DisableMetricsCollection'
 -- 'autoScalingGroupName', 'disableMetricsCollection_autoScalingGroupName' - The name of the Auto Scaling group.
 newDisableMetricsCollection ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DisableMetricsCollection
 newDisableMetricsCollection pAutoScalingGroupName_ =
   DisableMetricsCollection'
-    { metrics = Core.Nothing,
+    { metrics =
+        Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -157,11 +159,11 @@ newDisableMetricsCollection pAutoScalingGroupName_ =
 -- -   @GroupTotalCapacity@
 --
 -- If you omit this parameter, all metrics are disabled.
-disableMetricsCollection_metrics :: Lens.Lens' DisableMetricsCollection (Core.Maybe [Core.Text])
-disableMetricsCollection_metrics = Lens.lens (\DisableMetricsCollection' {metrics} -> metrics) (\s@DisableMetricsCollection' {} a -> s {metrics = a} :: DisableMetricsCollection) Core.. Lens.mapping Lens._Coerce
+disableMetricsCollection_metrics :: Lens.Lens' DisableMetricsCollection (Prelude.Maybe [Prelude.Text])
+disableMetricsCollection_metrics = Lens.lens (\DisableMetricsCollection' {metrics} -> metrics) (\s@DisableMetricsCollection' {} a -> s {metrics = a} :: DisableMetricsCollection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-disableMetricsCollection_autoScalingGroupName :: Lens.Lens' DisableMetricsCollection Core.Text
+disableMetricsCollection_autoScalingGroupName :: Lens.Lens' DisableMetricsCollection Prelude.Text
 disableMetricsCollection_autoScalingGroupName = Lens.lens (\DisableMetricsCollection' {autoScalingGroupName} -> autoScalingGroupName) (\s@DisableMetricsCollection' {} a -> s {autoScalingGroupName = a} :: DisableMetricsCollection)
 
 instance Core.AWSRequest DisableMetricsCollection where
@@ -173,25 +175,26 @@ instance Core.AWSRequest DisableMetricsCollection where
     Response.receiveNull
       DisableMetricsCollectionResponse'
 
-instance Core.Hashable DisableMetricsCollection
+instance Prelude.Hashable DisableMetricsCollection
 
-instance Core.NFData DisableMetricsCollection
+instance Prelude.NFData DisableMetricsCollection
 
 instance Core.ToHeaders DisableMetricsCollection where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisableMetricsCollection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableMetricsCollection where
   toQuery DisableMetricsCollection' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableMetricsCollection" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("DisableMetricsCollection" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "Metrics"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> metrics),
+            (Core.toQueryList "member" Prelude.<$> metrics),
         "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
@@ -199,7 +202,7 @@ instance Core.ToQuery DisableMetricsCollection where
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableMetricsCollectionResponse' with all optional fields omitted.
@@ -210,4 +213,6 @@ newDisableMetricsCollectionResponse ::
 newDisableMetricsCollectionResponse =
   DisableMetricsCollectionResponse'
 
-instance Core.NFData DisableMetricsCollectionResponse
+instance
+  Prelude.NFData
+    DisableMetricsCollectionResponse

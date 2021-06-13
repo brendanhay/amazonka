@@ -229,6 +229,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -254,7 +255,7 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- The maximum value of 1,000 fragments corresponds to more than 16 minutes
     -- of video on streams with 1-second fragments, and more than 2 1\/2 hours
     -- of video on streams with 10-second fragments.
-    maxMediaPlaylistFragmentResults :: Core.Maybe Core.Natural,
+    maxMediaPlaylistFragmentResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies which format should be used for packaging the media.
     -- Specifying the @FRAGMENTED_MP4@ container format packages the media into
     -- MP4 fragments (fMP4 or CMAF). This is the recommended packaging because
@@ -265,7 +266,7 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- typically requires 5-25 percent more bandwidth and cost than fMP4.
     --
     -- The default is @FRAGMENTED_MP4@.
-    containerFormat :: Core.Maybe ContainerFormat,
+    containerFormat :: Prelude.Maybe ContainerFormat,
     -- | Specifies when the fragment start timestamps should be included in the
     -- HLS media playlist. Typically, media players report the playhead
     -- position as a time relative to the start of the first fragment in the
@@ -279,7 +280,7 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- the timestamps will be the server start timestamps. Similarly, when
     -- HLSFragmentSelector is @PRODUCER_TIMESTAMP@, the timestamps will be the
     -- producer start timestamps.
-    displayFragmentTimestamp :: Core.Maybe HLSDisplayFragmentTimestamp,
+    displayFragmentTimestamp :: Prelude.Maybe HLSDisplayFragmentTimestamp,
     -- | Whether to retrieve live, live replay, or archived, on-demand data.
     --
     -- Features of the three types of sessions include the following:
@@ -331,17 +332,17 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- This can lead to unexpected behavior in the media player.
     --
     -- The default is @LIVE@.
-    playbackMode :: Core.Maybe HLSPlaybackMode,
+    playbackMode :: Prelude.Maybe HLSPlaybackMode,
     -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
     -- HLS master playlist URL.
     --
     -- You must specify either the @StreamName@ or the @StreamARN@.
-    streamARN :: Core.Maybe Core.Text,
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream for which to retrieve the HLS master playlist
     -- URL.
     --
     -- You must specify either the @StreamName@ or the @StreamARN@.
-    streamName :: Core.Maybe Core.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The time in seconds until the requested session expires. This value can
     -- be between 300 (5 minutes) and 43200 (12 hours).
     --
@@ -350,7 +351,7 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- @GetTSFragment@ can be made for that session.
     --
     -- The default is 300 (5 minutes).
-    expires :: Core.Maybe Core.Natural,
+    expires :: Prelude.Maybe Prelude.Natural,
     -- | Specifies when flags marking discontinuities between fragments are added
     -- to the media playlists.
     --
@@ -384,7 +385,7 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     --
     -- The default is @ALWAYS@ when HLSFragmentSelector is set to
     -- @SERVER_TIMESTAMP@, and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@.
-    discontinuityMode :: Core.Maybe HLSDiscontinuityMode,
+    discontinuityMode :: Prelude.Maybe HLSDiscontinuityMode,
     -- | The time range of the requested fragment and the source of the
     -- timestamps.
     --
@@ -394,9 +395,9 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
     -- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
     -- be set.
-    hLSFragmentSelector :: Core.Maybe HLSFragmentSelector
+    hLSFragmentSelector :: Prelude.Maybe HLSFragmentSelector
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHLSStreamingSessionURL' with all optional fields omitted.
@@ -571,15 +572,15 @@ newGetHLSStreamingSessionURL ::
 newGetHLSStreamingSessionURL =
   GetHLSStreamingSessionURL'
     { maxMediaPlaylistFragmentResults =
-        Core.Nothing,
-      containerFormat = Core.Nothing,
-      displayFragmentTimestamp = Core.Nothing,
-      playbackMode = Core.Nothing,
-      streamARN = Core.Nothing,
-      streamName = Core.Nothing,
-      expires = Core.Nothing,
-      discontinuityMode = Core.Nothing,
-      hLSFragmentSelector = Core.Nothing
+        Prelude.Nothing,
+      containerFormat = Prelude.Nothing,
+      displayFragmentTimestamp = Prelude.Nothing,
+      playbackMode = Prelude.Nothing,
+      streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      expires = Prelude.Nothing,
+      discontinuityMode = Prelude.Nothing,
+      hLSFragmentSelector = Prelude.Nothing
     }
 
 -- | The maximum number of fragments that are returned in the HLS media
@@ -602,7 +603,7 @@ newGetHLSStreamingSessionURL =
 -- The maximum value of 1,000 fragments corresponds to more than 16 minutes
 -- of video on streams with 1-second fragments, and more than 2 1\/2 hours
 -- of video on streams with 10-second fragments.
-getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Core.Natural)
+getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Natural)
 getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults = Lens.lens (\GetHLSStreamingSessionURL' {maxMediaPlaylistFragmentResults} -> maxMediaPlaylistFragmentResults) (\s@GetHLSStreamingSessionURL' {} a -> s {maxMediaPlaylistFragmentResults = a} :: GetHLSStreamingSessionURL)
 
 -- | Specifies which format should be used for packaging the media.
@@ -615,7 +616,7 @@ getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults = Lens.lens (\GetHLSSt
 -- typically requires 5-25 percent more bandwidth and cost than fMP4.
 --
 -- The default is @FRAGMENTED_MP4@.
-getHLSStreamingSessionURL_containerFormat :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe ContainerFormat)
+getHLSStreamingSessionURL_containerFormat :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe ContainerFormat)
 getHLSStreamingSessionURL_containerFormat = Lens.lens (\GetHLSStreamingSessionURL' {containerFormat} -> containerFormat) (\s@GetHLSStreamingSessionURL' {} a -> s {containerFormat = a} :: GetHLSStreamingSessionURL)
 
 -- | Specifies when the fragment start timestamps should be included in the
@@ -631,7 +632,7 @@ getHLSStreamingSessionURL_containerFormat = Lens.lens (\GetHLSStreamingSessionUR
 -- the timestamps will be the server start timestamps. Similarly, when
 -- HLSFragmentSelector is @PRODUCER_TIMESTAMP@, the timestamps will be the
 -- producer start timestamps.
-getHLSStreamingSessionURL_displayFragmentTimestamp :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe HLSDisplayFragmentTimestamp)
+getHLSStreamingSessionURL_displayFragmentTimestamp :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSDisplayFragmentTimestamp)
 getHLSStreamingSessionURL_displayFragmentTimestamp = Lens.lens (\GetHLSStreamingSessionURL' {displayFragmentTimestamp} -> displayFragmentTimestamp) (\s@GetHLSStreamingSessionURL' {} a -> s {displayFragmentTimestamp = a} :: GetHLSStreamingSessionURL)
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
@@ -685,21 +686,21 @@ getHLSStreamingSessionURL_displayFragmentTimestamp = Lens.lens (\GetHLSStreaming
 -- This can lead to unexpected behavior in the media player.
 --
 -- The default is @LIVE@.
-getHLSStreamingSessionURL_playbackMode :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe HLSPlaybackMode)
+getHLSStreamingSessionURL_playbackMode :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSPlaybackMode)
 getHLSStreamingSessionURL_playbackMode = Lens.lens (\GetHLSStreamingSessionURL' {playbackMode} -> playbackMode) (\s@GetHLSStreamingSessionURL' {} a -> s {playbackMode = a} :: GetHLSStreamingSessionURL)
 
 -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
 -- HLS master playlist URL.
 --
 -- You must specify either the @StreamName@ or the @StreamARN@.
-getHLSStreamingSessionURL_streamARN :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Core.Text)
+getHLSStreamingSessionURL_streamARN :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Text)
 getHLSStreamingSessionURL_streamARN = Lens.lens (\GetHLSStreamingSessionURL' {streamARN} -> streamARN) (\s@GetHLSStreamingSessionURL' {} a -> s {streamARN = a} :: GetHLSStreamingSessionURL)
 
 -- | The name of the stream for which to retrieve the HLS master playlist
 -- URL.
 --
 -- You must specify either the @StreamName@ or the @StreamARN@.
-getHLSStreamingSessionURL_streamName :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Core.Text)
+getHLSStreamingSessionURL_streamName :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Text)
 getHLSStreamingSessionURL_streamName = Lens.lens (\GetHLSStreamingSessionURL' {streamName} -> streamName) (\s@GetHLSStreamingSessionURL' {} a -> s {streamName = a} :: GetHLSStreamingSessionURL)
 
 -- | The time in seconds until the requested session expires. This value can
@@ -710,7 +711,7 @@ getHLSStreamingSessionURL_streamName = Lens.lens (\GetHLSStreamingSessionURL' {s
 -- @GetTSFragment@ can be made for that session.
 --
 -- The default is 300 (5 minutes).
-getHLSStreamingSessionURL_expires :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe Core.Natural)
+getHLSStreamingSessionURL_expires :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Natural)
 getHLSStreamingSessionURL_expires = Lens.lens (\GetHLSStreamingSessionURL' {expires} -> expires) (\s@GetHLSStreamingSessionURL' {} a -> s {expires = a} :: GetHLSStreamingSessionURL)
 
 -- | Specifies when flags marking discontinuities between fragments are added
@@ -746,7 +747,7 @@ getHLSStreamingSessionURL_expires = Lens.lens (\GetHLSStreamingSessionURL' {expi
 --
 -- The default is @ALWAYS@ when HLSFragmentSelector is set to
 -- @SERVER_TIMESTAMP@, and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@.
-getHLSStreamingSessionURL_discontinuityMode :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe HLSDiscontinuityMode)
+getHLSStreamingSessionURL_discontinuityMode :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSDiscontinuityMode)
 getHLSStreamingSessionURL_discontinuityMode = Lens.lens (\GetHLSStreamingSessionURL' {discontinuityMode} -> discontinuityMode) (\s@GetHLSStreamingSessionURL' {} a -> s {discontinuityMode = a} :: GetHLSStreamingSessionURL)
 
 -- | The time range of the requested fragment and the source of the
@@ -758,7 +759,7 @@ getHLSStreamingSessionURL_discontinuityMode = Lens.lens (\GetHLSStreamingSession
 -- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
 -- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
 -- be set.
-getHLSStreamingSessionURL_hLSFragmentSelector :: Lens.Lens' GetHLSStreamingSessionURL (Core.Maybe HLSFragmentSelector)
+getHLSStreamingSessionURL_hLSFragmentSelector :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSFragmentSelector)
 getHLSStreamingSessionURL_hLSFragmentSelector = Lens.lens (\GetHLSStreamingSessionURL' {hLSFragmentSelector} -> hLSFragmentSelector) (\s@GetHLSStreamingSessionURL' {} a -> s {hLSFragmentSelector = a} :: GetHLSStreamingSessionURL)
 
 instance Core.AWSRequest GetHLSStreamingSessionURL where
@@ -770,52 +771,53 @@ instance Core.AWSRequest GetHLSStreamingSessionURL where
     Response.receiveJSON
       ( \s h x ->
           GetHLSStreamingSessionURLResponse'
-            Core.<$> (x Core..?> "HLSStreamingSessionURL")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HLSStreamingSessionURL")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetHLSStreamingSessionURL
+instance Prelude.Hashable GetHLSStreamingSessionURL
 
-instance Core.NFData GetHLSStreamingSessionURL
+instance Prelude.NFData GetHLSStreamingSessionURL
 
 instance Core.ToHeaders GetHLSStreamingSessionURL where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetHLSStreamingSessionURL where
   toJSON GetHLSStreamingSessionURL' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MaxMediaPlaylistFragmentResults" Core..=)
-              Core.<$> maxMediaPlaylistFragmentResults,
-            ("ContainerFormat" Core..=) Core.<$> containerFormat,
+              Prelude.<$> maxMediaPlaylistFragmentResults,
+            ("ContainerFormat" Core..=)
+              Prelude.<$> containerFormat,
             ("DisplayFragmentTimestamp" Core..=)
-              Core.<$> displayFragmentTimestamp,
-            ("PlaybackMode" Core..=) Core.<$> playbackMode,
-            ("StreamARN" Core..=) Core.<$> streamARN,
-            ("StreamName" Core..=) Core.<$> streamName,
-            ("Expires" Core..=) Core.<$> expires,
+              Prelude.<$> displayFragmentTimestamp,
+            ("PlaybackMode" Core..=) Prelude.<$> playbackMode,
+            ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("StreamName" Core..=) Prelude.<$> streamName,
+            ("Expires" Core..=) Prelude.<$> expires,
             ("DiscontinuityMode" Core..=)
-              Core.<$> discontinuityMode,
+              Prelude.<$> discontinuityMode,
             ("HLSFragmentSelector" Core..=)
-              Core.<$> hLSFragmentSelector
+              Prelude.<$> hLSFragmentSelector
           ]
       )
 
 instance Core.ToPath GetHLSStreamingSessionURL where
-  toPath = Core.const "/getHLSStreamingSessionURL"
+  toPath = Prelude.const "/getHLSStreamingSessionURL"
 
 instance Core.ToQuery GetHLSStreamingSessionURL where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetHLSStreamingSessionURLResponse' smart constructor.
 data GetHLSStreamingSessionURLResponse = GetHLSStreamingSessionURLResponse'
   { -- | The URL (containing the session token) that a media player can use to
     -- retrieve the HLS master playlist.
-    hLSStreamingSessionURL :: Core.Maybe Core.Text,
+    hLSStreamingSessionURL :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetHLSStreamingSessionURLResponse' with all optional fields omitted.
@@ -831,24 +833,24 @@ data GetHLSStreamingSessionURLResponse = GetHLSStreamingSessionURLResponse'
 -- 'httpStatus', 'getHLSStreamingSessionURLResponse_httpStatus' - The response's http status code.
 newGetHLSStreamingSessionURLResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetHLSStreamingSessionURLResponse
 newGetHLSStreamingSessionURLResponse pHttpStatus_ =
   GetHLSStreamingSessionURLResponse'
     { hLSStreamingSessionURL =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The URL (containing the session token) that a media player can use to
 -- retrieve the HLS master playlist.
-getHLSStreamingSessionURLResponse_hLSStreamingSessionURL :: Lens.Lens' GetHLSStreamingSessionURLResponse (Core.Maybe Core.Text)
+getHLSStreamingSessionURLResponse_hLSStreamingSessionURL :: Lens.Lens' GetHLSStreamingSessionURLResponse (Prelude.Maybe Prelude.Text)
 getHLSStreamingSessionURLResponse_hLSStreamingSessionURL = Lens.lens (\GetHLSStreamingSessionURLResponse' {hLSStreamingSessionURL} -> hLSStreamingSessionURL) (\s@GetHLSStreamingSessionURLResponse' {} a -> s {hLSStreamingSessionURL = a} :: GetHLSStreamingSessionURLResponse)
 
 -- | The response's http status code.
-getHLSStreamingSessionURLResponse_httpStatus :: Lens.Lens' GetHLSStreamingSessionURLResponse Core.Int
+getHLSStreamingSessionURLResponse_httpStatus :: Lens.Lens' GetHLSStreamingSessionURLResponse Prelude.Int
 getHLSStreamingSessionURLResponse_httpStatus = Lens.lens (\GetHLSStreamingSessionURLResponse' {httpStatus} -> httpStatus) (\s@GetHLSStreamingSessionURLResponse' {} a -> s {httpStatus = a} :: GetHLSStreamingSessionURLResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetHLSStreamingSessionURLResponse

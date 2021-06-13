@@ -46,19 +46,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListPipelines' smart constructor.
 data ListPipelines = ListPipelines'
   { -- | The token for the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in this request.
     --
     -- The default value is 100.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPipelines' with all optional fields omitted.
@@ -77,39 +78,39 @@ newListPipelines ::
   ListPipelines
 newListPipelines =
   ListPipelines'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token for the next set of results.
-listPipelines_nextToken :: Lens.Lens' ListPipelines (Core.Maybe Core.Text)
+listPipelines_nextToken :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
 listPipelines_nextToken = Lens.lens (\ListPipelines' {nextToken} -> nextToken) (\s@ListPipelines' {} a -> s {nextToken = a} :: ListPipelines)
 
 -- | The maximum number of results to return in this request.
 --
 -- The default value is 100.
-listPipelines_maxResults :: Lens.Lens' ListPipelines (Core.Maybe Core.Natural)
+listPipelines_maxResults :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Natural)
 listPipelines_maxResults = Lens.lens (\ListPipelines' {maxResults} -> maxResults) (\s@ListPipelines' {} a -> s {maxResults = a} :: ListPipelines)
 
 instance Core.AWSPager ListPipelines where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPipelinesResponse_nextToken Core.. Lens._Just
+            Lens.^? listPipelinesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPipelinesResponse_pipelineSummaries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPipelines_nextToken
+          Prelude.& listPipelines_nextToken
           Lens..~ rs
-          Lens.^? listPipelinesResponse_nextToken Core.. Lens._Just
+          Lens.^? listPipelinesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipelines where
   type
@@ -120,24 +121,26 @@ instance Core.AWSRequest ListPipelines where
     Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "pipelineSummaries" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "pipelineSummaries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPipelines
+instance Prelude.Hashable ListPipelines
 
-instance Core.NFData ListPipelines
+instance Prelude.NFData ListPipelines
 
 instance Core.ToHeaders ListPipelines where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListPipelines where
-  toPath = Core.const "/pipelines"
+  toPath = Prelude.const "/pipelines"
 
 instance Core.ToQuery ListPipelines where
   toQuery ListPipelines' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -146,13 +149,13 @@ instance Core.ToQuery ListPipelines where
 data ListPipelinesResponse = ListPipelinesResponse'
   { -- | The token to retrieve the next set of results, or @null@ if there are no
     -- more results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @PipelineSummary@ objects.
-    pipelineSummaries :: Core.Maybe [PipelineSummary],
+    pipelineSummaries :: Prelude.Maybe [PipelineSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPipelinesResponse' with all optional fields omitted.
@@ -170,26 +173,26 @@ data ListPipelinesResponse = ListPipelinesResponse'
 -- 'httpStatus', 'listPipelinesResponse_httpStatus' - The response's http status code.
 newListPipelinesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPipelinesResponse
 newListPipelinesResponse pHttpStatus_ =
   ListPipelinesResponse'
-    { nextToken = Core.Nothing,
-      pipelineSummaries = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      pipelineSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
-listPipelinesResponse_nextToken :: Lens.Lens' ListPipelinesResponse (Core.Maybe Core.Text)
+listPipelinesResponse_nextToken :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Text)
 listPipelinesResponse_nextToken = Lens.lens (\ListPipelinesResponse' {nextToken} -> nextToken) (\s@ListPipelinesResponse' {} a -> s {nextToken = a} :: ListPipelinesResponse)
 
 -- | A list of @PipelineSummary@ objects.
-listPipelinesResponse_pipelineSummaries :: Lens.Lens' ListPipelinesResponse (Core.Maybe [PipelineSummary])
-listPipelinesResponse_pipelineSummaries = Lens.lens (\ListPipelinesResponse' {pipelineSummaries} -> pipelineSummaries) (\s@ListPipelinesResponse' {} a -> s {pipelineSummaries = a} :: ListPipelinesResponse) Core.. Lens.mapping Lens._Coerce
+listPipelinesResponse_pipelineSummaries :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe [PipelineSummary])
+listPipelinesResponse_pipelineSummaries = Lens.lens (\ListPipelinesResponse' {pipelineSummaries} -> pipelineSummaries) (\s@ListPipelinesResponse' {} a -> s {pipelineSummaries = a} :: ListPipelinesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Core.Int
+listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Prelude.Int
 listPipelinesResponse_httpStatus = Lens.lens (\ListPipelinesResponse' {httpStatus} -> httpStatus) (\s@ListPipelinesResponse' {} a -> s {httpStatus = a} :: ListPipelinesResponse)
 
-instance Core.NFData ListPipelinesResponse
+instance Prelude.NFData ListPipelinesResponse

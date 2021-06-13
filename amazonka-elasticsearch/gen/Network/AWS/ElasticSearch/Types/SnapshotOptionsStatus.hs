@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import Network.AWS.ElasticSearch.Types.SnapshotOptions
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of a daily automated snapshot.
 --
@@ -34,7 +35,7 @@ data SnapshotOptionsStatus = SnapshotOptionsStatus'
     -- | Specifies the status of a daily automated snapshot.
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SnapshotOptionsStatus' with all optional fields omitted.
@@ -75,9 +76,10 @@ instance Core.FromJSON SnapshotOptionsStatus where
       "SnapshotOptionsStatus"
       ( \x ->
           SnapshotOptionsStatus'
-            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..: "Options")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable SnapshotOptionsStatus
+instance Prelude.Hashable SnapshotOptionsStatus
 
-instance Core.NFData SnapshotOptionsStatus
+instance Prelude.NFData SnapshotOptionsStatus

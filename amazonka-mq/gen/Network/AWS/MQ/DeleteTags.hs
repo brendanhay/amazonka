@@ -39,17 +39,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
   { -- | An array of tag keys to delete
-    tagKeys :: [Core.Text],
+    tagKeys :: [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the resource tag.
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTags' with all optional fields omitted.
@@ -64,20 +65,20 @@ data DeleteTags = DeleteTags'
 -- 'resourceArn', 'deleteTags_resourceArn' - The Amazon Resource Name (ARN) of the resource tag.
 newDeleteTags ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTags
 newDeleteTags pResourceArn_ =
   DeleteTags'
-    { tagKeys = Core.mempty,
+    { tagKeys = Prelude.mempty,
       resourceArn = pResourceArn_
     }
 
 -- | An array of tag keys to delete
-deleteTags_tagKeys :: Lens.Lens' DeleteTags [Core.Text]
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Core.. Lens._Coerce
+deleteTags_tagKeys :: Lens.Lens' DeleteTags [Prelude.Text]
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the resource tag.
-deleteTags_resourceArn :: Lens.Lens' DeleteTags Core.Text
+deleteTags_resourceArn :: Lens.Lens' DeleteTags Prelude.Text
 deleteTags_resourceArn = Lens.lens (\DeleteTags' {resourceArn} -> resourceArn) (\s@DeleteTags' {} a -> s {resourceArn = a} :: DeleteTags)
 
 instance Core.AWSRequest DeleteTags where
@@ -85,33 +86,36 @@ instance Core.AWSRequest DeleteTags where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteTagsResponse'
 
-instance Core.Hashable DeleteTags
+instance Prelude.Hashable DeleteTags
 
-instance Core.NFData DeleteTags
+instance Prelude.NFData DeleteTags
 
 instance Core.ToHeaders DeleteTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteTags where
   toPath DeleteTags' {..} =
-    Core.mconcat ["/v1/tags/", Core.toBS resourceArn]
+    Prelude.mconcat
+      ["/v1/tags/", Core.toBS resourceArn]
 
 instance Core.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["tagKeys" Core.=: Core.toQueryList "member" tagKeys]
 
 -- | /See:/ 'newDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsResponse' with all optional fields omitted.
@@ -121,4 +125,4 @@ newDeleteTagsResponse ::
   DeleteTagsResponse
 newDeleteTagsResponse = DeleteTagsResponse'
 
-instance Core.NFData DeleteTagsResponse
+instance Prelude.NFData DeleteTagsResponse

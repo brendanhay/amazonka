@@ -24,6 +24,7 @@ import Network.AWS.CloudFront.Types.OriginRequestPolicyHeadersConfig
 import Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringsConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An origin request policy configuration.
 --
@@ -49,9 +50,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOriginRequestPolicyConfig' smart constructor.
 data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
   { -- | A comment to describe the origin request policy.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | A unique name to identify the origin request policy.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The HTTP headers to include in origin requests. These can include
     -- headers from viewer requests and additional headers added by CloudFront.
     headersConfig :: OriginRequestPolicyHeadersConfig,
@@ -61,7 +62,7 @@ data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
     -- requests.
     queryStringsConfig :: OriginRequestPolicyQueryStringsConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicyConfig' with all optional fields omitted.
@@ -84,7 +85,7 @@ data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
 -- requests.
 newOriginRequestPolicyConfig ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'headersConfig'
   OriginRequestPolicyHeadersConfig ->
   -- | 'cookiesConfig'
@@ -98,7 +99,8 @@ newOriginRequestPolicyConfig
   pCookiesConfig_
   pQueryStringsConfig_ =
     OriginRequestPolicyConfig'
-      { comment = Core.Nothing,
+      { comment =
+          Prelude.Nothing,
         name = pName_,
         headersConfig = pHeadersConfig_,
         cookiesConfig = pCookiesConfig_,
@@ -106,11 +108,11 @@ newOriginRequestPolicyConfig
       }
 
 -- | A comment to describe the origin request policy.
-originRequestPolicyConfig_comment :: Lens.Lens' OriginRequestPolicyConfig (Core.Maybe Core.Text)
+originRequestPolicyConfig_comment :: Lens.Lens' OriginRequestPolicyConfig (Prelude.Maybe Prelude.Text)
 originRequestPolicyConfig_comment = Lens.lens (\OriginRequestPolicyConfig' {comment} -> comment) (\s@OriginRequestPolicyConfig' {} a -> s {comment = a} :: OriginRequestPolicyConfig)
 
 -- | A unique name to identify the origin request policy.
-originRequestPolicyConfig_name :: Lens.Lens' OriginRequestPolicyConfig Core.Text
+originRequestPolicyConfig_name :: Lens.Lens' OriginRequestPolicyConfig Prelude.Text
 originRequestPolicyConfig_name = Lens.lens (\OriginRequestPolicyConfig' {name} -> name) (\s@OriginRequestPolicyConfig' {} a -> s {name = a} :: OriginRequestPolicyConfig)
 
 -- | The HTTP headers to include in origin requests. These can include
@@ -130,19 +132,19 @@ originRequestPolicyConfig_queryStringsConfig = Lens.lens (\OriginRequestPolicyCo
 instance Core.FromXML OriginRequestPolicyConfig where
   parseXML x =
     OriginRequestPolicyConfig'
-      Core.<$> (x Core..@? "Comment")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "HeadersConfig")
-      Core.<*> (x Core..@ "CookiesConfig")
-      Core.<*> (x Core..@ "QueryStringsConfig")
+      Prelude.<$> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "HeadersConfig")
+      Prelude.<*> (x Core..@ "CookiesConfig")
+      Prelude.<*> (x Core..@ "QueryStringsConfig")
 
-instance Core.Hashable OriginRequestPolicyConfig
+instance Prelude.Hashable OriginRequestPolicyConfig
 
-instance Core.NFData OriginRequestPolicyConfig
+instance Prelude.NFData OriginRequestPolicyConfig
 
 instance Core.ToXML OriginRequestPolicyConfig where
   toXML OriginRequestPolicyConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Comment" Core.@= comment,
         "Name" Core.@= name,
         "HeadersConfig" Core.@= headersConfig,

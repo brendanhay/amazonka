@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteInstanceSnapshot' smart constructor.
 data DeleteInstanceSnapshot = DeleteInstanceSnapshot'
   { -- | The name of the snapshot to delete.
-    instanceSnapshotName :: Core.Text
+    instanceSnapshotName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceSnapshot' with all optional fields omitted.
@@ -68,7 +69,7 @@ data DeleteInstanceSnapshot = DeleteInstanceSnapshot'
 -- 'instanceSnapshotName', 'deleteInstanceSnapshot_instanceSnapshotName' - The name of the snapshot to delete.
 newDeleteInstanceSnapshot ::
   -- | 'instanceSnapshotName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInstanceSnapshot
 newDeleteInstanceSnapshot pInstanceSnapshotName_ =
   DeleteInstanceSnapshot'
@@ -77,7 +78,7 @@ newDeleteInstanceSnapshot pInstanceSnapshotName_ =
     }
 
 -- | The name of the snapshot to delete.
-deleteInstanceSnapshot_instanceSnapshotName :: Lens.Lens' DeleteInstanceSnapshot Core.Text
+deleteInstanceSnapshot_instanceSnapshotName :: Lens.Lens' DeleteInstanceSnapshot Prelude.Text
 deleteInstanceSnapshot_instanceSnapshotName = Lens.lens (\DeleteInstanceSnapshot' {instanceSnapshotName} -> instanceSnapshotName) (\s@DeleteInstanceSnapshot' {} a -> s {instanceSnapshotName = a} :: DeleteInstanceSnapshot)
 
 instance Core.AWSRequest DeleteInstanceSnapshot where
@@ -89,32 +90,34 @@ instance Core.AWSRequest DeleteInstanceSnapshot where
     Response.receiveJSON
       ( \s h x ->
           DeleteInstanceSnapshotResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteInstanceSnapshot
+instance Prelude.Hashable DeleteInstanceSnapshot
 
-instance Core.NFData DeleteInstanceSnapshot
+instance Prelude.NFData DeleteInstanceSnapshot
 
 instance Core.ToHeaders DeleteInstanceSnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.DeleteInstanceSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteInstanceSnapshot where
   toJSON DeleteInstanceSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "instanceSnapshotName"
                   Core..= instanceSnapshotName
               )
@@ -122,21 +125,21 @@ instance Core.ToJSON DeleteInstanceSnapshot where
       )
 
 instance Core.ToPath DeleteInstanceSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInstanceSnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInstanceSnapshotResponse' smart constructor.
 data DeleteInstanceSnapshotResponse = DeleteInstanceSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceSnapshotResponse' with all optional fields omitted.
@@ -153,23 +156,25 @@ data DeleteInstanceSnapshotResponse = DeleteInstanceSnapshotResponse'
 -- 'httpStatus', 'deleteInstanceSnapshotResponse_httpStatus' - The response's http status code.
 newDeleteInstanceSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteInstanceSnapshotResponse
 newDeleteInstanceSnapshotResponse pHttpStatus_ =
   DeleteInstanceSnapshotResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteInstanceSnapshotResponse_operations :: Lens.Lens' DeleteInstanceSnapshotResponse (Core.Maybe [Operation])
-deleteInstanceSnapshotResponse_operations = Lens.lens (\DeleteInstanceSnapshotResponse' {operations} -> operations) (\s@DeleteInstanceSnapshotResponse' {} a -> s {operations = a} :: DeleteInstanceSnapshotResponse) Core.. Lens.mapping Lens._Coerce
+deleteInstanceSnapshotResponse_operations :: Lens.Lens' DeleteInstanceSnapshotResponse (Prelude.Maybe [Operation])
+deleteInstanceSnapshotResponse_operations = Lens.lens (\DeleteInstanceSnapshotResponse' {operations} -> operations) (\s@DeleteInstanceSnapshotResponse' {} a -> s {operations = a} :: DeleteInstanceSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteInstanceSnapshotResponse_httpStatus :: Lens.Lens' DeleteInstanceSnapshotResponse Core.Int
+deleteInstanceSnapshotResponse_httpStatus :: Lens.Lens' DeleteInstanceSnapshotResponse Prelude.Int
 deleteInstanceSnapshotResponse_httpStatus = Lens.lens (\DeleteInstanceSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteInstanceSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteInstanceSnapshotResponse)
 
-instance Core.NFData DeleteInstanceSnapshotResponse
+instance
+  Prelude.NFData
+    DeleteInstanceSnapshotResponse

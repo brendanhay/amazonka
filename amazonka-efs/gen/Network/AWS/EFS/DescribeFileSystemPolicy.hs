@@ -45,15 +45,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeFileSystemPolicy' smart constructor.
 data DescribeFileSystemPolicy = DescribeFileSystemPolicy'
   { -- | Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
-    fileSystemId :: Core.Text
+    fileSystemId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeFileSystemPolicy' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DescribeFileSystemPolicy = DescribeFileSystemPolicy'
 -- 'fileSystemId', 'describeFileSystemPolicy_fileSystemId' - Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
 newDescribeFileSystemPolicy ::
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeFileSystemPolicy
 newDescribeFileSystemPolicy pFileSystemId_ =
   DescribeFileSystemPolicy'
@@ -75,7 +76,7 @@ newDescribeFileSystemPolicy pFileSystemId_ =
     }
 
 -- | Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
-describeFileSystemPolicy_fileSystemId :: Lens.Lens' DescribeFileSystemPolicy Core.Text
+describeFileSystemPolicy_fileSystemId :: Lens.Lens' DescribeFileSystemPolicy Prelude.Text
 describeFileSystemPolicy_fileSystemId = Lens.lens (\DescribeFileSystemPolicy' {fileSystemId} -> fileSystemId) (\s@DescribeFileSystemPolicy' {} a -> s {fileSystemId = a} :: DescribeFileSystemPolicy)
 
 instance Core.AWSRequest DescribeFileSystemPolicy where
@@ -87,20 +88,20 @@ instance Core.AWSRequest DescribeFileSystemPolicy where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable DescribeFileSystemPolicy
+instance Prelude.Hashable DescribeFileSystemPolicy
 
-instance Core.NFData DescribeFileSystemPolicy
+instance Prelude.NFData DescribeFileSystemPolicy
 
 instance Core.ToHeaders DescribeFileSystemPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeFileSystemPolicy where
   toPath DescribeFileSystemPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-02-01/file-systems/",
         Core.toBS fileSystemId,
         "/policy"
       ]
 
 instance Core.ToQuery DescribeFileSystemPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

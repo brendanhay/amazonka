@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.AwsCredentials where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Temporary access credentials used for uploading game build files to
 -- Amazon GameLift. They are valid for a limited time. If they expire
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAwsCredentials' smart constructor.
 data AwsCredentials = AwsCredentials'
   { -- | Temporary secret key allowing access to the Amazon GameLift S3 account.
-    secretAccessKey :: Core.Maybe Core.Text,
+    secretAccessKey :: Prelude.Maybe Prelude.Text,
     -- | Temporary key allowing access to the Amazon GameLift S3 account.
-    accessKeyId :: Core.Maybe Core.Text,
+    accessKeyId :: Prelude.Maybe Prelude.Text,
     -- | Token used to associate a specific build ID with the files uploaded
     -- using these credentials.
-    sessionToken :: Core.Maybe Core.Text
+    sessionToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AwsCredentials' with all optional fields omitted.
@@ -57,22 +58,22 @@ newAwsCredentials ::
   AwsCredentials
 newAwsCredentials =
   AwsCredentials'
-    { secretAccessKey = Core.Nothing,
-      accessKeyId = Core.Nothing,
-      sessionToken = Core.Nothing
+    { secretAccessKey = Prelude.Nothing,
+      accessKeyId = Prelude.Nothing,
+      sessionToken = Prelude.Nothing
     }
 
 -- | Temporary secret key allowing access to the Amazon GameLift S3 account.
-awsCredentials_secretAccessKey :: Lens.Lens' AwsCredentials (Core.Maybe Core.Text)
+awsCredentials_secretAccessKey :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
 awsCredentials_secretAccessKey = Lens.lens (\AwsCredentials' {secretAccessKey} -> secretAccessKey) (\s@AwsCredentials' {} a -> s {secretAccessKey = a} :: AwsCredentials)
 
 -- | Temporary key allowing access to the Amazon GameLift S3 account.
-awsCredentials_accessKeyId :: Lens.Lens' AwsCredentials (Core.Maybe Core.Text)
+awsCredentials_accessKeyId :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
 awsCredentials_accessKeyId = Lens.lens (\AwsCredentials' {accessKeyId} -> accessKeyId) (\s@AwsCredentials' {} a -> s {accessKeyId = a} :: AwsCredentials)
 
 -- | Token used to associate a specific build ID with the files uploaded
 -- using these credentials.
-awsCredentials_sessionToken :: Lens.Lens' AwsCredentials (Core.Maybe Core.Text)
+awsCredentials_sessionToken :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
 awsCredentials_sessionToken = Lens.lens (\AwsCredentials' {sessionToken} -> sessionToken) (\s@AwsCredentials' {} a -> s {sessionToken = a} :: AwsCredentials)
 
 instance Core.FromJSON AwsCredentials where
@@ -81,11 +82,11 @@ instance Core.FromJSON AwsCredentials where
       "AwsCredentials"
       ( \x ->
           AwsCredentials'
-            Core.<$> (x Core..:? "SecretAccessKey")
-            Core.<*> (x Core..:? "AccessKeyId")
-            Core.<*> (x Core..:? "SessionToken")
+            Prelude.<$> (x Core..:? "SecretAccessKey")
+            Prelude.<*> (x Core..:? "AccessKeyId")
+            Prelude.<*> (x Core..:? "SessionToken")
       )
 
-instance Core.Hashable AwsCredentials
+instance Prelude.Hashable AwsCredentials
 
-instance Core.NFData AwsCredentials
+instance Prelude.NFData AwsCredentials

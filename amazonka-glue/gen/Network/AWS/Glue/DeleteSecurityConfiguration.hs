@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSecurityConfiguration' smart constructor.
 data DeleteSecurityConfiguration = DeleteSecurityConfiguration'
   { -- | The name of the security configuration to delete.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSecurityConfiguration' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteSecurityConfiguration = DeleteSecurityConfiguration'
 -- 'name', 'deleteSecurityConfiguration_name' - The name of the security configuration to delete.
 newDeleteSecurityConfiguration ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSecurityConfiguration
 newDeleteSecurityConfiguration pName_ =
   DeleteSecurityConfiguration' {name = pName_}
 
 -- | The name of the security configuration to delete.
-deleteSecurityConfiguration_name :: Lens.Lens' DeleteSecurityConfiguration Core.Text
+deleteSecurityConfiguration_name :: Lens.Lens' DeleteSecurityConfiguration Prelude.Text
 deleteSecurityConfiguration_name = Lens.lens (\DeleteSecurityConfiguration' {name} -> name) (\s@DeleteSecurityConfiguration' {} a -> s {name = a} :: DeleteSecurityConfiguration)
 
 instance Core.AWSRequest DeleteSecurityConfiguration where
@@ -80,43 +81,47 @@ instance Core.AWSRequest DeleteSecurityConfiguration where
     Response.receiveEmpty
       ( \s h x ->
           DeleteSecurityConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteSecurityConfiguration
+instance Prelude.Hashable DeleteSecurityConfiguration
 
-instance Core.NFData DeleteSecurityConfiguration
+instance Prelude.NFData DeleteSecurityConfiguration
 
 instance Core.ToHeaders DeleteSecurityConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.DeleteSecurityConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteSecurityConfiguration where
   toJSON DeleteSecurityConfiguration' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteSecurityConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSecurityConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSecurityConfigurationResponse' smart constructor.
 data DeleteSecurityConfigurationResponse = DeleteSecurityConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSecurityConfigurationResponse' with all optional fields omitted.
@@ -129,7 +134,7 @@ data DeleteSecurityConfigurationResponse = DeleteSecurityConfigurationResponse'
 -- 'httpStatus', 'deleteSecurityConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteSecurityConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteSecurityConfigurationResponse
 newDeleteSecurityConfigurationResponse pHttpStatus_ =
   DeleteSecurityConfigurationResponse'
@@ -138,9 +143,9 @@ newDeleteSecurityConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteSecurityConfigurationResponse_httpStatus :: Lens.Lens' DeleteSecurityConfigurationResponse Core.Int
+deleteSecurityConfigurationResponse_httpStatus :: Lens.Lens' DeleteSecurityConfigurationResponse Prelude.Int
 deleteSecurityConfigurationResponse_httpStatus = Lens.lens (\DeleteSecurityConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteSecurityConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteSecurityConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteSecurityConfigurationResponse

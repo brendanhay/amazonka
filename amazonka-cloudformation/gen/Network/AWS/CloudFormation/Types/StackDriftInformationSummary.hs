@@ -22,6 +22,7 @@ module Network.AWS.CloudFormation.Types.StackDriftInformationSummary where
 import Network.AWS.CloudFormation.Types.StackDriftStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about whether the stack\'s actual configuration
 -- differs, or has /drifted/, from its expected configuration, as defined
@@ -33,7 +34,7 @@ import qualified Network.AWS.Lens as Lens
 data StackDriftInformationSummary = StackDriftInformationSummary'
   { -- | Most recent time when a drift detection operation was initiated on the
     -- stack, or any of its individual resources that support drift detection.
-    lastCheckTimestamp :: Core.Maybe Core.ISO8601,
+    lastCheckTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | Status of the stack\'s actual configuration compared to its expected
     -- template configuration.
     --
@@ -50,7 +51,7 @@ data StackDriftInformationSummary = StackDriftInformationSummary'
     -- -   @UNKNOWN@: This value is reserved for future use.
     stackDriftStatus :: StackDriftStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackDriftInformationSummary' with all optional fields omitted.
@@ -84,14 +85,14 @@ newStackDriftInformationSummary ::
 newStackDriftInformationSummary pStackDriftStatus_ =
   StackDriftInformationSummary'
     { lastCheckTimestamp =
-        Core.Nothing,
+        Prelude.Nothing,
       stackDriftStatus = pStackDriftStatus_
     }
 
 -- | Most recent time when a drift detection operation was initiated on the
 -- stack, or any of its individual resources that support drift detection.
-stackDriftInformationSummary_lastCheckTimestamp :: Lens.Lens' StackDriftInformationSummary (Core.Maybe Core.UTCTime)
-stackDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackDriftInformationSummary' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackDriftInformationSummary' {} a -> s {lastCheckTimestamp = a} :: StackDriftInformationSummary) Core.. Lens.mapping Core._Time
+stackDriftInformationSummary_lastCheckTimestamp :: Lens.Lens' StackDriftInformationSummary (Prelude.Maybe Prelude.UTCTime)
+stackDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackDriftInformationSummary' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackDriftInformationSummary' {} a -> s {lastCheckTimestamp = a} :: StackDriftInformationSummary) Prelude.. Lens.mapping Core._Time
 
 -- | Status of the stack\'s actual configuration compared to its expected
 -- template configuration.
@@ -113,9 +114,11 @@ stackDriftInformationSummary_stackDriftStatus = Lens.lens (\StackDriftInformatio
 instance Core.FromXML StackDriftInformationSummary where
   parseXML x =
     StackDriftInformationSummary'
-      Core.<$> (x Core..@? "LastCheckTimestamp")
-      Core.<*> (x Core..@ "StackDriftStatus")
+      Prelude.<$> (x Core..@? "LastCheckTimestamp")
+      Prelude.<*> (x Core..@ "StackDriftStatus")
 
-instance Core.Hashable StackDriftInformationSummary
+instance
+  Prelude.Hashable
+    StackDriftInformationSummary
 
-instance Core.NFData StackDriftInformationSummary
+instance Prelude.NFData StackDriftInformationSummary

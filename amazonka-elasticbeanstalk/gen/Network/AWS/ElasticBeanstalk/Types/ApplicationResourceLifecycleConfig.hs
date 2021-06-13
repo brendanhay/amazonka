@@ -22,6 +22,7 @@ module Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig whe
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The resource lifecycle configuration for an application. Defines
 -- lifecycle settings for resources that belong to the application, and the
@@ -42,11 +43,11 @@ data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
     -- specify it again in subsequent @UpdateApplicationResourceLifecycle@
     -- calls. You can, however, specify it in subsequent calls to change the
     -- Service Role to another value.
-    serviceRole :: Core.Maybe Core.Text,
+    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | Defines lifecycle settings for application versions.
-    versionLifecycleConfig :: Core.Maybe ApplicationVersionLifecycleConfig
+    versionLifecycleConfig :: Prelude.Maybe ApplicationVersionLifecycleConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationResourceLifecycleConfig' with all optional fields omitted.
@@ -74,8 +75,9 @@ newApplicationResourceLifecycleConfig ::
 newApplicationResourceLifecycleConfig =
   ApplicationResourceLifecycleConfig'
     { serviceRole =
-        Core.Nothing,
-      versionLifecycleConfig = Core.Nothing
+        Prelude.Nothing,
+      versionLifecycleConfig =
+        Prelude.Nothing
     }
 
 -- | The ARN of an IAM service role that Elastic Beanstalk has permission to
@@ -89,11 +91,11 @@ newApplicationResourceLifecycleConfig =
 -- specify it again in subsequent @UpdateApplicationResourceLifecycle@
 -- calls. You can, however, specify it in subsequent calls to change the
 -- Service Role to another value.
-applicationResourceLifecycleConfig_serviceRole :: Lens.Lens' ApplicationResourceLifecycleConfig (Core.Maybe Core.Text)
+applicationResourceLifecycleConfig_serviceRole :: Lens.Lens' ApplicationResourceLifecycleConfig (Prelude.Maybe Prelude.Text)
 applicationResourceLifecycleConfig_serviceRole = Lens.lens (\ApplicationResourceLifecycleConfig' {serviceRole} -> serviceRole) (\s@ApplicationResourceLifecycleConfig' {} a -> s {serviceRole = a} :: ApplicationResourceLifecycleConfig)
 
 -- | Defines lifecycle settings for application versions.
-applicationResourceLifecycleConfig_versionLifecycleConfig :: Lens.Lens' ApplicationResourceLifecycleConfig (Core.Maybe ApplicationVersionLifecycleConfig)
+applicationResourceLifecycleConfig_versionLifecycleConfig :: Lens.Lens' ApplicationResourceLifecycleConfig (Prelude.Maybe ApplicationVersionLifecycleConfig)
 applicationResourceLifecycleConfig_versionLifecycleConfig = Lens.lens (\ApplicationResourceLifecycleConfig' {versionLifecycleConfig} -> versionLifecycleConfig) (\s@ApplicationResourceLifecycleConfig' {} a -> s {versionLifecycleConfig = a} :: ApplicationResourceLifecycleConfig)
 
 instance
@@ -102,15 +104,15 @@ instance
   where
   parseXML x =
     ApplicationResourceLifecycleConfig'
-      Core.<$> (x Core..@? "ServiceRole")
-      Core.<*> (x Core..@? "VersionLifecycleConfig")
+      Prelude.<$> (x Core..@? "ServiceRole")
+      Prelude.<*> (x Core..@? "VersionLifecycleConfig")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ApplicationResourceLifecycleConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     ApplicationResourceLifecycleConfig
 
 instance
@@ -118,7 +120,7 @@ instance
     ApplicationResourceLifecycleConfig
   where
   toQuery ApplicationResourceLifecycleConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ServiceRole" Core.=: serviceRole,
         "VersionLifecycleConfig"
           Core.=: versionLifecycleConfig

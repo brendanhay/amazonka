@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchDetachPolicy where
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Detaches the specified policy from the specified directory inside a
 -- BatchWrite operation. For more information, see DetachPolicy and
@@ -35,7 +36,7 @@ data BatchDetachPolicy = BatchDetachPolicy'
     -- detached.
     objectReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetachPolicy' with all optional fields omitted.
@@ -73,17 +74,17 @@ batchDetachPolicy_policyReference = Lens.lens (\BatchDetachPolicy' {policyRefere
 batchDetachPolicy_objectReference :: Lens.Lens' BatchDetachPolicy ObjectReference
 batchDetachPolicy_objectReference = Lens.lens (\BatchDetachPolicy' {objectReference} -> objectReference) (\s@BatchDetachPolicy' {} a -> s {objectReference = a} :: BatchDetachPolicy)
 
-instance Core.Hashable BatchDetachPolicy
+instance Prelude.Hashable BatchDetachPolicy
 
-instance Core.NFData BatchDetachPolicy
+instance Prelude.NFData BatchDetachPolicy
 
 instance Core.ToJSON BatchDetachPolicy where
   toJSON BatchDetachPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("PolicyReference" Core..= policyReference),
-            Core.Just
+            Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
       )

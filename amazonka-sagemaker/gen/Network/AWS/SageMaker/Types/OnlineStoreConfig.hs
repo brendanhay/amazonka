@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.OnlineStoreConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.OnlineStoreSecurityConfig
 
 -- | Use this to specify the AWS Key Management Service (KMS) Key ID, or
@@ -32,15 +33,15 @@ import Network.AWS.SageMaker.Types.OnlineStoreSecurityConfig
 data OnlineStoreConfig = OnlineStoreConfig'
   { -- | Use to specify KMS Key ID (@KMSKeyId@) for at-rest encryption of your
     -- @OnlineStore@.
-    securityConfig :: Core.Maybe OnlineStoreSecurityConfig,
+    securityConfig :: Prelude.Maybe OnlineStoreSecurityConfig,
     -- | Turn @OnlineStore@ off by specifying @False@ for the @EnableOnlineStore@
     -- flag. Turn @OnlineStore@ on by specifying @True@ for the
     -- @EnableOnlineStore@ flag.
     --
     -- The default value is @False@.
-    enableOnlineStore :: Core.Maybe Core.Bool
+    enableOnlineStore :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OnlineStoreConfig' with all optional fields omitted.
@@ -62,13 +63,14 @@ newOnlineStoreConfig ::
   OnlineStoreConfig
 newOnlineStoreConfig =
   OnlineStoreConfig'
-    { securityConfig = Core.Nothing,
-      enableOnlineStore = Core.Nothing
+    { securityConfig =
+        Prelude.Nothing,
+      enableOnlineStore = Prelude.Nothing
     }
 
 -- | Use to specify KMS Key ID (@KMSKeyId@) for at-rest encryption of your
 -- @OnlineStore@.
-onlineStoreConfig_securityConfig :: Lens.Lens' OnlineStoreConfig (Core.Maybe OnlineStoreSecurityConfig)
+onlineStoreConfig_securityConfig :: Lens.Lens' OnlineStoreConfig (Prelude.Maybe OnlineStoreSecurityConfig)
 onlineStoreConfig_securityConfig = Lens.lens (\OnlineStoreConfig' {securityConfig} -> securityConfig) (\s@OnlineStoreConfig' {} a -> s {securityConfig = a} :: OnlineStoreConfig)
 
 -- | Turn @OnlineStore@ off by specifying @False@ for the @EnableOnlineStore@
@@ -76,7 +78,7 @@ onlineStoreConfig_securityConfig = Lens.lens (\OnlineStoreConfig' {securityConfi
 -- @EnableOnlineStore@ flag.
 --
 -- The default value is @False@.
-onlineStoreConfig_enableOnlineStore :: Lens.Lens' OnlineStoreConfig (Core.Maybe Core.Bool)
+onlineStoreConfig_enableOnlineStore :: Lens.Lens' OnlineStoreConfig (Prelude.Maybe Prelude.Bool)
 onlineStoreConfig_enableOnlineStore = Lens.lens (\OnlineStoreConfig' {enableOnlineStore} -> enableOnlineStore) (\s@OnlineStoreConfig' {} a -> s {enableOnlineStore = a} :: OnlineStoreConfig)
 
 instance Core.FromJSON OnlineStoreConfig where
@@ -85,20 +87,21 @@ instance Core.FromJSON OnlineStoreConfig where
       "OnlineStoreConfig"
       ( \x ->
           OnlineStoreConfig'
-            Core.<$> (x Core..:? "SecurityConfig")
-            Core.<*> (x Core..:? "EnableOnlineStore")
+            Prelude.<$> (x Core..:? "SecurityConfig")
+            Prelude.<*> (x Core..:? "EnableOnlineStore")
       )
 
-instance Core.Hashable OnlineStoreConfig
+instance Prelude.Hashable OnlineStoreConfig
 
-instance Core.NFData OnlineStoreConfig
+instance Prelude.NFData OnlineStoreConfig
 
 instance Core.ToJSON OnlineStoreConfig where
   toJSON OnlineStoreConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SecurityConfig" Core..=) Core.<$> securityConfig,
+      ( Prelude.catMaybes
+          [ ("SecurityConfig" Core..=)
+              Prelude.<$> securityConfig,
             ("EnableOnlineStore" Core..=)
-              Core.<$> enableOnlineStore
+              Prelude.<$> enableOnlineStore
           ]
       )

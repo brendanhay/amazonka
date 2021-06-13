@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.MediaPackageOutputSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Media Package Output Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data MediaPackageOutputSettings = MediaPackageOutputSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MediaPackageOutputSettings' with all optional fields omitted.
@@ -43,11 +44,11 @@ instance Core.FromJSON MediaPackageOutputSettings where
   parseJSON =
     Core.withObject
       "MediaPackageOutputSettings"
-      (\x -> Core.pure MediaPackageOutputSettings')
+      (\x -> Prelude.pure MediaPackageOutputSettings')
 
-instance Core.Hashable MediaPackageOutputSettings
+instance Prelude.Hashable MediaPackageOutputSettings
 
-instance Core.NFData MediaPackageOutputSettings
+instance Prelude.NFData MediaPackageOutputSettings
 
 instance Core.ToJSON MediaPackageOutputSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

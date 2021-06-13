@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -108,15 +109,15 @@ data AddIpRoutes = AddIpRoutes'
     --
     -- These security rules impact an internal network interface that is not
     -- exposed publicly.
-    updateSecurityGroupForDirectoryControllers :: Core.Maybe Core.Bool,
+    updateSecurityGroupForDirectoryControllers :: Prelude.Maybe Prelude.Bool,
     -- | Identifier (ID) of the directory to which to add the address block.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | IP address blocks, using CIDR format, of the traffic to route. This is
     -- often the IP address block of the DNS server used for your on-premises
     -- domain.
     ipRoutes :: [IpRoute]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddIpRoutes' with all optional fields omitted.
@@ -183,14 +184,14 @@ data AddIpRoutes = AddIpRoutes'
 -- domain.
 newAddIpRoutes ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   AddIpRoutes
 newAddIpRoutes pDirectoryId_ =
   AddIpRoutes'
     { updateSecurityGroupForDirectoryControllers =
-        Core.Nothing,
+        Prelude.Nothing,
       directoryId = pDirectoryId_,
-      ipRoutes = Core.mempty
+      ipRoutes = Prelude.mempty
     }
 
 -- | If set to true, updates the inbound and outbound rules of the security
@@ -242,18 +243,18 @@ newAddIpRoutes pDirectoryId_ =
 --
 -- These security rules impact an internal network interface that is not
 -- exposed publicly.
-addIpRoutes_updateSecurityGroupForDirectoryControllers :: Lens.Lens' AddIpRoutes (Core.Maybe Core.Bool)
+addIpRoutes_updateSecurityGroupForDirectoryControllers :: Lens.Lens' AddIpRoutes (Prelude.Maybe Prelude.Bool)
 addIpRoutes_updateSecurityGroupForDirectoryControllers = Lens.lens (\AddIpRoutes' {updateSecurityGroupForDirectoryControllers} -> updateSecurityGroupForDirectoryControllers) (\s@AddIpRoutes' {} a -> s {updateSecurityGroupForDirectoryControllers = a} :: AddIpRoutes)
 
 -- | Identifier (ID) of the directory to which to add the address block.
-addIpRoutes_directoryId :: Lens.Lens' AddIpRoutes Core.Text
+addIpRoutes_directoryId :: Lens.Lens' AddIpRoutes Prelude.Text
 addIpRoutes_directoryId = Lens.lens (\AddIpRoutes' {directoryId} -> directoryId) (\s@AddIpRoutes' {} a -> s {directoryId = a} :: AddIpRoutes)
 
 -- | IP address blocks, using CIDR format, of the traffic to route. This is
 -- often the IP address block of the DNS server used for your on-premises
 -- domain.
 addIpRoutes_ipRoutes :: Lens.Lens' AddIpRoutes [IpRoute]
-addIpRoutes_ipRoutes = Lens.lens (\AddIpRoutes' {ipRoutes} -> ipRoutes) (\s@AddIpRoutes' {} a -> s {ipRoutes = a} :: AddIpRoutes) Core.. Lens._Coerce
+addIpRoutes_ipRoutes = Lens.lens (\AddIpRoutes' {ipRoutes} -> ipRoutes) (\s@AddIpRoutes' {} a -> s {ipRoutes = a} :: AddIpRoutes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddIpRoutes where
   type AWSResponse AddIpRoutes = AddIpRoutesResponse
@@ -262,51 +263,53 @@ instance Core.AWSRequest AddIpRoutes where
     Response.receiveEmpty
       ( \s h x ->
           AddIpRoutesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddIpRoutes
+instance Prelude.Hashable AddIpRoutes
 
-instance Core.NFData AddIpRoutes
+instance Prelude.NFData AddIpRoutes
 
 instance Core.ToHeaders AddIpRoutes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.AddIpRoutes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddIpRoutes where
   toJSON AddIpRoutes' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ( "UpdateSecurityGroupForDirectoryControllers"
                 Core..=
             )
-              Core.<$> updateSecurityGroupForDirectoryControllers,
-            Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("IpRoutes" Core..= ipRoutes)
+              Prelude.<$> updateSecurityGroupForDirectoryControllers,
+            Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("IpRoutes" Core..= ipRoutes)
           ]
       )
 
 instance Core.ToPath AddIpRoutes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddIpRoutes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddIpRoutesResponse' smart constructor.
 data AddIpRoutesResponse = AddIpRoutesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddIpRoutesResponse' with all optional fields omitted.
@@ -319,13 +322,13 @@ data AddIpRoutesResponse = AddIpRoutesResponse'
 -- 'httpStatus', 'addIpRoutesResponse_httpStatus' - The response's http status code.
 newAddIpRoutesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddIpRoutesResponse
 newAddIpRoutesResponse pHttpStatus_ =
   AddIpRoutesResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-addIpRoutesResponse_httpStatus :: Lens.Lens' AddIpRoutesResponse Core.Int
+addIpRoutesResponse_httpStatus :: Lens.Lens' AddIpRoutesResponse Prelude.Int
 addIpRoutesResponse_httpStatus = Lens.lens (\AddIpRoutesResponse' {httpStatus} -> httpStatus) (\s@AddIpRoutesResponse' {} a -> s {httpStatus = a} :: AddIpRoutesResponse)
 
-instance Core.NFData AddIpRoutesResponse
+instance Prelude.NFData AddIpRoutesResponse

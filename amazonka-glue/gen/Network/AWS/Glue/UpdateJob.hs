@@ -43,17 +43,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
   { -- | The name of the job definition to update.
-    jobName :: Core.Text,
+    jobName :: Prelude.Text,
     -- | Specifies the values with which to update the job definition.
     jobUpdate :: JobUpdate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJob' with all optional fields omitted.
@@ -68,7 +69,7 @@ data UpdateJob = UpdateJob'
 -- 'jobUpdate', 'updateJob_jobUpdate' - Specifies the values with which to update the job definition.
 newUpdateJob ::
   -- | 'jobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobUpdate'
   JobUpdate ->
   UpdateJob
@@ -79,7 +80,7 @@ newUpdateJob pJobName_ pJobUpdate_ =
     }
 
 -- | The name of the job definition to update.
-updateJob_jobName :: Lens.Lens' UpdateJob Core.Text
+updateJob_jobName :: Lens.Lens' UpdateJob Prelude.Text
 updateJob_jobName = Lens.lens (\UpdateJob' {jobName} -> jobName) (\s@UpdateJob' {} a -> s {jobName = a} :: UpdateJob)
 
 -- | Specifies the values with which to update the job definition.
@@ -93,48 +94,50 @@ instance Core.AWSRequest UpdateJob where
     Response.receiveJSON
       ( \s h x ->
           UpdateJobResponse'
-            Core.<$> (x Core..?> "JobName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "JobName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateJob
+instance Prelude.Hashable UpdateJob
 
-instance Core.NFData UpdateJob
+instance Prelude.NFData UpdateJob
 
 instance Core.ToHeaders UpdateJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateJob" :: Core.ByteString),
+              Core.=# ("AWSGlue.UpdateJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateJob where
   toJSON UpdateJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("JobName" Core..= jobName),
-            Core.Just ("JobUpdate" Core..= jobUpdate)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("JobName" Core..= jobName),
+            Prelude.Just ("JobUpdate" Core..= jobUpdate)
           ]
       )
 
 instance Core.ToPath UpdateJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
   { -- | Returns the name of the updated job definition.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJobResponse' with all optional fields omitted.
@@ -149,20 +152,20 @@ data UpdateJobResponse = UpdateJobResponse'
 -- 'httpStatus', 'updateJobResponse_httpStatus' - The response's http status code.
 newUpdateJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateJobResponse
 newUpdateJobResponse pHttpStatus_ =
   UpdateJobResponse'
-    { jobName = Core.Nothing,
+    { jobName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns the name of the updated job definition.
-updateJobResponse_jobName :: Lens.Lens' UpdateJobResponse (Core.Maybe Core.Text)
+updateJobResponse_jobName :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Text)
 updateJobResponse_jobName = Lens.lens (\UpdateJobResponse' {jobName} -> jobName) (\s@UpdateJobResponse' {} a -> s {jobName = a} :: UpdateJobResponse)
 
 -- | The response's http status code.
-updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Core.Int
+updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Prelude.Int
 updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> httpStatus) (\s@UpdateJobResponse' {} a -> s {httpStatus = a} :: UpdateJobResponse)
 
-instance Core.NFData UpdateJobResponse
+instance Prelude.NFData UpdateJobResponse

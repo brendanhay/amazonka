@@ -21,6 +21,7 @@ module Network.AWS.LexModels.Types.InputContext where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The name of a context that must be active for an intent to be selected
 -- by Amazon Lex.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newInputContext' smart constructor.
 data InputContext = InputContext'
   { -- | The name of the context.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputContext' with all optional fields omitted.
@@ -43,25 +44,27 @@ data InputContext = InputContext'
 -- 'name', 'inputContext_name' - The name of the context.
 newInputContext ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   InputContext
 newInputContext pName_ = InputContext' {name = pName_}
 
 -- | The name of the context.
-inputContext_name :: Lens.Lens' InputContext Core.Text
+inputContext_name :: Lens.Lens' InputContext Prelude.Text
 inputContext_name = Lens.lens (\InputContext' {name} -> name) (\s@InputContext' {} a -> s {name = a} :: InputContext)
 
 instance Core.FromJSON InputContext where
   parseJSON =
     Core.withObject
       "InputContext"
-      (\x -> InputContext' Core.<$> (x Core..: "name"))
+      (\x -> InputContext' Prelude.<$> (x Core..: "name"))
 
-instance Core.Hashable InputContext
+instance Prelude.Hashable InputContext
 
-instance Core.NFData InputContext
+instance Prelude.NFData InputContext
 
 instance Core.ToJSON InputContext where
   toJSON InputContext' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("name" Core..= name)]
+      )

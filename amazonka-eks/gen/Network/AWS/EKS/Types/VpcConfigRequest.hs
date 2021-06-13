@@ -21,6 +21,7 @@ module Network.AWS.EKS.Types.VpcConfigRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the VPC configuration to use for an Amazon EKS
 -- cluster.
@@ -41,7 +42,7 @@ data VpcConfigRequest = VpcConfigRequest'
     -- For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Amazon EKS security group considerations>
     -- in the //Amazon EKS User Guide// .
-    securityGroupIds :: Core.Maybe [Core.Text],
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | Set this value to @false@ to disable public access to your cluster\'s
     -- Kubernetes API server endpoint. If you disable public access, your
     -- cluster\'s Kubernetes API server can only receive requests from within
@@ -50,11 +51,11 @@ data VpcConfigRequest = VpcConfigRequest'
     -- information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
     -- in the //Amazon EKS User Guide// .
-    endpointPublicAccess :: Core.Maybe Core.Bool,
+    endpointPublicAccess :: Prelude.Maybe Prelude.Bool,
     -- | Specify subnets for your Amazon EKS nodes. Amazon EKS creates
     -- cross-account elastic network interfaces in these subnets to allow
     -- communication between your nodes and the Kubernetes control plane.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | Set this value to @true@ to enable private access for your cluster\'s
     -- Kubernetes API server endpoint. If you enable private access, Kubernetes
     -- API requests from within your cluster\'s VPC use the private VPC
@@ -66,7 +67,7 @@ data VpcConfigRequest = VpcConfigRequest'
     -- see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
     -- in the //Amazon EKS User Guide// .
-    endpointPrivateAccess :: Core.Maybe Core.Bool,
+    endpointPrivateAccess :: Prelude.Maybe Prelude.Bool,
     -- | The CIDR blocks that are allowed access to your cluster\'s public
     -- Kubernetes API server endpoint. Communication to the endpoint from
     -- addresses outside of the CIDR blocks that you specify is denied. The
@@ -76,9 +77,9 @@ data VpcConfigRequest = VpcConfigRequest'
     -- see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
     -- in the //Amazon EKS User Guide// .
-    publicAccessCidrs :: Core.Maybe [Core.Text]
+    publicAccessCidrs :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcConfigRequest' with all optional fields omitted.
@@ -141,11 +142,12 @@ newVpcConfigRequest ::
   VpcConfigRequest
 newVpcConfigRequest =
   VpcConfigRequest'
-    { securityGroupIds = Core.Nothing,
-      endpointPublicAccess = Core.Nothing,
-      subnetIds = Core.Nothing,
-      endpointPrivateAccess = Core.Nothing,
-      publicAccessCidrs = Core.Nothing
+    { securityGroupIds =
+        Prelude.Nothing,
+      endpointPublicAccess = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      endpointPrivateAccess = Prelude.Nothing,
+      publicAccessCidrs = Prelude.Nothing
     }
 
 -- | Specify one or more security groups for the cross-account elastic
@@ -162,8 +164,8 @@ newVpcConfigRequest =
 -- For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Amazon EKS security group considerations>
 -- in the //Amazon EKS User Guide// .
-vpcConfigRequest_securityGroupIds :: Lens.Lens' VpcConfigRequest (Core.Maybe [Core.Text])
-vpcConfigRequest_securityGroupIds = Lens.lens (\VpcConfigRequest' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigRequest' {} a -> s {securityGroupIds = a} :: VpcConfigRequest) Core.. Lens.mapping Lens._Coerce
+vpcConfigRequest_securityGroupIds :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])
+vpcConfigRequest_securityGroupIds = Lens.lens (\VpcConfigRequest' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigRequest' {} a -> s {securityGroupIds = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Set this value to @false@ to disable public access to your cluster\'s
 -- Kubernetes API server endpoint. If you disable public access, your
@@ -173,14 +175,14 @@ vpcConfigRequest_securityGroupIds = Lens.lens (\VpcConfigRequest' {securityGroup
 -- information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
 -- in the //Amazon EKS User Guide// .
-vpcConfigRequest_endpointPublicAccess :: Lens.Lens' VpcConfigRequest (Core.Maybe Core.Bool)
+vpcConfigRequest_endpointPublicAccess :: Lens.Lens' VpcConfigRequest (Prelude.Maybe Prelude.Bool)
 vpcConfigRequest_endpointPublicAccess = Lens.lens (\VpcConfigRequest' {endpointPublicAccess} -> endpointPublicAccess) (\s@VpcConfigRequest' {} a -> s {endpointPublicAccess = a} :: VpcConfigRequest)
 
 -- | Specify subnets for your Amazon EKS nodes. Amazon EKS creates
 -- cross-account elastic network interfaces in these subnets to allow
 -- communication between your nodes and the Kubernetes control plane.
-vpcConfigRequest_subnetIds :: Lens.Lens' VpcConfigRequest (Core.Maybe [Core.Text])
-vpcConfigRequest_subnetIds = Lens.lens (\VpcConfigRequest' {subnetIds} -> subnetIds) (\s@VpcConfigRequest' {} a -> s {subnetIds = a} :: VpcConfigRequest) Core.. Lens.mapping Lens._Coerce
+vpcConfigRequest_subnetIds :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])
+vpcConfigRequest_subnetIds = Lens.lens (\VpcConfigRequest' {subnetIds} -> subnetIds) (\s@VpcConfigRequest' {} a -> s {subnetIds = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Set this value to @true@ to enable private access for your cluster\'s
 -- Kubernetes API server endpoint. If you enable private access, Kubernetes
@@ -193,7 +195,7 @@ vpcConfigRequest_subnetIds = Lens.lens (\VpcConfigRequest' {subnetIds} -> subnet
 -- see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
 -- in the //Amazon EKS User Guide// .
-vpcConfigRequest_endpointPrivateAccess :: Lens.Lens' VpcConfigRequest (Core.Maybe Core.Bool)
+vpcConfigRequest_endpointPrivateAccess :: Lens.Lens' VpcConfigRequest (Prelude.Maybe Prelude.Bool)
 vpcConfigRequest_endpointPrivateAccess = Lens.lens (\VpcConfigRequest' {endpointPrivateAccess} -> endpointPrivateAccess) (\s@VpcConfigRequest' {} a -> s {endpointPrivateAccess = a} :: VpcConfigRequest)
 
 -- | The CIDR blocks that are allowed access to your cluster\'s public
@@ -205,25 +207,25 @@ vpcConfigRequest_endpointPrivateAccess = Lens.lens (\VpcConfigRequest' {endpoint
 -- see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
 -- in the //Amazon EKS User Guide// .
-vpcConfigRequest_publicAccessCidrs :: Lens.Lens' VpcConfigRequest (Core.Maybe [Core.Text])
-vpcConfigRequest_publicAccessCidrs = Lens.lens (\VpcConfigRequest' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigRequest' {} a -> s {publicAccessCidrs = a} :: VpcConfigRequest) Core.. Lens.mapping Lens._Coerce
+vpcConfigRequest_publicAccessCidrs :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])
+vpcConfigRequest_publicAccessCidrs = Lens.lens (\VpcConfigRequest' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigRequest' {} a -> s {publicAccessCidrs = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable VpcConfigRequest
+instance Prelude.Hashable VpcConfigRequest
 
-instance Core.NFData VpcConfigRequest
+instance Prelude.NFData VpcConfigRequest
 
 instance Core.ToJSON VpcConfigRequest where
   toJSON VpcConfigRequest' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("securityGroupIds" Core..=)
-              Core.<$> securityGroupIds,
+              Prelude.<$> securityGroupIds,
             ("endpointPublicAccess" Core..=)
-              Core.<$> endpointPublicAccess,
-            ("subnetIds" Core..=) Core.<$> subnetIds,
+              Prelude.<$> endpointPublicAccess,
+            ("subnetIds" Core..=) Prelude.<$> subnetIds,
             ("endpointPrivateAccess" Core..=)
-              Core.<$> endpointPrivateAccess,
+              Prelude.<$> endpointPrivateAccess,
             ("publicAccessCidrs" Core..=)
-              Core.<$> publicAccessCidrs
+              Prelude.<$> publicAccessCidrs
           ]
       )

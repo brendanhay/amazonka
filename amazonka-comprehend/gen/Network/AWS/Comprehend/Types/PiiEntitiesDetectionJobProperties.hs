@@ -27,6 +27,7 @@ import Network.AWS.Comprehend.Types.PiiOutputDataConfig
 import Network.AWS.Comprehend.Types.RedactionConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a PII entities detection job.
 --
@@ -37,36 +38,36 @@ data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
     -- This parameter is required if you set the @Mode@ parameter to
     -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
     -- definition that includes the @PiiEntityTypes@ parameter.
-    redactionConfig :: Core.Maybe RedactionConfig,
+    redactionConfig :: Prelude.Maybe RedactionConfig,
     -- | The language code of the input documents
-    languageCode :: Core.Maybe LanguageCode,
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The input properties for a PII entities detection job.
-    inputDataConfig :: Core.Maybe InputDataConfig,
+    inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | Specifies whether the output provides the locations (offsets) of PII
     -- entities or a file in which PII entities are redacted.
-    mode :: Core.Maybe PiiEntitiesDetectionMode,
+    mode :: Prelude.Maybe PiiEntitiesDetectionMode,
     -- | A description of the status of a job.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The current status of the PII entities detection job. If the status is
     -- @FAILED@, the @Message@ field shows the reason for the failure.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The output data configuration that you supplied when you created the PII
     -- entities detection job.
-    outputDataConfig :: Core.Maybe PiiOutputDataConfig,
+    outputDataConfig :: Prelude.Maybe PiiOutputDataConfig,
     -- | The time that the PII entities detection job completed.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The time that the PII entities detection job was submitted for
     -- processing.
-    submitTime :: Core.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Core.POSIX,
     -- | The name that you assigned the PII entities detection job.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
     -- to your input data.
-    dataAccessRoleArn :: Core.Maybe Core.Text,
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier assigned to the PII entities detection job.
-    jobId :: Core.Maybe Core.Text
+    jobId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PiiEntitiesDetectionJobProperties' with all optional fields omitted.
@@ -113,18 +114,18 @@ newPiiEntitiesDetectionJobProperties ::
 newPiiEntitiesDetectionJobProperties =
   PiiEntitiesDetectionJobProperties'
     { redactionConfig =
-        Core.Nothing,
-      languageCode = Core.Nothing,
-      inputDataConfig = Core.Nothing,
-      mode = Core.Nothing,
-      message = Core.Nothing,
-      jobStatus = Core.Nothing,
-      outputDataConfig = Core.Nothing,
-      endTime = Core.Nothing,
-      submitTime = Core.Nothing,
-      jobName = Core.Nothing,
-      dataAccessRoleArn = Core.Nothing,
-      jobId = Core.Nothing
+        Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      message = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      outputDataConfig = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      submitTime = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      dataAccessRoleArn = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
 
 -- | Provides configuration parameters for PII entity redaction.
@@ -132,56 +133,56 @@ newPiiEntitiesDetectionJobProperties =
 -- This parameter is required if you set the @Mode@ parameter to
 -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
 -- definition that includes the @PiiEntityTypes@ parameter.
-piiEntitiesDetectionJobProperties_redactionConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe RedactionConfig)
+piiEntitiesDetectionJobProperties_redactionConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe RedactionConfig)
 piiEntitiesDetectionJobProperties_redactionConfig = Lens.lens (\PiiEntitiesDetectionJobProperties' {redactionConfig} -> redactionConfig) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {redactionConfig = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The language code of the input documents
-piiEntitiesDetectionJobProperties_languageCode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe LanguageCode)
+piiEntitiesDetectionJobProperties_languageCode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe LanguageCode)
 piiEntitiesDetectionJobProperties_languageCode = Lens.lens (\PiiEntitiesDetectionJobProperties' {languageCode} -> languageCode) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {languageCode = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The input properties for a PII entities detection job.
-piiEntitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe InputDataConfig)
+piiEntitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe InputDataConfig)
 piiEntitiesDetectionJobProperties_inputDataConfig = Lens.lens (\PiiEntitiesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | Specifies whether the output provides the locations (offsets) of PII
 -- entities or a file in which PII entities are redacted.
-piiEntitiesDetectionJobProperties_mode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe PiiEntitiesDetectionMode)
+piiEntitiesDetectionJobProperties_mode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe PiiEntitiesDetectionMode)
 piiEntitiesDetectionJobProperties_mode = Lens.lens (\PiiEntitiesDetectionJobProperties' {mode} -> mode) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {mode = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | A description of the status of a job.
-piiEntitiesDetectionJobProperties_message :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe Core.Text)
+piiEntitiesDetectionJobProperties_message :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 piiEntitiesDetectionJobProperties_message = Lens.lens (\PiiEntitiesDetectionJobProperties' {message} -> message) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {message = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The current status of the PII entities detection job. If the status is
 -- @FAILED@, the @Message@ field shows the reason for the failure.
-piiEntitiesDetectionJobProperties_jobStatus :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe JobStatus)
+piiEntitiesDetectionJobProperties_jobStatus :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe JobStatus)
 piiEntitiesDetectionJobProperties_jobStatus = Lens.lens (\PiiEntitiesDetectionJobProperties' {jobStatus} -> jobStatus) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {jobStatus = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The output data configuration that you supplied when you created the PII
 -- entities detection job.
-piiEntitiesDetectionJobProperties_outputDataConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe PiiOutputDataConfig)
+piiEntitiesDetectionJobProperties_outputDataConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe PiiOutputDataConfig)
 piiEntitiesDetectionJobProperties_outputDataConfig = Lens.lens (\PiiEntitiesDetectionJobProperties' {outputDataConfig} -> outputDataConfig) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {outputDataConfig = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The time that the PII entities detection job completed.
-piiEntitiesDetectionJobProperties_endTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe Core.UTCTime)
-piiEntitiesDetectionJobProperties_endTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {endTime} -> endTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {endTime = a} :: PiiEntitiesDetectionJobProperties) Core.. Lens.mapping Core._Time
+piiEntitiesDetectionJobProperties_endTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+piiEntitiesDetectionJobProperties_endTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {endTime} -> endTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {endTime = a} :: PiiEntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The time that the PII entities detection job was submitted for
 -- processing.
-piiEntitiesDetectionJobProperties_submitTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe Core.UTCTime)
-piiEntitiesDetectionJobProperties_submitTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: PiiEntitiesDetectionJobProperties) Core.. Lens.mapping Core._Time
+piiEntitiesDetectionJobProperties_submitTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+piiEntitiesDetectionJobProperties_submitTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: PiiEntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The name that you assigned the PII entities detection job.
-piiEntitiesDetectionJobProperties_jobName :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe Core.Text)
+piiEntitiesDetectionJobProperties_jobName :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 piiEntitiesDetectionJobProperties_jobName = Lens.lens (\PiiEntitiesDetectionJobProperties' {jobName} -> jobName) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {jobName = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
 -- to your input data.
-piiEntitiesDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe Core.Text)
+piiEntitiesDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 piiEntitiesDetectionJobProperties_dataAccessRoleArn = Lens.lens (\PiiEntitiesDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The identifier assigned to the PII entities detection job.
-piiEntitiesDetectionJobProperties_jobId :: Lens.Lens' PiiEntitiesDetectionJobProperties (Core.Maybe Core.Text)
+piiEntitiesDetectionJobProperties_jobId :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 piiEntitiesDetectionJobProperties_jobId = Lens.lens (\PiiEntitiesDetectionJobProperties' {jobId} -> jobId) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {jobId = a} :: PiiEntitiesDetectionJobProperties)
 
 instance
@@ -193,24 +194,24 @@ instance
       "PiiEntitiesDetectionJobProperties"
       ( \x ->
           PiiEntitiesDetectionJobProperties'
-            Core.<$> (x Core..:? "RedactionConfig")
-            Core.<*> (x Core..:? "LanguageCode")
-            Core.<*> (x Core..:? "InputDataConfig")
-            Core.<*> (x Core..:? "Mode")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "JobStatus")
-            Core.<*> (x Core..:? "OutputDataConfig")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "SubmitTime")
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "DataAccessRoleArn")
-            Core.<*> (x Core..:? "JobId")
+            Prelude.<$> (x Core..:? "RedactionConfig")
+            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<*> (x Core..:? "OutputDataConfig")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "SubmitTime")
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "DataAccessRoleArn")
+            Prelude.<*> (x Core..:? "JobId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PiiEntitiesDetectionJobProperties
 
 instance
-  Core.NFData
+  Prelude.NFData
     PiiEntitiesDetectionJobProperties

@@ -29,6 +29,7 @@ module Network.AWS.Budgets.Types.TimeUnit
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The time unit of the budget, such as MONTHLY or QUARTERLY.
 newtype TimeUnit = TimeUnit'
@@ -36,15 +37,15 @@ newtype TimeUnit = TimeUnit'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

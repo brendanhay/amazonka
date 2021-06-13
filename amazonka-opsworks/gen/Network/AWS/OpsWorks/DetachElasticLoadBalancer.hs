@@ -45,18 +45,19 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetachElasticLoadBalancer' smart constructor.
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
   { -- | The Elastic Load Balancing instance\'s name.
-    elasticLoadBalancerName :: Core.Text,
+    elasticLoadBalancerName :: Prelude.Text,
     -- | The ID of the layer that the Elastic Load Balancing instance is attached
     -- to.
-    layerId :: Core.Text
+    layerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachElasticLoadBalancer' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
 -- to.
 newDetachElasticLoadBalancer ::
   -- | 'elasticLoadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'layerId'
-  Core.Text ->
+  Prelude.Text ->
   DetachElasticLoadBalancer
 newDetachElasticLoadBalancer
   pElasticLoadBalancerName_
@@ -86,12 +87,12 @@ newDetachElasticLoadBalancer
       }
 
 -- | The Elastic Load Balancing instance\'s name.
-detachElasticLoadBalancer_elasticLoadBalancerName :: Lens.Lens' DetachElasticLoadBalancer Core.Text
+detachElasticLoadBalancer_elasticLoadBalancerName :: Lens.Lens' DetachElasticLoadBalancer Prelude.Text
 detachElasticLoadBalancer_elasticLoadBalancerName = Lens.lens (\DetachElasticLoadBalancer' {elasticLoadBalancerName} -> elasticLoadBalancerName) (\s@DetachElasticLoadBalancer' {} a -> s {elasticLoadBalancerName = a} :: DetachElasticLoadBalancer)
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached
 -- to.
-detachElasticLoadBalancer_layerId :: Lens.Lens' DetachElasticLoadBalancer Core.Text
+detachElasticLoadBalancer_layerId :: Lens.Lens' DetachElasticLoadBalancer Prelude.Text
 detachElasticLoadBalancer_layerId = Lens.lens (\DetachElasticLoadBalancer' {layerId} -> layerId) (\s@DetachElasticLoadBalancer' {} a -> s {layerId = a} :: DetachElasticLoadBalancer)
 
 instance Core.AWSRequest DetachElasticLoadBalancer where
@@ -103,46 +104,48 @@ instance Core.AWSRequest DetachElasticLoadBalancer where
     Response.receiveNull
       DetachElasticLoadBalancerResponse'
 
-instance Core.Hashable DetachElasticLoadBalancer
+instance Prelude.Hashable DetachElasticLoadBalancer
 
-instance Core.NFData DetachElasticLoadBalancer
+instance Prelude.NFData DetachElasticLoadBalancer
 
 instance Core.ToHeaders DetachElasticLoadBalancer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DetachElasticLoadBalancer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetachElasticLoadBalancer where
   toJSON DetachElasticLoadBalancer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ElasticLoadBalancerName"
                   Core..= elasticLoadBalancerName
               ),
-            Core.Just ("LayerId" Core..= layerId)
+            Prelude.Just ("LayerId" Core..= layerId)
           ]
       )
 
 instance Core.ToPath DetachElasticLoadBalancer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachElasticLoadBalancer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachElasticLoadBalancerResponse' smart constructor.
 data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachElasticLoadBalancerResponse' with all optional fields omitted.
@@ -154,5 +157,5 @@ newDetachElasticLoadBalancerResponse =
   DetachElasticLoadBalancerResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DetachElasticLoadBalancerResponse

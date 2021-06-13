@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ClusterDbRevision where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.RevisionTarget
 
@@ -29,16 +30,16 @@ import Network.AWS.Redshift.Types.RevisionTarget
 -- /See:/ 'newClusterDbRevision' smart constructor.
 data ClusterDbRevision = ClusterDbRevision'
   { -- | A string representing the current cluster version.
-    currentDatabaseRevision :: Core.Maybe Core.Text,
+    currentDatabaseRevision :: Prelude.Maybe Prelude.Text,
     -- | A list of @RevisionTarget@ objects, where each object describes the
     -- database revision that a cluster can be updated to.
-    revisionTargets :: Core.Maybe [RevisionTarget],
+    revisionTargets :: Prelude.Maybe [RevisionTarget],
     -- | The unique identifier of the cluster.
-    clusterIdentifier :: Core.Maybe Core.Text,
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The date on which the database revision was released.
-    databaseRevisionReleaseDate :: Core.Maybe Core.ISO8601
+    databaseRevisionReleaseDate :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClusterDbRevision' with all optional fields omitted.
@@ -61,39 +62,39 @@ newClusterDbRevision ::
 newClusterDbRevision =
   ClusterDbRevision'
     { currentDatabaseRevision =
-        Core.Nothing,
-      revisionTargets = Core.Nothing,
-      clusterIdentifier = Core.Nothing,
-      databaseRevisionReleaseDate = Core.Nothing
+        Prelude.Nothing,
+      revisionTargets = Prelude.Nothing,
+      clusterIdentifier = Prelude.Nothing,
+      databaseRevisionReleaseDate = Prelude.Nothing
     }
 
 -- | A string representing the current cluster version.
-clusterDbRevision_currentDatabaseRevision :: Lens.Lens' ClusterDbRevision (Core.Maybe Core.Text)
+clusterDbRevision_currentDatabaseRevision :: Lens.Lens' ClusterDbRevision (Prelude.Maybe Prelude.Text)
 clusterDbRevision_currentDatabaseRevision = Lens.lens (\ClusterDbRevision' {currentDatabaseRevision} -> currentDatabaseRevision) (\s@ClusterDbRevision' {} a -> s {currentDatabaseRevision = a} :: ClusterDbRevision)
 
 -- | A list of @RevisionTarget@ objects, where each object describes the
 -- database revision that a cluster can be updated to.
-clusterDbRevision_revisionTargets :: Lens.Lens' ClusterDbRevision (Core.Maybe [RevisionTarget])
-clusterDbRevision_revisionTargets = Lens.lens (\ClusterDbRevision' {revisionTargets} -> revisionTargets) (\s@ClusterDbRevision' {} a -> s {revisionTargets = a} :: ClusterDbRevision) Core.. Lens.mapping Lens._Coerce
+clusterDbRevision_revisionTargets :: Lens.Lens' ClusterDbRevision (Prelude.Maybe [RevisionTarget])
+clusterDbRevision_revisionTargets = Lens.lens (\ClusterDbRevision' {revisionTargets} -> revisionTargets) (\s@ClusterDbRevision' {} a -> s {revisionTargets = a} :: ClusterDbRevision) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier of the cluster.
-clusterDbRevision_clusterIdentifier :: Lens.Lens' ClusterDbRevision (Core.Maybe Core.Text)
+clusterDbRevision_clusterIdentifier :: Lens.Lens' ClusterDbRevision (Prelude.Maybe Prelude.Text)
 clusterDbRevision_clusterIdentifier = Lens.lens (\ClusterDbRevision' {clusterIdentifier} -> clusterIdentifier) (\s@ClusterDbRevision' {} a -> s {clusterIdentifier = a} :: ClusterDbRevision)
 
 -- | The date on which the database revision was released.
-clusterDbRevision_databaseRevisionReleaseDate :: Lens.Lens' ClusterDbRevision (Core.Maybe Core.UTCTime)
-clusterDbRevision_databaseRevisionReleaseDate = Lens.lens (\ClusterDbRevision' {databaseRevisionReleaseDate} -> databaseRevisionReleaseDate) (\s@ClusterDbRevision' {} a -> s {databaseRevisionReleaseDate = a} :: ClusterDbRevision) Core.. Lens.mapping Core._Time
+clusterDbRevision_databaseRevisionReleaseDate :: Lens.Lens' ClusterDbRevision (Prelude.Maybe Prelude.UTCTime)
+clusterDbRevision_databaseRevisionReleaseDate = Lens.lens (\ClusterDbRevision' {databaseRevisionReleaseDate} -> databaseRevisionReleaseDate) (\s@ClusterDbRevision' {} a -> s {databaseRevisionReleaseDate = a} :: ClusterDbRevision) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML ClusterDbRevision where
   parseXML x =
     ClusterDbRevision'
-      Core.<$> (x Core..@? "CurrentDatabaseRevision")
-      Core.<*> ( x Core..@? "RevisionTargets" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "RevisionTarget")
-               )
-      Core.<*> (x Core..@? "ClusterIdentifier")
-      Core.<*> (x Core..@? "DatabaseRevisionReleaseDate")
+      Prelude.<$> (x Core..@? "CurrentDatabaseRevision")
+      Prelude.<*> ( x Core..@? "RevisionTargets" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "RevisionTarget")
+                  )
+      Prelude.<*> (x Core..@? "ClusterIdentifier")
+      Prelude.<*> (x Core..@? "DatabaseRevisionReleaseDate")
 
-instance Core.Hashable ClusterDbRevision
+instance Prelude.Hashable ClusterDbRevision
 
-instance Core.NFData ClusterDbRevision
+instance Prelude.NFData ClusterDbRevision

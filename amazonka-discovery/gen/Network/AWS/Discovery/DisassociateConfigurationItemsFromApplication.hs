@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data DisassociateConfigurationItemsFromApplication = DisassociateConfigurationItemsFromApplication'
   { -- | Configuration ID of an application from which each item is
     -- disassociated.
-    applicationConfigurationId :: Core.Text,
+    applicationConfigurationId :: Prelude.Text,
     -- | Configuration ID of each item to be disassociated from an application.
-    configurationIds :: [Core.Text]
+    configurationIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateConfigurationItemsFromApplication' with all optional fields omitted.
@@ -69,7 +70,7 @@ data DisassociateConfigurationItemsFromApplication = DisassociateConfigurationIt
 -- 'configurationIds', 'disassociateConfigurationItemsFromApplication_configurationIds' - Configuration ID of each item to be disassociated from an application.
 newDisassociateConfigurationItemsFromApplication ::
   -- | 'applicationConfigurationId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateConfigurationItemsFromApplication
 newDisassociateConfigurationItemsFromApplication
   pApplicationConfigurationId_ =
@@ -77,17 +78,17 @@ newDisassociateConfigurationItemsFromApplication
       { applicationConfigurationId =
           pApplicationConfigurationId_,
         configurationIds =
-          Core.mempty
+          Prelude.mempty
       }
 
 -- | Configuration ID of an application from which each item is
 -- disassociated.
-disassociateConfigurationItemsFromApplication_applicationConfigurationId :: Lens.Lens' DisassociateConfigurationItemsFromApplication Core.Text
+disassociateConfigurationItemsFromApplication_applicationConfigurationId :: Lens.Lens' DisassociateConfigurationItemsFromApplication Prelude.Text
 disassociateConfigurationItemsFromApplication_applicationConfigurationId = Lens.lens (\DisassociateConfigurationItemsFromApplication' {applicationConfigurationId} -> applicationConfigurationId) (\s@DisassociateConfigurationItemsFromApplication' {} a -> s {applicationConfigurationId = a} :: DisassociateConfigurationItemsFromApplication)
 
 -- | Configuration ID of each item to be disassociated from an application.
-disassociateConfigurationItemsFromApplication_configurationIds :: Lens.Lens' DisassociateConfigurationItemsFromApplication [Core.Text]
-disassociateConfigurationItemsFromApplication_configurationIds = Lens.lens (\DisassociateConfigurationItemsFromApplication' {configurationIds} -> configurationIds) (\s@DisassociateConfigurationItemsFromApplication' {} a -> s {configurationIds = a} :: DisassociateConfigurationItemsFromApplication) Core.. Lens._Coerce
+disassociateConfigurationItemsFromApplication_configurationIds :: Lens.Lens' DisassociateConfigurationItemsFromApplication [Prelude.Text]
+disassociateConfigurationItemsFromApplication_configurationIds = Lens.lens (\DisassociateConfigurationItemsFromApplication' {configurationIds} -> configurationIds) (\s@DisassociateConfigurationItemsFromApplication' {} a -> s {configurationIds = a} :: DisassociateConfigurationItemsFromApplication) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -102,15 +103,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DisassociateConfigurationItemsFromApplicationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisassociateConfigurationItemsFromApplication
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateConfigurationItemsFromApplication
 
 instance
@@ -118,14 +119,16 @@ instance
     DisassociateConfigurationItemsFromApplication
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -136,12 +139,12 @@ instance
   toJSON
     DisassociateConfigurationItemsFromApplication' {..} =
       Core.object
-        ( Core.catMaybes
-            [ Core.Just
+        ( Prelude.catMaybes
+            [ Prelude.Just
                 ( "applicationConfigurationId"
                     Core..= applicationConfigurationId
                 ),
-              Core.Just
+              Prelude.Just
                 ("configurationIds" Core..= configurationIds)
             ]
         )
@@ -150,20 +153,20 @@ instance
   Core.ToPath
     DisassociateConfigurationItemsFromApplication
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DisassociateConfigurationItemsFromApplication
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateConfigurationItemsFromApplicationResponse' smart constructor.
 data DisassociateConfigurationItemsFromApplicationResponse = DisassociateConfigurationItemsFromApplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateConfigurationItemsFromApplicationResponse' with all optional fields omitted.
@@ -176,7 +179,7 @@ data DisassociateConfigurationItemsFromApplicationResponse = DisassociateConfigu
 -- 'httpStatus', 'disassociateConfigurationItemsFromApplicationResponse_httpStatus' - The response's http status code.
 newDisassociateConfigurationItemsFromApplicationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateConfigurationItemsFromApplicationResponse
 newDisassociateConfigurationItemsFromApplicationResponse
   pHttpStatus_ =
@@ -186,9 +189,9 @@ newDisassociateConfigurationItemsFromApplicationResponse
       }
 
 -- | The response's http status code.
-disassociateConfigurationItemsFromApplicationResponse_httpStatus :: Lens.Lens' DisassociateConfigurationItemsFromApplicationResponse Core.Int
+disassociateConfigurationItemsFromApplicationResponse_httpStatus :: Lens.Lens' DisassociateConfigurationItemsFromApplicationResponse Prelude.Int
 disassociateConfigurationItemsFromApplicationResponse_httpStatus = Lens.lens (\DisassociateConfigurationItemsFromApplicationResponse' {httpStatus} -> httpStatus) (\s@DisassociateConfigurationItemsFromApplicationResponse' {} a -> s {httpStatus = a} :: DisassociateConfigurationItemsFromApplicationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateConfigurationItemsFromApplicationResponse

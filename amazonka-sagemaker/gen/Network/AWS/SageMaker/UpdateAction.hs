@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -52,17 +53,17 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateAction' smart constructor.
 data UpdateAction = UpdateAction'
   { -- | The new status for the action.
-    status :: Core.Maybe ActionStatus,
+    status :: Prelude.Maybe ActionStatus,
     -- | A list of properties to remove.
-    propertiesToRemove :: Core.Maybe [Core.Text],
+    propertiesToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The new list of properties. Overwrites the current property list.
-    properties :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The new description for the action.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the action to update.
-    actionName :: Core.Text
+    actionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAction' with all optional fields omitted.
@@ -83,35 +84,35 @@ data UpdateAction = UpdateAction'
 -- 'actionName', 'updateAction_actionName' - The name of the action to update.
 newUpdateAction ::
   -- | 'actionName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateAction
 newUpdateAction pActionName_ =
   UpdateAction'
-    { status = Core.Nothing,
-      propertiesToRemove = Core.Nothing,
-      properties = Core.Nothing,
-      description = Core.Nothing,
+    { status = Prelude.Nothing,
+      propertiesToRemove = Prelude.Nothing,
+      properties = Prelude.Nothing,
+      description = Prelude.Nothing,
       actionName = pActionName_
     }
 
 -- | The new status for the action.
-updateAction_status :: Lens.Lens' UpdateAction (Core.Maybe ActionStatus)
+updateAction_status :: Lens.Lens' UpdateAction (Prelude.Maybe ActionStatus)
 updateAction_status = Lens.lens (\UpdateAction' {status} -> status) (\s@UpdateAction' {} a -> s {status = a} :: UpdateAction)
 
 -- | A list of properties to remove.
-updateAction_propertiesToRemove :: Lens.Lens' UpdateAction (Core.Maybe [Core.Text])
-updateAction_propertiesToRemove = Lens.lens (\UpdateAction' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateAction' {} a -> s {propertiesToRemove = a} :: UpdateAction) Core.. Lens.mapping Lens._Coerce
+updateAction_propertiesToRemove :: Lens.Lens' UpdateAction (Prelude.Maybe [Prelude.Text])
+updateAction_propertiesToRemove = Lens.lens (\UpdateAction' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateAction' {} a -> s {propertiesToRemove = a} :: UpdateAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new list of properties. Overwrites the current property list.
-updateAction_properties :: Lens.Lens' UpdateAction (Core.Maybe (Core.HashMap Core.Text Core.Text))
-updateAction_properties = Lens.lens (\UpdateAction' {properties} -> properties) (\s@UpdateAction' {} a -> s {properties = a} :: UpdateAction) Core.. Lens.mapping Lens._Coerce
+updateAction_properties :: Lens.Lens' UpdateAction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateAction_properties = Lens.lens (\UpdateAction' {properties} -> properties) (\s@UpdateAction' {} a -> s {properties = a} :: UpdateAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new description for the action.
-updateAction_description :: Lens.Lens' UpdateAction (Core.Maybe Core.Text)
+updateAction_description :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.Text)
 updateAction_description = Lens.lens (\UpdateAction' {description} -> description) (\s@UpdateAction' {} a -> s {description = a} :: UpdateAction)
 
 -- | The name of the action to update.
-updateAction_actionName :: Lens.Lens' UpdateAction Core.Text
+updateAction_actionName :: Lens.Lens' UpdateAction Prelude.Text
 updateAction_actionName = Lens.lens (\UpdateAction' {actionName} -> actionName) (\s@UpdateAction' {} a -> s {actionName = a} :: UpdateAction)
 
 instance Core.AWSRequest UpdateAction where
@@ -121,52 +122,54 @@ instance Core.AWSRequest UpdateAction where
     Response.receiveJSON
       ( \s h x ->
           UpdateActionResponse'
-            Core.<$> (x Core..?> "ActionArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ActionArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateAction
+instance Prelude.Hashable UpdateAction
 
-instance Core.NFData UpdateAction
+instance Prelude.NFData UpdateAction
 
 instance Core.ToHeaders UpdateAction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateAction" :: Core.ByteString),
+              Core.=# ("SageMaker.UpdateAction" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateAction where
   toJSON UpdateAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Status" Core..=) Core.<$> status,
+      ( Prelude.catMaybes
+          [ ("Status" Core..=) Prelude.<$> status,
             ("PropertiesToRemove" Core..=)
-              Core.<$> propertiesToRemove,
-            ("Properties" Core..=) Core.<$> properties,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("ActionName" Core..= actionName)
+              Prelude.<$> propertiesToRemove,
+            ("Properties" Core..=) Prelude.<$> properties,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("ActionName" Core..= actionName)
           ]
       )
 
 instance Core.ToPath UpdateAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateAction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateActionResponse' smart constructor.
 data UpdateActionResponse = UpdateActionResponse'
   { -- | The Amazon Resource Name (ARN) of the action.
-    actionArn :: Core.Maybe Core.Text,
+    actionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateActionResponse' with all optional fields omitted.
@@ -181,20 +184,20 @@ data UpdateActionResponse = UpdateActionResponse'
 -- 'httpStatus', 'updateActionResponse_httpStatus' - The response's http status code.
 newUpdateActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateActionResponse
 newUpdateActionResponse pHttpStatus_ =
   UpdateActionResponse'
-    { actionArn = Core.Nothing,
+    { actionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the action.
-updateActionResponse_actionArn :: Lens.Lens' UpdateActionResponse (Core.Maybe Core.Text)
+updateActionResponse_actionArn :: Lens.Lens' UpdateActionResponse (Prelude.Maybe Prelude.Text)
 updateActionResponse_actionArn = Lens.lens (\UpdateActionResponse' {actionArn} -> actionArn) (\s@UpdateActionResponse' {} a -> s {actionArn = a} :: UpdateActionResponse)
 
 -- | The response's http status code.
-updateActionResponse_httpStatus :: Lens.Lens' UpdateActionResponse Core.Int
+updateActionResponse_httpStatus :: Lens.Lens' UpdateActionResponse Prelude.Int
 updateActionResponse_httpStatus = Lens.lens (\UpdateActionResponse' {httpStatus} -> httpStatus) (\s@UpdateActionResponse' {} a -> s {httpStatus = a} :: UpdateActionResponse)
 
-instance Core.NFData UpdateActionResponse
+instance Prelude.NFData UpdateActionResponse

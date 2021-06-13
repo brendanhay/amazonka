@@ -21,6 +21,7 @@ module Network.AWS.Connect.Types.UserIdentityInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the identity of a user.
 --
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 data UserIdentityInfo = UserIdentityInfo'
   { -- | The email address. If you are using SAML for identity management and
     -- include this parameter, an error is returned.
-    email :: Core.Maybe Core.Text,
+    email :: Prelude.Maybe Prelude.Text,
     -- | The first name. This is required if you are using Amazon Connect or SAML
     -- for identity management.
-    firstName :: Core.Maybe Core.Text,
+    firstName :: Prelude.Maybe Prelude.Text,
     -- | The last name. This is required if you are using Amazon Connect or SAML
     -- for identity management.
-    lastName :: Core.Maybe Core.Text
+    lastName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserIdentityInfo' with all optional fields omitted.
@@ -58,24 +59,24 @@ newUserIdentityInfo ::
   UserIdentityInfo
 newUserIdentityInfo =
   UserIdentityInfo'
-    { email = Core.Nothing,
-      firstName = Core.Nothing,
-      lastName = Core.Nothing
+    { email = Prelude.Nothing,
+      firstName = Prelude.Nothing,
+      lastName = Prelude.Nothing
     }
 
 -- | The email address. If you are using SAML for identity management and
 -- include this parameter, an error is returned.
-userIdentityInfo_email :: Lens.Lens' UserIdentityInfo (Core.Maybe Core.Text)
+userIdentityInfo_email :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
 userIdentityInfo_email = Lens.lens (\UserIdentityInfo' {email} -> email) (\s@UserIdentityInfo' {} a -> s {email = a} :: UserIdentityInfo)
 
 -- | The first name. This is required if you are using Amazon Connect or SAML
 -- for identity management.
-userIdentityInfo_firstName :: Lens.Lens' UserIdentityInfo (Core.Maybe Core.Text)
+userIdentityInfo_firstName :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
 userIdentityInfo_firstName = Lens.lens (\UserIdentityInfo' {firstName} -> firstName) (\s@UserIdentityInfo' {} a -> s {firstName = a} :: UserIdentityInfo)
 
 -- | The last name. This is required if you are using Amazon Connect or SAML
 -- for identity management.
-userIdentityInfo_lastName :: Lens.Lens' UserIdentityInfo (Core.Maybe Core.Text)
+userIdentityInfo_lastName :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
 userIdentityInfo_lastName = Lens.lens (\UserIdentityInfo' {lastName} -> lastName) (\s@UserIdentityInfo' {} a -> s {lastName = a} :: UserIdentityInfo)
 
 instance Core.FromJSON UserIdentityInfo where
@@ -84,21 +85,21 @@ instance Core.FromJSON UserIdentityInfo where
       "UserIdentityInfo"
       ( \x ->
           UserIdentityInfo'
-            Core.<$> (x Core..:? "Email")
-            Core.<*> (x Core..:? "FirstName")
-            Core.<*> (x Core..:? "LastName")
+            Prelude.<$> (x Core..:? "Email")
+            Prelude.<*> (x Core..:? "FirstName")
+            Prelude.<*> (x Core..:? "LastName")
       )
 
-instance Core.Hashable UserIdentityInfo
+instance Prelude.Hashable UserIdentityInfo
 
-instance Core.NFData UserIdentityInfo
+instance Prelude.NFData UserIdentityInfo
 
 instance Core.ToJSON UserIdentityInfo where
   toJSON UserIdentityInfo' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Email" Core..=) Core.<$> email,
-            ("FirstName" Core..=) Core.<$> firstName,
-            ("LastName" Core..=) Core.<$> lastName
+      ( Prelude.catMaybes
+          [ ("Email" Core..=) Prelude.<$> email,
+            ("FirstName" Core..=) Prelude.<$> firstName,
+            ("LastName" Core..=) Prelude.<$> lastName
           ]
       )

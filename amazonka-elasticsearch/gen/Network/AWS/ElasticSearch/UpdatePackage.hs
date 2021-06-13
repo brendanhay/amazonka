@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +55,14 @@ import qualified Network.AWS.Response as Response
 data UpdatePackage = UpdatePackage'
   { -- | An info message for the new version which will be shown as part of
     -- @GetPackageVersionHistoryResponse@.
-    commitMessage :: Core.Maybe Core.Text,
+    commitMessage :: Prelude.Maybe Prelude.Text,
     -- | New description of the package.
-    packageDescription :: Core.Maybe Core.Text,
+    packageDescription :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier for the package.
-    packageID :: Core.Text,
+    packageID :: Prelude.Text,
     packageSource :: PackageSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePackage' with all optional fields omitted.
@@ -81,29 +82,29 @@ data UpdatePackage = UpdatePackage'
 -- 'packageSource', 'updatePackage_packageSource' - Undocumented member.
 newUpdatePackage ::
   -- | 'packageID'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'packageSource'
   PackageSource ->
   UpdatePackage
 newUpdatePackage pPackageID_ pPackageSource_ =
   UpdatePackage'
-    { commitMessage = Core.Nothing,
-      packageDescription = Core.Nothing,
+    { commitMessage = Prelude.Nothing,
+      packageDescription = Prelude.Nothing,
       packageID = pPackageID_,
       packageSource = pPackageSource_
     }
 
 -- | An info message for the new version which will be shown as part of
 -- @GetPackageVersionHistoryResponse@.
-updatePackage_commitMessage :: Lens.Lens' UpdatePackage (Core.Maybe Core.Text)
+updatePackage_commitMessage :: Lens.Lens' UpdatePackage (Prelude.Maybe Prelude.Text)
 updatePackage_commitMessage = Lens.lens (\UpdatePackage' {commitMessage} -> commitMessage) (\s@UpdatePackage' {} a -> s {commitMessage = a} :: UpdatePackage)
 
 -- | New description of the package.
-updatePackage_packageDescription :: Lens.Lens' UpdatePackage (Core.Maybe Core.Text)
+updatePackage_packageDescription :: Lens.Lens' UpdatePackage (Prelude.Maybe Prelude.Text)
 updatePackage_packageDescription = Lens.lens (\UpdatePackage' {packageDescription} -> packageDescription) (\s@UpdatePackage' {} a -> s {packageDescription = a} :: UpdatePackage)
 
 -- | Unique identifier for the package.
-updatePackage_packageID :: Lens.Lens' UpdatePackage Core.Text
+updatePackage_packageID :: Lens.Lens' UpdatePackage Prelude.Text
 updatePackage_packageID = Lens.lens (\UpdatePackage' {packageID} -> packageID) (\s@UpdatePackage' {} a -> s {packageID = a} :: UpdatePackage)
 
 -- | Undocumented member.
@@ -119,45 +120,46 @@ instance Core.AWSRequest UpdatePackage where
     Response.receiveJSON
       ( \s h x ->
           UpdatePackageResponse'
-            Core.<$> (x Core..?> "PackageDetails")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PackageDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdatePackage
+instance Prelude.Hashable UpdatePackage
 
-instance Core.NFData UpdatePackage
+instance Prelude.NFData UpdatePackage
 
 instance Core.ToHeaders UpdatePackage where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdatePackage where
   toJSON UpdatePackage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CommitMessage" Core..=) Core.<$> commitMessage,
+      ( Prelude.catMaybes
+          [ ("CommitMessage" Core..=) Prelude.<$> commitMessage,
             ("PackageDescription" Core..=)
-              Core.<$> packageDescription,
-            Core.Just ("PackageID" Core..= packageID),
-            Core.Just ("PackageSource" Core..= packageSource)
+              Prelude.<$> packageDescription,
+            Prelude.Just ("PackageID" Core..= packageID),
+            Prelude.Just
+              ("PackageSource" Core..= packageSource)
           ]
       )
 
 instance Core.ToPath UpdatePackage where
-  toPath = Core.const "/2015-01-01/packages/update"
+  toPath = Prelude.const "/2015-01-01/packages/update"
 
 instance Core.ToQuery UpdatePackage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response returned by @ UpdatePackage @ operation.
 --
 -- /See:/ 'newUpdatePackageResponse' smart constructor.
 data UpdatePackageResponse = UpdatePackageResponse'
   { -- | Information about the package @PackageDetails@.
-    packageDetails :: Core.Maybe PackageDetails,
+    packageDetails :: Prelude.Maybe PackageDetails,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePackageResponse' with all optional fields omitted.
@@ -172,21 +174,21 @@ data UpdatePackageResponse = UpdatePackageResponse'
 -- 'httpStatus', 'updatePackageResponse_httpStatus' - The response's http status code.
 newUpdatePackageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdatePackageResponse
 newUpdatePackageResponse pHttpStatus_ =
   UpdatePackageResponse'
     { packageDetails =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the package @PackageDetails@.
-updatePackageResponse_packageDetails :: Lens.Lens' UpdatePackageResponse (Core.Maybe PackageDetails)
+updatePackageResponse_packageDetails :: Lens.Lens' UpdatePackageResponse (Prelude.Maybe PackageDetails)
 updatePackageResponse_packageDetails = Lens.lens (\UpdatePackageResponse' {packageDetails} -> packageDetails) (\s@UpdatePackageResponse' {} a -> s {packageDetails = a} :: UpdatePackageResponse)
 
 -- | The response's http status code.
-updatePackageResponse_httpStatus :: Lens.Lens' UpdatePackageResponse Core.Int
+updatePackageResponse_httpStatus :: Lens.Lens' UpdatePackageResponse Prelude.Int
 updatePackageResponse_httpStatus = Lens.lens (\UpdatePackageResponse' {httpStatus} -> httpStatus) (\s@UpdatePackageResponse' {} a -> s {httpStatus = a} :: UpdatePackageResponse)
 
-instance Core.NFData UpdatePackageResponse
+instance Prelude.NFData UpdatePackageResponse

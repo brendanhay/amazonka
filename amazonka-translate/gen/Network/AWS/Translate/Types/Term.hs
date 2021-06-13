@@ -21,17 +21,18 @@ module Network.AWS.Translate.Types.Term where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The term being translated by the custom terminology.
 --
 -- /See:/ 'newTerm' smart constructor.
 data Term = Term'
   { -- | The target text of the term being translated by the custom terminology.
-    targetText :: Core.Maybe Core.Text,
+    targetText :: Prelude.Maybe Prelude.Text,
     -- | The source text of the term being translated by the custom terminology.
-    sourceText :: Core.Maybe Core.Text
+    sourceText :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Term' with all optional fields omitted.
@@ -48,16 +49,16 @@ newTerm ::
   Term
 newTerm =
   Term'
-    { targetText = Core.Nothing,
-      sourceText = Core.Nothing
+    { targetText = Prelude.Nothing,
+      sourceText = Prelude.Nothing
     }
 
 -- | The target text of the term being translated by the custom terminology.
-term_targetText :: Lens.Lens' Term (Core.Maybe Core.Text)
+term_targetText :: Lens.Lens' Term (Prelude.Maybe Prelude.Text)
 term_targetText = Lens.lens (\Term' {targetText} -> targetText) (\s@Term' {} a -> s {targetText = a} :: Term)
 
 -- | The source text of the term being translated by the custom terminology.
-term_sourceText :: Lens.Lens' Term (Core.Maybe Core.Text)
+term_sourceText :: Lens.Lens' Term (Prelude.Maybe Prelude.Text)
 term_sourceText = Lens.lens (\Term' {sourceText} -> sourceText) (\s@Term' {} a -> s {sourceText = a} :: Term)
 
 instance Core.FromJSON Term where
@@ -66,10 +67,10 @@ instance Core.FromJSON Term where
       "Term"
       ( \x ->
           Term'
-            Core.<$> (x Core..:? "TargetText")
-            Core.<*> (x Core..:? "SourceText")
+            Prelude.<$> (x Core..:? "TargetText")
+            Prelude.<*> (x Core..:? "SourceText")
       )
 
-instance Core.Hashable Term
+instance Prelude.Hashable Term
 
-instance Core.NFData Term
+instance Prelude.NFData Term

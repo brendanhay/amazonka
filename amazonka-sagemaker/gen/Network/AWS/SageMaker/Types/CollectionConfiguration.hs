@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.CollectionConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for the Debugger output tensor collections.
 --
@@ -29,12 +30,12 @@ data CollectionConfiguration = CollectionConfiguration'
   { -- | Parameter values for the tensor collection. The allowed parameters are
     -- @\"name\"@, @\"include_regex\"@, @\"reduction_config\"@,
     -- @\"save_config\"@, @\"tensor_names\"@, and @\"save_histogram\"@.
-    collectionParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    collectionParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the tensor collection. The name must be unique relative to
     -- other rule configuration names.
-    collectionName :: Core.Maybe Core.Text
+    collectionName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CollectionConfiguration' with all optional fields omitted.
@@ -55,19 +56,19 @@ newCollectionConfiguration ::
 newCollectionConfiguration =
   CollectionConfiguration'
     { collectionParameters =
-        Core.Nothing,
-      collectionName = Core.Nothing
+        Prelude.Nothing,
+      collectionName = Prelude.Nothing
     }
 
 -- | Parameter values for the tensor collection. The allowed parameters are
 -- @\"name\"@, @\"include_regex\"@, @\"reduction_config\"@,
 -- @\"save_config\"@, @\"tensor_names\"@, and @\"save_histogram\"@.
-collectionConfiguration_collectionParameters :: Lens.Lens' CollectionConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
-collectionConfiguration_collectionParameters = Lens.lens (\CollectionConfiguration' {collectionParameters} -> collectionParameters) (\s@CollectionConfiguration' {} a -> s {collectionParameters = a} :: CollectionConfiguration) Core.. Lens.mapping Lens._Coerce
+collectionConfiguration_collectionParameters :: Lens.Lens' CollectionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+collectionConfiguration_collectionParameters = Lens.lens (\CollectionConfiguration' {collectionParameters} -> collectionParameters) (\s@CollectionConfiguration' {} a -> s {collectionParameters = a} :: CollectionConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the tensor collection. The name must be unique relative to
 -- other rule configuration names.
-collectionConfiguration_collectionName :: Lens.Lens' CollectionConfiguration (Core.Maybe Core.Text)
+collectionConfiguration_collectionName :: Lens.Lens' CollectionConfiguration (Prelude.Maybe Prelude.Text)
 collectionConfiguration_collectionName = Lens.lens (\CollectionConfiguration' {collectionName} -> collectionName) (\s@CollectionConfiguration' {} a -> s {collectionName = a} :: CollectionConfiguration)
 
 instance Core.FromJSON CollectionConfiguration where
@@ -76,22 +77,23 @@ instance Core.FromJSON CollectionConfiguration where
       "CollectionConfiguration"
       ( \x ->
           CollectionConfiguration'
-            Core.<$> ( x Core..:? "CollectionParameters"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "CollectionName")
+            Prelude.<$> ( x Core..:? "CollectionParameters"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "CollectionName")
       )
 
-instance Core.Hashable CollectionConfiguration
+instance Prelude.Hashable CollectionConfiguration
 
-instance Core.NFData CollectionConfiguration
+instance Prelude.NFData CollectionConfiguration
 
 instance Core.ToJSON CollectionConfiguration where
   toJSON CollectionConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CollectionParameters" Core..=)
-              Core.<$> collectionParameters,
-            ("CollectionName" Core..=) Core.<$> collectionName
+              Prelude.<$> collectionParameters,
+            ("CollectionName" Core..=)
+              Prelude.<$> collectionName
           ]
       )

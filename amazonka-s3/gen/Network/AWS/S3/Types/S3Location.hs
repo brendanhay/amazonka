@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.S3Location where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Encryption
 import Network.AWS.S3.Types.Grant
@@ -35,22 +36,22 @@ import Network.AWS.S3.Types.Tagging
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
   { -- | The canned ACL to apply to the restore results.
-    cannedACL :: Core.Maybe ObjectCannedACL,
-    encryption :: Core.Maybe Encryption,
+    cannedACL :: Prelude.Maybe ObjectCannedACL,
+    encryption :: Prelude.Maybe Encryption,
     -- | The class of storage used to store the restore results.
-    storageClass :: Core.Maybe StorageClass,
+    storageClass :: Prelude.Maybe StorageClass,
     -- | A list of metadata to store with the restore results in S3.
-    userMetadata :: Core.Maybe [MetadataEntry],
+    userMetadata :: Prelude.Maybe [MetadataEntry],
     -- | A list of grants that control access to the staged results.
-    accessControlList :: Core.Maybe [Grant],
+    accessControlList :: Prelude.Maybe [Grant],
     -- | The tag-set that is applied to the restore results.
-    tagging :: Core.Maybe Tagging,
+    tagging :: Prelude.Maybe Tagging,
     -- | The name of the bucket where the restore results will be placed.
     bucketName :: BucketName,
     -- | The prefix that is prepended to the restore results for this request.
-    prefix :: Core.Text
+    prefix :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3Location' with all optional fields omitted.
@@ -79,42 +80,42 @@ newS3Location ::
   -- | 'bucketName'
   BucketName ->
   -- | 'prefix'
-  Core.Text ->
+  Prelude.Text ->
   S3Location
 newS3Location pBucketName_ pPrefix_ =
   S3Location'
-    { cannedACL = Core.Nothing,
-      encryption = Core.Nothing,
-      storageClass = Core.Nothing,
-      userMetadata = Core.Nothing,
-      accessControlList = Core.Nothing,
-      tagging = Core.Nothing,
+    { cannedACL = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      storageClass = Prelude.Nothing,
+      userMetadata = Prelude.Nothing,
+      accessControlList = Prelude.Nothing,
+      tagging = Prelude.Nothing,
       bucketName = pBucketName_,
       prefix = pPrefix_
     }
 
 -- | The canned ACL to apply to the restore results.
-s3Location_cannedACL :: Lens.Lens' S3Location (Core.Maybe ObjectCannedACL)
+s3Location_cannedACL :: Lens.Lens' S3Location (Prelude.Maybe ObjectCannedACL)
 s3Location_cannedACL = Lens.lens (\S3Location' {cannedACL} -> cannedACL) (\s@S3Location' {} a -> s {cannedACL = a} :: S3Location)
 
 -- | Undocumented member.
-s3Location_encryption :: Lens.Lens' S3Location (Core.Maybe Encryption)
+s3Location_encryption :: Lens.Lens' S3Location (Prelude.Maybe Encryption)
 s3Location_encryption = Lens.lens (\S3Location' {encryption} -> encryption) (\s@S3Location' {} a -> s {encryption = a} :: S3Location)
 
 -- | The class of storage used to store the restore results.
-s3Location_storageClass :: Lens.Lens' S3Location (Core.Maybe StorageClass)
+s3Location_storageClass :: Lens.Lens' S3Location (Prelude.Maybe StorageClass)
 s3Location_storageClass = Lens.lens (\S3Location' {storageClass} -> storageClass) (\s@S3Location' {} a -> s {storageClass = a} :: S3Location)
 
 -- | A list of metadata to store with the restore results in S3.
-s3Location_userMetadata :: Lens.Lens' S3Location (Core.Maybe [MetadataEntry])
-s3Location_userMetadata = Lens.lens (\S3Location' {userMetadata} -> userMetadata) (\s@S3Location' {} a -> s {userMetadata = a} :: S3Location) Core.. Lens.mapping Lens._Coerce
+s3Location_userMetadata :: Lens.Lens' S3Location (Prelude.Maybe [MetadataEntry])
+s3Location_userMetadata = Lens.lens (\S3Location' {userMetadata} -> userMetadata) (\s@S3Location' {} a -> s {userMetadata = a} :: S3Location) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of grants that control access to the staged results.
-s3Location_accessControlList :: Lens.Lens' S3Location (Core.Maybe [Grant])
-s3Location_accessControlList = Lens.lens (\S3Location' {accessControlList} -> accessControlList) (\s@S3Location' {} a -> s {accessControlList = a} :: S3Location) Core.. Lens.mapping Lens._Coerce
+s3Location_accessControlList :: Lens.Lens' S3Location (Prelude.Maybe [Grant])
+s3Location_accessControlList = Lens.lens (\S3Location' {accessControlList} -> accessControlList) (\s@S3Location' {} a -> s {accessControlList = a} :: S3Location) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The tag-set that is applied to the restore results.
-s3Location_tagging :: Lens.Lens' S3Location (Core.Maybe Tagging)
+s3Location_tagging :: Lens.Lens' S3Location (Prelude.Maybe Tagging)
 s3Location_tagging = Lens.lens (\S3Location' {tagging} -> tagging) (\s@S3Location' {} a -> s {tagging = a} :: S3Location)
 
 -- | The name of the bucket where the restore results will be placed.
@@ -122,27 +123,29 @@ s3Location_bucketName :: Lens.Lens' S3Location BucketName
 s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@S3Location' {} a -> s {bucketName = a} :: S3Location)
 
 -- | The prefix that is prepended to the restore results for this request.
-s3Location_prefix :: Lens.Lens' S3Location Core.Text
+s3Location_prefix :: Lens.Lens' S3Location Prelude.Text
 s3Location_prefix = Lens.lens (\S3Location' {prefix} -> prefix) (\s@S3Location' {} a -> s {prefix = a} :: S3Location)
 
-instance Core.Hashable S3Location
+instance Prelude.Hashable S3Location
 
-instance Core.NFData S3Location
+instance Prelude.NFData S3Location
 
 instance Core.ToXML S3Location where
   toXML S3Location' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "CannedACL" Core.@= cannedACL,
         "Encryption" Core.@= encryption,
         "StorageClass" Core.@= storageClass,
         "UserMetadata"
           Core.@= Core.toXML
             ( Core.toXMLList "MetadataEntry"
-                Core.<$> userMetadata
+                Prelude.<$> userMetadata
             ),
         "AccessControlList"
           Core.@= Core.toXML
-            (Core.toXMLList "Grant" Core.<$> accessControlList),
+            ( Core.toXMLList "Grant"
+                Prelude.<$> accessControlList
+            ),
         "Tagging" Core.@= tagging,
         "BucketName" Core.@= bucketName,
         "Prefix" Core.@= prefix

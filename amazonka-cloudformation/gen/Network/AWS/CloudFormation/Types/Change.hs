@@ -23,6 +23,7 @@ import Network.AWS.CloudFormation.Types.ChangeType
 import Network.AWS.CloudFormation.Types.ResourceChange
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The @Change@ structure describes the changes AWS CloudFormation will
 -- perform if you execute the change set.
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data Change = Change'
   { -- | A @ResourceChange@ structure that describes the resource and action that
     -- AWS CloudFormation will perform.
-    resourceChange :: Core.Maybe ResourceChange,
+    resourceChange :: Prelude.Maybe ResourceChange,
     -- | The type of entity that AWS CloudFormation changes. Currently, the only
     -- entity type is @Resource@.
-    type' :: Core.Maybe ChangeType
+    type' :: Prelude.Maybe ChangeType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Change' with all optional fields omitted.
@@ -55,26 +56,26 @@ newChange ::
   Change
 newChange =
   Change'
-    { resourceChange = Core.Nothing,
-      type' = Core.Nothing
+    { resourceChange = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | A @ResourceChange@ structure that describes the resource and action that
 -- AWS CloudFormation will perform.
-change_resourceChange :: Lens.Lens' Change (Core.Maybe ResourceChange)
+change_resourceChange :: Lens.Lens' Change (Prelude.Maybe ResourceChange)
 change_resourceChange = Lens.lens (\Change' {resourceChange} -> resourceChange) (\s@Change' {} a -> s {resourceChange = a} :: Change)
 
 -- | The type of entity that AWS CloudFormation changes. Currently, the only
 -- entity type is @Resource@.
-change_type :: Lens.Lens' Change (Core.Maybe ChangeType)
+change_type :: Lens.Lens' Change (Prelude.Maybe ChangeType)
 change_type = Lens.lens (\Change' {type'} -> type') (\s@Change' {} a -> s {type' = a} :: Change)
 
 instance Core.FromXML Change where
   parseXML x =
     Change'
-      Core.<$> (x Core..@? "ResourceChange")
-      Core.<*> (x Core..@? "Type")
+      Prelude.<$> (x Core..@? "ResourceChange")
+      Prelude.<*> (x Core..@? "Type")
 
-instance Core.Hashable Change
+instance Prelude.Hashable Change
 
-instance Core.NFData Change
+instance Prelude.NFData Change

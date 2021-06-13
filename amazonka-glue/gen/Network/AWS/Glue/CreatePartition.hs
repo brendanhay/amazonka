@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,16 +52,16 @@ import qualified Network.AWS.Response as Response
 data CreatePartition = CreatePartition'
   { -- | The AWS account ID of the catalog in which the partition is to be
     -- created.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the metadata database in which the partition is to be
     -- created.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the metadata table in which the partition is to be created.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | A @PartitionInput@ structure defining the partition to be created.
     partitionInput :: PartitionInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePartition' with all optional fields omitted.
@@ -81,9 +82,9 @@ data CreatePartition = CreatePartition'
 -- 'partitionInput', 'createPartition_partitionInput' - A @PartitionInput@ structure defining the partition to be created.
 newCreatePartition ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'partitionInput'
   PartitionInput ->
   CreatePartition
@@ -92,7 +93,7 @@ newCreatePartition
   pTableName_
   pPartitionInput_ =
     CreatePartition'
-      { catalogId = Core.Nothing,
+      { catalogId = Prelude.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
         partitionInput = pPartitionInput_
@@ -100,16 +101,16 @@ newCreatePartition
 
 -- | The AWS account ID of the catalog in which the partition is to be
 -- created.
-createPartition_catalogId :: Lens.Lens' CreatePartition (Core.Maybe Core.Text)
+createPartition_catalogId :: Lens.Lens' CreatePartition (Prelude.Maybe Prelude.Text)
 createPartition_catalogId = Lens.lens (\CreatePartition' {catalogId} -> catalogId) (\s@CreatePartition' {} a -> s {catalogId = a} :: CreatePartition)
 
 -- | The name of the metadata database in which the partition is to be
 -- created.
-createPartition_databaseName :: Lens.Lens' CreatePartition Core.Text
+createPartition_databaseName :: Lens.Lens' CreatePartition Prelude.Text
 createPartition_databaseName = Lens.lens (\CreatePartition' {databaseName} -> databaseName) (\s@CreatePartition' {} a -> s {databaseName = a} :: CreatePartition)
 
 -- | The name of the metadata table in which the partition is to be created.
-createPartition_tableName :: Lens.Lens' CreatePartition Core.Text
+createPartition_tableName :: Lens.Lens' CreatePartition Prelude.Text
 createPartition_tableName = Lens.lens (\CreatePartition' {tableName} -> tableName) (\s@CreatePartition' {} a -> s {tableName = a} :: CreatePartition)
 
 -- | A @PartitionInput@ structure defining the partition to be created.
@@ -125,47 +126,50 @@ instance Core.AWSRequest CreatePartition where
     Response.receiveEmpty
       ( \s h x ->
           CreatePartitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePartition
+instance Prelude.Hashable CreatePartition
 
-instance Core.NFData CreatePartition
+instance Prelude.NFData CreatePartition
 
 instance Core.ToHeaders CreatePartition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreatePartition" :: Core.ByteString),
+              Core.=# ("AWSGlue.CreatePartition" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePartition where
   toJSON CreatePartition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just ("PartitionInput" Core..= partitionInput)
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just
+              ("PartitionInput" Core..= partitionInput)
           ]
       )
 
 instance Core.ToPath CreatePartition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePartition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePartitionResponse' smart constructor.
 data CreatePartitionResponse = CreatePartitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePartitionResponse' with all optional fields omitted.
@@ -178,13 +182,13 @@ data CreatePartitionResponse = CreatePartitionResponse'
 -- 'httpStatus', 'createPartitionResponse_httpStatus' - The response's http status code.
 newCreatePartitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePartitionResponse
 newCreatePartitionResponse pHttpStatus_ =
   CreatePartitionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createPartitionResponse_httpStatus :: Lens.Lens' CreatePartitionResponse Core.Int
+createPartitionResponse_httpStatus :: Lens.Lens' CreatePartitionResponse Prelude.Int
 createPartitionResponse_httpStatus = Lens.lens (\CreatePartitionResponse' {httpStatus} -> httpStatus) (\s@CreatePartitionResponse' {} a -> s {httpStatus = a} :: CreatePartitionResponse)
 
-instance Core.NFData CreatePartitionResponse
+instance Prelude.NFData CreatePartitionResponse

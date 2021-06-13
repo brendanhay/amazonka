@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -48,9 +49,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newSetTopicAttributes' smart constructor.
 data SetTopicAttributes = SetTopicAttributes'
   { -- | The new value for the attribute.
-    attributeValue :: Core.Maybe Core.Text,
+    attributeValue :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the topic to modify.
-    topicArn :: Core.Text,
+    topicArn :: Prelude.Text,
     -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special
@@ -96,9 +97,9 @@ data SetTopicAttributes = SetTopicAttributes'
     --         (Optional) To override the generated value, you can specify a
     --         value for the the @MessageDeduplicationId@ parameter for the
     --         @Publish@ action.
-    attributeName :: Core.Text
+    attributeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTopicAttributes' with all optional fields omitted.
@@ -159,23 +160,24 @@ data SetTopicAttributes = SetTopicAttributes'
 --         @Publish@ action.
 newSetTopicAttributes ::
   -- | 'topicArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attributeName'
-  Core.Text ->
+  Prelude.Text ->
   SetTopicAttributes
 newSetTopicAttributes pTopicArn_ pAttributeName_ =
   SetTopicAttributes'
-    { attributeValue = Core.Nothing,
+    { attributeValue =
+        Prelude.Nothing,
       topicArn = pTopicArn_,
       attributeName = pAttributeName_
     }
 
 -- | The new value for the attribute.
-setTopicAttributes_attributeValue :: Lens.Lens' SetTopicAttributes (Core.Maybe Core.Text)
+setTopicAttributes_attributeValue :: Lens.Lens' SetTopicAttributes (Prelude.Maybe Prelude.Text)
 setTopicAttributes_attributeValue = Lens.lens (\SetTopicAttributes' {attributeValue} -> attributeValue) (\s@SetTopicAttributes' {} a -> s {attributeValue = a} :: SetTopicAttributes)
 
 -- | The ARN of the topic to modify.
-setTopicAttributes_topicArn :: Lens.Lens' SetTopicAttributes Core.Text
+setTopicAttributes_topicArn :: Lens.Lens' SetTopicAttributes Prelude.Text
 setTopicAttributes_topicArn = Lens.lens (\SetTopicAttributes' {topicArn} -> topicArn) (\s@SetTopicAttributes' {} a -> s {topicArn = a} :: SetTopicAttributes)
 
 -- | A map of attributes with their corresponding values.
@@ -223,7 +225,7 @@ setTopicAttributes_topicArn = Lens.lens (\SetTopicAttributes' {topicArn} -> topi
 --         (Optional) To override the generated value, you can specify a
 --         value for the the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
-setTopicAttributes_attributeName :: Lens.Lens' SetTopicAttributes Core.Text
+setTopicAttributes_attributeName :: Lens.Lens' SetTopicAttributes Prelude.Text
 setTopicAttributes_attributeName = Lens.lens (\SetTopicAttributes' {attributeName} -> attributeName) (\s@SetTopicAttributes' {} a -> s {attributeName = a} :: SetTopicAttributes)
 
 instance Core.AWSRequest SetTopicAttributes where
@@ -234,22 +236,23 @@ instance Core.AWSRequest SetTopicAttributes where
   response =
     Response.receiveNull SetTopicAttributesResponse'
 
-instance Core.Hashable SetTopicAttributes
+instance Prelude.Hashable SetTopicAttributes
 
-instance Core.NFData SetTopicAttributes
+instance Prelude.NFData SetTopicAttributes
 
 instance Core.ToHeaders SetTopicAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetTopicAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetTopicAttributes where
   toQuery SetTopicAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetTopicAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("SetTopicAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "AttributeValue" Core.=: attributeValue,
         "TopicArn" Core.=: topicArn,
         "AttributeName" Core.=: attributeName
@@ -259,7 +262,7 @@ instance Core.ToQuery SetTopicAttributes where
 data SetTopicAttributesResponse = SetTopicAttributesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTopicAttributesResponse' with all optional fields omitted.
@@ -270,4 +273,4 @@ newSetTopicAttributesResponse ::
 newSetTopicAttributesResponse =
   SetTopicAttributesResponse'
 
-instance Core.NFData SetTopicAttributesResponse
+instance Prelude.NFData SetTopicAttributesResponse

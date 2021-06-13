@@ -22,15 +22,16 @@ module Network.AWS.Athena.Types.Row where
 import Network.AWS.Athena.Types.Datum
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The rows that comprise a query result table.
 --
 -- /See:/ 'newRow' smart constructor.
 data Row = Row'
   { -- | The data that populates a row in a query result table.
-    data' :: Core.Maybe [Datum]
+    data' :: Prelude.Maybe [Datum]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Row' with all optional fields omitted.
@@ -43,11 +44,11 @@ data Row = Row'
 -- 'data'', 'row_data' - The data that populates a row in a query result table.
 newRow ::
   Row
-newRow = Row' {data' = Core.Nothing}
+newRow = Row' {data' = Prelude.Nothing}
 
 -- | The data that populates a row in a query result table.
-row_data :: Lens.Lens' Row (Core.Maybe [Datum])
-row_data = Lens.lens (\Row' {data'} -> data') (\s@Row' {} a -> s {data' = a} :: Row) Core.. Lens.mapping Lens._Coerce
+row_data :: Lens.Lens' Row (Prelude.Maybe [Datum])
+row_data = Lens.lens (\Row' {data'} -> data') (\s@Row' {} a -> s {data' = a} :: Row) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Row where
   parseJSON =
@@ -55,9 +56,9 @@ instance Core.FromJSON Row where
       "Row"
       ( \x ->
           Row'
-            Core.<$> (x Core..:? "Data" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Data" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Row
+instance Prelude.Hashable Row
 
-instance Core.NFData Row
+instance Prelude.NFData Row

@@ -22,15 +22,16 @@ module Network.AWS.ElasticSearch.Types.InstanceLimits where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.InstanceCountLimits
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | InstanceLimits represents the list of instance related attributes that
 -- are available for given InstanceType.
 --
 -- /See:/ 'newInstanceLimits' smart constructor.
 data InstanceLimits = InstanceLimits'
-  { instanceCountLimits :: Core.Maybe InstanceCountLimits
+  { instanceCountLimits :: Prelude.Maybe InstanceCountLimits
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceLimits' with all optional fields omitted.
@@ -44,10 +45,13 @@ data InstanceLimits = InstanceLimits'
 newInstanceLimits ::
   InstanceLimits
 newInstanceLimits =
-  InstanceLimits' {instanceCountLimits = Core.Nothing}
+  InstanceLimits'
+    { instanceCountLimits =
+        Prelude.Nothing
+    }
 
 -- | Undocumented member.
-instanceLimits_instanceCountLimits :: Lens.Lens' InstanceLimits (Core.Maybe InstanceCountLimits)
+instanceLimits_instanceCountLimits :: Lens.Lens' InstanceLimits (Prelude.Maybe InstanceCountLimits)
 instanceLimits_instanceCountLimits = Lens.lens (\InstanceLimits' {instanceCountLimits} -> instanceCountLimits) (\s@InstanceLimits' {} a -> s {instanceCountLimits = a} :: InstanceLimits)
 
 instance Core.FromJSON InstanceLimits where
@@ -56,9 +60,9 @@ instance Core.FromJSON InstanceLimits where
       "InstanceLimits"
       ( \x ->
           InstanceLimits'
-            Core.<$> (x Core..:? "InstanceCountLimits")
+            Prelude.<$> (x Core..:? "InstanceCountLimits")
       )
 
-instance Core.Hashable InstanceLimits
+instance Prelude.Hashable InstanceLimits
 
-instance Core.NFData InstanceLimits
+instance Prelude.NFData InstanceLimits

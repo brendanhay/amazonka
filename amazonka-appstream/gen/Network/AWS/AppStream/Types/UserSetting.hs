@@ -23,6 +23,7 @@ import Network.AWS.AppStream.Types.Action
 import Network.AWS.AppStream.Types.Permission
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action and whether the action is enabled or disabled for
 -- users during their streaming sessions.
@@ -34,7 +35,7 @@ data UserSetting = UserSetting'
     -- | Indicates whether the action is enabled or disabled.
     permission :: Permission
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserSetting' with all optional fields omitted.
@@ -73,19 +74,19 @@ instance Core.FromJSON UserSetting where
       "UserSetting"
       ( \x ->
           UserSetting'
-            Core.<$> (x Core..: "Action")
-            Core.<*> (x Core..: "Permission")
+            Prelude.<$> (x Core..: "Action")
+            Prelude.<*> (x Core..: "Permission")
       )
 
-instance Core.Hashable UserSetting
+instance Prelude.Hashable UserSetting
 
-instance Core.NFData UserSetting
+instance Prelude.NFData UserSetting
 
 instance Core.ToJSON UserSetting where
   toJSON UserSetting' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Action" Core..= action),
-            Core.Just ("Permission" Core..= permission)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Action" Core..= action),
+            Prelude.Just ("Permission" Core..= permission)
           ]
       )

@@ -89,34 +89,35 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFunctionCode' smart constructor.
 data UpdateFunctionCode = UpdateFunctionCode'
   { -- | URI of a container image in the Amazon ECR registry.
-    imageUri :: Core.Maybe Core.Text,
+    imageUri :: Prelude.Maybe Prelude.Text,
     -- | Set to true to publish a new version of the function after updating the
     -- code. This has the same effect as calling PublishVersion separately.
-    publish :: Core.Maybe Core.Bool,
+    publish :: Prelude.Maybe Prelude.Bool,
     -- | Only update the function if the revision ID matches the ID that\'s
     -- specified. Use this option to avoid modifying a function that has
     -- changed since you last read it.
-    revisionId :: Core.Maybe Core.Text,
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | Set to true to validate the request parameters and access permissions
     -- without modifying the function code.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | An Amazon S3 bucket in the same AWS Region as your function. The bucket
     -- can be in a different AWS account.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded contents of the deployment package. AWS SDK and AWS
     -- CLI clients handle the encoding for you.
-    zipFile :: Core.Maybe (Core.Sensitive Core.Base64),
+    zipFile :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | For versioned objects, the version of the deployment package object to
     -- use.
-    s3ObjectVersion :: Core.Maybe Core.Text,
+    s3ObjectVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 key of the deployment package.
-    s3Key :: Core.Maybe Core.Text,
+    s3Key :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -130,9 +131,9 @@ data UpdateFunctionCode = UpdateFunctionCode'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFunctionCode' with all optional fields omitted.
@@ -184,44 +185,44 @@ data UpdateFunctionCode = UpdateFunctionCode'
 -- the function name, it is limited to 64 characters in length.
 newUpdateFunctionCode ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFunctionCode
 newUpdateFunctionCode pFunctionName_ =
   UpdateFunctionCode'
-    { imageUri = Core.Nothing,
-      publish = Core.Nothing,
-      revisionId = Core.Nothing,
-      dryRun = Core.Nothing,
-      s3Bucket = Core.Nothing,
-      zipFile = Core.Nothing,
-      s3ObjectVersion = Core.Nothing,
-      s3Key = Core.Nothing,
+    { imageUri = Prelude.Nothing,
+      publish = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
+      zipFile = Prelude.Nothing,
+      s3ObjectVersion = Prelude.Nothing,
+      s3Key = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
 -- | URI of a container image in the Amazon ECR registry.
-updateFunctionCode_imageUri :: Lens.Lens' UpdateFunctionCode (Core.Maybe Core.Text)
+updateFunctionCode_imageUri :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_imageUri = Lens.lens (\UpdateFunctionCode' {imageUri} -> imageUri) (\s@UpdateFunctionCode' {} a -> s {imageUri = a} :: UpdateFunctionCode)
 
 -- | Set to true to publish a new version of the function after updating the
 -- code. This has the same effect as calling PublishVersion separately.
-updateFunctionCode_publish :: Lens.Lens' UpdateFunctionCode (Core.Maybe Core.Bool)
+updateFunctionCode_publish :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Bool)
 updateFunctionCode_publish = Lens.lens (\UpdateFunctionCode' {publish} -> publish) (\s@UpdateFunctionCode' {} a -> s {publish = a} :: UpdateFunctionCode)
 
 -- | Only update the function if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying a function that has
 -- changed since you last read it.
-updateFunctionCode_revisionId :: Lens.Lens' UpdateFunctionCode (Core.Maybe Core.Text)
+updateFunctionCode_revisionId :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_revisionId = Lens.lens (\UpdateFunctionCode' {revisionId} -> revisionId) (\s@UpdateFunctionCode' {} a -> s {revisionId = a} :: UpdateFunctionCode)
 
 -- | Set to true to validate the request parameters and access permissions
 -- without modifying the function code.
-updateFunctionCode_dryRun :: Lens.Lens' UpdateFunctionCode (Core.Maybe Core.Bool)
+updateFunctionCode_dryRun :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Bool)
 updateFunctionCode_dryRun = Lens.lens (\UpdateFunctionCode' {dryRun} -> dryRun) (\s@UpdateFunctionCode' {} a -> s {dryRun = a} :: UpdateFunctionCode)
 
 -- | An Amazon S3 bucket in the same AWS Region as your function. The bucket
 -- can be in a different AWS account.
-updateFunctionCode_s3Bucket :: Lens.Lens' UpdateFunctionCode (Core.Maybe Core.Text)
+updateFunctionCode_s3Bucket :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_s3Bucket = Lens.lens (\UpdateFunctionCode' {s3Bucket} -> s3Bucket) (\s@UpdateFunctionCode' {} a -> s {s3Bucket = a} :: UpdateFunctionCode)
 
 -- | The base64-encoded contents of the deployment package. AWS SDK and AWS
@@ -230,16 +231,16 @@ updateFunctionCode_s3Bucket = Lens.lens (\UpdateFunctionCode' {s3Bucket} -> s3Bu
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-updateFunctionCode_zipFile :: Lens.Lens' UpdateFunctionCode (Core.Maybe Core.ByteString)
-updateFunctionCode_zipFile = Lens.lens (\UpdateFunctionCode' {zipFile} -> zipFile) (\s@UpdateFunctionCode' {} a -> s {zipFile = a} :: UpdateFunctionCode) Core.. Lens.mapping (Core._Sensitive Core.. Core._Base64)
+updateFunctionCode_zipFile :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.ByteString)
+updateFunctionCode_zipFile = Lens.lens (\UpdateFunctionCode' {zipFile} -> zipFile) (\s@UpdateFunctionCode' {} a -> s {zipFile = a} :: UpdateFunctionCode) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
 -- | For versioned objects, the version of the deployment package object to
 -- use.
-updateFunctionCode_s3ObjectVersion :: Lens.Lens' UpdateFunctionCode (Core.Maybe Core.Text)
+updateFunctionCode_s3ObjectVersion :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_s3ObjectVersion = Lens.lens (\UpdateFunctionCode' {s3ObjectVersion} -> s3ObjectVersion) (\s@UpdateFunctionCode' {} a -> s {s3ObjectVersion = a} :: UpdateFunctionCode)
 
 -- | The Amazon S3 key of the deployment package.
-updateFunctionCode_s3Key :: Lens.Lens' UpdateFunctionCode (Core.Maybe Core.Text)
+updateFunctionCode_s3Key :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_s3Key = Lens.lens (\UpdateFunctionCode' {s3Key} -> s3Key) (\s@UpdateFunctionCode' {} a -> s {s3Key = a} :: UpdateFunctionCode)
 
 -- | The name of the Lambda function.
@@ -255,7 +256,7 @@ updateFunctionCode_s3Key = Lens.lens (\UpdateFunctionCode' {s3Key} -> s3Key) (\s
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-updateFunctionCode_functionName :: Lens.Lens' UpdateFunctionCode Core.Text
+updateFunctionCode_functionName :: Lens.Lens' UpdateFunctionCode Prelude.Text
 updateFunctionCode_functionName = Lens.lens (\UpdateFunctionCode' {functionName} -> functionName) (\s@UpdateFunctionCode' {} a -> s {functionName = a} :: UpdateFunctionCode)
 
 instance Core.AWSRequest UpdateFunctionCode where
@@ -267,35 +268,36 @@ instance Core.AWSRequest UpdateFunctionCode where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateFunctionCode
+instance Prelude.Hashable UpdateFunctionCode
 
-instance Core.NFData UpdateFunctionCode
+instance Prelude.NFData UpdateFunctionCode
 
 instance Core.ToHeaders UpdateFunctionCode where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateFunctionCode where
   toJSON UpdateFunctionCode' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ImageUri" Core..=) Core.<$> imageUri,
-            ("Publish" Core..=) Core.<$> publish,
-            ("RevisionId" Core..=) Core.<$> revisionId,
-            ("DryRun" Core..=) Core.<$> dryRun,
-            ("S3Bucket" Core..=) Core.<$> s3Bucket,
-            ("ZipFile" Core..=) Core.<$> zipFile,
-            ("S3ObjectVersion" Core..=) Core.<$> s3ObjectVersion,
-            ("S3Key" Core..=) Core.<$> s3Key
+      ( Prelude.catMaybes
+          [ ("ImageUri" Core..=) Prelude.<$> imageUri,
+            ("Publish" Core..=) Prelude.<$> publish,
+            ("RevisionId" Core..=) Prelude.<$> revisionId,
+            ("DryRun" Core..=) Prelude.<$> dryRun,
+            ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
+            ("ZipFile" Core..=) Prelude.<$> zipFile,
+            ("S3ObjectVersion" Core..=)
+              Prelude.<$> s3ObjectVersion,
+            ("S3Key" Core..=) Prelude.<$> s3Key
           ]
       )
 
 instance Core.ToPath UpdateFunctionCode where
   toPath UpdateFunctionCode' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/code"
       ]
 
 instance Core.ToQuery UpdateFunctionCode where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

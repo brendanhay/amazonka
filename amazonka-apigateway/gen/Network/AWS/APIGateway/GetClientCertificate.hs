@@ -46,6 +46,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ import qualified Network.AWS.Response as Response
 data GetClientCertificate = GetClientCertificate'
   { -- | [Required] The identifier of the ClientCertificate resource to be
     -- described.
-    clientCertificateId :: Core.Text
+    clientCertificateId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetClientCertificate' with all optional fields omitted.
@@ -72,7 +73,7 @@ data GetClientCertificate = GetClientCertificate'
 -- described.
 newGetClientCertificate ::
   -- | 'clientCertificateId'
-  Core.Text ->
+  Prelude.Text ->
   GetClientCertificate
 newGetClientCertificate pClientCertificateId_ =
   GetClientCertificate'
@@ -82,7 +83,7 @@ newGetClientCertificate pClientCertificateId_ =
 
 -- | [Required] The identifier of the ClientCertificate resource to be
 -- described.
-getClientCertificate_clientCertificateId :: Lens.Lens' GetClientCertificate Core.Text
+getClientCertificate_clientCertificateId :: Lens.Lens' GetClientCertificate Prelude.Text
 getClientCertificate_clientCertificateId = Lens.lens (\GetClientCertificate' {clientCertificateId} -> clientCertificateId) (\s@GetClientCertificate' {} a -> s {clientCertificateId = a} :: GetClientCertificate)
 
 instance Core.AWSRequest GetClientCertificate where
@@ -94,25 +95,25 @@ instance Core.AWSRequest GetClientCertificate where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetClientCertificate
+instance Prelude.Hashable GetClientCertificate
 
-instance Core.NFData GetClientCertificate
+instance Prelude.NFData GetClientCertificate
 
 instance Core.ToHeaders GetClientCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetClientCertificate where
   toPath GetClientCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/clientcertificates/",
         Core.toBS clientCertificateId
       ]
 
 instance Core.ToQuery GetClientCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

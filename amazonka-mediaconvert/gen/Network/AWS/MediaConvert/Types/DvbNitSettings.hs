@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.DvbNitSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Inserts DVB Network Information Table (NIT) at the specified table
 -- repetition interval.
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 data DvbNitSettings = DvbNitSettings'
   { -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
-    nitInterval :: Core.Maybe Core.Natural,
+    nitInterval :: Prelude.Maybe Prelude.Natural,
     -- | The network name text placed in the network_name_descriptor inside the
     -- Network Information Table. Maximum length is 256 characters.
-    networkName :: Core.Maybe Core.Text,
+    networkName :: Prelude.Maybe Prelude.Text,
     -- | The numeric value placed in the Network Information Table (NIT).
-    networkId :: Core.Maybe Core.Natural
+    networkId :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DvbNitSettings' with all optional fields omitted.
@@ -57,23 +58,23 @@ newDvbNitSettings ::
   DvbNitSettings
 newDvbNitSettings =
   DvbNitSettings'
-    { nitInterval = Core.Nothing,
-      networkName = Core.Nothing,
-      networkId = Core.Nothing
+    { nitInterval = Prelude.Nothing,
+      networkName = Prelude.Nothing,
+      networkId = Prelude.Nothing
     }
 
 -- | The number of milliseconds between instances of this table in the output
 -- transport stream.
-dvbNitSettings_nitInterval :: Lens.Lens' DvbNitSettings (Core.Maybe Core.Natural)
+dvbNitSettings_nitInterval :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Natural)
 dvbNitSettings_nitInterval = Lens.lens (\DvbNitSettings' {nitInterval} -> nitInterval) (\s@DvbNitSettings' {} a -> s {nitInterval = a} :: DvbNitSettings)
 
 -- | The network name text placed in the network_name_descriptor inside the
 -- Network Information Table. Maximum length is 256 characters.
-dvbNitSettings_networkName :: Lens.Lens' DvbNitSettings (Core.Maybe Core.Text)
+dvbNitSettings_networkName :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Text)
 dvbNitSettings_networkName = Lens.lens (\DvbNitSettings' {networkName} -> networkName) (\s@DvbNitSettings' {} a -> s {networkName = a} :: DvbNitSettings)
 
 -- | The numeric value placed in the Network Information Table (NIT).
-dvbNitSettings_networkId :: Lens.Lens' DvbNitSettings (Core.Maybe Core.Natural)
+dvbNitSettings_networkId :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Natural)
 dvbNitSettings_networkId = Lens.lens (\DvbNitSettings' {networkId} -> networkId) (\s@DvbNitSettings' {} a -> s {networkId = a} :: DvbNitSettings)
 
 instance Core.FromJSON DvbNitSettings where
@@ -82,21 +83,21 @@ instance Core.FromJSON DvbNitSettings where
       "DvbNitSettings"
       ( \x ->
           DvbNitSettings'
-            Core.<$> (x Core..:? "nitInterval")
-            Core.<*> (x Core..:? "networkName")
-            Core.<*> (x Core..:? "networkId")
+            Prelude.<$> (x Core..:? "nitInterval")
+            Prelude.<*> (x Core..:? "networkName")
+            Prelude.<*> (x Core..:? "networkId")
       )
 
-instance Core.Hashable DvbNitSettings
+instance Prelude.Hashable DvbNitSettings
 
-instance Core.NFData DvbNitSettings
+instance Prelude.NFData DvbNitSettings
 
 instance Core.ToJSON DvbNitSettings where
   toJSON DvbNitSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nitInterval" Core..=) Core.<$> nitInterval,
-            ("networkName" Core..=) Core.<$> networkName,
-            ("networkId" Core..=) Core.<$> networkId
+      ( Prelude.catMaybes
+          [ ("nitInterval" Core..=) Prelude.<$> nitInterval,
+            ("networkName" Core..=) Prelude.<$> networkName,
+            ("networkId" Core..=) Prelude.<$> networkId
           ]
       )

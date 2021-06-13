@@ -21,17 +21,18 @@ module Network.AWS.CognitoIdentityProvider.Types.HttpHeader where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The HTTP header.
 --
 -- /See:/ 'newHttpHeader' smart constructor.
 data HttpHeader = HttpHeader'
   { -- | The header name
-    headerName :: Core.Maybe Core.Text,
+    headerName :: Prelude.Maybe Prelude.Text,
     -- | The header value.
-    headerValue :: Core.Maybe Core.Text
+    headerValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpHeader' with all optional fields omitted.
@@ -48,27 +49,27 @@ newHttpHeader ::
   HttpHeader
 newHttpHeader =
   HttpHeader'
-    { headerName = Core.Nothing,
-      headerValue = Core.Nothing
+    { headerName = Prelude.Nothing,
+      headerValue = Prelude.Nothing
     }
 
 -- | The header name
-httpHeader_headerName :: Lens.Lens' HttpHeader (Core.Maybe Core.Text)
+httpHeader_headerName :: Lens.Lens' HttpHeader (Prelude.Maybe Prelude.Text)
 httpHeader_headerName = Lens.lens (\HttpHeader' {headerName} -> headerName) (\s@HttpHeader' {} a -> s {headerName = a} :: HttpHeader)
 
 -- | The header value.
-httpHeader_headerValue :: Lens.Lens' HttpHeader (Core.Maybe Core.Text)
+httpHeader_headerValue :: Lens.Lens' HttpHeader (Prelude.Maybe Prelude.Text)
 httpHeader_headerValue = Lens.lens (\HttpHeader' {headerValue} -> headerValue) (\s@HttpHeader' {} a -> s {headerValue = a} :: HttpHeader)
 
-instance Core.Hashable HttpHeader
+instance Prelude.Hashable HttpHeader
 
-instance Core.NFData HttpHeader
+instance Prelude.NFData HttpHeader
 
 instance Core.ToJSON HttpHeader where
   toJSON HttpHeader' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("headerName" Core..=) Core.<$> headerName,
-            ("headerValue" Core..=) Core.<$> headerValue
+      ( Prelude.catMaybes
+          [ ("headerName" Core..=) Prelude.<$> headerName,
+            ("headerValue" Core..=) Prelude.<$> headerValue
           ]
       )

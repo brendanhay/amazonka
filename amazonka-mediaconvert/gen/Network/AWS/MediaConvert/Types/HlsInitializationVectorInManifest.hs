@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Initialization Vector is a 128-bit number used in conjunction with
 -- the key for encrypting blocks. If set to INCLUDE, Initialization Vector
@@ -37,15 +38,15 @@ newtype HlsInitializationVectorInManifest = HlsInitializationVectorInManifest'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

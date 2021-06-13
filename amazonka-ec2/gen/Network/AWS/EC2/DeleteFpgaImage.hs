@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ data DeleteFpgaImage = DeleteFpgaImage'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the AFI.
-    fpgaImageId :: Core.Text
+    fpgaImageId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFpgaImage' with all optional fields omitted.
@@ -74,11 +75,11 @@ data DeleteFpgaImage = DeleteFpgaImage'
 -- 'fpgaImageId', 'deleteFpgaImage_fpgaImageId' - The ID of the AFI.
 newDeleteFpgaImage ::
   -- | 'fpgaImageId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFpgaImage
 newDeleteFpgaImage pFpgaImageId_ =
   DeleteFpgaImage'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       fpgaImageId = pFpgaImageId_
     }
 
@@ -86,11 +87,11 @@ newDeleteFpgaImage pFpgaImageId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteFpgaImage_dryRun :: Lens.Lens' DeleteFpgaImage (Core.Maybe Core.Bool)
+deleteFpgaImage_dryRun :: Lens.Lens' DeleteFpgaImage (Prelude.Maybe Prelude.Bool)
 deleteFpgaImage_dryRun = Lens.lens (\DeleteFpgaImage' {dryRun} -> dryRun) (\s@DeleteFpgaImage' {} a -> s {dryRun = a} :: DeleteFpgaImage)
 
 -- | The ID of the AFI.
-deleteFpgaImage_fpgaImageId :: Lens.Lens' DeleteFpgaImage Core.Text
+deleteFpgaImage_fpgaImageId :: Lens.Lens' DeleteFpgaImage Prelude.Text
 deleteFpgaImage_fpgaImageId = Lens.lens (\DeleteFpgaImage' {fpgaImageId} -> fpgaImageId) (\s@DeleteFpgaImage' {} a -> s {fpgaImageId = a} :: DeleteFpgaImage)
 
 instance Core.AWSRequest DeleteFpgaImage where
@@ -102,26 +103,27 @@ instance Core.AWSRequest DeleteFpgaImage where
     Response.receiveXML
       ( \s h x ->
           DeleteFpgaImageResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteFpgaImage
+instance Prelude.Hashable DeleteFpgaImage
 
-instance Core.NFData DeleteFpgaImage
+instance Prelude.NFData DeleteFpgaImage
 
 instance Core.ToHeaders DeleteFpgaImage where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteFpgaImage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteFpgaImage where
   toQuery DeleteFpgaImage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteFpgaImage" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteFpgaImage" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "FpgaImageId" Core.=: fpgaImageId
       ]
@@ -129,11 +131,11 @@ instance Core.ToQuery DeleteFpgaImage where
 -- | /See:/ 'newDeleteFpgaImageResponse' smart constructor.
 data DeleteFpgaImageResponse = DeleteFpgaImageResponse'
   { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFpgaImageResponse' with all optional fields omitted.
@@ -148,20 +150,20 @@ data DeleteFpgaImageResponse = DeleteFpgaImageResponse'
 -- 'httpStatus', 'deleteFpgaImageResponse_httpStatus' - The response's http status code.
 newDeleteFpgaImageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteFpgaImageResponse
 newDeleteFpgaImageResponse pHttpStatus_ =
   DeleteFpgaImageResponse'
-    { return' = Core.Nothing,
+    { return' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
-deleteFpgaImageResponse_return :: Lens.Lens' DeleteFpgaImageResponse (Core.Maybe Core.Bool)
+deleteFpgaImageResponse_return :: Lens.Lens' DeleteFpgaImageResponse (Prelude.Maybe Prelude.Bool)
 deleteFpgaImageResponse_return = Lens.lens (\DeleteFpgaImageResponse' {return'} -> return') (\s@DeleteFpgaImageResponse' {} a -> s {return' = a} :: DeleteFpgaImageResponse)
 
 -- | The response's http status code.
-deleteFpgaImageResponse_httpStatus :: Lens.Lens' DeleteFpgaImageResponse Core.Int
+deleteFpgaImageResponse_httpStatus :: Lens.Lens' DeleteFpgaImageResponse Prelude.Int
 deleteFpgaImageResponse_httpStatus = Lens.lens (\DeleteFpgaImageResponse' {httpStatus} -> httpStatus) (\s@DeleteFpgaImageResponse' {} a -> s {httpStatus = a} :: DeleteFpgaImageResponse)
 
-instance Core.NFData DeleteFpgaImageResponse
+instance Prelude.NFData DeleteFpgaImageResponse

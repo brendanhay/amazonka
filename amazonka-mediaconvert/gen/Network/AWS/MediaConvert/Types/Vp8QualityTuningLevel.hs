@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Vp8QualityTuningLevel
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
 -- you want to trade off encoding speed for output video quality. The
@@ -36,15 +37,15 @@ newtype Vp8QualityTuningLevel = Vp8QualityTuningLevel'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

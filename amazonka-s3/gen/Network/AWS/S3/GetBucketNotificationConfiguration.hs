@@ -61,6 +61,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -70,11 +71,11 @@ data GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to get the notification configuration.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketNotificationConfiguration' with all optional fields omitted.
@@ -96,14 +97,14 @@ newGetBucketNotificationConfiguration ::
 newGetBucketNotificationConfiguration pBucket_ =
   GetBucketNotificationConfiguration'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketNotificationConfiguration (Core.Maybe Core.Text)
+getBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketNotificationConfiguration (Prelude.Maybe Prelude.Text)
 getBucketNotificationConfiguration_expectedBucketOwner = Lens.lens (\GetBucketNotificationConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketNotificationConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketNotificationConfiguration)
 
 -- | The name of the bucket for which to get the notification configuration.
@@ -122,11 +123,11 @@ instance
     Response.receiveXML (\s h x -> Core.parseXML x)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetBucketNotificationConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBucketNotificationConfiguration
 
 instance
@@ -134,7 +135,7 @@ instance
     GetBucketNotificationConfiguration
   where
   toHeaders GetBucketNotificationConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
@@ -144,10 +145,11 @@ instance
     GetBucketNotificationConfiguration
   where
   toPath GetBucketNotificationConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance
   Core.ToQuery
     GetBucketNotificationConfiguration
   where
-  toQuery = Core.const (Core.mconcat ["notification"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["notification"])

@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeInputDeviceThumbnail' smart constructor.
 data DescribeInputDeviceThumbnail = DescribeInputDeviceThumbnail'
   { -- | The unique ID of this input device. For example, hd-123456789abcdef.
-    inputDeviceId :: Core.Text,
+    inputDeviceId :: Prelude.Text,
     -- | The HTTP Accept header. Indicates the requested type for the thumbnail.
     accept :: AcceptHeader
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInputDeviceThumbnail' with all optional fields omitted.
@@ -74,7 +75,7 @@ data DescribeInputDeviceThumbnail = DescribeInputDeviceThumbnail'
 -- 'accept', 'describeInputDeviceThumbnail_accept' - The HTTP Accept header. Indicates the requested type for the thumbnail.
 newDescribeInputDeviceThumbnail ::
   -- | 'inputDeviceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accept'
   AcceptHeader ->
   DescribeInputDeviceThumbnail
@@ -88,7 +89,7 @@ newDescribeInputDeviceThumbnail
       }
 
 -- | The unique ID of this input device. For example, hd-123456789abcdef.
-describeInputDeviceThumbnail_inputDeviceId :: Lens.Lens' DescribeInputDeviceThumbnail Core.Text
+describeInputDeviceThumbnail_inputDeviceId :: Lens.Lens' DescribeInputDeviceThumbnail Prelude.Text
 describeInputDeviceThumbnail_inputDeviceId = Lens.lens (\DescribeInputDeviceThumbnail' {inputDeviceId} -> inputDeviceId) (\s@DescribeInputDeviceThumbnail' {} a -> s {inputDeviceId = a} :: DescribeInputDeviceThumbnail)
 
 -- | The HTTP Accept header. Indicates the requested type for the thumbnail.
@@ -104,56 +105,58 @@ instance Core.AWSRequest DescribeInputDeviceThumbnail where
     Response.receiveBody
       ( \s h x ->
           DescribeInputDeviceThumbnailResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (h Core..#? "Content-Type")
-            Core.<*> (h Core..#? "Content-Length")
-            Core.<*> (h Core..#? "Last-Modified")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.pure x)
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Core..#? "Content-Length")
+            Prelude.<*> (h Core..#? "Last-Modified")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure x)
       )
 
-instance Core.Hashable DescribeInputDeviceThumbnail
+instance
+  Prelude.Hashable
+    DescribeInputDeviceThumbnail
 
-instance Core.NFData DescribeInputDeviceThumbnail
+instance Prelude.NFData DescribeInputDeviceThumbnail
 
 instance Core.ToHeaders DescribeInputDeviceThumbnail where
   toHeaders DescribeInputDeviceThumbnail' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "accept" Core.=# accept,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DescribeInputDeviceThumbnail where
   toPath DescribeInputDeviceThumbnail' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/prod/inputDevices/",
         Core.toBS inputDeviceId,
         "/thumbnailData"
       ]
 
 instance Core.ToQuery DescribeInputDeviceThumbnail where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeInputDeviceThumbnailResponse
 --
 -- /See:/ 'newDescribeInputDeviceThumbnailResponse' smart constructor.
 data DescribeInputDeviceThumbnailResponse = DescribeInputDeviceThumbnailResponse'
   { -- | The unique, cacheable version of this thumbnail.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | Specifies the media type of the thumbnail.
-    contentType :: Core.Maybe ContentType,
+    contentType :: Prelude.Maybe ContentType,
     -- | The length of the content.
-    contentLength :: Core.Maybe Core.Integer,
+    contentLength :: Prelude.Maybe Prelude.Integer,
     -- | The date and time the thumbnail was last updated at the device.
-    lastModified :: Core.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The binary data for the thumbnail that the Link device has most recently
     -- sent to MediaLive.
     body :: Core.ResponseBody
   }
-  deriving (Core.Show, Core.Generic)
+  deriving (Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInputDeviceThumbnailResponse' with all optional fields omitted.
@@ -177,7 +180,7 @@ data DescribeInputDeviceThumbnailResponse = DescribeInputDeviceThumbnailResponse
 -- sent to MediaLive.
 newDescribeInputDeviceThumbnailResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'body'
   Core.ResponseBody ->
   DescribeInputDeviceThumbnailResponse
@@ -186,32 +189,32 @@ newDescribeInputDeviceThumbnailResponse
   pBody_ =
     DescribeInputDeviceThumbnailResponse'
       { eTag =
-          Core.Nothing,
-        contentType = Core.Nothing,
-        contentLength = Core.Nothing,
-        lastModified = Core.Nothing,
+          Prelude.Nothing,
+        contentType = Prelude.Nothing,
+        contentLength = Prelude.Nothing,
+        lastModified = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         body = pBody_
       }
 
 -- | The unique, cacheable version of this thumbnail.
-describeInputDeviceThumbnailResponse_eTag :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Core.Maybe Core.Text)
+describeInputDeviceThumbnailResponse_eTag :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Prelude.Maybe Prelude.Text)
 describeInputDeviceThumbnailResponse_eTag = Lens.lens (\DescribeInputDeviceThumbnailResponse' {eTag} -> eTag) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {eTag = a} :: DescribeInputDeviceThumbnailResponse)
 
 -- | Specifies the media type of the thumbnail.
-describeInputDeviceThumbnailResponse_contentType :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Core.Maybe ContentType)
+describeInputDeviceThumbnailResponse_contentType :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Prelude.Maybe ContentType)
 describeInputDeviceThumbnailResponse_contentType = Lens.lens (\DescribeInputDeviceThumbnailResponse' {contentType} -> contentType) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {contentType = a} :: DescribeInputDeviceThumbnailResponse)
 
 -- | The length of the content.
-describeInputDeviceThumbnailResponse_contentLength :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Core.Maybe Core.Integer)
+describeInputDeviceThumbnailResponse_contentLength :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Prelude.Maybe Prelude.Integer)
 describeInputDeviceThumbnailResponse_contentLength = Lens.lens (\DescribeInputDeviceThumbnailResponse' {contentLength} -> contentLength) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {contentLength = a} :: DescribeInputDeviceThumbnailResponse)
 
 -- | The date and time the thumbnail was last updated at the device.
-describeInputDeviceThumbnailResponse_lastModified :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Core.Maybe Core.UTCTime)
-describeInputDeviceThumbnailResponse_lastModified = Lens.lens (\DescribeInputDeviceThumbnailResponse' {lastModified} -> lastModified) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {lastModified = a} :: DescribeInputDeviceThumbnailResponse) Core.. Lens.mapping Core._Time
+describeInputDeviceThumbnailResponse_lastModified :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Prelude.Maybe Prelude.UTCTime)
+describeInputDeviceThumbnailResponse_lastModified = Lens.lens (\DescribeInputDeviceThumbnailResponse' {lastModified} -> lastModified) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {lastModified = a} :: DescribeInputDeviceThumbnailResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeInputDeviceThumbnailResponse_httpStatus :: Lens.Lens' DescribeInputDeviceThumbnailResponse Core.Int
+describeInputDeviceThumbnailResponse_httpStatus :: Lens.Lens' DescribeInputDeviceThumbnailResponse Prelude.Int
 describeInputDeviceThumbnailResponse_httpStatus = Lens.lens (\DescribeInputDeviceThumbnailResponse' {httpStatus} -> httpStatus) (\s@DescribeInputDeviceThumbnailResponse' {} a -> s {httpStatus = a} :: DescribeInputDeviceThumbnailResponse)
 
 -- | The binary data for the thumbnail that the Link device has most recently

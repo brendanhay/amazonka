@@ -29,6 +29,7 @@ module Network.AWS.MediaLive.Types.CdiInputResolution
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Maximum CDI input resolution; SD is 480i and 576i up to 30
 -- frames-per-second (fps), HD is 720p up to 60 fps \/ 1080i up to 30 fps,
@@ -38,15 +39,15 @@ newtype CdiInputResolution = CdiInputResolution'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

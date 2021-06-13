@@ -64,13 +64,14 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAdminLinkProviderForUser' smart constructor.
 data AdminLinkProviderForUser = AdminLinkProviderForUser'
   { -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The existing user in the user pool to be linked to the external identity
     -- provider user account. Can be a native (Username + Password) Cognito
     -- User Pools user or a federated user (for example, a SAML or Facebook
@@ -110,7 +111,7 @@ data AdminLinkProviderForUser = AdminLinkProviderForUser'
     -- identifier found in the subject from the SAML token.
     sourceUser :: ProviderUserIdentifierType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminLinkProviderForUser' with all optional fields omitted.
@@ -161,7 +162,7 @@ data AdminLinkProviderForUser = AdminLinkProviderForUser'
 -- identifier found in the subject from the SAML token.
 newAdminLinkProviderForUser ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationUser'
   ProviderUserIdentifierType ->
   -- | 'sourceUser'
@@ -179,7 +180,7 @@ newAdminLinkProviderForUser
       }
 
 -- | The user pool ID for the user pool.
-adminLinkProviderForUser_userPoolId :: Lens.Lens' AdminLinkProviderForUser Core.Text
+adminLinkProviderForUser_userPoolId :: Lens.Lens' AdminLinkProviderForUser Prelude.Text
 adminLinkProviderForUser_userPoolId = Lens.lens (\AdminLinkProviderForUser' {userPoolId} -> userPoolId) (\s@AdminLinkProviderForUser' {} a -> s {userPoolId = a} :: AdminLinkProviderForUser)
 
 -- | The existing user in the user pool to be linked to the external identity
@@ -233,49 +234,51 @@ instance Core.AWSRequest AdminLinkProviderForUser where
     Response.receiveEmpty
       ( \s h x ->
           AdminLinkProviderForUserResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AdminLinkProviderForUser
+instance Prelude.Hashable AdminLinkProviderForUser
 
-instance Core.NFData AdminLinkProviderForUser
+instance Prelude.NFData AdminLinkProviderForUser
 
 instance Core.ToHeaders AdminLinkProviderForUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminLinkProviderForUser where
   toJSON AdminLinkProviderForUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just
               ("DestinationUser" Core..= destinationUser),
-            Core.Just ("SourceUser" Core..= sourceUser)
+            Prelude.Just ("SourceUser" Core..= sourceUser)
           ]
       )
 
 instance Core.ToPath AdminLinkProviderForUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminLinkProviderForUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminLinkProviderForUserResponse' smart constructor.
 data AdminLinkProviderForUserResponse = AdminLinkProviderForUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminLinkProviderForUserResponse' with all optional fields omitted.
@@ -288,7 +291,7 @@ data AdminLinkProviderForUserResponse = AdminLinkProviderForUserResponse'
 -- 'httpStatus', 'adminLinkProviderForUserResponse_httpStatus' - The response's http status code.
 newAdminLinkProviderForUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AdminLinkProviderForUserResponse
 newAdminLinkProviderForUserResponse pHttpStatus_ =
   AdminLinkProviderForUserResponse'
@@ -297,7 +300,9 @@ newAdminLinkProviderForUserResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminLinkProviderForUserResponse_httpStatus :: Lens.Lens' AdminLinkProviderForUserResponse Core.Int
+adminLinkProviderForUserResponse_httpStatus :: Lens.Lens' AdminLinkProviderForUserResponse Prelude.Int
 adminLinkProviderForUserResponse_httpStatus = Lens.lens (\AdminLinkProviderForUserResponse' {httpStatus} -> httpStatus) (\s@AdminLinkProviderForUserResponse' {} a -> s {httpStatus = a} :: AdminLinkProviderForUserResponse)
 
-instance Core.NFData AdminLinkProviderForUserResponse
+instance
+  Prelude.NFData
+    AdminLinkProviderForUserResponse

@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.ResourceTags where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon Resource Name (ARN) and tags for an AWS Elemental
 -- MediaConvert resource.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResourceTags' smart constructor.
 data ResourceTags = ResourceTags'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The tags for the resource.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceTags' with all optional fields omitted.
@@ -49,17 +50,17 @@ newResourceTags ::
   ResourceTags
 newResourceTags =
   ResourceTags'
-    { arn = Core.Nothing,
-      tags = Core.Nothing
+    { arn = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
-resourceTags_arn :: Lens.Lens' ResourceTags (Core.Maybe Core.Text)
+resourceTags_arn :: Lens.Lens' ResourceTags (Prelude.Maybe Prelude.Text)
 resourceTags_arn = Lens.lens (\ResourceTags' {arn} -> arn) (\s@ResourceTags' {} a -> s {arn = a} :: ResourceTags)
 
 -- | The tags for the resource.
-resourceTags_tags :: Lens.Lens' ResourceTags (Core.Maybe (Core.HashMap Core.Text Core.Text))
-resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' {} a -> s {tags = a} :: ResourceTags) Core.. Lens.mapping Lens._Coerce
+resourceTags_tags :: Lens.Lens' ResourceTags (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' {} a -> s {tags = a} :: ResourceTags) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ResourceTags where
   parseJSON =
@@ -67,10 +68,10 @@ instance Core.FromJSON ResourceTags where
       "ResourceTags"
       ( \x ->
           ResourceTags'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ResourceTags
+instance Prelude.Hashable ResourceTags
 
-instance Core.NFData ResourceTags
+instance Prelude.NFData ResourceTags

@@ -51,21 +51,22 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetExport' smart constructor.
 data GetExport = GetExport'
   { -- | The name of the bot to export.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The version of the bot to export.
-    version :: Core.Text,
+    version :: Prelude.Text,
     -- | The type of resource to export.
     resourceType :: ResourceType,
     -- | The format of the exported data.
     exportType :: ExportType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetExport' with all optional fields omitted.
@@ -84,9 +85,9 @@ data GetExport = GetExport'
 -- 'exportType', 'getExport_exportType' - The format of the exported data.
 newGetExport ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
   ResourceType ->
   -- | 'exportType'
@@ -105,11 +106,11 @@ newGetExport
       }
 
 -- | The name of the bot to export.
-getExport_name :: Lens.Lens' GetExport Core.Text
+getExport_name :: Lens.Lens' GetExport Prelude.Text
 getExport_name = Lens.lens (\GetExport' {name} -> name) (\s@GetExport' {} a -> s {name = a} :: GetExport)
 
 -- | The version of the bot to export.
-getExport_version :: Lens.Lens' GetExport Core.Text
+getExport_version :: Lens.Lens' GetExport Prelude.Text
 getExport_version = Lens.lens (\GetExport' {version} -> version) (\s@GetExport' {} a -> s {version = a} :: GetExport)
 
 -- | The type of resource to export.
@@ -127,35 +128,37 @@ instance Core.AWSRequest GetExport where
     Response.receiveJSON
       ( \s h x ->
           GetExportResponse'
-            Core.<$> (x Core..?> "exportStatus")
-            Core.<*> (x Core..?> "version")
-            Core.<*> (x Core..?> "resourceType")
-            Core.<*> (x Core..?> "name")
-            Core.<*> (x Core..?> "exportType")
-            Core.<*> (x Core..?> "failureReason")
-            Core.<*> (x Core..?> "url")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "exportStatus")
+            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Core..?> "resourceType")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "exportType")
+            Prelude.<*> (x Core..?> "failureReason")
+            Prelude.<*> (x Core..?> "url")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetExport
+instance Prelude.Hashable GetExport
 
-instance Core.NFData GetExport
+instance Prelude.NFData GetExport
 
 instance Core.ToHeaders GetExport where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetExport where
-  toPath = Core.const "/exports/"
+  toPath = Prelude.const "/exports/"
 
 instance Core.ToQuery GetExport where
   toQuery GetExport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "name" Core.=: name,
         "version" Core.=: version,
         "resourceType" Core.=: resourceType,
@@ -171,27 +174,27 @@ data GetExportResponse = GetExportResponse'
     -- -   @READY@ - The export is complete.
     --
     -- -   @FAILED@ - The export could not be completed.
-    exportStatus :: Core.Maybe ExportStatus,
+    exportStatus :: Prelude.Maybe ExportStatus,
     -- | The version of the bot being exported.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The type of the exported resource.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the bot being exported.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The format of the exported data.
-    exportType :: Core.Maybe ExportType,
+    exportType :: Prelude.Maybe ExportType,
     -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
     -- to export the resource.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | An S3 pre-signed URL that provides the location of the exported
     -- resource. The exported resource is a ZIP archive that contains the
     -- exported resource in JSON format. The structure of the archive may
     -- change. Your code should not rely on the archive structure.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetExportResponse' with all optional fields omitted.
@@ -228,17 +231,17 @@ data GetExportResponse = GetExportResponse'
 -- 'httpStatus', 'getExportResponse_httpStatus' - The response's http status code.
 newGetExportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetExportResponse
 newGetExportResponse pHttpStatus_ =
   GetExportResponse'
-    { exportStatus = Core.Nothing,
-      version = Core.Nothing,
-      resourceType = Core.Nothing,
-      name = Core.Nothing,
-      exportType = Core.Nothing,
-      failureReason = Core.Nothing,
-      url = Core.Nothing,
+    { exportStatus = Prelude.Nothing,
+      version = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      name = Prelude.Nothing,
+      exportType = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      url = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -249,39 +252,39 @@ newGetExportResponse pHttpStatus_ =
 -- -   @READY@ - The export is complete.
 --
 -- -   @FAILED@ - The export could not be completed.
-getExportResponse_exportStatus :: Lens.Lens' GetExportResponse (Core.Maybe ExportStatus)
+getExportResponse_exportStatus :: Lens.Lens' GetExportResponse (Prelude.Maybe ExportStatus)
 getExportResponse_exportStatus = Lens.lens (\GetExportResponse' {exportStatus} -> exportStatus) (\s@GetExportResponse' {} a -> s {exportStatus = a} :: GetExportResponse)
 
 -- | The version of the bot being exported.
-getExportResponse_version :: Lens.Lens' GetExportResponse (Core.Maybe Core.Text)
+getExportResponse_version :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
 getExportResponse_version = Lens.lens (\GetExportResponse' {version} -> version) (\s@GetExportResponse' {} a -> s {version = a} :: GetExportResponse)
 
 -- | The type of the exported resource.
-getExportResponse_resourceType :: Lens.Lens' GetExportResponse (Core.Maybe ResourceType)
+getExportResponse_resourceType :: Lens.Lens' GetExportResponse (Prelude.Maybe ResourceType)
 getExportResponse_resourceType = Lens.lens (\GetExportResponse' {resourceType} -> resourceType) (\s@GetExportResponse' {} a -> s {resourceType = a} :: GetExportResponse)
 
 -- | The name of the bot being exported.
-getExportResponse_name :: Lens.Lens' GetExportResponse (Core.Maybe Core.Text)
+getExportResponse_name :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
 getExportResponse_name = Lens.lens (\GetExportResponse' {name} -> name) (\s@GetExportResponse' {} a -> s {name = a} :: GetExportResponse)
 
 -- | The format of the exported data.
-getExportResponse_exportType :: Lens.Lens' GetExportResponse (Core.Maybe ExportType)
+getExportResponse_exportType :: Lens.Lens' GetExportResponse (Prelude.Maybe ExportType)
 getExportResponse_exportType = Lens.lens (\GetExportResponse' {exportType} -> exportType) (\s@GetExportResponse' {} a -> s {exportType = a} :: GetExportResponse)
 
 -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
 -- to export the resource.
-getExportResponse_failureReason :: Lens.Lens' GetExportResponse (Core.Maybe Core.Text)
+getExportResponse_failureReason :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
 getExportResponse_failureReason = Lens.lens (\GetExportResponse' {failureReason} -> failureReason) (\s@GetExportResponse' {} a -> s {failureReason = a} :: GetExportResponse)
 
 -- | An S3 pre-signed URL that provides the location of the exported
 -- resource. The exported resource is a ZIP archive that contains the
 -- exported resource in JSON format. The structure of the archive may
 -- change. Your code should not rely on the archive structure.
-getExportResponse_url :: Lens.Lens' GetExportResponse (Core.Maybe Core.Text)
+getExportResponse_url :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
 getExportResponse_url = Lens.lens (\GetExportResponse' {url} -> url) (\s@GetExportResponse' {} a -> s {url = a} :: GetExportResponse)
 
 -- | The response's http status code.
-getExportResponse_httpStatus :: Lens.Lens' GetExportResponse Core.Int
+getExportResponse_httpStatus :: Lens.Lens' GetExportResponse Prelude.Int
 getExportResponse_httpStatus = Lens.lens (\GetExportResponse' {httpStatus} -> httpStatus) (\s@GetExportResponse' {} a -> s {httpStatus = a} :: GetExportResponse)
 
-instance Core.NFData GetExportResponse
+instance Prelude.NFData GetExportResponse

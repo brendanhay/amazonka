@@ -21,6 +21,7 @@ module Network.AWS.APIGateway.Types.Usage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the usage data of a usage plan.
 --
@@ -30,21 +31,21 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUsage' smart constructor.
 data Usage = Usage'
   { -- | The starting date of the usage data.
-    startDate :: Core.Maybe Core.Text,
+    startDate :: Prelude.Maybe Prelude.Text,
     -- | The usage data, as daily logs of used and remaining quotas, over the
     -- specified time interval indexed over the API keys in a usage plan. For
     -- example,
     -- @{..., \"values\" : { \"{api_key}\" : [ [0, 100], [10, 90], [100, 10]]}@,
     -- where @{api_key}@ stands for an API key value and the daily log entry is
     -- of the format @[used quota, remaining quota]@.
-    items :: Core.Maybe (Core.HashMap Core.Text [[Core.Integer]]),
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe (Prelude.HashMap Prelude.Text [[Prelude.Integer]]),
+    position :: Prelude.Maybe Prelude.Text,
     -- | The plan Id associated with this usage data.
-    usagePlanId :: Core.Maybe Core.Text,
+    usagePlanId :: Prelude.Maybe Prelude.Text,
     -- | The ending date of the usage data.
-    endDate :: Core.Maybe Core.Text
+    endDate :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Usage' with all optional fields omitted.
@@ -72,15 +73,15 @@ newUsage ::
   Usage
 newUsage =
   Usage'
-    { startDate = Core.Nothing,
-      items = Core.Nothing,
-      position = Core.Nothing,
-      usagePlanId = Core.Nothing,
-      endDate = Core.Nothing
+    { startDate = Prelude.Nothing,
+      items = Prelude.Nothing,
+      position = Prelude.Nothing,
+      usagePlanId = Prelude.Nothing,
+      endDate = Prelude.Nothing
     }
 
 -- | The starting date of the usage data.
-usage_startDate :: Lens.Lens' Usage (Core.Maybe Core.Text)
+usage_startDate :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
 usage_startDate = Lens.lens (\Usage' {startDate} -> startDate) (\s@Usage' {} a -> s {startDate = a} :: Usage)
 
 -- | The usage data, as daily logs of used and remaining quotas, over the
@@ -89,19 +90,19 @@ usage_startDate = Lens.lens (\Usage' {startDate} -> startDate) (\s@Usage' {} a -
 -- @{..., \"values\" : { \"{api_key}\" : [ [0, 100], [10, 90], [100, 10]]}@,
 -- where @{api_key}@ stands for an API key value and the daily log entry is
 -- of the format @[used quota, remaining quota]@.
-usage_items :: Lens.Lens' Usage (Core.Maybe (Core.HashMap Core.Text [[Core.Integer]]))
-usage_items = Lens.lens (\Usage' {items} -> items) (\s@Usage' {} a -> s {items = a} :: Usage) Core.. Lens.mapping Lens._Coerce
+usage_items :: Lens.Lens' Usage (Prelude.Maybe (Prelude.HashMap Prelude.Text [[Prelude.Integer]]))
+usage_items = Lens.lens (\Usage' {items} -> items) (\s@Usage' {} a -> s {items = a} :: Usage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-usage_position :: Lens.Lens' Usage (Core.Maybe Core.Text)
+usage_position :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
 usage_position = Lens.lens (\Usage' {position} -> position) (\s@Usage' {} a -> s {position = a} :: Usage)
 
 -- | The plan Id associated with this usage data.
-usage_usagePlanId :: Lens.Lens' Usage (Core.Maybe Core.Text)
+usage_usagePlanId :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
 usage_usagePlanId = Lens.lens (\Usage' {usagePlanId} -> usagePlanId) (\s@Usage' {} a -> s {usagePlanId = a} :: Usage)
 
 -- | The ending date of the usage data.
-usage_endDate :: Lens.Lens' Usage (Core.Maybe Core.Text)
+usage_endDate :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
 usage_endDate = Lens.lens (\Usage' {endDate} -> endDate) (\s@Usage' {} a -> s {endDate = a} :: Usage)
 
 instance Core.FromJSON Usage where
@@ -110,13 +111,13 @@ instance Core.FromJSON Usage where
       "Usage"
       ( \x ->
           Usage'
-            Core.<$> (x Core..:? "startDate")
-            Core.<*> (x Core..:? "values" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "position")
-            Core.<*> (x Core..:? "usagePlanId")
-            Core.<*> (x Core..:? "endDate")
+            Prelude.<$> (x Core..:? "startDate")
+            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "position")
+            Prelude.<*> (x Core..:? "usagePlanId")
+            Prelude.<*> (x Core..:? "endDate")
       )
 
-instance Core.Hashable Usage
+instance Prelude.Hashable Usage
 
-instance Core.NFData Usage
+instance Prelude.NFData Usage

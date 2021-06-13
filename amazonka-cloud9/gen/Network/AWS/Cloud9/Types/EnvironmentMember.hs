@@ -22,6 +22,7 @@ module Network.AWS.Cloud9.Types.EnvironmentMember where
 import Network.AWS.Cloud9.Types.Permissions
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an environment member for an AWS Cloud9 development
 -- environment.
@@ -29,7 +30,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEnvironmentMember' smart constructor.
 data EnvironmentMember = EnvironmentMember'
   { -- | The Amazon Resource Name (ARN) of the environment member.
-    userArn :: Core.Maybe Core.Text,
+    userArn :: Prelude.Maybe Prelude.Text,
     -- | The type of environment member permissions associated with this
     -- environment member. Available values include:
     --
@@ -38,17 +39,17 @@ data EnvironmentMember = EnvironmentMember'
     -- -   @read-only@: Has read-only access to the environment.
     --
     -- -   @read-write@: Has read-write access to the environment.
-    permissions :: Core.Maybe Permissions,
+    permissions :: Prelude.Maybe Permissions,
     -- | The ID of the environment for the environment member.
-    environmentId :: Core.Maybe Core.Text,
+    environmentId :: Prelude.Maybe Prelude.Text,
     -- | The user ID in AWS Identity and Access Management (AWS IAM) of the
     -- environment member.
-    userId :: Core.Maybe Core.Text,
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The time, expressed in epoch time format, when the environment member
     -- last opened the environment.
-    lastAccess :: Core.Maybe Core.POSIX
+    lastAccess :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentMember' with all optional fields omitted.
@@ -80,15 +81,15 @@ newEnvironmentMember ::
   EnvironmentMember
 newEnvironmentMember =
   EnvironmentMember'
-    { userArn = Core.Nothing,
-      permissions = Core.Nothing,
-      environmentId = Core.Nothing,
-      userId = Core.Nothing,
-      lastAccess = Core.Nothing
+    { userArn = Prelude.Nothing,
+      permissions = Prelude.Nothing,
+      environmentId = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      lastAccess = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the environment member.
-environmentMember_userArn :: Lens.Lens' EnvironmentMember (Core.Maybe Core.Text)
+environmentMember_userArn :: Lens.Lens' EnvironmentMember (Prelude.Maybe Prelude.Text)
 environmentMember_userArn = Lens.lens (\EnvironmentMember' {userArn} -> userArn) (\s@EnvironmentMember' {} a -> s {userArn = a} :: EnvironmentMember)
 
 -- | The type of environment member permissions associated with this
@@ -99,22 +100,22 @@ environmentMember_userArn = Lens.lens (\EnvironmentMember' {userArn} -> userArn)
 -- -   @read-only@: Has read-only access to the environment.
 --
 -- -   @read-write@: Has read-write access to the environment.
-environmentMember_permissions :: Lens.Lens' EnvironmentMember (Core.Maybe Permissions)
+environmentMember_permissions :: Lens.Lens' EnvironmentMember (Prelude.Maybe Permissions)
 environmentMember_permissions = Lens.lens (\EnvironmentMember' {permissions} -> permissions) (\s@EnvironmentMember' {} a -> s {permissions = a} :: EnvironmentMember)
 
 -- | The ID of the environment for the environment member.
-environmentMember_environmentId :: Lens.Lens' EnvironmentMember (Core.Maybe Core.Text)
+environmentMember_environmentId :: Lens.Lens' EnvironmentMember (Prelude.Maybe Prelude.Text)
 environmentMember_environmentId = Lens.lens (\EnvironmentMember' {environmentId} -> environmentId) (\s@EnvironmentMember' {} a -> s {environmentId = a} :: EnvironmentMember)
 
 -- | The user ID in AWS Identity and Access Management (AWS IAM) of the
 -- environment member.
-environmentMember_userId :: Lens.Lens' EnvironmentMember (Core.Maybe Core.Text)
+environmentMember_userId :: Lens.Lens' EnvironmentMember (Prelude.Maybe Prelude.Text)
 environmentMember_userId = Lens.lens (\EnvironmentMember' {userId} -> userId) (\s@EnvironmentMember' {} a -> s {userId = a} :: EnvironmentMember)
 
 -- | The time, expressed in epoch time format, when the environment member
 -- last opened the environment.
-environmentMember_lastAccess :: Lens.Lens' EnvironmentMember (Core.Maybe Core.UTCTime)
-environmentMember_lastAccess = Lens.lens (\EnvironmentMember' {lastAccess} -> lastAccess) (\s@EnvironmentMember' {} a -> s {lastAccess = a} :: EnvironmentMember) Core.. Lens.mapping Core._Time
+environmentMember_lastAccess :: Lens.Lens' EnvironmentMember (Prelude.Maybe Prelude.UTCTime)
+environmentMember_lastAccess = Lens.lens (\EnvironmentMember' {lastAccess} -> lastAccess) (\s@EnvironmentMember' {} a -> s {lastAccess = a} :: EnvironmentMember) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON EnvironmentMember where
   parseJSON =
@@ -122,13 +123,13 @@ instance Core.FromJSON EnvironmentMember where
       "EnvironmentMember"
       ( \x ->
           EnvironmentMember'
-            Core.<$> (x Core..:? "userArn")
-            Core.<*> (x Core..:? "permissions")
-            Core.<*> (x Core..:? "environmentId")
-            Core.<*> (x Core..:? "userId")
-            Core.<*> (x Core..:? "lastAccess")
+            Prelude.<$> (x Core..:? "userArn")
+            Prelude.<*> (x Core..:? "permissions")
+            Prelude.<*> (x Core..:? "environmentId")
+            Prelude.<*> (x Core..:? "userId")
+            Prelude.<*> (x Core..:? "lastAccess")
       )
 
-instance Core.Hashable EnvironmentMember
+instance Prelude.Hashable EnvironmentMember
 
-instance Core.NFData EnvironmentMember
+instance Prelude.NFData EnvironmentMember

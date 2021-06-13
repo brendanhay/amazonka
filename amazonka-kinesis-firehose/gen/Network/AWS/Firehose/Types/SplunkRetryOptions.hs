@@ -21,6 +21,7 @@ module Network.AWS.Firehose.Types.SplunkRetryOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to
 -- deliver documents to Splunk, or if it doesn\'t receive an acknowledgment
@@ -32,9 +33,9 @@ data SplunkRetryOptions = SplunkRetryOptions'
     -- This duration starts after the initial attempt to send data to Splunk
     -- fails. It doesn\'t include the periods during which Kinesis Data
     -- Firehose waits for acknowledgment from Splunk after each attempt.
-    durationInSeconds :: Core.Maybe Core.Natural
+    durationInSeconds :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SplunkRetryOptions' with all optional fields omitted.
@@ -53,14 +54,14 @@ newSplunkRetryOptions ::
 newSplunkRetryOptions =
   SplunkRetryOptions'
     { durationInSeconds =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The total amount of time that Kinesis Data Firehose spends on retries.
 -- This duration starts after the initial attempt to send data to Splunk
 -- fails. It doesn\'t include the periods during which Kinesis Data
 -- Firehose waits for acknowledgment from Splunk after each attempt.
-splunkRetryOptions_durationInSeconds :: Lens.Lens' SplunkRetryOptions (Core.Maybe Core.Natural)
+splunkRetryOptions_durationInSeconds :: Lens.Lens' SplunkRetryOptions (Prelude.Maybe Prelude.Natural)
 splunkRetryOptions_durationInSeconds = Lens.lens (\SplunkRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@SplunkRetryOptions' {} a -> s {durationInSeconds = a} :: SplunkRetryOptions)
 
 instance Core.FromJSON SplunkRetryOptions where
@@ -69,18 +70,18 @@ instance Core.FromJSON SplunkRetryOptions where
       "SplunkRetryOptions"
       ( \x ->
           SplunkRetryOptions'
-            Core.<$> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Core.Hashable SplunkRetryOptions
+instance Prelude.Hashable SplunkRetryOptions
 
-instance Core.NFData SplunkRetryOptions
+instance Prelude.NFData SplunkRetryOptions
 
 instance Core.ToJSON SplunkRetryOptions where
   toJSON SplunkRetryOptions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DurationInSeconds" Core..=)
-              Core.<$> durationInSeconds
+              Prelude.<$> durationInSeconds
           ]
       )

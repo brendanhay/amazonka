@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -59,7 +60,7 @@ data CreateTemplate = CreateTemplate'
     -- a text-only part.
     template :: Template
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTemplate' with all optional fields omitted.
@@ -93,34 +94,35 @@ instance Core.AWSRequest CreateTemplate where
       "CreateTemplateResult"
       ( \s h x ->
           CreateTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTemplate
+instance Prelude.Hashable CreateTemplate
 
-instance Core.NFData CreateTemplate
+instance Prelude.NFData CreateTemplate
 
 instance Core.ToHeaders CreateTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTemplate where
   toQuery CreateTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("CreateTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Template" Core.=: template
       ]
 
 -- | /See:/ 'newCreateTemplateResponse' smart constructor.
 data CreateTemplateResponse = CreateTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTemplateResponse' with all optional fields omitted.
@@ -133,13 +135,13 @@ data CreateTemplateResponse = CreateTemplateResponse'
 -- 'httpStatus', 'createTemplateResponse_httpStatus' - The response's http status code.
 newCreateTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTemplateResponse
 newCreateTemplateResponse pHttpStatus_ =
   CreateTemplateResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createTemplateResponse_httpStatus :: Lens.Lens' CreateTemplateResponse Core.Int
+createTemplateResponse_httpStatus :: Lens.Lens' CreateTemplateResponse Prelude.Int
 createTemplateResponse_httpStatus = Lens.lens (\CreateTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateTemplateResponse' {} a -> s {httpStatus = a} :: CreateTemplateResponse)
 
-instance Core.NFData CreateTemplateResponse
+instance Prelude.NFData CreateTemplateResponse

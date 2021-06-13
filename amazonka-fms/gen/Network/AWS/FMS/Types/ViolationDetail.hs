@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.ResourceViolation
 import Network.AWS.FMS.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Violations for a resource based on the specified AWS Firewall Manager
 -- policy and AWS account.
@@ -30,22 +31,22 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newViolationDetail' smart constructor.
 data ViolationDetail = ViolationDetail'
   { -- | Brief description for the requested resource.
-    resourceDescription :: Core.Maybe Core.Text,
+    resourceDescription :: Prelude.Maybe Prelude.Text,
     -- | The @ResourceTag@ objects associated with the resource.
-    resourceTags :: Core.Maybe [Tag],
+    resourceTags :: Prelude.Maybe [Tag],
     -- | The ID of the AWS Firewall Manager policy that the violation details
     -- were requested for.
-    policyId :: Core.Text,
+    policyId :: Prelude.Text,
     -- | The AWS account that the violation details were requested for.
-    memberAccount :: Core.Text,
+    memberAccount :: Prelude.Text,
     -- | The resource ID that the violation details were requested for.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The resource type that the violation details were requested for.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | List of violations for the requested resource.
     resourceViolations :: [ResourceViolation]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ViolationDetail' with all optional fields omitted.
@@ -71,13 +72,13 @@ data ViolationDetail = ViolationDetail'
 -- 'resourceViolations', 'violationDetail_resourceViolations' - List of violations for the requested resource.
 newViolationDetail ::
   -- | 'policyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'memberAccount'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   ViolationDetail
 newViolationDetail
   pPolicyId_
@@ -86,43 +87,43 @@ newViolationDetail
   pResourceType_ =
     ViolationDetail'
       { resourceDescription =
-          Core.Nothing,
-        resourceTags = Core.Nothing,
+          Prelude.Nothing,
+        resourceTags = Prelude.Nothing,
         policyId = pPolicyId_,
         memberAccount = pMemberAccount_,
         resourceId = pResourceId_,
         resourceType = pResourceType_,
-        resourceViolations = Core.mempty
+        resourceViolations = Prelude.mempty
       }
 
 -- | Brief description for the requested resource.
-violationDetail_resourceDescription :: Lens.Lens' ViolationDetail (Core.Maybe Core.Text)
+violationDetail_resourceDescription :: Lens.Lens' ViolationDetail (Prelude.Maybe Prelude.Text)
 violationDetail_resourceDescription = Lens.lens (\ViolationDetail' {resourceDescription} -> resourceDescription) (\s@ViolationDetail' {} a -> s {resourceDescription = a} :: ViolationDetail)
 
 -- | The @ResourceTag@ objects associated with the resource.
-violationDetail_resourceTags :: Lens.Lens' ViolationDetail (Core.Maybe [Tag])
-violationDetail_resourceTags = Lens.lens (\ViolationDetail' {resourceTags} -> resourceTags) (\s@ViolationDetail' {} a -> s {resourceTags = a} :: ViolationDetail) Core.. Lens.mapping Lens._Coerce
+violationDetail_resourceTags :: Lens.Lens' ViolationDetail (Prelude.Maybe [Tag])
+violationDetail_resourceTags = Lens.lens (\ViolationDetail' {resourceTags} -> resourceTags) (\s@ViolationDetail' {} a -> s {resourceTags = a} :: ViolationDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the AWS Firewall Manager policy that the violation details
 -- were requested for.
-violationDetail_policyId :: Lens.Lens' ViolationDetail Core.Text
+violationDetail_policyId :: Lens.Lens' ViolationDetail Prelude.Text
 violationDetail_policyId = Lens.lens (\ViolationDetail' {policyId} -> policyId) (\s@ViolationDetail' {} a -> s {policyId = a} :: ViolationDetail)
 
 -- | The AWS account that the violation details were requested for.
-violationDetail_memberAccount :: Lens.Lens' ViolationDetail Core.Text
+violationDetail_memberAccount :: Lens.Lens' ViolationDetail Prelude.Text
 violationDetail_memberAccount = Lens.lens (\ViolationDetail' {memberAccount} -> memberAccount) (\s@ViolationDetail' {} a -> s {memberAccount = a} :: ViolationDetail)
 
 -- | The resource ID that the violation details were requested for.
-violationDetail_resourceId :: Lens.Lens' ViolationDetail Core.Text
+violationDetail_resourceId :: Lens.Lens' ViolationDetail Prelude.Text
 violationDetail_resourceId = Lens.lens (\ViolationDetail' {resourceId} -> resourceId) (\s@ViolationDetail' {} a -> s {resourceId = a} :: ViolationDetail)
 
 -- | The resource type that the violation details were requested for.
-violationDetail_resourceType :: Lens.Lens' ViolationDetail Core.Text
+violationDetail_resourceType :: Lens.Lens' ViolationDetail Prelude.Text
 violationDetail_resourceType = Lens.lens (\ViolationDetail' {resourceType} -> resourceType) (\s@ViolationDetail' {} a -> s {resourceType = a} :: ViolationDetail)
 
 -- | List of violations for the requested resource.
 violationDetail_resourceViolations :: Lens.Lens' ViolationDetail [ResourceViolation]
-violationDetail_resourceViolations = Lens.lens (\ViolationDetail' {resourceViolations} -> resourceViolations) (\s@ViolationDetail' {} a -> s {resourceViolations = a} :: ViolationDetail) Core.. Lens._Coerce
+violationDetail_resourceViolations = Lens.lens (\ViolationDetail' {resourceViolations} -> resourceViolations) (\s@ViolationDetail' {} a -> s {resourceViolations = a} :: ViolationDetail) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ViolationDetail where
   parseJSON =
@@ -130,17 +131,17 @@ instance Core.FromJSON ViolationDetail where
       "ViolationDetail"
       ( \x ->
           ViolationDetail'
-            Core.<$> (x Core..:? "ResourceDescription")
-            Core.<*> (x Core..:? "ResourceTags" Core..!= Core.mempty)
-            Core.<*> (x Core..: "PolicyId")
-            Core.<*> (x Core..: "MemberAccount")
-            Core.<*> (x Core..: "ResourceId")
-            Core.<*> (x Core..: "ResourceType")
-            Core.<*> ( x Core..:? "ResourceViolations"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "ResourceDescription")
+            Prelude.<*> (x Core..:? "ResourceTags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "PolicyId")
+            Prelude.<*> (x Core..: "MemberAccount")
+            Prelude.<*> (x Core..: "ResourceId")
+            Prelude.<*> (x Core..: "ResourceType")
+            Prelude.<*> ( x Core..:? "ResourceViolations"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ViolationDetail
+instance Prelude.Hashable ViolationDetail
 
-instance Core.NFData ViolationDetail
+instance Prelude.NFData ViolationDetail

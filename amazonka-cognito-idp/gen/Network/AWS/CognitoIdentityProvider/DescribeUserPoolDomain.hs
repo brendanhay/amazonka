@@ -42,15 +42,16 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeUserPoolDomain' smart constructor.
 data DescribeUserPoolDomain = DescribeUserPoolDomain'
   { -- | The domain string.
-    domain :: Core.Text
+    domain :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserPoolDomain' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DescribeUserPoolDomain = DescribeUserPoolDomain'
 -- 'domain', 'describeUserPoolDomain_domain' - The domain string.
 newDescribeUserPoolDomain ::
   -- | 'domain'
-  Core.Text ->
+  Prelude.Text ->
   DescribeUserPoolDomain
 newDescribeUserPoolDomain pDomain_ =
   DescribeUserPoolDomain' {domain = pDomain_}
 
 -- | The domain string.
-describeUserPoolDomain_domain :: Lens.Lens' DescribeUserPoolDomain Core.Text
+describeUserPoolDomain_domain :: Lens.Lens' DescribeUserPoolDomain Prelude.Text
 describeUserPoolDomain_domain = Lens.lens (\DescribeUserPoolDomain' {domain} -> domain) (\s@DescribeUserPoolDomain' {} a -> s {domain = a} :: DescribeUserPoolDomain)
 
 instance Core.AWSRequest DescribeUserPoolDomain where
@@ -81,48 +82,50 @@ instance Core.AWSRequest DescribeUserPoolDomain where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserPoolDomainResponse'
-            Core.<$> (x Core..?> "DomainDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DomainDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeUserPoolDomain
+instance Prelude.Hashable DescribeUserPoolDomain
 
-instance Core.NFData DescribeUserPoolDomain
+instance Prelude.NFData DescribeUserPoolDomain
 
 instance Core.ToHeaders DescribeUserPoolDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeUserPoolDomain where
   toJSON DescribeUserPoolDomain' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Domain" Core..= domain)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Domain" Core..= domain)]
       )
 
 instance Core.ToPath DescribeUserPoolDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeUserPoolDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserPoolDomainResponse' smart constructor.
 data DescribeUserPoolDomainResponse = DescribeUserPoolDomainResponse'
   { -- | A domain description object containing information about the domain.
-    domainDescription :: Core.Maybe DomainDescriptionType,
+    domainDescription :: Prelude.Maybe DomainDescriptionType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserPoolDomainResponse' with all optional fields omitted.
@@ -137,21 +140,23 @@ data DescribeUserPoolDomainResponse = DescribeUserPoolDomainResponse'
 -- 'httpStatus', 'describeUserPoolDomainResponse_httpStatus' - The response's http status code.
 newDescribeUserPoolDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeUserPoolDomainResponse
 newDescribeUserPoolDomainResponse pHttpStatus_ =
   DescribeUserPoolDomainResponse'
     { domainDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A domain description object containing information about the domain.
-describeUserPoolDomainResponse_domainDescription :: Lens.Lens' DescribeUserPoolDomainResponse (Core.Maybe DomainDescriptionType)
+describeUserPoolDomainResponse_domainDescription :: Lens.Lens' DescribeUserPoolDomainResponse (Prelude.Maybe DomainDescriptionType)
 describeUserPoolDomainResponse_domainDescription = Lens.lens (\DescribeUserPoolDomainResponse' {domainDescription} -> domainDescription) (\s@DescribeUserPoolDomainResponse' {} a -> s {domainDescription = a} :: DescribeUserPoolDomainResponse)
 
 -- | The response's http status code.
-describeUserPoolDomainResponse_httpStatus :: Lens.Lens' DescribeUserPoolDomainResponse Core.Int
+describeUserPoolDomainResponse_httpStatus :: Lens.Lens' DescribeUserPoolDomainResponse Prelude.Int
 describeUserPoolDomainResponse_httpStatus = Lens.lens (\DescribeUserPoolDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeUserPoolDomainResponse' {} a -> s {httpStatus = a} :: DescribeUserPoolDomainResponse)
 
-instance Core.NFData DescribeUserPoolDomainResponse
+instance
+  Prelude.NFData
+    DescribeUserPoolDomainResponse

@@ -45,6 +45,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +54,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetApplicationRevision' smart constructor.
 data GetApplicationRevision = GetApplicationRevision'
   { -- | The name of the application that corresponds to the revision.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | Information about the application revision to get, including type and
     -- location.
     revision :: RevisionLocation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApplicationRevision' with all optional fields omitted.
@@ -74,7 +75,7 @@ data GetApplicationRevision = GetApplicationRevision'
 -- location.
 newGetApplicationRevision ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'revision'
   RevisionLocation ->
   GetApplicationRevision
@@ -88,7 +89,7 @@ newGetApplicationRevision
       }
 
 -- | The name of the application that corresponds to the revision.
-getApplicationRevision_applicationName :: Lens.Lens' GetApplicationRevision Core.Text
+getApplicationRevision_applicationName :: Lens.Lens' GetApplicationRevision Prelude.Text
 getApplicationRevision_applicationName = Lens.lens (\GetApplicationRevision' {applicationName} -> applicationName) (\s@GetApplicationRevision' {} a -> s {applicationName = a} :: GetApplicationRevision)
 
 -- | Information about the application revision to get, including type and
@@ -105,59 +106,61 @@ instance Core.AWSRequest GetApplicationRevision where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationRevisionResponse'
-            Core.<$> (x Core..?> "revisionInfo")
-            Core.<*> (x Core..?> "revision")
-            Core.<*> (x Core..?> "applicationName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "revisionInfo")
+            Prelude.<*> (x Core..?> "revision")
+            Prelude.<*> (x Core..?> "applicationName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetApplicationRevision
+instance Prelude.Hashable GetApplicationRevision
 
-instance Core.NFData GetApplicationRevision
+instance Prelude.NFData GetApplicationRevision
 
 instance Core.ToHeaders GetApplicationRevision where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.GetApplicationRevision" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetApplicationRevision where
   toJSON GetApplicationRevision' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("applicationName" Core..= applicationName),
-            Core.Just ("revision" Core..= revision)
+            Prelude.Just ("revision" Core..= revision)
           ]
       )
 
 instance Core.ToPath GetApplicationRevision where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetApplicationRevision where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetApplicationRevision@ operation.
 --
 -- /See:/ 'newGetApplicationRevisionResponse' smart constructor.
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
   { -- | General information about the revision.
-    revisionInfo :: Core.Maybe GenericRevisionInfo,
+    revisionInfo :: Prelude.Maybe GenericRevisionInfo,
     -- | Additional information about the revision, including type and location.
-    revision :: Core.Maybe RevisionLocation,
+    revision :: Prelude.Maybe RevisionLocation,
     -- | The name of the application that corresponds to the revision.
-    applicationName :: Core.Maybe Core.Text,
+    applicationName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApplicationRevisionResponse' with all optional fields omitted.
@@ -176,31 +179,33 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
 -- 'httpStatus', 'getApplicationRevisionResponse_httpStatus' - The response's http status code.
 newGetApplicationRevisionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetApplicationRevisionResponse
 newGetApplicationRevisionResponse pHttpStatus_ =
   GetApplicationRevisionResponse'
     { revisionInfo =
-        Core.Nothing,
-      revision = Core.Nothing,
-      applicationName = Core.Nothing,
+        Prelude.Nothing,
+      revision = Prelude.Nothing,
+      applicationName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | General information about the revision.
-getApplicationRevisionResponse_revisionInfo :: Lens.Lens' GetApplicationRevisionResponse (Core.Maybe GenericRevisionInfo)
+getApplicationRevisionResponse_revisionInfo :: Lens.Lens' GetApplicationRevisionResponse (Prelude.Maybe GenericRevisionInfo)
 getApplicationRevisionResponse_revisionInfo = Lens.lens (\GetApplicationRevisionResponse' {revisionInfo} -> revisionInfo) (\s@GetApplicationRevisionResponse' {} a -> s {revisionInfo = a} :: GetApplicationRevisionResponse)
 
 -- | Additional information about the revision, including type and location.
-getApplicationRevisionResponse_revision :: Lens.Lens' GetApplicationRevisionResponse (Core.Maybe RevisionLocation)
+getApplicationRevisionResponse_revision :: Lens.Lens' GetApplicationRevisionResponse (Prelude.Maybe RevisionLocation)
 getApplicationRevisionResponse_revision = Lens.lens (\GetApplicationRevisionResponse' {revision} -> revision) (\s@GetApplicationRevisionResponse' {} a -> s {revision = a} :: GetApplicationRevisionResponse)
 
 -- | The name of the application that corresponds to the revision.
-getApplicationRevisionResponse_applicationName :: Lens.Lens' GetApplicationRevisionResponse (Core.Maybe Core.Text)
+getApplicationRevisionResponse_applicationName :: Lens.Lens' GetApplicationRevisionResponse (Prelude.Maybe Prelude.Text)
 getApplicationRevisionResponse_applicationName = Lens.lens (\GetApplicationRevisionResponse' {applicationName} -> applicationName) (\s@GetApplicationRevisionResponse' {} a -> s {applicationName = a} :: GetApplicationRevisionResponse)
 
 -- | The response's http status code.
-getApplicationRevisionResponse_httpStatus :: Lens.Lens' GetApplicationRevisionResponse Core.Int
+getApplicationRevisionResponse_httpStatus :: Lens.Lens' GetApplicationRevisionResponse Prelude.Int
 getApplicationRevisionResponse_httpStatus = Lens.lens (\GetApplicationRevisionResponse' {httpStatus} -> httpStatus) (\s@GetApplicationRevisionResponse' {} a -> s {httpStatus = a} :: GetApplicationRevisionResponse)
 
-instance Core.NFData GetApplicationRevisionResponse
+instance
+  Prelude.NFData
+    GetApplicationRevisionResponse

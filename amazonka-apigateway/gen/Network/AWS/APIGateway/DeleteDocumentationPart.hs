@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteDocumentationPart' smart constructor.
 data DeleteDocumentationPart = DeleteDocumentationPart'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the to-be-deleted documentation part.
-    documentationPartId :: Core.Text
+    documentationPartId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentationPart' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteDocumentationPart = DeleteDocumentationPart'
 -- 'documentationPartId', 'deleteDocumentationPart_documentationPartId' - [Required] The identifier of the to-be-deleted documentation part.
 newDeleteDocumentationPart ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'documentationPartId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDocumentationPart
 newDeleteDocumentationPart
   pRestApiId_
@@ -79,11 +80,11 @@ newDeleteDocumentationPart
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteDocumentationPart_restApiId :: Lens.Lens' DeleteDocumentationPart Core.Text
+deleteDocumentationPart_restApiId :: Lens.Lens' DeleteDocumentationPart Prelude.Text
 deleteDocumentationPart_restApiId = Lens.lens (\DeleteDocumentationPart' {restApiId} -> restApiId) (\s@DeleteDocumentationPart' {} a -> s {restApiId = a} :: DeleteDocumentationPart)
 
 -- | [Required] The identifier of the to-be-deleted documentation part.
-deleteDocumentationPart_documentationPartId :: Lens.Lens' DeleteDocumentationPart Core.Text
+deleteDocumentationPart_documentationPartId :: Lens.Lens' DeleteDocumentationPart Prelude.Text
 deleteDocumentationPart_documentationPartId = Lens.lens (\DeleteDocumentationPart' {documentationPartId} -> documentationPartId) (\s@DeleteDocumentationPart' {} a -> s {documentationPartId = a} :: DeleteDocumentationPart)
 
 instance Core.AWSRequest DeleteDocumentationPart where
@@ -95,22 +96,22 @@ instance Core.AWSRequest DeleteDocumentationPart where
     Response.receiveNull
       DeleteDocumentationPartResponse'
 
-instance Core.Hashable DeleteDocumentationPart
+instance Prelude.Hashable DeleteDocumentationPart
 
-instance Core.NFData DeleteDocumentationPart
+instance Prelude.NFData DeleteDocumentationPart
 
 instance Core.ToHeaders DeleteDocumentationPart where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteDocumentationPart where
   toPath DeleteDocumentationPart' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/documentation/parts/",
@@ -118,13 +119,13 @@ instance Core.ToPath DeleteDocumentationPart where
       ]
 
 instance Core.ToQuery DeleteDocumentationPart where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDocumentationPartResponse' smart constructor.
 data DeleteDocumentationPartResponse = DeleteDocumentationPartResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentationPartResponse' with all optional fields omitted.
@@ -135,4 +136,6 @@ newDeleteDocumentationPartResponse ::
 newDeleteDocumentationPartResponse =
   DeleteDocumentationPartResponse'
 
-instance Core.NFData DeleteDocumentationPartResponse
+instance
+  Prelude.NFData
+    DeleteDocumentationPartResponse

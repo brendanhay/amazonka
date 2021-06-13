@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ data TagResource = TagResource'
   { -- | The ARN of the AWS Glue resource to which to add the tags. For more
     -- information about AWS Glue resource ARNs, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>.
-    resourceArn :: Core.Text,
+    resourceArn :: Prelude.Text,
     -- | Tags to add to this resource.
-    tagsToAdd :: Core.HashMap Core.Text Core.Text
+    tagsToAdd :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -74,23 +75,23 @@ data TagResource = TagResource'
 -- 'tagsToAdd', 'tagResource_tagsToAdd' - Tags to add to this resource.
 newTagResource ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   TagResource
 newTagResource pResourceArn_ =
   TagResource'
     { resourceArn = pResourceArn_,
-      tagsToAdd = Core.mempty
+      tagsToAdd = Prelude.mempty
     }
 
 -- | The ARN of the AWS Glue resource to which to add the tags. For more
 -- information about AWS Glue resource ARNs, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>.
-tagResource_resourceArn :: Lens.Lens' TagResource Core.Text
+tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | Tags to add to this resource.
-tagResource_tagsToAdd :: Lens.Lens' TagResource (Core.HashMap Core.Text Core.Text)
-tagResource_tagsToAdd = Lens.lens (\TagResource' {tagsToAdd} -> tagsToAdd) (\s@TagResource' {} a -> s {tagsToAdd = a} :: TagResource) Core.. Lens._Coerce
+tagResource_tagsToAdd :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
+tagResource_tagsToAdd = Lens.lens (\TagResource' {tagsToAdd} -> tagsToAdd) (\s@TagResource' {} a -> s {tagsToAdd = a} :: TagResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
@@ -99,45 +100,47 @@ instance Core.AWSRequest TagResource where
     Response.receiveEmpty
       ( \s h x ->
           TagResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TagResource
+instance Prelude.Hashable TagResource
 
-instance Core.NFData TagResource
+instance Prelude.NFData TagResource
 
 instance Core.ToHeaders TagResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.TagResource" :: Core.ByteString),
+              Core.=# ("AWSGlue.TagResource" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceArn" Core..= resourceArn),
-            Core.Just ("TagsToAdd" Core..= tagsToAdd)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
+            Prelude.Just ("TagsToAdd" Core..= tagsToAdd)
           ]
       )
 
 instance Core.ToPath TagResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -150,13 +153,13 @@ data TagResourceResponse = TagResourceResponse'
 -- 'httpStatus', 'tagResourceResponse_httpStatus' - The response's http status code.
 newTagResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TagResourceResponse
 newTagResourceResponse pHttpStatus_ =
   TagResourceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Core.Int
+tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int
 tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -> httpStatus) (\s@TagResourceResponse' {} a -> s {httpStatus = a} :: TagResourceResponse)
 
-instance Core.NFData TagResourceResponse
+instance Prelude.NFData TagResourceResponse

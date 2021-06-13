@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.SuspendedProcess where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an auto scaling process that has been suspended.
 --
@@ -31,11 +32,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSuspendedProcess' smart constructor.
 data SuspendedProcess = SuspendedProcess'
   { -- | The name of the suspended process.
-    processName :: Core.Maybe Core.Text,
+    processName :: Prelude.Maybe Prelude.Text,
     -- | The reason that the process was suspended.
-    suspensionReason :: Core.Maybe Core.Text
+    suspensionReason :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SuspendedProcess' with all optional fields omitted.
@@ -52,24 +53,24 @@ newSuspendedProcess ::
   SuspendedProcess
 newSuspendedProcess =
   SuspendedProcess'
-    { processName = Core.Nothing,
-      suspensionReason = Core.Nothing
+    { processName = Prelude.Nothing,
+      suspensionReason = Prelude.Nothing
     }
 
 -- | The name of the suspended process.
-suspendedProcess_processName :: Lens.Lens' SuspendedProcess (Core.Maybe Core.Text)
+suspendedProcess_processName :: Lens.Lens' SuspendedProcess (Prelude.Maybe Prelude.Text)
 suspendedProcess_processName = Lens.lens (\SuspendedProcess' {processName} -> processName) (\s@SuspendedProcess' {} a -> s {processName = a} :: SuspendedProcess)
 
 -- | The reason that the process was suspended.
-suspendedProcess_suspensionReason :: Lens.Lens' SuspendedProcess (Core.Maybe Core.Text)
+suspendedProcess_suspensionReason :: Lens.Lens' SuspendedProcess (Prelude.Maybe Prelude.Text)
 suspendedProcess_suspensionReason = Lens.lens (\SuspendedProcess' {suspensionReason} -> suspensionReason) (\s@SuspendedProcess' {} a -> s {suspensionReason = a} :: SuspendedProcess)
 
 instance Core.FromXML SuspendedProcess where
   parseXML x =
     SuspendedProcess'
-      Core.<$> (x Core..@? "ProcessName")
-      Core.<*> (x Core..@? "SuspensionReason")
+      Prelude.<$> (x Core..@? "ProcessName")
+      Prelude.<*> (x Core..@? "SuspensionReason")
 
-instance Core.Hashable SuspendedProcess
+instance Prelude.Hashable SuspendedProcess
 
-instance Core.NFData SuspendedProcess
+instance Prelude.NFData SuspendedProcess

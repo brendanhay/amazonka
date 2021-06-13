@@ -21,15 +21,16 @@ module Network.AWS.ElasticBeanstalk.Types.LaunchTemplate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Amazon EC2 launch template.
 --
 -- /See:/ 'newLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
   { -- | The ID of the launch template.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplate' with all optional fields omitted.
@@ -43,16 +44,16 @@ data LaunchTemplate = LaunchTemplate'
 newLaunchTemplate ::
   LaunchTemplate
 newLaunchTemplate =
-  LaunchTemplate' {id = Core.Nothing}
+  LaunchTemplate' {id = Prelude.Nothing}
 
 -- | The ID of the launch template.
-launchTemplate_id :: Lens.Lens' LaunchTemplate (Core.Maybe Core.Text)
+launchTemplate_id :: Lens.Lens' LaunchTemplate (Prelude.Maybe Prelude.Text)
 launchTemplate_id = Lens.lens (\LaunchTemplate' {id} -> id) (\s@LaunchTemplate' {} a -> s {id = a} :: LaunchTemplate)
 
 instance Core.FromXML LaunchTemplate where
   parseXML x =
-    LaunchTemplate' Core.<$> (x Core..@? "Id")
+    LaunchTemplate' Prelude.<$> (x Core..@? "Id")
 
-instance Core.Hashable LaunchTemplate
+instance Prelude.Hashable LaunchTemplate
 
-instance Core.NFData LaunchTemplate
+instance Prelude.NFData LaunchTemplate

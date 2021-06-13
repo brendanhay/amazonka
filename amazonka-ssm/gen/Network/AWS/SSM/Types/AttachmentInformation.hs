@@ -21,15 +21,16 @@ module Network.AWS.SSM.Types.AttachmentInformation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An attribute of an attachment, such as the attachment name.
 --
 -- /See:/ 'newAttachmentInformation' smart constructor.
 data AttachmentInformation = AttachmentInformation'
   { -- | The name of the attachment.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachmentInformation' with all optional fields omitted.
@@ -43,10 +44,10 @@ data AttachmentInformation = AttachmentInformation'
 newAttachmentInformation ::
   AttachmentInformation
 newAttachmentInformation =
-  AttachmentInformation' {name = Core.Nothing}
+  AttachmentInformation' {name = Prelude.Nothing}
 
 -- | The name of the attachment.
-attachmentInformation_name :: Lens.Lens' AttachmentInformation (Core.Maybe Core.Text)
+attachmentInformation_name :: Lens.Lens' AttachmentInformation (Prelude.Maybe Prelude.Text)
 attachmentInformation_name = Lens.lens (\AttachmentInformation' {name} -> name) (\s@AttachmentInformation' {} a -> s {name = a} :: AttachmentInformation)
 
 instance Core.FromJSON AttachmentInformation where
@@ -54,9 +55,10 @@ instance Core.FromJSON AttachmentInformation where
     Core.withObject
       "AttachmentInformation"
       ( \x ->
-          AttachmentInformation' Core.<$> (x Core..:? "Name")
+          AttachmentInformation'
+            Prelude.<$> (x Core..:? "Name")
       )
 
-instance Core.Hashable AttachmentInformation
+instance Prelude.Hashable AttachmentInformation
 
-instance Core.NFData AttachmentInformation
+instance Prelude.NFData AttachmentInformation

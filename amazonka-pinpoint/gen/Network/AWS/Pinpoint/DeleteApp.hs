@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteApp = DeleteApp'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApp' with all optional fields omitted.
@@ -65,14 +66,14 @@ data DeleteApp = DeleteApp'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteApp ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteApp
 newDeleteApp pApplicationId_ =
   DeleteApp' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteApp_applicationId :: Lens.Lens' DeleteApp Core.Text
+deleteApp_applicationId :: Lens.Lens' DeleteApp Prelude.Text
 deleteApp_applicationId = Lens.lens (\DeleteApp' {applicationId} -> applicationId) (\s@DeleteApp' {} a -> s {applicationId = a} :: DeleteApp)
 
 instance Core.AWSRequest DeleteApp where
@@ -82,37 +83,40 @@ instance Core.AWSRequest DeleteApp where
     Response.receiveJSON
       ( \s h x ->
           DeleteAppResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteApp
+instance Prelude.Hashable DeleteApp
 
-instance Core.NFData DeleteApp
+instance Prelude.NFData DeleteApp
 
 instance Core.ToHeaders DeleteApp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteApp where
   toPath DeleteApp' {..} =
-    Core.mconcat ["/v1/apps/", Core.toBS applicationId]
+    Prelude.mconcat
+      ["/v1/apps/", Core.toBS applicationId]
 
 instance Core.ToQuery DeleteApp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     applicationResponse :: ApplicationResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAppResponse' with all optional fields omitted.
@@ -127,7 +131,7 @@ data DeleteAppResponse = DeleteAppResponse'
 -- 'applicationResponse', 'deleteAppResponse_applicationResponse' - Undocumented member.
 newDeleteAppResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'applicationResponse'
   ApplicationResponse ->
   DeleteAppResponse
@@ -140,11 +144,11 @@ newDeleteAppResponse
       }
 
 -- | The response's http status code.
-deleteAppResponse_httpStatus :: Lens.Lens' DeleteAppResponse Core.Int
+deleteAppResponse_httpStatus :: Lens.Lens' DeleteAppResponse Prelude.Int
 deleteAppResponse_httpStatus = Lens.lens (\DeleteAppResponse' {httpStatus} -> httpStatus) (\s@DeleteAppResponse' {} a -> s {httpStatus = a} :: DeleteAppResponse)
 
 -- | Undocumented member.
 deleteAppResponse_applicationResponse :: Lens.Lens' DeleteAppResponse ApplicationResponse
 deleteAppResponse_applicationResponse = Lens.lens (\DeleteAppResponse' {applicationResponse} -> applicationResponse) (\s@DeleteAppResponse' {} a -> s {applicationResponse = a} :: DeleteAppResponse)
 
-instance Core.NFData DeleteAppResponse
+instance Prelude.NFData DeleteAppResponse

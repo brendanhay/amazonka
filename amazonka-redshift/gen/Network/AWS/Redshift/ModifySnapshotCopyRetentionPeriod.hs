@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -60,14 +61,14 @@ import qualified Network.AWS.Response as Response
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
   { -- | Indicates whether to apply the snapshot retention period to newly copied
     -- manual snapshots instead of automated snapshots.
-    manual :: Core.Maybe Core.Bool,
+    manual :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier of the cluster for which you want to change the
     -- retention period for either automated or manual snapshots that are
     -- copied to a destination AWS Region.
     --
     -- Constraints: Must be the valid name of an existing cluster that has
     -- cross-region snapshot copy enabled.
-    clusterIdentifier :: Core.Text,
+    clusterIdentifier :: Prelude.Text,
     -- | The number of days to retain automated snapshots in the destination AWS
     -- Region after they are copied from the source AWS Region.
     --
@@ -90,9 +91,9 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
     --
     -- Constraints: The number of days must be either -1 or an integer between
     -- 1 and 3,653 for manual snapshots.
-    retentionPeriod :: Core.Int
+    retentionPeriod :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySnapshotCopyRetentionPeriod' with all optional fields omitted.
@@ -136,23 +137,23 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
 -- 1 and 3,653 for manual snapshots.
 newModifySnapshotCopyRetentionPeriod ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'retentionPeriod'
-  Core.Int ->
+  Prelude.Int ->
   ModifySnapshotCopyRetentionPeriod
 newModifySnapshotCopyRetentionPeriod
   pClusterIdentifier_
   pRetentionPeriod_ =
     ModifySnapshotCopyRetentionPeriod'
       { manual =
-          Core.Nothing,
+          Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         retentionPeriod = pRetentionPeriod_
       }
 
 -- | Indicates whether to apply the snapshot retention period to newly copied
 -- manual snapshots instead of automated snapshots.
-modifySnapshotCopyRetentionPeriod_manual :: Lens.Lens' ModifySnapshotCopyRetentionPeriod (Core.Maybe Core.Bool)
+modifySnapshotCopyRetentionPeriod_manual :: Lens.Lens' ModifySnapshotCopyRetentionPeriod (Prelude.Maybe Prelude.Bool)
 modifySnapshotCopyRetentionPeriod_manual = Lens.lens (\ModifySnapshotCopyRetentionPeriod' {manual} -> manual) (\s@ModifySnapshotCopyRetentionPeriod' {} a -> s {manual = a} :: ModifySnapshotCopyRetentionPeriod)
 
 -- | The unique identifier of the cluster for which you want to change the
@@ -161,7 +162,7 @@ modifySnapshotCopyRetentionPeriod_manual = Lens.lens (\ModifySnapshotCopyRetenti
 --
 -- Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
-modifySnapshotCopyRetentionPeriod_clusterIdentifier :: Lens.Lens' ModifySnapshotCopyRetentionPeriod Core.Text
+modifySnapshotCopyRetentionPeriod_clusterIdentifier :: Lens.Lens' ModifySnapshotCopyRetentionPeriod Prelude.Text
 modifySnapshotCopyRetentionPeriod_clusterIdentifier = Lens.lens (\ModifySnapshotCopyRetentionPeriod' {clusterIdentifier} -> clusterIdentifier) (\s@ModifySnapshotCopyRetentionPeriod' {} a -> s {clusterIdentifier = a} :: ModifySnapshotCopyRetentionPeriod)
 
 -- | The number of days to retain automated snapshots in the destination AWS
@@ -186,7 +187,7 @@ modifySnapshotCopyRetentionPeriod_clusterIdentifier = Lens.lens (\ModifySnapshot
 --
 -- Constraints: The number of days must be either -1 or an integer between
 -- 1 and 3,653 for manual snapshots.
-modifySnapshotCopyRetentionPeriod_retentionPeriod :: Lens.Lens' ModifySnapshotCopyRetentionPeriod Core.Int
+modifySnapshotCopyRetentionPeriod_retentionPeriod :: Lens.Lens' ModifySnapshotCopyRetentionPeriod Prelude.Int
 modifySnapshotCopyRetentionPeriod_retentionPeriod = Lens.lens (\ModifySnapshotCopyRetentionPeriod' {retentionPeriod} -> retentionPeriod) (\s@ModifySnapshotCopyRetentionPeriod' {} a -> s {retentionPeriod = a} :: ModifySnapshotCopyRetentionPeriod)
 
 instance
@@ -202,41 +203,42 @@ instance
       "ModifySnapshotCopyRetentionPeriodResult"
       ( \s h x ->
           ModifySnapshotCopyRetentionPeriodResponse'
-            Core.<$> (x Core..@? "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Cluster")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModifySnapshotCopyRetentionPeriod
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifySnapshotCopyRetentionPeriod
 
 instance
   Core.ToHeaders
     ModifySnapshotCopyRetentionPeriod
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ModifySnapshotCopyRetentionPeriod
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ModifySnapshotCopyRetentionPeriod
   where
   toQuery ModifySnapshotCopyRetentionPeriod' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ModifySnapshotCopyRetentionPeriod" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "Manual" Core.=: manual,
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "RetentionPeriod" Core.=: retentionPeriod
@@ -244,11 +246,11 @@ instance
 
 -- | /See:/ 'newModifySnapshotCopyRetentionPeriodResponse' smart constructor.
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySnapshotCopyRetentionPeriodResponse' with all optional fields omitted.
@@ -263,24 +265,24 @@ data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeri
 -- 'httpStatus', 'modifySnapshotCopyRetentionPeriodResponse_httpStatus' - The response's http status code.
 newModifySnapshotCopyRetentionPeriodResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifySnapshotCopyRetentionPeriodResponse
 newModifySnapshotCopyRetentionPeriodResponse
   pHttpStatus_ =
     ModifySnapshotCopyRetentionPeriodResponse'
       { cluster =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-modifySnapshotCopyRetentionPeriodResponse_cluster :: Lens.Lens' ModifySnapshotCopyRetentionPeriodResponse (Core.Maybe Cluster)
+modifySnapshotCopyRetentionPeriodResponse_cluster :: Lens.Lens' ModifySnapshotCopyRetentionPeriodResponse (Prelude.Maybe Cluster)
 modifySnapshotCopyRetentionPeriodResponse_cluster = Lens.lens (\ModifySnapshotCopyRetentionPeriodResponse' {cluster} -> cluster) (\s@ModifySnapshotCopyRetentionPeriodResponse' {} a -> s {cluster = a} :: ModifySnapshotCopyRetentionPeriodResponse)
 
 -- | The response's http status code.
-modifySnapshotCopyRetentionPeriodResponse_httpStatus :: Lens.Lens' ModifySnapshotCopyRetentionPeriodResponse Core.Int
+modifySnapshotCopyRetentionPeriodResponse_httpStatus :: Lens.Lens' ModifySnapshotCopyRetentionPeriodResponse Prelude.Int
 modifySnapshotCopyRetentionPeriodResponse_httpStatus = Lens.lens (\ModifySnapshotCopyRetentionPeriodResponse' {httpStatus} -> httpStatus) (\s@ModifySnapshotCopyRetentionPeriodResponse' {} a -> s {httpStatus = a} :: ModifySnapshotCopyRetentionPeriodResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifySnapshotCopyRetentionPeriodResponse

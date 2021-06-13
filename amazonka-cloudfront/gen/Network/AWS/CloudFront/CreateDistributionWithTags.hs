@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +55,7 @@ data CreateDistributionWithTags = CreateDistributionWithTags'
   { -- | The distribution\'s configuration information.
     distributionConfigWithTags :: DistributionConfigWithTags
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDistributionWithTags' with all optional fields omitted.
@@ -89,15 +90,15 @@ instance Core.AWSRequest CreateDistributionWithTags where
     Response.receiveXML
       ( \s h x ->
           CreateDistributionWithTagsResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (h Core..#? "Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDistributionWithTags
+instance Prelude.Hashable CreateDistributionWithTags
 
-instance Core.NFData CreateDistributionWithTags
+instance Prelude.NFData CreateDistributionWithTags
 
 instance Core.ToElement CreateDistributionWithTags where
   toElement CreateDistributionWithTags' {..} =
@@ -106,28 +107,29 @@ instance Core.ToElement CreateDistributionWithTags where
       distributionConfigWithTags
 
 instance Core.ToHeaders CreateDistributionWithTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateDistributionWithTags where
-  toPath = Core.const "/2020-05-31/distribution"
+  toPath = Prelude.const "/2020-05-31/distribution"
 
 instance Core.ToQuery CreateDistributionWithTags where
-  toQuery = Core.const (Core.mconcat ["WithTags"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["WithTags"])
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newCreateDistributionWithTagsResponse' smart constructor.
 data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
   { -- | The current version of the distribution created.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The distribution\'s information.
-    distribution :: Core.Maybe Distribution,
+    distribution :: Prelude.Maybe Distribution,
     -- | The fully qualified URI of the new distribution resource just created.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDistributionWithTagsResponse' with all optional fields omitted.
@@ -146,33 +148,33 @@ data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
 -- 'httpStatus', 'createDistributionWithTagsResponse_httpStatus' - The response's http status code.
 newCreateDistributionWithTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDistributionWithTagsResponse
 newCreateDistributionWithTagsResponse pHttpStatus_ =
   CreateDistributionWithTagsResponse'
     { eTag =
-        Core.Nothing,
-      distribution = Core.Nothing,
-      location = Core.Nothing,
+        Prelude.Nothing,
+      distribution = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the distribution created.
-createDistributionWithTagsResponse_eTag :: Lens.Lens' CreateDistributionWithTagsResponse (Core.Maybe Core.Text)
+createDistributionWithTagsResponse_eTag :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
 createDistributionWithTagsResponse_eTag = Lens.lens (\CreateDistributionWithTagsResponse' {eTag} -> eTag) (\s@CreateDistributionWithTagsResponse' {} a -> s {eTag = a} :: CreateDistributionWithTagsResponse)
 
 -- | The distribution\'s information.
-createDistributionWithTagsResponse_distribution :: Lens.Lens' CreateDistributionWithTagsResponse (Core.Maybe Distribution)
+createDistributionWithTagsResponse_distribution :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Distribution)
 createDistributionWithTagsResponse_distribution = Lens.lens (\CreateDistributionWithTagsResponse' {distribution} -> distribution) (\s@CreateDistributionWithTagsResponse' {} a -> s {distribution = a} :: CreateDistributionWithTagsResponse)
 
 -- | The fully qualified URI of the new distribution resource just created.
-createDistributionWithTagsResponse_location :: Lens.Lens' CreateDistributionWithTagsResponse (Core.Maybe Core.Text)
+createDistributionWithTagsResponse_location :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
 createDistributionWithTagsResponse_location = Lens.lens (\CreateDistributionWithTagsResponse' {location} -> location) (\s@CreateDistributionWithTagsResponse' {} a -> s {location = a} :: CreateDistributionWithTagsResponse)
 
 -- | The response's http status code.
-createDistributionWithTagsResponse_httpStatus :: Lens.Lens' CreateDistributionWithTagsResponse Core.Int
+createDistributionWithTagsResponse_httpStatus :: Lens.Lens' CreateDistributionWithTagsResponse Prelude.Int
 createDistributionWithTagsResponse_httpStatus = Lens.lens (\CreateDistributionWithTagsResponse' {httpStatus} -> httpStatus) (\s@CreateDistributionWithTagsResponse' {} a -> s {httpStatus = a} :: CreateDistributionWithTagsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateDistributionWithTagsResponse

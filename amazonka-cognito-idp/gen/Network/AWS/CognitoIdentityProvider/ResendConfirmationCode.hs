@@ -48,6 +48,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,25 +86,25 @@ data ResendConfirmationCode = ResendConfirmationCode'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
-    userContextData :: Core.Maybe UserContextDataType,
+    userContextData :: Prelude.Maybe UserContextDataType,
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
-    secretHash :: Core.Maybe (Core.Sensitive Core.Text),
+    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Pinpoint analytics metadata for collecting metrics for
     -- @ResendConfirmationCode@ calls.
-    analyticsMetadata :: Core.Maybe AnalyticsMetadataType,
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | The ID of the client associated with the user pool.
-    clientId :: Core.Sensitive Core.Text,
+    clientId :: Core.Sensitive Prelude.Text,
     -- | The user name of the user to whom you wish to resend a confirmation
     -- code.
-    username :: Core.Sensitive Core.Text
+    username :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResendConfirmationCode' with all optional fields omitted.
@@ -161,17 +162,17 @@ data ResendConfirmationCode = ResendConfirmationCode'
 -- code.
 newResendConfirmationCode ::
   -- | 'clientId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   ResendConfirmationCode
 newResendConfirmationCode pClientId_ pUsername_ =
   ResendConfirmationCode'
     { clientMetadata =
-        Core.Nothing,
-      userContextData = Core.Nothing,
-      secretHash = Core.Nothing,
-      analyticsMetadata = Core.Nothing,
+        Prelude.Nothing,
+      userContextData = Prelude.Nothing,
+      secretHash = Prelude.Nothing,
+      analyticsMetadata = Prelude.Nothing,
       clientId = Core._Sensitive Lens.# pClientId_,
       username = Core._Sensitive Lens.# pUsername_
     }
@@ -206,34 +207,34 @@ newResendConfirmationCode pClientId_ pUsername_ =
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-resendConfirmationCode_clientMetadata :: Lens.Lens' ResendConfirmationCode (Core.Maybe (Core.HashMap Core.Text Core.Text))
-resendConfirmationCode_clientMetadata = Lens.lens (\ResendConfirmationCode' {clientMetadata} -> clientMetadata) (\s@ResendConfirmationCode' {} a -> s {clientMetadata = a} :: ResendConfirmationCode) Core.. Lens.mapping Lens._Coerce
+resendConfirmationCode_clientMetadata :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+resendConfirmationCode_clientMetadata = Lens.lens (\ResendConfirmationCode' {clientMetadata} -> clientMetadata) (\s@ResendConfirmationCode' {} a -> s {clientMetadata = a} :: ResendConfirmationCode) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
-resendConfirmationCode_userContextData :: Lens.Lens' ResendConfirmationCode (Core.Maybe UserContextDataType)
+resendConfirmationCode_userContextData :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe UserContextDataType)
 resendConfirmationCode_userContextData = Lens.lens (\ResendConfirmationCode' {userContextData} -> userContextData) (\s@ResendConfirmationCode' {} a -> s {userContextData = a} :: ResendConfirmationCode)
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
-resendConfirmationCode_secretHash :: Lens.Lens' ResendConfirmationCode (Core.Maybe Core.Text)
-resendConfirmationCode_secretHash = Lens.lens (\ResendConfirmationCode' {secretHash} -> secretHash) (\s@ResendConfirmationCode' {} a -> s {secretHash = a} :: ResendConfirmationCode) Core.. Lens.mapping Core._Sensitive
+resendConfirmationCode_secretHash :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe Prelude.Text)
+resendConfirmationCode_secretHash = Lens.lens (\ResendConfirmationCode' {secretHash} -> secretHash) (\s@ResendConfirmationCode' {} a -> s {secretHash = a} :: ResendConfirmationCode) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for
 -- @ResendConfirmationCode@ calls.
-resendConfirmationCode_analyticsMetadata :: Lens.Lens' ResendConfirmationCode (Core.Maybe AnalyticsMetadataType)
+resendConfirmationCode_analyticsMetadata :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe AnalyticsMetadataType)
 resendConfirmationCode_analyticsMetadata = Lens.lens (\ResendConfirmationCode' {analyticsMetadata} -> analyticsMetadata) (\s@ResendConfirmationCode' {} a -> s {analyticsMetadata = a} :: ResendConfirmationCode)
 
 -- | The ID of the client associated with the user pool.
-resendConfirmationCode_clientId :: Lens.Lens' ResendConfirmationCode Core.Text
-resendConfirmationCode_clientId = Lens.lens (\ResendConfirmationCode' {clientId} -> clientId) (\s@ResendConfirmationCode' {} a -> s {clientId = a} :: ResendConfirmationCode) Core.. Core._Sensitive
+resendConfirmationCode_clientId :: Lens.Lens' ResendConfirmationCode Prelude.Text
+resendConfirmationCode_clientId = Lens.lens (\ResendConfirmationCode' {clientId} -> clientId) (\s@ResendConfirmationCode' {} a -> s {clientId = a} :: ResendConfirmationCode) Prelude.. Core._Sensitive
 
 -- | The user name of the user to whom you wish to resend a confirmation
 -- code.
-resendConfirmationCode_username :: Lens.Lens' ResendConfirmationCode Core.Text
-resendConfirmationCode_username = Lens.lens (\ResendConfirmationCode' {username} -> username) (\s@ResendConfirmationCode' {} a -> s {username = a} :: ResendConfirmationCode) Core.. Core._Sensitive
+resendConfirmationCode_username :: Lens.Lens' ResendConfirmationCode Prelude.Text
+resendConfirmationCode_username = Lens.lens (\ResendConfirmationCode' {username} -> username) (\s@ResendConfirmationCode' {} a -> s {username = a} :: ResendConfirmationCode) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest ResendConfirmationCode where
   type
@@ -244,46 +245,50 @@ instance Core.AWSRequest ResendConfirmationCode where
     Response.receiveJSON
       ( \s h x ->
           ResendConfirmationCodeResponse'
-            Core.<$> (x Core..?> "CodeDeliveryDetails")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CodeDeliveryDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResendConfirmationCode
+instance Prelude.Hashable ResendConfirmationCode
 
-instance Core.NFData ResendConfirmationCode
+instance Prelude.NFData ResendConfirmationCode
 
 instance Core.ToHeaders ResendConfirmationCode where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.ResendConfirmationCode" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ResendConfirmationCode where
   toJSON ResendConfirmationCode' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
-            ("UserContextData" Core..=) Core.<$> userContextData,
-            ("SecretHash" Core..=) Core.<$> secretHash,
+      ( Prelude.catMaybes
+          [ ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            ("UserContextData" Core..=)
+              Prelude.<$> userContextData,
+            ("SecretHash" Core..=) Prelude.<$> secretHash,
             ("AnalyticsMetadata" Core..=)
-              Core.<$> analyticsMetadata,
-            Core.Just ("ClientId" Core..= clientId),
-            Core.Just ("Username" Core..= username)
+              Prelude.<$> analyticsMetadata,
+            Prelude.Just ("ClientId" Core..= clientId),
+            Prelude.Just ("Username" Core..= username)
           ]
       )
 
 instance Core.ToPath ResendConfirmationCode where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResendConfirmationCode where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the server when the Amazon Cognito Your User Pools
 -- service makes the request to resend a confirmation code.
@@ -292,11 +297,11 @@ instance Core.ToQuery ResendConfirmationCode where
 data ResendConfirmationCodeResponse = ResendConfirmationCodeResponse'
   { -- | The code delivery details returned by the server in response to the
     -- request to resend the confirmation code.
-    codeDeliveryDetails :: Core.Maybe CodeDeliveryDetailsType,
+    codeDeliveryDetails :: Prelude.Maybe CodeDeliveryDetailsType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResendConfirmationCodeResponse' with all optional fields omitted.
@@ -312,22 +317,24 @@ data ResendConfirmationCodeResponse = ResendConfirmationCodeResponse'
 -- 'httpStatus', 'resendConfirmationCodeResponse_httpStatus' - The response's http status code.
 newResendConfirmationCodeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResendConfirmationCodeResponse
 newResendConfirmationCodeResponse pHttpStatus_ =
   ResendConfirmationCodeResponse'
     { codeDeliveryDetails =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The code delivery details returned by the server in response to the
 -- request to resend the confirmation code.
-resendConfirmationCodeResponse_codeDeliveryDetails :: Lens.Lens' ResendConfirmationCodeResponse (Core.Maybe CodeDeliveryDetailsType)
+resendConfirmationCodeResponse_codeDeliveryDetails :: Lens.Lens' ResendConfirmationCodeResponse (Prelude.Maybe CodeDeliveryDetailsType)
 resendConfirmationCodeResponse_codeDeliveryDetails = Lens.lens (\ResendConfirmationCodeResponse' {codeDeliveryDetails} -> codeDeliveryDetails) (\s@ResendConfirmationCodeResponse' {} a -> s {codeDeliveryDetails = a} :: ResendConfirmationCodeResponse)
 
 -- | The response's http status code.
-resendConfirmationCodeResponse_httpStatus :: Lens.Lens' ResendConfirmationCodeResponse Core.Int
+resendConfirmationCodeResponse_httpStatus :: Lens.Lens' ResendConfirmationCodeResponse Prelude.Int
 resendConfirmationCodeResponse_httpStatus = Lens.lens (\ResendConfirmationCodeResponse' {httpStatus} -> httpStatus) (\s@ResendConfirmationCodeResponse' {} a -> s {httpStatus = a} :: ResendConfirmationCodeResponse)
 
-instance Core.NFData ResendConfirmationCodeResponse
+instance
+  Prelude.NFData
+    ResendConfirmationCodeResponse

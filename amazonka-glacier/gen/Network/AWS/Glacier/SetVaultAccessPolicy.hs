@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,17 +55,17 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetVaultAccessPolicy' smart constructor.
 data SetVaultAccessPolicy = SetVaultAccessPolicy'
   { -- | The vault access policy as a JSON string.
-    policy :: Core.Maybe VaultAccessPolicy,
+    policy :: Prelude.Maybe VaultAccessPolicy,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text
+    vaultName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetVaultAccessPolicy' with all optional fields omitted.
@@ -85,19 +86,19 @@ data SetVaultAccessPolicy = SetVaultAccessPolicy'
 -- 'vaultName', 'setVaultAccessPolicy_vaultName' - The name of the vault.
 newSetVaultAccessPolicy ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   SetVaultAccessPolicy
 newSetVaultAccessPolicy pAccountId_ pVaultName_ =
   SetVaultAccessPolicy'
-    { policy = Core.Nothing,
+    { policy = Prelude.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
     }
 
 -- | The vault access policy as a JSON string.
-setVaultAccessPolicy_policy :: Lens.Lens' SetVaultAccessPolicy (Core.Maybe VaultAccessPolicy)
+setVaultAccessPolicy_policy :: Lens.Lens' SetVaultAccessPolicy (Prelude.Maybe VaultAccessPolicy)
 setVaultAccessPolicy_policy = Lens.lens (\SetVaultAccessPolicy' {policy} -> policy) (\s@SetVaultAccessPolicy' {} a -> s {policy = a} :: SetVaultAccessPolicy)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -105,11 +106,11 @@ setVaultAccessPolicy_policy = Lens.lens (\SetVaultAccessPolicy' {policy} -> poli
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-setVaultAccessPolicy_accountId :: Lens.Lens' SetVaultAccessPolicy Core.Text
+setVaultAccessPolicy_accountId :: Lens.Lens' SetVaultAccessPolicy Prelude.Text
 setVaultAccessPolicy_accountId = Lens.lens (\SetVaultAccessPolicy' {accountId} -> accountId) (\s@SetVaultAccessPolicy' {} a -> s {accountId = a} :: SetVaultAccessPolicy)
 
 -- | The name of the vault.
-setVaultAccessPolicy_vaultName :: Lens.Lens' SetVaultAccessPolicy Core.Text
+setVaultAccessPolicy_vaultName :: Lens.Lens' SetVaultAccessPolicy Prelude.Text
 setVaultAccessPolicy_vaultName = Lens.lens (\SetVaultAccessPolicy' {vaultName} -> vaultName) (\s@SetVaultAccessPolicy' {} a -> s {vaultName = a} :: SetVaultAccessPolicy)
 
 instance Core.AWSRequest SetVaultAccessPolicy where
@@ -118,25 +119,27 @@ instance Core.AWSRequest SetVaultAccessPolicy where
       SetVaultAccessPolicyResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.putJSON defaultService
+      Prelude.. Request.putJSON defaultService
   response =
     Response.receiveNull SetVaultAccessPolicyResponse'
 
-instance Core.Hashable SetVaultAccessPolicy
+instance Prelude.Hashable SetVaultAccessPolicy
 
-instance Core.NFData SetVaultAccessPolicy
+instance Prelude.NFData SetVaultAccessPolicy
 
 instance Core.ToHeaders SetVaultAccessPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON SetVaultAccessPolicy where
   toJSON SetVaultAccessPolicy' {..} =
     Core.object
-      (Core.catMaybes [("policy" Core..=) Core.<$> policy])
+      ( Prelude.catMaybes
+          [("policy" Core..=) Prelude.<$> policy]
+      )
 
 instance Core.ToPath SetVaultAccessPolicy where
   toPath SetVaultAccessPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -145,13 +148,13 @@ instance Core.ToPath SetVaultAccessPolicy where
       ]
 
 instance Core.ToQuery SetVaultAccessPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetVaultAccessPolicyResponse' smart constructor.
 data SetVaultAccessPolicyResponse = SetVaultAccessPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetVaultAccessPolicyResponse' with all optional fields omitted.
@@ -162,4 +165,4 @@ newSetVaultAccessPolicyResponse ::
 newSetVaultAccessPolicyResponse =
   SetVaultAccessPolicyResponse'
 
-instance Core.NFData SetVaultAccessPolicyResponse
+instance Prelude.NFData SetVaultAccessPolicyResponse

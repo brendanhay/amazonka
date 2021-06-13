@@ -23,6 +23,7 @@ import Network.AWS.CodeBuild.Types.CacheMode
 import Network.AWS.CodeBuild.Types.CacheType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the cache for the build project.
 --
@@ -71,13 +72,13 @@ data ProjectCache = ProjectCache'
     --         its project sources. Cached items are overridden if a source
     --         item has the same name. Directories are specified using cache
     --         paths in the buildspec file.
-    modes :: Core.Maybe [CacheMode],
+    modes :: Prelude.Maybe [CacheMode],
     -- | Information about the cache location:
     --
     -- -   @NO_CACHE@ or @LOCAL@: This value is ignored.
     --
     -- -   @S3@: This is the S3 bucket name\/prefix.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The type of cache used by the build project. Valid values include:
     --
     -- -   @NO_CACHE@: The build project does not use any cache.
@@ -88,7 +89,7 @@ data ProjectCache = ProjectCache'
     --     that is only available to that build host.
     type' :: CacheType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProjectCache' with all optional fields omitted.
@@ -162,8 +163,8 @@ newProjectCache ::
   ProjectCache
 newProjectCache pType_ =
   ProjectCache'
-    { modes = Core.Nothing,
-      location = Core.Nothing,
+    { modes = Prelude.Nothing,
+      location = Prelude.Nothing,
       type' = pType_
     }
 
@@ -210,15 +211,15 @@ newProjectCache pType_ =
 --         its project sources. Cached items are overridden if a source
 --         item has the same name. Directories are specified using cache
 --         paths in the buildspec file.
-projectCache_modes :: Lens.Lens' ProjectCache (Core.Maybe [CacheMode])
-projectCache_modes = Lens.lens (\ProjectCache' {modes} -> modes) (\s@ProjectCache' {} a -> s {modes = a} :: ProjectCache) Core.. Lens.mapping Lens._Coerce
+projectCache_modes :: Lens.Lens' ProjectCache (Prelude.Maybe [CacheMode])
+projectCache_modes = Lens.lens (\ProjectCache' {modes} -> modes) (\s@ProjectCache' {} a -> s {modes = a} :: ProjectCache) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the cache location:
 --
 -- -   @NO_CACHE@ or @LOCAL@: This value is ignored.
 --
 -- -   @S3@: This is the S3 bucket name\/prefix.
-projectCache_location :: Lens.Lens' ProjectCache (Core.Maybe Core.Text)
+projectCache_location :: Lens.Lens' ProjectCache (Prelude.Maybe Prelude.Text)
 projectCache_location = Lens.lens (\ProjectCache' {location} -> location) (\s@ProjectCache' {} a -> s {location = a} :: ProjectCache)
 
 -- | The type of cache used by the build project. Valid values include:
@@ -238,21 +239,21 @@ instance Core.FromJSON ProjectCache where
       "ProjectCache"
       ( \x ->
           ProjectCache'
-            Core.<$> (x Core..:? "modes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "location")
-            Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..:? "modes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable ProjectCache
+instance Prelude.Hashable ProjectCache
 
-instance Core.NFData ProjectCache
+instance Prelude.NFData ProjectCache
 
 instance Core.ToJSON ProjectCache where
   toJSON ProjectCache' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("modes" Core..=) Core.<$> modes,
-            ("location" Core..=) Core.<$> location,
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("modes" Core..=) Prelude.<$> modes,
+            ("location" Core..=) Prelude.<$> location,
+            Prelude.Just ("type" Core..= type')
           ]
       )

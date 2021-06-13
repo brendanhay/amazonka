@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.SamplingStrategy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.SamplingStrategyName
 
 -- | The name and value of a sampling rule to apply to a trace summary.
@@ -28,11 +29,11 @@ import Network.AWS.XRay.Types.SamplingStrategyName
 -- /See:/ 'newSamplingStrategy' smart constructor.
 data SamplingStrategy = SamplingStrategy'
   { -- | The name of a sampling rule.
-    name :: Core.Maybe SamplingStrategyName,
+    name :: Prelude.Maybe SamplingStrategyName,
     -- | The value of a sampling rule.
-    value :: Core.Maybe Core.Double
+    value :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SamplingStrategy' with all optional fields omitted.
@@ -49,27 +50,27 @@ newSamplingStrategy ::
   SamplingStrategy
 newSamplingStrategy =
   SamplingStrategy'
-    { name = Core.Nothing,
-      value = Core.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The name of a sampling rule.
-samplingStrategy_name :: Lens.Lens' SamplingStrategy (Core.Maybe SamplingStrategyName)
+samplingStrategy_name :: Lens.Lens' SamplingStrategy (Prelude.Maybe SamplingStrategyName)
 samplingStrategy_name = Lens.lens (\SamplingStrategy' {name} -> name) (\s@SamplingStrategy' {} a -> s {name = a} :: SamplingStrategy)
 
 -- | The value of a sampling rule.
-samplingStrategy_value :: Lens.Lens' SamplingStrategy (Core.Maybe Core.Double)
+samplingStrategy_value :: Lens.Lens' SamplingStrategy (Prelude.Maybe Prelude.Double)
 samplingStrategy_value = Lens.lens (\SamplingStrategy' {value} -> value) (\s@SamplingStrategy' {} a -> s {value = a} :: SamplingStrategy)
 
-instance Core.Hashable SamplingStrategy
+instance Prelude.Hashable SamplingStrategy
 
-instance Core.NFData SamplingStrategy
+instance Prelude.NFData SamplingStrategy
 
 instance Core.ToJSON SamplingStrategy where
   toJSON SamplingStrategy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            ("Value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

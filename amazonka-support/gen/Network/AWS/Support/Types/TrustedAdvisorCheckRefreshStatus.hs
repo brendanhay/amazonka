@@ -21,13 +21,14 @@ module Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The refresh status of a Trusted Advisor check.
 --
 -- /See:/ 'newTrustedAdvisorCheckRefreshStatus' smart constructor.
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
   { -- | The unique identifier for the Trusted Advisor check.
-    checkId :: Core.Text,
+    checkId :: Prelude.Text,
     -- | The status of the Trusted Advisor check for which a refresh has been
     -- requested:
     --
@@ -42,12 +43,12 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
     -- -   @success:@ The check is successfully refreshed
     --
     -- -   @abandoned:@ The check refresh has failed
-    status :: Core.Text,
+    status :: Prelude.Text,
     -- | The amount of time, in milliseconds, until the Trusted Advisor check is
     -- eligible for refresh.
-    millisUntilNextRefreshable :: Core.Integer
+    millisUntilNextRefreshable :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorCheckRefreshStatus' with all optional fields omitted.
@@ -78,11 +79,11 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
 -- eligible for refresh.
 newTrustedAdvisorCheckRefreshStatus ::
   -- | 'checkId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'millisUntilNextRefreshable'
-  Core.Integer ->
+  Prelude.Integer ->
   TrustedAdvisorCheckRefreshStatus
 newTrustedAdvisorCheckRefreshStatus
   pCheckId_
@@ -97,7 +98,7 @@ newTrustedAdvisorCheckRefreshStatus
       }
 
 -- | The unique identifier for the Trusted Advisor check.
-trustedAdvisorCheckRefreshStatus_checkId :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Core.Text
+trustedAdvisorCheckRefreshStatus_checkId :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Prelude.Text
 trustedAdvisorCheckRefreshStatus_checkId = Lens.lens (\TrustedAdvisorCheckRefreshStatus' {checkId} -> checkId) (\s@TrustedAdvisorCheckRefreshStatus' {} a -> s {checkId = a} :: TrustedAdvisorCheckRefreshStatus)
 
 -- | The status of the Trusted Advisor check for which a refresh has been
@@ -114,12 +115,12 @@ trustedAdvisorCheckRefreshStatus_checkId = Lens.lens (\TrustedAdvisorCheckRefres
 -- -   @success:@ The check is successfully refreshed
 --
 -- -   @abandoned:@ The check refresh has failed
-trustedAdvisorCheckRefreshStatus_status :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Core.Text
+trustedAdvisorCheckRefreshStatus_status :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Prelude.Text
 trustedAdvisorCheckRefreshStatus_status = Lens.lens (\TrustedAdvisorCheckRefreshStatus' {status} -> status) (\s@TrustedAdvisorCheckRefreshStatus' {} a -> s {status = a} :: TrustedAdvisorCheckRefreshStatus)
 
 -- | The amount of time, in milliseconds, until the Trusted Advisor check is
 -- eligible for refresh.
-trustedAdvisorCheckRefreshStatus_millisUntilNextRefreshable :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Core.Integer
+trustedAdvisorCheckRefreshStatus_millisUntilNextRefreshable :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Prelude.Integer
 trustedAdvisorCheckRefreshStatus_millisUntilNextRefreshable = Lens.lens (\TrustedAdvisorCheckRefreshStatus' {millisUntilNextRefreshable} -> millisUntilNextRefreshable) (\s@TrustedAdvisorCheckRefreshStatus' {} a -> s {millisUntilNextRefreshable = a} :: TrustedAdvisorCheckRefreshStatus)
 
 instance
@@ -131,13 +132,15 @@ instance
       "TrustedAdvisorCheckRefreshStatus"
       ( \x ->
           TrustedAdvisorCheckRefreshStatus'
-            Core.<$> (x Core..: "checkId")
-            Core.<*> (x Core..: "status")
-            Core.<*> (x Core..: "millisUntilNextRefreshable")
+            Prelude.<$> (x Core..: "checkId")
+            Prelude.<*> (x Core..: "status")
+            Prelude.<*> (x Core..: "millisUntilNextRefreshable")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     TrustedAdvisorCheckRefreshStatus
 
-instance Core.NFData TrustedAdvisorCheckRefreshStatus
+instance
+  Prelude.NFData
+    TrustedAdvisorCheckRefreshStatus

@@ -27,6 +27,7 @@ import Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
 import Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a scaling policy to use with Application Auto Scaling.
 --
@@ -38,15 +39,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newScalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
   { -- | A target tracking scaling policy.
-    targetTrackingScalingPolicyConfiguration :: Core.Maybe TargetTrackingScalingPolicyConfiguration,
+    targetTrackingScalingPolicyConfiguration :: Prelude.Maybe TargetTrackingScalingPolicyConfiguration,
     -- | A step scaling policy.
-    stepScalingPolicyConfiguration :: Core.Maybe StepScalingPolicyConfiguration,
+    stepScalingPolicyConfiguration :: Prelude.Maybe StepScalingPolicyConfiguration,
     -- | The CloudWatch alarms associated with the scaling policy.
-    alarms :: Core.Maybe [Alarm],
+    alarms :: Prelude.Maybe [Alarm],
     -- | The Amazon Resource Name (ARN) of the scaling policy.
-    policyARN :: Core.Text,
+    policyARN :: Prelude.Text,
     -- | The name of the scaling policy.
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The namespace of the AWS service that provides the resource, or a
     -- @custom-resource@.
     serviceNamespace :: ServiceNamespace,
@@ -110,7 +111,7 @@ data ScalingPolicy = ScalingPolicy'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
     --
@@ -173,7 +174,7 @@ data ScalingPolicy = ScalingPolicy'
     -- | The Unix timestamp for when the scaling policy was created.
     creationTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingPolicy' with all optional fields omitted.
@@ -319,19 +320,19 @@ data ScalingPolicy = ScalingPolicy'
 -- 'creationTime', 'scalingPolicy_creationTime' - The Unix timestamp for when the scaling policy was created.
 newScalingPolicy ::
   -- | 'policyARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   -- | 'policyType'
   PolicyType ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ScalingPolicy
 newScalingPolicy
   pPolicyARN_
@@ -343,9 +344,9 @@ newScalingPolicy
   pCreationTime_ =
     ScalingPolicy'
       { targetTrackingScalingPolicyConfiguration =
-          Core.Nothing,
-        stepScalingPolicyConfiguration = Core.Nothing,
-        alarms = Core.Nothing,
+          Prelude.Nothing,
+        stepScalingPolicyConfiguration = Prelude.Nothing,
+        alarms = Prelude.Nothing,
         policyARN = pPolicyARN_,
         policyName = pPolicyName_,
         serviceNamespace = pServiceNamespace_,
@@ -356,23 +357,23 @@ newScalingPolicy
       }
 
 -- | A target tracking scaling policy.
-scalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' ScalingPolicy (Core.Maybe TargetTrackingScalingPolicyConfiguration)
+scalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe TargetTrackingScalingPolicyConfiguration)
 scalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\ScalingPolicy' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@ScalingPolicy' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: ScalingPolicy)
 
 -- | A step scaling policy.
-scalingPolicy_stepScalingPolicyConfiguration :: Lens.Lens' ScalingPolicy (Core.Maybe StepScalingPolicyConfiguration)
+scalingPolicy_stepScalingPolicyConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe StepScalingPolicyConfiguration)
 scalingPolicy_stepScalingPolicyConfiguration = Lens.lens (\ScalingPolicy' {stepScalingPolicyConfiguration} -> stepScalingPolicyConfiguration) (\s@ScalingPolicy' {} a -> s {stepScalingPolicyConfiguration = a} :: ScalingPolicy)
 
 -- | The CloudWatch alarms associated with the scaling policy.
-scalingPolicy_alarms :: Lens.Lens' ScalingPolicy (Core.Maybe [Alarm])
-scalingPolicy_alarms = Lens.lens (\ScalingPolicy' {alarms} -> alarms) (\s@ScalingPolicy' {} a -> s {alarms = a} :: ScalingPolicy) Core.. Lens.mapping Lens._Coerce
+scalingPolicy_alarms :: Lens.Lens' ScalingPolicy (Prelude.Maybe [Alarm])
+scalingPolicy_alarms = Lens.lens (\ScalingPolicy' {alarms} -> alarms) (\s@ScalingPolicy' {} a -> s {alarms = a} :: ScalingPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the scaling policy.
-scalingPolicy_policyARN :: Lens.Lens' ScalingPolicy Core.Text
+scalingPolicy_policyARN :: Lens.Lens' ScalingPolicy Prelude.Text
 scalingPolicy_policyARN = Lens.lens (\ScalingPolicy' {policyARN} -> policyARN) (\s@ScalingPolicy' {} a -> s {policyARN = a} :: ScalingPolicy)
 
 -- | The name of the scaling policy.
-scalingPolicy_policyName :: Lens.Lens' ScalingPolicy Core.Text
+scalingPolicy_policyName :: Lens.Lens' ScalingPolicy Prelude.Text
 scalingPolicy_policyName = Lens.lens (\ScalingPolicy' {policyName} -> policyName) (\s@ScalingPolicy' {} a -> s {policyName = a} :: ScalingPolicy)
 
 -- | The namespace of the AWS service that provides the resource, or a
@@ -440,7 +441,7 @@ scalingPolicy_serviceNamespace = Lens.lens (\ScalingPolicy' {serviceNamespace} -
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-scalingPolicy_resourceId :: Lens.Lens' ScalingPolicy Core.Text
+scalingPolicy_resourceId :: Lens.Lens' ScalingPolicy Prelude.Text
 scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId) (\s@ScalingPolicy' {} a -> s {resourceId = a} :: ScalingPolicy)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -507,8 +508,8 @@ scalingPolicy_policyType :: Lens.Lens' ScalingPolicy PolicyType
 scalingPolicy_policyType = Lens.lens (\ScalingPolicy' {policyType} -> policyType) (\s@ScalingPolicy' {} a -> s {policyType = a} :: ScalingPolicy)
 
 -- | The Unix timestamp for when the scaling policy was created.
-scalingPolicy_creationTime :: Lens.Lens' ScalingPolicy Core.UTCTime
-scalingPolicy_creationTime = Lens.lens (\ScalingPolicy' {creationTime} -> creationTime) (\s@ScalingPolicy' {} a -> s {creationTime = a} :: ScalingPolicy) Core.. Core._Time
+scalingPolicy_creationTime :: Lens.Lens' ScalingPolicy Prelude.UTCTime
+scalingPolicy_creationTime = Lens.lens (\ScalingPolicy' {creationTime} -> creationTime) (\s@ScalingPolicy' {} a -> s {creationTime = a} :: ScalingPolicy) Prelude.. Core._Time
 
 instance Core.FromJSON ScalingPolicy where
   parseJSON =
@@ -516,20 +517,20 @@ instance Core.FromJSON ScalingPolicy where
       "ScalingPolicy"
       ( \x ->
           ScalingPolicy'
-            Core.<$> ( x
-                         Core..:? "TargetTrackingScalingPolicyConfiguration"
-                     )
-            Core.<*> (x Core..:? "StepScalingPolicyConfiguration")
-            Core.<*> (x Core..:? "Alarms" Core..!= Core.mempty)
-            Core.<*> (x Core..: "PolicyARN")
-            Core.<*> (x Core..: "PolicyName")
-            Core.<*> (x Core..: "ServiceNamespace")
-            Core.<*> (x Core..: "ResourceId")
-            Core.<*> (x Core..: "ScalableDimension")
-            Core.<*> (x Core..: "PolicyType")
-            Core.<*> (x Core..: "CreationTime")
+            Prelude.<$> ( x
+                            Core..:? "TargetTrackingScalingPolicyConfiguration"
+                        )
+            Prelude.<*> (x Core..:? "StepScalingPolicyConfiguration")
+            Prelude.<*> (x Core..:? "Alarms" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "PolicyARN")
+            Prelude.<*> (x Core..: "PolicyName")
+            Prelude.<*> (x Core..: "ServiceNamespace")
+            Prelude.<*> (x Core..: "ResourceId")
+            Prelude.<*> (x Core..: "ScalableDimension")
+            Prelude.<*> (x Core..: "PolicyType")
+            Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Core.Hashable ScalingPolicy
+instance Prelude.Hashable ScalingPolicy
 
-instance Core.NFData ScalingPolicy
+instance Prelude.NFData ScalingPolicy

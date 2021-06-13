@@ -48,20 +48,21 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeInstanceStorageConfig' smart constructor.
 data DescribeInstanceStorageConfig = DescribeInstanceStorageConfig'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Core.Text,
+    associationId :: Prelude.Text,
     -- | A valid resource type.
     resourceType :: InstanceStorageResourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceStorageConfig' with all optional fields omitted.
@@ -79,9 +80,9 @@ data DescribeInstanceStorageConfig = DescribeInstanceStorageConfig'
 -- 'resourceType', 'describeInstanceStorageConfig_resourceType' - A valid resource type.
 newDescribeInstanceStorageConfig ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'associationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
   InstanceStorageResourceType ->
   DescribeInstanceStorageConfig
@@ -97,12 +98,12 @@ newDescribeInstanceStorageConfig
       }
 
 -- | The identifier of the Amazon Connect instance.
-describeInstanceStorageConfig_instanceId :: Lens.Lens' DescribeInstanceStorageConfig Core.Text
+describeInstanceStorageConfig_instanceId :: Lens.Lens' DescribeInstanceStorageConfig Prelude.Text
 describeInstanceStorageConfig_instanceId = Lens.lens (\DescribeInstanceStorageConfig' {instanceId} -> instanceId) (\s@DescribeInstanceStorageConfig' {} a -> s {instanceId = a} :: DescribeInstanceStorageConfig)
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
-describeInstanceStorageConfig_associationId :: Lens.Lens' DescribeInstanceStorageConfig Core.Text
+describeInstanceStorageConfig_associationId :: Lens.Lens' DescribeInstanceStorageConfig Prelude.Text
 describeInstanceStorageConfig_associationId = Lens.lens (\DescribeInstanceStorageConfig' {associationId} -> associationId) (\s@DescribeInstanceStorageConfig' {} a -> s {associationId = a} :: DescribeInstanceStorageConfig)
 
 -- | A valid resource type.
@@ -121,26 +122,30 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceStorageConfigResponse'
-            Core.<$> (x Core..?> "StorageConfig")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "StorageConfig")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeInstanceStorageConfig
+instance
+  Prelude.Hashable
+    DescribeInstanceStorageConfig
 
-instance Core.NFData DescribeInstanceStorageConfig
+instance Prelude.NFData DescribeInstanceStorageConfig
 
 instance Core.ToHeaders DescribeInstanceStorageConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeInstanceStorageConfig where
   toPath DescribeInstanceStorageConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/storage-config/",
@@ -149,16 +154,17 @@ instance Core.ToPath DescribeInstanceStorageConfig where
 
 instance Core.ToQuery DescribeInstanceStorageConfig where
   toQuery DescribeInstanceStorageConfig' {..} =
-    Core.mconcat ["resourceType" Core.=: resourceType]
+    Prelude.mconcat
+      ["resourceType" Core.=: resourceType]
 
 -- | /See:/ 'newDescribeInstanceStorageConfigResponse' smart constructor.
 data DescribeInstanceStorageConfigResponse = DescribeInstanceStorageConfigResponse'
   { -- | A valid storage type.
-    storageConfig :: Core.Maybe InstanceStorageConfig,
+    storageConfig :: Prelude.Maybe InstanceStorageConfig,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceStorageConfigResponse' with all optional fields omitted.
@@ -173,23 +179,23 @@ data DescribeInstanceStorageConfigResponse = DescribeInstanceStorageConfigRespon
 -- 'httpStatus', 'describeInstanceStorageConfigResponse_httpStatus' - The response's http status code.
 newDescribeInstanceStorageConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeInstanceStorageConfigResponse
 newDescribeInstanceStorageConfigResponse pHttpStatus_ =
   DescribeInstanceStorageConfigResponse'
     { storageConfig =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A valid storage type.
-describeInstanceStorageConfigResponse_storageConfig :: Lens.Lens' DescribeInstanceStorageConfigResponse (Core.Maybe InstanceStorageConfig)
+describeInstanceStorageConfigResponse_storageConfig :: Lens.Lens' DescribeInstanceStorageConfigResponse (Prelude.Maybe InstanceStorageConfig)
 describeInstanceStorageConfigResponse_storageConfig = Lens.lens (\DescribeInstanceStorageConfigResponse' {storageConfig} -> storageConfig) (\s@DescribeInstanceStorageConfigResponse' {} a -> s {storageConfig = a} :: DescribeInstanceStorageConfigResponse)
 
 -- | The response's http status code.
-describeInstanceStorageConfigResponse_httpStatus :: Lens.Lens' DescribeInstanceStorageConfigResponse Core.Int
+describeInstanceStorageConfigResponse_httpStatus :: Lens.Lens' DescribeInstanceStorageConfigResponse Prelude.Int
 describeInstanceStorageConfigResponse_httpStatus = Lens.lens (\DescribeInstanceStorageConfigResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceStorageConfigResponse' {} a -> s {httpStatus = a} :: DescribeInstanceStorageConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeInstanceStorageConfigResponse

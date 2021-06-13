@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.IntegerParameterRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HyperParameterScalingType
 
 -- | For a hyperparameter of the integer type, specifies the range that a
@@ -47,15 +48,15 @@ data IntegerParameterRange = IntegerParameterRange'
     --
     --     Logarithmic scaling works only for ranges that have only values
     --     greater than 0.
-    scalingType :: Core.Maybe HyperParameterScalingType,
+    scalingType :: Prelude.Maybe HyperParameterScalingType,
     -- | The name of the hyperparameter to search.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The minimum value of the hyperparameter to search.
-    minValue :: Core.Text,
+    minValue :: Prelude.Text,
     -- | The maximum value of the hyperparameter to search.
-    maxValue :: Core.Text
+    maxValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IntegerParameterRange' with all optional fields omitted.
@@ -92,15 +93,16 @@ data IntegerParameterRange = IntegerParameterRange'
 -- 'maxValue', 'integerParameterRange_maxValue' - The maximum value of the hyperparameter to search.
 newIntegerParameterRange ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'minValue'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'maxValue'
-  Core.Text ->
+  Prelude.Text ->
   IntegerParameterRange
 newIntegerParameterRange pName_ pMinValue_ pMaxValue_ =
   IntegerParameterRange'
-    { scalingType = Core.Nothing,
+    { scalingType =
+        Prelude.Nothing,
       name = pName_,
       minValue = pMinValue_,
       maxValue = pMaxValue_
@@ -125,19 +127,19 @@ newIntegerParameterRange pName_ pMinValue_ pMaxValue_ =
 --
 --     Logarithmic scaling works only for ranges that have only values
 --     greater than 0.
-integerParameterRange_scalingType :: Lens.Lens' IntegerParameterRange (Core.Maybe HyperParameterScalingType)
+integerParameterRange_scalingType :: Lens.Lens' IntegerParameterRange (Prelude.Maybe HyperParameterScalingType)
 integerParameterRange_scalingType = Lens.lens (\IntegerParameterRange' {scalingType} -> scalingType) (\s@IntegerParameterRange' {} a -> s {scalingType = a} :: IntegerParameterRange)
 
 -- | The name of the hyperparameter to search.
-integerParameterRange_name :: Lens.Lens' IntegerParameterRange Core.Text
+integerParameterRange_name :: Lens.Lens' IntegerParameterRange Prelude.Text
 integerParameterRange_name = Lens.lens (\IntegerParameterRange' {name} -> name) (\s@IntegerParameterRange' {} a -> s {name = a} :: IntegerParameterRange)
 
 -- | The minimum value of the hyperparameter to search.
-integerParameterRange_minValue :: Lens.Lens' IntegerParameterRange Core.Text
+integerParameterRange_minValue :: Lens.Lens' IntegerParameterRange Prelude.Text
 integerParameterRange_minValue = Lens.lens (\IntegerParameterRange' {minValue} -> minValue) (\s@IntegerParameterRange' {} a -> s {minValue = a} :: IntegerParameterRange)
 
 -- | The maximum value of the hyperparameter to search.
-integerParameterRange_maxValue :: Lens.Lens' IntegerParameterRange Core.Text
+integerParameterRange_maxValue :: Lens.Lens' IntegerParameterRange Prelude.Text
 integerParameterRange_maxValue = Lens.lens (\IntegerParameterRange' {maxValue} -> maxValue) (\s@IntegerParameterRange' {} a -> s {maxValue = a} :: IntegerParameterRange)
 
 instance Core.FromJSON IntegerParameterRange where
@@ -146,23 +148,23 @@ instance Core.FromJSON IntegerParameterRange where
       "IntegerParameterRange"
       ( \x ->
           IntegerParameterRange'
-            Core.<$> (x Core..:? "ScalingType")
-            Core.<*> (x Core..: "Name")
-            Core.<*> (x Core..: "MinValue")
-            Core.<*> (x Core..: "MaxValue")
+            Prelude.<$> (x Core..:? "ScalingType")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "MinValue")
+            Prelude.<*> (x Core..: "MaxValue")
       )
 
-instance Core.Hashable IntegerParameterRange
+instance Prelude.Hashable IntegerParameterRange
 
-instance Core.NFData IntegerParameterRange
+instance Prelude.NFData IntegerParameterRange
 
 instance Core.ToJSON IntegerParameterRange where
   toJSON IntegerParameterRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ScalingType" Core..=) Core.<$> scalingType,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("MinValue" Core..= minValue),
-            Core.Just ("MaxValue" Core..= maxValue)
+      ( Prelude.catMaybes
+          [ ("ScalingType" Core..=) Prelude.<$> scalingType,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("MinValue" Core..= minValue),
+            Prelude.Just ("MaxValue" Core..= maxValue)
           ]
       )

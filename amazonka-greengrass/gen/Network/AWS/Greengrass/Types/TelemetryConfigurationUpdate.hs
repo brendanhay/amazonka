@@ -22,6 +22,7 @@ module Network.AWS.Greengrass.Types.TelemetryConfigurationUpdate where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Telemetry
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration settings for running telemetry.
 --
@@ -30,7 +31,7 @@ data TelemetryConfigurationUpdate = TelemetryConfigurationUpdate'
   { -- | Configure telemetry to be on or off.
     telemetry :: Telemetry
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TelemetryConfigurationUpdate' with all optional fields omitted.
@@ -55,13 +56,15 @@ newTelemetryConfigurationUpdate pTelemetry_ =
 telemetryConfigurationUpdate_telemetry :: Lens.Lens' TelemetryConfigurationUpdate Telemetry
 telemetryConfigurationUpdate_telemetry = Lens.lens (\TelemetryConfigurationUpdate' {telemetry} -> telemetry) (\s@TelemetryConfigurationUpdate' {} a -> s {telemetry = a} :: TelemetryConfigurationUpdate)
 
-instance Core.Hashable TelemetryConfigurationUpdate
+instance
+  Prelude.Hashable
+    TelemetryConfigurationUpdate
 
-instance Core.NFData TelemetryConfigurationUpdate
+instance Prelude.NFData TelemetryConfigurationUpdate
 
 instance Core.ToJSON TelemetryConfigurationUpdate where
   toJSON TelemetryConfigurationUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Telemetry" Core..= telemetry)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Telemetry" Core..= telemetry)]
       )

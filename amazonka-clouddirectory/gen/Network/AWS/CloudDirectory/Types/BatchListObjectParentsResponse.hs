@@ -22,13 +22,14 @@ module Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse where
 import Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newBatchListObjectParentsResponse' smart constructor.
 data BatchListObjectParentsResponse = BatchListObjectParentsResponse'
-  { parentLinks :: Core.Maybe [ObjectIdentifierAndLinkNameTuple],
-    nextToken :: Core.Maybe Core.Text
+  { parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchListObjectParentsResponse' with all optional fields omitted.
@@ -46,16 +47,16 @@ newBatchListObjectParentsResponse ::
 newBatchListObjectParentsResponse =
   BatchListObjectParentsResponse'
     { parentLinks =
-        Core.Nothing,
-      nextToken = Core.Nothing
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | Undocumented member.
-batchListObjectParentsResponse_parentLinks :: Lens.Lens' BatchListObjectParentsResponse (Core.Maybe [ObjectIdentifierAndLinkNameTuple])
-batchListObjectParentsResponse_parentLinks = Lens.lens (\BatchListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@BatchListObjectParentsResponse' {} a -> s {parentLinks = a} :: BatchListObjectParentsResponse) Core.. Lens.mapping Lens._Coerce
+batchListObjectParentsResponse_parentLinks :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
+batchListObjectParentsResponse_parentLinks = Lens.lens (\BatchListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@BatchListObjectParentsResponse' {} a -> s {parentLinks = a} :: BatchListObjectParentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-batchListObjectParentsResponse_nextToken :: Lens.Lens' BatchListObjectParentsResponse (Core.Maybe Core.Text)
+batchListObjectParentsResponse_nextToken :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe Prelude.Text)
 batchListObjectParentsResponse_nextToken = Lens.lens (\BatchListObjectParentsResponse' {nextToken} -> nextToken) (\s@BatchListObjectParentsResponse' {} a -> s {nextToken = a} :: BatchListObjectParentsResponse)
 
 instance Core.FromJSON BatchListObjectParentsResponse where
@@ -64,10 +65,14 @@ instance Core.FromJSON BatchListObjectParentsResponse where
       "BatchListObjectParentsResponse"
       ( \x ->
           BatchListObjectParentsResponse'
-            Core.<$> (x Core..:? "ParentLinks" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "NextToken")
+            Prelude.<$> (x Core..:? "ParentLinks" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "NextToken")
       )
 
-instance Core.Hashable BatchListObjectParentsResponse
+instance
+  Prelude.Hashable
+    BatchListObjectParentsResponse
 
-instance Core.NFData BatchListObjectParentsResponse
+instance
+  Prelude.NFData
+    BatchListObjectParentsResponse

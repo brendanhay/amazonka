@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.Scope
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the configuration settings for the modified Reserved
 -- Instances.
@@ -32,20 +33,20 @@ import qualified Network.AWS.Lens as Lens
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
   { -- | The network platform of the modified Reserved Instances, which is either
     -- EC2-Classic or EC2-VPC.
-    platform :: Core.Maybe Core.Text,
+    platform :: Prelude.Maybe Prelude.Text,
     -- | The instance type for the modified Reserved Instances.
-    instanceType :: Core.Maybe InstanceType,
+    instanceType :: Prelude.Maybe InstanceType,
     -- | Whether the Reserved Instance is applied to instances in a Region or
     -- instances in a specific Availability Zone.
-    scope :: Core.Maybe Scope,
+    scope :: Prelude.Maybe Scope,
     -- | The Availability Zone for the modified Reserved Instances.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The number of modified Reserved Instances.
     --
     -- This is a required field for a request.
-    instanceCount :: Core.Maybe Core.Int
+    instanceCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservedInstancesConfiguration' with all optional fields omitted.
@@ -73,53 +74,57 @@ newReservedInstancesConfiguration ::
 newReservedInstancesConfiguration =
   ReservedInstancesConfiguration'
     { platform =
-        Core.Nothing,
-      instanceType = Core.Nothing,
-      scope = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      instanceCount = Core.Nothing
+        Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      scope = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      instanceCount = Prelude.Nothing
     }
 
 -- | The network platform of the modified Reserved Instances, which is either
 -- EC2-Classic or EC2-VPC.
-reservedInstancesConfiguration_platform :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Core.Text)
+reservedInstancesConfiguration_platform :: Lens.Lens' ReservedInstancesConfiguration (Prelude.Maybe Prelude.Text)
 reservedInstancesConfiguration_platform = Lens.lens (\ReservedInstancesConfiguration' {platform} -> platform) (\s@ReservedInstancesConfiguration' {} a -> s {platform = a} :: ReservedInstancesConfiguration)
 
 -- | The instance type for the modified Reserved Instances.
-reservedInstancesConfiguration_instanceType :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe InstanceType)
+reservedInstancesConfiguration_instanceType :: Lens.Lens' ReservedInstancesConfiguration (Prelude.Maybe InstanceType)
 reservedInstancesConfiguration_instanceType = Lens.lens (\ReservedInstancesConfiguration' {instanceType} -> instanceType) (\s@ReservedInstancesConfiguration' {} a -> s {instanceType = a} :: ReservedInstancesConfiguration)
 
 -- | Whether the Reserved Instance is applied to instances in a Region or
 -- instances in a specific Availability Zone.
-reservedInstancesConfiguration_scope :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Scope)
+reservedInstancesConfiguration_scope :: Lens.Lens' ReservedInstancesConfiguration (Prelude.Maybe Scope)
 reservedInstancesConfiguration_scope = Lens.lens (\ReservedInstancesConfiguration' {scope} -> scope) (\s@ReservedInstancesConfiguration' {} a -> s {scope = a} :: ReservedInstancesConfiguration)
 
 -- | The Availability Zone for the modified Reserved Instances.
-reservedInstancesConfiguration_availabilityZone :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Core.Text)
+reservedInstancesConfiguration_availabilityZone :: Lens.Lens' ReservedInstancesConfiguration (Prelude.Maybe Prelude.Text)
 reservedInstancesConfiguration_availabilityZone = Lens.lens (\ReservedInstancesConfiguration' {availabilityZone} -> availabilityZone) (\s@ReservedInstancesConfiguration' {} a -> s {availabilityZone = a} :: ReservedInstancesConfiguration)
 
 -- | The number of modified Reserved Instances.
 --
 -- This is a required field for a request.
-reservedInstancesConfiguration_instanceCount :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Core.Int)
+reservedInstancesConfiguration_instanceCount :: Lens.Lens' ReservedInstancesConfiguration (Prelude.Maybe Prelude.Int)
 reservedInstancesConfiguration_instanceCount = Lens.lens (\ReservedInstancesConfiguration' {instanceCount} -> instanceCount) (\s@ReservedInstancesConfiguration' {} a -> s {instanceCount = a} :: ReservedInstancesConfiguration)
 
 instance Core.FromXML ReservedInstancesConfiguration where
   parseXML x =
     ReservedInstancesConfiguration'
-      Core.<$> (x Core..@? "platform")
-      Core.<*> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "scope")
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "instanceCount")
+      Prelude.<$> (x Core..@? "platform")
+      Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "scope")
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "instanceCount")
 
-instance Core.Hashable ReservedInstancesConfiguration
+instance
+  Prelude.Hashable
+    ReservedInstancesConfiguration
 
-instance Core.NFData ReservedInstancesConfiguration
+instance
+  Prelude.NFData
+    ReservedInstancesConfiguration
 
 instance Core.ToQuery ReservedInstancesConfiguration where
   toQuery ReservedInstancesConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Platform" Core.=: platform,
         "InstanceType" Core.=: instanceType,
         "Scope" Core.=: scope,

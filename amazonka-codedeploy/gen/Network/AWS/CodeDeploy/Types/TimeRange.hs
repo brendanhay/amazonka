@@ -21,6 +21,7 @@ module Network.AWS.CodeDeploy.Types.TimeRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a time range.
 --
@@ -29,13 +30,13 @@ data TimeRange = TimeRange'
   { -- | The end time of the time range.
     --
     -- Specify null to leave the end time open-ended.
-    end :: Core.Maybe Core.POSIX,
+    end :: Prelude.Maybe Core.POSIX,
     -- | The start time of the time range.
     --
     -- Specify null to leave the start time open-ended.
-    start :: Core.Maybe Core.POSIX
+    start :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimeRange' with all optional fields omitted.
@@ -56,31 +57,31 @@ newTimeRange ::
   TimeRange
 newTimeRange =
   TimeRange'
-    { end = Core.Nothing,
-      start = Core.Nothing
+    { end = Prelude.Nothing,
+      start = Prelude.Nothing
     }
 
 -- | The end time of the time range.
 --
 -- Specify null to leave the end time open-ended.
-timeRange_end :: Lens.Lens' TimeRange (Core.Maybe Core.UTCTime)
-timeRange_end = Lens.lens (\TimeRange' {end} -> end) (\s@TimeRange' {} a -> s {end = a} :: TimeRange) Core.. Lens.mapping Core._Time
+timeRange_end :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
+timeRange_end = Lens.lens (\TimeRange' {end} -> end) (\s@TimeRange' {} a -> s {end = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 
 -- | The start time of the time range.
 --
 -- Specify null to leave the start time open-ended.
-timeRange_start :: Lens.Lens' TimeRange (Core.Maybe Core.UTCTime)
-timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -> s {start = a} :: TimeRange) Core.. Lens.mapping Core._Time
+timeRange_start :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
+timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -> s {start = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 
-instance Core.Hashable TimeRange
+instance Prelude.Hashable TimeRange
 
-instance Core.NFData TimeRange
+instance Prelude.NFData TimeRange
 
 instance Core.ToJSON TimeRange where
   toJSON TimeRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("end" Core..=) Core.<$> end,
-            ("start" Core..=) Core.<$> start
+      ( Prelude.catMaybes
+          [ ("end" Core..=) Prelude.<$> end,
+            ("start" Core..=) Prelude.<$> start
           ]
       )

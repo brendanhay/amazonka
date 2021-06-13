@@ -92,6 +92,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -102,11 +103,11 @@ data PutBucketIntelligentTieringConfiguration = PutBucketIntelligentTieringConfi
     -- or retrieve.
     bucket :: BucketName,
     -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | Container for S3 Intelligent-Tiering configuration.
     intelligentTieringConfiguration :: IntelligentTieringConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketIntelligentTieringConfiguration' with all optional fields omitted.
@@ -126,7 +127,7 @@ newPutBucketIntelligentTieringConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'intelligentTieringConfiguration'
   IntelligentTieringConfiguration ->
   PutBucketIntelligentTieringConfiguration
@@ -148,7 +149,7 @@ putBucketIntelligentTieringConfiguration_bucket :: Lens.Lens' PutBucketIntellige
 putBucketIntelligentTieringConfiguration_bucket = Lens.lens (\PutBucketIntelligentTieringConfiguration' {bucket} -> bucket) (\s@PutBucketIntelligentTieringConfiguration' {} a -> s {bucket = a} :: PutBucketIntelligentTieringConfiguration)
 
 -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-putBucketIntelligentTieringConfiguration_id :: Lens.Lens' PutBucketIntelligentTieringConfiguration Core.Text
+putBucketIntelligentTieringConfiguration_id :: Lens.Lens' PutBucketIntelligentTieringConfiguration Prelude.Text
 putBucketIntelligentTieringConfiguration_id = Lens.lens (\PutBucketIntelligentTieringConfiguration' {id} -> id) (\s@PutBucketIntelligentTieringConfiguration' {} a -> s {id = a} :: PutBucketIntelligentTieringConfiguration)
 
 -- | Container for S3 Intelligent-Tiering configuration.
@@ -169,11 +170,11 @@ instance
       PutBucketIntelligentTieringConfigurationResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PutBucketIntelligentTieringConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutBucketIntelligentTieringConfiguration
 
 instance
@@ -190,28 +191,28 @@ instance
   Core.ToHeaders
     PutBucketIntelligentTieringConfiguration
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     PutBucketIntelligentTieringConfiguration
   where
   toPath PutBucketIntelligentTieringConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance
   Core.ToQuery
     PutBucketIntelligentTieringConfiguration
   where
   toQuery PutBucketIntelligentTieringConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["id" Core.=: id, "intelligent-tiering"]
 
 -- | /See:/ 'newPutBucketIntelligentTieringConfigurationResponse' smart constructor.
 data PutBucketIntelligentTieringConfigurationResponse = PutBucketIntelligentTieringConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketIntelligentTieringConfigurationResponse' with all optional fields omitted.
@@ -223,5 +224,5 @@ newPutBucketIntelligentTieringConfigurationResponse =
   PutBucketIntelligentTieringConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutBucketIntelligentTieringConfigurationResponse

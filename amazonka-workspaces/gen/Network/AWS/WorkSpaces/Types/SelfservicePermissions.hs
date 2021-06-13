@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.SelfservicePermissions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.ReconnectEnum
 
 -- | Describes the self-service permissions for a directory. For more
@@ -30,20 +31,20 @@ import Network.AWS.WorkSpaces.Types.ReconnectEnum
 -- /See:/ 'newSelfservicePermissions' smart constructor.
 data SelfservicePermissions = SelfservicePermissions'
   { -- | Specifies whether users can switch the running mode of their WorkSpace.
-    switchRunningMode :: Core.Maybe ReconnectEnum,
+    switchRunningMode :: Prelude.Maybe ReconnectEnum,
     -- | Specifies whether users can restart their WorkSpace.
-    restartWorkspace :: Core.Maybe ReconnectEnum,
+    restartWorkspace :: Prelude.Maybe ReconnectEnum,
     -- | Specifies whether users can rebuild the operating system of a WorkSpace
     -- to its original state.
-    rebuildWorkspace :: Core.Maybe ReconnectEnum,
+    rebuildWorkspace :: Prelude.Maybe ReconnectEnum,
     -- | Specifies whether users can increase the volume size of the drives on
     -- their WorkSpace.
-    increaseVolumeSize :: Core.Maybe ReconnectEnum,
+    increaseVolumeSize :: Prelude.Maybe ReconnectEnum,
     -- | Specifies whether users can change the compute type (bundle) for their
     -- WorkSpace.
-    changeComputeType :: Core.Maybe ReconnectEnum
+    changeComputeType :: Prelude.Maybe ReconnectEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SelfservicePermissions' with all optional fields omitted.
@@ -70,34 +71,34 @@ newSelfservicePermissions ::
 newSelfservicePermissions =
   SelfservicePermissions'
     { switchRunningMode =
-        Core.Nothing,
-      restartWorkspace = Core.Nothing,
-      rebuildWorkspace = Core.Nothing,
-      increaseVolumeSize = Core.Nothing,
-      changeComputeType = Core.Nothing
+        Prelude.Nothing,
+      restartWorkspace = Prelude.Nothing,
+      rebuildWorkspace = Prelude.Nothing,
+      increaseVolumeSize = Prelude.Nothing,
+      changeComputeType = Prelude.Nothing
     }
 
 -- | Specifies whether users can switch the running mode of their WorkSpace.
-selfservicePermissions_switchRunningMode :: Lens.Lens' SelfservicePermissions (Core.Maybe ReconnectEnum)
+selfservicePermissions_switchRunningMode :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
 selfservicePermissions_switchRunningMode = Lens.lens (\SelfservicePermissions' {switchRunningMode} -> switchRunningMode) (\s@SelfservicePermissions' {} a -> s {switchRunningMode = a} :: SelfservicePermissions)
 
 -- | Specifies whether users can restart their WorkSpace.
-selfservicePermissions_restartWorkspace :: Lens.Lens' SelfservicePermissions (Core.Maybe ReconnectEnum)
+selfservicePermissions_restartWorkspace :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
 selfservicePermissions_restartWorkspace = Lens.lens (\SelfservicePermissions' {restartWorkspace} -> restartWorkspace) (\s@SelfservicePermissions' {} a -> s {restartWorkspace = a} :: SelfservicePermissions)
 
 -- | Specifies whether users can rebuild the operating system of a WorkSpace
 -- to its original state.
-selfservicePermissions_rebuildWorkspace :: Lens.Lens' SelfservicePermissions (Core.Maybe ReconnectEnum)
+selfservicePermissions_rebuildWorkspace :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
 selfservicePermissions_rebuildWorkspace = Lens.lens (\SelfservicePermissions' {rebuildWorkspace} -> rebuildWorkspace) (\s@SelfservicePermissions' {} a -> s {rebuildWorkspace = a} :: SelfservicePermissions)
 
 -- | Specifies whether users can increase the volume size of the drives on
 -- their WorkSpace.
-selfservicePermissions_increaseVolumeSize :: Lens.Lens' SelfservicePermissions (Core.Maybe ReconnectEnum)
+selfservicePermissions_increaseVolumeSize :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
 selfservicePermissions_increaseVolumeSize = Lens.lens (\SelfservicePermissions' {increaseVolumeSize} -> increaseVolumeSize) (\s@SelfservicePermissions' {} a -> s {increaseVolumeSize = a} :: SelfservicePermissions)
 
 -- | Specifies whether users can change the compute type (bundle) for their
 -- WorkSpace.
-selfservicePermissions_changeComputeType :: Lens.Lens' SelfservicePermissions (Core.Maybe ReconnectEnum)
+selfservicePermissions_changeComputeType :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
 selfservicePermissions_changeComputeType = Lens.lens (\SelfservicePermissions' {changeComputeType} -> changeComputeType) (\s@SelfservicePermissions' {} a -> s {changeComputeType = a} :: SelfservicePermissions)
 
 instance Core.FromJSON SelfservicePermissions where
@@ -106,30 +107,30 @@ instance Core.FromJSON SelfservicePermissions where
       "SelfservicePermissions"
       ( \x ->
           SelfservicePermissions'
-            Core.<$> (x Core..:? "SwitchRunningMode")
-            Core.<*> (x Core..:? "RestartWorkspace")
-            Core.<*> (x Core..:? "RebuildWorkspace")
-            Core.<*> (x Core..:? "IncreaseVolumeSize")
-            Core.<*> (x Core..:? "ChangeComputeType")
+            Prelude.<$> (x Core..:? "SwitchRunningMode")
+            Prelude.<*> (x Core..:? "RestartWorkspace")
+            Prelude.<*> (x Core..:? "RebuildWorkspace")
+            Prelude.<*> (x Core..:? "IncreaseVolumeSize")
+            Prelude.<*> (x Core..:? "ChangeComputeType")
       )
 
-instance Core.Hashable SelfservicePermissions
+instance Prelude.Hashable SelfservicePermissions
 
-instance Core.NFData SelfservicePermissions
+instance Prelude.NFData SelfservicePermissions
 
 instance Core.ToJSON SelfservicePermissions where
   toJSON SelfservicePermissions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SwitchRunningMode" Core..=)
-              Core.<$> switchRunningMode,
+              Prelude.<$> switchRunningMode,
             ("RestartWorkspace" Core..=)
-              Core.<$> restartWorkspace,
+              Prelude.<$> restartWorkspace,
             ("RebuildWorkspace" Core..=)
-              Core.<$> rebuildWorkspace,
+              Prelude.<$> rebuildWorkspace,
             ("IncreaseVolumeSize" Core..=)
-              Core.<$> increaseVolumeSize,
+              Prelude.<$> increaseVolumeSize,
             ("ChangeComputeType" Core..=)
-              Core.<$> changeComputeType
+              Prelude.<$> changeComputeType
           ]
       )

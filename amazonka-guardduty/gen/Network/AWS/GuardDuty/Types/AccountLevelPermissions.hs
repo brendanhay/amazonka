@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.AccountLevelPermissions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.BlockPublicAccess
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the account level permissions on the S3
 -- bucket.
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data AccountLevelPermissions = AccountLevelPermissions'
   { -- | Describes the S3 Block Public Access settings of the bucket\'s parent
     -- account.
-    blockPublicAccess :: Core.Maybe BlockPublicAccess
+    blockPublicAccess :: Prelude.Maybe BlockPublicAccess
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountLevelPermissions' with all optional fields omitted.
@@ -49,12 +50,12 @@ newAccountLevelPermissions ::
 newAccountLevelPermissions =
   AccountLevelPermissions'
     { blockPublicAccess =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Describes the S3 Block Public Access settings of the bucket\'s parent
 -- account.
-accountLevelPermissions_blockPublicAccess :: Lens.Lens' AccountLevelPermissions (Core.Maybe BlockPublicAccess)
+accountLevelPermissions_blockPublicAccess :: Lens.Lens' AccountLevelPermissions (Prelude.Maybe BlockPublicAccess)
 accountLevelPermissions_blockPublicAccess = Lens.lens (\AccountLevelPermissions' {blockPublicAccess} -> blockPublicAccess) (\s@AccountLevelPermissions' {} a -> s {blockPublicAccess = a} :: AccountLevelPermissions)
 
 instance Core.FromJSON AccountLevelPermissions where
@@ -63,9 +64,9 @@ instance Core.FromJSON AccountLevelPermissions where
       "AccountLevelPermissions"
       ( \x ->
           AccountLevelPermissions'
-            Core.<$> (x Core..:? "blockPublicAccess")
+            Prelude.<$> (x Core..:? "blockPublicAccess")
       )
 
-instance Core.Hashable AccountLevelPermissions
+instance Prelude.Hashable AccountLevelPermissions
 
-instance Core.NFData AccountLevelPermissions
+instance Prelude.NFData AccountLevelPermissions

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.BlueprintType
 import Network.AWS.Lightsail.Types.InstancePlatform
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a blueprint (a virtual private server image).
 --
@@ -30,40 +31,40 @@ import Network.AWS.Lightsail.Types.InstancePlatform
 data Blueprint = Blueprint'
   { -- | The operating system platform (either Linux\/Unix-based or Windows
     -- Server-based) of the blueprint.
-    platform :: Core.Maybe InstancePlatform,
+    platform :: Prelude.Maybe InstancePlatform,
     -- | A Boolean value indicating whether the blueprint is active. Inactive
     -- blueprints are listed to support customers with existing instances but
     -- are not necessarily available for launch of new instances. Blueprints
     -- are marked inactive when they become outdated due to operating system
     -- updates or new application releases.
-    isActive :: Core.Maybe Core.Bool,
+    isActive :: Prelude.Maybe Prelude.Bool,
     -- | The end-user license agreement URL for the image or blueprint.
-    licenseUrl :: Core.Maybe Core.Text,
+    licenseUrl :: Prelude.Maybe Prelude.Text,
     -- | The product URL to learn more about the image or blueprint.
-    productUrl :: Core.Maybe Core.Text,
+    productUrl :: Prelude.Maybe Prelude.Text,
     -- | The version number of the operating system, application, or stack (e.g.,
     -- @2016.03.0@).
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The ID for the virtual private server image (e.g., @app_wordpress_4_4@
     -- or @app_lamp_7_0@).
-    blueprintId :: Core.Maybe Core.Text,
+    blueprintId :: Prelude.Maybe Prelude.Text,
     -- | The version code.
-    versionCode :: Core.Maybe Core.Text,
+    versionCode :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the blueprint (e.g., @Amazon Linux@).
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The group name of the blueprint (e.g., @amazon-linux@).
-    group' :: Core.Maybe Core.Text,
+    group' :: Prelude.Maybe Prelude.Text,
     -- | The description of the blueprint.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of the blueprint (e.g., @os@ or @app@).
-    type' :: Core.Maybe BlueprintType,
+    type' :: Prelude.Maybe BlueprintType,
     -- | The minimum bundle power required to run this blueprint. For example,
     -- you need a bundle with a power value of 500 or more to create an
     -- instance that uses a blueprint with a minimum power value of 500. @0@
     -- indicates that the blueprint runs on all instance sizes.
-    minPower :: Core.Maybe Core.Int
+    minPower :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Blueprint' with all optional fields omitted.
@@ -110,23 +111,23 @@ newBlueprint ::
   Blueprint
 newBlueprint =
   Blueprint'
-    { platform = Core.Nothing,
-      isActive = Core.Nothing,
-      licenseUrl = Core.Nothing,
-      productUrl = Core.Nothing,
-      version = Core.Nothing,
-      blueprintId = Core.Nothing,
-      versionCode = Core.Nothing,
-      name = Core.Nothing,
-      group' = Core.Nothing,
-      description = Core.Nothing,
-      type' = Core.Nothing,
-      minPower = Core.Nothing
+    { platform = Prelude.Nothing,
+      isActive = Prelude.Nothing,
+      licenseUrl = Prelude.Nothing,
+      productUrl = Prelude.Nothing,
+      version = Prelude.Nothing,
+      blueprintId = Prelude.Nothing,
+      versionCode = Prelude.Nothing,
+      name = Prelude.Nothing,
+      group' = Prelude.Nothing,
+      description = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      minPower = Prelude.Nothing
     }
 
 -- | The operating system platform (either Linux\/Unix-based or Windows
 -- Server-based) of the blueprint.
-blueprint_platform :: Lens.Lens' Blueprint (Core.Maybe InstancePlatform)
+blueprint_platform :: Lens.Lens' Blueprint (Prelude.Maybe InstancePlatform)
 blueprint_platform = Lens.lens (\Blueprint' {platform} -> platform) (\s@Blueprint' {} a -> s {platform = a} :: Blueprint)
 
 -- | A Boolean value indicating whether the blueprint is active. Inactive
@@ -134,52 +135,52 @@ blueprint_platform = Lens.lens (\Blueprint' {platform} -> platform) (\s@Blueprin
 -- are not necessarily available for launch of new instances. Blueprints
 -- are marked inactive when they become outdated due to operating system
 -- updates or new application releases.
-blueprint_isActive :: Lens.Lens' Blueprint (Core.Maybe Core.Bool)
+blueprint_isActive :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Bool)
 blueprint_isActive = Lens.lens (\Blueprint' {isActive} -> isActive) (\s@Blueprint' {} a -> s {isActive = a} :: Blueprint)
 
 -- | The end-user license agreement URL for the image or blueprint.
-blueprint_licenseUrl :: Lens.Lens' Blueprint (Core.Maybe Core.Text)
+blueprint_licenseUrl :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_licenseUrl = Lens.lens (\Blueprint' {licenseUrl} -> licenseUrl) (\s@Blueprint' {} a -> s {licenseUrl = a} :: Blueprint)
 
 -- | The product URL to learn more about the image or blueprint.
-blueprint_productUrl :: Lens.Lens' Blueprint (Core.Maybe Core.Text)
+blueprint_productUrl :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_productUrl = Lens.lens (\Blueprint' {productUrl} -> productUrl) (\s@Blueprint' {} a -> s {productUrl = a} :: Blueprint)
 
 -- | The version number of the operating system, application, or stack (e.g.,
 -- @2016.03.0@).
-blueprint_version :: Lens.Lens' Blueprint (Core.Maybe Core.Text)
+blueprint_version :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_version = Lens.lens (\Blueprint' {version} -> version) (\s@Blueprint' {} a -> s {version = a} :: Blueprint)
 
 -- | The ID for the virtual private server image (e.g., @app_wordpress_4_4@
 -- or @app_lamp_7_0@).
-blueprint_blueprintId :: Lens.Lens' Blueprint (Core.Maybe Core.Text)
+blueprint_blueprintId :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_blueprintId = Lens.lens (\Blueprint' {blueprintId} -> blueprintId) (\s@Blueprint' {} a -> s {blueprintId = a} :: Blueprint)
 
 -- | The version code.
-blueprint_versionCode :: Lens.Lens' Blueprint (Core.Maybe Core.Text)
+blueprint_versionCode :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_versionCode = Lens.lens (\Blueprint' {versionCode} -> versionCode) (\s@Blueprint' {} a -> s {versionCode = a} :: Blueprint)
 
 -- | The friendly name of the blueprint (e.g., @Amazon Linux@).
-blueprint_name :: Lens.Lens' Blueprint (Core.Maybe Core.Text)
+blueprint_name :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_name = Lens.lens (\Blueprint' {name} -> name) (\s@Blueprint' {} a -> s {name = a} :: Blueprint)
 
 -- | The group name of the blueprint (e.g., @amazon-linux@).
-blueprint_group :: Lens.Lens' Blueprint (Core.Maybe Core.Text)
+blueprint_group :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_group = Lens.lens (\Blueprint' {group'} -> group') (\s@Blueprint' {} a -> s {group' = a} :: Blueprint)
 
 -- | The description of the blueprint.
-blueprint_description :: Lens.Lens' Blueprint (Core.Maybe Core.Text)
+blueprint_description :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_description = Lens.lens (\Blueprint' {description} -> description) (\s@Blueprint' {} a -> s {description = a} :: Blueprint)
 
 -- | The type of the blueprint (e.g., @os@ or @app@).
-blueprint_type :: Lens.Lens' Blueprint (Core.Maybe BlueprintType)
+blueprint_type :: Lens.Lens' Blueprint (Prelude.Maybe BlueprintType)
 blueprint_type = Lens.lens (\Blueprint' {type'} -> type') (\s@Blueprint' {} a -> s {type' = a} :: Blueprint)
 
 -- | The minimum bundle power required to run this blueprint. For example,
 -- you need a bundle with a power value of 500 or more to create an
 -- instance that uses a blueprint with a minimum power value of 500. @0@
 -- indicates that the blueprint runs on all instance sizes.
-blueprint_minPower :: Lens.Lens' Blueprint (Core.Maybe Core.Int)
+blueprint_minPower :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Int)
 blueprint_minPower = Lens.lens (\Blueprint' {minPower} -> minPower) (\s@Blueprint' {} a -> s {minPower = a} :: Blueprint)
 
 instance Core.FromJSON Blueprint where
@@ -188,20 +189,20 @@ instance Core.FromJSON Blueprint where
       "Blueprint"
       ( \x ->
           Blueprint'
-            Core.<$> (x Core..:? "platform")
-            Core.<*> (x Core..:? "isActive")
-            Core.<*> (x Core..:? "licenseUrl")
-            Core.<*> (x Core..:? "productUrl")
-            Core.<*> (x Core..:? "version")
-            Core.<*> (x Core..:? "blueprintId")
-            Core.<*> (x Core..:? "versionCode")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "group")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "type")
-            Core.<*> (x Core..:? "minPower")
+            Prelude.<$> (x Core..:? "platform")
+            Prelude.<*> (x Core..:? "isActive")
+            Prelude.<*> (x Core..:? "licenseUrl")
+            Prelude.<*> (x Core..:? "productUrl")
+            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Core..:? "blueprintId")
+            Prelude.<*> (x Core..:? "versionCode")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "group")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "minPower")
       )
 
-instance Core.Hashable Blueprint
+instance Prelude.Hashable Blueprint
 
-instance Core.NFData Blueprint
+instance Prelude.NFData Blueprint

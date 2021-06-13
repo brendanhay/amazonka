@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.Server where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.ServerType
 import Network.AWS.SMS.Types.VmServer
 
@@ -29,17 +30,17 @@ import Network.AWS.SMS.Types.VmServer
 -- /See:/ 'newServer' smart constructor.
 data Server = Server'
   { -- | The ID of the server.
-    serverId :: Core.Maybe Core.Text,
+    serverId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the replication job.
-    replicationJobId :: Core.Maybe Core.Text,
+    replicationJobId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the replication job is deleted or failed.
-    replicationJobTerminated :: Core.Maybe Core.Bool,
+    replicationJobTerminated :: Prelude.Maybe Prelude.Bool,
     -- | Information about the VM server.
-    vmServer :: Core.Maybe VmServer,
+    vmServer :: Prelude.Maybe VmServer,
     -- | The type of server.
-    serverType :: Core.Maybe ServerType
+    serverType :: Prelude.Maybe ServerType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Server' with all optional fields omitted.
@@ -62,31 +63,31 @@ newServer ::
   Server
 newServer =
   Server'
-    { serverId = Core.Nothing,
-      replicationJobId = Core.Nothing,
-      replicationJobTerminated = Core.Nothing,
-      vmServer = Core.Nothing,
-      serverType = Core.Nothing
+    { serverId = Prelude.Nothing,
+      replicationJobId = Prelude.Nothing,
+      replicationJobTerminated = Prelude.Nothing,
+      vmServer = Prelude.Nothing,
+      serverType = Prelude.Nothing
     }
 
 -- | The ID of the server.
-server_serverId :: Lens.Lens' Server (Core.Maybe Core.Text)
+server_serverId :: Lens.Lens' Server (Prelude.Maybe Prelude.Text)
 server_serverId = Lens.lens (\Server' {serverId} -> serverId) (\s@Server' {} a -> s {serverId = a} :: Server)
 
 -- | The ID of the replication job.
-server_replicationJobId :: Lens.Lens' Server (Core.Maybe Core.Text)
+server_replicationJobId :: Lens.Lens' Server (Prelude.Maybe Prelude.Text)
 server_replicationJobId = Lens.lens (\Server' {replicationJobId} -> replicationJobId) (\s@Server' {} a -> s {replicationJobId = a} :: Server)
 
 -- | Indicates whether the replication job is deleted or failed.
-server_replicationJobTerminated :: Lens.Lens' Server (Core.Maybe Core.Bool)
+server_replicationJobTerminated :: Lens.Lens' Server (Prelude.Maybe Prelude.Bool)
 server_replicationJobTerminated = Lens.lens (\Server' {replicationJobTerminated} -> replicationJobTerminated) (\s@Server' {} a -> s {replicationJobTerminated = a} :: Server)
 
 -- | Information about the VM server.
-server_vmServer :: Lens.Lens' Server (Core.Maybe VmServer)
+server_vmServer :: Lens.Lens' Server (Prelude.Maybe VmServer)
 server_vmServer = Lens.lens (\Server' {vmServer} -> vmServer) (\s@Server' {} a -> s {vmServer = a} :: Server)
 
 -- | The type of server.
-server_serverType :: Lens.Lens' Server (Core.Maybe ServerType)
+server_serverType :: Lens.Lens' Server (Prelude.Maybe ServerType)
 server_serverType = Lens.lens (\Server' {serverType} -> serverType) (\s@Server' {} a -> s {serverType = a} :: Server)
 
 instance Core.FromJSON Server where
@@ -95,27 +96,27 @@ instance Core.FromJSON Server where
       "Server"
       ( \x ->
           Server'
-            Core.<$> (x Core..:? "serverId")
-            Core.<*> (x Core..:? "replicationJobId")
-            Core.<*> (x Core..:? "replicationJobTerminated")
-            Core.<*> (x Core..:? "vmServer")
-            Core.<*> (x Core..:? "serverType")
+            Prelude.<$> (x Core..:? "serverId")
+            Prelude.<*> (x Core..:? "replicationJobId")
+            Prelude.<*> (x Core..:? "replicationJobTerminated")
+            Prelude.<*> (x Core..:? "vmServer")
+            Prelude.<*> (x Core..:? "serverType")
       )
 
-instance Core.Hashable Server
+instance Prelude.Hashable Server
 
-instance Core.NFData Server
+instance Prelude.NFData Server
 
 instance Core.ToJSON Server where
   toJSON Server' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("serverId" Core..=) Core.<$> serverId,
+      ( Prelude.catMaybes
+          [ ("serverId" Core..=) Prelude.<$> serverId,
             ("replicationJobId" Core..=)
-              Core.<$> replicationJobId,
+              Prelude.<$> replicationJobId,
             ("replicationJobTerminated" Core..=)
-              Core.<$> replicationJobTerminated,
-            ("vmServer" Core..=) Core.<$> vmServer,
-            ("serverType" Core..=) Core.<$> serverType
+              Prelude.<$> replicationJobTerminated,
+            ("vmServer" Core..=) Prelude.<$> vmServer,
+            ("serverType" Core..=) Prelude.<$> serverType
           ]
       )

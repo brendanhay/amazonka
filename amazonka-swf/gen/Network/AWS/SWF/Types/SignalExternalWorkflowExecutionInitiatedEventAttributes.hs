@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttrib
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @SignalExternalWorkflowExecutionInitiated@
 -- event.
@@ -28,23 +29,23 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSignalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWorkflowExecutionInitiatedEventAttributes'
   { -- | The @runId@ of the external workflow execution to send the signal to.
-    runId :: Core.Maybe Core.Text,
+    runId :: Prelude.Maybe Prelude.Text,
     -- | The input provided to the signal.
-    input :: Core.Maybe Core.Text,
+    input :: Prelude.Maybe Prelude.Text,
     -- | Data attached to the event that can be used by the decider in subsequent
     -- decision tasks.
-    control :: Core.Maybe Core.Text,
+    control :: Prelude.Maybe Prelude.Text,
     -- | The @workflowId@ of the external workflow execution.
-    workflowId :: Core.Text,
+    workflowId :: Prelude.Text,
     -- | The name of the signal.
-    signalName :: Core.Text,
+    signalName :: Prelude.Text,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @SignalExternalWorkflowExecution@
     -- decision for this signal. This information can be useful for diagnosing
     -- problems by tracing back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Core.Integer
+    decisionTaskCompletedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SignalExternalWorkflowExecutionInitiatedEventAttributes' with all optional fields omitted.
@@ -71,11 +72,11 @@ data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWor
 -- problems by tracing back the chain of events leading up to this event.
 newSignalExternalWorkflowExecutionInitiatedEventAttributes ::
   -- | 'workflowId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'signalName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   SignalExternalWorkflowExecutionInitiatedEventAttributes
 newSignalExternalWorkflowExecutionInitiatedEventAttributes
   pWorkflowId_
@@ -83,11 +84,11 @@ newSignalExternalWorkflowExecutionInitiatedEventAttributes
   pDecisionTaskCompletedEventId_ =
     SignalExternalWorkflowExecutionInitiatedEventAttributes'
       { runId =
-          Core.Nothing,
+          Prelude.Nothing,
         input =
-          Core.Nothing,
+          Prelude.Nothing,
         control =
-          Core.Nothing,
+          Prelude.Nothing,
         workflowId =
           pWorkflowId_,
         signalName =
@@ -97,31 +98,31 @@ newSignalExternalWorkflowExecutionInitiatedEventAttributes
       }
 
 -- | The @runId@ of the external workflow execution to send the signal to.
-signalExternalWorkflowExecutionInitiatedEventAttributes_runId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Core.Maybe Core.Text)
+signalExternalWorkflowExecutionInitiatedEventAttributes_runId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
 signalExternalWorkflowExecutionInitiatedEventAttributes_runId = Lens.lens (\SignalExternalWorkflowExecutionInitiatedEventAttributes' {runId} -> runId) (\s@SignalExternalWorkflowExecutionInitiatedEventAttributes' {} a -> s {runId = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
 
 -- | The input provided to the signal.
-signalExternalWorkflowExecutionInitiatedEventAttributes_input :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Core.Maybe Core.Text)
+signalExternalWorkflowExecutionInitiatedEventAttributes_input :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
 signalExternalWorkflowExecutionInitiatedEventAttributes_input = Lens.lens (\SignalExternalWorkflowExecutionInitiatedEventAttributes' {input} -> input) (\s@SignalExternalWorkflowExecutionInitiatedEventAttributes' {} a -> s {input = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
 
 -- | Data attached to the event that can be used by the decider in subsequent
 -- decision tasks.
-signalExternalWorkflowExecutionInitiatedEventAttributes_control :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Core.Maybe Core.Text)
+signalExternalWorkflowExecutionInitiatedEventAttributes_control :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
 signalExternalWorkflowExecutionInitiatedEventAttributes_control = Lens.lens (\SignalExternalWorkflowExecutionInitiatedEventAttributes' {control} -> control) (\s@SignalExternalWorkflowExecutionInitiatedEventAttributes' {} a -> s {control = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
 
 -- | The @workflowId@ of the external workflow execution.
-signalExternalWorkflowExecutionInitiatedEventAttributes_workflowId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Core.Text
+signalExternalWorkflowExecutionInitiatedEventAttributes_workflowId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Prelude.Text
 signalExternalWorkflowExecutionInitiatedEventAttributes_workflowId = Lens.lens (\SignalExternalWorkflowExecutionInitiatedEventAttributes' {workflowId} -> workflowId) (\s@SignalExternalWorkflowExecutionInitiatedEventAttributes' {} a -> s {workflowId = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
 
 -- | The name of the signal.
-signalExternalWorkflowExecutionInitiatedEventAttributes_signalName :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Core.Text
+signalExternalWorkflowExecutionInitiatedEventAttributes_signalName :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Prelude.Text
 signalExternalWorkflowExecutionInitiatedEventAttributes_signalName = Lens.lens (\SignalExternalWorkflowExecutionInitiatedEventAttributes' {signalName} -> signalName) (\s@SignalExternalWorkflowExecutionInitiatedEventAttributes' {} a -> s {signalName = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @SignalExternalWorkflowExecution@
 -- decision for this signal. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-signalExternalWorkflowExecutionInitiatedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Core.Integer
+signalExternalWorkflowExecutionInitiatedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Prelude.Integer
 signalExternalWorkflowExecutionInitiatedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\SignalExternalWorkflowExecutionInitiatedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@SignalExternalWorkflowExecutionInitiatedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
 
 instance
@@ -133,17 +134,17 @@ instance
       "SignalExternalWorkflowExecutionInitiatedEventAttributes"
       ( \x ->
           SignalExternalWorkflowExecutionInitiatedEventAttributes'
-            Core.<$> (x Core..:? "runId") Core.<*> (x Core..:? "input")
-              Core.<*> (x Core..:? "control")
-              Core.<*> (x Core..: "workflowId")
-              Core.<*> (x Core..: "signalName")
-              Core.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Core..:? "runId") Prelude.<*> (x Core..:? "input")
+              Prelude.<*> (x Core..:? "control")
+              Prelude.<*> (x Core..: "workflowId")
+              Prelude.<*> (x Core..: "signalName")
+              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SignalExternalWorkflowExecutionInitiatedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     SignalExternalWorkflowExecutionInitiatedEventAttributes

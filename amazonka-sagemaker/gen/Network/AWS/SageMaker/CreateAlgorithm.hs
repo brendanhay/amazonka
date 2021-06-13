@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -55,20 +56,20 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateAlgorithm' smart constructor.
 data CreateAlgorithm = CreateAlgorithm'
   { -- | A description of the algorithm.
-    algorithmDescription :: Core.Maybe Core.Text,
+    algorithmDescription :: Prelude.Maybe Prelude.Text,
     -- | Specifies configurations for one or more training jobs and that Amazon
     -- SageMaker runs to test the algorithm\'s training code and, optionally,
     -- one or more batch transform jobs that Amazon SageMaker runs to test the
     -- algorithm\'s inference code.
-    validationSpecification :: Core.Maybe AlgorithmValidationSpecification,
+    validationSpecification :: Prelude.Maybe AlgorithmValidationSpecification,
     -- | Whether to certify the algorithm so that it can be listed in AWS
     -- Marketplace.
-    certifyForMarketplace :: Core.Maybe Core.Bool,
+    certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
     -- | An array of key-value pairs. You can use tags to categorize your AWS
     -- resources in different ways, for example, by purpose, owner, or
     -- environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies details about inference jobs that the algorithm runs,
     -- including the following:
     --
@@ -80,9 +81,9 @@ data CreateAlgorithm = CreateAlgorithm'
     --
     -- -   The input and output content formats that the algorithm supports for
     --     inference.
-    inferenceSpecification :: Core.Maybe InferenceSpecification,
+    inferenceSpecification :: Prelude.Maybe InferenceSpecification,
     -- | The name of the algorithm.
-    algorithmName :: Core.Text,
+    algorithmName :: Prelude.Text,
     -- | Specifies details about training jobs run by this algorithm, including
     -- the following:
     --
@@ -105,7 +106,7 @@ data CreateAlgorithm = CreateAlgorithm'
     --     @test@ channels.
     trainingSpecification :: TrainingSpecification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAlgorithm' with all optional fields omitted.
@@ -166,7 +167,7 @@ data CreateAlgorithm = CreateAlgorithm'
 --     @test@ channels.
 newCreateAlgorithm ::
   -- | 'algorithmName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'trainingSpecification'
   TrainingSpecification ->
   CreateAlgorithm
@@ -175,37 +176,37 @@ newCreateAlgorithm
   pTrainingSpecification_ =
     CreateAlgorithm'
       { algorithmDescription =
-          Core.Nothing,
-        validationSpecification = Core.Nothing,
-        certifyForMarketplace = Core.Nothing,
-        tags = Core.Nothing,
-        inferenceSpecification = Core.Nothing,
+          Prelude.Nothing,
+        validationSpecification = Prelude.Nothing,
+        certifyForMarketplace = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        inferenceSpecification = Prelude.Nothing,
         algorithmName = pAlgorithmName_,
         trainingSpecification = pTrainingSpecification_
       }
 
 -- | A description of the algorithm.
-createAlgorithm_algorithmDescription :: Lens.Lens' CreateAlgorithm (Core.Maybe Core.Text)
+createAlgorithm_algorithmDescription :: Lens.Lens' CreateAlgorithm (Prelude.Maybe Prelude.Text)
 createAlgorithm_algorithmDescription = Lens.lens (\CreateAlgorithm' {algorithmDescription} -> algorithmDescription) (\s@CreateAlgorithm' {} a -> s {algorithmDescription = a} :: CreateAlgorithm)
 
 -- | Specifies configurations for one or more training jobs and that Amazon
 -- SageMaker runs to test the algorithm\'s training code and, optionally,
 -- one or more batch transform jobs that Amazon SageMaker runs to test the
 -- algorithm\'s inference code.
-createAlgorithm_validationSpecification :: Lens.Lens' CreateAlgorithm (Core.Maybe AlgorithmValidationSpecification)
+createAlgorithm_validationSpecification :: Lens.Lens' CreateAlgorithm (Prelude.Maybe AlgorithmValidationSpecification)
 createAlgorithm_validationSpecification = Lens.lens (\CreateAlgorithm' {validationSpecification} -> validationSpecification) (\s@CreateAlgorithm' {} a -> s {validationSpecification = a} :: CreateAlgorithm)
 
 -- | Whether to certify the algorithm so that it can be listed in AWS
 -- Marketplace.
-createAlgorithm_certifyForMarketplace :: Lens.Lens' CreateAlgorithm (Core.Maybe Core.Bool)
+createAlgorithm_certifyForMarketplace :: Lens.Lens' CreateAlgorithm (Prelude.Maybe Prelude.Bool)
 createAlgorithm_certifyForMarketplace = Lens.lens (\CreateAlgorithm' {certifyForMarketplace} -> certifyForMarketplace) (\s@CreateAlgorithm' {} a -> s {certifyForMarketplace = a} :: CreateAlgorithm)
 
 -- | An array of key-value pairs. You can use tags to categorize your AWS
 -- resources in different ways, for example, by purpose, owner, or
 -- environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-createAlgorithm_tags :: Lens.Lens' CreateAlgorithm (Core.Maybe [Tag])
-createAlgorithm_tags = Lens.lens (\CreateAlgorithm' {tags} -> tags) (\s@CreateAlgorithm' {} a -> s {tags = a} :: CreateAlgorithm) Core.. Lens.mapping Lens._Coerce
+createAlgorithm_tags :: Lens.Lens' CreateAlgorithm (Prelude.Maybe [Tag])
+createAlgorithm_tags = Lens.lens (\CreateAlgorithm' {tags} -> tags) (\s@CreateAlgorithm' {} a -> s {tags = a} :: CreateAlgorithm) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies details about inference jobs that the algorithm runs,
 -- including the following:
@@ -218,11 +219,11 @@ createAlgorithm_tags = Lens.lens (\CreateAlgorithm' {tags} -> tags) (\s@CreateAl
 --
 -- -   The input and output content formats that the algorithm supports for
 --     inference.
-createAlgorithm_inferenceSpecification :: Lens.Lens' CreateAlgorithm (Core.Maybe InferenceSpecification)
+createAlgorithm_inferenceSpecification :: Lens.Lens' CreateAlgorithm (Prelude.Maybe InferenceSpecification)
 createAlgorithm_inferenceSpecification = Lens.lens (\CreateAlgorithm' {inferenceSpecification} -> inferenceSpecification) (\s@CreateAlgorithm' {} a -> s {inferenceSpecification = a} :: CreateAlgorithm)
 
 -- | The name of the algorithm.
-createAlgorithm_algorithmName :: Lens.Lens' CreateAlgorithm Core.Text
+createAlgorithm_algorithmName :: Lens.Lens' CreateAlgorithm Prelude.Text
 createAlgorithm_algorithmName = Lens.lens (\CreateAlgorithm' {algorithmName} -> algorithmName) (\s@CreateAlgorithm' {} a -> s {algorithmName = a} :: CreateAlgorithm)
 
 -- | Specifies details about training jobs run by this algorithm, including
@@ -257,40 +258,42 @@ instance Core.AWSRequest CreateAlgorithm where
     Response.receiveJSON
       ( \s h x ->
           CreateAlgorithmResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "AlgorithmArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "AlgorithmArn")
       )
 
-instance Core.Hashable CreateAlgorithm
+instance Prelude.Hashable CreateAlgorithm
 
-instance Core.NFData CreateAlgorithm
+instance Prelude.NFData CreateAlgorithm
 
 instance Core.ToHeaders CreateAlgorithm where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateAlgorithm" :: Core.ByteString),
+              Core.=# ("SageMaker.CreateAlgorithm" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateAlgorithm where
   toJSON CreateAlgorithm' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AlgorithmDescription" Core..=)
-              Core.<$> algorithmDescription,
+              Prelude.<$> algorithmDescription,
             ("ValidationSpecification" Core..=)
-              Core.<$> validationSpecification,
+              Prelude.<$> validationSpecification,
             ("CertifyForMarketplace" Core..=)
-              Core.<$> certifyForMarketplace,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> certifyForMarketplace,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("InferenceSpecification" Core..=)
-              Core.<$> inferenceSpecification,
-            Core.Just ("AlgorithmName" Core..= algorithmName),
-            Core.Just
+              Prelude.<$> inferenceSpecification,
+            Prelude.Just ("AlgorithmName" Core..= algorithmName),
+            Prelude.Just
               ( "TrainingSpecification"
                   Core..= trainingSpecification
               )
@@ -298,19 +301,19 @@ instance Core.ToJSON CreateAlgorithm where
       )
 
 instance Core.ToPath CreateAlgorithm where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAlgorithm where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAlgorithmResponse' smart constructor.
 data CreateAlgorithmResponse = CreateAlgorithmResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the new algorithm.
-    algorithmArn :: Core.Text
+    algorithmArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAlgorithmResponse' with all optional fields omitted.
@@ -325,9 +328,9 @@ data CreateAlgorithmResponse = CreateAlgorithmResponse'
 -- 'algorithmArn', 'createAlgorithmResponse_algorithmArn' - The Amazon Resource Name (ARN) of the new algorithm.
 newCreateAlgorithmResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'algorithmArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateAlgorithmResponse
 newCreateAlgorithmResponse
   pHttpStatus_
@@ -338,11 +341,11 @@ newCreateAlgorithmResponse
       }
 
 -- | The response's http status code.
-createAlgorithmResponse_httpStatus :: Lens.Lens' CreateAlgorithmResponse Core.Int
+createAlgorithmResponse_httpStatus :: Lens.Lens' CreateAlgorithmResponse Prelude.Int
 createAlgorithmResponse_httpStatus = Lens.lens (\CreateAlgorithmResponse' {httpStatus} -> httpStatus) (\s@CreateAlgorithmResponse' {} a -> s {httpStatus = a} :: CreateAlgorithmResponse)
 
 -- | The Amazon Resource Name (ARN) of the new algorithm.
-createAlgorithmResponse_algorithmArn :: Lens.Lens' CreateAlgorithmResponse Core.Text
+createAlgorithmResponse_algorithmArn :: Lens.Lens' CreateAlgorithmResponse Prelude.Text
 createAlgorithmResponse_algorithmArn = Lens.lens (\CreateAlgorithmResponse' {algorithmArn} -> algorithmArn) (\s@CreateAlgorithmResponse' {} a -> s {algorithmArn = a} :: CreateAlgorithmResponse)
 
-instance Core.NFData CreateAlgorithmResponse
+instance Prelude.NFData CreateAlgorithmResponse

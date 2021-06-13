@@ -48,6 +48,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPollForThirdPartyJobs' smart constructor.
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
   { -- | The maximum number of jobs to return in a poll for jobs call.
-    maxBatchSize :: Core.Maybe Core.Natural,
+    maxBatchSize :: Prelude.Maybe Prelude.Natural,
     -- | Represents information about an action type.
     actionTypeId :: ActionTypeId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PollForThirdPartyJobs' with all optional fields omitted.
@@ -79,12 +80,13 @@ newPollForThirdPartyJobs ::
   PollForThirdPartyJobs
 newPollForThirdPartyJobs pActionTypeId_ =
   PollForThirdPartyJobs'
-    { maxBatchSize = Core.Nothing,
+    { maxBatchSize =
+        Prelude.Nothing,
       actionTypeId = pActionTypeId_
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
-pollForThirdPartyJobs_maxBatchSize :: Lens.Lens' PollForThirdPartyJobs (Core.Maybe Core.Natural)
+pollForThirdPartyJobs_maxBatchSize :: Lens.Lens' PollForThirdPartyJobs (Prelude.Maybe Prelude.Natural)
 pollForThirdPartyJobs_maxBatchSize = Lens.lens (\PollForThirdPartyJobs' {maxBatchSize} -> maxBatchSize) (\s@PollForThirdPartyJobs' {} a -> s {maxBatchSize = a} :: PollForThirdPartyJobs)
 
 -- | Represents information about an action type.
@@ -100,52 +102,54 @@ instance Core.AWSRequest PollForThirdPartyJobs where
     Response.receiveJSON
       ( \s h x ->
           PollForThirdPartyJobsResponse'
-            Core.<$> (x Core..?> "jobs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PollForThirdPartyJobs
+instance Prelude.Hashable PollForThirdPartyJobs
 
-instance Core.NFData PollForThirdPartyJobs
+instance Prelude.NFData PollForThirdPartyJobs
 
 instance Core.ToHeaders PollForThirdPartyJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.PollForThirdPartyJobs" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PollForThirdPartyJobs where
   toJSON PollForThirdPartyJobs' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("maxBatchSize" Core..=) Core.<$> maxBatchSize,
-            Core.Just ("actionTypeId" Core..= actionTypeId)
+      ( Prelude.catMaybes
+          [ ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
+            Prelude.Just ("actionTypeId" Core..= actionTypeId)
           ]
       )
 
 instance Core.ToPath PollForThirdPartyJobs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PollForThirdPartyJobs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @PollForThirdPartyJobs@ action.
 --
 -- /See:/ 'newPollForThirdPartyJobsResponse' smart constructor.
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
   { -- | Information about the jobs to take action on.
-    jobs :: Core.Maybe [ThirdPartyJob],
+    jobs :: Prelude.Maybe [ThirdPartyJob],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PollForThirdPartyJobsResponse' with all optional fields omitted.
@@ -160,20 +164,21 @@ data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
 -- 'httpStatus', 'pollForThirdPartyJobsResponse_httpStatus' - The response's http status code.
 newPollForThirdPartyJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PollForThirdPartyJobsResponse
 newPollForThirdPartyJobsResponse pHttpStatus_ =
   PollForThirdPartyJobsResponse'
-    { jobs = Core.Nothing,
+    { jobs =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the jobs to take action on.
-pollForThirdPartyJobsResponse_jobs :: Lens.Lens' PollForThirdPartyJobsResponse (Core.Maybe [ThirdPartyJob])
-pollForThirdPartyJobsResponse_jobs = Lens.lens (\PollForThirdPartyJobsResponse' {jobs} -> jobs) (\s@PollForThirdPartyJobsResponse' {} a -> s {jobs = a} :: PollForThirdPartyJobsResponse) Core.. Lens.mapping Lens._Coerce
+pollForThirdPartyJobsResponse_jobs :: Lens.Lens' PollForThirdPartyJobsResponse (Prelude.Maybe [ThirdPartyJob])
+pollForThirdPartyJobsResponse_jobs = Lens.lens (\PollForThirdPartyJobsResponse' {jobs} -> jobs) (\s@PollForThirdPartyJobsResponse' {} a -> s {jobs = a} :: PollForThirdPartyJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-pollForThirdPartyJobsResponse_httpStatus :: Lens.Lens' PollForThirdPartyJobsResponse Core.Int
+pollForThirdPartyJobsResponse_httpStatus :: Lens.Lens' PollForThirdPartyJobsResponse Prelude.Int
 pollForThirdPartyJobsResponse_httpStatus = Lens.lens (\PollForThirdPartyJobsResponse' {httpStatus} -> httpStatus) (\s@PollForThirdPartyJobsResponse' {} a -> s {httpStatus = a} :: PollForThirdPartyJobsResponse)
 
-instance Core.NFData PollForThirdPartyJobsResponse
+instance Prelude.NFData PollForThirdPartyJobsResponse

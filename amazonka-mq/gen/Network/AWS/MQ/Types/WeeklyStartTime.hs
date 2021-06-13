@@ -22,6 +22,7 @@ module Network.AWS.MQ.Types.WeeklyStartTime where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.DayOfWeek
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The scheduled time period relative to UTC during which Amazon MQ begins
 -- to apply pending updates or patches to the broker.
@@ -29,14 +30,14 @@ import Network.AWS.MQ.Types.DayOfWeek
 -- /See:/ 'newWeeklyStartTime' smart constructor.
 data WeeklyStartTime = WeeklyStartTime'
   { -- | Required. The day of the week.
-    dayOfWeek :: Core.Maybe DayOfWeek,
+    dayOfWeek :: Prelude.Maybe DayOfWeek,
     -- | Required. The time, in 24-hour format.
-    timeOfDay :: Core.Maybe Core.Text,
+    timeOfDay :: Prelude.Maybe Prelude.Text,
     -- | The time zone, UTC by default, in either the Country\/City format, or
     -- the UTC offset format.
-    timeZone :: Core.Maybe Core.Text
+    timeZone :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WeeklyStartTime' with all optional fields omitted.
@@ -56,22 +57,22 @@ newWeeklyStartTime ::
   WeeklyStartTime
 newWeeklyStartTime =
   WeeklyStartTime'
-    { dayOfWeek = Core.Nothing,
-      timeOfDay = Core.Nothing,
-      timeZone = Core.Nothing
+    { dayOfWeek = Prelude.Nothing,
+      timeOfDay = Prelude.Nothing,
+      timeZone = Prelude.Nothing
     }
 
 -- | Required. The day of the week.
-weeklyStartTime_dayOfWeek :: Lens.Lens' WeeklyStartTime (Core.Maybe DayOfWeek)
+weeklyStartTime_dayOfWeek :: Lens.Lens' WeeklyStartTime (Prelude.Maybe DayOfWeek)
 weeklyStartTime_dayOfWeek = Lens.lens (\WeeklyStartTime' {dayOfWeek} -> dayOfWeek) (\s@WeeklyStartTime' {} a -> s {dayOfWeek = a} :: WeeklyStartTime)
 
 -- | Required. The time, in 24-hour format.
-weeklyStartTime_timeOfDay :: Lens.Lens' WeeklyStartTime (Core.Maybe Core.Text)
+weeklyStartTime_timeOfDay :: Lens.Lens' WeeklyStartTime (Prelude.Maybe Prelude.Text)
 weeklyStartTime_timeOfDay = Lens.lens (\WeeklyStartTime' {timeOfDay} -> timeOfDay) (\s@WeeklyStartTime' {} a -> s {timeOfDay = a} :: WeeklyStartTime)
 
 -- | The time zone, UTC by default, in either the Country\/City format, or
 -- the UTC offset format.
-weeklyStartTime_timeZone :: Lens.Lens' WeeklyStartTime (Core.Maybe Core.Text)
+weeklyStartTime_timeZone :: Lens.Lens' WeeklyStartTime (Prelude.Maybe Prelude.Text)
 weeklyStartTime_timeZone = Lens.lens (\WeeklyStartTime' {timeZone} -> timeZone) (\s@WeeklyStartTime' {} a -> s {timeZone = a} :: WeeklyStartTime)
 
 instance Core.FromJSON WeeklyStartTime where
@@ -80,21 +81,21 @@ instance Core.FromJSON WeeklyStartTime where
       "WeeklyStartTime"
       ( \x ->
           WeeklyStartTime'
-            Core.<$> (x Core..:? "dayOfWeek")
-            Core.<*> (x Core..:? "timeOfDay")
-            Core.<*> (x Core..:? "timeZone")
+            Prelude.<$> (x Core..:? "dayOfWeek")
+            Prelude.<*> (x Core..:? "timeOfDay")
+            Prelude.<*> (x Core..:? "timeZone")
       )
 
-instance Core.Hashable WeeklyStartTime
+instance Prelude.Hashable WeeklyStartTime
 
-instance Core.NFData WeeklyStartTime
+instance Prelude.NFData WeeklyStartTime
 
 instance Core.ToJSON WeeklyStartTime where
   toJSON WeeklyStartTime' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("dayOfWeek" Core..=) Core.<$> dayOfWeek,
-            ("timeOfDay" Core..=) Core.<$> timeOfDay,
-            ("timeZone" Core..=) Core.<$> timeZone
+      ( Prelude.catMaybes
+          [ ("dayOfWeek" Core..=) Prelude.<$> dayOfWeek,
+            ("timeOfDay" Core..=) Prelude.<$> timeOfDay,
+            ("timeZone" Core..=) Prelude.<$> timeZone
           ]
       )

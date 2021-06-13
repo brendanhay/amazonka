@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +55,14 @@ import qualified Network.AWS.Response as Response
 data AddTags = AddTags'
   { -- | The Amazon EMR resource identifier to which tags will be added. This
     -- value must be a cluster identifier.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | A list of tags to associate with a cluster and propagate to EC2
     -- instances. Tags are user-defined key-value pairs that consist of a
     -- required key string with a maximum of 128 characters, and an optional
     -- value string with a maximum of 256 characters.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTags' with all optional fields omitted.
@@ -80,17 +81,17 @@ data AddTags = AddTags'
 -- value string with a maximum of 256 characters.
 newAddTags ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   AddTags
 newAddTags pResourceId_ =
   AddTags'
     { resourceId = pResourceId_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The Amazon EMR resource identifier to which tags will be added. This
 -- value must be a cluster identifier.
-addTags_resourceId :: Lens.Lens' AddTags Core.Text
+addTags_resourceId :: Lens.Lens' AddTags Prelude.Text
 addTags_resourceId = Lens.lens (\AddTags' {resourceId} -> resourceId) (\s@AddTags' {} a -> s {resourceId = a} :: AddTags)
 
 -- | A list of tags to associate with a cluster and propagate to EC2
@@ -98,7 +99,7 @@ addTags_resourceId = Lens.lens (\AddTags' {resourceId} -> resourceId) (\s@AddTag
 -- required key string with a maximum of 128 characters, and an optional
 -- value string with a maximum of 256 characters.
 addTags_tags :: Lens.Lens' AddTags [Tag]
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Core.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
@@ -107,47 +108,49 @@ instance Core.AWSRequest AddTags where
     Response.receiveEmpty
       ( \s h x ->
           AddTagsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddTags
+instance Prelude.Hashable AddTags
 
-instance Core.NFData AddTags
+instance Prelude.NFData AddTags
 
 instance Core.ToHeaders AddTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ElasticMapReduce.AddTags" :: Core.ByteString),
+              Core.=# ("ElasticMapReduce.AddTags" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTags where
   toJSON AddTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("Tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath AddTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | This output indicates the result of adding tags to a resource.
 --
 -- /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsResponse' with all optional fields omitted.
@@ -160,13 +163,13 @@ data AddTagsResponse = AddTagsResponse'
 -- 'httpStatus', 'addTagsResponse_httpStatus' - The response's http status code.
 newAddTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddTagsResponse
 newAddTagsResponse pHttpStatus_ =
   AddTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Core.Int
+addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Prelude.Int
 addTagsResponse_httpStatus = Lens.lens (\AddTagsResponse' {httpStatus} -> httpStatus) (\s@AddTagsResponse' {} a -> s {httpStatus = a} :: AddTagsResponse)
 
-instance Core.NFData AddTagsResponse
+instance Prelude.NFData AddTagsResponse

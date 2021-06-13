@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.H265TimecodeInsertionBehavior
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | H265 Timecode Insertion Behavior
 newtype H265TimecodeInsertionBehavior = H265TimecodeInsertionBehavior'
@@ -34,15 +35,15 @@ newtype H265TimecodeInsertionBehavior = H265TimecodeInsertionBehavior'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

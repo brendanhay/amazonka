@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,7 +56,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyClusterParameterGroup' smart constructor.
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
   { -- | The name of the parameter group to be modified.
-    parameterGroupName :: Core.Text,
+    parameterGroupName :: Prelude.Text,
     -- | An array of parameters to be modified. A maximum of 20 parameters can be
     -- modified in a single request.
     --
@@ -67,7 +68,7 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
     -- name-value pairs in the wlm_json_configuration parameter.
     parameters :: [Parameter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterParameterGroup' with all optional fields omitted.
@@ -90,17 +91,17 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
 -- name-value pairs in the wlm_json_configuration parameter.
 newModifyClusterParameterGroup ::
   -- | 'parameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   ModifyClusterParameterGroup
 newModifyClusterParameterGroup pParameterGroupName_ =
   ModifyClusterParameterGroup'
     { parameterGroupName =
         pParameterGroupName_,
-      parameters = Core.mempty
+      parameters = Prelude.mempty
     }
 
 -- | The name of the parameter group to be modified.
-modifyClusterParameterGroup_parameterGroupName :: Lens.Lens' ModifyClusterParameterGroup Core.Text
+modifyClusterParameterGroup_parameterGroupName :: Lens.Lens' ModifyClusterParameterGroup Prelude.Text
 modifyClusterParameterGroup_parameterGroupName = Lens.lens (\ModifyClusterParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@ModifyClusterParameterGroup' {} a -> s {parameterGroupName = a} :: ModifyClusterParameterGroup)
 
 -- | An array of parameters to be modified. A maximum of 20 parameters can be
@@ -113,7 +114,7 @@ modifyClusterParameterGroup_parameterGroupName = Lens.lens (\ModifyClusterParame
 -- For the workload management (WLM) configuration, you must supply all the
 -- name-value pairs in the wlm_json_configuration parameter.
 modifyClusterParameterGroup_parameters :: Lens.Lens' ModifyClusterParameterGroup [Parameter]
-modifyClusterParameterGroup_parameters = Lens.lens (\ModifyClusterParameterGroup' {parameters} -> parameters) (\s@ModifyClusterParameterGroup' {} a -> s {parameters = a} :: ModifyClusterParameterGroup) Core.. Lens._Coerce
+modifyClusterParameterGroup_parameters = Lens.lens (\ModifyClusterParameterGroup' {parameters} -> parameters) (\s@ModifyClusterParameterGroup' {} a -> s {parameters = a} :: ModifyClusterParameterGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ModifyClusterParameterGroup where
   type
@@ -125,22 +126,25 @@ instance Core.AWSRequest ModifyClusterParameterGroup where
       "ModifyClusterParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable ModifyClusterParameterGroup
+instance Prelude.Hashable ModifyClusterParameterGroup
 
-instance Core.NFData ModifyClusterParameterGroup
+instance Prelude.NFData ModifyClusterParameterGroup
 
 instance Core.ToHeaders ModifyClusterParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyClusterParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyClusterParameterGroup where
   toQuery ModifyClusterParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyClusterParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ( "ModifyClusterParameterGroup" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ParameterGroupName" Core.=: parameterGroupName,
         "Parameters"
           Core.=: Core.toQueryList "Parameter" parameters

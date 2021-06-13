@@ -21,17 +21,18 @@ module Network.AWS.CloudFront.Types.CookieNames where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a list of cookie names.
 --
 -- /See:/ 'newCookieNames' smart constructor.
 data CookieNames = CookieNames'
   { -- | A list of cookie names.
-    items :: Core.Maybe [Core.Text],
+    items :: Prelude.Maybe [Prelude.Text],
     -- | The number of cookie names in the @Items@ list.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CookieNames' with all optional fields omitted.
@@ -46,38 +47,38 @@ data CookieNames = CookieNames'
 -- 'quantity', 'cookieNames_quantity' - The number of cookie names in the @Items@ list.
 newCookieNames ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   CookieNames
 newCookieNames pQuantity_ =
   CookieNames'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       quantity = pQuantity_
     }
 
 -- | A list of cookie names.
-cookieNames_items :: Lens.Lens' CookieNames (Core.Maybe [Core.Text])
-cookieNames_items = Lens.lens (\CookieNames' {items} -> items) (\s@CookieNames' {} a -> s {items = a} :: CookieNames) Core.. Lens.mapping Lens._Coerce
+cookieNames_items :: Lens.Lens' CookieNames (Prelude.Maybe [Prelude.Text])
+cookieNames_items = Lens.lens (\CookieNames' {items} -> items) (\s@CookieNames' {} a -> s {items = a} :: CookieNames) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of cookie names in the @Items@ list.
-cookieNames_quantity :: Lens.Lens' CookieNames Core.Int
+cookieNames_quantity :: Lens.Lens' CookieNames Prelude.Int
 cookieNames_quantity = Lens.lens (\CookieNames' {quantity} -> quantity) (\s@CookieNames' {} a -> s {quantity = a} :: CookieNames)
 
 instance Core.FromXML CookieNames where
   parseXML x =
     CookieNames'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Name")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Name")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable CookieNames
+instance Prelude.Hashable CookieNames
 
-instance Core.NFData CookieNames
+instance Prelude.NFData CookieNames
 
 instance Core.ToXML CookieNames where
   toXML CookieNames' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Name" Core.<$> items),
+          Core.@= Core.toXML (Core.toXMLList "Name" Prelude.<$> items),
         "Quantity" Core.@= quantity
       ]

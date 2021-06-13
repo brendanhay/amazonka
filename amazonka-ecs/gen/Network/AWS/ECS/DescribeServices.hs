@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,18 +54,18 @@ data DescribeServices = DescribeServices'
   { -- | Specifies whether you want to see the resource tags for the service. If
     -- @TAGS@ is specified, the tags are included in the response. If this
     -- field is omitted, tags are not included in the response.
-    include :: Core.Maybe [ServiceField],
+    include :: Prelude.Maybe [ServiceField],
     -- | The short name or full Amazon Resource Name (ARN)the cluster that hosts
     -- the service to describe. If you do not specify a cluster, the default
     -- cluster is assumed. This parameter is required if the service or
     -- services you are describing were launched in any cluster other than the
     -- default cluster.
-    cluster :: Core.Maybe Core.Text,
+    cluster :: Prelude.Maybe Prelude.Text,
     -- | A list of services to describe. You may specify up to 10 services to
     -- describe in a single operation.
-    services :: [Core.Text]
+    services :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeServices' with all optional fields omitted.
@@ -90,29 +91,29 @@ newDescribeServices ::
   DescribeServices
 newDescribeServices =
   DescribeServices'
-    { include = Core.Nothing,
-      cluster = Core.Nothing,
-      services = Core.mempty
+    { include = Prelude.Nothing,
+      cluster = Prelude.Nothing,
+      services = Prelude.mempty
     }
 
 -- | Specifies whether you want to see the resource tags for the service. If
 -- @TAGS@ is specified, the tags are included in the response. If this
 -- field is omitted, tags are not included in the response.
-describeServices_include :: Lens.Lens' DescribeServices (Core.Maybe [ServiceField])
-describeServices_include = Lens.lens (\DescribeServices' {include} -> include) (\s@DescribeServices' {} a -> s {include = a} :: DescribeServices) Core.. Lens.mapping Lens._Coerce
+describeServices_include :: Lens.Lens' DescribeServices (Prelude.Maybe [ServiceField])
+describeServices_include = Lens.lens (\DescribeServices' {include} -> include) (\s@DescribeServices' {} a -> s {include = a} :: DescribeServices) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The short name or full Amazon Resource Name (ARN)the cluster that hosts
 -- the service to describe. If you do not specify a cluster, the default
 -- cluster is assumed. This parameter is required if the service or
 -- services you are describing were launched in any cluster other than the
 -- default cluster.
-describeServices_cluster :: Lens.Lens' DescribeServices (Core.Maybe Core.Text)
+describeServices_cluster :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_cluster = Lens.lens (\DescribeServices' {cluster} -> cluster) (\s@DescribeServices' {} a -> s {cluster = a} :: DescribeServices)
 
 -- | A list of services to describe. You may specify up to 10 services to
 -- describe in a single operation.
-describeServices_services :: Lens.Lens' DescribeServices [Core.Text]
-describeServices_services = Lens.lens (\DescribeServices' {services} -> services) (\s@DescribeServices' {} a -> s {services = a} :: DescribeServices) Core.. Lens._Coerce
+describeServices_services :: Lens.Lens' DescribeServices [Prelude.Text]
+describeServices_services = Lens.lens (\DescribeServices' {services} -> services) (\s@DescribeServices' {} a -> s {services = a} :: DescribeServices) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeServices where
   type
@@ -123,54 +124,56 @@ instance Core.AWSRequest DescribeServices where
     Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Core.<$> (x Core..?> "services" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "failures" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "services" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeServices
+instance Prelude.Hashable DescribeServices
 
-instance Core.NFData DescribeServices
+instance Prelude.NFData DescribeServices
 
 instance Core.ToHeaders DescribeServices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeServices" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeServices where
   toJSON DescribeServices' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("include" Core..=) Core.<$> include,
-            ("cluster" Core..=) Core.<$> cluster,
-            Core.Just ("services" Core..= services)
+      ( Prelude.catMaybes
+          [ ("include" Core..=) Prelude.<$> include,
+            ("cluster" Core..=) Prelude.<$> cluster,
+            Prelude.Just ("services" Core..= services)
           ]
       )
 
 instance Core.ToPath DescribeServices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeServices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
   { -- | The list of services described.
-    services :: Core.Maybe [ContainerService],
+    services :: Prelude.Maybe [ContainerService],
     -- | Any failures associated with the call.
-    failures :: Core.Maybe [Failure],
+    failures :: Prelude.Maybe [Failure],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeServicesResponse' with all optional fields omitted.
@@ -187,25 +190,26 @@ data DescribeServicesResponse = DescribeServicesResponse'
 -- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.
 newDescribeServicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeServicesResponse
 newDescribeServicesResponse pHttpStatus_ =
   DescribeServicesResponse'
-    { services = Core.Nothing,
-      failures = Core.Nothing,
+    { services =
+        Prelude.Nothing,
+      failures = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of services described.
-describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Core.Maybe [ContainerService])
-describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Core.. Lens.mapping Lens._Coerce
+describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [ContainerService])
+describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any failures associated with the call.
-describeServicesResponse_failures :: Lens.Lens' DescribeServicesResponse (Core.Maybe [Failure])
-describeServicesResponse_failures = Lens.lens (\DescribeServicesResponse' {failures} -> failures) (\s@DescribeServicesResponse' {} a -> s {failures = a} :: DescribeServicesResponse) Core.. Lens.mapping Lens._Coerce
+describeServicesResponse_failures :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [Failure])
+describeServicesResponse_failures = Lens.lens (\DescribeServicesResponse' {failures} -> failures) (\s@DescribeServicesResponse' {} a -> s {failures = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Core.Int
+describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Prelude.Int
 describeServicesResponse_httpStatus = Lens.lens (\DescribeServicesResponse' {httpStatus} -> httpStatus) (\s@DescribeServicesResponse' {} a -> s {httpStatus = a} :: DescribeServicesResponse)
 
-instance Core.NFData DescribeServicesResponse
+instance Prelude.NFData DescribeServicesResponse

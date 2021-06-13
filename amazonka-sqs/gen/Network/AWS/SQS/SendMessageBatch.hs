@@ -75,6 +75,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -86,11 +87,11 @@ data SendMessageBatch = SendMessageBatch'
   { -- | The URL of the Amazon SQS queue to which batched messages are sent.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Core.Text,
+    queueUrl :: Prelude.Text,
     -- | A list of @ SendMessageBatchRequestEntry @ items.
     entries :: [SendMessageBatchRequestEntry]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendMessageBatch' with all optional fields omitted.
@@ -107,23 +108,23 @@ data SendMessageBatch = SendMessageBatch'
 -- 'entries', 'sendMessageBatch_entries' - A list of @ SendMessageBatchRequestEntry @ items.
 newSendMessageBatch ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   SendMessageBatch
 newSendMessageBatch pQueueUrl_ =
   SendMessageBatch'
     { queueUrl = pQueueUrl_,
-      entries = Core.mempty
+      entries = Prelude.mempty
     }
 
 -- | The URL of the Amazon SQS queue to which batched messages are sent.
 --
 -- Queue URLs and names are case-sensitive.
-sendMessageBatch_queueUrl :: Lens.Lens' SendMessageBatch Core.Text
+sendMessageBatch_queueUrl :: Lens.Lens' SendMessageBatch Prelude.Text
 sendMessageBatch_queueUrl = Lens.lens (\SendMessageBatch' {queueUrl} -> queueUrl) (\s@SendMessageBatch' {} a -> s {queueUrl = a} :: SendMessageBatch)
 
 -- | A list of @ SendMessageBatchRequestEntry @ items.
 sendMessageBatch_entries :: Lens.Lens' SendMessageBatch [SendMessageBatchRequestEntry]
-sendMessageBatch_entries = Lens.lens (\SendMessageBatch' {entries} -> entries) (\s@SendMessageBatch' {} a -> s {entries = a} :: SendMessageBatch) Core.. Lens._Coerce
+sendMessageBatch_entries = Lens.lens (\SendMessageBatch' {entries} -> entries) (\s@SendMessageBatch' {} a -> s {entries = a} :: SendMessageBatch) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest SendMessageBatch where
   type
@@ -135,27 +136,28 @@ instance Core.AWSRequest SendMessageBatch where
       "SendMessageBatchResult"
       ( \s h x ->
           SendMessageBatchResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.parseXMLList "SendMessageBatchResultEntry" x)
-            Core.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.parseXMLList "SendMessageBatchResultEntry" x)
+            Prelude.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
       )
 
-instance Core.Hashable SendMessageBatch
+instance Prelude.Hashable SendMessageBatch
 
-instance Core.NFData SendMessageBatch
+instance Prelude.NFData SendMessageBatch
 
 instance Core.ToHeaders SendMessageBatch where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SendMessageBatch where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SendMessageBatch where
   toQuery SendMessageBatch' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SendMessageBatch" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+          Core.=: ("SendMessageBatch" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueUrl" Core.=: queueUrl,
         Core.toQueryList
           "SendMessageBatchRequestEntry"
@@ -169,14 +171,14 @@ instance Core.ToQuery SendMessageBatch where
 -- /See:/ 'newSendMessageBatchResponse' smart constructor.
 data SendMessageBatchResponse = SendMessageBatchResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of @ SendMessageBatchResultEntry @ items.
     successful :: [SendMessageBatchResultEntry],
     -- | A list of @ BatchResultErrorEntry @ items with error details about each
     -- message that can\'t be enqueued.
     failed :: [BatchResultErrorEntry]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendMessageBatchResponse' with all optional fields omitted.
@@ -194,27 +196,27 @@ data SendMessageBatchResponse = SendMessageBatchResponse'
 -- message that can\'t be enqueued.
 newSendMessageBatchResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SendMessageBatchResponse
 newSendMessageBatchResponse pHttpStatus_ =
   SendMessageBatchResponse'
     { httpStatus =
         pHttpStatus_,
-      successful = Core.mempty,
-      failed = Core.mempty
+      successful = Prelude.mempty,
+      failed = Prelude.mempty
     }
 
 -- | The response's http status code.
-sendMessageBatchResponse_httpStatus :: Lens.Lens' SendMessageBatchResponse Core.Int
+sendMessageBatchResponse_httpStatus :: Lens.Lens' SendMessageBatchResponse Prelude.Int
 sendMessageBatchResponse_httpStatus = Lens.lens (\SendMessageBatchResponse' {httpStatus} -> httpStatus) (\s@SendMessageBatchResponse' {} a -> s {httpStatus = a} :: SendMessageBatchResponse)
 
 -- | A list of @ SendMessageBatchResultEntry @ items.
 sendMessageBatchResponse_successful :: Lens.Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
-sendMessageBatchResponse_successful = Lens.lens (\SendMessageBatchResponse' {successful} -> successful) (\s@SendMessageBatchResponse' {} a -> s {successful = a} :: SendMessageBatchResponse) Core.. Lens._Coerce
+sendMessageBatchResponse_successful = Lens.lens (\SendMessageBatchResponse' {successful} -> successful) (\s@SendMessageBatchResponse' {} a -> s {successful = a} :: SendMessageBatchResponse) Prelude.. Lens._Coerce
 
 -- | A list of @ BatchResultErrorEntry @ items with error details about each
 -- message that can\'t be enqueued.
 sendMessageBatchResponse_failed :: Lens.Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-sendMessageBatchResponse_failed = Lens.lens (\SendMessageBatchResponse' {failed} -> failed) (\s@SendMessageBatchResponse' {} a -> s {failed = a} :: SendMessageBatchResponse) Core.. Lens._Coerce
+sendMessageBatchResponse_failed = Lens.lens (\SendMessageBatchResponse' {failed} -> failed) (\s@SendMessageBatchResponse' {} a -> s {failed = a} :: SendMessageBatchResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData SendMessageBatchResponse
+instance Prelude.NFData SendMessageBatchResponse

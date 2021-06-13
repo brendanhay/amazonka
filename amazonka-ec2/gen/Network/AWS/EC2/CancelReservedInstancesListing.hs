@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCancelReservedInstancesListing' smart constructor.
 data CancelReservedInstancesListing = CancelReservedInstancesListing'
   { -- | The ID of the Reserved Instance listing.
-    reservedInstancesListingId :: Core.Text
+    reservedInstancesListingId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelReservedInstancesListing' with all optional fields omitted.
@@ -70,7 +71,7 @@ data CancelReservedInstancesListing = CancelReservedInstancesListing'
 -- 'reservedInstancesListingId', 'cancelReservedInstancesListing_reservedInstancesListingId' - The ID of the Reserved Instance listing.
 newCancelReservedInstancesListing ::
   -- | 'reservedInstancesListingId'
-  Core.Text ->
+  Prelude.Text ->
   CancelReservedInstancesListing
 newCancelReservedInstancesListing
   pReservedInstancesListingId_ =
@@ -80,7 +81,7 @@ newCancelReservedInstancesListing
       }
 
 -- | The ID of the Reserved Instance listing.
-cancelReservedInstancesListing_reservedInstancesListingId :: Lens.Lens' CancelReservedInstancesListing Core.Text
+cancelReservedInstancesListing_reservedInstancesListingId :: Lens.Lens' CancelReservedInstancesListing Prelude.Text
 cancelReservedInstancesListing_reservedInstancesListingId = Lens.lens (\CancelReservedInstancesListing' {reservedInstancesListingId} -> reservedInstancesListingId) (\s@CancelReservedInstancesListing' {} a -> s {reservedInstancesListingId = a} :: CancelReservedInstancesListing)
 
 instance
@@ -95,34 +96,39 @@ instance
     Response.receiveXML
       ( \s h x ->
           CancelReservedInstancesListingResponse'
-            Core.<$> ( x Core..@? "reservedInstancesListingsSet"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "reservedInstancesListingsSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelReservedInstancesListing
+instance
+  Prelude.Hashable
+    CancelReservedInstancesListing
 
-instance Core.NFData CancelReservedInstancesListing
+instance
+  Prelude.NFData
+    CancelReservedInstancesListing
 
 instance
   Core.ToHeaders
     CancelReservedInstancesListing
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CancelReservedInstancesListing where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelReservedInstancesListing where
   toQuery CancelReservedInstancesListing' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "CancelReservedInstancesListing" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "ReservedInstancesListingId"
           Core.=: reservedInstancesListingId
       ]
@@ -132,11 +138,11 @@ instance Core.ToQuery CancelReservedInstancesListing where
 -- /See:/ 'newCancelReservedInstancesListingResponse' smart constructor.
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
   { -- | The Reserved Instance listing.
-    reservedInstancesListings :: Core.Maybe [ReservedInstancesListing],
+    reservedInstancesListings :: Prelude.Maybe [ReservedInstancesListing],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelReservedInstancesListingResponse' with all optional fields omitted.
@@ -151,24 +157,24 @@ data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResp
 -- 'httpStatus', 'cancelReservedInstancesListingResponse_httpStatus' - The response's http status code.
 newCancelReservedInstancesListingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelReservedInstancesListingResponse
 newCancelReservedInstancesListingResponse
   pHttpStatus_ =
     CancelReservedInstancesListingResponse'
       { reservedInstancesListings =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The Reserved Instance listing.
-cancelReservedInstancesListingResponse_reservedInstancesListings :: Lens.Lens' CancelReservedInstancesListingResponse (Core.Maybe [ReservedInstancesListing])
-cancelReservedInstancesListingResponse_reservedInstancesListings = Lens.lens (\CancelReservedInstancesListingResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@CancelReservedInstancesListingResponse' {} a -> s {reservedInstancesListings = a} :: CancelReservedInstancesListingResponse) Core.. Lens.mapping Lens._Coerce
+cancelReservedInstancesListingResponse_reservedInstancesListings :: Lens.Lens' CancelReservedInstancesListingResponse (Prelude.Maybe [ReservedInstancesListing])
+cancelReservedInstancesListingResponse_reservedInstancesListings = Lens.lens (\CancelReservedInstancesListingResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@CancelReservedInstancesListingResponse' {} a -> s {reservedInstancesListings = a} :: CancelReservedInstancesListingResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-cancelReservedInstancesListingResponse_httpStatus :: Lens.Lens' CancelReservedInstancesListingResponse Core.Int
+cancelReservedInstancesListingResponse_httpStatus :: Lens.Lens' CancelReservedInstancesListingResponse Prelude.Int
 cancelReservedInstancesListingResponse_httpStatus = Lens.lens (\CancelReservedInstancesListingResponse' {httpStatus} -> httpStatus) (\s@CancelReservedInstancesListingResponse' {} a -> s {httpStatus = a} :: CancelReservedInstancesListingResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelReservedInstancesListingResponse

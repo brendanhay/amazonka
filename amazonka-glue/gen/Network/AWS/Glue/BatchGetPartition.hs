@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +54,15 @@ import qualified Network.AWS.Response as Response
 data BatchGetPartition = BatchGetPartition'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
     -- none is supplied, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partitions reside.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the partitions\' table.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | A list of partition values identifying the partitions to retrieve.
     partitionsToGet :: [PartitionValueList]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetPartition' with all optional fields omitted.
@@ -81,34 +82,34 @@ data BatchGetPartition = BatchGetPartition'
 -- 'partitionsToGet', 'batchGetPartition_partitionsToGet' - A list of partition values identifying the partitions to retrieve.
 newBatchGetPartition ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   BatchGetPartition
 newBatchGetPartition pDatabaseName_ pTableName_ =
   BatchGetPartition'
-    { catalogId = Core.Nothing,
+    { catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_,
-      partitionsToGet = Core.mempty
+      partitionsToGet = Prelude.mempty
     }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
 -- none is supplied, the AWS account ID is used by default.
-batchGetPartition_catalogId :: Lens.Lens' BatchGetPartition (Core.Maybe Core.Text)
+batchGetPartition_catalogId :: Lens.Lens' BatchGetPartition (Prelude.Maybe Prelude.Text)
 batchGetPartition_catalogId = Lens.lens (\BatchGetPartition' {catalogId} -> catalogId) (\s@BatchGetPartition' {} a -> s {catalogId = a} :: BatchGetPartition)
 
 -- | The name of the catalog database where the partitions reside.
-batchGetPartition_databaseName :: Lens.Lens' BatchGetPartition Core.Text
+batchGetPartition_databaseName :: Lens.Lens' BatchGetPartition Prelude.Text
 batchGetPartition_databaseName = Lens.lens (\BatchGetPartition' {databaseName} -> databaseName) (\s@BatchGetPartition' {} a -> s {databaseName = a} :: BatchGetPartition)
 
 -- | The name of the partitions\' table.
-batchGetPartition_tableName :: Lens.Lens' BatchGetPartition Core.Text
+batchGetPartition_tableName :: Lens.Lens' BatchGetPartition Prelude.Text
 batchGetPartition_tableName = Lens.lens (\BatchGetPartition' {tableName} -> tableName) (\s@BatchGetPartition' {} a -> s {tableName = a} :: BatchGetPartition)
 
 -- | A list of partition values identifying the partitions to retrieve.
 batchGetPartition_partitionsToGet :: Lens.Lens' BatchGetPartition [PartitionValueList]
-batchGetPartition_partitionsToGet = Lens.lens (\BatchGetPartition' {partitionsToGet} -> partitionsToGet) (\s@BatchGetPartition' {} a -> s {partitionsToGet = a} :: BatchGetPartition) Core.. Lens._Coerce
+batchGetPartition_partitionsToGet = Lens.lens (\BatchGetPartition' {partitionsToGet} -> partitionsToGet) (\s@BatchGetPartition' {} a -> s {partitionsToGet = a} :: BatchGetPartition) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetPartition where
   type
@@ -119,55 +120,59 @@ instance Core.AWSRequest BatchGetPartition where
     Response.receiveJSON
       ( \s h x ->
           BatchGetPartitionResponse'
-            Core.<$> (x Core..?> "Partitions" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "UnprocessedKeys" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "UnprocessedKeys"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetPartition
+instance Prelude.Hashable BatchGetPartition
 
-instance Core.NFData BatchGetPartition
+instance Prelude.NFData BatchGetPartition
 
 instance Core.ToHeaders BatchGetPartition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetPartition" :: Core.ByteString),
+              Core.=# ("AWSGlue.BatchGetPartition" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetPartition where
   toJSON BatchGetPartition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just
               ("PartitionsToGet" Core..= partitionsToGet)
           ]
       )
 
 instance Core.ToPath BatchGetPartition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetPartition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetPartitionResponse' smart constructor.
 data BatchGetPartitionResponse = BatchGetPartitionResponse'
   { -- | A list of the requested partitions.
-    partitions :: Core.Maybe [Partition],
+    partitions :: Prelude.Maybe [Partition],
     -- | A list of the partition values in the request for which partitions were
     -- not returned.
-    unprocessedKeys :: Core.Maybe [PartitionValueList],
+    unprocessedKeys :: Prelude.Maybe [PartitionValueList],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetPartitionResponse' with all optional fields omitted.
@@ -185,27 +190,27 @@ data BatchGetPartitionResponse = BatchGetPartitionResponse'
 -- 'httpStatus', 'batchGetPartitionResponse_httpStatus' - The response's http status code.
 newBatchGetPartitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetPartitionResponse
 newBatchGetPartitionResponse pHttpStatus_ =
   BatchGetPartitionResponse'
     { partitions =
-        Core.Nothing,
-      unprocessedKeys = Core.Nothing,
+        Prelude.Nothing,
+      unprocessedKeys = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of the requested partitions.
-batchGetPartitionResponse_partitions :: Lens.Lens' BatchGetPartitionResponse (Core.Maybe [Partition])
-batchGetPartitionResponse_partitions = Lens.lens (\BatchGetPartitionResponse' {partitions} -> partitions) (\s@BatchGetPartitionResponse' {} a -> s {partitions = a} :: BatchGetPartitionResponse) Core.. Lens.mapping Lens._Coerce
+batchGetPartitionResponse_partitions :: Lens.Lens' BatchGetPartitionResponse (Prelude.Maybe [Partition])
+batchGetPartitionResponse_partitions = Lens.lens (\BatchGetPartitionResponse' {partitions} -> partitions) (\s@BatchGetPartitionResponse' {} a -> s {partitions = a} :: BatchGetPartitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of the partition values in the request for which partitions were
 -- not returned.
-batchGetPartitionResponse_unprocessedKeys :: Lens.Lens' BatchGetPartitionResponse (Core.Maybe [PartitionValueList])
-batchGetPartitionResponse_unprocessedKeys = Lens.lens (\BatchGetPartitionResponse' {unprocessedKeys} -> unprocessedKeys) (\s@BatchGetPartitionResponse' {} a -> s {unprocessedKeys = a} :: BatchGetPartitionResponse) Core.. Lens.mapping Lens._Coerce
+batchGetPartitionResponse_unprocessedKeys :: Lens.Lens' BatchGetPartitionResponse (Prelude.Maybe [PartitionValueList])
+batchGetPartitionResponse_unprocessedKeys = Lens.lens (\BatchGetPartitionResponse' {unprocessedKeys} -> unprocessedKeys) (\s@BatchGetPartitionResponse' {} a -> s {unprocessedKeys = a} :: BatchGetPartitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetPartitionResponse_httpStatus :: Lens.Lens' BatchGetPartitionResponse Core.Int
+batchGetPartitionResponse_httpStatus :: Lens.Lens' BatchGetPartitionResponse Prelude.Int
 batchGetPartitionResponse_httpStatus = Lens.lens (\BatchGetPartitionResponse' {httpStatus} -> httpStatus) (\s@BatchGetPartitionResponse' {} a -> s {httpStatus = a} :: BatchGetPartitionResponse)
 
-instance Core.NFData BatchGetPartitionResponse
+instance Prelude.NFData BatchGetPartitionResponse

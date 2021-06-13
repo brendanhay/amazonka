@@ -72,6 +72,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,13 +81,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateGameSession' smart constructor.
 data UpdateGameSession = UpdateGameSession'
   { -- | Policy determining whether or not the game session accepts new players.
-    playerSessionCreationPolicy :: Core.Maybe PlayerSessionCreationPolicy,
+    playerSessionCreationPolicy :: Prelude.Maybe PlayerSessionCreationPolicy,
     -- | The maximum number of players that can be connected simultaneously to
     -- the game session.
-    maximumPlayerSessionCount :: Core.Maybe Core.Natural,
+    maximumPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | A descriptive label that is associated with a game session. Session
     -- names do not need to be unique.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Game session protection policy to apply to this game session only.
     --
     -- -   __NoProtection__ -- The game session can be terminated during a
@@ -94,11 +95,11 @@ data UpdateGameSession = UpdateGameSession'
     --
     -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
     --     it cannot be terminated during a scale-down event.
-    protectionPolicy :: Core.Maybe ProtectionPolicy,
+    protectionPolicy :: Prelude.Maybe ProtectionPolicy,
     -- | A unique identifier for the game session to update.
-    gameSessionId :: Core.Text
+    gameSessionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGameSession' with all optional fields omitted.
@@ -127,30 +128,30 @@ data UpdateGameSession = UpdateGameSession'
 -- 'gameSessionId', 'updateGameSession_gameSessionId' - A unique identifier for the game session to update.
 newUpdateGameSession ::
   -- | 'gameSessionId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateGameSession
 newUpdateGameSession pGameSessionId_ =
   UpdateGameSession'
     { playerSessionCreationPolicy =
-        Core.Nothing,
-      maximumPlayerSessionCount = Core.Nothing,
-      name = Core.Nothing,
-      protectionPolicy = Core.Nothing,
+        Prelude.Nothing,
+      maximumPlayerSessionCount = Prelude.Nothing,
+      name = Prelude.Nothing,
+      protectionPolicy = Prelude.Nothing,
       gameSessionId = pGameSessionId_
     }
 
 -- | Policy determining whether or not the game session accepts new players.
-updateGameSession_playerSessionCreationPolicy :: Lens.Lens' UpdateGameSession (Core.Maybe PlayerSessionCreationPolicy)
+updateGameSession_playerSessionCreationPolicy :: Lens.Lens' UpdateGameSession (Prelude.Maybe PlayerSessionCreationPolicy)
 updateGameSession_playerSessionCreationPolicy = Lens.lens (\UpdateGameSession' {playerSessionCreationPolicy} -> playerSessionCreationPolicy) (\s@UpdateGameSession' {} a -> s {playerSessionCreationPolicy = a} :: UpdateGameSession)
 
 -- | The maximum number of players that can be connected simultaneously to
 -- the game session.
-updateGameSession_maximumPlayerSessionCount :: Lens.Lens' UpdateGameSession (Core.Maybe Core.Natural)
+updateGameSession_maximumPlayerSessionCount :: Lens.Lens' UpdateGameSession (Prelude.Maybe Prelude.Natural)
 updateGameSession_maximumPlayerSessionCount = Lens.lens (\UpdateGameSession' {maximumPlayerSessionCount} -> maximumPlayerSessionCount) (\s@UpdateGameSession' {} a -> s {maximumPlayerSessionCount = a} :: UpdateGameSession)
 
 -- | A descriptive label that is associated with a game session. Session
 -- names do not need to be unique.
-updateGameSession_name :: Lens.Lens' UpdateGameSession (Core.Maybe Core.Text)
+updateGameSession_name :: Lens.Lens' UpdateGameSession (Prelude.Maybe Prelude.Text)
 updateGameSession_name = Lens.lens (\UpdateGameSession' {name} -> name) (\s@UpdateGameSession' {} a -> s {name = a} :: UpdateGameSession)
 
 -- | Game session protection policy to apply to this game session only.
@@ -160,11 +161,11 @@ updateGameSession_name = Lens.lens (\UpdateGameSession' {name} -> name) (\s@Upda
 --
 -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
 --     it cannot be terminated during a scale-down event.
-updateGameSession_protectionPolicy :: Lens.Lens' UpdateGameSession (Core.Maybe ProtectionPolicy)
+updateGameSession_protectionPolicy :: Lens.Lens' UpdateGameSession (Prelude.Maybe ProtectionPolicy)
 updateGameSession_protectionPolicy = Lens.lens (\UpdateGameSession' {protectionPolicy} -> protectionPolicy) (\s@UpdateGameSession' {} a -> s {protectionPolicy = a} :: UpdateGameSession)
 
 -- | A unique identifier for the game session to update.
-updateGameSession_gameSessionId :: Lens.Lens' UpdateGameSession Core.Text
+updateGameSession_gameSessionId :: Lens.Lens' UpdateGameSession Prelude.Text
 updateGameSession_gameSessionId = Lens.lens (\UpdateGameSession' {gameSessionId} -> gameSessionId) (\s@UpdateGameSession' {} a -> s {gameSessionId = a} :: UpdateGameSession)
 
 instance Core.AWSRequest UpdateGameSession where
@@ -176,56 +177,59 @@ instance Core.AWSRequest UpdateGameSession where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameSessionResponse'
-            Core.<$> (x Core..?> "GameSession")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameSession")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateGameSession
+instance Prelude.Hashable UpdateGameSession
 
-instance Core.NFData UpdateGameSession
+instance Prelude.NFData UpdateGameSession
 
 instance Core.ToHeaders UpdateGameSession where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateGameSession" :: Core.ByteString),
+              Core.=# ("GameLift.UpdateGameSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateGameSession where
   toJSON UpdateGameSession' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PlayerSessionCreationPolicy" Core..=)
-              Core.<$> playerSessionCreationPolicy,
+              Prelude.<$> playerSessionCreationPolicy,
             ("MaximumPlayerSessionCount" Core..=)
-              Core.<$> maximumPlayerSessionCount,
-            ("Name" Core..=) Core.<$> name,
+              Prelude.<$> maximumPlayerSessionCount,
+            ("Name" Core..=) Prelude.<$> name,
             ("ProtectionPolicy" Core..=)
-              Core.<$> protectionPolicy,
-            Core.Just ("GameSessionId" Core..= gameSessionId)
+              Prelude.<$> protectionPolicy,
+            Prelude.Just
+              ("GameSessionId" Core..= gameSessionId)
           ]
       )
 
 instance Core.ToPath UpdateGameSession where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateGameSession where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newUpdateGameSessionResponse' smart constructor.
 data UpdateGameSessionResponse = UpdateGameSessionResponse'
   { -- | The updated game session metadata.
-    gameSession :: Core.Maybe GameSession,
+    gameSession :: Prelude.Maybe GameSession,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGameSessionResponse' with all optional fields omitted.
@@ -240,21 +244,21 @@ data UpdateGameSessionResponse = UpdateGameSessionResponse'
 -- 'httpStatus', 'updateGameSessionResponse_httpStatus' - The response's http status code.
 newUpdateGameSessionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateGameSessionResponse
 newUpdateGameSessionResponse pHttpStatus_ =
   UpdateGameSessionResponse'
     { gameSession =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated game session metadata.
-updateGameSessionResponse_gameSession :: Lens.Lens' UpdateGameSessionResponse (Core.Maybe GameSession)
+updateGameSessionResponse_gameSession :: Lens.Lens' UpdateGameSessionResponse (Prelude.Maybe GameSession)
 updateGameSessionResponse_gameSession = Lens.lens (\UpdateGameSessionResponse' {gameSession} -> gameSession) (\s@UpdateGameSessionResponse' {} a -> s {gameSession = a} :: UpdateGameSessionResponse)
 
 -- | The response's http status code.
-updateGameSessionResponse_httpStatus :: Lens.Lens' UpdateGameSessionResponse Core.Int
+updateGameSessionResponse_httpStatus :: Lens.Lens' UpdateGameSessionResponse Prelude.Int
 updateGameSessionResponse_httpStatus = Lens.lens (\UpdateGameSessionResponse' {httpStatus} -> httpStatus) (\s@UpdateGameSessionResponse' {} a -> s {httpStatus = a} :: UpdateGameSessionResponse)
 
-instance Core.NFData UpdateGameSessionResponse
+instance Prelude.NFData UpdateGameSessionResponse

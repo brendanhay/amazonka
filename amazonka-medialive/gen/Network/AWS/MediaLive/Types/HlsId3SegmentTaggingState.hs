@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | State of HLS ID3 Segment Tagging
 newtype HlsId3SegmentTaggingState = HlsId3SegmentTaggingState'
@@ -34,15 +35,15 @@ newtype HlsId3SegmentTaggingState = HlsId3SegmentTaggingState'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

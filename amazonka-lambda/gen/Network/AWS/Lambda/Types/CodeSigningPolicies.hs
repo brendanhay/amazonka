@@ -22,6 +22,7 @@ module Network.AWS.Lambda.Types.CodeSigningPolicies where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.CodeSigningPolicy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Code signing configuration policies specifies the validation failure
 -- action for signature mismatch or expiry.
@@ -34,9 +35,9 @@ data CodeSigningPolicies = CodeSigningPolicies'
     -- Lambda allows the deployment and creates a CloudWatch log.
     --
     -- Default value: @Warn@
-    untrustedArtifactOnDeployment :: Core.Maybe CodeSigningPolicy
+    untrustedArtifactOnDeployment :: Prelude.Maybe CodeSigningPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CodeSigningPolicies' with all optional fields omitted.
@@ -57,7 +58,7 @@ newCodeSigningPolicies ::
 newCodeSigningPolicies =
   CodeSigningPolicies'
     { untrustedArtifactOnDeployment =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Code signing configuration policy for deployment validation failure. If
@@ -66,7 +67,7 @@ newCodeSigningPolicies =
 -- Lambda allows the deployment and creates a CloudWatch log.
 --
 -- Default value: @Warn@
-codeSigningPolicies_untrustedArtifactOnDeployment :: Lens.Lens' CodeSigningPolicies (Core.Maybe CodeSigningPolicy)
+codeSigningPolicies_untrustedArtifactOnDeployment :: Lens.Lens' CodeSigningPolicies (Prelude.Maybe CodeSigningPolicy)
 codeSigningPolicies_untrustedArtifactOnDeployment = Lens.lens (\CodeSigningPolicies' {untrustedArtifactOnDeployment} -> untrustedArtifactOnDeployment) (\s@CodeSigningPolicies' {} a -> s {untrustedArtifactOnDeployment = a} :: CodeSigningPolicies)
 
 instance Core.FromJSON CodeSigningPolicies where
@@ -75,18 +76,18 @@ instance Core.FromJSON CodeSigningPolicies where
       "CodeSigningPolicies"
       ( \x ->
           CodeSigningPolicies'
-            Core.<$> (x Core..:? "UntrustedArtifactOnDeployment")
+            Prelude.<$> (x Core..:? "UntrustedArtifactOnDeployment")
       )
 
-instance Core.Hashable CodeSigningPolicies
+instance Prelude.Hashable CodeSigningPolicies
 
-instance Core.NFData CodeSigningPolicies
+instance Prelude.NFData CodeSigningPolicies
 
 instance Core.ToJSON CodeSigningPolicies where
   toJSON CodeSigningPolicies' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("UntrustedArtifactOnDeployment" Core..=)
-              Core.<$> untrustedArtifactOnDeployment
+              Prelude.<$> untrustedArtifactOnDeployment
           ]
       )

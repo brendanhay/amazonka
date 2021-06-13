@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Translate.Types
@@ -62,11 +63,11 @@ import Network.AWS.Translate.Types
 -- | /See:/ 'newImportTerminology' smart constructor.
 data ImportTerminology = ImportTerminology'
   { -- | The encryption key for the custom terminology being imported.
-    encryptionKey :: Core.Maybe EncryptionKey,
+    encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | The description of the custom terminology being imported.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom terminology being imported.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The merge strategy of the custom terminology being imported. Currently,
     -- only the OVERWRITE merge strategy is supported. In this case, the
     -- imported terminology will overwrite an existing terminology of the same
@@ -75,7 +76,7 @@ data ImportTerminology = ImportTerminology'
     -- | The terminology data for the custom terminology being imported.
     terminologyData :: TerminologyData
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportTerminology' with all optional fields omitted.
@@ -99,7 +100,7 @@ data ImportTerminology = ImportTerminology'
 -- 'terminologyData', 'importTerminology_terminologyData' - The terminology data for the custom terminology being imported.
 newImportTerminology ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'mergeStrategy'
   MergeStrategy ->
   -- | 'terminologyData'
@@ -110,23 +111,23 @@ newImportTerminology
   pMergeStrategy_
   pTerminologyData_ =
     ImportTerminology'
-      { encryptionKey = Core.Nothing,
-        description = Core.Nothing,
+      { encryptionKey = Prelude.Nothing,
+        description = Prelude.Nothing,
         name = pName_,
         mergeStrategy = pMergeStrategy_,
         terminologyData = pTerminologyData_
       }
 
 -- | The encryption key for the custom terminology being imported.
-importTerminology_encryptionKey :: Lens.Lens' ImportTerminology (Core.Maybe EncryptionKey)
+importTerminology_encryptionKey :: Lens.Lens' ImportTerminology (Prelude.Maybe EncryptionKey)
 importTerminology_encryptionKey = Lens.lens (\ImportTerminology' {encryptionKey} -> encryptionKey) (\s@ImportTerminology' {} a -> s {encryptionKey = a} :: ImportTerminology)
 
 -- | The description of the custom terminology being imported.
-importTerminology_description :: Lens.Lens' ImportTerminology (Core.Maybe Core.Text)
+importTerminology_description :: Lens.Lens' ImportTerminology (Prelude.Maybe Prelude.Text)
 importTerminology_description = Lens.lens (\ImportTerminology' {description} -> description) (\s@ImportTerminology' {} a -> s {description = a} :: ImportTerminology)
 
 -- | The name of the custom terminology being imported.
-importTerminology_name :: Lens.Lens' ImportTerminology Core.Text
+importTerminology_name :: Lens.Lens' ImportTerminology Prelude.Text
 importTerminology_name = Lens.lens (\ImportTerminology' {name} -> name) (\s@ImportTerminology' {} a -> s {name = a} :: ImportTerminology)
 
 -- | The merge strategy of the custom terminology being imported. Currently,
@@ -149,54 +150,56 @@ instance Core.AWSRequest ImportTerminology where
     Response.receiveJSON
       ( \s h x ->
           ImportTerminologyResponse'
-            Core.<$> (x Core..?> "TerminologyProperties")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TerminologyProperties")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportTerminology
+instance Prelude.Hashable ImportTerminology
 
-instance Core.NFData ImportTerminology
+instance Prelude.NFData ImportTerminology
 
 instance Core.ToHeaders ImportTerminology where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShineFrontendService_20170701.ImportTerminology" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ImportTerminology where
   toJSON ImportTerminology' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EncryptionKey" Core..=) Core.<$> encryptionKey,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("MergeStrategy" Core..= mergeStrategy),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("MergeStrategy" Core..= mergeStrategy),
+            Prelude.Just
               ("TerminologyData" Core..= terminologyData)
           ]
       )
 
 instance Core.ToPath ImportTerminology where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ImportTerminology where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportTerminologyResponse' smart constructor.
 data ImportTerminologyResponse = ImportTerminologyResponse'
   { -- | The properties of the custom terminology being imported.
-    terminologyProperties :: Core.Maybe TerminologyProperties,
+    terminologyProperties :: Prelude.Maybe TerminologyProperties,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportTerminologyResponse' with all optional fields omitted.
@@ -211,21 +214,21 @@ data ImportTerminologyResponse = ImportTerminologyResponse'
 -- 'httpStatus', 'importTerminologyResponse_httpStatus' - The response's http status code.
 newImportTerminologyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportTerminologyResponse
 newImportTerminologyResponse pHttpStatus_ =
   ImportTerminologyResponse'
     { terminologyProperties =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The properties of the custom terminology being imported.
-importTerminologyResponse_terminologyProperties :: Lens.Lens' ImportTerminologyResponse (Core.Maybe TerminologyProperties)
+importTerminologyResponse_terminologyProperties :: Lens.Lens' ImportTerminologyResponse (Prelude.Maybe TerminologyProperties)
 importTerminologyResponse_terminologyProperties = Lens.lens (\ImportTerminologyResponse' {terminologyProperties} -> terminologyProperties) (\s@ImportTerminologyResponse' {} a -> s {terminologyProperties = a} :: ImportTerminologyResponse)
 
 -- | The response's http status code.
-importTerminologyResponse_httpStatus :: Lens.Lens' ImportTerminologyResponse Core.Int
+importTerminologyResponse_httpStatus :: Lens.Lens' ImportTerminologyResponse Prelude.Int
 importTerminologyResponse_httpStatus = Lens.lens (\ImportTerminologyResponse' {httpStatus} -> httpStatus) (\s@ImportTerminologyResponse' {} a -> s {httpStatus = a} :: ImportTerminologyResponse)
 
-instance Core.NFData ImportTerminologyResponse
+instance Prelude.NFData ImportTerminologyResponse

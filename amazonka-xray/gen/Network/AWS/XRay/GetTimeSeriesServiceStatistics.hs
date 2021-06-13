@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -60,27 +61,27 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newGetTimeSeriesServiceStatistics' smart constructor.
 data GetTimeSeriesServiceStatistics = GetTimeSeriesServiceStatistics'
   { -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter expression defining entities that will be aggregated for
     -- statistics. Supports ID, service, and edge functions. If no selector
     -- expression is specified, edge statistics are returned.
-    entitySelectorExpression :: Core.Maybe Core.Text,
+    entitySelectorExpression :: Prelude.Maybe Prelude.Text,
     -- | The case-sensitive name of the group for which to pull statistics from.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The forecasted high and low fault count values. Forecast enabled
     -- requests require the EntitySelectorExpression ID be provided.
-    forecastStatistics :: Core.Maybe Core.Bool,
+    forecastStatistics :: Prelude.Maybe Prelude.Bool,
     -- | Aggregation period in seconds.
-    period :: Core.Maybe Core.Int,
+    period :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the group for which to pull statistics
     -- from.
-    groupARN :: Core.Maybe Core.Text,
+    groupARN :: Prelude.Maybe Prelude.Text,
     -- | The start of the time frame for which to aggregate statistics.
     startTime :: Core.POSIX,
     -- | The end of the time frame for which to aggregate statistics.
     endTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTimeSeriesServiceStatistics' with all optional fields omitted.
@@ -111,82 +112,82 @@ data GetTimeSeriesServiceStatistics = GetTimeSeriesServiceStatistics'
 -- 'endTime', 'getTimeSeriesServiceStatistics_endTime' - The end of the time frame for which to aggregate statistics.
 newGetTimeSeriesServiceStatistics ::
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   GetTimeSeriesServiceStatistics
 newGetTimeSeriesServiceStatistics
   pStartTime_
   pEndTime_ =
     GetTimeSeriesServiceStatistics'
       { nextToken =
-          Core.Nothing,
-        entitySelectorExpression = Core.Nothing,
-        groupName = Core.Nothing,
-        forecastStatistics = Core.Nothing,
-        period = Core.Nothing,
-        groupARN = Core.Nothing,
+          Prelude.Nothing,
+        entitySelectorExpression = Prelude.Nothing,
+        groupName = Prelude.Nothing,
+        forecastStatistics = Prelude.Nothing,
+        period = Prelude.Nothing,
+        groupARN = Prelude.Nothing,
         startTime = Core._Time Lens.# pStartTime_,
         endTime = Core._Time Lens.# pEndTime_
       }
 
 -- | Pagination token.
-getTimeSeriesServiceStatistics_nextToken :: Lens.Lens' GetTimeSeriesServiceStatistics (Core.Maybe Core.Text)
+getTimeSeriesServiceStatistics_nextToken :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Text)
 getTimeSeriesServiceStatistics_nextToken = Lens.lens (\GetTimeSeriesServiceStatistics' {nextToken} -> nextToken) (\s@GetTimeSeriesServiceStatistics' {} a -> s {nextToken = a} :: GetTimeSeriesServiceStatistics)
 
 -- | A filter expression defining entities that will be aggregated for
 -- statistics. Supports ID, service, and edge functions. If no selector
 -- expression is specified, edge statistics are returned.
-getTimeSeriesServiceStatistics_entitySelectorExpression :: Lens.Lens' GetTimeSeriesServiceStatistics (Core.Maybe Core.Text)
+getTimeSeriesServiceStatistics_entitySelectorExpression :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Text)
 getTimeSeriesServiceStatistics_entitySelectorExpression = Lens.lens (\GetTimeSeriesServiceStatistics' {entitySelectorExpression} -> entitySelectorExpression) (\s@GetTimeSeriesServiceStatistics' {} a -> s {entitySelectorExpression = a} :: GetTimeSeriesServiceStatistics)
 
 -- | The case-sensitive name of the group for which to pull statistics from.
-getTimeSeriesServiceStatistics_groupName :: Lens.Lens' GetTimeSeriesServiceStatistics (Core.Maybe Core.Text)
+getTimeSeriesServiceStatistics_groupName :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Text)
 getTimeSeriesServiceStatistics_groupName = Lens.lens (\GetTimeSeriesServiceStatistics' {groupName} -> groupName) (\s@GetTimeSeriesServiceStatistics' {} a -> s {groupName = a} :: GetTimeSeriesServiceStatistics)
 
 -- | The forecasted high and low fault count values. Forecast enabled
 -- requests require the EntitySelectorExpression ID be provided.
-getTimeSeriesServiceStatistics_forecastStatistics :: Lens.Lens' GetTimeSeriesServiceStatistics (Core.Maybe Core.Bool)
+getTimeSeriesServiceStatistics_forecastStatistics :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Bool)
 getTimeSeriesServiceStatistics_forecastStatistics = Lens.lens (\GetTimeSeriesServiceStatistics' {forecastStatistics} -> forecastStatistics) (\s@GetTimeSeriesServiceStatistics' {} a -> s {forecastStatistics = a} :: GetTimeSeriesServiceStatistics)
 
 -- | Aggregation period in seconds.
-getTimeSeriesServiceStatistics_period :: Lens.Lens' GetTimeSeriesServiceStatistics (Core.Maybe Core.Int)
+getTimeSeriesServiceStatistics_period :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Int)
 getTimeSeriesServiceStatistics_period = Lens.lens (\GetTimeSeriesServiceStatistics' {period} -> period) (\s@GetTimeSeriesServiceStatistics' {} a -> s {period = a} :: GetTimeSeriesServiceStatistics)
 
 -- | The Amazon Resource Name (ARN) of the group for which to pull statistics
 -- from.
-getTimeSeriesServiceStatistics_groupARN :: Lens.Lens' GetTimeSeriesServiceStatistics (Core.Maybe Core.Text)
+getTimeSeriesServiceStatistics_groupARN :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Text)
 getTimeSeriesServiceStatistics_groupARN = Lens.lens (\GetTimeSeriesServiceStatistics' {groupARN} -> groupARN) (\s@GetTimeSeriesServiceStatistics' {} a -> s {groupARN = a} :: GetTimeSeriesServiceStatistics)
 
 -- | The start of the time frame for which to aggregate statistics.
-getTimeSeriesServiceStatistics_startTime :: Lens.Lens' GetTimeSeriesServiceStatistics Core.UTCTime
-getTimeSeriesServiceStatistics_startTime = Lens.lens (\GetTimeSeriesServiceStatistics' {startTime} -> startTime) (\s@GetTimeSeriesServiceStatistics' {} a -> s {startTime = a} :: GetTimeSeriesServiceStatistics) Core.. Core._Time
+getTimeSeriesServiceStatistics_startTime :: Lens.Lens' GetTimeSeriesServiceStatistics Prelude.UTCTime
+getTimeSeriesServiceStatistics_startTime = Lens.lens (\GetTimeSeriesServiceStatistics' {startTime} -> startTime) (\s@GetTimeSeriesServiceStatistics' {} a -> s {startTime = a} :: GetTimeSeriesServiceStatistics) Prelude.. Core._Time
 
 -- | The end of the time frame for which to aggregate statistics.
-getTimeSeriesServiceStatistics_endTime :: Lens.Lens' GetTimeSeriesServiceStatistics Core.UTCTime
-getTimeSeriesServiceStatistics_endTime = Lens.lens (\GetTimeSeriesServiceStatistics' {endTime} -> endTime) (\s@GetTimeSeriesServiceStatistics' {} a -> s {endTime = a} :: GetTimeSeriesServiceStatistics) Core.. Core._Time
+getTimeSeriesServiceStatistics_endTime :: Lens.Lens' GetTimeSeriesServiceStatistics Prelude.UTCTime
+getTimeSeriesServiceStatistics_endTime = Lens.lens (\GetTimeSeriesServiceStatistics' {endTime} -> endTime) (\s@GetTimeSeriesServiceStatistics' {} a -> s {endTime = a} :: GetTimeSeriesServiceStatistics) Prelude.. Core._Time
 
 instance Core.AWSPager GetTimeSeriesServiceStatistics where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? getTimeSeriesServiceStatisticsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getTimeSeriesServiceStatisticsResponse_timeSeriesServiceStatistics
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getTimeSeriesServiceStatistics_nextToken
+          Prelude.& getTimeSeriesServiceStatistics_nextToken
           Lens..~ rs
           Lens.^? getTimeSeriesServiceStatisticsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -200,61 +201,65 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTimeSeriesServiceStatisticsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "TimeSeriesServiceStatistics"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "ContainsOldGroupVersions")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "TimeSeriesServiceStatistics"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "ContainsOldGroupVersions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTimeSeriesServiceStatistics
+instance
+  Prelude.Hashable
+    GetTimeSeriesServiceStatistics
 
-instance Core.NFData GetTimeSeriesServiceStatistics
+instance
+  Prelude.NFData
+    GetTimeSeriesServiceStatistics
 
 instance
   Core.ToHeaders
     GetTimeSeriesServiceStatistics
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetTimeSeriesServiceStatistics where
   toJSON GetTimeSeriesServiceStatistics' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("EntitySelectorExpression" Core..=)
-              Core.<$> entitySelectorExpression,
-            ("GroupName" Core..=) Core.<$> groupName,
+              Prelude.<$> entitySelectorExpression,
+            ("GroupName" Core..=) Prelude.<$> groupName,
             ("ForecastStatistics" Core..=)
-              Core.<$> forecastStatistics,
-            ("Period" Core..=) Core.<$> period,
-            ("GroupARN" Core..=) Core.<$> groupARN,
-            Core.Just ("StartTime" Core..= startTime),
-            Core.Just ("EndTime" Core..= endTime)
+              Prelude.<$> forecastStatistics,
+            ("Period" Core..=) Prelude.<$> period,
+            ("GroupARN" Core..=) Prelude.<$> groupARN,
+            Prelude.Just ("StartTime" Core..= startTime),
+            Prelude.Just ("EndTime" Core..= endTime)
           ]
       )
 
 instance Core.ToPath GetTimeSeriesServiceStatistics where
-  toPath = Core.const "/TimeSeriesServiceStatistics"
+  toPath = Prelude.const "/TimeSeriesServiceStatistics"
 
 instance Core.ToQuery GetTimeSeriesServiceStatistics where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTimeSeriesServiceStatisticsResponse' smart constructor.
 data GetTimeSeriesServiceStatisticsResponse = GetTimeSeriesServiceStatisticsResponse'
   { -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The collection of statistics.
-    timeSeriesServiceStatistics :: Core.Maybe [TimeSeriesServiceStatistics],
+    timeSeriesServiceStatistics :: Prelude.Maybe [TimeSeriesServiceStatistics],
     -- | A flag indicating whether or not a group\'s filter expression has been
     -- consistent, or if a returned aggregation might show statistics from an
     -- older version of the group\'s filter expression.
-    containsOldGroupVersions :: Core.Maybe Core.Bool,
+    containsOldGroupVersions :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTimeSeriesServiceStatisticsResponse' with all optional fields omitted.
@@ -275,38 +280,38 @@ data GetTimeSeriesServiceStatisticsResponse = GetTimeSeriesServiceStatisticsResp
 -- 'httpStatus', 'getTimeSeriesServiceStatisticsResponse_httpStatus' - The response's http status code.
 newGetTimeSeriesServiceStatisticsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTimeSeriesServiceStatisticsResponse
 newGetTimeSeriesServiceStatisticsResponse
   pHttpStatus_ =
     GetTimeSeriesServiceStatisticsResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         timeSeriesServiceStatistics =
-          Core.Nothing,
+          Prelude.Nothing,
         containsOldGroupVersions =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Pagination token.
-getTimeSeriesServiceStatisticsResponse_nextToken :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Core.Maybe Core.Text)
+getTimeSeriesServiceStatisticsResponse_nextToken :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Prelude.Maybe Prelude.Text)
 getTimeSeriesServiceStatisticsResponse_nextToken = Lens.lens (\GetTimeSeriesServiceStatisticsResponse' {nextToken} -> nextToken) (\s@GetTimeSeriesServiceStatisticsResponse' {} a -> s {nextToken = a} :: GetTimeSeriesServiceStatisticsResponse)
 
 -- | The collection of statistics.
-getTimeSeriesServiceStatisticsResponse_timeSeriesServiceStatistics :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Core.Maybe [TimeSeriesServiceStatistics])
-getTimeSeriesServiceStatisticsResponse_timeSeriesServiceStatistics = Lens.lens (\GetTimeSeriesServiceStatisticsResponse' {timeSeriesServiceStatistics} -> timeSeriesServiceStatistics) (\s@GetTimeSeriesServiceStatisticsResponse' {} a -> s {timeSeriesServiceStatistics = a} :: GetTimeSeriesServiceStatisticsResponse) Core.. Lens.mapping Lens._Coerce
+getTimeSeriesServiceStatisticsResponse_timeSeriesServiceStatistics :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Prelude.Maybe [TimeSeriesServiceStatistics])
+getTimeSeriesServiceStatisticsResponse_timeSeriesServiceStatistics = Lens.lens (\GetTimeSeriesServiceStatisticsResponse' {timeSeriesServiceStatistics} -> timeSeriesServiceStatistics) (\s@GetTimeSeriesServiceStatisticsResponse' {} a -> s {timeSeriesServiceStatistics = a} :: GetTimeSeriesServiceStatisticsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag indicating whether or not a group\'s filter expression has been
 -- consistent, or if a returned aggregation might show statistics from an
 -- older version of the group\'s filter expression.
-getTimeSeriesServiceStatisticsResponse_containsOldGroupVersions :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Core.Maybe Core.Bool)
+getTimeSeriesServiceStatisticsResponse_containsOldGroupVersions :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Prelude.Maybe Prelude.Bool)
 getTimeSeriesServiceStatisticsResponse_containsOldGroupVersions = Lens.lens (\GetTimeSeriesServiceStatisticsResponse' {containsOldGroupVersions} -> containsOldGroupVersions) (\s@GetTimeSeriesServiceStatisticsResponse' {} a -> s {containsOldGroupVersions = a} :: GetTimeSeriesServiceStatisticsResponse)
 
 -- | The response's http status code.
-getTimeSeriesServiceStatisticsResponse_httpStatus :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse Core.Int
+getTimeSeriesServiceStatisticsResponse_httpStatus :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse Prelude.Int
 getTimeSeriesServiceStatisticsResponse_httpStatus = Lens.lens (\GetTimeSeriesServiceStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetTimeSeriesServiceStatisticsResponse' {} a -> s {httpStatus = a} :: GetTimeSeriesServiceStatisticsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetTimeSeriesServiceStatisticsResponse

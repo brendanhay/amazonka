@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteStage' smart constructor.
 data DeleteStage = DeleteStage'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The name of the Stage resource to delete.
-    stageName :: Core.Text
+    stageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStage' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteStage = DeleteStage'
 -- 'stageName', 'deleteStage_stageName' - [Required] The name of the Stage resource to delete.
 newDeleteStage ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteStage
 newDeleteStage pRestApiId_ pStageName_ =
   DeleteStage'
@@ -77,11 +78,11 @@ newDeleteStage pRestApiId_ pStageName_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteStage_restApiId :: Lens.Lens' DeleteStage Core.Text
+deleteStage_restApiId :: Lens.Lens' DeleteStage Prelude.Text
 deleteStage_restApiId = Lens.lens (\DeleteStage' {restApiId} -> restApiId) (\s@DeleteStage' {} a -> s {restApiId = a} :: DeleteStage)
 
 -- | [Required] The name of the Stage resource to delete.
-deleteStage_stageName :: Lens.Lens' DeleteStage Core.Text
+deleteStage_stageName :: Lens.Lens' DeleteStage Prelude.Text
 deleteStage_stageName = Lens.lens (\DeleteStage' {stageName} -> stageName) (\s@DeleteStage' {} a -> s {stageName = a} :: DeleteStage)
 
 instance Core.AWSRequest DeleteStage where
@@ -89,22 +90,22 @@ instance Core.AWSRequest DeleteStage where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteStageResponse'
 
-instance Core.Hashable DeleteStage
+instance Prelude.Hashable DeleteStage
 
-instance Core.NFData DeleteStage
+instance Prelude.NFData DeleteStage
 
 instance Core.ToHeaders DeleteStage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteStage where
   toPath DeleteStage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/stages/",
@@ -112,13 +113,13 @@ instance Core.ToPath DeleteStage where
       ]
 
 instance Core.ToQuery DeleteStage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStageResponse' smart constructor.
 data DeleteStageResponse = DeleteStageResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStageResponse' with all optional fields omitted.
@@ -128,4 +129,4 @@ newDeleteStageResponse ::
   DeleteStageResponse
 newDeleteStageResponse = DeleteStageResponse'
 
-instance Core.NFData DeleteStageResponse
+instance Prelude.NFData DeleteStageResponse

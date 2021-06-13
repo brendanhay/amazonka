@@ -21,6 +21,7 @@ module Network.AWS.CloudFront.Types.Paths where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about the objects that you want
 -- to invalidate. For more information, see
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data Paths = Paths'
   { -- | A complex type that contains a list of the paths that you want to
     -- invalidate.
-    items :: Core.Maybe [Core.Text],
+    items :: Prelude.Maybe [Prelude.Text],
     -- | The number of invalidation paths specified for the objects that you want
     -- to invalidate.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Paths' with all optional fields omitted.
@@ -53,37 +54,40 @@ data Paths = Paths'
 -- to invalidate.
 newPaths ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   Paths
 newPaths pQuantity_ =
-  Paths' {items = Core.Nothing, quantity = pQuantity_}
+  Paths'
+    { items = Prelude.Nothing,
+      quantity = pQuantity_
+    }
 
 -- | A complex type that contains a list of the paths that you want to
 -- invalidate.
-paths_items :: Lens.Lens' Paths (Core.Maybe [Core.Text])
-paths_items = Lens.lens (\Paths' {items} -> items) (\s@Paths' {} a -> s {items = a} :: Paths) Core.. Lens.mapping Lens._Coerce
+paths_items :: Lens.Lens' Paths (Prelude.Maybe [Prelude.Text])
+paths_items = Lens.lens (\Paths' {items} -> items) (\s@Paths' {} a -> s {items = a} :: Paths) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of invalidation paths specified for the objects that you want
 -- to invalidate.
-paths_quantity :: Lens.Lens' Paths Core.Int
+paths_quantity :: Lens.Lens' Paths Prelude.Int
 paths_quantity = Lens.lens (\Paths' {quantity} -> quantity) (\s@Paths' {} a -> s {quantity = a} :: Paths)
 
 instance Core.FromXML Paths where
   parseXML x =
     Paths'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Path")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Path")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable Paths
+instance Prelude.Hashable Paths
 
-instance Core.NFData Paths
+instance Prelude.NFData Paths
 
 instance Core.ToXML Paths where
   toXML Paths' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Path" Core.<$> items),
+          Core.@= Core.toXML (Core.toXMLList "Path" Prelude.<$> items),
         "Quantity" Core.@= quantity
       ]

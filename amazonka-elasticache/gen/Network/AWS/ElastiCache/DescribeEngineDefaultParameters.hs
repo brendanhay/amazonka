@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,7 +59,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -66,15 +67,15 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Core.Maybe Core.Int,
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The name of the cache parameter group family.
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
     -- @redis6.x@ |
-    cacheParameterGroupFamily :: Core.Text
+    cacheParameterGroupFamily :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEngineDefaultParameters' with all optional fields omitted.
@@ -104,14 +105,14 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 -- @redis6.x@ |
 newDescribeEngineDefaultParameters ::
   -- | 'cacheParameterGroupFamily'
-  Core.Text ->
+  Prelude.Text ->
   DescribeEngineDefaultParameters
 newDescribeEngineDefaultParameters
   pCacheParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
       { marker =
-          Core.Nothing,
-        maxRecords = Core.Nothing,
+          Prelude.Nothing,
+        maxRecords = Prelude.Nothing,
         cacheParameterGroupFamily =
           pCacheParameterGroupFamily_
       }
@@ -120,7 +121,7 @@ newDescribeEngineDefaultParameters
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeEngineDefaultParameters_marker :: Lens.Lens' DescribeEngineDefaultParameters (Core.Maybe Core.Text)
+describeEngineDefaultParameters_marker :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Text)
 describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParameters' {marker} -> marker) (\s@DescribeEngineDefaultParameters' {} a -> s {marker = a} :: DescribeEngineDefaultParameters)
 
 -- | The maximum number of records to include in the response. If more
@@ -130,7 +131,7 @@ describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParame
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-describeEngineDefaultParameters_maxRecords :: Lens.Lens' DescribeEngineDefaultParameters (Core.Maybe Core.Int)
+describeEngineDefaultParameters_maxRecords :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Int)
 describeEngineDefaultParameters_maxRecords = Lens.lens (\DescribeEngineDefaultParameters' {maxRecords} -> maxRecords) (\s@DescribeEngineDefaultParameters' {} a -> s {maxRecords = a} :: DescribeEngineDefaultParameters)
 
 -- | The name of the cache parameter group family.
@@ -138,7 +139,7 @@ describeEngineDefaultParameters_maxRecords = Lens.lens (\DescribeEngineDefaultPa
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
 -- @redis6.x@ |
-describeEngineDefaultParameters_cacheParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultParameters Core.Text
+describeEngineDefaultParameters_cacheParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultParameters Prelude.Text
 describeEngineDefaultParameters_cacheParameterGroupFamily = Lens.lens (\DescribeEngineDefaultParameters' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@DescribeEngineDefaultParameters' {} a -> s {cacheParameterGroupFamily = a} :: DescribeEngineDefaultParameters)
 
 instance
@@ -149,25 +150,25 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeEngineDefaultParametersResponse_engineDefaults
-              Core.. engineDefaults_marker
-              Core.. Lens._Just
+              Prelude.. engineDefaults_marker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEngineDefaultParametersResponse_engineDefaults
-              Core.. engineDefaults_parameters
-              Core.. Lens._Just
+              Prelude.. engineDefaults_parameters
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeEngineDefaultParameters_marker
+          Prelude.& describeEngineDefaultParameters_marker
           Lens..~ rs
           Lens.^? describeEngineDefaultParametersResponse_engineDefaults
-            Core.. engineDefaults_marker
-            Core.. Lens._Just
+            Prelude.. engineDefaults_marker
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -182,33 +183,36 @@ instance
       "DescribeEngineDefaultParametersResult"
       ( \s h x ->
           DescribeEngineDefaultParametersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "EngineDefaults")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "EngineDefaults")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeEngineDefaultParameters
 
-instance Core.NFData DescribeEngineDefaultParameters
+instance
+  Prelude.NFData
+    DescribeEngineDefaultParameters
 
 instance
   Core.ToHeaders
     DescribeEngineDefaultParameters
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeEngineDefaultParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEngineDefaultParameters where
   toQuery DescribeEngineDefaultParameters' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeEngineDefaultParameters" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
         "CacheParameterGroupFamily"
@@ -218,10 +222,10 @@ instance Core.ToQuery DescribeEngineDefaultParameters where
 -- | /See:/ 'newDescribeEngineDefaultParametersResponse' smart constructor.
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     engineDefaults :: EngineDefaults
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEngineDefaultParametersResponse' with all optional fields omitted.
@@ -236,7 +240,7 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
 -- 'engineDefaults', 'describeEngineDefaultParametersResponse_engineDefaults' - Undocumented member.
 newDescribeEngineDefaultParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'engineDefaults'
   EngineDefaults ->
   DescribeEngineDefaultParametersResponse
@@ -250,7 +254,7 @@ newDescribeEngineDefaultParametersResponse
       }
 
 -- | The response's http status code.
-describeEngineDefaultParametersResponse_httpStatus :: Lens.Lens' DescribeEngineDefaultParametersResponse Core.Int
+describeEngineDefaultParametersResponse_httpStatus :: Lens.Lens' DescribeEngineDefaultParametersResponse Prelude.Int
 describeEngineDefaultParametersResponse_httpStatus = Lens.lens (\DescribeEngineDefaultParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeEngineDefaultParametersResponse' {} a -> s {httpStatus = a} :: DescribeEngineDefaultParametersResponse)
 
 -- | Undocumented member.
@@ -258,5 +262,5 @@ describeEngineDefaultParametersResponse_engineDefaults :: Lens.Lens' DescribeEng
 describeEngineDefaultParametersResponse_engineDefaults = Lens.lens (\DescribeEngineDefaultParametersResponse' {engineDefaults} -> engineDefaults) (\s@DescribeEngineDefaultParametersResponse' {} a -> s {engineDefaults = a} :: DescribeEngineDefaultParametersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeEngineDefaultParametersResponse

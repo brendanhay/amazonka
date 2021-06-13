@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -74,11 +75,11 @@ data CreateSamplingRule = CreateSamplingRule'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The rule definition.
     samplingRule :: SamplingRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSamplingRule' with all optional fields omitted.
@@ -115,7 +116,7 @@ newCreateSamplingRule ::
   CreateSamplingRule
 newCreateSamplingRule pSamplingRule_ =
   CreateSamplingRule'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       samplingRule = pSamplingRule_
     }
 
@@ -138,8 +139,8 @@ newCreateSamplingRule pSamplingRule_ =
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
-createSamplingRule_tags :: Lens.Lens' CreateSamplingRule (Core.Maybe [Tag])
-createSamplingRule_tags = Lens.lens (\CreateSamplingRule' {tags} -> tags) (\s@CreateSamplingRule' {} a -> s {tags = a} :: CreateSamplingRule) Core.. Lens.mapping Lens._Coerce
+createSamplingRule_tags :: Lens.Lens' CreateSamplingRule (Prelude.Maybe [Tag])
+createSamplingRule_tags = Lens.lens (\CreateSamplingRule' {tags} -> tags) (\s@CreateSamplingRule' {} a -> s {tags = a} :: CreateSamplingRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The rule definition.
 createSamplingRule_samplingRule :: Lens.Lens' CreateSamplingRule SamplingRule
@@ -154,40 +155,40 @@ instance Core.AWSRequest CreateSamplingRule where
     Response.receiveJSON
       ( \s h x ->
           CreateSamplingRuleResponse'
-            Core.<$> (x Core..?> "SamplingRuleRecord")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SamplingRuleRecord")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSamplingRule
+instance Prelude.Hashable CreateSamplingRule
 
-instance Core.NFData CreateSamplingRule
+instance Prelude.NFData CreateSamplingRule
 
 instance Core.ToHeaders CreateSamplingRule where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateSamplingRule where
   toJSON CreateSamplingRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("SamplingRule" Core..= samplingRule)
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("SamplingRule" Core..= samplingRule)
           ]
       )
 
 instance Core.ToPath CreateSamplingRule where
-  toPath = Core.const "/CreateSamplingRule"
+  toPath = Prelude.const "/CreateSamplingRule"
 
 instance Core.ToQuery CreateSamplingRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSamplingRuleResponse' smart constructor.
 data CreateSamplingRuleResponse = CreateSamplingRuleResponse'
   { -- | The saved rule definition and metadata.
-    samplingRuleRecord :: Core.Maybe SamplingRuleRecord,
+    samplingRuleRecord :: Prelude.Maybe SamplingRuleRecord,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSamplingRuleResponse' with all optional fields omitted.
@@ -202,21 +203,21 @@ data CreateSamplingRuleResponse = CreateSamplingRuleResponse'
 -- 'httpStatus', 'createSamplingRuleResponse_httpStatus' - The response's http status code.
 newCreateSamplingRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSamplingRuleResponse
 newCreateSamplingRuleResponse pHttpStatus_ =
   CreateSamplingRuleResponse'
     { samplingRuleRecord =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The saved rule definition and metadata.
-createSamplingRuleResponse_samplingRuleRecord :: Lens.Lens' CreateSamplingRuleResponse (Core.Maybe SamplingRuleRecord)
+createSamplingRuleResponse_samplingRuleRecord :: Lens.Lens' CreateSamplingRuleResponse (Prelude.Maybe SamplingRuleRecord)
 createSamplingRuleResponse_samplingRuleRecord = Lens.lens (\CreateSamplingRuleResponse' {samplingRuleRecord} -> samplingRuleRecord) (\s@CreateSamplingRuleResponse' {} a -> s {samplingRuleRecord = a} :: CreateSamplingRuleResponse)
 
 -- | The response's http status code.
-createSamplingRuleResponse_httpStatus :: Lens.Lens' CreateSamplingRuleResponse Core.Int
+createSamplingRuleResponse_httpStatus :: Lens.Lens' CreateSamplingRuleResponse Prelude.Int
 createSamplingRuleResponse_httpStatus = Lens.lens (\CreateSamplingRuleResponse' {httpStatus} -> httpStatus) (\s@CreateSamplingRuleResponse' {} a -> s {httpStatus = a} :: CreateSamplingRuleResponse)
 
-instance Core.NFData CreateSamplingRuleResponse
+instance Prelude.NFData CreateSamplingRuleResponse

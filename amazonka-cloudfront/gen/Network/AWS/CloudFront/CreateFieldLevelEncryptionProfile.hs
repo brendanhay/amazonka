@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +53,7 @@ data CreateFieldLevelEncryptionProfile = CreateFieldLevelEncryptionProfile'
   { -- | The request to create a field-level encryption profile.
     fieldLevelEncryptionProfileConfig :: FieldLevelEncryptionProfileConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFieldLevelEncryptionProfile' with all optional fields omitted.
@@ -90,18 +91,17 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateFieldLevelEncryptionProfileResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (h Core..#? "Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag") Prelude.<*> (Core.parseXML x)
+              Prelude.<*> (h Core..#? "Location")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateFieldLevelEncryptionProfile
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateFieldLevelEncryptionProfile
 
 instance
@@ -117,35 +117,35 @@ instance
   Core.ToHeaders
     CreateFieldLevelEncryptionProfile
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     CreateFieldLevelEncryptionProfile
   where
   toPath =
-    Core.const
+    Prelude.const
       "/2020-05-31/field-level-encryption-profile"
 
 instance
   Core.ToQuery
     CreateFieldLevelEncryptionProfile
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFieldLevelEncryptionProfileResponse' smart constructor.
 data CreateFieldLevelEncryptionProfileResponse = CreateFieldLevelEncryptionProfileResponse'
   { -- | The current version of the field level encryption profile. For example:
     -- @E2QWRUHAPOMQZL@.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | Returned when you create a new field-level encryption profile.
-    fieldLevelEncryptionProfile :: Core.Maybe FieldLevelEncryptionProfile,
+    fieldLevelEncryptionProfile :: Prelude.Maybe FieldLevelEncryptionProfile,
     -- | The fully qualified URI of the new profile resource just created.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFieldLevelEncryptionProfileResponse' with all optional fields omitted.
@@ -165,36 +165,36 @@ data CreateFieldLevelEncryptionProfileResponse = CreateFieldLevelEncryptionProfi
 -- 'httpStatus', 'createFieldLevelEncryptionProfileResponse_httpStatus' - The response's http status code.
 newCreateFieldLevelEncryptionProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateFieldLevelEncryptionProfileResponse
 newCreateFieldLevelEncryptionProfileResponse
   pHttpStatus_ =
     CreateFieldLevelEncryptionProfileResponse'
       { eTag =
-          Core.Nothing,
+          Prelude.Nothing,
         fieldLevelEncryptionProfile =
-          Core.Nothing,
-        location = Core.Nothing,
+          Prelude.Nothing,
+        location = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current version of the field level encryption profile. For example:
 -- @E2QWRUHAPOMQZL@.
-createFieldLevelEncryptionProfileResponse_eTag :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Core.Maybe Core.Text)
+createFieldLevelEncryptionProfileResponse_eTag :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Prelude.Maybe Prelude.Text)
 createFieldLevelEncryptionProfileResponse_eTag = Lens.lens (\CreateFieldLevelEncryptionProfileResponse' {eTag} -> eTag) (\s@CreateFieldLevelEncryptionProfileResponse' {} a -> s {eTag = a} :: CreateFieldLevelEncryptionProfileResponse)
 
 -- | Returned when you create a new field-level encryption profile.
-createFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Core.Maybe FieldLevelEncryptionProfile)
+createFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Prelude.Maybe FieldLevelEncryptionProfile)
 createFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile = Lens.lens (\CreateFieldLevelEncryptionProfileResponse' {fieldLevelEncryptionProfile} -> fieldLevelEncryptionProfile) (\s@CreateFieldLevelEncryptionProfileResponse' {} a -> s {fieldLevelEncryptionProfile = a} :: CreateFieldLevelEncryptionProfileResponse)
 
 -- | The fully qualified URI of the new profile resource just created.
-createFieldLevelEncryptionProfileResponse_location :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Core.Maybe Core.Text)
+createFieldLevelEncryptionProfileResponse_location :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Prelude.Maybe Prelude.Text)
 createFieldLevelEncryptionProfileResponse_location = Lens.lens (\CreateFieldLevelEncryptionProfileResponse' {location} -> location) (\s@CreateFieldLevelEncryptionProfileResponse' {} a -> s {location = a} :: CreateFieldLevelEncryptionProfileResponse)
 
 -- | The response's http status code.
-createFieldLevelEncryptionProfileResponse_httpStatus :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse Core.Int
+createFieldLevelEncryptionProfileResponse_httpStatus :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse Prelude.Int
 createFieldLevelEncryptionProfileResponse_httpStatus = Lens.lens (\CreateFieldLevelEncryptionProfileResponse' {httpStatus} -> httpStatus) (\s@CreateFieldLevelEncryptionProfileResponse' {} a -> s {httpStatus = a} :: CreateFieldLevelEncryptionProfileResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateFieldLevelEncryptionProfileResponse

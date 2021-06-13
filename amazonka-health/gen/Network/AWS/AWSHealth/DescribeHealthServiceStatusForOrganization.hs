@@ -42,6 +42,7 @@ where
 import Network.AWS.AWSHealth.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data DescribeHealthServiceStatusForOrganization = DescribeHealthServiceStatusForOrganization'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHealthServiceStatusForOrganization' with all optional fields omitted.
@@ -73,18 +74,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeHealthServiceStatusForOrganizationResponse'
-            Core.<$> ( x
-                         Core..?> "healthServiceAccessStatusForOrganization"
-                     )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x
+                            Core..?> "healthServiceAccessStatusForOrganization"
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeHealthServiceStatusForOrganization
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeHealthServiceStatusForOrganization
 
 instance
@@ -92,14 +93,16 @@ instance
     DescribeHealthServiceStatusForOrganization
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -107,19 +110,19 @@ instance
   Core.ToJSON
     DescribeHealthServiceStatusForOrganization
   where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance
   Core.ToPath
     DescribeHealthServiceStatusForOrganization
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeHealthServiceStatusForOrganization
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHealthServiceStatusForOrganizationResponse' smart constructor.
 data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceStatusForOrganizationResponse'
@@ -127,11 +130,11 @@ data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceS
     -- Organizational View in your organization.
     --
     -- Valid values are @ENABLED | DISABLED | PENDING@.
-    healthServiceAccessStatusForOrganization :: Core.Maybe Core.Text,
+    healthServiceAccessStatusForOrganization :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHealthServiceStatusForOrganizationResponse' with all optional fields omitted.
@@ -149,13 +152,13 @@ data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceS
 -- 'httpStatus', 'describeHealthServiceStatusForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeHealthServiceStatusForOrganizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeHealthServiceStatusForOrganizationResponse
 newDescribeHealthServiceStatusForOrganizationResponse
   pHttpStatus_ =
     DescribeHealthServiceStatusForOrganizationResponse'
       { healthServiceAccessStatusForOrganization =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
@@ -164,13 +167,13 @@ newDescribeHealthServiceStatusForOrganizationResponse
 -- Organizational View in your organization.
 --
 -- Valid values are @ENABLED | DISABLED | PENDING@.
-describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse (Core.Maybe Core.Text)
+describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization = Lens.lens (\DescribeHealthServiceStatusForOrganizationResponse' {healthServiceAccessStatusForOrganization} -> healthServiceAccessStatusForOrganization) (\s@DescribeHealthServiceStatusForOrganizationResponse' {} a -> s {healthServiceAccessStatusForOrganization = a} :: DescribeHealthServiceStatusForOrganizationResponse)
 
 -- | The response's http status code.
-describeHealthServiceStatusForOrganizationResponse_httpStatus :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse Core.Int
+describeHealthServiceStatusForOrganizationResponse_httpStatus :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse Prelude.Int
 describeHealthServiceStatusForOrganizationResponse_httpStatus = Lens.lens (\DescribeHealthServiceStatusForOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeHealthServiceStatusForOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeHealthServiceStatusForOrganizationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeHealthServiceStatusForOrganizationResponse

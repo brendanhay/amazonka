@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ProcessingInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.DatasetDefinition
 import Network.AWS.SageMaker.Types.ProcessingS3Input
 
@@ -30,18 +31,18 @@ import Network.AWS.SageMaker.Types.ProcessingS3Input
 -- /See:/ 'newProcessingInput' smart constructor.
 data ProcessingInput = ProcessingInput'
   { -- | Configuration for a Dataset Definition input.
-    datasetDefinition :: Core.Maybe DatasetDefinition,
+    datasetDefinition :: Prelude.Maybe DatasetDefinition,
     -- | When @True@, input operations such as data download are managed natively
     -- by the processing job application. When @False@ (default), input
     -- operations are managed by Amazon SageMaker.
-    appManaged :: Core.Maybe Core.Bool,
+    appManaged :: Prelude.Maybe Prelude.Bool,
     -- | Configuration for downloading input data from Amazon S3 into the
     -- processing container.
-    s3Input :: Core.Maybe ProcessingS3Input,
+    s3Input :: Prelude.Maybe ProcessingS3Input,
     -- | The name for the processing job input.
-    inputName :: Core.Text
+    inputName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessingInput' with all optional fields omitted.
@@ -63,33 +64,34 @@ data ProcessingInput = ProcessingInput'
 -- 'inputName', 'processingInput_inputName' - The name for the processing job input.
 newProcessingInput ::
   -- | 'inputName'
-  Core.Text ->
+  Prelude.Text ->
   ProcessingInput
 newProcessingInput pInputName_ =
   ProcessingInput'
-    { datasetDefinition = Core.Nothing,
-      appManaged = Core.Nothing,
-      s3Input = Core.Nothing,
+    { datasetDefinition =
+        Prelude.Nothing,
+      appManaged = Prelude.Nothing,
+      s3Input = Prelude.Nothing,
       inputName = pInputName_
     }
 
 -- | Configuration for a Dataset Definition input.
-processingInput_datasetDefinition :: Lens.Lens' ProcessingInput (Core.Maybe DatasetDefinition)
+processingInput_datasetDefinition :: Lens.Lens' ProcessingInput (Prelude.Maybe DatasetDefinition)
 processingInput_datasetDefinition = Lens.lens (\ProcessingInput' {datasetDefinition} -> datasetDefinition) (\s@ProcessingInput' {} a -> s {datasetDefinition = a} :: ProcessingInput)
 
 -- | When @True@, input operations such as data download are managed natively
 -- by the processing job application. When @False@ (default), input
 -- operations are managed by Amazon SageMaker.
-processingInput_appManaged :: Lens.Lens' ProcessingInput (Core.Maybe Core.Bool)
+processingInput_appManaged :: Lens.Lens' ProcessingInput (Prelude.Maybe Prelude.Bool)
 processingInput_appManaged = Lens.lens (\ProcessingInput' {appManaged} -> appManaged) (\s@ProcessingInput' {} a -> s {appManaged = a} :: ProcessingInput)
 
 -- | Configuration for downloading input data from Amazon S3 into the
 -- processing container.
-processingInput_s3Input :: Lens.Lens' ProcessingInput (Core.Maybe ProcessingS3Input)
+processingInput_s3Input :: Lens.Lens' ProcessingInput (Prelude.Maybe ProcessingS3Input)
 processingInput_s3Input = Lens.lens (\ProcessingInput' {s3Input} -> s3Input) (\s@ProcessingInput' {} a -> s {s3Input = a} :: ProcessingInput)
 
 -- | The name for the processing job input.
-processingInput_inputName :: Lens.Lens' ProcessingInput Core.Text
+processingInput_inputName :: Lens.Lens' ProcessingInput Prelude.Text
 processingInput_inputName = Lens.lens (\ProcessingInput' {inputName} -> inputName) (\s@ProcessingInput' {} a -> s {inputName = a} :: ProcessingInput)
 
 instance Core.FromJSON ProcessingInput where
@@ -98,24 +100,24 @@ instance Core.FromJSON ProcessingInput where
       "ProcessingInput"
       ( \x ->
           ProcessingInput'
-            Core.<$> (x Core..:? "DatasetDefinition")
-            Core.<*> (x Core..:? "AppManaged")
-            Core.<*> (x Core..:? "S3Input")
-            Core.<*> (x Core..: "InputName")
+            Prelude.<$> (x Core..:? "DatasetDefinition")
+            Prelude.<*> (x Core..:? "AppManaged")
+            Prelude.<*> (x Core..:? "S3Input")
+            Prelude.<*> (x Core..: "InputName")
       )
 
-instance Core.Hashable ProcessingInput
+instance Prelude.Hashable ProcessingInput
 
-instance Core.NFData ProcessingInput
+instance Prelude.NFData ProcessingInput
 
 instance Core.ToJSON ProcessingInput where
   toJSON ProcessingInput' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DatasetDefinition" Core..=)
-              Core.<$> datasetDefinition,
-            ("AppManaged" Core..=) Core.<$> appManaged,
-            ("S3Input" Core..=) Core.<$> s3Input,
-            Core.Just ("InputName" Core..= inputName)
+              Prelude.<$> datasetDefinition,
+            ("AppManaged" Core..=) Prelude.<$> appManaged,
+            ("S3Input" Core..=) Prelude.<$> s3Input,
+            Prelude.Just ("InputName" Core..= inputName)
           ]
       )

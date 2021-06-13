@@ -22,6 +22,7 @@ module Network.AWS.CodeBuild.Types.RegistryCredential where
 import Network.AWS.CodeBuild.Types.CredentialProviderType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about credentials that provide access to a private Docker
 -- registry. When this is set:
@@ -40,12 +41,12 @@ data RegistryCredential = RegistryCredential'
     --
     -- The @credential@ can use the name of the credentials only if they exist
     -- in your current AWS Region.
-    credential :: Core.Text,
+    credential :: Prelude.Text,
     -- | The service that created the credentials to access a private Docker
     -- registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
     credentialProvider :: CredentialProviderType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegistryCredential' with all optional fields omitted.
@@ -65,7 +66,7 @@ data RegistryCredential = RegistryCredential'
 -- registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
 newRegistryCredential ::
   -- | 'credential'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'credentialProvider'
   CredentialProviderType ->
   RegistryCredential
@@ -82,7 +83,7 @@ newRegistryCredential
 --
 -- The @credential@ can use the name of the credentials only if they exist
 -- in your current AWS Region.
-registryCredential_credential :: Lens.Lens' RegistryCredential Core.Text
+registryCredential_credential :: Lens.Lens' RegistryCredential Prelude.Text
 registryCredential_credential = Lens.lens (\RegistryCredential' {credential} -> credential) (\s@RegistryCredential' {} a -> s {credential = a} :: RegistryCredential)
 
 -- | The service that created the credentials to access a private Docker
@@ -96,20 +97,20 @@ instance Core.FromJSON RegistryCredential where
       "RegistryCredential"
       ( \x ->
           RegistryCredential'
-            Core.<$> (x Core..: "credential")
-            Core.<*> (x Core..: "credentialProvider")
+            Prelude.<$> (x Core..: "credential")
+            Prelude.<*> (x Core..: "credentialProvider")
       )
 
-instance Core.Hashable RegistryCredential
+instance Prelude.Hashable RegistryCredential
 
-instance Core.NFData RegistryCredential
+instance Prelude.NFData RegistryCredential
 
 instance Core.ToJSON RegistryCredential where
   toJSON RegistryCredential' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("credential" Core..= credential),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("credential" Core..= credential),
+            Prelude.Just
               ("credentialProvider" Core..= credentialProvider)
           ]
       )

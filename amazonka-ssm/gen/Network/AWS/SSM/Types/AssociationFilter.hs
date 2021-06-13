@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.AssociationFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AssociationFilterKey
 
 -- | Describes a filter.
@@ -32,9 +33,9 @@ data AssociationFilter = AssociationFilter'
     -- @InstanceId@ has been deprecated.
     key :: AssociationFilterKey,
     -- | The filter value.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociationFilter' with all optional fields omitted.
@@ -53,7 +54,7 @@ newAssociationFilter ::
   -- | 'key'
   AssociationFilterKey ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   AssociationFilter
 newAssociationFilter pKey_ pValue_ =
   AssociationFilter' {key = pKey_, value = pValue_}
@@ -65,18 +66,18 @@ associationFilter_key :: Lens.Lens' AssociationFilter AssociationFilterKey
 associationFilter_key = Lens.lens (\AssociationFilter' {key} -> key) (\s@AssociationFilter' {} a -> s {key = a} :: AssociationFilter)
 
 -- | The filter value.
-associationFilter_value :: Lens.Lens' AssociationFilter Core.Text
+associationFilter_value :: Lens.Lens' AssociationFilter Prelude.Text
 associationFilter_value = Lens.lens (\AssociationFilter' {value} -> value) (\s@AssociationFilter' {} a -> s {value = a} :: AssociationFilter)
 
-instance Core.Hashable AssociationFilter
+instance Prelude.Hashable AssociationFilter
 
-instance Core.NFData AssociationFilter
+instance Prelude.NFData AssociationFilter
 
 instance Core.ToJSON AssociationFilter where
   toJSON AssociationFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("key" Core..= key),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("key" Core..= key),
+            Prelude.Just ("value" Core..= value)
           ]
       )

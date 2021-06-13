@@ -51,18 +51,19 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRdsDbInstances' smart constructor.
 data DescribeRdsDbInstances = DescribeRdsDbInstances'
   { -- | An array containing the ARNs of the instances to be described.
-    rdsDbInstanceArns :: Core.Maybe [Core.Text],
+    rdsDbInstanceArns :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the stack with which the instances are registered. The
     -- operation returns descriptions of all registered Amazon RDS instances.
-    stackId :: Core.Text
+    stackId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRdsDbInstances' with all optional fields omitted.
@@ -78,22 +79,22 @@ data DescribeRdsDbInstances = DescribeRdsDbInstances'
 -- operation returns descriptions of all registered Amazon RDS instances.
 newDescribeRdsDbInstances ::
   -- | 'stackId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeRdsDbInstances
 newDescribeRdsDbInstances pStackId_ =
   DescribeRdsDbInstances'
     { rdsDbInstanceArns =
-        Core.Nothing,
+        Prelude.Nothing,
       stackId = pStackId_
     }
 
 -- | An array containing the ARNs of the instances to be described.
-describeRdsDbInstances_rdsDbInstanceArns :: Lens.Lens' DescribeRdsDbInstances (Core.Maybe [Core.Text])
-describeRdsDbInstances_rdsDbInstanceArns = Lens.lens (\DescribeRdsDbInstances' {rdsDbInstanceArns} -> rdsDbInstanceArns) (\s@DescribeRdsDbInstances' {} a -> s {rdsDbInstanceArns = a} :: DescribeRdsDbInstances) Core.. Lens.mapping Lens._Coerce
+describeRdsDbInstances_rdsDbInstanceArns :: Lens.Lens' DescribeRdsDbInstances (Prelude.Maybe [Prelude.Text])
+describeRdsDbInstances_rdsDbInstanceArns = Lens.lens (\DescribeRdsDbInstances' {rdsDbInstanceArns} -> rdsDbInstanceArns) (\s@DescribeRdsDbInstances' {} a -> s {rdsDbInstanceArns = a} :: DescribeRdsDbInstances) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the stack with which the instances are registered. The
 -- operation returns descriptions of all registered Amazon RDS instances.
-describeRdsDbInstances_stackId :: Lens.Lens' DescribeRdsDbInstances Core.Text
+describeRdsDbInstances_stackId :: Lens.Lens' DescribeRdsDbInstances Prelude.Text
 describeRdsDbInstances_stackId = Lens.lens (\DescribeRdsDbInstances' {stackId} -> stackId) (\s@DescribeRdsDbInstances' {} a -> s {stackId = a} :: DescribeRdsDbInstances)
 
 instance Core.AWSRequest DescribeRdsDbInstances where
@@ -105,53 +106,55 @@ instance Core.AWSRequest DescribeRdsDbInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeRdsDbInstancesResponse'
-            Core.<$> (x Core..?> "RdsDbInstances" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RdsDbInstances" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRdsDbInstances
+instance Prelude.Hashable DescribeRdsDbInstances
 
-instance Core.NFData DescribeRdsDbInstances
+instance Prelude.NFData DescribeRdsDbInstances
 
 instance Core.ToHeaders DescribeRdsDbInstances where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribeRdsDbInstances" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeRdsDbInstances where
   toJSON DescribeRdsDbInstances' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RdsDbInstanceArns" Core..=)
-              Core.<$> rdsDbInstanceArns,
-            Core.Just ("StackId" Core..= stackId)
+              Prelude.<$> rdsDbInstanceArns,
+            Prelude.Just ("StackId" Core..= stackId)
           ]
       )
 
 instance Core.ToPath DescribeRdsDbInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeRdsDbInstances where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeRdsDbInstances@ request.
 --
 -- /See:/ 'newDescribeRdsDbInstancesResponse' smart constructor.
 data DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse'
   { -- | An a array of @RdsDbInstance@ objects that describe the instances.
-    rdsDbInstances :: Core.Maybe [RdsDbInstance],
+    rdsDbInstances :: Prelude.Maybe [RdsDbInstance],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRdsDbInstancesResponse' with all optional fields omitted.
@@ -166,21 +169,23 @@ data DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse'
 -- 'httpStatus', 'describeRdsDbInstancesResponse_httpStatus' - The response's http status code.
 newDescribeRdsDbInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRdsDbInstancesResponse
 newDescribeRdsDbInstancesResponse pHttpStatus_ =
   DescribeRdsDbInstancesResponse'
     { rdsDbInstances =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
-describeRdsDbInstancesResponse_rdsDbInstances :: Lens.Lens' DescribeRdsDbInstancesResponse (Core.Maybe [RdsDbInstance])
-describeRdsDbInstancesResponse_rdsDbInstances = Lens.lens (\DescribeRdsDbInstancesResponse' {rdsDbInstances} -> rdsDbInstances) (\s@DescribeRdsDbInstancesResponse' {} a -> s {rdsDbInstances = a} :: DescribeRdsDbInstancesResponse) Core.. Lens.mapping Lens._Coerce
+describeRdsDbInstancesResponse_rdsDbInstances :: Lens.Lens' DescribeRdsDbInstancesResponse (Prelude.Maybe [RdsDbInstance])
+describeRdsDbInstancesResponse_rdsDbInstances = Lens.lens (\DescribeRdsDbInstancesResponse' {rdsDbInstances} -> rdsDbInstances) (\s@DescribeRdsDbInstancesResponse' {} a -> s {rdsDbInstances = a} :: DescribeRdsDbInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeRdsDbInstancesResponse_httpStatus :: Lens.Lens' DescribeRdsDbInstancesResponse Core.Int
+describeRdsDbInstancesResponse_httpStatus :: Lens.Lens' DescribeRdsDbInstancesResponse Prelude.Int
 describeRdsDbInstancesResponse_httpStatus = Lens.lens (\DescribeRdsDbInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeRdsDbInstancesResponse' {} a -> s {httpStatus = a} :: DescribeRdsDbInstancesResponse)
 
-instance Core.NFData DescribeRdsDbInstancesResponse
+instance
+  Prelude.NFData
+    DescribeRdsDbInstancesResponse

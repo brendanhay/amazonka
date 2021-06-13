@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,10 +54,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListInputs' smart constructor.
 data ListInputs = ListInputs'
-  { nextToken :: Core.Maybe Core.Text,
-    maxResults :: Core.Maybe Core.Natural
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInputs' with all optional fields omitted.
@@ -73,36 +74,36 @@ newListInputs ::
   ListInputs
 newListInputs =
   ListInputs'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Undocumented member.
-listInputs_nextToken :: Lens.Lens' ListInputs (Core.Maybe Core.Text)
+listInputs_nextToken :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Text)
 listInputs_nextToken = Lens.lens (\ListInputs' {nextToken} -> nextToken) (\s@ListInputs' {} a -> s {nextToken = a} :: ListInputs)
 
 -- | Undocumented member.
-listInputs_maxResults :: Lens.Lens' ListInputs (Core.Maybe Core.Natural)
+listInputs_maxResults :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Natural)
 listInputs_maxResults = Lens.lens (\ListInputs' {maxResults} -> maxResults) (\s@ListInputs' {} a -> s {maxResults = a} :: ListInputs)
 
 instance Core.AWSPager ListInputs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listInputsResponse_nextToken Core.. Lens._Just
+            Lens.^? listInputsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listInputsResponse_inputs Core.. Lens._Just
+            Lens.^? listInputsResponse_inputs Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listInputs_nextToken
+          Prelude.& listInputs_nextToken
           Lens..~ rs
-          Lens.^? listInputsResponse_nextToken Core.. Lens._Just
+          Lens.^? listInputsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputs where
   type AWSResponse ListInputs = ListInputsResponse
@@ -111,30 +112,32 @@ instance Core.AWSRequest ListInputs where
     Response.receiveJSON
       ( \s h x ->
           ListInputsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "inputs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "inputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListInputs
+instance Prelude.Hashable ListInputs
 
-instance Core.NFData ListInputs
+instance Prelude.NFData ListInputs
 
 instance Core.ToHeaders ListInputs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListInputs where
-  toPath = Core.const "/prod/inputs"
+  toPath = Prelude.const "/prod/inputs"
 
 instance Core.ToQuery ListInputs where
   toQuery ListInputs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -143,12 +146,12 @@ instance Core.ToQuery ListInputs where
 --
 -- /See:/ 'newListInputsResponse' smart constructor.
 data ListInputsResponse = ListInputsResponse'
-  { nextToken :: Core.Maybe Core.Text,
-    inputs :: Core.Maybe [Input],
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    inputs :: Prelude.Maybe [Input],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInputsResponse' with all optional fields omitted.
@@ -165,25 +168,25 @@ data ListInputsResponse = ListInputsResponse'
 -- 'httpStatus', 'listInputsResponse_httpStatus' - The response's http status code.
 newListInputsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListInputsResponse
 newListInputsResponse pHttpStatus_ =
   ListInputsResponse'
-    { nextToken = Core.Nothing,
-      inputs = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      inputs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listInputsResponse_nextToken :: Lens.Lens' ListInputsResponse (Core.Maybe Core.Text)
+listInputsResponse_nextToken :: Lens.Lens' ListInputsResponse (Prelude.Maybe Prelude.Text)
 listInputsResponse_nextToken = Lens.lens (\ListInputsResponse' {nextToken} -> nextToken) (\s@ListInputsResponse' {} a -> s {nextToken = a} :: ListInputsResponse)
 
 -- | Undocumented member.
-listInputsResponse_inputs :: Lens.Lens' ListInputsResponse (Core.Maybe [Input])
-listInputsResponse_inputs = Lens.lens (\ListInputsResponse' {inputs} -> inputs) (\s@ListInputsResponse' {} a -> s {inputs = a} :: ListInputsResponse) Core.. Lens.mapping Lens._Coerce
+listInputsResponse_inputs :: Lens.Lens' ListInputsResponse (Prelude.Maybe [Input])
+listInputsResponse_inputs = Lens.lens (\ListInputsResponse' {inputs} -> inputs) (\s@ListInputsResponse' {} a -> s {inputs = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInputsResponse_httpStatus :: Lens.Lens' ListInputsResponse Core.Int
+listInputsResponse_httpStatus :: Lens.Lens' ListInputsResponse Prelude.Int
 listInputsResponse_httpStatus = Lens.lens (\ListInputsResponse' {httpStatus} -> httpStatus) (\s@ListInputsResponse' {} a -> s {httpStatus = a} :: ListInputsResponse)
 
-instance Core.NFData ListInputsResponse
+instance Prelude.NFData ListInputsResponse

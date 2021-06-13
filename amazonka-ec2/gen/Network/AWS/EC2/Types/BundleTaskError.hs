@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.BundleTaskError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an error for BundleInstance.
 --
 -- /See:/ 'newBundleTaskError' smart constructor.
 data BundleTaskError = BundleTaskError'
   { -- | The error message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BundleTaskError' with all optional fields omitted.
@@ -49,23 +50,24 @@ newBundleTaskError ::
   BundleTaskError
 newBundleTaskError =
   BundleTaskError'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The error message.
-bundleTaskError_message :: Lens.Lens' BundleTaskError (Core.Maybe Core.Text)
+bundleTaskError_message :: Lens.Lens' BundleTaskError (Prelude.Maybe Prelude.Text)
 bundleTaskError_message = Lens.lens (\BundleTaskError' {message} -> message) (\s@BundleTaskError' {} a -> s {message = a} :: BundleTaskError)
 
 -- | The error code.
-bundleTaskError_code :: Lens.Lens' BundleTaskError (Core.Maybe Core.Text)
+bundleTaskError_code :: Lens.Lens' BundleTaskError (Prelude.Maybe Prelude.Text)
 bundleTaskError_code = Lens.lens (\BundleTaskError' {code} -> code) (\s@BundleTaskError' {} a -> s {code = a} :: BundleTaskError)
 
 instance Core.FromXML BundleTaskError where
   parseXML x =
     BundleTaskError'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable BundleTaskError
+instance Prelude.Hashable BundleTaskError
 
-instance Core.NFData BundleTaskError
+instance Prelude.NFData BundleTaskError

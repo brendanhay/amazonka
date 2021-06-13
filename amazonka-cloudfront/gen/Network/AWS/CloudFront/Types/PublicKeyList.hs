@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.PublicKeyList where
 import Network.AWS.CloudFront.Types.PublicKeySummary
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of public keys that you can use with
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
@@ -31,17 +32,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPublicKeyList' smart constructor.
 data PublicKeyList = PublicKeyList'
   { -- | A list of public keys.
-    items :: Core.Maybe [PublicKeySummary],
+    items :: Prelude.Maybe [PublicKeySummary],
     -- | If there are more elements to be listed, this element is present and
     -- contains the value that you can use for the @Marker@ request parameter
     -- to continue listing your public keys where you left off.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of public keys you want in the response.
-    maxItems :: Core.Int,
+    maxItems :: Prelude.Int,
     -- | The number of public keys in the list.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublicKeyList' with all optional fields omitted.
@@ -62,46 +63,46 @@ data PublicKeyList = PublicKeyList'
 -- 'quantity', 'publicKeyList_quantity' - The number of public keys in the list.
 newPublicKeyList ::
   -- | 'maxItems'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   PublicKeyList
 newPublicKeyList pMaxItems_ pQuantity_ =
   PublicKeyList'
-    { items = Core.Nothing,
-      nextMarker = Core.Nothing,
+    { items = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       maxItems = pMaxItems_,
       quantity = pQuantity_
     }
 
 -- | A list of public keys.
-publicKeyList_items :: Lens.Lens' PublicKeyList (Core.Maybe [PublicKeySummary])
-publicKeyList_items = Lens.lens (\PublicKeyList' {items} -> items) (\s@PublicKeyList' {} a -> s {items = a} :: PublicKeyList) Core.. Lens.mapping Lens._Coerce
+publicKeyList_items :: Lens.Lens' PublicKeyList (Prelude.Maybe [PublicKeySummary])
+publicKeyList_items = Lens.lens (\PublicKeyList' {items} -> items) (\s@PublicKeyList' {} a -> s {items = a} :: PublicKeyList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are more elements to be listed, this element is present and
 -- contains the value that you can use for the @Marker@ request parameter
 -- to continue listing your public keys where you left off.
-publicKeyList_nextMarker :: Lens.Lens' PublicKeyList (Core.Maybe Core.Text)
+publicKeyList_nextMarker :: Lens.Lens' PublicKeyList (Prelude.Maybe Prelude.Text)
 publicKeyList_nextMarker = Lens.lens (\PublicKeyList' {nextMarker} -> nextMarker) (\s@PublicKeyList' {} a -> s {nextMarker = a} :: PublicKeyList)
 
 -- | The maximum number of public keys you want in the response.
-publicKeyList_maxItems :: Lens.Lens' PublicKeyList Core.Int
+publicKeyList_maxItems :: Lens.Lens' PublicKeyList Prelude.Int
 publicKeyList_maxItems = Lens.lens (\PublicKeyList' {maxItems} -> maxItems) (\s@PublicKeyList' {} a -> s {maxItems = a} :: PublicKeyList)
 
 -- | The number of public keys in the list.
-publicKeyList_quantity :: Lens.Lens' PublicKeyList Core.Int
+publicKeyList_quantity :: Lens.Lens' PublicKeyList Prelude.Int
 publicKeyList_quantity = Lens.lens (\PublicKeyList' {quantity} -> quantity) (\s@PublicKeyList' {} a -> s {quantity = a} :: PublicKeyList)
 
 instance Core.FromXML PublicKeyList where
   parseXML x =
     PublicKeyList'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "PublicKeySummary")
-               )
-      Core.<*> (x Core..@? "NextMarker")
-      Core.<*> (x Core..@ "MaxItems")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "PublicKeySummary")
+                  )
+      Prelude.<*> (x Core..@? "NextMarker")
+      Prelude.<*> (x Core..@ "MaxItems")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable PublicKeyList
+instance Prelude.Hashable PublicKeyList
 
-instance Core.NFData PublicKeyList
+instance Prelude.NFData PublicKeyList

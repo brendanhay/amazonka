@@ -22,6 +22,7 @@ module Network.AWS.DirectConnect.Types.NewBGPPeer where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.AddressFamily
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a new BGP peer.
 --
@@ -29,18 +30,18 @@ import qualified Network.AWS.Lens as Lens
 data NewBGPPeer = NewBGPPeer'
   { -- | The authentication key for BGP configuration. This string has a minimum
     -- length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Core.Maybe Core.Text,
+    authKey :: Prelude.Maybe Prelude.Text,
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
     -- configuration.
-    asn :: Core.Maybe Core.Int,
+    asn :: Prelude.Maybe Prelude.Int,
     -- | The address family for the BGP peer.
-    addressFamily :: Core.Maybe AddressFamily,
+    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
-    amazonAddress :: Core.Maybe Core.Text,
+    amazonAddress :: Prelude.Maybe Prelude.Text,
     -- | The IP address assigned to the customer interface.
-    customerAddress :: Core.Maybe Core.Text
+    customerAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NewBGPPeer' with all optional fields omitted.
@@ -65,48 +66,48 @@ newNewBGPPeer ::
   NewBGPPeer
 newNewBGPPeer =
   NewBGPPeer'
-    { authKey = Core.Nothing,
-      asn = Core.Nothing,
-      addressFamily = Core.Nothing,
-      amazonAddress = Core.Nothing,
-      customerAddress = Core.Nothing
+    { authKey = Prelude.Nothing,
+      asn = Prelude.Nothing,
+      addressFamily = Prelude.Nothing,
+      amazonAddress = Prelude.Nothing,
+      customerAddress = Prelude.Nothing
     }
 
 -- | The authentication key for BGP configuration. This string has a minimum
 -- length of 6 characters and and a maximun lenth of 80 characters.
-newBGPPeer_authKey :: Lens.Lens' NewBGPPeer (Core.Maybe Core.Text)
+newBGPPeer_authKey :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
 newBGPPeer_authKey = Lens.lens (\NewBGPPeer' {authKey} -> authKey) (\s@NewBGPPeer' {} a -> s {authKey = a} :: NewBGPPeer)
 
 -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration.
-newBGPPeer_asn :: Lens.Lens' NewBGPPeer (Core.Maybe Core.Int)
+newBGPPeer_asn :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Int)
 newBGPPeer_asn = Lens.lens (\NewBGPPeer' {asn} -> asn) (\s@NewBGPPeer' {} a -> s {asn = a} :: NewBGPPeer)
 
 -- | The address family for the BGP peer.
-newBGPPeer_addressFamily :: Lens.Lens' NewBGPPeer (Core.Maybe AddressFamily)
+newBGPPeer_addressFamily :: Lens.Lens' NewBGPPeer (Prelude.Maybe AddressFamily)
 newBGPPeer_addressFamily = Lens.lens (\NewBGPPeer' {addressFamily} -> addressFamily) (\s@NewBGPPeer' {} a -> s {addressFamily = a} :: NewBGPPeer)
 
 -- | The IP address assigned to the Amazon interface.
-newBGPPeer_amazonAddress :: Lens.Lens' NewBGPPeer (Core.Maybe Core.Text)
+newBGPPeer_amazonAddress :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
 newBGPPeer_amazonAddress = Lens.lens (\NewBGPPeer' {amazonAddress} -> amazonAddress) (\s@NewBGPPeer' {} a -> s {amazonAddress = a} :: NewBGPPeer)
 
 -- | The IP address assigned to the customer interface.
-newBGPPeer_customerAddress :: Lens.Lens' NewBGPPeer (Core.Maybe Core.Text)
+newBGPPeer_customerAddress :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
 newBGPPeer_customerAddress = Lens.lens (\NewBGPPeer' {customerAddress} -> customerAddress) (\s@NewBGPPeer' {} a -> s {customerAddress = a} :: NewBGPPeer)
 
-instance Core.Hashable NewBGPPeer
+instance Prelude.Hashable NewBGPPeer
 
-instance Core.NFData NewBGPPeer
+instance Prelude.NFData NewBGPPeer
 
 instance Core.ToJSON NewBGPPeer where
   toJSON NewBGPPeer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("authKey" Core..=) Core.<$> authKey,
-            ("asn" Core..=) Core.<$> asn,
-            ("addressFamily" Core..=) Core.<$> addressFamily,
-            ("amazonAddress" Core..=) Core.<$> amazonAddress,
+      ( Prelude.catMaybes
+          [ ("authKey" Core..=) Prelude.<$> authKey,
+            ("asn" Core..=) Prelude.<$> asn,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
+            ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
             ("customerAddress" Core..=)
-              Core.<$> customerAddress
+              Prelude.<$> customerAddress
           ]
       )

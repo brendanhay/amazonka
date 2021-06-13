@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.OnFailure
 import Network.AWS.Lambda.Types.OnSuccess
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A configuration object that specifies the destination of an event after
 -- Lambda processes it.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDestinationConfig' smart constructor.
 data DestinationConfig = DestinationConfig'
   { -- | The destination configuration for failed invocations.
-    onFailure :: Core.Maybe OnFailure,
+    onFailure :: Prelude.Maybe OnFailure,
     -- | The destination configuration for successful invocations.
-    onSuccess :: Core.Maybe OnSuccess
+    onSuccess :: Prelude.Maybe OnSuccess
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DestinationConfig' with all optional fields omitted.
@@ -51,16 +52,16 @@ newDestinationConfig ::
   DestinationConfig
 newDestinationConfig =
   DestinationConfig'
-    { onFailure = Core.Nothing,
-      onSuccess = Core.Nothing
+    { onFailure = Prelude.Nothing,
+      onSuccess = Prelude.Nothing
     }
 
 -- | The destination configuration for failed invocations.
-destinationConfig_onFailure :: Lens.Lens' DestinationConfig (Core.Maybe OnFailure)
+destinationConfig_onFailure :: Lens.Lens' DestinationConfig (Prelude.Maybe OnFailure)
 destinationConfig_onFailure = Lens.lens (\DestinationConfig' {onFailure} -> onFailure) (\s@DestinationConfig' {} a -> s {onFailure = a} :: DestinationConfig)
 
 -- | The destination configuration for successful invocations.
-destinationConfig_onSuccess :: Lens.Lens' DestinationConfig (Core.Maybe OnSuccess)
+destinationConfig_onSuccess :: Lens.Lens' DestinationConfig (Prelude.Maybe OnSuccess)
 destinationConfig_onSuccess = Lens.lens (\DestinationConfig' {onSuccess} -> onSuccess) (\s@DestinationConfig' {} a -> s {onSuccess = a} :: DestinationConfig)
 
 instance Core.FromJSON DestinationConfig where
@@ -69,19 +70,19 @@ instance Core.FromJSON DestinationConfig where
       "DestinationConfig"
       ( \x ->
           DestinationConfig'
-            Core.<$> (x Core..:? "OnFailure")
-            Core.<*> (x Core..:? "OnSuccess")
+            Prelude.<$> (x Core..:? "OnFailure")
+            Prelude.<*> (x Core..:? "OnSuccess")
       )
 
-instance Core.Hashable DestinationConfig
+instance Prelude.Hashable DestinationConfig
 
-instance Core.NFData DestinationConfig
+instance Prelude.NFData DestinationConfig
 
 instance Core.ToJSON DestinationConfig where
   toJSON DestinationConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("OnFailure" Core..=) Core.<$> onFailure,
-            ("OnSuccess" Core..=) Core.<$> onSuccess
+      ( Prelude.catMaybes
+          [ ("OnFailure" Core..=) Prelude.<$> onFailure,
+            ("OnSuccess" Core..=) Prelude.<$> onSuccess
           ]
       )

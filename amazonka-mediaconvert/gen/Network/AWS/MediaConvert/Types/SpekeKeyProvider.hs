@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.SpekeKeyProvider where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
 -- settings when doing DRM encryption with a SPEKE-compliant key provider.
@@ -31,22 +32,22 @@ import qualified Network.AWS.Lens as Lens
 data SpekeKeyProvider = SpekeKeyProvider'
   { -- | Specify the resource ID that your SPEKE-compliant key provider uses to
     -- identify this content.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | If you want your key provider to encrypt the content keys that it
     -- provides to MediaConvert, set up a certificate with a master key using
     -- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
     -- (ARN) here.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | Relates to SPEKE implementation. DRM system identifiers. DASH output
     -- groups support a max of two system ids. Other group types support one
     -- system id. See https:\/\/dashif.org\/identifiers\/content_protection\/
     -- for more details.
-    systemIds :: Core.Maybe [Core.Text],
+    systemIds :: Prelude.Maybe [Prelude.Text],
     -- | Specify the URL to the key server that your SPEKE-compliant DRM key
     -- provider uses to provide keys for encrypting your content.
-    url :: Core.Maybe Core.Text
+    url :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpekeKeyProvider' with all optional fields omitted.
@@ -75,34 +76,34 @@ newSpekeKeyProvider ::
   SpekeKeyProvider
 newSpekeKeyProvider =
   SpekeKeyProvider'
-    { resourceId = Core.Nothing,
-      certificateArn = Core.Nothing,
-      systemIds = Core.Nothing,
-      url = Core.Nothing
+    { resourceId = Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
+      systemIds = Prelude.Nothing,
+      url = Prelude.Nothing
     }
 
 -- | Specify the resource ID that your SPEKE-compliant key provider uses to
 -- identify this content.
-spekeKeyProvider_resourceId :: Lens.Lens' SpekeKeyProvider (Core.Maybe Core.Text)
+spekeKeyProvider_resourceId :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe Prelude.Text)
 spekeKeyProvider_resourceId = Lens.lens (\SpekeKeyProvider' {resourceId} -> resourceId) (\s@SpekeKeyProvider' {} a -> s {resourceId = a} :: SpekeKeyProvider)
 
 -- | If you want your key provider to encrypt the content keys that it
 -- provides to MediaConvert, set up a certificate with a master key using
 -- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
 -- (ARN) here.
-spekeKeyProvider_certificateArn :: Lens.Lens' SpekeKeyProvider (Core.Maybe Core.Text)
+spekeKeyProvider_certificateArn :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe Prelude.Text)
 spekeKeyProvider_certificateArn = Lens.lens (\SpekeKeyProvider' {certificateArn} -> certificateArn) (\s@SpekeKeyProvider' {} a -> s {certificateArn = a} :: SpekeKeyProvider)
 
 -- | Relates to SPEKE implementation. DRM system identifiers. DASH output
 -- groups support a max of two system ids. Other group types support one
 -- system id. See https:\/\/dashif.org\/identifiers\/content_protection\/
 -- for more details.
-spekeKeyProvider_systemIds :: Lens.Lens' SpekeKeyProvider (Core.Maybe [Core.Text])
-spekeKeyProvider_systemIds = Lens.lens (\SpekeKeyProvider' {systemIds} -> systemIds) (\s@SpekeKeyProvider' {} a -> s {systemIds = a} :: SpekeKeyProvider) Core.. Lens.mapping Lens._Coerce
+spekeKeyProvider_systemIds :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe [Prelude.Text])
+spekeKeyProvider_systemIds = Lens.lens (\SpekeKeyProvider' {systemIds} -> systemIds) (\s@SpekeKeyProvider' {} a -> s {systemIds = a} :: SpekeKeyProvider) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specify the URL to the key server that your SPEKE-compliant DRM key
 -- provider uses to provide keys for encrypting your content.
-spekeKeyProvider_url :: Lens.Lens' SpekeKeyProvider (Core.Maybe Core.Text)
+spekeKeyProvider_url :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe Prelude.Text)
 spekeKeyProvider_url = Lens.lens (\SpekeKeyProvider' {url} -> url) (\s@SpekeKeyProvider' {} a -> s {url = a} :: SpekeKeyProvider)
 
 instance Core.FromJSON SpekeKeyProvider where
@@ -111,23 +112,24 @@ instance Core.FromJSON SpekeKeyProvider where
       "SpekeKeyProvider"
       ( \x ->
           SpekeKeyProvider'
-            Core.<$> (x Core..:? "resourceId")
-            Core.<*> (x Core..:? "certificateArn")
-            Core.<*> (x Core..:? "systemIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "url")
+            Prelude.<$> (x Core..:? "resourceId")
+            Prelude.<*> (x Core..:? "certificateArn")
+            Prelude.<*> (x Core..:? "systemIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "url")
       )
 
-instance Core.Hashable SpekeKeyProvider
+instance Prelude.Hashable SpekeKeyProvider
 
-instance Core.NFData SpekeKeyProvider
+instance Prelude.NFData SpekeKeyProvider
 
 instance Core.ToJSON SpekeKeyProvider where
   toJSON SpekeKeyProvider' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("resourceId" Core..=) Core.<$> resourceId,
-            ("certificateArn" Core..=) Core.<$> certificateArn,
-            ("systemIds" Core..=) Core.<$> systemIds,
-            ("url" Core..=) Core.<$> url
+      ( Prelude.catMaybes
+          [ ("resourceId" Core..=) Prelude.<$> resourceId,
+            ("certificateArn" Core..=)
+              Prelude.<$> certificateArn,
+            ("systemIds" Core..=) Prelude.<$> systemIds,
+            ("url" Core..=) Prelude.<$> url
           ]
       )

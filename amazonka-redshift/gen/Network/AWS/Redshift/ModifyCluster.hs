@@ -78,6 +78,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -95,7 +96,7 @@ data ModifyCluster = ModifyCluster'
     -- If this option is @true@, enhanced VPC routing is enabled.
     --
     -- Default: false
-    enhancedVpcRouting :: Core.Maybe Core.Bool,
+    enhancedVpcRouting :: Prelude.Maybe Prelude.Bool,
     -- | The Elastic IP (EIP) address for the cluster.
     --
     -- Constraints: The cluster must be provisioned in EC2-VPC and
@@ -103,22 +104,22 @@ data ModifyCluster = ModifyCluster'
     -- about provisioning clusters in EC2-VPC, go to
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
     -- in the Amazon Redshift Cluster Management Guide.
-    elasticIp :: Core.Maybe Core.Text,
+    elasticIp :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the HSM client certificate the Amazon Redshift
     -- cluster uses to retrieve the data encryption keys stored in an HSM.
-    hsmClientCertificateIdentifier :: Core.Maybe Core.Text,
+    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the cluster is encrypted. If the value is encrypted
     -- (true) and you provide a value for the @KmsKeyId@ parameter, we encrypt
     -- the cluster with the provided @KmsKeyId@. If you don\'t provide a
     -- @KmsKeyId@, we encrypt with the default key.
     --
     -- If the value is not encrypted (false), then the cluster is decrypted.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | If @true@, major version upgrades will be applied automatically to the
     -- cluster during the maintenance window.
     --
     -- Default: @false@
-    allowVersionUpgrade :: Core.Maybe Core.Bool,
+    allowVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The number of days that automated snapshots are retained. If the value
     -- is 0, automated snapshots are disabled. Even if automated snapshots are
     -- disabled, you can still create manual snapshots when you want with
@@ -131,7 +132,7 @@ data ModifyCluster = ModifyCluster'
     -- Default: Uses existing setting.
     --
     -- Constraints: Must be a value from 0 to 35.
-    automatedSnapshotRetentionPeriod :: Core.Maybe Core.Int,
+    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The name of the cluster parameter group to apply to this cluster. This
     -- change is applied only after the cluster is rebooted. To reboot a
     -- cluster use RebootCluster.
@@ -140,7 +141,7 @@ data ModifyCluster = ModifyCluster'
     --
     -- Constraints: The cluster parameter group must be in the same parameter
     -- group family that matches the cluster version.
-    clusterParameterGroupName :: Core.Maybe Core.Text,
+    clusterParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The new identifier for the cluster.
     --
     -- Constraints:
@@ -156,10 +157,10 @@ data ModifyCluster = ModifyCluster'
     -- -   Must be unique for all clusters within an AWS account.
     --
     -- Example: @examplecluster@
-    newClusterIdentifier' :: Core.Maybe Core.Text,
+    newClusterIdentifier' :: Prelude.Maybe Prelude.Text,
     -- | The option to enable relocation for an Amazon Redshift cluster between
     -- Availability Zones after the cluster modification is complete.
-    availabilityZoneRelocation :: Core.Maybe Core.Bool,
+    availabilityZoneRelocation :: Prelude.Maybe Prelude.Bool,
     -- | The new password for the cluster master user. This change is
     -- asynchronously applied as soon as possible. Between the time of the
     -- request and the completion of the request, the @MasterUserPassword@
@@ -184,14 +185,14 @@ data ModifyCluster = ModifyCluster'
     --
     -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
     --     \' (single quote), \" (double quote), \\, \/, \@, or space.
-    masterUserPassword :: Core.Maybe Core.Text,
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | If @true@, the cluster can be accessed from a public network. Only
     -- clusters in VPCs can be set to be publicly available.
-    publiclyAccessible :: Core.Maybe Core.Bool,
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | A list of virtual private cloud (VPC) security groups to be associated
     -- with the cluster. This change is asynchronously applied as soon as
     -- possible.
-    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The new cluster type.
     --
     -- When you submit your cluster resize request, your existing cluster goes
@@ -202,7 +203,7 @@ data ModifyCluster = ModifyCluster'
     -- resize request.
     --
     -- Valid Values: @ multi-node | single-node @
-    clusterType :: Core.Maybe Core.Text,
+    clusterType :: Prelude.Maybe Prelude.Text,
     -- | The default for number of days that a newly created manual snapshot is
     -- retained. If the value is -1, the manual snapshot is retained
     -- indefinitely. This value doesn\'t retroactively change the retention
@@ -211,13 +212,13 @@ data ModifyCluster = ModifyCluster'
     -- The value must be either -1 or an integer between 1 and 3,653.
     --
     -- The default value is -1.
-    manualSnapshotRetentionPeriod :: Core.Maybe Core.Int,
+    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The AWS Key Management Service (KMS) key ID of the encryption key that
     -- you want to use to encrypt data in the cluster.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The option to initiate relocation for an Amazon Redshift cluster to the
     -- target Availability Zone.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range (in UTC) during which system maintenance can
     -- occur, if necessary. If system maintenance is necessary during the
     -- window, it may result in an outage.
@@ -234,7 +235,7 @@ data ModifyCluster = ModifyCluster'
     -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
     --
     -- Constraints: Must be at least 30 minutes.
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The new number of nodes of the cluster. If you specify a new number of
     -- nodes, you must also specify the node type parameter.
     --
@@ -243,9 +244,9 @@ data ModifyCluster = ModifyCluster'
     -- in the /Amazon Redshift Cluster Management Guide/.
     --
     -- Valid Values: Integer greater than @0@.
-    numberOfNodes :: Core.Maybe Core.Int,
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The option to change the port of an Amazon Redshift cluster.
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | The new node type of the cluster. If you specify a new node type, you
     -- must also specify the number of nodes parameter.
     --
@@ -256,7 +257,7 @@ data ModifyCluster = ModifyCluster'
     -- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@
     -- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
     -- @ra3.16xlarge@
-    nodeType :: Core.Maybe Core.Text,
+    nodeType :: Prelude.Maybe Prelude.Text,
     -- | The new version number of the Amazon Redshift engine to upgrade to.
     --
     -- For major version upgrades, if a non-default cluster parameter group is
@@ -269,7 +270,7 @@ data ModifyCluster = ModifyCluster'
     -- in the /Amazon Redshift Cluster Management Guide/.
     --
     -- Example: @1.0@
-    clusterVersion :: Core.Maybe Core.Text,
+    clusterVersion :: Prelude.Maybe Prelude.Text,
     -- | A list of cluster security groups to be authorized on this cluster. This
     -- change is asynchronously applied as soon as possible.
     --
@@ -283,24 +284,24 @@ data ModifyCluster = ModifyCluster'
     -- -   First character must be a letter
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens
-    clusterSecurityGroups :: Core.Maybe [Core.Text],
+    clusterSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The name for the maintenance track that you want to assign for the
     -- cluster. This name change is asynchronous. The new track name stays in
     -- the @PendingModifiedValues@ for the cluster until the next maintenance
     -- window. When the maintenance track changes, the cluster is switched to
     -- the latest cluster release available for the maintenance track. At this
     -- point, the maintenance track name is applied.
-    maintenanceTrackName :: Core.Maybe Core.Text,
+    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the HSM configuration that contains the
     -- information the Amazon Redshift cluster can use to retrieve and store
     -- keys in an HSM.
-    hsmConfigurationIdentifier :: Core.Maybe Core.Text,
+    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the cluster to be modified.
     --
     -- Example: @examplecluster@
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyCluster' with all optional fields omitted.
@@ -524,34 +525,35 @@ data ModifyCluster = ModifyCluster'
 -- Example: @examplecluster@
 newModifyCluster ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ModifyCluster
 newModifyCluster pClusterIdentifier_ =
   ModifyCluster'
-    { enhancedVpcRouting = Core.Nothing,
-      elasticIp = Core.Nothing,
-      hsmClientCertificateIdentifier = Core.Nothing,
-      encrypted = Core.Nothing,
-      allowVersionUpgrade = Core.Nothing,
-      automatedSnapshotRetentionPeriod = Core.Nothing,
-      clusterParameterGroupName = Core.Nothing,
-      newClusterIdentifier' = Core.Nothing,
-      availabilityZoneRelocation = Core.Nothing,
-      masterUserPassword = Core.Nothing,
-      publiclyAccessible = Core.Nothing,
-      vpcSecurityGroupIds = Core.Nothing,
-      clusterType = Core.Nothing,
-      manualSnapshotRetentionPeriod = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      preferredMaintenanceWindow = Core.Nothing,
-      numberOfNodes = Core.Nothing,
-      port = Core.Nothing,
-      nodeType = Core.Nothing,
-      clusterVersion = Core.Nothing,
-      clusterSecurityGroups = Core.Nothing,
-      maintenanceTrackName = Core.Nothing,
-      hsmConfigurationIdentifier = Core.Nothing,
+    { enhancedVpcRouting =
+        Prelude.Nothing,
+      elasticIp = Prelude.Nothing,
+      hsmClientCertificateIdentifier = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      allowVersionUpgrade = Prelude.Nothing,
+      automatedSnapshotRetentionPeriod = Prelude.Nothing,
+      clusterParameterGroupName = Prelude.Nothing,
+      newClusterIdentifier' = Prelude.Nothing,
+      availabilityZoneRelocation = Prelude.Nothing,
+      masterUserPassword = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
+      clusterType = Prelude.Nothing,
+      manualSnapshotRetentionPeriod = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      numberOfNodes = Prelude.Nothing,
+      port = Prelude.Nothing,
+      nodeType = Prelude.Nothing,
+      clusterVersion = Prelude.Nothing,
+      clusterSecurityGroups = Prelude.Nothing,
+      maintenanceTrackName = Prelude.Nothing,
+      hsmConfigurationIdentifier = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
 
@@ -564,7 +566,7 @@ newModifyCluster pClusterIdentifier_ =
 -- If this option is @true@, enhanced VPC routing is enabled.
 --
 -- Default: false
-modifyCluster_enhancedVpcRouting :: Lens.Lens' ModifyCluster (Core.Maybe Core.Bool)
+modifyCluster_enhancedVpcRouting :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Bool)
 modifyCluster_enhancedVpcRouting = Lens.lens (\ModifyCluster' {enhancedVpcRouting} -> enhancedVpcRouting) (\s@ModifyCluster' {} a -> s {enhancedVpcRouting = a} :: ModifyCluster)
 
 -- | The Elastic IP (EIP) address for the cluster.
@@ -574,12 +576,12 @@ modifyCluster_enhancedVpcRouting = Lens.lens (\ModifyCluster' {enhancedVpcRoutin
 -- about provisioning clusters in EC2-VPC, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
 -- in the Amazon Redshift Cluster Management Guide.
-modifyCluster_elasticIp :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_elasticIp :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_elasticIp = Lens.lens (\ModifyCluster' {elasticIp} -> elasticIp) (\s@ModifyCluster' {} a -> s {elasticIp = a} :: ModifyCluster)
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-modifyCluster_hsmClientCertificateIdentifier :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_hsmClientCertificateIdentifier :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_hsmClientCertificateIdentifier = Lens.lens (\ModifyCluster' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@ModifyCluster' {} a -> s {hsmClientCertificateIdentifier = a} :: ModifyCluster)
 
 -- | Indicates whether the cluster is encrypted. If the value is encrypted
@@ -588,14 +590,14 @@ modifyCluster_hsmClientCertificateIdentifier = Lens.lens (\ModifyCluster' {hsmCl
 -- @KmsKeyId@, we encrypt with the default key.
 --
 -- If the value is not encrypted (false), then the cluster is decrypted.
-modifyCluster_encrypted :: Lens.Lens' ModifyCluster (Core.Maybe Core.Bool)
+modifyCluster_encrypted :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Bool)
 modifyCluster_encrypted = Lens.lens (\ModifyCluster' {encrypted} -> encrypted) (\s@ModifyCluster' {} a -> s {encrypted = a} :: ModifyCluster)
 
 -- | If @true@, major version upgrades will be applied automatically to the
 -- cluster during the maintenance window.
 --
 -- Default: @false@
-modifyCluster_allowVersionUpgrade :: Lens.Lens' ModifyCluster (Core.Maybe Core.Bool)
+modifyCluster_allowVersionUpgrade :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Bool)
 modifyCluster_allowVersionUpgrade = Lens.lens (\ModifyCluster' {allowVersionUpgrade} -> allowVersionUpgrade) (\s@ModifyCluster' {} a -> s {allowVersionUpgrade = a} :: ModifyCluster)
 
 -- | The number of days that automated snapshots are retained. If the value
@@ -610,7 +612,7 @@ modifyCluster_allowVersionUpgrade = Lens.lens (\ModifyCluster' {allowVersionUpgr
 -- Default: Uses existing setting.
 --
 -- Constraints: Must be a value from 0 to 35.
-modifyCluster_automatedSnapshotRetentionPeriod :: Lens.Lens' ModifyCluster (Core.Maybe Core.Int)
+modifyCluster_automatedSnapshotRetentionPeriod :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Int)
 modifyCluster_automatedSnapshotRetentionPeriod = Lens.lens (\ModifyCluster' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@ModifyCluster' {} a -> s {automatedSnapshotRetentionPeriod = a} :: ModifyCluster)
 
 -- | The name of the cluster parameter group to apply to this cluster. This
@@ -621,7 +623,7 @@ modifyCluster_automatedSnapshotRetentionPeriod = Lens.lens (\ModifyCluster' {aut
 --
 -- Constraints: The cluster parameter group must be in the same parameter
 -- group family that matches the cluster version.
-modifyCluster_clusterParameterGroupName :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_clusterParameterGroupName :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_clusterParameterGroupName = Lens.lens (\ModifyCluster' {clusterParameterGroupName} -> clusterParameterGroupName) (\s@ModifyCluster' {} a -> s {clusterParameterGroupName = a} :: ModifyCluster)
 
 -- | The new identifier for the cluster.
@@ -639,12 +641,12 @@ modifyCluster_clusterParameterGroupName = Lens.lens (\ModifyCluster' {clusterPar
 -- -   Must be unique for all clusters within an AWS account.
 --
 -- Example: @examplecluster@
-modifyCluster_newClusterIdentifier :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_newClusterIdentifier :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_newClusterIdentifier = Lens.lens (\ModifyCluster' {newClusterIdentifier'} -> newClusterIdentifier') (\s@ModifyCluster' {} a -> s {newClusterIdentifier' = a} :: ModifyCluster)
 
 -- | The option to enable relocation for an Amazon Redshift cluster between
 -- Availability Zones after the cluster modification is complete.
-modifyCluster_availabilityZoneRelocation :: Lens.Lens' ModifyCluster (Core.Maybe Core.Bool)
+modifyCluster_availabilityZoneRelocation :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Bool)
 modifyCluster_availabilityZoneRelocation = Lens.lens (\ModifyCluster' {availabilityZoneRelocation} -> availabilityZoneRelocation) (\s@ModifyCluster' {} a -> s {availabilityZoneRelocation = a} :: ModifyCluster)
 
 -- | The new password for the cluster master user. This change is
@@ -671,19 +673,19 @@ modifyCluster_availabilityZoneRelocation = Lens.lens (\ModifyCluster' {availabil
 --
 -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
 --     \' (single quote), \" (double quote), \\, \/, \@, or space.
-modifyCluster_masterUserPassword :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_masterUserPassword :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_masterUserPassword = Lens.lens (\ModifyCluster' {masterUserPassword} -> masterUserPassword) (\s@ModifyCluster' {} a -> s {masterUserPassword = a} :: ModifyCluster)
 
 -- | If @true@, the cluster can be accessed from a public network. Only
 -- clusters in VPCs can be set to be publicly available.
-modifyCluster_publiclyAccessible :: Lens.Lens' ModifyCluster (Core.Maybe Core.Bool)
+modifyCluster_publiclyAccessible :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Bool)
 modifyCluster_publiclyAccessible = Lens.lens (\ModifyCluster' {publiclyAccessible} -> publiclyAccessible) (\s@ModifyCluster' {} a -> s {publiclyAccessible = a} :: ModifyCluster)
 
 -- | A list of virtual private cloud (VPC) security groups to be associated
 -- with the cluster. This change is asynchronously applied as soon as
 -- possible.
-modifyCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyCluster (Core.Maybe [Core.Text])
-modifyCluster_vpcSecurityGroupIds = Lens.lens (\ModifyCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyCluster' {} a -> s {vpcSecurityGroupIds = a} :: ModifyCluster) Core.. Lens.mapping Lens._Coerce
+modifyCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyCluster (Prelude.Maybe [Prelude.Text])
+modifyCluster_vpcSecurityGroupIds = Lens.lens (\ModifyCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyCluster' {} a -> s {vpcSecurityGroupIds = a} :: ModifyCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new cluster type.
 --
@@ -695,7 +697,7 @@ modifyCluster_vpcSecurityGroupIds = Lens.lens (\ModifyCluster' {vpcSecurityGroup
 -- resize request.
 --
 -- Valid Values: @ multi-node | single-node @
-modifyCluster_clusterType :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_clusterType :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_clusterType = Lens.lens (\ModifyCluster' {clusterType} -> clusterType) (\s@ModifyCluster' {} a -> s {clusterType = a} :: ModifyCluster)
 
 -- | The default for number of days that a newly created manual snapshot is
@@ -706,17 +708,17 @@ modifyCluster_clusterType = Lens.lens (\ModifyCluster' {clusterType} -> clusterT
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
 -- The default value is -1.
-modifyCluster_manualSnapshotRetentionPeriod :: Lens.Lens' ModifyCluster (Core.Maybe Core.Int)
+modifyCluster_manualSnapshotRetentionPeriod :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Int)
 modifyCluster_manualSnapshotRetentionPeriod = Lens.lens (\ModifyCluster' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@ModifyCluster' {} a -> s {manualSnapshotRetentionPeriod = a} :: ModifyCluster)
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key that
 -- you want to use to encrypt data in the cluster.
-modifyCluster_kmsKeyId :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_kmsKeyId :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_kmsKeyId = Lens.lens (\ModifyCluster' {kmsKeyId} -> kmsKeyId) (\s@ModifyCluster' {} a -> s {kmsKeyId = a} :: ModifyCluster)
 
 -- | The option to initiate relocation for an Amazon Redshift cluster to the
 -- target Availability Zone.
-modifyCluster_availabilityZone :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_availabilityZone :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_availabilityZone = Lens.lens (\ModifyCluster' {availabilityZone} -> availabilityZone) (\s@ModifyCluster' {} a -> s {availabilityZone = a} :: ModifyCluster)
 
 -- | The weekly time range (in UTC) during which system maintenance can
@@ -735,7 +737,7 @@ modifyCluster_availabilityZone = Lens.lens (\ModifyCluster' {availabilityZone} -
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Must be at least 30 minutes.
-modifyCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_preferredMaintenanceWindow = Lens.lens (\ModifyCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyCluster)
 
 -- | The new number of nodes of the cluster. If you specify a new number of
@@ -746,11 +748,11 @@ modifyCluster_preferredMaintenanceWindow = Lens.lens (\ModifyCluster' {preferred
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- Valid Values: Integer greater than @0@.
-modifyCluster_numberOfNodes :: Lens.Lens' ModifyCluster (Core.Maybe Core.Int)
+modifyCluster_numberOfNodes :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Int)
 modifyCluster_numberOfNodes = Lens.lens (\ModifyCluster' {numberOfNodes} -> numberOfNodes) (\s@ModifyCluster' {} a -> s {numberOfNodes = a} :: ModifyCluster)
 
 -- | The option to change the port of an Amazon Redshift cluster.
-modifyCluster_port :: Lens.Lens' ModifyCluster (Core.Maybe Core.Int)
+modifyCluster_port :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Int)
 modifyCluster_port = Lens.lens (\ModifyCluster' {port} -> port) (\s@ModifyCluster' {} a -> s {port = a} :: ModifyCluster)
 
 -- | The new node type of the cluster. If you specify a new node type, you
@@ -763,7 +765,7 @@ modifyCluster_port = Lens.lens (\ModifyCluster' {port} -> port) (\s@ModifyCluste
 -- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@
 -- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
 -- @ra3.16xlarge@
-modifyCluster_nodeType :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_nodeType :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_nodeType = Lens.lens (\ModifyCluster' {nodeType} -> nodeType) (\s@ModifyCluster' {} a -> s {nodeType = a} :: ModifyCluster)
 
 -- | The new version number of the Amazon Redshift engine to upgrade to.
@@ -778,7 +780,7 @@ modifyCluster_nodeType = Lens.lens (\ModifyCluster' {nodeType} -> nodeType) (\s@
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- Example: @1.0@
-modifyCluster_clusterVersion :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_clusterVersion :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_clusterVersion = Lens.lens (\ModifyCluster' {clusterVersion} -> clusterVersion) (\s@ModifyCluster' {} a -> s {clusterVersion = a} :: ModifyCluster)
 
 -- | A list of cluster security groups to be authorized on this cluster. This
@@ -794,8 +796,8 @@ modifyCluster_clusterVersion = Lens.lens (\ModifyCluster' {clusterVersion} -> cl
 -- -   First character must be a letter
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-modifyCluster_clusterSecurityGroups :: Lens.Lens' ModifyCluster (Core.Maybe [Core.Text])
-modifyCluster_clusterSecurityGroups = Lens.lens (\ModifyCluster' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@ModifyCluster' {} a -> s {clusterSecurityGroups = a} :: ModifyCluster) Core.. Lens.mapping Lens._Coerce
+modifyCluster_clusterSecurityGroups :: Lens.Lens' ModifyCluster (Prelude.Maybe [Prelude.Text])
+modifyCluster_clusterSecurityGroups = Lens.lens (\ModifyCluster' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@ModifyCluster' {} a -> s {clusterSecurityGroups = a} :: ModifyCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for the maintenance track that you want to assign for the
 -- cluster. This name change is asynchronous. The new track name stays in
@@ -803,19 +805,19 @@ modifyCluster_clusterSecurityGroups = Lens.lens (\ModifyCluster' {clusterSecurit
 -- window. When the maintenance track changes, the cluster is switched to
 -- the latest cluster release available for the maintenance track. At this
 -- point, the maintenance track name is applied.
-modifyCluster_maintenanceTrackName :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_maintenanceTrackName :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_maintenanceTrackName = Lens.lens (\ModifyCluster' {maintenanceTrackName} -> maintenanceTrackName) (\s@ModifyCluster' {} a -> s {maintenanceTrackName = a} :: ModifyCluster)
 
 -- | Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
-modifyCluster_hsmConfigurationIdentifier :: Lens.Lens' ModifyCluster (Core.Maybe Core.Text)
+modifyCluster_hsmConfigurationIdentifier :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_hsmConfigurationIdentifier = Lens.lens (\ModifyCluster' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@ModifyCluster' {} a -> s {hsmConfigurationIdentifier = a} :: ModifyCluster)
 
 -- | The unique identifier of the cluster to be modified.
 --
 -- Example: @examplecluster@
-modifyCluster_clusterIdentifier :: Lens.Lens' ModifyCluster Core.Text
+modifyCluster_clusterIdentifier :: Lens.Lens' ModifyCluster Prelude.Text
 modifyCluster_clusterIdentifier = Lens.lens (\ModifyCluster' {clusterIdentifier} -> clusterIdentifier) (\s@ModifyCluster' {} a -> s {clusterIdentifier = a} :: ModifyCluster)
 
 instance Core.AWSRequest ModifyCluster where
@@ -828,26 +830,27 @@ instance Core.AWSRequest ModifyCluster where
       "ModifyClusterResult"
       ( \s h x ->
           ModifyClusterResponse'
-            Core.<$> (x Core..@? "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyCluster
+instance Prelude.Hashable ModifyCluster
 
-instance Core.NFData ModifyCluster
+instance Prelude.NFData ModifyCluster
 
 instance Core.ToHeaders ModifyCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyCluster where
   toQuery ModifyCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCluster" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("ModifyCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "EnhancedVpcRouting" Core.=: enhancedVpcRouting,
         "ElasticIp" Core.=: elasticIp,
         "HsmClientCertificateIdentifier"
@@ -866,7 +869,7 @@ instance Core.ToQuery ModifyCluster where
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
-                Core.<$> vpcSecurityGroupIds
+                Prelude.<$> vpcSecurityGroupIds
             ),
         "ClusterType" Core.=: clusterType,
         "ManualSnapshotRetentionPeriod"
@@ -882,7 +885,7 @@ instance Core.ToQuery ModifyCluster where
         "ClusterSecurityGroups"
           Core.=: Core.toQuery
             ( Core.toQueryList "ClusterSecurityGroupName"
-                Core.<$> clusterSecurityGroups
+                Prelude.<$> clusterSecurityGroups
             ),
         "MaintenanceTrackName" Core.=: maintenanceTrackName,
         "HsmConfigurationIdentifier"
@@ -892,11 +895,11 @@ instance Core.ToQuery ModifyCluster where
 
 -- | /See:/ 'newModifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterResponse' with all optional fields omitted.
@@ -911,20 +914,20 @@ data ModifyClusterResponse = ModifyClusterResponse'
 -- 'httpStatus', 'modifyClusterResponse_httpStatus' - The response's http status code.
 newModifyClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyClusterResponse
 newModifyClusterResponse pHttpStatus_ =
   ModifyClusterResponse'
-    { cluster = Core.Nothing,
+    { cluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyClusterResponse_cluster :: Lens.Lens' ModifyClusterResponse (Core.Maybe Cluster)
+modifyClusterResponse_cluster :: Lens.Lens' ModifyClusterResponse (Prelude.Maybe Cluster)
 modifyClusterResponse_cluster = Lens.lens (\ModifyClusterResponse' {cluster} -> cluster) (\s@ModifyClusterResponse' {} a -> s {cluster = a} :: ModifyClusterResponse)
 
 -- | The response's http status code.
-modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Core.Int
+modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Prelude.Int
 modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterResponse' {} a -> s {httpStatus = a} :: ModifyClusterResponse)
 
-instance Core.NFData ModifyClusterResponse
+instance Prelude.NFData ModifyClusterResponse

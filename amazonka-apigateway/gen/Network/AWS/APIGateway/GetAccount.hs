@@ -41,6 +41,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data GetAccount = GetAccount'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccount' with all optional fields omitted.
@@ -68,21 +69,21 @@ instance Core.AWSRequest GetAccount where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetAccount
+instance Prelude.Hashable GetAccount
 
-instance Core.NFData GetAccount
+instance Prelude.NFData GetAccount
 
 instance Core.ToHeaders GetAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetAccount where
-  toPath = Core.const "/account"
+  toPath = Prelude.const "/account"
 
 instance Core.ToQuery GetAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Network.AWS.CloudFormation.Types.LoggingConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains logging configuration information for a type.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data LoggingConfig = LoggingConfig'
   { -- | The ARN of the role that CloudFormation should assume when sending log
     -- entries to CloudWatch logs.
-    logRoleArn :: Core.Text,
+    logRoleArn :: Prelude.Text,
     -- | The Amazon CloudWatch log group to which CloudFormation sends error
     -- logging information when invoking the type\'s handlers.
-    logGroupName :: Core.Text
+    logGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoggingConfig' with all optional fields omitted.
@@ -50,9 +51,9 @@ data LoggingConfig = LoggingConfig'
 -- logging information when invoking the type\'s handlers.
 newLoggingConfig ::
   -- | 'logRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   LoggingConfig
 newLoggingConfig pLogRoleArn_ pLogGroupName_ =
   LoggingConfig'
@@ -62,27 +63,27 @@ newLoggingConfig pLogRoleArn_ pLogGroupName_ =
 
 -- | The ARN of the role that CloudFormation should assume when sending log
 -- entries to CloudWatch logs.
-loggingConfig_logRoleArn :: Lens.Lens' LoggingConfig Core.Text
+loggingConfig_logRoleArn :: Lens.Lens' LoggingConfig Prelude.Text
 loggingConfig_logRoleArn = Lens.lens (\LoggingConfig' {logRoleArn} -> logRoleArn) (\s@LoggingConfig' {} a -> s {logRoleArn = a} :: LoggingConfig)
 
 -- | The Amazon CloudWatch log group to which CloudFormation sends error
 -- logging information when invoking the type\'s handlers.
-loggingConfig_logGroupName :: Lens.Lens' LoggingConfig Core.Text
+loggingConfig_logGroupName :: Lens.Lens' LoggingConfig Prelude.Text
 loggingConfig_logGroupName = Lens.lens (\LoggingConfig' {logGroupName} -> logGroupName) (\s@LoggingConfig' {} a -> s {logGroupName = a} :: LoggingConfig)
 
 instance Core.FromXML LoggingConfig where
   parseXML x =
     LoggingConfig'
-      Core.<$> (x Core..@ "LogRoleArn")
-      Core.<*> (x Core..@ "LogGroupName")
+      Prelude.<$> (x Core..@ "LogRoleArn")
+      Prelude.<*> (x Core..@ "LogGroupName")
 
-instance Core.Hashable LoggingConfig
+instance Prelude.Hashable LoggingConfig
 
-instance Core.NFData LoggingConfig
+instance Prelude.NFData LoggingConfig
 
 instance Core.ToQuery LoggingConfig where
   toQuery LoggingConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "LogRoleArn" Core.=: logRoleArn,
         "LogGroupName" Core.=: logGroupName
       ]

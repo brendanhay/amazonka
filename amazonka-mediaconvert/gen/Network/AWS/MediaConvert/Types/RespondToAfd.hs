@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.RespondToAfd
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Respond to AFD (RespondToAfd) to specify how the service changes the
 -- video itself in response to AFD values in the input. * Choose Respond to
@@ -42,15 +43,15 @@ newtype RespondToAfd = RespondToAfd'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

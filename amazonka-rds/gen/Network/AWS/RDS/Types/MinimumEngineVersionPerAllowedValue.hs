@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.MinimumEngineVersionPerAllowedValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The minimum DB engine version required for each corresponding allowed
 -- value for an option setting.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMinimumEngineVersionPerAllowedValue' smart constructor.
 data MinimumEngineVersionPerAllowedValue = MinimumEngineVersionPerAllowedValue'
   { -- | The allowed value for an option setting.
-    allowedValue :: Core.Maybe Core.Text,
+    allowedValue :: Prelude.Maybe Prelude.Text,
     -- | The minimum DB engine version required for the allowed value.
-    minimumEngineVersion :: Core.Maybe Core.Text
+    minimumEngineVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MinimumEngineVersionPerAllowedValue' with all optional fields omitted.
@@ -50,16 +51,16 @@ newMinimumEngineVersionPerAllowedValue ::
 newMinimumEngineVersionPerAllowedValue =
   MinimumEngineVersionPerAllowedValue'
     { allowedValue =
-        Core.Nothing,
-      minimumEngineVersion = Core.Nothing
+        Prelude.Nothing,
+      minimumEngineVersion = Prelude.Nothing
     }
 
 -- | The allowed value for an option setting.
-minimumEngineVersionPerAllowedValue_allowedValue :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Core.Maybe Core.Text)
+minimumEngineVersionPerAllowedValue_allowedValue :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Prelude.Maybe Prelude.Text)
 minimumEngineVersionPerAllowedValue_allowedValue = Lens.lens (\MinimumEngineVersionPerAllowedValue' {allowedValue} -> allowedValue) (\s@MinimumEngineVersionPerAllowedValue' {} a -> s {allowedValue = a} :: MinimumEngineVersionPerAllowedValue)
 
 -- | The minimum DB engine version required for the allowed value.
-minimumEngineVersionPerAllowedValue_minimumEngineVersion :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Core.Maybe Core.Text)
+minimumEngineVersionPerAllowedValue_minimumEngineVersion :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Prelude.Maybe Prelude.Text)
 minimumEngineVersionPerAllowedValue_minimumEngineVersion = Lens.lens (\MinimumEngineVersionPerAllowedValue' {minimumEngineVersion} -> minimumEngineVersion) (\s@MinimumEngineVersionPerAllowedValue' {} a -> s {minimumEngineVersion = a} :: MinimumEngineVersionPerAllowedValue)
 
 instance
@@ -68,13 +69,13 @@ instance
   where
   parseXML x =
     MinimumEngineVersionPerAllowedValue'
-      Core.<$> (x Core..@? "AllowedValue")
-      Core.<*> (x Core..@? "MinimumEngineVersion")
+      Prelude.<$> (x Core..@? "AllowedValue")
+      Prelude.<*> (x Core..@? "MinimumEngineVersion")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     MinimumEngineVersionPerAllowedValue
 
 instance
-  Core.NFData
+  Prelude.NFData
     MinimumEngineVersionPerAllowedValue

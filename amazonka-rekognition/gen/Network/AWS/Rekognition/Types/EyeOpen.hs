@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.EyeOpen where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the eyes on the face are open, and the
 -- confidence level in the determination.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEyeOpen' smart constructor.
 data EyeOpen = EyeOpen'
   { -- | Level of confidence in the determination.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | Boolean value that indicates whether the eyes on the face are open.
-    value :: Core.Maybe Core.Bool
+    value :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EyeOpen' with all optional fields omitted.
@@ -49,16 +50,16 @@ newEyeOpen ::
   EyeOpen
 newEyeOpen =
   EyeOpen'
-    { confidence = Core.Nothing,
-      value = Core.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Level of confidence in the determination.
-eyeOpen_confidence :: Lens.Lens' EyeOpen (Core.Maybe Core.Double)
+eyeOpen_confidence :: Lens.Lens' EyeOpen (Prelude.Maybe Prelude.Double)
 eyeOpen_confidence = Lens.lens (\EyeOpen' {confidence} -> confidence) (\s@EyeOpen' {} a -> s {confidence = a} :: EyeOpen)
 
 -- | Boolean value that indicates whether the eyes on the face are open.
-eyeOpen_value :: Lens.Lens' EyeOpen (Core.Maybe Core.Bool)
+eyeOpen_value :: Lens.Lens' EyeOpen (Prelude.Maybe Prelude.Bool)
 eyeOpen_value = Lens.lens (\EyeOpen' {value} -> value) (\s@EyeOpen' {} a -> s {value = a} :: EyeOpen)
 
 instance Core.FromJSON EyeOpen where
@@ -67,10 +68,10 @@ instance Core.FromJSON EyeOpen where
       "EyeOpen"
       ( \x ->
           EyeOpen'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable EyeOpen
+instance Prelude.Hashable EyeOpen
 
-instance Core.NFData EyeOpen
+instance Prelude.NFData EyeOpen

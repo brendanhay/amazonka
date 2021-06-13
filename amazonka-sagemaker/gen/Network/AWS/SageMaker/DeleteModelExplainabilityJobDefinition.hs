@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -44,9 +45,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteModelExplainabilityJobDefinition' smart constructor.
 data DeleteModelExplainabilityJobDefinition = DeleteModelExplainabilityJobDefinition'
   { -- | The name of the model explainability job definition to delete.
-    jobDefinitionName :: Core.Text
+    jobDefinitionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteModelExplainabilityJobDefinition' with all optional fields omitted.
@@ -59,7 +60,7 @@ data DeleteModelExplainabilityJobDefinition = DeleteModelExplainabilityJobDefini
 -- 'jobDefinitionName', 'deleteModelExplainabilityJobDefinition_jobDefinitionName' - The name of the model explainability job definition to delete.
 newDeleteModelExplainabilityJobDefinition ::
   -- | 'jobDefinitionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteModelExplainabilityJobDefinition
 newDeleteModelExplainabilityJobDefinition
   pJobDefinitionName_ =
@@ -69,7 +70,7 @@ newDeleteModelExplainabilityJobDefinition
       }
 
 -- | The name of the model explainability job definition to delete.
-deleteModelExplainabilityJobDefinition_jobDefinitionName :: Lens.Lens' DeleteModelExplainabilityJobDefinition Core.Text
+deleteModelExplainabilityJobDefinition_jobDefinitionName :: Lens.Lens' DeleteModelExplainabilityJobDefinition Prelude.Text
 deleteModelExplainabilityJobDefinition_jobDefinitionName = Lens.lens (\DeleteModelExplainabilityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@DeleteModelExplainabilityJobDefinition' {} a -> s {jobDefinitionName = a} :: DeleteModelExplainabilityJobDefinition)
 
 instance
@@ -86,11 +87,11 @@ instance
       DeleteModelExplainabilityJobDefinitionResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteModelExplainabilityJobDefinition
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteModelExplainabilityJobDefinition
 
 instance
@@ -98,14 +99,16 @@ instance
     DeleteModelExplainabilityJobDefinition
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.DeleteModelExplainabilityJobDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -115,8 +118,8 @@ instance
   where
   toJSON DeleteModelExplainabilityJobDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("JobDefinitionName" Core..= jobDefinitionName)
           ]
       )
@@ -125,19 +128,19 @@ instance
   Core.ToPath
     DeleteModelExplainabilityJobDefinition
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteModelExplainabilityJobDefinition
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteModelExplainabilityJobDefinitionResponse' smart constructor.
 data DeleteModelExplainabilityJobDefinitionResponse = DeleteModelExplainabilityJobDefinitionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteModelExplainabilityJobDefinitionResponse' with all optional fields omitted.
@@ -149,5 +152,5 @@ newDeleteModelExplainabilityJobDefinitionResponse =
   DeleteModelExplainabilityJobDefinitionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteModelExplainabilityJobDefinitionResponse

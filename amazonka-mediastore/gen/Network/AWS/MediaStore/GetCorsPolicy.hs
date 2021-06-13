@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCorsPolicy' smart constructor.
 data GetCorsPolicy = GetCorsPolicy'
   { -- | The name of the container that the policy is assigned to.
-    containerName :: Core.Text
+    containerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCorsPolicy' with all optional fields omitted.
@@ -68,13 +69,13 @@ data GetCorsPolicy = GetCorsPolicy'
 -- 'containerName', 'getCorsPolicy_containerName' - The name of the container that the policy is assigned to.
 newGetCorsPolicy ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   GetCorsPolicy
 newGetCorsPolicy pContainerName_ =
   GetCorsPolicy' {containerName = pContainerName_}
 
 -- | The name of the container that the policy is assigned to.
-getCorsPolicy_containerName :: Lens.Lens' GetCorsPolicy Core.Text
+getCorsPolicy_containerName :: Lens.Lens' GetCorsPolicy Prelude.Text
 getCorsPolicy_containerName = Lens.lens (\GetCorsPolicy' {containerName} -> containerName) (\s@GetCorsPolicy' {} a -> s {containerName = a} :: GetCorsPolicy)
 
 instance Core.AWSRequest GetCorsPolicy where
@@ -86,48 +87,52 @@ instance Core.AWSRequest GetCorsPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetCorsPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "CorsPolicy")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "CorsPolicy")
       )
 
-instance Core.Hashable GetCorsPolicy
+instance Prelude.Hashable GetCorsPolicy
 
-instance Core.NFData GetCorsPolicy
+instance Prelude.NFData GetCorsPolicy
 
 instance Core.ToHeaders GetCorsPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.GetCorsPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetCorsPolicy where
   toJSON GetCorsPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
       )
 
 instance Core.ToPath GetCorsPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCorsPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCorsPolicyResponse' smart constructor.
 data GetCorsPolicyResponse = GetCorsPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The CORS policy assigned to the container.
-    corsPolicy :: Core.NonEmpty CorsRule
+    corsPolicy :: Prelude.NonEmpty CorsRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCorsPolicyResponse' with all optional fields omitted.
@@ -142,9 +147,9 @@ data GetCorsPolicyResponse = GetCorsPolicyResponse'
 -- 'corsPolicy', 'getCorsPolicyResponse_corsPolicy' - The CORS policy assigned to the container.
 newGetCorsPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'corsPolicy'
-  Core.NonEmpty CorsRule ->
+  Prelude.NonEmpty CorsRule ->
   GetCorsPolicyResponse
 newGetCorsPolicyResponse pHttpStatus_ pCorsPolicy_ =
   GetCorsPolicyResponse'
@@ -153,11 +158,11 @@ newGetCorsPolicyResponse pHttpStatus_ pCorsPolicy_ =
     }
 
 -- | The response's http status code.
-getCorsPolicyResponse_httpStatus :: Lens.Lens' GetCorsPolicyResponse Core.Int
+getCorsPolicyResponse_httpStatus :: Lens.Lens' GetCorsPolicyResponse Prelude.Int
 getCorsPolicyResponse_httpStatus = Lens.lens (\GetCorsPolicyResponse' {httpStatus} -> httpStatus) (\s@GetCorsPolicyResponse' {} a -> s {httpStatus = a} :: GetCorsPolicyResponse)
 
 -- | The CORS policy assigned to the container.
-getCorsPolicyResponse_corsPolicy :: Lens.Lens' GetCorsPolicyResponse (Core.NonEmpty CorsRule)
-getCorsPolicyResponse_corsPolicy = Lens.lens (\GetCorsPolicyResponse' {corsPolicy} -> corsPolicy) (\s@GetCorsPolicyResponse' {} a -> s {corsPolicy = a} :: GetCorsPolicyResponse) Core.. Lens._Coerce
+getCorsPolicyResponse_corsPolicy :: Lens.Lens' GetCorsPolicyResponse (Prelude.NonEmpty CorsRule)
+getCorsPolicyResponse_corsPolicy = Lens.lens (\GetCorsPolicyResponse' {corsPolicy} -> corsPolicy) (\s@GetCorsPolicyResponse' {} a -> s {corsPolicy = a} :: GetCorsPolicyResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData GetCorsPolicyResponse
+instance Prelude.NFData GetCorsPolicyResponse

@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.AudioSelectorGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Group of Audio Selectors
 --
@@ -30,9 +31,9 @@ data AudioSelectorGroup = AudioSelectorGroup'
     -- Audio selector names are standardized, based on their order within the
     -- input (e.g., \"Audio Selector 1\"). The audio selector name parameter
     -- can be repeated to add any number of audio selectors to the group.
-    audioSelectorNames :: Core.Maybe [Core.Text]
+    audioSelectorNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioSelectorGroup' with all optional fields omitted.
@@ -51,15 +52,15 @@ newAudioSelectorGroup ::
 newAudioSelectorGroup =
   AudioSelectorGroup'
     { audioSelectorNames =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Name of an Audio Selector within the same input to include in the group.
 -- Audio selector names are standardized, based on their order within the
 -- input (e.g., \"Audio Selector 1\"). The audio selector name parameter
 -- can be repeated to add any number of audio selectors to the group.
-audioSelectorGroup_audioSelectorNames :: Lens.Lens' AudioSelectorGroup (Core.Maybe [Core.Text])
-audioSelectorGroup_audioSelectorNames = Lens.lens (\AudioSelectorGroup' {audioSelectorNames} -> audioSelectorNames) (\s@AudioSelectorGroup' {} a -> s {audioSelectorNames = a} :: AudioSelectorGroup) Core.. Lens.mapping Lens._Coerce
+audioSelectorGroup_audioSelectorNames :: Lens.Lens' AudioSelectorGroup (Prelude.Maybe [Prelude.Text])
+audioSelectorGroup_audioSelectorNames = Lens.lens (\AudioSelectorGroup' {audioSelectorNames} -> audioSelectorNames) (\s@AudioSelectorGroup' {} a -> s {audioSelectorNames = a} :: AudioSelectorGroup) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AudioSelectorGroup where
   parseJSON =
@@ -67,20 +68,20 @@ instance Core.FromJSON AudioSelectorGroup where
       "AudioSelectorGroup"
       ( \x ->
           AudioSelectorGroup'
-            Core.<$> ( x Core..:? "audioSelectorNames"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "audioSelectorNames"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable AudioSelectorGroup
+instance Prelude.Hashable AudioSelectorGroup
 
-instance Core.NFData AudioSelectorGroup
+instance Prelude.NFData AudioSelectorGroup
 
 instance Core.ToJSON AudioSelectorGroup where
   toJSON AudioSelectorGroup' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("audioSelectorNames" Core..=)
-              Core.<$> audioSelectorNames
+              Prelude.<$> audioSelectorNames
           ]
       )

@@ -22,15 +22,16 @@ module Network.AWS.EKS.Types.NodegroupHealth where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.Issue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the health status of the node group.
 --
 -- /See:/ 'newNodegroupHealth' smart constructor.
 data NodegroupHealth = NodegroupHealth'
   { -- | Any issues that are associated with the node group.
-    issues :: Core.Maybe [Issue]
+    issues :: Prelude.Maybe [Issue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodegroupHealth' with all optional fields omitted.
@@ -44,11 +45,11 @@ data NodegroupHealth = NodegroupHealth'
 newNodegroupHealth ::
   NodegroupHealth
 newNodegroupHealth =
-  NodegroupHealth' {issues = Core.Nothing}
+  NodegroupHealth' {issues = Prelude.Nothing}
 
 -- | Any issues that are associated with the node group.
-nodegroupHealth_issues :: Lens.Lens' NodegroupHealth (Core.Maybe [Issue])
-nodegroupHealth_issues = Lens.lens (\NodegroupHealth' {issues} -> issues) (\s@NodegroupHealth' {} a -> s {issues = a} :: NodegroupHealth) Core.. Lens.mapping Lens._Coerce
+nodegroupHealth_issues :: Lens.Lens' NodegroupHealth (Prelude.Maybe [Issue])
+nodegroupHealth_issues = Lens.lens (\NodegroupHealth' {issues} -> issues) (\s@NodegroupHealth' {} a -> s {issues = a} :: NodegroupHealth) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON NodegroupHealth where
   parseJSON =
@@ -56,9 +57,9 @@ instance Core.FromJSON NodegroupHealth where
       "NodegroupHealth"
       ( \x ->
           NodegroupHealth'
-            Core.<$> (x Core..:? "issues" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "issues" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable NodegroupHealth
+instance Prelude.Hashable NodegroupHealth
 
-instance Core.NFData NodegroupHealth
+instance Prelude.NFData NodegroupHealth

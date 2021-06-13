@@ -21,6 +21,7 @@ module Network.AWS.WorkDocs.Types.SharePrincipal where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.PrincipalType
 import Network.AWS.WorkDocs.Types.RoleType
 
@@ -29,13 +30,13 @@ import Network.AWS.WorkDocs.Types.RoleType
 -- /See:/ 'newSharePrincipal' smart constructor.
 data SharePrincipal = SharePrincipal'
   { -- | The ID of the recipient.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The type of the recipient.
     type' :: PrincipalType,
     -- | The role of the recipient.
     role' :: RoleType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SharePrincipal' with all optional fields omitted.
@@ -52,7 +53,7 @@ data SharePrincipal = SharePrincipal'
 -- 'role'', 'sharePrincipal_role' - The role of the recipient.
 newSharePrincipal ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   PrincipalType ->
   -- | 'role''
@@ -66,7 +67,7 @@ newSharePrincipal pId_ pType_ pRole_ =
     }
 
 -- | The ID of the recipient.
-sharePrincipal_id :: Lens.Lens' SharePrincipal Core.Text
+sharePrincipal_id :: Lens.Lens' SharePrincipal Prelude.Text
 sharePrincipal_id = Lens.lens (\SharePrincipal' {id} -> id) (\s@SharePrincipal' {} a -> s {id = a} :: SharePrincipal)
 
 -- | The type of the recipient.
@@ -77,16 +78,16 @@ sharePrincipal_type = Lens.lens (\SharePrincipal' {type'} -> type') (\s@SharePri
 sharePrincipal_role :: Lens.Lens' SharePrincipal RoleType
 sharePrincipal_role = Lens.lens (\SharePrincipal' {role'} -> role') (\s@SharePrincipal' {} a -> s {role' = a} :: SharePrincipal)
 
-instance Core.Hashable SharePrincipal
+instance Prelude.Hashable SharePrincipal
 
-instance Core.NFData SharePrincipal
+instance Prelude.NFData SharePrincipal
 
 instance Core.ToJSON SharePrincipal where
   toJSON SharePrincipal' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Id" Core..= id),
-            Core.Just ("Type" Core..= type'),
-            Core.Just ("Role" Core..= role')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Id" Core..= id),
+            Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("Role" Core..= role')
           ]
       )

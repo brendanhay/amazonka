@@ -21,15 +21,16 @@ module Network.AWS.Glacier.Types.VaultLockPolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the vault lock policy.
 --
 -- /See:/ 'newVaultLockPolicy' smart constructor.
 data VaultLockPolicy = VaultLockPolicy'
   { -- | The vault lock policy.
-    policy :: Core.Maybe Core.Text
+    policy :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VaultLockPolicy' with all optional fields omitted.
@@ -43,17 +44,19 @@ data VaultLockPolicy = VaultLockPolicy'
 newVaultLockPolicy ::
   VaultLockPolicy
 newVaultLockPolicy =
-  VaultLockPolicy' {policy = Core.Nothing}
+  VaultLockPolicy' {policy = Prelude.Nothing}
 
 -- | The vault lock policy.
-vaultLockPolicy_policy :: Lens.Lens' VaultLockPolicy (Core.Maybe Core.Text)
+vaultLockPolicy_policy :: Lens.Lens' VaultLockPolicy (Prelude.Maybe Prelude.Text)
 vaultLockPolicy_policy = Lens.lens (\VaultLockPolicy' {policy} -> policy) (\s@VaultLockPolicy' {} a -> s {policy = a} :: VaultLockPolicy)
 
-instance Core.Hashable VaultLockPolicy
+instance Prelude.Hashable VaultLockPolicy
 
-instance Core.NFData VaultLockPolicy
+instance Prelude.NFData VaultLockPolicy
 
 instance Core.ToJSON VaultLockPolicy where
   toJSON VaultLockPolicy' {..} =
     Core.object
-      (Core.catMaybes [("Policy" Core..=) Core.<$> policy])
+      ( Prelude.catMaybes
+          [("Policy" Core..=) Prelude.<$> policy]
+      )

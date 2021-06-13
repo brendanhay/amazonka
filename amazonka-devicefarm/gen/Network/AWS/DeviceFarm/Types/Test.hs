@@ -26,13 +26,14 @@ import Network.AWS.DeviceFarm.Types.ExecutionResult
 import Network.AWS.DeviceFarm.Types.ExecutionStatus
 import Network.AWS.DeviceFarm.Types.TestType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a condition that is evaluated.
 --
 -- /See:/ 'newTest' smart constructor.
 data Test = Test'
   { -- | The test\'s result counters.
-    counters :: Core.Maybe Counters,
+    counters :: Prelude.Maybe Counters,
     -- | The test\'s status.
     --
     -- Allowed values include:
@@ -54,7 +55,7 @@ data Test = Test'
     -- -   COMPLETED
     --
     -- -   STOPPING
-    status :: Core.Maybe ExecutionStatus,
+    status :: Prelude.Maybe ExecutionStatus,
     -- | The test\'s result.
     --
     -- Allowed values include:
@@ -72,19 +73,19 @@ data Test = Test'
     -- -   ERRORED
     --
     -- -   STOPPED
-    result :: Core.Maybe ExecutionResult,
+    result :: Prelude.Maybe ExecutionResult,
     -- | The test\'s start time.
-    started :: Core.Maybe Core.POSIX,
+    started :: Prelude.Maybe Core.POSIX,
     -- | A message about the test\'s result.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The test\'s ARN.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The test\'s name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The test\'s stop time.
-    stopped :: Core.Maybe Core.POSIX,
+    stopped :: Prelude.Maybe Core.POSIX,
     -- | When the test was created.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | The test\'s type.
     --
     -- Must be one of the following values:
@@ -127,11 +128,11 @@ data Test = Test'
     -- -   XCTEST
     --
     -- -   XCTEST_UI
-    type' :: Core.Maybe TestType,
+    type' :: Prelude.Maybe TestType,
     -- | Represents the total (metered or unmetered) minutes used by the test.
-    deviceMinutes :: Core.Maybe DeviceMinutes
+    deviceMinutes :: Prelude.Maybe DeviceMinutes
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Test' with all optional fields omitted.
@@ -243,21 +244,21 @@ newTest ::
   Test
 newTest =
   Test'
-    { counters = Core.Nothing,
-      status = Core.Nothing,
-      result = Core.Nothing,
-      started = Core.Nothing,
-      message = Core.Nothing,
-      arn = Core.Nothing,
-      name = Core.Nothing,
-      stopped = Core.Nothing,
-      created = Core.Nothing,
-      type' = Core.Nothing,
-      deviceMinutes = Core.Nothing
+    { counters = Prelude.Nothing,
+      status = Prelude.Nothing,
+      result = Prelude.Nothing,
+      started = Prelude.Nothing,
+      message = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      stopped = Prelude.Nothing,
+      created = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      deviceMinutes = Prelude.Nothing
     }
 
 -- | The test\'s result counters.
-test_counters :: Lens.Lens' Test (Core.Maybe Counters)
+test_counters :: Lens.Lens' Test (Prelude.Maybe Counters)
 test_counters = Lens.lens (\Test' {counters} -> counters) (\s@Test' {} a -> s {counters = a} :: Test)
 
 -- | The test\'s status.
@@ -281,7 +282,7 @@ test_counters = Lens.lens (\Test' {counters} -> counters) (\s@Test' {} a -> s {c
 -- -   COMPLETED
 --
 -- -   STOPPING
-test_status :: Lens.Lens' Test (Core.Maybe ExecutionStatus)
+test_status :: Lens.Lens' Test (Prelude.Maybe ExecutionStatus)
 test_status = Lens.lens (\Test' {status} -> status) (\s@Test' {} a -> s {status = a} :: Test)
 
 -- | The test\'s result.
@@ -301,32 +302,32 @@ test_status = Lens.lens (\Test' {status} -> status) (\s@Test' {} a -> s {status 
 -- -   ERRORED
 --
 -- -   STOPPED
-test_result :: Lens.Lens' Test (Core.Maybe ExecutionResult)
+test_result :: Lens.Lens' Test (Prelude.Maybe ExecutionResult)
 test_result = Lens.lens (\Test' {result} -> result) (\s@Test' {} a -> s {result = a} :: Test)
 
 -- | The test\'s start time.
-test_started :: Lens.Lens' Test (Core.Maybe Core.UTCTime)
-test_started = Lens.lens (\Test' {started} -> started) (\s@Test' {} a -> s {started = a} :: Test) Core.. Lens.mapping Core._Time
+test_started :: Lens.Lens' Test (Prelude.Maybe Prelude.UTCTime)
+test_started = Lens.lens (\Test' {started} -> started) (\s@Test' {} a -> s {started = a} :: Test) Prelude.. Lens.mapping Core._Time
 
 -- | A message about the test\'s result.
-test_message :: Lens.Lens' Test (Core.Maybe Core.Text)
+test_message :: Lens.Lens' Test (Prelude.Maybe Prelude.Text)
 test_message = Lens.lens (\Test' {message} -> message) (\s@Test' {} a -> s {message = a} :: Test)
 
 -- | The test\'s ARN.
-test_arn :: Lens.Lens' Test (Core.Maybe Core.Text)
+test_arn :: Lens.Lens' Test (Prelude.Maybe Prelude.Text)
 test_arn = Lens.lens (\Test' {arn} -> arn) (\s@Test' {} a -> s {arn = a} :: Test)
 
 -- | The test\'s name.
-test_name :: Lens.Lens' Test (Core.Maybe Core.Text)
+test_name :: Lens.Lens' Test (Prelude.Maybe Prelude.Text)
 test_name = Lens.lens (\Test' {name} -> name) (\s@Test' {} a -> s {name = a} :: Test)
 
 -- | The test\'s stop time.
-test_stopped :: Lens.Lens' Test (Core.Maybe Core.UTCTime)
-test_stopped = Lens.lens (\Test' {stopped} -> stopped) (\s@Test' {} a -> s {stopped = a} :: Test) Core.. Lens.mapping Core._Time
+test_stopped :: Lens.Lens' Test (Prelude.Maybe Prelude.UTCTime)
+test_stopped = Lens.lens (\Test' {stopped} -> stopped) (\s@Test' {} a -> s {stopped = a} :: Test) Prelude.. Lens.mapping Core._Time
 
 -- | When the test was created.
-test_created :: Lens.Lens' Test (Core.Maybe Core.UTCTime)
-test_created = Lens.lens (\Test' {created} -> created) (\s@Test' {} a -> s {created = a} :: Test) Core.. Lens.mapping Core._Time
+test_created :: Lens.Lens' Test (Prelude.Maybe Prelude.UTCTime)
+test_created = Lens.lens (\Test' {created} -> created) (\s@Test' {} a -> s {created = a} :: Test) Prelude.. Lens.mapping Core._Time
 
 -- | The test\'s type.
 --
@@ -370,11 +371,11 @@ test_created = Lens.lens (\Test' {created} -> created) (\s@Test' {} a -> s {crea
 -- -   XCTEST
 --
 -- -   XCTEST_UI
-test_type :: Lens.Lens' Test (Core.Maybe TestType)
+test_type :: Lens.Lens' Test (Prelude.Maybe TestType)
 test_type = Lens.lens (\Test' {type'} -> type') (\s@Test' {} a -> s {type' = a} :: Test)
 
 -- | Represents the total (metered or unmetered) minutes used by the test.
-test_deviceMinutes :: Lens.Lens' Test (Core.Maybe DeviceMinutes)
+test_deviceMinutes :: Lens.Lens' Test (Prelude.Maybe DeviceMinutes)
 test_deviceMinutes = Lens.lens (\Test' {deviceMinutes} -> deviceMinutes) (\s@Test' {} a -> s {deviceMinutes = a} :: Test)
 
 instance Core.FromJSON Test where
@@ -383,19 +384,19 @@ instance Core.FromJSON Test where
       "Test"
       ( \x ->
           Test'
-            Core.<$> (x Core..:? "counters")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "result")
-            Core.<*> (x Core..:? "started")
-            Core.<*> (x Core..:? "message")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "stopped")
-            Core.<*> (x Core..:? "created")
-            Core.<*> (x Core..:? "type")
-            Core.<*> (x Core..:? "deviceMinutes")
+            Prelude.<$> (x Core..:? "counters")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "result")
+            Prelude.<*> (x Core..:? "started")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "deviceMinutes")
       )
 
-instance Core.Hashable Test
+instance Prelude.Hashable Test
 
-instance Core.NFData Test
+instance Prelude.NFData Test

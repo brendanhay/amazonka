@@ -22,25 +22,26 @@ module Network.AWS.EC2.Types.HostProperties where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the properties of a Dedicated Host.
 --
 -- /See:/ 'newHostProperties' smart constructor.
 data HostProperties = HostProperties'
   { -- | The instance family supported by the Dedicated Host. For example, @m5@.
-    instanceFamily :: Core.Maybe Core.Text,
+    instanceFamily :: Prelude.Maybe Prelude.Text,
     -- | The total number of vCPUs on the Dedicated Host.
-    totalVCpus :: Core.Maybe Core.Int,
+    totalVCpus :: Prelude.Maybe Prelude.Int,
     -- | The instance type supported by the Dedicated Host. For example,
     -- @m5.large@. If the host supports multiple instance types, no
     -- __instanceType__ is returned.
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The number of cores on the Dedicated Host.
-    cores :: Core.Maybe Core.Int,
+    cores :: Prelude.Maybe Prelude.Int,
     -- | The number of sockets on the Dedicated Host.
-    sockets :: Core.Maybe Core.Int
+    sockets :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostProperties' with all optional fields omitted.
@@ -65,44 +66,44 @@ newHostProperties ::
   HostProperties
 newHostProperties =
   HostProperties'
-    { instanceFamily = Core.Nothing,
-      totalVCpus = Core.Nothing,
-      instanceType = Core.Nothing,
-      cores = Core.Nothing,
-      sockets = Core.Nothing
+    { instanceFamily = Prelude.Nothing,
+      totalVCpus = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      cores = Prelude.Nothing,
+      sockets = Prelude.Nothing
     }
 
 -- | The instance family supported by the Dedicated Host. For example, @m5@.
-hostProperties_instanceFamily :: Lens.Lens' HostProperties (Core.Maybe Core.Text)
+hostProperties_instanceFamily :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Text)
 hostProperties_instanceFamily = Lens.lens (\HostProperties' {instanceFamily} -> instanceFamily) (\s@HostProperties' {} a -> s {instanceFamily = a} :: HostProperties)
 
 -- | The total number of vCPUs on the Dedicated Host.
-hostProperties_totalVCpus :: Lens.Lens' HostProperties (Core.Maybe Core.Int)
+hostProperties_totalVCpus :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Int)
 hostProperties_totalVCpus = Lens.lens (\HostProperties' {totalVCpus} -> totalVCpus) (\s@HostProperties' {} a -> s {totalVCpus = a} :: HostProperties)
 
 -- | The instance type supported by the Dedicated Host. For example,
 -- @m5.large@. If the host supports multiple instance types, no
 -- __instanceType__ is returned.
-hostProperties_instanceType :: Lens.Lens' HostProperties (Core.Maybe Core.Text)
+hostProperties_instanceType :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Text)
 hostProperties_instanceType = Lens.lens (\HostProperties' {instanceType} -> instanceType) (\s@HostProperties' {} a -> s {instanceType = a} :: HostProperties)
 
 -- | The number of cores on the Dedicated Host.
-hostProperties_cores :: Lens.Lens' HostProperties (Core.Maybe Core.Int)
+hostProperties_cores :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Int)
 hostProperties_cores = Lens.lens (\HostProperties' {cores} -> cores) (\s@HostProperties' {} a -> s {cores = a} :: HostProperties)
 
 -- | The number of sockets on the Dedicated Host.
-hostProperties_sockets :: Lens.Lens' HostProperties (Core.Maybe Core.Int)
+hostProperties_sockets :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Int)
 hostProperties_sockets = Lens.lens (\HostProperties' {sockets} -> sockets) (\s@HostProperties' {} a -> s {sockets = a} :: HostProperties)
 
 instance Core.FromXML HostProperties where
   parseXML x =
     HostProperties'
-      Core.<$> (x Core..@? "instanceFamily")
-      Core.<*> (x Core..@? "totalVCpus")
-      Core.<*> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "cores")
-      Core.<*> (x Core..@? "sockets")
+      Prelude.<$> (x Core..@? "instanceFamily")
+      Prelude.<*> (x Core..@? "totalVCpus")
+      Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "cores")
+      Prelude.<*> (x Core..@? "sockets")
 
-instance Core.Hashable HostProperties
+instance Prelude.Hashable HostProperties
 
-instance Core.NFData HostProperties
+instance Prelude.NFData HostProperties

@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,16 +55,16 @@ data CreateLocalGatewayRoute = CreateLocalGatewayRoute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The CIDR range used for destination matches. Routing decisions are based
     -- on the most specific match.
-    destinationCidrBlock :: Core.Text,
+    destinationCidrBlock :: Prelude.Text,
     -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Core.Text,
+    localGatewayRouteTableId :: Prelude.Text,
     -- | The ID of the virtual interface group.
-    localGatewayVirtualInterfaceGroupId :: Core.Text
+    localGatewayVirtualInterfaceGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLocalGatewayRoute' with all optional fields omitted.
@@ -86,18 +87,18 @@ data CreateLocalGatewayRoute = CreateLocalGatewayRoute'
 -- 'localGatewayVirtualInterfaceGroupId', 'createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
 newCreateLocalGatewayRoute ::
   -- | 'destinationCidrBlock'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'localGatewayRouteTableId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'localGatewayVirtualInterfaceGroupId'
-  Core.Text ->
+  Prelude.Text ->
   CreateLocalGatewayRoute
 newCreateLocalGatewayRoute
   pDestinationCidrBlock_
   pLocalGatewayRouteTableId_
   pLocalGatewayVirtualInterfaceGroupId_ =
     CreateLocalGatewayRoute'
-      { dryRun = Core.Nothing,
+      { dryRun = Prelude.Nothing,
         destinationCidrBlock = pDestinationCidrBlock_,
         localGatewayRouteTableId =
           pLocalGatewayRouteTableId_,
@@ -109,20 +110,20 @@ newCreateLocalGatewayRoute
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createLocalGatewayRoute_dryRun :: Lens.Lens' CreateLocalGatewayRoute (Core.Maybe Core.Bool)
+createLocalGatewayRoute_dryRun :: Lens.Lens' CreateLocalGatewayRoute (Prelude.Maybe Prelude.Bool)
 createLocalGatewayRoute_dryRun = Lens.lens (\CreateLocalGatewayRoute' {dryRun} -> dryRun) (\s@CreateLocalGatewayRoute' {} a -> s {dryRun = a} :: CreateLocalGatewayRoute)
 
 -- | The CIDR range used for destination matches. Routing decisions are based
 -- on the most specific match.
-createLocalGatewayRoute_destinationCidrBlock :: Lens.Lens' CreateLocalGatewayRoute Core.Text
+createLocalGatewayRoute_destinationCidrBlock :: Lens.Lens' CreateLocalGatewayRoute Prelude.Text
 createLocalGatewayRoute_destinationCidrBlock = Lens.lens (\CreateLocalGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@CreateLocalGatewayRoute' {} a -> s {destinationCidrBlock = a} :: CreateLocalGatewayRoute)
 
 -- | The ID of the local gateway route table.
-createLocalGatewayRoute_localGatewayRouteTableId :: Lens.Lens' CreateLocalGatewayRoute Core.Text
+createLocalGatewayRoute_localGatewayRouteTableId :: Lens.Lens' CreateLocalGatewayRoute Prelude.Text
 createLocalGatewayRoute_localGatewayRouteTableId = Lens.lens (\CreateLocalGatewayRoute' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@CreateLocalGatewayRoute' {} a -> s {localGatewayRouteTableId = a} :: CreateLocalGatewayRoute)
 
 -- | The ID of the virtual interface group.
-createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId :: Lens.Lens' CreateLocalGatewayRoute Core.Text
+createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId :: Lens.Lens' CreateLocalGatewayRoute Prelude.Text
 createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId = Lens.lens (\CreateLocalGatewayRoute' {localGatewayVirtualInterfaceGroupId} -> localGatewayVirtualInterfaceGroupId) (\s@CreateLocalGatewayRoute' {} a -> s {localGatewayVirtualInterfaceGroupId = a} :: CreateLocalGatewayRoute)
 
 instance Core.AWSRequest CreateLocalGatewayRoute where
@@ -134,26 +135,27 @@ instance Core.AWSRequest CreateLocalGatewayRoute where
     Response.receiveXML
       ( \s h x ->
           CreateLocalGatewayRouteResponse'
-            Core.<$> (x Core..@? "route")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "route")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateLocalGatewayRoute
+instance Prelude.Hashable CreateLocalGatewayRoute
 
-instance Core.NFData CreateLocalGatewayRoute
+instance Prelude.NFData CreateLocalGatewayRoute
 
 instance Core.ToHeaders CreateLocalGatewayRoute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateLocalGatewayRoute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateLocalGatewayRoute where
   toQuery CreateLocalGatewayRoute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLocalGatewayRoute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateLocalGatewayRoute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
         "LocalGatewayRouteTableId"
@@ -165,11 +167,11 @@ instance Core.ToQuery CreateLocalGatewayRoute where
 -- | /See:/ 'newCreateLocalGatewayRouteResponse' smart constructor.
 data CreateLocalGatewayRouteResponse = CreateLocalGatewayRouteResponse'
   { -- | Information about the route.
-    route :: Core.Maybe LocalGatewayRoute,
+    route :: Prelude.Maybe LocalGatewayRoute,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLocalGatewayRouteResponse' with all optional fields omitted.
@@ -184,21 +186,23 @@ data CreateLocalGatewayRouteResponse = CreateLocalGatewayRouteResponse'
 -- 'httpStatus', 'createLocalGatewayRouteResponse_httpStatus' - The response's http status code.
 newCreateLocalGatewayRouteResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateLocalGatewayRouteResponse
 newCreateLocalGatewayRouteResponse pHttpStatus_ =
   CreateLocalGatewayRouteResponse'
     { route =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the route.
-createLocalGatewayRouteResponse_route :: Lens.Lens' CreateLocalGatewayRouteResponse (Core.Maybe LocalGatewayRoute)
+createLocalGatewayRouteResponse_route :: Lens.Lens' CreateLocalGatewayRouteResponse (Prelude.Maybe LocalGatewayRoute)
 createLocalGatewayRouteResponse_route = Lens.lens (\CreateLocalGatewayRouteResponse' {route} -> route) (\s@CreateLocalGatewayRouteResponse' {} a -> s {route = a} :: CreateLocalGatewayRouteResponse)
 
 -- | The response's http status code.
-createLocalGatewayRouteResponse_httpStatus :: Lens.Lens' CreateLocalGatewayRouteResponse Core.Int
+createLocalGatewayRouteResponse_httpStatus :: Lens.Lens' CreateLocalGatewayRouteResponse Prelude.Int
 createLocalGatewayRouteResponse_httpStatus = Lens.lens (\CreateLocalGatewayRouteResponse' {httpStatus} -> httpStatus) (\s@CreateLocalGatewayRouteResponse' {} a -> s {httpStatus = a} :: CreateLocalGatewayRouteResponse)
 
-instance Core.NFData CreateLocalGatewayRouteResponse
+instance
+  Prelude.NFData
+    CreateLocalGatewayRouteResponse

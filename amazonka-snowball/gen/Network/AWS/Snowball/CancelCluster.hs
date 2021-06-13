@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -50,9 +51,9 @@ import Network.AWS.Snowball.Types
 data CancelCluster = CancelCluster'
   { -- | The 39-character ID for the cluster that you want to cancel, for example
     -- @CID123e4567-e89b-12d3-a456-426655440000@.
-    clusterId :: Core.Text
+    clusterId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelCluster' with all optional fields omitted.
@@ -66,14 +67,14 @@ data CancelCluster = CancelCluster'
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
 newCancelCluster ::
   -- | 'clusterId'
-  Core.Text ->
+  Prelude.Text ->
   CancelCluster
 newCancelCluster pClusterId_ =
   CancelCluster' {clusterId = pClusterId_}
 
 -- | The 39-character ID for the cluster that you want to cancel, for example
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
-cancelCluster_clusterId :: Lens.Lens' CancelCluster Core.Text
+cancelCluster_clusterId :: Lens.Lens' CancelCluster Prelude.Text
 cancelCluster_clusterId = Lens.lens (\CancelCluster' {clusterId} -> clusterId) (\s@CancelCluster' {} a -> s {clusterId = a} :: CancelCluster)
 
 instance Core.AWSRequest CancelCluster where
@@ -85,45 +86,47 @@ instance Core.AWSRequest CancelCluster where
     Response.receiveEmpty
       ( \s h x ->
           CancelClusterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelCluster
+instance Prelude.Hashable CancelCluster
 
-instance Core.NFData CancelCluster
+instance Prelude.NFData CancelCluster
 
 instance Core.ToHeaders CancelCluster where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.CancelCluster" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelCluster where
   toJSON CancelCluster' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ClusterId" Core..= clusterId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ClusterId" Core..= clusterId)]
       )
 
 instance Core.ToPath CancelCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelCluster where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelClusterResponse' smart constructor.
 data CancelClusterResponse = CancelClusterResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelClusterResponse' with all optional fields omitted.
@@ -136,13 +139,13 @@ data CancelClusterResponse = CancelClusterResponse'
 -- 'httpStatus', 'cancelClusterResponse_httpStatus' - The response's http status code.
 newCancelClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelClusterResponse
 newCancelClusterResponse pHttpStatus_ =
   CancelClusterResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-cancelClusterResponse_httpStatus :: Lens.Lens' CancelClusterResponse Core.Int
+cancelClusterResponse_httpStatus :: Lens.Lens' CancelClusterResponse Prelude.Int
 cancelClusterResponse_httpStatus = Lens.lens (\CancelClusterResponse' {httpStatus} -> httpStatus) (\s@CancelClusterResponse' {} a -> s {httpStatus = a} :: CancelClusterResponse)
 
-instance Core.NFData CancelClusterResponse
+instance Prelude.NFData CancelClusterResponse

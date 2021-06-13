@@ -42,17 +42,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteThingGroup' smart constructor.
 data DeleteThingGroup = DeleteThingGroup'
   { -- | The expected version of the thing group to delete.
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the thing group to delete.
-    thingGroupName :: Core.Text
+    thingGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteThingGroup' with all optional fields omitted.
@@ -67,20 +68,21 @@ data DeleteThingGroup = DeleteThingGroup'
 -- 'thingGroupName', 'deleteThingGroup_thingGroupName' - The name of the thing group to delete.
 newDeleteThingGroup ::
   -- | 'thingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteThingGroup
 newDeleteThingGroup pThingGroupName_ =
   DeleteThingGroup'
-    { expectedVersion = Core.Nothing,
+    { expectedVersion =
+        Prelude.Nothing,
       thingGroupName = pThingGroupName_
     }
 
 -- | The expected version of the thing group to delete.
-deleteThingGroup_expectedVersion :: Lens.Lens' DeleteThingGroup (Core.Maybe Core.Integer)
+deleteThingGroup_expectedVersion :: Lens.Lens' DeleteThingGroup (Prelude.Maybe Prelude.Integer)
 deleteThingGroup_expectedVersion = Lens.lens (\DeleteThingGroup' {expectedVersion} -> expectedVersion) (\s@DeleteThingGroup' {} a -> s {expectedVersion = a} :: DeleteThingGroup)
 
 -- | The name of the thing group to delete.
-deleteThingGroup_thingGroupName :: Lens.Lens' DeleteThingGroup Core.Text
+deleteThingGroup_thingGroupName :: Lens.Lens' DeleteThingGroup Prelude.Text
 deleteThingGroup_thingGroupName = Lens.lens (\DeleteThingGroup' {thingGroupName} -> thingGroupName) (\s@DeleteThingGroup' {} a -> s {thingGroupName = a} :: DeleteThingGroup)
 
 instance Core.AWSRequest DeleteThingGroup where
@@ -92,32 +94,32 @@ instance Core.AWSRequest DeleteThingGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteThingGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteThingGroup
+instance Prelude.Hashable DeleteThingGroup
 
-instance Core.NFData DeleteThingGroup
+instance Prelude.NFData DeleteThingGroup
 
 instance Core.ToHeaders DeleteThingGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteThingGroup where
   toPath DeleteThingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/thing-groups/", Core.toBS thingGroupName]
 
 instance Core.ToQuery DeleteThingGroup where
   toQuery DeleteThingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["expectedVersion" Core.=: expectedVersion]
 
 -- | /See:/ 'newDeleteThingGroupResponse' smart constructor.
 data DeleteThingGroupResponse = DeleteThingGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteThingGroupResponse' with all optional fields omitted.
@@ -130,7 +132,7 @@ data DeleteThingGroupResponse = DeleteThingGroupResponse'
 -- 'httpStatus', 'deleteThingGroupResponse_httpStatus' - The response's http status code.
 newDeleteThingGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteThingGroupResponse
 newDeleteThingGroupResponse pHttpStatus_ =
   DeleteThingGroupResponse'
@@ -139,7 +141,7 @@ newDeleteThingGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteThingGroupResponse_httpStatus :: Lens.Lens' DeleteThingGroupResponse Core.Int
+deleteThingGroupResponse_httpStatus :: Lens.Lens' DeleteThingGroupResponse Prelude.Int
 deleteThingGroupResponse_httpStatus = Lens.lens (\DeleteThingGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteThingGroupResponse' {} a -> s {httpStatus = a} :: DeleteThingGroupResponse)
 
-instance Core.NFData DeleteThingGroupResponse
+instance Prelude.NFData DeleteThingGroupResponse

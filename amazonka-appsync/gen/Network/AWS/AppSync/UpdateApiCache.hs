@@ -45,6 +45,7 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateApiCache' smart constructor.
 data UpdateApiCache = UpdateApiCache'
   { -- | The GraphQL API Id.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | TTL in seconds for cache entries.
     --
     -- Valid values are between 1 and 3600 seconds.
-    ttl :: Core.Integer,
+    ttl :: Prelude.Integer,
     -- | Caching behavior.
     --
     -- -   __FULL_REQUEST_CACHING__: All requests are fully cached.
@@ -105,7 +106,7 @@ data UpdateApiCache = UpdateApiCache'
     -- -   __R4_8XLARGE__: A r4.8xlarge instance type.
     type' :: ApiCacheType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApiCache' with all optional fields omitted.
@@ -168,9 +169,9 @@ data UpdateApiCache = UpdateApiCache'
 -- -   __R4_8XLARGE__: A r4.8xlarge instance type.
 newUpdateApiCache ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ttl'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'apiCachingBehavior'
   ApiCachingBehavior ->
   -- | 'type''
@@ -189,13 +190,13 @@ newUpdateApiCache
       }
 
 -- | The GraphQL API Id.
-updateApiCache_apiId :: Lens.Lens' UpdateApiCache Core.Text
+updateApiCache_apiId :: Lens.Lens' UpdateApiCache Prelude.Text
 updateApiCache_apiId = Lens.lens (\UpdateApiCache' {apiId} -> apiId) (\s@UpdateApiCache' {} a -> s {apiId = a} :: UpdateApiCache)
 
 -- | TTL in seconds for cache entries.
 --
 -- Valid values are between 1 and 3600 seconds.
-updateApiCache_ttl :: Lens.Lens' UpdateApiCache Core.Integer
+updateApiCache_ttl :: Lens.Lens' UpdateApiCache Prelude.Integer
 updateApiCache_ttl = Lens.lens (\UpdateApiCache' {ttl} -> ttl) (\s@UpdateApiCache' {} a -> s {ttl = a} :: UpdateApiCache)
 
 -- | Caching behavior.
@@ -257,52 +258,54 @@ instance Core.AWSRequest UpdateApiCache where
     Response.receiveJSON
       ( \s h x ->
           UpdateApiCacheResponse'
-            Core.<$> (x Core..?> "apiCache")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "apiCache")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateApiCache
+instance Prelude.Hashable UpdateApiCache
 
-instance Core.NFData UpdateApiCache
+instance Prelude.NFData UpdateApiCache
 
 instance Core.ToHeaders UpdateApiCache where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateApiCache where
   toJSON UpdateApiCache' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ttl" Core..= ttl),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ttl" Core..= ttl),
+            Prelude.Just
               ("apiCachingBehavior" Core..= apiCachingBehavior),
-            Core.Just ("type" Core..= type')
+            Prelude.Just ("type" Core..= type')
           ]
       )
 
 instance Core.ToPath UpdateApiCache where
   toPath UpdateApiCache' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apis/", Core.toBS apiId, "/ApiCaches/update"]
 
 instance Core.ToQuery UpdateApiCache where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @UpdateApiCache@ operation.
 --
 -- /See:/ 'newUpdateApiCacheResponse' smart constructor.
 data UpdateApiCacheResponse = UpdateApiCacheResponse'
   { -- | The @ApiCache@ object.
-    apiCache :: Core.Maybe ApiCache,
+    apiCache :: Prelude.Maybe ApiCache,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApiCacheResponse' with all optional fields omitted.
@@ -317,20 +320,20 @@ data UpdateApiCacheResponse = UpdateApiCacheResponse'
 -- 'httpStatus', 'updateApiCacheResponse_httpStatus' - The response's http status code.
 newUpdateApiCacheResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateApiCacheResponse
 newUpdateApiCacheResponse pHttpStatus_ =
   UpdateApiCacheResponse'
-    { apiCache = Core.Nothing,
+    { apiCache = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ApiCache@ object.
-updateApiCacheResponse_apiCache :: Lens.Lens' UpdateApiCacheResponse (Core.Maybe ApiCache)
+updateApiCacheResponse_apiCache :: Lens.Lens' UpdateApiCacheResponse (Prelude.Maybe ApiCache)
 updateApiCacheResponse_apiCache = Lens.lens (\UpdateApiCacheResponse' {apiCache} -> apiCache) (\s@UpdateApiCacheResponse' {} a -> s {apiCache = a} :: UpdateApiCacheResponse)
 
 -- | The response's http status code.
-updateApiCacheResponse_httpStatus :: Lens.Lens' UpdateApiCacheResponse Core.Int
+updateApiCacheResponse_httpStatus :: Lens.Lens' UpdateApiCacheResponse Prelude.Int
 updateApiCacheResponse_httpStatus = Lens.lens (\UpdateApiCacheResponse' {httpStatus} -> httpStatus) (\s@UpdateApiCacheResponse' {} a -> s {httpStatus = a} :: UpdateApiCacheResponse)
 
-instance Core.NFData UpdateApiCacheResponse
+instance Prelude.NFData UpdateApiCacheResponse

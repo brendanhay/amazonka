@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.IPRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used as a response element in the
 -- @DescribeDBSecurityGroups@ action.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data IPRange = IPRange'
   { -- | Specifies the status of the IP range. Status can be \"authorizing\",
     -- \"authorized\", \"revoking\", and \"revoked\".
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | Specifies the IP range.
-    cidrip :: Core.Maybe Core.Text
+    cidrip :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IPRange' with all optional fields omitted.
@@ -51,24 +52,25 @@ newIPRange ::
   IPRange
 newIPRange =
   IPRange'
-    { status = Core.Nothing,
-      cidrip = Core.Nothing
+    { status = Prelude.Nothing,
+      cidrip = Prelude.Nothing
     }
 
 -- | Specifies the status of the IP range. Status can be \"authorizing\",
 -- \"authorized\", \"revoking\", and \"revoked\".
-iPRange_status :: Lens.Lens' IPRange (Core.Maybe Core.Text)
+iPRange_status :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
 iPRange_status = Lens.lens (\IPRange' {status} -> status) (\s@IPRange' {} a -> s {status = a} :: IPRange)
 
 -- | Specifies the IP range.
-iPRange_cidrip :: Lens.Lens' IPRange (Core.Maybe Core.Text)
+iPRange_cidrip :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
 iPRange_cidrip = Lens.lens (\IPRange' {cidrip} -> cidrip) (\s@IPRange' {} a -> s {cidrip = a} :: IPRange)
 
 instance Core.FromXML IPRange where
   parseXML x =
     IPRange'
-      Core.<$> (x Core..@? "Status") Core.<*> (x Core..@? "CIDRIP")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "CIDRIP")
 
-instance Core.Hashable IPRange
+instance Prelude.Hashable IPRange
 
-instance Core.NFData IPRange
+instance Prelude.NFData IPRange

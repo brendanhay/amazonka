@@ -44,18 +44,19 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCampaign' smart constructor.
 data GetCampaign = GetCampaign'
   { -- | The unique identifier for the campaign.
-    campaignId :: Core.Text,
+    campaignId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCampaign' with all optional fields omitted.
@@ -71,9 +72,9 @@ data GetCampaign = GetCampaign'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetCampaign ::
   -- | 'campaignId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetCampaign
 newGetCampaign pCampaignId_ pApplicationId_ =
   GetCampaign'
@@ -82,12 +83,12 @@ newGetCampaign pCampaignId_ pApplicationId_ =
     }
 
 -- | The unique identifier for the campaign.
-getCampaign_campaignId :: Lens.Lens' GetCampaign Core.Text
+getCampaign_campaignId :: Lens.Lens' GetCampaign Prelude.Text
 getCampaign_campaignId = Lens.lens (\GetCampaign' {campaignId} -> campaignId) (\s@GetCampaign' {} a -> s {campaignId = a} :: GetCampaign)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getCampaign_applicationId :: Lens.Lens' GetCampaign Core.Text
+getCampaign_applicationId :: Lens.Lens' GetCampaign Prelude.Text
 getCampaign_applicationId = Lens.lens (\GetCampaign' {applicationId} -> applicationId) (\s@GetCampaign' {} a -> s {applicationId = a} :: GetCampaign)
 
 instance Core.AWSRequest GetCampaign where
@@ -97,26 +98,28 @@ instance Core.AWSRequest GetCampaign where
     Response.receiveJSON
       ( \s h x ->
           GetCampaignResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetCampaign
+instance Prelude.Hashable GetCampaign
 
-instance Core.NFData GetCampaign
+instance Prelude.NFData GetCampaign
 
 instance Core.ToHeaders GetCampaign where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetCampaign where
   toPath GetCampaign' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/campaigns/",
@@ -124,15 +127,15 @@ instance Core.ToPath GetCampaign where
       ]
 
 instance Core.ToQuery GetCampaign where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCampaignResponse' smart constructor.
 data GetCampaignResponse = GetCampaignResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     campaignResponse :: CampaignResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCampaignResponse' with all optional fields omitted.
@@ -147,7 +150,7 @@ data GetCampaignResponse = GetCampaignResponse'
 -- 'campaignResponse', 'getCampaignResponse_campaignResponse' - Undocumented member.
 newGetCampaignResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'campaignResponse'
   CampaignResponse ->
   GetCampaignResponse
@@ -160,11 +163,11 @@ newGetCampaignResponse
       }
 
 -- | The response's http status code.
-getCampaignResponse_httpStatus :: Lens.Lens' GetCampaignResponse Core.Int
+getCampaignResponse_httpStatus :: Lens.Lens' GetCampaignResponse Prelude.Int
 getCampaignResponse_httpStatus = Lens.lens (\GetCampaignResponse' {httpStatus} -> httpStatus) (\s@GetCampaignResponse' {} a -> s {httpStatus = a} :: GetCampaignResponse)
 
 -- | Undocumented member.
 getCampaignResponse_campaignResponse :: Lens.Lens' GetCampaignResponse CampaignResponse
 getCampaignResponse_campaignResponse = Lens.lens (\GetCampaignResponse' {campaignResponse} -> campaignResponse) (\s@GetCampaignResponse' {} a -> s {campaignResponse = a} :: GetCampaignResponse)
 
-instance Core.NFData GetCampaignResponse
+instance Prelude.NFData GetCampaignResponse

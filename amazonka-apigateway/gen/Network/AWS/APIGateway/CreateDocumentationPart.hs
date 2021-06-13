@@ -45,6 +45,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,16 +54,16 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateDocumentationPart' smart constructor.
 data CreateDocumentationPart = CreateDocumentationPart'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The location of the targeted API entity of the to-be-created
     -- documentation part.
     location :: DocumentationPartLocation,
     -- | [Required] The new documentation content map of the targeted API entity.
     -- Enclosed key-value pairs are API-specific, but only OpenAPI-compliant
     -- key-value pairs can be exported and, hence, published.
-    properties :: Core.Text
+    properties :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDocumentationPart' with all optional fields omitted.
@@ -82,11 +83,11 @@ data CreateDocumentationPart = CreateDocumentationPart'
 -- key-value pairs can be exported and, hence, published.
 newCreateDocumentationPart ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'location'
   DocumentationPartLocation ->
   -- | 'properties'
-  Core.Text ->
+  Prelude.Text ->
   CreateDocumentationPart
 newCreateDocumentationPart
   pRestApiId_
@@ -99,7 +100,7 @@ newCreateDocumentationPart
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-createDocumentationPart_restApiId :: Lens.Lens' CreateDocumentationPart Core.Text
+createDocumentationPart_restApiId :: Lens.Lens' CreateDocumentationPart Prelude.Text
 createDocumentationPart_restApiId = Lens.lens (\CreateDocumentationPart' {restApiId} -> restApiId) (\s@CreateDocumentationPart' {} a -> s {restApiId = a} :: CreateDocumentationPart)
 
 -- | [Required] The location of the targeted API entity of the to-be-created
@@ -110,7 +111,7 @@ createDocumentationPart_location = Lens.lens (\CreateDocumentationPart' {locatio
 -- | [Required] The new documentation content map of the targeted API entity.
 -- Enclosed key-value pairs are API-specific, but only OpenAPI-compliant
 -- key-value pairs can be exported and, hence, published.
-createDocumentationPart_properties :: Lens.Lens' CreateDocumentationPart Core.Text
+createDocumentationPart_properties :: Lens.Lens' CreateDocumentationPart Prelude.Text
 createDocumentationPart_properties = Lens.lens (\CreateDocumentationPart' {properties} -> properties) (\s@CreateDocumentationPart' {} a -> s {properties = a} :: CreateDocumentationPart)
 
 instance Core.AWSRequest CreateDocumentationPart where
@@ -122,35 +123,35 @@ instance Core.AWSRequest CreateDocumentationPart where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreateDocumentationPart
+instance Prelude.Hashable CreateDocumentationPart
 
-instance Core.NFData CreateDocumentationPart
+instance Prelude.NFData CreateDocumentationPart
 
 instance Core.ToHeaders CreateDocumentationPart where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON CreateDocumentationPart where
   toJSON CreateDocumentationPart' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("location" Core..= location),
-            Core.Just ("properties" Core..= properties)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("location" Core..= location),
+            Prelude.Just ("properties" Core..= properties)
           ]
       )
 
 instance Core.ToPath CreateDocumentationPart where
   toPath CreateDocumentationPart' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/documentation/parts"
       ]
 
 instance Core.ToQuery CreateDocumentationPart where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

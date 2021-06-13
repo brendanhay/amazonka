@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +54,15 @@ data GetImportJobs = GetImportJobs'
   { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Core.Maybe Core.Text,
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The NextToken string that specifies which page of results to return in a
     -- paginated response.
-    token :: Core.Maybe Core.Text,
+    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetImportJobs' with all optional fields omitted.
@@ -82,29 +83,29 @@ data GetImportJobs = GetImportJobs'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetImportJobs ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetImportJobs
 newGetImportJobs pApplicationId_ =
   GetImportJobs'
-    { pageSize = Core.Nothing,
-      token = Core.Nothing,
+    { pageSize = Prelude.Nothing,
+      token = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getImportJobs_pageSize :: Lens.Lens' GetImportJobs (Core.Maybe Core.Text)
+getImportJobs_pageSize :: Lens.Lens' GetImportJobs (Prelude.Maybe Prelude.Text)
 getImportJobs_pageSize = Lens.lens (\GetImportJobs' {pageSize} -> pageSize) (\s@GetImportJobs' {} a -> s {pageSize = a} :: GetImportJobs)
 
 -- | The NextToken string that specifies which page of results to return in a
 -- paginated response.
-getImportJobs_token :: Lens.Lens' GetImportJobs (Core.Maybe Core.Text)
+getImportJobs_token :: Lens.Lens' GetImportJobs (Prelude.Maybe Prelude.Text)
 getImportJobs_token = Lens.lens (\GetImportJobs' {token} -> token) (\s@GetImportJobs' {} a -> s {token = a} :: GetImportJobs)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getImportJobs_applicationId :: Lens.Lens' GetImportJobs Core.Text
+getImportJobs_applicationId :: Lens.Lens' GetImportJobs Prelude.Text
 getImportJobs_applicationId = Lens.lens (\GetImportJobs' {applicationId} -> applicationId) (\s@GetImportJobs' {} a -> s {applicationId = a} :: GetImportJobs)
 
 instance Core.AWSRequest GetImportJobs where
@@ -116,26 +117,28 @@ instance Core.AWSRequest GetImportJobs where
     Response.receiveJSON
       ( \s h x ->
           GetImportJobsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetImportJobs
+instance Prelude.Hashable GetImportJobs
 
-instance Core.NFData GetImportJobs
+instance Prelude.NFData GetImportJobs
 
 instance Core.ToHeaders GetImportJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetImportJobs where
   toPath GetImportJobs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/jobs/import"
@@ -143,16 +146,16 @@ instance Core.ToPath GetImportJobs where
 
 instance Core.ToQuery GetImportJobs where
   toQuery GetImportJobs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetImportJobsResponse' smart constructor.
 data GetImportJobsResponse = GetImportJobsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     importJobsResponse :: ImportJobsResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetImportJobsResponse' with all optional fields omitted.
@@ -167,7 +170,7 @@ data GetImportJobsResponse = GetImportJobsResponse'
 -- 'importJobsResponse', 'getImportJobsResponse_importJobsResponse' - Undocumented member.
 newGetImportJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'importJobsResponse'
   ImportJobsResponse ->
   GetImportJobsResponse
@@ -180,11 +183,11 @@ newGetImportJobsResponse
       }
 
 -- | The response's http status code.
-getImportJobsResponse_httpStatus :: Lens.Lens' GetImportJobsResponse Core.Int
+getImportJobsResponse_httpStatus :: Lens.Lens' GetImportJobsResponse Prelude.Int
 getImportJobsResponse_httpStatus = Lens.lens (\GetImportJobsResponse' {httpStatus} -> httpStatus) (\s@GetImportJobsResponse' {} a -> s {httpStatus = a} :: GetImportJobsResponse)
 
 -- | Undocumented member.
 getImportJobsResponse_importJobsResponse :: Lens.Lens' GetImportJobsResponse ImportJobsResponse
 getImportJobsResponse_importJobsResponse = Lens.lens (\GetImportJobsResponse' {importJobsResponse} -> importJobsResponse) (\s@GetImportJobsResponse' {} a -> s {importJobsResponse = a} :: GetImportJobsResponse)
 
-instance Core.NFData GetImportJobsResponse
+instance Prelude.NFData GetImportJobsResponse

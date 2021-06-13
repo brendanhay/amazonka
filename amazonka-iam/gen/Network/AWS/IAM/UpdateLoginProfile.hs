@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +56,7 @@ import qualified Network.AWS.Response as Response
 data UpdateLoginProfile = UpdateLoginProfile'
   { -- | Allows this new password to be used only once by requiring the specified
     -- IAM user to set a new password on next sign-in.
-    passwordResetRequired :: Core.Maybe Core.Bool,
+    passwordResetRequired :: Prelude.Maybe Prelude.Bool,
     -- | The new password for the specified IAM user.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
@@ -73,16 +74,16 @@ data UpdateLoginProfile = UpdateLoginProfile'
     -- However, the format can be further restricted by the account
     -- administrator by setting a password policy on the AWS account. For more
     -- information, see UpdateAccountPasswordPolicy.
-    password :: Core.Maybe (Core.Sensitive Core.Text),
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the user whose password you want to update.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text
+    userName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateLoginProfile' with all optional fields omitted.
@@ -121,19 +122,19 @@ data UpdateLoginProfile = UpdateLoginProfile'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newUpdateLoginProfile ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateLoginProfile
 newUpdateLoginProfile pUserName_ =
   UpdateLoginProfile'
     { passwordResetRequired =
-        Core.Nothing,
-      password = Core.Nothing,
+        Prelude.Nothing,
+      password = Prelude.Nothing,
       userName = pUserName_
     }
 
 -- | Allows this new password to be used only once by requiring the specified
 -- IAM user to set a new password on next sign-in.
-updateLoginProfile_passwordResetRequired :: Lens.Lens' UpdateLoginProfile (Core.Maybe Core.Bool)
+updateLoginProfile_passwordResetRequired :: Lens.Lens' UpdateLoginProfile (Prelude.Maybe Prelude.Bool)
 updateLoginProfile_passwordResetRequired = Lens.lens (\UpdateLoginProfile' {passwordResetRequired} -> passwordResetRequired) (\s@UpdateLoginProfile' {} a -> s {passwordResetRequired = a} :: UpdateLoginProfile)
 
 -- | The new password for the specified IAM user.
@@ -153,8 +154,8 @@ updateLoginProfile_passwordResetRequired = Lens.lens (\UpdateLoginProfile' {pass
 -- However, the format can be further restricted by the account
 -- administrator by setting a password policy on the AWS account. For more
 -- information, see UpdateAccountPasswordPolicy.
-updateLoginProfile_password :: Lens.Lens' UpdateLoginProfile (Core.Maybe Core.Text)
-updateLoginProfile_password = Lens.lens (\UpdateLoginProfile' {password} -> password) (\s@UpdateLoginProfile' {} a -> s {password = a} :: UpdateLoginProfile) Core.. Lens.mapping Core._Sensitive
+updateLoginProfile_password :: Lens.Lens' UpdateLoginProfile (Prelude.Maybe Prelude.Text)
+updateLoginProfile_password = Lens.lens (\UpdateLoginProfile' {password} -> password) (\s@UpdateLoginProfile' {} a -> s {password = a} :: UpdateLoginProfile) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the user whose password you want to update.
 --
@@ -162,7 +163,7 @@ updateLoginProfile_password = Lens.lens (\UpdateLoginProfile' {password} -> pass
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateLoginProfile_userName :: Lens.Lens' UpdateLoginProfile Core.Text
+updateLoginProfile_userName :: Lens.Lens' UpdateLoginProfile Prelude.Text
 updateLoginProfile_userName = Lens.lens (\UpdateLoginProfile' {userName} -> userName) (\s@UpdateLoginProfile' {} a -> s {userName = a} :: UpdateLoginProfile)
 
 instance Core.AWSRequest UpdateLoginProfile where
@@ -173,22 +174,23 @@ instance Core.AWSRequest UpdateLoginProfile where
   response =
     Response.receiveNull UpdateLoginProfileResponse'
 
-instance Core.Hashable UpdateLoginProfile
+instance Prelude.Hashable UpdateLoginProfile
 
-instance Core.NFData UpdateLoginProfile
+instance Prelude.NFData UpdateLoginProfile
 
 instance Core.ToHeaders UpdateLoginProfile where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateLoginProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateLoginProfile where
   toQuery UpdateLoginProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateLoginProfile" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UpdateLoginProfile" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PasswordResetRequired"
           Core.=: passwordResetRequired,
         "Password" Core.=: password,
@@ -199,7 +201,7 @@ instance Core.ToQuery UpdateLoginProfile where
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateLoginProfileResponse' with all optional fields omitted.
@@ -210,4 +212,4 @@ newUpdateLoginProfileResponse ::
 newUpdateLoginProfileResponse =
   UpdateLoginProfileResponse'
 
-instance Core.NFData UpdateLoginProfileResponse
+instance Prelude.NFData UpdateLoginProfileResponse

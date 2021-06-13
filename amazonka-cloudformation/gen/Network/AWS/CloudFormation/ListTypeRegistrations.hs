@@ -48,6 +48,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,33 +57,33 @@ data ListTypeRegistrations = ListTypeRegistrations'
   { -- | The name of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    typeName :: Core.Maybe Core.Text,
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | If the previous paginated request didn\'t return all of the remaining
     -- results, the response object\'s @NextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call this action again and
     -- assign that token to the request object\'s @NextToken@ parameter. If
     -- there are no remaining results, the previous response object\'s
     -- @NextToken@ parameter is set to @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The kind of extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    type' :: Core.Maybe RegistryType,
+    type' :: Prelude.Maybe RegistryType,
     -- | The current status of the extension registration request.
     --
     -- The default is @IN_PROGRESS@.
-    registrationStatusFilter :: Core.Maybe RegistrationStatus,
+    registrationStatusFilter :: Prelude.Maybe RegistrationStatus,
     -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    typeArn :: Core.Maybe Core.Text
+    typeArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTypeRegistrations' with all optional fields omitted.
@@ -123,18 +124,18 @@ newListTypeRegistrations ::
   ListTypeRegistrations
 newListTypeRegistrations =
   ListTypeRegistrations'
-    { typeName = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      type' = Core.Nothing,
-      registrationStatusFilter = Core.Nothing,
-      typeArn = Core.Nothing
+    { typeName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      registrationStatusFilter = Prelude.Nothing,
+      typeArn = Prelude.Nothing
     }
 
 -- | The name of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-listTypeRegistrations_typeName :: Lens.Lens' ListTypeRegistrations (Core.Maybe Core.Text)
+listTypeRegistrations_typeName :: Lens.Lens' ListTypeRegistrations (Prelude.Maybe Prelude.Text)
 listTypeRegistrations_typeName = Lens.lens (\ListTypeRegistrations' {typeName} -> typeName) (\s@ListTypeRegistrations' {} a -> s {typeName = a} :: ListTypeRegistrations)
 
 -- | If the previous paginated request didn\'t return all of the remaining
@@ -143,32 +144,32 @@ listTypeRegistrations_typeName = Lens.lens (\ListTypeRegistrations' {typeName} -
 -- assign that token to the request object\'s @NextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
-listTypeRegistrations_nextToken :: Lens.Lens' ListTypeRegistrations (Core.Maybe Core.Text)
+listTypeRegistrations_nextToken :: Lens.Lens' ListTypeRegistrations (Prelude.Maybe Prelude.Text)
 listTypeRegistrations_nextToken = Lens.lens (\ListTypeRegistrations' {nextToken} -> nextToken) (\s@ListTypeRegistrations' {} a -> s {nextToken = a} :: ListTypeRegistrations)
 
 -- | The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
-listTypeRegistrations_maxResults :: Lens.Lens' ListTypeRegistrations (Core.Maybe Core.Natural)
+listTypeRegistrations_maxResults :: Lens.Lens' ListTypeRegistrations (Prelude.Maybe Prelude.Natural)
 listTypeRegistrations_maxResults = Lens.lens (\ListTypeRegistrations' {maxResults} -> maxResults) (\s@ListTypeRegistrations' {} a -> s {maxResults = a} :: ListTypeRegistrations)
 
 -- | The kind of extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-listTypeRegistrations_type :: Lens.Lens' ListTypeRegistrations (Core.Maybe RegistryType)
+listTypeRegistrations_type :: Lens.Lens' ListTypeRegistrations (Prelude.Maybe RegistryType)
 listTypeRegistrations_type = Lens.lens (\ListTypeRegistrations' {type'} -> type') (\s@ListTypeRegistrations' {} a -> s {type' = a} :: ListTypeRegistrations)
 
 -- | The current status of the extension registration request.
 --
 -- The default is @IN_PROGRESS@.
-listTypeRegistrations_registrationStatusFilter :: Lens.Lens' ListTypeRegistrations (Core.Maybe RegistrationStatus)
+listTypeRegistrations_registrationStatusFilter :: Lens.Lens' ListTypeRegistrations (Prelude.Maybe RegistrationStatus)
 listTypeRegistrations_registrationStatusFilter = Lens.lens (\ListTypeRegistrations' {registrationStatusFilter} -> registrationStatusFilter) (\s@ListTypeRegistrations' {} a -> s {registrationStatusFilter = a} :: ListTypeRegistrations)
 
 -- | The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-listTypeRegistrations_typeArn :: Lens.Lens' ListTypeRegistrations (Core.Maybe Core.Text)
+listTypeRegistrations_typeArn :: Lens.Lens' ListTypeRegistrations (Prelude.Maybe Prelude.Text)
 listTypeRegistrations_typeArn = Lens.lens (\ListTypeRegistrations' {typeArn} -> typeArn) (\s@ListTypeRegistrations' {} a -> s {typeArn = a} :: ListTypeRegistrations)
 
 instance Core.AWSRequest ListTypeRegistrations where
@@ -181,30 +182,31 @@ instance Core.AWSRequest ListTypeRegistrations where
       "ListTypeRegistrationsResult"
       ( \s h x ->
           ListTypeRegistrationsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "RegistrationTokenList"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "RegistrationTokenList"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTypeRegistrations
+instance Prelude.Hashable ListTypeRegistrations
 
-instance Core.NFData ListTypeRegistrations
+instance Prelude.NFData ListTypeRegistrations
 
 instance Core.ToHeaders ListTypeRegistrations where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListTypeRegistrations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTypeRegistrations where
   toQuery ListTypeRegistrations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListTypeRegistrations" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("ListTypeRegistrations" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "TypeName" Core.=: typeName,
         "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
@@ -221,16 +223,16 @@ data ListTypeRegistrationsResponse = ListTypeRegistrationsResponse'
     -- again and assign that token to the request object\'s @NextToken@
     -- parameter. If the request returns all results, @NextToken@ is set to
     -- @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of extension registration tokens.
     --
     -- Use @ DescribeTypeRegistration @ to return detailed information about a
     -- type registration request.
-    registrationTokenList :: Core.Maybe [Core.Text],
+    registrationTokenList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTypeRegistrationsResponse' with all optional fields omitted.
@@ -254,13 +256,13 @@ data ListTypeRegistrationsResponse = ListTypeRegistrationsResponse'
 -- 'httpStatus', 'listTypeRegistrationsResponse_httpStatus' - The response's http status code.
 newListTypeRegistrationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTypeRegistrationsResponse
 newListTypeRegistrationsResponse pHttpStatus_ =
   ListTypeRegistrationsResponse'
     { nextToken =
-        Core.Nothing,
-      registrationTokenList = Core.Nothing,
+        Prelude.Nothing,
+      registrationTokenList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -269,18 +271,18 @@ newListTypeRegistrationsResponse pHttpStatus_ =
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If the request returns all results, @NextToken@ is set to
 -- @null@.
-listTypeRegistrationsResponse_nextToken :: Lens.Lens' ListTypeRegistrationsResponse (Core.Maybe Core.Text)
+listTypeRegistrationsResponse_nextToken :: Lens.Lens' ListTypeRegistrationsResponse (Prelude.Maybe Prelude.Text)
 listTypeRegistrationsResponse_nextToken = Lens.lens (\ListTypeRegistrationsResponse' {nextToken} -> nextToken) (\s@ListTypeRegistrationsResponse' {} a -> s {nextToken = a} :: ListTypeRegistrationsResponse)
 
 -- | A list of extension registration tokens.
 --
 -- Use @ DescribeTypeRegistration @ to return detailed information about a
 -- type registration request.
-listTypeRegistrationsResponse_registrationTokenList :: Lens.Lens' ListTypeRegistrationsResponse (Core.Maybe [Core.Text])
-listTypeRegistrationsResponse_registrationTokenList = Lens.lens (\ListTypeRegistrationsResponse' {registrationTokenList} -> registrationTokenList) (\s@ListTypeRegistrationsResponse' {} a -> s {registrationTokenList = a} :: ListTypeRegistrationsResponse) Core.. Lens.mapping Lens._Coerce
+listTypeRegistrationsResponse_registrationTokenList :: Lens.Lens' ListTypeRegistrationsResponse (Prelude.Maybe [Prelude.Text])
+listTypeRegistrationsResponse_registrationTokenList = Lens.lens (\ListTypeRegistrationsResponse' {registrationTokenList} -> registrationTokenList) (\s@ListTypeRegistrationsResponse' {} a -> s {registrationTokenList = a} :: ListTypeRegistrationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTypeRegistrationsResponse_httpStatus :: Lens.Lens' ListTypeRegistrationsResponse Core.Int
+listTypeRegistrationsResponse_httpStatus :: Lens.Lens' ListTypeRegistrationsResponse Prelude.Int
 listTypeRegistrationsResponse_httpStatus = Lens.lens (\ListTypeRegistrationsResponse' {httpStatus} -> httpStatus) (\s@ListTypeRegistrationsResponse' {} a -> s {httpStatus = a} :: ListTypeRegistrationsResponse)
 
-instance Core.NFData ListTypeRegistrationsResponse
+instance Prelude.NFData ListTypeRegistrationsResponse

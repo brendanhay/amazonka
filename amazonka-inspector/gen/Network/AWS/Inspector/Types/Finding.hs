@@ -26,6 +26,7 @@ import Network.AWS.Inspector.Types.Attribute
 import Network.AWS.Inspector.Types.InspectorServiceAttributes
 import Network.AWS.Inspector.Types.Severity
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector finding. This data type
 -- is used as the response element in the DescribeFindings action.
@@ -34,34 +35,34 @@ import qualified Network.AWS.Lens as Lens
 data Finding = Finding'
   { -- | A collection of attributes of the host from which the finding is
     -- generated.
-    assetAttributes :: Core.Maybe AssetAttributes,
+    assetAttributes :: Prelude.Maybe AssetAttributes,
     -- | The finding severity. Values can be set to High, Medium, Low, and
     -- Informational.
-    severity :: Core.Maybe Severity,
+    severity :: Prelude.Maybe Severity,
     -- | The name of the finding.
-    title :: Core.Maybe Core.Text,
+    title :: Prelude.Maybe Prelude.Text,
     -- | The type of the host from which the finding is generated.
-    assetType :: Core.Maybe AssetType,
+    assetType :: Prelude.Maybe AssetType,
     -- | The numeric value of the finding severity.
-    numericSeverity :: Core.Maybe Core.Double,
+    numericSeverity :: Prelude.Maybe Prelude.Double,
     -- | The ID of the finding.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The data element is set to \"Inspector\".
-    service :: Core.Maybe Core.Text,
+    service :: Prelude.Maybe Prelude.Text,
     -- | This data type is used in the Finding data type.
-    serviceAttributes :: Core.Maybe InspectorServiceAttributes,
+    serviceAttributes :: Prelude.Maybe InspectorServiceAttributes,
     -- | This data element is currently not used.
-    confidence :: Core.Maybe Core.Natural,
+    confidence :: Prelude.Maybe Prelude.Natural,
     -- | The recommendation for the finding.
-    recommendation :: Core.Maybe Core.Text,
+    recommendation :: Prelude.Maybe Prelude.Text,
     -- | This data element is currently not used.
-    indicatorOfCompromise :: Core.Maybe Core.Bool,
+    indicatorOfCompromise :: Prelude.Maybe Prelude.Bool,
     -- | The description of the finding.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The schema version of this data type.
-    schemaVersion :: Core.Maybe Core.Natural,
+    schemaVersion :: Prelude.Maybe Prelude.Natural,
     -- | The ARN that specifies the finding.
-    arn :: Core.Text,
+    arn :: Prelude.Text,
     -- | The system-defined attributes for the finding.
     attributes :: [Attribute],
     -- | The user-defined attributes that are assigned to the finding.
@@ -71,7 +72,7 @@ data Finding = Finding'
     -- | The time when AddAttributesToFindings is called.
     updatedAt :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Finding' with all optional fields omitted.
@@ -120,107 +121,107 @@ data Finding = Finding'
 -- 'updatedAt', 'finding_updatedAt' - The time when AddAttributesToFindings is called.
 newFinding ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createdAt'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'updatedAt'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   Finding
 newFinding pArn_ pCreatedAt_ pUpdatedAt_ =
   Finding'
-    { assetAttributes = Core.Nothing,
-      severity = Core.Nothing,
-      title = Core.Nothing,
-      assetType = Core.Nothing,
-      numericSeverity = Core.Nothing,
-      id = Core.Nothing,
-      service = Core.Nothing,
-      serviceAttributes = Core.Nothing,
-      confidence = Core.Nothing,
-      recommendation = Core.Nothing,
-      indicatorOfCompromise = Core.Nothing,
-      description = Core.Nothing,
-      schemaVersion = Core.Nothing,
+    { assetAttributes = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      title = Prelude.Nothing,
+      assetType = Prelude.Nothing,
+      numericSeverity = Prelude.Nothing,
+      id = Prelude.Nothing,
+      service = Prelude.Nothing,
+      serviceAttributes = Prelude.Nothing,
+      confidence = Prelude.Nothing,
+      recommendation = Prelude.Nothing,
+      indicatorOfCompromise = Prelude.Nothing,
+      description = Prelude.Nothing,
+      schemaVersion = Prelude.Nothing,
       arn = pArn_,
-      attributes = Core.mempty,
-      userAttributes = Core.mempty,
+      attributes = Prelude.mempty,
+      userAttributes = Prelude.mempty,
       createdAt = Core._Time Lens.# pCreatedAt_,
       updatedAt = Core._Time Lens.# pUpdatedAt_
     }
 
 -- | A collection of attributes of the host from which the finding is
 -- generated.
-finding_assetAttributes :: Lens.Lens' Finding (Core.Maybe AssetAttributes)
+finding_assetAttributes :: Lens.Lens' Finding (Prelude.Maybe AssetAttributes)
 finding_assetAttributes = Lens.lens (\Finding' {assetAttributes} -> assetAttributes) (\s@Finding' {} a -> s {assetAttributes = a} :: Finding)
 
 -- | The finding severity. Values can be set to High, Medium, Low, and
 -- Informational.
-finding_severity :: Lens.Lens' Finding (Core.Maybe Severity)
+finding_severity :: Lens.Lens' Finding (Prelude.Maybe Severity)
 finding_severity = Lens.lens (\Finding' {severity} -> severity) (\s@Finding' {} a -> s {severity = a} :: Finding)
 
 -- | The name of the finding.
-finding_title :: Lens.Lens' Finding (Core.Maybe Core.Text)
+finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
 
 -- | The type of the host from which the finding is generated.
-finding_assetType :: Lens.Lens' Finding (Core.Maybe AssetType)
+finding_assetType :: Lens.Lens' Finding (Prelude.Maybe AssetType)
 finding_assetType = Lens.lens (\Finding' {assetType} -> assetType) (\s@Finding' {} a -> s {assetType = a} :: Finding)
 
 -- | The numeric value of the finding severity.
-finding_numericSeverity :: Lens.Lens' Finding (Core.Maybe Core.Double)
+finding_numericSeverity :: Lens.Lens' Finding (Prelude.Maybe Prelude.Double)
 finding_numericSeverity = Lens.lens (\Finding' {numericSeverity} -> numericSeverity) (\s@Finding' {} a -> s {numericSeverity = a} :: Finding)
 
 -- | The ID of the finding.
-finding_id :: Lens.Lens' Finding (Core.Maybe Core.Text)
+finding_id :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_id = Lens.lens (\Finding' {id} -> id) (\s@Finding' {} a -> s {id = a} :: Finding)
 
 -- | The data element is set to \"Inspector\".
-finding_service :: Lens.Lens' Finding (Core.Maybe Core.Text)
+finding_service :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_service = Lens.lens (\Finding' {service} -> service) (\s@Finding' {} a -> s {service = a} :: Finding)
 
 -- | This data type is used in the Finding data type.
-finding_serviceAttributes :: Lens.Lens' Finding (Core.Maybe InspectorServiceAttributes)
+finding_serviceAttributes :: Lens.Lens' Finding (Prelude.Maybe InspectorServiceAttributes)
 finding_serviceAttributes = Lens.lens (\Finding' {serviceAttributes} -> serviceAttributes) (\s@Finding' {} a -> s {serviceAttributes = a} :: Finding)
 
 -- | This data element is currently not used.
-finding_confidence :: Lens.Lens' Finding (Core.Maybe Core.Natural)
+finding_confidence :: Lens.Lens' Finding (Prelude.Maybe Prelude.Natural)
 finding_confidence = Lens.lens (\Finding' {confidence} -> confidence) (\s@Finding' {} a -> s {confidence = a} :: Finding)
 
 -- | The recommendation for the finding.
-finding_recommendation :: Lens.Lens' Finding (Core.Maybe Core.Text)
+finding_recommendation :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_recommendation = Lens.lens (\Finding' {recommendation} -> recommendation) (\s@Finding' {} a -> s {recommendation = a} :: Finding)
 
 -- | This data element is currently not used.
-finding_indicatorOfCompromise :: Lens.Lens' Finding (Core.Maybe Core.Bool)
+finding_indicatorOfCompromise :: Lens.Lens' Finding (Prelude.Maybe Prelude.Bool)
 finding_indicatorOfCompromise = Lens.lens (\Finding' {indicatorOfCompromise} -> indicatorOfCompromise) (\s@Finding' {} a -> s {indicatorOfCompromise = a} :: Finding)
 
 -- | The description of the finding.
-finding_description :: Lens.Lens' Finding (Core.Maybe Core.Text)
+finding_description :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_description = Lens.lens (\Finding' {description} -> description) (\s@Finding' {} a -> s {description = a} :: Finding)
 
 -- | The schema version of this data type.
-finding_schemaVersion :: Lens.Lens' Finding (Core.Maybe Core.Natural)
+finding_schemaVersion :: Lens.Lens' Finding (Prelude.Maybe Prelude.Natural)
 finding_schemaVersion = Lens.lens (\Finding' {schemaVersion} -> schemaVersion) (\s@Finding' {} a -> s {schemaVersion = a} :: Finding)
 
 -- | The ARN that specifies the finding.
-finding_arn :: Lens.Lens' Finding Core.Text
+finding_arn :: Lens.Lens' Finding Prelude.Text
 finding_arn = Lens.lens (\Finding' {arn} -> arn) (\s@Finding' {} a -> s {arn = a} :: Finding)
 
 -- | The system-defined attributes for the finding.
 finding_attributes :: Lens.Lens' Finding [Attribute]
-finding_attributes = Lens.lens (\Finding' {attributes} -> attributes) (\s@Finding' {} a -> s {attributes = a} :: Finding) Core.. Lens._Coerce
+finding_attributes = Lens.lens (\Finding' {attributes} -> attributes) (\s@Finding' {} a -> s {attributes = a} :: Finding) Prelude.. Lens._Coerce
 
 -- | The user-defined attributes that are assigned to the finding.
 finding_userAttributes :: Lens.Lens' Finding [Attribute]
-finding_userAttributes = Lens.lens (\Finding' {userAttributes} -> userAttributes) (\s@Finding' {} a -> s {userAttributes = a} :: Finding) Core.. Lens._Coerce
+finding_userAttributes = Lens.lens (\Finding' {userAttributes} -> userAttributes) (\s@Finding' {} a -> s {userAttributes = a} :: Finding) Prelude.. Lens._Coerce
 
 -- | The time when the finding was generated.
-finding_createdAt :: Lens.Lens' Finding Core.UTCTime
-finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' {} a -> s {createdAt = a} :: Finding) Core.. Core._Time
+finding_createdAt :: Lens.Lens' Finding Prelude.UTCTime
+finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' {} a -> s {createdAt = a} :: Finding) Prelude.. Core._Time
 
 -- | The time when AddAttributesToFindings is called.
-finding_updatedAt :: Lens.Lens' Finding Core.UTCTime
-finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Core.. Core._Time
+finding_updatedAt :: Lens.Lens' Finding Prelude.UTCTime
+finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Core._Time
 
 instance Core.FromJSON Finding where
   parseJSON =
@@ -228,26 +229,26 @@ instance Core.FromJSON Finding where
       "Finding"
       ( \x ->
           Finding'
-            Core.<$> (x Core..:? "assetAttributes")
-            Core.<*> (x Core..:? "severity")
-            Core.<*> (x Core..:? "title")
-            Core.<*> (x Core..:? "assetType")
-            Core.<*> (x Core..:? "numericSeverity")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "service")
-            Core.<*> (x Core..:? "serviceAttributes")
-            Core.<*> (x Core..:? "confidence")
-            Core.<*> (x Core..:? "recommendation")
-            Core.<*> (x Core..:? "indicatorOfCompromise")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "schemaVersion")
-            Core.<*> (x Core..: "arn")
-            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "userAttributes" Core..!= Core.mempty)
-            Core.<*> (x Core..: "createdAt")
-            Core.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Core..:? "assetAttributes")
+            Prelude.<*> (x Core..:? "severity")
+            Prelude.<*> (x Core..:? "title")
+            Prelude.<*> (x Core..:? "assetType")
+            Prelude.<*> (x Core..:? "numericSeverity")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "service")
+            Prelude.<*> (x Core..:? "serviceAttributes")
+            Prelude.<*> (x Core..:? "confidence")
+            Prelude.<*> (x Core..:? "recommendation")
+            Prelude.<*> (x Core..:? "indicatorOfCompromise")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "schemaVersion")
+            Prelude.<*> (x Core..: "arn")
+            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "userAttributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "createdAt")
+            Prelude.<*> (x Core..: "updatedAt")
       )
 
-instance Core.Hashable Finding
+instance Prelude.Hashable Finding
 
-instance Core.NFData Finding
+instance Prelude.NFData Finding

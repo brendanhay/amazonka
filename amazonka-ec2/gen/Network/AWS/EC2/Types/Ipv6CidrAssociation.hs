@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.Ipv6CidrAssociation where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IPv6 CIDR block association.
 --
 -- /See:/ 'newIpv6CidrAssociation' smart constructor.
 data Ipv6CidrAssociation = Ipv6CidrAssociation'
   { -- | The IPv6 CIDR block.
-    ipv6Cidr :: Core.Maybe Core.Text,
+    ipv6Cidr :: Prelude.Maybe Prelude.Text,
     -- | The resource that\'s associated with the IPv6 CIDR block.
-    associatedResource :: Core.Maybe Core.Text
+    associatedResource :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Ipv6CidrAssociation' with all optional fields omitted.
@@ -49,24 +50,24 @@ newIpv6CidrAssociation ::
   Ipv6CidrAssociation
 newIpv6CidrAssociation =
   Ipv6CidrAssociation'
-    { ipv6Cidr = Core.Nothing,
-      associatedResource = Core.Nothing
+    { ipv6Cidr = Prelude.Nothing,
+      associatedResource = Prelude.Nothing
     }
 
 -- | The IPv6 CIDR block.
-ipv6CidrAssociation_ipv6Cidr :: Lens.Lens' Ipv6CidrAssociation (Core.Maybe Core.Text)
+ipv6CidrAssociation_ipv6Cidr :: Lens.Lens' Ipv6CidrAssociation (Prelude.Maybe Prelude.Text)
 ipv6CidrAssociation_ipv6Cidr = Lens.lens (\Ipv6CidrAssociation' {ipv6Cidr} -> ipv6Cidr) (\s@Ipv6CidrAssociation' {} a -> s {ipv6Cidr = a} :: Ipv6CidrAssociation)
 
 -- | The resource that\'s associated with the IPv6 CIDR block.
-ipv6CidrAssociation_associatedResource :: Lens.Lens' Ipv6CidrAssociation (Core.Maybe Core.Text)
+ipv6CidrAssociation_associatedResource :: Lens.Lens' Ipv6CidrAssociation (Prelude.Maybe Prelude.Text)
 ipv6CidrAssociation_associatedResource = Lens.lens (\Ipv6CidrAssociation' {associatedResource} -> associatedResource) (\s@Ipv6CidrAssociation' {} a -> s {associatedResource = a} :: Ipv6CidrAssociation)
 
 instance Core.FromXML Ipv6CidrAssociation where
   parseXML x =
     Ipv6CidrAssociation'
-      Core.<$> (x Core..@? "ipv6Cidr")
-      Core.<*> (x Core..@? "associatedResource")
+      Prelude.<$> (x Core..@? "ipv6Cidr")
+      Prelude.<*> (x Core..@? "associatedResource")
 
-instance Core.Hashable Ipv6CidrAssociation
+instance Prelude.Hashable Ipv6CidrAssociation
 
-instance Core.NFData Ipv6CidrAssociation
+instance Prelude.NFData Ipv6CidrAssociation

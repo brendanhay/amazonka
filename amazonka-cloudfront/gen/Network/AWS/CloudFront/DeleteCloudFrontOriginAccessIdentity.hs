@@ -39,6 +39,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +49,11 @@ import qualified Network.AWS.Response as Response
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
   { -- | The value of the @ETag@ header you received from a previous @GET@ or
     -- @PUT@ request. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The origin access identity\'s ID.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCloudFrontOriginAccessIdentity' with all optional fields omitted.
@@ -68,22 +69,22 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 -- 'id', 'deleteCloudFrontOriginAccessIdentity_id' - The origin access identity\'s ID.
 newDeleteCloudFrontOriginAccessIdentity ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCloudFrontOriginAccessIdentity
 newDeleteCloudFrontOriginAccessIdentity pId_ =
   DeleteCloudFrontOriginAccessIdentity'
     { ifMatch =
-        Core.Nothing,
+        Prelude.Nothing,
       id = pId_
     }
 
 -- | The value of the @ETag@ header you received from a previous @GET@ or
 -- @PUT@ request. For example: @E2QWRUHAPOMQZL@.
-deleteCloudFrontOriginAccessIdentity_ifMatch :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity (Core.Maybe Core.Text)
+deleteCloudFrontOriginAccessIdentity_ifMatch :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity (Prelude.Maybe Prelude.Text)
 deleteCloudFrontOriginAccessIdentity_ifMatch = Lens.lens (\DeleteCloudFrontOriginAccessIdentity' {ifMatch} -> ifMatch) (\s@DeleteCloudFrontOriginAccessIdentity' {} a -> s {ifMatch = a} :: DeleteCloudFrontOriginAccessIdentity)
 
 -- | The origin access identity\'s ID.
-deleteCloudFrontOriginAccessIdentity_id :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity Core.Text
+deleteCloudFrontOriginAccessIdentity_id :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity Prelude.Text
 deleteCloudFrontOriginAccessIdentity_id = Lens.lens (\DeleteCloudFrontOriginAccessIdentity' {id} -> id) (\s@DeleteCloudFrontOriginAccessIdentity' {} a -> s {id = a} :: DeleteCloudFrontOriginAccessIdentity)
 
 instance
@@ -99,11 +100,11 @@ instance
       DeleteCloudFrontOriginAccessIdentityResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteCloudFrontOriginAccessIdentity
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteCloudFrontOriginAccessIdentity
 
 instance
@@ -111,14 +112,14 @@ instance
     DeleteCloudFrontOriginAccessIdentity
   where
   toHeaders DeleteCloudFrontOriginAccessIdentity' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance
   Core.ToPath
     DeleteCloudFrontOriginAccessIdentity
   where
   toPath DeleteCloudFrontOriginAccessIdentity' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/origin-access-identity/cloudfront/",
         Core.toBS id
       ]
@@ -127,13 +128,13 @@ instance
   Core.ToQuery
     DeleteCloudFrontOriginAccessIdentity
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCloudFrontOriginAccessIdentityResponse' with all optional fields omitted.
@@ -145,5 +146,5 @@ newDeleteCloudFrontOriginAccessIdentityResponse =
   DeleteCloudFrontOriginAccessIdentityResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteCloudFrontOriginAccessIdentityResponse

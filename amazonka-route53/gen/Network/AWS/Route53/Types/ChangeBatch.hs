@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.ChangeBatch where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.Change
 
@@ -30,11 +31,11 @@ import Network.AWS.Route53.Types.Change
 data ChangeBatch = ChangeBatch'
   { -- | /Optional:/ Any comments you want to include about a change batch
     -- request.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | Information about the changes to make to the record sets.
-    changes :: Core.NonEmpty Change
+    changes :: Prelude.NonEmpty Change
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeBatch' with all optional fields omitted.
@@ -50,30 +51,30 @@ data ChangeBatch = ChangeBatch'
 -- 'changes', 'changeBatch_changes' - Information about the changes to make to the record sets.
 newChangeBatch ::
   -- | 'changes'
-  Core.NonEmpty Change ->
+  Prelude.NonEmpty Change ->
   ChangeBatch
 newChangeBatch pChanges_ =
   ChangeBatch'
-    { comment = Core.Nothing,
+    { comment = Prelude.Nothing,
       changes = Lens._Coerce Lens.# pChanges_
     }
 
 -- | /Optional:/ Any comments you want to include about a change batch
 -- request.
-changeBatch_comment :: Lens.Lens' ChangeBatch (Core.Maybe Core.Text)
+changeBatch_comment :: Lens.Lens' ChangeBatch (Prelude.Maybe Prelude.Text)
 changeBatch_comment = Lens.lens (\ChangeBatch' {comment} -> comment) (\s@ChangeBatch' {} a -> s {comment = a} :: ChangeBatch)
 
 -- | Information about the changes to make to the record sets.
-changeBatch_changes :: Lens.Lens' ChangeBatch (Core.NonEmpty Change)
-changeBatch_changes = Lens.lens (\ChangeBatch' {changes} -> changes) (\s@ChangeBatch' {} a -> s {changes = a} :: ChangeBatch) Core.. Lens._Coerce
+changeBatch_changes :: Lens.Lens' ChangeBatch (Prelude.NonEmpty Change)
+changeBatch_changes = Lens.lens (\ChangeBatch' {changes} -> changes) (\s@ChangeBatch' {} a -> s {changes = a} :: ChangeBatch) Prelude.. Lens._Coerce
 
-instance Core.Hashable ChangeBatch
+instance Prelude.Hashable ChangeBatch
 
-instance Core.NFData ChangeBatch
+instance Prelude.NFData ChangeBatch
 
 instance Core.ToXML ChangeBatch where
   toXML ChangeBatch' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Comment" Core.@= comment,
         "Changes" Core.@= Core.toXMLList "Change" changes
       ]

@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DomainMembership where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An Active Directory Domain membership record associated with the DB
 -- instance or cluster.
@@ -29,16 +30,16 @@ import qualified Network.AWS.Lens as Lens
 data DomainMembership = DomainMembership'
   { -- | The status of the Active Directory Domain membership for the DB instance
     -- or cluster. Values include joined, pending-join, failed, and so on.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Active Directory Domain.
-    domain :: Core.Maybe Core.Text,
+    domain :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM role to be used when making API calls to the
     -- Directory Service.
-    iAMRoleName :: Core.Maybe Core.Text,
+    iAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name of the Active Directory Domain.
-    fqdn :: Core.Maybe Core.Text
+    fqdn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainMembership' with all optional fields omitted.
@@ -61,38 +62,38 @@ newDomainMembership ::
   DomainMembership
 newDomainMembership =
   DomainMembership'
-    { status = Core.Nothing,
-      domain = Core.Nothing,
-      iAMRoleName = Core.Nothing,
-      fqdn = Core.Nothing
+    { status = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      iAMRoleName = Prelude.Nothing,
+      fqdn = Prelude.Nothing
     }
 
 -- | The status of the Active Directory Domain membership for the DB instance
 -- or cluster. Values include joined, pending-join, failed, and so on.
-domainMembership_status :: Lens.Lens' DomainMembership (Core.Maybe Core.Text)
+domainMembership_status :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
 domainMembership_status = Lens.lens (\DomainMembership' {status} -> status) (\s@DomainMembership' {} a -> s {status = a} :: DomainMembership)
 
 -- | The identifier of the Active Directory Domain.
-domainMembership_domain :: Lens.Lens' DomainMembership (Core.Maybe Core.Text)
+domainMembership_domain :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
 domainMembership_domain = Lens.lens (\DomainMembership' {domain} -> domain) (\s@DomainMembership' {} a -> s {domain = a} :: DomainMembership)
 
 -- | The name of the IAM role to be used when making API calls to the
 -- Directory Service.
-domainMembership_iAMRoleName :: Lens.Lens' DomainMembership (Core.Maybe Core.Text)
+domainMembership_iAMRoleName :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
 domainMembership_iAMRoleName = Lens.lens (\DomainMembership' {iAMRoleName} -> iAMRoleName) (\s@DomainMembership' {} a -> s {iAMRoleName = a} :: DomainMembership)
 
 -- | The fully qualified domain name of the Active Directory Domain.
-domainMembership_fqdn :: Lens.Lens' DomainMembership (Core.Maybe Core.Text)
+domainMembership_fqdn :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
 domainMembership_fqdn = Lens.lens (\DomainMembership' {fqdn} -> fqdn) (\s@DomainMembership' {} a -> s {fqdn = a} :: DomainMembership)
 
 instance Core.FromXML DomainMembership where
   parseXML x =
     DomainMembership'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "Domain")
-      Core.<*> (x Core..@? "IAMRoleName")
-      Core.<*> (x Core..@? "FQDN")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "Domain")
+      Prelude.<*> (x Core..@? "IAMRoleName")
+      Prelude.<*> (x Core..@? "FQDN")
 
-instance Core.Hashable DomainMembership
+instance Prelude.Hashable DomainMembership
 
-instance Core.NFData DomainMembership
+instance Prelude.NFData DomainMembership

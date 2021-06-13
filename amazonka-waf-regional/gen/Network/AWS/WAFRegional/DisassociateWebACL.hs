@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -68,9 +69,9 @@ data DisassociateWebACL = DisassociateWebACL'
     --
     -- -   For an Amazon API Gateway stage:
     --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateWebACL' with all optional fields omitted.
@@ -93,7 +94,7 @@ data DisassociateWebACL = DisassociateWebACL'
 --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
 newDisassociateWebACL ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateWebACL
 newDisassociateWebACL pResourceArn_ =
   DisassociateWebACL' {resourceArn = pResourceArn_}
@@ -109,7 +110,7 @@ newDisassociateWebACL pResourceArn_ =
 --
 -- -   For an Amazon API Gateway stage:
 --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
-disassociateWebACL_resourceArn :: Lens.Lens' DisassociateWebACL Core.Text
+disassociateWebACL_resourceArn :: Lens.Lens' DisassociateWebACL Prelude.Text
 disassociateWebACL_resourceArn = Lens.lens (\DisassociateWebACL' {resourceArn} -> resourceArn) (\s@DisassociateWebACL' {} a -> s {resourceArn = a} :: DisassociateWebACL)
 
 instance Core.AWSRequest DisassociateWebACL where
@@ -121,45 +122,47 @@ instance Core.AWSRequest DisassociateWebACL where
     Response.receiveEmpty
       ( \s h x ->
           DisassociateWebACLResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateWebACL
+instance Prelude.Hashable DisassociateWebACL
 
-instance Core.NFData DisassociateWebACL
+instance Prelude.NFData DisassociateWebACL
 
 instance Core.ToHeaders DisassociateWebACL where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.DisassociateWebACL" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateWebACL where
   toJSON DisassociateWebACL' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ResourceArn" Core..= resourceArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
       )
 
 instance Core.ToPath DisassociateWebACL where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateWebACL where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateWebACLResponse' smart constructor.
 data DisassociateWebACLResponse = DisassociateWebACLResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateWebACLResponse' with all optional fields omitted.
@@ -172,7 +175,7 @@ data DisassociateWebACLResponse = DisassociateWebACLResponse'
 -- 'httpStatus', 'disassociateWebACLResponse_httpStatus' - The response's http status code.
 newDisassociateWebACLResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateWebACLResponse
 newDisassociateWebACLResponse pHttpStatus_ =
   DisassociateWebACLResponse'
@@ -181,7 +184,7 @@ newDisassociateWebACLResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateWebACLResponse_httpStatus :: Lens.Lens' DisassociateWebACLResponse Core.Int
+disassociateWebACLResponse_httpStatus :: Lens.Lens' DisassociateWebACLResponse Prelude.Int
 disassociateWebACLResponse_httpStatus = Lens.lens (\DisassociateWebACLResponse' {httpStatus} -> httpStatus) (\s@DisassociateWebACLResponse' {} a -> s {httpStatus = a} :: DisassociateWebACLResponse)
 
-instance Core.NFData DisassociateWebACLResponse
+instance Prelude.NFData DisassociateWebACLResponse

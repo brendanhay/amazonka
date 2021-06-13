@@ -21,27 +21,28 @@ module Network.AWS.Discovery.Types.CustomerAgentInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Inventory data for installed discovery agents.
 --
 -- /See:/ 'newCustomerAgentInfo' smart constructor.
 data CustomerAgentInfo = CustomerAgentInfo'
   { -- | Number of active discovery agents.
-    activeAgents :: Core.Int,
+    activeAgents :: Prelude.Int,
     -- | Number of healthy discovery agents
-    healthyAgents :: Core.Int,
+    healthyAgents :: Prelude.Int,
     -- | Number of blacklisted discovery agents.
-    blackListedAgents :: Core.Int,
+    blackListedAgents :: Prelude.Int,
     -- | Number of discovery agents with status SHUTDOWN.
-    shutdownAgents :: Core.Int,
+    shutdownAgents :: Prelude.Int,
     -- | Number of unhealthy discovery agents.
-    unhealthyAgents :: Core.Int,
+    unhealthyAgents :: Prelude.Int,
     -- | Total number of discovery agents.
-    totalAgents :: Core.Int,
+    totalAgents :: Prelude.Int,
     -- | Number of unknown discovery agents.
-    unknownAgents :: Core.Int
+    unknownAgents :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomerAgentInfo' with all optional fields omitted.
@@ -66,19 +67,19 @@ data CustomerAgentInfo = CustomerAgentInfo'
 -- 'unknownAgents', 'customerAgentInfo_unknownAgents' - Number of unknown discovery agents.
 newCustomerAgentInfo ::
   -- | 'activeAgents'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'healthyAgents'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'blackListedAgents'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'shutdownAgents'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'unhealthyAgents'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'totalAgents'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'unknownAgents'
-  Core.Int ->
+  Prelude.Int ->
   CustomerAgentInfo
 newCustomerAgentInfo
   pActiveAgents_
@@ -99,31 +100,31 @@ newCustomerAgentInfo
       }
 
 -- | Number of active discovery agents.
-customerAgentInfo_activeAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+customerAgentInfo_activeAgents :: Lens.Lens' CustomerAgentInfo Prelude.Int
 customerAgentInfo_activeAgents = Lens.lens (\CustomerAgentInfo' {activeAgents} -> activeAgents) (\s@CustomerAgentInfo' {} a -> s {activeAgents = a} :: CustomerAgentInfo)
 
 -- | Number of healthy discovery agents
-customerAgentInfo_healthyAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+customerAgentInfo_healthyAgents :: Lens.Lens' CustomerAgentInfo Prelude.Int
 customerAgentInfo_healthyAgents = Lens.lens (\CustomerAgentInfo' {healthyAgents} -> healthyAgents) (\s@CustomerAgentInfo' {} a -> s {healthyAgents = a} :: CustomerAgentInfo)
 
 -- | Number of blacklisted discovery agents.
-customerAgentInfo_blackListedAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+customerAgentInfo_blackListedAgents :: Lens.Lens' CustomerAgentInfo Prelude.Int
 customerAgentInfo_blackListedAgents = Lens.lens (\CustomerAgentInfo' {blackListedAgents} -> blackListedAgents) (\s@CustomerAgentInfo' {} a -> s {blackListedAgents = a} :: CustomerAgentInfo)
 
 -- | Number of discovery agents with status SHUTDOWN.
-customerAgentInfo_shutdownAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+customerAgentInfo_shutdownAgents :: Lens.Lens' CustomerAgentInfo Prelude.Int
 customerAgentInfo_shutdownAgents = Lens.lens (\CustomerAgentInfo' {shutdownAgents} -> shutdownAgents) (\s@CustomerAgentInfo' {} a -> s {shutdownAgents = a} :: CustomerAgentInfo)
 
 -- | Number of unhealthy discovery agents.
-customerAgentInfo_unhealthyAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+customerAgentInfo_unhealthyAgents :: Lens.Lens' CustomerAgentInfo Prelude.Int
 customerAgentInfo_unhealthyAgents = Lens.lens (\CustomerAgentInfo' {unhealthyAgents} -> unhealthyAgents) (\s@CustomerAgentInfo' {} a -> s {unhealthyAgents = a} :: CustomerAgentInfo)
 
 -- | Total number of discovery agents.
-customerAgentInfo_totalAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+customerAgentInfo_totalAgents :: Lens.Lens' CustomerAgentInfo Prelude.Int
 customerAgentInfo_totalAgents = Lens.lens (\CustomerAgentInfo' {totalAgents} -> totalAgents) (\s@CustomerAgentInfo' {} a -> s {totalAgents = a} :: CustomerAgentInfo)
 
 -- | Number of unknown discovery agents.
-customerAgentInfo_unknownAgents :: Lens.Lens' CustomerAgentInfo Core.Int
+customerAgentInfo_unknownAgents :: Lens.Lens' CustomerAgentInfo Prelude.Int
 customerAgentInfo_unknownAgents = Lens.lens (\CustomerAgentInfo' {unknownAgents} -> unknownAgents) (\s@CustomerAgentInfo' {} a -> s {unknownAgents = a} :: CustomerAgentInfo)
 
 instance Core.FromJSON CustomerAgentInfo where
@@ -132,15 +133,15 @@ instance Core.FromJSON CustomerAgentInfo where
       "CustomerAgentInfo"
       ( \x ->
           CustomerAgentInfo'
-            Core.<$> (x Core..: "activeAgents")
-            Core.<*> (x Core..: "healthyAgents")
-            Core.<*> (x Core..: "blackListedAgents")
-            Core.<*> (x Core..: "shutdownAgents")
-            Core.<*> (x Core..: "unhealthyAgents")
-            Core.<*> (x Core..: "totalAgents")
-            Core.<*> (x Core..: "unknownAgents")
+            Prelude.<$> (x Core..: "activeAgents")
+            Prelude.<*> (x Core..: "healthyAgents")
+            Prelude.<*> (x Core..: "blackListedAgents")
+            Prelude.<*> (x Core..: "shutdownAgents")
+            Prelude.<*> (x Core..: "unhealthyAgents")
+            Prelude.<*> (x Core..: "totalAgents")
+            Prelude.<*> (x Core..: "unknownAgents")
       )
 
-instance Core.Hashable CustomerAgentInfo
+instance Prelude.Hashable CustomerAgentInfo
 
-instance Core.NFData CustomerAgentInfo
+instance Prelude.NFData CustomerAgentInfo

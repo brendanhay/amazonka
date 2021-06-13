@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ import qualified Network.AWS.Response as Response
 data UpdateThingGroup = UpdateThingGroup'
   { -- | The expected version of the thing group. If this does not match the
     -- version of the thing group being updated, the update will fail.
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The thing group to update.
-    thingGroupName :: Core.Text,
+    thingGroupName :: Prelude.Text,
     -- | The thing group properties.
     thingGroupProperties :: ThingGroupProperties
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateThingGroup' with all optional fields omitted.
@@ -75,7 +76,7 @@ data UpdateThingGroup = UpdateThingGroup'
 -- 'thingGroupProperties', 'updateThingGroup_thingGroupProperties' - The thing group properties.
 newUpdateThingGroup ::
   -- | 'thingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'thingGroupProperties'
   ThingGroupProperties ->
   UpdateThingGroup
@@ -83,18 +84,19 @@ newUpdateThingGroup
   pThingGroupName_
   pThingGroupProperties_ =
     UpdateThingGroup'
-      { expectedVersion = Core.Nothing,
+      { expectedVersion =
+          Prelude.Nothing,
         thingGroupName = pThingGroupName_,
         thingGroupProperties = pThingGroupProperties_
       }
 
 -- | The expected version of the thing group. If this does not match the
 -- version of the thing group being updated, the update will fail.
-updateThingGroup_expectedVersion :: Lens.Lens' UpdateThingGroup (Core.Maybe Core.Integer)
+updateThingGroup_expectedVersion :: Lens.Lens' UpdateThingGroup (Prelude.Maybe Prelude.Integer)
 updateThingGroup_expectedVersion = Lens.lens (\UpdateThingGroup' {expectedVersion} -> expectedVersion) (\s@UpdateThingGroup' {} a -> s {expectedVersion = a} :: UpdateThingGroup)
 
 -- | The thing group to update.
-updateThingGroup_thingGroupName :: Lens.Lens' UpdateThingGroup Core.Text
+updateThingGroup_thingGroupName :: Lens.Lens' UpdateThingGroup Prelude.Text
 updateThingGroup_thingGroupName = Lens.lens (\UpdateThingGroup' {thingGroupName} -> thingGroupName) (\s@UpdateThingGroup' {} a -> s {thingGroupName = a} :: UpdateThingGroup)
 
 -- | The thing group properties.
@@ -110,24 +112,24 @@ instance Core.AWSRequest UpdateThingGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateThingGroupResponse'
-            Core.<$> (x Core..?> "version")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "version")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateThingGroup
+instance Prelude.Hashable UpdateThingGroup
 
-instance Core.NFData UpdateThingGroup
+instance Prelude.NFData UpdateThingGroup
 
 instance Core.ToHeaders UpdateThingGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateThingGroup where
   toJSON UpdateThingGroup' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("expectedVersion" Core..=)
-              Core.<$> expectedVersion,
-            Core.Just
+              Prelude.<$> expectedVersion,
+            Prelude.Just
               ( "thingGroupProperties"
                   Core..= thingGroupProperties
               )
@@ -136,20 +138,20 @@ instance Core.ToJSON UpdateThingGroup where
 
 instance Core.ToPath UpdateThingGroup where
   toPath UpdateThingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/thing-groups/", Core.toBS thingGroupName]
 
 instance Core.ToQuery UpdateThingGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateThingGroupResponse' smart constructor.
 data UpdateThingGroupResponse = UpdateThingGroupResponse'
   { -- | The version of the updated thing group.
-    version :: Core.Maybe Core.Integer,
+    version :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateThingGroupResponse' with all optional fields omitted.
@@ -164,20 +166,21 @@ data UpdateThingGroupResponse = UpdateThingGroupResponse'
 -- 'httpStatus', 'updateThingGroupResponse_httpStatus' - The response's http status code.
 newUpdateThingGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateThingGroupResponse
 newUpdateThingGroupResponse pHttpStatus_ =
   UpdateThingGroupResponse'
-    { version = Core.Nothing,
+    { version =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The version of the updated thing group.
-updateThingGroupResponse_version :: Lens.Lens' UpdateThingGroupResponse (Core.Maybe Core.Integer)
+updateThingGroupResponse_version :: Lens.Lens' UpdateThingGroupResponse (Prelude.Maybe Prelude.Integer)
 updateThingGroupResponse_version = Lens.lens (\UpdateThingGroupResponse' {version} -> version) (\s@UpdateThingGroupResponse' {} a -> s {version = a} :: UpdateThingGroupResponse)
 
 -- | The response's http status code.
-updateThingGroupResponse_httpStatus :: Lens.Lens' UpdateThingGroupResponse Core.Int
+updateThingGroupResponse_httpStatus :: Lens.Lens' UpdateThingGroupResponse Prelude.Int
 updateThingGroupResponse_httpStatus = Lens.lens (\UpdateThingGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateThingGroupResponse' {} a -> s {httpStatus = a} :: UpdateThingGroupResponse)
 
-instance Core.NFData UpdateThingGroupResponse
+instance Prelude.NFData UpdateThingGroupResponse

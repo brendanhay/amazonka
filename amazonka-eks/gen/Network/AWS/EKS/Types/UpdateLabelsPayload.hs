@@ -21,6 +21,7 @@ module Network.AWS.EKS.Types.UpdateLabelsPayload where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a Kubernetes label change for a managed node
 -- group.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUpdateLabelsPayload' smart constructor.
 data UpdateLabelsPayload = UpdateLabelsPayload'
   { -- | Kubernetes labels to be removed.
-    removeLabels :: Core.Maybe [Core.Text],
+    removeLabels :: Prelude.Maybe [Prelude.Text],
     -- | Kubernetes labels to be added or updated.
-    addOrUpdateLabels :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    addOrUpdateLabels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateLabelsPayload' with all optional fields omitted.
@@ -49,28 +50,29 @@ newUpdateLabelsPayload ::
   UpdateLabelsPayload
 newUpdateLabelsPayload =
   UpdateLabelsPayload'
-    { removeLabels = Core.Nothing,
-      addOrUpdateLabels = Core.Nothing
+    { removeLabels =
+        Prelude.Nothing,
+      addOrUpdateLabels = Prelude.Nothing
     }
 
 -- | Kubernetes labels to be removed.
-updateLabelsPayload_removeLabels :: Lens.Lens' UpdateLabelsPayload (Core.Maybe [Core.Text])
-updateLabelsPayload_removeLabels = Lens.lens (\UpdateLabelsPayload' {removeLabels} -> removeLabels) (\s@UpdateLabelsPayload' {} a -> s {removeLabels = a} :: UpdateLabelsPayload) Core.. Lens.mapping Lens._Coerce
+updateLabelsPayload_removeLabels :: Lens.Lens' UpdateLabelsPayload (Prelude.Maybe [Prelude.Text])
+updateLabelsPayload_removeLabels = Lens.lens (\UpdateLabelsPayload' {removeLabels} -> removeLabels) (\s@UpdateLabelsPayload' {} a -> s {removeLabels = a} :: UpdateLabelsPayload) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Kubernetes labels to be added or updated.
-updateLabelsPayload_addOrUpdateLabels :: Lens.Lens' UpdateLabelsPayload (Core.Maybe (Core.HashMap Core.Text Core.Text))
-updateLabelsPayload_addOrUpdateLabels = Lens.lens (\UpdateLabelsPayload' {addOrUpdateLabels} -> addOrUpdateLabels) (\s@UpdateLabelsPayload' {} a -> s {addOrUpdateLabels = a} :: UpdateLabelsPayload) Core.. Lens.mapping Lens._Coerce
+updateLabelsPayload_addOrUpdateLabels :: Lens.Lens' UpdateLabelsPayload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateLabelsPayload_addOrUpdateLabels = Lens.lens (\UpdateLabelsPayload' {addOrUpdateLabels} -> addOrUpdateLabels) (\s@UpdateLabelsPayload' {} a -> s {addOrUpdateLabels = a} :: UpdateLabelsPayload) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable UpdateLabelsPayload
+instance Prelude.Hashable UpdateLabelsPayload
 
-instance Core.NFData UpdateLabelsPayload
+instance Prelude.NFData UpdateLabelsPayload
 
 instance Core.ToJSON UpdateLabelsPayload where
   toJSON UpdateLabelsPayload' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("removeLabels" Core..=) Core.<$> removeLabels,
+      ( Prelude.catMaybes
+          [ ("removeLabels" Core..=) Prelude.<$> removeLabels,
             ("addOrUpdateLabels" Core..=)
-              Core.<$> addOrUpdateLabels
+              Prelude.<$> addOrUpdateLabels
           ]
       )

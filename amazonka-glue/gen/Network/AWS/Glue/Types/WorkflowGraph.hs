@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Edge
 import Network.AWS.Glue.Types.Node
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A workflow graph represents the complete workflow containing all the AWS
 -- Glue components present in the workflow and all the directed connections
@@ -32,12 +33,12 @@ import qualified Network.AWS.Lens as Lens
 data WorkflowGraph = WorkflowGraph'
   { -- | A list of the the AWS Glue components belong to the workflow represented
     -- as nodes.
-    nodes :: Core.Maybe [Node],
+    nodes :: Prelude.Maybe [Node],
     -- | A list of all the directed connections between the nodes belonging to
     -- the workflow.
-    edges :: Core.Maybe [Edge]
+    edges :: Prelude.Maybe [Edge]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowGraph' with all optional fields omitted.
@@ -56,19 +57,19 @@ newWorkflowGraph ::
   WorkflowGraph
 newWorkflowGraph =
   WorkflowGraph'
-    { nodes = Core.Nothing,
-      edges = Core.Nothing
+    { nodes = Prelude.Nothing,
+      edges = Prelude.Nothing
     }
 
 -- | A list of the the AWS Glue components belong to the workflow represented
 -- as nodes.
-workflowGraph_nodes :: Lens.Lens' WorkflowGraph (Core.Maybe [Node])
-workflowGraph_nodes = Lens.lens (\WorkflowGraph' {nodes} -> nodes) (\s@WorkflowGraph' {} a -> s {nodes = a} :: WorkflowGraph) Core.. Lens.mapping Lens._Coerce
+workflowGraph_nodes :: Lens.Lens' WorkflowGraph (Prelude.Maybe [Node])
+workflowGraph_nodes = Lens.lens (\WorkflowGraph' {nodes} -> nodes) (\s@WorkflowGraph' {} a -> s {nodes = a} :: WorkflowGraph) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of all the directed connections between the nodes belonging to
 -- the workflow.
-workflowGraph_edges :: Lens.Lens' WorkflowGraph (Core.Maybe [Edge])
-workflowGraph_edges = Lens.lens (\WorkflowGraph' {edges} -> edges) (\s@WorkflowGraph' {} a -> s {edges = a} :: WorkflowGraph) Core.. Lens.mapping Lens._Coerce
+workflowGraph_edges :: Lens.Lens' WorkflowGraph (Prelude.Maybe [Edge])
+workflowGraph_edges = Lens.lens (\WorkflowGraph' {edges} -> edges) (\s@WorkflowGraph' {} a -> s {edges = a} :: WorkflowGraph) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON WorkflowGraph where
   parseJSON =
@@ -76,10 +77,10 @@ instance Core.FromJSON WorkflowGraph where
       "WorkflowGraph"
       ( \x ->
           WorkflowGraph'
-            Core.<$> (x Core..:? "Nodes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Edges" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Nodes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Edges" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable WorkflowGraph
+instance Prelude.Hashable WorkflowGraph
 
-instance Core.NFData WorkflowGraph
+instance Prelude.NFData WorkflowGraph

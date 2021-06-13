@@ -22,6 +22,7 @@ module Network.AWS.Budgets.Types.CalculatedSpend where
 import Network.AWS.Budgets.Types.Spend
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The spend objects that are associated with this budget. The
 -- @actualSpend@ tracks how much you\'ve used, cost, usage, RI units, or
@@ -36,12 +37,12 @@ import qualified Network.AWS.Lens as Lens
 data CalculatedSpend = CalculatedSpend'
   { -- | The amount of cost, usage, RI units, or Savings Plans units that you are
     -- forecasted to use.
-    forecastedSpend :: Core.Maybe Spend,
+    forecastedSpend :: Prelude.Maybe Spend,
     -- | The amount of cost, usage, RI units, or Savings Plans units that you
     -- have used.
     actualSpend :: Spend
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CalculatedSpend' with all optional fields omitted.
@@ -62,13 +63,13 @@ newCalculatedSpend ::
   CalculatedSpend
 newCalculatedSpend pActualSpend_ =
   CalculatedSpend'
-    { forecastedSpend = Core.Nothing,
+    { forecastedSpend = Prelude.Nothing,
       actualSpend = pActualSpend_
     }
 
 -- | The amount of cost, usage, RI units, or Savings Plans units that you are
 -- forecasted to use.
-calculatedSpend_forecastedSpend :: Lens.Lens' CalculatedSpend (Core.Maybe Spend)
+calculatedSpend_forecastedSpend :: Lens.Lens' CalculatedSpend (Prelude.Maybe Spend)
 calculatedSpend_forecastedSpend = Lens.lens (\CalculatedSpend' {forecastedSpend} -> forecastedSpend) (\s@CalculatedSpend' {} a -> s {forecastedSpend = a} :: CalculatedSpend)
 
 -- | The amount of cost, usage, RI units, or Savings Plans units that you
@@ -82,20 +83,20 @@ instance Core.FromJSON CalculatedSpend where
       "CalculatedSpend"
       ( \x ->
           CalculatedSpend'
-            Core.<$> (x Core..:? "ForecastedSpend")
-            Core.<*> (x Core..: "ActualSpend")
+            Prelude.<$> (x Core..:? "ForecastedSpend")
+            Prelude.<*> (x Core..: "ActualSpend")
       )
 
-instance Core.Hashable CalculatedSpend
+instance Prelude.Hashable CalculatedSpend
 
-instance Core.NFData CalculatedSpend
+instance Prelude.NFData CalculatedSpend
 
 instance Core.ToJSON CalculatedSpend where
   toJSON CalculatedSpend' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ForecastedSpend" Core..=)
-              Core.<$> forecastedSpend,
-            Core.Just ("ActualSpend" Core..= actualSpend)
+              Prelude.<$> forecastedSpend,
+            Prelude.Just ("ActualSpend" Core..= actualSpend)
           ]
       )

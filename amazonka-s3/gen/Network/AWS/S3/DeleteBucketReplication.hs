@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -68,11 +69,11 @@ data DeleteBucketReplication = DeleteBucketReplication'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketReplication' with all optional fields omitted.
@@ -94,14 +95,14 @@ newDeleteBucketReplication ::
 newDeleteBucketReplication pBucket_ =
   DeleteBucketReplication'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketReplication_expectedBucketOwner :: Lens.Lens' DeleteBucketReplication (Core.Maybe Core.Text)
+deleteBucketReplication_expectedBucketOwner :: Lens.Lens' DeleteBucketReplication (Prelude.Maybe Prelude.Text)
 deleteBucketReplication_expectedBucketOwner = Lens.lens (\DeleteBucketReplication' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketReplication' {} a -> s {expectedBucketOwner = a} :: DeleteBucketReplication)
 
 -- | The bucket name.
@@ -117,29 +118,30 @@ instance Core.AWSRequest DeleteBucketReplication where
     Response.receiveNull
       DeleteBucketReplicationResponse'
 
-instance Core.Hashable DeleteBucketReplication
+instance Prelude.Hashable DeleteBucketReplication
 
-instance Core.NFData DeleteBucketReplication
+instance Prelude.NFData DeleteBucketReplication
 
 instance Core.ToHeaders DeleteBucketReplication where
   toHeaders DeleteBucketReplication' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath DeleteBucketReplication where
   toPath DeleteBucketReplication' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery DeleteBucketReplication where
-  toQuery = Core.const (Core.mconcat ["replication"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["replication"])
 
 -- | /See:/ 'newDeleteBucketReplicationResponse' smart constructor.
 data DeleteBucketReplicationResponse = DeleteBucketReplicationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketReplicationResponse' with all optional fields omitted.
@@ -150,4 +152,6 @@ newDeleteBucketReplicationResponse ::
 newDeleteBucketReplicationResponse =
   DeleteBucketReplicationResponse'
 
-instance Core.NFData DeleteBucketReplicationResponse
+instance
+  Prelude.NFData
+    DeleteBucketReplicationResponse

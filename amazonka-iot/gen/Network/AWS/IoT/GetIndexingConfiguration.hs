@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data GetIndexingConfiguration = GetIndexingConfiguration'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIndexingConfiguration' with all optional fields omitted.
@@ -67,34 +68,34 @@ instance Core.AWSRequest GetIndexingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetIndexingConfigurationResponse'
-            Core.<$> (x Core..?> "thingGroupIndexingConfiguration")
-            Core.<*> (x Core..?> "thingIndexingConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "thingGroupIndexingConfiguration")
+            Prelude.<*> (x Core..?> "thingIndexingConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetIndexingConfiguration
+instance Prelude.Hashable GetIndexingConfiguration
 
-instance Core.NFData GetIndexingConfiguration
+instance Prelude.NFData GetIndexingConfiguration
 
 instance Core.ToHeaders GetIndexingConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetIndexingConfiguration where
-  toPath = Core.const "/indexing/config"
+  toPath = Prelude.const "/indexing/config"
 
 instance Core.ToQuery GetIndexingConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIndexingConfigurationResponse' smart constructor.
 data GetIndexingConfigurationResponse = GetIndexingConfigurationResponse'
   { -- | The index configuration.
-    thingGroupIndexingConfiguration :: Core.Maybe ThingGroupIndexingConfiguration,
+    thingGroupIndexingConfiguration :: Prelude.Maybe ThingGroupIndexingConfiguration,
     -- | Thing indexing configuration.
-    thingIndexingConfiguration :: Core.Maybe ThingIndexingConfiguration,
+    thingIndexingConfiguration :: Prelude.Maybe ThingIndexingConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIndexingConfigurationResponse' with all optional fields omitted.
@@ -111,26 +112,29 @@ data GetIndexingConfigurationResponse = GetIndexingConfigurationResponse'
 -- 'httpStatus', 'getIndexingConfigurationResponse_httpStatus' - The response's http status code.
 newGetIndexingConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetIndexingConfigurationResponse
 newGetIndexingConfigurationResponse pHttpStatus_ =
   GetIndexingConfigurationResponse'
     { thingGroupIndexingConfiguration =
-        Core.Nothing,
-      thingIndexingConfiguration = Core.Nothing,
+        Prelude.Nothing,
+      thingIndexingConfiguration =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The index configuration.
-getIndexingConfigurationResponse_thingGroupIndexingConfiguration :: Lens.Lens' GetIndexingConfigurationResponse (Core.Maybe ThingGroupIndexingConfiguration)
+getIndexingConfigurationResponse_thingGroupIndexingConfiguration :: Lens.Lens' GetIndexingConfigurationResponse (Prelude.Maybe ThingGroupIndexingConfiguration)
 getIndexingConfigurationResponse_thingGroupIndexingConfiguration = Lens.lens (\GetIndexingConfigurationResponse' {thingGroupIndexingConfiguration} -> thingGroupIndexingConfiguration) (\s@GetIndexingConfigurationResponse' {} a -> s {thingGroupIndexingConfiguration = a} :: GetIndexingConfigurationResponse)
 
 -- | Thing indexing configuration.
-getIndexingConfigurationResponse_thingIndexingConfiguration :: Lens.Lens' GetIndexingConfigurationResponse (Core.Maybe ThingIndexingConfiguration)
+getIndexingConfigurationResponse_thingIndexingConfiguration :: Lens.Lens' GetIndexingConfigurationResponse (Prelude.Maybe ThingIndexingConfiguration)
 getIndexingConfigurationResponse_thingIndexingConfiguration = Lens.lens (\GetIndexingConfigurationResponse' {thingIndexingConfiguration} -> thingIndexingConfiguration) (\s@GetIndexingConfigurationResponse' {} a -> s {thingIndexingConfiguration = a} :: GetIndexingConfigurationResponse)
 
 -- | The response's http status code.
-getIndexingConfigurationResponse_httpStatus :: Lens.Lens' GetIndexingConfigurationResponse Core.Int
+getIndexingConfigurationResponse_httpStatus :: Lens.Lens' GetIndexingConfigurationResponse Prelude.Int
 getIndexingConfigurationResponse_httpStatus = Lens.lens (\GetIndexingConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetIndexingConfigurationResponse' {} a -> s {httpStatus = a} :: GetIndexingConfigurationResponse)
 
-instance Core.NFData GetIndexingConfigurationResponse
+instance
+  Prelude.NFData
+    GetIndexingConfigurationResponse

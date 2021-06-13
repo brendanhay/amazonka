@@ -25,6 +25,7 @@ import Network.AWS.DynamoDBStreams.Types.Shard
 import Network.AWS.DynamoDBStreams.Types.StreamStatus
 import Network.AWS.DynamoDBStreams.Types.StreamViewType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents all of the data describing a particular stream.
 --
@@ -41,7 +42,7 @@ data StreamDescription = StreamDescription'
     -- that there is more data in the result set. The only way to know when you
     -- have reached the end of the result set is when @LastEvaluatedShardId@ is
     -- empty.
-    lastEvaluatedShardId :: Core.Maybe Core.Text,
+    lastEvaluatedShardId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the format of the records within this stream:
     --
     -- -   @KEYS_ONLY@ - only the key attributes of items that were modified in
@@ -55,13 +56,13 @@ data StreamDescription = StreamDescription'
     --
     -- -   @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items
     --     from the table.
-    streamViewType :: Core.Maybe StreamViewType,
+    streamViewType :: Prelude.Maybe StreamViewType,
     -- | The DynamoDB table with which the stream is associated.
-    tableName :: Core.Maybe Core.Text,
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the request to create this stream was issued.
-    creationRequestDateTime :: Core.Maybe Core.POSIX,
+    creationRequestDateTime :: Prelude.Maybe Core.POSIX,
     -- | The key attribute(s) of the stream\'s DynamoDB table.
-    keySchema :: Core.Maybe (Core.NonEmpty KeySchemaElement),
+    keySchema :: Prelude.Maybe (Prelude.NonEmpty KeySchemaElement),
     -- | Indicates the current status of the stream:
     --
     -- -   @ENABLING@ - Streams is currently being enabled on the DynamoDB
@@ -73,11 +74,11 @@ data StreamDescription = StreamDescription'
     --     table.
     --
     -- -   @DISABLED@ - the stream is disabled.
-    streamStatus :: Core.Maybe StreamStatus,
+    streamStatus :: Prelude.Maybe StreamStatus,
     -- | The shards that comprise the stream.
-    shards :: Core.Maybe [Shard],
+    shards :: Prelude.Maybe [Shard],
     -- | The Amazon Resource Name (ARN) for the stream.
-    streamArn :: Core.Maybe Core.Text,
+    streamArn :: Prelude.Maybe Prelude.Text,
     -- | A timestamp, in ISO 8601 format, for this stream.
     --
     -- Note that @LatestStreamLabel@ is not a unique identifier for the stream,
@@ -90,9 +91,9 @@ data StreamDescription = StreamDescription'
     -- -   the table name
     --
     -- -   the @StreamLabel@
-    streamLabel :: Core.Maybe Core.Text
+    streamLabel :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamDescription' with all optional fields omitted.
@@ -167,15 +168,15 @@ newStreamDescription ::
 newStreamDescription =
   StreamDescription'
     { lastEvaluatedShardId =
-        Core.Nothing,
-      streamViewType = Core.Nothing,
-      tableName = Core.Nothing,
-      creationRequestDateTime = Core.Nothing,
-      keySchema = Core.Nothing,
-      streamStatus = Core.Nothing,
-      shards = Core.Nothing,
-      streamArn = Core.Nothing,
-      streamLabel = Core.Nothing
+        Prelude.Nothing,
+      streamViewType = Prelude.Nothing,
+      tableName = Prelude.Nothing,
+      creationRequestDateTime = Prelude.Nothing,
+      keySchema = Prelude.Nothing,
+      streamStatus = Prelude.Nothing,
+      shards = Prelude.Nothing,
+      streamArn = Prelude.Nothing,
+      streamLabel = Prelude.Nothing
     }
 
 -- | The shard ID of the item where the operation stopped, inclusive of the
@@ -189,7 +190,7 @@ newStreamDescription =
 -- that there is more data in the result set. The only way to know when you
 -- have reached the end of the result set is when @LastEvaluatedShardId@ is
 -- empty.
-streamDescription_lastEvaluatedShardId :: Lens.Lens' StreamDescription (Core.Maybe Core.Text)
+streamDescription_lastEvaluatedShardId :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.Text)
 streamDescription_lastEvaluatedShardId = Lens.lens (\StreamDescription' {lastEvaluatedShardId} -> lastEvaluatedShardId) (\s@StreamDescription' {} a -> s {lastEvaluatedShardId = a} :: StreamDescription)
 
 -- | Indicates the format of the records within this stream:
@@ -205,20 +206,20 @@ streamDescription_lastEvaluatedShardId = Lens.lens (\StreamDescription' {lastEva
 --
 -- -   @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items
 --     from the table.
-streamDescription_streamViewType :: Lens.Lens' StreamDescription (Core.Maybe StreamViewType)
+streamDescription_streamViewType :: Lens.Lens' StreamDescription (Prelude.Maybe StreamViewType)
 streamDescription_streamViewType = Lens.lens (\StreamDescription' {streamViewType} -> streamViewType) (\s@StreamDescription' {} a -> s {streamViewType = a} :: StreamDescription)
 
 -- | The DynamoDB table with which the stream is associated.
-streamDescription_tableName :: Lens.Lens' StreamDescription (Core.Maybe Core.Text)
+streamDescription_tableName :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.Text)
 streamDescription_tableName = Lens.lens (\StreamDescription' {tableName} -> tableName) (\s@StreamDescription' {} a -> s {tableName = a} :: StreamDescription)
 
 -- | The date and time when the request to create this stream was issued.
-streamDescription_creationRequestDateTime :: Lens.Lens' StreamDescription (Core.Maybe Core.UTCTime)
-streamDescription_creationRequestDateTime = Lens.lens (\StreamDescription' {creationRequestDateTime} -> creationRequestDateTime) (\s@StreamDescription' {} a -> s {creationRequestDateTime = a} :: StreamDescription) Core.. Lens.mapping Core._Time
+streamDescription_creationRequestDateTime :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.UTCTime)
+streamDescription_creationRequestDateTime = Lens.lens (\StreamDescription' {creationRequestDateTime} -> creationRequestDateTime) (\s@StreamDescription' {} a -> s {creationRequestDateTime = a} :: StreamDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The key attribute(s) of the stream\'s DynamoDB table.
-streamDescription_keySchema :: Lens.Lens' StreamDescription (Core.Maybe (Core.NonEmpty KeySchemaElement))
-streamDescription_keySchema = Lens.lens (\StreamDescription' {keySchema} -> keySchema) (\s@StreamDescription' {} a -> s {keySchema = a} :: StreamDescription) Core.. Lens.mapping Lens._Coerce
+streamDescription_keySchema :: Lens.Lens' StreamDescription (Prelude.Maybe (Prelude.NonEmpty KeySchemaElement))
+streamDescription_keySchema = Lens.lens (\StreamDescription' {keySchema} -> keySchema) (\s@StreamDescription' {} a -> s {keySchema = a} :: StreamDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates the current status of the stream:
 --
@@ -231,15 +232,15 @@ streamDescription_keySchema = Lens.lens (\StreamDescription' {keySchema} -> keyS
 --     table.
 --
 -- -   @DISABLED@ - the stream is disabled.
-streamDescription_streamStatus :: Lens.Lens' StreamDescription (Core.Maybe StreamStatus)
+streamDescription_streamStatus :: Lens.Lens' StreamDescription (Prelude.Maybe StreamStatus)
 streamDescription_streamStatus = Lens.lens (\StreamDescription' {streamStatus} -> streamStatus) (\s@StreamDescription' {} a -> s {streamStatus = a} :: StreamDescription)
 
 -- | The shards that comprise the stream.
-streamDescription_shards :: Lens.Lens' StreamDescription (Core.Maybe [Shard])
-streamDescription_shards = Lens.lens (\StreamDescription' {shards} -> shards) (\s@StreamDescription' {} a -> s {shards = a} :: StreamDescription) Core.. Lens.mapping Lens._Coerce
+streamDescription_shards :: Lens.Lens' StreamDescription (Prelude.Maybe [Shard])
+streamDescription_shards = Lens.lens (\StreamDescription' {shards} -> shards) (\s@StreamDescription' {} a -> s {shards = a} :: StreamDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) for the stream.
-streamDescription_streamArn :: Lens.Lens' StreamDescription (Core.Maybe Core.Text)
+streamDescription_streamArn :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.Text)
 streamDescription_streamArn = Lens.lens (\StreamDescription' {streamArn} -> streamArn) (\s@StreamDescription' {} a -> s {streamArn = a} :: StreamDescription)
 
 -- | A timestamp, in ISO 8601 format, for this stream.
@@ -254,7 +255,7 @@ streamDescription_streamArn = Lens.lens (\StreamDescription' {streamArn} -> stre
 -- -   the table name
 --
 -- -   the @StreamLabel@
-streamDescription_streamLabel :: Lens.Lens' StreamDescription (Core.Maybe Core.Text)
+streamDescription_streamLabel :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.Text)
 streamDescription_streamLabel = Lens.lens (\StreamDescription' {streamLabel} -> streamLabel) (\s@StreamDescription' {} a -> s {streamLabel = a} :: StreamDescription)
 
 instance Core.FromJSON StreamDescription where
@@ -263,17 +264,17 @@ instance Core.FromJSON StreamDescription where
       "StreamDescription"
       ( \x ->
           StreamDescription'
-            Core.<$> (x Core..:? "LastEvaluatedShardId")
-            Core.<*> (x Core..:? "StreamViewType")
-            Core.<*> (x Core..:? "TableName")
-            Core.<*> (x Core..:? "CreationRequestDateTime")
-            Core.<*> (x Core..:? "KeySchema")
-            Core.<*> (x Core..:? "StreamStatus")
-            Core.<*> (x Core..:? "Shards" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "StreamArn")
-            Core.<*> (x Core..:? "StreamLabel")
+            Prelude.<$> (x Core..:? "LastEvaluatedShardId")
+            Prelude.<*> (x Core..:? "StreamViewType")
+            Prelude.<*> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "CreationRequestDateTime")
+            Prelude.<*> (x Core..:? "KeySchema")
+            Prelude.<*> (x Core..:? "StreamStatus")
+            Prelude.<*> (x Core..:? "Shards" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "StreamArn")
+            Prelude.<*> (x Core..:? "StreamLabel")
       )
 
-instance Core.Hashable StreamDescription
+instance Prelude.Hashable StreamDescription
 
-instance Core.NFData StreamDescription
+instance Prelude.NFData StreamDescription

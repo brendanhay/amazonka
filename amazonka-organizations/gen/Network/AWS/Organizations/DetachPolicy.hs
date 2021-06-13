@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,7 +71,7 @@ data DetachPolicy = DetachPolicy'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
     -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
     -- letters, digits, or the underscore character (_).
-    policyId :: Core.Text,
+    policyId :: Prelude.Text,
     -- | The unique identifier (ID) of the root, OU, or account that you want to
     -- detach the policy from. You can get the ID from the ListRoots,
     -- ListOrganizationalUnitsForParent, or ListAccounts operations.
@@ -87,9 +88,9 @@ data DetachPolicy = DetachPolicy'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    targetId :: Core.Text
+    targetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachPolicy' with all optional fields omitted.
@@ -124,9 +125,9 @@ data DetachPolicy = DetachPolicy'
 --     dash and from 8 to 32 additional lowercase letters or digits.
 newDetachPolicy ::
   -- | 'policyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetId'
-  Core.Text ->
+  Prelude.Text ->
   DetachPolicy
 newDetachPolicy pPolicyId_ pTargetId_ =
   DetachPolicy'
@@ -140,7 +141,7 @@ newDetachPolicy pPolicyId_ pTargetId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
 -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
 -- letters, digits, or the underscore character (_).
-detachPolicy_policyId :: Lens.Lens' DetachPolicy Core.Text
+detachPolicy_policyId :: Lens.Lens' DetachPolicy Prelude.Text
 detachPolicy_policyId = Lens.lens (\DetachPolicy' {policyId} -> policyId) (\s@DetachPolicy' {} a -> s {policyId = a} :: DetachPolicy)
 
 -- | The unique identifier (ID) of the root, OU, or account that you want to
@@ -159,7 +160,7 @@ detachPolicy_policyId = Lens.lens (\DetachPolicy' {policyId} -> policyId) (\s@De
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-detachPolicy_targetId :: Lens.Lens' DetachPolicy Core.Text
+detachPolicy_targetId :: Lens.Lens' DetachPolicy Prelude.Text
 detachPolicy_targetId = Lens.lens (\DetachPolicy' {targetId} -> targetId) (\s@DetachPolicy' {} a -> s {targetId = a} :: DetachPolicy)
 
 instance Core.AWSRequest DetachPolicy where
@@ -167,43 +168,45 @@ instance Core.AWSRequest DetachPolicy where
   request = Request.postJSON defaultService
   response = Response.receiveNull DetachPolicyResponse'
 
-instance Core.Hashable DetachPolicy
+instance Prelude.Hashable DetachPolicy
 
-instance Core.NFData DetachPolicy
+instance Prelude.NFData DetachPolicy
 
 instance Core.ToHeaders DetachPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.DetachPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetachPolicy where
   toJSON DetachPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("PolicyId" Core..= policyId),
-            Core.Just ("TargetId" Core..= targetId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("PolicyId" Core..= policyId),
+            Prelude.Just ("TargetId" Core..= targetId)
           ]
       )
 
 instance Core.ToPath DetachPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachPolicyResponse' smart constructor.
 data DetachPolicyResponse = DetachPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachPolicyResponse' with all optional fields omitted.
@@ -213,4 +216,4 @@ newDetachPolicyResponse ::
   DetachPolicyResponse
 newDetachPolicyResponse = DetachPolicyResponse'
 
-instance Core.NFData DetachPolicyResponse
+instance Prelude.NFData DetachPolicyResponse

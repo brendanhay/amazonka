@@ -107,6 +107,7 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -115,25 +116,25 @@ data PutRule = PutRule'
   { -- | The event pattern. For more information, see
     -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
     -- in the /Amazon EventBridge User Guide/.
-    eventPattern :: Core.Maybe Core.Text,
+    eventPattern :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the event bus to associate with this rule. If you
     -- omit this, the default event bus is used.
-    eventBusName :: Core.Maybe Core.Text,
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the rule is enabled or disabled.
-    state :: Core.Maybe RuleState,
+    state :: Prelude.Maybe RuleState,
     -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\" or
     -- \"rate(5 minutes)\".
-    scheduleExpression :: Core.Maybe Core.Text,
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The list of key-value pairs to associate with the rule.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A description of the rule.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule that you are creating or updating.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRule' with all optional fields omitted.
@@ -164,54 +165,54 @@ data PutRule = PutRule'
 -- 'name', 'putRule_name' - The name of the rule that you are creating or updating.
 newPutRule ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   PutRule
 newPutRule pName_ =
   PutRule'
-    { eventPattern = Core.Nothing,
-      roleArn = Core.Nothing,
-      eventBusName = Core.Nothing,
-      state = Core.Nothing,
-      scheduleExpression = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
+    { eventPattern = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      state = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_
     }
 
 -- | The event pattern. For more information, see
 -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
 -- in the /Amazon EventBridge User Guide/.
-putRule_eventPattern :: Lens.Lens' PutRule (Core.Maybe Core.Text)
+putRule_eventPattern :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_eventPattern = Lens.lens (\PutRule' {eventPattern} -> eventPattern) (\s@PutRule' {} a -> s {eventPattern = a} :: PutRule)
 
 -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
-putRule_roleArn :: Lens.Lens' PutRule (Core.Maybe Core.Text)
+putRule_roleArn :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_roleArn = Lens.lens (\PutRule' {roleArn} -> roleArn) (\s@PutRule' {} a -> s {roleArn = a} :: PutRule)
 
 -- | The name or ARN of the event bus to associate with this rule. If you
 -- omit this, the default event bus is used.
-putRule_eventBusName :: Lens.Lens' PutRule (Core.Maybe Core.Text)
+putRule_eventBusName :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_eventBusName = Lens.lens (\PutRule' {eventBusName} -> eventBusName) (\s@PutRule' {} a -> s {eventBusName = a} :: PutRule)
 
 -- | Indicates whether the rule is enabled or disabled.
-putRule_state :: Lens.Lens' PutRule (Core.Maybe RuleState)
+putRule_state :: Lens.Lens' PutRule (Prelude.Maybe RuleState)
 putRule_state = Lens.lens (\PutRule' {state} -> state) (\s@PutRule' {} a -> s {state = a} :: PutRule)
 
 -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\" or
 -- \"rate(5 minutes)\".
-putRule_scheduleExpression :: Lens.Lens' PutRule (Core.Maybe Core.Text)
+putRule_scheduleExpression :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_scheduleExpression = Lens.lens (\PutRule' {scheduleExpression} -> scheduleExpression) (\s@PutRule' {} a -> s {scheduleExpression = a} :: PutRule)
 
 -- | The list of key-value pairs to associate with the rule.
-putRule_tags :: Lens.Lens' PutRule (Core.Maybe [Tag])
-putRule_tags = Lens.lens (\PutRule' {tags} -> tags) (\s@PutRule' {} a -> s {tags = a} :: PutRule) Core.. Lens.mapping Lens._Coerce
+putRule_tags :: Lens.Lens' PutRule (Prelude.Maybe [Tag])
+putRule_tags = Lens.lens (\PutRule' {tags} -> tags) (\s@PutRule' {} a -> s {tags = a} :: PutRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description of the rule.
-putRule_description :: Lens.Lens' PutRule (Core.Maybe Core.Text)
+putRule_description :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_description = Lens.lens (\PutRule' {description} -> description) (\s@PutRule' {} a -> s {description = a} :: PutRule)
 
 -- | The name of the rule that you are creating or updating.
-putRule_name :: Lens.Lens' PutRule Core.Text
+putRule_name :: Lens.Lens' PutRule Prelude.Text
 putRule_name = Lens.lens (\PutRule' {name} -> name) (\s@PutRule' {} a -> s {name = a} :: PutRule)
 
 instance Core.AWSRequest PutRule where
@@ -221,55 +222,57 @@ instance Core.AWSRequest PutRule where
     Response.receiveJSON
       ( \s h x ->
           PutRuleResponse'
-            Core.<$> (x Core..?> "RuleArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RuleArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutRule
+instance Prelude.Hashable PutRule
 
-instance Core.NFData PutRule
+instance Prelude.NFData PutRule
 
 instance Core.ToHeaders PutRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.PutRule" :: Core.ByteString),
+              Core.=# ("AWSEvents.PutRule" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutRule where
   toJSON PutRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EventPattern" Core..=) Core.<$> eventPattern,
-            ("RoleArn" Core..=) Core.<$> roleArn,
-            ("EventBusName" Core..=) Core.<$> eventBusName,
-            ("State" Core..=) Core.<$> state,
+      ( Prelude.catMaybes
+          [ ("EventPattern" Core..=) Prelude.<$> eventPattern,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            ("State" Core..=) Prelude.<$> state,
             ("ScheduleExpression" Core..=)
-              Core.<$> scheduleExpression,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name)
+              Prelude.<$> scheduleExpression,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath PutRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRuleResponse' smart constructor.
 data PutRuleResponse = PutRuleResponse'
   { -- | The Amazon Resource Name (ARN) of the rule.
-    ruleArn :: Core.Maybe Core.Text,
+    ruleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRuleResponse' with all optional fields omitted.
@@ -284,20 +287,20 @@ data PutRuleResponse = PutRuleResponse'
 -- 'httpStatus', 'putRuleResponse_httpStatus' - The response's http status code.
 newPutRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutRuleResponse
 newPutRuleResponse pHttpStatus_ =
   PutRuleResponse'
-    { ruleArn = Core.Nothing,
+    { ruleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the rule.
-putRuleResponse_ruleArn :: Lens.Lens' PutRuleResponse (Core.Maybe Core.Text)
+putRuleResponse_ruleArn :: Lens.Lens' PutRuleResponse (Prelude.Maybe Prelude.Text)
 putRuleResponse_ruleArn = Lens.lens (\PutRuleResponse' {ruleArn} -> ruleArn) (\s@PutRuleResponse' {} a -> s {ruleArn = a} :: PutRuleResponse)
 
 -- | The response's http status code.
-putRuleResponse_httpStatus :: Lens.Lens' PutRuleResponse Core.Int
+putRuleResponse_httpStatus :: Lens.Lens' PutRuleResponse Prelude.Int
 putRuleResponse_httpStatus = Lens.lens (\PutRuleResponse' {httpStatus} -> httpStatus) (\s@PutRuleResponse' {} a -> s {httpStatus = a} :: PutRuleResponse)
 
-instance Core.NFData PutRuleResponse
+instance Prelude.NFData PutRuleResponse

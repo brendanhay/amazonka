@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +62,9 @@ data GetOriginRequestPolicyConfig = GetOriginRequestPolicyConfig'
     -- @GetDistribution@. If the origin request policy is not attached to a
     -- cache behavior, you can get the identifier using
     -- @ListOriginRequestPolicies@.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOriginRequestPolicyConfig' with all optional fields omitted.
@@ -81,7 +82,7 @@ data GetOriginRequestPolicyConfig = GetOriginRequestPolicyConfig'
 -- @ListOriginRequestPolicies@.
 newGetOriginRequestPolicyConfig ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetOriginRequestPolicyConfig
 newGetOriginRequestPolicyConfig pId_ =
   GetOriginRequestPolicyConfig' {id = pId_}
@@ -92,7 +93,7 @@ newGetOriginRequestPolicyConfig pId_ =
 -- @GetDistribution@. If the origin request policy is not attached to a
 -- cache behavior, you can get the identifier using
 -- @ListOriginRequestPolicies@.
-getOriginRequestPolicyConfig_id :: Lens.Lens' GetOriginRequestPolicyConfig Core.Text
+getOriginRequestPolicyConfig_id :: Lens.Lens' GetOriginRequestPolicyConfig Prelude.Text
 getOriginRequestPolicyConfig_id = Lens.lens (\GetOriginRequestPolicyConfig' {id} -> id) (\s@GetOriginRequestPolicyConfig' {} a -> s {id = a} :: GetOriginRequestPolicyConfig)
 
 instance Core.AWSRequest GetOriginRequestPolicyConfig where
@@ -104,39 +105,41 @@ instance Core.AWSRequest GetOriginRequestPolicyConfig where
     Response.receiveXML
       ( \s h x ->
           GetOriginRequestPolicyConfigResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetOriginRequestPolicyConfig
+instance
+  Prelude.Hashable
+    GetOriginRequestPolicyConfig
 
-instance Core.NFData GetOriginRequestPolicyConfig
+instance Prelude.NFData GetOriginRequestPolicyConfig
 
 instance Core.ToHeaders GetOriginRequestPolicyConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetOriginRequestPolicyConfig where
   toPath GetOriginRequestPolicyConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/origin-request-policy/",
         Core.toBS id,
         "/config"
       ]
 
 instance Core.ToQuery GetOriginRequestPolicyConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOriginRequestPolicyConfigResponse' smart constructor.
 data GetOriginRequestPolicyConfigResponse = GetOriginRequestPolicyConfigResponse'
   { -- | The current version of the origin request policy.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The origin request policy configuration.
-    originRequestPolicyConfig :: Core.Maybe OriginRequestPolicyConfig,
+    originRequestPolicyConfig :: Prelude.Maybe OriginRequestPolicyConfig,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOriginRequestPolicyConfigResponse' with all optional fields omitted.
@@ -153,29 +156,29 @@ data GetOriginRequestPolicyConfigResponse = GetOriginRequestPolicyConfigResponse
 -- 'httpStatus', 'getOriginRequestPolicyConfigResponse_httpStatus' - The response's http status code.
 newGetOriginRequestPolicyConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetOriginRequestPolicyConfigResponse
 newGetOriginRequestPolicyConfigResponse pHttpStatus_ =
   GetOriginRequestPolicyConfigResponse'
     { eTag =
-        Core.Nothing,
+        Prelude.Nothing,
       originRequestPolicyConfig =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the origin request policy.
-getOriginRequestPolicyConfigResponse_eTag :: Lens.Lens' GetOriginRequestPolicyConfigResponse (Core.Maybe Core.Text)
+getOriginRequestPolicyConfigResponse_eTag :: Lens.Lens' GetOriginRequestPolicyConfigResponse (Prelude.Maybe Prelude.Text)
 getOriginRequestPolicyConfigResponse_eTag = Lens.lens (\GetOriginRequestPolicyConfigResponse' {eTag} -> eTag) (\s@GetOriginRequestPolicyConfigResponse' {} a -> s {eTag = a} :: GetOriginRequestPolicyConfigResponse)
 
 -- | The origin request policy configuration.
-getOriginRequestPolicyConfigResponse_originRequestPolicyConfig :: Lens.Lens' GetOriginRequestPolicyConfigResponse (Core.Maybe OriginRequestPolicyConfig)
+getOriginRequestPolicyConfigResponse_originRequestPolicyConfig :: Lens.Lens' GetOriginRequestPolicyConfigResponse (Prelude.Maybe OriginRequestPolicyConfig)
 getOriginRequestPolicyConfigResponse_originRequestPolicyConfig = Lens.lens (\GetOriginRequestPolicyConfigResponse' {originRequestPolicyConfig} -> originRequestPolicyConfig) (\s@GetOriginRequestPolicyConfigResponse' {} a -> s {originRequestPolicyConfig = a} :: GetOriginRequestPolicyConfigResponse)
 
 -- | The response's http status code.
-getOriginRequestPolicyConfigResponse_httpStatus :: Lens.Lens' GetOriginRequestPolicyConfigResponse Core.Int
+getOriginRequestPolicyConfigResponse_httpStatus :: Lens.Lens' GetOriginRequestPolicyConfigResponse Prelude.Int
 getOriginRequestPolicyConfigResponse_httpStatus = Lens.lens (\GetOriginRequestPolicyConfigResponse' {httpStatus} -> httpStatus) (\s@GetOriginRequestPolicyConfigResponse' {} a -> s {httpStatus = a} :: GetOriginRequestPolicyConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetOriginRequestPolicyConfigResponse

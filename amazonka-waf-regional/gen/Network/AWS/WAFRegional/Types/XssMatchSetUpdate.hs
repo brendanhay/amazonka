@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.XssMatchSetUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ChangeAction
 import Network.AWS.WAFRegional.Types.XssMatchTuple
 
@@ -47,7 +48,7 @@ data XssMatchSetUpdate = XssMatchSetUpdate'
     -- header, the name of the header.
     xssMatchTuple :: XssMatchTuple
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'XssMatchSetUpdate' with all optional fields omitted.
@@ -86,15 +87,16 @@ xssMatchSetUpdate_action = Lens.lens (\XssMatchSetUpdate' {action} -> action) (\
 xssMatchSetUpdate_xssMatchTuple :: Lens.Lens' XssMatchSetUpdate XssMatchTuple
 xssMatchSetUpdate_xssMatchTuple = Lens.lens (\XssMatchSetUpdate' {xssMatchTuple} -> xssMatchTuple) (\s@XssMatchSetUpdate' {} a -> s {xssMatchTuple = a} :: XssMatchSetUpdate)
 
-instance Core.Hashable XssMatchSetUpdate
+instance Prelude.Hashable XssMatchSetUpdate
 
-instance Core.NFData XssMatchSetUpdate
+instance Prelude.NFData XssMatchSetUpdate
 
 instance Core.ToJSON XssMatchSetUpdate where
   toJSON XssMatchSetUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Action" Core..= action),
-            Core.Just ("XssMatchTuple" Core..= xssMatchTuple)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Action" Core..= action),
+            Prelude.Just
+              ("XssMatchTuple" Core..= xssMatchTuple)
           ]
       )

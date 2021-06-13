@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.SseKmsEncryptedObjects where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus
 
@@ -34,7 +35,7 @@ data SseKmsEncryptedObjects = SseKmsEncryptedObjects'
     -- Management Service.
     status :: SseKmsEncryptedObjectsStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SseKmsEncryptedObjects' with all optional fields omitted.
@@ -63,12 +64,12 @@ sseKmsEncryptedObjects_status = Lens.lens (\SseKmsEncryptedObjects' {status} -> 
 instance Core.FromXML SseKmsEncryptedObjects where
   parseXML x =
     SseKmsEncryptedObjects'
-      Core.<$> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Status")
 
-instance Core.Hashable SseKmsEncryptedObjects
+instance Prelude.Hashable SseKmsEncryptedObjects
 
-instance Core.NFData SseKmsEncryptedObjects
+instance Prelude.NFData SseKmsEncryptedObjects
 
 instance Core.ToXML SseKmsEncryptedObjects where
   toXML SseKmsEncryptedObjects' {..} =
-    Core.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Core.@= status]

@@ -21,6 +21,7 @@ module Network.AWS.LexModels.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of key\/value pairs that identify a bot, bot alias, or bot
 -- channel. Tag keys and values can consist of Unicode letters, digits,
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The key for the tag. Keys are not case-sensitive and must be unique.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The value associated with a key. The value may be an empty string but it
     -- can\'t be null.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -50,20 +51,20 @@ data Tag = Tag'
 -- can\'t be null.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
 -- | The key for the tag. Keys are not case-sensitive and must be unique.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value associated with a key. The value may be an empty string but it
 -- can\'t be null.
-tag_value :: Lens.Lens' Tag Core.Text
+tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -72,18 +73,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..: "key") Core.<*> (x Core..: "value")
+            Prelude.<$> (x Core..: "key") Prelude.<*> (x Core..: "value")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("key" Core..= key),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("key" Core..= key),
+            Prelude.Just ("value" Core..= value)
           ]
       )

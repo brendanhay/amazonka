@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.FunctionIsolationMode
 import Network.AWS.Greengrass.Types.FunctionRunAsConfig
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information that specifies how a Lambda function runs.
 --
 -- /See:/ 'newFunctionDefaultExecutionConfig' smart constructor.
 data FunctionDefaultExecutionConfig = FunctionDefaultExecutionConfig'
-  { isolationMode :: Core.Maybe FunctionIsolationMode,
-    runAs :: Core.Maybe FunctionRunAsConfig
+  { isolationMode :: Prelude.Maybe FunctionIsolationMode,
+    runAs :: Prelude.Maybe FunctionRunAsConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FunctionDefaultExecutionConfig' with all optional fields omitted.
@@ -49,16 +50,16 @@ newFunctionDefaultExecutionConfig ::
 newFunctionDefaultExecutionConfig =
   FunctionDefaultExecutionConfig'
     { isolationMode =
-        Core.Nothing,
-      runAs = Core.Nothing
+        Prelude.Nothing,
+      runAs = Prelude.Nothing
     }
 
 -- | Undocumented member.
-functionDefaultExecutionConfig_isolationMode :: Lens.Lens' FunctionDefaultExecutionConfig (Core.Maybe FunctionIsolationMode)
+functionDefaultExecutionConfig_isolationMode :: Lens.Lens' FunctionDefaultExecutionConfig (Prelude.Maybe FunctionIsolationMode)
 functionDefaultExecutionConfig_isolationMode = Lens.lens (\FunctionDefaultExecutionConfig' {isolationMode} -> isolationMode) (\s@FunctionDefaultExecutionConfig' {} a -> s {isolationMode = a} :: FunctionDefaultExecutionConfig)
 
 -- | Undocumented member.
-functionDefaultExecutionConfig_runAs :: Lens.Lens' FunctionDefaultExecutionConfig (Core.Maybe FunctionRunAsConfig)
+functionDefaultExecutionConfig_runAs :: Lens.Lens' FunctionDefaultExecutionConfig (Prelude.Maybe FunctionRunAsConfig)
 functionDefaultExecutionConfig_runAs = Lens.lens (\FunctionDefaultExecutionConfig' {runAs} -> runAs) (\s@FunctionDefaultExecutionConfig' {} a -> s {runAs = a} :: FunctionDefaultExecutionConfig)
 
 instance Core.FromJSON FunctionDefaultExecutionConfig where
@@ -67,19 +68,23 @@ instance Core.FromJSON FunctionDefaultExecutionConfig where
       "FunctionDefaultExecutionConfig"
       ( \x ->
           FunctionDefaultExecutionConfig'
-            Core.<$> (x Core..:? "IsolationMode")
-            Core.<*> (x Core..:? "RunAs")
+            Prelude.<$> (x Core..:? "IsolationMode")
+            Prelude.<*> (x Core..:? "RunAs")
       )
 
-instance Core.Hashable FunctionDefaultExecutionConfig
+instance
+  Prelude.Hashable
+    FunctionDefaultExecutionConfig
 
-instance Core.NFData FunctionDefaultExecutionConfig
+instance
+  Prelude.NFData
+    FunctionDefaultExecutionConfig
 
 instance Core.ToJSON FunctionDefaultExecutionConfig where
   toJSON FunctionDefaultExecutionConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IsolationMode" Core..=) Core.<$> isolationMode,
-            ("RunAs" Core..=) Core.<$> runAs
+      ( Prelude.catMaybes
+          [ ("IsolationMode" Core..=) Prelude.<$> isolationMode,
+            ("RunAs" Core..=) Prelude.<$> runAs
           ]
       )

@@ -33,20 +33,21 @@ import Network.AWS.EC2.Types.StateReason
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.VirtualizationType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an image.
 --
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
   { -- | This value is set to @windows@ for Windows AMIs; otherwise, it is blank.
-    platform :: Core.Maybe PlatformValues,
+    platform :: Prelude.Maybe PlatformValues,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-    rootDeviceName :: Core.Maybe Core.Text,
+    rootDeviceName :: Prelude.Maybe Prelude.Text,
     -- | The RAM disk associated with the image, if any. Only applicable for
     -- machine images.
-    ramdiskId :: Core.Maybe Core.Text,
+    ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | The reason for the state change.
-    stateReason :: Core.Maybe StateReason,
+    stateReason :: Prelude.Maybe StateReason,
     -- | The operation of the Amazon EC2 instance and the billing code that is
     -- associated with the AMI. @usageOperation@ corresponds to the
     -- <https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation lineitem\/Operation>
@@ -55,48 +56,48 @@ data Image = Image'
     -- For the list of @UsageOperation@ codes, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info Platform Details and Usage Operation Billing Codes>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    usageOperation :: Core.Maybe Core.Text,
+    usageOperation :: Prelude.Maybe Prelude.Text,
     -- | The date and time the image was created.
-    creationDate :: Core.Maybe Core.Text,
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | Any product codes associated with the AMI.
-    productCodes :: Core.Maybe [ProductCode],
+    productCodes :: Prelude.Maybe [ProductCode],
     -- | The platform details associated with the billing code of the AMI. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Obtaining Billing Information>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    platformDetails :: Core.Maybe Core.Text,
+    platformDetails :: Prelude.Maybe Prelude.Text,
     -- | The name of the AMI that was provided during image creation.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the image.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies whether enhanced networking with the Intel 82599 Virtual
     -- Function interface is enabled.
-    sriovNetSupport :: Core.Maybe Core.Text,
+    sriovNetSupport :: Prelude.Maybe Prelude.Text,
     -- | Any block device mapping entries.
-    blockDeviceMappings :: Core.Maybe [BlockDeviceMapping],
+    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
     -- | The kernel associated with the image, if any. Only applicable for
     -- machine images.
-    kernelId :: Core.Maybe Core.Text,
+    kernelId :: Prelude.Maybe Prelude.Text,
     -- | The description of the AMI that was provided during image creation.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The AWS account alias (for example, @amazon@, @self@) or the AWS account
     -- ID of the AMI owner.
-    imageOwnerAlias :: Core.Maybe Core.Text,
+    imageOwnerAlias :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether enhanced networking with ENA is enabled.
-    enaSupport :: Core.Maybe Core.Bool,
+    enaSupport :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the AMI.
-    imageId :: Core.Text,
+    imageId :: Prelude.Text,
     -- | The location of the AMI.
-    imageLocation :: Core.Text,
+    imageLocation :: Prelude.Text,
     -- | The current state of the AMI. If the state is @available@, the image is
     -- successfully registered and can be used to launch an instance.
     state :: ImageState,
     -- | The AWS account ID of the image owner.
-    ownerId :: Core.Text,
+    ownerId :: Prelude.Text,
     -- | Indicates whether the image has public launch permissions. The value is
     -- @true@ if this image has public launch permissions or @false@ if it has
     -- only implicit and explicit launch permissions.
-    public :: Core.Bool,
+    public :: Prelude.Bool,
     -- | The architecture of the image.
     architecture :: ArchitectureValues,
     -- | The type of image.
@@ -109,7 +110,7 @@ data Image = Image'
     -- | The hypervisor type of the image.
     hypervisor :: HypervisorType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Image' with all optional fields omitted.
@@ -190,15 +191,15 @@ data Image = Image'
 -- 'hypervisor', 'image_hypervisor' - The hypervisor type of the image.
 newImage ::
   -- | 'imageId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imageLocation'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'state'
   ImageState ->
   -- | 'ownerId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'public'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'architecture'
   ArchitectureValues ->
   -- | 'imageType'
@@ -222,22 +223,22 @@ newImage
   pVirtualizationType_
   pHypervisor_ =
     Image'
-      { platform = Core.Nothing,
-        rootDeviceName = Core.Nothing,
-        ramdiskId = Core.Nothing,
-        stateReason = Core.Nothing,
-        usageOperation = Core.Nothing,
-        creationDate = Core.Nothing,
-        productCodes = Core.Nothing,
-        platformDetails = Core.Nothing,
-        name = Core.Nothing,
-        tags = Core.Nothing,
-        sriovNetSupport = Core.Nothing,
-        blockDeviceMappings = Core.Nothing,
-        kernelId = Core.Nothing,
-        description = Core.Nothing,
-        imageOwnerAlias = Core.Nothing,
-        enaSupport = Core.Nothing,
+      { platform = Prelude.Nothing,
+        rootDeviceName = Prelude.Nothing,
+        ramdiskId = Prelude.Nothing,
+        stateReason = Prelude.Nothing,
+        usageOperation = Prelude.Nothing,
+        creationDate = Prelude.Nothing,
+        productCodes = Prelude.Nothing,
+        platformDetails = Prelude.Nothing,
+        name = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        sriovNetSupport = Prelude.Nothing,
+        blockDeviceMappings = Prelude.Nothing,
+        kernelId = Prelude.Nothing,
+        description = Prelude.Nothing,
+        imageOwnerAlias = Prelude.Nothing,
+        enaSupport = Prelude.Nothing,
         imageId = pImageId_,
         imageLocation = pImageLocation_,
         state = pState_,
@@ -251,20 +252,20 @@ newImage
       }
 
 -- | This value is set to @windows@ for Windows AMIs; otherwise, it is blank.
-image_platform :: Lens.Lens' Image (Core.Maybe PlatformValues)
+image_platform :: Lens.Lens' Image (Prelude.Maybe PlatformValues)
 image_platform = Lens.lens (\Image' {platform} -> platform) (\s@Image' {} a -> s {platform = a} :: Image)
 
 -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-image_rootDeviceName :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_rootDeviceName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_rootDeviceName = Lens.lens (\Image' {rootDeviceName} -> rootDeviceName) (\s@Image' {} a -> s {rootDeviceName = a} :: Image)
 
 -- | The RAM disk associated with the image, if any. Only applicable for
 -- machine images.
-image_ramdiskId :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_ramdiskId :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_ramdiskId = Lens.lens (\Image' {ramdiskId} -> ramdiskId) (\s@Image' {} a -> s {ramdiskId = a} :: Image)
 
 -- | The reason for the state change.
-image_stateReason :: Lens.Lens' Image (Core.Maybe StateReason)
+image_stateReason :: Lens.Lens' Image (Prelude.Maybe StateReason)
 image_stateReason = Lens.lens (\Image' {stateReason} -> stateReason) (\s@Image' {} a -> s {stateReason = a} :: Image)
 
 -- | The operation of the Amazon EC2 instance and the billing code that is
@@ -275,65 +276,65 @@ image_stateReason = Lens.lens (\Image' {stateReason} -> stateReason) (\s@Image' 
 -- For the list of @UsageOperation@ codes, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info Platform Details and Usage Operation Billing Codes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-image_usageOperation :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_usageOperation :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_usageOperation = Lens.lens (\Image' {usageOperation} -> usageOperation) (\s@Image' {} a -> s {usageOperation = a} :: Image)
 
 -- | The date and time the image was created.
-image_creationDate :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_creationDate :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_creationDate = Lens.lens (\Image' {creationDate} -> creationDate) (\s@Image' {} a -> s {creationDate = a} :: Image)
 
 -- | Any product codes associated with the AMI.
-image_productCodes :: Lens.Lens' Image (Core.Maybe [ProductCode])
-image_productCodes = Lens.lens (\Image' {productCodes} -> productCodes) (\s@Image' {} a -> s {productCodes = a} :: Image) Core.. Lens.mapping Lens._Coerce
+image_productCodes :: Lens.Lens' Image (Prelude.Maybe [ProductCode])
+image_productCodes = Lens.lens (\Image' {productCodes} -> productCodes) (\s@Image' {} a -> s {productCodes = a} :: Image) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The platform details associated with the billing code of the AMI. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Obtaining Billing Information>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-image_platformDetails :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_platformDetails :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_platformDetails = Lens.lens (\Image' {platformDetails} -> platformDetails) (\s@Image' {} a -> s {platformDetails = a} :: Image)
 
 -- | The name of the AMI that was provided during image creation.
-image_name :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_name :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_name = Lens.lens (\Image' {name} -> name) (\s@Image' {} a -> s {name = a} :: Image)
 
 -- | Any tags assigned to the image.
-image_tags :: Lens.Lens' Image (Core.Maybe [Tag])
-image_tags = Lens.lens (\Image' {tags} -> tags) (\s@Image' {} a -> s {tags = a} :: Image) Core.. Lens.mapping Lens._Coerce
+image_tags :: Lens.Lens' Image (Prelude.Maybe [Tag])
+image_tags = Lens.lens (\Image' {tags} -> tags) (\s@Image' {} a -> s {tags = a} :: Image) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether enhanced networking with the Intel 82599 Virtual
 -- Function interface is enabled.
-image_sriovNetSupport :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_sriovNetSupport :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_sriovNetSupport = Lens.lens (\Image' {sriovNetSupport} -> sriovNetSupport) (\s@Image' {} a -> s {sriovNetSupport = a} :: Image)
 
 -- | Any block device mapping entries.
-image_blockDeviceMappings :: Lens.Lens' Image (Core.Maybe [BlockDeviceMapping])
-image_blockDeviceMappings = Lens.lens (\Image' {blockDeviceMappings} -> blockDeviceMappings) (\s@Image' {} a -> s {blockDeviceMappings = a} :: Image) Core.. Lens.mapping Lens._Coerce
+image_blockDeviceMappings :: Lens.Lens' Image (Prelude.Maybe [BlockDeviceMapping])
+image_blockDeviceMappings = Lens.lens (\Image' {blockDeviceMappings} -> blockDeviceMappings) (\s@Image' {} a -> s {blockDeviceMappings = a} :: Image) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The kernel associated with the image, if any. Only applicable for
 -- machine images.
-image_kernelId :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_kernelId :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_kernelId = Lens.lens (\Image' {kernelId} -> kernelId) (\s@Image' {} a -> s {kernelId = a} :: Image)
 
 -- | The description of the AMI that was provided during image creation.
-image_description :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_description :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_description = Lens.lens (\Image' {description} -> description) (\s@Image' {} a -> s {description = a} :: Image)
 
 -- | The AWS account alias (for example, @amazon@, @self@) or the AWS account
 -- ID of the AMI owner.
-image_imageOwnerAlias :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_imageOwnerAlias :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_imageOwnerAlias = Lens.lens (\Image' {imageOwnerAlias} -> imageOwnerAlias) (\s@Image' {} a -> s {imageOwnerAlias = a} :: Image)
 
 -- | Specifies whether enhanced networking with ENA is enabled.
-image_enaSupport :: Lens.Lens' Image (Core.Maybe Core.Bool)
+image_enaSupport :: Lens.Lens' Image (Prelude.Maybe Prelude.Bool)
 image_enaSupport = Lens.lens (\Image' {enaSupport} -> enaSupport) (\s@Image' {} a -> s {enaSupport = a} :: Image)
 
 -- | The ID of the AMI.
-image_imageId :: Lens.Lens' Image Core.Text
+image_imageId :: Lens.Lens' Image Prelude.Text
 image_imageId = Lens.lens (\Image' {imageId} -> imageId) (\s@Image' {} a -> s {imageId = a} :: Image)
 
 -- | The location of the AMI.
-image_imageLocation :: Lens.Lens' Image Core.Text
+image_imageLocation :: Lens.Lens' Image Prelude.Text
 image_imageLocation = Lens.lens (\Image' {imageLocation} -> imageLocation) (\s@Image' {} a -> s {imageLocation = a} :: Image)
 
 -- | The current state of the AMI. If the state is @available@, the image is
@@ -342,13 +343,13 @@ image_state :: Lens.Lens' Image ImageState
 image_state = Lens.lens (\Image' {state} -> state) (\s@Image' {} a -> s {state = a} :: Image)
 
 -- | The AWS account ID of the image owner.
-image_ownerId :: Lens.Lens' Image Core.Text
+image_ownerId :: Lens.Lens' Image Prelude.Text
 image_ownerId = Lens.lens (\Image' {ownerId} -> ownerId) (\s@Image' {} a -> s {ownerId = a} :: Image)
 
 -- | Indicates whether the image has public launch permissions. The value is
 -- @true@ if this image has public launch permissions or @false@ if it has
 -- only implicit and explicit launch permissions.
-image_public :: Lens.Lens' Image Core.Bool
+image_public :: Lens.Lens' Image Prelude.Bool
 image_public = Lens.lens (\Image' {public} -> public) (\s@Image' {} a -> s {public = a} :: Image)
 
 -- | The architecture of the image.
@@ -375,39 +376,40 @@ image_hypervisor = Lens.lens (\Image' {hypervisor} -> hypervisor) (\s@Image' {} 
 instance Core.FromXML Image where
   parseXML x =
     Image'
-      Core.<$> (x Core..@? "platform")
-      Core.<*> (x Core..@? "rootDeviceName")
-      Core.<*> (x Core..@? "ramdiskId")
-      Core.<*> (x Core..@? "stateReason")
-      Core.<*> (x Core..@? "usageOperation")
-      Core.<*> (x Core..@? "creationDate")
-      Core.<*> ( x Core..@? "productCodes" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "platformDetails")
-      Core.<*> (x Core..@? "name")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "sriovNetSupport")
-      Core.<*> ( x Core..@? "blockDeviceMapping" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "kernelId")
-      Core.<*> (x Core..@? "description")
-      Core.<*> (x Core..@? "imageOwnerAlias")
-      Core.<*> (x Core..@? "enaSupport")
-      Core.<*> (x Core..@ "imageId")
-      Core.<*> (x Core..@ "imageLocation")
-      Core.<*> (x Core..@ "imageState")
-      Core.<*> (x Core..@ "imageOwnerId")
-      Core.<*> (x Core..@ "isPublic")
-      Core.<*> (x Core..@ "architecture")
-      Core.<*> (x Core..@ "imageType")
-      Core.<*> (x Core..@ "rootDeviceType")
-      Core.<*> (x Core..@ "virtualizationType")
-      Core.<*> (x Core..@ "hypervisor")
+      Prelude.<$> (x Core..@? "platform")
+      Prelude.<*> (x Core..@? "rootDeviceName")
+      Prelude.<*> (x Core..@? "ramdiskId")
+      Prelude.<*> (x Core..@? "stateReason")
+      Prelude.<*> (x Core..@? "usageOperation")
+      Prelude.<*> (x Core..@? "creationDate")
+      Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "platformDetails")
+      Prelude.<*> (x Core..@? "name")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "sriovNetSupport")
+      Prelude.<*> ( x Core..@? "blockDeviceMapping"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "kernelId")
+      Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "imageOwnerAlias")
+      Prelude.<*> (x Core..@? "enaSupport")
+      Prelude.<*> (x Core..@ "imageId")
+      Prelude.<*> (x Core..@ "imageLocation")
+      Prelude.<*> (x Core..@ "imageState")
+      Prelude.<*> (x Core..@ "imageOwnerId")
+      Prelude.<*> (x Core..@ "isPublic")
+      Prelude.<*> (x Core..@ "architecture")
+      Prelude.<*> (x Core..@ "imageType")
+      Prelude.<*> (x Core..@ "rootDeviceType")
+      Prelude.<*> (x Core..@ "virtualizationType")
+      Prelude.<*> (x Core..@ "hypervisor")
 
-instance Core.Hashable Image
+instance Prelude.Hashable Image
 
-instance Core.NFData Image
+instance Prelude.NFData Image

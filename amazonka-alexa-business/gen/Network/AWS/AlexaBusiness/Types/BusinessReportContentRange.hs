@@ -22,6 +22,7 @@ module Network.AWS.AlexaBusiness.Types.BusinessReportContentRange where
 import Network.AWS.AlexaBusiness.Types.BusinessReportInterval
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The content range of the report.
 --
@@ -30,7 +31,7 @@ data BusinessReportContentRange = BusinessReportContentRange'
   { -- | The interval of the content range.
     interval :: BusinessReportInterval
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BusinessReportContentRange' with all optional fields omitted.
@@ -58,16 +59,16 @@ instance Core.FromJSON BusinessReportContentRange where
       "BusinessReportContentRange"
       ( \x ->
           BusinessReportContentRange'
-            Core.<$> (x Core..: "Interval")
+            Prelude.<$> (x Core..: "Interval")
       )
 
-instance Core.Hashable BusinessReportContentRange
+instance Prelude.Hashable BusinessReportContentRange
 
-instance Core.NFData BusinessReportContentRange
+instance Prelude.NFData BusinessReportContentRange
 
 instance Core.ToJSON BusinessReportContentRange where
   toJSON BusinessReportContentRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Interval" Core..= interval)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Interval" Core..= interval)]
       )

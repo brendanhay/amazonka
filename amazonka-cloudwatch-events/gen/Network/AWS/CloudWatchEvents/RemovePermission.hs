@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,14 +52,14 @@ import qualified Network.AWS.Response as Response
 data RemovePermission = RemovePermission'
   { -- | The statement ID corresponding to the account that is no longer allowed
     -- to put events to the default event bus.
-    statementId :: Core.Maybe Core.Text,
+    statementId :: Prelude.Maybe Prelude.Text,
     -- | The name of the event bus to revoke permissions for. If you omit this,
     -- the default event bus is used.
-    eventBusName :: Core.Maybe Core.Text,
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to remove all permissions.
-    removeAllPermissions :: Core.Maybe Core.Bool
+    removeAllPermissions :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemovePermission' with all optional fields omitted.
@@ -79,23 +80,23 @@ newRemovePermission ::
   RemovePermission
 newRemovePermission =
   RemovePermission'
-    { statementId = Core.Nothing,
-      eventBusName = Core.Nothing,
-      removeAllPermissions = Core.Nothing
+    { statementId = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      removeAllPermissions = Prelude.Nothing
     }
 
 -- | The statement ID corresponding to the account that is no longer allowed
 -- to put events to the default event bus.
-removePermission_statementId :: Lens.Lens' RemovePermission (Core.Maybe Core.Text)
+removePermission_statementId :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
 removePermission_statementId = Lens.lens (\RemovePermission' {statementId} -> statementId) (\s@RemovePermission' {} a -> s {statementId = a} :: RemovePermission)
 
 -- | The name of the event bus to revoke permissions for. If you omit this,
 -- the default event bus is used.
-removePermission_eventBusName :: Lens.Lens' RemovePermission (Core.Maybe Core.Text)
+removePermission_eventBusName :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
 removePermission_eventBusName = Lens.lens (\RemovePermission' {eventBusName} -> eventBusName) (\s@RemovePermission' {} a -> s {eventBusName = a} :: RemovePermission)
 
 -- | Specifies whether to remove all permissions.
-removePermission_removeAllPermissions :: Lens.Lens' RemovePermission (Core.Maybe Core.Bool)
+removePermission_removeAllPermissions :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Bool)
 removePermission_removeAllPermissions = Lens.lens (\RemovePermission' {removeAllPermissions} -> removeAllPermissions) (\s@RemovePermission' {} a -> s {removeAllPermissions = a} :: RemovePermission)
 
 instance Core.AWSRequest RemovePermission where
@@ -106,43 +107,45 @@ instance Core.AWSRequest RemovePermission where
   response =
     Response.receiveNull RemovePermissionResponse'
 
-instance Core.Hashable RemovePermission
+instance Prelude.Hashable RemovePermission
 
-instance Core.NFData RemovePermission
+instance Prelude.NFData RemovePermission
 
 instance Core.ToHeaders RemovePermission where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.RemovePermission" :: Core.ByteString),
+              Core.=# ("AWSEvents.RemovePermission" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RemovePermission where
   toJSON RemovePermission' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StatementId" Core..=) Core.<$> statementId,
-            ("EventBusName" Core..=) Core.<$> eventBusName,
+      ( Prelude.catMaybes
+          [ ("StatementId" Core..=) Prelude.<$> statementId,
+            ("EventBusName" Core..=) Prelude.<$> eventBusName,
             ("RemoveAllPermissions" Core..=)
-              Core.<$> removeAllPermissions
+              Prelude.<$> removeAllPermissions
           ]
       )
 
 instance Core.ToPath RemovePermission where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemovePermission where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemovePermissionResponse' smart constructor.
 data RemovePermissionResponse = RemovePermissionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemovePermissionResponse' with all optional fields omitted.
@@ -153,4 +156,4 @@ newRemovePermissionResponse ::
 newRemovePermissionResponse =
   RemovePermissionResponse'
 
-instance Core.NFData RemovePermissionResponse
+instance Prelude.NFData RemovePermissionResponse

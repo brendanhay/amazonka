@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.VersionInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Docker and Amazon ECS container agent version information about a
 -- container instance.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newVersionInfo' smart constructor.
 data VersionInfo = VersionInfo'
   { -- | The version number of the Amazon ECS container agent.
-    agentVersion :: Core.Maybe Core.Text,
+    agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The Docker version running on the container instance.
-    dockerVersion :: Core.Maybe Core.Text,
+    dockerVersion :: Prelude.Maybe Prelude.Text,
     -- | The Git commit hash for the Amazon ECS container agent build on the
     -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
     -- GitHub repository.
-    agentHash :: Core.Maybe Core.Text
+    agentHash :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VersionInfo' with all optional fields omitted.
@@ -57,23 +58,23 @@ newVersionInfo ::
   VersionInfo
 newVersionInfo =
   VersionInfo'
-    { agentVersion = Core.Nothing,
-      dockerVersion = Core.Nothing,
-      agentHash = Core.Nothing
+    { agentVersion = Prelude.Nothing,
+      dockerVersion = Prelude.Nothing,
+      agentHash = Prelude.Nothing
     }
 
 -- | The version number of the Amazon ECS container agent.
-versionInfo_agentVersion :: Lens.Lens' VersionInfo (Core.Maybe Core.Text)
+versionInfo_agentVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
 versionInfo_agentVersion = Lens.lens (\VersionInfo' {agentVersion} -> agentVersion) (\s@VersionInfo' {} a -> s {agentVersion = a} :: VersionInfo)
 
 -- | The Docker version running on the container instance.
-versionInfo_dockerVersion :: Lens.Lens' VersionInfo (Core.Maybe Core.Text)
+versionInfo_dockerVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
 versionInfo_dockerVersion = Lens.lens (\VersionInfo' {dockerVersion} -> dockerVersion) (\s@VersionInfo' {} a -> s {dockerVersion = a} :: VersionInfo)
 
 -- | The Git commit hash for the Amazon ECS container agent build on the
 -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
 -- GitHub repository.
-versionInfo_agentHash :: Lens.Lens' VersionInfo (Core.Maybe Core.Text)
+versionInfo_agentHash :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
 versionInfo_agentHash = Lens.lens (\VersionInfo' {agentHash} -> agentHash) (\s@VersionInfo' {} a -> s {agentHash = a} :: VersionInfo)
 
 instance Core.FromJSON VersionInfo where
@@ -82,21 +83,21 @@ instance Core.FromJSON VersionInfo where
       "VersionInfo"
       ( \x ->
           VersionInfo'
-            Core.<$> (x Core..:? "agentVersion")
-            Core.<*> (x Core..:? "dockerVersion")
-            Core.<*> (x Core..:? "agentHash")
+            Prelude.<$> (x Core..:? "agentVersion")
+            Prelude.<*> (x Core..:? "dockerVersion")
+            Prelude.<*> (x Core..:? "agentHash")
       )
 
-instance Core.Hashable VersionInfo
+instance Prelude.Hashable VersionInfo
 
-instance Core.NFData VersionInfo
+instance Prelude.NFData VersionInfo
 
 instance Core.ToJSON VersionInfo where
   toJSON VersionInfo' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("agentVersion" Core..=) Core.<$> agentVersion,
-            ("dockerVersion" Core..=) Core.<$> dockerVersion,
-            ("agentHash" Core..=) Core.<$> agentHash
+      ( Prelude.catMaybes
+          [ ("agentVersion" Core..=) Prelude.<$> agentVersion,
+            ("dockerVersion" Core..=) Prelude.<$> dockerVersion,
+            ("agentHash" Core..=) Prelude.<$> agentHash
           ]
       )

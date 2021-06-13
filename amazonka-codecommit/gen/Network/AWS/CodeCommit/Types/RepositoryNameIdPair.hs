@@ -21,17 +21,18 @@ module Network.AWS.CodeCommit.Types.RepositoryNameIdPair where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a repository name and ID.
 --
 -- /See:/ 'newRepositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
   { -- | The name associated with the repository.
-    repositoryName :: Core.Maybe Core.Text,
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The ID associated with the repository.
-    repositoryId :: Core.Maybe Core.Text
+    repositoryId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RepositoryNameIdPair' with all optional fields omitted.
@@ -49,16 +50,16 @@ newRepositoryNameIdPair ::
 newRepositoryNameIdPair =
   RepositoryNameIdPair'
     { repositoryName =
-        Core.Nothing,
-      repositoryId = Core.Nothing
+        Prelude.Nothing,
+      repositoryId = Prelude.Nothing
     }
 
 -- | The name associated with the repository.
-repositoryNameIdPair_repositoryName :: Lens.Lens' RepositoryNameIdPair (Core.Maybe Core.Text)
+repositoryNameIdPair_repositoryName :: Lens.Lens' RepositoryNameIdPair (Prelude.Maybe Prelude.Text)
 repositoryNameIdPair_repositoryName = Lens.lens (\RepositoryNameIdPair' {repositoryName} -> repositoryName) (\s@RepositoryNameIdPair' {} a -> s {repositoryName = a} :: RepositoryNameIdPair)
 
 -- | The ID associated with the repository.
-repositoryNameIdPair_repositoryId :: Lens.Lens' RepositoryNameIdPair (Core.Maybe Core.Text)
+repositoryNameIdPair_repositoryId :: Lens.Lens' RepositoryNameIdPair (Prelude.Maybe Prelude.Text)
 repositoryNameIdPair_repositoryId = Lens.lens (\RepositoryNameIdPair' {repositoryId} -> repositoryId) (\s@RepositoryNameIdPair' {} a -> s {repositoryId = a} :: RepositoryNameIdPair)
 
 instance Core.FromJSON RepositoryNameIdPair where
@@ -67,10 +68,10 @@ instance Core.FromJSON RepositoryNameIdPair where
       "RepositoryNameIdPair"
       ( \x ->
           RepositoryNameIdPair'
-            Core.<$> (x Core..:? "repositoryName")
-            Core.<*> (x Core..:? "repositoryId")
+            Prelude.<$> (x Core..:? "repositoryName")
+            Prelude.<*> (x Core..:? "repositoryId")
       )
 
-instance Core.Hashable RepositoryNameIdPair
+instance Prelude.Hashable RepositoryNameIdPair
 
-instance Core.NFData RepositoryNameIdPair
+instance Prelude.NFData RepositoryNameIdPair

@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -62,9 +63,9 @@ data GetSqlInjectionMatchSet = GetSqlInjectionMatchSet'
   { -- | The @SqlInjectionMatchSetId@ of the SqlInjectionMatchSet that you want
     -- to get. @SqlInjectionMatchSetId@ is returned by
     -- CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
-    sqlInjectionMatchSetId :: Core.Text
+    sqlInjectionMatchSetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSqlInjectionMatchSet' with all optional fields omitted.
@@ -79,7 +80,7 @@ data GetSqlInjectionMatchSet = GetSqlInjectionMatchSet'
 -- CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
 newGetSqlInjectionMatchSet ::
   -- | 'sqlInjectionMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   GetSqlInjectionMatchSet
 newGetSqlInjectionMatchSet pSqlInjectionMatchSetId_ =
   GetSqlInjectionMatchSet'
@@ -90,7 +91,7 @@ newGetSqlInjectionMatchSet pSqlInjectionMatchSetId_ =
 -- | The @SqlInjectionMatchSetId@ of the SqlInjectionMatchSet that you want
 -- to get. @SqlInjectionMatchSetId@ is returned by
 -- CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
-getSqlInjectionMatchSet_sqlInjectionMatchSetId :: Lens.Lens' GetSqlInjectionMatchSet Core.Text
+getSqlInjectionMatchSet_sqlInjectionMatchSetId :: Lens.Lens' GetSqlInjectionMatchSet Prelude.Text
 getSqlInjectionMatchSet_sqlInjectionMatchSetId = Lens.lens (\GetSqlInjectionMatchSet' {sqlInjectionMatchSetId} -> sqlInjectionMatchSetId) (\s@GetSqlInjectionMatchSet' {} a -> s {sqlInjectionMatchSetId = a} :: GetSqlInjectionMatchSet)
 
 instance Core.AWSRequest GetSqlInjectionMatchSet where
@@ -102,32 +103,34 @@ instance Core.AWSRequest GetSqlInjectionMatchSet where
     Response.receiveJSON
       ( \s h x ->
           GetSqlInjectionMatchSetResponse'
-            Core.<$> (x Core..?> "SqlInjectionMatchSet")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SqlInjectionMatchSet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSqlInjectionMatchSet
+instance Prelude.Hashable GetSqlInjectionMatchSet
 
-instance Core.NFData GetSqlInjectionMatchSet
+instance Prelude.NFData GetSqlInjectionMatchSet
 
 instance Core.ToHeaders GetSqlInjectionMatchSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.GetSqlInjectionMatchSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSqlInjectionMatchSet where
   toJSON GetSqlInjectionMatchSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "SqlInjectionMatchSetId"
                   Core..= sqlInjectionMatchSetId
               )
@@ -135,10 +138,10 @@ instance Core.ToJSON GetSqlInjectionMatchSet where
       )
 
 instance Core.ToPath GetSqlInjectionMatchSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSqlInjectionMatchSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a GetSqlInjectionMatchSet request.
 --
@@ -155,11 +158,11 @@ data GetSqlInjectionMatchSetResponse = GetSqlInjectionMatchSetResponse'
     --     contains @FieldToMatch@ and @TextTransformation@
     --
     -- -   FieldToMatch: Contains @Data@ and @Type@
-    sqlInjectionMatchSet :: Core.Maybe SqlInjectionMatchSet,
+    sqlInjectionMatchSet :: Prelude.Maybe SqlInjectionMatchSet,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSqlInjectionMatchSetResponse' with all optional fields omitted.
@@ -184,12 +187,12 @@ data GetSqlInjectionMatchSetResponse = GetSqlInjectionMatchSetResponse'
 -- 'httpStatus', 'getSqlInjectionMatchSetResponse_httpStatus' - The response's http status code.
 newGetSqlInjectionMatchSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSqlInjectionMatchSetResponse
 newGetSqlInjectionMatchSetResponse pHttpStatus_ =
   GetSqlInjectionMatchSetResponse'
     { sqlInjectionMatchSet =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -204,11 +207,13 @@ newGetSqlInjectionMatchSetResponse pHttpStatus_ =
 --     contains @FieldToMatch@ and @TextTransformation@
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
-getSqlInjectionMatchSetResponse_sqlInjectionMatchSet :: Lens.Lens' GetSqlInjectionMatchSetResponse (Core.Maybe SqlInjectionMatchSet)
+getSqlInjectionMatchSetResponse_sqlInjectionMatchSet :: Lens.Lens' GetSqlInjectionMatchSetResponse (Prelude.Maybe SqlInjectionMatchSet)
 getSqlInjectionMatchSetResponse_sqlInjectionMatchSet = Lens.lens (\GetSqlInjectionMatchSetResponse' {sqlInjectionMatchSet} -> sqlInjectionMatchSet) (\s@GetSqlInjectionMatchSetResponse' {} a -> s {sqlInjectionMatchSet = a} :: GetSqlInjectionMatchSetResponse)
 
 -- | The response's http status code.
-getSqlInjectionMatchSetResponse_httpStatus :: Lens.Lens' GetSqlInjectionMatchSetResponse Core.Int
+getSqlInjectionMatchSetResponse_httpStatus :: Lens.Lens' GetSqlInjectionMatchSetResponse Prelude.Int
 getSqlInjectionMatchSetResponse_httpStatus = Lens.lens (\GetSqlInjectionMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetSqlInjectionMatchSetResponse' {} a -> s {httpStatus = a} :: GetSqlInjectionMatchSetResponse)
 
-instance Core.NFData GetSqlInjectionMatchSetResponse
+instance
+  Prelude.NFData
+    GetSqlInjectionMatchSetResponse

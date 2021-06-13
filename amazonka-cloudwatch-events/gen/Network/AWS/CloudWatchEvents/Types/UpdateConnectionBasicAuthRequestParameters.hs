@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.UpdateConnectionBasicAuthRequestParame
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the Basic authorization parameters for the connection.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data UpdateConnectionBasicAuthRequestParameters = UpdateConnectionBasicAuthRequestParameters'
   { -- | The password associated with the user name to use for Basic
     -- authorization.
-    password :: Core.Maybe Core.Text,
+    password :: Prelude.Maybe Prelude.Text,
     -- | The user name to use for Basic authorization.
-    username :: Core.Maybe Core.Text
+    username :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectionBasicAuthRequestParameters' with all optional fields omitted.
@@ -51,25 +52,25 @@ newUpdateConnectionBasicAuthRequestParameters ::
 newUpdateConnectionBasicAuthRequestParameters =
   UpdateConnectionBasicAuthRequestParameters'
     { password =
-        Core.Nothing,
-      username = Core.Nothing
+        Prelude.Nothing,
+      username = Prelude.Nothing
     }
 
 -- | The password associated with the user name to use for Basic
 -- authorization.
-updateConnectionBasicAuthRequestParameters_password :: Lens.Lens' UpdateConnectionBasicAuthRequestParameters (Core.Maybe Core.Text)
+updateConnectionBasicAuthRequestParameters_password :: Lens.Lens' UpdateConnectionBasicAuthRequestParameters (Prelude.Maybe Prelude.Text)
 updateConnectionBasicAuthRequestParameters_password = Lens.lens (\UpdateConnectionBasicAuthRequestParameters' {password} -> password) (\s@UpdateConnectionBasicAuthRequestParameters' {} a -> s {password = a} :: UpdateConnectionBasicAuthRequestParameters)
 
 -- | The user name to use for Basic authorization.
-updateConnectionBasicAuthRequestParameters_username :: Lens.Lens' UpdateConnectionBasicAuthRequestParameters (Core.Maybe Core.Text)
+updateConnectionBasicAuthRequestParameters_username :: Lens.Lens' UpdateConnectionBasicAuthRequestParameters (Prelude.Maybe Prelude.Text)
 updateConnectionBasicAuthRequestParameters_username = Lens.lens (\UpdateConnectionBasicAuthRequestParameters' {username} -> username) (\s@UpdateConnectionBasicAuthRequestParameters' {} a -> s {username = a} :: UpdateConnectionBasicAuthRequestParameters)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateConnectionBasicAuthRequestParameters
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateConnectionBasicAuthRequestParameters
 
 instance
@@ -79,8 +80,8 @@ instance
   toJSON
     UpdateConnectionBasicAuthRequestParameters' {..} =
       Core.object
-        ( Core.catMaybes
-            [ ("Password" Core..=) Core.<$> password,
-              ("Username" Core..=) Core.<$> username
+        ( Prelude.catMaybes
+            [ ("Password" Core..=) Prelude.<$> password,
+              ("Username" Core..=) Prelude.<$> username
             ]
         )

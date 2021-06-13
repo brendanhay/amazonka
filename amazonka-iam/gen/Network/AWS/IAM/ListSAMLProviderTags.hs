@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,12 +69,12 @@ data ListSAMLProviderTags = ListSAMLProviderTags'
     -- that case, the @IsTruncated@ response element returns @true@, and
     -- @Marker@ contains a value to include in the subsequent call that tells
     -- the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Security Assertion Markup Language (SAML) identity
     -- provider whose tags you want to see.
     --
@@ -81,9 +82,9 @@ data ListSAMLProviderTags = ListSAMLProviderTags'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    sAMLProviderArn :: Core.Text
+    sAMLProviderArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSAMLProviderTags' with all optional fields omitted.
@@ -118,12 +119,12 @@ data ListSAMLProviderTags = ListSAMLProviderTags'
 -- spaces. You can also include any of the following characters: =,.\@-
 newListSAMLProviderTags ::
   -- | 'sAMLProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   ListSAMLProviderTags
 newListSAMLProviderTags pSAMLProviderArn_ =
   ListSAMLProviderTags'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       sAMLProviderArn = pSAMLProviderArn_
     }
 
@@ -137,14 +138,14 @@ newListSAMLProviderTags pSAMLProviderArn_ =
 -- that case, the @IsTruncated@ response element returns @true@, and
 -- @Marker@ contains a value to include in the subsequent call that tells
 -- the service where to continue from.
-listSAMLProviderTags_maxItems :: Lens.Lens' ListSAMLProviderTags (Core.Maybe Core.Natural)
+listSAMLProviderTags_maxItems :: Lens.Lens' ListSAMLProviderTags (Prelude.Maybe Prelude.Natural)
 listSAMLProviderTags_maxItems = Lens.lens (\ListSAMLProviderTags' {maxItems} -> maxItems) (\s@ListSAMLProviderTags' {} a -> s {maxItems = a} :: ListSAMLProviderTags)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listSAMLProviderTags_marker :: Lens.Lens' ListSAMLProviderTags (Core.Maybe Core.Text)
+listSAMLProviderTags_marker :: Lens.Lens' ListSAMLProviderTags (Prelude.Maybe Prelude.Text)
 listSAMLProviderTags_marker = Lens.lens (\ListSAMLProviderTags' {marker} -> marker) (\s@ListSAMLProviderTags' {} a -> s {marker = a} :: ListSAMLProviderTags)
 
 -- | The ARN of the Security Assertion Markup Language (SAML) identity
@@ -154,7 +155,7 @@ listSAMLProviderTags_marker = Lens.lens (\ListSAMLProviderTags' {marker} -> mark
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-listSAMLProviderTags_sAMLProviderArn :: Lens.Lens' ListSAMLProviderTags Core.Text
+listSAMLProviderTags_sAMLProviderArn :: Lens.Lens' ListSAMLProviderTags Prelude.Text
 listSAMLProviderTags_sAMLProviderArn = Lens.lens (\ListSAMLProviderTags' {sAMLProviderArn} -> sAMLProviderArn) (\s@ListSAMLProviderTags' {} a -> s {sAMLProviderArn = a} :: ListSAMLProviderTags)
 
 instance Core.AWSRequest ListSAMLProviderTags where
@@ -167,30 +168,31 @@ instance Core.AWSRequest ListSAMLProviderTags where
       "ListSAMLProviderTagsResult"
       ( \s h x ->
           ListSAMLProviderTagsResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListSAMLProviderTags
+instance Prelude.Hashable ListSAMLProviderTags
 
-instance Core.NFData ListSAMLProviderTags
+instance Prelude.NFData ListSAMLProviderTags
 
 instance Core.ToHeaders ListSAMLProviderTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListSAMLProviderTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListSAMLProviderTags where
   toQuery ListSAMLProviderTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListSAMLProviderTags" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListSAMLProviderTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "SAMLProviderArn" Core.=: sAMLProviderArn
@@ -204,20 +206,20 @@ data ListSAMLProviderTagsResponse = ListSAMLProviderTagsResponse'
     -- that IAM might return fewer than the @MaxItems@ number of results even
     -- when more results are available. Check @IsTruncated@ after every call to
     -- ensure that you receive all of your results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the Security Assertion
     -- Markup Language (SAML) identity provider. Each tag consists of a key
     -- name and an associated value. If no tags are attached to the specified
     -- resource, the response contains an empty list.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSAMLProviderTagsResponse' with all optional fields omitted.
@@ -246,15 +248,15 @@ data ListSAMLProviderTagsResponse = ListSAMLProviderTagsResponse'
 -- resource, the response contains an empty list.
 newListSAMLProviderTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListSAMLProviderTagsResponse
 newListSAMLProviderTagsResponse pHttpStatus_ =
   ListSAMLProviderTagsResponse'
     { isTruncated =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -263,17 +265,17 @@ newListSAMLProviderTagsResponse pHttpStatus_ =
 -- that IAM might return fewer than the @MaxItems@ number of results even
 -- when more results are available. Check @IsTruncated@ after every call to
 -- ensure that you receive all of your results.
-listSAMLProviderTagsResponse_isTruncated :: Lens.Lens' ListSAMLProviderTagsResponse (Core.Maybe Core.Bool)
+listSAMLProviderTagsResponse_isTruncated :: Lens.Lens' ListSAMLProviderTagsResponse (Prelude.Maybe Prelude.Bool)
 listSAMLProviderTagsResponse_isTruncated = Lens.lens (\ListSAMLProviderTagsResponse' {isTruncated} -> isTruncated) (\s@ListSAMLProviderTagsResponse' {} a -> s {isTruncated = a} :: ListSAMLProviderTagsResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listSAMLProviderTagsResponse_marker :: Lens.Lens' ListSAMLProviderTagsResponse (Core.Maybe Core.Text)
+listSAMLProviderTagsResponse_marker :: Lens.Lens' ListSAMLProviderTagsResponse (Prelude.Maybe Prelude.Text)
 listSAMLProviderTagsResponse_marker = Lens.lens (\ListSAMLProviderTagsResponse' {marker} -> marker) (\s@ListSAMLProviderTagsResponse' {} a -> s {marker = a} :: ListSAMLProviderTagsResponse)
 
 -- | The response's http status code.
-listSAMLProviderTagsResponse_httpStatus :: Lens.Lens' ListSAMLProviderTagsResponse Core.Int
+listSAMLProviderTagsResponse_httpStatus :: Lens.Lens' ListSAMLProviderTagsResponse Prelude.Int
 listSAMLProviderTagsResponse_httpStatus = Lens.lens (\ListSAMLProviderTagsResponse' {httpStatus} -> httpStatus) (\s@ListSAMLProviderTagsResponse' {} a -> s {httpStatus = a} :: ListSAMLProviderTagsResponse)
 
 -- | The list of tags that are currently attached to the Security Assertion
@@ -281,6 +283,6 @@ listSAMLProviderTagsResponse_httpStatus = Lens.lens (\ListSAMLProviderTagsRespon
 -- name and an associated value. If no tags are attached to the specified
 -- resource, the response contains an empty list.
 listSAMLProviderTagsResponse_tags :: Lens.Lens' ListSAMLProviderTagsResponse [Tag]
-listSAMLProviderTagsResponse_tags = Lens.lens (\ListSAMLProviderTagsResponse' {tags} -> tags) (\s@ListSAMLProviderTagsResponse' {} a -> s {tags = a} :: ListSAMLProviderTagsResponse) Core.. Lens._Coerce
+listSAMLProviderTagsResponse_tags = Lens.lens (\ListSAMLProviderTagsResponse' {tags} -> tags) (\s@ListSAMLProviderTagsResponse' {} a -> s {tags = a} :: ListSAMLProviderTagsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListSAMLProviderTagsResponse
+instance Prelude.NFData ListSAMLProviderTagsResponse

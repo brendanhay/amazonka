@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -53,9 +54,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newDeleteTemplate' smart constructor.
 data DeleteTemplate = DeleteTemplate'
   { -- | The name of the template to be deleted.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTemplate' with all optional fields omitted.
@@ -68,13 +69,13 @@ data DeleteTemplate = DeleteTemplate'
 -- 'templateName', 'deleteTemplate_templateName' - The name of the template to be deleted.
 newDeleteTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTemplate
 newDeleteTemplate pTemplateName_ =
   DeleteTemplate' {templateName = pTemplateName_}
 
 -- | The name of the template to be deleted.
-deleteTemplate_templateName :: Lens.Lens' DeleteTemplate Core.Text
+deleteTemplate_templateName :: Lens.Lens' DeleteTemplate Prelude.Text
 deleteTemplate_templateName = Lens.lens (\DeleteTemplate' {templateName} -> templateName) (\s@DeleteTemplate' {} a -> s {templateName = a} :: DeleteTemplate)
 
 instance Core.AWSRequest DeleteTemplate where
@@ -87,34 +88,35 @@ instance Core.AWSRequest DeleteTemplate where
       "DeleteTemplateResult"
       ( \s h x ->
           DeleteTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTemplate
+instance Prelude.Hashable DeleteTemplate
 
-instance Core.NFData DeleteTemplate
+instance Prelude.NFData DeleteTemplate
 
 instance Core.ToHeaders DeleteTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTemplate where
   toQuery DeleteTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("DeleteTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "TemplateName" Core.=: templateName
       ]
 
 -- | /See:/ 'newDeleteTemplateResponse' smart constructor.
 data DeleteTemplateResponse = DeleteTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTemplateResponse' with all optional fields omitted.
@@ -127,13 +129,13 @@ data DeleteTemplateResponse = DeleteTemplateResponse'
 -- 'httpStatus', 'deleteTemplateResponse_httpStatus' - The response's http status code.
 newDeleteTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTemplateResponse
 newDeleteTemplateResponse pHttpStatus_ =
   DeleteTemplateResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteTemplateResponse_httpStatus :: Lens.Lens' DeleteTemplateResponse Core.Int
+deleteTemplateResponse_httpStatus :: Lens.Lens' DeleteTemplateResponse Prelude.Int
 deleteTemplateResponse_httpStatus = Lens.lens (\DeleteTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteTemplateResponse' {} a -> s {httpStatus = a} :: DeleteTemplateResponse)
 
-instance Core.NFData DeleteTemplateResponse
+instance Prelude.NFData DeleteTemplateResponse

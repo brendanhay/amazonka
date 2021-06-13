@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.ScheduledInstancesIamInstanceProfile where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IAM instance profile for a Scheduled Instance.
 --
 -- /See:/ 'newScheduledInstancesIamInstanceProfile' smart constructor.
 data ScheduledInstancesIamInstanceProfile = ScheduledInstancesIamInstanceProfile'
   { -- | The Amazon Resource Name (ARN).
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesIamInstanceProfile' with all optional fields omitted.
@@ -50,24 +51,24 @@ newScheduledInstancesIamInstanceProfile ::
 newScheduledInstancesIamInstanceProfile =
   ScheduledInstancesIamInstanceProfile'
     { arn =
-        Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN).
-scheduledInstancesIamInstanceProfile_arn :: Lens.Lens' ScheduledInstancesIamInstanceProfile (Core.Maybe Core.Text)
+scheduledInstancesIamInstanceProfile_arn :: Lens.Lens' ScheduledInstancesIamInstanceProfile (Prelude.Maybe Prelude.Text)
 scheduledInstancesIamInstanceProfile_arn = Lens.lens (\ScheduledInstancesIamInstanceProfile' {arn} -> arn) (\s@ScheduledInstancesIamInstanceProfile' {} a -> s {arn = a} :: ScheduledInstancesIamInstanceProfile)
 
 -- | The name.
-scheduledInstancesIamInstanceProfile_name :: Lens.Lens' ScheduledInstancesIamInstanceProfile (Core.Maybe Core.Text)
+scheduledInstancesIamInstanceProfile_name :: Lens.Lens' ScheduledInstancesIamInstanceProfile (Prelude.Maybe Prelude.Text)
 scheduledInstancesIamInstanceProfile_name = Lens.lens (\ScheduledInstancesIamInstanceProfile' {name} -> name) (\s@ScheduledInstancesIamInstanceProfile' {} a -> s {name = a} :: ScheduledInstancesIamInstanceProfile)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ScheduledInstancesIamInstanceProfile
 
 instance
-  Core.NFData
+  Prelude.NFData
     ScheduledInstancesIamInstanceProfile
 
 instance
@@ -75,5 +76,5 @@ instance
     ScheduledInstancesIamInstanceProfile
   where
   toQuery ScheduledInstancesIamInstanceProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Arn" Core.=: arn, "Name" Core.=: name]

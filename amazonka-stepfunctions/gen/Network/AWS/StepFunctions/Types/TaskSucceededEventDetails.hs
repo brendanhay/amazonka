@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.TaskSucceededEventDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about the successful completion of a task state.
@@ -30,15 +31,15 @@ data TaskSucceededEventDetails = TaskSucceededEventDetails'
   { -- | The full JSON response from a resource when a task has succeeded. This
     -- response becomes the output of the related task. Length constraints
     -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Core.Maybe (Core.Sensitive Core.Text),
+    output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Contains details about the output of an execution history event.
-    outputDetails :: Core.Maybe HistoryEventExecutionDataDetails,
+    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The action of the resource called by a task state.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
-    resource :: Core.Text
+    resource :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TaskSucceededEventDetails' with all optional fields omitted.
@@ -59,16 +60,17 @@ data TaskSucceededEventDetails = TaskSucceededEventDetails'
 -- 'resource', 'taskSucceededEventDetails_resource' - The service name of the resource in a task state.
 newTaskSucceededEventDetails ::
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resource'
-  Core.Text ->
+  Prelude.Text ->
   TaskSucceededEventDetails
 newTaskSucceededEventDetails
   pResourceType_
   pResource_ =
     TaskSucceededEventDetails'
-      { output = Core.Nothing,
-        outputDetails = Core.Nothing,
+      { output =
+          Prelude.Nothing,
+        outputDetails = Prelude.Nothing,
         resourceType = pResourceType_,
         resource = pResource_
       }
@@ -76,19 +78,19 @@ newTaskSucceededEventDetails
 -- | The full JSON response from a resource when a task has succeeded. This
 -- response becomes the output of the related task. Length constraints
 -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-taskSucceededEventDetails_output :: Lens.Lens' TaskSucceededEventDetails (Core.Maybe Core.Text)
-taskSucceededEventDetails_output = Lens.lens (\TaskSucceededEventDetails' {output} -> output) (\s@TaskSucceededEventDetails' {} a -> s {output = a} :: TaskSucceededEventDetails) Core.. Lens.mapping Core._Sensitive
+taskSucceededEventDetails_output :: Lens.Lens' TaskSucceededEventDetails (Prelude.Maybe Prelude.Text)
+taskSucceededEventDetails_output = Lens.lens (\TaskSucceededEventDetails' {output} -> output) (\s@TaskSucceededEventDetails' {} a -> s {output = a} :: TaskSucceededEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Contains details about the output of an execution history event.
-taskSucceededEventDetails_outputDetails :: Lens.Lens' TaskSucceededEventDetails (Core.Maybe HistoryEventExecutionDataDetails)
+taskSucceededEventDetails_outputDetails :: Lens.Lens' TaskSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
 taskSucceededEventDetails_outputDetails = Lens.lens (\TaskSucceededEventDetails' {outputDetails} -> outputDetails) (\s@TaskSucceededEventDetails' {} a -> s {outputDetails = a} :: TaskSucceededEventDetails)
 
 -- | The action of the resource called by a task state.
-taskSucceededEventDetails_resourceType :: Lens.Lens' TaskSucceededEventDetails Core.Text
+taskSucceededEventDetails_resourceType :: Lens.Lens' TaskSucceededEventDetails Prelude.Text
 taskSucceededEventDetails_resourceType = Lens.lens (\TaskSucceededEventDetails' {resourceType} -> resourceType) (\s@TaskSucceededEventDetails' {} a -> s {resourceType = a} :: TaskSucceededEventDetails)
 
 -- | The service name of the resource in a task state.
-taskSucceededEventDetails_resource :: Lens.Lens' TaskSucceededEventDetails Core.Text
+taskSucceededEventDetails_resource :: Lens.Lens' TaskSucceededEventDetails Prelude.Text
 taskSucceededEventDetails_resource = Lens.lens (\TaskSucceededEventDetails' {resource} -> resource) (\s@TaskSucceededEventDetails' {} a -> s {resource = a} :: TaskSucceededEventDetails)
 
 instance Core.FromJSON TaskSucceededEventDetails where
@@ -97,12 +99,12 @@ instance Core.FromJSON TaskSucceededEventDetails where
       "TaskSucceededEventDetails"
       ( \x ->
           TaskSucceededEventDetails'
-            Core.<$> (x Core..:? "output")
-            Core.<*> (x Core..:? "outputDetails")
-            Core.<*> (x Core..: "resourceType")
-            Core.<*> (x Core..: "resource")
+            Prelude.<$> (x Core..:? "output")
+            Prelude.<*> (x Core..:? "outputDetails")
+            Prelude.<*> (x Core..: "resourceType")
+            Prelude.<*> (x Core..: "resource")
       )
 
-instance Core.Hashable TaskSucceededEventDetails
+instance Prelude.Hashable TaskSucceededEventDetails
 
-instance Core.NFData TaskSucceededEventDetails
+instance Prelude.NFData TaskSucceededEventDetails

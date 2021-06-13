@@ -21,22 +21,23 @@ module Network.AWS.SSM.Types.FailureDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an Automation failure.
 --
 -- /See:/ 'newFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
   { -- | Detailed information about the Automation step failure.
-    details :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    details :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The stage of the Automation execution when the failure occurred. The
     -- stages include the following: InputValidation, PreVerification,
     -- Invocation, PostVerification.
-    failureStage :: Core.Maybe Core.Text,
+    failureStage :: Prelude.Maybe Prelude.Text,
     -- | The type of Automation failure. Failure types include the following:
     -- Action, Permission, Throttling, Verification, Internal.
-    failureType :: Core.Maybe Core.Text
+    failureType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailureDetails' with all optional fields omitted.
@@ -58,24 +59,24 @@ newFailureDetails ::
   FailureDetails
 newFailureDetails =
   FailureDetails'
-    { details = Core.Nothing,
-      failureStage = Core.Nothing,
-      failureType = Core.Nothing
+    { details = Prelude.Nothing,
+      failureStage = Prelude.Nothing,
+      failureType = Prelude.Nothing
     }
 
 -- | Detailed information about the Automation step failure.
-failureDetails_details :: Lens.Lens' FailureDetails (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-failureDetails_details = Lens.lens (\FailureDetails' {details} -> details) (\s@FailureDetails' {} a -> s {details = a} :: FailureDetails) Core.. Lens.mapping Lens._Coerce
+failureDetails_details :: Lens.Lens' FailureDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+failureDetails_details = Lens.lens (\FailureDetails' {details} -> details) (\s@FailureDetails' {} a -> s {details = a} :: FailureDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The stage of the Automation execution when the failure occurred. The
 -- stages include the following: InputValidation, PreVerification,
 -- Invocation, PostVerification.
-failureDetails_failureStage :: Lens.Lens' FailureDetails (Core.Maybe Core.Text)
+failureDetails_failureStage :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_failureStage = Lens.lens (\FailureDetails' {failureStage} -> failureStage) (\s@FailureDetails' {} a -> s {failureStage = a} :: FailureDetails)
 
 -- | The type of Automation failure. Failure types include the following:
 -- Action, Permission, Throttling, Verification, Internal.
-failureDetails_failureType :: Lens.Lens' FailureDetails (Core.Maybe Core.Text)
+failureDetails_failureType :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_failureType = Lens.lens (\FailureDetails' {failureType} -> failureType) (\s@FailureDetails' {} a -> s {failureType = a} :: FailureDetails)
 
 instance Core.FromJSON FailureDetails where
@@ -84,11 +85,11 @@ instance Core.FromJSON FailureDetails where
       "FailureDetails"
       ( \x ->
           FailureDetails'
-            Core.<$> (x Core..:? "Details" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "FailureStage")
-            Core.<*> (x Core..:? "FailureType")
+            Prelude.<$> (x Core..:? "Details" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "FailureStage")
+            Prelude.<*> (x Core..:? "FailureType")
       )
 
-instance Core.Hashable FailureDetails
+instance Prelude.Hashable FailureDetails
 
-instance Core.NFData FailureDetails
+instance Prelude.NFData FailureDetails

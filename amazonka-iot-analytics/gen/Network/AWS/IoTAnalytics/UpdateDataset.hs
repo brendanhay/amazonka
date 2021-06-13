@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,30 +52,30 @@ import qualified Network.AWS.Response as Response
 data UpdateDataset = UpdateDataset'
   { -- | A list of @DatasetTrigger@ objects. The list can be empty or can contain
     -- up to five @DatasetTrigger@ objects.
-    triggers :: Core.Maybe [DatasetTrigger],
+    triggers :: Prelude.Maybe [DatasetTrigger],
     -- | How long, in days, dataset contents are kept for the dataset.
-    retentionPeriod :: Core.Maybe RetentionPeriod,
+    retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | A list of data rules that send notifications to Amazon CloudWatch, when
     -- data arrives late. To specify @lateDataRules@, the dataset must use a
     -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
     -- filter.
-    lateDataRules :: Core.Maybe (Core.NonEmpty LateDataRule),
+    lateDataRules :: Prelude.Maybe (Prelude.NonEmpty LateDataRule),
     -- | When dataset contents are created, they are delivered to destinations
     -- specified here.
-    contentDeliveryRules :: Core.Maybe [DatasetContentDeliveryRule],
+    contentDeliveryRules :: Prelude.Maybe [DatasetContentDeliveryRule],
     -- | Optional. How many versions of dataset contents are kept. If not
     -- specified or set to null, only the latest version plus the latest
     -- succeeded version (if they are different) are kept for the time period
     -- specified by the @retentionPeriod@ parameter. For more information, see
     -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets>
     -- in the /AWS IoT Analytics User Guide/.
-    versioningConfiguration :: Core.Maybe VersioningConfiguration,
+    versioningConfiguration :: Prelude.Maybe VersioningConfiguration,
     -- | The name of the data set to update.
-    datasetName :: Core.Text,
+    datasetName :: Prelude.Text,
     -- | A list of @DatasetAction@ objects.
-    actions :: Core.NonEmpty DatasetAction
+    actions :: Prelude.NonEmpty DatasetAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDataset' with all optional fields omitted.
@@ -109,41 +110,41 @@ data UpdateDataset = UpdateDataset'
 -- 'actions', 'updateDataset_actions' - A list of @DatasetAction@ objects.
 newUpdateDataset ::
   -- | 'datasetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'actions'
-  Core.NonEmpty DatasetAction ->
+  Prelude.NonEmpty DatasetAction ->
   UpdateDataset
 newUpdateDataset pDatasetName_ pActions_ =
   UpdateDataset'
-    { triggers = Core.Nothing,
-      retentionPeriod = Core.Nothing,
-      lateDataRules = Core.Nothing,
-      contentDeliveryRules = Core.Nothing,
-      versioningConfiguration = Core.Nothing,
+    { triggers = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      lateDataRules = Prelude.Nothing,
+      contentDeliveryRules = Prelude.Nothing,
+      versioningConfiguration = Prelude.Nothing,
       datasetName = pDatasetName_,
       actions = Lens._Coerce Lens.# pActions_
     }
 
 -- | A list of @DatasetTrigger@ objects. The list can be empty or can contain
 -- up to five @DatasetTrigger@ objects.
-updateDataset_triggers :: Lens.Lens' UpdateDataset (Core.Maybe [DatasetTrigger])
-updateDataset_triggers = Lens.lens (\UpdateDataset' {triggers} -> triggers) (\s@UpdateDataset' {} a -> s {triggers = a} :: UpdateDataset) Core.. Lens.mapping Lens._Coerce
+updateDataset_triggers :: Lens.Lens' UpdateDataset (Prelude.Maybe [DatasetTrigger])
+updateDataset_triggers = Lens.lens (\UpdateDataset' {triggers} -> triggers) (\s@UpdateDataset' {} a -> s {triggers = a} :: UpdateDataset) Prelude.. Lens.mapping Lens._Coerce
 
 -- | How long, in days, dataset contents are kept for the dataset.
-updateDataset_retentionPeriod :: Lens.Lens' UpdateDataset (Core.Maybe RetentionPeriod)
+updateDataset_retentionPeriod :: Lens.Lens' UpdateDataset (Prelude.Maybe RetentionPeriod)
 updateDataset_retentionPeriod = Lens.lens (\UpdateDataset' {retentionPeriod} -> retentionPeriod) (\s@UpdateDataset' {} a -> s {retentionPeriod = a} :: UpdateDataset)
 
 -- | A list of data rules that send notifications to Amazon CloudWatch, when
 -- data arrives late. To specify @lateDataRules@, the dataset must use a
 -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
 -- filter.
-updateDataset_lateDataRules :: Lens.Lens' UpdateDataset (Core.Maybe (Core.NonEmpty LateDataRule))
-updateDataset_lateDataRules = Lens.lens (\UpdateDataset' {lateDataRules} -> lateDataRules) (\s@UpdateDataset' {} a -> s {lateDataRules = a} :: UpdateDataset) Core.. Lens.mapping Lens._Coerce
+updateDataset_lateDataRules :: Lens.Lens' UpdateDataset (Prelude.Maybe (Prelude.NonEmpty LateDataRule))
+updateDataset_lateDataRules = Lens.lens (\UpdateDataset' {lateDataRules} -> lateDataRules) (\s@UpdateDataset' {} a -> s {lateDataRules = a} :: UpdateDataset) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When dataset contents are created, they are delivered to destinations
 -- specified here.
-updateDataset_contentDeliveryRules :: Lens.Lens' UpdateDataset (Core.Maybe [DatasetContentDeliveryRule])
-updateDataset_contentDeliveryRules = Lens.lens (\UpdateDataset' {contentDeliveryRules} -> contentDeliveryRules) (\s@UpdateDataset' {} a -> s {contentDeliveryRules = a} :: UpdateDataset) Core.. Lens.mapping Lens._Coerce
+updateDataset_contentDeliveryRules :: Lens.Lens' UpdateDataset (Prelude.Maybe [DatasetContentDeliveryRule])
+updateDataset_contentDeliveryRules = Lens.lens (\UpdateDataset' {contentDeliveryRules} -> contentDeliveryRules) (\s@UpdateDataset' {} a -> s {contentDeliveryRules = a} :: UpdateDataset) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Optional. How many versions of dataset contents are kept. If not
 -- specified or set to null, only the latest version plus the latest
@@ -151,16 +152,16 @@ updateDataset_contentDeliveryRules = Lens.lens (\UpdateDataset' {contentDelivery
 -- specified by the @retentionPeriod@ parameter. For more information, see
 -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets>
 -- in the /AWS IoT Analytics User Guide/.
-updateDataset_versioningConfiguration :: Lens.Lens' UpdateDataset (Core.Maybe VersioningConfiguration)
+updateDataset_versioningConfiguration :: Lens.Lens' UpdateDataset (Prelude.Maybe VersioningConfiguration)
 updateDataset_versioningConfiguration = Lens.lens (\UpdateDataset' {versioningConfiguration} -> versioningConfiguration) (\s@UpdateDataset' {} a -> s {versioningConfiguration = a} :: UpdateDataset)
 
 -- | The name of the data set to update.
-updateDataset_datasetName :: Lens.Lens' UpdateDataset Core.Text
+updateDataset_datasetName :: Lens.Lens' UpdateDataset Prelude.Text
 updateDataset_datasetName = Lens.lens (\UpdateDataset' {datasetName} -> datasetName) (\s@UpdateDataset' {} a -> s {datasetName = a} :: UpdateDataset)
 
 -- | A list of @DatasetAction@ objects.
-updateDataset_actions :: Lens.Lens' UpdateDataset (Core.NonEmpty DatasetAction)
-updateDataset_actions = Lens.lens (\UpdateDataset' {actions} -> actions) (\s@UpdateDataset' {} a -> s {actions = a} :: UpdateDataset) Core.. Lens._Coerce
+updateDataset_actions :: Lens.Lens' UpdateDataset (Prelude.NonEmpty DatasetAction)
+updateDataset_actions = Lens.lens (\UpdateDataset' {actions} -> actions) (\s@UpdateDataset' {} a -> s {actions = a} :: UpdateDataset) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateDataset where
   type
@@ -170,40 +171,42 @@ instance Core.AWSRequest UpdateDataset where
   response =
     Response.receiveNull UpdateDatasetResponse'
 
-instance Core.Hashable UpdateDataset
+instance Prelude.Hashable UpdateDataset
 
-instance Core.NFData UpdateDataset
+instance Prelude.NFData UpdateDataset
 
 instance Core.ToHeaders UpdateDataset where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateDataset where
   toJSON UpdateDataset' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("triggers" Core..=) Core.<$> triggers,
-            ("retentionPeriod" Core..=) Core.<$> retentionPeriod,
-            ("lateDataRules" Core..=) Core.<$> lateDataRules,
+      ( Prelude.catMaybes
+          [ ("triggers" Core..=) Prelude.<$> triggers,
+            ("retentionPeriod" Core..=)
+              Prelude.<$> retentionPeriod,
+            ("lateDataRules" Core..=) Prelude.<$> lateDataRules,
             ("contentDeliveryRules" Core..=)
-              Core.<$> contentDeliveryRules,
+              Prelude.<$> contentDeliveryRules,
             ("versioningConfiguration" Core..=)
-              Core.<$> versioningConfiguration,
-            Core.Just ("actions" Core..= actions)
+              Prelude.<$> versioningConfiguration,
+            Prelude.Just ("actions" Core..= actions)
           ]
       )
 
 instance Core.ToPath UpdateDataset where
   toPath UpdateDataset' {..} =
-    Core.mconcat ["/datasets/", Core.toBS datasetName]
+    Prelude.mconcat
+      ["/datasets/", Core.toBS datasetName]
 
 instance Core.ToQuery UpdateDataset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatasetResponse' smart constructor.
 data UpdateDatasetResponse = UpdateDatasetResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDatasetResponse' with all optional fields omitted.
@@ -213,4 +216,4 @@ newUpdateDatasetResponse ::
   UpdateDatasetResponse
 newUpdateDatasetResponse = UpdateDatasetResponse'
 
-instance Core.NFData UpdateDatasetResponse
+instance Prelude.NFData UpdateDatasetResponse

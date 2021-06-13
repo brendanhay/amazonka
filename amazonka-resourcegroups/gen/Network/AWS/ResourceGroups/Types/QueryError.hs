@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.QueryError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.QueryErrorCode
 
 -- | A two-part error structure that can occur in @ListGroupResources@ or
@@ -38,12 +39,12 @@ data QueryError = QueryError'
     -- For @CLOUDFORMATION_STACK_INACTIVE@, the message typically states that
     -- the CloudFormation stack has a status that is not (or no longer) active,
     -- such as @CREATE_FAILED@.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
     -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
-    errorCode :: Core.Maybe QueryErrorCode
+    errorCode :: Prelude.Maybe QueryErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryError' with all optional fields omitted.
@@ -65,8 +66,8 @@ newQueryError ::
   QueryError
 newQueryError =
   QueryError'
-    { message = Core.Nothing,
-      errorCode = Core.Nothing
+    { message = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | A message that explains the @ErrorCode@ value. Messages might state that
@@ -74,12 +75,12 @@ newQueryError =
 -- For @CLOUDFORMATION_STACK_INACTIVE@, the message typically states that
 -- the CloudFormation stack has a status that is not (or no longer) active,
 -- such as @CREATE_FAILED@.
-queryError_message :: Lens.Lens' QueryError (Core.Maybe Core.Text)
+queryError_message :: Lens.Lens' QueryError (Prelude.Maybe Prelude.Text)
 queryError_message = Lens.lens (\QueryError' {message} -> message) (\s@QueryError' {} a -> s {message = a} :: QueryError)
 
 -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
 -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
-queryError_errorCode :: Lens.Lens' QueryError (Core.Maybe QueryErrorCode)
+queryError_errorCode :: Lens.Lens' QueryError (Prelude.Maybe QueryErrorCode)
 queryError_errorCode = Lens.lens (\QueryError' {errorCode} -> errorCode) (\s@QueryError' {} a -> s {errorCode = a} :: QueryError)
 
 instance Core.FromJSON QueryError where
@@ -88,10 +89,10 @@ instance Core.FromJSON QueryError where
       "QueryError"
       ( \x ->
           QueryError'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable QueryError
+instance Prelude.Hashable QueryError
 
-instance Core.NFData QueryError
+instance Prelude.NFData QueryError

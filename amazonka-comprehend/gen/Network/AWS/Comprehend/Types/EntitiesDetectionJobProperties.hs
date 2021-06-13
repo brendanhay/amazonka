@@ -26,6 +26,7 @@ import Network.AWS.Comprehend.Types.OutputDataConfig
 import Network.AWS.Comprehend.Types.VpcConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about an entities detection job.
 --
@@ -35,22 +36,22 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
     -- containing the resources you are using for your entity detection job.
     -- For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Core.Maybe VpcConfig,
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The language code of the input documents.
-    languageCode :: Core.Maybe LanguageCode,
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The input data configuration that you supplied when you created the
     -- entities detection job.
-    inputDataConfig :: Core.Maybe InputDataConfig,
+    inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | A description of the status of a job.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The current status of the entities detection job. If the status is
     -- @FAILED@, the @Message@ field shows the reason for the failure.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The output data configuration that you supplied when you created the
     -- entities detection job.
-    outputDataConfig :: Core.Maybe OutputDataConfig,
+    outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the entities detection job completed
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -60,20 +61,20 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
     --
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Core.Maybe Core.Text,
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time that the entities detection job was submitted for processing.
-    submitTime :: Core.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-    entityRecognizerArn :: Core.Maybe Core.Text,
+    entityRecognizerArn :: Prelude.Maybe Prelude.Text,
     -- | The name that you assigned the entities detection job.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
     -- to your input data.
-    dataAccessRoleArn :: Core.Maybe Core.Text,
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier assigned to the entities detection job.
-    jobId :: Core.Maybe Core.Text
+    jobId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EntitiesDetectionJobProperties' with all optional fields omitted.
@@ -128,54 +129,54 @@ newEntitiesDetectionJobProperties ::
 newEntitiesDetectionJobProperties =
   EntitiesDetectionJobProperties'
     { vpcConfig =
-        Core.Nothing,
-      languageCode = Core.Nothing,
-      inputDataConfig = Core.Nothing,
-      message = Core.Nothing,
-      jobStatus = Core.Nothing,
-      outputDataConfig = Core.Nothing,
-      endTime = Core.Nothing,
-      volumeKmsKeyId = Core.Nothing,
-      submitTime = Core.Nothing,
-      entityRecognizerArn = Core.Nothing,
-      jobName = Core.Nothing,
-      dataAccessRoleArn = Core.Nothing,
-      jobId = Core.Nothing
+        Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
+      message = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      outputDataConfig = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing,
+      submitTime = Prelude.Nothing,
+      entityRecognizerArn = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      dataAccessRoleArn = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
 
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your entity detection job.
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-entitiesDetectionJobProperties_vpcConfig :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe VpcConfig)
+entitiesDetectionJobProperties_vpcConfig :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe VpcConfig)
 entitiesDetectionJobProperties_vpcConfig = Lens.lens (\EntitiesDetectionJobProperties' {vpcConfig} -> vpcConfig) (\s@EntitiesDetectionJobProperties' {} a -> s {vpcConfig = a} :: EntitiesDetectionJobProperties)
 
 -- | The language code of the input documents.
-entitiesDetectionJobProperties_languageCode :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe LanguageCode)
+entitiesDetectionJobProperties_languageCode :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe LanguageCode)
 entitiesDetectionJobProperties_languageCode = Lens.lens (\EntitiesDetectionJobProperties' {languageCode} -> languageCode) (\s@EntitiesDetectionJobProperties' {} a -> s {languageCode = a} :: EntitiesDetectionJobProperties)
 
 -- | The input data configuration that you supplied when you created the
 -- entities detection job.
-entitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe InputDataConfig)
+entitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe InputDataConfig)
 entitiesDetectionJobProperties_inputDataConfig = Lens.lens (\EntitiesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@EntitiesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: EntitiesDetectionJobProperties)
 
 -- | A description of the status of a job.
-entitiesDetectionJobProperties_message :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe Core.Text)
+entitiesDetectionJobProperties_message :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 entitiesDetectionJobProperties_message = Lens.lens (\EntitiesDetectionJobProperties' {message} -> message) (\s@EntitiesDetectionJobProperties' {} a -> s {message = a} :: EntitiesDetectionJobProperties)
 
 -- | The current status of the entities detection job. If the status is
 -- @FAILED@, the @Message@ field shows the reason for the failure.
-entitiesDetectionJobProperties_jobStatus :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe JobStatus)
+entitiesDetectionJobProperties_jobStatus :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe JobStatus)
 entitiesDetectionJobProperties_jobStatus = Lens.lens (\EntitiesDetectionJobProperties' {jobStatus} -> jobStatus) (\s@EntitiesDetectionJobProperties' {} a -> s {jobStatus = a} :: EntitiesDetectionJobProperties)
 
 -- | The output data configuration that you supplied when you created the
 -- entities detection job.
-entitiesDetectionJobProperties_outputDataConfig :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe OutputDataConfig)
+entitiesDetectionJobProperties_outputDataConfig :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe OutputDataConfig)
 entitiesDetectionJobProperties_outputDataConfig = Lens.lens (\EntitiesDetectionJobProperties' {outputDataConfig} -> outputDataConfig) (\s@EntitiesDetectionJobProperties' {} a -> s {outputDataConfig = a} :: EntitiesDetectionJobProperties)
 
 -- | The time that the entities detection job completed
-entitiesDetectionJobProperties_endTime :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe Core.UTCTime)
-entitiesDetectionJobProperties_endTime = Lens.lens (\EntitiesDetectionJobProperties' {endTime} -> endTime) (\s@EntitiesDetectionJobProperties' {} a -> s {endTime = a} :: EntitiesDetectionJobProperties) Core.. Lens.mapping Core._Time
+entitiesDetectionJobProperties_endTime :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+entitiesDetectionJobProperties_endTime = Lens.lens (\EntitiesDetectionJobProperties' {endTime} -> endTime) (\s@EntitiesDetectionJobProperties' {} a -> s {endTime = a} :: EntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -186,28 +187,28 @@ entitiesDetectionJobProperties_endTime = Lens.lens (\EntitiesDetectionJobPropert
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-entitiesDetectionJobProperties_volumeKmsKeyId :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe Core.Text)
+entitiesDetectionJobProperties_volumeKmsKeyId :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 entitiesDetectionJobProperties_volumeKmsKeyId = Lens.lens (\EntitiesDetectionJobProperties' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@EntitiesDetectionJobProperties' {} a -> s {volumeKmsKeyId = a} :: EntitiesDetectionJobProperties)
 
 -- | The time that the entities detection job was submitted for processing.
-entitiesDetectionJobProperties_submitTime :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe Core.UTCTime)
-entitiesDetectionJobProperties_submitTime = Lens.lens (\EntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@EntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: EntitiesDetectionJobProperties) Core.. Lens.mapping Core._Time
+entitiesDetectionJobProperties_submitTime :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+entitiesDetectionJobProperties_submitTime = Lens.lens (\EntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@EntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: EntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-entitiesDetectionJobProperties_entityRecognizerArn :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe Core.Text)
+entitiesDetectionJobProperties_entityRecognizerArn :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 entitiesDetectionJobProperties_entityRecognizerArn = Lens.lens (\EntitiesDetectionJobProperties' {entityRecognizerArn} -> entityRecognizerArn) (\s@EntitiesDetectionJobProperties' {} a -> s {entityRecognizerArn = a} :: EntitiesDetectionJobProperties)
 
 -- | The name that you assigned the entities detection job.
-entitiesDetectionJobProperties_jobName :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe Core.Text)
+entitiesDetectionJobProperties_jobName :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 entitiesDetectionJobProperties_jobName = Lens.lens (\EntitiesDetectionJobProperties' {jobName} -> jobName) (\s@EntitiesDetectionJobProperties' {} a -> s {jobName = a} :: EntitiesDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
 -- to your input data.
-entitiesDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe Core.Text)
+entitiesDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 entitiesDetectionJobProperties_dataAccessRoleArn = Lens.lens (\EntitiesDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@EntitiesDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: EntitiesDetectionJobProperties)
 
 -- | The identifier assigned to the entities detection job.
-entitiesDetectionJobProperties_jobId :: Lens.Lens' EntitiesDetectionJobProperties (Core.Maybe Core.Text)
+entitiesDetectionJobProperties_jobId :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 entitiesDetectionJobProperties_jobId = Lens.lens (\EntitiesDetectionJobProperties' {jobId} -> jobId) (\s@EntitiesDetectionJobProperties' {} a -> s {jobId = a} :: EntitiesDetectionJobProperties)
 
 instance Core.FromJSON EntitiesDetectionJobProperties where
@@ -216,21 +217,25 @@ instance Core.FromJSON EntitiesDetectionJobProperties where
       "EntitiesDetectionJobProperties"
       ( \x ->
           EntitiesDetectionJobProperties'
-            Core.<$> (x Core..:? "VpcConfig")
-            Core.<*> (x Core..:? "LanguageCode")
-            Core.<*> (x Core..:? "InputDataConfig")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "JobStatus")
-            Core.<*> (x Core..:? "OutputDataConfig")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "VolumeKmsKeyId")
-            Core.<*> (x Core..:? "SubmitTime")
-            Core.<*> (x Core..:? "EntityRecognizerArn")
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "DataAccessRoleArn")
-            Core.<*> (x Core..:? "JobId")
+            Prelude.<$> (x Core..:? "VpcConfig")
+            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<*> (x Core..:? "OutputDataConfig")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Core..:? "SubmitTime")
+            Prelude.<*> (x Core..:? "EntityRecognizerArn")
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "DataAccessRoleArn")
+            Prelude.<*> (x Core..:? "JobId")
       )
 
-instance Core.Hashable EntitiesDetectionJobProperties
+instance
+  Prelude.Hashable
+    EntitiesDetectionJobProperties
 
-instance Core.NFData EntitiesDetectionJobProperties
+instance
+  Prelude.NFData
+    EntitiesDetectionJobProperties

@@ -22,6 +22,7 @@ module Network.AWS.Glue.Types.TableVersion where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Table
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a version of a table.
 --
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data TableVersion = TableVersion'
   { -- | The ID value that identifies this table version. A @VersionId@ is a
     -- string representation of an integer. Each version is incremented by 1.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The table in question.
-    table :: Core.Maybe Table
+    table :: Prelude.Maybe Table
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TableVersion' with all optional fields omitted.
@@ -51,17 +52,17 @@ newTableVersion ::
   TableVersion
 newTableVersion =
   TableVersion'
-    { versionId = Core.Nothing,
-      table = Core.Nothing
+    { versionId = Prelude.Nothing,
+      table = Prelude.Nothing
     }
 
 -- | The ID value that identifies this table version. A @VersionId@ is a
 -- string representation of an integer. Each version is incremented by 1.
-tableVersion_versionId :: Lens.Lens' TableVersion (Core.Maybe Core.Text)
+tableVersion_versionId :: Lens.Lens' TableVersion (Prelude.Maybe Prelude.Text)
 tableVersion_versionId = Lens.lens (\TableVersion' {versionId} -> versionId) (\s@TableVersion' {} a -> s {versionId = a} :: TableVersion)
 
 -- | The table in question.
-tableVersion_table :: Lens.Lens' TableVersion (Core.Maybe Table)
+tableVersion_table :: Lens.Lens' TableVersion (Prelude.Maybe Table)
 tableVersion_table = Lens.lens (\TableVersion' {table} -> table) (\s@TableVersion' {} a -> s {table = a} :: TableVersion)
 
 instance Core.FromJSON TableVersion where
@@ -70,10 +71,10 @@ instance Core.FromJSON TableVersion where
       "TableVersion"
       ( \x ->
           TableVersion'
-            Core.<$> (x Core..:? "VersionId")
-            Core.<*> (x Core..:? "Table")
+            Prelude.<$> (x Core..:? "VersionId")
+            Prelude.<*> (x Core..:? "Table")
       )
 
-instance Core.Hashable TableVersion
+instance Prelude.Hashable TableVersion
 
-instance Core.NFData TableVersion
+instance Prelude.NFData TableVersion

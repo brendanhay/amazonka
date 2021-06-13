@@ -49,26 +49,27 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetAssociatedIpv6PoolCidrs' smart constructor.
 data GetAssociatedIpv6PoolCidrs = GetAssociatedIpv6PoolCidrs'
   { -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the IPv6 address pool.
-    poolId :: Core.Text
+    poolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAssociatedIpv6PoolCidrs' with all optional fields omitted.
@@ -92,36 +93,36 @@ data GetAssociatedIpv6PoolCidrs = GetAssociatedIpv6PoolCidrs'
 -- 'poolId', 'getAssociatedIpv6PoolCidrs_poolId' - The ID of the IPv6 address pool.
 newGetAssociatedIpv6PoolCidrs ::
   -- | 'poolId'
-  Core.Text ->
+  Prelude.Text ->
   GetAssociatedIpv6PoolCidrs
 newGetAssociatedIpv6PoolCidrs pPoolId_ =
   GetAssociatedIpv6PoolCidrs'
     { nextToken =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       poolId = pPoolId_
     }
 
 -- | The token for the next page of results.
-getAssociatedIpv6PoolCidrs_nextToken :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Core.Maybe Core.Text)
+getAssociatedIpv6PoolCidrs_nextToken :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Prelude.Maybe Prelude.Text)
 getAssociatedIpv6PoolCidrs_nextToken = Lens.lens (\GetAssociatedIpv6PoolCidrs' {nextToken} -> nextToken) (\s@GetAssociatedIpv6PoolCidrs' {} a -> s {nextToken = a} :: GetAssociatedIpv6PoolCidrs)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getAssociatedIpv6PoolCidrs_dryRun :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Core.Maybe Core.Bool)
+getAssociatedIpv6PoolCidrs_dryRun :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Prelude.Maybe Prelude.Bool)
 getAssociatedIpv6PoolCidrs_dryRun = Lens.lens (\GetAssociatedIpv6PoolCidrs' {dryRun} -> dryRun) (\s@GetAssociatedIpv6PoolCidrs' {} a -> s {dryRun = a} :: GetAssociatedIpv6PoolCidrs)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-getAssociatedIpv6PoolCidrs_maxResults :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Core.Maybe Core.Natural)
+getAssociatedIpv6PoolCidrs_maxResults :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Prelude.Maybe Prelude.Natural)
 getAssociatedIpv6PoolCidrs_maxResults = Lens.lens (\GetAssociatedIpv6PoolCidrs' {maxResults} -> maxResults) (\s@GetAssociatedIpv6PoolCidrs' {} a -> s {maxResults = a} :: GetAssociatedIpv6PoolCidrs)
 
 -- | The ID of the IPv6 address pool.
-getAssociatedIpv6PoolCidrs_poolId :: Lens.Lens' GetAssociatedIpv6PoolCidrs Core.Text
+getAssociatedIpv6PoolCidrs_poolId :: Lens.Lens' GetAssociatedIpv6PoolCidrs Prelude.Text
 getAssociatedIpv6PoolCidrs_poolId = Lens.lens (\GetAssociatedIpv6PoolCidrs' {poolId} -> poolId) (\s@GetAssociatedIpv6PoolCidrs' {} a -> s {poolId = a} :: GetAssociatedIpv6PoolCidrs)
 
 instance Core.AWSPager GetAssociatedIpv6PoolCidrs where
@@ -129,22 +130,22 @@ instance Core.AWSPager GetAssociatedIpv6PoolCidrs where
     | Core.stop
         ( rs
             Lens.^? getAssociatedIpv6PoolCidrsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getAssociatedIpv6PoolCidrs_nextToken
+          Prelude.& getAssociatedIpv6PoolCidrs_nextToken
           Lens..~ rs
           Lens.^? getAssociatedIpv6PoolCidrsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
   type
@@ -155,30 +156,31 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
     Response.receiveXML
       ( \s h x ->
           GetAssociatedIpv6PoolCidrsResponse'
-            Core.<$> ( x Core..@? "ipv6CidrAssociationSet"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (x Core..@? "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "ipv6CidrAssociationSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAssociatedIpv6PoolCidrs
+instance Prelude.Hashable GetAssociatedIpv6PoolCidrs
 
-instance Core.NFData GetAssociatedIpv6PoolCidrs
+instance Prelude.NFData GetAssociatedIpv6PoolCidrs
 
 instance Core.ToHeaders GetAssociatedIpv6PoolCidrs where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAssociatedIpv6PoolCidrs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAssociatedIpv6PoolCidrs where
   toQuery GetAssociatedIpv6PoolCidrs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetAssociatedIpv6PoolCidrs" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("GetAssociatedIpv6PoolCidrs" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
@@ -188,14 +190,14 @@ instance Core.ToQuery GetAssociatedIpv6PoolCidrs where
 -- | /See:/ 'newGetAssociatedIpv6PoolCidrsResponse' smart constructor.
 data GetAssociatedIpv6PoolCidrsResponse = GetAssociatedIpv6PoolCidrsResponse'
   { -- | Information about the IPv6 CIDR block associations.
-    ipv6CidrAssociations :: Core.Maybe [Ipv6CidrAssociation],
+    ipv6CidrAssociations :: Prelude.Maybe [Ipv6CidrAssociation],
     -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAssociatedIpv6PoolCidrsResponse' with all optional fields omitted.
@@ -213,29 +215,29 @@ data GetAssociatedIpv6PoolCidrsResponse = GetAssociatedIpv6PoolCidrsResponse'
 -- 'httpStatus', 'getAssociatedIpv6PoolCidrsResponse_httpStatus' - The response's http status code.
 newGetAssociatedIpv6PoolCidrsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAssociatedIpv6PoolCidrsResponse
 newGetAssociatedIpv6PoolCidrsResponse pHttpStatus_ =
   GetAssociatedIpv6PoolCidrsResponse'
     { ipv6CidrAssociations =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the IPv6 CIDR block associations.
-getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse (Core.Maybe [Ipv6CidrAssociation])
-getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {ipv6CidrAssociations} -> ipv6CidrAssociations) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {ipv6CidrAssociations = a} :: GetAssociatedIpv6PoolCidrsResponse) Core.. Lens.mapping Lens._Coerce
+getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse (Prelude.Maybe [Ipv6CidrAssociation])
+getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {ipv6CidrAssociations} -> ipv6CidrAssociations) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {ipv6CidrAssociations = a} :: GetAssociatedIpv6PoolCidrsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-getAssociatedIpv6PoolCidrsResponse_nextToken :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse (Core.Maybe Core.Text)
+getAssociatedIpv6PoolCidrsResponse_nextToken :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse (Prelude.Maybe Prelude.Text)
 getAssociatedIpv6PoolCidrsResponse_nextToken = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {nextToken} -> nextToken) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {nextToken = a} :: GetAssociatedIpv6PoolCidrsResponse)
 
 -- | The response's http status code.
-getAssociatedIpv6PoolCidrsResponse_httpStatus :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse Core.Int
+getAssociatedIpv6PoolCidrsResponse_httpStatus :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse Prelude.Int
 getAssociatedIpv6PoolCidrsResponse_httpStatus = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {httpStatus} -> httpStatus) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {httpStatus = a} :: GetAssociatedIpv6PoolCidrsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetAssociatedIpv6PoolCidrsResponse

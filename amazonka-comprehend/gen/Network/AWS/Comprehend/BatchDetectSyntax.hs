@@ -46,6 +46,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +55,14 @@ data BatchDetectSyntax = BatchDetectSyntax'
   { -- | A list containing the text of the input documents. The list can contain
     -- a maximum of 25 documents. Each document must contain fewer that 5,000
     -- bytes of UTF-8 encoded characters.
-    textList :: Core.Sensitive [Core.Sensitive Core.Text],
+    textList :: Core.Sensitive [Core.Sensitive Prelude.Text],
     -- | The language of the input documents. You can specify any of the
     -- following languages supported by Amazon Comprehend: German (\"de\"),
     -- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
     -- or Portuguese (\"pt\"). All documents must be in the same language.
     languageCode :: SyntaxLanguageCode
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetectSyntax' with all optional fields omitted.
@@ -85,15 +86,15 @@ newBatchDetectSyntax ::
   BatchDetectSyntax
 newBatchDetectSyntax pLanguageCode_ =
   BatchDetectSyntax'
-    { textList = Core.mempty,
+    { textList = Prelude.mempty,
       languageCode = pLanguageCode_
     }
 
 -- | A list containing the text of the input documents. The list can contain
 -- a maximum of 25 documents. Each document must contain fewer that 5,000
 -- bytes of UTF-8 encoded characters.
-batchDetectSyntax_textList :: Lens.Lens' BatchDetectSyntax [Core.Text]
-batchDetectSyntax_textList = Lens.lens (\BatchDetectSyntax' {textList} -> textList) (\s@BatchDetectSyntax' {} a -> s {textList = a} :: BatchDetectSyntax) Core.. Core._Sensitive Core.. Lens._Coerce
+batchDetectSyntax_textList :: Lens.Lens' BatchDetectSyntax [Prelude.Text]
+batchDetectSyntax_textList = Lens.lens (\BatchDetectSyntax' {textList} -> textList) (\s@BatchDetectSyntax' {} a -> s {textList = a} :: BatchDetectSyntax) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
 
 -- | The language of the input documents. You can specify any of the
 -- following languages supported by Amazon Comprehend: German (\"de\"),
@@ -111,47 +112,49 @@ instance Core.AWSRequest BatchDetectSyntax where
     Response.receiveJSON
       ( \s h x ->
           BatchDetectSyntaxResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "ResultList" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ErrorList" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable BatchDetectSyntax
+instance Prelude.Hashable BatchDetectSyntax
 
-instance Core.NFData BatchDetectSyntax
+instance Prelude.NFData BatchDetectSyntax
 
 instance Core.ToHeaders BatchDetectSyntax where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.BatchDetectSyntax" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchDetectSyntax where
   toJSON BatchDetectSyntax' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TextList" Core..= textList),
-            Core.Just ("LanguageCode" Core..= languageCode)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TextList" Core..= textList),
+            Prelude.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
 instance Core.ToPath BatchDetectSyntax where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDetectSyntax where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDetectSyntaxResponse' smart constructor.
 data BatchDetectSyntaxResponse = BatchDetectSyntaxResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of objects containing the results of the operation. The results
     -- are sorted in ascending order by the @Index@ field and match the order
     -- of the documents in the input list. If all of the documents contain an
@@ -163,7 +166,7 @@ data BatchDetectSyntaxResponse = BatchDetectSyntaxResponse'
     -- the batch, the @ErrorList@ is empty.
     errorList :: [BatchItemError]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetectSyntaxResponse' with all optional fields omitted.
@@ -186,18 +189,18 @@ data BatchDetectSyntaxResponse = BatchDetectSyntaxResponse'
 -- the batch, the @ErrorList@ is empty.
 newBatchDetectSyntaxResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDetectSyntaxResponse
 newBatchDetectSyntaxResponse pHttpStatus_ =
   BatchDetectSyntaxResponse'
     { httpStatus =
         pHttpStatus_,
-      resultList = Core.mempty,
-      errorList = Core.mempty
+      resultList = Prelude.mempty,
+      errorList = Prelude.mempty
     }
 
 -- | The response's http status code.
-batchDetectSyntaxResponse_httpStatus :: Lens.Lens' BatchDetectSyntaxResponse Core.Int
+batchDetectSyntaxResponse_httpStatus :: Lens.Lens' BatchDetectSyntaxResponse Prelude.Int
 batchDetectSyntaxResponse_httpStatus = Lens.lens (\BatchDetectSyntaxResponse' {httpStatus} -> httpStatus) (\s@BatchDetectSyntaxResponse' {} a -> s {httpStatus = a} :: BatchDetectSyntaxResponse)
 
 -- | A list of objects containing the results of the operation. The results
@@ -205,13 +208,13 @@ batchDetectSyntaxResponse_httpStatus = Lens.lens (\BatchDetectSyntaxResponse' {h
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectSyntaxResponse_resultList :: Lens.Lens' BatchDetectSyntaxResponse [BatchDetectSyntaxItemResult]
-batchDetectSyntaxResponse_resultList = Lens.lens (\BatchDetectSyntaxResponse' {resultList} -> resultList) (\s@BatchDetectSyntaxResponse' {} a -> s {resultList = a} :: BatchDetectSyntaxResponse) Core.. Lens._Coerce
+batchDetectSyntaxResponse_resultList = Lens.lens (\BatchDetectSyntaxResponse' {resultList} -> resultList) (\s@BatchDetectSyntaxResponse' {} a -> s {resultList = a} :: BatchDetectSyntaxResponse) Prelude.. Lens._Coerce
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectSyntaxResponse_errorList :: Lens.Lens' BatchDetectSyntaxResponse [BatchItemError]
-batchDetectSyntaxResponse_errorList = Lens.lens (\BatchDetectSyntaxResponse' {errorList} -> errorList) (\s@BatchDetectSyntaxResponse' {} a -> s {errorList = a} :: BatchDetectSyntaxResponse) Core.. Lens._Coerce
+batchDetectSyntaxResponse_errorList = Lens.lens (\BatchDetectSyntaxResponse' {errorList} -> errorList) (\s@BatchDetectSyntaxResponse' {} a -> s {errorList = a} :: BatchDetectSyntaxResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData BatchDetectSyntaxResponse
+instance Prelude.NFData BatchDetectSyntaxResponse

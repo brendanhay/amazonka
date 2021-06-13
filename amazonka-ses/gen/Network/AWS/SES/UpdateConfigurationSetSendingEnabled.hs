@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -55,12 +56,12 @@ import Network.AWS.SES.Types
 -- /See:/ 'newUpdateConfigurationSetSendingEnabled' smart constructor.
 data UpdateConfigurationSetSendingEnabled = UpdateConfigurationSetSendingEnabled'
   { -- | The name of the configuration set that you want to update.
-    configurationSetName :: Core.Text,
+    configurationSetName :: Prelude.Text,
     -- | Describes whether email sending is enabled or disabled for the
     -- configuration set.
-    enabled :: Core.Bool
+    enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationSetSendingEnabled' with all optional fields omitted.
@@ -76,9 +77,9 @@ data UpdateConfigurationSetSendingEnabled = UpdateConfigurationSetSendingEnabled
 -- configuration set.
 newUpdateConfigurationSetSendingEnabled ::
   -- | 'configurationSetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   UpdateConfigurationSetSendingEnabled
 newUpdateConfigurationSetSendingEnabled
   pConfigurationSetName_
@@ -90,12 +91,12 @@ newUpdateConfigurationSetSendingEnabled
       }
 
 -- | The name of the configuration set that you want to update.
-updateConfigurationSetSendingEnabled_configurationSetName :: Lens.Lens' UpdateConfigurationSetSendingEnabled Core.Text
+updateConfigurationSetSendingEnabled_configurationSetName :: Lens.Lens' UpdateConfigurationSetSendingEnabled Prelude.Text
 updateConfigurationSetSendingEnabled_configurationSetName = Lens.lens (\UpdateConfigurationSetSendingEnabled' {configurationSetName} -> configurationSetName) (\s@UpdateConfigurationSetSendingEnabled' {} a -> s {configurationSetName = a} :: UpdateConfigurationSetSendingEnabled)
 
 -- | Describes whether email sending is enabled or disabled for the
 -- configuration set.
-updateConfigurationSetSendingEnabled_enabled :: Lens.Lens' UpdateConfigurationSetSendingEnabled Core.Bool
+updateConfigurationSetSendingEnabled_enabled :: Lens.Lens' UpdateConfigurationSetSendingEnabled Prelude.Bool
 updateConfigurationSetSendingEnabled_enabled = Lens.lens (\UpdateConfigurationSetSendingEnabled' {enabled} -> enabled) (\s@UpdateConfigurationSetSendingEnabled' {} a -> s {enabled = a} :: UpdateConfigurationSetSendingEnabled)
 
 instance
@@ -111,36 +112,37 @@ instance
       UpdateConfigurationSetSendingEnabledResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateConfigurationSetSendingEnabled
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateConfigurationSetSendingEnabled
 
 instance
   Core.ToHeaders
     UpdateConfigurationSetSendingEnabled
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     UpdateConfigurationSetSendingEnabled
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     UpdateConfigurationSetSendingEnabled
   where
   toQuery UpdateConfigurationSetSendingEnabled' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "UpdateConfigurationSetSendingEnabled" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ConfigurationSetName" Core.=: configurationSetName,
         "Enabled" Core.=: enabled
       ]
@@ -149,7 +151,7 @@ instance
 data UpdateConfigurationSetSendingEnabledResponse = UpdateConfigurationSetSendingEnabledResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationSetSendingEnabledResponse' with all optional fields omitted.
@@ -161,5 +163,5 @@ newUpdateConfigurationSetSendingEnabledResponse =
   UpdateConfigurationSetSendingEnabledResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateConfigurationSetSendingEnabledResponse

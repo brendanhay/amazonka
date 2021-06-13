@@ -21,6 +21,7 @@ module Network.AWS.Support.Types.Category where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A JSON-formatted name\/value pair that represents the category name and
 -- category code of the problem, selected from the DescribeServices
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCategory' smart constructor.
 data Category = Category'
   { -- | The category code for the support case.
-    code :: Core.Maybe Core.Text,
+    code :: Prelude.Maybe Prelude.Text,
     -- | The category name for the support case.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Category' with all optional fields omitted.
@@ -49,14 +50,17 @@ data Category = Category'
 newCategory ::
   Category
 newCategory =
-  Category' {code = Core.Nothing, name = Core.Nothing}
+  Category'
+    { code = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
 
 -- | The category code for the support case.
-category_code :: Lens.Lens' Category (Core.Maybe Core.Text)
+category_code :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
 category_code = Lens.lens (\Category' {code} -> code) (\s@Category' {} a -> s {code = a} :: Category)
 
 -- | The category name for the support case.
-category_name :: Lens.Lens' Category (Core.Maybe Core.Text)
+category_name :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
 category_name = Lens.lens (\Category' {name} -> name) (\s@Category' {} a -> s {name = a} :: Category)
 
 instance Core.FromJSON Category where
@@ -65,9 +69,9 @@ instance Core.FromJSON Category where
       "Category"
       ( \x ->
           Category'
-            Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "code") Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable Category
+instance Prelude.Hashable Category
 
-instance Core.NFData Category
+instance Prelude.NFData Category

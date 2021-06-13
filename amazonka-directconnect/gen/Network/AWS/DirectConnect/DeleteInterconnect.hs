@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteInterconnect' smart constructor.
 data DeleteInterconnect = DeleteInterconnect'
   { -- | The ID of the interconnect.
-    interconnectId :: Core.Text
+    interconnectId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInterconnect' with all optional fields omitted.
@@ -65,7 +66,7 @@ data DeleteInterconnect = DeleteInterconnect'
 -- 'interconnectId', 'deleteInterconnect_interconnectId' - The ID of the interconnect.
 newDeleteInterconnect ::
   -- | 'interconnectId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInterconnect
 newDeleteInterconnect pInterconnectId_ =
   DeleteInterconnect'
@@ -74,7 +75,7 @@ newDeleteInterconnect pInterconnectId_ =
     }
 
 -- | The ID of the interconnect.
-deleteInterconnect_interconnectId :: Lens.Lens' DeleteInterconnect Core.Text
+deleteInterconnect_interconnectId :: Lens.Lens' DeleteInterconnect Prelude.Text
 deleteInterconnect_interconnectId = Lens.lens (\DeleteInterconnect' {interconnectId} -> interconnectId) (\s@DeleteInterconnect' {} a -> s {interconnectId = a} :: DeleteInterconnect)
 
 instance Core.AWSRequest DeleteInterconnect where
@@ -86,41 +87,43 @@ instance Core.AWSRequest DeleteInterconnect where
     Response.receiveJSON
       ( \s h x ->
           DeleteInterconnectResponse'
-            Core.<$> (x Core..?> "interconnectState")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "interconnectState")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteInterconnect
+instance Prelude.Hashable DeleteInterconnect
 
-instance Core.NFData DeleteInterconnect
+instance Prelude.NFData DeleteInterconnect
 
 instance Core.ToHeaders DeleteInterconnect where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.DeleteInterconnect" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteInterconnect where
   toJSON DeleteInterconnect' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("interconnectId" Core..= interconnectId)
           ]
       )
 
 instance Core.ToPath DeleteInterconnect where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInterconnect where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInterconnectResponse' smart constructor.
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
@@ -142,11 +145,11 @@ data DeleteInterconnectResponse = DeleteInterconnectResponse'
     -- -   @deleted@: The interconnect is deleted.
     --
     -- -   @unknown@: The state of the interconnect is not available.
-    interconnectState :: Core.Maybe InterconnectState,
+    interconnectState :: Prelude.Maybe InterconnectState,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInterconnectResponse' with all optional fields omitted.
@@ -178,12 +181,12 @@ data DeleteInterconnectResponse = DeleteInterconnectResponse'
 -- 'httpStatus', 'deleteInterconnectResponse_httpStatus' - The response's http status code.
 newDeleteInterconnectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteInterconnectResponse
 newDeleteInterconnectResponse pHttpStatus_ =
   DeleteInterconnectResponse'
     { interconnectState =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -205,11 +208,11 @@ newDeleteInterconnectResponse pHttpStatus_ =
 -- -   @deleted@: The interconnect is deleted.
 --
 -- -   @unknown@: The state of the interconnect is not available.
-deleteInterconnectResponse_interconnectState :: Lens.Lens' DeleteInterconnectResponse (Core.Maybe InterconnectState)
+deleteInterconnectResponse_interconnectState :: Lens.Lens' DeleteInterconnectResponse (Prelude.Maybe InterconnectState)
 deleteInterconnectResponse_interconnectState = Lens.lens (\DeleteInterconnectResponse' {interconnectState} -> interconnectState) (\s@DeleteInterconnectResponse' {} a -> s {interconnectState = a} :: DeleteInterconnectResponse)
 
 -- | The response's http status code.
-deleteInterconnectResponse_httpStatus :: Lens.Lens' DeleteInterconnectResponse Core.Int
+deleteInterconnectResponse_httpStatus :: Lens.Lens' DeleteInterconnectResponse Prelude.Int
 deleteInterconnectResponse_httpStatus = Lens.lens (\DeleteInterconnectResponse' {httpStatus} -> httpStatus) (\s@DeleteInterconnectResponse' {} a -> s {httpStatus = a} :: DeleteInterconnectResponse)
 
-instance Core.NFData DeleteInterconnectResponse
+instance Prelude.NFData DeleteInterconnectResponse

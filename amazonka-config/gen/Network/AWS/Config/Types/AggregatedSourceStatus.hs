@@ -23,6 +23,7 @@ import Network.AWS.Config.Types.AggregatedSourceStatusType
 import Network.AWS.Config.Types.AggregatedSourceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The current sync status between the source and the aggregator account.
 --
@@ -35,23 +36,23 @@ data AggregatedSourceStatus = AggregatedSourceStatus'
     -- -   Valid value SUCCEEDED indicates the data was successfully moved.
     --
     -- -   Valid value OUTDATED indicates the data is not the most recent.
-    lastUpdateStatus :: Core.Maybe AggregatedSourceStatusType,
+    lastUpdateStatus :: Prelude.Maybe AggregatedSourceStatusType,
     -- | The message indicating that the source account aggregation failed due to
     -- an error.
-    lastErrorMessage :: Core.Maybe Core.Text,
+    lastErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | The time of the last update.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The source account ID or an organization.
-    sourceId :: Core.Maybe Core.Text,
+    sourceId :: Prelude.Maybe Prelude.Text,
     -- | The error code that AWS Config returned when the source account
     -- aggregation last failed.
-    lastErrorCode :: Core.Maybe Core.Text,
+    lastErrorCode :: Prelude.Maybe Prelude.Text,
     -- | The region authorized to collect aggregated data.
-    awsRegion :: Core.Maybe Core.Text,
+    awsRegion :: Prelude.Maybe Prelude.Text,
     -- | The source account or an organization.
-    sourceType :: Core.Maybe AggregatedSourceType
+    sourceType :: Prelude.Maybe AggregatedSourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AggregatedSourceStatus' with all optional fields omitted.
@@ -87,13 +88,13 @@ newAggregatedSourceStatus ::
 newAggregatedSourceStatus =
   AggregatedSourceStatus'
     { lastUpdateStatus =
-        Core.Nothing,
-      lastErrorMessage = Core.Nothing,
-      lastUpdateTime = Core.Nothing,
-      sourceId = Core.Nothing,
-      lastErrorCode = Core.Nothing,
-      awsRegion = Core.Nothing,
-      sourceType = Core.Nothing
+        Prelude.Nothing,
+      lastErrorMessage = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      sourceId = Prelude.Nothing,
+      lastErrorCode = Prelude.Nothing,
+      awsRegion = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
 
 -- | Filters the last updated status type.
@@ -103,33 +104,33 @@ newAggregatedSourceStatus =
 -- -   Valid value SUCCEEDED indicates the data was successfully moved.
 --
 -- -   Valid value OUTDATED indicates the data is not the most recent.
-aggregatedSourceStatus_lastUpdateStatus :: Lens.Lens' AggregatedSourceStatus (Core.Maybe AggregatedSourceStatusType)
+aggregatedSourceStatus_lastUpdateStatus :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe AggregatedSourceStatusType)
 aggregatedSourceStatus_lastUpdateStatus = Lens.lens (\AggregatedSourceStatus' {lastUpdateStatus} -> lastUpdateStatus) (\s@AggregatedSourceStatus' {} a -> s {lastUpdateStatus = a} :: AggregatedSourceStatus)
 
 -- | The message indicating that the source account aggregation failed due to
 -- an error.
-aggregatedSourceStatus_lastErrorMessage :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Core.Text)
+aggregatedSourceStatus_lastErrorMessage :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.Text)
 aggregatedSourceStatus_lastErrorMessage = Lens.lens (\AggregatedSourceStatus' {lastErrorMessage} -> lastErrorMessage) (\s@AggregatedSourceStatus' {} a -> s {lastErrorMessage = a} :: AggregatedSourceStatus)
 
 -- | The time of the last update.
-aggregatedSourceStatus_lastUpdateTime :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Core.UTCTime)
-aggregatedSourceStatus_lastUpdateTime = Lens.lens (\AggregatedSourceStatus' {lastUpdateTime} -> lastUpdateTime) (\s@AggregatedSourceStatus' {} a -> s {lastUpdateTime = a} :: AggregatedSourceStatus) Core.. Lens.mapping Core._Time
+aggregatedSourceStatus_lastUpdateTime :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.UTCTime)
+aggregatedSourceStatus_lastUpdateTime = Lens.lens (\AggregatedSourceStatus' {lastUpdateTime} -> lastUpdateTime) (\s@AggregatedSourceStatus' {} a -> s {lastUpdateTime = a} :: AggregatedSourceStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The source account ID or an organization.
-aggregatedSourceStatus_sourceId :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Core.Text)
+aggregatedSourceStatus_sourceId :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.Text)
 aggregatedSourceStatus_sourceId = Lens.lens (\AggregatedSourceStatus' {sourceId} -> sourceId) (\s@AggregatedSourceStatus' {} a -> s {sourceId = a} :: AggregatedSourceStatus)
 
 -- | The error code that AWS Config returned when the source account
 -- aggregation last failed.
-aggregatedSourceStatus_lastErrorCode :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Core.Text)
+aggregatedSourceStatus_lastErrorCode :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.Text)
 aggregatedSourceStatus_lastErrorCode = Lens.lens (\AggregatedSourceStatus' {lastErrorCode} -> lastErrorCode) (\s@AggregatedSourceStatus' {} a -> s {lastErrorCode = a} :: AggregatedSourceStatus)
 
 -- | The region authorized to collect aggregated data.
-aggregatedSourceStatus_awsRegion :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Core.Text)
+aggregatedSourceStatus_awsRegion :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.Text)
 aggregatedSourceStatus_awsRegion = Lens.lens (\AggregatedSourceStatus' {awsRegion} -> awsRegion) (\s@AggregatedSourceStatus' {} a -> s {awsRegion = a} :: AggregatedSourceStatus)
 
 -- | The source account or an organization.
-aggregatedSourceStatus_sourceType :: Lens.Lens' AggregatedSourceStatus (Core.Maybe AggregatedSourceType)
+aggregatedSourceStatus_sourceType :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe AggregatedSourceType)
 aggregatedSourceStatus_sourceType = Lens.lens (\AggregatedSourceStatus' {sourceType} -> sourceType) (\s@AggregatedSourceStatus' {} a -> s {sourceType = a} :: AggregatedSourceStatus)
 
 instance Core.FromJSON AggregatedSourceStatus where
@@ -138,15 +139,15 @@ instance Core.FromJSON AggregatedSourceStatus where
       "AggregatedSourceStatus"
       ( \x ->
           AggregatedSourceStatus'
-            Core.<$> (x Core..:? "LastUpdateStatus")
-            Core.<*> (x Core..:? "LastErrorMessage")
-            Core.<*> (x Core..:? "LastUpdateTime")
-            Core.<*> (x Core..:? "SourceId")
-            Core.<*> (x Core..:? "LastErrorCode")
-            Core.<*> (x Core..:? "AwsRegion")
-            Core.<*> (x Core..:? "SourceType")
+            Prelude.<$> (x Core..:? "LastUpdateStatus")
+            Prelude.<*> (x Core..:? "LastErrorMessage")
+            Prelude.<*> (x Core..:? "LastUpdateTime")
+            Prelude.<*> (x Core..:? "SourceId")
+            Prelude.<*> (x Core..:? "LastErrorCode")
+            Prelude.<*> (x Core..:? "AwsRegion")
+            Prelude.<*> (x Core..:? "SourceType")
       )
 
-instance Core.Hashable AggregatedSourceStatus
+instance Prelude.Hashable AggregatedSourceStatus
 
-instance Core.NFData AggregatedSourceStatus
+instance Prelude.NFData AggregatedSourceStatus

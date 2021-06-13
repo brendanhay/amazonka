@@ -45,17 +45,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeSignalingChannel' smart constructor.
 data DescribeSignalingChannel = DescribeSignalingChannel'
   { -- | The name of the signaling channel that you want to describe.
-    channelName :: Core.Maybe Core.Text,
+    channelName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the signaling channel that you want to describe.
-    channelARN :: Core.Maybe Core.Text
+    channelARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSignalingChannel' with all optional fields omitted.
@@ -73,16 +74,16 @@ newDescribeSignalingChannel ::
 newDescribeSignalingChannel =
   DescribeSignalingChannel'
     { channelName =
-        Core.Nothing,
-      channelARN = Core.Nothing
+        Prelude.Nothing,
+      channelARN = Prelude.Nothing
     }
 
 -- | The name of the signaling channel that you want to describe.
-describeSignalingChannel_channelName :: Lens.Lens' DescribeSignalingChannel (Core.Maybe Core.Text)
+describeSignalingChannel_channelName :: Lens.Lens' DescribeSignalingChannel (Prelude.Maybe Prelude.Text)
 describeSignalingChannel_channelName = Lens.lens (\DescribeSignalingChannel' {channelName} -> channelName) (\s@DescribeSignalingChannel' {} a -> s {channelName = a} :: DescribeSignalingChannel)
 
 -- | The ARN of the signaling channel that you want to describe.
-describeSignalingChannel_channelARN :: Lens.Lens' DescribeSignalingChannel (Core.Maybe Core.Text)
+describeSignalingChannel_channelARN :: Lens.Lens' DescribeSignalingChannel (Prelude.Maybe Prelude.Text)
 describeSignalingChannel_channelARN = Lens.lens (\DescribeSignalingChannel' {channelARN} -> channelARN) (\s@DescribeSignalingChannel' {} a -> s {channelARN = a} :: DescribeSignalingChannel)
 
 instance Core.AWSRequest DescribeSignalingChannel where
@@ -94,41 +95,41 @@ instance Core.AWSRequest DescribeSignalingChannel where
     Response.receiveJSON
       ( \s h x ->
           DescribeSignalingChannelResponse'
-            Core.<$> (x Core..?> "ChannelInfo")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChannelInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSignalingChannel
+instance Prelude.Hashable DescribeSignalingChannel
 
-instance Core.NFData DescribeSignalingChannel
+instance Prelude.NFData DescribeSignalingChannel
 
 instance Core.ToHeaders DescribeSignalingChannel where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON DescribeSignalingChannel where
   toJSON DescribeSignalingChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ChannelName" Core..=) Core.<$> channelName,
-            ("ChannelARN" Core..=) Core.<$> channelARN
+      ( Prelude.catMaybes
+          [ ("ChannelName" Core..=) Prelude.<$> channelName,
+            ("ChannelARN" Core..=) Prelude.<$> channelARN
           ]
       )
 
 instance Core.ToPath DescribeSignalingChannel where
-  toPath = Core.const "/describeSignalingChannel"
+  toPath = Prelude.const "/describeSignalingChannel"
 
 instance Core.ToQuery DescribeSignalingChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSignalingChannelResponse' smart constructor.
 data DescribeSignalingChannelResponse = DescribeSignalingChannelResponse'
   { -- | A structure that encapsulates the specified signaling channel\'s
     -- metadata and properties.
-    channelInfo :: Core.Maybe ChannelInfo,
+    channelInfo :: Prelude.Maybe ChannelInfo,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSignalingChannelResponse' with all optional fields omitted.
@@ -144,22 +145,24 @@ data DescribeSignalingChannelResponse = DescribeSignalingChannelResponse'
 -- 'httpStatus', 'describeSignalingChannelResponse_httpStatus' - The response's http status code.
 newDescribeSignalingChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSignalingChannelResponse
 newDescribeSignalingChannelResponse pHttpStatus_ =
   DescribeSignalingChannelResponse'
     { channelInfo =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that encapsulates the specified signaling channel\'s
 -- metadata and properties.
-describeSignalingChannelResponse_channelInfo :: Lens.Lens' DescribeSignalingChannelResponse (Core.Maybe ChannelInfo)
+describeSignalingChannelResponse_channelInfo :: Lens.Lens' DescribeSignalingChannelResponse (Prelude.Maybe ChannelInfo)
 describeSignalingChannelResponse_channelInfo = Lens.lens (\DescribeSignalingChannelResponse' {channelInfo} -> channelInfo) (\s@DescribeSignalingChannelResponse' {} a -> s {channelInfo = a} :: DescribeSignalingChannelResponse)
 
 -- | The response's http status code.
-describeSignalingChannelResponse_httpStatus :: Lens.Lens' DescribeSignalingChannelResponse Core.Int
+describeSignalingChannelResponse_httpStatus :: Lens.Lens' DescribeSignalingChannelResponse Prelude.Int
 describeSignalingChannelResponse_httpStatus = Lens.lens (\DescribeSignalingChannelResponse' {httpStatus} -> httpStatus) (\s@DescribeSignalingChannelResponse' {} a -> s {httpStatus = a} :: DescribeSignalingChannelResponse)
 
-instance Core.NFData DescribeSignalingChannelResponse
+instance
+  Prelude.NFData
+    DescribeSignalingChannelResponse

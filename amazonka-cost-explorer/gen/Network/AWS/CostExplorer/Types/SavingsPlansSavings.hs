@@ -21,6 +21,7 @@ module Network.AWS.CostExplorer.Types.SavingsPlansSavings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of savings you\'re accumulating, against the public On-Demand
 -- rate of the usage accrued in an account.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 data SavingsPlansSavings = SavingsPlansSavings'
   { -- | How much the amount that the usage would have cost if it was accrued at
     -- the On-Demand rate.
-    onDemandCostEquivalent :: Core.Maybe Core.Text,
+    onDemandCostEquivalent :: Prelude.Maybe Prelude.Text,
     -- | The savings amount that you are accumulating for the usage that is
     -- covered by a Savings Plans, when compared to the On-Demand equivalent of
     -- the same usage.
-    netSavings :: Core.Maybe Core.Text
+    netSavings :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansSavings' with all optional fields omitted.
@@ -56,19 +57,19 @@ newSavingsPlansSavings ::
 newSavingsPlansSavings =
   SavingsPlansSavings'
     { onDemandCostEquivalent =
-        Core.Nothing,
-      netSavings = Core.Nothing
+        Prelude.Nothing,
+      netSavings = Prelude.Nothing
     }
 
 -- | How much the amount that the usage would have cost if it was accrued at
 -- the On-Demand rate.
-savingsPlansSavings_onDemandCostEquivalent :: Lens.Lens' SavingsPlansSavings (Core.Maybe Core.Text)
+savingsPlansSavings_onDemandCostEquivalent :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)
 savingsPlansSavings_onDemandCostEquivalent = Lens.lens (\SavingsPlansSavings' {onDemandCostEquivalent} -> onDemandCostEquivalent) (\s@SavingsPlansSavings' {} a -> s {onDemandCostEquivalent = a} :: SavingsPlansSavings)
 
 -- | The savings amount that you are accumulating for the usage that is
 -- covered by a Savings Plans, when compared to the On-Demand equivalent of
 -- the same usage.
-savingsPlansSavings_netSavings :: Lens.Lens' SavingsPlansSavings (Core.Maybe Core.Text)
+savingsPlansSavings_netSavings :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)
 savingsPlansSavings_netSavings = Lens.lens (\SavingsPlansSavings' {netSavings} -> netSavings) (\s@SavingsPlansSavings' {} a -> s {netSavings = a} :: SavingsPlansSavings)
 
 instance Core.FromJSON SavingsPlansSavings where
@@ -77,10 +78,10 @@ instance Core.FromJSON SavingsPlansSavings where
       "SavingsPlansSavings"
       ( \x ->
           SavingsPlansSavings'
-            Core.<$> (x Core..:? "OnDemandCostEquivalent")
-            Core.<*> (x Core..:? "NetSavings")
+            Prelude.<$> (x Core..:? "OnDemandCostEquivalent")
+            Prelude.<*> (x Core..:? "NetSavings")
       )
 
-instance Core.Hashable SavingsPlansSavings
+instance Prelude.Hashable SavingsPlansSavings
 
-instance Core.NFData SavingsPlansSavings
+instance Prelude.NFData SavingsPlansSavings

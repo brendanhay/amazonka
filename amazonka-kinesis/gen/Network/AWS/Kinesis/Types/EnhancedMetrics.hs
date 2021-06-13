@@ -22,6 +22,7 @@ module Network.AWS.Kinesis.Types.EnhancedMetrics where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.MetricsName
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents enhanced metrics types.
 --
@@ -51,9 +52,9 @@ data EnhancedMetrics = EnhancedMetrics'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
     -- in the /Amazon Kinesis Data Streams Developer Guide/.
-    shardLevelMetrics :: Core.Maybe [MetricsName]
+    shardLevelMetrics :: Prelude.Maybe [MetricsName]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnhancedMetrics' with all optional fields omitted.
@@ -90,7 +91,10 @@ data EnhancedMetrics = EnhancedMetrics'
 newEnhancedMetrics ::
   EnhancedMetrics
 newEnhancedMetrics =
-  EnhancedMetrics' {shardLevelMetrics = Core.Nothing}
+  EnhancedMetrics'
+    { shardLevelMetrics =
+        Prelude.Nothing
+    }
 
 -- | List of shard-level metrics.
 --
@@ -116,8 +120,8 @@ newEnhancedMetrics =
 -- For more information, see
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
-enhancedMetrics_shardLevelMetrics :: Lens.Lens' EnhancedMetrics (Core.Maybe [MetricsName])
-enhancedMetrics_shardLevelMetrics = Lens.lens (\EnhancedMetrics' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnhancedMetrics' {} a -> s {shardLevelMetrics = a} :: EnhancedMetrics) Core.. Lens.mapping Lens._Coerce
+enhancedMetrics_shardLevelMetrics :: Lens.Lens' EnhancedMetrics (Prelude.Maybe [MetricsName])
+enhancedMetrics_shardLevelMetrics = Lens.lens (\EnhancedMetrics' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnhancedMetrics' {} a -> s {shardLevelMetrics = a} :: EnhancedMetrics) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON EnhancedMetrics where
   parseJSON =
@@ -125,11 +129,11 @@ instance Core.FromJSON EnhancedMetrics where
       "EnhancedMetrics"
       ( \x ->
           EnhancedMetrics'
-            Core.<$> ( x Core..:? "ShardLevelMetrics"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "ShardLevelMetrics"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable EnhancedMetrics
+instance Prelude.Hashable EnhancedMetrics
 
-instance Core.NFData EnhancedMetrics
+instance Prelude.NFData EnhancedMetrics

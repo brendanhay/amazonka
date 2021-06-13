@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ data DeleteInternetGateway = DeleteInternetGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the internet gateway.
-    internetGatewayId :: Core.Text
+    internetGatewayId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInternetGateway' with all optional fields omitted.
@@ -71,11 +72,11 @@ data DeleteInternetGateway = DeleteInternetGateway'
 -- 'internetGatewayId', 'deleteInternetGateway_internetGatewayId' - The ID of the internet gateway.
 newDeleteInternetGateway ::
   -- | 'internetGatewayId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInternetGateway
 newDeleteInternetGateway pInternetGatewayId_ =
   DeleteInternetGateway'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       internetGatewayId = pInternetGatewayId_
     }
 
@@ -83,11 +84,11 @@ newDeleteInternetGateway pInternetGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteInternetGateway_dryRun :: Lens.Lens' DeleteInternetGateway (Core.Maybe Core.Bool)
+deleteInternetGateway_dryRun :: Lens.Lens' DeleteInternetGateway (Prelude.Maybe Prelude.Bool)
 deleteInternetGateway_dryRun = Lens.lens (\DeleteInternetGateway' {dryRun} -> dryRun) (\s@DeleteInternetGateway' {} a -> s {dryRun = a} :: DeleteInternetGateway)
 
 -- | The ID of the internet gateway.
-deleteInternetGateway_internetGatewayId :: Lens.Lens' DeleteInternetGateway Core.Text
+deleteInternetGateway_internetGatewayId :: Lens.Lens' DeleteInternetGateway Prelude.Text
 deleteInternetGateway_internetGatewayId = Lens.lens (\DeleteInternetGateway' {internetGatewayId} -> internetGatewayId) (\s@DeleteInternetGateway' {} a -> s {internetGatewayId = a} :: DeleteInternetGateway)
 
 instance Core.AWSRequest DeleteInternetGateway where
@@ -98,22 +99,23 @@ instance Core.AWSRequest DeleteInternetGateway where
   response =
     Response.receiveNull DeleteInternetGatewayResponse'
 
-instance Core.Hashable DeleteInternetGateway
+instance Prelude.Hashable DeleteInternetGateway
 
-instance Core.NFData DeleteInternetGateway
+instance Prelude.NFData DeleteInternetGateway
 
 instance Core.ToHeaders DeleteInternetGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteInternetGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInternetGateway where
   toQuery DeleteInternetGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteInternetGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteInternetGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "InternetGatewayId" Core.=: internetGatewayId
       ]
@@ -122,7 +124,7 @@ instance Core.ToQuery DeleteInternetGateway where
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInternetGatewayResponse' with all optional fields omitted.
@@ -133,4 +135,4 @@ newDeleteInternetGatewayResponse ::
 newDeleteInternetGatewayResponse =
   DeleteInternetGatewayResponse'
 
-instance Core.NFData DeleteInternetGatewayResponse
+instance Prelude.NFData DeleteInternetGatewayResponse

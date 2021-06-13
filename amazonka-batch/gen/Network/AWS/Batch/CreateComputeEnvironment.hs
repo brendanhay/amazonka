@@ -94,6 +94,7 @@ where
 import Network.AWS.Batch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -116,13 +117,13 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- @RUNNING@ state continue to progress normally. Managed compute
     -- environments in the @DISABLED@ state don\'t scale out. However, they
     -- scale in to @minvCpus@ value after instances become idle.
-    state :: Core.Maybe CEState,
+    state :: Prelude.Maybe CEState,
     -- | Details about the compute resources managed by the compute environment.
     -- This parameter is required for managed compute environments. For more
     -- information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
     -- in the /AWS Batch User Guide/.
-    computeResources :: Core.Maybe ComputeResource,
+    computeResources :: Prelude.Maybe ComputeResource,
     -- | The tags that you apply to the compute environment to help you
     -- categorize and organize your resources. Each tag consists of a key and
     -- an optional value. For more information, see
@@ -135,10 +136,10 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
     -- API operations. These tags don\'t propagate to the underlying compute
     -- resources.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for your compute environment. Up to 128 letters (uppercase and
     -- lowercase), numbers, hyphens, and underscores are allowed.
-    computeEnvironmentName :: Core.Text,
+    computeEnvironmentName :: Prelude.Text,
     -- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
     -- information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
@@ -160,9 +161,9 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- @service-role@ path prefix. Because of this, we recommend that you
     -- specify the full ARN of your service role when you create compute
     -- environments.
-    serviceRole :: Core.Text
+    serviceRole :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateComputeEnvironment' with all optional fields omitted.
@@ -233,20 +234,20 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- environments.
 newCreateComputeEnvironment ::
   -- | 'computeEnvironmentName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   CEType ->
   -- | 'serviceRole'
-  Core.Text ->
+  Prelude.Text ->
   CreateComputeEnvironment
 newCreateComputeEnvironment
   pComputeEnvironmentName_
   pType_
   pServiceRole_ =
     CreateComputeEnvironment'
-      { state = Core.Nothing,
-        computeResources = Core.Nothing,
-        tags = Core.Nothing,
+      { state = Prelude.Nothing,
+        computeResources = Prelude.Nothing,
+        tags = Prelude.Nothing,
         computeEnvironmentName = pComputeEnvironmentName_,
         type' = pType_,
         serviceRole = pServiceRole_
@@ -267,7 +268,7 @@ newCreateComputeEnvironment
 -- @RUNNING@ state continue to progress normally. Managed compute
 -- environments in the @DISABLED@ state don\'t scale out. However, they
 -- scale in to @minvCpus@ value after instances become idle.
-createComputeEnvironment_state :: Lens.Lens' CreateComputeEnvironment (Core.Maybe CEState)
+createComputeEnvironment_state :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe CEState)
 createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -> state) (\s@CreateComputeEnvironment' {} a -> s {state = a} :: CreateComputeEnvironment)
 
 -- | Details about the compute resources managed by the compute environment.
@@ -275,7 +276,7 @@ createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
 -- in the /AWS Batch User Guide/.
-createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Core.Maybe ComputeResource)
+createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe ComputeResource)
 createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment' {computeResources} -> computeResources) (\s@CreateComputeEnvironment' {} a -> s {computeResources = a} :: CreateComputeEnvironment)
 
 -- | The tags that you apply to the compute environment to help you
@@ -290,12 +291,12 @@ createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment
 -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
 -- API operations. These tags don\'t propagate to the underlying compute
 -- resources.
-createComputeEnvironment_tags :: Lens.Lens' CreateComputeEnvironment (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createComputeEnvironment_tags = Lens.lens (\CreateComputeEnvironment' {tags} -> tags) (\s@CreateComputeEnvironment' {} a -> s {tags = a} :: CreateComputeEnvironment) Core.. Lens.mapping Lens._Coerce
+createComputeEnvironment_tags :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createComputeEnvironment_tags = Lens.lens (\CreateComputeEnvironment' {tags} -> tags) (\s@CreateComputeEnvironment' {} a -> s {tags = a} :: CreateComputeEnvironment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for your compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
-createComputeEnvironment_computeEnvironmentName :: Lens.Lens' CreateComputeEnvironment Core.Text
+createComputeEnvironment_computeEnvironmentName :: Lens.Lens' CreateComputeEnvironment Prelude.Text
 createComputeEnvironment_computeEnvironmentName = Lens.lens (\CreateComputeEnvironment' {computeEnvironmentName} -> computeEnvironmentName) (\s@CreateComputeEnvironment' {} a -> s {computeEnvironmentName = a} :: CreateComputeEnvironment)
 
 -- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
@@ -321,7 +322,7 @@ createComputeEnvironment_type = Lens.lens (\CreateComputeEnvironment' {type'} ->
 -- @service-role@ path prefix. Because of this, we recommend that you
 -- specify the full ARN of your service role when you create compute
 -- environments.
-createComputeEnvironment_serviceRole :: Lens.Lens' CreateComputeEnvironment Core.Text
+createComputeEnvironment_serviceRole :: Lens.Lens' CreateComputeEnvironment Prelude.Text
 createComputeEnvironment_serviceRole = Lens.lens (\CreateComputeEnvironment' {serviceRole} -> serviceRole) (\s@CreateComputeEnvironment' {} a -> s {serviceRole = a} :: CreateComputeEnvironment)
 
 instance Core.AWSRequest CreateComputeEnvironment where
@@ -333,58 +334,60 @@ instance Core.AWSRequest CreateComputeEnvironment where
     Response.receiveJSON
       ( \s h x ->
           CreateComputeEnvironmentResponse'
-            Core.<$> (x Core..?> "computeEnvironmentName")
-            Core.<*> (x Core..?> "computeEnvironmentArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "computeEnvironmentName")
+            Prelude.<*> (x Core..?> "computeEnvironmentArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateComputeEnvironment
+instance Prelude.Hashable CreateComputeEnvironment
 
-instance Core.NFData CreateComputeEnvironment
+instance Prelude.NFData CreateComputeEnvironment
 
 instance Core.ToHeaders CreateComputeEnvironment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateComputeEnvironment where
   toJSON CreateComputeEnvironment' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("state" Core..=) Core.<$> state,
+      ( Prelude.catMaybes
+          [ ("state" Core..=) Prelude.<$> state,
             ("computeResources" Core..=)
-              Core.<$> computeResources,
-            ("tags" Core..=) Core.<$> tags,
-            Core.Just
+              Prelude.<$> computeResources,
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ( "computeEnvironmentName"
                   Core..= computeEnvironmentName
               ),
-            Core.Just ("type" Core..= type'),
-            Core.Just ("serviceRole" Core..= serviceRole)
+            Prelude.Just ("type" Core..= type'),
+            Prelude.Just ("serviceRole" Core..= serviceRole)
           ]
       )
 
 instance Core.ToPath CreateComputeEnvironment where
-  toPath = Core.const "/v1/createcomputeenvironment"
+  toPath = Prelude.const "/v1/createcomputeenvironment"
 
 instance Core.ToQuery CreateComputeEnvironment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateComputeEnvironmentResponse' smart constructor.
 data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
   { -- | The name of the compute environment. Up to 128 letters (uppercase and
     -- lowercase), numbers, hyphens, and underscores are allowed.
-    computeEnvironmentName :: Core.Maybe Core.Text,
+    computeEnvironmentName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironmentArn :: Core.Maybe Core.Text,
+    computeEnvironmentArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateComputeEnvironmentResponse' with all optional fields omitted.
@@ -402,27 +405,29 @@ data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
 -- 'httpStatus', 'createComputeEnvironmentResponse_httpStatus' - The response's http status code.
 newCreateComputeEnvironmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateComputeEnvironmentResponse
 newCreateComputeEnvironmentResponse pHttpStatus_ =
   CreateComputeEnvironmentResponse'
     { computeEnvironmentName =
-        Core.Nothing,
-      computeEnvironmentArn = Core.Nothing,
+        Prelude.Nothing,
+      computeEnvironmentArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
-createComputeEnvironmentResponse_computeEnvironmentName :: Lens.Lens' CreateComputeEnvironmentResponse (Core.Maybe Core.Text)
+createComputeEnvironmentResponse_computeEnvironmentName :: Lens.Lens' CreateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createComputeEnvironmentResponse_computeEnvironmentName = Lens.lens (\CreateComputeEnvironmentResponse' {computeEnvironmentName} -> computeEnvironmentName) (\s@CreateComputeEnvironmentResponse' {} a -> s {computeEnvironmentName = a} :: CreateComputeEnvironmentResponse)
 
 -- | The Amazon Resource Name (ARN) of the compute environment.
-createComputeEnvironmentResponse_computeEnvironmentArn :: Lens.Lens' CreateComputeEnvironmentResponse (Core.Maybe Core.Text)
+createComputeEnvironmentResponse_computeEnvironmentArn :: Lens.Lens' CreateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createComputeEnvironmentResponse_computeEnvironmentArn = Lens.lens (\CreateComputeEnvironmentResponse' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@CreateComputeEnvironmentResponse' {} a -> s {computeEnvironmentArn = a} :: CreateComputeEnvironmentResponse)
 
 -- | The response's http status code.
-createComputeEnvironmentResponse_httpStatus :: Lens.Lens' CreateComputeEnvironmentResponse Core.Int
+createComputeEnvironmentResponse_httpStatus :: Lens.Lens' CreateComputeEnvironmentResponse Prelude.Int
 createComputeEnvironmentResponse_httpStatus = Lens.lens (\CreateComputeEnvironmentResponse' {httpStatus} -> httpStatus) (\s@CreateComputeEnvironmentResponse' {} a -> s {httpStatus = a} :: CreateComputeEnvironmentResponse)
 
-instance Core.NFData CreateComputeEnvironmentResponse
+instance
+  Prelude.NFData
+    CreateComputeEnvironmentResponse

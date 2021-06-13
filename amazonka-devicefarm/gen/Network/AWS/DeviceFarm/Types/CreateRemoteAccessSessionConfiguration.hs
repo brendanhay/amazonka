@@ -22,6 +22,7 @@ module Network.AWS.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.BillingMethod
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration settings for a remote access session, including billing
 -- method.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCreateRemoteAccessSessionConfiguration' smart constructor.
 data CreateRemoteAccessSessionConfiguration = CreateRemoteAccessSessionConfiguration'
   { -- | The billing method for the remote access session.
-    billingMethod :: Core.Maybe BillingMethod,
+    billingMethod :: Prelude.Maybe BillingMethod,
     -- | An array of ARNs included in the VPC endpoint configuration.
-    vpceConfigurationArns :: Core.Maybe [Core.Text]
+    vpceConfigurationArns :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRemoteAccessSessionConfiguration' with all optional fields omitted.
@@ -51,25 +52,25 @@ newCreateRemoteAccessSessionConfiguration ::
 newCreateRemoteAccessSessionConfiguration =
   CreateRemoteAccessSessionConfiguration'
     { billingMethod =
-        Core.Nothing,
+        Prelude.Nothing,
       vpceConfigurationArns =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The billing method for the remote access session.
-createRemoteAccessSessionConfiguration_billingMethod :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Core.Maybe BillingMethod)
+createRemoteAccessSessionConfiguration_billingMethod :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Prelude.Maybe BillingMethod)
 createRemoteAccessSessionConfiguration_billingMethod = Lens.lens (\CreateRemoteAccessSessionConfiguration' {billingMethod} -> billingMethod) (\s@CreateRemoteAccessSessionConfiguration' {} a -> s {billingMethod = a} :: CreateRemoteAccessSessionConfiguration)
 
 -- | An array of ARNs included in the VPC endpoint configuration.
-createRemoteAccessSessionConfiguration_vpceConfigurationArns :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Core.Maybe [Core.Text])
-createRemoteAccessSessionConfiguration_vpceConfigurationArns = Lens.lens (\CreateRemoteAccessSessionConfiguration' {vpceConfigurationArns} -> vpceConfigurationArns) (\s@CreateRemoteAccessSessionConfiguration' {} a -> s {vpceConfigurationArns = a} :: CreateRemoteAccessSessionConfiguration) Core.. Lens.mapping Lens._Coerce
+createRemoteAccessSessionConfiguration_vpceConfigurationArns :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Prelude.Maybe [Prelude.Text])
+createRemoteAccessSessionConfiguration_vpceConfigurationArns = Lens.lens (\CreateRemoteAccessSessionConfiguration' {vpceConfigurationArns} -> vpceConfigurationArns) (\s@CreateRemoteAccessSessionConfiguration' {} a -> s {vpceConfigurationArns = a} :: CreateRemoteAccessSessionConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateRemoteAccessSessionConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateRemoteAccessSessionConfiguration
 
 instance
@@ -78,9 +79,9 @@ instance
   where
   toJSON CreateRemoteAccessSessionConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("billingMethod" Core..=) Core.<$> billingMethod,
+      ( Prelude.catMaybes
+          [ ("billingMethod" Core..=) Prelude.<$> billingMethod,
             ("vpceConfigurationArns" Core..=)
-              Core.<$> vpceConfigurationArns
+              Prelude.<$> vpceConfigurationArns
           ]
       )

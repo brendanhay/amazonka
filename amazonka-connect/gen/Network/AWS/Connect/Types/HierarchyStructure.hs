@@ -22,23 +22,24 @@ module Network.AWS.Connect.Types.HierarchyStructure where
 import Network.AWS.Connect.Types.HierarchyLevel
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a hierarchy structure.
 --
 -- /See:/ 'newHierarchyStructure' smart constructor.
 data HierarchyStructure = HierarchyStructure'
   { -- | Information about level three.
-    levelThree :: Core.Maybe HierarchyLevel,
+    levelThree :: Prelude.Maybe HierarchyLevel,
     -- | Information about level four.
-    levelFour :: Core.Maybe HierarchyLevel,
+    levelFour :: Prelude.Maybe HierarchyLevel,
     -- | Information about level two.
-    levelTwo :: Core.Maybe HierarchyLevel,
+    levelTwo :: Prelude.Maybe HierarchyLevel,
     -- | Information about level one.
-    levelOne :: Core.Maybe HierarchyLevel,
+    levelOne :: Prelude.Maybe HierarchyLevel,
     -- | Information about level five.
-    levelFive :: Core.Maybe HierarchyLevel
+    levelFive :: Prelude.Maybe HierarchyLevel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HierarchyStructure' with all optional fields omitted.
@@ -61,31 +62,31 @@ newHierarchyStructure ::
   HierarchyStructure
 newHierarchyStructure =
   HierarchyStructure'
-    { levelThree = Core.Nothing,
-      levelFour = Core.Nothing,
-      levelTwo = Core.Nothing,
-      levelOne = Core.Nothing,
-      levelFive = Core.Nothing
+    { levelThree = Prelude.Nothing,
+      levelFour = Prelude.Nothing,
+      levelTwo = Prelude.Nothing,
+      levelOne = Prelude.Nothing,
+      levelFive = Prelude.Nothing
     }
 
 -- | Information about level three.
-hierarchyStructure_levelThree :: Lens.Lens' HierarchyStructure (Core.Maybe HierarchyLevel)
+hierarchyStructure_levelThree :: Lens.Lens' HierarchyStructure (Prelude.Maybe HierarchyLevel)
 hierarchyStructure_levelThree = Lens.lens (\HierarchyStructure' {levelThree} -> levelThree) (\s@HierarchyStructure' {} a -> s {levelThree = a} :: HierarchyStructure)
 
 -- | Information about level four.
-hierarchyStructure_levelFour :: Lens.Lens' HierarchyStructure (Core.Maybe HierarchyLevel)
+hierarchyStructure_levelFour :: Lens.Lens' HierarchyStructure (Prelude.Maybe HierarchyLevel)
 hierarchyStructure_levelFour = Lens.lens (\HierarchyStructure' {levelFour} -> levelFour) (\s@HierarchyStructure' {} a -> s {levelFour = a} :: HierarchyStructure)
 
 -- | Information about level two.
-hierarchyStructure_levelTwo :: Lens.Lens' HierarchyStructure (Core.Maybe HierarchyLevel)
+hierarchyStructure_levelTwo :: Lens.Lens' HierarchyStructure (Prelude.Maybe HierarchyLevel)
 hierarchyStructure_levelTwo = Lens.lens (\HierarchyStructure' {levelTwo} -> levelTwo) (\s@HierarchyStructure' {} a -> s {levelTwo = a} :: HierarchyStructure)
 
 -- | Information about level one.
-hierarchyStructure_levelOne :: Lens.Lens' HierarchyStructure (Core.Maybe HierarchyLevel)
+hierarchyStructure_levelOne :: Lens.Lens' HierarchyStructure (Prelude.Maybe HierarchyLevel)
 hierarchyStructure_levelOne = Lens.lens (\HierarchyStructure' {levelOne} -> levelOne) (\s@HierarchyStructure' {} a -> s {levelOne = a} :: HierarchyStructure)
 
 -- | Information about level five.
-hierarchyStructure_levelFive :: Lens.Lens' HierarchyStructure (Core.Maybe HierarchyLevel)
+hierarchyStructure_levelFive :: Lens.Lens' HierarchyStructure (Prelude.Maybe HierarchyLevel)
 hierarchyStructure_levelFive = Lens.lens (\HierarchyStructure' {levelFive} -> levelFive) (\s@HierarchyStructure' {} a -> s {levelFive = a} :: HierarchyStructure)
 
 instance Core.FromJSON HierarchyStructure where
@@ -94,13 +95,13 @@ instance Core.FromJSON HierarchyStructure where
       "HierarchyStructure"
       ( \x ->
           HierarchyStructure'
-            Core.<$> (x Core..:? "LevelThree")
-            Core.<*> (x Core..:? "LevelFour")
-            Core.<*> (x Core..:? "LevelTwo")
-            Core.<*> (x Core..:? "LevelOne")
-            Core.<*> (x Core..:? "LevelFive")
+            Prelude.<$> (x Core..:? "LevelThree")
+            Prelude.<*> (x Core..:? "LevelFour")
+            Prelude.<*> (x Core..:? "LevelTwo")
+            Prelude.<*> (x Core..:? "LevelOne")
+            Prelude.<*> (x Core..:? "LevelFive")
       )
 
-instance Core.Hashable HierarchyStructure
+instance Prelude.Hashable HierarchyStructure
 
-instance Core.NFData HierarchyStructure
+instance Prelude.NFData HierarchyStructure

@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.NonCompliantSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.SeveritySummary
 
 -- | A summary of resources that are not compliant. The summary is organized
@@ -29,11 +30,11 @@ import Network.AWS.SSM.Types.SeveritySummary
 -- /See:/ 'newNonCompliantSummary' smart constructor.
 data NonCompliantSummary = NonCompliantSummary'
   { -- | A summary of the non-compliance severity by compliance type
-    severitySummary :: Core.Maybe SeveritySummary,
+    severitySummary :: Prelude.Maybe SeveritySummary,
     -- | The total number of compliance items that are not compliant.
-    nonCompliantCount :: Core.Maybe Core.Int
+    nonCompliantCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NonCompliantSummary' with all optional fields omitted.
@@ -51,16 +52,16 @@ newNonCompliantSummary ::
 newNonCompliantSummary =
   NonCompliantSummary'
     { severitySummary =
-        Core.Nothing,
-      nonCompliantCount = Core.Nothing
+        Prelude.Nothing,
+      nonCompliantCount = Prelude.Nothing
     }
 
 -- | A summary of the non-compliance severity by compliance type
-nonCompliantSummary_severitySummary :: Lens.Lens' NonCompliantSummary (Core.Maybe SeveritySummary)
+nonCompliantSummary_severitySummary :: Lens.Lens' NonCompliantSummary (Prelude.Maybe SeveritySummary)
 nonCompliantSummary_severitySummary = Lens.lens (\NonCompliantSummary' {severitySummary} -> severitySummary) (\s@NonCompliantSummary' {} a -> s {severitySummary = a} :: NonCompliantSummary)
 
 -- | The total number of compliance items that are not compliant.
-nonCompliantSummary_nonCompliantCount :: Lens.Lens' NonCompliantSummary (Core.Maybe Core.Int)
+nonCompliantSummary_nonCompliantCount :: Lens.Lens' NonCompliantSummary (Prelude.Maybe Prelude.Int)
 nonCompliantSummary_nonCompliantCount = Lens.lens (\NonCompliantSummary' {nonCompliantCount} -> nonCompliantCount) (\s@NonCompliantSummary' {} a -> s {nonCompliantCount = a} :: NonCompliantSummary)
 
 instance Core.FromJSON NonCompliantSummary where
@@ -69,10 +70,10 @@ instance Core.FromJSON NonCompliantSummary where
       "NonCompliantSummary"
       ( \x ->
           NonCompliantSummary'
-            Core.<$> (x Core..:? "SeveritySummary")
-            Core.<*> (x Core..:? "NonCompliantCount")
+            Prelude.<$> (x Core..:? "SeveritySummary")
+            Prelude.<*> (x Core..:? "NonCompliantCount")
       )
 
-instance Core.Hashable NonCompliantSummary
+instance Prelude.Hashable NonCompliantSummary
 
-instance Core.NFData NonCompliantSummary
+instance Prelude.NFData NonCompliantSummary

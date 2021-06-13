@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ChildWorkflowExecutionTerminatedEventAttributes whe
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecution
 import Network.AWS.SWF.Types.WorkflowType
 
@@ -36,14 +37,14 @@ data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTer
     -- to the @StartChildWorkflowExecution@ Decision to start this child
     -- workflow execution. This information can be useful for diagnosing
     -- problems by tracing back the chain of events leading up to this event.
-    initiatedEventId :: Core.Integer,
+    initiatedEventId :: Prelude.Integer,
     -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
     -- child workflow execution was started. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    startedEventId :: Core.Integer
+    startedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChildWorkflowExecutionTerminatedEventAttributes' with all optional fields omitted.
@@ -72,9 +73,9 @@ newChildWorkflowExecutionTerminatedEventAttributes ::
   -- | 'workflowType'
   WorkflowType ->
   -- | 'initiatedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'startedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   ChildWorkflowExecutionTerminatedEventAttributes
 newChildWorkflowExecutionTerminatedEventAttributes
   pWorkflowExecution_
@@ -104,14 +105,14 @@ childWorkflowExecutionTerminatedEventAttributes_workflowType = Lens.lens (\Child
 -- to the @StartChildWorkflowExecution@ Decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-childWorkflowExecutionTerminatedEventAttributes_initiatedEventId :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Core.Integer
+childWorkflowExecutionTerminatedEventAttributes_initiatedEventId :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Prelude.Integer
 childWorkflowExecutionTerminatedEventAttributes_initiatedEventId = Lens.lens (\ChildWorkflowExecutionTerminatedEventAttributes' {initiatedEventId} -> initiatedEventId) (\s@ChildWorkflowExecutionTerminatedEventAttributes' {} a -> s {initiatedEventId = a} :: ChildWorkflowExecutionTerminatedEventAttributes)
 
 -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-childWorkflowExecutionTerminatedEventAttributes_startedEventId :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Core.Integer
+childWorkflowExecutionTerminatedEventAttributes_startedEventId :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Prelude.Integer
 childWorkflowExecutionTerminatedEventAttributes_startedEventId = Lens.lens (\ChildWorkflowExecutionTerminatedEventAttributes' {startedEventId} -> startedEventId) (\s@ChildWorkflowExecutionTerminatedEventAttributes' {} a -> s {startedEventId = a} :: ChildWorkflowExecutionTerminatedEventAttributes)
 
 instance
@@ -123,16 +124,16 @@ instance
       "ChildWorkflowExecutionTerminatedEventAttributes"
       ( \x ->
           ChildWorkflowExecutionTerminatedEventAttributes'
-            Core.<$> (x Core..: "workflowExecution")
-              Core.<*> (x Core..: "workflowType")
-              Core.<*> (x Core..: "initiatedEventId")
-              Core.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Core..: "workflowExecution")
+              Prelude.<*> (x Core..: "workflowType")
+              Prelude.<*> (x Core..: "initiatedEventId")
+              Prelude.<*> (x Core..: "startedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ChildWorkflowExecutionTerminatedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ChildWorkflowExecutionTerminatedEventAttributes

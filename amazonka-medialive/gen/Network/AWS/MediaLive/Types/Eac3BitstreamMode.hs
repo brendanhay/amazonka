@@ -30,6 +30,7 @@ module Network.AWS.MediaLive.Types.Eac3BitstreamMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Eac3 Bitstream Mode
 newtype Eac3BitstreamMode = Eac3BitstreamMode'
@@ -37,15 +38,15 @@ newtype Eac3BitstreamMode = Eac3BitstreamMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

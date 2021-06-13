@@ -21,6 +21,7 @@ module Network.AWS.Greengrass.Types.Connector where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a connector. Connectors run on the Greengrass core and
 -- contain built-in integration with local infrastructure, device
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newConnector' smart constructor.
 data Connector = Connector'
   { -- | The parameters or configuration that the connector uses.
-    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the connector.
-    connectorArn :: Core.Text,
+    connectorArn :: Prelude.Text,
     -- | A descriptive or arbitrary ID for the connector. This value must be
     -- unique within the connector definition version. Max length is 128
     -- characters with pattern [a-zA-Z0-9:_-]+.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Connector' with all optional fields omitted.
@@ -56,29 +57,29 @@ data Connector = Connector'
 -- characters with pattern [a-zA-Z0-9:_-]+.
 newConnector ::
   -- | 'connectorArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   Connector
 newConnector pConnectorArn_ pId_ =
   Connector'
-    { parameters = Core.Nothing,
+    { parameters = Prelude.Nothing,
       connectorArn = pConnectorArn_,
       id = pId_
     }
 
 -- | The parameters or configuration that the connector uses.
-connector_parameters :: Lens.Lens' Connector (Core.Maybe (Core.HashMap Core.Text Core.Text))
-connector_parameters = Lens.lens (\Connector' {parameters} -> parameters) (\s@Connector' {} a -> s {parameters = a} :: Connector) Core.. Lens.mapping Lens._Coerce
+connector_parameters :: Lens.Lens' Connector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+connector_parameters = Lens.lens (\Connector' {parameters} -> parameters) (\s@Connector' {} a -> s {parameters = a} :: Connector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the connector.
-connector_connectorArn :: Lens.Lens' Connector Core.Text
+connector_connectorArn :: Lens.Lens' Connector Prelude.Text
 connector_connectorArn = Lens.lens (\Connector' {connectorArn} -> connectorArn) (\s@Connector' {} a -> s {connectorArn = a} :: Connector)
 
 -- | A descriptive or arbitrary ID for the connector. This value must be
 -- unique within the connector definition version. Max length is 128
 -- characters with pattern [a-zA-Z0-9:_-]+.
-connector_id :: Lens.Lens' Connector Core.Text
+connector_id :: Lens.Lens' Connector Prelude.Text
 connector_id = Lens.lens (\Connector' {id} -> id) (\s@Connector' {} a -> s {id = a} :: Connector)
 
 instance Core.FromJSON Connector where
@@ -87,21 +88,21 @@ instance Core.FromJSON Connector where
       "Connector"
       ( \x ->
           Connector'
-            Core.<$> (x Core..:? "Parameters" Core..!= Core.mempty)
-            Core.<*> (x Core..: "ConnectorArn")
-            Core.<*> (x Core..: "Id")
+            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "ConnectorArn")
+            Prelude.<*> (x Core..: "Id")
       )
 
-instance Core.Hashable Connector
+instance Prelude.Hashable Connector
 
-instance Core.NFData Connector
+instance Prelude.NFData Connector
 
 instance Core.ToJSON Connector where
   toJSON Connector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Parameters" Core..=) Core.<$> parameters,
-            Core.Just ("ConnectorArn" Core..= connectorArn),
-            Core.Just ("Id" Core..= id)
+      ( Prelude.catMaybes
+          [ ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("ConnectorArn" Core..= connectorArn),
+            Prelude.Just ("Id" Core..= id)
           ]
       )

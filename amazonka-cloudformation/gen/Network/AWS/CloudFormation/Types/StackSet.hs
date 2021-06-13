@@ -28,6 +28,7 @@ import Network.AWS.CloudFormation.Types.StackSetStatus
 import Network.AWS.CloudFormation.Types.Tag
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains information about a stack set. A stack set
 -- enables you to provision stacks into AWS accounts and across Regions by
@@ -38,7 +39,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newStackSet' smart constructor.
 data StackSet = StackSet'
   { -- | The status of the stack set.
-    status :: Core.Maybe StackSetStatus,
+    status :: Prelude.Maybe StackSetStatus,
     -- | Describes how the IAM roles required for stack set operations are
     -- created.
     --
@@ -51,23 +52,23 @@ data StackSet = StackSet'
     --     the IAM roles required to deploy to accounts managed by AWS
     --     Organizations. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
-    permissionModel :: Core.Maybe PermissionModels,
+    permissionModel :: Prelude.Maybe PermissionModels,
     -- | The name of the IAM execution role used to create or update the stack
     -- set.
     --
     -- Use customized execution roles to control which stack resources users
     -- and groups can include in their stack sets.
-    executionRoleName :: Core.Maybe Core.Text,
+    executionRoleName :: Prelude.Maybe Prelude.Text,
     -- | The capabilities that are allowed in the stack set. Some stack set
     -- templates might include resources that can affect permissions in your
     -- AWS account—for example, by creating new AWS Identity and Access
     -- Management (IAM) users. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
-    capabilities :: Core.Maybe [Capability],
+    capabilities :: Prelude.Maybe [Capability],
     -- | [Service-managed permissions] The organization root ID or organizational
     -- unit (OU) IDs that you specified for
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
-    organizationalUnitIds :: Core.Maybe [Core.Text],
+    organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Number (ARN) of the IAM role used to create or
     -- update the stack set.
     --
@@ -76,36 +77,36 @@ data StackSet = StackSet'
     -- more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
     -- in the /AWS CloudFormation User Guide/.
-    administrationRoleARN :: Core.Maybe Core.Text,
+    administrationRoleARN :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about the drift status of the stack set.
     --
     -- For stack sets, contains information about the last /completed/ drift
     -- operation performed on the stack set. Information about drift operations
     -- currently in progress is not included.
-    stackSetDriftDetectionDetails :: Core.Maybe StackSetDriftDetectionDetails,
+    stackSetDriftDetectionDetails :: Prelude.Maybe StackSetDriftDetectionDetails,
     -- | The ID of the stack set.
-    stackSetId :: Core.Maybe Core.Text,
+    stackSetId :: Prelude.Maybe Prelude.Text,
     -- | A list of tags that specify information about the stack set. A maximum
     -- number of 50 tags can be specified.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Number (ARN) of the stack set.
-    stackSetARN :: Core.Maybe Core.Text,
+    stackSetARN :: Prelude.Maybe Prelude.Text,
     -- | [Service-managed permissions] Describes whether StackSets automatically
     -- deploys to AWS Organizations accounts that are added to a target
     -- organization or organizational unit (OU).
-    autoDeployment :: Core.Maybe AutoDeployment,
+    autoDeployment :: Prelude.Maybe AutoDeployment,
     -- | A description of the stack set that you specify when the stack set is
     -- created or updated.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name that\'s associated with the stack set.
-    stackSetName :: Core.Maybe Core.Text,
+    stackSetName :: Prelude.Maybe Prelude.Text,
     -- | The structure that contains the body of the template that was used to
     -- create or update the stack set.
-    templateBody :: Core.Maybe Core.Text,
+    templateBody :: Prelude.Maybe Prelude.Text,
     -- | A list of input parameters for a stack set.
-    parameters :: Core.Maybe [Parameter]
+    parameters :: Prelude.Maybe [Parameter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackSet' with all optional fields omitted.
@@ -185,25 +186,25 @@ newStackSet ::
   StackSet
 newStackSet =
   StackSet'
-    { status = Core.Nothing,
-      permissionModel = Core.Nothing,
-      executionRoleName = Core.Nothing,
-      capabilities = Core.Nothing,
-      organizationalUnitIds = Core.Nothing,
-      administrationRoleARN = Core.Nothing,
-      stackSetDriftDetectionDetails = Core.Nothing,
-      stackSetId = Core.Nothing,
-      tags = Core.Nothing,
-      stackSetARN = Core.Nothing,
-      autoDeployment = Core.Nothing,
-      description = Core.Nothing,
-      stackSetName = Core.Nothing,
-      templateBody = Core.Nothing,
-      parameters = Core.Nothing
+    { status = Prelude.Nothing,
+      permissionModel = Prelude.Nothing,
+      executionRoleName = Prelude.Nothing,
+      capabilities = Prelude.Nothing,
+      organizationalUnitIds = Prelude.Nothing,
+      administrationRoleARN = Prelude.Nothing,
+      stackSetDriftDetectionDetails = Prelude.Nothing,
+      stackSetId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      stackSetARN = Prelude.Nothing,
+      autoDeployment = Prelude.Nothing,
+      description = Prelude.Nothing,
+      stackSetName = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
 
 -- | The status of the stack set.
-stackSet_status :: Lens.Lens' StackSet (Core.Maybe StackSetStatus)
+stackSet_status :: Lens.Lens' StackSet (Prelude.Maybe StackSetStatus)
 stackSet_status = Lens.lens (\StackSet' {status} -> status) (\s@StackSet' {} a -> s {status = a} :: StackSet)
 
 -- | Describes how the IAM roles required for stack set operations are
@@ -218,7 +219,7 @@ stackSet_status = Lens.lens (\StackSet' {status} -> status) (\s@StackSet' {} a -
 --     the IAM roles required to deploy to accounts managed by AWS
 --     Organizations. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
-stackSet_permissionModel :: Lens.Lens' StackSet (Core.Maybe PermissionModels)
+stackSet_permissionModel :: Lens.Lens' StackSet (Prelude.Maybe PermissionModels)
 stackSet_permissionModel = Lens.lens (\StackSet' {permissionModel} -> permissionModel) (\s@StackSet' {} a -> s {permissionModel = a} :: StackSet)
 
 -- | The name of the IAM execution role used to create or update the stack
@@ -226,7 +227,7 @@ stackSet_permissionModel = Lens.lens (\StackSet' {permissionModel} -> permission
 --
 -- Use customized execution roles to control which stack resources users
 -- and groups can include in their stack sets.
-stackSet_executionRoleName :: Lens.Lens' StackSet (Core.Maybe Core.Text)
+stackSet_executionRoleName :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_executionRoleName = Lens.lens (\StackSet' {executionRoleName} -> executionRoleName) (\s@StackSet' {} a -> s {executionRoleName = a} :: StackSet)
 
 -- | The capabilities that are allowed in the stack set. Some stack set
@@ -234,14 +235,14 @@ stackSet_executionRoleName = Lens.lens (\StackSet' {executionRoleName} -> execut
 -- AWS account—for example, by creating new AWS Identity and Access
 -- Management (IAM) users. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
-stackSet_capabilities :: Lens.Lens' StackSet (Core.Maybe [Capability])
-stackSet_capabilities = Lens.lens (\StackSet' {capabilities} -> capabilities) (\s@StackSet' {} a -> s {capabilities = a} :: StackSet) Core.. Lens.mapping Lens._Coerce
+stackSet_capabilities :: Lens.Lens' StackSet (Prelude.Maybe [Capability])
+stackSet_capabilities = Lens.lens (\StackSet' {capabilities} -> capabilities) (\s@StackSet' {} a -> s {capabilities = a} :: StackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Service-managed permissions] The organization root ID or organizational
 -- unit (OU) IDs that you specified for
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
-stackSet_organizationalUnitIds :: Lens.Lens' StackSet (Core.Maybe [Core.Text])
-stackSet_organizationalUnitIds = Lens.lens (\StackSet' {organizationalUnitIds} -> organizationalUnitIds) (\s@StackSet' {} a -> s {organizationalUnitIds = a} :: StackSet) Core.. Lens.mapping Lens._Coerce
+stackSet_organizationalUnitIds :: Lens.Lens' StackSet (Prelude.Maybe [Prelude.Text])
+stackSet_organizationalUnitIds = Lens.lens (\StackSet' {organizationalUnitIds} -> organizationalUnitIds) (\s@StackSet' {} a -> s {organizationalUnitIds = a} :: StackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Number (ARN) of the IAM role used to create or
 -- update the stack set.
@@ -251,7 +252,7 @@ stackSet_organizationalUnitIds = Lens.lens (\StackSet' {organizationalUnitIds} -
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
 -- in the /AWS CloudFormation User Guide/.
-stackSet_administrationRoleARN :: Lens.Lens' StackSet (Core.Maybe Core.Text)
+stackSet_administrationRoleARN :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_administrationRoleARN = Lens.lens (\StackSet' {administrationRoleARN} -> administrationRoleARN) (\s@StackSet' {} a -> s {administrationRoleARN = a} :: StackSet)
 
 -- | Detailed information about the drift status of the stack set.
@@ -259,74 +260,74 @@ stackSet_administrationRoleARN = Lens.lens (\StackSet' {administrationRoleARN} -
 -- For stack sets, contains information about the last /completed/ drift
 -- operation performed on the stack set. Information about drift operations
 -- currently in progress is not included.
-stackSet_stackSetDriftDetectionDetails :: Lens.Lens' StackSet (Core.Maybe StackSetDriftDetectionDetails)
+stackSet_stackSetDriftDetectionDetails :: Lens.Lens' StackSet (Prelude.Maybe StackSetDriftDetectionDetails)
 stackSet_stackSetDriftDetectionDetails = Lens.lens (\StackSet' {stackSetDriftDetectionDetails} -> stackSetDriftDetectionDetails) (\s@StackSet' {} a -> s {stackSetDriftDetectionDetails = a} :: StackSet)
 
 -- | The ID of the stack set.
-stackSet_stackSetId :: Lens.Lens' StackSet (Core.Maybe Core.Text)
+stackSet_stackSetId :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_stackSetId = Lens.lens (\StackSet' {stackSetId} -> stackSetId) (\s@StackSet' {} a -> s {stackSetId = a} :: StackSet)
 
 -- | A list of tags that specify information about the stack set. A maximum
 -- number of 50 tags can be specified.
-stackSet_tags :: Lens.Lens' StackSet (Core.Maybe [Tag])
-stackSet_tags = Lens.lens (\StackSet' {tags} -> tags) (\s@StackSet' {} a -> s {tags = a} :: StackSet) Core.. Lens.mapping Lens._Coerce
+stackSet_tags :: Lens.Lens' StackSet (Prelude.Maybe [Tag])
+stackSet_tags = Lens.lens (\StackSet' {tags} -> tags) (\s@StackSet' {} a -> s {tags = a} :: StackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Number (ARN) of the stack set.
-stackSet_stackSetARN :: Lens.Lens' StackSet (Core.Maybe Core.Text)
+stackSet_stackSetARN :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_stackSetARN = Lens.lens (\StackSet' {stackSetARN} -> stackSetARN) (\s@StackSet' {} a -> s {stackSetARN = a} :: StackSet)
 
 -- | [Service-managed permissions] Describes whether StackSets automatically
 -- deploys to AWS Organizations accounts that are added to a target
 -- organization or organizational unit (OU).
-stackSet_autoDeployment :: Lens.Lens' StackSet (Core.Maybe AutoDeployment)
+stackSet_autoDeployment :: Lens.Lens' StackSet (Prelude.Maybe AutoDeployment)
 stackSet_autoDeployment = Lens.lens (\StackSet' {autoDeployment} -> autoDeployment) (\s@StackSet' {} a -> s {autoDeployment = a} :: StackSet)
 
 -- | A description of the stack set that you specify when the stack set is
 -- created or updated.
-stackSet_description :: Lens.Lens' StackSet (Core.Maybe Core.Text)
+stackSet_description :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_description = Lens.lens (\StackSet' {description} -> description) (\s@StackSet' {} a -> s {description = a} :: StackSet)
 
 -- | The name that\'s associated with the stack set.
-stackSet_stackSetName :: Lens.Lens' StackSet (Core.Maybe Core.Text)
+stackSet_stackSetName :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_stackSetName = Lens.lens (\StackSet' {stackSetName} -> stackSetName) (\s@StackSet' {} a -> s {stackSetName = a} :: StackSet)
 
 -- | The structure that contains the body of the template that was used to
 -- create or update the stack set.
-stackSet_templateBody :: Lens.Lens' StackSet (Core.Maybe Core.Text)
+stackSet_templateBody :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_templateBody = Lens.lens (\StackSet' {templateBody} -> templateBody) (\s@StackSet' {} a -> s {templateBody = a} :: StackSet)
 
 -- | A list of input parameters for a stack set.
-stackSet_parameters :: Lens.Lens' StackSet (Core.Maybe [Parameter])
-stackSet_parameters = Lens.lens (\StackSet' {parameters} -> parameters) (\s@StackSet' {} a -> s {parameters = a} :: StackSet) Core.. Lens.mapping Lens._Coerce
+stackSet_parameters :: Lens.Lens' StackSet (Prelude.Maybe [Parameter])
+stackSet_parameters = Lens.lens (\StackSet' {parameters} -> parameters) (\s@StackSet' {} a -> s {parameters = a} :: StackSet) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML StackSet where
   parseXML x =
     StackSet'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "PermissionModel")
-      Core.<*> (x Core..@? "ExecutionRoleName")
-      Core.<*> ( x Core..@? "Capabilities" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> ( x Core..@? "OrganizationalUnitIds"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "AdministrationRoleARN")
-      Core.<*> (x Core..@? "StackSetDriftDetectionDetails")
-      Core.<*> (x Core..@? "StackSetId")
-      Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "StackSetARN")
-      Core.<*> (x Core..@? "AutoDeployment")
-      Core.<*> (x Core..@? "Description")
-      Core.<*> (x Core..@? "StackSetName")
-      Core.<*> (x Core..@? "TemplateBody")
-      Core.<*> ( x Core..@? "Parameters" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "PermissionModel")
+      Prelude.<*> (x Core..@? "ExecutionRoleName")
+      Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> ( x Core..@? "OrganizationalUnitIds"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "AdministrationRoleARN")
+      Prelude.<*> (x Core..@? "StackSetDriftDetectionDetails")
+      Prelude.<*> (x Core..@? "StackSetId")
+      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "StackSetARN")
+      Prelude.<*> (x Core..@? "AutoDeployment")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "StackSetName")
+      Prelude.<*> (x Core..@? "TemplateBody")
+      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable StackSet
+instance Prelude.Hashable StackSet
 
-instance Core.NFData StackSet
+instance Prelude.NFData StackSet

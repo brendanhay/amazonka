@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,24 +63,24 @@ import qualified Network.AWS.Response as Response
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
   { -- | The name of the configuration template whose configuration options you
     -- want to describe.
-    templateName :: Core.Maybe Core.Text,
+    templateName :: Prelude.Maybe Prelude.Text,
     -- | If specified, restricts the descriptions to only the specified options.
-    options :: Core.Maybe [OptionSpecification],
+    options :: Prelude.Maybe [OptionSpecification],
     -- | The name of the solution stack whose configuration options you want to
     -- describe.
-    solutionStackName :: Core.Maybe Core.Text,
+    solutionStackName :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment whose configuration options you want to
     -- describe.
-    environmentName :: Core.Maybe Core.Text,
+    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the custom platform.
-    platformArn :: Core.Maybe Core.Text,
+    platformArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the application associated with the configuration template
     -- or environment. Only needed if you want to describe the configuration
     -- options associated with either the configuration template or
     -- environment.
-    applicationName :: Core.Maybe Core.Text
+    applicationName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConfigurationOptions' with all optional fields omitted.
@@ -111,42 +112,42 @@ newDescribeConfigurationOptions ::
 newDescribeConfigurationOptions =
   DescribeConfigurationOptions'
     { templateName =
-        Core.Nothing,
-      options = Core.Nothing,
-      solutionStackName = Core.Nothing,
-      environmentName = Core.Nothing,
-      platformArn = Core.Nothing,
-      applicationName = Core.Nothing
+        Prelude.Nothing,
+      options = Prelude.Nothing,
+      solutionStackName = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
+      platformArn = Prelude.Nothing,
+      applicationName = Prelude.Nothing
     }
 
 -- | The name of the configuration template whose configuration options you
 -- want to describe.
-describeConfigurationOptions_templateName :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Core.Text)
+describeConfigurationOptions_templateName :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeConfigurationOptions_templateName = Lens.lens (\DescribeConfigurationOptions' {templateName} -> templateName) (\s@DescribeConfigurationOptions' {} a -> s {templateName = a} :: DescribeConfigurationOptions)
 
 -- | If specified, restricts the descriptions to only the specified options.
-describeConfigurationOptions_options :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe [OptionSpecification])
-describeConfigurationOptions_options = Lens.lens (\DescribeConfigurationOptions' {options} -> options) (\s@DescribeConfigurationOptions' {} a -> s {options = a} :: DescribeConfigurationOptions) Core.. Lens.mapping Lens._Coerce
+describeConfigurationOptions_options :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe [OptionSpecification])
+describeConfigurationOptions_options = Lens.lens (\DescribeConfigurationOptions' {options} -> options) (\s@DescribeConfigurationOptions' {} a -> s {options = a} :: DescribeConfigurationOptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
-describeConfigurationOptions_solutionStackName :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Core.Text)
+describeConfigurationOptions_solutionStackName :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeConfigurationOptions_solutionStackName = Lens.lens (\DescribeConfigurationOptions' {solutionStackName} -> solutionStackName) (\s@DescribeConfigurationOptions' {} a -> s {solutionStackName = a} :: DescribeConfigurationOptions)
 
 -- | The name of the environment whose configuration options you want to
 -- describe.
-describeConfigurationOptions_environmentName :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Core.Text)
+describeConfigurationOptions_environmentName :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeConfigurationOptions_environmentName = Lens.lens (\DescribeConfigurationOptions' {environmentName} -> environmentName) (\s@DescribeConfigurationOptions' {} a -> s {environmentName = a} :: DescribeConfigurationOptions)
 
 -- | The ARN of the custom platform.
-describeConfigurationOptions_platformArn :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Core.Text)
+describeConfigurationOptions_platformArn :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeConfigurationOptions_platformArn = Lens.lens (\DescribeConfigurationOptions' {platformArn} -> platformArn) (\s@DescribeConfigurationOptions' {} a -> s {platformArn = a} :: DescribeConfigurationOptions)
 
 -- | The name of the application associated with the configuration template
 -- or environment. Only needed if you want to describe the configuration
 -- options associated with either the configuration template or
 -- environment.
-describeConfigurationOptions_applicationName :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Core.Text)
+describeConfigurationOptions_applicationName :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeConfigurationOptions_applicationName = Lens.lens (\DescribeConfigurationOptions' {applicationName} -> applicationName) (\s@DescribeConfigurationOptions' {} a -> s {applicationName = a} :: DescribeConfigurationOptions)
 
 instance Core.AWSRequest DescribeConfigurationOptions where
@@ -159,34 +160,39 @@ instance Core.AWSRequest DescribeConfigurationOptions where
       "DescribeConfigurationOptionsResult"
       ( \s h x ->
           DescribeConfigurationOptionsResponse'
-            Core.<$> ( x Core..@? "Options" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "SolutionStackName")
-            Core.<*> (x Core..@? "PlatformArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Options" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "SolutionStackName")
+            Prelude.<*> (x Core..@? "PlatformArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeConfigurationOptions
+instance
+  Prelude.Hashable
+    DescribeConfigurationOptions
 
-instance Core.NFData DescribeConfigurationOptions
+instance Prelude.NFData DescribeConfigurationOptions
 
 instance Core.ToHeaders DescribeConfigurationOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeConfigurationOptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeConfigurationOptions where
   toQuery DescribeConfigurationOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeConfigurationOptions" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ( "DescribeConfigurationOptions" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "TemplateName" Core.=: templateName,
         "Options"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> options),
+            (Core.toQueryList "member" Prelude.<$> options),
         "SolutionStackName" Core.=: solutionStackName,
         "EnvironmentName" Core.=: environmentName,
         "PlatformArn" Core.=: platformArn,
@@ -198,15 +204,15 @@ instance Core.ToQuery DescribeConfigurationOptions where
 -- /See:/ 'newDescribeConfigurationOptionsResponse' smart constructor.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
   { -- | A list of ConfigurationOptionDescription.
-    options :: Core.Maybe [ConfigurationOptionDescription],
+    options :: Prelude.Maybe [ConfigurationOptionDescription],
     -- | The name of the solution stack these configuration options belong to.
-    solutionStackName :: Core.Maybe Core.Text,
+    solutionStackName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the platform version.
-    platformArn :: Core.Maybe Core.Text,
+    platformArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConfigurationOptionsResponse' with all optional fields omitted.
@@ -225,33 +231,33 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
 -- 'httpStatus', 'describeConfigurationOptionsResponse_httpStatus' - The response's http status code.
 newDescribeConfigurationOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeConfigurationOptionsResponse
 newDescribeConfigurationOptionsResponse pHttpStatus_ =
   DescribeConfigurationOptionsResponse'
     { options =
-        Core.Nothing,
-      solutionStackName = Core.Nothing,
-      platformArn = Core.Nothing,
+        Prelude.Nothing,
+      solutionStackName = Prelude.Nothing,
+      platformArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of ConfigurationOptionDescription.
-describeConfigurationOptionsResponse_options :: Lens.Lens' DescribeConfigurationOptionsResponse (Core.Maybe [ConfigurationOptionDescription])
-describeConfigurationOptionsResponse_options = Lens.lens (\DescribeConfigurationOptionsResponse' {options} -> options) (\s@DescribeConfigurationOptionsResponse' {} a -> s {options = a} :: DescribeConfigurationOptionsResponse) Core.. Lens.mapping Lens._Coerce
+describeConfigurationOptionsResponse_options :: Lens.Lens' DescribeConfigurationOptionsResponse (Prelude.Maybe [ConfigurationOptionDescription])
+describeConfigurationOptionsResponse_options = Lens.lens (\DescribeConfigurationOptionsResponse' {options} -> options) (\s@DescribeConfigurationOptionsResponse' {} a -> s {options = a} :: DescribeConfigurationOptionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the solution stack these configuration options belong to.
-describeConfigurationOptionsResponse_solutionStackName :: Lens.Lens' DescribeConfigurationOptionsResponse (Core.Maybe Core.Text)
+describeConfigurationOptionsResponse_solutionStackName :: Lens.Lens' DescribeConfigurationOptionsResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationOptionsResponse_solutionStackName = Lens.lens (\DescribeConfigurationOptionsResponse' {solutionStackName} -> solutionStackName) (\s@DescribeConfigurationOptionsResponse' {} a -> s {solutionStackName = a} :: DescribeConfigurationOptionsResponse)
 
 -- | The ARN of the platform version.
-describeConfigurationOptionsResponse_platformArn :: Lens.Lens' DescribeConfigurationOptionsResponse (Core.Maybe Core.Text)
+describeConfigurationOptionsResponse_platformArn :: Lens.Lens' DescribeConfigurationOptionsResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationOptionsResponse_platformArn = Lens.lens (\DescribeConfigurationOptionsResponse' {platformArn} -> platformArn) (\s@DescribeConfigurationOptionsResponse' {} a -> s {platformArn = a} :: DescribeConfigurationOptionsResponse)
 
 -- | The response's http status code.
-describeConfigurationOptionsResponse_httpStatus :: Lens.Lens' DescribeConfigurationOptionsResponse Core.Int
+describeConfigurationOptionsResponse_httpStatus :: Lens.Lens' DescribeConfigurationOptionsResponse Prelude.Int
 describeConfigurationOptionsResponse_httpStatus = Lens.lens (\DescribeConfigurationOptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeConfigurationOptionsResponse' {} a -> s {httpStatus = a} :: DescribeConfigurationOptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeConfigurationOptionsResponse

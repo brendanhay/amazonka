@@ -38,15 +38,16 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRetentionConfiguration' smart constructor.
 data DeleteRetentionConfiguration = DeleteRetentionConfiguration'
   { -- | The name of the retention configuration to delete.
-    retentionConfigurationName :: Core.Text
+    retentionConfigurationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRetentionConfiguration' with all optional fields omitted.
@@ -59,7 +60,7 @@ data DeleteRetentionConfiguration = DeleteRetentionConfiguration'
 -- 'retentionConfigurationName', 'deleteRetentionConfiguration_retentionConfigurationName' - The name of the retention configuration to delete.
 newDeleteRetentionConfiguration ::
   -- | 'retentionConfigurationName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRetentionConfiguration
 newDeleteRetentionConfiguration
   pRetentionConfigurationName_ =
@@ -69,7 +70,7 @@ newDeleteRetentionConfiguration
       }
 
 -- | The name of the retention configuration to delete.
-deleteRetentionConfiguration_retentionConfigurationName :: Lens.Lens' DeleteRetentionConfiguration Core.Text
+deleteRetentionConfiguration_retentionConfigurationName :: Lens.Lens' DeleteRetentionConfiguration Prelude.Text
 deleteRetentionConfiguration_retentionConfigurationName = Lens.lens (\DeleteRetentionConfiguration' {retentionConfigurationName} -> retentionConfigurationName) (\s@DeleteRetentionConfiguration' {} a -> s {retentionConfigurationName = a} :: DeleteRetentionConfiguration)
 
 instance Core.AWSRequest DeleteRetentionConfiguration where
@@ -81,28 +82,32 @@ instance Core.AWSRequest DeleteRetentionConfiguration where
     Response.receiveNull
       DeleteRetentionConfigurationResponse'
 
-instance Core.Hashable DeleteRetentionConfiguration
+instance
+  Prelude.Hashable
+    DeleteRetentionConfiguration
 
-instance Core.NFData DeleteRetentionConfiguration
+instance Prelude.NFData DeleteRetentionConfiguration
 
 instance Core.ToHeaders DeleteRetentionConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteRetentionConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRetentionConfiguration where
   toJSON DeleteRetentionConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "RetentionConfigurationName"
                   Core..= retentionConfigurationName
               )
@@ -110,16 +115,16 @@ instance Core.ToJSON DeleteRetentionConfiguration where
       )
 
 instance Core.ToPath DeleteRetentionConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRetentionConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRetentionConfigurationResponse' smart constructor.
 data DeleteRetentionConfigurationResponse = DeleteRetentionConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRetentionConfigurationResponse' with all optional fields omitted.
@@ -131,5 +136,5 @@ newDeleteRetentionConfigurationResponse =
   DeleteRetentionConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteRetentionConfigurationResponse

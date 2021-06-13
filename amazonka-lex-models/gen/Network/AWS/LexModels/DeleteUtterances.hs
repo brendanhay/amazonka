@@ -53,22 +53,23 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUtterances' smart constructor.
 data DeleteUtterances = DeleteUtterances'
   { -- | The name of the bot that stored the utterances.
-    botName :: Core.Text,
+    botName :: Prelude.Text,
     -- | The unique identifier for the user that made the utterances. This is the
     -- user ID that was sent in the
     -- <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent>
     -- or
     -- <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText>
     -- operation request that contained the utterance.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUtterances' with all optional fields omitted.
@@ -88,9 +89,9 @@ data DeleteUtterances = DeleteUtterances'
 -- operation request that contained the utterance.
 newDeleteUtterances ::
   -- | 'botName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUtterances
 newDeleteUtterances pBotName_ pUserId_ =
   DeleteUtterances'
@@ -99,7 +100,7 @@ newDeleteUtterances pBotName_ pUserId_ =
     }
 
 -- | The name of the bot that stored the utterances.
-deleteUtterances_botName :: Lens.Lens' DeleteUtterances Core.Text
+deleteUtterances_botName :: Lens.Lens' DeleteUtterances Prelude.Text
 deleteUtterances_botName = Lens.lens (\DeleteUtterances' {botName} -> botName) (\s@DeleteUtterances' {} a -> s {botName = a} :: DeleteUtterances)
 
 -- | The unique identifier for the user that made the utterances. This is the
@@ -108,7 +109,7 @@ deleteUtterances_botName = Lens.lens (\DeleteUtterances' {botName} -> botName) (
 -- or
 -- <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText>
 -- operation request that contained the utterance.
-deleteUtterances_userId :: Lens.Lens' DeleteUtterances Core.Text
+deleteUtterances_userId :: Lens.Lens' DeleteUtterances Prelude.Text
 deleteUtterances_userId = Lens.lens (\DeleteUtterances' {userId} -> userId) (\s@DeleteUtterances' {} a -> s {userId = a} :: DeleteUtterances)
 
 instance Core.AWSRequest DeleteUtterances where
@@ -119,22 +120,24 @@ instance Core.AWSRequest DeleteUtterances where
   response =
     Response.receiveNull DeleteUtterancesResponse'
 
-instance Core.Hashable DeleteUtterances
+instance Prelude.Hashable DeleteUtterances
 
-instance Core.NFData DeleteUtterances
+instance Prelude.NFData DeleteUtterances
 
 instance Core.ToHeaders DeleteUtterances where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteUtterances where
   toPath DeleteUtterances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/bots/",
         Core.toBS botName,
         "/utterances/",
@@ -142,13 +145,13 @@ instance Core.ToPath DeleteUtterances where
       ]
 
 instance Core.ToQuery DeleteUtterances where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUtterancesResponse' smart constructor.
 data DeleteUtterancesResponse = DeleteUtterancesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUtterancesResponse' with all optional fields omitted.
@@ -159,4 +162,4 @@ newDeleteUtterancesResponse ::
 newDeleteUtterancesResponse =
   DeleteUtterancesResponse'
 
-instance Core.NFData DeleteUtterancesResponse
+instance Prelude.NFData DeleteUtterancesResponse

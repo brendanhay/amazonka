@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -53,11 +54,11 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
   { -- | The organization that contains the user to be deleted.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The identifier of the user to be deleted.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DeleteUser = DeleteUser'
 -- 'userId', 'deleteUser_userId' - The identifier of the user to be deleted.
 newDeleteUser ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUser
 newDeleteUser pOrganizationId_ pUserId_ =
   DeleteUser'
@@ -83,11 +84,11 @@ newDeleteUser pOrganizationId_ pUserId_ =
     }
 
 -- | The organization that contains the user to be deleted.
-deleteUser_organizationId :: Lens.Lens' DeleteUser Core.Text
+deleteUser_organizationId :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_organizationId = Lens.lens (\DeleteUser' {organizationId} -> organizationId) (\s@DeleteUser' {} a -> s {organizationId = a} :: DeleteUser)
 
 -- | The identifier of the user to be deleted.
-deleteUser_userId :: Lens.Lens' DeleteUser Core.Text
+deleteUser_userId :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_userId = Lens.lens (\DeleteUser' {userId} -> userId) (\s@DeleteUser' {} a -> s {userId = a} :: DeleteUser)
 
 instance Core.AWSRequest DeleteUser where
@@ -97,45 +98,48 @@ instance Core.AWSRequest DeleteUser where
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser
 
-instance Core.NFData DeleteUser
+instance Prelude.NFData DeleteUser
 
 instance Core.ToHeaders DeleteUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("WorkMailService.DeleteUser" :: Core.ByteString),
+              Core.=# ("WorkMailService.DeleteUser" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUser where
   toJSON DeleteUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("UserId" Core..= userId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("UserId" Core..= userId)
           ]
       )
 
 instance Core.ToPath DeleteUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserResponse' with all optional fields omitted.
@@ -148,13 +152,13 @@ data DeleteUserResponse = DeleteUserResponse'
 -- 'httpStatus', 'deleteUserResponse_httpStatus' - The response's http status code.
 newDeleteUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteUserResponse
 newDeleteUserResponse pHttpStatus_ =
   DeleteUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Core.Int
+deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Prelude.Int
 deleteUserResponse_httpStatus = Lens.lens (\DeleteUserResponse' {httpStatus} -> httpStatus) (\s@DeleteUserResponse' {} a -> s {httpStatus = a} :: DeleteUserResponse)
 
-instance Core.NFData DeleteUserResponse
+instance Prelude.NFData DeleteUserResponse

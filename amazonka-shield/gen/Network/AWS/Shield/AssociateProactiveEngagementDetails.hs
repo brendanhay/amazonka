@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -74,7 +75,7 @@ data AssociateProactiveEngagementDetails = AssociateProactiveEngagementDetails'
     -- then provide it here.
     emergencyContactList :: [EmergencyContact]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateProactiveEngagementDetails' with all optional fields omitted.
@@ -100,7 +101,7 @@ newAssociateProactiveEngagementDetails ::
 newAssociateProactiveEngagementDetails =
   AssociateProactiveEngagementDetails'
     { emergencyContactList =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of email addresses and phone numbers that the DDoS Response Team
@@ -115,7 +116,7 @@ newAssociateProactiveEngagementDetails =
 -- them, retrieve the list using @DescribeEmergencyContactSettings@ and
 -- then provide it here.
 associateProactiveEngagementDetails_emergencyContactList :: Lens.Lens' AssociateProactiveEngagementDetails [EmergencyContact]
-associateProactiveEngagementDetails_emergencyContactList = Lens.lens (\AssociateProactiveEngagementDetails' {emergencyContactList} -> emergencyContactList) (\s@AssociateProactiveEngagementDetails' {} a -> s {emergencyContactList = a} :: AssociateProactiveEngagementDetails) Core.. Lens._Coerce
+associateProactiveEngagementDetails_emergencyContactList = Lens.lens (\AssociateProactiveEngagementDetails' {emergencyContactList} -> emergencyContactList) (\s@AssociateProactiveEngagementDetails' {} a -> s {emergencyContactList = a} :: AssociateProactiveEngagementDetails) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -129,15 +130,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           AssociateProactiveEngagementDetailsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AssociateProactiveEngagementDetails
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateProactiveEngagementDetails
 
 instance
@@ -145,14 +146,16 @@ instance
     AssociateProactiveEngagementDetails
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.AssociateProactiveEngagementDetails" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -162,8 +165,8 @@ instance
   where
   toJSON AssociateProactiveEngagementDetails' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "EmergencyContactList"
                   Core..= emergencyContactList
               )
@@ -174,20 +177,20 @@ instance
   Core.ToPath
     AssociateProactiveEngagementDetails
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AssociateProactiveEngagementDetails
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateProactiveEngagementDetailsResponse' smart constructor.
 data AssociateProactiveEngagementDetailsResponse = AssociateProactiveEngagementDetailsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateProactiveEngagementDetailsResponse' with all optional fields omitted.
@@ -200,7 +203,7 @@ data AssociateProactiveEngagementDetailsResponse = AssociateProactiveEngagementD
 -- 'httpStatus', 'associateProactiveEngagementDetailsResponse_httpStatus' - The response's http status code.
 newAssociateProactiveEngagementDetailsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateProactiveEngagementDetailsResponse
 newAssociateProactiveEngagementDetailsResponse
   pHttpStatus_ =
@@ -210,9 +213,9 @@ newAssociateProactiveEngagementDetailsResponse
       }
 
 -- | The response's http status code.
-associateProactiveEngagementDetailsResponse_httpStatus :: Lens.Lens' AssociateProactiveEngagementDetailsResponse Core.Int
+associateProactiveEngagementDetailsResponse_httpStatus :: Lens.Lens' AssociateProactiveEngagementDetailsResponse Prelude.Int
 associateProactiveEngagementDetailsResponse_httpStatus = Lens.lens (\AssociateProactiveEngagementDetailsResponse' {httpStatus} -> httpStatus) (\s@AssociateProactiveEngagementDetailsResponse' {} a -> s {httpStatus = a} :: AssociateProactiveEngagementDetailsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateProactiveEngagementDetailsResponse

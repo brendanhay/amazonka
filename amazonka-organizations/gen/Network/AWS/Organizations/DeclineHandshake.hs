@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +63,9 @@ data DeclineHandshake = DeclineHandshake'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    handshakeId :: Core.Text
+    handshakeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeclineHandshake' with all optional fields omitted.
@@ -82,7 +83,7 @@ data DeclineHandshake = DeclineHandshake'
 -- digits.
 newDeclineHandshake ::
   -- | 'handshakeId'
-  Core.Text ->
+  Prelude.Text ->
   DeclineHandshake
 newDeclineHandshake pHandshakeId_ =
   DeclineHandshake' {handshakeId = pHandshakeId_}
@@ -93,7 +94,7 @@ newDeclineHandshake pHandshakeId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-declineHandshake_handshakeId :: Lens.Lens' DeclineHandshake Core.Text
+declineHandshake_handshakeId :: Lens.Lens' DeclineHandshake Prelude.Text
 declineHandshake_handshakeId = Lens.lens (\DeclineHandshake' {handshakeId} -> handshakeId) (\s@DeclineHandshake' {} a -> s {handshakeId = a} :: DeclineHandshake)
 
 instance Core.AWSRequest DeclineHandshake where
@@ -105,49 +106,51 @@ instance Core.AWSRequest DeclineHandshake where
     Response.receiveJSON
       ( \s h x ->
           DeclineHandshakeResponse'
-            Core.<$> (x Core..?> "Handshake")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Handshake")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeclineHandshake
+instance Prelude.Hashable DeclineHandshake
 
-instance Core.NFData DeclineHandshake
+instance Prelude.NFData DeclineHandshake
 
 instance Core.ToHeaders DeclineHandshake where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.DeclineHandshake" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeclineHandshake where
   toJSON DeclineHandshake' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("HandshakeId" Core..= handshakeId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("HandshakeId" Core..= handshakeId)]
       )
 
 instance Core.ToPath DeclineHandshake where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeclineHandshake where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeclineHandshakeResponse' smart constructor.
 data DeclineHandshakeResponse = DeclineHandshakeResponse'
   { -- | A structure that contains details about the declined handshake. The
     -- state is updated to show the value @DECLINED@.
-    handshake :: Core.Maybe Handshake,
+    handshake :: Prelude.Maybe Handshake,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeclineHandshakeResponse' with all optional fields omitted.
@@ -163,21 +166,22 @@ data DeclineHandshakeResponse = DeclineHandshakeResponse'
 -- 'httpStatus', 'declineHandshakeResponse_httpStatus' - The response's http status code.
 newDeclineHandshakeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeclineHandshakeResponse
 newDeclineHandshakeResponse pHttpStatus_ =
   DeclineHandshakeResponse'
-    { handshake = Core.Nothing,
+    { handshake =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the declined handshake. The
 -- state is updated to show the value @DECLINED@.
-declineHandshakeResponse_handshake :: Lens.Lens' DeclineHandshakeResponse (Core.Maybe Handshake)
+declineHandshakeResponse_handshake :: Lens.Lens' DeclineHandshakeResponse (Prelude.Maybe Handshake)
 declineHandshakeResponse_handshake = Lens.lens (\DeclineHandshakeResponse' {handshake} -> handshake) (\s@DeclineHandshakeResponse' {} a -> s {handshake = a} :: DeclineHandshakeResponse)
 
 -- | The response's http status code.
-declineHandshakeResponse_httpStatus :: Lens.Lens' DeclineHandshakeResponse Core.Int
+declineHandshakeResponse_httpStatus :: Lens.Lens' DeclineHandshakeResponse Prelude.Int
 declineHandshakeResponse_httpStatus = Lens.lens (\DeclineHandshakeResponse' {httpStatus} -> httpStatus) (\s@DeclineHandshakeResponse' {} a -> s {httpStatus = a} :: DeclineHandshakeResponse)
 
-instance Core.NFData DeclineHandshakeResponse
+instance Prelude.NFData DeclineHandshakeResponse

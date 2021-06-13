@@ -21,6 +21,7 @@ module Network.AWS.CodePipeline.Types.LambdaExecutorConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the configuration for the @Lambda@ action engine, or
 -- executor.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLambdaExecutorConfiguration' smart constructor.
 data LambdaExecutorConfiguration = LambdaExecutorConfiguration'
   { -- | The ARN of the Lambda function used by the action engine.
-    lambdaFunctionArn :: Core.Text
+    lambdaFunctionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaExecutorConfiguration' with all optional fields omitted.
@@ -43,7 +44,7 @@ data LambdaExecutorConfiguration = LambdaExecutorConfiguration'
 -- 'lambdaFunctionArn', 'lambdaExecutorConfiguration_lambdaFunctionArn' - The ARN of the Lambda function used by the action engine.
 newLambdaExecutorConfiguration ::
   -- | 'lambdaFunctionArn'
-  Core.Text ->
+  Prelude.Text ->
   LambdaExecutorConfiguration
 newLambdaExecutorConfiguration pLambdaFunctionArn_ =
   LambdaExecutorConfiguration'
@@ -52,7 +53,7 @@ newLambdaExecutorConfiguration pLambdaFunctionArn_ =
     }
 
 -- | The ARN of the Lambda function used by the action engine.
-lambdaExecutorConfiguration_lambdaFunctionArn :: Lens.Lens' LambdaExecutorConfiguration Core.Text
+lambdaExecutorConfiguration_lambdaFunctionArn :: Lens.Lens' LambdaExecutorConfiguration Prelude.Text
 lambdaExecutorConfiguration_lambdaFunctionArn = Lens.lens (\LambdaExecutorConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@LambdaExecutorConfiguration' {} a -> s {lambdaFunctionArn = a} :: LambdaExecutorConfiguration)
 
 instance Core.FromJSON LambdaExecutorConfiguration where
@@ -61,18 +62,18 @@ instance Core.FromJSON LambdaExecutorConfiguration where
       "LambdaExecutorConfiguration"
       ( \x ->
           LambdaExecutorConfiguration'
-            Core.<$> (x Core..: "lambdaFunctionArn")
+            Prelude.<$> (x Core..: "lambdaFunctionArn")
       )
 
-instance Core.Hashable LambdaExecutorConfiguration
+instance Prelude.Hashable LambdaExecutorConfiguration
 
-instance Core.NFData LambdaExecutorConfiguration
+instance Prelude.NFData LambdaExecutorConfiguration
 
 instance Core.ToJSON LambdaExecutorConfiguration where
   toJSON LambdaExecutorConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("lambdaFunctionArn" Core..= lambdaFunctionArn)
           ]
       )

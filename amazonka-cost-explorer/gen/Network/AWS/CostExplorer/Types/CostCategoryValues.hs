@@ -22,6 +22,7 @@ module Network.AWS.CostExplorer.Types.CostCategoryValues where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.MatchOption
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Cost Categories values used for filtering the costs.
 --
@@ -35,15 +36,15 @@ import qualified Network.AWS.Lens as Lens
 --
 -- /See:/ 'newCostCategoryValues' smart constructor.
 data CostCategoryValues = CostCategoryValues'
-  { key :: Core.Maybe Core.Text,
+  { key :: Prelude.Maybe Prelude.Text,
     -- | The specific value of the Cost Category.
-    values :: Core.Maybe [Core.Text],
+    values :: Prelude.Maybe [Prelude.Text],
     -- | The match options that you can use to filter your results. MatchOptions
     -- is only applicable for actions related to cost category. The default
     -- values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@.
-    matchOptions :: Core.Maybe [MatchOption]
+    matchOptions :: Prelude.Maybe [MatchOption]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CostCategoryValues' with all optional fields omitted.
@@ -64,24 +65,24 @@ newCostCategoryValues ::
   CostCategoryValues
 newCostCategoryValues =
   CostCategoryValues'
-    { key = Core.Nothing,
-      values = Core.Nothing,
-      matchOptions = Core.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing,
+      matchOptions = Prelude.Nothing
     }
 
 -- | Undocumented member.
-costCategoryValues_key :: Lens.Lens' CostCategoryValues (Core.Maybe Core.Text)
+costCategoryValues_key :: Lens.Lens' CostCategoryValues (Prelude.Maybe Prelude.Text)
 costCategoryValues_key = Lens.lens (\CostCategoryValues' {key} -> key) (\s@CostCategoryValues' {} a -> s {key = a} :: CostCategoryValues)
 
 -- | The specific value of the Cost Category.
-costCategoryValues_values :: Lens.Lens' CostCategoryValues (Core.Maybe [Core.Text])
-costCategoryValues_values = Lens.lens (\CostCategoryValues' {values} -> values) (\s@CostCategoryValues' {} a -> s {values = a} :: CostCategoryValues) Core.. Lens.mapping Lens._Coerce
+costCategoryValues_values :: Lens.Lens' CostCategoryValues (Prelude.Maybe [Prelude.Text])
+costCategoryValues_values = Lens.lens (\CostCategoryValues' {values} -> values) (\s@CostCategoryValues' {} a -> s {values = a} :: CostCategoryValues) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The match options that you can use to filter your results. MatchOptions
 -- is only applicable for actions related to cost category. The default
 -- values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@.
-costCategoryValues_matchOptions :: Lens.Lens' CostCategoryValues (Core.Maybe [MatchOption])
-costCategoryValues_matchOptions = Lens.lens (\CostCategoryValues' {matchOptions} -> matchOptions) (\s@CostCategoryValues' {} a -> s {matchOptions = a} :: CostCategoryValues) Core.. Lens.mapping Lens._Coerce
+costCategoryValues_matchOptions :: Lens.Lens' CostCategoryValues (Prelude.Maybe [MatchOption])
+costCategoryValues_matchOptions = Lens.lens (\CostCategoryValues' {matchOptions} -> matchOptions) (\s@CostCategoryValues' {} a -> s {matchOptions = a} :: CostCategoryValues) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON CostCategoryValues where
   parseJSON =
@@ -89,21 +90,21 @@ instance Core.FromJSON CostCategoryValues where
       "CostCategoryValues"
       ( \x ->
           CostCategoryValues'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "MatchOptions" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable CostCategoryValues
+instance Prelude.Hashable CostCategoryValues
 
-instance Core.NFData CostCategoryValues
+instance Prelude.NFData CostCategoryValues
 
 instance Core.ToJSON CostCategoryValues where
   toJSON CostCategoryValues' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Values" Core..=) Core.<$> values,
-            ("MatchOptions" Core..=) Core.<$> matchOptions
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values,
+            ("MatchOptions" Core..=) Prelude.<$> matchOptions
           ]
       )

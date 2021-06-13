@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.MultiplexGroupSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Multiplex Group Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data MultiplexGroupSettings = MultiplexGroupSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiplexGroupSettings' with all optional fields omitted.
@@ -42,11 +43,11 @@ instance Core.FromJSON MultiplexGroupSettings where
   parseJSON =
     Core.withObject
       "MultiplexGroupSettings"
-      (\x -> Core.pure MultiplexGroupSettings')
+      (\x -> Prelude.pure MultiplexGroupSettings')
 
-instance Core.Hashable MultiplexGroupSettings
+instance Prelude.Hashable MultiplexGroupSettings
 
-instance Core.NFData MultiplexGroupSettings
+instance Prelude.NFData MultiplexGroupSettings
 
 instance Core.ToJSON MultiplexGroupSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

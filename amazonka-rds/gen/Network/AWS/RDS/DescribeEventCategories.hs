@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,14 +56,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
   { -- | This parameter isn\'t currently supported.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | The type of source that is generating the events.
     --
     -- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ |
     -- @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@
-    sourceType :: Core.Maybe Core.Text
+    sourceType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventCategories' with all optional fields omitted.
@@ -82,19 +83,19 @@ newDescribeEventCategories ::
   DescribeEventCategories
 newDescribeEventCategories =
   DescribeEventCategories'
-    { filters = Core.Nothing,
-      sourceType = Core.Nothing
+    { filters = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
 
 -- | This parameter isn\'t currently supported.
-describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Core.Maybe [Filter])
-describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Core.. Lens.mapping Lens._Coerce
+describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
+describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of source that is generating the events.
 --
 -- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ |
 -- @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@
-describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Core.Maybe Core.Text)
+describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Prelude.Maybe Prelude.Text)
 describeEventCategories_sourceType = Lens.lens (\DescribeEventCategories' {sourceType} -> sourceType) (\s@DescribeEventCategories' {} a -> s {sourceType = a} :: DescribeEventCategories)
 
 instance Core.AWSRequest DescribeEventCategories where
@@ -107,32 +108,33 @@ instance Core.AWSRequest DescribeEventCategories where
       "DescribeEventCategoriesResult"
       ( \s h x ->
           DescribeEventCategoriesResponse'
-            Core.<$> ( x Core..@? "EventCategoriesMapList"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "EventCategoriesMap")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "EventCategoriesMapList"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "EventCategoriesMap")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEventCategories
+instance Prelude.Hashable DescribeEventCategories
 
-instance Core.NFData DescribeEventCategories
+instance Prelude.NFData DescribeEventCategories
 
 instance Core.ToHeaders DescribeEventCategories where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeEventCategories where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEventCategories where
   toQuery DescribeEventCategories' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEventCategories" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DescribeEventCategories" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Core.<$> filters),
+            (Core.toQueryList "Filter" Prelude.<$> filters),
         "SourceType" Core.=: sourceType
       ]
 
@@ -141,11 +143,11 @@ instance Core.ToQuery DescribeEventCategories where
 -- /See:/ 'newDescribeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
   { -- | A list of EventCategoriesMap data types.
-    eventCategoriesMapList :: Core.Maybe [EventCategoriesMap],
+    eventCategoriesMapList :: Prelude.Maybe [EventCategoriesMap],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventCategoriesResponse' with all optional fields omitted.
@@ -160,21 +162,23 @@ data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
 -- 'httpStatus', 'describeEventCategoriesResponse_httpStatus' - The response's http status code.
 newDescribeEventCategoriesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEventCategoriesResponse
 newDescribeEventCategoriesResponse pHttpStatus_ =
   DescribeEventCategoriesResponse'
     { eventCategoriesMapList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of EventCategoriesMap data types.
-describeEventCategoriesResponse_eventCategoriesMapList :: Lens.Lens' DescribeEventCategoriesResponse (Core.Maybe [EventCategoriesMap])
-describeEventCategoriesResponse_eventCategoriesMapList = Lens.lens (\DescribeEventCategoriesResponse' {eventCategoriesMapList} -> eventCategoriesMapList) (\s@DescribeEventCategoriesResponse' {} a -> s {eventCategoriesMapList = a} :: DescribeEventCategoriesResponse) Core.. Lens.mapping Lens._Coerce
+describeEventCategoriesResponse_eventCategoriesMapList :: Lens.Lens' DescribeEventCategoriesResponse (Prelude.Maybe [EventCategoriesMap])
+describeEventCategoriesResponse_eventCategoriesMapList = Lens.lens (\DescribeEventCategoriesResponse' {eventCategoriesMapList} -> eventCategoriesMapList) (\s@DescribeEventCategoriesResponse' {} a -> s {eventCategoriesMapList = a} :: DescribeEventCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventCategoriesResponse_httpStatus :: Lens.Lens' DescribeEventCategoriesResponse Core.Int
+describeEventCategoriesResponse_httpStatus :: Lens.Lens' DescribeEventCategoriesResponse Prelude.Int
 describeEventCategoriesResponse_httpStatus = Lens.lens (\DescribeEventCategoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeEventCategoriesResponse' {} a -> s {httpStatus = a} :: DescribeEventCategoriesResponse)
 
-instance Core.NFData DescribeEventCategoriesResponse
+instance
+  Prelude.NFData
+    DescribeEventCategoriesResponse

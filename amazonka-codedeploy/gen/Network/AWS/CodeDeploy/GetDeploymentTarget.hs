@@ -43,17 +43,18 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDeploymentTarget' smart constructor.
 data GetDeploymentTarget = GetDeploymentTarget'
   { -- | The unique ID of a deployment.
-    deploymentId :: Core.Maybe Core.Text,
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of a deployment target.
-    targetId :: Core.Maybe Core.Text
+    targetId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeploymentTarget' with all optional fields omitted.
@@ -70,16 +71,17 @@ newGetDeploymentTarget ::
   GetDeploymentTarget
 newGetDeploymentTarget =
   GetDeploymentTarget'
-    { deploymentId = Core.Nothing,
-      targetId = Core.Nothing
+    { deploymentId =
+        Prelude.Nothing,
+      targetId = Prelude.Nothing
     }
 
 -- | The unique ID of a deployment.
-getDeploymentTarget_deploymentId :: Lens.Lens' GetDeploymentTarget (Core.Maybe Core.Text)
+getDeploymentTarget_deploymentId :: Lens.Lens' GetDeploymentTarget (Prelude.Maybe Prelude.Text)
 getDeploymentTarget_deploymentId = Lens.lens (\GetDeploymentTarget' {deploymentId} -> deploymentId) (\s@GetDeploymentTarget' {} a -> s {deploymentId = a} :: GetDeploymentTarget)
 
 -- | The unique ID of a deployment target.
-getDeploymentTarget_targetId :: Lens.Lens' GetDeploymentTarget (Core.Maybe Core.Text)
+getDeploymentTarget_targetId :: Lens.Lens' GetDeploymentTarget (Prelude.Maybe Prelude.Text)
 getDeploymentTarget_targetId = Lens.lens (\GetDeploymentTarget' {targetId} -> targetId) (\s@GetDeploymentTarget' {} a -> s {targetId = a} :: GetDeploymentTarget)
 
 instance Core.AWSRequest GetDeploymentTarget where
@@ -91,41 +93,43 @@ instance Core.AWSRequest GetDeploymentTarget where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentTargetResponse'
-            Core.<$> (x Core..?> "deploymentTarget")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "deploymentTarget")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDeploymentTarget
+instance Prelude.Hashable GetDeploymentTarget
 
-instance Core.NFData GetDeploymentTarget
+instance Prelude.NFData GetDeploymentTarget
 
 instance Core.ToHeaders GetDeploymentTarget where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.GetDeploymentTarget" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDeploymentTarget where
   toJSON GetDeploymentTarget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("deploymentId" Core..=) Core.<$> deploymentId,
-            ("targetId" Core..=) Core.<$> targetId
+      ( Prelude.catMaybes
+          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
+            ("targetId" Core..=) Prelude.<$> targetId
           ]
       )
 
 instance Core.ToPath GetDeploymentTarget where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDeploymentTarget where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeploymentTargetResponse' smart constructor.
 data GetDeploymentTargetResponse = GetDeploymentTargetResponse'
@@ -134,11 +138,11 @@ data GetDeploymentTargetResponse = GetDeploymentTargetResponse'
     -- contains metadata about the deployment target. The deployment target
     -- metadata depends on the deployment target\'s type (@instanceTarget@,
     -- @lambdaTarget@, or @ecsTarget@).
-    deploymentTarget :: Core.Maybe DeploymentTarget,
+    deploymentTarget :: Prelude.Maybe DeploymentTarget,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeploymentTargetResponse' with all optional fields omitted.
@@ -157,12 +161,12 @@ data GetDeploymentTargetResponse = GetDeploymentTargetResponse'
 -- 'httpStatus', 'getDeploymentTargetResponse_httpStatus' - The response's http status code.
 newGetDeploymentTargetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDeploymentTargetResponse
 newGetDeploymentTargetResponse pHttpStatus_ =
   GetDeploymentTargetResponse'
     { deploymentTarget =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -171,11 +175,11 @@ newGetDeploymentTargetResponse pHttpStatus_ =
 -- contains metadata about the deployment target. The deployment target
 -- metadata depends on the deployment target\'s type (@instanceTarget@,
 -- @lambdaTarget@, or @ecsTarget@).
-getDeploymentTargetResponse_deploymentTarget :: Lens.Lens' GetDeploymentTargetResponse (Core.Maybe DeploymentTarget)
+getDeploymentTargetResponse_deploymentTarget :: Lens.Lens' GetDeploymentTargetResponse (Prelude.Maybe DeploymentTarget)
 getDeploymentTargetResponse_deploymentTarget = Lens.lens (\GetDeploymentTargetResponse' {deploymentTarget} -> deploymentTarget) (\s@GetDeploymentTargetResponse' {} a -> s {deploymentTarget = a} :: GetDeploymentTargetResponse)
 
 -- | The response's http status code.
-getDeploymentTargetResponse_httpStatus :: Lens.Lens' GetDeploymentTargetResponse Core.Int
+getDeploymentTargetResponse_httpStatus :: Lens.Lens' GetDeploymentTargetResponse Prelude.Int
 getDeploymentTargetResponse_httpStatus = Lens.lens (\GetDeploymentTargetResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentTargetResponse' {} a -> s {httpStatus = a} :: GetDeploymentTargetResponse)
 
-instance Core.NFData GetDeploymentTargetResponse
+instance Prelude.NFData GetDeploymentTargetResponse

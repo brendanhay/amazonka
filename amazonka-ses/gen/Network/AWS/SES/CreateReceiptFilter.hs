@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -61,7 +62,7 @@ data CreateReceiptFilter = CreateReceiptFilter'
     -- mail from it.
     filter' :: ReceiptFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReceiptFilter' with all optional fields omitted.
@@ -97,25 +98,26 @@ instance Core.AWSRequest CreateReceiptFilter where
       "CreateReceiptFilterResult"
       ( \s h x ->
           CreateReceiptFilterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateReceiptFilter
+instance Prelude.Hashable CreateReceiptFilter
 
-instance Core.NFData CreateReceiptFilter
+instance Prelude.NFData CreateReceiptFilter
 
 instance Core.ToHeaders CreateReceiptFilter where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateReceiptFilter where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateReceiptFilter where
   toQuery CreateReceiptFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateReceiptFilter" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("CreateReceiptFilter" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Filter" Core.=: filter'
       ]
 
@@ -124,9 +126,9 @@ instance Core.ToQuery CreateReceiptFilter where
 -- /See:/ 'newCreateReceiptFilterResponse' smart constructor.
 data CreateReceiptFilterResponse = CreateReceiptFilterResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReceiptFilterResponse' with all optional fields omitted.
@@ -139,7 +141,7 @@ data CreateReceiptFilterResponse = CreateReceiptFilterResponse'
 -- 'httpStatus', 'createReceiptFilterResponse_httpStatus' - The response's http status code.
 newCreateReceiptFilterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateReceiptFilterResponse
 newCreateReceiptFilterResponse pHttpStatus_ =
   CreateReceiptFilterResponse'
@@ -148,7 +150,7 @@ newCreateReceiptFilterResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createReceiptFilterResponse_httpStatus :: Lens.Lens' CreateReceiptFilterResponse Core.Int
+createReceiptFilterResponse_httpStatus :: Lens.Lens' CreateReceiptFilterResponse Prelude.Int
 createReceiptFilterResponse_httpStatus = Lens.lens (\CreateReceiptFilterResponse' {httpStatus} -> httpStatus) (\s@CreateReceiptFilterResponse' {} a -> s {httpStatus = a} :: CreateReceiptFilterResponse)
 
-instance Core.NFData CreateReceiptFilterResponse
+instance Prelude.NFData CreateReceiptFilterResponse

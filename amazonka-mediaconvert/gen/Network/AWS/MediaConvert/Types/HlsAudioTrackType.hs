@@ -29,6 +29,7 @@ module Network.AWS.MediaConvert.Types.HlsAudioTrackType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream
 -- The client can play back this audio-only stream instead of video in
@@ -47,15 +48,15 @@ newtype HlsAudioTrackType = HlsAudioTrackType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

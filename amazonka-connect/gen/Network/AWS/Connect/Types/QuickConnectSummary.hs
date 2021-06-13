@@ -22,6 +22,7 @@ module Network.AWS.Connect.Types.QuickConnectSummary where
 import Network.AWS.Connect.Types.QuickConnectType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about a quick connect.
 --
@@ -30,15 +31,15 @@ data QuickConnectSummary = QuickConnectSummary'
   { -- | The type of quick connect. In the Amazon Connect console, when you
     -- create a quick connect, you are prompted to assign one of the following
     -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
-    quickConnectType :: Core.Maybe QuickConnectType,
+    quickConnectType :: Prelude.Maybe QuickConnectType,
     -- | The Amazon Resource Name (ARN) of the quick connect.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the quick connect.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the quick connect.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QuickConnectSummary' with all optional fields omitted.
@@ -62,28 +63,28 @@ newQuickConnectSummary ::
 newQuickConnectSummary =
   QuickConnectSummary'
     { quickConnectType =
-        Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The type of quick connect. In the Amazon Connect console, when you
 -- create a quick connect, you are prompted to assign one of the following
 -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
-quickConnectSummary_quickConnectType :: Lens.Lens' QuickConnectSummary (Core.Maybe QuickConnectType)
+quickConnectSummary_quickConnectType :: Lens.Lens' QuickConnectSummary (Prelude.Maybe QuickConnectType)
 quickConnectSummary_quickConnectType = Lens.lens (\QuickConnectSummary' {quickConnectType} -> quickConnectType) (\s@QuickConnectSummary' {} a -> s {quickConnectType = a} :: QuickConnectSummary)
 
 -- | The Amazon Resource Name (ARN) of the quick connect.
-quickConnectSummary_arn :: Lens.Lens' QuickConnectSummary (Core.Maybe Core.Text)
+quickConnectSummary_arn :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
 quickConnectSummary_arn = Lens.lens (\QuickConnectSummary' {arn} -> arn) (\s@QuickConnectSummary' {} a -> s {arn = a} :: QuickConnectSummary)
 
 -- | The identifier for the quick connect.
-quickConnectSummary_id :: Lens.Lens' QuickConnectSummary (Core.Maybe Core.Text)
+quickConnectSummary_id :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
 quickConnectSummary_id = Lens.lens (\QuickConnectSummary' {id} -> id) (\s@QuickConnectSummary' {} a -> s {id = a} :: QuickConnectSummary)
 
 -- | The name of the quick connect.
-quickConnectSummary_name :: Lens.Lens' QuickConnectSummary (Core.Maybe Core.Text)
+quickConnectSummary_name :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
 quickConnectSummary_name = Lens.lens (\QuickConnectSummary' {name} -> name) (\s@QuickConnectSummary' {} a -> s {name = a} :: QuickConnectSummary)
 
 instance Core.FromJSON QuickConnectSummary where
@@ -92,12 +93,12 @@ instance Core.FromJSON QuickConnectSummary where
       "QuickConnectSummary"
       ( \x ->
           QuickConnectSummary'
-            Core.<$> (x Core..:? "QuickConnectType")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "QuickConnectType")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable QuickConnectSummary
+instance Prelude.Hashable QuickConnectSummary
 
-instance Core.NFData QuickConnectSummary
+instance Prelude.NFData QuickConnectSummary

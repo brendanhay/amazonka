@@ -24,6 +24,7 @@ import Network.AWS.ElasticSearch.Types.LogPublishingOption
 import Network.AWS.ElasticSearch.Types.LogType
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configured log publishing options for the domain and their current
 -- status.
@@ -32,11 +33,11 @@ import qualified Network.AWS.Lens as Lens
 data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
   { -- | The status of the log publishing options for the Elasticsearch domain.
     -- See @OptionStatus@ for the status information that\'s included.
-    status :: Core.Maybe OptionStatus,
+    status :: Prelude.Maybe OptionStatus,
     -- | The log publishing options configured for the Elasticsearch domain.
-    options :: Core.Maybe (Core.HashMap LogType LogPublishingOption)
+    options :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LogPublishingOptionsStatus' with all optional fields omitted.
@@ -54,18 +55,19 @@ newLogPublishingOptionsStatus ::
   LogPublishingOptionsStatus
 newLogPublishingOptionsStatus =
   LogPublishingOptionsStatus'
-    { status = Core.Nothing,
-      options = Core.Nothing
+    { status =
+        Prelude.Nothing,
+      options = Prelude.Nothing
     }
 
 -- | The status of the log publishing options for the Elasticsearch domain.
 -- See @OptionStatus@ for the status information that\'s included.
-logPublishingOptionsStatus_status :: Lens.Lens' LogPublishingOptionsStatus (Core.Maybe OptionStatus)
+logPublishingOptionsStatus_status :: Lens.Lens' LogPublishingOptionsStatus (Prelude.Maybe OptionStatus)
 logPublishingOptionsStatus_status = Lens.lens (\LogPublishingOptionsStatus' {status} -> status) (\s@LogPublishingOptionsStatus' {} a -> s {status = a} :: LogPublishingOptionsStatus)
 
 -- | The log publishing options configured for the Elasticsearch domain.
-logPublishingOptionsStatus_options :: Lens.Lens' LogPublishingOptionsStatus (Core.Maybe (Core.HashMap LogType LogPublishingOption))
-logPublishingOptionsStatus_options = Lens.lens (\LogPublishingOptionsStatus' {options} -> options) (\s@LogPublishingOptionsStatus' {} a -> s {options = a} :: LogPublishingOptionsStatus) Core.. Lens.mapping Lens._Coerce
+logPublishingOptionsStatus_options :: Lens.Lens' LogPublishingOptionsStatus (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
+logPublishingOptionsStatus_options = Lens.lens (\LogPublishingOptionsStatus' {options} -> options) (\s@LogPublishingOptionsStatus' {} a -> s {options = a} :: LogPublishingOptionsStatus) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON LogPublishingOptionsStatus where
   parseJSON =
@@ -73,10 +75,10 @@ instance Core.FromJSON LogPublishingOptionsStatus where
       "LogPublishingOptionsStatus"
       ( \x ->
           LogPublishingOptionsStatus'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "Options" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Options" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable LogPublishingOptionsStatus
+instance Prelude.Hashable LogPublishingOptionsStatus
 
-instance Core.NFData LogPublishingOptionsStatus
+instance Prelude.NFData LogPublishingOptionsStatus

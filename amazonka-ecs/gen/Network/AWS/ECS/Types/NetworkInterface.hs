@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.NetworkInterface where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the elastic network interface for tasks that use
 -- the @awsvpc@ network mode.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
   { -- | The private IPv4 address for the network interface.
-    privateIpv4Address :: Core.Maybe Core.Text,
+    privateIpv4Address :: Prelude.Maybe Prelude.Text,
     -- | The private IPv6 address for the network interface.
-    ipv6Address :: Core.Maybe Core.Text,
+    ipv6Address :: Prelude.Maybe Prelude.Text,
     -- | The attachment ID for the network interface.
-    attachmentId :: Core.Maybe Core.Text
+    attachmentId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkInterface' with all optional fields omitted.
@@ -54,21 +55,21 @@ newNetworkInterface ::
 newNetworkInterface =
   NetworkInterface'
     { privateIpv4Address =
-        Core.Nothing,
-      ipv6Address = Core.Nothing,
-      attachmentId = Core.Nothing
+        Prelude.Nothing,
+      ipv6Address = Prelude.Nothing,
+      attachmentId = Prelude.Nothing
     }
 
 -- | The private IPv4 address for the network interface.
-networkInterface_privateIpv4Address :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_privateIpv4Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_privateIpv4Address = Lens.lens (\NetworkInterface' {privateIpv4Address} -> privateIpv4Address) (\s@NetworkInterface' {} a -> s {privateIpv4Address = a} :: NetworkInterface)
 
 -- | The private IPv6 address for the network interface.
-networkInterface_ipv6Address :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_ipv6Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_ipv6Address = Lens.lens (\NetworkInterface' {ipv6Address} -> ipv6Address) (\s@NetworkInterface' {} a -> s {ipv6Address = a} :: NetworkInterface)
 
 -- | The attachment ID for the network interface.
-networkInterface_attachmentId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
+networkInterface_attachmentId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_attachmentId = Lens.lens (\NetworkInterface' {attachmentId} -> attachmentId) (\s@NetworkInterface' {} a -> s {attachmentId = a} :: NetworkInterface)
 
 instance Core.FromJSON NetworkInterface where
@@ -77,11 +78,11 @@ instance Core.FromJSON NetworkInterface where
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Core.<$> (x Core..:? "privateIpv4Address")
-            Core.<*> (x Core..:? "ipv6Address")
-            Core.<*> (x Core..:? "attachmentId")
+            Prelude.<$> (x Core..:? "privateIpv4Address")
+            Prelude.<*> (x Core..:? "ipv6Address")
+            Prelude.<*> (x Core..:? "attachmentId")
       )
 
-instance Core.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface
 
-instance Core.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface

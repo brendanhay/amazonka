@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data UpdatePullRequestTitle = UpdatePullRequestTitle'
   { -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
-    pullRequestId :: Core.Text,
+    pullRequestId :: Prelude.Text,
     -- | The updated title of the pull request. This replaces the existing title.
-    title :: Core.Text
+    title :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePullRequestTitle' with all optional fields omitted.
@@ -70,9 +71,9 @@ data UpdatePullRequestTitle = UpdatePullRequestTitle'
 -- 'title', 'updatePullRequestTitle_title' - The updated title of the pull request. This replaces the existing title.
 newUpdatePullRequestTitle ::
   -- | 'pullRequestId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'title'
-  Core.Text ->
+  Prelude.Text ->
   UpdatePullRequestTitle
 newUpdatePullRequestTitle pPullRequestId_ pTitle_ =
   UpdatePullRequestTitle'
@@ -83,11 +84,11 @@ newUpdatePullRequestTitle pPullRequestId_ pTitle_ =
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
-updatePullRequestTitle_pullRequestId :: Lens.Lens' UpdatePullRequestTitle Core.Text
+updatePullRequestTitle_pullRequestId :: Lens.Lens' UpdatePullRequestTitle Prelude.Text
 updatePullRequestTitle_pullRequestId = Lens.lens (\UpdatePullRequestTitle' {pullRequestId} -> pullRequestId) (\s@UpdatePullRequestTitle' {} a -> s {pullRequestId = a} :: UpdatePullRequestTitle)
 
 -- | The updated title of the pull request. This replaces the existing title.
-updatePullRequestTitle_title :: Lens.Lens' UpdatePullRequestTitle Core.Text
+updatePullRequestTitle_title :: Lens.Lens' UpdatePullRequestTitle Prelude.Text
 updatePullRequestTitle_title = Lens.lens (\UpdatePullRequestTitle' {title} -> title) (\s@UpdatePullRequestTitle' {} a -> s {title = a} :: UpdatePullRequestTitle)
 
 instance Core.AWSRequest UpdatePullRequestTitle where
@@ -99,50 +100,53 @@ instance Core.AWSRequest UpdatePullRequestTitle where
     Response.receiveJSON
       ( \s h x ->
           UpdatePullRequestTitleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "pullRequest")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "pullRequest")
       )
 
-instance Core.Hashable UpdatePullRequestTitle
+instance Prelude.Hashable UpdatePullRequestTitle
 
-instance Core.NFData UpdatePullRequestTitle
+instance Prelude.NFData UpdatePullRequestTitle
 
 instance Core.ToHeaders UpdatePullRequestTitle where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.UpdatePullRequestTitle" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdatePullRequestTitle where
   toJSON UpdatePullRequestTitle' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pullRequestId" Core..= pullRequestId),
-            Core.Just ("title" Core..= title)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just ("title" Core..= title)
           ]
       )
 
 instance Core.ToPath UpdatePullRequestTitle where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdatePullRequestTitle where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePullRequestTitleResponse' smart constructor.
 data UpdatePullRequestTitleResponse = UpdatePullRequestTitleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the updated pull request.
     pullRequest :: PullRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePullRequestTitleResponse' with all optional fields omitted.
@@ -157,7 +161,7 @@ data UpdatePullRequestTitleResponse = UpdatePullRequestTitleResponse'
 -- 'pullRequest', 'updatePullRequestTitleResponse_pullRequest' - Information about the updated pull request.
 newUpdatePullRequestTitleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'pullRequest'
   PullRequest ->
   UpdatePullRequestTitleResponse
@@ -171,11 +175,13 @@ newUpdatePullRequestTitleResponse
       }
 
 -- | The response's http status code.
-updatePullRequestTitleResponse_httpStatus :: Lens.Lens' UpdatePullRequestTitleResponse Core.Int
+updatePullRequestTitleResponse_httpStatus :: Lens.Lens' UpdatePullRequestTitleResponse Prelude.Int
 updatePullRequestTitleResponse_httpStatus = Lens.lens (\UpdatePullRequestTitleResponse' {httpStatus} -> httpStatus) (\s@UpdatePullRequestTitleResponse' {} a -> s {httpStatus = a} :: UpdatePullRequestTitleResponse)
 
 -- | Information about the updated pull request.
 updatePullRequestTitleResponse_pullRequest :: Lens.Lens' UpdatePullRequestTitleResponse PullRequest
 updatePullRequestTitleResponse_pullRequest = Lens.lens (\UpdatePullRequestTitleResponse' {pullRequest} -> pullRequest) (\s@UpdatePullRequestTitleResponse' {} a -> s {pullRequest = a} :: UpdatePullRequestTitleResponse)
 
-instance Core.NFData UpdatePullRequestTitleResponse
+instance
+  Prelude.NFData
+    UpdatePullRequestTitleResponse

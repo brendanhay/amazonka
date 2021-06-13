@@ -21,6 +21,7 @@ module Network.AWS.CloudFormation.Types.ParameterConstraints where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of criteria that AWS CloudFormation uses to validate parameter
 -- values. Although other constraints might be defined in the stack
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newParameterConstraints' smart constructor.
 data ParameterConstraints = ParameterConstraints'
   { -- | A list of values that are permitted for a parameter.
-    allowedValues :: Core.Maybe [Core.Text]
+    allowedValues :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterConstraints' with all optional fields omitted.
@@ -45,19 +46,22 @@ data ParameterConstraints = ParameterConstraints'
 newParameterConstraints ::
   ParameterConstraints
 newParameterConstraints =
-  ParameterConstraints' {allowedValues = Core.Nothing}
+  ParameterConstraints'
+    { allowedValues =
+        Prelude.Nothing
+    }
 
 -- | A list of values that are permitted for a parameter.
-parameterConstraints_allowedValues :: Lens.Lens' ParameterConstraints (Core.Maybe [Core.Text])
-parameterConstraints_allowedValues = Lens.lens (\ParameterConstraints' {allowedValues} -> allowedValues) (\s@ParameterConstraints' {} a -> s {allowedValues = a} :: ParameterConstraints) Core.. Lens.mapping Lens._Coerce
+parameterConstraints_allowedValues :: Lens.Lens' ParameterConstraints (Prelude.Maybe [Prelude.Text])
+parameterConstraints_allowedValues = Lens.lens (\ParameterConstraints' {allowedValues} -> allowedValues) (\s@ParameterConstraints' {} a -> s {allowedValues = a} :: ParameterConstraints) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML ParameterConstraints where
   parseXML x =
     ParameterConstraints'
-      Core.<$> ( x Core..@? "AllowedValues" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "AllowedValues" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable ParameterConstraints
+instance Prelude.Hashable ParameterConstraints
 
-instance Core.NFData ParameterConstraints
+instance Prelude.NFData ParameterConstraints

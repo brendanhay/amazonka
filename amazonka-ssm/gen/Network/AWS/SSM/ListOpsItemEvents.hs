@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,16 +57,16 @@ import Network.AWS.SSM.Types
 data ListOpsItemEvents = ListOpsItemEvents'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more OpsItem filters. Use a filter to return a more specific list
     -- of results.
-    filters :: Core.Maybe [OpsItemEventFilter]
+    filters :: Prelude.Maybe [OpsItemEventFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOpsItemEvents' with all optional fields omitted.
@@ -88,47 +89,48 @@ newListOpsItemEvents ::
   ListOpsItemEvents
 newListOpsItemEvents =
   ListOpsItemEvents'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-listOpsItemEvents_nextToken :: Lens.Lens' ListOpsItemEvents (Core.Maybe Core.Text)
+listOpsItemEvents_nextToken :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe Prelude.Text)
 listOpsItemEvents_nextToken = Lens.lens (\ListOpsItemEvents' {nextToken} -> nextToken) (\s@ListOpsItemEvents' {} a -> s {nextToken = a} :: ListOpsItemEvents)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-listOpsItemEvents_maxResults :: Lens.Lens' ListOpsItemEvents (Core.Maybe Core.Natural)
+listOpsItemEvents_maxResults :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe Prelude.Natural)
 listOpsItemEvents_maxResults = Lens.lens (\ListOpsItemEvents' {maxResults} -> maxResults) (\s@ListOpsItemEvents' {} a -> s {maxResults = a} :: ListOpsItemEvents)
 
 -- | One or more OpsItem filters. Use a filter to return a more specific list
 -- of results.
-listOpsItemEvents_filters :: Lens.Lens' ListOpsItemEvents (Core.Maybe [OpsItemEventFilter])
-listOpsItemEvents_filters = Lens.lens (\ListOpsItemEvents' {filters} -> filters) (\s@ListOpsItemEvents' {} a -> s {filters = a} :: ListOpsItemEvents) Core.. Lens.mapping Lens._Coerce
+listOpsItemEvents_filters :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe [OpsItemEventFilter])
+listOpsItemEvents_filters = Lens.lens (\ListOpsItemEvents' {filters} -> filters) (\s@ListOpsItemEvents' {} a -> s {filters = a} :: ListOpsItemEvents) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListOpsItemEvents where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? listOpsItemEventsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOpsItemEventsResponse_summaries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listOpsItemEvents_nextToken
+          Prelude.& listOpsItemEvents_nextToken
           Lens..~ rs
-          Lens.^? listOpsItemEventsResponse_nextToken Core.. Lens._Just
+          Lens.^? listOpsItemEventsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOpsItemEvents where
   type
@@ -139,53 +141,57 @@ instance Core.AWSRequest ListOpsItemEvents where
     Response.receiveJSON
       ( \s h x ->
           ListOpsItemEventsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Summaries" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Summaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListOpsItemEvents
+instance Prelude.Hashable ListOpsItemEvents
 
-instance Core.NFData ListOpsItemEvents
+instance Prelude.NFData ListOpsItemEvents
 
 instance Core.ToHeaders ListOpsItemEvents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ListOpsItemEvents" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.ListOpsItemEvents" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListOpsItemEvents where
   toJSON ListOpsItemEvents' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath ListOpsItemEvents where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListOpsItemEvents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListOpsItemEventsResponse' smart constructor.
 data ListOpsItemEventsResponse = ListOpsItemEventsResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of event information for the specified OpsItems.
-    summaries :: Core.Maybe [OpsItemEventSummary],
+    summaries :: Prelude.Maybe [OpsItemEventSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOpsItemEventsResponse' with all optional fields omitted.
@@ -203,27 +209,27 @@ data ListOpsItemEventsResponse = ListOpsItemEventsResponse'
 -- 'httpStatus', 'listOpsItemEventsResponse_httpStatus' - The response's http status code.
 newListOpsItemEventsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListOpsItemEventsResponse
 newListOpsItemEventsResponse pHttpStatus_ =
   ListOpsItemEventsResponse'
     { nextToken =
-        Core.Nothing,
-      summaries = Core.Nothing,
+        Prelude.Nothing,
+      summaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-listOpsItemEventsResponse_nextToken :: Lens.Lens' ListOpsItemEventsResponse (Core.Maybe Core.Text)
+listOpsItemEventsResponse_nextToken :: Lens.Lens' ListOpsItemEventsResponse (Prelude.Maybe Prelude.Text)
 listOpsItemEventsResponse_nextToken = Lens.lens (\ListOpsItemEventsResponse' {nextToken} -> nextToken) (\s@ListOpsItemEventsResponse' {} a -> s {nextToken = a} :: ListOpsItemEventsResponse)
 
 -- | A list of event information for the specified OpsItems.
-listOpsItemEventsResponse_summaries :: Lens.Lens' ListOpsItemEventsResponse (Core.Maybe [OpsItemEventSummary])
-listOpsItemEventsResponse_summaries = Lens.lens (\ListOpsItemEventsResponse' {summaries} -> summaries) (\s@ListOpsItemEventsResponse' {} a -> s {summaries = a} :: ListOpsItemEventsResponse) Core.. Lens.mapping Lens._Coerce
+listOpsItemEventsResponse_summaries :: Lens.Lens' ListOpsItemEventsResponse (Prelude.Maybe [OpsItemEventSummary])
+listOpsItemEventsResponse_summaries = Lens.lens (\ListOpsItemEventsResponse' {summaries} -> summaries) (\s@ListOpsItemEventsResponse' {} a -> s {summaries = a} :: ListOpsItemEventsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOpsItemEventsResponse_httpStatus :: Lens.Lens' ListOpsItemEventsResponse Core.Int
+listOpsItemEventsResponse_httpStatus :: Lens.Lens' ListOpsItemEventsResponse Prelude.Int
 listOpsItemEventsResponse_httpStatus = Lens.lens (\ListOpsItemEventsResponse' {httpStatus} -> httpStatus) (\s@ListOpsItemEventsResponse' {} a -> s {httpStatus = a} :: ListOpsItemEventsResponse)
 
-instance Core.NFData ListOpsItemEventsResponse
+instance Prelude.NFData ListOpsItemEventsResponse

@@ -51,19 +51,20 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListHITsForQualificationType' smart constructor.
 data ListHITsForQualificationType = ListHITsForQualificationType'
   { -- | Pagination Token
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Limit the number of results returned.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Qualification type to use when querying HITs.
-    qualificationTypeId :: Core.Text
+    qualificationTypeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHITsForQualificationType' with all optional fields omitted.
@@ -80,26 +81,26 @@ data ListHITsForQualificationType = ListHITsForQualificationType'
 -- 'qualificationTypeId', 'listHITsForQualificationType_qualificationTypeId' - The ID of the Qualification type to use when querying HITs.
 newListHITsForQualificationType ::
   -- | 'qualificationTypeId'
-  Core.Text ->
+  Prelude.Text ->
   ListHITsForQualificationType
 newListHITsForQualificationType pQualificationTypeId_ =
   ListHITsForQualificationType'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       qualificationTypeId = pQualificationTypeId_
     }
 
 -- | Pagination Token
-listHITsForQualificationType_nextToken :: Lens.Lens' ListHITsForQualificationType (Core.Maybe Core.Text)
+listHITsForQualificationType_nextToken :: Lens.Lens' ListHITsForQualificationType (Prelude.Maybe Prelude.Text)
 listHITsForQualificationType_nextToken = Lens.lens (\ListHITsForQualificationType' {nextToken} -> nextToken) (\s@ListHITsForQualificationType' {} a -> s {nextToken = a} :: ListHITsForQualificationType)
 
 -- | Limit the number of results returned.
-listHITsForQualificationType_maxResults :: Lens.Lens' ListHITsForQualificationType (Core.Maybe Core.Natural)
+listHITsForQualificationType_maxResults :: Lens.Lens' ListHITsForQualificationType (Prelude.Maybe Prelude.Natural)
 listHITsForQualificationType_maxResults = Lens.lens (\ListHITsForQualificationType' {maxResults} -> maxResults) (\s@ListHITsForQualificationType' {} a -> s {maxResults = a} :: ListHITsForQualificationType)
 
 -- | The ID of the Qualification type to use when querying HITs.
-listHITsForQualificationType_qualificationTypeId :: Lens.Lens' ListHITsForQualificationType Core.Text
+listHITsForQualificationType_qualificationTypeId :: Lens.Lens' ListHITsForQualificationType Prelude.Text
 listHITsForQualificationType_qualificationTypeId = Lens.lens (\ListHITsForQualificationType' {qualificationTypeId} -> qualificationTypeId) (\s@ListHITsForQualificationType' {} a -> s {qualificationTypeId = a} :: ListHITsForQualificationType)
 
 instance Core.AWSPager ListHITsForQualificationType where
@@ -107,22 +108,22 @@ instance Core.AWSPager ListHITsForQualificationType where
     | Core.stop
         ( rs
             Lens.^? listHITsForQualificationTypeResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listHITsForQualificationTypeResponse_hITs
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listHITsForQualificationType_nextToken
+          Prelude.& listHITsForQualificationType_nextToken
           Lens..~ rs
           Lens.^? listHITsForQualificationTypeResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHITsForQualificationType where
   type
@@ -133,58 +134,62 @@ instance Core.AWSRequest ListHITsForQualificationType where
     Response.receiveJSON
       ( \s h x ->
           ListHITsForQualificationTypeResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "HITs" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NumResults")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "HITs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NumResults")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListHITsForQualificationType
+instance
+  Prelude.Hashable
+    ListHITsForQualificationType
 
-instance Core.NFData ListHITsForQualificationType
+instance Prelude.NFData ListHITsForQualificationType
 
 instance Core.ToHeaders ListHITsForQualificationType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.ListHITsForQualificationType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListHITsForQualificationType where
   toJSON ListHITsForQualificationType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId)
           ]
       )
 
 instance Core.ToPath ListHITsForQualificationType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListHITsForQualificationType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListHITsForQualificationTypeResponse' smart constructor.
 data ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse'
-  { nextToken :: Core.Maybe Core.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of HIT elements returned by the query.
-    hITs :: Core.Maybe [HIT],
+    hITs :: Prelude.Maybe [HIT],
     -- | The number of HITs on this page in the filtered results list, equivalent
     -- to the number of HITs being returned by this call.
-    numResults :: Core.Maybe Core.Int,
+    numResults :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHITsForQualificationTypeResponse' with all optional fields omitted.
@@ -204,34 +209,34 @@ data ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse
 -- 'httpStatus', 'listHITsForQualificationTypeResponse_httpStatus' - The response's http status code.
 newListHITsForQualificationTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListHITsForQualificationTypeResponse
 newListHITsForQualificationTypeResponse pHttpStatus_ =
   ListHITsForQualificationTypeResponse'
     { nextToken =
-        Core.Nothing,
-      hITs = Core.Nothing,
-      numResults = Core.Nothing,
+        Prelude.Nothing,
+      hITs = Prelude.Nothing,
+      numResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listHITsForQualificationTypeResponse_nextToken :: Lens.Lens' ListHITsForQualificationTypeResponse (Core.Maybe Core.Text)
+listHITsForQualificationTypeResponse_nextToken :: Lens.Lens' ListHITsForQualificationTypeResponse (Prelude.Maybe Prelude.Text)
 listHITsForQualificationTypeResponse_nextToken = Lens.lens (\ListHITsForQualificationTypeResponse' {nextToken} -> nextToken) (\s@ListHITsForQualificationTypeResponse' {} a -> s {nextToken = a} :: ListHITsForQualificationTypeResponse)
 
 -- | The list of HIT elements returned by the query.
-listHITsForQualificationTypeResponse_hITs :: Lens.Lens' ListHITsForQualificationTypeResponse (Core.Maybe [HIT])
-listHITsForQualificationTypeResponse_hITs = Lens.lens (\ListHITsForQualificationTypeResponse' {hITs} -> hITs) (\s@ListHITsForQualificationTypeResponse' {} a -> s {hITs = a} :: ListHITsForQualificationTypeResponse) Core.. Lens.mapping Lens._Coerce
+listHITsForQualificationTypeResponse_hITs :: Lens.Lens' ListHITsForQualificationTypeResponse (Prelude.Maybe [HIT])
+listHITsForQualificationTypeResponse_hITs = Lens.lens (\ListHITsForQualificationTypeResponse' {hITs} -> hITs) (\s@ListHITsForQualificationTypeResponse' {} a -> s {hITs = a} :: ListHITsForQualificationTypeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of HITs on this page in the filtered results list, equivalent
 -- to the number of HITs being returned by this call.
-listHITsForQualificationTypeResponse_numResults :: Lens.Lens' ListHITsForQualificationTypeResponse (Core.Maybe Core.Int)
+listHITsForQualificationTypeResponse_numResults :: Lens.Lens' ListHITsForQualificationTypeResponse (Prelude.Maybe Prelude.Int)
 listHITsForQualificationTypeResponse_numResults = Lens.lens (\ListHITsForQualificationTypeResponse' {numResults} -> numResults) (\s@ListHITsForQualificationTypeResponse' {} a -> s {numResults = a} :: ListHITsForQualificationTypeResponse)
 
 -- | The response's http status code.
-listHITsForQualificationTypeResponse_httpStatus :: Lens.Lens' ListHITsForQualificationTypeResponse Core.Int
+listHITsForQualificationTypeResponse_httpStatus :: Lens.Lens' ListHITsForQualificationTypeResponse Prelude.Int
 listHITsForQualificationTypeResponse_httpStatus = Lens.lens (\ListHITsForQualificationTypeResponse' {httpStatus} -> httpStatus) (\s@ListHITsForQualificationTypeResponse' {} a -> s {httpStatus = a} :: ListHITsForQualificationTypeResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListHITsForQualificationTypeResponse

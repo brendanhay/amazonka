@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes wher
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.TaskList
 import Network.AWS.SWF.Types.WorkflowType
@@ -30,32 +31,32 @@ import Network.AWS.SWF.Types.WorkflowType
 -- /See:/ 'newWorkflowExecutionContinuedAsNewEventAttributes' smart constructor.
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'
   { -- | The input provided to the new workflow execution.
-    input :: Core.Maybe Core.Text,
+    input :: Prelude.Maybe Prelude.Text,
     -- | The IAM role to attach to the new (continued) workflow execution.
-    lambdaRole :: Core.Maybe Core.Text,
+    lambdaRole :: Prelude.Maybe Prelude.Text,
     -- | The priority of the task to use for the decisions of the new (continued)
     -- workflow execution.
-    taskPriority :: Core.Maybe Core.Text,
+    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The total duration allowed for the new workflow execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    executionStartToCloseTimeout :: Core.Maybe Core.Text,
+    executionStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The maximum duration of decision tasks for the new workflow execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    taskStartToCloseTimeout :: Core.Maybe Core.Text,
+    taskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The list of tags associated with the new workflow execution.
-    tagList :: Core.Maybe [Core.Text],
+    tagList :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @ContinueAsNewWorkflowExecution@
     -- decision that started this execution. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Core.Integer,
+    decisionTaskCompletedEventId :: Prelude.Integer,
     -- | The @runId@ of the new workflow execution.
-    newExecutionRunId' :: Core.Text,
+    newExecutionRunId' :: Prelude.Text,
     -- | The task list to use for the decisions of the new (continued) workflow
     -- execution.
     taskList :: TaskList,
@@ -78,7 +79,7 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
     -- | The workflow type of this execution.
     workflowType :: WorkflowType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionContinuedAsNewEventAttributes' with all optional fields omitted.
@@ -137,9 +138,9 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
 -- 'workflowType', 'workflowExecutionContinuedAsNewEventAttributes_workflowType' - The workflow type of this execution.
 newWorkflowExecutionContinuedAsNewEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'newExecutionRunId''
-  Core.Text ->
+  Prelude.Text ->
   -- | 'taskList'
   TaskList ->
   -- | 'childPolicy'
@@ -155,14 +156,16 @@ newWorkflowExecutionContinuedAsNewEventAttributes
   pWorkflowType_ =
     WorkflowExecutionContinuedAsNewEventAttributes'
       { input =
-          Core.Nothing,
-        lambdaRole = Core.Nothing,
-        taskPriority = Core.Nothing,
+          Prelude.Nothing,
+        lambdaRole =
+          Prelude.Nothing,
+        taskPriority =
+          Prelude.Nothing,
         executionStartToCloseTimeout =
-          Core.Nothing,
+          Prelude.Nothing,
         taskStartToCloseTimeout =
-          Core.Nothing,
-        tagList = Core.Nothing,
+          Prelude.Nothing,
+        tagList = Prelude.Nothing,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_,
         newExecutionRunId' =
@@ -174,46 +177,46 @@ newWorkflowExecutionContinuedAsNewEventAttributes
       }
 
 -- | The input provided to the new workflow execution.
-workflowExecutionContinuedAsNewEventAttributes_input :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Core.Maybe Core.Text)
+workflowExecutionContinuedAsNewEventAttributes_input :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionContinuedAsNewEventAttributes_input = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {input} -> input) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {input = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The IAM role to attach to the new (continued) workflow execution.
-workflowExecutionContinuedAsNewEventAttributes_lambdaRole :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Core.Maybe Core.Text)
+workflowExecutionContinuedAsNewEventAttributes_lambdaRole :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionContinuedAsNewEventAttributes_lambdaRole = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {lambdaRole} -> lambdaRole) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {lambdaRole = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The priority of the task to use for the decisions of the new (continued)
 -- workflow execution.
-workflowExecutionContinuedAsNewEventAttributes_taskPriority :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Core.Maybe Core.Text)
+workflowExecutionContinuedAsNewEventAttributes_taskPriority :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionContinuedAsNewEventAttributes_taskPriority = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {taskPriority} -> taskPriority) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {taskPriority = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The total duration allowed for the new workflow execution.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Core.Maybe Core.Text)
+workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {executionStartToCloseTimeout} -> executionStartToCloseTimeout) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {executionStartToCloseTimeout = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The maximum duration of decision tasks for the new workflow execution.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Core.Maybe Core.Text)
+workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {taskStartToCloseTimeout} -> taskStartToCloseTimeout) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {taskStartToCloseTimeout = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The list of tags associated with the new workflow execution.
-workflowExecutionContinuedAsNewEventAttributes_tagList :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Core.Maybe [Core.Text])
-workflowExecutionContinuedAsNewEventAttributes_tagList = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {tagList} -> tagList) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {tagList = a} :: WorkflowExecutionContinuedAsNewEventAttributes) Core.. Lens.mapping Lens._Coerce
+workflowExecutionContinuedAsNewEventAttributes_tagList :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe [Prelude.Text])
+workflowExecutionContinuedAsNewEventAttributes_tagList = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {tagList} -> tagList) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {tagList = a} :: WorkflowExecutionContinuedAsNewEventAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @ContinueAsNewWorkflowExecution@
 -- decision that started this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-workflowExecutionContinuedAsNewEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes Core.Integer
+workflowExecutionContinuedAsNewEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes Prelude.Integer
 workflowExecutionContinuedAsNewEventAttributes_decisionTaskCompletedEventId = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The @runId@ of the new workflow execution.
-workflowExecutionContinuedAsNewEventAttributes_newExecutionRunId :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes Core.Text
+workflowExecutionContinuedAsNewEventAttributes_newExecutionRunId :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes Prelude.Text
 workflowExecutionContinuedAsNewEventAttributes_newExecutionRunId = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {newExecutionRunId'} -> newExecutionRunId') (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {newExecutionRunId' = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The task list to use for the decisions of the new (continued) workflow
@@ -252,23 +255,23 @@ instance
       "WorkflowExecutionContinuedAsNewEventAttributes"
       ( \x ->
           WorkflowExecutionContinuedAsNewEventAttributes'
-            Core.<$> (x Core..:? "input")
-              Core.<*> (x Core..:? "lambdaRole")
-              Core.<*> (x Core..:? "taskPriority")
-              Core.<*> (x Core..:? "executionStartToCloseTimeout")
-              Core.<*> (x Core..:? "taskStartToCloseTimeout")
-              Core.<*> (x Core..:? "tagList" Core..!= Core.mempty)
-              Core.<*> (x Core..: "decisionTaskCompletedEventId")
-              Core.<*> (x Core..: "newExecutionRunId")
-              Core.<*> (x Core..: "taskList")
-              Core.<*> (x Core..: "childPolicy")
-              Core.<*> (x Core..: "workflowType")
+            Prelude.<$> (x Core..:? "input")
+              Prelude.<*> (x Core..:? "lambdaRole")
+              Prelude.<*> (x Core..:? "taskPriority")
+              Prelude.<*> (x Core..:? "executionStartToCloseTimeout")
+              Prelude.<*> (x Core..:? "taskStartToCloseTimeout")
+              Prelude.<*> (x Core..:? "tagList" Core..!= Prelude.mempty)
+              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+              Prelude.<*> (x Core..: "newExecutionRunId")
+              Prelude.<*> (x Core..: "taskList")
+              Prelude.<*> (x Core..: "childPolicy")
+              Prelude.<*> (x Core..: "workflowType")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     WorkflowExecutionContinuedAsNewEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     WorkflowExecutionContinuedAsNewEventAttributes

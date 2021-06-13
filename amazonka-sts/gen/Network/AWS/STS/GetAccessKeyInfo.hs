@@ -67,6 +67,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
@@ -79,7 +80,7 @@ data GetAccessKeyInfo = GetAccessKeyInfo'
     -- that can consist of any upper- or lowercase letter or digit.
     accessKeyId :: Core.AccessKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccessKeyInfo' with all optional fields omitted.
@@ -117,37 +118,38 @@ instance Core.AWSRequest GetAccessKeyInfo where
       "GetAccessKeyInfoResult"
       ( \s h x ->
           GetAccessKeyInfoResponse'
-            Core.<$> (x Core..@? "Account")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Account")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAccessKeyInfo
+instance Prelude.Hashable GetAccessKeyInfo
 
-instance Core.NFData GetAccessKeyInfo
+instance Prelude.NFData GetAccessKeyInfo
 
 instance Core.ToHeaders GetAccessKeyInfo where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAccessKeyInfo where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAccessKeyInfo where
   toQuery GetAccessKeyInfo' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetAccessKeyInfo" :: Core.ByteString),
-        "Version" Core.=: ("2011-06-15" :: Core.ByteString),
+          Core.=: ("GetAccessKeyInfo" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-06-15" :: Prelude.ByteString),
         "AccessKeyId" Core.=: accessKeyId
       ]
 
 -- | /See:/ 'newGetAccessKeyInfoResponse' smart constructor.
 data GetAccessKeyInfoResponse = GetAccessKeyInfoResponse'
   { -- | The number used to identify the AWS account.
-    account :: Core.Maybe Core.Text,
+    account :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccessKeyInfoResponse' with all optional fields omitted.
@@ -162,20 +164,21 @@ data GetAccessKeyInfoResponse = GetAccessKeyInfoResponse'
 -- 'httpStatus', 'getAccessKeyInfoResponse_httpStatus' - The response's http status code.
 newGetAccessKeyInfoResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAccessKeyInfoResponse
 newGetAccessKeyInfoResponse pHttpStatus_ =
   GetAccessKeyInfoResponse'
-    { account = Core.Nothing,
+    { account =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number used to identify the AWS account.
-getAccessKeyInfoResponse_account :: Lens.Lens' GetAccessKeyInfoResponse (Core.Maybe Core.Text)
+getAccessKeyInfoResponse_account :: Lens.Lens' GetAccessKeyInfoResponse (Prelude.Maybe Prelude.Text)
 getAccessKeyInfoResponse_account = Lens.lens (\GetAccessKeyInfoResponse' {account} -> account) (\s@GetAccessKeyInfoResponse' {} a -> s {account = a} :: GetAccessKeyInfoResponse)
 
 -- | The response's http status code.
-getAccessKeyInfoResponse_httpStatus :: Lens.Lens' GetAccessKeyInfoResponse Core.Int
+getAccessKeyInfoResponse_httpStatus :: Lens.Lens' GetAccessKeyInfoResponse Prelude.Int
 getAccessKeyInfoResponse_httpStatus = Lens.lens (\GetAccessKeyInfoResponse' {httpStatus} -> httpStatus) (\s@GetAccessKeyInfoResponse' {} a -> s {httpStatus = a} :: GetAccessKeyInfoResponse)
 
-instance Core.NFData GetAccessKeyInfoResponse
+instance Prelude.NFData GetAccessKeyInfoResponse

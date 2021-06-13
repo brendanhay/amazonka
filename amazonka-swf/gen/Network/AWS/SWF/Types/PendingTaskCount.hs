@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.PendingTaskCount where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the count of tasks in a task list.
 --
@@ -29,11 +30,11 @@ data PendingTaskCount = PendingTaskCount'
   { -- | If set to true, indicates that the actual count was more than the
     -- maximum supported by this API and the count returned is the truncated
     -- value.
-    truncated :: Core.Maybe Core.Bool,
+    truncated :: Prelude.Maybe Prelude.Bool,
     -- | The number of tasks in the task list.
-    count :: Core.Natural
+    count :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PendingTaskCount' with all optional fields omitted.
@@ -50,22 +51,22 @@ data PendingTaskCount = PendingTaskCount'
 -- 'count', 'pendingTaskCount_count' - The number of tasks in the task list.
 newPendingTaskCount ::
   -- | 'count'
-  Core.Natural ->
+  Prelude.Natural ->
   PendingTaskCount
 newPendingTaskCount pCount_ =
   PendingTaskCount'
-    { truncated = Core.Nothing,
+    { truncated = Prelude.Nothing,
       count = pCount_
     }
 
 -- | If set to true, indicates that the actual count was more than the
 -- maximum supported by this API and the count returned is the truncated
 -- value.
-pendingTaskCount_truncated :: Lens.Lens' PendingTaskCount (Core.Maybe Core.Bool)
+pendingTaskCount_truncated :: Lens.Lens' PendingTaskCount (Prelude.Maybe Prelude.Bool)
 pendingTaskCount_truncated = Lens.lens (\PendingTaskCount' {truncated} -> truncated) (\s@PendingTaskCount' {} a -> s {truncated = a} :: PendingTaskCount)
 
 -- | The number of tasks in the task list.
-pendingTaskCount_count :: Lens.Lens' PendingTaskCount Core.Natural
+pendingTaskCount_count :: Lens.Lens' PendingTaskCount Prelude.Natural
 pendingTaskCount_count = Lens.lens (\PendingTaskCount' {count} -> count) (\s@PendingTaskCount' {} a -> s {count = a} :: PendingTaskCount)
 
 instance Core.FromJSON PendingTaskCount where
@@ -74,10 +75,10 @@ instance Core.FromJSON PendingTaskCount where
       "PendingTaskCount"
       ( \x ->
           PendingTaskCount'
-            Core.<$> (x Core..:? "truncated")
-            Core.<*> (x Core..: "count")
+            Prelude.<$> (x Core..:? "truncated")
+            Prelude.<*> (x Core..: "count")
       )
 
-instance Core.Hashable PendingTaskCount
+instance Prelude.Hashable PendingTaskCount
 
-instance Core.NFData PendingTaskCount
+instance Prelude.NFData PendingTaskCount

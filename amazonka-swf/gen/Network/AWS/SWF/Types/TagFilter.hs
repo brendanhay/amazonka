@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.TagFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to filter the workflow executions in visibility APIs based on a
 -- tag.
@@ -32,9 +33,9 @@ data TagFilter = TagFilter'
     --
     -- Tags may only contain unicode letters, digits, whitespace, or these
     -- symbols: @_ . : \/ = + - \@@.
-    tag :: Core.Text
+    tag :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagFilter' with all optional fields omitted.
@@ -51,7 +52,7 @@ data TagFilter = TagFilter'
 -- symbols: @_ . : \/ = + - \@@.
 newTagFilter ::
   -- | 'tag'
-  Core.Text ->
+  Prelude.Text ->
   TagFilter
 newTagFilter pTag_ = TagFilter' {tag = pTag_}
 
@@ -60,14 +61,16 @@ newTagFilter pTag_ = TagFilter' {tag = pTag_}
 --
 -- Tags may only contain unicode letters, digits, whitespace, or these
 -- symbols: @_ . : \/ = + - \@@.
-tagFilter_tag :: Lens.Lens' TagFilter Core.Text
+tagFilter_tag :: Lens.Lens' TagFilter Prelude.Text
 tagFilter_tag = Lens.lens (\TagFilter' {tag} -> tag) (\s@TagFilter' {} a -> s {tag = a} :: TagFilter)
 
-instance Core.Hashable TagFilter
+instance Prelude.Hashable TagFilter
 
-instance Core.NFData TagFilter
+instance Prelude.NFData TagFilter
 
 instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("tag" Core..= tag)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("tag" Core..= tag)]
+      )

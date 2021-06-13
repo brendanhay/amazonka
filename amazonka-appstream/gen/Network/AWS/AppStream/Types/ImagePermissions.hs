@@ -21,17 +21,18 @@ module Network.AWS.AppStream.Types.ImagePermissions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the permissions for an image.
 --
 -- /See:/ 'newImagePermissions' smart constructor.
 data ImagePermissions = ImagePermissions'
   { -- | Indicates whether the image can be used for an image builder.
-    allowImageBuilder :: Core.Maybe Core.Bool,
+    allowImageBuilder :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the image can be used for a fleet.
-    allowFleet :: Core.Maybe Core.Bool
+    allowFleet :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImagePermissions' with all optional fields omitted.
@@ -48,16 +49,17 @@ newImagePermissions ::
   ImagePermissions
 newImagePermissions =
   ImagePermissions'
-    { allowImageBuilder = Core.Nothing,
-      allowFleet = Core.Nothing
+    { allowImageBuilder =
+        Prelude.Nothing,
+      allowFleet = Prelude.Nothing
     }
 
 -- | Indicates whether the image can be used for an image builder.
-imagePermissions_allowImageBuilder :: Lens.Lens' ImagePermissions (Core.Maybe Core.Bool)
+imagePermissions_allowImageBuilder :: Lens.Lens' ImagePermissions (Prelude.Maybe Prelude.Bool)
 imagePermissions_allowImageBuilder = Lens.lens (\ImagePermissions' {allowImageBuilder} -> allowImageBuilder) (\s@ImagePermissions' {} a -> s {allowImageBuilder = a} :: ImagePermissions)
 
 -- | Indicates whether the image can be used for a fleet.
-imagePermissions_allowFleet :: Lens.Lens' ImagePermissions (Core.Maybe Core.Bool)
+imagePermissions_allowFleet :: Lens.Lens' ImagePermissions (Prelude.Maybe Prelude.Bool)
 imagePermissions_allowFleet = Lens.lens (\ImagePermissions' {allowFleet} -> allowFleet) (\s@ImagePermissions' {} a -> s {allowFleet = a} :: ImagePermissions)
 
 instance Core.FromJSON ImagePermissions where
@@ -66,20 +68,20 @@ instance Core.FromJSON ImagePermissions where
       "ImagePermissions"
       ( \x ->
           ImagePermissions'
-            Core.<$> (x Core..:? "allowImageBuilder")
-            Core.<*> (x Core..:? "allowFleet")
+            Prelude.<$> (x Core..:? "allowImageBuilder")
+            Prelude.<*> (x Core..:? "allowFleet")
       )
 
-instance Core.Hashable ImagePermissions
+instance Prelude.Hashable ImagePermissions
 
-instance Core.NFData ImagePermissions
+instance Prelude.NFData ImagePermissions
 
 instance Core.ToJSON ImagePermissions where
   toJSON ImagePermissions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("allowImageBuilder" Core..=)
-              Core.<$> allowImageBuilder,
-            ("allowFleet" Core..=) Core.<$> allowFleet
+              Prelude.<$> allowImageBuilder,
+            ("allowFleet" Core..=) Prelude.<$> allowFleet
           ]
       )

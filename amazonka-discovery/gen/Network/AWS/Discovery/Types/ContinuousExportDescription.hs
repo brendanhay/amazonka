@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types.ContinuousExportStatus
 import Network.AWS.Discovery.Types.DataSource
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of continuous export descriptions.
 --
@@ -47,15 +48,15 @@ data ContinuousExportDescription = ContinuousExportDescription'
     --
     -- -   INACTIVE - the continuous export has been stopped. Data is no longer
     --     being exported to the customer bucket.
-    status :: Core.Maybe ContinuousExportStatus,
+    status :: Prelude.Maybe ContinuousExportStatus,
     -- | The name of the s3 bucket where the export data parquet files are
     -- stored.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The type of data collector used to gather this data (currently only
     -- offered for AGENT).
-    dataSource :: Core.Maybe DataSource,
+    dataSource :: Prelude.Maybe DataSource,
     -- | The timestamp representing when the continuous export was started.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | Contains information about any errors that have occurred. This data type
     -- can have the following values:
     --
@@ -96,18 +97,18 @@ data ContinuousExportDescription = ContinuousExportDescription'
     -- -   S3_NOT_SIGNED_UP - Your account is not signed up for the Amazon S3
     --     service. You must sign up before you can use Amazon S3. You can sign
     --     up at the following URL: <https://aws.amazon.com/s3>.
-    statusDetail :: Core.Maybe Core.Text,
+    statusDetail :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that represents when this continuous export was stopped.
-    stopTime :: Core.Maybe Core.POSIX,
+    stopTime :: Prelude.Maybe Core.POSIX,
     -- | An object which describes how the data is stored.
     --
     -- -   @databaseName@ - the name of the Glue database used to store the
     --     schema.
-    schemaStorageConfig :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    schemaStorageConfig :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique ID assigned to this export.
-    exportId :: Core.Maybe Core.Text
+    exportId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContinuousExportDescription' with all optional fields omitted.
@@ -198,14 +199,15 @@ newContinuousExportDescription ::
   ContinuousExportDescription
 newContinuousExportDescription =
   ContinuousExportDescription'
-    { status = Core.Nothing,
-      s3Bucket = Core.Nothing,
-      dataSource = Core.Nothing,
-      startTime = Core.Nothing,
-      statusDetail = Core.Nothing,
-      stopTime = Core.Nothing,
-      schemaStorageConfig = Core.Nothing,
-      exportId = Core.Nothing
+    { status =
+        Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
+      dataSource = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      statusDetail = Prelude.Nothing,
+      stopTime = Prelude.Nothing,
+      schemaStorageConfig = Prelude.Nothing,
+      exportId = Prelude.Nothing
     }
 
 -- | Describes the status of the export. Can be one of the following values:
@@ -227,22 +229,22 @@ newContinuousExportDescription =
 --
 -- -   INACTIVE - the continuous export has been stopped. Data is no longer
 --     being exported to the customer bucket.
-continuousExportDescription_status :: Lens.Lens' ContinuousExportDescription (Core.Maybe ContinuousExportStatus)
+continuousExportDescription_status :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe ContinuousExportStatus)
 continuousExportDescription_status = Lens.lens (\ContinuousExportDescription' {status} -> status) (\s@ContinuousExportDescription' {} a -> s {status = a} :: ContinuousExportDescription)
 
 -- | The name of the s3 bucket where the export data parquet files are
 -- stored.
-continuousExportDescription_s3Bucket :: Lens.Lens' ContinuousExportDescription (Core.Maybe Core.Text)
+continuousExportDescription_s3Bucket :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.Text)
 continuousExportDescription_s3Bucket = Lens.lens (\ContinuousExportDescription' {s3Bucket} -> s3Bucket) (\s@ContinuousExportDescription' {} a -> s {s3Bucket = a} :: ContinuousExportDescription)
 
 -- | The type of data collector used to gather this data (currently only
 -- offered for AGENT).
-continuousExportDescription_dataSource :: Lens.Lens' ContinuousExportDescription (Core.Maybe DataSource)
+continuousExportDescription_dataSource :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe DataSource)
 continuousExportDescription_dataSource = Lens.lens (\ContinuousExportDescription' {dataSource} -> dataSource) (\s@ContinuousExportDescription' {} a -> s {dataSource = a} :: ContinuousExportDescription)
 
 -- | The timestamp representing when the continuous export was started.
-continuousExportDescription_startTime :: Lens.Lens' ContinuousExportDescription (Core.Maybe Core.UTCTime)
-continuousExportDescription_startTime = Lens.lens (\ContinuousExportDescription' {startTime} -> startTime) (\s@ContinuousExportDescription' {} a -> s {startTime = a} :: ContinuousExportDescription) Core.. Lens.mapping Core._Time
+continuousExportDescription_startTime :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.UTCTime)
+continuousExportDescription_startTime = Lens.lens (\ContinuousExportDescription' {startTime} -> startTime) (\s@ContinuousExportDescription' {} a -> s {startTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Core._Time
 
 -- | Contains information about any errors that have occurred. This data type
 -- can have the following values:
@@ -284,22 +286,22 @@ continuousExportDescription_startTime = Lens.lens (\ContinuousExportDescription'
 -- -   S3_NOT_SIGNED_UP - Your account is not signed up for the Amazon S3
 --     service. You must sign up before you can use Amazon S3. You can sign
 --     up at the following URL: <https://aws.amazon.com/s3>.
-continuousExportDescription_statusDetail :: Lens.Lens' ContinuousExportDescription (Core.Maybe Core.Text)
+continuousExportDescription_statusDetail :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.Text)
 continuousExportDescription_statusDetail = Lens.lens (\ContinuousExportDescription' {statusDetail} -> statusDetail) (\s@ContinuousExportDescription' {} a -> s {statusDetail = a} :: ContinuousExportDescription)
 
 -- | The timestamp that represents when this continuous export was stopped.
-continuousExportDescription_stopTime :: Lens.Lens' ContinuousExportDescription (Core.Maybe Core.UTCTime)
-continuousExportDescription_stopTime = Lens.lens (\ContinuousExportDescription' {stopTime} -> stopTime) (\s@ContinuousExportDescription' {} a -> s {stopTime = a} :: ContinuousExportDescription) Core.. Lens.mapping Core._Time
+continuousExportDescription_stopTime :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.UTCTime)
+continuousExportDescription_stopTime = Lens.lens (\ContinuousExportDescription' {stopTime} -> stopTime) (\s@ContinuousExportDescription' {} a -> s {stopTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Core._Time
 
 -- | An object which describes how the data is stored.
 --
 -- -   @databaseName@ - the name of the Glue database used to store the
 --     schema.
-continuousExportDescription_schemaStorageConfig :: Lens.Lens' ContinuousExportDescription (Core.Maybe (Core.HashMap Core.Text Core.Text))
-continuousExportDescription_schemaStorageConfig = Lens.lens (\ContinuousExportDescription' {schemaStorageConfig} -> schemaStorageConfig) (\s@ContinuousExportDescription' {} a -> s {schemaStorageConfig = a} :: ContinuousExportDescription) Core.. Lens.mapping Lens._Coerce
+continuousExportDescription_schemaStorageConfig :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+continuousExportDescription_schemaStorageConfig = Lens.lens (\ContinuousExportDescription' {schemaStorageConfig} -> schemaStorageConfig) (\s@ContinuousExportDescription' {} a -> s {schemaStorageConfig = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique ID assigned to this export.
-continuousExportDescription_exportId :: Lens.Lens' ContinuousExportDescription (Core.Maybe Core.Text)
+continuousExportDescription_exportId :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.Text)
 continuousExportDescription_exportId = Lens.lens (\ContinuousExportDescription' {exportId} -> exportId) (\s@ContinuousExportDescription' {} a -> s {exportId = a} :: ContinuousExportDescription)
 
 instance Core.FromJSON ContinuousExportDescription where
@@ -308,18 +310,18 @@ instance Core.FromJSON ContinuousExportDescription where
       "ContinuousExportDescription"
       ( \x ->
           ContinuousExportDescription'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "s3Bucket")
-            Core.<*> (x Core..:? "dataSource")
-            Core.<*> (x Core..:? "startTime")
-            Core.<*> (x Core..:? "statusDetail")
-            Core.<*> (x Core..:? "stopTime")
-            Core.<*> ( x Core..:? "schemaStorageConfig"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "exportId")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "s3Bucket")
+            Prelude.<*> (x Core..:? "dataSource")
+            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Core..:? "statusDetail")
+            Prelude.<*> (x Core..:? "stopTime")
+            Prelude.<*> ( x Core..:? "schemaStorageConfig"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "exportId")
       )
 
-instance Core.Hashable ContinuousExportDescription
+instance Prelude.Hashable ContinuousExportDescription
 
-instance Core.NFData ContinuousExportDescription
+instance Prelude.NFData ContinuousExportDescription

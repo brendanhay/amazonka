@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.MetricCollectionType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a metric.
 --
@@ -53,9 +54,9 @@ data MetricCollectionType = MetricCollectionType'
     -- -   @GroupTerminatingCapacity@
     --
     -- -   @GroupTotalCapacity@
-    metric :: Core.Maybe Core.Text
+    metric :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricCollectionType' with all optional fields omitted.
@@ -95,7 +96,7 @@ data MetricCollectionType = MetricCollectionType'
 newMetricCollectionType ::
   MetricCollectionType
 newMetricCollectionType =
-  MetricCollectionType' {metric = Core.Nothing}
+  MetricCollectionType' {metric = Prelude.Nothing}
 
 -- | One of the following metrics:
 --
@@ -124,14 +125,14 @@ newMetricCollectionType =
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
-metricCollectionType_metric :: Lens.Lens' MetricCollectionType (Core.Maybe Core.Text)
+metricCollectionType_metric :: Lens.Lens' MetricCollectionType (Prelude.Maybe Prelude.Text)
 metricCollectionType_metric = Lens.lens (\MetricCollectionType' {metric} -> metric) (\s@MetricCollectionType' {} a -> s {metric = a} :: MetricCollectionType)
 
 instance Core.FromXML MetricCollectionType where
   parseXML x =
     MetricCollectionType'
-      Core.<$> (x Core..@? "Metric")
+      Prelude.<$> (x Core..@? "Metric")
 
-instance Core.Hashable MetricCollectionType
+instance Prelude.Hashable MetricCollectionType
 
-instance Core.NFData MetricCollectionType
+instance Prelude.NFData MetricCollectionType

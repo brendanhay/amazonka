@@ -48,6 +48,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +60,7 @@ data GetExport = GetExport'
     -- Currently @application\/json@ and @application\/yaml@ are supported for
     -- @exportType@ of@oas30@ and @swagger@. This should be specified in the
     -- @Accept@ header for direct API requests.
-    accepts :: Core.Maybe Core.Text,
+    accepts :: Prelude.Maybe Prelude.Text,
     -- | A key-value map of query string parameters that specify properties of
     -- the export, depending on the requested @exportType@. For @exportType@
     -- @oas30@ and @swagger@, any combination of the following parameters are
@@ -68,16 +69,16 @@ data GetExport = GetExport'
     -- @extensions=\'authorizers\'@ will export the API with
     -- x-amazon-apigateway-authorizer extensions. @postman@ will export the API
     -- with Postman extensions, allowing for import to the Postman tool
-    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The name of the Stage that will be exported.
-    stageName :: Core.Text,
+    stageName :: Prelude.Text,
     -- | [Required] The type of export. Acceptable values are \'oas30\' for
     -- OpenAPI 3.0.x and \'swagger\' for Swagger\/OpenAPI 2.0.
-    exportType :: Core.Text
+    exportType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetExport' with all optional fields omitted.
@@ -109,16 +110,16 @@ data GetExport = GetExport'
 -- OpenAPI 3.0.x and \'swagger\' for Swagger\/OpenAPI 2.0.
 newGetExport ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'exportType'
-  Core.Text ->
+  Prelude.Text ->
   GetExport
 newGetExport pRestApiId_ pStageName_ pExportType_ =
   GetExport'
-    { accepts = Core.Nothing,
-      parameters = Core.Nothing,
+    { accepts = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       restApiId = pRestApiId_,
       stageName = pStageName_,
       exportType = pExportType_
@@ -128,7 +129,7 @@ newGetExport pRestApiId_ pStageName_ pExportType_ =
 -- Currently @application\/json@ and @application\/yaml@ are supported for
 -- @exportType@ of@oas30@ and @swagger@. This should be specified in the
 -- @Accept@ header for direct API requests.
-getExport_accepts :: Lens.Lens' GetExport (Core.Maybe Core.Text)
+getExport_accepts :: Lens.Lens' GetExport (Prelude.Maybe Prelude.Text)
 getExport_accepts = Lens.lens (\GetExport' {accepts} -> accepts) (\s@GetExport' {} a -> s {accepts = a} :: GetExport)
 
 -- | A key-value map of query string parameters that specify properties of
@@ -139,20 +140,20 @@ getExport_accepts = Lens.lens (\GetExport' {accepts} -> accepts) (\s@GetExport' 
 -- @extensions=\'authorizers\'@ will export the API with
 -- x-amazon-apigateway-authorizer extensions. @postman@ will export the API
 -- with Postman extensions, allowing for import to the Postman tool
-getExport_parameters :: Lens.Lens' GetExport (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getExport_parameters = Lens.lens (\GetExport' {parameters} -> parameters) (\s@GetExport' {} a -> s {parameters = a} :: GetExport) Core.. Lens.mapping Lens._Coerce
+getExport_parameters :: Lens.Lens' GetExport (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getExport_parameters = Lens.lens (\GetExport' {parameters} -> parameters) (\s@GetExport' {} a -> s {parameters = a} :: GetExport) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-getExport_restApiId :: Lens.Lens' GetExport Core.Text
+getExport_restApiId :: Lens.Lens' GetExport Prelude.Text
 getExport_restApiId = Lens.lens (\GetExport' {restApiId} -> restApiId) (\s@GetExport' {} a -> s {restApiId = a} :: GetExport)
 
 -- | [Required] The name of the Stage that will be exported.
-getExport_stageName :: Lens.Lens' GetExport Core.Text
+getExport_stageName :: Lens.Lens' GetExport Prelude.Text
 getExport_stageName = Lens.lens (\GetExport' {stageName} -> stageName) (\s@GetExport' {} a -> s {stageName = a} :: GetExport)
 
 -- | [Required] The type of export. Acceptable values are \'oas30\' for
 -- OpenAPI 3.0.x and \'swagger\' for Swagger\/OpenAPI 2.0.
-getExport_exportType :: Lens.Lens' GetExport Core.Text
+getExport_exportType :: Lens.Lens' GetExport Prelude.Text
 getExport_exportType = Lens.lens (\GetExport' {exportType} -> exportType) (\s@GetExport' {} a -> s {exportType = a} :: GetExport)
 
 instance Core.AWSRequest GetExport where
@@ -162,27 +163,27 @@ instance Core.AWSRequest GetExport where
     Response.receiveBytes
       ( \s h x ->
           GetExportResponse'
-            Core.<$> (h Core..#? "Content-Type")
-            Core.<*> (h Core..#? "Content-Disposition")
-            Core.<*> (Core.pure (Core.Just x))
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "Content-Type")
+            Prelude.<*> (h Core..#? "Content-Disposition")
+            Prelude.<*> (Prelude.pure (Prelude.Just x))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetExport
+instance Prelude.Hashable GetExport
 
-instance Core.NFData GetExport
+instance Prelude.NFData GetExport
 
 instance Core.ToHeaders GetExport where
   toHeaders GetExport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Accept" Core.=# accepts,
         "Accept"
-          Core.=# ("application/json" :: Core.ByteString)
+          Core.=# ("application/json" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath GetExport where
   toPath GetExport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/stages/",
@@ -193,11 +194,11 @@ instance Core.ToPath GetExport where
 
 instance Core.ToQuery GetExport where
   toQuery GetExport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "parameters"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"
-                Core.<$> parameters
+                Prelude.<$> parameters
             )
       ]
 
@@ -207,15 +208,15 @@ instance Core.ToQuery GetExport where
 data GetExportResponse = GetExportResponse'
   { -- | The content-type header value in the HTTP response. This will correspond
     -- to a valid \'accept\' type in the request.
-    contentType :: Core.Maybe Core.Text,
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The content-disposition header value in the HTTP response.
-    contentDisposition :: Core.Maybe Core.Text,
+    contentDisposition :: Prelude.Maybe Prelude.Text,
     -- | The binary blob response to GetExport, which contains the export.
-    body :: Core.Maybe Core.ByteString,
+    body :: Prelude.Maybe Prelude.ByteString,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetExportResponse' with all optional fields omitted.
@@ -235,31 +236,31 @@ data GetExportResponse = GetExportResponse'
 -- 'httpStatus', 'getExportResponse_httpStatus' - The response's http status code.
 newGetExportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetExportResponse
 newGetExportResponse pHttpStatus_ =
   GetExportResponse'
-    { contentType = Core.Nothing,
-      contentDisposition = Core.Nothing,
-      body = Core.Nothing,
+    { contentType = Prelude.Nothing,
+      contentDisposition = Prelude.Nothing,
+      body = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The content-type header value in the HTTP response. This will correspond
 -- to a valid \'accept\' type in the request.
-getExportResponse_contentType :: Lens.Lens' GetExportResponse (Core.Maybe Core.Text)
+getExportResponse_contentType :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
 getExportResponse_contentType = Lens.lens (\GetExportResponse' {contentType} -> contentType) (\s@GetExportResponse' {} a -> s {contentType = a} :: GetExportResponse)
 
 -- | The content-disposition header value in the HTTP response.
-getExportResponse_contentDisposition :: Lens.Lens' GetExportResponse (Core.Maybe Core.Text)
+getExportResponse_contentDisposition :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
 getExportResponse_contentDisposition = Lens.lens (\GetExportResponse' {contentDisposition} -> contentDisposition) (\s@GetExportResponse' {} a -> s {contentDisposition = a} :: GetExportResponse)
 
 -- | The binary blob response to GetExport, which contains the export.
-getExportResponse_body :: Lens.Lens' GetExportResponse (Core.Maybe Core.ByteString)
+getExportResponse_body :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.ByteString)
 getExportResponse_body = Lens.lens (\GetExportResponse' {body} -> body) (\s@GetExportResponse' {} a -> s {body = a} :: GetExportResponse)
 
 -- | The response's http status code.
-getExportResponse_httpStatus :: Lens.Lens' GetExportResponse Core.Int
+getExportResponse_httpStatus :: Lens.Lens' GetExportResponse Prelude.Int
 getExportResponse_httpStatus = Lens.lens (\GetExportResponse' {httpStatus} -> httpStatus) (\s@GetExportResponse' {} a -> s {httpStatus = a} :: GetExportResponse)
 
-instance Core.NFData GetExportResponse
+instance Prelude.NFData GetExportResponse

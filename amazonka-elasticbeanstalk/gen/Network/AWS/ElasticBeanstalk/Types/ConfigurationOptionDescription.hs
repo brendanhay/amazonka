@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType
 import Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the possible values for a configuration option.
 --
@@ -30,10 +31,10 @@ import qualified Network.AWS.Lens as Lens
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
   { -- | If specified, the configuration option must be a numeric value less than
     -- this value.
-    maxValue :: Core.Maybe Core.Int,
+    maxValue :: Prelude.Maybe Prelude.Int,
     -- | If specified, values for the configuration option are selected from this
     -- list.
-    valueOptions :: Core.Maybe [Core.Text],
+    valueOptions :: Prelude.Maybe [Prelude.Text],
     -- | An indication of which type of values this option has and whether it is
     -- allowable to select one or more than one of the possible values:
     --
@@ -48,7 +49,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     --
     -- -   @Json@ : Values for this option are a JSON representation of a
     --     @ConfigDocument@.
-    valueType :: Core.Maybe ConfigurationOptionValueType,
+    valueType :: Prelude.Maybe ConfigurationOptionValueType,
     -- | An indication of which action is required if the value for this
     -- configuration option changes:
     --
@@ -63,17 +64,17 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     --     time. However, a short application outage occurs when the
     --     application servers on the running Amazon EC2 instances are
     --     restarted.
-    changeSeverity :: Core.Maybe Core.Text,
+    changeSeverity :: Prelude.Maybe Prelude.Text,
     -- | If specified, the configuration option must be a string value that
     -- satisfies this regular expression.
-    regex :: Core.Maybe OptionRestrictionRegex,
+    regex :: Prelude.Maybe OptionRestrictionRegex,
     -- | The name of the configuration option.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | If specified, the configuration option must be a numeric value greater
     -- than this value.
-    minValue :: Core.Maybe Core.Int,
+    minValue :: Prelude.Maybe Prelude.Int,
     -- | A unique namespace identifying the option\'s associated AWS resource.
-    namespace :: Core.Maybe Core.Text,
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | An indication of whether the user defined this configuration option:
     --
     -- -   @true@ : This configuration option was defined by the user. It is a
@@ -86,14 +87,14 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     -- configuration.
     --
     -- Valid Values: @true@ | @false@
-    userDefined :: Core.Maybe Core.Bool,
+    userDefined :: Prelude.Maybe Prelude.Bool,
     -- | If specified, the configuration option must be a string value no longer
     -- than this value.
-    maxLength :: Core.Maybe Core.Int,
+    maxLength :: Prelude.Maybe Prelude.Int,
     -- | The default value for this configuration option.
-    defaultValue :: Core.Maybe Core.Text
+    defaultValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigurationOptionDescription' with all optional fields omitted.
@@ -171,28 +172,28 @@ newConfigurationOptionDescription ::
 newConfigurationOptionDescription =
   ConfigurationOptionDescription'
     { maxValue =
-        Core.Nothing,
-      valueOptions = Core.Nothing,
-      valueType = Core.Nothing,
-      changeSeverity = Core.Nothing,
-      regex = Core.Nothing,
-      name = Core.Nothing,
-      minValue = Core.Nothing,
-      namespace = Core.Nothing,
-      userDefined = Core.Nothing,
-      maxLength = Core.Nothing,
-      defaultValue = Core.Nothing
+        Prelude.Nothing,
+      valueOptions = Prelude.Nothing,
+      valueType = Prelude.Nothing,
+      changeSeverity = Prelude.Nothing,
+      regex = Prelude.Nothing,
+      name = Prelude.Nothing,
+      minValue = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      userDefined = Prelude.Nothing,
+      maxLength = Prelude.Nothing,
+      defaultValue = Prelude.Nothing
     }
 
 -- | If specified, the configuration option must be a numeric value less than
 -- this value.
-configurationOptionDescription_maxValue :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Int)
+configurationOptionDescription_maxValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
 configurationOptionDescription_maxValue = Lens.lens (\ConfigurationOptionDescription' {maxValue} -> maxValue) (\s@ConfigurationOptionDescription' {} a -> s {maxValue = a} :: ConfigurationOptionDescription)
 
 -- | If specified, values for the configuration option are selected from this
 -- list.
-configurationOptionDescription_valueOptions :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe [Core.Text])
-configurationOptionDescription_valueOptions = Lens.lens (\ConfigurationOptionDescription' {valueOptions} -> valueOptions) (\s@ConfigurationOptionDescription' {} a -> s {valueOptions = a} :: ConfigurationOptionDescription) Core.. Lens.mapping Lens._Coerce
+configurationOptionDescription_valueOptions :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe [Prelude.Text])
+configurationOptionDescription_valueOptions = Lens.lens (\ConfigurationOptionDescription' {valueOptions} -> valueOptions) (\s@ConfigurationOptionDescription' {} a -> s {valueOptions = a} :: ConfigurationOptionDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An indication of which type of values this option has and whether it is
 -- allowable to select one or more than one of the possible values:
@@ -208,7 +209,7 @@ configurationOptionDescription_valueOptions = Lens.lens (\ConfigurationOptionDes
 --
 -- -   @Json@ : Values for this option are a JSON representation of a
 --     @ConfigDocument@.
-configurationOptionDescription_valueType :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe ConfigurationOptionValueType)
+configurationOptionDescription_valueType :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe ConfigurationOptionValueType)
 configurationOptionDescription_valueType = Lens.lens (\ConfigurationOptionDescription' {valueType} -> valueType) (\s@ConfigurationOptionDescription' {} a -> s {valueType = a} :: ConfigurationOptionDescription)
 
 -- | An indication of which action is required if the value for this
@@ -225,25 +226,25 @@ configurationOptionDescription_valueType = Lens.lens (\ConfigurationOptionDescri
 --     time. However, a short application outage occurs when the
 --     application servers on the running Amazon EC2 instances are
 --     restarted.
-configurationOptionDescription_changeSeverity :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Text)
+configurationOptionDescription_changeSeverity :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
 configurationOptionDescription_changeSeverity = Lens.lens (\ConfigurationOptionDescription' {changeSeverity} -> changeSeverity) (\s@ConfigurationOptionDescription' {} a -> s {changeSeverity = a} :: ConfigurationOptionDescription)
 
 -- | If specified, the configuration option must be a string value that
 -- satisfies this regular expression.
-configurationOptionDescription_regex :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe OptionRestrictionRegex)
+configurationOptionDescription_regex :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe OptionRestrictionRegex)
 configurationOptionDescription_regex = Lens.lens (\ConfigurationOptionDescription' {regex} -> regex) (\s@ConfigurationOptionDescription' {} a -> s {regex = a} :: ConfigurationOptionDescription)
 
 -- | The name of the configuration option.
-configurationOptionDescription_name :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Text)
+configurationOptionDescription_name :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
 configurationOptionDescription_name = Lens.lens (\ConfigurationOptionDescription' {name} -> name) (\s@ConfigurationOptionDescription' {} a -> s {name = a} :: ConfigurationOptionDescription)
 
 -- | If specified, the configuration option must be a numeric value greater
 -- than this value.
-configurationOptionDescription_minValue :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Int)
+configurationOptionDescription_minValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
 configurationOptionDescription_minValue = Lens.lens (\ConfigurationOptionDescription' {minValue} -> minValue) (\s@ConfigurationOptionDescription' {} a -> s {minValue = a} :: ConfigurationOptionDescription)
 
 -- | A unique namespace identifying the option\'s associated AWS resource.
-configurationOptionDescription_namespace :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Text)
+configurationOptionDescription_namespace :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
 configurationOptionDescription_namespace = Lens.lens (\ConfigurationOptionDescription' {namespace} -> namespace) (\s@ConfigurationOptionDescription' {} a -> s {namespace = a} :: ConfigurationOptionDescription)
 
 -- | An indication of whether the user defined this configuration option:
@@ -258,35 +259,39 @@ configurationOptionDescription_namespace = Lens.lens (\ConfigurationOptionDescri
 -- configuration.
 --
 -- Valid Values: @true@ | @false@
-configurationOptionDescription_userDefined :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Bool)
+configurationOptionDescription_userDefined :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Bool)
 configurationOptionDescription_userDefined = Lens.lens (\ConfigurationOptionDescription' {userDefined} -> userDefined) (\s@ConfigurationOptionDescription' {} a -> s {userDefined = a} :: ConfigurationOptionDescription)
 
 -- | If specified, the configuration option must be a string value no longer
 -- than this value.
-configurationOptionDescription_maxLength :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Int)
+configurationOptionDescription_maxLength :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
 configurationOptionDescription_maxLength = Lens.lens (\ConfigurationOptionDescription' {maxLength} -> maxLength) (\s@ConfigurationOptionDescription' {} a -> s {maxLength = a} :: ConfigurationOptionDescription)
 
 -- | The default value for this configuration option.
-configurationOptionDescription_defaultValue :: Lens.Lens' ConfigurationOptionDescription (Core.Maybe Core.Text)
+configurationOptionDescription_defaultValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
 configurationOptionDescription_defaultValue = Lens.lens (\ConfigurationOptionDescription' {defaultValue} -> defaultValue) (\s@ConfigurationOptionDescription' {} a -> s {defaultValue = a} :: ConfigurationOptionDescription)
 
 instance Core.FromXML ConfigurationOptionDescription where
   parseXML x =
     ConfigurationOptionDescription'
-      Core.<$> (x Core..@? "MaxValue")
-      Core.<*> ( x Core..@? "ValueOptions" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "ValueType")
-      Core.<*> (x Core..@? "ChangeSeverity")
-      Core.<*> (x Core..@? "Regex")
-      Core.<*> (x Core..@? "Name")
-      Core.<*> (x Core..@? "MinValue")
-      Core.<*> (x Core..@? "Namespace")
-      Core.<*> (x Core..@? "UserDefined")
-      Core.<*> (x Core..@? "MaxLength")
-      Core.<*> (x Core..@? "DefaultValue")
+      Prelude.<$> (x Core..@? "MaxValue")
+      Prelude.<*> ( x Core..@? "ValueOptions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "ValueType")
+      Prelude.<*> (x Core..@? "ChangeSeverity")
+      Prelude.<*> (x Core..@? "Regex")
+      Prelude.<*> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "MinValue")
+      Prelude.<*> (x Core..@? "Namespace")
+      Prelude.<*> (x Core..@? "UserDefined")
+      Prelude.<*> (x Core..@? "MaxLength")
+      Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Core.Hashable ConfigurationOptionDescription
+instance
+  Prelude.Hashable
+    ConfigurationOptionDescription
 
-instance Core.NFData ConfigurationOptionDescription
+instance
+  Prelude.NFData
+    ConfigurationOptionDescription

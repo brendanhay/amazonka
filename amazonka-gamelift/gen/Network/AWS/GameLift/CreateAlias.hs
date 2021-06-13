@@ -73,6 +73,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,17 +90,17 @@ data CreateAlias = CreateAlias'
     -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A human-readable description of the alias.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with an alias. Alias names do not
     -- need to be unique.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The routing configuration, including routing type and fleet target, for
     -- the alias.
     routingStrategy :: RoutingStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAlias' with all optional fields omitted.
@@ -128,14 +129,14 @@ data CreateAlias = CreateAlias'
 -- the alias.
 newCreateAlias ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routingStrategy'
   RoutingStrategy ->
   CreateAlias
 newCreateAlias pName_ pRoutingStrategy_ =
   CreateAlias'
-    { tags = Core.Nothing,
-      description = Core.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       routingStrategy = pRoutingStrategy_
     }
@@ -149,16 +150,16 @@ newCreateAlias pName_ pRoutingStrategy_ =
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
-createAlias_tags :: Lens.Lens' CreateAlias (Core.Maybe [Tag])
-createAlias_tags = Lens.lens (\CreateAlias' {tags} -> tags) (\s@CreateAlias' {} a -> s {tags = a} :: CreateAlias) Core.. Lens.mapping Lens._Coerce
+createAlias_tags :: Lens.Lens' CreateAlias (Prelude.Maybe [Tag])
+createAlias_tags = Lens.lens (\CreateAlias' {tags} -> tags) (\s@CreateAlias' {} a -> s {tags = a} :: CreateAlias) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A human-readable description of the alias.
-createAlias_description :: Lens.Lens' CreateAlias (Core.Maybe Core.Text)
+createAlias_description :: Lens.Lens' CreateAlias (Prelude.Maybe Prelude.Text)
 createAlias_description = Lens.lens (\CreateAlias' {description} -> description) (\s@CreateAlias' {} a -> s {description = a} :: CreateAlias)
 
 -- | A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
-createAlias_name :: Lens.Lens' CreateAlias Core.Text
+createAlias_name :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_name = Lens.lens (\CreateAlias' {name} -> name) (\s@CreateAlias' {} a -> s {name = a} :: CreateAlias)
 
 -- | The routing configuration, including routing type and fleet target, for
@@ -173,53 +174,55 @@ instance Core.AWSRequest CreateAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateAliasResponse'
-            Core.<$> (x Core..?> "Alias")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Alias")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateAlias
+instance Prelude.Hashable CreateAlias
 
-instance Core.NFData CreateAlias
+instance Prelude.NFData CreateAlias
 
 instance Core.ToHeaders CreateAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.CreateAlias" :: Core.ByteString),
+              Core.=# ("GameLift.CreateAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ("RoutingStrategy" Core..= routingStrategy)
           ]
       )
 
 instance Core.ToPath CreateAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
   { -- | The newly created alias resource.
-    alias :: Core.Maybe Alias,
+    alias :: Prelude.Maybe Alias,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAliasResponse' with all optional fields omitted.
@@ -234,20 +237,20 @@ data CreateAliasResponse = CreateAliasResponse'
 -- 'httpStatus', 'createAliasResponse_httpStatus' - The response's http status code.
 newCreateAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAliasResponse
 newCreateAliasResponse pHttpStatus_ =
   CreateAliasResponse'
-    { alias = Core.Nothing,
+    { alias = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The newly created alias resource.
-createAliasResponse_alias :: Lens.Lens' CreateAliasResponse (Core.Maybe Alias)
+createAliasResponse_alias :: Lens.Lens' CreateAliasResponse (Prelude.Maybe Alias)
 createAliasResponse_alias = Lens.lens (\CreateAliasResponse' {alias} -> alias) (\s@CreateAliasResponse' {} a -> s {alias = a} :: CreateAliasResponse)
 
 -- | The response's http status code.
-createAliasResponse_httpStatus :: Lens.Lens' CreateAliasResponse Core.Int
+createAliasResponse_httpStatus :: Lens.Lens' CreateAliasResponse Prelude.Int
 createAliasResponse_httpStatus = Lens.lens (\CreateAliasResponse' {httpStatus} -> httpStatus) (\s@CreateAliasResponse' {} a -> s {httpStatus = a} :: CreateAliasResponse)
 
-instance Core.NFData CreateAliasResponse
+instance Prelude.NFData CreateAliasResponse

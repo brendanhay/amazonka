@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.Timezone where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A time zone associated with a @DBInstance@ or a @DBSnapshot@. This data
 -- type is an element in the response to the @DescribeDBInstances@, the
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTimezone' smart constructor.
 data Timezone = Timezone'
   { -- | The name of the time zone.
-    timezoneName :: Core.Maybe Core.Text
+    timezoneName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Timezone' with all optional fields omitted.
@@ -44,16 +45,17 @@ data Timezone = Timezone'
 -- 'timezoneName', 'timezone_timezoneName' - The name of the time zone.
 newTimezone ::
   Timezone
-newTimezone = Timezone' {timezoneName = Core.Nothing}
+newTimezone =
+  Timezone' {timezoneName = Prelude.Nothing}
 
 -- | The name of the time zone.
-timezone_timezoneName :: Lens.Lens' Timezone (Core.Maybe Core.Text)
+timezone_timezoneName :: Lens.Lens' Timezone (Prelude.Maybe Prelude.Text)
 timezone_timezoneName = Lens.lens (\Timezone' {timezoneName} -> timezoneName) (\s@Timezone' {} a -> s {timezoneName = a} :: Timezone)
 
 instance Core.FromXML Timezone where
   parseXML x =
-    Timezone' Core.<$> (x Core..@? "TimezoneName")
+    Timezone' Prelude.<$> (x Core..@? "TimezoneName")
 
-instance Core.Hashable Timezone
+instance Prelude.Hashable Timezone
 
-instance Core.NFData Timezone
+instance Prelude.NFData Timezone

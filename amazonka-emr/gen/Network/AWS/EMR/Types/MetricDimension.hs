@@ -21,6 +21,7 @@ module Network.AWS.EMR.Types.MetricDimension where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A CloudWatch dimension, which is specified using a @Key@ (known as a
 -- @Name@ in CloudWatch), @Value@ pair. By default, Amazon EMR uses one
@@ -31,11 +32,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
   { -- | The dimension name.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The dimension value.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricDimension' with all optional fields omitted.
@@ -52,16 +53,16 @@ newMetricDimension ::
   MetricDimension
 newMetricDimension =
   MetricDimension'
-    { key = Core.Nothing,
-      value = Core.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The dimension name.
-metricDimension_key :: Lens.Lens' MetricDimension (Core.Maybe Core.Text)
+metricDimension_key :: Lens.Lens' MetricDimension (Prelude.Maybe Prelude.Text)
 metricDimension_key = Lens.lens (\MetricDimension' {key} -> key) (\s@MetricDimension' {} a -> s {key = a} :: MetricDimension)
 
 -- | The dimension value.
-metricDimension_value :: Lens.Lens' MetricDimension (Core.Maybe Core.Text)
+metricDimension_value :: Lens.Lens' MetricDimension (Prelude.Maybe Prelude.Text)
 metricDimension_value = Lens.lens (\MetricDimension' {value} -> value) (\s@MetricDimension' {} a -> s {value = a} :: MetricDimension)
 
 instance Core.FromJSON MetricDimension where
@@ -70,18 +71,18 @@ instance Core.FromJSON MetricDimension where
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable MetricDimension
+instance Prelude.Hashable MetricDimension
 
-instance Core.NFData MetricDimension
+instance Prelude.NFData MetricDimension
 
 instance Core.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.InstanceInformationStringFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The filters to describe or get information about your managed instances.
 --
@@ -35,11 +36,11 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
     -- @tag:keyname@ and a string. Here are some valid examples: tag-key,
     -- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
     -- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The filter values.
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceInformationStringFilter' with all optional fields omitted.
@@ -62,9 +63,9 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
 -- 'values', 'instanceInformationStringFilter_values' - The filter values.
 newInstanceInformationStringFilter ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   InstanceInformationStringFilter
 newInstanceInformationStringFilter pKey_ pValues_ =
   InstanceInformationStringFilter'
@@ -81,24 +82,26 @@ newInstanceInformationStringFilter pKey_ pValues_ =
 -- @tag:keyname@ and a string. Here are some valid examples: tag-key,
 -- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
 -- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
-instanceInformationStringFilter_key :: Lens.Lens' InstanceInformationStringFilter Core.Text
+instanceInformationStringFilter_key :: Lens.Lens' InstanceInformationStringFilter Prelude.Text
 instanceInformationStringFilter_key = Lens.lens (\InstanceInformationStringFilter' {key} -> key) (\s@InstanceInformationStringFilter' {} a -> s {key = a} :: InstanceInformationStringFilter)
 
 -- | The filter values.
-instanceInformationStringFilter_values :: Lens.Lens' InstanceInformationStringFilter (Core.NonEmpty Core.Text)
-instanceInformationStringFilter_values = Lens.lens (\InstanceInformationStringFilter' {values} -> values) (\s@InstanceInformationStringFilter' {} a -> s {values = a} :: InstanceInformationStringFilter) Core.. Lens._Coerce
+instanceInformationStringFilter_values :: Lens.Lens' InstanceInformationStringFilter (Prelude.NonEmpty Prelude.Text)
+instanceInformationStringFilter_values = Lens.lens (\InstanceInformationStringFilter' {values} -> values) (\s@InstanceInformationStringFilter' {} a -> s {values = a} :: InstanceInformationStringFilter) Prelude.. Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InstanceInformationStringFilter
 
-instance Core.NFData InstanceInformationStringFilter
+instance
+  Prelude.NFData
+    InstanceInformationStringFilter
 
 instance Core.ToJSON InstanceInformationStringFilter where
   toJSON InstanceInformationStringFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

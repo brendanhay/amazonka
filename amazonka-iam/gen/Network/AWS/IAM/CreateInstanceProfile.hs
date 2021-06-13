@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,7 +66,7 @@ data CreateInstanceProfile = CreateInstanceProfile'
     -- If any one of the tags is invalid or if you exceed the allowed maximum
     -- number of tags, then the entire request fails and the resource is not
     -- created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The path to the instance profile. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
     -- in the /IAM User Guide/.
@@ -80,16 +81,16 @@ data CreateInstanceProfile = CreateInstanceProfile'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | The name of the instance profile to create.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    instanceProfileName :: Core.Text
+    instanceProfileName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceProfile' with all optional fields omitted.
@@ -132,12 +133,12 @@ data CreateInstanceProfile = CreateInstanceProfile'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newCreateInstanceProfile ::
   -- | 'instanceProfileName'
-  Core.Text ->
+  Prelude.Text ->
   CreateInstanceProfile
 newCreateInstanceProfile pInstanceProfileName_ =
   CreateInstanceProfile'
-    { tags = Core.Nothing,
-      path = Core.Nothing,
+    { tags = Prelude.Nothing,
+      path = Prelude.Nothing,
       instanceProfileName = pInstanceProfileName_
     }
 
@@ -150,8 +151,8 @@ newCreateInstanceProfile pInstanceProfileName_ =
 -- If any one of the tags is invalid or if you exceed the allowed maximum
 -- number of tags, then the entire request fails and the resource is not
 -- created.
-createInstanceProfile_tags :: Lens.Lens' CreateInstanceProfile (Core.Maybe [Tag])
-createInstanceProfile_tags = Lens.lens (\CreateInstanceProfile' {tags} -> tags) (\s@CreateInstanceProfile' {} a -> s {tags = a} :: CreateInstanceProfile) Core.. Lens.mapping Lens._Coerce
+createInstanceProfile_tags :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe [Tag])
+createInstanceProfile_tags = Lens.lens (\CreateInstanceProfile' {tags} -> tags) (\s@CreateInstanceProfile' {} a -> s {tags = a} :: CreateInstanceProfile) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path to the instance profile. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -167,7 +168,7 @@ createInstanceProfile_tags = Lens.lens (\CreateInstanceProfile' {tags} -> tags) 
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-createInstanceProfile_path :: Lens.Lens' CreateInstanceProfile (Core.Maybe Core.Text)
+createInstanceProfile_path :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Text)
 createInstanceProfile_path = Lens.lens (\CreateInstanceProfile' {path} -> path) (\s@CreateInstanceProfile' {} a -> s {path = a} :: CreateInstanceProfile)
 
 -- | The name of the instance profile to create.
@@ -176,7 +177,7 @@ createInstanceProfile_path = Lens.lens (\CreateInstanceProfile' {path} -> path) 
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-createInstanceProfile_instanceProfileName :: Lens.Lens' CreateInstanceProfile Core.Text
+createInstanceProfile_instanceProfileName :: Lens.Lens' CreateInstanceProfile Prelude.Text
 createInstanceProfile_instanceProfileName = Lens.lens (\CreateInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@CreateInstanceProfile' {} a -> s {instanceProfileName = a} :: CreateInstanceProfile)
 
 instance Core.AWSRequest CreateInstanceProfile where
@@ -189,29 +190,30 @@ instance Core.AWSRequest CreateInstanceProfile where
       "CreateInstanceProfileResult"
       ( \s h x ->
           CreateInstanceProfileResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "InstanceProfile")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "InstanceProfile")
       )
 
-instance Core.Hashable CreateInstanceProfile
+instance Prelude.Hashable CreateInstanceProfile
 
-instance Core.NFData CreateInstanceProfile
+instance Prelude.NFData CreateInstanceProfile
 
 instance Core.ToHeaders CreateInstanceProfile where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateInstanceProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateInstanceProfile where
   toQuery CreateInstanceProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateInstanceProfile" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("CreateInstanceProfile" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "Path" Core.=: path,
         "InstanceProfileName" Core.=: instanceProfileName
       ]
@@ -221,11 +223,11 @@ instance Core.ToQuery CreateInstanceProfile where
 -- /See:/ 'newCreateInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A structure containing details about the new instance profile.
     instanceProfile :: InstanceProfile
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceProfileResponse' with all optional fields omitted.
@@ -240,7 +242,7 @@ data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
 -- 'instanceProfile', 'createInstanceProfileResponse_instanceProfile' - A structure containing details about the new instance profile.
 newCreateInstanceProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'instanceProfile'
   InstanceProfile ->
   CreateInstanceProfileResponse
@@ -254,11 +256,11 @@ newCreateInstanceProfileResponse
       }
 
 -- | The response's http status code.
-createInstanceProfileResponse_httpStatus :: Lens.Lens' CreateInstanceProfileResponse Core.Int
+createInstanceProfileResponse_httpStatus :: Lens.Lens' CreateInstanceProfileResponse Prelude.Int
 createInstanceProfileResponse_httpStatus = Lens.lens (\CreateInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceProfileResponse' {} a -> s {httpStatus = a} :: CreateInstanceProfileResponse)
 
 -- | A structure containing details about the new instance profile.
 createInstanceProfileResponse_instanceProfile :: Lens.Lens' CreateInstanceProfileResponse InstanceProfile
 createInstanceProfileResponse_instanceProfile = Lens.lens (\CreateInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@CreateInstanceProfileResponse' {} a -> s {instanceProfile = a} :: CreateInstanceProfileResponse)
 
-instance Core.NFData CreateInstanceProfileResponse
+instance Prelude.NFData CreateInstanceProfileResponse

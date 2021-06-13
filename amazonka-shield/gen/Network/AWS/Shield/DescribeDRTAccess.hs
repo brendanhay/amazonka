@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -49,7 +50,7 @@ import Network.AWS.Shield.Types
 data DescribeDRTAccess = DescribeDRTAccess'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDRTAccess' with all optional fields omitted.
@@ -68,48 +69,50 @@ instance Core.AWSRequest DescribeDRTAccess where
     Response.receiveJSON
       ( \s h x ->
           DescribeDRTAccessResponse'
-            Core.<$> (x Core..?> "RoleArn")
-            Core.<*> (x Core..?> "LogBucketList" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "LogBucketList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDRTAccess
+instance Prelude.Hashable DescribeDRTAccess
 
-instance Core.NFData DescribeDRTAccess
+instance Prelude.NFData DescribeDRTAccess
 
 instance Core.ToHeaders DescribeDRTAccess where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.DescribeDRTAccess" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDRTAccess where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DescribeDRTAccess where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDRTAccess where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDRTAccessResponse' smart constructor.
 data DescribeDRTAccessResponse = DescribeDRTAccessResponse'
   { -- | The Amazon Resource Name (ARN) of the role the DRT used to access your
     -- AWS account.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The list of Amazon S3 buckets accessed by the DRT.
-    logBucketList :: Core.Maybe [Core.Text],
+    logBucketList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDRTAccessResponse' with all optional fields omitted.
@@ -127,26 +130,27 @@ data DescribeDRTAccessResponse = DescribeDRTAccessResponse'
 -- 'httpStatus', 'describeDRTAccessResponse_httpStatus' - The response's http status code.
 newDescribeDRTAccessResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDRTAccessResponse
 newDescribeDRTAccessResponse pHttpStatus_ =
   DescribeDRTAccessResponse'
-    { roleArn = Core.Nothing,
-      logBucketList = Core.Nothing,
+    { roleArn =
+        Prelude.Nothing,
+      logBucketList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the role the DRT used to access your
 -- AWS account.
-describeDRTAccessResponse_roleArn :: Lens.Lens' DescribeDRTAccessResponse (Core.Maybe Core.Text)
+describeDRTAccessResponse_roleArn :: Lens.Lens' DescribeDRTAccessResponse (Prelude.Maybe Prelude.Text)
 describeDRTAccessResponse_roleArn = Lens.lens (\DescribeDRTAccessResponse' {roleArn} -> roleArn) (\s@DescribeDRTAccessResponse' {} a -> s {roleArn = a} :: DescribeDRTAccessResponse)
 
 -- | The list of Amazon S3 buckets accessed by the DRT.
-describeDRTAccessResponse_logBucketList :: Lens.Lens' DescribeDRTAccessResponse (Core.Maybe [Core.Text])
-describeDRTAccessResponse_logBucketList = Lens.lens (\DescribeDRTAccessResponse' {logBucketList} -> logBucketList) (\s@DescribeDRTAccessResponse' {} a -> s {logBucketList = a} :: DescribeDRTAccessResponse) Core.. Lens.mapping Lens._Coerce
+describeDRTAccessResponse_logBucketList :: Lens.Lens' DescribeDRTAccessResponse (Prelude.Maybe [Prelude.Text])
+describeDRTAccessResponse_logBucketList = Lens.lens (\DescribeDRTAccessResponse' {logBucketList} -> logBucketList) (\s@DescribeDRTAccessResponse' {} a -> s {logBucketList = a} :: DescribeDRTAccessResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeDRTAccessResponse_httpStatus :: Lens.Lens' DescribeDRTAccessResponse Core.Int
+describeDRTAccessResponse_httpStatus :: Lens.Lens' DescribeDRTAccessResponse Prelude.Int
 describeDRTAccessResponse_httpStatus = Lens.lens (\DescribeDRTAccessResponse' {httpStatus} -> httpStatus) (\s@DescribeDRTAccessResponse' {} a -> s {httpStatus = a} :: DescribeDRTAccessResponse)
 
-instance Core.NFData DescribeDRTAccessResponse
+instance Prelude.NFData DescribeDRTAccessResponse

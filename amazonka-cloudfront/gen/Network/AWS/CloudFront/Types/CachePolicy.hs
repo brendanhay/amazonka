@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.CachePolicy where
 import Network.AWS.CloudFront.Types.CachePolicyConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A cache policy.
 --
@@ -46,13 +47,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCachePolicy' smart constructor.
 data CachePolicy = CachePolicy'
   { -- | The unique identifier for the cache policy.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The date and time when the cache policy was last modified.
     lastModifiedTime :: Core.ISO8601,
     -- | The cache policy configuration.
     cachePolicyConfig :: CachePolicyConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CachePolicy' with all optional fields omitted.
@@ -69,9 +70,9 @@ data CachePolicy = CachePolicy'
 -- 'cachePolicyConfig', 'cachePolicy_cachePolicyConfig' - The cache policy configuration.
 newCachePolicy ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'cachePolicyConfig'
   CachePolicyConfig ->
   CachePolicy
@@ -87,12 +88,12 @@ newCachePolicy
       }
 
 -- | The unique identifier for the cache policy.
-cachePolicy_id :: Lens.Lens' CachePolicy Core.Text
+cachePolicy_id :: Lens.Lens' CachePolicy Prelude.Text
 cachePolicy_id = Lens.lens (\CachePolicy' {id} -> id) (\s@CachePolicy' {} a -> s {id = a} :: CachePolicy)
 
 -- | The date and time when the cache policy was last modified.
-cachePolicy_lastModifiedTime :: Lens.Lens' CachePolicy Core.UTCTime
-cachePolicy_lastModifiedTime = Lens.lens (\CachePolicy' {lastModifiedTime} -> lastModifiedTime) (\s@CachePolicy' {} a -> s {lastModifiedTime = a} :: CachePolicy) Core.. Core._Time
+cachePolicy_lastModifiedTime :: Lens.Lens' CachePolicy Prelude.UTCTime
+cachePolicy_lastModifiedTime = Lens.lens (\CachePolicy' {lastModifiedTime} -> lastModifiedTime) (\s@CachePolicy' {} a -> s {lastModifiedTime = a} :: CachePolicy) Prelude.. Core._Time
 
 -- | The cache policy configuration.
 cachePolicy_cachePolicyConfig :: Lens.Lens' CachePolicy CachePolicyConfig
@@ -101,10 +102,10 @@ cachePolicy_cachePolicyConfig = Lens.lens (\CachePolicy' {cachePolicyConfig} -> 
 instance Core.FromXML CachePolicy where
   parseXML x =
     CachePolicy'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "LastModifiedTime")
-      Core.<*> (x Core..@ "CachePolicyConfig")
+      Prelude.<$> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "LastModifiedTime")
+      Prelude.<*> (x Core..@ "CachePolicyConfig")
 
-instance Core.Hashable CachePolicy
+instance Prelude.Hashable CachePolicy
 
-instance Core.NFData CachePolicy
+instance Prelude.NFData CachePolicy

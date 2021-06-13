@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MonitoringBaselineConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringConstraintsResource
 import Network.AWS.SageMaker.Types.MonitoringStatisticsResource
 
@@ -32,14 +33,14 @@ import Network.AWS.SageMaker.Types.MonitoringStatisticsResource
 data MonitoringBaselineConfig = MonitoringBaselineConfig'
   { -- | The baseline statistics file in Amazon S3 that the current monitoring
     -- job should be validated against.
-    statisticsResource :: Core.Maybe MonitoringStatisticsResource,
+    statisticsResource :: Prelude.Maybe MonitoringStatisticsResource,
     -- | The baseline constraint file in Amazon S3 that the current monitoring
     -- job should validated against.
-    constraintsResource :: Core.Maybe MonitoringConstraintsResource,
+    constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
     -- | The name of the job that performs baselining for the monitoring job.
-    baseliningJobName :: Core.Maybe Core.Text
+    baseliningJobName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringBaselineConfig' with all optional fields omitted.
@@ -61,23 +62,23 @@ newMonitoringBaselineConfig ::
 newMonitoringBaselineConfig =
   MonitoringBaselineConfig'
     { statisticsResource =
-        Core.Nothing,
-      constraintsResource = Core.Nothing,
-      baseliningJobName = Core.Nothing
+        Prelude.Nothing,
+      constraintsResource = Prelude.Nothing,
+      baseliningJobName = Prelude.Nothing
     }
 
 -- | The baseline statistics file in Amazon S3 that the current monitoring
 -- job should be validated against.
-monitoringBaselineConfig_statisticsResource :: Lens.Lens' MonitoringBaselineConfig (Core.Maybe MonitoringStatisticsResource)
+monitoringBaselineConfig_statisticsResource :: Lens.Lens' MonitoringBaselineConfig (Prelude.Maybe MonitoringStatisticsResource)
 monitoringBaselineConfig_statisticsResource = Lens.lens (\MonitoringBaselineConfig' {statisticsResource} -> statisticsResource) (\s@MonitoringBaselineConfig' {} a -> s {statisticsResource = a} :: MonitoringBaselineConfig)
 
 -- | The baseline constraint file in Amazon S3 that the current monitoring
 -- job should validated against.
-monitoringBaselineConfig_constraintsResource :: Lens.Lens' MonitoringBaselineConfig (Core.Maybe MonitoringConstraintsResource)
+monitoringBaselineConfig_constraintsResource :: Lens.Lens' MonitoringBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
 monitoringBaselineConfig_constraintsResource = Lens.lens (\MonitoringBaselineConfig' {constraintsResource} -> constraintsResource) (\s@MonitoringBaselineConfig' {} a -> s {constraintsResource = a} :: MonitoringBaselineConfig)
 
 -- | The name of the job that performs baselining for the monitoring job.
-monitoringBaselineConfig_baseliningJobName :: Lens.Lens' MonitoringBaselineConfig (Core.Maybe Core.Text)
+monitoringBaselineConfig_baseliningJobName :: Lens.Lens' MonitoringBaselineConfig (Prelude.Maybe Prelude.Text)
 monitoringBaselineConfig_baseliningJobName = Lens.lens (\MonitoringBaselineConfig' {baseliningJobName} -> baseliningJobName) (\s@MonitoringBaselineConfig' {} a -> s {baseliningJobName = a} :: MonitoringBaselineConfig)
 
 instance Core.FromJSON MonitoringBaselineConfig where
@@ -86,24 +87,24 @@ instance Core.FromJSON MonitoringBaselineConfig where
       "MonitoringBaselineConfig"
       ( \x ->
           MonitoringBaselineConfig'
-            Core.<$> (x Core..:? "StatisticsResource")
-            Core.<*> (x Core..:? "ConstraintsResource")
-            Core.<*> (x Core..:? "BaseliningJobName")
+            Prelude.<$> (x Core..:? "StatisticsResource")
+            Prelude.<*> (x Core..:? "ConstraintsResource")
+            Prelude.<*> (x Core..:? "BaseliningJobName")
       )
 
-instance Core.Hashable MonitoringBaselineConfig
+instance Prelude.Hashable MonitoringBaselineConfig
 
-instance Core.NFData MonitoringBaselineConfig
+instance Prelude.NFData MonitoringBaselineConfig
 
 instance Core.ToJSON MonitoringBaselineConfig where
   toJSON MonitoringBaselineConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("StatisticsResource" Core..=)
-              Core.<$> statisticsResource,
+              Prelude.<$> statisticsResource,
             ("ConstraintsResource" Core..=)
-              Core.<$> constraintsResource,
+              Prelude.<$> constraintsResource,
             ("BaseliningJobName" Core..=)
-              Core.<$> baseliningJobName
+              Prelude.<$> baseliningJobName
           ]
       )

@@ -19,3 +19,4 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Lens
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude

@@ -26,6 +26,7 @@ import Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
 import Network.AWS.ELBv2.Types.LoadBalancerState
 import Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a load balancer.
 --
@@ -34,14 +35,14 @@ data LoadBalancer = LoadBalancer'
   { -- | The type of IP addresses used by the subnets for your load balancer. The
     -- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
     -- IPv4 and IPv6 addresses).
-    ipAddressType :: Core.Maybe IpAddressType,
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Core.Maybe Core.Text,
+    loadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | [Application Load Balancers on Outposts] The ID of the customer-owned
     -- address pool.
-    customerOwnedIpv4Pool :: Core.Maybe Core.Text,
+    customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
     -- | The subnets for the load balancer.
-    availabilityZones :: Core.Maybe [AvailabilityZone],
+    availabilityZones :: Prelude.Maybe [AvailabilityZone],
     -- | The nodes of an Internet-facing load balancer have public IP addresses.
     -- The DNS name of an Internet-facing load balancer is publicly resolvable
     -- to the public IP addresses of the nodes. Therefore, Internet-facing load
@@ -52,26 +53,26 @@ data LoadBalancer = LoadBalancer'
     -- private IP addresses of the nodes. Therefore, internal load balancers
     -- can route requests only from clients with access to the VPC for the load
     -- balancer.
-    scheme :: Core.Maybe LoadBalancerSchemeEnum,
+    scheme :: Prelude.Maybe LoadBalancerSchemeEnum,
     -- | The date and time the load balancer was created.
-    createdTime :: Core.Maybe Core.ISO8601,
+    createdTime :: Prelude.Maybe Core.ISO8601,
     -- | The IDs of the security groups for the load balancer.
-    securityGroups :: Core.Maybe [Core.Text],
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The state of the load balancer.
-    state :: Core.Maybe LoadBalancerState,
+    state :: Prelude.Maybe LoadBalancerState,
     -- | The public DNS name of the load balancer.
-    dNSName :: Core.Maybe Core.Text,
+    dNSName :: Prelude.Maybe Prelude.Text,
     -- | The type of load balancer.
-    type' :: Core.Maybe LoadBalancerTypeEnum,
+    type' :: Prelude.Maybe LoadBalancerTypeEnum,
     -- | The ID of the Amazon Route 53 hosted zone associated with the load
     -- balancer.
-    canonicalHostedZoneId :: Core.Maybe Core.Text,
+    canonicalHostedZoneId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC for the load balancer.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The name of the load balancer.
-    loadBalancerName :: Core.Maybe Core.Text
+    loadBalancerName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancer' with all optional fields omitted.
@@ -123,39 +124,39 @@ newLoadBalancer ::
   LoadBalancer
 newLoadBalancer =
   LoadBalancer'
-    { ipAddressType = Core.Nothing,
-      loadBalancerArn = Core.Nothing,
-      customerOwnedIpv4Pool = Core.Nothing,
-      availabilityZones = Core.Nothing,
-      scheme = Core.Nothing,
-      createdTime = Core.Nothing,
-      securityGroups = Core.Nothing,
-      state = Core.Nothing,
-      dNSName = Core.Nothing,
-      type' = Core.Nothing,
-      canonicalHostedZoneId = Core.Nothing,
-      vpcId = Core.Nothing,
-      loadBalancerName = Core.Nothing
+    { ipAddressType = Prelude.Nothing,
+      loadBalancerArn = Prelude.Nothing,
+      customerOwnedIpv4Pool = Prelude.Nothing,
+      availabilityZones = Prelude.Nothing,
+      scheme = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      state = Prelude.Nothing,
+      dNSName = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      canonicalHostedZoneId = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      loadBalancerName = Prelude.Nothing
     }
 
 -- | The type of IP addresses used by the subnets for your load balancer. The
 -- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
 -- IPv4 and IPv6 addresses).
-loadBalancer_ipAddressType :: Lens.Lens' LoadBalancer (Core.Maybe IpAddressType)
+loadBalancer_ipAddressType :: Lens.Lens' LoadBalancer (Prelude.Maybe IpAddressType)
 loadBalancer_ipAddressType = Lens.lens (\LoadBalancer' {ipAddressType} -> ipAddressType) (\s@LoadBalancer' {} a -> s {ipAddressType = a} :: LoadBalancer)
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-loadBalancer_loadBalancerArn :: Lens.Lens' LoadBalancer (Core.Maybe Core.Text)
+loadBalancer_loadBalancerArn :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_loadBalancerArn = Lens.lens (\LoadBalancer' {loadBalancerArn} -> loadBalancerArn) (\s@LoadBalancer' {} a -> s {loadBalancerArn = a} :: LoadBalancer)
 
 -- | [Application Load Balancers on Outposts] The ID of the customer-owned
 -- address pool.
-loadBalancer_customerOwnedIpv4Pool :: Lens.Lens' LoadBalancer (Core.Maybe Core.Text)
+loadBalancer_customerOwnedIpv4Pool :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_customerOwnedIpv4Pool = Lens.lens (\LoadBalancer' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@LoadBalancer' {} a -> s {customerOwnedIpv4Pool = a} :: LoadBalancer)
 
 -- | The subnets for the load balancer.
-loadBalancer_availabilityZones :: Lens.Lens' LoadBalancer (Core.Maybe [AvailabilityZone])
-loadBalancer_availabilityZones = Lens.lens (\LoadBalancer' {availabilityZones} -> availabilityZones) (\s@LoadBalancer' {} a -> s {availabilityZones = a} :: LoadBalancer) Core.. Lens.mapping Lens._Coerce
+loadBalancer_availabilityZones :: Lens.Lens' LoadBalancer (Prelude.Maybe [AvailabilityZone])
+loadBalancer_availabilityZones = Lens.lens (\LoadBalancer' {availabilityZones} -> availabilityZones) (\s@LoadBalancer' {} a -> s {availabilityZones = a} :: LoadBalancer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The nodes of an Internet-facing load balancer have public IP addresses.
 -- The DNS name of an Internet-facing load balancer is publicly resolvable
@@ -167,63 +168,64 @@ loadBalancer_availabilityZones = Lens.lens (\LoadBalancer' {availabilityZones} -
 -- private IP addresses of the nodes. Therefore, internal load balancers
 -- can route requests only from clients with access to the VPC for the load
 -- balancer.
-loadBalancer_scheme :: Lens.Lens' LoadBalancer (Core.Maybe LoadBalancerSchemeEnum)
+loadBalancer_scheme :: Lens.Lens' LoadBalancer (Prelude.Maybe LoadBalancerSchemeEnum)
 loadBalancer_scheme = Lens.lens (\LoadBalancer' {scheme} -> scheme) (\s@LoadBalancer' {} a -> s {scheme = a} :: LoadBalancer)
 
 -- | The date and time the load balancer was created.
-loadBalancer_createdTime :: Lens.Lens' LoadBalancer (Core.Maybe Core.UTCTime)
-loadBalancer_createdTime = Lens.lens (\LoadBalancer' {createdTime} -> createdTime) (\s@LoadBalancer' {} a -> s {createdTime = a} :: LoadBalancer) Core.. Lens.mapping Core._Time
+loadBalancer_createdTime :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.UTCTime)
+loadBalancer_createdTime = Lens.lens (\LoadBalancer' {createdTime} -> createdTime) (\s@LoadBalancer' {} a -> s {createdTime = a} :: LoadBalancer) Prelude.. Lens.mapping Core._Time
 
 -- | The IDs of the security groups for the load balancer.
-loadBalancer_securityGroups :: Lens.Lens' LoadBalancer (Core.Maybe [Core.Text])
-loadBalancer_securityGroups = Lens.lens (\LoadBalancer' {securityGroups} -> securityGroups) (\s@LoadBalancer' {} a -> s {securityGroups = a} :: LoadBalancer) Core.. Lens.mapping Lens._Coerce
+loadBalancer_securityGroups :: Lens.Lens' LoadBalancer (Prelude.Maybe [Prelude.Text])
+loadBalancer_securityGroups = Lens.lens (\LoadBalancer' {securityGroups} -> securityGroups) (\s@LoadBalancer' {} a -> s {securityGroups = a} :: LoadBalancer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The state of the load balancer.
-loadBalancer_state :: Lens.Lens' LoadBalancer (Core.Maybe LoadBalancerState)
+loadBalancer_state :: Lens.Lens' LoadBalancer (Prelude.Maybe LoadBalancerState)
 loadBalancer_state = Lens.lens (\LoadBalancer' {state} -> state) (\s@LoadBalancer' {} a -> s {state = a} :: LoadBalancer)
 
 -- | The public DNS name of the load balancer.
-loadBalancer_dNSName :: Lens.Lens' LoadBalancer (Core.Maybe Core.Text)
+loadBalancer_dNSName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_dNSName = Lens.lens (\LoadBalancer' {dNSName} -> dNSName) (\s@LoadBalancer' {} a -> s {dNSName = a} :: LoadBalancer)
 
 -- | The type of load balancer.
-loadBalancer_type :: Lens.Lens' LoadBalancer (Core.Maybe LoadBalancerTypeEnum)
+loadBalancer_type :: Lens.Lens' LoadBalancer (Prelude.Maybe LoadBalancerTypeEnum)
 loadBalancer_type = Lens.lens (\LoadBalancer' {type'} -> type') (\s@LoadBalancer' {} a -> s {type' = a} :: LoadBalancer)
 
 -- | The ID of the Amazon Route 53 hosted zone associated with the load
 -- balancer.
-loadBalancer_canonicalHostedZoneId :: Lens.Lens' LoadBalancer (Core.Maybe Core.Text)
+loadBalancer_canonicalHostedZoneId :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_canonicalHostedZoneId = Lens.lens (\LoadBalancer' {canonicalHostedZoneId} -> canonicalHostedZoneId) (\s@LoadBalancer' {} a -> s {canonicalHostedZoneId = a} :: LoadBalancer)
 
 -- | The ID of the VPC for the load balancer.
-loadBalancer_vpcId :: Lens.Lens' LoadBalancer (Core.Maybe Core.Text)
+loadBalancer_vpcId :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_vpcId = Lens.lens (\LoadBalancer' {vpcId} -> vpcId) (\s@LoadBalancer' {} a -> s {vpcId = a} :: LoadBalancer)
 
 -- | The name of the load balancer.
-loadBalancer_loadBalancerName :: Lens.Lens' LoadBalancer (Core.Maybe Core.Text)
+loadBalancer_loadBalancerName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_loadBalancerName = Lens.lens (\LoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@LoadBalancer' {} a -> s {loadBalancerName = a} :: LoadBalancer)
 
 instance Core.FromXML LoadBalancer where
   parseXML x =
     LoadBalancer'
-      Core.<$> (x Core..@? "IpAddressType")
-      Core.<*> (x Core..@? "LoadBalancerArn")
-      Core.<*> (x Core..@? "CustomerOwnedIpv4Pool")
-      Core.<*> ( x Core..@? "AvailabilityZones" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "Scheme")
-      Core.<*> (x Core..@? "CreatedTime")
-      Core.<*> ( x Core..@? "SecurityGroups" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "State")
-      Core.<*> (x Core..@? "DNSName")
-      Core.<*> (x Core..@? "Type")
-      Core.<*> (x Core..@? "CanonicalHostedZoneId")
-      Core.<*> (x Core..@? "VpcId")
-      Core.<*> (x Core..@? "LoadBalancerName")
+      Prelude.<$> (x Core..@? "IpAddressType")
+      Prelude.<*> (x Core..@? "LoadBalancerArn")
+      Prelude.<*> (x Core..@? "CustomerOwnedIpv4Pool")
+      Prelude.<*> ( x Core..@? "AvailabilityZones"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "Scheme")
+      Prelude.<*> (x Core..@? "CreatedTime")
+      Prelude.<*> ( x Core..@? "SecurityGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "State")
+      Prelude.<*> (x Core..@? "DNSName")
+      Prelude.<*> (x Core..@? "Type")
+      Prelude.<*> (x Core..@? "CanonicalHostedZoneId")
+      Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> (x Core..@? "LoadBalancerName")
 
-instance Core.Hashable LoadBalancer
+instance Prelude.Hashable LoadBalancer
 
-instance Core.NFData LoadBalancer
+instance Prelude.NFData LoadBalancer

@@ -92,6 +92,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -101,7 +102,7 @@ data CreateLabelingJob = CreateLabelingJob'
   { -- | A set of conditions for stopping the labeling job. If any of the
     -- conditions are met, the job is automatically stopped. You can use these
     -- conditions to control the cost of data labeling.
-    stoppingConditions :: Core.Maybe LabelingJobStoppingConditions,
+    stoppingConditions :: Prelude.Maybe LabelingJobStoppingConditions,
     -- | The S3 URI of the file, referred to as a /label category configuration
     -- file/, that defines the categories used to label the data objects.
     --
@@ -142,19 +143,19 @@ data CreateLabelingJob = CreateLabelingJob'
     --     this parameter to enter the
     --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName LabelAttributeName>
     --     of the labeling job you want to adjust or verify annotations of.
-    labelCategoryConfigS3Uri :: Core.Maybe Core.Text,
+    labelCategoryConfigS3Uri :: Prelude.Maybe Prelude.Text,
     -- | Configures the information required to perform automated data labeling.
-    labelingJobAlgorithmsConfig :: Core.Maybe LabelingJobAlgorithmsConfig,
+    labelingJobAlgorithmsConfig :: Prelude.Maybe LabelingJobAlgorithmsConfig,
     -- | An array of key\/value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
     -- in the /AWS Billing and Cost Management User Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the labeling job. This name is used to identify the job in a
     -- list of labeling jobs. Labeling job names must be unique within an AWS
     -- account and region. @LabelingJobName@ is not case sensitive. For
     -- example, Example-job and example-job are considered the same labeling
     -- job name by Ground Truth.
-    labelingJobName :: Core.Text,
+    labelingJobName :: Prelude.Text,
     -- | The attribute name to use for the label in the output manifest file.
     -- This is the key for the key\/value pair formed with the label that a
     -- worker assigns to the object. The @LabelAttributeName@ must meet the
@@ -197,7 +198,7 @@ data CreateLabelingJob = CreateLabelingJob'
     -- that produced the labels that you want verified or adjusted. To learn
     -- more about adjustment and verification labeling jobs, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html Verify and Adjust Labels>.
-    labelAttributeName :: Core.Text,
+    labelAttributeName :: Prelude.Text,
     -- | Input data for the labeling job, such as the Amazon S3 location of the
     -- data objects and the location of the manifest file that describes the
     -- data objects.
@@ -227,13 +228,13 @@ data CreateLabelingJob = CreateLabelingJob'
     -- perform tasks on your behalf during data labeling. You must grant this
     -- role the necessary permissions so that Amazon SageMaker can successfully
     -- complete data labeling.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | Configures the labeling task and how it is presented to workers;
     -- including, but not limited to price, keywords, and batch size (task
     -- count).
     humanTaskConfig :: HumanTaskConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLabelingJob' with all optional fields omitted.
@@ -378,15 +379,15 @@ data CreateLabelingJob = CreateLabelingJob'
 -- count).
 newCreateLabelingJob ::
   -- | 'labelingJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'labelAttributeName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputConfig'
   LabelingJobInputConfig ->
   -- | 'outputConfig'
   LabelingJobOutputConfig ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'humanTaskConfig'
   HumanTaskConfig ->
   CreateLabelingJob
@@ -399,10 +400,10 @@ newCreateLabelingJob
   pHumanTaskConfig_ =
     CreateLabelingJob'
       { stoppingConditions =
-          Core.Nothing,
-        labelCategoryConfigS3Uri = Core.Nothing,
-        labelingJobAlgorithmsConfig = Core.Nothing,
-        tags = Core.Nothing,
+          Prelude.Nothing,
+        labelCategoryConfigS3Uri = Prelude.Nothing,
+        labelingJobAlgorithmsConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         labelingJobName = pLabelingJobName_,
         labelAttributeName = pLabelAttributeName_,
         inputConfig = pInputConfig_,
@@ -414,7 +415,7 @@ newCreateLabelingJob
 -- | A set of conditions for stopping the labeling job. If any of the
 -- conditions are met, the job is automatically stopped. You can use these
 -- conditions to control the cost of data labeling.
-createLabelingJob_stoppingConditions :: Lens.Lens' CreateLabelingJob (Core.Maybe LabelingJobStoppingConditions)
+createLabelingJob_stoppingConditions :: Lens.Lens' CreateLabelingJob (Prelude.Maybe LabelingJobStoppingConditions)
 createLabelingJob_stoppingConditions = Lens.lens (\CreateLabelingJob' {stoppingConditions} -> stoppingConditions) (\s@CreateLabelingJob' {} a -> s {stoppingConditions = a} :: CreateLabelingJob)
 
 -- | The S3 URI of the file, referred to as a /label category configuration
@@ -457,25 +458,25 @@ createLabelingJob_stoppingConditions = Lens.lens (\CreateLabelingJob' {stoppingC
 --     this parameter to enter the
 --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName LabelAttributeName>
 --     of the labeling job you want to adjust or verify annotations of.
-createLabelingJob_labelCategoryConfigS3Uri :: Lens.Lens' CreateLabelingJob (Core.Maybe Core.Text)
+createLabelingJob_labelCategoryConfigS3Uri :: Lens.Lens' CreateLabelingJob (Prelude.Maybe Prelude.Text)
 createLabelingJob_labelCategoryConfigS3Uri = Lens.lens (\CreateLabelingJob' {labelCategoryConfigS3Uri} -> labelCategoryConfigS3Uri) (\s@CreateLabelingJob' {} a -> s {labelCategoryConfigS3Uri = a} :: CreateLabelingJob)
 
 -- | Configures the information required to perform automated data labeling.
-createLabelingJob_labelingJobAlgorithmsConfig :: Lens.Lens' CreateLabelingJob (Core.Maybe LabelingJobAlgorithmsConfig)
+createLabelingJob_labelingJobAlgorithmsConfig :: Lens.Lens' CreateLabelingJob (Prelude.Maybe LabelingJobAlgorithmsConfig)
 createLabelingJob_labelingJobAlgorithmsConfig = Lens.lens (\CreateLabelingJob' {labelingJobAlgorithmsConfig} -> labelingJobAlgorithmsConfig) (\s@CreateLabelingJob' {} a -> s {labelingJobAlgorithmsConfig = a} :: CreateLabelingJob)
 
 -- | An array of key\/value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
 -- in the /AWS Billing and Cost Management User Guide/.
-createLabelingJob_tags :: Lens.Lens' CreateLabelingJob (Core.Maybe [Tag])
-createLabelingJob_tags = Lens.lens (\CreateLabelingJob' {tags} -> tags) (\s@CreateLabelingJob' {} a -> s {tags = a} :: CreateLabelingJob) Core.. Lens.mapping Lens._Coerce
+createLabelingJob_tags :: Lens.Lens' CreateLabelingJob (Prelude.Maybe [Tag])
+createLabelingJob_tags = Lens.lens (\CreateLabelingJob' {tags} -> tags) (\s@CreateLabelingJob' {} a -> s {tags = a} :: CreateLabelingJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the labeling job. This name is used to identify the job in a
 -- list of labeling jobs. Labeling job names must be unique within an AWS
 -- account and region. @LabelingJobName@ is not case sensitive. For
 -- example, Example-job and example-job are considered the same labeling
 -- job name by Ground Truth.
-createLabelingJob_labelingJobName :: Lens.Lens' CreateLabelingJob Core.Text
+createLabelingJob_labelingJobName :: Lens.Lens' CreateLabelingJob Prelude.Text
 createLabelingJob_labelingJobName = Lens.lens (\CreateLabelingJob' {labelingJobName} -> labelingJobName) (\s@CreateLabelingJob' {} a -> s {labelingJobName = a} :: CreateLabelingJob)
 
 -- | The attribute name to use for the label in the output manifest file.
@@ -520,7 +521,7 @@ createLabelingJob_labelingJobName = Lens.lens (\CreateLabelingJob' {labelingJobN
 -- that produced the labels that you want verified or adjusted. To learn
 -- more about adjustment and verification labeling jobs, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html Verify and Adjust Labels>.
-createLabelingJob_labelAttributeName :: Lens.Lens' CreateLabelingJob Core.Text
+createLabelingJob_labelAttributeName :: Lens.Lens' CreateLabelingJob Prelude.Text
 createLabelingJob_labelAttributeName = Lens.lens (\CreateLabelingJob' {labelAttributeName} -> labelAttributeName) (\s@CreateLabelingJob' {} a -> s {labelAttributeName = a} :: CreateLabelingJob)
 
 -- | Input data for the labeling job, such as the Amazon S3 location of the
@@ -556,7 +557,7 @@ createLabelingJob_outputConfig = Lens.lens (\CreateLabelingJob' {outputConfig} -
 -- perform tasks on your behalf during data labeling. You must grant this
 -- role the necessary permissions so that Amazon SageMaker can successfully
 -- complete data labeling.
-createLabelingJob_roleArn :: Lens.Lens' CreateLabelingJob Core.Text
+createLabelingJob_roleArn :: Lens.Lens' CreateLabelingJob Prelude.Text
 createLabelingJob_roleArn = Lens.lens (\CreateLabelingJob' {roleArn} -> roleArn) (\s@CreateLabelingJob' {} a -> s {roleArn = a} :: CreateLabelingJob)
 
 -- | Configures the labeling task and how it is presented to workers;
@@ -574,63 +575,67 @@ instance Core.AWSRequest CreateLabelingJob where
     Response.receiveJSON
       ( \s h x ->
           CreateLabelingJobResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "LabelingJobArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "LabelingJobArn")
       )
 
-instance Core.Hashable CreateLabelingJob
+instance Prelude.Hashable CreateLabelingJob
 
-instance Core.NFData CreateLabelingJob
+instance Prelude.NFData CreateLabelingJob
 
 instance Core.ToHeaders CreateLabelingJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateLabelingJob" :: Core.ByteString),
+              Core.=# ( "SageMaker.CreateLabelingJob" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateLabelingJob where
   toJSON CreateLabelingJob' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("StoppingConditions" Core..=)
-              Core.<$> stoppingConditions,
+              Prelude.<$> stoppingConditions,
             ("LabelCategoryConfigS3Uri" Core..=)
-              Core.<$> labelCategoryConfigS3Uri,
+              Prelude.<$> labelCategoryConfigS3Uri,
             ("LabelingJobAlgorithmsConfig" Core..=)
-              Core.<$> labelingJobAlgorithmsConfig,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just
+              Prelude.<$> labelingJobAlgorithmsConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("LabelingJobName" Core..= labelingJobName),
-            Core.Just
+            Prelude.Just
               ("LabelAttributeName" Core..= labelAttributeName),
-            Core.Just ("InputConfig" Core..= inputConfig),
-            Core.Just ("OutputConfig" Core..= outputConfig),
-            Core.Just ("RoleArn" Core..= roleArn),
-            Core.Just
+            Prelude.Just ("InputConfig" Core..= inputConfig),
+            Prelude.Just ("OutputConfig" Core..= outputConfig),
+            Prelude.Just ("RoleArn" Core..= roleArn),
+            Prelude.Just
               ("HumanTaskConfig" Core..= humanTaskConfig)
           ]
       )
 
 instance Core.ToPath CreateLabelingJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateLabelingJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLabelingJobResponse' smart constructor.
 data CreateLabelingJobResponse = CreateLabelingJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the labeling job. You use this ARN to
     -- identify the labeling job.
-    labelingJobArn :: Core.Text
+    labelingJobArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLabelingJobResponse' with all optional fields omitted.
@@ -646,9 +651,9 @@ data CreateLabelingJobResponse = CreateLabelingJobResponse'
 -- identify the labeling job.
 newCreateLabelingJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'labelingJobArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateLabelingJobResponse
 newCreateLabelingJobResponse
   pHttpStatus_
@@ -660,12 +665,12 @@ newCreateLabelingJobResponse
       }
 
 -- | The response's http status code.
-createLabelingJobResponse_httpStatus :: Lens.Lens' CreateLabelingJobResponse Core.Int
+createLabelingJobResponse_httpStatus :: Lens.Lens' CreateLabelingJobResponse Prelude.Int
 createLabelingJobResponse_httpStatus = Lens.lens (\CreateLabelingJobResponse' {httpStatus} -> httpStatus) (\s@CreateLabelingJobResponse' {} a -> s {httpStatus = a} :: CreateLabelingJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the labeling job. You use this ARN to
 -- identify the labeling job.
-createLabelingJobResponse_labelingJobArn :: Lens.Lens' CreateLabelingJobResponse Core.Text
+createLabelingJobResponse_labelingJobArn :: Lens.Lens' CreateLabelingJobResponse Prelude.Text
 createLabelingJobResponse_labelingJobArn = Lens.lens (\CreateLabelingJobResponse' {labelingJobArn} -> labelingJobArn) (\s@CreateLabelingJobResponse' {} a -> s {labelingJobArn = a} :: CreateLabelingJobResponse)
 
-instance Core.NFData CreateLabelingJobResponse
+instance Prelude.NFData CreateLabelingJobResponse

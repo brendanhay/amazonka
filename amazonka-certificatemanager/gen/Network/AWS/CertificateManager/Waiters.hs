@@ -20,6 +20,7 @@ import Network.AWS.CertificateManager.Lens
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.CertificateManager.DescribeCertificate' every 60 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newCertificateValidated :: Core.Wait DescribeCertificate
@@ -33,42 +34,42 @@ newCertificateValidated =
             "SUCCESS"
             Core.AcceptSuccess
             ( describeCertificateResponse_certificate
-                Core.. Lens._Just
-                Core.. Lens.folding
+                Prelude.. Lens._Just
+                Prelude.. Lens.folding
                   ( Lens.concatOf
                       ( certificateDetail_domainValidationOptions
-                          Core.. Lens._Just
-                          Core.. Lens.to Core.toList
+                          Prelude.. Lens._Just
+                          Prelude.. Lens.to Prelude.toList
                       )
                   )
-                Core.. domainValidation_validationStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. domainValidation_validationStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "PENDING_VALIDATION"
             Core.AcceptRetry
             ( describeCertificateResponse_certificate
-                Core.. Lens._Just
-                Core.. Lens.folding
+                Prelude.. Lens._Just
+                Prelude.. Lens.folding
                   ( Lens.concatOf
                       ( certificateDetail_domainValidationOptions
-                          Core.. Lens._Just
-                          Core.. Lens.to Core.toList
+                          Prelude.. Lens._Just
+                          Prelude.. Lens.to Prelude.toList
                       )
                   )
-                Core.. domainValidation_validationStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. domainValidation_validationStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeCertificateResponse_certificate
-                Core.. Lens._Just
-                Core.. certificateDetail_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. certificateDetail_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"

@@ -24,20 +24,21 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.StatusName
 import Network.AWS.EC2.Types.StatusType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the instance status.
 --
 -- /See:/ 'newInstanceStatusDetails' smart constructor.
 data InstanceStatusDetails = InstanceStatusDetails'
   { -- | The status.
-    status :: Core.Maybe StatusType,
+    status :: Prelude.Maybe StatusType,
     -- | The time when a status check failed. For an instance that was launched
     -- and impaired, this is the time when the instance was launched.
-    impairedSince :: Core.Maybe Core.ISO8601,
+    impairedSince :: Prelude.Maybe Core.ISO8601,
     -- | The type of instance status.
-    name :: Core.Maybe StatusName
+    name :: Prelude.Maybe StatusName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceStatusDetails' with all optional fields omitted.
@@ -57,31 +58,31 @@ newInstanceStatusDetails ::
   InstanceStatusDetails
 newInstanceStatusDetails =
   InstanceStatusDetails'
-    { status = Core.Nothing,
-      impairedSince = Core.Nothing,
-      name = Core.Nothing
+    { status = Prelude.Nothing,
+      impairedSince = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The status.
-instanceStatusDetails_status :: Lens.Lens' InstanceStatusDetails (Core.Maybe StatusType)
+instanceStatusDetails_status :: Lens.Lens' InstanceStatusDetails (Prelude.Maybe StatusType)
 instanceStatusDetails_status = Lens.lens (\InstanceStatusDetails' {status} -> status) (\s@InstanceStatusDetails' {} a -> s {status = a} :: InstanceStatusDetails)
 
 -- | The time when a status check failed. For an instance that was launched
 -- and impaired, this is the time when the instance was launched.
-instanceStatusDetails_impairedSince :: Lens.Lens' InstanceStatusDetails (Core.Maybe Core.UTCTime)
-instanceStatusDetails_impairedSince = Lens.lens (\InstanceStatusDetails' {impairedSince} -> impairedSince) (\s@InstanceStatusDetails' {} a -> s {impairedSince = a} :: InstanceStatusDetails) Core.. Lens.mapping Core._Time
+instanceStatusDetails_impairedSince :: Lens.Lens' InstanceStatusDetails (Prelude.Maybe Prelude.UTCTime)
+instanceStatusDetails_impairedSince = Lens.lens (\InstanceStatusDetails' {impairedSince} -> impairedSince) (\s@InstanceStatusDetails' {} a -> s {impairedSince = a} :: InstanceStatusDetails) Prelude.. Lens.mapping Core._Time
 
 -- | The type of instance status.
-instanceStatusDetails_name :: Lens.Lens' InstanceStatusDetails (Core.Maybe StatusName)
+instanceStatusDetails_name :: Lens.Lens' InstanceStatusDetails (Prelude.Maybe StatusName)
 instanceStatusDetails_name = Lens.lens (\InstanceStatusDetails' {name} -> name) (\s@InstanceStatusDetails' {} a -> s {name = a} :: InstanceStatusDetails)
 
 instance Core.FromXML InstanceStatusDetails where
   parseXML x =
     InstanceStatusDetails'
-      Core.<$> (x Core..@? "status")
-      Core.<*> (x Core..@? "impairedSince")
-      Core.<*> (x Core..@? "name")
+      Prelude.<$> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "impairedSince")
+      Prelude.<*> (x Core..@? "name")
 
-instance Core.Hashable InstanceStatusDetails
+instance Prelude.Hashable InstanceStatusDetails
 
-instance Core.NFData InstanceStatusDetails
+instance Prelude.NFData InstanceStatusDetails

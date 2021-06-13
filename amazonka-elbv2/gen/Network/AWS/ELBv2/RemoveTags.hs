@@ -45,17 +45,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArns :: [Core.Text],
+    resourceArns :: [Prelude.Text],
     -- | The tag keys for the tags to remove.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTags' with all optional fields omitted.
@@ -72,17 +73,17 @@ newRemoveTags ::
   RemoveTags
 newRemoveTags =
   RemoveTags'
-    { resourceArns = Core.mempty,
-      tagKeys = Core.mempty
+    { resourceArns = Prelude.mempty,
+      tagKeys = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
-removeTags_resourceArns :: Lens.Lens' RemoveTags [Core.Text]
-removeTags_resourceArns = Lens.lens (\RemoveTags' {resourceArns} -> resourceArns) (\s@RemoveTags' {} a -> s {resourceArns = a} :: RemoveTags) Core.. Lens._Coerce
+removeTags_resourceArns :: Lens.Lens' RemoveTags [Prelude.Text]
+removeTags_resourceArns = Lens.lens (\RemoveTags' {resourceArns} -> resourceArns) (\s@RemoveTags' {} a -> s {resourceArns = a} :: RemoveTags) Prelude.. Lens._Coerce
 
 -- | The tag keys for the tags to remove.
-removeTags_tagKeys :: Lens.Lens' RemoveTags [Core.Text]
-removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Core.. Lens._Coerce
+removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse
@@ -92,24 +93,26 @@ instance Core.AWSRequest RemoveTags where
       "RemoveTagsResult"
       ( \s h x ->
           RemoveTagsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RemoveTags
+instance Prelude.Hashable RemoveTags
 
-instance Core.NFData RemoveTags
+instance Prelude.NFData RemoveTags
 
 instance Core.ToHeaders RemoveTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RemoveTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveTags where
   toQuery RemoveTags' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("RemoveTags" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("RemoveTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "ResourceArns"
           Core.=: Core.toQueryList "member" resourceArns,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
@@ -118,9 +121,9 @@ instance Core.ToQuery RemoveTags where
 -- | /See:/ 'newRemoveTagsResponse' smart constructor.
 data RemoveTagsResponse = RemoveTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsResponse' with all optional fields omitted.
@@ -133,13 +136,13 @@ data RemoveTagsResponse = RemoveTagsResponse'
 -- 'httpStatus', 'removeTagsResponse_httpStatus' - The response's http status code.
 newRemoveTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RemoveTagsResponse
 newRemoveTagsResponse pHttpStatus_ =
   RemoveTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-removeTagsResponse_httpStatus :: Lens.Lens' RemoveTagsResponse Core.Int
+removeTagsResponse_httpStatus :: Lens.Lens' RemoveTagsResponse Prelude.Int
 removeTagsResponse_httpStatus = Lens.lens (\RemoveTagsResponse' {httpStatus} -> httpStatus) (\s@RemoveTagsResponse' {} a -> s {httpStatus = a} :: RemoveTagsResponse)
 
-instance Core.NFData RemoveTagsResponse
+instance Prelude.NFData RemoveTagsResponse

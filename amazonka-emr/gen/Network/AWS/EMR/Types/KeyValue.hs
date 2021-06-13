@@ -21,17 +21,18 @@ module Network.AWS.EMR.Types.KeyValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A key-value pair.
 --
 -- /See:/ 'newKeyValue' smart constructor.
 data KeyValue = KeyValue'
   { -- | The unique identifier of a key-value pair.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value part of the identified key.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeyValue' with all optional fields omitted.
@@ -47,25 +48,28 @@ data KeyValue = KeyValue'
 newKeyValue ::
   KeyValue
 newKeyValue =
-  KeyValue' {key = Core.Nothing, value = Core.Nothing}
+  KeyValue'
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
+    }
 
 -- | The unique identifier of a key-value pair.
-keyValue_key :: Lens.Lens' KeyValue (Core.Maybe Core.Text)
+keyValue_key :: Lens.Lens' KeyValue (Prelude.Maybe Prelude.Text)
 keyValue_key = Lens.lens (\KeyValue' {key} -> key) (\s@KeyValue' {} a -> s {key = a} :: KeyValue)
 
 -- | The value part of the identified key.
-keyValue_value :: Lens.Lens' KeyValue (Core.Maybe Core.Text)
+keyValue_value :: Lens.Lens' KeyValue (Prelude.Maybe Prelude.Text)
 keyValue_value = Lens.lens (\KeyValue' {value} -> value) (\s@KeyValue' {} a -> s {value = a} :: KeyValue)
 
-instance Core.Hashable KeyValue
+instance Prelude.Hashable KeyValue
 
-instance Core.NFData KeyValue
+instance Prelude.NFData KeyValue
 
 instance Core.ToJSON KeyValue where
   toJSON KeyValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

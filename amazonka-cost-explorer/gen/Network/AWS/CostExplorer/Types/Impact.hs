@@ -21,17 +21,18 @@ module Network.AWS.CostExplorer.Types.Impact where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The anomaly\'s dollar value.
 --
 -- /See:/ 'newImpact' smart constructor.
 data Impact = Impact'
   { -- | The cumulative dollar value observed for an anomaly.
-    totalImpact :: Core.Maybe Core.Double,
+    totalImpact :: Prelude.Maybe Prelude.Double,
     -- | The maximum dollar value observed for an anomaly.
-    maxImpact :: Core.Double
+    maxImpact :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Impact' with all optional fields omitted.
@@ -46,20 +47,20 @@ data Impact = Impact'
 -- 'maxImpact', 'impact_maxImpact' - The maximum dollar value observed for an anomaly.
 newImpact ::
   -- | 'maxImpact'
-  Core.Double ->
+  Prelude.Double ->
   Impact
 newImpact pMaxImpact_ =
   Impact'
-    { totalImpact = Core.Nothing,
+    { totalImpact = Prelude.Nothing,
       maxImpact = pMaxImpact_
     }
 
 -- | The cumulative dollar value observed for an anomaly.
-impact_totalImpact :: Lens.Lens' Impact (Core.Maybe Core.Double)
+impact_totalImpact :: Lens.Lens' Impact (Prelude.Maybe Prelude.Double)
 impact_totalImpact = Lens.lens (\Impact' {totalImpact} -> totalImpact) (\s@Impact' {} a -> s {totalImpact = a} :: Impact)
 
 -- | The maximum dollar value observed for an anomaly.
-impact_maxImpact :: Lens.Lens' Impact Core.Double
+impact_maxImpact :: Lens.Lens' Impact Prelude.Double
 impact_maxImpact = Lens.lens (\Impact' {maxImpact} -> maxImpact) (\s@Impact' {} a -> s {maxImpact = a} :: Impact)
 
 instance Core.FromJSON Impact where
@@ -68,10 +69,10 @@ instance Core.FromJSON Impact where
       "Impact"
       ( \x ->
           Impact'
-            Core.<$> (x Core..:? "TotalImpact")
-            Core.<*> (x Core..: "MaxImpact")
+            Prelude.<$> (x Core..:? "TotalImpact")
+            Prelude.<*> (x Core..: "MaxImpact")
       )
 
-instance Core.Hashable Impact
+instance Prelude.Hashable Impact
 
-instance Core.NFData Impact
+instance Prelude.NFData Impact

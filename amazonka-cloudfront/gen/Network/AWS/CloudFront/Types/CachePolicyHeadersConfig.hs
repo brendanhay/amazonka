@@ -23,6 +23,7 @@ import Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior
 import Network.AWS.CloudFront.Types.Headers
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that determines whether any HTTP headers (and if so, which
 -- headers) are included in the cache key and automatically included in
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 --
 -- /See:/ 'newCachePolicyHeadersConfig' smart constructor.
 data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
-  { headers :: Core.Maybe Headers,
+  { headers :: Prelude.Maybe Headers,
     -- | Determines whether any HTTP headers are included in the cache key and
     -- automatically included in requests that CloudFront sends to the origin.
     -- Valid values are:
@@ -46,7 +47,7 @@ data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
     --     requests that CloudFront sends to the origin.
     headerBehavior :: CachePolicyHeaderBehavior
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CachePolicyHeadersConfig' with all optional fields omitted.
@@ -77,12 +78,13 @@ newCachePolicyHeadersConfig ::
   CachePolicyHeadersConfig
 newCachePolicyHeadersConfig pHeaderBehavior_ =
   CachePolicyHeadersConfig'
-    { headers = Core.Nothing,
+    { headers =
+        Prelude.Nothing,
       headerBehavior = pHeaderBehavior_
     }
 
 -- | Undocumented member.
-cachePolicyHeadersConfig_headers :: Lens.Lens' CachePolicyHeadersConfig (Core.Maybe Headers)
+cachePolicyHeadersConfig_headers :: Lens.Lens' CachePolicyHeadersConfig (Prelude.Maybe Headers)
 cachePolicyHeadersConfig_headers = Lens.lens (\CachePolicyHeadersConfig' {headers} -> headers) (\s@CachePolicyHeadersConfig' {} a -> s {headers = a} :: CachePolicyHeadersConfig)
 
 -- | Determines whether any HTTP headers are included in the cache key and
@@ -104,16 +106,16 @@ cachePolicyHeadersConfig_headerBehavior = Lens.lens (\CachePolicyHeadersConfig' 
 instance Core.FromXML CachePolicyHeadersConfig where
   parseXML x =
     CachePolicyHeadersConfig'
-      Core.<$> (x Core..@? "Headers")
-      Core.<*> (x Core..@ "HeaderBehavior")
+      Prelude.<$> (x Core..@? "Headers")
+      Prelude.<*> (x Core..@ "HeaderBehavior")
 
-instance Core.Hashable CachePolicyHeadersConfig
+instance Prelude.Hashable CachePolicyHeadersConfig
 
-instance Core.NFData CachePolicyHeadersConfig
+instance Prelude.NFData CachePolicyHeadersConfig
 
 instance Core.ToXML CachePolicyHeadersConfig where
   toXML CachePolicyHeadersConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Headers" Core.@= headers,
         "HeaderBehavior" Core.@= headerBehavior
       ]

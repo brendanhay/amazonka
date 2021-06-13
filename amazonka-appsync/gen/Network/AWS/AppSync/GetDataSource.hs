@@ -43,17 +43,18 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDataSource' smart constructor.
 data GetDataSource = GetDataSource'
   { -- | The API ID.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | The name of the data source.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataSource' with all optional fields omitted.
@@ -68,19 +69,19 @@ data GetDataSource = GetDataSource'
 -- 'name', 'getDataSource_name' - The name of the data source.
 newGetDataSource ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetDataSource
 newGetDataSource pApiId_ pName_ =
   GetDataSource' {apiId = pApiId_, name = pName_}
 
 -- | The API ID.
-getDataSource_apiId :: Lens.Lens' GetDataSource Core.Text
+getDataSource_apiId :: Lens.Lens' GetDataSource Prelude.Text
 getDataSource_apiId = Lens.lens (\GetDataSource' {apiId} -> apiId) (\s@GetDataSource' {} a -> s {apiId = a} :: GetDataSource)
 
 -- | The name of the data source.
-getDataSource_name :: Lens.Lens' GetDataSource Core.Text
+getDataSource_name :: Lens.Lens' GetDataSource Prelude.Text
 getDataSource_name = Lens.lens (\GetDataSource' {name} -> name) (\s@GetDataSource' {} a -> s {name = a} :: GetDataSource)
 
 instance Core.AWSRequest GetDataSource where
@@ -92,26 +93,28 @@ instance Core.AWSRequest GetDataSource where
     Response.receiveJSON
       ( \s h x ->
           GetDataSourceResponse'
-            Core.<$> (x Core..?> "dataSource")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "dataSource")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDataSource
+instance Prelude.Hashable GetDataSource
 
-instance Core.NFData GetDataSource
+instance Prelude.NFData GetDataSource
 
 instance Core.ToHeaders GetDataSource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetDataSource where
   toPath GetDataSource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apis/",
         Core.toBS apiId,
         "/datasources/",
@@ -119,16 +122,16 @@ instance Core.ToPath GetDataSource where
       ]
 
 instance Core.ToQuery GetDataSource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataSourceResponse' smart constructor.
 data GetDataSourceResponse = GetDataSourceResponse'
   { -- | The @DataSource@ object.
-    dataSource :: Core.Maybe DataSource,
+    dataSource :: Prelude.Maybe DataSource,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataSourceResponse' with all optional fields omitted.
@@ -143,20 +146,21 @@ data GetDataSourceResponse = GetDataSourceResponse'
 -- 'httpStatus', 'getDataSourceResponse_httpStatus' - The response's http status code.
 newGetDataSourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDataSourceResponse
 newGetDataSourceResponse pHttpStatus_ =
   GetDataSourceResponse'
-    { dataSource = Core.Nothing,
+    { dataSource =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @DataSource@ object.
-getDataSourceResponse_dataSource :: Lens.Lens' GetDataSourceResponse (Core.Maybe DataSource)
+getDataSourceResponse_dataSource :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe DataSource)
 getDataSourceResponse_dataSource = Lens.lens (\GetDataSourceResponse' {dataSource} -> dataSource) (\s@GetDataSourceResponse' {} a -> s {dataSource = a} :: GetDataSourceResponse)
 
 -- | The response's http status code.
-getDataSourceResponse_httpStatus :: Lens.Lens' GetDataSourceResponse Core.Int
+getDataSourceResponse_httpStatus :: Lens.Lens' GetDataSourceResponse Prelude.Int
 getDataSourceResponse_httpStatus = Lens.lens (\GetDataSourceResponse' {httpStatus} -> httpStatus) (\s@GetDataSourceResponse' {} a -> s {httpStatus = a} :: GetDataSourceResponse)
 
-instance Core.NFData GetDataSourceResponse
+instance Prelude.NFData GetDataSourceResponse

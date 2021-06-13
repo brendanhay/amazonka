@@ -21,17 +21,18 @@ module Network.AWS.IoT.Types.PercentPair where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the percentile and percentile value.
 --
 -- /See:/ 'newPercentPair' smart constructor.
 data PercentPair = PercentPair'
   { -- | The percentile.
-    percent :: Core.Maybe Core.Double,
+    percent :: Prelude.Maybe Prelude.Double,
     -- | The value of the percentile.
-    value :: Core.Maybe Core.Double
+    value :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PercentPair' with all optional fields omitted.
@@ -48,16 +49,16 @@ newPercentPair ::
   PercentPair
 newPercentPair =
   PercentPair'
-    { percent = Core.Nothing,
-      value = Core.Nothing
+    { percent = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The percentile.
-percentPair_percent :: Lens.Lens' PercentPair (Core.Maybe Core.Double)
+percentPair_percent :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
 percentPair_percent = Lens.lens (\PercentPair' {percent} -> percent) (\s@PercentPair' {} a -> s {percent = a} :: PercentPair)
 
 -- | The value of the percentile.
-percentPair_value :: Lens.Lens' PercentPair (Core.Maybe Core.Double)
+percentPair_value :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
 percentPair_value = Lens.lens (\PercentPair' {value} -> value) (\s@PercentPair' {} a -> s {value = a} :: PercentPair)
 
 instance Core.FromJSON PercentPair where
@@ -66,9 +67,10 @@ instance Core.FromJSON PercentPair where
       "PercentPair"
       ( \x ->
           PercentPair'
-            Core.<$> (x Core..:? "percent") Core.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "percent")
+            Prelude.<*> (x Core..:? "value")
       )
 
-instance Core.Hashable PercentPair
+instance Prelude.Hashable PercentPair
 
-instance Core.NFData PercentPair
+instance Prelude.NFData PercentPair

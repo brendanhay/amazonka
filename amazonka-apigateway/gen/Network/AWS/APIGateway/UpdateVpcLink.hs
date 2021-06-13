@@ -48,6 +48,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,12 +58,12 @@ import qualified Network.AWS.Response as Response
 data UpdateVpcLink = UpdateVpcLink'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The identifier of the VpcLink. It is used in an Integration
     -- to reference this VpcLink.
-    vpcLinkId :: Core.Text
+    vpcLinkId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateVpcLink' with all optional fields omitted.
@@ -79,22 +80,22 @@ data UpdateVpcLink = UpdateVpcLink'
 -- to reference this VpcLink.
 newUpdateVpcLink ::
   -- | 'vpcLinkId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateVpcLink
 newUpdateVpcLink pVpcLinkId_ =
   UpdateVpcLink'
-    { patchOperations = Core.Nothing,
+    { patchOperations = Prelude.Nothing,
       vpcLinkId = pVpcLinkId_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateVpcLink_patchOperations :: Lens.Lens' UpdateVpcLink (Core.Maybe [PatchOperation])
-updateVpcLink_patchOperations = Lens.lens (\UpdateVpcLink' {patchOperations} -> patchOperations) (\s@UpdateVpcLink' {} a -> s {patchOperations = a} :: UpdateVpcLink) Core.. Lens.mapping Lens._Coerce
+updateVpcLink_patchOperations :: Lens.Lens' UpdateVpcLink (Prelude.Maybe [PatchOperation])
+updateVpcLink_patchOperations = Lens.lens (\UpdateVpcLink' {patchOperations} -> patchOperations) (\s@UpdateVpcLink' {} a -> s {patchOperations = a} :: UpdateVpcLink) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The identifier of the VpcLink. It is used in an Integration
 -- to reference this VpcLink.
-updateVpcLink_vpcLinkId :: Lens.Lens' UpdateVpcLink Core.Text
+updateVpcLink_vpcLinkId :: Lens.Lens' UpdateVpcLink Prelude.Text
 updateVpcLink_vpcLinkId = Lens.lens (\UpdateVpcLink' {vpcLinkId} -> vpcLinkId) (\s@UpdateVpcLink' {} a -> s {vpcLinkId = a} :: UpdateVpcLink)
 
 instance Core.AWSRequest UpdateVpcLink where
@@ -104,31 +105,31 @@ instance Core.AWSRequest UpdateVpcLink where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateVpcLink
+instance Prelude.Hashable UpdateVpcLink
 
-instance Core.NFData UpdateVpcLink
+instance Prelude.NFData UpdateVpcLink
 
 instance Core.ToHeaders UpdateVpcLink where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateVpcLink where
   toJSON UpdateVpcLink' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateVpcLink where
   toPath UpdateVpcLink' {..} =
-    Core.mconcat ["/vpclinks/", Core.toBS vpcLinkId]
+    Prelude.mconcat ["/vpclinks/", Core.toBS vpcLinkId]
 
 instance Core.ToQuery UpdateVpcLink where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

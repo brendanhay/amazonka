@@ -47,15 +47,16 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newDescribeSMBSettings' smart constructor.
 data DescribeSMBSettings = DescribeSMBSettings'
-  { gatewayARN :: Core.Text
+  { gatewayARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSMBSettings' with all optional fields omitted.
@@ -68,13 +69,13 @@ data DescribeSMBSettings = DescribeSMBSettings'
 -- 'gatewayARN', 'describeSMBSettings_gatewayARN' - Undocumented member.
 newDescribeSMBSettings ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   DescribeSMBSettings
 newDescribeSMBSettings pGatewayARN_ =
   DescribeSMBSettings' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-describeSMBSettings_gatewayARN :: Lens.Lens' DescribeSMBSettings Core.Text
+describeSMBSettings_gatewayARN :: Lens.Lens' DescribeSMBSettings Prelude.Text
 describeSMBSettings_gatewayARN = Lens.lens (\DescribeSMBSettings' {gatewayARN} -> gatewayARN) (\s@DescribeSMBSettings' {} a -> s {gatewayARN = a} :: DescribeSMBSettings)
 
 instance Core.AWSRequest DescribeSMBSettings where
@@ -86,44 +87,46 @@ instance Core.AWSRequest DescribeSMBSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeSMBSettingsResponse'
-            Core.<$> (x Core..?> "SMBSecurityStrategy")
-            Core.<*> (x Core..?> "SMBGuestPasswordSet")
-            Core.<*> (x Core..?> "FileSharesVisible")
-            Core.<*> (x Core..?> "DomainName")
-            Core.<*> (x Core..?> "ActiveDirectoryStatus")
-            Core.<*> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SMBSecurityStrategy")
+            Prelude.<*> (x Core..?> "SMBGuestPasswordSet")
+            Prelude.<*> (x Core..?> "FileSharesVisible")
+            Prelude.<*> (x Core..?> "DomainName")
+            Prelude.<*> (x Core..?> "ActiveDirectoryStatus")
+            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSMBSettings
+instance Prelude.Hashable DescribeSMBSettings
 
-instance Core.NFData DescribeSMBSettings
+instance Prelude.NFData DescribeSMBSettings
 
 instance Core.ToHeaders DescribeSMBSettings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DescribeSMBSettings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeSMBSettings where
   toJSON DescribeSMBSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GatewayARN" Core..= gatewayARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
 instance Core.ToPath DescribeSMBSettings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeSMBSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSMBSettingsResponse' smart constructor.
 data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
@@ -144,16 +147,16 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
     --     This option is highly recommended for environments that handle
     --     sensitive data. This option works with SMB clients on Microsoft
     --     Windows 8, Windows Server 2012 or newer.
-    sMBSecurityStrategy :: Core.Maybe SMBSecurityStrategy,
+    sMBSecurityStrategy :: Prelude.Maybe SMBSecurityStrategy,
     -- | This value is @true@ if a password for the guest user @smbguest@ is set,
     -- otherwise @false@.
     --
     -- Valid Values: @true@ | @false@
-    sMBGuestPasswordSet :: Core.Maybe Core.Bool,
+    sMBGuestPasswordSet :: Prelude.Maybe Prelude.Bool,
     -- | The shares on this gateway appear when listing shares.
-    fileSharesVisible :: Core.Maybe Core.Bool,
+    fileSharesVisible :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain that the gateway is joined to.
-    domainName :: Core.Maybe Core.Text,
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the status of a gateway that is a member of the Active
     -- Directory domain.
     --
@@ -175,12 +178,12 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
     --
     -- -   @UNKNOWN_ERROR@: Indicates that the @JoinDomain@ operation failed
     --     due to another type of error.
-    activeDirectoryStatus :: Core.Maybe ActiveDirectoryStatus,
-    gatewayARN :: Core.Maybe Core.Text,
+    activeDirectoryStatus :: Prelude.Maybe ActiveDirectoryStatus,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSMBSettingsResponse' with all optional fields omitted.
@@ -244,17 +247,17 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
 -- 'httpStatus', 'describeSMBSettingsResponse_httpStatus' - The response's http status code.
 newDescribeSMBSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSMBSettingsResponse
 newDescribeSMBSettingsResponse pHttpStatus_ =
   DescribeSMBSettingsResponse'
     { sMBSecurityStrategy =
-        Core.Nothing,
-      sMBGuestPasswordSet = Core.Nothing,
-      fileSharesVisible = Core.Nothing,
-      domainName = Core.Nothing,
-      activeDirectoryStatus = Core.Nothing,
-      gatewayARN = Core.Nothing,
+        Prelude.Nothing,
+      sMBGuestPasswordSet = Prelude.Nothing,
+      fileSharesVisible = Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      activeDirectoryStatus = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -275,22 +278,22 @@ newDescribeSMBSettingsResponse pHttpStatus_ =
 --     This option is highly recommended for environments that handle
 --     sensitive data. This option works with SMB clients on Microsoft
 --     Windows 8, Windows Server 2012 or newer.
-describeSMBSettingsResponse_sMBSecurityStrategy :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe SMBSecurityStrategy)
+describeSMBSettingsResponse_sMBSecurityStrategy :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe SMBSecurityStrategy)
 describeSMBSettingsResponse_sMBSecurityStrategy = Lens.lens (\DescribeSMBSettingsResponse' {sMBSecurityStrategy} -> sMBSecurityStrategy) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBSecurityStrategy = a} :: DescribeSMBSettingsResponse)
 
 -- | This value is @true@ if a password for the guest user @smbguest@ is set,
 -- otherwise @false@.
 --
 -- Valid Values: @true@ | @false@
-describeSMBSettingsResponse_sMBGuestPasswordSet :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Core.Bool)
+describeSMBSettingsResponse_sMBGuestPasswordSet :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Bool)
 describeSMBSettingsResponse_sMBGuestPasswordSet = Lens.lens (\DescribeSMBSettingsResponse' {sMBGuestPasswordSet} -> sMBGuestPasswordSet) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBGuestPasswordSet = a} :: DescribeSMBSettingsResponse)
 
 -- | The shares on this gateway appear when listing shares.
-describeSMBSettingsResponse_fileSharesVisible :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Core.Bool)
+describeSMBSettingsResponse_fileSharesVisible :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Bool)
 describeSMBSettingsResponse_fileSharesVisible = Lens.lens (\DescribeSMBSettingsResponse' {fileSharesVisible} -> fileSharesVisible) (\s@DescribeSMBSettingsResponse' {} a -> s {fileSharesVisible = a} :: DescribeSMBSettingsResponse)
 
 -- | The name of the domain that the gateway is joined to.
-describeSMBSettingsResponse_domainName :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Core.Text)
+describeSMBSettingsResponse_domainName :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Text)
 describeSMBSettingsResponse_domainName = Lens.lens (\DescribeSMBSettingsResponse' {domainName} -> domainName) (\s@DescribeSMBSettingsResponse' {} a -> s {domainName = a} :: DescribeSMBSettingsResponse)
 
 -- | Indicates the status of a gateway that is a member of the Active
@@ -314,15 +317,15 @@ describeSMBSettingsResponse_domainName = Lens.lens (\DescribeSMBSettingsResponse
 --
 -- -   @UNKNOWN_ERROR@: Indicates that the @JoinDomain@ operation failed
 --     due to another type of error.
-describeSMBSettingsResponse_activeDirectoryStatus :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe ActiveDirectoryStatus)
+describeSMBSettingsResponse_activeDirectoryStatus :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe ActiveDirectoryStatus)
 describeSMBSettingsResponse_activeDirectoryStatus = Lens.lens (\DescribeSMBSettingsResponse' {activeDirectoryStatus} -> activeDirectoryStatus) (\s@DescribeSMBSettingsResponse' {} a -> s {activeDirectoryStatus = a} :: DescribeSMBSettingsResponse)
 
 -- | Undocumented member.
-describeSMBSettingsResponse_gatewayARN :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Core.Text)
+describeSMBSettingsResponse_gatewayARN :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Text)
 describeSMBSettingsResponse_gatewayARN = Lens.lens (\DescribeSMBSettingsResponse' {gatewayARN} -> gatewayARN) (\s@DescribeSMBSettingsResponse' {} a -> s {gatewayARN = a} :: DescribeSMBSettingsResponse)
 
 -- | The response's http status code.
-describeSMBSettingsResponse_httpStatus :: Lens.Lens' DescribeSMBSettingsResponse Core.Int
+describeSMBSettingsResponse_httpStatus :: Lens.Lens' DescribeSMBSettingsResponse Prelude.Int
 describeSMBSettingsResponse_httpStatus = Lens.lens (\DescribeSMBSettingsResponse' {httpStatus} -> httpStatus) (\s@DescribeSMBSettingsResponse' {} a -> s {httpStatus = a} :: DescribeSMBSettingsResponse)
 
-instance Core.NFData DescribeSMBSettingsResponse
+instance Prelude.NFData DescribeSMBSettingsResponse

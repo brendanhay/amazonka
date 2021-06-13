@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteQueue' smart constructor.
 data DeleteQueue = DeleteQueue'
   { -- | The name of the queue that you want to delete.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteQueue' with all optional fields omitted.
@@ -62,12 +63,12 @@ data DeleteQueue = DeleteQueue'
 -- 'name', 'deleteQueue_name' - The name of the queue that you want to delete.
 newDeleteQueue ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteQueue
 newDeleteQueue pName_ = DeleteQueue' {name = pName_}
 
 -- | The name of the queue that you want to delete.
-deleteQueue_name :: Lens.Lens' DeleteQueue Core.Text
+deleteQueue_name :: Lens.Lens' DeleteQueue Prelude.Text
 deleteQueue_name = Lens.lens (\DeleteQueue' {name} -> name) (\s@DeleteQueue' {} a -> s {name = a} :: DeleteQueue)
 
 instance Core.AWSRequest DeleteQueue where
@@ -77,36 +78,38 @@ instance Core.AWSRequest DeleteQueue where
     Response.receiveEmpty
       ( \s h x ->
           DeleteQueueResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteQueue
+instance Prelude.Hashable DeleteQueue
 
-instance Core.NFData DeleteQueue
+instance Prelude.NFData DeleteQueue
 
 instance Core.ToHeaders DeleteQueue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteQueue where
   toPath DeleteQueue' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2017-08-29/queues/", Core.toBS name]
 
 instance Core.ToQuery DeleteQueue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteQueueResponse' smart constructor.
 data DeleteQueueResponse = DeleteQueueResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteQueueResponse' with all optional fields omitted.
@@ -119,13 +122,13 @@ data DeleteQueueResponse = DeleteQueueResponse'
 -- 'httpStatus', 'deleteQueueResponse_httpStatus' - The response's http status code.
 newDeleteQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteQueueResponse
 newDeleteQueueResponse pHttpStatus_ =
   DeleteQueueResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteQueueResponse_httpStatus :: Lens.Lens' DeleteQueueResponse Core.Int
+deleteQueueResponse_httpStatus :: Lens.Lens' DeleteQueueResponse Prelude.Int
 deleteQueueResponse_httpStatus = Lens.lens (\DeleteQueueResponse' {httpStatus} -> httpStatus) (\s@DeleteQueueResponse' {} a -> s {httpStatus = a} :: DeleteQueueResponse)
 
-instance Core.NFData DeleteQueueResponse
+instance Prelude.NFData DeleteQueueResponse

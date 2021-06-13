@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,32 +68,32 @@ import qualified Network.AWS.Response as Response
 data UpdateBroker = UpdateBroker'
   { -- | The metadata of the LDAP server used to authenticate and authorize
     -- connections to the broker.
-    ldapServerMetadata :: Core.Maybe LdapServerMetadataInput,
+    ldapServerMetadata :: Prelude.Maybe LdapServerMetadataInput,
     -- | The authentication strategy used to secure the broker.
-    authenticationStrategy :: Core.Maybe AuthenticationStrategy,
+    authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | A list of information about the configuration.
-    configuration :: Core.Maybe ConfigurationId,
+    configuration :: Prelude.Maybe ConfigurationId,
     -- | The list of security groups (1 minimum, 5 maximum) that authorizes
     -- connections to brokers.
-    securityGroups :: Core.Maybe [Core.Text],
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Enables Amazon CloudWatch logging for brokers.
-    logs :: Core.Maybe Logs,
+    logs :: Prelude.Maybe Logs,
     -- | The version of the broker engine. For a list of supported engine
     -- versions, see
     -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The host instance type of the broker to upgrade to. For a list of
     -- supported instance types, see
     -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
-    hostInstanceType :: Core.Maybe Core.Text,
+    hostInstanceType :: Prelude.Maybe Prelude.Text,
     -- | Enables automatic upgrades to new minor versions for brokers, as Apache
     -- releases the versions. The automatic upgrades occur during the
     -- maintenance window of the broker or after a manual broker reboot.
-    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Core.Text
+    brokerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBroker' with all optional fields omitted.
@@ -129,63 +130,63 @@ data UpdateBroker = UpdateBroker'
 -- 'brokerId', 'updateBroker_brokerId' - The unique ID that Amazon MQ generates for the broker.
 newUpdateBroker ::
   -- | 'brokerId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateBroker
 newUpdateBroker pBrokerId_ =
   UpdateBroker'
-    { ldapServerMetadata = Core.Nothing,
-      authenticationStrategy = Core.Nothing,
-      configuration = Core.Nothing,
-      securityGroups = Core.Nothing,
-      logs = Core.Nothing,
-      engineVersion = Core.Nothing,
-      hostInstanceType = Core.Nothing,
-      autoMinorVersionUpgrade = Core.Nothing,
+    { ldapServerMetadata = Prelude.Nothing,
+      authenticationStrategy = Prelude.Nothing,
+      configuration = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      logs = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      hostInstanceType = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
       brokerId = pBrokerId_
     }
 
 -- | The metadata of the LDAP server used to authenticate and authorize
 -- connections to the broker.
-updateBroker_ldapServerMetadata :: Lens.Lens' UpdateBroker (Core.Maybe LdapServerMetadataInput)
+updateBroker_ldapServerMetadata :: Lens.Lens' UpdateBroker (Prelude.Maybe LdapServerMetadataInput)
 updateBroker_ldapServerMetadata = Lens.lens (\UpdateBroker' {ldapServerMetadata} -> ldapServerMetadata) (\s@UpdateBroker' {} a -> s {ldapServerMetadata = a} :: UpdateBroker)
 
 -- | The authentication strategy used to secure the broker.
-updateBroker_authenticationStrategy :: Lens.Lens' UpdateBroker (Core.Maybe AuthenticationStrategy)
+updateBroker_authenticationStrategy :: Lens.Lens' UpdateBroker (Prelude.Maybe AuthenticationStrategy)
 updateBroker_authenticationStrategy = Lens.lens (\UpdateBroker' {authenticationStrategy} -> authenticationStrategy) (\s@UpdateBroker' {} a -> s {authenticationStrategy = a} :: UpdateBroker)
 
 -- | A list of information about the configuration.
-updateBroker_configuration :: Lens.Lens' UpdateBroker (Core.Maybe ConfigurationId)
+updateBroker_configuration :: Lens.Lens' UpdateBroker (Prelude.Maybe ConfigurationId)
 updateBroker_configuration = Lens.lens (\UpdateBroker' {configuration} -> configuration) (\s@UpdateBroker' {} a -> s {configuration = a} :: UpdateBroker)
 
 -- | The list of security groups (1 minimum, 5 maximum) that authorizes
 -- connections to brokers.
-updateBroker_securityGroups :: Lens.Lens' UpdateBroker (Core.Maybe [Core.Text])
-updateBroker_securityGroups = Lens.lens (\UpdateBroker' {securityGroups} -> securityGroups) (\s@UpdateBroker' {} a -> s {securityGroups = a} :: UpdateBroker) Core.. Lens.mapping Lens._Coerce
+updateBroker_securityGroups :: Lens.Lens' UpdateBroker (Prelude.Maybe [Prelude.Text])
+updateBroker_securityGroups = Lens.lens (\UpdateBroker' {securityGroups} -> securityGroups) (\s@UpdateBroker' {} a -> s {securityGroups = a} :: UpdateBroker) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Enables Amazon CloudWatch logging for brokers.
-updateBroker_logs :: Lens.Lens' UpdateBroker (Core.Maybe Logs)
+updateBroker_logs :: Lens.Lens' UpdateBroker (Prelude.Maybe Logs)
 updateBroker_logs = Lens.lens (\UpdateBroker' {logs} -> logs) (\s@UpdateBroker' {} a -> s {logs = a} :: UpdateBroker)
 
 -- | The version of the broker engine. For a list of supported engine
 -- versions, see
 -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-updateBroker_engineVersion :: Lens.Lens' UpdateBroker (Core.Maybe Core.Text)
+updateBroker_engineVersion :: Lens.Lens' UpdateBroker (Prelude.Maybe Prelude.Text)
 updateBroker_engineVersion = Lens.lens (\UpdateBroker' {engineVersion} -> engineVersion) (\s@UpdateBroker' {} a -> s {engineVersion = a} :: UpdateBroker)
 
 -- | The host instance type of the broker to upgrade to. For a list of
 -- supported instance types, see
 -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
-updateBroker_hostInstanceType :: Lens.Lens' UpdateBroker (Core.Maybe Core.Text)
+updateBroker_hostInstanceType :: Lens.Lens' UpdateBroker (Prelude.Maybe Prelude.Text)
 updateBroker_hostInstanceType = Lens.lens (\UpdateBroker' {hostInstanceType} -> hostInstanceType) (\s@UpdateBroker' {} a -> s {hostInstanceType = a} :: UpdateBroker)
 
 -- | Enables automatic upgrades to new minor versions for brokers, as Apache
 -- releases the versions. The automatic upgrades occur during the
 -- maintenance window of the broker or after a manual broker reboot.
-updateBroker_autoMinorVersionUpgrade :: Lens.Lens' UpdateBroker (Core.Maybe Core.Bool)
+updateBroker_autoMinorVersionUpgrade :: Lens.Lens' UpdateBroker (Prelude.Maybe Prelude.Bool)
 updateBroker_autoMinorVersionUpgrade = Lens.lens (\UpdateBroker' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@UpdateBroker' {} a -> s {autoMinorVersionUpgrade = a} :: UpdateBroker)
 
 -- | The unique ID that Amazon MQ generates for the broker.
-updateBroker_brokerId :: Lens.Lens' UpdateBroker Core.Text
+updateBroker_brokerId :: Lens.Lens' UpdateBroker Prelude.Text
 updateBroker_brokerId = Lens.lens (\UpdateBroker' {brokerId} -> brokerId) (\s@UpdateBroker' {} a -> s {brokerId = a} :: UpdateBroker)
 
 instance Core.AWSRequest UpdateBroker where
@@ -195,88 +196,92 @@ instance Core.AWSRequest UpdateBroker where
     Response.receiveJSON
       ( \s h x ->
           UpdateBrokerResponse'
-            Core.<$> (x Core..?> "ldapServerMetadata")
-            Core.<*> (x Core..?> "brokerId")
-            Core.<*> (x Core..?> "authenticationStrategy")
-            Core.<*> (x Core..?> "configuration")
-            Core.<*> (x Core..?> "securityGroups" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "logs")
-            Core.<*> (x Core..?> "engineVersion")
-            Core.<*> (x Core..?> "hostInstanceType")
-            Core.<*> (x Core..?> "autoMinorVersionUpgrade")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ldapServerMetadata")
+            Prelude.<*> (x Core..?> "brokerId")
+            Prelude.<*> (x Core..?> "authenticationStrategy")
+            Prelude.<*> (x Core..?> "configuration")
+            Prelude.<*> (x Core..?> "securityGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "logs")
+            Prelude.<*> (x Core..?> "engineVersion")
+            Prelude.<*> (x Core..?> "hostInstanceType")
+            Prelude.<*> (x Core..?> "autoMinorVersionUpgrade")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateBroker
+instance Prelude.Hashable UpdateBroker
 
-instance Core.NFData UpdateBroker
+instance Prelude.NFData UpdateBroker
 
 instance Core.ToHeaders UpdateBroker where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateBroker where
   toJSON UpdateBroker' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ldapServerMetadata" Core..=)
-              Core.<$> ldapServerMetadata,
+              Prelude.<$> ldapServerMetadata,
             ("authenticationStrategy" Core..=)
-              Core.<$> authenticationStrategy,
-            ("configuration" Core..=) Core.<$> configuration,
-            ("securityGroups" Core..=) Core.<$> securityGroups,
-            ("logs" Core..=) Core.<$> logs,
-            ("engineVersion" Core..=) Core.<$> engineVersion,
+              Prelude.<$> authenticationStrategy,
+            ("configuration" Core..=) Prelude.<$> configuration,
+            ("securityGroups" Core..=)
+              Prelude.<$> securityGroups,
+            ("logs" Core..=) Prelude.<$> logs,
+            ("engineVersion" Core..=) Prelude.<$> engineVersion,
             ("hostInstanceType" Core..=)
-              Core.<$> hostInstanceType,
+              Prelude.<$> hostInstanceType,
             ("autoMinorVersionUpgrade" Core..=)
-              Core.<$> autoMinorVersionUpgrade
+              Prelude.<$> autoMinorVersionUpgrade
           ]
       )
 
 instance Core.ToPath UpdateBroker where
   toPath UpdateBroker' {..} =
-    Core.mconcat ["/v1/brokers/", Core.toBS brokerId]
+    Prelude.mconcat
+      ["/v1/brokers/", Core.toBS brokerId]
 
 instance Core.ToQuery UpdateBroker where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBrokerResponse' smart constructor.
 data UpdateBrokerResponse = UpdateBrokerResponse'
   { -- | The metadata of the LDAP server used to authenticate and authorize
     -- connections to the broker.
-    ldapServerMetadata :: Core.Maybe LdapServerMetadataOutput,
+    ldapServerMetadata :: Prelude.Maybe LdapServerMetadataOutput,
     -- | Required. The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Core.Maybe Core.Text,
+    brokerId :: Prelude.Maybe Prelude.Text,
     -- | The authentication strategy used to secure the broker.
-    authenticationStrategy :: Core.Maybe AuthenticationStrategy,
+    authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | The ID of the updated configuration.
-    configuration :: Core.Maybe ConfigurationId,
+    configuration :: Prelude.Maybe ConfigurationId,
     -- | The list of security groups (1 minimum, 5 maximum) that authorizes
     -- connections to brokers.
-    securityGroups :: Core.Maybe [Core.Text],
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The list of information about logs to be enabled for the specified
     -- broker.
-    logs :: Core.Maybe Logs,
+    logs :: Prelude.Maybe Logs,
     -- | The version of the broker engine to upgrade to. For a list of supported
     -- engine versions, see
     -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The host instance type of the broker to upgrade to. For a list of
     -- supported instance types, see
     -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
-    hostInstanceType :: Core.Maybe Core.Text,
+    hostInstanceType :: Prelude.Maybe Prelude.Text,
     -- | The new value of automatic upgrades to new minor version for brokers.
-    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBrokerResponse' with all optional fields omitted.
@@ -314,68 +319,68 @@ data UpdateBrokerResponse = UpdateBrokerResponse'
 -- 'httpStatus', 'updateBrokerResponse_httpStatus' - The response's http status code.
 newUpdateBrokerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateBrokerResponse
 newUpdateBrokerResponse pHttpStatus_ =
   UpdateBrokerResponse'
     { ldapServerMetadata =
-        Core.Nothing,
-      brokerId = Core.Nothing,
-      authenticationStrategy = Core.Nothing,
-      configuration = Core.Nothing,
-      securityGroups = Core.Nothing,
-      logs = Core.Nothing,
-      engineVersion = Core.Nothing,
-      hostInstanceType = Core.Nothing,
-      autoMinorVersionUpgrade = Core.Nothing,
+        Prelude.Nothing,
+      brokerId = Prelude.Nothing,
+      authenticationStrategy = Prelude.Nothing,
+      configuration = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      logs = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      hostInstanceType = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The metadata of the LDAP server used to authenticate and authorize
 -- connections to the broker.
-updateBrokerResponse_ldapServerMetadata :: Lens.Lens' UpdateBrokerResponse (Core.Maybe LdapServerMetadataOutput)
+updateBrokerResponse_ldapServerMetadata :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe LdapServerMetadataOutput)
 updateBrokerResponse_ldapServerMetadata = Lens.lens (\UpdateBrokerResponse' {ldapServerMetadata} -> ldapServerMetadata) (\s@UpdateBrokerResponse' {} a -> s {ldapServerMetadata = a} :: UpdateBrokerResponse)
 
 -- | Required. The unique ID that Amazon MQ generates for the broker.
-updateBrokerResponse_brokerId :: Lens.Lens' UpdateBrokerResponse (Core.Maybe Core.Text)
+updateBrokerResponse_brokerId :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Prelude.Text)
 updateBrokerResponse_brokerId = Lens.lens (\UpdateBrokerResponse' {brokerId} -> brokerId) (\s@UpdateBrokerResponse' {} a -> s {brokerId = a} :: UpdateBrokerResponse)
 
 -- | The authentication strategy used to secure the broker.
-updateBrokerResponse_authenticationStrategy :: Lens.Lens' UpdateBrokerResponse (Core.Maybe AuthenticationStrategy)
+updateBrokerResponse_authenticationStrategy :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe AuthenticationStrategy)
 updateBrokerResponse_authenticationStrategy = Lens.lens (\UpdateBrokerResponse' {authenticationStrategy} -> authenticationStrategy) (\s@UpdateBrokerResponse' {} a -> s {authenticationStrategy = a} :: UpdateBrokerResponse)
 
 -- | The ID of the updated configuration.
-updateBrokerResponse_configuration :: Lens.Lens' UpdateBrokerResponse (Core.Maybe ConfigurationId)
+updateBrokerResponse_configuration :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe ConfigurationId)
 updateBrokerResponse_configuration = Lens.lens (\UpdateBrokerResponse' {configuration} -> configuration) (\s@UpdateBrokerResponse' {} a -> s {configuration = a} :: UpdateBrokerResponse)
 
 -- | The list of security groups (1 minimum, 5 maximum) that authorizes
 -- connections to brokers.
-updateBrokerResponse_securityGroups :: Lens.Lens' UpdateBrokerResponse (Core.Maybe [Core.Text])
-updateBrokerResponse_securityGroups = Lens.lens (\UpdateBrokerResponse' {securityGroups} -> securityGroups) (\s@UpdateBrokerResponse' {} a -> s {securityGroups = a} :: UpdateBrokerResponse) Core.. Lens.mapping Lens._Coerce
+updateBrokerResponse_securityGroups :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe [Prelude.Text])
+updateBrokerResponse_securityGroups = Lens.lens (\UpdateBrokerResponse' {securityGroups} -> securityGroups) (\s@UpdateBrokerResponse' {} a -> s {securityGroups = a} :: UpdateBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of information about logs to be enabled for the specified
 -- broker.
-updateBrokerResponse_logs :: Lens.Lens' UpdateBrokerResponse (Core.Maybe Logs)
+updateBrokerResponse_logs :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Logs)
 updateBrokerResponse_logs = Lens.lens (\UpdateBrokerResponse' {logs} -> logs) (\s@UpdateBrokerResponse' {} a -> s {logs = a} :: UpdateBrokerResponse)
 
 -- | The version of the broker engine to upgrade to. For a list of supported
 -- engine versions, see
 -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-updateBrokerResponse_engineVersion :: Lens.Lens' UpdateBrokerResponse (Core.Maybe Core.Text)
+updateBrokerResponse_engineVersion :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Prelude.Text)
 updateBrokerResponse_engineVersion = Lens.lens (\UpdateBrokerResponse' {engineVersion} -> engineVersion) (\s@UpdateBrokerResponse' {} a -> s {engineVersion = a} :: UpdateBrokerResponse)
 
 -- | The host instance type of the broker to upgrade to. For a list of
 -- supported instance types, see
 -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
-updateBrokerResponse_hostInstanceType :: Lens.Lens' UpdateBrokerResponse (Core.Maybe Core.Text)
+updateBrokerResponse_hostInstanceType :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Prelude.Text)
 updateBrokerResponse_hostInstanceType = Lens.lens (\UpdateBrokerResponse' {hostInstanceType} -> hostInstanceType) (\s@UpdateBrokerResponse' {} a -> s {hostInstanceType = a} :: UpdateBrokerResponse)
 
 -- | The new value of automatic upgrades to new minor version for brokers.
-updateBrokerResponse_autoMinorVersionUpgrade :: Lens.Lens' UpdateBrokerResponse (Core.Maybe Core.Bool)
+updateBrokerResponse_autoMinorVersionUpgrade :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Prelude.Bool)
 updateBrokerResponse_autoMinorVersionUpgrade = Lens.lens (\UpdateBrokerResponse' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@UpdateBrokerResponse' {} a -> s {autoMinorVersionUpgrade = a} :: UpdateBrokerResponse)
 
 -- | The response's http status code.
-updateBrokerResponse_httpStatus :: Lens.Lens' UpdateBrokerResponse Core.Int
+updateBrokerResponse_httpStatus :: Lens.Lens' UpdateBrokerResponse Prelude.Int
 updateBrokerResponse_httpStatus = Lens.lens (\UpdateBrokerResponse' {httpStatus} -> httpStatus) (\s@UpdateBrokerResponse' {} a -> s {httpStatus = a} :: UpdateBrokerResponse)
 
-instance Core.NFData UpdateBrokerResponse
+instance Prelude.NFData UpdateBrokerResponse

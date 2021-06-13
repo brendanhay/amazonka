@@ -21,6 +21,7 @@ module Network.AWS.FMS.Types.ResourceTag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The resource tags that AWS Firewall Manager uses to determine if a
 -- particular resource should be included or excluded from the AWS Firewall
@@ -35,11 +36,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
   { -- | The resource tag value.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The resource tag key.
-    key :: Core.Text
+    key :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceTag' with all optional fields omitted.
@@ -54,17 +55,17 @@ data ResourceTag = ResourceTag'
 -- 'key', 'resourceTag_key' - The resource tag key.
 newResourceTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   ResourceTag
 newResourceTag pKey_ =
-  ResourceTag' {value = Core.Nothing, key = pKey_}
+  ResourceTag' {value = Prelude.Nothing, key = pKey_}
 
 -- | The resource tag value.
-resourceTag_value :: Lens.Lens' ResourceTag (Core.Maybe Core.Text)
+resourceTag_value :: Lens.Lens' ResourceTag (Prelude.Maybe Prelude.Text)
 resourceTag_value = Lens.lens (\ResourceTag' {value} -> value) (\s@ResourceTag' {} a -> s {value = a} :: ResourceTag)
 
 -- | The resource tag key.
-resourceTag_key :: Lens.Lens' ResourceTag Core.Text
+resourceTag_key :: Lens.Lens' ResourceTag Prelude.Text
 resourceTag_key = Lens.lens (\ResourceTag' {key} -> key) (\s@ResourceTag' {} a -> s {key = a} :: ResourceTag)
 
 instance Core.FromJSON ResourceTag where
@@ -73,18 +74,18 @@ instance Core.FromJSON ResourceTag where
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Core.<$> (x Core..:? "Value") Core.<*> (x Core..: "Key")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..: "Key")
       )
 
-instance Core.Hashable ResourceTag
+instance Prelude.Hashable ResourceTag
 
-instance Core.NFData ResourceTag
+instance Prelude.NFData ResourceTag
 
 instance Core.ToJSON ResourceTag where
   toJSON ResourceTag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Value" Core..=) Core.<$> value,
-            Core.Just ("Key" Core..= key)
+      ( Prelude.catMaybes
+          [ ("Value" Core..=) Prelude.<$> value,
+            Prelude.Just ("Key" Core..= key)
           ]
       )

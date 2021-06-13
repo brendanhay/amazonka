@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,14 +77,14 @@ data ListResourceTags = ListResourceTags'
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 50, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter in a subsequent request after you receive a response
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
     --
     -- Do not attempt to construct this value. Use only the value of
     -- @NextMarker@ from the truncated response you just received.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the customer master key (CMK).
     --
     -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
@@ -96,9 +97,9 @@ data ListResourceTags = ListResourceTags'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListResourceTags' with all optional fields omitted.
@@ -136,12 +137,12 @@ data ListResourceTags = ListResourceTags'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newListResourceTags ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   ListResourceTags
 newListResourceTags pKeyId_ =
   ListResourceTags'
-    { limit = Core.Nothing,
-      marker = Core.Nothing,
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       keyId = pKeyId_
     }
 
@@ -151,7 +152,7 @@ newListResourceTags pKeyId_ =
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 50, inclusive. If you do not include a value, it defaults to 50.
-listResourceTags_limit :: Lens.Lens' ListResourceTags (Core.Maybe Core.Natural)
+listResourceTags_limit :: Lens.Lens' ListResourceTags (Prelude.Maybe Prelude.Natural)
 listResourceTags_limit = Lens.lens (\ListResourceTags' {limit} -> limit) (\s@ListResourceTags' {} a -> s {limit = a} :: ListResourceTags)
 
 -- | Use this parameter in a subsequent request after you receive a response
@@ -160,7 +161,7 @@ listResourceTags_limit = Lens.lens (\ListResourceTags' {limit} -> limit) (\s@Lis
 --
 -- Do not attempt to construct this value. Use only the value of
 -- @NextMarker@ from the truncated response you just received.
-listResourceTags_marker :: Lens.Lens' ListResourceTags (Core.Maybe Core.Text)
+listResourceTags_marker :: Lens.Lens' ListResourceTags (Prelude.Maybe Prelude.Text)
 listResourceTags_marker = Lens.lens (\ListResourceTags' {marker} -> marker) (\s@ListResourceTags' {} a -> s {marker = a} :: ListResourceTags)
 
 -- | A unique identifier for the customer master key (CMK).
@@ -175,7 +176,7 @@ listResourceTags_marker = Lens.lens (\ListResourceTags' {marker} -> marker) (\s@
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-listResourceTags_keyId :: Lens.Lens' ListResourceTags Core.Text
+listResourceTags_keyId :: Lens.Lens' ListResourceTags Prelude.Text
 listResourceTags_keyId = Lens.lens (\ListResourceTags' {keyId} -> keyId) (\s@ListResourceTags' {} a -> s {keyId = a} :: ListResourceTags)
 
 instance Core.AWSRequest ListResourceTags where
@@ -187,42 +188,46 @@ instance Core.AWSRequest ListResourceTags where
     Response.receiveJSON
       ( \s h x ->
           ListResourceTagsResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Truncated")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Truncated")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListResourceTags
+instance Prelude.Hashable ListResourceTags
 
-instance Core.NFData ListResourceTags
+instance Prelude.NFData ListResourceTags
 
 instance Core.ToHeaders ListResourceTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.ListResourceTags" :: Core.ByteString),
+              Core.=# ( "TrentService.ListResourceTags" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListResourceTags where
   toJSON ListResourceTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Limit" Core..=) Core.<$> limit,
-            ("Marker" Core..=) Core.<$> marker,
-            Core.Just ("KeyId" Core..= keyId)
+      ( Prelude.catMaybes
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("Marker" Core..=) Prelude.<$> marker,
+            Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
 
 instance Core.ToPath ListResourceTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListResourceTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceTagsResponse' smart constructor.
 data ListResourceTagsResponse = ListResourceTagsResponse'
@@ -230,18 +235,18 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
     -- to use for the @Marker@ parameter in a subsequent request.
     --
     -- Do not assume or infer any information from this value.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | A list of tags. Each tag consists of a tag key and a tag value.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
-    truncated :: Core.Maybe Core.Bool,
+    truncated :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListResourceTagsResponse' with all optional fields omitted.
@@ -266,14 +271,14 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
 -- 'httpStatus', 'listResourceTagsResponse_httpStatus' - The response's http status code.
 newListResourceTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListResourceTagsResponse
 newListResourceTagsResponse pHttpStatus_ =
   ListResourceTagsResponse'
     { nextMarker =
-        Core.Nothing,
-      tags = Core.Nothing,
-      truncated = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      truncated = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -281,22 +286,22 @@ newListResourceTagsResponse pHttpStatus_ =
 -- to use for the @Marker@ parameter in a subsequent request.
 --
 -- Do not assume or infer any information from this value.
-listResourceTagsResponse_nextMarker :: Lens.Lens' ListResourceTagsResponse (Core.Maybe Core.Text)
+listResourceTagsResponse_nextMarker :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe Prelude.Text)
 listResourceTagsResponse_nextMarker = Lens.lens (\ListResourceTagsResponse' {nextMarker} -> nextMarker) (\s@ListResourceTagsResponse' {} a -> s {nextMarker = a} :: ListResourceTagsResponse)
 
 -- | A list of tags. Each tag consists of a tag key and a tag value.
-listResourceTagsResponse_tags :: Lens.Lens' ListResourceTagsResponse (Core.Maybe [Tag])
-listResourceTagsResponse_tags = Lens.lens (\ListResourceTagsResponse' {tags} -> tags) (\s@ListResourceTagsResponse' {} a -> s {tags = a} :: ListResourceTagsResponse) Core.. Lens.mapping Lens._Coerce
+listResourceTagsResponse_tags :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe [Tag])
+listResourceTagsResponse_tags = Lens.lens (\ListResourceTagsResponse' {tags} -> tags) (\s@ListResourceTagsResponse' {} a -> s {tags = a} :: ListResourceTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
-listResourceTagsResponse_truncated :: Lens.Lens' ListResourceTagsResponse (Core.Maybe Core.Bool)
+listResourceTagsResponse_truncated :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe Prelude.Bool)
 listResourceTagsResponse_truncated = Lens.lens (\ListResourceTagsResponse' {truncated} -> truncated) (\s@ListResourceTagsResponse' {} a -> s {truncated = a} :: ListResourceTagsResponse)
 
 -- | The response's http status code.
-listResourceTagsResponse_httpStatus :: Lens.Lens' ListResourceTagsResponse Core.Int
+listResourceTagsResponse_httpStatus :: Lens.Lens' ListResourceTagsResponse Prelude.Int
 listResourceTagsResponse_httpStatus = Lens.lens (\ListResourceTagsResponse' {httpStatus} -> httpStatus) (\s@ListResourceTagsResponse' {} a -> s {httpStatus = a} :: ListResourceTagsResponse)
 
-instance Core.NFData ListResourceTagsResponse
+instance Prelude.NFData ListResourceTagsResponse

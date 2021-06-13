@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,7 +61,7 @@ data ListAddons = ListAddons'
     -- This token should be treated as an opaque identifier that is used only
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of add-on results returned by @ListAddonsRequest@ in
     -- paginated output. When you use this parameter, @ListAddonsRequest@
     -- returns only @maxResults@ results in a single page along with a
@@ -69,11 +70,11 @@ data ListAddons = ListAddons'
     -- returned @nextToken@ value. This value can be between 1 and 100. If you
     -- don\'t use this parameter, @ListAddonsRequest@ returns up to 100 results
     -- and a @nextToken@ value, if applicable.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the cluster.
-    clusterName :: Core.Text
+    clusterName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAddons' with all optional fields omitted.
@@ -104,12 +105,12 @@ data ListAddons = ListAddons'
 -- 'clusterName', 'listAddons_clusterName' - The name of the cluster.
 newListAddons ::
   -- | 'clusterName'
-  Core.Text ->
+  Prelude.Text ->
   ListAddons
 newListAddons pClusterName_ =
   ListAddons'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       clusterName = pClusterName_
     }
 
@@ -121,7 +122,7 @@ newListAddons pClusterName_ =
 -- This token should be treated as an opaque identifier that is used only
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listAddons_nextToken :: Lens.Lens' ListAddons (Core.Maybe Core.Text)
+listAddons_nextToken :: Lens.Lens' ListAddons (Prelude.Maybe Prelude.Text)
 listAddons_nextToken = Lens.lens (\ListAddons' {nextToken} -> nextToken) (\s@ListAddons' {} a -> s {nextToken = a} :: ListAddons)
 
 -- | The maximum number of add-on results returned by @ListAddonsRequest@ in
@@ -132,31 +133,31 @@ listAddons_nextToken = Lens.lens (\ListAddons' {nextToken} -> nextToken) (\s@Lis
 -- returned @nextToken@ value. This value can be between 1 and 100. If you
 -- don\'t use this parameter, @ListAddonsRequest@ returns up to 100 results
 -- and a @nextToken@ value, if applicable.
-listAddons_maxResults :: Lens.Lens' ListAddons (Core.Maybe Core.Natural)
+listAddons_maxResults :: Lens.Lens' ListAddons (Prelude.Maybe Prelude.Natural)
 listAddons_maxResults = Lens.lens (\ListAddons' {maxResults} -> maxResults) (\s@ListAddons' {} a -> s {maxResults = a} :: ListAddons)
 
 -- | The name of the cluster.
-listAddons_clusterName :: Lens.Lens' ListAddons Core.Text
+listAddons_clusterName :: Lens.Lens' ListAddons Prelude.Text
 listAddons_clusterName = Lens.lens (\ListAddons' {clusterName} -> clusterName) (\s@ListAddons' {} a -> s {clusterName = a} :: ListAddons)
 
 instance Core.AWSPager ListAddons where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAddonsResponse_nextToken Core.. Lens._Just
+            Lens.^? listAddonsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAddonsResponse_addons Core.. Lens._Just
+            Lens.^? listAddonsResponse_addons Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAddons_nextToken
+          Prelude.& listAddons_nextToken
           Lens..~ rs
-          Lens.^? listAddonsResponse_nextToken Core.. Lens._Just
+          Lens.^? listAddonsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAddons where
   type AWSResponse ListAddons = ListAddonsResponse
@@ -165,32 +166,34 @@ instance Core.AWSRequest ListAddons where
     Response.receiveJSON
       ( \s h x ->
           ListAddonsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "addons" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "addons" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAddons
+instance Prelude.Hashable ListAddons
 
-instance Core.NFData ListAddons
+instance Prelude.NFData ListAddons
 
 instance Core.ToHeaders ListAddons where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListAddons where
   toPath ListAddons' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/clusters/", Core.toBS clusterName, "/addons"]
 
 instance Core.ToQuery ListAddons where
   toQuery ListAddons' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -205,13 +208,13 @@ data ListAddonsResponse = ListAddonsResponse'
     -- This token should be treated as an opaque identifier that is used only
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of available add-ons.
-    addons :: Core.Maybe [Core.Text],
+    addons :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAddonsResponse' with all optional fields omitted.
@@ -235,12 +238,12 @@ data ListAddonsResponse = ListAddonsResponse'
 -- 'httpStatus', 'listAddonsResponse_httpStatus' - The response's http status code.
 newListAddonsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAddonsResponse
 newListAddonsResponse pHttpStatus_ =
   ListAddonsResponse'
-    { nextToken = Core.Nothing,
-      addons = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      addons = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -252,15 +255,15 @@ newListAddonsResponse pHttpStatus_ =
 -- This token should be treated as an opaque identifier that is used only
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listAddonsResponse_nextToken :: Lens.Lens' ListAddonsResponse (Core.Maybe Core.Text)
+listAddonsResponse_nextToken :: Lens.Lens' ListAddonsResponse (Prelude.Maybe Prelude.Text)
 listAddonsResponse_nextToken = Lens.lens (\ListAddonsResponse' {nextToken} -> nextToken) (\s@ListAddonsResponse' {} a -> s {nextToken = a} :: ListAddonsResponse)
 
 -- | A list of available add-ons.
-listAddonsResponse_addons :: Lens.Lens' ListAddonsResponse (Core.Maybe [Core.Text])
-listAddonsResponse_addons = Lens.lens (\ListAddonsResponse' {addons} -> addons) (\s@ListAddonsResponse' {} a -> s {addons = a} :: ListAddonsResponse) Core.. Lens.mapping Lens._Coerce
+listAddonsResponse_addons :: Lens.Lens' ListAddonsResponse (Prelude.Maybe [Prelude.Text])
+listAddonsResponse_addons = Lens.lens (\ListAddonsResponse' {addons} -> addons) (\s@ListAddonsResponse' {} a -> s {addons = a} :: ListAddonsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAddonsResponse_httpStatus :: Lens.Lens' ListAddonsResponse Core.Int
+listAddonsResponse_httpStatus :: Lens.Lens' ListAddonsResponse Prelude.Int
 listAddonsResponse_httpStatus = Lens.lens (\ListAddonsResponse' {httpStatus} -> httpStatus) (\s@ListAddonsResponse' {} a -> s {httpStatus = a} :: ListAddonsResponse)
 
-instance Core.NFData ListAddonsResponse
+instance Prelude.NFData ListAddonsResponse

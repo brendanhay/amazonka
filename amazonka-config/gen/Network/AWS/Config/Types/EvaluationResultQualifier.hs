@@ -21,6 +21,7 @@ module Network.AWS.Config.Types.EvaluationResultQualifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies an AWS Config rule that evaluated an AWS resource, and
 -- provides the type and ID of the resource that the rule evaluated.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEvaluationResultQualifier' smart constructor.
 data EvaluationResultQualifier = EvaluationResultQualifier'
   { -- | The ID of the evaluated AWS resource.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS Config rule that was used in the evaluation.
-    configRuleName :: Core.Maybe Core.Text,
+    configRuleName :: Prelude.Maybe Prelude.Text,
     -- | The type of AWS resource that was evaluated.
-    resourceType :: Core.Maybe Core.Text
+    resourceType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EvaluationResultQualifier' with all optional fields omitted.
@@ -54,21 +55,21 @@ newEvaluationResultQualifier ::
 newEvaluationResultQualifier =
   EvaluationResultQualifier'
     { resourceId =
-        Core.Nothing,
-      configRuleName = Core.Nothing,
-      resourceType = Core.Nothing
+        Prelude.Nothing,
+      configRuleName = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
 
 -- | The ID of the evaluated AWS resource.
-evaluationResultQualifier_resourceId :: Lens.Lens' EvaluationResultQualifier (Core.Maybe Core.Text)
+evaluationResultQualifier_resourceId :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe Prelude.Text)
 evaluationResultQualifier_resourceId = Lens.lens (\EvaluationResultQualifier' {resourceId} -> resourceId) (\s@EvaluationResultQualifier' {} a -> s {resourceId = a} :: EvaluationResultQualifier)
 
 -- | The name of the AWS Config rule that was used in the evaluation.
-evaluationResultQualifier_configRuleName :: Lens.Lens' EvaluationResultQualifier (Core.Maybe Core.Text)
+evaluationResultQualifier_configRuleName :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe Prelude.Text)
 evaluationResultQualifier_configRuleName = Lens.lens (\EvaluationResultQualifier' {configRuleName} -> configRuleName) (\s@EvaluationResultQualifier' {} a -> s {configRuleName = a} :: EvaluationResultQualifier)
 
 -- | The type of AWS resource that was evaluated.
-evaluationResultQualifier_resourceType :: Lens.Lens' EvaluationResultQualifier (Core.Maybe Core.Text)
+evaluationResultQualifier_resourceType :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe Prelude.Text)
 evaluationResultQualifier_resourceType = Lens.lens (\EvaluationResultQualifier' {resourceType} -> resourceType) (\s@EvaluationResultQualifier' {} a -> s {resourceType = a} :: EvaluationResultQualifier)
 
 instance Core.FromJSON EvaluationResultQualifier where
@@ -77,11 +78,11 @@ instance Core.FromJSON EvaluationResultQualifier where
       "EvaluationResultQualifier"
       ( \x ->
           EvaluationResultQualifier'
-            Core.<$> (x Core..:? "ResourceId")
-            Core.<*> (x Core..:? "ConfigRuleName")
-            Core.<*> (x Core..:? "ResourceType")
+            Prelude.<$> (x Core..:? "ResourceId")
+            Prelude.<*> (x Core..:? "ConfigRuleName")
+            Prelude.<*> (x Core..:? "ResourceType")
       )
 
-instance Core.Hashable EvaluationResultQualifier
+instance Prelude.Hashable EvaluationResultQualifier
 
-instance Core.NFData EvaluationResultQualifier
+instance Prelude.NFData EvaluationResultQualifier

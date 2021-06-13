@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.GitConfigForUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration details for a Git repository when the repository
 -- is updated.
@@ -33,9 +34,9 @@ data GitConfigForUpdate = GitConfigForUpdate'
     -- format:
     --
     -- @{\"username\": UserName, \"password\": Password}@
-    secretArn :: Core.Maybe Core.Text
+    secretArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GitConfigForUpdate' with all optional fields omitted.
@@ -54,7 +55,7 @@ data GitConfigForUpdate = GitConfigForUpdate'
 newGitConfigForUpdate ::
   GitConfigForUpdate
 newGitConfigForUpdate =
-  GitConfigForUpdate' {secretArn = Core.Nothing}
+  GitConfigForUpdate' {secretArn = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
 -- contains the credentials used to access the git repository. The secret
@@ -62,16 +63,16 @@ newGitConfigForUpdate =
 -- format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
-gitConfigForUpdate_secretArn :: Lens.Lens' GitConfigForUpdate (Core.Maybe Core.Text)
+gitConfigForUpdate_secretArn :: Lens.Lens' GitConfigForUpdate (Prelude.Maybe Prelude.Text)
 gitConfigForUpdate_secretArn = Lens.lens (\GitConfigForUpdate' {secretArn} -> secretArn) (\s@GitConfigForUpdate' {} a -> s {secretArn = a} :: GitConfigForUpdate)
 
-instance Core.Hashable GitConfigForUpdate
+instance Prelude.Hashable GitConfigForUpdate
 
-instance Core.NFData GitConfigForUpdate
+instance Prelude.NFData GitConfigForUpdate
 
 instance Core.ToJSON GitConfigForUpdate where
   toJSON GitConfigForUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [("SecretArn" Core..=) Core.<$> secretArn]
+      ( Prelude.catMaybes
+          [("SecretArn" Core..=) Prelude.<$> secretArn]
       )

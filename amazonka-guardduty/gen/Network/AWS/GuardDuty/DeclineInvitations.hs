@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeclineInvitations = DeclineInvitations'
   { -- | A list of account IDs of the AWS accounts that sent invitations to the
     -- current member account that you want to decline invitations from.
-    accountIds :: Core.NonEmpty Core.Text
+    accountIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeclineInvitations' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DeclineInvitations = DeclineInvitations'
 -- current member account that you want to decline invitations from.
 newDeclineInvitations ::
   -- | 'accountIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DeclineInvitations
 newDeclineInvitations pAccountIds_ =
   DeclineInvitations'
@@ -76,8 +77,8 @@ newDeclineInvitations pAccountIds_ =
 
 -- | A list of account IDs of the AWS accounts that sent invitations to the
 -- current member account that you want to decline invitations from.
-declineInvitations_accountIds :: Lens.Lens' DeclineInvitations (Core.NonEmpty Core.Text)
-declineInvitations_accountIds = Lens.lens (\DeclineInvitations' {accountIds} -> accountIds) (\s@DeclineInvitations' {} a -> s {accountIds = a} :: DeclineInvitations) Core.. Lens._Coerce
+declineInvitations_accountIds :: Lens.Lens' DeclineInvitations (Prelude.NonEmpty Prelude.Text)
+declineInvitations_accountIds = Lens.lens (\DeclineInvitations' {accountIds} -> accountIds) (\s@DeclineInvitations' {} a -> s {accountIds = a} :: DeclineInvitations) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeclineInvitations where
   type
@@ -88,47 +89,49 @@ instance Core.AWSRequest DeclineInvitations where
     Response.receiveJSON
       ( \s h x ->
           DeclineInvitationsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "unprocessedAccounts"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable DeclineInvitations
+instance Prelude.Hashable DeclineInvitations
 
-instance Core.NFData DeclineInvitations
+instance Prelude.NFData DeclineInvitations
 
 instance Core.ToHeaders DeclineInvitations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeclineInvitations where
   toJSON DeclineInvitations' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("accountIds" Core..= accountIds)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("accountIds" Core..= accountIds)]
       )
 
 instance Core.ToPath DeclineInvitations where
-  toPath = Core.const "/invitation/decline"
+  toPath = Prelude.const "/invitation/decline"
 
 instance Core.ToQuery DeclineInvitations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeclineInvitationsResponse' smart constructor.
 data DeclineInvitationsResponse = DeclineInvitationsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of objects that contain the unprocessed account and a result
     -- string that explains why it was unprocessed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeclineInvitationsResponse' with all optional fields omitted.
@@ -144,22 +147,22 @@ data DeclineInvitationsResponse = DeclineInvitationsResponse'
 -- string that explains why it was unprocessed.
 newDeclineInvitationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeclineInvitationsResponse
 newDeclineInvitationsResponse pHttpStatus_ =
   DeclineInvitationsResponse'
     { httpStatus =
         pHttpStatus_,
-      unprocessedAccounts = Core.mempty
+      unprocessedAccounts = Prelude.mempty
     }
 
 -- | The response's http status code.
-declineInvitationsResponse_httpStatus :: Lens.Lens' DeclineInvitationsResponse Core.Int
+declineInvitationsResponse_httpStatus :: Lens.Lens' DeclineInvitationsResponse Prelude.Int
 declineInvitationsResponse_httpStatus = Lens.lens (\DeclineInvitationsResponse' {httpStatus} -> httpStatus) (\s@DeclineInvitationsResponse' {} a -> s {httpStatus = a} :: DeclineInvitationsResponse)
 
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 declineInvitationsResponse_unprocessedAccounts :: Lens.Lens' DeclineInvitationsResponse [UnprocessedAccount]
-declineInvitationsResponse_unprocessedAccounts = Lens.lens (\DeclineInvitationsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeclineInvitationsResponse' {} a -> s {unprocessedAccounts = a} :: DeclineInvitationsResponse) Core.. Lens._Coerce
+declineInvitationsResponse_unprocessedAccounts = Lens.lens (\DeclineInvitationsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeclineInvitationsResponse' {} a -> s {unprocessedAccounts = a} :: DeclineInvitationsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DeclineInvitationsResponse
+instance Prelude.NFData DeclineInvitationsResponse

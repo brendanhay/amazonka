@@ -74,20 +74,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSecurityGroup' smart constructor.
 data CreateSecurityGroup = CreateSecurityGroup'
   { -- | The tags to assign to the security group.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | A description for the security group. This is informational only.
     --
     -- Constraints: Up to 255 characters in length
@@ -96,7 +97,7 @@ data CreateSecurityGroup = CreateSecurityGroup'
     --
     -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
     -- ._-:\/()#,\@[]+=&;{}!$*
-    description :: Core.Text,
+    description :: Prelude.Text,
     -- | The name of the security group.
     --
     -- Constraints: Up to 255 characters in length. Cannot start with @sg-@.
@@ -105,9 +106,9 @@ data CreateSecurityGroup = CreateSecurityGroup'
     --
     -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
     -- ._-:\/()#,\@[]+=&;{}!$*
-    groupName :: Core.Text
+    groupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSecurityGroup' with all optional fields omitted.
@@ -145,33 +146,33 @@ data CreateSecurityGroup = CreateSecurityGroup'
 -- ._-:\/()#,\@[]+=&;{}!$*
 newCreateSecurityGroup ::
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   CreateSecurityGroup
 newCreateSecurityGroup pDescription_ pGroupName_ =
   CreateSecurityGroup'
     { tagSpecifications =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      vpcId = Core.Nothing,
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
       description = pDescription_,
       groupName = pGroupName_
     }
 
 -- | The tags to assign to the security group.
-createSecurityGroup_tagSpecifications :: Lens.Lens' CreateSecurityGroup (Core.Maybe [TagSpecification])
-createSecurityGroup_tagSpecifications = Lens.lens (\CreateSecurityGroup' {tagSpecifications} -> tagSpecifications) (\s@CreateSecurityGroup' {} a -> s {tagSpecifications = a} :: CreateSecurityGroup) Core.. Lens.mapping Lens._Coerce
+createSecurityGroup_tagSpecifications :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe [TagSpecification])
+createSecurityGroup_tagSpecifications = Lens.lens (\CreateSecurityGroup' {tagSpecifications} -> tagSpecifications) (\s@CreateSecurityGroup' {} a -> s {tagSpecifications = a} :: CreateSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createSecurityGroup_dryRun :: Lens.Lens' CreateSecurityGroup (Core.Maybe Core.Bool)
+createSecurityGroup_dryRun :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Bool)
 createSecurityGroup_dryRun = Lens.lens (\CreateSecurityGroup' {dryRun} -> dryRun) (\s@CreateSecurityGroup' {} a -> s {dryRun = a} :: CreateSecurityGroup)
 
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
-createSecurityGroup_vpcId :: Lens.Lens' CreateSecurityGroup (Core.Maybe Core.Text)
+createSecurityGroup_vpcId :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Text)
 createSecurityGroup_vpcId = Lens.lens (\CreateSecurityGroup' {vpcId} -> vpcId) (\s@CreateSecurityGroup' {} a -> s {vpcId = a} :: CreateSecurityGroup)
 
 -- | A description for the security group. This is informational only.
@@ -182,7 +183,7 @@ createSecurityGroup_vpcId = Lens.lens (\CreateSecurityGroup' {vpcId} -> vpcId) (
 --
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
 -- ._-:\/()#,\@[]+=&;{}!$*
-createSecurityGroup_description :: Lens.Lens' CreateSecurityGroup Core.Text
+createSecurityGroup_description :: Lens.Lens' CreateSecurityGroup Prelude.Text
 createSecurityGroup_description = Lens.lens (\CreateSecurityGroup' {description} -> description) (\s@CreateSecurityGroup' {} a -> s {description = a} :: CreateSecurityGroup)
 
 -- | The name of the security group.
@@ -193,7 +194,7 @@ createSecurityGroup_description = Lens.lens (\CreateSecurityGroup' {description}
 --
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
 -- ._-:\/()#,\@[]+=&;{}!$*
-createSecurityGroup_groupName :: Lens.Lens' CreateSecurityGroup Core.Text
+createSecurityGroup_groupName :: Lens.Lens' CreateSecurityGroup Prelude.Text
 createSecurityGroup_groupName = Lens.lens (\CreateSecurityGroup' {groupName} -> groupName) (\s@CreateSecurityGroup' {} a -> s {groupName = a} :: CreateSecurityGroup)
 
 instance Core.AWSRequest CreateSecurityGroup where
@@ -205,32 +206,33 @@ instance Core.AWSRequest CreateSecurityGroup where
     Response.receiveXML
       ( \s h x ->
           CreateSecurityGroupResponse'
-            Core.<$> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "groupId")
+            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "groupId")
       )
 
-instance Core.Hashable CreateSecurityGroup
+instance Prelude.Hashable CreateSecurityGroup
 
-instance Core.NFData CreateSecurityGroup
+instance Prelude.NFData CreateSecurityGroup
 
 instance Core.ToHeaders CreateSecurityGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateSecurityGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateSecurityGroup where
   toQuery CreateSecurityGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSecurityGroup" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateSecurityGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "VpcId" Core.=: vpcId,
@@ -241,13 +243,13 @@ instance Core.ToQuery CreateSecurityGroup where
 -- | /See:/ 'newCreateSecurityGroupResponse' smart constructor.
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
   { -- | The tags assigned to the security group.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The ID of the security group.
-    groupId :: Core.Text
+    groupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSecurityGroupResponse' with all optional fields omitted.
@@ -264,27 +266,28 @@ data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
 -- 'groupId', 'createSecurityGroupResponse_groupId' - The ID of the security group.
 newCreateSecurityGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   CreateSecurityGroupResponse
 newCreateSecurityGroupResponse pHttpStatus_ pGroupId_ =
   CreateSecurityGroupResponse'
-    { tags = Core.Nothing,
+    { tags =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
       groupId = pGroupId_
     }
 
 -- | The tags assigned to the security group.
-createSecurityGroupResponse_tags :: Lens.Lens' CreateSecurityGroupResponse (Core.Maybe [Tag])
-createSecurityGroupResponse_tags = Lens.lens (\CreateSecurityGroupResponse' {tags} -> tags) (\s@CreateSecurityGroupResponse' {} a -> s {tags = a} :: CreateSecurityGroupResponse) Core.. Lens.mapping Lens._Coerce
+createSecurityGroupResponse_tags :: Lens.Lens' CreateSecurityGroupResponse (Prelude.Maybe [Tag])
+createSecurityGroupResponse_tags = Lens.lens (\CreateSecurityGroupResponse' {tags} -> tags) (\s@CreateSecurityGroupResponse' {} a -> s {tags = a} :: CreateSecurityGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createSecurityGroupResponse_httpStatus :: Lens.Lens' CreateSecurityGroupResponse Core.Int
+createSecurityGroupResponse_httpStatus :: Lens.Lens' CreateSecurityGroupResponse Prelude.Int
 createSecurityGroupResponse_httpStatus = Lens.lens (\CreateSecurityGroupResponse' {httpStatus} -> httpStatus) (\s@CreateSecurityGroupResponse' {} a -> s {httpStatus = a} :: CreateSecurityGroupResponse)
 
 -- | The ID of the security group.
-createSecurityGroupResponse_groupId :: Lens.Lens' CreateSecurityGroupResponse Core.Text
+createSecurityGroupResponse_groupId :: Lens.Lens' CreateSecurityGroupResponse Prelude.Text
 createSecurityGroupResponse_groupId = Lens.lens (\CreateSecurityGroupResponse' {groupId} -> groupId) (\s@CreateSecurityGroupResponse' {} a -> s {groupId = a} :: CreateSecurityGroupResponse)
 
-instance Core.NFData CreateSecurityGroupResponse
+instance Prelude.NFData CreateSecurityGroupResponse

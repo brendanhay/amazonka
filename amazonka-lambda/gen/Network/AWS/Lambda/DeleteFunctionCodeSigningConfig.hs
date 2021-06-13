@@ -38,6 +38,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data DeleteFunctionCodeSigningConfig = DeleteFunctionCodeSigningConfig'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionCodeSigningConfig' with all optional fields omitted.
@@ -83,7 +84,7 @@ data DeleteFunctionCodeSigningConfig = DeleteFunctionCodeSigningConfig'
 -- the function name, it is limited to 64 characters in length.
 newDeleteFunctionCodeSigningConfig ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFunctionCodeSigningConfig
 newDeleteFunctionCodeSigningConfig pFunctionName_ =
   DeleteFunctionCodeSigningConfig'
@@ -104,7 +105,7 @@ newDeleteFunctionCodeSigningConfig pFunctionName_ =
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-deleteFunctionCodeSigningConfig_functionName :: Lens.Lens' DeleteFunctionCodeSigningConfig Core.Text
+deleteFunctionCodeSigningConfig_functionName :: Lens.Lens' DeleteFunctionCodeSigningConfig Prelude.Text
 deleteFunctionCodeSigningConfig_functionName = Lens.lens (\DeleteFunctionCodeSigningConfig' {functionName} -> functionName) (\s@DeleteFunctionCodeSigningConfig' {} a -> s {functionName = a} :: DeleteFunctionCodeSigningConfig)
 
 instance
@@ -120,33 +121,35 @@ instance
       DeleteFunctionCodeSigningConfigResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteFunctionCodeSigningConfig
 
-instance Core.NFData DeleteFunctionCodeSigningConfig
+instance
+  Prelude.NFData
+    DeleteFunctionCodeSigningConfig
 
 instance
   Core.ToHeaders
     DeleteFunctionCodeSigningConfig
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteFunctionCodeSigningConfig where
   toPath DeleteFunctionCodeSigningConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-06-30/functions/",
         Core.toBS functionName,
         "/code-signing-config"
       ]
 
 instance Core.ToQuery DeleteFunctionCodeSigningConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFunctionCodeSigningConfigResponse' smart constructor.
 data DeleteFunctionCodeSigningConfigResponse = DeleteFunctionCodeSigningConfigResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionCodeSigningConfigResponse' with all optional fields omitted.
@@ -158,5 +161,5 @@ newDeleteFunctionCodeSigningConfigResponse =
   DeleteFunctionCodeSigningConfigResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteFunctionCodeSigningConfigResponse

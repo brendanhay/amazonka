@@ -25,24 +25,25 @@ import Network.AWS.GuardDuty.Types.DnsRequestAction
 import Network.AWS.GuardDuty.Types.NetworkConnectionAction
 import Network.AWS.GuardDuty.Types.PortProbeAction
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about actions.
 --
 -- /See:/ 'newAction' smart constructor.
 data Action = Action'
   { -- | The GuardDuty finding activity type.
-    actionType :: Core.Maybe Core.Text,
+    actionType :: Prelude.Maybe Prelude.Text,
     -- | Information about the DNS_REQUEST action described in this finding.
-    dnsRequestAction :: Core.Maybe DnsRequestAction,
+    dnsRequestAction :: Prelude.Maybe DnsRequestAction,
     -- | Information about the NETWORK_CONNECTION action described in this
     -- finding.
-    networkConnectionAction :: Core.Maybe NetworkConnectionAction,
+    networkConnectionAction :: Prelude.Maybe NetworkConnectionAction,
     -- | Information about the AWS_API_CALL action described in this finding.
-    awsApiCallAction :: Core.Maybe AwsApiCallAction,
+    awsApiCallAction :: Prelude.Maybe AwsApiCallAction,
     -- | Information about the PORT_PROBE action described in this finding.
-    portProbeAction :: Core.Maybe PortProbeAction
+    portProbeAction :: Prelude.Maybe PortProbeAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Action' with all optional fields omitted.
@@ -66,32 +67,32 @@ newAction ::
   Action
 newAction =
   Action'
-    { actionType = Core.Nothing,
-      dnsRequestAction = Core.Nothing,
-      networkConnectionAction = Core.Nothing,
-      awsApiCallAction = Core.Nothing,
-      portProbeAction = Core.Nothing
+    { actionType = Prelude.Nothing,
+      dnsRequestAction = Prelude.Nothing,
+      networkConnectionAction = Prelude.Nothing,
+      awsApiCallAction = Prelude.Nothing,
+      portProbeAction = Prelude.Nothing
     }
 
 -- | The GuardDuty finding activity type.
-action_actionType :: Lens.Lens' Action (Core.Maybe Core.Text)
+action_actionType :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
 action_actionType = Lens.lens (\Action' {actionType} -> actionType) (\s@Action' {} a -> s {actionType = a} :: Action)
 
 -- | Information about the DNS_REQUEST action described in this finding.
-action_dnsRequestAction :: Lens.Lens' Action (Core.Maybe DnsRequestAction)
+action_dnsRequestAction :: Lens.Lens' Action (Prelude.Maybe DnsRequestAction)
 action_dnsRequestAction = Lens.lens (\Action' {dnsRequestAction} -> dnsRequestAction) (\s@Action' {} a -> s {dnsRequestAction = a} :: Action)
 
 -- | Information about the NETWORK_CONNECTION action described in this
 -- finding.
-action_networkConnectionAction :: Lens.Lens' Action (Core.Maybe NetworkConnectionAction)
+action_networkConnectionAction :: Lens.Lens' Action (Prelude.Maybe NetworkConnectionAction)
 action_networkConnectionAction = Lens.lens (\Action' {networkConnectionAction} -> networkConnectionAction) (\s@Action' {} a -> s {networkConnectionAction = a} :: Action)
 
 -- | Information about the AWS_API_CALL action described in this finding.
-action_awsApiCallAction :: Lens.Lens' Action (Core.Maybe AwsApiCallAction)
+action_awsApiCallAction :: Lens.Lens' Action (Prelude.Maybe AwsApiCallAction)
 action_awsApiCallAction = Lens.lens (\Action' {awsApiCallAction} -> awsApiCallAction) (\s@Action' {} a -> s {awsApiCallAction = a} :: Action)
 
 -- | Information about the PORT_PROBE action described in this finding.
-action_portProbeAction :: Lens.Lens' Action (Core.Maybe PortProbeAction)
+action_portProbeAction :: Lens.Lens' Action (Prelude.Maybe PortProbeAction)
 action_portProbeAction = Lens.lens (\Action' {portProbeAction} -> portProbeAction) (\s@Action' {} a -> s {portProbeAction = a} :: Action)
 
 instance Core.FromJSON Action where
@@ -100,13 +101,13 @@ instance Core.FromJSON Action where
       "Action"
       ( \x ->
           Action'
-            Core.<$> (x Core..:? "actionType")
-            Core.<*> (x Core..:? "dnsRequestAction")
-            Core.<*> (x Core..:? "networkConnectionAction")
-            Core.<*> (x Core..:? "awsApiCallAction")
-            Core.<*> (x Core..:? "portProbeAction")
+            Prelude.<$> (x Core..:? "actionType")
+            Prelude.<*> (x Core..:? "dnsRequestAction")
+            Prelude.<*> (x Core..:? "networkConnectionAction")
+            Prelude.<*> (x Core..:? "awsApiCallAction")
+            Prelude.<*> (x Core..:? "portProbeAction")
       )
 
-instance Core.Hashable Action
+instance Prelude.Hashable Action
 
-instance Core.NFData Action
+instance Prelude.NFData Action

@@ -21,15 +21,16 @@ module Network.AWS.CodePipeline.Types.ActionExecutionFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Filter values for the action execution.
 --
 -- /See:/ 'newActionExecutionFilter' smart constructor.
 data ActionExecutionFilter = ActionExecutionFilter'
   { -- | The pipeline execution ID used to filter action execution history.
-    pipelineExecutionId :: Core.Maybe Core.Text
+    pipelineExecutionId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionExecutionFilter' with all optional fields omitted.
@@ -45,22 +46,22 @@ newActionExecutionFilter ::
 newActionExecutionFilter =
   ActionExecutionFilter'
     { pipelineExecutionId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The pipeline execution ID used to filter action execution history.
-actionExecutionFilter_pipelineExecutionId :: Lens.Lens' ActionExecutionFilter (Core.Maybe Core.Text)
+actionExecutionFilter_pipelineExecutionId :: Lens.Lens' ActionExecutionFilter (Prelude.Maybe Prelude.Text)
 actionExecutionFilter_pipelineExecutionId = Lens.lens (\ActionExecutionFilter' {pipelineExecutionId} -> pipelineExecutionId) (\s@ActionExecutionFilter' {} a -> s {pipelineExecutionId = a} :: ActionExecutionFilter)
 
-instance Core.Hashable ActionExecutionFilter
+instance Prelude.Hashable ActionExecutionFilter
 
-instance Core.NFData ActionExecutionFilter
+instance Prelude.NFData ActionExecutionFilter
 
 instance Core.ToJSON ActionExecutionFilter where
   toJSON ActionExecutionFilter' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("pipelineExecutionId" Core..=)
-              Core.<$> pipelineExecutionId
+              Prelude.<$> pipelineExecutionId
           ]
       )

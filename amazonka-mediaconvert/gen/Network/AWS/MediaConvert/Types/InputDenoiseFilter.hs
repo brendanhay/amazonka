@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.InputDenoiseFilter
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.
 -- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
@@ -36,15 +37,15 @@ newtype InputDenoiseFilter = InputDenoiseFilter'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

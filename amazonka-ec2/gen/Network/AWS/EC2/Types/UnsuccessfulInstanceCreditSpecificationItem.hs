@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the burstable performance instance whose credit option for CPU
 -- usage was not modified.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUnsuccessfulInstanceCreditSpecificationItem' smart constructor.
 data UnsuccessfulInstanceCreditSpecificationItem = UnsuccessfulInstanceCreditSpecificationItem'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The applicable error for the burstable performance instance whose credit
     -- option for CPU usage was not modified.
-    error :: Core.Maybe UnsuccessfulInstanceCreditSpecificationItemError
+    error :: Prelude.Maybe UnsuccessfulInstanceCreditSpecificationItemError
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnsuccessfulInstanceCreditSpecificationItem' with all optional fields omitted.
@@ -54,17 +55,17 @@ newUnsuccessfulInstanceCreditSpecificationItem ::
 newUnsuccessfulInstanceCreditSpecificationItem =
   UnsuccessfulInstanceCreditSpecificationItem'
     { instanceId =
-        Core.Nothing,
-      error = Core.Nothing
+        Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | The ID of the instance.
-unsuccessfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Core.Maybe Core.Text)
+unsuccessfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Prelude.Maybe Prelude.Text)
 unsuccessfulInstanceCreditSpecificationItem_instanceId = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItem' {instanceId} -> instanceId) (\s@UnsuccessfulInstanceCreditSpecificationItem' {} a -> s {instanceId = a} :: UnsuccessfulInstanceCreditSpecificationItem)
 
 -- | The applicable error for the burstable performance instance whose credit
 -- option for CPU usage was not modified.
-unsuccessfulInstanceCreditSpecificationItem_error :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Core.Maybe UnsuccessfulInstanceCreditSpecificationItemError)
+unsuccessfulInstanceCreditSpecificationItem_error :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Prelude.Maybe UnsuccessfulInstanceCreditSpecificationItemError)
 unsuccessfulInstanceCreditSpecificationItem_error = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItem' {error} -> error) (\s@UnsuccessfulInstanceCreditSpecificationItem' {} a -> s {error = a} :: UnsuccessfulInstanceCreditSpecificationItem)
 
 instance
@@ -73,13 +74,13 @@ instance
   where
   parseXML x =
     UnsuccessfulInstanceCreditSpecificationItem'
-      Core.<$> (x Core..@? "instanceId")
-        Core.<*> (x Core..@? "error")
+      Prelude.<$> (x Core..@? "instanceId")
+        Prelude.<*> (x Core..@? "error")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UnsuccessfulInstanceCreditSpecificationItem
 
 instance
-  Core.NFData
+  Prelude.NFData
     UnsuccessfulInstanceCreditSpecificationItem

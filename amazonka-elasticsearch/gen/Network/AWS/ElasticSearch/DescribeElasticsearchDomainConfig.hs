@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeElasticsearchDomainConfig' smart constructor.
 data DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
   { -- | The Elasticsearch domain that you want to get information about.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticsearchDomainConfig' with all optional fields omitted.
@@ -69,7 +70,7 @@ data DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
 -- 'domainName', 'describeElasticsearchDomainConfig_domainName' - The Elasticsearch domain that you want to get information about.
 newDescribeElasticsearchDomainConfig ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeElasticsearchDomainConfig
 newDescribeElasticsearchDomainConfig pDomainName_ =
   DescribeElasticsearchDomainConfig'
@@ -78,7 +79,7 @@ newDescribeElasticsearchDomainConfig pDomainName_ =
     }
 
 -- | The Elasticsearch domain that you want to get information about.
-describeElasticsearchDomainConfig_domainName :: Lens.Lens' DescribeElasticsearchDomainConfig Core.Text
+describeElasticsearchDomainConfig_domainName :: Lens.Lens' DescribeElasticsearchDomainConfig Prelude.Text
 describeElasticsearchDomainConfig_domainName = Lens.lens (\DescribeElasticsearchDomainConfig' {domainName} -> domainName) (\s@DescribeElasticsearchDomainConfig' {} a -> s {domainName = a} :: DescribeElasticsearchDomainConfig)
 
 instance
@@ -93,30 +94,30 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeElasticsearchDomainConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "DomainConfig")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..:> "DomainConfig")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeElasticsearchDomainConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeElasticsearchDomainConfig
 
 instance
   Core.ToHeaders
     DescribeElasticsearchDomainConfig
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DescribeElasticsearchDomainConfig
   where
   toPath DescribeElasticsearchDomainConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-01-01/es/domain/",
         Core.toBS domainName,
         "/config"
@@ -126,7 +127,7 @@ instance
   Core.ToQuery
     DescribeElasticsearchDomainConfig
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @DescribeElasticsearchDomainConfig@ request. Contains
 -- the configuration information of the requested domain.
@@ -134,12 +135,12 @@ instance
 -- /See:/ 'newDescribeElasticsearchDomainConfigResponse' smart constructor.
 data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The configuration information of the domain requested in the
     -- @DescribeElasticsearchDomainConfig@ request.
     domainConfig :: ElasticsearchDomainConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticsearchDomainConfigResponse' with all optional fields omitted.
@@ -155,7 +156,7 @@ data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConf
 -- @DescribeElasticsearchDomainConfig@ request.
 newDescribeElasticsearchDomainConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'domainConfig'
   ElasticsearchDomainConfig ->
   DescribeElasticsearchDomainConfigResponse
@@ -169,7 +170,7 @@ newDescribeElasticsearchDomainConfigResponse
       }
 
 -- | The response's http status code.
-describeElasticsearchDomainConfigResponse_httpStatus :: Lens.Lens' DescribeElasticsearchDomainConfigResponse Core.Int
+describeElasticsearchDomainConfigResponse_httpStatus :: Lens.Lens' DescribeElasticsearchDomainConfigResponse Prelude.Int
 describeElasticsearchDomainConfigResponse_httpStatus = Lens.lens (\DescribeElasticsearchDomainConfigResponse' {httpStatus} -> httpStatus) (\s@DescribeElasticsearchDomainConfigResponse' {} a -> s {httpStatus = a} :: DescribeElasticsearchDomainConfigResponse)
 
 -- | The configuration information of the domain requested in the
@@ -178,5 +179,5 @@ describeElasticsearchDomainConfigResponse_domainConfig :: Lens.Lens' DescribeEla
 describeElasticsearchDomainConfigResponse_domainConfig = Lens.lens (\DescribeElasticsearchDomainConfigResponse' {domainConfig} -> domainConfig) (\s@DescribeElasticsearchDomainConfigResponse' {} a -> s {domainConfig = a} :: DescribeElasticsearchDomainConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeElasticsearchDomainConfigResponse

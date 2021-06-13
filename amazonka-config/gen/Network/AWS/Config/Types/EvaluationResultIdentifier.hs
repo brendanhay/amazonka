@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.EvaluationResultIdentifier where
 import Network.AWS.Config.Types.EvaluationResultQualifier
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Uniquely identifies an evaluation result.
 --
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 data EvaluationResultIdentifier = EvaluationResultIdentifier'
   { -- | Identifies an AWS Config rule used to evaluate an AWS resource, and
     -- provides the type and ID of the evaluated resource.
-    evaluationResultQualifier :: Core.Maybe EvaluationResultQualifier,
+    evaluationResultQualifier :: Prelude.Maybe EvaluationResultQualifier,
     -- | The time of the event that triggered the evaluation of your AWS
     -- resources. The time can indicate when AWS Config delivered a
     -- configuration item change notification, or it can indicate when AWS
     -- Config delivered the configuration snapshot, depending on which event
     -- triggered the evaluation.
-    orderingTimestamp :: Core.Maybe Core.POSIX
+    orderingTimestamp :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EvaluationResultIdentifier' with all optional fields omitted.
@@ -60,13 +61,13 @@ newEvaluationResultIdentifier ::
 newEvaluationResultIdentifier =
   EvaluationResultIdentifier'
     { evaluationResultQualifier =
-        Core.Nothing,
-      orderingTimestamp = Core.Nothing
+        Prelude.Nothing,
+      orderingTimestamp = Prelude.Nothing
     }
 
 -- | Identifies an AWS Config rule used to evaluate an AWS resource, and
 -- provides the type and ID of the evaluated resource.
-evaluationResultIdentifier_evaluationResultQualifier :: Lens.Lens' EvaluationResultIdentifier (Core.Maybe EvaluationResultQualifier)
+evaluationResultIdentifier_evaluationResultQualifier :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe EvaluationResultQualifier)
 evaluationResultIdentifier_evaluationResultQualifier = Lens.lens (\EvaluationResultIdentifier' {evaluationResultQualifier} -> evaluationResultQualifier) (\s@EvaluationResultIdentifier' {} a -> s {evaluationResultQualifier = a} :: EvaluationResultIdentifier)
 
 -- | The time of the event that triggered the evaluation of your AWS
@@ -74,8 +75,8 @@ evaluationResultIdentifier_evaluationResultQualifier = Lens.lens (\EvaluationRes
 -- configuration item change notification, or it can indicate when AWS
 -- Config delivered the configuration snapshot, depending on which event
 -- triggered the evaluation.
-evaluationResultIdentifier_orderingTimestamp :: Lens.Lens' EvaluationResultIdentifier (Core.Maybe Core.UTCTime)
-evaluationResultIdentifier_orderingTimestamp = Lens.lens (\EvaluationResultIdentifier' {orderingTimestamp} -> orderingTimestamp) (\s@EvaluationResultIdentifier' {} a -> s {orderingTimestamp = a} :: EvaluationResultIdentifier) Core.. Lens.mapping Core._Time
+evaluationResultIdentifier_orderingTimestamp :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe Prelude.UTCTime)
+evaluationResultIdentifier_orderingTimestamp = Lens.lens (\EvaluationResultIdentifier' {orderingTimestamp} -> orderingTimestamp) (\s@EvaluationResultIdentifier' {} a -> s {orderingTimestamp = a} :: EvaluationResultIdentifier) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON EvaluationResultIdentifier where
   parseJSON =
@@ -83,10 +84,10 @@ instance Core.FromJSON EvaluationResultIdentifier where
       "EvaluationResultIdentifier"
       ( \x ->
           EvaluationResultIdentifier'
-            Core.<$> (x Core..:? "EvaluationResultQualifier")
-            Core.<*> (x Core..:? "OrderingTimestamp")
+            Prelude.<$> (x Core..:? "EvaluationResultQualifier")
+            Prelude.<*> (x Core..:? "OrderingTimestamp")
       )
 
-instance Core.Hashable EvaluationResultIdentifier
+instance Prelude.Hashable EvaluationResultIdentifier
 
-instance Core.NFData EvaluationResultIdentifier
+instance Prelude.NFData EvaluationResultIdentifier

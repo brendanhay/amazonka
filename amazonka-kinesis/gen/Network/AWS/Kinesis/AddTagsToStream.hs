@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAddTagsToStream' smart constructor.
 data AddTagsToStream = AddTagsToStream'
   { -- | The name of the stream.
-    streamName :: Core.Text,
+    streamName :: Prelude.Text,
     -- | A set of up to 10 key-value pairs to use to create the tags.
-    tags :: Core.HashMap Core.Text Core.Text
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToStream' with all optional fields omitted.
@@ -74,21 +75,21 @@ data AddTagsToStream = AddTagsToStream'
 -- 'tags', 'addTagsToStream_tags' - A set of up to 10 key-value pairs to use to create the tags.
 newAddTagsToStream ::
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   AddTagsToStream
 newAddTagsToStream pStreamName_ =
   AddTagsToStream'
     { streamName = pStreamName_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The name of the stream.
-addTagsToStream_streamName :: Lens.Lens' AddTagsToStream Core.Text
+addTagsToStream_streamName :: Lens.Lens' AddTagsToStream Prelude.Text
 addTagsToStream_streamName = Lens.lens (\AddTagsToStream' {streamName} -> streamName) (\s@AddTagsToStream' {} a -> s {streamName = a} :: AddTagsToStream)
 
 -- | A set of up to 10 key-value pairs to use to create the tags.
-addTagsToStream_tags :: Lens.Lens' AddTagsToStream (Core.HashMap Core.Text Core.Text)
-addTagsToStream_tags = Lens.lens (\AddTagsToStream' {tags} -> tags) (\s@AddTagsToStream' {} a -> s {tags = a} :: AddTagsToStream) Core.. Lens._Coerce
+addTagsToStream_tags :: Lens.Lens' AddTagsToStream (Prelude.HashMap Prelude.Text Prelude.Text)
+addTagsToStream_tags = Lens.lens (\AddTagsToStream' {tags} -> tags) (\s@AddTagsToStream' {} a -> s {tags = a} :: AddTagsToStream) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTagsToStream where
   type
@@ -98,43 +99,45 @@ instance Core.AWSRequest AddTagsToStream where
   response =
     Response.receiveNull AddTagsToStreamResponse'
 
-instance Core.Hashable AddTagsToStream
+instance Prelude.Hashable AddTagsToStream
 
-instance Core.NFData AddTagsToStream
+instance Prelude.NFData AddTagsToStream
 
 instance Core.ToHeaders AddTagsToStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Kinesis_20131202.AddTagsToStream" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTagsToStream where
   toJSON AddTagsToStream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("StreamName" Core..= streamName),
-            Core.Just ("Tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("StreamName" Core..= streamName),
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath AddTagsToStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTagsToStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddTagsToStreamResponse' smart constructor.
 data AddTagsToStreamResponse = AddTagsToStreamResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToStreamResponse' with all optional fields omitted.
@@ -144,4 +147,4 @@ newAddTagsToStreamResponse ::
   AddTagsToStreamResponse
 newAddTagsToStreamResponse = AddTagsToStreamResponse'
 
-instance Core.NFData AddTagsToStreamResponse
+instance Prelude.NFData AddTagsToStreamResponse

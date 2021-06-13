@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.InputScanType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When you have a progressive segmented frame (PsF) input, use this
 -- setting to flag the input as PsF. MediaConvert doesn\'t automatically
@@ -41,15 +42,15 @@ newtype InputScanType = InputScanType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

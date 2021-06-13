@@ -21,22 +21,23 @@ module Network.AWS.CodePipeline.Types.PipelineSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns a summary of a pipeline.
 --
 -- /See:/ 'newPipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
   { -- | The version number of the pipeline.
-    version :: Core.Maybe Core.Natural,
+    version :: Prelude.Maybe Prelude.Natural,
     -- | The name of the pipeline.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The date and time the pipeline was created, in timestamp format.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | The date and time of the last update to the pipeline, in timestamp
     -- format.
-    updated :: Core.Maybe Core.POSIX
+    updated :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PipelineSummary' with all optional fields omitted.
@@ -58,28 +59,28 @@ newPipelineSummary ::
   PipelineSummary
 newPipelineSummary =
   PipelineSummary'
-    { version = Core.Nothing,
-      name = Core.Nothing,
-      created = Core.Nothing,
-      updated = Core.Nothing
+    { version = Prelude.Nothing,
+      name = Prelude.Nothing,
+      created = Prelude.Nothing,
+      updated = Prelude.Nothing
     }
 
 -- | The version number of the pipeline.
-pipelineSummary_version :: Lens.Lens' PipelineSummary (Core.Maybe Core.Natural)
+pipelineSummary_version :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Natural)
 pipelineSummary_version = Lens.lens (\PipelineSummary' {version} -> version) (\s@PipelineSummary' {} a -> s {version = a} :: PipelineSummary)
 
 -- | The name of the pipeline.
-pipelineSummary_name :: Lens.Lens' PipelineSummary (Core.Maybe Core.Text)
+pipelineSummary_name :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Text)
 pipelineSummary_name = Lens.lens (\PipelineSummary' {name} -> name) (\s@PipelineSummary' {} a -> s {name = a} :: PipelineSummary)
 
 -- | The date and time the pipeline was created, in timestamp format.
-pipelineSummary_created :: Lens.Lens' PipelineSummary (Core.Maybe Core.UTCTime)
-pipelineSummary_created = Lens.lens (\PipelineSummary' {created} -> created) (\s@PipelineSummary' {} a -> s {created = a} :: PipelineSummary) Core.. Lens.mapping Core._Time
+pipelineSummary_created :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
+pipelineSummary_created = Lens.lens (\PipelineSummary' {created} -> created) (\s@PipelineSummary' {} a -> s {created = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time of the last update to the pipeline, in timestamp
 -- format.
-pipelineSummary_updated :: Lens.Lens' PipelineSummary (Core.Maybe Core.UTCTime)
-pipelineSummary_updated = Lens.lens (\PipelineSummary' {updated} -> updated) (\s@PipelineSummary' {} a -> s {updated = a} :: PipelineSummary) Core.. Lens.mapping Core._Time
+pipelineSummary_updated :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
+pipelineSummary_updated = Lens.lens (\PipelineSummary' {updated} -> updated) (\s@PipelineSummary' {} a -> s {updated = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON PipelineSummary where
   parseJSON =
@@ -87,12 +88,12 @@ instance Core.FromJSON PipelineSummary where
       "PipelineSummary"
       ( \x ->
           PipelineSummary'
-            Core.<$> (x Core..:? "version")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "created")
-            Core.<*> (x Core..:? "updated")
+            Prelude.<$> (x Core..:? "version")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "updated")
       )
 
-instance Core.Hashable PipelineSummary
+instance Prelude.Hashable PipelineSummary
 
-instance Core.NFData PipelineSummary
+instance Prelude.NFData PipelineSummary

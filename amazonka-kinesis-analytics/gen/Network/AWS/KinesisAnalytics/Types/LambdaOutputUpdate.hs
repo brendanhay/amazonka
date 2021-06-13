@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.LambdaOutputUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When updating an output configuration using the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html UpdateApplication>
@@ -35,13 +36,13 @@ data LambdaOutputUpdate = LambdaOutputUpdate'
     -- include the Lambda function version in the Lambda function ARN. For more
     -- information about Lambda ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-    resourceARNUpdate :: Core.Maybe Core.Text,
+    resourceARNUpdate :: Prelude.Maybe Prelude.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
     -- the destination function on your behalf. You need to grant the necessary
     -- permissions to this role.
-    roleARNUpdate :: Core.Maybe Core.Text
+    roleARNUpdate :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaOutputUpdate' with all optional fields omitted.
@@ -66,8 +67,8 @@ newLambdaOutputUpdate ::
 newLambdaOutputUpdate =
   LambdaOutputUpdate'
     { resourceARNUpdate =
-        Core.Nothing,
-      roleARNUpdate = Core.Nothing
+        Prelude.Nothing,
+      roleARNUpdate = Prelude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the destination Lambda function.
@@ -76,25 +77,25 @@ newLambdaOutputUpdate =
 -- include the Lambda function version in the Lambda function ARN. For more
 -- information about Lambda ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-lambdaOutputUpdate_resourceARNUpdate :: Lens.Lens' LambdaOutputUpdate (Core.Maybe Core.Text)
+lambdaOutputUpdate_resourceARNUpdate :: Lens.Lens' LambdaOutputUpdate (Prelude.Maybe Prelude.Text)
 lambdaOutputUpdate_resourceARNUpdate = Lens.lens (\LambdaOutputUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@LambdaOutputUpdate' {} a -> s {resourceARNUpdate = a} :: LambdaOutputUpdate)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 -- the destination function on your behalf. You need to grant the necessary
 -- permissions to this role.
-lambdaOutputUpdate_roleARNUpdate :: Lens.Lens' LambdaOutputUpdate (Core.Maybe Core.Text)
+lambdaOutputUpdate_roleARNUpdate :: Lens.Lens' LambdaOutputUpdate (Prelude.Maybe Prelude.Text)
 lambdaOutputUpdate_roleARNUpdate = Lens.lens (\LambdaOutputUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@LambdaOutputUpdate' {} a -> s {roleARNUpdate = a} :: LambdaOutputUpdate)
 
-instance Core.Hashable LambdaOutputUpdate
+instance Prelude.Hashable LambdaOutputUpdate
 
-instance Core.NFData LambdaOutputUpdate
+instance Prelude.NFData LambdaOutputUpdate
 
 instance Core.ToJSON LambdaOutputUpdate where
   toJSON LambdaOutputUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ResourceARNUpdate" Core..=)
-              Core.<$> resourceARNUpdate,
-            ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate
+              Prelude.<$> resourceARNUpdate,
+            ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate
           ]
       )

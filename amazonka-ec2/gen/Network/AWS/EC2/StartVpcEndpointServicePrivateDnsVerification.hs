@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +62,11 @@ data StartVpcEndpointServicePrivateDnsVerification = StartVpcEndpointServicePriv
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the endpoint service.
-    serviceId :: Core.Text
+    serviceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartVpcEndpointServicePrivateDnsVerification' with all optional fields omitted.
@@ -83,13 +84,13 @@ data StartVpcEndpointServicePrivateDnsVerification = StartVpcEndpointServicePriv
 -- 'serviceId', 'startVpcEndpointServicePrivateDnsVerification_serviceId' - The ID of the endpoint service.
 newStartVpcEndpointServicePrivateDnsVerification ::
   -- | 'serviceId'
-  Core.Text ->
+  Prelude.Text ->
   StartVpcEndpointServicePrivateDnsVerification
 newStartVpcEndpointServicePrivateDnsVerification
   pServiceId_ =
     StartVpcEndpointServicePrivateDnsVerification'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         serviceId = pServiceId_
       }
 
@@ -97,11 +98,11 @@ newStartVpcEndpointServicePrivateDnsVerification
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-startVpcEndpointServicePrivateDnsVerification_dryRun :: Lens.Lens' StartVpcEndpointServicePrivateDnsVerification (Core.Maybe Core.Bool)
+startVpcEndpointServicePrivateDnsVerification_dryRun :: Lens.Lens' StartVpcEndpointServicePrivateDnsVerification (Prelude.Maybe Prelude.Bool)
 startVpcEndpointServicePrivateDnsVerification_dryRun = Lens.lens (\StartVpcEndpointServicePrivateDnsVerification' {dryRun} -> dryRun) (\s@StartVpcEndpointServicePrivateDnsVerification' {} a -> s {dryRun = a} :: StartVpcEndpointServicePrivateDnsVerification)
 
 -- | The ID of the endpoint service.
-startVpcEndpointServicePrivateDnsVerification_serviceId :: Lens.Lens' StartVpcEndpointServicePrivateDnsVerification Core.Text
+startVpcEndpointServicePrivateDnsVerification_serviceId :: Lens.Lens' StartVpcEndpointServicePrivateDnsVerification Prelude.Text
 startVpcEndpointServicePrivateDnsVerification_serviceId = Lens.lens (\StartVpcEndpointServicePrivateDnsVerification' {serviceId} -> serviceId) (\s@StartVpcEndpointServicePrivateDnsVerification' {} a -> s {serviceId = a} :: StartVpcEndpointServicePrivateDnsVerification)
 
 instance
@@ -117,29 +118,29 @@ instance
     Response.receiveXML
       ( \s h x ->
           StartVpcEndpointServicePrivateDnsVerificationResponse'
-            Core.<$> (x Core..@? "return")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     StartVpcEndpointServicePrivateDnsVerification
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartVpcEndpointServicePrivateDnsVerification
 
 instance
   Core.ToHeaders
     StartVpcEndpointServicePrivateDnsVerification
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     StartVpcEndpointServicePrivateDnsVerification
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
@@ -147,12 +148,13 @@ instance
   where
   toQuery
     StartVpcEndpointServicePrivateDnsVerification' {..} =
-      Core.mconcat
+      Prelude.mconcat
         [ "Action"
             Core.=: ( "StartVpcEndpointServicePrivateDnsVerification" ::
-                        Core.ByteString
+                        Prelude.ByteString
                     ),
-          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "Version"
+            Core.=: ("2016-11-15" :: Prelude.ByteString),
           "DryRun" Core.=: dryRun,
           "ServiceId" Core.=: serviceId
         ]
@@ -160,11 +162,11 @@ instance
 -- | /See:/ 'newStartVpcEndpointServicePrivateDnsVerificationResponse' smart constructor.
 data StartVpcEndpointServicePrivateDnsVerificationResponse = StartVpcEndpointServicePrivateDnsVerificationResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    returnValue :: Core.Maybe Core.Bool,
+    returnValue :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartVpcEndpointServicePrivateDnsVerificationResponse' with all optional fields omitted.
@@ -179,25 +181,25 @@ data StartVpcEndpointServicePrivateDnsVerificationResponse = StartVpcEndpointSer
 -- 'httpStatus', 'startVpcEndpointServicePrivateDnsVerificationResponse_httpStatus' - The response's http status code.
 newStartVpcEndpointServicePrivateDnsVerificationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartVpcEndpointServicePrivateDnsVerificationResponse
 newStartVpcEndpointServicePrivateDnsVerificationResponse
   pHttpStatus_ =
     StartVpcEndpointServicePrivateDnsVerificationResponse'
       { returnValue =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-startVpcEndpointServicePrivateDnsVerificationResponse_returnValue :: Lens.Lens' StartVpcEndpointServicePrivateDnsVerificationResponse (Core.Maybe Core.Bool)
+startVpcEndpointServicePrivateDnsVerificationResponse_returnValue :: Lens.Lens' StartVpcEndpointServicePrivateDnsVerificationResponse (Prelude.Maybe Prelude.Bool)
 startVpcEndpointServicePrivateDnsVerificationResponse_returnValue = Lens.lens (\StartVpcEndpointServicePrivateDnsVerificationResponse' {returnValue} -> returnValue) (\s@StartVpcEndpointServicePrivateDnsVerificationResponse' {} a -> s {returnValue = a} :: StartVpcEndpointServicePrivateDnsVerificationResponse)
 
 -- | The response's http status code.
-startVpcEndpointServicePrivateDnsVerificationResponse_httpStatus :: Lens.Lens' StartVpcEndpointServicePrivateDnsVerificationResponse Core.Int
+startVpcEndpointServicePrivateDnsVerificationResponse_httpStatus :: Lens.Lens' StartVpcEndpointServicePrivateDnsVerificationResponse Prelude.Int
 startVpcEndpointServicePrivateDnsVerificationResponse_httpStatus = Lens.lens (\StartVpcEndpointServicePrivateDnsVerificationResponse' {httpStatus} -> httpStatus) (\s@StartVpcEndpointServicePrivateDnsVerificationResponse' {} a -> s {httpStatus = a} :: StartVpcEndpointServicePrivateDnsVerificationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartVpcEndpointServicePrivateDnsVerificationResponse

@@ -29,6 +29,7 @@ module Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
 newtype S3ObjectCannedAcl = S3ObjectCannedAcl'
@@ -36,15 +37,15 @@ newtype S3ObjectCannedAcl = S3ObjectCannedAcl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

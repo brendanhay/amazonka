@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.Eac3PhaseControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Eac3 Phase Control
 newtype Eac3PhaseControl = Eac3PhaseControl'
@@ -34,15 +35,15 @@ newtype Eac3PhaseControl = Eac3PhaseControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -60,17 +60,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTransitVirtualInterface' smart constructor.
 data CreateTransitVirtualInterface = CreateTransitVirtualInterface'
   { -- | The ID of the connection.
-    connectionId :: Core.Text,
+    connectionId :: Prelude.Text,
     -- | Information about the transit virtual interface.
     newTransitVirtualInterface' :: NewTransitVirtualInterface
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTransitVirtualInterface' with all optional fields omitted.
@@ -85,7 +86,7 @@ data CreateTransitVirtualInterface = CreateTransitVirtualInterface'
 -- 'newTransitVirtualInterface'', 'createTransitVirtualInterface_newTransitVirtualInterface' - Information about the transit virtual interface.
 newCreateTransitVirtualInterface ::
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'newTransitVirtualInterface''
   NewTransitVirtualInterface ->
   CreateTransitVirtualInterface
@@ -100,7 +101,7 @@ newCreateTransitVirtualInterface
       }
 
 -- | The ID of the connection.
-createTransitVirtualInterface_connectionId :: Lens.Lens' CreateTransitVirtualInterface Core.Text
+createTransitVirtualInterface_connectionId :: Lens.Lens' CreateTransitVirtualInterface Prelude.Text
 createTransitVirtualInterface_connectionId = Lens.lens (\CreateTransitVirtualInterface' {connectionId} -> connectionId) (\s@CreateTransitVirtualInterface' {} a -> s {connectionId = a} :: CreateTransitVirtualInterface)
 
 -- | Information about the transit virtual interface.
@@ -119,33 +120,37 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateTransitVirtualInterfaceResponse'
-            Core.<$> (x Core..?> "virtualInterface")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "virtualInterface")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTransitVirtualInterface
+instance
+  Prelude.Hashable
+    CreateTransitVirtualInterface
 
-instance Core.NFData CreateTransitVirtualInterface
+instance Prelude.NFData CreateTransitVirtualInterface
 
 instance Core.ToHeaders CreateTransitVirtualInterface where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.CreateTransitVirtualInterface" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateTransitVirtualInterface where
   toJSON CreateTransitVirtualInterface' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("connectionId" Core..= connectionId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("connectionId" Core..= connectionId),
+            Prelude.Just
               ( "newTransitVirtualInterface"
                   Core..= newTransitVirtualInterface'
               )
@@ -153,18 +158,18 @@ instance Core.ToJSON CreateTransitVirtualInterface where
       )
 
 instance Core.ToPath CreateTransitVirtualInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTransitVirtualInterface where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTransitVirtualInterfaceResponse' smart constructor.
 data CreateTransitVirtualInterfaceResponse = CreateTransitVirtualInterfaceResponse'
-  { virtualInterface :: Core.Maybe VirtualInterface,
+  { virtualInterface :: Prelude.Maybe VirtualInterface,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTransitVirtualInterfaceResponse' with all optional fields omitted.
@@ -179,23 +184,23 @@ data CreateTransitVirtualInterfaceResponse = CreateTransitVirtualInterfaceRespon
 -- 'httpStatus', 'createTransitVirtualInterfaceResponse_httpStatus' - The response's http status code.
 newCreateTransitVirtualInterfaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTransitVirtualInterfaceResponse
 newCreateTransitVirtualInterfaceResponse pHttpStatus_ =
   CreateTransitVirtualInterfaceResponse'
     { virtualInterface =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createTransitVirtualInterfaceResponse_virtualInterface :: Lens.Lens' CreateTransitVirtualInterfaceResponse (Core.Maybe VirtualInterface)
+createTransitVirtualInterfaceResponse_virtualInterface :: Lens.Lens' CreateTransitVirtualInterfaceResponse (Prelude.Maybe VirtualInterface)
 createTransitVirtualInterfaceResponse_virtualInterface = Lens.lens (\CreateTransitVirtualInterfaceResponse' {virtualInterface} -> virtualInterface) (\s@CreateTransitVirtualInterfaceResponse' {} a -> s {virtualInterface = a} :: CreateTransitVirtualInterfaceResponse)
 
 -- | The response's http status code.
-createTransitVirtualInterfaceResponse_httpStatus :: Lens.Lens' CreateTransitVirtualInterfaceResponse Core.Int
+createTransitVirtualInterfaceResponse_httpStatus :: Lens.Lens' CreateTransitVirtualInterfaceResponse Prelude.Int
 createTransitVirtualInterfaceResponse_httpStatus = Lens.lens (\CreateTransitVirtualInterfaceResponse' {httpStatus} -> httpStatus) (\s@CreateTransitVirtualInterfaceResponse' {} a -> s {httpStatus = a} :: CreateTransitVirtualInterfaceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateTransitVirtualInterfaceResponse

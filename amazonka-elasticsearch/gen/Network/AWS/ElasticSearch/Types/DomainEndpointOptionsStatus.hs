@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.DomainEndpointOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configured endpoint options for the domain and their current status.
 --
@@ -34,7 +35,7 @@ data DomainEndpointOptionsStatus = DomainEndpointOptionsStatus'
     -- @OptionStatus@ for the status information that\'s included.
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainEndpointOptionsStatus' with all optional fields omitted.
@@ -75,9 +76,10 @@ instance Core.FromJSON DomainEndpointOptionsStatus where
       "DomainEndpointOptionsStatus"
       ( \x ->
           DomainEndpointOptionsStatus'
-            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..: "Options")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable DomainEndpointOptionsStatus
+instance Prelude.Hashable DomainEndpointOptionsStatus
 
-instance Core.NFData DomainEndpointOptionsStatus
+instance Prelude.NFData DomainEndpointOptionsStatus

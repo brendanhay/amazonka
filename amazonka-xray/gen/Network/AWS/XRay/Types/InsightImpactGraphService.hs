@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.InsightImpactGraphService where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.InsightImpactGraphEdge
 
 -- | Information about an application that processed requests, users that
@@ -30,15 +31,15 @@ import Network.AWS.XRay.Types.InsightImpactGraphEdge
 -- /See:/ 'newInsightImpactGraphService' smart constructor.
 data InsightImpactGraphService = InsightImpactGraphService'
   { -- | A list of names for the service, including the canonical name.
-    names :: Core.Maybe [Core.Text],
+    names :: Prelude.Maybe [Prelude.Text],
     -- | Identifier of the AWS account in which the service runs.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | Identifier for the service. Unique within the service map.
-    referenceId :: Core.Maybe Core.Int,
+    referenceId :: Prelude.Maybe Prelude.Int,
     -- | Connections to downstream services.
-    edges :: Core.Maybe [InsightImpactGraphEdge],
+    edges :: Prelude.Maybe [InsightImpactGraphEdge],
     -- | The canonical name of the service.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Identifier for the service. Unique within the service map.
     --
     -- -   AWS Resource - The type of an AWS resource. For example,
@@ -55,9 +56,9 @@ data InsightImpactGraphService = InsightImpactGraphService'
     --     specific table.
     --
     -- -   remote - A downstream service of indeterminate type.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InsightImpactGraphService' with all optional fields omitted.
@@ -97,32 +98,32 @@ newInsightImpactGraphService ::
   InsightImpactGraphService
 newInsightImpactGraphService =
   InsightImpactGraphService'
-    { names = Core.Nothing,
-      accountId = Core.Nothing,
-      referenceId = Core.Nothing,
-      edges = Core.Nothing,
-      name = Core.Nothing,
-      type' = Core.Nothing
+    { names = Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      referenceId = Prelude.Nothing,
+      edges = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | A list of names for the service, including the canonical name.
-insightImpactGraphService_names :: Lens.Lens' InsightImpactGraphService (Core.Maybe [Core.Text])
-insightImpactGraphService_names = Lens.lens (\InsightImpactGraphService' {names} -> names) (\s@InsightImpactGraphService' {} a -> s {names = a} :: InsightImpactGraphService) Core.. Lens.mapping Lens._Coerce
+insightImpactGraphService_names :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe [Prelude.Text])
+insightImpactGraphService_names = Lens.lens (\InsightImpactGraphService' {names} -> names) (\s@InsightImpactGraphService' {} a -> s {names = a} :: InsightImpactGraphService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Identifier of the AWS account in which the service runs.
-insightImpactGraphService_accountId :: Lens.Lens' InsightImpactGraphService (Core.Maybe Core.Text)
+insightImpactGraphService_accountId :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Text)
 insightImpactGraphService_accountId = Lens.lens (\InsightImpactGraphService' {accountId} -> accountId) (\s@InsightImpactGraphService' {} a -> s {accountId = a} :: InsightImpactGraphService)
 
 -- | Identifier for the service. Unique within the service map.
-insightImpactGraphService_referenceId :: Lens.Lens' InsightImpactGraphService (Core.Maybe Core.Int)
+insightImpactGraphService_referenceId :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Int)
 insightImpactGraphService_referenceId = Lens.lens (\InsightImpactGraphService' {referenceId} -> referenceId) (\s@InsightImpactGraphService' {} a -> s {referenceId = a} :: InsightImpactGraphService)
 
 -- | Connections to downstream services.
-insightImpactGraphService_edges :: Lens.Lens' InsightImpactGraphService (Core.Maybe [InsightImpactGraphEdge])
-insightImpactGraphService_edges = Lens.lens (\InsightImpactGraphService' {edges} -> edges) (\s@InsightImpactGraphService' {} a -> s {edges = a} :: InsightImpactGraphService) Core.. Lens.mapping Lens._Coerce
+insightImpactGraphService_edges :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe [InsightImpactGraphEdge])
+insightImpactGraphService_edges = Lens.lens (\InsightImpactGraphService' {edges} -> edges) (\s@InsightImpactGraphService' {} a -> s {edges = a} :: InsightImpactGraphService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The canonical name of the service.
-insightImpactGraphService_name :: Lens.Lens' InsightImpactGraphService (Core.Maybe Core.Text)
+insightImpactGraphService_name :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Text)
 insightImpactGraphService_name = Lens.lens (\InsightImpactGraphService' {name} -> name) (\s@InsightImpactGraphService' {} a -> s {name = a} :: InsightImpactGraphService)
 
 -- | Identifier for the service. Unique within the service map.
@@ -141,7 +142,7 @@ insightImpactGraphService_name = Lens.lens (\InsightImpactGraphService' {name} -
 --     specific table.
 --
 -- -   remote - A downstream service of indeterminate type.
-insightImpactGraphService_type :: Lens.Lens' InsightImpactGraphService (Core.Maybe Core.Text)
+insightImpactGraphService_type :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Text)
 insightImpactGraphService_type = Lens.lens (\InsightImpactGraphService' {type'} -> type') (\s@InsightImpactGraphService' {} a -> s {type' = a} :: InsightImpactGraphService)
 
 instance Core.FromJSON InsightImpactGraphService where
@@ -150,14 +151,14 @@ instance Core.FromJSON InsightImpactGraphService where
       "InsightImpactGraphService"
       ( \x ->
           InsightImpactGraphService'
-            Core.<$> (x Core..:? "Names" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "AccountId")
-            Core.<*> (x Core..:? "ReferenceId")
-            Core.<*> (x Core..:? "Edges" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Names" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "ReferenceId")
+            Prelude.<*> (x Core..:? "Edges" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable InsightImpactGraphService
+instance Prelude.Hashable InsightImpactGraphService
 
-instance Core.NFData InsightImpactGraphService
+instance Prelude.NFData InsightImpactGraphService

@@ -80,6 +80,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,15 +89,15 @@ data GetMediaForFragmentList = GetMediaForFragmentList'
   { -- | The Amazon Resource Name (ARN) of the stream from which to retrieve
     -- fragment media. Specify either this parameter or the @StreamName@
     -- parameter.
-    streamARN :: Core.Maybe Core.Text,
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream from which to retrieve fragment media. Specify
     -- either this parameter or the @StreamARN@ parameter.
-    streamName :: Core.Maybe Core.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | A list of the numbers of fragments for which to retrieve media. You
     -- retrieve these values with ListFragments.
-    fragments :: Core.NonEmpty Core.Text
+    fragments :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMediaForFragmentList' with all optional fields omitted.
@@ -117,30 +118,31 @@ data GetMediaForFragmentList = GetMediaForFragmentList'
 -- retrieve these values with ListFragments.
 newGetMediaForFragmentList ::
   -- | 'fragments'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   GetMediaForFragmentList
 newGetMediaForFragmentList pFragments_ =
   GetMediaForFragmentList'
-    { streamARN = Core.Nothing,
-      streamName = Core.Nothing,
+    { streamARN =
+        Prelude.Nothing,
+      streamName = Prelude.Nothing,
       fragments = Lens._Coerce Lens.# pFragments_
     }
 
 -- | The Amazon Resource Name (ARN) of the stream from which to retrieve
 -- fragment media. Specify either this parameter or the @StreamName@
 -- parameter.
-getMediaForFragmentList_streamARN :: Lens.Lens' GetMediaForFragmentList (Core.Maybe Core.Text)
+getMediaForFragmentList_streamARN :: Lens.Lens' GetMediaForFragmentList (Prelude.Maybe Prelude.Text)
 getMediaForFragmentList_streamARN = Lens.lens (\GetMediaForFragmentList' {streamARN} -> streamARN) (\s@GetMediaForFragmentList' {} a -> s {streamARN = a} :: GetMediaForFragmentList)
 
 -- | The name of the stream from which to retrieve fragment media. Specify
 -- either this parameter or the @StreamARN@ parameter.
-getMediaForFragmentList_streamName :: Lens.Lens' GetMediaForFragmentList (Core.Maybe Core.Text)
+getMediaForFragmentList_streamName :: Lens.Lens' GetMediaForFragmentList (Prelude.Maybe Prelude.Text)
 getMediaForFragmentList_streamName = Lens.lens (\GetMediaForFragmentList' {streamName} -> streamName) (\s@GetMediaForFragmentList' {} a -> s {streamName = a} :: GetMediaForFragmentList)
 
 -- | A list of the numbers of fragments for which to retrieve media. You
 -- retrieve these values with ListFragments.
-getMediaForFragmentList_fragments :: Lens.Lens' GetMediaForFragmentList (Core.NonEmpty Core.Text)
-getMediaForFragmentList_fragments = Lens.lens (\GetMediaForFragmentList' {fragments} -> fragments) (\s@GetMediaForFragmentList' {} a -> s {fragments = a} :: GetMediaForFragmentList) Core.. Lens._Coerce
+getMediaForFragmentList_fragments :: Lens.Lens' GetMediaForFragmentList (Prelude.NonEmpty Prelude.Text)
+getMediaForFragmentList_fragments = Lens.lens (\GetMediaForFragmentList' {fragments} -> fragments) (\s@GetMediaForFragmentList' {} a -> s {fragments = a} :: GetMediaForFragmentList) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetMediaForFragmentList where
   type
@@ -151,40 +153,40 @@ instance Core.AWSRequest GetMediaForFragmentList where
     Response.receiveBody
       ( \s h x ->
           GetMediaForFragmentListResponse'
-            Core.<$> (h Core..#? "Content-Type")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.pure x)
+            Prelude.<$> (h Core..#? "Content-Type")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure x)
       )
 
-instance Core.Hashable GetMediaForFragmentList
+instance Prelude.Hashable GetMediaForFragmentList
 
-instance Core.NFData GetMediaForFragmentList
+instance Prelude.NFData GetMediaForFragmentList
 
 instance Core.ToHeaders GetMediaForFragmentList where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetMediaForFragmentList where
   toJSON GetMediaForFragmentList' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StreamARN" Core..=) Core.<$> streamARN,
-            ("StreamName" Core..=) Core.<$> streamName,
-            Core.Just ("Fragments" Core..= fragments)
+      ( Prelude.catMaybes
+          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("StreamName" Core..=) Prelude.<$> streamName,
+            Prelude.Just ("Fragments" Core..= fragments)
           ]
       )
 
 instance Core.ToPath GetMediaForFragmentList where
-  toPath = Core.const "/getMediaForFragmentList"
+  toPath = Prelude.const "/getMediaForFragmentList"
 
 instance Core.ToQuery GetMediaForFragmentList where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMediaForFragmentListResponse' smart constructor.
 data GetMediaForFragmentListResponse = GetMediaForFragmentListResponse'
   { -- | The content type of the requested media.
-    contentType :: Core.Maybe Core.Text,
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The payload that Kinesis Video Streams returns is a sequence of chunks
     -- from the specified stream. For information about the chunks, see
     -- <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia>.
@@ -213,7 +215,7 @@ data GetMediaForFragmentListResponse = GetMediaForFragmentListResponse'
     --     exception
     payload :: Core.ResponseBody
   }
-  deriving (Core.Show, Core.Generic)
+  deriving (Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMediaForFragmentListResponse' with all optional fields omitted.
@@ -255,7 +257,7 @@ data GetMediaForFragmentListResponse = GetMediaForFragmentListResponse'
 --     exception
 newGetMediaForFragmentListResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'payload'
   Core.ResponseBody ->
   GetMediaForFragmentListResponse
@@ -264,17 +266,17 @@ newGetMediaForFragmentListResponse
   pPayload_ =
     GetMediaForFragmentListResponse'
       { contentType =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         payload = pPayload_
       }
 
 -- | The content type of the requested media.
-getMediaForFragmentListResponse_contentType :: Lens.Lens' GetMediaForFragmentListResponse (Core.Maybe Core.Text)
+getMediaForFragmentListResponse_contentType :: Lens.Lens' GetMediaForFragmentListResponse (Prelude.Maybe Prelude.Text)
 getMediaForFragmentListResponse_contentType = Lens.lens (\GetMediaForFragmentListResponse' {contentType} -> contentType) (\s@GetMediaForFragmentListResponse' {} a -> s {contentType = a} :: GetMediaForFragmentListResponse)
 
 -- | The response's http status code.
-getMediaForFragmentListResponse_httpStatus :: Lens.Lens' GetMediaForFragmentListResponse Core.Int
+getMediaForFragmentListResponse_httpStatus :: Lens.Lens' GetMediaForFragmentListResponse Prelude.Int
 getMediaForFragmentListResponse_httpStatus = Lens.lens (\GetMediaForFragmentListResponse' {httpStatus} -> httpStatus) (\s@GetMediaForFragmentListResponse' {} a -> s {httpStatus = a} :: GetMediaForFragmentListResponse)
 
 -- | The payload that Kinesis Video Streams returns is a sequence of chunks

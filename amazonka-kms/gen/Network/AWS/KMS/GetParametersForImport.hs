@@ -87,6 +87,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -105,7 +106,7 @@ data GetParametersForImport = GetParametersForImport'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text,
+    keyId :: Prelude.Text,
     -- | The algorithm you will use to encrypt the key material before importing
     -- it with ImportKeyMaterial. For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material>
@@ -115,7 +116,7 @@ data GetParametersForImport = GetParametersForImport'
     -- 2048-bit RSA public keys are supported.
     wrappingKeySpec :: WrappingKeySpec
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParametersForImport' with all optional fields omitted.
@@ -148,7 +149,7 @@ data GetParametersForImport = GetParametersForImport'
 -- 2048-bit RSA public keys are supported.
 newGetParametersForImport ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'wrappingAlgorithm'
   AlgorithmSpec ->
   -- | 'wrappingKeySpec'
@@ -177,7 +178,7 @@ newGetParametersForImport
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-getParametersForImport_keyId :: Lens.Lens' GetParametersForImport Core.Text
+getParametersForImport_keyId :: Lens.Lens' GetParametersForImport Prelude.Text
 getParametersForImport_keyId = Lens.lens (\GetParametersForImport' {keyId} -> keyId) (\s@GetParametersForImport' {} a -> s {keyId = a} :: GetParametersForImport)
 
 -- | The algorithm you will use to encrypt the key material before importing
@@ -201,47 +202,49 @@ instance Core.AWSRequest GetParametersForImport where
     Response.receiveJSON
       ( \s h x ->
           GetParametersForImportResponse'
-            Core.<$> (x Core..?> "ParametersValidTo")
-            Core.<*> (x Core..?> "PublicKey")
-            Core.<*> (x Core..?> "ImportToken")
-            Core.<*> (x Core..?> "KeyId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ParametersValidTo")
+            Prelude.<*> (x Core..?> "PublicKey")
+            Prelude.<*> (x Core..?> "ImportToken")
+            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetParametersForImport
+instance Prelude.Hashable GetParametersForImport
 
-instance Core.NFData GetParametersForImport
+instance Prelude.NFData GetParametersForImport
 
 instance Core.ToHeaders GetParametersForImport where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.GetParametersForImport" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetParametersForImport where
   toJSON GetParametersForImport' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("KeyId" Core..= keyId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just
               ("WrappingAlgorithm" Core..= wrappingAlgorithm),
-            Core.Just
+            Prelude.Just
               ("WrappingKeySpec" Core..= wrappingKeySpec)
           ]
       )
 
 instance Core.ToPath GetParametersForImport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetParametersForImport where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParametersForImportResponse' smart constructor.
 data GetParametersForImportResponse = GetParametersForImportResponse'
@@ -249,21 +252,21 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
     -- After this time, you cannot use them to make an ImportKeyMaterial
     -- request and you must send another @GetParametersForImport@ request to
     -- get new ones.
-    parametersValidTo :: Core.Maybe Core.POSIX,
+    parametersValidTo :: Prelude.Maybe Core.POSIX,
     -- | The public key to use to encrypt the key material before importing it
     -- with ImportKeyMaterial.
-    publicKey :: Core.Maybe (Core.Sensitive Core.Base64),
+    publicKey :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | The import token to send in a subsequent ImportKeyMaterial request.
-    importToken :: Core.Maybe Core.Base64,
+    importToken :: Prelude.Maybe Core.Base64,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the CMK to use in a subsequent ImportKeyMaterial request. This is the
     -- same CMK specified in the @GetParametersForImport@ request.
-    keyId :: Core.Maybe Core.Text,
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParametersForImportResponse' with all optional fields omitted.
@@ -299,15 +302,15 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
 -- 'httpStatus', 'getParametersForImportResponse_httpStatus' - The response's http status code.
 newGetParametersForImportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetParametersForImportResponse
 newGetParametersForImportResponse pHttpStatus_ =
   GetParametersForImportResponse'
     { parametersValidTo =
-        Core.Nothing,
-      publicKey = Core.Nothing,
-      importToken = Core.Nothing,
-      keyId = Core.Nothing,
+        Prelude.Nothing,
+      publicKey = Prelude.Nothing,
+      importToken = Prelude.Nothing,
+      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -315,8 +318,8 @@ newGetParametersForImportResponse pHttpStatus_ =
 -- After this time, you cannot use them to make an ImportKeyMaterial
 -- request and you must send another @GetParametersForImport@ request to
 -- get new ones.
-getParametersForImportResponse_parametersValidTo :: Lens.Lens' GetParametersForImportResponse (Core.Maybe Core.UTCTime)
-getParametersForImportResponse_parametersValidTo = Lens.lens (\GetParametersForImportResponse' {parametersValidTo} -> parametersValidTo) (\s@GetParametersForImportResponse' {} a -> s {parametersValidTo = a} :: GetParametersForImportResponse) Core.. Lens.mapping Core._Time
+getParametersForImportResponse_parametersValidTo :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.UTCTime)
+getParametersForImportResponse_parametersValidTo = Lens.lens (\GetParametersForImportResponse' {parametersValidTo} -> parametersValidTo) (\s@GetParametersForImportResponse' {} a -> s {parametersValidTo = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The public key to use to encrypt the key material before importing it
 -- with ImportKeyMaterial.--
@@ -324,26 +327,28 @@ getParametersForImportResponse_parametersValidTo = Lens.lens (\GetParametersForI
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-getParametersForImportResponse_publicKey :: Lens.Lens' GetParametersForImportResponse (Core.Maybe Core.ByteString)
-getParametersForImportResponse_publicKey = Lens.lens (\GetParametersForImportResponse' {publicKey} -> publicKey) (\s@GetParametersForImportResponse' {} a -> s {publicKey = a} :: GetParametersForImportResponse) Core.. Lens.mapping (Core._Sensitive Core.. Core._Base64)
+getParametersForImportResponse_publicKey :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.ByteString)
+getParametersForImportResponse_publicKey = Lens.lens (\GetParametersForImportResponse' {publicKey} -> publicKey) (\s@GetParametersForImportResponse' {} a -> s {publicKey = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
 -- | The import token to send in a subsequent ImportKeyMaterial request.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-getParametersForImportResponse_importToken :: Lens.Lens' GetParametersForImportResponse (Core.Maybe Core.ByteString)
-getParametersForImportResponse_importToken = Lens.lens (\GetParametersForImportResponse' {importToken} -> importToken) (\s@GetParametersForImportResponse' {} a -> s {importToken = a} :: GetParametersForImportResponse) Core.. Lens.mapping Core._Base64
+getParametersForImportResponse_importToken :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.ByteString)
+getParametersForImportResponse_importToken = Lens.lens (\GetParametersForImportResponse' {importToken} -> importToken) (\s@GetParametersForImportResponse' {} a -> s {importToken = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Core._Base64
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the CMK to use in a subsequent ImportKeyMaterial request. This is the
 -- same CMK specified in the @GetParametersForImport@ request.
-getParametersForImportResponse_keyId :: Lens.Lens' GetParametersForImportResponse (Core.Maybe Core.Text)
+getParametersForImportResponse_keyId :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.Text)
 getParametersForImportResponse_keyId = Lens.lens (\GetParametersForImportResponse' {keyId} -> keyId) (\s@GetParametersForImportResponse' {} a -> s {keyId = a} :: GetParametersForImportResponse)
 
 -- | The response's http status code.
-getParametersForImportResponse_httpStatus :: Lens.Lens' GetParametersForImportResponse Core.Int
+getParametersForImportResponse_httpStatus :: Lens.Lens' GetParametersForImportResponse Prelude.Int
 getParametersForImportResponse_httpStatus = Lens.lens (\GetParametersForImportResponse' {httpStatus} -> httpStatus) (\s@GetParametersForImportResponse' {} a -> s {httpStatus = a} :: GetParametersForImportResponse)
 
-instance Core.NFData GetParametersForImportResponse
+instance
+  Prelude.NFData
+    GetParametersForImportResponse

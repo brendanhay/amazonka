@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.RandomSplitEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for a path in a random split activity in a
 -- journey.
@@ -34,12 +35,12 @@ data RandomSplitEntry = RandomSplitEntry'
     -- specify for the paths. Therefore, the actual percentage of participants
     -- who are sent down a path may not be equal to the percentage that you
     -- specify.
-    percentage :: Core.Maybe Core.Int,
+    percentage :: Prelude.Maybe Prelude.Int,
     -- | The unique identifier for the next activity to perform, after completing
     -- the activity for the path.
-    nextActivity :: Core.Maybe Core.Text
+    nextActivity :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RandomSplitEntry' with all optional fields omitted.
@@ -63,8 +64,8 @@ newRandomSplitEntry ::
   RandomSplitEntry
 newRandomSplitEntry =
   RandomSplitEntry'
-    { percentage = Core.Nothing,
-      nextActivity = Core.Nothing
+    { percentage = Prelude.Nothing,
+      nextActivity = Prelude.Nothing
     }
 
 -- | The percentage of participants to send down the activity path.
@@ -74,12 +75,12 @@ newRandomSplitEntry =
 -- specify for the paths. Therefore, the actual percentage of participants
 -- who are sent down a path may not be equal to the percentage that you
 -- specify.
-randomSplitEntry_percentage :: Lens.Lens' RandomSplitEntry (Core.Maybe Core.Int)
+randomSplitEntry_percentage :: Lens.Lens' RandomSplitEntry (Prelude.Maybe Prelude.Int)
 randomSplitEntry_percentage = Lens.lens (\RandomSplitEntry' {percentage} -> percentage) (\s@RandomSplitEntry' {} a -> s {percentage = a} :: RandomSplitEntry)
 
 -- | The unique identifier for the next activity to perform, after completing
 -- the activity for the path.
-randomSplitEntry_nextActivity :: Lens.Lens' RandomSplitEntry (Core.Maybe Core.Text)
+randomSplitEntry_nextActivity :: Lens.Lens' RandomSplitEntry (Prelude.Maybe Prelude.Text)
 randomSplitEntry_nextActivity = Lens.lens (\RandomSplitEntry' {nextActivity} -> nextActivity) (\s@RandomSplitEntry' {} a -> s {nextActivity = a} :: RandomSplitEntry)
 
 instance Core.FromJSON RandomSplitEntry where
@@ -88,19 +89,19 @@ instance Core.FromJSON RandomSplitEntry where
       "RandomSplitEntry"
       ( \x ->
           RandomSplitEntry'
-            Core.<$> (x Core..:? "Percentage")
-            Core.<*> (x Core..:? "NextActivity")
+            Prelude.<$> (x Core..:? "Percentage")
+            Prelude.<*> (x Core..:? "NextActivity")
       )
 
-instance Core.Hashable RandomSplitEntry
+instance Prelude.Hashable RandomSplitEntry
 
-instance Core.NFData RandomSplitEntry
+instance Prelude.NFData RandomSplitEntry
 
 instance Core.ToJSON RandomSplitEntry where
   toJSON RandomSplitEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Percentage" Core..=) Core.<$> percentage,
-            ("NextActivity" Core..=) Core.<$> nextActivity
+      ( Prelude.catMaybes
+          [ ("Percentage" Core..=) Prelude.<$> percentage,
+            ("NextActivity" Core..=) Prelude.<$> nextActivity
           ]
       )

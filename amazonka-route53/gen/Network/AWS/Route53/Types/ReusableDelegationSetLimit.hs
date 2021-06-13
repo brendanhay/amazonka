@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.ReusableDelegationSetLimit where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.ReusableDelegationSetLimitType
 
@@ -34,9 +35,9 @@ data ReusableDelegationSetLimit = ReusableDelegationSetLimit'
     -- specified reusable delegation set.
     type' :: ReusableDelegationSetLimitType,
     -- | The current value for the @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ limit.
-    value :: Core.Natural
+    value :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReusableDelegationSetLimit' with all optional fields omitted.
@@ -55,7 +56,7 @@ newReusableDelegationSetLimit ::
   -- | 'type''
   ReusableDelegationSetLimitType ->
   -- | 'value'
-  Core.Natural ->
+  Prelude.Natural ->
   ReusableDelegationSetLimit
 newReusableDelegationSetLimit pType_ pValue_ =
   ReusableDelegationSetLimit'
@@ -70,14 +71,14 @@ reusableDelegationSetLimit_type :: Lens.Lens' ReusableDelegationSetLimit Reusabl
 reusableDelegationSetLimit_type = Lens.lens (\ReusableDelegationSetLimit' {type'} -> type') (\s@ReusableDelegationSetLimit' {} a -> s {type' = a} :: ReusableDelegationSetLimit)
 
 -- | The current value for the @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ limit.
-reusableDelegationSetLimit_value :: Lens.Lens' ReusableDelegationSetLimit Core.Natural
+reusableDelegationSetLimit_value :: Lens.Lens' ReusableDelegationSetLimit Prelude.Natural
 reusableDelegationSetLimit_value = Lens.lens (\ReusableDelegationSetLimit' {value} -> value) (\s@ReusableDelegationSetLimit' {} a -> s {value = a} :: ReusableDelegationSetLimit)
 
 instance Core.FromXML ReusableDelegationSetLimit where
   parseXML x =
     ReusableDelegationSetLimit'
-      Core.<$> (x Core..@ "Type") Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@ "Type") Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable ReusableDelegationSetLimit
+instance Prelude.Hashable ReusableDelegationSetLimit
 
-instance Core.NFData ReusableDelegationSetLimit
+instance Prelude.NFData ReusableDelegationSetLimit

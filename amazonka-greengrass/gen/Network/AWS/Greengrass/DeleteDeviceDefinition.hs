@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDeviceDefinition' smart constructor.
 data DeleteDeviceDefinition = DeleteDeviceDefinition'
   { -- | The ID of the device definition.
-    deviceDefinitionId :: Core.Text
+    deviceDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeviceDefinition' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteDeviceDefinition = DeleteDeviceDefinition'
 -- 'deviceDefinitionId', 'deleteDeviceDefinition_deviceDefinitionId' - The ID of the device definition.
 newDeleteDeviceDefinition ::
   -- | 'deviceDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDeviceDefinition
 newDeleteDeviceDefinition pDeviceDefinitionId_ =
   DeleteDeviceDefinition'
@@ -71,7 +72,7 @@ newDeleteDeviceDefinition pDeviceDefinitionId_ =
     }
 
 -- | The ID of the device definition.
-deleteDeviceDefinition_deviceDefinitionId :: Lens.Lens' DeleteDeviceDefinition Core.Text
+deleteDeviceDefinition_deviceDefinitionId :: Lens.Lens' DeleteDeviceDefinition Prelude.Text
 deleteDeviceDefinition_deviceDefinitionId = Lens.lens (\DeleteDeviceDefinition' {deviceDefinitionId} -> deviceDefinitionId) (\s@DeleteDeviceDefinition' {} a -> s {deviceDefinitionId = a} :: DeleteDeviceDefinition)
 
 instance Core.AWSRequest DeleteDeviceDefinition where
@@ -83,38 +84,40 @@ instance Core.AWSRequest DeleteDeviceDefinition where
     Response.receiveEmpty
       ( \s h x ->
           DeleteDeviceDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDeviceDefinition
+instance Prelude.Hashable DeleteDeviceDefinition
 
-instance Core.NFData DeleteDeviceDefinition
+instance Prelude.NFData DeleteDeviceDefinition
 
 instance Core.ToHeaders DeleteDeviceDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteDeviceDefinition where
   toPath DeleteDeviceDefinition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/devices/",
         Core.toBS deviceDefinitionId
       ]
 
 instance Core.ToQuery DeleteDeviceDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeviceDefinitionResponse' smart constructor.
 data DeleteDeviceDefinitionResponse = DeleteDeviceDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeviceDefinitionResponse' with all optional fields omitted.
@@ -127,7 +130,7 @@ data DeleteDeviceDefinitionResponse = DeleteDeviceDefinitionResponse'
 -- 'httpStatus', 'deleteDeviceDefinitionResponse_httpStatus' - The response's http status code.
 newDeleteDeviceDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDeviceDefinitionResponse
 newDeleteDeviceDefinitionResponse pHttpStatus_ =
   DeleteDeviceDefinitionResponse'
@@ -136,7 +139,9 @@ newDeleteDeviceDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteDeviceDefinitionResponse_httpStatus :: Lens.Lens' DeleteDeviceDefinitionResponse Core.Int
+deleteDeviceDefinitionResponse_httpStatus :: Lens.Lens' DeleteDeviceDefinitionResponse Prelude.Int
 deleteDeviceDefinitionResponse_httpStatus = Lens.lens (\DeleteDeviceDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteDeviceDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteDeviceDefinitionResponse)
 
-instance Core.NFData DeleteDeviceDefinitionResponse
+instance
+  Prelude.NFData
+    DeleteDeviceDefinitionResponse

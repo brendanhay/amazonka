@@ -21,6 +21,7 @@ module Network.AWS.Athena.Types.EngineVersion where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Athena engine version for running queries.
 --
@@ -33,13 +34,13 @@ data EngineVersion = EngineVersion'
     -- Athena. When a request to update the engine version is made by a
     -- @CreateWorkGroup@ or @UpdateWorkGroup@ operation, the
     -- @EffectiveEngineVersion@ field is ignored.
-    effectiveEngineVersion :: Core.Maybe Core.Text,
+    effectiveEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | The engine version requested by the user. Possible values are determined
     -- by the output of @ListEngineVersions@, including Auto. The default is
     -- Auto.
-    selectedEngineVersion :: Core.Maybe Core.Text
+    selectedEngineVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EngineVersion' with all optional fields omitted.
@@ -65,8 +66,8 @@ newEngineVersion ::
 newEngineVersion =
   EngineVersion'
     { effectiveEngineVersion =
-        Core.Nothing,
-      selectedEngineVersion = Core.Nothing
+        Prelude.Nothing,
+      selectedEngineVersion = Prelude.Nothing
     }
 
 -- | Read only. The engine version on which the query runs. If the user
@@ -76,13 +77,13 @@ newEngineVersion =
 -- Athena. When a request to update the engine version is made by a
 -- @CreateWorkGroup@ or @UpdateWorkGroup@ operation, the
 -- @EffectiveEngineVersion@ field is ignored.
-engineVersion_effectiveEngineVersion :: Lens.Lens' EngineVersion (Core.Maybe Core.Text)
+engineVersion_effectiveEngineVersion :: Lens.Lens' EngineVersion (Prelude.Maybe Prelude.Text)
 engineVersion_effectiveEngineVersion = Lens.lens (\EngineVersion' {effectiveEngineVersion} -> effectiveEngineVersion) (\s@EngineVersion' {} a -> s {effectiveEngineVersion = a} :: EngineVersion)
 
 -- | The engine version requested by the user. Possible values are determined
 -- by the output of @ListEngineVersions@, including Auto. The default is
 -- Auto.
-engineVersion_selectedEngineVersion :: Lens.Lens' EngineVersion (Core.Maybe Core.Text)
+engineVersion_selectedEngineVersion :: Lens.Lens' EngineVersion (Prelude.Maybe Prelude.Text)
 engineVersion_selectedEngineVersion = Lens.lens (\EngineVersion' {selectedEngineVersion} -> selectedEngineVersion) (\s@EngineVersion' {} a -> s {selectedEngineVersion = a} :: EngineVersion)
 
 instance Core.FromJSON EngineVersion where
@@ -91,21 +92,21 @@ instance Core.FromJSON EngineVersion where
       "EngineVersion"
       ( \x ->
           EngineVersion'
-            Core.<$> (x Core..:? "EffectiveEngineVersion")
-            Core.<*> (x Core..:? "SelectedEngineVersion")
+            Prelude.<$> (x Core..:? "EffectiveEngineVersion")
+            Prelude.<*> (x Core..:? "SelectedEngineVersion")
       )
 
-instance Core.Hashable EngineVersion
+instance Prelude.Hashable EngineVersion
 
-instance Core.NFData EngineVersion
+instance Prelude.NFData EngineVersion
 
 instance Core.ToJSON EngineVersion where
   toJSON EngineVersion' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EffectiveEngineVersion" Core..=)
-              Core.<$> effectiveEngineVersion,
+              Prelude.<$> effectiveEngineVersion,
             ("SelectedEngineVersion" Core..=)
-              Core.<$> selectedEngineVersion
+              Prelude.<$> selectedEngineVersion
           ]
       )

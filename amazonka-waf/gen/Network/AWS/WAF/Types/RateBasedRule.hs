@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.RateBasedRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.Predicate
 import Network.AWS.WAF.Types.RateKey
 
@@ -57,16 +58,16 @@ data RateBasedRule = RateBasedRule'
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @RateBasedRule@.
-    metricName :: Core.Maybe Core.Text,
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | A friendly name or description for a @RateBasedRule@. You can\'t change
     -- the name of a @RateBasedRule@ after you create it.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more
     -- information about a @RateBasedRule@ (see GetRateBasedRule), update a
     -- @RateBasedRule@ (see UpdateRateBasedRule), insert a @RateBasedRule@ into
     -- a @WebACL@ or delete one from a @WebACL@ (see UpdateWebACL), or delete a
     -- @RateBasedRule@ from AWS WAF (see DeleteRateBasedRule).
-    ruleId :: Core.Text,
+    ruleId :: Prelude.Text,
     -- | The @Predicates@ object contains one @Predicate@ element for each
     -- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to
     -- include in a @RateBasedRule@.
@@ -82,9 +83,9 @@ data RateBasedRule = RateBasedRule'
     -- the number of requests exceeds the @RateLimit@ and the other predicates
     -- specified in the rule are also met, AWS WAF triggers the action that is
     -- specified for this rule.
-    rateLimit :: Core.Natural
+    rateLimit :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RateBasedRule' with all optional fields omitted.
@@ -127,18 +128,18 @@ data RateBasedRule = RateBasedRule'
 -- specified for this rule.
 newRateBasedRule ::
   -- | 'ruleId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'rateKey'
   RateKey ->
   -- | 'rateLimit'
-  Core.Natural ->
+  Prelude.Natural ->
   RateBasedRule
 newRateBasedRule pRuleId_ pRateKey_ pRateLimit_ =
   RateBasedRule'
-    { metricName = Core.Nothing,
-      name = Core.Nothing,
+    { metricName = Prelude.Nothing,
+      name = Prelude.Nothing,
       ruleId = pRuleId_,
-      matchPredicates = Core.mempty,
+      matchPredicates = Prelude.mempty,
       rateKey = pRateKey_,
       rateLimit = pRateLimit_
     }
@@ -149,12 +150,12 @@ newRateBasedRule pRuleId_ pRateKey_ pRateLimit_ =
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @RateBasedRule@.
-rateBasedRule_metricName :: Lens.Lens' RateBasedRule (Core.Maybe Core.Text)
+rateBasedRule_metricName :: Lens.Lens' RateBasedRule (Prelude.Maybe Prelude.Text)
 rateBasedRule_metricName = Lens.lens (\RateBasedRule' {metricName} -> metricName) (\s@RateBasedRule' {} a -> s {metricName = a} :: RateBasedRule)
 
 -- | A friendly name or description for a @RateBasedRule@. You can\'t change
 -- the name of a @RateBasedRule@ after you create it.
-rateBasedRule_name :: Lens.Lens' RateBasedRule (Core.Maybe Core.Text)
+rateBasedRule_name :: Lens.Lens' RateBasedRule (Prelude.Maybe Prelude.Text)
 rateBasedRule_name = Lens.lens (\RateBasedRule' {name} -> name) (\s@RateBasedRule' {} a -> s {name = a} :: RateBasedRule)
 
 -- | A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more
@@ -162,14 +163,14 @@ rateBasedRule_name = Lens.lens (\RateBasedRule' {name} -> name) (\s@RateBasedRul
 -- @RateBasedRule@ (see UpdateRateBasedRule), insert a @RateBasedRule@ into
 -- a @WebACL@ or delete one from a @WebACL@ (see UpdateWebACL), or delete a
 -- @RateBasedRule@ from AWS WAF (see DeleteRateBasedRule).
-rateBasedRule_ruleId :: Lens.Lens' RateBasedRule Core.Text
+rateBasedRule_ruleId :: Lens.Lens' RateBasedRule Prelude.Text
 rateBasedRule_ruleId = Lens.lens (\RateBasedRule' {ruleId} -> ruleId) (\s@RateBasedRule' {} a -> s {ruleId = a} :: RateBasedRule)
 
 -- | The @Predicates@ object contains one @Predicate@ element for each
 -- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to
 -- include in a @RateBasedRule@.
 rateBasedRule_matchPredicates :: Lens.Lens' RateBasedRule [Predicate]
-rateBasedRule_matchPredicates = Lens.lens (\RateBasedRule' {matchPredicates} -> matchPredicates) (\s@RateBasedRule' {} a -> s {matchPredicates = a} :: RateBasedRule) Core.. Lens._Coerce
+rateBasedRule_matchPredicates = Lens.lens (\RateBasedRule' {matchPredicates} -> matchPredicates) (\s@RateBasedRule' {} a -> s {matchPredicates = a} :: RateBasedRule) Prelude.. Lens._Coerce
 
 -- | The field that AWS WAF uses to determine if requests are likely arriving
 -- from single source and thus subject to rate monitoring. The only valid
@@ -184,7 +185,7 @@ rateBasedRule_rateKey = Lens.lens (\RateBasedRule' {rateKey} -> rateKey) (\s@Rat
 -- the number of requests exceeds the @RateLimit@ and the other predicates
 -- specified in the rule are also met, AWS WAF triggers the action that is
 -- specified for this rule.
-rateBasedRule_rateLimit :: Lens.Lens' RateBasedRule Core.Natural
+rateBasedRule_rateLimit :: Lens.Lens' RateBasedRule Prelude.Natural
 rateBasedRule_rateLimit = Lens.lens (\RateBasedRule' {rateLimit} -> rateLimit) (\s@RateBasedRule' {} a -> s {rateLimit = a} :: RateBasedRule)
 
 instance Core.FromJSON RateBasedRule where
@@ -193,14 +194,16 @@ instance Core.FromJSON RateBasedRule where
       "RateBasedRule"
       ( \x ->
           RateBasedRule'
-            Core.<$> (x Core..:? "MetricName")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..: "RuleId")
-            Core.<*> (x Core..:? "MatchPredicates" Core..!= Core.mempty)
-            Core.<*> (x Core..: "RateKey")
-            Core.<*> (x Core..: "RateLimit")
+            Prelude.<$> (x Core..:? "MetricName")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..: "RuleId")
+            Prelude.<*> ( x Core..:? "MatchPredicates"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "RateKey")
+            Prelude.<*> (x Core..: "RateLimit")
       )
 
-instance Core.Hashable RateBasedRule
+instance Prelude.Hashable RateBasedRule
 
-instance Core.NFData RateBasedRule
+instance Prelude.NFData RateBasedRule

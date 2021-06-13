@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -60,31 +61,31 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListModelPackages' smart constructor.
 data ListModelPackages = ListModelPackages'
   { -- | The sort order for the results. The default is @Ascending@.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the response to a previous @ListModelPackages@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of model
     -- packages, use the token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A string in the model package name. This filter returns only model
     -- packages whose name contains the specified string.
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of model packages to return in the response.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only model packages created before the specified
     -- time (timestamp).
-    creationTimeBefore :: Core.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only the model packages with the specified
     -- approval status.
-    modelApprovalStatus :: Core.Maybe ModelApprovalStatus,
+    modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     -- | The parameter by which to sort the results. The default is
     -- @CreationTime@.
-    sortBy :: Core.Maybe ModelPackageSortBy,
+    sortBy :: Prelude.Maybe ModelPackageSortBy,
     -- | A filter that returns only model packages created after the specified
     -- time (timestamp).
-    creationTimeAfter :: Core.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only model versions that belong to the specified
     -- model group.
-    modelPackageGroupName :: Core.Maybe Core.Text,
+    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns onlyl the model packages of the specified type.
     -- This can be one of the following values.
     --
@@ -93,9 +94,9 @@ data ListModelPackages = ListModelPackages'
     -- -   @UNVERSIONED@ - List only unversioined models.
     --
     -- -   @BOTH@ - List both versioned and unversioned models.
-    modelPackageType :: Core.Maybe ModelPackageType
+    modelPackageType :: Prelude.Maybe ModelPackageType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListModelPackages' with all optional fields omitted.
@@ -143,60 +144,60 @@ newListModelPackages ::
   ListModelPackages
 newListModelPackages =
   ListModelPackages'
-    { sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing,
-      creationTimeBefore = Core.Nothing,
-      modelApprovalStatus = Core.Nothing,
-      sortBy = Core.Nothing,
-      creationTimeAfter = Core.Nothing,
-      modelPackageGroupName = Core.Nothing,
-      modelPackageType = Core.Nothing
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
+      modelApprovalStatus = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
+      modelPackageGroupName = Prelude.Nothing,
+      modelPackageType = Prelude.Nothing
     }
 
 -- | The sort order for the results. The default is @Ascending@.
-listModelPackages_sortOrder :: Lens.Lens' ListModelPackages (Core.Maybe SortOrder)
+listModelPackages_sortOrder :: Lens.Lens' ListModelPackages (Prelude.Maybe SortOrder)
 listModelPackages_sortOrder = Lens.lens (\ListModelPackages' {sortOrder} -> sortOrder) (\s@ListModelPackages' {} a -> s {sortOrder = a} :: ListModelPackages)
 
 -- | If the response to a previous @ListModelPackages@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of model
 -- packages, use the token in the next request.
-listModelPackages_nextToken :: Lens.Lens' ListModelPackages (Core.Maybe Core.Text)
+listModelPackages_nextToken :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.Text)
 listModelPackages_nextToken = Lens.lens (\ListModelPackages' {nextToken} -> nextToken) (\s@ListModelPackages' {} a -> s {nextToken = a} :: ListModelPackages)
 
 -- | A string in the model package name. This filter returns only model
 -- packages whose name contains the specified string.
-listModelPackages_nameContains :: Lens.Lens' ListModelPackages (Core.Maybe Core.Text)
+listModelPackages_nameContains :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.Text)
 listModelPackages_nameContains = Lens.lens (\ListModelPackages' {nameContains} -> nameContains) (\s@ListModelPackages' {} a -> s {nameContains = a} :: ListModelPackages)
 
 -- | The maximum number of model packages to return in the response.
-listModelPackages_maxResults :: Lens.Lens' ListModelPackages (Core.Maybe Core.Natural)
+listModelPackages_maxResults :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.Natural)
 listModelPackages_maxResults = Lens.lens (\ListModelPackages' {maxResults} -> maxResults) (\s@ListModelPackages' {} a -> s {maxResults = a} :: ListModelPackages)
 
 -- | A filter that returns only model packages created before the specified
 -- time (timestamp).
-listModelPackages_creationTimeBefore :: Lens.Lens' ListModelPackages (Core.Maybe Core.UTCTime)
-listModelPackages_creationTimeBefore = Lens.lens (\ListModelPackages' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelPackages' {} a -> s {creationTimeBefore = a} :: ListModelPackages) Core.. Lens.mapping Core._Time
+listModelPackages_creationTimeBefore :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.UTCTime)
+listModelPackages_creationTimeBefore = Lens.lens (\ListModelPackages' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelPackages' {} a -> s {creationTimeBefore = a} :: ListModelPackages) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only the model packages with the specified
 -- approval status.
-listModelPackages_modelApprovalStatus :: Lens.Lens' ListModelPackages (Core.Maybe ModelApprovalStatus)
+listModelPackages_modelApprovalStatus :: Lens.Lens' ListModelPackages (Prelude.Maybe ModelApprovalStatus)
 listModelPackages_modelApprovalStatus = Lens.lens (\ListModelPackages' {modelApprovalStatus} -> modelApprovalStatus) (\s@ListModelPackages' {} a -> s {modelApprovalStatus = a} :: ListModelPackages)
 
 -- | The parameter by which to sort the results. The default is
 -- @CreationTime@.
-listModelPackages_sortBy :: Lens.Lens' ListModelPackages (Core.Maybe ModelPackageSortBy)
+listModelPackages_sortBy :: Lens.Lens' ListModelPackages (Prelude.Maybe ModelPackageSortBy)
 listModelPackages_sortBy = Lens.lens (\ListModelPackages' {sortBy} -> sortBy) (\s@ListModelPackages' {} a -> s {sortBy = a} :: ListModelPackages)
 
 -- | A filter that returns only model packages created after the specified
 -- time (timestamp).
-listModelPackages_creationTimeAfter :: Lens.Lens' ListModelPackages (Core.Maybe Core.UTCTime)
-listModelPackages_creationTimeAfter = Lens.lens (\ListModelPackages' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelPackages' {} a -> s {creationTimeAfter = a} :: ListModelPackages) Core.. Lens.mapping Core._Time
+listModelPackages_creationTimeAfter :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.UTCTime)
+listModelPackages_creationTimeAfter = Lens.lens (\ListModelPackages' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelPackages' {} a -> s {creationTimeAfter = a} :: ListModelPackages) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only model versions that belong to the specified
 -- model group.
-listModelPackages_modelPackageGroupName :: Lens.Lens' ListModelPackages (Core.Maybe Core.Text)
+listModelPackages_modelPackageGroupName :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.Text)
 listModelPackages_modelPackageGroupName = Lens.lens (\ListModelPackages' {modelPackageGroupName} -> modelPackageGroupName) (\s@ListModelPackages' {} a -> s {modelPackageGroupName = a} :: ListModelPackages)
 
 -- | A filter that returns onlyl the model packages of the specified type.
@@ -207,7 +208,7 @@ listModelPackages_modelPackageGroupName = Lens.lens (\ListModelPackages' {modelP
 -- -   @UNVERSIONED@ - List only unversioined models.
 --
 -- -   @BOTH@ - List both versioned and unversioned models.
-listModelPackages_modelPackageType :: Lens.Lens' ListModelPackages (Core.Maybe ModelPackageType)
+listModelPackages_modelPackageType :: Lens.Lens' ListModelPackages (Prelude.Maybe ModelPackageType)
 listModelPackages_modelPackageType = Lens.lens (\ListModelPackages' {modelPackageType} -> modelPackageType) (\s@ListModelPackages' {} a -> s {modelPackageType = a} :: ListModelPackages)
 
 instance Core.AWSPager ListModelPackages where
@@ -215,20 +216,21 @@ instance Core.AWSPager ListModelPackages where
     | Core.stop
         ( rs
             Lens.^? listModelPackagesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelPackagesResponse_modelPackageSummaryList
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listModelPackages_nextToken
+          Prelude.& listModelPackages_nextToken
           Lens..~ rs
-          Lens.^? listModelPackagesResponse_nextToken Core.. Lens._Just
+          Lens.^? listModelPackagesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelPackages where
   type
@@ -239,69 +241,73 @@ instance Core.AWSRequest ListModelPackages where
     Response.receiveJSON
       ( \s h x ->
           ListModelPackagesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "ModelPackageSummaryList"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "ModelPackageSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ListModelPackages
+instance Prelude.Hashable ListModelPackages
 
-instance Core.NFData ListModelPackages
+instance Prelude.NFData ListModelPackages
 
 instance Core.ToHeaders ListModelPackages where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListModelPackages" :: Core.ByteString),
+              Core.=# ( "SageMaker.ListModelPackages" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListModelPackages where
   toJSON ListModelPackages' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("NameContains" Core..=) Core.<$> nameContains,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
-              Core.<$> creationTimeBefore,
+              Prelude.<$> creationTimeBefore,
             ("ModelApprovalStatus" Core..=)
-              Core.<$> modelApprovalStatus,
-            ("SortBy" Core..=) Core.<$> sortBy,
+              Prelude.<$> modelApprovalStatus,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("CreationTimeAfter" Core..=)
-              Core.<$> creationTimeAfter,
+              Prelude.<$> creationTimeAfter,
             ("ModelPackageGroupName" Core..=)
-              Core.<$> modelPackageGroupName,
+              Prelude.<$> modelPackageGroupName,
             ("ModelPackageType" Core..=)
-              Core.<$> modelPackageType
+              Prelude.<$> modelPackageType
           ]
       )
 
 instance Core.ToPath ListModelPackages where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListModelPackages where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListModelPackagesResponse' smart constructor.
 data ListModelPackagesResponse = ListModelPackagesResponse'
   { -- | If the response is truncated, Amazon SageMaker returns this token. To
     -- retrieve the next set of model packages, use it in the subsequent
     -- request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | An array of @ModelPackageSummary@ objects, each of which lists a model
     -- package.
     modelPackageSummaryList :: [ModelPackageSummary]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListModelPackagesResponse' with all optional fields omitted.
@@ -321,29 +327,29 @@ data ListModelPackagesResponse = ListModelPackagesResponse'
 -- package.
 newListModelPackagesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListModelPackagesResponse
 newListModelPackagesResponse pHttpStatus_ =
   ListModelPackagesResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      modelPackageSummaryList = Core.mempty
+      modelPackageSummaryList = Prelude.mempty
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To
 -- retrieve the next set of model packages, use it in the subsequent
 -- request.
-listModelPackagesResponse_nextToken :: Lens.Lens' ListModelPackagesResponse (Core.Maybe Core.Text)
+listModelPackagesResponse_nextToken :: Lens.Lens' ListModelPackagesResponse (Prelude.Maybe Prelude.Text)
 listModelPackagesResponse_nextToken = Lens.lens (\ListModelPackagesResponse' {nextToken} -> nextToken) (\s@ListModelPackagesResponse' {} a -> s {nextToken = a} :: ListModelPackagesResponse)
 
 -- | The response's http status code.
-listModelPackagesResponse_httpStatus :: Lens.Lens' ListModelPackagesResponse Core.Int
+listModelPackagesResponse_httpStatus :: Lens.Lens' ListModelPackagesResponse Prelude.Int
 listModelPackagesResponse_httpStatus = Lens.lens (\ListModelPackagesResponse' {httpStatus} -> httpStatus) (\s@ListModelPackagesResponse' {} a -> s {httpStatus = a} :: ListModelPackagesResponse)
 
 -- | An array of @ModelPackageSummary@ objects, each of which lists a model
 -- package.
 listModelPackagesResponse_modelPackageSummaryList :: Lens.Lens' ListModelPackagesResponse [ModelPackageSummary]
-listModelPackagesResponse_modelPackageSummaryList = Lens.lens (\ListModelPackagesResponse' {modelPackageSummaryList} -> modelPackageSummaryList) (\s@ListModelPackagesResponse' {} a -> s {modelPackageSummaryList = a} :: ListModelPackagesResponse) Core.. Lens._Coerce
+listModelPackagesResponse_modelPackageSummaryList = Lens.lens (\ListModelPackagesResponse' {modelPackageSummaryList} -> modelPackageSummaryList) (\s@ListModelPackagesResponse' {} a -> s {modelPackageSummaryList = a} :: ListModelPackagesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListModelPackagesResponse
+instance Prelude.NFData ListModelPackagesResponse

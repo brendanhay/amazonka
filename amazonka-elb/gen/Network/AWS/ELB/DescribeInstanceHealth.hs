@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeInstanceHealth' smart constructor.
 data DescribeInstanceHealth = DescribeInstanceHealth'
   { -- | The IDs of the instances.
-    instances :: Core.Maybe [Instance],
+    instances :: Prelude.Maybe [Instance],
     -- | The name of the load balancer.
-    loadBalancerName :: Core.Text
+    loadBalancerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceHealth' with all optional fields omitted.
@@ -75,20 +76,21 @@ data DescribeInstanceHealth = DescribeInstanceHealth'
 -- 'loadBalancerName', 'describeInstanceHealth_loadBalancerName' - The name of the load balancer.
 newDescribeInstanceHealth ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeInstanceHealth
 newDescribeInstanceHealth pLoadBalancerName_ =
   DescribeInstanceHealth'
-    { instances = Core.Nothing,
+    { instances =
+        Prelude.Nothing,
       loadBalancerName = pLoadBalancerName_
     }
 
 -- | The IDs of the instances.
-describeInstanceHealth_instances :: Lens.Lens' DescribeInstanceHealth (Core.Maybe [Instance])
-describeInstanceHealth_instances = Lens.lens (\DescribeInstanceHealth' {instances} -> instances) (\s@DescribeInstanceHealth' {} a -> s {instances = a} :: DescribeInstanceHealth) Core.. Lens.mapping Lens._Coerce
+describeInstanceHealth_instances :: Lens.Lens' DescribeInstanceHealth (Prelude.Maybe [Instance])
+describeInstanceHealth_instances = Lens.lens (\DescribeInstanceHealth' {instances} -> instances) (\s@DescribeInstanceHealth' {} a -> s {instances = a} :: DescribeInstanceHealth) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the load balancer.
-describeInstanceHealth_loadBalancerName :: Lens.Lens' DescribeInstanceHealth Core.Text
+describeInstanceHealth_loadBalancerName :: Lens.Lens' DescribeInstanceHealth Prelude.Text
 describeInstanceHealth_loadBalancerName = Lens.lens (\DescribeInstanceHealth' {loadBalancerName} -> loadBalancerName) (\s@DescribeInstanceHealth' {} a -> s {loadBalancerName = a} :: DescribeInstanceHealth)
 
 instance Core.AWSRequest DescribeInstanceHealth where
@@ -101,31 +103,32 @@ instance Core.AWSRequest DescribeInstanceHealth where
       "DescribeInstanceHealthResult"
       ( \s h x ->
           DescribeInstanceHealthResponse'
-            Core.<$> ( x Core..@? "InstanceStates" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "InstanceStates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeInstanceHealth
+instance Prelude.Hashable DescribeInstanceHealth
 
-instance Core.NFData DescribeInstanceHealth
+instance Prelude.NFData DescribeInstanceHealth
 
 instance Core.ToHeaders DescribeInstanceHealth where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeInstanceHealth where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeInstanceHealth where
   toQuery DescribeInstanceHealth' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstanceHealth" :: Core.ByteString),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+          Core.=: ("DescribeInstanceHealth" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "Instances"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> instances),
+            (Core.toQueryList "member" Prelude.<$> instances),
         "LoadBalancerName" Core.=: loadBalancerName
       ]
 
@@ -134,11 +137,11 @@ instance Core.ToQuery DescribeInstanceHealth where
 -- /See:/ 'newDescribeInstanceHealthResponse' smart constructor.
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
   { -- | Information about the health of the instances.
-    instanceStates :: Core.Maybe [InstanceState],
+    instanceStates :: Prelude.Maybe [InstanceState],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceHealthResponse' with all optional fields omitted.
@@ -153,21 +156,23 @@ data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
 -- 'httpStatus', 'describeInstanceHealthResponse_httpStatus' - The response's http status code.
 newDescribeInstanceHealthResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeInstanceHealthResponse
 newDescribeInstanceHealthResponse pHttpStatus_ =
   DescribeInstanceHealthResponse'
     { instanceStates =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the health of the instances.
-describeInstanceHealthResponse_instanceStates :: Lens.Lens' DescribeInstanceHealthResponse (Core.Maybe [InstanceState])
-describeInstanceHealthResponse_instanceStates = Lens.lens (\DescribeInstanceHealthResponse' {instanceStates} -> instanceStates) (\s@DescribeInstanceHealthResponse' {} a -> s {instanceStates = a} :: DescribeInstanceHealthResponse) Core.. Lens.mapping Lens._Coerce
+describeInstanceHealthResponse_instanceStates :: Lens.Lens' DescribeInstanceHealthResponse (Prelude.Maybe [InstanceState])
+describeInstanceHealthResponse_instanceStates = Lens.lens (\DescribeInstanceHealthResponse' {instanceStates} -> instanceStates) (\s@DescribeInstanceHealthResponse' {} a -> s {instanceStates = a} :: DescribeInstanceHealthResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeInstanceHealthResponse_httpStatus :: Lens.Lens' DescribeInstanceHealthResponse Core.Int
+describeInstanceHealthResponse_httpStatus :: Lens.Lens' DescribeInstanceHealthResponse Prelude.Int
 describeInstanceHealthResponse_httpStatus = Lens.lens (\DescribeInstanceHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceHealthResponse' {} a -> s {httpStatus = a} :: DescribeInstanceHealthResponse)
 
-instance Core.NFData DescribeInstanceHealthResponse
+instance
+  Prelude.NFData
+    DescribeInstanceHealthResponse

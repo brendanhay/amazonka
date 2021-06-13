@@ -21,19 +21,20 @@ module Network.AWS.SSM.Types.DocumentDefaultVersionDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A default version of a document.
 --
 -- /See:/ 'newDocumentDefaultVersionDescription' smart constructor.
 data DocumentDefaultVersionDescription = DocumentDefaultVersionDescription'
   { -- | The default version of the document.
-    defaultVersion :: Core.Maybe Core.Text,
+    defaultVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the document.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The default version of the artifact associated with the document.
-    defaultVersionName :: Core.Maybe Core.Text
+    defaultVersionName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentDefaultVersionDescription' with all optional fields omitted.
@@ -53,21 +54,21 @@ newDocumentDefaultVersionDescription ::
 newDocumentDefaultVersionDescription =
   DocumentDefaultVersionDescription'
     { defaultVersion =
-        Core.Nothing,
-      name = Core.Nothing,
-      defaultVersionName = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      defaultVersionName = Prelude.Nothing
     }
 
 -- | The default version of the document.
-documentDefaultVersionDescription_defaultVersion :: Lens.Lens' DocumentDefaultVersionDescription (Core.Maybe Core.Text)
+documentDefaultVersionDescription_defaultVersion :: Lens.Lens' DocumentDefaultVersionDescription (Prelude.Maybe Prelude.Text)
 documentDefaultVersionDescription_defaultVersion = Lens.lens (\DocumentDefaultVersionDescription' {defaultVersion} -> defaultVersion) (\s@DocumentDefaultVersionDescription' {} a -> s {defaultVersion = a} :: DocumentDefaultVersionDescription)
 
 -- | The name of the document.
-documentDefaultVersionDescription_name :: Lens.Lens' DocumentDefaultVersionDescription (Core.Maybe Core.Text)
+documentDefaultVersionDescription_name :: Lens.Lens' DocumentDefaultVersionDescription (Prelude.Maybe Prelude.Text)
 documentDefaultVersionDescription_name = Lens.lens (\DocumentDefaultVersionDescription' {name} -> name) (\s@DocumentDefaultVersionDescription' {} a -> s {name = a} :: DocumentDefaultVersionDescription)
 
 -- | The default version of the artifact associated with the document.
-documentDefaultVersionDescription_defaultVersionName :: Lens.Lens' DocumentDefaultVersionDescription (Core.Maybe Core.Text)
+documentDefaultVersionDescription_defaultVersionName :: Lens.Lens' DocumentDefaultVersionDescription (Prelude.Maybe Prelude.Text)
 documentDefaultVersionDescription_defaultVersionName = Lens.lens (\DocumentDefaultVersionDescription' {defaultVersionName} -> defaultVersionName) (\s@DocumentDefaultVersionDescription' {} a -> s {defaultVersionName = a} :: DocumentDefaultVersionDescription)
 
 instance
@@ -79,15 +80,15 @@ instance
       "DocumentDefaultVersionDescription"
       ( \x ->
           DocumentDefaultVersionDescription'
-            Core.<$> (x Core..:? "DefaultVersion")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "DefaultVersionName")
+            Prelude.<$> (x Core..:? "DefaultVersion")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "DefaultVersionName")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DocumentDefaultVersionDescription
 
 instance
-  Core.NFData
+  Prelude.NFData
     DocumentDefaultVersionDescription

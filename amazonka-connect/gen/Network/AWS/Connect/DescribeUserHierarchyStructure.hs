@@ -43,15 +43,16 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeUserHierarchyStructure' smart constructor.
 data DescribeUserHierarchyStructure = DescribeUserHierarchyStructure'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserHierarchyStructure' with all optional fields omitted.
@@ -64,7 +65,7 @@ data DescribeUserHierarchyStructure = DescribeUserHierarchyStructure'
 -- 'instanceId', 'describeUserHierarchyStructure_instanceId' - The identifier of the Amazon Connect instance.
 newDescribeUserHierarchyStructure ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeUserHierarchyStructure
 newDescribeUserHierarchyStructure pInstanceId_ =
   DescribeUserHierarchyStructure'
@@ -73,7 +74,7 @@ newDescribeUserHierarchyStructure pInstanceId_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-describeUserHierarchyStructure_instanceId :: Lens.Lens' DescribeUserHierarchyStructure Core.Text
+describeUserHierarchyStructure_instanceId :: Lens.Lens' DescribeUserHierarchyStructure Prelude.Text
 describeUserHierarchyStructure_instanceId = Lens.lens (\DescribeUserHierarchyStructure' {instanceId} -> instanceId) (\s@DescribeUserHierarchyStructure' {} a -> s {instanceId = a} :: DescribeUserHierarchyStructure)
 
 instance
@@ -88,42 +89,48 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeUserHierarchyStructureResponse'
-            Core.<$> (x Core..?> "HierarchyStructure")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HierarchyStructure")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeUserHierarchyStructure
+instance
+  Prelude.Hashable
+    DescribeUserHierarchyStructure
 
-instance Core.NFData DescribeUserHierarchyStructure
+instance
+  Prelude.NFData
+    DescribeUserHierarchyStructure
 
 instance
   Core.ToHeaders
     DescribeUserHierarchyStructure
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeUserHierarchyStructure where
   toPath DescribeUserHierarchyStructure' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/user-hierarchy-structure/", Core.toBS instanceId]
 
 instance Core.ToQuery DescribeUserHierarchyStructure where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserHierarchyStructureResponse' smart constructor.
 data DescribeUserHierarchyStructureResponse = DescribeUserHierarchyStructureResponse'
   { -- | Information about the hierarchy structure.
-    hierarchyStructure :: Core.Maybe HierarchyStructure,
+    hierarchyStructure :: Prelude.Maybe HierarchyStructure,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserHierarchyStructureResponse' with all optional fields omitted.
@@ -138,24 +145,24 @@ data DescribeUserHierarchyStructureResponse = DescribeUserHierarchyStructureResp
 -- 'httpStatus', 'describeUserHierarchyStructureResponse_httpStatus' - The response's http status code.
 newDescribeUserHierarchyStructureResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeUserHierarchyStructureResponse
 newDescribeUserHierarchyStructureResponse
   pHttpStatus_ =
     DescribeUserHierarchyStructureResponse'
       { hierarchyStructure =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the hierarchy structure.
-describeUserHierarchyStructureResponse_hierarchyStructure :: Lens.Lens' DescribeUserHierarchyStructureResponse (Core.Maybe HierarchyStructure)
+describeUserHierarchyStructureResponse_hierarchyStructure :: Lens.Lens' DescribeUserHierarchyStructureResponse (Prelude.Maybe HierarchyStructure)
 describeUserHierarchyStructureResponse_hierarchyStructure = Lens.lens (\DescribeUserHierarchyStructureResponse' {hierarchyStructure} -> hierarchyStructure) (\s@DescribeUserHierarchyStructureResponse' {} a -> s {hierarchyStructure = a} :: DescribeUserHierarchyStructureResponse)
 
 -- | The response's http status code.
-describeUserHierarchyStructureResponse_httpStatus :: Lens.Lens' DescribeUserHierarchyStructureResponse Core.Int
+describeUserHierarchyStructureResponse_httpStatus :: Lens.Lens' DescribeUserHierarchyStructureResponse Prelude.Int
 describeUserHierarchyStructureResponse_httpStatus = Lens.lens (\DescribeUserHierarchyStructureResponse' {httpStatus} -> httpStatus) (\s@DescribeUserHierarchyStructureResponse' {} a -> s {httpStatus = a} :: DescribeUserHierarchyStructureResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeUserHierarchyStructureResponse

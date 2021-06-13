@@ -48,6 +48,7 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,14 +56,14 @@ import qualified Network.AWS.Response as Response
 data DescribeUsers = DescribeUsers'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of each page of results.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The authentication type for the users in the user pool to describe. You
     -- must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUsers' with all optional fields omitted.
@@ -85,18 +86,18 @@ newDescribeUsers ::
   DescribeUsers
 newDescribeUsers pAuthenticationType_ =
   DescribeUsers'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       authenticationType = pAuthenticationType_
     }
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
-describeUsers_nextToken :: Lens.Lens' DescribeUsers (Core.Maybe Core.Text)
+describeUsers_nextToken :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_nextToken = Lens.lens (\DescribeUsers' {nextToken} -> nextToken) (\s@DescribeUsers' {} a -> s {nextToken = a} :: DescribeUsers)
 
 -- | The maximum size of each page of results.
-describeUsers_maxResults :: Lens.Lens' DescribeUsers (Core.Maybe Core.Int)
+describeUsers_maxResults :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
 describeUsers_maxResults = Lens.lens (\DescribeUsers' {maxResults} -> maxResults) (\s@DescribeUsers' {} a -> s {maxResults = a} :: DescribeUsers)
 
 -- | The authentication type for the users in the user pool to describe. You
@@ -108,20 +109,20 @@ instance Core.AWSPager DescribeUsers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeUsersResponse_nextToken Core.. Lens._Just
+            Lens.^? describeUsersResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeUsersResponse_users Core.. Lens._Just
+            Lens.^? describeUsersResponse_users Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeUsers_nextToken
+          Prelude.& describeUsers_nextToken
           Lens..~ rs
-          Lens.^? describeUsersResponse_nextToken Core.. Lens._Just
+          Lens.^? describeUsersResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsers where
   type
@@ -132,56 +133,58 @@ instance Core.AWSRequest DescribeUsers where
     Response.receiveJSON
       ( \s h x ->
           DescribeUsersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Users" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeUsers
+instance Prelude.Hashable DescribeUsers
 
-instance Core.NFData DescribeUsers
+instance Prelude.NFData DescribeUsers
 
 instance Core.ToHeaders DescribeUsers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.DescribeUsers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeUsers where
   toJSON DescribeUsers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just
               ("AuthenticationType" Core..= authenticationType)
           ]
       )
 
 instance Core.ToPath DescribeUsers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeUsers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about users in the user pool.
-    users :: Core.Maybe [User],
+    users :: Prelude.Maybe [User],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUsersResponse' with all optional fields omitted.
@@ -199,26 +202,26 @@ data DescribeUsersResponse = DescribeUsersResponse'
 -- 'httpStatus', 'describeUsersResponse_httpStatus' - The response's http status code.
 newDescribeUsersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeUsersResponse
 newDescribeUsersResponse pHttpStatus_ =
   DescribeUsersResponse'
-    { nextToken = Core.Nothing,
-      users = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      users = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
-describeUsersResponse_nextToken :: Lens.Lens' DescribeUsersResponse (Core.Maybe Core.Text)
+describeUsersResponse_nextToken :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe Prelude.Text)
 describeUsersResponse_nextToken = Lens.lens (\DescribeUsersResponse' {nextToken} -> nextToken) (\s@DescribeUsersResponse' {} a -> s {nextToken = a} :: DescribeUsersResponse)
 
 -- | Information about users in the user pool.
-describeUsersResponse_users :: Lens.Lens' DescribeUsersResponse (Core.Maybe [User])
-describeUsersResponse_users = Lens.lens (\DescribeUsersResponse' {users} -> users) (\s@DescribeUsersResponse' {} a -> s {users = a} :: DescribeUsersResponse) Core.. Lens.mapping Lens._Coerce
+describeUsersResponse_users :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe [User])
+describeUsersResponse_users = Lens.lens (\DescribeUsersResponse' {users} -> users) (\s@DescribeUsersResponse' {} a -> s {users = a} :: DescribeUsersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeUsersResponse_httpStatus :: Lens.Lens' DescribeUsersResponse Core.Int
+describeUsersResponse_httpStatus :: Lens.Lens' DescribeUsersResponse Prelude.Int
 describeUsersResponse_httpStatus = Lens.lens (\DescribeUsersResponse' {httpStatus} -> httpStatus) (\s@DescribeUsersResponse' {} a -> s {httpStatus = a} :: DescribeUsersResponse)
 
-instance Core.NFData DescribeUsersResponse
+instance Prelude.NFData DescribeUsersResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.VpcConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a VPC that your training jobs and hosted models have access
 -- to. Control access to and from your training and model containers by
@@ -33,14 +34,14 @@ import qualified Network.AWS.Lens as Lens
 data VpcConfig = VpcConfig'
   { -- | The VPC security group IDs, in the form sg-xxxxxxxx. Specify the
     -- security groups for the VPC that is specified in the @Subnets@ field.
-    securityGroupIds :: Core.NonEmpty Core.Text,
+    securityGroupIds :: Prelude.NonEmpty Prelude.Text,
     -- | The ID of the subnets in the VPC to which you want to connect your
     -- training job or model. For information about the availability of
     -- specific instance types, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html Supported Instance Types and Availability Zones>.
-    subnets :: Core.NonEmpty Core.Text
+    subnets :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcConfig' with all optional fields omitted.
@@ -59,9 +60,9 @@ data VpcConfig = VpcConfig'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html Supported Instance Types and Availability Zones>.
 newVpcConfig ::
   -- | 'securityGroupIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'subnets'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   VpcConfig
 newVpcConfig pSecurityGroupIds_ pSubnets_ =
   VpcConfig'
@@ -72,15 +73,15 @@ newVpcConfig pSecurityGroupIds_ pSubnets_ =
 
 -- | The VPC security group IDs, in the form sg-xxxxxxxx. Specify the
 -- security groups for the VPC that is specified in the @Subnets@ field.
-vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Core.NonEmpty Core.Text)
-vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Core.. Lens._Coerce
+vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
+vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Lens._Coerce
 
 -- | The ID of the subnets in the VPC to which you want to connect your
 -- training job or model. For information about the availability of
 -- specific instance types, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html Supported Instance Types and Availability Zones>.
-vpcConfig_subnets :: Lens.Lens' VpcConfig (Core.NonEmpty Core.Text)
-vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Core.. Lens._Coerce
+vpcConfig_subnets :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
+vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Lens._Coerce
 
 instance Core.FromJSON VpcConfig where
   parseJSON =
@@ -88,20 +89,20 @@ instance Core.FromJSON VpcConfig where
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Core.<$> (x Core..: "SecurityGroupIds")
-            Core.<*> (x Core..: "Subnets")
+            Prelude.<$> (x Core..: "SecurityGroupIds")
+            Prelude.<*> (x Core..: "Subnets")
       )
 
-instance Core.Hashable VpcConfig
+instance Prelude.Hashable VpcConfig
 
-instance Core.NFData VpcConfig
+instance Prelude.NFData VpcConfig
 
 instance Core.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SecurityGroupIds" Core..= securityGroupIds),
-            Core.Just ("Subnets" Core..= subnets)
+            Prelude.Just ("Subnets" Core..= subnets)
           ]
       )

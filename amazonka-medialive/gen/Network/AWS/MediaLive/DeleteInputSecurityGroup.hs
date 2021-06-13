@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteInputSecurityGroup' smart constructor.
 data DeleteInputSecurityGroup = DeleteInputSecurityGroup'
   { -- | The Input Security Group to delete
-    inputSecurityGroupId :: Core.Text
+    inputSecurityGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInputSecurityGroup' with all optional fields omitted.
@@ -64,7 +65,7 @@ data DeleteInputSecurityGroup = DeleteInputSecurityGroup'
 -- 'inputSecurityGroupId', 'deleteInputSecurityGroup_inputSecurityGroupId' - The Input Security Group to delete
 newDeleteInputSecurityGroup ::
   -- | 'inputSecurityGroupId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInputSecurityGroup
 newDeleteInputSecurityGroup pInputSecurityGroupId_ =
   DeleteInputSecurityGroup'
@@ -73,7 +74,7 @@ newDeleteInputSecurityGroup pInputSecurityGroupId_ =
     }
 
 -- | The Input Security Group to delete
-deleteInputSecurityGroup_inputSecurityGroupId :: Lens.Lens' DeleteInputSecurityGroup Core.Text
+deleteInputSecurityGroup_inputSecurityGroupId :: Lens.Lens' DeleteInputSecurityGroup Prelude.Text
 deleteInputSecurityGroup_inputSecurityGroupId = Lens.lens (\DeleteInputSecurityGroup' {inputSecurityGroupId} -> inputSecurityGroupId) (\s@DeleteInputSecurityGroup' {} a -> s {inputSecurityGroupId = a} :: DeleteInputSecurityGroup)
 
 instance Core.AWSRequest DeleteInputSecurityGroup where
@@ -85,40 +86,42 @@ instance Core.AWSRequest DeleteInputSecurityGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteInputSecurityGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteInputSecurityGroup
+instance Prelude.Hashable DeleteInputSecurityGroup
 
-instance Core.NFData DeleteInputSecurityGroup
+instance Prelude.NFData DeleteInputSecurityGroup
 
 instance Core.ToHeaders DeleteInputSecurityGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteInputSecurityGroup where
   toPath DeleteInputSecurityGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/prod/inputSecurityGroups/",
         Core.toBS inputSecurityGroupId
       ]
 
 instance Core.ToQuery DeleteInputSecurityGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DeleteInputSecurityGroupResponse
 --
 -- /See:/ 'newDeleteInputSecurityGroupResponse' smart constructor.
 data DeleteInputSecurityGroupResponse = DeleteInputSecurityGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInputSecurityGroupResponse' with all optional fields omitted.
@@ -131,7 +134,7 @@ data DeleteInputSecurityGroupResponse = DeleteInputSecurityGroupResponse'
 -- 'httpStatus', 'deleteInputSecurityGroupResponse_httpStatus' - The response's http status code.
 newDeleteInputSecurityGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteInputSecurityGroupResponse
 newDeleteInputSecurityGroupResponse pHttpStatus_ =
   DeleteInputSecurityGroupResponse'
@@ -140,7 +143,9 @@ newDeleteInputSecurityGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteInputSecurityGroupResponse_httpStatus :: Lens.Lens' DeleteInputSecurityGroupResponse Core.Int
+deleteInputSecurityGroupResponse_httpStatus :: Lens.Lens' DeleteInputSecurityGroupResponse Prelude.Int
 deleteInputSecurityGroupResponse_httpStatus = Lens.lens (\DeleteInputSecurityGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteInputSecurityGroupResponse' {} a -> s {httpStatus = a} :: DeleteInputSecurityGroupResponse)
 
-instance Core.NFData DeleteInputSecurityGroupResponse
+instance
+  Prelude.NFData
+    DeleteInputSecurityGroupResponse

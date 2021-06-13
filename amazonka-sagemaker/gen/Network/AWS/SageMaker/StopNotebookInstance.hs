@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -54,9 +55,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopNotebookInstance' smart constructor.
 data StopNotebookInstance = StopNotebookInstance'
   { -- | The name of the notebook instance to terminate.
-    notebookInstanceName :: Core.Text
+    notebookInstanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopNotebookInstance' with all optional fields omitted.
@@ -69,7 +70,7 @@ data StopNotebookInstance = StopNotebookInstance'
 -- 'notebookInstanceName', 'stopNotebookInstance_notebookInstanceName' - The name of the notebook instance to terminate.
 newStopNotebookInstance ::
   -- | 'notebookInstanceName'
-  Core.Text ->
+  Prelude.Text ->
   StopNotebookInstance
 newStopNotebookInstance pNotebookInstanceName_ =
   StopNotebookInstance'
@@ -78,7 +79,7 @@ newStopNotebookInstance pNotebookInstanceName_ =
     }
 
 -- | The name of the notebook instance to terminate.
-stopNotebookInstance_notebookInstanceName :: Lens.Lens' StopNotebookInstance Core.Text
+stopNotebookInstance_notebookInstanceName :: Lens.Lens' StopNotebookInstance Prelude.Text
 stopNotebookInstance_notebookInstanceName = Lens.lens (\StopNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@StopNotebookInstance' {} a -> s {notebookInstanceName = a} :: StopNotebookInstance)
 
 instance Core.AWSRequest StopNotebookInstance where
@@ -89,28 +90,30 @@ instance Core.AWSRequest StopNotebookInstance where
   response =
     Response.receiveNull StopNotebookInstanceResponse'
 
-instance Core.Hashable StopNotebookInstance
+instance Prelude.Hashable StopNotebookInstance
 
-instance Core.NFData StopNotebookInstance
+instance Prelude.NFData StopNotebookInstance
 
 instance Core.ToHeaders StopNotebookInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.StopNotebookInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopNotebookInstance where
   toJSON StopNotebookInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "NotebookInstanceName"
                   Core..= notebookInstanceName
               )
@@ -118,16 +121,16 @@ instance Core.ToJSON StopNotebookInstance where
       )
 
 instance Core.ToPath StopNotebookInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopNotebookInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopNotebookInstanceResponse' smart constructor.
 data StopNotebookInstanceResponse = StopNotebookInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopNotebookInstanceResponse' with all optional fields omitted.
@@ -138,4 +141,4 @@ newStopNotebookInstanceResponse ::
 newStopNotebookInstanceResponse =
   StopNotebookInstanceResponse'
 
-instance Core.NFData StopNotebookInstanceResponse
+instance Prelude.NFData StopNotebookInstanceResponse

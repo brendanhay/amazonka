@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,18 +57,18 @@ import qualified Network.AWS.Response as Response
 data ListEventSubscriptions = ListEventSubscriptions'
   { -- | The ARN of the assessment template for which you want to list the
     -- existing event subscriptions.
-    resourceArn :: Core.Maybe Core.Text,
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the
     -- __ListEventSubscriptions__ action. Subsequent calls to the action fill
     -- __nextToken__ in the request with the value of __NextToken__ from the
     -- previous response to continue listing data.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Core.Maybe Core.Int
+    maxResults :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListEventSubscriptions' with all optional fields omitted.
@@ -92,14 +93,15 @@ newListEventSubscriptions ::
   ListEventSubscriptions
 newListEventSubscriptions =
   ListEventSubscriptions'
-    { resourceArn = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { resourceArn =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The ARN of the assessment template for which you want to list the
 -- existing event subscriptions.
-listEventSubscriptions_resourceArn :: Lens.Lens' ListEventSubscriptions (Core.Maybe Core.Text)
+listEventSubscriptions_resourceArn :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Text)
 listEventSubscriptions_resourceArn = Lens.lens (\ListEventSubscriptions' {resourceArn} -> resourceArn) (\s@ListEventSubscriptions' {} a -> s {resourceArn = a} :: ListEventSubscriptions)
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -107,12 +109,12 @@ listEventSubscriptions_resourceArn = Lens.lens (\ListEventSubscriptions' {resour
 -- __ListEventSubscriptions__ action. Subsequent calls to the action fill
 -- __nextToken__ in the request with the value of __NextToken__ from the
 -- previous response to continue listing data.
-listEventSubscriptions_nextToken :: Lens.Lens' ListEventSubscriptions (Core.Maybe Core.Text)
+listEventSubscriptions_nextToken :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Text)
 listEventSubscriptions_nextToken = Lens.lens (\ListEventSubscriptions' {nextToken} -> nextToken) (\s@ListEventSubscriptions' {} a -> s {nextToken = a} :: ListEventSubscriptions)
 
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 10. The maximum value is 500.
-listEventSubscriptions_maxResults :: Lens.Lens' ListEventSubscriptions (Core.Maybe Core.Int)
+listEventSubscriptions_maxResults :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Int)
 listEventSubscriptions_maxResults = Lens.lens (\ListEventSubscriptions' {maxResults} -> maxResults) (\s@ListEventSubscriptions' {} a -> s {maxResults = a} :: ListEventSubscriptions)
 
 instance Core.AWSPager ListEventSubscriptions where
@@ -120,21 +122,21 @@ instance Core.AWSPager ListEventSubscriptions where
     | Core.stop
         ( rs
             Lens.^? listEventSubscriptionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listEventSubscriptionsResponse_subscriptions
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listEventSubscriptions_nextToken
+          Prelude.& listEventSubscriptions_nextToken
           Lens..~ rs
           Lens.^? listEventSubscriptionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEventSubscriptions where
   type
@@ -145,43 +147,45 @@ instance Core.AWSRequest ListEventSubscriptions where
     Response.receiveJSON
       ( \s h x ->
           ListEventSubscriptionsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "subscriptions" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "subscriptions" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListEventSubscriptions
+instance Prelude.Hashable ListEventSubscriptions
 
-instance Core.NFData ListEventSubscriptions
+instance Prelude.NFData ListEventSubscriptions
 
 instance Core.ToHeaders ListEventSubscriptions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.ListEventSubscriptions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListEventSubscriptions where
   toJSON ListEventSubscriptions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("resourceArn" Core..=) Core.<$> resourceArn,
-            ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("resourceArn" Core..=) Prelude.<$> resourceArn,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListEventSubscriptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListEventSubscriptions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEventSubscriptionsResponse' smart constructor.
 data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
@@ -189,13 +193,13 @@ data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
     -- parameter is present in the response and contains the value to use for
     -- the __nextToken__ parameter in a subsequent pagination request. If there
     -- is no more data to be listed, this parameter is set to null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Details of the returned event subscriptions.
     subscriptions :: [Subscription]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListEventSubscriptionsResponse' with all optional fields omitted.
@@ -215,29 +219,31 @@ data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
 -- 'subscriptions', 'listEventSubscriptionsResponse_subscriptions' - Details of the returned event subscriptions.
 newListEventSubscriptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListEventSubscriptionsResponse
 newListEventSubscriptionsResponse pHttpStatus_ =
   ListEventSubscriptionsResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      subscriptions = Core.mempty
+      subscriptions = Prelude.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this
 -- parameter is present in the response and contains the value to use for
 -- the __nextToken__ parameter in a subsequent pagination request. If there
 -- is no more data to be listed, this parameter is set to null.
-listEventSubscriptionsResponse_nextToken :: Lens.Lens' ListEventSubscriptionsResponse (Core.Maybe Core.Text)
+listEventSubscriptionsResponse_nextToken :: Lens.Lens' ListEventSubscriptionsResponse (Prelude.Maybe Prelude.Text)
 listEventSubscriptionsResponse_nextToken = Lens.lens (\ListEventSubscriptionsResponse' {nextToken} -> nextToken) (\s@ListEventSubscriptionsResponse' {} a -> s {nextToken = a} :: ListEventSubscriptionsResponse)
 
 -- | The response's http status code.
-listEventSubscriptionsResponse_httpStatus :: Lens.Lens' ListEventSubscriptionsResponse Core.Int
+listEventSubscriptionsResponse_httpStatus :: Lens.Lens' ListEventSubscriptionsResponse Prelude.Int
 listEventSubscriptionsResponse_httpStatus = Lens.lens (\ListEventSubscriptionsResponse' {httpStatus} -> httpStatus) (\s@ListEventSubscriptionsResponse' {} a -> s {httpStatus = a} :: ListEventSubscriptionsResponse)
 
 -- | Details of the returned event subscriptions.
 listEventSubscriptionsResponse_subscriptions :: Lens.Lens' ListEventSubscriptionsResponse [Subscription]
-listEventSubscriptionsResponse_subscriptions = Lens.lens (\ListEventSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@ListEventSubscriptionsResponse' {} a -> s {subscriptions = a} :: ListEventSubscriptionsResponse) Core.. Lens._Coerce
+listEventSubscriptionsResponse_subscriptions = Lens.lens (\ListEventSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@ListEventSubscriptionsResponse' {} a -> s {subscriptions = a} :: ListEventSubscriptionsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListEventSubscriptionsResponse
+instance
+  Prelude.NFData
+    ListEventSubscriptionsResponse

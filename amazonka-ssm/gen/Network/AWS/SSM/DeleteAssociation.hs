@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,13 +57,13 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Systems Manager document.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The association ID that you want to delete.
-    associationId :: Core.Maybe Core.Text
+    associationId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAssociation' with all optional fields omitted.
@@ -81,21 +82,21 @@ newDeleteAssociation ::
   DeleteAssociation
 newDeleteAssociation =
   DeleteAssociation'
-    { instanceId = Core.Nothing,
-      name = Core.Nothing,
-      associationId = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      associationId = Prelude.Nothing
     }
 
 -- | The ID of the instance.
-deleteAssociation_instanceId :: Lens.Lens' DeleteAssociation (Core.Maybe Core.Text)
+deleteAssociation_instanceId :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
 deleteAssociation_instanceId = Lens.lens (\DeleteAssociation' {instanceId} -> instanceId) (\s@DeleteAssociation' {} a -> s {instanceId = a} :: DeleteAssociation)
 
 -- | The name of the Systems Manager document.
-deleteAssociation_name :: Lens.Lens' DeleteAssociation (Core.Maybe Core.Text)
+deleteAssociation_name :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
 deleteAssociation_name = Lens.lens (\DeleteAssociation' {name} -> name) (\s@DeleteAssociation' {} a -> s {name = a} :: DeleteAssociation)
 
 -- | The association ID that you want to delete.
-deleteAssociation_associationId :: Lens.Lens' DeleteAssociation (Core.Maybe Core.Text)
+deleteAssociation_associationId :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
 deleteAssociation_associationId = Lens.lens (\DeleteAssociation' {associationId} -> associationId) (\s@DeleteAssociation' {} a -> s {associationId = a} :: DeleteAssociation)
 
 instance Core.AWSRequest DeleteAssociation where
@@ -107,46 +108,50 @@ instance Core.AWSRequest DeleteAssociation where
     Response.receiveEmpty
       ( \s h x ->
           DeleteAssociationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteAssociation
+instance Prelude.Hashable DeleteAssociation
 
-instance Core.NFData DeleteAssociation
+instance Prelude.NFData DeleteAssociation
 
 instance Core.ToHeaders DeleteAssociation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteAssociation" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.DeleteAssociation" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteAssociation where
   toJSON DeleteAssociation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InstanceId" Core..=) Core.<$> instanceId,
-            ("Name" Core..=) Core.<$> name,
-            ("AssociationId" Core..=) Core.<$> associationId
+      ( Prelude.catMaybes
+          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("Name" Core..=) Prelude.<$> name,
+            ("AssociationId" Core..=) Prelude.<$> associationId
           ]
       )
 
 instance Core.ToPath DeleteAssociation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAssociation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAssociationResponse' smart constructor.
 data DeleteAssociationResponse = DeleteAssociationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAssociationResponse' with all optional fields omitted.
@@ -159,7 +164,7 @@ data DeleteAssociationResponse = DeleteAssociationResponse'
 -- 'httpStatus', 'deleteAssociationResponse_httpStatus' - The response's http status code.
 newDeleteAssociationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteAssociationResponse
 newDeleteAssociationResponse pHttpStatus_ =
   DeleteAssociationResponse'
@@ -168,7 +173,7 @@ newDeleteAssociationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteAssociationResponse_httpStatus :: Lens.Lens' DeleteAssociationResponse Core.Int
+deleteAssociationResponse_httpStatus :: Lens.Lens' DeleteAssociationResponse Prelude.Int
 deleteAssociationResponse_httpStatus = Lens.lens (\DeleteAssociationResponse' {httpStatus} -> httpStatus) (\s@DeleteAssociationResponse' {} a -> s {httpStatus = a} :: DeleteAssociationResponse)
 
-instance Core.NFData DeleteAssociationResponse
+instance Prelude.NFData DeleteAssociationResponse

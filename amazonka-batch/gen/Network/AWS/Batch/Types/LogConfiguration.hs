@@ -23,6 +23,7 @@ import Network.AWS.Batch.Types.LogDriver
 import Network.AWS.Batch.Types.Secret
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Log configuration options to send to a custom log driver for the
 -- container.
@@ -34,11 +35,11 @@ data LogConfiguration = LogConfiguration'
     -- container instance. To check the Docker Remote API version on your
     -- container instance, log into your container instance and run the
     -- following command: @sudo docker version | grep \"Server API version\"@
-    options :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The secrets to pass to the log configuration. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
     -- in the /AWS Batch User Guide/.
-    secretOptions :: Core.Maybe [Secret],
+    secretOptions :: Prelude.Maybe [Secret],
     -- | The log driver to use for the container. The valid values listed for
     -- this parameter are log drivers that the Amazon ECS container agent can
     -- communicate with by default.
@@ -108,7 +109,7 @@ data LogConfiguration = LogConfiguration'
     -- following command: @sudo docker version | grep \"Server API version\"@
     logDriver :: LogDriver
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LogConfiguration' with all optional fields omitted.
@@ -201,8 +202,8 @@ newLogConfiguration ::
   LogConfiguration
 newLogConfiguration pLogDriver_ =
   LogConfiguration'
-    { options = Core.Nothing,
-      secretOptions = Core.Nothing,
+    { options = Prelude.Nothing,
+      secretOptions = Prelude.Nothing,
       logDriver = pLogDriver_
     }
 
@@ -211,14 +212,14 @@ newLogConfiguration pLogDriver_ =
 -- container instance. To check the Docker Remote API version on your
 -- container instance, log into your container instance and run the
 -- following command: @sudo docker version | grep \"Server API version\"@
-logConfiguration_options :: Lens.Lens' LogConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
-logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (\s@LogConfiguration' {} a -> s {options = a} :: LogConfiguration) Core.. Lens.mapping Lens._Coerce
+logConfiguration_options :: Lens.Lens' LogConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (\s@LogConfiguration' {} a -> s {options = a} :: LogConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The secrets to pass to the log configuration. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
 -- in the /AWS Batch User Guide/.
-logConfiguration_secretOptions :: Lens.Lens' LogConfiguration (Core.Maybe [Secret])
-logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Core.. Lens.mapping Lens._Coerce
+logConfiguration_secretOptions :: Lens.Lens' LogConfiguration (Prelude.Maybe [Secret])
+logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The log driver to use for the container. The valid values listed for
 -- this parameter are log drivers that the Amazon ECS container agent can
@@ -296,21 +297,21 @@ instance Core.FromJSON LogConfiguration where
       "LogConfiguration"
       ( \x ->
           LogConfiguration'
-            Core.<$> (x Core..:? "options" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "secretOptions" Core..!= Core.mempty)
-            Core.<*> (x Core..: "logDriver")
+            Prelude.<$> (x Core..:? "options" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "secretOptions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "logDriver")
       )
 
-instance Core.Hashable LogConfiguration
+instance Prelude.Hashable LogConfiguration
 
-instance Core.NFData LogConfiguration
+instance Prelude.NFData LogConfiguration
 
 instance Core.ToJSON LogConfiguration where
   toJSON LogConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("options" Core..=) Core.<$> options,
-            ("secretOptions" Core..=) Core.<$> secretOptions,
-            Core.Just ("logDriver" Core..= logDriver)
+      ( Prelude.catMaybes
+          [ ("options" Core..=) Prelude.<$> options,
+            ("secretOptions" Core..=) Prelude.<$> secretOptions,
+            Prelude.Just ("logDriver" Core..= logDriver)
           ]
       )

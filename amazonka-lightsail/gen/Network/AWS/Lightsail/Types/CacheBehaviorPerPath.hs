@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.CacheBehaviorPerPath where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.BehaviorEnum
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the per-path cache behavior of an Amazon Lightsail content
 -- delivery network (CDN) distribution.
@@ -45,7 +46,7 @@ data CacheBehaviorPerPath = CacheBehaviorPerPath'
     -- -   __@cache@__ - This behavior caches the specified path.
     --
     -- -   __@dont-cache@__ - This behavior doesn\'t cache the specified path.
-    behavior :: Core.Maybe BehaviorEnum,
+    behavior :: Prelude.Maybe BehaviorEnum,
     -- | The path to a directory or file to cached, or not cache. Use an asterisk
     -- symbol to specify wildcard directories (@path\/to\/assets\/*@), and file
     -- types (@*.html, *jpg, *js@). Directories and file paths are
@@ -82,9 +83,9 @@ data CacheBehaviorPerPath = CacheBehaviorPerPath'
     --     of the document root of an Apache web server.
     --
     --     @var\/www\/html\/images\/@
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CacheBehaviorPerPath' with all optional fields omitted.
@@ -142,8 +143,8 @@ newCacheBehaviorPerPath ::
   CacheBehaviorPerPath
 newCacheBehaviorPerPath =
   CacheBehaviorPerPath'
-    { behavior = Core.Nothing,
-      path = Core.Nothing
+    { behavior = Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | The cache behavior for the specified path.
@@ -153,7 +154,7 @@ newCacheBehaviorPerPath =
 -- -   __@cache@__ - This behavior caches the specified path.
 --
 -- -   __@dont-cache@__ - This behavior doesn\'t cache the specified path.
-cacheBehaviorPerPath_behavior :: Lens.Lens' CacheBehaviorPerPath (Core.Maybe BehaviorEnum)
+cacheBehaviorPerPath_behavior :: Lens.Lens' CacheBehaviorPerPath (Prelude.Maybe BehaviorEnum)
 cacheBehaviorPerPath_behavior = Lens.lens (\CacheBehaviorPerPath' {behavior} -> behavior) (\s@CacheBehaviorPerPath' {} a -> s {behavior = a} :: CacheBehaviorPerPath)
 
 -- | The path to a directory or file to cached, or not cache. Use an asterisk
@@ -192,7 +193,7 @@ cacheBehaviorPerPath_behavior = Lens.lens (\CacheBehaviorPerPath' {behavior} -> 
 --     of the document root of an Apache web server.
 --
 --     @var\/www\/html\/images\/@
-cacheBehaviorPerPath_path :: Lens.Lens' CacheBehaviorPerPath (Core.Maybe Core.Text)
+cacheBehaviorPerPath_path :: Lens.Lens' CacheBehaviorPerPath (Prelude.Maybe Prelude.Text)
 cacheBehaviorPerPath_path = Lens.lens (\CacheBehaviorPerPath' {path} -> path) (\s@CacheBehaviorPerPath' {} a -> s {path = a} :: CacheBehaviorPerPath)
 
 instance Core.FromJSON CacheBehaviorPerPath where
@@ -201,18 +202,19 @@ instance Core.FromJSON CacheBehaviorPerPath where
       "CacheBehaviorPerPath"
       ( \x ->
           CacheBehaviorPerPath'
-            Core.<$> (x Core..:? "behavior") Core.<*> (x Core..:? "path")
+            Prelude.<$> (x Core..:? "behavior")
+            Prelude.<*> (x Core..:? "path")
       )
 
-instance Core.Hashable CacheBehaviorPerPath
+instance Prelude.Hashable CacheBehaviorPerPath
 
-instance Core.NFData CacheBehaviorPerPath
+instance Prelude.NFData CacheBehaviorPerPath
 
 instance Core.ToJSON CacheBehaviorPerPath where
   toJSON CacheBehaviorPerPath' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("behavior" Core..=) Core.<$> behavior,
-            ("path" Core..=) Core.<$> path
+      ( Prelude.catMaybes
+          [ ("behavior" Core..=) Prelude.<$> behavior,
+            ("path" Core..=) Prelude.<$> path
           ]
       )

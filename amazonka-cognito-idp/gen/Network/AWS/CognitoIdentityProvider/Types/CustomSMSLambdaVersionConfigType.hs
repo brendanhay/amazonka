@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigTyp
 import Network.AWS.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A custom SMS sender Lambda configuration type.
 --
@@ -33,9 +34,9 @@ data CustomSMSLambdaVersionConfigType = CustomSMSLambdaVersionConfigType'
     lambdaVersion :: CustomSMSSenderLambdaVersionType,
     -- | The Lambda Amazon Resource Name of the Lambda function that Amazon
     -- Cognito triggers to send SMS notifications to users.
-    lambdaArn :: Core.Text
+    lambdaArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomSMSLambdaVersionConfigType' with all optional fields omitted.
@@ -55,7 +56,7 @@ newCustomSMSLambdaVersionConfigType ::
   -- | 'lambdaVersion'
   CustomSMSSenderLambdaVersionType ->
   -- | 'lambdaArn'
-  Core.Text ->
+  Prelude.Text ->
   CustomSMSLambdaVersionConfigType
 newCustomSMSLambdaVersionConfigType
   pLambdaVersion_
@@ -74,7 +75,7 @@ customSMSLambdaVersionConfigType_lambdaVersion = Lens.lens (\CustomSMSLambdaVers
 
 -- | The Lambda Amazon Resource Name of the Lambda function that Amazon
 -- Cognito triggers to send SMS notifications to users.
-customSMSLambdaVersionConfigType_lambdaArn :: Lens.Lens' CustomSMSLambdaVersionConfigType Core.Text
+customSMSLambdaVersionConfigType_lambdaArn :: Lens.Lens' CustomSMSLambdaVersionConfigType Prelude.Text
 customSMSLambdaVersionConfigType_lambdaArn = Lens.lens (\CustomSMSLambdaVersionConfigType' {lambdaArn} -> lambdaArn) (\s@CustomSMSLambdaVersionConfigType' {} a -> s {lambdaArn = a} :: CustomSMSLambdaVersionConfigType)
 
 instance
@@ -86,21 +87,24 @@ instance
       "CustomSMSLambdaVersionConfigType"
       ( \x ->
           CustomSMSLambdaVersionConfigType'
-            Core.<$> (x Core..: "LambdaVersion")
-            Core.<*> (x Core..: "LambdaArn")
+            Prelude.<$> (x Core..: "LambdaVersion")
+            Prelude.<*> (x Core..: "LambdaArn")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CustomSMSLambdaVersionConfigType
 
-instance Core.NFData CustomSMSLambdaVersionConfigType
+instance
+  Prelude.NFData
+    CustomSMSLambdaVersionConfigType
 
 instance Core.ToJSON CustomSMSLambdaVersionConfigType where
   toJSON CustomSMSLambdaVersionConfigType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("LambdaVersion" Core..= lambdaVersion),
-            Core.Just ("LambdaArn" Core..= lambdaArn)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("LambdaVersion" Core..= lambdaVersion),
+            Prelude.Just ("LambdaArn" Core..= lambdaArn)
           ]
       )

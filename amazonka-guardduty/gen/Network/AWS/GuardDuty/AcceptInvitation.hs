@@ -44,21 +44,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAcceptInvitation' smart constructor.
 data AcceptInvitation = AcceptInvitation'
   { -- | The unique ID of the detector of the GuardDuty member account.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | The account ID of the GuardDuty administrator account whose invitation
     -- you\'re accepting.
-    masterId :: Core.Text,
+    masterId :: Prelude.Text,
     -- | The value that is used to validate the administrator account to the
     -- member account.
-    invitationId :: Core.Text
+    invitationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptInvitation' with all optional fields omitted.
@@ -77,11 +78,11 @@ data AcceptInvitation = AcceptInvitation'
 -- member account.
 newAcceptInvitation ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'masterId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'invitationId'
-  Core.Text ->
+  Prelude.Text ->
   AcceptInvitation
 newAcceptInvitation
   pDetectorId_
@@ -94,17 +95,17 @@ newAcceptInvitation
       }
 
 -- | The unique ID of the detector of the GuardDuty member account.
-acceptInvitation_detectorId :: Lens.Lens' AcceptInvitation Core.Text
+acceptInvitation_detectorId :: Lens.Lens' AcceptInvitation Prelude.Text
 acceptInvitation_detectorId = Lens.lens (\AcceptInvitation' {detectorId} -> detectorId) (\s@AcceptInvitation' {} a -> s {detectorId = a} :: AcceptInvitation)
 
 -- | The account ID of the GuardDuty administrator account whose invitation
 -- you\'re accepting.
-acceptInvitation_masterId :: Lens.Lens' AcceptInvitation Core.Text
+acceptInvitation_masterId :: Lens.Lens' AcceptInvitation Prelude.Text
 acceptInvitation_masterId = Lens.lens (\AcceptInvitation' {masterId} -> masterId) (\s@AcceptInvitation' {} a -> s {masterId = a} :: AcceptInvitation)
 
 -- | The value that is used to validate the administrator account to the
 -- member account.
-acceptInvitation_invitationId :: Lens.Lens' AcceptInvitation Core.Text
+acceptInvitation_invitationId :: Lens.Lens' AcceptInvitation Prelude.Text
 acceptInvitation_invitationId = Lens.lens (\AcceptInvitation' {invitationId} -> invitationId) (\s@AcceptInvitation' {} a -> s {invitationId = a} :: AcceptInvitation)
 
 instance Core.AWSRequest AcceptInvitation where
@@ -116,45 +117,47 @@ instance Core.AWSRequest AcceptInvitation where
     Response.receiveEmpty
       ( \s h x ->
           AcceptInvitationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AcceptInvitation
+instance Prelude.Hashable AcceptInvitation
 
-instance Core.NFData AcceptInvitation
+instance Prelude.NFData AcceptInvitation
 
 instance Core.ToHeaders AcceptInvitation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AcceptInvitation where
   toJSON AcceptInvitation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("masterId" Core..= masterId),
-            Core.Just ("invitationId" Core..= invitationId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("masterId" Core..= masterId),
+            Prelude.Just ("invitationId" Core..= invitationId)
           ]
       )
 
 instance Core.ToPath AcceptInvitation where
   toPath AcceptInvitation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/detector/", Core.toBS detectorId, "/master"]
 
 instance Core.ToQuery AcceptInvitation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptInvitationResponse' smart constructor.
 data AcceptInvitationResponse = AcceptInvitationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptInvitationResponse' with all optional fields omitted.
@@ -167,7 +170,7 @@ data AcceptInvitationResponse = AcceptInvitationResponse'
 -- 'httpStatus', 'acceptInvitationResponse_httpStatus' - The response's http status code.
 newAcceptInvitationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AcceptInvitationResponse
 newAcceptInvitationResponse pHttpStatus_ =
   AcceptInvitationResponse'
@@ -176,7 +179,7 @@ newAcceptInvitationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-acceptInvitationResponse_httpStatus :: Lens.Lens' AcceptInvitationResponse Core.Int
+acceptInvitationResponse_httpStatus :: Lens.Lens' AcceptInvitationResponse Prelude.Int
 acceptInvitationResponse_httpStatus = Lens.lens (\AcceptInvitationResponse' {httpStatus} -> httpStatus) (\s@AcceptInvitationResponse' {} a -> s {httpStatus = a} :: AcceptInvitationResponse)
 
-instance Core.NFData AcceptInvitationResponse
+instance Prelude.NFData AcceptInvitationResponse

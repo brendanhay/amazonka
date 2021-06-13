@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -53,12 +54,12 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newCancelRetrieval' smart constructor.
 data CancelRetrieval = CancelRetrieval'
-  { gatewayARN :: Core.Text,
+  { gatewayARN :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
     -- retrieval for.
-    tapeARN :: Core.Text
+    tapeARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelRetrieval' with all optional fields omitted.
@@ -74,9 +75,9 @@ data CancelRetrieval = CancelRetrieval'
 -- retrieval for.
 newCancelRetrieval ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tapeARN'
-  Core.Text ->
+  Prelude.Text ->
   CancelRetrieval
 newCancelRetrieval pGatewayARN_ pTapeARN_ =
   CancelRetrieval'
@@ -85,12 +86,12 @@ newCancelRetrieval pGatewayARN_ pTapeARN_ =
     }
 
 -- | Undocumented member.
-cancelRetrieval_gatewayARN :: Lens.Lens' CancelRetrieval Core.Text
+cancelRetrieval_gatewayARN :: Lens.Lens' CancelRetrieval Prelude.Text
 cancelRetrieval_gatewayARN = Lens.lens (\CancelRetrieval' {gatewayARN} -> gatewayARN) (\s@CancelRetrieval' {} a -> s {gatewayARN = a} :: CancelRetrieval)
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
 -- retrieval for.
-cancelRetrieval_tapeARN :: Lens.Lens' CancelRetrieval Core.Text
+cancelRetrieval_tapeARN :: Lens.Lens' CancelRetrieval Prelude.Text
 cancelRetrieval_tapeARN = Lens.lens (\CancelRetrieval' {tapeARN} -> tapeARN) (\s@CancelRetrieval' {} a -> s {tapeARN = a} :: CancelRetrieval)
 
 instance Core.AWSRequest CancelRetrieval where
@@ -102,41 +103,43 @@ instance Core.AWSRequest CancelRetrieval where
     Response.receiveJSON
       ( \s h x ->
           CancelRetrievalResponse'
-            Core.<$> (x Core..?> "TapeARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelRetrieval
+instance Prelude.Hashable CancelRetrieval
 
-instance Core.NFData CancelRetrieval
+instance Prelude.NFData CancelRetrieval
 
 instance Core.ToHeaders CancelRetrieval where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.CancelRetrieval" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelRetrieval where
   toJSON CancelRetrieval' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GatewayARN" Core..= gatewayARN),
-            Core.Just ("TapeARN" Core..= tapeARN)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just ("TapeARN" Core..= tapeARN)
           ]
       )
 
 instance Core.ToPath CancelRetrieval where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelRetrieval where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | CancelRetrievalOutput
 --
@@ -144,11 +147,11 @@ instance Core.ToQuery CancelRetrieval where
 data CancelRetrievalResponse = CancelRetrievalResponse'
   { -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
     -- was canceled.
-    tapeARN :: Core.Maybe Core.Text,
+    tapeARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelRetrievalResponse' with all optional fields omitted.
@@ -164,21 +167,21 @@ data CancelRetrievalResponse = CancelRetrievalResponse'
 -- 'httpStatus', 'cancelRetrievalResponse_httpStatus' - The response's http status code.
 newCancelRetrievalResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelRetrievalResponse
 newCancelRetrievalResponse pHttpStatus_ =
   CancelRetrievalResponse'
-    { tapeARN = Core.Nothing,
+    { tapeARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
 -- was canceled.
-cancelRetrievalResponse_tapeARN :: Lens.Lens' CancelRetrievalResponse (Core.Maybe Core.Text)
+cancelRetrievalResponse_tapeARN :: Lens.Lens' CancelRetrievalResponse (Prelude.Maybe Prelude.Text)
 cancelRetrievalResponse_tapeARN = Lens.lens (\CancelRetrievalResponse' {tapeARN} -> tapeARN) (\s@CancelRetrievalResponse' {} a -> s {tapeARN = a} :: CancelRetrievalResponse)
 
 -- | The response's http status code.
-cancelRetrievalResponse_httpStatus :: Lens.Lens' CancelRetrievalResponse Core.Int
+cancelRetrievalResponse_httpStatus :: Lens.Lens' CancelRetrievalResponse Prelude.Int
 cancelRetrievalResponse_httpStatus = Lens.lens (\CancelRetrievalResponse' {httpStatus} -> httpStatus) (\s@CancelRetrievalResponse' {} a -> s {httpStatus = a} :: CancelRetrievalResponse)
 
-instance Core.NFData CancelRetrievalResponse
+instance Prelude.NFData CancelRetrievalResponse

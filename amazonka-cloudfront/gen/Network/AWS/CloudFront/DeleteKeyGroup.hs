@@ -47,6 +47,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +56,12 @@ data DeleteKeyGroup = DeleteKeyGroup'
   { -- | The version of the key group that you are deleting. The version is the
     -- key group’s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
     -- @GetKeyGroupConfig@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the key group that you are deleting. To get the
     -- identifier, use @ListKeyGroups@.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteKeyGroup' with all optional fields omitted.
@@ -78,20 +79,23 @@ data DeleteKeyGroup = DeleteKeyGroup'
 -- identifier, use @ListKeyGroups@.
 newDeleteKeyGroup ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteKeyGroup
 newDeleteKeyGroup pId_ =
-  DeleteKeyGroup' {ifMatch = Core.Nothing, id = pId_}
+  DeleteKeyGroup'
+    { ifMatch = Prelude.Nothing,
+      id = pId_
+    }
 
 -- | The version of the key group that you are deleting. The version is the
 -- key group’s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
 -- @GetKeyGroupConfig@.
-deleteKeyGroup_ifMatch :: Lens.Lens' DeleteKeyGroup (Core.Maybe Core.Text)
+deleteKeyGroup_ifMatch :: Lens.Lens' DeleteKeyGroup (Prelude.Maybe Prelude.Text)
 deleteKeyGroup_ifMatch = Lens.lens (\DeleteKeyGroup' {ifMatch} -> ifMatch) (\s@DeleteKeyGroup' {} a -> s {ifMatch = a} :: DeleteKeyGroup)
 
 -- | The identifier of the key group that you are deleting. To get the
 -- identifier, use @ListKeyGroups@.
-deleteKeyGroup_id :: Lens.Lens' DeleteKeyGroup Core.Text
+deleteKeyGroup_id :: Lens.Lens' DeleteKeyGroup Prelude.Text
 deleteKeyGroup_id = Lens.lens (\DeleteKeyGroup' {id} -> id) (\s@DeleteKeyGroup' {} a -> s {id = a} :: DeleteKeyGroup)
 
 instance Core.AWSRequest DeleteKeyGroup where
@@ -102,27 +106,27 @@ instance Core.AWSRequest DeleteKeyGroup where
   response =
     Response.receiveNull DeleteKeyGroupResponse'
 
-instance Core.Hashable DeleteKeyGroup
+instance Prelude.Hashable DeleteKeyGroup
 
-instance Core.NFData DeleteKeyGroup
+instance Prelude.NFData DeleteKeyGroup
 
 instance Core.ToHeaders DeleteKeyGroup where
   toHeaders DeleteKeyGroup' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath DeleteKeyGroup where
   toPath DeleteKeyGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/key-group/", Core.toBS id]
 
 instance Core.ToQuery DeleteKeyGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteKeyGroupResponse' smart constructor.
 data DeleteKeyGroupResponse = DeleteKeyGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteKeyGroupResponse' with all optional fields omitted.
@@ -132,4 +136,4 @@ newDeleteKeyGroupResponse ::
   DeleteKeyGroupResponse
 newDeleteKeyGroupResponse = DeleteKeyGroupResponse'
 
-instance Core.NFData DeleteKeyGroupResponse
+instance Prelude.NFData DeleteKeyGroupResponse

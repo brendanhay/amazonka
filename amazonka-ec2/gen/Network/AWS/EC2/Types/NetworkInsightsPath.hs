@@ -24,33 +24,34 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Protocol
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a path.
 --
 -- /See:/ 'newNetworkInsightsPath' smart constructor.
 data NetworkInsightsPath = NetworkInsightsPath'
   { -- | The time stamp when the path was created.
-    createdDate :: Core.Maybe Core.ISO8601,
+    createdDate :: Prelude.Maybe Core.ISO8601,
     -- | The AWS resource that is the source of the path.
-    source :: Core.Maybe Core.Text,
+    source :: Prelude.Maybe Prelude.Text,
     -- | The IP address of the AWS resource that is the destination of the path.
-    destinationIp :: Core.Maybe Core.Text,
+    destinationIp :: Prelude.Maybe Prelude.Text,
     -- | The AWS resource that is the destination of the path.
-    destination :: Core.Maybe Core.Text,
+    destination :: Prelude.Maybe Prelude.Text,
     -- | The IP address of the AWS resource that is the source of the path.
-    sourceIp :: Core.Maybe Core.Text,
+    sourceIp :: Prelude.Maybe Prelude.Text,
     -- | The tags associated with the path.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The protocol.
-    protocol :: Core.Maybe Protocol,
+    protocol :: Prelude.Maybe Protocol,
     -- | The Amazon Resource Name (ARN) of the path.
-    networkInsightsPathArn :: Core.Maybe Core.Text,
+    networkInsightsPathArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the path.
-    networkInsightsPathId :: Core.Maybe Core.Text,
+    networkInsightsPathId :: Prelude.Maybe Prelude.Text,
     -- | The destination port.
-    destinationPort :: Core.Maybe Core.Int
+    destinationPort :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkInsightsPath' with all optional fields omitted.
@@ -83,74 +84,74 @@ newNetworkInsightsPath ::
   NetworkInsightsPath
 newNetworkInsightsPath =
   NetworkInsightsPath'
-    { createdDate = Core.Nothing,
-      source = Core.Nothing,
-      destinationIp = Core.Nothing,
-      destination = Core.Nothing,
-      sourceIp = Core.Nothing,
-      tags = Core.Nothing,
-      protocol = Core.Nothing,
-      networkInsightsPathArn = Core.Nothing,
-      networkInsightsPathId = Core.Nothing,
-      destinationPort = Core.Nothing
+    { createdDate = Prelude.Nothing,
+      source = Prelude.Nothing,
+      destinationIp = Prelude.Nothing,
+      destination = Prelude.Nothing,
+      sourceIp = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      networkInsightsPathArn = Prelude.Nothing,
+      networkInsightsPathId = Prelude.Nothing,
+      destinationPort = Prelude.Nothing
     }
 
 -- | The time stamp when the path was created.
-networkInsightsPath_createdDate :: Lens.Lens' NetworkInsightsPath (Core.Maybe Core.UTCTime)
-networkInsightsPath_createdDate = Lens.lens (\NetworkInsightsPath' {createdDate} -> createdDate) (\s@NetworkInsightsPath' {} a -> s {createdDate = a} :: NetworkInsightsPath) Core.. Lens.mapping Core._Time
+networkInsightsPath_createdDate :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.UTCTime)
+networkInsightsPath_createdDate = Lens.lens (\NetworkInsightsPath' {createdDate} -> createdDate) (\s@NetworkInsightsPath' {} a -> s {createdDate = a} :: NetworkInsightsPath) Prelude.. Lens.mapping Core._Time
 
 -- | The AWS resource that is the source of the path.
-networkInsightsPath_source :: Lens.Lens' NetworkInsightsPath (Core.Maybe Core.Text)
+networkInsightsPath_source :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_source = Lens.lens (\NetworkInsightsPath' {source} -> source) (\s@NetworkInsightsPath' {} a -> s {source = a} :: NetworkInsightsPath)
 
 -- | The IP address of the AWS resource that is the destination of the path.
-networkInsightsPath_destinationIp :: Lens.Lens' NetworkInsightsPath (Core.Maybe Core.Text)
+networkInsightsPath_destinationIp :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_destinationIp = Lens.lens (\NetworkInsightsPath' {destinationIp} -> destinationIp) (\s@NetworkInsightsPath' {} a -> s {destinationIp = a} :: NetworkInsightsPath)
 
 -- | The AWS resource that is the destination of the path.
-networkInsightsPath_destination :: Lens.Lens' NetworkInsightsPath (Core.Maybe Core.Text)
+networkInsightsPath_destination :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_destination = Lens.lens (\NetworkInsightsPath' {destination} -> destination) (\s@NetworkInsightsPath' {} a -> s {destination = a} :: NetworkInsightsPath)
 
 -- | The IP address of the AWS resource that is the source of the path.
-networkInsightsPath_sourceIp :: Lens.Lens' NetworkInsightsPath (Core.Maybe Core.Text)
+networkInsightsPath_sourceIp :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_sourceIp = Lens.lens (\NetworkInsightsPath' {sourceIp} -> sourceIp) (\s@NetworkInsightsPath' {} a -> s {sourceIp = a} :: NetworkInsightsPath)
 
 -- | The tags associated with the path.
-networkInsightsPath_tags :: Lens.Lens' NetworkInsightsPath (Core.Maybe [Tag])
-networkInsightsPath_tags = Lens.lens (\NetworkInsightsPath' {tags} -> tags) (\s@NetworkInsightsPath' {} a -> s {tags = a} :: NetworkInsightsPath) Core.. Lens.mapping Lens._Coerce
+networkInsightsPath_tags :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe [Tag])
+networkInsightsPath_tags = Lens.lens (\NetworkInsightsPath' {tags} -> tags) (\s@NetworkInsightsPath' {} a -> s {tags = a} :: NetworkInsightsPath) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The protocol.
-networkInsightsPath_protocol :: Lens.Lens' NetworkInsightsPath (Core.Maybe Protocol)
+networkInsightsPath_protocol :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Protocol)
 networkInsightsPath_protocol = Lens.lens (\NetworkInsightsPath' {protocol} -> protocol) (\s@NetworkInsightsPath' {} a -> s {protocol = a} :: NetworkInsightsPath)
 
 -- | The Amazon Resource Name (ARN) of the path.
-networkInsightsPath_networkInsightsPathArn :: Lens.Lens' NetworkInsightsPath (Core.Maybe Core.Text)
+networkInsightsPath_networkInsightsPathArn :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_networkInsightsPathArn = Lens.lens (\NetworkInsightsPath' {networkInsightsPathArn} -> networkInsightsPathArn) (\s@NetworkInsightsPath' {} a -> s {networkInsightsPathArn = a} :: NetworkInsightsPath)
 
 -- | The ID of the path.
-networkInsightsPath_networkInsightsPathId :: Lens.Lens' NetworkInsightsPath (Core.Maybe Core.Text)
+networkInsightsPath_networkInsightsPathId :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_networkInsightsPathId = Lens.lens (\NetworkInsightsPath' {networkInsightsPathId} -> networkInsightsPathId) (\s@NetworkInsightsPath' {} a -> s {networkInsightsPathId = a} :: NetworkInsightsPath)
 
 -- | The destination port.
-networkInsightsPath_destinationPort :: Lens.Lens' NetworkInsightsPath (Core.Maybe Core.Int)
+networkInsightsPath_destinationPort :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Int)
 networkInsightsPath_destinationPort = Lens.lens (\NetworkInsightsPath' {destinationPort} -> destinationPort) (\s@NetworkInsightsPath' {} a -> s {destinationPort = a} :: NetworkInsightsPath)
 
 instance Core.FromXML NetworkInsightsPath where
   parseXML x =
     NetworkInsightsPath'
-      Core.<$> (x Core..@? "createdDate")
-      Core.<*> (x Core..@? "source")
-      Core.<*> (x Core..@? "destinationIp")
-      Core.<*> (x Core..@? "destination")
-      Core.<*> (x Core..@? "sourceIp")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "protocol")
-      Core.<*> (x Core..@? "networkInsightsPathArn")
-      Core.<*> (x Core..@? "networkInsightsPathId")
-      Core.<*> (x Core..@? "destinationPort")
+      Prelude.<$> (x Core..@? "createdDate")
+      Prelude.<*> (x Core..@? "source")
+      Prelude.<*> (x Core..@? "destinationIp")
+      Prelude.<*> (x Core..@? "destination")
+      Prelude.<*> (x Core..@? "sourceIp")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "protocol")
+      Prelude.<*> (x Core..@? "networkInsightsPathArn")
+      Prelude.<*> (x Core..@? "networkInsightsPathId")
+      Prelude.<*> (x Core..@? "destinationPort")
 
-instance Core.Hashable NetworkInsightsPath
+instance Prelude.Hashable NetworkInsightsPath
 
-instance Core.NFData NetworkInsightsPath
+instance Prelude.NFData NetworkInsightsPath

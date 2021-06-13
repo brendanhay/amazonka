@@ -21,6 +21,7 @@ module Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata about the pull request that is used when comparing the pull
 -- request source with its destination.
@@ -28,18 +29,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPullRequestCreatedEventMetadata' smart constructor.
 data PullRequestCreatedEventMetadata = PullRequestCreatedEventMetadata'
   { -- | The name of the repository where the pull request was created.
-    repositoryName :: Core.Maybe Core.Text,
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The commit ID on the source branch used when the pull request was
     -- created.
-    sourceCommitId :: Core.Maybe Core.Text,
+    sourceCommitId :: Prelude.Maybe Prelude.Text,
     -- | The commit ID of the tip of the branch specified as the destination
     -- branch when the pull request was created.
-    destinationCommitId :: Core.Maybe Core.Text,
+    destinationCommitId :: Prelude.Maybe Prelude.Text,
     -- | The commit ID of the most recent commit that the source branch and the
     -- destination branch have in common.
-    mergeBase :: Core.Maybe Core.Text
+    mergeBase :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PullRequestCreatedEventMetadata' with all optional fields omitted.
@@ -64,29 +65,29 @@ newPullRequestCreatedEventMetadata ::
 newPullRequestCreatedEventMetadata =
   PullRequestCreatedEventMetadata'
     { repositoryName =
-        Core.Nothing,
-      sourceCommitId = Core.Nothing,
-      destinationCommitId = Core.Nothing,
-      mergeBase = Core.Nothing
+        Prelude.Nothing,
+      sourceCommitId = Prelude.Nothing,
+      destinationCommitId = Prelude.Nothing,
+      mergeBase = Prelude.Nothing
     }
 
 -- | The name of the repository where the pull request was created.
-pullRequestCreatedEventMetadata_repositoryName :: Lens.Lens' PullRequestCreatedEventMetadata (Core.Maybe Core.Text)
+pullRequestCreatedEventMetadata_repositoryName :: Lens.Lens' PullRequestCreatedEventMetadata (Prelude.Maybe Prelude.Text)
 pullRequestCreatedEventMetadata_repositoryName = Lens.lens (\PullRequestCreatedEventMetadata' {repositoryName} -> repositoryName) (\s@PullRequestCreatedEventMetadata' {} a -> s {repositoryName = a} :: PullRequestCreatedEventMetadata)
 
 -- | The commit ID on the source branch used when the pull request was
 -- created.
-pullRequestCreatedEventMetadata_sourceCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Core.Maybe Core.Text)
+pullRequestCreatedEventMetadata_sourceCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Prelude.Maybe Prelude.Text)
 pullRequestCreatedEventMetadata_sourceCommitId = Lens.lens (\PullRequestCreatedEventMetadata' {sourceCommitId} -> sourceCommitId) (\s@PullRequestCreatedEventMetadata' {} a -> s {sourceCommitId = a} :: PullRequestCreatedEventMetadata)
 
 -- | The commit ID of the tip of the branch specified as the destination
 -- branch when the pull request was created.
-pullRequestCreatedEventMetadata_destinationCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Core.Maybe Core.Text)
+pullRequestCreatedEventMetadata_destinationCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Prelude.Maybe Prelude.Text)
 pullRequestCreatedEventMetadata_destinationCommitId = Lens.lens (\PullRequestCreatedEventMetadata' {destinationCommitId} -> destinationCommitId) (\s@PullRequestCreatedEventMetadata' {} a -> s {destinationCommitId = a} :: PullRequestCreatedEventMetadata)
 
 -- | The commit ID of the most recent commit that the source branch and the
 -- destination branch have in common.
-pullRequestCreatedEventMetadata_mergeBase :: Lens.Lens' PullRequestCreatedEventMetadata (Core.Maybe Core.Text)
+pullRequestCreatedEventMetadata_mergeBase :: Lens.Lens' PullRequestCreatedEventMetadata (Prelude.Maybe Prelude.Text)
 pullRequestCreatedEventMetadata_mergeBase = Lens.lens (\PullRequestCreatedEventMetadata' {mergeBase} -> mergeBase) (\s@PullRequestCreatedEventMetadata' {} a -> s {mergeBase = a} :: PullRequestCreatedEventMetadata)
 
 instance
@@ -98,14 +99,16 @@ instance
       "PullRequestCreatedEventMetadata"
       ( \x ->
           PullRequestCreatedEventMetadata'
-            Core.<$> (x Core..:? "repositoryName")
-            Core.<*> (x Core..:? "sourceCommitId")
-            Core.<*> (x Core..:? "destinationCommitId")
-            Core.<*> (x Core..:? "mergeBase")
+            Prelude.<$> (x Core..:? "repositoryName")
+            Prelude.<*> (x Core..:? "sourceCommitId")
+            Prelude.<*> (x Core..:? "destinationCommitId")
+            Prelude.<*> (x Core..:? "mergeBase")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PullRequestCreatedEventMetadata
 
-instance Core.NFData PullRequestCreatedEventMetadata
+instance
+  Prelude.NFData
+    PullRequestCreatedEventMetadata

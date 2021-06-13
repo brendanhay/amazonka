@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -59,13 +60,13 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeDevice' smart constructor.
 data DescribeDevice = DescribeDevice'
   { -- | Next token of device description.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the device.
-    deviceName :: Core.Text,
+    deviceName :: Prelude.Text,
     -- | The name of the fleet the devices belong to.
-    deviceFleetName :: Core.Text
+    deviceFleetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDevice' with all optional fields omitted.
@@ -82,27 +83,27 @@ data DescribeDevice = DescribeDevice'
 -- 'deviceFleetName', 'describeDevice_deviceFleetName' - The name of the fleet the devices belong to.
 newDescribeDevice ::
   -- | 'deviceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deviceFleetName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDevice
 newDescribeDevice pDeviceName_ pDeviceFleetName_ =
   DescribeDevice'
-    { nextToken = Core.Nothing,
+    { nextToken = Prelude.Nothing,
       deviceName = pDeviceName_,
       deviceFleetName = pDeviceFleetName_
     }
 
 -- | Next token of device description.
-describeDevice_nextToken :: Lens.Lens' DescribeDevice (Core.Maybe Core.Text)
+describeDevice_nextToken :: Lens.Lens' DescribeDevice (Prelude.Maybe Prelude.Text)
 describeDevice_nextToken = Lens.lens (\DescribeDevice' {nextToken} -> nextToken) (\s@DescribeDevice' {} a -> s {nextToken = a} :: DescribeDevice)
 
 -- | The unique ID of the device.
-describeDevice_deviceName :: Lens.Lens' DescribeDevice Core.Text
+describeDevice_deviceName :: Lens.Lens' DescribeDevice Prelude.Text
 describeDevice_deviceName = Lens.lens (\DescribeDevice' {deviceName} -> deviceName) (\s@DescribeDevice' {} a -> s {deviceName = a} :: DescribeDevice)
 
 -- | The name of the fleet the devices belong to.
-describeDevice_deviceFleetName :: Lens.Lens' DescribeDevice Core.Text
+describeDevice_deviceFleetName :: Lens.Lens' DescribeDevice Prelude.Text
 describeDevice_deviceFleetName = Lens.lens (\DescribeDevice' {deviceFleetName} -> deviceFleetName) (\s@DescribeDevice' {} a -> s {deviceFleetName = a} :: DescribeDevice)
 
 instance Core.AWSRequest DescribeDevice where
@@ -114,79 +115,81 @@ instance Core.AWSRequest DescribeDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "LatestHeartbeat")
-            Core.<*> (x Core..?> "MaxModels")
-            Core.<*> (x Core..?> "DeviceArn")
-            Core.<*> (x Core..?> "Models" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "IotThingName")
-            Core.<*> (x Core..?> "Description")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "DeviceName")
-            Core.<*> (x Core..:> "DeviceFleetName")
-            Core.<*> (x Core..:> "RegistrationTime")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "LatestHeartbeat")
+            Prelude.<*> (x Core..?> "MaxModels")
+            Prelude.<*> (x Core..?> "DeviceArn")
+            Prelude.<*> (x Core..?> "Models" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "IotThingName")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "DeviceName")
+            Prelude.<*> (x Core..:> "DeviceFleetName")
+            Prelude.<*> (x Core..:> "RegistrationTime")
       )
 
-instance Core.Hashable DescribeDevice
+instance Prelude.Hashable DescribeDevice
 
-instance Core.NFData DescribeDevice
+instance Prelude.NFData DescribeDevice
 
 instance Core.ToHeaders DescribeDevice where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeDevice" :: Core.ByteString),
+              Core.=# ("SageMaker.DescribeDevice" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDevice where
   toJSON DescribeDevice' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            Core.Just ("DeviceName" Core..= deviceName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("DeviceName" Core..= deviceName),
+            Prelude.Just
               ("DeviceFleetName" Core..= deviceFleetName)
           ]
       )
 
 instance Core.ToPath DescribeDevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDevice where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDeviceResponse' smart constructor.
 data DescribeDeviceResponse = DescribeDeviceResponse'
   { -- | The response from the last list when returning a list large enough to
     -- need tokening.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The last heartbeat received from the device.
-    latestHeartbeat :: Core.Maybe Core.POSIX,
+    latestHeartbeat :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of models.
-    maxModels :: Core.Maybe Core.Int,
+    maxModels :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the device.
-    deviceArn :: Core.Maybe Core.Text,
+    deviceArn :: Prelude.Maybe Prelude.Text,
     -- | Models on the device.
-    models :: Core.Maybe [EdgeModel],
+    models :: Prelude.Maybe [EdgeModel],
     -- | The AWS Internet of Things (IoT) object thing name associated with the
     -- device.
-    iotThingName :: Core.Maybe Core.Text,
+    iotThingName :: Prelude.Maybe Prelude.Text,
     -- | A description of the device.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The unique identifier of the device.
-    deviceName :: Core.Text,
+    deviceName :: Prelude.Text,
     -- | The name of the fleet the device belongs to.
-    deviceFleetName :: Core.Text,
+    deviceFleetName :: Prelude.Text,
     -- | The timestamp of the last registration or de-reregistration.
     registrationTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDeviceResponse' with all optional fields omitted.
@@ -221,13 +224,13 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
 -- 'registrationTime', 'describeDeviceResponse_registrationTime' - The timestamp of the last registration or de-reregistration.
 newDescribeDeviceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'deviceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deviceFleetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'registrationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   DescribeDeviceResponse
 newDescribeDeviceResponse
   pHttpStatus_
@@ -235,13 +238,14 @@ newDescribeDeviceResponse
   pDeviceFleetName_
   pRegistrationTime_ =
     DescribeDeviceResponse'
-      { nextToken = Core.Nothing,
-        latestHeartbeat = Core.Nothing,
-        maxModels = Core.Nothing,
-        deviceArn = Core.Nothing,
-        models = Core.Nothing,
-        iotThingName = Core.Nothing,
-        description = Core.Nothing,
+      { nextToken =
+          Prelude.Nothing,
+        latestHeartbeat = Prelude.Nothing,
+        maxModels = Prelude.Nothing,
+        deviceArn = Prelude.Nothing,
+        models = Prelude.Nothing,
+        iotThingName = Prelude.Nothing,
+        description = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         deviceName = pDeviceName_,
         deviceFleetName = pDeviceFleetName_,
@@ -251,48 +255,48 @@ newDescribeDeviceResponse
 
 -- | The response from the last list when returning a list large enough to
 -- need tokening.
-describeDeviceResponse_nextToken :: Lens.Lens' DescribeDeviceResponse (Core.Maybe Core.Text)
+describeDeviceResponse_nextToken :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_nextToken = Lens.lens (\DescribeDeviceResponse' {nextToken} -> nextToken) (\s@DescribeDeviceResponse' {} a -> s {nextToken = a} :: DescribeDeviceResponse)
 
 -- | The last heartbeat received from the device.
-describeDeviceResponse_latestHeartbeat :: Lens.Lens' DescribeDeviceResponse (Core.Maybe Core.UTCTime)
-describeDeviceResponse_latestHeartbeat = Lens.lens (\DescribeDeviceResponse' {latestHeartbeat} -> latestHeartbeat) (\s@DescribeDeviceResponse' {} a -> s {latestHeartbeat = a} :: DescribeDeviceResponse) Core.. Lens.mapping Core._Time
+describeDeviceResponse_latestHeartbeat :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
+describeDeviceResponse_latestHeartbeat = Lens.lens (\DescribeDeviceResponse' {latestHeartbeat} -> latestHeartbeat) (\s@DescribeDeviceResponse' {} a -> s {latestHeartbeat = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of models.
-describeDeviceResponse_maxModels :: Lens.Lens' DescribeDeviceResponse (Core.Maybe Core.Int)
+describeDeviceResponse_maxModels :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Int)
 describeDeviceResponse_maxModels = Lens.lens (\DescribeDeviceResponse' {maxModels} -> maxModels) (\s@DescribeDeviceResponse' {} a -> s {maxModels = a} :: DescribeDeviceResponse)
 
 -- | The Amazon Resource Name (ARN) of the device.
-describeDeviceResponse_deviceArn :: Lens.Lens' DescribeDeviceResponse (Core.Maybe Core.Text)
+describeDeviceResponse_deviceArn :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_deviceArn = Lens.lens (\DescribeDeviceResponse' {deviceArn} -> deviceArn) (\s@DescribeDeviceResponse' {} a -> s {deviceArn = a} :: DescribeDeviceResponse)
 
 -- | Models on the device.
-describeDeviceResponse_models :: Lens.Lens' DescribeDeviceResponse (Core.Maybe [EdgeModel])
-describeDeviceResponse_models = Lens.lens (\DescribeDeviceResponse' {models} -> models) (\s@DescribeDeviceResponse' {} a -> s {models = a} :: DescribeDeviceResponse) Core.. Lens.mapping Lens._Coerce
+describeDeviceResponse_models :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe [EdgeModel])
+describeDeviceResponse_models = Lens.lens (\DescribeDeviceResponse' {models} -> models) (\s@DescribeDeviceResponse' {} a -> s {models = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS Internet of Things (IoT) object thing name associated with the
 -- device.
-describeDeviceResponse_iotThingName :: Lens.Lens' DescribeDeviceResponse (Core.Maybe Core.Text)
+describeDeviceResponse_iotThingName :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_iotThingName = Lens.lens (\DescribeDeviceResponse' {iotThingName} -> iotThingName) (\s@DescribeDeviceResponse' {} a -> s {iotThingName = a} :: DescribeDeviceResponse)
 
 -- | A description of the device.
-describeDeviceResponse_description :: Lens.Lens' DescribeDeviceResponse (Core.Maybe Core.Text)
+describeDeviceResponse_description :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_description = Lens.lens (\DescribeDeviceResponse' {description} -> description) (\s@DescribeDeviceResponse' {} a -> s {description = a} :: DescribeDeviceResponse)
 
 -- | The response's http status code.
-describeDeviceResponse_httpStatus :: Lens.Lens' DescribeDeviceResponse Core.Int
+describeDeviceResponse_httpStatus :: Lens.Lens' DescribeDeviceResponse Prelude.Int
 describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpStatus} -> httpStatus) (\s@DescribeDeviceResponse' {} a -> s {httpStatus = a} :: DescribeDeviceResponse)
 
 -- | The unique identifier of the device.
-describeDeviceResponse_deviceName :: Lens.Lens' DescribeDeviceResponse Core.Text
+describeDeviceResponse_deviceName :: Lens.Lens' DescribeDeviceResponse Prelude.Text
 describeDeviceResponse_deviceName = Lens.lens (\DescribeDeviceResponse' {deviceName} -> deviceName) (\s@DescribeDeviceResponse' {} a -> s {deviceName = a} :: DescribeDeviceResponse)
 
 -- | The name of the fleet the device belongs to.
-describeDeviceResponse_deviceFleetName :: Lens.Lens' DescribeDeviceResponse Core.Text
+describeDeviceResponse_deviceFleetName :: Lens.Lens' DescribeDeviceResponse Prelude.Text
 describeDeviceResponse_deviceFleetName = Lens.lens (\DescribeDeviceResponse' {deviceFleetName} -> deviceFleetName) (\s@DescribeDeviceResponse' {} a -> s {deviceFleetName = a} :: DescribeDeviceResponse)
 
 -- | The timestamp of the last registration or de-reregistration.
-describeDeviceResponse_registrationTime :: Lens.Lens' DescribeDeviceResponse Core.UTCTime
-describeDeviceResponse_registrationTime = Lens.lens (\DescribeDeviceResponse' {registrationTime} -> registrationTime) (\s@DescribeDeviceResponse' {} a -> s {registrationTime = a} :: DescribeDeviceResponse) Core.. Core._Time
+describeDeviceResponse_registrationTime :: Lens.Lens' DescribeDeviceResponse Prelude.UTCTime
+describeDeviceResponse_registrationTime = Lens.lens (\DescribeDeviceResponse' {registrationTime} -> registrationTime) (\s@DescribeDeviceResponse' {} a -> s {registrationTime = a} :: DescribeDeviceResponse) Prelude.. Core._Time
 
-instance Core.NFData DescribeDeviceResponse
+instance Prelude.NFData DescribeDeviceResponse

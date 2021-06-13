@@ -21,6 +21,7 @@ module Network.AWS.DAX.Types.Subnet where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the subnet associated with a DAX cluster. This parameter
 -- refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC)
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSubnet' smart constructor.
 data Subnet = Subnet'
   { -- | The system-assigned identifier for the subnet.
-    subnetIdentifier :: Core.Maybe Core.Text,
+    subnetIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone (AZ) for the subnet.
-    subnetAvailabilityZone :: Core.Maybe Core.Text
+    subnetAvailabilityZone :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Subnet' with all optional fields omitted.
@@ -50,16 +51,16 @@ newSubnet ::
   Subnet
 newSubnet =
   Subnet'
-    { subnetIdentifier = Core.Nothing,
-      subnetAvailabilityZone = Core.Nothing
+    { subnetIdentifier = Prelude.Nothing,
+      subnetAvailabilityZone = Prelude.Nothing
     }
 
 -- | The system-assigned identifier for the subnet.
-subnet_subnetIdentifier :: Lens.Lens' Subnet (Core.Maybe Core.Text)
+subnet_subnetIdentifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdentifier) (\s@Subnet' {} a -> s {subnetIdentifier = a} :: Subnet)
 
 -- | The Availability Zone (AZ) for the subnet.
-subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Core.Maybe Core.Text)
+subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
 instance Core.FromJSON Subnet where
@@ -68,10 +69,10 @@ instance Core.FromJSON Subnet where
       "Subnet"
       ( \x ->
           Subnet'
-            Core.<$> (x Core..:? "SubnetIdentifier")
-            Core.<*> (x Core..:? "SubnetAvailabilityZone")
+            Prelude.<$> (x Core..:? "SubnetIdentifier")
+            Prelude.<*> (x Core..:? "SubnetAvailabilityZone")
       )
 
-instance Core.Hashable Subnet
+instance Prelude.Hashable Subnet
 
-instance Core.NFData Subnet
+instance Prelude.NFData Subnet

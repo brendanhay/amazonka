@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.ResourceTagSet where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.Tag
 import Network.AWS.Route53.Types.TagResourceType
@@ -30,17 +31,17 @@ import Network.AWS.Route53.Types.TagResourceType
 -- /See:/ 'newResourceTagSet' smart constructor.
 data ResourceTagSet = ResourceTagSet'
   { -- | The ID for the specified resource.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of the resource.
     --
     -- -   The resource type for health checks is @healthcheck@.
     --
     -- -   The resource type for hosted zones is @hostedzone@.
-    resourceType :: Core.Maybe TagResourceType,
+    resourceType :: Prelude.Maybe TagResourceType,
     -- | The tags associated with the specified resource.
-    tags :: Core.Maybe (Core.NonEmpty Tag)
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceTagSet' with all optional fields omitted.
@@ -63,13 +64,13 @@ newResourceTagSet ::
   ResourceTagSet
 newResourceTagSet =
   ResourceTagSet'
-    { resourceId = Core.Nothing,
-      resourceType = Core.Nothing,
-      tags = Core.Nothing
+    { resourceId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The ID for the specified resource.
-resourceTagSet_resourceId :: Lens.Lens' ResourceTagSet (Core.Maybe Core.Text)
+resourceTagSet_resourceId :: Lens.Lens' ResourceTagSet (Prelude.Maybe Prelude.Text)
 resourceTagSet_resourceId = Lens.lens (\ResourceTagSet' {resourceId} -> resourceId) (\s@ResourceTagSet' {} a -> s {resourceId = a} :: ResourceTagSet)
 
 -- | The type of the resource.
@@ -77,22 +78,22 @@ resourceTagSet_resourceId = Lens.lens (\ResourceTagSet' {resourceId} -> resource
 -- -   The resource type for health checks is @healthcheck@.
 --
 -- -   The resource type for hosted zones is @hostedzone@.
-resourceTagSet_resourceType :: Lens.Lens' ResourceTagSet (Core.Maybe TagResourceType)
+resourceTagSet_resourceType :: Lens.Lens' ResourceTagSet (Prelude.Maybe TagResourceType)
 resourceTagSet_resourceType = Lens.lens (\ResourceTagSet' {resourceType} -> resourceType) (\s@ResourceTagSet' {} a -> s {resourceType = a} :: ResourceTagSet)
 
 -- | The tags associated with the specified resource.
-resourceTagSet_tags :: Lens.Lens' ResourceTagSet (Core.Maybe (Core.NonEmpty Tag))
-resourceTagSet_tags = Lens.lens (\ResourceTagSet' {tags} -> tags) (\s@ResourceTagSet' {} a -> s {tags = a} :: ResourceTagSet) Core.. Lens.mapping Lens._Coerce
+resourceTagSet_tags :: Lens.Lens' ResourceTagSet (Prelude.Maybe (Prelude.NonEmpty Tag))
+resourceTagSet_tags = Lens.lens (\ResourceTagSet' {tags} -> tags) (\s@ResourceTagSet' {} a -> s {tags = a} :: ResourceTagSet) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML ResourceTagSet where
   parseXML x =
     ResourceTagSet'
-      Core.<$> (x Core..@? "ResourceId")
-      Core.<*> (x Core..@? "ResourceType")
-      Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList1 "Tag")
-               )
+      Prelude.<$> (x Core..@? "ResourceId")
+      Prelude.<*> (x Core..@? "ResourceType")
+      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList1 "Tag")
+                  )
 
-instance Core.Hashable ResourceTagSet
+instance Prelude.Hashable ResourceTagSet
 
-instance Core.NFData ResourceTagSet
+instance Prelude.NFData ResourceTagSet

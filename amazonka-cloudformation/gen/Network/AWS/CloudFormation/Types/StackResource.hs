@@ -24,6 +24,7 @@ import Network.AWS.CloudFormation.Types.ResourceStatus
 import Network.AWS.CloudFormation.Types.StackResourceDriftInformation
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The StackResource data type.
 --
@@ -34,34 +35,34 @@ data StackResource = StackResource'
     -- stack template and any values specified as template parameters. For more
     -- information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
-    driftInformation :: Core.Maybe StackResourceDriftInformation,
+    driftInformation :: Prelude.Maybe StackResourceDriftInformation,
     -- | The name associated with the stack.
-    stackName :: Core.Maybe Core.Text,
+    stackName :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier of the stack.
-    stackId :: Core.Maybe Core.Text,
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The name or unique identifier that corresponds to a physical instance ID
     -- of a resource supported by AWS CloudFormation.
-    physicalResourceId :: Core.Maybe Core.Text,
+    physicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | Success\/failure message associated with the resource.
-    resourceStatusReason :: Core.Maybe Core.Text,
+    resourceStatusReason :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the module from which the resource was
     -- created, if the resource was created from a module included in the stack
     -- template.
-    moduleInfo :: Core.Maybe ModuleInfo,
+    moduleInfo :: Prelude.Maybe ModuleInfo,
     -- | User defined description associated with the resource.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The logical name of the resource specified in the template.
-    logicalResourceId :: Core.Text,
+    logicalResourceId :: Prelude.Text,
     -- | Type of resource. (For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
     -- in the AWS CloudFormation User Guide.)
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | Time the status was updated.
     timestamp :: Core.ISO8601,
     -- | Current status of the resource.
     resourceStatus :: ResourceStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackResource' with all optional fields omitted.
@@ -103,11 +104,11 @@ data StackResource = StackResource'
 -- 'resourceStatus', 'stackResource_resourceStatus' - Current status of the resource.
 newStackResource ::
   -- | 'logicalResourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'timestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'resourceStatus'
   ResourceStatus ->
   StackResource
@@ -117,13 +118,13 @@ newStackResource
   pTimestamp_
   pResourceStatus_ =
     StackResource'
-      { driftInformation = Core.Nothing,
-        stackName = Core.Nothing,
-        stackId = Core.Nothing,
-        physicalResourceId = Core.Nothing,
-        resourceStatusReason = Core.Nothing,
-        moduleInfo = Core.Nothing,
-        description = Core.Nothing,
+      { driftInformation = Prelude.Nothing,
+        stackName = Prelude.Nothing,
+        stackId = Prelude.Nothing,
+        physicalResourceId = Prelude.Nothing,
+        resourceStatusReason = Prelude.Nothing,
+        moduleInfo = Prelude.Nothing,
+        description = Prelude.Nothing,
         logicalResourceId = pLogicalResourceId_,
         resourceType = pResourceType_,
         timestamp = Core._Time Lens.# pTimestamp_,
@@ -135,49 +136,49 @@ newStackResource
 -- stack template and any values specified as template parameters. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
-stackResource_driftInformation :: Lens.Lens' StackResource (Core.Maybe StackResourceDriftInformation)
+stackResource_driftInformation :: Lens.Lens' StackResource (Prelude.Maybe StackResourceDriftInformation)
 stackResource_driftInformation = Lens.lens (\StackResource' {driftInformation} -> driftInformation) (\s@StackResource' {} a -> s {driftInformation = a} :: StackResource)
 
 -- | The name associated with the stack.
-stackResource_stackName :: Lens.Lens' StackResource (Core.Maybe Core.Text)
+stackResource_stackName :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
 stackResource_stackName = Lens.lens (\StackResource' {stackName} -> stackName) (\s@StackResource' {} a -> s {stackName = a} :: StackResource)
 
 -- | Unique identifier of the stack.
-stackResource_stackId :: Lens.Lens' StackResource (Core.Maybe Core.Text)
+stackResource_stackId :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
 stackResource_stackId = Lens.lens (\StackResource' {stackId} -> stackId) (\s@StackResource' {} a -> s {stackId = a} :: StackResource)
 
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by AWS CloudFormation.
-stackResource_physicalResourceId :: Lens.Lens' StackResource (Core.Maybe Core.Text)
+stackResource_physicalResourceId :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
 stackResource_physicalResourceId = Lens.lens (\StackResource' {physicalResourceId} -> physicalResourceId) (\s@StackResource' {} a -> s {physicalResourceId = a} :: StackResource)
 
 -- | Success\/failure message associated with the resource.
-stackResource_resourceStatusReason :: Lens.Lens' StackResource (Core.Maybe Core.Text)
+stackResource_resourceStatusReason :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
 stackResource_resourceStatusReason = Lens.lens (\StackResource' {resourceStatusReason} -> resourceStatusReason) (\s@StackResource' {} a -> s {resourceStatusReason = a} :: StackResource)
 
 -- | Contains information about the module from which the resource was
 -- created, if the resource was created from a module included in the stack
 -- template.
-stackResource_moduleInfo :: Lens.Lens' StackResource (Core.Maybe ModuleInfo)
+stackResource_moduleInfo :: Lens.Lens' StackResource (Prelude.Maybe ModuleInfo)
 stackResource_moduleInfo = Lens.lens (\StackResource' {moduleInfo} -> moduleInfo) (\s@StackResource' {} a -> s {moduleInfo = a} :: StackResource)
 
 -- | User defined description associated with the resource.
-stackResource_description :: Lens.Lens' StackResource (Core.Maybe Core.Text)
+stackResource_description :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
 stackResource_description = Lens.lens (\StackResource' {description} -> description) (\s@StackResource' {} a -> s {description = a} :: StackResource)
 
 -- | The logical name of the resource specified in the template.
-stackResource_logicalResourceId :: Lens.Lens' StackResource Core.Text
+stackResource_logicalResourceId :: Lens.Lens' StackResource Prelude.Text
 stackResource_logicalResourceId = Lens.lens (\StackResource' {logicalResourceId} -> logicalResourceId) (\s@StackResource' {} a -> s {logicalResourceId = a} :: StackResource)
 
 -- | Type of resource. (For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
 -- in the AWS CloudFormation User Guide.)
-stackResource_resourceType :: Lens.Lens' StackResource Core.Text
+stackResource_resourceType :: Lens.Lens' StackResource Prelude.Text
 stackResource_resourceType = Lens.lens (\StackResource' {resourceType} -> resourceType) (\s@StackResource' {} a -> s {resourceType = a} :: StackResource)
 
 -- | Time the status was updated.
-stackResource_timestamp :: Lens.Lens' StackResource Core.UTCTime
-stackResource_timestamp = Lens.lens (\StackResource' {timestamp} -> timestamp) (\s@StackResource' {} a -> s {timestamp = a} :: StackResource) Core.. Core._Time
+stackResource_timestamp :: Lens.Lens' StackResource Prelude.UTCTime
+stackResource_timestamp = Lens.lens (\StackResource' {timestamp} -> timestamp) (\s@StackResource' {} a -> s {timestamp = a} :: StackResource) Prelude.. Core._Time
 
 -- | Current status of the resource.
 stackResource_resourceStatus :: Lens.Lens' StackResource ResourceStatus
@@ -186,18 +187,18 @@ stackResource_resourceStatus = Lens.lens (\StackResource' {resourceStatus} -> re
 instance Core.FromXML StackResource where
   parseXML x =
     StackResource'
-      Core.<$> (x Core..@? "DriftInformation")
-      Core.<*> (x Core..@? "StackName")
-      Core.<*> (x Core..@? "StackId")
-      Core.<*> (x Core..@? "PhysicalResourceId")
-      Core.<*> (x Core..@? "ResourceStatusReason")
-      Core.<*> (x Core..@? "ModuleInfo")
-      Core.<*> (x Core..@? "Description")
-      Core.<*> (x Core..@ "LogicalResourceId")
-      Core.<*> (x Core..@ "ResourceType")
-      Core.<*> (x Core..@ "Timestamp")
-      Core.<*> (x Core..@ "ResourceStatus")
+      Prelude.<$> (x Core..@? "DriftInformation")
+      Prelude.<*> (x Core..@? "StackName")
+      Prelude.<*> (x Core..@? "StackId")
+      Prelude.<*> (x Core..@? "PhysicalResourceId")
+      Prelude.<*> (x Core..@? "ResourceStatusReason")
+      Prelude.<*> (x Core..@? "ModuleInfo")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@ "LogicalResourceId")
+      Prelude.<*> (x Core..@ "ResourceType")
+      Prelude.<*> (x Core..@ "Timestamp")
+      Prelude.<*> (x Core..@ "ResourceStatus")
 
-instance Core.Hashable StackResource
+instance Prelude.Hashable StackResource
 
-instance Core.NFData StackResource
+instance Prelude.NFData StackResource

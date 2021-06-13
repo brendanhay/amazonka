@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBInstanceRole where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an AWS Identity and Access Management (IAM) role that is
 -- associated with a DB instance.
@@ -39,16 +40,16 @@ data DBInstanceRole = DBInstanceRole'
     -- -   @INVALID@ - the IAM role ARN is associated with the DB instance, but
     --     the DB instance is unable to assume the IAM role in order to access
     --     other AWS services on your behalf.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
     -- the DB instance.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the feature associated with the AWS Identity and Access
     -- Management (IAM) role. For the list of supported feature names, see
     -- @DBEngineVersion@.
-    featureName :: Core.Maybe Core.Text
+    featureName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBInstanceRole' with all optional fields omitted.
@@ -81,9 +82,9 @@ newDBInstanceRole ::
   DBInstanceRole
 newDBInstanceRole =
   DBInstanceRole'
-    { status = Core.Nothing,
-      roleArn = Core.Nothing,
-      featureName = Core.Nothing
+    { status = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      featureName = Prelude.Nothing
     }
 
 -- | Describes the state of association between the IAM role and the DB
@@ -98,27 +99,27 @@ newDBInstanceRole =
 -- -   @INVALID@ - the IAM role ARN is associated with the DB instance, but
 --     the DB instance is unable to assume the IAM role in order to access
 --     other AWS services on your behalf.
-dbInstanceRole_status :: Lens.Lens' DBInstanceRole (Core.Maybe Core.Text)
+dbInstanceRole_status :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
 dbInstanceRole_status = Lens.lens (\DBInstanceRole' {status} -> status) (\s@DBInstanceRole' {} a -> s {status = a} :: DBInstanceRole)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
 -- the DB instance.
-dbInstanceRole_roleArn :: Lens.Lens' DBInstanceRole (Core.Maybe Core.Text)
+dbInstanceRole_roleArn :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
 dbInstanceRole_roleArn = Lens.lens (\DBInstanceRole' {roleArn} -> roleArn) (\s@DBInstanceRole' {} a -> s {roleArn = a} :: DBInstanceRole)
 
 -- | The name of the feature associated with the AWS Identity and Access
 -- Management (IAM) role. For the list of supported feature names, see
 -- @DBEngineVersion@.
-dbInstanceRole_featureName :: Lens.Lens' DBInstanceRole (Core.Maybe Core.Text)
+dbInstanceRole_featureName :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
 dbInstanceRole_featureName = Lens.lens (\DBInstanceRole' {featureName} -> featureName) (\s@DBInstanceRole' {} a -> s {featureName = a} :: DBInstanceRole)
 
 instance Core.FromXML DBInstanceRole where
   parseXML x =
     DBInstanceRole'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "RoleArn")
-      Core.<*> (x Core..@? "FeatureName")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "RoleArn")
+      Prelude.<*> (x Core..@? "FeatureName")
 
-instance Core.Hashable DBInstanceRole
+instance Prelude.Hashable DBInstanceRole
 
-instance Core.NFData DBInstanceRole
+instance Prelude.NFData DBInstanceRole

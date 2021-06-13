@@ -21,15 +21,16 @@ module Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a replica to be deleted.
 --
 -- /See:/ 'newDeleteReplicationGroupMemberAction' smart constructor.
 data DeleteReplicationGroupMemberAction = DeleteReplicationGroupMemberAction'
   { -- | The Region where the replica exists.
-    regionName :: Core.Text
+    regionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationGroupMemberAction' with all optional fields omitted.
@@ -42,7 +43,7 @@ data DeleteReplicationGroupMemberAction = DeleteReplicationGroupMemberAction'
 -- 'regionName', 'deleteReplicationGroupMemberAction_regionName' - The Region where the replica exists.
 newDeleteReplicationGroupMemberAction ::
   -- | 'regionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteReplicationGroupMemberAction
 newDeleteReplicationGroupMemberAction pRegionName_ =
   DeleteReplicationGroupMemberAction'
@@ -51,15 +52,15 @@ newDeleteReplicationGroupMemberAction pRegionName_ =
     }
 
 -- | The Region where the replica exists.
-deleteReplicationGroupMemberAction_regionName :: Lens.Lens' DeleteReplicationGroupMemberAction Core.Text
+deleteReplicationGroupMemberAction_regionName :: Lens.Lens' DeleteReplicationGroupMemberAction Prelude.Text
 deleteReplicationGroupMemberAction_regionName = Lens.lens (\DeleteReplicationGroupMemberAction' {regionName} -> regionName) (\s@DeleteReplicationGroupMemberAction' {} a -> s {regionName = a} :: DeleteReplicationGroupMemberAction)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteReplicationGroupMemberAction
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteReplicationGroupMemberAction
 
 instance
@@ -68,6 +69,6 @@ instance
   where
   toJSON DeleteReplicationGroupMemberAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RegionName" Core..= regionName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RegionName" Core..= regionName)]
       )

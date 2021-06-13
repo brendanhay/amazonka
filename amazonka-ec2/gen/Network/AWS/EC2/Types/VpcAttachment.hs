@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AttachmentStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an attachment between a virtual private gateway and a VPC.
 --
 -- /See:/ 'newVpcAttachment' smart constructor.
 data VpcAttachment = VpcAttachment'
   { -- | The current state of the attachment.
-    state :: Core.Maybe AttachmentStatus,
+    state :: Prelude.Maybe AttachmentStatus,
     -- | The ID of the VPC.
-    vpcId :: Core.Maybe Core.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcAttachment' with all optional fields omitted.
@@ -50,23 +51,23 @@ newVpcAttachment ::
   VpcAttachment
 newVpcAttachment =
   VpcAttachment'
-    { state = Core.Nothing,
-      vpcId = Core.Nothing
+    { state = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
 -- | The current state of the attachment.
-vpcAttachment_state :: Lens.Lens' VpcAttachment (Core.Maybe AttachmentStatus)
+vpcAttachment_state :: Lens.Lens' VpcAttachment (Prelude.Maybe AttachmentStatus)
 vpcAttachment_state = Lens.lens (\VpcAttachment' {state} -> state) (\s@VpcAttachment' {} a -> s {state = a} :: VpcAttachment)
 
 -- | The ID of the VPC.
-vpcAttachment_vpcId :: Lens.Lens' VpcAttachment (Core.Maybe Core.Text)
+vpcAttachment_vpcId :: Lens.Lens' VpcAttachment (Prelude.Maybe Prelude.Text)
 vpcAttachment_vpcId = Lens.lens (\VpcAttachment' {vpcId} -> vpcId) (\s@VpcAttachment' {} a -> s {vpcId = a} :: VpcAttachment)
 
 instance Core.FromXML VpcAttachment where
   parseXML x =
     VpcAttachment'
-      Core.<$> (x Core..@? "state") Core.<*> (x Core..@? "vpcId")
+      Prelude.<$> (x Core..@? "state") Prelude.<*> (x Core..@? "vpcId")
 
-instance Core.Hashable VpcAttachment
+instance Prelude.Hashable VpcAttachment
 
-instance Core.NFData VpcAttachment
+instance Prelude.NFData VpcAttachment

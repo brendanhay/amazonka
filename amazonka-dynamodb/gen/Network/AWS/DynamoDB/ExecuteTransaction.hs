@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data ExecuteTransaction = ExecuteTransaction'
   { -- | Set this value to get remaining results, if @NextToken@ was returned in
     -- the statement response.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The list of PartiQL statements representing the transaction to run.
-    transactStatements :: Core.NonEmpty ParameterizedStatement
+    transactStatements :: Prelude.NonEmpty ParameterizedStatement
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecuteTransaction' with all optional fields omitted.
@@ -71,24 +72,24 @@ data ExecuteTransaction = ExecuteTransaction'
 -- 'transactStatements', 'executeTransaction_transactStatements' - The list of PartiQL statements representing the transaction to run.
 newExecuteTransaction ::
   -- | 'transactStatements'
-  Core.NonEmpty ParameterizedStatement ->
+  Prelude.NonEmpty ParameterizedStatement ->
   ExecuteTransaction
 newExecuteTransaction pTransactStatements_ =
   ExecuteTransaction'
     { clientRequestToken =
-        Core.Nothing,
+        Prelude.Nothing,
       transactStatements =
         Lens._Coerce Lens.# pTransactStatements_
     }
 
 -- | Set this value to get remaining results, if @NextToken@ was returned in
 -- the statement response.
-executeTransaction_clientRequestToken :: Lens.Lens' ExecuteTransaction (Core.Maybe Core.Text)
+executeTransaction_clientRequestToken :: Lens.Lens' ExecuteTransaction (Prelude.Maybe Prelude.Text)
 executeTransaction_clientRequestToken = Lens.lens (\ExecuteTransaction' {clientRequestToken} -> clientRequestToken) (\s@ExecuteTransaction' {} a -> s {clientRequestToken = a} :: ExecuteTransaction)
 
 -- | The list of PartiQL statements representing the transaction to run.
-executeTransaction_transactStatements :: Lens.Lens' ExecuteTransaction (Core.NonEmpty ParameterizedStatement)
-executeTransaction_transactStatements = Lens.lens (\ExecuteTransaction' {transactStatements} -> transactStatements) (\s@ExecuteTransaction' {} a -> s {transactStatements = a} :: ExecuteTransaction) Core.. Lens._Coerce
+executeTransaction_transactStatements :: Lens.Lens' ExecuteTransaction (Prelude.NonEmpty ParameterizedStatement)
+executeTransaction_transactStatements = Lens.lens (\ExecuteTransaction' {transactStatements} -> transactStatements) (\s@ExecuteTransaction' {} a -> s {transactStatements = a} :: ExecuteTransaction) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ExecuteTransaction where
   type
@@ -99,52 +100,54 @@ instance Core.AWSRequest ExecuteTransaction where
     Response.receiveJSON
       ( \s h x ->
           ExecuteTransactionResponse'
-            Core.<$> (x Core..?> "Responses")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Responses")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ExecuteTransaction
+instance Prelude.Hashable ExecuteTransaction
 
-instance Core.NFData ExecuteTransaction
+instance Prelude.NFData ExecuteTransaction
 
 instance Core.ToHeaders ExecuteTransaction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.ExecuteTransaction" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ExecuteTransaction where
   toJSON ExecuteTransaction' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just
+              Prelude.<$> clientRequestToken,
+            Prelude.Just
               ("TransactStatements" Core..= transactStatements)
           ]
       )
 
 instance Core.ToPath ExecuteTransaction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ExecuteTransaction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteTransactionResponse' smart constructor.
 data ExecuteTransactionResponse = ExecuteTransactionResponse'
   { -- | The response to a PartiQL transaction.
-    responses :: Core.Maybe (Core.NonEmpty ItemResponse),
+    responses :: Prelude.Maybe (Prelude.NonEmpty ItemResponse),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecuteTransactionResponse' with all optional fields omitted.
@@ -159,21 +162,21 @@ data ExecuteTransactionResponse = ExecuteTransactionResponse'
 -- 'httpStatus', 'executeTransactionResponse_httpStatus' - The response's http status code.
 newExecuteTransactionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ExecuteTransactionResponse
 newExecuteTransactionResponse pHttpStatus_ =
   ExecuteTransactionResponse'
     { responses =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The response to a PartiQL transaction.
-executeTransactionResponse_responses :: Lens.Lens' ExecuteTransactionResponse (Core.Maybe (Core.NonEmpty ItemResponse))
-executeTransactionResponse_responses = Lens.lens (\ExecuteTransactionResponse' {responses} -> responses) (\s@ExecuteTransactionResponse' {} a -> s {responses = a} :: ExecuteTransactionResponse) Core.. Lens.mapping Lens._Coerce
+executeTransactionResponse_responses :: Lens.Lens' ExecuteTransactionResponse (Prelude.Maybe (Prelude.NonEmpty ItemResponse))
+executeTransactionResponse_responses = Lens.lens (\ExecuteTransactionResponse' {responses} -> responses) (\s@ExecuteTransactionResponse' {} a -> s {responses = a} :: ExecuteTransactionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-executeTransactionResponse_httpStatus :: Lens.Lens' ExecuteTransactionResponse Core.Int
+executeTransactionResponse_httpStatus :: Lens.Lens' ExecuteTransactionResponse Prelude.Int
 executeTransactionResponse_httpStatus = Lens.lens (\ExecuteTransactionResponse' {httpStatus} -> httpStatus) (\s@ExecuteTransactionResponse' {} a -> s {httpStatus = a} :: ExecuteTransactionResponse)
 
-instance Core.NFData ExecuteTransactionResponse
+instance Prelude.NFData ExecuteTransactionResponse

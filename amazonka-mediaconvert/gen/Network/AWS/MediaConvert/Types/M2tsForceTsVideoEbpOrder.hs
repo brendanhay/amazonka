@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.M2tsForceTsVideoEbpOrder
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Keep the default value (DEFAULT) unless you know that your audio EBP
 -- markers are incorrectly appearing before your video EBP markers. To
@@ -36,15 +37,15 @@ newtype M2tsForceTsVideoEbpOrder = M2tsForceTsVideoEbpOrder'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

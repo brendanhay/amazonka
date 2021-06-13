@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ClusterNode where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | The identifier of a node in a cluster.
@@ -28,13 +29,13 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newClusterNode' smart constructor.
 data ClusterNode = ClusterNode'
   { -- | Whether the node is a leader node or a compute node.
-    nodeRole :: Core.Maybe Core.Text,
+    nodeRole :: Prelude.Maybe Prelude.Text,
     -- | The public IP address of a node within a cluster.
-    publicIPAddress :: Core.Maybe Core.Text,
+    publicIPAddress :: Prelude.Maybe Prelude.Text,
     -- | The private IP address of a node within a cluster.
-    privateIPAddress :: Core.Maybe Core.Text
+    privateIPAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClusterNode' with all optional fields omitted.
@@ -53,30 +54,30 @@ newClusterNode ::
   ClusterNode
 newClusterNode =
   ClusterNode'
-    { nodeRole = Core.Nothing,
-      publicIPAddress = Core.Nothing,
-      privateIPAddress = Core.Nothing
+    { nodeRole = Prelude.Nothing,
+      publicIPAddress = Prelude.Nothing,
+      privateIPAddress = Prelude.Nothing
     }
 
 -- | Whether the node is a leader node or a compute node.
-clusterNode_nodeRole :: Lens.Lens' ClusterNode (Core.Maybe Core.Text)
+clusterNode_nodeRole :: Lens.Lens' ClusterNode (Prelude.Maybe Prelude.Text)
 clusterNode_nodeRole = Lens.lens (\ClusterNode' {nodeRole} -> nodeRole) (\s@ClusterNode' {} a -> s {nodeRole = a} :: ClusterNode)
 
 -- | The public IP address of a node within a cluster.
-clusterNode_publicIPAddress :: Lens.Lens' ClusterNode (Core.Maybe Core.Text)
+clusterNode_publicIPAddress :: Lens.Lens' ClusterNode (Prelude.Maybe Prelude.Text)
 clusterNode_publicIPAddress = Lens.lens (\ClusterNode' {publicIPAddress} -> publicIPAddress) (\s@ClusterNode' {} a -> s {publicIPAddress = a} :: ClusterNode)
 
 -- | The private IP address of a node within a cluster.
-clusterNode_privateIPAddress :: Lens.Lens' ClusterNode (Core.Maybe Core.Text)
+clusterNode_privateIPAddress :: Lens.Lens' ClusterNode (Prelude.Maybe Prelude.Text)
 clusterNode_privateIPAddress = Lens.lens (\ClusterNode' {privateIPAddress} -> privateIPAddress) (\s@ClusterNode' {} a -> s {privateIPAddress = a} :: ClusterNode)
 
 instance Core.FromXML ClusterNode where
   parseXML x =
     ClusterNode'
-      Core.<$> (x Core..@? "NodeRole")
-      Core.<*> (x Core..@? "PublicIPAddress")
-      Core.<*> (x Core..@? "PrivateIPAddress")
+      Prelude.<$> (x Core..@? "NodeRole")
+      Prelude.<*> (x Core..@? "PublicIPAddress")
+      Prelude.<*> (x Core..@? "PrivateIPAddress")
 
-instance Core.Hashable ClusterNode
+instance Prelude.Hashable ClusterNode
 
-instance Core.NFData ClusterNode
+instance Prelude.NFData ClusterNode

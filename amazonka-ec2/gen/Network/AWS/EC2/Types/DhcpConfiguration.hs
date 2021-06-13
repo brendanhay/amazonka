@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a DHCP configuration option.
 --
 -- /See:/ 'newDhcpConfiguration' smart constructor.
 data DhcpConfiguration = DhcpConfiguration'
   { -- | The name of a DHCP option.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | One or more values for the DHCP option.
-    values :: Core.Maybe [AttributeValue]
+    values :: Prelude.Maybe [AttributeValue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DhcpConfiguration' with all optional fields omitted.
@@ -50,26 +51,26 @@ newDhcpConfiguration ::
   DhcpConfiguration
 newDhcpConfiguration =
   DhcpConfiguration'
-    { key = Core.Nothing,
-      values = Core.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
 
 -- | The name of a DHCP option.
-dhcpConfiguration_key :: Lens.Lens' DhcpConfiguration (Core.Maybe Core.Text)
+dhcpConfiguration_key :: Lens.Lens' DhcpConfiguration (Prelude.Maybe Prelude.Text)
 dhcpConfiguration_key = Lens.lens (\DhcpConfiguration' {key} -> key) (\s@DhcpConfiguration' {} a -> s {key = a} :: DhcpConfiguration)
 
 -- | One or more values for the DHCP option.
-dhcpConfiguration_values :: Lens.Lens' DhcpConfiguration (Core.Maybe [AttributeValue])
-dhcpConfiguration_values = Lens.lens (\DhcpConfiguration' {values} -> values) (\s@DhcpConfiguration' {} a -> s {values = a} :: DhcpConfiguration) Core.. Lens.mapping Lens._Coerce
+dhcpConfiguration_values :: Lens.Lens' DhcpConfiguration (Prelude.Maybe [AttributeValue])
+dhcpConfiguration_values = Lens.lens (\DhcpConfiguration' {values} -> values) (\s@DhcpConfiguration' {} a -> s {values = a} :: DhcpConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML DhcpConfiguration where
   parseXML x =
     DhcpConfiguration'
-      Core.<$> (x Core..@? "key")
-      Core.<*> ( x Core..@? "valueSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "key")
+      Prelude.<*> ( x Core..@? "valueSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable DhcpConfiguration
+instance Prelude.Hashable DhcpConfiguration
 
-instance Core.NFData DhcpConfiguration
+instance Prelude.NFData DhcpConfiguration

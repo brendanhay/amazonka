@@ -107,6 +107,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -115,9 +116,9 @@ import Network.AWS.WAFRegional.Types
 data UpdateIPSet = UpdateIPSet'
   { -- | The @IPSetId@ of the IPSet that you want to update. @IPSetId@ is
     -- returned by CreateIPSet and by ListIPSets.
-    iPSetId :: Core.Text,
+    iPSetId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text,
+    changeToken :: Prelude.Text,
     -- | An array of @IPSetUpdate@ objects that you want to insert into or delete
     -- from an IPSet. For more information, see the applicable data types:
     --
@@ -126,9 +127,9 @@ data UpdateIPSet = UpdateIPSet'
     -- -   IPSetDescriptor: Contains @Type@ and @Value@
     --
     -- You can insert a maximum of 1000 addresses in a single request.
-    updates :: Core.NonEmpty IPSetUpdate
+    updates :: Prelude.NonEmpty IPSetUpdate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateIPSet' with all optional fields omitted.
@@ -153,11 +154,11 @@ data UpdateIPSet = UpdateIPSet'
 -- You can insert a maximum of 1000 addresses in a single request.
 newUpdateIPSet ::
   -- | 'iPSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'updates'
-  Core.NonEmpty IPSetUpdate ->
+  Prelude.NonEmpty IPSetUpdate ->
   UpdateIPSet
 newUpdateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
   UpdateIPSet'
@@ -168,11 +169,11 @@ newUpdateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
 
 -- | The @IPSetId@ of the IPSet that you want to update. @IPSetId@ is
 -- returned by CreateIPSet and by ListIPSets.
-updateIPSet_iPSetId :: Lens.Lens' UpdateIPSet Core.Text
+updateIPSet_iPSetId :: Lens.Lens' UpdateIPSet Prelude.Text
 updateIPSet_iPSetId = Lens.lens (\UpdateIPSet' {iPSetId} -> iPSetId) (\s@UpdateIPSet' {} a -> s {iPSetId = a} :: UpdateIPSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateIPSet_changeToken :: Lens.Lens' UpdateIPSet Core.Text
+updateIPSet_changeToken :: Lens.Lens' UpdateIPSet Prelude.Text
 updateIPSet_changeToken = Lens.lens (\UpdateIPSet' {changeToken} -> changeToken) (\s@UpdateIPSet' {} a -> s {changeToken = a} :: UpdateIPSet)
 
 -- | An array of @IPSetUpdate@ objects that you want to insert into or delete
@@ -183,8 +184,8 @@ updateIPSet_changeToken = Lens.lens (\UpdateIPSet' {changeToken} -> changeToken)
 -- -   IPSetDescriptor: Contains @Type@ and @Value@
 --
 -- You can insert a maximum of 1000 addresses in a single request.
-updateIPSet_updates :: Lens.Lens' UpdateIPSet (Core.NonEmpty IPSetUpdate)
-updateIPSet_updates = Lens.lens (\UpdateIPSet' {updates} -> updates) (\s@UpdateIPSet' {} a -> s {updates = a} :: UpdateIPSet) Core.. Lens._Coerce
+updateIPSet_updates :: Lens.Lens' UpdateIPSet (Prelude.NonEmpty IPSetUpdate)
+updateIPSet_updates = Lens.lens (\UpdateIPSet' {updates} -> updates) (\s@UpdateIPSet' {} a -> s {updates = a} :: UpdateIPSet) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateIPSet where
   type AWSResponse UpdateIPSet = UpdateIPSetResponse
@@ -193,53 +194,55 @@ instance Core.AWSRequest UpdateIPSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateIPSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateIPSet
+instance Prelude.Hashable UpdateIPSet
 
-instance Core.NFData UpdateIPSet
+instance Prelude.NFData UpdateIPSet
 
 instance Core.ToHeaders UpdateIPSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.UpdateIPSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateIPSet where
   toJSON UpdateIPSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("IPSetId" Core..= iPSetId),
-            Core.Just ("ChangeToken" Core..= changeToken),
-            Core.Just ("Updates" Core..= updates)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("IPSetId" Core..= iPSetId),
+            Prelude.Just ("ChangeToken" Core..= changeToken),
+            Prelude.Just ("Updates" Core..= updates)
           ]
       )
 
 instance Core.ToPath UpdateIPSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateIPSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIPSetResponse' smart constructor.
 data UpdateIPSetResponse = UpdateIPSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You
     -- can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateIPSetResponse' with all optional fields omitted.
@@ -256,22 +259,22 @@ data UpdateIPSetResponse = UpdateIPSetResponse'
 -- 'httpStatus', 'updateIPSetResponse_httpStatus' - The response's http status code.
 newUpdateIPSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateIPSetResponse
 newUpdateIPSetResponse pHttpStatus_ =
   UpdateIPSetResponse'
-    { changeToken = Core.Nothing,
+    { changeToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You
 -- can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-updateIPSetResponse_changeToken :: Lens.Lens' UpdateIPSetResponse (Core.Maybe Core.Text)
+updateIPSetResponse_changeToken :: Lens.Lens' UpdateIPSetResponse (Prelude.Maybe Prelude.Text)
 updateIPSetResponse_changeToken = Lens.lens (\UpdateIPSetResponse' {changeToken} -> changeToken) (\s@UpdateIPSetResponse' {} a -> s {changeToken = a} :: UpdateIPSetResponse)
 
 -- | The response's http status code.
-updateIPSetResponse_httpStatus :: Lens.Lens' UpdateIPSetResponse Core.Int
+updateIPSetResponse_httpStatus :: Lens.Lens' UpdateIPSetResponse Prelude.Int
 updateIPSetResponse_httpStatus = Lens.lens (\UpdateIPSetResponse' {httpStatus} -> httpStatus) (\s@UpdateIPSetResponse' {} a -> s {httpStatus = a} :: UpdateIPSetResponse)
 
-instance Core.NFData UpdateIPSetResponse
+instance Prelude.NFData UpdateIPSetResponse

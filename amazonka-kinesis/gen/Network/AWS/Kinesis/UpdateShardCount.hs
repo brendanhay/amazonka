@@ -89,13 +89,14 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateShardCount' smart constructor.
 data UpdateShardCount = UpdateShardCount'
   { -- | The name of the stream.
-    streamName :: Core.Text,
+    streamName :: Prelude.Text,
     -- | The new number of shards. This value has the following default limits.
     -- By default, you cannot do the following:
     --
@@ -110,11 +111,11 @@ data UpdateShardCount = UpdateShardCount'
     --
     -- -   Scale a stream with more than 500 shards down unless you set this
     --     value to less than 500 shards.
-    targetShardCount :: Core.Natural,
+    targetShardCount :: Prelude.Natural,
     -- | The scaling type. Uniform scaling creates shards of equal size.
     scalingType :: ScalingType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateShardCount' with all optional fields omitted.
@@ -144,9 +145,9 @@ data UpdateShardCount = UpdateShardCount'
 -- 'scalingType', 'updateShardCount_scalingType' - The scaling type. Uniform scaling creates shards of equal size.
 newUpdateShardCount ::
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetShardCount'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'scalingType'
   ScalingType ->
   UpdateShardCount
@@ -161,7 +162,7 @@ newUpdateShardCount
       }
 
 -- | The name of the stream.
-updateShardCount_streamName :: Lens.Lens' UpdateShardCount Core.Text
+updateShardCount_streamName :: Lens.Lens' UpdateShardCount Prelude.Text
 updateShardCount_streamName = Lens.lens (\UpdateShardCount' {streamName} -> streamName) (\s@UpdateShardCount' {} a -> s {streamName = a} :: UpdateShardCount)
 
 -- | The new number of shards. This value has the following default limits.
@@ -178,7 +179,7 @@ updateShardCount_streamName = Lens.lens (\UpdateShardCount' {streamName} -> stre
 --
 -- -   Scale a stream with more than 500 shards down unless you set this
 --     value to less than 500 shards.
-updateShardCount_targetShardCount :: Lens.Lens' UpdateShardCount Core.Natural
+updateShardCount_targetShardCount :: Lens.Lens' UpdateShardCount Prelude.Natural
 updateShardCount_targetShardCount = Lens.lens (\UpdateShardCount' {targetShardCount} -> targetShardCount) (\s@UpdateShardCount' {} a -> s {targetShardCount = a} :: UpdateShardCount)
 
 -- | The scaling type. Uniform scaling creates shards of equal size.
@@ -194,58 +195,60 @@ instance Core.AWSRequest UpdateShardCount where
     Response.receiveJSON
       ( \s h x ->
           UpdateShardCountResponse'
-            Core.<$> (x Core..?> "TargetShardCount")
-            Core.<*> (x Core..?> "CurrentShardCount")
-            Core.<*> (x Core..?> "StreamName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TargetShardCount")
+            Prelude.<*> (x Core..?> "CurrentShardCount")
+            Prelude.<*> (x Core..?> "StreamName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateShardCount
+instance Prelude.Hashable UpdateShardCount
 
-instance Core.NFData UpdateShardCount
+instance Prelude.NFData UpdateShardCount
 
 instance Core.ToHeaders UpdateShardCount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Kinesis_20131202.UpdateShardCount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateShardCount where
   toJSON UpdateShardCount' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("StreamName" Core..= streamName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("StreamName" Core..= streamName),
+            Prelude.Just
               ("TargetShardCount" Core..= targetShardCount),
-            Core.Just ("ScalingType" Core..= scalingType)
+            Prelude.Just ("ScalingType" Core..= scalingType)
           ]
       )
 
 instance Core.ToPath UpdateShardCount where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateShardCount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateShardCountResponse' smart constructor.
 data UpdateShardCountResponse = UpdateShardCountResponse'
   { -- | The updated number of shards.
-    targetShardCount :: Core.Maybe Core.Natural,
+    targetShardCount :: Prelude.Maybe Prelude.Natural,
     -- | The current number of shards.
-    currentShardCount :: Core.Maybe Core.Natural,
+    currentShardCount :: Prelude.Maybe Prelude.Natural,
     -- | The name of the stream.
-    streamName :: Core.Maybe Core.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateShardCountResponse' with all optional fields omitted.
@@ -264,31 +267,31 @@ data UpdateShardCountResponse = UpdateShardCountResponse'
 -- 'httpStatus', 'updateShardCountResponse_httpStatus' - The response's http status code.
 newUpdateShardCountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateShardCountResponse
 newUpdateShardCountResponse pHttpStatus_ =
   UpdateShardCountResponse'
     { targetShardCount =
-        Core.Nothing,
-      currentShardCount = Core.Nothing,
-      streamName = Core.Nothing,
+        Prelude.Nothing,
+      currentShardCount = Prelude.Nothing,
+      streamName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated number of shards.
-updateShardCountResponse_targetShardCount :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Core.Natural)
+updateShardCountResponse_targetShardCount :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Natural)
 updateShardCountResponse_targetShardCount = Lens.lens (\UpdateShardCountResponse' {targetShardCount} -> targetShardCount) (\s@UpdateShardCountResponse' {} a -> s {targetShardCount = a} :: UpdateShardCountResponse)
 
 -- | The current number of shards.
-updateShardCountResponse_currentShardCount :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Core.Natural)
+updateShardCountResponse_currentShardCount :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Natural)
 updateShardCountResponse_currentShardCount = Lens.lens (\UpdateShardCountResponse' {currentShardCount} -> currentShardCount) (\s@UpdateShardCountResponse' {} a -> s {currentShardCount = a} :: UpdateShardCountResponse)
 
 -- | The name of the stream.
-updateShardCountResponse_streamName :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Core.Text)
+updateShardCountResponse_streamName :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Text)
 updateShardCountResponse_streamName = Lens.lens (\UpdateShardCountResponse' {streamName} -> streamName) (\s@UpdateShardCountResponse' {} a -> s {streamName = a} :: UpdateShardCountResponse)
 
 -- | The response's http status code.
-updateShardCountResponse_httpStatus :: Lens.Lens' UpdateShardCountResponse Core.Int
+updateShardCountResponse_httpStatus :: Lens.Lens' UpdateShardCountResponse Prelude.Int
 updateShardCountResponse_httpStatus = Lens.lens (\UpdateShardCountResponse' {httpStatus} -> httpStatus) (\s@UpdateShardCountResponse' {} a -> s {httpStatus = a} :: UpdateShardCountResponse)
 
-instance Core.NFData UpdateShardCountResponse
+instance Prelude.NFData UpdateShardCountResponse

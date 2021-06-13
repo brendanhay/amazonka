@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AnnotationConsolidationConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures how labels are consolidated across human workers and
 -- processes output data.
@@ -673,9 +674,9 @@ data AnnotationConsolidationConfig = AnnotationConsolidationConfig'
     -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
     --
     -- -   @arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
-    annotationConsolidationLambdaArn :: Core.Text
+    annotationConsolidationLambdaArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnnotationConsolidationConfig' with all optional fields omitted.
@@ -1333,7 +1334,7 @@ data AnnotationConsolidationConfig = AnnotationConsolidationConfig'
 -- -   @arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
 newAnnotationConsolidationConfig ::
   -- | 'annotationConsolidationLambdaArn'
-  Core.Text ->
+  Prelude.Text ->
   AnnotationConsolidationConfig
 newAnnotationConsolidationConfig
   pAnnotationConsolidationLambdaArn_ =
@@ -1988,7 +1989,7 @@ newAnnotationConsolidationConfig
 -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
 --
 -- -   @arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
-annotationConsolidationConfig_annotationConsolidationLambdaArn :: Lens.Lens' AnnotationConsolidationConfig Core.Text
+annotationConsolidationConfig_annotationConsolidationLambdaArn :: Lens.Lens' AnnotationConsolidationConfig Prelude.Text
 annotationConsolidationConfig_annotationConsolidationLambdaArn = Lens.lens (\AnnotationConsolidationConfig' {annotationConsolidationLambdaArn} -> annotationConsolidationLambdaArn) (\s@AnnotationConsolidationConfig' {} a -> s {annotationConsolidationLambdaArn = a} :: AnnotationConsolidationConfig)
 
 instance Core.FromJSON AnnotationConsolidationConfig where
@@ -1997,18 +1998,20 @@ instance Core.FromJSON AnnotationConsolidationConfig where
       "AnnotationConsolidationConfig"
       ( \x ->
           AnnotationConsolidationConfig'
-            Core.<$> (x Core..: "AnnotationConsolidationLambdaArn")
+            Prelude.<$> (x Core..: "AnnotationConsolidationLambdaArn")
       )
 
-instance Core.Hashable AnnotationConsolidationConfig
+instance
+  Prelude.Hashable
+    AnnotationConsolidationConfig
 
-instance Core.NFData AnnotationConsolidationConfig
+instance Prelude.NFData AnnotationConsolidationConfig
 
 instance Core.ToJSON AnnotationConsolidationConfig where
   toJSON AnnotationConsolidationConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "AnnotationConsolidationLambdaArn"
                   Core..= annotationConsolidationLambdaArn
               )

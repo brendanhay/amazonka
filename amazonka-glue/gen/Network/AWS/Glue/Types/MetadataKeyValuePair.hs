@@ -21,17 +21,18 @@ module Network.AWS.Glue.Types.MetadataKeyValuePair where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure containing a key value pair for metadata.
 --
 -- /See:/ 'newMetadataKeyValuePair' smart constructor.
 data MetadataKeyValuePair = MetadataKeyValuePair'
   { -- | A metadata key.
-    metadataKey :: Core.Maybe Core.Text,
+    metadataKey :: Prelude.Maybe Prelude.Text,
     -- | A metadata key’s corresponding value.
-    metadataValue :: Core.Maybe Core.Text
+    metadataValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetadataKeyValuePair' with all optional fields omitted.
@@ -48,27 +49,28 @@ newMetadataKeyValuePair ::
   MetadataKeyValuePair
 newMetadataKeyValuePair =
   MetadataKeyValuePair'
-    { metadataKey = Core.Nothing,
-      metadataValue = Core.Nothing
+    { metadataKey =
+        Prelude.Nothing,
+      metadataValue = Prelude.Nothing
     }
 
 -- | A metadata key.
-metadataKeyValuePair_metadataKey :: Lens.Lens' MetadataKeyValuePair (Core.Maybe Core.Text)
+metadataKeyValuePair_metadataKey :: Lens.Lens' MetadataKeyValuePair (Prelude.Maybe Prelude.Text)
 metadataKeyValuePair_metadataKey = Lens.lens (\MetadataKeyValuePair' {metadataKey} -> metadataKey) (\s@MetadataKeyValuePair' {} a -> s {metadataKey = a} :: MetadataKeyValuePair)
 
 -- | A metadata key’s corresponding value.
-metadataKeyValuePair_metadataValue :: Lens.Lens' MetadataKeyValuePair (Core.Maybe Core.Text)
+metadataKeyValuePair_metadataValue :: Lens.Lens' MetadataKeyValuePair (Prelude.Maybe Prelude.Text)
 metadataKeyValuePair_metadataValue = Lens.lens (\MetadataKeyValuePair' {metadataValue} -> metadataValue) (\s@MetadataKeyValuePair' {} a -> s {metadataValue = a} :: MetadataKeyValuePair)
 
-instance Core.Hashable MetadataKeyValuePair
+instance Prelude.Hashable MetadataKeyValuePair
 
-instance Core.NFData MetadataKeyValuePair
+instance Prelude.NFData MetadataKeyValuePair
 
 instance Core.ToJSON MetadataKeyValuePair where
   toJSON MetadataKeyValuePair' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MetadataKey" Core..=) Core.<$> metadataKey,
-            ("MetadataValue" Core..=) Core.<$> metadataValue
+      ( Prelude.catMaybes
+          [ ("MetadataKey" Core..=) Prelude.<$> metadataKey,
+            ("MetadataValue" Core..=) Prelude.<$> metadataValue
           ]
       )

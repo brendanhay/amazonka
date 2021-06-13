@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.DockerVolumeConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.Scope
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This parameter is specified when you are using Docker volumes. Docker
 -- volumes are only supported when you are using the EC2 launch type.
@@ -37,12 +38,12 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
     -- @xxlabel@ option to
     -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-    labels :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    labels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The scope for the Docker volume that determines its lifecycle. Docker
     -- volumes that are scoped to a @task@ are automatically provisioned when
     -- the task starts and destroyed when the task stops. Docker volumes that
     -- are scoped as @shared@ persist after the task stops.
-    scope :: Core.Maybe Scope,
+    scope :: Prelude.Maybe Scope,
     -- | The Docker volume driver to use. The driver value must match the driver
     -- name provided by Docker because it is used for task placement. If the
     -- driver was installed using the Docker plugin CLI, use @docker plugin ls@
@@ -56,7 +57,7 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
     -- @xxdriver@ option to
     -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-    driver :: Core.Maybe Core.Text,
+    driver :: Prelude.Maybe Prelude.Text,
     -- | A map of Docker driver-specific options passed through. This parameter
     -- maps to @DriverOpts@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate Create a volume>
@@ -64,14 +65,14 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
     -- @xxopt@ option to
     -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-    driverOpts :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    driverOpts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | If this value is @true@, the Docker volume is created if it does not
     -- already exist.
     --
     -- This field is only used if the @scope@ is @shared@.
-    autoprovision :: Core.Maybe Core.Bool
+    autoprovision :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DockerVolumeConfiguration' with all optional fields omitted.
@@ -124,11 +125,12 @@ newDockerVolumeConfiguration ::
   DockerVolumeConfiguration
 newDockerVolumeConfiguration =
   DockerVolumeConfiguration'
-    { labels = Core.Nothing,
-      scope = Core.Nothing,
-      driver = Core.Nothing,
-      driverOpts = Core.Nothing,
-      autoprovision = Core.Nothing
+    { labels =
+        Prelude.Nothing,
+      scope = Prelude.Nothing,
+      driver = Prelude.Nothing,
+      driverOpts = Prelude.Nothing,
+      autoprovision = Prelude.Nothing
     }
 
 -- | Custom metadata to add to your Docker volume. This parameter maps to
@@ -138,14 +140,14 @@ newDockerVolumeConfiguration =
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
 -- @xxlabel@ option to
 -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-dockerVolumeConfiguration_labels :: Lens.Lens' DockerVolumeConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
-dockerVolumeConfiguration_labels = Lens.lens (\DockerVolumeConfiguration' {labels} -> labels) (\s@DockerVolumeConfiguration' {} a -> s {labels = a} :: DockerVolumeConfiguration) Core.. Lens.mapping Lens._Coerce
+dockerVolumeConfiguration_labels :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+dockerVolumeConfiguration_labels = Lens.lens (\DockerVolumeConfiguration' {labels} -> labels) (\s@DockerVolumeConfiguration' {} a -> s {labels = a} :: DockerVolumeConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The scope for the Docker volume that determines its lifecycle. Docker
 -- volumes that are scoped to a @task@ are automatically provisioned when
 -- the task starts and destroyed when the task stops. Docker volumes that
 -- are scoped as @shared@ persist after the task stops.
-dockerVolumeConfiguration_scope :: Lens.Lens' DockerVolumeConfiguration (Core.Maybe Scope)
+dockerVolumeConfiguration_scope :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe Scope)
 dockerVolumeConfiguration_scope = Lens.lens (\DockerVolumeConfiguration' {scope} -> scope) (\s@DockerVolumeConfiguration' {} a -> s {scope = a} :: DockerVolumeConfiguration)
 
 -- | The Docker volume driver to use. The driver value must match the driver
@@ -161,7 +163,7 @@ dockerVolumeConfiguration_scope = Lens.lens (\DockerVolumeConfiguration' {scope}
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
 -- @xxdriver@ option to
 -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-dockerVolumeConfiguration_driver :: Lens.Lens' DockerVolumeConfiguration (Core.Maybe Core.Text)
+dockerVolumeConfiguration_driver :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe Prelude.Text)
 dockerVolumeConfiguration_driver = Lens.lens (\DockerVolumeConfiguration' {driver} -> driver) (\s@DockerVolumeConfiguration' {} a -> s {driver = a} :: DockerVolumeConfiguration)
 
 -- | A map of Docker driver-specific options passed through. This parameter
@@ -171,14 +173,14 @@ dockerVolumeConfiguration_driver = Lens.lens (\DockerVolumeConfiguration' {drive
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
 -- @xxopt@ option to
 -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-dockerVolumeConfiguration_driverOpts :: Lens.Lens' DockerVolumeConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
-dockerVolumeConfiguration_driverOpts = Lens.lens (\DockerVolumeConfiguration' {driverOpts} -> driverOpts) (\s@DockerVolumeConfiguration' {} a -> s {driverOpts = a} :: DockerVolumeConfiguration) Core.. Lens.mapping Lens._Coerce
+dockerVolumeConfiguration_driverOpts :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+dockerVolumeConfiguration_driverOpts = Lens.lens (\DockerVolumeConfiguration' {driverOpts} -> driverOpts) (\s@DockerVolumeConfiguration' {} a -> s {driverOpts = a} :: DockerVolumeConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If this value is @true@, the Docker volume is created if it does not
 -- already exist.
 --
 -- This field is only used if the @scope@ is @shared@.
-dockerVolumeConfiguration_autoprovision :: Lens.Lens' DockerVolumeConfiguration (Core.Maybe Core.Bool)
+dockerVolumeConfiguration_autoprovision :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe Prelude.Bool)
 dockerVolumeConfiguration_autoprovision = Lens.lens (\DockerVolumeConfiguration' {autoprovision} -> autoprovision) (\s@DockerVolumeConfiguration' {} a -> s {autoprovision = a} :: DockerVolumeConfiguration)
 
 instance Core.FromJSON DockerVolumeConfiguration where
@@ -187,25 +189,25 @@ instance Core.FromJSON DockerVolumeConfiguration where
       "DockerVolumeConfiguration"
       ( \x ->
           DockerVolumeConfiguration'
-            Core.<$> (x Core..:? "labels" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "scope")
-            Core.<*> (x Core..:? "driver")
-            Core.<*> (x Core..:? "driverOpts" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "autoprovision")
+            Prelude.<$> (x Core..:? "labels" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "scope")
+            Prelude.<*> (x Core..:? "driver")
+            Prelude.<*> (x Core..:? "driverOpts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "autoprovision")
       )
 
-instance Core.Hashable DockerVolumeConfiguration
+instance Prelude.Hashable DockerVolumeConfiguration
 
-instance Core.NFData DockerVolumeConfiguration
+instance Prelude.NFData DockerVolumeConfiguration
 
 instance Core.ToJSON DockerVolumeConfiguration where
   toJSON DockerVolumeConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("labels" Core..=) Core.<$> labels,
-            ("scope" Core..=) Core.<$> scope,
-            ("driver" Core..=) Core.<$> driver,
-            ("driverOpts" Core..=) Core.<$> driverOpts,
-            ("autoprovision" Core..=) Core.<$> autoprovision
+      ( Prelude.catMaybes
+          [ ("labels" Core..=) Prelude.<$> labels,
+            ("scope" Core..=) Prelude.<$> scope,
+            ("driver" Core..=) Prelude.<$> driver,
+            ("driverOpts" Core..=) Prelude.<$> driverOpts,
+            ("autoprovision" Core..=) Prelude.<$> autoprovision
           ]
       )

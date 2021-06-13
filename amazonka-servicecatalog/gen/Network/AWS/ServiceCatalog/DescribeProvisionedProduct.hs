@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -60,13 +61,13 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
     --
     -- If you do not provide a name or ID, or you provide both name and ID, an
     -- @InvalidParametersException@ will occur.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the provisioned product. You must provide the name or ID,
     -- but not both.
     --
     -- If you do not provide a name or ID, or you provide both name and ID, an
     -- @InvalidParametersException@ will occur.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -74,9 +75,9 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProvisionedProduct' with all optional fields omitted.
@@ -109,9 +110,9 @@ newDescribeProvisionedProduct ::
   DescribeProvisionedProduct
 newDescribeProvisionedProduct =
   DescribeProvisionedProduct'
-    { id = Core.Nothing,
-      name = Core.Nothing,
-      acceptLanguage = Core.Nothing
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
 
 -- | The provisioned product identifier. You must provide the name or ID, but
@@ -119,7 +120,7 @@ newDescribeProvisionedProduct =
 --
 -- If you do not provide a name or ID, or you provide both name and ID, an
 -- @InvalidParametersException@ will occur.
-describeProvisionedProduct_id :: Lens.Lens' DescribeProvisionedProduct (Core.Maybe Core.Text)
+describeProvisionedProduct_id :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
 describeProvisionedProduct_id = Lens.lens (\DescribeProvisionedProduct' {id} -> id) (\s@DescribeProvisionedProduct' {} a -> s {id = a} :: DescribeProvisionedProduct)
 
 -- | The name of the provisioned product. You must provide the name or ID,
@@ -127,7 +128,7 @@ describeProvisionedProduct_id = Lens.lens (\DescribeProvisionedProduct' {id} -> 
 --
 -- If you do not provide a name or ID, or you provide both name and ID, an
 -- @InvalidParametersException@ will occur.
-describeProvisionedProduct_name :: Lens.Lens' DescribeProvisionedProduct (Core.Maybe Core.Text)
+describeProvisionedProduct_name :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
 describeProvisionedProduct_name = Lens.lens (\DescribeProvisionedProduct' {name} -> name) (\s@DescribeProvisionedProduct' {} a -> s {name = a} :: DescribeProvisionedProduct)
 
 -- | The language code.
@@ -137,7 +138,7 @@ describeProvisionedProduct_name = Lens.lens (\DescribeProvisionedProduct' {name}
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-describeProvisionedProduct_acceptLanguage :: Lens.Lens' DescribeProvisionedProduct (Core.Maybe Core.Text)
+describeProvisionedProduct_acceptLanguage :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
 describeProvisionedProduct_acceptLanguage = Lens.lens (\DescribeProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisionedProduct' {} a -> s {acceptLanguage = a} :: DescribeProvisionedProduct)
 
 instance Core.AWSRequest DescribeProvisionedProduct where
@@ -149,57 +150,60 @@ instance Core.AWSRequest DescribeProvisionedProduct where
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisionedProductResponse'
-            Core.<$> (x Core..?> "ProvisionedProductDetail")
-            Core.<*> ( x Core..?> "CloudWatchDashboards"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ProvisionedProductDetail")
+            Prelude.<*> ( x Core..?> "CloudWatchDashboards"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeProvisionedProduct
+instance Prelude.Hashable DescribeProvisionedProduct
 
-instance Core.NFData DescribeProvisionedProduct
+instance Prelude.NFData DescribeProvisionedProduct
 
 instance Core.ToHeaders DescribeProvisionedProduct where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DescribeProvisionedProduct" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeProvisionedProduct where
   toJSON DescribeProvisionedProduct' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Id" Core..=) Core.<$> id,
-            ("Name" Core..=) Core.<$> name,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+      ( Prelude.catMaybes
+          [ ("Id" Core..=) Prelude.<$> id,
+            ("Name" Core..=) Prelude.<$> name,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 
 instance Core.ToPath DescribeProvisionedProduct where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeProvisionedProduct where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProvisionedProductResponse' smart constructor.
 data DescribeProvisionedProductResponse = DescribeProvisionedProductResponse'
   { -- | Information about the provisioned product.
-    provisionedProductDetail :: Core.Maybe ProvisionedProductDetail,
+    provisionedProductDetail :: Prelude.Maybe ProvisionedProductDetail,
     -- | Any CloudWatch dashboards that were created when provisioning the
     -- product.
-    cloudWatchDashboards :: Core.Maybe [CloudWatchDashboard],
+    cloudWatchDashboards :: Prelude.Maybe [CloudWatchDashboard],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProvisionedProductResponse' with all optional fields omitted.
@@ -217,29 +221,29 @@ data DescribeProvisionedProductResponse = DescribeProvisionedProductResponse'
 -- 'httpStatus', 'describeProvisionedProductResponse_httpStatus' - The response's http status code.
 newDescribeProvisionedProductResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeProvisionedProductResponse
 newDescribeProvisionedProductResponse pHttpStatus_ =
   DescribeProvisionedProductResponse'
     { provisionedProductDetail =
-        Core.Nothing,
-      cloudWatchDashboards = Core.Nothing,
+        Prelude.Nothing,
+      cloudWatchDashboards = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the provisioned product.
-describeProvisionedProductResponse_provisionedProductDetail :: Lens.Lens' DescribeProvisionedProductResponse (Core.Maybe ProvisionedProductDetail)
+describeProvisionedProductResponse_provisionedProductDetail :: Lens.Lens' DescribeProvisionedProductResponse (Prelude.Maybe ProvisionedProductDetail)
 describeProvisionedProductResponse_provisionedProductDetail = Lens.lens (\DescribeProvisionedProductResponse' {provisionedProductDetail} -> provisionedProductDetail) (\s@DescribeProvisionedProductResponse' {} a -> s {provisionedProductDetail = a} :: DescribeProvisionedProductResponse)
 
 -- | Any CloudWatch dashboards that were created when provisioning the
 -- product.
-describeProvisionedProductResponse_cloudWatchDashboards :: Lens.Lens' DescribeProvisionedProductResponse (Core.Maybe [CloudWatchDashboard])
-describeProvisionedProductResponse_cloudWatchDashboards = Lens.lens (\DescribeProvisionedProductResponse' {cloudWatchDashboards} -> cloudWatchDashboards) (\s@DescribeProvisionedProductResponse' {} a -> s {cloudWatchDashboards = a} :: DescribeProvisionedProductResponse) Core.. Lens.mapping Lens._Coerce
+describeProvisionedProductResponse_cloudWatchDashboards :: Lens.Lens' DescribeProvisionedProductResponse (Prelude.Maybe [CloudWatchDashboard])
+describeProvisionedProductResponse_cloudWatchDashboards = Lens.lens (\DescribeProvisionedProductResponse' {cloudWatchDashboards} -> cloudWatchDashboards) (\s@DescribeProvisionedProductResponse' {} a -> s {cloudWatchDashboards = a} :: DescribeProvisionedProductResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeProvisionedProductResponse_httpStatus :: Lens.Lens' DescribeProvisionedProductResponse Core.Int
+describeProvisionedProductResponse_httpStatus :: Lens.Lens' DescribeProvisionedProductResponse Prelude.Int
 describeProvisionedProductResponse_httpStatus = Lens.lens (\DescribeProvisionedProductResponse' {httpStatus} -> httpStatus) (\s@DescribeProvisionedProductResponse' {} a -> s {httpStatus = a} :: DescribeProvisionedProductResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeProvisionedProductResponse

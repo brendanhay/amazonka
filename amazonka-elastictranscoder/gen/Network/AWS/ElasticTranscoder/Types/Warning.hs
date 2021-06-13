@@ -21,6 +21,7 @@ module Network.AWS.ElasticTranscoder.Types.Warning where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -35,11 +36,11 @@ data Warning = Warning'
     -- pipeline.
     --
     -- AWS KMS keys must be in the same region as the pipeline.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The code of the cross-regional warning.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Warning' with all optional fields omitted.
@@ -59,19 +60,19 @@ newWarning ::
   Warning
 newWarning =
   Warning'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The message explaining what resources are in a different region from the
 -- pipeline.
 --
 -- AWS KMS keys must be in the same region as the pipeline.
-warning_message :: Lens.Lens' Warning (Core.Maybe Core.Text)
+warning_message :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
 warning_message = Lens.lens (\Warning' {message} -> message) (\s@Warning' {} a -> s {message = a} :: Warning)
 
 -- | The code of the cross-regional warning.
-warning_code :: Lens.Lens' Warning (Core.Maybe Core.Text)
+warning_code :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
 warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code = a} :: Warning)
 
 instance Core.FromJSON Warning where
@@ -80,9 +81,10 @@ instance Core.FromJSON Warning where
       "Warning"
       ( \x ->
           Warning'
-            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Code")
       )
 
-instance Core.Hashable Warning
+instance Prelude.Hashable Warning
 
-instance Core.NFData Warning
+instance Prelude.NFData Warning

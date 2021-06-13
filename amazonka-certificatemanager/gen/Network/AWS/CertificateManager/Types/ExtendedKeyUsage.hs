@@ -22,6 +22,7 @@ module Network.AWS.CertificateManager.Types.ExtendedKeyUsage where
 import Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Extended Key Usage X.509 v3 extension defines one or more purposes
 -- for which the public key can be used. This is in addition to or in place
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newExtendedKeyUsage' smart constructor.
 data ExtendedKeyUsage = ExtendedKeyUsage'
   { -- | The name of an Extended Key Usage value.
-    name :: Core.Maybe ExtendedKeyUsageName,
+    name :: Prelude.Maybe ExtendedKeyUsageName,
     -- | An object identifier (OID) for the extension value. OIDs are strings of
     -- numbers separated by periods. The following OIDs are defined in RFC 3280
     -- and RFC 5280.
@@ -52,9 +53,9 @@ data ExtendedKeyUsage = ExtendedKeyUsage'
     -- -   @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@
     --
     -- -   @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
-    oid :: Core.Maybe Core.Text
+    oid :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExtendedKeyUsage' with all optional fields omitted.
@@ -91,12 +92,12 @@ newExtendedKeyUsage ::
   ExtendedKeyUsage
 newExtendedKeyUsage =
   ExtendedKeyUsage'
-    { name = Core.Nothing,
-      oid = Core.Nothing
+    { name = Prelude.Nothing,
+      oid = Prelude.Nothing
     }
 
 -- | The name of an Extended Key Usage value.
-extendedKeyUsage_name :: Lens.Lens' ExtendedKeyUsage (Core.Maybe ExtendedKeyUsageName)
+extendedKeyUsage_name :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe ExtendedKeyUsageName)
 extendedKeyUsage_name = Lens.lens (\ExtendedKeyUsage' {name} -> name) (\s@ExtendedKeyUsage' {} a -> s {name = a} :: ExtendedKeyUsage)
 
 -- | An object identifier (OID) for the extension value. OIDs are strings of
@@ -120,7 +121,7 @@ extendedKeyUsage_name = Lens.lens (\ExtendedKeyUsage' {name} -> name) (\s@Extend
 -- -   @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@
 --
 -- -   @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
-extendedKeyUsage_oid :: Lens.Lens' ExtendedKeyUsage (Core.Maybe Core.Text)
+extendedKeyUsage_oid :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe Prelude.Text)
 extendedKeyUsage_oid = Lens.lens (\ExtendedKeyUsage' {oid} -> oid) (\s@ExtendedKeyUsage' {} a -> s {oid = a} :: ExtendedKeyUsage)
 
 instance Core.FromJSON ExtendedKeyUsage where
@@ -129,9 +130,9 @@ instance Core.FromJSON ExtendedKeyUsage where
       "ExtendedKeyUsage"
       ( \x ->
           ExtendedKeyUsage'
-            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "OID")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "OID")
       )
 
-instance Core.Hashable ExtendedKeyUsage
+instance Prelude.Hashable ExtendedKeyUsage
 
-instance Core.NFData ExtendedKeyUsage
+instance Prelude.NFData ExtendedKeyUsage

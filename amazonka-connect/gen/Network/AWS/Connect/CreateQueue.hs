@@ -53,6 +53,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,23 +61,23 @@ import qualified Network.AWS.Response as Response
 data CreateQueue = CreateQueue'
   { -- | The maximum number of contacts that can be in the queue before it is
     -- considered full.
-    maxContacts :: Core.Maybe Core.Natural,
+    maxContacts :: Prelude.Maybe Prelude.Natural,
     -- | One or more tags.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the queue.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The outbound caller ID name, number, and outbound whisper flow.
-    outboundCallerConfig :: Core.Maybe OutboundCallerConfig,
+    outboundCallerConfig :: Prelude.Maybe OutboundCallerConfig,
     -- | The quick connects available to agents who are working the queue.
-    quickConnectIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    quickConnectIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The name of the queue.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The identifier for the hours of operation.
-    hoursOfOperationId :: Core.Text
+    hoursOfOperationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateQueue' with all optional fields omitted.
@@ -104,22 +105,22 @@ data CreateQueue = CreateQueue'
 -- 'hoursOfOperationId', 'createQueue_hoursOfOperationId' - The identifier for the hours of operation.
 newCreateQueue ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hoursOfOperationId'
-  Core.Text ->
+  Prelude.Text ->
   CreateQueue
 newCreateQueue
   pInstanceId_
   pName_
   pHoursOfOperationId_ =
     CreateQueue'
-      { maxContacts = Core.Nothing,
-        tags = Core.Nothing,
-        description = Core.Nothing,
-        outboundCallerConfig = Core.Nothing,
-        quickConnectIds = Core.Nothing,
+      { maxContacts = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        description = Prelude.Nothing,
+        outboundCallerConfig = Prelude.Nothing,
+        quickConnectIds = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         hoursOfOperationId = pHoursOfOperationId_
@@ -127,35 +128,35 @@ newCreateQueue
 
 -- | The maximum number of contacts that can be in the queue before it is
 -- considered full.
-createQueue_maxContacts :: Lens.Lens' CreateQueue (Core.Maybe Core.Natural)
+createQueue_maxContacts :: Lens.Lens' CreateQueue (Prelude.Maybe Prelude.Natural)
 createQueue_maxContacts = Lens.lens (\CreateQueue' {maxContacts} -> maxContacts) (\s@CreateQueue' {} a -> s {maxContacts = a} :: CreateQueue)
 
 -- | One or more tags.
-createQueue_tags :: Lens.Lens' CreateQueue (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Core.. Lens.mapping Lens._Coerce
+createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the queue.
-createQueue_description :: Lens.Lens' CreateQueue (Core.Maybe Core.Text)
+createQueue_description :: Lens.Lens' CreateQueue (Prelude.Maybe Prelude.Text)
 createQueue_description = Lens.lens (\CreateQueue' {description} -> description) (\s@CreateQueue' {} a -> s {description = a} :: CreateQueue)
 
 -- | The outbound caller ID name, number, and outbound whisper flow.
-createQueue_outboundCallerConfig :: Lens.Lens' CreateQueue (Core.Maybe OutboundCallerConfig)
+createQueue_outboundCallerConfig :: Lens.Lens' CreateQueue (Prelude.Maybe OutboundCallerConfig)
 createQueue_outboundCallerConfig = Lens.lens (\CreateQueue' {outboundCallerConfig} -> outboundCallerConfig) (\s@CreateQueue' {} a -> s {outboundCallerConfig = a} :: CreateQueue)
 
 -- | The quick connects available to agents who are working the queue.
-createQueue_quickConnectIds :: Lens.Lens' CreateQueue (Core.Maybe (Core.NonEmpty Core.Text))
-createQueue_quickConnectIds = Lens.lens (\CreateQueue' {quickConnectIds} -> quickConnectIds) (\s@CreateQueue' {} a -> s {quickConnectIds = a} :: CreateQueue) Core.. Lens.mapping Lens._Coerce
+createQueue_quickConnectIds :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createQueue_quickConnectIds = Lens.lens (\CreateQueue' {quickConnectIds} -> quickConnectIds) (\s@CreateQueue' {} a -> s {quickConnectIds = a} :: CreateQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the Amazon Connect instance.
-createQueue_instanceId :: Lens.Lens' CreateQueue Core.Text
+createQueue_instanceId :: Lens.Lens' CreateQueue Prelude.Text
 createQueue_instanceId = Lens.lens (\CreateQueue' {instanceId} -> instanceId) (\s@CreateQueue' {} a -> s {instanceId = a} :: CreateQueue)
 
 -- | The name of the queue.
-createQueue_name :: Lens.Lens' CreateQueue Core.Text
+createQueue_name :: Lens.Lens' CreateQueue Prelude.Text
 createQueue_name = Lens.lens (\CreateQueue' {name} -> name) (\s@CreateQueue' {} a -> s {name = a} :: CreateQueue)
 
 -- | The identifier for the hours of operation.
-createQueue_hoursOfOperationId :: Lens.Lens' CreateQueue Core.Text
+createQueue_hoursOfOperationId :: Lens.Lens' CreateQueue Prelude.Text
 createQueue_hoursOfOperationId = Lens.lens (\CreateQueue' {hoursOfOperationId} -> hoursOfOperationId) (\s@CreateQueue' {} a -> s {hoursOfOperationId = a} :: CreateQueue)
 
 instance Core.AWSRequest CreateQueue where
@@ -165,57 +166,60 @@ instance Core.AWSRequest CreateQueue where
     Response.receiveJSON
       ( \s h x ->
           CreateQueueResponse'
-            Core.<$> (x Core..?> "QueueId")
-            Core.<*> (x Core..?> "QueueArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "QueueId")
+            Prelude.<*> (x Core..?> "QueueArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateQueue
+instance Prelude.Hashable CreateQueue
 
-instance Core.NFData CreateQueue
+instance Prelude.NFData CreateQueue
 
 instance Core.ToHeaders CreateQueue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateQueue where
   toJSON CreateQueue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxContacts" Core..=) Core.<$> maxContacts,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
+      ( Prelude.catMaybes
+          [ ("MaxContacts" Core..=) Prelude.<$> maxContacts,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             ("OutboundCallerConfig" Core..=)
-              Core.<$> outboundCallerConfig,
-            ("QuickConnectIds" Core..=) Core.<$> quickConnectIds,
-            Core.Just ("Name" Core..= name),
-            Core.Just
+              Prelude.<$> outboundCallerConfig,
+            ("QuickConnectIds" Core..=)
+              Prelude.<$> quickConnectIds,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ("HoursOfOperationId" Core..= hoursOfOperationId)
           ]
       )
 
 instance Core.ToPath CreateQueue where
   toPath CreateQueue' {..} =
-    Core.mconcat ["/queues/", Core.toBS instanceId]
+    Prelude.mconcat ["/queues/", Core.toBS instanceId]
 
 instance Core.ToQuery CreateQueue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateQueueResponse' smart constructor.
 data CreateQueueResponse = CreateQueueResponse'
   { -- | The identifier for the queue.
-    queueId :: Core.Maybe Core.Text,
+    queueId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the queue.
-    queueArn :: Core.Maybe Core.Text,
+    queueArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateQueueResponse' with all optional fields omitted.
@@ -232,25 +236,25 @@ data CreateQueueResponse = CreateQueueResponse'
 -- 'httpStatus', 'createQueueResponse_httpStatus' - The response's http status code.
 newCreateQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateQueueResponse
 newCreateQueueResponse pHttpStatus_ =
   CreateQueueResponse'
-    { queueId = Core.Nothing,
-      queueArn = Core.Nothing,
+    { queueId = Prelude.Nothing,
+      queueArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier for the queue.
-createQueueResponse_queueId :: Lens.Lens' CreateQueueResponse (Core.Maybe Core.Text)
+createQueueResponse_queueId :: Lens.Lens' CreateQueueResponse (Prelude.Maybe Prelude.Text)
 createQueueResponse_queueId = Lens.lens (\CreateQueueResponse' {queueId} -> queueId) (\s@CreateQueueResponse' {} a -> s {queueId = a} :: CreateQueueResponse)
 
 -- | The Amazon Resource Name (ARN) of the queue.
-createQueueResponse_queueArn :: Lens.Lens' CreateQueueResponse (Core.Maybe Core.Text)
+createQueueResponse_queueArn :: Lens.Lens' CreateQueueResponse (Prelude.Maybe Prelude.Text)
 createQueueResponse_queueArn = Lens.lens (\CreateQueueResponse' {queueArn} -> queueArn) (\s@CreateQueueResponse' {} a -> s {queueArn = a} :: CreateQueueResponse)
 
 -- | The response's http status code.
-createQueueResponse_httpStatus :: Lens.Lens' CreateQueueResponse Core.Int
+createQueueResponse_httpStatus :: Lens.Lens' CreateQueueResponse Prelude.Int
 createQueueResponse_httpStatus = Lens.lens (\CreateQueueResponse' {httpStatus} -> httpStatus) (\s@CreateQueueResponse' {} a -> s {httpStatus = a} :: CreateQueueResponse)
 
-instance Core.NFData CreateQueueResponse
+instance Prelude.NFData CreateQueueResponse

@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.ResponseTimeRootCause where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.ResponseTimeRootCauseService
 
 -- | The root cause information for a response time warning.
@@ -29,11 +30,11 @@ import Network.AWS.XRay.Types.ResponseTimeRootCauseService
 data ResponseTimeRootCause = ResponseTimeRootCause'
   { -- | A list of corresponding services. A service identifies a segment and
     -- contains a name, account ID, type, and inferred flag.
-    services :: Core.Maybe [ResponseTimeRootCauseService],
+    services :: Prelude.Maybe [ResponseTimeRootCauseService],
     -- | A flag that denotes that the root cause impacts the trace client.
-    clientImpacting :: Core.Maybe Core.Bool
+    clientImpacting :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResponseTimeRootCause' with all optional fields omitted.
@@ -51,17 +52,17 @@ newResponseTimeRootCause ::
   ResponseTimeRootCause
 newResponseTimeRootCause =
   ResponseTimeRootCause'
-    { services = Core.Nothing,
-      clientImpacting = Core.Nothing
+    { services = Prelude.Nothing,
+      clientImpacting = Prelude.Nothing
     }
 
 -- | A list of corresponding services. A service identifies a segment and
 -- contains a name, account ID, type, and inferred flag.
-responseTimeRootCause_services :: Lens.Lens' ResponseTimeRootCause (Core.Maybe [ResponseTimeRootCauseService])
-responseTimeRootCause_services = Lens.lens (\ResponseTimeRootCause' {services} -> services) (\s@ResponseTimeRootCause' {} a -> s {services = a} :: ResponseTimeRootCause) Core.. Lens.mapping Lens._Coerce
+responseTimeRootCause_services :: Lens.Lens' ResponseTimeRootCause (Prelude.Maybe [ResponseTimeRootCauseService])
+responseTimeRootCause_services = Lens.lens (\ResponseTimeRootCause' {services} -> services) (\s@ResponseTimeRootCause' {} a -> s {services = a} :: ResponseTimeRootCause) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that denotes that the root cause impacts the trace client.
-responseTimeRootCause_clientImpacting :: Lens.Lens' ResponseTimeRootCause (Core.Maybe Core.Bool)
+responseTimeRootCause_clientImpacting :: Lens.Lens' ResponseTimeRootCause (Prelude.Maybe Prelude.Bool)
 responseTimeRootCause_clientImpacting = Lens.lens (\ResponseTimeRootCause' {clientImpacting} -> clientImpacting) (\s@ResponseTimeRootCause' {} a -> s {clientImpacting = a} :: ResponseTimeRootCause)
 
 instance Core.FromJSON ResponseTimeRootCause where
@@ -70,10 +71,10 @@ instance Core.FromJSON ResponseTimeRootCause where
       "ResponseTimeRootCause"
       ( \x ->
           ResponseTimeRootCause'
-            Core.<$> (x Core..:? "Services" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ClientImpacting")
+            Prelude.<$> (x Core..:? "Services" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ClientImpacting")
       )
 
-instance Core.Hashable ResponseTimeRootCause
+instance Prelude.Hashable ResponseTimeRootCause
 
-instance Core.NFData ResponseTimeRootCause
+instance Prelude.NFData ResponseTimeRootCause

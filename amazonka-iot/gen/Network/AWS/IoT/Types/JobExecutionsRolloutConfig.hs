@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.JobExecutionsRolloutConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ExponentialRolloutRate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Allows you to create a staged rollout of a job.
 --
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data JobExecutionsRolloutConfig = JobExecutionsRolloutConfig'
   { -- | The rate of increase for a job rollout. This parameter allows you to
     -- define an exponential rate for a job rollout.
-    exponentialRate :: Core.Maybe ExponentialRolloutRate,
+    exponentialRate :: Prelude.Maybe ExponentialRolloutRate,
     -- | The maximum number of things that will be notified of a pending job, per
     -- minute. This parameter allows you to create a staged rollout.
-    maximumPerMinute :: Core.Maybe Core.Natural
+    maximumPerMinute :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobExecutionsRolloutConfig' with all optional fields omitted.
@@ -54,18 +55,18 @@ newJobExecutionsRolloutConfig ::
 newJobExecutionsRolloutConfig =
   JobExecutionsRolloutConfig'
     { exponentialRate =
-        Core.Nothing,
-      maximumPerMinute = Core.Nothing
+        Prelude.Nothing,
+      maximumPerMinute = Prelude.Nothing
     }
 
 -- | The rate of increase for a job rollout. This parameter allows you to
 -- define an exponential rate for a job rollout.
-jobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' JobExecutionsRolloutConfig (Core.Maybe ExponentialRolloutRate)
+jobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' JobExecutionsRolloutConfig (Prelude.Maybe ExponentialRolloutRate)
 jobExecutionsRolloutConfig_exponentialRate = Lens.lens (\JobExecutionsRolloutConfig' {exponentialRate} -> exponentialRate) (\s@JobExecutionsRolloutConfig' {} a -> s {exponentialRate = a} :: JobExecutionsRolloutConfig)
 
 -- | The maximum number of things that will be notified of a pending job, per
 -- minute. This parameter allows you to create a staged rollout.
-jobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Core.Maybe Core.Natural)
+jobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Prelude.Maybe Prelude.Natural)
 jobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\JobExecutionsRolloutConfig' {maximumPerMinute} -> maximumPerMinute) (\s@JobExecutionsRolloutConfig' {} a -> s {maximumPerMinute = a} :: JobExecutionsRolloutConfig)
 
 instance Core.FromJSON JobExecutionsRolloutConfig where
@@ -74,21 +75,21 @@ instance Core.FromJSON JobExecutionsRolloutConfig where
       "JobExecutionsRolloutConfig"
       ( \x ->
           JobExecutionsRolloutConfig'
-            Core.<$> (x Core..:? "exponentialRate")
-            Core.<*> (x Core..:? "maximumPerMinute")
+            Prelude.<$> (x Core..:? "exponentialRate")
+            Prelude.<*> (x Core..:? "maximumPerMinute")
       )
 
-instance Core.Hashable JobExecutionsRolloutConfig
+instance Prelude.Hashable JobExecutionsRolloutConfig
 
-instance Core.NFData JobExecutionsRolloutConfig
+instance Prelude.NFData JobExecutionsRolloutConfig
 
 instance Core.ToJSON JobExecutionsRolloutConfig where
   toJSON JobExecutionsRolloutConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("exponentialRate" Core..=)
-              Core.<$> exponentialRate,
+              Prelude.<$> exponentialRate,
             ("maximumPerMinute" Core..=)
-              Core.<$> maximumPerMinute
+              Prelude.<$> maximumPerMinute
           ]
       )

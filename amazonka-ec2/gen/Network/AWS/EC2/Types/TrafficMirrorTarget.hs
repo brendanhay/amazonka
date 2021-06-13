@@ -24,27 +24,28 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TrafficMirrorTargetType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Traffic Mirror target.
 --
 -- /See:/ 'newTrafficMirrorTarget' smart constructor.
 data TrafficMirrorTarget = TrafficMirrorTarget'
   { -- | The ID of the account that owns the Traffic Mirror target.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Network Load Balancer.
-    networkLoadBalancerArn :: Core.Maybe Core.Text,
+    networkLoadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the Traffic Mirror target.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The network interface ID that is attached to the target.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | Information about the Traffic Mirror target.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of Traffic Mirror target.
-    type' :: Core.Maybe TrafficMirrorTargetType,
+    type' :: Prelude.Maybe TrafficMirrorTargetType,
     -- | The ID of the Traffic Mirror target.
-    trafficMirrorTargetId :: Core.Maybe Core.Text
+    trafficMirrorTargetId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrafficMirrorTarget' with all optional fields omitted.
@@ -71,56 +72,56 @@ newTrafficMirrorTarget ::
   TrafficMirrorTarget
 newTrafficMirrorTarget =
   TrafficMirrorTarget'
-    { ownerId = Core.Nothing,
-      networkLoadBalancerArn = Core.Nothing,
-      tags = Core.Nothing,
-      networkInterfaceId = Core.Nothing,
-      description = Core.Nothing,
-      type' = Core.Nothing,
-      trafficMirrorTargetId = Core.Nothing
+    { ownerId = Prelude.Nothing,
+      networkLoadBalancerArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      trafficMirrorTargetId = Prelude.Nothing
     }
 
 -- | The ID of the account that owns the Traffic Mirror target.
-trafficMirrorTarget_ownerId :: Lens.Lens' TrafficMirrorTarget (Core.Maybe Core.Text)
+trafficMirrorTarget_ownerId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_ownerId = Lens.lens (\TrafficMirrorTarget' {ownerId} -> ownerId) (\s@TrafficMirrorTarget' {} a -> s {ownerId = a} :: TrafficMirrorTarget)
 
 -- | The Amazon Resource Name (ARN) of the Network Load Balancer.
-trafficMirrorTarget_networkLoadBalancerArn :: Lens.Lens' TrafficMirrorTarget (Core.Maybe Core.Text)
+trafficMirrorTarget_networkLoadBalancerArn :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_networkLoadBalancerArn = Lens.lens (\TrafficMirrorTarget' {networkLoadBalancerArn} -> networkLoadBalancerArn) (\s@TrafficMirrorTarget' {} a -> s {networkLoadBalancerArn = a} :: TrafficMirrorTarget)
 
 -- | The tags assigned to the Traffic Mirror target.
-trafficMirrorTarget_tags :: Lens.Lens' TrafficMirrorTarget (Core.Maybe [Tag])
-trafficMirrorTarget_tags = Lens.lens (\TrafficMirrorTarget' {tags} -> tags) (\s@TrafficMirrorTarget' {} a -> s {tags = a} :: TrafficMirrorTarget) Core.. Lens.mapping Lens._Coerce
+trafficMirrorTarget_tags :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe [Tag])
+trafficMirrorTarget_tags = Lens.lens (\TrafficMirrorTarget' {tags} -> tags) (\s@TrafficMirrorTarget' {} a -> s {tags = a} :: TrafficMirrorTarget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The network interface ID that is attached to the target.
-trafficMirrorTarget_networkInterfaceId :: Lens.Lens' TrafficMirrorTarget (Core.Maybe Core.Text)
+trafficMirrorTarget_networkInterfaceId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_networkInterfaceId = Lens.lens (\TrafficMirrorTarget' {networkInterfaceId} -> networkInterfaceId) (\s@TrafficMirrorTarget' {} a -> s {networkInterfaceId = a} :: TrafficMirrorTarget)
 
 -- | Information about the Traffic Mirror target.
-trafficMirrorTarget_description :: Lens.Lens' TrafficMirrorTarget (Core.Maybe Core.Text)
+trafficMirrorTarget_description :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_description = Lens.lens (\TrafficMirrorTarget' {description} -> description) (\s@TrafficMirrorTarget' {} a -> s {description = a} :: TrafficMirrorTarget)
 
 -- | The type of Traffic Mirror target.
-trafficMirrorTarget_type :: Lens.Lens' TrafficMirrorTarget (Core.Maybe TrafficMirrorTargetType)
+trafficMirrorTarget_type :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe TrafficMirrorTargetType)
 trafficMirrorTarget_type = Lens.lens (\TrafficMirrorTarget' {type'} -> type') (\s@TrafficMirrorTarget' {} a -> s {type' = a} :: TrafficMirrorTarget)
 
 -- | The ID of the Traffic Mirror target.
-trafficMirrorTarget_trafficMirrorTargetId :: Lens.Lens' TrafficMirrorTarget (Core.Maybe Core.Text)
+trafficMirrorTarget_trafficMirrorTargetId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_trafficMirrorTargetId = Lens.lens (\TrafficMirrorTarget' {trafficMirrorTargetId} -> trafficMirrorTargetId) (\s@TrafficMirrorTarget' {} a -> s {trafficMirrorTargetId = a} :: TrafficMirrorTarget)
 
 instance Core.FromXML TrafficMirrorTarget where
   parseXML x =
     TrafficMirrorTarget'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "networkLoadBalancerArn")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "networkInterfaceId")
-      Core.<*> (x Core..@? "description")
-      Core.<*> (x Core..@? "type")
-      Core.<*> (x Core..@? "trafficMirrorTargetId")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "networkLoadBalancerArn")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "networkInterfaceId")
+      Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "type")
+      Prelude.<*> (x Core..@? "trafficMirrorTargetId")
 
-instance Core.Hashable TrafficMirrorTarget
+instance Prelude.Hashable TrafficMirrorTarget
 
-instance Core.NFData TrafficMirrorTarget
+instance Prelude.NFData TrafficMirrorTarget

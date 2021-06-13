@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data IsVpcPeered = IsVpcPeered'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IsVpcPeered' with all optional fields omitted.
@@ -63,44 +64,46 @@ instance Core.AWSRequest IsVpcPeered where
     Response.receiveJSON
       ( \s h x ->
           IsVpcPeeredResponse'
-            Core.<$> (x Core..?> "isPeered")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "isPeered")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable IsVpcPeered
+instance Prelude.Hashable IsVpcPeered
 
-instance Core.NFData IsVpcPeered
+instance Prelude.NFData IsVpcPeered
 
 instance Core.ToHeaders IsVpcPeered where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.IsVpcPeered" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON IsVpcPeered where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath IsVpcPeered where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery IsVpcPeered where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newIsVpcPeeredResponse' smart constructor.
 data IsVpcPeeredResponse = IsVpcPeeredResponse'
   { -- | Returns @true@ if the Lightsail VPC is peered; otherwise, @false@.
-    isPeered :: Core.Maybe Core.Bool,
+    isPeered :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IsVpcPeeredResponse' with all optional fields omitted.
@@ -115,20 +118,20 @@ data IsVpcPeeredResponse = IsVpcPeeredResponse'
 -- 'httpStatus', 'isVpcPeeredResponse_httpStatus' - The response's http status code.
 newIsVpcPeeredResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   IsVpcPeeredResponse
 newIsVpcPeeredResponse pHttpStatus_ =
   IsVpcPeeredResponse'
-    { isPeered = Core.Nothing,
+    { isPeered = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns @true@ if the Lightsail VPC is peered; otherwise, @false@.
-isVpcPeeredResponse_isPeered :: Lens.Lens' IsVpcPeeredResponse (Core.Maybe Core.Bool)
+isVpcPeeredResponse_isPeered :: Lens.Lens' IsVpcPeeredResponse (Prelude.Maybe Prelude.Bool)
 isVpcPeeredResponse_isPeered = Lens.lens (\IsVpcPeeredResponse' {isPeered} -> isPeered) (\s@IsVpcPeeredResponse' {} a -> s {isPeered = a} :: IsVpcPeeredResponse)
 
 -- | The response's http status code.
-isVpcPeeredResponse_httpStatus :: Lens.Lens' IsVpcPeeredResponse Core.Int
+isVpcPeeredResponse_httpStatus :: Lens.Lens' IsVpcPeeredResponse Prelude.Int
 isVpcPeeredResponse_httpStatus = Lens.lens (\IsVpcPeeredResponse' {httpStatus} -> httpStatus) (\s@IsVpcPeeredResponse' {} a -> s {httpStatus = a} :: IsVpcPeeredResponse)
 
-instance Core.NFData IsVpcPeeredResponse
+instance Prelude.NFData IsVpcPeeredResponse

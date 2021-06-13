@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyCacheSubnetGroup' smart constructor.
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
   { -- | The EC2 subnet IDs for the cache subnet group.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | A description of the cache subnet group.
-    cacheSubnetGroupDescription :: Core.Maybe Core.Text,
+    cacheSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The name for the cache subnet group. This value is stored as a lowercase
     -- string.
     --
@@ -62,9 +63,9 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
     -- hyphens.
     --
     -- Example: @mysubnetgroup@
-    cacheSubnetGroupName :: Core.Text
+    cacheSubnetGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyCacheSubnetGroup' with all optional fields omitted.
@@ -87,21 +88,22 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
 -- Example: @mysubnetgroup@
 newModifyCacheSubnetGroup ::
   -- | 'cacheSubnetGroupName'
-  Core.Text ->
+  Prelude.Text ->
   ModifyCacheSubnetGroup
 newModifyCacheSubnetGroup pCacheSubnetGroupName_ =
   ModifyCacheSubnetGroup'
-    { subnetIds = Core.Nothing,
-      cacheSubnetGroupDescription = Core.Nothing,
+    { subnetIds =
+        Prelude.Nothing,
+      cacheSubnetGroupDescription = Prelude.Nothing,
       cacheSubnetGroupName = pCacheSubnetGroupName_
     }
 
 -- | The EC2 subnet IDs for the cache subnet group.
-modifyCacheSubnetGroup_subnetIds :: Lens.Lens' ModifyCacheSubnetGroup (Core.Maybe [Core.Text])
-modifyCacheSubnetGroup_subnetIds = Lens.lens (\ModifyCacheSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyCacheSubnetGroup' {} a -> s {subnetIds = a} :: ModifyCacheSubnetGroup) Core.. Lens.mapping Lens._Coerce
+modifyCacheSubnetGroup_subnetIds :: Lens.Lens' ModifyCacheSubnetGroup (Prelude.Maybe [Prelude.Text])
+modifyCacheSubnetGroup_subnetIds = Lens.lens (\ModifyCacheSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyCacheSubnetGroup' {} a -> s {subnetIds = a} :: ModifyCacheSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description of the cache subnet group.
-modifyCacheSubnetGroup_cacheSubnetGroupDescription :: Lens.Lens' ModifyCacheSubnetGroup (Core.Maybe Core.Text)
+modifyCacheSubnetGroup_cacheSubnetGroupDescription :: Lens.Lens' ModifyCacheSubnetGroup (Prelude.Maybe Prelude.Text)
 modifyCacheSubnetGroup_cacheSubnetGroupDescription = Lens.lens (\ModifyCacheSubnetGroup' {cacheSubnetGroupDescription} -> cacheSubnetGroupDescription) (\s@ModifyCacheSubnetGroup' {} a -> s {cacheSubnetGroupDescription = a} :: ModifyCacheSubnetGroup)
 
 -- | The name for the cache subnet group. This value is stored as a lowercase
@@ -111,7 +113,7 @@ modifyCacheSubnetGroup_cacheSubnetGroupDescription = Lens.lens (\ModifyCacheSubn
 -- hyphens.
 --
 -- Example: @mysubnetgroup@
-modifyCacheSubnetGroup_cacheSubnetGroupName :: Lens.Lens' ModifyCacheSubnetGroup Core.Text
+modifyCacheSubnetGroup_cacheSubnetGroupName :: Lens.Lens' ModifyCacheSubnetGroup Prelude.Text
 modifyCacheSubnetGroup_cacheSubnetGroupName = Lens.lens (\ModifyCacheSubnetGroup' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@ModifyCacheSubnetGroup' {} a -> s {cacheSubnetGroupName = a} :: ModifyCacheSubnetGroup)
 
 instance Core.AWSRequest ModifyCacheSubnetGroup where
@@ -124,30 +126,31 @@ instance Core.AWSRequest ModifyCacheSubnetGroup where
       "ModifyCacheSubnetGroupResult"
       ( \s h x ->
           ModifyCacheSubnetGroupResponse'
-            Core.<$> (x Core..@? "CacheSubnetGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "CacheSubnetGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyCacheSubnetGroup
+instance Prelude.Hashable ModifyCacheSubnetGroup
 
-instance Core.NFData ModifyCacheSubnetGroup
+instance Prelude.NFData ModifyCacheSubnetGroup
 
 instance Core.ToHeaders ModifyCacheSubnetGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyCacheSubnetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyCacheSubnetGroup where
   toQuery ModifyCacheSubnetGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCacheSubnetGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("ModifyCacheSubnetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "SubnetIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "SubnetIdentifier"
-                Core.<$> subnetIds
+                Prelude.<$> subnetIds
             ),
         "CacheSubnetGroupDescription"
           Core.=: cacheSubnetGroupDescription,
@@ -156,11 +159,11 @@ instance Core.ToQuery ModifyCacheSubnetGroup where
 
 -- | /See:/ 'newModifyCacheSubnetGroupResponse' smart constructor.
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
-  { cacheSubnetGroup :: Core.Maybe CacheSubnetGroup,
+  { cacheSubnetGroup :: Prelude.Maybe CacheSubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyCacheSubnetGroupResponse' with all optional fields omitted.
@@ -175,21 +178,23 @@ data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
 -- 'httpStatus', 'modifyCacheSubnetGroupResponse_httpStatus' - The response's http status code.
 newModifyCacheSubnetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyCacheSubnetGroupResponse
 newModifyCacheSubnetGroupResponse pHttpStatus_ =
   ModifyCacheSubnetGroupResponse'
     { cacheSubnetGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyCacheSubnetGroupResponse_cacheSubnetGroup :: Lens.Lens' ModifyCacheSubnetGroupResponse (Core.Maybe CacheSubnetGroup)
+modifyCacheSubnetGroupResponse_cacheSubnetGroup :: Lens.Lens' ModifyCacheSubnetGroupResponse (Prelude.Maybe CacheSubnetGroup)
 modifyCacheSubnetGroupResponse_cacheSubnetGroup = Lens.lens (\ModifyCacheSubnetGroupResponse' {cacheSubnetGroup} -> cacheSubnetGroup) (\s@ModifyCacheSubnetGroupResponse' {} a -> s {cacheSubnetGroup = a} :: ModifyCacheSubnetGroupResponse)
 
 -- | The response's http status code.
-modifyCacheSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyCacheSubnetGroupResponse Core.Int
+modifyCacheSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyCacheSubnetGroupResponse Prelude.Int
 modifyCacheSubnetGroupResponse_httpStatus = Lens.lens (\ModifyCacheSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyCacheSubnetGroupResponse' {} a -> s {httpStatus = a} :: ModifyCacheSubnetGroupResponse)
 
-instance Core.NFData ModifyCacheSubnetGroupResponse
+instance
+  Prelude.NFData
+    ModifyCacheSubnetGroupResponse

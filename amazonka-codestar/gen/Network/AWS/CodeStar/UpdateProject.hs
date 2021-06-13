@@ -43,19 +43,20 @@ where
 import Network.AWS.CodeStar.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
   { -- | The name of the project you want to update.
-    name :: Core.Maybe (Core.Sensitive Core.Text),
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The description of the project, if any.
-    description :: Core.Maybe (Core.Sensitive Core.Text),
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the project you want to update.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProject' with all optional fields omitted.
@@ -72,25 +73,25 @@ data UpdateProject = UpdateProject'
 -- 'id', 'updateProject_id' - The ID of the project you want to update.
 newUpdateProject ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateProject
 newUpdateProject pId_ =
   UpdateProject'
-    { name = Core.Nothing,
-      description = Core.Nothing,
+    { name = Prelude.Nothing,
+      description = Prelude.Nothing,
       id = pId_
     }
 
 -- | The name of the project you want to update.
-updateProject_name :: Lens.Lens' UpdateProject (Core.Maybe Core.Text)
-updateProject_name = Lens.lens (\UpdateProject' {name} -> name) (\s@UpdateProject' {} a -> s {name = a} :: UpdateProject) Core.. Lens.mapping Core._Sensitive
+updateProject_name :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_name = Lens.lens (\UpdateProject' {name} -> name) (\s@UpdateProject' {} a -> s {name = a} :: UpdateProject) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The description of the project, if any.
-updateProject_description :: Lens.Lens' UpdateProject (Core.Maybe Core.Text)
-updateProject_description = Lens.lens (\UpdateProject' {description} -> description) (\s@UpdateProject' {} a -> s {description = a} :: UpdateProject) Core.. Lens.mapping Core._Sensitive
+updateProject_description :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_description = Lens.lens (\UpdateProject' {description} -> description) (\s@UpdateProject' {} a -> s {description = a} :: UpdateProject) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the project you want to update.
-updateProject_id :: Lens.Lens' UpdateProject Core.Text
+updateProject_id :: Lens.Lens' UpdateProject Prelude.Text
 updateProject_id = Lens.lens (\UpdateProject' {id} -> id) (\s@UpdateProject' {} a -> s {id = a} :: UpdateProject)
 
 instance Core.AWSRequest UpdateProject where
@@ -102,48 +103,50 @@ instance Core.AWSRequest UpdateProject where
     Response.receiveEmpty
       ( \s h x ->
           UpdateProjectResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateProject
+instance Prelude.Hashable UpdateProject
 
-instance Core.NFData UpdateProject
+instance Prelude.NFData UpdateProject
 
 instance Core.ToHeaders UpdateProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeStar_20170419.UpdateProject" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("name" Core..=) Core.<$> name,
-            ("description" Core..=) Core.<$> description,
-            Core.Just ("id" Core..= id)
+      ( Prelude.catMaybes
+          [ ("name" Core..=) Prelude.<$> name,
+            ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("id" Core..= id)
           ]
       )
 
 instance Core.ToPath UpdateProject where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateProject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProjectResponse' with all optional fields omitted.
@@ -156,13 +159,13 @@ data UpdateProjectResponse = UpdateProjectResponse'
 -- 'httpStatus', 'updateProjectResponse_httpStatus' - The response's http status code.
 newUpdateProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateProjectResponse
 newUpdateProjectResponse pHttpStatus_ =
   UpdateProjectResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateProjectResponse_httpStatus :: Lens.Lens' UpdateProjectResponse Core.Int
+updateProjectResponse_httpStatus :: Lens.Lens' UpdateProjectResponse Prelude.Int
 updateProjectResponse_httpStatus = Lens.lens (\UpdateProjectResponse' {httpStatus} -> httpStatus) (\s@UpdateProjectResponse' {} a -> s {httpStatus = a} :: UpdateProjectResponse)
 
-instance Core.NFData UpdateProjectResponse
+instance Prelude.NFData UpdateProjectResponse

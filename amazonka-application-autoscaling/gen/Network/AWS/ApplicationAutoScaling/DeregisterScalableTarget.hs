@@ -48,6 +48,7 @@ where
 import Network.AWS.ApplicationAutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -117,7 +118,7 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
     --
@@ -176,7 +177,7 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
     --     GiB) for brokers in an Amazon MSK cluster.
     scalableDimension :: ScalableDimension
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterScalableTarget' with all optional fields omitted.
@@ -311,7 +312,7 @@ newDeregisterScalableTarget ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   DeregisterScalableTarget
@@ -392,7 +393,7 @@ deregisterScalableTarget_serviceNamespace = Lens.lens (\DeregisterScalableTarget
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-deregisterScalableTarget_resourceId :: Lens.Lens' DeregisterScalableTarget Core.Text
+deregisterScalableTarget_resourceId :: Lens.Lens' DeregisterScalableTarget Prelude.Text
 deregisterScalableTarget_resourceId = Lens.lens (\DeregisterScalableTarget' {resourceId} -> resourceId) (\s@DeregisterScalableTarget' {} a -> s {resourceId = a} :: DeregisterScalableTarget)
 
 -- | The scalable dimension associated with the scalable target. This string
@@ -463,50 +464,52 @@ instance Core.AWSRequest DeregisterScalableTarget where
     Response.receiveEmpty
       ( \s h x ->
           DeregisterScalableTargetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeregisterScalableTarget
+instance Prelude.Hashable DeregisterScalableTarget
 
-instance Core.NFData DeregisterScalableTarget
+instance Prelude.NFData DeregisterScalableTarget
 
 instance Core.ToHeaders DeregisterScalableTarget where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AnyScaleFrontendService.DeregisterScalableTarget" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeregisterScalableTarget where
   toJSON DeregisterScalableTarget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just
               ("ScalableDimension" Core..= scalableDimension)
           ]
       )
 
 instance Core.ToPath DeregisterScalableTarget where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterScalableTarget where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterScalableTargetResponse' smart constructor.
 data DeregisterScalableTargetResponse = DeregisterScalableTargetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterScalableTargetResponse' with all optional fields omitted.
@@ -519,7 +522,7 @@ data DeregisterScalableTargetResponse = DeregisterScalableTargetResponse'
 -- 'httpStatus', 'deregisterScalableTargetResponse_httpStatus' - The response's http status code.
 newDeregisterScalableTargetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterScalableTargetResponse
 newDeregisterScalableTargetResponse pHttpStatus_ =
   DeregisterScalableTargetResponse'
@@ -528,7 +531,9 @@ newDeregisterScalableTargetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deregisterScalableTargetResponse_httpStatus :: Lens.Lens' DeregisterScalableTargetResponse Core.Int
+deregisterScalableTargetResponse_httpStatus :: Lens.Lens' DeregisterScalableTargetResponse Prelude.Int
 deregisterScalableTargetResponse_httpStatus = Lens.lens (\DeregisterScalableTargetResponse' {httpStatus} -> httpStatus) (\s@DeregisterScalableTargetResponse' {} a -> s {httpStatus = a} :: DeregisterScalableTargetResponse)
 
-instance Core.NFData DeregisterScalableTargetResponse
+instance
+  Prelude.NFData
+    DeregisterScalableTargetResponse

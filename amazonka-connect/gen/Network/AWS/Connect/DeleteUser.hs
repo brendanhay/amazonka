@@ -44,17 +44,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier of the user.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -69,9 +70,9 @@ data DeleteUser = DeleteUser'
 -- 'userId', 'deleteUser_userId' - The identifier of the user.
 newDeleteUser ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUser
 newDeleteUser pInstanceId_ pUserId_ =
   DeleteUser'
@@ -80,11 +81,11 @@ newDeleteUser pInstanceId_ pUserId_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-deleteUser_instanceId :: Lens.Lens' DeleteUser Core.Text
+deleteUser_instanceId :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_instanceId = Lens.lens (\DeleteUser' {instanceId} -> instanceId) (\s@DeleteUser' {} a -> s {instanceId = a} :: DeleteUser)
 
 -- | The identifier of the user.
-deleteUser_userId :: Lens.Lens' DeleteUser Core.Text
+deleteUser_userId :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_userId = Lens.lens (\DeleteUser' {userId} -> userId) (\s@DeleteUser' {} a -> s {userId = a} :: DeleteUser)
 
 instance Core.AWSRequest DeleteUser where
@@ -92,22 +93,24 @@ instance Core.AWSRequest DeleteUser where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteUserResponse'
 
-instance Core.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser
 
-instance Core.NFData DeleteUser
+instance Prelude.NFData DeleteUser
 
 instance Core.ToHeaders DeleteUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteUser where
   toPath DeleteUser' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/users/",
         Core.toBS instanceId,
         "/",
@@ -115,13 +118,13 @@ instance Core.ToPath DeleteUser where
       ]
 
 instance Core.ToQuery DeleteUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserResponse' with all optional fields omitted.
@@ -131,4 +134,4 @@ newDeleteUserResponse ::
   DeleteUserResponse
 newDeleteUserResponse = DeleteUserResponse'
 
-instance Core.NFData DeleteUserResponse
+instance Prelude.NFData DeleteUserResponse

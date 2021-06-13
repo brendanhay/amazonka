@@ -44,14 +44,15 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAssessmentTemplates' smart constructor.
 data DescribeAssessmentTemplates = DescribeAssessmentTemplates'
-  { assessmentTemplateArns :: Core.NonEmpty Core.Text
+  { assessmentTemplateArns :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAssessmentTemplates' with all optional fields omitted.
@@ -64,7 +65,7 @@ data DescribeAssessmentTemplates = DescribeAssessmentTemplates'
 -- 'assessmentTemplateArns', 'describeAssessmentTemplates_assessmentTemplateArns' - Undocumented member.
 newDescribeAssessmentTemplates ::
   -- | 'assessmentTemplateArns'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DescribeAssessmentTemplates
 newDescribeAssessmentTemplates
   pAssessmentTemplateArns_ =
@@ -74,8 +75,8 @@ newDescribeAssessmentTemplates
       }
 
 -- | Undocumented member.
-describeAssessmentTemplates_assessmentTemplateArns :: Lens.Lens' DescribeAssessmentTemplates (Core.NonEmpty Core.Text)
-describeAssessmentTemplates_assessmentTemplateArns = Lens.lens (\DescribeAssessmentTemplates' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@DescribeAssessmentTemplates' {} a -> s {assessmentTemplateArns = a} :: DescribeAssessmentTemplates) Core.. Lens._Coerce
+describeAssessmentTemplates_assessmentTemplateArns :: Lens.Lens' DescribeAssessmentTemplates (Prelude.NonEmpty Prelude.Text)
+describeAssessmentTemplates_assessmentTemplateArns = Lens.lens (\DescribeAssessmentTemplates' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@DescribeAssessmentTemplates' {} a -> s {assessmentTemplateArns = a} :: DescribeAssessmentTemplates) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeAssessmentTemplates where
   type
@@ -86,35 +87,37 @@ instance Core.AWSRequest DescribeAssessmentTemplates where
     Response.receiveJSON
       ( \s h x ->
           DescribeAssessmentTemplatesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "assessmentTemplates"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "failedItems" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "assessmentTemplates"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable DescribeAssessmentTemplates
+instance Prelude.Hashable DescribeAssessmentTemplates
 
-instance Core.NFData DescribeAssessmentTemplates
+instance Prelude.NFData DescribeAssessmentTemplates
 
 instance Core.ToHeaders DescribeAssessmentTemplates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.DescribeAssessmentTemplates" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeAssessmentTemplates where
   toJSON DescribeAssessmentTemplates' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "assessmentTemplateArns"
                   Core..= assessmentTemplateArns
               )
@@ -122,22 +125,22 @@ instance Core.ToJSON DescribeAssessmentTemplates where
       )
 
 instance Core.ToPath DescribeAssessmentTemplates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAssessmentTemplates where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAssessmentTemplatesResponse' smart constructor.
 data DescribeAssessmentTemplatesResponse = DescribeAssessmentTemplatesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the assessment templates.
     assessmentTemplates :: [AssessmentTemplate],
     -- | Assessment template details that cannot be described. An error code is
     -- provided for each failed item.
-    failedItems :: Core.HashMap Core.Text FailedItemDetails
+    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAssessmentTemplatesResponse' with all optional fields omitted.
@@ -155,29 +158,29 @@ data DescribeAssessmentTemplatesResponse = DescribeAssessmentTemplatesResponse'
 -- provided for each failed item.
 newDescribeAssessmentTemplatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAssessmentTemplatesResponse
 newDescribeAssessmentTemplatesResponse pHttpStatus_ =
   DescribeAssessmentTemplatesResponse'
     { httpStatus =
         pHttpStatus_,
-      assessmentTemplates = Core.mempty,
-      failedItems = Core.mempty
+      assessmentTemplates = Prelude.mempty,
+      failedItems = Prelude.mempty
     }
 
 -- | The response's http status code.
-describeAssessmentTemplatesResponse_httpStatus :: Lens.Lens' DescribeAssessmentTemplatesResponse Core.Int
+describeAssessmentTemplatesResponse_httpStatus :: Lens.Lens' DescribeAssessmentTemplatesResponse Prelude.Int
 describeAssessmentTemplatesResponse_httpStatus = Lens.lens (\DescribeAssessmentTemplatesResponse' {httpStatus} -> httpStatus) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {httpStatus = a} :: DescribeAssessmentTemplatesResponse)
 
 -- | Information about the assessment templates.
 describeAssessmentTemplatesResponse_assessmentTemplates :: Lens.Lens' DescribeAssessmentTemplatesResponse [AssessmentTemplate]
-describeAssessmentTemplatesResponse_assessmentTemplates = Lens.lens (\DescribeAssessmentTemplatesResponse' {assessmentTemplates} -> assessmentTemplates) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {assessmentTemplates = a} :: DescribeAssessmentTemplatesResponse) Core.. Lens._Coerce
+describeAssessmentTemplatesResponse_assessmentTemplates = Lens.lens (\DescribeAssessmentTemplatesResponse' {assessmentTemplates} -> assessmentTemplates) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {assessmentTemplates = a} :: DescribeAssessmentTemplatesResponse) Prelude.. Lens._Coerce
 
 -- | Assessment template details that cannot be described. An error code is
 -- provided for each failed item.
-describeAssessmentTemplatesResponse_failedItems :: Lens.Lens' DescribeAssessmentTemplatesResponse (Core.HashMap Core.Text FailedItemDetails)
-describeAssessmentTemplatesResponse_failedItems = Lens.lens (\DescribeAssessmentTemplatesResponse' {failedItems} -> failedItems) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {failedItems = a} :: DescribeAssessmentTemplatesResponse) Core.. Lens._Coerce
+describeAssessmentTemplatesResponse_failedItems :: Lens.Lens' DescribeAssessmentTemplatesResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
+describeAssessmentTemplatesResponse_failedItems = Lens.lens (\DescribeAssessmentTemplatesResponse' {failedItems} -> failedItems) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {failedItems = a} :: DescribeAssessmentTemplatesResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAssessmentTemplatesResponse

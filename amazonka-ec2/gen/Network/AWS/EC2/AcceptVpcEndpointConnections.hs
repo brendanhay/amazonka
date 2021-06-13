@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ data AcceptVpcEndpointConnections = AcceptVpcEndpointConnections'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPC endpoint service.
-    serviceId :: Core.Text,
+    serviceId :: Prelude.Text,
     -- | The IDs of one or more interface VPC endpoints.
-    vpcEndpointIds :: [Core.Text]
+    vpcEndpointIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptVpcEndpointConnections' with all optional fields omitted.
@@ -80,30 +81,30 @@ data AcceptVpcEndpointConnections = AcceptVpcEndpointConnections'
 -- 'vpcEndpointIds', 'acceptVpcEndpointConnections_vpcEndpointIds' - The IDs of one or more interface VPC endpoints.
 newAcceptVpcEndpointConnections ::
   -- | 'serviceId'
-  Core.Text ->
+  Prelude.Text ->
   AcceptVpcEndpointConnections
 newAcceptVpcEndpointConnections pServiceId_ =
   AcceptVpcEndpointConnections'
     { dryRun =
-        Core.Nothing,
+        Prelude.Nothing,
       serviceId = pServiceId_,
-      vpcEndpointIds = Core.mempty
+      vpcEndpointIds = Prelude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-acceptVpcEndpointConnections_dryRun :: Lens.Lens' AcceptVpcEndpointConnections (Core.Maybe Core.Bool)
+acceptVpcEndpointConnections_dryRun :: Lens.Lens' AcceptVpcEndpointConnections (Prelude.Maybe Prelude.Bool)
 acceptVpcEndpointConnections_dryRun = Lens.lens (\AcceptVpcEndpointConnections' {dryRun} -> dryRun) (\s@AcceptVpcEndpointConnections' {} a -> s {dryRun = a} :: AcceptVpcEndpointConnections)
 
 -- | The ID of the VPC endpoint service.
-acceptVpcEndpointConnections_serviceId :: Lens.Lens' AcceptVpcEndpointConnections Core.Text
+acceptVpcEndpointConnections_serviceId :: Lens.Lens' AcceptVpcEndpointConnections Prelude.Text
 acceptVpcEndpointConnections_serviceId = Lens.lens (\AcceptVpcEndpointConnections' {serviceId} -> serviceId) (\s@AcceptVpcEndpointConnections' {} a -> s {serviceId = a} :: AcceptVpcEndpointConnections)
 
 -- | The IDs of one or more interface VPC endpoints.
-acceptVpcEndpointConnections_vpcEndpointIds :: Lens.Lens' AcceptVpcEndpointConnections [Core.Text]
-acceptVpcEndpointConnections_vpcEndpointIds = Lens.lens (\AcceptVpcEndpointConnections' {vpcEndpointIds} -> vpcEndpointIds) (\s@AcceptVpcEndpointConnections' {} a -> s {vpcEndpointIds = a} :: AcceptVpcEndpointConnections) Core.. Lens._Coerce
+acceptVpcEndpointConnections_vpcEndpointIds :: Lens.Lens' AcceptVpcEndpointConnections [Prelude.Text]
+acceptVpcEndpointConnections_vpcEndpointIds = Lens.lens (\AcceptVpcEndpointConnections' {vpcEndpointIds} -> vpcEndpointIds) (\s@AcceptVpcEndpointConnections' {} a -> s {vpcEndpointIds = a} :: AcceptVpcEndpointConnections) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AcceptVpcEndpointConnections where
   type
@@ -114,28 +115,33 @@ instance Core.AWSRequest AcceptVpcEndpointConnections where
     Response.receiveXML
       ( \s h x ->
           AcceptVpcEndpointConnectionsResponse'
-            Core.<$> ( x Core..@? "unsuccessful" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "unsuccessful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AcceptVpcEndpointConnections
+instance
+  Prelude.Hashable
+    AcceptVpcEndpointConnections
 
-instance Core.NFData AcceptVpcEndpointConnections
+instance Prelude.NFData AcceptVpcEndpointConnections
 
 instance Core.ToHeaders AcceptVpcEndpointConnections where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AcceptVpcEndpointConnections where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AcceptVpcEndpointConnections where
   toQuery AcceptVpcEndpointConnections' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AcceptVpcEndpointConnections" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ( "AcceptVpcEndpointConnections" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "ServiceId" Core.=: serviceId,
         Core.toQueryList "VpcEndpointId" vpcEndpointIds
@@ -145,11 +151,11 @@ instance Core.ToQuery AcceptVpcEndpointConnections where
 data AcceptVpcEndpointConnectionsResponse = AcceptVpcEndpointConnectionsResponse'
   { -- | Information about the interface endpoints that were not accepted, if
     -- applicable.
-    unsuccessful :: Core.Maybe [UnsuccessfulItem],
+    unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptVpcEndpointConnectionsResponse' with all optional fields omitted.
@@ -165,24 +171,24 @@ data AcceptVpcEndpointConnectionsResponse = AcceptVpcEndpointConnectionsResponse
 -- 'httpStatus', 'acceptVpcEndpointConnectionsResponse_httpStatus' - The response's http status code.
 newAcceptVpcEndpointConnectionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AcceptVpcEndpointConnectionsResponse
 newAcceptVpcEndpointConnectionsResponse pHttpStatus_ =
   AcceptVpcEndpointConnectionsResponse'
     { unsuccessful =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the interface endpoints that were not accepted, if
 -- applicable.
-acceptVpcEndpointConnectionsResponse_unsuccessful :: Lens.Lens' AcceptVpcEndpointConnectionsResponse (Core.Maybe [UnsuccessfulItem])
-acceptVpcEndpointConnectionsResponse_unsuccessful = Lens.lens (\AcceptVpcEndpointConnectionsResponse' {unsuccessful} -> unsuccessful) (\s@AcceptVpcEndpointConnectionsResponse' {} a -> s {unsuccessful = a} :: AcceptVpcEndpointConnectionsResponse) Core.. Lens.mapping Lens._Coerce
+acceptVpcEndpointConnectionsResponse_unsuccessful :: Lens.Lens' AcceptVpcEndpointConnectionsResponse (Prelude.Maybe [UnsuccessfulItem])
+acceptVpcEndpointConnectionsResponse_unsuccessful = Lens.lens (\AcceptVpcEndpointConnectionsResponse' {unsuccessful} -> unsuccessful) (\s@AcceptVpcEndpointConnectionsResponse' {} a -> s {unsuccessful = a} :: AcceptVpcEndpointConnectionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-acceptVpcEndpointConnectionsResponse_httpStatus :: Lens.Lens' AcceptVpcEndpointConnectionsResponse Core.Int
+acceptVpcEndpointConnectionsResponse_httpStatus :: Lens.Lens' AcceptVpcEndpointConnectionsResponse Prelude.Int
 acceptVpcEndpointConnectionsResponse_httpStatus = Lens.lens (\AcceptVpcEndpointConnectionsResponse' {httpStatus} -> httpStatus) (\s@AcceptVpcEndpointConnectionsResponse' {} a -> s {httpStatus = a} :: AcceptVpcEndpointConnectionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AcceptVpcEndpointConnectionsResponse

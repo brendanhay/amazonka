@@ -49,6 +49,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeDomains' smart constructor.
 data DescribeDomains = DescribeDomains'
   { -- | The names of the domains you want to include in the response.
-    domainNames :: Core.Maybe [Core.Text]
+    domainNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomains' with all optional fields omitted.
@@ -76,11 +77,11 @@ data DescribeDomains = DescribeDomains'
 newDescribeDomains ::
   DescribeDomains
 newDescribeDomains =
-  DescribeDomains' {domainNames = Core.Nothing}
+  DescribeDomains' {domainNames = Prelude.Nothing}
 
 -- | The names of the domains you want to include in the response.
-describeDomains_domainNames :: Lens.Lens' DescribeDomains (Core.Maybe [Core.Text])
-describeDomains_domainNames = Lens.lens (\DescribeDomains' {domainNames} -> domainNames) (\s@DescribeDomains' {} a -> s {domainNames = a} :: DescribeDomains) Core.. Lens.mapping Lens._Coerce
+describeDomains_domainNames :: Lens.Lens' DescribeDomains (Prelude.Maybe [Prelude.Text])
+describeDomains_domainNames = Lens.lens (\DescribeDomains' {domainNames} -> domainNames) (\s@DescribeDomains' {} a -> s {domainNames = a} :: DescribeDomains) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeDomains where
   type
@@ -92,31 +93,33 @@ instance Core.AWSRequest DescribeDomains where
       "DescribeDomainsResult"
       ( \s h x ->
           DescribeDomainsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "DomainStatusList" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "DomainStatusList"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable DescribeDomains
+instance Prelude.Hashable DescribeDomains
 
-instance Core.NFData DescribeDomains
+instance Prelude.NFData DescribeDomains
 
 instance Core.ToHeaders DescribeDomains where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDomains where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDomains where
   toQuery DescribeDomains' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDomains" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("DescribeDomains" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainNames"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> domainNames)
+            (Core.toQueryList "member" Prelude.<$> domainNames)
       ]
 
 -- | The result of a @DescribeDomains@ request. Contains the status of the
@@ -125,10 +128,10 @@ instance Core.ToQuery DescribeDomains where
 -- /See:/ 'newDescribeDomainsResponse' smart constructor.
 data DescribeDomainsResponse = DescribeDomainsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     domainStatusList :: [DomainStatus]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomainsResponse' with all optional fields omitted.
@@ -143,20 +146,20 @@ data DescribeDomainsResponse = DescribeDomainsResponse'
 -- 'domainStatusList', 'describeDomainsResponse_domainStatusList' - Undocumented member.
 newDescribeDomainsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDomainsResponse
 newDescribeDomainsResponse pHttpStatus_ =
   DescribeDomainsResponse'
     { httpStatus = pHttpStatus_,
-      domainStatusList = Core.mempty
+      domainStatusList = Prelude.mempty
     }
 
 -- | The response's http status code.
-describeDomainsResponse_httpStatus :: Lens.Lens' DescribeDomainsResponse Core.Int
+describeDomainsResponse_httpStatus :: Lens.Lens' DescribeDomainsResponse Prelude.Int
 describeDomainsResponse_httpStatus = Lens.lens (\DescribeDomainsResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainsResponse' {} a -> s {httpStatus = a} :: DescribeDomainsResponse)
 
 -- | Undocumented member.
 describeDomainsResponse_domainStatusList :: Lens.Lens' DescribeDomainsResponse [DomainStatus]
-describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeDomainsResponse) Core.. Lens._Coerce
+describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeDomainsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DescribeDomainsResponse
+instance Prelude.NFData DescribeDomainsResponse

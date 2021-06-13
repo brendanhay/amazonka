@@ -21,6 +21,7 @@ module Network.AWS.DirectConnect.Types.RouteFilterPrefix where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a route filter prefix that a customer can advertise
 -- through Border Gateway Protocol (BGP) over a public virtual interface.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data RouteFilterPrefix = RouteFilterPrefix'
   { -- | The CIDR block for the advertised route. Separate multiple routes using
     -- commas. An IPv6 CIDR must use \/64 or shorter.
-    cidr :: Core.Maybe Core.Text
+    cidr :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RouteFilterPrefix' with all optional fields omitted.
@@ -46,11 +47,11 @@ data RouteFilterPrefix = RouteFilterPrefix'
 newRouteFilterPrefix ::
   RouteFilterPrefix
 newRouteFilterPrefix =
-  RouteFilterPrefix' {cidr = Core.Nothing}
+  RouteFilterPrefix' {cidr = Prelude.Nothing}
 
 -- | The CIDR block for the advertised route. Separate multiple routes using
 -- commas. An IPv6 CIDR must use \/64 or shorter.
-routeFilterPrefix_cidr :: Lens.Lens' RouteFilterPrefix (Core.Maybe Core.Text)
+routeFilterPrefix_cidr :: Lens.Lens' RouteFilterPrefix (Prelude.Maybe Prelude.Text)
 routeFilterPrefix_cidr = Lens.lens (\RouteFilterPrefix' {cidr} -> cidr) (\s@RouteFilterPrefix' {} a -> s {cidr = a} :: RouteFilterPrefix)
 
 instance Core.FromJSON RouteFilterPrefix where
@@ -58,14 +59,16 @@ instance Core.FromJSON RouteFilterPrefix where
     Core.withObject
       "RouteFilterPrefix"
       ( \x ->
-          RouteFilterPrefix' Core.<$> (x Core..:? "cidr")
+          RouteFilterPrefix' Prelude.<$> (x Core..:? "cidr")
       )
 
-instance Core.Hashable RouteFilterPrefix
+instance Prelude.Hashable RouteFilterPrefix
 
-instance Core.NFData RouteFilterPrefix
+instance Prelude.NFData RouteFilterPrefix
 
 instance Core.ToJSON RouteFilterPrefix where
   toJSON RouteFilterPrefix' {..} =
     Core.object
-      (Core.catMaybes [("cidr" Core..=) Core.<$> cidr])
+      ( Prelude.catMaybes
+          [("cidr" Core..=) Prelude.<$> cidr]
+      )

@@ -22,6 +22,7 @@ module Network.AWS.CloudWatchLogs.Types.MetricFilter where
 import Network.AWS.CloudWatchLogs.Types.MetricTransformation
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metric filters express how CloudWatch Logs would extract metric
 -- observations from ingested log events and transform them into metric
@@ -30,17 +31,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMetricFilter' smart constructor.
 data MetricFilter = MetricFilter'
   { -- | The name of the metric filter.
-    filterName :: Core.Maybe Core.Text,
+    filterName :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the metric filter, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-    creationTime :: Core.Maybe Core.Natural,
-    filterPattern :: Core.Maybe Core.Text,
+    creationTime :: Prelude.Maybe Prelude.Natural,
+    filterPattern :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
-    logGroupName :: Core.Maybe Core.Text,
+    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | The metric transformations.
-    metricTransformations :: Core.Maybe (Core.NonEmpty MetricTransformation)
+    metricTransformations :: Prelude.Maybe (Prelude.NonEmpty MetricTransformation)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricFilter' with all optional fields omitted.
@@ -64,33 +65,33 @@ newMetricFilter ::
   MetricFilter
 newMetricFilter =
   MetricFilter'
-    { filterName = Core.Nothing,
-      creationTime = Core.Nothing,
-      filterPattern = Core.Nothing,
-      logGroupName = Core.Nothing,
-      metricTransformations = Core.Nothing
+    { filterName = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      filterPattern = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
+      metricTransformations = Prelude.Nothing
     }
 
 -- | The name of the metric filter.
-metricFilter_filterName :: Lens.Lens' MetricFilter (Core.Maybe Core.Text)
+metricFilter_filterName :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Text)
 metricFilter_filterName = Lens.lens (\MetricFilter' {filterName} -> filterName) (\s@MetricFilter' {} a -> s {filterName = a} :: MetricFilter)
 
 -- | The creation time of the metric filter, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-metricFilter_creationTime :: Lens.Lens' MetricFilter (Core.Maybe Core.Natural)
+metricFilter_creationTime :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Natural)
 metricFilter_creationTime = Lens.lens (\MetricFilter' {creationTime} -> creationTime) (\s@MetricFilter' {} a -> s {creationTime = a} :: MetricFilter)
 
 -- | Undocumented member.
-metricFilter_filterPattern :: Lens.Lens' MetricFilter (Core.Maybe Core.Text)
+metricFilter_filterPattern :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Text)
 metricFilter_filterPattern = Lens.lens (\MetricFilter' {filterPattern} -> filterPattern) (\s@MetricFilter' {} a -> s {filterPattern = a} :: MetricFilter)
 
 -- | The name of the log group.
-metricFilter_logGroupName :: Lens.Lens' MetricFilter (Core.Maybe Core.Text)
+metricFilter_logGroupName :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Text)
 metricFilter_logGroupName = Lens.lens (\MetricFilter' {logGroupName} -> logGroupName) (\s@MetricFilter' {} a -> s {logGroupName = a} :: MetricFilter)
 
 -- | The metric transformations.
-metricFilter_metricTransformations :: Lens.Lens' MetricFilter (Core.Maybe (Core.NonEmpty MetricTransformation))
-metricFilter_metricTransformations = Lens.lens (\MetricFilter' {metricTransformations} -> metricTransformations) (\s@MetricFilter' {} a -> s {metricTransformations = a} :: MetricFilter) Core.. Lens.mapping Lens._Coerce
+metricFilter_metricTransformations :: Lens.Lens' MetricFilter (Prelude.Maybe (Prelude.NonEmpty MetricTransformation))
+metricFilter_metricTransformations = Lens.lens (\MetricFilter' {metricTransformations} -> metricTransformations) (\s@MetricFilter' {} a -> s {metricTransformations = a} :: MetricFilter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON MetricFilter where
   parseJSON =
@@ -98,13 +99,13 @@ instance Core.FromJSON MetricFilter where
       "MetricFilter"
       ( \x ->
           MetricFilter'
-            Core.<$> (x Core..:? "filterName")
-            Core.<*> (x Core..:? "creationTime")
-            Core.<*> (x Core..:? "filterPattern")
-            Core.<*> (x Core..:? "logGroupName")
-            Core.<*> (x Core..:? "metricTransformations")
+            Prelude.<$> (x Core..:? "filterName")
+            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<*> (x Core..:? "filterPattern")
+            Prelude.<*> (x Core..:? "logGroupName")
+            Prelude.<*> (x Core..:? "metricTransformations")
       )
 
-instance Core.Hashable MetricFilter
+instance Prelude.Hashable MetricFilter
 
-instance Core.NFData MetricFilter
+instance Prelude.NFData MetricFilter

@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -53,9 +54,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newGetTranscriptionJob' smart constructor.
 data GetTranscriptionJob = GetTranscriptionJob'
   { -- | The name of the job.
-    transcriptionJobName :: Core.Text
+    transcriptionJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTranscriptionJob' with all optional fields omitted.
@@ -68,7 +69,7 @@ data GetTranscriptionJob = GetTranscriptionJob'
 -- 'transcriptionJobName', 'getTranscriptionJob_transcriptionJobName' - The name of the job.
 newGetTranscriptionJob ::
   -- | 'transcriptionJobName'
-  Core.Text ->
+  Prelude.Text ->
   GetTranscriptionJob
 newGetTranscriptionJob pTranscriptionJobName_ =
   GetTranscriptionJob'
@@ -77,7 +78,7 @@ newGetTranscriptionJob pTranscriptionJobName_ =
     }
 
 -- | The name of the job.
-getTranscriptionJob_transcriptionJobName :: Lens.Lens' GetTranscriptionJob Core.Text
+getTranscriptionJob_transcriptionJobName :: Lens.Lens' GetTranscriptionJob Prelude.Text
 getTranscriptionJob_transcriptionJobName = Lens.lens (\GetTranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@GetTranscriptionJob' {} a -> s {transcriptionJobName = a} :: GetTranscriptionJob)
 
 instance Core.AWSRequest GetTranscriptionJob where
@@ -89,32 +90,34 @@ instance Core.AWSRequest GetTranscriptionJob where
     Response.receiveJSON
       ( \s h x ->
           GetTranscriptionJobResponse'
-            Core.<$> (x Core..?> "TranscriptionJob")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TranscriptionJob")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTranscriptionJob
+instance Prelude.Hashable GetTranscriptionJob
 
-instance Core.NFData GetTranscriptionJob
+instance Prelude.NFData GetTranscriptionJob
 
 instance Core.ToHeaders GetTranscriptionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.GetTranscriptionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetTranscriptionJob where
   toJSON GetTranscriptionJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "TranscriptionJobName"
                   Core..= transcriptionJobName
               )
@@ -122,19 +125,19 @@ instance Core.ToJSON GetTranscriptionJob where
       )
 
 instance Core.ToPath GetTranscriptionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTranscriptionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTranscriptionJobResponse' smart constructor.
 data GetTranscriptionJobResponse = GetTranscriptionJobResponse'
   { -- | An object that contains the results of the transcription job.
-    transcriptionJob :: Core.Maybe TranscriptionJob,
+    transcriptionJob :: Prelude.Maybe TranscriptionJob,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTranscriptionJobResponse' with all optional fields omitted.
@@ -149,21 +152,21 @@ data GetTranscriptionJobResponse = GetTranscriptionJobResponse'
 -- 'httpStatus', 'getTranscriptionJobResponse_httpStatus' - The response's http status code.
 newGetTranscriptionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTranscriptionJobResponse
 newGetTranscriptionJobResponse pHttpStatus_ =
   GetTranscriptionJobResponse'
     { transcriptionJob =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the results of the transcription job.
-getTranscriptionJobResponse_transcriptionJob :: Lens.Lens' GetTranscriptionJobResponse (Core.Maybe TranscriptionJob)
+getTranscriptionJobResponse_transcriptionJob :: Lens.Lens' GetTranscriptionJobResponse (Prelude.Maybe TranscriptionJob)
 getTranscriptionJobResponse_transcriptionJob = Lens.lens (\GetTranscriptionJobResponse' {transcriptionJob} -> transcriptionJob) (\s@GetTranscriptionJobResponse' {} a -> s {transcriptionJob = a} :: GetTranscriptionJobResponse)
 
 -- | The response's http status code.
-getTranscriptionJobResponse_httpStatus :: Lens.Lens' GetTranscriptionJobResponse Core.Int
+getTranscriptionJobResponse_httpStatus :: Lens.Lens' GetTranscriptionJobResponse Prelude.Int
 getTranscriptionJobResponse_httpStatus = Lens.lens (\GetTranscriptionJobResponse' {httpStatus} -> httpStatus) (\s@GetTranscriptionJobResponse' {} a -> s {httpStatus = a} :: GetTranscriptionJobResponse)
 
-instance Core.NFData GetTranscriptionJobResponse
+instance Prelude.NFData GetTranscriptionJobResponse

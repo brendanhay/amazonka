@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Point where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The X and Y coordinates of a point on an image. The X and Y values
 -- returned are ratios of the overall image size. For example, if the input
@@ -35,11 +36,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPoint' smart constructor.
 data Point = Point'
   { -- | The value of the Y coordinate for a point on a @Polygon@.
-    y :: Core.Maybe Core.Double,
+    y :: Prelude.Maybe Prelude.Double,
     -- | The value of the X coordinate for a point on a @Polygon@.
-    x :: Core.Maybe Core.Double
+    x :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Point' with all optional fields omitted.
@@ -54,14 +55,15 @@ data Point = Point'
 -- 'x', 'point_x' - The value of the X coordinate for a point on a @Polygon@.
 newPoint ::
   Point
-newPoint = Point' {y = Core.Nothing, x = Core.Nothing}
+newPoint =
+  Point' {y = Prelude.Nothing, x = Prelude.Nothing}
 
 -- | The value of the Y coordinate for a point on a @Polygon@.
-point_y :: Lens.Lens' Point (Core.Maybe Core.Double)
+point_y :: Lens.Lens' Point (Prelude.Maybe Prelude.Double)
 point_y = Lens.lens (\Point' {y} -> y) (\s@Point' {} a -> s {y = a} :: Point)
 
 -- | The value of the X coordinate for a point on a @Polygon@.
-point_x :: Lens.Lens' Point (Core.Maybe Core.Double)
+point_x :: Lens.Lens' Point (Prelude.Maybe Prelude.Double)
 point_x = Lens.lens (\Point' {x} -> x) (\s@Point' {} a -> s {x = a} :: Point)
 
 instance Core.FromJSON Point where
@@ -70,9 +72,9 @@ instance Core.FromJSON Point where
       "Point"
       ( \x ->
           Point'
-            Core.<$> (x Core..:? "Y") Core.<*> (x Core..:? "X")
+            Prelude.<$> (x Core..:? "Y") Prelude.<*> (x Core..:? "X")
       )
 
-instance Core.Hashable Point
+instance Prelude.Hashable Point
 
-instance Core.NFData Point
+instance Prelude.NFData Point

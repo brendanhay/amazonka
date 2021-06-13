@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.LoadBalancerTargetGroupState where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a target group.
 --
@@ -52,11 +53,11 @@ data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
     --
     -- -   @Removed@ - All Auto Scaling instances are deregistered from the
     --     target group.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target group.
-    loadBalancerTargetGroupARN :: Core.Maybe Core.Text
+    loadBalancerTargetGroupARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerTargetGroupState' with all optional fields omitted.
@@ -90,8 +91,9 @@ newLoadBalancerTargetGroupState ::
   LoadBalancerTargetGroupState
 newLoadBalancerTargetGroupState =
   LoadBalancerTargetGroupState'
-    { state = Core.Nothing,
-      loadBalancerTargetGroupARN = Core.Nothing
+    { state =
+        Prelude.Nothing,
+      loadBalancerTargetGroupARN = Prelude.Nothing
     }
 
 -- | The state of the target group.
@@ -112,19 +114,21 @@ newLoadBalancerTargetGroupState =
 --
 -- -   @Removed@ - All Auto Scaling instances are deregistered from the
 --     target group.
-loadBalancerTargetGroupState_state :: Lens.Lens' LoadBalancerTargetGroupState (Core.Maybe Core.Text)
+loadBalancerTargetGroupState_state :: Lens.Lens' LoadBalancerTargetGroupState (Prelude.Maybe Prelude.Text)
 loadBalancerTargetGroupState_state = Lens.lens (\LoadBalancerTargetGroupState' {state} -> state) (\s@LoadBalancerTargetGroupState' {} a -> s {state = a} :: LoadBalancerTargetGroupState)
 
 -- | The Amazon Resource Name (ARN) of the target group.
-loadBalancerTargetGroupState_loadBalancerTargetGroupARN :: Lens.Lens' LoadBalancerTargetGroupState (Core.Maybe Core.Text)
+loadBalancerTargetGroupState_loadBalancerTargetGroupARN :: Lens.Lens' LoadBalancerTargetGroupState (Prelude.Maybe Prelude.Text)
 loadBalancerTargetGroupState_loadBalancerTargetGroupARN = Lens.lens (\LoadBalancerTargetGroupState' {loadBalancerTargetGroupARN} -> loadBalancerTargetGroupARN) (\s@LoadBalancerTargetGroupState' {} a -> s {loadBalancerTargetGroupARN = a} :: LoadBalancerTargetGroupState)
 
 instance Core.FromXML LoadBalancerTargetGroupState where
   parseXML x =
     LoadBalancerTargetGroupState'
-      Core.<$> (x Core..@? "State")
-      Core.<*> (x Core..@? "LoadBalancerTargetGroupARN")
+      Prelude.<$> (x Core..@? "State")
+      Prelude.<*> (x Core..@? "LoadBalancerTargetGroupARN")
 
-instance Core.Hashable LoadBalancerTargetGroupState
+instance
+  Prelude.Hashable
+    LoadBalancerTargetGroupState
 
-instance Core.NFData LoadBalancerTargetGroupState
+instance Prelude.NFData LoadBalancerTargetGroupState

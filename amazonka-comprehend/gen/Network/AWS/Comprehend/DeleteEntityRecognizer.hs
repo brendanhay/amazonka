@@ -50,15 +50,16 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteEntityRecognizer' smart constructor.
 data DeleteEntityRecognizer = DeleteEntityRecognizer'
   { -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-    entityRecognizerArn :: Core.Text
+    entityRecognizerArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEntityRecognizer' with all optional fields omitted.
@@ -71,7 +72,7 @@ data DeleteEntityRecognizer = DeleteEntityRecognizer'
 -- 'entityRecognizerArn', 'deleteEntityRecognizer_entityRecognizerArn' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
 newDeleteEntityRecognizer ::
   -- | 'entityRecognizerArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEntityRecognizer
 newDeleteEntityRecognizer pEntityRecognizerArn_ =
   DeleteEntityRecognizer'
@@ -80,7 +81,7 @@ newDeleteEntityRecognizer pEntityRecognizerArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-deleteEntityRecognizer_entityRecognizerArn :: Lens.Lens' DeleteEntityRecognizer Core.Text
+deleteEntityRecognizer_entityRecognizerArn :: Lens.Lens' DeleteEntityRecognizer Prelude.Text
 deleteEntityRecognizer_entityRecognizerArn = Lens.lens (\DeleteEntityRecognizer' {entityRecognizerArn} -> entityRecognizerArn) (\s@DeleteEntityRecognizer' {} a -> s {entityRecognizerArn = a} :: DeleteEntityRecognizer)
 
 instance Core.AWSRequest DeleteEntityRecognizer where
@@ -92,47 +93,49 @@ instance Core.AWSRequest DeleteEntityRecognizer where
     Response.receiveEmpty
       ( \s h x ->
           DeleteEntityRecognizerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteEntityRecognizer
+instance Prelude.Hashable DeleteEntityRecognizer
 
-instance Core.NFData DeleteEntityRecognizer
+instance Prelude.NFData DeleteEntityRecognizer
 
 instance Core.ToHeaders DeleteEntityRecognizer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DeleteEntityRecognizer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteEntityRecognizer where
   toJSON DeleteEntityRecognizer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("EntityRecognizerArn" Core..= entityRecognizerArn)
           ]
       )
 
 instance Core.ToPath DeleteEntityRecognizer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteEntityRecognizer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEntityRecognizerResponse' smart constructor.
 data DeleteEntityRecognizerResponse = DeleteEntityRecognizerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEntityRecognizerResponse' with all optional fields omitted.
@@ -145,7 +148,7 @@ data DeleteEntityRecognizerResponse = DeleteEntityRecognizerResponse'
 -- 'httpStatus', 'deleteEntityRecognizerResponse_httpStatus' - The response's http status code.
 newDeleteEntityRecognizerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteEntityRecognizerResponse
 newDeleteEntityRecognizerResponse pHttpStatus_ =
   DeleteEntityRecognizerResponse'
@@ -154,7 +157,9 @@ newDeleteEntityRecognizerResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteEntityRecognizerResponse_httpStatus :: Lens.Lens' DeleteEntityRecognizerResponse Core.Int
+deleteEntityRecognizerResponse_httpStatus :: Lens.Lens' DeleteEntityRecognizerResponse Prelude.Int
 deleteEntityRecognizerResponse_httpStatus = Lens.lens (\DeleteEntityRecognizerResponse' {httpStatus} -> httpStatus) (\s@DeleteEntityRecognizerResponse' {} a -> s {httpStatus = a} :: DeleteEntityRecognizerResponse)
 
-instance Core.NFData DeleteEntityRecognizerResponse
+instance
+  Prelude.NFData
+    DeleteEntityRecognizerResponse

@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
@@ -66,17 +67,17 @@ import Network.AWS.SDB.Types
 data Select = Select'
   { -- | A string informing Amazon SimpleDB where to start the next list of
     -- @ItemNames@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Determines whether or not strong consistency should be enforced when
     -- data is read from SimpleDB. If @true@, any data previously written to
     -- SimpleDB will be returned. Otherwise, results will be consistent
     -- eventually, and the client may not see data that was written immediately
     -- before your read.
-    consistentRead :: Core.Maybe Core.Bool,
+    consistentRead :: Prelude.Maybe Prelude.Bool,
     -- | The expression used to query the domain.
-    selectExpression :: Core.Text
+    selectExpression :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Select' with all optional fields omitted.
@@ -98,18 +99,18 @@ data Select = Select'
 -- 'selectExpression', 'select_selectExpression' - The expression used to query the domain.
 newSelect ::
   -- | 'selectExpression'
-  Core.Text ->
+  Prelude.Text ->
   Select
 newSelect pSelectExpression_ =
   Select'
-    { nextToken = Core.Nothing,
-      consistentRead = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
       selectExpression = pSelectExpression_
     }
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- @ItemNames@.
-select_nextToken :: Lens.Lens' Select (Core.Maybe Core.Text)
+select_nextToken :: Lens.Lens' Select (Prelude.Maybe Prelude.Text)
 select_nextToken = Lens.lens (\Select' {nextToken} -> nextToken) (\s@Select' {} a -> s {nextToken = a} :: Select)
 
 -- | Determines whether or not strong consistency should be enforced when
@@ -117,28 +118,31 @@ select_nextToken = Lens.lens (\Select' {nextToken} -> nextToken) (\s@Select' {} 
 -- SimpleDB will be returned. Otherwise, results will be consistent
 -- eventually, and the client may not see data that was written immediately
 -- before your read.
-select_consistentRead :: Lens.Lens' Select (Core.Maybe Core.Bool)
+select_consistentRead :: Lens.Lens' Select (Prelude.Maybe Prelude.Bool)
 select_consistentRead = Lens.lens (\Select' {consistentRead} -> consistentRead) (\s@Select' {} a -> s {consistentRead = a} :: Select)
 
 -- | The expression used to query the domain.
-select_selectExpression :: Lens.Lens' Select Core.Text
+select_selectExpression :: Lens.Lens' Select Prelude.Text
 select_selectExpression = Lens.lens (\Select' {selectExpression} -> selectExpression) (\s@Select' {} a -> s {selectExpression = a} :: Select)
 
 instance Core.AWSPager Select where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? selectResponse_nextToken Core.. Lens._Just
+            Lens.^? selectResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
-        (rs Lens.^? selectResponse_items Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+        ( rs
+            Lens.^? selectResponse_items Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& select_nextToken
-          Lens..~ rs Lens.^? selectResponse_nextToken Core.. Lens._Just
+          Prelude.& select_nextToken
+          Lens..~ rs
+          Lens.^? selectResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest Select where
   type AWSResponse Select = SelectResponse
@@ -148,26 +152,27 @@ instance Core.AWSRequest Select where
       "SelectResult"
       ( \s h x ->
           SelectResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> (Core.may (Core.parseXMLList "Item") x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> (Core.may (Core.parseXMLList "Item") x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable Select
+instance Prelude.Hashable Select
 
-instance Core.NFData Select
+instance Prelude.NFData Select
 
 instance Core.ToHeaders Select where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath Select where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery Select where
   toQuery Select' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("Select" :: Core.ByteString),
-        "Version" Core.=: ("2009-04-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action" Core.=: ("Select" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2009-04-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "ConsistentRead" Core.=: consistentRead,
         "SelectExpression" Core.=: selectExpression
@@ -178,13 +183,13 @@ data SelectResponse = SelectResponse'
   { -- | An opaque token indicating that more items than @MaxNumberOfItems@ were
     -- matched, the response size exceeded 1 megabyte, or the execution time
     -- exceeded 5 seconds.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of items that match the select expression.
-    items :: Core.Maybe [Item],
+    items :: Prelude.Maybe [Item],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SelectResponse' with all optional fields omitted.
@@ -203,27 +208,27 @@ data SelectResponse = SelectResponse'
 -- 'httpStatus', 'selectResponse_httpStatus' - The response's http status code.
 newSelectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SelectResponse
 newSelectResponse pHttpStatus_ =
   SelectResponse'
-    { nextToken = Core.Nothing,
-      items = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      items = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An opaque token indicating that more items than @MaxNumberOfItems@ were
 -- matched, the response size exceeded 1 megabyte, or the execution time
 -- exceeded 5 seconds.
-selectResponse_nextToken :: Lens.Lens' SelectResponse (Core.Maybe Core.Text)
+selectResponse_nextToken :: Lens.Lens' SelectResponse (Prelude.Maybe Prelude.Text)
 selectResponse_nextToken = Lens.lens (\SelectResponse' {nextToken} -> nextToken) (\s@SelectResponse' {} a -> s {nextToken = a} :: SelectResponse)
 
 -- | A list of items that match the select expression.
-selectResponse_items :: Lens.Lens' SelectResponse (Core.Maybe [Item])
-selectResponse_items = Lens.lens (\SelectResponse' {items} -> items) (\s@SelectResponse' {} a -> s {items = a} :: SelectResponse) Core.. Lens.mapping Lens._Coerce
+selectResponse_items :: Lens.Lens' SelectResponse (Prelude.Maybe [Item])
+selectResponse_items = Lens.lens (\SelectResponse' {items} -> items) (\s@SelectResponse' {} a -> s {items = a} :: SelectResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-selectResponse_httpStatus :: Lens.Lens' SelectResponse Core.Int
+selectResponse_httpStatus :: Lens.Lens' SelectResponse Prelude.Int
 selectResponse_httpStatus = Lens.lens (\SelectResponse' {httpStatus} -> httpStatus) (\s@SelectResponse' {} a -> s {httpStatus = a} :: SelectResponse)
 
-instance Core.NFData SelectResponse
+instance Prelude.NFData SelectResponse

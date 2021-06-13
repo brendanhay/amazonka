@@ -83,22 +83,23 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutOrganizationConfigRule' smart constructor.
 data PutOrganizationConfigRule = PutOrganizationConfigRule'
   { -- | An @OrganizationManagedRuleMetadata@ object.
-    organizationManagedRuleMetadata :: Core.Maybe OrganizationManagedRuleMetadata,
+    organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
     -- | An @OrganizationCustomRuleMetadata@ object.
-    organizationCustomRuleMetadata :: Core.Maybe OrganizationCustomRuleMetadata,
+    organizationCustomRuleMetadata :: Prelude.Maybe OrganizationCustomRuleMetadata,
     -- | A comma-separated list of accounts that you want to exclude from an
     -- organization config rule.
-    excludedAccounts :: Core.Maybe [Core.Text],
+    excludedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | The name that you assign to an organization config rule.
-    organizationConfigRuleName :: Core.Text
+    organizationConfigRuleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutOrganizationConfigRule' with all optional fields omitted.
@@ -118,34 +119,34 @@ data PutOrganizationConfigRule = PutOrganizationConfigRule'
 -- 'organizationConfigRuleName', 'putOrganizationConfigRule_organizationConfigRuleName' - The name that you assign to an organization config rule.
 newPutOrganizationConfigRule ::
   -- | 'organizationConfigRuleName'
-  Core.Text ->
+  Prelude.Text ->
   PutOrganizationConfigRule
 newPutOrganizationConfigRule
   pOrganizationConfigRuleName_ =
     PutOrganizationConfigRule'
       { organizationManagedRuleMetadata =
-          Core.Nothing,
-        organizationCustomRuleMetadata = Core.Nothing,
-        excludedAccounts = Core.Nothing,
+          Prelude.Nothing,
+        organizationCustomRuleMetadata = Prelude.Nothing,
+        excludedAccounts = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_
       }
 
 -- | An @OrganizationManagedRuleMetadata@ object.
-putOrganizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Core.Maybe OrganizationManagedRuleMetadata)
+putOrganizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
 putOrganizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\PutOrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@PutOrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: PutOrganizationConfigRule)
 
 -- | An @OrganizationCustomRuleMetadata@ object.
-putOrganizationConfigRule_organizationCustomRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Core.Maybe OrganizationCustomRuleMetadata)
+putOrganizationConfigRule_organizationCustomRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationCustomRuleMetadata)
 putOrganizationConfigRule_organizationCustomRuleMetadata = Lens.lens (\PutOrganizationConfigRule' {organizationCustomRuleMetadata} -> organizationCustomRuleMetadata) (\s@PutOrganizationConfigRule' {} a -> s {organizationCustomRuleMetadata = a} :: PutOrganizationConfigRule)
 
 -- | A comma-separated list of accounts that you want to exclude from an
 -- organization config rule.
-putOrganizationConfigRule_excludedAccounts :: Lens.Lens' PutOrganizationConfigRule (Core.Maybe [Core.Text])
-putOrganizationConfigRule_excludedAccounts = Lens.lens (\PutOrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConfigRule' {} a -> s {excludedAccounts = a} :: PutOrganizationConfigRule) Core.. Lens.mapping Lens._Coerce
+putOrganizationConfigRule_excludedAccounts :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe [Prelude.Text])
+putOrganizationConfigRule_excludedAccounts = Lens.lens (\PutOrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConfigRule' {} a -> s {excludedAccounts = a} :: PutOrganizationConfigRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name that you assign to an organization config rule.
-putOrganizationConfigRule_organizationConfigRuleName :: Lens.Lens' PutOrganizationConfigRule Core.Text
+putOrganizationConfigRule_organizationConfigRuleName :: Lens.Lens' PutOrganizationConfigRule Prelude.Text
 putOrganizationConfigRule_organizationConfigRuleName = Lens.lens (\PutOrganizationConfigRule' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@PutOrganizationConfigRule' {} a -> s {organizationConfigRuleName = a} :: PutOrganizationConfigRule)
 
 instance Core.AWSRequest PutOrganizationConfigRule where
@@ -157,38 +158,40 @@ instance Core.AWSRequest PutOrganizationConfigRule where
     Response.receiveJSON
       ( \s h x ->
           PutOrganizationConfigRuleResponse'
-            Core.<$> (x Core..?> "OrganizationConfigRuleArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OrganizationConfigRuleArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutOrganizationConfigRule
+instance Prelude.Hashable PutOrganizationConfigRule
 
-instance Core.NFData PutOrganizationConfigRule
+instance Prelude.NFData PutOrganizationConfigRule
 
 instance Core.ToHeaders PutOrganizationConfigRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutOrganizationConfigRule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutOrganizationConfigRule where
   toJSON PutOrganizationConfigRule' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("OrganizationManagedRuleMetadata" Core..=)
-              Core.<$> organizationManagedRuleMetadata,
+              Prelude.<$> organizationManagedRuleMetadata,
             ("OrganizationCustomRuleMetadata" Core..=)
-              Core.<$> organizationCustomRuleMetadata,
+              Prelude.<$> organizationCustomRuleMetadata,
             ("ExcludedAccounts" Core..=)
-              Core.<$> excludedAccounts,
-            Core.Just
+              Prelude.<$> excludedAccounts,
+            Prelude.Just
               ( "OrganizationConfigRuleName"
                   Core..= organizationConfigRuleName
               )
@@ -196,19 +199,19 @@ instance Core.ToJSON PutOrganizationConfigRule where
       )
 
 instance Core.ToPath PutOrganizationConfigRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutOrganizationConfigRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutOrganizationConfigRuleResponse' smart constructor.
 data PutOrganizationConfigRuleResponse = PutOrganizationConfigRuleResponse'
   { -- | The Amazon Resource Name (ARN) of an organization config rule.
-    organizationConfigRuleArn :: Core.Maybe Core.Text,
+    organizationConfigRuleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutOrganizationConfigRuleResponse' with all optional fields omitted.
@@ -223,23 +226,23 @@ data PutOrganizationConfigRuleResponse = PutOrganizationConfigRuleResponse'
 -- 'httpStatus', 'putOrganizationConfigRuleResponse_httpStatus' - The response's http status code.
 newPutOrganizationConfigRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutOrganizationConfigRuleResponse
 newPutOrganizationConfigRuleResponse pHttpStatus_ =
   PutOrganizationConfigRuleResponse'
     { organizationConfigRuleArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of an organization config rule.
-putOrganizationConfigRuleResponse_organizationConfigRuleArn :: Lens.Lens' PutOrganizationConfigRuleResponse (Core.Maybe Core.Text)
+putOrganizationConfigRuleResponse_organizationConfigRuleArn :: Lens.Lens' PutOrganizationConfigRuleResponse (Prelude.Maybe Prelude.Text)
 putOrganizationConfigRuleResponse_organizationConfigRuleArn = Lens.lens (\PutOrganizationConfigRuleResponse' {organizationConfigRuleArn} -> organizationConfigRuleArn) (\s@PutOrganizationConfigRuleResponse' {} a -> s {organizationConfigRuleArn = a} :: PutOrganizationConfigRuleResponse)
 
 -- | The response's http status code.
-putOrganizationConfigRuleResponse_httpStatus :: Lens.Lens' PutOrganizationConfigRuleResponse Core.Int
+putOrganizationConfigRuleResponse_httpStatus :: Lens.Lens' PutOrganizationConfigRuleResponse Prelude.Int
 putOrganizationConfigRuleResponse_httpStatus = Lens.lens (\PutOrganizationConfigRuleResponse' {httpStatus} -> httpStatus) (\s@PutOrganizationConfigRuleResponse' {} a -> s {httpStatus = a} :: PutOrganizationConfigRuleResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutOrganizationConfigRuleResponse

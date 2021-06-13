@@ -23,6 +23,7 @@ import Network.AWS.Config.Types.Owner
 import Network.AWS.Config.Types.SourceDetail
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the AWS Config rule owner (AWS or customer), the rule
 -- identifier, and the events that trigger the evaluation of your AWS
@@ -32,7 +33,7 @@ import qualified Network.AWS.Lens as Lens
 data Source = Source'
   { -- | Provides the source and type of the event that causes AWS Config to
     -- evaluate your AWS resources.
-    sourceDetails :: Core.Maybe [SourceDetail],
+    sourceDetails :: Prelude.Maybe [SourceDetail],
     -- | Indicates whether AWS or the customer owns and manages the AWS Config
     -- rule.
     owner :: Owner,
@@ -44,9 +45,9 @@ data Source = Source'
     -- For custom rules, the identifier is the Amazon Resource Name (ARN) of
     -- the rule\'s AWS Lambda function, such as
     -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
-    sourceIdentifier :: Core.Text
+    sourceIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Source' with all optional fields omitted.
@@ -74,19 +75,19 @@ newSource ::
   -- | 'owner'
   Owner ->
   -- | 'sourceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   Source
 newSource pOwner_ pSourceIdentifier_ =
   Source'
-    { sourceDetails = Core.Nothing,
+    { sourceDetails = Prelude.Nothing,
       owner = pOwner_,
       sourceIdentifier = pSourceIdentifier_
     }
 
 -- | Provides the source and type of the event that causes AWS Config to
 -- evaluate your AWS resources.
-source_sourceDetails :: Lens.Lens' Source (Core.Maybe [SourceDetail])
-source_sourceDetails = Lens.lens (\Source' {sourceDetails} -> sourceDetails) (\s@Source' {} a -> s {sourceDetails = a} :: Source) Core.. Lens.mapping Lens._Coerce
+source_sourceDetails :: Lens.Lens' Source (Prelude.Maybe [SourceDetail])
+source_sourceDetails = Lens.lens (\Source' {sourceDetails} -> sourceDetails) (\s@Source' {} a -> s {sourceDetails = a} :: Source) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether AWS or the customer owns and manages the AWS Config
 -- rule.
@@ -101,7 +102,7 @@ source_owner = Lens.lens (\Source' {owner} -> owner) (\s@Source' {} a -> s {owne
 -- For custom rules, the identifier is the Amazon Resource Name (ARN) of
 -- the rule\'s AWS Lambda function, such as
 -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
-source_sourceIdentifier :: Lens.Lens' Source Core.Text
+source_sourceIdentifier :: Lens.Lens' Source Prelude.Text
 source_sourceIdentifier = Lens.lens (\Source' {sourceIdentifier} -> sourceIdentifier) (\s@Source' {} a -> s {sourceIdentifier = a} :: Source)
 
 instance Core.FromJSON Source where
@@ -110,22 +111,22 @@ instance Core.FromJSON Source where
       "Source"
       ( \x ->
           Source'
-            Core.<$> (x Core..:? "SourceDetails" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Owner")
-            Core.<*> (x Core..: "SourceIdentifier")
+            Prelude.<$> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "Owner")
+            Prelude.<*> (x Core..: "SourceIdentifier")
       )
 
-instance Core.Hashable Source
+instance Prelude.Hashable Source
 
-instance Core.NFData Source
+instance Prelude.NFData Source
 
 instance Core.ToJSON Source where
   toJSON Source' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SourceDetails" Core..=) Core.<$> sourceDetails,
-            Core.Just ("Owner" Core..= owner),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("SourceDetails" Core..=) Prelude.<$> sourceDetails,
+            Prelude.Just ("Owner" Core..= owner),
+            Prelude.Just
               ("SourceIdentifier" Core..= sourceIdentifier)
           ]
       )

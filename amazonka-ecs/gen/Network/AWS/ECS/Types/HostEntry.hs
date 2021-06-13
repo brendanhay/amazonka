@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.HostEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Hostnames and IP address entries that are added to the @\/etc\/hosts@
 -- file of a container via the @extraHosts@ parameter of its
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newHostEntry' smart constructor.
 data HostEntry = HostEntry'
   { -- | The hostname to use in the @\/etc\/hosts@ entry.
-    hostname :: Core.Text,
+    hostname :: Prelude.Text,
     -- | The IP address to use in the @\/etc\/hosts@ entry.
-    ipAddress :: Core.Text
+    ipAddress :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostEntry' with all optional fields omitted.
@@ -48,9 +49,9 @@ data HostEntry = HostEntry'
 -- 'ipAddress', 'hostEntry_ipAddress' - The IP address to use in the @\/etc\/hosts@ entry.
 newHostEntry ::
   -- | 'hostname'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ipAddress'
-  Core.Text ->
+  Prelude.Text ->
   HostEntry
 newHostEntry pHostname_ pIpAddress_ =
   HostEntry'
@@ -59,11 +60,11 @@ newHostEntry pHostname_ pIpAddress_ =
     }
 
 -- | The hostname to use in the @\/etc\/hosts@ entry.
-hostEntry_hostname :: Lens.Lens' HostEntry Core.Text
+hostEntry_hostname :: Lens.Lens' HostEntry Prelude.Text
 hostEntry_hostname = Lens.lens (\HostEntry' {hostname} -> hostname) (\s@HostEntry' {} a -> s {hostname = a} :: HostEntry)
 
 -- | The IP address to use in the @\/etc\/hosts@ entry.
-hostEntry_ipAddress :: Lens.Lens' HostEntry Core.Text
+hostEntry_ipAddress :: Lens.Lens' HostEntry Prelude.Text
 hostEntry_ipAddress = Lens.lens (\HostEntry' {ipAddress} -> ipAddress) (\s@HostEntry' {} a -> s {ipAddress = a} :: HostEntry)
 
 instance Core.FromJSON HostEntry where
@@ -72,19 +73,19 @@ instance Core.FromJSON HostEntry where
       "HostEntry"
       ( \x ->
           HostEntry'
-            Core.<$> (x Core..: "hostname")
-            Core.<*> (x Core..: "ipAddress")
+            Prelude.<$> (x Core..: "hostname")
+            Prelude.<*> (x Core..: "ipAddress")
       )
 
-instance Core.Hashable HostEntry
+instance Prelude.Hashable HostEntry
 
-instance Core.NFData HostEntry
+instance Prelude.NFData HostEntry
 
 instance Core.ToJSON HostEntry where
   toJSON HostEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("hostname" Core..= hostname),
-            Core.Just ("ipAddress" Core..= ipAddress)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("hostname" Core..= hostname),
+            Prelude.Just ("ipAddress" Core..= ipAddress)
           ]
       )

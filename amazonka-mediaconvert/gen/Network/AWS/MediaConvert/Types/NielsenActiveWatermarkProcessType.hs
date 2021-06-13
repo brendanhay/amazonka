@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Choose the type of Nielsen watermarks that you want in your outputs.
 -- When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value
@@ -40,15 +41,15 @@ newtype NielsenActiveWatermarkProcessType = NielsenActiveWatermarkProcessType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

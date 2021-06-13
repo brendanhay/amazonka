@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.LifecycleExpiration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for the expiration for the lifecycle of the object.
@@ -29,17 +30,17 @@ import Network.AWS.S3.Internal
 data LifecycleExpiration = LifecycleExpiration'
   { -- | Indicates the lifetime, in days, of the objects that are subject to the
     -- rule. The value must be a non-zero positive integer.
-    days :: Core.Maybe Core.Int,
+    days :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether Amazon S3 will remove a delete marker with no
     -- noncurrent versions. If set to true, the delete marker will be expired;
     -- if set to false the policy takes no action. This cannot be specified
     -- with Days or Date in a Lifecycle Expiration Policy.
-    expiredObjectDeleteMarker :: Core.Maybe Core.Bool,
+    expiredObjectDeleteMarker :: Prelude.Maybe Prelude.Bool,
     -- | Indicates at what date the object is to be moved or deleted. Should be
     -- in GMT ISO 8601 Format.
-    date :: Core.Maybe Core.ISO8601
+    date :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LifecycleExpiration' with all optional fields omitted.
@@ -63,42 +64,42 @@ newLifecycleExpiration ::
   LifecycleExpiration
 newLifecycleExpiration =
   LifecycleExpiration'
-    { days = Core.Nothing,
-      expiredObjectDeleteMarker = Core.Nothing,
-      date = Core.Nothing
+    { days = Prelude.Nothing,
+      expiredObjectDeleteMarker = Prelude.Nothing,
+      date = Prelude.Nothing
     }
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
-lifecycleExpiration_days :: Lens.Lens' LifecycleExpiration (Core.Maybe Core.Int)
+lifecycleExpiration_days :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.Int)
 lifecycleExpiration_days = Lens.lens (\LifecycleExpiration' {days} -> days) (\s@LifecycleExpiration' {} a -> s {days = a} :: LifecycleExpiration)
 
 -- | Indicates whether Amazon S3 will remove a delete marker with no
 -- noncurrent versions. If set to true, the delete marker will be expired;
 -- if set to false the policy takes no action. This cannot be specified
 -- with Days or Date in a Lifecycle Expiration Policy.
-lifecycleExpiration_expiredObjectDeleteMarker :: Lens.Lens' LifecycleExpiration (Core.Maybe Core.Bool)
+lifecycleExpiration_expiredObjectDeleteMarker :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.Bool)
 lifecycleExpiration_expiredObjectDeleteMarker = Lens.lens (\LifecycleExpiration' {expiredObjectDeleteMarker} -> expiredObjectDeleteMarker) (\s@LifecycleExpiration' {} a -> s {expiredObjectDeleteMarker = a} :: LifecycleExpiration)
 
 -- | Indicates at what date the object is to be moved or deleted. Should be
 -- in GMT ISO 8601 Format.
-lifecycleExpiration_date :: Lens.Lens' LifecycleExpiration (Core.Maybe Core.UTCTime)
-lifecycleExpiration_date = Lens.lens (\LifecycleExpiration' {date} -> date) (\s@LifecycleExpiration' {} a -> s {date = a} :: LifecycleExpiration) Core.. Lens.mapping Core._Time
+lifecycleExpiration_date :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.UTCTime)
+lifecycleExpiration_date = Lens.lens (\LifecycleExpiration' {date} -> date) (\s@LifecycleExpiration' {} a -> s {date = a} :: LifecycleExpiration) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML LifecycleExpiration where
   parseXML x =
     LifecycleExpiration'
-      Core.<$> (x Core..@? "Days")
-      Core.<*> (x Core..@? "ExpiredObjectDeleteMarker")
-      Core.<*> (x Core..@? "Date")
+      Prelude.<$> (x Core..@? "Days")
+      Prelude.<*> (x Core..@? "ExpiredObjectDeleteMarker")
+      Prelude.<*> (x Core..@? "Date")
 
-instance Core.Hashable LifecycleExpiration
+instance Prelude.Hashable LifecycleExpiration
 
-instance Core.NFData LifecycleExpiration
+instance Prelude.NFData LifecycleExpiration
 
 instance Core.ToXML LifecycleExpiration where
   toXML LifecycleExpiration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Days" Core.@= days,
         "ExpiredObjectDeleteMarker"
           Core.@= expiredObjectDeleteMarker,

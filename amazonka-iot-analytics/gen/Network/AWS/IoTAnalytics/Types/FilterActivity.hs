@@ -21,21 +21,22 @@ module Network.AWS.IoTAnalytics.Types.FilterActivity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An activity that filters a message based on its attributes.
 --
 -- /See:/ 'newFilterActivity' smart constructor.
 data FilterActivity = FilterActivity'
   { -- | The next activity in the pipeline.
-    next :: Core.Maybe Core.Text,
+    next :: Prelude.Maybe Prelude.Text,
     -- | The name of the filter activity.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | An expression that looks like a SQL WHERE clause that must return a
     -- Boolean value. Messages that satisfy the condition are passed to the
     -- next activity.
-    filter' :: Core.Text
+    filter' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FilterActivity' with all optional fields omitted.
@@ -54,29 +55,29 @@ data FilterActivity = FilterActivity'
 -- next activity.
 newFilterActivity ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filter''
-  Core.Text ->
+  Prelude.Text ->
   FilterActivity
 newFilterActivity pName_ pFilter_ =
   FilterActivity'
-    { next = Core.Nothing,
+    { next = Prelude.Nothing,
       name = pName_,
       filter' = pFilter_
     }
 
 -- | The next activity in the pipeline.
-filterActivity_next :: Lens.Lens' FilterActivity (Core.Maybe Core.Text)
+filterActivity_next :: Lens.Lens' FilterActivity (Prelude.Maybe Prelude.Text)
 filterActivity_next = Lens.lens (\FilterActivity' {next} -> next) (\s@FilterActivity' {} a -> s {next = a} :: FilterActivity)
 
 -- | The name of the filter activity.
-filterActivity_name :: Lens.Lens' FilterActivity Core.Text
+filterActivity_name :: Lens.Lens' FilterActivity Prelude.Text
 filterActivity_name = Lens.lens (\FilterActivity' {name} -> name) (\s@FilterActivity' {} a -> s {name = a} :: FilterActivity)
 
 -- | An expression that looks like a SQL WHERE clause that must return a
 -- Boolean value. Messages that satisfy the condition are passed to the
 -- next activity.
-filterActivity_filter :: Lens.Lens' FilterActivity Core.Text
+filterActivity_filter :: Lens.Lens' FilterActivity Prelude.Text
 filterActivity_filter = Lens.lens (\FilterActivity' {filter'} -> filter') (\s@FilterActivity' {} a -> s {filter' = a} :: FilterActivity)
 
 instance Core.FromJSON FilterActivity where
@@ -85,21 +86,21 @@ instance Core.FromJSON FilterActivity where
       "FilterActivity"
       ( \x ->
           FilterActivity'
-            Core.<$> (x Core..:? "next")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "filter")
+            Prelude.<$> (x Core..:? "next")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "filter")
       )
 
-instance Core.Hashable FilterActivity
+instance Prelude.Hashable FilterActivity
 
-instance Core.NFData FilterActivity
+instance Prelude.NFData FilterActivity
 
 instance Core.ToJSON FilterActivity where
   toJSON FilterActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("next" Core..=) Core.<$> next,
-            Core.Just ("name" Core..= name),
-            Core.Just ("filter" Core..= filter')
+      ( Prelude.catMaybes
+          [ ("next" Core..=) Prelude.<$> next,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("filter" Core..= filter')
           ]
       )

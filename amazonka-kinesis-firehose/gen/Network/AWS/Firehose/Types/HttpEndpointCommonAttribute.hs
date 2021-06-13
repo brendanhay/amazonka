@@ -21,6 +21,7 @@ module Network.AWS.Firehose.Types.HttpEndpointCommonAttribute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the metadata that\'s delivered to the specified HTTP endpoint
 -- destination.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newHttpEndpointCommonAttribute' smart constructor.
 data HttpEndpointCommonAttribute = HttpEndpointCommonAttribute'
   { -- | The name of the HTTP endpoint common attribute.
-    attributeName :: Core.Sensitive Core.Text,
+    attributeName :: Core.Sensitive Prelude.Text,
     -- | The value of the HTTP endpoint common attribute.
-    attributeValue :: Core.Sensitive Core.Text
+    attributeValue :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointCommonAttribute' with all optional fields omitted.
@@ -47,9 +48,9 @@ data HttpEndpointCommonAttribute = HttpEndpointCommonAttribute'
 -- 'attributeValue', 'httpEndpointCommonAttribute_attributeValue' - The value of the HTTP endpoint common attribute.
 newHttpEndpointCommonAttribute ::
   -- | 'attributeName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attributeValue'
-  Core.Text ->
+  Prelude.Text ->
   HttpEndpointCommonAttribute
 newHttpEndpointCommonAttribute
   pAttributeName_
@@ -62,12 +63,12 @@ newHttpEndpointCommonAttribute
       }
 
 -- | The name of the HTTP endpoint common attribute.
-httpEndpointCommonAttribute_attributeName :: Lens.Lens' HttpEndpointCommonAttribute Core.Text
-httpEndpointCommonAttribute_attributeName = Lens.lens (\HttpEndpointCommonAttribute' {attributeName} -> attributeName) (\s@HttpEndpointCommonAttribute' {} a -> s {attributeName = a} :: HttpEndpointCommonAttribute) Core.. Core._Sensitive
+httpEndpointCommonAttribute_attributeName :: Lens.Lens' HttpEndpointCommonAttribute Prelude.Text
+httpEndpointCommonAttribute_attributeName = Lens.lens (\HttpEndpointCommonAttribute' {attributeName} -> attributeName) (\s@HttpEndpointCommonAttribute' {} a -> s {attributeName = a} :: HttpEndpointCommonAttribute) Prelude.. Core._Sensitive
 
 -- | The value of the HTTP endpoint common attribute.
-httpEndpointCommonAttribute_attributeValue :: Lens.Lens' HttpEndpointCommonAttribute Core.Text
-httpEndpointCommonAttribute_attributeValue = Lens.lens (\HttpEndpointCommonAttribute' {attributeValue} -> attributeValue) (\s@HttpEndpointCommonAttribute' {} a -> s {attributeValue = a} :: HttpEndpointCommonAttribute) Core.. Core._Sensitive
+httpEndpointCommonAttribute_attributeValue :: Lens.Lens' HttpEndpointCommonAttribute Prelude.Text
+httpEndpointCommonAttribute_attributeValue = Lens.lens (\HttpEndpointCommonAttribute' {attributeValue} -> attributeValue) (\s@HttpEndpointCommonAttribute' {} a -> s {attributeValue = a} :: HttpEndpointCommonAttribute) Prelude.. Core._Sensitive
 
 instance Core.FromJSON HttpEndpointCommonAttribute where
   parseJSON =
@@ -75,19 +76,21 @@ instance Core.FromJSON HttpEndpointCommonAttribute where
       "HttpEndpointCommonAttribute"
       ( \x ->
           HttpEndpointCommonAttribute'
-            Core.<$> (x Core..: "AttributeName")
-            Core.<*> (x Core..: "AttributeValue")
+            Prelude.<$> (x Core..: "AttributeName")
+            Prelude.<*> (x Core..: "AttributeValue")
       )
 
-instance Core.Hashable HttpEndpointCommonAttribute
+instance Prelude.Hashable HttpEndpointCommonAttribute
 
-instance Core.NFData HttpEndpointCommonAttribute
+instance Prelude.NFData HttpEndpointCommonAttribute
 
 instance Core.ToJSON HttpEndpointCommonAttribute where
   toJSON HttpEndpointCommonAttribute' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AttributeName" Core..= attributeName),
-            Core.Just ("AttributeValue" Core..= attributeValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("AttributeName" Core..= attributeName),
+            Prelude.Just
+              ("AttributeValue" Core..= attributeValue)
           ]
       )

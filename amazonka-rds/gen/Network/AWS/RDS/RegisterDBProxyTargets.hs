@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -52,16 +53,16 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newRegisterDBProxyTargets' smart constructor.
 data RegisterDBProxyTargets = RegisterDBProxyTargets'
   { -- | One or more DB cluster identifiers.
-    dbClusterIdentifiers :: Core.Maybe [Core.Text],
+    dbClusterIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the @DBProxyTargetGroup@.
-    targetGroupName :: Core.Maybe Core.Text,
+    targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | One or more DB instance identifiers.
-    dbInstanceIdentifiers :: Core.Maybe [Core.Text],
+    dbInstanceIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the @DBProxy@ that is associated with the
     -- @DBProxyTargetGroup@.
-    dbProxyName :: Core.Text
+    dbProxyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterDBProxyTargets' with all optional fields omitted.
@@ -81,32 +82,32 @@ data RegisterDBProxyTargets = RegisterDBProxyTargets'
 -- @DBProxyTargetGroup@.
 newRegisterDBProxyTargets ::
   -- | 'dbProxyName'
-  Core.Text ->
+  Prelude.Text ->
   RegisterDBProxyTargets
 newRegisterDBProxyTargets pDBProxyName_ =
   RegisterDBProxyTargets'
     { dbClusterIdentifiers =
-        Core.Nothing,
-      targetGroupName = Core.Nothing,
-      dbInstanceIdentifiers = Core.Nothing,
+        Prelude.Nothing,
+      targetGroupName = Prelude.Nothing,
+      dbInstanceIdentifiers = Prelude.Nothing,
       dbProxyName = pDBProxyName_
     }
 
 -- | One or more DB cluster identifiers.
-registerDBProxyTargets_dbClusterIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Core.Maybe [Core.Text])
-registerDBProxyTargets_dbClusterIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: RegisterDBProxyTargets) Core.. Lens.mapping Lens._Coerce
+registerDBProxyTargets_dbClusterIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
+registerDBProxyTargets_dbClusterIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: RegisterDBProxyTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the @DBProxyTargetGroup@.
-registerDBProxyTargets_targetGroupName :: Lens.Lens' RegisterDBProxyTargets (Core.Maybe Core.Text)
+registerDBProxyTargets_targetGroupName :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe Prelude.Text)
 registerDBProxyTargets_targetGroupName = Lens.lens (\RegisterDBProxyTargets' {targetGroupName} -> targetGroupName) (\s@RegisterDBProxyTargets' {} a -> s {targetGroupName = a} :: RegisterDBProxyTargets)
 
 -- | One or more DB instance identifiers.
-registerDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Core.Maybe [Core.Text])
-registerDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbInstanceIdentifiers} -> dbInstanceIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbInstanceIdentifiers = a} :: RegisterDBProxyTargets) Core.. Lens.mapping Lens._Coerce
+registerDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
+registerDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbInstanceIdentifiers} -> dbInstanceIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbInstanceIdentifiers = a} :: RegisterDBProxyTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the @DBProxy@ that is associated with the
 -- @DBProxyTargetGroup@.
-registerDBProxyTargets_dbProxyName :: Lens.Lens' RegisterDBProxyTargets Core.Text
+registerDBProxyTargets_dbProxyName :: Lens.Lens' RegisterDBProxyTargets Prelude.Text
 registerDBProxyTargets_dbProxyName = Lens.lens (\RegisterDBProxyTargets' {dbProxyName} -> dbProxyName) (\s@RegisterDBProxyTargets' {} a -> s {dbProxyName = a} :: RegisterDBProxyTargets)
 
 instance Core.AWSRequest RegisterDBProxyTargets where
@@ -119,38 +120,39 @@ instance Core.AWSRequest RegisterDBProxyTargets where
       "RegisterDBProxyTargetsResult"
       ( \s h x ->
           RegisterDBProxyTargetsResponse'
-            Core.<$> ( x Core..@? "DBProxyTargets" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "DBProxyTargets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RegisterDBProxyTargets
+instance Prelude.Hashable RegisterDBProxyTargets
 
-instance Core.NFData RegisterDBProxyTargets
+instance Prelude.NFData RegisterDBProxyTargets
 
 instance Core.ToHeaders RegisterDBProxyTargets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RegisterDBProxyTargets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterDBProxyTargets where
   toQuery RegisterDBProxyTargets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RegisterDBProxyTargets" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("RegisterDBProxyTargets" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterIdentifiers"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> dbClusterIdentifiers
+                Prelude.<$> dbClusterIdentifiers
             ),
         "TargetGroupName" Core.=: targetGroupName,
         "DBInstanceIdentifiers"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> dbInstanceIdentifiers
+                Prelude.<$> dbInstanceIdentifiers
             ),
         "DBProxyName" Core.=: dbProxyName
       ]
@@ -159,11 +161,11 @@ instance Core.ToQuery RegisterDBProxyTargets where
 data RegisterDBProxyTargetsResponse = RegisterDBProxyTargetsResponse'
   { -- | One or more @DBProxyTarget@ objects that are created when you register
     -- targets with a target group.
-    dbProxyTargets :: Core.Maybe [DBProxyTarget],
+    dbProxyTargets :: Prelude.Maybe [DBProxyTarget],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterDBProxyTargetsResponse' with all optional fields omitted.
@@ -179,22 +181,24 @@ data RegisterDBProxyTargetsResponse = RegisterDBProxyTargetsResponse'
 -- 'httpStatus', 'registerDBProxyTargetsResponse_httpStatus' - The response's http status code.
 newRegisterDBProxyTargetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterDBProxyTargetsResponse
 newRegisterDBProxyTargetsResponse pHttpStatus_ =
   RegisterDBProxyTargetsResponse'
     { dbProxyTargets =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | One or more @DBProxyTarget@ objects that are created when you register
 -- targets with a target group.
-registerDBProxyTargetsResponse_dbProxyTargets :: Lens.Lens' RegisterDBProxyTargetsResponse (Core.Maybe [DBProxyTarget])
-registerDBProxyTargetsResponse_dbProxyTargets = Lens.lens (\RegisterDBProxyTargetsResponse' {dbProxyTargets} -> dbProxyTargets) (\s@RegisterDBProxyTargetsResponse' {} a -> s {dbProxyTargets = a} :: RegisterDBProxyTargetsResponse) Core.. Lens.mapping Lens._Coerce
+registerDBProxyTargetsResponse_dbProxyTargets :: Lens.Lens' RegisterDBProxyTargetsResponse (Prelude.Maybe [DBProxyTarget])
+registerDBProxyTargetsResponse_dbProxyTargets = Lens.lens (\RegisterDBProxyTargetsResponse' {dbProxyTargets} -> dbProxyTargets) (\s@RegisterDBProxyTargetsResponse' {} a -> s {dbProxyTargets = a} :: RegisterDBProxyTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-registerDBProxyTargetsResponse_httpStatus :: Lens.Lens' RegisterDBProxyTargetsResponse Core.Int
+registerDBProxyTargetsResponse_httpStatus :: Lens.Lens' RegisterDBProxyTargetsResponse Prelude.Int
 registerDBProxyTargetsResponse_httpStatus = Lens.lens (\RegisterDBProxyTargetsResponse' {httpStatus} -> httpStatus) (\s@RegisterDBProxyTargetsResponse' {} a -> s {httpStatus = a} :: RegisterDBProxyTargetsResponse)
 
-instance Core.NFData RegisterDBProxyTargetsResponse
+instance
+  Prelude.NFData
+    RegisterDBProxyTargetsResponse

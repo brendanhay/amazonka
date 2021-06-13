@@ -42,15 +42,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDevice' smart constructor.
 data GetDevice = GetDevice'
   { -- | The ARN of the device for which to request details. Required.
-    deviceArn :: Core.Maybe Core.Text
+    deviceArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDevice' with all optional fields omitted.
@@ -63,10 +64,11 @@ data GetDevice = GetDevice'
 -- 'deviceArn', 'getDevice_deviceArn' - The ARN of the device for which to request details. Required.
 newGetDevice ::
   GetDevice
-newGetDevice = GetDevice' {deviceArn = Core.Nothing}
+newGetDevice =
+  GetDevice' {deviceArn = Prelude.Nothing}
 
 -- | The ARN of the device for which to request details. Required.
-getDevice_deviceArn :: Lens.Lens' GetDevice (Core.Maybe Core.Text)
+getDevice_deviceArn :: Lens.Lens' GetDevice (Prelude.Maybe Prelude.Text)
 getDevice_deviceArn = Lens.lens (\GetDevice' {deviceArn} -> deviceArn) (\s@GetDevice' {} a -> s {deviceArn = a} :: GetDevice)
 
 instance Core.AWSRequest GetDevice where
@@ -76,46 +78,48 @@ instance Core.AWSRequest GetDevice where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceResponse'
-            Core.<$> (x Core..?> "Device")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Device")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDevice
+instance Prelude.Hashable GetDevice
 
-instance Core.NFData GetDevice
+instance Prelude.NFData GetDevice
 
 instance Core.ToHeaders GetDevice where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.GetDevice" :: Core.ByteString),
+              Core.=# ("AlexaForBusiness.GetDevice" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDevice where
   toJSON GetDevice' {..} =
     Core.object
-      ( Core.catMaybes
-          [("DeviceArn" Core..=) Core.<$> deviceArn]
+      ( Prelude.catMaybes
+          [("DeviceArn" Core..=) Prelude.<$> deviceArn]
       )
 
 instance Core.ToPath GetDevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDevice where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
   { -- | The details of the device requested. Required.
-    device :: Core.Maybe Device,
+    device :: Prelude.Maybe Device,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeviceResponse' with all optional fields omitted.
@@ -130,20 +134,20 @@ data GetDeviceResponse = GetDeviceResponse'
 -- 'httpStatus', 'getDeviceResponse_httpStatus' - The response's http status code.
 newGetDeviceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDeviceResponse
 newGetDeviceResponse pHttpStatus_ =
   GetDeviceResponse'
-    { device = Core.Nothing,
+    { device = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the device requested. Required.
-getDeviceResponse_device :: Lens.Lens' GetDeviceResponse (Core.Maybe Device)
+getDeviceResponse_device :: Lens.Lens' GetDeviceResponse (Prelude.Maybe Device)
 getDeviceResponse_device = Lens.lens (\GetDeviceResponse' {device} -> device) (\s@GetDeviceResponse' {} a -> s {device = a} :: GetDeviceResponse)
 
 -- | The response's http status code.
-getDeviceResponse_httpStatus :: Lens.Lens' GetDeviceResponse Core.Int
+getDeviceResponse_httpStatus :: Lens.Lens' GetDeviceResponse Prelude.Int
 getDeviceResponse_httpStatus = Lens.lens (\GetDeviceResponse' {httpStatus} -> httpStatus) (\s@GetDeviceResponse' {} a -> s {httpStatus = a} :: GetDeviceResponse)
 
-instance Core.NFData GetDeviceResponse
+instance Prelude.NFData GetDeviceResponse

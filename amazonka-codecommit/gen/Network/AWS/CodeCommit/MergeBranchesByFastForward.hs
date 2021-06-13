@@ -46,23 +46,24 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newMergeBranchesByFastForward' smart constructor.
 data MergeBranchesByFastForward = MergeBranchesByFastForward'
   { -- | The branch where the merge is applied.
-    targetBranch :: Core.Maybe Core.Text,
+    targetBranch :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository where you want to merge two branches.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The branch, tag, HEAD, or other fully qualified reference used to
     -- identify a commit (for example, a branch name or a full commit ID).
-    sourceCommitSpecifier :: Core.Text,
+    sourceCommitSpecifier :: Prelude.Text,
     -- | The branch, tag, HEAD, or other fully qualified reference used to
     -- identify a commit (for example, a branch name or a full commit ID).
-    destinationCommitSpecifier :: Core.Text
+    destinationCommitSpecifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MergeBranchesByFastForward' with all optional fields omitted.
@@ -83,11 +84,11 @@ data MergeBranchesByFastForward = MergeBranchesByFastForward'
 -- identify a commit (for example, a branch name or a full commit ID).
 newMergeBranchesByFastForward ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceCommitSpecifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationCommitSpecifier'
-  Core.Text ->
+  Prelude.Text ->
   MergeBranchesByFastForward
 newMergeBranchesByFastForward
   pRepositoryName_
@@ -95,7 +96,7 @@ newMergeBranchesByFastForward
   pDestinationCommitSpecifier_ =
     MergeBranchesByFastForward'
       { targetBranch =
-          Core.Nothing,
+          Prelude.Nothing,
         repositoryName = pRepositoryName_,
         sourceCommitSpecifier = pSourceCommitSpecifier_,
         destinationCommitSpecifier =
@@ -103,21 +104,21 @@ newMergeBranchesByFastForward
       }
 
 -- | The branch where the merge is applied.
-mergeBranchesByFastForward_targetBranch :: Lens.Lens' MergeBranchesByFastForward (Core.Maybe Core.Text)
+mergeBranchesByFastForward_targetBranch :: Lens.Lens' MergeBranchesByFastForward (Prelude.Maybe Prelude.Text)
 mergeBranchesByFastForward_targetBranch = Lens.lens (\MergeBranchesByFastForward' {targetBranch} -> targetBranch) (\s@MergeBranchesByFastForward' {} a -> s {targetBranch = a} :: MergeBranchesByFastForward)
 
 -- | The name of the repository where you want to merge two branches.
-mergeBranchesByFastForward_repositoryName :: Lens.Lens' MergeBranchesByFastForward Core.Text
+mergeBranchesByFastForward_repositoryName :: Lens.Lens' MergeBranchesByFastForward Prelude.Text
 mergeBranchesByFastForward_repositoryName = Lens.lens (\MergeBranchesByFastForward' {repositoryName} -> repositoryName) (\s@MergeBranchesByFastForward' {} a -> s {repositoryName = a} :: MergeBranchesByFastForward)
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, a branch name or a full commit ID).
-mergeBranchesByFastForward_sourceCommitSpecifier :: Lens.Lens' MergeBranchesByFastForward Core.Text
+mergeBranchesByFastForward_sourceCommitSpecifier :: Lens.Lens' MergeBranchesByFastForward Prelude.Text
 mergeBranchesByFastForward_sourceCommitSpecifier = Lens.lens (\MergeBranchesByFastForward' {sourceCommitSpecifier} -> sourceCommitSpecifier) (\s@MergeBranchesByFastForward' {} a -> s {sourceCommitSpecifier = a} :: MergeBranchesByFastForward)
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, a branch name or a full commit ID).
-mergeBranchesByFastForward_destinationCommitSpecifier :: Lens.Lens' MergeBranchesByFastForward Core.Text
+mergeBranchesByFastForward_destinationCommitSpecifier :: Lens.Lens' MergeBranchesByFastForward Prelude.Text
 mergeBranchesByFastForward_destinationCommitSpecifier = Lens.lens (\MergeBranchesByFastForward' {destinationCommitSpecifier} -> destinationCommitSpecifier) (\s@MergeBranchesByFastForward' {} a -> s {destinationCommitSpecifier = a} :: MergeBranchesByFastForward)
 
 instance Core.AWSRequest MergeBranchesByFastForward where
@@ -129,39 +130,42 @@ instance Core.AWSRequest MergeBranchesByFastForward where
     Response.receiveJSON
       ( \s h x ->
           MergeBranchesByFastForwardResponse'
-            Core.<$> (x Core..?> "commitId")
-            Core.<*> (x Core..?> "treeId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "commitId")
+            Prelude.<*> (x Core..?> "treeId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable MergeBranchesByFastForward
+instance Prelude.Hashable MergeBranchesByFastForward
 
-instance Core.NFData MergeBranchesByFastForward
+instance Prelude.NFData MergeBranchesByFastForward
 
 instance Core.ToHeaders MergeBranchesByFastForward where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.MergeBranchesByFastForward" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON MergeBranchesByFastForward where
   toJSON MergeBranchesByFastForward' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("targetBranch" Core..=) Core.<$> targetBranch,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("targetBranch" Core..=) Prelude.<$> targetBranch,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just
               ( "sourceCommitSpecifier"
                   Core..= sourceCommitSpecifier
               ),
-            Core.Just
+            Prelude.Just
               ( "destinationCommitSpecifier"
                   Core..= destinationCommitSpecifier
               )
@@ -169,21 +173,21 @@ instance Core.ToJSON MergeBranchesByFastForward where
       )
 
 instance Core.ToPath MergeBranchesByFastForward where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery MergeBranchesByFastForward where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergeBranchesByFastForwardResponse' smart constructor.
 data MergeBranchesByFastForwardResponse = MergeBranchesByFastForwardResponse'
   { -- | The commit ID of the merge in the destination or target branch.
-    commitId :: Core.Maybe Core.Text,
+    commitId :: Prelude.Maybe Prelude.Text,
     -- | The tree ID of the merge in the destination or target branch.
-    treeId :: Core.Maybe Core.Text,
+    treeId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MergeBranchesByFastForwardResponse' with all optional fields omitted.
@@ -200,28 +204,28 @@ data MergeBranchesByFastForwardResponse = MergeBranchesByFastForwardResponse'
 -- 'httpStatus', 'mergeBranchesByFastForwardResponse_httpStatus' - The response's http status code.
 newMergeBranchesByFastForwardResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   MergeBranchesByFastForwardResponse
 newMergeBranchesByFastForwardResponse pHttpStatus_ =
   MergeBranchesByFastForwardResponse'
     { commitId =
-        Core.Nothing,
-      treeId = Core.Nothing,
+        Prelude.Nothing,
+      treeId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The commit ID of the merge in the destination or target branch.
-mergeBranchesByFastForwardResponse_commitId :: Lens.Lens' MergeBranchesByFastForwardResponse (Core.Maybe Core.Text)
+mergeBranchesByFastForwardResponse_commitId :: Lens.Lens' MergeBranchesByFastForwardResponse (Prelude.Maybe Prelude.Text)
 mergeBranchesByFastForwardResponse_commitId = Lens.lens (\MergeBranchesByFastForwardResponse' {commitId} -> commitId) (\s@MergeBranchesByFastForwardResponse' {} a -> s {commitId = a} :: MergeBranchesByFastForwardResponse)
 
 -- | The tree ID of the merge in the destination or target branch.
-mergeBranchesByFastForwardResponse_treeId :: Lens.Lens' MergeBranchesByFastForwardResponse (Core.Maybe Core.Text)
+mergeBranchesByFastForwardResponse_treeId :: Lens.Lens' MergeBranchesByFastForwardResponse (Prelude.Maybe Prelude.Text)
 mergeBranchesByFastForwardResponse_treeId = Lens.lens (\MergeBranchesByFastForwardResponse' {treeId} -> treeId) (\s@MergeBranchesByFastForwardResponse' {} a -> s {treeId = a} :: MergeBranchesByFastForwardResponse)
 
 -- | The response's http status code.
-mergeBranchesByFastForwardResponse_httpStatus :: Lens.Lens' MergeBranchesByFastForwardResponse Core.Int
+mergeBranchesByFastForwardResponse_httpStatus :: Lens.Lens' MergeBranchesByFastForwardResponse Prelude.Int
 mergeBranchesByFastForwardResponse_httpStatus = Lens.lens (\MergeBranchesByFastForwardResponse' {httpStatus} -> httpStatus) (\s@MergeBranchesByFastForwardResponse' {} a -> s {httpStatus = a} :: MergeBranchesByFastForwardResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     MergeBranchesByFastForwardResponse

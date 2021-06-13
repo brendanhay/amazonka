@@ -70,17 +70,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateConnectionFromLag' smart constructor.
 data DisassociateConnectionFromLag = DisassociateConnectionFromLag'
   { -- | The ID of the connection.
-    connectionId :: Core.Text,
+    connectionId :: Prelude.Text,
     -- | The ID of the LAG.
-    lagId :: Core.Text
+    lagId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateConnectionFromLag' with all optional fields omitted.
@@ -95,9 +96,9 @@ data DisassociateConnectionFromLag = DisassociateConnectionFromLag'
 -- 'lagId', 'disassociateConnectionFromLag_lagId' - The ID of the LAG.
 newDisassociateConnectionFromLag ::
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lagId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateConnectionFromLag
 newDisassociateConnectionFromLag
   pConnectionId_
@@ -109,11 +110,11 @@ newDisassociateConnectionFromLag
       }
 
 -- | The ID of the connection.
-disassociateConnectionFromLag_connectionId :: Lens.Lens' DisassociateConnectionFromLag Core.Text
+disassociateConnectionFromLag_connectionId :: Lens.Lens' DisassociateConnectionFromLag Prelude.Text
 disassociateConnectionFromLag_connectionId = Lens.lens (\DisassociateConnectionFromLag' {connectionId} -> connectionId) (\s@DisassociateConnectionFromLag' {} a -> s {connectionId = a} :: DisassociateConnectionFromLag)
 
 -- | The ID of the LAG.
-disassociateConnectionFromLag_lagId :: Lens.Lens' DisassociateConnectionFromLag Core.Text
+disassociateConnectionFromLag_lagId :: Lens.Lens' DisassociateConnectionFromLag Prelude.Text
 disassociateConnectionFromLag_lagId = Lens.lens (\DisassociateConnectionFromLag' {lagId} -> lagId) (\s@DisassociateConnectionFromLag' {} a -> s {lagId = a} :: DisassociateConnectionFromLag)
 
 instance
@@ -128,34 +129,38 @@ instance
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable DisassociateConnectionFromLag
+instance
+  Prelude.Hashable
+    DisassociateConnectionFromLag
 
-instance Core.NFData DisassociateConnectionFromLag
+instance Prelude.NFData DisassociateConnectionFromLag
 
 instance Core.ToHeaders DisassociateConnectionFromLag where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.DisassociateConnectionFromLag" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateConnectionFromLag where
   toJSON DisassociateConnectionFromLag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("connectionId" Core..= connectionId),
-            Core.Just ("lagId" Core..= lagId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("connectionId" Core..= connectionId),
+            Prelude.Just ("lagId" Core..= lagId)
           ]
       )
 
 instance Core.ToPath DisassociateConnectionFromLag where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateConnectionFromLag where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

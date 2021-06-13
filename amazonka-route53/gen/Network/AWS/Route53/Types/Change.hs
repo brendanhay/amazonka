@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.Change where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.ChangeAction
 import Network.AWS.Route53.Types.ResourceRecordSet
@@ -52,7 +53,7 @@ data Change = Change'
     -- | Information about the resource record set to create, delete, or update.
     resourceRecordSet :: ResourceRecordSet
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Change' with all optional fields omitted.
@@ -121,13 +122,13 @@ change_action = Lens.lens (\Change' {action} -> action) (\s@Change' {} a -> s {a
 change_resourceRecordSet :: Lens.Lens' Change ResourceRecordSet
 change_resourceRecordSet = Lens.lens (\Change' {resourceRecordSet} -> resourceRecordSet) (\s@Change' {} a -> s {resourceRecordSet = a} :: Change)
 
-instance Core.Hashable Change
+instance Prelude.Hashable Change
 
-instance Core.NFData Change
+instance Prelude.NFData Change
 
 instance Core.ToXML Change where
   toXML Change' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action" Core.@= action,
         "ResourceRecordSet" Core.@= resourceRecordSet
       ]

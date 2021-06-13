@@ -21,19 +21,20 @@ module Network.AWS.DMS.Types.ReplicationInstanceTaskLog where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains metadata for a replication instance task log.
 --
 -- /See:/ 'newReplicationInstanceTaskLog' smart constructor.
 data ReplicationInstanceTaskLog = ReplicationInstanceTaskLog'
   { -- | The name of the replication task.
-    replicationTaskName :: Core.Maybe Core.Text,
+    replicationTaskName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskArn :: Core.Maybe Core.Text,
+    replicationTaskArn :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of the replication task log.
-    replicationInstanceTaskLogSize :: Core.Maybe Core.Integer
+    replicationInstanceTaskLogSize :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationInstanceTaskLog' with all optional fields omitted.
@@ -53,21 +54,22 @@ newReplicationInstanceTaskLog ::
 newReplicationInstanceTaskLog =
   ReplicationInstanceTaskLog'
     { replicationTaskName =
-        Core.Nothing,
-      replicationTaskArn = Core.Nothing,
-      replicationInstanceTaskLogSize = Core.Nothing
+        Prelude.Nothing,
+      replicationTaskArn = Prelude.Nothing,
+      replicationInstanceTaskLogSize =
+        Prelude.Nothing
     }
 
 -- | The name of the replication task.
-replicationInstanceTaskLog_replicationTaskName :: Lens.Lens' ReplicationInstanceTaskLog (Core.Maybe Core.Text)
+replicationInstanceTaskLog_replicationTaskName :: Lens.Lens' ReplicationInstanceTaskLog (Prelude.Maybe Prelude.Text)
 replicationInstanceTaskLog_replicationTaskName = Lens.lens (\ReplicationInstanceTaskLog' {replicationTaskName} -> replicationTaskName) (\s@ReplicationInstanceTaskLog' {} a -> s {replicationTaskName = a} :: ReplicationInstanceTaskLog)
 
 -- | The Amazon Resource Name (ARN) of the replication task.
-replicationInstanceTaskLog_replicationTaskArn :: Lens.Lens' ReplicationInstanceTaskLog (Core.Maybe Core.Text)
+replicationInstanceTaskLog_replicationTaskArn :: Lens.Lens' ReplicationInstanceTaskLog (Prelude.Maybe Prelude.Text)
 replicationInstanceTaskLog_replicationTaskArn = Lens.lens (\ReplicationInstanceTaskLog' {replicationTaskArn} -> replicationTaskArn) (\s@ReplicationInstanceTaskLog' {} a -> s {replicationTaskArn = a} :: ReplicationInstanceTaskLog)
 
 -- | The size, in bytes, of the replication task log.
-replicationInstanceTaskLog_replicationInstanceTaskLogSize :: Lens.Lens' ReplicationInstanceTaskLog (Core.Maybe Core.Integer)
+replicationInstanceTaskLog_replicationInstanceTaskLogSize :: Lens.Lens' ReplicationInstanceTaskLog (Prelude.Maybe Prelude.Integer)
 replicationInstanceTaskLog_replicationInstanceTaskLogSize = Lens.lens (\ReplicationInstanceTaskLog' {replicationInstanceTaskLogSize} -> replicationInstanceTaskLogSize) (\s@ReplicationInstanceTaskLog' {} a -> s {replicationInstanceTaskLogSize = a} :: ReplicationInstanceTaskLog)
 
 instance Core.FromJSON ReplicationInstanceTaskLog where
@@ -76,11 +78,11 @@ instance Core.FromJSON ReplicationInstanceTaskLog where
       "ReplicationInstanceTaskLog"
       ( \x ->
           ReplicationInstanceTaskLog'
-            Core.<$> (x Core..:? "ReplicationTaskName")
-            Core.<*> (x Core..:? "ReplicationTaskArn")
-            Core.<*> (x Core..:? "ReplicationInstanceTaskLogSize")
+            Prelude.<$> (x Core..:? "ReplicationTaskName")
+            Prelude.<*> (x Core..:? "ReplicationTaskArn")
+            Prelude.<*> (x Core..:? "ReplicationInstanceTaskLogSize")
       )
 
-instance Core.Hashable ReplicationInstanceTaskLog
+instance Prelude.Hashable ReplicationInstanceTaskLog
 
-instance Core.NFData ReplicationInstanceTaskLog
+instance Prelude.NFData ReplicationInstanceTaskLog

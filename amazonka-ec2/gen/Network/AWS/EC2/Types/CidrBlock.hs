@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.CidrBlock where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IPv4 CIDR block.
 --
 -- /See:/ 'newCidrBlock' smart constructor.
 data CidrBlock = CidrBlock'
   { -- | The IPv4 CIDR block.
-    cidrBlock :: Core.Maybe Core.Text
+    cidrBlock :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CidrBlock' with all optional fields omitted.
@@ -43,16 +44,17 @@ data CidrBlock = CidrBlock'
 -- 'cidrBlock', 'cidrBlock_cidrBlock' - The IPv4 CIDR block.
 newCidrBlock ::
   CidrBlock
-newCidrBlock = CidrBlock' {cidrBlock = Core.Nothing}
+newCidrBlock =
+  CidrBlock' {cidrBlock = Prelude.Nothing}
 
 -- | The IPv4 CIDR block.
-cidrBlock_cidrBlock :: Lens.Lens' CidrBlock (Core.Maybe Core.Text)
+cidrBlock_cidrBlock :: Lens.Lens' CidrBlock (Prelude.Maybe Prelude.Text)
 cidrBlock_cidrBlock = Lens.lens (\CidrBlock' {cidrBlock} -> cidrBlock) (\s@CidrBlock' {} a -> s {cidrBlock = a} :: CidrBlock)
 
 instance Core.FromXML CidrBlock where
   parseXML x =
-    CidrBlock' Core.<$> (x Core..@? "cidrBlock")
+    CidrBlock' Prelude.<$> (x Core..@? "cidrBlock")
 
-instance Core.Hashable CidrBlock
+instance Prelude.Hashable CidrBlock
 
-instance Core.NFData CidrBlock
+instance Prelude.NFData CidrBlock

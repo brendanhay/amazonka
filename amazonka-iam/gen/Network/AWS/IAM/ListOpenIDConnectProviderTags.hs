@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,12 +69,12 @@ data ListOpenIDConnectProviderTags = ListOpenIDConnectProviderTags'
     -- that case, the @IsTruncated@ response element returns @true@, and
     -- @Marker@ contains a value to include in the subsequent call that tells
     -- the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the OpenID Connect (OIDC) identity provider whose tags you
     -- want to see.
     --
@@ -81,9 +82,9 @@ data ListOpenIDConnectProviderTags = ListOpenIDConnectProviderTags'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    openIDConnectProviderArn :: Core.Text
+    openIDConnectProviderArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOpenIDConnectProviderTags' with all optional fields omitted.
@@ -118,14 +119,14 @@ data ListOpenIDConnectProviderTags = ListOpenIDConnectProviderTags'
 -- spaces. You can also include any of the following characters: =,.\@-
 newListOpenIDConnectProviderTags ::
   -- | 'openIDConnectProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   ListOpenIDConnectProviderTags
 newListOpenIDConnectProviderTags
   pOpenIDConnectProviderArn_ =
     ListOpenIDConnectProviderTags'
       { maxItems =
-          Core.Nothing,
-        marker = Core.Nothing,
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
         openIDConnectProviderArn =
           pOpenIDConnectProviderArn_
       }
@@ -140,14 +141,14 @@ newListOpenIDConnectProviderTags
 -- that case, the @IsTruncated@ response element returns @true@, and
 -- @Marker@ contains a value to include in the subsequent call that tells
 -- the service where to continue from.
-listOpenIDConnectProviderTags_maxItems :: Lens.Lens' ListOpenIDConnectProviderTags (Core.Maybe Core.Natural)
+listOpenIDConnectProviderTags_maxItems :: Lens.Lens' ListOpenIDConnectProviderTags (Prelude.Maybe Prelude.Natural)
 listOpenIDConnectProviderTags_maxItems = Lens.lens (\ListOpenIDConnectProviderTags' {maxItems} -> maxItems) (\s@ListOpenIDConnectProviderTags' {} a -> s {maxItems = a} :: ListOpenIDConnectProviderTags)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listOpenIDConnectProviderTags_marker :: Lens.Lens' ListOpenIDConnectProviderTags (Core.Maybe Core.Text)
+listOpenIDConnectProviderTags_marker :: Lens.Lens' ListOpenIDConnectProviderTags (Prelude.Maybe Prelude.Text)
 listOpenIDConnectProviderTags_marker = Lens.lens (\ListOpenIDConnectProviderTags' {marker} -> marker) (\s@ListOpenIDConnectProviderTags' {} a -> s {marker = a} :: ListOpenIDConnectProviderTags)
 
 -- | The ARN of the OpenID Connect (OIDC) identity provider whose tags you
@@ -157,7 +158,7 @@ listOpenIDConnectProviderTags_marker = Lens.lens (\ListOpenIDConnectProviderTags
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-listOpenIDConnectProviderTags_openIDConnectProviderArn :: Lens.Lens' ListOpenIDConnectProviderTags Core.Text
+listOpenIDConnectProviderTags_openIDConnectProviderArn :: Lens.Lens' ListOpenIDConnectProviderTags Prelude.Text
 listOpenIDConnectProviderTags_openIDConnectProviderArn = Lens.lens (\ListOpenIDConnectProviderTags' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@ListOpenIDConnectProviderTags' {} a -> s {openIDConnectProviderArn = a} :: ListOpenIDConnectProviderTags)
 
 instance
@@ -173,30 +174,35 @@ instance
       "ListOpenIDConnectProviderTagsResult"
       ( \s h x ->
           ListOpenIDConnectProviderTagsResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListOpenIDConnectProviderTags
+instance
+  Prelude.Hashable
+    ListOpenIDConnectProviderTags
 
-instance Core.NFData ListOpenIDConnectProviderTags
+instance Prelude.NFData ListOpenIDConnectProviderTags
 
 instance Core.ToHeaders ListOpenIDConnectProviderTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListOpenIDConnectProviderTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListOpenIDConnectProviderTags where
   toQuery ListOpenIDConnectProviderTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListOpenIDConnectProviderTags" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ( "ListOpenIDConnectProviderTags" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "OpenIDConnectProviderArn"
@@ -211,20 +217,20 @@ data ListOpenIDConnectProviderTagsResponse = ListOpenIDConnectProviderTagsRespon
     -- that IAM might return fewer than the @MaxItems@ number of results even
     -- when more results are available. Check @IsTruncated@ after every call to
     -- ensure that you receive all of your results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the OpenID Connect
     -- (OIDC) identity provider. Each tag consists of a key name and an
     -- associated value. If no tags are attached to the specified resource, the
     -- response contains an empty list.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOpenIDConnectProviderTagsResponse' with all optional fields omitted.
@@ -253,15 +259,15 @@ data ListOpenIDConnectProviderTagsResponse = ListOpenIDConnectProviderTagsRespon
 -- response contains an empty list.
 newListOpenIDConnectProviderTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListOpenIDConnectProviderTagsResponse
 newListOpenIDConnectProviderTagsResponse pHttpStatus_ =
   ListOpenIDConnectProviderTagsResponse'
     { isTruncated =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -270,17 +276,17 @@ newListOpenIDConnectProviderTagsResponse pHttpStatus_ =
 -- that IAM might return fewer than the @MaxItems@ number of results even
 -- when more results are available. Check @IsTruncated@ after every call to
 -- ensure that you receive all of your results.
-listOpenIDConnectProviderTagsResponse_isTruncated :: Lens.Lens' ListOpenIDConnectProviderTagsResponse (Core.Maybe Core.Bool)
+listOpenIDConnectProviderTagsResponse_isTruncated :: Lens.Lens' ListOpenIDConnectProviderTagsResponse (Prelude.Maybe Prelude.Bool)
 listOpenIDConnectProviderTagsResponse_isTruncated = Lens.lens (\ListOpenIDConnectProviderTagsResponse' {isTruncated} -> isTruncated) (\s@ListOpenIDConnectProviderTagsResponse' {} a -> s {isTruncated = a} :: ListOpenIDConnectProviderTagsResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listOpenIDConnectProviderTagsResponse_marker :: Lens.Lens' ListOpenIDConnectProviderTagsResponse (Core.Maybe Core.Text)
+listOpenIDConnectProviderTagsResponse_marker :: Lens.Lens' ListOpenIDConnectProviderTagsResponse (Prelude.Maybe Prelude.Text)
 listOpenIDConnectProviderTagsResponse_marker = Lens.lens (\ListOpenIDConnectProviderTagsResponse' {marker} -> marker) (\s@ListOpenIDConnectProviderTagsResponse' {} a -> s {marker = a} :: ListOpenIDConnectProviderTagsResponse)
 
 -- | The response's http status code.
-listOpenIDConnectProviderTagsResponse_httpStatus :: Lens.Lens' ListOpenIDConnectProviderTagsResponse Core.Int
+listOpenIDConnectProviderTagsResponse_httpStatus :: Lens.Lens' ListOpenIDConnectProviderTagsResponse Prelude.Int
 listOpenIDConnectProviderTagsResponse_httpStatus = Lens.lens (\ListOpenIDConnectProviderTagsResponse' {httpStatus} -> httpStatus) (\s@ListOpenIDConnectProviderTagsResponse' {} a -> s {httpStatus = a} :: ListOpenIDConnectProviderTagsResponse)
 
 -- | The list of tags that are currently attached to the OpenID Connect
@@ -288,8 +294,8 @@ listOpenIDConnectProviderTagsResponse_httpStatus = Lens.lens (\ListOpenIDConnect
 -- associated value. If no tags are attached to the specified resource, the
 -- response contains an empty list.
 listOpenIDConnectProviderTagsResponse_tags :: Lens.Lens' ListOpenIDConnectProviderTagsResponse [Tag]
-listOpenIDConnectProviderTagsResponse_tags = Lens.lens (\ListOpenIDConnectProviderTagsResponse' {tags} -> tags) (\s@ListOpenIDConnectProviderTagsResponse' {} a -> s {tags = a} :: ListOpenIDConnectProviderTagsResponse) Core.. Lens._Coerce
+listOpenIDConnectProviderTagsResponse_tags = Lens.lens (\ListOpenIDConnectProviderTagsResponse' {tags} -> tags) (\s@ListOpenIDConnectProviderTagsResponse' {} a -> s {tags = a} :: ListOpenIDConnectProviderTagsResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListOpenIDConnectProviderTagsResponse

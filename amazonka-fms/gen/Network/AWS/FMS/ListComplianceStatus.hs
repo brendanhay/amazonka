@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,17 +63,17 @@ data ListComplianceStatus = ListComplianceStatus'
     -- @ListComplianceStatus@ requests, specify the value of @NextToken@ from
     -- the previous response to get information about another batch of
     -- @PolicyComplianceStatus@ objects.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of @PolicyComplianceStatus@ objects that you want
     -- AWS Firewall Manager to return for this request. If you have more
     -- @PolicyComplianceStatus@ objects than the number that you specify for
     -- @MaxResults@, the response includes a @NextToken@ value that you can use
     -- to get another batch of @PolicyComplianceStatus@ objects.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the AWS Firewall Manager policy that you want the details for.
-    policyId :: Core.Text
+    policyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListComplianceStatus' with all optional fields omitted.
@@ -100,12 +101,12 @@ data ListComplianceStatus = ListComplianceStatus'
 -- 'policyId', 'listComplianceStatus_policyId' - The ID of the AWS Firewall Manager policy that you want the details for.
 newListComplianceStatus ::
   -- | 'policyId'
-  Core.Text ->
+  Prelude.Text ->
   ListComplianceStatus
 newListComplianceStatus pPolicyId_ =
   ListComplianceStatus'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       policyId = pPolicyId_
     }
 
@@ -117,7 +118,7 @@ newListComplianceStatus pPolicyId_ =
 -- @ListComplianceStatus@ requests, specify the value of @NextToken@ from
 -- the previous response to get information about another batch of
 -- @PolicyComplianceStatus@ objects.
-listComplianceStatus_nextToken :: Lens.Lens' ListComplianceStatus (Core.Maybe Core.Text)
+listComplianceStatus_nextToken :: Lens.Lens' ListComplianceStatus (Prelude.Maybe Prelude.Text)
 listComplianceStatus_nextToken = Lens.lens (\ListComplianceStatus' {nextToken} -> nextToken) (\s@ListComplianceStatus' {} a -> s {nextToken = a} :: ListComplianceStatus)
 
 -- | Specifies the number of @PolicyComplianceStatus@ objects that you want
@@ -125,11 +126,11 @@ listComplianceStatus_nextToken = Lens.lens (\ListComplianceStatus' {nextToken} -
 -- @PolicyComplianceStatus@ objects than the number that you specify for
 -- @MaxResults@, the response includes a @NextToken@ value that you can use
 -- to get another batch of @PolicyComplianceStatus@ objects.
-listComplianceStatus_maxResults :: Lens.Lens' ListComplianceStatus (Core.Maybe Core.Natural)
+listComplianceStatus_maxResults :: Lens.Lens' ListComplianceStatus (Prelude.Maybe Prelude.Natural)
 listComplianceStatus_maxResults = Lens.lens (\ListComplianceStatus' {maxResults} -> maxResults) (\s@ListComplianceStatus' {} a -> s {maxResults = a} :: ListComplianceStatus)
 
 -- | The ID of the AWS Firewall Manager policy that you want the details for.
-listComplianceStatus_policyId :: Lens.Lens' ListComplianceStatus Core.Text
+listComplianceStatus_policyId :: Lens.Lens' ListComplianceStatus Prelude.Text
 listComplianceStatus_policyId = Lens.lens (\ListComplianceStatus' {policyId} -> policyId) (\s@ListComplianceStatus' {} a -> s {policyId = a} :: ListComplianceStatus)
 
 instance Core.AWSPager ListComplianceStatus where
@@ -137,22 +138,22 @@ instance Core.AWSPager ListComplianceStatus where
     | Core.stop
         ( rs
             Lens.^? listComplianceStatusResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listComplianceStatusResponse_policyComplianceStatusList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listComplianceStatus_nextToken
+          Prelude.& listComplianceStatus_nextToken
           Lens..~ rs
           Lens.^? listComplianceStatusResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComplianceStatus where
   type
@@ -163,45 +164,47 @@ instance Core.AWSRequest ListComplianceStatus where
     Response.receiveJSON
       ( \s h x ->
           ListComplianceStatusResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "PolicyComplianceStatusList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "PolicyComplianceStatusList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListComplianceStatus
+instance Prelude.Hashable ListComplianceStatus
 
-instance Core.NFData ListComplianceStatus
+instance Prelude.NFData ListComplianceStatus
 
 instance Core.ToHeaders ListComplianceStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.ListComplianceStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListComplianceStatus where
   toJSON ListComplianceStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("PolicyId" Core..= policyId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("PolicyId" Core..= policyId)
           ]
       )
 
 instance Core.ToPath ListComplianceStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListComplianceStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComplianceStatusResponse' smart constructor.
 data ListComplianceStatusResponse = ListComplianceStatusResponse'
@@ -210,13 +213,13 @@ data ListComplianceStatusResponse = ListComplianceStatusResponse'
     -- @NextToken@ value. To list more @PolicyComplianceStatus@ objects, submit
     -- another @ListComplianceStatus@ request, and specify the @NextToken@
     -- value from the response in the @NextToken@ value in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @PolicyComplianceStatus@ objects.
-    policyComplianceStatusList :: Core.Maybe [PolicyComplianceStatus],
+    policyComplianceStatusList :: Prelude.Maybe [PolicyComplianceStatus],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListComplianceStatusResponse' with all optional fields omitted.
@@ -237,13 +240,13 @@ data ListComplianceStatusResponse = ListComplianceStatusResponse'
 -- 'httpStatus', 'listComplianceStatusResponse_httpStatus' - The response's http status code.
 newListComplianceStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListComplianceStatusResponse
 newListComplianceStatusResponse pHttpStatus_ =
   ListComplianceStatusResponse'
     { nextToken =
-        Core.Nothing,
-      policyComplianceStatusList = Core.Nothing,
+        Prelude.Nothing,
+      policyComplianceStatusList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -252,15 +255,15 @@ newListComplianceStatusResponse pHttpStatus_ =
 -- @NextToken@ value. To list more @PolicyComplianceStatus@ objects, submit
 -- another @ListComplianceStatus@ request, and specify the @NextToken@
 -- value from the response in the @NextToken@ value in the next request.
-listComplianceStatusResponse_nextToken :: Lens.Lens' ListComplianceStatusResponse (Core.Maybe Core.Text)
+listComplianceStatusResponse_nextToken :: Lens.Lens' ListComplianceStatusResponse (Prelude.Maybe Prelude.Text)
 listComplianceStatusResponse_nextToken = Lens.lens (\ListComplianceStatusResponse' {nextToken} -> nextToken) (\s@ListComplianceStatusResponse' {} a -> s {nextToken = a} :: ListComplianceStatusResponse)
 
 -- | An array of @PolicyComplianceStatus@ objects.
-listComplianceStatusResponse_policyComplianceStatusList :: Lens.Lens' ListComplianceStatusResponse (Core.Maybe [PolicyComplianceStatus])
-listComplianceStatusResponse_policyComplianceStatusList = Lens.lens (\ListComplianceStatusResponse' {policyComplianceStatusList} -> policyComplianceStatusList) (\s@ListComplianceStatusResponse' {} a -> s {policyComplianceStatusList = a} :: ListComplianceStatusResponse) Core.. Lens.mapping Lens._Coerce
+listComplianceStatusResponse_policyComplianceStatusList :: Lens.Lens' ListComplianceStatusResponse (Prelude.Maybe [PolicyComplianceStatus])
+listComplianceStatusResponse_policyComplianceStatusList = Lens.lens (\ListComplianceStatusResponse' {policyComplianceStatusList} -> policyComplianceStatusList) (\s@ListComplianceStatusResponse' {} a -> s {policyComplianceStatusList = a} :: ListComplianceStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listComplianceStatusResponse_httpStatus :: Lens.Lens' ListComplianceStatusResponse Core.Int
+listComplianceStatusResponse_httpStatus :: Lens.Lens' ListComplianceStatusResponse Prelude.Int
 listComplianceStatusResponse_httpStatus = Lens.lens (\ListComplianceStatusResponse' {httpStatus} -> httpStatus) (\s@ListComplianceStatusResponse' {} a -> s {httpStatus = a} :: ListComplianceStatusResponse)
 
-instance Core.NFData ListComplianceStatusResponse
+instance Prelude.NFData ListComplianceStatusResponse

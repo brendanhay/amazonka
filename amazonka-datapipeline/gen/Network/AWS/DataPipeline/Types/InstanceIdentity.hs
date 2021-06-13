@@ -21,6 +21,7 @@ module Network.AWS.DataPipeline.Types.InstanceIdentity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value by calling a metadata URI from the EC2
@@ -36,12 +37,12 @@ data InstanceIdentity = InstanceIdentity'
   { -- | A description of an EC2 instance that is generated when the instance is
     -- launched and exposed to the instance via the instance metadata service
     -- in the form of a JSON representation of an object.
-    document :: Core.Maybe Core.Text,
+    document :: Prelude.Maybe Prelude.Text,
     -- | A signature which can be used to verify the accuracy and authenticity of
     -- the information provided in the instance identity document.
-    signature :: Core.Maybe Core.Text
+    signature :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceIdentity' with all optional fields omitted.
@@ -61,30 +62,30 @@ newInstanceIdentity ::
   InstanceIdentity
 newInstanceIdentity =
   InstanceIdentity'
-    { document = Core.Nothing,
-      signature = Core.Nothing
+    { document = Prelude.Nothing,
+      signature = Prelude.Nothing
     }
 
 -- | A description of an EC2 instance that is generated when the instance is
 -- launched and exposed to the instance via the instance metadata service
 -- in the form of a JSON representation of an object.
-instanceIdentity_document :: Lens.Lens' InstanceIdentity (Core.Maybe Core.Text)
+instanceIdentity_document :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
 instanceIdentity_document = Lens.lens (\InstanceIdentity' {document} -> document) (\s@InstanceIdentity' {} a -> s {document = a} :: InstanceIdentity)
 
 -- | A signature which can be used to verify the accuracy and authenticity of
 -- the information provided in the instance identity document.
-instanceIdentity_signature :: Lens.Lens' InstanceIdentity (Core.Maybe Core.Text)
+instanceIdentity_signature :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
 instanceIdentity_signature = Lens.lens (\InstanceIdentity' {signature} -> signature) (\s@InstanceIdentity' {} a -> s {signature = a} :: InstanceIdentity)
 
-instance Core.Hashable InstanceIdentity
+instance Prelude.Hashable InstanceIdentity
 
-instance Core.NFData InstanceIdentity
+instance Prelude.NFData InstanceIdentity
 
 instance Core.ToJSON InstanceIdentity where
   toJSON InstanceIdentity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("document" Core..=) Core.<$> document,
-            ("signature" Core..=) Core.<$> signature
+      ( Prelude.catMaybes
+          [ ("document" Core..=) Prelude.<$> document,
+            ("signature" Core..=) Prelude.<$> signature
           ]
       )

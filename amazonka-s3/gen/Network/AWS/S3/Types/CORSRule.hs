@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.CORSRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies a cross-origin access rule for an Amazon S3 bucket.
@@ -31,22 +32,22 @@ data CORSRule = CORSRule'
     -- header. These headers are allowed in a preflight OPTIONS request. In
     -- response to any preflight OPTIONS request, Amazon S3 returns any
     -- requested headers that are allowed.
-    allowedHeaders :: Core.Maybe [Core.Text],
+    allowedHeaders :: Prelude.Maybe [Prelude.Text],
     -- | The time in seconds that your browser is to cache the preflight response
     -- for the specified resource.
-    maxAgeSeconds :: Core.Maybe Core.Int,
+    maxAgeSeconds :: Prelude.Maybe Prelude.Int,
     -- | One or more headers in the response that you want customers to be able
     -- to access from their applications (for example, from a JavaScript
     -- @XMLHttpRequest@ object).
-    exposeHeaders :: Core.Maybe [Core.Text],
+    exposeHeaders :: Prelude.Maybe [Prelude.Text],
     -- | An HTTP method that you allow the origin to execute. Valid values are
     -- @GET@, @PUT@, @HEAD@, @POST@, and @DELETE@.
-    allowedMethods :: [Core.Text],
+    allowedMethods :: [Prelude.Text],
     -- | One or more origins you want customers to be able to access the bucket
     -- from.
-    allowedOrigins :: [Core.Text]
+    allowedOrigins :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CORSRule' with all optional fields omitted.
@@ -77,65 +78,65 @@ newCORSRule ::
   CORSRule
 newCORSRule =
   CORSRule'
-    { allowedHeaders = Core.Nothing,
-      maxAgeSeconds = Core.Nothing,
-      exposeHeaders = Core.Nothing,
-      allowedMethods = Core.mempty,
-      allowedOrigins = Core.mempty
+    { allowedHeaders = Prelude.Nothing,
+      maxAgeSeconds = Prelude.Nothing,
+      exposeHeaders = Prelude.Nothing,
+      allowedMethods = Prelude.mempty,
+      allowedOrigins = Prelude.mempty
     }
 
 -- | Headers that are specified in the @Access-Control-Request-Headers@
 -- header. These headers are allowed in a preflight OPTIONS request. In
 -- response to any preflight OPTIONS request, Amazon S3 returns any
 -- requested headers that are allowed.
-cORSRule_allowedHeaders :: Lens.Lens' CORSRule (Core.Maybe [Core.Text])
-cORSRule_allowedHeaders = Lens.lens (\CORSRule' {allowedHeaders} -> allowedHeaders) (\s@CORSRule' {} a -> s {allowedHeaders = a} :: CORSRule) Core.. Lens.mapping Lens._Coerce
+cORSRule_allowedHeaders :: Lens.Lens' CORSRule (Prelude.Maybe [Prelude.Text])
+cORSRule_allowedHeaders = Lens.lens (\CORSRule' {allowedHeaders} -> allowedHeaders) (\s@CORSRule' {} a -> s {allowedHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
-cORSRule_maxAgeSeconds :: Lens.Lens' CORSRule (Core.Maybe Core.Int)
+cORSRule_maxAgeSeconds :: Lens.Lens' CORSRule (Prelude.Maybe Prelude.Int)
 cORSRule_maxAgeSeconds = Lens.lens (\CORSRule' {maxAgeSeconds} -> maxAgeSeconds) (\s@CORSRule' {} a -> s {maxAgeSeconds = a} :: CORSRule)
 
 -- | One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- @XMLHttpRequest@ object).
-cORSRule_exposeHeaders :: Lens.Lens' CORSRule (Core.Maybe [Core.Text])
-cORSRule_exposeHeaders = Lens.lens (\CORSRule' {exposeHeaders} -> exposeHeaders) (\s@CORSRule' {} a -> s {exposeHeaders = a} :: CORSRule) Core.. Lens.mapping Lens._Coerce
+cORSRule_exposeHeaders :: Lens.Lens' CORSRule (Prelude.Maybe [Prelude.Text])
+cORSRule_exposeHeaders = Lens.lens (\CORSRule' {exposeHeaders} -> exposeHeaders) (\s@CORSRule' {} a -> s {exposeHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An HTTP method that you allow the origin to execute. Valid values are
 -- @GET@, @PUT@, @HEAD@, @POST@, and @DELETE@.
-cORSRule_allowedMethods :: Lens.Lens' CORSRule [Core.Text]
-cORSRule_allowedMethods = Lens.lens (\CORSRule' {allowedMethods} -> allowedMethods) (\s@CORSRule' {} a -> s {allowedMethods = a} :: CORSRule) Core.. Lens._Coerce
+cORSRule_allowedMethods :: Lens.Lens' CORSRule [Prelude.Text]
+cORSRule_allowedMethods = Lens.lens (\CORSRule' {allowedMethods} -> allowedMethods) (\s@CORSRule' {} a -> s {allowedMethods = a} :: CORSRule) Prelude.. Lens._Coerce
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
-cORSRule_allowedOrigins :: Lens.Lens' CORSRule [Core.Text]
-cORSRule_allowedOrigins = Lens.lens (\CORSRule' {allowedOrigins} -> allowedOrigins) (\s@CORSRule' {} a -> s {allowedOrigins = a} :: CORSRule) Core.. Lens._Coerce
+cORSRule_allowedOrigins :: Lens.Lens' CORSRule [Prelude.Text]
+cORSRule_allowedOrigins = Lens.lens (\CORSRule' {allowedOrigins} -> allowedOrigins) (\s@CORSRule' {} a -> s {allowedOrigins = a} :: CORSRule) Prelude.. Lens._Coerce
 
 instance Core.FromXML CORSRule where
   parseXML x =
     CORSRule'
-      Core.<$> (Core.may (Core.parseXMLList "AllowedHeader") x)
-      Core.<*> (x Core..@? "MaxAgeSeconds")
-      Core.<*> (Core.may (Core.parseXMLList "ExposeHeader") x)
-      Core.<*> (Core.parseXMLList "AllowedMethod" x)
-      Core.<*> (Core.parseXMLList "AllowedOrigin" x)
+      Prelude.<$> (Core.may (Core.parseXMLList "AllowedHeader") x)
+      Prelude.<*> (x Core..@? "MaxAgeSeconds")
+      Prelude.<*> (Core.may (Core.parseXMLList "ExposeHeader") x)
+      Prelude.<*> (Core.parseXMLList "AllowedMethod" x)
+      Prelude.<*> (Core.parseXMLList "AllowedOrigin" x)
 
-instance Core.Hashable CORSRule
+instance Prelude.Hashable CORSRule
 
-instance Core.NFData CORSRule
+instance Prelude.NFData CORSRule
 
 instance Core.ToXML CORSRule where
   toXML CORSRule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ Core.toXML
           ( Core.toXMLList "AllowedHeader"
-              Core.<$> allowedHeaders
+              Prelude.<$> allowedHeaders
           ),
         "MaxAgeSeconds" Core.@= maxAgeSeconds,
         Core.toXML
           ( Core.toXMLList "ExposeHeader"
-              Core.<$> exposeHeaders
+              Prelude.<$> exposeHeaders
           ),
         Core.toXMLList "AllowedMethod" allowedMethods,
         Core.toXMLList "AllowedOrigin" allowedOrigins

@@ -22,13 +22,14 @@ module Network.AWS.CodePipeline.Types.StageExecution where
 import Network.AWS.CodePipeline.Types.StageExecutionStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the run of a stage.
 --
 -- /See:/ 'newStageExecution' smart constructor.
 data StageExecution = StageExecution'
   { -- | The ID of the pipeline execution associated with the stage.
-    pipelineExecutionId :: Core.Text,
+    pipelineExecutionId :: Prelude.Text,
     -- | The status of the stage, or for a completed stage, the last status of
     -- the stage.
     --
@@ -36,7 +37,7 @@ data StageExecution = StageExecution'
     -- before the stage execution could be completed.
     status :: StageExecutionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StageExecution' with all optional fields omitted.
@@ -55,7 +56,7 @@ data StageExecution = StageExecution'
 -- before the stage execution could be completed.
 newStageExecution ::
   -- | 'pipelineExecutionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   StageExecutionStatus ->
   StageExecution
@@ -67,7 +68,7 @@ newStageExecution pPipelineExecutionId_ pStatus_ =
     }
 
 -- | The ID of the pipeline execution associated with the stage.
-stageExecution_pipelineExecutionId :: Lens.Lens' StageExecution Core.Text
+stageExecution_pipelineExecutionId :: Lens.Lens' StageExecution Prelude.Text
 stageExecution_pipelineExecutionId = Lens.lens (\StageExecution' {pipelineExecutionId} -> pipelineExecutionId) (\s@StageExecution' {} a -> s {pipelineExecutionId = a} :: StageExecution)
 
 -- | The status of the stage, or for a completed stage, the last status of
@@ -84,10 +85,10 @@ instance Core.FromJSON StageExecution where
       "StageExecution"
       ( \x ->
           StageExecution'
-            Core.<$> (x Core..: "pipelineExecutionId")
-            Core.<*> (x Core..: "status")
+            Prelude.<$> (x Core..: "pipelineExecutionId")
+            Prelude.<*> (x Core..: "status")
       )
 
-instance Core.Hashable StageExecution
+instance Prelude.Hashable StageExecution
 
-instance Core.NFData StageExecution
+instance Prelude.NFData StageExecution

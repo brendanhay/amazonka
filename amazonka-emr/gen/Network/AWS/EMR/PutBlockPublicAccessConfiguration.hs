@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,7 +69,7 @@ data PutBlockPublicAccessConfiguration = PutBlockPublicAccessConfiguration'
     -- access is enabled by default in that Region.
     blockPublicAccessConfiguration :: BlockPublicAccessConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBlockPublicAccessConfiguration' with all optional fields omitted.
@@ -138,15 +139,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           PutBlockPublicAccessConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PutBlockPublicAccessConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutBlockPublicAccessConfiguration
 
 instance
@@ -154,14 +155,16 @@ instance
     PutBlockPublicAccessConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.PutBlockPublicAccessConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -171,8 +174,8 @@ instance
   where
   toJSON PutBlockPublicAccessConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "BlockPublicAccessConfiguration"
                   Core..= blockPublicAccessConfiguration
               )
@@ -183,20 +186,20 @@ instance
   Core.ToPath
     PutBlockPublicAccessConfiguration
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     PutBlockPublicAccessConfiguration
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutBlockPublicAccessConfigurationResponse' smart constructor.
 data PutBlockPublicAccessConfigurationResponse = PutBlockPublicAccessConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBlockPublicAccessConfigurationResponse' with all optional fields omitted.
@@ -209,7 +212,7 @@ data PutBlockPublicAccessConfigurationResponse = PutBlockPublicAccessConfigurati
 -- 'httpStatus', 'putBlockPublicAccessConfigurationResponse_httpStatus' - The response's http status code.
 newPutBlockPublicAccessConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutBlockPublicAccessConfigurationResponse
 newPutBlockPublicAccessConfigurationResponse
   pHttpStatus_ =
@@ -219,9 +222,9 @@ newPutBlockPublicAccessConfigurationResponse
       }
 
 -- | The response's http status code.
-putBlockPublicAccessConfigurationResponse_httpStatus :: Lens.Lens' PutBlockPublicAccessConfigurationResponse Core.Int
+putBlockPublicAccessConfigurationResponse_httpStatus :: Lens.Lens' PutBlockPublicAccessConfigurationResponse Prelude.Int
 putBlockPublicAccessConfigurationResponse_httpStatus = Lens.lens (\PutBlockPublicAccessConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutBlockPublicAccessConfigurationResponse' {} a -> s {httpStatus = a} :: PutBlockPublicAccessConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutBlockPublicAccessConfigurationResponse

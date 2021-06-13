@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,14 +72,14 @@ data DeleteEmailTemplate = DeleteEmailTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEmailTemplate' with all optional fields omitted.
@@ -117,11 +118,11 @@ data DeleteEmailTemplate = DeleteEmailTemplate'
 -- (-). Template names are case sensitive.
 newDeleteEmailTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEmailTemplate
 newDeleteEmailTemplate pTemplateName_ =
   DeleteEmailTemplate'
-    { version = Core.Nothing,
+    { version = Prelude.Nothing,
       templateName = pTemplateName_
     }
 
@@ -147,14 +148,14 @@ newDeleteEmailTemplate pTemplateName_ =
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-deleteEmailTemplate_version :: Lens.Lens' DeleteEmailTemplate (Core.Maybe Core.Text)
+deleteEmailTemplate_version :: Lens.Lens' DeleteEmailTemplate (Prelude.Maybe Prelude.Text)
 deleteEmailTemplate_version = Lens.lens (\DeleteEmailTemplate' {version} -> version) (\s@DeleteEmailTemplate' {} a -> s {version = a} :: DeleteEmailTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-deleteEmailTemplate_templateName :: Lens.Lens' DeleteEmailTemplate Core.Text
+deleteEmailTemplate_templateName :: Lens.Lens' DeleteEmailTemplate Prelude.Text
 deleteEmailTemplate_templateName = Lens.lens (\DeleteEmailTemplate' {templateName} -> templateName) (\s@DeleteEmailTemplate' {} a -> s {templateName = a} :: DeleteEmailTemplate)
 
 instance Core.AWSRequest DeleteEmailTemplate where
@@ -166,39 +167,41 @@ instance Core.AWSRequest DeleteEmailTemplate where
     Response.receiveJSON
       ( \s h x ->
           DeleteEmailTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteEmailTemplate
+instance Prelude.Hashable DeleteEmailTemplate
 
-instance Core.NFData DeleteEmailTemplate
+instance Prelude.NFData DeleteEmailTemplate
 
 instance Core.ToHeaders DeleteEmailTemplate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteEmailTemplate where
   toPath DeleteEmailTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/templates/", Core.toBS templateName, "/email"]
 
 instance Core.ToQuery DeleteEmailTemplate where
   toQuery DeleteEmailTemplate' {..} =
-    Core.mconcat ["version" Core.=: version]
+    Prelude.mconcat ["version" Core.=: version]
 
 -- | /See:/ 'newDeleteEmailTemplateResponse' smart constructor.
 data DeleteEmailTemplateResponse = DeleteEmailTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     messageBody :: MessageBody
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEmailTemplateResponse' with all optional fields omitted.
@@ -213,7 +216,7 @@ data DeleteEmailTemplateResponse = DeleteEmailTemplateResponse'
 -- 'messageBody', 'deleteEmailTemplateResponse_messageBody' - Undocumented member.
 newDeleteEmailTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'messageBody'
   MessageBody ->
   DeleteEmailTemplateResponse
@@ -227,11 +230,11 @@ newDeleteEmailTemplateResponse
       }
 
 -- | The response's http status code.
-deleteEmailTemplateResponse_httpStatus :: Lens.Lens' DeleteEmailTemplateResponse Core.Int
+deleteEmailTemplateResponse_httpStatus :: Lens.Lens' DeleteEmailTemplateResponse Prelude.Int
 deleteEmailTemplateResponse_httpStatus = Lens.lens (\DeleteEmailTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteEmailTemplateResponse' {} a -> s {httpStatus = a} :: DeleteEmailTemplateResponse)
 
 -- | Undocumented member.
 deleteEmailTemplateResponse_messageBody :: Lens.Lens' DeleteEmailTemplateResponse MessageBody
 deleteEmailTemplateResponse_messageBody = Lens.lens (\DeleteEmailTemplateResponse' {messageBody} -> messageBody) (\s@DeleteEmailTemplateResponse' {} a -> s {messageBody = a} :: DeleteEmailTemplateResponse)
 
-instance Core.NFData DeleteEmailTemplateResponse
+instance Prelude.NFData DeleteEmailTemplateResponse

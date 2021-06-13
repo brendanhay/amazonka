@@ -21,6 +21,7 @@ module Network.AWS.QLDB.Types.JournalS3ExportDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types.ExportStatus
 import Network.AWS.QLDB.Types.S3ExportConfiguration
 
@@ -31,9 +32,9 @@ import Network.AWS.QLDB.Types.S3ExportConfiguration
 -- /See:/ 'newJournalS3ExportDescription' smart constructor.
 data JournalS3ExportDescription = JournalS3ExportDescription'
   { -- | The name of the ledger.
-    ledgerName :: Core.Text,
+    ledgerName :: Prelude.Text,
     -- | The unique ID of the journal export job.
-    exportId :: Core.Text,
+    exportId :: Prelude.Text,
     -- | The date and time, in epoch time format, when the export job was
     -- created. (Epoch time format is the number of seconds elapsed since
     -- 12:00:00 AM January 1, 1970 UTC.)
@@ -55,9 +56,9 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
     --
     -- -   (Optional) Use your customer master key (CMK) in AWS Key Management
     --     Service (AWS KMS) for server-side encryption of your exported data.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JournalS3ExportDescription' with all optional fields omitted.
@@ -95,21 +96,21 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
 --     Service (AWS KMS) for server-side encryption of your exported data.
 newJournalS3ExportDescription ::
   -- | 'ledgerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'exportId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'exportCreationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'status'
   ExportStatus ->
   -- | 'inclusiveStartTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'exclusiveEndTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 's3ExportConfiguration'
   S3ExportConfiguration ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   JournalS3ExportDescription
 newJournalS3ExportDescription
   pLedgerName_
@@ -136,18 +137,18 @@ newJournalS3ExportDescription
       }
 
 -- | The name of the ledger.
-journalS3ExportDescription_ledgerName :: Lens.Lens' JournalS3ExportDescription Core.Text
+journalS3ExportDescription_ledgerName :: Lens.Lens' JournalS3ExportDescription Prelude.Text
 journalS3ExportDescription_ledgerName = Lens.lens (\JournalS3ExportDescription' {ledgerName} -> ledgerName) (\s@JournalS3ExportDescription' {} a -> s {ledgerName = a} :: JournalS3ExportDescription)
 
 -- | The unique ID of the journal export job.
-journalS3ExportDescription_exportId :: Lens.Lens' JournalS3ExportDescription Core.Text
+journalS3ExportDescription_exportId :: Lens.Lens' JournalS3ExportDescription Prelude.Text
 journalS3ExportDescription_exportId = Lens.lens (\JournalS3ExportDescription' {exportId} -> exportId) (\s@JournalS3ExportDescription' {} a -> s {exportId = a} :: JournalS3ExportDescription)
 
 -- | The date and time, in epoch time format, when the export job was
 -- created. (Epoch time format is the number of seconds elapsed since
 -- 12:00:00 AM January 1, 1970 UTC.)
-journalS3ExportDescription_exportCreationTime :: Lens.Lens' JournalS3ExportDescription Core.UTCTime
-journalS3ExportDescription_exportCreationTime = Lens.lens (\JournalS3ExportDescription' {exportCreationTime} -> exportCreationTime) (\s@JournalS3ExportDescription' {} a -> s {exportCreationTime = a} :: JournalS3ExportDescription) Core.. Core._Time
+journalS3ExportDescription_exportCreationTime :: Lens.Lens' JournalS3ExportDescription Prelude.UTCTime
+journalS3ExportDescription_exportCreationTime = Lens.lens (\JournalS3ExportDescription' {exportCreationTime} -> exportCreationTime) (\s@JournalS3ExportDescription' {} a -> s {exportCreationTime = a} :: JournalS3ExportDescription) Prelude.. Core._Time
 
 -- | The current state of the journal export job.
 journalS3ExportDescription_status :: Lens.Lens' JournalS3ExportDescription ExportStatus
@@ -155,13 +156,13 @@ journalS3ExportDescription_status = Lens.lens (\JournalS3ExportDescription' {sta
 
 -- | The inclusive start date and time for the range of journal contents that
 -- are specified in the original export request.
-journalS3ExportDescription_inclusiveStartTime :: Lens.Lens' JournalS3ExportDescription Core.UTCTime
-journalS3ExportDescription_inclusiveStartTime = Lens.lens (\JournalS3ExportDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalS3ExportDescription' {} a -> s {inclusiveStartTime = a} :: JournalS3ExportDescription) Core.. Core._Time
+journalS3ExportDescription_inclusiveStartTime :: Lens.Lens' JournalS3ExportDescription Prelude.UTCTime
+journalS3ExportDescription_inclusiveStartTime = Lens.lens (\JournalS3ExportDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalS3ExportDescription' {} a -> s {inclusiveStartTime = a} :: JournalS3ExportDescription) Prelude.. Core._Time
 
 -- | The exclusive end date and time for the range of journal contents that
 -- are specified in the original export request.
-journalS3ExportDescription_exclusiveEndTime :: Lens.Lens' JournalS3ExportDescription Core.UTCTime
-journalS3ExportDescription_exclusiveEndTime = Lens.lens (\JournalS3ExportDescription' {exclusiveEndTime} -> exclusiveEndTime) (\s@JournalS3ExportDescription' {} a -> s {exclusiveEndTime = a} :: JournalS3ExportDescription) Core.. Core._Time
+journalS3ExportDescription_exclusiveEndTime :: Lens.Lens' JournalS3ExportDescription Prelude.UTCTime
+journalS3ExportDescription_exclusiveEndTime = Lens.lens (\JournalS3ExportDescription' {exclusiveEndTime} -> exclusiveEndTime) (\s@JournalS3ExportDescription' {} a -> s {exclusiveEndTime = a} :: JournalS3ExportDescription) Prelude.. Core._Time
 
 -- | Undocumented member.
 journalS3ExportDescription_s3ExportConfiguration :: Lens.Lens' JournalS3ExportDescription S3ExportConfiguration
@@ -175,7 +176,7 @@ journalS3ExportDescription_s3ExportConfiguration = Lens.lens (\JournalS3ExportDe
 --
 -- -   (Optional) Use your customer master key (CMK) in AWS Key Management
 --     Service (AWS KMS) for server-side encryption of your exported data.
-journalS3ExportDescription_roleArn :: Lens.Lens' JournalS3ExportDescription Core.Text
+journalS3ExportDescription_roleArn :: Lens.Lens' JournalS3ExportDescription Prelude.Text
 journalS3ExportDescription_roleArn = Lens.lens (\JournalS3ExportDescription' {roleArn} -> roleArn) (\s@JournalS3ExportDescription' {} a -> s {roleArn = a} :: JournalS3ExportDescription)
 
 instance Core.FromJSON JournalS3ExportDescription where
@@ -184,16 +185,16 @@ instance Core.FromJSON JournalS3ExportDescription where
       "JournalS3ExportDescription"
       ( \x ->
           JournalS3ExportDescription'
-            Core.<$> (x Core..: "LedgerName")
-            Core.<*> (x Core..: "ExportId")
-            Core.<*> (x Core..: "ExportCreationTime")
-            Core.<*> (x Core..: "Status")
-            Core.<*> (x Core..: "InclusiveStartTime")
-            Core.<*> (x Core..: "ExclusiveEndTime")
-            Core.<*> (x Core..: "S3ExportConfiguration")
-            Core.<*> (x Core..: "RoleArn")
+            Prelude.<$> (x Core..: "LedgerName")
+            Prelude.<*> (x Core..: "ExportId")
+            Prelude.<*> (x Core..: "ExportCreationTime")
+            Prelude.<*> (x Core..: "Status")
+            Prelude.<*> (x Core..: "InclusiveStartTime")
+            Prelude.<*> (x Core..: "ExclusiveEndTime")
+            Prelude.<*> (x Core..: "S3ExportConfiguration")
+            Prelude.<*> (x Core..: "RoleArn")
       )
 
-instance Core.Hashable JournalS3ExportDescription
+instance Prelude.Hashable JournalS3ExportDescription
 
-instance Core.NFData JournalS3ExportDescription
+instance Prelude.NFData JournalS3ExportDescription

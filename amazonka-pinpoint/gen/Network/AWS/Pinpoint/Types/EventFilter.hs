@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventDimensions
 import Network.AWS.Pinpoint.Types.FilterType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for an event that causes a campaign to be sent or
 -- a journey activity to be performed.
@@ -39,7 +40,7 @@ data EventFilter = EventFilter'
     -- journey activity.
     dimensions :: EventDimensions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventFilter' with all optional fields omitted.
@@ -88,19 +89,19 @@ instance Core.FromJSON EventFilter where
       "EventFilter"
       ( \x ->
           EventFilter'
-            Core.<$> (x Core..: "FilterType")
-            Core.<*> (x Core..: "Dimensions")
+            Prelude.<$> (x Core..: "FilterType")
+            Prelude.<*> (x Core..: "Dimensions")
       )
 
-instance Core.Hashable EventFilter
+instance Prelude.Hashable EventFilter
 
-instance Core.NFData EventFilter
+instance Prelude.NFData EventFilter
 
 instance Core.ToJSON EventFilter where
   toJSON EventFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FilterType" Core..= filterType),
-            Core.Just ("Dimensions" Core..= dimensions)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FilterType" Core..= filterType),
+            Prelude.Just ("Dimensions" Core..= dimensions)
           ]
       )

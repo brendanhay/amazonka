@@ -48,6 +48,7 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,15 +56,15 @@ import qualified Network.AWS.Response as Response
 data DescribeDestinations = DescribeDestinations'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The prefix to match. If you don\'t specify a value, no prefix filter is
     -- applied.
-    destinationNamePrefix :: Core.Maybe Core.Text,
+    destinationNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDestinations' with all optional fields omitted.
@@ -85,24 +86,24 @@ newDescribeDestinations ::
   DescribeDestinations
 newDescribeDestinations =
   DescribeDestinations'
-    { nextToken = Core.Nothing,
-      destinationNamePrefix = Core.Nothing,
-      limit = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      destinationNamePrefix = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeDestinations_nextToken :: Lens.Lens' DescribeDestinations (Core.Maybe Core.Text)
+describeDestinations_nextToken :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
 describeDestinations_nextToken = Lens.lens (\DescribeDestinations' {nextToken} -> nextToken) (\s@DescribeDestinations' {} a -> s {nextToken = a} :: DescribeDestinations)
 
 -- | The prefix to match. If you don\'t specify a value, no prefix filter is
 -- applied.
-describeDestinations_destinationNamePrefix :: Lens.Lens' DescribeDestinations (Core.Maybe Core.Text)
+describeDestinations_destinationNamePrefix :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Text)
 describeDestinations_destinationNamePrefix = Lens.lens (\DescribeDestinations' {destinationNamePrefix} -> destinationNamePrefix) (\s@DescribeDestinations' {} a -> s {destinationNamePrefix = a} :: DescribeDestinations)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
-describeDestinations_limit :: Lens.Lens' DescribeDestinations (Core.Maybe Core.Natural)
+describeDestinations_limit :: Lens.Lens' DescribeDestinations (Prelude.Maybe Prelude.Natural)
 describeDestinations_limit = Lens.lens (\DescribeDestinations' {limit} -> limit) (\s@DescribeDestinations' {} a -> s {limit = a} :: DescribeDestinations)
 
 instance Core.AWSPager DescribeDestinations where
@@ -110,22 +111,22 @@ instance Core.AWSPager DescribeDestinations where
     | Core.stop
         ( rs
             Lens.^? describeDestinationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDestinationsResponse_destinations
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeDestinations_nextToken
+          Prelude.& describeDestinations_nextToken
           Lens..~ rs
           Lens.^? describeDestinationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDestinations where
   type
@@ -136,54 +137,56 @@ instance Core.AWSRequest DescribeDestinations where
     Response.receiveJSON
       ( \s h x ->
           DescribeDestinationsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "destinations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDestinations
+instance Prelude.Hashable DescribeDestinations
 
-instance Core.NFData DescribeDestinations
+instance Prelude.NFData DescribeDestinations
 
 instance Core.ToHeaders DescribeDestinations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.DescribeDestinations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDestinations where
   toJSON DescribeDestinations' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("DestinationNamePrefix" Core..=)
-              Core.<$> destinationNamePrefix,
-            ("limit" Core..=) Core.<$> limit
+              Prelude.<$> destinationNamePrefix,
+            ("limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath DescribeDestinations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDestinations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDestinationsResponse' smart constructor.
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-  { nextToken :: Core.Maybe Core.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
     -- | The destinations.
-    destinations :: Core.Maybe [Destination],
+    destinations :: Prelude.Maybe [Destination],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDestinationsResponse' with all optional fields omitted.
@@ -200,26 +203,26 @@ data DescribeDestinationsResponse = DescribeDestinationsResponse'
 -- 'httpStatus', 'describeDestinationsResponse_httpStatus' - The response's http status code.
 newDescribeDestinationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDestinationsResponse
 newDescribeDestinationsResponse pHttpStatus_ =
   DescribeDestinationsResponse'
     { nextToken =
-        Core.Nothing,
-      destinations = Core.Nothing,
+        Prelude.Nothing,
+      destinations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeDestinationsResponse_nextToken :: Lens.Lens' DescribeDestinationsResponse (Core.Maybe Core.Text)
+describeDestinationsResponse_nextToken :: Lens.Lens' DescribeDestinationsResponse (Prelude.Maybe Prelude.Text)
 describeDestinationsResponse_nextToken = Lens.lens (\DescribeDestinationsResponse' {nextToken} -> nextToken) (\s@DescribeDestinationsResponse' {} a -> s {nextToken = a} :: DescribeDestinationsResponse)
 
 -- | The destinations.
-describeDestinationsResponse_destinations :: Lens.Lens' DescribeDestinationsResponse (Core.Maybe [Destination])
-describeDestinationsResponse_destinations = Lens.lens (\DescribeDestinationsResponse' {destinations} -> destinations) (\s@DescribeDestinationsResponse' {} a -> s {destinations = a} :: DescribeDestinationsResponse) Core.. Lens.mapping Lens._Coerce
+describeDestinationsResponse_destinations :: Lens.Lens' DescribeDestinationsResponse (Prelude.Maybe [Destination])
+describeDestinationsResponse_destinations = Lens.lens (\DescribeDestinationsResponse' {destinations} -> destinations) (\s@DescribeDestinationsResponse' {} a -> s {destinations = a} :: DescribeDestinationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeDestinationsResponse_httpStatus :: Lens.Lens' DescribeDestinationsResponse Core.Int
+describeDestinationsResponse_httpStatus :: Lens.Lens' DescribeDestinationsResponse Prelude.Int
 describeDestinationsResponse_httpStatus = Lens.lens (\DescribeDestinationsResponse' {httpStatus} -> httpStatus) (\s@DescribeDestinationsResponse' {} a -> s {httpStatus = a} :: DescribeDestinationsResponse)
 
-instance Core.NFData DescribeDestinationsResponse
+instance Prelude.NFData DescribeDestinationsResponse

@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.VpcDestinationConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration information for a virtual private cloud (VPC)
 -- destination.
@@ -28,16 +29,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newVpcDestinationConfiguration' smart constructor.
 data VpcDestinationConfiguration = VpcDestinationConfiguration'
   { -- | The security groups of the VPC destination.
-    securityGroups :: Core.Maybe [Core.Text],
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The subnet IDs of the VPC destination.
-    subnetIds :: [Core.Text],
+    subnetIds :: [Prelude.Text],
     -- | The ID of the VPC.
-    vpcId :: Core.Text,
+    vpcId :: Prelude.Text,
     -- | The ARN of a role that has permission to create and attach to elastic
     -- network interfaces (ENIs).
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcDestinationConfiguration' with all optional fields omitted.
@@ -57,47 +58,48 @@ data VpcDestinationConfiguration = VpcDestinationConfiguration'
 -- network interfaces (ENIs).
 newVpcDestinationConfiguration ::
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   VpcDestinationConfiguration
 newVpcDestinationConfiguration pVpcId_ pRoleArn_ =
   VpcDestinationConfiguration'
     { securityGroups =
-        Core.Nothing,
-      subnetIds = Core.mempty,
+        Prelude.Nothing,
+      subnetIds = Prelude.mempty,
       vpcId = pVpcId_,
       roleArn = pRoleArn_
     }
 
 -- | The security groups of the VPC destination.
-vpcDestinationConfiguration_securityGroups :: Lens.Lens' VpcDestinationConfiguration (Core.Maybe [Core.Text])
-vpcDestinationConfiguration_securityGroups = Lens.lens (\VpcDestinationConfiguration' {securityGroups} -> securityGroups) (\s@VpcDestinationConfiguration' {} a -> s {securityGroups = a} :: VpcDestinationConfiguration) Core.. Lens.mapping Lens._Coerce
+vpcDestinationConfiguration_securityGroups :: Lens.Lens' VpcDestinationConfiguration (Prelude.Maybe [Prelude.Text])
+vpcDestinationConfiguration_securityGroups = Lens.lens (\VpcDestinationConfiguration' {securityGroups} -> securityGroups) (\s@VpcDestinationConfiguration' {} a -> s {securityGroups = a} :: VpcDestinationConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The subnet IDs of the VPC destination.
-vpcDestinationConfiguration_subnetIds :: Lens.Lens' VpcDestinationConfiguration [Core.Text]
-vpcDestinationConfiguration_subnetIds = Lens.lens (\VpcDestinationConfiguration' {subnetIds} -> subnetIds) (\s@VpcDestinationConfiguration' {} a -> s {subnetIds = a} :: VpcDestinationConfiguration) Core.. Lens._Coerce
+vpcDestinationConfiguration_subnetIds :: Lens.Lens' VpcDestinationConfiguration [Prelude.Text]
+vpcDestinationConfiguration_subnetIds = Lens.lens (\VpcDestinationConfiguration' {subnetIds} -> subnetIds) (\s@VpcDestinationConfiguration' {} a -> s {subnetIds = a} :: VpcDestinationConfiguration) Prelude.. Lens._Coerce
 
 -- | The ID of the VPC.
-vpcDestinationConfiguration_vpcId :: Lens.Lens' VpcDestinationConfiguration Core.Text
+vpcDestinationConfiguration_vpcId :: Lens.Lens' VpcDestinationConfiguration Prelude.Text
 vpcDestinationConfiguration_vpcId = Lens.lens (\VpcDestinationConfiguration' {vpcId} -> vpcId) (\s@VpcDestinationConfiguration' {} a -> s {vpcId = a} :: VpcDestinationConfiguration)
 
 -- | The ARN of a role that has permission to create and attach to elastic
 -- network interfaces (ENIs).
-vpcDestinationConfiguration_roleArn :: Lens.Lens' VpcDestinationConfiguration Core.Text
+vpcDestinationConfiguration_roleArn :: Lens.Lens' VpcDestinationConfiguration Prelude.Text
 vpcDestinationConfiguration_roleArn = Lens.lens (\VpcDestinationConfiguration' {roleArn} -> roleArn) (\s@VpcDestinationConfiguration' {} a -> s {roleArn = a} :: VpcDestinationConfiguration)
 
-instance Core.Hashable VpcDestinationConfiguration
+instance Prelude.Hashable VpcDestinationConfiguration
 
-instance Core.NFData VpcDestinationConfiguration
+instance Prelude.NFData VpcDestinationConfiguration
 
 instance Core.ToJSON VpcDestinationConfiguration where
   toJSON VpcDestinationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("securityGroups" Core..=) Core.<$> securityGroups,
-            Core.Just ("subnetIds" Core..= subnetIds),
-            Core.Just ("vpcId" Core..= vpcId),
-            Core.Just ("roleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ ("securityGroups" Core..=)
+              Prelude.<$> securityGroups,
+            Prelude.Just ("subnetIds" Core..= subnetIds),
+            Prelude.Just ("vpcId" Core..= vpcId),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

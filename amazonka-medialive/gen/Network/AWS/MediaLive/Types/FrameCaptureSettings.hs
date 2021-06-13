@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.FrameCaptureSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Frame Capture Settings
 --
@@ -30,11 +31,11 @@ data FrameCaptureSettings = FrameCaptureSettings'
   { -- | The frequency at which to capture frames for inclusion in the output.
     -- May be specified in either seconds or milliseconds, as specified by
     -- captureIntervalUnits.
-    captureInterval :: Core.Maybe Core.Natural,
+    captureInterval :: Prelude.Maybe Prelude.Natural,
     -- | Unit for the frame capture interval.
-    captureIntervalUnits :: Core.Maybe FrameCaptureIntervalUnit
+    captureIntervalUnits :: Prelude.Maybe FrameCaptureIntervalUnit
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FrameCaptureSettings' with all optional fields omitted.
@@ -54,18 +55,18 @@ newFrameCaptureSettings ::
 newFrameCaptureSettings =
   FrameCaptureSettings'
     { captureInterval =
-        Core.Nothing,
-      captureIntervalUnits = Core.Nothing
+        Prelude.Nothing,
+      captureIntervalUnits = Prelude.Nothing
     }
 
 -- | The frequency at which to capture frames for inclusion in the output.
 -- May be specified in either seconds or milliseconds, as specified by
 -- captureIntervalUnits.
-frameCaptureSettings_captureInterval :: Lens.Lens' FrameCaptureSettings (Core.Maybe Core.Natural)
+frameCaptureSettings_captureInterval :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
 frameCaptureSettings_captureInterval = Lens.lens (\FrameCaptureSettings' {captureInterval} -> captureInterval) (\s@FrameCaptureSettings' {} a -> s {captureInterval = a} :: FrameCaptureSettings)
 
 -- | Unit for the frame capture interval.
-frameCaptureSettings_captureIntervalUnits :: Lens.Lens' FrameCaptureSettings (Core.Maybe FrameCaptureIntervalUnit)
+frameCaptureSettings_captureIntervalUnits :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe FrameCaptureIntervalUnit)
 frameCaptureSettings_captureIntervalUnits = Lens.lens (\FrameCaptureSettings' {captureIntervalUnits} -> captureIntervalUnits) (\s@FrameCaptureSettings' {} a -> s {captureIntervalUnits = a} :: FrameCaptureSettings)
 
 instance Core.FromJSON FrameCaptureSettings where
@@ -74,21 +75,21 @@ instance Core.FromJSON FrameCaptureSettings where
       "FrameCaptureSettings"
       ( \x ->
           FrameCaptureSettings'
-            Core.<$> (x Core..:? "captureInterval")
-            Core.<*> (x Core..:? "captureIntervalUnits")
+            Prelude.<$> (x Core..:? "captureInterval")
+            Prelude.<*> (x Core..:? "captureIntervalUnits")
       )
 
-instance Core.Hashable FrameCaptureSettings
+instance Prelude.Hashable FrameCaptureSettings
 
-instance Core.NFData FrameCaptureSettings
+instance Prelude.NFData FrameCaptureSettings
 
 instance Core.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("captureInterval" Core..=)
-              Core.<$> captureInterval,
+              Prelude.<$> captureInterval,
             ("captureIntervalUnits" Core..=)
-              Core.<$> captureIntervalUnits
+              Prelude.<$> captureIntervalUnits
           ]
       )

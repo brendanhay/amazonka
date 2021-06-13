@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,14 +64,14 @@ data CreateLoadBalancerTlsCertificate = CreateLoadBalancerTlsCertificate'
     -- SSL\/TLS certificate. Lightsail will de-dupe the names for you. You can
     -- have a maximum of 9 alternative names (in addition to the 1 primary
     -- domain). We do not support wildcards (e.g., @*.example.com@).
-    certificateAlternativeNames :: Core.Maybe [Core.Text],
+    certificateAlternativeNames :: Prelude.Maybe [Prelude.Text],
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The load balancer name where you want to create the SSL\/TLS
     -- certificate.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The SSL\/TLS certificate name.
     --
     -- You can have up to 10 certificates in your account at one time. Each
@@ -79,11 +80,11 @@ data CreateLoadBalancerTlsCertificate = CreateLoadBalancerTlsCertificate'
     -- certificates that can be issue in a 365-day period. For more
     -- information, see
     -- <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits>.
-    certificateName :: Core.Text,
+    certificateName :: Prelude.Text,
     -- | The domain name (e.g., @example.com@) for your SSL\/TLS certificate.
-    certificateDomainName :: Core.Text
+    certificateDomainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancerTlsCertificate' with all optional fields omitted.
@@ -117,11 +118,11 @@ data CreateLoadBalancerTlsCertificate = CreateLoadBalancerTlsCertificate'
 -- 'certificateDomainName', 'createLoadBalancerTlsCertificate_certificateDomainName' - The domain name (e.g., @example.com@) for your SSL\/TLS certificate.
 newCreateLoadBalancerTlsCertificate ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'certificateName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'certificateDomainName'
-  Core.Text ->
+  Prelude.Text ->
   CreateLoadBalancerTlsCertificate
 newCreateLoadBalancerTlsCertificate
   pLoadBalancerName_
@@ -129,8 +130,8 @@ newCreateLoadBalancerTlsCertificate
   pCertificateDomainName_ =
     CreateLoadBalancerTlsCertificate'
       { certificateAlternativeNames =
-          Core.Nothing,
-        tags = Core.Nothing,
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         loadBalancerName = pLoadBalancerName_,
         certificateName = pCertificateName_,
         certificateDomainName =
@@ -141,18 +142,18 @@ newCreateLoadBalancerTlsCertificate
 -- SSL\/TLS certificate. Lightsail will de-dupe the names for you. You can
 -- have a maximum of 9 alternative names (in addition to the 1 primary
 -- domain). We do not support wildcards (e.g., @*.example.com@).
-createLoadBalancerTlsCertificate_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancerTlsCertificate (Core.Maybe [Core.Text])
-createLoadBalancerTlsCertificate_certificateAlternativeNames = Lens.lens (\CreateLoadBalancerTlsCertificate' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancerTlsCertificate) Core.. Lens.mapping Lens._Coerce
+createLoadBalancerTlsCertificate_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancerTlsCertificate (Prelude.Maybe [Prelude.Text])
+createLoadBalancerTlsCertificate_certificateAlternativeNames = Lens.lens (\CreateLoadBalancerTlsCertificate' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createLoadBalancerTlsCertificate_tags :: Lens.Lens' CreateLoadBalancerTlsCertificate (Core.Maybe [Tag])
-createLoadBalancerTlsCertificate_tags = Lens.lens (\CreateLoadBalancerTlsCertificate' {tags} -> tags) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {tags = a} :: CreateLoadBalancerTlsCertificate) Core.. Lens.mapping Lens._Coerce
+createLoadBalancerTlsCertificate_tags :: Lens.Lens' CreateLoadBalancerTlsCertificate (Prelude.Maybe [Tag])
+createLoadBalancerTlsCertificate_tags = Lens.lens (\CreateLoadBalancerTlsCertificate' {tags} -> tags) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {tags = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The load balancer name where you want to create the SSL\/TLS
 -- certificate.
-createLoadBalancerTlsCertificate_loadBalancerName :: Lens.Lens' CreateLoadBalancerTlsCertificate Core.Text
+createLoadBalancerTlsCertificate_loadBalancerName :: Lens.Lens' CreateLoadBalancerTlsCertificate Prelude.Text
 createLoadBalancerTlsCertificate_loadBalancerName = Lens.lens (\CreateLoadBalancerTlsCertificate' {loadBalancerName} -> loadBalancerName) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {loadBalancerName = a} :: CreateLoadBalancerTlsCertificate)
 
 -- | The SSL\/TLS certificate name.
@@ -163,11 +164,11 @@ createLoadBalancerTlsCertificate_loadBalancerName = Lens.lens (\CreateLoadBalanc
 -- certificates that can be issue in a 365-day period. For more
 -- information, see
 -- <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits>.
-createLoadBalancerTlsCertificate_certificateName :: Lens.Lens' CreateLoadBalancerTlsCertificate Core.Text
+createLoadBalancerTlsCertificate_certificateName :: Lens.Lens' CreateLoadBalancerTlsCertificate Prelude.Text
 createLoadBalancerTlsCertificate_certificateName = Lens.lens (\CreateLoadBalancerTlsCertificate' {certificateName} -> certificateName) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {certificateName = a} :: CreateLoadBalancerTlsCertificate)
 
 -- | The domain name (e.g., @example.com@) for your SSL\/TLS certificate.
-createLoadBalancerTlsCertificate_certificateDomainName :: Lens.Lens' CreateLoadBalancerTlsCertificate Core.Text
+createLoadBalancerTlsCertificate_certificateDomainName :: Lens.Lens' CreateLoadBalancerTlsCertificate Prelude.Text
 createLoadBalancerTlsCertificate_certificateDomainName = Lens.lens (\CreateLoadBalancerTlsCertificate' {certificateDomainName} -> certificateDomainName) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {certificateDomainName = a} :: CreateLoadBalancerTlsCertificate)
 
 instance
@@ -182,44 +183,48 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateLoadBalancerTlsCertificateResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateLoadBalancerTlsCertificate
 
-instance Core.NFData CreateLoadBalancerTlsCertificate
+instance
+  Prelude.NFData
+    CreateLoadBalancerTlsCertificate
 
 instance
   Core.ToHeaders
     CreateLoadBalancerTlsCertificate
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateLoadBalancerTlsCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateLoadBalancerTlsCertificate where
   toJSON CreateLoadBalancerTlsCertificate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("certificateAlternativeNames" Core..=)
-              Core.<$> certificateAlternativeNames,
-            ("tags" Core..=) Core.<$> tags,
-            Core.Just
+              Prelude.<$> certificateAlternativeNames,
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName),
-            Core.Just
+            Prelude.Just
               ("certificateName" Core..= certificateName),
-            Core.Just
+            Prelude.Just
               ( "certificateDomainName"
                   Core..= certificateDomainName
               )
@@ -227,24 +232,24 @@ instance Core.ToJSON CreateLoadBalancerTlsCertificate where
       )
 
 instance Core.ToPath CreateLoadBalancerTlsCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     CreateLoadBalancerTlsCertificate
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLoadBalancerTlsCertificateResponse' smart constructor.
 data CreateLoadBalancerTlsCertificateResponse = CreateLoadBalancerTlsCertificateResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancerTlsCertificateResponse' with all optional fields omitted.
@@ -261,26 +266,26 @@ data CreateLoadBalancerTlsCertificateResponse = CreateLoadBalancerTlsCertificate
 -- 'httpStatus', 'createLoadBalancerTlsCertificateResponse_httpStatus' - The response's http status code.
 newCreateLoadBalancerTlsCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateLoadBalancerTlsCertificateResponse
 newCreateLoadBalancerTlsCertificateResponse
   pHttpStatus_ =
     CreateLoadBalancerTlsCertificateResponse'
       { operations =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' CreateLoadBalancerTlsCertificateResponse (Core.Maybe [Operation])
-createLoadBalancerTlsCertificateResponse_operations = Lens.lens (\CreateLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@CreateLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: CreateLoadBalancerTlsCertificateResponse) Core.. Lens.mapping Lens._Coerce
+createLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' CreateLoadBalancerTlsCertificateResponse (Prelude.Maybe [Operation])
+createLoadBalancerTlsCertificateResponse_operations = Lens.lens (\CreateLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@CreateLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: CreateLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' CreateLoadBalancerTlsCertificateResponse Core.Int
+createLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' CreateLoadBalancerTlsCertificateResponse Prelude.Int
 createLoadBalancerTlsCertificateResponse_httpStatus = Lens.lens (\CreateLoadBalancerTlsCertificateResponse' {httpStatus} -> httpStatus) (\s@CreateLoadBalancerTlsCertificateResponse' {} a -> s {httpStatus = a} :: CreateLoadBalancerTlsCertificateResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateLoadBalancerTlsCertificateResponse

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
   { -- | The descriptive name to apply to the snapshot.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the directory of which to take a snapshot.
-    directoryId :: Core.Text
+    directoryId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshot' with all optional fields omitted.
@@ -73,20 +74,20 @@ data CreateSnapshot = CreateSnapshot'
 -- 'directoryId', 'createSnapshot_directoryId' - The identifier of the directory of which to take a snapshot.
 newCreateSnapshot ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   CreateSnapshot
 newCreateSnapshot pDirectoryId_ =
   CreateSnapshot'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
 
 -- | The descriptive name to apply to the snapshot.
-createSnapshot_name :: Lens.Lens' CreateSnapshot (Core.Maybe Core.Text)
+createSnapshot_name :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_name = Lens.lens (\CreateSnapshot' {name} -> name) (\s@CreateSnapshot' {} a -> s {name = a} :: CreateSnapshot)
 
 -- | The identifier of the directory of which to take a snapshot.
-createSnapshot_directoryId :: Lens.Lens' CreateSnapshot Core.Text
+createSnapshot_directoryId :: Lens.Lens' CreateSnapshot Prelude.Text
 createSnapshot_directoryId = Lens.lens (\CreateSnapshot' {directoryId} -> directoryId) (\s@CreateSnapshot' {} a -> s {directoryId = a} :: CreateSnapshot)
 
 instance Core.AWSRequest CreateSnapshot where
@@ -98,52 +99,54 @@ instance Core.AWSRequest CreateSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CreateSnapshotResponse'
-            Core.<$> (x Core..?> "SnapshotId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SnapshotId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSnapshot
+instance Prelude.Hashable CreateSnapshot
 
-instance Core.NFData CreateSnapshot
+instance Prelude.NFData CreateSnapshot
 
 instance Core.ToHeaders CreateSnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.CreateSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateSnapshot where
   toJSON CreateSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            Core.Just ("DirectoryId" Core..= directoryId)
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            Prelude.Just ("DirectoryId" Core..= directoryId)
           ]
       )
 
 instance Core.ToPath CreateSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateSnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the CreateSnapshot operation.
 --
 -- /See:/ 'newCreateSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
   { -- | The identifier of the snapshot that was created.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshotResponse' with all optional fields omitted.
@@ -158,20 +161,21 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 -- 'httpStatus', 'createSnapshotResponse_httpStatus' - The response's http status code.
 newCreateSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSnapshotResponse
 newCreateSnapshotResponse pHttpStatus_ =
   CreateSnapshotResponse'
-    { snapshotId = Core.Nothing,
+    { snapshotId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the snapshot that was created.
-createSnapshotResponse_snapshotId :: Lens.Lens' CreateSnapshotResponse (Core.Maybe Core.Text)
+createSnapshotResponse_snapshotId :: Lens.Lens' CreateSnapshotResponse (Prelude.Maybe Prelude.Text)
 createSnapshotResponse_snapshotId = Lens.lens (\CreateSnapshotResponse' {snapshotId} -> snapshotId) (\s@CreateSnapshotResponse' {} a -> s {snapshotId = a} :: CreateSnapshotResponse)
 
 -- | The response's http status code.
-createSnapshotResponse_httpStatus :: Lens.Lens' CreateSnapshotResponse Core.Int
+createSnapshotResponse_httpStatus :: Lens.Lens' CreateSnapshotResponse Prelude.Int
 createSnapshotResponse_httpStatus = Lens.lens (\CreateSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotResponse' {} a -> s {httpStatus = a} :: CreateSnapshotResponse)
 
-instance Core.NFData CreateSnapshotResponse
+instance Prelude.NFData CreateSnapshotResponse

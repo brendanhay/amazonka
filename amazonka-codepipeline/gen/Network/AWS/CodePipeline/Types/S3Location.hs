@@ -21,17 +21,18 @@ module Network.AWS.CodePipeline.Types.S3Location where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon S3 artifact location for an action\'s artifacts.
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
   { -- | The artifact name.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 artifact bucket for an action\'s artifacts.
-    bucket :: Core.Maybe Core.Text
+    bucket :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3Location' with all optional fields omitted.
@@ -48,16 +49,16 @@ newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { key = Core.Nothing,
-      bucket = Core.Nothing
+    { key = Prelude.Nothing,
+      bucket = Prelude.Nothing
     }
 
 -- | The artifact name.
-s3Location_key :: Lens.Lens' S3Location (Core.Maybe Core.Text)
+s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
 -- | The Amazon S3 artifact bucket for an action\'s artifacts.
-s3Location_bucket :: Lens.Lens' S3Location (Core.Maybe Core.Text)
+s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 
 instance Core.FromJSON S3Location where
@@ -66,9 +67,9 @@ instance Core.FromJSON S3Location where
       "S3Location"
       ( \x ->
           S3Location'
-            Core.<$> (x Core..:? "key") Core.<*> (x Core..:? "bucket")
+            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "bucket")
       )
 
-instance Core.Hashable S3Location
+instance Prelude.Hashable S3Location
 
-instance Core.NFData S3Location
+instance Prelude.NFData S3Location

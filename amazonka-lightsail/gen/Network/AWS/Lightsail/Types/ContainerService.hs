@@ -27,6 +27,7 @@ import Network.AWS.Lightsail.Types.ContainerServiceState
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Amazon Lightsail container service.
 --
@@ -36,24 +37,24 @@ data ContainerService = ContainerService'
     --
     -- The power specifies the amount of RAM, the number of vCPUs, and the base
     -- price of the container service.
-    power :: Core.Maybe ContainerServicePowerName,
+    power :: Prelude.Maybe ContainerServicePowerName,
     -- | An object that describes the current container deployment of the
     -- container service.
-    currentDeployment :: Core.Maybe ContainerServiceDeployment,
+    currentDeployment :: Prelude.Maybe ContainerServiceDeployment,
     -- | The timestamp when the container service was created.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the container service.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the container service.
-    containerServiceName :: Core.Maybe Core.Text,
+    containerServiceName :: Prelude.Maybe Prelude.Text,
     -- | The private domain name of the container service.
     --
     -- The private domain name is accessible only by other resources within the
     -- default virtual private cloud (VPC) of your Lightsail account.
-    privateDomainName :: Core.Maybe Core.Text,
+    privateDomainName :: Prelude.Maybe Prelude.Text,
     -- | The Lightsail resource type of the container service (i.e.,
     -- @ContainerService@).
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The current state of the container service.
     --
     -- The state can be:
@@ -73,32 +74,32 @@ data ContainerService = ContainerService'
     --
     -- -   @Running@ - The container service is created and it has a container
     --     deployment.
-    state :: Core.Maybe ContainerServiceState,
+    state :: Prelude.Maybe ContainerServiceState,
     -- | The principal ARN of the container service.
     --
     -- The principal ARN can be used to create a trust relationship between
     -- your standard AWS account and your Lightsail container service. This
     -- allows you to give your service permission to access resources in your
     -- standard AWS account.
-    principalArn :: Core.Maybe Core.Text,
+    principalArn :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
     -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | An object that describes the next deployment of the container service.
     --
     -- This value is @null@ when there is no deployment in a @pending@ state.
-    nextDeployment :: Core.Maybe ContainerServiceDeployment,
+    nextDeployment :: Prelude.Maybe ContainerServiceDeployment,
     -- | The publicly accessible URL of the container service.
     --
     -- If no public endpoint is specified in the @currentDeployment@, this URL
     -- returns a 404 response.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The scale specification of the container service.
     --
     -- The scale specifies the allocated compute nodes of the container
     -- service.
-    scale :: Core.Maybe Core.Natural,
+    scale :: Prelude.Maybe Prelude.Natural,
     -- | The public domain name of the container service, such as @example.com@
     -- and @www.example.com@.
     --
@@ -118,16 +119,16 @@ data ContainerService = ContainerService'
     -- See @CreateContainerService@ or @UpdateContainerService@ for information
     -- about how to specify public domain names for your Lightsail container
     -- service.
-    publicDomainNames :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    publicDomainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | An object that describes the location of the container service, such as
     -- the AWS Region and Availability Zone.
-    location :: Core.Maybe ResourceLocation,
+    location :: Prelude.Maybe ResourceLocation,
     -- | The ID of the power of the container service.
-    powerId :: Core.Maybe Core.Text,
+    powerId :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether the container service is disabled.
-    isDisabled :: Core.Maybe Core.Bool
+    isDisabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerService' with all optional fields omitted.
@@ -234,59 +235,59 @@ newContainerService ::
   ContainerService
 newContainerService =
   ContainerService'
-    { power = Core.Nothing,
-      currentDeployment = Core.Nothing,
-      createdAt = Core.Nothing,
-      arn = Core.Nothing,
-      containerServiceName = Core.Nothing,
-      privateDomainName = Core.Nothing,
-      resourceType = Core.Nothing,
-      state = Core.Nothing,
-      principalArn = Core.Nothing,
-      tags = Core.Nothing,
-      nextDeployment = Core.Nothing,
-      url = Core.Nothing,
-      scale = Core.Nothing,
-      publicDomainNames = Core.Nothing,
-      location = Core.Nothing,
-      powerId = Core.Nothing,
-      isDisabled = Core.Nothing
+    { power = Prelude.Nothing,
+      currentDeployment = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      containerServiceName = Prelude.Nothing,
+      privateDomainName = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      state = Prelude.Nothing,
+      principalArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      nextDeployment = Prelude.Nothing,
+      url = Prelude.Nothing,
+      scale = Prelude.Nothing,
+      publicDomainNames = Prelude.Nothing,
+      location = Prelude.Nothing,
+      powerId = Prelude.Nothing,
+      isDisabled = Prelude.Nothing
     }
 
 -- | The power specification of the container service.
 --
 -- The power specifies the amount of RAM, the number of vCPUs, and the base
 -- price of the container service.
-containerService_power :: Lens.Lens' ContainerService (Core.Maybe ContainerServicePowerName)
+containerService_power :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServicePowerName)
 containerService_power = Lens.lens (\ContainerService' {power} -> power) (\s@ContainerService' {} a -> s {power = a} :: ContainerService)
 
 -- | An object that describes the current container deployment of the
 -- container service.
-containerService_currentDeployment :: Lens.Lens' ContainerService (Core.Maybe ContainerServiceDeployment)
+containerService_currentDeployment :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServiceDeployment)
 containerService_currentDeployment = Lens.lens (\ContainerService' {currentDeployment} -> currentDeployment) (\s@ContainerService' {} a -> s {currentDeployment = a} :: ContainerService)
 
 -- | The timestamp when the container service was created.
-containerService_createdAt :: Lens.Lens' ContainerService (Core.Maybe Core.UTCTime)
-containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> createdAt) (\s@ContainerService' {} a -> s {createdAt = a} :: ContainerService) Core.. Lens.mapping Core._Time
+containerService_createdAt :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.UTCTime)
+containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> createdAt) (\s@ContainerService' {} a -> s {createdAt = a} :: ContainerService) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the container service.
-containerService_arn :: Lens.Lens' ContainerService (Core.Maybe Core.Text)
+containerService_arn :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_arn = Lens.lens (\ContainerService' {arn} -> arn) (\s@ContainerService' {} a -> s {arn = a} :: ContainerService)
 
 -- | The name of the container service.
-containerService_containerServiceName :: Lens.Lens' ContainerService (Core.Maybe Core.Text)
+containerService_containerServiceName :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_containerServiceName = Lens.lens (\ContainerService' {containerServiceName} -> containerServiceName) (\s@ContainerService' {} a -> s {containerServiceName = a} :: ContainerService)
 
 -- | The private domain name of the container service.
 --
 -- The private domain name is accessible only by other resources within the
 -- default virtual private cloud (VPC) of your Lightsail account.
-containerService_privateDomainName :: Lens.Lens' ContainerService (Core.Maybe Core.Text)
+containerService_privateDomainName :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_privateDomainName = Lens.lens (\ContainerService' {privateDomainName} -> privateDomainName) (\s@ContainerService' {} a -> s {privateDomainName = a} :: ContainerService)
 
 -- | The Lightsail resource type of the container service (i.e.,
 -- @ContainerService@).
-containerService_resourceType :: Lens.Lens' ContainerService (Core.Maybe ResourceType)
+containerService_resourceType :: Lens.Lens' ContainerService (Prelude.Maybe ResourceType)
 containerService_resourceType = Lens.lens (\ContainerService' {resourceType} -> resourceType) (\s@ContainerService' {} a -> s {resourceType = a} :: ContainerService)
 
 -- | The current state of the container service.
@@ -308,7 +309,7 @@ containerService_resourceType = Lens.lens (\ContainerService' {resourceType} -> 
 --
 -- -   @Running@ - The container service is created and it has a container
 --     deployment.
-containerService_state :: Lens.Lens' ContainerService (Core.Maybe ContainerServiceState)
+containerService_state :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServiceState)
 containerService_state = Lens.lens (\ContainerService' {state} -> state) (\s@ContainerService' {} a -> s {state = a} :: ContainerService)
 
 -- | The principal ARN of the container service.
@@ -317,33 +318,33 @@ containerService_state = Lens.lens (\ContainerService' {state} -> state) (\s@Con
 -- your standard AWS account and your Lightsail container service. This
 -- allows you to give your service permission to access resources in your
 -- standard AWS account.
-containerService_principalArn :: Lens.Lens' ContainerService (Core.Maybe Core.Text)
+containerService_principalArn :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_principalArn = Lens.lens (\ContainerService' {principalArn} -> principalArn) (\s@ContainerService' {} a -> s {principalArn = a} :: ContainerService)
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
 -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-containerService_tags :: Lens.Lens' ContainerService (Core.Maybe [Tag])
-containerService_tags = Lens.lens (\ContainerService' {tags} -> tags) (\s@ContainerService' {} a -> s {tags = a} :: ContainerService) Core.. Lens.mapping Lens._Coerce
+containerService_tags :: Lens.Lens' ContainerService (Prelude.Maybe [Tag])
+containerService_tags = Lens.lens (\ContainerService' {tags} -> tags) (\s@ContainerService' {} a -> s {tags = a} :: ContainerService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An object that describes the next deployment of the container service.
 --
 -- This value is @null@ when there is no deployment in a @pending@ state.
-containerService_nextDeployment :: Lens.Lens' ContainerService (Core.Maybe ContainerServiceDeployment)
+containerService_nextDeployment :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServiceDeployment)
 containerService_nextDeployment = Lens.lens (\ContainerService' {nextDeployment} -> nextDeployment) (\s@ContainerService' {} a -> s {nextDeployment = a} :: ContainerService)
 
 -- | The publicly accessible URL of the container service.
 --
 -- If no public endpoint is specified in the @currentDeployment@, this URL
 -- returns a 404 response.
-containerService_url :: Lens.Lens' ContainerService (Core.Maybe Core.Text)
+containerService_url :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_url = Lens.lens (\ContainerService' {url} -> url) (\s@ContainerService' {} a -> s {url = a} :: ContainerService)
 
 -- | The scale specification of the container service.
 --
 -- The scale specifies the allocated compute nodes of the container
 -- service.
-containerService_scale :: Lens.Lens' ContainerService (Core.Maybe Core.Natural)
+containerService_scale :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Natural)
 containerService_scale = Lens.lens (\ContainerService' {scale} -> scale) (\s@ContainerService' {} a -> s {scale = a} :: ContainerService)
 
 -- | The public domain name of the container service, such as @example.com@
@@ -365,20 +366,20 @@ containerService_scale = Lens.lens (\ContainerService' {scale} -> scale) (\s@Con
 -- See @CreateContainerService@ or @UpdateContainerService@ for information
 -- about how to specify public domain names for your Lightsail container
 -- service.
-containerService_publicDomainNames :: Lens.Lens' ContainerService (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-containerService_publicDomainNames = Lens.lens (\ContainerService' {publicDomainNames} -> publicDomainNames) (\s@ContainerService' {} a -> s {publicDomainNames = a} :: ContainerService) Core.. Lens.mapping Lens._Coerce
+containerService_publicDomainNames :: Lens.Lens' ContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+containerService_publicDomainNames = Lens.lens (\ContainerService' {publicDomainNames} -> publicDomainNames) (\s@ContainerService' {} a -> s {publicDomainNames = a} :: ContainerService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An object that describes the location of the container service, such as
 -- the AWS Region and Availability Zone.
-containerService_location :: Lens.Lens' ContainerService (Core.Maybe ResourceLocation)
+containerService_location :: Lens.Lens' ContainerService (Prelude.Maybe ResourceLocation)
 containerService_location = Lens.lens (\ContainerService' {location} -> location) (\s@ContainerService' {} a -> s {location = a} :: ContainerService)
 
 -- | The ID of the power of the container service.
-containerService_powerId :: Lens.Lens' ContainerService (Core.Maybe Core.Text)
+containerService_powerId :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_powerId = Lens.lens (\ContainerService' {powerId} -> powerId) (\s@ContainerService' {} a -> s {powerId = a} :: ContainerService)
 
 -- | A Boolean value indicating whether the container service is disabled.
-containerService_isDisabled :: Lens.Lens' ContainerService (Core.Maybe Core.Bool)
+containerService_isDisabled :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Bool)
 containerService_isDisabled = Lens.lens (\ContainerService' {isDisabled} -> isDisabled) (\s@ContainerService' {} a -> s {isDisabled = a} :: ContainerService)
 
 instance Core.FromJSON ContainerService where
@@ -387,25 +388,27 @@ instance Core.FromJSON ContainerService where
       "ContainerService"
       ( \x ->
           ContainerService'
-            Core.<$> (x Core..:? "power")
-            Core.<*> (x Core..:? "currentDeployment")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "containerServiceName")
-            Core.<*> (x Core..:? "privateDomainName")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "state")
-            Core.<*> (x Core..:? "principalArn")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "nextDeployment")
-            Core.<*> (x Core..:? "url")
-            Core.<*> (x Core..:? "scale")
-            Core.<*> (x Core..:? "publicDomainNames" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "location")
-            Core.<*> (x Core..:? "powerId")
-            Core.<*> (x Core..:? "isDisabled")
+            Prelude.<$> (x Core..:? "power")
+            Prelude.<*> (x Core..:? "currentDeployment")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "containerServiceName")
+            Prelude.<*> (x Core..:? "privateDomainName")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "principalArn")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "nextDeployment")
+            Prelude.<*> (x Core..:? "url")
+            Prelude.<*> (x Core..:? "scale")
+            Prelude.<*> ( x Core..:? "publicDomainNames"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "powerId")
+            Prelude.<*> (x Core..:? "isDisabled")
       )
 
-instance Core.Hashable ContainerService
+instance Prelude.Hashable ContainerService
 
-instance Core.NFData ContainerService
+instance Prelude.NFData ContainerService

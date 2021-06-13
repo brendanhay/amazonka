@@ -24,6 +24,7 @@ import Network.AWS.Config.Types.RemediationExecutionStep
 import Network.AWS.Config.Types.ResourceKey
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides details of the current status of the invoked remediation action
 -- for that resource.
@@ -31,16 +32,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRemediationExecutionStatus' smart constructor.
 data RemediationExecutionStatus = RemediationExecutionStatus'
   { -- | Start time when the remediation was executed.
-    invocationTime :: Core.Maybe Core.POSIX,
-    resourceKey :: Core.Maybe ResourceKey,
+    invocationTime :: Prelude.Maybe Core.POSIX,
+    resourceKey :: Prelude.Maybe ResourceKey,
     -- | ENUM of the values.
-    state :: Core.Maybe RemediationExecutionState,
+    state :: Prelude.Maybe RemediationExecutionState,
     -- | Details of every step.
-    stepDetails :: Core.Maybe [RemediationExecutionStep],
+    stepDetails :: Prelude.Maybe [RemediationExecutionStep],
     -- | The time when the remediation execution was last updated.
-    lastUpdatedTime :: Core.Maybe Core.POSIX
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemediationExecutionStatus' with all optional fields omitted.
@@ -64,32 +65,32 @@ newRemediationExecutionStatus ::
 newRemediationExecutionStatus =
   RemediationExecutionStatus'
     { invocationTime =
-        Core.Nothing,
-      resourceKey = Core.Nothing,
-      state = Core.Nothing,
-      stepDetails = Core.Nothing,
-      lastUpdatedTime = Core.Nothing
+        Prelude.Nothing,
+      resourceKey = Prelude.Nothing,
+      state = Prelude.Nothing,
+      stepDetails = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing
     }
 
 -- | Start time when the remediation was executed.
-remediationExecutionStatus_invocationTime :: Lens.Lens' RemediationExecutionStatus (Core.Maybe Core.UTCTime)
-remediationExecutionStatus_invocationTime = Lens.lens (\RemediationExecutionStatus' {invocationTime} -> invocationTime) (\s@RemediationExecutionStatus' {} a -> s {invocationTime = a} :: RemediationExecutionStatus) Core.. Lens.mapping Core._Time
+remediationExecutionStatus_invocationTime :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe Prelude.UTCTime)
+remediationExecutionStatus_invocationTime = Lens.lens (\RemediationExecutionStatus' {invocationTime} -> invocationTime) (\s@RemediationExecutionStatus' {} a -> s {invocationTime = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-remediationExecutionStatus_resourceKey :: Lens.Lens' RemediationExecutionStatus (Core.Maybe ResourceKey)
+remediationExecutionStatus_resourceKey :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe ResourceKey)
 remediationExecutionStatus_resourceKey = Lens.lens (\RemediationExecutionStatus' {resourceKey} -> resourceKey) (\s@RemediationExecutionStatus' {} a -> s {resourceKey = a} :: RemediationExecutionStatus)
 
 -- | ENUM of the values.
-remediationExecutionStatus_state :: Lens.Lens' RemediationExecutionStatus (Core.Maybe RemediationExecutionState)
+remediationExecutionStatus_state :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe RemediationExecutionState)
 remediationExecutionStatus_state = Lens.lens (\RemediationExecutionStatus' {state} -> state) (\s@RemediationExecutionStatus' {} a -> s {state = a} :: RemediationExecutionStatus)
 
 -- | Details of every step.
-remediationExecutionStatus_stepDetails :: Lens.Lens' RemediationExecutionStatus (Core.Maybe [RemediationExecutionStep])
-remediationExecutionStatus_stepDetails = Lens.lens (\RemediationExecutionStatus' {stepDetails} -> stepDetails) (\s@RemediationExecutionStatus' {} a -> s {stepDetails = a} :: RemediationExecutionStatus) Core.. Lens.mapping Lens._Coerce
+remediationExecutionStatus_stepDetails :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe [RemediationExecutionStep])
+remediationExecutionStatus_stepDetails = Lens.lens (\RemediationExecutionStatus' {stepDetails} -> stepDetails) (\s@RemediationExecutionStatus' {} a -> s {stepDetails = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time when the remediation execution was last updated.
-remediationExecutionStatus_lastUpdatedTime :: Lens.Lens' RemediationExecutionStatus (Core.Maybe Core.UTCTime)
-remediationExecutionStatus_lastUpdatedTime = Lens.lens (\RemediationExecutionStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@RemediationExecutionStatus' {} a -> s {lastUpdatedTime = a} :: RemediationExecutionStatus) Core.. Lens.mapping Core._Time
+remediationExecutionStatus_lastUpdatedTime :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe Prelude.UTCTime)
+remediationExecutionStatus_lastUpdatedTime = Lens.lens (\RemediationExecutionStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@RemediationExecutionStatus' {} a -> s {lastUpdatedTime = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON RemediationExecutionStatus where
   parseJSON =
@@ -97,13 +98,13 @@ instance Core.FromJSON RemediationExecutionStatus where
       "RemediationExecutionStatus"
       ( \x ->
           RemediationExecutionStatus'
-            Core.<$> (x Core..:? "InvocationTime")
-            Core.<*> (x Core..:? "ResourceKey")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (x Core..:? "StepDetails" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<$> (x Core..:? "InvocationTime")
+            Prelude.<*> (x Core..:? "ResourceKey")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "StepDetails" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
       )
 
-instance Core.Hashable RemediationExecutionStatus
+instance Prelude.Hashable RemediationExecutionStatus
 
-instance Core.NFData RemediationExecutionStatus
+instance Prelude.NFData RemediationExecutionStatus

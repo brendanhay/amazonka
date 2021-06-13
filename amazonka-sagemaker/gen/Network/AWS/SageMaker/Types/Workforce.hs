@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.Workforce where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CognitoConfig
 import Network.AWS.SageMaker.Types.OidcConfigForResponse
 import Network.AWS.SageMaker.Types.SourceIpConfig
@@ -38,28 +39,28 @@ data Workforce = Workforce'
     -- address ranges
     -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
     -- to a private workforce\'s allow list.
-    lastUpdatedDate :: Core.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
     -- | The date that the workforce is created.
-    createDate :: Core.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Core.POSIX,
     -- | The subdomain for your OIDC Identity Provider.
-    subDomain :: Core.Maybe Core.Text,
+    subDomain :: Prelude.Maybe Prelude.Text,
     -- | A list of one to ten IP address ranges
     -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
     -- to be added to the workforce allow list. By default, a workforce isn\'t
     -- restricted to specific IP addresses.
-    sourceIpConfig :: Core.Maybe SourceIpConfig,
+    sourceIpConfig :: Prelude.Maybe SourceIpConfig,
     -- | The configuration of an OIDC Identity Provider (IdP) private workforce.
-    oidcConfig :: Core.Maybe OidcConfigForResponse,
+    oidcConfig :: Prelude.Maybe OidcConfigForResponse,
     -- | The configuration of an Amazon Cognito workforce. A single Cognito
     -- workforce is created using and corresponds to a single
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool>.
-    cognitoConfig :: Core.Maybe CognitoConfig,
+    cognitoConfig :: Prelude.Maybe CognitoConfig,
     -- | The name of the private workforce.
-    workforceName :: Core.Text,
+    workforceName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the private workforce.
-    workforceArn :: Core.Text
+    workforceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Workforce' with all optional fields omitted.
@@ -94,18 +95,18 @@ data Workforce = Workforce'
 -- 'workforceArn', 'workforce_workforceArn' - The Amazon Resource Name (ARN) of the private workforce.
 newWorkforce ::
   -- | 'workforceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'workforceArn'
-  Core.Text ->
+  Prelude.Text ->
   Workforce
 newWorkforce pWorkforceName_ pWorkforceArn_ =
   Workforce'
-    { lastUpdatedDate = Core.Nothing,
-      createDate = Core.Nothing,
-      subDomain = Core.Nothing,
-      sourceIpConfig = Core.Nothing,
-      oidcConfig = Core.Nothing,
-      cognitoConfig = Core.Nothing,
+    { lastUpdatedDate = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      subDomain = Prelude.Nothing,
+      sourceIpConfig = Prelude.Nothing,
+      oidcConfig = Prelude.Nothing,
+      cognitoConfig = Prelude.Nothing,
       workforceName = pWorkforceName_,
       workforceArn = pWorkforceArn_
     }
@@ -114,40 +115,40 @@ newWorkforce pWorkforceName_ pWorkforceArn_ =
 -- address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
 -- to a private workforce\'s allow list.
-workforce_lastUpdatedDate :: Lens.Lens' Workforce (Core.Maybe Core.UTCTime)
-workforce_lastUpdatedDate = Lens.lens (\Workforce' {lastUpdatedDate} -> lastUpdatedDate) (\s@Workforce' {} a -> s {lastUpdatedDate = a} :: Workforce) Core.. Lens.mapping Core._Time
+workforce_lastUpdatedDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
+workforce_lastUpdatedDate = Lens.lens (\Workforce' {lastUpdatedDate} -> lastUpdatedDate) (\s@Workforce' {} a -> s {lastUpdatedDate = a} :: Workforce) Prelude.. Lens.mapping Core._Time
 
 -- | The date that the workforce is created.
-workforce_createDate :: Lens.Lens' Workforce (Core.Maybe Core.UTCTime)
-workforce_createDate = Lens.lens (\Workforce' {createDate} -> createDate) (\s@Workforce' {} a -> s {createDate = a} :: Workforce) Core.. Lens.mapping Core._Time
+workforce_createDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
+workforce_createDate = Lens.lens (\Workforce' {createDate} -> createDate) (\s@Workforce' {} a -> s {createDate = a} :: Workforce) Prelude.. Lens.mapping Core._Time
 
 -- | The subdomain for your OIDC Identity Provider.
-workforce_subDomain :: Lens.Lens' Workforce (Core.Maybe Core.Text)
+workforce_subDomain :: Lens.Lens' Workforce (Prelude.Maybe Prelude.Text)
 workforce_subDomain = Lens.lens (\Workforce' {subDomain} -> subDomain) (\s@Workforce' {} a -> s {subDomain = a} :: Workforce)
 
 -- | A list of one to ten IP address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
 -- to be added to the workforce allow list. By default, a workforce isn\'t
 -- restricted to specific IP addresses.
-workforce_sourceIpConfig :: Lens.Lens' Workforce (Core.Maybe SourceIpConfig)
+workforce_sourceIpConfig :: Lens.Lens' Workforce (Prelude.Maybe SourceIpConfig)
 workforce_sourceIpConfig = Lens.lens (\Workforce' {sourceIpConfig} -> sourceIpConfig) (\s@Workforce' {} a -> s {sourceIpConfig = a} :: Workforce)
 
 -- | The configuration of an OIDC Identity Provider (IdP) private workforce.
-workforce_oidcConfig :: Lens.Lens' Workforce (Core.Maybe OidcConfigForResponse)
+workforce_oidcConfig :: Lens.Lens' Workforce (Prelude.Maybe OidcConfigForResponse)
 workforce_oidcConfig = Lens.lens (\Workforce' {oidcConfig} -> oidcConfig) (\s@Workforce' {} a -> s {oidcConfig = a} :: Workforce)
 
 -- | The configuration of an Amazon Cognito workforce. A single Cognito
 -- workforce is created using and corresponds to a single
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool>.
-workforce_cognitoConfig :: Lens.Lens' Workforce (Core.Maybe CognitoConfig)
+workforce_cognitoConfig :: Lens.Lens' Workforce (Prelude.Maybe CognitoConfig)
 workforce_cognitoConfig = Lens.lens (\Workforce' {cognitoConfig} -> cognitoConfig) (\s@Workforce' {} a -> s {cognitoConfig = a} :: Workforce)
 
 -- | The name of the private workforce.
-workforce_workforceName :: Lens.Lens' Workforce Core.Text
+workforce_workforceName :: Lens.Lens' Workforce Prelude.Text
 workforce_workforceName = Lens.lens (\Workforce' {workforceName} -> workforceName) (\s@Workforce' {} a -> s {workforceName = a} :: Workforce)
 
 -- | The Amazon Resource Name (ARN) of the private workforce.
-workforce_workforceArn :: Lens.Lens' Workforce Core.Text
+workforce_workforceArn :: Lens.Lens' Workforce Prelude.Text
 workforce_workforceArn = Lens.lens (\Workforce' {workforceArn} -> workforceArn) (\s@Workforce' {} a -> s {workforceArn = a} :: Workforce)
 
 instance Core.FromJSON Workforce where
@@ -156,16 +157,16 @@ instance Core.FromJSON Workforce where
       "Workforce"
       ( \x ->
           Workforce'
-            Core.<$> (x Core..:? "LastUpdatedDate")
-            Core.<*> (x Core..:? "CreateDate")
-            Core.<*> (x Core..:? "SubDomain")
-            Core.<*> (x Core..:? "SourceIpConfig")
-            Core.<*> (x Core..:? "OidcConfig")
-            Core.<*> (x Core..:? "CognitoConfig")
-            Core.<*> (x Core..: "WorkforceName")
-            Core.<*> (x Core..: "WorkforceArn")
+            Prelude.<$> (x Core..:? "LastUpdatedDate")
+            Prelude.<*> (x Core..:? "CreateDate")
+            Prelude.<*> (x Core..:? "SubDomain")
+            Prelude.<*> (x Core..:? "SourceIpConfig")
+            Prelude.<*> (x Core..:? "OidcConfig")
+            Prelude.<*> (x Core..:? "CognitoConfig")
+            Prelude.<*> (x Core..: "WorkforceName")
+            Prelude.<*> (x Core..: "WorkforceArn")
       )
 
-instance Core.Hashable Workforce
+instance Prelude.Hashable Workforce
 
-instance Core.NFData Workforce
+instance Prelude.NFData Workforce

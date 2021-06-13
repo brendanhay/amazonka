@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetDataCatalogEncryptionSettings = GetDataCatalogEncryptionSettings'
   { -- | The ID of the Data Catalog to retrieve the security configuration for.
     -- If none is provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text
+    catalogId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataCatalogEncryptionSettings' with all optional fields omitted.
@@ -68,12 +69,12 @@ newGetDataCatalogEncryptionSettings ::
 newGetDataCatalogEncryptionSettings =
   GetDataCatalogEncryptionSettings'
     { catalogId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the Data Catalog to retrieve the security configuration for.
 -- If none is provided, the AWS account ID is used by default.
-getDataCatalogEncryptionSettings_catalogId :: Lens.Lens' GetDataCatalogEncryptionSettings (Core.Maybe Core.Text)
+getDataCatalogEncryptionSettings_catalogId :: Lens.Lens' GetDataCatalogEncryptionSettings (Prelude.Maybe Prelude.Text)
 getDataCatalogEncryptionSettings_catalogId = Lens.lens (\GetDataCatalogEncryptionSettings' {catalogId} -> catalogId) (\s@GetDataCatalogEncryptionSettings' {} a -> s {catalogId = a} :: GetDataCatalogEncryptionSettings)
 
 instance
@@ -88,56 +89,60 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDataCatalogEncryptionSettingsResponse'
-            Core.<$> (x Core..?> "DataCatalogEncryptionSettings")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DataCatalogEncryptionSettings")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetDataCatalogEncryptionSettings
 
-instance Core.NFData GetDataCatalogEncryptionSettings
+instance
+  Prelude.NFData
+    GetDataCatalogEncryptionSettings
 
 instance
   Core.ToHeaders
     GetDataCatalogEncryptionSettings
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.GetDataCatalogEncryptionSettings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDataCatalogEncryptionSettings where
   toJSON GetDataCatalogEncryptionSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("CatalogId" Core..=) Core.<$> catalogId]
+      ( Prelude.catMaybes
+          [("CatalogId" Core..=) Prelude.<$> catalogId]
       )
 
 instance Core.ToPath GetDataCatalogEncryptionSettings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetDataCatalogEncryptionSettings
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataCatalogEncryptionSettingsResponse' smart constructor.
 data GetDataCatalogEncryptionSettingsResponse = GetDataCatalogEncryptionSettingsResponse'
   { -- | The requested security configuration.
-    dataCatalogEncryptionSettings :: Core.Maybe DataCatalogEncryptionSettings,
+    dataCatalogEncryptionSettings :: Prelude.Maybe DataCatalogEncryptionSettings,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataCatalogEncryptionSettingsResponse' with all optional fields omitted.
@@ -152,24 +157,24 @@ data GetDataCatalogEncryptionSettingsResponse = GetDataCatalogEncryptionSettings
 -- 'httpStatus', 'getDataCatalogEncryptionSettingsResponse_httpStatus' - The response's http status code.
 newGetDataCatalogEncryptionSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDataCatalogEncryptionSettingsResponse
 newGetDataCatalogEncryptionSettingsResponse
   pHttpStatus_ =
     GetDataCatalogEncryptionSettingsResponse'
       { dataCatalogEncryptionSettings =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The requested security configuration.
-getDataCatalogEncryptionSettingsResponse_dataCatalogEncryptionSettings :: Lens.Lens' GetDataCatalogEncryptionSettingsResponse (Core.Maybe DataCatalogEncryptionSettings)
+getDataCatalogEncryptionSettingsResponse_dataCatalogEncryptionSettings :: Lens.Lens' GetDataCatalogEncryptionSettingsResponse (Prelude.Maybe DataCatalogEncryptionSettings)
 getDataCatalogEncryptionSettingsResponse_dataCatalogEncryptionSettings = Lens.lens (\GetDataCatalogEncryptionSettingsResponse' {dataCatalogEncryptionSettings} -> dataCatalogEncryptionSettings) (\s@GetDataCatalogEncryptionSettingsResponse' {} a -> s {dataCatalogEncryptionSettings = a} :: GetDataCatalogEncryptionSettingsResponse)
 
 -- | The response's http status code.
-getDataCatalogEncryptionSettingsResponse_httpStatus :: Lens.Lens' GetDataCatalogEncryptionSettingsResponse Core.Int
+getDataCatalogEncryptionSettingsResponse_httpStatus :: Lens.Lens' GetDataCatalogEncryptionSettingsResponse Prelude.Int
 getDataCatalogEncryptionSettingsResponse_httpStatus = Lens.lens (\GetDataCatalogEncryptionSettingsResponse' {httpStatus} -> httpStatus) (\s@GetDataCatalogEncryptionSettingsResponse' {} a -> s {httpStatus = a} :: GetDataCatalogEncryptionSettingsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetDataCatalogEncryptionSettingsResponse

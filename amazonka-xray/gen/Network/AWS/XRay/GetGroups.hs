@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -51,9 +52,9 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newGetGroups' smart constructor.
 data GetGroups = GetGroups'
   { -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroups' with all optional fields omitted.
@@ -66,30 +67,31 @@ data GetGroups = GetGroups'
 -- 'nextToken', 'getGroups_nextToken' - Pagination token.
 newGetGroups ::
   GetGroups
-newGetGroups = GetGroups' {nextToken = Core.Nothing}
+newGetGroups =
+  GetGroups' {nextToken = Prelude.Nothing}
 
 -- | Pagination token.
-getGroups_nextToken :: Lens.Lens' GetGroups (Core.Maybe Core.Text)
+getGroups_nextToken :: Lens.Lens' GetGroups (Prelude.Maybe Prelude.Text)
 getGroups_nextToken = Lens.lens (\GetGroups' {nextToken} -> nextToken) (\s@GetGroups' {} a -> s {nextToken = a} :: GetGroups)
 
 instance Core.AWSPager GetGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getGroupsResponse_nextToken Core.. Lens._Just
+            Lens.^? getGroupsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getGroupsResponse_groups Core.. Lens._Just
+            Lens.^? getGroupsResponse_groups Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getGroups_nextToken
+          Prelude.& getGroups_nextToken
           Lens..~ rs
-          Lens.^? getGroupsResponse_nextToken Core.. Lens._Just
+          Lens.^? getGroupsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetGroups where
   type AWSResponse GetGroups = GetGroupsResponse
@@ -98,41 +100,41 @@ instance Core.AWSRequest GetGroups where
     Response.receiveJSON
       ( \s h x ->
           GetGroupsResponse'
-            Core.<$> (x Core..?> "Groups" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetGroups
+instance Prelude.Hashable GetGroups
 
-instance Core.NFData GetGroups
+instance Prelude.NFData GetGroups
 
 instance Core.ToHeaders GetGroups where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetGroups where
   toJSON GetGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [("NextToken" Core..=) Core.<$> nextToken]
+      ( Prelude.catMaybes
+          [("NextToken" Core..=) Prelude.<$> nextToken]
       )
 
 instance Core.ToPath GetGroups where
-  toPath = Core.const "/Groups"
+  toPath = Prelude.const "/Groups"
 
 instance Core.ToQuery GetGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupsResponse' smart constructor.
 data GetGroupsResponse = GetGroupsResponse'
   { -- | The collection of all active groups.
-    groups :: Core.Maybe [GroupSummary],
+    groups :: Prelude.Maybe [GroupSummary],
     -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroupsResponse' with all optional fields omitted.
@@ -149,25 +151,25 @@ data GetGroupsResponse = GetGroupsResponse'
 -- 'httpStatus', 'getGroupsResponse_httpStatus' - The response's http status code.
 newGetGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetGroupsResponse
 newGetGroupsResponse pHttpStatus_ =
   GetGroupsResponse'
-    { groups = Core.Nothing,
-      nextToken = Core.Nothing,
+    { groups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The collection of all active groups.
-getGroupsResponse_groups :: Lens.Lens' GetGroupsResponse (Core.Maybe [GroupSummary])
-getGroupsResponse_groups = Lens.lens (\GetGroupsResponse' {groups} -> groups) (\s@GetGroupsResponse' {} a -> s {groups = a} :: GetGroupsResponse) Core.. Lens.mapping Lens._Coerce
+getGroupsResponse_groups :: Lens.Lens' GetGroupsResponse (Prelude.Maybe [GroupSummary])
+getGroupsResponse_groups = Lens.lens (\GetGroupsResponse' {groups} -> groups) (\s@GetGroupsResponse' {} a -> s {groups = a} :: GetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Pagination token.
-getGroupsResponse_nextToken :: Lens.Lens' GetGroupsResponse (Core.Maybe Core.Text)
+getGroupsResponse_nextToken :: Lens.Lens' GetGroupsResponse (Prelude.Maybe Prelude.Text)
 getGroupsResponse_nextToken = Lens.lens (\GetGroupsResponse' {nextToken} -> nextToken) (\s@GetGroupsResponse' {} a -> s {nextToken = a} :: GetGroupsResponse)
 
 -- | The response's http status code.
-getGroupsResponse_httpStatus :: Lens.Lens' GetGroupsResponse Core.Int
+getGroupsResponse_httpStatus :: Lens.Lens' GetGroupsResponse Prelude.Int
 getGroupsResponse_httpStatus = Lens.lens (\GetGroupsResponse' {httpStatus} -> httpStatus) (\s@GetGroupsResponse' {} a -> s {httpStatus = a} :: GetGroupsResponse)
 
-instance Core.NFData GetGroupsResponse
+instance Prelude.NFData GetGroupsResponse

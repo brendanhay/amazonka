@@ -22,29 +22,30 @@ module Network.AWS.Config.Types.ConfigurationRecorderStatus where
 import Network.AWS.Config.Types.RecorderStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The current status of the configuration recorder.
 --
 -- /See:/ 'newConfigurationRecorderStatus' smart constructor.
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
   { -- | The time the recorder was last stopped.
-    lastStopTime :: Core.Maybe Core.POSIX,
+    lastStopTime :: Prelude.Maybe Core.POSIX,
     -- | The time the recorder was last started.
-    lastStartTime :: Core.Maybe Core.POSIX,
+    lastStartTime :: Prelude.Maybe Core.POSIX,
     -- | The message indicating that the recording failed due to an error.
-    lastErrorMessage :: Core.Maybe Core.Text,
+    lastErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether or not the recorder is currently recording.
-    recording :: Core.Maybe Core.Bool,
+    recording :: Prelude.Maybe Prelude.Bool,
     -- | The name of the configuration recorder.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The error code indicating that the recording failed.
-    lastErrorCode :: Core.Maybe Core.Text,
+    lastErrorCode :: Prelude.Maybe Prelude.Text,
     -- | The last (previous) status of the recorder.
-    lastStatus :: Core.Maybe RecorderStatus,
+    lastStatus :: Prelude.Maybe RecorderStatus,
     -- | The time when the status was last changed.
-    lastStatusChangeTime :: Core.Maybe Core.POSIX
+    lastStatusChangeTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigurationRecorderStatus' with all optional fields omitted.
@@ -74,47 +75,47 @@ newConfigurationRecorderStatus ::
 newConfigurationRecorderStatus =
   ConfigurationRecorderStatus'
     { lastStopTime =
-        Core.Nothing,
-      lastStartTime = Core.Nothing,
-      lastErrorMessage = Core.Nothing,
-      recording = Core.Nothing,
-      name = Core.Nothing,
-      lastErrorCode = Core.Nothing,
-      lastStatus = Core.Nothing,
-      lastStatusChangeTime = Core.Nothing
+        Prelude.Nothing,
+      lastStartTime = Prelude.Nothing,
+      lastErrorMessage = Prelude.Nothing,
+      recording = Prelude.Nothing,
+      name = Prelude.Nothing,
+      lastErrorCode = Prelude.Nothing,
+      lastStatus = Prelude.Nothing,
+      lastStatusChangeTime = Prelude.Nothing
     }
 
 -- | The time the recorder was last stopped.
-configurationRecorderStatus_lastStopTime :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.UTCTime)
-configurationRecorderStatus_lastStopTime = Lens.lens (\ConfigurationRecorderStatus' {lastStopTime} -> lastStopTime) (\s@ConfigurationRecorderStatus' {} a -> s {lastStopTime = a} :: ConfigurationRecorderStatus) Core.. Lens.mapping Core._Time
+configurationRecorderStatus_lastStopTime :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.UTCTime)
+configurationRecorderStatus_lastStopTime = Lens.lens (\ConfigurationRecorderStatus' {lastStopTime} -> lastStopTime) (\s@ConfigurationRecorderStatus' {} a -> s {lastStopTime = a} :: ConfigurationRecorderStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The time the recorder was last started.
-configurationRecorderStatus_lastStartTime :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.UTCTime)
-configurationRecorderStatus_lastStartTime = Lens.lens (\ConfigurationRecorderStatus' {lastStartTime} -> lastStartTime) (\s@ConfigurationRecorderStatus' {} a -> s {lastStartTime = a} :: ConfigurationRecorderStatus) Core.. Lens.mapping Core._Time
+configurationRecorderStatus_lastStartTime :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.UTCTime)
+configurationRecorderStatus_lastStartTime = Lens.lens (\ConfigurationRecorderStatus' {lastStartTime} -> lastStartTime) (\s@ConfigurationRecorderStatus' {} a -> s {lastStartTime = a} :: ConfigurationRecorderStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The message indicating that the recording failed due to an error.
-configurationRecorderStatus_lastErrorMessage :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.Text)
+configurationRecorderStatus_lastErrorMessage :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.Text)
 configurationRecorderStatus_lastErrorMessage = Lens.lens (\ConfigurationRecorderStatus' {lastErrorMessage} -> lastErrorMessage) (\s@ConfigurationRecorderStatus' {} a -> s {lastErrorMessage = a} :: ConfigurationRecorderStatus)
 
 -- | Specifies whether or not the recorder is currently recording.
-configurationRecorderStatus_recording :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.Bool)
+configurationRecorderStatus_recording :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.Bool)
 configurationRecorderStatus_recording = Lens.lens (\ConfigurationRecorderStatus' {recording} -> recording) (\s@ConfigurationRecorderStatus' {} a -> s {recording = a} :: ConfigurationRecorderStatus)
 
 -- | The name of the configuration recorder.
-configurationRecorderStatus_name :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.Text)
+configurationRecorderStatus_name :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.Text)
 configurationRecorderStatus_name = Lens.lens (\ConfigurationRecorderStatus' {name} -> name) (\s@ConfigurationRecorderStatus' {} a -> s {name = a} :: ConfigurationRecorderStatus)
 
 -- | The error code indicating that the recording failed.
-configurationRecorderStatus_lastErrorCode :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.Text)
+configurationRecorderStatus_lastErrorCode :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.Text)
 configurationRecorderStatus_lastErrorCode = Lens.lens (\ConfigurationRecorderStatus' {lastErrorCode} -> lastErrorCode) (\s@ConfigurationRecorderStatus' {} a -> s {lastErrorCode = a} :: ConfigurationRecorderStatus)
 
 -- | The last (previous) status of the recorder.
-configurationRecorderStatus_lastStatus :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe RecorderStatus)
+configurationRecorderStatus_lastStatus :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe RecorderStatus)
 configurationRecorderStatus_lastStatus = Lens.lens (\ConfigurationRecorderStatus' {lastStatus} -> lastStatus) (\s@ConfigurationRecorderStatus' {} a -> s {lastStatus = a} :: ConfigurationRecorderStatus)
 
 -- | The time when the status was last changed.
-configurationRecorderStatus_lastStatusChangeTime :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.UTCTime)
-configurationRecorderStatus_lastStatusChangeTime = Lens.lens (\ConfigurationRecorderStatus' {lastStatusChangeTime} -> lastStatusChangeTime) (\s@ConfigurationRecorderStatus' {} a -> s {lastStatusChangeTime = a} :: ConfigurationRecorderStatus) Core.. Lens.mapping Core._Time
+configurationRecorderStatus_lastStatusChangeTime :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.UTCTime)
+configurationRecorderStatus_lastStatusChangeTime = Lens.lens (\ConfigurationRecorderStatus' {lastStatusChangeTime} -> lastStatusChangeTime) (\s@ConfigurationRecorderStatus' {} a -> s {lastStatusChangeTime = a} :: ConfigurationRecorderStatus) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ConfigurationRecorderStatus where
   parseJSON =
@@ -122,16 +123,16 @@ instance Core.FromJSON ConfigurationRecorderStatus where
       "ConfigurationRecorderStatus"
       ( \x ->
           ConfigurationRecorderStatus'
-            Core.<$> (x Core..:? "lastStopTime")
-            Core.<*> (x Core..:? "lastStartTime")
-            Core.<*> (x Core..:? "lastErrorMessage")
-            Core.<*> (x Core..:? "recording")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "lastErrorCode")
-            Core.<*> (x Core..:? "lastStatus")
-            Core.<*> (x Core..:? "lastStatusChangeTime")
+            Prelude.<$> (x Core..:? "lastStopTime")
+            Prelude.<*> (x Core..:? "lastStartTime")
+            Prelude.<*> (x Core..:? "lastErrorMessage")
+            Prelude.<*> (x Core..:? "recording")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "lastErrorCode")
+            Prelude.<*> (x Core..:? "lastStatus")
+            Prelude.<*> (x Core..:? "lastStatusChangeTime")
       )
 
-instance Core.Hashable ConfigurationRecorderStatus
+instance Prelude.Hashable ConfigurationRecorderStatus
 
-instance Core.NFData ConfigurationRecorderStatus
+instance Prelude.NFData ConfigurationRecorderStatus

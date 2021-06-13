@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,7 +70,7 @@ data ListAWSServiceAccessForOrganization = ListAWSServiceAccessForOrganization'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -80,9 +81,9 @@ data ListAWSServiceAccessForOrganization = ListAWSServiceAccessForOrganization'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAWSServiceAccessForOrganization' with all optional fields omitted.
@@ -113,8 +114,8 @@ newListAWSServiceAccessForOrganization ::
 newListAWSServiceAccessForOrganization =
   ListAWSServiceAccessForOrganization'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The parameter for receiving additional results if you receive a
@@ -122,7 +123,7 @@ newListAWSServiceAccessForOrganization =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listAWSServiceAccessForOrganization_nextToken :: Lens.Lens' ListAWSServiceAccessForOrganization (Core.Maybe Core.Text)
+listAWSServiceAccessForOrganization_nextToken :: Lens.Lens' ListAWSServiceAccessForOrganization (Prelude.Maybe Prelude.Text)
 listAWSServiceAccessForOrganization_nextToken = Lens.lens (\ListAWSServiceAccessForOrganization' {nextToken} -> nextToken) (\s@ListAWSServiceAccessForOrganization' {} a -> s {nextToken = a} :: ListAWSServiceAccessForOrganization)
 
 -- | The total number of results that you want included on each page of the
@@ -135,7 +136,7 @@ listAWSServiceAccessForOrganization_nextToken = Lens.lens (\ListAWSServiceAccess
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listAWSServiceAccessForOrganization_maxResults :: Lens.Lens' ListAWSServiceAccessForOrganization (Core.Maybe Core.Natural)
+listAWSServiceAccessForOrganization_maxResults :: Lens.Lens' ListAWSServiceAccessForOrganization (Prelude.Maybe Prelude.Natural)
 listAWSServiceAccessForOrganization_maxResults = Lens.lens (\ListAWSServiceAccessForOrganization' {maxResults} -> maxResults) (\s@ListAWSServiceAccessForOrganization' {} a -> s {maxResults = a} :: ListAWSServiceAccessForOrganization)
 
 instance
@@ -146,22 +147,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listAWSServiceAccessForOrganizationResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAWSServiceAccessForOrganization_nextToken
+          Prelude.& listAWSServiceAccessForOrganization_nextToken
           Lens..~ rs
           Lens.^? listAWSServiceAccessForOrganizationResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -175,19 +176,19 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAWSServiceAccessForOrganizationResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "EnabledServicePrincipals"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "EnabledServicePrincipals"
+                              Core..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ListAWSServiceAccessForOrganization
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListAWSServiceAccessForOrganization
 
 instance
@@ -195,14 +196,16 @@ instance
     ListAWSServiceAccessForOrganization
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -212,9 +215,9 @@ instance
   where
   toJSON ListAWSServiceAccessForOrganization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -222,13 +225,13 @@ instance
   Core.ToPath
     ListAWSServiceAccessForOrganization
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ListAWSServiceAccessForOrganization
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAWSServiceAccessForOrganizationResponse' smart constructor.
 data ListAWSServiceAccessForOrganizationResponse = ListAWSServiceAccessForOrganizationResponse'
@@ -237,16 +240,16 @@ data ListAWSServiceAccessForOrganizationResponse = ListAWSServiceAccessForOrgani
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of the service principals for the services that are enabled to
     -- integrate with your organization. Each principal is a structure that
     -- includes the name and the date that it was enabled for integration with
     -- AWS Organizations.
-    enabledServicePrincipals :: Core.Maybe [EnabledServicePrincipal],
+    enabledServicePrincipals :: Prelude.Maybe [EnabledServicePrincipal],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAWSServiceAccessForOrganizationResponse' with all optional fields omitted.
@@ -270,15 +273,15 @@ data ListAWSServiceAccessForOrganizationResponse = ListAWSServiceAccessForOrgani
 -- 'httpStatus', 'listAWSServiceAccessForOrganizationResponse_httpStatus' - The response's http status code.
 newListAWSServiceAccessForOrganizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAWSServiceAccessForOrganizationResponse
 newListAWSServiceAccessForOrganizationResponse
   pHttpStatus_ =
     ListAWSServiceAccessForOrganizationResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         enabledServicePrincipals =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -287,20 +290,20 @@ newListAWSServiceAccessForOrganizationResponse
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listAWSServiceAccessForOrganizationResponse_nextToken :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse (Core.Maybe Core.Text)
+listAWSServiceAccessForOrganizationResponse_nextToken :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse (Prelude.Maybe Prelude.Text)
 listAWSServiceAccessForOrganizationResponse_nextToken = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {nextToken} -> nextToken) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {nextToken = a} :: ListAWSServiceAccessForOrganizationResponse)
 
 -- | A list of the service principals for the services that are enabled to
 -- integrate with your organization. Each principal is a structure that
 -- includes the name and the date that it was enabled for integration with
 -- AWS Organizations.
-listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse (Core.Maybe [EnabledServicePrincipal])
-listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {enabledServicePrincipals} -> enabledServicePrincipals) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {enabledServicePrincipals = a} :: ListAWSServiceAccessForOrganizationResponse) Core.. Lens.mapping Lens._Coerce
+listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse (Prelude.Maybe [EnabledServicePrincipal])
+listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {enabledServicePrincipals} -> enabledServicePrincipals) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {enabledServicePrincipals = a} :: ListAWSServiceAccessForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAWSServiceAccessForOrganizationResponse_httpStatus :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse Core.Int
+listAWSServiceAccessForOrganizationResponse_httpStatus :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse Prelude.Int
 listAWSServiceAccessForOrganizationResponse_httpStatus = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {httpStatus} -> httpStatus) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {httpStatus = a} :: ListAWSServiceAccessForOrganizationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListAWSServiceAccessForOrganizationResponse

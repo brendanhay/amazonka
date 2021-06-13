@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +63,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @group-name@ - For Availability Zones, use the Region name. For
@@ -102,19 +103,19 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
     --     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
     --
     -- -   @zone-type@ - The type of zone, for example, @local-zone@.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
-    zoneIds :: Core.Maybe [Core.Text],
+    zoneIds :: Prelude.Maybe [Prelude.Text],
     -- | Include all Availability Zones, Local Zones, and Wavelength Zones
     -- regardless of your opt-in status.
     --
     -- If you do not use this parameter, the results include only the zones for
     -- the Regions where you have chosen the option to opt in.
-    allAvailabilityZones :: Core.Maybe Core.Bool,
+    allAvailabilityZones :: Prelude.Maybe Prelude.Bool,
     -- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
-    zoneNames :: Core.Maybe [Core.Text]
+    zoneNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAvailabilityZones' with all optional fields omitted.
@@ -182,18 +183,19 @@ newDescribeAvailabilityZones ::
   DescribeAvailabilityZones
 newDescribeAvailabilityZones =
   DescribeAvailabilityZones'
-    { dryRun = Core.Nothing,
-      filters = Core.Nothing,
-      zoneIds = Core.Nothing,
-      allAvailabilityZones = Core.Nothing,
-      zoneNames = Core.Nothing
+    { dryRun =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      zoneIds = Prelude.Nothing,
+      allAvailabilityZones = Prelude.Nothing,
+      zoneNames = Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeAvailabilityZones_dryRun :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe Core.Bool)
+describeAvailabilityZones_dryRun :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe Prelude.Bool)
 describeAvailabilityZones_dryRun = Lens.lens (\DescribeAvailabilityZones' {dryRun} -> dryRun) (\s@DescribeAvailabilityZones' {} a -> s {dryRun = a} :: DescribeAvailabilityZones)
 
 -- | The filters.
@@ -235,24 +237,24 @@ describeAvailabilityZones_dryRun = Lens.lens (\DescribeAvailabilityZones' {dryRu
 --     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
 --
 -- -   @zone-type@ - The type of zone, for example, @local-zone@.
-describeAvailabilityZones_filters :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe [Filter])
-describeAvailabilityZones_filters = Lens.lens (\DescribeAvailabilityZones' {filters} -> filters) (\s@DescribeAvailabilityZones' {} a -> s {filters = a} :: DescribeAvailabilityZones) Core.. Lens.mapping Lens._Coerce
+describeAvailabilityZones_filters :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Filter])
+describeAvailabilityZones_filters = Lens.lens (\DescribeAvailabilityZones' {filters} -> filters) (\s@DescribeAvailabilityZones' {} a -> s {filters = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
-describeAvailabilityZones_zoneIds :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe [Core.Text])
-describeAvailabilityZones_zoneIds = Lens.lens (\DescribeAvailabilityZones' {zoneIds} -> zoneIds) (\s@DescribeAvailabilityZones' {} a -> s {zoneIds = a} :: DescribeAvailabilityZones) Core.. Lens.mapping Lens._Coerce
+describeAvailabilityZones_zoneIds :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Prelude.Text])
+describeAvailabilityZones_zoneIds = Lens.lens (\DescribeAvailabilityZones' {zoneIds} -> zoneIds) (\s@DescribeAvailabilityZones' {} a -> s {zoneIds = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Include all Availability Zones, Local Zones, and Wavelength Zones
 -- regardless of your opt-in status.
 --
 -- If you do not use this parameter, the results include only the zones for
 -- the Regions where you have chosen the option to opt in.
-describeAvailabilityZones_allAvailabilityZones :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe Core.Bool)
+describeAvailabilityZones_allAvailabilityZones :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe Prelude.Bool)
 describeAvailabilityZones_allAvailabilityZones = Lens.lens (\DescribeAvailabilityZones' {allAvailabilityZones} -> allAvailabilityZones) (\s@DescribeAvailabilityZones' {} a -> s {allAvailabilityZones = a} :: DescribeAvailabilityZones)
 
 -- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
-describeAvailabilityZones_zoneNames :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe [Core.Text])
-describeAvailabilityZones_zoneNames = Lens.lens (\DescribeAvailabilityZones' {zoneNames} -> zoneNames) (\s@DescribeAvailabilityZones' {} a -> s {zoneNames = a} :: DescribeAvailabilityZones) Core.. Lens.mapping Lens._Coerce
+describeAvailabilityZones_zoneNames :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Prelude.Text])
+describeAvailabilityZones_zoneNames = Lens.lens (\DescribeAvailabilityZones' {zoneNames} -> zoneNames) (\s@DescribeAvailabilityZones' {} a -> s {zoneNames = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeAvailabilityZones where
   type
@@ -263,48 +265,49 @@ instance Core.AWSRequest DescribeAvailabilityZones where
     Response.receiveXML
       ( \s h x ->
           DescribeAvailabilityZonesResponse'
-            Core.<$> ( x Core..@? "availabilityZoneInfo"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "availabilityZoneInfo"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAvailabilityZones
+instance Prelude.Hashable DescribeAvailabilityZones
 
-instance Core.NFData DescribeAvailabilityZones
+instance Prelude.NFData DescribeAvailabilityZones
 
 instance Core.ToHeaders DescribeAvailabilityZones where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeAvailabilityZones where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAvailabilityZones where
   toQuery DescribeAvailabilityZones' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAvailabilityZones" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeAvailabilityZones" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters),
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
-          (Core.toQueryList "ZoneId" Core.<$> zoneIds),
+          (Core.toQueryList "ZoneId" Prelude.<$> zoneIds),
         "AllAvailabilityZones" Core.=: allAvailabilityZones,
         Core.toQuery
-          (Core.toQueryList "ZoneName" Core.<$> zoneNames)
+          (Core.toQueryList "ZoneName" Prelude.<$> zoneNames)
       ]
 
 -- | /See:/ 'newDescribeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
   { -- | Information about the Availability Zones, Local Zones, and Wavelength
     -- Zones.
-    availabilityZones :: Core.Maybe [AvailabilityZone],
+    availabilityZones :: Prelude.Maybe [AvailabilityZone],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAvailabilityZonesResponse' with all optional fields omitted.
@@ -320,24 +323,24 @@ data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
 -- 'httpStatus', 'describeAvailabilityZonesResponse_httpStatus' - The response's http status code.
 newDescribeAvailabilityZonesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAvailabilityZonesResponse
 newDescribeAvailabilityZonesResponse pHttpStatus_ =
   DescribeAvailabilityZonesResponse'
     { availabilityZones =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Availability Zones, Local Zones, and Wavelength
 -- Zones.
-describeAvailabilityZonesResponse_availabilityZones :: Lens.Lens' DescribeAvailabilityZonesResponse (Core.Maybe [AvailabilityZone])
-describeAvailabilityZonesResponse_availabilityZones = Lens.lens (\DescribeAvailabilityZonesResponse' {availabilityZones} -> availabilityZones) (\s@DescribeAvailabilityZonesResponse' {} a -> s {availabilityZones = a} :: DescribeAvailabilityZonesResponse) Core.. Lens.mapping Lens._Coerce
+describeAvailabilityZonesResponse_availabilityZones :: Lens.Lens' DescribeAvailabilityZonesResponse (Prelude.Maybe [AvailabilityZone])
+describeAvailabilityZonesResponse_availabilityZones = Lens.lens (\DescribeAvailabilityZonesResponse' {availabilityZones} -> availabilityZones) (\s@DescribeAvailabilityZonesResponse' {} a -> s {availabilityZones = a} :: DescribeAvailabilityZonesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAvailabilityZonesResponse_httpStatus :: Lens.Lens' DescribeAvailabilityZonesResponse Core.Int
+describeAvailabilityZonesResponse_httpStatus :: Lens.Lens' DescribeAvailabilityZonesResponse Prelude.Int
 describeAvailabilityZonesResponse_httpStatus = Lens.lens (\DescribeAvailabilityZonesResponse' {httpStatus} -> httpStatus) (\s@DescribeAvailabilityZonesResponse' {} a -> s {httpStatus = a} :: DescribeAvailabilityZonesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAvailabilityZonesResponse

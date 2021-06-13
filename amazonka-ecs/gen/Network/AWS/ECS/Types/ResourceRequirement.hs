@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.ResourceRequirement where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.ResourceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type and amount of a resource to assign to a container. The
 -- supported resource types are GPUs and Elastic Inference accelerators.
@@ -43,12 +44,12 @@ data ResourceRequirement = ResourceRequirement'
     --
     -- If the @InferenceAccelerator@ type is used, the @value@ should match the
     -- @deviceName@ for an InferenceAccelerator specified in a task definition.
-    value :: Core.Text,
+    value :: Prelude.Text,
     -- | The type of resource to assign to a container. The supported values are
     -- @GPU@ or @InferenceAccelerator@.
     type' :: ResourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceRequirement' with all optional fields omitted.
@@ -73,7 +74,7 @@ data ResourceRequirement = ResourceRequirement'
 -- @GPU@ or @InferenceAccelerator@.
 newResourceRequirement ::
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   ResourceType ->
   ResourceRequirement
@@ -93,7 +94,7 @@ newResourceRequirement pValue_ pType_ =
 --
 -- If the @InferenceAccelerator@ type is used, the @value@ should match the
 -- @deviceName@ for an InferenceAccelerator specified in a task definition.
-resourceRequirement_value :: Lens.Lens' ResourceRequirement Core.Text
+resourceRequirement_value :: Lens.Lens' ResourceRequirement Prelude.Text
 resourceRequirement_value = Lens.lens (\ResourceRequirement' {value} -> value) (\s@ResourceRequirement' {} a -> s {value = a} :: ResourceRequirement)
 
 -- | The type of resource to assign to a container. The supported values are
@@ -107,18 +108,18 @@ instance Core.FromJSON ResourceRequirement where
       "ResourceRequirement"
       ( \x ->
           ResourceRequirement'
-            Core.<$> (x Core..: "value") Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable ResourceRequirement
+instance Prelude.Hashable ResourceRequirement
 
-instance Core.NFData ResourceRequirement
+instance Prelude.NFData ResourceRequirement
 
 instance Core.ToJSON ResourceRequirement where
   toJSON ResourceRequirement' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("value" Core..= value),
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("value" Core..= value),
+            Prelude.Just ("type" Core..= type')
           ]
       )

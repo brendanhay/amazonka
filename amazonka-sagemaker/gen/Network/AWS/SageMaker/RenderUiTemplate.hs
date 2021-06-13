@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -53,20 +54,20 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newRenderUiTemplate' smart constructor.
 data RenderUiTemplate = RenderUiTemplate'
   { -- | A @Template@ object containing the worker UI template to render.
-    uiTemplate :: Core.Maybe UiTemplate,
+    uiTemplate :: Prelude.Maybe UiTemplate,
     -- | The @HumanTaskUiArn@ of the worker UI that you want to render. Do not
     -- provide a @HumanTaskUiArn@ if you use the @UiTemplate@ parameter.
     --
     -- See a list of available Human Ui Amazon Resource Names (ARNs) in
     -- UiConfig.
-    humanTaskUiArn :: Core.Maybe Core.Text,
+    humanTaskUiArn :: Prelude.Maybe Prelude.Text,
     -- | A @RenderableTask@ object containing a representative task to render.
     task :: RenderableTask,
     -- | The Amazon Resource Name (ARN) that has access to the S3 objects that
     -- are used by the template.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RenderUiTemplate' with all optional fields omitted.
@@ -92,18 +93,18 @@ newRenderUiTemplate ::
   -- | 'task'
   RenderableTask ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   RenderUiTemplate
 newRenderUiTemplate pTask_ pRoleArn_ =
   RenderUiTemplate'
-    { uiTemplate = Core.Nothing,
-      humanTaskUiArn = Core.Nothing,
+    { uiTemplate = Prelude.Nothing,
+      humanTaskUiArn = Prelude.Nothing,
       task = pTask_,
       roleArn = pRoleArn_
     }
 
 -- | A @Template@ object containing the worker UI template to render.
-renderUiTemplate_uiTemplate :: Lens.Lens' RenderUiTemplate (Core.Maybe UiTemplate)
+renderUiTemplate_uiTemplate :: Lens.Lens' RenderUiTemplate (Prelude.Maybe UiTemplate)
 renderUiTemplate_uiTemplate = Lens.lens (\RenderUiTemplate' {uiTemplate} -> uiTemplate) (\s@RenderUiTemplate' {} a -> s {uiTemplate = a} :: RenderUiTemplate)
 
 -- | The @HumanTaskUiArn@ of the worker UI that you want to render. Do not
@@ -111,7 +112,7 @@ renderUiTemplate_uiTemplate = Lens.lens (\RenderUiTemplate' {uiTemplate} -> uiTe
 --
 -- See a list of available Human Ui Amazon Resource Names (ARNs) in
 -- UiConfig.
-renderUiTemplate_humanTaskUiArn :: Lens.Lens' RenderUiTemplate (Core.Maybe Core.Text)
+renderUiTemplate_humanTaskUiArn :: Lens.Lens' RenderUiTemplate (Prelude.Maybe Prelude.Text)
 renderUiTemplate_humanTaskUiArn = Lens.lens (\RenderUiTemplate' {humanTaskUiArn} -> humanTaskUiArn) (\s@RenderUiTemplate' {} a -> s {humanTaskUiArn = a} :: RenderUiTemplate)
 
 -- | A @RenderableTask@ object containing a representative task to render.
@@ -120,7 +121,7 @@ renderUiTemplate_task = Lens.lens (\RenderUiTemplate' {task} -> task) (\s@Render
 
 -- | The Amazon Resource Name (ARN) that has access to the S3 objects that
 -- are used by the template.
-renderUiTemplate_roleArn :: Lens.Lens' RenderUiTemplate Core.Text
+renderUiTemplate_roleArn :: Lens.Lens' RenderUiTemplate Prelude.Text
 renderUiTemplate_roleArn = Lens.lens (\RenderUiTemplate' {roleArn} -> roleArn) (\s@RenderUiTemplate' {} a -> s {roleArn = a} :: RenderUiTemplate)
 
 instance Core.AWSRequest RenderUiTemplate where
@@ -132,55 +133,58 @@ instance Core.AWSRequest RenderUiTemplate where
     Response.receiveJSON
       ( \s h x ->
           RenderUiTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "RenderedContent")
-            Core.<*> (x Core..?> "Errors" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "RenderedContent")
+            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable RenderUiTemplate
+instance Prelude.Hashable RenderUiTemplate
 
-instance Core.NFData RenderUiTemplate
+instance Prelude.NFData RenderUiTemplate
 
 instance Core.ToHeaders RenderUiTemplate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.RenderUiTemplate" :: Core.ByteString),
+              Core.=# ("SageMaker.RenderUiTemplate" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RenderUiTemplate where
   toJSON RenderUiTemplate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("UiTemplate" Core..=) Core.<$> uiTemplate,
-            ("HumanTaskUiArn" Core..=) Core.<$> humanTaskUiArn,
-            Core.Just ("Task" Core..= task),
-            Core.Just ("RoleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ ("UiTemplate" Core..=) Prelude.<$> uiTemplate,
+            ("HumanTaskUiArn" Core..=)
+              Prelude.<$> humanTaskUiArn,
+            Prelude.Just ("Task" Core..= task),
+            Prelude.Just ("RoleArn" Core..= roleArn)
           ]
       )
 
 instance Core.ToPath RenderUiTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RenderUiTemplate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRenderUiTemplateResponse' smart constructor.
 data RenderUiTemplateResponse = RenderUiTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A Liquid template that renders the HTML for the worker UI.
-    renderedContent :: Core.Text,
+    renderedContent :: Prelude.Text,
     -- | A list of one or more @RenderingError@ objects if any were encountered
     -- while rendering the template. If there were no errors, the list is
     -- empty.
     errors :: [RenderingError]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RenderUiTemplateResponse' with all optional fields omitted.
@@ -199,9 +203,9 @@ data RenderUiTemplateResponse = RenderUiTemplateResponse'
 -- empty.
 newRenderUiTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'renderedContent'
-  Core.Text ->
+  Prelude.Text ->
   RenderUiTemplateResponse
 newRenderUiTemplateResponse
   pHttpStatus_
@@ -210,21 +214,21 @@ newRenderUiTemplateResponse
       { httpStatus =
           pHttpStatus_,
         renderedContent = pRenderedContent_,
-        errors = Core.mempty
+        errors = Prelude.mempty
       }
 
 -- | The response's http status code.
-renderUiTemplateResponse_httpStatus :: Lens.Lens' RenderUiTemplateResponse Core.Int
+renderUiTemplateResponse_httpStatus :: Lens.Lens' RenderUiTemplateResponse Prelude.Int
 renderUiTemplateResponse_httpStatus = Lens.lens (\RenderUiTemplateResponse' {httpStatus} -> httpStatus) (\s@RenderUiTemplateResponse' {} a -> s {httpStatus = a} :: RenderUiTemplateResponse)
 
 -- | A Liquid template that renders the HTML for the worker UI.
-renderUiTemplateResponse_renderedContent :: Lens.Lens' RenderUiTemplateResponse Core.Text
+renderUiTemplateResponse_renderedContent :: Lens.Lens' RenderUiTemplateResponse Prelude.Text
 renderUiTemplateResponse_renderedContent = Lens.lens (\RenderUiTemplateResponse' {renderedContent} -> renderedContent) (\s@RenderUiTemplateResponse' {} a -> s {renderedContent = a} :: RenderUiTemplateResponse)
 
 -- | A list of one or more @RenderingError@ objects if any were encountered
 -- while rendering the template. If there were no errors, the list is
 -- empty.
 renderUiTemplateResponse_errors :: Lens.Lens' RenderUiTemplateResponse [RenderingError]
-renderUiTemplateResponse_errors = Lens.lens (\RenderUiTemplateResponse' {errors} -> errors) (\s@RenderUiTemplateResponse' {} a -> s {errors = a} :: RenderUiTemplateResponse) Core.. Lens._Coerce
+renderUiTemplateResponse_errors = Lens.lens (\RenderUiTemplateResponse' {errors} -> errors) (\s@RenderUiTemplateResponse' {} a -> s {errors = a} :: RenderUiTemplateResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData RenderUiTemplateResponse
+instance Prelude.NFData RenderUiTemplateResponse

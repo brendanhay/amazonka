@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,16 +51,16 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateModelPackageGroup' smart constructor.
 data CreateModelPackageGroup = CreateModelPackageGroup'
   { -- | A description for the model group.
-    modelPackageGroupDescription :: Core.Maybe Core.Text,
+    modelPackageGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | A list of key value pairs associated with the model group. For more
     -- information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
     -- in the /AWS General Reference Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the model group.
-    modelPackageGroupName :: Core.Text
+    modelPackageGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateModelPackageGroup' with all optional fields omitted.
@@ -79,29 +80,29 @@ data CreateModelPackageGroup = CreateModelPackageGroup'
 -- 'modelPackageGroupName', 'createModelPackageGroup_modelPackageGroupName' - The name of the model group.
 newCreateModelPackageGroup ::
   -- | 'modelPackageGroupName'
-  Core.Text ->
+  Prelude.Text ->
   CreateModelPackageGroup
 newCreateModelPackageGroup pModelPackageGroupName_ =
   CreateModelPackageGroup'
     { modelPackageGroupDescription =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       modelPackageGroupName = pModelPackageGroupName_
     }
 
 -- | A description for the model group.
-createModelPackageGroup_modelPackageGroupDescription :: Lens.Lens' CreateModelPackageGroup (Core.Maybe Core.Text)
+createModelPackageGroup_modelPackageGroupDescription :: Lens.Lens' CreateModelPackageGroup (Prelude.Maybe Prelude.Text)
 createModelPackageGroup_modelPackageGroupDescription = Lens.lens (\CreateModelPackageGroup' {modelPackageGroupDescription} -> modelPackageGroupDescription) (\s@CreateModelPackageGroup' {} a -> s {modelPackageGroupDescription = a} :: CreateModelPackageGroup)
 
 -- | A list of key value pairs associated with the model group. For more
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
 -- in the /AWS General Reference Guide/.
-createModelPackageGroup_tags :: Lens.Lens' CreateModelPackageGroup (Core.Maybe [Tag])
-createModelPackageGroup_tags = Lens.lens (\CreateModelPackageGroup' {tags} -> tags) (\s@CreateModelPackageGroup' {} a -> s {tags = a} :: CreateModelPackageGroup) Core.. Lens.mapping Lens._Coerce
+createModelPackageGroup_tags :: Lens.Lens' CreateModelPackageGroup (Prelude.Maybe [Tag])
+createModelPackageGroup_tags = Lens.lens (\CreateModelPackageGroup' {tags} -> tags) (\s@CreateModelPackageGroup' {} a -> s {tags = a} :: CreateModelPackageGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the model group.
-createModelPackageGroup_modelPackageGroupName :: Lens.Lens' CreateModelPackageGroup Core.Text
+createModelPackageGroup_modelPackageGroupName :: Lens.Lens' CreateModelPackageGroup Prelude.Text
 createModelPackageGroup_modelPackageGroupName = Lens.lens (\CreateModelPackageGroup' {modelPackageGroupName} -> modelPackageGroupName) (\s@CreateModelPackageGroup' {} a -> s {modelPackageGroupName = a} :: CreateModelPackageGroup)
 
 instance Core.AWSRequest CreateModelPackageGroup where
@@ -113,35 +114,37 @@ instance Core.AWSRequest CreateModelPackageGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateModelPackageGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ModelPackageGroupArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ModelPackageGroupArn")
       )
 
-instance Core.Hashable CreateModelPackageGroup
+instance Prelude.Hashable CreateModelPackageGroup
 
-instance Core.NFData CreateModelPackageGroup
+instance Prelude.NFData CreateModelPackageGroup
 
 instance Core.ToHeaders CreateModelPackageGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.CreateModelPackageGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateModelPackageGroup where
   toJSON CreateModelPackageGroup' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ModelPackageGroupDescription" Core..=)
-              Core.<$> modelPackageGroupDescription,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just
+              Prelude.<$> modelPackageGroupDescription,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ( "ModelPackageGroupName"
                   Core..= modelPackageGroupName
               )
@@ -149,19 +152,19 @@ instance Core.ToJSON CreateModelPackageGroup where
       )
 
 instance Core.ToPath CreateModelPackageGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateModelPackageGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateModelPackageGroupResponse' smart constructor.
 data CreateModelPackageGroupResponse = CreateModelPackageGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the model group.
-    modelPackageGroupArn :: Core.Text
+    modelPackageGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateModelPackageGroupResponse' with all optional fields omitted.
@@ -176,9 +179,9 @@ data CreateModelPackageGroupResponse = CreateModelPackageGroupResponse'
 -- 'modelPackageGroupArn', 'createModelPackageGroupResponse_modelPackageGroupArn' - The Amazon Resource Name (ARN) of the model group.
 newCreateModelPackageGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'modelPackageGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateModelPackageGroupResponse
 newCreateModelPackageGroupResponse
   pHttpStatus_
@@ -191,11 +194,13 @@ newCreateModelPackageGroupResponse
       }
 
 -- | The response's http status code.
-createModelPackageGroupResponse_httpStatus :: Lens.Lens' CreateModelPackageGroupResponse Core.Int
+createModelPackageGroupResponse_httpStatus :: Lens.Lens' CreateModelPackageGroupResponse Prelude.Int
 createModelPackageGroupResponse_httpStatus = Lens.lens (\CreateModelPackageGroupResponse' {httpStatus} -> httpStatus) (\s@CreateModelPackageGroupResponse' {} a -> s {httpStatus = a} :: CreateModelPackageGroupResponse)
 
 -- | The Amazon Resource Name (ARN) of the model group.
-createModelPackageGroupResponse_modelPackageGroupArn :: Lens.Lens' CreateModelPackageGroupResponse Core.Text
+createModelPackageGroupResponse_modelPackageGroupArn :: Lens.Lens' CreateModelPackageGroupResponse Prelude.Text
 createModelPackageGroupResponse_modelPackageGroupArn = Lens.lens (\CreateModelPackageGroupResponse' {modelPackageGroupArn} -> modelPackageGroupArn) (\s@CreateModelPackageGroupResponse' {} a -> s {modelPackageGroupArn = a} :: CreateModelPackageGroupResponse)
 
-instance Core.NFData CreateModelPackageGroupResponse
+instance
+  Prelude.NFData
+    CreateModelPackageGroupResponse

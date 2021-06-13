@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.RequiresRecreation
 import Network.AWS.ServiceCatalog.Types.ResourceAttribute
 
@@ -30,14 +31,14 @@ import Network.AWS.ServiceCatalog.Types.ResourceAttribute
 data ResourceTargetDefinition = ResourceTargetDefinition'
   { -- | If the attribute is @Properties@, indicates whether a change to this
     -- property causes the resource to be re-created.
-    requiresRecreation :: Core.Maybe RequiresRecreation,
+    requiresRecreation :: Prelude.Maybe RequiresRecreation,
     -- | If the attribute is @Properties@, the value is the name of the property.
     -- Otherwise, the value is null.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The attribute to be changed.
-    attribute :: Core.Maybe ResourceAttribute
+    attribute :: Prelude.Maybe ResourceAttribute
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceTargetDefinition' with all optional fields omitted.
@@ -59,23 +60,23 @@ newResourceTargetDefinition ::
 newResourceTargetDefinition =
   ResourceTargetDefinition'
     { requiresRecreation =
-        Core.Nothing,
-      name = Core.Nothing,
-      attribute = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      attribute = Prelude.Nothing
     }
 
 -- | If the attribute is @Properties@, indicates whether a change to this
 -- property causes the resource to be re-created.
-resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Core.Maybe RequiresRecreation)
+resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe RequiresRecreation)
 resourceTargetDefinition_requiresRecreation = Lens.lens (\ResourceTargetDefinition' {requiresRecreation} -> requiresRecreation) (\s@ResourceTargetDefinition' {} a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
 
 -- | If the attribute is @Properties@, the value is the name of the property.
 -- Otherwise, the value is null.
-resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Core.Text)
+resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe Prelude.Text)
 resourceTargetDefinition_name = Lens.lens (\ResourceTargetDefinition' {name} -> name) (\s@ResourceTargetDefinition' {} a -> s {name = a} :: ResourceTargetDefinition)
 
 -- | The attribute to be changed.
-resourceTargetDefinition_attribute :: Lens.Lens' ResourceTargetDefinition (Core.Maybe ResourceAttribute)
+resourceTargetDefinition_attribute :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe ResourceAttribute)
 resourceTargetDefinition_attribute = Lens.lens (\ResourceTargetDefinition' {attribute} -> attribute) (\s@ResourceTargetDefinition' {} a -> s {attribute = a} :: ResourceTargetDefinition)
 
 instance Core.FromJSON ResourceTargetDefinition where
@@ -84,11 +85,11 @@ instance Core.FromJSON ResourceTargetDefinition where
       "ResourceTargetDefinition"
       ( \x ->
           ResourceTargetDefinition'
-            Core.<$> (x Core..:? "RequiresRecreation")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Attribute")
+            Prelude.<$> (x Core..:? "RequiresRecreation")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Attribute")
       )
 
-instance Core.Hashable ResourceTargetDefinition
+instance Prelude.Hashable ResourceTargetDefinition
 
-instance Core.NFData ResourceTargetDefinition
+instance Prelude.NFData ResourceTargetDefinition

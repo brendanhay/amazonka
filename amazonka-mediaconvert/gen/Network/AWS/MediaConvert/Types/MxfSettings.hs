@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.MxfAfdSignaling
 import Network.AWS.MediaConvert.Types.MxfProfile
+import qualified Network.AWS.Prelude as Prelude
 
 -- | MXF settings
 --
@@ -34,7 +35,7 @@ data MxfSettings = MxfSettings'
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/codecs-supported-with-each-mxf-profile.html.
     -- For more information about the automatic selection behavior, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/default-automatic-selection-of-mxf-profiles.html.
-    profile :: Core.Maybe MxfProfile,
+    profile :: Prelude.Maybe MxfProfile,
     -- | Optional. When you have AFD signaling set up in your output video
     -- stream, use this setting to choose whether to also include it in the MXF
     -- wrapper. Choose Don\'t copy (NO_COPY) to exclude AFD signaling from the
@@ -44,9 +45,9 @@ data MxfSettings = MxfSettings'
     -- video stream. Related settings: To set up your output to include or
     -- exclude AFD values, see AfdSignaling, under VideoDescription. On the
     -- console, find AFD signaling under the output\'s video encoding settings.
-    afdSignaling :: Core.Maybe MxfAfdSignaling
+    afdSignaling :: Prelude.Maybe MxfAfdSignaling
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MxfSettings' with all optional fields omitted.
@@ -76,8 +77,8 @@ newMxfSettings ::
   MxfSettings
 newMxfSettings =
   MxfSettings'
-    { profile = Core.Nothing,
-      afdSignaling = Core.Nothing
+    { profile = Prelude.Nothing,
+      afdSignaling = Prelude.Nothing
     }
 
 -- | Specify the MXF profile, also called shim, for this output. When you
@@ -86,7 +87,7 @@ newMxfSettings =
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/codecs-supported-with-each-mxf-profile.html.
 -- For more information about the automatic selection behavior, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/default-automatic-selection-of-mxf-profiles.html.
-mxfSettings_profile :: Lens.Lens' MxfSettings (Core.Maybe MxfProfile)
+mxfSettings_profile :: Lens.Lens' MxfSettings (Prelude.Maybe MxfProfile)
 mxfSettings_profile = Lens.lens (\MxfSettings' {profile} -> profile) (\s@MxfSettings' {} a -> s {profile = a} :: MxfSettings)
 
 -- | Optional. When you have AFD signaling set up in your output video
@@ -98,7 +99,7 @@ mxfSettings_profile = Lens.lens (\MxfSettings' {profile} -> profile) (\s@MxfSett
 -- video stream. Related settings: To set up your output to include or
 -- exclude AFD values, see AfdSignaling, under VideoDescription. On the
 -- console, find AFD signaling under the output\'s video encoding settings.
-mxfSettings_afdSignaling :: Lens.Lens' MxfSettings (Core.Maybe MxfAfdSignaling)
+mxfSettings_afdSignaling :: Lens.Lens' MxfSettings (Prelude.Maybe MxfAfdSignaling)
 mxfSettings_afdSignaling = Lens.lens (\MxfSettings' {afdSignaling} -> afdSignaling) (\s@MxfSettings' {} a -> s {afdSignaling = a} :: MxfSettings)
 
 instance Core.FromJSON MxfSettings where
@@ -107,19 +108,19 @@ instance Core.FromJSON MxfSettings where
       "MxfSettings"
       ( \x ->
           MxfSettings'
-            Core.<$> (x Core..:? "profile")
-            Core.<*> (x Core..:? "afdSignaling")
+            Prelude.<$> (x Core..:? "profile")
+            Prelude.<*> (x Core..:? "afdSignaling")
       )
 
-instance Core.Hashable MxfSettings
+instance Prelude.Hashable MxfSettings
 
-instance Core.NFData MxfSettings
+instance Prelude.NFData MxfSettings
 
 instance Core.ToJSON MxfSettings where
   toJSON MxfSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("profile" Core..=) Core.<$> profile,
-            ("afdSignaling" Core..=) Core.<$> afdSignaling
+      ( Prelude.catMaybes
+          [ ("profile" Core..=) Prelude.<$> profile,
+            ("afdSignaling" Core..=) Prelude.<$> afdSignaling
           ]
       )

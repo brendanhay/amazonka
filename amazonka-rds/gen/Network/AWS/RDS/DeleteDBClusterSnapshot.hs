@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -62,9 +63,9 @@ data DeleteDBClusterSnapshot = DeleteDBClusterSnapshot'
     --
     -- Constraints: Must be the name of an existing DB cluster snapshot in the
     -- @available@ state.
-    dbClusterSnapshotIdentifier :: Core.Text
+    dbClusterSnapshotIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBClusterSnapshot' with all optional fields omitted.
@@ -80,7 +81,7 @@ data DeleteDBClusterSnapshot = DeleteDBClusterSnapshot'
 -- @available@ state.
 newDeleteDBClusterSnapshot ::
   -- | 'dbClusterSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDBClusterSnapshot
 newDeleteDBClusterSnapshot
   pDBClusterSnapshotIdentifier_ =
@@ -93,7 +94,7 @@ newDeleteDBClusterSnapshot
 --
 -- Constraints: Must be the name of an existing DB cluster snapshot in the
 -- @available@ state.
-deleteDBClusterSnapshot_dbClusterSnapshotIdentifier :: Lens.Lens' DeleteDBClusterSnapshot Core.Text
+deleteDBClusterSnapshot_dbClusterSnapshotIdentifier :: Lens.Lens' DeleteDBClusterSnapshot Prelude.Text
 deleteDBClusterSnapshot_dbClusterSnapshotIdentifier = Lens.lens (\DeleteDBClusterSnapshot' {dbClusterSnapshotIdentifier} -> dbClusterSnapshotIdentifier) (\s@DeleteDBClusterSnapshot' {} a -> s {dbClusterSnapshotIdentifier = a} :: DeleteDBClusterSnapshot)
 
 instance Core.AWSRequest DeleteDBClusterSnapshot where
@@ -106,37 +107,38 @@ instance Core.AWSRequest DeleteDBClusterSnapshot where
       "DeleteDBClusterSnapshotResult"
       ( \s h x ->
           DeleteDBClusterSnapshotResponse'
-            Core.<$> (x Core..@? "DBClusterSnapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBClusterSnapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDBClusterSnapshot
+instance Prelude.Hashable DeleteDBClusterSnapshot
 
-instance Core.NFData DeleteDBClusterSnapshot
+instance Prelude.NFData DeleteDBClusterSnapshot
 
 instance Core.ToHeaders DeleteDBClusterSnapshot where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDBClusterSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDBClusterSnapshot where
   toQuery DeleteDBClusterSnapshot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBClusterSnapshot" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeleteDBClusterSnapshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterSnapshotIdentifier"
           Core.=: dbClusterSnapshotIdentifier
       ]
 
 -- | /See:/ 'newDeleteDBClusterSnapshotResponse' smart constructor.
 data DeleteDBClusterSnapshotResponse = DeleteDBClusterSnapshotResponse'
-  { dbClusterSnapshot :: Core.Maybe DBClusterSnapshot,
+  { dbClusterSnapshot :: Prelude.Maybe DBClusterSnapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBClusterSnapshotResponse' with all optional fields omitted.
@@ -151,21 +153,23 @@ data DeleteDBClusterSnapshotResponse = DeleteDBClusterSnapshotResponse'
 -- 'httpStatus', 'deleteDBClusterSnapshotResponse_httpStatus' - The response's http status code.
 newDeleteDBClusterSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDBClusterSnapshotResponse
 newDeleteDBClusterSnapshotResponse pHttpStatus_ =
   DeleteDBClusterSnapshotResponse'
     { dbClusterSnapshot =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteDBClusterSnapshotResponse_dbClusterSnapshot :: Lens.Lens' DeleteDBClusterSnapshotResponse (Core.Maybe DBClusterSnapshot)
+deleteDBClusterSnapshotResponse_dbClusterSnapshot :: Lens.Lens' DeleteDBClusterSnapshotResponse (Prelude.Maybe DBClusterSnapshot)
 deleteDBClusterSnapshotResponse_dbClusterSnapshot = Lens.lens (\DeleteDBClusterSnapshotResponse' {dbClusterSnapshot} -> dbClusterSnapshot) (\s@DeleteDBClusterSnapshotResponse' {} a -> s {dbClusterSnapshot = a} :: DeleteDBClusterSnapshotResponse)
 
 -- | The response's http status code.
-deleteDBClusterSnapshotResponse_httpStatus :: Lens.Lens' DeleteDBClusterSnapshotResponse Core.Int
+deleteDBClusterSnapshotResponse_httpStatus :: Lens.Lens' DeleteDBClusterSnapshotResponse Prelude.Int
 deleteDBClusterSnapshotResponse_httpStatus = Lens.lens (\DeleteDBClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteDBClusterSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteDBClusterSnapshotResponse)
 
-instance Core.NFData DeleteDBClusterSnapshotResponse
+instance
+  Prelude.NFData
+    DeleteDBClusterSnapshotResponse

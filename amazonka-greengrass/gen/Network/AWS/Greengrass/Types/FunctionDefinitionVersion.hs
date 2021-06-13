@@ -23,19 +23,20 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Function
 import Network.AWS.Greengrass.Types.FunctionDefaultConfig
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a function definition version.
 --
 -- /See:/ 'newFunctionDefinitionVersion' smart constructor.
 data FunctionDefinitionVersion = FunctionDefinitionVersion'
   { -- | A list of Lambda functions in this function definition version.
-    functions :: Core.Maybe [Function],
+    functions :: Prelude.Maybe [Function],
     -- | The default configuration that applies to all Lambda functions in this
     -- function definition version. Individual Lambda functions can override
     -- these settings.
-    defaultConfig :: Core.Maybe FunctionDefaultConfig
+    defaultConfig :: Prelude.Maybe FunctionDefaultConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FunctionDefinitionVersion' with all optional fields omitted.
@@ -55,18 +56,18 @@ newFunctionDefinitionVersion ::
 newFunctionDefinitionVersion =
   FunctionDefinitionVersion'
     { functions =
-        Core.Nothing,
-      defaultConfig = Core.Nothing
+        Prelude.Nothing,
+      defaultConfig = Prelude.Nothing
     }
 
 -- | A list of Lambda functions in this function definition version.
-functionDefinitionVersion_functions :: Lens.Lens' FunctionDefinitionVersion (Core.Maybe [Function])
-functionDefinitionVersion_functions = Lens.lens (\FunctionDefinitionVersion' {functions} -> functions) (\s@FunctionDefinitionVersion' {} a -> s {functions = a} :: FunctionDefinitionVersion) Core.. Lens.mapping Lens._Coerce
+functionDefinitionVersion_functions :: Lens.Lens' FunctionDefinitionVersion (Prelude.Maybe [Function])
+functionDefinitionVersion_functions = Lens.lens (\FunctionDefinitionVersion' {functions} -> functions) (\s@FunctionDefinitionVersion' {} a -> s {functions = a} :: FunctionDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The default configuration that applies to all Lambda functions in this
 -- function definition version. Individual Lambda functions can override
 -- these settings.
-functionDefinitionVersion_defaultConfig :: Lens.Lens' FunctionDefinitionVersion (Core.Maybe FunctionDefaultConfig)
+functionDefinitionVersion_defaultConfig :: Lens.Lens' FunctionDefinitionVersion (Prelude.Maybe FunctionDefaultConfig)
 functionDefinitionVersion_defaultConfig = Lens.lens (\FunctionDefinitionVersion' {defaultConfig} -> defaultConfig) (\s@FunctionDefinitionVersion' {} a -> s {defaultConfig = a} :: FunctionDefinitionVersion)
 
 instance Core.FromJSON FunctionDefinitionVersion where
@@ -75,19 +76,19 @@ instance Core.FromJSON FunctionDefinitionVersion where
       "FunctionDefinitionVersion"
       ( \x ->
           FunctionDefinitionVersion'
-            Core.<$> (x Core..:? "Functions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "DefaultConfig")
+            Prelude.<$> (x Core..:? "Functions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DefaultConfig")
       )
 
-instance Core.Hashable FunctionDefinitionVersion
+instance Prelude.Hashable FunctionDefinitionVersion
 
-instance Core.NFData FunctionDefinitionVersion
+instance Prelude.NFData FunctionDefinitionVersion
 
 instance Core.ToJSON FunctionDefinitionVersion where
   toJSON FunctionDefinitionVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Functions" Core..=) Core.<$> functions,
-            ("DefaultConfig" Core..=) Core.<$> defaultConfig
+      ( Prelude.catMaybes
+          [ ("Functions" Core..=) Prelude.<$> functions,
+            ("DefaultConfig" Core..=) Prelude.<$> defaultConfig
           ]
       )

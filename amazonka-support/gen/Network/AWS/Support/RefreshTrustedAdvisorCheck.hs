@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -69,9 +70,9 @@ data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
   { -- | The unique identifier for the Trusted Advisor check to refresh.
     -- __Note:__ Specifying the check ID of a check that is automatically
     -- refreshed causes an @InvalidParameterValue@ error.
-    checkId :: Core.Text
+    checkId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RefreshTrustedAdvisorCheck' with all optional fields omitted.
@@ -86,7 +87,7 @@ data RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
 -- refreshed causes an @InvalidParameterValue@ error.
 newRefreshTrustedAdvisorCheck ::
   -- | 'checkId'
-  Core.Text ->
+  Prelude.Text ->
   RefreshTrustedAdvisorCheck
 newRefreshTrustedAdvisorCheck pCheckId_ =
   RefreshTrustedAdvisorCheck' {checkId = pCheckId_}
@@ -94,7 +95,7 @@ newRefreshTrustedAdvisorCheck pCheckId_ =
 -- | The unique identifier for the Trusted Advisor check to refresh.
 -- __Note:__ Specifying the check ID of a check that is automatically
 -- refreshed causes an @InvalidParameterValue@ error.
-refreshTrustedAdvisorCheck_checkId :: Lens.Lens' RefreshTrustedAdvisorCheck Core.Text
+refreshTrustedAdvisorCheck_checkId :: Lens.Lens' RefreshTrustedAdvisorCheck Prelude.Text
 refreshTrustedAdvisorCheck_checkId = Lens.lens (\RefreshTrustedAdvisorCheck' {checkId} -> checkId) (\s@RefreshTrustedAdvisorCheck' {} a -> s {checkId = a} :: RefreshTrustedAdvisorCheck)
 
 instance Core.AWSRequest RefreshTrustedAdvisorCheck where
@@ -106,51 +107,53 @@ instance Core.AWSRequest RefreshTrustedAdvisorCheck where
     Response.receiveJSON
       ( \s h x ->
           RefreshTrustedAdvisorCheckResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "status")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "status")
       )
 
-instance Core.Hashable RefreshTrustedAdvisorCheck
+instance Prelude.Hashable RefreshTrustedAdvisorCheck
 
-instance Core.NFData RefreshTrustedAdvisorCheck
+instance Prelude.NFData RefreshTrustedAdvisorCheck
 
 instance Core.ToHeaders RefreshTrustedAdvisorCheck where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSSupport_20130415.RefreshTrustedAdvisorCheck" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RefreshTrustedAdvisorCheck where
   toJSON RefreshTrustedAdvisorCheck' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("checkId" Core..= checkId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("checkId" Core..= checkId)]
       )
 
 instance Core.ToPath RefreshTrustedAdvisorCheck where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RefreshTrustedAdvisorCheck where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The current refresh status of a Trusted Advisor check.
 --
 -- /See:/ 'newRefreshTrustedAdvisorCheckResponse' smart constructor.
 data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The current refresh status for a check, including the amount of time
     -- until the check is eligible for refresh.
     status :: TrustedAdvisorCheckRefreshStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RefreshTrustedAdvisorCheckResponse' with all optional fields omitted.
@@ -166,7 +169,7 @@ data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
 -- until the check is eligible for refresh.
 newRefreshTrustedAdvisorCheckResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'status'
   TrustedAdvisorCheckRefreshStatus ->
   RefreshTrustedAdvisorCheckResponse
@@ -180,7 +183,7 @@ newRefreshTrustedAdvisorCheckResponse
       }
 
 -- | The response's http status code.
-refreshTrustedAdvisorCheckResponse_httpStatus :: Lens.Lens' RefreshTrustedAdvisorCheckResponse Core.Int
+refreshTrustedAdvisorCheckResponse_httpStatus :: Lens.Lens' RefreshTrustedAdvisorCheckResponse Prelude.Int
 refreshTrustedAdvisorCheckResponse_httpStatus = Lens.lens (\RefreshTrustedAdvisorCheckResponse' {httpStatus} -> httpStatus) (\s@RefreshTrustedAdvisorCheckResponse' {} a -> s {httpStatus = a} :: RefreshTrustedAdvisorCheckResponse)
 
 -- | The current refresh status for a check, including the amount of time
@@ -189,5 +192,5 @@ refreshTrustedAdvisorCheckResponse_status :: Lens.Lens' RefreshTrustedAdvisorChe
 refreshTrustedAdvisorCheckResponse_status = Lens.lens (\RefreshTrustedAdvisorCheckResponse' {status} -> status) (\s@RefreshTrustedAdvisorCheckResponse' {} a -> s {status = a} :: RefreshTrustedAdvisorCheckResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RefreshTrustedAdvisorCheckResponse

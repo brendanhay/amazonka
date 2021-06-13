@@ -40,15 +40,16 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteEventBus' smart constructor.
 data DeleteEventBus = DeleteEventBus'
   { -- | The name of the event bus to delete.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEventBus' with all optional fields omitted.
@@ -61,13 +62,13 @@ data DeleteEventBus = DeleteEventBus'
 -- 'name', 'deleteEventBus_name' - The name of the event bus to delete.
 newDeleteEventBus ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEventBus
 newDeleteEventBus pName_ =
   DeleteEventBus' {name = pName_}
 
 -- | The name of the event bus to delete.
-deleteEventBus_name :: Lens.Lens' DeleteEventBus Core.Text
+deleteEventBus_name :: Lens.Lens' DeleteEventBus Prelude.Text
 deleteEventBus_name = Lens.lens (\DeleteEventBus' {name} -> name) (\s@DeleteEventBus' {} a -> s {name = a} :: DeleteEventBus)
 
 instance Core.AWSRequest DeleteEventBus where
@@ -78,37 +79,41 @@ instance Core.AWSRequest DeleteEventBus where
   response =
     Response.receiveNull DeleteEventBusResponse'
 
-instance Core.Hashable DeleteEventBus
+instance Prelude.Hashable DeleteEventBus
 
-instance Core.NFData DeleteEventBus
+instance Prelude.NFData DeleteEventBus
 
 instance Core.ToHeaders DeleteEventBus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DeleteEventBus" :: Core.ByteString),
+              Core.=# ("AWSEvents.DeleteEventBus" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteEventBus where
   toJSON DeleteEventBus' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteEventBus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteEventBus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEventBusResponse' smart constructor.
 data DeleteEventBusResponse = DeleteEventBusResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEventBusResponse' with all optional fields omitted.
@@ -118,4 +123,4 @@ newDeleteEventBusResponse ::
   DeleteEventBusResponse
 newDeleteEventBusResponse = DeleteEventBusResponse'
 
-instance Core.NFData DeleteEventBusResponse
+instance Prelude.NFData DeleteEventBusResponse

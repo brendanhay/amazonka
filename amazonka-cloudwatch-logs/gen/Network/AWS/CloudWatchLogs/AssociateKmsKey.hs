@@ -57,21 +57,22 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateKmsKey' smart constructor.
 data AssociateKmsKey = AssociateKmsKey'
   { -- | The name of the log group.
-    logGroupName :: Core.Text,
+    logGroupName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
     -- data. This must be a symmetric CMK. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>
     -- and
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>.
-    kmsKeyId :: Core.Text
+    kmsKeyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateKmsKey' with all optional fields omitted.
@@ -90,9 +91,9 @@ data AssociateKmsKey = AssociateKmsKey'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>.
 newAssociateKmsKey ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'kmsKeyId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateKmsKey
 newAssociateKmsKey pLogGroupName_ pKmsKeyId_ =
   AssociateKmsKey'
@@ -101,7 +102,7 @@ newAssociateKmsKey pLogGroupName_ pKmsKeyId_ =
     }
 
 -- | The name of the log group.
-associateKmsKey_logGroupName :: Lens.Lens' AssociateKmsKey Core.Text
+associateKmsKey_logGroupName :: Lens.Lens' AssociateKmsKey Prelude.Text
 associateKmsKey_logGroupName = Lens.lens (\AssociateKmsKey' {logGroupName} -> logGroupName) (\s@AssociateKmsKey' {} a -> s {logGroupName = a} :: AssociateKmsKey)
 
 -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
@@ -109,7 +110,7 @@ associateKmsKey_logGroupName = Lens.lens (\AssociateKmsKey' {logGroupName} -> lo
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>.
-associateKmsKey_kmsKeyId :: Lens.Lens' AssociateKmsKey Core.Text
+associateKmsKey_kmsKeyId :: Lens.Lens' AssociateKmsKey Prelude.Text
 associateKmsKey_kmsKeyId = Lens.lens (\AssociateKmsKey' {kmsKeyId} -> kmsKeyId) (\s@AssociateKmsKey' {} a -> s {kmsKeyId = a} :: AssociateKmsKey)
 
 instance Core.AWSRequest AssociateKmsKey where
@@ -120,41 +121,45 @@ instance Core.AWSRequest AssociateKmsKey where
   response =
     Response.receiveNull AssociateKmsKeyResponse'
 
-instance Core.Hashable AssociateKmsKey
+instance Prelude.Hashable AssociateKmsKey
 
-instance Core.NFData AssociateKmsKey
+instance Prelude.NFData AssociateKmsKey
 
 instance Core.ToHeaders AssociateKmsKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.AssociateKmsKey" :: Core.ByteString),
+              Core.=# ( "Logs_20140328.AssociateKmsKey" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateKmsKey where
   toJSON AssociateKmsKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("logGroupName" Core..= logGroupName),
-            Core.Just ("kmsKeyId" Core..= kmsKeyId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just ("kmsKeyId" Core..= kmsKeyId)
           ]
       )
 
 instance Core.ToPath AssociateKmsKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateKmsKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateKmsKeyResponse' smart constructor.
 data AssociateKmsKeyResponse = AssociateKmsKeyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateKmsKeyResponse' with all optional fields omitted.
@@ -164,4 +169,4 @@ newAssociateKmsKeyResponse ::
   AssociateKmsKeyResponse
 newAssociateKmsKeyResponse = AssociateKmsKeyResponse'
 
-instance Core.NFData AssociateKmsKeyResponse
+instance Prelude.NFData AssociateKmsKeyResponse

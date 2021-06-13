@@ -25,6 +25,7 @@ import Network.AWS.CertificateManagerPCA.Types.KeyUsage
 import Network.AWS.CertificateManagerPCA.Types.PolicyInformation
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains X.509 extension information for a certificate.
 --
@@ -39,18 +40,18 @@ data Extensions = Extensions'
     -- which the certificate was issued and the purposes for which it may be
     -- used. In a CA certificate, these terms limit the set of policies for
     -- certification paths that include this certificate.
-    certificatePolicies :: Core.Maybe (Core.NonEmpty PolicyInformation),
+    certificatePolicies :: Prelude.Maybe (Prelude.NonEmpty PolicyInformation),
     -- | Specifies additional purposes for which the certified public key may be
     -- used other than basic purposes indicated in the @KeyUsage@ extension.
-    extendedKeyUsage :: Core.Maybe (Core.NonEmpty ExtendedKeyUsage),
+    extendedKeyUsage :: Prelude.Maybe (Prelude.NonEmpty ExtendedKeyUsage),
     -- | The subject alternative name extension allows identities to be bound to
     -- the subject of the certificate. These identities may be included in
     -- addition to or in place of the identity in the subject field of the
     -- certificate.
-    subjectAlternativeNames :: Core.Maybe (Core.NonEmpty GeneralName),
-    keyUsage :: Core.Maybe KeyUsage
+    subjectAlternativeNames :: Prelude.Maybe (Prelude.NonEmpty GeneralName),
+    keyUsage :: Prelude.Maybe KeyUsage
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Extensions' with all optional fields omitted.
@@ -83,10 +84,10 @@ newExtensions ::
   Extensions
 newExtensions =
   Extensions'
-    { certificatePolicies = Core.Nothing,
-      extendedKeyUsage = Core.Nothing,
-      subjectAlternativeNames = Core.Nothing,
-      keyUsage = Core.Nothing
+    { certificatePolicies = Prelude.Nothing,
+      extendedKeyUsage = Prelude.Nothing,
+      subjectAlternativeNames = Prelude.Nothing,
+      keyUsage = Prelude.Nothing
     }
 
 -- | Contains a sequence of one or more policy information terms, each of
@@ -98,39 +99,39 @@ newExtensions =
 -- which the certificate was issued and the purposes for which it may be
 -- used. In a CA certificate, these terms limit the set of policies for
 -- certification paths that include this certificate.
-extensions_certificatePolicies :: Lens.Lens' Extensions (Core.Maybe (Core.NonEmpty PolicyInformation))
-extensions_certificatePolicies = Lens.lens (\Extensions' {certificatePolicies} -> certificatePolicies) (\s@Extensions' {} a -> s {certificatePolicies = a} :: Extensions) Core.. Lens.mapping Lens._Coerce
+extensions_certificatePolicies :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty PolicyInformation))
+extensions_certificatePolicies = Lens.lens (\Extensions' {certificatePolicies} -> certificatePolicies) (\s@Extensions' {} a -> s {certificatePolicies = a} :: Extensions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies additional purposes for which the certified public key may be
 -- used other than basic purposes indicated in the @KeyUsage@ extension.
-extensions_extendedKeyUsage :: Lens.Lens' Extensions (Core.Maybe (Core.NonEmpty ExtendedKeyUsage))
-extensions_extendedKeyUsage = Lens.lens (\Extensions' {extendedKeyUsage} -> extendedKeyUsage) (\s@Extensions' {} a -> s {extendedKeyUsage = a} :: Extensions) Core.. Lens.mapping Lens._Coerce
+extensions_extendedKeyUsage :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty ExtendedKeyUsage))
+extensions_extendedKeyUsage = Lens.lens (\Extensions' {extendedKeyUsage} -> extendedKeyUsage) (\s@Extensions' {} a -> s {extendedKeyUsage = a} :: Extensions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The subject alternative name extension allows identities to be bound to
 -- the subject of the certificate. These identities may be included in
 -- addition to or in place of the identity in the subject field of the
 -- certificate.
-extensions_subjectAlternativeNames :: Lens.Lens' Extensions (Core.Maybe (Core.NonEmpty GeneralName))
-extensions_subjectAlternativeNames = Lens.lens (\Extensions' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@Extensions' {} a -> s {subjectAlternativeNames = a} :: Extensions) Core.. Lens.mapping Lens._Coerce
+extensions_subjectAlternativeNames :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty GeneralName))
+extensions_subjectAlternativeNames = Lens.lens (\Extensions' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@Extensions' {} a -> s {subjectAlternativeNames = a} :: Extensions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-extensions_keyUsage :: Lens.Lens' Extensions (Core.Maybe KeyUsage)
+extensions_keyUsage :: Lens.Lens' Extensions (Prelude.Maybe KeyUsage)
 extensions_keyUsage = Lens.lens (\Extensions' {keyUsage} -> keyUsage) (\s@Extensions' {} a -> s {keyUsage = a} :: Extensions)
 
-instance Core.Hashable Extensions
+instance Prelude.Hashable Extensions
 
-instance Core.NFData Extensions
+instance Prelude.NFData Extensions
 
 instance Core.ToJSON Extensions where
   toJSON Extensions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CertificatePolicies" Core..=)
-              Core.<$> certificatePolicies,
+              Prelude.<$> certificatePolicies,
             ("ExtendedKeyUsage" Core..=)
-              Core.<$> extendedKeyUsage,
+              Prelude.<$> extendedKeyUsage,
             ("SubjectAlternativeNames" Core..=)
-              Core.<$> subjectAlternativeNames,
-            ("KeyUsage" Core..=) Core.<$> keyUsage
+              Prelude.<$> subjectAlternativeNames,
+            ("KeyUsage" Core..=) Prelude.<$> keyUsage
           ]
       )

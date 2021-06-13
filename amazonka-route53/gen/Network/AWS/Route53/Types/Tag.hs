@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A complex type that contains information about a tag that you want to
@@ -42,7 +43,7 @@ data Tag = Tag'
     --     the Amazon Route 53 console, the list of your health checks includes
     --     a __Name__ column that lets you see the name that you\'ve given to
     --     each health check.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value of @Value@ depends on the operation that you want to perform:
     --
     -- -   __Add a tag to a health check or hosted zone__: @Value@ is the value
@@ -50,9 +51,9 @@ data Tag = Tag'
     --
     -- -   __Edit a tag__: @Value@ is the new value that you want to assign the
     --     tag.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -87,7 +88,10 @@ data Tag = Tag'
 newTag ::
   Tag
 newTag =
-  Tag' {key = Core.Nothing, value = Core.Nothing}
+  Tag'
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
+    }
 
 -- | The value of @Key@ depends on the operation that you want to perform:
 --
@@ -103,7 +107,7 @@ newTag =
 --     the Amazon Route 53 console, the list of your health checks includes
 --     a __Name__ column that lets you see the name that you\'ve given to
 --     each health check.
-tag_key :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value of @Value@ depends on the operation that you want to perform:
@@ -113,19 +117,19 @@ tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 --
 -- -   __Edit a tag__: @Value@ is the new value that you want to assign the
 --     tag.
-tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToXML Tag where
   toXML Tag' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Key" Core.@= key, "Value" Core.@= value]

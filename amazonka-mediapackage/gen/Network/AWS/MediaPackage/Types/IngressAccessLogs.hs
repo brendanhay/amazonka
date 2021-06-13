@@ -21,15 +21,16 @@ module Network.AWS.MediaPackage.Types.IngressAccessLogs where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configure ingress access logging.
 --
 -- /See:/ 'newIngressAccessLogs' smart constructor.
 data IngressAccessLogs = IngressAccessLogs'
   { -- | Customize the log group name.
-    logGroupName :: Core.Maybe Core.Text
+    logGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IngressAccessLogs' with all optional fields omitted.
@@ -43,10 +44,10 @@ data IngressAccessLogs = IngressAccessLogs'
 newIngressAccessLogs ::
   IngressAccessLogs
 newIngressAccessLogs =
-  IngressAccessLogs' {logGroupName = Core.Nothing}
+  IngressAccessLogs' {logGroupName = Prelude.Nothing}
 
 -- | Customize the log group name.
-ingressAccessLogs_logGroupName :: Lens.Lens' IngressAccessLogs (Core.Maybe Core.Text)
+ingressAccessLogs_logGroupName :: Lens.Lens' IngressAccessLogs (Prelude.Maybe Prelude.Text)
 ingressAccessLogs_logGroupName = Lens.lens (\IngressAccessLogs' {logGroupName} -> logGroupName) (\s@IngressAccessLogs' {} a -> s {logGroupName = a} :: IngressAccessLogs)
 
 instance Core.FromJSON IngressAccessLogs where
@@ -55,16 +56,16 @@ instance Core.FromJSON IngressAccessLogs where
       "IngressAccessLogs"
       ( \x ->
           IngressAccessLogs'
-            Core.<$> (x Core..:? "logGroupName")
+            Prelude.<$> (x Core..:? "logGroupName")
       )
 
-instance Core.Hashable IngressAccessLogs
+instance Prelude.Hashable IngressAccessLogs
 
-instance Core.NFData IngressAccessLogs
+instance Prelude.NFData IngressAccessLogs
 
 instance Core.ToJSON IngressAccessLogs where
   toJSON IngressAccessLogs' {..} =
     Core.object
-      ( Core.catMaybes
-          [("logGroupName" Core..=) Core.<$> logGroupName]
+      ( Prelude.catMaybes
+          [("logGroupName" Core..=) Prelude.<$> logGroupName]
       )

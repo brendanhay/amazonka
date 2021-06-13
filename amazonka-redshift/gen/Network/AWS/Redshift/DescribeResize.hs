@@ -62,6 +62,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -75,9 +76,9 @@ data DescribeResize = DescribeResize'
     --
     -- By default, resize operations for all clusters defined for an AWS
     -- account are returned.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeResize' with all optional fields omitted.
@@ -94,7 +95,7 @@ data DescribeResize = DescribeResize'
 -- account are returned.
 newDescribeResize ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DescribeResize
 newDescribeResize pClusterIdentifier_ =
   DescribeResize'
@@ -107,7 +108,7 @@ newDescribeResize pClusterIdentifier_ =
 --
 -- By default, resize operations for all clusters defined for an AWS
 -- account are returned.
-describeResize_clusterIdentifier :: Lens.Lens' DescribeResize Core.Text
+describeResize_clusterIdentifier :: Lens.Lens' DescribeResize Prelude.Text
 describeResize_clusterIdentifier = Lens.lens (\DescribeResize' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeResize' {} a -> s {clusterIdentifier = a} :: DescribeResize)
 
 instance Core.AWSRequest DescribeResize where
@@ -120,21 +121,22 @@ instance Core.AWSRequest DescribeResize where
       "DescribeResizeResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable DescribeResize
+instance Prelude.Hashable DescribeResize
 
-instance Core.NFData DescribeResize
+instance Prelude.NFData DescribeResize
 
 instance Core.ToHeaders DescribeResize where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeResize where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeResize where
   toQuery DescribeResize' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeResize" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DescribeResize" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]

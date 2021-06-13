@@ -21,19 +21,20 @@ module Network.AWS.Inspector.Types.InspectorServiceAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used in the Finding data type.
 --
 -- /See:/ 'newInspectorServiceAttributes' smart constructor.
 data InspectorServiceAttributes = InspectorServiceAttributes'
   { -- | The ARN of the rules package that is used to generate the finding.
-    rulesPackageArn :: Core.Maybe Core.Text,
+    rulesPackageArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the assessment run during which the finding is generated.
-    assessmentRunArn :: Core.Maybe Core.Text,
+    assessmentRunArn :: Prelude.Maybe Prelude.Text,
     -- | The schema version of this data type.
-    schemaVersion :: Core.Natural
+    schemaVersion :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InspectorServiceAttributes' with all optional fields omitted.
@@ -50,26 +51,26 @@ data InspectorServiceAttributes = InspectorServiceAttributes'
 -- 'schemaVersion', 'inspectorServiceAttributes_schemaVersion' - The schema version of this data type.
 newInspectorServiceAttributes ::
   -- | 'schemaVersion'
-  Core.Natural ->
+  Prelude.Natural ->
   InspectorServiceAttributes
 newInspectorServiceAttributes pSchemaVersion_ =
   InspectorServiceAttributes'
     { rulesPackageArn =
-        Core.Nothing,
-      assessmentRunArn = Core.Nothing,
+        Prelude.Nothing,
+      assessmentRunArn = Prelude.Nothing,
       schemaVersion = pSchemaVersion_
     }
 
 -- | The ARN of the rules package that is used to generate the finding.
-inspectorServiceAttributes_rulesPackageArn :: Lens.Lens' InspectorServiceAttributes (Core.Maybe Core.Text)
+inspectorServiceAttributes_rulesPackageArn :: Lens.Lens' InspectorServiceAttributes (Prelude.Maybe Prelude.Text)
 inspectorServiceAttributes_rulesPackageArn = Lens.lens (\InspectorServiceAttributes' {rulesPackageArn} -> rulesPackageArn) (\s@InspectorServiceAttributes' {} a -> s {rulesPackageArn = a} :: InspectorServiceAttributes)
 
 -- | The ARN of the assessment run during which the finding is generated.
-inspectorServiceAttributes_assessmentRunArn :: Lens.Lens' InspectorServiceAttributes (Core.Maybe Core.Text)
+inspectorServiceAttributes_assessmentRunArn :: Lens.Lens' InspectorServiceAttributes (Prelude.Maybe Prelude.Text)
 inspectorServiceAttributes_assessmentRunArn = Lens.lens (\InspectorServiceAttributes' {assessmentRunArn} -> assessmentRunArn) (\s@InspectorServiceAttributes' {} a -> s {assessmentRunArn = a} :: InspectorServiceAttributes)
 
 -- | The schema version of this data type.
-inspectorServiceAttributes_schemaVersion :: Lens.Lens' InspectorServiceAttributes Core.Natural
+inspectorServiceAttributes_schemaVersion :: Lens.Lens' InspectorServiceAttributes Prelude.Natural
 inspectorServiceAttributes_schemaVersion = Lens.lens (\InspectorServiceAttributes' {schemaVersion} -> schemaVersion) (\s@InspectorServiceAttributes' {} a -> s {schemaVersion = a} :: InspectorServiceAttributes)
 
 instance Core.FromJSON InspectorServiceAttributes where
@@ -78,11 +79,11 @@ instance Core.FromJSON InspectorServiceAttributes where
       "InspectorServiceAttributes"
       ( \x ->
           InspectorServiceAttributes'
-            Core.<$> (x Core..:? "rulesPackageArn")
-            Core.<*> (x Core..:? "assessmentRunArn")
-            Core.<*> (x Core..: "schemaVersion")
+            Prelude.<$> (x Core..:? "rulesPackageArn")
+            Prelude.<*> (x Core..:? "assessmentRunArn")
+            Prelude.<*> (x Core..: "schemaVersion")
       )
 
-instance Core.Hashable InspectorServiceAttributes
+instance Prelude.Hashable InspectorServiceAttributes
 
-instance Core.NFData InspectorServiceAttributes
+instance Prelude.NFData InspectorServiceAttributes

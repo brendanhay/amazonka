@@ -22,6 +22,7 @@ module Network.AWS.LexRuntime.Types.ActiveContext where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.ActiveContextTimeToLive
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A context is a variable that contains information about the current
 -- state of the conversation between a user and Amazon Lex. Context can be
@@ -32,14 +33,14 @@ import Network.AWS.LexRuntime.Types.ActiveContextTimeToLive
 -- /See:/ 'newActiveContext' smart constructor.
 data ActiveContext = ActiveContext'
   { -- | The name of the context.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The length of time or number of turns that a context remains active.
     timeToLive :: ActiveContextTimeToLive,
     -- | State variables for the current context. You can use these values as
     -- default values for slots in subsequent events.
-    parameters :: Core.HashMap Core.Text (Core.Sensitive Core.Text)
+    parameters :: Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActiveContext' with all optional fields omitted.
@@ -57,7 +58,7 @@ data ActiveContext = ActiveContext'
 -- default values for slots in subsequent events.
 newActiveContext ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'timeToLive'
   ActiveContextTimeToLive ->
   ActiveContext
@@ -65,11 +66,11 @@ newActiveContext pName_ pTimeToLive_ =
   ActiveContext'
     { name = pName_,
       timeToLive = pTimeToLive_,
-      parameters = Core.mempty
+      parameters = Prelude.mempty
     }
 
 -- | The name of the context.
-activeContext_name :: Lens.Lens' ActiveContext Core.Text
+activeContext_name :: Lens.Lens' ActiveContext Prelude.Text
 activeContext_name = Lens.lens (\ActiveContext' {name} -> name) (\s@ActiveContext' {} a -> s {name = a} :: ActiveContext)
 
 -- | The length of time or number of turns that a context remains active.
@@ -78,8 +79,8 @@ activeContext_timeToLive = Lens.lens (\ActiveContext' {timeToLive} -> timeToLive
 
 -- | State variables for the current context. You can use these values as
 -- default values for slots in subsequent events.
-activeContext_parameters :: Lens.Lens' ActiveContext (Core.HashMap Core.Text Core.Text)
-activeContext_parameters = Lens.lens (\ActiveContext' {parameters} -> parameters) (\s@ActiveContext' {} a -> s {parameters = a} :: ActiveContext) Core.. Lens._Coerce
+activeContext_parameters :: Lens.Lens' ActiveContext (Prelude.HashMap Prelude.Text Prelude.Text)
+activeContext_parameters = Lens.lens (\ActiveContext' {parameters} -> parameters) (\s@ActiveContext' {} a -> s {parameters = a} :: ActiveContext) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ActiveContext where
   parseJSON =
@@ -87,21 +88,21 @@ instance Core.FromJSON ActiveContext where
       "ActiveContext"
       ( \x ->
           ActiveContext'
-            Core.<$> (x Core..: "name")
-            Core.<*> (x Core..: "timeToLive")
-            Core.<*> (x Core..:? "parameters" Core..!= Core.mempty)
+            Prelude.<$> (x Core..: "name")
+            Prelude.<*> (x Core..: "timeToLive")
+            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ActiveContext
+instance Prelude.Hashable ActiveContext
 
-instance Core.NFData ActiveContext
+instance Prelude.NFData ActiveContext
 
 instance Core.ToJSON ActiveContext where
   toJSON ActiveContext' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("timeToLive" Core..= timeToLive),
-            Core.Just ("parameters" Core..= parameters)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just ("timeToLive" Core..= timeToLive),
+            Prelude.Just ("parameters" Core..= parameters)
           ]
       )

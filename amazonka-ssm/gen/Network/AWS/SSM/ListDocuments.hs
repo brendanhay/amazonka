@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,11 +57,11 @@ import Network.AWS.SSM.Types
 data ListDocuments = ListDocuments'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more @DocumentKeyValuesFilter@ objects. Use a filter to return a
     -- more specific list of results. For keys, you can specify one or more
     -- key-value pair tags that have been applied to a document. Other valid
@@ -72,11 +73,11 @@ data ListDocuments = ListDocuments'
     -- This API action only supports filtering documents by using a single tag
     -- key and one or more tag values. For example:
     -- @Key=tag:tagName,Values=valueName1,valueName2@
-    filters :: Core.Maybe [DocumentKeyValuesFilter],
+    filters :: Prelude.Maybe [DocumentKeyValuesFilter],
     -- | This data type is deprecated. Instead, use @Filters@.
-    documentFilterList :: Core.Maybe (Core.NonEmpty DocumentFilter)
+    documentFilterList :: Prelude.Maybe (Prelude.NonEmpty DocumentFilter)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDocuments' with all optional fields omitted.
@@ -110,21 +111,21 @@ newListDocuments ::
   ListDocuments
 newListDocuments =
   ListDocuments'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing,
-      documentFilterList = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      documentFilterList = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-listDocuments_nextToken :: Lens.Lens' ListDocuments (Core.Maybe Core.Text)
+listDocuments_nextToken :: Lens.Lens' ListDocuments (Prelude.Maybe Prelude.Text)
 listDocuments_nextToken = Lens.lens (\ListDocuments' {nextToken} -> nextToken) (\s@ListDocuments' {} a -> s {nextToken = a} :: ListDocuments)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-listDocuments_maxResults :: Lens.Lens' ListDocuments (Core.Maybe Core.Natural)
+listDocuments_maxResults :: Lens.Lens' ListDocuments (Prelude.Maybe Prelude.Natural)
 listDocuments_maxResults = Lens.lens (\ListDocuments' {maxResults} -> maxResults) (\s@ListDocuments' {} a -> s {maxResults = a} :: ListDocuments)
 
 -- | One or more @DocumentKeyValuesFilter@ objects. Use a filter to return a
@@ -138,32 +139,32 @@ listDocuments_maxResults = Lens.lens (\ListDocuments' {maxResults} -> maxResults
 -- This API action only supports filtering documents by using a single tag
 -- key and one or more tag values. For example:
 -- @Key=tag:tagName,Values=valueName1,valueName2@
-listDocuments_filters :: Lens.Lens' ListDocuments (Core.Maybe [DocumentKeyValuesFilter])
-listDocuments_filters = Lens.lens (\ListDocuments' {filters} -> filters) (\s@ListDocuments' {} a -> s {filters = a} :: ListDocuments) Core.. Lens.mapping Lens._Coerce
+listDocuments_filters :: Lens.Lens' ListDocuments (Prelude.Maybe [DocumentKeyValuesFilter])
+listDocuments_filters = Lens.lens (\ListDocuments' {filters} -> filters) (\s@ListDocuments' {} a -> s {filters = a} :: ListDocuments) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This data type is deprecated. Instead, use @Filters@.
-listDocuments_documentFilterList :: Lens.Lens' ListDocuments (Core.Maybe (Core.NonEmpty DocumentFilter))
-listDocuments_documentFilterList = Lens.lens (\ListDocuments' {documentFilterList} -> documentFilterList) (\s@ListDocuments' {} a -> s {documentFilterList = a} :: ListDocuments) Core.. Lens.mapping Lens._Coerce
+listDocuments_documentFilterList :: Lens.Lens' ListDocuments (Prelude.Maybe (Prelude.NonEmpty DocumentFilter))
+listDocuments_documentFilterList = Lens.lens (\ListDocuments' {documentFilterList} -> documentFilterList) (\s@ListDocuments' {} a -> s {documentFilterList = a} :: ListDocuments) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListDocuments where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDocumentsResponse_nextToken Core.. Lens._Just
+            Lens.^? listDocumentsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDocumentsResponse_documentIdentifiers
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDocuments_nextToken
+          Prelude.& listDocuments_nextToken
           Lens..~ rs
-          Lens.^? listDocumentsResponse_nextToken Core.. Lens._Just
+          Lens.^? listDocumentsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDocuments where
   type
@@ -174,57 +175,59 @@ instance Core.AWSRequest ListDocuments where
     Response.receiveJSON
       ( \s h x ->
           ListDocumentsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "DocumentIdentifiers"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "DocumentIdentifiers"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDocuments
+instance Prelude.Hashable ListDocuments
 
-instance Core.NFData ListDocuments
+instance Prelude.NFData ListDocuments
 
 instance Core.ToHeaders ListDocuments where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ListDocuments" :: Core.ByteString),
+              Core.=# ("AmazonSSM.ListDocuments" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListDocuments where
   toJSON ListDocuments' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("DocumentFilterList" Core..=)
-              Core.<$> documentFilterList
+              Prelude.<$> documentFilterList
           ]
       )
 
 instance Core.ToPath ListDocuments where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListDocuments where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDocumentsResponse' smart constructor.
 data ListDocumentsResponse = ListDocumentsResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The names of the Systems Manager documents.
-    documentIdentifiers :: Core.Maybe [DocumentIdentifier],
+    documentIdentifiers :: Prelude.Maybe [DocumentIdentifier],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDocumentsResponse' with all optional fields omitted.
@@ -242,26 +245,26 @@ data ListDocumentsResponse = ListDocumentsResponse'
 -- 'httpStatus', 'listDocumentsResponse_httpStatus' - The response's http status code.
 newListDocumentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDocumentsResponse
 newListDocumentsResponse pHttpStatus_ =
   ListDocumentsResponse'
-    { nextToken = Core.Nothing,
-      documentIdentifiers = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      documentIdentifiers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-listDocumentsResponse_nextToken :: Lens.Lens' ListDocumentsResponse (Core.Maybe Core.Text)
+listDocumentsResponse_nextToken :: Lens.Lens' ListDocumentsResponse (Prelude.Maybe Prelude.Text)
 listDocumentsResponse_nextToken = Lens.lens (\ListDocumentsResponse' {nextToken} -> nextToken) (\s@ListDocumentsResponse' {} a -> s {nextToken = a} :: ListDocumentsResponse)
 
 -- | The names of the Systems Manager documents.
-listDocumentsResponse_documentIdentifiers :: Lens.Lens' ListDocumentsResponse (Core.Maybe [DocumentIdentifier])
-listDocumentsResponse_documentIdentifiers = Lens.lens (\ListDocumentsResponse' {documentIdentifiers} -> documentIdentifiers) (\s@ListDocumentsResponse' {} a -> s {documentIdentifiers = a} :: ListDocumentsResponse) Core.. Lens.mapping Lens._Coerce
+listDocumentsResponse_documentIdentifiers :: Lens.Lens' ListDocumentsResponse (Prelude.Maybe [DocumentIdentifier])
+listDocumentsResponse_documentIdentifiers = Lens.lens (\ListDocumentsResponse' {documentIdentifiers} -> documentIdentifiers) (\s@ListDocumentsResponse' {} a -> s {documentIdentifiers = a} :: ListDocumentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDocumentsResponse_httpStatus :: Lens.Lens' ListDocumentsResponse Core.Int
+listDocumentsResponse_httpStatus :: Lens.Lens' ListDocumentsResponse Prelude.Int
 listDocumentsResponse_httpStatus = Lens.lens (\ListDocumentsResponse' {httpStatus} -> httpStatus) (\s@ListDocumentsResponse' {} a -> s {httpStatus = a} :: ListDocumentsResponse)
 
-instance Core.NFData ListDocumentsResponse
+instance Prelude.NFData ListDocumentsResponse

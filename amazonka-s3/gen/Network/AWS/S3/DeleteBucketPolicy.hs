@@ -61,6 +61,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -70,11 +71,11 @@ data DeleteBucketPolicy = DeleteBucketPolicy'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketPolicy' with all optional fields omitted.
@@ -96,14 +97,14 @@ newDeleteBucketPolicy ::
 newDeleteBucketPolicy pBucket_ =
   DeleteBucketPolicy'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketPolicy_expectedBucketOwner :: Lens.Lens' DeleteBucketPolicy (Core.Maybe Core.Text)
+deleteBucketPolicy_expectedBucketOwner :: Lens.Lens' DeleteBucketPolicy (Prelude.Maybe Prelude.Text)
 deleteBucketPolicy_expectedBucketOwner = Lens.lens (\DeleteBucketPolicy' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketPolicy' {} a -> s {expectedBucketOwner = a} :: DeleteBucketPolicy)
 
 -- | The bucket name.
@@ -118,29 +119,29 @@ instance Core.AWSRequest DeleteBucketPolicy where
   response =
     Response.receiveNull DeleteBucketPolicyResponse'
 
-instance Core.Hashable DeleteBucketPolicy
+instance Prelude.Hashable DeleteBucketPolicy
 
-instance Core.NFData DeleteBucketPolicy
+instance Prelude.NFData DeleteBucketPolicy
 
 instance Core.ToHeaders DeleteBucketPolicy where
   toHeaders DeleteBucketPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath DeleteBucketPolicy where
   toPath DeleteBucketPolicy' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery DeleteBucketPolicy where
-  toQuery = Core.const (Core.mconcat ["policy"])
+  toQuery = Prelude.const (Prelude.mconcat ["policy"])
 
 -- | /See:/ 'newDeleteBucketPolicyResponse' smart constructor.
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketPolicyResponse' with all optional fields omitted.
@@ -151,4 +152,4 @@ newDeleteBucketPolicyResponse ::
 newDeleteBucketPolicyResponse =
   DeleteBucketPolicyResponse'
 
-instance Core.NFData DeleteBucketPolicyResponse
+instance Prelude.NFData DeleteBucketPolicyResponse

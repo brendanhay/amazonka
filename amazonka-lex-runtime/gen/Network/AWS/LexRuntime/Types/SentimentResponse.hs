@@ -21,6 +21,7 @@ module Network.AWS.LexRuntime.Types.SentimentResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The sentiment expressed in an utterance.
 --
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSentimentResponse' smart constructor.
 data SentimentResponse = SentimentResponse'
   { -- | The likelihood that the sentiment was correctly inferred.
-    sentimentScore :: Core.Maybe Core.Text,
+    sentimentScore :: Prelude.Maybe Prelude.Text,
     -- | The inferred sentiment that Amazon Comprehend has the highest confidence
     -- in.
-    sentimentLabel :: Core.Maybe Core.Text
+    sentimentLabel :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SentimentResponse' with all optional fields omitted.
@@ -54,17 +55,18 @@ newSentimentResponse ::
   SentimentResponse
 newSentimentResponse =
   SentimentResponse'
-    { sentimentScore = Core.Nothing,
-      sentimentLabel = Core.Nothing
+    { sentimentScore =
+        Prelude.Nothing,
+      sentimentLabel = Prelude.Nothing
     }
 
 -- | The likelihood that the sentiment was correctly inferred.
-sentimentResponse_sentimentScore :: Lens.Lens' SentimentResponse (Core.Maybe Core.Text)
+sentimentResponse_sentimentScore :: Lens.Lens' SentimentResponse (Prelude.Maybe Prelude.Text)
 sentimentResponse_sentimentScore = Lens.lens (\SentimentResponse' {sentimentScore} -> sentimentScore) (\s@SentimentResponse' {} a -> s {sentimentScore = a} :: SentimentResponse)
 
 -- | The inferred sentiment that Amazon Comprehend has the highest confidence
 -- in.
-sentimentResponse_sentimentLabel :: Lens.Lens' SentimentResponse (Core.Maybe Core.Text)
+sentimentResponse_sentimentLabel :: Lens.Lens' SentimentResponse (Prelude.Maybe Prelude.Text)
 sentimentResponse_sentimentLabel = Lens.lens (\SentimentResponse' {sentimentLabel} -> sentimentLabel) (\s@SentimentResponse' {} a -> s {sentimentLabel = a} :: SentimentResponse)
 
 instance Core.FromJSON SentimentResponse where
@@ -73,10 +75,10 @@ instance Core.FromJSON SentimentResponse where
       "SentimentResponse"
       ( \x ->
           SentimentResponse'
-            Core.<$> (x Core..:? "sentimentScore")
-            Core.<*> (x Core..:? "sentimentLabel")
+            Prelude.<$> (x Core..:? "sentimentScore")
+            Prelude.<*> (x Core..:? "sentimentLabel")
       )
 
-instance Core.Hashable SentimentResponse
+instance Prelude.Hashable SentimentResponse
 
-instance Core.NFData SentimentResponse
+instance Prelude.NFData SentimentResponse

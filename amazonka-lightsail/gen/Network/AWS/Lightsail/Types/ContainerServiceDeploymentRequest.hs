@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.Container
 import Network.AWS.Lightsail.Types.EndpointRequest
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a container deployment configuration of an Amazon Lightsail
 -- container service.
@@ -33,12 +34,12 @@ import Network.AWS.Lightsail.Types.EndpointRequest
 -- /See:/ 'newContainerServiceDeploymentRequest' smart constructor.
 data ContainerServiceDeploymentRequest = ContainerServiceDeploymentRequest'
   { -- | An object that describes the endpoint of the deployment.
-    publicEndpoint :: Core.Maybe EndpointRequest,
+    publicEndpoint :: Prelude.Maybe EndpointRequest,
     -- | An object that describes the configuration for the containers of the
     -- deployment.
-    containers :: Core.Maybe (Core.HashMap Core.Text Container)
+    containers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Container)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerServiceDeploymentRequest' with all optional fields omitted.
@@ -57,25 +58,25 @@ newContainerServiceDeploymentRequest ::
 newContainerServiceDeploymentRequest =
   ContainerServiceDeploymentRequest'
     { publicEndpoint =
-        Core.Nothing,
-      containers = Core.Nothing
+        Prelude.Nothing,
+      containers = Prelude.Nothing
     }
 
 -- | An object that describes the endpoint of the deployment.
-containerServiceDeploymentRequest_publicEndpoint :: Lens.Lens' ContainerServiceDeploymentRequest (Core.Maybe EndpointRequest)
+containerServiceDeploymentRequest_publicEndpoint :: Lens.Lens' ContainerServiceDeploymentRequest (Prelude.Maybe EndpointRequest)
 containerServiceDeploymentRequest_publicEndpoint = Lens.lens (\ContainerServiceDeploymentRequest' {publicEndpoint} -> publicEndpoint) (\s@ContainerServiceDeploymentRequest' {} a -> s {publicEndpoint = a} :: ContainerServiceDeploymentRequest)
 
 -- | An object that describes the configuration for the containers of the
 -- deployment.
-containerServiceDeploymentRequest_containers :: Lens.Lens' ContainerServiceDeploymentRequest (Core.Maybe (Core.HashMap Core.Text Container))
-containerServiceDeploymentRequest_containers = Lens.lens (\ContainerServiceDeploymentRequest' {containers} -> containers) (\s@ContainerServiceDeploymentRequest' {} a -> s {containers = a} :: ContainerServiceDeploymentRequest) Core.. Lens.mapping Lens._Coerce
+containerServiceDeploymentRequest_containers :: Lens.Lens' ContainerServiceDeploymentRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Container))
+containerServiceDeploymentRequest_containers = Lens.lens (\ContainerServiceDeploymentRequest' {containers} -> containers) (\s@ContainerServiceDeploymentRequest' {} a -> s {containers = a} :: ContainerServiceDeploymentRequest) Prelude.. Lens.mapping Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ContainerServiceDeploymentRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     ContainerServiceDeploymentRequest
 
 instance
@@ -84,8 +85,9 @@ instance
   where
   toJSON ContainerServiceDeploymentRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("publicEndpoint" Core..=) Core.<$> publicEndpoint,
-            ("containers" Core..=) Core.<$> containers
+      ( Prelude.catMaybes
+          [ ("publicEndpoint" Core..=)
+              Prelude.<$> publicEndpoint,
+            ("containers" Core..=) Prelude.<$> containers
           ]
       )

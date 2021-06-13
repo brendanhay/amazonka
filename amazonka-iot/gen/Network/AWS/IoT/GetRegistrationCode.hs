@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data GetRegistrationCode = GetRegistrationCode'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRegistrationCode' with all optional fields omitted.
@@ -67,33 +68,33 @@ instance Core.AWSRequest GetRegistrationCode where
     Response.receiveJSON
       ( \s h x ->
           GetRegistrationCodeResponse'
-            Core.<$> (x Core..?> "registrationCode")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "registrationCode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRegistrationCode
+instance Prelude.Hashable GetRegistrationCode
 
-instance Core.NFData GetRegistrationCode
+instance Prelude.NFData GetRegistrationCode
 
 instance Core.ToHeaders GetRegistrationCode where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetRegistrationCode where
-  toPath = Core.const "/registrationcode"
+  toPath = Prelude.const "/registrationcode"
 
 instance Core.ToQuery GetRegistrationCode where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the GetRegistrationCode operation.
 --
 -- /See:/ 'newGetRegistrationCodeResponse' smart constructor.
 data GetRegistrationCodeResponse = GetRegistrationCodeResponse'
   { -- | The CA certificate registration code.
-    registrationCode :: Core.Maybe Core.Text,
+    registrationCode :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRegistrationCodeResponse' with all optional fields omitted.
@@ -108,21 +109,21 @@ data GetRegistrationCodeResponse = GetRegistrationCodeResponse'
 -- 'httpStatus', 'getRegistrationCodeResponse_httpStatus' - The response's http status code.
 newGetRegistrationCodeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRegistrationCodeResponse
 newGetRegistrationCodeResponse pHttpStatus_ =
   GetRegistrationCodeResponse'
     { registrationCode =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The CA certificate registration code.
-getRegistrationCodeResponse_registrationCode :: Lens.Lens' GetRegistrationCodeResponse (Core.Maybe Core.Text)
+getRegistrationCodeResponse_registrationCode :: Lens.Lens' GetRegistrationCodeResponse (Prelude.Maybe Prelude.Text)
 getRegistrationCodeResponse_registrationCode = Lens.lens (\GetRegistrationCodeResponse' {registrationCode} -> registrationCode) (\s@GetRegistrationCodeResponse' {} a -> s {registrationCode = a} :: GetRegistrationCodeResponse)
 
 -- | The response's http status code.
-getRegistrationCodeResponse_httpStatus :: Lens.Lens' GetRegistrationCodeResponse Core.Int
+getRegistrationCodeResponse_httpStatus :: Lens.Lens' GetRegistrationCodeResponse Prelude.Int
 getRegistrationCodeResponse_httpStatus = Lens.lens (\GetRegistrationCodeResponse' {httpStatus} -> httpStatus) (\s@GetRegistrationCodeResponse' {} a -> s {httpStatus = a} :: GetRegistrationCodeResponse)
 
-instance Core.NFData GetRegistrationCodeResponse
+instance Prelude.NFData GetRegistrationCodeResponse

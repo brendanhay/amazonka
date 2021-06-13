@@ -47,15 +47,16 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateKmsKey' smart constructor.
 data DisassociateKmsKey = DisassociateKmsKey'
   { -- | The name of the log group.
-    logGroupName :: Core.Text
+    logGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateKmsKey' with all optional fields omitted.
@@ -68,13 +69,13 @@ data DisassociateKmsKey = DisassociateKmsKey'
 -- 'logGroupName', 'disassociateKmsKey_logGroupName' - The name of the log group.
 newDisassociateKmsKey ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateKmsKey
 newDisassociateKmsKey pLogGroupName_ =
   DisassociateKmsKey' {logGroupName = pLogGroupName_}
 
 -- | The name of the log group.
-disassociateKmsKey_logGroupName :: Lens.Lens' DisassociateKmsKey Core.Text
+disassociateKmsKey_logGroupName :: Lens.Lens' DisassociateKmsKey Prelude.Text
 disassociateKmsKey_logGroupName = Lens.lens (\DisassociateKmsKey' {logGroupName} -> logGroupName) (\s@DisassociateKmsKey' {} a -> s {logGroupName = a} :: DisassociateKmsKey)
 
 instance Core.AWSRequest DisassociateKmsKey where
@@ -85,41 +86,43 @@ instance Core.AWSRequest DisassociateKmsKey where
   response =
     Response.receiveNull DisassociateKmsKeyResponse'
 
-instance Core.Hashable DisassociateKmsKey
+instance Prelude.Hashable DisassociateKmsKey
 
-instance Core.NFData DisassociateKmsKey
+instance Prelude.NFData DisassociateKmsKey
 
 instance Core.ToHeaders DisassociateKmsKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.DisassociateKmsKey" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateKmsKey where
   toJSON DisassociateKmsKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("logGroupName" Core..= logGroupName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("logGroupName" Core..= logGroupName)]
       )
 
 instance Core.ToPath DisassociateKmsKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateKmsKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateKmsKeyResponse' smart constructor.
 data DisassociateKmsKeyResponse = DisassociateKmsKeyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateKmsKeyResponse' with all optional fields omitted.
@@ -130,4 +133,4 @@ newDisassociateKmsKeyResponse ::
 newDisassociateKmsKeyResponse =
   DisassociateKmsKeyResponse'
 
-instance Core.NFData DisassociateKmsKeyResponse
+instance Prelude.NFData DisassociateKmsKeyResponse

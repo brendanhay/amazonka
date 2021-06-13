@@ -21,6 +21,7 @@ module Network.AWS.CloudSearchDomains.Types.SuggestStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the resource id (@rid@) and the time it took to process the
 -- request (@timems@).
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSuggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
   { -- | How long it took to process the request, in milliseconds.
-    timems :: Core.Maybe Core.Integer,
+    timems :: Prelude.Maybe Prelude.Integer,
     -- | The encrypted resource ID for the request.
-    rid :: Core.Maybe Core.Text
+    rid :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SuggestStatus' with all optional fields omitted.
@@ -49,16 +50,16 @@ newSuggestStatus ::
   SuggestStatus
 newSuggestStatus =
   SuggestStatus'
-    { timems = Core.Nothing,
-      rid = Core.Nothing
+    { timems = Prelude.Nothing,
+      rid = Prelude.Nothing
     }
 
 -- | How long it took to process the request, in milliseconds.
-suggestStatus_timems :: Lens.Lens' SuggestStatus (Core.Maybe Core.Integer)
+suggestStatus_timems :: Lens.Lens' SuggestStatus (Prelude.Maybe Prelude.Integer)
 suggestStatus_timems = Lens.lens (\SuggestStatus' {timems} -> timems) (\s@SuggestStatus' {} a -> s {timems = a} :: SuggestStatus)
 
 -- | The encrypted resource ID for the request.
-suggestStatus_rid :: Lens.Lens' SuggestStatus (Core.Maybe Core.Text)
+suggestStatus_rid :: Lens.Lens' SuggestStatus (Prelude.Maybe Prelude.Text)
 suggestStatus_rid = Lens.lens (\SuggestStatus' {rid} -> rid) (\s@SuggestStatus' {} a -> s {rid = a} :: SuggestStatus)
 
 instance Core.FromJSON SuggestStatus where
@@ -67,9 +68,9 @@ instance Core.FromJSON SuggestStatus where
       "SuggestStatus"
       ( \x ->
           SuggestStatus'
-            Core.<$> (x Core..:? "timems") Core.<*> (x Core..:? "rid")
+            Prelude.<$> (x Core..:? "timems") Prelude.<*> (x Core..:? "rid")
       )
 
-instance Core.Hashable SuggestStatus
+instance Prelude.Hashable SuggestStatus
 
-instance Core.NFData SuggestStatus
+instance Prelude.NFData SuggestStatus

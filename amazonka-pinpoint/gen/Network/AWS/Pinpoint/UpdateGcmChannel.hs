@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data UpdateGcmChannel = UpdateGcmChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     gCMChannelRequest :: GCMChannelRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGcmChannel' with all optional fields omitted.
@@ -70,7 +71,7 @@ data UpdateGcmChannel = UpdateGcmChannel'
 -- 'gCMChannelRequest', 'updateGcmChannel_gCMChannelRequest' - Undocumented member.
 newUpdateGcmChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'gCMChannelRequest'
   GCMChannelRequest ->
   UpdateGcmChannel
@@ -84,7 +85,7 @@ newUpdateGcmChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateGcmChannel_applicationId :: Lens.Lens' UpdateGcmChannel Core.Text
+updateGcmChannel_applicationId :: Lens.Lens' UpdateGcmChannel Prelude.Text
 updateGcmChannel_applicationId = Lens.lens (\UpdateGcmChannel' {applicationId} -> applicationId) (\s@UpdateGcmChannel' {} a -> s {applicationId = a} :: UpdateGcmChannel)
 
 -- | Undocumented member.
@@ -100,50 +101,52 @@ instance Core.AWSRequest UpdateGcmChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateGcmChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateGcmChannel
+instance Prelude.Hashable UpdateGcmChannel
 
-instance Core.NFData UpdateGcmChannel
+instance Prelude.NFData UpdateGcmChannel
 
 instance Core.ToHeaders UpdateGcmChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateGcmChannel where
   toJSON UpdateGcmChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("GCMChannelRequest" Core..= gCMChannelRequest)
           ]
       )
 
 instance Core.ToPath UpdateGcmChannel where
   toPath UpdateGcmChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/gcm"
       ]
 
 instance Core.ToQuery UpdateGcmChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGcmChannelResponse' smart constructor.
 data UpdateGcmChannelResponse = UpdateGcmChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     gCMChannelResponse :: GCMChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGcmChannelResponse' with all optional fields omitted.
@@ -158,7 +161,7 @@ data UpdateGcmChannelResponse = UpdateGcmChannelResponse'
 -- 'gCMChannelResponse', 'updateGcmChannelResponse_gCMChannelResponse' - Undocumented member.
 newUpdateGcmChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'gCMChannelResponse'
   GCMChannelResponse ->
   UpdateGcmChannelResponse
@@ -172,11 +175,11 @@ newUpdateGcmChannelResponse
       }
 
 -- | The response's http status code.
-updateGcmChannelResponse_httpStatus :: Lens.Lens' UpdateGcmChannelResponse Core.Int
+updateGcmChannelResponse_httpStatus :: Lens.Lens' UpdateGcmChannelResponse Prelude.Int
 updateGcmChannelResponse_httpStatus = Lens.lens (\UpdateGcmChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateGcmChannelResponse' {} a -> s {httpStatus = a} :: UpdateGcmChannelResponse)
 
 -- | Undocumented member.
 updateGcmChannelResponse_gCMChannelResponse :: Lens.Lens' UpdateGcmChannelResponse GCMChannelResponse
 updateGcmChannelResponse_gCMChannelResponse = Lens.lens (\UpdateGcmChannelResponse' {gCMChannelResponse} -> gCMChannelResponse) (\s@UpdateGcmChannelResponse' {} a -> s {gCMChannelResponse = a} :: UpdateGcmChannelResponse)
 
-instance Core.NFData UpdateGcmChannelResponse
+instance Prelude.NFData UpdateGcmChannelResponse

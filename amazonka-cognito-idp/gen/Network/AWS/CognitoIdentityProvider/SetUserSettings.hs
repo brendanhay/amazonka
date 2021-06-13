@@ -46,6 +46,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetUserSettings' smart constructor.
 data SetUserSettings = SetUserSettings'
   { -- | The access token for the set user settings request.
-    accessToken :: Core.Sensitive Core.Text,
+    accessToken :: Core.Sensitive Prelude.Text,
     -- | You can use this parameter only to set an SMS configuration that uses
     -- SMS for delivery.
     mfaOptions :: [MFAOptionType]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetUserSettings' with all optional fields omitted.
@@ -75,23 +76,23 @@ data SetUserSettings = SetUserSettings'
 -- SMS for delivery.
 newSetUserSettings ::
   -- | 'accessToken'
-  Core.Text ->
+  Prelude.Text ->
   SetUserSettings
 newSetUserSettings pAccessToken_ =
   SetUserSettings'
     { accessToken =
         Core._Sensitive Lens.# pAccessToken_,
-      mfaOptions = Core.mempty
+      mfaOptions = Prelude.mempty
     }
 
 -- | The access token for the set user settings request.
-setUserSettings_accessToken :: Lens.Lens' SetUserSettings Core.Text
-setUserSettings_accessToken = Lens.lens (\SetUserSettings' {accessToken} -> accessToken) (\s@SetUserSettings' {} a -> s {accessToken = a} :: SetUserSettings) Core.. Core._Sensitive
+setUserSettings_accessToken :: Lens.Lens' SetUserSettings Prelude.Text
+setUserSettings_accessToken = Lens.lens (\SetUserSettings' {accessToken} -> accessToken) (\s@SetUserSettings' {} a -> s {accessToken = a} :: SetUserSettings) Prelude.. Core._Sensitive
 
 -- | You can use this parameter only to set an SMS configuration that uses
 -- SMS for delivery.
 setUserSettings_mfaOptions :: Lens.Lens' SetUserSettings [MFAOptionType]
-setUserSettings_mfaOptions = Lens.lens (\SetUserSettings' {mfaOptions} -> mfaOptions) (\s@SetUserSettings' {} a -> s {mfaOptions = a} :: SetUserSettings) Core.. Lens._Coerce
+setUserSettings_mfaOptions = Lens.lens (\SetUserSettings' {mfaOptions} -> mfaOptions) (\s@SetUserSettings' {} a -> s {mfaOptions = a} :: SetUserSettings) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest SetUserSettings where
   type
@@ -102,49 +103,51 @@ instance Core.AWSRequest SetUserSettings where
     Response.receiveEmpty
       ( \s h x ->
           SetUserSettingsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetUserSettings
+instance Prelude.Hashable SetUserSettings
 
-instance Core.NFData SetUserSettings
+instance Prelude.NFData SetUserSettings
 
 instance Core.ToHeaders SetUserSettings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.SetUserSettings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetUserSettings where
   toJSON SetUserSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AccessToken" Core..= accessToken),
-            Core.Just ("MFAOptions" Core..= mfaOptions)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccessToken" Core..= accessToken),
+            Prelude.Just ("MFAOptions" Core..= mfaOptions)
           ]
       )
 
 instance Core.ToPath SetUserSettings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetUserSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the server for a set user settings request.
 --
 -- /See:/ 'newSetUserSettingsResponse' smart constructor.
 data SetUserSettingsResponse = SetUserSettingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetUserSettingsResponse' with all optional fields omitted.
@@ -157,13 +160,13 @@ data SetUserSettingsResponse = SetUserSettingsResponse'
 -- 'httpStatus', 'setUserSettingsResponse_httpStatus' - The response's http status code.
 newSetUserSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetUserSettingsResponse
 newSetUserSettingsResponse pHttpStatus_ =
   SetUserSettingsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-setUserSettingsResponse_httpStatus :: Lens.Lens' SetUserSettingsResponse Core.Int
+setUserSettingsResponse_httpStatus :: Lens.Lens' SetUserSettingsResponse Prelude.Int
 setUserSettingsResponse_httpStatus = Lens.lens (\SetUserSettingsResponse' {httpStatus} -> httpStatus) (\s@SetUserSettingsResponse' {} a -> s {httpStatus = a} :: SetUserSettingsResponse)
 
-instance Core.NFData SetUserSettingsResponse
+instance Prelude.NFData SetUserSettingsResponse

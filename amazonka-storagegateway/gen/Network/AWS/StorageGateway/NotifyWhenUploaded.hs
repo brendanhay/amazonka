@@ -57,15 +57,16 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newNotifyWhenUploaded' smart constructor.
 data NotifyWhenUploaded = NotifyWhenUploaded'
-  { fileShareARN :: Core.Text
+  { fileShareARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotifyWhenUploaded' with all optional fields omitted.
@@ -78,13 +79,13 @@ data NotifyWhenUploaded = NotifyWhenUploaded'
 -- 'fileShareARN', 'notifyWhenUploaded_fileShareARN' - Undocumented member.
 newNotifyWhenUploaded ::
   -- | 'fileShareARN'
-  Core.Text ->
+  Prelude.Text ->
   NotifyWhenUploaded
 newNotifyWhenUploaded pFileShareARN_ =
   NotifyWhenUploaded' {fileShareARN = pFileShareARN_}
 
 -- | Undocumented member.
-notifyWhenUploaded_fileShareARN :: Lens.Lens' NotifyWhenUploaded Core.Text
+notifyWhenUploaded_fileShareARN :: Lens.Lens' NotifyWhenUploaded Prelude.Text
 notifyWhenUploaded_fileShareARN = Lens.lens (\NotifyWhenUploaded' {fileShareARN} -> fileShareARN) (\s@NotifyWhenUploaded' {} a -> s {fileShareARN = a} :: NotifyWhenUploaded)
 
 instance Core.AWSRequest NotifyWhenUploaded where
@@ -96,49 +97,51 @@ instance Core.AWSRequest NotifyWhenUploaded where
     Response.receiveJSON
       ( \s h x ->
           NotifyWhenUploadedResponse'
-            Core.<$> (x Core..?> "FileShareARN")
-            Core.<*> (x Core..?> "NotificationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FileShareARN")
+            Prelude.<*> (x Core..?> "NotificationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable NotifyWhenUploaded
+instance Prelude.Hashable NotifyWhenUploaded
 
-instance Core.NFData NotifyWhenUploaded
+instance Prelude.NFData NotifyWhenUploaded
 
 instance Core.ToHeaders NotifyWhenUploaded where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.NotifyWhenUploaded" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON NotifyWhenUploaded where
   toJSON NotifyWhenUploaded' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("FileShareARN" Core..= fileShareARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("FileShareARN" Core..= fileShareARN)]
       )
 
 instance Core.ToPath NotifyWhenUploaded where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery NotifyWhenUploaded where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newNotifyWhenUploadedResponse' smart constructor.
 data NotifyWhenUploadedResponse = NotifyWhenUploadedResponse'
-  { fileShareARN :: Core.Maybe Core.Text,
-    notificationId :: Core.Maybe Core.Text,
+  { fileShareARN :: Prelude.Maybe Prelude.Text,
+    notificationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotifyWhenUploadedResponse' with all optional fields omitted.
@@ -155,26 +158,26 @@ data NotifyWhenUploadedResponse = NotifyWhenUploadedResponse'
 -- 'httpStatus', 'notifyWhenUploadedResponse_httpStatus' - The response's http status code.
 newNotifyWhenUploadedResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   NotifyWhenUploadedResponse
 newNotifyWhenUploadedResponse pHttpStatus_ =
   NotifyWhenUploadedResponse'
     { fileShareARN =
-        Core.Nothing,
-      notificationId = Core.Nothing,
+        Prelude.Nothing,
+      notificationId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-notifyWhenUploadedResponse_fileShareARN :: Lens.Lens' NotifyWhenUploadedResponse (Core.Maybe Core.Text)
+notifyWhenUploadedResponse_fileShareARN :: Lens.Lens' NotifyWhenUploadedResponse (Prelude.Maybe Prelude.Text)
 notifyWhenUploadedResponse_fileShareARN = Lens.lens (\NotifyWhenUploadedResponse' {fileShareARN} -> fileShareARN) (\s@NotifyWhenUploadedResponse' {} a -> s {fileShareARN = a} :: NotifyWhenUploadedResponse)
 
 -- | Undocumented member.
-notifyWhenUploadedResponse_notificationId :: Lens.Lens' NotifyWhenUploadedResponse (Core.Maybe Core.Text)
+notifyWhenUploadedResponse_notificationId :: Lens.Lens' NotifyWhenUploadedResponse (Prelude.Maybe Prelude.Text)
 notifyWhenUploadedResponse_notificationId = Lens.lens (\NotifyWhenUploadedResponse' {notificationId} -> notificationId) (\s@NotifyWhenUploadedResponse' {} a -> s {notificationId = a} :: NotifyWhenUploadedResponse)
 
 -- | The response's http status code.
-notifyWhenUploadedResponse_httpStatus :: Lens.Lens' NotifyWhenUploadedResponse Core.Int
+notifyWhenUploadedResponse_httpStatus :: Lens.Lens' NotifyWhenUploadedResponse Prelude.Int
 notifyWhenUploadedResponse_httpStatus = Lens.lens (\NotifyWhenUploadedResponse' {httpStatus} -> httpStatus) (\s@NotifyWhenUploadedResponse' {} a -> s {httpStatus = a} :: NotifyWhenUploadedResponse)
 
-instance Core.NFData NotifyWhenUploadedResponse
+instance Prelude.NFData NotifyWhenUploadedResponse

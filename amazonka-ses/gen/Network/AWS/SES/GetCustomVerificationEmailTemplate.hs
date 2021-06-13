@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -64,9 +65,9 @@ import Network.AWS.SES.Types
 data GetCustomVerificationEmailTemplate = GetCustomVerificationEmailTemplate'
   { -- | The name of the custom verification email template that you want to
     -- retrieve.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCustomVerificationEmailTemplate' with all optional fields omitted.
@@ -80,7 +81,7 @@ data GetCustomVerificationEmailTemplate = GetCustomVerificationEmailTemplate'
 -- retrieve.
 newGetCustomVerificationEmailTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   GetCustomVerificationEmailTemplate
 newGetCustomVerificationEmailTemplate pTemplateName_ =
   GetCustomVerificationEmailTemplate'
@@ -90,7 +91,7 @@ newGetCustomVerificationEmailTemplate pTemplateName_ =
 
 -- | The name of the custom verification email template that you want to
 -- retrieve.
-getCustomVerificationEmailTemplate_templateName :: Lens.Lens' GetCustomVerificationEmailTemplate Core.Text
+getCustomVerificationEmailTemplate_templateName :: Lens.Lens' GetCustomVerificationEmailTemplate Prelude.Text
 getCustomVerificationEmailTemplate_templateName = Lens.lens (\GetCustomVerificationEmailTemplate' {templateName} -> templateName) (\s@GetCustomVerificationEmailTemplate' {} a -> s {templateName = a} :: GetCustomVerificationEmailTemplate)
 
 instance
@@ -106,46 +107,47 @@ instance
       "GetCustomVerificationEmailTemplateResult"
       ( \s h x ->
           GetCustomVerificationEmailTemplateResponse'
-            Core.<$> (x Core..@? "TemplateName")
-            Core.<*> (x Core..@? "TemplateSubject")
-            Core.<*> (x Core..@? "FromEmailAddress")
-            Core.<*> (x Core..@? "TemplateContent")
-            Core.<*> (x Core..@? "SuccessRedirectionURL")
-            Core.<*> (x Core..@? "FailureRedirectionURL")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "TemplateName")
+              Prelude.<*> (x Core..@? "TemplateSubject")
+              Prelude.<*> (x Core..@? "FromEmailAddress")
+              Prelude.<*> (x Core..@? "TemplateContent")
+              Prelude.<*> (x Core..@? "SuccessRedirectionURL")
+              Prelude.<*> (x Core..@? "FailureRedirectionURL")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetCustomVerificationEmailTemplate
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetCustomVerificationEmailTemplate
 
 instance
   Core.ToHeaders
     GetCustomVerificationEmailTemplate
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     GetCustomVerificationEmailTemplate
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetCustomVerificationEmailTemplate
   where
   toQuery GetCustomVerificationEmailTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "GetCustomVerificationEmailTemplate" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "TemplateName" Core.=: templateName
       ]
 
@@ -154,23 +156,23 @@ instance
 -- /See:/ 'newGetCustomVerificationEmailTemplateResponse' smart constructor.
 data GetCustomVerificationEmailTemplateResponse = GetCustomVerificationEmailTemplateResponse'
   { -- | The name of the custom verification email template.
-    templateName :: Core.Maybe Core.Text,
+    templateName :: Prelude.Maybe Prelude.Text,
     -- | The subject line of the custom verification email.
-    templateSubject :: Core.Maybe Core.Text,
+    templateSubject :: Prelude.Maybe Prelude.Text,
     -- | The email address that the custom verification email is sent from.
-    fromEmailAddress :: Core.Maybe Core.Text,
+    fromEmailAddress :: Prelude.Maybe Prelude.Text,
     -- | The content of the custom verification email.
-    templateContent :: Core.Maybe Core.Text,
+    templateContent :: Prelude.Maybe Prelude.Text,
     -- | The URL that the recipient of the verification email is sent to if his
     -- or her address is successfully verified.
-    successRedirectionURL :: Core.Maybe Core.Text,
+    successRedirectionURL :: Prelude.Maybe Prelude.Text,
     -- | The URL that the recipient of the verification email is sent to if his
     -- or her address is not successfully verified.
-    failureRedirectionURL :: Core.Maybe Core.Text,
+    failureRedirectionURL :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCustomVerificationEmailTemplateResponse' with all optional fields omitted.
@@ -197,53 +199,56 @@ data GetCustomVerificationEmailTemplateResponse = GetCustomVerificationEmailTemp
 -- 'httpStatus', 'getCustomVerificationEmailTemplateResponse_httpStatus' - The response's http status code.
 newGetCustomVerificationEmailTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCustomVerificationEmailTemplateResponse
 newGetCustomVerificationEmailTemplateResponse
   pHttpStatus_ =
     GetCustomVerificationEmailTemplateResponse'
       { templateName =
-          Core.Nothing,
-        templateSubject = Core.Nothing,
-        fromEmailAddress = Core.Nothing,
-        templateContent = Core.Nothing,
+          Prelude.Nothing,
+        templateSubject =
+          Prelude.Nothing,
+        fromEmailAddress =
+          Prelude.Nothing,
+        templateContent =
+          Prelude.Nothing,
         successRedirectionURL =
-          Core.Nothing,
+          Prelude.Nothing,
         failureRedirectionURL =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The name of the custom verification email template.
-getCustomVerificationEmailTemplateResponse_templateName :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Core.Text)
+getCustomVerificationEmailTemplateResponse_templateName :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Prelude.Maybe Prelude.Text)
 getCustomVerificationEmailTemplateResponse_templateName = Lens.lens (\GetCustomVerificationEmailTemplateResponse' {templateName} -> templateName) (\s@GetCustomVerificationEmailTemplateResponse' {} a -> s {templateName = a} :: GetCustomVerificationEmailTemplateResponse)
 
 -- | The subject line of the custom verification email.
-getCustomVerificationEmailTemplateResponse_templateSubject :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Core.Text)
+getCustomVerificationEmailTemplateResponse_templateSubject :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Prelude.Maybe Prelude.Text)
 getCustomVerificationEmailTemplateResponse_templateSubject = Lens.lens (\GetCustomVerificationEmailTemplateResponse' {templateSubject} -> templateSubject) (\s@GetCustomVerificationEmailTemplateResponse' {} a -> s {templateSubject = a} :: GetCustomVerificationEmailTemplateResponse)
 
 -- | The email address that the custom verification email is sent from.
-getCustomVerificationEmailTemplateResponse_fromEmailAddress :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Core.Text)
+getCustomVerificationEmailTemplateResponse_fromEmailAddress :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Prelude.Maybe Prelude.Text)
 getCustomVerificationEmailTemplateResponse_fromEmailAddress = Lens.lens (\GetCustomVerificationEmailTemplateResponse' {fromEmailAddress} -> fromEmailAddress) (\s@GetCustomVerificationEmailTemplateResponse' {} a -> s {fromEmailAddress = a} :: GetCustomVerificationEmailTemplateResponse)
 
 -- | The content of the custom verification email.
-getCustomVerificationEmailTemplateResponse_templateContent :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Core.Text)
+getCustomVerificationEmailTemplateResponse_templateContent :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Prelude.Maybe Prelude.Text)
 getCustomVerificationEmailTemplateResponse_templateContent = Lens.lens (\GetCustomVerificationEmailTemplateResponse' {templateContent} -> templateContent) (\s@GetCustomVerificationEmailTemplateResponse' {} a -> s {templateContent = a} :: GetCustomVerificationEmailTemplateResponse)
 
 -- | The URL that the recipient of the verification email is sent to if his
 -- or her address is successfully verified.
-getCustomVerificationEmailTemplateResponse_successRedirectionURL :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Core.Text)
+getCustomVerificationEmailTemplateResponse_successRedirectionURL :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Prelude.Maybe Prelude.Text)
 getCustomVerificationEmailTemplateResponse_successRedirectionURL = Lens.lens (\GetCustomVerificationEmailTemplateResponse' {successRedirectionURL} -> successRedirectionURL) (\s@GetCustomVerificationEmailTemplateResponse' {} a -> s {successRedirectionURL = a} :: GetCustomVerificationEmailTemplateResponse)
 
 -- | The URL that the recipient of the verification email is sent to if his
 -- or her address is not successfully verified.
-getCustomVerificationEmailTemplateResponse_failureRedirectionURL :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Core.Maybe Core.Text)
+getCustomVerificationEmailTemplateResponse_failureRedirectionURL :: Lens.Lens' GetCustomVerificationEmailTemplateResponse (Prelude.Maybe Prelude.Text)
 getCustomVerificationEmailTemplateResponse_failureRedirectionURL = Lens.lens (\GetCustomVerificationEmailTemplateResponse' {failureRedirectionURL} -> failureRedirectionURL) (\s@GetCustomVerificationEmailTemplateResponse' {} a -> s {failureRedirectionURL = a} :: GetCustomVerificationEmailTemplateResponse)
 
 -- | The response's http status code.
-getCustomVerificationEmailTemplateResponse_httpStatus :: Lens.Lens' GetCustomVerificationEmailTemplateResponse Core.Int
+getCustomVerificationEmailTemplateResponse_httpStatus :: Lens.Lens' GetCustomVerificationEmailTemplateResponse Prelude.Int
 getCustomVerificationEmailTemplateResponse_httpStatus = Lens.lens (\GetCustomVerificationEmailTemplateResponse' {httpStatus} -> httpStatus) (\s@GetCustomVerificationEmailTemplateResponse' {} a -> s {httpStatus = a} :: GetCustomVerificationEmailTemplateResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetCustomVerificationEmailTemplateResponse

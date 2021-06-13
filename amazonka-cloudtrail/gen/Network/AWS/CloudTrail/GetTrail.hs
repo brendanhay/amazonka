@@ -42,6 +42,7 @@ where
 import Network.AWS.CloudTrail.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetTrail = GetTrail'
   { -- | The name or the Amazon Resource Name (ARN) of the trail for which you
     -- want to retrieve settings information.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTrail' with all optional fields omitted.
@@ -65,13 +66,13 @@ data GetTrail = GetTrail'
 -- want to retrieve settings information.
 newGetTrail ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetTrail
 newGetTrail pName_ = GetTrail' {name = pName_}
 
 -- | The name or the Amazon Resource Name (ARN) of the trail for which you
 -- want to retrieve settings information.
-getTrail_name :: Lens.Lens' GetTrail Core.Text
+getTrail_name :: Lens.Lens' GetTrail Prelude.Text
 getTrail_name = Lens.lens (\GetTrail' {name} -> name) (\s@GetTrail' {} a -> s {name = a} :: GetTrail)
 
 instance Core.AWSRequest GetTrail where
@@ -81,45 +82,49 @@ instance Core.AWSRequest GetTrail where
     Response.receiveJSON
       ( \s h x ->
           GetTrailResponse'
-            Core.<$> (x Core..?> "Trail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Trail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTrail
+instance Prelude.Hashable GetTrail
 
-instance Core.NFData GetTrail
+instance Prelude.NFData GetTrail
 
 instance Core.ToHeaders GetTrail where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrail" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetTrail where
   toJSON GetTrail' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath GetTrail where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTrail where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTrailResponse' smart constructor.
 data GetTrailResponse = GetTrailResponse'
-  { trail :: Core.Maybe Trail,
+  { trail :: Prelude.Maybe Trail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTrailResponse' with all optional fields omitted.
@@ -134,20 +139,20 @@ data GetTrailResponse = GetTrailResponse'
 -- 'httpStatus', 'getTrailResponse_httpStatus' - The response's http status code.
 newGetTrailResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTrailResponse
 newGetTrailResponse pHttpStatus_ =
   GetTrailResponse'
-    { trail = Core.Nothing,
+    { trail = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getTrailResponse_trail :: Lens.Lens' GetTrailResponse (Core.Maybe Trail)
+getTrailResponse_trail :: Lens.Lens' GetTrailResponse (Prelude.Maybe Trail)
 getTrailResponse_trail = Lens.lens (\GetTrailResponse' {trail} -> trail) (\s@GetTrailResponse' {} a -> s {trail = a} :: GetTrailResponse)
 
 -- | The response's http status code.
-getTrailResponse_httpStatus :: Lens.Lens' GetTrailResponse Core.Int
+getTrailResponse_httpStatus :: Lens.Lens' GetTrailResponse Prelude.Int
 getTrailResponse_httpStatus = Lens.lens (\GetTrailResponse' {httpStatus} -> httpStatus) (\s@GetTrailResponse' {} a -> s {httpStatus = a} :: GetTrailResponse)
 
-instance Core.NFData GetTrailResponse
+instance Prelude.NFData GetTrailResponse

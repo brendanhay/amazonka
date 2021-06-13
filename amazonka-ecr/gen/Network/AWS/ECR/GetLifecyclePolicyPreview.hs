@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,9 +69,9 @@ data GetLifecyclePolicyPreview = GetLifecyclePolicyPreview'
     -- @nextToken@ value. This value is  @null@ when there are no more results
     -- to return. This option cannot be used when you specify images with
     -- @imageIds@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of imageIDs to be included.
-    imageIds :: Core.Maybe [ImageIdentifier],
+    imageIds :: Prelude.Maybe [ImageIdentifier],
     -- | The maximum number of repository results returned by
     -- @GetLifecyclePolicyPreviewRequest@ in  paginated output. When this
     -- parameter is used, @GetLifecyclePolicyPreviewRequest@ only returns 
@@ -81,18 +82,18 @@ data GetLifecyclePolicyPreview = GetLifecyclePolicyPreview'
     -- this  parameter is not used, then @GetLifecyclePolicyPreviewRequest@
     -- returns up to  100 results and a @nextToken@ value, if  applicable. This
     -- option cannot be used when you specify images with @imageIds@.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The AWS account ID associated with the registry that contains the
     -- repository. If you do not specify a registry, the default registry is
     -- assumed.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter that filters results based on image tag status and
     -- all tags, if tagged.
-    filter' :: Core.Maybe LifecyclePolicyPreviewFilter,
+    filter' :: Prelude.Maybe LifecyclePolicyPreviewFilter,
     -- | The name of the repository.
-    repositoryName :: Core.Text
+    repositoryName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLifecyclePolicyPreview' with all optional fields omitted.
@@ -133,16 +134,16 @@ data GetLifecyclePolicyPreview = GetLifecyclePolicyPreview'
 -- 'repositoryName', 'getLifecyclePolicyPreview_repositoryName' - The name of the repository.
 newGetLifecyclePolicyPreview ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   GetLifecyclePolicyPreview
 newGetLifecyclePolicyPreview pRepositoryName_ =
   GetLifecyclePolicyPreview'
     { nextToken =
-        Core.Nothing,
-      imageIds = Core.Nothing,
-      maxResults = Core.Nothing,
-      registryId = Core.Nothing,
-      filter' = Core.Nothing,
+        Prelude.Nothing,
+      imageIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
 
@@ -153,12 +154,12 @@ newGetLifecyclePolicyPreview pRepositoryName_ =
 -- @nextToken@ value. This value is  @null@ when there are no more results
 -- to return. This option cannot be used when you specify images with
 -- @imageIds@.
-getLifecyclePolicyPreview_nextToken :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe Core.Text)
+getLifecyclePolicyPreview_nextToken :: Lens.Lens' GetLifecyclePolicyPreview (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyPreview_nextToken = Lens.lens (\GetLifecyclePolicyPreview' {nextToken} -> nextToken) (\s@GetLifecyclePolicyPreview' {} a -> s {nextToken = a} :: GetLifecyclePolicyPreview)
 
 -- | The list of imageIDs to be included.
-getLifecyclePolicyPreview_imageIds :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe [ImageIdentifier])
-getLifecyclePolicyPreview_imageIds = Lens.lens (\GetLifecyclePolicyPreview' {imageIds} -> imageIds) (\s@GetLifecyclePolicyPreview' {} a -> s {imageIds = a} :: GetLifecyclePolicyPreview) Core.. Lens.mapping Lens._Coerce
+getLifecyclePolicyPreview_imageIds :: Lens.Lens' GetLifecyclePolicyPreview (Prelude.Maybe [ImageIdentifier])
+getLifecyclePolicyPreview_imageIds = Lens.lens (\GetLifecyclePolicyPreview' {imageIds} -> imageIds) (\s@GetLifecyclePolicyPreview' {} a -> s {imageIds = a} :: GetLifecyclePolicyPreview) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of repository results returned by
 -- @GetLifecyclePolicyPreviewRequest@ in  paginated output. When this
@@ -170,22 +171,22 @@ getLifecyclePolicyPreview_imageIds = Lens.lens (\GetLifecyclePolicyPreview' {ima
 -- this  parameter is not used, then @GetLifecyclePolicyPreviewRequest@
 -- returns up to  100 results and a @nextToken@ value, if  applicable. This
 -- option cannot be used when you specify images with @imageIds@.
-getLifecyclePolicyPreview_maxResults :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe Core.Natural)
+getLifecyclePolicyPreview_maxResults :: Lens.Lens' GetLifecyclePolicyPreview (Prelude.Maybe Prelude.Natural)
 getLifecyclePolicyPreview_maxResults = Lens.lens (\GetLifecyclePolicyPreview' {maxResults} -> maxResults) (\s@GetLifecyclePolicyPreview' {} a -> s {maxResults = a} :: GetLifecyclePolicyPreview)
 
 -- | The AWS account ID associated with the registry that contains the
 -- repository. If you do not specify a registry, the default registry is
 -- assumed.
-getLifecyclePolicyPreview_registryId :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe Core.Text)
+getLifecyclePolicyPreview_registryId :: Lens.Lens' GetLifecyclePolicyPreview (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyPreview_registryId = Lens.lens (\GetLifecyclePolicyPreview' {registryId} -> registryId) (\s@GetLifecyclePolicyPreview' {} a -> s {registryId = a} :: GetLifecyclePolicyPreview)
 
 -- | An optional parameter that filters results based on image tag status and
 -- all tags, if tagged.
-getLifecyclePolicyPreview_filter :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe LifecyclePolicyPreviewFilter)
+getLifecyclePolicyPreview_filter :: Lens.Lens' GetLifecyclePolicyPreview (Prelude.Maybe LifecyclePolicyPreviewFilter)
 getLifecyclePolicyPreview_filter = Lens.lens (\GetLifecyclePolicyPreview' {filter'} -> filter') (\s@GetLifecyclePolicyPreview' {} a -> s {filter' = a} :: GetLifecyclePolicyPreview)
 
 -- | The name of the repository.
-getLifecyclePolicyPreview_repositoryName :: Lens.Lens' GetLifecyclePolicyPreview Core.Text
+getLifecyclePolicyPreview_repositoryName :: Lens.Lens' GetLifecyclePolicyPreview Prelude.Text
 getLifecyclePolicyPreview_repositoryName = Lens.lens (\GetLifecyclePolicyPreview' {repositoryName} -> repositoryName) (\s@GetLifecyclePolicyPreview' {} a -> s {repositoryName = a} :: GetLifecyclePolicyPreview)
 
 instance Core.AWSPager GetLifecyclePolicyPreview where
@@ -193,22 +194,22 @@ instance Core.AWSPager GetLifecyclePolicyPreview where
     | Core.stop
         ( rs
             Lens.^? getLifecyclePolicyPreviewResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getLifecyclePolicyPreviewResponse_previewResults
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getLifecyclePolicyPreview_nextToken
+          Prelude.& getLifecyclePolicyPreview_nextToken
           Lens..~ rs
           Lens.^? getLifecyclePolicyPreviewResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetLifecyclePolicyPreview where
   type
@@ -219,51 +220,54 @@ instance Core.AWSRequest GetLifecyclePolicyPreview where
     Response.receiveJSON
       ( \s h x ->
           GetLifecyclePolicyPreviewResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "status")
-            Core.<*> (x Core..?> "registryId")
-            Core.<*> (x Core..?> "repositoryName")
-            Core.<*> (x Core..?> "summary")
-            Core.<*> (x Core..?> "lifecyclePolicyText")
-            Core.<*> (x Core..?> "previewResults" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "summary")
+            Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<*> (x Core..?> "previewResults" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetLifecyclePolicyPreview
+instance Prelude.Hashable GetLifecyclePolicyPreview
 
-instance Core.NFData GetLifecyclePolicyPreview
+instance Prelude.NFData GetLifecyclePolicyPreview
 
 instance Core.ToHeaders GetLifecyclePolicyPreview where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetLifecyclePolicyPreview where
   toJSON GetLifecyclePolicyPreview' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("imageIds" Core..=) Core.<$> imageIds,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("registryId" Core..=) Core.<$> registryId,
-            ("filter" Core..=) Core.<$> filter',
-            Core.Just ("repositoryName" Core..= repositoryName)
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("imageIds" Core..=) Prelude.<$> imageIds,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("registryId" Core..=) Prelude.<$> registryId,
+            ("filter" Core..=) Prelude.<$> filter',
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
 instance Core.ToPath GetLifecyclePolicyPreview where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetLifecyclePolicyPreview where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLifecyclePolicyPreviewResponse' smart constructor.
 data GetLifecyclePolicyPreviewResponse = GetLifecyclePolicyPreviewResponse'
@@ -271,23 +275,23 @@ data GetLifecyclePolicyPreviewResponse = GetLifecyclePolicyPreviewResponse'
     -- request. When the results of a @GetLifecyclePolicyPreview@ request
     -- exceed @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The status of the lifecycle policy preview request.
-    status :: Core.Maybe LifecyclePolicyPreviewStatus,
+    status :: Prelude.Maybe LifecyclePolicyPreviewStatus,
     -- | The registry ID associated with the request.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository name associated with the request.
-    repositoryName :: Core.Maybe Core.Text,
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The list of images that is returned as a result of the action.
-    summary :: Core.Maybe LifecyclePolicyPreviewSummary,
+    summary :: Prelude.Maybe LifecyclePolicyPreviewSummary,
     -- | The JSON lifecycle policy text.
-    lifecyclePolicyText :: Core.Maybe Core.Text,
+    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
     -- | The results of the lifecycle policy preview request.
-    previewResults :: Core.Maybe [LifecyclePolicyPreviewResult],
+    previewResults :: Prelude.Maybe [LifecyclePolicyPreviewResult],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLifecyclePolicyPreviewResponse' with all optional fields omitted.
@@ -317,18 +321,18 @@ data GetLifecyclePolicyPreviewResponse = GetLifecyclePolicyPreviewResponse'
 -- 'httpStatus', 'getLifecyclePolicyPreviewResponse_httpStatus' - The response's http status code.
 newGetLifecyclePolicyPreviewResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetLifecyclePolicyPreviewResponse
 newGetLifecyclePolicyPreviewResponse pHttpStatus_ =
   GetLifecyclePolicyPreviewResponse'
     { nextToken =
-        Core.Nothing,
-      status = Core.Nothing,
-      registryId = Core.Nothing,
-      repositoryName = Core.Nothing,
-      summary = Core.Nothing,
-      lifecyclePolicyText = Core.Nothing,
-      previewResults = Core.Nothing,
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      summary = Prelude.Nothing,
+      lifecyclePolicyText = Prelude.Nothing,
+      previewResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -336,37 +340,37 @@ newGetLifecyclePolicyPreviewResponse pHttpStatus_ =
 -- request. When the results of a @GetLifecyclePolicyPreview@ request
 -- exceed @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
-getLifecyclePolicyPreviewResponse_nextToken :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Core.Text)
+getLifecyclePolicyPreviewResponse_nextToken :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyPreviewResponse_nextToken = Lens.lens (\GetLifecyclePolicyPreviewResponse' {nextToken} -> nextToken) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {nextToken = a} :: GetLifecyclePolicyPreviewResponse)
 
 -- | The status of the lifecycle policy preview request.
-getLifecyclePolicyPreviewResponse_status :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe LifecyclePolicyPreviewStatus)
+getLifecyclePolicyPreviewResponse_status :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Prelude.Maybe LifecyclePolicyPreviewStatus)
 getLifecyclePolicyPreviewResponse_status = Lens.lens (\GetLifecyclePolicyPreviewResponse' {status} -> status) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {status = a} :: GetLifecyclePolicyPreviewResponse)
 
 -- | The registry ID associated with the request.
-getLifecyclePolicyPreviewResponse_registryId :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Core.Text)
+getLifecyclePolicyPreviewResponse_registryId :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyPreviewResponse_registryId = Lens.lens (\GetLifecyclePolicyPreviewResponse' {registryId} -> registryId) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {registryId = a} :: GetLifecyclePolicyPreviewResponse)
 
 -- | The repository name associated with the request.
-getLifecyclePolicyPreviewResponse_repositoryName :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Core.Text)
+getLifecyclePolicyPreviewResponse_repositoryName :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyPreviewResponse_repositoryName = Lens.lens (\GetLifecyclePolicyPreviewResponse' {repositoryName} -> repositoryName) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {repositoryName = a} :: GetLifecyclePolicyPreviewResponse)
 
 -- | The list of images that is returned as a result of the action.
-getLifecyclePolicyPreviewResponse_summary :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe LifecyclePolicyPreviewSummary)
+getLifecyclePolicyPreviewResponse_summary :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Prelude.Maybe LifecyclePolicyPreviewSummary)
 getLifecyclePolicyPreviewResponse_summary = Lens.lens (\GetLifecyclePolicyPreviewResponse' {summary} -> summary) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {summary = a} :: GetLifecyclePolicyPreviewResponse)
 
 -- | The JSON lifecycle policy text.
-getLifecyclePolicyPreviewResponse_lifecyclePolicyText :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Core.Text)
+getLifecyclePolicyPreviewResponse_lifecyclePolicyText :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyPreviewResponse_lifecyclePolicyText = Lens.lens (\GetLifecyclePolicyPreviewResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {lifecyclePolicyText = a} :: GetLifecyclePolicyPreviewResponse)
 
 -- | The results of the lifecycle policy preview request.
-getLifecyclePolicyPreviewResponse_previewResults :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe [LifecyclePolicyPreviewResult])
-getLifecyclePolicyPreviewResponse_previewResults = Lens.lens (\GetLifecyclePolicyPreviewResponse' {previewResults} -> previewResults) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {previewResults = a} :: GetLifecyclePolicyPreviewResponse) Core.. Lens.mapping Lens._Coerce
+getLifecyclePolicyPreviewResponse_previewResults :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Prelude.Maybe [LifecyclePolicyPreviewResult])
+getLifecyclePolicyPreviewResponse_previewResults = Lens.lens (\GetLifecyclePolicyPreviewResponse' {previewResults} -> previewResults) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {previewResults = a} :: GetLifecyclePolicyPreviewResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getLifecyclePolicyPreviewResponse_httpStatus :: Lens.Lens' GetLifecyclePolicyPreviewResponse Core.Int
+getLifecyclePolicyPreviewResponse_httpStatus :: Lens.Lens' GetLifecyclePolicyPreviewResponse Prelude.Int
 getLifecyclePolicyPreviewResponse_httpStatus = Lens.lens (\GetLifecyclePolicyPreviewResponse' {httpStatus} -> httpStatus) (\s@GetLifecyclePolicyPreviewResponse' {} a -> s {httpStatus = a} :: GetLifecyclePolicyPreviewResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetLifecyclePolicyPreviewResponse

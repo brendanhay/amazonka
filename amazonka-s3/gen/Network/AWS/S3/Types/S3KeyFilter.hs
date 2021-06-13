@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.S3KeyFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.FilterRule
 
@@ -28,9 +29,9 @@ import Network.AWS.S3.Types.FilterRule
 --
 -- /See:/ 'newS3KeyFilter' smart constructor.
 data S3KeyFilter = S3KeyFilter'
-  { filterRules :: Core.Maybe [FilterRule]
+  { filterRules :: Prelude.Maybe [FilterRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3KeyFilter' with all optional fields omitted.
@@ -44,24 +45,26 @@ data S3KeyFilter = S3KeyFilter'
 newS3KeyFilter ::
   S3KeyFilter
 newS3KeyFilter =
-  S3KeyFilter' {filterRules = Core.Nothing}
+  S3KeyFilter' {filterRules = Prelude.Nothing}
 
 -- | Undocumented member.
-s3KeyFilter_filterRules :: Lens.Lens' S3KeyFilter (Core.Maybe [FilterRule])
-s3KeyFilter_filterRules = Lens.lens (\S3KeyFilter' {filterRules} -> filterRules) (\s@S3KeyFilter' {} a -> s {filterRules = a} :: S3KeyFilter) Core.. Lens.mapping Lens._Coerce
+s3KeyFilter_filterRules :: Lens.Lens' S3KeyFilter (Prelude.Maybe [FilterRule])
+s3KeyFilter_filterRules = Lens.lens (\S3KeyFilter' {filterRules} -> filterRules) (\s@S3KeyFilter' {} a -> s {filterRules = a} :: S3KeyFilter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML S3KeyFilter where
   parseXML x =
     S3KeyFilter'
-      Core.<$> (Core.may (Core.parseXMLList "FilterRule") x)
+      Prelude.<$> (Core.may (Core.parseXMLList "FilterRule") x)
 
-instance Core.Hashable S3KeyFilter
+instance Prelude.Hashable S3KeyFilter
 
-instance Core.NFData S3KeyFilter
+instance Prelude.NFData S3KeyFilter
 
 instance Core.ToXML S3KeyFilter where
   toXML S3KeyFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ Core.toXML
-          (Core.toXMLList "FilterRule" Core.<$> filterRules)
+          ( Core.toXMLList "FilterRule"
+              Prelude.<$> filterRules
+          )
       ]

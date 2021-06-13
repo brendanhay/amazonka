@@ -22,6 +22,7 @@ module Network.AWS.FMS.Types.AppsListData where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.App
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An AWS Firewall Manager applications list.
 --
@@ -29,25 +30,25 @@ import qualified Network.AWS.Lens as Lens
 data AppsListData = AppsListData'
   { -- | The time that the AWS Firewall Manager applications list was last
     -- updated.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the AWS Firewall Manager applications list.
-    listId :: Core.Maybe Core.Text,
+    listId :: Prelude.Maybe Prelude.Text,
     -- | A map of previous version numbers to their corresponding @App@ object
     -- arrays.
-    previousAppsList :: Core.Maybe (Core.HashMap Core.Text [App]),
+    previousAppsList :: Prelude.Maybe (Prelude.HashMap Prelude.Text [App]),
     -- | The time that the AWS Firewall Manager applications list was created.
-    createTime :: Core.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Core.POSIX,
     -- | A unique identifier for each update to the list. When you update the
     -- list, the update token must match the token of the current version of
     -- the application list. You can retrieve the update token by getting the
     -- list.
-    listUpdateToken :: Core.Maybe Core.Text,
+    listUpdateToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS Firewall Manager applications list.
-    listName :: Core.Text,
+    listName :: Prelude.Text,
     -- | An array of applications in the AWS Firewall Manager applications list.
     appsList :: [App]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AppsListData' with all optional fields omitted.
@@ -77,51 +78,51 @@ data AppsListData = AppsListData'
 -- 'appsList', 'appsListData_appsList' - An array of applications in the AWS Firewall Manager applications list.
 newAppsListData ::
   -- | 'listName'
-  Core.Text ->
+  Prelude.Text ->
   AppsListData
 newAppsListData pListName_ =
   AppsListData'
-    { lastUpdateTime = Core.Nothing,
-      listId = Core.Nothing,
-      previousAppsList = Core.Nothing,
-      createTime = Core.Nothing,
-      listUpdateToken = Core.Nothing,
+    { lastUpdateTime = Prelude.Nothing,
+      listId = Prelude.Nothing,
+      previousAppsList = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      listUpdateToken = Prelude.Nothing,
       listName = pListName_,
-      appsList = Core.mempty
+      appsList = Prelude.mempty
     }
 
 -- | The time that the AWS Firewall Manager applications list was last
 -- updated.
-appsListData_lastUpdateTime :: Lens.Lens' AppsListData (Core.Maybe Core.UTCTime)
-appsListData_lastUpdateTime = Lens.lens (\AppsListData' {lastUpdateTime} -> lastUpdateTime) (\s@AppsListData' {} a -> s {lastUpdateTime = a} :: AppsListData) Core.. Lens.mapping Core._Time
+appsListData_lastUpdateTime :: Lens.Lens' AppsListData (Prelude.Maybe Prelude.UTCTime)
+appsListData_lastUpdateTime = Lens.lens (\AppsListData' {lastUpdateTime} -> lastUpdateTime) (\s@AppsListData' {} a -> s {lastUpdateTime = a} :: AppsListData) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the AWS Firewall Manager applications list.
-appsListData_listId :: Lens.Lens' AppsListData (Core.Maybe Core.Text)
+appsListData_listId :: Lens.Lens' AppsListData (Prelude.Maybe Prelude.Text)
 appsListData_listId = Lens.lens (\AppsListData' {listId} -> listId) (\s@AppsListData' {} a -> s {listId = a} :: AppsListData)
 
 -- | A map of previous version numbers to their corresponding @App@ object
 -- arrays.
-appsListData_previousAppsList :: Lens.Lens' AppsListData (Core.Maybe (Core.HashMap Core.Text [App]))
-appsListData_previousAppsList = Lens.lens (\AppsListData' {previousAppsList} -> previousAppsList) (\s@AppsListData' {} a -> s {previousAppsList = a} :: AppsListData) Core.. Lens.mapping Lens._Coerce
+appsListData_previousAppsList :: Lens.Lens' AppsListData (Prelude.Maybe (Prelude.HashMap Prelude.Text [App]))
+appsListData_previousAppsList = Lens.lens (\AppsListData' {previousAppsList} -> previousAppsList) (\s@AppsListData' {} a -> s {previousAppsList = a} :: AppsListData) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time that the AWS Firewall Manager applications list was created.
-appsListData_createTime :: Lens.Lens' AppsListData (Core.Maybe Core.UTCTime)
-appsListData_createTime = Lens.lens (\AppsListData' {createTime} -> createTime) (\s@AppsListData' {} a -> s {createTime = a} :: AppsListData) Core.. Lens.mapping Core._Time
+appsListData_createTime :: Lens.Lens' AppsListData (Prelude.Maybe Prelude.UTCTime)
+appsListData_createTime = Lens.lens (\AppsListData' {createTime} -> createTime) (\s@AppsListData' {} a -> s {createTime = a} :: AppsListData) Prelude.. Lens.mapping Core._Time
 
 -- | A unique identifier for each update to the list. When you update the
 -- list, the update token must match the token of the current version of
 -- the application list. You can retrieve the update token by getting the
 -- list.
-appsListData_listUpdateToken :: Lens.Lens' AppsListData (Core.Maybe Core.Text)
+appsListData_listUpdateToken :: Lens.Lens' AppsListData (Prelude.Maybe Prelude.Text)
 appsListData_listUpdateToken = Lens.lens (\AppsListData' {listUpdateToken} -> listUpdateToken) (\s@AppsListData' {} a -> s {listUpdateToken = a} :: AppsListData)
 
 -- | The name of the AWS Firewall Manager applications list.
-appsListData_listName :: Lens.Lens' AppsListData Core.Text
+appsListData_listName :: Lens.Lens' AppsListData Prelude.Text
 appsListData_listName = Lens.lens (\AppsListData' {listName} -> listName) (\s@AppsListData' {} a -> s {listName = a} :: AppsListData)
 
 -- | An array of applications in the AWS Firewall Manager applications list.
 appsListData_appsList :: Lens.Lens' AppsListData [App]
-appsListData_appsList = Lens.lens (\AppsListData' {appsList} -> appsList) (\s@AppsListData' {} a -> s {appsList = a} :: AppsListData) Core.. Lens._Coerce
+appsListData_appsList = Lens.lens (\AppsListData' {appsList} -> appsList) (\s@AppsListData' {} a -> s {appsList = a} :: AppsListData) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AppsListData where
   parseJSON =
@@ -129,30 +130,34 @@ instance Core.FromJSON AppsListData where
       "AppsListData"
       ( \x ->
           AppsListData'
-            Core.<$> (x Core..:? "LastUpdateTime")
-            Core.<*> (x Core..:? "ListId")
-            Core.<*> (x Core..:? "PreviousAppsList" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "CreateTime")
-            Core.<*> (x Core..:? "ListUpdateToken")
-            Core.<*> (x Core..: "ListName")
-            Core.<*> (x Core..:? "AppsList" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "LastUpdateTime")
+            Prelude.<*> (x Core..:? "ListId")
+            Prelude.<*> ( x Core..:? "PreviousAppsList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<*> (x Core..:? "ListUpdateToken")
+            Prelude.<*> (x Core..: "ListName")
+            Prelude.<*> (x Core..:? "AppsList" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable AppsListData
+instance Prelude.Hashable AppsListData
 
-instance Core.NFData AppsListData
+instance Prelude.NFData AppsListData
 
 instance Core.ToJSON AppsListData where
   toJSON AppsListData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("LastUpdateTime" Core..=) Core.<$> lastUpdateTime,
-            ("ListId" Core..=) Core.<$> listId,
+      ( Prelude.catMaybes
+          [ ("LastUpdateTime" Core..=)
+              Prelude.<$> lastUpdateTime,
+            ("ListId" Core..=) Prelude.<$> listId,
             ("PreviousAppsList" Core..=)
-              Core.<$> previousAppsList,
-            ("CreateTime" Core..=) Core.<$> createTime,
-            ("ListUpdateToken" Core..=) Core.<$> listUpdateToken,
-            Core.Just ("ListName" Core..= listName),
-            Core.Just ("AppsList" Core..= appsList)
+              Prelude.<$> previousAppsList,
+            ("CreateTime" Core..=) Prelude.<$> createTime,
+            ("ListUpdateToken" Core..=)
+              Prelude.<$> listUpdateToken,
+            Prelude.Just ("ListName" Core..= listName),
+            Prelude.Just ("AppsList" Core..= appsList)
           ]
       )

@@ -38,6 +38,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -45,9 +46,9 @@ import qualified Network.AWS.Response as Response
 data DeleteAppsList = DeleteAppsList'
   { -- | The ID of the applications list that you want to delete. You can
     -- retrieve this ID from @PutAppsList@, @ListAppsLists@, and @GetAppsList@.
-    listId :: Core.Text
+    listId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAppsList' with all optional fields omitted.
@@ -61,14 +62,14 @@ data DeleteAppsList = DeleteAppsList'
 -- retrieve this ID from @PutAppsList@, @ListAppsLists@, and @GetAppsList@.
 newDeleteAppsList ::
   -- | 'listId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAppsList
 newDeleteAppsList pListId_ =
   DeleteAppsList' {listId = pListId_}
 
 -- | The ID of the applications list that you want to delete. You can
 -- retrieve this ID from @PutAppsList@, @ListAppsLists@, and @GetAppsList@.
-deleteAppsList_listId :: Lens.Lens' DeleteAppsList Core.Text
+deleteAppsList_listId :: Lens.Lens' DeleteAppsList Prelude.Text
 deleteAppsList_listId = Lens.lens (\DeleteAppsList' {listId} -> listId) (\s@DeleteAppsList' {} a -> s {listId = a} :: DeleteAppsList)
 
 instance Core.AWSRequest DeleteAppsList where
@@ -79,41 +80,43 @@ instance Core.AWSRequest DeleteAppsList where
   response =
     Response.receiveNull DeleteAppsListResponse'
 
-instance Core.Hashable DeleteAppsList
+instance Prelude.Hashable DeleteAppsList
 
-instance Core.NFData DeleteAppsList
+instance Prelude.NFData DeleteAppsList
 
 instance Core.ToHeaders DeleteAppsList where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.DeleteAppsList" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteAppsList where
   toJSON DeleteAppsList' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ListId" Core..= listId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ListId" Core..= listId)]
       )
 
 instance Core.ToPath DeleteAppsList where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAppsList where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppsListResponse' smart constructor.
 data DeleteAppsListResponse = DeleteAppsListResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAppsListResponse' with all optional fields omitted.
@@ -123,4 +126,4 @@ newDeleteAppsListResponse ::
   DeleteAppsListResponse
 newDeleteAppsListResponse = DeleteAppsListResponse'
 
-instance Core.NFData DeleteAppsListResponse
+instance Prelude.NFData DeleteAppsListResponse

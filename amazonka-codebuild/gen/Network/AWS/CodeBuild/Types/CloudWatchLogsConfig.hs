@@ -22,6 +22,7 @@ module Network.AWS.CodeBuild.Types.CloudWatchLogsConfig where
 import Network.AWS.CodeBuild.Types.LogsConfigStatusType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about Amazon CloudWatch Logs for a build project.
 --
@@ -30,11 +31,11 @@ data CloudWatchLogsConfig = CloudWatchLogsConfig'
   { -- | The group name of the logs in Amazon CloudWatch Logs. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The prefix of the stream name of the Amazon CloudWatch Logs. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
-    streamName :: Core.Maybe Core.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The current status of the logs in Amazon CloudWatch Logs for a build
     -- project. Valid values are:
     --
@@ -45,7 +46,7 @@ data CloudWatchLogsConfig = CloudWatchLogsConfig'
     --     project.
     status :: LogsConfigStatusType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudWatchLogsConfig' with all optional fields omitted.
@@ -77,21 +78,21 @@ newCloudWatchLogsConfig ::
   CloudWatchLogsConfig
 newCloudWatchLogsConfig pStatus_ =
   CloudWatchLogsConfig'
-    { groupName = Core.Nothing,
-      streamName = Core.Nothing,
+    { groupName = Prelude.Nothing,
+      streamName = Prelude.Nothing,
       status = pStatus_
     }
 
 -- | The group name of the logs in Amazon CloudWatch Logs. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
-cloudWatchLogsConfig_groupName :: Lens.Lens' CloudWatchLogsConfig (Core.Maybe Core.Text)
+cloudWatchLogsConfig_groupName :: Lens.Lens' CloudWatchLogsConfig (Prelude.Maybe Prelude.Text)
 cloudWatchLogsConfig_groupName = Lens.lens (\CloudWatchLogsConfig' {groupName} -> groupName) (\s@CloudWatchLogsConfig' {} a -> s {groupName = a} :: CloudWatchLogsConfig)
 
 -- | The prefix of the stream name of the Amazon CloudWatch Logs. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
-cloudWatchLogsConfig_streamName :: Lens.Lens' CloudWatchLogsConfig (Core.Maybe Core.Text)
+cloudWatchLogsConfig_streamName :: Lens.Lens' CloudWatchLogsConfig (Prelude.Maybe Prelude.Text)
 cloudWatchLogsConfig_streamName = Lens.lens (\CloudWatchLogsConfig' {streamName} -> streamName) (\s@CloudWatchLogsConfig' {} a -> s {streamName = a} :: CloudWatchLogsConfig)
 
 -- | The current status of the logs in Amazon CloudWatch Logs for a build
@@ -111,21 +112,21 @@ instance Core.FromJSON CloudWatchLogsConfig where
       "CloudWatchLogsConfig"
       ( \x ->
           CloudWatchLogsConfig'
-            Core.<$> (x Core..:? "groupName")
-            Core.<*> (x Core..:? "streamName")
-            Core.<*> (x Core..: "status")
+            Prelude.<$> (x Core..:? "groupName")
+            Prelude.<*> (x Core..:? "streamName")
+            Prelude.<*> (x Core..: "status")
       )
 
-instance Core.Hashable CloudWatchLogsConfig
+instance Prelude.Hashable CloudWatchLogsConfig
 
-instance Core.NFData CloudWatchLogsConfig
+instance Prelude.NFData CloudWatchLogsConfig
 
 instance Core.ToJSON CloudWatchLogsConfig where
   toJSON CloudWatchLogsConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("groupName" Core..=) Core.<$> groupName,
-            ("streamName" Core..=) Core.<$> streamName,
-            Core.Just ("status" Core..= status)
+      ( Prelude.catMaybes
+          [ ("groupName" Core..=) Prelude.<$> groupName,
+            ("streamName" Core..=) Prelude.<$> streamName,
+            Prelude.Just ("status" Core..= status)
           ]
       )

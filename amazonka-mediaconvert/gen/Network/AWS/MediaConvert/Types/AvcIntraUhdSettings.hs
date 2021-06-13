@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.AvcIntraUhdSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional when you set AVC-Intra class (avcIntraClass) to Class 4K\/2K
 -- (CLASS_4K_2K). When you set AVC-Intra class to a different value, this
@@ -36,9 +37,9 @@ data AvcIntraUhdSettings = AvcIntraUhdSettings'
     -- output is closer to the target bitrate defined in the specification.
     -- When you choose Single-pass (SINGLE_PASS), your encoding time is faster.
     -- The default behavior is Single-pass (SINGLE_PASS).
-    qualityTuningLevel :: Core.Maybe AvcIntraUhdQualityTuningLevel
+    qualityTuningLevel :: Prelude.Maybe AvcIntraUhdQualityTuningLevel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AvcIntraUhdSettings' with all optional fields omitted.
@@ -60,7 +61,7 @@ newAvcIntraUhdSettings ::
 newAvcIntraUhdSettings =
   AvcIntraUhdSettings'
     { qualityTuningLevel =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
@@ -70,7 +71,7 @@ newAvcIntraUhdSettings =
 -- output is closer to the target bitrate defined in the specification.
 -- When you choose Single-pass (SINGLE_PASS), your encoding time is faster.
 -- The default behavior is Single-pass (SINGLE_PASS).
-avcIntraUhdSettings_qualityTuningLevel :: Lens.Lens' AvcIntraUhdSettings (Core.Maybe AvcIntraUhdQualityTuningLevel)
+avcIntraUhdSettings_qualityTuningLevel :: Lens.Lens' AvcIntraUhdSettings (Prelude.Maybe AvcIntraUhdQualityTuningLevel)
 avcIntraUhdSettings_qualityTuningLevel = Lens.lens (\AvcIntraUhdSettings' {qualityTuningLevel} -> qualityTuningLevel) (\s@AvcIntraUhdSettings' {} a -> s {qualityTuningLevel = a} :: AvcIntraUhdSettings)
 
 instance Core.FromJSON AvcIntraUhdSettings where
@@ -79,18 +80,18 @@ instance Core.FromJSON AvcIntraUhdSettings where
       "AvcIntraUhdSettings"
       ( \x ->
           AvcIntraUhdSettings'
-            Core.<$> (x Core..:? "qualityTuningLevel")
+            Prelude.<$> (x Core..:? "qualityTuningLevel")
       )
 
-instance Core.Hashable AvcIntraUhdSettings
+instance Prelude.Hashable AvcIntraUhdSettings
 
-instance Core.NFData AvcIntraUhdSettings
+instance Prelude.NFData AvcIntraUhdSettings
 
 instance Core.ToJSON AvcIntraUhdSettings where
   toJSON AvcIntraUhdSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("qualityTuningLevel" Core..=)
-              Core.<$> qualityTuningLevel
+              Prelude.<$> qualityTuningLevel
           ]
       )

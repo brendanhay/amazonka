@@ -25,15 +25,16 @@ import Network.AWS.CodePipeline.Types.ActionTypeSettings
 import Network.AWS.CodePipeline.Types.ArtifactDetails
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about the details of an action type.
 --
 -- /See:/ 'newActionType' smart constructor.
 data ActionType = ActionType'
   { -- | The configuration properties for the action type.
-    actionConfigurationProperties :: Core.Maybe [ActionConfigurationProperty],
+    actionConfigurationProperties :: Prelude.Maybe [ActionConfigurationProperty],
     -- | The settings for the action type.
-    settings :: Core.Maybe ActionTypeSettings,
+    settings :: Prelude.Maybe ActionTypeSettings,
     -- | Represents information about an action type.
     id :: ActionTypeId,
     -- | The details of the input artifact for the action, such as its commit ID.
@@ -41,7 +42,7 @@ data ActionType = ActionType'
     -- | The details of the output artifact of the action, such as its commit ID.
     outputArtifactDetails :: ArtifactDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionType' with all optional fields omitted.
@@ -74,19 +75,19 @@ newActionType
   pOutputArtifactDetails_ =
     ActionType'
       { actionConfigurationProperties =
-          Core.Nothing,
-        settings = Core.Nothing,
+          Prelude.Nothing,
+        settings = Prelude.Nothing,
         id = pId_,
         inputArtifactDetails = pInputArtifactDetails_,
         outputArtifactDetails = pOutputArtifactDetails_
       }
 
 -- | The configuration properties for the action type.
-actionType_actionConfigurationProperties :: Lens.Lens' ActionType (Core.Maybe [ActionConfigurationProperty])
-actionType_actionConfigurationProperties = Lens.lens (\ActionType' {actionConfigurationProperties} -> actionConfigurationProperties) (\s@ActionType' {} a -> s {actionConfigurationProperties = a} :: ActionType) Core.. Lens.mapping Lens._Coerce
+actionType_actionConfigurationProperties :: Lens.Lens' ActionType (Prelude.Maybe [ActionConfigurationProperty])
+actionType_actionConfigurationProperties = Lens.lens (\ActionType' {actionConfigurationProperties} -> actionConfigurationProperties) (\s@ActionType' {} a -> s {actionConfigurationProperties = a} :: ActionType) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The settings for the action type.
-actionType_settings :: Lens.Lens' ActionType (Core.Maybe ActionTypeSettings)
+actionType_settings :: Lens.Lens' ActionType (Prelude.Maybe ActionTypeSettings)
 actionType_settings = Lens.lens (\ActionType' {settings} -> settings) (\s@ActionType' {} a -> s {settings = a} :: ActionType)
 
 -- | Represents information about an action type.
@@ -107,15 +108,15 @@ instance Core.FromJSON ActionType where
       "ActionType"
       ( \x ->
           ActionType'
-            Core.<$> ( x Core..:? "actionConfigurationProperties"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "settings")
-            Core.<*> (x Core..: "id")
-            Core.<*> (x Core..: "inputArtifactDetails")
-            Core.<*> (x Core..: "outputArtifactDetails")
+            Prelude.<$> ( x Core..:? "actionConfigurationProperties"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "settings")
+            Prelude.<*> (x Core..: "id")
+            Prelude.<*> (x Core..: "inputArtifactDetails")
+            Prelude.<*> (x Core..: "outputArtifactDetails")
       )
 
-instance Core.Hashable ActionType
+instance Prelude.Hashable ActionType
 
-instance Core.NFData ActionType
+instance Prelude.NFData ActionType

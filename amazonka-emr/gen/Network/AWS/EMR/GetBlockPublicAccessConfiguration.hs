@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data GetBlockPublicAccessConfiguration = GetBlockPublicAccessConfiguration'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBlockPublicAccessConfiguration' with all optional fields omitted.
@@ -73,19 +74,19 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetBlockPublicAccessConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "BlockPublicAccessConfiguration")
-            Core.<*> ( x
-                         Core..:> "BlockPublicAccessConfigurationMetadata"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..:> "BlockPublicAccessConfiguration")
+              Prelude.<*> ( x
+                              Core..:> "BlockPublicAccessConfigurationMetadata"
+                          )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetBlockPublicAccessConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBlockPublicAccessConfiguration
 
 instance
@@ -93,14 +94,16 @@ instance
     GetBlockPublicAccessConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.GetBlockPublicAccessConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -108,24 +111,24 @@ instance
   Core.ToJSON
     GetBlockPublicAccessConfiguration
   where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance
   Core.ToPath
     GetBlockPublicAccessConfiguration
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetBlockPublicAccessConfiguration
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBlockPublicAccessConfigurationResponse' smart constructor.
 data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A configuration for Amazon EMR block public access. The configuration
     -- applies to all clusters created in your account for the current Region.
     -- The configuration specifies whether block public access is enabled. If
@@ -151,7 +154,7 @@ data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurati
     -- public access is updated, Amazon EMR updates this metadata.
     blockPublicAccessConfigurationMetadata :: BlockPublicAccessConfigurationMetadata
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBlockPublicAccessConfigurationResponse' with all optional fields omitted.
@@ -188,7 +191,7 @@ data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurati
 -- public access is updated, Amazon EMR updates this metadata.
 newGetBlockPublicAccessConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'blockPublicAccessConfiguration'
   BlockPublicAccessConfiguration ->
   -- | 'blockPublicAccessConfigurationMetadata'
@@ -208,7 +211,7 @@ newGetBlockPublicAccessConfigurationResponse
       }
 
 -- | The response's http status code.
-getBlockPublicAccessConfigurationResponse_httpStatus :: Lens.Lens' GetBlockPublicAccessConfigurationResponse Core.Int
+getBlockPublicAccessConfigurationResponse_httpStatus :: Lens.Lens' GetBlockPublicAccessConfigurationResponse Prelude.Int
 getBlockPublicAccessConfigurationResponse_httpStatus = Lens.lens (\GetBlockPublicAccessConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetBlockPublicAccessConfigurationResponse' {} a -> s {httpStatus = a} :: GetBlockPublicAccessConfigurationResponse)
 
 -- | A configuration for Amazon EMR block public access. The configuration
@@ -240,5 +243,5 @@ getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata
 getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata = Lens.lens (\GetBlockPublicAccessConfigurationResponse' {blockPublicAccessConfigurationMetadata} -> blockPublicAccessConfigurationMetadata) (\s@GetBlockPublicAccessConfigurationResponse' {} a -> s {blockPublicAccessConfigurationMetadata = a} :: GetBlockPublicAccessConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBlockPublicAccessConfigurationResponse

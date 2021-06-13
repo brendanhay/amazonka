@@ -42,19 +42,20 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAdminRemoveUserFromGroup' smart constructor.
 data AdminRemoveUserFromGroup = AdminRemoveUserFromGroup'
   { -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The username for the user.
-    username :: Core.Sensitive Core.Text,
+    username :: Core.Sensitive Prelude.Text,
     -- | The group name.
-    groupName :: Core.Text
+    groupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminRemoveUserFromGroup' with all optional fields omitted.
@@ -71,11 +72,11 @@ data AdminRemoveUserFromGroup = AdminRemoveUserFromGroup'
 -- 'groupName', 'adminRemoveUserFromGroup_groupName' - The group name.
 newAdminRemoveUserFromGroup ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   AdminRemoveUserFromGroup
 newAdminRemoveUserFromGroup
   pUserPoolId_
@@ -89,15 +90,15 @@ newAdminRemoveUserFromGroup
       }
 
 -- | The user pool ID for the user pool.
-adminRemoveUserFromGroup_userPoolId :: Lens.Lens' AdminRemoveUserFromGroup Core.Text
+adminRemoveUserFromGroup_userPoolId :: Lens.Lens' AdminRemoveUserFromGroup Prelude.Text
 adminRemoveUserFromGroup_userPoolId = Lens.lens (\AdminRemoveUserFromGroup' {userPoolId} -> userPoolId) (\s@AdminRemoveUserFromGroup' {} a -> s {userPoolId = a} :: AdminRemoveUserFromGroup)
 
 -- | The username for the user.
-adminRemoveUserFromGroup_username :: Lens.Lens' AdminRemoveUserFromGroup Core.Text
-adminRemoveUserFromGroup_username = Lens.lens (\AdminRemoveUserFromGroup' {username} -> username) (\s@AdminRemoveUserFromGroup' {} a -> s {username = a} :: AdminRemoveUserFromGroup) Core.. Core._Sensitive
+adminRemoveUserFromGroup_username :: Lens.Lens' AdminRemoveUserFromGroup Prelude.Text
+adminRemoveUserFromGroup_username = Lens.lens (\AdminRemoveUserFromGroup' {username} -> username) (\s@AdminRemoveUserFromGroup' {} a -> s {username = a} :: AdminRemoveUserFromGroup) Prelude.. Core._Sensitive
 
 -- | The group name.
-adminRemoveUserFromGroup_groupName :: Lens.Lens' AdminRemoveUserFromGroup Core.Text
+adminRemoveUserFromGroup_groupName :: Lens.Lens' AdminRemoveUserFromGroup Prelude.Text
 adminRemoveUserFromGroup_groupName = Lens.lens (\AdminRemoveUserFromGroup' {groupName} -> groupName) (\s@AdminRemoveUserFromGroup' {} a -> s {groupName = a} :: AdminRemoveUserFromGroup)
 
 instance Core.AWSRequest AdminRemoveUserFromGroup where
@@ -109,44 +110,46 @@ instance Core.AWSRequest AdminRemoveUserFromGroup where
     Response.receiveNull
       AdminRemoveUserFromGroupResponse'
 
-instance Core.Hashable AdminRemoveUserFromGroup
+instance Prelude.Hashable AdminRemoveUserFromGroup
 
-instance Core.NFData AdminRemoveUserFromGroup
+instance Prelude.NFData AdminRemoveUserFromGroup
 
 instance Core.ToHeaders AdminRemoveUserFromGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminRemoveUserFromGroup where
   toJSON AdminRemoveUserFromGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Username" Core..= username),
-            Core.Just ("GroupName" Core..= groupName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("GroupName" Core..= groupName)
           ]
       )
 
 instance Core.ToPath AdminRemoveUserFromGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminRemoveUserFromGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminRemoveUserFromGroupResponse' smart constructor.
 data AdminRemoveUserFromGroupResponse = AdminRemoveUserFromGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminRemoveUserFromGroupResponse' with all optional fields omitted.
@@ -157,4 +160,6 @@ newAdminRemoveUserFromGroupResponse ::
 newAdminRemoveUserFromGroupResponse =
   AdminRemoveUserFromGroupResponse'
 
-instance Core.NFData AdminRemoveUserFromGroupResponse
+instance
+  Prelude.NFData
+    AdminRemoveUserFromGroupResponse

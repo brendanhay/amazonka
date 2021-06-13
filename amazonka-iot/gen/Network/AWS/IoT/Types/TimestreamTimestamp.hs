@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.TimestreamTimestamp where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes how to interpret an application-defined timestamp value from
 -- an MQTT message payload and the precision of that value.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTimestreamTimestamp' smart constructor.
 data TimestreamTimestamp = TimestreamTimestamp'
   { -- | An expression that returns a long epoch time value.
-    value :: Core.Text,
+    value :: Prelude.Text,
     -- | The precision of the timestamp value that results from the expression
     -- described in @value@.
     --
     -- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ |
     -- @NANOSECONDS@. The default is @MILLISECONDS@.
-    unit :: Core.Text
+    unit :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimestreamTimestamp' with all optional fields omitted.
@@ -55,9 +56,9 @@ data TimestreamTimestamp = TimestreamTimestamp'
 -- @NANOSECONDS@. The default is @MILLISECONDS@.
 newTimestreamTimestamp ::
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'unit'
-  Core.Text ->
+  Prelude.Text ->
   TimestreamTimestamp
 newTimestreamTimestamp pValue_ pUnit_ =
   TimestreamTimestamp'
@@ -66,7 +67,7 @@ newTimestreamTimestamp pValue_ pUnit_ =
     }
 
 -- | An expression that returns a long epoch time value.
-timestreamTimestamp_value :: Lens.Lens' TimestreamTimestamp Core.Text
+timestreamTimestamp_value :: Lens.Lens' TimestreamTimestamp Prelude.Text
 timestreamTimestamp_value = Lens.lens (\TimestreamTimestamp' {value} -> value) (\s@TimestreamTimestamp' {} a -> s {value = a} :: TimestreamTimestamp)
 
 -- | The precision of the timestamp value that results from the expression
@@ -74,7 +75,7 @@ timestreamTimestamp_value = Lens.lens (\TimestreamTimestamp' {value} -> value) (
 --
 -- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ |
 -- @NANOSECONDS@. The default is @MILLISECONDS@.
-timestreamTimestamp_unit :: Lens.Lens' TimestreamTimestamp Core.Text
+timestreamTimestamp_unit :: Lens.Lens' TimestreamTimestamp Prelude.Text
 timestreamTimestamp_unit = Lens.lens (\TimestreamTimestamp' {unit} -> unit) (\s@TimestreamTimestamp' {} a -> s {unit = a} :: TimestreamTimestamp)
 
 instance Core.FromJSON TimestreamTimestamp where
@@ -83,18 +84,18 @@ instance Core.FromJSON TimestreamTimestamp where
       "TimestreamTimestamp"
       ( \x ->
           TimestreamTimestamp'
-            Core.<$> (x Core..: "value") Core.<*> (x Core..: "unit")
+            Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "unit")
       )
 
-instance Core.Hashable TimestreamTimestamp
+instance Prelude.Hashable TimestreamTimestamp
 
-instance Core.NFData TimestreamTimestamp
+instance Prelude.NFData TimestreamTimestamp
 
 instance Core.ToJSON TimestreamTimestamp where
   toJSON TimestreamTimestamp' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("value" Core..= value),
-            Core.Just ("unit" Core..= unit)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("value" Core..= value),
+            Prelude.Just ("unit" Core..= unit)
           ]
       )

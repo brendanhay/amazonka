@@ -40,6 +40,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingProcessTypes' with all optional fields omitted.
@@ -68,40 +69,43 @@ instance Core.AWSRequest DescribeScalingProcessTypes where
       "DescribeScalingProcessTypesResult"
       ( \s h x ->
           DescribeScalingProcessTypesResponse'
-            Core.<$> ( x Core..@? "Processes" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Processes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeScalingProcessTypes
+instance Prelude.Hashable DescribeScalingProcessTypes
 
-instance Core.NFData DescribeScalingProcessTypes
+instance Prelude.NFData DescribeScalingProcessTypes
 
 instance Core.ToHeaders DescribeScalingProcessTypes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeScalingProcessTypes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeScalingProcessTypes where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("DescribeScalingProcessTypes" :: Core.ByteString),
-            "Version" Core.=: ("2011-01-01" :: Core.ByteString)
+              Core.=: ( "DescribeScalingProcessTypes" ::
+                          Prelude.ByteString
+                      ),
+            "Version"
+              Core.=: ("2011-01-01" :: Prelude.ByteString)
           ]
       )
 
 -- | /See:/ 'newDescribeScalingProcessTypesResponse' smart constructor.
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
   { -- | The names of the process types.
-    processes :: Core.Maybe [ProcessType],
+    processes :: Prelude.Maybe [ProcessType],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingProcessTypesResponse' with all optional fields omitted.
@@ -116,23 +120,23 @@ data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
 -- 'httpStatus', 'describeScalingProcessTypesResponse_httpStatus' - The response's http status code.
 newDescribeScalingProcessTypesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScalingProcessTypesResponse
 newDescribeScalingProcessTypesResponse pHttpStatus_ =
   DescribeScalingProcessTypesResponse'
     { processes =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The names of the process types.
-describeScalingProcessTypesResponse_processes :: Lens.Lens' DescribeScalingProcessTypesResponse (Core.Maybe [ProcessType])
-describeScalingProcessTypesResponse_processes = Lens.lens (\DescribeScalingProcessTypesResponse' {processes} -> processes) (\s@DescribeScalingProcessTypesResponse' {} a -> s {processes = a} :: DescribeScalingProcessTypesResponse) Core.. Lens.mapping Lens._Coerce
+describeScalingProcessTypesResponse_processes :: Lens.Lens' DescribeScalingProcessTypesResponse (Prelude.Maybe [ProcessType])
+describeScalingProcessTypesResponse_processes = Lens.lens (\DescribeScalingProcessTypesResponse' {processes} -> processes) (\s@DescribeScalingProcessTypesResponse' {} a -> s {processes = a} :: DescribeScalingProcessTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScalingProcessTypesResponse_httpStatus :: Lens.Lens' DescribeScalingProcessTypesResponse Core.Int
+describeScalingProcessTypesResponse_httpStatus :: Lens.Lens' DescribeScalingProcessTypesResponse Prelude.Int
 describeScalingProcessTypesResponse_httpStatus = Lens.lens (\DescribeScalingProcessTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeScalingProcessTypesResponse' {} a -> s {httpStatus = a} :: DescribeScalingProcessTypesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeScalingProcessTypesResponse

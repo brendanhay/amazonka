@@ -24,6 +24,7 @@ import Network.AWS.DynamoDB.Types.CreateReplicationGroupMemberAction
 import Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction
 import Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents one of the following:
 --
@@ -41,13 +42,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newReplicationGroupUpdate' smart constructor.
 data ReplicationGroupUpdate = ReplicationGroupUpdate'
   { -- | The parameters required for creating a replica for the table.
-    create :: Core.Maybe CreateReplicationGroupMemberAction,
+    create :: Prelude.Maybe CreateReplicationGroupMemberAction,
     -- | The parameters required for updating a replica for the table.
-    update :: Core.Maybe UpdateReplicationGroupMemberAction,
+    update :: Prelude.Maybe UpdateReplicationGroupMemberAction,
     -- | The parameters required for deleting a replica for the table.
-    delete' :: Core.Maybe DeleteReplicationGroupMemberAction
+    delete' :: Prelude.Maybe DeleteReplicationGroupMemberAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationGroupUpdate' with all optional fields omitted.
@@ -66,33 +67,33 @@ newReplicationGroupUpdate ::
   ReplicationGroupUpdate
 newReplicationGroupUpdate =
   ReplicationGroupUpdate'
-    { create = Core.Nothing,
-      update = Core.Nothing,
-      delete' = Core.Nothing
+    { create = Prelude.Nothing,
+      update = Prelude.Nothing,
+      delete' = Prelude.Nothing
     }
 
 -- | The parameters required for creating a replica for the table.
-replicationGroupUpdate_create :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe CreateReplicationGroupMemberAction)
+replicationGroupUpdate_create :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe CreateReplicationGroupMemberAction)
 replicationGroupUpdate_create = Lens.lens (\ReplicationGroupUpdate' {create} -> create) (\s@ReplicationGroupUpdate' {} a -> s {create = a} :: ReplicationGroupUpdate)
 
 -- | The parameters required for updating a replica for the table.
-replicationGroupUpdate_update :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe UpdateReplicationGroupMemberAction)
+replicationGroupUpdate_update :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe UpdateReplicationGroupMemberAction)
 replicationGroupUpdate_update = Lens.lens (\ReplicationGroupUpdate' {update} -> update) (\s@ReplicationGroupUpdate' {} a -> s {update = a} :: ReplicationGroupUpdate)
 
 -- | The parameters required for deleting a replica for the table.
-replicationGroupUpdate_delete :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe DeleteReplicationGroupMemberAction)
+replicationGroupUpdate_delete :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe DeleteReplicationGroupMemberAction)
 replicationGroupUpdate_delete = Lens.lens (\ReplicationGroupUpdate' {delete'} -> delete') (\s@ReplicationGroupUpdate' {} a -> s {delete' = a} :: ReplicationGroupUpdate)
 
-instance Core.Hashable ReplicationGroupUpdate
+instance Prelude.Hashable ReplicationGroupUpdate
 
-instance Core.NFData ReplicationGroupUpdate
+instance Prelude.NFData ReplicationGroupUpdate
 
 instance Core.ToJSON ReplicationGroupUpdate where
   toJSON ReplicationGroupUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Create" Core..=) Core.<$> create,
-            ("Update" Core..=) Core.<$> update,
-            ("Delete" Core..=) Core.<$> delete'
+      ( Prelude.catMaybes
+          [ ("Create" Core..=) Prelude.<$> create,
+            ("Update" Core..=) Prelude.<$> update,
+            ("Delete" Core..=) Prelude.<$> delete'
           ]
       )

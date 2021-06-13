@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServerlessApplicationRepository.Types
@@ -48,9 +49,9 @@ import Network.AWS.ServerlessApplicationRepository.Types
 -- | /See:/ 'newGetApplicationPolicy' smart constructor.
 data GetApplicationPolicy = GetApplicationPolicy'
   { -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApplicationPolicy' with all optional fields omitted.
@@ -63,7 +64,7 @@ data GetApplicationPolicy = GetApplicationPolicy'
 -- 'applicationId', 'getApplicationPolicy_applicationId' - The Amazon Resource Name (ARN) of the application.
 newGetApplicationPolicy ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetApplicationPolicy
 newGetApplicationPolicy pApplicationId_ =
   GetApplicationPolicy'
@@ -72,7 +73,7 @@ newGetApplicationPolicy pApplicationId_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the application.
-getApplicationPolicy_applicationId :: Lens.Lens' GetApplicationPolicy Core.Text
+getApplicationPolicy_applicationId :: Lens.Lens' GetApplicationPolicy Prelude.Text
 getApplicationPolicy_applicationId = Lens.lens (\GetApplicationPolicy' {applicationId} -> applicationId) (\s@GetApplicationPolicy' {} a -> s {applicationId = a} :: GetApplicationPolicy)
 
 instance Core.AWSRequest GetApplicationPolicy where
@@ -84,42 +85,44 @@ instance Core.AWSRequest GetApplicationPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationPolicyResponse'
-            Core.<$> (x Core..?> "statements" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "statements" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetApplicationPolicy
+instance Prelude.Hashable GetApplicationPolicy
 
-instance Core.NFData GetApplicationPolicy
+instance Prelude.NFData GetApplicationPolicy
 
 instance Core.ToHeaders GetApplicationPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetApplicationPolicy where
   toPath GetApplicationPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/applications/",
         Core.toBS applicationId,
         "/policy"
       ]
 
 instance Core.ToQuery GetApplicationPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationPolicyResponse' smart constructor.
 data GetApplicationPolicyResponse = GetApplicationPolicyResponse'
   { -- | An array of policy statements applied to the application.
-    statements :: Core.Maybe [ApplicationPolicyStatement],
+    statements :: Prelude.Maybe [ApplicationPolicyStatement],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApplicationPolicyResponse' with all optional fields omitted.
@@ -134,21 +137,21 @@ data GetApplicationPolicyResponse = GetApplicationPolicyResponse'
 -- 'httpStatus', 'getApplicationPolicyResponse_httpStatus' - The response's http status code.
 newGetApplicationPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetApplicationPolicyResponse
 newGetApplicationPolicyResponse pHttpStatus_ =
   GetApplicationPolicyResponse'
     { statements =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of policy statements applied to the application.
-getApplicationPolicyResponse_statements :: Lens.Lens' GetApplicationPolicyResponse (Core.Maybe [ApplicationPolicyStatement])
-getApplicationPolicyResponse_statements = Lens.lens (\GetApplicationPolicyResponse' {statements} -> statements) (\s@GetApplicationPolicyResponse' {} a -> s {statements = a} :: GetApplicationPolicyResponse) Core.. Lens.mapping Lens._Coerce
+getApplicationPolicyResponse_statements :: Lens.Lens' GetApplicationPolicyResponse (Prelude.Maybe [ApplicationPolicyStatement])
+getApplicationPolicyResponse_statements = Lens.lens (\GetApplicationPolicyResponse' {statements} -> statements) (\s@GetApplicationPolicyResponse' {} a -> s {statements = a} :: GetApplicationPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getApplicationPolicyResponse_httpStatus :: Lens.Lens' GetApplicationPolicyResponse Core.Int
+getApplicationPolicyResponse_httpStatus :: Lens.Lens' GetApplicationPolicyResponse Prelude.Int
 getApplicationPolicyResponse_httpStatus = Lens.lens (\GetApplicationPolicyResponse' {httpStatus} -> httpStatus) (\s@GetApplicationPolicyResponse' {} a -> s {httpStatus = a} :: GetApplicationPolicyResponse)
 
-instance Core.NFData GetApplicationPolicyResponse
+instance Prelude.NFData GetApplicationPolicyResponse

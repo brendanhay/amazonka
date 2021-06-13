@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,17 +60,17 @@ data DeleteDocument = DeleteDocument'
     -- flag to delete a document of type @ApplicationConfigurationSchema@. You
     -- can restrict access to the @Force@ flag in an AWS Identity and Access
     -- Management (IAM) policy.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The version name of the document that you want to delete. If not
     -- provided, all versions of the document are deleted.
-    versionName :: Core.Maybe Core.Text,
+    versionName :: Prelude.Maybe Prelude.Text,
     -- | The version of the document that you want to delete. If not provided,
     -- all versions of the document are deleted.
-    documentVersion :: Core.Maybe Core.Text,
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the document.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDocument' with all optional fields omitted.
@@ -94,13 +95,13 @@ data DeleteDocument = DeleteDocument'
 -- 'name', 'deleteDocument_name' - The name of the document.
 newDeleteDocument ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDocument
 newDeleteDocument pName_ =
   DeleteDocument'
-    { force = Core.Nothing,
-      versionName = Core.Nothing,
-      documentVersion = Core.Nothing,
+    { force = Prelude.Nothing,
+      versionName = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
       name = pName_
     }
 
@@ -109,21 +110,21 @@ newDeleteDocument pName_ =
 -- flag to delete a document of type @ApplicationConfigurationSchema@. You
 -- can restrict access to the @Force@ flag in an AWS Identity and Access
 -- Management (IAM) policy.
-deleteDocument_force :: Lens.Lens' DeleteDocument (Core.Maybe Core.Bool)
+deleteDocument_force :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Bool)
 deleteDocument_force = Lens.lens (\DeleteDocument' {force} -> force) (\s@DeleteDocument' {} a -> s {force = a} :: DeleteDocument)
 
 -- | The version name of the document that you want to delete. If not
 -- provided, all versions of the document are deleted.
-deleteDocument_versionName :: Lens.Lens' DeleteDocument (Core.Maybe Core.Text)
+deleteDocument_versionName :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Text)
 deleteDocument_versionName = Lens.lens (\DeleteDocument' {versionName} -> versionName) (\s@DeleteDocument' {} a -> s {versionName = a} :: DeleteDocument)
 
 -- | The version of the document that you want to delete. If not provided,
 -- all versions of the document are deleted.
-deleteDocument_documentVersion :: Lens.Lens' DeleteDocument (Core.Maybe Core.Text)
+deleteDocument_documentVersion :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Text)
 deleteDocument_documentVersion = Lens.lens (\DeleteDocument' {documentVersion} -> documentVersion) (\s@DeleteDocument' {} a -> s {documentVersion = a} :: DeleteDocument)
 
 -- | The name of the document.
-deleteDocument_name :: Lens.Lens' DeleteDocument Core.Text
+deleteDocument_name :: Lens.Lens' DeleteDocument Prelude.Text
 deleteDocument_name = Lens.lens (\DeleteDocument' {name} -> name) (\s@DeleteDocument' {} a -> s {name = a} :: DeleteDocument)
 
 instance Core.AWSRequest DeleteDocument where
@@ -135,47 +136,50 @@ instance Core.AWSRequest DeleteDocument where
     Response.receiveEmpty
       ( \s h x ->
           DeleteDocumentResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDocument
+instance Prelude.Hashable DeleteDocument
 
-instance Core.NFData DeleteDocument
+instance Prelude.NFData DeleteDocument
 
 instance Core.ToHeaders DeleteDocument where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteDocument" :: Core.ByteString),
+              Core.=# ("AmazonSSM.DeleteDocument" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDocument where
   toJSON DeleteDocument' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Force" Core..=) Core.<$> force,
-            ("VersionName" Core..=) Core.<$> versionName,
-            ("DocumentVersion" Core..=) Core.<$> documentVersion,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Force" Core..=) Prelude.<$> force,
+            ("VersionName" Core..=) Prelude.<$> versionName,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath DeleteDocument where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDocument where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDocumentResponse' smart constructor.
 data DeleteDocumentResponse = DeleteDocumentResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentResponse' with all optional fields omitted.
@@ -188,13 +192,13 @@ data DeleteDocumentResponse = DeleteDocumentResponse'
 -- 'httpStatus', 'deleteDocumentResponse_httpStatus' - The response's http status code.
 newDeleteDocumentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDocumentResponse
 newDeleteDocumentResponse pHttpStatus_ =
   DeleteDocumentResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteDocumentResponse_httpStatus :: Lens.Lens' DeleteDocumentResponse Core.Int
+deleteDocumentResponse_httpStatus :: Lens.Lens' DeleteDocumentResponse Prelude.Int
 deleteDocumentResponse_httpStatus = Lens.lens (\DeleteDocumentResponse' {httpStatus} -> httpStatus) (\s@DeleteDocumentResponse' {} a -> s {httpStatus = a} :: DeleteDocumentResponse)
 
-instance Core.NFData DeleteDocumentResponse
+instance Prelude.NFData DeleteDocumentResponse

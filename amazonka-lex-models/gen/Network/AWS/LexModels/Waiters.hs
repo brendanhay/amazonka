@@ -19,3 +19,4 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude

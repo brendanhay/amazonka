@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data UpdateAdmChannel = UpdateAdmChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     aDMChannelRequest :: ADMChannelRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAdmChannel' with all optional fields omitted.
@@ -70,7 +71,7 @@ data UpdateAdmChannel = UpdateAdmChannel'
 -- 'aDMChannelRequest', 'updateAdmChannel_aDMChannelRequest' - Undocumented member.
 newUpdateAdmChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'aDMChannelRequest'
   ADMChannelRequest ->
   UpdateAdmChannel
@@ -84,7 +85,7 @@ newUpdateAdmChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateAdmChannel_applicationId :: Lens.Lens' UpdateAdmChannel Core.Text
+updateAdmChannel_applicationId :: Lens.Lens' UpdateAdmChannel Prelude.Text
 updateAdmChannel_applicationId = Lens.lens (\UpdateAdmChannel' {applicationId} -> applicationId) (\s@UpdateAdmChannel' {} a -> s {applicationId = a} :: UpdateAdmChannel)
 
 -- | Undocumented member.
@@ -100,50 +101,52 @@ instance Core.AWSRequest UpdateAdmChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateAdmChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateAdmChannel
+instance Prelude.Hashable UpdateAdmChannel
 
-instance Core.NFData UpdateAdmChannel
+instance Prelude.NFData UpdateAdmChannel
 
 instance Core.ToHeaders UpdateAdmChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateAdmChannel where
   toJSON UpdateAdmChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ADMChannelRequest" Core..= aDMChannelRequest)
           ]
       )
 
 instance Core.ToPath UpdateAdmChannel where
   toPath UpdateAdmChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/adm"
       ]
 
 instance Core.ToQuery UpdateAdmChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAdmChannelResponse' smart constructor.
 data UpdateAdmChannelResponse = UpdateAdmChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     aDMChannelResponse :: ADMChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAdmChannelResponse' with all optional fields omitted.
@@ -158,7 +161,7 @@ data UpdateAdmChannelResponse = UpdateAdmChannelResponse'
 -- 'aDMChannelResponse', 'updateAdmChannelResponse_aDMChannelResponse' - Undocumented member.
 newUpdateAdmChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'aDMChannelResponse'
   ADMChannelResponse ->
   UpdateAdmChannelResponse
@@ -172,11 +175,11 @@ newUpdateAdmChannelResponse
       }
 
 -- | The response's http status code.
-updateAdmChannelResponse_httpStatus :: Lens.Lens' UpdateAdmChannelResponse Core.Int
+updateAdmChannelResponse_httpStatus :: Lens.Lens' UpdateAdmChannelResponse Prelude.Int
 updateAdmChannelResponse_httpStatus = Lens.lens (\UpdateAdmChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateAdmChannelResponse' {} a -> s {httpStatus = a} :: UpdateAdmChannelResponse)
 
 -- | Undocumented member.
 updateAdmChannelResponse_aDMChannelResponse :: Lens.Lens' UpdateAdmChannelResponse ADMChannelResponse
 updateAdmChannelResponse_aDMChannelResponse = Lens.lens (\UpdateAdmChannelResponse' {aDMChannelResponse} -> aDMChannelResponse) (\s@UpdateAdmChannelResponse' {} a -> s {aDMChannelResponse = a} :: UpdateAdmChannelResponse)
 
-instance Core.NFData UpdateAdmChannelResponse
+instance Prelude.NFData UpdateAdmChannelResponse

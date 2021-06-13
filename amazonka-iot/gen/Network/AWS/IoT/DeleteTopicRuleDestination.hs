@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteTopicRuleDestination' smart constructor.
 data DeleteTopicRuleDestination = DeleteTopicRuleDestination'
   { -- | The ARN of the topic rule destination to delete.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTopicRuleDestination' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteTopicRuleDestination = DeleteTopicRuleDestination'
 -- 'arn', 'deleteTopicRuleDestination_arn' - The ARN of the topic rule destination to delete.
 newDeleteTopicRuleDestination ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTopicRuleDestination
 newDeleteTopicRuleDestination pArn_ =
   DeleteTopicRuleDestination' {arn = pArn_}
 
 -- | The ARN of the topic rule destination to delete.
-deleteTopicRuleDestination_arn :: Lens.Lens' DeleteTopicRuleDestination Core.Text
+deleteTopicRuleDestination_arn :: Lens.Lens' DeleteTopicRuleDestination Prelude.Text
 deleteTopicRuleDestination_arn = Lens.lens (\DeleteTopicRuleDestination' {arn} -> arn) (\s@DeleteTopicRuleDestination' {} a -> s {arn = a} :: DeleteTopicRuleDestination)
 
 instance Core.AWSRequest DeleteTopicRuleDestination where
@@ -80,29 +81,29 @@ instance Core.AWSRequest DeleteTopicRuleDestination where
     Response.receiveEmpty
       ( \s h x ->
           DeleteTopicRuleDestinationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTopicRuleDestination
+instance Prelude.Hashable DeleteTopicRuleDestination
 
-instance Core.NFData DeleteTopicRuleDestination
+instance Prelude.NFData DeleteTopicRuleDestination
 
 instance Core.ToHeaders DeleteTopicRuleDestination where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTopicRuleDestination where
   toPath DeleteTopicRuleDestination' {..} =
-    Core.mconcat ["/destinations/", Core.toBS arn]
+    Prelude.mconcat ["/destinations/", Core.toBS arn]
 
 instance Core.ToQuery DeleteTopicRuleDestination where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTopicRuleDestinationResponse' smart constructor.
 data DeleteTopicRuleDestinationResponse = DeleteTopicRuleDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTopicRuleDestinationResponse' with all optional fields omitted.
@@ -115,7 +116,7 @@ data DeleteTopicRuleDestinationResponse = DeleteTopicRuleDestinationResponse'
 -- 'httpStatus', 'deleteTopicRuleDestinationResponse_httpStatus' - The response's http status code.
 newDeleteTopicRuleDestinationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTopicRuleDestinationResponse
 newDeleteTopicRuleDestinationResponse pHttpStatus_ =
   DeleteTopicRuleDestinationResponse'
@@ -124,9 +125,9 @@ newDeleteTopicRuleDestinationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTopicRuleDestinationResponse_httpStatus :: Lens.Lens' DeleteTopicRuleDestinationResponse Core.Int
+deleteTopicRuleDestinationResponse_httpStatus :: Lens.Lens' DeleteTopicRuleDestinationResponse Prelude.Int
 deleteTopicRuleDestinationResponse_httpStatus = Lens.lens (\DeleteTopicRuleDestinationResponse' {httpStatus} -> httpStatus) (\s@DeleteTopicRuleDestinationResponse' {} a -> s {httpStatus = a} :: DeleteTopicRuleDestinationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteTopicRuleDestinationResponse

@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LaunchTemplateHttpTokensState
 import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata options for the instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data>
@@ -37,7 +38,7 @@ data LaunchTemplateInstanceMetadataOptionsRequest = LaunchTemplateInstanceMetada
     --
     -- If you specify a value of @disabled@, you will not be able to access
     -- your instance metadata.
-    httpEndpoint :: Core.Maybe LaunchTemplateInstanceMetadataEndpointState,
+    httpEndpoint :: Prelude.Maybe LaunchTemplateInstanceMetadataEndpointState,
     -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- The larger the number, the further instance metadata requests can
     -- travel.
@@ -45,7 +46,7 @@ data LaunchTemplateInstanceMetadataOptionsRequest = LaunchTemplateInstanceMetada
     -- Default: 1
     --
     -- Possible values: Integers from 1 to 64
-    httpPutResponseHopLimit :: Core.Maybe Core.Int,
+    httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
     -- | The state of token usage for your instance metadata requests. If the
     -- parameter is not specified in the request, the default state is
     -- @optional@.
@@ -60,9 +61,9 @@ data LaunchTemplateInstanceMetadataOptionsRequest = LaunchTemplateInstanceMetada
     -- instance metadata retrieval requests. In this state, retrieving the IAM
     -- role credentials always returns the version 2.0 credentials; the version
     -- 1.0 credentials are not available.
-    httpTokens :: Core.Maybe LaunchTemplateHttpTokensState
+    httpTokens :: Prelude.Maybe LaunchTemplateHttpTokensState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateInstanceMetadataOptionsRequest' with all optional fields omitted.
@@ -106,10 +107,10 @@ newLaunchTemplateInstanceMetadataOptionsRequest ::
 newLaunchTemplateInstanceMetadataOptionsRequest =
   LaunchTemplateInstanceMetadataOptionsRequest'
     { httpEndpoint =
-        Core.Nothing,
+        Prelude.Nothing,
       httpPutResponseHopLimit =
-        Core.Nothing,
-      httpTokens = Core.Nothing
+        Prelude.Nothing,
+      httpTokens = Prelude.Nothing
     }
 
 -- | This parameter enables or disables the HTTP metadata endpoint on your
@@ -118,7 +119,7 @@ newLaunchTemplateInstanceMetadataOptionsRequest =
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.
-launchTemplateInstanceMetadataOptionsRequest_httpEndpoint :: Lens.Lens' LaunchTemplateInstanceMetadataOptionsRequest (Core.Maybe LaunchTemplateInstanceMetadataEndpointState)
+launchTemplateInstanceMetadataOptionsRequest_httpEndpoint :: Lens.Lens' LaunchTemplateInstanceMetadataOptionsRequest (Prelude.Maybe LaunchTemplateInstanceMetadataEndpointState)
 launchTemplateInstanceMetadataOptionsRequest_httpEndpoint = Lens.lens (\LaunchTemplateInstanceMetadataOptionsRequest' {httpEndpoint} -> httpEndpoint) (\s@LaunchTemplateInstanceMetadataOptionsRequest' {} a -> s {httpEndpoint = a} :: LaunchTemplateInstanceMetadataOptionsRequest)
 
 -- | The desired HTTP PUT response hop limit for instance metadata requests.
@@ -128,7 +129,7 @@ launchTemplateInstanceMetadataOptionsRequest_httpEndpoint = Lens.lens (\LaunchTe
 -- Default: 1
 --
 -- Possible values: Integers from 1 to 64
-launchTemplateInstanceMetadataOptionsRequest_httpPutResponseHopLimit :: Lens.Lens' LaunchTemplateInstanceMetadataOptionsRequest (Core.Maybe Core.Int)
+launchTemplateInstanceMetadataOptionsRequest_httpPutResponseHopLimit :: Lens.Lens' LaunchTemplateInstanceMetadataOptionsRequest (Prelude.Maybe Prelude.Int)
 launchTemplateInstanceMetadataOptionsRequest_httpPutResponseHopLimit = Lens.lens (\LaunchTemplateInstanceMetadataOptionsRequest' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@LaunchTemplateInstanceMetadataOptionsRequest' {} a -> s {httpPutResponseHopLimit = a} :: LaunchTemplateInstanceMetadataOptionsRequest)
 
 -- | The state of token usage for your instance metadata requests. If the
@@ -145,15 +146,15 @@ launchTemplateInstanceMetadataOptionsRequest_httpPutResponseHopLimit = Lens.lens
 -- instance metadata retrieval requests. In this state, retrieving the IAM
 -- role credentials always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.
-launchTemplateInstanceMetadataOptionsRequest_httpTokens :: Lens.Lens' LaunchTemplateInstanceMetadataOptionsRequest (Core.Maybe LaunchTemplateHttpTokensState)
+launchTemplateInstanceMetadataOptionsRequest_httpTokens :: Lens.Lens' LaunchTemplateInstanceMetadataOptionsRequest (Prelude.Maybe LaunchTemplateHttpTokensState)
 launchTemplateInstanceMetadataOptionsRequest_httpTokens = Lens.lens (\LaunchTemplateInstanceMetadataOptionsRequest' {httpTokens} -> httpTokens) (\s@LaunchTemplateInstanceMetadataOptionsRequest' {} a -> s {httpTokens = a} :: LaunchTemplateInstanceMetadataOptionsRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateInstanceMetadataOptionsRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateInstanceMetadataOptionsRequest
 
 instance
@@ -162,7 +163,7 @@ instance
   where
   toQuery
     LaunchTemplateInstanceMetadataOptionsRequest' {..} =
-      Core.mconcat
+      Prelude.mconcat
         [ "HttpEndpoint" Core.=: httpEndpoint,
           "HttpPutResponseHopLimit"
             Core.=: httpPutResponseHopLimit,

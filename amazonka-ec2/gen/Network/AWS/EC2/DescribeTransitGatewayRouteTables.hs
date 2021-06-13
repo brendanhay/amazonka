@@ -51,24 +51,25 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTransitGatewayRouteTables' smart constructor.
 data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
   { -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The IDs of the transit gateway route tables.
-    transitGatewayRouteTableIds :: Core.Maybe [Core.Text],
+    transitGatewayRouteTableIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters. The possible values are:
     --
     -- -   @default-association-route-table@ - Indicates whether this is the
@@ -86,9 +87,9 @@ data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
     --
     -- -   @transit-gateway-route-table-id@ - The ID of the transit gateway
     --     route table.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTransitGatewayRouteTables' with all optional fields omitted.
@@ -133,34 +134,34 @@ newDescribeTransitGatewayRouteTables ::
 newDescribeTransitGatewayRouteTables =
   DescribeTransitGatewayRouteTables'
     { nextToken =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       transitGatewayRouteTableIds =
-        Core.Nothing,
-      filters = Core.Nothing
+        Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token for the next page of results.
-describeTransitGatewayRouteTables_nextToken :: Lens.Lens' DescribeTransitGatewayRouteTables (Core.Maybe Core.Text)
+describeTransitGatewayRouteTables_nextToken :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe Prelude.Text)
 describeTransitGatewayRouteTables_nextToken = Lens.lens (\DescribeTransitGatewayRouteTables' {nextToken} -> nextToken) (\s@DescribeTransitGatewayRouteTables' {} a -> s {nextToken = a} :: DescribeTransitGatewayRouteTables)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeTransitGatewayRouteTables_dryRun :: Lens.Lens' DescribeTransitGatewayRouteTables (Core.Maybe Core.Bool)
+describeTransitGatewayRouteTables_dryRun :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe Prelude.Bool)
 describeTransitGatewayRouteTables_dryRun = Lens.lens (\DescribeTransitGatewayRouteTables' {dryRun} -> dryRun) (\s@DescribeTransitGatewayRouteTables' {} a -> s {dryRun = a} :: DescribeTransitGatewayRouteTables)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeTransitGatewayRouteTables_maxResults :: Lens.Lens' DescribeTransitGatewayRouteTables (Core.Maybe Core.Natural)
+describeTransitGatewayRouteTables_maxResults :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe Prelude.Natural)
 describeTransitGatewayRouteTables_maxResults = Lens.lens (\DescribeTransitGatewayRouteTables' {maxResults} -> maxResults) (\s@DescribeTransitGatewayRouteTables' {} a -> s {maxResults = a} :: DescribeTransitGatewayRouteTables)
 
 -- | The IDs of the transit gateway route tables.
-describeTransitGatewayRouteTables_transitGatewayRouteTableIds :: Lens.Lens' DescribeTransitGatewayRouteTables (Core.Maybe [Core.Text])
-describeTransitGatewayRouteTables_transitGatewayRouteTableIds = Lens.lens (\DescribeTransitGatewayRouteTables' {transitGatewayRouteTableIds} -> transitGatewayRouteTableIds) (\s@DescribeTransitGatewayRouteTables' {} a -> s {transitGatewayRouteTableIds = a} :: DescribeTransitGatewayRouteTables) Core.. Lens.mapping Lens._Coerce
+describeTransitGatewayRouteTables_transitGatewayRouteTableIds :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe [Prelude.Text])
+describeTransitGatewayRouteTables_transitGatewayRouteTableIds = Lens.lens (\DescribeTransitGatewayRouteTables' {transitGatewayRouteTableIds} -> transitGatewayRouteTableIds) (\s@DescribeTransitGatewayRouteTables' {} a -> s {transitGatewayRouteTableIds = a} :: DescribeTransitGatewayRouteTables) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters. The possible values are:
 --
@@ -179,8 +180,8 @@ describeTransitGatewayRouteTables_transitGatewayRouteTableIds = Lens.lens (\Desc
 --
 -- -   @transit-gateway-route-table-id@ - The ID of the transit gateway
 --     route table.
-describeTransitGatewayRouteTables_filters :: Lens.Lens' DescribeTransitGatewayRouteTables (Core.Maybe [Filter])
-describeTransitGatewayRouteTables_filters = Lens.lens (\DescribeTransitGatewayRouteTables' {filters} -> filters) (\s@DescribeTransitGatewayRouteTables' {} a -> s {filters = a} :: DescribeTransitGatewayRouteTables) Core.. Lens.mapping Lens._Coerce
+describeTransitGatewayRouteTables_filters :: Lens.Lens' DescribeTransitGatewayRouteTables (Prelude.Maybe [Filter])
+describeTransitGatewayRouteTables_filters = Lens.lens (\DescribeTransitGatewayRouteTables' {filters} -> filters) (\s@DescribeTransitGatewayRouteTables' {} a -> s {filters = a} :: DescribeTransitGatewayRouteTables) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSPager
@@ -190,22 +191,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeTransitGatewayRouteTablesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTransitGatewayRouteTablesResponse_transitGatewayRouteTables
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeTransitGatewayRouteTables_nextToken
+          Prelude.& describeTransitGatewayRouteTables_nextToken
           Lens..~ rs
           Lens.^? describeTransitGatewayRouteTablesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -219,67 +220,68 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewayRouteTablesResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "transitGatewayRouteTables"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "transitGatewayRouteTables"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeTransitGatewayRouteTables
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTransitGatewayRouteTables
 
 instance
   Core.ToHeaders
     DescribeTransitGatewayRouteTables
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DescribeTransitGatewayRouteTables
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeTransitGatewayRouteTables
   where
   toQuery DescribeTransitGatewayRouteTables' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeTransitGatewayRouteTables" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayRouteTableIds"
-              Core.<$> transitGatewayRouteTableIds
+              Prelude.<$> transitGatewayRouteTableIds
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeTransitGatewayRouteTablesResponse' smart constructor.
 data DescribeTransitGatewayRouteTablesResponse = DescribeTransitGatewayRouteTablesResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the transit gateway route tables.
-    transitGatewayRouteTables :: Core.Maybe [TransitGatewayRouteTable],
+    transitGatewayRouteTables :: Prelude.Maybe [TransitGatewayRouteTable],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTransitGatewayRouteTablesResponse' with all optional fields omitted.
@@ -297,31 +299,31 @@ data DescribeTransitGatewayRouteTablesResponse = DescribeTransitGatewayRouteTabl
 -- 'httpStatus', 'describeTransitGatewayRouteTablesResponse_httpStatus' - The response's http status code.
 newDescribeTransitGatewayRouteTablesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTransitGatewayRouteTablesResponse
 newDescribeTransitGatewayRouteTablesResponse
   pHttpStatus_ =
     DescribeTransitGatewayRouteTablesResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         transitGatewayRouteTables =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeTransitGatewayRouteTablesResponse_nextToken :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Core.Maybe Core.Text)
+describeTransitGatewayRouteTablesResponse_nextToken :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Prelude.Maybe Prelude.Text)
 describeTransitGatewayRouteTablesResponse_nextToken = Lens.lens (\DescribeTransitGatewayRouteTablesResponse' {nextToken} -> nextToken) (\s@DescribeTransitGatewayRouteTablesResponse' {} a -> s {nextToken = a} :: DescribeTransitGatewayRouteTablesResponse)
 
 -- | Information about the transit gateway route tables.
-describeTransitGatewayRouteTablesResponse_transitGatewayRouteTables :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Core.Maybe [TransitGatewayRouteTable])
-describeTransitGatewayRouteTablesResponse_transitGatewayRouteTables = Lens.lens (\DescribeTransitGatewayRouteTablesResponse' {transitGatewayRouteTables} -> transitGatewayRouteTables) (\s@DescribeTransitGatewayRouteTablesResponse' {} a -> s {transitGatewayRouteTables = a} :: DescribeTransitGatewayRouteTablesResponse) Core.. Lens.mapping Lens._Coerce
+describeTransitGatewayRouteTablesResponse_transitGatewayRouteTables :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Prelude.Maybe [TransitGatewayRouteTable])
+describeTransitGatewayRouteTablesResponse_transitGatewayRouteTables = Lens.lens (\DescribeTransitGatewayRouteTablesResponse' {transitGatewayRouteTables} -> transitGatewayRouteTables) (\s@DescribeTransitGatewayRouteTablesResponse' {} a -> s {transitGatewayRouteTables = a} :: DescribeTransitGatewayRouteTablesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTransitGatewayRouteTablesResponse_httpStatus :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse Core.Int
+describeTransitGatewayRouteTablesResponse_httpStatus :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse Prelude.Int
 describeTransitGatewayRouteTablesResponse_httpStatus = Lens.lens (\DescribeTransitGatewayRouteTablesResponse' {httpStatus} -> httpStatus) (\s@DescribeTransitGatewayRouteTablesResponse' {} a -> s {httpStatus = a} :: DescribeTransitGatewayRouteTablesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTransitGatewayRouteTablesResponse

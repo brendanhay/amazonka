@@ -21,17 +21,18 @@ module Network.AWS.Lightsail.Types.InstanceState where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the virtual private server (or /instance/) status.
 --
 -- /See:/ 'newInstanceState' smart constructor.
 data InstanceState = InstanceState'
   { -- | The status code for the instance.
-    code :: Core.Maybe Core.Int,
+    code :: Prelude.Maybe Prelude.Int,
     -- | The state of the instance (e.g., @running@ or @pending@).
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceState' with all optional fields omitted.
@@ -48,16 +49,16 @@ newInstanceState ::
   InstanceState
 newInstanceState =
   InstanceState'
-    { code = Core.Nothing,
-      name = Core.Nothing
+    { code = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The status code for the instance.
-instanceState_code :: Lens.Lens' InstanceState (Core.Maybe Core.Int)
+instanceState_code :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Int)
 instanceState_code = Lens.lens (\InstanceState' {code} -> code) (\s@InstanceState' {} a -> s {code = a} :: InstanceState)
 
 -- | The state of the instance (e.g., @running@ or @pending@).
-instanceState_name :: Lens.Lens' InstanceState (Core.Maybe Core.Text)
+instanceState_name :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
 instanceState_name = Lens.lens (\InstanceState' {name} -> name) (\s@InstanceState' {} a -> s {name = a} :: InstanceState)
 
 instance Core.FromJSON InstanceState where
@@ -66,9 +67,9 @@ instance Core.FromJSON InstanceState where
       "InstanceState"
       ( \x ->
           InstanceState'
-            Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "code") Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable InstanceState
+instance Prelude.Hashable InstanceState
 
-instance Core.NFData InstanceState
+instance Prelude.NFData InstanceState

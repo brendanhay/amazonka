@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType wh
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type used for enabling software token MFA at the user level. If an
 -- MFA type is enabled for a user, the user will be prompted for MFA during
@@ -35,11 +36,11 @@ data SoftwareTokenMfaSettingsType = SoftwareTokenMfaSettingsType'
     -- enabled for a user, the user will be prompted for MFA during all sign in
     -- attempts, unless device tracking is turned on and the device has been
     -- trusted.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether software token MFA is the preferred MFA method.
-    preferredMfa :: Core.Maybe Core.Bool
+    preferredMfa :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SoftwareTokenMfaSettingsType' with all optional fields omitted.
@@ -60,30 +61,32 @@ newSoftwareTokenMfaSettingsType ::
 newSoftwareTokenMfaSettingsType =
   SoftwareTokenMfaSettingsType'
     { enabled =
-        Core.Nothing,
-      preferredMfa = Core.Nothing
+        Prelude.Nothing,
+      preferredMfa = Prelude.Nothing
     }
 
 -- | Specifies whether software token MFA is enabled. If an MFA type is
 -- enabled for a user, the user will be prompted for MFA during all sign in
 -- attempts, unless device tracking is turned on and the device has been
 -- trusted.
-softwareTokenMfaSettingsType_enabled :: Lens.Lens' SoftwareTokenMfaSettingsType (Core.Maybe Core.Bool)
+softwareTokenMfaSettingsType_enabled :: Lens.Lens' SoftwareTokenMfaSettingsType (Prelude.Maybe Prelude.Bool)
 softwareTokenMfaSettingsType_enabled = Lens.lens (\SoftwareTokenMfaSettingsType' {enabled} -> enabled) (\s@SoftwareTokenMfaSettingsType' {} a -> s {enabled = a} :: SoftwareTokenMfaSettingsType)
 
 -- | Specifies whether software token MFA is the preferred MFA method.
-softwareTokenMfaSettingsType_preferredMfa :: Lens.Lens' SoftwareTokenMfaSettingsType (Core.Maybe Core.Bool)
+softwareTokenMfaSettingsType_preferredMfa :: Lens.Lens' SoftwareTokenMfaSettingsType (Prelude.Maybe Prelude.Bool)
 softwareTokenMfaSettingsType_preferredMfa = Lens.lens (\SoftwareTokenMfaSettingsType' {preferredMfa} -> preferredMfa) (\s@SoftwareTokenMfaSettingsType' {} a -> s {preferredMfa = a} :: SoftwareTokenMfaSettingsType)
 
-instance Core.Hashable SoftwareTokenMfaSettingsType
+instance
+  Prelude.Hashable
+    SoftwareTokenMfaSettingsType
 
-instance Core.NFData SoftwareTokenMfaSettingsType
+instance Prelude.NFData SoftwareTokenMfaSettingsType
 
 instance Core.ToJSON SoftwareTokenMfaSettingsType where
   toJSON SoftwareTokenMfaSettingsType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Enabled" Core..=) Core.<$> enabled,
-            ("PreferredMfa" Core..=) Core.<$> preferredMfa
+      ( Prelude.catMaybes
+          [ ("Enabled" Core..=) Prelude.<$> enabled,
+            ("PreferredMfa" Core..=) Prelude.<$> preferredMfa
           ]
       )

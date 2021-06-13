@@ -25,25 +25,26 @@ import Network.AWS.DynamoDB.Types.BillingModeSummary
 import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription
 import Network.AWS.DynamoDB.Types.ReplicaStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a replica.
 --
 -- /See:/ 'newReplicaSettingsDescription' smart constructor.
 data ReplicaSettingsDescription = ReplicaSettingsDescription'
   { -- | The read\/write capacity mode of the replica.
-    replicaBillingModeSummary :: Core.Maybe BillingModeSummary,
+    replicaBillingModeSummary :: Prelude.Maybe BillingModeSummary,
     -- | Auto scaling settings for a global table replica\'s read capacity units.
-    replicaProvisionedReadCapacityAutoScalingSettings :: Core.Maybe AutoScalingSettingsDescription,
+    replicaProvisionedReadCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
     -- | Auto scaling settings for a global table replica\'s write capacity
     -- units.
-    replicaProvisionedWriteCapacityAutoScalingSettings :: Core.Maybe AutoScalingSettingsDescription,
+    replicaProvisionedWriteCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
     -- | Replica global secondary index settings for the global table.
-    replicaGlobalSecondaryIndexSettings :: Core.Maybe [ReplicaGlobalSecondaryIndexSettingsDescription],
+    replicaGlobalSecondaryIndexSettings :: Prelude.Maybe [ReplicaGlobalSecondaryIndexSettingsDescription],
     -- | The maximum number of writes consumed per second before DynamoDB returns
     -- a @ThrottlingException@. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
     -- in the /Amazon DynamoDB Developer Guide/.
-    replicaProvisionedWriteCapacityUnits :: Core.Maybe Core.Natural,
+    replicaProvisionedWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The current state of the Region:
     --
     -- -   @CREATING@ - The Region is being created.
@@ -53,17 +54,17 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
     -- -   @DELETING@ - The Region is being deleted.
     --
     -- -   @ACTIVE@ - The Region is ready for use.
-    replicaStatus :: Core.Maybe ReplicaStatus,
+    replicaStatus :: Prelude.Maybe ReplicaStatus,
     -- | The maximum number of strongly consistent reads consumed per second
     -- before DynamoDB returns a @ThrottlingException@. For more information,
     -- see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
     -- in the /Amazon DynamoDB Developer Guide/.
-    replicaProvisionedReadCapacityUnits :: Core.Maybe Core.Natural,
+    replicaProvisionedReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The Region name of the replica.
-    regionName :: Core.Text
+    regionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicaSettingsDescription' with all optional fields omitted.
@@ -106,48 +107,48 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
 -- 'regionName', 'replicaSettingsDescription_regionName' - The Region name of the replica.
 newReplicaSettingsDescription ::
   -- | 'regionName'
-  Core.Text ->
+  Prelude.Text ->
   ReplicaSettingsDescription
 newReplicaSettingsDescription pRegionName_ =
   ReplicaSettingsDescription'
     { replicaBillingModeSummary =
-        Core.Nothing,
+        Prelude.Nothing,
       replicaProvisionedReadCapacityAutoScalingSettings =
-        Core.Nothing,
+        Prelude.Nothing,
       replicaProvisionedWriteCapacityAutoScalingSettings =
-        Core.Nothing,
+        Prelude.Nothing,
       replicaGlobalSecondaryIndexSettings =
-        Core.Nothing,
+        Prelude.Nothing,
       replicaProvisionedWriteCapacityUnits =
-        Core.Nothing,
-      replicaStatus = Core.Nothing,
+        Prelude.Nothing,
+      replicaStatus = Prelude.Nothing,
       replicaProvisionedReadCapacityUnits =
-        Core.Nothing,
+        Prelude.Nothing,
       regionName = pRegionName_
     }
 
 -- | The read\/write capacity mode of the replica.
-replicaSettingsDescription_replicaBillingModeSummary :: Lens.Lens' ReplicaSettingsDescription (Core.Maybe BillingModeSummary)
+replicaSettingsDescription_replicaBillingModeSummary :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe BillingModeSummary)
 replicaSettingsDescription_replicaBillingModeSummary = Lens.lens (\ReplicaSettingsDescription' {replicaBillingModeSummary} -> replicaBillingModeSummary) (\s@ReplicaSettingsDescription' {} a -> s {replicaBillingModeSummary = a} :: ReplicaSettingsDescription)
 
 -- | Auto scaling settings for a global table replica\'s read capacity units.
-replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaSettingsDescription (Core.Maybe AutoScalingSettingsDescription)
+replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe AutoScalingSettingsDescription)
 replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings = Lens.lens (\ReplicaSettingsDescription' {replicaProvisionedReadCapacityAutoScalingSettings} -> replicaProvisionedReadCapacityAutoScalingSettings) (\s@ReplicaSettingsDescription' {} a -> s {replicaProvisionedReadCapacityAutoScalingSettings = a} :: ReplicaSettingsDescription)
 
 -- | Auto scaling settings for a global table replica\'s write capacity
 -- units.
-replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaSettingsDescription (Core.Maybe AutoScalingSettingsDescription)
+replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe AutoScalingSettingsDescription)
 replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings = Lens.lens (\ReplicaSettingsDescription' {replicaProvisionedWriteCapacityAutoScalingSettings} -> replicaProvisionedWriteCapacityAutoScalingSettings) (\s@ReplicaSettingsDescription' {} a -> s {replicaProvisionedWriteCapacityAutoScalingSettings = a} :: ReplicaSettingsDescription)
 
 -- | Replica global secondary index settings for the global table.
-replicaSettingsDescription_replicaGlobalSecondaryIndexSettings :: Lens.Lens' ReplicaSettingsDescription (Core.Maybe [ReplicaGlobalSecondaryIndexSettingsDescription])
-replicaSettingsDescription_replicaGlobalSecondaryIndexSettings = Lens.lens (\ReplicaSettingsDescription' {replicaGlobalSecondaryIndexSettings} -> replicaGlobalSecondaryIndexSettings) (\s@ReplicaSettingsDescription' {} a -> s {replicaGlobalSecondaryIndexSettings = a} :: ReplicaSettingsDescription) Core.. Lens.mapping Lens._Coerce
+replicaSettingsDescription_replicaGlobalSecondaryIndexSettings :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe [ReplicaGlobalSecondaryIndexSettingsDescription])
+replicaSettingsDescription_replicaGlobalSecondaryIndexSettings = Lens.lens (\ReplicaSettingsDescription' {replicaGlobalSecondaryIndexSettings} -> replicaGlobalSecondaryIndexSettings) (\s@ReplicaSettingsDescription' {} a -> s {replicaGlobalSecondaryIndexSettings = a} :: ReplicaSettingsDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
 -- a @ThrottlingException@. For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
 -- in the /Amazon DynamoDB Developer Guide/.
-replicaSettingsDescription_replicaProvisionedWriteCapacityUnits :: Lens.Lens' ReplicaSettingsDescription (Core.Maybe Core.Natural)
+replicaSettingsDescription_replicaProvisionedWriteCapacityUnits :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe Prelude.Natural)
 replicaSettingsDescription_replicaProvisionedWriteCapacityUnits = Lens.lens (\ReplicaSettingsDescription' {replicaProvisionedWriteCapacityUnits} -> replicaProvisionedWriteCapacityUnits) (\s@ReplicaSettingsDescription' {} a -> s {replicaProvisionedWriteCapacityUnits = a} :: ReplicaSettingsDescription)
 
 -- | The current state of the Region:
@@ -159,7 +160,7 @@ replicaSettingsDescription_replicaProvisionedWriteCapacityUnits = Lens.lens (\Re
 -- -   @DELETING@ - The Region is being deleted.
 --
 -- -   @ACTIVE@ - The Region is ready for use.
-replicaSettingsDescription_replicaStatus :: Lens.Lens' ReplicaSettingsDescription (Core.Maybe ReplicaStatus)
+replicaSettingsDescription_replicaStatus :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe ReplicaStatus)
 replicaSettingsDescription_replicaStatus = Lens.lens (\ReplicaSettingsDescription' {replicaStatus} -> replicaStatus) (\s@ReplicaSettingsDescription' {} a -> s {replicaStatus = a} :: ReplicaSettingsDescription)
 
 -- | The maximum number of strongly consistent reads consumed per second
@@ -167,11 +168,11 @@ replicaSettingsDescription_replicaStatus = Lens.lens (\ReplicaSettingsDescriptio
 -- see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
 -- in the /Amazon DynamoDB Developer Guide/.
-replicaSettingsDescription_replicaProvisionedReadCapacityUnits :: Lens.Lens' ReplicaSettingsDescription (Core.Maybe Core.Natural)
+replicaSettingsDescription_replicaProvisionedReadCapacityUnits :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe Prelude.Natural)
 replicaSettingsDescription_replicaProvisionedReadCapacityUnits = Lens.lens (\ReplicaSettingsDescription' {replicaProvisionedReadCapacityUnits} -> replicaProvisionedReadCapacityUnits) (\s@ReplicaSettingsDescription' {} a -> s {replicaProvisionedReadCapacityUnits = a} :: ReplicaSettingsDescription)
 
 -- | The Region name of the replica.
-replicaSettingsDescription_regionName :: Lens.Lens' ReplicaSettingsDescription Core.Text
+replicaSettingsDescription_regionName :: Lens.Lens' ReplicaSettingsDescription Prelude.Text
 replicaSettingsDescription_regionName = Lens.lens (\ReplicaSettingsDescription' {regionName} -> regionName) (\s@ReplicaSettingsDescription' {} a -> s {regionName = a} :: ReplicaSettingsDescription)
 
 instance Core.FromJSON ReplicaSettingsDescription where
@@ -180,22 +181,22 @@ instance Core.FromJSON ReplicaSettingsDescription where
       "ReplicaSettingsDescription"
       ( \x ->
           ReplicaSettingsDescription'
-            Core.<$> (x Core..:? "ReplicaBillingModeSummary")
-            Core.<*> ( x
-                         Core..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
-                     )
-            Core.<*> ( x
-                         Core..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
-                     )
-            Core.<*> ( x Core..:? "ReplicaGlobalSecondaryIndexSettings"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "ReplicaProvisionedWriteCapacityUnits")
-            Core.<*> (x Core..:? "ReplicaStatus")
-            Core.<*> (x Core..:? "ReplicaProvisionedReadCapacityUnits")
-            Core.<*> (x Core..: "RegionName")
+            Prelude.<$> (x Core..:? "ReplicaBillingModeSummary")
+            Prelude.<*> ( x
+                            Core..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
+                        )
+            Prelude.<*> ( x
+                            Core..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
+                        )
+            Prelude.<*> ( x Core..:? "ReplicaGlobalSecondaryIndexSettings"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ReplicaProvisionedWriteCapacityUnits")
+            Prelude.<*> (x Core..:? "ReplicaStatus")
+            Prelude.<*> (x Core..:? "ReplicaProvisionedReadCapacityUnits")
+            Prelude.<*> (x Core..: "RegionName")
       )
 
-instance Core.Hashable ReplicaSettingsDescription
+instance Prelude.Hashable ReplicaSettingsDescription
 
-instance Core.NFData ReplicaSettingsDescription
+instance Prelude.NFData ReplicaSettingsDescription

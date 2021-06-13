@@ -23,6 +23,7 @@ import Network.AWS.CloudFront.Types.OriginGroupFailoverCriteria
 import Network.AWS.CloudFront.Types.OriginGroupMembers
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An origin group includes two origins (a primary origin and a second
 -- origin to failover to) and a failover criteria that you specify. You
@@ -35,7 +36,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOriginGroup' smart constructor.
 data OriginGroup = OriginGroup'
   { -- | The origin group\'s ID.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | A complex type that contains information about the failover criteria for
     -- an origin group.
     failoverCriteria :: OriginGroupFailoverCriteria,
@@ -43,7 +44,7 @@ data OriginGroup = OriginGroup'
     -- group.
     members :: OriginGroupMembers
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginGroup' with all optional fields omitted.
@@ -62,7 +63,7 @@ data OriginGroup = OriginGroup'
 -- group.
 newOriginGroup ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'failoverCriteria'
   OriginGroupFailoverCriteria ->
   -- | 'members'
@@ -76,7 +77,7 @@ newOriginGroup pId_ pFailoverCriteria_ pMembers_ =
     }
 
 -- | The origin group\'s ID.
-originGroup_id :: Lens.Lens' OriginGroup Core.Text
+originGroup_id :: Lens.Lens' OriginGroup Prelude.Text
 originGroup_id = Lens.lens (\OriginGroup' {id} -> id) (\s@OriginGroup' {} a -> s {id = a} :: OriginGroup)
 
 -- | A complex type that contains information about the failover criteria for
@@ -92,17 +93,17 @@ originGroup_members = Lens.lens (\OriginGroup' {members} -> members) (\s@OriginG
 instance Core.FromXML OriginGroup where
   parseXML x =
     OriginGroup'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "FailoverCriteria")
-      Core.<*> (x Core..@ "Members")
+      Prelude.<$> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "FailoverCriteria")
+      Prelude.<*> (x Core..@ "Members")
 
-instance Core.Hashable OriginGroup
+instance Prelude.Hashable OriginGroup
 
-instance Core.NFData OriginGroup
+instance Prelude.NFData OriginGroup
 
 instance Core.ToXML OriginGroup where
   toXML OriginGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Id" Core.@= id,
         "FailoverCriteria" Core.@= failoverCriteria,
         "Members" Core.@= members

@@ -28,51 +28,52 @@ import Network.AWS.EC2.Types.State
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.VpcEndpointType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a VPC endpoint.
 --
 -- /See:/ 'newVpcEndpoint' smart constructor.
 data VpcEndpoint = VpcEndpoint'
   { -- | The date and time that the VPC endpoint was created.
-    creationTimestamp :: Core.Maybe Core.ISO8601,
+    creationTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The policy document associated with the endpoint, if applicable.
-    policyDocument :: Core.Maybe Core.Text,
+    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | (Interface endpoint) Information about the security groups that are
     -- associated with the network interface.
-    groups :: Core.Maybe [SecurityGroupIdentifier],
+    groups :: Prelude.Maybe [SecurityGroupIdentifier],
     -- | The ID of the AWS account that owns the VPC endpoint.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | (Gateway endpoint) One or more route tables associated with the
     -- endpoint.
-    routeTableIds :: Core.Maybe [Core.Text],
+    routeTableIds :: Prelude.Maybe [Prelude.Text],
     -- | The type of endpoint.
-    vpcEndpointType :: Core.Maybe VpcEndpointType,
+    vpcEndpointType :: Prelude.Maybe VpcEndpointType,
     -- | Indicates whether the VPC endpoint is being managed by its service.
-    requesterManaged :: Core.Maybe Core.Bool,
+    requesterManaged :: Prelude.Maybe Prelude.Bool,
     -- | (Interface endpoint) The DNS entries for the endpoint.
-    dnsEntries :: Core.Maybe [DnsEntry],
+    dnsEntries :: Prelude.Maybe [DnsEntry],
     -- | The ID of the VPC endpoint.
-    vpcEndpointId :: Core.Maybe Core.Text,
+    vpcEndpointId :: Prelude.Maybe Prelude.Text,
     -- | (Interface endpoint) One or more subnets in which the endpoint is
     -- located.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint) One or more network interfaces for the endpoint.
-    networkInterfaceIds :: Core.Maybe [Core.Text],
+    networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the service to which the endpoint is associated.
-    serviceName :: Core.Maybe Core.Text,
+    serviceName :: Prelude.Maybe Prelude.Text,
     -- | The last error that occurred for VPC endpoint.
-    lastError :: Core.Maybe LastError,
+    lastError :: Prelude.Maybe LastError,
     -- | The state of the VPC endpoint.
-    state :: Core.Maybe State,
+    state :: Prelude.Maybe State,
     -- | (Interface endpoint) Indicates whether the VPC is associated with a
     -- private hosted zone.
-    privateDnsEnabled :: Core.Maybe Core.Bool,
+    privateDnsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Any tags assigned to the VPC endpoint.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the VPC to which the endpoint is associated.
-    vpcId :: Core.Maybe Core.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcEndpoint' with all optional fields omitted.
@@ -123,131 +124,131 @@ newVpcEndpoint ::
   VpcEndpoint
 newVpcEndpoint =
   VpcEndpoint'
-    { creationTimestamp = Core.Nothing,
-      policyDocument = Core.Nothing,
-      groups = Core.Nothing,
-      ownerId = Core.Nothing,
-      routeTableIds = Core.Nothing,
-      vpcEndpointType = Core.Nothing,
-      requesterManaged = Core.Nothing,
-      dnsEntries = Core.Nothing,
-      vpcEndpointId = Core.Nothing,
-      subnetIds = Core.Nothing,
-      networkInterfaceIds = Core.Nothing,
-      serviceName = Core.Nothing,
-      lastError = Core.Nothing,
-      state = Core.Nothing,
-      privateDnsEnabled = Core.Nothing,
-      tags = Core.Nothing,
-      vpcId = Core.Nothing
+    { creationTimestamp = Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
+      groups = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
+      routeTableIds = Prelude.Nothing,
+      vpcEndpointType = Prelude.Nothing,
+      requesterManaged = Prelude.Nothing,
+      dnsEntries = Prelude.Nothing,
+      vpcEndpointId = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      networkInterfaceIds = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
+      lastError = Prelude.Nothing,
+      state = Prelude.Nothing,
+      privateDnsEnabled = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
 -- | The date and time that the VPC endpoint was created.
-vpcEndpoint_creationTimestamp :: Lens.Lens' VpcEndpoint (Core.Maybe Core.UTCTime)
-vpcEndpoint_creationTimestamp = Lens.lens (\VpcEndpoint' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpoint' {} a -> s {creationTimestamp = a} :: VpcEndpoint) Core.. Lens.mapping Core._Time
+vpcEndpoint_creationTimestamp :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.UTCTime)
+vpcEndpoint_creationTimestamp = Lens.lens (\VpcEndpoint' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpoint' {} a -> s {creationTimestamp = a} :: VpcEndpoint) Prelude.. Lens.mapping Core._Time
 
 -- | The policy document associated with the endpoint, if applicable.
-vpcEndpoint_policyDocument :: Lens.Lens' VpcEndpoint (Core.Maybe Core.Text)
+vpcEndpoint_policyDocument :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_policyDocument = Lens.lens (\VpcEndpoint' {policyDocument} -> policyDocument) (\s@VpcEndpoint' {} a -> s {policyDocument = a} :: VpcEndpoint)
 
 -- | (Interface endpoint) Information about the security groups that are
 -- associated with the network interface.
-vpcEndpoint_groups :: Lens.Lens' VpcEndpoint (Core.Maybe [SecurityGroupIdentifier])
-vpcEndpoint_groups = Lens.lens (\VpcEndpoint' {groups} -> groups) (\s@VpcEndpoint' {} a -> s {groups = a} :: VpcEndpoint) Core.. Lens.mapping Lens._Coerce
+vpcEndpoint_groups :: Lens.Lens' VpcEndpoint (Prelude.Maybe [SecurityGroupIdentifier])
+vpcEndpoint_groups = Lens.lens (\VpcEndpoint' {groups} -> groups) (\s@VpcEndpoint' {} a -> s {groups = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the AWS account that owns the VPC endpoint.
-vpcEndpoint_ownerId :: Lens.Lens' VpcEndpoint (Core.Maybe Core.Text)
+vpcEndpoint_ownerId :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_ownerId = Lens.lens (\VpcEndpoint' {ownerId} -> ownerId) (\s@VpcEndpoint' {} a -> s {ownerId = a} :: VpcEndpoint)
 
 -- | (Gateway endpoint) One or more route tables associated with the
 -- endpoint.
-vpcEndpoint_routeTableIds :: Lens.Lens' VpcEndpoint (Core.Maybe [Core.Text])
-vpcEndpoint_routeTableIds = Lens.lens (\VpcEndpoint' {routeTableIds} -> routeTableIds) (\s@VpcEndpoint' {} a -> s {routeTableIds = a} :: VpcEndpoint) Core.. Lens.mapping Lens._Coerce
+vpcEndpoint_routeTableIds :: Lens.Lens' VpcEndpoint (Prelude.Maybe [Prelude.Text])
+vpcEndpoint_routeTableIds = Lens.lens (\VpcEndpoint' {routeTableIds} -> routeTableIds) (\s@VpcEndpoint' {} a -> s {routeTableIds = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of endpoint.
-vpcEndpoint_vpcEndpointType :: Lens.Lens' VpcEndpoint (Core.Maybe VpcEndpointType)
+vpcEndpoint_vpcEndpointType :: Lens.Lens' VpcEndpoint (Prelude.Maybe VpcEndpointType)
 vpcEndpoint_vpcEndpointType = Lens.lens (\VpcEndpoint' {vpcEndpointType} -> vpcEndpointType) (\s@VpcEndpoint' {} a -> s {vpcEndpointType = a} :: VpcEndpoint)
 
 -- | Indicates whether the VPC endpoint is being managed by its service.
-vpcEndpoint_requesterManaged :: Lens.Lens' VpcEndpoint (Core.Maybe Core.Bool)
+vpcEndpoint_requesterManaged :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Bool)
 vpcEndpoint_requesterManaged = Lens.lens (\VpcEndpoint' {requesterManaged} -> requesterManaged) (\s@VpcEndpoint' {} a -> s {requesterManaged = a} :: VpcEndpoint)
 
 -- | (Interface endpoint) The DNS entries for the endpoint.
-vpcEndpoint_dnsEntries :: Lens.Lens' VpcEndpoint (Core.Maybe [DnsEntry])
-vpcEndpoint_dnsEntries = Lens.lens (\VpcEndpoint' {dnsEntries} -> dnsEntries) (\s@VpcEndpoint' {} a -> s {dnsEntries = a} :: VpcEndpoint) Core.. Lens.mapping Lens._Coerce
+vpcEndpoint_dnsEntries :: Lens.Lens' VpcEndpoint (Prelude.Maybe [DnsEntry])
+vpcEndpoint_dnsEntries = Lens.lens (\VpcEndpoint' {dnsEntries} -> dnsEntries) (\s@VpcEndpoint' {} a -> s {dnsEntries = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC endpoint.
-vpcEndpoint_vpcEndpointId :: Lens.Lens' VpcEndpoint (Core.Maybe Core.Text)
+vpcEndpoint_vpcEndpointId :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_vpcEndpointId = Lens.lens (\VpcEndpoint' {vpcEndpointId} -> vpcEndpointId) (\s@VpcEndpoint' {} a -> s {vpcEndpointId = a} :: VpcEndpoint)
 
 -- | (Interface endpoint) One or more subnets in which the endpoint is
 -- located.
-vpcEndpoint_subnetIds :: Lens.Lens' VpcEndpoint (Core.Maybe [Core.Text])
-vpcEndpoint_subnetIds = Lens.lens (\VpcEndpoint' {subnetIds} -> subnetIds) (\s@VpcEndpoint' {} a -> s {subnetIds = a} :: VpcEndpoint) Core.. Lens.mapping Lens._Coerce
+vpcEndpoint_subnetIds :: Lens.Lens' VpcEndpoint (Prelude.Maybe [Prelude.Text])
+vpcEndpoint_subnetIds = Lens.lens (\VpcEndpoint' {subnetIds} -> subnetIds) (\s@VpcEndpoint' {} a -> s {subnetIds = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Interface endpoint) One or more network interfaces for the endpoint.
-vpcEndpoint_networkInterfaceIds :: Lens.Lens' VpcEndpoint (Core.Maybe [Core.Text])
-vpcEndpoint_networkInterfaceIds = Lens.lens (\VpcEndpoint' {networkInterfaceIds} -> networkInterfaceIds) (\s@VpcEndpoint' {} a -> s {networkInterfaceIds = a} :: VpcEndpoint) Core.. Lens.mapping Lens._Coerce
+vpcEndpoint_networkInterfaceIds :: Lens.Lens' VpcEndpoint (Prelude.Maybe [Prelude.Text])
+vpcEndpoint_networkInterfaceIds = Lens.lens (\VpcEndpoint' {networkInterfaceIds} -> networkInterfaceIds) (\s@VpcEndpoint' {} a -> s {networkInterfaceIds = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the service to which the endpoint is associated.
-vpcEndpoint_serviceName :: Lens.Lens' VpcEndpoint (Core.Maybe Core.Text)
+vpcEndpoint_serviceName :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_serviceName = Lens.lens (\VpcEndpoint' {serviceName} -> serviceName) (\s@VpcEndpoint' {} a -> s {serviceName = a} :: VpcEndpoint)
 
 -- | The last error that occurred for VPC endpoint.
-vpcEndpoint_lastError :: Lens.Lens' VpcEndpoint (Core.Maybe LastError)
+vpcEndpoint_lastError :: Lens.Lens' VpcEndpoint (Prelude.Maybe LastError)
 vpcEndpoint_lastError = Lens.lens (\VpcEndpoint' {lastError} -> lastError) (\s@VpcEndpoint' {} a -> s {lastError = a} :: VpcEndpoint)
 
 -- | The state of the VPC endpoint.
-vpcEndpoint_state :: Lens.Lens' VpcEndpoint (Core.Maybe State)
+vpcEndpoint_state :: Lens.Lens' VpcEndpoint (Prelude.Maybe State)
 vpcEndpoint_state = Lens.lens (\VpcEndpoint' {state} -> state) (\s@VpcEndpoint' {} a -> s {state = a} :: VpcEndpoint)
 
 -- | (Interface endpoint) Indicates whether the VPC is associated with a
 -- private hosted zone.
-vpcEndpoint_privateDnsEnabled :: Lens.Lens' VpcEndpoint (Core.Maybe Core.Bool)
+vpcEndpoint_privateDnsEnabled :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Bool)
 vpcEndpoint_privateDnsEnabled = Lens.lens (\VpcEndpoint' {privateDnsEnabled} -> privateDnsEnabled) (\s@VpcEndpoint' {} a -> s {privateDnsEnabled = a} :: VpcEndpoint)
 
 -- | Any tags assigned to the VPC endpoint.
-vpcEndpoint_tags :: Lens.Lens' VpcEndpoint (Core.Maybe [Tag])
-vpcEndpoint_tags = Lens.lens (\VpcEndpoint' {tags} -> tags) (\s@VpcEndpoint' {} a -> s {tags = a} :: VpcEndpoint) Core.. Lens.mapping Lens._Coerce
+vpcEndpoint_tags :: Lens.Lens' VpcEndpoint (Prelude.Maybe [Tag])
+vpcEndpoint_tags = Lens.lens (\VpcEndpoint' {tags} -> tags) (\s@VpcEndpoint' {} a -> s {tags = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC to which the endpoint is associated.
-vpcEndpoint_vpcId :: Lens.Lens' VpcEndpoint (Core.Maybe Core.Text)
+vpcEndpoint_vpcId :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_vpcId = Lens.lens (\VpcEndpoint' {vpcId} -> vpcId) (\s@VpcEndpoint' {} a -> s {vpcId = a} :: VpcEndpoint)
 
 instance Core.FromXML VpcEndpoint where
   parseXML x =
     VpcEndpoint'
-      Core.<$> (x Core..@? "creationTimestamp")
-      Core.<*> (x Core..@? "policyDocument")
-      Core.<*> ( x Core..@? "groupSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "ownerId")
-      Core.<*> ( x Core..@? "routeTableIdSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "vpcEndpointType")
-      Core.<*> (x Core..@? "requesterManaged")
-      Core.<*> ( x Core..@? "dnsEntrySet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "vpcEndpointId")
-      Core.<*> ( x Core..@? "subnetIdSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "networkInterfaceIdSet"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "serviceName")
-      Core.<*> (x Core..@? "lastError")
-      Core.<*> (x Core..@? "state")
-      Core.<*> (x Core..@? "privateDnsEnabled")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "vpcId")
+      Prelude.<$> (x Core..@? "creationTimestamp")
+      Prelude.<*> (x Core..@? "policyDocument")
+      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<*> ( x Core..@? "routeTableIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "vpcEndpointType")
+      Prelude.<*> (x Core..@? "requesterManaged")
+      Prelude.<*> ( x Core..@? "dnsEntrySet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "vpcEndpointId")
+      Prelude.<*> ( x Core..@? "subnetIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "networkInterfaceIdSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "serviceName")
+      Prelude.<*> (x Core..@? "lastError")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "privateDnsEnabled")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "vpcId")
 
-instance Core.Hashable VpcEndpoint
+instance Prelude.Hashable VpcEndpoint
 
-instance Core.NFData VpcEndpoint
+instance Prelude.NFData VpcEndpoint

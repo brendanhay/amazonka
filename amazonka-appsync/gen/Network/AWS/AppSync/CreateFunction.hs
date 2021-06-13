@@ -52,30 +52,31 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFunction' smart constructor.
 data CreateFunction = CreateFunction'
   { -- | The @Function@ response mapping template.
-    responseMappingTemplate :: Core.Maybe Core.Text,
-    syncConfig :: Core.Maybe SyncConfig,
+    responseMappingTemplate :: Prelude.Maybe Prelude.Text,
+    syncConfig :: Prelude.Maybe SyncConfig,
     -- | The @Function@ description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The @Function@ request mapping template. Functions support only the
     -- 2018-05-29 version of the request mapping template.
-    requestMappingTemplate :: Core.Maybe Core.Text,
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The GraphQL API ID.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | The @Function@ name. The function name does not have to be unique.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The @Function@ @DataSource@ name.
-    dataSourceName :: Core.Text,
+    dataSourceName :: Prelude.Text,
     -- | The @version@ of the request mapping template. Currently the supported
     -- value is 2018-05-29.
-    functionVersion :: Core.Text
+    functionVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFunction' with all optional fields omitted.
@@ -104,13 +105,13 @@ data CreateFunction = CreateFunction'
 -- value is 2018-05-29.
 newCreateFunction ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataSourceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionVersion'
-  Core.Text ->
+  Prelude.Text ->
   CreateFunction
 newCreateFunction
   pApiId_
@@ -119,10 +120,10 @@ newCreateFunction
   pFunctionVersion_ =
     CreateFunction'
       { responseMappingTemplate =
-          Core.Nothing,
-        syncConfig = Core.Nothing,
-        description = Core.Nothing,
-        requestMappingTemplate = Core.Nothing,
+          Prelude.Nothing,
+        syncConfig = Prelude.Nothing,
+        description = Prelude.Nothing,
+        requestMappingTemplate = Prelude.Nothing,
         apiId = pApiId_,
         name = pName_,
         dataSourceName = pDataSourceName_,
@@ -130,37 +131,37 @@ newCreateFunction
       }
 
 -- | The @Function@ response mapping template.
-createFunction_responseMappingTemplate :: Lens.Lens' CreateFunction (Core.Maybe Core.Text)
+createFunction_responseMappingTemplate :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
 createFunction_responseMappingTemplate = Lens.lens (\CreateFunction' {responseMappingTemplate} -> responseMappingTemplate) (\s@CreateFunction' {} a -> s {responseMappingTemplate = a} :: CreateFunction)
 
 -- | Undocumented member.
-createFunction_syncConfig :: Lens.Lens' CreateFunction (Core.Maybe SyncConfig)
+createFunction_syncConfig :: Lens.Lens' CreateFunction (Prelude.Maybe SyncConfig)
 createFunction_syncConfig = Lens.lens (\CreateFunction' {syncConfig} -> syncConfig) (\s@CreateFunction' {} a -> s {syncConfig = a} :: CreateFunction)
 
 -- | The @Function@ description.
-createFunction_description :: Lens.Lens' CreateFunction (Core.Maybe Core.Text)
+createFunction_description :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
 createFunction_description = Lens.lens (\CreateFunction' {description} -> description) (\s@CreateFunction' {} a -> s {description = a} :: CreateFunction)
 
 -- | The @Function@ request mapping template. Functions support only the
 -- 2018-05-29 version of the request mapping template.
-createFunction_requestMappingTemplate :: Lens.Lens' CreateFunction (Core.Maybe Core.Text)
+createFunction_requestMappingTemplate :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
 createFunction_requestMappingTemplate = Lens.lens (\CreateFunction' {requestMappingTemplate} -> requestMappingTemplate) (\s@CreateFunction' {} a -> s {requestMappingTemplate = a} :: CreateFunction)
 
 -- | The GraphQL API ID.
-createFunction_apiId :: Lens.Lens' CreateFunction Core.Text
+createFunction_apiId :: Lens.Lens' CreateFunction Prelude.Text
 createFunction_apiId = Lens.lens (\CreateFunction' {apiId} -> apiId) (\s@CreateFunction' {} a -> s {apiId = a} :: CreateFunction)
 
 -- | The @Function@ name. The function name does not have to be unique.
-createFunction_name :: Lens.Lens' CreateFunction Core.Text
+createFunction_name :: Lens.Lens' CreateFunction Prelude.Text
 createFunction_name = Lens.lens (\CreateFunction' {name} -> name) (\s@CreateFunction' {} a -> s {name = a} :: CreateFunction)
 
 -- | The @Function@ @DataSource@ name.
-createFunction_dataSourceName :: Lens.Lens' CreateFunction Core.Text
+createFunction_dataSourceName :: Lens.Lens' CreateFunction Prelude.Text
 createFunction_dataSourceName = Lens.lens (\CreateFunction' {dataSourceName} -> dataSourceName) (\s@CreateFunction' {} a -> s {dataSourceName = a} :: CreateFunction)
 
 -- | The @version@ of the request mapping template. Currently the supported
 -- value is 2018-05-29.
-createFunction_functionVersion :: Lens.Lens' CreateFunction Core.Text
+createFunction_functionVersion :: Lens.Lens' CreateFunction Prelude.Text
 createFunction_functionVersion = Lens.lens (\CreateFunction' {functionVersion} -> functionVersion) (\s@CreateFunction' {} a -> s {functionVersion = a} :: CreateFunction)
 
 instance Core.AWSRequest CreateFunction where
@@ -172,56 +173,59 @@ instance Core.AWSRequest CreateFunction where
     Response.receiveJSON
       ( \s h x ->
           CreateFunctionResponse'
-            Core.<$> (x Core..?> "functionConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "functionConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateFunction
+instance Prelude.Hashable CreateFunction
 
-instance Core.NFData CreateFunction
+instance Prelude.NFData CreateFunction
 
 instance Core.ToHeaders CreateFunction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateFunction where
   toJSON CreateFunction' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("responseMappingTemplate" Core..=)
-              Core.<$> responseMappingTemplate,
-            ("syncConfig" Core..=) Core.<$> syncConfig,
-            ("description" Core..=) Core.<$> description,
+              Prelude.<$> responseMappingTemplate,
+            ("syncConfig" Core..=) Prelude.<$> syncConfig,
+            ("description" Core..=) Prelude.<$> description,
             ("requestMappingTemplate" Core..=)
-              Core.<$> requestMappingTemplate,
-            Core.Just ("name" Core..= name),
-            Core.Just ("dataSourceName" Core..= dataSourceName),
-            Core.Just
+              Prelude.<$> requestMappingTemplate,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just
+              ("dataSourceName" Core..= dataSourceName),
+            Prelude.Just
               ("functionVersion" Core..= functionVersion)
           ]
       )
 
 instance Core.ToPath CreateFunction where
   toPath CreateFunction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apis/", Core.toBS apiId, "/functions"]
 
 instance Core.ToQuery CreateFunction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFunctionResponse' smart constructor.
 data CreateFunctionResponse = CreateFunctionResponse'
   { -- | The @Function@ object.
-    functionConfiguration :: Core.Maybe FunctionConfiguration,
+    functionConfiguration :: Prelude.Maybe FunctionConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFunctionResponse' with all optional fields omitted.
@@ -236,21 +240,21 @@ data CreateFunctionResponse = CreateFunctionResponse'
 -- 'httpStatus', 'createFunctionResponse_httpStatus' - The response's http status code.
 newCreateFunctionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateFunctionResponse
 newCreateFunctionResponse pHttpStatus_ =
   CreateFunctionResponse'
     { functionConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @Function@ object.
-createFunctionResponse_functionConfiguration :: Lens.Lens' CreateFunctionResponse (Core.Maybe FunctionConfiguration)
+createFunctionResponse_functionConfiguration :: Lens.Lens' CreateFunctionResponse (Prelude.Maybe FunctionConfiguration)
 createFunctionResponse_functionConfiguration = Lens.lens (\CreateFunctionResponse' {functionConfiguration} -> functionConfiguration) (\s@CreateFunctionResponse' {} a -> s {functionConfiguration = a} :: CreateFunctionResponse)
 
 -- | The response's http status code.
-createFunctionResponse_httpStatus :: Lens.Lens' CreateFunctionResponse Core.Int
+createFunctionResponse_httpStatus :: Lens.Lens' CreateFunctionResponse Prelude.Int
 createFunctionResponse_httpStatus = Lens.lens (\CreateFunctionResponse' {httpStatus} -> httpStatus) (\s@CreateFunctionResponse' {} a -> s {httpStatus = a} :: CreateFunctionResponse)
 
-instance Core.NFData CreateFunctionResponse
+instance Prelude.NFData CreateFunctionResponse

@@ -21,21 +21,22 @@ module Network.AWS.CloudTrail.Types.PublicKey where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a returned public key.
 --
 -- /See:/ 'newPublicKey' smart constructor.
 data PublicKey = PublicKey'
   { -- | The starting time of validity of the public key.
-    validityStartTime :: Core.Maybe Core.POSIX,
+    validityStartTime :: Prelude.Maybe Core.POSIX,
     -- | The DER encoded public key value in PKCS#1 format.
-    value :: Core.Maybe Core.Base64,
+    value :: Prelude.Maybe Core.Base64,
     -- | The ending time of validity of the public key.
-    validityEndTime :: Core.Maybe Core.POSIX,
+    validityEndTime :: Prelude.Maybe Core.POSIX,
     -- | The fingerprint of the public key.
-    fingerprint :: Core.Maybe Core.Text
+    fingerprint :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublicKey' with all optional fields omitted.
@@ -60,30 +61,30 @@ newPublicKey ::
   PublicKey
 newPublicKey =
   PublicKey'
-    { validityStartTime = Core.Nothing,
-      value = Core.Nothing,
-      validityEndTime = Core.Nothing,
-      fingerprint = Core.Nothing
+    { validityStartTime = Prelude.Nothing,
+      value = Prelude.Nothing,
+      validityEndTime = Prelude.Nothing,
+      fingerprint = Prelude.Nothing
     }
 
 -- | The starting time of validity of the public key.
-publicKey_validityStartTime :: Lens.Lens' PublicKey (Core.Maybe Core.UTCTime)
-publicKey_validityStartTime = Lens.lens (\PublicKey' {validityStartTime} -> validityStartTime) (\s@PublicKey' {} a -> s {validityStartTime = a} :: PublicKey) Core.. Lens.mapping Core._Time
+publicKey_validityStartTime :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.UTCTime)
+publicKey_validityStartTime = Lens.lens (\PublicKey' {validityStartTime} -> validityStartTime) (\s@PublicKey' {} a -> s {validityStartTime = a} :: PublicKey) Prelude.. Lens.mapping Core._Time
 
 -- | The DER encoded public key value in PKCS#1 format.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-publicKey_value :: Lens.Lens' PublicKey (Core.Maybe Core.ByteString)
-publicKey_value = Lens.lens (\PublicKey' {value} -> value) (\s@PublicKey' {} a -> s {value = a} :: PublicKey) Core.. Lens.mapping Core._Base64
+publicKey_value :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.ByteString)
+publicKey_value = Lens.lens (\PublicKey' {value} -> value) (\s@PublicKey' {} a -> s {value = a} :: PublicKey) Prelude.. Lens.mapping Core._Base64
 
 -- | The ending time of validity of the public key.
-publicKey_validityEndTime :: Lens.Lens' PublicKey (Core.Maybe Core.UTCTime)
-publicKey_validityEndTime = Lens.lens (\PublicKey' {validityEndTime} -> validityEndTime) (\s@PublicKey' {} a -> s {validityEndTime = a} :: PublicKey) Core.. Lens.mapping Core._Time
+publicKey_validityEndTime :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.UTCTime)
+publicKey_validityEndTime = Lens.lens (\PublicKey' {validityEndTime} -> validityEndTime) (\s@PublicKey' {} a -> s {validityEndTime = a} :: PublicKey) Prelude.. Lens.mapping Core._Time
 
 -- | The fingerprint of the public key.
-publicKey_fingerprint :: Lens.Lens' PublicKey (Core.Maybe Core.Text)
+publicKey_fingerprint :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.Text)
 publicKey_fingerprint = Lens.lens (\PublicKey' {fingerprint} -> fingerprint) (\s@PublicKey' {} a -> s {fingerprint = a} :: PublicKey)
 
 instance Core.FromJSON PublicKey where
@@ -92,12 +93,12 @@ instance Core.FromJSON PublicKey where
       "PublicKey"
       ( \x ->
           PublicKey'
-            Core.<$> (x Core..:? "ValidityStartTime")
-            Core.<*> (x Core..:? "Value")
-            Core.<*> (x Core..:? "ValidityEndTime")
-            Core.<*> (x Core..:? "Fingerprint")
+            Prelude.<$> (x Core..:? "ValidityStartTime")
+            Prelude.<*> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "ValidityEndTime")
+            Prelude.<*> (x Core..:? "Fingerprint")
       )
 
-instance Core.Hashable PublicKey
+instance Prelude.Hashable PublicKey
 
-instance Core.NFData PublicKey
+instance Prelude.NFData PublicKey

@@ -21,6 +21,7 @@ module Network.AWS.CertificateManager.Types.CertificateSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure is returned in the response object of ListCertificates
 -- action.
@@ -33,12 +34,12 @@ data CertificateSummary = CertificateSummary'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | Fully qualified domain name (FQDN), such as www.example.com or
     -- example.com, for the certificate.
-    domainName :: Core.Maybe Core.Text
+    domainName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CertificateSummary' with all optional fields omitted.
@@ -61,8 +62,9 @@ newCertificateSummary ::
   CertificateSummary
 newCertificateSummary =
   CertificateSummary'
-    { certificateArn = Core.Nothing,
-      domainName = Core.Nothing
+    { certificateArn =
+        Prelude.Nothing,
+      domainName = Prelude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the certificate. This is of the form:
@@ -71,12 +73,12 @@ newCertificateSummary =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-certificateSummary_certificateArn :: Lens.Lens' CertificateSummary (Core.Maybe Core.Text)
+certificateSummary_certificateArn :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
 certificateSummary_certificateArn = Lens.lens (\CertificateSummary' {certificateArn} -> certificateArn) (\s@CertificateSummary' {} a -> s {certificateArn = a} :: CertificateSummary)
 
 -- | Fully qualified domain name (FQDN), such as www.example.com or
 -- example.com, for the certificate.
-certificateSummary_domainName :: Lens.Lens' CertificateSummary (Core.Maybe Core.Text)
+certificateSummary_domainName :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
 certificateSummary_domainName = Lens.lens (\CertificateSummary' {domainName} -> domainName) (\s@CertificateSummary' {} a -> s {domainName = a} :: CertificateSummary)
 
 instance Core.FromJSON CertificateSummary where
@@ -85,10 +87,10 @@ instance Core.FromJSON CertificateSummary where
       "CertificateSummary"
       ( \x ->
           CertificateSummary'
-            Core.<$> (x Core..:? "CertificateArn")
-            Core.<*> (x Core..:? "DomainName")
+            Prelude.<$> (x Core..:? "CertificateArn")
+            Prelude.<*> (x Core..:? "DomainName")
       )
 
-instance Core.Hashable CertificateSummary
+instance Prelude.Hashable CertificateSummary
 
-instance Core.NFData CertificateSummary
+instance Prelude.NFData CertificateSummary

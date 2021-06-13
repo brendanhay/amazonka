@@ -22,19 +22,20 @@ module Network.AWS.EC2.Types.TargetConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Convertible Reserved Instance offering.
 --
 -- /See:/ 'newTargetConfiguration' smart constructor.
 data TargetConfiguration = TargetConfiguration'
   { -- | The ID of the Convertible Reserved Instance offering.
-    offeringId :: Core.Maybe Core.Text,
+    offeringId :: Prelude.Maybe Prelude.Text,
     -- | The number of instances the Convertible Reserved Instance offering can
     -- be applied to. This parameter is reserved and cannot be specified in a
     -- request
-    instanceCount :: Core.Maybe Core.Int
+    instanceCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetConfiguration' with all optional fields omitted.
@@ -53,26 +54,26 @@ newTargetConfiguration ::
   TargetConfiguration
 newTargetConfiguration =
   TargetConfiguration'
-    { offeringId = Core.Nothing,
-      instanceCount = Core.Nothing
+    { offeringId = Prelude.Nothing,
+      instanceCount = Prelude.Nothing
     }
 
 -- | The ID of the Convertible Reserved Instance offering.
-targetConfiguration_offeringId :: Lens.Lens' TargetConfiguration (Core.Maybe Core.Text)
+targetConfiguration_offeringId :: Lens.Lens' TargetConfiguration (Prelude.Maybe Prelude.Text)
 targetConfiguration_offeringId = Lens.lens (\TargetConfiguration' {offeringId} -> offeringId) (\s@TargetConfiguration' {} a -> s {offeringId = a} :: TargetConfiguration)
 
 -- | The number of instances the Convertible Reserved Instance offering can
 -- be applied to. This parameter is reserved and cannot be specified in a
 -- request
-targetConfiguration_instanceCount :: Lens.Lens' TargetConfiguration (Core.Maybe Core.Int)
+targetConfiguration_instanceCount :: Lens.Lens' TargetConfiguration (Prelude.Maybe Prelude.Int)
 targetConfiguration_instanceCount = Lens.lens (\TargetConfiguration' {instanceCount} -> instanceCount) (\s@TargetConfiguration' {} a -> s {instanceCount = a} :: TargetConfiguration)
 
 instance Core.FromXML TargetConfiguration where
   parseXML x =
     TargetConfiguration'
-      Core.<$> (x Core..@? "offeringId")
-      Core.<*> (x Core..@? "instanceCount")
+      Prelude.<$> (x Core..@? "offeringId")
+      Prelude.<*> (x Core..@? "instanceCount")
 
-instance Core.Hashable TargetConfiguration
+instance Prelude.Hashable TargetConfiguration
 
-instance Core.NFData TargetConfiguration
+instance Prelude.NFData TargetConfiguration

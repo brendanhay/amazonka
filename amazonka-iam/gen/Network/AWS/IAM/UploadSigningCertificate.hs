@@ -67,6 +67,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,7 +79,7 @@ data UploadSigningCertificate = UploadSigningCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Maybe Core.Text,
+    userName :: Prelude.Maybe Prelude.Text,
     -- | The contents of the signing certificate.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
@@ -92,9 +93,9 @@ data UploadSigningCertificate = UploadSigningCertificate'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    certificateBody :: Core.Text
+    certificateBody :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadSigningCertificate' with all optional fields omitted.
@@ -126,11 +127,12 @@ data UploadSigningCertificate = UploadSigningCertificate'
 --     carriage return (@\\u000D@)
 newUploadSigningCertificate ::
   -- | 'certificateBody'
-  Core.Text ->
+  Prelude.Text ->
   UploadSigningCertificate
 newUploadSigningCertificate pCertificateBody_ =
   UploadSigningCertificate'
-    { userName = Core.Nothing,
+    { userName =
+        Prelude.Nothing,
       certificateBody = pCertificateBody_
     }
 
@@ -140,7 +142,7 @@ newUploadSigningCertificate pCertificateBody_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-uploadSigningCertificate_userName :: Lens.Lens' UploadSigningCertificate (Core.Maybe Core.Text)
+uploadSigningCertificate_userName :: Lens.Lens' UploadSigningCertificate (Prelude.Maybe Prelude.Text)
 uploadSigningCertificate_userName = Lens.lens (\UploadSigningCertificate' {userName} -> userName) (\s@UploadSigningCertificate' {} a -> s {userName = a} :: UploadSigningCertificate)
 
 -- | The contents of the signing certificate.
@@ -156,7 +158,7 @@ uploadSigningCertificate_userName = Lens.lens (\UploadSigningCertificate' {userN
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-uploadSigningCertificate_certificateBody :: Lens.Lens' UploadSigningCertificate Core.Text
+uploadSigningCertificate_certificateBody :: Lens.Lens' UploadSigningCertificate Prelude.Text
 uploadSigningCertificate_certificateBody = Lens.lens (\UploadSigningCertificate' {certificateBody} -> certificateBody) (\s@UploadSigningCertificate' {} a -> s {certificateBody = a} :: UploadSigningCertificate)
 
 instance Core.AWSRequest UploadSigningCertificate where
@@ -169,26 +171,27 @@ instance Core.AWSRequest UploadSigningCertificate where
       "UploadSigningCertificateResult"
       ( \s h x ->
           UploadSigningCertificateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "Certificate")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Certificate")
       )
 
-instance Core.Hashable UploadSigningCertificate
+instance Prelude.Hashable UploadSigningCertificate
 
-instance Core.NFData UploadSigningCertificate
+instance Prelude.NFData UploadSigningCertificate
 
 instance Core.ToHeaders UploadSigningCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UploadSigningCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UploadSigningCertificate where
   toQuery UploadSigningCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UploadSigningCertificate" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UploadSigningCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "CertificateBody" Core.=: certificateBody
       ]
@@ -198,11 +201,11 @@ instance Core.ToQuery UploadSigningCertificate where
 -- /See:/ 'newUploadSigningCertificateResponse' smart constructor.
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the certificate.
     certificate :: SigningCertificate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadSigningCertificateResponse' with all optional fields omitted.
@@ -217,7 +220,7 @@ data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
 -- 'certificate', 'uploadSigningCertificateResponse_certificate' - Information about the certificate.
 newUploadSigningCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'certificate'
   SigningCertificate ->
   UploadSigningCertificateResponse
@@ -231,11 +234,13 @@ newUploadSigningCertificateResponse
       }
 
 -- | The response's http status code.
-uploadSigningCertificateResponse_httpStatus :: Lens.Lens' UploadSigningCertificateResponse Core.Int
+uploadSigningCertificateResponse_httpStatus :: Lens.Lens' UploadSigningCertificateResponse Prelude.Int
 uploadSigningCertificateResponse_httpStatus = Lens.lens (\UploadSigningCertificateResponse' {httpStatus} -> httpStatus) (\s@UploadSigningCertificateResponse' {} a -> s {httpStatus = a} :: UploadSigningCertificateResponse)
 
 -- | Information about the certificate.
 uploadSigningCertificateResponse_certificate :: Lens.Lens' UploadSigningCertificateResponse SigningCertificate
 uploadSigningCertificateResponse_certificate = Lens.lens (\UploadSigningCertificateResponse' {certificate} -> certificate) (\s@UploadSigningCertificateResponse' {} a -> s {certificate = a} :: UploadSigningCertificateResponse)
 
-instance Core.NFData UploadSigningCertificateResponse
+instance
+  Prelude.NFData
+    UploadSigningCertificateResponse

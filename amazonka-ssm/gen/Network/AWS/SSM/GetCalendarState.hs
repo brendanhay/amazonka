@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -67,13 +68,13 @@ data GetCalendarState = GetCalendarState'
   { -- | (Optional) The specific time for which you want to get calendar state
     -- information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
     -- format. If you do not add @AtTime@, the current time is assumed.
-    atTime :: Core.Maybe Core.Text,
+    atTime :: Prelude.Maybe Prelude.Text,
     -- | The names or Amazon Resource Names (ARNs) of the Systems Manager
     -- documents that represent the calendar entries for which you want to get
     -- the state.
-    calendarNames :: [Core.Text]
+    calendarNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCalendarState' with all optional fields omitted.
@@ -94,21 +95,21 @@ newGetCalendarState ::
   GetCalendarState
 newGetCalendarState =
   GetCalendarState'
-    { atTime = Core.Nothing,
-      calendarNames = Core.mempty
+    { atTime = Prelude.Nothing,
+      calendarNames = Prelude.mempty
     }
 
 -- | (Optional) The specific time for which you want to get calendar state
 -- information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
 -- format. If you do not add @AtTime@, the current time is assumed.
-getCalendarState_atTime :: Lens.Lens' GetCalendarState (Core.Maybe Core.Text)
+getCalendarState_atTime :: Lens.Lens' GetCalendarState (Prelude.Maybe Prelude.Text)
 getCalendarState_atTime = Lens.lens (\GetCalendarState' {atTime} -> atTime) (\s@GetCalendarState' {} a -> s {atTime = a} :: GetCalendarState)
 
 -- | The names or Amazon Resource Names (ARNs) of the Systems Manager
 -- documents that represent the calendar entries for which you want to get
 -- the state.
-getCalendarState_calendarNames :: Lens.Lens' GetCalendarState [Core.Text]
-getCalendarState_calendarNames = Lens.lens (\GetCalendarState' {calendarNames} -> calendarNames) (\s@GetCalendarState' {} a -> s {calendarNames = a} :: GetCalendarState) Core.. Lens._Coerce
+getCalendarState_calendarNames :: Lens.Lens' GetCalendarState [Prelude.Text]
+getCalendarState_calendarNames = Lens.lens (\GetCalendarState' {calendarNames} -> calendarNames) (\s@GetCalendarState' {} a -> s {calendarNames = a} :: GetCalendarState) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetCalendarState where
   type
@@ -119,61 +120,64 @@ instance Core.AWSRequest GetCalendarState where
     Response.receiveJSON
       ( \s h x ->
           GetCalendarStateResponse'
-            Core.<$> (x Core..?> "AtTime")
-            Core.<*> (x Core..?> "State")
-            Core.<*> (x Core..?> "NextTransitionTime")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AtTime")
+            Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "NextTransitionTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetCalendarState
+instance Prelude.Hashable GetCalendarState
 
-instance Core.NFData GetCalendarState
+instance Prelude.NFData GetCalendarState
 
 instance Core.ToHeaders GetCalendarState where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetCalendarState" :: Core.ByteString),
+              Core.=# ("AmazonSSM.GetCalendarState" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetCalendarState where
   toJSON GetCalendarState' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AtTime" Core..=) Core.<$> atTime,
-            Core.Just ("CalendarNames" Core..= calendarNames)
+      ( Prelude.catMaybes
+          [ ("AtTime" Core..=) Prelude.<$> atTime,
+            Prelude.Just
+              ("CalendarNames" Core..= calendarNames)
           ]
       )
 
 instance Core.ToPath GetCalendarState where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCalendarState where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCalendarStateResponse' smart constructor.
 data GetCalendarStateResponse = GetCalendarStateResponse'
   { -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
     -- string, that you specified in your command. If you did not specify a
     -- time, @GetCalendarState@ uses the current time.
-    atTime :: Core.Maybe Core.Text,
+    atTime :: Prelude.Maybe Prelude.Text,
     -- | The state of the calendar. An @OPEN@ calendar indicates that actions are
     -- allowed to proceed, and a @CLOSED@ calendar indicates that actions are
     -- not allowed to proceed.
-    state :: Core.Maybe CalendarState,
+    state :: Prelude.Maybe CalendarState,
     -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
     -- string, that the calendar state will change. If the current calendar
     -- state is @OPEN@, @NextTransitionTime@ indicates when the calendar state
     -- changes to @CLOSED@, and vice-versa.
-    nextTransitionTime :: Core.Maybe Core.Text,
+    nextTransitionTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCalendarStateResponse' with all optional fields omitted.
@@ -199,37 +203,37 @@ data GetCalendarStateResponse = GetCalendarStateResponse'
 -- 'httpStatus', 'getCalendarStateResponse_httpStatus' - The response's http status code.
 newGetCalendarStateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCalendarStateResponse
 newGetCalendarStateResponse pHttpStatus_ =
   GetCalendarStateResponse'
-    { atTime = Core.Nothing,
-      state = Core.Nothing,
-      nextTransitionTime = Core.Nothing,
+    { atTime = Prelude.Nothing,
+      state = Prelude.Nothing,
+      nextTransitionTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
 -- string, that you specified in your command. If you did not specify a
 -- time, @GetCalendarState@ uses the current time.
-getCalendarStateResponse_atTime :: Lens.Lens' GetCalendarStateResponse (Core.Maybe Core.Text)
+getCalendarStateResponse_atTime :: Lens.Lens' GetCalendarStateResponse (Prelude.Maybe Prelude.Text)
 getCalendarStateResponse_atTime = Lens.lens (\GetCalendarStateResponse' {atTime} -> atTime) (\s@GetCalendarStateResponse' {} a -> s {atTime = a} :: GetCalendarStateResponse)
 
 -- | The state of the calendar. An @OPEN@ calendar indicates that actions are
 -- allowed to proceed, and a @CLOSED@ calendar indicates that actions are
 -- not allowed to proceed.
-getCalendarStateResponse_state :: Lens.Lens' GetCalendarStateResponse (Core.Maybe CalendarState)
+getCalendarStateResponse_state :: Lens.Lens' GetCalendarStateResponse (Prelude.Maybe CalendarState)
 getCalendarStateResponse_state = Lens.lens (\GetCalendarStateResponse' {state} -> state) (\s@GetCalendarStateResponse' {} a -> s {state = a} :: GetCalendarStateResponse)
 
 -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
 -- string, that the calendar state will change. If the current calendar
 -- state is @OPEN@, @NextTransitionTime@ indicates when the calendar state
 -- changes to @CLOSED@, and vice-versa.
-getCalendarStateResponse_nextTransitionTime :: Lens.Lens' GetCalendarStateResponse (Core.Maybe Core.Text)
+getCalendarStateResponse_nextTransitionTime :: Lens.Lens' GetCalendarStateResponse (Prelude.Maybe Prelude.Text)
 getCalendarStateResponse_nextTransitionTime = Lens.lens (\GetCalendarStateResponse' {nextTransitionTime} -> nextTransitionTime) (\s@GetCalendarStateResponse' {} a -> s {nextTransitionTime = a} :: GetCalendarStateResponse)
 
 -- | The response's http status code.
-getCalendarStateResponse_httpStatus :: Lens.Lens' GetCalendarStateResponse Core.Int
+getCalendarStateResponse_httpStatus :: Lens.Lens' GetCalendarStateResponse Prelude.Int
 getCalendarStateResponse_httpStatus = Lens.lens (\GetCalendarStateResponse' {httpStatus} -> httpStatus) (\s@GetCalendarStateResponse' {} a -> s {httpStatus = a} :: GetCalendarStateResponse)
 
-instance Core.NFData GetCalendarStateResponse
+instance Prelude.NFData GetCalendarStateResponse

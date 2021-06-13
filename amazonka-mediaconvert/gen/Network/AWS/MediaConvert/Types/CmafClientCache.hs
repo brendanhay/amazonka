@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.CmafClientCache
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Disable this setting only when your workflow requires the
 -- #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled
@@ -37,15 +38,15 @@ newtype CmafClientCache = CmafClientCache'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

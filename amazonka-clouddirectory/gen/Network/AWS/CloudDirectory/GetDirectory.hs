@@ -42,15 +42,16 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDirectory' smart constructor.
 data GetDirectory = GetDirectory'
   { -- | The ARN of the directory.
-    directoryArn :: Core.Text
+    directoryArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDirectory' with all optional fields omitted.
@@ -63,13 +64,13 @@ data GetDirectory = GetDirectory'
 -- 'directoryArn', 'getDirectory_directoryArn' - The ARN of the directory.
 newGetDirectory ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   GetDirectory
 newGetDirectory pDirectoryArn_ =
   GetDirectory' {directoryArn = pDirectoryArn_}
 
 -- | The ARN of the directory.
-getDirectory_directoryArn :: Lens.Lens' GetDirectory Core.Text
+getDirectory_directoryArn :: Lens.Lens' GetDirectory Prelude.Text
 getDirectory_directoryArn = Lens.lens (\GetDirectory' {directoryArn} -> directoryArn) (\s@GetDirectory' {} a -> s {directoryArn = a} :: GetDirectory)
 
 instance Core.AWSRequest GetDirectory where
@@ -79,38 +80,38 @@ instance Core.AWSRequest GetDirectory where
     Response.receiveJSON
       ( \s h x ->
           GetDirectoryResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "Directory")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Directory")
       )
 
-instance Core.Hashable GetDirectory
+instance Prelude.Hashable GetDirectory
 
-instance Core.NFData GetDirectory
+instance Prelude.NFData GetDirectory
 
 instance Core.ToHeaders GetDirectory where
   toHeaders GetDirectory' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON GetDirectory where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetDirectory where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/directory/get"
 
 instance Core.ToQuery GetDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDirectoryResponse' smart constructor.
 data GetDirectoryResponse = GetDirectoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Metadata about the directory.
     directory :: Directory
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDirectoryResponse' with all optional fields omitted.
@@ -125,7 +126,7 @@ data GetDirectoryResponse = GetDirectoryResponse'
 -- 'directory', 'getDirectoryResponse_directory' - Metadata about the directory.
 newGetDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'directory'
   Directory ->
   GetDirectoryResponse
@@ -136,11 +137,11 @@ newGetDirectoryResponse pHttpStatus_ pDirectory_ =
     }
 
 -- | The response's http status code.
-getDirectoryResponse_httpStatus :: Lens.Lens' GetDirectoryResponse Core.Int
+getDirectoryResponse_httpStatus :: Lens.Lens' GetDirectoryResponse Prelude.Int
 getDirectoryResponse_httpStatus = Lens.lens (\GetDirectoryResponse' {httpStatus} -> httpStatus) (\s@GetDirectoryResponse' {} a -> s {httpStatus = a} :: GetDirectoryResponse)
 
 -- | Metadata about the directory.
 getDirectoryResponse_directory :: Lens.Lens' GetDirectoryResponse Directory
 getDirectoryResponse_directory = Lens.lens (\GetDirectoryResponse' {directory} -> directory) (\s@GetDirectoryResponse' {} a -> s {directory = a} :: GetDirectoryResponse)
 
-instance Core.NFData GetDirectoryResponse
+instance Prelude.NFData GetDirectoryResponse

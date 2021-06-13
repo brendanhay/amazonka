@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.TlsContext where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the TLS context to use for the test authorizer request.
 --
 -- /See:/ 'newTlsContext' smart constructor.
 data TlsContext = TlsContext'
   { -- | The value of the @serverName@ key in a TLS authorization request.
-    serverName :: Core.Maybe Core.Text
+    serverName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TlsContext' with all optional fields omitted.
@@ -43,19 +44,19 @@ data TlsContext = TlsContext'
 newTlsContext ::
   TlsContext
 newTlsContext =
-  TlsContext' {serverName = Core.Nothing}
+  TlsContext' {serverName = Prelude.Nothing}
 
 -- | The value of the @serverName@ key in a TLS authorization request.
-tlsContext_serverName :: Lens.Lens' TlsContext (Core.Maybe Core.Text)
+tlsContext_serverName :: Lens.Lens' TlsContext (Prelude.Maybe Prelude.Text)
 tlsContext_serverName = Lens.lens (\TlsContext' {serverName} -> serverName) (\s@TlsContext' {} a -> s {serverName = a} :: TlsContext)
 
-instance Core.Hashable TlsContext
+instance Prelude.Hashable TlsContext
 
-instance Core.NFData TlsContext
+instance Prelude.NFData TlsContext
 
 instance Core.ToJSON TlsContext where
   toJSON TlsContext' {..} =
     Core.object
-      ( Core.catMaybes
-          [("serverName" Core..=) Core.<$> serverName]
+      ( Prelude.catMaybes
+          [("serverName" Core..=) Prelude.<$> serverName]
       )

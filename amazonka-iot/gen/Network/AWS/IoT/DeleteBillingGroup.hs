@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ data DeleteBillingGroup = DeleteBillingGroup'
     -- group does not match the expected version specified in the request, the
     -- @DeleteBillingGroup@ request is rejected with a
     -- @VersionConflictException@.
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the billing group.
-    billingGroupName :: Core.Text
+    billingGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBillingGroup' with all optional fields omitted.
@@ -73,11 +74,12 @@ data DeleteBillingGroup = DeleteBillingGroup'
 -- 'billingGroupName', 'deleteBillingGroup_billingGroupName' - The name of the billing group.
 newDeleteBillingGroup ::
   -- | 'billingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBillingGroup
 newDeleteBillingGroup pBillingGroupName_ =
   DeleteBillingGroup'
-    { expectedVersion = Core.Nothing,
+    { expectedVersion =
+        Prelude.Nothing,
       billingGroupName = pBillingGroupName_
     }
 
@@ -85,11 +87,11 @@ newDeleteBillingGroup pBillingGroupName_ =
 -- group does not match the expected version specified in the request, the
 -- @DeleteBillingGroup@ request is rejected with a
 -- @VersionConflictException@.
-deleteBillingGroup_expectedVersion :: Lens.Lens' DeleteBillingGroup (Core.Maybe Core.Integer)
+deleteBillingGroup_expectedVersion :: Lens.Lens' DeleteBillingGroup (Prelude.Maybe Prelude.Integer)
 deleteBillingGroup_expectedVersion = Lens.lens (\DeleteBillingGroup' {expectedVersion} -> expectedVersion) (\s@DeleteBillingGroup' {} a -> s {expectedVersion = a} :: DeleteBillingGroup)
 
 -- | The name of the billing group.
-deleteBillingGroup_billingGroupName :: Lens.Lens' DeleteBillingGroup Core.Text
+deleteBillingGroup_billingGroupName :: Lens.Lens' DeleteBillingGroup Prelude.Text
 deleteBillingGroup_billingGroupName = Lens.lens (\DeleteBillingGroup' {billingGroupName} -> billingGroupName) (\s@DeleteBillingGroup' {} a -> s {billingGroupName = a} :: DeleteBillingGroup)
 
 instance Core.AWSRequest DeleteBillingGroup where
@@ -101,32 +103,32 @@ instance Core.AWSRequest DeleteBillingGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteBillingGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteBillingGroup
+instance Prelude.Hashable DeleteBillingGroup
 
-instance Core.NFData DeleteBillingGroup
+instance Prelude.NFData DeleteBillingGroup
 
 instance Core.ToHeaders DeleteBillingGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteBillingGroup where
   toPath DeleteBillingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/billing-groups/", Core.toBS billingGroupName]
 
 instance Core.ToQuery DeleteBillingGroup where
   toQuery DeleteBillingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["expectedVersion" Core.=: expectedVersion]
 
 -- | /See:/ 'newDeleteBillingGroupResponse' smart constructor.
 data DeleteBillingGroupResponse = DeleteBillingGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBillingGroupResponse' with all optional fields omitted.
@@ -139,7 +141,7 @@ data DeleteBillingGroupResponse = DeleteBillingGroupResponse'
 -- 'httpStatus', 'deleteBillingGroupResponse_httpStatus' - The response's http status code.
 newDeleteBillingGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteBillingGroupResponse
 newDeleteBillingGroupResponse pHttpStatus_ =
   DeleteBillingGroupResponse'
@@ -148,7 +150,7 @@ newDeleteBillingGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteBillingGroupResponse_httpStatus :: Lens.Lens' DeleteBillingGroupResponse Core.Int
+deleteBillingGroupResponse_httpStatus :: Lens.Lens' DeleteBillingGroupResponse Prelude.Int
 deleteBillingGroupResponse_httpStatus = Lens.lens (\DeleteBillingGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteBillingGroupResponse' {} a -> s {httpStatus = a} :: DeleteBillingGroupResponse)
 
-instance Core.NFData DeleteBillingGroupResponse
+instance Prelude.NFData DeleteBillingGroupResponse

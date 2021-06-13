@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +55,7 @@ data PutResourcePolicy = PutResourcePolicy'
   { -- | The ARN of the AWS Glue resource for the resource policy to be set. For
     -- more information about AWS Glue resource ARNs, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
-    resourceArn :: Core.Maybe Core.Text,
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | Allows you to specify if you want to use both resource-level and
     -- account\/catalog-level resource policies. A resource-level policy is a
     -- policy attached to an individual resource such as a database or a table.
@@ -63,21 +64,21 @@ data PutResourcePolicy = PutResourcePolicy'
     -- co-exist with an account-level policy. A value of @YES@ means the use of
     -- both resource-level and account\/catalog-level resource policies is
     -- allowed.
-    enableHybrid :: Core.Maybe EnableHybridValues,
+    enableHybrid :: Prelude.Maybe EnableHybridValues,
     -- | The hash value returned when the previous policy was set using
     -- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
     -- of a policy. Do not use this parameter if no previous policy has been
     -- set.
-    policyHashCondition :: Core.Maybe Core.Text,
+    policyHashCondition :: Prelude.Maybe Prelude.Text,
     -- | A value of @MUST_EXIST@ is used to update a policy. A value of
     -- @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a
     -- null value is used, the call will not depend on the existence of a
     -- policy.
-    policyExistsCondition :: Core.Maybe ExistCondition,
+    policyExistsCondition :: Prelude.Maybe ExistCondition,
     -- | Contains the policy document to set, in JSON format.
-    policyInJson :: Core.Text
+    policyInJson :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutResourcePolicy' with all optional fields omitted.
@@ -113,21 +114,21 @@ data PutResourcePolicy = PutResourcePolicy'
 -- 'policyInJson', 'putResourcePolicy_policyInJson' - Contains the policy document to set, in JSON format.
 newPutResourcePolicy ::
   -- | 'policyInJson'
-  Core.Text ->
+  Prelude.Text ->
   PutResourcePolicy
 newPutResourcePolicy pPolicyInJson_ =
   PutResourcePolicy'
-    { resourceArn = Core.Nothing,
-      enableHybrid = Core.Nothing,
-      policyHashCondition = Core.Nothing,
-      policyExistsCondition = Core.Nothing,
+    { resourceArn = Prelude.Nothing,
+      enableHybrid = Prelude.Nothing,
+      policyHashCondition = Prelude.Nothing,
+      policyExistsCondition = Prelude.Nothing,
       policyInJson = pPolicyInJson_
     }
 
 -- | The ARN of the AWS Glue resource for the resource policy to be set. For
 -- more information about AWS Glue resource ARNs, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
-putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy (Core.Maybe Core.Text)
+putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
 putResourcePolicy_resourceArn = Lens.lens (\PutResourcePolicy' {resourceArn} -> resourceArn) (\s@PutResourcePolicy' {} a -> s {resourceArn = a} :: PutResourcePolicy)
 
 -- | Allows you to specify if you want to use both resource-level and
@@ -138,25 +139,25 @@ putResourcePolicy_resourceArn = Lens.lens (\PutResourcePolicy' {resourceArn} -> 
 -- co-exist with an account-level policy. A value of @YES@ means the use of
 -- both resource-level and account\/catalog-level resource policies is
 -- allowed.
-putResourcePolicy_enableHybrid :: Lens.Lens' PutResourcePolicy (Core.Maybe EnableHybridValues)
+putResourcePolicy_enableHybrid :: Lens.Lens' PutResourcePolicy (Prelude.Maybe EnableHybridValues)
 putResourcePolicy_enableHybrid = Lens.lens (\PutResourcePolicy' {enableHybrid} -> enableHybrid) (\s@PutResourcePolicy' {} a -> s {enableHybrid = a} :: PutResourcePolicy)
 
 -- | The hash value returned when the previous policy was set using
 -- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
 -- of a policy. Do not use this parameter if no previous policy has been
 -- set.
-putResourcePolicy_policyHashCondition :: Lens.Lens' PutResourcePolicy (Core.Maybe Core.Text)
+putResourcePolicy_policyHashCondition :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
 putResourcePolicy_policyHashCondition = Lens.lens (\PutResourcePolicy' {policyHashCondition} -> policyHashCondition) (\s@PutResourcePolicy' {} a -> s {policyHashCondition = a} :: PutResourcePolicy)
 
 -- | A value of @MUST_EXIST@ is used to update a policy. A value of
 -- @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a
 -- null value is used, the call will not depend on the existence of a
 -- policy.
-putResourcePolicy_policyExistsCondition :: Lens.Lens' PutResourcePolicy (Core.Maybe ExistCondition)
+putResourcePolicy_policyExistsCondition :: Lens.Lens' PutResourcePolicy (Prelude.Maybe ExistCondition)
 putResourcePolicy_policyExistsCondition = Lens.lens (\PutResourcePolicy' {policyExistsCondition} -> policyExistsCondition) (\s@PutResourcePolicy' {} a -> s {policyExistsCondition = a} :: PutResourcePolicy)
 
 -- | Contains the policy document to set, in JSON format.
-putResourcePolicy_policyInJson :: Lens.Lens' PutResourcePolicy Core.Text
+putResourcePolicy_policyInJson :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_policyInJson = Lens.lens (\PutResourcePolicy' {policyInJson} -> policyInJson) (\s@PutResourcePolicy' {} a -> s {policyInJson = a} :: PutResourcePolicy)
 
 instance Core.AWSRequest PutResourcePolicy where
@@ -168,54 +169,56 @@ instance Core.AWSRequest PutResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Core.<$> (x Core..?> "PolicyHash")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PolicyHash")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutResourcePolicy
+instance Prelude.Hashable PutResourcePolicy
 
-instance Core.NFData PutResourcePolicy
+instance Prelude.NFData PutResourcePolicy
 
 instance Core.ToHeaders PutResourcePolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.PutResourcePolicy" :: Core.ByteString),
+              Core.=# ("AWSGlue.PutResourcePolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceArn" Core..=) Core.<$> resourceArn,
-            ("EnableHybrid" Core..=) Core.<$> enableHybrid,
+      ( Prelude.catMaybes
+          [ ("ResourceArn" Core..=) Prelude.<$> resourceArn,
+            ("EnableHybrid" Core..=) Prelude.<$> enableHybrid,
             ("PolicyHashCondition" Core..=)
-              Core.<$> policyHashCondition,
+              Prelude.<$> policyHashCondition,
             ("PolicyExistsCondition" Core..=)
-              Core.<$> policyExistsCondition,
-            Core.Just ("PolicyInJson" Core..= policyInJson)
+              Prelude.<$> policyExistsCondition,
+            Prelude.Just ("PolicyInJson" Core..= policyInJson)
           ]
       )
 
 instance Core.ToPath PutResourcePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutResourcePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
   { -- | A hash of the policy that has just been set. This must be included in a
     -- subsequent call that overwrites or updates this policy.
-    policyHash :: Core.Maybe Core.Text,
+    policyHash :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutResourcePolicyResponse' with all optional fields omitted.
@@ -231,22 +234,22 @@ data PutResourcePolicyResponse = PutResourcePolicyResponse'
 -- 'httpStatus', 'putResourcePolicyResponse_httpStatus' - The response's http status code.
 newPutResourcePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutResourcePolicyResponse
 newPutResourcePolicyResponse pHttpStatus_ =
   PutResourcePolicyResponse'
     { policyHash =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A hash of the policy that has just been set. This must be included in a
 -- subsequent call that overwrites or updates this policy.
-putResourcePolicyResponse_policyHash :: Lens.Lens' PutResourcePolicyResponse (Core.Maybe Core.Text)
+putResourcePolicyResponse_policyHash :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 putResourcePolicyResponse_policyHash = Lens.lens (\PutResourcePolicyResponse' {policyHash} -> policyHash) (\s@PutResourcePolicyResponse' {} a -> s {policyHash = a} :: PutResourcePolicyResponse)
 
 -- | The response's http status code.
-putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Core.Int
+putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
 putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@PutResourcePolicyResponse' {} a -> s {httpStatus = a} :: PutResourcePolicyResponse)
 
-instance Core.NFData PutResourcePolicyResponse
+instance Prelude.NFData PutResourcePolicyResponse

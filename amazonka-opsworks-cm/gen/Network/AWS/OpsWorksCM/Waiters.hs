@@ -20,6 +20,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
 import Network.AWS.OpsWorksCM.Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus' every 15 seconds until a successful state is reached. An error is returned after 15 failed checks.
 newNodeAssociated :: Core.Wait DescribeNodeAssociationStatus
@@ -33,13 +34,13 @@ newNodeAssociated =
             "SUCCESS"
             Core.AcceptSuccess
             ( describeNodeAssociationStatusResponse_nodeAssociationStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeNodeAssociationStatusResponse_nodeAssociationStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

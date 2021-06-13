@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.InstanceMonitoring where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes whether detailed monitoring is enabled for the Auto Scaling
 -- instances.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data InstanceMonitoring = InstanceMonitoring'
   { -- | If @true@, detailed monitoring is enabled. Otherwise, basic monitoring
     -- is enabled.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceMonitoring' with all optional fields omitted.
@@ -46,21 +47,22 @@ data InstanceMonitoring = InstanceMonitoring'
 newInstanceMonitoring ::
   InstanceMonitoring
 newInstanceMonitoring =
-  InstanceMonitoring' {enabled = Core.Nothing}
+  InstanceMonitoring' {enabled = Prelude.Nothing}
 
 -- | If @true@, detailed monitoring is enabled. Otherwise, basic monitoring
 -- is enabled.
-instanceMonitoring_enabled :: Lens.Lens' InstanceMonitoring (Core.Maybe Core.Bool)
+instanceMonitoring_enabled :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Prelude.Bool)
 instanceMonitoring_enabled = Lens.lens (\InstanceMonitoring' {enabled} -> enabled) (\s@InstanceMonitoring' {} a -> s {enabled = a} :: InstanceMonitoring)
 
 instance Core.FromXML InstanceMonitoring where
   parseXML x =
-    InstanceMonitoring' Core.<$> (x Core..@? "Enabled")
+    InstanceMonitoring'
+      Prelude.<$> (x Core..@? "Enabled")
 
-instance Core.Hashable InstanceMonitoring
+instance Prelude.Hashable InstanceMonitoring
 
-instance Core.NFData InstanceMonitoring
+instance Prelude.NFData InstanceMonitoring
 
 instance Core.ToQuery InstanceMonitoring where
   toQuery InstanceMonitoring' {..} =
-    Core.mconcat ["Enabled" Core.=: enabled]
+    Prelude.mconcat ["Enabled" Core.=: enabled]

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.AuthMode
 import Network.AWS.EMR.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details for an Amazon EMR Studio including ID, creation time, name, and
 -- so on.
@@ -30,44 +31,44 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newStudio' smart constructor.
 data Studio = Studio'
   { -- | The time the Amazon EMR Studio was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the IAM role assumed by the Amazon EMR Studio.
-    serviceRole :: Core.Maybe Core.Text,
+    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Workspace security group associated with the Amazon EMR
     -- Studio. The Workspace security group allows outbound network traffic to
     -- resources in the Engine security group and to the internet.
-    workspaceSecurityGroupId :: Core.Maybe Core.Text,
+    workspaceSecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | The default Amazon S3 location to back up Amazon EMR Studio Workspaces
     -- and notebook files.
-    defaultS3Location :: Core.Maybe Core.Text,
+    defaultS3Location :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the Amazon EMR Studio authenticates users using single
     -- sign-on (SSO) or IAM.
-    authMode :: Core.Maybe AuthMode,
+    authMode :: Prelude.Maybe AuthMode,
     -- | The list of IDs of the subnets associated with the Amazon EMR Studio.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the IAM role assumed by users logged in to the Amazon EMR
     -- Studio.
-    userRole :: Core.Maybe Core.Text,
+    userRole :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EMR Studio.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of tags associated with the Amazon EMR Studio.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The detailed description of the Amazon EMR Studio.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The unique access URL of the Amazon EMR Studio.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC associated with the Amazon EMR Studio.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon EMR Studio.
-    studioArn :: Core.Maybe Core.Text,
+    studioArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EMR Studio.
-    studioId :: Core.Maybe Core.Text,
+    studioId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Engine security group associated with the Amazon EMR
     -- Studio. The Engine security group allows inbound network traffic from
     -- resources in the Workspace security group.
-    engineSecurityGroupId :: Core.Maybe Core.Text
+    engineSecurityGroupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Studio' with all optional fields omitted.
@@ -117,88 +118,88 @@ newStudio ::
   Studio
 newStudio =
   Studio'
-    { creationTime = Core.Nothing,
-      serviceRole = Core.Nothing,
-      workspaceSecurityGroupId = Core.Nothing,
-      defaultS3Location = Core.Nothing,
-      authMode = Core.Nothing,
-      subnetIds = Core.Nothing,
-      userRole = Core.Nothing,
-      name = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
-      url = Core.Nothing,
-      vpcId = Core.Nothing,
-      studioArn = Core.Nothing,
-      studioId = Core.Nothing,
-      engineSecurityGroupId = Core.Nothing
+    { creationTime = Prelude.Nothing,
+      serviceRole = Prelude.Nothing,
+      workspaceSecurityGroupId = Prelude.Nothing,
+      defaultS3Location = Prelude.Nothing,
+      authMode = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      userRole = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      url = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      studioArn = Prelude.Nothing,
+      studioId = Prelude.Nothing,
+      engineSecurityGroupId = Prelude.Nothing
     }
 
 -- | The time the Amazon EMR Studio was created.
-studio_creationTime :: Lens.Lens' Studio (Core.Maybe Core.UTCTime)
-studio_creationTime = Lens.lens (\Studio' {creationTime} -> creationTime) (\s@Studio' {} a -> s {creationTime = a} :: Studio) Core.. Lens.mapping Core._Time
+studio_creationTime :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
+studio_creationTime = Lens.lens (\Studio' {creationTime} -> creationTime) (\s@Studio' {} a -> s {creationTime = a} :: Studio) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the IAM role assumed by the Amazon EMR Studio.
-studio_serviceRole :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_serviceRole :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_serviceRole = Lens.lens (\Studio' {serviceRole} -> serviceRole) (\s@Studio' {} a -> s {serviceRole = a} :: Studio)
 
 -- | The ID of the Workspace security group associated with the Amazon EMR
 -- Studio. The Workspace security group allows outbound network traffic to
 -- resources in the Engine security group and to the internet.
-studio_workspaceSecurityGroupId :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_workspaceSecurityGroupId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_workspaceSecurityGroupId = Lens.lens (\Studio' {workspaceSecurityGroupId} -> workspaceSecurityGroupId) (\s@Studio' {} a -> s {workspaceSecurityGroupId = a} :: Studio)
 
 -- | The default Amazon S3 location to back up Amazon EMR Studio Workspaces
 -- and notebook files.
-studio_defaultS3Location :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_defaultS3Location :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_defaultS3Location = Lens.lens (\Studio' {defaultS3Location} -> defaultS3Location) (\s@Studio' {} a -> s {defaultS3Location = a} :: Studio)
 
 -- | Specifies whether the Amazon EMR Studio authenticates users using single
 -- sign-on (SSO) or IAM.
-studio_authMode :: Lens.Lens' Studio (Core.Maybe AuthMode)
+studio_authMode :: Lens.Lens' Studio (Prelude.Maybe AuthMode)
 studio_authMode = Lens.lens (\Studio' {authMode} -> authMode) (\s@Studio' {} a -> s {authMode = a} :: Studio)
 
 -- | The list of IDs of the subnets associated with the Amazon EMR Studio.
-studio_subnetIds :: Lens.Lens' Studio (Core.Maybe [Core.Text])
-studio_subnetIds = Lens.lens (\Studio' {subnetIds} -> subnetIds) (\s@Studio' {} a -> s {subnetIds = a} :: Studio) Core.. Lens.mapping Lens._Coerce
+studio_subnetIds :: Lens.Lens' Studio (Prelude.Maybe [Prelude.Text])
+studio_subnetIds = Lens.lens (\Studio' {subnetIds} -> subnetIds) (\s@Studio' {} a -> s {subnetIds = a} :: Studio) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the IAM role assumed by users logged in to the Amazon EMR
 -- Studio.
-studio_userRole :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_userRole :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_userRole = Lens.lens (\Studio' {userRole} -> userRole) (\s@Studio' {} a -> s {userRole = a} :: Studio)
 
 -- | The name of the Amazon EMR Studio.
-studio_name :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_name :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_name = Lens.lens (\Studio' {name} -> name) (\s@Studio' {} a -> s {name = a} :: Studio)
 
 -- | A list of tags associated with the Amazon EMR Studio.
-studio_tags :: Lens.Lens' Studio (Core.Maybe [Tag])
-studio_tags = Lens.lens (\Studio' {tags} -> tags) (\s@Studio' {} a -> s {tags = a} :: Studio) Core.. Lens.mapping Lens._Coerce
+studio_tags :: Lens.Lens' Studio (Prelude.Maybe [Tag])
+studio_tags = Lens.lens (\Studio' {tags} -> tags) (\s@Studio' {} a -> s {tags = a} :: Studio) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The detailed description of the Amazon EMR Studio.
-studio_description :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_description :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_description = Lens.lens (\Studio' {description} -> description) (\s@Studio' {} a -> s {description = a} :: Studio)
 
 -- | The unique access URL of the Amazon EMR Studio.
-studio_url :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_url :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_url = Lens.lens (\Studio' {url} -> url) (\s@Studio' {} a -> s {url = a} :: Studio)
 
 -- | The ID of the VPC associated with the Amazon EMR Studio.
-studio_vpcId :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_vpcId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_vpcId = Lens.lens (\Studio' {vpcId} -> vpcId) (\s@Studio' {} a -> s {vpcId = a} :: Studio)
 
 -- | The Amazon Resource Name (ARN) of the Amazon EMR Studio.
-studio_studioArn :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_studioArn :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_studioArn = Lens.lens (\Studio' {studioArn} -> studioArn) (\s@Studio' {} a -> s {studioArn = a} :: Studio)
 
 -- | The ID of the Amazon EMR Studio.
-studio_studioId :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_studioId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_studioId = Lens.lens (\Studio' {studioId} -> studioId) (\s@Studio' {} a -> s {studioId = a} :: Studio)
 
 -- | The ID of the Engine security group associated with the Amazon EMR
 -- Studio. The Engine security group allows inbound network traffic from
 -- resources in the Workspace security group.
-studio_engineSecurityGroupId :: Lens.Lens' Studio (Core.Maybe Core.Text)
+studio_engineSecurityGroupId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_engineSecurityGroupId = Lens.lens (\Studio' {engineSecurityGroupId} -> engineSecurityGroupId) (\s@Studio' {} a -> s {engineSecurityGroupId = a} :: Studio)
 
 instance Core.FromJSON Studio where
@@ -207,23 +208,23 @@ instance Core.FromJSON Studio where
       "Studio"
       ( \x ->
           Studio'
-            Core.<$> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "ServiceRole")
-            Core.<*> (x Core..:? "WorkspaceSecurityGroupId")
-            Core.<*> (x Core..:? "DefaultS3Location")
-            Core.<*> (x Core..:? "AuthMode")
-            Core.<*> (x Core..:? "SubnetIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "UserRole")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "Url")
-            Core.<*> (x Core..:? "VpcId")
-            Core.<*> (x Core..:? "StudioArn")
-            Core.<*> (x Core..:? "StudioId")
-            Core.<*> (x Core..:? "EngineSecurityGroupId")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "ServiceRole")
+            Prelude.<*> (x Core..:? "WorkspaceSecurityGroupId")
+            Prelude.<*> (x Core..:? "DefaultS3Location")
+            Prelude.<*> (x Core..:? "AuthMode")
+            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "UserRole")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Url")
+            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "StudioArn")
+            Prelude.<*> (x Core..:? "StudioId")
+            Prelude.<*> (x Core..:? "EngineSecurityGroupId")
       )
 
-instance Core.Hashable Studio
+instance Prelude.Hashable Studio
 
-instance Core.NFData Studio
+instance Prelude.NFData Studio

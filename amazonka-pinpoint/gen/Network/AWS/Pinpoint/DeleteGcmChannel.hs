@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteGcmChannel = DeleteGcmChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGcmChannel' with all optional fields omitted.
@@ -66,14 +67,14 @@ data DeleteGcmChannel = DeleteGcmChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteGcmChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteGcmChannel
 newDeleteGcmChannel pApplicationId_ =
   DeleteGcmChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteGcmChannel_applicationId :: Lens.Lens' DeleteGcmChannel Core.Text
+deleteGcmChannel_applicationId :: Lens.Lens' DeleteGcmChannel Prelude.Text
 deleteGcmChannel_applicationId = Lens.lens (\DeleteGcmChannel' {applicationId} -> applicationId) (\s@DeleteGcmChannel' {} a -> s {applicationId = a} :: DeleteGcmChannel)
 
 instance Core.AWSRequest DeleteGcmChannel where
@@ -85,41 +86,43 @@ instance Core.AWSRequest DeleteGcmChannel where
     Response.receiveJSON
       ( \s h x ->
           DeleteGcmChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteGcmChannel
+instance Prelude.Hashable DeleteGcmChannel
 
-instance Core.NFData DeleteGcmChannel
+instance Prelude.NFData DeleteGcmChannel
 
 instance Core.ToHeaders DeleteGcmChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteGcmChannel where
   toPath DeleteGcmChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/gcm"
       ]
 
 instance Core.ToQuery DeleteGcmChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGcmChannelResponse' smart constructor.
 data DeleteGcmChannelResponse = DeleteGcmChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     gCMChannelResponse :: GCMChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGcmChannelResponse' with all optional fields omitted.
@@ -134,7 +137,7 @@ data DeleteGcmChannelResponse = DeleteGcmChannelResponse'
 -- 'gCMChannelResponse', 'deleteGcmChannelResponse_gCMChannelResponse' - Undocumented member.
 newDeleteGcmChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'gCMChannelResponse'
   GCMChannelResponse ->
   DeleteGcmChannelResponse
@@ -148,11 +151,11 @@ newDeleteGcmChannelResponse
       }
 
 -- | The response's http status code.
-deleteGcmChannelResponse_httpStatus :: Lens.Lens' DeleteGcmChannelResponse Core.Int
+deleteGcmChannelResponse_httpStatus :: Lens.Lens' DeleteGcmChannelResponse Prelude.Int
 deleteGcmChannelResponse_httpStatus = Lens.lens (\DeleteGcmChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteGcmChannelResponse' {} a -> s {httpStatus = a} :: DeleteGcmChannelResponse)
 
 -- | Undocumented member.
 deleteGcmChannelResponse_gCMChannelResponse :: Lens.Lens' DeleteGcmChannelResponse GCMChannelResponse
 deleteGcmChannelResponse_gCMChannelResponse = Lens.lens (\DeleteGcmChannelResponse' {gCMChannelResponse} -> gCMChannelResponse) (\s@DeleteGcmChannelResponse' {} a -> s {gCMChannelResponse = a} :: DeleteGcmChannelResponse)
 
-instance Core.NFData DeleteGcmChannelResponse
+instance Prelude.NFData DeleteGcmChannelResponse

@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.SccDestinationSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.SccDestinationFramerate
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for SCC caption output.
 --
@@ -33,9 +34,9 @@ data SccDestinationSettings = SccDestinationSettings'
     -- is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the
     -- video has video_insertion=true and drop_frame_timecode=true; otherwise,
     -- choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
-    framerate :: Core.Maybe SccDestinationFramerate
+    framerate :: Prelude.Maybe SccDestinationFramerate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SccDestinationSettings' with all optional fields omitted.
@@ -54,7 +55,10 @@ data SccDestinationSettings = SccDestinationSettings'
 newSccDestinationSettings ::
   SccDestinationSettings
 newSccDestinationSettings =
-  SccDestinationSettings' {framerate = Core.Nothing}
+  SccDestinationSettings'
+    { framerate =
+        Prelude.Nothing
+    }
 
 -- | Set Framerate (SccDestinationFramerate) to make sure that the captions
 -- and the video are synchronized in the output. Specify a frame rate that
@@ -62,7 +66,7 @@ newSccDestinationSettings =
 -- is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the
 -- video has video_insertion=true and drop_frame_timecode=true; otherwise,
 -- choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
-sccDestinationSettings_framerate :: Lens.Lens' SccDestinationSettings (Core.Maybe SccDestinationFramerate)
+sccDestinationSettings_framerate :: Lens.Lens' SccDestinationSettings (Prelude.Maybe SccDestinationFramerate)
 sccDestinationSettings_framerate = Lens.lens (\SccDestinationSettings' {framerate} -> framerate) (\s@SccDestinationSettings' {} a -> s {framerate = a} :: SccDestinationSettings)
 
 instance Core.FromJSON SccDestinationSettings where
@@ -71,16 +75,16 @@ instance Core.FromJSON SccDestinationSettings where
       "SccDestinationSettings"
       ( \x ->
           SccDestinationSettings'
-            Core.<$> (x Core..:? "framerate")
+            Prelude.<$> (x Core..:? "framerate")
       )
 
-instance Core.Hashable SccDestinationSettings
+instance Prelude.Hashable SccDestinationSettings
 
-instance Core.NFData SccDestinationSettings
+instance Prelude.NFData SccDestinationSettings
 
 instance Core.ToJSON SccDestinationSettings where
   toJSON SccDestinationSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("framerate" Core..=) Core.<$> framerate]
+      ( Prelude.catMaybes
+          [("framerate" Core..=) Prelude.<$> framerate]
       )

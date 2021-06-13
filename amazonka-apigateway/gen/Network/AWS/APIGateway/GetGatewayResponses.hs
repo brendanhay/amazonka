@@ -50,6 +50,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,15 +64,15 @@ data GetGatewayResponses = GetGatewayResponses'
   { -- | The current pagination position in the paged result set. The
     -- GatewayResponse collection does not support pagination and the position
     -- does not apply here.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500. The GatewayResponses collection does not
     -- support pagination and the limit does not apply here.
-    limit :: Core.Maybe Core.Int,
+    limit :: Prelude.Maybe Prelude.Int,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text
+    restApiId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGatewayResponses' with all optional fields omitted.
@@ -92,29 +93,29 @@ data GetGatewayResponses = GetGatewayResponses'
 -- 'restApiId', 'getGatewayResponses_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetGatewayResponses ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   GetGatewayResponses
 newGetGatewayResponses pRestApiId_ =
   GetGatewayResponses'
-    { position = Core.Nothing,
-      limit = Core.Nothing,
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | The current pagination position in the paged result set. The
 -- GatewayResponse collection does not support pagination and the position
 -- does not apply here.
-getGatewayResponses_position :: Lens.Lens' GetGatewayResponses (Core.Maybe Core.Text)
+getGatewayResponses_position :: Lens.Lens' GetGatewayResponses (Prelude.Maybe Prelude.Text)
 getGatewayResponses_position = Lens.lens (\GetGatewayResponses' {position} -> position) (\s@GetGatewayResponses' {} a -> s {position = a} :: GetGatewayResponses)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500. The GatewayResponses collection does not
 -- support pagination and the limit does not apply here.
-getGatewayResponses_limit :: Lens.Lens' GetGatewayResponses (Core.Maybe Core.Int)
+getGatewayResponses_limit :: Lens.Lens' GetGatewayResponses (Prelude.Maybe Prelude.Int)
 getGatewayResponses_limit = Lens.lens (\GetGatewayResponses' {limit} -> limit) (\s@GetGatewayResponses' {} a -> s {limit = a} :: GetGatewayResponses)
 
 -- | [Required] The string identifier of the associated RestApi.
-getGatewayResponses_restApiId :: Lens.Lens' GetGatewayResponses Core.Text
+getGatewayResponses_restApiId :: Lens.Lens' GetGatewayResponses Prelude.Text
 getGatewayResponses_restApiId = Lens.lens (\GetGatewayResponses' {restApiId} -> restApiId) (\s@GetGatewayResponses' {} a -> s {restApiId = a} :: GetGatewayResponses)
 
 instance Core.AWSPager GetGatewayResponses where
@@ -122,21 +123,22 @@ instance Core.AWSPager GetGatewayResponses where
     | Core.stop
         ( rs
             Lens.^? getGatewayResponsesResponse_position
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getGatewayResponsesResponse_items Core.. Lens._Just
+            Lens.^? getGatewayResponsesResponse_items
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getGatewayResponses_position
+          Prelude.& getGatewayResponses_position
           Lens..~ rs
           Lens.^? getGatewayResponsesResponse_position
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetGatewayResponses where
   type
@@ -147,27 +149,27 @@ instance Core.AWSRequest GetGatewayResponses where
     Response.receiveJSON
       ( \s h x ->
           GetGatewayResponsesResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetGatewayResponses
+instance Prelude.Hashable GetGatewayResponses
 
-instance Core.NFData GetGatewayResponses
+instance Prelude.NFData GetGatewayResponses
 
 instance Core.ToHeaders GetGatewayResponses where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetGatewayResponses where
   toPath GetGatewayResponses' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/gatewayresponses"
@@ -175,7 +177,7 @@ instance Core.ToPath GetGatewayResponses where
 
 instance Core.ToQuery GetGatewayResponses where
   toQuery GetGatewayResponses' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | The collection of the GatewayResponse instances of a RestApi as a
@@ -206,12 +208,12 @@ instance Core.ToQuery GetGatewayResponses where
 -- /See:/ 'newGetGatewayResponsesResponse' smart constructor.
 data GetGatewayResponsesResponse = GetGatewayResponsesResponse'
   { -- | Returns the entire collection, because of no pagination support.
-    items :: Core.Maybe [GatewayResponse],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [GatewayResponse],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGatewayResponsesResponse' with all optional fields omitted.
@@ -228,25 +230,26 @@ data GetGatewayResponsesResponse = GetGatewayResponsesResponse'
 -- 'httpStatus', 'getGatewayResponsesResponse_httpStatus' - The response's http status code.
 newGetGatewayResponsesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetGatewayResponsesResponse
 newGetGatewayResponsesResponse pHttpStatus_ =
   GetGatewayResponsesResponse'
-    { items = Core.Nothing,
-      position = Core.Nothing,
+    { items =
+        Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns the entire collection, because of no pagination support.
-getGatewayResponsesResponse_items :: Lens.Lens' GetGatewayResponsesResponse (Core.Maybe [GatewayResponse])
-getGatewayResponsesResponse_items = Lens.lens (\GetGatewayResponsesResponse' {items} -> items) (\s@GetGatewayResponsesResponse' {} a -> s {items = a} :: GetGatewayResponsesResponse) Core.. Lens.mapping Lens._Coerce
+getGatewayResponsesResponse_items :: Lens.Lens' GetGatewayResponsesResponse (Prelude.Maybe [GatewayResponse])
+getGatewayResponsesResponse_items = Lens.lens (\GetGatewayResponsesResponse' {items} -> items) (\s@GetGatewayResponsesResponse' {} a -> s {items = a} :: GetGatewayResponsesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getGatewayResponsesResponse_position :: Lens.Lens' GetGatewayResponsesResponse (Core.Maybe Core.Text)
+getGatewayResponsesResponse_position :: Lens.Lens' GetGatewayResponsesResponse (Prelude.Maybe Prelude.Text)
 getGatewayResponsesResponse_position = Lens.lens (\GetGatewayResponsesResponse' {position} -> position) (\s@GetGatewayResponsesResponse' {} a -> s {position = a} :: GetGatewayResponsesResponse)
 
 -- | The response's http status code.
-getGatewayResponsesResponse_httpStatus :: Lens.Lens' GetGatewayResponsesResponse Core.Int
+getGatewayResponsesResponse_httpStatus :: Lens.Lens' GetGatewayResponsesResponse Prelude.Int
 getGatewayResponsesResponse_httpStatus = Lens.lens (\GetGatewayResponsesResponse' {httpStatus} -> httpStatus) (\s@GetGatewayResponsesResponse' {} a -> s {httpStatus = a} :: GetGatewayResponsesResponse)
 
-instance Core.NFData GetGatewayResponsesResponse
+instance Prelude.NFData GetGatewayResponsesResponse

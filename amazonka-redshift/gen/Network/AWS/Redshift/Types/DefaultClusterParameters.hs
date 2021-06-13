@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.DefaultClusterParameters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Parameter
 
@@ -30,18 +31,18 @@ import Network.AWS.Redshift.Types.Parameter
 data DefaultClusterParameters = DefaultClusterParameters'
   { -- | The name of the cluster parameter group family to which the engine
     -- default parameters apply.
-    parameterGroupFamily :: Core.Maybe Core.Text,
+    parameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | The list of cluster default parameters.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefaultClusterParameters' with all optional fields omitted.
@@ -67,19 +68,19 @@ newDefaultClusterParameters ::
 newDefaultClusterParameters =
   DefaultClusterParameters'
     { parameterGroupFamily =
-        Core.Nothing,
-      parameters = Core.Nothing,
-      marker = Core.Nothing
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The name of the cluster parameter group family to which the engine
 -- default parameters apply.
-defaultClusterParameters_parameterGroupFamily :: Lens.Lens' DefaultClusterParameters (Core.Maybe Core.Text)
+defaultClusterParameters_parameterGroupFamily :: Lens.Lens' DefaultClusterParameters (Prelude.Maybe Prelude.Text)
 defaultClusterParameters_parameterGroupFamily = Lens.lens (\DefaultClusterParameters' {parameterGroupFamily} -> parameterGroupFamily) (\s@DefaultClusterParameters' {} a -> s {parameterGroupFamily = a} :: DefaultClusterParameters)
 
 -- | The list of cluster default parameters.
-defaultClusterParameters_parameters :: Lens.Lens' DefaultClusterParameters (Core.Maybe [Parameter])
-defaultClusterParameters_parameters = Lens.lens (\DefaultClusterParameters' {parameters} -> parameters) (\s@DefaultClusterParameters' {} a -> s {parameters = a} :: DefaultClusterParameters) Core.. Lens.mapping Lens._Coerce
+defaultClusterParameters_parameters :: Lens.Lens' DefaultClusterParameters (Prelude.Maybe [Parameter])
+defaultClusterParameters_parameters = Lens.lens (\DefaultClusterParameters' {parameters} -> parameters) (\s@DefaultClusterParameters' {} a -> s {parameters = a} :: DefaultClusterParameters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -87,18 +88,18 @@ defaultClusterParameters_parameters = Lens.lens (\DefaultClusterParameters' {par
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-defaultClusterParameters_marker :: Lens.Lens' DefaultClusterParameters (Core.Maybe Core.Text)
+defaultClusterParameters_marker :: Lens.Lens' DefaultClusterParameters (Prelude.Maybe Prelude.Text)
 defaultClusterParameters_marker = Lens.lens (\DefaultClusterParameters' {marker} -> marker) (\s@DefaultClusterParameters' {} a -> s {marker = a} :: DefaultClusterParameters)
 
 instance Core.FromXML DefaultClusterParameters where
   parseXML x =
     DefaultClusterParameters'
-      Core.<$> (x Core..@? "ParameterGroupFamily")
-      Core.<*> ( x Core..@? "Parameters" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Parameter")
-               )
-      Core.<*> (x Core..@? "Marker")
+      Prelude.<$> (x Core..@? "ParameterGroupFamily")
+      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+                  )
+      Prelude.<*> (x Core..@? "Marker")
 
-instance Core.Hashable DefaultClusterParameters
+instance Prelude.Hashable DefaultClusterParameters
 
-instance Core.NFData DefaultClusterParameters
+instance Prelude.NFData DefaultClusterParameters

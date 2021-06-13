@@ -24,18 +24,19 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
 import Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch template and overrides.
 --
 -- /See:/ 'newFleetLaunchTemplateConfig' smart constructor.
 data FleetLaunchTemplateConfig = FleetLaunchTemplateConfig'
   { -- | The launch template.
-    launchTemplateSpecification :: Core.Maybe FleetLaunchTemplateSpecification,
+    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecification,
     -- | Any parameters that you specify override the same parameters in the
     -- launch template.
-    overrides :: Core.Maybe [FleetLaunchTemplateOverrides]
+    overrides :: Prelude.Maybe [FleetLaunchTemplateOverrides]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetLaunchTemplateConfig' with all optional fields omitted.
@@ -54,27 +55,27 @@ newFleetLaunchTemplateConfig ::
 newFleetLaunchTemplateConfig =
   FleetLaunchTemplateConfig'
     { launchTemplateSpecification =
-        Core.Nothing,
-      overrides = Core.Nothing
+        Prelude.Nothing,
+      overrides = Prelude.Nothing
     }
 
 -- | The launch template.
-fleetLaunchTemplateConfig_launchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfig (Core.Maybe FleetLaunchTemplateSpecification)
+fleetLaunchTemplateConfig_launchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfig (Prelude.Maybe FleetLaunchTemplateSpecification)
 fleetLaunchTemplateConfig_launchTemplateSpecification = Lens.lens (\FleetLaunchTemplateConfig' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@FleetLaunchTemplateConfig' {} a -> s {launchTemplateSpecification = a} :: FleetLaunchTemplateConfig)
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template.
-fleetLaunchTemplateConfig_overrides :: Lens.Lens' FleetLaunchTemplateConfig (Core.Maybe [FleetLaunchTemplateOverrides])
-fleetLaunchTemplateConfig_overrides = Lens.lens (\FleetLaunchTemplateConfig' {overrides} -> overrides) (\s@FleetLaunchTemplateConfig' {} a -> s {overrides = a} :: FleetLaunchTemplateConfig) Core.. Lens.mapping Lens._Coerce
+fleetLaunchTemplateConfig_overrides :: Lens.Lens' FleetLaunchTemplateConfig (Prelude.Maybe [FleetLaunchTemplateOverrides])
+fleetLaunchTemplateConfig_overrides = Lens.lens (\FleetLaunchTemplateConfig' {overrides} -> overrides) (\s@FleetLaunchTemplateConfig' {} a -> s {overrides = a} :: FleetLaunchTemplateConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML FleetLaunchTemplateConfig where
   parseXML x =
     FleetLaunchTemplateConfig'
-      Core.<$> (x Core..@? "launchTemplateSpecification")
-      Core.<*> ( x Core..@? "overrides" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "launchTemplateSpecification")
+      Prelude.<*> ( x Core..@? "overrides" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable FleetLaunchTemplateConfig
+instance Prelude.Hashable FleetLaunchTemplateConfig
 
-instance Core.NFData FleetLaunchTemplateConfig
+instance Prelude.NFData FleetLaunchTemplateConfig

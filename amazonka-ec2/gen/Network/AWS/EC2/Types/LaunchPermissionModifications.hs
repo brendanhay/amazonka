@@ -23,18 +23,19 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LaunchPermission
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch permission modification.
 --
 -- /See:/ 'newLaunchPermissionModifications' smart constructor.
 data LaunchPermissionModifications = LaunchPermissionModifications'
   { -- | The AWS account ID to add to the list of launch permissions for the AMI.
-    add :: Core.Maybe [LaunchPermission],
+    add :: Prelude.Maybe [LaunchPermission],
     -- | The AWS account ID to remove from the list of launch permissions for the
     -- AMI.
-    remove :: Core.Maybe [LaunchPermission]
+    remove :: Prelude.Maybe [LaunchPermission]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchPermissionModifications' with all optional fields omitted.
@@ -52,27 +53,31 @@ newLaunchPermissionModifications ::
   LaunchPermissionModifications
 newLaunchPermissionModifications =
   LaunchPermissionModifications'
-    { add = Core.Nothing,
-      remove = Core.Nothing
+    { add =
+        Prelude.Nothing,
+      remove = Prelude.Nothing
     }
 
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
-launchPermissionModifications_add :: Lens.Lens' LaunchPermissionModifications (Core.Maybe [LaunchPermission])
-launchPermissionModifications_add = Lens.lens (\LaunchPermissionModifications' {add} -> add) (\s@LaunchPermissionModifications' {} a -> s {add = a} :: LaunchPermissionModifications) Core.. Lens.mapping Lens._Coerce
+launchPermissionModifications_add :: Lens.Lens' LaunchPermissionModifications (Prelude.Maybe [LaunchPermission])
+launchPermissionModifications_add = Lens.lens (\LaunchPermissionModifications' {add} -> add) (\s@LaunchPermissionModifications' {} a -> s {add = a} :: LaunchPermissionModifications) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS account ID to remove from the list of launch permissions for the
 -- AMI.
-launchPermissionModifications_remove :: Lens.Lens' LaunchPermissionModifications (Core.Maybe [LaunchPermission])
-launchPermissionModifications_remove = Lens.lens (\LaunchPermissionModifications' {remove} -> remove) (\s@LaunchPermissionModifications' {} a -> s {remove = a} :: LaunchPermissionModifications) Core.. Lens.mapping Lens._Coerce
+launchPermissionModifications_remove :: Lens.Lens' LaunchPermissionModifications (Prelude.Maybe [LaunchPermission])
+launchPermissionModifications_remove = Lens.lens (\LaunchPermissionModifications' {remove} -> remove) (\s@LaunchPermissionModifications' {} a -> s {remove = a} :: LaunchPermissionModifications) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable LaunchPermissionModifications
+instance
+  Prelude.Hashable
+    LaunchPermissionModifications
 
-instance Core.NFData LaunchPermissionModifications
+instance Prelude.NFData LaunchPermissionModifications
 
 instance Core.ToQuery LaunchPermissionModifications where
   toQuery LaunchPermissionModifications' {..} =
-    Core.mconcat
-      [ Core.toQuery (Core.toQueryList "Add" Core.<$> add),
+    Prelude.mconcat
+      [ Core.toQuery
+          (Core.toQueryList "Add" Prelude.<$> add),
         Core.toQuery
-          (Core.toQueryList "Remove" Core.<$> remove)
+          (Core.toQueryList "Remove" Prelude.<$> remove)
       ]

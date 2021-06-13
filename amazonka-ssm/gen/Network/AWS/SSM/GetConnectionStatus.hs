@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,9 +52,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetConnectionStatus' smart constructor.
 data GetConnectionStatus = GetConnectionStatus'
   { -- | The ID of the instance.
-    target :: Core.Text
+    target :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConnectionStatus' with all optional fields omitted.
@@ -66,13 +67,13 @@ data GetConnectionStatus = GetConnectionStatus'
 -- 'target', 'getConnectionStatus_target' - The ID of the instance.
 newGetConnectionStatus ::
   -- | 'target'
-  Core.Text ->
+  Prelude.Text ->
   GetConnectionStatus
 newGetConnectionStatus pTarget_ =
   GetConnectionStatus' {target = pTarget_}
 
 -- | The ID of the instance.
-getConnectionStatus_target :: Lens.Lens' GetConnectionStatus Core.Text
+getConnectionStatus_target :: Lens.Lens' GetConnectionStatus Prelude.Text
 getConnectionStatus_target = Lens.lens (\GetConnectionStatus' {target} -> target) (\s@GetConnectionStatus' {} a -> s {target = a} :: GetConnectionStatus)
 
 instance Core.AWSRequest GetConnectionStatus where
@@ -84,50 +85,54 @@ instance Core.AWSRequest GetConnectionStatus where
     Response.receiveJSON
       ( \s h x ->
           GetConnectionStatusResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (x Core..?> "Target")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "Target")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetConnectionStatus
+instance Prelude.Hashable GetConnectionStatus
 
-instance Core.NFData GetConnectionStatus
+instance Prelude.NFData GetConnectionStatus
 
 instance Core.ToHeaders GetConnectionStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetConnectionStatus" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.GetConnectionStatus" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetConnectionStatus where
   toJSON GetConnectionStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Target" Core..= target)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Target" Core..= target)]
       )
 
 instance Core.ToPath GetConnectionStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetConnectionStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConnectionStatusResponse' smart constructor.
 data GetConnectionStatusResponse = GetConnectionStatusResponse'
   { -- | The status of the connection to the instance. For example, \'Connected\'
     -- or \'Not Connected\'.
-    status :: Core.Maybe ConnectionStatus,
+    status :: Prelude.Maybe ConnectionStatus,
     -- | The ID of the instance to check connection status.
-    target :: Core.Maybe Core.Text,
+    target :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConnectionStatusResponse' with all optional fields omitted.
@@ -145,26 +150,27 @@ data GetConnectionStatusResponse = GetConnectionStatusResponse'
 -- 'httpStatus', 'getConnectionStatusResponse_httpStatus' - The response's http status code.
 newGetConnectionStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetConnectionStatusResponse
 newGetConnectionStatusResponse pHttpStatus_ =
   GetConnectionStatusResponse'
-    { status = Core.Nothing,
-      target = Core.Nothing,
+    { status =
+        Prelude.Nothing,
+      target = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the connection to the instance. For example, \'Connected\'
 -- or \'Not Connected\'.
-getConnectionStatusResponse_status :: Lens.Lens' GetConnectionStatusResponse (Core.Maybe ConnectionStatus)
+getConnectionStatusResponse_status :: Lens.Lens' GetConnectionStatusResponse (Prelude.Maybe ConnectionStatus)
 getConnectionStatusResponse_status = Lens.lens (\GetConnectionStatusResponse' {status} -> status) (\s@GetConnectionStatusResponse' {} a -> s {status = a} :: GetConnectionStatusResponse)
 
 -- | The ID of the instance to check connection status.
-getConnectionStatusResponse_target :: Lens.Lens' GetConnectionStatusResponse (Core.Maybe Core.Text)
+getConnectionStatusResponse_target :: Lens.Lens' GetConnectionStatusResponse (Prelude.Maybe Prelude.Text)
 getConnectionStatusResponse_target = Lens.lens (\GetConnectionStatusResponse' {target} -> target) (\s@GetConnectionStatusResponse' {} a -> s {target = a} :: GetConnectionStatusResponse)
 
 -- | The response's http status code.
-getConnectionStatusResponse_httpStatus :: Lens.Lens' GetConnectionStatusResponse Core.Int
+getConnectionStatusResponse_httpStatus :: Lens.Lens' GetConnectionStatusResponse Prelude.Int
 getConnectionStatusResponse_httpStatus = Lens.lens (\GetConnectionStatusResponse' {httpStatus} -> httpStatus) (\s@GetConnectionStatusResponse' {} a -> s {httpStatus = a} :: GetConnectionStatusResponse)
 
-instance Core.NFData GetConnectionStatusResponse
+instance Prelude.NFData GetConnectionStatusResponse

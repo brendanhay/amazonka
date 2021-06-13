@@ -50,32 +50,33 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFunction' smart constructor.
 data UpdateFunction = UpdateFunction'
   { -- | The @Function@ request mapping template.
-    responseMappingTemplate :: Core.Maybe Core.Text,
-    syncConfig :: Core.Maybe SyncConfig,
+    responseMappingTemplate :: Prelude.Maybe Prelude.Text,
+    syncConfig :: Prelude.Maybe SyncConfig,
     -- | The @Function@ description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The @Function@ request mapping template. Functions support only the
     -- 2018-05-29 version of the request mapping template.
-    requestMappingTemplate :: Core.Maybe Core.Text,
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The GraphQL API ID.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | The @Function@ name.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The function ID.
-    functionId :: Core.Text,
+    functionId :: Prelude.Text,
     -- | The @Function@ @DataSource@ name.
-    dataSourceName :: Core.Text,
+    dataSourceName :: Prelude.Text,
     -- | The @version@ of the request mapping template. Currently the supported
     -- value is 2018-05-29.
-    functionVersion :: Core.Text
+    functionVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFunction' with all optional fields omitted.
@@ -106,15 +107,15 @@ data UpdateFunction = UpdateFunction'
 -- value is 2018-05-29.
 newUpdateFunction ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataSourceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionVersion'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFunction
 newUpdateFunction
   pApiId_
@@ -124,10 +125,10 @@ newUpdateFunction
   pFunctionVersion_ =
     UpdateFunction'
       { responseMappingTemplate =
-          Core.Nothing,
-        syncConfig = Core.Nothing,
-        description = Core.Nothing,
-        requestMappingTemplate = Core.Nothing,
+          Prelude.Nothing,
+        syncConfig = Prelude.Nothing,
+        description = Prelude.Nothing,
+        requestMappingTemplate = Prelude.Nothing,
         apiId = pApiId_,
         name = pName_,
         functionId = pFunctionId_,
@@ -136,41 +137,41 @@ newUpdateFunction
       }
 
 -- | The @Function@ request mapping template.
-updateFunction_responseMappingTemplate :: Lens.Lens' UpdateFunction (Core.Maybe Core.Text)
+updateFunction_responseMappingTemplate :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Text)
 updateFunction_responseMappingTemplate = Lens.lens (\UpdateFunction' {responseMappingTemplate} -> responseMappingTemplate) (\s@UpdateFunction' {} a -> s {responseMappingTemplate = a} :: UpdateFunction)
 
 -- | Undocumented member.
-updateFunction_syncConfig :: Lens.Lens' UpdateFunction (Core.Maybe SyncConfig)
+updateFunction_syncConfig :: Lens.Lens' UpdateFunction (Prelude.Maybe SyncConfig)
 updateFunction_syncConfig = Lens.lens (\UpdateFunction' {syncConfig} -> syncConfig) (\s@UpdateFunction' {} a -> s {syncConfig = a} :: UpdateFunction)
 
 -- | The @Function@ description.
-updateFunction_description :: Lens.Lens' UpdateFunction (Core.Maybe Core.Text)
+updateFunction_description :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Text)
 updateFunction_description = Lens.lens (\UpdateFunction' {description} -> description) (\s@UpdateFunction' {} a -> s {description = a} :: UpdateFunction)
 
 -- | The @Function@ request mapping template. Functions support only the
 -- 2018-05-29 version of the request mapping template.
-updateFunction_requestMappingTemplate :: Lens.Lens' UpdateFunction (Core.Maybe Core.Text)
+updateFunction_requestMappingTemplate :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Text)
 updateFunction_requestMappingTemplate = Lens.lens (\UpdateFunction' {requestMappingTemplate} -> requestMappingTemplate) (\s@UpdateFunction' {} a -> s {requestMappingTemplate = a} :: UpdateFunction)
 
 -- | The GraphQL API ID.
-updateFunction_apiId :: Lens.Lens' UpdateFunction Core.Text
+updateFunction_apiId :: Lens.Lens' UpdateFunction Prelude.Text
 updateFunction_apiId = Lens.lens (\UpdateFunction' {apiId} -> apiId) (\s@UpdateFunction' {} a -> s {apiId = a} :: UpdateFunction)
 
 -- | The @Function@ name.
-updateFunction_name :: Lens.Lens' UpdateFunction Core.Text
+updateFunction_name :: Lens.Lens' UpdateFunction Prelude.Text
 updateFunction_name = Lens.lens (\UpdateFunction' {name} -> name) (\s@UpdateFunction' {} a -> s {name = a} :: UpdateFunction)
 
 -- | The function ID.
-updateFunction_functionId :: Lens.Lens' UpdateFunction Core.Text
+updateFunction_functionId :: Lens.Lens' UpdateFunction Prelude.Text
 updateFunction_functionId = Lens.lens (\UpdateFunction' {functionId} -> functionId) (\s@UpdateFunction' {} a -> s {functionId = a} :: UpdateFunction)
 
 -- | The @Function@ @DataSource@ name.
-updateFunction_dataSourceName :: Lens.Lens' UpdateFunction Core.Text
+updateFunction_dataSourceName :: Lens.Lens' UpdateFunction Prelude.Text
 updateFunction_dataSourceName = Lens.lens (\UpdateFunction' {dataSourceName} -> dataSourceName) (\s@UpdateFunction' {} a -> s {dataSourceName = a} :: UpdateFunction)
 
 -- | The @version@ of the request mapping template. Currently the supported
 -- value is 2018-05-29.
-updateFunction_functionVersion :: Lens.Lens' UpdateFunction Core.Text
+updateFunction_functionVersion :: Lens.Lens' UpdateFunction Prelude.Text
 updateFunction_functionVersion = Lens.lens (\UpdateFunction' {functionVersion} -> functionVersion) (\s@UpdateFunction' {} a -> s {functionVersion = a} :: UpdateFunction)
 
 instance Core.AWSRequest UpdateFunction where
@@ -182,43 +183,46 @@ instance Core.AWSRequest UpdateFunction where
     Response.receiveJSON
       ( \s h x ->
           UpdateFunctionResponse'
-            Core.<$> (x Core..?> "functionConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "functionConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateFunction
+instance Prelude.Hashable UpdateFunction
 
-instance Core.NFData UpdateFunction
+instance Prelude.NFData UpdateFunction
 
 instance Core.ToHeaders UpdateFunction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateFunction where
   toJSON UpdateFunction' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("responseMappingTemplate" Core..=)
-              Core.<$> responseMappingTemplate,
-            ("syncConfig" Core..=) Core.<$> syncConfig,
-            ("description" Core..=) Core.<$> description,
+              Prelude.<$> responseMappingTemplate,
+            ("syncConfig" Core..=) Prelude.<$> syncConfig,
+            ("description" Core..=) Prelude.<$> description,
             ("requestMappingTemplate" Core..=)
-              Core.<$> requestMappingTemplate,
-            Core.Just ("name" Core..= name),
-            Core.Just ("dataSourceName" Core..= dataSourceName),
-            Core.Just
+              Prelude.<$> requestMappingTemplate,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just
+              ("dataSourceName" Core..= dataSourceName),
+            Prelude.Just
               ("functionVersion" Core..= functionVersion)
           ]
       )
 
 instance Core.ToPath UpdateFunction where
   toPath UpdateFunction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apis/",
         Core.toBS apiId,
         "/functions/",
@@ -226,16 +230,16 @@ instance Core.ToPath UpdateFunction where
       ]
 
 instance Core.ToQuery UpdateFunction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFunctionResponse' smart constructor.
 data UpdateFunctionResponse = UpdateFunctionResponse'
   { -- | The @Function@ object.
-    functionConfiguration :: Core.Maybe FunctionConfiguration,
+    functionConfiguration :: Prelude.Maybe FunctionConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFunctionResponse' with all optional fields omitted.
@@ -250,21 +254,21 @@ data UpdateFunctionResponse = UpdateFunctionResponse'
 -- 'httpStatus', 'updateFunctionResponse_httpStatus' - The response's http status code.
 newUpdateFunctionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateFunctionResponse
 newUpdateFunctionResponse pHttpStatus_ =
   UpdateFunctionResponse'
     { functionConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @Function@ object.
-updateFunctionResponse_functionConfiguration :: Lens.Lens' UpdateFunctionResponse (Core.Maybe FunctionConfiguration)
+updateFunctionResponse_functionConfiguration :: Lens.Lens' UpdateFunctionResponse (Prelude.Maybe FunctionConfiguration)
 updateFunctionResponse_functionConfiguration = Lens.lens (\UpdateFunctionResponse' {functionConfiguration} -> functionConfiguration) (\s@UpdateFunctionResponse' {} a -> s {functionConfiguration = a} :: UpdateFunctionResponse)
 
 -- | The response's http status code.
-updateFunctionResponse_httpStatus :: Lens.Lens' UpdateFunctionResponse Core.Int
+updateFunctionResponse_httpStatus :: Lens.Lens' UpdateFunctionResponse Prelude.Int
 updateFunctionResponse_httpStatus = Lens.lens (\UpdateFunctionResponse' {httpStatus} -> httpStatus) (\s@UpdateFunctionResponse' {} a -> s {httpStatus = a} :: UpdateFunctionResponse)
 
-instance Core.NFData UpdateFunctionResponse
+instance Prelude.NFData UpdateFunctionResponse

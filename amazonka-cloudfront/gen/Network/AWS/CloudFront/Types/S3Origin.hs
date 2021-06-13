@@ -21,6 +21,7 @@ module Network.AWS.CloudFront.Types.S3Origin where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about the Amazon S3 bucket from
 -- which you want CloudFront to get your media files for distribution.
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newS3Origin' smart constructor.
 data S3Origin = S3Origin'
   { -- | The DNS name of the Amazon S3 origin.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | The CloudFront origin access identity to associate with the
     -- distribution. Use an origin access identity to configure the
     -- distribution so that end users can only access objects in an Amazon S3
@@ -48,9 +49,9 @@ data S3Origin = S3Origin'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content>
     -- in the /Amazon CloudFront Developer Guide/.
-    originAccessIdentity :: Core.Text
+    originAccessIdentity :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3Origin' with all optional fields omitted.
@@ -83,9 +84,9 @@ data S3Origin = S3Origin'
 -- in the /Amazon CloudFront Developer Guide/.
 newS3Origin ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'originAccessIdentity'
-  Core.Text ->
+  Prelude.Text ->
   S3Origin
 newS3Origin pDomainName_ pOriginAccessIdentity_ =
   S3Origin'
@@ -94,7 +95,7 @@ newS3Origin pDomainName_ pOriginAccessIdentity_ =
     }
 
 -- | The DNS name of the Amazon S3 origin.
-s3Origin_domainName :: Lens.Lens' S3Origin Core.Text
+s3Origin_domainName :: Lens.Lens' S3Origin Prelude.Text
 s3Origin_domainName = Lens.lens (\S3Origin' {domainName} -> domainName) (\s@S3Origin' {} a -> s {domainName = a} :: S3Origin)
 
 -- | The CloudFront origin access identity to associate with the
@@ -116,22 +117,22 @@ s3Origin_domainName = Lens.lens (\S3Origin' {domainName} -> domainName) (\s@S3Or
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content>
 -- in the /Amazon CloudFront Developer Guide/.
-s3Origin_originAccessIdentity :: Lens.Lens' S3Origin Core.Text
+s3Origin_originAccessIdentity :: Lens.Lens' S3Origin Prelude.Text
 s3Origin_originAccessIdentity = Lens.lens (\S3Origin' {originAccessIdentity} -> originAccessIdentity) (\s@S3Origin' {} a -> s {originAccessIdentity = a} :: S3Origin)
 
 instance Core.FromXML S3Origin where
   parseXML x =
     S3Origin'
-      Core.<$> (x Core..@ "DomainName")
-      Core.<*> (x Core..@ "OriginAccessIdentity")
+      Prelude.<$> (x Core..@ "DomainName")
+      Prelude.<*> (x Core..@ "OriginAccessIdentity")
 
-instance Core.Hashable S3Origin
+instance Prelude.Hashable S3Origin
 
-instance Core.NFData S3Origin
+instance Prelude.NFData S3Origin
 
 instance Core.ToXML S3Origin where
   toXML S3Origin' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "DomainName" Core.@= domainName,
         "OriginAccessIdentity" Core.@= originAccessIdentity
       ]

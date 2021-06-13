@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.CustomHeaders where
 import Network.AWS.CloudFront.Types.OriginCustomHeader
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains the list of Custom Headers for each origin.
 --
@@ -30,11 +31,11 @@ data CustomHeaders = CustomHeaders'
   { -- | __Optional__: A list that contains one @OriginCustomHeader@ element for
     -- each custom header that you want CloudFront to forward to the origin. If
     -- Quantity is @0@, omit @Items@.
-    items :: Core.Maybe [OriginCustomHeader],
+    items :: Prelude.Maybe [OriginCustomHeader],
     -- | The number of custom headers, if any, for this distribution.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomHeaders' with all optional fields omitted.
@@ -51,41 +52,43 @@ data CustomHeaders = CustomHeaders'
 -- 'quantity', 'customHeaders_quantity' - The number of custom headers, if any, for this distribution.
 newCustomHeaders ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   CustomHeaders
 newCustomHeaders pQuantity_ =
   CustomHeaders'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       quantity = pQuantity_
     }
 
 -- | __Optional__: A list that contains one @OriginCustomHeader@ element for
 -- each custom header that you want CloudFront to forward to the origin. If
 -- Quantity is @0@, omit @Items@.
-customHeaders_items :: Lens.Lens' CustomHeaders (Core.Maybe [OriginCustomHeader])
-customHeaders_items = Lens.lens (\CustomHeaders' {items} -> items) (\s@CustomHeaders' {} a -> s {items = a} :: CustomHeaders) Core.. Lens.mapping Lens._Coerce
+customHeaders_items :: Lens.Lens' CustomHeaders (Prelude.Maybe [OriginCustomHeader])
+customHeaders_items = Lens.lens (\CustomHeaders' {items} -> items) (\s@CustomHeaders' {} a -> s {items = a} :: CustomHeaders) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of custom headers, if any, for this distribution.
-customHeaders_quantity :: Lens.Lens' CustomHeaders Core.Int
+customHeaders_quantity :: Lens.Lens' CustomHeaders Prelude.Int
 customHeaders_quantity = Lens.lens (\CustomHeaders' {quantity} -> quantity) (\s@CustomHeaders' {} a -> s {quantity = a} :: CustomHeaders)
 
 instance Core.FromXML CustomHeaders where
   parseXML x =
     CustomHeaders'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "OriginCustomHeader")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "OriginCustomHeader")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable CustomHeaders
+instance Prelude.Hashable CustomHeaders
 
-instance Core.NFData CustomHeaders
+instance Prelude.NFData CustomHeaders
 
 instance Core.ToXML CustomHeaders where
   toXML CustomHeaders' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
           Core.@= Core.toXML
-            (Core.toXMLList "OriginCustomHeader" Core.<$> items),
+            ( Core.toXMLList "OriginCustomHeader"
+                Prelude.<$> items
+            ),
         "Quantity" Core.@= quantity
       ]

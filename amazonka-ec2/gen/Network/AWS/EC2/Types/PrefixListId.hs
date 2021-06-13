@@ -22,21 +22,22 @@ module Network.AWS.EC2.Types.PrefixListId where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a prefix list ID.
 --
 -- /See:/ 'newPrefixListId' smart constructor.
 data PrefixListId = PrefixListId'
   { -- | The ID of the prefix.
-    prefixListId :: Core.Maybe Core.Text,
+    prefixListId :: Prelude.Maybe Prelude.Text,
     -- | A description for the security group rule that references this prefix
     -- list ID.
     --
     -- Constraints: Up to 255 characters in length. Allowed characters are a-z,
     -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=;{}!$*
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PrefixListId' with all optional fields omitted.
@@ -57,12 +58,12 @@ newPrefixListId ::
   PrefixListId
 newPrefixListId =
   PrefixListId'
-    { prefixListId = Core.Nothing,
-      description = Core.Nothing
+    { prefixListId = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The ID of the prefix.
-prefixListId_prefixListId :: Lens.Lens' PrefixListId (Core.Maybe Core.Text)
+prefixListId_prefixListId :: Lens.Lens' PrefixListId (Prelude.Maybe Prelude.Text)
 prefixListId_prefixListId = Lens.lens (\PrefixListId' {prefixListId} -> prefixListId) (\s@PrefixListId' {} a -> s {prefixListId = a} :: PrefixListId)
 
 -- | A description for the security group rule that references this prefix
@@ -70,22 +71,22 @@ prefixListId_prefixListId = Lens.lens (\PrefixListId' {prefixListId} -> prefixLi
 --
 -- Constraints: Up to 255 characters in length. Allowed characters are a-z,
 -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=;{}!$*
-prefixListId_description :: Lens.Lens' PrefixListId (Core.Maybe Core.Text)
+prefixListId_description :: Lens.Lens' PrefixListId (Prelude.Maybe Prelude.Text)
 prefixListId_description = Lens.lens (\PrefixListId' {description} -> description) (\s@PrefixListId' {} a -> s {description = a} :: PrefixListId)
 
 instance Core.FromXML PrefixListId where
   parseXML x =
     PrefixListId'
-      Core.<$> (x Core..@? "prefixListId")
-      Core.<*> (x Core..@? "description")
+      Prelude.<$> (x Core..@? "prefixListId")
+      Prelude.<*> (x Core..@? "description")
 
-instance Core.Hashable PrefixListId
+instance Prelude.Hashable PrefixListId
 
-instance Core.NFData PrefixListId
+instance Prelude.NFData PrefixListId
 
 instance Core.ToQuery PrefixListId where
   toQuery PrefixListId' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "PrefixListId" Core.=: prefixListId,
         "Description" Core.=: description
       ]

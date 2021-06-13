@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +60,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeMultiplex' smart constructor.
 data DescribeMultiplex = DescribeMultiplex'
   { -- | The ID of the multiplex.
-    multiplexId :: Core.Text
+    multiplexId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMultiplex' with all optional fields omitted.
@@ -74,13 +75,13 @@ data DescribeMultiplex = DescribeMultiplex'
 -- 'multiplexId', 'describeMultiplex_multiplexId' - The ID of the multiplex.
 newDescribeMultiplex ::
   -- | 'multiplexId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeMultiplex
 newDescribeMultiplex pMultiplexId_ =
   DescribeMultiplex' {multiplexId = pMultiplexId_}
 
 -- | The ID of the multiplex.
-describeMultiplex_multiplexId :: Lens.Lens' DescribeMultiplex Core.Text
+describeMultiplex_multiplexId :: Lens.Lens' DescribeMultiplex Prelude.Text
 describeMultiplex_multiplexId = Lens.lens (\DescribeMultiplex' {multiplexId} -> multiplexId) (\s@DescribeMultiplex' {} a -> s {multiplexId = a} :: DescribeMultiplex)
 
 instance Core.AWSRequest DescribeMultiplex where
@@ -92,68 +93,72 @@ instance Core.AWSRequest DescribeMultiplex where
     Response.receiveJSON
       ( \s h x ->
           DescribeMultiplexResponse'
-            Core.<$> (x Core..?> "availabilityZones" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "arn")
-            Core.<*> (x Core..?> "id")
-            Core.<*> (x Core..?> "pipelinesRunningCount")
-            Core.<*> (x Core..?> "programCount")
-            Core.<*> (x Core..?> "destinations" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "state")
-            Core.<*> (x Core..?> "name")
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "multiplexSettings")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "availabilityZones"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "pipelinesRunningCount")
+            Prelude.<*> (x Core..?> "programCount")
+            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "state")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "multiplexSettings")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeMultiplex
+instance Prelude.Hashable DescribeMultiplex
 
-instance Core.NFData DescribeMultiplex
+instance Prelude.NFData DescribeMultiplex
 
 instance Core.ToHeaders DescribeMultiplex where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeMultiplex where
   toPath DescribeMultiplex' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/prod/multiplexes/", Core.toBS multiplexId]
 
 instance Core.ToQuery DescribeMultiplex where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeMultiplexResponse
 --
 -- /See:/ 'newDescribeMultiplexResponse' smart constructor.
 data DescribeMultiplexResponse = DescribeMultiplexResponse'
   { -- | A list of availability zones for the multiplex.
-    availabilityZones :: Core.Maybe [Core.Text],
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The unique arn of the multiplex.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique id of the multiplex.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Core.Maybe Core.Int,
+    pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
     -- | The number of programs in the multiplex.
-    programCount :: Core.Maybe Core.Int,
+    programCount :: Prelude.Maybe Prelude.Int,
     -- | A list of the multiplex output destinations.
-    destinations :: Core.Maybe [MultiplexOutputDestination],
+    destinations :: Prelude.Maybe [MultiplexOutputDestination],
     -- | The current state of the multiplex.
-    state :: Core.Maybe MultiplexState,
+    state :: Prelude.Maybe MultiplexState,
     -- | The name of the multiplex.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A collection of key-value pairs.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Configuration for a multiplex event.
-    multiplexSettings :: Core.Maybe MultiplexSettings,
+    multiplexSettings :: Prelude.Maybe MultiplexSettings,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMultiplexResponse' with all optional fields omitted.
@@ -186,66 +191,66 @@ data DescribeMultiplexResponse = DescribeMultiplexResponse'
 -- 'httpStatus', 'describeMultiplexResponse_httpStatus' - The response's http status code.
 newDescribeMultiplexResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeMultiplexResponse
 newDescribeMultiplexResponse pHttpStatus_ =
   DescribeMultiplexResponse'
     { availabilityZones =
-        Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      pipelinesRunningCount = Core.Nothing,
-      programCount = Core.Nothing,
-      destinations = Core.Nothing,
-      state = Core.Nothing,
-      name = Core.Nothing,
-      tags = Core.Nothing,
-      multiplexSettings = Core.Nothing,
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      pipelinesRunningCount = Prelude.Nothing,
+      programCount = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      state = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      multiplexSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of availability zones for the multiplex.
-describeMultiplexResponse_availabilityZones :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe [Core.Text])
-describeMultiplexResponse_availabilityZones = Lens.lens (\DescribeMultiplexResponse' {availabilityZones} -> availabilityZones) (\s@DescribeMultiplexResponse' {} a -> s {availabilityZones = a} :: DescribeMultiplexResponse) Core.. Lens.mapping Lens._Coerce
+describeMultiplexResponse_availabilityZones :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe [Prelude.Text])
+describeMultiplexResponse_availabilityZones = Lens.lens (\DescribeMultiplexResponse' {availabilityZones} -> availabilityZones) (\s@DescribeMultiplexResponse' {} a -> s {availabilityZones = a} :: DescribeMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique arn of the multiplex.
-describeMultiplexResponse_arn :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Text)
+describeMultiplexResponse_arn :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Text)
 describeMultiplexResponse_arn = Lens.lens (\DescribeMultiplexResponse' {arn} -> arn) (\s@DescribeMultiplexResponse' {} a -> s {arn = a} :: DescribeMultiplexResponse)
 
 -- | The unique id of the multiplex.
-describeMultiplexResponse_id :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Text)
+describeMultiplexResponse_id :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Text)
 describeMultiplexResponse_id = Lens.lens (\DescribeMultiplexResponse' {id} -> id) (\s@DescribeMultiplexResponse' {} a -> s {id = a} :: DescribeMultiplexResponse)
 
 -- | The number of currently healthy pipelines.
-describeMultiplexResponse_pipelinesRunningCount :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Int)
+describeMultiplexResponse_pipelinesRunningCount :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Int)
 describeMultiplexResponse_pipelinesRunningCount = Lens.lens (\DescribeMultiplexResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@DescribeMultiplexResponse' {} a -> s {pipelinesRunningCount = a} :: DescribeMultiplexResponse)
 
 -- | The number of programs in the multiplex.
-describeMultiplexResponse_programCount :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Int)
+describeMultiplexResponse_programCount :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Int)
 describeMultiplexResponse_programCount = Lens.lens (\DescribeMultiplexResponse' {programCount} -> programCount) (\s@DescribeMultiplexResponse' {} a -> s {programCount = a} :: DescribeMultiplexResponse)
 
 -- | A list of the multiplex output destinations.
-describeMultiplexResponse_destinations :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe [MultiplexOutputDestination])
-describeMultiplexResponse_destinations = Lens.lens (\DescribeMultiplexResponse' {destinations} -> destinations) (\s@DescribeMultiplexResponse' {} a -> s {destinations = a} :: DescribeMultiplexResponse) Core.. Lens.mapping Lens._Coerce
+describeMultiplexResponse_destinations :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe [MultiplexOutputDestination])
+describeMultiplexResponse_destinations = Lens.lens (\DescribeMultiplexResponse' {destinations} -> destinations) (\s@DescribeMultiplexResponse' {} a -> s {destinations = a} :: DescribeMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The current state of the multiplex.
-describeMultiplexResponse_state :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe MultiplexState)
+describeMultiplexResponse_state :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe MultiplexState)
 describeMultiplexResponse_state = Lens.lens (\DescribeMultiplexResponse' {state} -> state) (\s@DescribeMultiplexResponse' {} a -> s {state = a} :: DescribeMultiplexResponse)
 
 -- | The name of the multiplex.
-describeMultiplexResponse_name :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Text)
+describeMultiplexResponse_name :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Text)
 describeMultiplexResponse_name = Lens.lens (\DescribeMultiplexResponse' {name} -> name) (\s@DescribeMultiplexResponse' {} a -> s {name = a} :: DescribeMultiplexResponse)
 
 -- | A collection of key-value pairs.
-describeMultiplexResponse_tags :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-describeMultiplexResponse_tags = Lens.lens (\DescribeMultiplexResponse' {tags} -> tags) (\s@DescribeMultiplexResponse' {} a -> s {tags = a} :: DescribeMultiplexResponse) Core.. Lens.mapping Lens._Coerce
+describeMultiplexResponse_tags :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeMultiplexResponse_tags = Lens.lens (\DescribeMultiplexResponse' {tags} -> tags) (\s@DescribeMultiplexResponse' {} a -> s {tags = a} :: DescribeMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Configuration for a multiplex event.
-describeMultiplexResponse_multiplexSettings :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe MultiplexSettings)
+describeMultiplexResponse_multiplexSettings :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe MultiplexSettings)
 describeMultiplexResponse_multiplexSettings = Lens.lens (\DescribeMultiplexResponse' {multiplexSettings} -> multiplexSettings) (\s@DescribeMultiplexResponse' {} a -> s {multiplexSettings = a} :: DescribeMultiplexResponse)
 
 -- | The response's http status code.
-describeMultiplexResponse_httpStatus :: Lens.Lens' DescribeMultiplexResponse Core.Int
+describeMultiplexResponse_httpStatus :: Lens.Lens' DescribeMultiplexResponse Prelude.Int
 describeMultiplexResponse_httpStatus = Lens.lens (\DescribeMultiplexResponse' {httpStatus} -> httpStatus) (\s@DescribeMultiplexResponse' {} a -> s {httpStatus = a} :: DescribeMultiplexResponse)
 
-instance Core.NFData DescribeMultiplexResponse
+instance Prelude.NFData DescribeMultiplexResponse

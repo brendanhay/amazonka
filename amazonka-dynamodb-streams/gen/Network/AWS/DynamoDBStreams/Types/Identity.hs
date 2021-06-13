@@ -21,6 +21,7 @@ module Network.AWS.DynamoDBStreams.Types.Identity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the type of identity that made the request.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data Identity = Identity'
   { -- | A unique identifier for the entity that made the call. For Time To Live,
     -- the principalId is \"dynamodb.amazonaws.com\".
-    principalId :: Core.Maybe Core.Text,
+    principalId :: Prelude.Maybe Prelude.Text,
     -- | The type of the identity. For Time To Live, the type is \"Service\".
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Identity' with all optional fields omitted.
@@ -50,17 +51,17 @@ newIdentity ::
   Identity
 newIdentity =
   Identity'
-    { principalId = Core.Nothing,
-      type' = Core.Nothing
+    { principalId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | A unique identifier for the entity that made the call. For Time To Live,
 -- the principalId is \"dynamodb.amazonaws.com\".
-identity_principalId :: Lens.Lens' Identity (Core.Maybe Core.Text)
+identity_principalId :: Lens.Lens' Identity (Prelude.Maybe Prelude.Text)
 identity_principalId = Lens.lens (\Identity' {principalId} -> principalId) (\s@Identity' {} a -> s {principalId = a} :: Identity)
 
 -- | The type of the identity. For Time To Live, the type is \"Service\".
-identity_type :: Lens.Lens' Identity (Core.Maybe Core.Text)
+identity_type :: Lens.Lens' Identity (Prelude.Maybe Prelude.Text)
 identity_type = Lens.lens (\Identity' {type'} -> type') (\s@Identity' {} a -> s {type' = a} :: Identity)
 
 instance Core.FromJSON Identity where
@@ -69,10 +70,10 @@ instance Core.FromJSON Identity where
       "Identity"
       ( \x ->
           Identity'
-            Core.<$> (x Core..:? "PrincipalId")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "PrincipalId")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable Identity
+instance Prelude.Hashable Identity
 
-instance Core.NFData Identity
+instance Prelude.NFData Identity

@@ -22,6 +22,7 @@ module Network.AWS.DAX.Types.SSEDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types.SSEStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The description of the server-side encryption status on the specified
 -- DAX cluster.
@@ -37,9 +38,9 @@ data SSEDescription = SSEDescription'
     -- -   @DISABLING@ - Server-side encryption is being disabled.
     --
     -- -   @DISABLED@ - Server-side encryption is disabled.
-    status :: Core.Maybe SSEStatus
+    status :: Prelude.Maybe SSEStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SSEDescription' with all optional fields omitted.
@@ -61,7 +62,7 @@ data SSEDescription = SSEDescription'
 newSSEDescription ::
   SSEDescription
 newSSEDescription =
-  SSEDescription' {status = Core.Nothing}
+  SSEDescription' {status = Prelude.Nothing}
 
 -- | The current state of server-side encryption:
 --
@@ -72,7 +73,7 @@ newSSEDescription =
 -- -   @DISABLING@ - Server-side encryption is being disabled.
 --
 -- -   @DISABLED@ - Server-side encryption is disabled.
-sSEDescription_status :: Lens.Lens' SSEDescription (Core.Maybe SSEStatus)
+sSEDescription_status :: Lens.Lens' SSEDescription (Prelude.Maybe SSEStatus)
 sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSEDescription' {} a -> s {status = a} :: SSEDescription)
 
 instance Core.FromJSON SSEDescription where
@@ -80,9 +81,9 @@ instance Core.FromJSON SSEDescription where
     Core.withObject
       "SSEDescription"
       ( \x ->
-          SSEDescription' Core.<$> (x Core..:? "Status")
+          SSEDescription' Prelude.<$> (x Core..:? "Status")
       )
 
-instance Core.Hashable SSEDescription
+instance Prelude.Hashable SSEDescription
 
-instance Core.NFData SSEDescription
+instance Prelude.NFData SSEDescription

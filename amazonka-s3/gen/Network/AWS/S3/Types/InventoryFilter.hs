@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.InventoryFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies an inventory filter. The inventory only includes objects that
@@ -30,9 +31,9 @@ import Network.AWS.S3.Internal
 data InventoryFilter = InventoryFilter'
   { -- | The prefix that an object must have to be included in the inventory
     -- results.
-    prefix :: Core.Text
+    prefix :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryFilter' with all optional fields omitted.
@@ -46,24 +47,24 @@ data InventoryFilter = InventoryFilter'
 -- results.
 newInventoryFilter ::
   -- | 'prefix'
-  Core.Text ->
+  Prelude.Text ->
   InventoryFilter
 newInventoryFilter pPrefix_ =
   InventoryFilter' {prefix = pPrefix_}
 
 -- | The prefix that an object must have to be included in the inventory
 -- results.
-inventoryFilter_prefix :: Lens.Lens' InventoryFilter Core.Text
+inventoryFilter_prefix :: Lens.Lens' InventoryFilter Prelude.Text
 inventoryFilter_prefix = Lens.lens (\InventoryFilter' {prefix} -> prefix) (\s@InventoryFilter' {} a -> s {prefix = a} :: InventoryFilter)
 
 instance Core.FromXML InventoryFilter where
   parseXML x =
-    InventoryFilter' Core.<$> (x Core..@ "Prefix")
+    InventoryFilter' Prelude.<$> (x Core..@ "Prefix")
 
-instance Core.Hashable InventoryFilter
+instance Prelude.Hashable InventoryFilter
 
-instance Core.NFData InventoryFilter
+instance Prelude.NFData InventoryFilter
 
 instance Core.ToXML InventoryFilter where
   toXML InventoryFilter' {..} =
-    Core.mconcat ["Prefix" Core.@= prefix]
+    Prelude.mconcat ["Prefix" Core.@= prefix]

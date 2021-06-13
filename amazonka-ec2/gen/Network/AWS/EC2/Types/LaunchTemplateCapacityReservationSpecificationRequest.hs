@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CapacityReservationPreference
 import Network.AWS.EC2.Types.CapacityReservationTarget
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance\'s Capacity Reservation targeting option. You can
 -- specify only one option at a time. Use the
@@ -44,12 +45,12 @@ data LaunchTemplateCapacityReservationSpecificationRequest = LaunchTemplateCapac
     --
     -- -   @none@ - The instance avoids running in a Capacity Reservation even
     --     if one is available. The instance runs in On-Demand capacity.
-    capacityReservationPreference :: Core.Maybe CapacityReservationPreference,
+    capacityReservationPreference :: Prelude.Maybe CapacityReservationPreference,
     -- | Information about the target Capacity Reservation or Capacity
     -- Reservation group.
-    capacityReservationTarget :: Core.Maybe CapacityReservationTarget
+    capacityReservationTarget :: Prelude.Maybe CapacityReservationTarget
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateCapacityReservationSpecificationRequest' with all optional fields omitted.
@@ -76,9 +77,9 @@ newLaunchTemplateCapacityReservationSpecificationRequest ::
 newLaunchTemplateCapacityReservationSpecificationRequest =
   LaunchTemplateCapacityReservationSpecificationRequest'
     { capacityReservationPreference =
-        Core.Nothing,
+        Prelude.Nothing,
       capacityReservationTarget =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Indicates the instance\'s Capacity Reservation preferences. Possible
@@ -90,20 +91,20 @@ newLaunchTemplateCapacityReservationSpecificationRequest =
 --
 -- -   @none@ - The instance avoids running in a Capacity Reservation even
 --     if one is available. The instance runs in On-Demand capacity.
-launchTemplateCapacityReservationSpecificationRequest_capacityReservationPreference :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationRequest (Core.Maybe CapacityReservationPreference)
+launchTemplateCapacityReservationSpecificationRequest_capacityReservationPreference :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationRequest (Prelude.Maybe CapacityReservationPreference)
 launchTemplateCapacityReservationSpecificationRequest_capacityReservationPreference = Lens.lens (\LaunchTemplateCapacityReservationSpecificationRequest' {capacityReservationPreference} -> capacityReservationPreference) (\s@LaunchTemplateCapacityReservationSpecificationRequest' {} a -> s {capacityReservationPreference = a} :: LaunchTemplateCapacityReservationSpecificationRequest)
 
 -- | Information about the target Capacity Reservation or Capacity
 -- Reservation group.
-launchTemplateCapacityReservationSpecificationRequest_capacityReservationTarget :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationRequest (Core.Maybe CapacityReservationTarget)
+launchTemplateCapacityReservationSpecificationRequest_capacityReservationTarget :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationRequest (Prelude.Maybe CapacityReservationTarget)
 launchTemplateCapacityReservationSpecificationRequest_capacityReservationTarget = Lens.lens (\LaunchTemplateCapacityReservationSpecificationRequest' {capacityReservationTarget} -> capacityReservationTarget) (\s@LaunchTemplateCapacityReservationSpecificationRequest' {} a -> s {capacityReservationTarget = a} :: LaunchTemplateCapacityReservationSpecificationRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateCapacityReservationSpecificationRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateCapacityReservationSpecificationRequest
 
 instance
@@ -112,7 +113,7 @@ instance
   where
   toQuery
     LaunchTemplateCapacityReservationSpecificationRequest' {..} =
-      Core.mconcat
+      Prelude.mconcat
         [ "CapacityReservationPreference"
             Core.=: capacityReservationPreference,
           "CapacityReservationTarget"

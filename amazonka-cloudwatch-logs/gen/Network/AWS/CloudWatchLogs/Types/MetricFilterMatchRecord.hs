@@ -21,19 +21,20 @@ module Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a matched event.
 --
 -- /See:/ 'newMetricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
   { -- | The event number.
-    eventNumber :: Core.Maybe Core.Integer,
+    eventNumber :: Prelude.Maybe Prelude.Integer,
     -- | The raw event data.
-    eventMessage :: Core.Maybe Core.Text,
+    eventMessage :: Prelude.Maybe Prelude.Text,
     -- | The values extracted from the event data by the filter.
-    extractedValues :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    extractedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricFilterMatchRecord' with all optional fields omitted.
@@ -53,22 +54,22 @@ newMetricFilterMatchRecord ::
 newMetricFilterMatchRecord =
   MetricFilterMatchRecord'
     { eventNumber =
-        Core.Nothing,
-      eventMessage = Core.Nothing,
-      extractedValues = Core.Nothing
+        Prelude.Nothing,
+      eventMessage = Prelude.Nothing,
+      extractedValues = Prelude.Nothing
     }
 
 -- | The event number.
-metricFilterMatchRecord_eventNumber :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe Core.Integer)
+metricFilterMatchRecord_eventNumber :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Integer)
 metricFilterMatchRecord_eventNumber = Lens.lens (\MetricFilterMatchRecord' {eventNumber} -> eventNumber) (\s@MetricFilterMatchRecord' {} a -> s {eventNumber = a} :: MetricFilterMatchRecord)
 
 -- | The raw event data.
-metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe Core.Text)
+metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Text)
 metricFilterMatchRecord_eventMessage = Lens.lens (\MetricFilterMatchRecord' {eventMessage} -> eventMessage) (\s@MetricFilterMatchRecord' {} a -> s {eventMessage = a} :: MetricFilterMatchRecord)
 
 -- | The values extracted from the event data by the filter.
-metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe (Core.HashMap Core.Text Core.Text))
-metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Core.. Lens.mapping Lens._Coerce
+metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON MetricFilterMatchRecord where
   parseJSON =
@@ -76,11 +77,13 @@ instance Core.FromJSON MetricFilterMatchRecord where
       "MetricFilterMatchRecord"
       ( \x ->
           MetricFilterMatchRecord'
-            Core.<$> (x Core..:? "eventNumber")
-            Core.<*> (x Core..:? "eventMessage")
-            Core.<*> (x Core..:? "extractedValues" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "eventNumber")
+            Prelude.<*> (x Core..:? "eventMessage")
+            Prelude.<*> ( x Core..:? "extractedValues"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable MetricFilterMatchRecord
+instance Prelude.Hashable MetricFilterMatchRecord
 
-instance Core.NFData MetricFilterMatchRecord
+instance Prelude.NFData MetricFilterMatchRecord

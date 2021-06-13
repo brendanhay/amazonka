@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about the start of the execution.
@@ -28,15 +29,15 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 -- /See:/ 'newExecutionStartedEventDetails' smart constructor.
 data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
   { -- | Contains details about the input for an execution history event.
-    inputDetails :: Core.Maybe HistoryEventExecutionDataDetails,
+    inputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
     -- Lambda tasks.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The JSON data input to the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
-    input :: Core.Maybe (Core.Sensitive Core.Text)
+    input :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecutionStartedEventDetails' with all optional fields omitted.
@@ -58,24 +59,24 @@ newExecutionStartedEventDetails ::
 newExecutionStartedEventDetails =
   ExecutionStartedEventDetails'
     { inputDetails =
-        Core.Nothing,
-      roleArn = Core.Nothing,
-      input = Core.Nothing
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      input = Prelude.Nothing
     }
 
 -- | Contains details about the input for an execution history event.
-executionStartedEventDetails_inputDetails :: Lens.Lens' ExecutionStartedEventDetails (Core.Maybe HistoryEventExecutionDataDetails)
+executionStartedEventDetails_inputDetails :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
 executionStartedEventDetails_inputDetails = Lens.lens (\ExecutionStartedEventDetails' {inputDetails} -> inputDetails) (\s@ExecutionStartedEventDetails' {} a -> s {inputDetails = a} :: ExecutionStartedEventDetails)
 
 -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
 -- Lambda tasks.
-executionStartedEventDetails_roleArn :: Lens.Lens' ExecutionStartedEventDetails (Core.Maybe Core.Text)
+executionStartedEventDetails_roleArn :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
 executionStartedEventDetails_roleArn = Lens.lens (\ExecutionStartedEventDetails' {roleArn} -> roleArn) (\s@ExecutionStartedEventDetails' {} a -> s {roleArn = a} :: ExecutionStartedEventDetails)
 
 -- | The JSON data input to the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
-executionStartedEventDetails_input :: Lens.Lens' ExecutionStartedEventDetails (Core.Maybe Core.Text)
-executionStartedEventDetails_input = Lens.lens (\ExecutionStartedEventDetails' {input} -> input) (\s@ExecutionStartedEventDetails' {} a -> s {input = a} :: ExecutionStartedEventDetails) Core.. Lens.mapping Core._Sensitive
+executionStartedEventDetails_input :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
+executionStartedEventDetails_input = Lens.lens (\ExecutionStartedEventDetails' {input} -> input) (\s@ExecutionStartedEventDetails' {} a -> s {input = a} :: ExecutionStartedEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON ExecutionStartedEventDetails where
   parseJSON =
@@ -83,11 +84,13 @@ instance Core.FromJSON ExecutionStartedEventDetails where
       "ExecutionStartedEventDetails"
       ( \x ->
           ExecutionStartedEventDetails'
-            Core.<$> (x Core..:? "inputDetails")
-            Core.<*> (x Core..:? "roleArn")
-            Core.<*> (x Core..:? "input")
+            Prelude.<$> (x Core..:? "inputDetails")
+            Prelude.<*> (x Core..:? "roleArn")
+            Prelude.<*> (x Core..:? "input")
       )
 
-instance Core.Hashable ExecutionStartedEventDetails
+instance
+  Prelude.Hashable
+    ExecutionStartedEventDetails
 
-instance Core.NFData ExecutionStartedEventDetails
+instance Prelude.NFData ExecutionStartedEventDetails

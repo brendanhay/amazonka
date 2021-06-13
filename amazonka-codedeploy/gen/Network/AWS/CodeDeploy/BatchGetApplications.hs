@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 data BatchGetApplications = BatchGetApplications'
   { -- | A list of application names separated by spaces. The maximum number of
     -- application names you can specify is 100.
-    applicationNames :: [Core.Text]
+    applicationNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetApplications' with all optional fields omitted.
@@ -71,13 +72,13 @@ newBatchGetApplications ::
 newBatchGetApplications =
   BatchGetApplications'
     { applicationNames =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of application names separated by spaces. The maximum number of
 -- application names you can specify is 100.
-batchGetApplications_applicationNames :: Lens.Lens' BatchGetApplications [Core.Text]
-batchGetApplications_applicationNames = Lens.lens (\BatchGetApplications' {applicationNames} -> applicationNames) (\s@BatchGetApplications' {} a -> s {applicationNames = a} :: BatchGetApplications) Core.. Lens._Coerce
+batchGetApplications_applicationNames :: Lens.Lens' BatchGetApplications [Prelude.Text]
+batchGetApplications_applicationNames = Lens.lens (\BatchGetApplications' {applicationNames} -> applicationNames) (\s@BatchGetApplications' {} a -> s {applicationNames = a} :: BatchGetApplications) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetApplications where
   type
@@ -88,52 +89,56 @@ instance Core.AWSRequest BatchGetApplications where
     Response.receiveJSON
       ( \s h x ->
           BatchGetApplicationsResponse'
-            Core.<$> (x Core..?> "applicationsInfo" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "applicationsInfo"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetApplications
+instance Prelude.Hashable BatchGetApplications
 
-instance Core.NFData BatchGetApplications
+instance Prelude.NFData BatchGetApplications
 
 instance Core.ToHeaders BatchGetApplications where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.BatchGetApplications" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetApplications where
   toJSON BatchGetApplications' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("applicationNames" Core..= applicationNames)
           ]
       )
 
 instance Core.ToPath BatchGetApplications where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetApplications where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @BatchGetApplications@ operation.
 --
 -- /See:/ 'newBatchGetApplicationsResponse' smart constructor.
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
   { -- | Information about the applications.
-    applicationsInfo :: Core.Maybe [ApplicationInfo],
+    applicationsInfo :: Prelude.Maybe [ApplicationInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetApplicationsResponse' with all optional fields omitted.
@@ -148,21 +153,21 @@ data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
 -- 'httpStatus', 'batchGetApplicationsResponse_httpStatus' - The response's http status code.
 newBatchGetApplicationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetApplicationsResponse
 newBatchGetApplicationsResponse pHttpStatus_ =
   BatchGetApplicationsResponse'
     { applicationsInfo =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the applications.
-batchGetApplicationsResponse_applicationsInfo :: Lens.Lens' BatchGetApplicationsResponse (Core.Maybe [ApplicationInfo])
-batchGetApplicationsResponse_applicationsInfo = Lens.lens (\BatchGetApplicationsResponse' {applicationsInfo} -> applicationsInfo) (\s@BatchGetApplicationsResponse' {} a -> s {applicationsInfo = a} :: BatchGetApplicationsResponse) Core.. Lens.mapping Lens._Coerce
+batchGetApplicationsResponse_applicationsInfo :: Lens.Lens' BatchGetApplicationsResponse (Prelude.Maybe [ApplicationInfo])
+batchGetApplicationsResponse_applicationsInfo = Lens.lens (\BatchGetApplicationsResponse' {applicationsInfo} -> applicationsInfo) (\s@BatchGetApplicationsResponse' {} a -> s {applicationsInfo = a} :: BatchGetApplicationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetApplicationsResponse_httpStatus :: Lens.Lens' BatchGetApplicationsResponse Core.Int
+batchGetApplicationsResponse_httpStatus :: Lens.Lens' BatchGetApplicationsResponse Prelude.Int
 batchGetApplicationsResponse_httpStatus = Lens.lens (\BatchGetApplicationsResponse' {httpStatus} -> httpStatus) (\s@BatchGetApplicationsResponse' {} a -> s {httpStatus = a} :: BatchGetApplicationsResponse)
 
-instance Core.NFData BatchGetApplicationsResponse
+instance Prelude.NFData BatchGetApplicationsResponse

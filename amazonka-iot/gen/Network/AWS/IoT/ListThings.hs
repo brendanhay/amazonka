@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,19 +66,19 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListThings' smart constructor.
 data ListThings = ListThings'
   { -- | The attribute value used to search for things.
-    attributeValue :: Core.Maybe Core.Text,
+    attributeValue :: Prelude.Maybe Prelude.Text,
     -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in this operation.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The attribute name used to search for things.
-    attributeName :: Core.Maybe Core.Text,
+    attributeName :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing type used to search for things.
-    thingTypeName :: Core.Maybe Core.Text
+    thingTypeName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListThings' with all optional fields omitted.
@@ -102,53 +103,53 @@ newListThings ::
   ListThings
 newListThings =
   ListThings'
-    { attributeValue = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      attributeName = Core.Nothing,
-      thingTypeName = Core.Nothing
+    { attributeValue = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      attributeName = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing
     }
 
 -- | The attribute value used to search for things.
-listThings_attributeValue :: Lens.Lens' ListThings (Core.Maybe Core.Text)
+listThings_attributeValue :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
 listThings_attributeValue = Lens.lens (\ListThings' {attributeValue} -> attributeValue) (\s@ListThings' {} a -> s {attributeValue = a} :: ListThings)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
-listThings_nextToken :: Lens.Lens' ListThings (Core.Maybe Core.Text)
+listThings_nextToken :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
 listThings_nextToken = Lens.lens (\ListThings' {nextToken} -> nextToken) (\s@ListThings' {} a -> s {nextToken = a} :: ListThings)
 
 -- | The maximum number of results to return in this operation.
-listThings_maxResults :: Lens.Lens' ListThings (Core.Maybe Core.Natural)
+listThings_maxResults :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Natural)
 listThings_maxResults = Lens.lens (\ListThings' {maxResults} -> maxResults) (\s@ListThings' {} a -> s {maxResults = a} :: ListThings)
 
 -- | The attribute name used to search for things.
-listThings_attributeName :: Lens.Lens' ListThings (Core.Maybe Core.Text)
+listThings_attributeName :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
 listThings_attributeName = Lens.lens (\ListThings' {attributeName} -> attributeName) (\s@ListThings' {} a -> s {attributeName = a} :: ListThings)
 
 -- | The name of the thing type used to search for things.
-listThings_thingTypeName :: Lens.Lens' ListThings (Core.Maybe Core.Text)
+listThings_thingTypeName :: Lens.Lens' ListThings (Prelude.Maybe Prelude.Text)
 listThings_thingTypeName = Lens.lens (\ListThings' {thingTypeName} -> thingTypeName) (\s@ListThings' {} a -> s {thingTypeName = a} :: ListThings)
 
 instance Core.AWSPager ListThings where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listThingsResponse_nextToken Core.. Lens._Just
+            Lens.^? listThingsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listThingsResponse_things Core.. Lens._Just
+            Lens.^? listThingsResponse_things Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listThings_nextToken
+          Prelude.& listThings_nextToken
           Lens..~ rs
-          Lens.^? listThingsResponse_nextToken Core.. Lens._Just
+          Lens.^? listThingsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThings where
   type AWSResponse ListThings = ListThingsResponse
@@ -157,24 +158,24 @@ instance Core.AWSRequest ListThings where
     Response.receiveJSON
       ( \s h x ->
           ListThingsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "things" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "things" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListThings
+instance Prelude.Hashable ListThings
 
-instance Core.NFData ListThings
+instance Prelude.NFData ListThings
 
 instance Core.ToHeaders ListThings where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListThings where
-  toPath = Core.const "/things"
+  toPath = Prelude.const "/things"
 
 instance Core.ToQuery ListThings where
   toQuery ListThings' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "attributeValue" Core.=: attributeValue,
         "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults,
@@ -188,13 +189,13 @@ instance Core.ToQuery ListThings where
 data ListThingsResponse = ListThingsResponse'
   { -- | The token to use to get the next set of results. Will not be returned if
     -- operation has returned all results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The things.
-    things :: Core.Maybe [ThingAttribute],
+    things :: Prelude.Maybe [ThingAttribute],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListThingsResponse' with all optional fields omitted.
@@ -212,26 +213,26 @@ data ListThingsResponse = ListThingsResponse'
 -- 'httpStatus', 'listThingsResponse_httpStatus' - The response's http status code.
 newListThingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListThingsResponse
 newListThingsResponse pHttpStatus_ =
   ListThingsResponse'
-    { nextToken = Core.Nothing,
-      things = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      things = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to get the next set of results. Will not be returned if
 -- operation has returned all results.
-listThingsResponse_nextToken :: Lens.Lens' ListThingsResponse (Core.Maybe Core.Text)
+listThingsResponse_nextToken :: Lens.Lens' ListThingsResponse (Prelude.Maybe Prelude.Text)
 listThingsResponse_nextToken = Lens.lens (\ListThingsResponse' {nextToken} -> nextToken) (\s@ListThingsResponse' {} a -> s {nextToken = a} :: ListThingsResponse)
 
 -- | The things.
-listThingsResponse_things :: Lens.Lens' ListThingsResponse (Core.Maybe [ThingAttribute])
-listThingsResponse_things = Lens.lens (\ListThingsResponse' {things} -> things) (\s@ListThingsResponse' {} a -> s {things = a} :: ListThingsResponse) Core.. Lens.mapping Lens._Coerce
+listThingsResponse_things :: Lens.Lens' ListThingsResponse (Prelude.Maybe [ThingAttribute])
+listThingsResponse_things = Lens.lens (\ListThingsResponse' {things} -> things) (\s@ListThingsResponse' {} a -> s {things = a} :: ListThingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listThingsResponse_httpStatus :: Lens.Lens' ListThingsResponse Core.Int
+listThingsResponse_httpStatus :: Lens.Lens' ListThingsResponse Prelude.Int
 listThingsResponse_httpStatus = Lens.lens (\ListThingsResponse' {httpStatus} -> httpStatus) (\s@ListThingsResponse' {} a -> s {httpStatus = a} :: ListThingsResponse)
 
-instance Core.NFData ListThingsResponse
+instance Prelude.NFData ListThingsResponse

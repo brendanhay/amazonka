@@ -26,6 +26,7 @@ import Network.AWS.EC2.Types.ListingStatus
 import Network.AWS.EC2.Types.PriceSchedule
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance listing.
 --
@@ -33,29 +34,29 @@ import qualified Network.AWS.Lens as Lens
 data ReservedInstancesListing = ReservedInstancesListing'
   { -- | The reason for the current status of the Reserved Instance listing. The
     -- response can be blank.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The status of the Reserved Instance listing.
-    status :: Core.Maybe ListingStatus,
+    status :: Prelude.Maybe ListingStatus,
     -- | The price of the Reserved Instance listing.
-    priceSchedules :: Core.Maybe [PriceSchedule],
+    priceSchedules :: Prelude.Maybe [PriceSchedule],
     -- | The ID of the Reserved Instance.
-    reservedInstancesId :: Core.Maybe Core.Text,
+    reservedInstancesId :: Prelude.Maybe Prelude.Text,
     -- | The time the listing was created.
-    createDate :: Core.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Core.ISO8601,
     -- | Any tags assigned to the resource.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The number of instances in this state.
-    instanceCounts :: Core.Maybe [InstanceCount],
+    instanceCounts :: Prelude.Maybe [InstanceCount],
     -- | The ID of the Reserved Instance listing.
-    reservedInstancesListingId :: Core.Maybe Core.Text,
+    reservedInstancesListingId :: Prelude.Maybe Prelude.Text,
     -- | The last modified timestamp of the listing.
-    updateDate :: Core.Maybe Core.ISO8601,
+    updateDate :: Prelude.Maybe Core.ISO8601,
     -- | A unique, case-sensitive key supplied by the client to ensure that the
     -- request is idempotent. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Core.Maybe Core.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservedInstancesListing' with all optional fields omitted.
@@ -92,81 +93,81 @@ newReservedInstancesListing ::
 newReservedInstancesListing =
   ReservedInstancesListing'
     { statusMessage =
-        Core.Nothing,
-      status = Core.Nothing,
-      priceSchedules = Core.Nothing,
-      reservedInstancesId = Core.Nothing,
-      createDate = Core.Nothing,
-      tags = Core.Nothing,
-      instanceCounts = Core.Nothing,
-      reservedInstancesListingId = Core.Nothing,
-      updateDate = Core.Nothing,
-      clientToken = Core.Nothing
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      priceSchedules = Prelude.Nothing,
+      reservedInstancesId = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      instanceCounts = Prelude.Nothing,
+      reservedInstancesListingId = Prelude.Nothing,
+      updateDate = Prelude.Nothing,
+      clientToken = Prelude.Nothing
     }
 
 -- | The reason for the current status of the Reserved Instance listing. The
 -- response can be blank.
-reservedInstancesListing_statusMessage :: Lens.Lens' ReservedInstancesListing (Core.Maybe Core.Text)
+reservedInstancesListing_statusMessage :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.Text)
 reservedInstancesListing_statusMessage = Lens.lens (\ReservedInstancesListing' {statusMessage} -> statusMessage) (\s@ReservedInstancesListing' {} a -> s {statusMessage = a} :: ReservedInstancesListing)
 
 -- | The status of the Reserved Instance listing.
-reservedInstancesListing_status :: Lens.Lens' ReservedInstancesListing (Core.Maybe ListingStatus)
+reservedInstancesListing_status :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe ListingStatus)
 reservedInstancesListing_status = Lens.lens (\ReservedInstancesListing' {status} -> status) (\s@ReservedInstancesListing' {} a -> s {status = a} :: ReservedInstancesListing)
 
 -- | The price of the Reserved Instance listing.
-reservedInstancesListing_priceSchedules :: Lens.Lens' ReservedInstancesListing (Core.Maybe [PriceSchedule])
-reservedInstancesListing_priceSchedules = Lens.lens (\ReservedInstancesListing' {priceSchedules} -> priceSchedules) (\s@ReservedInstancesListing' {} a -> s {priceSchedules = a} :: ReservedInstancesListing) Core.. Lens.mapping Lens._Coerce
+reservedInstancesListing_priceSchedules :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [PriceSchedule])
+reservedInstancesListing_priceSchedules = Lens.lens (\ReservedInstancesListing' {priceSchedules} -> priceSchedules) (\s@ReservedInstancesListing' {} a -> s {priceSchedules = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Reserved Instance.
-reservedInstancesListing_reservedInstancesId :: Lens.Lens' ReservedInstancesListing (Core.Maybe Core.Text)
+reservedInstancesListing_reservedInstancesId :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.Text)
 reservedInstancesListing_reservedInstancesId = Lens.lens (\ReservedInstancesListing' {reservedInstancesId} -> reservedInstancesId) (\s@ReservedInstancesListing' {} a -> s {reservedInstancesId = a} :: ReservedInstancesListing)
 
 -- | The time the listing was created.
-reservedInstancesListing_createDate :: Lens.Lens' ReservedInstancesListing (Core.Maybe Core.UTCTime)
-reservedInstancesListing_createDate = Lens.lens (\ReservedInstancesListing' {createDate} -> createDate) (\s@ReservedInstancesListing' {} a -> s {createDate = a} :: ReservedInstancesListing) Core.. Lens.mapping Core._Time
+reservedInstancesListing_createDate :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.UTCTime)
+reservedInstancesListing_createDate = Lens.lens (\ReservedInstancesListing' {createDate} -> createDate) (\s@ReservedInstancesListing' {} a -> s {createDate = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Core._Time
 
 -- | Any tags assigned to the resource.
-reservedInstancesListing_tags :: Lens.Lens' ReservedInstancesListing (Core.Maybe [Tag])
-reservedInstancesListing_tags = Lens.lens (\ReservedInstancesListing' {tags} -> tags) (\s@ReservedInstancesListing' {} a -> s {tags = a} :: ReservedInstancesListing) Core.. Lens.mapping Lens._Coerce
+reservedInstancesListing_tags :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [Tag])
+reservedInstancesListing_tags = Lens.lens (\ReservedInstancesListing' {tags} -> tags) (\s@ReservedInstancesListing' {} a -> s {tags = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of instances in this state.
-reservedInstancesListing_instanceCounts :: Lens.Lens' ReservedInstancesListing (Core.Maybe [InstanceCount])
-reservedInstancesListing_instanceCounts = Lens.lens (\ReservedInstancesListing' {instanceCounts} -> instanceCounts) (\s@ReservedInstancesListing' {} a -> s {instanceCounts = a} :: ReservedInstancesListing) Core.. Lens.mapping Lens._Coerce
+reservedInstancesListing_instanceCounts :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [InstanceCount])
+reservedInstancesListing_instanceCounts = Lens.lens (\ReservedInstancesListing' {instanceCounts} -> instanceCounts) (\s@ReservedInstancesListing' {} a -> s {instanceCounts = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Reserved Instance listing.
-reservedInstancesListing_reservedInstancesListingId :: Lens.Lens' ReservedInstancesListing (Core.Maybe Core.Text)
+reservedInstancesListing_reservedInstancesListingId :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.Text)
 reservedInstancesListing_reservedInstancesListingId = Lens.lens (\ReservedInstancesListing' {reservedInstancesListingId} -> reservedInstancesListingId) (\s@ReservedInstancesListing' {} a -> s {reservedInstancesListingId = a} :: ReservedInstancesListing)
 
 -- | The last modified timestamp of the listing.
-reservedInstancesListing_updateDate :: Lens.Lens' ReservedInstancesListing (Core.Maybe Core.UTCTime)
-reservedInstancesListing_updateDate = Lens.lens (\ReservedInstancesListing' {updateDate} -> updateDate) (\s@ReservedInstancesListing' {} a -> s {updateDate = a} :: ReservedInstancesListing) Core.. Lens.mapping Core._Time
+reservedInstancesListing_updateDate :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.UTCTime)
+reservedInstancesListing_updateDate = Lens.lens (\ReservedInstancesListing' {updateDate} -> updateDate) (\s@ReservedInstancesListing' {} a -> s {updateDate = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Core._Time
 
 -- | A unique, case-sensitive key supplied by the client to ensure that the
 -- request is idempotent. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-reservedInstancesListing_clientToken :: Lens.Lens' ReservedInstancesListing (Core.Maybe Core.Text)
+reservedInstancesListing_clientToken :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.Text)
 reservedInstancesListing_clientToken = Lens.lens (\ReservedInstancesListing' {clientToken} -> clientToken) (\s@ReservedInstancesListing' {} a -> s {clientToken = a} :: ReservedInstancesListing)
 
 instance Core.FromXML ReservedInstancesListing where
   parseXML x =
     ReservedInstancesListing'
-      Core.<$> (x Core..@? "statusMessage")
-      Core.<*> (x Core..@? "status")
-      Core.<*> ( x Core..@? "priceSchedules" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "reservedInstancesId")
-      Core.<*> (x Core..@? "createDate")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> ( x Core..@? "instanceCounts" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "reservedInstancesListingId")
-      Core.<*> (x Core..@? "updateDate")
-      Core.<*> (x Core..@? "clientToken")
+      Prelude.<$> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "status")
+      Prelude.<*> ( x Core..@? "priceSchedules" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "reservedInstancesId")
+      Prelude.<*> (x Core..@? "createDate")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "instanceCounts" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "reservedInstancesListingId")
+      Prelude.<*> (x Core..@? "updateDate")
+      Prelude.<*> (x Core..@? "clientToken")
 
-instance Core.Hashable ReservedInstancesListing
+instance Prelude.Hashable ReservedInstancesListing
 
-instance Core.NFData ReservedInstancesListing
+instance Prelude.NFData ReservedInstancesListing

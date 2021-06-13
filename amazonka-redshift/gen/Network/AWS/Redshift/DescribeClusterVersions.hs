@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -70,18 +71,18 @@ data DescribeClusterVersions = DescribeClusterVersions'
     -- -   First character must be a letter
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens
-    clusterParameterGroupFamily :: Core.Maybe Core.Text,
+    clusterParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | The specific cluster version to return.
     --
     -- Example: @1.0@
-    clusterVersion :: Core.Maybe Core.Text,
+    clusterVersion :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeClusterVersions
     -- request exceed the value specified in @MaxRecords@, AWS returns a value
     -- in the @Marker@ field of the response. You can retrieve the next set of
     -- response records by providing the returned marker value in the @Marker@
     -- parameter and retrying the request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -91,9 +92,9 @@ data DescribeClusterVersions = DescribeClusterVersions'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterVersions' with all optional fields omitted.
@@ -139,10 +140,10 @@ newDescribeClusterVersions ::
 newDescribeClusterVersions =
   DescribeClusterVersions'
     { clusterParameterGroupFamily =
-        Core.Nothing,
-      clusterVersion = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      clusterVersion = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The name of a specific cluster parameter group family to return details
@@ -155,13 +156,13 @@ newDescribeClusterVersions =
 -- -   First character must be a letter
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-describeClusterVersions_clusterParameterGroupFamily :: Lens.Lens' DescribeClusterVersions (Core.Maybe Core.Text)
+describeClusterVersions_clusterParameterGroupFamily :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Text)
 describeClusterVersions_clusterParameterGroupFamily = Lens.lens (\DescribeClusterVersions' {clusterParameterGroupFamily} -> clusterParameterGroupFamily) (\s@DescribeClusterVersions' {} a -> s {clusterParameterGroupFamily = a} :: DescribeClusterVersions)
 
 -- | The specific cluster version to return.
 --
 -- Example: @1.0@
-describeClusterVersions_clusterVersion :: Lens.Lens' DescribeClusterVersions (Core.Maybe Core.Text)
+describeClusterVersions_clusterVersion :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Text)
 describeClusterVersions_clusterVersion = Lens.lens (\DescribeClusterVersions' {clusterVersion} -> clusterVersion) (\s@DescribeClusterVersions' {} a -> s {clusterVersion = a} :: DescribeClusterVersions)
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -170,7 +171,7 @@ describeClusterVersions_clusterVersion = Lens.lens (\DescribeClusterVersions' {c
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-describeClusterVersions_marker :: Lens.Lens' DescribeClusterVersions (Core.Maybe Core.Text)
+describeClusterVersions_marker :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Text)
 describeClusterVersions_marker = Lens.lens (\DescribeClusterVersions' {marker} -> marker) (\s@DescribeClusterVersions' {} a -> s {marker = a} :: DescribeClusterVersions)
 
 -- | The maximum number of response records to return in each call. If the
@@ -182,7 +183,7 @@ describeClusterVersions_marker = Lens.lens (\DescribeClusterVersions' {marker} -
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeClusterVersions_maxRecords :: Lens.Lens' DescribeClusterVersions (Core.Maybe Core.Int)
+describeClusterVersions_maxRecords :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Int)
 describeClusterVersions_maxRecords = Lens.lens (\DescribeClusterVersions' {maxRecords} -> maxRecords) (\s@DescribeClusterVersions' {} a -> s {maxRecords = a} :: DescribeClusterVersions)
 
 instance Core.AWSPager DescribeClusterVersions where
@@ -190,22 +191,22 @@ instance Core.AWSPager DescribeClusterVersions where
     | Core.stop
         ( rs
             Lens.^? describeClusterVersionsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterVersionsResponse_clusterVersions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeClusterVersions_marker
+          Prelude.& describeClusterVersions_marker
           Lens..~ rs
           Lens.^? describeClusterVersionsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterVersions where
   type
@@ -217,29 +218,30 @@ instance Core.AWSRequest DescribeClusterVersions where
       "DescribeClusterVersionsResult"
       ( \s h x ->
           DescribeClusterVersionsResponse'
-            Core.<$> ( x Core..@? "ClusterVersions" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "ClusterVersion")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "ClusterVersions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "ClusterVersion")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeClusterVersions
+instance Prelude.Hashable DescribeClusterVersions
 
-instance Core.NFData DescribeClusterVersions
+instance Prelude.NFData DescribeClusterVersions
 
 instance Core.ToHeaders DescribeClusterVersions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeClusterVersions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeClusterVersions where
   toQuery DescribeClusterVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusterVersions" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DescribeClusterVersions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterParameterGroupFamily"
           Core.=: clusterParameterGroupFamily,
         "ClusterVersion" Core.=: clusterVersion,
@@ -252,18 +254,18 @@ instance Core.ToQuery DescribeClusterVersions where
 -- /See:/ 'newDescribeClusterVersionsResponse' smart constructor.
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
   { -- | A list of @Version@ elements.
-    clusterVersions :: Core.Maybe [ClusterVersion],
+    clusterVersions :: Prelude.Maybe [ClusterVersion],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterVersionsResponse' with all optional fields omitted.
@@ -285,19 +287,19 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
 -- 'httpStatus', 'describeClusterVersionsResponse_httpStatus' - The response's http status code.
 newDescribeClusterVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeClusterVersionsResponse
 newDescribeClusterVersionsResponse pHttpStatus_ =
   DescribeClusterVersionsResponse'
     { clusterVersions =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @Version@ elements.
-describeClusterVersionsResponse_clusterVersions :: Lens.Lens' DescribeClusterVersionsResponse (Core.Maybe [ClusterVersion])
-describeClusterVersionsResponse_clusterVersions = Lens.lens (\DescribeClusterVersionsResponse' {clusterVersions} -> clusterVersions) (\s@DescribeClusterVersionsResponse' {} a -> s {clusterVersions = a} :: DescribeClusterVersionsResponse) Core.. Lens.mapping Lens._Coerce
+describeClusterVersionsResponse_clusterVersions :: Lens.Lens' DescribeClusterVersionsResponse (Prelude.Maybe [ClusterVersion])
+describeClusterVersionsResponse_clusterVersions = Lens.lens (\DescribeClusterVersionsResponse' {clusterVersions} -> clusterVersions) (\s@DescribeClusterVersionsResponse' {} a -> s {clusterVersions = a} :: DescribeClusterVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -305,11 +307,13 @@ describeClusterVersionsResponse_clusterVersions = Lens.lens (\DescribeClusterVer
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeClusterVersionsResponse_marker :: Lens.Lens' DescribeClusterVersionsResponse (Core.Maybe Core.Text)
+describeClusterVersionsResponse_marker :: Lens.Lens' DescribeClusterVersionsResponse (Prelude.Maybe Prelude.Text)
 describeClusterVersionsResponse_marker = Lens.lens (\DescribeClusterVersionsResponse' {marker} -> marker) (\s@DescribeClusterVersionsResponse' {} a -> s {marker = a} :: DescribeClusterVersionsResponse)
 
 -- | The response's http status code.
-describeClusterVersionsResponse_httpStatus :: Lens.Lens' DescribeClusterVersionsResponse Core.Int
+describeClusterVersionsResponse_httpStatus :: Lens.Lens' DescribeClusterVersionsResponse Prelude.Int
 describeClusterVersionsResponse_httpStatus = Lens.lens (\DescribeClusterVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterVersionsResponse' {} a -> s {httpStatus = a} :: DescribeClusterVersionsResponse)
 
-instance Core.NFData DescribeClusterVersionsResponse
+instance
+  Prelude.NFData
+    DescribeClusterVersionsResponse

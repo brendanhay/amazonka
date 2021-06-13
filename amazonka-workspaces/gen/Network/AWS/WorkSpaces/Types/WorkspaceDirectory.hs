@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.WorkspaceDirectory where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties
 import Network.AWS.WorkSpaces.Types.SelfservicePermissions
 import Network.AWS.WorkSpaces.Types.Tenancy
@@ -35,26 +36,26 @@ data WorkspaceDirectory = WorkspaceDirectory'
   { -- | The registration code for the directory. This is the code that users
     -- enter in their Amazon WorkSpaces client application to connect to the
     -- directory.
-    registrationCode :: Core.Maybe Core.Text,
+    registrationCode :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the security group that is assigned to new WorkSpaces.
-    workspaceSecurityGroupId :: Core.Maybe Core.Text,
+    workspaceSecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | The directory alias.
-    alias :: Core.Maybe Core.Text,
+    alias :: Prelude.Maybe Prelude.Text,
     -- | The identifiers of the IP access control groups associated with the
     -- directory.
-    ipGroupIds :: Core.Maybe [Core.Text],
+    ipGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The devices and operating systems that users can use to access
     -- WorkSpaces.
-    workspaceAccessProperties :: Core.Maybe WorkspaceAccessProperties,
+    workspaceAccessProperties :: Prelude.Maybe WorkspaceAccessProperties,
     -- | The identifiers of the subnets used with the directory.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether the directory is dedicated or shared. To use Bring
     -- Your Own License (BYOL), this value must be set to @DEDICATED@. For more
     -- information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
-    tenancy :: Core.Maybe Tenancy,
+    tenancy :: Prelude.Maybe Tenancy,
     -- | The user name for the service account.
-    customerUserName :: Core.Maybe Core.Text,
+    customerUserName :: Prelude.Maybe Prelude.Text,
     -- | The state of the directory\'s registration with Amazon WorkSpaces. After
     -- a directory is deregistered, the @DEREGISTERED@ state is returned very
     -- briefly before the directory metadata is cleaned up, so this state is
@@ -63,25 +64,25 @@ data WorkspaceDirectory = WorkspaceDirectory'
     -- <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories>.
     -- If the directory ID isn\'t returned, then the directory has been
     -- successfully deregistered.
-    state :: Core.Maybe WorkspaceDirectoryState,
+    state :: Prelude.Maybe WorkspaceDirectoryState,
     -- | The identifier of the IAM role. This is the role that allows Amazon
     -- WorkSpaces to make calls to other services, such as Amazon EC2, on your
     -- behalf.
-    iamRoleId :: Core.Maybe Core.Text,
+    iamRoleId :: Prelude.Maybe Prelude.Text,
     -- | The directory identifier.
-    directoryId :: Core.Maybe Core.Text,
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The default self-service permissions for WorkSpaces in the directory.
-    selfservicePermissions :: Core.Maybe SelfservicePermissions,
+    selfservicePermissions :: Prelude.Maybe SelfservicePermissions,
     -- | The directory type.
-    directoryType :: Core.Maybe WorkspaceDirectoryType,
+    directoryType :: Prelude.Maybe WorkspaceDirectoryType,
     -- | The name of the directory.
-    directoryName :: Core.Maybe Core.Text,
+    directoryName :: Prelude.Maybe Prelude.Text,
     -- | The IP addresses of the DNS servers for the directory.
-    dnsIpAddresses :: Core.Maybe [Core.Text],
+    dnsIpAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The default creation properties for all WorkSpaces in the directory.
-    workspaceCreationProperties :: Core.Maybe DefaultWorkspaceCreationProperties
+    workspaceCreationProperties :: Prelude.Maybe DefaultWorkspaceCreationProperties
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkspaceDirectory' with all optional fields omitted.
@@ -143,61 +144,61 @@ newWorkspaceDirectory ::
 newWorkspaceDirectory =
   WorkspaceDirectory'
     { registrationCode =
-        Core.Nothing,
-      workspaceSecurityGroupId = Core.Nothing,
-      alias = Core.Nothing,
-      ipGroupIds = Core.Nothing,
-      workspaceAccessProperties = Core.Nothing,
-      subnetIds = Core.Nothing,
-      tenancy = Core.Nothing,
-      customerUserName = Core.Nothing,
-      state = Core.Nothing,
-      iamRoleId = Core.Nothing,
-      directoryId = Core.Nothing,
-      selfservicePermissions = Core.Nothing,
-      directoryType = Core.Nothing,
-      directoryName = Core.Nothing,
-      dnsIpAddresses = Core.Nothing,
-      workspaceCreationProperties = Core.Nothing
+        Prelude.Nothing,
+      workspaceSecurityGroupId = Prelude.Nothing,
+      alias = Prelude.Nothing,
+      ipGroupIds = Prelude.Nothing,
+      workspaceAccessProperties = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      tenancy = Prelude.Nothing,
+      customerUserName = Prelude.Nothing,
+      state = Prelude.Nothing,
+      iamRoleId = Prelude.Nothing,
+      directoryId = Prelude.Nothing,
+      selfservicePermissions = Prelude.Nothing,
+      directoryType = Prelude.Nothing,
+      directoryName = Prelude.Nothing,
+      dnsIpAddresses = Prelude.Nothing,
+      workspaceCreationProperties = Prelude.Nothing
     }
 
 -- | The registration code for the directory. This is the code that users
 -- enter in their Amazon WorkSpaces client application to connect to the
 -- directory.
-workspaceDirectory_registrationCode :: Lens.Lens' WorkspaceDirectory (Core.Maybe Core.Text)
+workspaceDirectory_registrationCode :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_registrationCode = Lens.lens (\WorkspaceDirectory' {registrationCode} -> registrationCode) (\s@WorkspaceDirectory' {} a -> s {registrationCode = a} :: WorkspaceDirectory)
 
 -- | The identifier of the security group that is assigned to new WorkSpaces.
-workspaceDirectory_workspaceSecurityGroupId :: Lens.Lens' WorkspaceDirectory (Core.Maybe Core.Text)
+workspaceDirectory_workspaceSecurityGroupId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_workspaceSecurityGroupId = Lens.lens (\WorkspaceDirectory' {workspaceSecurityGroupId} -> workspaceSecurityGroupId) (\s@WorkspaceDirectory' {} a -> s {workspaceSecurityGroupId = a} :: WorkspaceDirectory)
 
 -- | The directory alias.
-workspaceDirectory_alias :: Lens.Lens' WorkspaceDirectory (Core.Maybe Core.Text)
+workspaceDirectory_alias :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_alias = Lens.lens (\WorkspaceDirectory' {alias} -> alias) (\s@WorkspaceDirectory' {} a -> s {alias = a} :: WorkspaceDirectory)
 
 -- | The identifiers of the IP access control groups associated with the
 -- directory.
-workspaceDirectory_ipGroupIds :: Lens.Lens' WorkspaceDirectory (Core.Maybe [Core.Text])
-workspaceDirectory_ipGroupIds = Lens.lens (\WorkspaceDirectory' {ipGroupIds} -> ipGroupIds) (\s@WorkspaceDirectory' {} a -> s {ipGroupIds = a} :: WorkspaceDirectory) Core.. Lens.mapping Lens._Coerce
+workspaceDirectory_ipGroupIds :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
+workspaceDirectory_ipGroupIds = Lens.lens (\WorkspaceDirectory' {ipGroupIds} -> ipGroupIds) (\s@WorkspaceDirectory' {} a -> s {ipGroupIds = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The devices and operating systems that users can use to access
 -- WorkSpaces.
-workspaceDirectory_workspaceAccessProperties :: Lens.Lens' WorkspaceDirectory (Core.Maybe WorkspaceAccessProperties)
+workspaceDirectory_workspaceAccessProperties :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe WorkspaceAccessProperties)
 workspaceDirectory_workspaceAccessProperties = Lens.lens (\WorkspaceDirectory' {workspaceAccessProperties} -> workspaceAccessProperties) (\s@WorkspaceDirectory' {} a -> s {workspaceAccessProperties = a} :: WorkspaceDirectory)
 
 -- | The identifiers of the subnets used with the directory.
-workspaceDirectory_subnetIds :: Lens.Lens' WorkspaceDirectory (Core.Maybe [Core.Text])
-workspaceDirectory_subnetIds = Lens.lens (\WorkspaceDirectory' {subnetIds} -> subnetIds) (\s@WorkspaceDirectory' {} a -> s {subnetIds = a} :: WorkspaceDirectory) Core.. Lens.mapping Lens._Coerce
+workspaceDirectory_subnetIds :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
+workspaceDirectory_subnetIds = Lens.lens (\WorkspaceDirectory' {subnetIds} -> subnetIds) (\s@WorkspaceDirectory' {} a -> s {subnetIds = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the directory is dedicated or shared. To use Bring
 -- Your Own License (BYOL), this value must be set to @DEDICATED@. For more
 -- information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
-workspaceDirectory_tenancy :: Lens.Lens' WorkspaceDirectory (Core.Maybe Tenancy)
+workspaceDirectory_tenancy :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Tenancy)
 workspaceDirectory_tenancy = Lens.lens (\WorkspaceDirectory' {tenancy} -> tenancy) (\s@WorkspaceDirectory' {} a -> s {tenancy = a} :: WorkspaceDirectory)
 
 -- | The user name for the service account.
-workspaceDirectory_customerUserName :: Lens.Lens' WorkspaceDirectory (Core.Maybe Core.Text)
+workspaceDirectory_customerUserName :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_customerUserName = Lens.lens (\WorkspaceDirectory' {customerUserName} -> customerUserName) (\s@WorkspaceDirectory' {} a -> s {customerUserName = a} :: WorkspaceDirectory)
 
 -- | The state of the directory\'s registration with Amazon WorkSpaces. After
@@ -208,37 +209,37 @@ workspaceDirectory_customerUserName = Lens.lens (\WorkspaceDirectory' {customerU
 -- <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories>.
 -- If the directory ID isn\'t returned, then the directory has been
 -- successfully deregistered.
-workspaceDirectory_state :: Lens.Lens' WorkspaceDirectory (Core.Maybe WorkspaceDirectoryState)
+workspaceDirectory_state :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe WorkspaceDirectoryState)
 workspaceDirectory_state = Lens.lens (\WorkspaceDirectory' {state} -> state) (\s@WorkspaceDirectory' {} a -> s {state = a} :: WorkspaceDirectory)
 
 -- | The identifier of the IAM role. This is the role that allows Amazon
 -- WorkSpaces to make calls to other services, such as Amazon EC2, on your
 -- behalf.
-workspaceDirectory_iamRoleId :: Lens.Lens' WorkspaceDirectory (Core.Maybe Core.Text)
+workspaceDirectory_iamRoleId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_iamRoleId = Lens.lens (\WorkspaceDirectory' {iamRoleId} -> iamRoleId) (\s@WorkspaceDirectory' {} a -> s {iamRoleId = a} :: WorkspaceDirectory)
 
 -- | The directory identifier.
-workspaceDirectory_directoryId :: Lens.Lens' WorkspaceDirectory (Core.Maybe Core.Text)
+workspaceDirectory_directoryId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_directoryId = Lens.lens (\WorkspaceDirectory' {directoryId} -> directoryId) (\s@WorkspaceDirectory' {} a -> s {directoryId = a} :: WorkspaceDirectory)
 
 -- | The default self-service permissions for WorkSpaces in the directory.
-workspaceDirectory_selfservicePermissions :: Lens.Lens' WorkspaceDirectory (Core.Maybe SelfservicePermissions)
+workspaceDirectory_selfservicePermissions :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe SelfservicePermissions)
 workspaceDirectory_selfservicePermissions = Lens.lens (\WorkspaceDirectory' {selfservicePermissions} -> selfservicePermissions) (\s@WorkspaceDirectory' {} a -> s {selfservicePermissions = a} :: WorkspaceDirectory)
 
 -- | The directory type.
-workspaceDirectory_directoryType :: Lens.Lens' WorkspaceDirectory (Core.Maybe WorkspaceDirectoryType)
+workspaceDirectory_directoryType :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe WorkspaceDirectoryType)
 workspaceDirectory_directoryType = Lens.lens (\WorkspaceDirectory' {directoryType} -> directoryType) (\s@WorkspaceDirectory' {} a -> s {directoryType = a} :: WorkspaceDirectory)
 
 -- | The name of the directory.
-workspaceDirectory_directoryName :: Lens.Lens' WorkspaceDirectory (Core.Maybe Core.Text)
+workspaceDirectory_directoryName :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_directoryName = Lens.lens (\WorkspaceDirectory' {directoryName} -> directoryName) (\s@WorkspaceDirectory' {} a -> s {directoryName = a} :: WorkspaceDirectory)
 
 -- | The IP addresses of the DNS servers for the directory.
-workspaceDirectory_dnsIpAddresses :: Lens.Lens' WorkspaceDirectory (Core.Maybe [Core.Text])
-workspaceDirectory_dnsIpAddresses = Lens.lens (\WorkspaceDirectory' {dnsIpAddresses} -> dnsIpAddresses) (\s@WorkspaceDirectory' {} a -> s {dnsIpAddresses = a} :: WorkspaceDirectory) Core.. Lens.mapping Lens._Coerce
+workspaceDirectory_dnsIpAddresses :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
+workspaceDirectory_dnsIpAddresses = Lens.lens (\WorkspaceDirectory' {dnsIpAddresses} -> dnsIpAddresses) (\s@WorkspaceDirectory' {} a -> s {dnsIpAddresses = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The default creation properties for all WorkSpaces in the directory.
-workspaceDirectory_workspaceCreationProperties :: Lens.Lens' WorkspaceDirectory (Core.Maybe DefaultWorkspaceCreationProperties)
+workspaceDirectory_workspaceCreationProperties :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe DefaultWorkspaceCreationProperties)
 workspaceDirectory_workspaceCreationProperties = Lens.lens (\WorkspaceDirectory' {workspaceCreationProperties} -> workspaceCreationProperties) (\s@WorkspaceDirectory' {} a -> s {workspaceCreationProperties = a} :: WorkspaceDirectory)
 
 instance Core.FromJSON WorkspaceDirectory where
@@ -247,24 +248,24 @@ instance Core.FromJSON WorkspaceDirectory where
       "WorkspaceDirectory"
       ( \x ->
           WorkspaceDirectory'
-            Core.<$> (x Core..:? "RegistrationCode")
-            Core.<*> (x Core..:? "WorkspaceSecurityGroupId")
-            Core.<*> (x Core..:? "Alias")
-            Core.<*> (x Core..:? "ipGroupIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "WorkspaceAccessProperties")
-            Core.<*> (x Core..:? "SubnetIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Tenancy")
-            Core.<*> (x Core..:? "CustomerUserName")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (x Core..:? "IamRoleId")
-            Core.<*> (x Core..:? "DirectoryId")
-            Core.<*> (x Core..:? "SelfservicePermissions")
-            Core.<*> (x Core..:? "DirectoryType")
-            Core.<*> (x Core..:? "DirectoryName")
-            Core.<*> (x Core..:? "DnsIpAddresses" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "WorkspaceCreationProperties")
+            Prelude.<$> (x Core..:? "RegistrationCode")
+            Prelude.<*> (x Core..:? "WorkspaceSecurityGroupId")
+            Prelude.<*> (x Core..:? "Alias")
+            Prelude.<*> (x Core..:? "ipGroupIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "WorkspaceAccessProperties")
+            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Tenancy")
+            Prelude.<*> (x Core..:? "CustomerUserName")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "IamRoleId")
+            Prelude.<*> (x Core..:? "DirectoryId")
+            Prelude.<*> (x Core..:? "SelfservicePermissions")
+            Prelude.<*> (x Core..:? "DirectoryType")
+            Prelude.<*> (x Core..:? "DirectoryName")
+            Prelude.<*> (x Core..:? "DnsIpAddresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "WorkspaceCreationProperties")
       )
 
-instance Core.Hashable WorkspaceDirectory
+instance Prelude.Hashable WorkspaceDirectory
 
-instance Core.NFData WorkspaceDirectory
+instance Prelude.NFData WorkspaceDirectory

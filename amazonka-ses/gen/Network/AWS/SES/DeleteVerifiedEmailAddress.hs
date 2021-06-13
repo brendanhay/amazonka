@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -48,9 +49,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newDeleteVerifiedEmailAddress' smart constructor.
 data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
   { -- | An email address to be removed from the list of verified addresses.
-    emailAddress :: Core.Text
+    emailAddress :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVerifiedEmailAddress' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
 -- 'emailAddress', 'deleteVerifiedEmailAddress_emailAddress' - An email address to be removed from the list of verified addresses.
 newDeleteVerifiedEmailAddress ::
   -- | 'emailAddress'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVerifiedEmailAddress
 newDeleteVerifiedEmailAddress pEmailAddress_ =
   DeleteVerifiedEmailAddress'
@@ -72,7 +73,7 @@ newDeleteVerifiedEmailAddress pEmailAddress_ =
     }
 
 -- | An email address to be removed from the list of verified addresses.
-deleteVerifiedEmailAddress_emailAddress :: Lens.Lens' DeleteVerifiedEmailAddress Core.Text
+deleteVerifiedEmailAddress_emailAddress :: Lens.Lens' DeleteVerifiedEmailAddress Prelude.Text
 deleteVerifiedEmailAddress_emailAddress = Lens.lens (\DeleteVerifiedEmailAddress' {emailAddress} -> emailAddress) (\s@DeleteVerifiedEmailAddress' {} a -> s {emailAddress = a} :: DeleteVerifiedEmailAddress)
 
 instance Core.AWSRequest DeleteVerifiedEmailAddress where
@@ -84,22 +85,23 @@ instance Core.AWSRequest DeleteVerifiedEmailAddress where
     Response.receiveNull
       DeleteVerifiedEmailAddressResponse'
 
-instance Core.Hashable DeleteVerifiedEmailAddress
+instance Prelude.Hashable DeleteVerifiedEmailAddress
 
-instance Core.NFData DeleteVerifiedEmailAddress
+instance Prelude.NFData DeleteVerifiedEmailAddress
 
 instance Core.ToHeaders DeleteVerifiedEmailAddress where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteVerifiedEmailAddress where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVerifiedEmailAddress where
   toQuery DeleteVerifiedEmailAddress' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVerifiedEmailAddress" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("DeleteVerifiedEmailAddress" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "EmailAddress" Core.=: emailAddress
       ]
 
@@ -107,7 +109,7 @@ instance Core.ToQuery DeleteVerifiedEmailAddress where
 data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVerifiedEmailAddressResponse' with all optional fields omitted.
@@ -119,5 +121,5 @@ newDeleteVerifiedEmailAddressResponse =
   DeleteVerifiedEmailAddressResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteVerifiedEmailAddressResponse

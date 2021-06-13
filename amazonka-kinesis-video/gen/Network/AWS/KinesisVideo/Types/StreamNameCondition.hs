@@ -22,6 +22,7 @@ module Network.AWS.KinesisVideo.Types.StreamNameCondition where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types.ComparisonOperator
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the condition that streams must satisfy to be returned when
 -- you list streams (see the @ListStreams@ API). A condition has a
@@ -33,11 +34,11 @@ import qualified Network.AWS.Lens as Lens
 data StreamNameCondition = StreamNameCondition'
   { -- | A comparison operator. Currently, you can specify only the @BEGINS_WITH@
     -- operator, which finds streams whose names start with a given prefix.
-    comparisonOperator :: Core.Maybe ComparisonOperator,
+    comparisonOperator :: Prelude.Maybe ComparisonOperator,
     -- | A value to compare.
-    comparisonValue :: Core.Maybe Core.Text
+    comparisonValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamNameCondition' with all optional fields omitted.
@@ -56,30 +57,30 @@ newStreamNameCondition ::
 newStreamNameCondition =
   StreamNameCondition'
     { comparisonOperator =
-        Core.Nothing,
-      comparisonValue = Core.Nothing
+        Prelude.Nothing,
+      comparisonValue = Prelude.Nothing
     }
 
 -- | A comparison operator. Currently, you can specify only the @BEGINS_WITH@
 -- operator, which finds streams whose names start with a given prefix.
-streamNameCondition_comparisonOperator :: Lens.Lens' StreamNameCondition (Core.Maybe ComparisonOperator)
+streamNameCondition_comparisonOperator :: Lens.Lens' StreamNameCondition (Prelude.Maybe ComparisonOperator)
 streamNameCondition_comparisonOperator = Lens.lens (\StreamNameCondition' {comparisonOperator} -> comparisonOperator) (\s@StreamNameCondition' {} a -> s {comparisonOperator = a} :: StreamNameCondition)
 
 -- | A value to compare.
-streamNameCondition_comparisonValue :: Lens.Lens' StreamNameCondition (Core.Maybe Core.Text)
+streamNameCondition_comparisonValue :: Lens.Lens' StreamNameCondition (Prelude.Maybe Prelude.Text)
 streamNameCondition_comparisonValue = Lens.lens (\StreamNameCondition' {comparisonValue} -> comparisonValue) (\s@StreamNameCondition' {} a -> s {comparisonValue = a} :: StreamNameCondition)
 
-instance Core.Hashable StreamNameCondition
+instance Prelude.Hashable StreamNameCondition
 
-instance Core.NFData StreamNameCondition
+instance Prelude.NFData StreamNameCondition
 
 instance Core.ToJSON StreamNameCondition where
   toJSON StreamNameCondition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ComparisonOperator" Core..=)
-              Core.<$> comparisonOperator,
+              Prelude.<$> comparisonOperator,
             ("ComparisonValue" Core..=)
-              Core.<$> comparisonValue
+              Prelude.<$> comparisonValue
           ]
       )

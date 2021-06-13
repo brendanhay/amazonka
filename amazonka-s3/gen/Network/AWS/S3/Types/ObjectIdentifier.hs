@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ObjectIdentifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Object Identifier is unique value to identify objects.
@@ -28,7 +29,7 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newObjectIdentifier' smart constructor.
 data ObjectIdentifier = ObjectIdentifier'
   { -- | VersionId for the specific version of the object to delete.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | Key name of the object.
     --
     -- Replacement must be made for object keys containing special characters
@@ -37,7 +38,7 @@ data ObjectIdentifier = ObjectIdentifier'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ObjectIdentifier' with all optional fields omitted.
@@ -61,12 +62,12 @@ newObjectIdentifier ::
   ObjectIdentifier
 newObjectIdentifier pKey_ =
   ObjectIdentifier'
-    { versionId = Core.Nothing,
+    { versionId = Prelude.Nothing,
       key = pKey_
     }
 
 -- | VersionId for the specific version of the object to delete.
-objectIdentifier_versionId :: Lens.Lens' ObjectIdentifier (Core.Maybe ObjectVersionId)
+objectIdentifier_versionId :: Lens.Lens' ObjectIdentifier (Prelude.Maybe ObjectVersionId)
 objectIdentifier_versionId = Lens.lens (\ObjectIdentifier' {versionId} -> versionId) (\s@ObjectIdentifier' {} a -> s {versionId = a} :: ObjectIdentifier)
 
 -- | Key name of the object.
@@ -78,11 +79,11 @@ objectIdentifier_versionId = Lens.lens (\ObjectIdentifier' {versionId} -> versio
 objectIdentifier_key :: Lens.Lens' ObjectIdentifier ObjectKey
 objectIdentifier_key = Lens.lens (\ObjectIdentifier' {key} -> key) (\s@ObjectIdentifier' {} a -> s {key = a} :: ObjectIdentifier)
 
-instance Core.Hashable ObjectIdentifier
+instance Prelude.Hashable ObjectIdentifier
 
-instance Core.NFData ObjectIdentifier
+instance Prelude.NFData ObjectIdentifier
 
 instance Core.ToXML ObjectIdentifier where
   toXML ObjectIdentifier' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["VersionId" Core.@= versionId, "Key" Core.@= key]

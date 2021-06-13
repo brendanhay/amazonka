@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +55,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute'
     --
     -- You cannot modify the DNS resolution and DNS hostnames attributes in the
     -- same request. Use separate requests for each attribute.
-    enableDnsSupport :: Core.Maybe AttributeBooleanValue,
+    enableDnsSupport :: Prelude.Maybe AttributeBooleanValue,
     -- | Indicates whether the instances launched in the VPC get DNS hostnames.
     -- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
     -- not.
@@ -62,11 +63,11 @@ data ModifyVpcAttribute = ModifyVpcAttribute'
     -- You cannot modify the DNS resolution and DNS hostnames attributes in the
     -- same request. Use separate requests for each attribute. You can only
     -- enable DNS hostnames if you\'ve enabled DNS support.
-    enableDnsHostnames :: Core.Maybe AttributeBooleanValue,
+    enableDnsHostnames :: Prelude.Maybe AttributeBooleanValue,
     -- | The ID of the VPC.
-    vpcId :: Core.Text
+    vpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcAttribute' with all optional fields omitted.
@@ -97,13 +98,13 @@ data ModifyVpcAttribute = ModifyVpcAttribute'
 -- 'vpcId', 'modifyVpcAttribute_vpcId' - The ID of the VPC.
 newModifyVpcAttribute ::
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyVpcAttribute
 newModifyVpcAttribute pVpcId_ =
   ModifyVpcAttribute'
     { enableDnsSupport =
-        Core.Nothing,
-      enableDnsHostnames = Core.Nothing,
+        Prelude.Nothing,
+      enableDnsHostnames = Prelude.Nothing,
       vpcId = pVpcId_
     }
 
@@ -116,7 +117,7 @@ newModifyVpcAttribute pVpcId_ =
 --
 -- You cannot modify the DNS resolution and DNS hostnames attributes in the
 -- same request. Use separate requests for each attribute.
-modifyVpcAttribute_enableDnsSupport :: Lens.Lens' ModifyVpcAttribute (Core.Maybe AttributeBooleanValue)
+modifyVpcAttribute_enableDnsSupport :: Lens.Lens' ModifyVpcAttribute (Prelude.Maybe AttributeBooleanValue)
 modifyVpcAttribute_enableDnsSupport = Lens.lens (\ModifyVpcAttribute' {enableDnsSupport} -> enableDnsSupport) (\s@ModifyVpcAttribute' {} a -> s {enableDnsSupport = a} :: ModifyVpcAttribute)
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.
@@ -126,11 +127,11 @@ modifyVpcAttribute_enableDnsSupport = Lens.lens (\ModifyVpcAttribute' {enableDns
 -- You cannot modify the DNS resolution and DNS hostnames attributes in the
 -- same request. Use separate requests for each attribute. You can only
 -- enable DNS hostnames if you\'ve enabled DNS support.
-modifyVpcAttribute_enableDnsHostnames :: Lens.Lens' ModifyVpcAttribute (Core.Maybe AttributeBooleanValue)
+modifyVpcAttribute_enableDnsHostnames :: Lens.Lens' ModifyVpcAttribute (Prelude.Maybe AttributeBooleanValue)
 modifyVpcAttribute_enableDnsHostnames = Lens.lens (\ModifyVpcAttribute' {enableDnsHostnames} -> enableDnsHostnames) (\s@ModifyVpcAttribute' {} a -> s {enableDnsHostnames = a} :: ModifyVpcAttribute)
 
 -- | The ID of the VPC.
-modifyVpcAttribute_vpcId :: Lens.Lens' ModifyVpcAttribute Core.Text
+modifyVpcAttribute_vpcId :: Lens.Lens' ModifyVpcAttribute Prelude.Text
 modifyVpcAttribute_vpcId = Lens.lens (\ModifyVpcAttribute' {vpcId} -> vpcId) (\s@ModifyVpcAttribute' {} a -> s {vpcId = a} :: ModifyVpcAttribute)
 
 instance Core.AWSRequest ModifyVpcAttribute where
@@ -141,22 +142,23 @@ instance Core.AWSRequest ModifyVpcAttribute where
   response =
     Response.receiveNull ModifyVpcAttributeResponse'
 
-instance Core.Hashable ModifyVpcAttribute
+instance Prelude.Hashable ModifyVpcAttribute
 
-instance Core.NFData ModifyVpcAttribute
+instance Prelude.NFData ModifyVpcAttribute
 
 instance Core.ToHeaders ModifyVpcAttribute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyVpcAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyVpcAttribute where
   toQuery ModifyVpcAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpcAttribute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyVpcAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "EnableDnsSupport" Core.=: enableDnsSupport,
         "EnableDnsHostnames" Core.=: enableDnsHostnames,
         "VpcId" Core.=: vpcId
@@ -166,7 +168,7 @@ instance Core.ToQuery ModifyVpcAttribute where
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcAttributeResponse' with all optional fields omitted.
@@ -177,4 +179,4 @@ newModifyVpcAttributeResponse ::
 newModifyVpcAttributeResponse =
   ModifyVpcAttributeResponse'
 
-instance Core.NFData ModifyVpcAttributeResponse
+instance Prelude.NFData ModifyVpcAttributeResponse

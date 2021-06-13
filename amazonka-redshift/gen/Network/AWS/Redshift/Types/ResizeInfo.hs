@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ResizeInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a resize operation.
@@ -28,11 +29,11 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newResizeInfo' smart constructor.
 data ResizeInfo = ResizeInfo'
   { -- | A boolean value indicating if the resize operation can be cancelled.
-    allowCancelResize :: Core.Maybe Core.Bool,
+    allowCancelResize :: Prelude.Maybe Prelude.Bool,
     -- | Returns the value @ClassicResize@.
-    resizeType :: Core.Maybe Core.Text
+    resizeType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResizeInfo' with all optional fields omitted.
@@ -49,24 +50,24 @@ newResizeInfo ::
   ResizeInfo
 newResizeInfo =
   ResizeInfo'
-    { allowCancelResize = Core.Nothing,
-      resizeType = Core.Nothing
+    { allowCancelResize = Prelude.Nothing,
+      resizeType = Prelude.Nothing
     }
 
 -- | A boolean value indicating if the resize operation can be cancelled.
-resizeInfo_allowCancelResize :: Lens.Lens' ResizeInfo (Core.Maybe Core.Bool)
+resizeInfo_allowCancelResize :: Lens.Lens' ResizeInfo (Prelude.Maybe Prelude.Bool)
 resizeInfo_allowCancelResize = Lens.lens (\ResizeInfo' {allowCancelResize} -> allowCancelResize) (\s@ResizeInfo' {} a -> s {allowCancelResize = a} :: ResizeInfo)
 
 -- | Returns the value @ClassicResize@.
-resizeInfo_resizeType :: Lens.Lens' ResizeInfo (Core.Maybe Core.Text)
+resizeInfo_resizeType :: Lens.Lens' ResizeInfo (Prelude.Maybe Prelude.Text)
 resizeInfo_resizeType = Lens.lens (\ResizeInfo' {resizeType} -> resizeType) (\s@ResizeInfo' {} a -> s {resizeType = a} :: ResizeInfo)
 
 instance Core.FromXML ResizeInfo where
   parseXML x =
     ResizeInfo'
-      Core.<$> (x Core..@? "AllowCancelResize")
-      Core.<*> (x Core..@? "ResizeType")
+      Prelude.<$> (x Core..@? "AllowCancelResize")
+      Prelude.<*> (x Core..@? "ResizeType")
 
-instance Core.Hashable ResizeInfo
+instance Prelude.Hashable ResizeInfo
 
-instance Core.NFData ResizeInfo
+instance Prelude.NFData ResizeInfo

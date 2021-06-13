@@ -78,6 +78,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -95,9 +96,9 @@ data CreateCluster = CreateCluster'
     -- If this option is @true@, enhanced VPC routing is enabled.
     --
     -- Default: false
-    enhancedVpcRouting :: Core.Maybe Core.Bool,
+    enhancedVpcRouting :: Prelude.Maybe Prelude.Bool,
     -- | Reserved.
-    additionalInfo :: Core.Maybe Core.Text,
+    additionalInfo :: Prelude.Maybe Prelude.Text,
     -- | The Elastic IP (EIP) address for the cluster.
     --
     -- Constraints: The cluster must be provisioned in EC2-VPC and
@@ -105,19 +106,19 @@ data CreateCluster = CreateCluster'
     -- about provisioning clusters in EC2-VPC, go to
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
     -- in the Amazon Redshift Cluster Management Guide.
-    elasticIp :: Core.Maybe Core.Text,
+    elasticIp :: Prelude.Maybe Prelude.Text,
     -- | The name of a cluster subnet group to be associated with this cluster.
     --
     -- If this parameter is not provided the resulting cluster will be deployed
     -- outside virtual private cloud (VPC).
-    clusterSubnetGroupName :: Core.Maybe Core.Text,
+    clusterSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the HSM client certificate the Amazon Redshift
     -- cluster uses to retrieve the data encryption keys stored in an HSM.
-    hsmClientCertificateIdentifier :: Core.Maybe Core.Text,
+    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | If @true@, the data in the cluster is encrypted at rest.
     --
     -- Default: false
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | If @true@, major version upgrades can be applied during the maintenance
     -- window to the Amazon Redshift engine that is running on the cluster.
     --
@@ -127,7 +128,7 @@ data CreateCluster = CreateCluster'
     -- cluster.
     --
     -- Default: @true@
-    allowVersionUpgrade :: Core.Maybe Core.Bool,
+    allowVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The number of days that automated snapshots are retained. If the value
     -- is 0, automated snapshots are disabled. Even if automated snapshots are
     -- disabled, you can still create manual snapshots when you want with
@@ -136,7 +137,7 @@ data CreateCluster = CreateCluster'
     -- Default: @1@
     --
     -- Constraints: Must be a value from 0 to 35.
-    automatedSnapshotRetentionPeriod :: Core.Maybe Core.Int,
+    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The name of the parameter group to be associated with this cluster.
     --
     -- Default: The default Amazon Redshift cluster parameter group. For
@@ -150,19 +151,19 @@ data CreateCluster = CreateCluster'
     -- -   First character must be a letter.
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    clusterParameterGroupName :: Core.Maybe Core.Text,
+    clusterParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The option to enable relocation for an Amazon Redshift cluster between
     -- Availability Zones after the cluster is created.
-    availabilityZoneRelocation :: Core.Maybe Core.Bool,
+    availabilityZoneRelocation :: Prelude.Maybe Prelude.Bool,
     -- | A unique identifier for the snapshot schedule.
-    snapshotScheduleIdentifier :: Core.Maybe Core.Text,
+    snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
     -- | If @true@, the cluster can be accessed from a public network.
-    publiclyAccessible :: Core.Maybe Core.Bool,
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | A list of Virtual Private Cloud (VPC) security groups to be associated
     -- with the cluster.
     --
     -- Default: The default VPC security group is associated with the cluster.
-    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The type of the cluster. When cluster type is specified as
     --
     -- -   @single-node@, the __NumberOfNodes__ parameter is not required.
@@ -172,16 +173,16 @@ data CreateCluster = CreateCluster'
     -- Valid Values: @multi-node@ | @single-node@
     --
     -- Default: @multi-node@
-    clusterType :: Core.Maybe Core.Text,
+    clusterType :: Prelude.Maybe Prelude.Text,
     -- | The default number of days to retain a manual snapshot. If the value is
     -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
     -- the retention period of existing snapshots.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
-    manualSnapshotRetentionPeriod :: Core.Maybe Core.Int,
+    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The AWS Key Management Service (KMS) key ID of the encryption key that
     -- you want to use to encrypt data in the cluster.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
     -- provision the cluster. For example, if you have several EC2 instances
     -- running in a specific Availability Zone, then you might want the cluster
@@ -194,7 +195,7 @@ data CreateCluster = CreateCluster'
     --
     -- Constraint: The specified Availability Zone must be in the same region
     -- as the current endpoint.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range (in UTC) during which automated cluster
     -- maintenance can occur.
     --
@@ -209,9 +210,9 @@ data CreateCluster = CreateCluster'
     -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
     --
     -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | A list of tag instances.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The number of compute nodes in the cluster. This parameter is required
     -- when the __ClusterType__ parameter is specified as @multi-node@.
     --
@@ -226,7 +227,7 @@ data CreateCluster = CreateCluster'
     -- Default: @1@
     --
     -- Constraints: Value must be at least 1 and no more than 100.
-    numberOfNodes :: Core.Maybe Core.Int,
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The port number on which the cluster accepts incoming connections.
     --
     -- The cluster is accessible only via the JDBC and ODBC connection strings.
@@ -236,7 +237,7 @@ data CreateCluster = CreateCluster'
     -- Default: @5439@
     --
     -- Valid Values: @1150-65535@
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | The name of the first database to be created when the cluster is
     -- created.
     --
@@ -258,7 +259,7 @@ data CreateCluster = CreateCluster'
     --     words can be found in
     --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
-    dbName :: Core.Maybe Core.Text,
+    dbName :: Prelude.Maybe Prelude.Text,
     -- | The version of the Amazon Redshift engine software that you want to
     -- deploy on the cluster.
     --
@@ -267,26 +268,26 @@ data CreateCluster = CreateCluster'
     -- Constraints: Only version 1.0 is currently available.
     --
     -- Example: @1.0@
-    clusterVersion :: Core.Maybe Core.Text,
+    clusterVersion :: Prelude.Maybe Prelude.Text,
     -- | A list of security groups to be associated with this cluster.
     --
     -- Default: The default cluster security group for Amazon Redshift.
-    clusterSecurityGroups :: Core.Maybe [Core.Text],
+    clusterSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | An optional parameter for the name of the maintenance track for the
     -- cluster. If you don\'t provide a maintenance track name, the cluster is
     -- assigned to the @current@ track.
-    maintenanceTrackName :: Core.Maybe Core.Text,
+    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the HSM configuration that contains the
     -- information the Amazon Redshift cluster can use to retrieve and store
     -- keys in an HSM.
-    hsmConfigurationIdentifier :: Core.Maybe Core.Text,
+    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A list of AWS Identity and Access Management (IAM) roles that can be
     -- used by the cluster to access other AWS services. You must supply the
     -- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
     -- to 10 IAM roles in a single request.
     --
     -- A cluster can have up to 10 IAM roles associated with it at any time.
-    iamRoles :: Core.Maybe [Core.Text],
+    iamRoles :: Prelude.Maybe [Prelude.Text],
     -- | A unique identifier for the cluster. You use this identifier to refer to
     -- the cluster for any subsequent cluster operations such as deleting or
     -- modifying. The identifier also appears in the Amazon Redshift console.
@@ -304,7 +305,7 @@ data CreateCluster = CreateCluster'
     -- -   Must be unique for all clusters within an AWS account.
     --
     -- Example: @myexamplecluster@
-    clusterIdentifier :: Core.Text,
+    clusterIdentifier :: Prelude.Text,
     -- | The node type to be provisioned for the cluster. For information about
     -- node types, go to
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
@@ -313,7 +314,7 @@ data CreateCluster = CreateCluster'
     -- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@
     -- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
     -- @ra3.16xlarge@
-    nodeType :: Core.Text,
+    nodeType :: Prelude.Text,
     -- | The user name associated with the master user account for the cluster
     -- that is being created.
     --
@@ -327,7 +328,7 @@ data CreateCluster = CreateCluster'
     -- -   Cannot be a reserved word. A list of reserved words can be found in
     --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
-    masterUsername :: Core.Text,
+    masterUsername :: Prelude.Text,
     -- | The password associated with the master user account for the cluster
     -- that is being created.
     --
@@ -343,9 +344,9 @@ data CreateCluster = CreateCluster'
     --
     -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
     --     \' (single quote), \" (double quote), \\, \/, \@, or space.
-    masterUserPassword :: Core.Text
+    masterUserPassword :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCluster' with all optional fields omitted.
@@ -614,13 +615,13 @@ data CreateCluster = CreateCluster'
 --     \' (single quote), \" (double quote), \\, \/, \@, or space.
 newCreateCluster ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'nodeType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'masterUsername'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'masterUserPassword'
-  Core.Text ->
+  Prelude.Text ->
   CreateCluster
 newCreateCluster
   pClusterIdentifier_
@@ -628,33 +629,34 @@ newCreateCluster
   pMasterUsername_
   pMasterUserPassword_ =
     CreateCluster'
-      { enhancedVpcRouting = Core.Nothing,
-        additionalInfo = Core.Nothing,
-        elasticIp = Core.Nothing,
-        clusterSubnetGroupName = Core.Nothing,
-        hsmClientCertificateIdentifier = Core.Nothing,
-        encrypted = Core.Nothing,
-        allowVersionUpgrade = Core.Nothing,
-        automatedSnapshotRetentionPeriod = Core.Nothing,
-        clusterParameterGroupName = Core.Nothing,
-        availabilityZoneRelocation = Core.Nothing,
-        snapshotScheduleIdentifier = Core.Nothing,
-        publiclyAccessible = Core.Nothing,
-        vpcSecurityGroupIds = Core.Nothing,
-        clusterType = Core.Nothing,
-        manualSnapshotRetentionPeriod = Core.Nothing,
-        kmsKeyId = Core.Nothing,
-        availabilityZone = Core.Nothing,
-        preferredMaintenanceWindow = Core.Nothing,
-        tags = Core.Nothing,
-        numberOfNodes = Core.Nothing,
-        port = Core.Nothing,
-        dbName = Core.Nothing,
-        clusterVersion = Core.Nothing,
-        clusterSecurityGroups = Core.Nothing,
-        maintenanceTrackName = Core.Nothing,
-        hsmConfigurationIdentifier = Core.Nothing,
-        iamRoles = Core.Nothing,
+      { enhancedVpcRouting =
+          Prelude.Nothing,
+        additionalInfo = Prelude.Nothing,
+        elasticIp = Prelude.Nothing,
+        clusterSubnetGroupName = Prelude.Nothing,
+        hsmClientCertificateIdentifier = Prelude.Nothing,
+        encrypted = Prelude.Nothing,
+        allowVersionUpgrade = Prelude.Nothing,
+        automatedSnapshotRetentionPeriod = Prelude.Nothing,
+        clusterParameterGroupName = Prelude.Nothing,
+        availabilityZoneRelocation = Prelude.Nothing,
+        snapshotScheduleIdentifier = Prelude.Nothing,
+        publiclyAccessible = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
+        clusterType = Prelude.Nothing,
+        manualSnapshotRetentionPeriod = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        availabilityZone = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        numberOfNodes = Prelude.Nothing,
+        port = Prelude.Nothing,
+        dbName = Prelude.Nothing,
+        clusterVersion = Prelude.Nothing,
+        clusterSecurityGroups = Prelude.Nothing,
+        maintenanceTrackName = Prelude.Nothing,
+        hsmConfigurationIdentifier = Prelude.Nothing,
+        iamRoles = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         nodeType = pNodeType_,
         masterUsername = pMasterUsername_,
@@ -670,11 +672,11 @@ newCreateCluster
 -- If this option is @true@, enhanced VPC routing is enabled.
 --
 -- Default: false
-createCluster_enhancedVpcRouting :: Lens.Lens' CreateCluster (Core.Maybe Core.Bool)
+createCluster_enhancedVpcRouting :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_enhancedVpcRouting = Lens.lens (\CreateCluster' {enhancedVpcRouting} -> enhancedVpcRouting) (\s@CreateCluster' {} a -> s {enhancedVpcRouting = a} :: CreateCluster)
 
 -- | Reserved.
-createCluster_additionalInfo :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_additionalInfo :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_additionalInfo = Lens.lens (\CreateCluster' {additionalInfo} -> additionalInfo) (\s@CreateCluster' {} a -> s {additionalInfo = a} :: CreateCluster)
 
 -- | The Elastic IP (EIP) address for the cluster.
@@ -684,25 +686,25 @@ createCluster_additionalInfo = Lens.lens (\CreateCluster' {additionalInfo} -> ad
 -- about provisioning clusters in EC2-VPC, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
 -- in the Amazon Redshift Cluster Management Guide.
-createCluster_elasticIp :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_elasticIp :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_elasticIp = Lens.lens (\CreateCluster' {elasticIp} -> elasticIp) (\s@CreateCluster' {} a -> s {elasticIp = a} :: CreateCluster)
 
 -- | The name of a cluster subnet group to be associated with this cluster.
 --
 -- If this parameter is not provided the resulting cluster will be deployed
 -- outside virtual private cloud (VPC).
-createCluster_clusterSubnetGroupName :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_clusterSubnetGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterSubnetGroupName = Lens.lens (\CreateCluster' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@CreateCluster' {} a -> s {clusterSubnetGroupName = a} :: CreateCluster)
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-createCluster_hsmClientCertificateIdentifier :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_hsmClientCertificateIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_hsmClientCertificateIdentifier = Lens.lens (\CreateCluster' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@CreateCluster' {} a -> s {hsmClientCertificateIdentifier = a} :: CreateCluster)
 
 -- | If @true@, the data in the cluster is encrypted at rest.
 --
 -- Default: false
-createCluster_encrypted :: Lens.Lens' CreateCluster (Core.Maybe Core.Bool)
+createCluster_encrypted :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_encrypted = Lens.lens (\CreateCluster' {encrypted} -> encrypted) (\s@CreateCluster' {} a -> s {encrypted = a} :: CreateCluster)
 
 -- | If @true@, major version upgrades can be applied during the maintenance
@@ -714,7 +716,7 @@ createCluster_encrypted = Lens.lens (\CreateCluster' {encrypted} -> encrypted) (
 -- cluster.
 --
 -- Default: @true@
-createCluster_allowVersionUpgrade :: Lens.Lens' CreateCluster (Core.Maybe Core.Bool)
+createCluster_allowVersionUpgrade :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_allowVersionUpgrade = Lens.lens (\CreateCluster' {allowVersionUpgrade} -> allowVersionUpgrade) (\s@CreateCluster' {} a -> s {allowVersionUpgrade = a} :: CreateCluster)
 
 -- | The number of days that automated snapshots are retained. If the value
@@ -725,7 +727,7 @@ createCluster_allowVersionUpgrade = Lens.lens (\CreateCluster' {allowVersionUpgr
 -- Default: @1@
 --
 -- Constraints: Must be a value from 0 to 35.
-createCluster_automatedSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Core.Maybe Core.Int)
+createCluster_automatedSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
 createCluster_automatedSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@CreateCluster' {} a -> s {automatedSnapshotRetentionPeriod = a} :: CreateCluster)
 
 -- | The name of the parameter group to be associated with this cluster.
@@ -741,28 +743,28 @@ createCluster_automatedSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {aut
 -- -   First character must be a letter.
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-createCluster_clusterParameterGroupName :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_clusterParameterGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterParameterGroupName = Lens.lens (\CreateCluster' {clusterParameterGroupName} -> clusterParameterGroupName) (\s@CreateCluster' {} a -> s {clusterParameterGroupName = a} :: CreateCluster)
 
 -- | The option to enable relocation for an Amazon Redshift cluster between
 -- Availability Zones after the cluster is created.
-createCluster_availabilityZoneRelocation :: Lens.Lens' CreateCluster (Core.Maybe Core.Bool)
+createCluster_availabilityZoneRelocation :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_availabilityZoneRelocation = Lens.lens (\CreateCluster' {availabilityZoneRelocation} -> availabilityZoneRelocation) (\s@CreateCluster' {} a -> s {availabilityZoneRelocation = a} :: CreateCluster)
 
 -- | A unique identifier for the snapshot schedule.
-createCluster_snapshotScheduleIdentifier :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_snapshotScheduleIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_snapshotScheduleIdentifier = Lens.lens (\CreateCluster' {snapshotScheduleIdentifier} -> snapshotScheduleIdentifier) (\s@CreateCluster' {} a -> s {snapshotScheduleIdentifier = a} :: CreateCluster)
 
 -- | If @true@, the cluster can be accessed from a public network.
-createCluster_publiclyAccessible :: Lens.Lens' CreateCluster (Core.Maybe Core.Bool)
+createCluster_publiclyAccessible :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_publiclyAccessible = Lens.lens (\CreateCluster' {publiclyAccessible} -> publiclyAccessible) (\s@CreateCluster' {} a -> s {publiclyAccessible = a} :: CreateCluster)
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated
 -- with the cluster.
 --
 -- Default: The default VPC security group is associated with the cluster.
-createCluster_vpcSecurityGroupIds :: Lens.Lens' CreateCluster (Core.Maybe [Core.Text])
-createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
+createCluster_vpcSecurityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of the cluster. When cluster type is specified as
 --
@@ -773,7 +775,7 @@ createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroup
 -- Valid Values: @multi-node@ | @single-node@
 --
 -- Default: @multi-node@
-createCluster_clusterType :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_clusterType :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterType = Lens.lens (\CreateCluster' {clusterType} -> clusterType) (\s@CreateCluster' {} a -> s {clusterType = a} :: CreateCluster)
 
 -- | The default number of days to retain a manual snapshot. If the value is
@@ -781,12 +783,12 @@ createCluster_clusterType = Lens.lens (\CreateCluster' {clusterType} -> clusterT
 -- the retention period of existing snapshots.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
-createCluster_manualSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Core.Maybe Core.Int)
+createCluster_manualSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
 createCluster_manualSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CreateCluster' {} a -> s {manualSnapshotRetentionPeriod = a} :: CreateCluster)
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key that
 -- you want to use to encrypt data in the cluster.
-createCluster_kmsKeyId :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_kmsKeyId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateCluster' {} a -> s {kmsKeyId = a} :: CreateCluster)
 
 -- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
@@ -801,7 +803,7 @@ createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@
 --
 -- Constraint: The specified Availability Zone must be in the same region
 -- as the current endpoint.
-createCluster_availabilityZone :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_availabilityZone :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_availabilityZone = Lens.lens (\CreateCluster' {availabilityZone} -> availabilityZone) (\s@CreateCluster' {} a -> s {availabilityZone = a} :: CreateCluster)
 
 -- | The weekly time range (in UTC) during which automated cluster
@@ -818,12 +820,12 @@ createCluster_availabilityZone = Lens.lens (\CreateCluster' {availabilityZone} -
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Minimum 30-minute window.
-createCluster_preferredMaintenanceWindow :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_preferredMaintenanceWindow :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_preferredMaintenanceWindow = Lens.lens (\CreateCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateCluster' {} a -> s {preferredMaintenanceWindow = a} :: CreateCluster)
 
 -- | A list of tag instances.
-createCluster_tags :: Lens.Lens' CreateCluster (Core.Maybe [Tag])
-createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
+createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of compute nodes in the cluster. This parameter is required
 -- when the __ClusterType__ parameter is specified as @multi-node@.
@@ -839,7 +841,7 @@ createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluste
 -- Default: @1@
 --
 -- Constraints: Value must be at least 1 and no more than 100.
-createCluster_numberOfNodes :: Lens.Lens' CreateCluster (Core.Maybe Core.Int)
+createCluster_numberOfNodes :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
 createCluster_numberOfNodes = Lens.lens (\CreateCluster' {numberOfNodes} -> numberOfNodes) (\s@CreateCluster' {} a -> s {numberOfNodes = a} :: CreateCluster)
 
 -- | The port number on which the cluster accepts incoming connections.
@@ -851,7 +853,7 @@ createCluster_numberOfNodes = Lens.lens (\CreateCluster' {numberOfNodes} -> numb
 -- Default: @5439@
 --
 -- Valid Values: @1150-65535@
-createCluster_port :: Lens.Lens' CreateCluster (Core.Maybe Core.Int)
+createCluster_port :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
 createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluster' {} a -> s {port = a} :: CreateCluster)
 
 -- | The name of the first database to be created when the cluster is
@@ -875,7 +877,7 @@ createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluste
 --     words can be found in
 --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
-createCluster_dbName :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_dbName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_dbName = Lens.lens (\CreateCluster' {dbName} -> dbName) (\s@CreateCluster' {} a -> s {dbName = a} :: CreateCluster)
 
 -- | The version of the Amazon Redshift engine software that you want to
@@ -886,25 +888,25 @@ createCluster_dbName = Lens.lens (\CreateCluster' {dbName} -> dbName) (\s@Create
 -- Constraints: Only version 1.0 is currently available.
 --
 -- Example: @1.0@
-createCluster_clusterVersion :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_clusterVersion :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterVersion = Lens.lens (\CreateCluster' {clusterVersion} -> clusterVersion) (\s@CreateCluster' {} a -> s {clusterVersion = a} :: CreateCluster)
 
 -- | A list of security groups to be associated with this cluster.
 --
 -- Default: The default cluster security group for Amazon Redshift.
-createCluster_clusterSecurityGroups :: Lens.Lens' CreateCluster (Core.Maybe [Core.Text])
-createCluster_clusterSecurityGroups = Lens.lens (\CreateCluster' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@CreateCluster' {} a -> s {clusterSecurityGroups = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
+createCluster_clusterSecurityGroups :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_clusterSecurityGroups = Lens.lens (\CreateCluster' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@CreateCluster' {} a -> s {clusterSecurityGroups = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional parameter for the name of the maintenance track for the
 -- cluster. If you don\'t provide a maintenance track name, the cluster is
 -- assigned to the @current@ track.
-createCluster_maintenanceTrackName :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_maintenanceTrackName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_maintenanceTrackName = Lens.lens (\CreateCluster' {maintenanceTrackName} -> maintenanceTrackName) (\s@CreateCluster' {} a -> s {maintenanceTrackName = a} :: CreateCluster)
 
 -- | Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
-createCluster_hsmConfigurationIdentifier :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_hsmConfigurationIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_hsmConfigurationIdentifier = Lens.lens (\CreateCluster' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@CreateCluster' {} a -> s {hsmConfigurationIdentifier = a} :: CreateCluster)
 
 -- | A list of AWS Identity and Access Management (IAM) roles that can be
@@ -913,8 +915,8 @@ createCluster_hsmConfigurationIdentifier = Lens.lens (\CreateCluster' {hsmConfig
 -- to 10 IAM roles in a single request.
 --
 -- A cluster can have up to 10 IAM roles associated with it at any time.
-createCluster_iamRoles :: Lens.Lens' CreateCluster (Core.Maybe [Core.Text])
-createCluster_iamRoles = Lens.lens (\CreateCluster' {iamRoles} -> iamRoles) (\s@CreateCluster' {} a -> s {iamRoles = a} :: CreateCluster) Core.. Lens.mapping Lens._Coerce
+createCluster_iamRoles :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_iamRoles = Lens.lens (\CreateCluster' {iamRoles} -> iamRoles) (\s@CreateCluster' {} a -> s {iamRoles = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the cluster. You use this identifier to refer to
 -- the cluster for any subsequent cluster operations such as deleting or
@@ -933,7 +935,7 @@ createCluster_iamRoles = Lens.lens (\CreateCluster' {iamRoles} -> iamRoles) (\s@
 -- -   Must be unique for all clusters within an AWS account.
 --
 -- Example: @myexamplecluster@
-createCluster_clusterIdentifier :: Lens.Lens' CreateCluster Core.Text
+createCluster_clusterIdentifier :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_clusterIdentifier = Lens.lens (\CreateCluster' {clusterIdentifier} -> clusterIdentifier) (\s@CreateCluster' {} a -> s {clusterIdentifier = a} :: CreateCluster)
 
 -- | The node type to be provisioned for the cluster. For information about
@@ -944,7 +946,7 @@ createCluster_clusterIdentifier = Lens.lens (\CreateCluster' {clusterIdentifier}
 -- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@
 -- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
 -- @ra3.16xlarge@
-createCluster_nodeType :: Lens.Lens' CreateCluster Core.Text
+createCluster_nodeType :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_nodeType = Lens.lens (\CreateCluster' {nodeType} -> nodeType) (\s@CreateCluster' {} a -> s {nodeType = a} :: CreateCluster)
 
 -- | The user name associated with the master user account for the cluster
@@ -960,7 +962,7 @@ createCluster_nodeType = Lens.lens (\CreateCluster' {nodeType} -> nodeType) (\s@
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
-createCluster_masterUsername :: Lens.Lens' CreateCluster Core.Text
+createCluster_masterUsername :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_masterUsername = Lens.lens (\CreateCluster' {masterUsername} -> masterUsername) (\s@CreateCluster' {} a -> s {masterUsername = a} :: CreateCluster)
 
 -- | The password associated with the master user account for the cluster
@@ -978,7 +980,7 @@ createCluster_masterUsername = Lens.lens (\CreateCluster' {masterUsername} -> ma
 --
 -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
 --     \' (single quote), \" (double quote), \\, \/, \@, or space.
-createCluster_masterUserPassword :: Lens.Lens' CreateCluster Core.Text
+createCluster_masterUserPassword :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_masterUserPassword = Lens.lens (\CreateCluster' {masterUserPassword} -> masterUserPassword) (\s@CreateCluster' {} a -> s {masterUserPassword = a} :: CreateCluster)
 
 instance Core.AWSRequest CreateCluster where
@@ -991,26 +993,27 @@ instance Core.AWSRequest CreateCluster where
       "CreateClusterResult"
       ( \s h x ->
           CreateClusterResponse'
-            Core.<$> (x Core..@? "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster
 
-instance Core.NFData CreateCluster
+instance Prelude.NFData CreateCluster
 
 instance Core.ToHeaders CreateCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateCluster where
   toQuery CreateCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCluster" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("CreateCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "EnhancedVpcRouting" Core.=: enhancedVpcRouting,
         "AdditionalInfo" Core.=: additionalInfo,
         "ElasticIp" Core.=: elasticIp,
@@ -1032,7 +1035,7 @@ instance Core.ToQuery CreateCluster where
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
-                Core.<$> vpcSecurityGroupIds
+                Prelude.<$> vpcSecurityGroupIds
             ),
         "ClusterType" Core.=: clusterType,
         "ManualSnapshotRetentionPeriod"
@@ -1042,7 +1045,8 @@ instance Core.ToQuery CreateCluster where
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "NumberOfNodes" Core.=: numberOfNodes,
         "Port" Core.=: port,
         "DBName" Core.=: dbName,
@@ -1050,14 +1054,14 @@ instance Core.ToQuery CreateCluster where
         "ClusterSecurityGroups"
           Core.=: Core.toQuery
             ( Core.toQueryList "ClusterSecurityGroupName"
-                Core.<$> clusterSecurityGroups
+                Prelude.<$> clusterSecurityGroups
             ),
         "MaintenanceTrackName" Core.=: maintenanceTrackName,
         "HsmConfigurationIdentifier"
           Core.=: hsmConfigurationIdentifier,
         "IamRoles"
           Core.=: Core.toQuery
-            (Core.toQueryList "IamRoleArn" Core.<$> iamRoles),
+            (Core.toQueryList "IamRoleArn" Prelude.<$> iamRoles),
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "NodeType" Core.=: nodeType,
         "MasterUsername" Core.=: masterUsername,
@@ -1066,11 +1070,11 @@ instance Core.ToQuery CreateCluster where
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateClusterResponse' with all optional fields omitted.
@@ -1085,20 +1089,20 @@ data CreateClusterResponse = CreateClusterResponse'
 -- 'httpStatus', 'createClusterResponse_httpStatus' - The response's http status code.
 newCreateClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateClusterResponse
 newCreateClusterResponse pHttpStatus_ =
   CreateClusterResponse'
-    { cluster = Core.Nothing,
+    { cluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Core.Maybe Cluster)
+createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Prelude.Maybe Cluster)
 createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> cluster) (\s@CreateClusterResponse' {} a -> s {cluster = a} :: CreateClusterResponse)
 
 -- | The response's http status code.
-createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Core.Int
+createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Core.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse

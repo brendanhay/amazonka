@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If set to LOG, log each output\'s audio track loudness to a CSV file.
 newtype AudioNormalizationLoudnessLogging = AudioNormalizationLoudnessLogging'
@@ -34,15 +35,15 @@ newtype AudioNormalizationLoudnessLogging = AudioNormalizationLoudnessLogging'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -79,6 +79,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,20 +89,20 @@ import qualified Network.AWS.Response as Response
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection'
   { -- | A unique identifier for a fleet. You can use either the fleet ID or ARN
     -- value. This tells Amazon GameLift which GameLift VPC to peer with.
-    fleetId :: Core.Text,
+    fleetId :: Prelude.Text,
     -- | A unique identifier for the AWS account with the VPC that you want to
     -- peer your Amazon GameLift fleet with. You can find your Account ID in
     -- the AWS Management Console under account settings.
-    peerVpcAwsAccountId :: Core.Text,
+    peerVpcAwsAccountId :: Prelude.Text,
     -- | A unique identifier for a VPC with resources to be accessed by your
     -- Amazon GameLift fleet. The VPC must be in the same Region where your
     -- fleet is deployed. Look up a VPC ID using the
     -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
     -- Management Console. Learn more about VPC peering in
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
-    peerVpcId :: Core.Text
+    peerVpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcPeeringConnection' with all optional fields omitted.
@@ -126,11 +127,11 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection'
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 newCreateVpcPeeringConnection ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'peerVpcAwsAccountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'peerVpcId'
-  Core.Text ->
+  Prelude.Text ->
   CreateVpcPeeringConnection
 newCreateVpcPeeringConnection
   pFleetId_
@@ -144,13 +145,13 @@ newCreateVpcPeeringConnection
 
 -- | A unique identifier for a fleet. You can use either the fleet ID or ARN
 -- value. This tells Amazon GameLift which GameLift VPC to peer with.
-createVpcPeeringConnection_fleetId :: Lens.Lens' CreateVpcPeeringConnection Core.Text
+createVpcPeeringConnection_fleetId :: Lens.Lens' CreateVpcPeeringConnection Prelude.Text
 createVpcPeeringConnection_fleetId = Lens.lens (\CreateVpcPeeringConnection' {fleetId} -> fleetId) (\s@CreateVpcPeeringConnection' {} a -> s {fleetId = a} :: CreateVpcPeeringConnection)
 
 -- | A unique identifier for the AWS account with the VPC that you want to
 -- peer your Amazon GameLift fleet with. You can find your Account ID in
 -- the AWS Management Console under account settings.
-createVpcPeeringConnection_peerVpcAwsAccountId :: Lens.Lens' CreateVpcPeeringConnection Core.Text
+createVpcPeeringConnection_peerVpcAwsAccountId :: Lens.Lens' CreateVpcPeeringConnection Prelude.Text
 createVpcPeeringConnection_peerVpcAwsAccountId = Lens.lens (\CreateVpcPeeringConnection' {peerVpcAwsAccountId} -> peerVpcAwsAccountId) (\s@CreateVpcPeeringConnection' {} a -> s {peerVpcAwsAccountId = a} :: CreateVpcPeeringConnection)
 
 -- | A unique identifier for a VPC with resources to be accessed by your
@@ -159,7 +160,7 @@ createVpcPeeringConnection_peerVpcAwsAccountId = Lens.lens (\CreateVpcPeeringCon
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
 -- Management Console. Learn more about VPC peering in
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
-createVpcPeeringConnection_peerVpcId :: Lens.Lens' CreateVpcPeeringConnection Core.Text
+createVpcPeeringConnection_peerVpcId :: Lens.Lens' CreateVpcPeeringConnection Prelude.Text
 createVpcPeeringConnection_peerVpcId = Lens.lens (\CreateVpcPeeringConnection' {peerVpcId} -> peerVpcId) (\s@CreateVpcPeeringConnection' {} a -> s {peerVpcId = a} :: CreateVpcPeeringConnection)
 
 instance Core.AWSRequest CreateVpcPeeringConnection where
@@ -171,49 +172,51 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
     Response.receiveEmpty
       ( \s h x ->
           CreateVpcPeeringConnectionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateVpcPeeringConnection
+instance Prelude.Hashable CreateVpcPeeringConnection
 
-instance Core.NFData CreateVpcPeeringConnection
+instance Prelude.NFData CreateVpcPeeringConnection
 
 instance Core.ToHeaders CreateVpcPeeringConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.CreateVpcPeeringConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateVpcPeeringConnection where
   toJSON CreateVpcPeeringConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FleetId" Core..= fleetId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FleetId" Core..= fleetId),
+            Prelude.Just
               ("PeerVpcAwsAccountId" Core..= peerVpcAwsAccountId),
-            Core.Just ("PeerVpcId" Core..= peerVpcId)
+            Prelude.Just ("PeerVpcId" Core..= peerVpcId)
           ]
       )
 
 instance Core.ToPath CreateVpcPeeringConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateVpcPeeringConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVpcPeeringConnectionResponse' smart constructor.
 data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcPeeringConnectionResponse' with all optional fields omitted.
@@ -226,7 +229,7 @@ data CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse'
 -- 'httpStatus', 'createVpcPeeringConnectionResponse_httpStatus' - The response's http status code.
 newCreateVpcPeeringConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateVpcPeeringConnectionResponse
 newCreateVpcPeeringConnectionResponse pHttpStatus_ =
   CreateVpcPeeringConnectionResponse'
@@ -235,9 +238,9 @@ newCreateVpcPeeringConnectionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' CreateVpcPeeringConnectionResponse Core.Int
+createVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' CreateVpcPeeringConnectionResponse Prelude.Int
 createVpcPeeringConnectionResponse_httpStatus = Lens.lens (\CreateVpcPeeringConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateVpcPeeringConnectionResponse' {} a -> s {httpStatus = a} :: CreateVpcPeeringConnectionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateVpcPeeringConnectionResponse

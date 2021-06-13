@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.LoggingEnabled where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.TargetGrant
 
@@ -32,20 +33,20 @@ import Network.AWS.S3.Types.TargetGrant
 -- /See:/ 'newLoggingEnabled' smart constructor.
 data LoggingEnabled = LoggingEnabled'
   { -- | Container for granting information.
-    targetGrants :: Core.Maybe [TargetGrant],
+    targetGrants :: Prelude.Maybe [TargetGrant],
     -- | Specifies the bucket where you want Amazon S3 to store server access
     -- logs. You can have your logs delivered to any bucket that you own,
     -- including the same bucket that is being logged. You can also configure
     -- multiple buckets to deliver their logs to the same target bucket. In
     -- this case, you should choose a different @TargetPrefix@ for each source
     -- bucket so that the delivered log files can be distinguished by key.
-    targetBucket :: Core.Text,
+    targetBucket :: Prelude.Text,
     -- | A prefix for all log object keys. If you store log files from multiple
     -- Amazon S3 buckets in a single bucket, you can use a prefix to
     -- distinguish which log files came from which bucket.
-    targetPrefix :: Core.Text
+    targetPrefix :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoggingEnabled' with all optional fields omitted.
@@ -69,20 +70,20 @@ data LoggingEnabled = LoggingEnabled'
 -- distinguish which log files came from which bucket.
 newLoggingEnabled ::
   -- | 'targetBucket'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetPrefix'
-  Core.Text ->
+  Prelude.Text ->
   LoggingEnabled
 newLoggingEnabled pTargetBucket_ pTargetPrefix_ =
   LoggingEnabled'
-    { targetGrants = Core.Nothing,
+    { targetGrants = Prelude.Nothing,
       targetBucket = pTargetBucket_,
       targetPrefix = pTargetPrefix_
     }
 
 -- | Container for granting information.
-loggingEnabled_targetGrants :: Lens.Lens' LoggingEnabled (Core.Maybe [TargetGrant])
-loggingEnabled_targetGrants = Lens.lens (\LoggingEnabled' {targetGrants} -> targetGrants) (\s@LoggingEnabled' {} a -> s {targetGrants = a} :: LoggingEnabled) Core.. Lens.mapping Lens._Coerce
+loggingEnabled_targetGrants :: Lens.Lens' LoggingEnabled (Prelude.Maybe [TargetGrant])
+loggingEnabled_targetGrants = Lens.lens (\LoggingEnabled' {targetGrants} -> targetGrants) (\s@LoggingEnabled' {} a -> s {targetGrants = a} :: LoggingEnabled) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the bucket where you want Amazon S3 to store server access
 -- logs. You can have your logs delivered to any bucket that you own,
@@ -90,34 +91,34 @@ loggingEnabled_targetGrants = Lens.lens (\LoggingEnabled' {targetGrants} -> targ
 -- multiple buckets to deliver their logs to the same target bucket. In
 -- this case, you should choose a different @TargetPrefix@ for each source
 -- bucket so that the delivered log files can be distinguished by key.
-loggingEnabled_targetBucket :: Lens.Lens' LoggingEnabled Core.Text
+loggingEnabled_targetBucket :: Lens.Lens' LoggingEnabled Prelude.Text
 loggingEnabled_targetBucket = Lens.lens (\LoggingEnabled' {targetBucket} -> targetBucket) (\s@LoggingEnabled' {} a -> s {targetBucket = a} :: LoggingEnabled)
 
 -- | A prefix for all log object keys. If you store log files from multiple
 -- Amazon S3 buckets in a single bucket, you can use a prefix to
 -- distinguish which log files came from which bucket.
-loggingEnabled_targetPrefix :: Lens.Lens' LoggingEnabled Core.Text
+loggingEnabled_targetPrefix :: Lens.Lens' LoggingEnabled Prelude.Text
 loggingEnabled_targetPrefix = Lens.lens (\LoggingEnabled' {targetPrefix} -> targetPrefix) (\s@LoggingEnabled' {} a -> s {targetPrefix = a} :: LoggingEnabled)
 
 instance Core.FromXML LoggingEnabled where
   parseXML x =
     LoggingEnabled'
-      Core.<$> ( x Core..@? "TargetGrants" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Grant")
-               )
-      Core.<*> (x Core..@ "TargetBucket")
-      Core.<*> (x Core..@ "TargetPrefix")
+      Prelude.<$> ( x Core..@? "TargetGrants" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Grant")
+                  )
+      Prelude.<*> (x Core..@ "TargetBucket")
+      Prelude.<*> (x Core..@ "TargetPrefix")
 
-instance Core.Hashable LoggingEnabled
+instance Prelude.Hashable LoggingEnabled
 
-instance Core.NFData LoggingEnabled
+instance Prelude.NFData LoggingEnabled
 
 instance Core.ToXML LoggingEnabled where
   toXML LoggingEnabled' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "TargetGrants"
           Core.@= Core.toXML
-            (Core.toXMLList "Grant" Core.<$> targetGrants),
+            (Core.toXMLList "Grant" Prelude.<$> targetGrants),
         "TargetBucket" Core.@= targetBucket,
         "TargetPrefix" Core.@= targetPrefix
       ]

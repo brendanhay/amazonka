@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newResumeCluster' smart constructor.
 data ResumeCluster = ResumeCluster'
   { -- | The identifier of the cluster to be resumed.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResumeCluster' with all optional fields omitted.
@@ -66,7 +67,7 @@ data ResumeCluster = ResumeCluster'
 -- 'clusterIdentifier', 'resumeCluster_clusterIdentifier' - The identifier of the cluster to be resumed.
 newResumeCluster ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ResumeCluster
 newResumeCluster pClusterIdentifier_ =
   ResumeCluster'
@@ -75,7 +76,7 @@ newResumeCluster pClusterIdentifier_ =
     }
 
 -- | The identifier of the cluster to be resumed.
-resumeCluster_clusterIdentifier :: Lens.Lens' ResumeCluster Core.Text
+resumeCluster_clusterIdentifier :: Lens.Lens' ResumeCluster Prelude.Text
 resumeCluster_clusterIdentifier = Lens.lens (\ResumeCluster' {clusterIdentifier} -> clusterIdentifier) (\s@ResumeCluster' {} a -> s {clusterIdentifier = a} :: ResumeCluster)
 
 instance Core.AWSRequest ResumeCluster where
@@ -88,36 +89,37 @@ instance Core.AWSRequest ResumeCluster where
       "ResumeClusterResult"
       ( \s h x ->
           ResumeClusterResponse'
-            Core.<$> (x Core..@? "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResumeCluster
+instance Prelude.Hashable ResumeCluster
 
-instance Core.NFData ResumeCluster
+instance Prelude.NFData ResumeCluster
 
 instance Core.ToHeaders ResumeCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ResumeCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResumeCluster where
   toQuery ResumeCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ResumeCluster" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("ResumeCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newResumeClusterResponse' smart constructor.
 data ResumeClusterResponse = ResumeClusterResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResumeClusterResponse' with all optional fields omitted.
@@ -132,20 +134,20 @@ data ResumeClusterResponse = ResumeClusterResponse'
 -- 'httpStatus', 'resumeClusterResponse_httpStatus' - The response's http status code.
 newResumeClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResumeClusterResponse
 newResumeClusterResponse pHttpStatus_ =
   ResumeClusterResponse'
-    { cluster = Core.Nothing,
+    { cluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-resumeClusterResponse_cluster :: Lens.Lens' ResumeClusterResponse (Core.Maybe Cluster)
+resumeClusterResponse_cluster :: Lens.Lens' ResumeClusterResponse (Prelude.Maybe Cluster)
 resumeClusterResponse_cluster = Lens.lens (\ResumeClusterResponse' {cluster} -> cluster) (\s@ResumeClusterResponse' {} a -> s {cluster = a} :: ResumeClusterResponse)
 
 -- | The response's http status code.
-resumeClusterResponse_httpStatus :: Lens.Lens' ResumeClusterResponse Core.Int
+resumeClusterResponse_httpStatus :: Lens.Lens' ResumeClusterResponse Prelude.Int
 resumeClusterResponse_httpStatus = Lens.lens (\ResumeClusterResponse' {httpStatus} -> httpStatus) (\s@ResumeClusterResponse' {} a -> s {httpStatus = a} :: ResumeClusterResponse)
 
-instance Core.NFData ResumeClusterResponse
+instance Prelude.NFData ResumeClusterResponse

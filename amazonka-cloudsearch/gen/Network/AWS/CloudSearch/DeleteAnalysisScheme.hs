@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteAnalysisScheme' smart constructor.
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
-  { domainName :: Core.Text,
+  { domainName :: Prelude.Text,
     -- | The name of the analysis scheme you want to delete.
-    analysisSchemeName :: Core.Text
+    analysisSchemeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAnalysisScheme' with all optional fields omitted.
@@ -73,9 +74,9 @@ data DeleteAnalysisScheme = DeleteAnalysisScheme'
 -- 'analysisSchemeName', 'deleteAnalysisScheme_analysisSchemeName' - The name of the analysis scheme you want to delete.
 newDeleteAnalysisScheme ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'analysisSchemeName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAnalysisScheme
 newDeleteAnalysisScheme
   pDomainName_
@@ -86,11 +87,11 @@ newDeleteAnalysisScheme
       }
 
 -- | Undocumented member.
-deleteAnalysisScheme_domainName :: Lens.Lens' DeleteAnalysisScheme Core.Text
+deleteAnalysisScheme_domainName :: Lens.Lens' DeleteAnalysisScheme Prelude.Text
 deleteAnalysisScheme_domainName = Lens.lens (\DeleteAnalysisScheme' {domainName} -> domainName) (\s@DeleteAnalysisScheme' {} a -> s {domainName = a} :: DeleteAnalysisScheme)
 
 -- | The name of the analysis scheme you want to delete.
-deleteAnalysisScheme_analysisSchemeName :: Lens.Lens' DeleteAnalysisScheme Core.Text
+deleteAnalysisScheme_analysisSchemeName :: Lens.Lens' DeleteAnalysisScheme Prelude.Text
 deleteAnalysisScheme_analysisSchemeName = Lens.lens (\DeleteAnalysisScheme' {analysisSchemeName} -> analysisSchemeName) (\s@DeleteAnalysisScheme' {} a -> s {analysisSchemeName = a} :: DeleteAnalysisScheme)
 
 instance Core.AWSRequest DeleteAnalysisScheme where
@@ -103,26 +104,27 @@ instance Core.AWSRequest DeleteAnalysisScheme where
       "DeleteAnalysisSchemeResult"
       ( \s h x ->
           DeleteAnalysisSchemeResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "AnalysisScheme")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "AnalysisScheme")
       )
 
-instance Core.Hashable DeleteAnalysisScheme
+instance Prelude.Hashable DeleteAnalysisScheme
 
-instance Core.NFData DeleteAnalysisScheme
+instance Prelude.NFData DeleteAnalysisScheme
 
 instance Core.ToHeaders DeleteAnalysisScheme where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteAnalysisScheme where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAnalysisScheme where
   toQuery DeleteAnalysisScheme' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAnalysisScheme" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("DeleteAnalysisScheme" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainName" Core.=: domainName,
         "AnalysisSchemeName" Core.=: analysisSchemeName
       ]
@@ -133,11 +135,11 @@ instance Core.ToQuery DeleteAnalysisScheme where
 -- /See:/ 'newDeleteAnalysisSchemeResponse' smart constructor.
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The status of the analysis scheme being deleted.
     analysisScheme :: AnalysisSchemeStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAnalysisSchemeResponse' with all optional fields omitted.
@@ -152,7 +154,7 @@ data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
 -- 'analysisScheme', 'deleteAnalysisSchemeResponse_analysisScheme' - The status of the analysis scheme being deleted.
 newDeleteAnalysisSchemeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'analysisScheme'
   AnalysisSchemeStatus ->
   DeleteAnalysisSchemeResponse
@@ -166,11 +168,11 @@ newDeleteAnalysisSchemeResponse
       }
 
 -- | The response's http status code.
-deleteAnalysisSchemeResponse_httpStatus :: Lens.Lens' DeleteAnalysisSchemeResponse Core.Int
+deleteAnalysisSchemeResponse_httpStatus :: Lens.Lens' DeleteAnalysisSchemeResponse Prelude.Int
 deleteAnalysisSchemeResponse_httpStatus = Lens.lens (\DeleteAnalysisSchemeResponse' {httpStatus} -> httpStatus) (\s@DeleteAnalysisSchemeResponse' {} a -> s {httpStatus = a} :: DeleteAnalysisSchemeResponse)
 
 -- | The status of the analysis scheme being deleted.
 deleteAnalysisSchemeResponse_analysisScheme :: Lens.Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 deleteAnalysisSchemeResponse_analysisScheme = Lens.lens (\DeleteAnalysisSchemeResponse' {analysisScheme} -> analysisScheme) (\s@DeleteAnalysisSchemeResponse' {} a -> s {analysisScheme = a} :: DeleteAnalysisSchemeResponse)
 
-instance Core.NFData DeleteAnalysisSchemeResponse
+instance Prelude.NFData DeleteAnalysisSchemeResponse

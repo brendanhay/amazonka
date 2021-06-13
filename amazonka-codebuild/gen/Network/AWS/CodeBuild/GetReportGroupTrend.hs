@@ -46,6 +46,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data GetReportGroupTrend = GetReportGroupTrend'
     -- most recent reports.
     --
     -- If this parameter is omitted, the most recent 100 reports are analyzed.
-    numOfReports :: Core.Maybe Core.Natural,
+    numOfReports :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the report group that contains the reports to analyze.
-    reportGroupArn :: Core.Text,
+    reportGroupArn :: Prelude.Text,
     -- | The test report value to accumulate. This must be one of the following
     -- values:
     --
@@ -99,7 +100,7 @@ data GetReportGroupTrend = GetReportGroupTrend'
     --         reports.
     trendField :: ReportGroupTrendFieldType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetReportGroupTrend' with all optional fields omitted.
@@ -157,13 +158,14 @@ data GetReportGroupTrend = GetReportGroupTrend'
 --         reports.
 newGetReportGroupTrend ::
   -- | 'reportGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'trendField'
   ReportGroupTrendFieldType ->
   GetReportGroupTrend
 newGetReportGroupTrend pReportGroupArn_ pTrendField_ =
   GetReportGroupTrend'
-    { numOfReports = Core.Nothing,
+    { numOfReports =
+        Prelude.Nothing,
       reportGroupArn = pReportGroupArn_,
       trendField = pTrendField_
     }
@@ -172,11 +174,11 @@ newGetReportGroupTrend pReportGroupArn_ pTrendField_ =
 -- most recent reports.
 --
 -- If this parameter is omitted, the most recent 100 reports are analyzed.
-getReportGroupTrend_numOfReports :: Lens.Lens' GetReportGroupTrend (Core.Maybe Core.Natural)
+getReportGroupTrend_numOfReports :: Lens.Lens' GetReportGroupTrend (Prelude.Maybe Prelude.Natural)
 getReportGroupTrend_numOfReports = Lens.lens (\GetReportGroupTrend' {numOfReports} -> numOfReports) (\s@GetReportGroupTrend' {} a -> s {numOfReports = a} :: GetReportGroupTrend)
 
 -- | The ARN of the report group that contains the reports to analyze.
-getReportGroupTrend_reportGroupArn :: Lens.Lens' GetReportGroupTrend Core.Text
+getReportGroupTrend_reportGroupArn :: Lens.Lens' GetReportGroupTrend Prelude.Text
 getReportGroupTrend_reportGroupArn = Lens.lens (\GetReportGroupTrend' {reportGroupArn} -> reportGroupArn) (\s@GetReportGroupTrend' {} a -> s {reportGroupArn = a} :: GetReportGroupTrend)
 
 -- | The test report value to accumulate. This must be one of the following
@@ -230,54 +232,57 @@ instance Core.AWSRequest GetReportGroupTrend where
     Response.receiveJSON
       ( \s h x ->
           GetReportGroupTrendResponse'
-            Core.<$> (x Core..?> "rawData" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "stats")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "rawData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "stats")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetReportGroupTrend
+instance Prelude.Hashable GetReportGroupTrend
 
-instance Core.NFData GetReportGroupTrend
+instance Prelude.NFData GetReportGroupTrend
 
 instance Core.ToHeaders GetReportGroupTrend where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.GetReportGroupTrend" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetReportGroupTrend where
   toJSON GetReportGroupTrend' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("numOfReports" Core..=) Core.<$> numOfReports,
-            Core.Just ("reportGroupArn" Core..= reportGroupArn),
-            Core.Just ("trendField" Core..= trendField)
+      ( Prelude.catMaybes
+          [ ("numOfReports" Core..=) Prelude.<$> numOfReports,
+            Prelude.Just
+              ("reportGroupArn" Core..= reportGroupArn),
+            Prelude.Just ("trendField" Core..= trendField)
           ]
       )
 
 instance Core.ToPath GetReportGroupTrend where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetReportGroupTrend where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetReportGroupTrendResponse' smart constructor.
 data GetReportGroupTrendResponse = GetReportGroupTrendResponse'
   { -- | An array that contains the raw data for each report.
-    rawData :: Core.Maybe [ReportWithRawData],
+    rawData :: Prelude.Maybe [ReportWithRawData],
     -- | Contains the accumulated trend data.
-    stats :: Core.Maybe ReportGroupTrendStats,
+    stats :: Prelude.Maybe ReportGroupTrendStats,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetReportGroupTrendResponse' with all optional fields omitted.
@@ -294,26 +299,26 @@ data GetReportGroupTrendResponse = GetReportGroupTrendResponse'
 -- 'httpStatus', 'getReportGroupTrendResponse_httpStatus' - The response's http status code.
 newGetReportGroupTrendResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetReportGroupTrendResponse
 newGetReportGroupTrendResponse pHttpStatus_ =
   GetReportGroupTrendResponse'
     { rawData =
-        Core.Nothing,
-      stats = Core.Nothing,
+        Prelude.Nothing,
+      stats = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array that contains the raw data for each report.
-getReportGroupTrendResponse_rawData :: Lens.Lens' GetReportGroupTrendResponse (Core.Maybe [ReportWithRawData])
-getReportGroupTrendResponse_rawData = Lens.lens (\GetReportGroupTrendResponse' {rawData} -> rawData) (\s@GetReportGroupTrendResponse' {} a -> s {rawData = a} :: GetReportGroupTrendResponse) Core.. Lens.mapping Lens._Coerce
+getReportGroupTrendResponse_rawData :: Lens.Lens' GetReportGroupTrendResponse (Prelude.Maybe [ReportWithRawData])
+getReportGroupTrendResponse_rawData = Lens.lens (\GetReportGroupTrendResponse' {rawData} -> rawData) (\s@GetReportGroupTrendResponse' {} a -> s {rawData = a} :: GetReportGroupTrendResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contains the accumulated trend data.
-getReportGroupTrendResponse_stats :: Lens.Lens' GetReportGroupTrendResponse (Core.Maybe ReportGroupTrendStats)
+getReportGroupTrendResponse_stats :: Lens.Lens' GetReportGroupTrendResponse (Prelude.Maybe ReportGroupTrendStats)
 getReportGroupTrendResponse_stats = Lens.lens (\GetReportGroupTrendResponse' {stats} -> stats) (\s@GetReportGroupTrendResponse' {} a -> s {stats = a} :: GetReportGroupTrendResponse)
 
 -- | The response's http status code.
-getReportGroupTrendResponse_httpStatus :: Lens.Lens' GetReportGroupTrendResponse Core.Int
+getReportGroupTrendResponse_httpStatus :: Lens.Lens' GetReportGroupTrendResponse Prelude.Int
 getReportGroupTrendResponse_httpStatus = Lens.lens (\GetReportGroupTrendResponse' {httpStatus} -> httpStatus) (\s@GetReportGroupTrendResponse' {} a -> s {httpStatus = a} :: GetReportGroupTrendResponse)
 
-instance Core.NFData GetReportGroupTrendResponse
+instance Prelude.NFData GetReportGroupTrendResponse

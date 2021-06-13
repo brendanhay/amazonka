@@ -51,24 +51,25 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeImages' smart constructor.
 data DescribeImages = DescribeImages'
   { -- | The names of the public or private images to describe.
-    names :: Core.Maybe [Core.Text],
+    names :: Prelude.Maybe [Prelude.Text],
     -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARNs of the public, private, and shared images to describe.
-    arns :: Core.Maybe [Core.Text],
+    arns :: Prelude.Maybe [Prelude.Text],
     -- | The maximum size of each page of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of image (public, private, or shared) to describe.
-    type' :: Core.Maybe VisibilityType
+    type' :: Prelude.Maybe VisibilityType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImages' with all optional fields omitted.
@@ -92,52 +93,53 @@ newDescribeImages ::
   DescribeImages
 newDescribeImages =
   DescribeImages'
-    { names = Core.Nothing,
-      nextToken = Core.Nothing,
-      arns = Core.Nothing,
-      maxResults = Core.Nothing,
-      type' = Core.Nothing
+    { names = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      arns = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The names of the public or private images to describe.
-describeImages_names :: Lens.Lens' DescribeImages (Core.Maybe [Core.Text])
-describeImages_names = Lens.lens (\DescribeImages' {names} -> names) (\s@DescribeImages' {} a -> s {names = a} :: DescribeImages) Core.. Lens.mapping Lens._Coerce
+describeImages_names :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
+describeImages_names = Lens.lens (\DescribeImages' {names} -> names) (\s@DescribeImages' {} a -> s {names = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
-describeImages_nextToken :: Lens.Lens' DescribeImages (Core.Maybe Core.Text)
+describeImages_nextToken :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Text)
 describeImages_nextToken = Lens.lens (\DescribeImages' {nextToken} -> nextToken) (\s@DescribeImages' {} a -> s {nextToken = a} :: DescribeImages)
 
 -- | The ARNs of the public, private, and shared images to describe.
-describeImages_arns :: Lens.Lens' DescribeImages (Core.Maybe [Core.Text])
-describeImages_arns = Lens.lens (\DescribeImages' {arns} -> arns) (\s@DescribeImages' {} a -> s {arns = a} :: DescribeImages) Core.. Lens.mapping Lens._Coerce
+describeImages_arns :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
+describeImages_arns = Lens.lens (\DescribeImages' {arns} -> arns) (\s@DescribeImages' {} a -> s {arns = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum size of each page of results.
-describeImages_maxResults :: Lens.Lens' DescribeImages (Core.Maybe Core.Natural)
+describeImages_maxResults :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Natural)
 describeImages_maxResults = Lens.lens (\DescribeImages' {maxResults} -> maxResults) (\s@DescribeImages' {} a -> s {maxResults = a} :: DescribeImages)
 
 -- | The type of image (public, private, or shared) to describe.
-describeImages_type :: Lens.Lens' DescribeImages (Core.Maybe VisibilityType)
+describeImages_type :: Lens.Lens' DescribeImages (Prelude.Maybe VisibilityType)
 describeImages_type = Lens.lens (\DescribeImages' {type'} -> type') (\s@DescribeImages' {} a -> s {type' = a} :: DescribeImages)
 
 instance Core.AWSPager DescribeImages where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeImagesResponse_nextToken Core.. Lens._Just
+            Lens.^? describeImagesResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeImagesResponse_images Core.. Lens._Just
+            Lens.^? describeImagesResponse_images Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeImages_nextToken
+          Prelude.& describeImages_nextToken
           Lens..~ rs
-          Lens.^? describeImagesResponse_nextToken Core.. Lens._Just
+          Lens.^? describeImagesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImages where
   type
@@ -148,57 +150,59 @@ instance Core.AWSRequest DescribeImages where
     Response.receiveJSON
       ( \s h x ->
           DescribeImagesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Images" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeImages
+instance Prelude.Hashable DescribeImages
 
-instance Core.NFData DescribeImages
+instance Prelude.NFData DescribeImages
 
 instance Core.ToHeaders DescribeImages where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.DescribeImages" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeImages where
   toJSON DescribeImages' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Names" Core..=) Core.<$> names,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("Arns" Core..=) Core.<$> arns,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("Names" Core..=) Prelude.<$> names,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Arns" Core..=) Prelude.<$> arns,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )
 
 instance Core.ToPath DescribeImages where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeImages where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the images.
-    images :: Core.Maybe [Image],
+    images :: Prelude.Maybe [Image],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImagesResponse' with all optional fields omitted.
@@ -216,26 +220,27 @@ data DescribeImagesResponse = DescribeImagesResponse'
 -- 'httpStatus', 'describeImagesResponse_httpStatus' - The response's http status code.
 newDescribeImagesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeImagesResponse
 newDescribeImagesResponse pHttpStatus_ =
   DescribeImagesResponse'
-    { nextToken = Core.Nothing,
-      images = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      images = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
-describeImagesResponse_nextToken :: Lens.Lens' DescribeImagesResponse (Core.Maybe Core.Text)
+describeImagesResponse_nextToken :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe Prelude.Text)
 describeImagesResponse_nextToken = Lens.lens (\DescribeImagesResponse' {nextToken} -> nextToken) (\s@DescribeImagesResponse' {} a -> s {nextToken = a} :: DescribeImagesResponse)
 
 -- | Information about the images.
-describeImagesResponse_images :: Lens.Lens' DescribeImagesResponse (Core.Maybe [Image])
-describeImagesResponse_images = Lens.lens (\DescribeImagesResponse' {images} -> images) (\s@DescribeImagesResponse' {} a -> s {images = a} :: DescribeImagesResponse) Core.. Lens.mapping Lens._Coerce
+describeImagesResponse_images :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe [Image])
+describeImagesResponse_images = Lens.lens (\DescribeImagesResponse' {images} -> images) (\s@DescribeImagesResponse' {} a -> s {images = a} :: DescribeImagesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeImagesResponse_httpStatus :: Lens.Lens' DescribeImagesResponse Core.Int
+describeImagesResponse_httpStatus :: Lens.Lens' DescribeImagesResponse Prelude.Int
 describeImagesResponse_httpStatus = Lens.lens (\DescribeImagesResponse' {httpStatus} -> httpStatus) (\s@DescribeImagesResponse' {} a -> s {httpStatus = a} :: DescribeImagesResponse)
 
-instance Core.NFData DescribeImagesResponse
+instance Prelude.NFData DescribeImagesResponse

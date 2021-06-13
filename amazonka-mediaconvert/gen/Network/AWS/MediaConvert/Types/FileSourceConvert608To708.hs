@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.FileSourceConvert608To708
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify whether this set of input captions appears in your outputs in
 -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
@@ -38,15 +39,15 @@ newtype FileSourceConvert608To708 = FileSourceConvert608To708'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

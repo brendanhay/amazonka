@@ -24,6 +24,7 @@ import Network.AWS.CertificateManager.Types.KeyAlgorithm
 import Network.AWS.CertificateManager.Types.KeyUsageName
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure can be used in the ListCertificates action to filter the
 -- output of the certificate list.
@@ -37,13 +38,13 @@ data Filters = Filters'
     -- provide the desired type signatures in a comma-separated list. For
     -- example, @\"keyTypes\": [\"RSA_2048,RSA_4096\"]@ returns both @RSA_2048@
     -- and @RSA_4096@ certificates.
-    keyTypes :: Core.Maybe [KeyAlgorithm],
+    keyTypes :: Prelude.Maybe [KeyAlgorithm],
     -- | Specify one or more ExtendedKeyUsage extension values.
-    extendedKeyUsage :: Core.Maybe [ExtendedKeyUsageName],
+    extendedKeyUsage :: Prelude.Maybe [ExtendedKeyUsageName],
     -- | Specify one or more KeyUsage extension values.
-    keyUsage :: Core.Maybe [KeyUsageName]
+    keyUsage :: Prelude.Maybe [KeyUsageName]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Filters' with all optional fields omitted.
@@ -68,9 +69,9 @@ newFilters ::
   Filters
 newFilters =
   Filters'
-    { keyTypes = Core.Nothing,
-      extendedKeyUsage = Core.Nothing,
-      keyUsage = Core.Nothing
+    { keyTypes = Prelude.Nothing,
+      extendedKeyUsage = Prelude.Nothing,
+      keyUsage = Prelude.Nothing
     }
 
 -- | Specify one or more algorithms that can be used to generate key pairs.
@@ -80,28 +81,28 @@ newFilters =
 -- provide the desired type signatures in a comma-separated list. For
 -- example, @\"keyTypes\": [\"RSA_2048,RSA_4096\"]@ returns both @RSA_2048@
 -- and @RSA_4096@ certificates.
-filters_keyTypes :: Lens.Lens' Filters (Core.Maybe [KeyAlgorithm])
-filters_keyTypes = Lens.lens (\Filters' {keyTypes} -> keyTypes) (\s@Filters' {} a -> s {keyTypes = a} :: Filters) Core.. Lens.mapping Lens._Coerce
+filters_keyTypes :: Lens.Lens' Filters (Prelude.Maybe [KeyAlgorithm])
+filters_keyTypes = Lens.lens (\Filters' {keyTypes} -> keyTypes) (\s@Filters' {} a -> s {keyTypes = a} :: Filters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specify one or more ExtendedKeyUsage extension values.
-filters_extendedKeyUsage :: Lens.Lens' Filters (Core.Maybe [ExtendedKeyUsageName])
-filters_extendedKeyUsage = Lens.lens (\Filters' {extendedKeyUsage} -> extendedKeyUsage) (\s@Filters' {} a -> s {extendedKeyUsage = a} :: Filters) Core.. Lens.mapping Lens._Coerce
+filters_extendedKeyUsage :: Lens.Lens' Filters (Prelude.Maybe [ExtendedKeyUsageName])
+filters_extendedKeyUsage = Lens.lens (\Filters' {extendedKeyUsage} -> extendedKeyUsage) (\s@Filters' {} a -> s {extendedKeyUsage = a} :: Filters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specify one or more KeyUsage extension values.
-filters_keyUsage :: Lens.Lens' Filters (Core.Maybe [KeyUsageName])
-filters_keyUsage = Lens.lens (\Filters' {keyUsage} -> keyUsage) (\s@Filters' {} a -> s {keyUsage = a} :: Filters) Core.. Lens.mapping Lens._Coerce
+filters_keyUsage :: Lens.Lens' Filters (Prelude.Maybe [KeyUsageName])
+filters_keyUsage = Lens.lens (\Filters' {keyUsage} -> keyUsage) (\s@Filters' {} a -> s {keyUsage = a} :: Filters) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable Filters
+instance Prelude.Hashable Filters
 
-instance Core.NFData Filters
+instance Prelude.NFData Filters
 
 instance Core.ToJSON Filters where
   toJSON Filters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("keyTypes" Core..=) Core.<$> keyTypes,
+      ( Prelude.catMaybes
+          [ ("keyTypes" Core..=) Prelude.<$> keyTypes,
             ("extendedKeyUsage" Core..=)
-              Core.<$> extendedKeyUsage,
-            ("keyUsage" Core..=) Core.<$> keyUsage
+              Prelude.<$> extendedKeyUsage,
+            ("keyUsage" Core..=) Prelude.<$> keyUsage
           ]
       )

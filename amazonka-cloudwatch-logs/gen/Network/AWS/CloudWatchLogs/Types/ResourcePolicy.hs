@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchLogs.Types.ResourcePolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A policy enabling one or more entities to put logs to a log group in
 -- this account.
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResourcePolicy' smart constructor.
 data ResourcePolicy = ResourcePolicy'
   { -- | The name of the resource policy.
-    policyName :: Core.Maybe Core.Text,
+    policyName :: Prelude.Maybe Prelude.Text,
     -- | The details of the policy.
-    policyDocument :: Core.Maybe Core.Text,
+    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | Timestamp showing when this policy was last updated, expressed as the
     -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-    lastUpdatedTime :: Core.Maybe Core.Natural
+    lastUpdatedTime :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourcePolicy' with all optional fields omitted.
@@ -55,22 +56,22 @@ newResourcePolicy ::
   ResourcePolicy
 newResourcePolicy =
   ResourcePolicy'
-    { policyName = Core.Nothing,
-      policyDocument = Core.Nothing,
-      lastUpdatedTime = Core.Nothing
+    { policyName = Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing
     }
 
 -- | The name of the resource policy.
-resourcePolicy_policyName :: Lens.Lens' ResourcePolicy (Core.Maybe Core.Text)
+resourcePolicy_policyName :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_policyName = Lens.lens (\ResourcePolicy' {policyName} -> policyName) (\s@ResourcePolicy' {} a -> s {policyName = a} :: ResourcePolicy)
 
 -- | The details of the policy.
-resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Core.Maybe Core.Text)
+resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> policyDocument) (\s@ResourcePolicy' {} a -> s {policyDocument = a} :: ResourcePolicy)
 
 -- | Timestamp showing when this policy was last updated, expressed as the
 -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-resourcePolicy_lastUpdatedTime :: Lens.Lens' ResourcePolicy (Core.Maybe Core.Natural)
+resourcePolicy_lastUpdatedTime :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Natural)
 resourcePolicy_lastUpdatedTime = Lens.lens (\ResourcePolicy' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourcePolicy' {} a -> s {lastUpdatedTime = a} :: ResourcePolicy)
 
 instance Core.FromJSON ResourcePolicy where
@@ -79,11 +80,11 @@ instance Core.FromJSON ResourcePolicy where
       "ResourcePolicy"
       ( \x ->
           ResourcePolicy'
-            Core.<$> (x Core..:? "policyName")
-            Core.<*> (x Core..:? "policyDocument")
-            Core.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<$> (x Core..:? "policyName")
+            Prelude.<*> (x Core..:? "policyDocument")
+            Prelude.<*> (x Core..:? "lastUpdatedTime")
       )
 
-instance Core.Hashable ResourcePolicy
+instance Prelude.Hashable ResourcePolicy
 
-instance Core.NFData ResourcePolicy
+instance Prelude.NFData ResourcePolicy

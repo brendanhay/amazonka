@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ReplicaModifications where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ReplicaModificationsStatus
 
@@ -39,7 +40,7 @@ data ReplicaModifications = ReplicaModifications'
   { -- | Specifies whether Amazon S3 replicates modifications on replicas.
     status :: ReplicaModificationsStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicaModifications' with all optional fields omitted.
@@ -63,12 +64,13 @@ replicaModifications_status = Lens.lens (\ReplicaModifications' {status} -> stat
 
 instance Core.FromXML ReplicaModifications where
   parseXML x =
-    ReplicaModifications' Core.<$> (x Core..@ "Status")
+    ReplicaModifications'
+      Prelude.<$> (x Core..@ "Status")
 
-instance Core.Hashable ReplicaModifications
+instance Prelude.Hashable ReplicaModifications
 
-instance Core.NFData ReplicaModifications
+instance Prelude.NFData ReplicaModifications
 
 instance Core.ToXML ReplicaModifications where
   toXML ReplicaModifications' {..} =
-    Core.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Core.@= status]

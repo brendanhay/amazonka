@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.JobMessages where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides messages from the service about jobs that you have already
 -- successfully submitted.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data JobMessages = JobMessages'
   { -- | List of messages that are informational only and don\'t indicate a
     -- problem with your job.
-    info :: Core.Maybe [Core.Text],
+    info :: Prelude.Maybe [Prelude.Text],
     -- | List of messages that warn about conditions that might cause your job
     -- not to run or to fail.
-    warning :: Core.Maybe [Core.Text]
+    warning :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobMessages' with all optional fields omitted.
@@ -53,19 +54,19 @@ newJobMessages ::
   JobMessages
 newJobMessages =
   JobMessages'
-    { info = Core.Nothing,
-      warning = Core.Nothing
+    { info = Prelude.Nothing,
+      warning = Prelude.Nothing
     }
 
 -- | List of messages that are informational only and don\'t indicate a
 -- problem with your job.
-jobMessages_info :: Lens.Lens' JobMessages (Core.Maybe [Core.Text])
-jobMessages_info = Lens.lens (\JobMessages' {info} -> info) (\s@JobMessages' {} a -> s {info = a} :: JobMessages) Core.. Lens.mapping Lens._Coerce
+jobMessages_info :: Lens.Lens' JobMessages (Prelude.Maybe [Prelude.Text])
+jobMessages_info = Lens.lens (\JobMessages' {info} -> info) (\s@JobMessages' {} a -> s {info = a} :: JobMessages) Prelude.. Lens.mapping Lens._Coerce
 
 -- | List of messages that warn about conditions that might cause your job
 -- not to run or to fail.
-jobMessages_warning :: Lens.Lens' JobMessages (Core.Maybe [Core.Text])
-jobMessages_warning = Lens.lens (\JobMessages' {warning} -> warning) (\s@JobMessages' {} a -> s {warning = a} :: JobMessages) Core.. Lens.mapping Lens._Coerce
+jobMessages_warning :: Lens.Lens' JobMessages (Prelude.Maybe [Prelude.Text])
+jobMessages_warning = Lens.lens (\JobMessages' {warning} -> warning) (\s@JobMessages' {} a -> s {warning = a} :: JobMessages) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON JobMessages where
   parseJSON =
@@ -73,10 +74,10 @@ instance Core.FromJSON JobMessages where
       "JobMessages"
       ( \x ->
           JobMessages'
-            Core.<$> (x Core..:? "info" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "warning" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "info" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "warning" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable JobMessages
+instance Prelude.Hashable JobMessages
 
-instance Core.NFData JobMessages
+instance Prelude.NFData JobMessages

@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -47,9 +48,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteModel' smart constructor.
 data DeleteModel = DeleteModel'
   { -- | The name of the model to delete.
-    modelName :: Core.Text
+    modelName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteModel' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteModel = DeleteModel'
 -- 'modelName', 'deleteModel_modelName' - The name of the model to delete.
 newDeleteModel ::
   -- | 'modelName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteModel
 newDeleteModel pModelName_ =
   DeleteModel' {modelName = pModelName_}
 
 -- | The name of the model to delete.
-deleteModel_modelName :: Lens.Lens' DeleteModel Core.Text
+deleteModel_modelName :: Lens.Lens' DeleteModel Prelude.Text
 deleteModel_modelName = Lens.lens (\DeleteModel' {modelName} -> modelName) (\s@DeleteModel' {} a -> s {modelName = a} :: DeleteModel)
 
 instance Core.AWSRequest DeleteModel where
@@ -76,39 +77,41 @@ instance Core.AWSRequest DeleteModel where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteModelResponse'
 
-instance Core.Hashable DeleteModel
+instance Prelude.Hashable DeleteModel
 
-instance Core.NFData DeleteModel
+instance Prelude.NFData DeleteModel
 
 instance Core.ToHeaders DeleteModel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteModel" :: Core.ByteString),
+              Core.=# ("SageMaker.DeleteModel" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteModel where
   toJSON DeleteModel' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ModelName" Core..= modelName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ModelName" Core..= modelName)]
       )
 
 instance Core.ToPath DeleteModel where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteModel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteModelResponse' smart constructor.
 data DeleteModelResponse = DeleteModelResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteModelResponse' with all optional fields omitted.
@@ -118,4 +121,4 @@ newDeleteModelResponse ::
   DeleteModelResponse
 newDeleteModelResponse = DeleteModelResponse'
 
-instance Core.NFData DeleteModelResponse
+instance Prelude.NFData DeleteModelResponse

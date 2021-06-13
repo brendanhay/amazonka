@@ -22,17 +22,18 @@ module Network.AWS.CloudFront.Types.OriginGroups where
 import Network.AWS.CloudFront.Types.OriginGroup
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type for the origin groups specified for a distribution.
 --
 -- /See:/ 'newOriginGroups' smart constructor.
 data OriginGroups = OriginGroups'
   { -- | The items (origin groups) in a distribution.
-    items :: Core.Maybe [OriginGroup],
+    items :: Prelude.Maybe [OriginGroup],
     -- | The number of origin groups.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginGroups' with all optional fields omitted.
@@ -47,39 +48,39 @@ data OriginGroups = OriginGroups'
 -- 'quantity', 'originGroups_quantity' - The number of origin groups.
 newOriginGroups ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   OriginGroups
 newOriginGroups pQuantity_ =
   OriginGroups'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       quantity = pQuantity_
     }
 
 -- | The items (origin groups) in a distribution.
-originGroups_items :: Lens.Lens' OriginGroups (Core.Maybe [OriginGroup])
-originGroups_items = Lens.lens (\OriginGroups' {items} -> items) (\s@OriginGroups' {} a -> s {items = a} :: OriginGroups) Core.. Lens.mapping Lens._Coerce
+originGroups_items :: Lens.Lens' OriginGroups (Prelude.Maybe [OriginGroup])
+originGroups_items = Lens.lens (\OriginGroups' {items} -> items) (\s@OriginGroups' {} a -> s {items = a} :: OriginGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of origin groups.
-originGroups_quantity :: Lens.Lens' OriginGroups Core.Int
+originGroups_quantity :: Lens.Lens' OriginGroups Prelude.Int
 originGroups_quantity = Lens.lens (\OriginGroups' {quantity} -> quantity) (\s@OriginGroups' {} a -> s {quantity = a} :: OriginGroups)
 
 instance Core.FromXML OriginGroups where
   parseXML x =
     OriginGroups'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "OriginGroup")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "OriginGroup")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable OriginGroups
+instance Prelude.Hashable OriginGroups
 
-instance Core.NFData OriginGroups
+instance Prelude.NFData OriginGroups
 
 instance Core.ToXML OriginGroups where
   toXML OriginGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
           Core.@= Core.toXML
-            (Core.toXMLList "OriginGroup" Core.<$> items),
+            (Core.toXMLList "OriginGroup" Prelude.<$> items),
         "Quantity" Core.@= quantity
       ]

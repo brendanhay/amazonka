@@ -26,6 +26,7 @@ import Network.AWS.KinesisAnalytics.Types.InputDescription
 import Network.AWS.KinesisAnalytics.Types.OutputDescription
 import Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This documentation is for version 1 of the Amazon Kinesis Data Analytics
 -- API, which only supports SQL applications. Version 2 of the API supports
@@ -40,39 +41,39 @@ import qualified Network.AWS.Lens as Lens
 data ApplicationDetail = ApplicationDetail'
   { -- | Returns the application code that you provided to perform data analysis
     -- on any of the in-application streams in your application.
-    applicationCode :: Core.Maybe Core.Text,
+    applicationCode :: Prelude.Maybe Prelude.Text,
     -- | Description of the application.
-    applicationDescription :: Core.Maybe Core.Text,
+    applicationDescription :: Prelude.Maybe Prelude.Text,
     -- | Describes the CloudWatch log streams that are configured to receive
     -- application messages. For more information about using CloudWatch log
     -- streams with Amazon Kinesis Analytics applications, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
-    cloudWatchLoggingOptionDescriptions :: Core.Maybe [CloudWatchLoggingOptionDescription],
+    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
     -- | Time stamp when the application version was created.
-    createTimestamp :: Core.Maybe Core.POSIX,
+    createTimestamp :: Prelude.Maybe Core.POSIX,
     -- | Describes the application output configuration. For more information,
     -- see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
-    outputDescriptions :: Core.Maybe [OutputDescription],
+    outputDescriptions :: Prelude.Maybe [OutputDescription],
     -- | Describes reference data sources configured for the application. For
     -- more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
-    referenceDataSourceDescriptions :: Core.Maybe [ReferenceDataSourceDescription],
+    referenceDataSourceDescriptions :: Prelude.Maybe [ReferenceDataSourceDescription],
     -- | Describes the application input configuration. For more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
-    inputDescriptions :: Core.Maybe [InputDescription],
+    inputDescriptions :: Prelude.Maybe [InputDescription],
     -- | Time stamp when the application was last updated.
-    lastUpdateTimestamp :: Core.Maybe Core.POSIX,
+    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
     -- | Name of the application.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | ARN of the application.
-    applicationARN :: Core.Text,
+    applicationARN :: Prelude.Text,
     -- | Status of the application.
     applicationStatus :: ApplicationStatus,
     -- | Provides the current application version.
-    applicationVersionId :: Core.Natural
+    applicationVersionId :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationDetail' with all optional fields omitted.
@@ -116,13 +117,13 @@ data ApplicationDetail = ApplicationDetail'
 -- 'applicationVersionId', 'applicationDetail_applicationVersionId' - Provides the current application version.
 newApplicationDetail ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationStatus'
   ApplicationStatus ->
   -- | 'applicationVersionId'
-  Core.Natural ->
+  Prelude.Natural ->
   ApplicationDetail
 newApplicationDetail
   pApplicationName_
@@ -130,14 +131,16 @@ newApplicationDetail
   pApplicationStatus_
   pApplicationVersionId_ =
     ApplicationDetail'
-      { applicationCode = Core.Nothing,
-        applicationDescription = Core.Nothing,
-        cloudWatchLoggingOptionDescriptions = Core.Nothing,
-        createTimestamp = Core.Nothing,
-        outputDescriptions = Core.Nothing,
-        referenceDataSourceDescriptions = Core.Nothing,
-        inputDescriptions = Core.Nothing,
-        lastUpdateTimestamp = Core.Nothing,
+      { applicationCode =
+          Prelude.Nothing,
+        applicationDescription = Prelude.Nothing,
+        cloudWatchLoggingOptionDescriptions =
+          Prelude.Nothing,
+        createTimestamp = Prelude.Nothing,
+        outputDescriptions = Prelude.Nothing,
+        referenceDataSourceDescriptions = Prelude.Nothing,
+        inputDescriptions = Prelude.Nothing,
+        lastUpdateTimestamp = Prelude.Nothing,
         applicationName = pApplicationName_,
         applicationARN = pApplicationARN_,
         applicationStatus = pApplicationStatus_,
@@ -146,51 +149,51 @@ newApplicationDetail
 
 -- | Returns the application code that you provided to perform data analysis
 -- on any of the in-application streams in your application.
-applicationDetail_applicationCode :: Lens.Lens' ApplicationDetail (Core.Maybe Core.Text)
+applicationDetail_applicationCode :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
 applicationDetail_applicationCode = Lens.lens (\ApplicationDetail' {applicationCode} -> applicationCode) (\s@ApplicationDetail' {} a -> s {applicationCode = a} :: ApplicationDetail)
 
 -- | Description of the application.
-applicationDetail_applicationDescription :: Lens.Lens' ApplicationDetail (Core.Maybe Core.Text)
+applicationDetail_applicationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
 applicationDetail_applicationDescription = Lens.lens (\ApplicationDetail' {applicationDescription} -> applicationDescription) (\s@ApplicationDetail' {} a -> s {applicationDescription = a} :: ApplicationDetail)
 
 -- | Describes the CloudWatch log streams that are configured to receive
 -- application messages. For more information about using CloudWatch log
 -- streams with Amazon Kinesis Analytics applications, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
-applicationDetail_cloudWatchLoggingOptionDescriptions :: Lens.Lens' ApplicationDetail (Core.Maybe [CloudWatchLoggingOptionDescription])
-applicationDetail_cloudWatchLoggingOptionDescriptions = Lens.lens (\ApplicationDetail' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@ApplicationDetail' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: ApplicationDetail) Core.. Lens.mapping Lens._Coerce
+applicationDetail_cloudWatchLoggingOptionDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [CloudWatchLoggingOptionDescription])
+applicationDetail_cloudWatchLoggingOptionDescriptions = Lens.lens (\ApplicationDetail' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@ApplicationDetail' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Time stamp when the application version was created.
-applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Core.Maybe Core.UTCTime)
-applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Core.. Lens.mapping Core._Time
+applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
+applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Describes the application output configuration. For more information,
 -- see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
-applicationDetail_outputDescriptions :: Lens.Lens' ApplicationDetail (Core.Maybe [OutputDescription])
-applicationDetail_outputDescriptions = Lens.lens (\ApplicationDetail' {outputDescriptions} -> outputDescriptions) (\s@ApplicationDetail' {} a -> s {outputDescriptions = a} :: ApplicationDetail) Core.. Lens.mapping Lens._Coerce
+applicationDetail_outputDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [OutputDescription])
+applicationDetail_outputDescriptions = Lens.lens (\ApplicationDetail' {outputDescriptions} -> outputDescriptions) (\s@ApplicationDetail' {} a -> s {outputDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Describes reference data sources configured for the application. For
 -- more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
-applicationDetail_referenceDataSourceDescriptions :: Lens.Lens' ApplicationDetail (Core.Maybe [ReferenceDataSourceDescription])
-applicationDetail_referenceDataSourceDescriptions = Lens.lens (\ApplicationDetail' {referenceDataSourceDescriptions} -> referenceDataSourceDescriptions) (\s@ApplicationDetail' {} a -> s {referenceDataSourceDescriptions = a} :: ApplicationDetail) Core.. Lens.mapping Lens._Coerce
+applicationDetail_referenceDataSourceDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [ReferenceDataSourceDescription])
+applicationDetail_referenceDataSourceDescriptions = Lens.lens (\ApplicationDetail' {referenceDataSourceDescriptions} -> referenceDataSourceDescriptions) (\s@ApplicationDetail' {} a -> s {referenceDataSourceDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Describes the application input configuration. For more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
-applicationDetail_inputDescriptions :: Lens.Lens' ApplicationDetail (Core.Maybe [InputDescription])
-applicationDetail_inputDescriptions = Lens.lens (\ApplicationDetail' {inputDescriptions} -> inputDescriptions) (\s@ApplicationDetail' {} a -> s {inputDescriptions = a} :: ApplicationDetail) Core.. Lens.mapping Lens._Coerce
+applicationDetail_inputDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [InputDescription])
+applicationDetail_inputDescriptions = Lens.lens (\ApplicationDetail' {inputDescriptions} -> inputDescriptions) (\s@ApplicationDetail' {} a -> s {inputDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Time stamp when the application was last updated.
-applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Core.Maybe Core.UTCTime)
-applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Core.. Lens.mapping Core._Time
+applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
+applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Name of the application.
-applicationDetail_applicationName :: Lens.Lens' ApplicationDetail Core.Text
+applicationDetail_applicationName :: Lens.Lens' ApplicationDetail Prelude.Text
 applicationDetail_applicationName = Lens.lens (\ApplicationDetail' {applicationName} -> applicationName) (\s@ApplicationDetail' {} a -> s {applicationName = a} :: ApplicationDetail)
 
 -- | ARN of the application.
-applicationDetail_applicationARN :: Lens.Lens' ApplicationDetail Core.Text
+applicationDetail_applicationARN :: Lens.Lens' ApplicationDetail Prelude.Text
 applicationDetail_applicationARN = Lens.lens (\ApplicationDetail' {applicationARN} -> applicationARN) (\s@ApplicationDetail' {} a -> s {applicationARN = a} :: ApplicationDetail)
 
 -- | Status of the application.
@@ -198,7 +201,7 @@ applicationDetail_applicationStatus :: Lens.Lens' ApplicationDetail ApplicationS
 applicationDetail_applicationStatus = Lens.lens (\ApplicationDetail' {applicationStatus} -> applicationStatus) (\s@ApplicationDetail' {} a -> s {applicationStatus = a} :: ApplicationDetail)
 
 -- | Provides the current application version.
-applicationDetail_applicationVersionId :: Lens.Lens' ApplicationDetail Core.Natural
+applicationDetail_applicationVersionId :: Lens.Lens' ApplicationDetail Prelude.Natural
 applicationDetail_applicationVersionId = Lens.lens (\ApplicationDetail' {applicationVersionId} -> applicationVersionId) (\s@ApplicationDetail' {} a -> s {applicationVersionId = a} :: ApplicationDetail)
 
 instance Core.FromJSON ApplicationDetail where
@@ -207,26 +210,28 @@ instance Core.FromJSON ApplicationDetail where
       "ApplicationDetail"
       ( \x ->
           ApplicationDetail'
-            Core.<$> (x Core..:? "ApplicationCode")
-            Core.<*> (x Core..:? "ApplicationDescription")
-            Core.<*> ( x Core..:? "CloudWatchLoggingOptionDescriptions"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "CreateTimestamp")
-            Core.<*> ( x Core..:? "OutputDescriptions"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "ReferenceDataSourceDescriptions"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "InputDescriptions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "LastUpdateTimestamp")
-            Core.<*> (x Core..: "ApplicationName")
-            Core.<*> (x Core..: "ApplicationARN")
-            Core.<*> (x Core..: "ApplicationStatus")
-            Core.<*> (x Core..: "ApplicationVersionId")
+            Prelude.<$> (x Core..:? "ApplicationCode")
+            Prelude.<*> (x Core..:? "ApplicationDescription")
+            Prelude.<*> ( x Core..:? "CloudWatchLoggingOptionDescriptions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "CreateTimestamp")
+            Prelude.<*> ( x Core..:? "OutputDescriptions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "ReferenceDataSourceDescriptions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "InputDescriptions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Core..: "ApplicationName")
+            Prelude.<*> (x Core..: "ApplicationARN")
+            Prelude.<*> (x Core..: "ApplicationStatus")
+            Prelude.<*> (x Core..: "ApplicationVersionId")
       )
 
-instance Core.Hashable ApplicationDetail
+instance Prelude.Hashable ApplicationDetail
 
-instance Core.NFData ApplicationDetail
+instance Prelude.NFData ApplicationDetail

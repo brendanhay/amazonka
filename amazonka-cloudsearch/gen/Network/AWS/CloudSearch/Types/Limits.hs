@@ -21,13 +21,14 @@ module Network.AWS.CloudSearch.Types.Limits where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newLimits' smart constructor.
 data Limits = Limits'
-  { maximumReplicationCount :: Core.Natural,
-    maximumPartitionCount :: Core.Natural
+  { maximumReplicationCount :: Prelude.Natural,
+    maximumPartitionCount :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Limits' with all optional fields omitted.
@@ -42,9 +43,9 @@ data Limits = Limits'
 -- 'maximumPartitionCount', 'limits_maximumPartitionCount' - Undocumented member.
 newLimits ::
   -- | 'maximumReplicationCount'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'maximumPartitionCount'
-  Core.Natural ->
+  Prelude.Natural ->
   Limits
 newLimits
   pMaximumReplicationCount_
@@ -56,19 +57,19 @@ newLimits
       }
 
 -- | Undocumented member.
-limits_maximumReplicationCount :: Lens.Lens' Limits Core.Natural
+limits_maximumReplicationCount :: Lens.Lens' Limits Prelude.Natural
 limits_maximumReplicationCount = Lens.lens (\Limits' {maximumReplicationCount} -> maximumReplicationCount) (\s@Limits' {} a -> s {maximumReplicationCount = a} :: Limits)
 
 -- | Undocumented member.
-limits_maximumPartitionCount :: Lens.Lens' Limits Core.Natural
+limits_maximumPartitionCount :: Lens.Lens' Limits Prelude.Natural
 limits_maximumPartitionCount = Lens.lens (\Limits' {maximumPartitionCount} -> maximumPartitionCount) (\s@Limits' {} a -> s {maximumPartitionCount = a} :: Limits)
 
 instance Core.FromXML Limits where
   parseXML x =
     Limits'
-      Core.<$> (x Core..@ "MaximumReplicationCount")
-      Core.<*> (x Core..@ "MaximumPartitionCount")
+      Prelude.<$> (x Core..@ "MaximumReplicationCount")
+      Prelude.<*> (x Core..@ "MaximumPartitionCount")
 
-instance Core.Hashable Limits
+instance Prelude.Hashable Limits
 
-instance Core.NFData Limits
+instance Prelude.NFData Limits

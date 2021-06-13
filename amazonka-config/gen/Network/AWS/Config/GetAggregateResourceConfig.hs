@@ -44,17 +44,18 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetAggregateResourceConfig' smart constructor.
 data GetAggregateResourceConfig = GetAggregateResourceConfig'
   { -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Core.Text,
+    configurationAggregatorName :: Prelude.Text,
     -- | An object that identifies aggregate resource.
     resourceIdentifier :: AggregateResourceIdentifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAggregateResourceConfig' with all optional fields omitted.
@@ -69,7 +70,7 @@ data GetAggregateResourceConfig = GetAggregateResourceConfig'
 -- 'resourceIdentifier', 'getAggregateResourceConfig_resourceIdentifier' - An object that identifies aggregate resource.
 newGetAggregateResourceConfig ::
   -- | 'configurationAggregatorName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceIdentifier'
   AggregateResourceIdentifier ->
   GetAggregateResourceConfig
@@ -83,7 +84,7 @@ newGetAggregateResourceConfig
       }
 
 -- | The name of the configuration aggregator.
-getAggregateResourceConfig_configurationAggregatorName :: Lens.Lens' GetAggregateResourceConfig Core.Text
+getAggregateResourceConfig_configurationAggregatorName :: Lens.Lens' GetAggregateResourceConfig Prelude.Text
 getAggregateResourceConfig_configurationAggregatorName = Lens.lens (\GetAggregateResourceConfig' {configurationAggregatorName} -> configurationAggregatorName) (\s@GetAggregateResourceConfig' {} a -> s {configurationAggregatorName = a} :: GetAggregateResourceConfig)
 
 -- | An object that identifies aggregate resource.
@@ -99,54 +100,56 @@ instance Core.AWSRequest GetAggregateResourceConfig where
     Response.receiveJSON
       ( \s h x ->
           GetAggregateResourceConfigResponse'
-            Core.<$> (x Core..?> "ConfigurationItem")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ConfigurationItem")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAggregateResourceConfig
+instance Prelude.Hashable GetAggregateResourceConfig
 
-instance Core.NFData GetAggregateResourceConfig
+instance Prelude.NFData GetAggregateResourceConfig
 
 instance Core.ToHeaders GetAggregateResourceConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.GetAggregateResourceConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetAggregateResourceConfig where
   toJSON GetAggregateResourceConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ConfigurationAggregatorName"
                   Core..= configurationAggregatorName
               ),
-            Core.Just
+            Prelude.Just
               ("ResourceIdentifier" Core..= resourceIdentifier)
           ]
       )
 
 instance Core.ToPath GetAggregateResourceConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAggregateResourceConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAggregateResourceConfigResponse' smart constructor.
 data GetAggregateResourceConfigResponse = GetAggregateResourceConfigResponse'
   { -- | Returns a @ConfigurationItem@ object.
-    configurationItem :: Core.Maybe ConfigurationItem,
+    configurationItem :: Prelude.Maybe ConfigurationItem,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAggregateResourceConfigResponse' with all optional fields omitted.
@@ -161,23 +164,23 @@ data GetAggregateResourceConfigResponse = GetAggregateResourceConfigResponse'
 -- 'httpStatus', 'getAggregateResourceConfigResponse_httpStatus' - The response's http status code.
 newGetAggregateResourceConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAggregateResourceConfigResponse
 newGetAggregateResourceConfigResponse pHttpStatus_ =
   GetAggregateResourceConfigResponse'
     { configurationItem =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns a @ConfigurationItem@ object.
-getAggregateResourceConfigResponse_configurationItem :: Lens.Lens' GetAggregateResourceConfigResponse (Core.Maybe ConfigurationItem)
+getAggregateResourceConfigResponse_configurationItem :: Lens.Lens' GetAggregateResourceConfigResponse (Prelude.Maybe ConfigurationItem)
 getAggregateResourceConfigResponse_configurationItem = Lens.lens (\GetAggregateResourceConfigResponse' {configurationItem} -> configurationItem) (\s@GetAggregateResourceConfigResponse' {} a -> s {configurationItem = a} :: GetAggregateResourceConfigResponse)
 
 -- | The response's http status code.
-getAggregateResourceConfigResponse_httpStatus :: Lens.Lens' GetAggregateResourceConfigResponse Core.Int
+getAggregateResourceConfigResponse_httpStatus :: Lens.Lens' GetAggregateResourceConfigResponse Prelude.Int
 getAggregateResourceConfigResponse_httpStatus = Lens.lens (\GetAggregateResourceConfigResponse' {httpStatus} -> httpStatus) (\s@GetAggregateResourceConfigResponse' {} a -> s {httpStatus = a} :: GetAggregateResourceConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetAggregateResourceConfigResponse

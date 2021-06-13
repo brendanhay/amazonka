@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.DnsProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains the ID for the Route 53 hosted zone that
 -- AWS Cloud Map creates when you create a namespace.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data DnsProperties = DnsProperties'
   { -- | The ID for the Route 53 hosted zone that AWS Cloud Map creates when you
     -- create a namespace.
-    hostedZoneId :: Core.Maybe Core.Text
+    hostedZoneId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DnsProperties' with all optional fields omitted.
@@ -46,11 +47,11 @@ data DnsProperties = DnsProperties'
 newDnsProperties ::
   DnsProperties
 newDnsProperties =
-  DnsProperties' {hostedZoneId = Core.Nothing}
+  DnsProperties' {hostedZoneId = Prelude.Nothing}
 
 -- | The ID for the Route 53 hosted zone that AWS Cloud Map creates when you
 -- create a namespace.
-dnsProperties_hostedZoneId :: Lens.Lens' DnsProperties (Core.Maybe Core.Text)
+dnsProperties_hostedZoneId :: Lens.Lens' DnsProperties (Prelude.Maybe Prelude.Text)
 dnsProperties_hostedZoneId = Lens.lens (\DnsProperties' {hostedZoneId} -> hostedZoneId) (\s@DnsProperties' {} a -> s {hostedZoneId = a} :: DnsProperties)
 
 instance Core.FromJSON DnsProperties where
@@ -58,9 +59,10 @@ instance Core.FromJSON DnsProperties where
     Core.withObject
       "DnsProperties"
       ( \x ->
-          DnsProperties' Core.<$> (x Core..:? "HostedZoneId")
+          DnsProperties'
+            Prelude.<$> (x Core..:? "HostedZoneId")
       )
 
-instance Core.Hashable DnsProperties
+instance Prelude.Hashable DnsProperties
 
-instance Core.NFData DnsProperties
+instance Prelude.NFData DnsProperties

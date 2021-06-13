@@ -43,6 +43,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTerminationPolicyTypes' with all optional fields omitted.
@@ -74,35 +75,40 @@ instance
       "DescribeTerminationPolicyTypesResult"
       ( \s h x ->
           DescribeTerminationPolicyTypesResponse'
-            Core.<$> ( x Core..@? "TerminationPolicyTypes"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "TerminationPolicyTypes"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTerminationPolicyTypes
+instance
+  Prelude.Hashable
+    DescribeTerminationPolicyTypes
 
-instance Core.NFData DescribeTerminationPolicyTypes
+instance
+  Prelude.NFData
+    DescribeTerminationPolicyTypes
 
 instance
   Core.ToHeaders
     DescribeTerminationPolicyTypes
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeTerminationPolicyTypes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTerminationPolicyTypes where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
               Core.=: ( "DescribeTerminationPolicyTypes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
-            "Version" Core.=: ("2011-01-01" :: Core.ByteString)
+            "Version"
+              Core.=: ("2011-01-01" :: Prelude.ByteString)
           ]
       )
 
@@ -112,11 +118,11 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
     -- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
     -- @ClosestToNextInstanceHour@, @Default@, @OldestLaunchTemplate@, and
     -- @AllocationStrategy@.
-    terminationPolicyTypes :: Core.Maybe [Core.Text],
+    terminationPolicyTypes :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTerminationPolicyTypesResponse' with all optional fields omitted.
@@ -134,13 +140,13 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
 -- 'httpStatus', 'describeTerminationPolicyTypesResponse_httpStatus' - The response's http status code.
 newDescribeTerminationPolicyTypesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTerminationPolicyTypesResponse
 newDescribeTerminationPolicyTypesResponse
   pHttpStatus_ =
     DescribeTerminationPolicyTypesResponse'
       { terminationPolicyTypes =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -148,13 +154,13 @@ newDescribeTerminationPolicyTypesResponse
 -- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
 -- @ClosestToNextInstanceHour@, @Default@, @OldestLaunchTemplate@, and
 -- @AllocationStrategy@.
-describeTerminationPolicyTypesResponse_terminationPolicyTypes :: Lens.Lens' DescribeTerminationPolicyTypesResponse (Core.Maybe [Core.Text])
-describeTerminationPolicyTypesResponse_terminationPolicyTypes = Lens.lens (\DescribeTerminationPolicyTypesResponse' {terminationPolicyTypes} -> terminationPolicyTypes) (\s@DescribeTerminationPolicyTypesResponse' {} a -> s {terminationPolicyTypes = a} :: DescribeTerminationPolicyTypesResponse) Core.. Lens.mapping Lens._Coerce
+describeTerminationPolicyTypesResponse_terminationPolicyTypes :: Lens.Lens' DescribeTerminationPolicyTypesResponse (Prelude.Maybe [Prelude.Text])
+describeTerminationPolicyTypesResponse_terminationPolicyTypes = Lens.lens (\DescribeTerminationPolicyTypesResponse' {terminationPolicyTypes} -> terminationPolicyTypes) (\s@DescribeTerminationPolicyTypesResponse' {} a -> s {terminationPolicyTypes = a} :: DescribeTerminationPolicyTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTerminationPolicyTypesResponse_httpStatus :: Lens.Lens' DescribeTerminationPolicyTypesResponse Core.Int
+describeTerminationPolicyTypesResponse_httpStatus :: Lens.Lens' DescribeTerminationPolicyTypesResponse Prelude.Int
 describeTerminationPolicyTypesResponse_httpStatus = Lens.lens (\DescribeTerminationPolicyTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeTerminationPolicyTypesResponse' {} a -> s {httpStatus = a} :: DescribeTerminationPolicyTypesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTerminationPolicyTypesResponse

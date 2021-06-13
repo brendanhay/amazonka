@@ -59,6 +59,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,11 +76,11 @@ data TagResource = TagResource'
     -- For more information about ARN format, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies Resource Types Defined by Amazon CloudWatch>
     -- in the /Amazon Web Services General Reference/.
-    resourceARN :: Core.Text,
+    resourceARN :: Prelude.Text,
     -- | The list of key-value pairs to associate with the alarm.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -104,12 +105,12 @@ data TagResource = TagResource'
 -- 'tags', 'tagResource_tags' - The list of key-value pairs to associate with the alarm.
 newTagResource ::
   -- | 'resourceARN'
-  Core.Text ->
+  Prelude.Text ->
   TagResource
 newTagResource pResourceARN_ =
   TagResource'
     { resourceARN = pResourceARN_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The ARN of the CloudWatch resource that you\'re adding tags to.
@@ -123,12 +124,12 @@ newTagResource pResourceARN_ =
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies Resource Types Defined by Amazon CloudWatch>
 -- in the /Amazon Web Services General Reference/.
-tagResource_resourceARN :: Lens.Lens' TagResource Core.Text
+tagResource_resourceARN :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN) (\s@TagResource' {} a -> s {resourceARN = a} :: TagResource)
 
 -- | The list of key-value pairs to associate with the alarm.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Core.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
@@ -138,24 +139,26 @@ instance Core.AWSRequest TagResource where
       "TagResourceResult"
       ( \s h x ->
           TagResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TagResource
+instance Prelude.Hashable TagResource
 
-instance Core.NFData TagResource
+instance Prelude.NFData TagResource
 
 instance Core.ToHeaders TagResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath TagResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagResource where
   toQuery TagResource' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("TagResource" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("TagResource" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "ResourceARN" Core.=: resourceARN,
         "Tags" Core.=: Core.toQueryList "member" tags
       ]
@@ -163,9 +166,9 @@ instance Core.ToQuery TagResource where
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -178,13 +181,13 @@ data TagResourceResponse = TagResourceResponse'
 -- 'httpStatus', 'tagResourceResponse_httpStatus' - The response's http status code.
 newTagResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TagResourceResponse
 newTagResourceResponse pHttpStatus_ =
   TagResourceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Core.Int
+tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int
 tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -> httpStatus) (\s@TagResourceResponse' {} a -> s {httpStatus = a} :: TagResourceResponse)
 
-instance Core.NFData TagResourceResponse
+instance Prelude.NFData TagResourceResponse

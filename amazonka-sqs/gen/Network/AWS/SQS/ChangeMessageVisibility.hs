@@ -95,6 +95,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -104,15 +105,15 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
   { -- | The URL of the Amazon SQS queue whose message\'s visibility is changed.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Core.Text,
+    queueUrl :: Prelude.Text,
     -- | The receipt handle associated with the message whose visibility timeout
     -- is changed. This parameter is returned by the @ ReceiveMessage @ action.
-    receiptHandle :: Core.Text,
+    receiptHandle :: Prelude.Text,
     -- | The new value for the message\'s visibility timeout (in seconds). Values
     -- range: @0@ to @43200@. Maximum: 12 hours.
-    visibilityTimeout :: Core.Int
+    visibilityTimeout :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeMessageVisibility' with all optional fields omitted.
@@ -133,11 +134,11 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
 -- range: @0@ to @43200@. Maximum: 12 hours.
 newChangeMessageVisibility ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'receiptHandle'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'visibilityTimeout'
-  Core.Int ->
+  Prelude.Int ->
   ChangeMessageVisibility
 newChangeMessageVisibility
   pQueueUrl_
@@ -152,17 +153,17 @@ newChangeMessageVisibility
 -- | The URL of the Amazon SQS queue whose message\'s visibility is changed.
 --
 -- Queue URLs and names are case-sensitive.
-changeMessageVisibility_queueUrl :: Lens.Lens' ChangeMessageVisibility Core.Text
+changeMessageVisibility_queueUrl :: Lens.Lens' ChangeMessageVisibility Prelude.Text
 changeMessageVisibility_queueUrl = Lens.lens (\ChangeMessageVisibility' {queueUrl} -> queueUrl) (\s@ChangeMessageVisibility' {} a -> s {queueUrl = a} :: ChangeMessageVisibility)
 
 -- | The receipt handle associated with the message whose visibility timeout
 -- is changed. This parameter is returned by the @ ReceiveMessage @ action.
-changeMessageVisibility_receiptHandle :: Lens.Lens' ChangeMessageVisibility Core.Text
+changeMessageVisibility_receiptHandle :: Lens.Lens' ChangeMessageVisibility Prelude.Text
 changeMessageVisibility_receiptHandle = Lens.lens (\ChangeMessageVisibility' {receiptHandle} -> receiptHandle) (\s@ChangeMessageVisibility' {} a -> s {receiptHandle = a} :: ChangeMessageVisibility)
 
 -- | The new value for the message\'s visibility timeout (in seconds). Values
 -- range: @0@ to @43200@. Maximum: 12 hours.
-changeMessageVisibility_visibilityTimeout :: Lens.Lens' ChangeMessageVisibility Core.Int
+changeMessageVisibility_visibilityTimeout :: Lens.Lens' ChangeMessageVisibility Prelude.Int
 changeMessageVisibility_visibilityTimeout = Lens.lens (\ChangeMessageVisibility' {visibilityTimeout} -> visibilityTimeout) (\s@ChangeMessageVisibility' {} a -> s {visibilityTimeout = a} :: ChangeMessageVisibility)
 
 instance Core.AWSRequest ChangeMessageVisibility where
@@ -174,22 +175,23 @@ instance Core.AWSRequest ChangeMessageVisibility where
     Response.receiveNull
       ChangeMessageVisibilityResponse'
 
-instance Core.Hashable ChangeMessageVisibility
+instance Prelude.Hashable ChangeMessageVisibility
 
-instance Core.NFData ChangeMessageVisibility
+instance Prelude.NFData ChangeMessageVisibility
 
 instance Core.ToHeaders ChangeMessageVisibility where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ChangeMessageVisibility where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ChangeMessageVisibility where
   toQuery ChangeMessageVisibility' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ChangeMessageVisibility" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+          Core.=: ("ChangeMessageVisibility" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueUrl" Core.=: queueUrl,
         "ReceiptHandle" Core.=: receiptHandle,
         "VisibilityTimeout" Core.=: visibilityTimeout
@@ -199,7 +201,7 @@ instance Core.ToQuery ChangeMessageVisibility where
 data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeMessageVisibilityResponse' with all optional fields omitted.
@@ -210,4 +212,6 @@ newChangeMessageVisibilityResponse ::
 newChangeMessageVisibilityResponse =
   ChangeMessageVisibilityResponse'
 
-instance Core.NFData ChangeMessageVisibilityResponse
+instance
+  Prelude.NFData
+    ChangeMessageVisibilityResponse

@@ -83,6 +83,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,9 +93,9 @@ import qualified Network.AWS.Response as Response
 data DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
   { -- | A unique identifier for a fleet to get the runtime configuration for.
     -- You can use either the fleet ID or ARN value.
-    fleetId :: Core.Text
+    fleetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRuntimeConfiguration' with all optional fields omitted.
@@ -108,14 +109,14 @@ data DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
 -- You can use either the fleet ID or ARN value.
 newDescribeRuntimeConfiguration ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeRuntimeConfiguration
 newDescribeRuntimeConfiguration pFleetId_ =
   DescribeRuntimeConfiguration' {fleetId = pFleetId_}
 
 -- | A unique identifier for a fleet to get the runtime configuration for.
 -- You can use either the fleet ID or ARN value.
-describeRuntimeConfiguration_fleetId :: Lens.Lens' DescribeRuntimeConfiguration Core.Text
+describeRuntimeConfiguration_fleetId :: Lens.Lens' DescribeRuntimeConfiguration Prelude.Text
 describeRuntimeConfiguration_fleetId = Lens.lens (\DescribeRuntimeConfiguration' {fleetId} -> fleetId) (\s@DescribeRuntimeConfiguration' {} a -> s {fleetId = a} :: DescribeRuntimeConfiguration)
 
 instance Core.AWSRequest DescribeRuntimeConfiguration where
@@ -127,39 +128,43 @@ instance Core.AWSRequest DescribeRuntimeConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeRuntimeConfigurationResponse'
-            Core.<$> (x Core..?> "RuntimeConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RuntimeConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRuntimeConfiguration
+instance
+  Prelude.Hashable
+    DescribeRuntimeConfiguration
 
-instance Core.NFData DescribeRuntimeConfiguration
+instance Prelude.NFData DescribeRuntimeConfiguration
 
 instance Core.ToHeaders DescribeRuntimeConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DescribeRuntimeConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeRuntimeConfiguration where
   toJSON DescribeRuntimeConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("FleetId" Core..= fleetId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("FleetId" Core..= fleetId)]
       )
 
 instance Core.ToPath DescribeRuntimeConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeRuntimeConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -167,11 +172,11 @@ instance Core.ToQuery DescribeRuntimeConfiguration where
 data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse'
   { -- | Instructions describing how server processes should be launched and
     -- maintained on each instance in the fleet.
-    runtimeConfiguration :: Core.Maybe RuntimeConfiguration,
+    runtimeConfiguration :: Prelude.Maybe RuntimeConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRuntimeConfigurationResponse' with all optional fields omitted.
@@ -187,24 +192,24 @@ data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse
 -- 'httpStatus', 'describeRuntimeConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeRuntimeConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRuntimeConfigurationResponse
 newDescribeRuntimeConfigurationResponse pHttpStatus_ =
   DescribeRuntimeConfigurationResponse'
     { runtimeConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Instructions describing how server processes should be launched and
 -- maintained on each instance in the fleet.
-describeRuntimeConfigurationResponse_runtimeConfiguration :: Lens.Lens' DescribeRuntimeConfigurationResponse (Core.Maybe RuntimeConfiguration)
+describeRuntimeConfigurationResponse_runtimeConfiguration :: Lens.Lens' DescribeRuntimeConfigurationResponse (Prelude.Maybe RuntimeConfiguration)
 describeRuntimeConfigurationResponse_runtimeConfiguration = Lens.lens (\DescribeRuntimeConfigurationResponse' {runtimeConfiguration} -> runtimeConfiguration) (\s@DescribeRuntimeConfigurationResponse' {} a -> s {runtimeConfiguration = a} :: DescribeRuntimeConfigurationResponse)
 
 -- | The response's http status code.
-describeRuntimeConfigurationResponse_httpStatus :: Lens.Lens' DescribeRuntimeConfigurationResponse Core.Int
+describeRuntimeConfigurationResponse_httpStatus :: Lens.Lens' DescribeRuntimeConfigurationResponse Prelude.Int
 describeRuntimeConfigurationResponse_httpStatus = Lens.lens (\DescribeRuntimeConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeRuntimeConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeRuntimeConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeRuntimeConfigurationResponse

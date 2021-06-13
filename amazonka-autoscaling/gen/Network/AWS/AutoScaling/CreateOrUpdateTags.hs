@@ -46,6 +46,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +55,7 @@ data CreateOrUpdateTags = CreateOrUpdateTags'
   { -- | One or more tags.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOrUpdateTags' with all optional fields omitted.
@@ -68,11 +69,11 @@ data CreateOrUpdateTags = CreateOrUpdateTags'
 newCreateOrUpdateTags ::
   CreateOrUpdateTags
 newCreateOrUpdateTags =
-  CreateOrUpdateTags' {tags = Core.mempty}
+  CreateOrUpdateTags' {tags = Prelude.mempty}
 
 -- | One or more tags.
 createOrUpdateTags_tags :: Lens.Lens' CreateOrUpdateTags [Tag]
-createOrUpdateTags_tags = Lens.lens (\CreateOrUpdateTags' {tags} -> tags) (\s@CreateOrUpdateTags' {} a -> s {tags = a} :: CreateOrUpdateTags) Core.. Lens._Coerce
+createOrUpdateTags_tags = Lens.lens (\CreateOrUpdateTags' {tags} -> tags) (\s@CreateOrUpdateTags' {} a -> s {tags = a} :: CreateOrUpdateTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateOrUpdateTags where
   type
@@ -82,22 +83,23 @@ instance Core.AWSRequest CreateOrUpdateTags where
   response =
     Response.receiveNull CreateOrUpdateTagsResponse'
 
-instance Core.Hashable CreateOrUpdateTags
+instance Prelude.Hashable CreateOrUpdateTags
 
-instance Core.NFData CreateOrUpdateTags
+instance Prelude.NFData CreateOrUpdateTags
 
 instance Core.ToHeaders CreateOrUpdateTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateOrUpdateTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateOrUpdateTags where
   toQuery CreateOrUpdateTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateOrUpdateTags" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("CreateOrUpdateTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
@@ -105,7 +107,7 @@ instance Core.ToQuery CreateOrUpdateTags where
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOrUpdateTagsResponse' with all optional fields omitted.
@@ -116,4 +118,4 @@ newCreateOrUpdateTagsResponse ::
 newCreateOrUpdateTagsResponse =
   CreateOrUpdateTagsResponse'
 
-instance Core.NFData CreateOrUpdateTagsResponse
+instance Prelude.NFData CreateOrUpdateTagsResponse

@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ResourceType
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The tags to apply to a resource when the resource is being created.
 --
@@ -51,11 +52,11 @@ data TagSpecification = TagSpecification'
     --
     -- To tag a resource after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The tags to apply to the resource.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagSpecification' with all optional fields omitted.
@@ -93,8 +94,8 @@ newTagSpecification ::
   TagSpecification
 newTagSpecification =
   TagSpecification'
-    { resourceType = Core.Nothing,
-      tags = Core.Nothing
+    { resourceType = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The type of resource to tag. Currently, the resource types that support
@@ -119,28 +120,29 @@ newTagSpecification =
 --
 -- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-tagSpecification_resourceType :: Lens.Lens' TagSpecification (Core.Maybe ResourceType)
+tagSpecification_resourceType :: Lens.Lens' TagSpecification (Prelude.Maybe ResourceType)
 tagSpecification_resourceType = Lens.lens (\TagSpecification' {resourceType} -> resourceType) (\s@TagSpecification' {} a -> s {resourceType = a} :: TagSpecification)
 
 -- | The tags to apply to the resource.
-tagSpecification_tags :: Lens.Lens' TagSpecification (Core.Maybe [Tag])
-tagSpecification_tags = Lens.lens (\TagSpecification' {tags} -> tags) (\s@TagSpecification' {} a -> s {tags = a} :: TagSpecification) Core.. Lens.mapping Lens._Coerce
+tagSpecification_tags :: Lens.Lens' TagSpecification (Prelude.Maybe [Tag])
+tagSpecification_tags = Lens.lens (\TagSpecification' {tags} -> tags) (\s@TagSpecification' {} a -> s {tags = a} :: TagSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML TagSpecification where
   parseXML x =
     TagSpecification'
-      Core.<$> (x Core..@? "resourceType")
-      Core.<*> ( x Core..@? "Tag" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "resourceType")
+      Prelude.<*> ( x Core..@? "Tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable TagSpecification
+instance Prelude.Hashable TagSpecification
 
-instance Core.NFData TagSpecification
+instance Prelude.NFData TagSpecification
 
 instance Core.ToQuery TagSpecification where
   toQuery TagSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ResourceType" Core.=: resourceType,
-        Core.toQuery (Core.toQueryList "Tag" Core.<$> tags)
+        Core.toQuery
+          (Core.toQueryList "Tag" Prelude.<$> tags)
       ]

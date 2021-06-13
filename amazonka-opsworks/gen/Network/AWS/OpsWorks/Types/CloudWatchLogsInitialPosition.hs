@@ -27,6 +27,7 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies where to start to read data (start_of_file or end_of_file).
 -- The default is start_of_file. It\'s only used if there is no state
@@ -36,15 +37,15 @@ newtype CloudWatchLogsInitialPosition = CloudWatchLogsInitialPosition'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

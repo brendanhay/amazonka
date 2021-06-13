@@ -22,17 +22,18 @@ module Network.AWS.MediaConvert.Types.OutputDetail where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.VideoDetail
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details regarding output
 --
 -- /See:/ 'newOutputDetail' smart constructor.
 data OutputDetail = OutputDetail'
   { -- | Contains details about the output\'s video stream
-    videoDetails :: Core.Maybe VideoDetail,
+    videoDetails :: Prelude.Maybe VideoDetail,
     -- | Duration in milliseconds
-    durationInMs :: Core.Maybe Core.Int
+    durationInMs :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputDetail' with all optional fields omitted.
@@ -49,16 +50,16 @@ newOutputDetail ::
   OutputDetail
 newOutputDetail =
   OutputDetail'
-    { videoDetails = Core.Nothing,
-      durationInMs = Core.Nothing
+    { videoDetails = Prelude.Nothing,
+      durationInMs = Prelude.Nothing
     }
 
 -- | Contains details about the output\'s video stream
-outputDetail_videoDetails :: Lens.Lens' OutputDetail (Core.Maybe VideoDetail)
+outputDetail_videoDetails :: Lens.Lens' OutputDetail (Prelude.Maybe VideoDetail)
 outputDetail_videoDetails = Lens.lens (\OutputDetail' {videoDetails} -> videoDetails) (\s@OutputDetail' {} a -> s {videoDetails = a} :: OutputDetail)
 
 -- | Duration in milliseconds
-outputDetail_durationInMs :: Lens.Lens' OutputDetail (Core.Maybe Core.Int)
+outputDetail_durationInMs :: Lens.Lens' OutputDetail (Prelude.Maybe Prelude.Int)
 outputDetail_durationInMs = Lens.lens (\OutputDetail' {durationInMs} -> durationInMs) (\s@OutputDetail' {} a -> s {durationInMs = a} :: OutputDetail)
 
 instance Core.FromJSON OutputDetail where
@@ -67,10 +68,10 @@ instance Core.FromJSON OutputDetail where
       "OutputDetail"
       ( \x ->
           OutputDetail'
-            Core.<$> (x Core..:? "videoDetails")
-            Core.<*> (x Core..:? "durationInMs")
+            Prelude.<$> (x Core..:? "videoDetails")
+            Prelude.<*> (x Core..:? "durationInMs")
       )
 
-instance Core.Hashable OutputDetail
+instance Prelude.Hashable OutputDetail
 
-instance Core.NFData OutputDetail
+instance Prelude.NFData OutputDetail

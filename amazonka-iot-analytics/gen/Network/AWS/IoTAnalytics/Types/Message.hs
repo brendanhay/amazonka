@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.Message where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a message.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data Message = Message'
   { -- | The ID you want to assign to the message. Each @messageId@ must be
     -- unique within each batch sent.
-    messageId :: Core.Text,
+    messageId :: Prelude.Text,
     -- | The payload of the message. This can be a JSON string or a
     -- base64-encoded string representing binary data, in which case you must
     -- decode it by means of a pipeline activity.
     payload :: Core.Base64
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Message' with all optional fields omitted.
@@ -56,9 +57,9 @@ data Message = Message'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newMessage ::
   -- | 'messageId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'payload'
-  Core.ByteString ->
+  Prelude.ByteString ->
   Message
 newMessage pMessageId_ pPayload_ =
   Message'
@@ -68,7 +69,7 @@ newMessage pMessageId_ pPayload_ =
 
 -- | The ID you want to assign to the message. Each @messageId@ must be
 -- unique within each batch sent.
-message_messageId :: Lens.Lens' Message Core.Text
+message_messageId :: Lens.Lens' Message Prelude.Text
 message_messageId = Lens.lens (\Message' {messageId} -> messageId) (\s@Message' {} a -> s {messageId = a} :: Message)
 
 -- | The payload of the message. This can be a JSON string or a
@@ -78,18 +79,18 @@ message_messageId = Lens.lens (\Message' {messageId} -> messageId) (\s@Message' 
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-message_payload :: Lens.Lens' Message Core.ByteString
-message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Core.. Core._Base64
+message_payload :: Lens.Lens' Message Prelude.ByteString
+message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Prelude.. Core._Base64
 
-instance Core.Hashable Message
+instance Prelude.Hashable Message
 
-instance Core.NFData Message
+instance Prelude.NFData Message
 
 instance Core.ToJSON Message where
   toJSON Message' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("messageId" Core..= messageId),
-            Core.Just ("payload" Core..= payload)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("messageId" Core..= messageId),
+            Prelude.Just ("payload" Core..= payload)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.SnapshotSortingEntity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.SnapshotAttributeToSortBy
 import Network.AWS.Redshift.Types.SortByOrder
@@ -30,11 +31,11 @@ import Network.AWS.Redshift.Types.SortByOrder
 -- /See:/ 'newSnapshotSortingEntity' smart constructor.
 data SnapshotSortingEntity = SnapshotSortingEntity'
   { -- | The order for listing the attributes.
-    sortOrder :: Core.Maybe SortByOrder,
+    sortOrder :: Prelude.Maybe SortByOrder,
     -- | The category for sorting the snapshots.
     attribute :: SnapshotAttributeToSortBy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SnapshotSortingEntity' with all optional fields omitted.
@@ -53,25 +54,25 @@ newSnapshotSortingEntity ::
   SnapshotSortingEntity
 newSnapshotSortingEntity pAttribute_ =
   SnapshotSortingEntity'
-    { sortOrder = Core.Nothing,
+    { sortOrder = Prelude.Nothing,
       attribute = pAttribute_
     }
 
 -- | The order for listing the attributes.
-snapshotSortingEntity_sortOrder :: Lens.Lens' SnapshotSortingEntity (Core.Maybe SortByOrder)
+snapshotSortingEntity_sortOrder :: Lens.Lens' SnapshotSortingEntity (Prelude.Maybe SortByOrder)
 snapshotSortingEntity_sortOrder = Lens.lens (\SnapshotSortingEntity' {sortOrder} -> sortOrder) (\s@SnapshotSortingEntity' {} a -> s {sortOrder = a} :: SnapshotSortingEntity)
 
 -- | The category for sorting the snapshots.
 snapshotSortingEntity_attribute :: Lens.Lens' SnapshotSortingEntity SnapshotAttributeToSortBy
 snapshotSortingEntity_attribute = Lens.lens (\SnapshotSortingEntity' {attribute} -> attribute) (\s@SnapshotSortingEntity' {} a -> s {attribute = a} :: SnapshotSortingEntity)
 
-instance Core.Hashable SnapshotSortingEntity
+instance Prelude.Hashable SnapshotSortingEntity
 
-instance Core.NFData SnapshotSortingEntity
+instance Prelude.NFData SnapshotSortingEntity
 
 instance Core.ToQuery SnapshotSortingEntity where
   toQuery SnapshotSortingEntity' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SortOrder" Core.=: sortOrder,
         "Attribute" Core.=: attribute
       ]

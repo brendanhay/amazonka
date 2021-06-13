@@ -21,17 +21,18 @@ module Network.AWS.WorkDocs.Types.GroupMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the metadata of a user group.
 --
 -- /See:/ 'newGroupMetadata' smart constructor.
 data GroupMetadata = GroupMetadata'
   { -- | The ID of the user group.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the group.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupMetadata' with all optional fields omitted.
@@ -48,16 +49,16 @@ newGroupMetadata ::
   GroupMetadata
 newGroupMetadata =
   GroupMetadata'
-    { id = Core.Nothing,
-      name = Core.Nothing
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The ID of the user group.
-groupMetadata_id :: Lens.Lens' GroupMetadata (Core.Maybe Core.Text)
+groupMetadata_id :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
 groupMetadata_id = Lens.lens (\GroupMetadata' {id} -> id) (\s@GroupMetadata' {} a -> s {id = a} :: GroupMetadata)
 
 -- | The name of the group.
-groupMetadata_name :: Lens.Lens' GroupMetadata (Core.Maybe Core.Text)
+groupMetadata_name :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
 groupMetadata_name = Lens.lens (\GroupMetadata' {name} -> name) (\s@GroupMetadata' {} a -> s {name = a} :: GroupMetadata)
 
 instance Core.FromJSON GroupMetadata where
@@ -66,9 +67,9 @@ instance Core.FromJSON GroupMetadata where
       "GroupMetadata"
       ( \x ->
           GroupMetadata'
-            Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable GroupMetadata
+instance Prelude.Hashable GroupMetadata
 
-instance Core.NFData GroupMetadata
+instance Prelude.NFData GroupMetadata

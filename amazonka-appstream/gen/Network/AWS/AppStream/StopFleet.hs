@@ -41,15 +41,16 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopFleet' smart constructor.
 data StopFleet = StopFleet'
   { -- | The name of the fleet.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopFleet' with all optional fields omitted.
@@ -62,12 +63,12 @@ data StopFleet = StopFleet'
 -- 'name', 'stopFleet_name' - The name of the fleet.
 newStopFleet ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   StopFleet
 newStopFleet pName_ = StopFleet' {name = pName_}
 
 -- | The name of the fleet.
-stopFleet_name :: Lens.Lens' StopFleet Core.Text
+stopFleet_name :: Lens.Lens' StopFleet Prelude.Text
 stopFleet_name = Lens.lens (\StopFleet' {name} -> name) (\s@StopFleet' {} a -> s {name = a} :: StopFleet)
 
 instance Core.AWSRequest StopFleet where
@@ -77,43 +78,47 @@ instance Core.AWSRequest StopFleet where
     Response.receiveEmpty
       ( \s h x ->
           StopFleetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopFleet
+instance Prelude.Hashable StopFleet
 
-instance Core.NFData StopFleet
+instance Prelude.NFData StopFleet
 
 instance Core.ToHeaders StopFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.StopFleet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopFleet where
   toJSON StopFleet' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath StopFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopFleetResponse' smart constructor.
 data StopFleetResponse = StopFleetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopFleetResponse' with all optional fields omitted.
@@ -126,13 +131,13 @@ data StopFleetResponse = StopFleetResponse'
 -- 'httpStatus', 'stopFleetResponse_httpStatus' - The response's http status code.
 newStopFleetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopFleetResponse
 newStopFleetResponse pHttpStatus_ =
   StopFleetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-stopFleetResponse_httpStatus :: Lens.Lens' StopFleetResponse Core.Int
+stopFleetResponse_httpStatus :: Lens.Lens' StopFleetResponse Prelude.Int
 stopFleetResponse_httpStatus = Lens.lens (\StopFleetResponse' {httpStatus} -> httpStatus) (\s@StopFleetResponse' {} a -> s {httpStatus = a} :: StopFleetResponse)
 
-instance Core.NFData StopFleetResponse
+instance Prelude.NFData StopFleetResponse

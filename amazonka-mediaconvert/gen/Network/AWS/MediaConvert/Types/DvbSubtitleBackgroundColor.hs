@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the color of the rectangle behind the captions. All burn-in
 -- and DVB-Sub font settings must match.
@@ -36,15 +37,15 @@ newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

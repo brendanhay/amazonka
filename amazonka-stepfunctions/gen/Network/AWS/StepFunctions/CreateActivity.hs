@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -74,7 +75,7 @@ data CreateActivity = CreateActivity'
     --
     -- Tags may only contain Unicode letters, digits, white space, or these
     -- symbols: @_ . : \/ = + - \@@.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the activity to create. This name must be unique for your
     -- AWS account and region for 90 days. For more information, see
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions>
@@ -94,9 +95,9 @@ data CreateActivity = CreateActivity'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateActivity' with all optional fields omitted.
@@ -137,10 +138,13 @@ data CreateActivity = CreateActivity'
 -- 0-9, A-Z, a-z, - and _.
 newCreateActivity ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateActivity
 newCreateActivity pName_ =
-  CreateActivity' {tags = Core.Nothing, name = pName_}
+  CreateActivity'
+    { tags = Prelude.Nothing,
+      name = pName_
+    }
 
 -- | The list of tags to add to a resource.
 --
@@ -151,8 +155,8 @@ newCreateActivity pName_ =
 --
 -- Tags may only contain Unicode letters, digits, white space, or these
 -- symbols: @_ . : \/ = + - \@@.
-createActivity_tags :: Lens.Lens' CreateActivity (Core.Maybe [Tag])
-createActivity_tags = Lens.lens (\CreateActivity' {tags} -> tags) (\s@CreateActivity' {} a -> s {tags = a} :: CreateActivity) Core.. Lens.mapping Lens._Coerce
+createActivity_tags :: Lens.Lens' CreateActivity (Prelude.Maybe [Tag])
+createActivity_tags = Lens.lens (\CreateActivity' {tags} -> tags) (\s@CreateActivity' {} a -> s {tags = a} :: CreateActivity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the activity to create. This name must be unique for your
 -- AWS account and region for 90 days. For more information, see
@@ -173,7 +177,7 @@ createActivity_tags = Lens.lens (\CreateActivity' {tags} -> tags) (\s@CreateActi
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-createActivity_name :: Lens.Lens' CreateActivity Core.Text
+createActivity_name :: Lens.Lens' CreateActivity Prelude.Text
 createActivity_name = Lens.lens (\CreateActivity' {name} -> name) (\s@CreateActivity' {} a -> s {name = a} :: CreateActivity)
 
 instance Core.AWSRequest CreateActivity where
@@ -185,53 +189,55 @@ instance Core.AWSRequest CreateActivity where
     Response.receiveJSON
       ( \s h x ->
           CreateActivityResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "activityArn")
-            Core.<*> (x Core..:> "creationDate")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "activityArn")
+            Prelude.<*> (x Core..:> "creationDate")
       )
 
-instance Core.Hashable CreateActivity
+instance Prelude.Hashable CreateActivity
 
-instance Core.NFData CreateActivity
+instance Prelude.NFData CreateActivity
 
 instance Core.ToHeaders CreateActivity where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSStepFunctions.CreateActivity" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateActivity where
   toJSON CreateActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            Core.Just ("name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateActivity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateActivity where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateActivityResponse' smart constructor.
 data CreateActivityResponse = CreateActivityResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) that identifies the created activity.
-    activityArn :: Core.Text,
+    activityArn :: Prelude.Text,
     -- | The date the activity is created.
     creationDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateActivityResponse' with all optional fields omitted.
@@ -248,11 +254,11 @@ data CreateActivityResponse = CreateActivityResponse'
 -- 'creationDate', 'createActivityResponse_creationDate' - The date the activity is created.
 newCreateActivityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'activityArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   CreateActivityResponse
 newCreateActivityResponse
   pHttpStatus_
@@ -265,15 +271,15 @@ newCreateActivityResponse
       }
 
 -- | The response's http status code.
-createActivityResponse_httpStatus :: Lens.Lens' CreateActivityResponse Core.Int
+createActivityResponse_httpStatus :: Lens.Lens' CreateActivityResponse Prelude.Int
 createActivityResponse_httpStatus = Lens.lens (\CreateActivityResponse' {httpStatus} -> httpStatus) (\s@CreateActivityResponse' {} a -> s {httpStatus = a} :: CreateActivityResponse)
 
 -- | The Amazon Resource Name (ARN) that identifies the created activity.
-createActivityResponse_activityArn :: Lens.Lens' CreateActivityResponse Core.Text
+createActivityResponse_activityArn :: Lens.Lens' CreateActivityResponse Prelude.Text
 createActivityResponse_activityArn = Lens.lens (\CreateActivityResponse' {activityArn} -> activityArn) (\s@CreateActivityResponse' {} a -> s {activityArn = a} :: CreateActivityResponse)
 
 -- | The date the activity is created.
-createActivityResponse_creationDate :: Lens.Lens' CreateActivityResponse Core.UTCTime
-createActivityResponse_creationDate = Lens.lens (\CreateActivityResponse' {creationDate} -> creationDate) (\s@CreateActivityResponse' {} a -> s {creationDate = a} :: CreateActivityResponse) Core.. Core._Time
+createActivityResponse_creationDate :: Lens.Lens' CreateActivityResponse Prelude.UTCTime
+createActivityResponse_creationDate = Lens.lens (\CreateActivityResponse' {creationDate} -> creationDate) (\s@CreateActivityResponse' {} a -> s {creationDate = a} :: CreateActivityResponse) Prelude.. Core._Time
 
-instance Core.NFData CreateActivityResponse
+instance Prelude.NFData CreateActivityResponse

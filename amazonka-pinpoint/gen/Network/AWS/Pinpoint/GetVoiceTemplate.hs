@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,14 +72,14 @@ data GetVoiceTemplate = GetVoiceTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetVoiceTemplate' with all optional fields omitted.
@@ -117,11 +118,11 @@ data GetVoiceTemplate = GetVoiceTemplate'
 -- (-). Template names are case sensitive.
 newGetVoiceTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   GetVoiceTemplate
 newGetVoiceTemplate pTemplateName_ =
   GetVoiceTemplate'
-    { version = Core.Nothing,
+    { version = Prelude.Nothing,
       templateName = pTemplateName_
     }
 
@@ -147,14 +148,14 @@ newGetVoiceTemplate pTemplateName_ =
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-getVoiceTemplate_version :: Lens.Lens' GetVoiceTemplate (Core.Maybe Core.Text)
+getVoiceTemplate_version :: Lens.Lens' GetVoiceTemplate (Prelude.Maybe Prelude.Text)
 getVoiceTemplate_version = Lens.lens (\GetVoiceTemplate' {version} -> version) (\s@GetVoiceTemplate' {} a -> s {version = a} :: GetVoiceTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-getVoiceTemplate_templateName :: Lens.Lens' GetVoiceTemplate Core.Text
+getVoiceTemplate_templateName :: Lens.Lens' GetVoiceTemplate Prelude.Text
 getVoiceTemplate_templateName = Lens.lens (\GetVoiceTemplate' {templateName} -> templateName) (\s@GetVoiceTemplate' {} a -> s {templateName = a} :: GetVoiceTemplate)
 
 instance Core.AWSRequest GetVoiceTemplate where
@@ -166,39 +167,41 @@ instance Core.AWSRequest GetVoiceTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetVoiceTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetVoiceTemplate
+instance Prelude.Hashable GetVoiceTemplate
 
-instance Core.NFData GetVoiceTemplate
+instance Prelude.NFData GetVoiceTemplate
 
 instance Core.ToHeaders GetVoiceTemplate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetVoiceTemplate where
   toPath GetVoiceTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/templates/", Core.toBS templateName, "/voice"]
 
 instance Core.ToQuery GetVoiceTemplate where
   toQuery GetVoiceTemplate' {..} =
-    Core.mconcat ["version" Core.=: version]
+    Prelude.mconcat ["version" Core.=: version]
 
 -- | /See:/ 'newGetVoiceTemplateResponse' smart constructor.
 data GetVoiceTemplateResponse = GetVoiceTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     voiceTemplateResponse :: VoiceTemplateResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetVoiceTemplateResponse' with all optional fields omitted.
@@ -213,7 +216,7 @@ data GetVoiceTemplateResponse = GetVoiceTemplateResponse'
 -- 'voiceTemplateResponse', 'getVoiceTemplateResponse_voiceTemplateResponse' - Undocumented member.
 newGetVoiceTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'voiceTemplateResponse'
   VoiceTemplateResponse ->
   GetVoiceTemplateResponse
@@ -227,11 +230,11 @@ newGetVoiceTemplateResponse
       }
 
 -- | The response's http status code.
-getVoiceTemplateResponse_httpStatus :: Lens.Lens' GetVoiceTemplateResponse Core.Int
+getVoiceTemplateResponse_httpStatus :: Lens.Lens' GetVoiceTemplateResponse Prelude.Int
 getVoiceTemplateResponse_httpStatus = Lens.lens (\GetVoiceTemplateResponse' {httpStatus} -> httpStatus) (\s@GetVoiceTemplateResponse' {} a -> s {httpStatus = a} :: GetVoiceTemplateResponse)
 
 -- | Undocumented member.
 getVoiceTemplateResponse_voiceTemplateResponse :: Lens.Lens' GetVoiceTemplateResponse VoiceTemplateResponse
 getVoiceTemplateResponse_voiceTemplateResponse = Lens.lens (\GetVoiceTemplateResponse' {voiceTemplateResponse} -> voiceTemplateResponse) (\s@GetVoiceTemplateResponse' {} a -> s {voiceTemplateResponse = a} :: GetVoiceTemplateResponse)
 
-instance Core.NFData GetVoiceTemplateResponse
+instance Prelude.NFData GetVoiceTemplateResponse

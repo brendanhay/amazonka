@@ -48,6 +48,7 @@ where
 import Network.AWS.Budgets.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,17 +58,17 @@ import qualified Network.AWS.Response as Response
 data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
   { -- | The pagination token that you include in your request to indicate the
     -- next set of results that you want to retrieve.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An optional integer that represents how many entries a paginated
     -- response contains. The maximum is 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The @accountId@ that is associated with the budget whose notifications
     -- you want descriptions of.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the budget whose notifications you want descriptions of.
-    budgetName :: Core.Text
+    budgetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeNotificationsForBudget' with all optional fields omitted.
@@ -89,38 +90,38 @@ data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
 -- 'budgetName', 'describeNotificationsForBudget_budgetName' - The name of the budget whose notifications you want descriptions of.
 newDescribeNotificationsForBudget ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'budgetName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeNotificationsForBudget
 newDescribeNotificationsForBudget
   pAccountId_
   pBudgetName_ =
     DescribeNotificationsForBudget'
       { nextToken =
-          Core.Nothing,
-        maxResults = Core.Nothing,
+          Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_
       }
 
 -- | The pagination token that you include in your request to indicate the
 -- next set of results that you want to retrieve.
-describeNotificationsForBudget_nextToken :: Lens.Lens' DescribeNotificationsForBudget (Core.Maybe Core.Text)
+describeNotificationsForBudget_nextToken :: Lens.Lens' DescribeNotificationsForBudget (Prelude.Maybe Prelude.Text)
 describeNotificationsForBudget_nextToken = Lens.lens (\DescribeNotificationsForBudget' {nextToken} -> nextToken) (\s@DescribeNotificationsForBudget' {} a -> s {nextToken = a} :: DescribeNotificationsForBudget)
 
 -- | An optional integer that represents how many entries a paginated
 -- response contains. The maximum is 100.
-describeNotificationsForBudget_maxResults :: Lens.Lens' DescribeNotificationsForBudget (Core.Maybe Core.Natural)
+describeNotificationsForBudget_maxResults :: Lens.Lens' DescribeNotificationsForBudget (Prelude.Maybe Prelude.Natural)
 describeNotificationsForBudget_maxResults = Lens.lens (\DescribeNotificationsForBudget' {maxResults} -> maxResults) (\s@DescribeNotificationsForBudget' {} a -> s {maxResults = a} :: DescribeNotificationsForBudget)
 
 -- | The @accountId@ that is associated with the budget whose notifications
 -- you want descriptions of.
-describeNotificationsForBudget_accountId :: Lens.Lens' DescribeNotificationsForBudget Core.Text
+describeNotificationsForBudget_accountId :: Lens.Lens' DescribeNotificationsForBudget Prelude.Text
 describeNotificationsForBudget_accountId = Lens.lens (\DescribeNotificationsForBudget' {accountId} -> accountId) (\s@DescribeNotificationsForBudget' {} a -> s {accountId = a} :: DescribeNotificationsForBudget)
 
 -- | The name of the budget whose notifications you want descriptions of.
-describeNotificationsForBudget_budgetName :: Lens.Lens' DescribeNotificationsForBudget Core.Text
+describeNotificationsForBudget_budgetName :: Lens.Lens' DescribeNotificationsForBudget Prelude.Text
 describeNotificationsForBudget_budgetName = Lens.lens (\DescribeNotificationsForBudget' {budgetName} -> budgetName) (\s@DescribeNotificationsForBudget' {} a -> s {budgetName = a} :: DescribeNotificationsForBudget)
 
 instance Core.AWSPager DescribeNotificationsForBudget where
@@ -128,22 +129,22 @@ instance Core.AWSPager DescribeNotificationsForBudget where
     | Core.stop
         ( rs
             Lens.^? describeNotificationsForBudgetResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNotificationsForBudgetResponse_notifications
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeNotificationsForBudget_nextToken
+          Prelude.& describeNotificationsForBudget_nextToken
           Lens..~ rs
           Lens.^? describeNotificationsForBudgetResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -157,47 +158,53 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNotificationsForBudgetResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Notifications" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Notifications" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeNotificationsForBudget
+instance
+  Prelude.Hashable
+    DescribeNotificationsForBudget
 
-instance Core.NFData DescribeNotificationsForBudget
+instance
+  Prelude.NFData
+    DescribeNotificationsForBudget
 
 instance
   Core.ToHeaders
     DescribeNotificationsForBudget
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSBudgetServiceGateway.DescribeNotificationsForBudget" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeNotificationsForBudget where
   toJSON DescribeNotificationsForBudget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("AccountId" Core..= accountId),
-            Core.Just ("BudgetName" Core..= budgetName)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just ("BudgetName" Core..= budgetName)
           ]
       )
 
 instance Core.ToPath DescribeNotificationsForBudget where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeNotificationsForBudget where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response of GetNotificationsForBudget
 --
@@ -205,13 +212,13 @@ instance Core.ToQuery DescribeNotificationsForBudget where
 data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResponse'
   { -- | The pagination token in the service response that indicates the next set
     -- of results that you can retrieve.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of notifications that are associated with a budget.
-    notifications :: Core.Maybe [Notification],
+    notifications :: Prelude.Maybe [Notification],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeNotificationsForBudgetResponse' with all optional fields omitted.
@@ -229,30 +236,30 @@ data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResp
 -- 'httpStatus', 'describeNotificationsForBudgetResponse_httpStatus' - The response's http status code.
 newDescribeNotificationsForBudgetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeNotificationsForBudgetResponse
 newDescribeNotificationsForBudgetResponse
   pHttpStatus_ =
     DescribeNotificationsForBudgetResponse'
       { nextToken =
-          Core.Nothing,
-        notifications = Core.Nothing,
+          Prelude.Nothing,
+        notifications = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The pagination token in the service response that indicates the next set
 -- of results that you can retrieve.
-describeNotificationsForBudgetResponse_nextToken :: Lens.Lens' DescribeNotificationsForBudgetResponse (Core.Maybe Core.Text)
+describeNotificationsForBudgetResponse_nextToken :: Lens.Lens' DescribeNotificationsForBudgetResponse (Prelude.Maybe Prelude.Text)
 describeNotificationsForBudgetResponse_nextToken = Lens.lens (\DescribeNotificationsForBudgetResponse' {nextToken} -> nextToken) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {nextToken = a} :: DescribeNotificationsForBudgetResponse)
 
 -- | A list of notifications that are associated with a budget.
-describeNotificationsForBudgetResponse_notifications :: Lens.Lens' DescribeNotificationsForBudgetResponse (Core.Maybe [Notification])
-describeNotificationsForBudgetResponse_notifications = Lens.lens (\DescribeNotificationsForBudgetResponse' {notifications} -> notifications) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {notifications = a} :: DescribeNotificationsForBudgetResponse) Core.. Lens.mapping Lens._Coerce
+describeNotificationsForBudgetResponse_notifications :: Lens.Lens' DescribeNotificationsForBudgetResponse (Prelude.Maybe [Notification])
+describeNotificationsForBudgetResponse_notifications = Lens.lens (\DescribeNotificationsForBudgetResponse' {notifications} -> notifications) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {notifications = a} :: DescribeNotificationsForBudgetResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeNotificationsForBudgetResponse_httpStatus :: Lens.Lens' DescribeNotificationsForBudgetResponse Core.Int
+describeNotificationsForBudgetResponse_httpStatus :: Lens.Lens' DescribeNotificationsForBudgetResponse Prelude.Int
 describeNotificationsForBudgetResponse_httpStatus = Lens.lens (\DescribeNotificationsForBudgetResponse' {httpStatus} -> httpStatus) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {httpStatus = a} :: DescribeNotificationsForBudgetResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeNotificationsForBudgetResponse

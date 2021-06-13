@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35DeliveryRestrictions
 import Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Corresponds to SCTE-35 segmentation_descriptor.
 --
@@ -30,49 +31,49 @@ import Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator
 data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
   { -- | Corresponds to SCTE-35 sub_segment_num. A value that is valid for the
     -- specified segmentation_type_id.
-    subSegmentNum :: Core.Maybe Core.Natural,
+    subSegmentNum :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_upid. Enter a string containing the
     -- hexadecimal representation of the characters that make up the SCTE-35
     -- segmentation_upid value. Must contain an even number of hex characters.
     -- Do not include spaces between each hex pair. For example, the ASCII
     -- \"ADS Information\" becomes hex \"41445320496e666f726d6174696f6e.
-    segmentationUpid :: Core.Maybe Core.Text,
+    segmentationUpid :: Prelude.Maybe Prelude.Text,
     -- | Corresponds to SCTE-35 segment_num. A value that is valid for the
     -- specified segmentation_type_id.
-    segmentNum :: Core.Maybe Core.Natural,
+    segmentNum :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 sub_segments_expected. A value that is valid for
     -- the specified segmentation_type_id.
-    subSegmentsExpected :: Core.Maybe Core.Natural,
+    subSegmentsExpected :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
     -- of the types listed in the SCTE-35 specification, converted to a
     -- decimal. For example, \"0x0C\" hex from the specification is \"12\" in
     -- decimal. In the CLI, API, or an SDK, enter one of the types listed in
     -- the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in
     -- decimal (for example, \"12\").
-    segmentationUpidType :: Core.Maybe Core.Natural,
+    segmentationUpidType :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 segments_expected. A value that is valid for the
     -- specified segmentation_type_id.
-    segmentsExpected :: Core.Maybe Core.Natural,
+    segmentsExpected :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_type_id. One of the
     -- segmentation_type_id values listed in the SCTE-35 specification. On the
     -- console, enter the ID in decimal (for example, \"52\"). In the CLI, API,
     -- or an SDK, enter the ID in hex (for example, \"0x34\") or decimal (for
     -- example, \"52\").
-    segmentationTypeId :: Core.Maybe Core.Natural,
+    segmentationTypeId :: Prelude.Maybe Prelude.Natural,
     -- | Holds the four SCTE-35 delivery restriction parameters.
-    deliveryRestrictions :: Core.Maybe Scte35DeliveryRestrictions,
+    deliveryRestrictions :: Prelude.Maybe Scte35DeliveryRestrictions,
     -- | Corresponds to SCTE-35 segmentation_duration. Optional. The duration for
     -- the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple
     -- the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not
     -- enter a duration, the time_signal will continue until you insert a
     -- cancellation message.
-    segmentationDuration :: Core.Maybe Core.Natural,
+    segmentationDuration :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_event_id.
-    segmentationEventId :: Core.Natural,
+    segmentationEventId :: Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_event_cancel_indicator.
     segmentationCancelIndicator :: Scte35SegmentationCancelIndicator
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Scte35SegmentationDescriptor' with all optional fields omitted.
@@ -126,7 +127,7 @@ data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
 -- 'segmentationCancelIndicator', 'scte35SegmentationDescriptor_segmentationCancelIndicator' - Corresponds to SCTE-35 segmentation_event_cancel_indicator.
 newScte35SegmentationDescriptor ::
   -- | 'segmentationEventId'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'segmentationCancelIndicator'
   Scte35SegmentationCancelIndicator ->
   Scte35SegmentationDescriptor
@@ -135,15 +136,15 @@ newScte35SegmentationDescriptor
   pSegmentationCancelIndicator_ =
     Scte35SegmentationDescriptor'
       { subSegmentNum =
-          Core.Nothing,
-        segmentationUpid = Core.Nothing,
-        segmentNum = Core.Nothing,
-        subSegmentsExpected = Core.Nothing,
-        segmentationUpidType = Core.Nothing,
-        segmentsExpected = Core.Nothing,
-        segmentationTypeId = Core.Nothing,
-        deliveryRestrictions = Core.Nothing,
-        segmentationDuration = Core.Nothing,
+          Prelude.Nothing,
+        segmentationUpid = Prelude.Nothing,
+        segmentNum = Prelude.Nothing,
+        subSegmentsExpected = Prelude.Nothing,
+        segmentationUpidType = Prelude.Nothing,
+        segmentsExpected = Prelude.Nothing,
+        segmentationTypeId = Prelude.Nothing,
+        deliveryRestrictions = Prelude.Nothing,
+        segmentationDuration = Prelude.Nothing,
         segmentationEventId = pSegmentationEventId_,
         segmentationCancelIndicator =
           pSegmentationCancelIndicator_
@@ -151,7 +152,7 @@ newScte35SegmentationDescriptor
 
 -- | Corresponds to SCTE-35 sub_segment_num. A value that is valid for the
 -- specified segmentation_type_id.
-scte35SegmentationDescriptor_subSegmentNum :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Core.Natural)
+scte35SegmentationDescriptor_subSegmentNum :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_subSegmentNum = Lens.lens (\Scte35SegmentationDescriptor' {subSegmentNum} -> subSegmentNum) (\s@Scte35SegmentationDescriptor' {} a -> s {subSegmentNum = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_upid. Enter a string containing the
@@ -159,17 +160,17 @@ scte35SegmentationDescriptor_subSegmentNum = Lens.lens (\Scte35SegmentationDescr
 -- segmentation_upid value. Must contain an even number of hex characters.
 -- Do not include spaces between each hex pair. For example, the ASCII
 -- \"ADS Information\" becomes hex \"41445320496e666f726d6174696f6e.
-scte35SegmentationDescriptor_segmentationUpid :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Core.Text)
+scte35SegmentationDescriptor_segmentationUpid :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Text)
 scte35SegmentationDescriptor_segmentationUpid = Lens.lens (\Scte35SegmentationDescriptor' {segmentationUpid} -> segmentationUpid) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationUpid = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segment_num. A value that is valid for the
 -- specified segmentation_type_id.
-scte35SegmentationDescriptor_segmentNum :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Core.Natural)
+scte35SegmentationDescriptor_segmentNum :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_segmentNum = Lens.lens (\Scte35SegmentationDescriptor' {segmentNum} -> segmentNum) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentNum = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 sub_segments_expected. A value that is valid for
 -- the specified segmentation_type_id.
-scte35SegmentationDescriptor_subSegmentsExpected :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Core.Natural)
+scte35SegmentationDescriptor_subSegmentsExpected :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_subSegmentsExpected = Lens.lens (\Scte35SegmentationDescriptor' {subSegmentsExpected} -> subSegmentsExpected) (\s@Scte35SegmentationDescriptor' {} a -> s {subSegmentsExpected = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
@@ -178,12 +179,12 @@ scte35SegmentationDescriptor_subSegmentsExpected = Lens.lens (\Scte35Segmentatio
 -- decimal. In the CLI, API, or an SDK, enter one of the types listed in
 -- the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in
 -- decimal (for example, \"12\").
-scte35SegmentationDescriptor_segmentationUpidType :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Core.Natural)
+scte35SegmentationDescriptor_segmentationUpidType :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_segmentationUpidType = Lens.lens (\Scte35SegmentationDescriptor' {segmentationUpidType} -> segmentationUpidType) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationUpidType = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segments_expected. A value that is valid for the
 -- specified segmentation_type_id.
-scte35SegmentationDescriptor_segmentsExpected :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Core.Natural)
+scte35SegmentationDescriptor_segmentsExpected :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_segmentsExpected = Lens.lens (\Scte35SegmentationDescriptor' {segmentsExpected} -> segmentsExpected) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentsExpected = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_type_id. One of the
@@ -191,11 +192,11 @@ scte35SegmentationDescriptor_segmentsExpected = Lens.lens (\Scte35SegmentationDe
 -- console, enter the ID in decimal (for example, \"52\"). In the CLI, API,
 -- or an SDK, enter the ID in hex (for example, \"0x34\") or decimal (for
 -- example, \"52\").
-scte35SegmentationDescriptor_segmentationTypeId :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Core.Natural)
+scte35SegmentationDescriptor_segmentationTypeId :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_segmentationTypeId = Lens.lens (\Scte35SegmentationDescriptor' {segmentationTypeId} -> segmentationTypeId) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationTypeId = a} :: Scte35SegmentationDescriptor)
 
 -- | Holds the four SCTE-35 delivery restriction parameters.
-scte35SegmentationDescriptor_deliveryRestrictions :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Scte35DeliveryRestrictions)
+scte35SegmentationDescriptor_deliveryRestrictions :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Scte35DeliveryRestrictions)
 scte35SegmentationDescriptor_deliveryRestrictions = Lens.lens (\Scte35SegmentationDescriptor' {deliveryRestrictions} -> deliveryRestrictions) (\s@Scte35SegmentationDescriptor' {} a -> s {deliveryRestrictions = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_duration. Optional. The duration for
@@ -203,11 +204,11 @@ scte35SegmentationDescriptor_deliveryRestrictions = Lens.lens (\Scte35Segmentati
 -- the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not
 -- enter a duration, the time_signal will continue until you insert a
 -- cancellation message.
-scte35SegmentationDescriptor_segmentationDuration :: Lens.Lens' Scte35SegmentationDescriptor (Core.Maybe Core.Natural)
+scte35SegmentationDescriptor_segmentationDuration :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_segmentationDuration = Lens.lens (\Scte35SegmentationDescriptor' {segmentationDuration} -> segmentationDuration) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationDuration = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_event_id.
-scte35SegmentationDescriptor_segmentationEventId :: Lens.Lens' Scte35SegmentationDescriptor Core.Natural
+scte35SegmentationDescriptor_segmentationEventId :: Lens.Lens' Scte35SegmentationDescriptor Prelude.Natural
 scte35SegmentationDescriptor_segmentationEventId = Lens.lens (\Scte35SegmentationDescriptor' {segmentationEventId} -> segmentationEventId) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationEventId = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_event_cancel_indicator.
@@ -220,46 +221,48 @@ instance Core.FromJSON Scte35SegmentationDescriptor where
       "Scte35SegmentationDescriptor"
       ( \x ->
           Scte35SegmentationDescriptor'
-            Core.<$> (x Core..:? "subSegmentNum")
-            Core.<*> (x Core..:? "segmentationUpid")
-            Core.<*> (x Core..:? "segmentNum")
-            Core.<*> (x Core..:? "subSegmentsExpected")
-            Core.<*> (x Core..:? "segmentationUpidType")
-            Core.<*> (x Core..:? "segmentsExpected")
-            Core.<*> (x Core..:? "segmentationTypeId")
-            Core.<*> (x Core..:? "deliveryRestrictions")
-            Core.<*> (x Core..:? "segmentationDuration")
-            Core.<*> (x Core..: "segmentationEventId")
-            Core.<*> (x Core..: "segmentationCancelIndicator")
+            Prelude.<$> (x Core..:? "subSegmentNum")
+            Prelude.<*> (x Core..:? "segmentationUpid")
+            Prelude.<*> (x Core..:? "segmentNum")
+            Prelude.<*> (x Core..:? "subSegmentsExpected")
+            Prelude.<*> (x Core..:? "segmentationUpidType")
+            Prelude.<*> (x Core..:? "segmentsExpected")
+            Prelude.<*> (x Core..:? "segmentationTypeId")
+            Prelude.<*> (x Core..:? "deliveryRestrictions")
+            Prelude.<*> (x Core..:? "segmentationDuration")
+            Prelude.<*> (x Core..: "segmentationEventId")
+            Prelude.<*> (x Core..: "segmentationCancelIndicator")
       )
 
-instance Core.Hashable Scte35SegmentationDescriptor
+instance
+  Prelude.Hashable
+    Scte35SegmentationDescriptor
 
-instance Core.NFData Scte35SegmentationDescriptor
+instance Prelude.NFData Scte35SegmentationDescriptor
 
 instance Core.ToJSON Scte35SegmentationDescriptor where
   toJSON Scte35SegmentationDescriptor' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("subSegmentNum" Core..=) Core.<$> subSegmentNum,
+      ( Prelude.catMaybes
+          [ ("subSegmentNum" Core..=) Prelude.<$> subSegmentNum,
             ("segmentationUpid" Core..=)
-              Core.<$> segmentationUpid,
-            ("segmentNum" Core..=) Core.<$> segmentNum,
+              Prelude.<$> segmentationUpid,
+            ("segmentNum" Core..=) Prelude.<$> segmentNum,
             ("subSegmentsExpected" Core..=)
-              Core.<$> subSegmentsExpected,
+              Prelude.<$> subSegmentsExpected,
             ("segmentationUpidType" Core..=)
-              Core.<$> segmentationUpidType,
+              Prelude.<$> segmentationUpidType,
             ("segmentsExpected" Core..=)
-              Core.<$> segmentsExpected,
+              Prelude.<$> segmentsExpected,
             ("segmentationTypeId" Core..=)
-              Core.<$> segmentationTypeId,
+              Prelude.<$> segmentationTypeId,
             ("deliveryRestrictions" Core..=)
-              Core.<$> deliveryRestrictions,
+              Prelude.<$> deliveryRestrictions,
             ("segmentationDuration" Core..=)
-              Core.<$> segmentationDuration,
-            Core.Just
+              Prelude.<$> segmentationDuration,
+            Prelude.Just
               ("segmentationEventId" Core..= segmentationEventId),
-            Core.Just
+            Prelude.Just
               ( "segmentationCancelIndicator"
                   Core..= segmentationCancelIndicator
               )

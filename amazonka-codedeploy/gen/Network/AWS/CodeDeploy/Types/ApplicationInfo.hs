@@ -22,27 +22,28 @@ module Network.AWS.CodeDeploy.Types.ApplicationInfo where
 import Network.AWS.CodeDeploy.Types.ComputePlatform
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an application.
 --
 -- /See:/ 'newApplicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
   { -- | The application ID.
-    applicationId :: Core.Maybe Core.Text,
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | True if the user has authenticated with GitHub for the specified
     -- application. Otherwise, false.
-    linkedToGitHub :: Core.Maybe Core.Bool,
+    linkedToGitHub :: Prelude.Maybe Prelude.Bool,
     -- | The name for a connection to a GitHub account.
-    gitHubAccountName :: Core.Maybe Core.Text,
+    gitHubAccountName :: Prelude.Maybe Prelude.Text,
     -- | The time at which the application was created.
-    createTime :: Core.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Core.POSIX,
     -- | The application name.
-    applicationName :: Core.Maybe Core.Text,
+    applicationName :: Prelude.Maybe Prelude.Text,
     -- | The destination platform type for deployment of the application
     -- (@Lambda@ or @Server@).
-    computePlatform :: Core.Maybe ComputePlatform
+    computePlatform :: Prelude.Maybe ComputePlatform
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationInfo' with all optional fields omitted.
@@ -69,38 +70,38 @@ newApplicationInfo ::
   ApplicationInfo
 newApplicationInfo =
   ApplicationInfo'
-    { applicationId = Core.Nothing,
-      linkedToGitHub = Core.Nothing,
-      gitHubAccountName = Core.Nothing,
-      createTime = Core.Nothing,
-      applicationName = Core.Nothing,
-      computePlatform = Core.Nothing
+    { applicationId = Prelude.Nothing,
+      linkedToGitHub = Prelude.Nothing,
+      gitHubAccountName = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      applicationName = Prelude.Nothing,
+      computePlatform = Prelude.Nothing
     }
 
 -- | The application ID.
-applicationInfo_applicationId :: Lens.Lens' ApplicationInfo (Core.Maybe Core.Text)
+applicationInfo_applicationId :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
 applicationInfo_applicationId = Lens.lens (\ApplicationInfo' {applicationId} -> applicationId) (\s@ApplicationInfo' {} a -> s {applicationId = a} :: ApplicationInfo)
 
 -- | True if the user has authenticated with GitHub for the specified
 -- application. Otherwise, false.
-applicationInfo_linkedToGitHub :: Lens.Lens' ApplicationInfo (Core.Maybe Core.Bool)
+applicationInfo_linkedToGitHub :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Bool)
 applicationInfo_linkedToGitHub = Lens.lens (\ApplicationInfo' {linkedToGitHub} -> linkedToGitHub) (\s@ApplicationInfo' {} a -> s {linkedToGitHub = a} :: ApplicationInfo)
 
 -- | The name for a connection to a GitHub account.
-applicationInfo_gitHubAccountName :: Lens.Lens' ApplicationInfo (Core.Maybe Core.Text)
+applicationInfo_gitHubAccountName :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
 applicationInfo_gitHubAccountName = Lens.lens (\ApplicationInfo' {gitHubAccountName} -> gitHubAccountName) (\s@ApplicationInfo' {} a -> s {gitHubAccountName = a} :: ApplicationInfo)
 
 -- | The time at which the application was created.
-applicationInfo_createTime :: Lens.Lens' ApplicationInfo (Core.Maybe Core.UTCTime)
-applicationInfo_createTime = Lens.lens (\ApplicationInfo' {createTime} -> createTime) (\s@ApplicationInfo' {} a -> s {createTime = a} :: ApplicationInfo) Core.. Lens.mapping Core._Time
+applicationInfo_createTime :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.UTCTime)
+applicationInfo_createTime = Lens.lens (\ApplicationInfo' {createTime} -> createTime) (\s@ApplicationInfo' {} a -> s {createTime = a} :: ApplicationInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The application name.
-applicationInfo_applicationName :: Lens.Lens' ApplicationInfo (Core.Maybe Core.Text)
+applicationInfo_applicationName :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
 applicationInfo_applicationName = Lens.lens (\ApplicationInfo' {applicationName} -> applicationName) (\s@ApplicationInfo' {} a -> s {applicationName = a} :: ApplicationInfo)
 
 -- | The destination platform type for deployment of the application
 -- (@Lambda@ or @Server@).
-applicationInfo_computePlatform :: Lens.Lens' ApplicationInfo (Core.Maybe ComputePlatform)
+applicationInfo_computePlatform :: Lens.Lens' ApplicationInfo (Prelude.Maybe ComputePlatform)
 applicationInfo_computePlatform = Lens.lens (\ApplicationInfo' {computePlatform} -> computePlatform) (\s@ApplicationInfo' {} a -> s {computePlatform = a} :: ApplicationInfo)
 
 instance Core.FromJSON ApplicationInfo where
@@ -109,14 +110,14 @@ instance Core.FromJSON ApplicationInfo where
       "ApplicationInfo"
       ( \x ->
           ApplicationInfo'
-            Core.<$> (x Core..:? "applicationId")
-            Core.<*> (x Core..:? "linkedToGitHub")
-            Core.<*> (x Core..:? "gitHubAccountName")
-            Core.<*> (x Core..:? "createTime")
-            Core.<*> (x Core..:? "applicationName")
-            Core.<*> (x Core..:? "computePlatform")
+            Prelude.<$> (x Core..:? "applicationId")
+            Prelude.<*> (x Core..:? "linkedToGitHub")
+            Prelude.<*> (x Core..:? "gitHubAccountName")
+            Prelude.<*> (x Core..:? "createTime")
+            Prelude.<*> (x Core..:? "applicationName")
+            Prelude.<*> (x Core..:? "computePlatform")
       )
 
-instance Core.Hashable ApplicationInfo
+instance Prelude.Hashable ApplicationInfo
 
-instance Core.NFData ApplicationInfo
+instance Prelude.NFData ApplicationInfo

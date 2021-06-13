@@ -27,6 +27,7 @@ import Network.AWS.DeviceFarm.Types.ExecutionResult
 import Network.AWS.DeviceFarm.Types.ExecutionStatus
 import Network.AWS.DeviceFarm.Types.InteractionMode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the remote access session.
 --
@@ -37,13 +38,13 @@ data RemoteAccessSession = RemoteAccessSession'
     --
     -- Remote debugging is
     -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-    deviceUdid :: Core.Maybe Core.Text,
+    deviceUdid :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier of your client for the remote access session. Only
     -- returned if remote debugging is enabled for the remote access session.
     --
     -- Remote debugging is
     -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-    clientId :: Core.Maybe Core.Text,
+    clientId :: Prelude.Maybe Prelude.Text,
     -- | The status of the remote access session. Can be any of the following:
     --
     -- -   PENDING.
@@ -63,7 +64,7 @@ data RemoteAccessSession = RemoteAccessSession'
     -- -   COMPLETED.
     --
     -- -   STOPPING.
-    status :: Core.Maybe ExecutionStatus,
+    status :: Prelude.Maybe ExecutionStatus,
     -- | The result of the remote access session. Can be any of the following:
     --
     -- -   PENDING.
@@ -79,7 +80,7 @@ data RemoteAccessSession = RemoteAccessSession'
     -- -   ERRORED.
     --
     -- -   STOPPED.
-    result :: Core.Maybe ExecutionResult,
+    result :: Prelude.Maybe ExecutionResult,
     -- | The interaction mode of the remote access session. Valid values are:
     --
     -- -   INTERACTIVE: You can interact with the iOS device by viewing,
@@ -93,60 +94,60 @@ data RemoteAccessSession = RemoteAccessSession'
     -- -   VIDEO_ONLY: You can view the screen, but cannot touch or rotate it.
     --     You can run XCUITest framework-based tests and watch the screen in
     --     this mode.
-    interactionMode :: Core.Maybe InteractionMode,
+    interactionMode :: Prelude.Maybe InteractionMode,
     -- | The date and time the remote access session was started.
-    started :: Core.Maybe Core.POSIX,
+    started :: Prelude.Maybe Core.POSIX,
     -- | A message about the remote access session.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The device (phone or tablet) used in the remote access session.
-    device :: Core.Maybe Device,
+    device :: Prelude.Maybe Device,
     -- | The Amazon Resource Name (ARN) of the remote access session.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the remote access session.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the instance.
-    instanceArn :: Core.Maybe Core.Text,
+    instanceArn :: Prelude.Maybe Prelude.Text,
     -- | The billing method of the remote access session. Possible values include
     -- @METERED@ or @UNMETERED@. For more information about metered devices,
     -- see
     -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology>.
-    billingMethod :: Core.Maybe BillingMethod,
+    billingMethod :: Prelude.Maybe BillingMethod,
     -- | This flag is set to @true@ if remote recording is enabled for the remote
     -- access session.
-    remoteRecordEnabled :: Core.Maybe Core.Bool,
+    remoteRecordEnabled :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, for private devices, Device Farm does not sign your
     -- app again. For public devices, Device Farm always signs your apps again.
     --
     -- For more information about how Device Farm re-signs your apps, see
     -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
     -- /AWS Device Farm FAQs/.
-    skipAppResign :: Core.Maybe Core.Bool,
+    skipAppResign :: Prelude.Maybe Prelude.Bool,
     -- | The date and time the remote access session was stopped.
-    stopped :: Core.Maybe Core.POSIX,
+    stopped :: Prelude.Maybe Core.POSIX,
     -- | IP address of the EC2 host where you need to connect to remotely debug
     -- devices. Only returned if remote debugging is enabled for the remote
     -- access session.
     --
     -- Remote debugging is
     -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-    hostAddress :: Core.Maybe Core.Text,
+    hostAddress :: Prelude.Maybe Prelude.Text,
     -- | The endpoint for the remote access sesssion.
-    endpoint :: Core.Maybe Core.Text,
+    endpoint :: Prelude.Maybe Prelude.Text,
     -- | The date and time the remote access session was created.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | This flag is set to @true@ if remote debugging is enabled for the remote
     -- access session.
     --
     -- Remote debugging is
     -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-    remoteDebugEnabled :: Core.Maybe Core.Bool,
+    remoteDebugEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The ARN for the app to be recorded in the remote access session.
-    remoteRecordAppArn :: Core.Maybe Core.Text,
+    remoteRecordAppArn :: Prelude.Maybe Prelude.Text,
     -- | The number of minutes a device is used in a remote access session
     -- (including setup and teardown minutes).
-    deviceMinutes :: Core.Maybe DeviceMinutes
+    deviceMinutes :: Prelude.Maybe DeviceMinutes
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoteAccessSession' with all optional fields omitted.
@@ -272,27 +273,27 @@ newRemoteAccessSession ::
   RemoteAccessSession
 newRemoteAccessSession =
   RemoteAccessSession'
-    { deviceUdid = Core.Nothing,
-      clientId = Core.Nothing,
-      status = Core.Nothing,
-      result = Core.Nothing,
-      interactionMode = Core.Nothing,
-      started = Core.Nothing,
-      message = Core.Nothing,
-      device = Core.Nothing,
-      arn = Core.Nothing,
-      name = Core.Nothing,
-      instanceArn = Core.Nothing,
-      billingMethod = Core.Nothing,
-      remoteRecordEnabled = Core.Nothing,
-      skipAppResign = Core.Nothing,
-      stopped = Core.Nothing,
-      hostAddress = Core.Nothing,
-      endpoint = Core.Nothing,
-      created = Core.Nothing,
-      remoteDebugEnabled = Core.Nothing,
-      remoteRecordAppArn = Core.Nothing,
-      deviceMinutes = Core.Nothing
+    { deviceUdid = Prelude.Nothing,
+      clientId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      result = Prelude.Nothing,
+      interactionMode = Prelude.Nothing,
+      started = Prelude.Nothing,
+      message = Prelude.Nothing,
+      device = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      instanceArn = Prelude.Nothing,
+      billingMethod = Prelude.Nothing,
+      remoteRecordEnabled = Prelude.Nothing,
+      skipAppResign = Prelude.Nothing,
+      stopped = Prelude.Nothing,
+      hostAddress = Prelude.Nothing,
+      endpoint = Prelude.Nothing,
+      created = Prelude.Nothing,
+      remoteDebugEnabled = Prelude.Nothing,
+      remoteRecordAppArn = Prelude.Nothing,
+      deviceMinutes = Prelude.Nothing
     }
 
 -- | Unique device identifier for the remote device. Only returned if remote
@@ -300,7 +301,7 @@ newRemoteAccessSession =
 --
 -- Remote debugging is
 -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-remoteAccessSession_deviceUdid :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_deviceUdid :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_deviceUdid = Lens.lens (\RemoteAccessSession' {deviceUdid} -> deviceUdid) (\s@RemoteAccessSession' {} a -> s {deviceUdid = a} :: RemoteAccessSession)
 
 -- | Unique identifier of your client for the remote access session. Only
@@ -308,7 +309,7 @@ remoteAccessSession_deviceUdid = Lens.lens (\RemoteAccessSession' {deviceUdid} -
 --
 -- Remote debugging is
 -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-remoteAccessSession_clientId :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_clientId :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_clientId = Lens.lens (\RemoteAccessSession' {clientId} -> clientId) (\s@RemoteAccessSession' {} a -> s {clientId = a} :: RemoteAccessSession)
 
 -- | The status of the remote access session. Can be any of the following:
@@ -330,7 +331,7 @@ remoteAccessSession_clientId = Lens.lens (\RemoteAccessSession' {clientId} -> cl
 -- -   COMPLETED.
 --
 -- -   STOPPING.
-remoteAccessSession_status :: Lens.Lens' RemoteAccessSession (Core.Maybe ExecutionStatus)
+remoteAccessSession_status :: Lens.Lens' RemoteAccessSession (Prelude.Maybe ExecutionStatus)
 remoteAccessSession_status = Lens.lens (\RemoteAccessSession' {status} -> status) (\s@RemoteAccessSession' {} a -> s {status = a} :: RemoteAccessSession)
 
 -- | The result of the remote access session. Can be any of the following:
@@ -348,7 +349,7 @@ remoteAccessSession_status = Lens.lens (\RemoteAccessSession' {status} -> status
 -- -   ERRORED.
 --
 -- -   STOPPED.
-remoteAccessSession_result :: Lens.Lens' RemoteAccessSession (Core.Maybe ExecutionResult)
+remoteAccessSession_result :: Lens.Lens' RemoteAccessSession (Prelude.Maybe ExecutionResult)
 remoteAccessSession_result = Lens.lens (\RemoteAccessSession' {result} -> result) (\s@RemoteAccessSession' {} a -> s {result = a} :: RemoteAccessSession)
 
 -- | The interaction mode of the remote access session. Valid values are:
@@ -364,43 +365,43 @@ remoteAccessSession_result = Lens.lens (\RemoteAccessSession' {result} -> result
 -- -   VIDEO_ONLY: You can view the screen, but cannot touch or rotate it.
 --     You can run XCUITest framework-based tests and watch the screen in
 --     this mode.
-remoteAccessSession_interactionMode :: Lens.Lens' RemoteAccessSession (Core.Maybe InteractionMode)
+remoteAccessSession_interactionMode :: Lens.Lens' RemoteAccessSession (Prelude.Maybe InteractionMode)
 remoteAccessSession_interactionMode = Lens.lens (\RemoteAccessSession' {interactionMode} -> interactionMode) (\s@RemoteAccessSession' {} a -> s {interactionMode = a} :: RemoteAccessSession)
 
 -- | The date and time the remote access session was started.
-remoteAccessSession_started :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.UTCTime)
-remoteAccessSession_started = Lens.lens (\RemoteAccessSession' {started} -> started) (\s@RemoteAccessSession' {} a -> s {started = a} :: RemoteAccessSession) Core.. Lens.mapping Core._Time
+remoteAccessSession_started :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.UTCTime)
+remoteAccessSession_started = Lens.lens (\RemoteAccessSession' {started} -> started) (\s@RemoteAccessSession' {} a -> s {started = a} :: RemoteAccessSession) Prelude.. Lens.mapping Core._Time
 
 -- | A message about the remote access session.
-remoteAccessSession_message :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_message :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_message = Lens.lens (\RemoteAccessSession' {message} -> message) (\s@RemoteAccessSession' {} a -> s {message = a} :: RemoteAccessSession)
 
 -- | The device (phone or tablet) used in the remote access session.
-remoteAccessSession_device :: Lens.Lens' RemoteAccessSession (Core.Maybe Device)
+remoteAccessSession_device :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Device)
 remoteAccessSession_device = Lens.lens (\RemoteAccessSession' {device} -> device) (\s@RemoteAccessSession' {} a -> s {device = a} :: RemoteAccessSession)
 
 -- | The Amazon Resource Name (ARN) of the remote access session.
-remoteAccessSession_arn :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_arn :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_arn = Lens.lens (\RemoteAccessSession' {arn} -> arn) (\s@RemoteAccessSession' {} a -> s {arn = a} :: RemoteAccessSession)
 
 -- | The name of the remote access session.
-remoteAccessSession_name :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_name :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_name = Lens.lens (\RemoteAccessSession' {name} -> name) (\s@RemoteAccessSession' {} a -> s {name = a} :: RemoteAccessSession)
 
 -- | The ARN of the instance.
-remoteAccessSession_instanceArn :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_instanceArn :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_instanceArn = Lens.lens (\RemoteAccessSession' {instanceArn} -> instanceArn) (\s@RemoteAccessSession' {} a -> s {instanceArn = a} :: RemoteAccessSession)
 
 -- | The billing method of the remote access session. Possible values include
 -- @METERED@ or @UNMETERED@. For more information about metered devices,
 -- see
 -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology>.
-remoteAccessSession_billingMethod :: Lens.Lens' RemoteAccessSession (Core.Maybe BillingMethod)
+remoteAccessSession_billingMethod :: Lens.Lens' RemoteAccessSession (Prelude.Maybe BillingMethod)
 remoteAccessSession_billingMethod = Lens.lens (\RemoteAccessSession' {billingMethod} -> billingMethod) (\s@RemoteAccessSession' {} a -> s {billingMethod = a} :: RemoteAccessSession)
 
 -- | This flag is set to @true@ if remote recording is enabled for the remote
 -- access session.
-remoteAccessSession_remoteRecordEnabled :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Bool)
+remoteAccessSession_remoteRecordEnabled :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Bool)
 remoteAccessSession_remoteRecordEnabled = Lens.lens (\RemoteAccessSession' {remoteRecordEnabled} -> remoteRecordEnabled) (\s@RemoteAccessSession' {} a -> s {remoteRecordEnabled = a} :: RemoteAccessSession)
 
 -- | When set to @true@, for private devices, Device Farm does not sign your
@@ -409,12 +410,12 @@ remoteAccessSession_remoteRecordEnabled = Lens.lens (\RemoteAccessSession' {remo
 -- For more information about how Device Farm re-signs your apps, see
 -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
-remoteAccessSession_skipAppResign :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Bool)
+remoteAccessSession_skipAppResign :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Bool)
 remoteAccessSession_skipAppResign = Lens.lens (\RemoteAccessSession' {skipAppResign} -> skipAppResign) (\s@RemoteAccessSession' {} a -> s {skipAppResign = a} :: RemoteAccessSession)
 
 -- | The date and time the remote access session was stopped.
-remoteAccessSession_stopped :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.UTCTime)
-remoteAccessSession_stopped = Lens.lens (\RemoteAccessSession' {stopped} -> stopped) (\s@RemoteAccessSession' {} a -> s {stopped = a} :: RemoteAccessSession) Core.. Lens.mapping Core._Time
+remoteAccessSession_stopped :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.UTCTime)
+remoteAccessSession_stopped = Lens.lens (\RemoteAccessSession' {stopped} -> stopped) (\s@RemoteAccessSession' {} a -> s {stopped = a} :: RemoteAccessSession) Prelude.. Lens.mapping Core._Time
 
 -- | IP address of the EC2 host where you need to connect to remotely debug
 -- devices. Only returned if remote debugging is enabled for the remote
@@ -422,32 +423,32 @@ remoteAccessSession_stopped = Lens.lens (\RemoteAccessSession' {stopped} -> stop
 --
 -- Remote debugging is
 -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-remoteAccessSession_hostAddress :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_hostAddress :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_hostAddress = Lens.lens (\RemoteAccessSession' {hostAddress} -> hostAddress) (\s@RemoteAccessSession' {} a -> s {hostAddress = a} :: RemoteAccessSession)
 
 -- | The endpoint for the remote access sesssion.
-remoteAccessSession_endpoint :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_endpoint :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_endpoint = Lens.lens (\RemoteAccessSession' {endpoint} -> endpoint) (\s@RemoteAccessSession' {} a -> s {endpoint = a} :: RemoteAccessSession)
 
 -- | The date and time the remote access session was created.
-remoteAccessSession_created :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.UTCTime)
-remoteAccessSession_created = Lens.lens (\RemoteAccessSession' {created} -> created) (\s@RemoteAccessSession' {} a -> s {created = a} :: RemoteAccessSession) Core.. Lens.mapping Core._Time
+remoteAccessSession_created :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.UTCTime)
+remoteAccessSession_created = Lens.lens (\RemoteAccessSession' {created} -> created) (\s@RemoteAccessSession' {} a -> s {created = a} :: RemoteAccessSession) Prelude.. Lens.mapping Core._Time
 
 -- | This flag is set to @true@ if remote debugging is enabled for the remote
 -- access session.
 --
 -- Remote debugging is
 -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-remoteAccessSession_remoteDebugEnabled :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Bool)
+remoteAccessSession_remoteDebugEnabled :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Bool)
 remoteAccessSession_remoteDebugEnabled = Lens.lens (\RemoteAccessSession' {remoteDebugEnabled} -> remoteDebugEnabled) (\s@RemoteAccessSession' {} a -> s {remoteDebugEnabled = a} :: RemoteAccessSession)
 
 -- | The ARN for the app to be recorded in the remote access session.
-remoteAccessSession_remoteRecordAppArn :: Lens.Lens' RemoteAccessSession (Core.Maybe Core.Text)
+remoteAccessSession_remoteRecordAppArn :: Lens.Lens' RemoteAccessSession (Prelude.Maybe Prelude.Text)
 remoteAccessSession_remoteRecordAppArn = Lens.lens (\RemoteAccessSession' {remoteRecordAppArn} -> remoteRecordAppArn) (\s@RemoteAccessSession' {} a -> s {remoteRecordAppArn = a} :: RemoteAccessSession)
 
 -- | The number of minutes a device is used in a remote access session
 -- (including setup and teardown minutes).
-remoteAccessSession_deviceMinutes :: Lens.Lens' RemoteAccessSession (Core.Maybe DeviceMinutes)
+remoteAccessSession_deviceMinutes :: Lens.Lens' RemoteAccessSession (Prelude.Maybe DeviceMinutes)
 remoteAccessSession_deviceMinutes = Lens.lens (\RemoteAccessSession' {deviceMinutes} -> deviceMinutes) (\s@RemoteAccessSession' {} a -> s {deviceMinutes = a} :: RemoteAccessSession)
 
 instance Core.FromJSON RemoteAccessSession where
@@ -456,29 +457,29 @@ instance Core.FromJSON RemoteAccessSession where
       "RemoteAccessSession"
       ( \x ->
           RemoteAccessSession'
-            Core.<$> (x Core..:? "deviceUdid")
-            Core.<*> (x Core..:? "clientId")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "result")
-            Core.<*> (x Core..:? "interactionMode")
-            Core.<*> (x Core..:? "started")
-            Core.<*> (x Core..:? "message")
-            Core.<*> (x Core..:? "device")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "instanceArn")
-            Core.<*> (x Core..:? "billingMethod")
-            Core.<*> (x Core..:? "remoteRecordEnabled")
-            Core.<*> (x Core..:? "skipAppResign")
-            Core.<*> (x Core..:? "stopped")
-            Core.<*> (x Core..:? "hostAddress")
-            Core.<*> (x Core..:? "endpoint")
-            Core.<*> (x Core..:? "created")
-            Core.<*> (x Core..:? "remoteDebugEnabled")
-            Core.<*> (x Core..:? "remoteRecordAppArn")
-            Core.<*> (x Core..:? "deviceMinutes")
+            Prelude.<$> (x Core..:? "deviceUdid")
+            Prelude.<*> (x Core..:? "clientId")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "result")
+            Prelude.<*> (x Core..:? "interactionMode")
+            Prelude.<*> (x Core..:? "started")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "device")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "instanceArn")
+            Prelude.<*> (x Core..:? "billingMethod")
+            Prelude.<*> (x Core..:? "remoteRecordEnabled")
+            Prelude.<*> (x Core..:? "skipAppResign")
+            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<*> (x Core..:? "hostAddress")
+            Prelude.<*> (x Core..:? "endpoint")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "remoteDebugEnabled")
+            Prelude.<*> (x Core..:? "remoteRecordAppArn")
+            Prelude.<*> (x Core..:? "deviceMinutes")
       )
 
-instance Core.Hashable RemoteAccessSession
+instance Prelude.Hashable RemoteAccessSession
 
-instance Core.NFData RemoteAccessSession
+instance Prelude.NFData RemoteAccessSession

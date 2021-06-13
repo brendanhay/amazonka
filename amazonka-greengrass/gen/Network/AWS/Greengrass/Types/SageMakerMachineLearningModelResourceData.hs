@@ -22,19 +22,20 @@ module Network.AWS.Greengrass.Types.SageMakerMachineLearningModelResourceData wh
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Attributes that define an Amazon SageMaker machine learning resource.
 --
 -- /See:/ 'newSageMakerMachineLearningModelResourceData' smart constructor.
 data SageMakerMachineLearningModelResourceData = SageMakerMachineLearningModelResourceData'
-  { ownerSetting :: Core.Maybe ResourceDownloadOwnerSetting,
+  { ownerSetting :: Prelude.Maybe ResourceDownloadOwnerSetting,
     -- | The absolute local path of the resource inside the Lambda environment.
-    destinationPath :: Core.Maybe Core.Text,
+    destinationPath :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Amazon SageMaker training job that represents the source
     -- model.
-    sageMakerJobArn :: Core.Maybe Core.Text
+    sageMakerJobArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SageMakerMachineLearningModelResourceData' with all optional fields omitted.
@@ -55,22 +56,24 @@ newSageMakerMachineLearningModelResourceData ::
 newSageMakerMachineLearningModelResourceData =
   SageMakerMachineLearningModelResourceData'
     { ownerSetting =
-        Core.Nothing,
-      destinationPath = Core.Nothing,
-      sageMakerJobArn = Core.Nothing
+        Prelude.Nothing,
+      destinationPath =
+        Prelude.Nothing,
+      sageMakerJobArn =
+        Prelude.Nothing
     }
 
 -- | Undocumented member.
-sageMakerMachineLearningModelResourceData_ownerSetting :: Lens.Lens' SageMakerMachineLearningModelResourceData (Core.Maybe ResourceDownloadOwnerSetting)
+sageMakerMachineLearningModelResourceData_ownerSetting :: Lens.Lens' SageMakerMachineLearningModelResourceData (Prelude.Maybe ResourceDownloadOwnerSetting)
 sageMakerMachineLearningModelResourceData_ownerSetting = Lens.lens (\SageMakerMachineLearningModelResourceData' {ownerSetting} -> ownerSetting) (\s@SageMakerMachineLearningModelResourceData' {} a -> s {ownerSetting = a} :: SageMakerMachineLearningModelResourceData)
 
 -- | The absolute local path of the resource inside the Lambda environment.
-sageMakerMachineLearningModelResourceData_destinationPath :: Lens.Lens' SageMakerMachineLearningModelResourceData (Core.Maybe Core.Text)
+sageMakerMachineLearningModelResourceData_destinationPath :: Lens.Lens' SageMakerMachineLearningModelResourceData (Prelude.Maybe Prelude.Text)
 sageMakerMachineLearningModelResourceData_destinationPath = Lens.lens (\SageMakerMachineLearningModelResourceData' {destinationPath} -> destinationPath) (\s@SageMakerMachineLearningModelResourceData' {} a -> s {destinationPath = a} :: SageMakerMachineLearningModelResourceData)
 
 -- | The ARN of the Amazon SageMaker training job that represents the source
 -- model.
-sageMakerMachineLearningModelResourceData_sageMakerJobArn :: Lens.Lens' SageMakerMachineLearningModelResourceData (Core.Maybe Core.Text)
+sageMakerMachineLearningModelResourceData_sageMakerJobArn :: Lens.Lens' SageMakerMachineLearningModelResourceData (Prelude.Maybe Prelude.Text)
 sageMakerMachineLearningModelResourceData_sageMakerJobArn = Lens.lens (\SageMakerMachineLearningModelResourceData' {sageMakerJobArn} -> sageMakerJobArn) (\s@SageMakerMachineLearningModelResourceData' {} a -> s {sageMakerJobArn = a} :: SageMakerMachineLearningModelResourceData)
 
 instance
@@ -82,17 +85,17 @@ instance
       "SageMakerMachineLearningModelResourceData"
       ( \x ->
           SageMakerMachineLearningModelResourceData'
-            Core.<$> (x Core..:? "OwnerSetting")
-            Core.<*> (x Core..:? "DestinationPath")
-            Core.<*> (x Core..:? "SageMakerJobArn")
+            Prelude.<$> (x Core..:? "OwnerSetting")
+              Prelude.<*> (x Core..:? "DestinationPath")
+              Prelude.<*> (x Core..:? "SageMakerJobArn")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SageMakerMachineLearningModelResourceData
 
 instance
-  Core.NFData
+  Prelude.NFData
     SageMakerMachineLearningModelResourceData
 
 instance
@@ -101,10 +104,11 @@ instance
   where
   toJSON SageMakerMachineLearningModelResourceData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("OwnerSetting" Core..=) Core.<$> ownerSetting,
-            ("DestinationPath" Core..=) Core.<$> destinationPath,
+      ( Prelude.catMaybes
+          [ ("OwnerSetting" Core..=) Prelude.<$> ownerSetting,
+            ("DestinationPath" Core..=)
+              Prelude.<$> destinationPath,
             ("SageMakerJobArn" Core..=)
-              Core.<$> sageMakerJobArn
+              Prelude.<$> sageMakerJobArn
           ]
       )

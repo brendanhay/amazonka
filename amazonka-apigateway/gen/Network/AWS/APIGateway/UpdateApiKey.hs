@@ -51,6 +51,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ import qualified Network.AWS.Response as Response
 data UpdateApiKey = UpdateApiKey'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The identifier of the ApiKey resource to be updated.
-    apiKey :: Core.Text
+    apiKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApiKey' with all optional fields omitted.
@@ -80,21 +81,21 @@ data UpdateApiKey = UpdateApiKey'
 -- 'apiKey', 'updateApiKey_apiKey' - [Required] The identifier of the ApiKey resource to be updated.
 newUpdateApiKey ::
   -- | 'apiKey'
-  Core.Text ->
+  Prelude.Text ->
   UpdateApiKey
 newUpdateApiKey pApiKey_ =
   UpdateApiKey'
-    { patchOperations = Core.Nothing,
+    { patchOperations = Prelude.Nothing,
       apiKey = pApiKey_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateApiKey_patchOperations :: Lens.Lens' UpdateApiKey (Core.Maybe [PatchOperation])
-updateApiKey_patchOperations = Lens.lens (\UpdateApiKey' {patchOperations} -> patchOperations) (\s@UpdateApiKey' {} a -> s {patchOperations = a} :: UpdateApiKey) Core.. Lens.mapping Lens._Coerce
+updateApiKey_patchOperations :: Lens.Lens' UpdateApiKey (Prelude.Maybe [PatchOperation])
+updateApiKey_patchOperations = Lens.lens (\UpdateApiKey' {patchOperations} -> patchOperations) (\s@UpdateApiKey' {} a -> s {patchOperations = a} :: UpdateApiKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The identifier of the ApiKey resource to be updated.
-updateApiKey_apiKey :: Lens.Lens' UpdateApiKey Core.Text
+updateApiKey_apiKey :: Lens.Lens' UpdateApiKey Prelude.Text
 updateApiKey_apiKey = Lens.lens (\UpdateApiKey' {apiKey} -> apiKey) (\s@UpdateApiKey' {} a -> s {apiKey = a} :: UpdateApiKey)
 
 instance Core.AWSRequest UpdateApiKey where
@@ -104,31 +105,31 @@ instance Core.AWSRequest UpdateApiKey where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateApiKey
+instance Prelude.Hashable UpdateApiKey
 
-instance Core.NFData UpdateApiKey
+instance Prelude.NFData UpdateApiKey
 
 instance Core.ToHeaders UpdateApiKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateApiKey where
   toJSON UpdateApiKey' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateApiKey where
   toPath UpdateApiKey' {..} =
-    Core.mconcat ["/apikeys/", Core.toBS apiKey]
+    Prelude.mconcat ["/apikeys/", Core.toBS apiKey]
 
 instance Core.ToQuery UpdateApiKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

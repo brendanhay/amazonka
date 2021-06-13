@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,11 +56,11 @@ data AddTagsToResource = AddTagsToResource'
   { -- | The Amazon RDS resource that the tags are added to. This value is an
     -- Amazon Resource Name (ARN). For information about creating an ARN, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
-    resourceName :: Core.Text,
+    resourceName :: Prelude.Text,
     -- | The tags to be assigned to the Amazon RDS resource.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToResource' with all optional fields omitted.
@@ -76,23 +77,23 @@ data AddTagsToResource = AddTagsToResource'
 -- 'tags', 'addTagsToResource_tags' - The tags to be assigned to the Amazon RDS resource.
 newAddTagsToResource ::
   -- | 'resourceName'
-  Core.Text ->
+  Prelude.Text ->
   AddTagsToResource
 newAddTagsToResource pResourceName_ =
   AddTagsToResource'
     { resourceName = pResourceName_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The Amazon RDS resource that the tags are added to. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
-addTagsToResource_resourceName :: Lens.Lens' AddTagsToResource Core.Text
+addTagsToResource_resourceName :: Lens.Lens' AddTagsToResource Prelude.Text
 addTagsToResource_resourceName = Lens.lens (\AddTagsToResource' {resourceName} -> resourceName) (\s@AddTagsToResource' {} a -> s {resourceName = a} :: AddTagsToResource)
 
 -- | The tags to be assigned to the Amazon RDS resource.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
-addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Core.. Lens._Coerce
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTagsToResource where
   type
@@ -102,22 +103,23 @@ instance Core.AWSRequest AddTagsToResource where
   response =
     Response.receiveNull AddTagsToResourceResponse'
 
-instance Core.Hashable AddTagsToResource
+instance Prelude.Hashable AddTagsToResource
 
-instance Core.NFData AddTagsToResource
+instance Prelude.NFData AddTagsToResource
 
 instance Core.ToHeaders AddTagsToResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AddTagsToResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTagsToResource where
   toQuery AddTagsToResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AddTagsToResource" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("AddTagsToResource" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ResourceName" Core.=: resourceName,
         "Tags" Core.=: Core.toQueryList "Tag" tags
       ]
@@ -126,7 +128,7 @@ instance Core.ToQuery AddTagsToResource where
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToResourceResponse' with all optional fields omitted.
@@ -137,4 +139,4 @@ newAddTagsToResourceResponse ::
 newAddTagsToResourceResponse =
   AddTagsToResourceResponse'
 
-instance Core.NFData AddTagsToResourceResponse
+instance Prelude.NFData AddTagsToResourceResponse

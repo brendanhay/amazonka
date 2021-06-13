@@ -53,6 +53,7 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ import qualified Network.AWS.Response as Response
 data DescribeEventBus = DescribeEventBus'
   { -- | The name or ARN of the event bus to show details for. If you omit this,
     -- the default event bus is displayed.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventBus' with all optional fields omitted.
@@ -77,11 +78,11 @@ data DescribeEventBus = DescribeEventBus'
 newDescribeEventBus ::
   DescribeEventBus
 newDescribeEventBus =
-  DescribeEventBus' {name = Core.Nothing}
+  DescribeEventBus' {name = Prelude.Nothing}
 
 -- | The name or ARN of the event bus to show details for. If you omit this,
 -- the default event bus is displayed.
-describeEventBus_name :: Lens.Lens' DescribeEventBus (Core.Maybe Core.Text)
+describeEventBus_name :: Lens.Lens' DescribeEventBus (Prelude.Maybe Prelude.Text)
 describeEventBus_name = Lens.lens (\DescribeEventBus' {name} -> name) (\s@DescribeEventBus' {} a -> s {name = a} :: DescribeEventBus)
 
 instance Core.AWSRequest DescribeEventBus where
@@ -93,52 +94,56 @@ instance Core.AWSRequest DescribeEventBus where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventBusResponse'
-            Core.<$> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (x Core..?> "Policy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEventBus
+instance Prelude.Hashable DescribeEventBus
 
-instance Core.NFData DescribeEventBus
+instance Prelude.NFData DescribeEventBus
 
 instance Core.ToHeaders DescribeEventBus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DescribeEventBus" :: Core.ByteString),
+              Core.=# ("AWSEvents.DescribeEventBus" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEventBus where
   toJSON DescribeEventBus' {..} =
     Core.object
-      (Core.catMaybes [("Name" Core..=) Core.<$> name])
+      ( Prelude.catMaybes
+          [("Name" Core..=) Prelude.<$> name]
+      )
 
 instance Core.ToPath DescribeEventBus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEventBus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventBusResponse' smart constructor.
 data DescribeEventBusResponse = DescribeEventBusResponse'
   { -- | The Amazon Resource Name (ARN) of the account permitted to write events
     -- to the current account.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the event bus. Currently, this is always @default@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The policy that enables the external account to send events to your
     -- account.
-    policy :: Core.Maybe Core.Text,
+    policy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventBusResponse' with all optional fields omitted.
@@ -159,32 +164,32 @@ data DescribeEventBusResponse = DescribeEventBusResponse'
 -- 'httpStatus', 'describeEventBusResponse_httpStatus' - The response's http status code.
 newDescribeEventBusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEventBusResponse
 newDescribeEventBusResponse pHttpStatus_ =
   DescribeEventBusResponse'
-    { arn = Core.Nothing,
-      name = Core.Nothing,
-      policy = Core.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the account permitted to write events
 -- to the current account.
-describeEventBusResponse_arn :: Lens.Lens' DescribeEventBusResponse (Core.Maybe Core.Text)
+describeEventBusResponse_arn :: Lens.Lens' DescribeEventBusResponse (Prelude.Maybe Prelude.Text)
 describeEventBusResponse_arn = Lens.lens (\DescribeEventBusResponse' {arn} -> arn) (\s@DescribeEventBusResponse' {} a -> s {arn = a} :: DescribeEventBusResponse)
 
 -- | The name of the event bus. Currently, this is always @default@.
-describeEventBusResponse_name :: Lens.Lens' DescribeEventBusResponse (Core.Maybe Core.Text)
+describeEventBusResponse_name :: Lens.Lens' DescribeEventBusResponse (Prelude.Maybe Prelude.Text)
 describeEventBusResponse_name = Lens.lens (\DescribeEventBusResponse' {name} -> name) (\s@DescribeEventBusResponse' {} a -> s {name = a} :: DescribeEventBusResponse)
 
 -- | The policy that enables the external account to send events to your
 -- account.
-describeEventBusResponse_policy :: Lens.Lens' DescribeEventBusResponse (Core.Maybe Core.Text)
+describeEventBusResponse_policy :: Lens.Lens' DescribeEventBusResponse (Prelude.Maybe Prelude.Text)
 describeEventBusResponse_policy = Lens.lens (\DescribeEventBusResponse' {policy} -> policy) (\s@DescribeEventBusResponse' {} a -> s {policy = a} :: DescribeEventBusResponse)
 
 -- | The response's http status code.
-describeEventBusResponse_httpStatus :: Lens.Lens' DescribeEventBusResponse Core.Int
+describeEventBusResponse_httpStatus :: Lens.Lens' DescribeEventBusResponse Prelude.Int
 describeEventBusResponse_httpStatus = Lens.lens (\DescribeEventBusResponse' {httpStatus} -> httpStatus) (\s@DescribeEventBusResponse' {} a -> s {httpStatus = a} :: DescribeEventBusResponse)
 
-instance Core.NFData DescribeEventBusResponse
+instance Prelude.NFData DescribeEventBusResponse

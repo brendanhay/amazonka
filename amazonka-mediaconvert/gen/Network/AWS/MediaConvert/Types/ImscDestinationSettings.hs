@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.ImscDestinationSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.ImscStylePassthrough
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings specific to IMSC caption outputs.
 --
@@ -31,9 +32,9 @@ data ImscDestinationSettings = ImscDestinationSettings'
     -- position information from the captions source in the output. This option
     -- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
     -- Disable this setting for simplified output captions.
-    stylePassthrough :: Core.Maybe ImscStylePassthrough
+    stylePassthrough :: Prelude.Maybe ImscStylePassthrough
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImscDestinationSettings' with all optional fields omitted.
@@ -52,14 +53,14 @@ newImscDestinationSettings ::
 newImscDestinationSettings =
   ImscDestinationSettings'
     { stylePassthrough =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Keep this setting enabled to have MediaConvert use the font style and
 -- position information from the captions source in the output. This option
 -- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
 -- Disable this setting for simplified output captions.
-imscDestinationSettings_stylePassthrough :: Lens.Lens' ImscDestinationSettings (Core.Maybe ImscStylePassthrough)
+imscDestinationSettings_stylePassthrough :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscStylePassthrough)
 imscDestinationSettings_stylePassthrough = Lens.lens (\ImscDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@ImscDestinationSettings' {} a -> s {stylePassthrough = a} :: ImscDestinationSettings)
 
 instance Core.FromJSON ImscDestinationSettings where
@@ -68,18 +69,18 @@ instance Core.FromJSON ImscDestinationSettings where
       "ImscDestinationSettings"
       ( \x ->
           ImscDestinationSettings'
-            Core.<$> (x Core..:? "stylePassthrough")
+            Prelude.<$> (x Core..:? "stylePassthrough")
       )
 
-instance Core.Hashable ImscDestinationSettings
+instance Prelude.Hashable ImscDestinationSettings
 
-instance Core.NFData ImscDestinationSettings
+instance Prelude.NFData ImscDestinationSettings
 
 instance Core.ToJSON ImscDestinationSettings where
   toJSON ImscDestinationSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("stylePassthrough" Core..=)
-              Core.<$> stylePassthrough
+              Prelude.<$> stylePassthrough
           ]
       )

@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data DescribePermissions = DescribePermissions'
   { -- | The user\'s IAM ARN. This can also be a federated user\'s ARN. For more
     -- information about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    iamUserArn :: Core.Maybe Core.Text,
+    iamUserArn :: Prelude.Maybe Prelude.Text,
     -- | The stack ID.
-    stackId :: Core.Maybe Core.Text
+    stackId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePermissions' with all optional fields omitted.
@@ -80,18 +81,18 @@ newDescribePermissions ::
   DescribePermissions
 newDescribePermissions =
   DescribePermissions'
-    { iamUserArn = Core.Nothing,
-      stackId = Core.Nothing
+    { iamUserArn = Prelude.Nothing,
+      stackId = Prelude.Nothing
     }
 
 -- | The user\'s IAM ARN. This can also be a federated user\'s ARN. For more
 -- information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-describePermissions_iamUserArn :: Lens.Lens' DescribePermissions (Core.Maybe Core.Text)
+describePermissions_iamUserArn :: Lens.Lens' DescribePermissions (Prelude.Maybe Prelude.Text)
 describePermissions_iamUserArn = Lens.lens (\DescribePermissions' {iamUserArn} -> iamUserArn) (\s@DescribePermissions' {} a -> s {iamUserArn = a} :: DescribePermissions)
 
 -- | The stack ID.
-describePermissions_stackId :: Lens.Lens' DescribePermissions (Core.Maybe Core.Text)
+describePermissions_stackId :: Lens.Lens' DescribePermissions (Prelude.Maybe Prelude.Text)
 describePermissions_stackId = Lens.lens (\DescribePermissions' {stackId} -> stackId) (\s@DescribePermissions' {} a -> s {stackId = a} :: DescribePermissions)
 
 instance Core.AWSRequest DescribePermissions where
@@ -103,41 +104,43 @@ instance Core.AWSRequest DescribePermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribePermissionsResponse'
-            Core.<$> (x Core..?> "Permissions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Permissions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribePermissions
+instance Prelude.Hashable DescribePermissions
 
-instance Core.NFData DescribePermissions
+instance Prelude.NFData DescribePermissions
 
 instance Core.ToHeaders DescribePermissions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribePermissions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribePermissions where
   toJSON DescribePermissions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IamUserArn" Core..=) Core.<$> iamUserArn,
-            ("StackId" Core..=) Core.<$> stackId
+      ( Prelude.catMaybes
+          [ ("IamUserArn" Core..=) Prelude.<$> iamUserArn,
+            ("StackId" Core..=) Prelude.<$> stackId
           ]
       )
 
 instance Core.ToPath DescribePermissions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePermissions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribePermissions@ request.
 --
@@ -155,11 +158,11 @@ data DescribePermissionsResponse = DescribePermissionsResponse'
     -- -   If the request contains a stack ID and an IAM ARN, the array
     --     contains a single @Permission@ object with permissions for the
     --     specified stack and IAM ARN.
-    permissions :: Core.Maybe [Permission],
+    permissions :: Prelude.Maybe [Permission],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePermissionsResponse' with all optional fields omitted.
@@ -185,12 +188,12 @@ data DescribePermissionsResponse = DescribePermissionsResponse'
 -- 'httpStatus', 'describePermissionsResponse_httpStatus' - The response's http status code.
 newDescribePermissionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePermissionsResponse
 newDescribePermissionsResponse pHttpStatus_ =
   DescribePermissionsResponse'
     { permissions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -206,11 +209,11 @@ newDescribePermissionsResponse pHttpStatus_ =
 -- -   If the request contains a stack ID and an IAM ARN, the array
 --     contains a single @Permission@ object with permissions for the
 --     specified stack and IAM ARN.
-describePermissionsResponse_permissions :: Lens.Lens' DescribePermissionsResponse (Core.Maybe [Permission])
-describePermissionsResponse_permissions = Lens.lens (\DescribePermissionsResponse' {permissions} -> permissions) (\s@DescribePermissionsResponse' {} a -> s {permissions = a} :: DescribePermissionsResponse) Core.. Lens.mapping Lens._Coerce
+describePermissionsResponse_permissions :: Lens.Lens' DescribePermissionsResponse (Prelude.Maybe [Permission])
+describePermissionsResponse_permissions = Lens.lens (\DescribePermissionsResponse' {permissions} -> permissions) (\s@DescribePermissionsResponse' {} a -> s {permissions = a} :: DescribePermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePermissionsResponse_httpStatus :: Lens.Lens' DescribePermissionsResponse Core.Int
+describePermissionsResponse_httpStatus :: Lens.Lens' DescribePermissionsResponse Prelude.Int
 describePermissionsResponse_httpStatus = Lens.lens (\DescribePermissionsResponse' {httpStatus} -> httpStatus) (\s@DescribePermissionsResponse' {} a -> s {httpStatus = a} :: DescribePermissionsResponse)
 
-instance Core.NFData DescribePermissionsResponse
+instance Prelude.NFData DescribePermissionsResponse

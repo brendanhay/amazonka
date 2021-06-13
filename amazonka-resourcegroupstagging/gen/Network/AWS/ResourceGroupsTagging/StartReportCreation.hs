@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
 import qualified Network.AWS.Response as Response
@@ -63,9 +64,9 @@ data StartReportCreation = StartReportCreation'
     --
     -- For more information on S3 bucket requirements, including an example
     -- bucket policy, see the example S3 bucket policy on this page.
-    s3Bucket :: Core.Text
+    s3Bucket :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartReportCreation' with all optional fields omitted.
@@ -84,7 +85,7 @@ data StartReportCreation = StartReportCreation'
 -- bucket policy, see the example S3 bucket policy on this page.
 newStartReportCreation ::
   -- | 's3Bucket'
-  Core.Text ->
+  Prelude.Text ->
   StartReportCreation
 newStartReportCreation pS3Bucket_ =
   StartReportCreation' {s3Bucket = pS3Bucket_}
@@ -96,7 +97,7 @@ newStartReportCreation pS3Bucket_ =
 --
 -- For more information on S3 bucket requirements, including an example
 -- bucket policy, see the example S3 bucket policy on this page.
-startReportCreation_s3Bucket :: Lens.Lens' StartReportCreation Core.Text
+startReportCreation_s3Bucket :: Lens.Lens' StartReportCreation Prelude.Text
 startReportCreation_s3Bucket = Lens.lens (\StartReportCreation' {s3Bucket} -> s3Bucket) (\s@StartReportCreation' {} a -> s {s3Bucket = a} :: StartReportCreation)
 
 instance Core.AWSRequest StartReportCreation where
@@ -108,45 +109,47 @@ instance Core.AWSRequest StartReportCreation where
     Response.receiveEmpty
       ( \s h x ->
           StartReportCreationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartReportCreation
+instance Prelude.Hashable StartReportCreation
 
-instance Core.NFData StartReportCreation
+instance Prelude.NFData StartReportCreation
 
 instance Core.ToHeaders StartReportCreation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ResourceGroupsTaggingAPI_20170126.StartReportCreation" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartReportCreation where
   toJSON StartReportCreation' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("S3Bucket" Core..= s3Bucket)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("S3Bucket" Core..= s3Bucket)]
       )
 
 instance Core.ToPath StartReportCreation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartReportCreation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartReportCreationResponse' smart constructor.
 data StartReportCreationResponse = StartReportCreationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartReportCreationResponse' with all optional fields omitted.
@@ -159,7 +162,7 @@ data StartReportCreationResponse = StartReportCreationResponse'
 -- 'httpStatus', 'startReportCreationResponse_httpStatus' - The response's http status code.
 newStartReportCreationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartReportCreationResponse
 newStartReportCreationResponse pHttpStatus_ =
   StartReportCreationResponse'
@@ -168,7 +171,7 @@ newStartReportCreationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startReportCreationResponse_httpStatus :: Lens.Lens' StartReportCreationResponse Core.Int
+startReportCreationResponse_httpStatus :: Lens.Lens' StartReportCreationResponse Prelude.Int
 startReportCreationResponse_httpStatus = Lens.lens (\StartReportCreationResponse' {httpStatus} -> httpStatus) (\s@StartReportCreationResponse' {} a -> s {httpStatus = a} :: StartReportCreationResponse)
 
-instance Core.NFData StartReportCreationResponse
+instance Prelude.NFData StartReportCreationResponse

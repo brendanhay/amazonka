@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data CreateConnection = CreateConnection'
   { -- | The ID of the Data Catalog in which to create the connection. If none is
     -- provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A @ConnectionInput@ object defining the connection to create.
     connectionInput :: ConnectionInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConnection' with all optional fields omitted.
@@ -73,13 +74,13 @@ newCreateConnection ::
   CreateConnection
 newCreateConnection pConnectionInput_ =
   CreateConnection'
-    { catalogId = Core.Nothing,
+    { catalogId = Prelude.Nothing,
       connectionInput = pConnectionInput_
     }
 
 -- | The ID of the Data Catalog in which to create the connection. If none is
 -- provided, the AWS account ID is used by default.
-createConnection_catalogId :: Lens.Lens' CreateConnection (Core.Maybe Core.Text)
+createConnection_catalogId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_catalogId = Lens.lens (\CreateConnection' {catalogId} -> catalogId) (\s@CreateConnection' {} a -> s {catalogId = a} :: CreateConnection)
 
 -- | A @ConnectionInput@ object defining the connection to create.
@@ -95,46 +96,48 @@ instance Core.AWSRequest CreateConnection where
     Response.receiveEmpty
       ( \s h x ->
           CreateConnectionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateConnection
+instance Prelude.Hashable CreateConnection
 
-instance Core.NFData CreateConnection
+instance Prelude.NFData CreateConnection
 
 instance Core.ToHeaders CreateConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateConnection" :: Core.ByteString),
+              Core.=# ("AWSGlue.CreateConnection" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just
               ("ConnectionInput" Core..= connectionInput)
           ]
       )
 
 instance Core.ToPath CreateConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectionResponse' smart constructor.
 data CreateConnectionResponse = CreateConnectionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConnectionResponse' with all optional fields omitted.
@@ -147,7 +150,7 @@ data CreateConnectionResponse = CreateConnectionResponse'
 -- 'httpStatus', 'createConnectionResponse_httpStatus' - The response's http status code.
 newCreateConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateConnectionResponse
 newCreateConnectionResponse pHttpStatus_ =
   CreateConnectionResponse'
@@ -156,7 +159,7 @@ newCreateConnectionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createConnectionResponse_httpStatus :: Lens.Lens' CreateConnectionResponse Core.Int
+createConnectionResponse_httpStatus :: Lens.Lens' CreateConnectionResponse Prelude.Int
 createConnectionResponse_httpStatus = Lens.lens (\CreateConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateConnectionResponse' {} a -> s {httpStatus = a} :: CreateConnectionResponse)
 
-instance Core.NFData CreateConnectionResponse
+instance Prelude.NFData CreateConnectionResponse

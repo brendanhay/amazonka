@@ -50,6 +50,7 @@ where
 import Network.AWS.Budgets.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,13 +63,13 @@ data CreateBudget = CreateBudget'
     -- subscriber and up to 10 email subscribers. If you include notifications
     -- and subscribers in your @CreateBudget@ call, AWS creates the
     -- notifications and subscribers for you.
-    notificationsWithSubscribers :: Core.Maybe [NotificationWithSubscribers],
+    notificationsWithSubscribers :: Prelude.Maybe [NotificationWithSubscribers],
     -- | The @accountId@ that is associated with the budget.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The budget object that you want to create.
     budget :: Budget
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBudget' with all optional fields omitted.
@@ -89,14 +90,14 @@ data CreateBudget = CreateBudget'
 -- 'budget', 'createBudget_budget' - The budget object that you want to create.
 newCreateBudget ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'budget'
   Budget ->
   CreateBudget
 newCreateBudget pAccountId_ pBudget_ =
   CreateBudget'
     { notificationsWithSubscribers =
-        Core.Nothing,
+        Prelude.Nothing,
       accountId = pAccountId_,
       budget = pBudget_
     }
@@ -106,11 +107,11 @@ newCreateBudget pAccountId_ pBudget_ =
 -- subscriber and up to 10 email subscribers. If you include notifications
 -- and subscribers in your @CreateBudget@ call, AWS creates the
 -- notifications and subscribers for you.
-createBudget_notificationsWithSubscribers :: Lens.Lens' CreateBudget (Core.Maybe [NotificationWithSubscribers])
-createBudget_notificationsWithSubscribers = Lens.lens (\CreateBudget' {notificationsWithSubscribers} -> notificationsWithSubscribers) (\s@CreateBudget' {} a -> s {notificationsWithSubscribers = a} :: CreateBudget) Core.. Lens.mapping Lens._Coerce
+createBudget_notificationsWithSubscribers :: Lens.Lens' CreateBudget (Prelude.Maybe [NotificationWithSubscribers])
+createBudget_notificationsWithSubscribers = Lens.lens (\CreateBudget' {notificationsWithSubscribers} -> notificationsWithSubscribers) (\s@CreateBudget' {} a -> s {notificationsWithSubscribers = a} :: CreateBudget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The @accountId@ that is associated with the budget.
-createBudget_accountId :: Lens.Lens' CreateBudget Core.Text
+createBudget_accountId :: Lens.Lens' CreateBudget Prelude.Text
 createBudget_accountId = Lens.lens (\CreateBudget' {accountId} -> accountId) (\s@CreateBudget' {} a -> s {accountId = a} :: CreateBudget)
 
 -- | The budget object that you want to create.
@@ -124,51 +125,53 @@ instance Core.AWSRequest CreateBudget where
     Response.receiveEmpty
       ( \s h x ->
           CreateBudgetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateBudget
+instance Prelude.Hashable CreateBudget
 
-instance Core.NFData CreateBudget
+instance Prelude.NFData CreateBudget
 
 instance Core.ToHeaders CreateBudget where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSBudgetServiceGateway.CreateBudget" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateBudget where
   toJSON CreateBudget' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NotificationsWithSubscribers" Core..=)
-              Core.<$> notificationsWithSubscribers,
-            Core.Just ("AccountId" Core..= accountId),
-            Core.Just ("Budget" Core..= budget)
+              Prelude.<$> notificationsWithSubscribers,
+            Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just ("Budget" Core..= budget)
           ]
       )
 
 instance Core.ToPath CreateBudget where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateBudget where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response of CreateBudget
 --
 -- /See:/ 'newCreateBudgetResponse' smart constructor.
 data CreateBudgetResponse = CreateBudgetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBudgetResponse' with all optional fields omitted.
@@ -181,13 +184,13 @@ data CreateBudgetResponse = CreateBudgetResponse'
 -- 'httpStatus', 'createBudgetResponse_httpStatus' - The response's http status code.
 newCreateBudgetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateBudgetResponse
 newCreateBudgetResponse pHttpStatus_ =
   CreateBudgetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createBudgetResponse_httpStatus :: Lens.Lens' CreateBudgetResponse Core.Int
+createBudgetResponse_httpStatus :: Lens.Lens' CreateBudgetResponse Prelude.Int
 createBudgetResponse_httpStatus = Lens.lens (\CreateBudgetResponse' {httpStatus} -> httpStatus) (\s@CreateBudgetResponse' {} a -> s {httpStatus = a} :: CreateBudgetResponse)
 
-instance Core.NFData CreateBudgetResponse
+instance Prelude.NFData CreateBudgetResponse

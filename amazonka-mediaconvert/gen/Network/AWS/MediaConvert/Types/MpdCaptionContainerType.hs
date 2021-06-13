@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.MpdCaptionContainerType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this setting only in DASH output groups that include sidecar TTML or
 -- IMSC captions. You specify sidecar captions in a separate output from
@@ -40,15 +41,15 @@ newtype MpdCaptionContainerType = MpdCaptionContainerType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

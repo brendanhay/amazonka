@@ -43,18 +43,19 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateLambdaFunction' smart constructor.
 data DisassociateLambdaFunction = DisassociateLambdaFunction'
   { -- | The identifier of the Amazon Connect instance..
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Lambda function being
     -- disassociated.
-    functionArn :: Core.Text
+    functionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateLambdaFunction' with all optional fields omitted.
@@ -70,9 +71,9 @@ data DisassociateLambdaFunction = DisassociateLambdaFunction'
 -- disassociated.
 newDisassociateLambdaFunction ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionArn'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateLambdaFunction
 newDisassociateLambdaFunction
   pInstanceId_
@@ -84,12 +85,12 @@ newDisassociateLambdaFunction
       }
 
 -- | The identifier of the Amazon Connect instance..
-disassociateLambdaFunction_instanceId :: Lens.Lens' DisassociateLambdaFunction Core.Text
+disassociateLambdaFunction_instanceId :: Lens.Lens' DisassociateLambdaFunction Prelude.Text
 disassociateLambdaFunction_instanceId = Lens.lens (\DisassociateLambdaFunction' {instanceId} -> instanceId) (\s@DisassociateLambdaFunction' {} a -> s {instanceId = a} :: DisassociateLambdaFunction)
 
 -- | The Amazon Resource Name (ARN) of the Lambda function being
 -- disassociated.
-disassociateLambdaFunction_functionArn :: Lens.Lens' DisassociateLambdaFunction Core.Text
+disassociateLambdaFunction_functionArn :: Lens.Lens' DisassociateLambdaFunction Prelude.Text
 disassociateLambdaFunction_functionArn = Lens.lens (\DisassociateLambdaFunction' {functionArn} -> functionArn) (\s@DisassociateLambdaFunction' {} a -> s {functionArn = a} :: DisassociateLambdaFunction)
 
 instance Core.AWSRequest DisassociateLambdaFunction where
@@ -101,22 +102,24 @@ instance Core.AWSRequest DisassociateLambdaFunction where
     Response.receiveNull
       DisassociateLambdaFunctionResponse'
 
-instance Core.Hashable DisassociateLambdaFunction
+instance Prelude.Hashable DisassociateLambdaFunction
 
-instance Core.NFData DisassociateLambdaFunction
+instance Prelude.NFData DisassociateLambdaFunction
 
 instance Core.ToHeaders DisassociateLambdaFunction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DisassociateLambdaFunction where
   toPath DisassociateLambdaFunction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/lambda-function"
@@ -124,13 +127,13 @@ instance Core.ToPath DisassociateLambdaFunction where
 
 instance Core.ToQuery DisassociateLambdaFunction where
   toQuery DisassociateLambdaFunction' {..} =
-    Core.mconcat ["functionArn" Core.=: functionArn]
+    Prelude.mconcat ["functionArn" Core.=: functionArn]
 
 -- | /See:/ 'newDisassociateLambdaFunctionResponse' smart constructor.
 data DisassociateLambdaFunctionResponse = DisassociateLambdaFunctionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateLambdaFunctionResponse' with all optional fields omitted.
@@ -142,5 +145,5 @@ newDisassociateLambdaFunctionResponse =
   DisassociateLambdaFunctionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateLambdaFunctionResponse

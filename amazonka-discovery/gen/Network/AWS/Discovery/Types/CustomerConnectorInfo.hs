@@ -21,27 +21,28 @@ module Network.AWS.Discovery.Types.CustomerConnectorInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Inventory data for installed discovery connectors.
 --
 -- /See:/ 'newCustomerConnectorInfo' smart constructor.
 data CustomerConnectorInfo = CustomerConnectorInfo'
   { -- | Number of active discovery connectors.
-    activeConnectors :: Core.Int,
+    activeConnectors :: Prelude.Int,
     -- | Number of healthy discovery connectors.
-    healthyConnectors :: Core.Int,
+    healthyConnectors :: Prelude.Int,
     -- | Number of blacklisted discovery connectors.
-    blackListedConnectors :: Core.Int,
+    blackListedConnectors :: Prelude.Int,
     -- | Number of discovery connectors with status SHUTDOWN,
-    shutdownConnectors :: Core.Int,
+    shutdownConnectors :: Prelude.Int,
     -- | Number of unhealthy discovery connectors.
-    unhealthyConnectors :: Core.Int,
+    unhealthyConnectors :: Prelude.Int,
     -- | Total number of discovery connectors.
-    totalConnectors :: Core.Int,
+    totalConnectors :: Prelude.Int,
     -- | Number of unknown discovery connectors.
-    unknownConnectors :: Core.Int
+    unknownConnectors :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomerConnectorInfo' with all optional fields omitted.
@@ -66,19 +67,19 @@ data CustomerConnectorInfo = CustomerConnectorInfo'
 -- 'unknownConnectors', 'customerConnectorInfo_unknownConnectors' - Number of unknown discovery connectors.
 newCustomerConnectorInfo ::
   -- | 'activeConnectors'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'healthyConnectors'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'blackListedConnectors'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'shutdownConnectors'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'unhealthyConnectors'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'totalConnectors'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'unknownConnectors'
-  Core.Int ->
+  Prelude.Int ->
   CustomerConnectorInfo
 newCustomerConnectorInfo
   pActiveConnectors_
@@ -100,31 +101,31 @@ newCustomerConnectorInfo
       }
 
 -- | Number of active discovery connectors.
-customerConnectorInfo_activeConnectors :: Lens.Lens' CustomerConnectorInfo Core.Int
+customerConnectorInfo_activeConnectors :: Lens.Lens' CustomerConnectorInfo Prelude.Int
 customerConnectorInfo_activeConnectors = Lens.lens (\CustomerConnectorInfo' {activeConnectors} -> activeConnectors) (\s@CustomerConnectorInfo' {} a -> s {activeConnectors = a} :: CustomerConnectorInfo)
 
 -- | Number of healthy discovery connectors.
-customerConnectorInfo_healthyConnectors :: Lens.Lens' CustomerConnectorInfo Core.Int
+customerConnectorInfo_healthyConnectors :: Lens.Lens' CustomerConnectorInfo Prelude.Int
 customerConnectorInfo_healthyConnectors = Lens.lens (\CustomerConnectorInfo' {healthyConnectors} -> healthyConnectors) (\s@CustomerConnectorInfo' {} a -> s {healthyConnectors = a} :: CustomerConnectorInfo)
 
 -- | Number of blacklisted discovery connectors.
-customerConnectorInfo_blackListedConnectors :: Lens.Lens' CustomerConnectorInfo Core.Int
+customerConnectorInfo_blackListedConnectors :: Lens.Lens' CustomerConnectorInfo Prelude.Int
 customerConnectorInfo_blackListedConnectors = Lens.lens (\CustomerConnectorInfo' {blackListedConnectors} -> blackListedConnectors) (\s@CustomerConnectorInfo' {} a -> s {blackListedConnectors = a} :: CustomerConnectorInfo)
 
 -- | Number of discovery connectors with status SHUTDOWN,
-customerConnectorInfo_shutdownConnectors :: Lens.Lens' CustomerConnectorInfo Core.Int
+customerConnectorInfo_shutdownConnectors :: Lens.Lens' CustomerConnectorInfo Prelude.Int
 customerConnectorInfo_shutdownConnectors = Lens.lens (\CustomerConnectorInfo' {shutdownConnectors} -> shutdownConnectors) (\s@CustomerConnectorInfo' {} a -> s {shutdownConnectors = a} :: CustomerConnectorInfo)
 
 -- | Number of unhealthy discovery connectors.
-customerConnectorInfo_unhealthyConnectors :: Lens.Lens' CustomerConnectorInfo Core.Int
+customerConnectorInfo_unhealthyConnectors :: Lens.Lens' CustomerConnectorInfo Prelude.Int
 customerConnectorInfo_unhealthyConnectors = Lens.lens (\CustomerConnectorInfo' {unhealthyConnectors} -> unhealthyConnectors) (\s@CustomerConnectorInfo' {} a -> s {unhealthyConnectors = a} :: CustomerConnectorInfo)
 
 -- | Total number of discovery connectors.
-customerConnectorInfo_totalConnectors :: Lens.Lens' CustomerConnectorInfo Core.Int
+customerConnectorInfo_totalConnectors :: Lens.Lens' CustomerConnectorInfo Prelude.Int
 customerConnectorInfo_totalConnectors = Lens.lens (\CustomerConnectorInfo' {totalConnectors} -> totalConnectors) (\s@CustomerConnectorInfo' {} a -> s {totalConnectors = a} :: CustomerConnectorInfo)
 
 -- | Number of unknown discovery connectors.
-customerConnectorInfo_unknownConnectors :: Lens.Lens' CustomerConnectorInfo Core.Int
+customerConnectorInfo_unknownConnectors :: Lens.Lens' CustomerConnectorInfo Prelude.Int
 customerConnectorInfo_unknownConnectors = Lens.lens (\CustomerConnectorInfo' {unknownConnectors} -> unknownConnectors) (\s@CustomerConnectorInfo' {} a -> s {unknownConnectors = a} :: CustomerConnectorInfo)
 
 instance Core.FromJSON CustomerConnectorInfo where
@@ -133,15 +134,15 @@ instance Core.FromJSON CustomerConnectorInfo where
       "CustomerConnectorInfo"
       ( \x ->
           CustomerConnectorInfo'
-            Core.<$> (x Core..: "activeConnectors")
-            Core.<*> (x Core..: "healthyConnectors")
-            Core.<*> (x Core..: "blackListedConnectors")
-            Core.<*> (x Core..: "shutdownConnectors")
-            Core.<*> (x Core..: "unhealthyConnectors")
-            Core.<*> (x Core..: "totalConnectors")
-            Core.<*> (x Core..: "unknownConnectors")
+            Prelude.<$> (x Core..: "activeConnectors")
+            Prelude.<*> (x Core..: "healthyConnectors")
+            Prelude.<*> (x Core..: "blackListedConnectors")
+            Prelude.<*> (x Core..: "shutdownConnectors")
+            Prelude.<*> (x Core..: "unhealthyConnectors")
+            Prelude.<*> (x Core..: "totalConnectors")
+            Prelude.<*> (x Core..: "unknownConnectors")
       )
 
-instance Core.Hashable CustomerConnectorInfo
+instance Prelude.Hashable CustomerConnectorInfo
 
-instance Core.NFData CustomerConnectorInfo
+instance Prelude.NFData CustomerConnectorInfo

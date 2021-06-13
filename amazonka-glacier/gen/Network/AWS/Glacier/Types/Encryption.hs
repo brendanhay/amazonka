@@ -22,6 +22,7 @@ module Network.AWS.Glacier.Types.Encryption where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.EncryptionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the encryption used to store the job results
 -- in Amazon S3.
@@ -30,16 +31,16 @@ import qualified Network.AWS.Lens as Lens
 data Encryption = Encryption'
   { -- | The server-side encryption algorithm used when storing job results in
     -- Amazon S3, for example @AES256@ or @aws:kms@.
-    encryptionType :: Core.Maybe EncryptionType,
+    encryptionType :: Prelude.Maybe EncryptionType,
     -- | The AWS KMS key ID to use for object encryption. All GET and PUT
     -- requests for an object protected by AWS KMS fail if not made by using
     -- Secure Sockets Layer (SSL) or Signature Version 4.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Optional. If the encryption type is @aws:kms@, you can use this value to
     -- specify the encryption context for the job results.
-    kmsContext :: Core.Maybe Core.Text
+    kmsContext :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Encryption' with all optional fields omitted.
@@ -62,25 +63,25 @@ newEncryption ::
   Encryption
 newEncryption =
   Encryption'
-    { encryptionType = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      kmsContext = Core.Nothing
+    { encryptionType = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      kmsContext = Prelude.Nothing
     }
 
 -- | The server-side encryption algorithm used when storing job results in
 -- Amazon S3, for example @AES256@ or @aws:kms@.
-encryption_encryptionType :: Lens.Lens' Encryption (Core.Maybe EncryptionType)
+encryption_encryptionType :: Lens.Lens' Encryption (Prelude.Maybe EncryptionType)
 encryption_encryptionType = Lens.lens (\Encryption' {encryptionType} -> encryptionType) (\s@Encryption' {} a -> s {encryptionType = a} :: Encryption)
 
 -- | The AWS KMS key ID to use for object encryption. All GET and PUT
 -- requests for an object protected by AWS KMS fail if not made by using
 -- Secure Sockets Layer (SSL) or Signature Version 4.
-encryption_kmsKeyId :: Lens.Lens' Encryption (Core.Maybe Core.Text)
+encryption_kmsKeyId :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_kmsKeyId = Lens.lens (\Encryption' {kmsKeyId} -> kmsKeyId) (\s@Encryption' {} a -> s {kmsKeyId = a} :: Encryption)
 
 -- | Optional. If the encryption type is @aws:kms@, you can use this value to
 -- specify the encryption context for the job results.
-encryption_kmsContext :: Lens.Lens' Encryption (Core.Maybe Core.Text)
+encryption_kmsContext :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@Encryption' {} a -> s {kmsContext = a} :: Encryption)
 
 instance Core.FromJSON Encryption where
@@ -89,21 +90,22 @@ instance Core.FromJSON Encryption where
       "Encryption"
       ( \x ->
           Encryption'
-            Core.<$> (x Core..:? "EncryptionType")
-            Core.<*> (x Core..:? "KMSKeyId")
-            Core.<*> (x Core..:? "KMSContext")
+            Prelude.<$> (x Core..:? "EncryptionType")
+            Prelude.<*> (x Core..:? "KMSKeyId")
+            Prelude.<*> (x Core..:? "KMSContext")
       )
 
-instance Core.Hashable Encryption
+instance Prelude.Hashable Encryption
 
-instance Core.NFData Encryption
+instance Prelude.NFData Encryption
 
 instance Core.ToJSON Encryption where
   toJSON Encryption' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EncryptionType" Core..=) Core.<$> encryptionType,
-            ("KMSKeyId" Core..=) Core.<$> kmsKeyId,
-            ("KMSContext" Core..=) Core.<$> kmsContext
+      ( Prelude.catMaybes
+          [ ("EncryptionType" Core..=)
+              Prelude.<$> encryptionType,
+            ("KMSKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("KMSContext" Core..=) Prelude.<$> kmsContext
           ]
       )

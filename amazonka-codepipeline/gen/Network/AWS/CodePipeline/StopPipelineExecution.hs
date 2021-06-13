@@ -50,6 +50,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,20 +58,20 @@ import qualified Network.AWS.Response as Response
 data StopPipelineExecution = StopPipelineExecution'
   { -- | Use this option to enter comments, such as the reason the pipeline was
     -- stopped.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | Use this option to stop the pipeline execution by abandoning, rather
     -- than finishing, in-progress actions.
     --
     -- This option can lead to failed or out-of-sequence tasks.
-    abandon :: Core.Maybe Core.Bool,
+    abandon :: Prelude.Maybe Prelude.Bool,
     -- | The name of the pipeline to stop.
-    pipelineName :: Core.Text,
+    pipelineName :: Prelude.Text,
     -- | The ID of the pipeline execution to be stopped in the current stage. Use
     -- the @GetPipelineState@ action to retrieve the current
     -- pipelineExecutionId.
-    pipelineExecutionId :: Core.Text
+    pipelineExecutionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopPipelineExecution' with all optional fields omitted.
@@ -95,40 +96,40 @@ data StopPipelineExecution = StopPipelineExecution'
 -- pipelineExecutionId.
 newStopPipelineExecution ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'pipelineExecutionId'
-  Core.Text ->
+  Prelude.Text ->
   StopPipelineExecution
 newStopPipelineExecution
   pPipelineName_
   pPipelineExecutionId_ =
     StopPipelineExecution'
-      { reason = Core.Nothing,
-        abandon = Core.Nothing,
+      { reason = Prelude.Nothing,
+        abandon = Prelude.Nothing,
         pipelineName = pPipelineName_,
         pipelineExecutionId = pPipelineExecutionId_
       }
 
 -- | Use this option to enter comments, such as the reason the pipeline was
 -- stopped.
-stopPipelineExecution_reason :: Lens.Lens' StopPipelineExecution (Core.Maybe Core.Text)
+stopPipelineExecution_reason :: Lens.Lens' StopPipelineExecution (Prelude.Maybe Prelude.Text)
 stopPipelineExecution_reason = Lens.lens (\StopPipelineExecution' {reason} -> reason) (\s@StopPipelineExecution' {} a -> s {reason = a} :: StopPipelineExecution)
 
 -- | Use this option to stop the pipeline execution by abandoning, rather
 -- than finishing, in-progress actions.
 --
 -- This option can lead to failed or out-of-sequence tasks.
-stopPipelineExecution_abandon :: Lens.Lens' StopPipelineExecution (Core.Maybe Core.Bool)
+stopPipelineExecution_abandon :: Lens.Lens' StopPipelineExecution (Prelude.Maybe Prelude.Bool)
 stopPipelineExecution_abandon = Lens.lens (\StopPipelineExecution' {abandon} -> abandon) (\s@StopPipelineExecution' {} a -> s {abandon = a} :: StopPipelineExecution)
 
 -- | The name of the pipeline to stop.
-stopPipelineExecution_pipelineName :: Lens.Lens' StopPipelineExecution Core.Text
+stopPipelineExecution_pipelineName :: Lens.Lens' StopPipelineExecution Prelude.Text
 stopPipelineExecution_pipelineName = Lens.lens (\StopPipelineExecution' {pipelineName} -> pipelineName) (\s@StopPipelineExecution' {} a -> s {pipelineName = a} :: StopPipelineExecution)
 
 -- | The ID of the pipeline execution to be stopped in the current stage. Use
 -- the @GetPipelineState@ action to retrieve the current
 -- pipelineExecutionId.
-stopPipelineExecution_pipelineExecutionId :: Lens.Lens' StopPipelineExecution Core.Text
+stopPipelineExecution_pipelineExecutionId :: Lens.Lens' StopPipelineExecution Prelude.Text
 stopPipelineExecution_pipelineExecutionId = Lens.lens (\StopPipelineExecution' {pipelineExecutionId} -> pipelineExecutionId) (\s@StopPipelineExecution' {} a -> s {pipelineExecutionId = a} :: StopPipelineExecution)
 
 instance Core.AWSRequest StopPipelineExecution where
@@ -140,54 +141,56 @@ instance Core.AWSRequest StopPipelineExecution where
     Response.receiveJSON
       ( \s h x ->
           StopPipelineExecutionResponse'
-            Core.<$> (x Core..?> "pipelineExecutionId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "pipelineExecutionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopPipelineExecution
+instance Prelude.Hashable StopPipelineExecution
 
-instance Core.NFData StopPipelineExecution
+instance Prelude.NFData StopPipelineExecution
 
 instance Core.ToHeaders StopPipelineExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.StopPipelineExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopPipelineExecution where
   toJSON StopPipelineExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("reason" Core..=) Core.<$> reason,
-            ("abandon" Core..=) Core.<$> abandon,
-            Core.Just ("pipelineName" Core..= pipelineName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("reason" Core..=) Prelude.<$> reason,
+            ("abandon" Core..=) Prelude.<$> abandon,
+            Prelude.Just ("pipelineName" Core..= pipelineName),
+            Prelude.Just
               ("pipelineExecutionId" Core..= pipelineExecutionId)
           ]
       )
 
 instance Core.ToPath StopPipelineExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopPipelineExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopPipelineExecutionResponse' smart constructor.
 data StopPipelineExecutionResponse = StopPipelineExecutionResponse'
   { -- | The unique system-generated ID of the pipeline execution that was
     -- stopped.
-    pipelineExecutionId :: Core.Maybe Core.Text,
+    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopPipelineExecutionResponse' with all optional fields omitted.
@@ -203,22 +206,22 @@ data StopPipelineExecutionResponse = StopPipelineExecutionResponse'
 -- 'httpStatus', 'stopPipelineExecutionResponse_httpStatus' - The response's http status code.
 newStopPipelineExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopPipelineExecutionResponse
 newStopPipelineExecutionResponse pHttpStatus_ =
   StopPipelineExecutionResponse'
     { pipelineExecutionId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique system-generated ID of the pipeline execution that was
 -- stopped.
-stopPipelineExecutionResponse_pipelineExecutionId :: Lens.Lens' StopPipelineExecutionResponse (Core.Maybe Core.Text)
+stopPipelineExecutionResponse_pipelineExecutionId :: Lens.Lens' StopPipelineExecutionResponse (Prelude.Maybe Prelude.Text)
 stopPipelineExecutionResponse_pipelineExecutionId = Lens.lens (\StopPipelineExecutionResponse' {pipelineExecutionId} -> pipelineExecutionId) (\s@StopPipelineExecutionResponse' {} a -> s {pipelineExecutionId = a} :: StopPipelineExecutionResponse)
 
 -- | The response's http status code.
-stopPipelineExecutionResponse_httpStatus :: Lens.Lens' StopPipelineExecutionResponse Core.Int
+stopPipelineExecutionResponse_httpStatus :: Lens.Lens' StopPipelineExecutionResponse Prelude.Int
 stopPipelineExecutionResponse_httpStatus = Lens.lens (\StopPipelineExecutionResponse' {httpStatus} -> httpStatus) (\s@StopPipelineExecutionResponse' {} a -> s {httpStatus = a} :: StopPipelineExecutionResponse)
 
-instance Core.NFData StopPipelineExecutionResponse
+instance Prelude.NFData StopPipelineExecutionResponse

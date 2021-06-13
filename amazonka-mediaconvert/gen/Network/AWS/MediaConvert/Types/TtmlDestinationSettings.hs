@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.TtmlDestinationSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.TtmlStylePassthrough
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings specific to TTML caption outputs, including Pass style
 -- information (TtmlStylePassthrough).
@@ -30,9 +31,9 @@ import Network.AWS.MediaConvert.Types.TtmlStylePassthrough
 data TtmlDestinationSettings = TtmlDestinationSettings'
   { -- | Pass through style and position information from a TTML-like input
     -- source (TTML, SMPTE-TT) to the TTML output.
-    stylePassthrough :: Core.Maybe TtmlStylePassthrough
+    stylePassthrough :: Prelude.Maybe TtmlStylePassthrough
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TtmlDestinationSettings' with all optional fields omitted.
@@ -49,12 +50,12 @@ newTtmlDestinationSettings ::
 newTtmlDestinationSettings =
   TtmlDestinationSettings'
     { stylePassthrough =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Pass through style and position information from a TTML-like input
 -- source (TTML, SMPTE-TT) to the TTML output.
-ttmlDestinationSettings_stylePassthrough :: Lens.Lens' TtmlDestinationSettings (Core.Maybe TtmlStylePassthrough)
+ttmlDestinationSettings_stylePassthrough :: Lens.Lens' TtmlDestinationSettings (Prelude.Maybe TtmlStylePassthrough)
 ttmlDestinationSettings_stylePassthrough = Lens.lens (\TtmlDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@TtmlDestinationSettings' {} a -> s {stylePassthrough = a} :: TtmlDestinationSettings)
 
 instance Core.FromJSON TtmlDestinationSettings where
@@ -63,18 +64,18 @@ instance Core.FromJSON TtmlDestinationSettings where
       "TtmlDestinationSettings"
       ( \x ->
           TtmlDestinationSettings'
-            Core.<$> (x Core..:? "stylePassthrough")
+            Prelude.<$> (x Core..:? "stylePassthrough")
       )
 
-instance Core.Hashable TtmlDestinationSettings
+instance Prelude.Hashable TtmlDestinationSettings
 
-instance Core.NFData TtmlDestinationSettings
+instance Prelude.NFData TtmlDestinationSettings
 
 instance Core.ToJSON TtmlDestinationSettings where
   toJSON TtmlDestinationSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("stylePassthrough" Core..=)
-              Core.<$> stylePassthrough
+              Prelude.<$> stylePassthrough
           ]
       )

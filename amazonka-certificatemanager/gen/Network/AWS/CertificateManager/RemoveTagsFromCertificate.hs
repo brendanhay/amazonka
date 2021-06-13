@@ -47,6 +47,7 @@ where
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +60,11 @@ data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Core.Text,
+    certificateArn :: Prelude.Text,
     -- | The key-value pair that defines the tag to remove.
-    tags :: Core.NonEmpty Tag
+    tags :: Prelude.NonEmpty Tag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromCertificate' with all optional fields omitted.
@@ -84,9 +85,9 @@ data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
 -- 'tags', 'removeTagsFromCertificate_tags' - The key-value pair that defines the tag to remove.
 newRemoveTagsFromCertificate ::
   -- | 'certificateArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tags'
-  Core.NonEmpty Tag ->
+  Prelude.NonEmpty Tag ->
   RemoveTagsFromCertificate
 newRemoveTagsFromCertificate pCertificateArn_ pTags_ =
   RemoveTagsFromCertificate'
@@ -102,12 +103,12 @@ newRemoveTagsFromCertificate pCertificateArn_ pTags_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-removeTagsFromCertificate_certificateArn :: Lens.Lens' RemoveTagsFromCertificate Core.Text
+removeTagsFromCertificate_certificateArn :: Lens.Lens' RemoveTagsFromCertificate Prelude.Text
 removeTagsFromCertificate_certificateArn = Lens.lens (\RemoveTagsFromCertificate' {certificateArn} -> certificateArn) (\s@RemoveTagsFromCertificate' {} a -> s {certificateArn = a} :: RemoveTagsFromCertificate)
 
 -- | The key-value pair that defines the tag to remove.
-removeTagsFromCertificate_tags :: Lens.Lens' RemoveTagsFromCertificate (Core.NonEmpty Tag)
-removeTagsFromCertificate_tags = Lens.lens (\RemoveTagsFromCertificate' {tags} -> tags) (\s@RemoveTagsFromCertificate' {} a -> s {tags = a} :: RemoveTagsFromCertificate) Core.. Lens._Coerce
+removeTagsFromCertificate_tags :: Lens.Lens' RemoveTagsFromCertificate (Prelude.NonEmpty Tag)
+removeTagsFromCertificate_tags = Lens.lens (\RemoveTagsFromCertificate' {tags} -> tags) (\s@RemoveTagsFromCertificate' {} a -> s {tags = a} :: RemoveTagsFromCertificate) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RemoveTagsFromCertificate where
   type
@@ -118,43 +119,46 @@ instance Core.AWSRequest RemoveTagsFromCertificate where
     Response.receiveNull
       RemoveTagsFromCertificateResponse'
 
-instance Core.Hashable RemoveTagsFromCertificate
+instance Prelude.Hashable RemoveTagsFromCertificate
 
-instance Core.NFData RemoveTagsFromCertificate
+instance Prelude.NFData RemoveTagsFromCertificate
 
 instance Core.ToHeaders RemoveTagsFromCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CertificateManager.RemoveTagsFromCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RemoveTagsFromCertificate where
   toJSON RemoveTagsFromCertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("CertificateArn" Core..= certificateArn),
-            Core.Just ("Tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("CertificateArn" Core..= certificateArn),
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath RemoveTagsFromCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveTagsFromCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveTagsFromCertificateResponse' smart constructor.
 data RemoveTagsFromCertificateResponse = RemoveTagsFromCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromCertificateResponse' with all optional fields omitted.
@@ -166,5 +170,5 @@ newRemoveTagsFromCertificateResponse =
   RemoveTagsFromCertificateResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveTagsFromCertificateResponse

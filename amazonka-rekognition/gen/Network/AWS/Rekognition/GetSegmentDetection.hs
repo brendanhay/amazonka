@@ -83,6 +83,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -92,16 +93,16 @@ data GetSegmentDetection = GetSegmentDetection'
   { -- | If the response is truncated, Amazon Rekognition Video returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of text.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to return per paginated call. The largest
     -- value you can specify is 1000.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Job identifier for the text detection operation for which you want
     -- results returned. You get the job identifer from an initial call to
     -- @StartSegmentDetection@.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSegmentDetection' with all optional fields omitted.
@@ -123,30 +124,30 @@ data GetSegmentDetection = GetSegmentDetection'
 -- @StartSegmentDetection@.
 newGetSegmentDetection ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   GetSegmentDetection
 newGetSegmentDetection pJobId_ =
   GetSegmentDetection'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       jobId = pJobId_
     }
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set of text.
-getSegmentDetection_nextToken :: Lens.Lens' GetSegmentDetection (Core.Maybe Core.Text)
+getSegmentDetection_nextToken :: Lens.Lens' GetSegmentDetection (Prelude.Maybe Prelude.Text)
 getSegmentDetection_nextToken = Lens.lens (\GetSegmentDetection' {nextToken} -> nextToken) (\s@GetSegmentDetection' {} a -> s {nextToken = a} :: GetSegmentDetection)
 
 -- | Maximum number of results to return per paginated call. The largest
 -- value you can specify is 1000.
-getSegmentDetection_maxResults :: Lens.Lens' GetSegmentDetection (Core.Maybe Core.Natural)
+getSegmentDetection_maxResults :: Lens.Lens' GetSegmentDetection (Prelude.Maybe Prelude.Natural)
 getSegmentDetection_maxResults = Lens.lens (\GetSegmentDetection' {maxResults} -> maxResults) (\s@GetSegmentDetection' {} a -> s {maxResults = a} :: GetSegmentDetection)
 
 -- | Job identifier for the text detection operation for which you want
 -- results returned. You get the job identifer from an initial call to
 -- @StartSegmentDetection@.
-getSegmentDetection_jobId :: Lens.Lens' GetSegmentDetection Core.Text
+getSegmentDetection_jobId :: Lens.Lens' GetSegmentDetection Prelude.Text
 getSegmentDetection_jobId = Lens.lens (\GetSegmentDetection' {jobId} -> jobId) (\s@GetSegmentDetection' {} a -> s {jobId = a} :: GetSegmentDetection)
 
 instance Core.AWSRequest GetSegmentDetection where
@@ -158,88 +159,90 @@ instance Core.AWSRequest GetSegmentDetection where
     Response.receiveJSON
       ( \s h x ->
           GetSegmentDetectionResponse'
-            Core.<$> (x Core..?> "StatusMessage")
-            Core.<*> (x Core..?> "VideoMetadata" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "SelectedSegmentTypes"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "AudioMetadata" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "JobStatus")
-            Core.<*> (x Core..?> "Segments" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "StatusMessage")
+            Prelude.<*> (x Core..?> "VideoMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "SelectedSegmentTypes"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "AudioMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "Segments" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSegmentDetection
+instance Prelude.Hashable GetSegmentDetection
 
-instance Core.NFData GetSegmentDetection
+instance Prelude.NFData GetSegmentDetection
 
 instance Core.ToHeaders GetSegmentDetection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.GetSegmentDetection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSegmentDetection where
   toJSON GetSegmentDetection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("JobId" Core..= jobId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Core..= jobId)
           ]
       )
 
 instance Core.ToPath GetSegmentDetection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSegmentDetection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSegmentDetectionResponse' smart constructor.
 data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
   { -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | Currently, Amazon Rekognition Video returns a single object in the
     -- @VideoMetadata@ array. The object contains information about the video
     -- stream in the input file that Amazon Rekognition Video chose to analyze.
     -- The @VideoMetadata@ object includes the video codec, video format and
     -- other information. Video metadata is returned in each page of
     -- information returned by @GetSegmentDetection@.
-    videoMetadata :: Core.Maybe [VideoMetadata],
+    videoMetadata :: Prelude.Maybe [VideoMetadata],
     -- | If the previous response was incomplete (because there are more labels
     -- to retrieve), Amazon Rekognition Video returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- text.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array containing the segment types requested in the call to
     -- @StartSegmentDetection@.
-    selectedSegmentTypes :: Core.Maybe [SegmentTypeInfo],
+    selectedSegmentTypes :: Prelude.Maybe [SegmentTypeInfo],
     -- | An array of objects. There can be multiple audio streams. Each
     -- @AudioMetadata@ object contains metadata for a single audio stream.
     -- Audio information in an @AudioMetadata@ objects includes the audio
     -- codec, the number of audio channels, the duration of the audio stream,
     -- and the sample rate. Audio metadata is returned in each page of
     -- information returned by @GetSegmentDetection@.
-    audioMetadata :: Core.Maybe [AudioMetadata],
+    audioMetadata :: Prelude.Maybe [AudioMetadata],
     -- | Current status of the segment detection job.
-    jobStatus :: Core.Maybe VideoJobStatus,
+    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | An array of segments detected in a video. The array is sorted by the
     -- segment types (TECHNICAL_CUE or SHOT) specified in the @SegmentTypes@
     -- input parameter of @StartSegmentDetection@. Within each segment type the
     -- array is sorted by timestamp values.
-    segments :: Core.Maybe [SegmentDetection],
+    segments :: Prelude.Maybe [SegmentDetection],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSegmentDetectionResponse' with all optional fields omitted.
@@ -283,23 +286,23 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
 -- 'httpStatus', 'getSegmentDetectionResponse_httpStatus' - The response's http status code.
 newGetSegmentDetectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSegmentDetectionResponse
 newGetSegmentDetectionResponse pHttpStatus_ =
   GetSegmentDetectionResponse'
     { statusMessage =
-        Core.Nothing,
-      videoMetadata = Core.Nothing,
-      nextToken = Core.Nothing,
-      selectedSegmentTypes = Core.Nothing,
-      audioMetadata = Core.Nothing,
-      jobStatus = Core.Nothing,
-      segments = Core.Nothing,
+        Prelude.Nothing,
+      videoMetadata = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      selectedSegmentTypes = Prelude.Nothing,
+      audioMetadata = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      segments = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getSegmentDetectionResponse_statusMessage :: Lens.Lens' GetSegmentDetectionResponse (Core.Maybe Core.Text)
+getSegmentDetectionResponse_statusMessage :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe Prelude.Text)
 getSegmentDetectionResponse_statusMessage = Lens.lens (\GetSegmentDetectionResponse' {statusMessage} -> statusMessage) (\s@GetSegmentDetectionResponse' {} a -> s {statusMessage = a} :: GetSegmentDetectionResponse)
 
 -- | Currently, Amazon Rekognition Video returns a single object in the
@@ -308,20 +311,20 @@ getSegmentDetectionResponse_statusMessage = Lens.lens (\GetSegmentDetectionRespo
 -- The @VideoMetadata@ object includes the video codec, video format and
 -- other information. Video metadata is returned in each page of
 -- information returned by @GetSegmentDetection@.
-getSegmentDetectionResponse_videoMetadata :: Lens.Lens' GetSegmentDetectionResponse (Core.Maybe [VideoMetadata])
-getSegmentDetectionResponse_videoMetadata = Lens.lens (\GetSegmentDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetSegmentDetectionResponse' {} a -> s {videoMetadata = a} :: GetSegmentDetectionResponse) Core.. Lens.mapping Lens._Coerce
+getSegmentDetectionResponse_videoMetadata :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [VideoMetadata])
+getSegmentDetectionResponse_videoMetadata = Lens.lens (\GetSegmentDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetSegmentDetectionResponse' {} a -> s {videoMetadata = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the previous response was incomplete (because there are more labels
 -- to retrieve), Amazon Rekognition Video returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
 -- text.
-getSegmentDetectionResponse_nextToken :: Lens.Lens' GetSegmentDetectionResponse (Core.Maybe Core.Text)
+getSegmentDetectionResponse_nextToken :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe Prelude.Text)
 getSegmentDetectionResponse_nextToken = Lens.lens (\GetSegmentDetectionResponse' {nextToken} -> nextToken) (\s@GetSegmentDetectionResponse' {} a -> s {nextToken = a} :: GetSegmentDetectionResponse)
 
 -- | An array containing the segment types requested in the call to
 -- @StartSegmentDetection@.
-getSegmentDetectionResponse_selectedSegmentTypes :: Lens.Lens' GetSegmentDetectionResponse (Core.Maybe [SegmentTypeInfo])
-getSegmentDetectionResponse_selectedSegmentTypes = Lens.lens (\GetSegmentDetectionResponse' {selectedSegmentTypes} -> selectedSegmentTypes) (\s@GetSegmentDetectionResponse' {} a -> s {selectedSegmentTypes = a} :: GetSegmentDetectionResponse) Core.. Lens.mapping Lens._Coerce
+getSegmentDetectionResponse_selectedSegmentTypes :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [SegmentTypeInfo])
+getSegmentDetectionResponse_selectedSegmentTypes = Lens.lens (\GetSegmentDetectionResponse' {selectedSegmentTypes} -> selectedSegmentTypes) (\s@GetSegmentDetectionResponse' {} a -> s {selectedSegmentTypes = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of objects. There can be multiple audio streams. Each
 -- @AudioMetadata@ object contains metadata for a single audio stream.
@@ -329,22 +332,22 @@ getSegmentDetectionResponse_selectedSegmentTypes = Lens.lens (\GetSegmentDetecti
 -- codec, the number of audio channels, the duration of the audio stream,
 -- and the sample rate. Audio metadata is returned in each page of
 -- information returned by @GetSegmentDetection@.
-getSegmentDetectionResponse_audioMetadata :: Lens.Lens' GetSegmentDetectionResponse (Core.Maybe [AudioMetadata])
-getSegmentDetectionResponse_audioMetadata = Lens.lens (\GetSegmentDetectionResponse' {audioMetadata} -> audioMetadata) (\s@GetSegmentDetectionResponse' {} a -> s {audioMetadata = a} :: GetSegmentDetectionResponse) Core.. Lens.mapping Lens._Coerce
+getSegmentDetectionResponse_audioMetadata :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [AudioMetadata])
+getSegmentDetectionResponse_audioMetadata = Lens.lens (\GetSegmentDetectionResponse' {audioMetadata} -> audioMetadata) (\s@GetSegmentDetectionResponse' {} a -> s {audioMetadata = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Current status of the segment detection job.
-getSegmentDetectionResponse_jobStatus :: Lens.Lens' GetSegmentDetectionResponse (Core.Maybe VideoJobStatus)
+getSegmentDetectionResponse_jobStatus :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe VideoJobStatus)
 getSegmentDetectionResponse_jobStatus = Lens.lens (\GetSegmentDetectionResponse' {jobStatus} -> jobStatus) (\s@GetSegmentDetectionResponse' {} a -> s {jobStatus = a} :: GetSegmentDetectionResponse)
 
 -- | An array of segments detected in a video. The array is sorted by the
 -- segment types (TECHNICAL_CUE or SHOT) specified in the @SegmentTypes@
 -- input parameter of @StartSegmentDetection@. Within each segment type the
 -- array is sorted by timestamp values.
-getSegmentDetectionResponse_segments :: Lens.Lens' GetSegmentDetectionResponse (Core.Maybe [SegmentDetection])
-getSegmentDetectionResponse_segments = Lens.lens (\GetSegmentDetectionResponse' {segments} -> segments) (\s@GetSegmentDetectionResponse' {} a -> s {segments = a} :: GetSegmentDetectionResponse) Core.. Lens.mapping Lens._Coerce
+getSegmentDetectionResponse_segments :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [SegmentDetection])
+getSegmentDetectionResponse_segments = Lens.lens (\GetSegmentDetectionResponse' {segments} -> segments) (\s@GetSegmentDetectionResponse' {} a -> s {segments = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getSegmentDetectionResponse_httpStatus :: Lens.Lens' GetSegmentDetectionResponse Core.Int
+getSegmentDetectionResponse_httpStatus :: Lens.Lens' GetSegmentDetectionResponse Prelude.Int
 getSegmentDetectionResponse_httpStatus = Lens.lens (\GetSegmentDetectionResponse' {httpStatus} -> httpStatus) (\s@GetSegmentDetectionResponse' {} a -> s {httpStatus = a} :: GetSegmentDetectionResponse)
 
-instance Core.NFData GetSegmentDetectionResponse
+instance Prelude.NFData GetSegmentDetectionResponse

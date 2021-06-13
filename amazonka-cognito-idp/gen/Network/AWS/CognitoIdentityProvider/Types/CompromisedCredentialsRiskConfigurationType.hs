@@ -23,6 +23,7 @@ import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsTy
 import Network.AWS.CognitoIdentityProvider.Types.EventFilterType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The compromised credentials risk configuration type.
 --
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data CompromisedCredentialsRiskConfigurationType = CompromisedCredentialsRiskConfigurationType'
   { -- | Perform the action for these events. The default is to perform all
     -- events if no event filter is specified.
-    eventFilter :: Core.Maybe [EventFilterType],
+    eventFilter :: Prelude.Maybe [EventFilterType],
     -- | The compromised credentials risk configuration actions.
     actions :: CompromisedCredentialsActionsType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompromisedCredentialsRiskConfigurationType' with all optional fields omitted.
@@ -56,14 +57,14 @@ newCompromisedCredentialsRiskConfigurationType
   pActions_ =
     CompromisedCredentialsRiskConfigurationType'
       { eventFilter =
-          Core.Nothing,
+          Prelude.Nothing,
         actions = pActions_
       }
 
 -- | Perform the action for these events. The default is to perform all
 -- events if no event filter is specified.
-compromisedCredentialsRiskConfigurationType_eventFilter :: Lens.Lens' CompromisedCredentialsRiskConfigurationType (Core.Maybe [EventFilterType])
-compromisedCredentialsRiskConfigurationType_eventFilter = Lens.lens (\CompromisedCredentialsRiskConfigurationType' {eventFilter} -> eventFilter) (\s@CompromisedCredentialsRiskConfigurationType' {} a -> s {eventFilter = a} :: CompromisedCredentialsRiskConfigurationType) Core.. Lens.mapping Lens._Coerce
+compromisedCredentialsRiskConfigurationType_eventFilter :: Lens.Lens' CompromisedCredentialsRiskConfigurationType (Prelude.Maybe [EventFilterType])
+compromisedCredentialsRiskConfigurationType_eventFilter = Lens.lens (\CompromisedCredentialsRiskConfigurationType' {eventFilter} -> eventFilter) (\s@CompromisedCredentialsRiskConfigurationType' {} a -> s {eventFilter = a} :: CompromisedCredentialsRiskConfigurationType) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The compromised credentials risk configuration actions.
 compromisedCredentialsRiskConfigurationType_actions :: Lens.Lens' CompromisedCredentialsRiskConfigurationType CompromisedCredentialsActionsType
@@ -78,16 +79,16 @@ instance
       "CompromisedCredentialsRiskConfigurationType"
       ( \x ->
           CompromisedCredentialsRiskConfigurationType'
-            Core.<$> (x Core..:? "EventFilter" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Actions")
+            Prelude.<$> (x Core..:? "EventFilter" Core..!= Prelude.mempty)
+              Prelude.<*> (x Core..: "Actions")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CompromisedCredentialsRiskConfigurationType
 
 instance
-  Core.NFData
+  Prelude.NFData
     CompromisedCredentialsRiskConfigurationType
 
 instance
@@ -97,8 +98,8 @@ instance
   toJSON
     CompromisedCredentialsRiskConfigurationType' {..} =
       Core.object
-        ( Core.catMaybes
-            [ ("EventFilter" Core..=) Core.<$> eventFilter,
-              Core.Just ("Actions" Core..= actions)
+        ( Prelude.catMaybes
+            [ ("EventFilter" Core..=) Prelude.<$> eventFilter,
+              Prelude.Just ("Actions" Core..= actions)
             ]
         )

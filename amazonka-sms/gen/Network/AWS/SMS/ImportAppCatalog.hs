@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -51,9 +52,9 @@ data ImportAppCatalog = ImportAppCatalog'
     -- the role that you provide must have the
     -- <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy>
     -- described in the /AWS Migration Hub User Guide/.
-    roleName :: Core.Maybe Core.Text
+    roleName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportAppCatalog' with all optional fields omitted.
@@ -71,14 +72,14 @@ data ImportAppCatalog = ImportAppCatalog'
 newImportAppCatalog ::
   ImportAppCatalog
 newImportAppCatalog =
-  ImportAppCatalog' {roleName = Core.Nothing}
+  ImportAppCatalog' {roleName = Prelude.Nothing}
 
 -- | The name of the service role. If you omit this parameter, we create a
 -- service-linked role for AWS Migration Hub in your account. Otherwise,
 -- the role that you provide must have the
 -- <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy>
 -- described in the /AWS Migration Hub User Guide/.
-importAppCatalog_roleName :: Lens.Lens' ImportAppCatalog (Core.Maybe Core.Text)
+importAppCatalog_roleName :: Lens.Lens' ImportAppCatalog (Prelude.Maybe Prelude.Text)
 importAppCatalog_roleName = Lens.lens (\ImportAppCatalog' {roleName} -> roleName) (\s@ImportAppCatalog' {} a -> s {roleName = a} :: ImportAppCatalog)
 
 instance Core.AWSRequest ImportAppCatalog where
@@ -90,45 +91,47 @@ instance Core.AWSRequest ImportAppCatalog where
     Response.receiveEmpty
       ( \s h x ->
           ImportAppCatalogResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportAppCatalog
+instance Prelude.Hashable ImportAppCatalog
 
-instance Core.NFData ImportAppCatalog
+instance Prelude.NFData ImportAppCatalog
 
 instance Core.ToHeaders ImportAppCatalog where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.ImportAppCatalog" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ImportAppCatalog where
   toJSON ImportAppCatalog' {..} =
     Core.object
-      ( Core.catMaybes
-          [("roleName" Core..=) Core.<$> roleName]
+      ( Prelude.catMaybes
+          [("roleName" Core..=) Prelude.<$> roleName]
       )
 
 instance Core.ToPath ImportAppCatalog where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ImportAppCatalog where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportAppCatalogResponse' smart constructor.
 data ImportAppCatalogResponse = ImportAppCatalogResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportAppCatalogResponse' with all optional fields omitted.
@@ -141,7 +144,7 @@ data ImportAppCatalogResponse = ImportAppCatalogResponse'
 -- 'httpStatus', 'importAppCatalogResponse_httpStatus' - The response's http status code.
 newImportAppCatalogResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportAppCatalogResponse
 newImportAppCatalogResponse pHttpStatus_ =
   ImportAppCatalogResponse'
@@ -150,7 +153,7 @@ newImportAppCatalogResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-importAppCatalogResponse_httpStatus :: Lens.Lens' ImportAppCatalogResponse Core.Int
+importAppCatalogResponse_httpStatus :: Lens.Lens' ImportAppCatalogResponse Prelude.Int
 importAppCatalogResponse_httpStatus = Lens.lens (\ImportAppCatalogResponse' {httpStatus} -> httpStatus) (\s@ImportAppCatalogResponse' {} a -> s {httpStatus = a} :: ImportAppCatalogResponse)
 
-instance Core.NFData ImportAppCatalogResponse
+instance Prelude.NFData ImportAppCatalogResponse

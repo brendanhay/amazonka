@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.GetContextKeysForPolicyResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the response to a successful GetContextKeysForPrincipalPolicy
 -- or GetContextKeysForCustomPolicy request.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newGetContextKeysForPolicyResponse' smart constructor.
 data GetContextKeysForPolicyResponse = GetContextKeysForPolicyResponse'
   { -- | The list of context keys that are referenced in the input policies.
-    contextKeyNames :: Core.Maybe [Core.Text]
+    contextKeyNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContextKeysForPolicyResponse' with all optional fields omitted.
@@ -46,22 +47,24 @@ newGetContextKeysForPolicyResponse ::
 newGetContextKeysForPolicyResponse =
   GetContextKeysForPolicyResponse'
     { contextKeyNames =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The list of context keys that are referenced in the input policies.
-getContextKeysForPolicyResponse_contextKeyNames :: Lens.Lens' GetContextKeysForPolicyResponse (Core.Maybe [Core.Text])
-getContextKeysForPolicyResponse_contextKeyNames = Lens.lens (\GetContextKeysForPolicyResponse' {contextKeyNames} -> contextKeyNames) (\s@GetContextKeysForPolicyResponse' {} a -> s {contextKeyNames = a} :: GetContextKeysForPolicyResponse) Core.. Lens.mapping Lens._Coerce
+getContextKeysForPolicyResponse_contextKeyNames :: Lens.Lens' GetContextKeysForPolicyResponse (Prelude.Maybe [Prelude.Text])
+getContextKeysForPolicyResponse_contextKeyNames = Lens.lens (\GetContextKeysForPolicyResponse' {contextKeyNames} -> contextKeyNames) (\s@GetContextKeysForPolicyResponse' {} a -> s {contextKeyNames = a} :: GetContextKeysForPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML GetContextKeysForPolicyResponse where
   parseXML x =
     GetContextKeysForPolicyResponse'
-      Core.<$> ( x Core..@? "ContextKeyNames" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "ContextKeyNames" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetContextKeysForPolicyResponse
 
-instance Core.NFData GetContextKeysForPolicyResponse
+instance
+  Prelude.NFData
+    GetContextKeysForPolicyResponse

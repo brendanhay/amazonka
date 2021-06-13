@@ -21,22 +21,23 @@ module Network.AWS.Glue.Types.CreateGrokClassifierRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a @grok@ classifier for @CreateClassifier@ to create.
 --
 -- /See:/ 'newCreateGrokClassifierRequest' smart constructor.
 data CreateGrokClassifierRequest = CreateGrokClassifierRequest'
   { -- | Optional custom grok patterns used by this classifier.
-    customPatterns :: Core.Maybe Core.Text,
+    customPatterns :: Prelude.Maybe Prelude.Text,
     -- | An identifier of the data format that the classifier matches, such as
     -- Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
-    classification :: Core.Text,
+    classification :: Prelude.Text,
     -- | The name of the new classifier.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The grok pattern used by this classifier.
-    grokPattern :: Core.Text
+    grokPattern :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGrokClassifierRequest' with all optional fields omitted.
@@ -56,11 +57,11 @@ data CreateGrokClassifierRequest = CreateGrokClassifierRequest'
 -- 'grokPattern', 'createGrokClassifierRequest_grokPattern' - The grok pattern used by this classifier.
 newCreateGrokClassifierRequest ::
   -- | 'classification'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'grokPattern'
-  Core.Text ->
+  Prelude.Text ->
   CreateGrokClassifierRequest
 newCreateGrokClassifierRequest
   pClassification_
@@ -68,40 +69,42 @@ newCreateGrokClassifierRequest
   pGrokPattern_ =
     CreateGrokClassifierRequest'
       { customPatterns =
-          Core.Nothing,
+          Prelude.Nothing,
         classification = pClassification_,
         name = pName_,
         grokPattern = pGrokPattern_
       }
 
 -- | Optional custom grok patterns used by this classifier.
-createGrokClassifierRequest_customPatterns :: Lens.Lens' CreateGrokClassifierRequest (Core.Maybe Core.Text)
+createGrokClassifierRequest_customPatterns :: Lens.Lens' CreateGrokClassifierRequest (Prelude.Maybe Prelude.Text)
 createGrokClassifierRequest_customPatterns = Lens.lens (\CreateGrokClassifierRequest' {customPatterns} -> customPatterns) (\s@CreateGrokClassifierRequest' {} a -> s {customPatterns = a} :: CreateGrokClassifierRequest)
 
 -- | An identifier of the data format that the classifier matches, such as
 -- Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
-createGrokClassifierRequest_classification :: Lens.Lens' CreateGrokClassifierRequest Core.Text
+createGrokClassifierRequest_classification :: Lens.Lens' CreateGrokClassifierRequest Prelude.Text
 createGrokClassifierRequest_classification = Lens.lens (\CreateGrokClassifierRequest' {classification} -> classification) (\s@CreateGrokClassifierRequest' {} a -> s {classification = a} :: CreateGrokClassifierRequest)
 
 -- | The name of the new classifier.
-createGrokClassifierRequest_name :: Lens.Lens' CreateGrokClassifierRequest Core.Text
+createGrokClassifierRequest_name :: Lens.Lens' CreateGrokClassifierRequest Prelude.Text
 createGrokClassifierRequest_name = Lens.lens (\CreateGrokClassifierRequest' {name} -> name) (\s@CreateGrokClassifierRequest' {} a -> s {name = a} :: CreateGrokClassifierRequest)
 
 -- | The grok pattern used by this classifier.
-createGrokClassifierRequest_grokPattern :: Lens.Lens' CreateGrokClassifierRequest Core.Text
+createGrokClassifierRequest_grokPattern :: Lens.Lens' CreateGrokClassifierRequest Prelude.Text
 createGrokClassifierRequest_grokPattern = Lens.lens (\CreateGrokClassifierRequest' {grokPattern} -> grokPattern) (\s@CreateGrokClassifierRequest' {} a -> s {grokPattern = a} :: CreateGrokClassifierRequest)
 
-instance Core.Hashable CreateGrokClassifierRequest
+instance Prelude.Hashable CreateGrokClassifierRequest
 
-instance Core.NFData CreateGrokClassifierRequest
+instance Prelude.NFData CreateGrokClassifierRequest
 
 instance Core.ToJSON CreateGrokClassifierRequest where
   toJSON CreateGrokClassifierRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CustomPatterns" Core..=) Core.<$> customPatterns,
-            Core.Just ("Classification" Core..= classification),
-            Core.Just ("Name" Core..= name),
-            Core.Just ("GrokPattern" Core..= grokPattern)
+      ( Prelude.catMaybes
+          [ ("CustomPatterns" Core..=)
+              Prelude.<$> customPatterns,
+            Prelude.Just
+              ("Classification" Core..= classification),
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("GrokPattern" Core..= grokPattern)
           ]
       )

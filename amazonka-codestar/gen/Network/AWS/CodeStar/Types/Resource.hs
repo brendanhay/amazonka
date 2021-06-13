@@ -21,15 +21,16 @@ module Network.AWS.CodeStar.Types.Resource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a resource for a project.
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Resource' with all optional fields omitted.
@@ -42,20 +43,20 @@ data Resource = Resource'
 -- 'id', 'resource_id' - The Amazon Resource Name (ARN) of the resource.
 newResource ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   Resource
 newResource pId_ = Resource' {id = pId_}
 
 -- | The Amazon Resource Name (ARN) of the resource.
-resource_id :: Lens.Lens' Resource Core.Text
+resource_id :: Lens.Lens' Resource Prelude.Text
 resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
 instance Core.FromJSON Resource where
   parseJSON =
     Core.withObject
       "Resource"
-      (\x -> Resource' Core.<$> (x Core..: "id"))
+      (\x -> Resource' Prelude.<$> (x Core..: "id"))
 
-instance Core.Hashable Resource
+instance Prelude.Hashable Resource
 
-instance Core.NFData Resource
+instance Prelude.NFData Resource

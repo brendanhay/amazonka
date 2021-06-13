@@ -48,15 +48,16 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDashboard' smart constructor.
 data GetDashboard = GetDashboard'
   { -- | The name of the dashboard to be described.
-    dashboardName :: Core.Text
+    dashboardName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDashboard' with all optional fields omitted.
@@ -69,13 +70,13 @@ data GetDashboard = GetDashboard'
 -- 'dashboardName', 'getDashboard_dashboardName' - The name of the dashboard to be described.
 newGetDashboard ::
   -- | 'dashboardName'
-  Core.Text ->
+  Prelude.Text ->
   GetDashboard
 newGetDashboard pDashboardName_ =
   GetDashboard' {dashboardName = pDashboardName_}
 
 -- | The name of the dashboard to be described.
-getDashboard_dashboardName :: Lens.Lens' GetDashboard Core.Text
+getDashboard_dashboardName :: Lens.Lens' GetDashboard Prelude.Text
 getDashboard_dashboardName = Lens.lens (\GetDashboard' {dashboardName} -> dashboardName) (\s@GetDashboard' {} a -> s {dashboardName = a} :: GetDashboard)
 
 instance Core.AWSRequest GetDashboard where
@@ -86,28 +87,29 @@ instance Core.AWSRequest GetDashboard where
       "GetDashboardResult"
       ( \s h x ->
           GetDashboardResponse'
-            Core.<$> (x Core..@? "DashboardBody")
-            Core.<*> (x Core..@? "DashboardArn")
-            Core.<*> (x Core..@? "DashboardName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DashboardBody")
+            Prelude.<*> (x Core..@? "DashboardArn")
+            Prelude.<*> (x Core..@? "DashboardName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDashboard
+instance Prelude.Hashable GetDashboard
 
-instance Core.NFData GetDashboard
+instance Prelude.NFData GetDashboard
 
 instance Core.ToHeaders GetDashboard where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetDashboard where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDashboard where
   toQuery GetDashboard' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetDashboard" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("GetDashboard" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "DashboardName" Core.=: dashboardName
       ]
 
@@ -117,15 +119,15 @@ data GetDashboardResponse = GetDashboardResponse'
     -- included and their location on the dashboard. For more information about
     -- the @DashboardBody@ syntax, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax>.
-    dashboardBody :: Core.Maybe Core.Text,
+    dashboardBody :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dashboard.
-    dashboardArn :: Core.Maybe Core.Text,
+    dashboardArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the dashboard.
-    dashboardName :: Core.Maybe Core.Text,
+    dashboardName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDashboardResponse' with all optional fields omitted.
@@ -147,13 +149,14 @@ data GetDashboardResponse = GetDashboardResponse'
 -- 'httpStatus', 'getDashboardResponse_httpStatus' - The response's http status code.
 newGetDashboardResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDashboardResponse
 newGetDashboardResponse pHttpStatus_ =
   GetDashboardResponse'
-    { dashboardBody = Core.Nothing,
-      dashboardArn = Core.Nothing,
-      dashboardName = Core.Nothing,
+    { dashboardBody =
+        Prelude.Nothing,
+      dashboardArn = Prelude.Nothing,
+      dashboardName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -161,19 +164,19 @@ newGetDashboardResponse pHttpStatus_ =
 -- included and their location on the dashboard. For more information about
 -- the @DashboardBody@ syntax, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax>.
-getDashboardResponse_dashboardBody :: Lens.Lens' GetDashboardResponse (Core.Maybe Core.Text)
+getDashboardResponse_dashboardBody :: Lens.Lens' GetDashboardResponse (Prelude.Maybe Prelude.Text)
 getDashboardResponse_dashboardBody = Lens.lens (\GetDashboardResponse' {dashboardBody} -> dashboardBody) (\s@GetDashboardResponse' {} a -> s {dashboardBody = a} :: GetDashboardResponse)
 
 -- | The Amazon Resource Name (ARN) of the dashboard.
-getDashboardResponse_dashboardArn :: Lens.Lens' GetDashboardResponse (Core.Maybe Core.Text)
+getDashboardResponse_dashboardArn :: Lens.Lens' GetDashboardResponse (Prelude.Maybe Prelude.Text)
 getDashboardResponse_dashboardArn = Lens.lens (\GetDashboardResponse' {dashboardArn} -> dashboardArn) (\s@GetDashboardResponse' {} a -> s {dashboardArn = a} :: GetDashboardResponse)
 
 -- | The name of the dashboard.
-getDashboardResponse_dashboardName :: Lens.Lens' GetDashboardResponse (Core.Maybe Core.Text)
+getDashboardResponse_dashboardName :: Lens.Lens' GetDashboardResponse (Prelude.Maybe Prelude.Text)
 getDashboardResponse_dashboardName = Lens.lens (\GetDashboardResponse' {dashboardName} -> dashboardName) (\s@GetDashboardResponse' {} a -> s {dashboardName = a} :: GetDashboardResponse)
 
 -- | The response's http status code.
-getDashboardResponse_httpStatus :: Lens.Lens' GetDashboardResponse Core.Int
+getDashboardResponse_httpStatus :: Lens.Lens' GetDashboardResponse Prelude.Int
 getDashboardResponse_httpStatus = Lens.lens (\GetDashboardResponse' {httpStatus} -> httpStatus) (\s@GetDashboardResponse' {} a -> s {httpStatus = a} :: GetDashboardResponse)
 
-instance Core.NFData GetDashboardResponse
+instance Prelude.NFData GetDashboardResponse

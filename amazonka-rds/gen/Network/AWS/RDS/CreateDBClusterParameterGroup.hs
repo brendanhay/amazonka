@@ -76,6 +76,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -85,7 +86,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateDBClusterParameterGroup' smart constructor.
 data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
   { -- | Tags to assign to the DB cluster parameter group.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the DB cluster parameter group.
     --
     -- Constraints:
@@ -93,7 +94,7 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
     -- -   Must match the name of an existing DB cluster parameter group.
     --
     -- This value is stored as a lowercase string.
-    dbClusterParameterGroupName :: Core.Text,
+    dbClusterParameterGroupName :: Prelude.Text,
     -- | The DB cluster parameter group family name. A DB cluster parameter group
     -- can be associated with one and only one DB cluster parameter group
     -- family, and can be applied only to a DB cluster running a database
@@ -107,11 +108,11 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
     -- __Aurora PostgreSQL__
     --
     -- Example: @aurora-postgresql9.6@
-    dbParameterGroupFamily :: Core.Text,
+    dbParameterGroupFamily :: Prelude.Text,
     -- | The description for the DB cluster parameter group.
-    description :: Core.Text
+    description :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDBClusterParameterGroup' with all optional fields omitted.
@@ -148,18 +149,19 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 -- 'description', 'createDBClusterParameterGroup_description' - The description for the DB cluster parameter group.
 newCreateDBClusterParameterGroup ::
   -- | 'dbClusterParameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dbParameterGroupFamily'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   CreateDBClusterParameterGroup
 newCreateDBClusterParameterGroup
   pDBClusterParameterGroupName_
   pDBParameterGroupFamily_
   pDescription_ =
     CreateDBClusterParameterGroup'
-      { tags = Core.Nothing,
+      { tags =
+          Prelude.Nothing,
         dbClusterParameterGroupName =
           pDBClusterParameterGroupName_,
         dbParameterGroupFamily =
@@ -168,8 +170,8 @@ newCreateDBClusterParameterGroup
       }
 
 -- | Tags to assign to the DB cluster parameter group.
-createDBClusterParameterGroup_tags :: Lens.Lens' CreateDBClusterParameterGroup (Core.Maybe [Tag])
-createDBClusterParameterGroup_tags = Lens.lens (\CreateDBClusterParameterGroup' {tags} -> tags) (\s@CreateDBClusterParameterGroup' {} a -> s {tags = a} :: CreateDBClusterParameterGroup) Core.. Lens.mapping Lens._Coerce
+createDBClusterParameterGroup_tags :: Lens.Lens' CreateDBClusterParameterGroup (Prelude.Maybe [Tag])
+createDBClusterParameterGroup_tags = Lens.lens (\CreateDBClusterParameterGroup' {tags} -> tags) (\s@CreateDBClusterParameterGroup' {} a -> s {tags = a} :: CreateDBClusterParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the DB cluster parameter group.
 --
@@ -178,7 +180,7 @@ createDBClusterParameterGroup_tags = Lens.lens (\CreateDBClusterParameterGroup' 
 -- -   Must match the name of an existing DB cluster parameter group.
 --
 -- This value is stored as a lowercase string.
-createDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' CreateDBClusterParameterGroup Core.Text
+createDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' CreateDBClusterParameterGroup Prelude.Text
 createDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\CreateDBClusterParameterGroup' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@CreateDBClusterParameterGroup' {} a -> s {dbClusterParameterGroupName = a} :: CreateDBClusterParameterGroup)
 
 -- | The DB cluster parameter group family name. A DB cluster parameter group
@@ -194,11 +196,11 @@ createDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\CreateDB
 -- __Aurora PostgreSQL__
 --
 -- Example: @aurora-postgresql9.6@
-createDBClusterParameterGroup_dbParameterGroupFamily :: Lens.Lens' CreateDBClusterParameterGroup Core.Text
+createDBClusterParameterGroup_dbParameterGroupFamily :: Lens.Lens' CreateDBClusterParameterGroup Prelude.Text
 createDBClusterParameterGroup_dbParameterGroupFamily = Lens.lens (\CreateDBClusterParameterGroup' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@CreateDBClusterParameterGroup' {} a -> s {dbParameterGroupFamily = a} :: CreateDBClusterParameterGroup)
 
 -- | The description for the DB cluster parameter group.
-createDBClusterParameterGroup_description :: Lens.Lens' CreateDBClusterParameterGroup Core.Text
+createDBClusterParameterGroup_description :: Lens.Lens' CreateDBClusterParameterGroup Prelude.Text
 createDBClusterParameterGroup_description = Lens.lens (\CreateDBClusterParameterGroup' {description} -> description) (\s@CreateDBClusterParameterGroup' {} a -> s {description = a} :: CreateDBClusterParameterGroup)
 
 instance
@@ -214,28 +216,34 @@ instance
       "CreateDBClusterParameterGroupResult"
       ( \s h x ->
           CreateDBClusterParameterGroupResponse'
-            Core.<$> (x Core..@? "DBClusterParameterGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBClusterParameterGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDBClusterParameterGroup
+instance
+  Prelude.Hashable
+    CreateDBClusterParameterGroup
 
-instance Core.NFData CreateDBClusterParameterGroup
+instance Prelude.NFData CreateDBClusterParameterGroup
 
 instance Core.ToHeaders CreateDBClusterParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateDBClusterParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDBClusterParameterGroup where
   toQuery CreateDBClusterParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBClusterParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ( "CreateDBClusterParameterGroup" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "DBClusterParameterGroupName"
           Core.=: dbClusterParameterGroupName,
         "DBParameterGroupFamily"
@@ -245,11 +253,11 @@ instance Core.ToQuery CreateDBClusterParameterGroup where
 
 -- | /See:/ 'newCreateDBClusterParameterGroupResponse' smart constructor.
 data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupResponse'
-  { dbClusterParameterGroup :: Core.Maybe DBClusterParameterGroup,
+  { dbClusterParameterGroup :: Prelude.Maybe DBClusterParameterGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDBClusterParameterGroupResponse' with all optional fields omitted.
@@ -264,23 +272,23 @@ data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupRespon
 -- 'httpStatus', 'createDBClusterParameterGroupResponse_httpStatus' - The response's http status code.
 newCreateDBClusterParameterGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDBClusterParameterGroupResponse
 newCreateDBClusterParameterGroupResponse pHttpStatus_ =
   CreateDBClusterParameterGroupResponse'
     { dbClusterParameterGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createDBClusterParameterGroupResponse_dbClusterParameterGroup :: Lens.Lens' CreateDBClusterParameterGroupResponse (Core.Maybe DBClusterParameterGroup)
+createDBClusterParameterGroupResponse_dbClusterParameterGroup :: Lens.Lens' CreateDBClusterParameterGroupResponse (Prelude.Maybe DBClusterParameterGroup)
 createDBClusterParameterGroupResponse_dbClusterParameterGroup = Lens.lens (\CreateDBClusterParameterGroupResponse' {dbClusterParameterGroup} -> dbClusterParameterGroup) (\s@CreateDBClusterParameterGroupResponse' {} a -> s {dbClusterParameterGroup = a} :: CreateDBClusterParameterGroupResponse)
 
 -- | The response's http status code.
-createDBClusterParameterGroupResponse_httpStatus :: Lens.Lens' CreateDBClusterParameterGroupResponse Core.Int
+createDBClusterParameterGroupResponse_httpStatus :: Lens.Lens' CreateDBClusterParameterGroupResponse Prelude.Int
 createDBClusterParameterGroupResponse_httpStatus = Lens.lens (\CreateDBClusterParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CreateDBClusterParameterGroupResponse' {} a -> s {httpStatus = a} :: CreateDBClusterParameterGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateDBClusterParameterGroupResponse

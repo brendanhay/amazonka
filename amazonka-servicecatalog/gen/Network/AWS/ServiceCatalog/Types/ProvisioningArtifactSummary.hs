@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about a provisioning artifact (also known as a
 -- version) for a product.
@@ -28,18 +29,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newProvisioningArtifactSummary' smart constructor.
 data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
   { -- | The identifier of the provisioning artifact.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Core.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The metadata for the provisioning artifact. This is used with AWS
     -- Marketplace products.
-    provisioningArtifactMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    provisioningArtifactMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the provisioning artifact.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The description of the provisioning artifact.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisioningArtifactSummary' with all optional fields omitted.
@@ -63,32 +64,32 @@ newProvisioningArtifactSummary ::
   ProvisioningArtifactSummary
 newProvisioningArtifactSummary =
   ProvisioningArtifactSummary'
-    { id = Core.Nothing,
-      createdTime = Core.Nothing,
-      provisioningArtifactMetadata = Core.Nothing,
-      name = Core.Nothing,
-      description = Core.Nothing
+    { id = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      provisioningArtifactMetadata = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The identifier of the provisioning artifact.
-provisioningArtifactSummary_id :: Lens.Lens' ProvisioningArtifactSummary (Core.Maybe Core.Text)
+provisioningArtifactSummary_id :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe Prelude.Text)
 provisioningArtifactSummary_id = Lens.lens (\ProvisioningArtifactSummary' {id} -> id) (\s@ProvisioningArtifactSummary' {} a -> s {id = a} :: ProvisioningArtifactSummary)
 
 -- | The UTC time stamp of the creation time.
-provisioningArtifactSummary_createdTime :: Lens.Lens' ProvisioningArtifactSummary (Core.Maybe Core.UTCTime)
-provisioningArtifactSummary_createdTime = Lens.lens (\ProvisioningArtifactSummary' {createdTime} -> createdTime) (\s@ProvisioningArtifactSummary' {} a -> s {createdTime = a} :: ProvisioningArtifactSummary) Core.. Lens.mapping Core._Time
+provisioningArtifactSummary_createdTime :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe Prelude.UTCTime)
+provisioningArtifactSummary_createdTime = Lens.lens (\ProvisioningArtifactSummary' {createdTime} -> createdTime) (\s@ProvisioningArtifactSummary' {} a -> s {createdTime = a} :: ProvisioningArtifactSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The metadata for the provisioning artifact. This is used with AWS
 -- Marketplace products.
-provisioningArtifactSummary_provisioningArtifactMetadata :: Lens.Lens' ProvisioningArtifactSummary (Core.Maybe (Core.HashMap Core.Text Core.Text))
-provisioningArtifactSummary_provisioningArtifactMetadata = Lens.lens (\ProvisioningArtifactSummary' {provisioningArtifactMetadata} -> provisioningArtifactMetadata) (\s@ProvisioningArtifactSummary' {} a -> s {provisioningArtifactMetadata = a} :: ProvisioningArtifactSummary) Core.. Lens.mapping Lens._Coerce
+provisioningArtifactSummary_provisioningArtifactMetadata :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+provisioningArtifactSummary_provisioningArtifactMetadata = Lens.lens (\ProvisioningArtifactSummary' {provisioningArtifactMetadata} -> provisioningArtifactMetadata) (\s@ProvisioningArtifactSummary' {} a -> s {provisioningArtifactMetadata = a} :: ProvisioningArtifactSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the provisioning artifact.
-provisioningArtifactSummary_name :: Lens.Lens' ProvisioningArtifactSummary (Core.Maybe Core.Text)
+provisioningArtifactSummary_name :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe Prelude.Text)
 provisioningArtifactSummary_name = Lens.lens (\ProvisioningArtifactSummary' {name} -> name) (\s@ProvisioningArtifactSummary' {} a -> s {name = a} :: ProvisioningArtifactSummary)
 
 -- | The description of the provisioning artifact.
-provisioningArtifactSummary_description :: Lens.Lens' ProvisioningArtifactSummary (Core.Maybe Core.Text)
+provisioningArtifactSummary_description :: Lens.Lens' ProvisioningArtifactSummary (Prelude.Maybe Prelude.Text)
 provisioningArtifactSummary_description = Lens.lens (\ProvisioningArtifactSummary' {description} -> description) (\s@ProvisioningArtifactSummary' {} a -> s {description = a} :: ProvisioningArtifactSummary)
 
 instance Core.FromJSON ProvisioningArtifactSummary where
@@ -97,15 +98,15 @@ instance Core.FromJSON ProvisioningArtifactSummary where
       "ProvisioningArtifactSummary"
       ( \x ->
           ProvisioningArtifactSummary'
-            Core.<$> (x Core..:? "Id")
-            Core.<*> (x Core..:? "CreatedTime")
-            Core.<*> ( x Core..:? "ProvisioningArtifactMetadata"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> ( x Core..:? "ProvisioningArtifactMetadata"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Description")
       )
 
-instance Core.Hashable ProvisioningArtifactSummary
+instance Prelude.Hashable ProvisioningArtifactSummary
 
-instance Core.NFData ProvisioningArtifactSummary
+instance Prelude.NFData ProvisioningArtifactSummary

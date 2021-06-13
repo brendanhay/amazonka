@@ -91,27 +91,28 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
 
 -- | /See:/ 'newCreateRule' smart constructor.
 data CreateRule = CreateRule'
-  { tags :: Core.Maybe (Core.NonEmpty Tag),
+  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | A friendly name or description of the Rule. You can\'t change the name
     -- of a @Rule@ after you create it.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A friendly name or description for the metrics for this @Rule@. The name
     -- can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
     -- length 128 and minimum length one. It can\'t contain whitespace or
     -- metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @Rule@.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRule' with all optional fields omitted.
@@ -136,27 +137,27 @@ data CreateRule = CreateRule'
 -- 'changeToken', 'createRule_changeToken' - The value returned by the most recent call to GetChangeToken.
 newCreateRule ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   CreateRule
 newCreateRule pName_ pMetricName_ pChangeToken_ =
   CreateRule'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       name = pName_,
       metricName = pMetricName_,
       changeToken = pChangeToken_
     }
 
 -- |
-createRule_tags :: Lens.Lens' CreateRule (Core.Maybe (Core.NonEmpty Tag))
-createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Core.. Lens.mapping Lens._Coerce
+createRule_tags :: Lens.Lens' CreateRule (Prelude.Maybe (Prelude.NonEmpty Tag))
+createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A friendly name or description of the Rule. You can\'t change the name
 -- of a @Rule@ after you create it.
-createRule_name :: Lens.Lens' CreateRule Core.Text
+createRule_name :: Lens.Lens' CreateRule Prelude.Text
 createRule_name = Lens.lens (\CreateRule' {name} -> name) (\s@CreateRule' {} a -> s {name = a} :: CreateRule)
 
 -- | A friendly name or description for the metrics for this @Rule@. The name
@@ -165,11 +166,11 @@ createRule_name = Lens.lens (\CreateRule' {name} -> name) (\s@CreateRule' {} a -
 -- metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @Rule@.
-createRule_metricName :: Lens.Lens' CreateRule Core.Text
+createRule_metricName :: Lens.Lens' CreateRule Prelude.Text
 createRule_metricName = Lens.lens (\CreateRule' {metricName} -> metricName) (\s@CreateRule' {} a -> s {metricName = a} :: CreateRule)
 
 -- | The value returned by the most recent call to GetChangeToken.
-createRule_changeToken :: Lens.Lens' CreateRule Core.Text
+createRule_changeToken :: Lens.Lens' CreateRule Prelude.Text
 createRule_changeToken = Lens.lens (\CreateRule' {changeToken} -> changeToken) (\s@CreateRule' {} a -> s {changeToken = a} :: CreateRule)
 
 instance Core.AWSRequest CreateRule where
@@ -179,55 +180,57 @@ instance Core.AWSRequest CreateRule where
     Response.receiveJSON
       ( \s h x ->
           CreateRuleResponse'
-            Core.<$> (x Core..?> "Rule")
-            Core.<*> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Rule")
+            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateRule
+instance Prelude.Hashable CreateRule
 
-instance Core.NFData CreateRule
+instance Prelude.NFData CreateRule
 
 instance Core.ToHeaders CreateRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSWAF_20150824.CreateRule" :: Core.ByteString),
+              Core.=# ("AWSWAF_20150824.CreateRule" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateRule where
   toJSON CreateRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("MetricName" Core..= metricName),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("MetricName" Core..= metricName),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath CreateRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
   { -- | The Rule returned in the @CreateRule@ response.
-    rule :: Core.Maybe Rule,
+    rule :: Prelude.Maybe Rule,
     -- | The @ChangeToken@ that you used to submit the @CreateRule@ request. You
     -- can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRuleResponse' with all optional fields omitted.
@@ -246,27 +249,27 @@ data CreateRuleResponse = CreateRuleResponse'
 -- 'httpStatus', 'createRuleResponse_httpStatus' - The response's http status code.
 newCreateRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateRuleResponse
 newCreateRuleResponse pHttpStatus_ =
   CreateRuleResponse'
-    { rule = Core.Nothing,
-      changeToken = Core.Nothing,
+    { rule = Prelude.Nothing,
+      changeToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Rule returned in the @CreateRule@ response.
-createRuleResponse_rule :: Lens.Lens' CreateRuleResponse (Core.Maybe Rule)
+createRuleResponse_rule :: Lens.Lens' CreateRuleResponse (Prelude.Maybe Rule)
 createRuleResponse_rule = Lens.lens (\CreateRuleResponse' {rule} -> rule) (\s@CreateRuleResponse' {} a -> s {rule = a} :: CreateRuleResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateRule@ request. You
 -- can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-createRuleResponse_changeToken :: Lens.Lens' CreateRuleResponse (Core.Maybe Core.Text)
+createRuleResponse_changeToken :: Lens.Lens' CreateRuleResponse (Prelude.Maybe Prelude.Text)
 createRuleResponse_changeToken = Lens.lens (\CreateRuleResponse' {changeToken} -> changeToken) (\s@CreateRuleResponse' {} a -> s {changeToken = a} :: CreateRuleResponse)
 
 -- | The response's http status code.
-createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Core.Int
+createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Prelude.Int
 createRuleResponse_httpStatus = Lens.lens (\CreateRuleResponse' {httpStatus} -> httpStatus) (\s@CreateRuleResponse' {} a -> s {httpStatus = a} :: CreateRuleResponse)
 
-instance Core.NFData CreateRuleResponse
+instance Prelude.NFData CreateRuleResponse

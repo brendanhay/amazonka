@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.ConfigurationSyncStatus
 import Network.AWS.Greengrass.Types.Telemetry
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration settings for running telemetry.
 --
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data TelemetryConfiguration = TelemetryConfiguration'
   { -- | Synchronization status of the device reported configuration with the
     -- desired configuration.
-    configurationSyncStatus :: Core.Maybe ConfigurationSyncStatus,
+    configurationSyncStatus :: Prelude.Maybe ConfigurationSyncStatus,
     -- | Configure telemetry to be on or off.
     telemetry :: Telemetry
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TelemetryConfiguration' with all optional fields omitted.
@@ -55,13 +56,13 @@ newTelemetryConfiguration ::
 newTelemetryConfiguration pTelemetry_ =
   TelemetryConfiguration'
     { configurationSyncStatus =
-        Core.Nothing,
+        Prelude.Nothing,
       telemetry = pTelemetry_
     }
 
 -- | Synchronization status of the device reported configuration with the
 -- desired configuration.
-telemetryConfiguration_configurationSyncStatus :: Lens.Lens' TelemetryConfiguration (Core.Maybe ConfigurationSyncStatus)
+telemetryConfiguration_configurationSyncStatus :: Lens.Lens' TelemetryConfiguration (Prelude.Maybe ConfigurationSyncStatus)
 telemetryConfiguration_configurationSyncStatus = Lens.lens (\TelemetryConfiguration' {configurationSyncStatus} -> configurationSyncStatus) (\s@TelemetryConfiguration' {} a -> s {configurationSyncStatus = a} :: TelemetryConfiguration)
 
 -- | Configure telemetry to be on or off.
@@ -74,10 +75,10 @@ instance Core.FromJSON TelemetryConfiguration where
       "TelemetryConfiguration"
       ( \x ->
           TelemetryConfiguration'
-            Core.<$> (x Core..:? "ConfigurationSyncStatus")
-            Core.<*> (x Core..: "Telemetry")
+            Prelude.<$> (x Core..:? "ConfigurationSyncStatus")
+            Prelude.<*> (x Core..: "Telemetry")
       )
 
-instance Core.Hashable TelemetryConfiguration
+instance Prelude.Hashable TelemetryConfiguration
 
-instance Core.NFData TelemetryConfiguration
+instance Prelude.NFData TelemetryConfiguration

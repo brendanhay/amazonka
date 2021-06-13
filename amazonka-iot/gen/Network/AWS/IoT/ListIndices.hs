@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ import qualified Network.AWS.Response as Response
 data ListIndices = ListIndices'
   { -- | The token used to get the next set of results, or @null@ if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIndices' with all optional fields omitted.
@@ -75,37 +76,37 @@ newListIndices ::
   ListIndices
 newListIndices =
   ListIndices'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token used to get the next set of results, or @null@ if there are no
 -- additional results.
-listIndices_nextToken :: Lens.Lens' ListIndices (Core.Maybe Core.Text)
+listIndices_nextToken :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Text)
 listIndices_nextToken = Lens.lens (\ListIndices' {nextToken} -> nextToken) (\s@ListIndices' {} a -> s {nextToken = a} :: ListIndices)
 
 -- | The maximum number of results to return at one time.
-listIndices_maxResults :: Lens.Lens' ListIndices (Core.Maybe Core.Natural)
+listIndices_maxResults :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Natural)
 listIndices_maxResults = Lens.lens (\ListIndices' {maxResults} -> maxResults) (\s@ListIndices' {} a -> s {maxResults = a} :: ListIndices)
 
 instance Core.AWSPager ListIndices where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listIndicesResponse_nextToken Core.. Lens._Just
+            Lens.^? listIndicesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listIndicesResponse_indexNames Core.. Lens._Just
+            Lens.^? listIndicesResponse_indexNames Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listIndices_nextToken
+          Prelude.& listIndices_nextToken
           Lens..~ rs
-          Lens.^? listIndicesResponse_nextToken Core.. Lens._Just
+          Lens.^? listIndicesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIndices where
   type AWSResponse ListIndices = ListIndicesResponse
@@ -114,24 +115,24 @@ instance Core.AWSRequest ListIndices where
     Response.receiveJSON
       ( \s h x ->
           ListIndicesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "indexNames" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "indexNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListIndices
+instance Prelude.Hashable ListIndices
 
-instance Core.NFData ListIndices
+instance Prelude.NFData ListIndices
 
 instance Core.ToHeaders ListIndices where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListIndices where
-  toPath = Core.const "/indices"
+  toPath = Prelude.const "/indices"
 
 instance Core.ToQuery ListIndices where
   toQuery ListIndices' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -140,13 +141,13 @@ instance Core.ToQuery ListIndices where
 data ListIndicesResponse = ListIndicesResponse'
   { -- | The token used to get the next set of results, or @null@ if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The index names.
-    indexNames :: Core.Maybe [Core.Text],
+    indexNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIndicesResponse' with all optional fields omitted.
@@ -164,26 +165,26 @@ data ListIndicesResponse = ListIndicesResponse'
 -- 'httpStatus', 'listIndicesResponse_httpStatus' - The response's http status code.
 newListIndicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListIndicesResponse
 newListIndicesResponse pHttpStatus_ =
   ListIndicesResponse'
-    { nextToken = Core.Nothing,
-      indexNames = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      indexNames = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token used to get the next set of results, or @null@ if there are no
 -- additional results.
-listIndicesResponse_nextToken :: Lens.Lens' ListIndicesResponse (Core.Maybe Core.Text)
+listIndicesResponse_nextToken :: Lens.Lens' ListIndicesResponse (Prelude.Maybe Prelude.Text)
 listIndicesResponse_nextToken = Lens.lens (\ListIndicesResponse' {nextToken} -> nextToken) (\s@ListIndicesResponse' {} a -> s {nextToken = a} :: ListIndicesResponse)
 
 -- | The index names.
-listIndicesResponse_indexNames :: Lens.Lens' ListIndicesResponse (Core.Maybe [Core.Text])
-listIndicesResponse_indexNames = Lens.lens (\ListIndicesResponse' {indexNames} -> indexNames) (\s@ListIndicesResponse' {} a -> s {indexNames = a} :: ListIndicesResponse) Core.. Lens.mapping Lens._Coerce
+listIndicesResponse_indexNames :: Lens.Lens' ListIndicesResponse (Prelude.Maybe [Prelude.Text])
+listIndicesResponse_indexNames = Lens.lens (\ListIndicesResponse' {indexNames} -> indexNames) (\s@ListIndicesResponse' {} a -> s {indexNames = a} :: ListIndicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listIndicesResponse_httpStatus :: Lens.Lens' ListIndicesResponse Core.Int
+listIndicesResponse_httpStatus :: Lens.Lens' ListIndicesResponse Prelude.Int
 listIndicesResponse_httpStatus = Lens.lens (\ListIndicesResponse' {httpStatus} -> httpStatus) (\s@ListIndicesResponse' {} a -> s {httpStatus = a} :: ListIndicesResponse)
 
-instance Core.NFData ListIndicesResponse
+instance Prelude.NFData ListIndicesResponse

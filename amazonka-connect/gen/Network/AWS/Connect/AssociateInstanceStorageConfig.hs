@@ -55,19 +55,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateInstanceStorageConfig' smart constructor.
 data AssociateInstanceStorageConfig = AssociateInstanceStorageConfig'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | A valid resource type.
     resourceType :: InstanceStorageResourceType,
     -- | A valid storage type.
     storageConfig :: InstanceStorageConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateInstanceStorageConfig' with all optional fields omitted.
@@ -84,7 +85,7 @@ data AssociateInstanceStorageConfig = AssociateInstanceStorageConfig'
 -- 'storageConfig', 'associateInstanceStorageConfig_storageConfig' - A valid storage type.
 newAssociateInstanceStorageConfig ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
   InstanceStorageResourceType ->
   -- | 'storageConfig'
@@ -102,7 +103,7 @@ newAssociateInstanceStorageConfig
       }
 
 -- | The identifier of the Amazon Connect instance.
-associateInstanceStorageConfig_instanceId :: Lens.Lens' AssociateInstanceStorageConfig Core.Text
+associateInstanceStorageConfig_instanceId :: Lens.Lens' AssociateInstanceStorageConfig Prelude.Text
 associateInstanceStorageConfig_instanceId = Lens.lens (\AssociateInstanceStorageConfig' {instanceId} -> instanceId) (\s@AssociateInstanceStorageConfig' {} a -> s {instanceId = a} :: AssociateInstanceStorageConfig)
 
 -- | A valid resource type.
@@ -125,55 +126,62 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateInstanceStorageConfigResponse'
-            Core.<$> (x Core..?> "AssociationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AssociationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateInstanceStorageConfig
+instance
+  Prelude.Hashable
+    AssociateInstanceStorageConfig
 
-instance Core.NFData AssociateInstanceStorageConfig
+instance
+  Prelude.NFData
+    AssociateInstanceStorageConfig
 
 instance
   Core.ToHeaders
     AssociateInstanceStorageConfig
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateInstanceStorageConfig where
   toJSON AssociateInstanceStorageConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceType" Core..= resourceType),
-            Core.Just ("StorageConfig" Core..= storageConfig)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just
+              ("StorageConfig" Core..= storageConfig)
           ]
       )
 
 instance Core.ToPath AssociateInstanceStorageConfig where
   toPath AssociateInstanceStorageConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/storage-config"
       ]
 
 instance Core.ToQuery AssociateInstanceStorageConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateInstanceStorageConfigResponse' smart constructor.
 data AssociateInstanceStorageConfigResponse = AssociateInstanceStorageConfigResponse'
   { -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Core.Maybe Core.Text,
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateInstanceStorageConfigResponse' with all optional fields omitted.
@@ -189,25 +197,25 @@ data AssociateInstanceStorageConfigResponse = AssociateInstanceStorageConfigResp
 -- 'httpStatus', 'associateInstanceStorageConfigResponse_httpStatus' - The response's http status code.
 newAssociateInstanceStorageConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateInstanceStorageConfigResponse
 newAssociateInstanceStorageConfigResponse
   pHttpStatus_ =
     AssociateInstanceStorageConfigResponse'
       { associationId =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
-associateInstanceStorageConfigResponse_associationId :: Lens.Lens' AssociateInstanceStorageConfigResponse (Core.Maybe Core.Text)
+associateInstanceStorageConfigResponse_associationId :: Lens.Lens' AssociateInstanceStorageConfigResponse (Prelude.Maybe Prelude.Text)
 associateInstanceStorageConfigResponse_associationId = Lens.lens (\AssociateInstanceStorageConfigResponse' {associationId} -> associationId) (\s@AssociateInstanceStorageConfigResponse' {} a -> s {associationId = a} :: AssociateInstanceStorageConfigResponse)
 
 -- | The response's http status code.
-associateInstanceStorageConfigResponse_httpStatus :: Lens.Lens' AssociateInstanceStorageConfigResponse Core.Int
+associateInstanceStorageConfigResponse_httpStatus :: Lens.Lens' AssociateInstanceStorageConfigResponse Prelude.Int
 associateInstanceStorageConfigResponse_httpStatus = Lens.lens (\AssociateInstanceStorageConfigResponse' {httpStatus} -> httpStatus) (\s@AssociateInstanceStorageConfigResponse' {} a -> s {httpStatus = a} :: AssociateInstanceStorageConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateInstanceStorageConfigResponse

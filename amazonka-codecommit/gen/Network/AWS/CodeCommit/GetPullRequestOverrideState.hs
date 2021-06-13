@@ -47,6 +47,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ import qualified Network.AWS.Response as Response
 data GetPullRequestOverrideState = GetPullRequestOverrideState'
   { -- | The ID of the pull request for which you want to get information about
     -- whether approval rules have been set aside (overridden).
-    pullRequestId :: Core.Text,
+    pullRequestId :: Prelude.Text,
     -- | The system-generated ID of the revision for the pull request. To
     -- retrieve the most recent revision ID, use GetPullRequest.
-    revisionId :: Core.Text
+    revisionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPullRequestOverrideState' with all optional fields omitted.
@@ -76,9 +77,9 @@ data GetPullRequestOverrideState = GetPullRequestOverrideState'
 -- retrieve the most recent revision ID, use GetPullRequest.
 newGetPullRequestOverrideState ::
   -- | 'pullRequestId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'revisionId'
-  Core.Text ->
+  Prelude.Text ->
   GetPullRequestOverrideState
 newGetPullRequestOverrideState
   pPullRequestId_
@@ -91,12 +92,12 @@ newGetPullRequestOverrideState
 
 -- | The ID of the pull request for which you want to get information about
 -- whether approval rules have been set aside (overridden).
-getPullRequestOverrideState_pullRequestId :: Lens.Lens' GetPullRequestOverrideState Core.Text
+getPullRequestOverrideState_pullRequestId :: Lens.Lens' GetPullRequestOverrideState Prelude.Text
 getPullRequestOverrideState_pullRequestId = Lens.lens (\GetPullRequestOverrideState' {pullRequestId} -> pullRequestId) (\s@GetPullRequestOverrideState' {} a -> s {pullRequestId = a} :: GetPullRequestOverrideState)
 
 -- | The system-generated ID of the revision for the pull request. To
 -- retrieve the most recent revision ID, use GetPullRequest.
-getPullRequestOverrideState_revisionId :: Lens.Lens' GetPullRequestOverrideState Core.Text
+getPullRequestOverrideState_revisionId :: Lens.Lens' GetPullRequestOverrideState Prelude.Text
 getPullRequestOverrideState_revisionId = Lens.lens (\GetPullRequestOverrideState' {revisionId} -> revisionId) (\s@GetPullRequestOverrideState' {} a -> s {revisionId = a} :: GetPullRequestOverrideState)
 
 instance Core.AWSRequest GetPullRequestOverrideState where
@@ -108,55 +109,58 @@ instance Core.AWSRequest GetPullRequestOverrideState where
     Response.receiveJSON
       ( \s h x ->
           GetPullRequestOverrideStateResponse'
-            Core.<$> (x Core..?> "overridden")
-            Core.<*> (x Core..?> "overrider")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "overridden")
+            Prelude.<*> (x Core..?> "overrider")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPullRequestOverrideState
+instance Prelude.Hashable GetPullRequestOverrideState
 
-instance Core.NFData GetPullRequestOverrideState
+instance Prelude.NFData GetPullRequestOverrideState
 
 instance Core.ToHeaders GetPullRequestOverrideState where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.GetPullRequestOverrideState" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPullRequestOverrideState where
   toJSON GetPullRequestOverrideState' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pullRequestId" Core..= pullRequestId),
-            Core.Just ("revisionId" Core..= revisionId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just ("revisionId" Core..= revisionId)
           ]
       )
 
 instance Core.ToPath GetPullRequestOverrideState where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPullRequestOverrideState where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPullRequestOverrideStateResponse' smart constructor.
 data GetPullRequestOverrideStateResponse = GetPullRequestOverrideStateResponse'
   { -- | A Boolean value that indicates whether a pull request has had its rules
     -- set aside (TRUE) or whether all approval rules still apply (FALSE).
-    overridden :: Core.Maybe Core.Bool,
+    overridden :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the user or identity that overrode the
     -- rules and their requirements for the pull request.
-    overrider :: Core.Maybe Core.Text,
+    overrider :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPullRequestOverrideStateResponse' with all optional fields omitted.
@@ -175,30 +179,30 @@ data GetPullRequestOverrideStateResponse = GetPullRequestOverrideStateResponse'
 -- 'httpStatus', 'getPullRequestOverrideStateResponse_httpStatus' - The response's http status code.
 newGetPullRequestOverrideStateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPullRequestOverrideStateResponse
 newGetPullRequestOverrideStateResponse pHttpStatus_ =
   GetPullRequestOverrideStateResponse'
     { overridden =
-        Core.Nothing,
-      overrider = Core.Nothing,
+        Prelude.Nothing,
+      overrider = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A Boolean value that indicates whether a pull request has had its rules
 -- set aside (TRUE) or whether all approval rules still apply (FALSE).
-getPullRequestOverrideStateResponse_overridden :: Lens.Lens' GetPullRequestOverrideStateResponse (Core.Maybe Core.Bool)
+getPullRequestOverrideStateResponse_overridden :: Lens.Lens' GetPullRequestOverrideStateResponse (Prelude.Maybe Prelude.Bool)
 getPullRequestOverrideStateResponse_overridden = Lens.lens (\GetPullRequestOverrideStateResponse' {overridden} -> overridden) (\s@GetPullRequestOverrideStateResponse' {} a -> s {overridden = a} :: GetPullRequestOverrideStateResponse)
 
 -- | The Amazon Resource Name (ARN) of the user or identity that overrode the
 -- rules and their requirements for the pull request.
-getPullRequestOverrideStateResponse_overrider :: Lens.Lens' GetPullRequestOverrideStateResponse (Core.Maybe Core.Text)
+getPullRequestOverrideStateResponse_overrider :: Lens.Lens' GetPullRequestOverrideStateResponse (Prelude.Maybe Prelude.Text)
 getPullRequestOverrideStateResponse_overrider = Lens.lens (\GetPullRequestOverrideStateResponse' {overrider} -> overrider) (\s@GetPullRequestOverrideStateResponse' {} a -> s {overrider = a} :: GetPullRequestOverrideStateResponse)
 
 -- | The response's http status code.
-getPullRequestOverrideStateResponse_httpStatus :: Lens.Lens' GetPullRequestOverrideStateResponse Core.Int
+getPullRequestOverrideStateResponse_httpStatus :: Lens.Lens' GetPullRequestOverrideStateResponse Prelude.Int
 getPullRequestOverrideStateResponse_httpStatus = Lens.lens (\GetPullRequestOverrideStateResponse' {httpStatus} -> httpStatus) (\s@GetPullRequestOverrideStateResponse' {} a -> s {httpStatus = a} :: GetPullRequestOverrideStateResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetPullRequestOverrideStateResponse

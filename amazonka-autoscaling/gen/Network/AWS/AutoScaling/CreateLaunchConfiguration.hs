@@ -66,6 +66,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,7 +85,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     --
     -- If you do not specify @InstanceId@, you must specify both @ImageId@ and
     -- @InstanceType@.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the instance type of the EC2 instance.
     --
     -- For information about available instance types, see
@@ -92,7 +93,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
     -- If you do not specify @InstanceId@, you must specify @InstanceType@.
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the launch configuration is optimized for EBS I\/O
     -- (@true@) or not (@false@). The optimization provides dedicated
     -- throughput to Amazon EBS and an optimized configuration stack to provide
@@ -104,7 +105,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
     -- The default value is @false@.
-    ebsOptimized :: Core.Maybe Core.Bool,
+    ebsOptimized :: Prelude.Maybe Prelude.Bool,
     -- | The user data to make available to the launched EC2 instances. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data>
@@ -113,9 +114,9 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- (Windows). If you are using a command line tool, base64-encoding is
     -- performed for you, and you can load the text from a file. Otherwise, you
     -- must provide base64-encoded text. User data is limited to 16 KB.
-    userData :: Core.Maybe Core.Text,
+    userData :: Prelude.Maybe Prelude.Text,
     -- | The ID of the RAM disk to select.
-    ramdiskId :: Core.Maybe Core.Text,
+    ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of one or more security groups for the specified
     -- ClassicLink-enabled VPC. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
@@ -125,7 +126,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     --
     -- If you specify the @ClassicLinkVPCId@ parameter, you must specify this
     -- parameter.
-    classicLinkVPCSecurityGroups :: Core.Maybe [Core.Text],
+    classicLinkVPCSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The maximum hourly price to be paid for any Spot Instance launched to
     -- fulfill the request. Spot Instances are launched when the price you
     -- specify exceeds the current Spot price. For more information, see
@@ -136,14 +137,14 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- configuration, running instances will continue to run as long as the
     -- maximum price for those running instances is higher than the current
     -- Spot price.
-    spotPrice :: Core.Maybe Core.Text,
+    spotPrice :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Machine Image (AMI) that was assigned during
     -- registration. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
     -- If you do not specify @InstanceId@, you must specify @ImageId@.
-    imageId :: Core.Maybe Core.Text,
+    imageId :: Prelude.Maybe Prelude.Text,
     -- | For Auto Scaling groups that are running in a virtual private cloud
     -- (VPC), specifies whether to assign a public IP address to the group\'s
     -- instances. If you specify @true@, each instance in the Auto Scaling
@@ -160,7 +161,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- nondefault subnet, the default is not to assign a public IP address,
     -- unless you enabled the option to assign a public IP address on the
     -- subnet.
-    associatePublicIpAddress :: Core.Maybe Core.Bool,
+    associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
     -- | A list that contains the security groups to assign to the instances in
     -- the Auto Scaling group.
     --
@@ -172,7 +173,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- group IDs. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
-    securityGroups :: Core.Maybe [Core.Text],
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The name or the Amazon Resource Name (ARN) of the instance profile
     -- associated with the IAM role for the instance. The instance profile
     -- contains the IAM role.
@@ -180,7 +181,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    iamInstanceProfile :: Core.Maybe Core.Text,
+    iamInstanceProfile :: Prelude.Maybe Prelude.Text,
     -- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
     -- to. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
@@ -190,15 +191,15 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     --
     -- This parameter can only be used if you are launching EC2-Classic
     -- instances.
-    classicLinkVPCId :: Core.Maybe Core.Text,
+    classicLinkVPCId :: Prelude.Maybe Prelude.Text,
     -- | A block device mapping, which specifies the block devices for the
     -- instance. You can specify virtual devices and EBS volumes. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
-    blockDeviceMappings :: Core.Maybe [BlockDeviceMapping],
+    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
     -- | The ID of the kernel associated with the AMI.
-    kernelId :: Core.Maybe Core.Text,
+    kernelId :: Prelude.Maybe Prelude.Text,
     -- | The tenancy of the instance. An instance with @dedicated@ tenancy runs
     -- on isolated, single-tenant hardware and can only be launched into a VPC.
     --
@@ -214,11 +215,11 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     --
     -- Valid Values: @default@ | @dedicated@
-    placementTenancy :: Core.Maybe Core.Text,
+    placementTenancy :: Prelude.Maybe Prelude.Text,
     -- | The name of the key pair. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
-    keyName :: Core.Maybe Core.Text,
+    keyName :: Prelude.Maybe Prelude.Text,
     -- | Controls whether instances in this group are launched with detailed
     -- (@true@) or basic (@false@) monitoring.
     --
@@ -230,16 +231,16 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- more information, see
     -- <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    instanceMonitoring :: Core.Maybe InstanceMonitoring,
+    instanceMonitoring :: Prelude.Maybe InstanceMonitoring,
     -- | The metadata options for the instances. For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    metadataOptions :: Core.Maybe InstanceMetadataOptions,
+    metadataOptions :: Prelude.Maybe InstanceMetadataOptions,
     -- | The name of the launch configuration. This name must be unique per
     -- Region per account.
-    launchConfigurationName :: Core.Text
+    launchConfigurationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLaunchConfiguration' with all optional fields omitted.
@@ -417,30 +418,30 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 -- Region per account.
 newCreateLaunchConfiguration ::
   -- | 'launchConfigurationName'
-  Core.Text ->
+  Prelude.Text ->
   CreateLaunchConfiguration
 newCreateLaunchConfiguration
   pLaunchConfigurationName_ =
     CreateLaunchConfiguration'
       { instanceId =
-          Core.Nothing,
-        instanceType = Core.Nothing,
-        ebsOptimized = Core.Nothing,
-        userData = Core.Nothing,
-        ramdiskId = Core.Nothing,
-        classicLinkVPCSecurityGroups = Core.Nothing,
-        spotPrice = Core.Nothing,
-        imageId = Core.Nothing,
-        associatePublicIpAddress = Core.Nothing,
-        securityGroups = Core.Nothing,
-        iamInstanceProfile = Core.Nothing,
-        classicLinkVPCId = Core.Nothing,
-        blockDeviceMappings = Core.Nothing,
-        kernelId = Core.Nothing,
-        placementTenancy = Core.Nothing,
-        keyName = Core.Nothing,
-        instanceMonitoring = Core.Nothing,
-        metadataOptions = Core.Nothing,
+          Prelude.Nothing,
+        instanceType = Prelude.Nothing,
+        ebsOptimized = Prelude.Nothing,
+        userData = Prelude.Nothing,
+        ramdiskId = Prelude.Nothing,
+        classicLinkVPCSecurityGroups = Prelude.Nothing,
+        spotPrice = Prelude.Nothing,
+        imageId = Prelude.Nothing,
+        associatePublicIpAddress = Prelude.Nothing,
+        securityGroups = Prelude.Nothing,
+        iamInstanceProfile = Prelude.Nothing,
+        classicLinkVPCId = Prelude.Nothing,
+        blockDeviceMappings = Prelude.Nothing,
+        kernelId = Prelude.Nothing,
+        placementTenancy = Prelude.Nothing,
+        keyName = Prelude.Nothing,
+        instanceMonitoring = Prelude.Nothing,
+        metadataOptions = Prelude.Nothing,
         launchConfigurationName =
           pLaunchConfigurationName_
       }
@@ -458,7 +459,7 @@ newCreateLaunchConfiguration
 --
 -- If you do not specify @InstanceId@, you must specify both @ImageId@ and
 -- @InstanceType@.
-createLaunchConfiguration_instanceId :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_instanceId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_instanceId = Lens.lens (\CreateLaunchConfiguration' {instanceId} -> instanceId) (\s@CreateLaunchConfiguration' {} a -> s {instanceId = a} :: CreateLaunchConfiguration)
 
 -- | Specifies the instance type of the EC2 instance.
@@ -468,7 +469,7 @@ createLaunchConfiguration_instanceId = Lens.lens (\CreateLaunchConfiguration' {i
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- If you do not specify @InstanceId@, you must specify @InstanceType@.
-createLaunchConfiguration_instanceType :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_instanceType :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_instanceType = Lens.lens (\CreateLaunchConfiguration' {instanceType} -> instanceType) (\s@CreateLaunchConfiguration' {} a -> s {instanceType = a} :: CreateLaunchConfiguration)
 
 -- | Specifies whether the launch configuration is optimized for EBS I\/O
@@ -482,7 +483,7 @@ createLaunchConfiguration_instanceType = Lens.lens (\CreateLaunchConfiguration' 
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- The default value is @false@.
-createLaunchConfiguration_ebsOptimized :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Bool)
+createLaunchConfiguration_ebsOptimized :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Bool)
 createLaunchConfiguration_ebsOptimized = Lens.lens (\CreateLaunchConfiguration' {ebsOptimized} -> ebsOptimized) (\s@CreateLaunchConfiguration' {} a -> s {ebsOptimized = a} :: CreateLaunchConfiguration)
 
 -- | The user data to make available to the launched EC2 instances. For more
@@ -493,11 +494,11 @@ createLaunchConfiguration_ebsOptimized = Lens.lens (\CreateLaunchConfiguration' 
 -- (Windows). If you are using a command line tool, base64-encoding is
 -- performed for you, and you can load the text from a file. Otherwise, you
 -- must provide base64-encoded text. User data is limited to 16 KB.
-createLaunchConfiguration_userData :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_userData :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_userData = Lens.lens (\CreateLaunchConfiguration' {userData} -> userData) (\s@CreateLaunchConfiguration' {} a -> s {userData = a} :: CreateLaunchConfiguration)
 
 -- | The ID of the RAM disk to select.
-createLaunchConfiguration_ramdiskId :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_ramdiskId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_ramdiskId = Lens.lens (\CreateLaunchConfiguration' {ramdiskId} -> ramdiskId) (\s@CreateLaunchConfiguration' {} a -> s {ramdiskId = a} :: CreateLaunchConfiguration)
 
 -- | The IDs of one or more security groups for the specified
@@ -509,8 +510,8 @@ createLaunchConfiguration_ramdiskId = Lens.lens (\CreateLaunchConfiguration' {ra
 --
 -- If you specify the @ClassicLinkVPCId@ parameter, you must specify this
 -- parameter.
-createLaunchConfiguration_classicLinkVPCSecurityGroups :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe [Core.Text])
-createLaunchConfiguration_classicLinkVPCSecurityGroups = Lens.lens (\CreateLaunchConfiguration' {classicLinkVPCSecurityGroups} -> classicLinkVPCSecurityGroups) (\s@CreateLaunchConfiguration' {} a -> s {classicLinkVPCSecurityGroups = a} :: CreateLaunchConfiguration) Core.. Lens.mapping Lens._Coerce
+createLaunchConfiguration_classicLinkVPCSecurityGroups :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe [Prelude.Text])
+createLaunchConfiguration_classicLinkVPCSecurityGroups = Lens.lens (\CreateLaunchConfiguration' {classicLinkVPCSecurityGroups} -> classicLinkVPCSecurityGroups) (\s@CreateLaunchConfiguration' {} a -> s {classicLinkVPCSecurityGroups = a} :: CreateLaunchConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum hourly price to be paid for any Spot Instance launched to
 -- fulfill the request. Spot Instances are launched when the price you
@@ -522,7 +523,7 @@ createLaunchConfiguration_classicLinkVPCSecurityGroups = Lens.lens (\CreateLaunc
 -- configuration, running instances will continue to run as long as the
 -- maximum price for those running instances is higher than the current
 -- Spot price.
-createLaunchConfiguration_spotPrice :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_spotPrice :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_spotPrice = Lens.lens (\CreateLaunchConfiguration' {spotPrice} -> spotPrice) (\s@CreateLaunchConfiguration' {} a -> s {spotPrice = a} :: CreateLaunchConfiguration)
 
 -- | The ID of the Amazon Machine Image (AMI) that was assigned during
@@ -531,7 +532,7 @@ createLaunchConfiguration_spotPrice = Lens.lens (\CreateLaunchConfiguration' {sp
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- If you do not specify @InstanceId@, you must specify @ImageId@.
-createLaunchConfiguration_imageId :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_imageId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_imageId = Lens.lens (\CreateLaunchConfiguration' {imageId} -> imageId) (\s@CreateLaunchConfiguration' {} a -> s {imageId = a} :: CreateLaunchConfiguration)
 
 -- | For Auto Scaling groups that are running in a virtual private cloud
@@ -550,7 +551,7 @@ createLaunchConfiguration_imageId = Lens.lens (\CreateLaunchConfiguration' {imag
 -- nondefault subnet, the default is not to assign a public IP address,
 -- unless you enabled the option to assign a public IP address on the
 -- subnet.
-createLaunchConfiguration_associatePublicIpAddress :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Bool)
+createLaunchConfiguration_associatePublicIpAddress :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Bool)
 createLaunchConfiguration_associatePublicIpAddress = Lens.lens (\CreateLaunchConfiguration' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@CreateLaunchConfiguration' {} a -> s {associatePublicIpAddress = a} :: CreateLaunchConfiguration)
 
 -- | A list that contains the security groups to assign to the instances in
@@ -564,8 +565,8 @@ createLaunchConfiguration_associatePublicIpAddress = Lens.lens (\CreateLaunchCon
 -- group IDs. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
-createLaunchConfiguration_securityGroups :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe [Core.Text])
-createLaunchConfiguration_securityGroups = Lens.lens (\CreateLaunchConfiguration' {securityGroups} -> securityGroups) (\s@CreateLaunchConfiguration' {} a -> s {securityGroups = a} :: CreateLaunchConfiguration) Core.. Lens.mapping Lens._Coerce
+createLaunchConfiguration_securityGroups :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe [Prelude.Text])
+createLaunchConfiguration_securityGroups = Lens.lens (\CreateLaunchConfiguration' {securityGroups} -> securityGroups) (\s@CreateLaunchConfiguration' {} a -> s {securityGroups = a} :: CreateLaunchConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name or the Amazon Resource Name (ARN) of the instance profile
 -- associated with the IAM role for the instance. The instance profile
@@ -574,7 +575,7 @@ createLaunchConfiguration_securityGroups = Lens.lens (\CreateLaunchConfiguration
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-createLaunchConfiguration_iamInstanceProfile :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_iamInstanceProfile :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_iamInstanceProfile = Lens.lens (\CreateLaunchConfiguration' {iamInstanceProfile} -> iamInstanceProfile) (\s@CreateLaunchConfiguration' {} a -> s {iamInstanceProfile = a} :: CreateLaunchConfiguration)
 
 -- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
@@ -586,7 +587,7 @@ createLaunchConfiguration_iamInstanceProfile = Lens.lens (\CreateLaunchConfigura
 --
 -- This parameter can only be used if you are launching EC2-Classic
 -- instances.
-createLaunchConfiguration_classicLinkVPCId :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_classicLinkVPCId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_classicLinkVPCId = Lens.lens (\CreateLaunchConfiguration' {classicLinkVPCId} -> classicLinkVPCId) (\s@CreateLaunchConfiguration' {} a -> s {classicLinkVPCId = a} :: CreateLaunchConfiguration)
 
 -- | A block device mapping, which specifies the block devices for the
@@ -594,11 +595,11 @@ createLaunchConfiguration_classicLinkVPCId = Lens.lens (\CreateLaunchConfigurati
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
-createLaunchConfiguration_blockDeviceMappings :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe [BlockDeviceMapping])
-createLaunchConfiguration_blockDeviceMappings = Lens.lens (\CreateLaunchConfiguration' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateLaunchConfiguration' {} a -> s {blockDeviceMappings = a} :: CreateLaunchConfiguration) Core.. Lens.mapping Lens._Coerce
+createLaunchConfiguration_blockDeviceMappings :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe [BlockDeviceMapping])
+createLaunchConfiguration_blockDeviceMappings = Lens.lens (\CreateLaunchConfiguration' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateLaunchConfiguration' {} a -> s {blockDeviceMappings = a} :: CreateLaunchConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the kernel associated with the AMI.
-createLaunchConfiguration_kernelId :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_kernelId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_kernelId = Lens.lens (\CreateLaunchConfiguration' {kernelId} -> kernelId) (\s@CreateLaunchConfiguration' {} a -> s {kernelId = a} :: CreateLaunchConfiguration)
 
 -- | The tenancy of the instance. An instance with @dedicated@ tenancy runs
@@ -616,13 +617,13 @@ createLaunchConfiguration_kernelId = Lens.lens (\CreateLaunchConfiguration' {ker
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- Valid Values: @default@ | @dedicated@
-createLaunchConfiguration_placementTenancy :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_placementTenancy :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_placementTenancy = Lens.lens (\CreateLaunchConfiguration' {placementTenancy} -> placementTenancy) (\s@CreateLaunchConfiguration' {} a -> s {placementTenancy = a} :: CreateLaunchConfiguration)
 
 -- | The name of the key pair. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
-createLaunchConfiguration_keyName :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe Core.Text)
+createLaunchConfiguration_keyName :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_keyName = Lens.lens (\CreateLaunchConfiguration' {keyName} -> keyName) (\s@CreateLaunchConfiguration' {} a -> s {keyName = a} :: CreateLaunchConfiguration)
 
 -- | Controls whether instances in this group are launched with detailed
@@ -636,18 +637,18 @@ createLaunchConfiguration_keyName = Lens.lens (\CreateLaunchConfiguration' {keyN
 -- more information, see
 -- <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-createLaunchConfiguration_instanceMonitoring :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe InstanceMonitoring)
+createLaunchConfiguration_instanceMonitoring :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe InstanceMonitoring)
 createLaunchConfiguration_instanceMonitoring = Lens.lens (\CreateLaunchConfiguration' {instanceMonitoring} -> instanceMonitoring) (\s@CreateLaunchConfiguration' {} a -> s {instanceMonitoring = a} :: CreateLaunchConfiguration)
 
 -- | The metadata options for the instances. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-createLaunchConfiguration_metadataOptions :: Lens.Lens' CreateLaunchConfiguration (Core.Maybe InstanceMetadataOptions)
+createLaunchConfiguration_metadataOptions :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe InstanceMetadataOptions)
 createLaunchConfiguration_metadataOptions = Lens.lens (\CreateLaunchConfiguration' {metadataOptions} -> metadataOptions) (\s@CreateLaunchConfiguration' {} a -> s {metadataOptions = a} :: CreateLaunchConfiguration)
 
 -- | The name of the launch configuration. This name must be unique per
 -- Region per account.
-createLaunchConfiguration_launchConfigurationName :: Lens.Lens' CreateLaunchConfiguration Core.Text
+createLaunchConfiguration_launchConfigurationName :: Lens.Lens' CreateLaunchConfiguration Prelude.Text
 createLaunchConfiguration_launchConfigurationName = Lens.lens (\CreateLaunchConfiguration' {launchConfigurationName} -> launchConfigurationName) (\s@CreateLaunchConfiguration' {} a -> s {launchConfigurationName = a} :: CreateLaunchConfiguration)
 
 instance Core.AWSRequest CreateLaunchConfiguration where
@@ -659,22 +660,23 @@ instance Core.AWSRequest CreateLaunchConfiguration where
     Response.receiveNull
       CreateLaunchConfigurationResponse'
 
-instance Core.Hashable CreateLaunchConfiguration
+instance Prelude.Hashable CreateLaunchConfiguration
 
-instance Core.NFData CreateLaunchConfiguration
+instance Prelude.NFData CreateLaunchConfiguration
 
 instance Core.ToHeaders CreateLaunchConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateLaunchConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateLaunchConfiguration where
   toQuery CreateLaunchConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLaunchConfiguration" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("CreateLaunchConfiguration" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "InstanceId" Core.=: instanceId,
         "InstanceType" Core.=: instanceType,
         "EbsOptimized" Core.=: ebsOptimized,
@@ -683,7 +685,7 @@ instance Core.ToQuery CreateLaunchConfiguration where
         "ClassicLinkVPCSecurityGroups"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> classicLinkVPCSecurityGroups
+                Prelude.<$> classicLinkVPCSecurityGroups
             ),
         "SpotPrice" Core.=: spotPrice,
         "ImageId" Core.=: imageId,
@@ -691,13 +693,15 @@ instance Core.ToQuery CreateLaunchConfiguration where
           Core.=: associatePublicIpAddress,
         "SecurityGroups"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> securityGroups),
+            ( Core.toQueryList "member"
+                Prelude.<$> securityGroups
+            ),
         "IamInstanceProfile" Core.=: iamInstanceProfile,
         "ClassicLinkVPCId" Core.=: classicLinkVPCId,
         "BlockDeviceMappings"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> blockDeviceMappings
+                Prelude.<$> blockDeviceMappings
             ),
         "KernelId" Core.=: kernelId,
         "PlacementTenancy" Core.=: placementTenancy,
@@ -712,7 +716,7 @@ instance Core.ToQuery CreateLaunchConfiguration where
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLaunchConfigurationResponse' with all optional fields omitted.
@@ -724,5 +728,5 @@ newCreateLaunchConfigurationResponse =
   CreateLaunchConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateLaunchConfigurationResponse

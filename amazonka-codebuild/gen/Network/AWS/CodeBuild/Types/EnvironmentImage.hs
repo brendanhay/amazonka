@@ -21,19 +21,20 @@ module Network.AWS.CodeBuild.Types.EnvironmentImage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a Docker image that is managed by AWS CodeBuild.
 --
 -- /See:/ 'newEnvironmentImage' smart constructor.
 data EnvironmentImage = EnvironmentImage'
   { -- | A list of environment image versions.
-    versions :: Core.Maybe [Core.Text],
+    versions :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Docker image.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The description of the Docker image.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentImage' with all optional fields omitted.
@@ -52,21 +53,21 @@ newEnvironmentImage ::
   EnvironmentImage
 newEnvironmentImage =
   EnvironmentImage'
-    { versions = Core.Nothing,
-      name = Core.Nothing,
-      description = Core.Nothing
+    { versions = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | A list of environment image versions.
-environmentImage_versions :: Lens.Lens' EnvironmentImage (Core.Maybe [Core.Text])
-environmentImage_versions = Lens.lens (\EnvironmentImage' {versions} -> versions) (\s@EnvironmentImage' {} a -> s {versions = a} :: EnvironmentImage) Core.. Lens.mapping Lens._Coerce
+environmentImage_versions :: Lens.Lens' EnvironmentImage (Prelude.Maybe [Prelude.Text])
+environmentImage_versions = Lens.lens (\EnvironmentImage' {versions} -> versions) (\s@EnvironmentImage' {} a -> s {versions = a} :: EnvironmentImage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Docker image.
-environmentImage_name :: Lens.Lens' EnvironmentImage (Core.Maybe Core.Text)
+environmentImage_name :: Lens.Lens' EnvironmentImage (Prelude.Maybe Prelude.Text)
 environmentImage_name = Lens.lens (\EnvironmentImage' {name} -> name) (\s@EnvironmentImage' {} a -> s {name = a} :: EnvironmentImage)
 
 -- | The description of the Docker image.
-environmentImage_description :: Lens.Lens' EnvironmentImage (Core.Maybe Core.Text)
+environmentImage_description :: Lens.Lens' EnvironmentImage (Prelude.Maybe Prelude.Text)
 environmentImage_description = Lens.lens (\EnvironmentImage' {description} -> description) (\s@EnvironmentImage' {} a -> s {description = a} :: EnvironmentImage)
 
 instance Core.FromJSON EnvironmentImage where
@@ -75,11 +76,11 @@ instance Core.FromJSON EnvironmentImage where
       "EnvironmentImage"
       ( \x ->
           EnvironmentImage'
-            Core.<$> (x Core..:? "versions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "versions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "description")
       )
 
-instance Core.Hashable EnvironmentImage
+instance Prelude.Hashable EnvironmentImage
 
-instance Core.NFData EnvironmentImage
+instance Prelude.NFData EnvironmentImage

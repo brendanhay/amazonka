@@ -27,6 +27,7 @@ module Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING
 -- and JVM_YOUNG_GEN_TUNING.
@@ -35,15 +36,15 @@ newtype ScheduledAutoTuneActionType = ScheduledAutoTuneActionType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

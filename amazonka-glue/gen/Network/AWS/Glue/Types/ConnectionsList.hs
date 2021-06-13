@@ -21,15 +21,16 @@ module Network.AWS.Glue.Types.ConnectionsList where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the connections used by a job.
 --
 -- /See:/ 'newConnectionsList' smart constructor.
 data ConnectionsList = ConnectionsList'
   { -- | A list of connections used by the job.
-    connections :: Core.Maybe [Core.Text]
+    connections :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectionsList' with all optional fields omitted.
@@ -43,11 +44,11 @@ data ConnectionsList = ConnectionsList'
 newConnectionsList ::
   ConnectionsList
 newConnectionsList =
-  ConnectionsList' {connections = Core.Nothing}
+  ConnectionsList' {connections = Prelude.Nothing}
 
 -- | A list of connections used by the job.
-connectionsList_connections :: Lens.Lens' ConnectionsList (Core.Maybe [Core.Text])
-connectionsList_connections = Lens.lens (\ConnectionsList' {connections} -> connections) (\s@ConnectionsList' {} a -> s {connections = a} :: ConnectionsList) Core.. Lens.mapping Lens._Coerce
+connectionsList_connections :: Lens.Lens' ConnectionsList (Prelude.Maybe [Prelude.Text])
+connectionsList_connections = Lens.lens (\ConnectionsList' {connections} -> connections) (\s@ConnectionsList' {} a -> s {connections = a} :: ConnectionsList) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ConnectionsList where
   parseJSON =
@@ -55,16 +56,16 @@ instance Core.FromJSON ConnectionsList where
       "ConnectionsList"
       ( \x ->
           ConnectionsList'
-            Core.<$> (x Core..:? "Connections" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Connections" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ConnectionsList
+instance Prelude.Hashable ConnectionsList
 
-instance Core.NFData ConnectionsList
+instance Prelude.NFData ConnectionsList
 
 instance Core.ToJSON ConnectionsList where
   toJSON ConnectionsList' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Connections" Core..=) Core.<$> connections]
+      ( Prelude.catMaybes
+          [("Connections" Core..=) Prelude.<$> connections]
       )

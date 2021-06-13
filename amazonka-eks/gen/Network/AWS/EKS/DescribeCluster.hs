@@ -50,15 +50,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeCluster' smart constructor.
 data DescribeCluster = DescribeCluster'
   { -- | The name of the cluster to describe.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCluster' with all optional fields omitted.
@@ -71,13 +72,13 @@ data DescribeCluster = DescribeCluster'
 -- 'name', 'describeCluster_name' - The name of the cluster to describe.
 newDescribeCluster ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DescribeCluster
 newDescribeCluster pName_ =
   DescribeCluster' {name = pName_}
 
 -- | The name of the cluster to describe.
-describeCluster_name :: Lens.Lens' DescribeCluster Core.Text
+describeCluster_name :: Lens.Lens' DescribeCluster Prelude.Text
 describeCluster_name = Lens.lens (\DescribeCluster' {name} -> name) (\s@DescribeCluster' {} a -> s {name = a} :: DescribeCluster)
 
 instance Core.AWSRequest DescribeCluster where
@@ -89,38 +90,40 @@ instance Core.AWSRequest DescribeCluster where
     Response.receiveJSON
       ( \s h x ->
           DescribeClusterResponse'
-            Core.<$> (x Core..?> "cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeCluster
+instance Prelude.Hashable DescribeCluster
 
-instance Core.NFData DescribeCluster
+instance Prelude.NFData DescribeCluster
 
 instance Core.ToHeaders DescribeCluster where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeCluster where
   toPath DescribeCluster' {..} =
-    Core.mconcat ["/clusters/", Core.toBS name]
+    Prelude.mconcat ["/clusters/", Core.toBS name]
 
 instance Core.ToQuery DescribeCluster where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
   { -- | The full description of your specified cluster.
-    cluster :: Core.Maybe Cluster,
+    cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterResponse' with all optional fields omitted.
@@ -135,20 +138,20 @@ data DescribeClusterResponse = DescribeClusterResponse'
 -- 'httpStatus', 'describeClusterResponse_httpStatus' - The response's http status code.
 newDescribeClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeClusterResponse
 newDescribeClusterResponse pHttpStatus_ =
   DescribeClusterResponse'
-    { cluster = Core.Nothing,
+    { cluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of your specified cluster.
-describeClusterResponse_cluster :: Lens.Lens' DescribeClusterResponse (Core.Maybe Cluster)
+describeClusterResponse_cluster :: Lens.Lens' DescribeClusterResponse (Prelude.Maybe Cluster)
 describeClusterResponse_cluster = Lens.lens (\DescribeClusterResponse' {cluster} -> cluster) (\s@DescribeClusterResponse' {} a -> s {cluster = a} :: DescribeClusterResponse)
 
 -- | The response's http status code.
-describeClusterResponse_httpStatus :: Lens.Lens' DescribeClusterResponse Core.Int
+describeClusterResponse_httpStatus :: Lens.Lens' DescribeClusterResponse Prelude.Int
 describeClusterResponse_httpStatus = Lens.lens (\DescribeClusterResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterResponse' {} a -> s {httpStatus = a} :: DescribeClusterResponse)
 
-instance Core.NFData DescribeClusterResponse
+instance Prelude.NFData DescribeClusterResponse

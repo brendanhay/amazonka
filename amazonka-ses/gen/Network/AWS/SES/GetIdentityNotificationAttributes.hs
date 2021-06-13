@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -63,9 +64,9 @@ data GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
     -- its name or by using its Amazon Resource Name (ARN). Examples:
     -- @user\@example.com@, @example.com@,
     -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
-    identities :: [Core.Text]
+    identities :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIdentityNotificationAttributes' with all optional fields omitted.
@@ -84,15 +85,15 @@ newGetIdentityNotificationAttributes ::
 newGetIdentityNotificationAttributes =
   GetIdentityNotificationAttributes'
     { identities =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of one or more identities. You can specify an identity by using
 -- its name or by using its Amazon Resource Name (ARN). Examples:
 -- @user\@example.com@, @example.com@,
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
-getIdentityNotificationAttributes_identities :: Lens.Lens' GetIdentityNotificationAttributes [Core.Text]
-getIdentityNotificationAttributes_identities = Lens.lens (\GetIdentityNotificationAttributes' {identities} -> identities) (\s@GetIdentityNotificationAttributes' {} a -> s {identities = a} :: GetIdentityNotificationAttributes) Core.. Lens._Coerce
+getIdentityNotificationAttributes_identities :: Lens.Lens' GetIdentityNotificationAttributes [Prelude.Text]
+getIdentityNotificationAttributes_identities = Lens.lens (\GetIdentityNotificationAttributes' {identities} -> identities) (\s@GetIdentityNotificationAttributes' {} a -> s {identities = a} :: GetIdentityNotificationAttributes) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -107,44 +108,45 @@ instance
       "GetIdentityNotificationAttributesResult"
       ( \s h x ->
           GetIdentityNotificationAttributesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "NotificationAttributes"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLMap "entry" "key" "value"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> ( x Core..@? "NotificationAttributes"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.parseXMLMap "entry" "key" "value"
+                          )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetIdentityNotificationAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetIdentityNotificationAttributes
 
 instance
   Core.ToHeaders
     GetIdentityNotificationAttributes
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     GetIdentityNotificationAttributes
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetIdentityNotificationAttributes
   where
   toQuery GetIdentityNotificationAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "GetIdentityNotificationAttributes" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Identities"
           Core.=: Core.toQueryList "member" identities
       ]
@@ -154,11 +156,11 @@ instance
 -- /See:/ 'newGetIdentityNotificationAttributesResponse' smart constructor.
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A map of Identity to IdentityNotificationAttributes.
-    notificationAttributes :: Core.HashMap Core.Text IdentityNotificationAttributes
+    notificationAttributes :: Prelude.HashMap Prelude.Text IdentityNotificationAttributes
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIdentityNotificationAttributesResponse' with all optional fields omitted.
@@ -173,7 +175,7 @@ data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttribut
 -- 'notificationAttributes', 'getIdentityNotificationAttributesResponse_notificationAttributes' - A map of Identity to IdentityNotificationAttributes.
 newGetIdentityNotificationAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetIdentityNotificationAttributesResponse
 newGetIdentityNotificationAttributesResponse
   pHttpStatus_ =
@@ -181,17 +183,17 @@ newGetIdentityNotificationAttributesResponse
       { httpStatus =
           pHttpStatus_,
         notificationAttributes =
-          Core.mempty
+          Prelude.mempty
       }
 
 -- | The response's http status code.
-getIdentityNotificationAttributesResponse_httpStatus :: Lens.Lens' GetIdentityNotificationAttributesResponse Core.Int
+getIdentityNotificationAttributesResponse_httpStatus :: Lens.Lens' GetIdentityNotificationAttributesResponse Prelude.Int
 getIdentityNotificationAttributesResponse_httpStatus = Lens.lens (\GetIdentityNotificationAttributesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityNotificationAttributesResponse' {} a -> s {httpStatus = a} :: GetIdentityNotificationAttributesResponse)
 
 -- | A map of Identity to IdentityNotificationAttributes.
-getIdentityNotificationAttributesResponse_notificationAttributes :: Lens.Lens' GetIdentityNotificationAttributesResponse (Core.HashMap Core.Text IdentityNotificationAttributes)
-getIdentityNotificationAttributesResponse_notificationAttributes = Lens.lens (\GetIdentityNotificationAttributesResponse' {notificationAttributes} -> notificationAttributes) (\s@GetIdentityNotificationAttributesResponse' {} a -> s {notificationAttributes = a} :: GetIdentityNotificationAttributesResponse) Core.. Lens._Coerce
+getIdentityNotificationAttributesResponse_notificationAttributes :: Lens.Lens' GetIdentityNotificationAttributesResponse (Prelude.HashMap Prelude.Text IdentityNotificationAttributes)
+getIdentityNotificationAttributesResponse_notificationAttributes = Lens.lens (\GetIdentityNotificationAttributesResponse' {notificationAttributes} -> notificationAttributes) (\s@GetIdentityNotificationAttributesResponse' {} a -> s {notificationAttributes = a} :: GetIdentityNotificationAttributesResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetIdentityNotificationAttributesResponse

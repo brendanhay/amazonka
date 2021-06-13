@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ImportExport.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +59,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { maxJobs :: Core.Maybe Core.Int,
-    aPIVersion :: Core.Maybe Core.Text,
-    marker :: Core.Maybe Core.Text
+  { maxJobs :: Prelude.Maybe Prelude.Int,
+    aPIVersion :: Prelude.Maybe Prelude.Text,
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobs' with all optional fields omitted.
@@ -81,45 +82,45 @@ newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { maxJobs = Core.Nothing,
-      aPIVersion = Core.Nothing,
-      marker = Core.Nothing
+    { maxJobs = Prelude.Nothing,
+      aPIVersion = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Undocumented member.
-listJobs_maxJobs :: Lens.Lens' ListJobs (Core.Maybe Core.Int)
+listJobs_maxJobs :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Int)
 listJobs_maxJobs = Lens.lens (\ListJobs' {maxJobs} -> maxJobs) (\s@ListJobs' {} a -> s {maxJobs = a} :: ListJobs)
 
 -- | Undocumented member.
-listJobs_aPIVersion :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+listJobs_aPIVersion :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_aPIVersion = Lens.lens (\ListJobs' {aPIVersion} -> aPIVersion) (\s@ListJobs' {} a -> s {aPIVersion = a} :: ListJobs)
 
 -- | Undocumented member.
-listJobs_marker :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+listJobs_marker :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_marker = Lens.lens (\ListJobs' {marker} -> marker) (\s@ListJobs' {} a -> s {marker = a} :: ListJobs)
 
 instance Core.AWSPager ListJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listJobsResponse_isTruncated Core.. Lens._Just
+            Lens.^? listJobsResponse_isTruncated Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listJobsResponse_jobs Core.. Lens._Just
-              Core.. Lens._last
-              Core.. job_jobId
+            Lens.^? listJobsResponse_jobs Prelude.. Lens._Just
+              Prelude.. Lens._last
+              Prelude.. job_jobId
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listJobs_marker
+          Prelude.& listJobs_marker
           Lens..~ rs
-          Lens.^? listJobsResponse_jobs Core.. Lens._Just
-            Core.. Lens._last
-            Core.. job_jobId
+          Lens.^? listJobsResponse_jobs Prelude.. Lens._Just
+            Prelude.. Lens._last
+            Prelude.. job_jobId
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -129,29 +130,30 @@ instance Core.AWSRequest ListJobs where
       "ListJobsResult"
       ( \s h x ->
           ListJobsResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> ( x Core..@? "Jobs" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> ( x Core..@? "Jobs" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListJobs
+instance Prelude.Hashable ListJobs
 
-instance Core.NFData ListJobs
+instance Prelude.NFData ListJobs
 
 instance Core.ToHeaders ListJobs where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListJobs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListJobs where
   toQuery ListJobs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Operation=ListJobs",
-        "Action" Core.=: ("ListJobs" :: Core.ByteString),
-        "Version" Core.=: ("2010-06-01" :: Core.ByteString),
+        "Action" Core.=: ("ListJobs" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-06-01" :: Prelude.ByteString),
         "MaxJobs" Core.=: maxJobs,
         "APIVersion" Core.=: aPIVersion,
         "Marker" Core.=: marker
@@ -161,12 +163,12 @@ instance Core.ToQuery ListJobs where
 --
 -- /See:/ 'newListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { isTruncated :: Core.Maybe Core.Bool,
-    jobs :: Core.Maybe [Job],
+  { isTruncated :: Prelude.Maybe Prelude.Bool,
+    jobs :: Prelude.Maybe [Job],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobsResponse' with all optional fields omitted.
@@ -183,25 +185,25 @@ data ListJobsResponse = ListJobsResponse'
 -- 'httpStatus', 'listJobsResponse_httpStatus' - The response's http status code.
 newListJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListJobsResponse
 newListJobsResponse pHttpStatus_ =
   ListJobsResponse'
-    { isTruncated = Core.Nothing,
-      jobs = Core.Nothing,
+    { isTruncated = Prelude.Nothing,
+      jobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listJobsResponse_isTruncated :: Lens.Lens' ListJobsResponse (Core.Maybe Core.Bool)
+listJobsResponse_isTruncated :: Lens.Lens' ListJobsResponse (Prelude.Maybe Prelude.Bool)
 listJobsResponse_isTruncated = Lens.lens (\ListJobsResponse' {isTruncated} -> isTruncated) (\s@ListJobsResponse' {} a -> s {isTruncated = a} :: ListJobsResponse)
 
 -- | Undocumented member.
-listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Core.Maybe [Job])
-listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Core.. Lens.mapping Lens._Coerce
+listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [Job])
+listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Core.Int
+listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int
 listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> httpStatus) (\s@ListJobsResponse' {} a -> s {httpStatus = a} :: ListJobsResponse)
 
-instance Core.NFData ListJobsResponse
+instance Prelude.NFData ListJobsResponse

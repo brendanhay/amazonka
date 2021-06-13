@@ -44,19 +44,20 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateGatewayGroup' smart constructor.
 data UpdateGatewayGroup = UpdateGatewayGroup'
   { -- | The updated name of the gateway group.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The updated description of the gateway group.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the gateway group to update.
-    gatewayGroupArn :: Core.Text
+    gatewayGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGatewayGroup' with all optional fields omitted.
@@ -73,25 +74,25 @@ data UpdateGatewayGroup = UpdateGatewayGroup'
 -- 'gatewayGroupArn', 'updateGatewayGroup_gatewayGroupArn' - The ARN of the gateway group to update.
 newUpdateGatewayGroup ::
   -- | 'gatewayGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateGatewayGroup
 newUpdateGatewayGroup pGatewayGroupArn_ =
   UpdateGatewayGroup'
-    { name = Core.Nothing,
-      description = Core.Nothing,
+    { name = Prelude.Nothing,
+      description = Prelude.Nothing,
       gatewayGroupArn = pGatewayGroupArn_
     }
 
 -- | The updated name of the gateway group.
-updateGatewayGroup_name :: Lens.Lens' UpdateGatewayGroup (Core.Maybe Core.Text)
+updateGatewayGroup_name :: Lens.Lens' UpdateGatewayGroup (Prelude.Maybe Prelude.Text)
 updateGatewayGroup_name = Lens.lens (\UpdateGatewayGroup' {name} -> name) (\s@UpdateGatewayGroup' {} a -> s {name = a} :: UpdateGatewayGroup)
 
 -- | The updated description of the gateway group.
-updateGatewayGroup_description :: Lens.Lens' UpdateGatewayGroup (Core.Maybe Core.Text)
+updateGatewayGroup_description :: Lens.Lens' UpdateGatewayGroup (Prelude.Maybe Prelude.Text)
 updateGatewayGroup_description = Lens.lens (\UpdateGatewayGroup' {description} -> description) (\s@UpdateGatewayGroup' {} a -> s {description = a} :: UpdateGatewayGroup)
 
 -- | The ARN of the gateway group to update.
-updateGatewayGroup_gatewayGroupArn :: Lens.Lens' UpdateGatewayGroup Core.Text
+updateGatewayGroup_gatewayGroupArn :: Lens.Lens' UpdateGatewayGroup Prelude.Text
 updateGatewayGroup_gatewayGroupArn = Lens.lens (\UpdateGatewayGroup' {gatewayGroupArn} -> gatewayGroupArn) (\s@UpdateGatewayGroup' {} a -> s {gatewayGroupArn = a} :: UpdateGatewayGroup)
 
 instance Core.AWSRequest UpdateGatewayGroup where
@@ -103,49 +104,51 @@ instance Core.AWSRequest UpdateGatewayGroup where
     Response.receiveEmpty
       ( \s h x ->
           UpdateGatewayGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateGatewayGroup
+instance Prelude.Hashable UpdateGatewayGroup
 
-instance Core.NFData UpdateGatewayGroup
+instance Prelude.NFData UpdateGatewayGroup
 
 instance Core.ToHeaders UpdateGatewayGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.UpdateGatewayGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateGatewayGroup where
   toJSON UpdateGatewayGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just
               ("GatewayGroupArn" Core..= gatewayGroupArn)
           ]
       )
 
 instance Core.ToPath UpdateGatewayGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateGatewayGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGatewayGroupResponse' smart constructor.
 data UpdateGatewayGroupResponse = UpdateGatewayGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGatewayGroupResponse' with all optional fields omitted.
@@ -158,7 +161,7 @@ data UpdateGatewayGroupResponse = UpdateGatewayGroupResponse'
 -- 'httpStatus', 'updateGatewayGroupResponse_httpStatus' - The response's http status code.
 newUpdateGatewayGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateGatewayGroupResponse
 newUpdateGatewayGroupResponse pHttpStatus_ =
   UpdateGatewayGroupResponse'
@@ -167,7 +170,7 @@ newUpdateGatewayGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateGatewayGroupResponse_httpStatus :: Lens.Lens' UpdateGatewayGroupResponse Core.Int
+updateGatewayGroupResponse_httpStatus :: Lens.Lens' UpdateGatewayGroupResponse Prelude.Int
 updateGatewayGroupResponse_httpStatus = Lens.lens (\UpdateGatewayGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateGatewayGroupResponse' {} a -> s {httpStatus = a} :: UpdateGatewayGroupResponse)
 
-instance Core.NFData UpdateGatewayGroupResponse
+instance Prelude.NFData UpdateGatewayGroupResponse

@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -57,13 +58,13 @@ data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
-    productId :: Core.Text,
+    productId :: Prelude.Text,
     -- | The portfolio identifier.
-    portfolioId :: Core.Text
+    portfolioId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateProductFromPortfolio' with all optional fields omitted.
@@ -86,16 +87,16 @@ data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
 -- 'portfolioId', 'disassociateProductFromPortfolio_portfolioId' - The portfolio identifier.
 newDisassociateProductFromPortfolio ::
   -- | 'productId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'portfolioId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateProductFromPortfolio
 newDisassociateProductFromPortfolio
   pProductId_
   pPortfolioId_ =
     DisassociateProductFromPortfolio'
       { acceptLanguage =
-          Core.Nothing,
+          Prelude.Nothing,
         productId = pProductId_,
         portfolioId = pPortfolioId_
       }
@@ -107,15 +108,15 @@ newDisassociateProductFromPortfolio
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-disassociateProductFromPortfolio_acceptLanguage :: Lens.Lens' DisassociateProductFromPortfolio (Core.Maybe Core.Text)
+disassociateProductFromPortfolio_acceptLanguage :: Lens.Lens' DisassociateProductFromPortfolio (Prelude.Maybe Prelude.Text)
 disassociateProductFromPortfolio_acceptLanguage = Lens.lens (\DisassociateProductFromPortfolio' {acceptLanguage} -> acceptLanguage) (\s@DisassociateProductFromPortfolio' {} a -> s {acceptLanguage = a} :: DisassociateProductFromPortfolio)
 
 -- | The product identifier.
-disassociateProductFromPortfolio_productId :: Lens.Lens' DisassociateProductFromPortfolio Core.Text
+disassociateProductFromPortfolio_productId :: Lens.Lens' DisassociateProductFromPortfolio Prelude.Text
 disassociateProductFromPortfolio_productId = Lens.lens (\DisassociateProductFromPortfolio' {productId} -> productId) (\s@DisassociateProductFromPortfolio' {} a -> s {productId = a} :: DisassociateProductFromPortfolio)
 
 -- | The portfolio identifier.
-disassociateProductFromPortfolio_portfolioId :: Lens.Lens' DisassociateProductFromPortfolio Core.Text
+disassociateProductFromPortfolio_portfolioId :: Lens.Lens' DisassociateProductFromPortfolio Prelude.Text
 disassociateProductFromPortfolio_portfolioId = Lens.lens (\DisassociateProductFromPortfolio' {portfolioId} -> portfolioId) (\s@DisassociateProductFromPortfolio' {} a -> s {portfolioId = a} :: DisassociateProductFromPortfolio)
 
 instance
@@ -130,56 +131,61 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DisassociateProductFromPortfolioResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisassociateProductFromPortfolio
 
-instance Core.NFData DisassociateProductFromPortfolio
+instance
+  Prelude.NFData
+    DisassociateProductFromPortfolio
 
 instance
   Core.ToHeaders
     DisassociateProductFromPortfolio
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DisassociateProductFromPortfolio" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateProductFromPortfolio where
   toJSON DisassociateProductFromPortfolio' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("ProductId" Core..= productId),
-            Core.Just ("PortfolioId" Core..= portfolioId)
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("ProductId" Core..= productId),
+            Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
 instance Core.ToPath DisassociateProductFromPortfolio where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DisassociateProductFromPortfolio
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateProductFromPortfolioResponse' smart constructor.
 data DisassociateProductFromPortfolioResponse = DisassociateProductFromPortfolioResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateProductFromPortfolioResponse' with all optional fields omitted.
@@ -192,7 +198,7 @@ data DisassociateProductFromPortfolioResponse = DisassociateProductFromPortfolio
 -- 'httpStatus', 'disassociateProductFromPortfolioResponse_httpStatus' - The response's http status code.
 newDisassociateProductFromPortfolioResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateProductFromPortfolioResponse
 newDisassociateProductFromPortfolioResponse
   pHttpStatus_ =
@@ -202,9 +208,9 @@ newDisassociateProductFromPortfolioResponse
       }
 
 -- | The response's http status code.
-disassociateProductFromPortfolioResponse_httpStatus :: Lens.Lens' DisassociateProductFromPortfolioResponse Core.Int
+disassociateProductFromPortfolioResponse_httpStatus :: Lens.Lens' DisassociateProductFromPortfolioResponse Prelude.Int
 disassociateProductFromPortfolioResponse_httpStatus = Lens.lens (\DisassociateProductFromPortfolioResponse' {httpStatus} -> httpStatus) (\s@DisassociateProductFromPortfolioResponse' {} a -> s {httpStatus = a} :: DisassociateProductFromPortfolioResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateProductFromPortfolioResponse

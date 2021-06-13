@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,21 +56,21 @@ data UpdateFilter = UpdateFilter'
   { -- | Specifies the position of the filter in the list of current filters.
     -- Also specifies the order in which this filter is applied to the
     -- findings.
-    rank :: Core.Maybe Core.Natural,
+    rank :: Prelude.Maybe Prelude.Natural,
     -- | Represents the criteria to be used in the filter for querying findings.
-    findingCriteria :: Core.Maybe FindingCriteria,
+    findingCriteria :: Prelude.Maybe FindingCriteria,
     -- | Specifies the action that is to be applied to the findings that match
     -- the filter.
-    action :: Core.Maybe FilterAction,
+    action :: Prelude.Maybe FilterAction,
     -- | The description of the filter.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the detector that specifies the GuardDuty service where
     -- you want to update a filter.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | The name of the filter.
-    filterName :: Core.Text
+    filterName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFilter' with all optional fields omitted.
@@ -96,16 +97,16 @@ data UpdateFilter = UpdateFilter'
 -- 'filterName', 'updateFilter_filterName' - The name of the filter.
 newUpdateFilter ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filterName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFilter
 newUpdateFilter pDetectorId_ pFilterName_ =
   UpdateFilter'
-    { rank = Core.Nothing,
-      findingCriteria = Core.Nothing,
-      action = Core.Nothing,
-      description = Core.Nothing,
+    { rank = Prelude.Nothing,
+      findingCriteria = Prelude.Nothing,
+      action = Prelude.Nothing,
+      description = Prelude.Nothing,
       detectorId = pDetectorId_,
       filterName = pFilterName_
     }
@@ -113,29 +114,29 @@ newUpdateFilter pDetectorId_ pFilterName_ =
 -- | Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
 -- findings.
-updateFilter_rank :: Lens.Lens' UpdateFilter (Core.Maybe Core.Natural)
+updateFilter_rank :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Natural)
 updateFilter_rank = Lens.lens (\UpdateFilter' {rank} -> rank) (\s@UpdateFilter' {} a -> s {rank = a} :: UpdateFilter)
 
 -- | Represents the criteria to be used in the filter for querying findings.
-updateFilter_findingCriteria :: Lens.Lens' UpdateFilter (Core.Maybe FindingCriteria)
+updateFilter_findingCriteria :: Lens.Lens' UpdateFilter (Prelude.Maybe FindingCriteria)
 updateFilter_findingCriteria = Lens.lens (\UpdateFilter' {findingCriteria} -> findingCriteria) (\s@UpdateFilter' {} a -> s {findingCriteria = a} :: UpdateFilter)
 
 -- | Specifies the action that is to be applied to the findings that match
 -- the filter.
-updateFilter_action :: Lens.Lens' UpdateFilter (Core.Maybe FilterAction)
+updateFilter_action :: Lens.Lens' UpdateFilter (Prelude.Maybe FilterAction)
 updateFilter_action = Lens.lens (\UpdateFilter' {action} -> action) (\s@UpdateFilter' {} a -> s {action = a} :: UpdateFilter)
 
 -- | The description of the filter.
-updateFilter_description :: Lens.Lens' UpdateFilter (Core.Maybe Core.Text)
+updateFilter_description :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Text)
 updateFilter_description = Lens.lens (\UpdateFilter' {description} -> description) (\s@UpdateFilter' {} a -> s {description = a} :: UpdateFilter)
 
 -- | The unique ID of the detector that specifies the GuardDuty service where
 -- you want to update a filter.
-updateFilter_detectorId :: Lens.Lens' UpdateFilter Core.Text
+updateFilter_detectorId :: Lens.Lens' UpdateFilter Prelude.Text
 updateFilter_detectorId = Lens.lens (\UpdateFilter' {detectorId} -> detectorId) (\s@UpdateFilter' {} a -> s {detectorId = a} :: UpdateFilter)
 
 -- | The name of the filter.
-updateFilter_filterName :: Lens.Lens' UpdateFilter Core.Text
+updateFilter_filterName :: Lens.Lens' UpdateFilter Prelude.Text
 updateFilter_filterName = Lens.lens (\UpdateFilter' {filterName} -> filterName) (\s@UpdateFilter' {} a -> s {filterName = a} :: UpdateFilter)
 
 instance Core.AWSRequest UpdateFilter where
@@ -145,37 +146,40 @@ instance Core.AWSRequest UpdateFilter where
     Response.receiveJSON
       ( \s h x ->
           UpdateFilterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "name")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "name")
       )
 
-instance Core.Hashable UpdateFilter
+instance Prelude.Hashable UpdateFilter
 
-instance Core.NFData UpdateFilter
+instance Prelude.NFData UpdateFilter
 
 instance Core.ToHeaders UpdateFilter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateFilter where
   toJSON UpdateFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("rank" Core..=) Core.<$> rank,
-            ("findingCriteria" Core..=) Core.<$> findingCriteria,
-            ("action" Core..=) Core.<$> action,
-            ("description" Core..=) Core.<$> description
+      ( Prelude.catMaybes
+          [ ("rank" Core..=) Prelude.<$> rank,
+            ("findingCriteria" Core..=)
+              Prelude.<$> findingCriteria,
+            ("action" Core..=) Prelude.<$> action,
+            ("description" Core..=) Prelude.<$> description
           ]
       )
 
 instance Core.ToPath UpdateFilter where
   toPath UpdateFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/filter/",
@@ -183,16 +187,16 @@ instance Core.ToPath UpdateFilter where
       ]
 
 instance Core.ToQuery UpdateFilter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFilterResponse' smart constructor.
 data UpdateFilterResponse = UpdateFilterResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The name of the filter.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFilterResponse' with all optional fields omitted.
@@ -207,9 +211,9 @@ data UpdateFilterResponse = UpdateFilterResponse'
 -- 'name', 'updateFilterResponse_name' - The name of the filter.
 newUpdateFilterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFilterResponse
 newUpdateFilterResponse pHttpStatus_ pName_ =
   UpdateFilterResponse'
@@ -218,11 +222,11 @@ newUpdateFilterResponse pHttpStatus_ pName_ =
     }
 
 -- | The response's http status code.
-updateFilterResponse_httpStatus :: Lens.Lens' UpdateFilterResponse Core.Int
+updateFilterResponse_httpStatus :: Lens.Lens' UpdateFilterResponse Prelude.Int
 updateFilterResponse_httpStatus = Lens.lens (\UpdateFilterResponse' {httpStatus} -> httpStatus) (\s@UpdateFilterResponse' {} a -> s {httpStatus = a} :: UpdateFilterResponse)
 
 -- | The name of the filter.
-updateFilterResponse_name :: Lens.Lens' UpdateFilterResponse Core.Text
+updateFilterResponse_name :: Lens.Lens' UpdateFilterResponse Prelude.Text
 updateFilterResponse_name = Lens.lens (\UpdateFilterResponse' {name} -> name) (\s@UpdateFilterResponse' {} a -> s {name = a} :: UpdateFilterResponse)
 
-instance Core.NFData UpdateFilterResponse
+instance Prelude.NFData UpdateFilterResponse

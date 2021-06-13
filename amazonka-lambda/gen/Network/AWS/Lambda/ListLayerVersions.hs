@@ -53,21 +53,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListLayerVersions' smart constructor.
 data ListLayerVersions = ListLayerVersions'
   { -- | The maximum number of versions to return.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | A runtime identifier. For example, @go1.x@.
-    compatibleRuntime :: Core.Maybe Runtime,
+    compatibleRuntime :: Prelude.Maybe Runtime,
     -- | A pagination token returned by a previous call.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Core.Text
+    layerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLayerVersions' with all optional fields omitted.
@@ -86,30 +87,30 @@ data ListLayerVersions = ListLayerVersions'
 -- 'layerName', 'listLayerVersions_layerName' - The name or Amazon Resource Name (ARN) of the layer.
 newListLayerVersions ::
   -- | 'layerName'
-  Core.Text ->
+  Prelude.Text ->
   ListLayerVersions
 newListLayerVersions pLayerName_ =
   ListLayerVersions'
-    { maxItems = Core.Nothing,
-      compatibleRuntime = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems = Prelude.Nothing,
+      compatibleRuntime = Prelude.Nothing,
+      marker = Prelude.Nothing,
       layerName = pLayerName_
     }
 
 -- | The maximum number of versions to return.
-listLayerVersions_maxItems :: Lens.Lens' ListLayerVersions (Core.Maybe Core.Natural)
+listLayerVersions_maxItems :: Lens.Lens' ListLayerVersions (Prelude.Maybe Prelude.Natural)
 listLayerVersions_maxItems = Lens.lens (\ListLayerVersions' {maxItems} -> maxItems) (\s@ListLayerVersions' {} a -> s {maxItems = a} :: ListLayerVersions)
 
 -- | A runtime identifier. For example, @go1.x@.
-listLayerVersions_compatibleRuntime :: Lens.Lens' ListLayerVersions (Core.Maybe Runtime)
+listLayerVersions_compatibleRuntime :: Lens.Lens' ListLayerVersions (Prelude.Maybe Runtime)
 listLayerVersions_compatibleRuntime = Lens.lens (\ListLayerVersions' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayerVersions' {} a -> s {compatibleRuntime = a} :: ListLayerVersions)
 
 -- | A pagination token returned by a previous call.
-listLayerVersions_marker :: Lens.Lens' ListLayerVersions (Core.Maybe Core.Text)
+listLayerVersions_marker :: Lens.Lens' ListLayerVersions (Prelude.Maybe Prelude.Text)
 listLayerVersions_marker = Lens.lens (\ListLayerVersions' {marker} -> marker) (\s@ListLayerVersions' {} a -> s {marker = a} :: ListLayerVersions)
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
-listLayerVersions_layerName :: Lens.Lens' ListLayerVersions Core.Text
+listLayerVersions_layerName :: Lens.Lens' ListLayerVersions Prelude.Text
 listLayerVersions_layerName = Lens.lens (\ListLayerVersions' {layerName} -> layerName) (\s@ListLayerVersions' {} a -> s {layerName = a} :: ListLayerVersions)
 
 instance Core.AWSPager ListLayerVersions where
@@ -117,22 +118,22 @@ instance Core.AWSPager ListLayerVersions where
     | Core.stop
         ( rs
             Lens.^? listLayerVersionsResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLayerVersionsResponse_layerVersions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listLayerVersions_marker
+          Prelude.& listLayerVersions_marker
           Lens..~ rs
           Lens.^? listLayerVersionsResponse_nextMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLayerVersions where
   type
@@ -143,21 +144,21 @@ instance Core.AWSRequest ListLayerVersions where
     Response.receiveJSON
       ( \s h x ->
           ListLayerVersionsResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "LayerVersions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "LayerVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListLayerVersions
+instance Prelude.Hashable ListLayerVersions
 
-instance Core.NFData ListLayerVersions
+instance Prelude.NFData ListLayerVersions
 
 instance Core.ToHeaders ListLayerVersions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListLayerVersions where
   toPath ListLayerVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2018-10-31/layers/",
         Core.toBS layerName,
         "/versions"
@@ -165,7 +166,7 @@ instance Core.ToPath ListLayerVersions where
 
 instance Core.ToQuery ListLayerVersions where
   toQuery ListLayerVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
         "CompatibleRuntime" Core.=: compatibleRuntime,
         "Marker" Core.=: marker
@@ -175,13 +176,13 @@ instance Core.ToQuery ListLayerVersions where
 data ListLayerVersionsResponse = ListLayerVersionsResponse'
   { -- | A pagination token returned when the response doesn\'t contain all
     -- versions.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | A list of versions.
-    layerVersions :: Core.Maybe [LayerVersionsListItem],
+    layerVersions :: Prelude.Maybe [LayerVersionsListItem],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLayerVersionsResponse' with all optional fields omitted.
@@ -199,27 +200,27 @@ data ListLayerVersionsResponse = ListLayerVersionsResponse'
 -- 'httpStatus', 'listLayerVersionsResponse_httpStatus' - The response's http status code.
 newListLayerVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListLayerVersionsResponse
 newListLayerVersionsResponse pHttpStatus_ =
   ListLayerVersionsResponse'
     { nextMarker =
-        Core.Nothing,
-      layerVersions = Core.Nothing,
+        Prelude.Nothing,
+      layerVersions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A pagination token returned when the response doesn\'t contain all
 -- versions.
-listLayerVersionsResponse_nextMarker :: Lens.Lens' ListLayerVersionsResponse (Core.Maybe Core.Text)
+listLayerVersionsResponse_nextMarker :: Lens.Lens' ListLayerVersionsResponse (Prelude.Maybe Prelude.Text)
 listLayerVersionsResponse_nextMarker = Lens.lens (\ListLayerVersionsResponse' {nextMarker} -> nextMarker) (\s@ListLayerVersionsResponse' {} a -> s {nextMarker = a} :: ListLayerVersionsResponse)
 
 -- | A list of versions.
-listLayerVersionsResponse_layerVersions :: Lens.Lens' ListLayerVersionsResponse (Core.Maybe [LayerVersionsListItem])
-listLayerVersionsResponse_layerVersions = Lens.lens (\ListLayerVersionsResponse' {layerVersions} -> layerVersions) (\s@ListLayerVersionsResponse' {} a -> s {layerVersions = a} :: ListLayerVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listLayerVersionsResponse_layerVersions :: Lens.Lens' ListLayerVersionsResponse (Prelude.Maybe [LayerVersionsListItem])
+listLayerVersionsResponse_layerVersions = Lens.lens (\ListLayerVersionsResponse' {layerVersions} -> layerVersions) (\s@ListLayerVersionsResponse' {} a -> s {layerVersions = a} :: ListLayerVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listLayerVersionsResponse_httpStatus :: Lens.Lens' ListLayerVersionsResponse Core.Int
+listLayerVersionsResponse_httpStatus :: Lens.Lens' ListLayerVersionsResponse Prelude.Int
 listLayerVersionsResponse_httpStatus = Lens.lens (\ListLayerVersionsResponse' {httpStatus} -> httpStatus) (\s@ListLayerVersionsResponse' {} a -> s {httpStatus = a} :: ListLayerVersionsResponse)
 
-instance Core.NFData ListLayerVersionsResponse
+instance Prelude.NFData ListLayerVersionsResponse

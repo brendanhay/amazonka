@@ -22,18 +22,19 @@ module Network.AWS.ElasticSearch.Types.DomainEndpointOptions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.TLSSecurityPolicy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Options to configure endpoint for the Elasticsearch domain.
 --
 -- /See:/ 'newDomainEndpointOptions' smart constructor.
 data DomainEndpointOptions = DomainEndpointOptions'
   { -- | Specify ACM certificate ARN for your custom endpoint.
-    customEndpointCertificateArn :: Core.Maybe Core.Text,
+    customEndpointCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | Specify the fully qualified domain for your custom endpoint.
-    customEndpoint :: Core.Maybe Core.Text,
+    customEndpoint :: Prelude.Maybe Prelude.Text,
     -- | Specify if only HTTPS endpoint should be enabled for the Elasticsearch
     -- domain.
-    enforceHTTPS :: Core.Maybe Core.Bool,
+    enforceHTTPS :: Prelude.Maybe Prelude.Bool,
     -- | Specify the TLS security policy that needs to be applied to the HTTPS
     -- endpoint of Elasticsearch domain.
     -- It can be one of the following values:
@@ -42,12 +43,12 @@ data DomainEndpointOptions = DomainEndpointOptions'
     --     TLSv1.0 and higher.
     -- -   __Policy-Min-TLS-1-2-2019-07:__ TLS security policy which supports
     --     only TLSv1.2
-    tLSSecurityPolicy :: Core.Maybe TLSSecurityPolicy,
+    tLSSecurityPolicy :: Prelude.Maybe TLSSecurityPolicy,
     -- | Specify if custom endpoint should be enabled for the Elasticsearch
     -- domain.
-    customEndpointEnabled :: Core.Maybe Core.Bool
+    customEndpointEnabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainEndpointOptions' with all optional fields omitted.
@@ -80,24 +81,24 @@ newDomainEndpointOptions ::
 newDomainEndpointOptions =
   DomainEndpointOptions'
     { customEndpointCertificateArn =
-        Core.Nothing,
-      customEndpoint = Core.Nothing,
-      enforceHTTPS = Core.Nothing,
-      tLSSecurityPolicy = Core.Nothing,
-      customEndpointEnabled = Core.Nothing
+        Prelude.Nothing,
+      customEndpoint = Prelude.Nothing,
+      enforceHTTPS = Prelude.Nothing,
+      tLSSecurityPolicy = Prelude.Nothing,
+      customEndpointEnabled = Prelude.Nothing
     }
 
 -- | Specify ACM certificate ARN for your custom endpoint.
-domainEndpointOptions_customEndpointCertificateArn :: Lens.Lens' DomainEndpointOptions (Core.Maybe Core.Text)
+domainEndpointOptions_customEndpointCertificateArn :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe Prelude.Text)
 domainEndpointOptions_customEndpointCertificateArn = Lens.lens (\DomainEndpointOptions' {customEndpointCertificateArn} -> customEndpointCertificateArn) (\s@DomainEndpointOptions' {} a -> s {customEndpointCertificateArn = a} :: DomainEndpointOptions)
 
 -- | Specify the fully qualified domain for your custom endpoint.
-domainEndpointOptions_customEndpoint :: Lens.Lens' DomainEndpointOptions (Core.Maybe Core.Text)
+domainEndpointOptions_customEndpoint :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe Prelude.Text)
 domainEndpointOptions_customEndpoint = Lens.lens (\DomainEndpointOptions' {customEndpoint} -> customEndpoint) (\s@DomainEndpointOptions' {} a -> s {customEndpoint = a} :: DomainEndpointOptions)
 
 -- | Specify if only HTTPS endpoint should be enabled for the Elasticsearch
 -- domain.
-domainEndpointOptions_enforceHTTPS :: Lens.Lens' DomainEndpointOptions (Core.Maybe Core.Bool)
+domainEndpointOptions_enforceHTTPS :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe Prelude.Bool)
 domainEndpointOptions_enforceHTTPS = Lens.lens (\DomainEndpointOptions' {enforceHTTPS} -> enforceHTTPS) (\s@DomainEndpointOptions' {} a -> s {enforceHTTPS = a} :: DomainEndpointOptions)
 
 -- | Specify the TLS security policy that needs to be applied to the HTTPS
@@ -108,12 +109,12 @@ domainEndpointOptions_enforceHTTPS = Lens.lens (\DomainEndpointOptions' {enforce
 --     TLSv1.0 and higher.
 -- -   __Policy-Min-TLS-1-2-2019-07:__ TLS security policy which supports
 --     only TLSv1.2
-domainEndpointOptions_tLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Core.Maybe TLSSecurityPolicy)
+domainEndpointOptions_tLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe TLSSecurityPolicy)
 domainEndpointOptions_tLSSecurityPolicy = Lens.lens (\DomainEndpointOptions' {tLSSecurityPolicy} -> tLSSecurityPolicy) (\s@DomainEndpointOptions' {} a -> s {tLSSecurityPolicy = a} :: DomainEndpointOptions)
 
 -- | Specify if custom endpoint should be enabled for the Elasticsearch
 -- domain.
-domainEndpointOptions_customEndpointEnabled :: Lens.Lens' DomainEndpointOptions (Core.Maybe Core.Bool)
+domainEndpointOptions_customEndpointEnabled :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe Prelude.Bool)
 domainEndpointOptions_customEndpointEnabled = Lens.lens (\DomainEndpointOptions' {customEndpointEnabled} -> customEndpointEnabled) (\s@DomainEndpointOptions' {} a -> s {customEndpointEnabled = a} :: DomainEndpointOptions)
 
 instance Core.FromJSON DomainEndpointOptions where
@@ -122,28 +123,29 @@ instance Core.FromJSON DomainEndpointOptions where
       "DomainEndpointOptions"
       ( \x ->
           DomainEndpointOptions'
-            Core.<$> (x Core..:? "CustomEndpointCertificateArn")
-            Core.<*> (x Core..:? "CustomEndpoint")
-            Core.<*> (x Core..:? "EnforceHTTPS")
-            Core.<*> (x Core..:? "TLSSecurityPolicy")
-            Core.<*> (x Core..:? "CustomEndpointEnabled")
+            Prelude.<$> (x Core..:? "CustomEndpointCertificateArn")
+            Prelude.<*> (x Core..:? "CustomEndpoint")
+            Prelude.<*> (x Core..:? "EnforceHTTPS")
+            Prelude.<*> (x Core..:? "TLSSecurityPolicy")
+            Prelude.<*> (x Core..:? "CustomEndpointEnabled")
       )
 
-instance Core.Hashable DomainEndpointOptions
+instance Prelude.Hashable DomainEndpointOptions
 
-instance Core.NFData DomainEndpointOptions
+instance Prelude.NFData DomainEndpointOptions
 
 instance Core.ToJSON DomainEndpointOptions where
   toJSON DomainEndpointOptions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CustomEndpointCertificateArn" Core..=)
-              Core.<$> customEndpointCertificateArn,
-            ("CustomEndpoint" Core..=) Core.<$> customEndpoint,
-            ("EnforceHTTPS" Core..=) Core.<$> enforceHTTPS,
+              Prelude.<$> customEndpointCertificateArn,
+            ("CustomEndpoint" Core..=)
+              Prelude.<$> customEndpoint,
+            ("EnforceHTTPS" Core..=) Prelude.<$> enforceHTTPS,
             ("TLSSecurityPolicy" Core..=)
-              Core.<$> tLSSecurityPolicy,
+              Prelude.<$> tLSSecurityPolicy,
             ("CustomEndpointEnabled" Core..=)
-              Core.<$> customEndpointEnabled
+              Prelude.<$> customEndpointEnabled
           ]
       )

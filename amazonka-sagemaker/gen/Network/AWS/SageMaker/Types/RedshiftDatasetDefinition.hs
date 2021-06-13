@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.RedshiftDatasetDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.RedshiftResultCompressionType
 import Network.AWS.SageMaker.Types.RedshiftResultFormat
 
@@ -28,22 +29,22 @@ import Network.AWS.SageMaker.Types.RedshiftResultFormat
 --
 -- /See:/ 'newRedshiftDatasetDefinition' smart constructor.
 data RedshiftDatasetDefinition = RedshiftDatasetDefinition'
-  { outputCompression :: Core.Maybe RedshiftResultCompressionType,
+  { outputCompression :: Prelude.Maybe RedshiftResultCompressionType,
     -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt data from a Redshift execution.
-    kmsKeyId :: Core.Maybe Core.Text,
-    clusterId :: Core.Text,
-    database :: Core.Text,
-    dbUser :: Core.Text,
-    queryString :: Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    clusterId :: Prelude.Text,
+    database :: Prelude.Text,
+    dbUser :: Prelude.Text,
+    queryString :: Prelude.Text,
     -- | The IAM role attached to your Redshift cluster that Amazon SageMaker
     -- uses to generate datasets.
-    clusterRoleArn :: Core.Text,
+    clusterRoleArn :: Prelude.Text,
     -- | The location in Amazon S3 where the Redshift query results are stored.
-    outputS3Uri :: Core.Text,
+    outputS3Uri :: Prelude.Text,
     outputFormat :: RedshiftResultFormat
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RedshiftDatasetDefinition' with all optional fields omitted.
@@ -74,17 +75,17 @@ data RedshiftDatasetDefinition = RedshiftDatasetDefinition'
 -- 'outputFormat', 'redshiftDatasetDefinition_outputFormat' - Undocumented member.
 newRedshiftDatasetDefinition ::
   -- | 'clusterId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'database'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dbUser'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'queryString'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clusterRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'outputS3Uri'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'outputFormat'
   RedshiftResultFormat ->
   RedshiftDatasetDefinition
@@ -98,8 +99,8 @@ newRedshiftDatasetDefinition
   pOutputFormat_ =
     RedshiftDatasetDefinition'
       { outputCompression =
-          Core.Nothing,
-        kmsKeyId = Core.Nothing,
+          Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         clusterId = pClusterId_,
         database = pDatabase_,
         dbUser = pDbUser_,
@@ -110,37 +111,37 @@ newRedshiftDatasetDefinition
       }
 
 -- | Undocumented member.
-redshiftDatasetDefinition_outputCompression :: Lens.Lens' RedshiftDatasetDefinition (Core.Maybe RedshiftResultCompressionType)
+redshiftDatasetDefinition_outputCompression :: Lens.Lens' RedshiftDatasetDefinition (Prelude.Maybe RedshiftResultCompressionType)
 redshiftDatasetDefinition_outputCompression = Lens.lens (\RedshiftDatasetDefinition' {outputCompression} -> outputCompression) (\s@RedshiftDatasetDefinition' {} a -> s {outputCompression = a} :: RedshiftDatasetDefinition)
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt data from a Redshift execution.
-redshiftDatasetDefinition_kmsKeyId :: Lens.Lens' RedshiftDatasetDefinition (Core.Maybe Core.Text)
+redshiftDatasetDefinition_kmsKeyId :: Lens.Lens' RedshiftDatasetDefinition (Prelude.Maybe Prelude.Text)
 redshiftDatasetDefinition_kmsKeyId = Lens.lens (\RedshiftDatasetDefinition' {kmsKeyId} -> kmsKeyId) (\s@RedshiftDatasetDefinition' {} a -> s {kmsKeyId = a} :: RedshiftDatasetDefinition)
 
 -- | Undocumented member.
-redshiftDatasetDefinition_clusterId :: Lens.Lens' RedshiftDatasetDefinition Core.Text
+redshiftDatasetDefinition_clusterId :: Lens.Lens' RedshiftDatasetDefinition Prelude.Text
 redshiftDatasetDefinition_clusterId = Lens.lens (\RedshiftDatasetDefinition' {clusterId} -> clusterId) (\s@RedshiftDatasetDefinition' {} a -> s {clusterId = a} :: RedshiftDatasetDefinition)
 
 -- | Undocumented member.
-redshiftDatasetDefinition_database :: Lens.Lens' RedshiftDatasetDefinition Core.Text
+redshiftDatasetDefinition_database :: Lens.Lens' RedshiftDatasetDefinition Prelude.Text
 redshiftDatasetDefinition_database = Lens.lens (\RedshiftDatasetDefinition' {database} -> database) (\s@RedshiftDatasetDefinition' {} a -> s {database = a} :: RedshiftDatasetDefinition)
 
 -- | Undocumented member.
-redshiftDatasetDefinition_dbUser :: Lens.Lens' RedshiftDatasetDefinition Core.Text
+redshiftDatasetDefinition_dbUser :: Lens.Lens' RedshiftDatasetDefinition Prelude.Text
 redshiftDatasetDefinition_dbUser = Lens.lens (\RedshiftDatasetDefinition' {dbUser} -> dbUser) (\s@RedshiftDatasetDefinition' {} a -> s {dbUser = a} :: RedshiftDatasetDefinition)
 
 -- | Undocumented member.
-redshiftDatasetDefinition_queryString :: Lens.Lens' RedshiftDatasetDefinition Core.Text
+redshiftDatasetDefinition_queryString :: Lens.Lens' RedshiftDatasetDefinition Prelude.Text
 redshiftDatasetDefinition_queryString = Lens.lens (\RedshiftDatasetDefinition' {queryString} -> queryString) (\s@RedshiftDatasetDefinition' {} a -> s {queryString = a} :: RedshiftDatasetDefinition)
 
 -- | The IAM role attached to your Redshift cluster that Amazon SageMaker
 -- uses to generate datasets.
-redshiftDatasetDefinition_clusterRoleArn :: Lens.Lens' RedshiftDatasetDefinition Core.Text
+redshiftDatasetDefinition_clusterRoleArn :: Lens.Lens' RedshiftDatasetDefinition Prelude.Text
 redshiftDatasetDefinition_clusterRoleArn = Lens.lens (\RedshiftDatasetDefinition' {clusterRoleArn} -> clusterRoleArn) (\s@RedshiftDatasetDefinition' {} a -> s {clusterRoleArn = a} :: RedshiftDatasetDefinition)
 
 -- | The location in Amazon S3 where the Redshift query results are stored.
-redshiftDatasetDefinition_outputS3Uri :: Lens.Lens' RedshiftDatasetDefinition Core.Text
+redshiftDatasetDefinition_outputS3Uri :: Lens.Lens' RedshiftDatasetDefinition Prelude.Text
 redshiftDatasetDefinition_outputS3Uri = Lens.lens (\RedshiftDatasetDefinition' {outputS3Uri} -> outputS3Uri) (\s@RedshiftDatasetDefinition' {} a -> s {outputS3Uri = a} :: RedshiftDatasetDefinition)
 
 -- | Undocumented member.
@@ -153,34 +154,35 @@ instance Core.FromJSON RedshiftDatasetDefinition where
       "RedshiftDatasetDefinition"
       ( \x ->
           RedshiftDatasetDefinition'
-            Core.<$> (x Core..:? "OutputCompression")
-            Core.<*> (x Core..:? "KmsKeyId")
-            Core.<*> (x Core..: "ClusterId")
-            Core.<*> (x Core..: "Database")
-            Core.<*> (x Core..: "DbUser")
-            Core.<*> (x Core..: "QueryString")
-            Core.<*> (x Core..: "ClusterRoleArn")
-            Core.<*> (x Core..: "OutputS3Uri")
-            Core.<*> (x Core..: "OutputFormat")
+            Prelude.<$> (x Core..:? "OutputCompression")
+            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..: "ClusterId")
+            Prelude.<*> (x Core..: "Database")
+            Prelude.<*> (x Core..: "DbUser")
+            Prelude.<*> (x Core..: "QueryString")
+            Prelude.<*> (x Core..: "ClusterRoleArn")
+            Prelude.<*> (x Core..: "OutputS3Uri")
+            Prelude.<*> (x Core..: "OutputFormat")
       )
 
-instance Core.Hashable RedshiftDatasetDefinition
+instance Prelude.Hashable RedshiftDatasetDefinition
 
-instance Core.NFData RedshiftDatasetDefinition
+instance Prelude.NFData RedshiftDatasetDefinition
 
 instance Core.ToJSON RedshiftDatasetDefinition where
   toJSON RedshiftDatasetDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("OutputCompression" Core..=)
-              Core.<$> outputCompression,
-            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            Core.Just ("ClusterId" Core..= clusterId),
-            Core.Just ("Database" Core..= database),
-            Core.Just ("DbUser" Core..= dbUser),
-            Core.Just ("QueryString" Core..= queryString),
-            Core.Just ("ClusterRoleArn" Core..= clusterRoleArn),
-            Core.Just ("OutputS3Uri" Core..= outputS3Uri),
-            Core.Just ("OutputFormat" Core..= outputFormat)
+              Prelude.<$> outputCompression,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("ClusterId" Core..= clusterId),
+            Prelude.Just ("Database" Core..= database),
+            Prelude.Just ("DbUser" Core..= dbUser),
+            Prelude.Just ("QueryString" Core..= queryString),
+            Prelude.Just
+              ("ClusterRoleArn" Core..= clusterRoleArn),
+            Prelude.Just ("OutputS3Uri" Core..= outputS3Uri),
+            Prelude.Just ("OutputFormat" Core..= outputFormat)
           ]
       )

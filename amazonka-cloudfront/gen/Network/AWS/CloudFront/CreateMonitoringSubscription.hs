@@ -48,6 +48,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ data CreateMonitoringSubscription = CreateMonitoringSubscription'
     -- distribution.
     monitoringSubscription :: MonitoringSubscription,
     -- | The ID of the distribution that you are enabling metrics for.
-    distributionId :: Core.Text
+    distributionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMonitoringSubscription' with all optional fields omitted.
@@ -79,7 +80,7 @@ newCreateMonitoringSubscription ::
   -- | 'monitoringSubscription'
   MonitoringSubscription ->
   -- | 'distributionId'
-  Core.Text ->
+  Prelude.Text ->
   CreateMonitoringSubscription
 newCreateMonitoringSubscription
   pMonitoringSubscription_
@@ -97,7 +98,7 @@ createMonitoringSubscription_monitoringSubscription :: Lens.Lens' CreateMonitori
 createMonitoringSubscription_monitoringSubscription = Lens.lens (\CreateMonitoringSubscription' {monitoringSubscription} -> monitoringSubscription) (\s@CreateMonitoringSubscription' {} a -> s {monitoringSubscription = a} :: CreateMonitoringSubscription)
 
 -- | The ID of the distribution that you are enabling metrics for.
-createMonitoringSubscription_distributionId :: Lens.Lens' CreateMonitoringSubscription Core.Text
+createMonitoringSubscription_distributionId :: Lens.Lens' CreateMonitoringSubscription Prelude.Text
 createMonitoringSubscription_distributionId = Lens.lens (\CreateMonitoringSubscription' {distributionId} -> distributionId) (\s@CreateMonitoringSubscription' {} a -> s {distributionId = a} :: CreateMonitoringSubscription)
 
 instance Core.AWSRequest CreateMonitoringSubscription where
@@ -109,13 +110,15 @@ instance Core.AWSRequest CreateMonitoringSubscription where
     Response.receiveXML
       ( \s h x ->
           CreateMonitoringSubscriptionResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateMonitoringSubscription
+instance
+  Prelude.Hashable
+    CreateMonitoringSubscription
 
-instance Core.NFData CreateMonitoringSubscription
+instance Prelude.NFData CreateMonitoringSubscription
 
 instance Core.ToElement CreateMonitoringSubscription where
   toElement CreateMonitoringSubscription' {..} =
@@ -124,29 +127,29 @@ instance Core.ToElement CreateMonitoringSubscription where
       monitoringSubscription
 
 instance Core.ToHeaders CreateMonitoringSubscription where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateMonitoringSubscription where
   toPath CreateMonitoringSubscription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/distributions/",
         Core.toBS distributionId,
         "/monitoring-subscription"
       ]
 
 instance Core.ToQuery CreateMonitoringSubscription where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMonitoringSubscriptionResponse' smart constructor.
 data CreateMonitoringSubscriptionResponse = CreateMonitoringSubscriptionResponse'
   { -- | A monitoring subscription. This structure contains information about
     -- whether additional CloudWatch metrics are enabled for a given CloudFront
     -- distribution.
-    monitoringSubscription :: Core.Maybe MonitoringSubscription,
+    monitoringSubscription :: Prelude.Maybe MonitoringSubscription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMonitoringSubscriptionResponse' with all optional fields omitted.
@@ -163,25 +166,25 @@ data CreateMonitoringSubscriptionResponse = CreateMonitoringSubscriptionResponse
 -- 'httpStatus', 'createMonitoringSubscriptionResponse_httpStatus' - The response's http status code.
 newCreateMonitoringSubscriptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateMonitoringSubscriptionResponse
 newCreateMonitoringSubscriptionResponse pHttpStatus_ =
   CreateMonitoringSubscriptionResponse'
     { monitoringSubscription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A monitoring subscription. This structure contains information about
 -- whether additional CloudWatch metrics are enabled for a given CloudFront
 -- distribution.
-createMonitoringSubscriptionResponse_monitoringSubscription :: Lens.Lens' CreateMonitoringSubscriptionResponse (Core.Maybe MonitoringSubscription)
+createMonitoringSubscriptionResponse_monitoringSubscription :: Lens.Lens' CreateMonitoringSubscriptionResponse (Prelude.Maybe MonitoringSubscription)
 createMonitoringSubscriptionResponse_monitoringSubscription = Lens.lens (\CreateMonitoringSubscriptionResponse' {monitoringSubscription} -> monitoringSubscription) (\s@CreateMonitoringSubscriptionResponse' {} a -> s {monitoringSubscription = a} :: CreateMonitoringSubscriptionResponse)
 
 -- | The response's http status code.
-createMonitoringSubscriptionResponse_httpStatus :: Lens.Lens' CreateMonitoringSubscriptionResponse Core.Int
+createMonitoringSubscriptionResponse_httpStatus :: Lens.Lens' CreateMonitoringSubscriptionResponse Prelude.Int
 createMonitoringSubscriptionResponse_httpStatus = Lens.lens (\CreateMonitoringSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateMonitoringSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateMonitoringSubscriptionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateMonitoringSubscriptionResponse

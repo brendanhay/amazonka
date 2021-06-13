@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ data DeleteVirtualMFADevice = DeleteVirtualMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@:\/-
-    serialNumber :: Core.Text
+    serialNumber :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVirtualMFADevice' with all optional fields omitted.
@@ -75,7 +76,7 @@ data DeleteVirtualMFADevice = DeleteVirtualMFADevice'
 -- spaces. You can also include any of the following characters: =,.\@:\/-
 newDeleteVirtualMFADevice ::
   -- | 'serialNumber'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVirtualMFADevice
 newDeleteVirtualMFADevice pSerialNumber_ =
   DeleteVirtualMFADevice'
@@ -90,7 +91,7 @@ newDeleteVirtualMFADevice pSerialNumber_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@:\/-
-deleteVirtualMFADevice_serialNumber :: Lens.Lens' DeleteVirtualMFADevice Core.Text
+deleteVirtualMFADevice_serialNumber :: Lens.Lens' DeleteVirtualMFADevice Prelude.Text
 deleteVirtualMFADevice_serialNumber = Lens.lens (\DeleteVirtualMFADevice' {serialNumber} -> serialNumber) (\s@DeleteVirtualMFADevice' {} a -> s {serialNumber = a} :: DeleteVirtualMFADevice)
 
 instance Core.AWSRequest DeleteVirtualMFADevice where
@@ -102,22 +103,23 @@ instance Core.AWSRequest DeleteVirtualMFADevice where
     Response.receiveNull
       DeleteVirtualMFADeviceResponse'
 
-instance Core.Hashable DeleteVirtualMFADevice
+instance Prelude.Hashable DeleteVirtualMFADevice
 
-instance Core.NFData DeleteVirtualMFADevice
+instance Prelude.NFData DeleteVirtualMFADevice
 
 instance Core.ToHeaders DeleteVirtualMFADevice where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteVirtualMFADevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVirtualMFADevice where
   toQuery DeleteVirtualMFADevice' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVirtualMFADevice" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeleteVirtualMFADevice" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "SerialNumber" Core.=: serialNumber
       ]
 
@@ -125,7 +127,7 @@ instance Core.ToQuery DeleteVirtualMFADevice where
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVirtualMFADeviceResponse' with all optional fields omitted.
@@ -136,4 +138,6 @@ newDeleteVirtualMFADeviceResponse ::
 newDeleteVirtualMFADeviceResponse =
   DeleteVirtualMFADeviceResponse'
 
-instance Core.NFData DeleteVirtualMFADeviceResponse
+instance
+  Prelude.NFData
+    DeleteVirtualMFADeviceResponse

@@ -92,6 +92,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -101,12 +102,12 @@ data PutMetricData = PutMetricData'
     --
     -- To avoid conflicts with AWS service namespaces, you should not specify a
     -- namespace that begins with @AWS\/@
-    namespace :: Core.Text,
+    namespace :: Prelude.Text,
     -- | The data for the metric. The array can include no more than 20 metrics
     -- per call.
     metricData :: [MetricDatum]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutMetricData' with all optional fields omitted.
@@ -125,25 +126,25 @@ data PutMetricData = PutMetricData'
 -- per call.
 newPutMetricData ::
   -- | 'namespace'
-  Core.Text ->
+  Prelude.Text ->
   PutMetricData
 newPutMetricData pNamespace_ =
   PutMetricData'
     { namespace = pNamespace_,
-      metricData = Core.mempty
+      metricData = Prelude.mempty
     }
 
 -- | The namespace for the metric data.
 --
 -- To avoid conflicts with AWS service namespaces, you should not specify a
 -- namespace that begins with @AWS\/@
-putMetricData_namespace :: Lens.Lens' PutMetricData Core.Text
+putMetricData_namespace :: Lens.Lens' PutMetricData Prelude.Text
 putMetricData_namespace = Lens.lens (\PutMetricData' {namespace} -> namespace) (\s@PutMetricData' {} a -> s {namespace = a} :: PutMetricData)
 
 -- | The data for the metric. The array can include no more than 20 metrics
 -- per call.
 putMetricData_metricData :: Lens.Lens' PutMetricData [MetricDatum]
-putMetricData_metricData = Lens.lens (\PutMetricData' {metricData} -> metricData) (\s@PutMetricData' {} a -> s {metricData = a} :: PutMetricData) Core.. Lens._Coerce
+putMetricData_metricData = Lens.lens (\PutMetricData' {metricData} -> metricData) (\s@PutMetricData' {} a -> s {metricData = a} :: PutMetricData) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutMetricData where
   type
@@ -153,22 +154,23 @@ instance Core.AWSRequest PutMetricData where
   response =
     Response.receiveNull PutMetricDataResponse'
 
-instance Core.Hashable PutMetricData
+instance Prelude.Hashable PutMetricData
 
-instance Core.NFData PutMetricData
+instance Prelude.NFData PutMetricData
 
 instance Core.ToHeaders PutMetricData where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PutMetricData where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutMetricData where
   toQuery PutMetricData' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PutMetricData" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("PutMetricData" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "Namespace" Core.=: namespace,
         "MetricData"
           Core.=: Core.toQueryList "member" metricData
@@ -178,7 +180,7 @@ instance Core.ToQuery PutMetricData where
 data PutMetricDataResponse = PutMetricDataResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutMetricDataResponse' with all optional fields omitted.
@@ -188,4 +190,4 @@ newPutMetricDataResponse ::
   PutMetricDataResponse
 newPutMetricDataResponse = PutMetricDataResponse'
 
-instance Core.NFData PutMetricDataResponse
+instance Prelude.NFData PutMetricDataResponse

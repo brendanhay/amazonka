@@ -19,3 +19,4 @@ import Network.AWS.CodeCommit.Lens
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude

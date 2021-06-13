@@ -22,16 +22,17 @@ module Network.AWS.Budgets.Types.ActionHistoryDetails where
 import Network.AWS.Budgets.Types.Action
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The description of details of the event.
 --
 -- /See:/ 'newActionHistoryDetails' smart constructor.
 data ActionHistoryDetails = ActionHistoryDetails'
-  { message :: Core.Text,
+  { message :: Prelude.Text,
     -- | The budget action resource.
     action :: Action
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionHistoryDetails' with all optional fields omitted.
@@ -46,7 +47,7 @@ data ActionHistoryDetails = ActionHistoryDetails'
 -- 'action', 'actionHistoryDetails_action' - The budget action resource.
 newActionHistoryDetails ::
   -- | 'message'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'action'
   Action ->
   ActionHistoryDetails
@@ -57,7 +58,7 @@ newActionHistoryDetails pMessage_ pAction_ =
     }
 
 -- | Undocumented member.
-actionHistoryDetails_message :: Lens.Lens' ActionHistoryDetails Core.Text
+actionHistoryDetails_message :: Lens.Lens' ActionHistoryDetails Prelude.Text
 actionHistoryDetails_message = Lens.lens (\ActionHistoryDetails' {message} -> message) (\s@ActionHistoryDetails' {} a -> s {message = a} :: ActionHistoryDetails)
 
 -- | The budget action resource.
@@ -70,9 +71,10 @@ instance Core.FromJSON ActionHistoryDetails where
       "ActionHistoryDetails"
       ( \x ->
           ActionHistoryDetails'
-            Core.<$> (x Core..: "Message") Core.<*> (x Core..: "Action")
+            Prelude.<$> (x Core..: "Message")
+            Prelude.<*> (x Core..: "Action")
       )
 
-instance Core.Hashable ActionHistoryDetails
+instance Prelude.Hashable ActionHistoryDetails
 
-instance Core.NFData ActionHistoryDetails
+instance Prelude.NFData ActionHistoryDetails

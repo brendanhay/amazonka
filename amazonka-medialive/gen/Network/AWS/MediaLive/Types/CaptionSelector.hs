@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.CaptionSelector where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.CaptionSelectorSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Output groups for this Live Event. Output groups contain information
 -- about where streams should be distributed.
@@ -30,15 +31,15 @@ import Network.AWS.MediaLive.Types.CaptionSelectorSettings
 data CaptionSelector = CaptionSelector'
   { -- | When specified this field indicates the three letter language code of
     -- the caption track to extract from the source.
-    languageCode :: Core.Maybe Core.Text,
+    languageCode :: Prelude.Maybe Prelude.Text,
     -- | Caption selector settings.
-    selectorSettings :: Core.Maybe CaptionSelectorSettings,
+    selectorSettings :: Prelude.Maybe CaptionSelectorSettings,
     -- | Name identifier for a caption selector. This name is used to associate
     -- this caption selector with one or more caption descriptions. Names must
     -- be unique within an event.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CaptionSelector' with all optional fields omitted.
@@ -58,28 +59,28 @@ data CaptionSelector = CaptionSelector'
 -- be unique within an event.
 newCaptionSelector ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CaptionSelector
 newCaptionSelector pName_ =
   CaptionSelector'
-    { languageCode = Core.Nothing,
-      selectorSettings = Core.Nothing,
+    { languageCode = Prelude.Nothing,
+      selectorSettings = Prelude.Nothing,
       name = pName_
     }
 
 -- | When specified this field indicates the three letter language code of
 -- the caption track to extract from the source.
-captionSelector_languageCode :: Lens.Lens' CaptionSelector (Core.Maybe Core.Text)
+captionSelector_languageCode :: Lens.Lens' CaptionSelector (Prelude.Maybe Prelude.Text)
 captionSelector_languageCode = Lens.lens (\CaptionSelector' {languageCode} -> languageCode) (\s@CaptionSelector' {} a -> s {languageCode = a} :: CaptionSelector)
 
 -- | Caption selector settings.
-captionSelector_selectorSettings :: Lens.Lens' CaptionSelector (Core.Maybe CaptionSelectorSettings)
+captionSelector_selectorSettings :: Lens.Lens' CaptionSelector (Prelude.Maybe CaptionSelectorSettings)
 captionSelector_selectorSettings = Lens.lens (\CaptionSelector' {selectorSettings} -> selectorSettings) (\s@CaptionSelector' {} a -> s {selectorSettings = a} :: CaptionSelector)
 
 -- | Name identifier for a caption selector. This name is used to associate
 -- this caption selector with one or more caption descriptions. Names must
 -- be unique within an event.
-captionSelector_name :: Lens.Lens' CaptionSelector Core.Text
+captionSelector_name :: Lens.Lens' CaptionSelector Prelude.Text
 captionSelector_name = Lens.lens (\CaptionSelector' {name} -> name) (\s@CaptionSelector' {} a -> s {name = a} :: CaptionSelector)
 
 instance Core.FromJSON CaptionSelector where
@@ -88,22 +89,22 @@ instance Core.FromJSON CaptionSelector where
       "CaptionSelector"
       ( \x ->
           CaptionSelector'
-            Core.<$> (x Core..:? "languageCode")
-            Core.<*> (x Core..:? "selectorSettings")
-            Core.<*> (x Core..: "name")
+            Prelude.<$> (x Core..:? "languageCode")
+            Prelude.<*> (x Core..:? "selectorSettings")
+            Prelude.<*> (x Core..: "name")
       )
 
-instance Core.Hashable CaptionSelector
+instance Prelude.Hashable CaptionSelector
 
-instance Core.NFData CaptionSelector
+instance Prelude.NFData CaptionSelector
 
 instance Core.ToJSON CaptionSelector where
   toJSON CaptionSelector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("languageCode" Core..=) Core.<$> languageCode,
+      ( Prelude.catMaybes
+          [ ("languageCode" Core..=) Prelude.<$> languageCode,
             ("selectorSettings" Core..=)
-              Core.<$> selectorSettings,
-            Core.Just ("name" Core..= name)
+              Prelude.<$> selectorSettings,
+            Prelude.Just ("name" Core..= name)
           ]
       )

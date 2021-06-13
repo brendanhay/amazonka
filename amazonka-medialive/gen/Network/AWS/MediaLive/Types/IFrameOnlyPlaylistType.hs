@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.IFrameOnlyPlaylistType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to \"standard\", an I-Frame only playlist will be written out
 -- for each video output in the output group. This I-Frame only playlist
@@ -37,15 +38,15 @@ newtype IFrameOnlyPlaylistType = IFrameOnlyPlaylistType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

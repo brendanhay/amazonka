@@ -64,6 +64,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,9 +73,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeGameSessionPlacement' smart constructor.
 data DescribeGameSessionPlacement = DescribeGameSessionPlacement'
   { -- | A unique identifier for a game session placement to retrieve.
-    placementId :: Core.Text
+    placementId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGameSessionPlacement' with all optional fields omitted.
@@ -87,7 +88,7 @@ data DescribeGameSessionPlacement = DescribeGameSessionPlacement'
 -- 'placementId', 'describeGameSessionPlacement_placementId' - A unique identifier for a game session placement to retrieve.
 newDescribeGameSessionPlacement ::
   -- | 'placementId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeGameSessionPlacement
 newDescribeGameSessionPlacement pPlacementId_ =
   DescribeGameSessionPlacement'
@@ -96,7 +97,7 @@ newDescribeGameSessionPlacement pPlacementId_ =
     }
 
 -- | A unique identifier for a game session placement to retrieve.
-describeGameSessionPlacement_placementId :: Lens.Lens' DescribeGameSessionPlacement Core.Text
+describeGameSessionPlacement_placementId :: Lens.Lens' DescribeGameSessionPlacement Prelude.Text
 describeGameSessionPlacement_placementId = Lens.lens (\DescribeGameSessionPlacement' {placementId} -> placementId) (\s@DescribeGameSessionPlacement' {} a -> s {placementId = a} :: DescribeGameSessionPlacement)
 
 instance Core.AWSRequest DescribeGameSessionPlacement where
@@ -108,50 +109,54 @@ instance Core.AWSRequest DescribeGameSessionPlacement where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameSessionPlacementResponse'
-            Core.<$> (x Core..?> "GameSessionPlacement")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameSessionPlacement")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeGameSessionPlacement
+instance
+  Prelude.Hashable
+    DescribeGameSessionPlacement
 
-instance Core.NFData DescribeGameSessionPlacement
+instance Prelude.NFData DescribeGameSessionPlacement
 
 instance Core.ToHeaders DescribeGameSessionPlacement where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DescribeGameSessionPlacement" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeGameSessionPlacement where
   toJSON DescribeGameSessionPlacement' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("PlacementId" Core..= placementId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("PlacementId" Core..= placementId)]
       )
 
 instance Core.ToPath DescribeGameSessionPlacement where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeGameSessionPlacement where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newDescribeGameSessionPlacementResponse' smart constructor.
 data DescribeGameSessionPlacementResponse = DescribeGameSessionPlacementResponse'
   { -- | Object that describes the requested game session placement.
-    gameSessionPlacement :: Core.Maybe GameSessionPlacement,
+    gameSessionPlacement :: Prelude.Maybe GameSessionPlacement,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGameSessionPlacementResponse' with all optional fields omitted.
@@ -166,23 +171,23 @@ data DescribeGameSessionPlacementResponse = DescribeGameSessionPlacementResponse
 -- 'httpStatus', 'describeGameSessionPlacementResponse_httpStatus' - The response's http status code.
 newDescribeGameSessionPlacementResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeGameSessionPlacementResponse
 newDescribeGameSessionPlacementResponse pHttpStatus_ =
   DescribeGameSessionPlacementResponse'
     { gameSessionPlacement =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the requested game session placement.
-describeGameSessionPlacementResponse_gameSessionPlacement :: Lens.Lens' DescribeGameSessionPlacementResponse (Core.Maybe GameSessionPlacement)
+describeGameSessionPlacementResponse_gameSessionPlacement :: Lens.Lens' DescribeGameSessionPlacementResponse (Prelude.Maybe GameSessionPlacement)
 describeGameSessionPlacementResponse_gameSessionPlacement = Lens.lens (\DescribeGameSessionPlacementResponse' {gameSessionPlacement} -> gameSessionPlacement) (\s@DescribeGameSessionPlacementResponse' {} a -> s {gameSessionPlacement = a} :: DescribeGameSessionPlacementResponse)
 
 -- | The response's http status code.
-describeGameSessionPlacementResponse_httpStatus :: Lens.Lens' DescribeGameSessionPlacementResponse Core.Int
+describeGameSessionPlacementResponse_httpStatus :: Lens.Lens' DescribeGameSessionPlacementResponse Prelude.Int
 describeGameSessionPlacementResponse_httpStatus = Lens.lens (\DescribeGameSessionPlacementResponse' {httpStatus} -> httpStatus) (\s@DescribeGameSessionPlacementResponse' {} a -> s {httpStatus = a} :: DescribeGameSessionPlacementResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeGameSessionPlacementResponse

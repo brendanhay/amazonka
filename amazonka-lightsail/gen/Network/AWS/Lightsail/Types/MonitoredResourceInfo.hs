@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.MonitoredResourceInfo where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ResourceType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes resource being monitored by an alarm.
 --
@@ -32,16 +33,16 @@ import Network.AWS.Lightsail.Types.ResourceType
 -- /See:/ 'newMonitoredResourceInfo' smart constructor.
 data MonitoredResourceInfo = MonitoredResourceInfo'
   { -- | The Amazon Resource Name (ARN) of the resource being monitored.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The Lightsail resource type of the resource being monitored.
     --
     -- Instances, load balancers, and relational databases are the only
     -- Lightsail resources that can currently be monitored by alarms.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the Lightsail resource being monitored.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoredResourceInfo' with all optional fields omitted.
@@ -63,24 +64,24 @@ newMonitoredResourceInfo ::
   MonitoredResourceInfo
 newMonitoredResourceInfo =
   MonitoredResourceInfo'
-    { arn = Core.Nothing,
-      resourceType = Core.Nothing,
-      name = Core.Nothing
+    { arn = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the resource being monitored.
-monitoredResourceInfo_arn :: Lens.Lens' MonitoredResourceInfo (Core.Maybe Core.Text)
+monitoredResourceInfo_arn :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
 monitoredResourceInfo_arn = Lens.lens (\MonitoredResourceInfo' {arn} -> arn) (\s@MonitoredResourceInfo' {} a -> s {arn = a} :: MonitoredResourceInfo)
 
 -- | The Lightsail resource type of the resource being monitored.
 --
 -- Instances, load balancers, and relational databases are the only
 -- Lightsail resources that can currently be monitored by alarms.
-monitoredResourceInfo_resourceType :: Lens.Lens' MonitoredResourceInfo (Core.Maybe ResourceType)
+monitoredResourceInfo_resourceType :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe ResourceType)
 monitoredResourceInfo_resourceType = Lens.lens (\MonitoredResourceInfo' {resourceType} -> resourceType) (\s@MonitoredResourceInfo' {} a -> s {resourceType = a} :: MonitoredResourceInfo)
 
 -- | The name of the Lightsail resource being monitored.
-monitoredResourceInfo_name :: Lens.Lens' MonitoredResourceInfo (Core.Maybe Core.Text)
+monitoredResourceInfo_name :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
 monitoredResourceInfo_name = Lens.lens (\MonitoredResourceInfo' {name} -> name) (\s@MonitoredResourceInfo' {} a -> s {name = a} :: MonitoredResourceInfo)
 
 instance Core.FromJSON MonitoredResourceInfo where
@@ -89,11 +90,11 @@ instance Core.FromJSON MonitoredResourceInfo where
       "MonitoredResourceInfo"
       ( \x ->
           MonitoredResourceInfo'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable MonitoredResourceInfo
+instance Prelude.Hashable MonitoredResourceInfo
 
-instance Core.NFData MonitoredResourceInfo
+instance Prelude.NFData MonitoredResourceInfo

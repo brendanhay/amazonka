@@ -41,19 +41,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoutingProfileConcurrency' smart constructor.
 data UpdateRoutingProfileConcurrency = UpdateRoutingProfileConcurrency'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
-    routingProfileId :: Core.Text,
+    routingProfileId :: Prelude.Text,
     -- | The channels that agents can handle in the Contact Control Panel (CCP).
     mediaConcurrencies :: [MediaConcurrency]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoutingProfileConcurrency' with all optional fields omitted.
@@ -70,9 +71,9 @@ data UpdateRoutingProfileConcurrency = UpdateRoutingProfileConcurrency'
 -- 'mediaConcurrencies', 'updateRoutingProfileConcurrency_mediaConcurrencies' - The channels that agents can handle in the Contact Control Panel (CCP).
 newUpdateRoutingProfileConcurrency ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routingProfileId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRoutingProfileConcurrency
 newUpdateRoutingProfileConcurrency
   pInstanceId_
@@ -81,20 +82,20 @@ newUpdateRoutingProfileConcurrency
       { instanceId =
           pInstanceId_,
         routingProfileId = pRoutingProfileId_,
-        mediaConcurrencies = Core.mempty
+        mediaConcurrencies = Prelude.mempty
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateRoutingProfileConcurrency_instanceId :: Lens.Lens' UpdateRoutingProfileConcurrency Core.Text
+updateRoutingProfileConcurrency_instanceId :: Lens.Lens' UpdateRoutingProfileConcurrency Prelude.Text
 updateRoutingProfileConcurrency_instanceId = Lens.lens (\UpdateRoutingProfileConcurrency' {instanceId} -> instanceId) (\s@UpdateRoutingProfileConcurrency' {} a -> s {instanceId = a} :: UpdateRoutingProfileConcurrency)
 
 -- | The identifier of the routing profile.
-updateRoutingProfileConcurrency_routingProfileId :: Lens.Lens' UpdateRoutingProfileConcurrency Core.Text
+updateRoutingProfileConcurrency_routingProfileId :: Lens.Lens' UpdateRoutingProfileConcurrency Prelude.Text
 updateRoutingProfileConcurrency_routingProfileId = Lens.lens (\UpdateRoutingProfileConcurrency' {routingProfileId} -> routingProfileId) (\s@UpdateRoutingProfileConcurrency' {} a -> s {routingProfileId = a} :: UpdateRoutingProfileConcurrency)
 
 -- | The channels that agents can handle in the Contact Control Panel (CCP).
 updateRoutingProfileConcurrency_mediaConcurrencies :: Lens.Lens' UpdateRoutingProfileConcurrency [MediaConcurrency]
-updateRoutingProfileConcurrency_mediaConcurrencies = Lens.lens (\UpdateRoutingProfileConcurrency' {mediaConcurrencies} -> mediaConcurrencies) (\s@UpdateRoutingProfileConcurrency' {} a -> s {mediaConcurrencies = a} :: UpdateRoutingProfileConcurrency) Core.. Lens._Coerce
+updateRoutingProfileConcurrency_mediaConcurrencies = Lens.lens (\UpdateRoutingProfileConcurrency' {mediaConcurrencies} -> mediaConcurrencies) (\s@UpdateRoutingProfileConcurrency' {} a -> s {mediaConcurrencies = a} :: UpdateRoutingProfileConcurrency) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -109,35 +110,39 @@ instance
       UpdateRoutingProfileConcurrencyResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateRoutingProfileConcurrency
 
-instance Core.NFData UpdateRoutingProfileConcurrency
+instance
+  Prelude.NFData
+    UpdateRoutingProfileConcurrency
 
 instance
   Core.ToHeaders
     UpdateRoutingProfileConcurrency
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRoutingProfileConcurrency where
   toJSON UpdateRoutingProfileConcurrency' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("MediaConcurrencies" Core..= mediaConcurrencies)
           ]
       )
 
 instance Core.ToPath UpdateRoutingProfileConcurrency where
   toPath UpdateRoutingProfileConcurrency' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/routing-profiles/",
         Core.toBS instanceId,
         "/",
@@ -146,13 +151,13 @@ instance Core.ToPath UpdateRoutingProfileConcurrency where
       ]
 
 instance Core.ToQuery UpdateRoutingProfileConcurrency where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRoutingProfileConcurrencyResponse' smart constructor.
 data UpdateRoutingProfileConcurrencyResponse = UpdateRoutingProfileConcurrencyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoutingProfileConcurrencyResponse' with all optional fields omitted.
@@ -164,5 +169,5 @@ newUpdateRoutingProfileConcurrencyResponse =
   UpdateRoutingProfileConcurrencyResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateRoutingProfileConcurrencyResponse

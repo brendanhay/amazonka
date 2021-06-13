@@ -22,6 +22,7 @@ module Network.AWS.DirectoryService.Types.UnshareTarget where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.TargetType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifier that contains details about the directory consumer account
 -- with whom the directory is being unshared.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUnshareTarget' smart constructor.
 data UnshareTarget = UnshareTarget'
   { -- | Identifier of the directory consumer account.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | Type of identifier to be used in the /Id/ field.
     type' :: TargetType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnshareTarget' with all optional fields omitted.
@@ -48,7 +49,7 @@ data UnshareTarget = UnshareTarget'
 -- 'type'', 'unshareTarget_type' - Type of identifier to be used in the /Id/ field.
 newUnshareTarget ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   TargetType ->
   UnshareTarget
@@ -56,22 +57,22 @@ newUnshareTarget pId_ pType_ =
   UnshareTarget' {id = pId_, type' = pType_}
 
 -- | Identifier of the directory consumer account.
-unshareTarget_id :: Lens.Lens' UnshareTarget Core.Text
+unshareTarget_id :: Lens.Lens' UnshareTarget Prelude.Text
 unshareTarget_id = Lens.lens (\UnshareTarget' {id} -> id) (\s@UnshareTarget' {} a -> s {id = a} :: UnshareTarget)
 
 -- | Type of identifier to be used in the /Id/ field.
 unshareTarget_type :: Lens.Lens' UnshareTarget TargetType
 unshareTarget_type = Lens.lens (\UnshareTarget' {type'} -> type') (\s@UnshareTarget' {} a -> s {type' = a} :: UnshareTarget)
 
-instance Core.Hashable UnshareTarget
+instance Prelude.Hashable UnshareTarget
 
-instance Core.NFData UnshareTarget
+instance Prelude.NFData UnshareTarget
 
 instance Core.ToJSON UnshareTarget where
   toJSON UnshareTarget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Id" Core..= id),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Id" Core..= id),
+            Prelude.Just ("Type" Core..= type')
           ]
       )

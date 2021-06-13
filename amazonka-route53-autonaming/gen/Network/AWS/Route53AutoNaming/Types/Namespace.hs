@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.Namespace where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.NamespaceProperties
 import Network.AWS.Route53AutoNaming.Types.NamespaceType
 
@@ -32,24 +33,24 @@ data Namespace = Namespace'
     -- Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate
     -- to milliseconds. For example, the value @1516925490.087@ represents
     -- Friday, January 26, 2018 12:11:30.087 AM.
-    createDate :: Core.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Core.POSIX,
     -- | A unique string that identifies the request and that allows failed
     -- requests to be retried without the risk of executing an operation twice.
-    creatorRequestId :: Core.Maybe Core.Text,
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the
     -- namespace when you create it.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a namespace.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the namespace, such as @example.com@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A complex type that contains information that\'s specific to the type of
     -- the namespace.
-    properties :: Core.Maybe NamespaceProperties,
+    properties :: Prelude.Maybe NamespaceProperties,
     -- | The number of services that are associated with the namespace.
-    serviceCount :: Core.Maybe Core.Int,
+    serviceCount :: Prelude.Maybe Prelude.Int,
     -- | The description that you specify for the namespace when you create it.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of the namespace. The methods for discovering instances depends
     -- on the value that you specify:
     --
@@ -61,9 +62,9 @@ data Namespace = Namespace'
     --
     -- -   @DNS_PRIVATE@: Instances can be discovered using DNS queries in VPCs
     --     and using the @DiscoverInstances@ API.
-    type' :: Core.Maybe NamespaceType
+    type' :: Prelude.Maybe NamespaceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Namespace' with all optional fields omitted.
@@ -110,53 +111,53 @@ newNamespace ::
   Namespace
 newNamespace =
   Namespace'
-    { createDate = Core.Nothing,
-      creatorRequestId = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      properties = Core.Nothing,
-      serviceCount = Core.Nothing,
-      description = Core.Nothing,
-      type' = Core.Nothing
+    { createDate = Prelude.Nothing,
+      creatorRequestId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      properties = Prelude.Nothing,
+      serviceCount = Prelude.Nothing,
+      description = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The date that the namespace was created, in Unix date\/time format and
 -- Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate
 -- to milliseconds. For example, the value @1516925490.087@ represents
 -- Friday, January 26, 2018 12:11:30.087 AM.
-namespace_createDate :: Lens.Lens' Namespace (Core.Maybe Core.UTCTime)
-namespace_createDate = Lens.lens (\Namespace' {createDate} -> createDate) (\s@Namespace' {} a -> s {createDate = a} :: Namespace) Core.. Lens.mapping Core._Time
+namespace_createDate :: Lens.Lens' Namespace (Prelude.Maybe Prelude.UTCTime)
+namespace_createDate = Lens.lens (\Namespace' {createDate} -> createDate) (\s@Namespace' {} a -> s {createDate = a} :: Namespace) Prelude.. Lens.mapping Core._Time
 
 -- | A unique string that identifies the request and that allows failed
 -- requests to be retried without the risk of executing an operation twice.
-namespace_creatorRequestId :: Lens.Lens' Namespace (Core.Maybe Core.Text)
+namespace_creatorRequestId :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_creatorRequestId = Lens.lens (\Namespace' {creatorRequestId} -> creatorRequestId) (\s@Namespace' {} a -> s {creatorRequestId = a} :: Namespace)
 
 -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the
 -- namespace when you create it.
-namespace_arn :: Lens.Lens' Namespace (Core.Maybe Core.Text)
+namespace_arn :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_arn = Lens.lens (\Namespace' {arn} -> arn) (\s@Namespace' {} a -> s {arn = a} :: Namespace)
 
 -- | The ID of a namespace.
-namespace_id :: Lens.Lens' Namespace (Core.Maybe Core.Text)
+namespace_id :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_id = Lens.lens (\Namespace' {id} -> id) (\s@Namespace' {} a -> s {id = a} :: Namespace)
 
 -- | The name of the namespace, such as @example.com@.
-namespace_name :: Lens.Lens' Namespace (Core.Maybe Core.Text)
+namespace_name :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_name = Lens.lens (\Namespace' {name} -> name) (\s@Namespace' {} a -> s {name = a} :: Namespace)
 
 -- | A complex type that contains information that\'s specific to the type of
 -- the namespace.
-namespace_properties :: Lens.Lens' Namespace (Core.Maybe NamespaceProperties)
+namespace_properties :: Lens.Lens' Namespace (Prelude.Maybe NamespaceProperties)
 namespace_properties = Lens.lens (\Namespace' {properties} -> properties) (\s@Namespace' {} a -> s {properties = a} :: Namespace)
 
 -- | The number of services that are associated with the namespace.
-namespace_serviceCount :: Lens.Lens' Namespace (Core.Maybe Core.Int)
+namespace_serviceCount :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Int)
 namespace_serviceCount = Lens.lens (\Namespace' {serviceCount} -> serviceCount) (\s@Namespace' {} a -> s {serviceCount = a} :: Namespace)
 
 -- | The description that you specify for the namespace when you create it.
-namespace_description :: Lens.Lens' Namespace (Core.Maybe Core.Text)
+namespace_description :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_description = Lens.lens (\Namespace' {description} -> description) (\s@Namespace' {} a -> s {description = a} :: Namespace)
 
 -- | The type of the namespace. The methods for discovering instances depends
@@ -170,7 +171,7 @@ namespace_description = Lens.lens (\Namespace' {description} -> description) (\s
 --
 -- -   @DNS_PRIVATE@: Instances can be discovered using DNS queries in VPCs
 --     and using the @DiscoverInstances@ API.
-namespace_type :: Lens.Lens' Namespace (Core.Maybe NamespaceType)
+namespace_type :: Lens.Lens' Namespace (Prelude.Maybe NamespaceType)
 namespace_type = Lens.lens (\Namespace' {type'} -> type') (\s@Namespace' {} a -> s {type' = a} :: Namespace)
 
 instance Core.FromJSON Namespace where
@@ -179,17 +180,17 @@ instance Core.FromJSON Namespace where
       "Namespace"
       ( \x ->
           Namespace'
-            Core.<$> (x Core..:? "CreateDate")
-            Core.<*> (x Core..:? "CreatorRequestId")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Properties")
-            Core.<*> (x Core..:? "ServiceCount")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "CreateDate")
+            Prelude.<*> (x Core..:? "CreatorRequestId")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Properties")
+            Prelude.<*> (x Core..:? "ServiceCount")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable Namespace
+instance Prelude.Hashable Namespace
 
-instance Core.NFData Namespace
+instance Prelude.NFData Namespace

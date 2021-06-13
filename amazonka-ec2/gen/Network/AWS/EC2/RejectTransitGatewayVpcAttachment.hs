@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data RejectTransitGatewayVpcAttachment = RejectTransitGatewayVpcAttachment'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Core.Text
+    transitGatewayAttachmentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectTransitGatewayVpcAttachment' with all optional fields omitted.
@@ -79,13 +80,13 @@ data RejectTransitGatewayVpcAttachment = RejectTransitGatewayVpcAttachment'
 -- 'transitGatewayAttachmentId', 'rejectTransitGatewayVpcAttachment_transitGatewayAttachmentId' - The ID of the attachment.
 newRejectTransitGatewayVpcAttachment ::
   -- | 'transitGatewayAttachmentId'
-  Core.Text ->
+  Prelude.Text ->
   RejectTransitGatewayVpcAttachment
 newRejectTransitGatewayVpcAttachment
   pTransitGatewayAttachmentId_ =
     RejectTransitGatewayVpcAttachment'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_
       }
@@ -94,11 +95,11 @@ newRejectTransitGatewayVpcAttachment
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rejectTransitGatewayVpcAttachment_dryRun :: Lens.Lens' RejectTransitGatewayVpcAttachment (Core.Maybe Core.Bool)
+rejectTransitGatewayVpcAttachment_dryRun :: Lens.Lens' RejectTransitGatewayVpcAttachment (Prelude.Maybe Prelude.Bool)
 rejectTransitGatewayVpcAttachment_dryRun = Lens.lens (\RejectTransitGatewayVpcAttachment' {dryRun} -> dryRun) (\s@RejectTransitGatewayVpcAttachment' {} a -> s {dryRun = a} :: RejectTransitGatewayVpcAttachment)
 
 -- | The ID of the attachment.
-rejectTransitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' RejectTransitGatewayVpcAttachment Core.Text
+rejectTransitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' RejectTransitGatewayVpcAttachment Prelude.Text
 rejectTransitGatewayVpcAttachment_transitGatewayAttachmentId = Lens.lens (\RejectTransitGatewayVpcAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@RejectTransitGatewayVpcAttachment' {} a -> s {transitGatewayAttachmentId = a} :: RejectTransitGatewayVpcAttachment)
 
 instance
@@ -113,41 +114,42 @@ instance
     Response.receiveXML
       ( \s h x ->
           RejectTransitGatewayVpcAttachmentResponse'
-            Core.<$> (x Core..@? "transitGatewayVpcAttachment")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGatewayVpcAttachment")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RejectTransitGatewayVpcAttachment
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectTransitGatewayVpcAttachment
 
 instance
   Core.ToHeaders
     RejectTransitGatewayVpcAttachment
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     RejectTransitGatewayVpcAttachment
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     RejectTransitGatewayVpcAttachment
   where
   toQuery RejectTransitGatewayVpcAttachment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "RejectTransitGatewayVpcAttachment" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "TransitGatewayAttachmentId"
           Core.=: transitGatewayAttachmentId
@@ -156,11 +158,11 @@ instance
 -- | /See:/ 'newRejectTransitGatewayVpcAttachmentResponse' smart constructor.
 data RejectTransitGatewayVpcAttachmentResponse = RejectTransitGatewayVpcAttachmentResponse'
   { -- | Information about the attachment.
-    transitGatewayVpcAttachment :: Core.Maybe TransitGatewayVpcAttachment,
+    transitGatewayVpcAttachment :: Prelude.Maybe TransitGatewayVpcAttachment,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectTransitGatewayVpcAttachmentResponse' with all optional fields omitted.
@@ -175,24 +177,24 @@ data RejectTransitGatewayVpcAttachmentResponse = RejectTransitGatewayVpcAttachme
 -- 'httpStatus', 'rejectTransitGatewayVpcAttachmentResponse_httpStatus' - The response's http status code.
 newRejectTransitGatewayVpcAttachmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RejectTransitGatewayVpcAttachmentResponse
 newRejectTransitGatewayVpcAttachmentResponse
   pHttpStatus_ =
     RejectTransitGatewayVpcAttachmentResponse'
       { transitGatewayVpcAttachment =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the attachment.
-rejectTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment :: Lens.Lens' RejectTransitGatewayVpcAttachmentResponse (Core.Maybe TransitGatewayVpcAttachment)
+rejectTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment :: Lens.Lens' RejectTransitGatewayVpcAttachmentResponse (Prelude.Maybe TransitGatewayVpcAttachment)
 rejectTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment = Lens.lens (\RejectTransitGatewayVpcAttachmentResponse' {transitGatewayVpcAttachment} -> transitGatewayVpcAttachment) (\s@RejectTransitGatewayVpcAttachmentResponse' {} a -> s {transitGatewayVpcAttachment = a} :: RejectTransitGatewayVpcAttachmentResponse)
 
 -- | The response's http status code.
-rejectTransitGatewayVpcAttachmentResponse_httpStatus :: Lens.Lens' RejectTransitGatewayVpcAttachmentResponse Core.Int
+rejectTransitGatewayVpcAttachmentResponse_httpStatus :: Lens.Lens' RejectTransitGatewayVpcAttachmentResponse Prelude.Int
 rejectTransitGatewayVpcAttachmentResponse_httpStatus = Lens.lens (\RejectTransitGatewayVpcAttachmentResponse' {httpStatus} -> httpStatus) (\s@RejectTransitGatewayVpcAttachmentResponse' {} a -> s {httpStatus = a} :: RejectTransitGatewayVpcAttachmentResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectTransitGatewayVpcAttachmentResponse

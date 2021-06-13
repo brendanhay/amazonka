@@ -76,6 +76,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,19 +84,19 @@ import qualified Network.AWS.Response as Response
 data CreateConnection = CreateConnection'
   { -- | The name of the service provider associated with the requested
     -- connection.
-    providerName :: Core.Maybe Core.Text,
+    providerName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the LAG.
-    lagId :: Core.Maybe Core.Text,
+    lagId :: Prelude.Maybe Prelude.Text,
     -- | The tags to associate with the lag.
-    tags :: Core.Maybe (Core.NonEmpty Tag),
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The location of the connection.
-    location :: Core.Text,
+    location :: Prelude.Text,
     -- | The bandwidth of the connection.
-    bandwidth :: Core.Text,
+    bandwidth :: Prelude.Text,
     -- | The name of the connection.
-    connectionName :: Core.Text
+    connectionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateConnection' with all optional fields omitted.
@@ -119,20 +120,20 @@ data CreateConnection = CreateConnection'
 -- 'connectionName', 'createConnection_connectionName' - The name of the connection.
 newCreateConnection ::
   -- | 'location'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'bandwidth'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'connectionName'
-  Core.Text ->
+  Prelude.Text ->
   CreateConnection
 newCreateConnection
   pLocation_
   pBandwidth_
   pConnectionName_ =
     CreateConnection'
-      { providerName = Core.Nothing,
-        lagId = Core.Nothing,
-        tags = Core.Nothing,
+      { providerName = Prelude.Nothing,
+        lagId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         location = pLocation_,
         bandwidth = pBandwidth_,
         connectionName = pConnectionName_
@@ -140,27 +141,27 @@ newCreateConnection
 
 -- | The name of the service provider associated with the requested
 -- connection.
-createConnection_providerName :: Lens.Lens' CreateConnection (Core.Maybe Core.Text)
+createConnection_providerName :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_providerName = Lens.lens (\CreateConnection' {providerName} -> providerName) (\s@CreateConnection' {} a -> s {providerName = a} :: CreateConnection)
 
 -- | The ID of the LAG.
-createConnection_lagId :: Lens.Lens' CreateConnection (Core.Maybe Core.Text)
+createConnection_lagId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_lagId = Lens.lens (\CreateConnection' {lagId} -> lagId) (\s@CreateConnection' {} a -> s {lagId = a} :: CreateConnection)
 
 -- | The tags to associate with the lag.
-createConnection_tags :: Lens.Lens' CreateConnection (Core.Maybe (Core.NonEmpty Tag))
-createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Core.. Lens.mapping Lens._Coerce
+createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe (Prelude.NonEmpty Tag))
+createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The location of the connection.
-createConnection_location :: Lens.Lens' CreateConnection Core.Text
+createConnection_location :: Lens.Lens' CreateConnection Prelude.Text
 createConnection_location = Lens.lens (\CreateConnection' {location} -> location) (\s@CreateConnection' {} a -> s {location = a} :: CreateConnection)
 
 -- | The bandwidth of the connection.
-createConnection_bandwidth :: Lens.Lens' CreateConnection Core.Text
+createConnection_bandwidth :: Lens.Lens' CreateConnection Prelude.Text
 createConnection_bandwidth = Lens.lens (\CreateConnection' {bandwidth} -> bandwidth) (\s@CreateConnection' {} a -> s {bandwidth = a} :: CreateConnection)
 
 -- | The name of the connection.
-createConnection_connectionName :: Lens.Lens' CreateConnection Core.Text
+createConnection_connectionName :: Lens.Lens' CreateConnection Prelude.Text
 createConnection_connectionName = Lens.lens (\CreateConnection' {connectionName} -> connectionName) (\s@CreateConnection' {} a -> s {connectionName = a} :: CreateConnection)
 
 instance Core.AWSRequest CreateConnection where
@@ -170,38 +171,41 @@ instance Core.AWSRequest CreateConnection where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreateConnection
+instance Prelude.Hashable CreateConnection
 
-instance Core.NFData CreateConnection
+instance Prelude.NFData CreateConnection
 
 instance Core.ToHeaders CreateConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.CreateConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("providerName" Core..=) Core.<$> providerName,
-            ("lagId" Core..=) Core.<$> lagId,
-            ("tags" Core..=) Core.<$> tags,
-            Core.Just ("location" Core..= location),
-            Core.Just ("bandwidth" Core..= bandwidth),
-            Core.Just ("connectionName" Core..= connectionName)
+      ( Prelude.catMaybes
+          [ ("providerName" Core..=) Prelude.<$> providerName,
+            ("lagId" Core..=) Prelude.<$> lagId,
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("location" Core..= location),
+            Prelude.Just ("bandwidth" Core..= bandwidth),
+            Prelude.Just
+              ("connectionName" Core..= connectionName)
           ]
       )
 
 instance Core.ToPath CreateConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

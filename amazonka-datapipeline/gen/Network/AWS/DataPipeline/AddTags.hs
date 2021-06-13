@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | The ID of the pipeline.
-    pipelineId :: Core.Text,
+    pipelineId :: Prelude.Text,
     -- | The tags to add, as key\/value pairs.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTags' with all optional fields omitted.
@@ -69,21 +70,21 @@ data AddTags = AddTags'
 -- 'tags', 'addTags_tags' - The tags to add, as key\/value pairs.
 newAddTags ::
   -- | 'pipelineId'
-  Core.Text ->
+  Prelude.Text ->
   AddTags
 newAddTags pPipelineId_ =
   AddTags'
     { pipelineId = pPipelineId_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The ID of the pipeline.
-addTags_pipelineId :: Lens.Lens' AddTags Core.Text
+addTags_pipelineId :: Lens.Lens' AddTags Prelude.Text
 addTags_pipelineId = Lens.lens (\AddTags' {pipelineId} -> pipelineId) (\s@AddTags' {} a -> s {pipelineId = a} :: AddTags)
 
 -- | The tags to add, as key\/value pairs.
 addTags_tags :: Lens.Lens' AddTags [Tag]
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Core.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
@@ -92,47 +93,49 @@ instance Core.AWSRequest AddTags where
     Response.receiveEmpty
       ( \s h x ->
           AddTagsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddTags
+instance Prelude.Hashable AddTags
 
-instance Core.NFData AddTags
+instance Prelude.NFData AddTags
 
 instance Core.ToHeaders AddTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DataPipeline.AddTags" :: Core.ByteString),
+              Core.=# ("DataPipeline.AddTags" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTags where
   toJSON AddTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pipelineId" Core..= pipelineId),
-            Core.Just ("tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("pipelineId" Core..= pipelineId),
+            Prelude.Just ("tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath AddTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of AddTags.
 --
 -- /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsResponse' with all optional fields omitted.
@@ -145,13 +148,13 @@ data AddTagsResponse = AddTagsResponse'
 -- 'httpStatus', 'addTagsResponse_httpStatus' - The response's http status code.
 newAddTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddTagsResponse
 newAddTagsResponse pHttpStatus_ =
   AddTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Core.Int
+addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Prelude.Int
 addTagsResponse_httpStatus = Lens.lens (\AddTagsResponse' {httpStatus} -> httpStatus) (\s@AddTagsResponse' {} a -> s {httpStatus = a} :: AddTagsResponse)
 
-instance Core.NFData AddTagsResponse
+instance Prelude.NFData AddTagsResponse

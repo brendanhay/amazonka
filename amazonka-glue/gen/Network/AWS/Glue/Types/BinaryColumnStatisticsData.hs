@@ -21,19 +21,20 @@ module Network.AWS.Glue.Types.BinaryColumnStatisticsData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines column statistics supported for bit sequence data values.
 --
 -- /See:/ 'newBinaryColumnStatisticsData' smart constructor.
 data BinaryColumnStatisticsData = BinaryColumnStatisticsData'
   { -- | The size of the longest bit sequence in the column.
-    maximumLength :: Core.Natural,
+    maximumLength :: Prelude.Natural,
     -- | The average bit sequence length in the column.
-    averageLength :: Core.Double,
+    averageLength :: Prelude.Double,
     -- | The number of null values in the column.
-    numberOfNulls :: Core.Natural
+    numberOfNulls :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BinaryColumnStatisticsData' with all optional fields omitted.
@@ -50,11 +51,11 @@ data BinaryColumnStatisticsData = BinaryColumnStatisticsData'
 -- 'numberOfNulls', 'binaryColumnStatisticsData_numberOfNulls' - The number of null values in the column.
 newBinaryColumnStatisticsData ::
   -- | 'maximumLength'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'averageLength'
-  Core.Double ->
+  Prelude.Double ->
   -- | 'numberOfNulls'
-  Core.Natural ->
+  Prelude.Natural ->
   BinaryColumnStatisticsData
 newBinaryColumnStatisticsData
   pMaximumLength_
@@ -68,15 +69,15 @@ newBinaryColumnStatisticsData
       }
 
 -- | The size of the longest bit sequence in the column.
-binaryColumnStatisticsData_maximumLength :: Lens.Lens' BinaryColumnStatisticsData Core.Natural
+binaryColumnStatisticsData_maximumLength :: Lens.Lens' BinaryColumnStatisticsData Prelude.Natural
 binaryColumnStatisticsData_maximumLength = Lens.lens (\BinaryColumnStatisticsData' {maximumLength} -> maximumLength) (\s@BinaryColumnStatisticsData' {} a -> s {maximumLength = a} :: BinaryColumnStatisticsData)
 
 -- | The average bit sequence length in the column.
-binaryColumnStatisticsData_averageLength :: Lens.Lens' BinaryColumnStatisticsData Core.Double
+binaryColumnStatisticsData_averageLength :: Lens.Lens' BinaryColumnStatisticsData Prelude.Double
 binaryColumnStatisticsData_averageLength = Lens.lens (\BinaryColumnStatisticsData' {averageLength} -> averageLength) (\s@BinaryColumnStatisticsData' {} a -> s {averageLength = a} :: BinaryColumnStatisticsData)
 
 -- | The number of null values in the column.
-binaryColumnStatisticsData_numberOfNulls :: Lens.Lens' BinaryColumnStatisticsData Core.Natural
+binaryColumnStatisticsData_numberOfNulls :: Lens.Lens' BinaryColumnStatisticsData Prelude.Natural
 binaryColumnStatisticsData_numberOfNulls = Lens.lens (\BinaryColumnStatisticsData' {numberOfNulls} -> numberOfNulls) (\s@BinaryColumnStatisticsData' {} a -> s {numberOfNulls = a} :: BinaryColumnStatisticsData)
 
 instance Core.FromJSON BinaryColumnStatisticsData where
@@ -85,21 +86,23 @@ instance Core.FromJSON BinaryColumnStatisticsData where
       "BinaryColumnStatisticsData"
       ( \x ->
           BinaryColumnStatisticsData'
-            Core.<$> (x Core..: "MaximumLength")
-            Core.<*> (x Core..: "AverageLength")
-            Core.<*> (x Core..: "NumberOfNulls")
+            Prelude.<$> (x Core..: "MaximumLength")
+            Prelude.<*> (x Core..: "AverageLength")
+            Prelude.<*> (x Core..: "NumberOfNulls")
       )
 
-instance Core.Hashable BinaryColumnStatisticsData
+instance Prelude.Hashable BinaryColumnStatisticsData
 
-instance Core.NFData BinaryColumnStatisticsData
+instance Prelude.NFData BinaryColumnStatisticsData
 
 instance Core.ToJSON BinaryColumnStatisticsData where
   toJSON BinaryColumnStatisticsData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("MaximumLength" Core..= maximumLength),
-            Core.Just ("AverageLength" Core..= averageLength),
-            Core.Just ("NumberOfNulls" Core..= numberOfNulls)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("MaximumLength" Core..= maximumLength),
+            Prelude.Just ("AverageLength" Core..= averageLength),
+            Prelude.Just
+              ("NumberOfNulls" Core..= numberOfNulls)
           ]
       )

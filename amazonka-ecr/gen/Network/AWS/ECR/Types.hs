@@ -290,6 +290,7 @@ import Network.AWS.ECR.Types.ScanStatus
 import Network.AWS.ECR.Types.Tag
 import Network.AWS.ECR.Types.TagStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-09-21@ of the Amazon EC2 Container Registry SDK configuration.
@@ -303,7 +304,7 @@ defaultService =
       Core._serviceVersion = "2015-09-21",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseJSONError "ECR",
       Core._serviceRetry = retry
@@ -318,51 +319,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The upload could not be found, or the specified upload ID is not valid
 -- for this repository.
-_UploadNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UploadNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UploadNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -370,7 +373,7 @@ _UploadNotFoundException =
 
 -- | The specified image is tagged with a tag that already exists. The
 -- repository is configured for tag immutability.
-_ImageTagAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ImageTagAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ImageTagAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -378,7 +381,7 @@ _ImageTagAlreadyExistsException =
 
 -- | The list of tags on the repository is over the limit. The maximum number
 -- of tags that can be applied to a repository is 50.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -387,7 +390,7 @@ _TooManyTagsException =
 -- | The specified repository could not be found. Check the spelling of the
 -- specified repository and ensure that you are performing operations on
 -- the correct registry.
-_RepositoryNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RepositoryNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RepositoryNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -395,7 +398,7 @@ _RepositoryNotFoundException =
 
 -- | The specified image has already been pushed, and there were no changes
 -- to the manifest or image tag after the last push.
-_ImageAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ImageAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ImageAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -403,7 +406,7 @@ _ImageAlreadyExistsException =
 
 -- | The specified image scan could not be found. Ensure that image scanning
 -- is enabled on the repository and try again.
-_ScanNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ScanNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ScanNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -411,21 +414,21 @@ _ScanNotFoundException =
 
 -- | The specified image digest does not match the digest that Amazon ECR
 -- calculated for the image.
-_ImageDigestDoesNotMatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ImageDigestDoesNotMatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ImageDigestDoesNotMatchException =
   Core._MatchServiceError
     defaultService
     "ImageDigestDoesNotMatchException"
 
 -- | The image requested does not exist in the specified repository.
-_ImageNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ImageNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ImageNotFoundException =
   Core._MatchServiceError
     defaultService
     "ImageNotFoundException"
 
 -- | Layer parts must be at least 5 MiB in size.
-_LayerPartTooSmallException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LayerPartTooSmallException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LayerPartTooSmallException =
   Core._MatchServiceError
     defaultService
@@ -433,7 +436,7 @@ _LayerPartTooSmallException =
 
 -- | The layer digest calculation performed by Amazon ECR upon receipt of the
 -- image layer does not match the digest specified.
-_InvalidLayerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidLayerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidLayerException =
   Core._MatchServiceError
     defaultService
@@ -442,7 +445,7 @@ _InvalidLayerException =
 -- | An invalid parameter has been specified. Tag keys can have a maximum
 -- character length of 128 characters, and tag values can have a maximum
 -- length of 256 characters.
-_InvalidTagParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidTagParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidTagParameterException =
   Core._MatchServiceError
     defaultService
@@ -450,14 +453,14 @@ _InvalidTagParameterException =
 
 -- | The layer part size is not valid, or the first byte specified is not
 -- consecutive to the last byte of a previous layer part upload.
-_InvalidLayerPartException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidLayerPartException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidLayerPartException =
   Core._MatchServiceError
     defaultService
     "InvalidLayerPartException"
 
 -- | The manifest list is referencing an image that does not exist.
-_ReferencedImagesNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ReferencedImagesNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReferencedImagesNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -465,14 +468,14 @@ _ReferencedImagesNotFoundException =
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | There was an exception validating this request.
-_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
@@ -480,7 +483,7 @@ _ValidationException =
 
 -- | The specified layers could not be found, or the specified layer is not
 -- valid for this repository.
-_LayersNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LayersNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LayersNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -490,14 +493,14 @@ _LayersNotFoundException =
 -- limit for your account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html Amazon ECR Service Quotas>
 -- in the Amazon Elastic Container Registry User Guide.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The registry doesn\'t have an associated registry policy.
-_RegistryPolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RegistryPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RegistryPolicyNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -505,14 +508,14 @@ _RegistryPolicyNotFoundException =
 
 -- | The previous lifecycle policy preview request has not completed. Wait
 -- and try again.
-_LifecyclePolicyPreviewInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LifecyclePolicyPreviewInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LifecyclePolicyPreviewInProgressException =
   Core._MatchServiceError
     defaultService
     "LifecyclePolicyPreviewInProgressException"
 
 -- | The specified layer upload does not contain any layer parts.
-_EmptyUploadException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EmptyUploadException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EmptyUploadException =
   Core._MatchServiceError
     defaultService
@@ -520,28 +523,28 @@ _EmptyUploadException =
 
 -- | The specified repository and registry combination does not have an
 -- associated repository policy.
-_RepositoryPolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RepositoryPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RepositoryPolicyNotFoundException =
   Core._MatchServiceError
     defaultService
     "RepositoryPolicyNotFoundException"
 
 -- | The specified repository already exists in the specified registry.
-_RepositoryAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RepositoryAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RepositoryAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "RepositoryAlreadyExistsException"
 
 -- | There is no dry run for this repository.
-_LifecyclePolicyPreviewNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LifecyclePolicyPreviewNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LifecyclePolicyPreviewNotFoundException =
   Core._MatchServiceError
     defaultService
     "LifecyclePolicyPreviewNotFoundException"
 
 -- | The image is of a type that cannot be scanned.
-_UnsupportedImageTypeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedImageTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedImageTypeException =
   Core._MatchServiceError
     defaultService
@@ -549,7 +552,7 @@ _UnsupportedImageTypeException =
 
 -- | The specified repository contains images. To delete a repository that
 -- contains images, you must force the deletion with the @force@ parameter.
-_RepositoryNotEmptyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RepositoryNotEmptyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RepositoryNotEmptyException =
   Core._MatchServiceError
     defaultService
@@ -557,7 +560,7 @@ _RepositoryNotEmptyException =
 
 -- | The specified layer is not available because it is not associated with
 -- an image. Unassociated image layers may be cleaned up at any time.
-_LayerInaccessibleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LayerInaccessibleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LayerInaccessibleException =
   Core._MatchServiceError
     defaultService
@@ -565,28 +568,28 @@ _LayerInaccessibleException =
 
 -- | The lifecycle policy could not be found, and no policy is set to the
 -- repository.
-_LifecyclePolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LifecyclePolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LifecyclePolicyNotFoundException =
   Core._MatchServiceError
     defaultService
     "LifecyclePolicyNotFoundException"
 
 -- | The operation failed due to a KMS exception.
-_KmsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_KmsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KmsException =
   Core._MatchServiceError
     defaultService
     "KmsException"
 
 -- | These errors are usually caused by a server-side issue.
-_ServerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServerException =
   Core._MatchServiceError
     defaultService
     "ServerException"
 
 -- | The image layer already exists in the associated repository.
-_LayerAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LayerAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LayerAlreadyExistsException =
   Core._MatchServiceError
     defaultService

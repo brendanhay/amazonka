@@ -93,6 +93,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -270,7 +271,7 @@ data CreateQueue = CreateQueue'
     -- For more information about high throughput for FIFO queues, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
     -- in the /Amazon Simple Queue Service Developer Guide/.
-    attributes :: Core.Maybe (Core.HashMap QueueAttributeName Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap QueueAttributeName Prelude.Text),
     -- | Add cost allocation tags to the specified Amazon SQS queue. For an
     -- overview, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
@@ -299,7 +300,7 @@ data CreateQueue = CreateQueue'
     -- information, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
     -- in the /Amazon Simple Queue Service Developer Guide/.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the new queue. The following limits apply to this name:
     --
     -- -   A queue name can have up to 80 characters.
@@ -310,9 +311,9 @@ data CreateQueue = CreateQueue'
     -- -   A FIFO queue name must end with the @.fifo@ suffix.
     --
     -- Queue URLs and names are case-sensitive.
-    queueName :: Core.Text
+    queueName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateQueue' with all optional fields omitted.
@@ -533,12 +534,12 @@ data CreateQueue = CreateQueue'
 -- Queue URLs and names are case-sensitive.
 newCreateQueue ::
   -- | 'queueName'
-  Core.Text ->
+  Prelude.Text ->
   CreateQueue
 newCreateQueue pQueueName_ =
   CreateQueue'
-    { attributes = Core.Nothing,
-      tags = Core.Nothing,
+    { attributes = Prelude.Nothing,
+      tags = Prelude.Nothing,
       queueName = pQueueName_
     }
 
@@ -711,8 +712,8 @@ newCreateQueue pQueueName_ =
 -- For more information about high throughput for FIFO queues, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
 -- in the /Amazon Simple Queue Service Developer Guide/.
-createQueue_attributes :: Lens.Lens' CreateQueue (Core.Maybe (Core.HashMap QueueAttributeName Core.Text))
-createQueue_attributes = Lens.lens (\CreateQueue' {attributes} -> attributes) (\s@CreateQueue' {} a -> s {attributes = a} :: CreateQueue) Core.. Lens.mapping Lens._Coerce
+createQueue_attributes :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap QueueAttributeName Prelude.Text))
+createQueue_attributes = Lens.lens (\CreateQueue' {attributes} -> attributes) (\s@CreateQueue' {} a -> s {attributes = a} :: CreateQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Add cost allocation tags to the specified Amazon SQS queue. For an
 -- overview, see
@@ -742,8 +743,8 @@ createQueue_attributes = Lens.lens (\CreateQueue' {attributes} -> attributes) (\
 -- information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
 -- in the /Amazon Simple Queue Service Developer Guide/.
-createQueue_tags :: Lens.Lens' CreateQueue (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Core.. Lens.mapping Lens._Coerce
+createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the new queue. The following limits apply to this name:
 --
@@ -755,7 +756,7 @@ createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} 
 -- -   A FIFO queue name must end with the @.fifo@ suffix.
 --
 -- Queue URLs and names are case-sensitive.
-createQueue_queueName :: Lens.Lens' CreateQueue Core.Text
+createQueue_queueName :: Lens.Lens' CreateQueue Prelude.Text
 createQueue_queueName = Lens.lens (\CreateQueue' {queueName} -> queueName) (\s@CreateQueue' {} a -> s {queueName = a} :: CreateQueue)
 
 instance Core.AWSRequest CreateQueue where
@@ -766,31 +767,35 @@ instance Core.AWSRequest CreateQueue where
       "CreateQueueResult"
       ( \s h x ->
           CreateQueueResponse'
-            Core.<$> (x Core..@? "QueueUrl")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "QueueUrl")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateQueue
+instance Prelude.Hashable CreateQueue
 
-instance Core.NFData CreateQueue
+instance Prelude.NFData CreateQueue
 
 instance Core.ToHeaders CreateQueue where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateQueue where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateQueue where
   toQuery CreateQueue' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CreateQueue" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateQueue" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryMap "Attribute" "Name" "Value"
-              Core.<$> attributes
+              Prelude.<$> attributes
           ),
         Core.toQuery
-          (Core.toQueryMap "Tag" "Key" "Value" Core.<$> tags),
+          ( Core.toQueryMap "Tag" "Key" "Value"
+              Prelude.<$> tags
+          ),
         "QueueName" Core.=: queueName
       ]
 
@@ -799,11 +804,11 @@ instance Core.ToQuery CreateQueue where
 -- /See:/ 'newCreateQueueResponse' smart constructor.
 data CreateQueueResponse = CreateQueueResponse'
   { -- | The URL of the created Amazon SQS queue.
-    queueUrl :: Core.Maybe Core.Text,
+    queueUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateQueueResponse' with all optional fields omitted.
@@ -818,20 +823,20 @@ data CreateQueueResponse = CreateQueueResponse'
 -- 'httpStatus', 'createQueueResponse_httpStatus' - The response's http status code.
 newCreateQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateQueueResponse
 newCreateQueueResponse pHttpStatus_ =
   CreateQueueResponse'
-    { queueUrl = Core.Nothing,
+    { queueUrl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The URL of the created Amazon SQS queue.
-createQueueResponse_queueUrl :: Lens.Lens' CreateQueueResponse (Core.Maybe Core.Text)
+createQueueResponse_queueUrl :: Lens.Lens' CreateQueueResponse (Prelude.Maybe Prelude.Text)
 createQueueResponse_queueUrl = Lens.lens (\CreateQueueResponse' {queueUrl} -> queueUrl) (\s@CreateQueueResponse' {} a -> s {queueUrl = a} :: CreateQueueResponse)
 
 -- | The response's http status code.
-createQueueResponse_httpStatus :: Lens.Lens' CreateQueueResponse Core.Int
+createQueueResponse_httpStatus :: Lens.Lens' CreateQueueResponse Prelude.Int
 createQueueResponse_httpStatus = Lens.lens (\CreateQueueResponse' {httpStatus} -> httpStatus) (\s@CreateQueueResponse' {} a -> s {httpStatus = a} :: CreateQueueResponse)
 
-instance Core.NFData CreateQueueResponse
+instance Prelude.NFData CreateQueueResponse

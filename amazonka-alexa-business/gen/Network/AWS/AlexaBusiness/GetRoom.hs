@@ -42,15 +42,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetRoom' smart constructor.
 data GetRoom = GetRoom'
   { -- | The ARN of the room for which to request details. Required.
-    roomArn :: Core.Maybe Core.Text
+    roomArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRoom' with all optional fields omitted.
@@ -63,10 +64,10 @@ data GetRoom = GetRoom'
 -- 'roomArn', 'getRoom_roomArn' - The ARN of the room for which to request details. Required.
 newGetRoom ::
   GetRoom
-newGetRoom = GetRoom' {roomArn = Core.Nothing}
+newGetRoom = GetRoom' {roomArn = Prelude.Nothing}
 
 -- | The ARN of the room for which to request details. Required.
-getRoom_roomArn :: Lens.Lens' GetRoom (Core.Maybe Core.Text)
+getRoom_roomArn :: Lens.Lens' GetRoom (Prelude.Maybe Prelude.Text)
 getRoom_roomArn = Lens.lens (\GetRoom' {roomArn} -> roomArn) (\s@GetRoom' {} a -> s {roomArn = a} :: GetRoom)
 
 instance Core.AWSRequest GetRoom where
@@ -76,46 +77,48 @@ instance Core.AWSRequest GetRoom where
     Response.receiveJSON
       ( \s h x ->
           GetRoomResponse'
-            Core.<$> (x Core..?> "Room")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Room")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRoom
+instance Prelude.Hashable GetRoom
 
-instance Core.NFData GetRoom
+instance Prelude.NFData GetRoom
 
 instance Core.ToHeaders GetRoom where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.GetRoom" :: Core.ByteString),
+              Core.=# ("AlexaForBusiness.GetRoom" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRoom where
   toJSON GetRoom' {..} =
     Core.object
-      ( Core.catMaybes
-          [("RoomArn" Core..=) Core.<$> roomArn]
+      ( Prelude.catMaybes
+          [("RoomArn" Core..=) Prelude.<$> roomArn]
       )
 
 instance Core.ToPath GetRoom where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRoom where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRoomResponse' smart constructor.
 data GetRoomResponse = GetRoomResponse'
   { -- | The details of the room requested.
-    room :: Core.Maybe Room,
+    room :: Prelude.Maybe Room,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRoomResponse' with all optional fields omitted.
@@ -130,20 +133,20 @@ data GetRoomResponse = GetRoomResponse'
 -- 'httpStatus', 'getRoomResponse_httpStatus' - The response's http status code.
 newGetRoomResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRoomResponse
 newGetRoomResponse pHttpStatus_ =
   GetRoomResponse'
-    { room = Core.Nothing,
+    { room = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the room requested.
-getRoomResponse_room :: Lens.Lens' GetRoomResponse (Core.Maybe Room)
+getRoomResponse_room :: Lens.Lens' GetRoomResponse (Prelude.Maybe Room)
 getRoomResponse_room = Lens.lens (\GetRoomResponse' {room} -> room) (\s@GetRoomResponse' {} a -> s {room = a} :: GetRoomResponse)
 
 -- | The response's http status code.
-getRoomResponse_httpStatus :: Lens.Lens' GetRoomResponse Core.Int
+getRoomResponse_httpStatus :: Lens.Lens' GetRoomResponse Prelude.Int
 getRoomResponse_httpStatus = Lens.lens (\GetRoomResponse' {httpStatus} -> httpStatus) (\s@GetRoomResponse' {} a -> s {httpStatus = a} :: GetRoomResponse)
 
-instance Core.NFData GetRoomResponse
+instance Prelude.NFData GetRoomResponse

@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Rtmp Caption Info Destination Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data RtmpCaptionInfoDestinationSettings = RtmpCaptionInfoDestinationSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RtmpCaptionInfoDestinationSettings' with all optional fields omitted.
@@ -47,19 +48,19 @@ instance
     Core.withObject
       "RtmpCaptionInfoDestinationSettings"
       ( \x ->
-          Core.pure RtmpCaptionInfoDestinationSettings'
+          Prelude.pure RtmpCaptionInfoDestinationSettings'
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RtmpCaptionInfoDestinationSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     RtmpCaptionInfoDestinationSettings
 
 instance
   Core.ToJSON
     RtmpCaptionInfoDestinationSettings
   where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

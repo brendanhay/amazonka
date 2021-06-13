@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.TeletextDestinationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Teletext Destination Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data TeletextDestinationSettings = TeletextDestinationSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TeletextDestinationSettings' with all optional fields omitted.
@@ -43,11 +44,11 @@ instance Core.FromJSON TeletextDestinationSettings where
   parseJSON =
     Core.withObject
       "TeletextDestinationSettings"
-      (\x -> Core.pure TeletextDestinationSettings')
+      (\x -> Prelude.pure TeletextDestinationSettings')
 
-instance Core.Hashable TeletextDestinationSettings
+instance Prelude.Hashable TeletextDestinationSettings
 
-instance Core.NFData TeletextDestinationSettings
+instance Prelude.NFData TeletextDestinationSettings
 
 instance Core.ToJSON TeletextDestinationSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

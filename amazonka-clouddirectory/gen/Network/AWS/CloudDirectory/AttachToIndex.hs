@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ import qualified Network.AWS.Response as Response
 data AttachToIndex = AttachToIndex'
   { -- | The Amazon Resource Name (ARN) of the directory where the object and
     -- index exist.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | A reference to the index that you are attaching the object to.
     indexReference :: ObjectReference,
     -- | A reference to the object that you are attaching to the index.
     targetReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachToIndex' with all optional fields omitted.
@@ -75,7 +76,7 @@ data AttachToIndex = AttachToIndex'
 -- 'targetReference', 'attachToIndex_targetReference' - A reference to the object that you are attaching to the index.
 newAttachToIndex ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'indexReference'
   ObjectReference ->
   -- | 'targetReference'
@@ -93,7 +94,7 @@ newAttachToIndex
 
 -- | The Amazon Resource Name (ARN) of the directory where the object and
 -- index exist.
-attachToIndex_directoryArn :: Lens.Lens' AttachToIndex Core.Text
+attachToIndex_directoryArn :: Lens.Lens' AttachToIndex Prelude.Text
 attachToIndex_directoryArn = Lens.lens (\AttachToIndex' {directoryArn} -> directoryArn) (\s@AttachToIndex' {} a -> s {directoryArn = a} :: AttachToIndex)
 
 -- | A reference to the index that you are attaching the object to.
@@ -113,45 +114,46 @@ instance Core.AWSRequest AttachToIndex where
     Response.receiveJSON
       ( \s h x ->
           AttachToIndexResponse'
-            Core.<$> (x Core..?> "AttachedObjectIdentifier")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AttachedObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AttachToIndex
+instance Prelude.Hashable AttachToIndex
 
-instance Core.NFData AttachToIndex
+instance Prelude.NFData AttachToIndex
 
 instance Core.ToHeaders AttachToIndex where
   toHeaders AttachToIndex' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON AttachToIndex where
   toJSON AttachToIndex' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("IndexReference" Core..= indexReference),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("IndexReference" Core..= indexReference),
+            Prelude.Just
               ("TargetReference" Core..= targetReference)
           ]
       )
 
 instance Core.ToPath AttachToIndex where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/index/attach"
 
 instance Core.ToQuery AttachToIndex where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachToIndexResponse' smart constructor.
 data AttachToIndexResponse = AttachToIndexResponse'
   { -- | The @ObjectIdentifier@ of the object that was attached to the index.
-    attachedObjectIdentifier :: Core.Maybe Core.Text,
+    attachedObjectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachToIndexResponse' with all optional fields omitted.
@@ -166,21 +168,21 @@ data AttachToIndexResponse = AttachToIndexResponse'
 -- 'httpStatus', 'attachToIndexResponse_httpStatus' - The response's http status code.
 newAttachToIndexResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AttachToIndexResponse
 newAttachToIndexResponse pHttpStatus_ =
   AttachToIndexResponse'
     { attachedObjectIdentifier =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ObjectIdentifier@ of the object that was attached to the index.
-attachToIndexResponse_attachedObjectIdentifier :: Lens.Lens' AttachToIndexResponse (Core.Maybe Core.Text)
+attachToIndexResponse_attachedObjectIdentifier :: Lens.Lens' AttachToIndexResponse (Prelude.Maybe Prelude.Text)
 attachToIndexResponse_attachedObjectIdentifier = Lens.lens (\AttachToIndexResponse' {attachedObjectIdentifier} -> attachedObjectIdentifier) (\s@AttachToIndexResponse' {} a -> s {attachedObjectIdentifier = a} :: AttachToIndexResponse)
 
 -- | The response's http status code.
-attachToIndexResponse_httpStatus :: Lens.Lens' AttachToIndexResponse Core.Int
+attachToIndexResponse_httpStatus :: Lens.Lens' AttachToIndexResponse Prelude.Int
 attachToIndexResponse_httpStatus = Lens.lens (\AttachToIndexResponse' {httpStatus} -> httpStatus) (\s@AttachToIndexResponse' {} a -> s {httpStatus = a} :: AttachToIndexResponse)
 
-instance Core.NFData AttachToIndexResponse
+instance Prelude.NFData AttachToIndexResponse

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.M2tsPcrControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is
 -- inserted for every Packetized Elementary Stream (PES) header. This is
@@ -37,15 +38,15 @@ newtype M2tsPcrControl = M2tsPcrControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

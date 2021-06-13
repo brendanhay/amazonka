@@ -21,17 +21,18 @@ module Network.AWS.CloudFront.Types.QueryStringNames where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a list of query string names.
 --
 -- /See:/ 'newQueryStringNames' smart constructor.
 data QueryStringNames = QueryStringNames'
   { -- | A list of query string names.
-    items :: Core.Maybe [Core.Text],
+    items :: Prelude.Maybe [Prelude.Text],
     -- | The number of query string names in the @Items@ list.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryStringNames' with all optional fields omitted.
@@ -46,38 +47,38 @@ data QueryStringNames = QueryStringNames'
 -- 'quantity', 'queryStringNames_quantity' - The number of query string names in the @Items@ list.
 newQueryStringNames ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   QueryStringNames
 newQueryStringNames pQuantity_ =
   QueryStringNames'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       quantity = pQuantity_
     }
 
 -- | A list of query string names.
-queryStringNames_items :: Lens.Lens' QueryStringNames (Core.Maybe [Core.Text])
-queryStringNames_items = Lens.lens (\QueryStringNames' {items} -> items) (\s@QueryStringNames' {} a -> s {items = a} :: QueryStringNames) Core.. Lens.mapping Lens._Coerce
+queryStringNames_items :: Lens.Lens' QueryStringNames (Prelude.Maybe [Prelude.Text])
+queryStringNames_items = Lens.lens (\QueryStringNames' {items} -> items) (\s@QueryStringNames' {} a -> s {items = a} :: QueryStringNames) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of query string names in the @Items@ list.
-queryStringNames_quantity :: Lens.Lens' QueryStringNames Core.Int
+queryStringNames_quantity :: Lens.Lens' QueryStringNames Prelude.Int
 queryStringNames_quantity = Lens.lens (\QueryStringNames' {quantity} -> quantity) (\s@QueryStringNames' {} a -> s {quantity = a} :: QueryStringNames)
 
 instance Core.FromXML QueryStringNames where
   parseXML x =
     QueryStringNames'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Name")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Name")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable QueryStringNames
+instance Prelude.Hashable QueryStringNames
 
-instance Core.NFData QueryStringNames
+instance Prelude.NFData QueryStringNames
 
 instance Core.ToXML QueryStringNames where
   toXML QueryStringNames' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Name" Core.<$> items),
+          Core.@= Core.toXML (Core.toXMLList "Name" Prelude.<$> items),
         "Quantity" Core.@= quantity
       ]

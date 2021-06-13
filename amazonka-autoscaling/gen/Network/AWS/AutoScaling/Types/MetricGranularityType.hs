@@ -21,15 +21,16 @@ module Network.AWS.AutoScaling.Types.MetricGranularityType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a granularity of a metric.
 --
 -- /See:/ 'newMetricGranularityType' smart constructor.
 data MetricGranularityType = MetricGranularityType'
   { -- | The granularity. The only valid value is @1Minute@.
-    granularity :: Core.Maybe Core.Text
+    granularity :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricGranularityType' with all optional fields omitted.
@@ -43,17 +44,20 @@ data MetricGranularityType = MetricGranularityType'
 newMetricGranularityType ::
   MetricGranularityType
 newMetricGranularityType =
-  MetricGranularityType' {granularity = Core.Nothing}
+  MetricGranularityType'
+    { granularity =
+        Prelude.Nothing
+    }
 
 -- | The granularity. The only valid value is @1Minute@.
-metricGranularityType_granularity :: Lens.Lens' MetricGranularityType (Core.Maybe Core.Text)
+metricGranularityType_granularity :: Lens.Lens' MetricGranularityType (Prelude.Maybe Prelude.Text)
 metricGranularityType_granularity = Lens.lens (\MetricGranularityType' {granularity} -> granularity) (\s@MetricGranularityType' {} a -> s {granularity = a} :: MetricGranularityType)
 
 instance Core.FromXML MetricGranularityType where
   parseXML x =
     MetricGranularityType'
-      Core.<$> (x Core..@? "Granularity")
+      Prelude.<$> (x Core..@? "Granularity")
 
-instance Core.Hashable MetricGranularityType
+instance Prelude.Hashable MetricGranularityType
 
-instance Core.NFData MetricGranularityType
+instance Prelude.NFData MetricGranularityType

@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.NoiseReducerTemporalFilterSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.NoiseFilterPostTemporalSharpening
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Noise reducer filter settings for temporal filter.
 --
@@ -34,23 +35,23 @@ data NoiseReducerTemporalFilterSettings = NoiseReducerTemporalFilterSettings'
     -- reducer to Temporal, your output bandwidth is reduced. When Post
     -- temporal sharpening is also enabled, that bandwidth reduction is
     -- smaller.
-    postTemporalSharpening :: Core.Maybe NoiseFilterPostTemporalSharpening,
+    postTemporalSharpening :: Prelude.Maybe NoiseFilterPostTemporalSharpening,
     -- | The speed of the filter (higher number is faster). Low setting reduces
     -- bit rate at the cost of transcode time, high setting improves transcode
     -- time at the cost of bit rate.
-    speed :: Core.Maybe Core.Int,
+    speed :: Prelude.Maybe Prelude.Int,
     -- | Use Aggressive mode for content that has complex motion. Higher values
     -- produce stronger temporal filtering. This filters highly complex scenes
     -- more aggressively and creates better VQ for low bitrate outputs.
-    aggressiveMode :: Core.Maybe Core.Natural,
+    aggressiveMode :: Prelude.Maybe Prelude.Natural,
     -- | Specify the strength of the noise reducing filter on this output. Higher
     -- values produce stronger filtering. We recommend the following value
     -- ranges, depending on the result that you want: * 0-2 for complexity
     -- reduction with minimal sharpness loss * 2-8 for complexity reduction
     -- with image preservation * 8-16 for a high level of complexity reduction
-    strength :: Core.Maybe Core.Natural
+    strength :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NoiseReducerTemporalFilterSettings' with all optional fields omitted.
@@ -86,10 +87,10 @@ newNoiseReducerTemporalFilterSettings ::
 newNoiseReducerTemporalFilterSettings =
   NoiseReducerTemporalFilterSettings'
     { postTemporalSharpening =
-        Core.Nothing,
-      speed = Core.Nothing,
-      aggressiveMode = Core.Nothing,
-      strength = Core.Nothing
+        Prelude.Nothing,
+      speed = Prelude.Nothing,
+      aggressiveMode = Prelude.Nothing,
+      strength = Prelude.Nothing
     }
 
 -- | Optional. When you set Noise reducer (noiseReducer) to Temporal
@@ -99,19 +100,19 @@ newNoiseReducerTemporalFilterSettings =
 -- reducer to Temporal, your output bandwidth is reduced. When Post
 -- temporal sharpening is also enabled, that bandwidth reduction is
 -- smaller.
-noiseReducerTemporalFilterSettings_postTemporalSharpening :: Lens.Lens' NoiseReducerTemporalFilterSettings (Core.Maybe NoiseFilterPostTemporalSharpening)
+noiseReducerTemporalFilterSettings_postTemporalSharpening :: Lens.Lens' NoiseReducerTemporalFilterSettings (Prelude.Maybe NoiseFilterPostTemporalSharpening)
 noiseReducerTemporalFilterSettings_postTemporalSharpening = Lens.lens (\NoiseReducerTemporalFilterSettings' {postTemporalSharpening} -> postTemporalSharpening) (\s@NoiseReducerTemporalFilterSettings' {} a -> s {postTemporalSharpening = a} :: NoiseReducerTemporalFilterSettings)
 
 -- | The speed of the filter (higher number is faster). Low setting reduces
 -- bit rate at the cost of transcode time, high setting improves transcode
 -- time at the cost of bit rate.
-noiseReducerTemporalFilterSettings_speed :: Lens.Lens' NoiseReducerTemporalFilterSettings (Core.Maybe Core.Int)
+noiseReducerTemporalFilterSettings_speed :: Lens.Lens' NoiseReducerTemporalFilterSettings (Prelude.Maybe Prelude.Int)
 noiseReducerTemporalFilterSettings_speed = Lens.lens (\NoiseReducerTemporalFilterSettings' {speed} -> speed) (\s@NoiseReducerTemporalFilterSettings' {} a -> s {speed = a} :: NoiseReducerTemporalFilterSettings)
 
 -- | Use Aggressive mode for content that has complex motion. Higher values
 -- produce stronger temporal filtering. This filters highly complex scenes
 -- more aggressively and creates better VQ for low bitrate outputs.
-noiseReducerTemporalFilterSettings_aggressiveMode :: Lens.Lens' NoiseReducerTemporalFilterSettings (Core.Maybe Core.Natural)
+noiseReducerTemporalFilterSettings_aggressiveMode :: Lens.Lens' NoiseReducerTemporalFilterSettings (Prelude.Maybe Prelude.Natural)
 noiseReducerTemporalFilterSettings_aggressiveMode = Lens.lens (\NoiseReducerTemporalFilterSettings' {aggressiveMode} -> aggressiveMode) (\s@NoiseReducerTemporalFilterSettings' {} a -> s {aggressiveMode = a} :: NoiseReducerTemporalFilterSettings)
 
 -- | Specify the strength of the noise reducing filter on this output. Higher
@@ -119,7 +120,7 @@ noiseReducerTemporalFilterSettings_aggressiveMode = Lens.lens (\NoiseReducerTemp
 -- ranges, depending on the result that you want: * 0-2 for complexity
 -- reduction with minimal sharpness loss * 2-8 for complexity reduction
 -- with image preservation * 8-16 for a high level of complexity reduction
-noiseReducerTemporalFilterSettings_strength :: Lens.Lens' NoiseReducerTemporalFilterSettings (Core.Maybe Core.Natural)
+noiseReducerTemporalFilterSettings_strength :: Lens.Lens' NoiseReducerTemporalFilterSettings (Prelude.Maybe Prelude.Natural)
 noiseReducerTemporalFilterSettings_strength = Lens.lens (\NoiseReducerTemporalFilterSettings' {strength} -> strength) (\s@NoiseReducerTemporalFilterSettings' {} a -> s {strength = a} :: NoiseReducerTemporalFilterSettings)
 
 instance
@@ -131,18 +132,18 @@ instance
       "NoiseReducerTemporalFilterSettings"
       ( \x ->
           NoiseReducerTemporalFilterSettings'
-            Core.<$> (x Core..:? "postTemporalSharpening")
-            Core.<*> (x Core..:? "speed")
-            Core.<*> (x Core..:? "aggressiveMode")
-            Core.<*> (x Core..:? "strength")
+            Prelude.<$> (x Core..:? "postTemporalSharpening")
+            Prelude.<*> (x Core..:? "speed")
+            Prelude.<*> (x Core..:? "aggressiveMode")
+            Prelude.<*> (x Core..:? "strength")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     NoiseReducerTemporalFilterSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     NoiseReducerTemporalFilterSettings
 
 instance
@@ -151,11 +152,12 @@ instance
   where
   toJSON NoiseReducerTemporalFilterSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("postTemporalSharpening" Core..=)
-              Core.<$> postTemporalSharpening,
-            ("speed" Core..=) Core.<$> speed,
-            ("aggressiveMode" Core..=) Core.<$> aggressiveMode,
-            ("strength" Core..=) Core.<$> strength
+              Prelude.<$> postTemporalSharpening,
+            ("speed" Core..=) Prelude.<$> speed,
+            ("aggressiveMode" Core..=)
+              Prelude.<$> aggressiveMode,
+            ("strength" Core..=) Prelude.<$> strength
           ]
       )

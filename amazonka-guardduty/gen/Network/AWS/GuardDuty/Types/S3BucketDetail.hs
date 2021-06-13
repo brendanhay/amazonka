@@ -25,29 +25,30 @@ import Network.AWS.GuardDuty.Types.Owner
 import Network.AWS.GuardDuty.Types.PublicAccess
 import Network.AWS.GuardDuty.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the S3 bucket.
 --
 -- /See:/ 'newS3BucketDetail' smart constructor.
 data S3BucketDetail = S3BucketDetail'
   { -- | The Amazon Resource Name (ARN) of the S3 bucket.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Describes the public access policies that apply to the S3 bucket.
-    publicAccess :: Core.Maybe PublicAccess,
+    publicAccess :: Prelude.Maybe PublicAccess,
     -- | The date and time the bucket was created at.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | Describes the server side encryption method used in the S3 bucket.
-    defaultServerSideEncryption :: Core.Maybe DefaultServerSideEncryption,
+    defaultServerSideEncryption :: Prelude.Maybe DefaultServerSideEncryption,
     -- | The name of the S3 bucket.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | All tags attached to the S3 bucket
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The owner of the S3 bucket.
-    owner :: Core.Maybe Owner,
+    owner :: Prelude.Maybe Owner,
     -- | Describes whether the bucket is a source or destination bucket.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3BucketDetail' with all optional fields omitted.
@@ -76,46 +77,46 @@ newS3BucketDetail ::
   S3BucketDetail
 newS3BucketDetail =
   S3BucketDetail'
-    { arn = Core.Nothing,
-      publicAccess = Core.Nothing,
-      createdAt = Core.Nothing,
-      defaultServerSideEncryption = Core.Nothing,
-      name = Core.Nothing,
-      tags = Core.Nothing,
-      owner = Core.Nothing,
-      type' = Core.Nothing
+    { arn = Prelude.Nothing,
+      publicAccess = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      defaultServerSideEncryption = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the S3 bucket.
-s3BucketDetail_arn :: Lens.Lens' S3BucketDetail (Core.Maybe Core.Text)
+s3BucketDetail_arn :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.Text)
 s3BucketDetail_arn = Lens.lens (\S3BucketDetail' {arn} -> arn) (\s@S3BucketDetail' {} a -> s {arn = a} :: S3BucketDetail)
 
 -- | Describes the public access policies that apply to the S3 bucket.
-s3BucketDetail_publicAccess :: Lens.Lens' S3BucketDetail (Core.Maybe PublicAccess)
+s3BucketDetail_publicAccess :: Lens.Lens' S3BucketDetail (Prelude.Maybe PublicAccess)
 s3BucketDetail_publicAccess = Lens.lens (\S3BucketDetail' {publicAccess} -> publicAccess) (\s@S3BucketDetail' {} a -> s {publicAccess = a} :: S3BucketDetail)
 
 -- | The date and time the bucket was created at.
-s3BucketDetail_createdAt :: Lens.Lens' S3BucketDetail (Core.Maybe Core.UTCTime)
-s3BucketDetail_createdAt = Lens.lens (\S3BucketDetail' {createdAt} -> createdAt) (\s@S3BucketDetail' {} a -> s {createdAt = a} :: S3BucketDetail) Core.. Lens.mapping Core._Time
+s3BucketDetail_createdAt :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.UTCTime)
+s3BucketDetail_createdAt = Lens.lens (\S3BucketDetail' {createdAt} -> createdAt) (\s@S3BucketDetail' {} a -> s {createdAt = a} :: S3BucketDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Describes the server side encryption method used in the S3 bucket.
-s3BucketDetail_defaultServerSideEncryption :: Lens.Lens' S3BucketDetail (Core.Maybe DefaultServerSideEncryption)
+s3BucketDetail_defaultServerSideEncryption :: Lens.Lens' S3BucketDetail (Prelude.Maybe DefaultServerSideEncryption)
 s3BucketDetail_defaultServerSideEncryption = Lens.lens (\S3BucketDetail' {defaultServerSideEncryption} -> defaultServerSideEncryption) (\s@S3BucketDetail' {} a -> s {defaultServerSideEncryption = a} :: S3BucketDetail)
 
 -- | The name of the S3 bucket.
-s3BucketDetail_name :: Lens.Lens' S3BucketDetail (Core.Maybe Core.Text)
+s3BucketDetail_name :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.Text)
 s3BucketDetail_name = Lens.lens (\S3BucketDetail' {name} -> name) (\s@S3BucketDetail' {} a -> s {name = a} :: S3BucketDetail)
 
 -- | All tags attached to the S3 bucket
-s3BucketDetail_tags :: Lens.Lens' S3BucketDetail (Core.Maybe [Tag])
-s3BucketDetail_tags = Lens.lens (\S3BucketDetail' {tags} -> tags) (\s@S3BucketDetail' {} a -> s {tags = a} :: S3BucketDetail) Core.. Lens.mapping Lens._Coerce
+s3BucketDetail_tags :: Lens.Lens' S3BucketDetail (Prelude.Maybe [Tag])
+s3BucketDetail_tags = Lens.lens (\S3BucketDetail' {tags} -> tags) (\s@S3BucketDetail' {} a -> s {tags = a} :: S3BucketDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The owner of the S3 bucket.
-s3BucketDetail_owner :: Lens.Lens' S3BucketDetail (Core.Maybe Owner)
+s3BucketDetail_owner :: Lens.Lens' S3BucketDetail (Prelude.Maybe Owner)
 s3BucketDetail_owner = Lens.lens (\S3BucketDetail' {owner} -> owner) (\s@S3BucketDetail' {} a -> s {owner = a} :: S3BucketDetail)
 
 -- | Describes whether the bucket is a source or destination bucket.
-s3BucketDetail_type :: Lens.Lens' S3BucketDetail (Core.Maybe Core.Text)
+s3BucketDetail_type :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.Text)
 s3BucketDetail_type = Lens.lens (\S3BucketDetail' {type'} -> type') (\s@S3BucketDetail' {} a -> s {type' = a} :: S3BucketDetail)
 
 instance Core.FromJSON S3BucketDetail where
@@ -124,16 +125,16 @@ instance Core.FromJSON S3BucketDetail where
       "S3BucketDetail"
       ( \x ->
           S3BucketDetail'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "publicAccess")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "defaultServerSideEncryption")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "owner")
-            Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "publicAccess")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "defaultServerSideEncryption")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "owner")
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable S3BucketDetail
+instance Prelude.Hashable S3BucketDetail
 
-instance Core.NFData S3BucketDetail
+instance Prelude.NFData S3BucketDetail

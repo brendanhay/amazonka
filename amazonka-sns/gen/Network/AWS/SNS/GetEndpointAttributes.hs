@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -53,9 +54,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newGetEndpointAttributes' smart constructor.
 data GetEndpointAttributes = GetEndpointAttributes'
   { -- | EndpointArn for GetEndpointAttributes input.
-    endpointArn :: Core.Text
+    endpointArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetEndpointAttributes' with all optional fields omitted.
@@ -68,13 +69,13 @@ data GetEndpointAttributes = GetEndpointAttributes'
 -- 'endpointArn', 'getEndpointAttributes_endpointArn' - EndpointArn for GetEndpointAttributes input.
 newGetEndpointAttributes ::
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   GetEndpointAttributes
 newGetEndpointAttributes pEndpointArn_ =
   GetEndpointAttributes' {endpointArn = pEndpointArn_}
 
 -- | EndpointArn for GetEndpointAttributes input.
-getEndpointAttributes_endpointArn :: Lens.Lens' GetEndpointAttributes Core.Text
+getEndpointAttributes_endpointArn :: Lens.Lens' GetEndpointAttributes Prelude.Text
 getEndpointAttributes_endpointArn = Lens.lens (\GetEndpointAttributes' {endpointArn} -> endpointArn) (\s@GetEndpointAttributes' {} a -> s {endpointArn = a} :: GetEndpointAttributes)
 
 instance Core.AWSRequest GetEndpointAttributes where
@@ -87,28 +88,29 @@ instance Core.AWSRequest GetEndpointAttributes where
       "GetEndpointAttributesResult"
       ( \s h x ->
           GetEndpointAttributesResponse'
-            Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetEndpointAttributes
+instance Prelude.Hashable GetEndpointAttributes
 
-instance Core.NFData GetEndpointAttributes
+instance Prelude.NFData GetEndpointAttributes
 
 instance Core.ToHeaders GetEndpointAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetEndpointAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetEndpointAttributes where
   toQuery GetEndpointAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetEndpointAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("GetEndpointAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "EndpointArn" Core.=: endpointArn
       ]
 
@@ -133,11 +135,11 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
     --     notification service.
     --
     --     The device token for the iOS platform is returned in lowercase.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetEndpointAttributesResponse' with all optional fields omitted.
@@ -168,12 +170,12 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
 -- 'httpStatus', 'getEndpointAttributesResponse_httpStatus' - The response's http status code.
 newGetEndpointAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetEndpointAttributesResponse
 newGetEndpointAttributesResponse pHttpStatus_ =
   GetEndpointAttributesResponse'
     { attributes =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -194,11 +196,11 @@ newGetEndpointAttributesResponse pHttpStatus_ =
 --     notification service.
 --
 --     The device token for the iOS platform is returned in lowercase.
-getEndpointAttributesResponse_attributes :: Lens.Lens' GetEndpointAttributesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getEndpointAttributesResponse_attributes = Lens.lens (\GetEndpointAttributesResponse' {attributes} -> attributes) (\s@GetEndpointAttributesResponse' {} a -> s {attributes = a} :: GetEndpointAttributesResponse) Core.. Lens.mapping Lens._Coerce
+getEndpointAttributesResponse_attributes :: Lens.Lens' GetEndpointAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getEndpointAttributesResponse_attributes = Lens.lens (\GetEndpointAttributesResponse' {attributes} -> attributes) (\s@GetEndpointAttributesResponse' {} a -> s {attributes = a} :: GetEndpointAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getEndpointAttributesResponse_httpStatus :: Lens.Lens' GetEndpointAttributesResponse Core.Int
+getEndpointAttributesResponse_httpStatus :: Lens.Lens' GetEndpointAttributesResponse Prelude.Int
 getEndpointAttributesResponse_httpStatus = Lens.lens (\GetEndpointAttributesResponse' {httpStatus} -> httpStatus) (\s@GetEndpointAttributesResponse' {} a -> s {httpStatus = a} :: GetEndpointAttributesResponse)
 
-instance Core.NFData GetEndpointAttributesResponse
+instance Prelude.NFData GetEndpointAttributesResponse

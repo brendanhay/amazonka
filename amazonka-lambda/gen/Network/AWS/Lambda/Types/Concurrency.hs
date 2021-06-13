@@ -21,15 +21,16 @@ module Network.AWS.Lambda.Types.Concurrency where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newConcurrency' smart constructor.
 data Concurrency = Concurrency'
   { -- | The number of concurrent executions that are reserved for this function.
     -- For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency>.
-    reservedConcurrentExecutions :: Core.Maybe Core.Natural
+    reservedConcurrentExecutions :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Concurrency' with all optional fields omitted.
@@ -47,13 +48,13 @@ newConcurrency ::
 newConcurrency =
   Concurrency'
     { reservedConcurrentExecutions =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The number of concurrent executions that are reserved for this function.
 -- For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency>.
-concurrency_reservedConcurrentExecutions :: Lens.Lens' Concurrency (Core.Maybe Core.Natural)
+concurrency_reservedConcurrentExecutions :: Lens.Lens' Concurrency (Prelude.Maybe Prelude.Natural)
 concurrency_reservedConcurrentExecutions = Lens.lens (\Concurrency' {reservedConcurrentExecutions} -> reservedConcurrentExecutions) (\s@Concurrency' {} a -> s {reservedConcurrentExecutions = a} :: Concurrency)
 
 instance Core.FromJSON Concurrency where
@@ -62,9 +63,9 @@ instance Core.FromJSON Concurrency where
       "Concurrency"
       ( \x ->
           Concurrency'
-            Core.<$> (x Core..:? "ReservedConcurrentExecutions")
+            Prelude.<$> (x Core..:? "ReservedConcurrentExecutions")
       )
 
-instance Core.Hashable Concurrency
+instance Prelude.Hashable Concurrency
 
-instance Core.NFData Concurrency
+instance Prelude.NFData Concurrency

@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBInstanceAutomatedBackup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.DBInstanceAutomatedBackupsReplication
 import Network.AWS.RDS.Types.RestoreWindow
 
@@ -31,7 +32,7 @@ import Network.AWS.RDS.Types.RestoreWindow
 -- /See:/ 'newDBInstanceAutomatedBackup' smart constructor.
 data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
   { -- | The retention period for the automated backups.
-    backupRetentionPeriod :: Core.Maybe Core.Int,
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | Provides a list of status information for an automated backup:
     --
     -- -   @active@ - automated backups for current instances
@@ -40,74 +41,74 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
     --
     -- -   @creating@ - automated backups that are waiting for the first
     --     automated snapshot to be available.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the replicated automated backups.
-    dbInstanceAutomatedBackupsArn :: Core.Maybe Core.Text,
+    dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the storage type associated with the automated backup.
-    storageType :: Core.Maybe Core.Text,
+    storageType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the automated backup is encrypted.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The option group the automated backup is associated with. If omitted,
     -- the default option group for the engine specified is used.
-    optionGroupName :: Core.Maybe Core.Text,
+    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | Provides the date and time that the DB instance was created.
-    instanceCreateTime :: Core.Maybe Core.ISO8601,
+    instanceCreateTime :: Prelude.Maybe Core.ISO8601,
     -- | The identifier for the source DB instance, which can\'t be changed and
     -- which is unique to an AWS Region.
-    dbiResourceId :: Core.Maybe Core.Text,
+    dbiResourceId :: Prelude.Maybe Prelude.Text,
     -- | The license model of an automated backup.
-    masterUsername :: Core.Maybe Core.Text,
+    masterUsername :: Prelude.Maybe Prelude.Text,
     -- | The AWS KMS key ID for an automated backup.
     --
     -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
     -- name for the AWS KMS customer master key (CMK).
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone that the automated backup was created in. For
     -- information on AWS Regions and Availability Zones, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones>.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The version of the database engine for the automated backup.
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | Earliest and latest time an instance can be restored to.
-    restoreWindow :: Core.Maybe RestoreWindow,
+    restoreWindow :: Prelude.Maybe RestoreWindow,
     -- | License model information for the automated backup.
-    licenseModel :: Core.Maybe Core.Text,
+    licenseModel :: Prelude.Maybe Prelude.Text,
     -- | The customer id of the instance that is\/was associated with the
     -- automated backup.
-    dbInstanceIdentifier :: Core.Maybe Core.Text,
+    dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The port number that the automated backup used for connections.
     --
     -- Default: Inherits from the source DB instance
     --
     -- Valid Values: @1150-65535@
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | The name of the database engine for this automated backup.
-    engine :: Core.Maybe Core.Text,
+    engine :: Prelude.Maybe Prelude.Text,
     -- | The ARN from the key store with which the automated backup is associated
     -- for TDE encryption.
-    tdeCredentialArn :: Core.Maybe Core.Text,
+    tdeCredentialArn :: Prelude.Maybe Prelude.Text,
     -- | The time zone of the automated backup. In most cases, the @Timezone@
     -- element is empty. @Timezone@ content appears only for Microsoft SQL
     -- Server DB instances that were created with a time zone specified.
-    timezone :: Core.Maybe Core.Text,
+    timezone :: Prelude.Maybe Prelude.Text,
     -- | The list of replications to different AWS Regions associated with the
     -- automated backup.
-    dbInstanceAutomatedBackupsReplications :: Core.Maybe [DBInstanceAutomatedBackupsReplication],
+    dbInstanceAutomatedBackupsReplications :: Prelude.Maybe [DBInstanceAutomatedBackupsReplication],
     -- | The AWS Region associated with the automated backup.
-    region :: Core.Maybe Core.Text,
+    region :: Prelude.Maybe Prelude.Text,
     -- | Provides the VPC ID associated with the DB instance
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the allocated storage size in gibibytes (GiB).
-    allocatedStorage :: Core.Maybe Core.Int,
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | True if mapping of AWS Identity and Access Management (IAM) accounts to
     -- database accounts is enabled, and otherwise false.
-    iAMDatabaseAuthenticationEnabled :: Core.Maybe Core.Bool,
+    iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The IOPS (I\/O operations per second) value for the automated backup.
-    iops :: Core.Maybe Core.Int,
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the automated backups.
-    dbInstanceArn :: Core.Maybe Core.Text
+    dbInstanceArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBInstanceAutomatedBackup' with all optional fields omitted.
@@ -197,37 +198,38 @@ newDBInstanceAutomatedBackup ::
 newDBInstanceAutomatedBackup =
   DBInstanceAutomatedBackup'
     { backupRetentionPeriod =
-        Core.Nothing,
-      status = Core.Nothing,
-      dbInstanceAutomatedBackupsArn = Core.Nothing,
-      storageType = Core.Nothing,
-      encrypted = Core.Nothing,
-      optionGroupName = Core.Nothing,
-      instanceCreateTime = Core.Nothing,
-      dbiResourceId = Core.Nothing,
-      masterUsername = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      engineVersion = Core.Nothing,
-      restoreWindow = Core.Nothing,
-      licenseModel = Core.Nothing,
-      dbInstanceIdentifier = Core.Nothing,
-      port = Core.Nothing,
-      engine = Core.Nothing,
-      tdeCredentialArn = Core.Nothing,
-      timezone = Core.Nothing,
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      dbInstanceAutomatedBackupsArn = Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      optionGroupName = Prelude.Nothing,
+      instanceCreateTime = Prelude.Nothing,
+      dbiResourceId = Prelude.Nothing,
+      masterUsername = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      restoreWindow = Prelude.Nothing,
+      licenseModel = Prelude.Nothing,
+      dbInstanceIdentifier = Prelude.Nothing,
+      port = Prelude.Nothing,
+      engine = Prelude.Nothing,
+      tdeCredentialArn = Prelude.Nothing,
+      timezone = Prelude.Nothing,
       dbInstanceAutomatedBackupsReplications =
-        Core.Nothing,
-      region = Core.Nothing,
-      vpcId = Core.Nothing,
-      allocatedStorage = Core.Nothing,
-      iAMDatabaseAuthenticationEnabled = Core.Nothing,
-      iops = Core.Nothing,
-      dbInstanceArn = Core.Nothing
+        Prelude.Nothing,
+      region = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      allocatedStorage = Prelude.Nothing,
+      iAMDatabaseAuthenticationEnabled =
+        Prelude.Nothing,
+      iops = Prelude.Nothing,
+      dbInstanceArn = Prelude.Nothing
     }
 
 -- | The retention period for the automated backups.
-dbInstanceAutomatedBackup_backupRetentionPeriod :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Int)
+dbInstanceAutomatedBackup_backupRetentionPeriod :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Int)
 dbInstanceAutomatedBackup_backupRetentionPeriod = Lens.lens (\DBInstanceAutomatedBackup' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@DBInstanceAutomatedBackup' {} a -> s {backupRetentionPeriod = a} :: DBInstanceAutomatedBackup)
 
 -- | Provides a list of status information for an automated backup:
@@ -238,67 +240,67 @@ dbInstanceAutomatedBackup_backupRetentionPeriod = Lens.lens (\DBInstanceAutomate
 --
 -- -   @creating@ - automated backups that are waiting for the first
 --     automated snapshot to be available.
-dbInstanceAutomatedBackup_status :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_status :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_status = Lens.lens (\DBInstanceAutomatedBackup' {status} -> status) (\s@DBInstanceAutomatedBackup' {} a -> s {status = a} :: DBInstanceAutomatedBackup)
 
 -- | The Amazon Resource Name (ARN) for the replicated automated backups.
-dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn = Lens.lens (\DBInstanceAutomatedBackup' {dbInstanceAutomatedBackupsArn} -> dbInstanceAutomatedBackupsArn) (\s@DBInstanceAutomatedBackup' {} a -> s {dbInstanceAutomatedBackupsArn = a} :: DBInstanceAutomatedBackup)
 
 -- | Specifies the storage type associated with the automated backup.
-dbInstanceAutomatedBackup_storageType :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_storageType :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_storageType = Lens.lens (\DBInstanceAutomatedBackup' {storageType} -> storageType) (\s@DBInstanceAutomatedBackup' {} a -> s {storageType = a} :: DBInstanceAutomatedBackup)
 
 -- | Specifies whether the automated backup is encrypted.
-dbInstanceAutomatedBackup_encrypted :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Bool)
+dbInstanceAutomatedBackup_encrypted :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Bool)
 dbInstanceAutomatedBackup_encrypted = Lens.lens (\DBInstanceAutomatedBackup' {encrypted} -> encrypted) (\s@DBInstanceAutomatedBackup' {} a -> s {encrypted = a} :: DBInstanceAutomatedBackup)
 
 -- | The option group the automated backup is associated with. If omitted,
 -- the default option group for the engine specified is used.
-dbInstanceAutomatedBackup_optionGroupName :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_optionGroupName :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_optionGroupName = Lens.lens (\DBInstanceAutomatedBackup' {optionGroupName} -> optionGroupName) (\s@DBInstanceAutomatedBackup' {} a -> s {optionGroupName = a} :: DBInstanceAutomatedBackup)
 
 -- | Provides the date and time that the DB instance was created.
-dbInstanceAutomatedBackup_instanceCreateTime :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.UTCTime)
-dbInstanceAutomatedBackup_instanceCreateTime = Lens.lens (\DBInstanceAutomatedBackup' {instanceCreateTime} -> instanceCreateTime) (\s@DBInstanceAutomatedBackup' {} a -> s {instanceCreateTime = a} :: DBInstanceAutomatedBackup) Core.. Lens.mapping Core._Time
+dbInstanceAutomatedBackup_instanceCreateTime :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.UTCTime)
+dbInstanceAutomatedBackup_instanceCreateTime = Lens.lens (\DBInstanceAutomatedBackup' {instanceCreateTime} -> instanceCreateTime) (\s@DBInstanceAutomatedBackup' {} a -> s {instanceCreateTime = a} :: DBInstanceAutomatedBackup) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier for the source DB instance, which can\'t be changed and
 -- which is unique to an AWS Region.
-dbInstanceAutomatedBackup_dbiResourceId :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_dbiResourceId :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_dbiResourceId = Lens.lens (\DBInstanceAutomatedBackup' {dbiResourceId} -> dbiResourceId) (\s@DBInstanceAutomatedBackup' {} a -> s {dbiResourceId = a} :: DBInstanceAutomatedBackup)
 
 -- | The license model of an automated backup.
-dbInstanceAutomatedBackup_masterUsername :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_masterUsername :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_masterUsername = Lens.lens (\DBInstanceAutomatedBackup' {masterUsername} -> masterUsername) (\s@DBInstanceAutomatedBackup' {} a -> s {masterUsername = a} :: DBInstanceAutomatedBackup)
 
 -- | The AWS KMS key ID for an automated backup.
 --
 -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
 -- name for the AWS KMS customer master key (CMK).
-dbInstanceAutomatedBackup_kmsKeyId :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_kmsKeyId :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_kmsKeyId = Lens.lens (\DBInstanceAutomatedBackup' {kmsKeyId} -> kmsKeyId) (\s@DBInstanceAutomatedBackup' {} a -> s {kmsKeyId = a} :: DBInstanceAutomatedBackup)
 
 -- | The Availability Zone that the automated backup was created in. For
 -- information on AWS Regions and Availability Zones, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones>.
-dbInstanceAutomatedBackup_availabilityZone :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_availabilityZone :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_availabilityZone = Lens.lens (\DBInstanceAutomatedBackup' {availabilityZone} -> availabilityZone) (\s@DBInstanceAutomatedBackup' {} a -> s {availabilityZone = a} :: DBInstanceAutomatedBackup)
 
 -- | The version of the database engine for the automated backup.
-dbInstanceAutomatedBackup_engineVersion :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_engineVersion :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_engineVersion = Lens.lens (\DBInstanceAutomatedBackup' {engineVersion} -> engineVersion) (\s@DBInstanceAutomatedBackup' {} a -> s {engineVersion = a} :: DBInstanceAutomatedBackup)
 
 -- | Earliest and latest time an instance can be restored to.
-dbInstanceAutomatedBackup_restoreWindow :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe RestoreWindow)
+dbInstanceAutomatedBackup_restoreWindow :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe RestoreWindow)
 dbInstanceAutomatedBackup_restoreWindow = Lens.lens (\DBInstanceAutomatedBackup' {restoreWindow} -> restoreWindow) (\s@DBInstanceAutomatedBackup' {} a -> s {restoreWindow = a} :: DBInstanceAutomatedBackup)
 
 -- | License model information for the automated backup.
-dbInstanceAutomatedBackup_licenseModel :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_licenseModel :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_licenseModel = Lens.lens (\DBInstanceAutomatedBackup' {licenseModel} -> licenseModel) (\s@DBInstanceAutomatedBackup' {} a -> s {licenseModel = a} :: DBInstanceAutomatedBackup)
 
 -- | The customer id of the instance that is\/was associated with the
 -- automated backup.
-dbInstanceAutomatedBackup_dbInstanceIdentifier :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_dbInstanceIdentifier :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_dbInstanceIdentifier = Lens.lens (\DBInstanceAutomatedBackup' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DBInstanceAutomatedBackup' {} a -> s {dbInstanceIdentifier = a} :: DBInstanceAutomatedBackup)
 
 -- | The port number that the automated backup used for connections.
@@ -306,90 +308,90 @@ dbInstanceAutomatedBackup_dbInstanceIdentifier = Lens.lens (\DBInstanceAutomated
 -- Default: Inherits from the source DB instance
 --
 -- Valid Values: @1150-65535@
-dbInstanceAutomatedBackup_port :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Int)
+dbInstanceAutomatedBackup_port :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Int)
 dbInstanceAutomatedBackup_port = Lens.lens (\DBInstanceAutomatedBackup' {port} -> port) (\s@DBInstanceAutomatedBackup' {} a -> s {port = a} :: DBInstanceAutomatedBackup)
 
 -- | The name of the database engine for this automated backup.
-dbInstanceAutomatedBackup_engine :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_engine :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_engine = Lens.lens (\DBInstanceAutomatedBackup' {engine} -> engine) (\s@DBInstanceAutomatedBackup' {} a -> s {engine = a} :: DBInstanceAutomatedBackup)
 
 -- | The ARN from the key store with which the automated backup is associated
 -- for TDE encryption.
-dbInstanceAutomatedBackup_tdeCredentialArn :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_tdeCredentialArn :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_tdeCredentialArn = Lens.lens (\DBInstanceAutomatedBackup' {tdeCredentialArn} -> tdeCredentialArn) (\s@DBInstanceAutomatedBackup' {} a -> s {tdeCredentialArn = a} :: DBInstanceAutomatedBackup)
 
 -- | The time zone of the automated backup. In most cases, the @Timezone@
 -- element is empty. @Timezone@ content appears only for Microsoft SQL
 -- Server DB instances that were created with a time zone specified.
-dbInstanceAutomatedBackup_timezone :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_timezone :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_timezone = Lens.lens (\DBInstanceAutomatedBackup' {timezone} -> timezone) (\s@DBInstanceAutomatedBackup' {} a -> s {timezone = a} :: DBInstanceAutomatedBackup)
 
 -- | The list of replications to different AWS Regions associated with the
 -- automated backup.
-dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe [DBInstanceAutomatedBackupsReplication])
-dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications = Lens.lens (\DBInstanceAutomatedBackup' {dbInstanceAutomatedBackupsReplications} -> dbInstanceAutomatedBackupsReplications) (\s@DBInstanceAutomatedBackup' {} a -> s {dbInstanceAutomatedBackupsReplications = a} :: DBInstanceAutomatedBackup) Core.. Lens.mapping Lens._Coerce
+dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe [DBInstanceAutomatedBackupsReplication])
+dbInstanceAutomatedBackup_dbInstanceAutomatedBackupsReplications = Lens.lens (\DBInstanceAutomatedBackup' {dbInstanceAutomatedBackupsReplications} -> dbInstanceAutomatedBackupsReplications) (\s@DBInstanceAutomatedBackup' {} a -> s {dbInstanceAutomatedBackupsReplications = a} :: DBInstanceAutomatedBackup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS Region associated with the automated backup.
-dbInstanceAutomatedBackup_region :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_region :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_region = Lens.lens (\DBInstanceAutomatedBackup' {region} -> region) (\s@DBInstanceAutomatedBackup' {} a -> s {region = a} :: DBInstanceAutomatedBackup)
 
 -- | Provides the VPC ID associated with the DB instance
-dbInstanceAutomatedBackup_vpcId :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_vpcId :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_vpcId = Lens.lens (\DBInstanceAutomatedBackup' {vpcId} -> vpcId) (\s@DBInstanceAutomatedBackup' {} a -> s {vpcId = a} :: DBInstanceAutomatedBackup)
 
 -- | Specifies the allocated storage size in gibibytes (GiB).
-dbInstanceAutomatedBackup_allocatedStorage :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Int)
+dbInstanceAutomatedBackup_allocatedStorage :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Int)
 dbInstanceAutomatedBackup_allocatedStorage = Lens.lens (\DBInstanceAutomatedBackup' {allocatedStorage} -> allocatedStorage) (\s@DBInstanceAutomatedBackup' {} a -> s {allocatedStorage = a} :: DBInstanceAutomatedBackup)
 
 -- | True if mapping of AWS Identity and Access Management (IAM) accounts to
 -- database accounts is enabled, and otherwise false.
-dbInstanceAutomatedBackup_iAMDatabaseAuthenticationEnabled :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Bool)
+dbInstanceAutomatedBackup_iAMDatabaseAuthenticationEnabled :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Bool)
 dbInstanceAutomatedBackup_iAMDatabaseAuthenticationEnabled = Lens.lens (\DBInstanceAutomatedBackup' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@DBInstanceAutomatedBackup' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: DBInstanceAutomatedBackup)
 
 -- | The IOPS (I\/O operations per second) value for the automated backup.
-dbInstanceAutomatedBackup_iops :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Int)
+dbInstanceAutomatedBackup_iops :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Int)
 dbInstanceAutomatedBackup_iops = Lens.lens (\DBInstanceAutomatedBackup' {iops} -> iops) (\s@DBInstanceAutomatedBackup' {} a -> s {iops = a} :: DBInstanceAutomatedBackup)
 
 -- | The Amazon Resource Name (ARN) for the automated backups.
-dbInstanceAutomatedBackup_dbInstanceArn :: Lens.Lens' DBInstanceAutomatedBackup (Core.Maybe Core.Text)
+dbInstanceAutomatedBackup_dbInstanceArn :: Lens.Lens' DBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackup_dbInstanceArn = Lens.lens (\DBInstanceAutomatedBackup' {dbInstanceArn} -> dbInstanceArn) (\s@DBInstanceAutomatedBackup' {} a -> s {dbInstanceArn = a} :: DBInstanceAutomatedBackup)
 
 instance Core.FromXML DBInstanceAutomatedBackup where
   parseXML x =
     DBInstanceAutomatedBackup'
-      Core.<$> (x Core..@? "BackupRetentionPeriod")
-      Core.<*> (x Core..@? "Status")
-      Core.<*> (x Core..@? "DBInstanceAutomatedBackupsArn")
-      Core.<*> (x Core..@? "StorageType")
-      Core.<*> (x Core..@? "Encrypted")
-      Core.<*> (x Core..@? "OptionGroupName")
-      Core.<*> (x Core..@? "InstanceCreateTime")
-      Core.<*> (x Core..@? "DbiResourceId")
-      Core.<*> (x Core..@? "MasterUsername")
-      Core.<*> (x Core..@? "KmsKeyId")
-      Core.<*> (x Core..@? "AvailabilityZone")
-      Core.<*> (x Core..@? "EngineVersion")
-      Core.<*> (x Core..@? "RestoreWindow")
-      Core.<*> (x Core..@? "LicenseModel")
-      Core.<*> (x Core..@? "DBInstanceIdentifier")
-      Core.<*> (x Core..@? "Port")
-      Core.<*> (x Core..@? "Engine")
-      Core.<*> (x Core..@? "TdeCredentialArn")
-      Core.<*> (x Core..@? "Timezone")
-      Core.<*> ( x Core..@? "DBInstanceAutomatedBackupsReplications"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     ( Core.parseXMLList
-                         "DBInstanceAutomatedBackupsReplication"
-                     )
-               )
-      Core.<*> (x Core..@? "Region")
-      Core.<*> (x Core..@? "VpcId")
-      Core.<*> (x Core..@? "AllocatedStorage")
-      Core.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Core.<*> (x Core..@? "Iops")
-      Core.<*> (x Core..@? "DBInstanceArn")
+      Prelude.<$> (x Core..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "DBInstanceAutomatedBackupsArn")
+      Prelude.<*> (x Core..@? "StorageType")
+      Prelude.<*> (x Core..@? "Encrypted")
+      Prelude.<*> (x Core..@? "OptionGroupName")
+      Prelude.<*> (x Core..@? "InstanceCreateTime")
+      Prelude.<*> (x Core..@? "DbiResourceId")
+      Prelude.<*> (x Core..@? "MasterUsername")
+      Prelude.<*> (x Core..@? "KmsKeyId")
+      Prelude.<*> (x Core..@? "AvailabilityZone")
+      Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<*> (x Core..@? "RestoreWindow")
+      Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> (x Core..@? "DBInstanceIdentifier")
+      Prelude.<*> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "Engine")
+      Prelude.<*> (x Core..@? "TdeCredentialArn")
+      Prelude.<*> (x Core..@? "Timezone")
+      Prelude.<*> ( x Core..@? "DBInstanceAutomatedBackupsReplications"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        ( Core.parseXMLList
+                            "DBInstanceAutomatedBackupsReplication"
+                        )
+                  )
+      Prelude.<*> (x Core..@? "Region")
+      Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> (x Core..@? "AllocatedStorage")
+      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
+      Prelude.<*> (x Core..@? "Iops")
+      Prelude.<*> (x Core..@? "DBInstanceArn")
 
-instance Core.Hashable DBInstanceAutomatedBackup
+instance Prelude.Hashable DBInstanceAutomatedBackup
 
-instance Core.NFData DBInstanceAutomatedBackup
+instance Prelude.NFData DBInstanceAutomatedBackup

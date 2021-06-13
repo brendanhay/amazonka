@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ data RetryBuild = RetryBuild'
     -- @RetryBuild@ request and is valid for five minutes. If you repeat the
     -- @RetryBuild@ request with the same token, but change a parameter, AWS
     -- CodeBuild returns a parameter mismatch error.
-    idempotencyToken :: Core.Maybe Core.Text,
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the identifier of the build to restart.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetryBuild' with all optional fields omitted.
@@ -78,8 +79,8 @@ newRetryBuild ::
   RetryBuild
 newRetryBuild =
   RetryBuild'
-    { idempotencyToken = Core.Nothing,
-      id = Core.Nothing
+    { idempotencyToken = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | A unique, case sensitive identifier you provide to ensure the
@@ -87,11 +88,11 @@ newRetryBuild =
 -- @RetryBuild@ request and is valid for five minutes. If you repeat the
 -- @RetryBuild@ request with the same token, but change a parameter, AWS
 -- CodeBuild returns a parameter mismatch error.
-retryBuild_idempotencyToken :: Lens.Lens' RetryBuild (Core.Maybe Core.Text)
+retryBuild_idempotencyToken :: Lens.Lens' RetryBuild (Prelude.Maybe Prelude.Text)
 retryBuild_idempotencyToken = Lens.lens (\RetryBuild' {idempotencyToken} -> idempotencyToken) (\s@RetryBuild' {} a -> s {idempotencyToken = a} :: RetryBuild)
 
 -- | Specifies the identifier of the build to restart.
-retryBuild_id :: Lens.Lens' RetryBuild (Core.Maybe Core.Text)
+retryBuild_id :: Lens.Lens' RetryBuild (Prelude.Maybe Prelude.Text)
 retryBuild_id = Lens.lens (\RetryBuild' {id} -> id) (\s@RetryBuild' {} a -> s {id = a} :: RetryBuild)
 
 instance Core.AWSRequest RetryBuild where
@@ -101,48 +102,52 @@ instance Core.AWSRequest RetryBuild where
     Response.receiveJSON
       ( \s h x ->
           RetryBuildResponse'
-            Core.<$> (x Core..?> "build")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "build")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RetryBuild
+instance Prelude.Hashable RetryBuild
 
-instance Core.NFData RetryBuild
+instance Prelude.NFData RetryBuild
 
 instance Core.ToHeaders RetryBuild where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("CodeBuild_20161006.RetryBuild" :: Core.ByteString),
+              Core.=# ( "CodeBuild_20161006.RetryBuild" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RetryBuild where
   toJSON RetryBuild' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("idempotencyToken" Core..=)
-              Core.<$> idempotencyToken,
-            ("id" Core..=) Core.<$> id
+              Prelude.<$> idempotencyToken,
+            ("id" Core..=) Prelude.<$> id
           ]
       )
 
 instance Core.ToPath RetryBuild where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RetryBuild where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRetryBuildResponse' smart constructor.
 data RetryBuildResponse = RetryBuildResponse'
-  { build :: Core.Maybe Build,
+  { build :: Prelude.Maybe Build,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetryBuildResponse' with all optional fields omitted.
@@ -157,20 +162,20 @@ data RetryBuildResponse = RetryBuildResponse'
 -- 'httpStatus', 'retryBuildResponse_httpStatus' - The response's http status code.
 newRetryBuildResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RetryBuildResponse
 newRetryBuildResponse pHttpStatus_ =
   RetryBuildResponse'
-    { build = Core.Nothing,
+    { build = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-retryBuildResponse_build :: Lens.Lens' RetryBuildResponse (Core.Maybe Build)
+retryBuildResponse_build :: Lens.Lens' RetryBuildResponse (Prelude.Maybe Build)
 retryBuildResponse_build = Lens.lens (\RetryBuildResponse' {build} -> build) (\s@RetryBuildResponse' {} a -> s {build = a} :: RetryBuildResponse)
 
 -- | The response's http status code.
-retryBuildResponse_httpStatus :: Lens.Lens' RetryBuildResponse Core.Int
+retryBuildResponse_httpStatus :: Lens.Lens' RetryBuildResponse Prelude.Int
 retryBuildResponse_httpStatus = Lens.lens (\RetryBuildResponse' {httpStatus} -> httpStatus) (\s@RetryBuildResponse' {} a -> s {httpStatus = a} :: RetryBuildResponse)
 
-instance Core.NFData RetryBuildResponse
+instance Prelude.NFData RetryBuildResponse

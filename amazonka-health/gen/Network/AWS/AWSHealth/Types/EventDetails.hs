@@ -23,6 +23,7 @@ import Network.AWS.AWSHealth.Types.Event
 import Network.AWS.AWSHealth.Types.EventDescription
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Detailed information about an event. A combination of an
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event>
@@ -35,13 +36,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEventDetails' smart constructor.
 data EventDetails = EventDetails'
   { -- | Additional metadata about the event.
-    eventMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    eventMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The most recent description of the event.
-    eventDescription :: Core.Maybe EventDescription,
+    eventDescription :: Prelude.Maybe EventDescription,
     -- | Summary information about the event.
-    event :: Core.Maybe Event
+    event :: Prelude.Maybe Event
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventDetails' with all optional fields omitted.
@@ -60,21 +61,21 @@ newEventDetails ::
   EventDetails
 newEventDetails =
   EventDetails'
-    { eventMetadata = Core.Nothing,
-      eventDescription = Core.Nothing,
-      event = Core.Nothing
+    { eventMetadata = Prelude.Nothing,
+      eventDescription = Prelude.Nothing,
+      event = Prelude.Nothing
     }
 
 -- | Additional metadata about the event.
-eventDetails_eventMetadata :: Lens.Lens' EventDetails (Core.Maybe (Core.HashMap Core.Text Core.Text))
-eventDetails_eventMetadata = Lens.lens (\EventDetails' {eventMetadata} -> eventMetadata) (\s@EventDetails' {} a -> s {eventMetadata = a} :: EventDetails) Core.. Lens.mapping Lens._Coerce
+eventDetails_eventMetadata :: Lens.Lens' EventDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+eventDetails_eventMetadata = Lens.lens (\EventDetails' {eventMetadata} -> eventMetadata) (\s@EventDetails' {} a -> s {eventMetadata = a} :: EventDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The most recent description of the event.
-eventDetails_eventDescription :: Lens.Lens' EventDetails (Core.Maybe EventDescription)
+eventDetails_eventDescription :: Lens.Lens' EventDetails (Prelude.Maybe EventDescription)
 eventDetails_eventDescription = Lens.lens (\EventDetails' {eventDescription} -> eventDescription) (\s@EventDetails' {} a -> s {eventDescription = a} :: EventDetails)
 
 -- | Summary information about the event.
-eventDetails_event :: Lens.Lens' EventDetails (Core.Maybe Event)
+eventDetails_event :: Lens.Lens' EventDetails (Prelude.Maybe Event)
 eventDetails_event = Lens.lens (\EventDetails' {event} -> event) (\s@EventDetails' {} a -> s {event = a} :: EventDetails)
 
 instance Core.FromJSON EventDetails where
@@ -83,11 +84,11 @@ instance Core.FromJSON EventDetails where
       "EventDetails"
       ( \x ->
           EventDetails'
-            Core.<$> (x Core..:? "eventMetadata" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "eventDescription")
-            Core.<*> (x Core..:? "event")
+            Prelude.<$> (x Core..:? "eventMetadata" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "eventDescription")
+            Prelude.<*> (x Core..:? "event")
       )
 
-instance Core.Hashable EventDetails
+instance Prelude.Hashable EventDetails
 
-instance Core.NFData EventDetails
+instance Prelude.NFData EventDetails

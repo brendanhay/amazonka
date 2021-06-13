@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.StorageClassAnalysisDataExport where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsExportDestination
 import Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion
@@ -36,7 +37,7 @@ data StorageClassAnalysisDataExport = StorageClassAnalysisDataExport'
     -- | The place to store the data for an analysis.
     destination :: AnalyticsExportDestination
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StorageClassAnalysisDataExport' with all optional fields omitted.
@@ -77,16 +78,20 @@ storageClassAnalysisDataExport_destination = Lens.lens (\StorageClassAnalysisDat
 instance Core.FromXML StorageClassAnalysisDataExport where
   parseXML x =
     StorageClassAnalysisDataExport'
-      Core.<$> (x Core..@ "OutputSchemaVersion")
-      Core.<*> (x Core..@ "Destination")
+      Prelude.<$> (x Core..@ "OutputSchemaVersion")
+      Prelude.<*> (x Core..@ "Destination")
 
-instance Core.Hashable StorageClassAnalysisDataExport
+instance
+  Prelude.Hashable
+    StorageClassAnalysisDataExport
 
-instance Core.NFData StorageClassAnalysisDataExport
+instance
+  Prelude.NFData
+    StorageClassAnalysisDataExport
 
 instance Core.ToXML StorageClassAnalysisDataExport where
   toXML StorageClassAnalysisDataExport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "OutputSchemaVersion" Core.@= outputSchemaVersion,
         "Destination" Core.@= destination
       ]

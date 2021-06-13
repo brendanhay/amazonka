@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.AccountJoinedMethod
 import Network.AWS.Organizations.Types.AccountStatus
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an AWS account that is a member of an
 -- organization.
@@ -30,36 +31,36 @@ import Network.AWS.Organizations.Types.AccountStatus
 -- /See:/ 'newAccount' smart constructor.
 data Account = Account'
   { -- | The status of the account in the organization.
-    status :: Core.Maybe AccountStatus,
+    status :: Prelude.Maybe AccountStatus,
     -- | The method by which the account joined the organization.
-    joinedMethod :: Core.Maybe AccountJoinedMethod,
+    joinedMethod :: Prelude.Maybe AccountJoinedMethod,
     -- | The Amazon Resource Name (ARN) of the account.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The date the account became a part of the organization.
-    joinedTimestamp :: Core.Maybe Core.POSIX,
+    joinedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier (ID) of the account.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the account.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
-    name :: Core.Maybe (Core.Sensitive Core.Text),
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The email address associated with the AWS account.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
     -- is a string of characters that represents a standard internet email
     -- address.
-    email :: Core.Maybe (Core.Sensitive Core.Text)
+    email :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Account' with all optional fields omitted.
@@ -101,21 +102,21 @@ newAccount ::
   Account
 newAccount =
   Account'
-    { status = Core.Nothing,
-      joinedMethod = Core.Nothing,
-      arn = Core.Nothing,
-      joinedTimestamp = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      email = Core.Nothing
+    { status = Prelude.Nothing,
+      joinedMethod = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      joinedTimestamp = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      email = Prelude.Nothing
     }
 
 -- | The status of the account in the organization.
-account_status :: Lens.Lens' Account (Core.Maybe AccountStatus)
+account_status :: Lens.Lens' Account (Prelude.Maybe AccountStatus)
 account_status = Lens.lens (\Account' {status} -> status) (\s@Account' {} a -> s {status = a} :: Account)
 
 -- | The method by which the account joined the organization.
-account_joinedMethod :: Lens.Lens' Account (Core.Maybe AccountJoinedMethod)
+account_joinedMethod :: Lens.Lens' Account (Prelude.Maybe AccountJoinedMethod)
 account_joinedMethod = Lens.lens (\Account' {joinedMethod} -> joinedMethod) (\s@Account' {} a -> s {joinedMethod = a} :: Account)
 
 -- | The Amazon Resource Name (ARN) of the account.
@@ -123,18 +124,18 @@ account_joinedMethod = Lens.lens (\Account' {joinedMethod} -> joinedMethod) (\s@
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
-account_arn :: Lens.Lens' Account (Core.Maybe Core.Text)
+account_arn :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
 account_arn = Lens.lens (\Account' {arn} -> arn) (\s@Account' {} a -> s {arn = a} :: Account)
 
 -- | The date the account became a part of the organization.
-account_joinedTimestamp :: Lens.Lens' Account (Core.Maybe Core.UTCTime)
-account_joinedTimestamp = Lens.lens (\Account' {joinedTimestamp} -> joinedTimestamp) (\s@Account' {} a -> s {joinedTimestamp = a} :: Account) Core.. Lens.mapping Core._Time
+account_joinedTimestamp :: Lens.Lens' Account (Prelude.Maybe Prelude.UTCTime)
+account_joinedTimestamp = Lens.lens (\Account' {joinedTimestamp} -> joinedTimestamp) (\s@Account' {} a -> s {joinedTimestamp = a} :: Account) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier (ID) of the account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-account_id :: Lens.Lens' Account (Core.Maybe Core.Text)
+account_id :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
 account_id = Lens.lens (\Account' {id} -> id) (\s@Account' {} a -> s {id = a} :: Account)
 
 -- | The friendly name of the account.
@@ -142,16 +143,16 @@ account_id = Lens.lens (\Account' {id} -> id) (\s@Account' {} a -> s {id = a} ::
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
-account_name :: Lens.Lens' Account (Core.Maybe Core.Text)
-account_name = Lens.lens (\Account' {name} -> name) (\s@Account' {} a -> s {name = a} :: Account) Core.. Lens.mapping Core._Sensitive
+account_name :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
+account_name = Lens.lens (\Account' {name} -> name) (\s@Account' {} a -> s {name = a} :: Account) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The email address associated with the AWS account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
 -- is a string of characters that represents a standard internet email
 -- address.
-account_email :: Lens.Lens' Account (Core.Maybe Core.Text)
-account_email = Lens.lens (\Account' {email} -> email) (\s@Account' {} a -> s {email = a} :: Account) Core.. Lens.mapping Core._Sensitive
+account_email :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
+account_email = Lens.lens (\Account' {email} -> email) (\s@Account' {} a -> s {email = a} :: Account) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON Account where
   parseJSON =
@@ -159,15 +160,15 @@ instance Core.FromJSON Account where
       "Account"
       ( \x ->
           Account'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "JoinedMethod")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "JoinedTimestamp")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Email")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "JoinedMethod")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "JoinedTimestamp")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Email")
       )
 
-instance Core.Hashable Account
+instance Prelude.Hashable Account
 
-instance Core.NFData Account
+instance Prelude.NFData Account

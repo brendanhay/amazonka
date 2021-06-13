@@ -21,6 +21,7 @@ module Network.AWS.CodePipeline.Types.ActionTypePermissions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details identifying the users with permissions to use the action type.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data ActionTypePermissions = ActionTypePermissions'
   { -- | A list of AWS account IDs with access to use the action type in their
     -- pipelines.
-    allowedAccounts :: Core.NonEmpty Core.Text
+    allowedAccounts :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionTypePermissions' with all optional fields omitted.
@@ -44,7 +45,7 @@ data ActionTypePermissions = ActionTypePermissions'
 -- pipelines.
 newActionTypePermissions ::
   -- | 'allowedAccounts'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   ActionTypePermissions
 newActionTypePermissions pAllowedAccounts_ =
   ActionTypePermissions'
@@ -54,8 +55,8 @@ newActionTypePermissions pAllowedAccounts_ =
 
 -- | A list of AWS account IDs with access to use the action type in their
 -- pipelines.
-actionTypePermissions_allowedAccounts :: Lens.Lens' ActionTypePermissions (Core.NonEmpty Core.Text)
-actionTypePermissions_allowedAccounts = Lens.lens (\ActionTypePermissions' {allowedAccounts} -> allowedAccounts) (\s@ActionTypePermissions' {} a -> s {allowedAccounts = a} :: ActionTypePermissions) Core.. Lens._Coerce
+actionTypePermissions_allowedAccounts :: Lens.Lens' ActionTypePermissions (Prelude.NonEmpty Prelude.Text)
+actionTypePermissions_allowedAccounts = Lens.lens (\ActionTypePermissions' {allowedAccounts} -> allowedAccounts) (\s@ActionTypePermissions' {} a -> s {allowedAccounts = a} :: ActionTypePermissions) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ActionTypePermissions where
   parseJSON =
@@ -63,18 +64,18 @@ instance Core.FromJSON ActionTypePermissions where
       "ActionTypePermissions"
       ( \x ->
           ActionTypePermissions'
-            Core.<$> (x Core..: "allowedAccounts")
+            Prelude.<$> (x Core..: "allowedAccounts")
       )
 
-instance Core.Hashable ActionTypePermissions
+instance Prelude.Hashable ActionTypePermissions
 
-instance Core.NFData ActionTypePermissions
+instance Prelude.NFData ActionTypePermissions
 
 instance Core.ToJSON ActionTypePermissions where
   toJSON ActionTypePermissions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("allowedAccounts" Core..= allowedAccounts)
           ]
       )

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,16 +59,16 @@ data DeleteGroupPolicy = DeleteGroupPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Core.Text,
+    groupName :: Prelude.Text,
     -- | The name identifying the policy document to delete.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    policyName :: Core.Text
+    policyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGroupPolicy' with all optional fields omitted.
@@ -93,9 +94,9 @@ data DeleteGroupPolicy = DeleteGroupPolicy'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteGroupPolicy ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteGroupPolicy
 newDeleteGroupPolicy pGroupName_ pPolicyName_ =
   DeleteGroupPolicy'
@@ -110,7 +111,7 @@ newDeleteGroupPolicy pGroupName_ pPolicyName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteGroupPolicy_groupName :: Lens.Lens' DeleteGroupPolicy Core.Text
+deleteGroupPolicy_groupName :: Lens.Lens' DeleteGroupPolicy Prelude.Text
 deleteGroupPolicy_groupName = Lens.lens (\DeleteGroupPolicy' {groupName} -> groupName) (\s@DeleteGroupPolicy' {} a -> s {groupName = a} :: DeleteGroupPolicy)
 
 -- | The name identifying the policy document to delete.
@@ -119,7 +120,7 @@ deleteGroupPolicy_groupName = Lens.lens (\DeleteGroupPolicy' {groupName} -> grou
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteGroupPolicy_policyName :: Lens.Lens' DeleteGroupPolicy Core.Text
+deleteGroupPolicy_policyName :: Lens.Lens' DeleteGroupPolicy Prelude.Text
 deleteGroupPolicy_policyName = Lens.lens (\DeleteGroupPolicy' {policyName} -> policyName) (\s@DeleteGroupPolicy' {} a -> s {policyName = a} :: DeleteGroupPolicy)
 
 instance Core.AWSRequest DeleteGroupPolicy where
@@ -130,22 +131,23 @@ instance Core.AWSRequest DeleteGroupPolicy where
   response =
     Response.receiveNull DeleteGroupPolicyResponse'
 
-instance Core.Hashable DeleteGroupPolicy
+instance Prelude.Hashable DeleteGroupPolicy
 
-instance Core.NFData DeleteGroupPolicy
+instance Prelude.NFData DeleteGroupPolicy
 
 instance Core.ToHeaders DeleteGroupPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteGroupPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteGroupPolicy where
   toQuery DeleteGroupPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteGroupPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeleteGroupPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "GroupName" Core.=: groupName,
         "PolicyName" Core.=: policyName
       ]
@@ -154,7 +156,7 @@ instance Core.ToQuery DeleteGroupPolicy where
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGroupPolicyResponse' with all optional fields omitted.
@@ -165,4 +167,4 @@ newDeleteGroupPolicyResponse ::
 newDeleteGroupPolicyResponse =
   DeleteGroupPolicyResponse'
 
-instance Core.NFData DeleteGroupPolicyResponse
+instance Prelude.NFData DeleteGroupPolicyResponse

@@ -22,6 +22,7 @@ module Network.AWS.CodeBuild.Types.ReportFilter where
 import Network.AWS.CodeBuild.Types.ReportStatusType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter used to return reports with the status specified by the input
 -- @status@ parameter.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newReportFilter' smart constructor.
 data ReportFilter = ReportFilter'
   { -- | The status used to filter reports. You can filter using one status only.
-    status :: Core.Maybe ReportStatusType
+    status :: Prelude.Maybe ReportStatusType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReportFilter' with all optional fields omitted.
@@ -45,17 +46,19 @@ data ReportFilter = ReportFilter'
 newReportFilter ::
   ReportFilter
 newReportFilter =
-  ReportFilter' {status = Core.Nothing}
+  ReportFilter' {status = Prelude.Nothing}
 
 -- | The status used to filter reports. You can filter using one status only.
-reportFilter_status :: Lens.Lens' ReportFilter (Core.Maybe ReportStatusType)
+reportFilter_status :: Lens.Lens' ReportFilter (Prelude.Maybe ReportStatusType)
 reportFilter_status = Lens.lens (\ReportFilter' {status} -> status) (\s@ReportFilter' {} a -> s {status = a} :: ReportFilter)
 
-instance Core.Hashable ReportFilter
+instance Prelude.Hashable ReportFilter
 
-instance Core.NFData ReportFilter
+instance Prelude.NFData ReportFilter
 
 instance Core.ToJSON ReportFilter where
   toJSON ReportFilter' {..} =
     Core.object
-      (Core.catMaybes [("status" Core..=) Core.<$> status])
+      ( Prelude.catMaybes
+          [("status" Core..=) Prelude.<$> status]
+      )

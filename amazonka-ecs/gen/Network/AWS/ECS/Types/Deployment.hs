@@ -25,6 +25,7 @@ import Network.AWS.ECS.Types.DeploymentRolloutState
 import Network.AWS.ECS.Types.LaunchType
 import Network.AWS.ECS.Types.NetworkConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of an Amazon ECS service deployment. This is used only when
 -- a service uses the @ECS@ deployment controller type.
@@ -42,7 +43,7 @@ data Deployment = Deployment'
     -- enabled, the deployment will transition to a @FAILED@ state. A
     -- deployment in @FAILED@ state will launch no new tasks. For more
     -- information, see DeploymentCircuitBreaker.
-    rolloutState :: Core.Maybe DeploymentRolloutState,
+    rolloutState :: Prelude.Maybe DeploymentRolloutState,
     -- | The status of the deployment. The following describes each state:
     --
     -- [PRIMARY]
@@ -54,43 +55,43 @@ data Deployment = Deployment'
     --
     -- [INACTIVE]
     --     A deployment that has been completely replaced.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The number of tasks in the deployment that are in the @RUNNING@ status.
-    runningCount :: Core.Maybe Core.Int,
+    runningCount :: Prelude.Maybe Prelude.Int,
     -- | The VPC subnet and security group configuration for tasks that receive
     -- their own elastic network interface by using the @awsvpc@ networking
     -- mode.
-    networkConfiguration :: Core.Maybe NetworkConfiguration,
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The capacity provider strategy that the deployment is using.
-    capacityProviderStrategy :: Core.Maybe [CapacityProviderStrategyItem],
+    capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
     -- | The most recent desired count of tasks that was specified for the
     -- service to deploy or maintain.
-    desiredCount :: Core.Maybe Core.Int,
+    desiredCount :: Prelude.Maybe Prelude.Int,
     -- | The Unix timestamp for when the service deployment was last updated.
-    updatedAt :: Core.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Core.POSIX,
     -- | The launch type the tasks in the service are using. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    launchType :: Core.Maybe LaunchType,
+    launchType :: Prelude.Maybe LaunchType,
     -- | The Unix timestamp for when the service deployment was created.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The platform version on which your tasks in the service are running. A
     -- platform version is only specified for tasks using the Fargate launch
     -- type. If one is not specified, the @LATEST@ platform version is used by
     -- default. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    platformVersion :: Core.Maybe Core.Text,
+    platformVersion :: Prelude.Maybe Prelude.Text,
     -- | The ID of the deployment.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The number of tasks in the deployment that are in the @PENDING@ status.
-    pendingCount :: Core.Maybe Core.Int,
+    pendingCount :: Prelude.Maybe Prelude.Int,
     -- | A description of the rollout state of a deployment.
-    rolloutStateReason :: Core.Maybe Core.Text,
+    rolloutStateReason :: Prelude.Maybe Prelude.Text,
     -- | The most recent task definition that was specified for the tasks in the
     -- service to use.
-    taskDefinition :: Core.Maybe Core.Text,
+    taskDefinition :: Prelude.Maybe Prelude.Text,
     -- | The number of consecutively failed tasks in the deployment. A task is
     -- considered a failure if the service scheduler can\'t launch the task,
     -- the task doesn\'t transition to a @RUNNING@ state, or if it fails any of
@@ -98,9 +99,9 @@ data Deployment = Deployment'
     --
     -- Once a service deployment has one or more successfully running tasks,
     -- the failed task count resets to zero and stops being evaluated.
-    failedTasks :: Core.Maybe Core.Int
+    failedTasks :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Deployment' with all optional fields omitted.
@@ -181,21 +182,21 @@ newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { rolloutState = Core.Nothing,
-      status = Core.Nothing,
-      runningCount = Core.Nothing,
-      networkConfiguration = Core.Nothing,
-      capacityProviderStrategy = Core.Nothing,
-      desiredCount = Core.Nothing,
-      updatedAt = Core.Nothing,
-      launchType = Core.Nothing,
-      createdAt = Core.Nothing,
-      platformVersion = Core.Nothing,
-      id = Core.Nothing,
-      pendingCount = Core.Nothing,
-      rolloutStateReason = Core.Nothing,
-      taskDefinition = Core.Nothing,
-      failedTasks = Core.Nothing
+    { rolloutState = Prelude.Nothing,
+      status = Prelude.Nothing,
+      runningCount = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
+      capacityProviderStrategy = Prelude.Nothing,
+      desiredCount = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
+      launchType = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      platformVersion = Prelude.Nothing,
+      id = Prelude.Nothing,
+      pendingCount = Prelude.Nothing,
+      rolloutStateReason = Prelude.Nothing,
+      taskDefinition = Prelude.Nothing,
+      failedTasks = Prelude.Nothing
     }
 
 -- | The @rolloutState@ of a service is only returned for services that use
@@ -209,7 +210,7 @@ newDeployment =
 -- enabled, the deployment will transition to a @FAILED@ state. A
 -- deployment in @FAILED@ state will launch no new tasks. For more
 -- information, see DeploymentCircuitBreaker.
-deployment_rolloutState :: Lens.Lens' Deployment (Core.Maybe DeploymentRolloutState)
+deployment_rolloutState :: Lens.Lens' Deployment (Prelude.Maybe DeploymentRolloutState)
 deployment_rolloutState = Lens.lens (\Deployment' {rolloutState} -> rolloutState) (\s@Deployment' {} a -> s {rolloutState = a} :: Deployment)
 
 -- | The status of the deployment. The following describes each state:
@@ -223,42 +224,42 @@ deployment_rolloutState = Lens.lens (\Deployment' {rolloutState} -> rolloutState
 --
 -- [INACTIVE]
 --     A deployment that has been completely replaced.
-deployment_status :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_status :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_status = Lens.lens (\Deployment' {status} -> status) (\s@Deployment' {} a -> s {status = a} :: Deployment)
 
 -- | The number of tasks in the deployment that are in the @RUNNING@ status.
-deployment_runningCount :: Lens.Lens' Deployment (Core.Maybe Core.Int)
+deployment_runningCount :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Int)
 deployment_runningCount = Lens.lens (\Deployment' {runningCount} -> runningCount) (\s@Deployment' {} a -> s {runningCount = a} :: Deployment)
 
 -- | The VPC subnet and security group configuration for tasks that receive
 -- their own elastic network interface by using the @awsvpc@ networking
 -- mode.
-deployment_networkConfiguration :: Lens.Lens' Deployment (Core.Maybe NetworkConfiguration)
+deployment_networkConfiguration :: Lens.Lens' Deployment (Prelude.Maybe NetworkConfiguration)
 deployment_networkConfiguration = Lens.lens (\Deployment' {networkConfiguration} -> networkConfiguration) (\s@Deployment' {} a -> s {networkConfiguration = a} :: Deployment)
 
 -- | The capacity provider strategy that the deployment is using.
-deployment_capacityProviderStrategy :: Lens.Lens' Deployment (Core.Maybe [CapacityProviderStrategyItem])
-deployment_capacityProviderStrategy = Lens.lens (\Deployment' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@Deployment' {} a -> s {capacityProviderStrategy = a} :: Deployment) Core.. Lens.mapping Lens._Coerce
+deployment_capacityProviderStrategy :: Lens.Lens' Deployment (Prelude.Maybe [CapacityProviderStrategyItem])
+deployment_capacityProviderStrategy = Lens.lens (\Deployment' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@Deployment' {} a -> s {capacityProviderStrategy = a} :: Deployment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The most recent desired count of tasks that was specified for the
 -- service to deploy or maintain.
-deployment_desiredCount :: Lens.Lens' Deployment (Core.Maybe Core.Int)
+deployment_desiredCount :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Int)
 deployment_desiredCount = Lens.lens (\Deployment' {desiredCount} -> desiredCount) (\s@Deployment' {} a -> s {desiredCount = a} :: Deployment)
 
 -- | The Unix timestamp for when the service deployment was last updated.
-deployment_updatedAt :: Lens.Lens' Deployment (Core.Maybe Core.UTCTime)
-deployment_updatedAt = Lens.lens (\Deployment' {updatedAt} -> updatedAt) (\s@Deployment' {} a -> s {updatedAt = a} :: Deployment) Core.. Lens.mapping Core._Time
+deployment_updatedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
+deployment_updatedAt = Lens.lens (\Deployment' {updatedAt} -> updatedAt) (\s@Deployment' {} a -> s {updatedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
 
 -- | The launch type the tasks in the service are using. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-deployment_launchType :: Lens.Lens' Deployment (Core.Maybe LaunchType)
+deployment_launchType :: Lens.Lens' Deployment (Prelude.Maybe LaunchType)
 deployment_launchType = Lens.lens (\Deployment' {launchType} -> launchType) (\s@Deployment' {} a -> s {launchType = a} :: Deployment)
 
 -- | The Unix timestamp for when the service deployment was created.
-deployment_createdAt :: Lens.Lens' Deployment (Core.Maybe Core.UTCTime)
-deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment) Core.. Lens.mapping Core._Time
+deployment_createdAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
+deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
 
 -- | The platform version on which your tasks in the service are running. A
 -- platform version is only specified for tasks using the Fargate launch
@@ -266,24 +267,24 @@ deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Dep
 -- default. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-deployment_platformVersion :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_platformVersion :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_platformVersion = Lens.lens (\Deployment' {platformVersion} -> platformVersion) (\s@Deployment' {} a -> s {platformVersion = a} :: Deployment)
 
 -- | The ID of the deployment.
-deployment_id :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_id :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_id = Lens.lens (\Deployment' {id} -> id) (\s@Deployment' {} a -> s {id = a} :: Deployment)
 
 -- | The number of tasks in the deployment that are in the @PENDING@ status.
-deployment_pendingCount :: Lens.Lens' Deployment (Core.Maybe Core.Int)
+deployment_pendingCount :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Int)
 deployment_pendingCount = Lens.lens (\Deployment' {pendingCount} -> pendingCount) (\s@Deployment' {} a -> s {pendingCount = a} :: Deployment)
 
 -- | A description of the rollout state of a deployment.
-deployment_rolloutStateReason :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_rolloutStateReason :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_rolloutStateReason = Lens.lens (\Deployment' {rolloutStateReason} -> rolloutStateReason) (\s@Deployment' {} a -> s {rolloutStateReason = a} :: Deployment)
 
 -- | The most recent task definition that was specified for the tasks in the
 -- service to use.
-deployment_taskDefinition :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_taskDefinition :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_taskDefinition = Lens.lens (\Deployment' {taskDefinition} -> taskDefinition) (\s@Deployment' {} a -> s {taskDefinition = a} :: Deployment)
 
 -- | The number of consecutively failed tasks in the deployment. A task is
@@ -293,7 +294,7 @@ deployment_taskDefinition = Lens.lens (\Deployment' {taskDefinition} -> taskDefi
 --
 -- Once a service deployment has one or more successfully running tasks,
 -- the failed task count resets to zero and stops being evaluated.
-deployment_failedTasks :: Lens.Lens' Deployment (Core.Maybe Core.Int)
+deployment_failedTasks :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Int)
 deployment_failedTasks = Lens.lens (\Deployment' {failedTasks} -> failedTasks) (\s@Deployment' {} a -> s {failedTasks = a} :: Deployment)
 
 instance Core.FromJSON Deployment where
@@ -302,25 +303,25 @@ instance Core.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Core.<$> (x Core..:? "rolloutState")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "runningCount")
-            Core.<*> (x Core..:? "networkConfiguration")
-            Core.<*> ( x Core..:? "capacityProviderStrategy"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "desiredCount")
-            Core.<*> (x Core..:? "updatedAt")
-            Core.<*> (x Core..:? "launchType")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "platformVersion")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "pendingCount")
-            Core.<*> (x Core..:? "rolloutStateReason")
-            Core.<*> (x Core..:? "taskDefinition")
-            Core.<*> (x Core..:? "failedTasks")
+            Prelude.<$> (x Core..:? "rolloutState")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "runningCount")
+            Prelude.<*> (x Core..:? "networkConfiguration")
+            Prelude.<*> ( x Core..:? "capacityProviderStrategy"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "desiredCount")
+            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<*> (x Core..:? "launchType")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "platformVersion")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "pendingCount")
+            Prelude.<*> (x Core..:? "rolloutStateReason")
+            Prelude.<*> (x Core..:? "taskDefinition")
+            Prelude.<*> (x Core..:? "failedTasks")
       )
 
-instance Core.Hashable Deployment
+instance Prelude.Hashable Deployment
 
-instance Core.NFData Deployment
+instance Prelude.NFData Deployment

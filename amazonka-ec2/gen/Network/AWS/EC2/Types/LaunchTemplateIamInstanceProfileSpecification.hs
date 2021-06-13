@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.LaunchTemplateIamInstanceProfileSpecification where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IAM instance profile.
 --
 -- /See:/ 'newLaunchTemplateIamInstanceProfileSpecification' smart constructor.
 data LaunchTemplateIamInstanceProfileSpecification = LaunchTemplateIamInstanceProfileSpecification'
   { -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the instance profile.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateIamInstanceProfileSpecification' with all optional fields omitted.
@@ -50,16 +51,16 @@ newLaunchTemplateIamInstanceProfileSpecification ::
 newLaunchTemplateIamInstanceProfileSpecification =
   LaunchTemplateIamInstanceProfileSpecification'
     { arn =
-        Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-launchTemplateIamInstanceProfileSpecification_arn :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecification (Core.Maybe Core.Text)
+launchTemplateIamInstanceProfileSpecification_arn :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateIamInstanceProfileSpecification_arn = Lens.lens (\LaunchTemplateIamInstanceProfileSpecification' {arn} -> arn) (\s@LaunchTemplateIamInstanceProfileSpecification' {} a -> s {arn = a} :: LaunchTemplateIamInstanceProfileSpecification)
 
 -- | The name of the instance profile.
-launchTemplateIamInstanceProfileSpecification_name :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecification (Core.Maybe Core.Text)
+launchTemplateIamInstanceProfileSpecification_name :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateIamInstanceProfileSpecification_name = Lens.lens (\LaunchTemplateIamInstanceProfileSpecification' {name} -> name) (\s@LaunchTemplateIamInstanceProfileSpecification' {} a -> s {name = a} :: LaunchTemplateIamInstanceProfileSpecification)
 
 instance
@@ -68,12 +69,12 @@ instance
   where
   parseXML x =
     LaunchTemplateIamInstanceProfileSpecification'
-      Core.<$> (x Core..@? "arn") Core.<*> (x Core..@? "name")
+      Prelude.<$> (x Core..@? "arn") Prelude.<*> (x Core..@? "name")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateIamInstanceProfileSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateIamInstanceProfileSpecification

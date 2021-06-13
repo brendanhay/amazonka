@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.SqsParameters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure includes the custom parameter to be used when the target
 -- is an SQS FIFO queue.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSqsParameters' smart constructor.
 data SqsParameters = SqsParameters'
   { -- | The FIFO message group ID to use as the target.
-    messageGroupId :: Core.Maybe Core.Text
+    messageGroupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SqsParameters' with all optional fields omitted.
@@ -44,10 +45,10 @@ data SqsParameters = SqsParameters'
 newSqsParameters ::
   SqsParameters
 newSqsParameters =
-  SqsParameters' {messageGroupId = Core.Nothing}
+  SqsParameters' {messageGroupId = Prelude.Nothing}
 
 -- | The FIFO message group ID to use as the target.
-sqsParameters_messageGroupId :: Lens.Lens' SqsParameters (Core.Maybe Core.Text)
+sqsParameters_messageGroupId :: Lens.Lens' SqsParameters (Prelude.Maybe Prelude.Text)
 sqsParameters_messageGroupId = Lens.lens (\SqsParameters' {messageGroupId} -> messageGroupId) (\s@SqsParameters' {} a -> s {messageGroupId = a} :: SqsParameters)
 
 instance Core.FromJSON SqsParameters where
@@ -56,16 +57,18 @@ instance Core.FromJSON SqsParameters where
       "SqsParameters"
       ( \x ->
           SqsParameters'
-            Core.<$> (x Core..:? "MessageGroupId")
+            Prelude.<$> (x Core..:? "MessageGroupId")
       )
 
-instance Core.Hashable SqsParameters
+instance Prelude.Hashable SqsParameters
 
-instance Core.NFData SqsParameters
+instance Prelude.NFData SqsParameters
 
 instance Core.ToJSON SqsParameters where
   toJSON SqsParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [("MessageGroupId" Core..=) Core.<$> messageGroupId]
+      ( Prelude.catMaybes
+          [ ("MessageGroupId" Core..=)
+              Prelude.<$> messageGroupId
+          ]
       )

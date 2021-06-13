@@ -22,6 +22,7 @@ module Network.AWS.EKS.Types.Identity where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.OIDC
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an identity provider.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data Identity = Identity'
   { -- | An object representing the <https://openid.net/connect/ OpenID Connect>
     -- identity provider information.
-    oidc :: Core.Maybe OIDC
+    oidc :: Prelude.Maybe OIDC
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Identity' with all optional fields omitted.
@@ -45,19 +46,19 @@ data Identity = Identity'
 -- identity provider information.
 newIdentity ::
   Identity
-newIdentity = Identity' {oidc = Core.Nothing}
+newIdentity = Identity' {oidc = Prelude.Nothing}
 
 -- | An object representing the <https://openid.net/connect/ OpenID Connect>
 -- identity provider information.
-identity_oidc :: Lens.Lens' Identity (Core.Maybe OIDC)
+identity_oidc :: Lens.Lens' Identity (Prelude.Maybe OIDC)
 identity_oidc = Lens.lens (\Identity' {oidc} -> oidc) (\s@Identity' {} a -> s {oidc = a} :: Identity)
 
 instance Core.FromJSON Identity where
   parseJSON =
     Core.withObject
       "Identity"
-      (\x -> Identity' Core.<$> (x Core..:? "oidc"))
+      (\x -> Identity' Prelude.<$> (x Core..:? "oidc"))
 
-instance Core.Hashable Identity
+instance Prelude.Hashable Identity
 
-instance Core.NFData Identity
+instance Prelude.NFData Identity

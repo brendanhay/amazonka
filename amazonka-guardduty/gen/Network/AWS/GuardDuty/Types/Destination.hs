@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DestinationType
 import Network.AWS.GuardDuty.Types.PublishingStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the publishing destination, including the ID,
 -- type, and status.
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
   { -- | The unique ID of the publishing destination.
-    destinationId :: Core.Text,
+    destinationId :: Prelude.Text,
     -- | The type of resource used for the publishing destination. Currently,
     -- only Amazon S3 buckets are supported.
     destinationType :: DestinationType,
     -- | The status of the publishing destination.
     status :: PublishingStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Destination' with all optional fields omitted.
@@ -55,7 +56,7 @@ data Destination = Destination'
 -- 'status', 'destination_status' - The status of the publishing destination.
 newDestination ::
   -- | 'destinationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationType'
   DestinationType ->
   -- | 'status'
@@ -72,7 +73,7 @@ newDestination
       }
 
 -- | The unique ID of the publishing destination.
-destination_destinationId :: Lens.Lens' Destination Core.Text
+destination_destinationId :: Lens.Lens' Destination Prelude.Text
 destination_destinationId = Lens.lens (\Destination' {destinationId} -> destinationId) (\s@Destination' {} a -> s {destinationId = a} :: Destination)
 
 -- | The type of resource used for the publishing destination. Currently,
@@ -90,11 +91,11 @@ instance Core.FromJSON Destination where
       "Destination"
       ( \x ->
           Destination'
-            Core.<$> (x Core..: "destinationId")
-            Core.<*> (x Core..: "destinationType")
-            Core.<*> (x Core..: "status")
+            Prelude.<$> (x Core..: "destinationId")
+            Prelude.<*> (x Core..: "destinationType")
+            Prelude.<*> (x Core..: "status")
       )
 
-instance Core.Hashable Destination
+instance Prelude.Hashable Destination
 
-instance Core.NFData Destination
+instance Prelude.NFData Destination

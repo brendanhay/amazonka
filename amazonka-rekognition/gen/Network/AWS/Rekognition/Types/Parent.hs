@@ -21,15 +21,16 @@ module Network.AWS.Rekognition.Types.Parent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A parent label for a label. A label can have 0, 1, or more parents.
 --
 -- /See:/ 'newParent' smart constructor.
 data Parent = Parent'
   { -- | The name of the parent label.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Parent' with all optional fields omitted.
@@ -42,18 +43,18 @@ data Parent = Parent'
 -- 'name', 'parent_name' - The name of the parent label.
 newParent ::
   Parent
-newParent = Parent' {name = Core.Nothing}
+newParent = Parent' {name = Prelude.Nothing}
 
 -- | The name of the parent label.
-parent_name :: Lens.Lens' Parent (Core.Maybe Core.Text)
+parent_name :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
 parent_name = Lens.lens (\Parent' {name} -> name) (\s@Parent' {} a -> s {name = a} :: Parent)
 
 instance Core.FromJSON Parent where
   parseJSON =
     Core.withObject
       "Parent"
-      (\x -> Parent' Core.<$> (x Core..:? "Name"))
+      (\x -> Parent' Prelude.<$> (x Core..:? "Name"))
 
-instance Core.Hashable Parent
+instance Prelude.Hashable Parent
 
-instance Core.NFData Parent
+instance Prelude.NFData Parent

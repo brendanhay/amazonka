@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,12 +71,12 @@ data RequestSpotInstances = RequestSpotInstances'
     -- the Spot Instance request fails. To tag the Spot Instance request after
     -- it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The start date of the request. If this is a one-time request, the
     -- request becomes active at this date and time and remains active until
     -- all instances launch, the request expires, or the request is canceled.
@@ -85,10 +86,10 @@ data RequestSpotInstances = RequestSpotInstances'
     -- The specified start date and time cannot be equal to the current date
     -- and time. You must specify a start date and time that occurs after the
     -- current date and time.
-    validFrom :: Core.Maybe Core.ISO8601,
+    validFrom :: Prelude.Maybe Core.ISO8601,
     -- | The maximum price per hour that you are willing to pay for a Spot
     -- Instance. The default is the On-Demand price.
-    spotPrice :: Core.Maybe Core.Text,
+    spotPrice :: Prelude.Maybe Prelude.Text,
     -- | The required duration for the Spot Instances (also known as Spot
     -- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
     -- 240, 300, or 360).
@@ -105,15 +106,15 @@ data RequestSpotInstances = RequestSpotInstances'
     -- New accounts or accounts with no previous billing history with AWS are
     -- not eligible for Spot Instances with a defined duration (also known as
     -- Spot blocks).
-    blockDurationMinutes :: Core.Maybe Core.Int,
+    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
     -- | The instance launch group. Launch groups are Spot Instances that launch
     -- together and terminate together.
     --
     -- Default: Instances are launched and terminated individually
-    launchGroup :: Core.Maybe Core.Text,
+    launchGroup :: Prelude.Maybe Prelude.Text,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
-    instanceInterruptionBehavior :: Core.Maybe InstanceInterruptionBehavior,
+    instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
     -- | The end date of the request, in UTC format
     -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
     --
@@ -125,13 +126,13 @@ data RequestSpotInstances = RequestSpotInstances'
     --     instances launch, the request is canceled, or the @ValidUntil@ date
     --     and time is reached. By default, the request is valid for 7 days
     --     from the date the request was created.
-    validUntil :: Core.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Core.ISO8601,
     -- | The launch specification.
-    launchSpecification :: Core.Maybe RequestSpotLaunchSpecification,
+    launchSpecification :: Prelude.Maybe RequestSpotLaunchSpecification,
     -- | The Spot Instance request type.
     --
     -- Default: @one-time@
-    type' :: Core.Maybe SpotInstanceType,
+    type' :: Prelude.Maybe SpotInstanceType,
     -- | The user-specified name for a logical grouping of requests.
     --
     -- When you specify an Availability Zone group in a Spot Instance request,
@@ -153,18 +154,18 @@ data RequestSpotInstances = RequestSpotInstances'
     -- Zone group.
     --
     -- Default: Instances are launched in any available Availability Zone.
-    availabilityZoneGroup :: Core.Maybe Core.Text,
+    availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of Spot Instances to launch.
     --
     -- Default: 1
-    instanceCount :: Core.Maybe Core.Int
+    instanceCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestSpotInstances' with all optional fields omitted.
@@ -276,19 +277,19 @@ newRequestSpotInstances ::
 newRequestSpotInstances =
   RequestSpotInstances'
     { tagSpecifications =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      validFrom = Core.Nothing,
-      spotPrice = Core.Nothing,
-      blockDurationMinutes = Core.Nothing,
-      launchGroup = Core.Nothing,
-      instanceInterruptionBehavior = Core.Nothing,
-      validUntil = Core.Nothing,
-      launchSpecification = Core.Nothing,
-      type' = Core.Nothing,
-      availabilityZoneGroup = Core.Nothing,
-      clientToken = Core.Nothing,
-      instanceCount = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      validFrom = Prelude.Nothing,
+      spotPrice = Prelude.Nothing,
+      blockDurationMinutes = Prelude.Nothing,
+      launchGroup = Prelude.Nothing,
+      instanceInterruptionBehavior = Prelude.Nothing,
+      validUntil = Prelude.Nothing,
+      launchSpecification = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      availabilityZoneGroup = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      instanceCount = Prelude.Nothing
     }
 
 -- | The key-value pair for tagging the Spot Instance request on creation.
@@ -296,14 +297,14 @@ newRequestSpotInstances =
 -- the Spot Instance request fails. To tag the Spot Instance request after
 -- it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-requestSpotInstances_tagSpecifications :: Lens.Lens' RequestSpotInstances (Core.Maybe [TagSpecification])
-requestSpotInstances_tagSpecifications = Lens.lens (\RequestSpotInstances' {tagSpecifications} -> tagSpecifications) (\s@RequestSpotInstances' {} a -> s {tagSpecifications = a} :: RequestSpotInstances) Core.. Lens.mapping Lens._Coerce
+requestSpotInstances_tagSpecifications :: Lens.Lens' RequestSpotInstances (Prelude.Maybe [TagSpecification])
+requestSpotInstances_tagSpecifications = Lens.lens (\RequestSpotInstances' {tagSpecifications} -> tagSpecifications) (\s@RequestSpotInstances' {} a -> s {tagSpecifications = a} :: RequestSpotInstances) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-requestSpotInstances_dryRun :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.Bool)
+requestSpotInstances_dryRun :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Bool)
 requestSpotInstances_dryRun = Lens.lens (\RequestSpotInstances' {dryRun} -> dryRun) (\s@RequestSpotInstances' {} a -> s {dryRun = a} :: RequestSpotInstances)
 
 -- | The start date of the request. If this is a one-time request, the
@@ -315,12 +316,12 @@ requestSpotInstances_dryRun = Lens.lens (\RequestSpotInstances' {dryRun} -> dryR
 -- The specified start date and time cannot be equal to the current date
 -- and time. You must specify a start date and time that occurs after the
 -- current date and time.
-requestSpotInstances_validFrom :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.UTCTime)
-requestSpotInstances_validFrom = Lens.lens (\RequestSpotInstances' {validFrom} -> validFrom) (\s@RequestSpotInstances' {} a -> s {validFrom = a} :: RequestSpotInstances) Core.. Lens.mapping Core._Time
+requestSpotInstances_validFrom :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.UTCTime)
+requestSpotInstances_validFrom = Lens.lens (\RequestSpotInstances' {validFrom} -> validFrom) (\s@RequestSpotInstances' {} a -> s {validFrom = a} :: RequestSpotInstances) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum price per hour that you are willing to pay for a Spot
 -- Instance. The default is the On-Demand price.
-requestSpotInstances_spotPrice :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.Text)
+requestSpotInstances_spotPrice :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_spotPrice = Lens.lens (\RequestSpotInstances' {spotPrice} -> spotPrice) (\s@RequestSpotInstances' {} a -> s {spotPrice = a} :: RequestSpotInstances)
 
 -- | The required duration for the Spot Instances (also known as Spot
@@ -339,19 +340,19 @@ requestSpotInstances_spotPrice = Lens.lens (\RequestSpotInstances' {spotPrice} -
 -- New accounts or accounts with no previous billing history with AWS are
 -- not eligible for Spot Instances with a defined duration (also known as
 -- Spot blocks).
-requestSpotInstances_blockDurationMinutes :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.Int)
+requestSpotInstances_blockDurationMinutes :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Int)
 requestSpotInstances_blockDurationMinutes = Lens.lens (\RequestSpotInstances' {blockDurationMinutes} -> blockDurationMinutes) (\s@RequestSpotInstances' {} a -> s {blockDurationMinutes = a} :: RequestSpotInstances)
 
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
 --
 -- Default: Instances are launched and terminated individually
-requestSpotInstances_launchGroup :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.Text)
+requestSpotInstances_launchGroup :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_launchGroup = Lens.lens (\RequestSpotInstances' {launchGroup} -> launchGroup) (\s@RequestSpotInstances' {} a -> s {launchGroup = a} :: RequestSpotInstances)
 
 -- | The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
-requestSpotInstances_instanceInterruptionBehavior :: Lens.Lens' RequestSpotInstances (Core.Maybe InstanceInterruptionBehavior)
+requestSpotInstances_instanceInterruptionBehavior :: Lens.Lens' RequestSpotInstances (Prelude.Maybe InstanceInterruptionBehavior)
 requestSpotInstances_instanceInterruptionBehavior = Lens.lens (\RequestSpotInstances' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@RequestSpotInstances' {} a -> s {instanceInterruptionBehavior = a} :: RequestSpotInstances)
 
 -- | The end date of the request, in UTC format
@@ -365,17 +366,17 @@ requestSpotInstances_instanceInterruptionBehavior = Lens.lens (\RequestSpotInsta
 --     instances launch, the request is canceled, or the @ValidUntil@ date
 --     and time is reached. By default, the request is valid for 7 days
 --     from the date the request was created.
-requestSpotInstances_validUntil :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.UTCTime)
-requestSpotInstances_validUntil = Lens.lens (\RequestSpotInstances' {validUntil} -> validUntil) (\s@RequestSpotInstances' {} a -> s {validUntil = a} :: RequestSpotInstances) Core.. Lens.mapping Core._Time
+requestSpotInstances_validUntil :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.UTCTime)
+requestSpotInstances_validUntil = Lens.lens (\RequestSpotInstances' {validUntil} -> validUntil) (\s@RequestSpotInstances' {} a -> s {validUntil = a} :: RequestSpotInstances) Prelude.. Lens.mapping Core._Time
 
 -- | The launch specification.
-requestSpotInstances_launchSpecification :: Lens.Lens' RequestSpotInstances (Core.Maybe RequestSpotLaunchSpecification)
+requestSpotInstances_launchSpecification :: Lens.Lens' RequestSpotInstances (Prelude.Maybe RequestSpotLaunchSpecification)
 requestSpotInstances_launchSpecification = Lens.lens (\RequestSpotInstances' {launchSpecification} -> launchSpecification) (\s@RequestSpotInstances' {} a -> s {launchSpecification = a} :: RequestSpotInstances)
 
 -- | The Spot Instance request type.
 --
 -- Default: @one-time@
-requestSpotInstances_type :: Lens.Lens' RequestSpotInstances (Core.Maybe SpotInstanceType)
+requestSpotInstances_type :: Lens.Lens' RequestSpotInstances (Prelude.Maybe SpotInstanceType)
 requestSpotInstances_type = Lens.lens (\RequestSpotInstances' {type'} -> type') (\s@RequestSpotInstances' {} a -> s {type' = a} :: RequestSpotInstances)
 
 -- | The user-specified name for a logical grouping of requests.
@@ -399,20 +400,20 @@ requestSpotInstances_type = Lens.lens (\RequestSpotInstances' {type'} -> type') 
 -- Zone group.
 --
 -- Default: Instances are launched in any available Availability Zone.
-requestSpotInstances_availabilityZoneGroup :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.Text)
+requestSpotInstances_availabilityZoneGroup :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_availabilityZoneGroup = Lens.lens (\RequestSpotInstances' {availabilityZoneGroup} -> availabilityZoneGroup) (\s@RequestSpotInstances' {} a -> s {availabilityZoneGroup = a} :: RequestSpotInstances)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
-requestSpotInstances_clientToken :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.Text)
+requestSpotInstances_clientToken :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_clientToken = Lens.lens (\RequestSpotInstances' {clientToken} -> clientToken) (\s@RequestSpotInstances' {} a -> s {clientToken = a} :: RequestSpotInstances)
 
 -- | The maximum number of Spot Instances to launch.
 --
 -- Default: 1
-requestSpotInstances_instanceCount :: Lens.Lens' RequestSpotInstances (Core.Maybe Core.Int)
+requestSpotInstances_instanceCount :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Int)
 requestSpotInstances_instanceCount = Lens.lens (\RequestSpotInstances' {instanceCount} -> instanceCount) (\s@RequestSpotInstances' {} a -> s {instanceCount = a} :: RequestSpotInstances)
 
 instance Core.AWSRequest RequestSpotInstances where
@@ -424,32 +425,33 @@ instance Core.AWSRequest RequestSpotInstances where
     Response.receiveXML
       ( \s h x ->
           RequestSpotInstancesResponse'
-            Core.<$> ( x Core..@? "spotInstanceRequestSet"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "spotInstanceRequestSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RequestSpotInstances
+instance Prelude.Hashable RequestSpotInstances
 
-instance Core.NFData RequestSpotInstances
+instance Prelude.NFData RequestSpotInstances
 
 instance Core.ToHeaders RequestSpotInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RequestSpotInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RequestSpotInstances where
   toQuery RequestSpotInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RequestSpotInstances" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("RequestSpotInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "ValidFrom" Core.=: validFrom,
@@ -472,11 +474,11 @@ instance Core.ToQuery RequestSpotInstances where
 -- /See:/ 'newRequestSpotInstancesResponse' smart constructor.
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
   { -- | One or more Spot Instance requests.
-    spotInstanceRequests :: Core.Maybe [SpotInstanceRequest],
+    spotInstanceRequests :: Prelude.Maybe [SpotInstanceRequest],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestSpotInstancesResponse' with all optional fields omitted.
@@ -491,21 +493,21 @@ data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
 -- 'httpStatus', 'requestSpotInstancesResponse_httpStatus' - The response's http status code.
 newRequestSpotInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RequestSpotInstancesResponse
 newRequestSpotInstancesResponse pHttpStatus_ =
   RequestSpotInstancesResponse'
     { spotInstanceRequests =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | One or more Spot Instance requests.
-requestSpotInstancesResponse_spotInstanceRequests :: Lens.Lens' RequestSpotInstancesResponse (Core.Maybe [SpotInstanceRequest])
-requestSpotInstancesResponse_spotInstanceRequests = Lens.lens (\RequestSpotInstancesResponse' {spotInstanceRequests} -> spotInstanceRequests) (\s@RequestSpotInstancesResponse' {} a -> s {spotInstanceRequests = a} :: RequestSpotInstancesResponse) Core.. Lens.mapping Lens._Coerce
+requestSpotInstancesResponse_spotInstanceRequests :: Lens.Lens' RequestSpotInstancesResponse (Prelude.Maybe [SpotInstanceRequest])
+requestSpotInstancesResponse_spotInstanceRequests = Lens.lens (\RequestSpotInstancesResponse' {spotInstanceRequests} -> spotInstanceRequests) (\s@RequestSpotInstancesResponse' {} a -> s {spotInstanceRequests = a} :: RequestSpotInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-requestSpotInstancesResponse_httpStatus :: Lens.Lens' RequestSpotInstancesResponse Core.Int
+requestSpotInstancesResponse_httpStatus :: Lens.Lens' RequestSpotInstancesResponse Prelude.Int
 requestSpotInstancesResponse_httpStatus = Lens.lens (\RequestSpotInstancesResponse' {httpStatus} -> httpStatus) (\s@RequestSpotInstancesResponse' {} a -> s {httpStatus = a} :: RequestSpotInstancesResponse)
 
-instance Core.NFData RequestSpotInstancesResponse
+instance Prelude.NFData RequestSpotInstancesResponse

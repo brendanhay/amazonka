@@ -52,19 +52,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListCrawlers' smart constructor.
 data ListCrawlers = ListCrawlers'
   { -- | A continuation token, if this is a continuation request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of a list to return.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies to return only these tagged resources.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCrawlers' with all optional fields omitted.
@@ -83,22 +84,22 @@ newListCrawlers ::
   ListCrawlers
 newListCrawlers =
   ListCrawlers'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      tags = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | A continuation token, if this is a continuation request.
-listCrawlers_nextToken :: Lens.Lens' ListCrawlers (Core.Maybe Core.Text)
+listCrawlers_nextToken :: Lens.Lens' ListCrawlers (Prelude.Maybe Prelude.Text)
 listCrawlers_nextToken = Lens.lens (\ListCrawlers' {nextToken} -> nextToken) (\s@ListCrawlers' {} a -> s {nextToken = a} :: ListCrawlers)
 
 -- | The maximum size of a list to return.
-listCrawlers_maxResults :: Lens.Lens' ListCrawlers (Core.Maybe Core.Natural)
+listCrawlers_maxResults :: Lens.Lens' ListCrawlers (Prelude.Maybe Prelude.Natural)
 listCrawlers_maxResults = Lens.lens (\ListCrawlers' {maxResults} -> maxResults) (\s@ListCrawlers' {} a -> s {maxResults = a} :: ListCrawlers)
 
 -- | Specifies to return only these tagged resources.
-listCrawlers_tags :: Lens.Lens' ListCrawlers (Core.Maybe (Core.HashMap Core.Text Core.Text))
-listCrawlers_tags = Lens.lens (\ListCrawlers' {tags} -> tags) (\s@ListCrawlers' {} a -> s {tags = a} :: ListCrawlers) Core.. Lens.mapping Lens._Coerce
+listCrawlers_tags :: Lens.Lens' ListCrawlers (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listCrawlers_tags = Lens.lens (\ListCrawlers' {tags} -> tags) (\s@ListCrawlers' {} a -> s {tags = a} :: ListCrawlers) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest ListCrawlers where
   type AWSResponse ListCrawlers = ListCrawlersResponse
@@ -107,54 +108,56 @@ instance Core.AWSRequest ListCrawlers where
     Response.receiveJSON
       ( \s h x ->
           ListCrawlersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "CrawlerNames" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "CrawlerNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListCrawlers
+instance Prelude.Hashable ListCrawlers
 
-instance Core.NFData ListCrawlers
+instance Prelude.NFData ListCrawlers
 
 instance Core.ToHeaders ListCrawlers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListCrawlers" :: Core.ByteString),
+              Core.=# ("AWSGlue.ListCrawlers" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListCrawlers where
   toJSON ListCrawlers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Tags" Core..=) Core.<$> tags
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Tags" Core..=) Prelude.<$> tags
           ]
       )
 
 instance Core.ToPath ListCrawlers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListCrawlers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCrawlersResponse' smart constructor.
 data ListCrawlersResponse = ListCrawlersResponse'
   { -- | A continuation token, if the returned list does not contain the last
     -- metric available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The names of all crawlers in the account, or the crawlers with the
     -- specified tags.
-    crawlerNames :: Core.Maybe [Core.Text],
+    crawlerNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCrawlersResponse' with all optional fields omitted.
@@ -173,27 +176,27 @@ data ListCrawlersResponse = ListCrawlersResponse'
 -- 'httpStatus', 'listCrawlersResponse_httpStatus' - The response's http status code.
 newListCrawlersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListCrawlersResponse
 newListCrawlersResponse pHttpStatus_ =
   ListCrawlersResponse'
-    { nextToken = Core.Nothing,
-      crawlerNames = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      crawlerNames = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token, if the returned list does not contain the last
 -- metric available.
-listCrawlersResponse_nextToken :: Lens.Lens' ListCrawlersResponse (Core.Maybe Core.Text)
+listCrawlersResponse_nextToken :: Lens.Lens' ListCrawlersResponse (Prelude.Maybe Prelude.Text)
 listCrawlersResponse_nextToken = Lens.lens (\ListCrawlersResponse' {nextToken} -> nextToken) (\s@ListCrawlersResponse' {} a -> s {nextToken = a} :: ListCrawlersResponse)
 
 -- | The names of all crawlers in the account, or the crawlers with the
 -- specified tags.
-listCrawlersResponse_crawlerNames :: Lens.Lens' ListCrawlersResponse (Core.Maybe [Core.Text])
-listCrawlersResponse_crawlerNames = Lens.lens (\ListCrawlersResponse' {crawlerNames} -> crawlerNames) (\s@ListCrawlersResponse' {} a -> s {crawlerNames = a} :: ListCrawlersResponse) Core.. Lens.mapping Lens._Coerce
+listCrawlersResponse_crawlerNames :: Lens.Lens' ListCrawlersResponse (Prelude.Maybe [Prelude.Text])
+listCrawlersResponse_crawlerNames = Lens.lens (\ListCrawlersResponse' {crawlerNames} -> crawlerNames) (\s@ListCrawlersResponse' {} a -> s {crawlerNames = a} :: ListCrawlersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCrawlersResponse_httpStatus :: Lens.Lens' ListCrawlersResponse Core.Int
+listCrawlersResponse_httpStatus :: Lens.Lens' ListCrawlersResponse Prelude.Int
 listCrawlersResponse_httpStatus = Lens.lens (\ListCrawlersResponse' {httpStatus} -> httpStatus) (\s@ListCrawlersResponse' {} a -> s {httpStatus = a} :: ListCrawlersResponse)
 
-instance Core.NFData ListCrawlersResponse
+instance Prelude.NFData ListCrawlersResponse

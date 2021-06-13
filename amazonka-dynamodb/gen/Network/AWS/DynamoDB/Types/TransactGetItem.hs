@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.TransactGetItem where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.Get
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an item to be retrieved as part of the transaction.
 --
@@ -32,7 +33,7 @@ data TransactGetItem = TransactGetItem'
     -- specific attributes of the item to retrieve.
     get' :: Get
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransactGetItem' with all optional fields omitted.
@@ -58,11 +59,13 @@ newTransactGetItem pGet_ =
 transactGetItem_get :: Lens.Lens' TransactGetItem Get
 transactGetItem_get = Lens.lens (\TransactGetItem' {get'} -> get') (\s@TransactGetItem' {} a -> s {get' = a} :: TransactGetItem)
 
-instance Core.Hashable TransactGetItem
+instance Prelude.Hashable TransactGetItem
 
-instance Core.NFData TransactGetItem
+instance Prelude.NFData TransactGetItem
 
 instance Core.ToJSON TransactGetItem where
   toJSON TransactGetItem' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Get" Core..= get')])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Get" Core..= get')]
+      )

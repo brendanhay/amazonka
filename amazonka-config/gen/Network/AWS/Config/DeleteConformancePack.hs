@@ -44,15 +44,16 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteConformancePack' smart constructor.
 data DeleteConformancePack = DeleteConformancePack'
   { -- | Name of the conformance pack you want to delete.
-    conformancePackName :: Core.Text
+    conformancePackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConformancePack' with all optional fields omitted.
@@ -65,7 +66,7 @@ data DeleteConformancePack = DeleteConformancePack'
 -- 'conformancePackName', 'deleteConformancePack_conformancePackName' - Name of the conformance pack you want to delete.
 newDeleteConformancePack ::
   -- | 'conformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConformancePack
 newDeleteConformancePack pConformancePackName_ =
   DeleteConformancePack'
@@ -74,7 +75,7 @@ newDeleteConformancePack pConformancePackName_ =
     }
 
 -- | Name of the conformance pack you want to delete.
-deleteConformancePack_conformancePackName :: Lens.Lens' DeleteConformancePack Core.Text
+deleteConformancePack_conformancePackName :: Lens.Lens' DeleteConformancePack Prelude.Text
 deleteConformancePack_conformancePackName = Lens.lens (\DeleteConformancePack' {conformancePackName} -> conformancePackName) (\s@DeleteConformancePack' {} a -> s {conformancePackName = a} :: DeleteConformancePack)
 
 instance Core.AWSRequest DeleteConformancePack where
@@ -85,43 +86,45 @@ instance Core.AWSRequest DeleteConformancePack where
   response =
     Response.receiveNull DeleteConformancePackResponse'
 
-instance Core.Hashable DeleteConformancePack
+instance Prelude.Hashable DeleteConformancePack
 
-instance Core.NFData DeleteConformancePack
+instance Prelude.NFData DeleteConformancePack
 
 instance Core.ToHeaders DeleteConformancePack where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteConformancePack" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteConformancePack where
   toJSON DeleteConformancePack' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ConformancePackName" Core..= conformancePackName)
           ]
       )
 
 instance Core.ToPath DeleteConformancePack where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteConformancePack where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConformancePackResponse' smart constructor.
 data DeleteConformancePackResponse = DeleteConformancePackResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConformancePackResponse' with all optional fields omitted.
@@ -132,4 +135,4 @@ newDeleteConformancePackResponse ::
 newDeleteConformancePackResponse =
   DeleteConformancePackResponse'
 
-instance Core.NFData DeleteConformancePackResponse
+instance Prelude.NFData DeleteConformancePackResponse

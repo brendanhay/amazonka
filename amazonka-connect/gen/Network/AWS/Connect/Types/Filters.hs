@@ -22,18 +22,19 @@ module Network.AWS.Connect.Types.Filters where
 import Network.AWS.Connect.Types.Channel
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the filter to apply when retrieving metrics.
 --
 -- /See:/ 'newFilters' smart constructor.
 data Filters = Filters'
   { -- | The channel to use to filter the metrics.
-    channels :: Core.Maybe [Channel],
+    channels :: Prelude.Maybe [Channel],
     -- | The queues to use to filter the metrics. You can specify up to 100
     -- queues per request.
-    queues :: Core.Maybe (Core.NonEmpty Core.Text)
+    queues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Filters' with all optional fields omitted.
@@ -51,28 +52,28 @@ newFilters ::
   Filters
 newFilters =
   Filters'
-    { channels = Core.Nothing,
-      queues = Core.Nothing
+    { channels = Prelude.Nothing,
+      queues = Prelude.Nothing
     }
 
 -- | The channel to use to filter the metrics.
-filters_channels :: Lens.Lens' Filters (Core.Maybe [Channel])
-filters_channels = Lens.lens (\Filters' {channels} -> channels) (\s@Filters' {} a -> s {channels = a} :: Filters) Core.. Lens.mapping Lens._Coerce
+filters_channels :: Lens.Lens' Filters (Prelude.Maybe [Channel])
+filters_channels = Lens.lens (\Filters' {channels} -> channels) (\s@Filters' {} a -> s {channels = a} :: Filters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The queues to use to filter the metrics. You can specify up to 100
 -- queues per request.
-filters_queues :: Lens.Lens' Filters (Core.Maybe (Core.NonEmpty Core.Text))
-filters_queues = Lens.lens (\Filters' {queues} -> queues) (\s@Filters' {} a -> s {queues = a} :: Filters) Core.. Lens.mapping Lens._Coerce
+filters_queues :: Lens.Lens' Filters (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+filters_queues = Lens.lens (\Filters' {queues} -> queues) (\s@Filters' {} a -> s {queues = a} :: Filters) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable Filters
+instance Prelude.Hashable Filters
 
-instance Core.NFData Filters
+instance Prelude.NFData Filters
 
 instance Core.ToJSON Filters where
   toJSON Filters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Channels" Core..=) Core.<$> channels,
-            ("Queues" Core..=) Core.<$> queues
+      ( Prelude.catMaybes
+          [ ("Channels" Core..=) Prelude.<$> channels,
+            ("Queues" Core..=) Prelude.<$> queues
           ]
       )

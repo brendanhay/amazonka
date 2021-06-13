@@ -22,6 +22,7 @@ module Network.AWS.AppSync.Types.UserPoolConfig where
 import Network.AWS.AppSync.Types.DefaultAction
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Amazon Cognito user pool configuration.
 --
@@ -29,17 +30,17 @@ import qualified Network.AWS.Lens as Lens
 data UserPoolConfig = UserPoolConfig'
   { -- | A regular expression for validating the incoming Amazon Cognito user
     -- pool app client ID.
-    appIdClientRegex :: Core.Maybe Core.Text,
+    appIdClientRegex :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The AWS Region in which the user pool was created.
-    awsRegion :: Core.Text,
+    awsRegion :: Prelude.Text,
     -- | The action that you want your GraphQL API to take when a request that
     -- uses Amazon Cognito user pool authentication doesn\'t match the Amazon
     -- Cognito user pool configuration.
     defaultAction :: DefaultAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserPoolConfig' with all optional fields omitted.
@@ -61,9 +62,9 @@ data UserPoolConfig = UserPoolConfig'
 -- Cognito user pool configuration.
 newUserPoolConfig ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'awsRegion'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'defaultAction'
   DefaultAction ->
   UserPoolConfig
@@ -72,7 +73,7 @@ newUserPoolConfig
   pAwsRegion_
   pDefaultAction_ =
     UserPoolConfig'
-      { appIdClientRegex = Core.Nothing,
+      { appIdClientRegex = Prelude.Nothing,
         userPoolId = pUserPoolId_,
         awsRegion = pAwsRegion_,
         defaultAction = pDefaultAction_
@@ -80,15 +81,15 @@ newUserPoolConfig
 
 -- | A regular expression for validating the incoming Amazon Cognito user
 -- pool app client ID.
-userPoolConfig_appIdClientRegex :: Lens.Lens' UserPoolConfig (Core.Maybe Core.Text)
+userPoolConfig_appIdClientRegex :: Lens.Lens' UserPoolConfig (Prelude.Maybe Prelude.Text)
 userPoolConfig_appIdClientRegex = Lens.lens (\UserPoolConfig' {appIdClientRegex} -> appIdClientRegex) (\s@UserPoolConfig' {} a -> s {appIdClientRegex = a} :: UserPoolConfig)
 
 -- | The user pool ID.
-userPoolConfig_userPoolId :: Lens.Lens' UserPoolConfig Core.Text
+userPoolConfig_userPoolId :: Lens.Lens' UserPoolConfig Prelude.Text
 userPoolConfig_userPoolId = Lens.lens (\UserPoolConfig' {userPoolId} -> userPoolId) (\s@UserPoolConfig' {} a -> s {userPoolId = a} :: UserPoolConfig)
 
 -- | The AWS Region in which the user pool was created.
-userPoolConfig_awsRegion :: Lens.Lens' UserPoolConfig Core.Text
+userPoolConfig_awsRegion :: Lens.Lens' UserPoolConfig Prelude.Text
 userPoolConfig_awsRegion = Lens.lens (\UserPoolConfig' {awsRegion} -> awsRegion) (\s@UserPoolConfig' {} a -> s {awsRegion = a} :: UserPoolConfig)
 
 -- | The action that you want your GraphQL API to take when a request that
@@ -103,24 +104,25 @@ instance Core.FromJSON UserPoolConfig where
       "UserPoolConfig"
       ( \x ->
           UserPoolConfig'
-            Core.<$> (x Core..:? "appIdClientRegex")
-            Core.<*> (x Core..: "userPoolId")
-            Core.<*> (x Core..: "awsRegion")
-            Core.<*> (x Core..: "defaultAction")
+            Prelude.<$> (x Core..:? "appIdClientRegex")
+            Prelude.<*> (x Core..: "userPoolId")
+            Prelude.<*> (x Core..: "awsRegion")
+            Prelude.<*> (x Core..: "defaultAction")
       )
 
-instance Core.Hashable UserPoolConfig
+instance Prelude.Hashable UserPoolConfig
 
-instance Core.NFData UserPoolConfig
+instance Prelude.NFData UserPoolConfig
 
 instance Core.ToJSON UserPoolConfig where
   toJSON UserPoolConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("appIdClientRegex" Core..=)
-              Core.<$> appIdClientRegex,
-            Core.Just ("userPoolId" Core..= userPoolId),
-            Core.Just ("awsRegion" Core..= awsRegion),
-            Core.Just ("defaultAction" Core..= defaultAction)
+              Prelude.<$> appIdClientRegex,
+            Prelude.Just ("userPoolId" Core..= userPoolId),
+            Prelude.Just ("awsRegion" Core..= awsRegion),
+            Prelude.Just
+              ("defaultAction" Core..= defaultAction)
           ]
       )

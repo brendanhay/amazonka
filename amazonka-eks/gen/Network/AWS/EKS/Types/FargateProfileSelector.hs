@@ -21,6 +21,7 @@ module Network.AWS.EKS.Types.FargateProfileSelector where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an AWS Fargate profile selector.
 --
@@ -29,11 +30,11 @@ data FargateProfileSelector = FargateProfileSelector'
   { -- | The Kubernetes labels that the selector should match. A pod must contain
     -- all of the labels that are specified in the selector for it to be
     -- considered a match.
-    labels :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    labels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Kubernetes namespace that the selector should match.
-    namespace :: Core.Maybe Core.Text
+    namespace :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FargateProfileSelector' with all optional fields omitted.
@@ -52,18 +53,18 @@ newFargateProfileSelector ::
   FargateProfileSelector
 newFargateProfileSelector =
   FargateProfileSelector'
-    { labels = Core.Nothing,
-      namespace = Core.Nothing
+    { labels = Prelude.Nothing,
+      namespace = Prelude.Nothing
     }
 
 -- | The Kubernetes labels that the selector should match. A pod must contain
 -- all of the labels that are specified in the selector for it to be
 -- considered a match.
-fargateProfileSelector_labels :: Lens.Lens' FargateProfileSelector (Core.Maybe (Core.HashMap Core.Text Core.Text))
-fargateProfileSelector_labels = Lens.lens (\FargateProfileSelector' {labels} -> labels) (\s@FargateProfileSelector' {} a -> s {labels = a} :: FargateProfileSelector) Core.. Lens.mapping Lens._Coerce
+fargateProfileSelector_labels :: Lens.Lens' FargateProfileSelector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+fargateProfileSelector_labels = Lens.lens (\FargateProfileSelector' {labels} -> labels) (\s@FargateProfileSelector' {} a -> s {labels = a} :: FargateProfileSelector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Kubernetes namespace that the selector should match.
-fargateProfileSelector_namespace :: Lens.Lens' FargateProfileSelector (Core.Maybe Core.Text)
+fargateProfileSelector_namespace :: Lens.Lens' FargateProfileSelector (Prelude.Maybe Prelude.Text)
 fargateProfileSelector_namespace = Lens.lens (\FargateProfileSelector' {namespace} -> namespace) (\s@FargateProfileSelector' {} a -> s {namespace = a} :: FargateProfileSelector)
 
 instance Core.FromJSON FargateProfileSelector where
@@ -72,19 +73,19 @@ instance Core.FromJSON FargateProfileSelector where
       "FargateProfileSelector"
       ( \x ->
           FargateProfileSelector'
-            Core.<$> (x Core..:? "labels" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "namespace")
+            Prelude.<$> (x Core..:? "labels" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "namespace")
       )
 
-instance Core.Hashable FargateProfileSelector
+instance Prelude.Hashable FargateProfileSelector
 
-instance Core.NFData FargateProfileSelector
+instance Prelude.NFData FargateProfileSelector
 
 instance Core.ToJSON FargateProfileSelector where
   toJSON FargateProfileSelector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("labels" Core..=) Core.<$> labels,
-            ("namespace" Core..=) Core.<$> namespace
+      ( Prelude.catMaybes
+          [ ("labels" Core..=) Prelude.<$> labels,
+            ("namespace" Core..=) Prelude.<$> namespace
           ]
       )

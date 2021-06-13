@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -66,24 +67,24 @@ import qualified Network.AWS.Response as Response
 data CreateGlobalCluster = CreateGlobalCluster'
   { -- | The deletion protection setting for the new global database. The global
     -- database can\'t be deleted when deletion protection is enabled.
-    deletionProtection :: Core.Maybe Core.Bool,
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The storage encryption setting for the new global database cluster.
-    storageEncrypted :: Core.Maybe Core.Bool,
+    storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The engine version of the Aurora global database.
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the database engine to be used for this DB cluster.
-    engine :: Core.Maybe Core.Text,
+    engine :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier of the new global database cluster.
-    globalClusterIdentifier :: Core.Maybe Core.Text,
+    globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The name for your database of up to 64 alpha-numeric characters. If you
     -- do not provide a name, Amazon Aurora will not create a database in the
     -- global database cluster you are creating.
-    databaseName :: Core.Maybe Core.Text,
+    databaseName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) to use as the primary cluster of the
     -- global database. This parameter is optional.
-    sourceDBClusterIdentifier :: Core.Maybe Core.Text
+    sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGlobalCluster' with all optional fields omitted.
@@ -115,45 +116,45 @@ newCreateGlobalCluster ::
 newCreateGlobalCluster =
   CreateGlobalCluster'
     { deletionProtection =
-        Core.Nothing,
-      storageEncrypted = Core.Nothing,
-      engineVersion = Core.Nothing,
-      engine = Core.Nothing,
-      globalClusterIdentifier = Core.Nothing,
-      databaseName = Core.Nothing,
-      sourceDBClusterIdentifier = Core.Nothing
+        Prelude.Nothing,
+      storageEncrypted = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      engine = Prelude.Nothing,
+      globalClusterIdentifier = Prelude.Nothing,
+      databaseName = Prelude.Nothing,
+      sourceDBClusterIdentifier = Prelude.Nothing
     }
 
 -- | The deletion protection setting for the new global database. The global
 -- database can\'t be deleted when deletion protection is enabled.
-createGlobalCluster_deletionProtection :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Bool)
+createGlobalCluster_deletionProtection :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
 createGlobalCluster_deletionProtection = Lens.lens (\CreateGlobalCluster' {deletionProtection} -> deletionProtection) (\s@CreateGlobalCluster' {} a -> s {deletionProtection = a} :: CreateGlobalCluster)
 
 -- | The storage encryption setting for the new global database cluster.
-createGlobalCluster_storageEncrypted :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Bool)
+createGlobalCluster_storageEncrypted :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
 createGlobalCluster_storageEncrypted = Lens.lens (\CreateGlobalCluster' {storageEncrypted} -> storageEncrypted) (\s@CreateGlobalCluster' {} a -> s {storageEncrypted = a} :: CreateGlobalCluster)
 
 -- | The engine version of the Aurora global database.
-createGlobalCluster_engineVersion :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Text)
+createGlobalCluster_engineVersion :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_engineVersion = Lens.lens (\CreateGlobalCluster' {engineVersion} -> engineVersion) (\s@CreateGlobalCluster' {} a -> s {engineVersion = a} :: CreateGlobalCluster)
 
 -- | The name of the database engine to be used for this DB cluster.
-createGlobalCluster_engine :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Text)
+createGlobalCluster_engine :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_engine = Lens.lens (\CreateGlobalCluster' {engine} -> engine) (\s@CreateGlobalCluster' {} a -> s {engine = a} :: CreateGlobalCluster)
 
 -- | The cluster identifier of the new global database cluster.
-createGlobalCluster_globalClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Text)
+createGlobalCluster_globalClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_globalClusterIdentifier = Lens.lens (\CreateGlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {globalClusterIdentifier = a} :: CreateGlobalCluster)
 
 -- | The name for your database of up to 64 alpha-numeric characters. If you
 -- do not provide a name, Amazon Aurora will not create a database in the
 -- global database cluster you are creating.
-createGlobalCluster_databaseName :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Text)
+createGlobalCluster_databaseName :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_databaseName = Lens.lens (\CreateGlobalCluster' {databaseName} -> databaseName) (\s@CreateGlobalCluster' {} a -> s {databaseName = a} :: CreateGlobalCluster)
 
 -- | The Amazon Resource Name (ARN) to use as the primary cluster of the
 -- global database. This parameter is optional.
-createGlobalCluster_sourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Text)
+createGlobalCluster_sourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_sourceDBClusterIdentifier = Lens.lens (\CreateGlobalCluster' {sourceDBClusterIdentifier} -> sourceDBClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {sourceDBClusterIdentifier = a} :: CreateGlobalCluster)
 
 instance Core.AWSRequest CreateGlobalCluster where
@@ -166,26 +167,27 @@ instance Core.AWSRequest CreateGlobalCluster where
       "CreateGlobalClusterResult"
       ( \s h x ->
           CreateGlobalClusterResponse'
-            Core.<$> (x Core..@? "GlobalCluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "GlobalCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateGlobalCluster
+instance Prelude.Hashable CreateGlobalCluster
 
-instance Core.NFData CreateGlobalCluster
+instance Prelude.NFData CreateGlobalCluster
 
 instance Core.ToHeaders CreateGlobalCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateGlobalCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateGlobalCluster where
   toQuery CreateGlobalCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateGlobalCluster" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("CreateGlobalCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DeletionProtection" Core.=: deletionProtection,
         "StorageEncrypted" Core.=: storageEncrypted,
         "EngineVersion" Core.=: engineVersion,
@@ -199,11 +201,11 @@ instance Core.ToQuery CreateGlobalCluster where
 
 -- | /See:/ 'newCreateGlobalClusterResponse' smart constructor.
 data CreateGlobalClusterResponse = CreateGlobalClusterResponse'
-  { globalCluster :: Core.Maybe GlobalCluster,
+  { globalCluster :: Prelude.Maybe GlobalCluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGlobalClusterResponse' with all optional fields omitted.
@@ -218,21 +220,21 @@ data CreateGlobalClusterResponse = CreateGlobalClusterResponse'
 -- 'httpStatus', 'createGlobalClusterResponse_httpStatus' - The response's http status code.
 newCreateGlobalClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateGlobalClusterResponse
 newCreateGlobalClusterResponse pHttpStatus_ =
   CreateGlobalClusterResponse'
     { globalCluster =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createGlobalClusterResponse_globalCluster :: Lens.Lens' CreateGlobalClusterResponse (Core.Maybe GlobalCluster)
+createGlobalClusterResponse_globalCluster :: Lens.Lens' CreateGlobalClusterResponse (Prelude.Maybe GlobalCluster)
 createGlobalClusterResponse_globalCluster = Lens.lens (\CreateGlobalClusterResponse' {globalCluster} -> globalCluster) (\s@CreateGlobalClusterResponse' {} a -> s {globalCluster = a} :: CreateGlobalClusterResponse)
 
 -- | The response's http status code.
-createGlobalClusterResponse_httpStatus :: Lens.Lens' CreateGlobalClusterResponse Core.Int
+createGlobalClusterResponse_httpStatus :: Lens.Lens' CreateGlobalClusterResponse Prelude.Int
 createGlobalClusterResponse_httpStatus = Lens.lens (\CreateGlobalClusterResponse' {httpStatus} -> httpStatus) (\s@CreateGlobalClusterResponse' {} a -> s {httpStatus = a} :: CreateGlobalClusterResponse)
 
-instance Core.NFData CreateGlobalClusterResponse
+instance Prelude.NFData CreateGlobalClusterResponse

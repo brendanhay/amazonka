@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.SecurityGroupIdentifier where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a security group.
 --
 -- /See:/ 'newSecurityGroupIdentifier' smart constructor.
 data SecurityGroupIdentifier = SecurityGroupIdentifier'
   { -- | The name of the security group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the security group.
-    groupId :: Core.Maybe Core.Text
+    groupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecurityGroupIdentifier' with all optional fields omitted.
@@ -49,24 +50,25 @@ newSecurityGroupIdentifier ::
   SecurityGroupIdentifier
 newSecurityGroupIdentifier =
   SecurityGroupIdentifier'
-    { groupName = Core.Nothing,
-      groupId = Core.Nothing
+    { groupName =
+        Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
 
 -- | The name of the security group.
-securityGroupIdentifier_groupName :: Lens.Lens' SecurityGroupIdentifier (Core.Maybe Core.Text)
+securityGroupIdentifier_groupName :: Lens.Lens' SecurityGroupIdentifier (Prelude.Maybe Prelude.Text)
 securityGroupIdentifier_groupName = Lens.lens (\SecurityGroupIdentifier' {groupName} -> groupName) (\s@SecurityGroupIdentifier' {} a -> s {groupName = a} :: SecurityGroupIdentifier)
 
 -- | The ID of the security group.
-securityGroupIdentifier_groupId :: Lens.Lens' SecurityGroupIdentifier (Core.Maybe Core.Text)
+securityGroupIdentifier_groupId :: Lens.Lens' SecurityGroupIdentifier (Prelude.Maybe Prelude.Text)
 securityGroupIdentifier_groupId = Lens.lens (\SecurityGroupIdentifier' {groupId} -> groupId) (\s@SecurityGroupIdentifier' {} a -> s {groupId = a} :: SecurityGroupIdentifier)
 
 instance Core.FromXML SecurityGroupIdentifier where
   parseXML x =
     SecurityGroupIdentifier'
-      Core.<$> (x Core..@? "groupName")
-      Core.<*> (x Core..@? "groupId")
+      Prelude.<$> (x Core..@? "groupName")
+      Prelude.<*> (x Core..@? "groupId")
 
-instance Core.Hashable SecurityGroupIdentifier
+instance Prelude.Hashable SecurityGroupIdentifier
 
-instance Core.NFData SecurityGroupIdentifier
+instance Prelude.NFData SecurityGroupIdentifier

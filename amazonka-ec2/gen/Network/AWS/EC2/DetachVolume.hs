@@ -64,6 +64,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,14 +72,14 @@ import qualified Network.AWS.Response as Response
 data DetachVolume = DetachVolume'
   { -- | The ID of the instance. If you are detaching a Multi-Attach enabled
     -- volume, you must specify an instance ID.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The device name.
-    device :: Core.Maybe Core.Text,
+    device :: Prelude.Maybe Prelude.Text,
     -- | Forces detachment if the previous detachment attempt did not occur
     -- cleanly (for example, logging into an instance, unmounting the volume,
     -- and detaching normally). This option can lead to data loss or a
@@ -86,11 +87,11 @@ data DetachVolume = DetachVolume'
     -- volume from a failed instance. The instance won\'t have an opportunity
     -- to flush file system caches or file system metadata. If you use this
     -- option, you must perform file system check and repair procedures.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the volume.
-    volumeId :: Core.Text
+    volumeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachVolume' with all optional fields omitted.
@@ -121,31 +122,31 @@ data DetachVolume = DetachVolume'
 -- 'volumeId', 'detachVolume_volumeId' - The ID of the volume.
 newDetachVolume ::
   -- | 'volumeId'
-  Core.Text ->
+  Prelude.Text ->
   DetachVolume
 newDetachVolume pVolumeId_ =
   DetachVolume'
-    { instanceId = Core.Nothing,
-      dryRun = Core.Nothing,
-      device = Core.Nothing,
-      force = Core.Nothing,
+    { instanceId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      device = Prelude.Nothing,
+      force = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
 -- | The ID of the instance. If you are detaching a Multi-Attach enabled
 -- volume, you must specify an instance ID.
-detachVolume_instanceId :: Lens.Lens' DetachVolume (Core.Maybe Core.Text)
+detachVolume_instanceId :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Text)
 detachVolume_instanceId = Lens.lens (\DetachVolume' {instanceId} -> instanceId) (\s@DetachVolume' {} a -> s {instanceId = a} :: DetachVolume)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-detachVolume_dryRun :: Lens.Lens' DetachVolume (Core.Maybe Core.Bool)
+detachVolume_dryRun :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Bool)
 detachVolume_dryRun = Lens.lens (\DetachVolume' {dryRun} -> dryRun) (\s@DetachVolume' {} a -> s {dryRun = a} :: DetachVolume)
 
 -- | The device name.
-detachVolume_device :: Lens.Lens' DetachVolume (Core.Maybe Core.Text)
+detachVolume_device :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Text)
 detachVolume_device = Lens.lens (\DetachVolume' {device} -> device) (\s@DetachVolume' {} a -> s {device = a} :: DetachVolume)
 
 -- | Forces detachment if the previous detachment attempt did not occur
@@ -155,11 +156,11 @@ detachVolume_device = Lens.lens (\DetachVolume' {device} -> device) (\s@DetachVo
 -- volume from a failed instance. The instance won\'t have an opportunity
 -- to flush file system caches or file system metadata. If you use this
 -- option, you must perform file system check and repair procedures.
-detachVolume_force :: Lens.Lens' DetachVolume (Core.Maybe Core.Bool)
+detachVolume_force :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Bool)
 detachVolume_force = Lens.lens (\DetachVolume' {force} -> force) (\s@DetachVolume' {} a -> s {force = a} :: DetachVolume)
 
 -- | The ID of the volume.
-detachVolume_volumeId :: Lens.Lens' DetachVolume Core.Text
+detachVolume_volumeId :: Lens.Lens' DetachVolume Prelude.Text
 detachVolume_volumeId = Lens.lens (\DetachVolume' {volumeId} -> volumeId) (\s@DetachVolume' {} a -> s {volumeId = a} :: DetachVolume)
 
 instance Core.AWSRequest DetachVolume where
@@ -168,22 +169,23 @@ instance Core.AWSRequest DetachVolume where
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Core.Hashable DetachVolume
+instance Prelude.Hashable DetachVolume
 
-instance Core.NFData DetachVolume
+instance Prelude.NFData DetachVolume
 
 instance Core.ToHeaders DetachVolume where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetachVolume where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachVolume where
   toQuery DetachVolume' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachVolume" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DetachVolume" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "InstanceId" Core.=: instanceId,
         "DryRun" Core.=: dryRun,
         "Device" Core.=: device,

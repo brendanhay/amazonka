@@ -41,15 +41,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSkillGroup' smart constructor.
 data DeleteSkillGroup = DeleteSkillGroup'
   { -- | The ARN of the skill group to delete. Required.
-    skillGroupArn :: Core.Maybe Core.Text
+    skillGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSkillGroup' with all optional fields omitted.
@@ -63,10 +64,10 @@ data DeleteSkillGroup = DeleteSkillGroup'
 newDeleteSkillGroup ::
   DeleteSkillGroup
 newDeleteSkillGroup =
-  DeleteSkillGroup' {skillGroupArn = Core.Nothing}
+  DeleteSkillGroup' {skillGroupArn = Prelude.Nothing}
 
 -- | The ARN of the skill group to delete. Required.
-deleteSkillGroup_skillGroupArn :: Lens.Lens' DeleteSkillGroup (Core.Maybe Core.Text)
+deleteSkillGroup_skillGroupArn :: Lens.Lens' DeleteSkillGroup (Prelude.Maybe Prelude.Text)
 deleteSkillGroup_skillGroupArn = Lens.lens (\DeleteSkillGroup' {skillGroupArn} -> skillGroupArn) (\s@DeleteSkillGroup' {} a -> s {skillGroupArn = a} :: DeleteSkillGroup)
 
 instance Core.AWSRequest DeleteSkillGroup where
@@ -78,45 +79,49 @@ instance Core.AWSRequest DeleteSkillGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteSkillGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteSkillGroup
+instance Prelude.Hashable DeleteSkillGroup
 
-instance Core.NFData DeleteSkillGroup
+instance Prelude.NFData DeleteSkillGroup
 
 instance Core.ToHeaders DeleteSkillGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.DeleteSkillGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteSkillGroup where
   toJSON DeleteSkillGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [("SkillGroupArn" Core..=) Core.<$> skillGroupArn]
+      ( Prelude.catMaybes
+          [ ("SkillGroupArn" Core..=)
+              Prelude.<$> skillGroupArn
+          ]
       )
 
 instance Core.ToPath DeleteSkillGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSkillGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSkillGroupResponse' smart constructor.
 data DeleteSkillGroupResponse = DeleteSkillGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSkillGroupResponse' with all optional fields omitted.
@@ -129,7 +134,7 @@ data DeleteSkillGroupResponse = DeleteSkillGroupResponse'
 -- 'httpStatus', 'deleteSkillGroupResponse_httpStatus' - The response's http status code.
 newDeleteSkillGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteSkillGroupResponse
 newDeleteSkillGroupResponse pHttpStatus_ =
   DeleteSkillGroupResponse'
@@ -138,7 +143,7 @@ newDeleteSkillGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteSkillGroupResponse_httpStatus :: Lens.Lens' DeleteSkillGroupResponse Core.Int
+deleteSkillGroupResponse_httpStatus :: Lens.Lens' DeleteSkillGroupResponse Prelude.Int
 deleteSkillGroupResponse_httpStatus = Lens.lens (\DeleteSkillGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteSkillGroupResponse' {} a -> s {httpStatus = a} :: DeleteSkillGroupResponse)
 
-instance Core.NFData DeleteSkillGroupResponse
+instance Prelude.NFData DeleteSkillGroupResponse

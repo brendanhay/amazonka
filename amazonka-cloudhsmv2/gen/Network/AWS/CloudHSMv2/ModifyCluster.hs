@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudHSMv2.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ data ModifyCluster = ModifyCluster'
     backupRetentionPolicy :: BackupRetentionPolicy,
     -- | The identifier (ID) of the cluster that you want to modify. To find the
     -- cluster ID, use DescribeClusters.
-    clusterId :: Core.Text
+    clusterId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyCluster' with all optional fields omitted.
@@ -72,7 +73,7 @@ newModifyCluster ::
   -- | 'backupRetentionPolicy'
   BackupRetentionPolicy ->
   -- | 'clusterId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyCluster
 newModifyCluster pBackupRetentionPolicy_ pClusterId_ =
   ModifyCluster'
@@ -87,7 +88,7 @@ modifyCluster_backupRetentionPolicy = Lens.lens (\ModifyCluster' {backupRetentio
 
 -- | The identifier (ID) of the cluster that you want to modify. To find the
 -- cluster ID, use DescribeClusters.
-modifyCluster_clusterId :: Lens.Lens' ModifyCluster Core.Text
+modifyCluster_clusterId :: Lens.Lens' ModifyCluster Prelude.Text
 modifyCluster_clusterId = Lens.lens (\ModifyCluster' {clusterId} -> clusterId) (\s@ModifyCluster' {} a -> s {clusterId = a} :: ModifyCluster)
 
 instance Core.AWSRequest ModifyCluster where
@@ -99,50 +100,54 @@ instance Core.AWSRequest ModifyCluster where
     Response.receiveJSON
       ( \s h x ->
           ModifyClusterResponse'
-            Core.<$> (x Core..?> "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyCluster
+instance Prelude.Hashable ModifyCluster
 
-instance Core.NFData ModifyCluster
+instance Prelude.NFData ModifyCluster
 
 instance Core.ToHeaders ModifyCluster where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("BaldrApiService.ModifyCluster" :: Core.ByteString),
+              Core.=# ( "BaldrApiService.ModifyCluster" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyCluster where
   toJSON ModifyCluster' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "BackupRetentionPolicy"
                   Core..= backupRetentionPolicy
               ),
-            Core.Just ("ClusterId" Core..= clusterId)
+            Prelude.Just ("ClusterId" Core..= clusterId)
           ]
       )
 
 instance Core.ToPath ModifyCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyCluster where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterResponse' with all optional fields omitted.
@@ -157,20 +162,20 @@ data ModifyClusterResponse = ModifyClusterResponse'
 -- 'httpStatus', 'modifyClusterResponse_httpStatus' - The response's http status code.
 newModifyClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyClusterResponse
 newModifyClusterResponse pHttpStatus_ =
   ModifyClusterResponse'
-    { cluster = Core.Nothing,
+    { cluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyClusterResponse_cluster :: Lens.Lens' ModifyClusterResponse (Core.Maybe Cluster)
+modifyClusterResponse_cluster :: Lens.Lens' ModifyClusterResponse (Prelude.Maybe Cluster)
 modifyClusterResponse_cluster = Lens.lens (\ModifyClusterResponse' {cluster} -> cluster) (\s@ModifyClusterResponse' {} a -> s {cluster = a} :: ModifyClusterResponse)
 
 -- | The response's http status code.
-modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Core.Int
+modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Prelude.Int
 modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterResponse' {} a -> s {httpStatus = a} :: ModifyClusterResponse)
 
-instance Core.NFData ModifyClusterResponse
+instance Prelude.NFData ModifyClusterResponse

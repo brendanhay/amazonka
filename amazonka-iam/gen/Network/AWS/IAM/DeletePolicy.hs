@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,9 +72,9 @@ data DeletePolicy = DeletePolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Core.Text
+    policyArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePolicy' with all optional fields omitted.
@@ -90,7 +91,7 @@ data DeletePolicy = DeletePolicy'
 -- in the /AWS General Reference/.
 newDeletePolicy ::
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   DeletePolicy
 newDeletePolicy pPolicyArn_ =
   DeletePolicy' {policyArn = pPolicyArn_}
@@ -100,7 +101,7 @@ newDeletePolicy pPolicyArn_ =
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-deletePolicy_policyArn :: Lens.Lens' DeletePolicy Core.Text
+deletePolicy_policyArn :: Lens.Lens' DeletePolicy Prelude.Text
 deletePolicy_policyArn = Lens.lens (\DeletePolicy' {policyArn} -> policyArn) (\s@DeletePolicy' {} a -> s {policyArn = a} :: DeletePolicy)
 
 instance Core.AWSRequest DeletePolicy where
@@ -108,22 +109,23 @@ instance Core.AWSRequest DeletePolicy where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeletePolicyResponse'
 
-instance Core.Hashable DeletePolicy
+instance Prelude.Hashable DeletePolicy
 
-instance Core.NFData DeletePolicy
+instance Prelude.NFData DeletePolicy
 
 instance Core.ToHeaders DeletePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeletePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePolicy where
   toQuery DeletePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeletePolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeletePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PolicyArn" Core.=: policyArn
       ]
 
@@ -131,7 +133,7 @@ instance Core.ToQuery DeletePolicy where
 data DeletePolicyResponse = DeletePolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
@@ -141,4 +143,4 @@ newDeletePolicyResponse ::
   DeletePolicyResponse
 newDeletePolicyResponse = DeletePolicyResponse'
 
-instance Core.NFData DeletePolicyResponse
+instance Prelude.NFData DeletePolicyResponse

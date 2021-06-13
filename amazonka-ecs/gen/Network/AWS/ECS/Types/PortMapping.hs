@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.PortMapping where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.TransportProtocol
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Port mappings allow containers to access ports on the host container
 -- instance to send or receive traffic. Port mappings are specified as part
@@ -71,10 +72,10 @@ data PortMapping = PortMapping'
     -- instance can have up to 100 reserved ports at a time, including the
     -- default reserved ports. Automatically assigned ports don\'t count toward
     -- the 100 reserved ports limit.
-    hostPort :: Core.Maybe Core.Int,
+    hostPort :: Prelude.Maybe Prelude.Int,
     -- | The protocol used for the port mapping. Valid values are @tcp@ and
     -- @udp@. The default is @tcp@.
-    protocol :: Core.Maybe TransportProtocol,
+    protocol :: Prelude.Maybe TransportProtocol,
     -- | The port number on the container that is bound to the user-specified or
     -- automatically assigned host port.
     --
@@ -87,9 +88,9 @@ data PortMapping = PortMapping'
     -- information, see @hostPort@. Port mappings that are automatically
     -- assigned in this way do not count toward the 100 reserved ports limit of
     -- a container instance.
-    containerPort :: Core.Maybe Core.Int
+    containerPort :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PortMapping' with all optional fields omitted.
@@ -152,9 +153,9 @@ newPortMapping ::
   PortMapping
 newPortMapping =
   PortMapping'
-    { hostPort = Core.Nothing,
-      protocol = Core.Nothing,
-      containerPort = Core.Nothing
+    { hostPort = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      containerPort = Prelude.Nothing
     }
 
 -- | The port number on the container instance to reserve for your container.
@@ -190,12 +191,12 @@ newPortMapping =
 -- instance can have up to 100 reserved ports at a time, including the
 -- default reserved ports. Automatically assigned ports don\'t count toward
 -- the 100 reserved ports limit.
-portMapping_hostPort :: Lens.Lens' PortMapping (Core.Maybe Core.Int)
+portMapping_hostPort :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Int)
 portMapping_hostPort = Lens.lens (\PortMapping' {hostPort} -> hostPort) (\s@PortMapping' {} a -> s {hostPort = a} :: PortMapping)
 
 -- | The protocol used for the port mapping. Valid values are @tcp@ and
 -- @udp@. The default is @tcp@.
-portMapping_protocol :: Lens.Lens' PortMapping (Core.Maybe TransportProtocol)
+portMapping_protocol :: Lens.Lens' PortMapping (Prelude.Maybe TransportProtocol)
 portMapping_protocol = Lens.lens (\PortMapping' {protocol} -> protocol) (\s@PortMapping' {} a -> s {protocol = a} :: PortMapping)
 
 -- | The port number on the container that is bound to the user-specified or
@@ -210,7 +211,7 @@ portMapping_protocol = Lens.lens (\PortMapping' {protocol} -> protocol) (\s@Port
 -- information, see @hostPort@. Port mappings that are automatically
 -- assigned in this way do not count toward the 100 reserved ports limit of
 -- a container instance.
-portMapping_containerPort :: Lens.Lens' PortMapping (Core.Maybe Core.Int)
+portMapping_containerPort :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Int)
 portMapping_containerPort = Lens.lens (\PortMapping' {containerPort} -> containerPort) (\s@PortMapping' {} a -> s {containerPort = a} :: PortMapping)
 
 instance Core.FromJSON PortMapping where
@@ -219,21 +220,21 @@ instance Core.FromJSON PortMapping where
       "PortMapping"
       ( \x ->
           PortMapping'
-            Core.<$> (x Core..:? "hostPort")
-            Core.<*> (x Core..:? "protocol")
-            Core.<*> (x Core..:? "containerPort")
+            Prelude.<$> (x Core..:? "hostPort")
+            Prelude.<*> (x Core..:? "protocol")
+            Prelude.<*> (x Core..:? "containerPort")
       )
 
-instance Core.Hashable PortMapping
+instance Prelude.Hashable PortMapping
 
-instance Core.NFData PortMapping
+instance Prelude.NFData PortMapping
 
 instance Core.ToJSON PortMapping where
   toJSON PortMapping' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("hostPort" Core..=) Core.<$> hostPort,
-            ("protocol" Core..=) Core.<$> protocol,
-            ("containerPort" Core..=) Core.<$> containerPort
+      ( Prelude.catMaybes
+          [ ("hostPort" Core..=) Prelude.<$> hostPort,
+            ("protocol" Core..=) Prelude.<$> protocol,
+            ("containerPort" Core..=) Prelude.<$> containerPort
           ]
       )

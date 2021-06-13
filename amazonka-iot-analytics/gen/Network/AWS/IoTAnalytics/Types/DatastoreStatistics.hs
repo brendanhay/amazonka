@@ -22,15 +22,16 @@ module Network.AWS.IoTAnalytics.Types.DatastoreStatistics where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Statistical information about the data store.
 --
 -- /See:/ 'newDatastoreStatistics' smart constructor.
 data DatastoreStatistics = DatastoreStatistics'
   { -- | The estimated size of the data store.
-    size :: Core.Maybe EstimatedResourceSize
+    size :: Prelude.Maybe EstimatedResourceSize
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatastoreStatistics' with all optional fields omitted.
@@ -44,10 +45,10 @@ data DatastoreStatistics = DatastoreStatistics'
 newDatastoreStatistics ::
   DatastoreStatistics
 newDatastoreStatistics =
-  DatastoreStatistics' {size = Core.Nothing}
+  DatastoreStatistics' {size = Prelude.Nothing}
 
 -- | The estimated size of the data store.
-datastoreStatistics_size :: Lens.Lens' DatastoreStatistics (Core.Maybe EstimatedResourceSize)
+datastoreStatistics_size :: Lens.Lens' DatastoreStatistics (Prelude.Maybe EstimatedResourceSize)
 datastoreStatistics_size = Lens.lens (\DatastoreStatistics' {size} -> size) (\s@DatastoreStatistics' {} a -> s {size = a} :: DatastoreStatistics)
 
 instance Core.FromJSON DatastoreStatistics where
@@ -55,9 +56,9 @@ instance Core.FromJSON DatastoreStatistics where
     Core.withObject
       "DatastoreStatistics"
       ( \x ->
-          DatastoreStatistics' Core.<$> (x Core..:? "size")
+          DatastoreStatistics' Prelude.<$> (x Core..:? "size")
       )
 
-instance Core.Hashable DatastoreStatistics
+instance Prelude.Hashable DatastoreStatistics
 
-instance Core.NFData DatastoreStatistics
+instance Prelude.NFData DatastoreStatistics

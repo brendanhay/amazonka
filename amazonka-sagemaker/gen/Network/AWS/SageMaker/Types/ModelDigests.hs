@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelDigests where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information to verify the integrity of stored model artifacts.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data ModelDigests = ModelDigests'
   { -- | Provides a hash value that uniquely identifies the stored model
     -- artifacts.
-    artifactDigest :: Core.Maybe Core.Text
+    artifactDigest :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelDigests' with all optional fields omitted.
@@ -45,11 +46,11 @@ data ModelDigests = ModelDigests'
 newModelDigests ::
   ModelDigests
 newModelDigests =
-  ModelDigests' {artifactDigest = Core.Nothing}
+  ModelDigests' {artifactDigest = Prelude.Nothing}
 
 -- | Provides a hash value that uniquely identifies the stored model
 -- artifacts.
-modelDigests_artifactDigest :: Lens.Lens' ModelDigests (Core.Maybe Core.Text)
+modelDigests_artifactDigest :: Lens.Lens' ModelDigests (Prelude.Maybe Prelude.Text)
 modelDigests_artifactDigest = Lens.lens (\ModelDigests' {artifactDigest} -> artifactDigest) (\s@ModelDigests' {} a -> s {artifactDigest = a} :: ModelDigests)
 
 instance Core.FromJSON ModelDigests where
@@ -57,9 +58,10 @@ instance Core.FromJSON ModelDigests where
     Core.withObject
       "ModelDigests"
       ( \x ->
-          ModelDigests' Core.<$> (x Core..:? "ArtifactDigest")
+          ModelDigests'
+            Prelude.<$> (x Core..:? "ArtifactDigest")
       )
 
-instance Core.Hashable ModelDigests
+instance Prelude.Hashable ModelDigests
 
-instance Core.NFData ModelDigests
+instance Prelude.NFData ModelDigests

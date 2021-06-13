@@ -55,19 +55,20 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeServers' smart constructor.
 data DescribeServers = DescribeServers'
   { -- | This is not currently implemented for @DescribeServers@ requests.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | This is not currently implemented for @DescribeServers@ requests.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Describes the server with the specified ServerName.
-    serverName :: Core.Maybe Core.Text
+    serverName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeServers' with all optional fields omitted.
@@ -86,41 +87,43 @@ newDescribeServers ::
   DescribeServers
 newDescribeServers =
   DescribeServers'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      serverName = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      serverName = Prelude.Nothing
     }
 
 -- | This is not currently implemented for @DescribeServers@ requests.
-describeServers_nextToken :: Lens.Lens' DescribeServers (Core.Maybe Core.Text)
+describeServers_nextToken :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Text)
 describeServers_nextToken = Lens.lens (\DescribeServers' {nextToken} -> nextToken) (\s@DescribeServers' {} a -> s {nextToken = a} :: DescribeServers)
 
 -- | This is not currently implemented for @DescribeServers@ requests.
-describeServers_maxResults :: Lens.Lens' DescribeServers (Core.Maybe Core.Natural)
+describeServers_maxResults :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Natural)
 describeServers_maxResults = Lens.lens (\DescribeServers' {maxResults} -> maxResults) (\s@DescribeServers' {} a -> s {maxResults = a} :: DescribeServers)
 
 -- | Describes the server with the specified ServerName.
-describeServers_serverName :: Lens.Lens' DescribeServers (Core.Maybe Core.Text)
+describeServers_serverName :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Text)
 describeServers_serverName = Lens.lens (\DescribeServers' {serverName} -> serverName) (\s@DescribeServers' {} a -> s {serverName = a} :: DescribeServers)
 
 instance Core.AWSPager DescribeServers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeServersResponse_nextToken Core.. Lens._Just
+            Lens.^? describeServersResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeServersResponse_servers Core.. Lens._Just
+            Lens.^? describeServersResponse_servers Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeServers_nextToken
+          Prelude.& describeServers_nextToken
           Lens..~ rs
-          Lens.^? describeServersResponse_nextToken Core.. Lens._Just
+          Lens.^? describeServersResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServers where
   type
@@ -131,48 +134,50 @@ instance Core.AWSRequest DescribeServers where
     Response.receiveJSON
       ( \s h x ->
           DescribeServersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Servers" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Servers" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeServers
+instance Prelude.Hashable DescribeServers
 
-instance Core.NFData DescribeServers
+instance Prelude.NFData DescribeServers
 
 instance Core.ToHeaders DescribeServers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.DescribeServers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeServers where
   toJSON DescribeServers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("ServerName" Core..=) Core.<$> serverName
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ServerName" Core..=) Prelude.<$> serverName
           ]
       )
 
 instance Core.ToPath DescribeServers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeServers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServersResponse' smart constructor.
 data DescribeServersResponse = DescribeServersResponse'
   { -- | This is not currently implemented for @DescribeServers@ requests.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Contains the response to a @DescribeServers@ request.
     --
     -- /For Chef Automate servers:/ If
@@ -186,11 +191,11 @@ data DescribeServersResponse = DescribeServersResponse'
     -- contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that
     -- is used by the Puppet API over TCP port number 8140. The CA certificate
     -- is also used to sign node certificates.
-    servers :: Core.Maybe [Server],
+    servers :: Prelude.Maybe [Server],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeServersResponse' with all optional fields omitted.
@@ -219,17 +224,18 @@ data DescribeServersResponse = DescribeServersResponse'
 -- 'httpStatus', 'describeServersResponse_httpStatus' - The response's http status code.
 newDescribeServersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeServersResponse
 newDescribeServersResponse pHttpStatus_ =
   DescribeServersResponse'
-    { nextToken = Core.Nothing,
-      servers = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      servers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | This is not currently implemented for @DescribeServers@ requests.
-describeServersResponse_nextToken :: Lens.Lens' DescribeServersResponse (Core.Maybe Core.Text)
+describeServersResponse_nextToken :: Lens.Lens' DescribeServersResponse (Prelude.Maybe Prelude.Text)
 describeServersResponse_nextToken = Lens.lens (\DescribeServersResponse' {nextToken} -> nextToken) (\s@DescribeServersResponse' {} a -> s {nextToken = a} :: DescribeServersResponse)
 
 -- | Contains the response to a @DescribeServers@ request.
@@ -245,11 +251,11 @@ describeServersResponse_nextToken = Lens.lens (\DescribeServersResponse' {nextTo
 -- contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that
 -- is used by the Puppet API over TCP port number 8140. The CA certificate
 -- is also used to sign node certificates.
-describeServersResponse_servers :: Lens.Lens' DescribeServersResponse (Core.Maybe [Server])
-describeServersResponse_servers = Lens.lens (\DescribeServersResponse' {servers} -> servers) (\s@DescribeServersResponse' {} a -> s {servers = a} :: DescribeServersResponse) Core.. Lens.mapping Lens._Coerce
+describeServersResponse_servers :: Lens.Lens' DescribeServersResponse (Prelude.Maybe [Server])
+describeServersResponse_servers = Lens.lens (\DescribeServersResponse' {servers} -> servers) (\s@DescribeServersResponse' {} a -> s {servers = a} :: DescribeServersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeServersResponse_httpStatus :: Lens.Lens' DescribeServersResponse Core.Int
+describeServersResponse_httpStatus :: Lens.Lens' DescribeServersResponse Prelude.Int
 describeServersResponse_httpStatus = Lens.lens (\DescribeServersResponse' {httpStatus} -> httpStatus) (\s@DescribeServersResponse' {} a -> s {httpStatus = a} :: DescribeServersResponse)
 
-instance Core.NFData DescribeServersResponse
+instance Prelude.NFData DescribeServersResponse

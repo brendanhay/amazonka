@@ -21,6 +21,7 @@ module Network.AWS.EKS.Types.Certificate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the @certificate-authority-data@ for your
 -- cluster.
@@ -30,9 +31,9 @@ data Certificate = Certificate'
   { -- | The Base64-encoded certificate data required to communicate with your
     -- cluster. Add this to the @certificate-authority-data@ section of the
     -- @kubeconfig@ file for your cluster.
-    data' :: Core.Maybe Core.Text
+    data' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Certificate' with all optional fields omitted.
@@ -47,20 +48,21 @@ data Certificate = Certificate'
 -- @kubeconfig@ file for your cluster.
 newCertificate ::
   Certificate
-newCertificate = Certificate' {data' = Core.Nothing}
+newCertificate =
+  Certificate' {data' = Prelude.Nothing}
 
 -- | The Base64-encoded certificate data required to communicate with your
 -- cluster. Add this to the @certificate-authority-data@ section of the
 -- @kubeconfig@ file for your cluster.
-certificate_data :: Lens.Lens' Certificate (Core.Maybe Core.Text)
+certificate_data :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_data = Lens.lens (\Certificate' {data'} -> data') (\s@Certificate' {} a -> s {data' = a} :: Certificate)
 
 instance Core.FromJSON Certificate where
   parseJSON =
     Core.withObject
       "Certificate"
-      (\x -> Certificate' Core.<$> (x Core..:? "data"))
+      (\x -> Certificate' Prelude.<$> (x Core..:? "data"))
 
-instance Core.Hashable Certificate
+instance Prelude.Hashable Certificate
 
-instance Core.NFData Certificate
+instance Prelude.NFData Certificate

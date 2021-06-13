@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.H265GopSizeUnits
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates if the GOP Size in H265 is specified in frames or seconds. If
 -- seconds the system will convert the GOP Size into a frame count at run
@@ -36,15 +37,15 @@ newtype H265GopSizeUnits = H265GopSizeUnits'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.RunInstancesMonitoringEnabled where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the monitoring of an instance.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'
   { -- | Indicates whether detailed monitoring is enabled. Otherwise, basic
     -- monitoring is enabled.
-    enabled :: Core.Bool
+    enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RunInstancesMonitoringEnabled' with all optional fields omitted.
@@ -45,25 +46,27 @@ data RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'
 -- monitoring is enabled.
 newRunInstancesMonitoringEnabled ::
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   RunInstancesMonitoringEnabled
 newRunInstancesMonitoringEnabled pEnabled_ =
   RunInstancesMonitoringEnabled' {enabled = pEnabled_}
 
 -- | Indicates whether detailed monitoring is enabled. Otherwise, basic
 -- monitoring is enabled.
-runInstancesMonitoringEnabled_enabled :: Lens.Lens' RunInstancesMonitoringEnabled Core.Bool
+runInstancesMonitoringEnabled_enabled :: Lens.Lens' RunInstancesMonitoringEnabled Prelude.Bool
 runInstancesMonitoringEnabled_enabled = Lens.lens (\RunInstancesMonitoringEnabled' {enabled} -> enabled) (\s@RunInstancesMonitoringEnabled' {} a -> s {enabled = a} :: RunInstancesMonitoringEnabled)
 
 instance Core.FromXML RunInstancesMonitoringEnabled where
   parseXML x =
     RunInstancesMonitoringEnabled'
-      Core.<$> (x Core..@ "enabled")
+      Prelude.<$> (x Core..@ "enabled")
 
-instance Core.Hashable RunInstancesMonitoringEnabled
+instance
+  Prelude.Hashable
+    RunInstancesMonitoringEnabled
 
-instance Core.NFData RunInstancesMonitoringEnabled
+instance Prelude.NFData RunInstancesMonitoringEnabled
 
 instance Core.ToQuery RunInstancesMonitoringEnabled where
   toQuery RunInstancesMonitoringEnabled' {..} =
-    Core.mconcat ["Enabled" Core.=: enabled]
+    Prelude.mconcat ["Enabled" Core.=: enabled]

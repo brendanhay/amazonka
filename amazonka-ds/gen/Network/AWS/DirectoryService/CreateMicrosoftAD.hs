@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,29 +68,29 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
   { -- | The NetBIOS name for your domain, such as @CORP@. If you don\'t specify
     -- a NetBIOS name, it will default to the first part of your directory DNS.
     -- For example, @CORP@ for the directory DNS @corp.example.com@.
-    shortName :: Core.Maybe Core.Text,
+    shortName :: Prelude.Maybe Prelude.Text,
     -- | AWS Managed Microsoft AD is available in two editions: @Standard@ and
     -- @Enterprise@. @Enterprise@ is the default.
-    edition :: Core.Maybe DirectoryEdition,
+    edition :: Prelude.Maybe DirectoryEdition,
     -- | The tags to be assigned to the AWS Managed Microsoft AD directory.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A description for the directory. This label will appear on the AWS
     -- console @Directory Details@ page after the directory is created.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name for the AWS Managed Microsoft AD
     -- directory, such as @corp.example.com@. This name will resolve inside
     -- your VPC only. It does not need to be publicly resolvable.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The password for the default administrative user named @Admin@.
     --
     -- If you need to change the password for the administrator account, you
     -- can use the ResetUserPassword API call.
-    password :: Core.Sensitive Core.Text,
+    password :: Core.Sensitive Prelude.Text,
     -- | Contains VPC information for the CreateDirectory or CreateMicrosoftAD
     -- operation.
     vpcSettings :: DirectoryVpcSettings
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMicrosoftAD' with all optional fields omitted.
@@ -124,18 +125,18 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
 -- operation.
 newCreateMicrosoftAD ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'password'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpcSettings'
   DirectoryVpcSettings ->
   CreateMicrosoftAD
 newCreateMicrosoftAD pName_ pPassword_ pVpcSettings_ =
   CreateMicrosoftAD'
-    { shortName = Core.Nothing,
-      edition = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
+    { shortName = Prelude.Nothing,
+      edition = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       password = Core._Sensitive Lens.# pPassword_,
       vpcSettings = pVpcSettings_
@@ -144,35 +145,35 @@ newCreateMicrosoftAD pName_ pPassword_ pVpcSettings_ =
 -- | The NetBIOS name for your domain, such as @CORP@. If you don\'t specify
 -- a NetBIOS name, it will default to the first part of your directory DNS.
 -- For example, @CORP@ for the directory DNS @corp.example.com@.
-createMicrosoftAD_shortName :: Lens.Lens' CreateMicrosoftAD (Core.Maybe Core.Text)
+createMicrosoftAD_shortName :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe Prelude.Text)
 createMicrosoftAD_shortName = Lens.lens (\CreateMicrosoftAD' {shortName} -> shortName) (\s@CreateMicrosoftAD' {} a -> s {shortName = a} :: CreateMicrosoftAD)
 
 -- | AWS Managed Microsoft AD is available in two editions: @Standard@ and
 -- @Enterprise@. @Enterprise@ is the default.
-createMicrosoftAD_edition :: Lens.Lens' CreateMicrosoftAD (Core.Maybe DirectoryEdition)
+createMicrosoftAD_edition :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe DirectoryEdition)
 createMicrosoftAD_edition = Lens.lens (\CreateMicrosoftAD' {edition} -> edition) (\s@CreateMicrosoftAD' {} a -> s {edition = a} :: CreateMicrosoftAD)
 
 -- | The tags to be assigned to the AWS Managed Microsoft AD directory.
-createMicrosoftAD_tags :: Lens.Lens' CreateMicrosoftAD (Core.Maybe [Tag])
-createMicrosoftAD_tags = Lens.lens (\CreateMicrosoftAD' {tags} -> tags) (\s@CreateMicrosoftAD' {} a -> s {tags = a} :: CreateMicrosoftAD) Core.. Lens.mapping Lens._Coerce
+createMicrosoftAD_tags :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe [Tag])
+createMicrosoftAD_tags = Lens.lens (\CreateMicrosoftAD' {tags} -> tags) (\s@CreateMicrosoftAD' {} a -> s {tags = a} :: CreateMicrosoftAD) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description for the directory. This label will appear on the AWS
 -- console @Directory Details@ page after the directory is created.
-createMicrosoftAD_description :: Lens.Lens' CreateMicrosoftAD (Core.Maybe Core.Text)
+createMicrosoftAD_description :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe Prelude.Text)
 createMicrosoftAD_description = Lens.lens (\CreateMicrosoftAD' {description} -> description) (\s@CreateMicrosoftAD' {} a -> s {description = a} :: CreateMicrosoftAD)
 
 -- | The fully qualified domain name for the AWS Managed Microsoft AD
 -- directory, such as @corp.example.com@. This name will resolve inside
 -- your VPC only. It does not need to be publicly resolvable.
-createMicrosoftAD_name :: Lens.Lens' CreateMicrosoftAD Core.Text
+createMicrosoftAD_name :: Lens.Lens' CreateMicrosoftAD Prelude.Text
 createMicrosoftAD_name = Lens.lens (\CreateMicrosoftAD' {name} -> name) (\s@CreateMicrosoftAD' {} a -> s {name = a} :: CreateMicrosoftAD)
 
 -- | The password for the default administrative user named @Admin@.
 --
 -- If you need to change the password for the administrator account, you
 -- can use the ResetUserPassword API call.
-createMicrosoftAD_password :: Lens.Lens' CreateMicrosoftAD Core.Text
-createMicrosoftAD_password = Lens.lens (\CreateMicrosoftAD' {password} -> password) (\s@CreateMicrosoftAD' {} a -> s {password = a} :: CreateMicrosoftAD) Core.. Core._Sensitive
+createMicrosoftAD_password :: Lens.Lens' CreateMicrosoftAD Prelude.Text
+createMicrosoftAD_password = Lens.lens (\CreateMicrosoftAD' {password} -> password) (\s@CreateMicrosoftAD' {} a -> s {password = a} :: CreateMicrosoftAD) Prelude.. Core._Sensitive
 
 -- | Contains VPC information for the CreateDirectory or CreateMicrosoftAD
 -- operation.
@@ -188,57 +189,59 @@ instance Core.AWSRequest CreateMicrosoftAD where
     Response.receiveJSON
       ( \s h x ->
           CreateMicrosoftADResponse'
-            Core.<$> (x Core..?> "DirectoryId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DirectoryId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateMicrosoftAD
+instance Prelude.Hashable CreateMicrosoftAD
 
-instance Core.NFData CreateMicrosoftAD
+instance Prelude.NFData CreateMicrosoftAD
 
 instance Core.ToHeaders CreateMicrosoftAD where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.CreateMicrosoftAD" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateMicrosoftAD where
   toJSON CreateMicrosoftAD' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ShortName" Core..=) Core.<$> shortName,
-            ("Edition" Core..=) Core.<$> edition,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Password" Core..= password),
-            Core.Just ("VpcSettings" Core..= vpcSettings)
+      ( Prelude.catMaybes
+          [ ("ShortName" Core..=) Prelude.<$> shortName,
+            ("Edition" Core..=) Prelude.<$> edition,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Password" Core..= password),
+            Prelude.Just ("VpcSettings" Core..= vpcSettings)
           ]
       )
 
 instance Core.ToPath CreateMicrosoftAD where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateMicrosoftAD where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Result of a CreateMicrosoftAD request.
 --
 -- /See:/ 'newCreateMicrosoftADResponse' smart constructor.
 data CreateMicrosoftADResponse = CreateMicrosoftADResponse'
   { -- | The identifier of the directory that was created.
-    directoryId :: Core.Maybe Core.Text,
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMicrosoftADResponse' with all optional fields omitted.
@@ -253,21 +256,21 @@ data CreateMicrosoftADResponse = CreateMicrosoftADResponse'
 -- 'httpStatus', 'createMicrosoftADResponse_httpStatus' - The response's http status code.
 newCreateMicrosoftADResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateMicrosoftADResponse
 newCreateMicrosoftADResponse pHttpStatus_ =
   CreateMicrosoftADResponse'
     { directoryId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the directory that was created.
-createMicrosoftADResponse_directoryId :: Lens.Lens' CreateMicrosoftADResponse (Core.Maybe Core.Text)
+createMicrosoftADResponse_directoryId :: Lens.Lens' CreateMicrosoftADResponse (Prelude.Maybe Prelude.Text)
 createMicrosoftADResponse_directoryId = Lens.lens (\CreateMicrosoftADResponse' {directoryId} -> directoryId) (\s@CreateMicrosoftADResponse' {} a -> s {directoryId = a} :: CreateMicrosoftADResponse)
 
 -- | The response's http status code.
-createMicrosoftADResponse_httpStatus :: Lens.Lens' CreateMicrosoftADResponse Core.Int
+createMicrosoftADResponse_httpStatus :: Lens.Lens' CreateMicrosoftADResponse Prelude.Int
 createMicrosoftADResponse_httpStatus = Lens.lens (\CreateMicrosoftADResponse' {httpStatus} -> httpStatus) (\s@CreateMicrosoftADResponse' {} a -> s {httpStatus = a} :: CreateMicrosoftADResponse)
 
-instance Core.NFData CreateMicrosoftADResponse
+instance Prelude.NFData CreateMicrosoftADResponse

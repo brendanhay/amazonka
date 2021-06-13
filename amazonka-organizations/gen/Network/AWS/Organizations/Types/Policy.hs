@@ -22,6 +22,7 @@ module Network.AWS.Organizations.Types.Policy where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.PolicySummary
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains rules to be applied to the affected accounts. Policies can be
 -- attached directly to accounts, or to roots and OUs to affect all
@@ -30,11 +31,11 @@ import Network.AWS.Organizations.Types.PolicySummary
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'
   { -- | A structure that contains additional details about the policy.
-    policySummary :: Core.Maybe PolicySummary,
+    policySummary :: Prelude.Maybe PolicySummary,
     -- | The text content of the policy.
-    content :: Core.Maybe Core.Text
+    content :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Policy' with all optional fields omitted.
@@ -51,16 +52,16 @@ newPolicy ::
   Policy
 newPolicy =
   Policy'
-    { policySummary = Core.Nothing,
-      content = Core.Nothing
+    { policySummary = Prelude.Nothing,
+      content = Prelude.Nothing
     }
 
 -- | A structure that contains additional details about the policy.
-policy_policySummary :: Lens.Lens' Policy (Core.Maybe PolicySummary)
+policy_policySummary :: Lens.Lens' Policy (Prelude.Maybe PolicySummary)
 policy_policySummary = Lens.lens (\Policy' {policySummary} -> policySummary) (\s@Policy' {} a -> s {policySummary = a} :: Policy)
 
 -- | The text content of the policy.
-policy_content :: Lens.Lens' Policy (Core.Maybe Core.Text)
+policy_content :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_content = Lens.lens (\Policy' {content} -> content) (\s@Policy' {} a -> s {content = a} :: Policy)
 
 instance Core.FromJSON Policy where
@@ -69,10 +70,10 @@ instance Core.FromJSON Policy where
       "Policy"
       ( \x ->
           Policy'
-            Core.<$> (x Core..:? "PolicySummary")
-            Core.<*> (x Core..:? "Content")
+            Prelude.<$> (x Core..:? "PolicySummary")
+            Prelude.<*> (x Core..:? "Content")
       )
 
-instance Core.Hashable Policy
+instance Prelude.Hashable Policy
 
-instance Core.NFData Policy
+instance Prelude.NFData Policy

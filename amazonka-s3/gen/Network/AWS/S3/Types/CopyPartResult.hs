@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.CopyPartResult where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for all response elements.
@@ -28,11 +29,11 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newCopyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
   { -- | Entity tag of the object.
-    eTag :: Core.Maybe ETag,
+    eTag :: Prelude.Maybe ETag,
     -- | Date and time at which the object was uploaded.
-    lastModified :: Core.Maybe Core.ISO8601
+    lastModified :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyPartResult' with all optional fields omitted.
@@ -49,24 +50,24 @@ newCopyPartResult ::
   CopyPartResult
 newCopyPartResult =
   CopyPartResult'
-    { eTag = Core.Nothing,
-      lastModified = Core.Nothing
+    { eTag = Prelude.Nothing,
+      lastModified = Prelude.Nothing
     }
 
 -- | Entity tag of the object.
-copyPartResult_eTag :: Lens.Lens' CopyPartResult (Core.Maybe ETag)
+copyPartResult_eTag :: Lens.Lens' CopyPartResult (Prelude.Maybe ETag)
 copyPartResult_eTag = Lens.lens (\CopyPartResult' {eTag} -> eTag) (\s@CopyPartResult' {} a -> s {eTag = a} :: CopyPartResult)
 
 -- | Date and time at which the object was uploaded.
-copyPartResult_lastModified :: Lens.Lens' CopyPartResult (Core.Maybe Core.UTCTime)
-copyPartResult_lastModified = Lens.lens (\CopyPartResult' {lastModified} -> lastModified) (\s@CopyPartResult' {} a -> s {lastModified = a} :: CopyPartResult) Core.. Lens.mapping Core._Time
+copyPartResult_lastModified :: Lens.Lens' CopyPartResult (Prelude.Maybe Prelude.UTCTime)
+copyPartResult_lastModified = Lens.lens (\CopyPartResult' {lastModified} -> lastModified) (\s@CopyPartResult' {} a -> s {lastModified = a} :: CopyPartResult) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML CopyPartResult where
   parseXML x =
     CopyPartResult'
-      Core.<$> (x Core..@? "ETag")
-      Core.<*> (x Core..@? "LastModified")
+      Prelude.<$> (x Core..@? "ETag")
+      Prelude.<*> (x Core..@? "LastModified")
 
-instance Core.Hashable CopyPartResult
+instance Prelude.Hashable CopyPartResult
 
-instance Core.NFData CopyPartResult
+instance Prelude.NFData CopyPartResult

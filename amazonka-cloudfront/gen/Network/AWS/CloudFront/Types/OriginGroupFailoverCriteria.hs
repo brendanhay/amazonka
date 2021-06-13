@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.OriginGroupFailoverCriteria where
 import Network.AWS.CloudFront.Types.StatusCodes
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type that includes information about the failover
 -- criteria for an origin group, including the status codes for which
@@ -33,7 +34,7 @@ data OriginGroupFailoverCriteria = OriginGroupFailoverCriteria'
     -- trigger CloudFront to failover to the second origin.
     statusCodes :: StatusCodes
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginGroupFailoverCriteria' with all optional fields omitted.
@@ -63,12 +64,12 @@ originGroupFailoverCriteria_statusCodes = Lens.lens (\OriginGroupFailoverCriteri
 instance Core.FromXML OriginGroupFailoverCriteria where
   parseXML x =
     OriginGroupFailoverCriteria'
-      Core.<$> (x Core..@ "StatusCodes")
+      Prelude.<$> (x Core..@ "StatusCodes")
 
-instance Core.Hashable OriginGroupFailoverCriteria
+instance Prelude.Hashable OriginGroupFailoverCriteria
 
-instance Core.NFData OriginGroupFailoverCriteria
+instance Prelude.NFData OriginGroupFailoverCriteria
 
 instance Core.ToXML OriginGroupFailoverCriteria where
   toXML OriginGroupFailoverCriteria' {..} =
-    Core.mconcat ["StatusCodes" Core.@= statusCodes]
+    Prelude.mconcat ["StatusCodes" Core.@= statusCodes]

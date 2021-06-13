@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.StandardHlsSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.M3u8Settings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Standard Hls Settings
 --
@@ -30,10 +31,10 @@ data StandardHlsSettings = StandardHlsSettings'
   { -- | List all the audio groups that are used with the video output stream.
     -- Input all the audio GROUP-IDs that are associated to the video, separate
     -- by \',\'.
-    audioRenditionSets :: Core.Maybe Core.Text,
+    audioRenditionSets :: Prelude.Maybe Prelude.Text,
     m3u8Settings :: M3u8Settings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StandardHlsSettings' with all optional fields omitted.
@@ -55,14 +56,14 @@ newStandardHlsSettings ::
 newStandardHlsSettings pM3u8Settings_ =
   StandardHlsSettings'
     { audioRenditionSets =
-        Core.Nothing,
+        Prelude.Nothing,
       m3u8Settings = pM3u8Settings_
     }
 
 -- | List all the audio groups that are used with the video output stream.
 -- Input all the audio GROUP-IDs that are associated to the video, separate
 -- by \',\'.
-standardHlsSettings_audioRenditionSets :: Lens.Lens' StandardHlsSettings (Core.Maybe Core.Text)
+standardHlsSettings_audioRenditionSets :: Lens.Lens' StandardHlsSettings (Prelude.Maybe Prelude.Text)
 standardHlsSettings_audioRenditionSets = Lens.lens (\StandardHlsSettings' {audioRenditionSets} -> audioRenditionSets) (\s@StandardHlsSettings' {} a -> s {audioRenditionSets = a} :: StandardHlsSettings)
 
 -- | Undocumented member.
@@ -75,20 +76,20 @@ instance Core.FromJSON StandardHlsSettings where
       "StandardHlsSettings"
       ( \x ->
           StandardHlsSettings'
-            Core.<$> (x Core..:? "audioRenditionSets")
-            Core.<*> (x Core..: "m3u8Settings")
+            Prelude.<$> (x Core..:? "audioRenditionSets")
+            Prelude.<*> (x Core..: "m3u8Settings")
       )
 
-instance Core.Hashable StandardHlsSettings
+instance Prelude.Hashable StandardHlsSettings
 
-instance Core.NFData StandardHlsSettings
+instance Prelude.NFData StandardHlsSettings
 
 instance Core.ToJSON StandardHlsSettings where
   toJSON StandardHlsSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("audioRenditionSets" Core..=)
-              Core.<$> audioRenditionSets,
-            Core.Just ("m3u8Settings" Core..= m3u8Settings)
+              Prelude.<$> audioRenditionSets,
+            Prelude.Just ("m3u8Settings" Core..= m3u8Settings)
           ]
       )

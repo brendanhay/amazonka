@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.SMSMfaSettingsType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type used for enabling SMS MFA at the user level. Phone numbers
 -- don\'t need to be verified to be used for SMS MFA. If an MFA type is
@@ -36,11 +37,11 @@ data SMSMfaSettingsType = SMSMfaSettingsType'
     -- enabled for a user, the user will be prompted for MFA during all sign in
     -- attempts, unless device tracking is turned on and the device has been
     -- trusted.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether SMS is the preferred MFA method.
-    preferredMfa :: Core.Maybe Core.Bool
+    preferredMfa :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SMSMfaSettingsType' with all optional fields omitted.
@@ -60,30 +61,30 @@ newSMSMfaSettingsType ::
   SMSMfaSettingsType
 newSMSMfaSettingsType =
   SMSMfaSettingsType'
-    { enabled = Core.Nothing,
-      preferredMfa = Core.Nothing
+    { enabled = Prelude.Nothing,
+      preferredMfa = Prelude.Nothing
     }
 
 -- | Specifies whether SMS text message MFA is enabled. If an MFA type is
 -- enabled for a user, the user will be prompted for MFA during all sign in
 -- attempts, unless device tracking is turned on and the device has been
 -- trusted.
-sMSMfaSettingsType_enabled :: Lens.Lens' SMSMfaSettingsType (Core.Maybe Core.Bool)
+sMSMfaSettingsType_enabled :: Lens.Lens' SMSMfaSettingsType (Prelude.Maybe Prelude.Bool)
 sMSMfaSettingsType_enabled = Lens.lens (\SMSMfaSettingsType' {enabled} -> enabled) (\s@SMSMfaSettingsType' {} a -> s {enabled = a} :: SMSMfaSettingsType)
 
 -- | Specifies whether SMS is the preferred MFA method.
-sMSMfaSettingsType_preferredMfa :: Lens.Lens' SMSMfaSettingsType (Core.Maybe Core.Bool)
+sMSMfaSettingsType_preferredMfa :: Lens.Lens' SMSMfaSettingsType (Prelude.Maybe Prelude.Bool)
 sMSMfaSettingsType_preferredMfa = Lens.lens (\SMSMfaSettingsType' {preferredMfa} -> preferredMfa) (\s@SMSMfaSettingsType' {} a -> s {preferredMfa = a} :: SMSMfaSettingsType)
 
-instance Core.Hashable SMSMfaSettingsType
+instance Prelude.Hashable SMSMfaSettingsType
 
-instance Core.NFData SMSMfaSettingsType
+instance Prelude.NFData SMSMfaSettingsType
 
 instance Core.ToJSON SMSMfaSettingsType where
   toJSON SMSMfaSettingsType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Enabled" Core..=) Core.<$> enabled,
-            ("PreferredMfa" Core..=) Core.<$> preferredMfa
+      ( Prelude.catMaybes
+          [ ("Enabled" Core..=) Prelude.<$> enabled,
+            ("PreferredMfa" Core..=) Prelude.<$> preferredMfa
           ]
       )

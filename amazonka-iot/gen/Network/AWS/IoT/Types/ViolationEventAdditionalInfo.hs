@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.ViolationEventAdditionalInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ConfidenceLevel
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a violation event.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data ViolationEventAdditionalInfo = ViolationEventAdditionalInfo'
   { -- | The sensitivity of anomalous behavior evaluation. Can be @Low@,
     -- @Medium@, or @High@.
-    confidenceLevel :: Core.Maybe ConfidenceLevel
+    confidenceLevel :: Prelude.Maybe ConfidenceLevel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ViolationEventAdditionalInfo' with all optional fields omitted.
@@ -48,12 +49,12 @@ newViolationEventAdditionalInfo ::
 newViolationEventAdditionalInfo =
   ViolationEventAdditionalInfo'
     { confidenceLevel =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The sensitivity of anomalous behavior evaluation. Can be @Low@,
 -- @Medium@, or @High@.
-violationEventAdditionalInfo_confidenceLevel :: Lens.Lens' ViolationEventAdditionalInfo (Core.Maybe ConfidenceLevel)
+violationEventAdditionalInfo_confidenceLevel :: Lens.Lens' ViolationEventAdditionalInfo (Prelude.Maybe ConfidenceLevel)
 violationEventAdditionalInfo_confidenceLevel = Lens.lens (\ViolationEventAdditionalInfo' {confidenceLevel} -> confidenceLevel) (\s@ViolationEventAdditionalInfo' {} a -> s {confidenceLevel = a} :: ViolationEventAdditionalInfo)
 
 instance Core.FromJSON ViolationEventAdditionalInfo where
@@ -62,9 +63,11 @@ instance Core.FromJSON ViolationEventAdditionalInfo where
       "ViolationEventAdditionalInfo"
       ( \x ->
           ViolationEventAdditionalInfo'
-            Core.<$> (x Core..:? "confidenceLevel")
+            Prelude.<$> (x Core..:? "confidenceLevel")
       )
 
-instance Core.Hashable ViolationEventAdditionalInfo
+instance
+  Prelude.Hashable
+    ViolationEventAdditionalInfo
 
-instance Core.NFData ViolationEventAdditionalInfo
+instance Prelude.NFData ViolationEventAdditionalInfo

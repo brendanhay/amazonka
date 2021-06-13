@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +54,12 @@ data UntagInstanceProfile = UntagInstanceProfile'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    instanceProfileName :: Core.Text,
+    instanceProfileName :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified instance profile.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagInstanceProfile' with all optional fields omitted.
@@ -79,13 +80,13 @@ data UntagInstanceProfile = UntagInstanceProfile'
 -- keys are removed from the specified instance profile.
 newUntagInstanceProfile ::
   -- | 'instanceProfileName'
-  Core.Text ->
+  Prelude.Text ->
   UntagInstanceProfile
 newUntagInstanceProfile pInstanceProfileName_ =
   UntagInstanceProfile'
     { instanceProfileName =
         pInstanceProfileName_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The name of the IAM instance profile from which you want to remove tags.
@@ -94,13 +95,13 @@ newUntagInstanceProfile pInstanceProfileName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagInstanceProfile_instanceProfileName :: Lens.Lens' UntagInstanceProfile Core.Text
+untagInstanceProfile_instanceProfileName :: Lens.Lens' UntagInstanceProfile Prelude.Text
 untagInstanceProfile_instanceProfileName = Lens.lens (\UntagInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@UntagInstanceProfile' {} a -> s {instanceProfileName = a} :: UntagInstanceProfile)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified instance profile.
-untagInstanceProfile_tagKeys :: Lens.Lens' UntagInstanceProfile [Core.Text]
-untagInstanceProfile_tagKeys = Lens.lens (\UntagInstanceProfile' {tagKeys} -> tagKeys) (\s@UntagInstanceProfile' {} a -> s {tagKeys = a} :: UntagInstanceProfile) Core.. Lens._Coerce
+untagInstanceProfile_tagKeys :: Lens.Lens' UntagInstanceProfile [Prelude.Text]
+untagInstanceProfile_tagKeys = Lens.lens (\UntagInstanceProfile' {tagKeys} -> tagKeys) (\s@UntagInstanceProfile' {} a -> s {tagKeys = a} :: UntagInstanceProfile) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagInstanceProfile where
   type
@@ -110,22 +111,23 @@ instance Core.AWSRequest UntagInstanceProfile where
   response =
     Response.receiveNull UntagInstanceProfileResponse'
 
-instance Core.Hashable UntagInstanceProfile
+instance Prelude.Hashable UntagInstanceProfile
 
-instance Core.NFData UntagInstanceProfile
+instance Prelude.NFData UntagInstanceProfile
 
 instance Core.ToHeaders UntagInstanceProfile where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagInstanceProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagInstanceProfile where
   toQuery UntagInstanceProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UntagInstanceProfile" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UntagInstanceProfile" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "InstanceProfileName" Core.=: instanceProfileName,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
@@ -134,7 +136,7 @@ instance Core.ToQuery UntagInstanceProfile where
 data UntagInstanceProfileResponse = UntagInstanceProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagInstanceProfileResponse' with all optional fields omitted.
@@ -145,4 +147,4 @@ newUntagInstanceProfileResponse ::
 newUntagInstanceProfileResponse =
   UntagInstanceProfileResponse'
 
-instance Core.NFData UntagInstanceProfileResponse
+instance Prelude.NFData UntagInstanceProfileResponse

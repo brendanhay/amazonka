@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data GetCredentialReport = GetCredentialReport'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCredentialReport' with all optional fields omitted.
@@ -71,29 +72,30 @@ instance Core.AWSRequest GetCredentialReport where
       "GetCredentialReportResult"
       ( \s h x ->
           GetCredentialReportResponse'
-            Core.<$> (x Core..@? "ReportFormat")
-            Core.<*> (x Core..@? "GeneratedTime")
-            Core.<*> (x Core..@? "Content")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ReportFormat")
+            Prelude.<*> (x Core..@? "GeneratedTime")
+            Prelude.<*> (x Core..@? "Content")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetCredentialReport
+instance Prelude.Hashable GetCredentialReport
 
-instance Core.NFData GetCredentialReport
+instance Prelude.NFData GetCredentialReport
 
 instance Core.ToHeaders GetCredentialReport where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetCredentialReport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCredentialReport where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetCredentialReport" :: Core.ByteString),
-            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
+              Core.=: ("GetCredentialReport" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 
@@ -102,16 +104,16 @@ instance Core.ToQuery GetCredentialReport where
 -- /See:/ 'newGetCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'
   { -- | The format (MIME type) of the credential report.
-    reportFormat :: Core.Maybe ReportFormatType,
+    reportFormat :: Prelude.Maybe ReportFormatType,
     -- | The date and time when the credential report was created, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
-    generatedTime :: Core.Maybe Core.ISO8601,
+    generatedTime :: Prelude.Maybe Core.ISO8601,
     -- | Contains the credential report. The report is Base64-encoded.
-    content :: Core.Maybe Core.Base64,
+    content :: Prelude.Maybe Core.Base64,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCredentialReportResponse' with all optional fields omitted.
@@ -135,36 +137,36 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
 -- 'httpStatus', 'getCredentialReportResponse_httpStatus' - The response's http status code.
 newGetCredentialReportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCredentialReportResponse
 newGetCredentialReportResponse pHttpStatus_ =
   GetCredentialReportResponse'
     { reportFormat =
-        Core.Nothing,
-      generatedTime = Core.Nothing,
-      content = Core.Nothing,
+        Prelude.Nothing,
+      generatedTime = Prelude.Nothing,
+      content = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The format (MIME type) of the credential report.
-getCredentialReportResponse_reportFormat :: Lens.Lens' GetCredentialReportResponse (Core.Maybe ReportFormatType)
+getCredentialReportResponse_reportFormat :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe ReportFormatType)
 getCredentialReportResponse_reportFormat = Lens.lens (\GetCredentialReportResponse' {reportFormat} -> reportFormat) (\s@GetCredentialReportResponse' {} a -> s {reportFormat = a} :: GetCredentialReportResponse)
 
 -- | The date and time when the credential report was created, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
-getCredentialReportResponse_generatedTime :: Lens.Lens' GetCredentialReportResponse (Core.Maybe Core.UTCTime)
-getCredentialReportResponse_generatedTime = Lens.lens (\GetCredentialReportResponse' {generatedTime} -> generatedTime) (\s@GetCredentialReportResponse' {} a -> s {generatedTime = a} :: GetCredentialReportResponse) Core.. Lens.mapping Core._Time
+getCredentialReportResponse_generatedTime :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe Prelude.UTCTime)
+getCredentialReportResponse_generatedTime = Lens.lens (\GetCredentialReportResponse' {generatedTime} -> generatedTime) (\s@GetCredentialReportResponse' {} a -> s {generatedTime = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Contains the credential report. The report is Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-getCredentialReportResponse_content :: Lens.Lens' GetCredentialReportResponse (Core.Maybe Core.ByteString)
-getCredentialReportResponse_content = Lens.lens (\GetCredentialReportResponse' {content} -> content) (\s@GetCredentialReportResponse' {} a -> s {content = a} :: GetCredentialReportResponse) Core.. Lens.mapping Core._Base64
+getCredentialReportResponse_content :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe Prelude.ByteString)
+getCredentialReportResponse_content = Lens.lens (\GetCredentialReportResponse' {content} -> content) (\s@GetCredentialReportResponse' {} a -> s {content = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Core._Base64
 
 -- | The response's http status code.
-getCredentialReportResponse_httpStatus :: Lens.Lens' GetCredentialReportResponse Core.Int
+getCredentialReportResponse_httpStatus :: Lens.Lens' GetCredentialReportResponse Prelude.Int
 getCredentialReportResponse_httpStatus = Lens.lens (\GetCredentialReportResponse' {httpStatus} -> httpStatus) (\s@GetCredentialReportResponse' {} a -> s {httpStatus = a} :: GetCredentialReportResponse)
 
-instance Core.NFData GetCredentialReportResponse
+instance Prelude.NFData GetCredentialReportResponse

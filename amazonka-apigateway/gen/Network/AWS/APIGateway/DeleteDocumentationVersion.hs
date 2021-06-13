@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,12 +48,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteDocumentationVersion' smart constructor.
 data DeleteDocumentationVersion = DeleteDocumentationVersion'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The version identifier of a to-be-deleted documentation
     -- snapshot.
-    documentationVersion :: Core.Text
+    documentationVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentationVersion' with all optional fields omitted.
@@ -68,9 +69,9 @@ data DeleteDocumentationVersion = DeleteDocumentationVersion'
 -- snapshot.
 newDeleteDocumentationVersion ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'documentationVersion'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDocumentationVersion
 newDeleteDocumentationVersion
   pRestApiId_
@@ -82,12 +83,12 @@ newDeleteDocumentationVersion
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteDocumentationVersion_restApiId :: Lens.Lens' DeleteDocumentationVersion Core.Text
+deleteDocumentationVersion_restApiId :: Lens.Lens' DeleteDocumentationVersion Prelude.Text
 deleteDocumentationVersion_restApiId = Lens.lens (\DeleteDocumentationVersion' {restApiId} -> restApiId) (\s@DeleteDocumentationVersion' {} a -> s {restApiId = a} :: DeleteDocumentationVersion)
 
 -- | [Required] The version identifier of a to-be-deleted documentation
 -- snapshot.
-deleteDocumentationVersion_documentationVersion :: Lens.Lens' DeleteDocumentationVersion Core.Text
+deleteDocumentationVersion_documentationVersion :: Lens.Lens' DeleteDocumentationVersion Prelude.Text
 deleteDocumentationVersion_documentationVersion = Lens.lens (\DeleteDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@DeleteDocumentationVersion' {} a -> s {documentationVersion = a} :: DeleteDocumentationVersion)
 
 instance Core.AWSRequest DeleteDocumentationVersion where
@@ -99,22 +100,22 @@ instance Core.AWSRequest DeleteDocumentationVersion where
     Response.receiveNull
       DeleteDocumentationVersionResponse'
 
-instance Core.Hashable DeleteDocumentationVersion
+instance Prelude.Hashable DeleteDocumentationVersion
 
-instance Core.NFData DeleteDocumentationVersion
+instance Prelude.NFData DeleteDocumentationVersion
 
 instance Core.ToHeaders DeleteDocumentationVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteDocumentationVersion where
   toPath DeleteDocumentationVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/documentation/versions/",
@@ -122,13 +123,13 @@ instance Core.ToPath DeleteDocumentationVersion where
       ]
 
 instance Core.ToQuery DeleteDocumentationVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDocumentationVersionResponse' smart constructor.
 data DeleteDocumentationVersionResponse = DeleteDocumentationVersionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentationVersionResponse' with all optional fields omitted.
@@ -140,5 +141,5 @@ newDeleteDocumentationVersionResponse =
   DeleteDocumentationVersionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteDocumentationVersionResponse

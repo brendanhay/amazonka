@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,20 +74,20 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The time at which to purchase the Reserved Instance, in UTC format (for
     -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    purchaseTime :: Core.Maybe Core.ISO8601,
+    purchaseTime :: Prelude.Maybe Core.ISO8601,
     -- | Specified for Reserved Instance Marketplace offerings to limit the total
     -- order and ensure that the Reserved Instances are not purchased at
     -- unexpected prices.
-    limitPrice :: Core.Maybe ReservedInstanceLimitPrice,
+    limitPrice :: Prelude.Maybe ReservedInstanceLimitPrice,
     -- | The number of Reserved Instances to purchase.
-    instanceCount :: Core.Int,
+    instanceCount :: Prelude.Int,
     -- | The ID of the Reserved Instance offering to purchase.
-    reservedInstancesOfferingId :: Core.Text
+    reservedInstancesOfferingId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PurchaseReservedInstancesOffering' with all optional fields omitted.
@@ -113,18 +114,18 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
 -- 'reservedInstancesOfferingId', 'purchaseReservedInstancesOffering_reservedInstancesOfferingId' - The ID of the Reserved Instance offering to purchase.
 newPurchaseReservedInstancesOffering ::
   -- | 'instanceCount'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'reservedInstancesOfferingId'
-  Core.Text ->
+  Prelude.Text ->
   PurchaseReservedInstancesOffering
 newPurchaseReservedInstancesOffering
   pInstanceCount_
   pReservedInstancesOfferingId_ =
     PurchaseReservedInstancesOffering'
       { dryRun =
-          Core.Nothing,
-        purchaseTime = Core.Nothing,
-        limitPrice = Core.Nothing,
+          Prelude.Nothing,
+        purchaseTime = Prelude.Nothing,
+        limitPrice = Prelude.Nothing,
         instanceCount = pInstanceCount_,
         reservedInstancesOfferingId =
           pReservedInstancesOfferingId_
@@ -134,26 +135,26 @@ newPurchaseReservedInstancesOffering
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-purchaseReservedInstancesOffering_dryRun :: Lens.Lens' PurchaseReservedInstancesOffering (Core.Maybe Core.Bool)
+purchaseReservedInstancesOffering_dryRun :: Lens.Lens' PurchaseReservedInstancesOffering (Prelude.Maybe Prelude.Bool)
 purchaseReservedInstancesOffering_dryRun = Lens.lens (\PurchaseReservedInstancesOffering' {dryRun} -> dryRun) (\s@PurchaseReservedInstancesOffering' {} a -> s {dryRun = a} :: PurchaseReservedInstancesOffering)
 
 -- | The time at which to purchase the Reserved Instance, in UTC format (for
 -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-purchaseReservedInstancesOffering_purchaseTime :: Lens.Lens' PurchaseReservedInstancesOffering (Core.Maybe Core.UTCTime)
-purchaseReservedInstancesOffering_purchaseTime = Lens.lens (\PurchaseReservedInstancesOffering' {purchaseTime} -> purchaseTime) (\s@PurchaseReservedInstancesOffering' {} a -> s {purchaseTime = a} :: PurchaseReservedInstancesOffering) Core.. Lens.mapping Core._Time
+purchaseReservedInstancesOffering_purchaseTime :: Lens.Lens' PurchaseReservedInstancesOffering (Prelude.Maybe Prelude.UTCTime)
+purchaseReservedInstancesOffering_purchaseTime = Lens.lens (\PurchaseReservedInstancesOffering' {purchaseTime} -> purchaseTime) (\s@PurchaseReservedInstancesOffering' {} a -> s {purchaseTime = a} :: PurchaseReservedInstancesOffering) Prelude.. Lens.mapping Core._Time
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at
 -- unexpected prices.
-purchaseReservedInstancesOffering_limitPrice :: Lens.Lens' PurchaseReservedInstancesOffering (Core.Maybe ReservedInstanceLimitPrice)
+purchaseReservedInstancesOffering_limitPrice :: Lens.Lens' PurchaseReservedInstancesOffering (Prelude.Maybe ReservedInstanceLimitPrice)
 purchaseReservedInstancesOffering_limitPrice = Lens.lens (\PurchaseReservedInstancesOffering' {limitPrice} -> limitPrice) (\s@PurchaseReservedInstancesOffering' {} a -> s {limitPrice = a} :: PurchaseReservedInstancesOffering)
 
 -- | The number of Reserved Instances to purchase.
-purchaseReservedInstancesOffering_instanceCount :: Lens.Lens' PurchaseReservedInstancesOffering Core.Int
+purchaseReservedInstancesOffering_instanceCount :: Lens.Lens' PurchaseReservedInstancesOffering Prelude.Int
 purchaseReservedInstancesOffering_instanceCount = Lens.lens (\PurchaseReservedInstancesOffering' {instanceCount} -> instanceCount) (\s@PurchaseReservedInstancesOffering' {} a -> s {instanceCount = a} :: PurchaseReservedInstancesOffering)
 
 -- | The ID of the Reserved Instance offering to purchase.
-purchaseReservedInstancesOffering_reservedInstancesOfferingId :: Lens.Lens' PurchaseReservedInstancesOffering Core.Text
+purchaseReservedInstancesOffering_reservedInstancesOfferingId :: Lens.Lens' PurchaseReservedInstancesOffering Prelude.Text
 purchaseReservedInstancesOffering_reservedInstancesOfferingId = Lens.lens (\PurchaseReservedInstancesOffering' {reservedInstancesOfferingId} -> reservedInstancesOfferingId) (\s@PurchaseReservedInstancesOffering' {} a -> s {reservedInstancesOfferingId = a} :: PurchaseReservedInstancesOffering)
 
 instance
@@ -168,41 +169,42 @@ instance
     Response.receiveXML
       ( \s h x ->
           PurchaseReservedInstancesOfferingResponse'
-            Core.<$> (x Core..@? "reservedInstancesId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "reservedInstancesId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PurchaseReservedInstancesOffering
 
 instance
-  Core.NFData
+  Prelude.NFData
     PurchaseReservedInstancesOffering
 
 instance
   Core.ToHeaders
     PurchaseReservedInstancesOffering
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     PurchaseReservedInstancesOffering
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     PurchaseReservedInstancesOffering
   where
   toQuery PurchaseReservedInstancesOffering' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "PurchaseReservedInstancesOffering" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "PurchaseTime" Core.=: purchaseTime,
         "LimitPrice" Core.=: limitPrice,
@@ -216,11 +218,11 @@ instance
 -- /See:/ 'newPurchaseReservedInstancesOfferingResponse' smart constructor.
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
   { -- | The IDs of the purchased Reserved Instances.
-    reservedInstancesId :: Core.Maybe Core.Text,
+    reservedInstancesId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PurchaseReservedInstancesOfferingResponse' with all optional fields omitted.
@@ -235,24 +237,24 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
 -- 'httpStatus', 'purchaseReservedInstancesOfferingResponse_httpStatus' - The response's http status code.
 newPurchaseReservedInstancesOfferingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PurchaseReservedInstancesOfferingResponse
 newPurchaseReservedInstancesOfferingResponse
   pHttpStatus_ =
     PurchaseReservedInstancesOfferingResponse'
       { reservedInstancesId =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The IDs of the purchased Reserved Instances.
-purchaseReservedInstancesOfferingResponse_reservedInstancesId :: Lens.Lens' PurchaseReservedInstancesOfferingResponse (Core.Maybe Core.Text)
+purchaseReservedInstancesOfferingResponse_reservedInstancesId :: Lens.Lens' PurchaseReservedInstancesOfferingResponse (Prelude.Maybe Prelude.Text)
 purchaseReservedInstancesOfferingResponse_reservedInstancesId = Lens.lens (\PurchaseReservedInstancesOfferingResponse' {reservedInstancesId} -> reservedInstancesId) (\s@PurchaseReservedInstancesOfferingResponse' {} a -> s {reservedInstancesId = a} :: PurchaseReservedInstancesOfferingResponse)
 
 -- | The response's http status code.
-purchaseReservedInstancesOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedInstancesOfferingResponse Core.Int
+purchaseReservedInstancesOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedInstancesOfferingResponse Prelude.Int
 purchaseReservedInstancesOfferingResponse_httpStatus = Lens.lens (\PurchaseReservedInstancesOfferingResponse' {httpStatus} -> httpStatus) (\s@PurchaseReservedInstancesOfferingResponse' {} a -> s {httpStatus = a} :: PurchaseReservedInstancesOfferingResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PurchaseReservedInstancesOfferingResponse

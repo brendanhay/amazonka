@@ -23,18 +23,19 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.GPSPointDimension
 import Network.AWS.Pinpoint.Types.SetDimension
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies geographical dimension settings for a segment.
 --
 -- /See:/ 'newSegmentLocation' smart constructor.
 data SegmentLocation = SegmentLocation'
   { -- | The GPS location and range for the segment.
-    gPSPoint :: Core.Maybe GPSPointDimension,
+    gPSPoint :: Prelude.Maybe GPSPointDimension,
     -- | The country or region code, in ISO 3166-1 alpha-2 format, for the
     -- segment.
-    country :: Core.Maybe SetDimension
+    country :: Prelude.Maybe SetDimension
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SegmentLocation' with all optional fields omitted.
@@ -52,17 +53,17 @@ newSegmentLocation ::
   SegmentLocation
 newSegmentLocation =
   SegmentLocation'
-    { gPSPoint = Core.Nothing,
-      country = Core.Nothing
+    { gPSPoint = Prelude.Nothing,
+      country = Prelude.Nothing
     }
 
 -- | The GPS location and range for the segment.
-segmentLocation_gPSPoint :: Lens.Lens' SegmentLocation (Core.Maybe GPSPointDimension)
+segmentLocation_gPSPoint :: Lens.Lens' SegmentLocation (Prelude.Maybe GPSPointDimension)
 segmentLocation_gPSPoint = Lens.lens (\SegmentLocation' {gPSPoint} -> gPSPoint) (\s@SegmentLocation' {} a -> s {gPSPoint = a} :: SegmentLocation)
 
 -- | The country or region code, in ISO 3166-1 alpha-2 format, for the
 -- segment.
-segmentLocation_country :: Lens.Lens' SegmentLocation (Core.Maybe SetDimension)
+segmentLocation_country :: Lens.Lens' SegmentLocation (Prelude.Maybe SetDimension)
 segmentLocation_country = Lens.lens (\SegmentLocation' {country} -> country) (\s@SegmentLocation' {} a -> s {country = a} :: SegmentLocation)
 
 instance Core.FromJSON SegmentLocation where
@@ -71,19 +72,19 @@ instance Core.FromJSON SegmentLocation where
       "SegmentLocation"
       ( \x ->
           SegmentLocation'
-            Core.<$> (x Core..:? "GPSPoint")
-            Core.<*> (x Core..:? "Country")
+            Prelude.<$> (x Core..:? "GPSPoint")
+            Prelude.<*> (x Core..:? "Country")
       )
 
-instance Core.Hashable SegmentLocation
+instance Prelude.Hashable SegmentLocation
 
-instance Core.NFData SegmentLocation
+instance Prelude.NFData SegmentLocation
 
 instance Core.ToJSON SegmentLocation where
   toJSON SegmentLocation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GPSPoint" Core..=) Core.<$> gPSPoint,
-            ("Country" Core..=) Core.<$> country
+      ( Prelude.catMaybes
+          [ ("GPSPoint" Core..=) Prelude.<$> gPSPoint,
+            ("Country" Core..=) Prelude.<$> country
           ]
       )

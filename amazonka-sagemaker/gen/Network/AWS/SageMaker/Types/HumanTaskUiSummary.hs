@@ -21,19 +21,20 @@ module Network.AWS.SageMaker.Types.HumanTaskUiSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Container for human task user interface information.
 --
 -- /See:/ 'newHumanTaskUiSummary' smart constructor.
 data HumanTaskUiSummary = HumanTaskUiSummary'
   { -- | The name of the human task user interface.
-    humanTaskUiName :: Core.Text,
+    humanTaskUiName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the human task user interface.
-    humanTaskUiArn :: Core.Text,
+    humanTaskUiArn :: Prelude.Text,
     -- | A timestamp when SageMaker created the human task user interface.
     creationTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HumanTaskUiSummary' with all optional fields omitted.
@@ -50,11 +51,11 @@ data HumanTaskUiSummary = HumanTaskUiSummary'
 -- 'creationTime', 'humanTaskUiSummary_creationTime' - A timestamp when SageMaker created the human task user interface.
 newHumanTaskUiSummary ::
   -- | 'humanTaskUiName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'humanTaskUiArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   HumanTaskUiSummary
 newHumanTaskUiSummary
   pHumanTaskUiName_
@@ -68,16 +69,16 @@ newHumanTaskUiSummary
       }
 
 -- | The name of the human task user interface.
-humanTaskUiSummary_humanTaskUiName :: Lens.Lens' HumanTaskUiSummary Core.Text
+humanTaskUiSummary_humanTaskUiName :: Lens.Lens' HumanTaskUiSummary Prelude.Text
 humanTaskUiSummary_humanTaskUiName = Lens.lens (\HumanTaskUiSummary' {humanTaskUiName} -> humanTaskUiName) (\s@HumanTaskUiSummary' {} a -> s {humanTaskUiName = a} :: HumanTaskUiSummary)
 
 -- | The Amazon Resource Name (ARN) of the human task user interface.
-humanTaskUiSummary_humanTaskUiArn :: Lens.Lens' HumanTaskUiSummary Core.Text
+humanTaskUiSummary_humanTaskUiArn :: Lens.Lens' HumanTaskUiSummary Prelude.Text
 humanTaskUiSummary_humanTaskUiArn = Lens.lens (\HumanTaskUiSummary' {humanTaskUiArn} -> humanTaskUiArn) (\s@HumanTaskUiSummary' {} a -> s {humanTaskUiArn = a} :: HumanTaskUiSummary)
 
 -- | A timestamp when SageMaker created the human task user interface.
-humanTaskUiSummary_creationTime :: Lens.Lens' HumanTaskUiSummary Core.UTCTime
-humanTaskUiSummary_creationTime = Lens.lens (\HumanTaskUiSummary' {creationTime} -> creationTime) (\s@HumanTaskUiSummary' {} a -> s {creationTime = a} :: HumanTaskUiSummary) Core.. Core._Time
+humanTaskUiSummary_creationTime :: Lens.Lens' HumanTaskUiSummary Prelude.UTCTime
+humanTaskUiSummary_creationTime = Lens.lens (\HumanTaskUiSummary' {creationTime} -> creationTime) (\s@HumanTaskUiSummary' {} a -> s {creationTime = a} :: HumanTaskUiSummary) Prelude.. Core._Time
 
 instance Core.FromJSON HumanTaskUiSummary where
   parseJSON =
@@ -85,11 +86,11 @@ instance Core.FromJSON HumanTaskUiSummary where
       "HumanTaskUiSummary"
       ( \x ->
           HumanTaskUiSummary'
-            Core.<$> (x Core..: "HumanTaskUiName")
-            Core.<*> (x Core..: "HumanTaskUiArn")
-            Core.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Core..: "HumanTaskUiName")
+            Prelude.<*> (x Core..: "HumanTaskUiArn")
+            Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Core.Hashable HumanTaskUiSummary
+instance Prelude.Hashable HumanTaskUiSummary
 
-instance Core.NFData HumanTaskUiSummary
+instance Prelude.NFData HumanTaskUiSummary

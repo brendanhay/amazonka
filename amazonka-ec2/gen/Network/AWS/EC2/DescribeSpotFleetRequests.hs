@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,21 +60,21 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeSpotFleetRequests' smart constructor.
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
   { -- | The token for the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The IDs of the Spot Fleet requests.
-    spotFleetRequestIds :: Core.Maybe [Core.Text]
+    spotFleetRequestIds :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotFleetRequests' with all optional fields omitted.
@@ -101,55 +102,55 @@ newDescribeSpotFleetRequests ::
 newDescribeSpotFleetRequests =
   DescribeSpotFleetRequests'
     { nextToken =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      spotFleetRequestIds = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      spotFleetRequestIds = Prelude.Nothing
     }
 
 -- | The token for the next set of results.
-describeSpotFleetRequests_nextToken :: Lens.Lens' DescribeSpotFleetRequests (Core.Maybe Core.Text)
+describeSpotFleetRequests_nextToken :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Text)
 describeSpotFleetRequests_nextToken = Lens.lens (\DescribeSpotFleetRequests' {nextToken} -> nextToken) (\s@DescribeSpotFleetRequests' {} a -> s {nextToken = a} :: DescribeSpotFleetRequests)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeSpotFleetRequests_dryRun :: Lens.Lens' DescribeSpotFleetRequests (Core.Maybe Core.Bool)
+describeSpotFleetRequests_dryRun :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Bool)
 describeSpotFleetRequests_dryRun = Lens.lens (\DescribeSpotFleetRequests' {dryRun} -> dryRun) (\s@DescribeSpotFleetRequests' {} a -> s {dryRun = a} :: DescribeSpotFleetRequests)
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-describeSpotFleetRequests_maxResults :: Lens.Lens' DescribeSpotFleetRequests (Core.Maybe Core.Int)
+describeSpotFleetRequests_maxResults :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Int)
 describeSpotFleetRequests_maxResults = Lens.lens (\DescribeSpotFleetRequests' {maxResults} -> maxResults) (\s@DescribeSpotFleetRequests' {} a -> s {maxResults = a} :: DescribeSpotFleetRequests)
 
 -- | The IDs of the Spot Fleet requests.
-describeSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Core.Maybe [Core.Text])
-describeSpotFleetRequests_spotFleetRequestIds = Lens.lens (\DescribeSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@DescribeSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: DescribeSpotFleetRequests) Core.. Lens.mapping Lens._Coerce
+describeSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe [Prelude.Text])
+describeSpotFleetRequests_spotFleetRequestIds = Lens.lens (\DescribeSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@DescribeSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: DescribeSpotFleetRequests) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeSpotFleetRequests where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeSpotFleetRequestsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSpotFleetRequestsResponse_spotFleetRequestConfigs
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeSpotFleetRequests_nextToken
+          Prelude.& describeSpotFleetRequests_nextToken
           Lens..~ rs
           Lens.^? describeSpotFleetRequestsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpotFleetRequests where
   type
@@ -160,36 +161,37 @@ instance Core.AWSRequest DescribeSpotFleetRequests where
     Response.receiveXML
       ( \s h x ->
           DescribeSpotFleetRequestsResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "spotFleetRequestConfigSet"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "spotFleetRequestConfigSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSpotFleetRequests
+instance Prelude.Hashable DescribeSpotFleetRequests
 
-instance Core.NFData DescribeSpotFleetRequests
+instance Prelude.NFData DescribeSpotFleetRequests
 
 instance Core.ToHeaders DescribeSpotFleetRequests where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeSpotFleetRequests where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeSpotFleetRequests where
   toQuery DescribeSpotFleetRequests' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSpotFleetRequests" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeSpotFleetRequests" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "SpotFleetRequestId"
-              Core.<$> spotFleetRequestIds
+              Prelude.<$> spotFleetRequestIds
           )
       ]
 
@@ -199,13 +201,13 @@ instance Core.ToQuery DescribeSpotFleetRequests where
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
   { -- | The token required to retrieve the next set of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the configuration of your Spot Fleet.
-    spotFleetRequestConfigs :: Core.Maybe [SpotFleetRequestConfig],
+    spotFleetRequestConfigs :: Prelude.Maybe [SpotFleetRequestConfig],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotFleetRequestsResponse' with all optional fields omitted.
@@ -223,29 +225,30 @@ data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
 -- 'httpStatus', 'describeSpotFleetRequestsResponse_httpStatus' - The response's http status code.
 newDescribeSpotFleetRequestsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSpotFleetRequestsResponse
 newDescribeSpotFleetRequestsResponse pHttpStatus_ =
   DescribeSpotFleetRequestsResponse'
     { nextToken =
-        Core.Nothing,
-      spotFleetRequestConfigs = Core.Nothing,
+        Prelude.Nothing,
+      spotFleetRequestConfigs =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
-describeSpotFleetRequestsResponse_nextToken :: Lens.Lens' DescribeSpotFleetRequestsResponse (Core.Maybe Core.Text)
+describeSpotFleetRequestsResponse_nextToken :: Lens.Lens' DescribeSpotFleetRequestsResponse (Prelude.Maybe Prelude.Text)
 describeSpotFleetRequestsResponse_nextToken = Lens.lens (\DescribeSpotFleetRequestsResponse' {nextToken} -> nextToken) (\s@DescribeSpotFleetRequestsResponse' {} a -> s {nextToken = a} :: DescribeSpotFleetRequestsResponse)
 
 -- | Information about the configuration of your Spot Fleet.
-describeSpotFleetRequestsResponse_spotFleetRequestConfigs :: Lens.Lens' DescribeSpotFleetRequestsResponse (Core.Maybe [SpotFleetRequestConfig])
-describeSpotFleetRequestsResponse_spotFleetRequestConfigs = Lens.lens (\DescribeSpotFleetRequestsResponse' {spotFleetRequestConfigs} -> spotFleetRequestConfigs) (\s@DescribeSpotFleetRequestsResponse' {} a -> s {spotFleetRequestConfigs = a} :: DescribeSpotFleetRequestsResponse) Core.. Lens.mapping Lens._Coerce
+describeSpotFleetRequestsResponse_spotFleetRequestConfigs :: Lens.Lens' DescribeSpotFleetRequestsResponse (Prelude.Maybe [SpotFleetRequestConfig])
+describeSpotFleetRequestsResponse_spotFleetRequestConfigs = Lens.lens (\DescribeSpotFleetRequestsResponse' {spotFleetRequestConfigs} -> spotFleetRequestConfigs) (\s@DescribeSpotFleetRequestsResponse' {} a -> s {spotFleetRequestConfigs = a} :: DescribeSpotFleetRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSpotFleetRequestsResponse_httpStatus :: Lens.Lens' DescribeSpotFleetRequestsResponse Core.Int
+describeSpotFleetRequestsResponse_httpStatus :: Lens.Lens' DescribeSpotFleetRequestsResponse Prelude.Int
 describeSpotFleetRequestsResponse_httpStatus = Lens.lens (\DescribeSpotFleetRequestsResponse' {httpStatus} -> httpStatus) (\s@DescribeSpotFleetRequestsResponse' {} a -> s {httpStatus = a} :: DescribeSpotFleetRequestsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeSpotFleetRequestsResponse

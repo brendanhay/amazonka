@@ -22,19 +22,20 @@ module Network.AWS.CodeCommit.Types.ObjectTypes where
 import Network.AWS.CodeCommit.Types.ObjectTypeEnum
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the type of an object in a merge operation.
 --
 -- /See:/ 'newObjectTypes' smart constructor.
 data ObjectTypes = ObjectTypes'
   { -- | The type of the object in the source branch.
-    source :: Core.Maybe ObjectTypeEnum,
+    source :: Prelude.Maybe ObjectTypeEnum,
     -- | The type of the object in the destination branch.
-    destination :: Core.Maybe ObjectTypeEnum,
+    destination :: Prelude.Maybe ObjectTypeEnum,
     -- | The type of the object in the base commit of the merge.
-    base :: Core.Maybe ObjectTypeEnum
+    base :: Prelude.Maybe ObjectTypeEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ObjectTypes' with all optional fields omitted.
@@ -53,21 +54,21 @@ newObjectTypes ::
   ObjectTypes
 newObjectTypes =
   ObjectTypes'
-    { source = Core.Nothing,
-      destination = Core.Nothing,
-      base = Core.Nothing
+    { source = Prelude.Nothing,
+      destination = Prelude.Nothing,
+      base = Prelude.Nothing
     }
 
 -- | The type of the object in the source branch.
-objectTypes_source :: Lens.Lens' ObjectTypes (Core.Maybe ObjectTypeEnum)
+objectTypes_source :: Lens.Lens' ObjectTypes (Prelude.Maybe ObjectTypeEnum)
 objectTypes_source = Lens.lens (\ObjectTypes' {source} -> source) (\s@ObjectTypes' {} a -> s {source = a} :: ObjectTypes)
 
 -- | The type of the object in the destination branch.
-objectTypes_destination :: Lens.Lens' ObjectTypes (Core.Maybe ObjectTypeEnum)
+objectTypes_destination :: Lens.Lens' ObjectTypes (Prelude.Maybe ObjectTypeEnum)
 objectTypes_destination = Lens.lens (\ObjectTypes' {destination} -> destination) (\s@ObjectTypes' {} a -> s {destination = a} :: ObjectTypes)
 
 -- | The type of the object in the base commit of the merge.
-objectTypes_base :: Lens.Lens' ObjectTypes (Core.Maybe ObjectTypeEnum)
+objectTypes_base :: Lens.Lens' ObjectTypes (Prelude.Maybe ObjectTypeEnum)
 objectTypes_base = Lens.lens (\ObjectTypes' {base} -> base) (\s@ObjectTypes' {} a -> s {base = a} :: ObjectTypes)
 
 instance Core.FromJSON ObjectTypes where
@@ -76,11 +77,11 @@ instance Core.FromJSON ObjectTypes where
       "ObjectTypes"
       ( \x ->
           ObjectTypes'
-            Core.<$> (x Core..:? "source")
-            Core.<*> (x Core..:? "destination")
-            Core.<*> (x Core..:? "base")
+            Prelude.<$> (x Core..:? "source")
+            Prelude.<*> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "base")
       )
 
-instance Core.Hashable ObjectTypes
+instance Prelude.Hashable ObjectTypes
 
-instance Core.NFData ObjectTypes
+instance Prelude.NFData ObjectTypes

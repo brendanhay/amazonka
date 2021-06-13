@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopBgpFailoverTest' smart constructor.
 data StopBgpFailoverTest = StopBgpFailoverTest'
   { -- | The ID of the virtual interface you no longer want to test.
-    virtualInterfaceId :: Core.Text
+    virtualInterfaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopBgpFailoverTest' with all optional fields omitted.
@@ -63,7 +64,7 @@ data StopBgpFailoverTest = StopBgpFailoverTest'
 -- 'virtualInterfaceId', 'stopBgpFailoverTest_virtualInterfaceId' - The ID of the virtual interface you no longer want to test.
 newStopBgpFailoverTest ::
   -- | 'virtualInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   StopBgpFailoverTest
 newStopBgpFailoverTest pVirtualInterfaceId_ =
   StopBgpFailoverTest'
@@ -72,7 +73,7 @@ newStopBgpFailoverTest pVirtualInterfaceId_ =
     }
 
 -- | The ID of the virtual interface you no longer want to test.
-stopBgpFailoverTest_virtualInterfaceId :: Lens.Lens' StopBgpFailoverTest Core.Text
+stopBgpFailoverTest_virtualInterfaceId :: Lens.Lens' StopBgpFailoverTest Prelude.Text
 stopBgpFailoverTest_virtualInterfaceId = Lens.lens (\StopBgpFailoverTest' {virtualInterfaceId} -> virtualInterfaceId) (\s@StopBgpFailoverTest' {} a -> s {virtualInterfaceId = a} :: StopBgpFailoverTest)
 
 instance Core.AWSRequest StopBgpFailoverTest where
@@ -84,50 +85,52 @@ instance Core.AWSRequest StopBgpFailoverTest where
     Response.receiveJSON
       ( \s h x ->
           StopBgpFailoverTestResponse'
-            Core.<$> (x Core..?> "virtualInterfaceTest")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "virtualInterfaceTest")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopBgpFailoverTest
+instance Prelude.Hashable StopBgpFailoverTest
 
-instance Core.NFData StopBgpFailoverTest
+instance Prelude.NFData StopBgpFailoverTest
 
 instance Core.ToHeaders StopBgpFailoverTest where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.StopBgpFailoverTest" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopBgpFailoverTest where
   toJSON StopBgpFailoverTest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("virtualInterfaceId" Core..= virtualInterfaceId)
           ]
       )
 
 instance Core.ToPath StopBgpFailoverTest where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopBgpFailoverTest where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopBgpFailoverTestResponse' smart constructor.
 data StopBgpFailoverTestResponse = StopBgpFailoverTestResponse'
   { -- | Information about the virtual interface failover test.
-    virtualInterfaceTest :: Core.Maybe VirtualInterfaceTestHistory,
+    virtualInterfaceTest :: Prelude.Maybe VirtualInterfaceTestHistory,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopBgpFailoverTestResponse' with all optional fields omitted.
@@ -142,21 +145,21 @@ data StopBgpFailoverTestResponse = StopBgpFailoverTestResponse'
 -- 'httpStatus', 'stopBgpFailoverTestResponse_httpStatus' - The response's http status code.
 newStopBgpFailoverTestResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopBgpFailoverTestResponse
 newStopBgpFailoverTestResponse pHttpStatus_ =
   StopBgpFailoverTestResponse'
     { virtualInterfaceTest =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the virtual interface failover test.
-stopBgpFailoverTestResponse_virtualInterfaceTest :: Lens.Lens' StopBgpFailoverTestResponse (Core.Maybe VirtualInterfaceTestHistory)
+stopBgpFailoverTestResponse_virtualInterfaceTest :: Lens.Lens' StopBgpFailoverTestResponse (Prelude.Maybe VirtualInterfaceTestHistory)
 stopBgpFailoverTestResponse_virtualInterfaceTest = Lens.lens (\StopBgpFailoverTestResponse' {virtualInterfaceTest} -> virtualInterfaceTest) (\s@StopBgpFailoverTestResponse' {} a -> s {virtualInterfaceTest = a} :: StopBgpFailoverTestResponse)
 
 -- | The response's http status code.
-stopBgpFailoverTestResponse_httpStatus :: Lens.Lens' StopBgpFailoverTestResponse Core.Int
+stopBgpFailoverTestResponse_httpStatus :: Lens.Lens' StopBgpFailoverTestResponse Prelude.Int
 stopBgpFailoverTestResponse_httpStatus = Lens.lens (\StopBgpFailoverTestResponse' {httpStatus} -> httpStatus) (\s@StopBgpFailoverTestResponse' {} a -> s {httpStatus = a} :: StopBgpFailoverTestResponse)
 
-instance Core.NFData StopBgpFailoverTestResponse
+instance Prelude.NFData StopBgpFailoverTestResponse

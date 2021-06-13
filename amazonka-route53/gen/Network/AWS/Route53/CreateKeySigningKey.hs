@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -55,7 +56,7 @@ import Network.AWS.Route53.Types
 -- | /See:/ 'newCreateKeySigningKey' smart constructor.
 data CreateKeySigningKey = CreateKeySigningKey'
   { -- | A unique string that identifies the request.
-    callerReference :: Core.Text,
+    callerReference :: Prelude.Text,
     -- | The unique string (ID) used to identify a hosted zone.
     hostedZoneId :: ResourceId,
     -- | The Amazon resource name (ARN) for a customer managed customer master
@@ -93,16 +94,16 @@ data CreateKeySigningKey = CreateKeySigningKey'
     -- For more information about working with a customer managed CMK in AWS
     -- KMS, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
-    keyManagementServiceArn :: Core.Text,
+    keyManagementServiceArn :: Prelude.Text,
     -- | A string used to identify a key-signing key (KSK). @Name@ can include
     -- numbers, letters, and underscores (_). @Name@ must be unique for each
     -- key-signing key in the same hosted zone.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A string specifying the initial status of the key-signing key (KSK). You
     -- can set the value to @ACTIVE@ or @INACTIVE@.
-    status :: Core.Text
+    status :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateKeySigningKey' with all optional fields omitted.
@@ -160,15 +161,15 @@ data CreateKeySigningKey = CreateKeySigningKey'
 -- can set the value to @ACTIVE@ or @INACTIVE@.
 newCreateKeySigningKey ::
   -- | 'callerReference'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'keyManagementServiceArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   CreateKeySigningKey
 newCreateKeySigningKey
   pCallerReference_
@@ -186,7 +187,7 @@ newCreateKeySigningKey
       }
 
 -- | A unique string that identifies the request.
-createKeySigningKey_callerReference :: Lens.Lens' CreateKeySigningKey Core.Text
+createKeySigningKey_callerReference :: Lens.Lens' CreateKeySigningKey Prelude.Text
 createKeySigningKey_callerReference = Lens.lens (\CreateKeySigningKey' {callerReference} -> callerReference) (\s@CreateKeySigningKey' {} a -> s {callerReference = a} :: CreateKeySigningKey)
 
 -- | The unique string (ID) used to identify a hosted zone.
@@ -228,18 +229,18 @@ createKeySigningKey_hostedZoneId = Lens.lens (\CreateKeySigningKey' {hostedZoneI
 -- For more information about working with a customer managed CMK in AWS
 -- KMS, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
-createKeySigningKey_keyManagementServiceArn :: Lens.Lens' CreateKeySigningKey Core.Text
+createKeySigningKey_keyManagementServiceArn :: Lens.Lens' CreateKeySigningKey Prelude.Text
 createKeySigningKey_keyManagementServiceArn = Lens.lens (\CreateKeySigningKey' {keyManagementServiceArn} -> keyManagementServiceArn) (\s@CreateKeySigningKey' {} a -> s {keyManagementServiceArn = a} :: CreateKeySigningKey)
 
 -- | A string used to identify a key-signing key (KSK). @Name@ can include
 -- numbers, letters, and underscores (_). @Name@ must be unique for each
 -- key-signing key in the same hosted zone.
-createKeySigningKey_name :: Lens.Lens' CreateKeySigningKey Core.Text
+createKeySigningKey_name :: Lens.Lens' CreateKeySigningKey Prelude.Text
 createKeySigningKey_name = Lens.lens (\CreateKeySigningKey' {name} -> name) (\s@CreateKeySigningKey' {} a -> s {name = a} :: CreateKeySigningKey)
 
 -- | A string specifying the initial status of the key-signing key (KSK). You
 -- can set the value to @ACTIVE@ or @INACTIVE@.
-createKeySigningKey_status :: Lens.Lens' CreateKeySigningKey Core.Text
+createKeySigningKey_status :: Lens.Lens' CreateKeySigningKey Prelude.Text
 createKeySigningKey_status = Lens.lens (\CreateKeySigningKey' {status} -> status) (\s@CreateKeySigningKey' {} a -> s {status = a} :: CreateKeySigningKey)
 
 instance Core.AWSRequest CreateKeySigningKey where
@@ -251,15 +252,15 @@ instance Core.AWSRequest CreateKeySigningKey where
     Response.receiveXML
       ( \s h x ->
           CreateKeySigningKeyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "ChangeInfo")
-            Core.<*> (x Core..@ "KeySigningKey")
-            Core.<*> (h Core..# "Location")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "ChangeInfo")
+            Prelude.<*> (x Core..@ "KeySigningKey")
+            Prelude.<*> (h Core..# "Location")
       )
 
-instance Core.Hashable CreateKeySigningKey
+instance Prelude.Hashable CreateKeySigningKey
 
-instance Core.NFData CreateKeySigningKey
+instance Prelude.NFData CreateKeySigningKey
 
 instance Core.ToElement CreateKeySigningKey where
   toElement =
@@ -267,17 +268,17 @@ instance Core.ToElement CreateKeySigningKey where
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateKeySigningKeyRequest"
 
 instance Core.ToHeaders CreateKeySigningKey where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateKeySigningKey where
-  toPath = Core.const "/2013-04-01/keysigningkey"
+  toPath = Prelude.const "/2013-04-01/keysigningkey"
 
 instance Core.ToQuery CreateKeySigningKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML CreateKeySigningKey where
   toXML CreateKeySigningKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "CallerReference" Core.@= callerReference,
         "HostedZoneId" Core.@= hostedZoneId,
         "KeyManagementServiceArn"
@@ -289,14 +290,14 @@ instance Core.ToXML CreateKeySigningKey where
 -- | /See:/ 'newCreateKeySigningKeyResponse' smart constructor.
 data CreateKeySigningKeyResponse = CreateKeySigningKeyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     changeInfo :: ChangeInfo,
     -- | The key-signing key (KSK) that the request creates.
     keySigningKey :: KeySigningKey,
     -- | The unique URL representing the new key-signing key (KSK).
-    location :: Core.Text
+    location :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateKeySigningKeyResponse' with all optional fields omitted.
@@ -315,13 +316,13 @@ data CreateKeySigningKeyResponse = CreateKeySigningKeyResponse'
 -- 'location', 'createKeySigningKeyResponse_location' - The unique URL representing the new key-signing key (KSK).
 newCreateKeySigningKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   -- | 'keySigningKey'
   KeySigningKey ->
   -- | 'location'
-  Core.Text ->
+  Prelude.Text ->
   CreateKeySigningKeyResponse
 newCreateKeySigningKeyResponse
   pHttpStatus_
@@ -337,7 +338,7 @@ newCreateKeySigningKeyResponse
       }
 
 -- | The response's http status code.
-createKeySigningKeyResponse_httpStatus :: Lens.Lens' CreateKeySigningKeyResponse Core.Int
+createKeySigningKeyResponse_httpStatus :: Lens.Lens' CreateKeySigningKeyResponse Prelude.Int
 createKeySigningKeyResponse_httpStatus = Lens.lens (\CreateKeySigningKeyResponse' {httpStatus} -> httpStatus) (\s@CreateKeySigningKeyResponse' {} a -> s {httpStatus = a} :: CreateKeySigningKeyResponse)
 
 -- | Undocumented member.
@@ -349,7 +350,7 @@ createKeySigningKeyResponse_keySigningKey :: Lens.Lens' CreateKeySigningKeyRespo
 createKeySigningKeyResponse_keySigningKey = Lens.lens (\CreateKeySigningKeyResponse' {keySigningKey} -> keySigningKey) (\s@CreateKeySigningKeyResponse' {} a -> s {keySigningKey = a} :: CreateKeySigningKeyResponse)
 
 -- | The unique URL representing the new key-signing key (KSK).
-createKeySigningKeyResponse_location :: Lens.Lens' CreateKeySigningKeyResponse Core.Text
+createKeySigningKeyResponse_location :: Lens.Lens' CreateKeySigningKeyResponse Prelude.Text
 createKeySigningKeyResponse_location = Lens.lens (\CreateKeySigningKeyResponse' {location} -> location) (\s@CreateKeySigningKeyResponse' {} a -> s {location = a} :: CreateKeySigningKeyResponse)
 
-instance Core.NFData CreateKeySigningKeyResponse
+instance Prelude.NFData CreateKeySigningKeyResponse

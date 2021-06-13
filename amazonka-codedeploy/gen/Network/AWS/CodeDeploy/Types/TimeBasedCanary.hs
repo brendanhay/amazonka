@@ -21,6 +21,7 @@ module Network.AWS.CodeDeploy.Types.TimeBasedCanary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A configuration that shifts traffic from one version of a Lambda
 -- function or ECS task set to another in two increments. The original and
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data TimeBasedCanary = TimeBasedCanary'
   { -- | The number of minutes between the first and second traffic shifts of a
     -- @TimeBasedCanary@ deployment.
-    canaryInterval :: Core.Maybe Core.Int,
+    canaryInterval :: Prelude.Maybe Prelude.Int,
     -- | The percentage of traffic to shift in the first increment of a
     -- @TimeBasedCanary@ deployment.
-    canaryPercentage :: Core.Maybe Core.Int
+    canaryPercentage :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimeBasedCanary' with all optional fields omitted.
@@ -55,18 +56,18 @@ newTimeBasedCanary ::
   TimeBasedCanary
 newTimeBasedCanary =
   TimeBasedCanary'
-    { canaryInterval = Core.Nothing,
-      canaryPercentage = Core.Nothing
+    { canaryInterval = Prelude.Nothing,
+      canaryPercentage = Prelude.Nothing
     }
 
 -- | The number of minutes between the first and second traffic shifts of a
 -- @TimeBasedCanary@ deployment.
-timeBasedCanary_canaryInterval :: Lens.Lens' TimeBasedCanary (Core.Maybe Core.Int)
+timeBasedCanary_canaryInterval :: Lens.Lens' TimeBasedCanary (Prelude.Maybe Prelude.Int)
 timeBasedCanary_canaryInterval = Lens.lens (\TimeBasedCanary' {canaryInterval} -> canaryInterval) (\s@TimeBasedCanary' {} a -> s {canaryInterval = a} :: TimeBasedCanary)
 
 -- | The percentage of traffic to shift in the first increment of a
 -- @TimeBasedCanary@ deployment.
-timeBasedCanary_canaryPercentage :: Lens.Lens' TimeBasedCanary (Core.Maybe Core.Int)
+timeBasedCanary_canaryPercentage :: Lens.Lens' TimeBasedCanary (Prelude.Maybe Prelude.Int)
 timeBasedCanary_canaryPercentage = Lens.lens (\TimeBasedCanary' {canaryPercentage} -> canaryPercentage) (\s@TimeBasedCanary' {} a -> s {canaryPercentage = a} :: TimeBasedCanary)
 
 instance Core.FromJSON TimeBasedCanary where
@@ -75,20 +76,21 @@ instance Core.FromJSON TimeBasedCanary where
       "TimeBasedCanary"
       ( \x ->
           TimeBasedCanary'
-            Core.<$> (x Core..:? "canaryInterval")
-            Core.<*> (x Core..:? "canaryPercentage")
+            Prelude.<$> (x Core..:? "canaryInterval")
+            Prelude.<*> (x Core..:? "canaryPercentage")
       )
 
-instance Core.Hashable TimeBasedCanary
+instance Prelude.Hashable TimeBasedCanary
 
-instance Core.NFData TimeBasedCanary
+instance Prelude.NFData TimeBasedCanary
 
 instance Core.ToJSON TimeBasedCanary where
   toJSON TimeBasedCanary' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("canaryInterval" Core..=) Core.<$> canaryInterval,
+      ( Prelude.catMaybes
+          [ ("canaryInterval" Core..=)
+              Prelude.<$> canaryInterval,
             ("canaryPercentage" Core..=)
-              Core.<$> canaryPercentage
+              Prelude.<$> canaryPercentage
           ]
       )

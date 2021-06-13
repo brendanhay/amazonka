@@ -84,6 +84,7 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -96,15 +97,15 @@ data PutLogEvents = PutLogEvents'
     -- If you call @PutLogEvents@ twice within a narrow time period using the
     -- same value for @sequenceToken@, both calls might be successful or one
     -- might be rejected.
-    sequenceToken :: Core.Maybe Core.Text,
+    sequenceToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
-    logGroupName :: Core.Text,
+    logGroupName :: Prelude.Text,
     -- | The name of the log stream.
-    logStreamName :: Core.Text,
+    logStreamName :: Prelude.Text,
     -- | The log events.
-    logEvents :: Core.NonEmpty InputLogEvent
+    logEvents :: Prelude.NonEmpty InputLogEvent
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutLogEvents' with all optional fields omitted.
@@ -129,18 +130,18 @@ data PutLogEvents = PutLogEvents'
 -- 'logEvents', 'putLogEvents_logEvents' - The log events.
 newPutLogEvents ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'logStreamName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'logEvents'
-  Core.NonEmpty InputLogEvent ->
+  Prelude.NonEmpty InputLogEvent ->
   PutLogEvents
 newPutLogEvents
   pLogGroupName_
   pLogStreamName_
   pLogEvents_ =
     PutLogEvents'
-      { sequenceToken = Core.Nothing,
+      { sequenceToken = Prelude.Nothing,
         logGroupName = pLogGroupName_,
         logStreamName = pLogStreamName_,
         logEvents = Lens._Coerce Lens.# pLogEvents_
@@ -153,20 +154,20 @@ newPutLogEvents
 -- If you call @PutLogEvents@ twice within a narrow time period using the
 -- same value for @sequenceToken@, both calls might be successful or one
 -- might be rejected.
-putLogEvents_sequenceToken :: Lens.Lens' PutLogEvents (Core.Maybe Core.Text)
+putLogEvents_sequenceToken :: Lens.Lens' PutLogEvents (Prelude.Maybe Prelude.Text)
 putLogEvents_sequenceToken = Lens.lens (\PutLogEvents' {sequenceToken} -> sequenceToken) (\s@PutLogEvents' {} a -> s {sequenceToken = a} :: PutLogEvents)
 
 -- | The name of the log group.
-putLogEvents_logGroupName :: Lens.Lens' PutLogEvents Core.Text
+putLogEvents_logGroupName :: Lens.Lens' PutLogEvents Prelude.Text
 putLogEvents_logGroupName = Lens.lens (\PutLogEvents' {logGroupName} -> logGroupName) (\s@PutLogEvents' {} a -> s {logGroupName = a} :: PutLogEvents)
 
 -- | The name of the log stream.
-putLogEvents_logStreamName :: Lens.Lens' PutLogEvents Core.Text
+putLogEvents_logStreamName :: Lens.Lens' PutLogEvents Prelude.Text
 putLogEvents_logStreamName = Lens.lens (\PutLogEvents' {logStreamName} -> logStreamName) (\s@PutLogEvents' {} a -> s {logStreamName = a} :: PutLogEvents)
 
 -- | The log events.
-putLogEvents_logEvents :: Lens.Lens' PutLogEvents (Core.NonEmpty InputLogEvent)
-putLogEvents_logEvents = Lens.lens (\PutLogEvents' {logEvents} -> logEvents) (\s@PutLogEvents' {} a -> s {logEvents = a} :: PutLogEvents) Core.. Lens._Coerce
+putLogEvents_logEvents :: Lens.Lens' PutLogEvents (Prelude.NonEmpty InputLogEvent)
+putLogEvents_logEvents = Lens.lens (\PutLogEvents' {logEvents} -> logEvents) (\s@PutLogEvents' {} a -> s {logEvents = a} :: PutLogEvents) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutLogEvents where
   type AWSResponse PutLogEvents = PutLogEventsResponse
@@ -175,53 +176,55 @@ instance Core.AWSRequest PutLogEvents where
     Response.receiveJSON
       ( \s h x ->
           PutLogEventsResponse'
-            Core.<$> (x Core..?> "nextSequenceToken")
-            Core.<*> (x Core..?> "rejectedLogEventsInfo")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextSequenceToken")
+            Prelude.<*> (x Core..?> "rejectedLogEventsInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutLogEvents
+instance Prelude.Hashable PutLogEvents
 
-instance Core.NFData PutLogEvents
+instance Prelude.NFData PutLogEvents
 
 instance Core.ToHeaders PutLogEvents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.PutLogEvents" :: Core.ByteString),
+              Core.=# ("Logs_20140328.PutLogEvents" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutLogEvents where
   toJSON PutLogEvents' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("sequenceToken" Core..=) Core.<$> sequenceToken,
-            Core.Just ("logGroupName" Core..= logGroupName),
-            Core.Just ("logStreamName" Core..= logStreamName),
-            Core.Just ("logEvents" Core..= logEvents)
+      ( Prelude.catMaybes
+          [ ("sequenceToken" Core..=) Prelude.<$> sequenceToken,
+            Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just ("logStreamName" Core..= logStreamName),
+            Prelude.Just ("logEvents" Core..= logEvents)
           ]
       )
 
 instance Core.ToPath PutLogEvents where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutLogEvents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLogEventsResponse' smart constructor.
 data PutLogEventsResponse = PutLogEventsResponse'
   { -- | The next sequence token.
-    nextSequenceToken :: Core.Maybe Core.Text,
+    nextSequenceToken :: Prelude.Maybe Prelude.Text,
     -- | The rejected events.
-    rejectedLogEventsInfo :: Core.Maybe RejectedLogEventsInfo,
+    rejectedLogEventsInfo :: Prelude.Maybe RejectedLogEventsInfo,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutLogEventsResponse' with all optional fields omitted.
@@ -238,26 +241,26 @@ data PutLogEventsResponse = PutLogEventsResponse'
 -- 'httpStatus', 'putLogEventsResponse_httpStatus' - The response's http status code.
 newPutLogEventsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutLogEventsResponse
 newPutLogEventsResponse pHttpStatus_ =
   PutLogEventsResponse'
     { nextSequenceToken =
-        Core.Nothing,
-      rejectedLogEventsInfo = Core.Nothing,
+        Prelude.Nothing,
+      rejectedLogEventsInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The next sequence token.
-putLogEventsResponse_nextSequenceToken :: Lens.Lens' PutLogEventsResponse (Core.Maybe Core.Text)
+putLogEventsResponse_nextSequenceToken :: Lens.Lens' PutLogEventsResponse (Prelude.Maybe Prelude.Text)
 putLogEventsResponse_nextSequenceToken = Lens.lens (\PutLogEventsResponse' {nextSequenceToken} -> nextSequenceToken) (\s@PutLogEventsResponse' {} a -> s {nextSequenceToken = a} :: PutLogEventsResponse)
 
 -- | The rejected events.
-putLogEventsResponse_rejectedLogEventsInfo :: Lens.Lens' PutLogEventsResponse (Core.Maybe RejectedLogEventsInfo)
+putLogEventsResponse_rejectedLogEventsInfo :: Lens.Lens' PutLogEventsResponse (Prelude.Maybe RejectedLogEventsInfo)
 putLogEventsResponse_rejectedLogEventsInfo = Lens.lens (\PutLogEventsResponse' {rejectedLogEventsInfo} -> rejectedLogEventsInfo) (\s@PutLogEventsResponse' {} a -> s {rejectedLogEventsInfo = a} :: PutLogEventsResponse)
 
 -- | The response's http status code.
-putLogEventsResponse_httpStatus :: Lens.Lens' PutLogEventsResponse Core.Int
+putLogEventsResponse_httpStatus :: Lens.Lens' PutLogEventsResponse Prelude.Int
 putLogEventsResponse_httpStatus = Lens.lens (\PutLogEventsResponse' {httpStatus} -> httpStatus) (\s@PutLogEventsResponse' {} a -> s {httpStatus = a} :: PutLogEventsResponse)
 
-instance Core.NFData PutLogEventsResponse
+instance Prelude.NFData PutLogEventsResponse

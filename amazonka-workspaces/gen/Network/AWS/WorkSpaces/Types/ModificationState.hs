@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.ModificationState where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.ModificationResourceEnum
 import Network.AWS.WorkSpaces.Types.ModificationStateEnum
 
@@ -29,11 +30,11 @@ import Network.AWS.WorkSpaces.Types.ModificationStateEnum
 -- /See:/ 'newModificationState' smart constructor.
 data ModificationState = ModificationState'
   { -- | The modification state.
-    state :: Core.Maybe ModificationStateEnum,
+    state :: Prelude.Maybe ModificationStateEnum,
     -- | The resource.
-    resource :: Core.Maybe ModificationResourceEnum
+    resource :: Prelude.Maybe ModificationResourceEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModificationState' with all optional fields omitted.
@@ -50,16 +51,16 @@ newModificationState ::
   ModificationState
 newModificationState =
   ModificationState'
-    { state = Core.Nothing,
-      resource = Core.Nothing
+    { state = Prelude.Nothing,
+      resource = Prelude.Nothing
     }
 
 -- | The modification state.
-modificationState_state :: Lens.Lens' ModificationState (Core.Maybe ModificationStateEnum)
+modificationState_state :: Lens.Lens' ModificationState (Prelude.Maybe ModificationStateEnum)
 modificationState_state = Lens.lens (\ModificationState' {state} -> state) (\s@ModificationState' {} a -> s {state = a} :: ModificationState)
 
 -- | The resource.
-modificationState_resource :: Lens.Lens' ModificationState (Core.Maybe ModificationResourceEnum)
+modificationState_resource :: Lens.Lens' ModificationState (Prelude.Maybe ModificationResourceEnum)
 modificationState_resource = Lens.lens (\ModificationState' {resource} -> resource) (\s@ModificationState' {} a -> s {resource = a} :: ModificationState)
 
 instance Core.FromJSON ModificationState where
@@ -68,10 +69,10 @@ instance Core.FromJSON ModificationState where
       "ModificationState"
       ( \x ->
           ModificationState'
-            Core.<$> (x Core..:? "State")
-            Core.<*> (x Core..:? "Resource")
+            Prelude.<$> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "Resource")
       )
 
-instance Core.Hashable ModificationState
+instance Prelude.Hashable ModificationState
 
-instance Core.NFData ModificationState
+instance Prelude.NFData ModificationState

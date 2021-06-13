@@ -48,15 +48,16 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeauthorizeConnection' smart constructor.
 data DeauthorizeConnection = DeauthorizeConnection'
   { -- | The name of the connection to remove authorization from.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeauthorizeConnection' with all optional fields omitted.
@@ -69,13 +70,13 @@ data DeauthorizeConnection = DeauthorizeConnection'
 -- 'name', 'deauthorizeConnection_name' - The name of the connection to remove authorization from.
 newDeauthorizeConnection ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeauthorizeConnection
 newDeauthorizeConnection pName_ =
   DeauthorizeConnection' {name = pName_}
 
 -- | The name of the connection to remove authorization from.
-deauthorizeConnection_name :: Lens.Lens' DeauthorizeConnection Core.Text
+deauthorizeConnection_name :: Lens.Lens' DeauthorizeConnection Prelude.Text
 deauthorizeConnection_name = Lens.lens (\DeauthorizeConnection' {name} -> name) (\s@DeauthorizeConnection' {} a -> s {name = a} :: DeauthorizeConnection)
 
 instance Core.AWSRequest DeauthorizeConnection where
@@ -87,58 +88,62 @@ instance Core.AWSRequest DeauthorizeConnection where
     Response.receiveJSON
       ( \s h x ->
           DeauthorizeConnectionResponse'
-            Core.<$> (x Core..?> "CreationTime")
-            Core.<*> (x Core..?> "ConnectionState")
-            Core.<*> (x Core..?> "ConnectionArn")
-            Core.<*> (x Core..?> "LastModifiedTime")
-            Core.<*> (x Core..?> "LastAuthorizedTime")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "ConnectionState")
+            Prelude.<*> (x Core..?> "ConnectionArn")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "LastAuthorizedTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeauthorizeConnection
+instance Prelude.Hashable DeauthorizeConnection
 
-instance Core.NFData DeauthorizeConnection
+instance Prelude.NFData DeauthorizeConnection
 
 instance Core.ToHeaders DeauthorizeConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSEvents.DeauthorizeConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeauthorizeConnection where
   toJSON DeauthorizeConnection' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeauthorizeConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeauthorizeConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeauthorizeConnectionResponse' smart constructor.
 data DeauthorizeConnectionResponse = DeauthorizeConnectionResponse'
   { -- | A time stamp for the time that the connection was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The state of the connection.
-    connectionState :: Core.Maybe ConnectionState,
+    connectionState :: Prelude.Maybe ConnectionState,
     -- | The ARN of the connection that authorization was removed from.
-    connectionArn :: Core.Maybe Core.Text,
+    connectionArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the connection was last updated.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | A time stamp for the time that the connection was last authorized.
-    lastAuthorizedTime :: Core.Maybe Core.POSIX,
+    lastAuthorizedTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeauthorizeConnectionResponse' with all optional fields omitted.
@@ -161,41 +166,41 @@ data DeauthorizeConnectionResponse = DeauthorizeConnectionResponse'
 -- 'httpStatus', 'deauthorizeConnectionResponse_httpStatus' - The response's http status code.
 newDeauthorizeConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeauthorizeConnectionResponse
 newDeauthorizeConnectionResponse pHttpStatus_ =
   DeauthorizeConnectionResponse'
     { creationTime =
-        Core.Nothing,
-      connectionState = Core.Nothing,
-      connectionArn = Core.Nothing,
-      lastModifiedTime = Core.Nothing,
-      lastAuthorizedTime = Core.Nothing,
+        Prelude.Nothing,
+      connectionState = Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      lastAuthorizedTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A time stamp for the time that the connection was created.
-deauthorizeConnectionResponse_creationTime :: Lens.Lens' DeauthorizeConnectionResponse (Core.Maybe Core.UTCTime)
-deauthorizeConnectionResponse_creationTime = Lens.lens (\DeauthorizeConnectionResponse' {creationTime} -> creationTime) (\s@DeauthorizeConnectionResponse' {} a -> s {creationTime = a} :: DeauthorizeConnectionResponse) Core.. Lens.mapping Core._Time
+deauthorizeConnectionResponse_creationTime :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
+deauthorizeConnectionResponse_creationTime = Lens.lens (\DeauthorizeConnectionResponse' {creationTime} -> creationTime) (\s@DeauthorizeConnectionResponse' {} a -> s {creationTime = a} :: DeauthorizeConnectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The state of the connection.
-deauthorizeConnectionResponse_connectionState :: Lens.Lens' DeauthorizeConnectionResponse (Core.Maybe ConnectionState)
+deauthorizeConnectionResponse_connectionState :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe ConnectionState)
 deauthorizeConnectionResponse_connectionState = Lens.lens (\DeauthorizeConnectionResponse' {connectionState} -> connectionState) (\s@DeauthorizeConnectionResponse' {} a -> s {connectionState = a} :: DeauthorizeConnectionResponse)
 
 -- | The ARN of the connection that authorization was removed from.
-deauthorizeConnectionResponse_connectionArn :: Lens.Lens' DeauthorizeConnectionResponse (Core.Maybe Core.Text)
+deauthorizeConnectionResponse_connectionArn :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.Text)
 deauthorizeConnectionResponse_connectionArn = Lens.lens (\DeauthorizeConnectionResponse' {connectionArn} -> connectionArn) (\s@DeauthorizeConnectionResponse' {} a -> s {connectionArn = a} :: DeauthorizeConnectionResponse)
 
 -- | A time stamp for the time that the connection was last updated.
-deauthorizeConnectionResponse_lastModifiedTime :: Lens.Lens' DeauthorizeConnectionResponse (Core.Maybe Core.UTCTime)
-deauthorizeConnectionResponse_lastModifiedTime = Lens.lens (\DeauthorizeConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DeauthorizeConnectionResponse' {} a -> s {lastModifiedTime = a} :: DeauthorizeConnectionResponse) Core.. Lens.mapping Core._Time
+deauthorizeConnectionResponse_lastModifiedTime :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
+deauthorizeConnectionResponse_lastModifiedTime = Lens.lens (\DeauthorizeConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DeauthorizeConnectionResponse' {} a -> s {lastModifiedTime = a} :: DeauthorizeConnectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A time stamp for the time that the connection was last authorized.
-deauthorizeConnectionResponse_lastAuthorizedTime :: Lens.Lens' DeauthorizeConnectionResponse (Core.Maybe Core.UTCTime)
-deauthorizeConnectionResponse_lastAuthorizedTime = Lens.lens (\DeauthorizeConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@DeauthorizeConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: DeauthorizeConnectionResponse) Core.. Lens.mapping Core._Time
+deauthorizeConnectionResponse_lastAuthorizedTime :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
+deauthorizeConnectionResponse_lastAuthorizedTime = Lens.lens (\DeauthorizeConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@DeauthorizeConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: DeauthorizeConnectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-deauthorizeConnectionResponse_httpStatus :: Lens.Lens' DeauthorizeConnectionResponse Core.Int
+deauthorizeConnectionResponse_httpStatus :: Lens.Lens' DeauthorizeConnectionResponse Prelude.Int
 deauthorizeConnectionResponse_httpStatus = Lens.lens (\DeauthorizeConnectionResponse' {httpStatus} -> httpStatus) (\s@DeauthorizeConnectionResponse' {} a -> s {httpStatus = a} :: DeauthorizeConnectionResponse)
 
-instance Core.NFData DeauthorizeConnectionResponse
+instance Prelude.NFData DeauthorizeConnectionResponse

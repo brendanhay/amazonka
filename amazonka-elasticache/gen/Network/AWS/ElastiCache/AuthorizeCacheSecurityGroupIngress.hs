@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,16 +58,16 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAuthorizeCacheSecurityGroupIngress' smart constructor.
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
   { -- | The cache security group that allows network ingress.
-    cacheSecurityGroupName :: Core.Text,
+    cacheSecurityGroupName :: Prelude.Text,
     -- | The Amazon EC2 security group to be authorized for ingress to the cache
     -- security group.
-    eC2SecurityGroupName :: Core.Text,
+    eC2SecurityGroupName :: Prelude.Text,
     -- | The AWS account number of the Amazon EC2 security group owner. Note that
     -- this is not the same thing as an AWS access key ID - you must provide a
     -- valid AWS account number for this parameter.
-    eC2SecurityGroupOwnerId :: Core.Text
+    eC2SecurityGroupOwnerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizeCacheSecurityGroupIngress' with all optional fields omitted.
@@ -86,11 +87,11 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
 -- valid AWS account number for this parameter.
 newAuthorizeCacheSecurityGroupIngress ::
   -- | 'cacheSecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'eC2SecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'eC2SecurityGroupOwnerId'
-  Core.Text ->
+  Prelude.Text ->
   AuthorizeCacheSecurityGroupIngress
 newAuthorizeCacheSecurityGroupIngress
   pCacheSecurityGroupName_
@@ -106,18 +107,18 @@ newAuthorizeCacheSecurityGroupIngress
       }
 
 -- | The cache security group that allows network ingress.
-authorizeCacheSecurityGroupIngress_cacheSecurityGroupName :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Core.Text
+authorizeCacheSecurityGroupIngress_cacheSecurityGroupName :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Prelude.Text
 authorizeCacheSecurityGroupIngress_cacheSecurityGroupName = Lens.lens (\AuthorizeCacheSecurityGroupIngress' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@AuthorizeCacheSecurityGroupIngress' {} a -> s {cacheSecurityGroupName = a} :: AuthorizeCacheSecurityGroupIngress)
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
-authorizeCacheSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Core.Text
+authorizeCacheSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Prelude.Text
 authorizeCacheSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\AuthorizeCacheSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@AuthorizeCacheSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: AuthorizeCacheSecurityGroupIngress)
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-authorizeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Core.Text
+authorizeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Prelude.Text
 authorizeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\AuthorizeCacheSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@AuthorizeCacheSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: AuthorizeCacheSecurityGroupIngress)
 
 instance
@@ -133,41 +134,42 @@ instance
       "AuthorizeCacheSecurityGroupIngressResult"
       ( \s h x ->
           AuthorizeCacheSecurityGroupIngressResponse'
-            Core.<$> (x Core..@? "CacheSecurityGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "CacheSecurityGroup")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AuthorizeCacheSecurityGroupIngress
 
 instance
-  Core.NFData
+  Prelude.NFData
     AuthorizeCacheSecurityGroupIngress
 
 instance
   Core.ToHeaders
     AuthorizeCacheSecurityGroupIngress
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     AuthorizeCacheSecurityGroupIngress
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AuthorizeCacheSecurityGroupIngress
   where
   toQuery AuthorizeCacheSecurityGroupIngress' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "AuthorizeCacheSecurityGroupIngress" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheSecurityGroupName"
           Core.=: cacheSecurityGroupName,
         "EC2SecurityGroupName" Core.=: eC2SecurityGroupName,
@@ -177,11 +179,11 @@ instance
 
 -- | /See:/ 'newAuthorizeCacheSecurityGroupIngressResponse' smart constructor.
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
-  { cacheSecurityGroup :: Core.Maybe CacheSecurityGroup,
+  { cacheSecurityGroup :: Prelude.Maybe CacheSecurityGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizeCacheSecurityGroupIngressResponse' with all optional fields omitted.
@@ -196,24 +198,24 @@ data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIng
 -- 'httpStatus', 'authorizeCacheSecurityGroupIngressResponse_httpStatus' - The response's http status code.
 newAuthorizeCacheSecurityGroupIngressResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AuthorizeCacheSecurityGroupIngressResponse
 newAuthorizeCacheSecurityGroupIngressResponse
   pHttpStatus_ =
     AuthorizeCacheSecurityGroupIngressResponse'
       { cacheSecurityGroup =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-authorizeCacheSecurityGroupIngressResponse_cacheSecurityGroup :: Lens.Lens' AuthorizeCacheSecurityGroupIngressResponse (Core.Maybe CacheSecurityGroup)
+authorizeCacheSecurityGroupIngressResponse_cacheSecurityGroup :: Lens.Lens' AuthorizeCacheSecurityGroupIngressResponse (Prelude.Maybe CacheSecurityGroup)
 authorizeCacheSecurityGroupIngressResponse_cacheSecurityGroup = Lens.lens (\AuthorizeCacheSecurityGroupIngressResponse' {cacheSecurityGroup} -> cacheSecurityGroup) (\s@AuthorizeCacheSecurityGroupIngressResponse' {} a -> s {cacheSecurityGroup = a} :: AuthorizeCacheSecurityGroupIngressResponse)
 
 -- | The response's http status code.
-authorizeCacheSecurityGroupIngressResponse_httpStatus :: Lens.Lens' AuthorizeCacheSecurityGroupIngressResponse Core.Int
+authorizeCacheSecurityGroupIngressResponse_httpStatus :: Lens.Lens' AuthorizeCacheSecurityGroupIngressResponse Prelude.Int
 authorizeCacheSecurityGroupIngressResponse_httpStatus = Lens.lens (\AuthorizeCacheSecurityGroupIngressResponse' {httpStatus} -> httpStatus) (\s@AuthorizeCacheSecurityGroupIngressResponse' {} a -> s {httpStatus = a} :: AuthorizeCacheSecurityGroupIngressResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AuthorizeCacheSecurityGroupIngressResponse

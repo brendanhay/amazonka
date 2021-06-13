@@ -22,21 +22,22 @@ module Network.AWS.MediaLive.Types.TransferringInputDeviceSummary where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputDeviceTransferType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the input device that is being transferred.
 --
 -- /See:/ 'newTransferringInputDeviceSummary' smart constructor.
 data TransferringInputDeviceSummary = TransferringInputDeviceSummary'
   { -- | The type (direction) of the input device transfer.
-    transferType :: Core.Maybe InputDeviceTransferType,
+    transferType :: Prelude.Maybe InputDeviceTransferType,
     -- | The optional message that the sender has attached to the transfer.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the input device.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID for the recipient of the input device transfer.
-    targetCustomerId :: Core.Maybe Core.Text
+    targetCustomerId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransferringInputDeviceSummary' with all optional fields omitted.
@@ -58,26 +59,26 @@ newTransferringInputDeviceSummary ::
 newTransferringInputDeviceSummary =
   TransferringInputDeviceSummary'
     { transferType =
-        Core.Nothing,
-      message = Core.Nothing,
-      id = Core.Nothing,
-      targetCustomerId = Core.Nothing
+        Prelude.Nothing,
+      message = Prelude.Nothing,
+      id = Prelude.Nothing,
+      targetCustomerId = Prelude.Nothing
     }
 
 -- | The type (direction) of the input device transfer.
-transferringInputDeviceSummary_transferType :: Lens.Lens' TransferringInputDeviceSummary (Core.Maybe InputDeviceTransferType)
+transferringInputDeviceSummary_transferType :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe InputDeviceTransferType)
 transferringInputDeviceSummary_transferType = Lens.lens (\TransferringInputDeviceSummary' {transferType} -> transferType) (\s@TransferringInputDeviceSummary' {} a -> s {transferType = a} :: TransferringInputDeviceSummary)
 
 -- | The optional message that the sender has attached to the transfer.
-transferringInputDeviceSummary_message :: Lens.Lens' TransferringInputDeviceSummary (Core.Maybe Core.Text)
+transferringInputDeviceSummary_message :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe Prelude.Text)
 transferringInputDeviceSummary_message = Lens.lens (\TransferringInputDeviceSummary' {message} -> message) (\s@TransferringInputDeviceSummary' {} a -> s {message = a} :: TransferringInputDeviceSummary)
 
 -- | The unique ID of the input device.
-transferringInputDeviceSummary_id :: Lens.Lens' TransferringInputDeviceSummary (Core.Maybe Core.Text)
+transferringInputDeviceSummary_id :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe Prelude.Text)
 transferringInputDeviceSummary_id = Lens.lens (\TransferringInputDeviceSummary' {id} -> id) (\s@TransferringInputDeviceSummary' {} a -> s {id = a} :: TransferringInputDeviceSummary)
 
 -- | The AWS account ID for the recipient of the input device transfer.
-transferringInputDeviceSummary_targetCustomerId :: Lens.Lens' TransferringInputDeviceSummary (Core.Maybe Core.Text)
+transferringInputDeviceSummary_targetCustomerId :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe Prelude.Text)
 transferringInputDeviceSummary_targetCustomerId = Lens.lens (\TransferringInputDeviceSummary' {targetCustomerId} -> targetCustomerId) (\s@TransferringInputDeviceSummary' {} a -> s {targetCustomerId = a} :: TransferringInputDeviceSummary)
 
 instance Core.FromJSON TransferringInputDeviceSummary where
@@ -86,12 +87,16 @@ instance Core.FromJSON TransferringInputDeviceSummary where
       "TransferringInputDeviceSummary"
       ( \x ->
           TransferringInputDeviceSummary'
-            Core.<$> (x Core..:? "transferType")
-            Core.<*> (x Core..:? "message")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "targetCustomerId")
+            Prelude.<$> (x Core..:? "transferType")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "targetCustomerId")
       )
 
-instance Core.Hashable TransferringInputDeviceSummary
+instance
+  Prelude.Hashable
+    TransferringInputDeviceSummary
 
-instance Core.NFData TransferringInputDeviceSummary
+instance
+  Prelude.NFData
+    TransferringInputDeviceSummary

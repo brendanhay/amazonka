@@ -45,15 +45,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDirectConnectGateway' smart constructor.
 data DeleteDirectConnectGateway = DeleteDirectConnectGateway'
   { -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Core.Text
+    directConnectGatewayId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDirectConnectGateway' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DeleteDirectConnectGateway = DeleteDirectConnectGateway'
 -- 'directConnectGatewayId', 'deleteDirectConnectGateway_directConnectGatewayId' - The ID of the Direct Connect gateway.
 newDeleteDirectConnectGateway ::
   -- | 'directConnectGatewayId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDirectConnectGateway
 newDeleteDirectConnectGateway
   pDirectConnectGatewayId_ =
@@ -76,7 +77,7 @@ newDeleteDirectConnectGateway
       }
 
 -- | The ID of the Direct Connect gateway.
-deleteDirectConnectGateway_directConnectGatewayId :: Lens.Lens' DeleteDirectConnectGateway Core.Text
+deleteDirectConnectGateway_directConnectGatewayId :: Lens.Lens' DeleteDirectConnectGateway Prelude.Text
 deleteDirectConnectGateway_directConnectGatewayId = Lens.lens (\DeleteDirectConnectGateway' {directConnectGatewayId} -> directConnectGatewayId) (\s@DeleteDirectConnectGateway' {} a -> s {directConnectGatewayId = a} :: DeleteDirectConnectGateway)
 
 instance Core.AWSRequest DeleteDirectConnectGateway where
@@ -88,32 +89,34 @@ instance Core.AWSRequest DeleteDirectConnectGateway where
     Response.receiveJSON
       ( \s h x ->
           DeleteDirectConnectGatewayResponse'
-            Core.<$> (x Core..?> "directConnectGateway")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "directConnectGateway")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDirectConnectGateway
+instance Prelude.Hashable DeleteDirectConnectGateway
 
-instance Core.NFData DeleteDirectConnectGateway
+instance Prelude.NFData DeleteDirectConnectGateway
 
 instance Core.ToHeaders DeleteDirectConnectGateway where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.DeleteDirectConnectGateway" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDirectConnectGateway where
   toJSON DeleteDirectConnectGateway' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "directConnectGatewayId"
                   Core..= directConnectGatewayId
               )
@@ -121,19 +124,19 @@ instance Core.ToJSON DeleteDirectConnectGateway where
       )
 
 instance Core.ToPath DeleteDirectConnectGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDirectConnectGateway where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDirectConnectGatewayResponse' smart constructor.
 data DeleteDirectConnectGatewayResponse = DeleteDirectConnectGatewayResponse'
   { -- | The Direct Connect gateway.
-    directConnectGateway :: Core.Maybe DirectConnectGateway,
+    directConnectGateway :: Prelude.Maybe DirectConnectGateway,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDirectConnectGatewayResponse' with all optional fields omitted.
@@ -148,23 +151,23 @@ data DeleteDirectConnectGatewayResponse = DeleteDirectConnectGatewayResponse'
 -- 'httpStatus', 'deleteDirectConnectGatewayResponse_httpStatus' - The response's http status code.
 newDeleteDirectConnectGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDirectConnectGatewayResponse
 newDeleteDirectConnectGatewayResponse pHttpStatus_ =
   DeleteDirectConnectGatewayResponse'
     { directConnectGateway =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Direct Connect gateway.
-deleteDirectConnectGatewayResponse_directConnectGateway :: Lens.Lens' DeleteDirectConnectGatewayResponse (Core.Maybe DirectConnectGateway)
+deleteDirectConnectGatewayResponse_directConnectGateway :: Lens.Lens' DeleteDirectConnectGatewayResponse (Prelude.Maybe DirectConnectGateway)
 deleteDirectConnectGatewayResponse_directConnectGateway = Lens.lens (\DeleteDirectConnectGatewayResponse' {directConnectGateway} -> directConnectGateway) (\s@DeleteDirectConnectGatewayResponse' {} a -> s {directConnectGateway = a} :: DeleteDirectConnectGatewayResponse)
 
 -- | The response's http status code.
-deleteDirectConnectGatewayResponse_httpStatus :: Lens.Lens' DeleteDirectConnectGatewayResponse Core.Int
+deleteDirectConnectGatewayResponse_httpStatus :: Lens.Lens' DeleteDirectConnectGatewayResponse Prelude.Int
 deleteDirectConnectGatewayResponse_httpStatus = Lens.lens (\DeleteDirectConnectGatewayResponse' {httpStatus} -> httpStatus) (\s@DeleteDirectConnectGatewayResponse' {} a -> s {httpStatus = a} :: DeleteDirectConnectGatewayResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteDirectConnectGatewayResponse

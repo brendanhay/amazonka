@@ -89,6 +89,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -98,15 +99,15 @@ data UpdateRegexMatchSet = UpdateRegexMatchSet'
   { -- | The @RegexMatchSetId@ of the RegexMatchSet that you want to update.
     -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
     -- ListRegexMatchSets.
-    regexMatchSetId :: Core.Text,
+    regexMatchSetId :: Prelude.Text,
     -- | An array of @RegexMatchSetUpdate@ objects that you want to insert into
     -- or delete from a RegexMatchSet. For more information, see
     -- RegexMatchTuple.
-    updates :: Core.NonEmpty RegexMatchSetUpdate,
+    updates :: Prelude.NonEmpty RegexMatchSetUpdate,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRegexMatchSet' with all optional fields omitted.
@@ -127,11 +128,11 @@ data UpdateRegexMatchSet = UpdateRegexMatchSet'
 -- 'changeToken', 'updateRegexMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newUpdateRegexMatchSet ::
   -- | 'regexMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'updates'
-  Core.NonEmpty RegexMatchSetUpdate ->
+  Prelude.NonEmpty RegexMatchSetUpdate ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRegexMatchSet
 newUpdateRegexMatchSet
   pRegexMatchSetId_
@@ -147,17 +148,17 @@ newUpdateRegexMatchSet
 -- | The @RegexMatchSetId@ of the RegexMatchSet that you want to update.
 -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
 -- ListRegexMatchSets.
-updateRegexMatchSet_regexMatchSetId :: Lens.Lens' UpdateRegexMatchSet Core.Text
+updateRegexMatchSet_regexMatchSetId :: Lens.Lens' UpdateRegexMatchSet Prelude.Text
 updateRegexMatchSet_regexMatchSetId = Lens.lens (\UpdateRegexMatchSet' {regexMatchSetId} -> regexMatchSetId) (\s@UpdateRegexMatchSet' {} a -> s {regexMatchSetId = a} :: UpdateRegexMatchSet)
 
 -- | An array of @RegexMatchSetUpdate@ objects that you want to insert into
 -- or delete from a RegexMatchSet. For more information, see
 -- RegexMatchTuple.
-updateRegexMatchSet_updates :: Lens.Lens' UpdateRegexMatchSet (Core.NonEmpty RegexMatchSetUpdate)
-updateRegexMatchSet_updates = Lens.lens (\UpdateRegexMatchSet' {updates} -> updates) (\s@UpdateRegexMatchSet' {} a -> s {updates = a} :: UpdateRegexMatchSet) Core.. Lens._Coerce
+updateRegexMatchSet_updates :: Lens.Lens' UpdateRegexMatchSet (Prelude.NonEmpty RegexMatchSetUpdate)
+updateRegexMatchSet_updates = Lens.lens (\UpdateRegexMatchSet' {updates} -> updates) (\s@UpdateRegexMatchSet' {} a -> s {updates = a} :: UpdateRegexMatchSet) Prelude.. Lens._Coerce
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateRegexMatchSet_changeToken :: Lens.Lens' UpdateRegexMatchSet Core.Text
+updateRegexMatchSet_changeToken :: Lens.Lens' UpdateRegexMatchSet Prelude.Text
 updateRegexMatchSet_changeToken = Lens.lens (\UpdateRegexMatchSet' {changeToken} -> changeToken) (\s@UpdateRegexMatchSet' {} a -> s {changeToken = a} :: UpdateRegexMatchSet)
 
 instance Core.AWSRequest UpdateRegexMatchSet where
@@ -169,54 +170,56 @@ instance Core.AWSRequest UpdateRegexMatchSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateRegexMatchSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateRegexMatchSet
+instance Prelude.Hashable UpdateRegexMatchSet
 
-instance Core.NFData UpdateRegexMatchSet
+instance Prelude.NFData UpdateRegexMatchSet
 
 instance Core.ToHeaders UpdateRegexMatchSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.UpdateRegexMatchSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRegexMatchSet where
   toJSON UpdateRegexMatchSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("RegexMatchSetId" Core..= regexMatchSetId),
-            Core.Just ("Updates" Core..= updates),
-            Core.Just ("ChangeToken" Core..= changeToken)
+            Prelude.Just ("Updates" Core..= updates),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath UpdateRegexMatchSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRegexMatchSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRegexMatchSetResponse' smart constructor.
 data UpdateRegexMatchSetResponse = UpdateRegexMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateRegexMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRegexMatchSetResponse' with all optional fields omitted.
@@ -233,23 +236,23 @@ data UpdateRegexMatchSetResponse = UpdateRegexMatchSetResponse'
 -- 'httpStatus', 'updateRegexMatchSetResponse_httpStatus' - The response's http status code.
 newUpdateRegexMatchSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateRegexMatchSetResponse
 newUpdateRegexMatchSetResponse pHttpStatus_ =
   UpdateRegexMatchSetResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRegexMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-updateRegexMatchSetResponse_changeToken :: Lens.Lens' UpdateRegexMatchSetResponse (Core.Maybe Core.Text)
+updateRegexMatchSetResponse_changeToken :: Lens.Lens' UpdateRegexMatchSetResponse (Prelude.Maybe Prelude.Text)
 updateRegexMatchSetResponse_changeToken = Lens.lens (\UpdateRegexMatchSetResponse' {changeToken} -> changeToken) (\s@UpdateRegexMatchSetResponse' {} a -> s {changeToken = a} :: UpdateRegexMatchSetResponse)
 
 -- | The response's http status code.
-updateRegexMatchSetResponse_httpStatus :: Lens.Lens' UpdateRegexMatchSetResponse Core.Int
+updateRegexMatchSetResponse_httpStatus :: Lens.Lens' UpdateRegexMatchSetResponse Prelude.Int
 updateRegexMatchSetResponse_httpStatus = Lens.lens (\UpdateRegexMatchSetResponse' {httpStatus} -> httpStatus) (\s@UpdateRegexMatchSetResponse' {} a -> s {httpStatus = a} :: UpdateRegexMatchSetResponse)
 
-instance Core.NFData UpdateRegexMatchSetResponse
+instance Prelude.NFData UpdateRegexMatchSetResponse

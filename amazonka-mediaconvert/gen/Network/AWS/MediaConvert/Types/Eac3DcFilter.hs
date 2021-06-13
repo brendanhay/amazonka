@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Eac3DcFilter
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Activates a DC highpass filter for all input channels.
 newtype Eac3DcFilter = Eac3DcFilter'
@@ -34,15 +35,15 @@ newtype Eac3DcFilter = Eac3DcFilter'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

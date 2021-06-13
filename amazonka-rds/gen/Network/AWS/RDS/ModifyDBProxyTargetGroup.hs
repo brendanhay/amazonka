@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -52,17 +53,17 @@ import qualified Network.AWS.Response as Response
 data ModifyDBProxyTargetGroup = ModifyDBProxyTargetGroup'
   { -- | The settings that determine the size and behavior of the connection pool
     -- for the target group.
-    connectionPoolConfig :: Core.Maybe ConnectionPoolConfiguration,
+    connectionPoolConfig :: Prelude.Maybe ConnectionPoolConfiguration,
     -- | The new name for the modified @DBProxyTarget@. An identifier must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens;
     -- it can\'t end with a hyphen or contain two consecutive hyphens.
-    newName' :: Core.Maybe Core.Text,
+    newName' :: Prelude.Maybe Prelude.Text,
     -- | The name of the new target group to assign to the proxy.
-    targetGroupName :: Core.Text,
+    targetGroupName :: Prelude.Text,
     -- | The name of the new proxy to which to assign the target group.
-    dbProxyName :: Core.Text
+    dbProxyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBProxyTargetGroup' with all optional fields omitted.
@@ -84,38 +85,38 @@ data ModifyDBProxyTargetGroup = ModifyDBProxyTargetGroup'
 -- 'dbProxyName', 'modifyDBProxyTargetGroup_dbProxyName' - The name of the new proxy to which to assign the target group.
 newModifyDBProxyTargetGroup ::
   -- | 'targetGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dbProxyName'
-  Core.Text ->
+  Prelude.Text ->
   ModifyDBProxyTargetGroup
 newModifyDBProxyTargetGroup
   pTargetGroupName_
   pDBProxyName_ =
     ModifyDBProxyTargetGroup'
       { connectionPoolConfig =
-          Core.Nothing,
-        newName' = Core.Nothing,
+          Prelude.Nothing,
+        newName' = Prelude.Nothing,
         targetGroupName = pTargetGroupName_,
         dbProxyName = pDBProxyName_
       }
 
 -- | The settings that determine the size and behavior of the connection pool
 -- for the target group.
-modifyDBProxyTargetGroup_connectionPoolConfig :: Lens.Lens' ModifyDBProxyTargetGroup (Core.Maybe ConnectionPoolConfiguration)
+modifyDBProxyTargetGroup_connectionPoolConfig :: Lens.Lens' ModifyDBProxyTargetGroup (Prelude.Maybe ConnectionPoolConfiguration)
 modifyDBProxyTargetGroup_connectionPoolConfig = Lens.lens (\ModifyDBProxyTargetGroup' {connectionPoolConfig} -> connectionPoolConfig) (\s@ModifyDBProxyTargetGroup' {} a -> s {connectionPoolConfig = a} :: ModifyDBProxyTargetGroup)
 
 -- | The new name for the modified @DBProxyTarget@. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens;
 -- it can\'t end with a hyphen or contain two consecutive hyphens.
-modifyDBProxyTargetGroup_newName :: Lens.Lens' ModifyDBProxyTargetGroup (Core.Maybe Core.Text)
+modifyDBProxyTargetGroup_newName :: Lens.Lens' ModifyDBProxyTargetGroup (Prelude.Maybe Prelude.Text)
 modifyDBProxyTargetGroup_newName = Lens.lens (\ModifyDBProxyTargetGroup' {newName'} -> newName') (\s@ModifyDBProxyTargetGroup' {} a -> s {newName' = a} :: ModifyDBProxyTargetGroup)
 
 -- | The name of the new target group to assign to the proxy.
-modifyDBProxyTargetGroup_targetGroupName :: Lens.Lens' ModifyDBProxyTargetGroup Core.Text
+modifyDBProxyTargetGroup_targetGroupName :: Lens.Lens' ModifyDBProxyTargetGroup Prelude.Text
 modifyDBProxyTargetGroup_targetGroupName = Lens.lens (\ModifyDBProxyTargetGroup' {targetGroupName} -> targetGroupName) (\s@ModifyDBProxyTargetGroup' {} a -> s {targetGroupName = a} :: ModifyDBProxyTargetGroup)
 
 -- | The name of the new proxy to which to assign the target group.
-modifyDBProxyTargetGroup_dbProxyName :: Lens.Lens' ModifyDBProxyTargetGroup Core.Text
+modifyDBProxyTargetGroup_dbProxyName :: Lens.Lens' ModifyDBProxyTargetGroup Prelude.Text
 modifyDBProxyTargetGroup_dbProxyName = Lens.lens (\ModifyDBProxyTargetGroup' {dbProxyName} -> dbProxyName) (\s@ModifyDBProxyTargetGroup' {} a -> s {dbProxyName = a} :: ModifyDBProxyTargetGroup)
 
 instance Core.AWSRequest ModifyDBProxyTargetGroup where
@@ -128,26 +129,27 @@ instance Core.AWSRequest ModifyDBProxyTargetGroup where
       "ModifyDBProxyTargetGroupResult"
       ( \s h x ->
           ModifyDBProxyTargetGroupResponse'
-            Core.<$> (x Core..@? "DBProxyTargetGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBProxyTargetGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyDBProxyTargetGroup
+instance Prelude.Hashable ModifyDBProxyTargetGroup
 
-instance Core.NFData ModifyDBProxyTargetGroup
+instance Prelude.NFData ModifyDBProxyTargetGroup
 
 instance Core.ToHeaders ModifyDBProxyTargetGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyDBProxyTargetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyDBProxyTargetGroup where
   toQuery ModifyDBProxyTargetGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBProxyTargetGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("ModifyDBProxyTargetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ConnectionPoolConfig" Core.=: connectionPoolConfig,
         "NewName" Core.=: newName',
         "TargetGroupName" Core.=: targetGroupName,
@@ -157,11 +159,11 @@ instance Core.ToQuery ModifyDBProxyTargetGroup where
 -- | /See:/ 'newModifyDBProxyTargetGroupResponse' smart constructor.
 data ModifyDBProxyTargetGroupResponse = ModifyDBProxyTargetGroupResponse'
   { -- | The settings of the modified @DBProxyTarget@.
-    dbProxyTargetGroup :: Core.Maybe DBProxyTargetGroup,
+    dbProxyTargetGroup :: Prelude.Maybe DBProxyTargetGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBProxyTargetGroupResponse' with all optional fields omitted.
@@ -176,21 +178,23 @@ data ModifyDBProxyTargetGroupResponse = ModifyDBProxyTargetGroupResponse'
 -- 'httpStatus', 'modifyDBProxyTargetGroupResponse_httpStatus' - The response's http status code.
 newModifyDBProxyTargetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyDBProxyTargetGroupResponse
 newModifyDBProxyTargetGroupResponse pHttpStatus_ =
   ModifyDBProxyTargetGroupResponse'
     { dbProxyTargetGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The settings of the modified @DBProxyTarget@.
-modifyDBProxyTargetGroupResponse_dbProxyTargetGroup :: Lens.Lens' ModifyDBProxyTargetGroupResponse (Core.Maybe DBProxyTargetGroup)
+modifyDBProxyTargetGroupResponse_dbProxyTargetGroup :: Lens.Lens' ModifyDBProxyTargetGroupResponse (Prelude.Maybe DBProxyTargetGroup)
 modifyDBProxyTargetGroupResponse_dbProxyTargetGroup = Lens.lens (\ModifyDBProxyTargetGroupResponse' {dbProxyTargetGroup} -> dbProxyTargetGroup) (\s@ModifyDBProxyTargetGroupResponse' {} a -> s {dbProxyTargetGroup = a} :: ModifyDBProxyTargetGroupResponse)
 
 -- | The response's http status code.
-modifyDBProxyTargetGroupResponse_httpStatus :: Lens.Lens' ModifyDBProxyTargetGroupResponse Core.Int
+modifyDBProxyTargetGroupResponse_httpStatus :: Lens.Lens' ModifyDBProxyTargetGroupResponse Prelude.Int
 modifyDBProxyTargetGroupResponse_httpStatus = Lens.lens (\ModifyDBProxyTargetGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyDBProxyTargetGroupResponse' {} a -> s {httpStatus = a} :: ModifyDBProxyTargetGroupResponse)
 
-instance Core.NFData ModifyDBProxyTargetGroupResponse
+instance
+  Prelude.NFData
+    ModifyDBProxyTargetGroupResponse

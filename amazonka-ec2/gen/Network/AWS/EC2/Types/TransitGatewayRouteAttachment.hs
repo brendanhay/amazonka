@@ -23,20 +23,21 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a route attachment.
 --
 -- /See:/ 'newTransitGatewayRouteAttachment' smart constructor.
 data TransitGatewayRouteAttachment = TransitGatewayRouteAttachment'
   { -- | The ID of the resource.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The resource type. Note that the @tgw-peering@ resource type has been
     -- deprecated.
-    resourceType :: Core.Maybe TransitGatewayAttachmentResourceType,
+    resourceType :: Prelude.Maybe TransitGatewayAttachmentResourceType,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Core.Maybe Core.Text
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayRouteAttachment' with all optional fields omitted.
@@ -57,31 +58,33 @@ newTransitGatewayRouteAttachment ::
 newTransitGatewayRouteAttachment =
   TransitGatewayRouteAttachment'
     { resourceId =
-        Core.Nothing,
-      resourceType = Core.Nothing,
-      transitGatewayAttachmentId = Core.Nothing
+        Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      transitGatewayAttachmentId = Prelude.Nothing
     }
 
 -- | The ID of the resource.
-transitGatewayRouteAttachment_resourceId :: Lens.Lens' TransitGatewayRouteAttachment (Core.Maybe Core.Text)
+transitGatewayRouteAttachment_resourceId :: Lens.Lens' TransitGatewayRouteAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayRouteAttachment_resourceId = Lens.lens (\TransitGatewayRouteAttachment' {resourceId} -> resourceId) (\s@TransitGatewayRouteAttachment' {} a -> s {resourceId = a} :: TransitGatewayRouteAttachment)
 
 -- | The resource type. Note that the @tgw-peering@ resource type has been
 -- deprecated.
-transitGatewayRouteAttachment_resourceType :: Lens.Lens' TransitGatewayRouteAttachment (Core.Maybe TransitGatewayAttachmentResourceType)
+transitGatewayRouteAttachment_resourceType :: Lens.Lens' TransitGatewayRouteAttachment (Prelude.Maybe TransitGatewayAttachmentResourceType)
 transitGatewayRouteAttachment_resourceType = Lens.lens (\TransitGatewayRouteAttachment' {resourceType} -> resourceType) (\s@TransitGatewayRouteAttachment' {} a -> s {resourceType = a} :: TransitGatewayRouteAttachment)
 
 -- | The ID of the attachment.
-transitGatewayRouteAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayRouteAttachment (Core.Maybe Core.Text)
+transitGatewayRouteAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayRouteAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayRouteAttachment_transitGatewayAttachmentId = Lens.lens (\TransitGatewayRouteAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayRouteAttachment' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayRouteAttachment)
 
 instance Core.FromXML TransitGatewayRouteAttachment where
   parseXML x =
     TransitGatewayRouteAttachment'
-      Core.<$> (x Core..@? "resourceId")
-      Core.<*> (x Core..@? "resourceType")
-      Core.<*> (x Core..@? "transitGatewayAttachmentId")
+      Prelude.<$> (x Core..@? "resourceId")
+      Prelude.<*> (x Core..@? "resourceType")
+      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
 
-instance Core.Hashable TransitGatewayRouteAttachment
+instance
+  Prelude.Hashable
+    TransitGatewayRouteAttachment
 
-instance Core.NFData TransitGatewayRouteAttachment
+instance Prelude.NFData TransitGatewayRouteAttachment

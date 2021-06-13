@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,16 +70,16 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPutPipelineDefinition' smart constructor.
 data PutPipelineDefinition = PutPipelineDefinition'
   { -- | The parameter values used with the pipeline.
-    parameterValues :: Core.Maybe [ParameterValue],
+    parameterValues :: Prelude.Maybe [ParameterValue],
     -- | The parameter objects used with the pipeline.
-    parameterObjects :: Core.Maybe [ParameterObject],
+    parameterObjects :: Prelude.Maybe [ParameterObject],
     -- | The ID of the pipeline.
-    pipelineId :: Core.Text,
+    pipelineId :: Prelude.Text,
     -- | The objects that define the pipeline. These objects overwrite the
     -- existing pipeline definition.
     pipelineObjects :: [PipelineObject]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPipelineDefinition' with all optional fields omitted.
@@ -98,33 +99,33 @@ data PutPipelineDefinition = PutPipelineDefinition'
 -- existing pipeline definition.
 newPutPipelineDefinition ::
   -- | 'pipelineId'
-  Core.Text ->
+  Prelude.Text ->
   PutPipelineDefinition
 newPutPipelineDefinition pPipelineId_ =
   PutPipelineDefinition'
     { parameterValues =
-        Core.Nothing,
-      parameterObjects = Core.Nothing,
+        Prelude.Nothing,
+      parameterObjects = Prelude.Nothing,
       pipelineId = pPipelineId_,
-      pipelineObjects = Core.mempty
+      pipelineObjects = Prelude.mempty
     }
 
 -- | The parameter values used with the pipeline.
-putPipelineDefinition_parameterValues :: Lens.Lens' PutPipelineDefinition (Core.Maybe [ParameterValue])
-putPipelineDefinition_parameterValues = Lens.lens (\PutPipelineDefinition' {parameterValues} -> parameterValues) (\s@PutPipelineDefinition' {} a -> s {parameterValues = a} :: PutPipelineDefinition) Core.. Lens.mapping Lens._Coerce
+putPipelineDefinition_parameterValues :: Lens.Lens' PutPipelineDefinition (Prelude.Maybe [ParameterValue])
+putPipelineDefinition_parameterValues = Lens.lens (\PutPipelineDefinition' {parameterValues} -> parameterValues) (\s@PutPipelineDefinition' {} a -> s {parameterValues = a} :: PutPipelineDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The parameter objects used with the pipeline.
-putPipelineDefinition_parameterObjects :: Lens.Lens' PutPipelineDefinition (Core.Maybe [ParameterObject])
-putPipelineDefinition_parameterObjects = Lens.lens (\PutPipelineDefinition' {parameterObjects} -> parameterObjects) (\s@PutPipelineDefinition' {} a -> s {parameterObjects = a} :: PutPipelineDefinition) Core.. Lens.mapping Lens._Coerce
+putPipelineDefinition_parameterObjects :: Lens.Lens' PutPipelineDefinition (Prelude.Maybe [ParameterObject])
+putPipelineDefinition_parameterObjects = Lens.lens (\PutPipelineDefinition' {parameterObjects} -> parameterObjects) (\s@PutPipelineDefinition' {} a -> s {parameterObjects = a} :: PutPipelineDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the pipeline.
-putPipelineDefinition_pipelineId :: Lens.Lens' PutPipelineDefinition Core.Text
+putPipelineDefinition_pipelineId :: Lens.Lens' PutPipelineDefinition Prelude.Text
 putPipelineDefinition_pipelineId = Lens.lens (\PutPipelineDefinition' {pipelineId} -> pipelineId) (\s@PutPipelineDefinition' {} a -> s {pipelineId = a} :: PutPipelineDefinition)
 
 -- | The objects that define the pipeline. These objects overwrite the
 -- existing pipeline definition.
 putPipelineDefinition_pipelineObjects :: Lens.Lens' PutPipelineDefinition [PipelineObject]
-putPipelineDefinition_pipelineObjects = Lens.lens (\PutPipelineDefinition' {pipelineObjects} -> pipelineObjects) (\s@PutPipelineDefinition' {} a -> s {pipelineObjects = a} :: PutPipelineDefinition) Core.. Lens._Coerce
+putPipelineDefinition_pipelineObjects = Lens.lens (\PutPipelineDefinition' {pipelineObjects} -> pipelineObjects) (\s@PutPipelineDefinition' {} a -> s {pipelineObjects = a} :: PutPipelineDefinition) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutPipelineDefinition where
   type
@@ -135,50 +136,54 @@ instance Core.AWSRequest PutPipelineDefinition where
     Response.receiveJSON
       ( \s h x ->
           PutPipelineDefinitionResponse'
-            Core.<$> (x Core..?> "validationErrors" Core..!@ Core.mempty)
-            Core.<*> ( x Core..?> "validationWarnings"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "errored")
+            Prelude.<$> ( x Core..?> "validationErrors"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "validationWarnings"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "errored")
       )
 
-instance Core.Hashable PutPipelineDefinition
+instance Prelude.Hashable PutPipelineDefinition
 
-instance Core.NFData PutPipelineDefinition
+instance Prelude.NFData PutPipelineDefinition
 
 instance Core.ToHeaders PutPipelineDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DataPipeline.PutPipelineDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutPipelineDefinition where
   toJSON PutPipelineDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("parameterValues" Core..=)
-              Core.<$> parameterValues,
+              Prelude.<$> parameterValues,
             ("parameterObjects" Core..=)
-              Core.<$> parameterObjects,
-            Core.Just ("pipelineId" Core..= pipelineId),
-            Core.Just
+              Prelude.<$> parameterObjects,
+            Prelude.Just ("pipelineId" Core..= pipelineId),
+            Prelude.Just
               ("pipelineObjects" Core..= pipelineObjects)
           ]
       )
 
 instance Core.ToPath PutPipelineDefinition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutPipelineDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of PutPipelineDefinition.
 --
@@ -186,19 +191,19 @@ instance Core.ToQuery PutPipelineDefinition where
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
   { -- | The validation errors that are associated with the objects defined in
     -- @pipelineObjects@.
-    validationErrors :: Core.Maybe [ValidationError],
+    validationErrors :: Prelude.Maybe [ValidationError],
     -- | The validation warnings that are associated with the objects defined in
     -- @pipelineObjects@.
-    validationWarnings :: Core.Maybe [ValidationWarning],
+    validationWarnings :: Prelude.Maybe [ValidationWarning],
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Indicates whether there were validation errors, and the pipeline
     -- definition is stored but cannot be activated until you correct the
     -- pipeline and call @PutPipelineDefinition@ to commit the corrected
     -- pipeline.
-    errored :: Core.Bool
+    errored :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPipelineDefinitionResponse' with all optional fields omitted.
@@ -222,40 +227,40 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
 -- pipeline.
 newPutPipelineDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'errored'
-  Core.Bool ->
+  Prelude.Bool ->
   PutPipelineDefinitionResponse
 newPutPipelineDefinitionResponse
   pHttpStatus_
   pErrored_ =
     PutPipelineDefinitionResponse'
       { validationErrors =
-          Core.Nothing,
-        validationWarnings = Core.Nothing,
+          Prelude.Nothing,
+        validationWarnings = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         errored = pErrored_
       }
 
 -- | The validation errors that are associated with the objects defined in
 -- @pipelineObjects@.
-putPipelineDefinitionResponse_validationErrors :: Lens.Lens' PutPipelineDefinitionResponse (Core.Maybe [ValidationError])
-putPipelineDefinitionResponse_validationErrors = Lens.lens (\PutPipelineDefinitionResponse' {validationErrors} -> validationErrors) (\s@PutPipelineDefinitionResponse' {} a -> s {validationErrors = a} :: PutPipelineDefinitionResponse) Core.. Lens.mapping Lens._Coerce
+putPipelineDefinitionResponse_validationErrors :: Lens.Lens' PutPipelineDefinitionResponse (Prelude.Maybe [ValidationError])
+putPipelineDefinitionResponse_validationErrors = Lens.lens (\PutPipelineDefinitionResponse' {validationErrors} -> validationErrors) (\s@PutPipelineDefinitionResponse' {} a -> s {validationErrors = a} :: PutPipelineDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The validation warnings that are associated with the objects defined in
 -- @pipelineObjects@.
-putPipelineDefinitionResponse_validationWarnings :: Lens.Lens' PutPipelineDefinitionResponse (Core.Maybe [ValidationWarning])
-putPipelineDefinitionResponse_validationWarnings = Lens.lens (\PutPipelineDefinitionResponse' {validationWarnings} -> validationWarnings) (\s@PutPipelineDefinitionResponse' {} a -> s {validationWarnings = a} :: PutPipelineDefinitionResponse) Core.. Lens.mapping Lens._Coerce
+putPipelineDefinitionResponse_validationWarnings :: Lens.Lens' PutPipelineDefinitionResponse (Prelude.Maybe [ValidationWarning])
+putPipelineDefinitionResponse_validationWarnings = Lens.lens (\PutPipelineDefinitionResponse' {validationWarnings} -> validationWarnings) (\s@PutPipelineDefinitionResponse' {} a -> s {validationWarnings = a} :: PutPipelineDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putPipelineDefinitionResponse_httpStatus :: Lens.Lens' PutPipelineDefinitionResponse Core.Int
+putPipelineDefinitionResponse_httpStatus :: Lens.Lens' PutPipelineDefinitionResponse Prelude.Int
 putPipelineDefinitionResponse_httpStatus = Lens.lens (\PutPipelineDefinitionResponse' {httpStatus} -> httpStatus) (\s@PutPipelineDefinitionResponse' {} a -> s {httpStatus = a} :: PutPipelineDefinitionResponse)
 
 -- | Indicates whether there were validation errors, and the pipeline
 -- definition is stored but cannot be activated until you correct the
 -- pipeline and call @PutPipelineDefinition@ to commit the corrected
 -- pipeline.
-putPipelineDefinitionResponse_errored :: Lens.Lens' PutPipelineDefinitionResponse Core.Bool
+putPipelineDefinitionResponse_errored :: Lens.Lens' PutPipelineDefinitionResponse Prelude.Bool
 putPipelineDefinitionResponse_errored = Lens.lens (\PutPipelineDefinitionResponse' {errored} -> errored) (\s@PutPipelineDefinitionResponse' {} a -> s {errored = a} :: PutPipelineDefinitionResponse)
 
-instance Core.NFData PutPipelineDefinitionResponse
+instance Prelude.NFData PutPipelineDefinitionResponse

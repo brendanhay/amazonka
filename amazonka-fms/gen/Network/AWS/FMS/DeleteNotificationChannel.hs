@@ -37,6 +37,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -44,7 +45,7 @@ import qualified Network.AWS.Response as Response
 data DeleteNotificationChannel = DeleteNotificationChannel'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNotificationChannel' with all optional fields omitted.
@@ -64,37 +65,39 @@ instance Core.AWSRequest DeleteNotificationChannel where
     Response.receiveNull
       DeleteNotificationChannelResponse'
 
-instance Core.Hashable DeleteNotificationChannel
+instance Prelude.Hashable DeleteNotificationChannel
 
-instance Core.NFData DeleteNotificationChannel
+instance Prelude.NFData DeleteNotificationChannel
 
 instance Core.ToHeaders DeleteNotificationChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.DeleteNotificationChannel" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteNotificationChannel where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DeleteNotificationChannel where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteNotificationChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteNotificationChannelResponse' smart constructor.
 data DeleteNotificationChannelResponse = DeleteNotificationChannelResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNotificationChannelResponse' with all optional fields omitted.
@@ -106,5 +109,5 @@ newDeleteNotificationChannelResponse =
   DeleteNotificationChannelResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteNotificationChannelResponse

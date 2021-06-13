@@ -21,17 +21,18 @@ module Network.AWS.Inspector.Types.TimestampRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used in the AssessmentRunFilter data type.
 --
 -- /See:/ 'newTimestampRange' smart constructor.
 data TimestampRange = TimestampRange'
   { -- | The minimum value of the timestamp range.
-    beginDate :: Core.Maybe Core.POSIX,
+    beginDate :: Prelude.Maybe Core.POSIX,
     -- | The maximum value of the timestamp range.
-    endDate :: Core.Maybe Core.POSIX
+    endDate :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimestampRange' with all optional fields omitted.
@@ -48,27 +49,27 @@ newTimestampRange ::
   TimestampRange
 newTimestampRange =
   TimestampRange'
-    { beginDate = Core.Nothing,
-      endDate = Core.Nothing
+    { beginDate = Prelude.Nothing,
+      endDate = Prelude.Nothing
     }
 
 -- | The minimum value of the timestamp range.
-timestampRange_beginDate :: Lens.Lens' TimestampRange (Core.Maybe Core.UTCTime)
-timestampRange_beginDate = Lens.lens (\TimestampRange' {beginDate} -> beginDate) (\s@TimestampRange' {} a -> s {beginDate = a} :: TimestampRange) Core.. Lens.mapping Core._Time
+timestampRange_beginDate :: Lens.Lens' TimestampRange (Prelude.Maybe Prelude.UTCTime)
+timestampRange_beginDate = Lens.lens (\TimestampRange' {beginDate} -> beginDate) (\s@TimestampRange' {} a -> s {beginDate = a} :: TimestampRange) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum value of the timestamp range.
-timestampRange_endDate :: Lens.Lens' TimestampRange (Core.Maybe Core.UTCTime)
-timestampRange_endDate = Lens.lens (\TimestampRange' {endDate} -> endDate) (\s@TimestampRange' {} a -> s {endDate = a} :: TimestampRange) Core.. Lens.mapping Core._Time
+timestampRange_endDate :: Lens.Lens' TimestampRange (Prelude.Maybe Prelude.UTCTime)
+timestampRange_endDate = Lens.lens (\TimestampRange' {endDate} -> endDate) (\s@TimestampRange' {} a -> s {endDate = a} :: TimestampRange) Prelude.. Lens.mapping Core._Time
 
-instance Core.Hashable TimestampRange
+instance Prelude.Hashable TimestampRange
 
-instance Core.NFData TimestampRange
+instance Prelude.NFData TimestampRange
 
 instance Core.ToJSON TimestampRange where
   toJSON TimestampRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("beginDate" Core..=) Core.<$> beginDate,
-            ("endDate" Core..=) Core.<$> endDate
+      ( Prelude.catMaybes
+          [ ("beginDate" Core..=) Prelude.<$> beginDate,
+            ("endDate" Core..=) Prelude.<$> endDate
           ]
       )

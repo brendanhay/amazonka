@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.TargetGroupTuple where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about how traffic will be distributed between multiple
 -- target groups in a forward rule.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTargetGroupTuple' smart constructor.
 data TargetGroupTuple = TargetGroupTuple'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupArn :: Core.Maybe Core.Text,
+    targetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The weight. The range is 0 to 999.
-    weight :: Core.Maybe Core.Int
+    weight :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetGroupTuple' with all optional fields omitted.
@@ -49,31 +50,31 @@ newTargetGroupTuple ::
   TargetGroupTuple
 newTargetGroupTuple =
   TargetGroupTuple'
-    { targetGroupArn = Core.Nothing,
-      weight = Core.Nothing
+    { targetGroupArn = Prelude.Nothing,
+      weight = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-targetGroupTuple_targetGroupArn :: Lens.Lens' TargetGroupTuple (Core.Maybe Core.Text)
+targetGroupTuple_targetGroupArn :: Lens.Lens' TargetGroupTuple (Prelude.Maybe Prelude.Text)
 targetGroupTuple_targetGroupArn = Lens.lens (\TargetGroupTuple' {targetGroupArn} -> targetGroupArn) (\s@TargetGroupTuple' {} a -> s {targetGroupArn = a} :: TargetGroupTuple)
 
 -- | The weight. The range is 0 to 999.
-targetGroupTuple_weight :: Lens.Lens' TargetGroupTuple (Core.Maybe Core.Int)
+targetGroupTuple_weight :: Lens.Lens' TargetGroupTuple (Prelude.Maybe Prelude.Int)
 targetGroupTuple_weight = Lens.lens (\TargetGroupTuple' {weight} -> weight) (\s@TargetGroupTuple' {} a -> s {weight = a} :: TargetGroupTuple)
 
 instance Core.FromXML TargetGroupTuple where
   parseXML x =
     TargetGroupTuple'
-      Core.<$> (x Core..@? "TargetGroupArn")
-      Core.<*> (x Core..@? "Weight")
+      Prelude.<$> (x Core..@? "TargetGroupArn")
+      Prelude.<*> (x Core..@? "Weight")
 
-instance Core.Hashable TargetGroupTuple
+instance Prelude.Hashable TargetGroupTuple
 
-instance Core.NFData TargetGroupTuple
+instance Prelude.NFData TargetGroupTuple
 
 instance Core.ToQuery TargetGroupTuple where
   toQuery TargetGroupTuple' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "TargetGroupArn" Core.=: targetGroupArn,
         "Weight" Core.=: weight
       ]

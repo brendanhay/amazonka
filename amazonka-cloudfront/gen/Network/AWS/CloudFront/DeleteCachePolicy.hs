@@ -47,6 +47,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +56,12 @@ data DeleteCachePolicy = DeleteCachePolicy'
   { -- | The version of the cache policy that you are deleting. The version is
     -- the cache policy’s @ETag@ value, which you can get using
     -- @ListCachePolicies@, @GetCachePolicy@, or @GetCachePolicyConfig@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the cache policy that you are deleting. To get
     -- the identifier, you can use @ListCachePolicies@.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCachePolicy' with all optional fields omitted.
@@ -78,23 +79,23 @@ data DeleteCachePolicy = DeleteCachePolicy'
 -- the identifier, you can use @ListCachePolicies@.
 newDeleteCachePolicy ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCachePolicy
 newDeleteCachePolicy pId_ =
   DeleteCachePolicy'
-    { ifMatch = Core.Nothing,
+    { ifMatch = Prelude.Nothing,
       id = pId_
     }
 
 -- | The version of the cache policy that you are deleting. The version is
 -- the cache policy’s @ETag@ value, which you can get using
 -- @ListCachePolicies@, @GetCachePolicy@, or @GetCachePolicyConfig@.
-deleteCachePolicy_ifMatch :: Lens.Lens' DeleteCachePolicy (Core.Maybe Core.Text)
+deleteCachePolicy_ifMatch :: Lens.Lens' DeleteCachePolicy (Prelude.Maybe Prelude.Text)
 deleteCachePolicy_ifMatch = Lens.lens (\DeleteCachePolicy' {ifMatch} -> ifMatch) (\s@DeleteCachePolicy' {} a -> s {ifMatch = a} :: DeleteCachePolicy)
 
 -- | The unique identifier for the cache policy that you are deleting. To get
 -- the identifier, you can use @ListCachePolicies@.
-deleteCachePolicy_id :: Lens.Lens' DeleteCachePolicy Core.Text
+deleteCachePolicy_id :: Lens.Lens' DeleteCachePolicy Prelude.Text
 deleteCachePolicy_id = Lens.lens (\DeleteCachePolicy' {id} -> id) (\s@DeleteCachePolicy' {} a -> s {id = a} :: DeleteCachePolicy)
 
 instance Core.AWSRequest DeleteCachePolicy where
@@ -105,27 +106,27 @@ instance Core.AWSRequest DeleteCachePolicy where
   response =
     Response.receiveNull DeleteCachePolicyResponse'
 
-instance Core.Hashable DeleteCachePolicy
+instance Prelude.Hashable DeleteCachePolicy
 
-instance Core.NFData DeleteCachePolicy
+instance Prelude.NFData DeleteCachePolicy
 
 instance Core.ToHeaders DeleteCachePolicy where
   toHeaders DeleteCachePolicy' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath DeleteCachePolicy where
   toPath DeleteCachePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/cache-policy/", Core.toBS id]
 
 instance Core.ToQuery DeleteCachePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCachePolicyResponse' smart constructor.
 data DeleteCachePolicyResponse = DeleteCachePolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCachePolicyResponse' with all optional fields omitted.
@@ -136,4 +137,4 @@ newDeleteCachePolicyResponse ::
 newDeleteCachePolicyResponse =
   DeleteCachePolicyResponse'
 
-instance Core.NFData DeleteCachePolicyResponse
+instance Prelude.NFData DeleteCachePolicyResponse

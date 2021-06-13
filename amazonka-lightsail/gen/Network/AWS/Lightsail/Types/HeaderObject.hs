@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ForwardValues
 import Network.AWS.Lightsail.Types.HeaderEnum
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the request headers that a Lightsail distribution bases
 -- caching on.
@@ -39,7 +40,7 @@ import Network.AWS.Lightsail.Types.HeaderEnum
 -- /See:/ 'newHeaderObject' smart constructor.
 data HeaderObject = HeaderObject'
   { -- | The specific headers to forward to your distribution\'s origin.
-    headersAllowList :: Core.Maybe [HeaderEnum],
+    headersAllowList :: Prelude.Maybe [HeaderEnum],
     -- | The headers that you want your distribution to forward to your origin
     -- and base caching on.
     --
@@ -51,9 +52,9 @@ data HeaderObject = HeaderObject'
     --
     -- -   __@allow-list@__ - Forward only the headers you specify using the
     --     @headersAllowList@ parameter.
-    option :: Core.Maybe ForwardValues
+    option :: Prelude.Maybe ForwardValues
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HeaderObject' with all optional fields omitted.
@@ -80,13 +81,13 @@ newHeaderObject ::
   HeaderObject
 newHeaderObject =
   HeaderObject'
-    { headersAllowList = Core.Nothing,
-      option = Core.Nothing
+    { headersAllowList = Prelude.Nothing,
+      option = Prelude.Nothing
     }
 
 -- | The specific headers to forward to your distribution\'s origin.
-headerObject_headersAllowList :: Lens.Lens' HeaderObject (Core.Maybe [HeaderEnum])
-headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Core.. Lens.mapping Lens._Coerce
+headerObject_headersAllowList :: Lens.Lens' HeaderObject (Prelude.Maybe [HeaderEnum])
+headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The headers that you want your distribution to forward to your origin
 -- and base caching on.
@@ -99,7 +100,7 @@ headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> 
 --
 -- -   __@allow-list@__ - Forward only the headers you specify using the
 --     @headersAllowList@ parameter.
-headerObject_option :: Lens.Lens' HeaderObject (Core.Maybe ForwardValues)
+headerObject_option :: Lens.Lens' HeaderObject (Prelude.Maybe ForwardValues)
 headerObject_option = Lens.lens (\HeaderObject' {option} -> option) (\s@HeaderObject' {} a -> s {option = a} :: HeaderObject)
 
 instance Core.FromJSON HeaderObject where
@@ -108,20 +109,22 @@ instance Core.FromJSON HeaderObject where
       "HeaderObject"
       ( \x ->
           HeaderObject'
-            Core.<$> (x Core..:? "headersAllowList" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "option")
+            Prelude.<$> ( x Core..:? "headersAllowList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "option")
       )
 
-instance Core.Hashable HeaderObject
+instance Prelude.Hashable HeaderObject
 
-instance Core.NFData HeaderObject
+instance Prelude.NFData HeaderObject
 
 instance Core.ToJSON HeaderObject where
   toJSON HeaderObject' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("headersAllowList" Core..=)
-              Core.<$> headersAllowList,
-            ("option" Core..=) Core.<$> option
+              Prelude.<$> headersAllowList,
+            ("option" Core..=) Prelude.<$> option
           ]
       )

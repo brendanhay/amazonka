@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.BoundingBox where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the bounding box around the label, face, text or personal
 -- protective equipment. The @left@ (x-coordinate) and @top@ (y-coordinate)
@@ -48,15 +49,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newBoundingBox' smart constructor.
 data BoundingBox = BoundingBox'
   { -- | Height of the bounding box as a ratio of the overall image height.
-    height :: Core.Maybe Core.Double,
+    height :: Prelude.Maybe Prelude.Double,
     -- | Width of the bounding box as a ratio of the overall image width.
-    width :: Core.Maybe Core.Double,
+    width :: Prelude.Maybe Prelude.Double,
     -- | Top coordinate of the bounding box as a ratio of overall image height.
-    top :: Core.Maybe Core.Double,
+    top :: Prelude.Maybe Prelude.Double,
     -- | Left coordinate of the bounding box as a ratio of overall image width.
-    left :: Core.Maybe Core.Double
+    left :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BoundingBox' with all optional fields omitted.
@@ -77,26 +78,26 @@ newBoundingBox ::
   BoundingBox
 newBoundingBox =
   BoundingBox'
-    { height = Core.Nothing,
-      width = Core.Nothing,
-      top = Core.Nothing,
-      left = Core.Nothing
+    { height = Prelude.Nothing,
+      width = Prelude.Nothing,
+      top = Prelude.Nothing,
+      left = Prelude.Nothing
     }
 
 -- | Height of the bounding box as a ratio of the overall image height.
-boundingBox_height :: Lens.Lens' BoundingBox (Core.Maybe Core.Double)
+boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
 
 -- | Width of the bounding box as a ratio of the overall image width.
-boundingBox_width :: Lens.Lens' BoundingBox (Core.Maybe Core.Double)
+boundingBox_width :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' {} a -> s {width = a} :: BoundingBox)
 
 -- | Top coordinate of the bounding box as a ratio of overall image height.
-boundingBox_top :: Lens.Lens' BoundingBox (Core.Maybe Core.Double)
+boundingBox_top :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_top = Lens.lens (\BoundingBox' {top} -> top) (\s@BoundingBox' {} a -> s {top = a} :: BoundingBox)
 
 -- | Left coordinate of the bounding box as a ratio of overall image width.
-boundingBox_left :: Lens.Lens' BoundingBox (Core.Maybe Core.Double)
+boundingBox_left :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_left = Lens.lens (\BoundingBox' {left} -> left) (\s@BoundingBox' {} a -> s {left = a} :: BoundingBox)
 
 instance Core.FromJSON BoundingBox where
@@ -105,23 +106,23 @@ instance Core.FromJSON BoundingBox where
       "BoundingBox"
       ( \x ->
           BoundingBox'
-            Core.<$> (x Core..:? "Height")
-            Core.<*> (x Core..:? "Width")
-            Core.<*> (x Core..:? "Top")
-            Core.<*> (x Core..:? "Left")
+            Prelude.<$> (x Core..:? "Height")
+            Prelude.<*> (x Core..:? "Width")
+            Prelude.<*> (x Core..:? "Top")
+            Prelude.<*> (x Core..:? "Left")
       )
 
-instance Core.Hashable BoundingBox
+instance Prelude.Hashable BoundingBox
 
-instance Core.NFData BoundingBox
+instance Prelude.NFData BoundingBox
 
 instance Core.ToJSON BoundingBox where
   toJSON BoundingBox' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Height" Core..=) Core.<$> height,
-            ("Width" Core..=) Core.<$> width,
-            ("Top" Core..=) Core.<$> top,
-            ("Left" Core..=) Core.<$> left
+      ( Prelude.catMaybes
+          [ ("Height" Core..=) Prelude.<$> height,
+            ("Width" Core..=) Prelude.<$> width,
+            ("Top" Core..=) Prelude.<$> top,
+            ("Left" Core..=) Prelude.<$> left
           ]
       )

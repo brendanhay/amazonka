@@ -54,6 +54,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,13 +64,13 @@ import qualified Network.AWS.Response as Response
 data UpdateAuthorizer = UpdateAuthorizer'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the Authorizer resource.
-    authorizerId :: Core.Text
+    authorizerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAuthorizer' with all optional fields omitted.
@@ -87,28 +88,29 @@ data UpdateAuthorizer = UpdateAuthorizer'
 -- 'authorizerId', 'updateAuthorizer_authorizerId' - [Required] The identifier of the Authorizer resource.
 newUpdateAuthorizer ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authorizerId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateAuthorizer
 newUpdateAuthorizer pRestApiId_ pAuthorizerId_ =
   UpdateAuthorizer'
-    { patchOperations = Core.Nothing,
+    { patchOperations =
+        Prelude.Nothing,
       restApiId = pRestApiId_,
       authorizerId = pAuthorizerId_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateAuthorizer_patchOperations :: Lens.Lens' UpdateAuthorizer (Core.Maybe [PatchOperation])
-updateAuthorizer_patchOperations = Lens.lens (\UpdateAuthorizer' {patchOperations} -> patchOperations) (\s@UpdateAuthorizer' {} a -> s {patchOperations = a} :: UpdateAuthorizer) Core.. Lens.mapping Lens._Coerce
+updateAuthorizer_patchOperations :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe [PatchOperation])
+updateAuthorizer_patchOperations = Lens.lens (\UpdateAuthorizer' {patchOperations} -> patchOperations) (\s@UpdateAuthorizer' {} a -> s {patchOperations = a} :: UpdateAuthorizer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateAuthorizer_restApiId :: Lens.Lens' UpdateAuthorizer Core.Text
+updateAuthorizer_restApiId :: Lens.Lens' UpdateAuthorizer Prelude.Text
 updateAuthorizer_restApiId = Lens.lens (\UpdateAuthorizer' {restApiId} -> restApiId) (\s@UpdateAuthorizer' {} a -> s {restApiId = a} :: UpdateAuthorizer)
 
 -- | [Required] The identifier of the Authorizer resource.
-updateAuthorizer_authorizerId :: Lens.Lens' UpdateAuthorizer Core.Text
+updateAuthorizer_authorizerId :: Lens.Lens' UpdateAuthorizer Prelude.Text
 updateAuthorizer_authorizerId = Lens.lens (\UpdateAuthorizer' {authorizerId} -> authorizerId) (\s@UpdateAuthorizer' {} a -> s {authorizerId = a} :: UpdateAuthorizer)
 
 instance Core.AWSRequest UpdateAuthorizer where
@@ -118,31 +120,31 @@ instance Core.AWSRequest UpdateAuthorizer where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateAuthorizer
+instance Prelude.Hashable UpdateAuthorizer
 
-instance Core.NFData UpdateAuthorizer
+instance Prelude.NFData UpdateAuthorizer
 
 instance Core.ToHeaders UpdateAuthorizer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateAuthorizer where
   toJSON UpdateAuthorizer' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateAuthorizer where
   toPath UpdateAuthorizer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/authorizers/",
@@ -150,4 +152,4 @@ instance Core.ToPath UpdateAuthorizer where
       ]
 
 instance Core.ToQuery UpdateAuthorizer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

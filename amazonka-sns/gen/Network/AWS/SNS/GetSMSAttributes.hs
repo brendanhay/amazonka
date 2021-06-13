@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -58,9 +59,9 @@ data GetSMSAttributes = GetSMSAttributes'
     -- <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes>.
     --
     -- If you don\'t use this parameter, Amazon SNS returns all SMS attributes.
-    attributes :: Core.Maybe [Core.Text]
+    attributes :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSMSAttributes' with all optional fields omitted.
@@ -80,7 +81,7 @@ data GetSMSAttributes = GetSMSAttributes'
 newGetSMSAttributes ::
   GetSMSAttributes
 newGetSMSAttributes =
-  GetSMSAttributes' {attributes = Core.Nothing}
+  GetSMSAttributes' {attributes = Prelude.Nothing}
 
 -- | A list of the individual attribute names, such as @MonthlySpendLimit@,
 -- for which you want values.
@@ -89,8 +90,8 @@ newGetSMSAttributes =
 -- <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes>.
 --
 -- If you don\'t use this parameter, Amazon SNS returns all SMS attributes.
-getSMSAttributes_attributes :: Lens.Lens' GetSMSAttributes (Core.Maybe [Core.Text])
-getSMSAttributes_attributes = Lens.lens (\GetSMSAttributes' {attributes} -> attributes) (\s@GetSMSAttributes' {} a -> s {attributes = a} :: GetSMSAttributes) Core.. Lens.mapping Lens._Coerce
+getSMSAttributes_attributes :: Lens.Lens' GetSMSAttributes (Prelude.Maybe [Prelude.Text])
+getSMSAttributes_attributes = Lens.lens (\GetSMSAttributes' {attributes} -> attributes) (\s@GetSMSAttributes' {} a -> s {attributes = a} :: GetSMSAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest GetSMSAttributes where
   type
@@ -102,31 +103,32 @@ instance Core.AWSRequest GetSMSAttributes where
       "GetSMSAttributesResult"
       ( \s h x ->
           GetSMSAttributesResponse'
-            Core.<$> ( x Core..@? "attributes" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSMSAttributes
+instance Prelude.Hashable GetSMSAttributes
 
-instance Core.NFData GetSMSAttributes
+instance Prelude.NFData GetSMSAttributes
 
 instance Core.ToHeaders GetSMSAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetSMSAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSMSAttributes where
   toQuery GetSMSAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSMSAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("GetSMSAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "attributes"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> attributes)
+            (Core.toQueryList "member" Prelude.<$> attributes)
       ]
 
 -- | The response from the @GetSMSAttributes@ request.
@@ -134,11 +136,11 @@ instance Core.ToQuery GetSMSAttributes where
 -- /See:/ 'newGetSMSAttributesResponse' smart constructor.
 data GetSMSAttributesResponse = GetSMSAttributesResponse'
   { -- | The SMS attribute names and their values.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSMSAttributesResponse' with all optional fields omitted.
@@ -153,21 +155,21 @@ data GetSMSAttributesResponse = GetSMSAttributesResponse'
 -- 'httpStatus', 'getSMSAttributesResponse_httpStatus' - The response's http status code.
 newGetSMSAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSMSAttributesResponse
 newGetSMSAttributesResponse pHttpStatus_ =
   GetSMSAttributesResponse'
     { attributes =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The SMS attribute names and their values.
-getSMSAttributesResponse_attributes :: Lens.Lens' GetSMSAttributesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getSMSAttributesResponse_attributes = Lens.lens (\GetSMSAttributesResponse' {attributes} -> attributes) (\s@GetSMSAttributesResponse' {} a -> s {attributes = a} :: GetSMSAttributesResponse) Core.. Lens.mapping Lens._Coerce
+getSMSAttributesResponse_attributes :: Lens.Lens' GetSMSAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getSMSAttributesResponse_attributes = Lens.lens (\GetSMSAttributesResponse' {attributes} -> attributes) (\s@GetSMSAttributesResponse' {} a -> s {attributes = a} :: GetSMSAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getSMSAttributesResponse_httpStatus :: Lens.Lens' GetSMSAttributesResponse Core.Int
+getSMSAttributesResponse_httpStatus :: Lens.Lens' GetSMSAttributesResponse Prelude.Int
 getSMSAttributesResponse_httpStatus = Lens.lens (\GetSMSAttributesResponse' {httpStatus} -> httpStatus) (\s@GetSMSAttributesResponse' {} a -> s {httpStatus = a} :: GetSMSAttributesResponse)
 
-instance Core.NFData GetSMSAttributesResponse
+instance Prelude.NFData GetSMSAttributesResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.Workteam where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MemberDefinition
 import Network.AWS.SageMaker.Types.NotificationConfiguration
 
@@ -29,21 +30,21 @@ import Network.AWS.SageMaker.Types.NotificationConfiguration
 -- /See:/ 'newWorkteam' smart constructor.
 data Workteam = Workteam'
   { -- | The Amazon Resource Name (ARN) of the workforce.
-    workforceArn :: Core.Maybe Core.Text,
+    workforceArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the work team was last updated (timestamp).
-    lastUpdatedDate :: Core.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the work team was created (timestamp).
-    createDate :: Core.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Core.POSIX,
     -- | Configures SNS notifications of available or expiring work items for
     -- work teams.
-    notificationConfiguration :: Core.Maybe NotificationConfiguration,
+    notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
     -- | The Amazon Marketplace identifier for a vendor\'s work team.
-    productListingIds :: Core.Maybe [Core.Text],
+    productListingIds :: Prelude.Maybe [Prelude.Text],
     -- | The URI of the labeling job\'s user interface. Workers open this URI to
     -- start labeling your data objects.
-    subDomain :: Core.Maybe Core.Text,
+    subDomain :: Prelude.Maybe Prelude.Text,
     -- | The name of the work team.
-    workteamName :: Core.Text,
+    workteamName :: Prelude.Text,
     -- | A list of @MemberDefinition@ objects that contains objects that identify
     -- the workers that make up the work team.
     --
@@ -51,13 +52,13 @@ data Workteam = Workteam'
     -- Provider (IdP). For private workforces created using Amazon Cognito use
     -- @CognitoMemberDefinition@. For workforces created using your own OIDC
     -- identity provider (IdP) use @OidcMemberDefinition@.
-    memberDefinitions :: Core.NonEmpty MemberDefinition,
+    memberDefinitions :: Prelude.NonEmpty MemberDefinition,
     -- | The Amazon Resource Name (ARN) that identifies the work team.
-    workteamArn :: Core.Text,
+    workteamArn :: Prelude.Text,
     -- | A description of the work team.
-    description :: Core.Text
+    description :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Workteam' with all optional fields omitted.
@@ -96,13 +97,13 @@ data Workteam = Workteam'
 -- 'description', 'workteam_description' - A description of the work team.
 newWorkteam ::
   -- | 'workteamName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'memberDefinitions'
-  Core.NonEmpty MemberDefinition ->
+  Prelude.NonEmpty MemberDefinition ->
   -- | 'workteamArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   Workteam
 newWorkteam
   pWorkteamName_
@@ -110,12 +111,12 @@ newWorkteam
   pWorkteamArn_
   pDescription_ =
     Workteam'
-      { workforceArn = Core.Nothing,
-        lastUpdatedDate = Core.Nothing,
-        createDate = Core.Nothing,
-        notificationConfiguration = Core.Nothing,
-        productListingIds = Core.Nothing,
-        subDomain = Core.Nothing,
+      { workforceArn = Prelude.Nothing,
+        lastUpdatedDate = Prelude.Nothing,
+        createDate = Prelude.Nothing,
+        notificationConfiguration = Prelude.Nothing,
+        productListingIds = Prelude.Nothing,
+        subDomain = Prelude.Nothing,
         workteamName = pWorkteamName_,
         memberDefinitions =
           Lens._Coerce Lens.# pMemberDefinitions_,
@@ -124,33 +125,33 @@ newWorkteam
       }
 
 -- | The Amazon Resource Name (ARN) of the workforce.
-workteam_workforceArn :: Lens.Lens' Workteam (Core.Maybe Core.Text)
+workteam_workforceArn :: Lens.Lens' Workteam (Prelude.Maybe Prelude.Text)
 workteam_workforceArn = Lens.lens (\Workteam' {workforceArn} -> workforceArn) (\s@Workteam' {} a -> s {workforceArn = a} :: Workteam)
 
 -- | The date and time that the work team was last updated (timestamp).
-workteam_lastUpdatedDate :: Lens.Lens' Workteam (Core.Maybe Core.UTCTime)
-workteam_lastUpdatedDate = Lens.lens (\Workteam' {lastUpdatedDate} -> lastUpdatedDate) (\s@Workteam' {} a -> s {lastUpdatedDate = a} :: Workteam) Core.. Lens.mapping Core._Time
+workteam_lastUpdatedDate :: Lens.Lens' Workteam (Prelude.Maybe Prelude.UTCTime)
+workteam_lastUpdatedDate = Lens.lens (\Workteam' {lastUpdatedDate} -> lastUpdatedDate) (\s@Workteam' {} a -> s {lastUpdatedDate = a} :: Workteam) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time that the work team was created (timestamp).
-workteam_createDate :: Lens.Lens' Workteam (Core.Maybe Core.UTCTime)
-workteam_createDate = Lens.lens (\Workteam' {createDate} -> createDate) (\s@Workteam' {} a -> s {createDate = a} :: Workteam) Core.. Lens.mapping Core._Time
+workteam_createDate :: Lens.Lens' Workteam (Prelude.Maybe Prelude.UTCTime)
+workteam_createDate = Lens.lens (\Workteam' {createDate} -> createDate) (\s@Workteam' {} a -> s {createDate = a} :: Workteam) Prelude.. Lens.mapping Core._Time
 
 -- | Configures SNS notifications of available or expiring work items for
 -- work teams.
-workteam_notificationConfiguration :: Lens.Lens' Workteam (Core.Maybe NotificationConfiguration)
+workteam_notificationConfiguration :: Lens.Lens' Workteam (Prelude.Maybe NotificationConfiguration)
 workteam_notificationConfiguration = Lens.lens (\Workteam' {notificationConfiguration} -> notificationConfiguration) (\s@Workteam' {} a -> s {notificationConfiguration = a} :: Workteam)
 
 -- | The Amazon Marketplace identifier for a vendor\'s work team.
-workteam_productListingIds :: Lens.Lens' Workteam (Core.Maybe [Core.Text])
-workteam_productListingIds = Lens.lens (\Workteam' {productListingIds} -> productListingIds) (\s@Workteam' {} a -> s {productListingIds = a} :: Workteam) Core.. Lens.mapping Lens._Coerce
+workteam_productListingIds :: Lens.Lens' Workteam (Prelude.Maybe [Prelude.Text])
+workteam_productListingIds = Lens.lens (\Workteam' {productListingIds} -> productListingIds) (\s@Workteam' {} a -> s {productListingIds = a} :: Workteam) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URI of the labeling job\'s user interface. Workers open this URI to
 -- start labeling your data objects.
-workteam_subDomain :: Lens.Lens' Workteam (Core.Maybe Core.Text)
+workteam_subDomain :: Lens.Lens' Workteam (Prelude.Maybe Prelude.Text)
 workteam_subDomain = Lens.lens (\Workteam' {subDomain} -> subDomain) (\s@Workteam' {} a -> s {subDomain = a} :: Workteam)
 
 -- | The name of the work team.
-workteam_workteamName :: Lens.Lens' Workteam Core.Text
+workteam_workteamName :: Lens.Lens' Workteam Prelude.Text
 workteam_workteamName = Lens.lens (\Workteam' {workteamName} -> workteamName) (\s@Workteam' {} a -> s {workteamName = a} :: Workteam)
 
 -- | A list of @MemberDefinition@ objects that contains objects that identify
@@ -160,15 +161,15 @@ workteam_workteamName = Lens.lens (\Workteam' {workteamName} -> workteamName) (\
 -- Provider (IdP). For private workforces created using Amazon Cognito use
 -- @CognitoMemberDefinition@. For workforces created using your own OIDC
 -- identity provider (IdP) use @OidcMemberDefinition@.
-workteam_memberDefinitions :: Lens.Lens' Workteam (Core.NonEmpty MemberDefinition)
-workteam_memberDefinitions = Lens.lens (\Workteam' {memberDefinitions} -> memberDefinitions) (\s@Workteam' {} a -> s {memberDefinitions = a} :: Workteam) Core.. Lens._Coerce
+workteam_memberDefinitions :: Lens.Lens' Workteam (Prelude.NonEmpty MemberDefinition)
+workteam_memberDefinitions = Lens.lens (\Workteam' {memberDefinitions} -> memberDefinitions) (\s@Workteam' {} a -> s {memberDefinitions = a} :: Workteam) Prelude.. Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) that identifies the work team.
-workteam_workteamArn :: Lens.Lens' Workteam Core.Text
+workteam_workteamArn :: Lens.Lens' Workteam Prelude.Text
 workteam_workteamArn = Lens.lens (\Workteam' {workteamArn} -> workteamArn) (\s@Workteam' {} a -> s {workteamArn = a} :: Workteam)
 
 -- | A description of the work team.
-workteam_description :: Lens.Lens' Workteam Core.Text
+workteam_description :: Lens.Lens' Workteam Prelude.Text
 workteam_description = Lens.lens (\Workteam' {description} -> description) (\s@Workteam' {} a -> s {description = a} :: Workteam)
 
 instance Core.FromJSON Workteam where
@@ -177,18 +178,20 @@ instance Core.FromJSON Workteam where
       "Workteam"
       ( \x ->
           Workteam'
-            Core.<$> (x Core..:? "WorkforceArn")
-            Core.<*> (x Core..:? "LastUpdatedDate")
-            Core.<*> (x Core..:? "CreateDate")
-            Core.<*> (x Core..:? "NotificationConfiguration")
-            Core.<*> (x Core..:? "ProductListingIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "SubDomain")
-            Core.<*> (x Core..: "WorkteamName")
-            Core.<*> (x Core..: "MemberDefinitions")
-            Core.<*> (x Core..: "WorkteamArn")
-            Core.<*> (x Core..: "Description")
+            Prelude.<$> (x Core..:? "WorkforceArn")
+            Prelude.<*> (x Core..:? "LastUpdatedDate")
+            Prelude.<*> (x Core..:? "CreateDate")
+            Prelude.<*> (x Core..:? "NotificationConfiguration")
+            Prelude.<*> ( x Core..:? "ProductListingIds"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "SubDomain")
+            Prelude.<*> (x Core..: "WorkteamName")
+            Prelude.<*> (x Core..: "MemberDefinitions")
+            Prelude.<*> (x Core..: "WorkteamArn")
+            Prelude.<*> (x Core..: "Description")
       )
 
-instance Core.Hashable Workteam
+instance Prelude.Hashable Workteam
 
-instance Core.NFData Workteam
+instance Prelude.NFData Workteam

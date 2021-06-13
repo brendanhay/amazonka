@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.OperatingSystem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.OperatingSystemType
 
 -- | The operating system that the image is running.
@@ -28,9 +29,9 @@ import Network.AWS.WorkSpaces.Types.OperatingSystemType
 -- /See:/ 'newOperatingSystem' smart constructor.
 data OperatingSystem = OperatingSystem'
   { -- | The operating system.
-    type' :: Core.Maybe OperatingSystemType
+    type' :: Prelude.Maybe OperatingSystemType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OperatingSystem' with all optional fields omitted.
@@ -44,10 +45,10 @@ data OperatingSystem = OperatingSystem'
 newOperatingSystem ::
   OperatingSystem
 newOperatingSystem =
-  OperatingSystem' {type' = Core.Nothing}
+  OperatingSystem' {type' = Prelude.Nothing}
 
 -- | The operating system.
-operatingSystem_type :: Lens.Lens' OperatingSystem (Core.Maybe OperatingSystemType)
+operatingSystem_type :: Lens.Lens' OperatingSystem (Prelude.Maybe OperatingSystemType)
 operatingSystem_type = Lens.lens (\OperatingSystem' {type'} -> type') (\s@OperatingSystem' {} a -> s {type' = a} :: OperatingSystem)
 
 instance Core.FromJSON OperatingSystem where
@@ -55,9 +56,9 @@ instance Core.FromJSON OperatingSystem where
     Core.withObject
       "OperatingSystem"
       ( \x ->
-          OperatingSystem' Core.<$> (x Core..:? "Type")
+          OperatingSystem' Prelude.<$> (x Core..:? "Type")
       )
 
-instance Core.Hashable OperatingSystem
+instance Prelude.Hashable OperatingSystem
 
-instance Core.NFData OperatingSystem
+instance Prelude.NFData OperatingSystem

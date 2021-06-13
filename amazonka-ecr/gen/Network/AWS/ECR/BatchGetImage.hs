@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,19 +61,19 @@ data BatchGetImage = BatchGetImage'
     -- Valid values: @application\/vnd.docker.distribution.manifest.v1+json@ |
     -- @application\/vnd.docker.distribution.manifest.v2+json@ |
     -- @application\/vnd.oci.image.manifest.v1+json@
-    acceptedMediaTypes :: Core.Maybe (Core.NonEmpty Core.Text),
+    acceptedMediaTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The AWS account ID associated with the registry that contains the images
     -- to describe. If you do not specify a registry, the default registry is
     -- assumed.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository that contains the images to describe.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | A list of image ID references that correspond to images to describe. The
     -- format of the @imageIds@ reference is @imageTag=tag@ or
     -- @imageDigest=digest@.
     imageIds :: [ImageIdentifier]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetImage' with all optional fields omitted.
@@ -99,14 +100,15 @@ data BatchGetImage = BatchGetImage'
 -- @imageDigest=digest@.
 newBatchGetImage ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   BatchGetImage
 newBatchGetImage pRepositoryName_ =
   BatchGetImage'
-    { acceptedMediaTypes = Core.Nothing,
-      registryId = Core.Nothing,
+    { acceptedMediaTypes =
+        Prelude.Nothing,
+      registryId = Prelude.Nothing,
       repositoryName = pRepositoryName_,
-      imageIds = Core.mempty
+      imageIds = Prelude.mempty
     }
 
 -- | The accepted media types for the request.
@@ -114,24 +116,24 @@ newBatchGetImage pRepositoryName_ =
 -- Valid values: @application\/vnd.docker.distribution.manifest.v1+json@ |
 -- @application\/vnd.docker.distribution.manifest.v2+json@ |
 -- @application\/vnd.oci.image.manifest.v1+json@
-batchGetImage_acceptedMediaTypes :: Lens.Lens' BatchGetImage (Core.Maybe (Core.NonEmpty Core.Text))
-batchGetImage_acceptedMediaTypes = Lens.lens (\BatchGetImage' {acceptedMediaTypes} -> acceptedMediaTypes) (\s@BatchGetImage' {} a -> s {acceptedMediaTypes = a} :: BatchGetImage) Core.. Lens.mapping Lens._Coerce
+batchGetImage_acceptedMediaTypes :: Lens.Lens' BatchGetImage (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+batchGetImage_acceptedMediaTypes = Lens.lens (\BatchGetImage' {acceptedMediaTypes} -> acceptedMediaTypes) (\s@BatchGetImage' {} a -> s {acceptedMediaTypes = a} :: BatchGetImage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS account ID associated with the registry that contains the images
 -- to describe. If you do not specify a registry, the default registry is
 -- assumed.
-batchGetImage_registryId :: Lens.Lens' BatchGetImage (Core.Maybe Core.Text)
+batchGetImage_registryId :: Lens.Lens' BatchGetImage (Prelude.Maybe Prelude.Text)
 batchGetImage_registryId = Lens.lens (\BatchGetImage' {registryId} -> registryId) (\s@BatchGetImage' {} a -> s {registryId = a} :: BatchGetImage)
 
 -- | The repository that contains the images to describe.
-batchGetImage_repositoryName :: Lens.Lens' BatchGetImage Core.Text
+batchGetImage_repositoryName :: Lens.Lens' BatchGetImage Prelude.Text
 batchGetImage_repositoryName = Lens.lens (\BatchGetImage' {repositoryName} -> repositoryName) (\s@BatchGetImage' {} a -> s {repositoryName = a} :: BatchGetImage)
 
 -- | A list of image ID references that correspond to images to describe. The
 -- format of the @imageIds@ reference is @imageTag=tag@ or
 -- @imageDigest=digest@.
 batchGetImage_imageIds :: Lens.Lens' BatchGetImage [ImageIdentifier]
-batchGetImage_imageIds = Lens.lens (\BatchGetImage' {imageIds} -> imageIds) (\s@BatchGetImage' {} a -> s {imageIds = a} :: BatchGetImage) Core.. Lens._Coerce
+batchGetImage_imageIds = Lens.lens (\BatchGetImage' {imageIds} -> imageIds) (\s@BatchGetImage' {} a -> s {imageIds = a} :: BatchGetImage) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetImage where
   type
@@ -142,57 +144,60 @@ instance Core.AWSRequest BatchGetImage where
     Response.receiveJSON
       ( \s h x ->
           BatchGetImageResponse'
-            Core.<$> (x Core..?> "images" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "failures" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "images" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetImage
+instance Prelude.Hashable BatchGetImage
 
-instance Core.NFData BatchGetImage
+instance Prelude.NFData BatchGetImage
 
 instance Core.ToHeaders BatchGetImage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchGetImage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetImage where
   toJSON BatchGetImage' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("acceptedMediaTypes" Core..=)
-              Core.<$> acceptedMediaTypes,
-            ("registryId" Core..=) Core.<$> registryId,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just ("imageIds" Core..= imageIds)
+              Prelude.<$> acceptedMediaTypes,
+            ("registryId" Core..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("imageIds" Core..= imageIds)
           ]
       )
 
 instance Core.ToPath BatchGetImage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetImage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetImageResponse' smart constructor.
 data BatchGetImageResponse = BatchGetImageResponse'
   { -- | A list of image objects corresponding to the image references in the
     -- request.
-    images :: Core.Maybe [Image],
+    images :: Prelude.Maybe [Image],
     -- | Any failures associated with the call.
-    failures :: Core.Maybe [ImageFailure],
+    failures :: Prelude.Maybe [ImageFailure],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetImageResponse' with all optional fields omitted.
@@ -210,26 +215,26 @@ data BatchGetImageResponse = BatchGetImageResponse'
 -- 'httpStatus', 'batchGetImageResponse_httpStatus' - The response's http status code.
 newBatchGetImageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetImageResponse
 newBatchGetImageResponse pHttpStatus_ =
   BatchGetImageResponse'
-    { images = Core.Nothing,
-      failures = Core.Nothing,
+    { images = Prelude.Nothing,
+      failures = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of image objects corresponding to the image references in the
 -- request.
-batchGetImageResponse_images :: Lens.Lens' BatchGetImageResponse (Core.Maybe [Image])
-batchGetImageResponse_images = Lens.lens (\BatchGetImageResponse' {images} -> images) (\s@BatchGetImageResponse' {} a -> s {images = a} :: BatchGetImageResponse) Core.. Lens.mapping Lens._Coerce
+batchGetImageResponse_images :: Lens.Lens' BatchGetImageResponse (Prelude.Maybe [Image])
+batchGetImageResponse_images = Lens.lens (\BatchGetImageResponse' {images} -> images) (\s@BatchGetImageResponse' {} a -> s {images = a} :: BatchGetImageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any failures associated with the call.
-batchGetImageResponse_failures :: Lens.Lens' BatchGetImageResponse (Core.Maybe [ImageFailure])
-batchGetImageResponse_failures = Lens.lens (\BatchGetImageResponse' {failures} -> failures) (\s@BatchGetImageResponse' {} a -> s {failures = a} :: BatchGetImageResponse) Core.. Lens.mapping Lens._Coerce
+batchGetImageResponse_failures :: Lens.Lens' BatchGetImageResponse (Prelude.Maybe [ImageFailure])
+batchGetImageResponse_failures = Lens.lens (\BatchGetImageResponse' {failures} -> failures) (\s@BatchGetImageResponse' {} a -> s {failures = a} :: BatchGetImageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetImageResponse_httpStatus :: Lens.Lens' BatchGetImageResponse Core.Int
+batchGetImageResponse_httpStatus :: Lens.Lens' BatchGetImageResponse Prelude.Int
 batchGetImageResponse_httpStatus = Lens.lens (\BatchGetImageResponse' {httpStatus} -> httpStatus) (\s@BatchGetImageResponse' {} a -> s {httpStatus = a} :: BatchGetImageResponse)
 
-instance Core.NFData BatchGetImageResponse
+instance Prelude.NFData BatchGetImageResponse

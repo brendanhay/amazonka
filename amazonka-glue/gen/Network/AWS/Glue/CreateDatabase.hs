@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data CreateDatabase = CreateDatabase'
   { -- | The ID of the Data Catalog in which to create the database. If none is
     -- provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The metadata for the database.
     databaseInput :: DatabaseInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDatabase' with all optional fields omitted.
@@ -73,13 +74,13 @@ newCreateDatabase ::
   CreateDatabase
 newCreateDatabase pDatabaseInput_ =
   CreateDatabase'
-    { catalogId = Core.Nothing,
+    { catalogId = Prelude.Nothing,
       databaseInput = pDatabaseInput_
     }
 
 -- | The ID of the Data Catalog in which to create the database. If none is
 -- provided, the AWS account ID is used by default.
-createDatabase_catalogId :: Lens.Lens' CreateDatabase (Core.Maybe Core.Text)
+createDatabase_catalogId :: Lens.Lens' CreateDatabase (Prelude.Maybe Prelude.Text)
 createDatabase_catalogId = Lens.lens (\CreateDatabase' {catalogId} -> catalogId) (\s@CreateDatabase' {} a -> s {catalogId = a} :: CreateDatabase)
 
 -- | The metadata for the database.
@@ -95,45 +96,48 @@ instance Core.AWSRequest CreateDatabase where
     Response.receiveEmpty
       ( \s h x ->
           CreateDatabaseResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDatabase
+instance Prelude.Hashable CreateDatabase
 
-instance Core.NFData CreateDatabase
+instance Prelude.NFData CreateDatabase
 
 instance Core.ToHeaders CreateDatabase where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateDatabase" :: Core.ByteString),
+              Core.=# ("AWSGlue.CreateDatabase" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDatabase where
   toJSON CreateDatabase' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseInput" Core..= databaseInput)
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just
+              ("DatabaseInput" Core..= databaseInput)
           ]
       )
 
 instance Core.ToPath CreateDatabase where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDatabase where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatabaseResponse' smart constructor.
 data CreateDatabaseResponse = CreateDatabaseResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDatabaseResponse' with all optional fields omitted.
@@ -146,13 +150,13 @@ data CreateDatabaseResponse = CreateDatabaseResponse'
 -- 'httpStatus', 'createDatabaseResponse_httpStatus' - The response's http status code.
 newCreateDatabaseResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDatabaseResponse
 newCreateDatabaseResponse pHttpStatus_ =
   CreateDatabaseResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createDatabaseResponse_httpStatus :: Lens.Lens' CreateDatabaseResponse Core.Int
+createDatabaseResponse_httpStatus :: Lens.Lens' CreateDatabaseResponse Prelude.Int
 createDatabaseResponse_httpStatus = Lens.lens (\CreateDatabaseResponse' {httpStatus} -> httpStatus) (\s@CreateDatabaseResponse' {} a -> s {httpStatus = a} :: CreateDatabaseResponse)
 
-instance Core.NFData CreateDatabaseResponse
+instance Prelude.NFData CreateDatabaseResponse

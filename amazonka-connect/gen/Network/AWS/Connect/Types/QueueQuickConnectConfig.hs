@@ -21,6 +21,7 @@ module Network.AWS.Connect.Types.QueueQuickConnectConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a queue for a quick connect. The contact flow
 -- must be of type Transfer to Queue.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newQueueQuickConnectConfig' smart constructor.
 data QueueQuickConnectConfig = QueueQuickConnectConfig'
   { -- | The identifier for the queue.
-    queueId :: Core.Text,
+    queueId :: Prelude.Text,
     -- | The identifier of the contact flow.
-    contactFlowId :: Core.Text
+    contactFlowId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueueQuickConnectConfig' with all optional fields omitted.
@@ -47,9 +48,9 @@ data QueueQuickConnectConfig = QueueQuickConnectConfig'
 -- 'contactFlowId', 'queueQuickConnectConfig_contactFlowId' - The identifier of the contact flow.
 newQueueQuickConnectConfig ::
   -- | 'queueId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'contactFlowId'
-  Core.Text ->
+  Prelude.Text ->
   QueueQuickConnectConfig
 newQueueQuickConnectConfig pQueueId_ pContactFlowId_ =
   QueueQuickConnectConfig'
@@ -58,11 +59,11 @@ newQueueQuickConnectConfig pQueueId_ pContactFlowId_ =
     }
 
 -- | The identifier for the queue.
-queueQuickConnectConfig_queueId :: Lens.Lens' QueueQuickConnectConfig Core.Text
+queueQuickConnectConfig_queueId :: Lens.Lens' QueueQuickConnectConfig Prelude.Text
 queueQuickConnectConfig_queueId = Lens.lens (\QueueQuickConnectConfig' {queueId} -> queueId) (\s@QueueQuickConnectConfig' {} a -> s {queueId = a} :: QueueQuickConnectConfig)
 
 -- | The identifier of the contact flow.
-queueQuickConnectConfig_contactFlowId :: Lens.Lens' QueueQuickConnectConfig Core.Text
+queueQuickConnectConfig_contactFlowId :: Lens.Lens' QueueQuickConnectConfig Prelude.Text
 queueQuickConnectConfig_contactFlowId = Lens.lens (\QueueQuickConnectConfig' {contactFlowId} -> contactFlowId) (\s@QueueQuickConnectConfig' {} a -> s {contactFlowId = a} :: QueueQuickConnectConfig)
 
 instance Core.FromJSON QueueQuickConnectConfig where
@@ -71,19 +72,20 @@ instance Core.FromJSON QueueQuickConnectConfig where
       "QueueQuickConnectConfig"
       ( \x ->
           QueueQuickConnectConfig'
-            Core.<$> (x Core..: "QueueId")
-            Core.<*> (x Core..: "ContactFlowId")
+            Prelude.<$> (x Core..: "QueueId")
+            Prelude.<*> (x Core..: "ContactFlowId")
       )
 
-instance Core.Hashable QueueQuickConnectConfig
+instance Prelude.Hashable QueueQuickConnectConfig
 
-instance Core.NFData QueueQuickConnectConfig
+instance Prelude.NFData QueueQuickConnectConfig
 
 instance Core.ToJSON QueueQuickConnectConfig where
   toJSON QueueQuickConnectConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("QueueId" Core..= queueId),
-            Core.Just ("ContactFlowId" Core..= contactFlowId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("QueueId" Core..= queueId),
+            Prelude.Just
+              ("ContactFlowId" Core..= contactFlowId)
           ]
       )

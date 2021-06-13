@@ -78,6 +78,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,19 +90,19 @@ data ModifySpotFleetRequest = ModifySpotFleetRequest'
     -- you specified a launch template (@LaunchTemplateConfigs@) in your Spot
     -- Fleet request. If you specified @LaunchSpecifications@ in your Spot
     -- Fleet request, then omit this parameter.
-    launchTemplateConfigs :: Core.Maybe [LaunchTemplateConfig],
+    launchTemplateConfigs :: Prelude.Maybe [LaunchTemplateConfig],
     -- | The number of On-Demand Instances in the fleet.
-    onDemandTargetCapacity :: Core.Maybe Core.Int,
+    onDemandTargetCapacity :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether running Spot Instances should be terminated if the
     -- target capacity of the Spot Fleet request is decreased below the current
     -- size of the Spot Fleet.
-    excessCapacityTerminationPolicy :: Core.Maybe ExcessCapacityTerminationPolicy,
+    excessCapacityTerminationPolicy :: Prelude.Maybe ExcessCapacityTerminationPolicy,
     -- | The size of the fleet.
-    targetCapacity :: Core.Maybe Core.Int,
+    targetCapacity :: Prelude.Maybe Prelude.Int,
     -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Core.Text
+    spotFleetRequestId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySpotFleetRequest' with all optional fields omitted.
@@ -127,15 +128,15 @@ data ModifySpotFleetRequest = ModifySpotFleetRequest'
 -- 'spotFleetRequestId', 'modifySpotFleetRequest_spotFleetRequestId' - The ID of the Spot Fleet request.
 newModifySpotFleetRequest ::
   -- | 'spotFleetRequestId'
-  Core.Text ->
+  Prelude.Text ->
   ModifySpotFleetRequest
 newModifySpotFleetRequest pSpotFleetRequestId_ =
   ModifySpotFleetRequest'
     { launchTemplateConfigs =
-        Core.Nothing,
-      onDemandTargetCapacity = Core.Nothing,
-      excessCapacityTerminationPolicy = Core.Nothing,
-      targetCapacity = Core.Nothing,
+        Prelude.Nothing,
+      onDemandTargetCapacity = Prelude.Nothing,
+      excessCapacityTerminationPolicy = Prelude.Nothing,
+      targetCapacity = Prelude.Nothing,
       spotFleetRequestId = pSpotFleetRequestId_
     }
 
@@ -143,25 +144,25 @@ newModifySpotFleetRequest pSpotFleetRequestId_ =
 -- you specified a launch template (@LaunchTemplateConfigs@) in your Spot
 -- Fleet request. If you specified @LaunchSpecifications@ in your Spot
 -- Fleet request, then omit this parameter.
-modifySpotFleetRequest_launchTemplateConfigs :: Lens.Lens' ModifySpotFleetRequest (Core.Maybe [LaunchTemplateConfig])
-modifySpotFleetRequest_launchTemplateConfigs = Lens.lens (\ModifySpotFleetRequest' {launchTemplateConfigs} -> launchTemplateConfigs) (\s@ModifySpotFleetRequest' {} a -> s {launchTemplateConfigs = a} :: ModifySpotFleetRequest) Core.. Lens.mapping Lens._Coerce
+modifySpotFleetRequest_launchTemplateConfigs :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe [LaunchTemplateConfig])
+modifySpotFleetRequest_launchTemplateConfigs = Lens.lens (\ModifySpotFleetRequest' {launchTemplateConfigs} -> launchTemplateConfigs) (\s@ModifySpotFleetRequest' {} a -> s {launchTemplateConfigs = a} :: ModifySpotFleetRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of On-Demand Instances in the fleet.
-modifySpotFleetRequest_onDemandTargetCapacity :: Lens.Lens' ModifySpotFleetRequest (Core.Maybe Core.Int)
+modifySpotFleetRequest_onDemandTargetCapacity :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Int)
 modifySpotFleetRequest_onDemandTargetCapacity = Lens.lens (\ModifySpotFleetRequest' {onDemandTargetCapacity} -> onDemandTargetCapacity) (\s@ModifySpotFleetRequest' {} a -> s {onDemandTargetCapacity = a} :: ModifySpotFleetRequest)
 
 -- | Indicates whether running Spot Instances should be terminated if the
 -- target capacity of the Spot Fleet request is decreased below the current
 -- size of the Spot Fleet.
-modifySpotFleetRequest_excessCapacityTerminationPolicy :: Lens.Lens' ModifySpotFleetRequest (Core.Maybe ExcessCapacityTerminationPolicy)
+modifySpotFleetRequest_excessCapacityTerminationPolicy :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe ExcessCapacityTerminationPolicy)
 modifySpotFleetRequest_excessCapacityTerminationPolicy = Lens.lens (\ModifySpotFleetRequest' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@ModifySpotFleetRequest' {} a -> s {excessCapacityTerminationPolicy = a} :: ModifySpotFleetRequest)
 
 -- | The size of the fleet.
-modifySpotFleetRequest_targetCapacity :: Lens.Lens' ModifySpotFleetRequest (Core.Maybe Core.Int)
+modifySpotFleetRequest_targetCapacity :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Int)
 modifySpotFleetRequest_targetCapacity = Lens.lens (\ModifySpotFleetRequest' {targetCapacity} -> targetCapacity) (\s@ModifySpotFleetRequest' {} a -> s {targetCapacity = a} :: ModifySpotFleetRequest)
 
 -- | The ID of the Spot Fleet request.
-modifySpotFleetRequest_spotFleetRequestId :: Lens.Lens' ModifySpotFleetRequest Core.Text
+modifySpotFleetRequest_spotFleetRequestId :: Lens.Lens' ModifySpotFleetRequest Prelude.Text
 modifySpotFleetRequest_spotFleetRequestId = Lens.lens (\ModifySpotFleetRequest' {spotFleetRequestId} -> spotFleetRequestId) (\s@ModifySpotFleetRequest' {} a -> s {spotFleetRequestId = a} :: ModifySpotFleetRequest)
 
 instance Core.AWSRequest ModifySpotFleetRequest where
@@ -173,29 +174,30 @@ instance Core.AWSRequest ModifySpotFleetRequest where
     Response.receiveXML
       ( \s h x ->
           ModifySpotFleetRequestResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifySpotFleetRequest
+instance Prelude.Hashable ModifySpotFleetRequest
 
-instance Core.NFData ModifySpotFleetRequest
+instance Prelude.NFData ModifySpotFleetRequest
 
 instance Core.ToHeaders ModifySpotFleetRequest where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifySpotFleetRequest where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifySpotFleetRequest where
   toQuery ModifySpotFleetRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySpotFleetRequest" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifySpotFleetRequest" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "LaunchTemplateConfig"
-              Core.<$> launchTemplateConfigs
+              Prelude.<$> launchTemplateConfigs
           ),
         "OnDemandTargetCapacity"
           Core.=: onDemandTargetCapacity,
@@ -210,11 +212,11 @@ instance Core.ToQuery ModifySpotFleetRequest where
 -- /See:/ 'newModifySpotFleetRequestResponse' smart constructor.
 data ModifySpotFleetRequestResponse = ModifySpotFleetRequestResponse'
   { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySpotFleetRequestResponse' with all optional fields omitted.
@@ -229,21 +231,23 @@ data ModifySpotFleetRequestResponse = ModifySpotFleetRequestResponse'
 -- 'httpStatus', 'modifySpotFleetRequestResponse_httpStatus' - The response's http status code.
 newModifySpotFleetRequestResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifySpotFleetRequestResponse
 newModifySpotFleetRequestResponse pHttpStatus_ =
   ModifySpotFleetRequestResponse'
     { return' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
-modifySpotFleetRequestResponse_return :: Lens.Lens' ModifySpotFleetRequestResponse (Core.Maybe Core.Bool)
+modifySpotFleetRequestResponse_return :: Lens.Lens' ModifySpotFleetRequestResponse (Prelude.Maybe Prelude.Bool)
 modifySpotFleetRequestResponse_return = Lens.lens (\ModifySpotFleetRequestResponse' {return'} -> return') (\s@ModifySpotFleetRequestResponse' {} a -> s {return' = a} :: ModifySpotFleetRequestResponse)
 
 -- | The response's http status code.
-modifySpotFleetRequestResponse_httpStatus :: Lens.Lens' ModifySpotFleetRequestResponse Core.Int
+modifySpotFleetRequestResponse_httpStatus :: Lens.Lens' ModifySpotFleetRequestResponse Prelude.Int
 modifySpotFleetRequestResponse_httpStatus = Lens.lens (\ModifySpotFleetRequestResponse' {httpStatus} -> httpStatus) (\s@ModifySpotFleetRequestResponse' {} a -> s {httpStatus = a} :: ModifySpotFleetRequestResponse)
 
-instance Core.NFData ModifySpotFleetRequestResponse
+instance
+  Prelude.NFData
+    ModifySpotFleetRequestResponse

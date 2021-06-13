@@ -23,26 +23,27 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputLocation
 import Network.AWS.MediaLive.Types.InputLossImageType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Input Loss Behavior
 --
 -- /See:/ 'newInputLossBehavior' smart constructor.
 data InputLossBehavior = InputLossBehavior'
   { -- | Documentation update needed
-    blackFrameMsec :: Core.Maybe Core.Natural,
+    blackFrameMsec :: Prelude.Maybe Prelude.Natural,
     -- | When input loss image type is \"color\" this field specifies the color
     -- to use. Value: 6 hex characters representing the values of RGB.
-    inputLossImageColor :: Core.Maybe Core.Text,
+    inputLossImageColor :: Prelude.Maybe Prelude.Text,
     -- | When input loss image type is \"slate\" these fields specify the
     -- parameters for accessing the slate.
-    inputLossImageSlate :: Core.Maybe InputLocation,
+    inputLossImageSlate :: Prelude.Maybe InputLocation,
     -- | Documentation update needed
-    repeatFrameMsec :: Core.Maybe Core.Natural,
+    repeatFrameMsec :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether to substitute a solid color or a slate into the output
     -- after input loss exceeds blackFrameMsec.
-    inputLossImageType :: Core.Maybe InputLossImageType
+    inputLossImageType :: Prelude.Maybe InputLossImageType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputLossBehavior' with all optional fields omitted.
@@ -68,34 +69,35 @@ newInputLossBehavior ::
   InputLossBehavior
 newInputLossBehavior =
   InputLossBehavior'
-    { blackFrameMsec = Core.Nothing,
-      inputLossImageColor = Core.Nothing,
-      inputLossImageSlate = Core.Nothing,
-      repeatFrameMsec = Core.Nothing,
-      inputLossImageType = Core.Nothing
+    { blackFrameMsec =
+        Prelude.Nothing,
+      inputLossImageColor = Prelude.Nothing,
+      inputLossImageSlate = Prelude.Nothing,
+      repeatFrameMsec = Prelude.Nothing,
+      inputLossImageType = Prelude.Nothing
     }
 
 -- | Documentation update needed
-inputLossBehavior_blackFrameMsec :: Lens.Lens' InputLossBehavior (Core.Maybe Core.Natural)
+inputLossBehavior_blackFrameMsec :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Natural)
 inputLossBehavior_blackFrameMsec = Lens.lens (\InputLossBehavior' {blackFrameMsec} -> blackFrameMsec) (\s@InputLossBehavior' {} a -> s {blackFrameMsec = a} :: InputLossBehavior)
 
 -- | When input loss image type is \"color\" this field specifies the color
 -- to use. Value: 6 hex characters representing the values of RGB.
-inputLossBehavior_inputLossImageColor :: Lens.Lens' InputLossBehavior (Core.Maybe Core.Text)
+inputLossBehavior_inputLossImageColor :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Text)
 inputLossBehavior_inputLossImageColor = Lens.lens (\InputLossBehavior' {inputLossImageColor} -> inputLossImageColor) (\s@InputLossBehavior' {} a -> s {inputLossImageColor = a} :: InputLossBehavior)
 
 -- | When input loss image type is \"slate\" these fields specify the
 -- parameters for accessing the slate.
-inputLossBehavior_inputLossImageSlate :: Lens.Lens' InputLossBehavior (Core.Maybe InputLocation)
+inputLossBehavior_inputLossImageSlate :: Lens.Lens' InputLossBehavior (Prelude.Maybe InputLocation)
 inputLossBehavior_inputLossImageSlate = Lens.lens (\InputLossBehavior' {inputLossImageSlate} -> inputLossImageSlate) (\s@InputLossBehavior' {} a -> s {inputLossImageSlate = a} :: InputLossBehavior)
 
 -- | Documentation update needed
-inputLossBehavior_repeatFrameMsec :: Lens.Lens' InputLossBehavior (Core.Maybe Core.Natural)
+inputLossBehavior_repeatFrameMsec :: Lens.Lens' InputLossBehavior (Prelude.Maybe Prelude.Natural)
 inputLossBehavior_repeatFrameMsec = Lens.lens (\InputLossBehavior' {repeatFrameMsec} -> repeatFrameMsec) (\s@InputLossBehavior' {} a -> s {repeatFrameMsec = a} :: InputLossBehavior)
 
 -- | Indicates whether to substitute a solid color or a slate into the output
 -- after input loss exceeds blackFrameMsec.
-inputLossBehavior_inputLossImageType :: Lens.Lens' InputLossBehavior (Core.Maybe InputLossImageType)
+inputLossBehavior_inputLossImageType :: Lens.Lens' InputLossBehavior (Prelude.Maybe InputLossImageType)
 inputLossBehavior_inputLossImageType = Lens.lens (\InputLossBehavior' {inputLossImageType} -> inputLossImageType) (\s@InputLossBehavior' {} a -> s {inputLossImageType = a} :: InputLossBehavior)
 
 instance Core.FromJSON InputLossBehavior where
@@ -104,28 +106,30 @@ instance Core.FromJSON InputLossBehavior where
       "InputLossBehavior"
       ( \x ->
           InputLossBehavior'
-            Core.<$> (x Core..:? "blackFrameMsec")
-            Core.<*> (x Core..:? "inputLossImageColor")
-            Core.<*> (x Core..:? "inputLossImageSlate")
-            Core.<*> (x Core..:? "repeatFrameMsec")
-            Core.<*> (x Core..:? "inputLossImageType")
+            Prelude.<$> (x Core..:? "blackFrameMsec")
+            Prelude.<*> (x Core..:? "inputLossImageColor")
+            Prelude.<*> (x Core..:? "inputLossImageSlate")
+            Prelude.<*> (x Core..:? "repeatFrameMsec")
+            Prelude.<*> (x Core..:? "inputLossImageType")
       )
 
-instance Core.Hashable InputLossBehavior
+instance Prelude.Hashable InputLossBehavior
 
-instance Core.NFData InputLossBehavior
+instance Prelude.NFData InputLossBehavior
 
 instance Core.ToJSON InputLossBehavior where
   toJSON InputLossBehavior' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("blackFrameMsec" Core..=) Core.<$> blackFrameMsec,
+      ( Prelude.catMaybes
+          [ ("blackFrameMsec" Core..=)
+              Prelude.<$> blackFrameMsec,
             ("inputLossImageColor" Core..=)
-              Core.<$> inputLossImageColor,
+              Prelude.<$> inputLossImageColor,
             ("inputLossImageSlate" Core..=)
-              Core.<$> inputLossImageSlate,
-            ("repeatFrameMsec" Core..=) Core.<$> repeatFrameMsec,
+              Prelude.<$> inputLossImageSlate,
+            ("repeatFrameMsec" Core..=)
+              Prelude.<$> repeatFrameMsec,
             ("inputLossImageType" Core..=)
-              Core.<$> inputLossImageType
+              Prelude.<$> inputLossImageType
           ]
       )

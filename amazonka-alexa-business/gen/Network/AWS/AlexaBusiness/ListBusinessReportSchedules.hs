@@ -49,6 +49,7 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ import qualified Network.AWS.Response as Response
 data ListBusinessReportSchedules = ListBusinessReportSchedules'
   { -- | The token used to list the remaining schedules from the previous API
     -- call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of schedules listed in the call.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBusinessReportSchedules' with all optional fields omitted.
@@ -79,17 +80,17 @@ newListBusinessReportSchedules ::
 newListBusinessReportSchedules =
   ListBusinessReportSchedules'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token used to list the remaining schedules from the previous API
 -- call.
-listBusinessReportSchedules_nextToken :: Lens.Lens' ListBusinessReportSchedules (Core.Maybe Core.Text)
+listBusinessReportSchedules_nextToken :: Lens.Lens' ListBusinessReportSchedules (Prelude.Maybe Prelude.Text)
 listBusinessReportSchedules_nextToken = Lens.lens (\ListBusinessReportSchedules' {nextToken} -> nextToken) (\s@ListBusinessReportSchedules' {} a -> s {nextToken = a} :: ListBusinessReportSchedules)
 
 -- | The maximum number of schedules listed in the call.
-listBusinessReportSchedules_maxResults :: Lens.Lens' ListBusinessReportSchedules (Core.Maybe Core.Natural)
+listBusinessReportSchedules_maxResults :: Lens.Lens' ListBusinessReportSchedules (Prelude.Maybe Prelude.Natural)
 listBusinessReportSchedules_maxResults = Lens.lens (\ListBusinessReportSchedules' {maxResults} -> maxResults) (\s@ListBusinessReportSchedules' {} a -> s {maxResults = a} :: ListBusinessReportSchedules)
 
 instance Core.AWSPager ListBusinessReportSchedules where
@@ -97,22 +98,22 @@ instance Core.AWSPager ListBusinessReportSchedules where
     | Core.stop
         ( rs
             Lens.^? listBusinessReportSchedulesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBusinessReportSchedulesResponse_businessReportSchedules
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listBusinessReportSchedules_nextToken
+          Prelude.& listBusinessReportSchedules_nextToken
           Lens..~ rs
           Lens.^? listBusinessReportSchedulesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBusinessReportSchedules where
   type
@@ -123,56 +124,58 @@ instance Core.AWSRequest ListBusinessReportSchedules where
     Response.receiveJSON
       ( \s h x ->
           ListBusinessReportSchedulesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "BusinessReportSchedules"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "BusinessReportSchedules"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListBusinessReportSchedules
+instance Prelude.Hashable ListBusinessReportSchedules
 
-instance Core.NFData ListBusinessReportSchedules
+instance Prelude.NFData ListBusinessReportSchedules
 
 instance Core.ToHeaders ListBusinessReportSchedules where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.ListBusinessReportSchedules" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListBusinessReportSchedules where
   toJSON ListBusinessReportSchedules' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListBusinessReportSchedules where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListBusinessReportSchedules where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBusinessReportSchedulesResponse' smart constructor.
 data ListBusinessReportSchedulesResponse = ListBusinessReportSchedulesResponse'
   { -- | The token used to list the remaining schedules from the previous API
     -- call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The schedule of the reports.
-    businessReportSchedules :: Core.Maybe [BusinessReportSchedule],
+    businessReportSchedules :: Prelude.Maybe [BusinessReportSchedule],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBusinessReportSchedulesResponse' with all optional fields omitted.
@@ -190,29 +193,30 @@ data ListBusinessReportSchedulesResponse = ListBusinessReportSchedulesResponse'
 -- 'httpStatus', 'listBusinessReportSchedulesResponse_httpStatus' - The response's http status code.
 newListBusinessReportSchedulesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListBusinessReportSchedulesResponse
 newListBusinessReportSchedulesResponse pHttpStatus_ =
   ListBusinessReportSchedulesResponse'
     { nextToken =
-        Core.Nothing,
-      businessReportSchedules = Core.Nothing,
+        Prelude.Nothing,
+      businessReportSchedules =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token used to list the remaining schedules from the previous API
 -- call.
-listBusinessReportSchedulesResponse_nextToken :: Lens.Lens' ListBusinessReportSchedulesResponse (Core.Maybe Core.Text)
+listBusinessReportSchedulesResponse_nextToken :: Lens.Lens' ListBusinessReportSchedulesResponse (Prelude.Maybe Prelude.Text)
 listBusinessReportSchedulesResponse_nextToken = Lens.lens (\ListBusinessReportSchedulesResponse' {nextToken} -> nextToken) (\s@ListBusinessReportSchedulesResponse' {} a -> s {nextToken = a} :: ListBusinessReportSchedulesResponse)
 
 -- | The schedule of the reports.
-listBusinessReportSchedulesResponse_businessReportSchedules :: Lens.Lens' ListBusinessReportSchedulesResponse (Core.Maybe [BusinessReportSchedule])
-listBusinessReportSchedulesResponse_businessReportSchedules = Lens.lens (\ListBusinessReportSchedulesResponse' {businessReportSchedules} -> businessReportSchedules) (\s@ListBusinessReportSchedulesResponse' {} a -> s {businessReportSchedules = a} :: ListBusinessReportSchedulesResponse) Core.. Lens.mapping Lens._Coerce
+listBusinessReportSchedulesResponse_businessReportSchedules :: Lens.Lens' ListBusinessReportSchedulesResponse (Prelude.Maybe [BusinessReportSchedule])
+listBusinessReportSchedulesResponse_businessReportSchedules = Lens.lens (\ListBusinessReportSchedulesResponse' {businessReportSchedules} -> businessReportSchedules) (\s@ListBusinessReportSchedulesResponse' {} a -> s {businessReportSchedules = a} :: ListBusinessReportSchedulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listBusinessReportSchedulesResponse_httpStatus :: Lens.Lens' ListBusinessReportSchedulesResponse Core.Int
+listBusinessReportSchedulesResponse_httpStatus :: Lens.Lens' ListBusinessReportSchedulesResponse Prelude.Int
 listBusinessReportSchedulesResponse_httpStatus = Lens.lens (\ListBusinessReportSchedulesResponse' {httpStatus} -> httpStatus) (\s@ListBusinessReportSchedulesResponse' {} a -> s {httpStatus = a} :: ListBusinessReportSchedulesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListBusinessReportSchedulesResponse

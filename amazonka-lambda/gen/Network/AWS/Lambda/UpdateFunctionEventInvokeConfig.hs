@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ import qualified Network.AWS.Response as Response
 data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
   { -- | The maximum age of a request that Lambda sends to a function for
     -- processing.
-    maximumEventAgeInSeconds :: Core.Maybe Core.Natural,
+    maximumEventAgeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A version number or alias name.
-    qualifier :: Core.Maybe Core.Text,
+    qualifier :: Prelude.Maybe Prelude.Text,
     -- | A destination for events after they have been sent to a function for
     -- processing.
     --
@@ -75,9 +76,9 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
     -- -   __Topic__ - The ARN of an SNS topic.
     --
     -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
-    destinationConfig :: Core.Maybe DestinationConfig,
+    destinationConfig :: Prelude.Maybe DestinationConfig,
     -- | The maximum number of times to retry when the function returns an error.
-    maximumRetryAttempts :: Core.Maybe Core.Natural,
+    maximumRetryAttempts :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -93,9 +94,9 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFunctionEventInvokeConfig' with all optional fields omitted.
@@ -142,25 +143,25 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
 -- function name, it is limited to 64 characters in length.
 newUpdateFunctionEventInvokeConfig ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFunctionEventInvokeConfig
 newUpdateFunctionEventInvokeConfig pFunctionName_ =
   UpdateFunctionEventInvokeConfig'
     { maximumEventAgeInSeconds =
-        Core.Nothing,
-      qualifier = Core.Nothing,
-      destinationConfig = Core.Nothing,
-      maximumRetryAttempts = Core.Nothing,
+        Prelude.Nothing,
+      qualifier = Prelude.Nothing,
+      destinationConfig = Prelude.Nothing,
+      maximumRetryAttempts = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
 -- | The maximum age of a request that Lambda sends to a function for
 -- processing.
-updateFunctionEventInvokeConfig_maximumEventAgeInSeconds :: Lens.Lens' UpdateFunctionEventInvokeConfig (Core.Maybe Core.Natural)
+updateFunctionEventInvokeConfig_maximumEventAgeInSeconds :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe Prelude.Natural)
 updateFunctionEventInvokeConfig_maximumEventAgeInSeconds = Lens.lens (\UpdateFunctionEventInvokeConfig' {maximumEventAgeInSeconds} -> maximumEventAgeInSeconds) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {maximumEventAgeInSeconds = a} :: UpdateFunctionEventInvokeConfig)
 
 -- | A version number or alias name.
-updateFunctionEventInvokeConfig_qualifier :: Lens.Lens' UpdateFunctionEventInvokeConfig (Core.Maybe Core.Text)
+updateFunctionEventInvokeConfig_qualifier :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe Prelude.Text)
 updateFunctionEventInvokeConfig_qualifier = Lens.lens (\UpdateFunctionEventInvokeConfig' {qualifier} -> qualifier) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {qualifier = a} :: UpdateFunctionEventInvokeConfig)
 
 -- | A destination for events after they have been sent to a function for
@@ -175,11 +176,11 @@ updateFunctionEventInvokeConfig_qualifier = Lens.lens (\UpdateFunctionEventInvok
 -- -   __Topic__ - The ARN of an SNS topic.
 --
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
-updateFunctionEventInvokeConfig_destinationConfig :: Lens.Lens' UpdateFunctionEventInvokeConfig (Core.Maybe DestinationConfig)
+updateFunctionEventInvokeConfig_destinationConfig :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe DestinationConfig)
 updateFunctionEventInvokeConfig_destinationConfig = Lens.lens (\UpdateFunctionEventInvokeConfig' {destinationConfig} -> destinationConfig) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {destinationConfig = a} :: UpdateFunctionEventInvokeConfig)
 
 -- | The maximum number of times to retry when the function returns an error.
-updateFunctionEventInvokeConfig_maximumRetryAttempts :: Lens.Lens' UpdateFunctionEventInvokeConfig (Core.Maybe Core.Natural)
+updateFunctionEventInvokeConfig_maximumRetryAttempts :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe Prelude.Natural)
 updateFunctionEventInvokeConfig_maximumRetryAttempts = Lens.lens (\UpdateFunctionEventInvokeConfig' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {maximumRetryAttempts = a} :: UpdateFunctionEventInvokeConfig)
 
 -- | The name of the Lambda function, version, or alias.
@@ -197,7 +198,7 @@ updateFunctionEventInvokeConfig_maximumRetryAttempts = Lens.lens (\UpdateFunctio
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-updateFunctionEventInvokeConfig_functionName :: Lens.Lens' UpdateFunctionEventInvokeConfig Core.Text
+updateFunctionEventInvokeConfig_functionName :: Lens.Lens' UpdateFunctionEventInvokeConfig Prelude.Text
 updateFunctionEventInvokeConfig_functionName = Lens.lens (\UpdateFunctionEventInvokeConfig' {functionName} -> functionName) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {functionName = a} :: UpdateFunctionEventInvokeConfig)
 
 instance
@@ -213,33 +214,35 @@ instance
       (\s h x -> Core.eitherParseJSON x)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateFunctionEventInvokeConfig
 
-instance Core.NFData UpdateFunctionEventInvokeConfig
+instance
+  Prelude.NFData
+    UpdateFunctionEventInvokeConfig
 
 instance
   Core.ToHeaders
     UpdateFunctionEventInvokeConfig
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateFunctionEventInvokeConfig where
   toJSON UpdateFunctionEventInvokeConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MaximumEventAgeInSeconds" Core..=)
-              Core.<$> maximumEventAgeInSeconds,
+              Prelude.<$> maximumEventAgeInSeconds,
             ("DestinationConfig" Core..=)
-              Core.<$> destinationConfig,
+              Prelude.<$> destinationConfig,
             ("MaximumRetryAttempts" Core..=)
-              Core.<$> maximumRetryAttempts
+              Prelude.<$> maximumRetryAttempts
           ]
       )
 
 instance Core.ToPath UpdateFunctionEventInvokeConfig where
   toPath UpdateFunctionEventInvokeConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2019-09-25/functions/",
         Core.toBS functionName,
         "/event-invoke-config"
@@ -247,4 +250,4 @@ instance Core.ToPath UpdateFunctionEventInvokeConfig where
 
 instance Core.ToQuery UpdateFunctionEventInvokeConfig where
   toQuery UpdateFunctionEventInvokeConfig' {..} =
-    Core.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]

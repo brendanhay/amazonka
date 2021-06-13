@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -49,11 +50,11 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newNotifyAppValidationOutput' smart constructor.
 data NotifyAppValidationOutput = NotifyAppValidationOutput'
   { -- | The notification information.
-    notificationContext :: Core.Maybe NotificationContext,
+    notificationContext :: Prelude.Maybe NotificationContext,
     -- | The ID of the application.
-    appId :: Core.Text
+    appId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotifyAppValidationOutput' with all optional fields omitted.
@@ -68,21 +69,21 @@ data NotifyAppValidationOutput = NotifyAppValidationOutput'
 -- 'appId', 'notifyAppValidationOutput_appId' - The ID of the application.
 newNotifyAppValidationOutput ::
   -- | 'appId'
-  Core.Text ->
+  Prelude.Text ->
   NotifyAppValidationOutput
 newNotifyAppValidationOutput pAppId_ =
   NotifyAppValidationOutput'
     { notificationContext =
-        Core.Nothing,
+        Prelude.Nothing,
       appId = pAppId_
     }
 
 -- | The notification information.
-notifyAppValidationOutput_notificationContext :: Lens.Lens' NotifyAppValidationOutput (Core.Maybe NotificationContext)
+notifyAppValidationOutput_notificationContext :: Lens.Lens' NotifyAppValidationOutput (Prelude.Maybe NotificationContext)
 notifyAppValidationOutput_notificationContext = Lens.lens (\NotifyAppValidationOutput' {notificationContext} -> notificationContext) (\s@NotifyAppValidationOutput' {} a -> s {notificationContext = a} :: NotifyAppValidationOutput)
 
 -- | The ID of the application.
-notifyAppValidationOutput_appId :: Lens.Lens' NotifyAppValidationOutput Core.Text
+notifyAppValidationOutput_appId :: Lens.Lens' NotifyAppValidationOutput Prelude.Text
 notifyAppValidationOutput_appId = Lens.lens (\NotifyAppValidationOutput' {appId} -> appId) (\s@NotifyAppValidationOutput' {} a -> s {appId = a} :: NotifyAppValidationOutput)
 
 instance Core.AWSRequest NotifyAppValidationOutput where
@@ -94,48 +95,50 @@ instance Core.AWSRequest NotifyAppValidationOutput where
     Response.receiveEmpty
       ( \s h x ->
           NotifyAppValidationOutputResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable NotifyAppValidationOutput
+instance Prelude.Hashable NotifyAppValidationOutput
 
-instance Core.NFData NotifyAppValidationOutput
+instance Prelude.NFData NotifyAppValidationOutput
 
 instance Core.ToHeaders NotifyAppValidationOutput where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.NotifyAppValidationOutput" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON NotifyAppValidationOutput where
   toJSON NotifyAppValidationOutput' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("notificationContext" Core..=)
-              Core.<$> notificationContext,
-            Core.Just ("appId" Core..= appId)
+              Prelude.<$> notificationContext,
+            Prelude.Just ("appId" Core..= appId)
           ]
       )
 
 instance Core.ToPath NotifyAppValidationOutput where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery NotifyAppValidationOutput where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newNotifyAppValidationOutputResponse' smart constructor.
 data NotifyAppValidationOutputResponse = NotifyAppValidationOutputResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotifyAppValidationOutputResponse' with all optional fields omitted.
@@ -148,7 +151,7 @@ data NotifyAppValidationOutputResponse = NotifyAppValidationOutputResponse'
 -- 'httpStatus', 'notifyAppValidationOutputResponse_httpStatus' - The response's http status code.
 newNotifyAppValidationOutputResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   NotifyAppValidationOutputResponse
 newNotifyAppValidationOutputResponse pHttpStatus_ =
   NotifyAppValidationOutputResponse'
@@ -157,9 +160,9 @@ newNotifyAppValidationOutputResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-notifyAppValidationOutputResponse_httpStatus :: Lens.Lens' NotifyAppValidationOutputResponse Core.Int
+notifyAppValidationOutputResponse_httpStatus :: Lens.Lens' NotifyAppValidationOutputResponse Prelude.Int
 notifyAppValidationOutputResponse_httpStatus = Lens.lens (\NotifyAppValidationOutputResponse' {httpStatus} -> httpStatus) (\s@NotifyAppValidationOutputResponse' {} a -> s {httpStatus = a} :: NotifyAppValidationOutputResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     NotifyAppValidationOutputResponse

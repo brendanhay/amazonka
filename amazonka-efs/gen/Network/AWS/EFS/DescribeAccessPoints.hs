@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,19 +62,19 @@ data DescribeAccessPoints = DescribeAccessPoints'
   { -- | @NextToken@ is present if the response is paginated. You can use
     -- @NextMarker@ in the subsequent request to fetch the next page of access
     -- point descriptions.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) When retrieving all access points for a file system, you can
     -- optionally specify the @MaxItems@ parameter to limit the number of
     -- objects returned in a response. The default value is 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | (Optional) Specifies an EFS access point to describe in the response;
     -- mutually exclusive with @FileSystemId@.
-    accessPointId :: Core.Maybe Core.Text,
+    accessPointId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) If you provide a @FileSystemId@, EFS returns all access
     -- points for that file system; mutually exclusive with @AccessPointId@.
-    fileSystemId :: Core.Maybe Core.Text
+    fileSystemId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccessPoints' with all optional fields omitted.
@@ -100,32 +101,32 @@ newDescribeAccessPoints ::
   DescribeAccessPoints
 newDescribeAccessPoints =
   DescribeAccessPoints'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      accessPointId = Core.Nothing,
-      fileSystemId = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      accessPointId = Prelude.Nothing,
+      fileSystemId = Prelude.Nothing
     }
 
 -- | @NextToken@ is present if the response is paginated. You can use
 -- @NextMarker@ in the subsequent request to fetch the next page of access
 -- point descriptions.
-describeAccessPoints_nextToken :: Lens.Lens' DescribeAccessPoints (Core.Maybe Core.Text)
+describeAccessPoints_nextToken :: Lens.Lens' DescribeAccessPoints (Prelude.Maybe Prelude.Text)
 describeAccessPoints_nextToken = Lens.lens (\DescribeAccessPoints' {nextToken} -> nextToken) (\s@DescribeAccessPoints' {} a -> s {nextToken = a} :: DescribeAccessPoints)
 
 -- | (Optional) When retrieving all access points for a file system, you can
 -- optionally specify the @MaxItems@ parameter to limit the number of
 -- objects returned in a response. The default value is 100.
-describeAccessPoints_maxResults :: Lens.Lens' DescribeAccessPoints (Core.Maybe Core.Natural)
+describeAccessPoints_maxResults :: Lens.Lens' DescribeAccessPoints (Prelude.Maybe Prelude.Natural)
 describeAccessPoints_maxResults = Lens.lens (\DescribeAccessPoints' {maxResults} -> maxResults) (\s@DescribeAccessPoints' {} a -> s {maxResults = a} :: DescribeAccessPoints)
 
 -- | (Optional) Specifies an EFS access point to describe in the response;
 -- mutually exclusive with @FileSystemId@.
-describeAccessPoints_accessPointId :: Lens.Lens' DescribeAccessPoints (Core.Maybe Core.Text)
+describeAccessPoints_accessPointId :: Lens.Lens' DescribeAccessPoints (Prelude.Maybe Prelude.Text)
 describeAccessPoints_accessPointId = Lens.lens (\DescribeAccessPoints' {accessPointId} -> accessPointId) (\s@DescribeAccessPoints' {} a -> s {accessPointId = a} :: DescribeAccessPoints)
 
 -- | (Optional) If you provide a @FileSystemId@, EFS returns all access
 -- points for that file system; mutually exclusive with @AccessPointId@.
-describeAccessPoints_fileSystemId :: Lens.Lens' DescribeAccessPoints (Core.Maybe Core.Text)
+describeAccessPoints_fileSystemId :: Lens.Lens' DescribeAccessPoints (Prelude.Maybe Prelude.Text)
 describeAccessPoints_fileSystemId = Lens.lens (\DescribeAccessPoints' {fileSystemId} -> fileSystemId) (\s@DescribeAccessPoints' {} a -> s {fileSystemId = a} :: DescribeAccessPoints)
 
 instance Core.AWSRequest DescribeAccessPoints where
@@ -137,24 +138,24 @@ instance Core.AWSRequest DescribeAccessPoints where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccessPointsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "AccessPoints" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "AccessPoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAccessPoints
+instance Prelude.Hashable DescribeAccessPoints
 
-instance Core.NFData DescribeAccessPoints
+instance Prelude.NFData DescribeAccessPoints
 
 instance Core.ToHeaders DescribeAccessPoints where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeAccessPoints where
-  toPath = Core.const "/2015-02-01/access-points"
+  toPath = Prelude.const "/2015-02-01/access-points"
 
 instance Core.ToQuery DescribeAccessPoints where
   toQuery DescribeAccessPoints' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
         "AccessPointId" Core.=: accessPointId,
@@ -166,13 +167,13 @@ data DescribeAccessPointsResponse = DescribeAccessPointsResponse'
   { -- | Present if there are more access points than returned in the response.
     -- You can use the NextMarker in the subsequent request to fetch the
     -- additional descriptions.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of access point descriptions.
-    accessPoints :: Core.Maybe [AccessPointDescription],
+    accessPoints :: Prelude.Maybe [AccessPointDescription],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccessPointsResponse' with all optional fields omitted.
@@ -191,28 +192,28 @@ data DescribeAccessPointsResponse = DescribeAccessPointsResponse'
 -- 'httpStatus', 'describeAccessPointsResponse_httpStatus' - The response's http status code.
 newDescribeAccessPointsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAccessPointsResponse
 newDescribeAccessPointsResponse pHttpStatus_ =
   DescribeAccessPointsResponse'
     { nextToken =
-        Core.Nothing,
-      accessPoints = Core.Nothing,
+        Prelude.Nothing,
+      accessPoints = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Present if there are more access points than returned in the response.
 -- You can use the NextMarker in the subsequent request to fetch the
 -- additional descriptions.
-describeAccessPointsResponse_nextToken :: Lens.Lens' DescribeAccessPointsResponse (Core.Maybe Core.Text)
+describeAccessPointsResponse_nextToken :: Lens.Lens' DescribeAccessPointsResponse (Prelude.Maybe Prelude.Text)
 describeAccessPointsResponse_nextToken = Lens.lens (\DescribeAccessPointsResponse' {nextToken} -> nextToken) (\s@DescribeAccessPointsResponse' {} a -> s {nextToken = a} :: DescribeAccessPointsResponse)
 
 -- | An array of access point descriptions.
-describeAccessPointsResponse_accessPoints :: Lens.Lens' DescribeAccessPointsResponse (Core.Maybe [AccessPointDescription])
-describeAccessPointsResponse_accessPoints = Lens.lens (\DescribeAccessPointsResponse' {accessPoints} -> accessPoints) (\s@DescribeAccessPointsResponse' {} a -> s {accessPoints = a} :: DescribeAccessPointsResponse) Core.. Lens.mapping Lens._Coerce
+describeAccessPointsResponse_accessPoints :: Lens.Lens' DescribeAccessPointsResponse (Prelude.Maybe [AccessPointDescription])
+describeAccessPointsResponse_accessPoints = Lens.lens (\DescribeAccessPointsResponse' {accessPoints} -> accessPoints) (\s@DescribeAccessPointsResponse' {} a -> s {accessPoints = a} :: DescribeAccessPointsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAccessPointsResponse_httpStatus :: Lens.Lens' DescribeAccessPointsResponse Core.Int
+describeAccessPointsResponse_httpStatus :: Lens.Lens' DescribeAccessPointsResponse Prelude.Int
 describeAccessPointsResponse_httpStatus = Lens.lens (\DescribeAccessPointsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccessPointsResponse' {} a -> s {httpStatus = a} :: DescribeAccessPointsResponse)
 
-instance Core.NFData DescribeAccessPointsResponse
+instance Prelude.NFData DescribeAccessPointsResponse

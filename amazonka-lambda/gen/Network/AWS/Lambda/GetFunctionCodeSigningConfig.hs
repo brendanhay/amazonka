@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +62,9 @@ data GetFunctionCodeSigningConfig = GetFunctionCodeSigningConfig'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFunctionCodeSigningConfig' with all optional fields omitted.
@@ -88,7 +89,7 @@ data GetFunctionCodeSigningConfig = GetFunctionCodeSigningConfig'
 -- the function name, it is limited to 64 characters in length.
 newGetFunctionCodeSigningConfig ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   GetFunctionCodeSigningConfig
 newGetFunctionCodeSigningConfig pFunctionName_ =
   GetFunctionCodeSigningConfig'
@@ -109,7 +110,7 @@ newGetFunctionCodeSigningConfig pFunctionName_ =
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-getFunctionCodeSigningConfig_functionName :: Lens.Lens' GetFunctionCodeSigningConfig Core.Text
+getFunctionCodeSigningConfig_functionName :: Lens.Lens' GetFunctionCodeSigningConfig Prelude.Text
 getFunctionCodeSigningConfig_functionName = Lens.lens (\GetFunctionCodeSigningConfig' {functionName} -> functionName) (\s@GetFunctionCodeSigningConfig' {} a -> s {functionName = a} :: GetFunctionCodeSigningConfig)
 
 instance Core.AWSRequest GetFunctionCodeSigningConfig where
@@ -121,35 +122,37 @@ instance Core.AWSRequest GetFunctionCodeSigningConfig where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionCodeSigningConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "CodeSigningConfigArn")
-            Core.<*> (x Core..:> "FunctionName")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "CodeSigningConfigArn")
+            Prelude.<*> (x Core..:> "FunctionName")
       )
 
-instance Core.Hashable GetFunctionCodeSigningConfig
+instance
+  Prelude.Hashable
+    GetFunctionCodeSigningConfig
 
-instance Core.NFData GetFunctionCodeSigningConfig
+instance Prelude.NFData GetFunctionCodeSigningConfig
 
 instance Core.ToHeaders GetFunctionCodeSigningConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetFunctionCodeSigningConfig where
   toPath GetFunctionCodeSigningConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-06-30/functions/",
         Core.toBS functionName,
         "/code-signing-config"
       ]
 
 instance Core.ToQuery GetFunctionCodeSigningConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFunctionCodeSigningConfigResponse' smart constructor.
 data GetFunctionCodeSigningConfigResponse = GetFunctionCodeSigningConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigArn :: Core.Text,
+    codeSigningConfigArn :: Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -163,9 +166,9 @@ data GetFunctionCodeSigningConfigResponse = GetFunctionCodeSigningConfigResponse
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFunctionCodeSigningConfigResponse' with all optional fields omitted.
@@ -194,11 +197,11 @@ data GetFunctionCodeSigningConfigResponse = GetFunctionCodeSigningConfigResponse
 -- the function name, it is limited to 64 characters in length.
 newGetFunctionCodeSigningConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'codeSigningConfigArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   GetFunctionCodeSigningConfigResponse
 newGetFunctionCodeSigningConfigResponse
   pHttpStatus_
@@ -213,11 +216,11 @@ newGetFunctionCodeSigningConfigResponse
       }
 
 -- | The response's http status code.
-getFunctionCodeSigningConfigResponse_httpStatus :: Lens.Lens' GetFunctionCodeSigningConfigResponse Core.Int
+getFunctionCodeSigningConfigResponse_httpStatus :: Lens.Lens' GetFunctionCodeSigningConfigResponse Prelude.Int
 getFunctionCodeSigningConfigResponse_httpStatus = Lens.lens (\GetFunctionCodeSigningConfigResponse' {httpStatus} -> httpStatus) (\s@GetFunctionCodeSigningConfigResponse' {} a -> s {httpStatus = a} :: GetFunctionCodeSigningConfigResponse)
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-getFunctionCodeSigningConfigResponse_codeSigningConfigArn :: Lens.Lens' GetFunctionCodeSigningConfigResponse Core.Text
+getFunctionCodeSigningConfigResponse_codeSigningConfigArn :: Lens.Lens' GetFunctionCodeSigningConfigResponse Prelude.Text
 getFunctionCodeSigningConfigResponse_codeSigningConfigArn = Lens.lens (\GetFunctionCodeSigningConfigResponse' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@GetFunctionCodeSigningConfigResponse' {} a -> s {codeSigningConfigArn = a} :: GetFunctionCodeSigningConfigResponse)
 
 -- | The name of the Lambda function.
@@ -233,9 +236,9 @@ getFunctionCodeSigningConfigResponse_codeSigningConfigArn = Lens.lens (\GetFunct
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-getFunctionCodeSigningConfigResponse_functionName :: Lens.Lens' GetFunctionCodeSigningConfigResponse Core.Text
+getFunctionCodeSigningConfigResponse_functionName :: Lens.Lens' GetFunctionCodeSigningConfigResponse Prelude.Text
 getFunctionCodeSigningConfigResponse_functionName = Lens.lens (\GetFunctionCodeSigningConfigResponse' {functionName} -> functionName) (\s@GetFunctionCodeSigningConfigResponse' {} a -> s {functionName = a} :: GetFunctionCodeSigningConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetFunctionCodeSigningConfigResponse

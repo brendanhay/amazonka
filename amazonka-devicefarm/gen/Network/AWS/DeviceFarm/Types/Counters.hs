@@ -21,27 +21,28 @@ module Network.AWS.DeviceFarm.Types.Counters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents entity counters.
 --
 -- /See:/ 'newCounters' smart constructor.
 data Counters = Counters'
   { -- | The number of errored entities.
-    errored :: Core.Maybe Core.Int,
+    errored :: Prelude.Maybe Prelude.Int,
     -- | The number of warned entities.
-    warned :: Core.Maybe Core.Int,
+    warned :: Prelude.Maybe Prelude.Int,
     -- | The number of passed entities.
-    passed :: Core.Maybe Core.Int,
+    passed :: Prelude.Maybe Prelude.Int,
     -- | The total number of entities.
-    total :: Core.Maybe Core.Int,
+    total :: Prelude.Maybe Prelude.Int,
     -- | The number of stopped entities.
-    stopped :: Core.Maybe Core.Int,
+    stopped :: Prelude.Maybe Prelude.Int,
     -- | The number of failed entities.
-    failed :: Core.Maybe Core.Int,
+    failed :: Prelude.Maybe Prelude.Int,
     -- | The number of skipped entities.
-    skipped :: Core.Maybe Core.Int
+    skipped :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Counters' with all optional fields omitted.
@@ -68,41 +69,41 @@ newCounters ::
   Counters
 newCounters =
   Counters'
-    { errored = Core.Nothing,
-      warned = Core.Nothing,
-      passed = Core.Nothing,
-      total = Core.Nothing,
-      stopped = Core.Nothing,
-      failed = Core.Nothing,
-      skipped = Core.Nothing
+    { errored = Prelude.Nothing,
+      warned = Prelude.Nothing,
+      passed = Prelude.Nothing,
+      total = Prelude.Nothing,
+      stopped = Prelude.Nothing,
+      failed = Prelude.Nothing,
+      skipped = Prelude.Nothing
     }
 
 -- | The number of errored entities.
-counters_errored :: Lens.Lens' Counters (Core.Maybe Core.Int)
+counters_errored :: Lens.Lens' Counters (Prelude.Maybe Prelude.Int)
 counters_errored = Lens.lens (\Counters' {errored} -> errored) (\s@Counters' {} a -> s {errored = a} :: Counters)
 
 -- | The number of warned entities.
-counters_warned :: Lens.Lens' Counters (Core.Maybe Core.Int)
+counters_warned :: Lens.Lens' Counters (Prelude.Maybe Prelude.Int)
 counters_warned = Lens.lens (\Counters' {warned} -> warned) (\s@Counters' {} a -> s {warned = a} :: Counters)
 
 -- | The number of passed entities.
-counters_passed :: Lens.Lens' Counters (Core.Maybe Core.Int)
+counters_passed :: Lens.Lens' Counters (Prelude.Maybe Prelude.Int)
 counters_passed = Lens.lens (\Counters' {passed} -> passed) (\s@Counters' {} a -> s {passed = a} :: Counters)
 
 -- | The total number of entities.
-counters_total :: Lens.Lens' Counters (Core.Maybe Core.Int)
+counters_total :: Lens.Lens' Counters (Prelude.Maybe Prelude.Int)
 counters_total = Lens.lens (\Counters' {total} -> total) (\s@Counters' {} a -> s {total = a} :: Counters)
 
 -- | The number of stopped entities.
-counters_stopped :: Lens.Lens' Counters (Core.Maybe Core.Int)
+counters_stopped :: Lens.Lens' Counters (Prelude.Maybe Prelude.Int)
 counters_stopped = Lens.lens (\Counters' {stopped} -> stopped) (\s@Counters' {} a -> s {stopped = a} :: Counters)
 
 -- | The number of failed entities.
-counters_failed :: Lens.Lens' Counters (Core.Maybe Core.Int)
+counters_failed :: Lens.Lens' Counters (Prelude.Maybe Prelude.Int)
 counters_failed = Lens.lens (\Counters' {failed} -> failed) (\s@Counters' {} a -> s {failed = a} :: Counters)
 
 -- | The number of skipped entities.
-counters_skipped :: Lens.Lens' Counters (Core.Maybe Core.Int)
+counters_skipped :: Lens.Lens' Counters (Prelude.Maybe Prelude.Int)
 counters_skipped = Lens.lens (\Counters' {skipped} -> skipped) (\s@Counters' {} a -> s {skipped = a} :: Counters)
 
 instance Core.FromJSON Counters where
@@ -111,15 +112,15 @@ instance Core.FromJSON Counters where
       "Counters"
       ( \x ->
           Counters'
-            Core.<$> (x Core..:? "errored")
-            Core.<*> (x Core..:? "warned")
-            Core.<*> (x Core..:? "passed")
-            Core.<*> (x Core..:? "total")
-            Core.<*> (x Core..:? "stopped")
-            Core.<*> (x Core..:? "failed")
-            Core.<*> (x Core..:? "skipped")
+            Prelude.<$> (x Core..:? "errored")
+            Prelude.<*> (x Core..:? "warned")
+            Prelude.<*> (x Core..:? "passed")
+            Prelude.<*> (x Core..:? "total")
+            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<*> (x Core..:? "failed")
+            Prelude.<*> (x Core..:? "skipped")
       )
 
-instance Core.Hashable Counters
+instance Prelude.Hashable Counters
 
-instance Core.NFData Counters
+instance Prelude.NFData Counters

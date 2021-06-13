@@ -21,6 +21,7 @@ module Network.AWS.LexModels.Types.CodeHook where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a Lambda function that verifies requests to a bot or fulfills
 -- the user\'s request to a bot..
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCodeHook' smart constructor.
 data CodeHook = CodeHook'
   { -- | The Amazon Resource Name (ARN) of the Lambda function.
-    uri :: Core.Text,
+    uri :: Prelude.Text,
     -- | The version of the request-response that you want Amazon Lex to use to
     -- invoke your Lambda function. For more information, see using-lambda.
-    messageVersion :: Core.Text
+    messageVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CodeHook' with all optional fields omitted.
@@ -49,9 +50,9 @@ data CodeHook = CodeHook'
 -- invoke your Lambda function. For more information, see using-lambda.
 newCodeHook ::
   -- | 'uri'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'messageVersion'
-  Core.Text ->
+  Prelude.Text ->
   CodeHook
 newCodeHook pUri_ pMessageVersion_ =
   CodeHook'
@@ -60,12 +61,12 @@ newCodeHook pUri_ pMessageVersion_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the Lambda function.
-codeHook_uri :: Lens.Lens' CodeHook Core.Text
+codeHook_uri :: Lens.Lens' CodeHook Prelude.Text
 codeHook_uri = Lens.lens (\CodeHook' {uri} -> uri) (\s@CodeHook' {} a -> s {uri = a} :: CodeHook)
 
 -- | The version of the request-response that you want Amazon Lex to use to
 -- invoke your Lambda function. For more information, see using-lambda.
-codeHook_messageVersion :: Lens.Lens' CodeHook Core.Text
+codeHook_messageVersion :: Lens.Lens' CodeHook Prelude.Text
 codeHook_messageVersion = Lens.lens (\CodeHook' {messageVersion} -> messageVersion) (\s@CodeHook' {} a -> s {messageVersion = a} :: CodeHook)
 
 instance Core.FromJSON CodeHook where
@@ -74,19 +75,20 @@ instance Core.FromJSON CodeHook where
       "CodeHook"
       ( \x ->
           CodeHook'
-            Core.<$> (x Core..: "uri")
-            Core.<*> (x Core..: "messageVersion")
+            Prelude.<$> (x Core..: "uri")
+            Prelude.<*> (x Core..: "messageVersion")
       )
 
-instance Core.Hashable CodeHook
+instance Prelude.Hashable CodeHook
 
-instance Core.NFData CodeHook
+instance Prelude.NFData CodeHook
 
 instance Core.ToJSON CodeHook where
   toJSON CodeHook' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("uri" Core..= uri),
-            Core.Just ("messageVersion" Core..= messageVersion)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("uri" Core..= uri),
+            Prelude.Just
+              ("messageVersion" Core..= messageVersion)
           ]
       )

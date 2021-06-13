@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.CodeHook
 import Network.AWS.LexModels.Types.FulfillmentActivityType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes how the intent is fulfilled after the user provides all of the
 -- information required for the intent. You can provide a Lambda function
@@ -47,12 +48,12 @@ import Network.AWS.LexModels.Types.FulfillmentActivityType
 -- /See:/ 'newFulfillmentActivity' smart constructor.
 data FulfillmentActivity = FulfillmentActivity'
   { -- | A description of the Lambda function that is run to fulfill the intent.
-    codeHook :: Core.Maybe CodeHook,
+    codeHook :: Prelude.Maybe CodeHook,
     -- | How the intent should be fulfilled, either by running a Lambda function
     -- or by returning the slot data to the client application.
     type' :: FulfillmentActivityType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FulfillmentActivity' with all optional fields omitted.
@@ -72,12 +73,12 @@ newFulfillmentActivity ::
   FulfillmentActivity
 newFulfillmentActivity pType_ =
   FulfillmentActivity'
-    { codeHook = Core.Nothing,
+    { codeHook = Prelude.Nothing,
       type' = pType_
     }
 
 -- | A description of the Lambda function that is run to fulfill the intent.
-fulfillmentActivity_codeHook :: Lens.Lens' FulfillmentActivity (Core.Maybe CodeHook)
+fulfillmentActivity_codeHook :: Lens.Lens' FulfillmentActivity (Prelude.Maybe CodeHook)
 fulfillmentActivity_codeHook = Lens.lens (\FulfillmentActivity' {codeHook} -> codeHook) (\s@FulfillmentActivity' {} a -> s {codeHook = a} :: FulfillmentActivity)
 
 -- | How the intent should be fulfilled, either by running a Lambda function
@@ -91,18 +92,19 @@ instance Core.FromJSON FulfillmentActivity where
       "FulfillmentActivity"
       ( \x ->
           FulfillmentActivity'
-            Core.<$> (x Core..:? "codeHook") Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..:? "codeHook")
+            Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable FulfillmentActivity
+instance Prelude.Hashable FulfillmentActivity
 
-instance Core.NFData FulfillmentActivity
+instance Prelude.NFData FulfillmentActivity
 
 instance Core.ToJSON FulfillmentActivity where
   toJSON FulfillmentActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("codeHook" Core..=) Core.<$> codeHook,
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("codeHook" Core..=) Prelude.<$> codeHook,
+            Prelude.Just ("type" Core..= type')
           ]
       )

@@ -21,15 +21,16 @@ module Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse wher
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a @BatchUpdate@ response operation.
 --
 -- /See:/ 'newBatchUpdateObjectAttributesResponse' smart constructor.
 data BatchUpdateObjectAttributesResponse = BatchUpdateObjectAttributesResponse'
   { -- | ID that is associated with the object.
-    objectIdentifier :: Core.Maybe Core.Text
+    objectIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchUpdateObjectAttributesResponse' with all optional fields omitted.
@@ -45,11 +46,11 @@ newBatchUpdateObjectAttributesResponse ::
 newBatchUpdateObjectAttributesResponse =
   BatchUpdateObjectAttributesResponse'
     { objectIdentifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | ID that is associated with the object.
-batchUpdateObjectAttributesResponse_objectIdentifier :: Lens.Lens' BatchUpdateObjectAttributesResponse (Core.Maybe Core.Text)
+batchUpdateObjectAttributesResponse_objectIdentifier :: Lens.Lens' BatchUpdateObjectAttributesResponse (Prelude.Maybe Prelude.Text)
 batchUpdateObjectAttributesResponse_objectIdentifier = Lens.lens (\BatchUpdateObjectAttributesResponse' {objectIdentifier} -> objectIdentifier) (\s@BatchUpdateObjectAttributesResponse' {} a -> s {objectIdentifier = a} :: BatchUpdateObjectAttributesResponse)
 
 instance
@@ -61,13 +62,13 @@ instance
       "BatchUpdateObjectAttributesResponse"
       ( \x ->
           BatchUpdateObjectAttributesResponse'
-            Core.<$> (x Core..:? "ObjectIdentifier")
+            Prelude.<$> (x Core..:? "ObjectIdentifier")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchUpdateObjectAttributesResponse
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchUpdateObjectAttributesResponse

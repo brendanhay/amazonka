@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.OrcSerDe
 import Network.AWS.Firehose.Types.ParquetSerDe
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The serializer that you want Kinesis Data Firehose to use to convert
 -- data to the target format before writing it to Amazon S3. Kinesis Data
@@ -36,13 +37,13 @@ data Serializer = Serializer'
   { -- | A serializer to use for converting data to the ORC format before storing
     -- it in Amazon S3. For more information, see
     -- <https://orc.apache.org/docs/ Apache ORC>.
-    orcSerDe :: Core.Maybe OrcSerDe,
+    orcSerDe :: Prelude.Maybe OrcSerDe,
     -- | A serializer to use for converting data to the Parquet format before
     -- storing it in Amazon S3. For more information, see
     -- <https://parquet.apache.org/documentation/latest/ Apache Parquet>.
-    parquetSerDe :: Core.Maybe ParquetSerDe
+    parquetSerDe :: Prelude.Maybe ParquetSerDe
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Serializer' with all optional fields omitted.
@@ -63,20 +64,20 @@ newSerializer ::
   Serializer
 newSerializer =
   Serializer'
-    { orcSerDe = Core.Nothing,
-      parquetSerDe = Core.Nothing
+    { orcSerDe = Prelude.Nothing,
+      parquetSerDe = Prelude.Nothing
     }
 
 -- | A serializer to use for converting data to the ORC format before storing
 -- it in Amazon S3. For more information, see
 -- <https://orc.apache.org/docs/ Apache ORC>.
-serializer_orcSerDe :: Lens.Lens' Serializer (Core.Maybe OrcSerDe)
+serializer_orcSerDe :: Lens.Lens' Serializer (Prelude.Maybe OrcSerDe)
 serializer_orcSerDe = Lens.lens (\Serializer' {orcSerDe} -> orcSerDe) (\s@Serializer' {} a -> s {orcSerDe = a} :: Serializer)
 
 -- | A serializer to use for converting data to the Parquet format before
 -- storing it in Amazon S3. For more information, see
 -- <https://parquet.apache.org/documentation/latest/ Apache Parquet>.
-serializer_parquetSerDe :: Lens.Lens' Serializer (Core.Maybe ParquetSerDe)
+serializer_parquetSerDe :: Lens.Lens' Serializer (Prelude.Maybe ParquetSerDe)
 serializer_parquetSerDe = Lens.lens (\Serializer' {parquetSerDe} -> parquetSerDe) (\s@Serializer' {} a -> s {parquetSerDe = a} :: Serializer)
 
 instance Core.FromJSON Serializer where
@@ -85,19 +86,19 @@ instance Core.FromJSON Serializer where
       "Serializer"
       ( \x ->
           Serializer'
-            Core.<$> (x Core..:? "OrcSerDe")
-            Core.<*> (x Core..:? "ParquetSerDe")
+            Prelude.<$> (x Core..:? "OrcSerDe")
+            Prelude.<*> (x Core..:? "ParquetSerDe")
       )
 
-instance Core.Hashable Serializer
+instance Prelude.Hashable Serializer
 
-instance Core.NFData Serializer
+instance Prelude.NFData Serializer
 
 instance Core.ToJSON Serializer where
   toJSON Serializer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("OrcSerDe" Core..=) Core.<$> orcSerDe,
-            ("ParquetSerDe" Core..=) Core.<$> parquetSerDe
+      ( Prelude.catMaybes
+          [ ("OrcSerDe" Core..=) Prelude.<$> orcSerDe,
+            ("ParquetSerDe" Core..=) Prelude.<$> parquetSerDe
           ]
       )

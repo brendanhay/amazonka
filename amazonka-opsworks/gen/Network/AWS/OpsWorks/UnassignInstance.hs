@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUnassignInstance' smart constructor.
 data UnassignInstance = UnassignInstance'
   { -- | The instance ID.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnassignInstance' with all optional fields omitted.
@@ -68,13 +69,13 @@ data UnassignInstance = UnassignInstance'
 -- 'instanceId', 'unassignInstance_instanceId' - The instance ID.
 newUnassignInstance ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   UnassignInstance
 newUnassignInstance pInstanceId_ =
   UnassignInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-unassignInstance_instanceId :: Lens.Lens' UnassignInstance Core.Text
+unassignInstance_instanceId :: Lens.Lens' UnassignInstance Prelude.Text
 unassignInstance_instanceId = Lens.lens (\UnassignInstance' {instanceId} -> instanceId) (\s@UnassignInstance' {} a -> s {instanceId = a} :: UnassignInstance)
 
 instance Core.AWSRequest UnassignInstance where
@@ -85,41 +86,43 @@ instance Core.AWSRequest UnassignInstance where
   response =
     Response.receiveNull UnassignInstanceResponse'
 
-instance Core.Hashable UnassignInstance
+instance Prelude.Hashable UnassignInstance
 
-instance Core.NFData UnassignInstance
+instance Prelude.NFData UnassignInstance
 
 instance Core.ToHeaders UnassignInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.UnassignInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UnassignInstance where
   toJSON UnassignInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("InstanceId" Core..= instanceId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("InstanceId" Core..= instanceId)]
       )
 
 instance Core.ToPath UnassignInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UnassignInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnassignInstanceResponse' smart constructor.
 data UnassignInstanceResponse = UnassignInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnassignInstanceResponse' with all optional fields omitted.
@@ -130,4 +133,4 @@ newUnassignInstanceResponse ::
 newUnassignInstanceResponse =
   UnassignInstanceResponse'
 
-instance Core.NFData UnassignInstanceResponse
+instance Prelude.NFData UnassignInstanceResponse

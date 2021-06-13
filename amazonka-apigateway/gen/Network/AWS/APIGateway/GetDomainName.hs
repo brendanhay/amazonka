@@ -57,6 +57,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,9 +66,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetDomainName' smart constructor.
 data GetDomainName = GetDomainName'
   { -- | [Required] The name of the DomainName resource.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDomainName' with all optional fields omitted.
@@ -80,13 +81,13 @@ data GetDomainName = GetDomainName'
 -- 'domainName', 'getDomainName_domainName' - [Required] The name of the DomainName resource.
 newGetDomainName ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   GetDomainName
 newGetDomainName pDomainName_ =
   GetDomainName' {domainName = pDomainName_}
 
 -- | [Required] The name of the DomainName resource.
-getDomainName_domainName :: Lens.Lens' GetDomainName Core.Text
+getDomainName_domainName :: Lens.Lens' GetDomainName Prelude.Text
 getDomainName_domainName = Lens.lens (\GetDomainName' {domainName} -> domainName) (\s@GetDomainName' {} a -> s {domainName = a} :: GetDomainName)
 
 instance Core.AWSRequest GetDomainName where
@@ -96,23 +97,23 @@ instance Core.AWSRequest GetDomainName where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetDomainName
+instance Prelude.Hashable GetDomainName
 
-instance Core.NFData GetDomainName
+instance Prelude.NFData GetDomainName
 
 instance Core.ToHeaders GetDomainName where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetDomainName where
   toPath GetDomainName' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/domainnames/", Core.toBS domainName]
 
 instance Core.ToQuery GetDomainName where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

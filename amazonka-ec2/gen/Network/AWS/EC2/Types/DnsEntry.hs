@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.DnsEntry where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a DNS entry.
 --
 -- /See:/ 'newDnsEntry' smart constructor.
 data DnsEntry = DnsEntry'
   { -- | The ID of the private hosted zone.
-    hostedZoneId :: Core.Maybe Core.Text,
+    hostedZoneId :: Prelude.Maybe Prelude.Text,
     -- | The DNS name.
-    dnsName :: Core.Maybe Core.Text
+    dnsName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DnsEntry' with all optional fields omitted.
@@ -49,24 +50,24 @@ newDnsEntry ::
   DnsEntry
 newDnsEntry =
   DnsEntry'
-    { hostedZoneId = Core.Nothing,
-      dnsName = Core.Nothing
+    { hostedZoneId = Prelude.Nothing,
+      dnsName = Prelude.Nothing
     }
 
 -- | The ID of the private hosted zone.
-dnsEntry_hostedZoneId :: Lens.Lens' DnsEntry (Core.Maybe Core.Text)
+dnsEntry_hostedZoneId :: Lens.Lens' DnsEntry (Prelude.Maybe Prelude.Text)
 dnsEntry_hostedZoneId = Lens.lens (\DnsEntry' {hostedZoneId} -> hostedZoneId) (\s@DnsEntry' {} a -> s {hostedZoneId = a} :: DnsEntry)
 
 -- | The DNS name.
-dnsEntry_dnsName :: Lens.Lens' DnsEntry (Core.Maybe Core.Text)
+dnsEntry_dnsName :: Lens.Lens' DnsEntry (Prelude.Maybe Prelude.Text)
 dnsEntry_dnsName = Lens.lens (\DnsEntry' {dnsName} -> dnsName) (\s@DnsEntry' {} a -> s {dnsName = a} :: DnsEntry)
 
 instance Core.FromXML DnsEntry where
   parseXML x =
     DnsEntry'
-      Core.<$> (x Core..@? "hostedZoneId")
-      Core.<*> (x Core..@? "dnsName")
+      Prelude.<$> (x Core..@? "hostedZoneId")
+      Prelude.<*> (x Core..@? "dnsName")
 
-instance Core.Hashable DnsEntry
+instance Prelude.Hashable DnsEntry
 
-instance Core.NFData DnsEntry
+instance Prelude.NFData DnsEntry

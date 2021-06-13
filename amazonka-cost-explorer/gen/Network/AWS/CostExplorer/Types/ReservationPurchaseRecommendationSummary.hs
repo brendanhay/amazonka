@@ -21,6 +21,7 @@ module Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary w
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary about this recommendation, such as the currency code, the
 -- amount that AWS estimates that you could save, and the total amount of
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 data ReservationPurchaseRecommendationSummary = ReservationPurchaseRecommendationSummary'
   { -- | The total amount that AWS estimates that this recommendation could save
     -- you in a month.
-    totalEstimatedMonthlySavingsAmount :: Core.Maybe Core.Text,
+    totalEstimatedMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
     -- | The currency code used for this recommendation.
-    currencyCode :: Core.Maybe Core.Text,
+    currencyCode :: Prelude.Maybe Prelude.Text,
     -- | The total amount that AWS estimates that this recommendation could save
     -- you in a month, as a percentage of your costs.
-    totalEstimatedMonthlySavingsPercentage :: Core.Maybe Core.Text
+    totalEstimatedMonthlySavingsPercentage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservationPurchaseRecommendationSummary' with all optional fields omitted.
@@ -59,24 +60,24 @@ newReservationPurchaseRecommendationSummary ::
 newReservationPurchaseRecommendationSummary =
   ReservationPurchaseRecommendationSummary'
     { totalEstimatedMonthlySavingsAmount =
-        Core.Nothing,
-      currencyCode = Core.Nothing,
+        Prelude.Nothing,
+      currencyCode = Prelude.Nothing,
       totalEstimatedMonthlySavingsPercentage =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The total amount that AWS estimates that this recommendation could save
 -- you in a month.
-reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount :: Lens.Lens' ReservationPurchaseRecommendationSummary (Core.Maybe Core.Text)
+reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount = Lens.lens (\ReservationPurchaseRecommendationSummary' {totalEstimatedMonthlySavingsAmount} -> totalEstimatedMonthlySavingsAmount) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {totalEstimatedMonthlySavingsAmount = a} :: ReservationPurchaseRecommendationSummary)
 
 -- | The currency code used for this recommendation.
-reservationPurchaseRecommendationSummary_currencyCode :: Lens.Lens' ReservationPurchaseRecommendationSummary (Core.Maybe Core.Text)
+reservationPurchaseRecommendationSummary_currencyCode :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationSummary_currencyCode = Lens.lens (\ReservationPurchaseRecommendationSummary' {currencyCode} -> currencyCode) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {currencyCode = a} :: ReservationPurchaseRecommendationSummary)
 
 -- | The total amount that AWS estimates that this recommendation could save
 -- you in a month, as a percentage of your costs.
-reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage :: Lens.Lens' ReservationPurchaseRecommendationSummary (Core.Maybe Core.Text)
+reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage = Lens.lens (\ReservationPurchaseRecommendationSummary' {totalEstimatedMonthlySavingsPercentage} -> totalEstimatedMonthlySavingsPercentage) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {totalEstimatedMonthlySavingsPercentage = a} :: ReservationPurchaseRecommendationSummary)
 
 instance
@@ -88,17 +89,17 @@ instance
       "ReservationPurchaseRecommendationSummary"
       ( \x ->
           ReservationPurchaseRecommendationSummary'
-            Core.<$> (x Core..:? "TotalEstimatedMonthlySavingsAmount")
-            Core.<*> (x Core..:? "CurrencyCode")
-            Core.<*> ( x
-                         Core..:? "TotalEstimatedMonthlySavingsPercentage"
-                     )
+            Prelude.<$> (x Core..:? "TotalEstimatedMonthlySavingsAmount")
+            Prelude.<*> (x Core..:? "CurrencyCode")
+            Prelude.<*> ( x
+                            Core..:? "TotalEstimatedMonthlySavingsPercentage"
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReservationPurchaseRecommendationSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReservationPurchaseRecommendationSummary

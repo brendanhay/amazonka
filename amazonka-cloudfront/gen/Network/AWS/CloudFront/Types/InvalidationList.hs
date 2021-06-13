@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.InvalidationList where
 import Network.AWS.CloudFront.Types.InvalidationSummary
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The @InvalidationList@ complex type describes the list of invalidation
 -- objects. For more information about invalidation, see
@@ -32,25 +33,25 @@ import qualified Network.AWS.Lens as Lens
 data InvalidationList = InvalidationList'
   { -- | A complex type that contains one @InvalidationSummary@ element for each
     -- invalidation batch created by the current AWS account.
-    items :: Core.Maybe [InvalidationSummary],
+    items :: Prelude.Maybe [InvalidationSummary],
     -- | If @IsTruncated@ is @true@, this element is present and contains the
     -- value that you can use for the @Marker@ request parameter to continue
     -- listing your invalidation batches where they left off.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The value that you provided for the @Marker@ request parameter.
-    marker :: Core.Text,
+    marker :: Prelude.Text,
     -- | The value that you provided for the @MaxItems@ request parameter.
-    maxItems :: Core.Int,
+    maxItems :: Prelude.Int,
     -- | A flag that indicates whether more invalidation batch requests remain to
     -- be listed. If your results were truncated, you can make a follow-up
     -- pagination request using the @Marker@ request parameter to retrieve more
     -- invalidation batches in the list.
-    isTruncated :: Core.Bool,
+    isTruncated :: Prelude.Bool,
     -- | The number of invalidation batches that were created by the current AWS
     -- account.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InvalidationList' with all optional fields omitted.
@@ -80,13 +81,13 @@ data InvalidationList = InvalidationList'
 -- account.
 newInvalidationList ::
   -- | 'marker'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'maxItems'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'isTruncated'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   InvalidationList
 newInvalidationList
   pMarker_
@@ -94,8 +95,8 @@ newInvalidationList
   pIsTruncated_
   pQuantity_ =
     InvalidationList'
-      { items = Core.Nothing,
-        nextMarker = Core.Nothing,
+      { items = Prelude.Nothing,
+        nextMarker = Prelude.Nothing,
         marker = pMarker_,
         maxItems = pMaxItems_,
         isTruncated = pIsTruncated_,
@@ -104,47 +105,47 @@ newInvalidationList
 
 -- | A complex type that contains one @InvalidationSummary@ element for each
 -- invalidation batch created by the current AWS account.
-invalidationList_items :: Lens.Lens' InvalidationList (Core.Maybe [InvalidationSummary])
-invalidationList_items = Lens.lens (\InvalidationList' {items} -> items) (\s@InvalidationList' {} a -> s {items = a} :: InvalidationList) Core.. Lens.mapping Lens._Coerce
+invalidationList_items :: Lens.Lens' InvalidationList (Prelude.Maybe [InvalidationSummary])
+invalidationList_items = Lens.lens (\InvalidationList' {items} -> items) (\s@InvalidationList' {} a -> s {items = a} :: InvalidationList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value that you can use for the @Marker@ request parameter to continue
 -- listing your invalidation batches where they left off.
-invalidationList_nextMarker :: Lens.Lens' InvalidationList (Core.Maybe Core.Text)
+invalidationList_nextMarker :: Lens.Lens' InvalidationList (Prelude.Maybe Prelude.Text)
 invalidationList_nextMarker = Lens.lens (\InvalidationList' {nextMarker} -> nextMarker) (\s@InvalidationList' {} a -> s {nextMarker = a} :: InvalidationList)
 
 -- | The value that you provided for the @Marker@ request parameter.
-invalidationList_marker :: Lens.Lens' InvalidationList Core.Text
+invalidationList_marker :: Lens.Lens' InvalidationList Prelude.Text
 invalidationList_marker = Lens.lens (\InvalidationList' {marker} -> marker) (\s@InvalidationList' {} a -> s {marker = a} :: InvalidationList)
 
 -- | The value that you provided for the @MaxItems@ request parameter.
-invalidationList_maxItems :: Lens.Lens' InvalidationList Core.Int
+invalidationList_maxItems :: Lens.Lens' InvalidationList Prelude.Int
 invalidationList_maxItems = Lens.lens (\InvalidationList' {maxItems} -> maxItems) (\s@InvalidationList' {} a -> s {maxItems = a} :: InvalidationList)
 
 -- | A flag that indicates whether more invalidation batch requests remain to
 -- be listed. If your results were truncated, you can make a follow-up
 -- pagination request using the @Marker@ request parameter to retrieve more
 -- invalidation batches in the list.
-invalidationList_isTruncated :: Lens.Lens' InvalidationList Core.Bool
+invalidationList_isTruncated :: Lens.Lens' InvalidationList Prelude.Bool
 invalidationList_isTruncated = Lens.lens (\InvalidationList' {isTruncated} -> isTruncated) (\s@InvalidationList' {} a -> s {isTruncated = a} :: InvalidationList)
 
 -- | The number of invalidation batches that were created by the current AWS
 -- account.
-invalidationList_quantity :: Lens.Lens' InvalidationList Core.Int
+invalidationList_quantity :: Lens.Lens' InvalidationList Prelude.Int
 invalidationList_quantity = Lens.lens (\InvalidationList' {quantity} -> quantity) (\s@InvalidationList' {} a -> s {quantity = a} :: InvalidationList)
 
 instance Core.FromXML InvalidationList where
   parseXML x =
     InvalidationList'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "InvalidationSummary")
-               )
-      Core.<*> (x Core..@? "NextMarker")
-      Core.<*> (x Core..@ "Marker")
-      Core.<*> (x Core..@ "MaxItems")
-      Core.<*> (x Core..@ "IsTruncated")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "InvalidationSummary")
+                  )
+      Prelude.<*> (x Core..@? "NextMarker")
+      Prelude.<*> (x Core..@ "Marker")
+      Prelude.<*> (x Core..@ "MaxItems")
+      Prelude.<*> (x Core..@ "IsTruncated")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable InvalidationList
+instance Prelude.Hashable InvalidationList
 
-instance Core.NFData InvalidationList
+instance Prelude.NFData InvalidationList

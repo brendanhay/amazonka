@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,14 +66,14 @@ data UpdateDistributionBundle = UpdateDistributionBundle'
     --
     -- Use the @GetDistributionBundles@ action to get a list of distribution
     -- bundle IDs that you can specify.
-    bundleId :: Core.Maybe Core.Text,
+    bundleId :: Prelude.Maybe Prelude.Text,
     -- | The name of the distribution for which to update the bundle.
     --
     -- Use the @GetDistributions@ action to get a list of distribution names
     -- that you can specify.
-    distributionName :: Core.Maybe Core.Text
+    distributionName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDistributionBundle' with all optional fields omitted.
@@ -95,22 +96,23 @@ newUpdateDistributionBundle ::
   UpdateDistributionBundle
 newUpdateDistributionBundle =
   UpdateDistributionBundle'
-    { bundleId = Core.Nothing,
-      distributionName = Core.Nothing
+    { bundleId =
+        Prelude.Nothing,
+      distributionName = Prelude.Nothing
     }
 
 -- | The bundle ID of the new bundle to apply to your distribution.
 --
 -- Use the @GetDistributionBundles@ action to get a list of distribution
 -- bundle IDs that you can specify.
-updateDistributionBundle_bundleId :: Lens.Lens' UpdateDistributionBundle (Core.Maybe Core.Text)
+updateDistributionBundle_bundleId :: Lens.Lens' UpdateDistributionBundle (Prelude.Maybe Prelude.Text)
 updateDistributionBundle_bundleId = Lens.lens (\UpdateDistributionBundle' {bundleId} -> bundleId) (\s@UpdateDistributionBundle' {} a -> s {bundleId = a} :: UpdateDistributionBundle)
 
 -- | The name of the distribution for which to update the bundle.
 --
 -- Use the @GetDistributions@ action to get a list of distribution names
 -- that you can specify.
-updateDistributionBundle_distributionName :: Lens.Lens' UpdateDistributionBundle (Core.Maybe Core.Text)
+updateDistributionBundle_distributionName :: Lens.Lens' UpdateDistributionBundle (Prelude.Maybe Prelude.Text)
 updateDistributionBundle_distributionName = Lens.lens (\UpdateDistributionBundle' {distributionName} -> distributionName) (\s@UpdateDistributionBundle' {} a -> s {distributionName = a} :: UpdateDistributionBundle)
 
 instance Core.AWSRequest UpdateDistributionBundle where
@@ -122,50 +124,52 @@ instance Core.AWSRequest UpdateDistributionBundle where
     Response.receiveJSON
       ( \s h x ->
           UpdateDistributionBundleResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDistributionBundle
+instance Prelude.Hashable UpdateDistributionBundle
 
-instance Core.NFData UpdateDistributionBundle
+instance Prelude.NFData UpdateDistributionBundle
 
 instance Core.ToHeaders UpdateDistributionBundle where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.UpdateDistributionBundle" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDistributionBundle where
   toJSON UpdateDistributionBundle' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("bundleId" Core..=) Core.<$> bundleId,
+      ( Prelude.catMaybes
+          [ ("bundleId" Core..=) Prelude.<$> bundleId,
             ("distributionName" Core..=)
-              Core.<$> distributionName
+              Prelude.<$> distributionName
           ]
       )
 
 instance Core.ToPath UpdateDistributionBundle where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDistributionBundle where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDistributionBundleResponse' smart constructor.
 data UpdateDistributionBundleResponse = UpdateDistributionBundleResponse'
-  { operation :: Core.Maybe Operation,
+  { operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDistributionBundleResponse' with all optional fields omitted.
@@ -180,21 +184,23 @@ data UpdateDistributionBundleResponse = UpdateDistributionBundleResponse'
 -- 'httpStatus', 'updateDistributionBundleResponse_httpStatus' - The response's http status code.
 newUpdateDistributionBundleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDistributionBundleResponse
 newUpdateDistributionBundleResponse pHttpStatus_ =
   UpdateDistributionBundleResponse'
     { operation =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateDistributionBundleResponse_operation :: Lens.Lens' UpdateDistributionBundleResponse (Core.Maybe Operation)
+updateDistributionBundleResponse_operation :: Lens.Lens' UpdateDistributionBundleResponse (Prelude.Maybe Operation)
 updateDistributionBundleResponse_operation = Lens.lens (\UpdateDistributionBundleResponse' {operation} -> operation) (\s@UpdateDistributionBundleResponse' {} a -> s {operation = a} :: UpdateDistributionBundleResponse)
 
 -- | The response's http status code.
-updateDistributionBundleResponse_httpStatus :: Lens.Lens' UpdateDistributionBundleResponse Core.Int
+updateDistributionBundleResponse_httpStatus :: Lens.Lens' UpdateDistributionBundleResponse Prelude.Int
 updateDistributionBundleResponse_httpStatus = Lens.lens (\UpdateDistributionBundleResponse' {httpStatus} -> httpStatus) (\s@UpdateDistributionBundleResponse' {} a -> s {httpStatus = a} :: UpdateDistributionBundleResponse)
 
-instance Core.NFData UpdateDistributionBundleResponse
+instance
+  Prelude.NFData
+    UpdateDistributionBundleResponse

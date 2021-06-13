@@ -22,6 +22,7 @@ module Network.AWS.EKS.Types.LogSetup where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.LogType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the enabled or disabled Kubernetes control plane
 -- logs for your cluster.
@@ -32,11 +33,11 @@ data LogSetup = LogSetup'
     -- to CloudWatch Logs. If a log type isn\'t enabled, that log type doesn\'t
     -- export its control plane logs. Each individual log type can be enabled
     -- or disabled independently.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The available cluster control plane log types.
-    types :: Core.Maybe [LogType]
+    types :: Prelude.Maybe [LogType]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LogSetup' with all optional fields omitted.
@@ -56,20 +57,20 @@ newLogSetup ::
   LogSetup
 newLogSetup =
   LogSetup'
-    { enabled = Core.Nothing,
-      types = Core.Nothing
+    { enabled = Prelude.Nothing,
+      types = Prelude.Nothing
     }
 
 -- | If a log type is enabled, that log type exports its control plane logs
 -- to CloudWatch Logs. If a log type isn\'t enabled, that log type doesn\'t
 -- export its control plane logs. Each individual log type can be enabled
 -- or disabled independently.
-logSetup_enabled :: Lens.Lens' LogSetup (Core.Maybe Core.Bool)
+logSetup_enabled :: Lens.Lens' LogSetup (Prelude.Maybe Prelude.Bool)
 logSetup_enabled = Lens.lens (\LogSetup' {enabled} -> enabled) (\s@LogSetup' {} a -> s {enabled = a} :: LogSetup)
 
 -- | The available cluster control plane log types.
-logSetup_types :: Lens.Lens' LogSetup (Core.Maybe [LogType])
-logSetup_types = Lens.lens (\LogSetup' {types} -> types) (\s@LogSetup' {} a -> s {types = a} :: LogSetup) Core.. Lens.mapping Lens._Coerce
+logSetup_types :: Lens.Lens' LogSetup (Prelude.Maybe [LogType])
+logSetup_types = Lens.lens (\LogSetup' {types} -> types) (\s@LogSetup' {} a -> s {types = a} :: LogSetup) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON LogSetup where
   parseJSON =
@@ -77,19 +78,19 @@ instance Core.FromJSON LogSetup where
       "LogSetup"
       ( \x ->
           LogSetup'
-            Core.<$> (x Core..:? "enabled")
-            Core.<*> (x Core..:? "types" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "enabled")
+            Prelude.<*> (x Core..:? "types" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable LogSetup
+instance Prelude.Hashable LogSetup
 
-instance Core.NFData LogSetup
+instance Prelude.NFData LogSetup
 
 instance Core.ToJSON LogSetup where
   toJSON LogSetup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("enabled" Core..=) Core.<$> enabled,
-            ("types" Core..=) Core.<$> types
+      ( Prelude.catMaybes
+          [ ("enabled" Core..=) Prelude.<$> enabled,
+            ("types" Core..=) Prelude.<$> types
           ]
       )

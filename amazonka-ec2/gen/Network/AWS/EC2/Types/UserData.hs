@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.UserData where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the user data for an instance.
 --
@@ -30,9 +31,9 @@ data UserData = UserData'
   { -- | The user data. If you are using an AWS SDK or command line tool,
     -- Base64-encoding is performed for you, and you can load the text from a
     -- file. Otherwise, you must provide Base64-encoded text.
-    data' :: Core.Maybe Core.Text
+    data' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserData' with all optional fields omitted.
@@ -47,18 +48,18 @@ data UserData = UserData'
 -- file. Otherwise, you must provide Base64-encoded text.
 newUserData ::
   UserData
-newUserData = UserData' {data' = Core.Nothing}
+newUserData = UserData' {data' = Prelude.Nothing}
 
 -- | The user data. If you are using an AWS SDK or command line tool,
 -- Base64-encoding is performed for you, and you can load the text from a
 -- file. Otherwise, you must provide Base64-encoded text.
-userData_data :: Lens.Lens' UserData (Core.Maybe Core.Text)
+userData_data :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
 userData_data = Lens.lens (\UserData' {data'} -> data') (\s@UserData' {} a -> s {data' = a} :: UserData)
 
-instance Core.Hashable UserData
+instance Prelude.Hashable UserData
 
-instance Core.NFData UserData
+instance Prelude.NFData UserData
 
 instance Core.ToQuery UserData where
   toQuery UserData' {..} =
-    Core.mconcat ["Data" Core.=: data']
+    Prelude.mconcat ["Data" Core.=: data']

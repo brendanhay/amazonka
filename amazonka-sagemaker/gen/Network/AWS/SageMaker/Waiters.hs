@@ -17,6 +17,7 @@ module Network.AWS.SageMaker.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.DescribeEndpoint
 import Network.AWS.SageMaker.DescribeNotebookInstance
 import Network.AWS.SageMaker.DescribeProcessingJob
@@ -38,15 +39,15 @@ newNotebookInstanceStopped =
             "Stopped"
             Core.AcceptSuccess
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -66,7 +67,7 @@ newEndpointDeleted =
             "Failed"
             Core.AcceptFailure
             ( describeEndpointResponse_endpointStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -87,8 +88,8 @@ newNotebookInstanceDeleted =
             "Failed"
             Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -106,15 +107,15 @@ newNotebookInstanceInService =
             "InService"
             Core.AcceptSuccess
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -131,13 +132,13 @@ newEndpointInService =
             "InService"
             Core.AcceptSuccess
             ( describeEndpointResponse_endpointStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeEndpointResponse_endpointStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -158,19 +159,19 @@ newTrainingJobCompletedOrStopped =
             "Completed"
             Core.AcceptSuccess
             ( describeTrainingJobResponse_trainingJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Stopped"
             Core.AcceptSuccess
             ( describeTrainingJobResponse_trainingJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeTrainingJobResponse_trainingJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -191,19 +192,19 @@ newProcessingJobCompletedOrStopped =
             "Completed"
             Core.AcceptSuccess
             ( describeProcessingJobResponse_processingJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Stopped"
             Core.AcceptSuccess
             ( describeProcessingJobResponse_processingJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeProcessingJobResponse_processingJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -224,19 +225,19 @@ newTransformJobCompletedOrStopped =
             "Completed"
             Core.AcceptSuccess
             ( describeTransformJobResponse_transformJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Stopped"
             Core.AcceptSuccess
             ( describeTransformJobResponse_transformJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeTransformJobResponse_transformJobStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationException"

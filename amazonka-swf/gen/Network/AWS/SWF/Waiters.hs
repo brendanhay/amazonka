@@ -17,5 +17,6 @@ module Network.AWS.SWF.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Lens
 import Network.AWS.SWF.Types

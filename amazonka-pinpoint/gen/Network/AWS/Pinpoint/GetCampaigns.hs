@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +54,15 @@ data GetCampaigns = GetCampaigns'
   { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Core.Maybe Core.Text,
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The NextToken string that specifies which page of results to return in a
     -- paginated response.
-    token :: Core.Maybe Core.Text,
+    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCampaigns' with all optional fields omitted.
@@ -82,29 +83,29 @@ data GetCampaigns = GetCampaigns'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetCampaigns ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetCampaigns
 newGetCampaigns pApplicationId_ =
   GetCampaigns'
-    { pageSize = Core.Nothing,
-      token = Core.Nothing,
+    { pageSize = Prelude.Nothing,
+      token = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getCampaigns_pageSize :: Lens.Lens' GetCampaigns (Core.Maybe Core.Text)
+getCampaigns_pageSize :: Lens.Lens' GetCampaigns (Prelude.Maybe Prelude.Text)
 getCampaigns_pageSize = Lens.lens (\GetCampaigns' {pageSize} -> pageSize) (\s@GetCampaigns' {} a -> s {pageSize = a} :: GetCampaigns)
 
 -- | The NextToken string that specifies which page of results to return in a
 -- paginated response.
-getCampaigns_token :: Lens.Lens' GetCampaigns (Core.Maybe Core.Text)
+getCampaigns_token :: Lens.Lens' GetCampaigns (Prelude.Maybe Prelude.Text)
 getCampaigns_token = Lens.lens (\GetCampaigns' {token} -> token) (\s@GetCampaigns' {} a -> s {token = a} :: GetCampaigns)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getCampaigns_applicationId :: Lens.Lens' GetCampaigns Core.Text
+getCampaigns_applicationId :: Lens.Lens' GetCampaigns Prelude.Text
 getCampaigns_applicationId = Lens.lens (\GetCampaigns' {applicationId} -> applicationId) (\s@GetCampaigns' {} a -> s {applicationId = a} :: GetCampaigns)
 
 instance Core.AWSRequest GetCampaigns where
@@ -114,40 +115,42 @@ instance Core.AWSRequest GetCampaigns where
     Response.receiveJSON
       ( \s h x ->
           GetCampaignsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetCampaigns
+instance Prelude.Hashable GetCampaigns
 
-instance Core.NFData GetCampaigns
+instance Prelude.NFData GetCampaigns
 
 instance Core.ToHeaders GetCampaigns where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetCampaigns where
   toPath GetCampaigns' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apps/", Core.toBS applicationId, "/campaigns"]
 
 instance Core.ToQuery GetCampaigns where
   toQuery GetCampaigns' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetCampaignsResponse' smart constructor.
 data GetCampaignsResponse = GetCampaignsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     campaignsResponse :: CampaignsResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCampaignsResponse' with all optional fields omitted.
@@ -162,7 +165,7 @@ data GetCampaignsResponse = GetCampaignsResponse'
 -- 'campaignsResponse', 'getCampaignsResponse_campaignsResponse' - Undocumented member.
 newGetCampaignsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'campaignsResponse'
   CampaignsResponse ->
   GetCampaignsResponse
@@ -175,11 +178,11 @@ newGetCampaignsResponse
       }
 
 -- | The response's http status code.
-getCampaignsResponse_httpStatus :: Lens.Lens' GetCampaignsResponse Core.Int
+getCampaignsResponse_httpStatus :: Lens.Lens' GetCampaignsResponse Prelude.Int
 getCampaignsResponse_httpStatus = Lens.lens (\GetCampaignsResponse' {httpStatus} -> httpStatus) (\s@GetCampaignsResponse' {} a -> s {httpStatus = a} :: GetCampaignsResponse)
 
 -- | Undocumented member.
 getCampaignsResponse_campaignsResponse :: Lens.Lens' GetCampaignsResponse CampaignsResponse
 getCampaignsResponse_campaignsResponse = Lens.lens (\GetCampaignsResponse' {campaignsResponse} -> campaignsResponse) (\s@GetCampaignsResponse' {} a -> s {campaignsResponse = a} :: GetCampaignsResponse)
 
-instance Core.NFData GetCampaignsResponse
+instance Prelude.NFData GetCampaignsResponse

@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.ArchiveGroupSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputLocationRef
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Archive Group Settings
 --
@@ -29,11 +30,11 @@ import Network.AWS.MediaLive.Types.OutputLocationRef
 data ArchiveGroupSettings = ArchiveGroupSettings'
   { -- | Number of seconds to write to archive file before closing and starting a
     -- new one.
-    rolloverInterval :: Core.Maybe Core.Natural,
+    rolloverInterval :: Prelude.Maybe Prelude.Natural,
     -- | A directory and base filename where archive files should be written.
     destination :: OutputLocationRef
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArchiveGroupSettings' with all optional fields omitted.
@@ -54,13 +55,13 @@ newArchiveGroupSettings ::
 newArchiveGroupSettings pDestination_ =
   ArchiveGroupSettings'
     { rolloverInterval =
-        Core.Nothing,
+        Prelude.Nothing,
       destination = pDestination_
     }
 
 -- | Number of seconds to write to archive file before closing and starting a
 -- new one.
-archiveGroupSettings_rolloverInterval :: Lens.Lens' ArchiveGroupSettings (Core.Maybe Core.Natural)
+archiveGroupSettings_rolloverInterval :: Lens.Lens' ArchiveGroupSettings (Prelude.Maybe Prelude.Natural)
 archiveGroupSettings_rolloverInterval = Lens.lens (\ArchiveGroupSettings' {rolloverInterval} -> rolloverInterval) (\s@ArchiveGroupSettings' {} a -> s {rolloverInterval = a} :: ArchiveGroupSettings)
 
 -- | A directory and base filename where archive files should be written.
@@ -73,20 +74,20 @@ instance Core.FromJSON ArchiveGroupSettings where
       "ArchiveGroupSettings"
       ( \x ->
           ArchiveGroupSettings'
-            Core.<$> (x Core..:? "rolloverInterval")
-            Core.<*> (x Core..: "destination")
+            Prelude.<$> (x Core..:? "rolloverInterval")
+            Prelude.<*> (x Core..: "destination")
       )
 
-instance Core.Hashable ArchiveGroupSettings
+instance Prelude.Hashable ArchiveGroupSettings
 
-instance Core.NFData ArchiveGroupSettings
+instance Prelude.NFData ArchiveGroupSettings
 
 instance Core.ToJSON ArchiveGroupSettings where
   toJSON ArchiveGroupSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("rolloverInterval" Core..=)
-              Core.<$> rolloverInterval,
-            Core.Just ("destination" Core..= destination)
+              Prelude.<$> rolloverInterval,
+            Prelude.Just ("destination" Core..= destination)
           ]
       )

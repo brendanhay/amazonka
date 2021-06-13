@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.TrafficPolicyInstance where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.RRType
 
@@ -30,17 +31,17 @@ import Network.AWS.Route53.Types.RRType
 -- /See:/ 'newTrafficPolicyInstance' smart constructor.
 data TrafficPolicyInstance = TrafficPolicyInstance'
   { -- | The ID that Amazon Route 53 assigned to the new traffic policy instance.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The ID of the hosted zone that Amazon Route 53 created resource record
     -- sets in.
     hostedZoneId :: ResourceId,
     -- | The DNS name, such as www.example.com, for which Amazon Route 53
     -- responds to queries by using the resource record sets that are
     -- associated with this traffic policy instance.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The TTL that Amazon Route 53 assigned to all of the resource record sets
     -- that it created in the specified hosted zone.
-    ttl :: Core.Natural,
+    ttl :: Prelude.Natural,
     -- | The value of @State@ is one of the following values:
     --
     -- [Applied]
@@ -56,21 +57,21 @@ data TrafficPolicyInstance = TrafficPolicyInstance'
     --     Route 53 wasn\'t able to create or update the resource record sets.
     --     When the value of @State@ is @Failed@, see @Message@ for an
     --     explanation of what caused the request to fail.
-    state :: Core.Text,
+    state :: Prelude.Text,
     -- | If @State@ is @Failed@, an explanation of the reason for the failure. If
     -- @State@ is another value, @Message@ is empty.
-    message :: Core.Text,
+    message :: Prelude.Text,
     -- | The ID of the traffic policy that Amazon Route 53 used to create
     -- resource record sets in the specified hosted zone.
-    trafficPolicyId :: Core.Text,
+    trafficPolicyId :: Prelude.Text,
     -- | The version of the traffic policy that Amazon Route 53 used to create
     -- resource record sets in the specified hosted zone.
-    trafficPolicyVersion :: Core.Natural,
+    trafficPolicyVersion :: Prelude.Natural,
     -- | The DNS type that Amazon Route 53 assigned to all of the resource record
     -- sets that it created for this traffic policy instance.
     trafficPolicyType :: RRType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrafficPolicyInstance' with all optional fields omitted.
@@ -121,21 +122,21 @@ data TrafficPolicyInstance = TrafficPolicyInstance'
 -- sets that it created for this traffic policy instance.
 newTrafficPolicyInstance ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ttl'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'state'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'message'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'trafficPolicyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'trafficPolicyVersion'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'trafficPolicyType'
   RRType ->
   TrafficPolicyInstance
@@ -162,7 +163,7 @@ newTrafficPolicyInstance
       }
 
 -- | The ID that Amazon Route 53 assigned to the new traffic policy instance.
-trafficPolicyInstance_id :: Lens.Lens' TrafficPolicyInstance Core.Text
+trafficPolicyInstance_id :: Lens.Lens' TrafficPolicyInstance Prelude.Text
 trafficPolicyInstance_id = Lens.lens (\TrafficPolicyInstance' {id} -> id) (\s@TrafficPolicyInstance' {} a -> s {id = a} :: TrafficPolicyInstance)
 
 -- | The ID of the hosted zone that Amazon Route 53 created resource record
@@ -173,12 +174,12 @@ trafficPolicyInstance_hostedZoneId = Lens.lens (\TrafficPolicyInstance' {hostedZ
 -- | The DNS name, such as www.example.com, for which Amazon Route 53
 -- responds to queries by using the resource record sets that are
 -- associated with this traffic policy instance.
-trafficPolicyInstance_name :: Lens.Lens' TrafficPolicyInstance Core.Text
+trafficPolicyInstance_name :: Lens.Lens' TrafficPolicyInstance Prelude.Text
 trafficPolicyInstance_name = Lens.lens (\TrafficPolicyInstance' {name} -> name) (\s@TrafficPolicyInstance' {} a -> s {name = a} :: TrafficPolicyInstance)
 
 -- | The TTL that Amazon Route 53 assigned to all of the resource record sets
 -- that it created in the specified hosted zone.
-trafficPolicyInstance_ttl :: Lens.Lens' TrafficPolicyInstance Core.Natural
+trafficPolicyInstance_ttl :: Lens.Lens' TrafficPolicyInstance Prelude.Natural
 trafficPolicyInstance_ttl = Lens.lens (\TrafficPolicyInstance' {ttl} -> ttl) (\s@TrafficPolicyInstance' {} a -> s {ttl = a} :: TrafficPolicyInstance)
 
 -- | The value of @State@ is one of the following values:
@@ -196,22 +197,22 @@ trafficPolicyInstance_ttl = Lens.lens (\TrafficPolicyInstance' {ttl} -> ttl) (\s
 --     Route 53 wasn\'t able to create or update the resource record sets.
 --     When the value of @State@ is @Failed@, see @Message@ for an
 --     explanation of what caused the request to fail.
-trafficPolicyInstance_state :: Lens.Lens' TrafficPolicyInstance Core.Text
+trafficPolicyInstance_state :: Lens.Lens' TrafficPolicyInstance Prelude.Text
 trafficPolicyInstance_state = Lens.lens (\TrafficPolicyInstance' {state} -> state) (\s@TrafficPolicyInstance' {} a -> s {state = a} :: TrafficPolicyInstance)
 
 -- | If @State@ is @Failed@, an explanation of the reason for the failure. If
 -- @State@ is another value, @Message@ is empty.
-trafficPolicyInstance_message :: Lens.Lens' TrafficPolicyInstance Core.Text
+trafficPolicyInstance_message :: Lens.Lens' TrafficPolicyInstance Prelude.Text
 trafficPolicyInstance_message = Lens.lens (\TrafficPolicyInstance' {message} -> message) (\s@TrafficPolicyInstance' {} a -> s {message = a} :: TrafficPolicyInstance)
 
 -- | The ID of the traffic policy that Amazon Route 53 used to create
 -- resource record sets in the specified hosted zone.
-trafficPolicyInstance_trafficPolicyId :: Lens.Lens' TrafficPolicyInstance Core.Text
+trafficPolicyInstance_trafficPolicyId :: Lens.Lens' TrafficPolicyInstance Prelude.Text
 trafficPolicyInstance_trafficPolicyId = Lens.lens (\TrafficPolicyInstance' {trafficPolicyId} -> trafficPolicyId) (\s@TrafficPolicyInstance' {} a -> s {trafficPolicyId = a} :: TrafficPolicyInstance)
 
 -- | The version of the traffic policy that Amazon Route 53 used to create
 -- resource record sets in the specified hosted zone.
-trafficPolicyInstance_trafficPolicyVersion :: Lens.Lens' TrafficPolicyInstance Core.Natural
+trafficPolicyInstance_trafficPolicyVersion :: Lens.Lens' TrafficPolicyInstance Prelude.Natural
 trafficPolicyInstance_trafficPolicyVersion = Lens.lens (\TrafficPolicyInstance' {trafficPolicyVersion} -> trafficPolicyVersion) (\s@TrafficPolicyInstance' {} a -> s {trafficPolicyVersion = a} :: TrafficPolicyInstance)
 
 -- | The DNS type that Amazon Route 53 assigned to all of the resource record
@@ -222,16 +223,16 @@ trafficPolicyInstance_trafficPolicyType = Lens.lens (\TrafficPolicyInstance' {tr
 instance Core.FromXML TrafficPolicyInstance where
   parseXML x =
     TrafficPolicyInstance'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "HostedZoneId")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "TTL")
-      Core.<*> (x Core..@ "State")
-      Core.<*> (x Core..@ "Message")
-      Core.<*> (x Core..@ "TrafficPolicyId")
-      Core.<*> (x Core..@ "TrafficPolicyVersion")
-      Core.<*> (x Core..@ "TrafficPolicyType")
+      Prelude.<$> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "HostedZoneId")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "TTL")
+      Prelude.<*> (x Core..@ "State")
+      Prelude.<*> (x Core..@ "Message")
+      Prelude.<*> (x Core..@ "TrafficPolicyId")
+      Prelude.<*> (x Core..@ "TrafficPolicyVersion")
+      Prelude.<*> (x Core..@ "TrafficPolicyType")
 
-instance Core.Hashable TrafficPolicyInstance
+instance Prelude.Hashable TrafficPolicyInstance
 
-instance Core.NFData TrafficPolicyInstance
+instance Prelude.NFData TrafficPolicyInstance

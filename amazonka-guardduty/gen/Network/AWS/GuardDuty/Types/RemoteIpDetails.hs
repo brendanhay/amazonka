@@ -25,23 +25,24 @@ import Network.AWS.GuardDuty.Types.Country
 import Network.AWS.GuardDuty.Types.GeoLocation
 import Network.AWS.GuardDuty.Types.Organization
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the remote IP address of the connection.
 --
 -- /See:/ 'newRemoteIpDetails' smart constructor.
 data RemoteIpDetails = RemoteIpDetails'
   { -- | The location information of the remote IP address.
-    geoLocation :: Core.Maybe GeoLocation,
+    geoLocation :: Prelude.Maybe GeoLocation,
     -- | The city information of the remote IP address.
-    city :: Core.Maybe City,
+    city :: Prelude.Maybe City,
     -- | The ISP organization information of the remote IP address.
-    organization :: Core.Maybe Organization,
+    organization :: Prelude.Maybe Organization,
     -- | The country code of the remote IP address.
-    country :: Core.Maybe Country,
+    country :: Prelude.Maybe Country,
     -- | The IPv4 remote address of the connection.
-    ipAddressV4 :: Core.Maybe Core.Text
+    ipAddressV4 :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoteIpDetails' with all optional fields omitted.
@@ -64,31 +65,31 @@ newRemoteIpDetails ::
   RemoteIpDetails
 newRemoteIpDetails =
   RemoteIpDetails'
-    { geoLocation = Core.Nothing,
-      city = Core.Nothing,
-      organization = Core.Nothing,
-      country = Core.Nothing,
-      ipAddressV4 = Core.Nothing
+    { geoLocation = Prelude.Nothing,
+      city = Prelude.Nothing,
+      organization = Prelude.Nothing,
+      country = Prelude.Nothing,
+      ipAddressV4 = Prelude.Nothing
     }
 
 -- | The location information of the remote IP address.
-remoteIpDetails_geoLocation :: Lens.Lens' RemoteIpDetails (Core.Maybe GeoLocation)
+remoteIpDetails_geoLocation :: Lens.Lens' RemoteIpDetails (Prelude.Maybe GeoLocation)
 remoteIpDetails_geoLocation = Lens.lens (\RemoteIpDetails' {geoLocation} -> geoLocation) (\s@RemoteIpDetails' {} a -> s {geoLocation = a} :: RemoteIpDetails)
 
 -- | The city information of the remote IP address.
-remoteIpDetails_city :: Lens.Lens' RemoteIpDetails (Core.Maybe City)
+remoteIpDetails_city :: Lens.Lens' RemoteIpDetails (Prelude.Maybe City)
 remoteIpDetails_city = Lens.lens (\RemoteIpDetails' {city} -> city) (\s@RemoteIpDetails' {} a -> s {city = a} :: RemoteIpDetails)
 
 -- | The ISP organization information of the remote IP address.
-remoteIpDetails_organization :: Lens.Lens' RemoteIpDetails (Core.Maybe Organization)
+remoteIpDetails_organization :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Organization)
 remoteIpDetails_organization = Lens.lens (\RemoteIpDetails' {organization} -> organization) (\s@RemoteIpDetails' {} a -> s {organization = a} :: RemoteIpDetails)
 
 -- | The country code of the remote IP address.
-remoteIpDetails_country :: Lens.Lens' RemoteIpDetails (Core.Maybe Country)
+remoteIpDetails_country :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Country)
 remoteIpDetails_country = Lens.lens (\RemoteIpDetails' {country} -> country) (\s@RemoteIpDetails' {} a -> s {country = a} :: RemoteIpDetails)
 
 -- | The IPv4 remote address of the connection.
-remoteIpDetails_ipAddressV4 :: Lens.Lens' RemoteIpDetails (Core.Maybe Core.Text)
+remoteIpDetails_ipAddressV4 :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Prelude.Text)
 remoteIpDetails_ipAddressV4 = Lens.lens (\RemoteIpDetails' {ipAddressV4} -> ipAddressV4) (\s@RemoteIpDetails' {} a -> s {ipAddressV4 = a} :: RemoteIpDetails)
 
 instance Core.FromJSON RemoteIpDetails where
@@ -97,13 +98,13 @@ instance Core.FromJSON RemoteIpDetails where
       "RemoteIpDetails"
       ( \x ->
           RemoteIpDetails'
-            Core.<$> (x Core..:? "geoLocation")
-            Core.<*> (x Core..:? "city")
-            Core.<*> (x Core..:? "organization")
-            Core.<*> (x Core..:? "country")
-            Core.<*> (x Core..:? "ipAddressV4")
+            Prelude.<$> (x Core..:? "geoLocation")
+            Prelude.<*> (x Core..:? "city")
+            Prelude.<*> (x Core..:? "organization")
+            Prelude.<*> (x Core..:? "country")
+            Prelude.<*> (x Core..:? "ipAddressV4")
       )
 
-instance Core.Hashable RemoteIpDetails
+instance Prelude.Hashable RemoteIpDetails
 
-instance Core.NFData RemoteIpDetails
+instance Prelude.NFData RemoteIpDetails

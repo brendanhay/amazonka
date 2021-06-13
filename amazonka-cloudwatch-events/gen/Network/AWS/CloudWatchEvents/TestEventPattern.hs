@@ -49,6 +49,7 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,7 +58,7 @@ data TestEventPattern = TestEventPattern'
   { -- | The event pattern. For more information, see
     -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
     -- in the /Amazon EventBridge User Guide/.
-    eventPattern :: Core.Text,
+    eventPattern :: Prelude.Text,
     -- | The event, in JSON format, to test against the event pattern. The JSON
     -- must follow the format specified in
     -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html AWS Events>,
@@ -76,9 +77,9 @@ data TestEventPattern = TestEventPattern'
     -- -   @resources@
     --
     -- -   @detail-type@
-    event :: Core.Text
+    event :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestEventPattern' with all optional fields omitted.
@@ -112,9 +113,9 @@ data TestEventPattern = TestEventPattern'
 -- -   @detail-type@
 newTestEventPattern ::
   -- | 'eventPattern'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'event'
-  Core.Text ->
+  Prelude.Text ->
   TestEventPattern
 newTestEventPattern pEventPattern_ pEvent_ =
   TestEventPattern'
@@ -125,7 +126,7 @@ newTestEventPattern pEventPattern_ pEvent_ =
 -- | The event pattern. For more information, see
 -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
 -- in the /Amazon EventBridge User Guide/.
-testEventPattern_eventPattern :: Lens.Lens' TestEventPattern Core.Text
+testEventPattern_eventPattern :: Lens.Lens' TestEventPattern Prelude.Text
 testEventPattern_eventPattern = Lens.lens (\TestEventPattern' {eventPattern} -> eventPattern) (\s@TestEventPattern' {} a -> s {eventPattern = a} :: TestEventPattern)
 
 -- | The event, in JSON format, to test against the event pattern. The JSON
@@ -146,7 +147,7 @@ testEventPattern_eventPattern = Lens.lens (\TestEventPattern' {eventPattern} -> 
 -- -   @resources@
 --
 -- -   @detail-type@
-testEventPattern_event :: Lens.Lens' TestEventPattern Core.Text
+testEventPattern_event :: Lens.Lens' TestEventPattern Prelude.Text
 testEventPattern_event = Lens.lens (\TestEventPattern' {event} -> event) (\s@TestEventPattern' {} a -> s {event = a} :: TestEventPattern)
 
 instance Core.AWSRequest TestEventPattern where
@@ -158,48 +159,50 @@ instance Core.AWSRequest TestEventPattern where
     Response.receiveJSON
       ( \s h x ->
           TestEventPatternResponse'
-            Core.<$> (x Core..?> "Result")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Result")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TestEventPattern
+instance Prelude.Hashable TestEventPattern
 
-instance Core.NFData TestEventPattern
+instance Prelude.NFData TestEventPattern
 
 instance Core.ToHeaders TestEventPattern where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.TestEventPattern" :: Core.ByteString),
+              Core.=# ("AWSEvents.TestEventPattern" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TestEventPattern where
   toJSON TestEventPattern' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("EventPattern" Core..= eventPattern),
-            Core.Just ("Event" Core..= event)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("EventPattern" Core..= eventPattern),
+            Prelude.Just ("Event" Core..= event)
           ]
       )
 
 instance Core.ToPath TestEventPattern where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TestEventPattern where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTestEventPatternResponse' smart constructor.
 data TestEventPatternResponse = TestEventPatternResponse'
   { -- | Indicates whether the event matches the event pattern.
-    result :: Core.Maybe Core.Bool,
+    result :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestEventPatternResponse' with all optional fields omitted.
@@ -214,20 +217,20 @@ data TestEventPatternResponse = TestEventPatternResponse'
 -- 'httpStatus', 'testEventPatternResponse_httpStatus' - The response's http status code.
 newTestEventPatternResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TestEventPatternResponse
 newTestEventPatternResponse pHttpStatus_ =
   TestEventPatternResponse'
-    { result = Core.Nothing,
+    { result = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Indicates whether the event matches the event pattern.
-testEventPatternResponse_result :: Lens.Lens' TestEventPatternResponse (Core.Maybe Core.Bool)
+testEventPatternResponse_result :: Lens.Lens' TestEventPatternResponse (Prelude.Maybe Prelude.Bool)
 testEventPatternResponse_result = Lens.lens (\TestEventPatternResponse' {result} -> result) (\s@TestEventPatternResponse' {} a -> s {result = a} :: TestEventPatternResponse)
 
 -- | The response's http status code.
-testEventPatternResponse_httpStatus :: Lens.Lens' TestEventPatternResponse Core.Int
+testEventPatternResponse_httpStatus :: Lens.Lens' TestEventPatternResponse Prelude.Int
 testEventPatternResponse_httpStatus = Lens.lens (\TestEventPatternResponse' {httpStatus} -> httpStatus) (\s@TestEventPatternResponse' {} a -> s {httpStatus = a} :: TestEventPatternResponse)
 
-instance Core.NFData TestEventPatternResponse
+instance Prelude.NFData TestEventPatternResponse

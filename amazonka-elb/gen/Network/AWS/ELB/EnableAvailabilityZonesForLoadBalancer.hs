@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,12 +61,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newEnableAvailabilityZonesForLoadBalancer' smart constructor.
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The Availability Zones. These must be in the same region as the load
     -- balancer.
-    availabilityZones :: [Core.Text]
+    availabilityZones :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableAvailabilityZonesForLoadBalancer' with all optional fields omitted.
@@ -81,24 +82,24 @@ data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBala
 -- balancer.
 newEnableAvailabilityZonesForLoadBalancer ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   EnableAvailabilityZonesForLoadBalancer
 newEnableAvailabilityZonesForLoadBalancer
   pLoadBalancerName_ =
     EnableAvailabilityZonesForLoadBalancer'
       { loadBalancerName =
           pLoadBalancerName_,
-        availabilityZones = Core.mempty
+        availabilityZones = Prelude.mempty
       }
 
 -- | The name of the load balancer.
-enableAvailabilityZonesForLoadBalancer_loadBalancerName :: Lens.Lens' EnableAvailabilityZonesForLoadBalancer Core.Text
+enableAvailabilityZonesForLoadBalancer_loadBalancerName :: Lens.Lens' EnableAvailabilityZonesForLoadBalancer Prelude.Text
 enableAvailabilityZonesForLoadBalancer_loadBalancerName = Lens.lens (\EnableAvailabilityZonesForLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@EnableAvailabilityZonesForLoadBalancer' {} a -> s {loadBalancerName = a} :: EnableAvailabilityZonesForLoadBalancer)
 
 -- | The Availability Zones. These must be in the same region as the load
 -- balancer.
-enableAvailabilityZonesForLoadBalancer_availabilityZones :: Lens.Lens' EnableAvailabilityZonesForLoadBalancer [Core.Text]
-enableAvailabilityZonesForLoadBalancer_availabilityZones = Lens.lens (\EnableAvailabilityZonesForLoadBalancer' {availabilityZones} -> availabilityZones) (\s@EnableAvailabilityZonesForLoadBalancer' {} a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancer) Core.. Lens._Coerce
+enableAvailabilityZonesForLoadBalancer_availabilityZones :: Lens.Lens' EnableAvailabilityZonesForLoadBalancer [Prelude.Text]
+enableAvailabilityZonesForLoadBalancer_availabilityZones = Lens.lens (\EnableAvailabilityZonesForLoadBalancer' {availabilityZones} -> availabilityZones) (\s@EnableAvailabilityZonesForLoadBalancer' {} a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancer) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -114,43 +115,45 @@ instance
       "EnableAvailabilityZonesForLoadBalancerResult"
       ( \s h x ->
           EnableAvailabilityZonesForLoadBalancerResponse'
-            Core.<$> ( x Core..@? "AvailabilityZones" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "AvailabilityZones"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     EnableAvailabilityZonesForLoadBalancer
 
 instance
-  Core.NFData
+  Prelude.NFData
     EnableAvailabilityZonesForLoadBalancer
 
 instance
   Core.ToHeaders
     EnableAvailabilityZonesForLoadBalancer
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     EnableAvailabilityZonesForLoadBalancer
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     EnableAvailabilityZonesForLoadBalancer
   where
   toQuery EnableAvailabilityZonesForLoadBalancer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "EnableAvailabilityZonesForLoadBalancer" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerName" Core.=: loadBalancerName,
         "AvailabilityZones"
           Core.=: Core.toQueryList "member" availabilityZones
@@ -161,11 +164,11 @@ instance
 -- /See:/ 'newEnableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
   { -- | The updated list of Availability Zones for the load balancer.
-    availabilityZones :: Core.Maybe [Core.Text],
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableAvailabilityZonesForLoadBalancerResponse' with all optional fields omitted.
@@ -180,24 +183,24 @@ data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesFor
 -- 'httpStatus', 'enableAvailabilityZonesForLoadBalancerResponse_httpStatus' - The response's http status code.
 newEnableAvailabilityZonesForLoadBalancerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EnableAvailabilityZonesForLoadBalancerResponse
 newEnableAvailabilityZonesForLoadBalancerResponse
   pHttpStatus_ =
     EnableAvailabilityZonesForLoadBalancerResponse'
       { availabilityZones =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The updated list of Availability Zones for the load balancer.
-enableAvailabilityZonesForLoadBalancerResponse_availabilityZones :: Lens.Lens' EnableAvailabilityZonesForLoadBalancerResponse (Core.Maybe [Core.Text])
-enableAvailabilityZonesForLoadBalancerResponse_availabilityZones = Lens.lens (\EnableAvailabilityZonesForLoadBalancerResponse' {availabilityZones} -> availabilityZones) (\s@EnableAvailabilityZonesForLoadBalancerResponse' {} a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancerResponse) Core.. Lens.mapping Lens._Coerce
+enableAvailabilityZonesForLoadBalancerResponse_availabilityZones :: Lens.Lens' EnableAvailabilityZonesForLoadBalancerResponse (Prelude.Maybe [Prelude.Text])
+enableAvailabilityZonesForLoadBalancerResponse_availabilityZones = Lens.lens (\EnableAvailabilityZonesForLoadBalancerResponse' {availabilityZones} -> availabilityZones) (\s@EnableAvailabilityZonesForLoadBalancerResponse' {} a -> s {availabilityZones = a} :: EnableAvailabilityZonesForLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-enableAvailabilityZonesForLoadBalancerResponse_httpStatus :: Lens.Lens' EnableAvailabilityZonesForLoadBalancerResponse Core.Int
+enableAvailabilityZonesForLoadBalancerResponse_httpStatus :: Lens.Lens' EnableAvailabilityZonesForLoadBalancerResponse Prelude.Int
 enableAvailabilityZonesForLoadBalancerResponse_httpStatus = Lens.lens (\EnableAvailabilityZonesForLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@EnableAvailabilityZonesForLoadBalancerResponse' {} a -> s {httpStatus = a} :: EnableAvailabilityZonesForLoadBalancerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     EnableAvailabilityZonesForLoadBalancerResponse

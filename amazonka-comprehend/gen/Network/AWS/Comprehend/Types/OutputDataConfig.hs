@@ -21,6 +21,7 @@ module Network.AWS.Comprehend.Types.OutputDataConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration parameters for the output of topic detection
 -- jobs.
@@ -40,7 +41,7 @@ data OutputDataConfig = OutputDataConfig'
     --
     -- -   ARN of a KMS Key Alias:
     --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | When you use the @OutputDataConfig@ object with asynchronous operations,
     -- you specify the Amazon S3 location where you want to write the output
     -- data. The URI must be in the same region as the API endpoint that you
@@ -51,9 +52,9 @@ data OutputDataConfig = OutputDataConfig'
     -- file in a directory specific to the job. The @S3Uri@ field contains the
     -- location of the output file, called @output.tar.gz@. It is a compressed
     -- archive that contains the ouput of the operation.
-    s3Uri :: Core.Text
+    s3Uri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputDataConfig' with all optional fields omitted.
@@ -89,11 +90,11 @@ data OutputDataConfig = OutputDataConfig'
 -- archive that contains the ouput of the operation.
 newOutputDataConfig ::
   -- | 's3Uri'
-  Core.Text ->
+  Prelude.Text ->
   OutputDataConfig
 newOutputDataConfig pS3Uri_ =
   OutputDataConfig'
-    { kmsKeyId = Core.Nothing,
+    { kmsKeyId = Prelude.Nothing,
       s3Uri = pS3Uri_
     }
 
@@ -110,7 +111,7 @@ newOutputDataConfig pS3Uri_ =
 --
 -- -   ARN of a KMS Key Alias:
 --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
-outputDataConfig_kmsKeyId :: Lens.Lens' OutputDataConfig (Core.Maybe Core.Text)
+outputDataConfig_kmsKeyId :: Lens.Lens' OutputDataConfig (Prelude.Maybe Prelude.Text)
 outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@OutputDataConfig' {} a -> s {kmsKeyId = a} :: OutputDataConfig)
 
 -- | When you use the @OutputDataConfig@ object with asynchronous operations,
@@ -123,7 +124,7 @@ outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId
 -- file in a directory specific to the job. The @S3Uri@ field contains the
 -- location of the output file, called @output.tar.gz@. It is a compressed
 -- archive that contains the ouput of the operation.
-outputDataConfig_s3Uri :: Lens.Lens' OutputDataConfig Core.Text
+outputDataConfig_s3Uri :: Lens.Lens' OutputDataConfig Prelude.Text
 outputDataConfig_s3Uri = Lens.lens (\OutputDataConfig' {s3Uri} -> s3Uri) (\s@OutputDataConfig' {} a -> s {s3Uri = a} :: OutputDataConfig)
 
 instance Core.FromJSON OutputDataConfig where
@@ -132,18 +133,19 @@ instance Core.FromJSON OutputDataConfig where
       "OutputDataConfig"
       ( \x ->
           OutputDataConfig'
-            Core.<$> (x Core..:? "KmsKeyId") Core.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Core.Hashable OutputDataConfig
+instance Prelude.Hashable OutputDataConfig
 
-instance Core.NFData OutputDataConfig
+instance Prelude.NFData OutputDataConfig
 
 instance Core.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            Core.Just ("S3Uri" Core..= s3Uri)
+      ( Prelude.catMaybes
+          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("S3Uri" Core..= s3Uri)
           ]
       )

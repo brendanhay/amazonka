@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,14 +63,14 @@ import qualified Network.AWS.Response as Response
 data TagStream = TagStream'
   { -- | The Amazon Resource Name (ARN) of the resource that you want to add the
     -- tag or tags to.
-    streamARN :: Core.Maybe Core.Text,
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream that you want to add the tag or tags to.
-    streamName :: Core.Maybe Core.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to associate with the specified stream. Each tag is a
     -- key-value pair (the value is optional).
-    tags :: Core.HashMap Core.Text Core.Text
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagStream' with all optional fields omitted.
@@ -90,24 +91,24 @@ newTagStream ::
   TagStream
 newTagStream =
   TagStream'
-    { streamARN = Core.Nothing,
-      streamName = Core.Nothing,
-      tags = Core.mempty
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
+      tags = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to add the
 -- tag or tags to.
-tagStream_streamARN :: Lens.Lens' TagStream (Core.Maybe Core.Text)
+tagStream_streamARN :: Lens.Lens' TagStream (Prelude.Maybe Prelude.Text)
 tagStream_streamARN = Lens.lens (\TagStream' {streamARN} -> streamARN) (\s@TagStream' {} a -> s {streamARN = a} :: TagStream)
 
 -- | The name of the stream that you want to add the tag or tags to.
-tagStream_streamName :: Lens.Lens' TagStream (Core.Maybe Core.Text)
+tagStream_streamName :: Lens.Lens' TagStream (Prelude.Maybe Prelude.Text)
 tagStream_streamName = Lens.lens (\TagStream' {streamName} -> streamName) (\s@TagStream' {} a -> s {streamName = a} :: TagStream)
 
 -- | A list of tags to associate with the specified stream. Each tag is a
 -- key-value pair (the value is optional).
-tagStream_tags :: Lens.Lens' TagStream (Core.HashMap Core.Text Core.Text)
-tagStream_tags = Lens.lens (\TagStream' {tags} -> tags) (\s@TagStream' {} a -> s {tags = a} :: TagStream) Core.. Lens._Coerce
+tagStream_tags :: Lens.Lens' TagStream (Prelude.HashMap Prelude.Text Prelude.Text)
+tagStream_tags = Lens.lens (\TagStream' {tags} -> tags) (\s@TagStream' {} a -> s {tags = a} :: TagStream) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagStream where
   type AWSResponse TagStream = TagStreamResponse
@@ -116,38 +117,38 @@ instance Core.AWSRequest TagStream where
     Response.receiveEmpty
       ( \s h x ->
           TagStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TagStream
+instance Prelude.Hashable TagStream
 
-instance Core.NFData TagStream
+instance Prelude.NFData TagStream
 
 instance Core.ToHeaders TagStream where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON TagStream where
   toJSON TagStream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StreamARN" Core..=) Core.<$> streamARN,
-            ("StreamName" Core..=) Core.<$> streamName,
-            Core.Just ("Tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("StreamName" Core..=) Prelude.<$> streamName,
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath TagStream where
-  toPath = Core.const "/tagStream"
+  toPath = Prelude.const "/tagStream"
 
 instance Core.ToQuery TagStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagStreamResponse' smart constructor.
 data TagStreamResponse = TagStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagStreamResponse' with all optional fields omitted.
@@ -160,13 +161,13 @@ data TagStreamResponse = TagStreamResponse'
 -- 'httpStatus', 'tagStreamResponse_httpStatus' - The response's http status code.
 newTagStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TagStreamResponse
 newTagStreamResponse pHttpStatus_ =
   TagStreamResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-tagStreamResponse_httpStatus :: Lens.Lens' TagStreamResponse Core.Int
+tagStreamResponse_httpStatus :: Lens.Lens' TagStreamResponse Prelude.Int
 tagStreamResponse_httpStatus = Lens.lens (\TagStreamResponse' {httpStatus} -> httpStatus) (\s@TagStreamResponse' {} a -> s {httpStatus = a} :: TagStreamResponse)
 
-instance Core.NFData TagStreamResponse
+instance Prelude.NFData TagStreamResponse

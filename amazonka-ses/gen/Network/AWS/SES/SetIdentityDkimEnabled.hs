@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -70,12 +71,12 @@ import Network.AWS.SES.Types
 -- /See:/ 'newSetIdentityDkimEnabled' smart constructor.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
   { -- | The identity for which DKIM signing should be enabled or disabled.
-    identity :: Core.Text,
+    identity :: Prelude.Text,
     -- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to
     -- enable DKIM signing for this identity; @false@ to disable it.
-    dkimEnabled :: Core.Bool
+    dkimEnabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetIdentityDkimEnabled' with all optional fields omitted.
@@ -91,9 +92,9 @@ data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
 -- enable DKIM signing for this identity; @false@ to disable it.
 newSetIdentityDkimEnabled ::
   -- | 'identity'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dkimEnabled'
-  Core.Bool ->
+  Prelude.Bool ->
   SetIdentityDkimEnabled
 newSetIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
   SetIdentityDkimEnabled'
@@ -102,12 +103,12 @@ newSetIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
     }
 
 -- | The identity for which DKIM signing should be enabled or disabled.
-setIdentityDkimEnabled_identity :: Lens.Lens' SetIdentityDkimEnabled Core.Text
+setIdentityDkimEnabled_identity :: Lens.Lens' SetIdentityDkimEnabled Prelude.Text
 setIdentityDkimEnabled_identity = Lens.lens (\SetIdentityDkimEnabled' {identity} -> identity) (\s@SetIdentityDkimEnabled' {} a -> s {identity = a} :: SetIdentityDkimEnabled)
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to
 -- enable DKIM signing for this identity; @false@ to disable it.
-setIdentityDkimEnabled_dkimEnabled :: Lens.Lens' SetIdentityDkimEnabled Core.Bool
+setIdentityDkimEnabled_dkimEnabled :: Lens.Lens' SetIdentityDkimEnabled Prelude.Bool
 setIdentityDkimEnabled_dkimEnabled = Lens.lens (\SetIdentityDkimEnabled' {dkimEnabled} -> dkimEnabled) (\s@SetIdentityDkimEnabled' {} a -> s {dkimEnabled = a} :: SetIdentityDkimEnabled)
 
 instance Core.AWSRequest SetIdentityDkimEnabled where
@@ -120,25 +121,26 @@ instance Core.AWSRequest SetIdentityDkimEnabled where
       "SetIdentityDkimEnabledResult"
       ( \s h x ->
           SetIdentityDkimEnabledResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetIdentityDkimEnabled
+instance Prelude.Hashable SetIdentityDkimEnabled
 
-instance Core.NFData SetIdentityDkimEnabled
+instance Prelude.NFData SetIdentityDkimEnabled
 
 instance Core.ToHeaders SetIdentityDkimEnabled where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetIdentityDkimEnabled where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetIdentityDkimEnabled where
   toQuery SetIdentityDkimEnabled' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetIdentityDkimEnabled" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("SetIdentityDkimEnabled" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Identity" Core.=: identity,
         "DkimEnabled" Core.=: dkimEnabled
       ]
@@ -148,9 +150,9 @@ instance Core.ToQuery SetIdentityDkimEnabled where
 -- /See:/ 'newSetIdentityDkimEnabledResponse' smart constructor.
 data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetIdentityDkimEnabledResponse' with all optional fields omitted.
@@ -163,7 +165,7 @@ data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
 -- 'httpStatus', 'setIdentityDkimEnabledResponse_httpStatus' - The response's http status code.
 newSetIdentityDkimEnabledResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetIdentityDkimEnabledResponse
 newSetIdentityDkimEnabledResponse pHttpStatus_ =
   SetIdentityDkimEnabledResponse'
@@ -172,7 +174,9 @@ newSetIdentityDkimEnabledResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setIdentityDkimEnabledResponse_httpStatus :: Lens.Lens' SetIdentityDkimEnabledResponse Core.Int
+setIdentityDkimEnabledResponse_httpStatus :: Lens.Lens' SetIdentityDkimEnabledResponse Prelude.Int
 setIdentityDkimEnabledResponse_httpStatus = Lens.lens (\SetIdentityDkimEnabledResponse' {httpStatus} -> httpStatus) (\s@SetIdentityDkimEnabledResponse' {} a -> s {httpStatus = a} :: SetIdentityDkimEnabledResponse)
 
-instance Core.NFData SetIdentityDkimEnabledResponse
+instance
+  Prelude.NFData
+    SetIdentityDkimEnabledResponse

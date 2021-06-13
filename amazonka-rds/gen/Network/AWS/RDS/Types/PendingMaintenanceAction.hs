@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.PendingMaintenanceAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a pending maintenance action for a resource.
 --
@@ -32,29 +33,29 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
     -- as possible, regardless of the maintenance window for the resource.
     -- There might be a delay of one or more days from this date before the
     -- maintenance action is applied.
-    forcedApplyDate :: Core.Maybe Core.ISO8601,
+    forcedApplyDate :: Prelude.Maybe Core.ISO8601,
     -- | Indicates the type of opt-in request that has been received for the
     -- resource.
-    optInStatus :: Core.Maybe Core.Text,
+    optInStatus :: Prelude.Maybe Prelude.Text,
     -- | The date of the maintenance window when the action is applied. The
     -- maintenance action is applied to the resource during its first
     -- maintenance window after this date.
-    autoAppliedAfterDate :: Core.Maybe Core.ISO8601,
+    autoAppliedAfterDate :: Prelude.Maybe Core.ISO8601,
     -- | The effective date when the pending maintenance action is applied to the
     -- resource. This date takes into account opt-in requests received from the
     -- @ApplyPendingMaintenanceAction@ API, the @AutoAppliedAfterDate@, and the
     -- @ForcedApplyDate@. This value is blank if an opt-in request has not been
     -- received and nothing has been specified as @AutoAppliedAfterDate@ or
     -- @ForcedApplyDate@.
-    currentApplyDate :: Core.Maybe Core.ISO8601,
+    currentApplyDate :: Prelude.Maybe Core.ISO8601,
     -- | The type of pending maintenance action that is available for the
     -- resource. Valid actions are @system-update@, @db-upgrade@,
     -- @hardware-maintenance@, and @ca-certificate-rotation@.
-    action :: Core.Maybe Core.Text,
+    action :: Prelude.Maybe Prelude.Text,
     -- | A description providing more detail about the maintenance action.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PendingMaintenanceAction' with all optional fields omitted.
@@ -95,12 +96,12 @@ newPendingMaintenanceAction ::
 newPendingMaintenanceAction =
   PendingMaintenanceAction'
     { forcedApplyDate =
-        Core.Nothing,
-      optInStatus = Core.Nothing,
-      autoAppliedAfterDate = Core.Nothing,
-      currentApplyDate = Core.Nothing,
-      action = Core.Nothing,
-      description = Core.Nothing
+        Prelude.Nothing,
+      optInStatus = Prelude.Nothing,
+      autoAppliedAfterDate = Prelude.Nothing,
+      currentApplyDate = Prelude.Nothing,
+      action = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The date when the maintenance action is automatically applied.
@@ -109,19 +110,19 @@ newPendingMaintenanceAction =
 -- as possible, regardless of the maintenance window for the resource.
 -- There might be a delay of one or more days from this date before the
 -- maintenance action is applied.
-pendingMaintenanceAction_forcedApplyDate :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.UTCTime)
-pendingMaintenanceAction_forcedApplyDate = Lens.lens (\PendingMaintenanceAction' {forcedApplyDate} -> forcedApplyDate) (\s@PendingMaintenanceAction' {} a -> s {forcedApplyDate = a} :: PendingMaintenanceAction) Core.. Lens.mapping Core._Time
+pendingMaintenanceAction_forcedApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
+pendingMaintenanceAction_forcedApplyDate = Lens.lens (\PendingMaintenanceAction' {forcedApplyDate} -> forcedApplyDate) (\s@PendingMaintenanceAction' {} a -> s {forcedApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates the type of opt-in request that has been received for the
 -- resource.
-pendingMaintenanceAction_optInStatus :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.Text)
+pendingMaintenanceAction_optInStatus :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
 pendingMaintenanceAction_optInStatus = Lens.lens (\PendingMaintenanceAction' {optInStatus} -> optInStatus) (\s@PendingMaintenanceAction' {} a -> s {optInStatus = a} :: PendingMaintenanceAction)
 
 -- | The date of the maintenance window when the action is applied. The
 -- maintenance action is applied to the resource during its first
 -- maintenance window after this date.
-pendingMaintenanceAction_autoAppliedAfterDate :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.UTCTime)
-pendingMaintenanceAction_autoAppliedAfterDate = Lens.lens (\PendingMaintenanceAction' {autoAppliedAfterDate} -> autoAppliedAfterDate) (\s@PendingMaintenanceAction' {} a -> s {autoAppliedAfterDate = a} :: PendingMaintenanceAction) Core.. Lens.mapping Core._Time
+pendingMaintenanceAction_autoAppliedAfterDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
+pendingMaintenanceAction_autoAppliedAfterDate = Lens.lens (\PendingMaintenanceAction' {autoAppliedAfterDate} -> autoAppliedAfterDate) (\s@PendingMaintenanceAction' {} a -> s {autoAppliedAfterDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Core._Time
 
 -- | The effective date when the pending maintenance action is applied to the
 -- resource. This date takes into account opt-in requests received from the
@@ -129,29 +130,29 @@ pendingMaintenanceAction_autoAppliedAfterDate = Lens.lens (\PendingMaintenanceAc
 -- @ForcedApplyDate@. This value is blank if an opt-in request has not been
 -- received and nothing has been specified as @AutoAppliedAfterDate@ or
 -- @ForcedApplyDate@.
-pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.UTCTime)
-pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Core.. Lens.mapping Core._Time
+pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
+pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Core._Time
 
 -- | The type of pending maintenance action that is available for the
 -- resource. Valid actions are @system-update@, @db-upgrade@,
 -- @hardware-maintenance@, and @ca-certificate-rotation@.
-pendingMaintenanceAction_action :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.Text)
+pendingMaintenanceAction_action :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
 pendingMaintenanceAction_action = Lens.lens (\PendingMaintenanceAction' {action} -> action) (\s@PendingMaintenanceAction' {} a -> s {action = a} :: PendingMaintenanceAction)
 
 -- | A description providing more detail about the maintenance action.
-pendingMaintenanceAction_description :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.Text)
+pendingMaintenanceAction_description :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
 pendingMaintenanceAction_description = Lens.lens (\PendingMaintenanceAction' {description} -> description) (\s@PendingMaintenanceAction' {} a -> s {description = a} :: PendingMaintenanceAction)
 
 instance Core.FromXML PendingMaintenanceAction where
   parseXML x =
     PendingMaintenanceAction'
-      Core.<$> (x Core..@? "ForcedApplyDate")
-      Core.<*> (x Core..@? "OptInStatus")
-      Core.<*> (x Core..@? "AutoAppliedAfterDate")
-      Core.<*> (x Core..@? "CurrentApplyDate")
-      Core.<*> (x Core..@? "Action")
-      Core.<*> (x Core..@? "Description")
+      Prelude.<$> (x Core..@? "ForcedApplyDate")
+      Prelude.<*> (x Core..@? "OptInStatus")
+      Prelude.<*> (x Core..@? "AutoAppliedAfterDate")
+      Prelude.<*> (x Core..@? "CurrentApplyDate")
+      Prelude.<*> (x Core..@? "Action")
+      Prelude.<*> (x Core..@? "Description")
 
-instance Core.Hashable PendingMaintenanceAction
+instance Prelude.Hashable PendingMaintenanceAction
 
-instance Core.NFData PendingMaintenanceAction
+instance Prelude.NFData PendingMaintenanceAction

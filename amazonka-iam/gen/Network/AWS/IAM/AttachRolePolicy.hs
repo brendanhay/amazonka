@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,15 +63,15 @@ data AttachRolePolicy = AttachRolePolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text,
+    roleName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Core.Text
+    policyArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachRolePolicy' with all optional fields omitted.
@@ -94,9 +95,9 @@ data AttachRolePolicy = AttachRolePolicy'
 -- in the /AWS General Reference/.
 newAttachRolePolicy ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   AttachRolePolicy
 newAttachRolePolicy pRoleName_ pPolicyArn_ =
   AttachRolePolicy'
@@ -110,7 +111,7 @@ newAttachRolePolicy pRoleName_ pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-attachRolePolicy_roleName :: Lens.Lens' AttachRolePolicy Core.Text
+attachRolePolicy_roleName :: Lens.Lens' AttachRolePolicy Prelude.Text
 attachRolePolicy_roleName = Lens.lens (\AttachRolePolicy' {roleName} -> roleName) (\s@AttachRolePolicy' {} a -> s {roleName = a} :: AttachRolePolicy)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
@@ -118,7 +119,7 @@ attachRolePolicy_roleName = Lens.lens (\AttachRolePolicy' {roleName} -> roleName
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-attachRolePolicy_policyArn :: Lens.Lens' AttachRolePolicy Core.Text
+attachRolePolicy_policyArn :: Lens.Lens' AttachRolePolicy Prelude.Text
 attachRolePolicy_policyArn = Lens.lens (\AttachRolePolicy' {policyArn} -> policyArn) (\s@AttachRolePolicy' {} a -> s {policyArn = a} :: AttachRolePolicy)
 
 instance Core.AWSRequest AttachRolePolicy where
@@ -129,22 +130,23 @@ instance Core.AWSRequest AttachRolePolicy where
   response =
     Response.receiveNull AttachRolePolicyResponse'
 
-instance Core.Hashable AttachRolePolicy
+instance Prelude.Hashable AttachRolePolicy
 
-instance Core.NFData AttachRolePolicy
+instance Prelude.NFData AttachRolePolicy
 
 instance Core.ToHeaders AttachRolePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AttachRolePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AttachRolePolicy where
   toQuery AttachRolePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachRolePolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("AttachRolePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName,
         "PolicyArn" Core.=: policyArn
       ]
@@ -153,7 +155,7 @@ instance Core.ToQuery AttachRolePolicy where
 data AttachRolePolicyResponse = AttachRolePolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachRolePolicyResponse' with all optional fields omitted.
@@ -164,4 +166,4 @@ newAttachRolePolicyResponse ::
 newAttachRolePolicyResponse =
   AttachRolePolicyResponse'
 
-instance Core.NFData AttachRolePolicyResponse
+instance Prelude.NFData AttachRolePolicyResponse

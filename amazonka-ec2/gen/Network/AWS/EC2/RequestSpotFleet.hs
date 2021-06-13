@@ -71,6 +71,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,11 +83,11 @@ data RequestSpotFleet = RequestSpotFleet'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The configuration for the Spot Fleet request.
     spotFleetRequestConfig :: SpotFleetRequestConfigData
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestSpotFleet' with all optional fields omitted.
@@ -108,7 +109,7 @@ newRequestSpotFleet ::
   RequestSpotFleet
 newRequestSpotFleet pSpotFleetRequestConfig_ =
   RequestSpotFleet'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       spotFleetRequestConfig = pSpotFleetRequestConfig_
     }
 
@@ -116,7 +117,7 @@ newRequestSpotFleet pSpotFleetRequestConfig_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-requestSpotFleet_dryRun :: Lens.Lens' RequestSpotFleet (Core.Maybe Core.Bool)
+requestSpotFleet_dryRun :: Lens.Lens' RequestSpotFleet (Prelude.Maybe Prelude.Bool)
 requestSpotFleet_dryRun = Lens.lens (\RequestSpotFleet' {dryRun} -> dryRun) (\s@RequestSpotFleet' {} a -> s {dryRun = a} :: RequestSpotFleet)
 
 -- | The configuration for the Spot Fleet request.
@@ -132,26 +133,27 @@ instance Core.AWSRequest RequestSpotFleet where
     Response.receiveXML
       ( \s h x ->
           RequestSpotFleetResponse'
-            Core.<$> (x Core..@? "spotFleetRequestId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "spotFleetRequestId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RequestSpotFleet
+instance Prelude.Hashable RequestSpotFleet
 
-instance Core.NFData RequestSpotFleet
+instance Prelude.NFData RequestSpotFleet
 
 instance Core.ToHeaders RequestSpotFleet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RequestSpotFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RequestSpotFleet where
   toQuery RequestSpotFleet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RequestSpotFleet" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("RequestSpotFleet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "SpotFleetRequestConfig"
           Core.=: spotFleetRequestConfig
@@ -162,11 +164,11 @@ instance Core.ToQuery RequestSpotFleet where
 -- /See:/ 'newRequestSpotFleetResponse' smart constructor.
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
   { -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Core.Maybe Core.Text,
+    spotFleetRequestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestSpotFleetResponse' with all optional fields omitted.
@@ -181,21 +183,21 @@ data RequestSpotFleetResponse = RequestSpotFleetResponse'
 -- 'httpStatus', 'requestSpotFleetResponse_httpStatus' - The response's http status code.
 newRequestSpotFleetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RequestSpotFleetResponse
 newRequestSpotFleetResponse pHttpStatus_ =
   RequestSpotFleetResponse'
     { spotFleetRequestId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the Spot Fleet request.
-requestSpotFleetResponse_spotFleetRequestId :: Lens.Lens' RequestSpotFleetResponse (Core.Maybe Core.Text)
+requestSpotFleetResponse_spotFleetRequestId :: Lens.Lens' RequestSpotFleetResponse (Prelude.Maybe Prelude.Text)
 requestSpotFleetResponse_spotFleetRequestId = Lens.lens (\RequestSpotFleetResponse' {spotFleetRequestId} -> spotFleetRequestId) (\s@RequestSpotFleetResponse' {} a -> s {spotFleetRequestId = a} :: RequestSpotFleetResponse)
 
 -- | The response's http status code.
-requestSpotFleetResponse_httpStatus :: Lens.Lens' RequestSpotFleetResponse Core.Int
+requestSpotFleetResponse_httpStatus :: Lens.Lens' RequestSpotFleetResponse Prelude.Int
 requestSpotFleetResponse_httpStatus = Lens.lens (\RequestSpotFleetResponse' {httpStatus} -> httpStatus) (\s@RequestSpotFleetResponse' {} a -> s {httpStatus = a} :: RequestSpotFleetResponse)
 
-instance Core.NFData RequestSpotFleetResponse
+instance Prelude.NFData RequestSpotFleetResponse

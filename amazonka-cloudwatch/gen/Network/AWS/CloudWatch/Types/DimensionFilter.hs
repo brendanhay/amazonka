@@ -21,17 +21,18 @@ module Network.AWS.CloudWatch.Types.DimensionFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents filters for a dimension.
 --
 -- /See:/ 'newDimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
   { -- | The value of the dimension to be matched.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The dimension name to be matched.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DimensionFilter' with all optional fields omitted.
@@ -46,27 +47,27 @@ data DimensionFilter = DimensionFilter'
 -- 'name', 'dimensionFilter_name' - The dimension name to be matched.
 newDimensionFilter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DimensionFilter
 newDimensionFilter pName_ =
   DimensionFilter'
-    { value = Core.Nothing,
+    { value = Prelude.Nothing,
       name = pName_
     }
 
 -- | The value of the dimension to be matched.
-dimensionFilter_value :: Lens.Lens' DimensionFilter (Core.Maybe Core.Text)
+dimensionFilter_value :: Lens.Lens' DimensionFilter (Prelude.Maybe Prelude.Text)
 dimensionFilter_value = Lens.lens (\DimensionFilter' {value} -> value) (\s@DimensionFilter' {} a -> s {value = a} :: DimensionFilter)
 
 -- | The dimension name to be matched.
-dimensionFilter_name :: Lens.Lens' DimensionFilter Core.Text
+dimensionFilter_name :: Lens.Lens' DimensionFilter Prelude.Text
 dimensionFilter_name = Lens.lens (\DimensionFilter' {name} -> name) (\s@DimensionFilter' {} a -> s {name = a} :: DimensionFilter)
 
-instance Core.Hashable DimensionFilter
+instance Prelude.Hashable DimensionFilter
 
-instance Core.NFData DimensionFilter
+instance Prelude.NFData DimensionFilter
 
 instance Core.ToQuery DimensionFilter where
   toQuery DimensionFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Value" Core.=: value, "Name" Core.=: name]

@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -47,9 +48,9 @@ import Network.AWS.SNS.Types
 -- | /See:/ 'newDeleteTopic' smart constructor.
 data DeleteTopic = DeleteTopic'
   { -- | The ARN of the topic you want to delete.
-    topicArn :: Core.Text
+    topicArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTopic' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteTopic = DeleteTopic'
 -- 'topicArn', 'deleteTopic_topicArn' - The ARN of the topic you want to delete.
 newDeleteTopic ::
   -- | 'topicArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTopic
 newDeleteTopic pTopicArn_ =
   DeleteTopic' {topicArn = pTopicArn_}
 
 -- | The ARN of the topic you want to delete.
-deleteTopic_topicArn :: Lens.Lens' DeleteTopic Core.Text
+deleteTopic_topicArn :: Lens.Lens' DeleteTopic Prelude.Text
 deleteTopic_topicArn = Lens.lens (\DeleteTopic' {topicArn} -> topicArn) (\s@DeleteTopic' {} a -> s {topicArn = a} :: DeleteTopic)
 
 instance Core.AWSRequest DeleteTopic where
@@ -76,21 +77,23 @@ instance Core.AWSRequest DeleteTopic where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteTopicResponse'
 
-instance Core.Hashable DeleteTopic
+instance Prelude.Hashable DeleteTopic
 
-instance Core.NFData DeleteTopic
+instance Prelude.NFData DeleteTopic
 
 instance Core.ToHeaders DeleteTopic where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTopic where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTopic where
   toQuery DeleteTopic' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("DeleteTopic" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteTopic" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "TopicArn" Core.=: topicArn
       ]
 
@@ -98,7 +101,7 @@ instance Core.ToQuery DeleteTopic where
 data DeleteTopicResponse = DeleteTopicResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTopicResponse' with all optional fields omitted.
@@ -108,4 +111,4 @@ newDeleteTopicResponse ::
   DeleteTopicResponse
 newDeleteTopicResponse = DeleteTopicResponse'
 
-instance Core.NFData DeleteTopicResponse
+instance Prelude.NFData DeleteTopicResponse

@@ -21,15 +21,16 @@ module Network.AWS.GuardDuty.Types.S3LogsConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes whether S3 data event logs will be enabled as a data source.
 --
 -- /See:/ 'newS3LogsConfiguration' smart constructor.
 data S3LogsConfiguration = S3LogsConfiguration'
   { -- | The status of S3 data event logs as a data source.
-    enable :: Core.Bool
+    enable :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3LogsConfiguration' with all optional fields omitted.
@@ -42,22 +43,22 @@ data S3LogsConfiguration = S3LogsConfiguration'
 -- 'enable', 's3LogsConfiguration_enable' - The status of S3 data event logs as a data source.
 newS3LogsConfiguration ::
   -- | 'enable'
-  Core.Bool ->
+  Prelude.Bool ->
   S3LogsConfiguration
 newS3LogsConfiguration pEnable_ =
   S3LogsConfiguration' {enable = pEnable_}
 
 -- | The status of S3 data event logs as a data source.
-s3LogsConfiguration_enable :: Lens.Lens' S3LogsConfiguration Core.Bool
+s3LogsConfiguration_enable :: Lens.Lens' S3LogsConfiguration Prelude.Bool
 s3LogsConfiguration_enable = Lens.lens (\S3LogsConfiguration' {enable} -> enable) (\s@S3LogsConfiguration' {} a -> s {enable = a} :: S3LogsConfiguration)
 
-instance Core.Hashable S3LogsConfiguration
+instance Prelude.Hashable S3LogsConfiguration
 
-instance Core.NFData S3LogsConfiguration
+instance Prelude.NFData S3LogsConfiguration
 
 instance Core.ToJSON S3LogsConfiguration where
   toJSON S3LogsConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("enable" Core..= enable)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("enable" Core..= enable)]
       )

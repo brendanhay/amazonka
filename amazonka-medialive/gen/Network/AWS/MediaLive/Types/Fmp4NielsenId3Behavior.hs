@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.Fmp4NielsenId3Behavior
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Fmp4 Nielsen Id3 Behavior
 newtype Fmp4NielsenId3Behavior = Fmp4NielsenId3Behavior'
@@ -34,15 +35,15 @@ newtype Fmp4NielsenId3Behavior = Fmp4NielsenId3Behavior'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

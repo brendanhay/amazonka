@@ -60,6 +60,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +75,7 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
     -- If any one of the tags is invalid or if you exceed the allowed maximum
     -- number of tags, then the entire request fails and the resource is not
     -- created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The path for the virtual MFA device. For more information about paths,
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -90,7 +91,7 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | The name of the virtual MFA device. Use with path to uniquely identify a
     -- virtual MFA device.
     --
@@ -98,9 +99,9 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    virtualMFADeviceName :: Core.Text
+    virtualMFADeviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVirtualMFADevice' with all optional fields omitted.
@@ -145,12 +146,12 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newCreateVirtualMFADevice ::
   -- | 'virtualMFADeviceName'
-  Core.Text ->
+  Prelude.Text ->
   CreateVirtualMFADevice
 newCreateVirtualMFADevice pVirtualMFADeviceName_ =
   CreateVirtualMFADevice'
-    { tags = Core.Nothing,
-      path = Core.Nothing,
+    { tags = Prelude.Nothing,
+      path = Prelude.Nothing,
       virtualMFADeviceName = pVirtualMFADeviceName_
     }
 
@@ -163,8 +164,8 @@ newCreateVirtualMFADevice pVirtualMFADeviceName_ =
 -- If any one of the tags is invalid or if you exceed the allowed maximum
 -- number of tags, then the entire request fails and the resource is not
 -- created.
-createVirtualMFADevice_tags :: Lens.Lens' CreateVirtualMFADevice (Core.Maybe [Tag])
-createVirtualMFADevice_tags = Lens.lens (\CreateVirtualMFADevice' {tags} -> tags) (\s@CreateVirtualMFADevice' {} a -> s {tags = a} :: CreateVirtualMFADevice) Core.. Lens.mapping Lens._Coerce
+createVirtualMFADevice_tags :: Lens.Lens' CreateVirtualMFADevice (Prelude.Maybe [Tag])
+createVirtualMFADevice_tags = Lens.lens (\CreateVirtualMFADevice' {tags} -> tags) (\s@CreateVirtualMFADevice' {} a -> s {tags = a} :: CreateVirtualMFADevice) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path for the virtual MFA device. For more information about paths,
 -- see
@@ -181,7 +182,7 @@ createVirtualMFADevice_tags = Lens.lens (\CreateVirtualMFADevice' {tags} -> tags
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-createVirtualMFADevice_path :: Lens.Lens' CreateVirtualMFADevice (Core.Maybe Core.Text)
+createVirtualMFADevice_path :: Lens.Lens' CreateVirtualMFADevice (Prelude.Maybe Prelude.Text)
 createVirtualMFADevice_path = Lens.lens (\CreateVirtualMFADevice' {path} -> path) (\s@CreateVirtualMFADevice' {} a -> s {path = a} :: CreateVirtualMFADevice)
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a
@@ -191,7 +192,7 @@ createVirtualMFADevice_path = Lens.lens (\CreateVirtualMFADevice' {path} -> path
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-createVirtualMFADevice_virtualMFADeviceName :: Lens.Lens' CreateVirtualMFADevice Core.Text
+createVirtualMFADevice_virtualMFADeviceName :: Lens.Lens' CreateVirtualMFADevice Prelude.Text
 createVirtualMFADevice_virtualMFADeviceName = Lens.lens (\CreateVirtualMFADevice' {virtualMFADeviceName} -> virtualMFADeviceName) (\s@CreateVirtualMFADevice' {} a -> s {virtualMFADeviceName = a} :: CreateVirtualMFADevice)
 
 instance Core.AWSRequest CreateVirtualMFADevice where
@@ -204,29 +205,30 @@ instance Core.AWSRequest CreateVirtualMFADevice where
       "CreateVirtualMFADeviceResult"
       ( \s h x ->
           CreateVirtualMFADeviceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "VirtualMFADevice")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "VirtualMFADevice")
       )
 
-instance Core.Hashable CreateVirtualMFADevice
+instance Prelude.Hashable CreateVirtualMFADevice
 
-instance Core.NFData CreateVirtualMFADevice
+instance Prelude.NFData CreateVirtualMFADevice
 
 instance Core.ToHeaders CreateVirtualMFADevice where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateVirtualMFADevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateVirtualMFADevice where
   toQuery CreateVirtualMFADevice' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVirtualMFADevice" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("CreateVirtualMFADevice" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "Path" Core.=: path,
         "VirtualMFADeviceName" Core.=: virtualMFADeviceName
       ]
@@ -236,11 +238,11 @@ instance Core.ToQuery CreateVirtualMFADevice where
 -- /See:/ 'newCreateVirtualMFADeviceResponse' smart constructor.
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A structure containing details about the new virtual MFA device.
     virtualMFADevice :: VirtualMFADevice
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVirtualMFADeviceResponse' with all optional fields omitted.
@@ -255,7 +257,7 @@ data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
 -- 'virtualMFADevice', 'createVirtualMFADeviceResponse_virtualMFADevice' - A structure containing details about the new virtual MFA device.
 newCreateVirtualMFADeviceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'virtualMFADevice'
   VirtualMFADevice ->
   CreateVirtualMFADeviceResponse
@@ -269,11 +271,13 @@ newCreateVirtualMFADeviceResponse
       }
 
 -- | The response's http status code.
-createVirtualMFADeviceResponse_httpStatus :: Lens.Lens' CreateVirtualMFADeviceResponse Core.Int
+createVirtualMFADeviceResponse_httpStatus :: Lens.Lens' CreateVirtualMFADeviceResponse Prelude.Int
 createVirtualMFADeviceResponse_httpStatus = Lens.lens (\CreateVirtualMFADeviceResponse' {httpStatus} -> httpStatus) (\s@CreateVirtualMFADeviceResponse' {} a -> s {httpStatus = a} :: CreateVirtualMFADeviceResponse)
 
 -- | A structure containing details about the new virtual MFA device.
 createVirtualMFADeviceResponse_virtualMFADevice :: Lens.Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 createVirtualMFADeviceResponse_virtualMFADevice = Lens.lens (\CreateVirtualMFADeviceResponse' {virtualMFADevice} -> virtualMFADevice) (\s@CreateVirtualMFADeviceResponse' {} a -> s {virtualMFADevice = a} :: CreateVirtualMFADeviceResponse)
 
-instance Core.NFData CreateVirtualMFADeviceResponse
+instance
+  Prelude.NFData
+    CreateVirtualMFADeviceResponse

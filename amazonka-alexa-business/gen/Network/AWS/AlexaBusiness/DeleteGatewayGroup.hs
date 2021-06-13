@@ -41,15 +41,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteGatewayGroup' smart constructor.
 data DeleteGatewayGroup = DeleteGatewayGroup'
   { -- | The ARN of the gateway group to delete.
-    gatewayGroupArn :: Core.Text
+    gatewayGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGatewayGroup' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteGatewayGroup = DeleteGatewayGroup'
 -- 'gatewayGroupArn', 'deleteGatewayGroup_gatewayGroupArn' - The ARN of the gateway group to delete.
 newDeleteGatewayGroup ::
   -- | 'gatewayGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteGatewayGroup
 newDeleteGatewayGroup pGatewayGroupArn_ =
   DeleteGatewayGroup'
@@ -71,7 +72,7 @@ newDeleteGatewayGroup pGatewayGroupArn_ =
     }
 
 -- | The ARN of the gateway group to delete.
-deleteGatewayGroup_gatewayGroupArn :: Lens.Lens' DeleteGatewayGroup Core.Text
+deleteGatewayGroup_gatewayGroupArn :: Lens.Lens' DeleteGatewayGroup Prelude.Text
 deleteGatewayGroup_gatewayGroupArn = Lens.lens (\DeleteGatewayGroup' {gatewayGroupArn} -> gatewayGroupArn) (\s@DeleteGatewayGroup' {} a -> s {gatewayGroupArn = a} :: DeleteGatewayGroup)
 
 instance Core.AWSRequest DeleteGatewayGroup where
@@ -83,47 +84,49 @@ instance Core.AWSRequest DeleteGatewayGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteGatewayGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteGatewayGroup
+instance Prelude.Hashable DeleteGatewayGroup
 
-instance Core.NFData DeleteGatewayGroup
+instance Prelude.NFData DeleteGatewayGroup
 
 instance Core.ToHeaders DeleteGatewayGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.DeleteGatewayGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteGatewayGroup where
   toJSON DeleteGatewayGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("GatewayGroupArn" Core..= gatewayGroupArn)
           ]
       )
 
 instance Core.ToPath DeleteGatewayGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteGatewayGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGatewayGroupResponse' smart constructor.
 data DeleteGatewayGroupResponse = DeleteGatewayGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGatewayGroupResponse' with all optional fields omitted.
@@ -136,7 +139,7 @@ data DeleteGatewayGroupResponse = DeleteGatewayGroupResponse'
 -- 'httpStatus', 'deleteGatewayGroupResponse_httpStatus' - The response's http status code.
 newDeleteGatewayGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteGatewayGroupResponse
 newDeleteGatewayGroupResponse pHttpStatus_ =
   DeleteGatewayGroupResponse'
@@ -145,7 +148,7 @@ newDeleteGatewayGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteGatewayGroupResponse_httpStatus :: Lens.Lens' DeleteGatewayGroupResponse Core.Int
+deleteGatewayGroupResponse_httpStatus :: Lens.Lens' DeleteGatewayGroupResponse Prelude.Int
 deleteGatewayGroupResponse_httpStatus = Lens.lens (\DeleteGatewayGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGatewayGroupResponse' {} a -> s {httpStatus = a} :: DeleteGatewayGroupResponse)
 
-instance Core.NFData DeleteGatewayGroupResponse
+instance Prelude.NFData DeleteGatewayGroupResponse

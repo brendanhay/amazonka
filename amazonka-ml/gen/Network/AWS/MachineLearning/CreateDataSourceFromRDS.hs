@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,12 +73,12 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
     -- the statistics internally during @MLModel@ training. This parameter must
     -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
     -- training.
-    computeStatistics :: Core.Maybe Core.Bool,
+    computeStatistics :: Prelude.Maybe Prelude.Bool,
     -- | A user-supplied name or description of the @DataSource@.
-    dataSourceName :: Core.Maybe Core.Text,
+    dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | A user-supplied ID that uniquely identifies the @DataSource@. Typically,
     -- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.
-    dataSourceId :: Core.Text,
+    dataSourceId :: Prelude.Text,
     -- | The data specification of an Amazon RDS @DataSource@:
     --
     -- -   DatabaseInformation -
@@ -128,9 +129,9 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
     -- | The role that Amazon ML assumes on behalf of the user to create and
     -- activate a data pipeline in the user\'s account and copy data using the
     -- @SelectSqlQuery@ query from Amazon RDS to Amazon S3.
-    roleARN :: Core.Text
+    roleARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDataSourceFromRDS' with all optional fields omitted.
@@ -203,11 +204,11 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
 -- @SelectSqlQuery@ query from Amazon RDS to Amazon S3.
 newCreateDataSourceFromRDS ::
   -- | 'dataSourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'rDSData'
   RDSDataSpec ->
   -- | 'roleARN'
-  Core.Text ->
+  Prelude.Text ->
   CreateDataSourceFromRDS
 newCreateDataSourceFromRDS
   pDataSourceId_
@@ -215,8 +216,8 @@ newCreateDataSourceFromRDS
   pRoleARN_ =
     CreateDataSourceFromRDS'
       { computeStatistics =
-          Core.Nothing,
-        dataSourceName = Core.Nothing,
+          Prelude.Nothing,
+        dataSourceName = Prelude.Nothing,
         dataSourceId = pDataSourceId_,
         rDSData = pRDSData_,
         roleARN = pRoleARN_
@@ -227,16 +228,16 @@ newCreateDataSourceFromRDS
 -- the statistics internally during @MLModel@ training. This parameter must
 -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
 -- training.
-createDataSourceFromRDS_computeStatistics :: Lens.Lens' CreateDataSourceFromRDS (Core.Maybe Core.Bool)
+createDataSourceFromRDS_computeStatistics :: Lens.Lens' CreateDataSourceFromRDS (Prelude.Maybe Prelude.Bool)
 createDataSourceFromRDS_computeStatistics = Lens.lens (\CreateDataSourceFromRDS' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromRDS' {} a -> s {computeStatistics = a} :: CreateDataSourceFromRDS)
 
 -- | A user-supplied name or description of the @DataSource@.
-createDataSourceFromRDS_dataSourceName :: Lens.Lens' CreateDataSourceFromRDS (Core.Maybe Core.Text)
+createDataSourceFromRDS_dataSourceName :: Lens.Lens' CreateDataSourceFromRDS (Prelude.Maybe Prelude.Text)
 createDataSourceFromRDS_dataSourceName = Lens.lens (\CreateDataSourceFromRDS' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromRDS' {} a -> s {dataSourceName = a} :: CreateDataSourceFromRDS)
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. Typically,
 -- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.
-createDataSourceFromRDS_dataSourceId :: Lens.Lens' CreateDataSourceFromRDS Core.Text
+createDataSourceFromRDS_dataSourceId :: Lens.Lens' CreateDataSourceFromRDS Prelude.Text
 createDataSourceFromRDS_dataSourceId = Lens.lens (\CreateDataSourceFromRDS' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceFromRDS' {} a -> s {dataSourceId = a} :: CreateDataSourceFromRDS)
 
 -- | The data specification of an Amazon RDS @DataSource@:
@@ -291,7 +292,7 @@ createDataSourceFromRDS_rDSData = Lens.lens (\CreateDataSourceFromRDS' {rDSData}
 -- | The role that Amazon ML assumes on behalf of the user to create and
 -- activate a data pipeline in the user\'s account and copy data using the
 -- @SelectSqlQuery@ query from Amazon RDS to Amazon S3.
-createDataSourceFromRDS_roleARN :: Lens.Lens' CreateDataSourceFromRDS Core.Text
+createDataSourceFromRDS_roleARN :: Lens.Lens' CreateDataSourceFromRDS Prelude.Text
 createDataSourceFromRDS_roleARN = Lens.lens (\CreateDataSourceFromRDS' {roleARN} -> roleARN) (\s@CreateDataSourceFromRDS' {} a -> s {roleARN = a} :: CreateDataSourceFromRDS)
 
 instance Core.AWSRequest CreateDataSourceFromRDS where
@@ -303,45 +304,48 @@ instance Core.AWSRequest CreateDataSourceFromRDS where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSourceFromRDSResponse'
-            Core.<$> (x Core..?> "DataSourceId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DataSourceId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDataSourceFromRDS
+instance Prelude.Hashable CreateDataSourceFromRDS
 
-instance Core.NFData CreateDataSourceFromRDS
+instance Prelude.NFData CreateDataSourceFromRDS
 
 instance Core.ToHeaders CreateDataSourceFromRDS where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonML_20141212.CreateDataSourceFromRDS" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDataSourceFromRDS where
   toJSON CreateDataSourceFromRDS' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ComputeStatistics" Core..=)
-              Core.<$> computeStatistics,
-            ("DataSourceName" Core..=) Core.<$> dataSourceName,
-            Core.Just ("DataSourceId" Core..= dataSourceId),
-            Core.Just ("RDSData" Core..= rDSData),
-            Core.Just ("RoleARN" Core..= roleARN)
+              Prelude.<$> computeStatistics,
+            ("DataSourceName" Core..=)
+              Prelude.<$> dataSourceName,
+            Prelude.Just ("DataSourceId" Core..= dataSourceId),
+            Prelude.Just ("RDSData" Core..= rDSData),
+            Prelude.Just ("RoleARN" Core..= roleARN)
           ]
       )
 
 instance Core.ToPath CreateDataSourceFromRDS where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDataSourceFromRDS where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateDataSourceFromRDS@ operation, and is
 -- an acknowledgement that Amazon ML received the request.
@@ -357,11 +361,11 @@ instance Core.ToQuery CreateDataSourceFromRDS where
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
   { -- | A user-supplied ID that uniquely identifies the datasource. This value
     -- should be identical to the value of the @DataSourceID@ in the request.
-    dataSourceId :: Core.Maybe Core.Text,
+    dataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDataSourceFromRDSResponse' with all optional fields omitted.
@@ -377,22 +381,24 @@ data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
 -- 'httpStatus', 'createDataSourceFromRDSResponse_httpStatus' - The response's http status code.
 newCreateDataSourceFromRDSResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDataSourceFromRDSResponse
 newCreateDataSourceFromRDSResponse pHttpStatus_ =
   CreateDataSourceFromRDSResponse'
     { dataSourceId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-createDataSourceFromRDSResponse_dataSourceId :: Lens.Lens' CreateDataSourceFromRDSResponse (Core.Maybe Core.Text)
+createDataSourceFromRDSResponse_dataSourceId :: Lens.Lens' CreateDataSourceFromRDSResponse (Prelude.Maybe Prelude.Text)
 createDataSourceFromRDSResponse_dataSourceId = Lens.lens (\CreateDataSourceFromRDSResponse' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceFromRDSResponse' {} a -> s {dataSourceId = a} :: CreateDataSourceFromRDSResponse)
 
 -- | The response's http status code.
-createDataSourceFromRDSResponse_httpStatus :: Lens.Lens' CreateDataSourceFromRDSResponse Core.Int
+createDataSourceFromRDSResponse_httpStatus :: Lens.Lens' CreateDataSourceFromRDSResponse Prelude.Int
 createDataSourceFromRDSResponse_httpStatus = Lens.lens (\CreateDataSourceFromRDSResponse' {httpStatus} -> httpStatus) (\s@CreateDataSourceFromRDSResponse' {} a -> s {httpStatus = a} :: CreateDataSourceFromRDSResponse)
 
-instance Core.NFData CreateDataSourceFromRDSResponse
+instance
+  Prelude.NFData
+    CreateDataSourceFromRDSResponse

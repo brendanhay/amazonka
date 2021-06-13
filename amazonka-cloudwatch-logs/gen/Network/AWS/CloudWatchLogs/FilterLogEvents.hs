@@ -67,6 +67,7 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,10 +80,10 @@ data FilterLogEvents = FilterLogEvents'
     -- @logStreamNames@, but the value for @logStreamNamePrefix@ does not match
     -- any log stream names specified in @logStreamNames@, the action returns
     -- an @InvalidParameterException@ error.
-    logStreamNamePrefix :: Core.Maybe Core.Text,
+    logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of events to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | If the value is true, the operation makes a best effort to provide
     -- responses that contain events from multiple log streams within the log
     -- group, interleaved in a single response. If the value is false, all the
@@ -92,35 +93,35 @@ data FilterLogEvents = FilterLogEvents'
     -- __Important:__ Starting on June 17, 2019, this parameter is ignored and
     -- the value is assumed to be true. The response from this operation always
     -- interleaves events from multiple log streams within a log group.
-    interleaved :: Core.Maybe Core.Bool,
+    interleaved :: Prelude.Maybe Prelude.Bool,
     -- | The filter pattern to use. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html Filter and Pattern Syntax>.
     --
     -- If not provided, all the events are matched.
-    filterPattern :: Core.Maybe Core.Text,
+    filterPattern :: Prelude.Maybe Prelude.Text,
     -- | The start of the time range, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time
     -- are not returned.
     --
     -- If you omit @startTime@ and @endTime@ the most recent log events are
     -- retrieved, to up 1 MB or 10,000 log events.
-    startTime :: Core.Maybe Core.Natural,
+    startTime :: Prelude.Maybe Prelude.Natural,
     -- | The end of the time range, expressed as the number of milliseconds after
     -- Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time
     -- are not returned.
-    endTime :: Core.Maybe Core.Natural,
+    endTime :: Prelude.Maybe Prelude.Natural,
     -- | Filters the results to only logs from the log streams in this list.
     --
     -- If you specify a value for both @logStreamNamePrefix@ and
     -- @logStreamNames@, the action returns an @InvalidParameterException@
     -- error.
-    logStreamNames :: Core.Maybe (Core.NonEmpty Core.Text),
+    logStreamNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of events to return. The default is 10,000 events.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the log group to search.
-    logGroupName :: Core.Text
+    logGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FilterLogEvents' with all optional fields omitted.
@@ -178,19 +179,19 @@ data FilterLogEvents = FilterLogEvents'
 -- 'logGroupName', 'filterLogEvents_logGroupName' - The name of the log group to search.
 newFilterLogEvents ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   FilterLogEvents
 newFilterLogEvents pLogGroupName_ =
   FilterLogEvents'
     { logStreamNamePrefix =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      interleaved = Core.Nothing,
-      filterPattern = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      logStreamNames = Core.Nothing,
-      limit = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      interleaved = Prelude.Nothing,
+      filterPattern = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      logStreamNames = Prelude.Nothing,
+      limit = Prelude.Nothing,
       logGroupName = pLogGroupName_
     }
 
@@ -201,12 +202,12 @@ newFilterLogEvents pLogGroupName_ =
 -- @logStreamNames@, but the value for @logStreamNamePrefix@ does not match
 -- any log stream names specified in @logStreamNames@, the action returns
 -- an @InvalidParameterException@ error.
-filterLogEvents_logStreamNamePrefix :: Lens.Lens' FilterLogEvents (Core.Maybe Core.Text)
+filterLogEvents_logStreamNamePrefix :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Text)
 filterLogEvents_logStreamNamePrefix = Lens.lens (\FilterLogEvents' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@FilterLogEvents' {} a -> s {logStreamNamePrefix = a} :: FilterLogEvents)
 
 -- | The token for the next set of events to return. (You received this token
 -- from a previous call.)
-filterLogEvents_nextToken :: Lens.Lens' FilterLogEvents (Core.Maybe Core.Text)
+filterLogEvents_nextToken :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Text)
 filterLogEvents_nextToken = Lens.lens (\FilterLogEvents' {nextToken} -> nextToken) (\s@FilterLogEvents' {} a -> s {nextToken = a} :: FilterLogEvents)
 
 -- | If the value is true, the operation makes a best effort to provide
@@ -218,14 +219,14 @@ filterLogEvents_nextToken = Lens.lens (\FilterLogEvents' {nextToken} -> nextToke
 -- __Important:__ Starting on June 17, 2019, this parameter is ignored and
 -- the value is assumed to be true. The response from this operation always
 -- interleaves events from multiple log streams within a log group.
-filterLogEvents_interleaved :: Lens.Lens' FilterLogEvents (Core.Maybe Core.Bool)
+filterLogEvents_interleaved :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Bool)
 filterLogEvents_interleaved = Lens.lens (\FilterLogEvents' {interleaved} -> interleaved) (\s@FilterLogEvents' {} a -> s {interleaved = a} :: FilterLogEvents)
 
 -- | The filter pattern to use. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html Filter and Pattern Syntax>.
 --
 -- If not provided, all the events are matched.
-filterLogEvents_filterPattern :: Lens.Lens' FilterLogEvents (Core.Maybe Core.Text)
+filterLogEvents_filterPattern :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Text)
 filterLogEvents_filterPattern = Lens.lens (\FilterLogEvents' {filterPattern} -> filterPattern) (\s@FilterLogEvents' {} a -> s {filterPattern = a} :: FilterLogEvents)
 
 -- | The start of the time range, expressed as the number of milliseconds
@@ -234,13 +235,13 @@ filterLogEvents_filterPattern = Lens.lens (\FilterLogEvents' {filterPattern} -> 
 --
 -- If you omit @startTime@ and @endTime@ the most recent log events are
 -- retrieved, to up 1 MB or 10,000 log events.
-filterLogEvents_startTime :: Lens.Lens' FilterLogEvents (Core.Maybe Core.Natural)
+filterLogEvents_startTime :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Natural)
 filterLogEvents_startTime = Lens.lens (\FilterLogEvents' {startTime} -> startTime) (\s@FilterLogEvents' {} a -> s {startTime = a} :: FilterLogEvents)
 
 -- | The end of the time range, expressed as the number of milliseconds after
 -- Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time
 -- are not returned.
-filterLogEvents_endTime :: Lens.Lens' FilterLogEvents (Core.Maybe Core.Natural)
+filterLogEvents_endTime :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Natural)
 filterLogEvents_endTime = Lens.lens (\FilterLogEvents' {endTime} -> endTime) (\s@FilterLogEvents' {} a -> s {endTime = a} :: FilterLogEvents)
 
 -- | Filters the results to only logs from the log streams in this list.
@@ -248,30 +249,32 @@ filterLogEvents_endTime = Lens.lens (\FilterLogEvents' {endTime} -> endTime) (\s
 -- If you specify a value for both @logStreamNamePrefix@ and
 -- @logStreamNames@, the action returns an @InvalidParameterException@
 -- error.
-filterLogEvents_logStreamNames :: Lens.Lens' FilterLogEvents (Core.Maybe (Core.NonEmpty Core.Text))
-filterLogEvents_logStreamNames = Lens.lens (\FilterLogEvents' {logStreamNames} -> logStreamNames) (\s@FilterLogEvents' {} a -> s {logStreamNames = a} :: FilterLogEvents) Core.. Lens.mapping Lens._Coerce
+filterLogEvents_logStreamNames :: Lens.Lens' FilterLogEvents (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+filterLogEvents_logStreamNames = Lens.lens (\FilterLogEvents' {logStreamNames} -> logStreamNames) (\s@FilterLogEvents' {} a -> s {logStreamNames = a} :: FilterLogEvents) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of events to return. The default is 10,000 events.
-filterLogEvents_limit :: Lens.Lens' FilterLogEvents (Core.Maybe Core.Natural)
+filterLogEvents_limit :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Natural)
 filterLogEvents_limit = Lens.lens (\FilterLogEvents' {limit} -> limit) (\s@FilterLogEvents' {} a -> s {limit = a} :: FilterLogEvents)
 
 -- | The name of the log group to search.
-filterLogEvents_logGroupName :: Lens.Lens' FilterLogEvents Core.Text
+filterLogEvents_logGroupName :: Lens.Lens' FilterLogEvents Prelude.Text
 filterLogEvents_logGroupName = Lens.lens (\FilterLogEvents' {logGroupName} -> logGroupName) (\s@FilterLogEvents' {} a -> s {logGroupName = a} :: FilterLogEvents)
 
 instance Core.AWSPager FilterLogEvents where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? filterLogEventsResponse_nextToken Core.. Lens._Just
+            Lens.^? filterLogEventsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& filterLogEvents_nextToken
+          Prelude.& filterLogEvents_nextToken
           Lens..~ rs
-          Lens.^? filterLogEventsResponse_nextToken Core.. Lens._Just
+          Lens.^? filterLogEventsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest FilterLogEvents where
   type
@@ -282,70 +285,75 @@ instance Core.AWSRequest FilterLogEvents where
     Response.receiveJSON
       ( \s h x ->
           FilterLogEventsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> ( x Core..?> "searchedLogStreams"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "events" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "searchedLogStreams"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable FilterLogEvents
+instance Prelude.Hashable FilterLogEvents
 
-instance Core.NFData FilterLogEvents
+instance Prelude.NFData FilterLogEvents
 
 instance Core.ToHeaders FilterLogEvents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.FilterLogEvents" :: Core.ByteString),
+              Core.=# ( "Logs_20140328.FilterLogEvents" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON FilterLogEvents where
   toJSON FilterLogEvents' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("logStreamNamePrefix" Core..=)
-              Core.<$> logStreamNamePrefix,
-            ("nextToken" Core..=) Core.<$> nextToken,
-            ("interleaved" Core..=) Core.<$> interleaved,
-            ("filterPattern" Core..=) Core.<$> filterPattern,
-            ("startTime" Core..=) Core.<$> startTime,
-            ("endTime" Core..=) Core.<$> endTime,
-            ("logStreamNames" Core..=) Core.<$> logStreamNames,
-            ("limit" Core..=) Core.<$> limit,
-            Core.Just ("logGroupName" Core..= logGroupName)
+              Prelude.<$> logStreamNamePrefix,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("interleaved" Core..=) Prelude.<$> interleaved,
+            ("filterPattern" Core..=) Prelude.<$> filterPattern,
+            ("startTime" Core..=) Prelude.<$> startTime,
+            ("endTime" Core..=) Prelude.<$> endTime,
+            ("logStreamNames" Core..=)
+              Prelude.<$> logStreamNames,
+            ("limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("logGroupName" Core..= logGroupName)
           ]
       )
 
 instance Core.ToPath FilterLogEvents where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery FilterLogEvents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newFilterLogEventsResponse' smart constructor.
 data FilterLogEventsResponse = FilterLogEventsResponse'
   { -- | The token to use when requesting the next set of items. The token
     -- expires after 24 hours.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | __IMPORTANT__ Starting on May 15, 2020, this parameter will be
     -- deprecated. This parameter will be an empty list after the deprecation
     -- occurs.
     --
     -- Indicates which log streams have been searched and whether each has been
     -- searched completely.
-    searchedLogStreams :: Core.Maybe [SearchedLogStream],
+    searchedLogStreams :: Prelude.Maybe [SearchedLogStream],
     -- | The matched events.
-    events :: Core.Maybe [FilteredLogEvent],
+    events :: Prelude.Maybe [FilteredLogEvent],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FilterLogEventsResponse' with all optional fields omitted.
@@ -370,19 +378,20 @@ data FilterLogEventsResponse = FilterLogEventsResponse'
 -- 'httpStatus', 'filterLogEventsResponse_httpStatus' - The response's http status code.
 newFilterLogEventsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   FilterLogEventsResponse
 newFilterLogEventsResponse pHttpStatus_ =
   FilterLogEventsResponse'
-    { nextToken = Core.Nothing,
-      searchedLogStreams = Core.Nothing,
-      events = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      searchedLogStreams = Prelude.Nothing,
+      events = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. The token
 -- expires after 24 hours.
-filterLogEventsResponse_nextToken :: Lens.Lens' FilterLogEventsResponse (Core.Maybe Core.Text)
+filterLogEventsResponse_nextToken :: Lens.Lens' FilterLogEventsResponse (Prelude.Maybe Prelude.Text)
 filterLogEventsResponse_nextToken = Lens.lens (\FilterLogEventsResponse' {nextToken} -> nextToken) (\s@FilterLogEventsResponse' {} a -> s {nextToken = a} :: FilterLogEventsResponse)
 
 -- | __IMPORTANT__ Starting on May 15, 2020, this parameter will be
@@ -391,15 +400,15 @@ filterLogEventsResponse_nextToken = Lens.lens (\FilterLogEventsResponse' {nextTo
 --
 -- Indicates which log streams have been searched and whether each has been
 -- searched completely.
-filterLogEventsResponse_searchedLogStreams :: Lens.Lens' FilterLogEventsResponse (Core.Maybe [SearchedLogStream])
-filterLogEventsResponse_searchedLogStreams = Lens.lens (\FilterLogEventsResponse' {searchedLogStreams} -> searchedLogStreams) (\s@FilterLogEventsResponse' {} a -> s {searchedLogStreams = a} :: FilterLogEventsResponse) Core.. Lens.mapping Lens._Coerce
+filterLogEventsResponse_searchedLogStreams :: Lens.Lens' FilterLogEventsResponse (Prelude.Maybe [SearchedLogStream])
+filterLogEventsResponse_searchedLogStreams = Lens.lens (\FilterLogEventsResponse' {searchedLogStreams} -> searchedLogStreams) (\s@FilterLogEventsResponse' {} a -> s {searchedLogStreams = a} :: FilterLogEventsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The matched events.
-filterLogEventsResponse_events :: Lens.Lens' FilterLogEventsResponse (Core.Maybe [FilteredLogEvent])
-filterLogEventsResponse_events = Lens.lens (\FilterLogEventsResponse' {events} -> events) (\s@FilterLogEventsResponse' {} a -> s {events = a} :: FilterLogEventsResponse) Core.. Lens.mapping Lens._Coerce
+filterLogEventsResponse_events :: Lens.Lens' FilterLogEventsResponse (Prelude.Maybe [FilteredLogEvent])
+filterLogEventsResponse_events = Lens.lens (\FilterLogEventsResponse' {events} -> events) (\s@FilterLogEventsResponse' {} a -> s {events = a} :: FilterLogEventsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-filterLogEventsResponse_httpStatus :: Lens.Lens' FilterLogEventsResponse Core.Int
+filterLogEventsResponse_httpStatus :: Lens.Lens' FilterLogEventsResponse Prelude.Int
 filterLogEventsResponse_httpStatus = Lens.lens (\FilterLogEventsResponse' {httpStatus} -> httpStatus) (\s@FilterLogEventsResponse' {} a -> s {httpStatus = a} :: FilterLogEventsResponse)
 
-instance Core.NFData FilterLogEventsResponse
+instance Prelude.NFData FilterLogEventsResponse

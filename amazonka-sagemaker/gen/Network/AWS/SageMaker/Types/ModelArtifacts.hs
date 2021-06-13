@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelArtifacts where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the location that is configured for storing
 -- model artifacts.
@@ -33,9 +34,9 @@ import qualified Network.AWS.Lens as Lens
 data ModelArtifacts = ModelArtifacts'
   { -- | The path of the S3 object that contains the model artifacts. For
     -- example, @s3:\/\/bucket-name\/keynameprefix\/model.tar.gz@.
-    s3ModelArtifacts :: Core.Text
+    s3ModelArtifacts :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelArtifacts' with all optional fields omitted.
@@ -49,7 +50,7 @@ data ModelArtifacts = ModelArtifacts'
 -- example, @s3:\/\/bucket-name\/keynameprefix\/model.tar.gz@.
 newModelArtifacts ::
   -- | 's3ModelArtifacts'
-  Core.Text ->
+  Prelude.Text ->
   ModelArtifacts
 newModelArtifacts pS3ModelArtifacts_ =
   ModelArtifacts'
@@ -59,7 +60,7 @@ newModelArtifacts pS3ModelArtifacts_ =
 
 -- | The path of the S3 object that contains the model artifacts. For
 -- example, @s3:\/\/bucket-name\/keynameprefix\/model.tar.gz@.
-modelArtifacts_s3ModelArtifacts :: Lens.Lens' ModelArtifacts Core.Text
+modelArtifacts_s3ModelArtifacts :: Lens.Lens' ModelArtifacts Prelude.Text
 modelArtifacts_s3ModelArtifacts = Lens.lens (\ModelArtifacts' {s3ModelArtifacts} -> s3ModelArtifacts) (\s@ModelArtifacts' {} a -> s {s3ModelArtifacts = a} :: ModelArtifacts)
 
 instance Core.FromJSON ModelArtifacts where
@@ -68,9 +69,9 @@ instance Core.FromJSON ModelArtifacts where
       "ModelArtifacts"
       ( \x ->
           ModelArtifacts'
-            Core.<$> (x Core..: "S3ModelArtifacts")
+            Prelude.<$> (x Core..: "S3ModelArtifacts")
       )
 
-instance Core.Hashable ModelArtifacts
+instance Prelude.Hashable ModelArtifacts
 
-instance Core.NFData ModelArtifacts
+instance Prelude.NFData ModelArtifacts

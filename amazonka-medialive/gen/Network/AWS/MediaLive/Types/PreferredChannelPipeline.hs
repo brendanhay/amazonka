@@ -28,6 +28,7 @@ module Network.AWS.MediaLive.Types.PreferredChannelPipeline
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates which pipeline is preferred by the multiplex for program
 -- ingest. If set to \\\"PIPELINE_0\\\" or \\\"PIPELINE_1\\\" and an
@@ -41,15 +42,15 @@ newtype PreferredChannelPipeline = PreferredChannelPipeline'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

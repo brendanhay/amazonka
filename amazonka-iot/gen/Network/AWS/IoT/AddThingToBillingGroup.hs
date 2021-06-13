@@ -44,21 +44,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAddThingToBillingGroup' smart constructor.
 data AddThingToBillingGroup = AddThingToBillingGroup'
   { -- | The ARN of the thing to be added to the billing group.
-    thingArn :: Core.Maybe Core.Text,
+    thingArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing to be added to the billing group.
-    thingName :: Core.Maybe Core.Text,
+    thingName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the billing group.
-    billingGroupArn :: Core.Maybe Core.Text,
+    billingGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the billing group.
-    billingGroupName :: Core.Maybe Core.Text
+    billingGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddThingToBillingGroup' with all optional fields omitted.
@@ -79,26 +80,26 @@ newAddThingToBillingGroup ::
   AddThingToBillingGroup
 newAddThingToBillingGroup =
   AddThingToBillingGroup'
-    { thingArn = Core.Nothing,
-      thingName = Core.Nothing,
-      billingGroupArn = Core.Nothing,
-      billingGroupName = Core.Nothing
+    { thingArn = Prelude.Nothing,
+      thingName = Prelude.Nothing,
+      billingGroupArn = Prelude.Nothing,
+      billingGroupName = Prelude.Nothing
     }
 
 -- | The ARN of the thing to be added to the billing group.
-addThingToBillingGroup_thingArn :: Lens.Lens' AddThingToBillingGroup (Core.Maybe Core.Text)
+addThingToBillingGroup_thingArn :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
 addThingToBillingGroup_thingArn = Lens.lens (\AddThingToBillingGroup' {thingArn} -> thingArn) (\s@AddThingToBillingGroup' {} a -> s {thingArn = a} :: AddThingToBillingGroup)
 
 -- | The name of the thing to be added to the billing group.
-addThingToBillingGroup_thingName :: Lens.Lens' AddThingToBillingGroup (Core.Maybe Core.Text)
+addThingToBillingGroup_thingName :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
 addThingToBillingGroup_thingName = Lens.lens (\AddThingToBillingGroup' {thingName} -> thingName) (\s@AddThingToBillingGroup' {} a -> s {thingName = a} :: AddThingToBillingGroup)
 
 -- | The ARN of the billing group.
-addThingToBillingGroup_billingGroupArn :: Lens.Lens' AddThingToBillingGroup (Core.Maybe Core.Text)
+addThingToBillingGroup_billingGroupArn :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
 addThingToBillingGroup_billingGroupArn = Lens.lens (\AddThingToBillingGroup' {billingGroupArn} -> billingGroupArn) (\s@AddThingToBillingGroup' {} a -> s {billingGroupArn = a} :: AddThingToBillingGroup)
 
 -- | The name of the billing group.
-addThingToBillingGroup_billingGroupName :: Lens.Lens' AddThingToBillingGroup (Core.Maybe Core.Text)
+addThingToBillingGroup_billingGroupName :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
 addThingToBillingGroup_billingGroupName = Lens.lens (\AddThingToBillingGroup' {billingGroupName} -> billingGroupName) (\s@AddThingToBillingGroup' {} a -> s {billingGroupName = a} :: AddThingToBillingGroup)
 
 instance Core.AWSRequest AddThingToBillingGroup where
@@ -110,41 +111,43 @@ instance Core.AWSRequest AddThingToBillingGroup where
     Response.receiveEmpty
       ( \s h x ->
           AddThingToBillingGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddThingToBillingGroup
+instance Prelude.Hashable AddThingToBillingGroup
 
-instance Core.NFData AddThingToBillingGroup
+instance Prelude.NFData AddThingToBillingGroup
 
 instance Core.ToHeaders AddThingToBillingGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON AddThingToBillingGroup where
   toJSON AddThingToBillingGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("thingArn" Core..=) Core.<$> thingArn,
-            ("thingName" Core..=) Core.<$> thingName,
-            ("billingGroupArn" Core..=) Core.<$> billingGroupArn,
+      ( Prelude.catMaybes
+          [ ("thingArn" Core..=) Prelude.<$> thingArn,
+            ("thingName" Core..=) Prelude.<$> thingName,
+            ("billingGroupArn" Core..=)
+              Prelude.<$> billingGroupArn,
             ("billingGroupName" Core..=)
-              Core.<$> billingGroupName
+              Prelude.<$> billingGroupName
           ]
       )
 
 instance Core.ToPath AddThingToBillingGroup where
   toPath =
-    Core.const "/billing-groups/addThingToBillingGroup"
+    Prelude.const
+      "/billing-groups/addThingToBillingGroup"
 
 instance Core.ToQuery AddThingToBillingGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddThingToBillingGroupResponse' smart constructor.
 data AddThingToBillingGroupResponse = AddThingToBillingGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddThingToBillingGroupResponse' with all optional fields omitted.
@@ -157,7 +160,7 @@ data AddThingToBillingGroupResponse = AddThingToBillingGroupResponse'
 -- 'httpStatus', 'addThingToBillingGroupResponse_httpStatus' - The response's http status code.
 newAddThingToBillingGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddThingToBillingGroupResponse
 newAddThingToBillingGroupResponse pHttpStatus_ =
   AddThingToBillingGroupResponse'
@@ -166,7 +169,9 @@ newAddThingToBillingGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-addThingToBillingGroupResponse_httpStatus :: Lens.Lens' AddThingToBillingGroupResponse Core.Int
+addThingToBillingGroupResponse_httpStatus :: Lens.Lens' AddThingToBillingGroupResponse Prelude.Int
 addThingToBillingGroupResponse_httpStatus = Lens.lens (\AddThingToBillingGroupResponse' {httpStatus} -> httpStatus) (\s@AddThingToBillingGroupResponse' {} a -> s {httpStatus = a} :: AddThingToBillingGroupResponse)
 
-instance Core.NFData AddThingToBillingGroupResponse
+instance
+  Prelude.NFData
+    AddThingToBillingGroupResponse

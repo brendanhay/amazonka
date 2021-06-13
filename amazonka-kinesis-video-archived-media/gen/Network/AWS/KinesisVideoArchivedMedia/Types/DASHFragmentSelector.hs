@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
 import Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the range of timestamps for the requested media, and the source
 -- of the timestamps.
@@ -58,13 +59,13 @@ data DASHFragmentSelector = DASHFragmentSelector'
     -- in the HLS media playlist.
     --
     -- The default is @SERVER_TIMESTAMP@.
-    fragmentSelectorType :: Core.Maybe DASHFragmentSelectorType,
+    fragmentSelectorType :: Prelude.Maybe DASHFragmentSelectorType,
     -- | The start and end of the timestamp range for the requested media.
     --
     -- This value should not be present if @PlaybackType@ is @LIVE@.
-    timestampRange :: Core.Maybe DASHTimestampRange
+    timestampRange :: Prelude.Maybe DASHTimestampRange
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DASHFragmentSelector' with all optional fields omitted.
@@ -112,8 +113,8 @@ newDASHFragmentSelector ::
 newDASHFragmentSelector =
   DASHFragmentSelector'
     { fragmentSelectorType =
-        Core.Nothing,
-      timestampRange = Core.Nothing
+        Prelude.Nothing,
+      timestampRange = Prelude.Nothing
     }
 
 -- | The source of the timestamps for the requested media.
@@ -145,25 +146,26 @@ newDASHFragmentSelector =
 -- in the HLS media playlist.
 --
 -- The default is @SERVER_TIMESTAMP@.
-dASHFragmentSelector_fragmentSelectorType :: Lens.Lens' DASHFragmentSelector (Core.Maybe DASHFragmentSelectorType)
+dASHFragmentSelector_fragmentSelectorType :: Lens.Lens' DASHFragmentSelector (Prelude.Maybe DASHFragmentSelectorType)
 dASHFragmentSelector_fragmentSelectorType = Lens.lens (\DASHFragmentSelector' {fragmentSelectorType} -> fragmentSelectorType) (\s@DASHFragmentSelector' {} a -> s {fragmentSelectorType = a} :: DASHFragmentSelector)
 
 -- | The start and end of the timestamp range for the requested media.
 --
 -- This value should not be present if @PlaybackType@ is @LIVE@.
-dASHFragmentSelector_timestampRange :: Lens.Lens' DASHFragmentSelector (Core.Maybe DASHTimestampRange)
+dASHFragmentSelector_timestampRange :: Lens.Lens' DASHFragmentSelector (Prelude.Maybe DASHTimestampRange)
 dASHFragmentSelector_timestampRange = Lens.lens (\DASHFragmentSelector' {timestampRange} -> timestampRange) (\s@DASHFragmentSelector' {} a -> s {timestampRange = a} :: DASHFragmentSelector)
 
-instance Core.Hashable DASHFragmentSelector
+instance Prelude.Hashable DASHFragmentSelector
 
-instance Core.NFData DASHFragmentSelector
+instance Prelude.NFData DASHFragmentSelector
 
 instance Core.ToJSON DASHFragmentSelector where
   toJSON DASHFragmentSelector' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("FragmentSelectorType" Core..=)
-              Core.<$> fragmentSelectorType,
-            ("TimestampRange" Core..=) Core.<$> timestampRange
+              Prelude.<$> fragmentSelectorType,
+            ("TimestampRange" Core..=)
+              Prelude.<$> timestampRange
           ]
       )

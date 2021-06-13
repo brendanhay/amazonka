@@ -44,13 +44,14 @@ where
 import Network.AWS.Athena.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDataCatalog' smart constructor.
 data UpdateDataCatalog = UpdateDataCatalog'
   { -- | New or modified text that describes the data catalog.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Lambda function or functions to use for updating the data
     -- catalog. This is a mapping whose values depend on the catalog type.
     --
@@ -75,11 +76,11 @@ data UpdateDataCatalog = UpdateDataCatalog'
     --         Lambda function.
     --
     --         @function=lambda_arn @
-    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the data catalog to update. The catalog name must be unique
     -- for the AWS account and can use a maximum of 128 alphanumeric,
     -- underscore, at sign, or hyphen characters.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Specifies the type of data catalog to update. Specify @LAMBDA@ for a
     -- federated catalog or @HIVE@ for an external hive metastore.
     --
@@ -88,7 +89,7 @@ data UpdateDataCatalog = UpdateDataCatalog'
     -- Specifying the @GLUE@ type will result in an @INVALID_INPUT@ error.
     type' :: DataCatalogType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDataCatalog' with all optional fields omitted.
@@ -137,20 +138,20 @@ data UpdateDataCatalog = UpdateDataCatalog'
 -- Specifying the @GLUE@ type will result in an @INVALID_INPUT@ error.
 newUpdateDataCatalog ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   DataCatalogType ->
   UpdateDataCatalog
 newUpdateDataCatalog pName_ pType_ =
   UpdateDataCatalog'
-    { description = Core.Nothing,
-      parameters = Core.Nothing,
+    { description = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
 
 -- | New or modified text that describes the data catalog.
-updateDataCatalog_description :: Lens.Lens' UpdateDataCatalog (Core.Maybe Core.Text)
+updateDataCatalog_description :: Lens.Lens' UpdateDataCatalog (Prelude.Maybe Prelude.Text)
 updateDataCatalog_description = Lens.lens (\UpdateDataCatalog' {description} -> description) (\s@UpdateDataCatalog' {} a -> s {description = a} :: UpdateDataCatalog)
 
 -- | Specifies the Lambda function or functions to use for updating the data
@@ -177,13 +178,13 @@ updateDataCatalog_description = Lens.lens (\UpdateDataCatalog' {description} -> 
 --         Lambda function.
 --
 --         @function=lambda_arn @
-updateDataCatalog_parameters :: Lens.Lens' UpdateDataCatalog (Core.Maybe (Core.HashMap Core.Text Core.Text))
-updateDataCatalog_parameters = Lens.lens (\UpdateDataCatalog' {parameters} -> parameters) (\s@UpdateDataCatalog' {} a -> s {parameters = a} :: UpdateDataCatalog) Core.. Lens.mapping Lens._Coerce
+updateDataCatalog_parameters :: Lens.Lens' UpdateDataCatalog (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateDataCatalog_parameters = Lens.lens (\UpdateDataCatalog' {parameters} -> parameters) (\s@UpdateDataCatalog' {} a -> s {parameters = a} :: UpdateDataCatalog) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the data catalog to update. The catalog name must be unique
 -- for the AWS account and can use a maximum of 128 alphanumeric,
 -- underscore, at sign, or hyphen characters.
-updateDataCatalog_name :: Lens.Lens' UpdateDataCatalog Core.Text
+updateDataCatalog_name :: Lens.Lens' UpdateDataCatalog Prelude.Text
 updateDataCatalog_name = Lens.lens (\UpdateDataCatalog' {name} -> name) (\s@UpdateDataCatalog' {} a -> s {name = a} :: UpdateDataCatalog)
 
 -- | Specifies the type of data catalog to update. Specify @LAMBDA@ for a
@@ -204,49 +205,51 @@ instance Core.AWSRequest UpdateDataCatalog where
     Response.receiveEmpty
       ( \s h x ->
           UpdateDataCatalogResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDataCatalog
+instance Prelude.Hashable UpdateDataCatalog
 
-instance Core.NFData UpdateDataCatalog
+instance Prelude.NFData UpdateDataCatalog
 
 instance Core.ToHeaders UpdateDataCatalog where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonAthena.UpdateDataCatalog" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDataCatalog where
   toJSON UpdateDataCatalog' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Description" Core..=) Core.<$> description,
-            ("Parameters" Core..=) Core.<$> parameters,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Type" Core..= type')
           ]
       )
 
 instance Core.ToPath UpdateDataCatalog where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDataCatalog where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataCatalogResponse' smart constructor.
 data UpdateDataCatalogResponse = UpdateDataCatalogResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDataCatalogResponse' with all optional fields omitted.
@@ -259,7 +262,7 @@ data UpdateDataCatalogResponse = UpdateDataCatalogResponse'
 -- 'httpStatus', 'updateDataCatalogResponse_httpStatus' - The response's http status code.
 newUpdateDataCatalogResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDataCatalogResponse
 newUpdateDataCatalogResponse pHttpStatus_ =
   UpdateDataCatalogResponse'
@@ -268,7 +271,7 @@ newUpdateDataCatalogResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateDataCatalogResponse_httpStatus :: Lens.Lens' UpdateDataCatalogResponse Core.Int
+updateDataCatalogResponse_httpStatus :: Lens.Lens' UpdateDataCatalogResponse Prelude.Int
 updateDataCatalogResponse_httpStatus = Lens.lens (\UpdateDataCatalogResponse' {httpStatus} -> httpStatus) (\s@UpdateDataCatalogResponse' {} a -> s {httpStatus = a} :: UpdateDataCatalogResponse)
 
-instance Core.NFData UpdateDataCatalogResponse
+instance Prelude.NFData UpdateDataCatalogResponse

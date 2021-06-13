@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
 import Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition
 import Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Amazon CloudWatch logs configuration for a layer. For
 -- detailed information about members of this data type, see the
@@ -32,14 +33,14 @@ import Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone
 -- /See:/ 'newCloudWatchLogsLogStream' smart constructor.
 data CloudWatchLogsLogStream = CloudWatchLogsLogStream'
   { -- | Specifies the pattern for identifying the start of a log message.
-    multiLineStartPattern :: Core.Maybe Core.Text,
+    multiLineStartPattern :: Prelude.Maybe Prelude.Text,
     -- | Specifies where to start to read data (start_of_file or end_of_file).
     -- The default is start_of_file. This setting is only used if there is no
     -- state persisted for that log stream.
-    initialPosition :: Core.Maybe CloudWatchLogsInitialPosition,
+    initialPosition :: Prelude.Maybe CloudWatchLogsInitialPosition,
     -- | Specifies the max number of log events in a batch, up to 10000. The
     -- default value is 1000.
-    batchCount :: Core.Maybe Core.Int,
+    batchCount :: Prelude.Maybe Prelude.Int,
     -- | Specifies log files that you want to push to CloudWatch Logs.
     --
     -- @File@ can point to a specific file or multiple files (by using wild
@@ -54,39 +55,39 @@ data CloudWatchLogsLogStream = CloudWatchLogsLogStream'
     -- that each log file type is stored in a different log group.
     --
     -- Zipped files are not supported.
-    file :: Core.Maybe Core.Text,
+    file :: Prelude.Maybe Prelude.Text,
     -- | Specifies the range of lines for identifying a file. The valid values
     -- are one number, or two dash-delimited numbers, such as \'1\', \'2-5\'.
     -- The default value is \'1\', meaning the first line is used to calculate
     -- the fingerprint. Fingerprint lines are not sent to CloudWatch Logs
     -- unless all specified lines are available.
-    fileFingerprintLines :: Core.Maybe Core.Text,
+    fileFingerprintLines :: Prelude.Maybe Prelude.Text,
     -- | Specifies the destination log group. A log group is created
     -- automatically if it doesn\'t already exist. Log group names can be
     -- between 1 and 512 characters long. Allowed characters include a-z, A-Z,
     -- 0-9, \'_\' (underscore), \'-\' (hyphen), \'\/\' (forward slash), and
     -- \'.\' (period).
-    logGroupName :: Core.Maybe Core.Text,
+    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum size of log events in a batch, in bytes, up to
     -- 1048576 bytes. The default value is 32768 bytes. This size is calculated
     -- as the sum of all event messages in UTF-8, plus 26 bytes for each log
     -- event.
-    batchSize :: Core.Maybe Core.Int,
+    batchSize :: Prelude.Maybe Prelude.Int,
     -- | Specifies the time duration for the batching of log events. The minimum
     -- value is 5000ms and default value is 5000ms.
-    bufferDuration :: Core.Maybe Core.Int,
+    bufferDuration :: Prelude.Maybe Prelude.Int,
     -- | Specifies the encoding of the log file so that the file can be read
     -- correctly. The default is @utf_8@. Encodings supported by Python
     -- @codecs.decode()@ can be used here.
-    encoding :: Core.Maybe CloudWatchLogsEncoding,
+    encoding :: Prelude.Maybe CloudWatchLogsEncoding,
     -- | Specifies the time zone of log event time stamps.
-    timeZone :: Core.Maybe CloudWatchLogsTimeZone,
+    timeZone :: Prelude.Maybe CloudWatchLogsTimeZone,
     -- | Specifies how the time stamp is extracted from logs. For more
     -- information, see the
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html CloudWatch Logs Agent Reference>.
-    datetimeFormat :: Core.Maybe Core.Text
+    datetimeFormat :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudWatchLogsLogStream' with all optional fields omitted.
@@ -154,32 +155,32 @@ newCloudWatchLogsLogStream ::
 newCloudWatchLogsLogStream =
   CloudWatchLogsLogStream'
     { multiLineStartPattern =
-        Core.Nothing,
-      initialPosition = Core.Nothing,
-      batchCount = Core.Nothing,
-      file = Core.Nothing,
-      fileFingerprintLines = Core.Nothing,
-      logGroupName = Core.Nothing,
-      batchSize = Core.Nothing,
-      bufferDuration = Core.Nothing,
-      encoding = Core.Nothing,
-      timeZone = Core.Nothing,
-      datetimeFormat = Core.Nothing
+        Prelude.Nothing,
+      initialPosition = Prelude.Nothing,
+      batchCount = Prelude.Nothing,
+      file = Prelude.Nothing,
+      fileFingerprintLines = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
+      batchSize = Prelude.Nothing,
+      bufferDuration = Prelude.Nothing,
+      encoding = Prelude.Nothing,
+      timeZone = Prelude.Nothing,
+      datetimeFormat = Prelude.Nothing
     }
 
 -- | Specifies the pattern for identifying the start of a log message.
-cloudWatchLogsLogStream_multiLineStartPattern :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe Core.Text)
+cloudWatchLogsLogStream_multiLineStartPattern :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Text)
 cloudWatchLogsLogStream_multiLineStartPattern = Lens.lens (\CloudWatchLogsLogStream' {multiLineStartPattern} -> multiLineStartPattern) (\s@CloudWatchLogsLogStream' {} a -> s {multiLineStartPattern = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies where to start to read data (start_of_file or end_of_file).
 -- The default is start_of_file. This setting is only used if there is no
 -- state persisted for that log stream.
-cloudWatchLogsLogStream_initialPosition :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe CloudWatchLogsInitialPosition)
+cloudWatchLogsLogStream_initialPosition :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe CloudWatchLogsInitialPosition)
 cloudWatchLogsLogStream_initialPosition = Lens.lens (\CloudWatchLogsLogStream' {initialPosition} -> initialPosition) (\s@CloudWatchLogsLogStream' {} a -> s {initialPosition = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies the max number of log events in a batch, up to 10000. The
 -- default value is 1000.
-cloudWatchLogsLogStream_batchCount :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe Core.Int)
+cloudWatchLogsLogStream_batchCount :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Int)
 cloudWatchLogsLogStream_batchCount = Lens.lens (\CloudWatchLogsLogStream' {batchCount} -> batchCount) (\s@CloudWatchLogsLogStream' {} a -> s {batchCount = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies log files that you want to push to CloudWatch Logs.
@@ -196,7 +197,7 @@ cloudWatchLogsLogStream_batchCount = Lens.lens (\CloudWatchLogsLogStream' {batch
 -- that each log file type is stored in a different log group.
 --
 -- Zipped files are not supported.
-cloudWatchLogsLogStream_file :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe Core.Text)
+cloudWatchLogsLogStream_file :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Text)
 cloudWatchLogsLogStream_file = Lens.lens (\CloudWatchLogsLogStream' {file} -> file) (\s@CloudWatchLogsLogStream' {} a -> s {file = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies the range of lines for identifying a file. The valid values
@@ -204,7 +205,7 @@ cloudWatchLogsLogStream_file = Lens.lens (\CloudWatchLogsLogStream' {file} -> fi
 -- The default value is \'1\', meaning the first line is used to calculate
 -- the fingerprint. Fingerprint lines are not sent to CloudWatch Logs
 -- unless all specified lines are available.
-cloudWatchLogsLogStream_fileFingerprintLines :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe Core.Text)
+cloudWatchLogsLogStream_fileFingerprintLines :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Text)
 cloudWatchLogsLogStream_fileFingerprintLines = Lens.lens (\CloudWatchLogsLogStream' {fileFingerprintLines} -> fileFingerprintLines) (\s@CloudWatchLogsLogStream' {} a -> s {fileFingerprintLines = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies the destination log group. A log group is created
@@ -212,35 +213,35 @@ cloudWatchLogsLogStream_fileFingerprintLines = Lens.lens (\CloudWatchLogsLogStre
 -- between 1 and 512 characters long. Allowed characters include a-z, A-Z,
 -- 0-9, \'_\' (underscore), \'-\' (hyphen), \'\/\' (forward slash), and
 -- \'.\' (period).
-cloudWatchLogsLogStream_logGroupName :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe Core.Text)
+cloudWatchLogsLogStream_logGroupName :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Text)
 cloudWatchLogsLogStream_logGroupName = Lens.lens (\CloudWatchLogsLogStream' {logGroupName} -> logGroupName) (\s@CloudWatchLogsLogStream' {} a -> s {logGroupName = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies the maximum size of log events in a batch, in bytes, up to
 -- 1048576 bytes. The default value is 32768 bytes. This size is calculated
 -- as the sum of all event messages in UTF-8, plus 26 bytes for each log
 -- event.
-cloudWatchLogsLogStream_batchSize :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe Core.Int)
+cloudWatchLogsLogStream_batchSize :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Int)
 cloudWatchLogsLogStream_batchSize = Lens.lens (\CloudWatchLogsLogStream' {batchSize} -> batchSize) (\s@CloudWatchLogsLogStream' {} a -> s {batchSize = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies the time duration for the batching of log events. The minimum
 -- value is 5000ms and default value is 5000ms.
-cloudWatchLogsLogStream_bufferDuration :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe Core.Int)
+cloudWatchLogsLogStream_bufferDuration :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Int)
 cloudWatchLogsLogStream_bufferDuration = Lens.lens (\CloudWatchLogsLogStream' {bufferDuration} -> bufferDuration) (\s@CloudWatchLogsLogStream' {} a -> s {bufferDuration = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies the encoding of the log file so that the file can be read
 -- correctly. The default is @utf_8@. Encodings supported by Python
 -- @codecs.decode()@ can be used here.
-cloudWatchLogsLogStream_encoding :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe CloudWatchLogsEncoding)
+cloudWatchLogsLogStream_encoding :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe CloudWatchLogsEncoding)
 cloudWatchLogsLogStream_encoding = Lens.lens (\CloudWatchLogsLogStream' {encoding} -> encoding) (\s@CloudWatchLogsLogStream' {} a -> s {encoding = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies the time zone of log event time stamps.
-cloudWatchLogsLogStream_timeZone :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe CloudWatchLogsTimeZone)
+cloudWatchLogsLogStream_timeZone :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe CloudWatchLogsTimeZone)
 cloudWatchLogsLogStream_timeZone = Lens.lens (\CloudWatchLogsLogStream' {timeZone} -> timeZone) (\s@CloudWatchLogsLogStream' {} a -> s {timeZone = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies how the time stamp is extracted from logs. For more
 -- information, see the
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html CloudWatch Logs Agent Reference>.
-cloudWatchLogsLogStream_datetimeFormat :: Lens.Lens' CloudWatchLogsLogStream (Core.Maybe Core.Text)
+cloudWatchLogsLogStream_datetimeFormat :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Text)
 cloudWatchLogsLogStream_datetimeFormat = Lens.lens (\CloudWatchLogsLogStream' {datetimeFormat} -> datetimeFormat) (\s@CloudWatchLogsLogStream' {} a -> s {datetimeFormat = a} :: CloudWatchLogsLogStream)
 
 instance Core.FromJSON CloudWatchLogsLogStream where
@@ -249,39 +250,42 @@ instance Core.FromJSON CloudWatchLogsLogStream where
       "CloudWatchLogsLogStream"
       ( \x ->
           CloudWatchLogsLogStream'
-            Core.<$> (x Core..:? "MultiLineStartPattern")
-            Core.<*> (x Core..:? "InitialPosition")
-            Core.<*> (x Core..:? "BatchCount")
-            Core.<*> (x Core..:? "File")
-            Core.<*> (x Core..:? "FileFingerprintLines")
-            Core.<*> (x Core..:? "LogGroupName")
-            Core.<*> (x Core..:? "BatchSize")
-            Core.<*> (x Core..:? "BufferDuration")
-            Core.<*> (x Core..:? "Encoding")
-            Core.<*> (x Core..:? "TimeZone")
-            Core.<*> (x Core..:? "DatetimeFormat")
+            Prelude.<$> (x Core..:? "MultiLineStartPattern")
+            Prelude.<*> (x Core..:? "InitialPosition")
+            Prelude.<*> (x Core..:? "BatchCount")
+            Prelude.<*> (x Core..:? "File")
+            Prelude.<*> (x Core..:? "FileFingerprintLines")
+            Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<*> (x Core..:? "BatchSize")
+            Prelude.<*> (x Core..:? "BufferDuration")
+            Prelude.<*> (x Core..:? "Encoding")
+            Prelude.<*> (x Core..:? "TimeZone")
+            Prelude.<*> (x Core..:? "DatetimeFormat")
       )
 
-instance Core.Hashable CloudWatchLogsLogStream
+instance Prelude.Hashable CloudWatchLogsLogStream
 
-instance Core.NFData CloudWatchLogsLogStream
+instance Prelude.NFData CloudWatchLogsLogStream
 
 instance Core.ToJSON CloudWatchLogsLogStream where
   toJSON CloudWatchLogsLogStream' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MultiLineStartPattern" Core..=)
-              Core.<$> multiLineStartPattern,
-            ("InitialPosition" Core..=) Core.<$> initialPosition,
-            ("BatchCount" Core..=) Core.<$> batchCount,
-            ("File" Core..=) Core.<$> file,
+              Prelude.<$> multiLineStartPattern,
+            ("InitialPosition" Core..=)
+              Prelude.<$> initialPosition,
+            ("BatchCount" Core..=) Prelude.<$> batchCount,
+            ("File" Core..=) Prelude.<$> file,
             ("FileFingerprintLines" Core..=)
-              Core.<$> fileFingerprintLines,
-            ("LogGroupName" Core..=) Core.<$> logGroupName,
-            ("BatchSize" Core..=) Core.<$> batchSize,
-            ("BufferDuration" Core..=) Core.<$> bufferDuration,
-            ("Encoding" Core..=) Core.<$> encoding,
-            ("TimeZone" Core..=) Core.<$> timeZone,
-            ("DatetimeFormat" Core..=) Core.<$> datetimeFormat
+              Prelude.<$> fileFingerprintLines,
+            ("LogGroupName" Core..=) Prelude.<$> logGroupName,
+            ("BatchSize" Core..=) Prelude.<$> batchSize,
+            ("BufferDuration" Core..=)
+              Prelude.<$> bufferDuration,
+            ("Encoding" Core..=) Prelude.<$> encoding,
+            ("TimeZone" Core..=) Prelude.<$> timeZone,
+            ("DatetimeFormat" Core..=)
+              Prelude.<$> datetimeFormat
           ]
       )

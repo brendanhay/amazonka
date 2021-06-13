@@ -21,6 +21,7 @@ module Network.AWS.Athena.Types.QueryExecutionContext where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The database and data catalog context in which the query execution
 -- occurs.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newQueryExecutionContext' smart constructor.
 data QueryExecutionContext = QueryExecutionContext'
   { -- | The name of the data catalog used in the query execution.
-    catalog :: Core.Maybe Core.Text,
+    catalog :: Prelude.Maybe Prelude.Text,
     -- | The name of the database used in the query execution.
-    database :: Core.Maybe Core.Text
+    database :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryExecutionContext' with all optional fields omitted.
@@ -49,16 +50,16 @@ newQueryExecutionContext ::
   QueryExecutionContext
 newQueryExecutionContext =
   QueryExecutionContext'
-    { catalog = Core.Nothing,
-      database = Core.Nothing
+    { catalog = Prelude.Nothing,
+      database = Prelude.Nothing
     }
 
 -- | The name of the data catalog used in the query execution.
-queryExecutionContext_catalog :: Lens.Lens' QueryExecutionContext (Core.Maybe Core.Text)
+queryExecutionContext_catalog :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
 queryExecutionContext_catalog = Lens.lens (\QueryExecutionContext' {catalog} -> catalog) (\s@QueryExecutionContext' {} a -> s {catalog = a} :: QueryExecutionContext)
 
 -- | The name of the database used in the query execution.
-queryExecutionContext_database :: Lens.Lens' QueryExecutionContext (Core.Maybe Core.Text)
+queryExecutionContext_database :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
 queryExecutionContext_database = Lens.lens (\QueryExecutionContext' {database} -> database) (\s@QueryExecutionContext' {} a -> s {database = a} :: QueryExecutionContext)
 
 instance Core.FromJSON QueryExecutionContext where
@@ -67,19 +68,19 @@ instance Core.FromJSON QueryExecutionContext where
       "QueryExecutionContext"
       ( \x ->
           QueryExecutionContext'
-            Core.<$> (x Core..:? "Catalog")
-            Core.<*> (x Core..:? "Database")
+            Prelude.<$> (x Core..:? "Catalog")
+            Prelude.<*> (x Core..:? "Database")
       )
 
-instance Core.Hashable QueryExecutionContext
+instance Prelude.Hashable QueryExecutionContext
 
-instance Core.NFData QueryExecutionContext
+instance Prelude.NFData QueryExecutionContext
 
 instance Core.ToJSON QueryExecutionContext where
   toJSON QueryExecutionContext' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Catalog" Core..=) Core.<$> catalog,
-            ("Database" Core..=) Core.<$> database
+      ( Prelude.catMaybes
+          [ ("Catalog" Core..=) Prelude.<$> catalog,
+            ("Database" Core..=) Prelude.<$> database
           ]
       )

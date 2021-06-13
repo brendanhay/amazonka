@@ -24,21 +24,22 @@ import Network.AWS.FMS.Types.CustomerPolicyScopeIdType
 import Network.AWS.FMS.Types.ResourceTag
 import Network.AWS.FMS.Types.SecurityServicePolicyData
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An AWS Firewall Manager policy.
 --
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'
   { -- | An array of @ResourceTag@ objects.
-    resourceTags :: Core.Maybe [ResourceTag],
+    resourceTags :: Prelude.Maybe [ResourceTag],
     -- | An array of @ResourceType@.
-    resourceTypeList :: Core.Maybe [Core.Text],
+    resourceTypeList :: Prelude.Maybe [Prelude.Text],
     -- | A unique identifier for each update to the policy. When issuing a
     -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
     -- the @PolicyUpdateToken@ of the current policy version. To get the
     -- @PolicyUpdateToken@ of the current policy version, use a @GetPolicy@
     -- request.
-    policyUpdateToken :: Core.Maybe Core.Text,
+    policyUpdateToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the AWS account IDs and AWS Organizations organizational units
     -- (OUs) to include in the policy. Specifying an OU is the equivalent of
     -- specifying all accounts in the OU and in any of its child OUs, including
@@ -63,9 +64,9 @@ data Policy = Policy'
     -- -   Specify accounts and OUs together in a single map, separated with a
     --     comma. For example, the following is a valid map:
     --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
-    includeMap :: Core.Maybe (Core.HashMap CustomerPolicyScopeIdType [Core.Text]),
+    includeMap :: Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]),
     -- | The ID of the AWS Firewall Manager policy.
-    policyId :: Core.Maybe Core.Text,
+    policyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the AWS account IDs and AWS Organizations organizational units
     -- (OUs) to exclude from the policy. Specifying an OU is the equivalent of
     -- specifying all accounts in the OU and in any of its child OUs, including
@@ -90,9 +91,9 @@ data Policy = Policy'
     -- -   Specify accounts and OUs together in a single map, separated with a
     --     comma. For example, the following is a valid map:
     --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
-    excludeMap :: Core.Maybe (Core.HashMap CustomerPolicyScopeIdType [Core.Text]),
+    excludeMap :: Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]),
     -- | The name of the AWS Firewall Manager policy.
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | Details about the security service that is being used to protect the
     -- resources.
     securityServicePolicyData :: SecurityServicePolicyData,
@@ -108,17 +109,17 @@ data Policy = Policy'
     -- @AWS::EC2::Instance@. For a security group usage audit policy, the value
     -- is @AWS::EC2::SecurityGroup@. For an AWS Network Firewall policy, the
     -- value is @AWS::EC2::VPC@.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | If set to @True@, resources with the tags that are specified in the
     -- @ResourceTag@ array are not in scope of the policy. If set to @False@,
     -- and the @ResourceTag@ array is not null, only resources with the
     -- specified tags are in scope of the policy.
-    excludeResourceTags :: Core.Bool,
+    excludeResourceTags :: Prelude.Bool,
     -- | Indicates if the policy should be automatically applied to new
     -- resources.
-    remediationEnabled :: Core.Bool
+    remediationEnabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Policy' with all optional fields omitted.
@@ -217,15 +218,15 @@ data Policy = Policy'
 -- resources.
 newPolicy ::
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'securityServicePolicyData'
   SecurityServicePolicyData ->
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'excludeResourceTags'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'remediationEnabled'
-  Core.Bool ->
+  Prelude.Bool ->
   Policy
 newPolicy
   pPolicyName_
@@ -234,12 +235,12 @@ newPolicy
   pExcludeResourceTags_
   pRemediationEnabled_ =
     Policy'
-      { resourceTags = Core.Nothing,
-        resourceTypeList = Core.Nothing,
-        policyUpdateToken = Core.Nothing,
-        includeMap = Core.Nothing,
-        policyId = Core.Nothing,
-        excludeMap = Core.Nothing,
+      { resourceTags = Prelude.Nothing,
+        resourceTypeList = Prelude.Nothing,
+        policyUpdateToken = Prelude.Nothing,
+        includeMap = Prelude.Nothing,
+        policyId = Prelude.Nothing,
+        excludeMap = Prelude.Nothing,
         policyName = pPolicyName_,
         securityServicePolicyData =
           pSecurityServicePolicyData_,
@@ -249,19 +250,19 @@ newPolicy
       }
 
 -- | An array of @ResourceTag@ objects.
-policy_resourceTags :: Lens.Lens' Policy (Core.Maybe [ResourceTag])
-policy_resourceTags = Lens.lens (\Policy' {resourceTags} -> resourceTags) (\s@Policy' {} a -> s {resourceTags = a} :: Policy) Core.. Lens.mapping Lens._Coerce
+policy_resourceTags :: Lens.Lens' Policy (Prelude.Maybe [ResourceTag])
+policy_resourceTags = Lens.lens (\Policy' {resourceTags} -> resourceTags) (\s@Policy' {} a -> s {resourceTags = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of @ResourceType@.
-policy_resourceTypeList :: Lens.Lens' Policy (Core.Maybe [Core.Text])
-policy_resourceTypeList = Lens.lens (\Policy' {resourceTypeList} -> resourceTypeList) (\s@Policy' {} a -> s {resourceTypeList = a} :: Policy) Core.. Lens.mapping Lens._Coerce
+policy_resourceTypeList :: Lens.Lens' Policy (Prelude.Maybe [Prelude.Text])
+policy_resourceTypeList = Lens.lens (\Policy' {resourceTypeList} -> resourceTypeList) (\s@Policy' {} a -> s {resourceTypeList = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for each update to the policy. When issuing a
 -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
 -- the @PolicyUpdateToken@ of the current policy version. To get the
 -- @PolicyUpdateToken@ of the current policy version, use a @GetPolicy@
 -- request.
-policy_policyUpdateToken :: Lens.Lens' Policy (Core.Maybe Core.Text)
+policy_policyUpdateToken :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyUpdateToken = Lens.lens (\Policy' {policyUpdateToken} -> policyUpdateToken) (\s@Policy' {} a -> s {policyUpdateToken = a} :: Policy)
 
 -- | Specifies the AWS account IDs and AWS Organizations organizational units
@@ -288,11 +289,11 @@ policy_policyUpdateToken = Lens.lens (\Policy' {policyUpdateToken} -> policyUpda
 -- -   Specify accounts and OUs together in a single map, separated with a
 --     comma. For example, the following is a valid map:
 --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
-policy_includeMap :: Lens.Lens' Policy (Core.Maybe (Core.HashMap CustomerPolicyScopeIdType [Core.Text]))
-policy_includeMap = Lens.lens (\Policy' {includeMap} -> includeMap) (\s@Policy' {} a -> s {includeMap = a} :: Policy) Core.. Lens.mapping Lens._Coerce
+policy_includeMap :: Lens.Lens' Policy (Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]))
+policy_includeMap = Lens.lens (\Policy' {includeMap} -> includeMap) (\s@Policy' {} a -> s {includeMap = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the AWS Firewall Manager policy.
-policy_policyId :: Lens.Lens' Policy (Core.Maybe Core.Text)
+policy_policyId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -> s {policyId = a} :: Policy)
 
 -- | Specifies the AWS account IDs and AWS Organizations organizational units
@@ -319,11 +320,11 @@ policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -
 -- -   Specify accounts and OUs together in a single map, separated with a
 --     comma. For example, the following is a valid map:
 --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
-policy_excludeMap :: Lens.Lens' Policy (Core.Maybe (Core.HashMap CustomerPolicyScopeIdType [Core.Text]))
-policy_excludeMap = Lens.lens (\Policy' {excludeMap} -> excludeMap) (\s@Policy' {} a -> s {excludeMap = a} :: Policy) Core.. Lens.mapping Lens._Coerce
+policy_excludeMap :: Lens.Lens' Policy (Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]))
+policy_excludeMap = Lens.lens (\Policy' {excludeMap} -> excludeMap) (\s@Policy' {} a -> s {excludeMap = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the AWS Firewall Manager policy.
-policy_policyName :: Lens.Lens' Policy Core.Text
+policy_policyName :: Lens.Lens' Policy Prelude.Text
 policy_policyName = Lens.lens (\Policy' {policyName} -> policyName) (\s@Policy' {} a -> s {policyName = a} :: Policy)
 
 -- | Details about the security service that is being used to protect the
@@ -343,19 +344,19 @@ policy_securityServicePolicyData = Lens.lens (\Policy' {securityServicePolicyDat
 -- @AWS::EC2::Instance@. For a security group usage audit policy, the value
 -- is @AWS::EC2::SecurityGroup@. For an AWS Network Firewall policy, the
 -- value is @AWS::EC2::VPC@.
-policy_resourceType :: Lens.Lens' Policy Core.Text
+policy_resourceType :: Lens.Lens' Policy Prelude.Text
 policy_resourceType = Lens.lens (\Policy' {resourceType} -> resourceType) (\s@Policy' {} a -> s {resourceType = a} :: Policy)
 
 -- | If set to @True@, resources with the tags that are specified in the
 -- @ResourceTag@ array are not in scope of the policy. If set to @False@,
 -- and the @ResourceTag@ array is not null, only resources with the
 -- specified tags are in scope of the policy.
-policy_excludeResourceTags :: Lens.Lens' Policy Core.Bool
+policy_excludeResourceTags :: Lens.Lens' Policy Prelude.Bool
 policy_excludeResourceTags = Lens.lens (\Policy' {excludeResourceTags} -> excludeResourceTags) (\s@Policy' {} a -> s {excludeResourceTags = a} :: Policy)
 
 -- | Indicates if the policy should be automatically applied to new
 -- resources.
-policy_remediationEnabled :: Lens.Lens' Policy Core.Bool
+policy_remediationEnabled :: Lens.Lens' Policy Prelude.Bool
 policy_remediationEnabled = Lens.lens (\Policy' {remediationEnabled} -> remediationEnabled) (\s@Policy' {} a -> s {remediationEnabled = a} :: Policy)
 
 instance Core.FromJSON Policy where
@@ -364,44 +365,46 @@ instance Core.FromJSON Policy where
       "Policy"
       ( \x ->
           Policy'
-            Core.<$> (x Core..:? "ResourceTags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ResourceTypeList" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "PolicyUpdateToken")
-            Core.<*> (x Core..:? "IncludeMap" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "PolicyId")
-            Core.<*> (x Core..:? "ExcludeMap" Core..!= Core.mempty)
-            Core.<*> (x Core..: "PolicyName")
-            Core.<*> (x Core..: "SecurityServicePolicyData")
-            Core.<*> (x Core..: "ResourceType")
-            Core.<*> (x Core..: "ExcludeResourceTags")
-            Core.<*> (x Core..: "RemediationEnabled")
+            Prelude.<$> (x Core..:? "ResourceTags" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "ResourceTypeList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "PolicyUpdateToken")
+            Prelude.<*> (x Core..:? "IncludeMap" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "PolicyId")
+            Prelude.<*> (x Core..:? "ExcludeMap" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "PolicyName")
+            Prelude.<*> (x Core..: "SecurityServicePolicyData")
+            Prelude.<*> (x Core..: "ResourceType")
+            Prelude.<*> (x Core..: "ExcludeResourceTags")
+            Prelude.<*> (x Core..: "RemediationEnabled")
       )
 
-instance Core.Hashable Policy
+instance Prelude.Hashable Policy
 
-instance Core.NFData Policy
+instance Prelude.NFData Policy
 
 instance Core.ToJSON Policy where
   toJSON Policy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceTags" Core..=) Core.<$> resourceTags,
+      ( Prelude.catMaybes
+          [ ("ResourceTags" Core..=) Prelude.<$> resourceTags,
             ("ResourceTypeList" Core..=)
-              Core.<$> resourceTypeList,
+              Prelude.<$> resourceTypeList,
             ("PolicyUpdateToken" Core..=)
-              Core.<$> policyUpdateToken,
-            ("IncludeMap" Core..=) Core.<$> includeMap,
-            ("PolicyId" Core..=) Core.<$> policyId,
-            ("ExcludeMap" Core..=) Core.<$> excludeMap,
-            Core.Just ("PolicyName" Core..= policyName),
-            Core.Just
+              Prelude.<$> policyUpdateToken,
+            ("IncludeMap" Core..=) Prelude.<$> includeMap,
+            ("PolicyId" Core..=) Prelude.<$> policyId,
+            ("ExcludeMap" Core..=) Prelude.<$> excludeMap,
+            Prelude.Just ("PolicyName" Core..= policyName),
+            Prelude.Just
               ( "SecurityServicePolicyData"
                   Core..= securityServicePolicyData
               ),
-            Core.Just ("ResourceType" Core..= resourceType),
-            Core.Just
+            Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just
               ("ExcludeResourceTags" Core..= excludeResourceTags),
-            Core.Just
+            Prelude.Just
               ("RemediationEnabled" Core..= remediationEnabled)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.SourceIpConditionConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a source IP condition.
 --
@@ -39,9 +40,9 @@ data SourceIpConditionConfig = SourceIpConditionConfig'
     -- condition is not satisfied by the addresses in the X-Forwarded-For
     -- header. To search for addresses in the X-Forwarded-For header, use
     -- HttpHeaderConditionConfig.
-    values :: Core.Maybe [Core.Text]
+    values :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceIpConditionConfig' with all optional fields omitted.
@@ -62,7 +63,7 @@ data SourceIpConditionConfig = SourceIpConditionConfig'
 newSourceIpConditionConfig ::
   SourceIpConditionConfig
 newSourceIpConditionConfig =
-  SourceIpConditionConfig' {values = Core.Nothing}
+  SourceIpConditionConfig' {values = Prelude.Nothing}
 
 -- | One or more source IP addresses, in CIDR format. You can use both IPv4
 -- and IPv6 addresses. Wildcards are not supported.
@@ -72,24 +73,24 @@ newSourceIpConditionConfig =
 -- condition is not satisfied by the addresses in the X-Forwarded-For
 -- header. To search for addresses in the X-Forwarded-For header, use
 -- HttpHeaderConditionConfig.
-sourceIpConditionConfig_values :: Lens.Lens' SourceIpConditionConfig (Core.Maybe [Core.Text])
-sourceIpConditionConfig_values = Lens.lens (\SourceIpConditionConfig' {values} -> values) (\s@SourceIpConditionConfig' {} a -> s {values = a} :: SourceIpConditionConfig) Core.. Lens.mapping Lens._Coerce
+sourceIpConditionConfig_values :: Lens.Lens' SourceIpConditionConfig (Prelude.Maybe [Prelude.Text])
+sourceIpConditionConfig_values = Lens.lens (\SourceIpConditionConfig' {values} -> values) (\s@SourceIpConditionConfig' {} a -> s {values = a} :: SourceIpConditionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML SourceIpConditionConfig where
   parseXML x =
     SourceIpConditionConfig'
-      Core.<$> ( x Core..@? "Values" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable SourceIpConditionConfig
+instance Prelude.Hashable SourceIpConditionConfig
 
-instance Core.NFData SourceIpConditionConfig
+instance Prelude.NFData SourceIpConditionConfig
 
 instance Core.ToQuery SourceIpConditionConfig where
   toQuery SourceIpConditionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Values"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> values)
+            (Core.toQueryList "member" Prelude.<$> values)
       ]

@@ -50,23 +50,24 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDetector' smart constructor.
 data CreateDetector = CreateDetector'
   { -- | Describes which data sources will be enabled for the detector.
-    dataSources :: Core.Maybe DataSourceConfigurations,
+    dataSources :: Prelude.Maybe DataSourceConfigurations,
     -- | A value that specifies how frequently updated findings are exported.
-    findingPublishingFrequency :: Core.Maybe FindingPublishingFrequency,
+    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The tags to be added to a new detector resource.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The idempotency token for the create request.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value that specifies whether the detector is to be enabled.
-    enable :: Core.Bool
+    enable :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDetector' with all optional fields omitted.
@@ -87,35 +88,35 @@ data CreateDetector = CreateDetector'
 -- 'enable', 'createDetector_enable' - A Boolean value that specifies whether the detector is to be enabled.
 newCreateDetector ::
   -- | 'enable'
-  Core.Bool ->
+  Prelude.Bool ->
   CreateDetector
 newCreateDetector pEnable_ =
   CreateDetector'
-    { dataSources = Core.Nothing,
-      findingPublishingFrequency = Core.Nothing,
-      tags = Core.Nothing,
-      clientToken = Core.Nothing,
+    { dataSources = Prelude.Nothing,
+      findingPublishingFrequency = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       enable = pEnable_
     }
 
 -- | Describes which data sources will be enabled for the detector.
-createDetector_dataSources :: Lens.Lens' CreateDetector (Core.Maybe DataSourceConfigurations)
+createDetector_dataSources :: Lens.Lens' CreateDetector (Prelude.Maybe DataSourceConfigurations)
 createDetector_dataSources = Lens.lens (\CreateDetector' {dataSources} -> dataSources) (\s@CreateDetector' {} a -> s {dataSources = a} :: CreateDetector)
 
 -- | A value that specifies how frequently updated findings are exported.
-createDetector_findingPublishingFrequency :: Lens.Lens' CreateDetector (Core.Maybe FindingPublishingFrequency)
+createDetector_findingPublishingFrequency :: Lens.Lens' CreateDetector (Prelude.Maybe FindingPublishingFrequency)
 createDetector_findingPublishingFrequency = Lens.lens (\CreateDetector' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@CreateDetector' {} a -> s {findingPublishingFrequency = a} :: CreateDetector)
 
 -- | The tags to be added to a new detector resource.
-createDetector_tags :: Lens.Lens' CreateDetector (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createDetector_tags = Lens.lens (\CreateDetector' {tags} -> tags) (\s@CreateDetector' {} a -> s {tags = a} :: CreateDetector) Core.. Lens.mapping Lens._Coerce
+createDetector_tags :: Lens.Lens' CreateDetector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDetector_tags = Lens.lens (\CreateDetector' {tags} -> tags) (\s@CreateDetector' {} a -> s {tags = a} :: CreateDetector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The idempotency token for the create request.
-createDetector_clientToken :: Lens.Lens' CreateDetector (Core.Maybe Core.Text)
+createDetector_clientToken :: Lens.Lens' CreateDetector (Prelude.Maybe Prelude.Text)
 createDetector_clientToken = Lens.lens (\CreateDetector' {clientToken} -> clientToken) (\s@CreateDetector' {} a -> s {clientToken = a} :: CreateDetector)
 
 -- | A Boolean value that specifies whether the detector is to be enabled.
-createDetector_enable :: Lens.Lens' CreateDetector Core.Bool
+createDetector_enable :: Lens.Lens' CreateDetector Prelude.Bool
 createDetector_enable = Lens.lens (\CreateDetector' {enable} -> enable) (\s@CreateDetector' {} a -> s {enable = a} :: CreateDetector)
 
 instance Core.AWSRequest CreateDetector where
@@ -127,50 +128,52 @@ instance Core.AWSRequest CreateDetector where
     Response.receiveJSON
       ( \s h x ->
           CreateDetectorResponse'
-            Core.<$> (x Core..?> "detectorId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "detectorId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDetector
+instance Prelude.Hashable CreateDetector
 
-instance Core.NFData CreateDetector
+instance Prelude.NFData CreateDetector
 
 instance Core.ToHeaders CreateDetector where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDetector where
   toJSON CreateDetector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("dataSources" Core..=) Core.<$> dataSources,
+      ( Prelude.catMaybes
+          [ ("dataSources" Core..=) Prelude.<$> dataSources,
             ("findingPublishingFrequency" Core..=)
-              Core.<$> findingPublishingFrequency,
-            ("tags" Core..=) Core.<$> tags,
-            ("clientToken" Core..=) Core.<$> clientToken,
-            Core.Just ("enable" Core..= enable)
+              Prelude.<$> findingPublishingFrequency,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
+            Prelude.Just ("enable" Core..= enable)
           ]
       )
 
 instance Core.ToPath CreateDetector where
-  toPath = Core.const "/detector"
+  toPath = Prelude.const "/detector"
 
 instance Core.ToQuery CreateDetector where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDetectorResponse' smart constructor.
 data CreateDetectorResponse = CreateDetectorResponse'
   { -- | The unique ID of the created detector.
-    detectorId :: Core.Maybe Core.Text,
+    detectorId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDetectorResponse' with all optional fields omitted.
@@ -185,20 +188,21 @@ data CreateDetectorResponse = CreateDetectorResponse'
 -- 'httpStatus', 'createDetectorResponse_httpStatus' - The response's http status code.
 newCreateDetectorResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDetectorResponse
 newCreateDetectorResponse pHttpStatus_ =
   CreateDetectorResponse'
-    { detectorId = Core.Nothing,
+    { detectorId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID of the created detector.
-createDetectorResponse_detectorId :: Lens.Lens' CreateDetectorResponse (Core.Maybe Core.Text)
+createDetectorResponse_detectorId :: Lens.Lens' CreateDetectorResponse (Prelude.Maybe Prelude.Text)
 createDetectorResponse_detectorId = Lens.lens (\CreateDetectorResponse' {detectorId} -> detectorId) (\s@CreateDetectorResponse' {} a -> s {detectorId = a} :: CreateDetectorResponse)
 
 -- | The response's http status code.
-createDetectorResponse_httpStatus :: Lens.Lens' CreateDetectorResponse Core.Int
+createDetectorResponse_httpStatus :: Lens.Lens' CreateDetectorResponse Prelude.Int
 createDetectorResponse_httpStatus = Lens.lens (\CreateDetectorResponse' {httpStatus} -> httpStatus) (\s@CreateDetectorResponse' {} a -> s {httpStatus = a} :: CreateDetectorResponse)
 
-instance Core.NFData CreateDetectorResponse
+instance Prelude.NFData CreateDetectorResponse

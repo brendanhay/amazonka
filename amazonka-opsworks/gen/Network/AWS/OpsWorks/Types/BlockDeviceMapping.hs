@@ -22,6 +22,7 @@ module Network.AWS.OpsWorks.Types.BlockDeviceMapping where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.EbsBlockDevice
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device mapping. This data type maps directly to the
 -- Amazon EC2
@@ -32,20 +33,20 @@ import Network.AWS.OpsWorks.Types.EbsBlockDevice
 data BlockDeviceMapping = BlockDeviceMapping'
   { -- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
     -- when the instance is launched.
-    ebs :: Core.Maybe EbsBlockDevice,
+    ebs :: Prelude.Maybe EbsBlockDevice,
     -- | Suppresses the specified device included in the AMI\'s block device
     -- mapping.
-    noDevice :: Core.Maybe Core.Text,
+    noDevice :: Prelude.Maybe Prelude.Text,
     -- | The virtual device name. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
-    virtualName :: Core.Maybe Core.Text,
+    virtualName :: Prelude.Maybe Prelude.Text,
     -- | The device name that is exposed to the instance, such as @\/dev\/sdh@.
     -- For the root device, you can use the explicit device name or you can set
     -- this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the
     -- correct device name.
-    deviceName :: Core.Maybe Core.Text
+    deviceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BlockDeviceMapping' with all optional fields omitted.
@@ -72,32 +73,32 @@ newBlockDeviceMapping ::
   BlockDeviceMapping
 newBlockDeviceMapping =
   BlockDeviceMapping'
-    { ebs = Core.Nothing,
-      noDevice = Core.Nothing,
-      virtualName = Core.Nothing,
-      deviceName = Core.Nothing
+    { ebs = Prelude.Nothing,
+      noDevice = Prelude.Nothing,
+      virtualName = Prelude.Nothing,
+      deviceName = Prelude.Nothing
     }
 
 -- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
 -- when the instance is launched.
-blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Core.Maybe EbsBlockDevice)
+blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe EbsBlockDevice)
 blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
 
 -- | Suppresses the specified device included in the AMI\'s block device
 -- mapping.
-blockDeviceMapping_noDevice :: Lens.Lens' BlockDeviceMapping (Core.Maybe Core.Text)
+blockDeviceMapping_noDevice :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
 blockDeviceMapping_noDevice = Lens.lens (\BlockDeviceMapping' {noDevice} -> noDevice) (\s@BlockDeviceMapping' {} a -> s {noDevice = a} :: BlockDeviceMapping)
 
 -- | The virtual device name. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
-blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Core.Maybe Core.Text)
+blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
 blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -> virtualName) (\s@BlockDeviceMapping' {} a -> s {virtualName = a} :: BlockDeviceMapping)
 
 -- | The device name that is exposed to the instance, such as @\/dev\/sdh@.
 -- For the root device, you can use the explicit device name or you can set
 -- this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the
 -- correct device name.
-blockDeviceMapping_deviceName :: Lens.Lens' BlockDeviceMapping (Core.Maybe Core.Text)
+blockDeviceMapping_deviceName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
 blockDeviceMapping_deviceName = Lens.lens (\BlockDeviceMapping' {deviceName} -> deviceName) (\s@BlockDeviceMapping' {} a -> s {deviceName = a} :: BlockDeviceMapping)
 
 instance Core.FromJSON BlockDeviceMapping where
@@ -106,23 +107,23 @@ instance Core.FromJSON BlockDeviceMapping where
       "BlockDeviceMapping"
       ( \x ->
           BlockDeviceMapping'
-            Core.<$> (x Core..:? "Ebs")
-            Core.<*> (x Core..:? "NoDevice")
-            Core.<*> (x Core..:? "VirtualName")
-            Core.<*> (x Core..:? "DeviceName")
+            Prelude.<$> (x Core..:? "Ebs")
+            Prelude.<*> (x Core..:? "NoDevice")
+            Prelude.<*> (x Core..:? "VirtualName")
+            Prelude.<*> (x Core..:? "DeviceName")
       )
 
-instance Core.Hashable BlockDeviceMapping
+instance Prelude.Hashable BlockDeviceMapping
 
-instance Core.NFData BlockDeviceMapping
+instance Prelude.NFData BlockDeviceMapping
 
 instance Core.ToJSON BlockDeviceMapping where
   toJSON BlockDeviceMapping' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Ebs" Core..=) Core.<$> ebs,
-            ("NoDevice" Core..=) Core.<$> noDevice,
-            ("VirtualName" Core..=) Core.<$> virtualName,
-            ("DeviceName" Core..=) Core.<$> deviceName
+      ( Prelude.catMaybes
+          [ ("Ebs" Core..=) Prelude.<$> ebs,
+            ("NoDevice" Core..=) Prelude.<$> noDevice,
+            ("VirtualName" Core..=) Prelude.<$> virtualName,
+            ("DeviceName" Core..=) Prelude.<$> deviceName
           ]
       )

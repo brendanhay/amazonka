@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,20 +58,20 @@ import qualified Network.AWS.Response as Response
 data ListQueues = ListQueues'
   { -- | Use this string, provided with the response to a previous request, to
     -- request the next batch of queues.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Optional. When you request a list of queues, you can choose to list them
     -- alphabetically by NAME or chronologically by CREATION_DATE. If you
     -- don\'t specify, the service will list them by creation date.
-    listBy :: Core.Maybe QueueListBy,
+    listBy :: Prelude.Maybe QueueListBy,
     -- | Optional. Number of queues, up to twenty, that will be returned at one
     -- time.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Optional. When you request lists of resources, you can specify whether
     -- they are sorted in ASCENDING or DESCENDING order. Default varies by
     -- resource.
-    order :: Core.Maybe Order
+    order :: Prelude.Maybe Order
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListQueues' with all optional fields omitted.
@@ -97,52 +98,52 @@ newListQueues ::
   ListQueues
 newListQueues =
   ListQueues'
-    { nextToken = Core.Nothing,
-      listBy = Core.Nothing,
-      maxResults = Core.Nothing,
-      order = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      listBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      order = Prelude.Nothing
     }
 
 -- | Use this string, provided with the response to a previous request, to
 -- request the next batch of queues.
-listQueues_nextToken :: Lens.Lens' ListQueues (Core.Maybe Core.Text)
+listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
 
 -- | Optional. When you request a list of queues, you can choose to list them
 -- alphabetically by NAME or chronologically by CREATION_DATE. If you
 -- don\'t specify, the service will list them by creation date.
-listQueues_listBy :: Lens.Lens' ListQueues (Core.Maybe QueueListBy)
+listQueues_listBy :: Lens.Lens' ListQueues (Prelude.Maybe QueueListBy)
 listQueues_listBy = Lens.lens (\ListQueues' {listBy} -> listBy) (\s@ListQueues' {} a -> s {listBy = a} :: ListQueues)
 
 -- | Optional. Number of queues, up to twenty, that will be returned at one
 -- time.
-listQueues_maxResults :: Lens.Lens' ListQueues (Core.Maybe Core.Natural)
+listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Natural)
 listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 
 -- | Optional. When you request lists of resources, you can specify whether
 -- they are sorted in ASCENDING or DESCENDING order. Default varies by
 -- resource.
-listQueues_order :: Lens.Lens' ListQueues (Core.Maybe Order)
+listQueues_order :: Lens.Lens' ListQueues (Prelude.Maybe Order)
 listQueues_order = Lens.lens (\ListQueues' {order} -> order) (\s@ListQueues' {} a -> s {order = a} :: ListQueues)
 
 instance Core.AWSPager ListQueues where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listQueuesResponse_nextToken Core.. Lens._Just
+            Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listQueuesResponse_queues Core.. Lens._Just
+            Lens.^? listQueuesResponse_queues Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listQueues_nextToken
+          Prelude.& listQueues_nextToken
           Lens..~ rs
-          Lens.^? listQueuesResponse_nextToken Core.. Lens._Just
+          Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueues where
   type AWSResponse ListQueues = ListQueuesResponse
@@ -151,30 +152,32 @@ instance Core.AWSRequest ListQueues where
     Response.receiveJSON
       ( \s h x ->
           ListQueuesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "queues" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "queues" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListQueues
+instance Prelude.Hashable ListQueues
 
-instance Core.NFData ListQueues
+instance Prelude.NFData ListQueues
 
 instance Core.ToHeaders ListQueues where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListQueues where
-  toPath = Core.const "/2017-08-29/queues"
+  toPath = Prelude.const "/2017-08-29/queues"
 
 instance Core.ToQuery ListQueues where
   toQuery ListQueues' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "listBy" Core.=: listBy,
         "maxResults" Core.=: maxResults,
@@ -184,13 +187,13 @@ instance Core.ToQuery ListQueues where
 -- | /See:/ 'newListQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
   { -- | Use this string to request the next batch of queues.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | List of queues.
-    queues :: Core.Maybe [Queue],
+    queues :: Prelude.Maybe [Queue],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListQueuesResponse' with all optional fields omitted.
@@ -207,25 +210,25 @@ data ListQueuesResponse = ListQueuesResponse'
 -- 'httpStatus', 'listQueuesResponse_httpStatus' - The response's http status code.
 newListQueuesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListQueuesResponse
 newListQueuesResponse pHttpStatus_ =
   ListQueuesResponse'
-    { nextToken = Core.Nothing,
-      queues = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      queues = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Use this string to request the next batch of queues.
-listQueuesResponse_nextToken :: Lens.Lens' ListQueuesResponse (Core.Maybe Core.Text)
+listQueuesResponse_nextToken :: Lens.Lens' ListQueuesResponse (Prelude.Maybe Prelude.Text)
 listQueuesResponse_nextToken = Lens.lens (\ListQueuesResponse' {nextToken} -> nextToken) (\s@ListQueuesResponse' {} a -> s {nextToken = a} :: ListQueuesResponse)
 
 -- | List of queues.
-listQueuesResponse_queues :: Lens.Lens' ListQueuesResponse (Core.Maybe [Queue])
-listQueuesResponse_queues = Lens.lens (\ListQueuesResponse' {queues} -> queues) (\s@ListQueuesResponse' {} a -> s {queues = a} :: ListQueuesResponse) Core.. Lens.mapping Lens._Coerce
+listQueuesResponse_queues :: Lens.Lens' ListQueuesResponse (Prelude.Maybe [Queue])
+listQueuesResponse_queues = Lens.lens (\ListQueuesResponse' {queues} -> queues) (\s@ListQueuesResponse' {} a -> s {queues = a} :: ListQueuesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listQueuesResponse_httpStatus :: Lens.Lens' ListQueuesResponse Core.Int
+listQueuesResponse_httpStatus :: Lens.Lens' ListQueuesResponse Prelude.Int
 listQueuesResponse_httpStatus = Lens.lens (\ListQueuesResponse' {httpStatus} -> httpStatus) (\s@ListQueuesResponse' {} a -> s {httpStatus = a} :: ListQueuesResponse)
 
-instance Core.NFData ListQueuesResponse
+instance Prelude.NFData ListQueuesResponse

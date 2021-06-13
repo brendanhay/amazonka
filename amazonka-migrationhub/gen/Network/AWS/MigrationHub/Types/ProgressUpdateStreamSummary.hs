@@ -21,6 +21,7 @@ module Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary of the AWS resource used for access control that is implicitly
 -- linked to your AWS account.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data ProgressUpdateStreamSummary = ProgressUpdateStreamSummary'
   { -- | The name of the ProgressUpdateStream. /Do not store personal data in
     -- this field./
-    progressUpdateStreamName :: Core.Maybe Core.Text
+    progressUpdateStreamName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProgressUpdateStreamSummary' with all optional fields omitted.
@@ -48,12 +49,12 @@ newProgressUpdateStreamSummary ::
 newProgressUpdateStreamSummary =
   ProgressUpdateStreamSummary'
     { progressUpdateStreamName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in
 -- this field./
-progressUpdateStreamSummary_progressUpdateStreamName :: Lens.Lens' ProgressUpdateStreamSummary (Core.Maybe Core.Text)
+progressUpdateStreamSummary_progressUpdateStreamName :: Lens.Lens' ProgressUpdateStreamSummary (Prelude.Maybe Prelude.Text)
 progressUpdateStreamSummary_progressUpdateStreamName = Lens.lens (\ProgressUpdateStreamSummary' {progressUpdateStreamName} -> progressUpdateStreamName) (\s@ProgressUpdateStreamSummary' {} a -> s {progressUpdateStreamName = a} :: ProgressUpdateStreamSummary)
 
 instance Core.FromJSON ProgressUpdateStreamSummary where
@@ -62,9 +63,9 @@ instance Core.FromJSON ProgressUpdateStreamSummary where
       "ProgressUpdateStreamSummary"
       ( \x ->
           ProgressUpdateStreamSummary'
-            Core.<$> (x Core..:? "ProgressUpdateStreamName")
+            Prelude.<$> (x Core..:? "ProgressUpdateStreamName")
       )
 
-instance Core.Hashable ProgressUpdateStreamSummary
+instance Prelude.Hashable ProgressUpdateStreamSummary
 
-instance Core.NFData ProgressUpdateStreamSummary
+instance Prelude.NFData ProgressUpdateStreamSummary

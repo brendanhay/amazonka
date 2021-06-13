@@ -44,6 +44,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data CreatePullRequestApprovalRule = CreatePullRequestApprovalRule'
   { -- | The system-generated ID of the pull request for which you want to create
     -- the approval rule.
-    pullRequestId :: Core.Text,
+    pullRequestId :: Prelude.Text,
     -- | The name for the approval rule.
-    approvalRuleName :: Core.Text,
+    approvalRuleName :: Prelude.Text,
     -- | The content of the approval rule, including the number of approvals
     -- needed and the structure of an approval pool defined for approvals, if
     -- any. For more information about approval pools, see the AWS CodeCommit
@@ -88,9 +89,9 @@ data CreatePullRequestApprovalRule = CreatePullRequestApprovalRule'
     -- For more information about IAM ARNs, wildcards, and formats, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
     -- in the /IAM User Guide/.
-    approvalRuleContent :: Core.Text
+    approvalRuleContent :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePullRequestApprovalRule' with all optional fields omitted.
@@ -141,11 +142,11 @@ data CreatePullRequestApprovalRule = CreatePullRequestApprovalRule'
 -- in the /IAM User Guide/.
 newCreatePullRequestApprovalRule ::
   -- | 'pullRequestId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'approvalRuleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'approvalRuleContent'
-  Core.Text ->
+  Prelude.Text ->
   CreatePullRequestApprovalRule
 newCreatePullRequestApprovalRule
   pPullRequestId_
@@ -160,11 +161,11 @@ newCreatePullRequestApprovalRule
 
 -- | The system-generated ID of the pull request for which you want to create
 -- the approval rule.
-createPullRequestApprovalRule_pullRequestId :: Lens.Lens' CreatePullRequestApprovalRule Core.Text
+createPullRequestApprovalRule_pullRequestId :: Lens.Lens' CreatePullRequestApprovalRule Prelude.Text
 createPullRequestApprovalRule_pullRequestId = Lens.lens (\CreatePullRequestApprovalRule' {pullRequestId} -> pullRequestId) (\s@CreatePullRequestApprovalRule' {} a -> s {pullRequestId = a} :: CreatePullRequestApprovalRule)
 
 -- | The name for the approval rule.
-createPullRequestApprovalRule_approvalRuleName :: Lens.Lens' CreatePullRequestApprovalRule Core.Text
+createPullRequestApprovalRule_approvalRuleName :: Lens.Lens' CreatePullRequestApprovalRule Prelude.Text
 createPullRequestApprovalRule_approvalRuleName = Lens.lens (\CreatePullRequestApprovalRule' {approvalRuleName} -> approvalRuleName) (\s@CreatePullRequestApprovalRule' {} a -> s {approvalRuleName = a} :: CreatePullRequestApprovalRule)
 
 -- | The content of the approval rule, including the number of approvals
@@ -201,7 +202,7 @@ createPullRequestApprovalRule_approvalRuleName = Lens.lens (\CreatePullRequestAp
 -- For more information about IAM ARNs, wildcards, and formats, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
 -- in the /IAM User Guide/.
-createPullRequestApprovalRule_approvalRuleContent :: Lens.Lens' CreatePullRequestApprovalRule Core.Text
+createPullRequestApprovalRule_approvalRuleContent :: Lens.Lens' CreatePullRequestApprovalRule Prelude.Text
 createPullRequestApprovalRule_approvalRuleContent = Lens.lens (\CreatePullRequestApprovalRule' {approvalRuleContent} -> approvalRuleContent) (\s@CreatePullRequestApprovalRule' {} a -> s {approvalRuleContent = a} :: CreatePullRequestApprovalRule)
 
 instance
@@ -216,53 +217,58 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreatePullRequestApprovalRuleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "approvalRule")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "approvalRule")
       )
 
-instance Core.Hashable CreatePullRequestApprovalRule
+instance
+  Prelude.Hashable
+    CreatePullRequestApprovalRule
 
-instance Core.NFData CreatePullRequestApprovalRule
+instance Prelude.NFData CreatePullRequestApprovalRule
 
 instance Core.ToHeaders CreatePullRequestApprovalRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.CreatePullRequestApprovalRule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePullRequestApprovalRule where
   toJSON CreatePullRequestApprovalRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pullRequestId" Core..= pullRequestId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just
               ("approvalRuleName" Core..= approvalRuleName),
-            Core.Just
+            Prelude.Just
               ("approvalRuleContent" Core..= approvalRuleContent)
           ]
       )
 
 instance Core.ToPath CreatePullRequestApprovalRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePullRequestApprovalRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePullRequestApprovalRuleResponse' smart constructor.
 data CreatePullRequestApprovalRuleResponse = CreatePullRequestApprovalRuleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the created approval rule.
     approvalRule :: ApprovalRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePullRequestApprovalRuleResponse' with all optional fields omitted.
@@ -277,7 +283,7 @@ data CreatePullRequestApprovalRuleResponse = CreatePullRequestApprovalRuleRespon
 -- 'approvalRule', 'createPullRequestApprovalRuleResponse_approvalRule' - Information about the created approval rule.
 newCreatePullRequestApprovalRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'approvalRule'
   ApprovalRule ->
   CreatePullRequestApprovalRuleResponse
@@ -291,7 +297,7 @@ newCreatePullRequestApprovalRuleResponse
       }
 
 -- | The response's http status code.
-createPullRequestApprovalRuleResponse_httpStatus :: Lens.Lens' CreatePullRequestApprovalRuleResponse Core.Int
+createPullRequestApprovalRuleResponse_httpStatus :: Lens.Lens' CreatePullRequestApprovalRuleResponse Prelude.Int
 createPullRequestApprovalRuleResponse_httpStatus = Lens.lens (\CreatePullRequestApprovalRuleResponse' {httpStatus} -> httpStatus) (\s@CreatePullRequestApprovalRuleResponse' {} a -> s {httpStatus = a} :: CreatePullRequestApprovalRuleResponse)
 
 -- | Information about the created approval rule.
@@ -299,5 +305,5 @@ createPullRequestApprovalRuleResponse_approvalRule :: Lens.Lens' CreatePullReque
 createPullRequestApprovalRuleResponse_approvalRule = Lens.lens (\CreatePullRequestApprovalRuleResponse' {approvalRule} -> approvalRule) (\s@CreatePullRequestApprovalRuleResponse' {} a -> s {approvalRule = a} :: CreatePullRequestApprovalRuleResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreatePullRequestApprovalRuleResponse

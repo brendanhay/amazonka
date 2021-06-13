@@ -22,6 +22,7 @@ module Network.AWS.ECR.Types.ReplicationConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ReplicationRule
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The replication configuration for a registry.
 --
@@ -33,7 +34,7 @@ data ReplicationConfiguration = ReplicationConfiguration'
     -- destinations.
     rules :: [ReplicationRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationConfiguration' with all optional fields omitted.
@@ -50,14 +51,14 @@ data ReplicationConfiguration = ReplicationConfiguration'
 newReplicationConfiguration ::
   ReplicationConfiguration
 newReplicationConfiguration =
-  ReplicationConfiguration' {rules = Core.mempty}
+  ReplicationConfiguration' {rules = Prelude.mempty}
 
 -- | An array of objects representing the replication rules for a replication
 -- configuration. A replication configuration may contain only one
 -- replication rule but the rule may contain one or more replication
 -- destinations.
 replicationConfiguration_rules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
-replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Core.. Lens._Coerce
+replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ReplicationConfiguration where
   parseJSON =
@@ -65,14 +66,16 @@ instance Core.FromJSON ReplicationConfiguration where
       "ReplicationConfiguration"
       ( \x ->
           ReplicationConfiguration'
-            Core.<$> (x Core..:? "rules" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "rules" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ReplicationConfiguration
+instance Prelude.Hashable ReplicationConfiguration
 
-instance Core.NFData ReplicationConfiguration
+instance Prelude.NFData ReplicationConfiguration
 
 instance Core.ToJSON ReplicationConfiguration where
   toJSON ReplicationConfiguration' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("rules" Core..= rules)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("rules" Core..= rules)]
+      )

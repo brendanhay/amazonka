@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeBackupPolicy' smart constructor.
 data DescribeBackupPolicy = DescribeBackupPolicy'
   { -- | Specifies which EFS file system to retrieve the @BackupPolicy@ for.
-    fileSystemId :: Core.Text
+    fileSystemId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBackupPolicy' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DescribeBackupPolicy = DescribeBackupPolicy'
 -- 'fileSystemId', 'describeBackupPolicy_fileSystemId' - Specifies which EFS file system to retrieve the @BackupPolicy@ for.
 newDescribeBackupPolicy ::
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeBackupPolicy
 newDescribeBackupPolicy pFileSystemId_ =
   DescribeBackupPolicy'
@@ -71,7 +72,7 @@ newDescribeBackupPolicy pFileSystemId_ =
     }
 
 -- | Specifies which EFS file system to retrieve the @BackupPolicy@ for.
-describeBackupPolicy_fileSystemId :: Lens.Lens' DescribeBackupPolicy Core.Text
+describeBackupPolicy_fileSystemId :: Lens.Lens' DescribeBackupPolicy Prelude.Text
 describeBackupPolicy_fileSystemId = Lens.lens (\DescribeBackupPolicy' {fileSystemId} -> fileSystemId) (\s@DescribeBackupPolicy' {} a -> s {fileSystemId = a} :: DescribeBackupPolicy)
 
 instance Core.AWSRequest DescribeBackupPolicy where
@@ -83,20 +84,20 @@ instance Core.AWSRequest DescribeBackupPolicy where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable DescribeBackupPolicy
+instance Prelude.Hashable DescribeBackupPolicy
 
-instance Core.NFData DescribeBackupPolicy
+instance Prelude.NFData DescribeBackupPolicy
 
 instance Core.ToHeaders DescribeBackupPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeBackupPolicy where
   toPath DescribeBackupPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-02-01/file-systems/",
         Core.toBS fileSystemId,
         "/backup-policy"
       ]
 
 instance Core.ToQuery DescribeBackupPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

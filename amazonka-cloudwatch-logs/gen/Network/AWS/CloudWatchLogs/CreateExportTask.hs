@@ -69,6 +69,7 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,27 +77,27 @@ import qualified Network.AWS.Response as Response
 data CreateExportTask = CreateExportTask'
   { -- | Export only log streams that match the provided prefix. If you don\'t
     -- specify a value, no prefix filter is applied.
-    logStreamNamePrefix :: Core.Maybe Core.Text,
+    logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the export task.
-    taskName :: Core.Maybe Core.Text,
+    taskName :: Prelude.Maybe Prelude.Text,
     -- | The prefix used as the start of the key for every object exported. If
     -- you don\'t specify a value, the default is @exportedlogs@.
-    destinationPrefix :: Core.Maybe Core.Text,
+    destinationPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
-    logGroupName :: Core.Text,
+    logGroupName :: Prelude.Text,
     -- | The start time of the range for the request, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
     -- earlier than this time are not exported.
-    from :: Core.Natural,
+    from :: Prelude.Natural,
     -- | The end time of the range for the request, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
     -- later than this time are not exported.
-    to :: Core.Natural,
+    to :: Prelude.Natural,
     -- | The name of S3 bucket for the exported log data. The bucket must be in
     -- the same AWS region.
-    destination :: Core.Text
+    destination :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateExportTask' with all optional fields omitted.
@@ -128,13 +129,13 @@ data CreateExportTask = CreateExportTask'
 -- the same AWS region.
 newCreateExportTask ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'from'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'to'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'destination'
-  Core.Text ->
+  Prelude.Text ->
   CreateExportTask
 newCreateExportTask
   pLogGroupName_
@@ -143,9 +144,9 @@ newCreateExportTask
   pDestination_ =
     CreateExportTask'
       { logStreamNamePrefix =
-          Core.Nothing,
-        taskName = Core.Nothing,
-        destinationPrefix = Core.Nothing,
+          Prelude.Nothing,
+        taskName = Prelude.Nothing,
+        destinationPrefix = Prelude.Nothing,
         logGroupName = pLogGroupName_,
         from = pFrom_,
         to = pTo_,
@@ -154,37 +155,37 @@ newCreateExportTask
 
 -- | Export only log streams that match the provided prefix. If you don\'t
 -- specify a value, no prefix filter is applied.
-createExportTask_logStreamNamePrefix :: Lens.Lens' CreateExportTask (Core.Maybe Core.Text)
+createExportTask_logStreamNamePrefix :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
 createExportTask_logStreamNamePrefix = Lens.lens (\CreateExportTask' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@CreateExportTask' {} a -> s {logStreamNamePrefix = a} :: CreateExportTask)
 
 -- | The name of the export task.
-createExportTask_taskName :: Lens.Lens' CreateExportTask (Core.Maybe Core.Text)
+createExportTask_taskName :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
 createExportTask_taskName = Lens.lens (\CreateExportTask' {taskName} -> taskName) (\s@CreateExportTask' {} a -> s {taskName = a} :: CreateExportTask)
 
 -- | The prefix used as the start of the key for every object exported. If
 -- you don\'t specify a value, the default is @exportedlogs@.
-createExportTask_destinationPrefix :: Lens.Lens' CreateExportTask (Core.Maybe Core.Text)
+createExportTask_destinationPrefix :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
 createExportTask_destinationPrefix = Lens.lens (\CreateExportTask' {destinationPrefix} -> destinationPrefix) (\s@CreateExportTask' {} a -> s {destinationPrefix = a} :: CreateExportTask)
 
 -- | The name of the log group.
-createExportTask_logGroupName :: Lens.Lens' CreateExportTask Core.Text
+createExportTask_logGroupName :: Lens.Lens' CreateExportTask Prelude.Text
 createExportTask_logGroupName = Lens.lens (\CreateExportTask' {logGroupName} -> logGroupName) (\s@CreateExportTask' {} a -> s {logGroupName = a} :: CreateExportTask)
 
 -- | The start time of the range for the request, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
 -- earlier than this time are not exported.
-createExportTask_from :: Lens.Lens' CreateExportTask Core.Natural
+createExportTask_from :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_from = Lens.lens (\CreateExportTask' {from} -> from) (\s@CreateExportTask' {} a -> s {from = a} :: CreateExportTask)
 
 -- | The end time of the range for the request, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
 -- later than this time are not exported.
-createExportTask_to :: Lens.Lens' CreateExportTask Core.Natural
+createExportTask_to :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_to = Lens.lens (\CreateExportTask' {to} -> to) (\s@CreateExportTask' {} a -> s {to = a} :: CreateExportTask)
 
 -- | The name of S3 bucket for the exported log data. The bucket must be in
 -- the same AWS region.
-createExportTask_destination :: Lens.Lens' CreateExportTask Core.Text
+createExportTask_destination :: Lens.Lens' CreateExportTask Prelude.Text
 createExportTask_destination = Lens.lens (\CreateExportTask' {destination} -> destination) (\s@CreateExportTask' {} a -> s {destination = a} :: CreateExportTask)
 
 instance Core.AWSRequest CreateExportTask where
@@ -196,57 +197,59 @@ instance Core.AWSRequest CreateExportTask where
     Response.receiveJSON
       ( \s h x ->
           CreateExportTaskResponse'
-            Core.<$> (x Core..?> "taskId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "taskId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateExportTask
+instance Prelude.Hashable CreateExportTask
 
-instance Core.NFData CreateExportTask
+instance Prelude.NFData CreateExportTask
 
 instance Core.ToHeaders CreateExportTask where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.CreateExportTask" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateExportTask where
   toJSON CreateExportTask' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("logStreamNamePrefix" Core..=)
-              Core.<$> logStreamNamePrefix,
-            ("taskName" Core..=) Core.<$> taskName,
+              Prelude.<$> logStreamNamePrefix,
+            ("taskName" Core..=) Prelude.<$> taskName,
             ("destinationPrefix" Core..=)
-              Core.<$> destinationPrefix,
-            Core.Just ("logGroupName" Core..= logGroupName),
-            Core.Just ("from" Core..= from),
-            Core.Just ("to" Core..= to),
-            Core.Just ("destination" Core..= destination)
+              Prelude.<$> destinationPrefix,
+            Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just ("from" Core..= from),
+            Prelude.Just ("to" Core..= to),
+            Prelude.Just ("destination" Core..= destination)
           ]
       )
 
 instance Core.ToPath CreateExportTask where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateExportTask where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExportTaskResponse' smart constructor.
 data CreateExportTaskResponse = CreateExportTaskResponse'
   { -- | The ID of the export task.
-    taskId :: Core.Maybe Core.Text,
+    taskId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateExportTaskResponse' with all optional fields omitted.
@@ -261,20 +264,20 @@ data CreateExportTaskResponse = CreateExportTaskResponse'
 -- 'httpStatus', 'createExportTaskResponse_httpStatus' - The response's http status code.
 newCreateExportTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateExportTaskResponse
 newCreateExportTaskResponse pHttpStatus_ =
   CreateExportTaskResponse'
-    { taskId = Core.Nothing,
+    { taskId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the export task.
-createExportTaskResponse_taskId :: Lens.Lens' CreateExportTaskResponse (Core.Maybe Core.Text)
+createExportTaskResponse_taskId :: Lens.Lens' CreateExportTaskResponse (Prelude.Maybe Prelude.Text)
 createExportTaskResponse_taskId = Lens.lens (\CreateExportTaskResponse' {taskId} -> taskId) (\s@CreateExportTaskResponse' {} a -> s {taskId = a} :: CreateExportTaskResponse)
 
 -- | The response's http status code.
-createExportTaskResponse_httpStatus :: Lens.Lens' CreateExportTaskResponse Core.Int
+createExportTaskResponse_httpStatus :: Lens.Lens' CreateExportTaskResponse Prelude.Int
 createExportTaskResponse_httpStatus = Lens.lens (\CreateExportTaskResponse' {httpStatus} -> httpStatus) (\s@CreateExportTaskResponse' {} a -> s {httpStatus = a} :: CreateExportTaskResponse)
 
-instance Core.NFData CreateExportTaskResponse
+instance Prelude.NFData CreateExportTaskResponse

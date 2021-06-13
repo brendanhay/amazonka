@@ -21,23 +21,24 @@ module Network.AWS.GuardDuty.Types.Master where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the administrator account and invitation.
 --
 -- /See:/ 'newMaster' smart constructor.
 data Master = Master'
   { -- | The ID of the account used as the administrator account.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The status of the relationship between the administrator and member
     -- accounts.
-    relationshipStatus :: Core.Maybe Core.Text,
+    relationshipStatus :: Prelude.Maybe Prelude.Text,
     -- | The value used to validate the administrator account to the member
     -- account.
-    invitationId :: Core.Maybe Core.Text,
+    invitationId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the invitation was sent.
-    invitedAt :: Core.Maybe Core.Text
+    invitedAt :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Master' with all optional fields omitted.
@@ -60,28 +61,28 @@ newMaster ::
   Master
 newMaster =
   Master'
-    { accountId = Core.Nothing,
-      relationshipStatus = Core.Nothing,
-      invitationId = Core.Nothing,
-      invitedAt = Core.Nothing
+    { accountId = Prelude.Nothing,
+      relationshipStatus = Prelude.Nothing,
+      invitationId = Prelude.Nothing,
+      invitedAt = Prelude.Nothing
     }
 
 -- | The ID of the account used as the administrator account.
-master_accountId :: Lens.Lens' Master (Core.Maybe Core.Text)
+master_accountId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
 master_accountId = Lens.lens (\Master' {accountId} -> accountId) (\s@Master' {} a -> s {accountId = a} :: Master)
 
 -- | The status of the relationship between the administrator and member
 -- accounts.
-master_relationshipStatus :: Lens.Lens' Master (Core.Maybe Core.Text)
+master_relationshipStatus :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
 master_relationshipStatus = Lens.lens (\Master' {relationshipStatus} -> relationshipStatus) (\s@Master' {} a -> s {relationshipStatus = a} :: Master)
 
 -- | The value used to validate the administrator account to the member
 -- account.
-master_invitationId :: Lens.Lens' Master (Core.Maybe Core.Text)
+master_invitationId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
 master_invitationId = Lens.lens (\Master' {invitationId} -> invitationId) (\s@Master' {} a -> s {invitationId = a} :: Master)
 
 -- | The timestamp when the invitation was sent.
-master_invitedAt :: Lens.Lens' Master (Core.Maybe Core.Text)
+master_invitedAt :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
 master_invitedAt = Lens.lens (\Master' {invitedAt} -> invitedAt) (\s@Master' {} a -> s {invitedAt = a} :: Master)
 
 instance Core.FromJSON Master where
@@ -90,12 +91,12 @@ instance Core.FromJSON Master where
       "Master"
       ( \x ->
           Master'
-            Core.<$> (x Core..:? "accountId")
-            Core.<*> (x Core..:? "relationshipStatus")
-            Core.<*> (x Core..:? "invitationId")
-            Core.<*> (x Core..:? "invitedAt")
+            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<*> (x Core..:? "relationshipStatus")
+            Prelude.<*> (x Core..:? "invitationId")
+            Prelude.<*> (x Core..:? "invitedAt")
       )
 
-instance Core.Hashable Master
+instance Prelude.Hashable Master
 
-instance Core.NFData Master
+instance Prelude.NFData Master

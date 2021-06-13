@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -59,9 +60,9 @@ import Network.AWS.WAFRegional.Types
 data GetRateBasedRule = GetRateBasedRule'
   { -- | The @RuleId@ of the RateBasedRule that you want to get. @RuleId@ is
     -- returned by CreateRateBasedRule and by ListRateBasedRules.
-    ruleId :: Core.Text
+    ruleId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRateBasedRule' with all optional fields omitted.
@@ -75,14 +76,14 @@ data GetRateBasedRule = GetRateBasedRule'
 -- returned by CreateRateBasedRule and by ListRateBasedRules.
 newGetRateBasedRule ::
   -- | 'ruleId'
-  Core.Text ->
+  Prelude.Text ->
   GetRateBasedRule
 newGetRateBasedRule pRuleId_ =
   GetRateBasedRule' {ruleId = pRuleId_}
 
 -- | The @RuleId@ of the RateBasedRule that you want to get. @RuleId@ is
 -- returned by CreateRateBasedRule and by ListRateBasedRules.
-getRateBasedRule_ruleId :: Lens.Lens' GetRateBasedRule Core.Text
+getRateBasedRule_ruleId :: Lens.Lens' GetRateBasedRule Prelude.Text
 getRateBasedRule_ruleId = Lens.lens (\GetRateBasedRule' {ruleId} -> ruleId) (\s@GetRateBasedRule' {} a -> s {ruleId = a} :: GetRateBasedRule)
 
 instance Core.AWSRequest GetRateBasedRule where
@@ -94,49 +95,51 @@ instance Core.AWSRequest GetRateBasedRule where
     Response.receiveJSON
       ( \s h x ->
           GetRateBasedRuleResponse'
-            Core.<$> (x Core..?> "Rule")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Rule")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRateBasedRule
+instance Prelude.Hashable GetRateBasedRule
 
-instance Core.NFData GetRateBasedRule
+instance Prelude.NFData GetRateBasedRule
 
 instance Core.ToHeaders GetRateBasedRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.GetRateBasedRule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRateBasedRule where
   toJSON GetRateBasedRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RuleId" Core..= ruleId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RuleId" Core..= ruleId)]
       )
 
 instance Core.ToPath GetRateBasedRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRateBasedRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRateBasedRuleResponse' smart constructor.
 data GetRateBasedRuleResponse = GetRateBasedRuleResponse'
   { -- | Information about the RateBasedRule that you specified in the
     -- @GetRateBasedRule@ request.
-    rule :: Core.Maybe RateBasedRule,
+    rule :: Prelude.Maybe RateBasedRule,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRateBasedRuleResponse' with all optional fields omitted.
@@ -152,21 +155,21 @@ data GetRateBasedRuleResponse = GetRateBasedRuleResponse'
 -- 'httpStatus', 'getRateBasedRuleResponse_httpStatus' - The response's http status code.
 newGetRateBasedRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRateBasedRuleResponse
 newGetRateBasedRuleResponse pHttpStatus_ =
   GetRateBasedRuleResponse'
-    { rule = Core.Nothing,
+    { rule = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the RateBasedRule that you specified in the
 -- @GetRateBasedRule@ request.
-getRateBasedRuleResponse_rule :: Lens.Lens' GetRateBasedRuleResponse (Core.Maybe RateBasedRule)
+getRateBasedRuleResponse_rule :: Lens.Lens' GetRateBasedRuleResponse (Prelude.Maybe RateBasedRule)
 getRateBasedRuleResponse_rule = Lens.lens (\GetRateBasedRuleResponse' {rule} -> rule) (\s@GetRateBasedRuleResponse' {} a -> s {rule = a} :: GetRateBasedRuleResponse)
 
 -- | The response's http status code.
-getRateBasedRuleResponse_httpStatus :: Lens.Lens' GetRateBasedRuleResponse Core.Int
+getRateBasedRuleResponse_httpStatus :: Lens.Lens' GetRateBasedRuleResponse Prelude.Int
 getRateBasedRuleResponse_httpStatus = Lens.lens (\GetRateBasedRuleResponse' {httpStatus} -> httpStatus) (\s@GetRateBasedRuleResponse' {} a -> s {httpStatus = a} :: GetRateBasedRuleResponse)
 
-instance Core.NFData GetRateBasedRuleResponse
+instance Prelude.NFData GetRateBasedRuleResponse

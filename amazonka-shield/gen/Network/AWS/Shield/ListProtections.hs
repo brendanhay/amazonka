@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -53,7 +54,7 @@ import Network.AWS.Shield.Types
 data ListProtections = ListProtections'
   { -- | The @ListProtectionsRequest.NextToken@ value from a previous call to
     -- @ListProtections@. Pass null if this is the first call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of Protection objects to return. If you leave this
     -- blank, Shield Advanced returns the first 20 results.
     --
@@ -63,9 +64,9 @@ data ListProtections = ListProtections'
     -- If there are more objects to return, Shield Advanced returns a value in
     -- @NextToken@ that you can use in your next request, to get the next batch
     -- of objects.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProtections' with all optional fields omitted.
@@ -91,13 +92,13 @@ newListProtections ::
   ListProtections
 newListProtections =
   ListProtections'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The @ListProtectionsRequest.NextToken@ value from a previous call to
 -- @ListProtections@. Pass null if this is the first call.
-listProtections_nextToken :: Lens.Lens' ListProtections (Core.Maybe Core.Text)
+listProtections_nextToken :: Lens.Lens' ListProtections (Prelude.Maybe Prelude.Text)
 listProtections_nextToken = Lens.lens (\ListProtections' {nextToken} -> nextToken) (\s@ListProtections' {} a -> s {nextToken = a} :: ListProtections)
 
 -- | The maximum number of Protection objects to return. If you leave this
@@ -109,28 +110,30 @@ listProtections_nextToken = Lens.lens (\ListProtections' {nextToken} -> nextToke
 -- If there are more objects to return, Shield Advanced returns a value in
 -- @NextToken@ that you can use in your next request, to get the next batch
 -- of objects.
-listProtections_maxResults :: Lens.Lens' ListProtections (Core.Maybe Core.Natural)
+listProtections_maxResults :: Lens.Lens' ListProtections (Prelude.Maybe Prelude.Natural)
 listProtections_maxResults = Lens.lens (\ListProtections' {maxResults} -> maxResults) (\s@ListProtections' {} a -> s {maxResults = a} :: ListProtections)
 
 instance Core.AWSPager ListProtections where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listProtectionsResponse_nextToken Core.. Lens._Just
+            Lens.^? listProtectionsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProtectionsResponse_protections
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listProtections_nextToken
+          Prelude.& listProtections_nextToken
           Lens..~ rs
-          Lens.^? listProtectionsResponse_nextToken Core.. Lens._Just
+          Lens.^? listProtectionsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProtections where
   type
@@ -141,42 +144,44 @@ instance Core.AWSRequest ListProtections where
     Response.receiveJSON
       ( \s h x ->
           ListProtectionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Protections" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Protections" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListProtections
+instance Prelude.Hashable ListProtections
 
-instance Core.NFData ListProtections
+instance Prelude.NFData ListProtections
 
 instance Core.ToHeaders ListProtections where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.ListProtections" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListProtections where
   toJSON ListProtections' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListProtections where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListProtections where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProtectionsResponse' smart constructor.
 data ListProtectionsResponse = ListProtectionsResponse'
@@ -191,13 +196,13 @@ data ListProtectionsResponse = ListProtectionsResponse'
     -- smaller than the number specified by MaxResults. If there are more
     -- Protection objects to return, Shield Advanced will always also return a
     -- @NextToken@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The array of enabled Protection objects.
-    protections :: Core.Maybe [Protection],
+    protections :: Prelude.Maybe [Protection],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProtectionsResponse' with all optional fields omitted.
@@ -224,12 +229,13 @@ data ListProtectionsResponse = ListProtectionsResponse'
 -- 'httpStatus', 'listProtectionsResponse_httpStatus' - The response's http status code.
 newListProtectionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListProtectionsResponse
 newListProtectionsResponse pHttpStatus_ =
   ListProtectionsResponse'
-    { nextToken = Core.Nothing,
-      protections = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      protections = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -244,15 +250,15 @@ newListProtectionsResponse pHttpStatus_ =
 -- smaller than the number specified by MaxResults. If there are more
 -- Protection objects to return, Shield Advanced will always also return a
 -- @NextToken@.
-listProtectionsResponse_nextToken :: Lens.Lens' ListProtectionsResponse (Core.Maybe Core.Text)
+listProtectionsResponse_nextToken :: Lens.Lens' ListProtectionsResponse (Prelude.Maybe Prelude.Text)
 listProtectionsResponse_nextToken = Lens.lens (\ListProtectionsResponse' {nextToken} -> nextToken) (\s@ListProtectionsResponse' {} a -> s {nextToken = a} :: ListProtectionsResponse)
 
 -- | The array of enabled Protection objects.
-listProtectionsResponse_protections :: Lens.Lens' ListProtectionsResponse (Core.Maybe [Protection])
-listProtectionsResponse_protections = Lens.lens (\ListProtectionsResponse' {protections} -> protections) (\s@ListProtectionsResponse' {} a -> s {protections = a} :: ListProtectionsResponse) Core.. Lens.mapping Lens._Coerce
+listProtectionsResponse_protections :: Lens.Lens' ListProtectionsResponse (Prelude.Maybe [Protection])
+listProtectionsResponse_protections = Lens.lens (\ListProtectionsResponse' {protections} -> protections) (\s@ListProtectionsResponse' {} a -> s {protections = a} :: ListProtectionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listProtectionsResponse_httpStatus :: Lens.Lens' ListProtectionsResponse Core.Int
+listProtectionsResponse_httpStatus :: Lens.Lens' ListProtectionsResponse Prelude.Int
 listProtectionsResponse_httpStatus = Lens.lens (\ListProtectionsResponse' {httpStatus} -> httpStatus) (\s@ListProtectionsResponse' {} a -> s {httpStatus = a} :: ListProtectionsResponse)
 
-instance Core.NFData ListProtectionsResponse
+instance Prelude.NFData ListProtectionsResponse

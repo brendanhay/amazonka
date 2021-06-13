@@ -21,16 +21,17 @@ module Network.AWS.MachineLearning.Types.RDSDatabase where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The database details of an Amazon RDS database.
 --
 -- /See:/ 'newRDSDatabase' smart constructor.
 data RDSDatabase = RDSDatabase'
   { -- | The ID of an RDS DB instance.
-    instanceIdentifier :: Core.Text,
-    databaseName :: Core.Text
+    instanceIdentifier :: Prelude.Text,
+    databaseName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RDSDatabase' with all optional fields omitted.
@@ -45,9 +46,9 @@ data RDSDatabase = RDSDatabase'
 -- 'databaseName', 'rDSDatabase_databaseName' - Undocumented member.
 newRDSDatabase ::
   -- | 'instanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   RDSDatabase
 newRDSDatabase pInstanceIdentifier_ pDatabaseName_ =
   RDSDatabase'
@@ -57,11 +58,11 @@ newRDSDatabase pInstanceIdentifier_ pDatabaseName_ =
     }
 
 -- | The ID of an RDS DB instance.
-rDSDatabase_instanceIdentifier :: Lens.Lens' RDSDatabase Core.Text
+rDSDatabase_instanceIdentifier :: Lens.Lens' RDSDatabase Prelude.Text
 rDSDatabase_instanceIdentifier = Lens.lens (\RDSDatabase' {instanceIdentifier} -> instanceIdentifier) (\s@RDSDatabase' {} a -> s {instanceIdentifier = a} :: RDSDatabase)
 
 -- | Undocumented member.
-rDSDatabase_databaseName :: Lens.Lens' RDSDatabase Core.Text
+rDSDatabase_databaseName :: Lens.Lens' RDSDatabase Prelude.Text
 rDSDatabase_databaseName = Lens.lens (\RDSDatabase' {databaseName} -> databaseName) (\s@RDSDatabase' {} a -> s {databaseName = a} :: RDSDatabase)
 
 instance Core.FromJSON RDSDatabase where
@@ -70,20 +71,20 @@ instance Core.FromJSON RDSDatabase where
       "RDSDatabase"
       ( \x ->
           RDSDatabase'
-            Core.<$> (x Core..: "InstanceIdentifier")
-            Core.<*> (x Core..: "DatabaseName")
+            Prelude.<$> (x Core..: "InstanceIdentifier")
+            Prelude.<*> (x Core..: "DatabaseName")
       )
 
-instance Core.Hashable RDSDatabase
+instance Prelude.Hashable RDSDatabase
 
-instance Core.NFData RDSDatabase
+instance Prelude.NFData RDSDatabase
 
 instance Core.ToJSON RDSDatabase where
   toJSON RDSDatabase' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("InstanceIdentifier" Core..= instanceIdentifier),
-            Core.Just ("DatabaseName" Core..= databaseName)
+            Prelude.Just ("DatabaseName" Core..= databaseName)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.AwsJobRateIncreaseCriteria where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The criteria to initiate the increase in rate of rollout for a job.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data AwsJobRateIncreaseCriteria = AwsJobRateIncreaseCriteria'
   { -- | When this number of things have been notified, it will initiate an
     -- increase in the rollout rate.
-    numberOfNotifiedThings :: Core.Maybe Core.Natural,
+    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural,
     -- | When this number of things have succeeded in their job execution, it
     -- will initiate an increase in the rollout rate.
-    numberOfSucceededThings :: Core.Maybe Core.Natural
+    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AwsJobRateIncreaseCriteria' with all optional fields omitted.
@@ -53,18 +54,18 @@ newAwsJobRateIncreaseCriteria ::
 newAwsJobRateIncreaseCriteria =
   AwsJobRateIncreaseCriteria'
     { numberOfNotifiedThings =
-        Core.Nothing,
-      numberOfSucceededThings = Core.Nothing
+        Prelude.Nothing,
+      numberOfSucceededThings = Prelude.Nothing
     }
 
 -- | When this number of things have been notified, it will initiate an
 -- increase in the rollout rate.
-awsJobRateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Core.Maybe Core.Natural)
+awsJobRateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 awsJobRateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\AwsJobRateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@AwsJobRateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: AwsJobRateIncreaseCriteria)
 
 -- | When this number of things have succeeded in their job execution, it
 -- will initiate an increase in the rollout rate.
-awsJobRateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Core.Maybe Core.Natural)
+awsJobRateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 awsJobRateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\AwsJobRateIncreaseCriteria' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@AwsJobRateIncreaseCriteria' {} a -> s {numberOfSucceededThings = a} :: AwsJobRateIncreaseCriteria)
 
 instance Core.FromJSON AwsJobRateIncreaseCriteria where
@@ -73,21 +74,21 @@ instance Core.FromJSON AwsJobRateIncreaseCriteria where
       "AwsJobRateIncreaseCriteria"
       ( \x ->
           AwsJobRateIncreaseCriteria'
-            Core.<$> (x Core..:? "numberOfNotifiedThings")
-            Core.<*> (x Core..:? "numberOfSucceededThings")
+            Prelude.<$> (x Core..:? "numberOfNotifiedThings")
+            Prelude.<*> (x Core..:? "numberOfSucceededThings")
       )
 
-instance Core.Hashable AwsJobRateIncreaseCriteria
+instance Prelude.Hashable AwsJobRateIncreaseCriteria
 
-instance Core.NFData AwsJobRateIncreaseCriteria
+instance Prelude.NFData AwsJobRateIncreaseCriteria
 
 instance Core.ToJSON AwsJobRateIncreaseCriteria where
   toJSON AwsJobRateIncreaseCriteria' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("numberOfNotifiedThings" Core..=)
-              Core.<$> numberOfNotifiedThings,
+              Prelude.<$> numberOfNotifiedThings,
             ("numberOfSucceededThings" Core..=)
-              Core.<$> numberOfSucceededThings
+              Prelude.<$> numberOfSucceededThings
           ]
       )

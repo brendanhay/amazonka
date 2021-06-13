@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.RemixSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.ChannelMapping
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Manual audio remixing (RemixSettings) to adjust audio levels for
 -- each audio channel in each output of your job. With audio remixing, you
@@ -42,22 +43,22 @@ data RemixSettings = RemixSettings'
     -- through 6. A setting of 0 passes the input channel unchanged to the
     -- output channel (no attenuation or amplification). Use InputChannels or
     -- InputChannelsFineTune to specify your remix values. Don\'t use both.
-    channelMapping :: Core.Maybe ChannelMapping,
+    channelMapping :: Prelude.Maybe ChannelMapping,
     -- | Specify the number of audio channels from your input that you want to
     -- use in your output. With remixing, you might combine or split the data
     -- in these channels, so the number of channels in your final output might
     -- be different. If you are doing both input channel mapping and output
     -- channel mapping, the number of output channels in your input mapping
     -- must be the same as the number of input channels in your output mapping.
-    channelsIn :: Core.Maybe Core.Natural,
+    channelsIn :: Prelude.Maybe Prelude.Natural,
     -- | Specify the number of channels in this output after remixing. Valid
     -- values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.) If you are
     -- doing both input channel mapping and output channel mapping, the number
     -- of output channels in your input mapping must be the same as the number
     -- of input channels in your output mapping.
-    channelsOut :: Core.Maybe Core.Natural
+    channelsOut :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemixSettings' with all optional fields omitted.
@@ -96,9 +97,9 @@ newRemixSettings ::
   RemixSettings
 newRemixSettings =
   RemixSettings'
-    { channelMapping = Core.Nothing,
-      channelsIn = Core.Nothing,
-      channelsOut = Core.Nothing
+    { channelMapping = Prelude.Nothing,
+      channelsIn = Prelude.Nothing,
+      channelsOut = Prelude.Nothing
     }
 
 -- | Channel mapping (ChannelMapping) contains the group of fields that hold
@@ -113,7 +114,7 @@ newRemixSettings =
 -- through 6. A setting of 0 passes the input channel unchanged to the
 -- output channel (no attenuation or amplification). Use InputChannels or
 -- InputChannelsFineTune to specify your remix values. Don\'t use both.
-remixSettings_channelMapping :: Lens.Lens' RemixSettings (Core.Maybe ChannelMapping)
+remixSettings_channelMapping :: Lens.Lens' RemixSettings (Prelude.Maybe ChannelMapping)
 remixSettings_channelMapping = Lens.lens (\RemixSettings' {channelMapping} -> channelMapping) (\s@RemixSettings' {} a -> s {channelMapping = a} :: RemixSettings)
 
 -- | Specify the number of audio channels from your input that you want to
@@ -122,7 +123,7 @@ remixSettings_channelMapping = Lens.lens (\RemixSettings' {channelMapping} -> ch
 -- be different. If you are doing both input channel mapping and output
 -- channel mapping, the number of output channels in your input mapping
 -- must be the same as the number of input channels in your output mapping.
-remixSettings_channelsIn :: Lens.Lens' RemixSettings (Core.Maybe Core.Natural)
+remixSettings_channelsIn :: Lens.Lens' RemixSettings (Prelude.Maybe Prelude.Natural)
 remixSettings_channelsIn = Lens.lens (\RemixSettings' {channelsIn} -> channelsIn) (\s@RemixSettings' {} a -> s {channelsIn = a} :: RemixSettings)
 
 -- | Specify the number of channels in this output after remixing. Valid
@@ -130,7 +131,7 @@ remixSettings_channelsIn = Lens.lens (\RemixSettings' {channelsIn} -> channelsIn
 -- doing both input channel mapping and output channel mapping, the number
 -- of output channels in your input mapping must be the same as the number
 -- of input channels in your output mapping.
-remixSettings_channelsOut :: Lens.Lens' RemixSettings (Core.Maybe Core.Natural)
+remixSettings_channelsOut :: Lens.Lens' RemixSettings (Prelude.Maybe Prelude.Natural)
 remixSettings_channelsOut = Lens.lens (\RemixSettings' {channelsOut} -> channelsOut) (\s@RemixSettings' {} a -> s {channelsOut = a} :: RemixSettings)
 
 instance Core.FromJSON RemixSettings where
@@ -139,21 +140,22 @@ instance Core.FromJSON RemixSettings where
       "RemixSettings"
       ( \x ->
           RemixSettings'
-            Core.<$> (x Core..:? "channelMapping")
-            Core.<*> (x Core..:? "channelsIn")
-            Core.<*> (x Core..:? "channelsOut")
+            Prelude.<$> (x Core..:? "channelMapping")
+            Prelude.<*> (x Core..:? "channelsIn")
+            Prelude.<*> (x Core..:? "channelsOut")
       )
 
-instance Core.Hashable RemixSettings
+instance Prelude.Hashable RemixSettings
 
-instance Core.NFData RemixSettings
+instance Prelude.NFData RemixSettings
 
 instance Core.ToJSON RemixSettings where
   toJSON RemixSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("channelMapping" Core..=) Core.<$> channelMapping,
-            ("channelsIn" Core..=) Core.<$> channelsIn,
-            ("channelsOut" Core..=) Core.<$> channelsOut
+      ( Prelude.catMaybes
+          [ ("channelMapping" Core..=)
+              Prelude.<$> channelMapping,
+            ("channelsIn" Core..=) Prelude.<$> channelsIn,
+            ("channelsOut" Core..=) Prelude.<$> channelsOut
           ]
       )

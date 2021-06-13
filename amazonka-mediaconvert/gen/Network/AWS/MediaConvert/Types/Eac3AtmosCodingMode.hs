@@ -26,6 +26,7 @@ module Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The coding mode for Dolby Digital Plus JOC (Atmos) is always 9.1.6
 -- (CODING_MODE_9_1_6).
@@ -34,15 +35,15 @@ newtype Eac3AtmosCodingMode = Eac3AtmosCodingMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

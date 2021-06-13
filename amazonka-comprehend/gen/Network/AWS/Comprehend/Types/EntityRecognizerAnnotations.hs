@@ -21,6 +21,7 @@ module Network.AWS.Comprehend.Types.EntityRecognizerAnnotations where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the annotations associated with a entity recognizer.
 --
@@ -29,9 +30,9 @@ data EntityRecognizerAnnotations = EntityRecognizerAnnotations'
   { -- | Specifies the Amazon S3 location where the annotations for an entity
     -- recognizer are located. The URI must be in the same region as the API
     -- endpoint that you are calling.
-    s3Uri :: Core.Text
+    s3Uri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EntityRecognizerAnnotations' with all optional fields omitted.
@@ -46,7 +47,7 @@ data EntityRecognizerAnnotations = EntityRecognizerAnnotations'
 -- endpoint that you are calling.
 newEntityRecognizerAnnotations ::
   -- | 's3Uri'
-  Core.Text ->
+  Prelude.Text ->
   EntityRecognizerAnnotations
 newEntityRecognizerAnnotations pS3Uri_ =
   EntityRecognizerAnnotations' {s3Uri = pS3Uri_}
@@ -54,7 +55,7 @@ newEntityRecognizerAnnotations pS3Uri_ =
 -- | Specifies the Amazon S3 location where the annotations for an entity
 -- recognizer are located. The URI must be in the same region as the API
 -- endpoint that you are calling.
-entityRecognizerAnnotations_s3Uri :: Lens.Lens' EntityRecognizerAnnotations Core.Text
+entityRecognizerAnnotations_s3Uri :: Lens.Lens' EntityRecognizerAnnotations Prelude.Text
 entityRecognizerAnnotations_s3Uri = Lens.lens (\EntityRecognizerAnnotations' {s3Uri} -> s3Uri) (\s@EntityRecognizerAnnotations' {} a -> s {s3Uri = a} :: EntityRecognizerAnnotations)
 
 instance Core.FromJSON EntityRecognizerAnnotations where
@@ -63,14 +64,16 @@ instance Core.FromJSON EntityRecognizerAnnotations where
       "EntityRecognizerAnnotations"
       ( \x ->
           EntityRecognizerAnnotations'
-            Core.<$> (x Core..: "S3Uri")
+            Prelude.<$> (x Core..: "S3Uri")
       )
 
-instance Core.Hashable EntityRecognizerAnnotations
+instance Prelude.Hashable EntityRecognizerAnnotations
 
-instance Core.NFData EntityRecognizerAnnotations
+instance Prelude.NFData EntityRecognizerAnnotations
 
 instance Core.ToJSON EntityRecognizerAnnotations where
   toJSON EntityRecognizerAnnotations' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("S3Uri" Core..= s3Uri)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("S3Uri" Core..= s3Uri)]
+      )

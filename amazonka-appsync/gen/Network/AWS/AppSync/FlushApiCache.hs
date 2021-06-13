@@ -41,6 +41,7 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newFlushApiCache' smart constructor.
 data FlushApiCache = FlushApiCache'
   { -- | The API ID.
-    apiId :: Core.Text
+    apiId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlushApiCache' with all optional fields omitted.
@@ -64,13 +65,13 @@ data FlushApiCache = FlushApiCache'
 -- 'apiId', 'flushApiCache_apiId' - The API ID.
 newFlushApiCache ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   FlushApiCache
 newFlushApiCache pApiId_ =
   FlushApiCache' {apiId = pApiId_}
 
 -- | The API ID.
-flushApiCache_apiId :: Lens.Lens' FlushApiCache Core.Text
+flushApiCache_apiId :: Lens.Lens' FlushApiCache Prelude.Text
 flushApiCache_apiId = Lens.lens (\FlushApiCache' {apiId} -> apiId) (\s@FlushApiCache' {} a -> s {apiId = a} :: FlushApiCache)
 
 instance Core.AWSRequest FlushApiCache where
@@ -82,38 +83,40 @@ instance Core.AWSRequest FlushApiCache where
     Response.receiveEmpty
       ( \s h x ->
           FlushApiCacheResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable FlushApiCache
+instance Prelude.Hashable FlushApiCache
 
-instance Core.NFData FlushApiCache
+instance Prelude.NFData FlushApiCache
 
 instance Core.ToHeaders FlushApiCache where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath FlushApiCache where
   toPath FlushApiCache' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apis/", Core.toBS apiId, "/FlushCache"]
 
 instance Core.ToQuery FlushApiCache where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @FlushApiCache@ operation.
 --
 -- /See:/ 'newFlushApiCacheResponse' smart constructor.
 data FlushApiCacheResponse = FlushApiCacheResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlushApiCacheResponse' with all optional fields omitted.
@@ -126,13 +129,13 @@ data FlushApiCacheResponse = FlushApiCacheResponse'
 -- 'httpStatus', 'flushApiCacheResponse_httpStatus' - The response's http status code.
 newFlushApiCacheResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   FlushApiCacheResponse
 newFlushApiCacheResponse pHttpStatus_ =
   FlushApiCacheResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-flushApiCacheResponse_httpStatus :: Lens.Lens' FlushApiCacheResponse Core.Int
+flushApiCacheResponse_httpStatus :: Lens.Lens' FlushApiCacheResponse Prelude.Int
 flushApiCacheResponse_httpStatus = Lens.lens (\FlushApiCacheResponse' {httpStatus} -> httpStatus) (\s@FlushApiCacheResponse' {} a -> s {httpStatus = a} :: FlushApiCacheResponse)
 
-instance Core.NFData FlushApiCacheResponse
+instance Prelude.NFData FlushApiCacheResponse

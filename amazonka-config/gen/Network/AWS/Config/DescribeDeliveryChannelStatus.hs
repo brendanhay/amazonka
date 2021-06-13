@@ -47,6 +47,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeDeliveryChannelStatus' smart constructor.
 data DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
   { -- | A list of delivery channel names.
-    deliveryChannelNames :: Core.Maybe [Core.Text]
+    deliveryChannelNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDeliveryChannelStatus' with all optional fields omitted.
@@ -73,12 +74,12 @@ newDescribeDeliveryChannelStatus ::
 newDescribeDeliveryChannelStatus =
   DescribeDeliveryChannelStatus'
     { deliveryChannelNames =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A list of delivery channel names.
-describeDeliveryChannelStatus_deliveryChannelNames :: Lens.Lens' DescribeDeliveryChannelStatus (Core.Maybe [Core.Text])
-describeDeliveryChannelStatus_deliveryChannelNames = Lens.lens (\DescribeDeliveryChannelStatus' {deliveryChannelNames} -> deliveryChannelNames) (\s@DescribeDeliveryChannelStatus' {} a -> s {deliveryChannelNames = a} :: DescribeDeliveryChannelStatus) Core.. Lens.mapping Lens._Coerce
+describeDeliveryChannelStatus_deliveryChannelNames :: Lens.Lens' DescribeDeliveryChannelStatus (Prelude.Maybe [Prelude.Text])
+describeDeliveryChannelStatus_deliveryChannelNames = Lens.lens (\DescribeDeliveryChannelStatus' {deliveryChannelNames} -> deliveryChannelNames) (\s@DescribeDeliveryChannelStatus' {} a -> s {deliveryChannelNames = a} :: DescribeDeliveryChannelStatus) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -92,54 +93,58 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDeliveryChannelStatusResponse'
-            Core.<$> ( x Core..?> "DeliveryChannelsStatus"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "DeliveryChannelsStatus"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDeliveryChannelStatus
+instance
+  Prelude.Hashable
+    DescribeDeliveryChannelStatus
 
-instance Core.NFData DescribeDeliveryChannelStatus
+instance Prelude.NFData DescribeDeliveryChannelStatus
 
 instance Core.ToHeaders DescribeDeliveryChannelStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DescribeDeliveryChannelStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDeliveryChannelStatus where
   toJSON DescribeDeliveryChannelStatus' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DeliveryChannelNames" Core..=)
-              Core.<$> deliveryChannelNames
+              Prelude.<$> deliveryChannelNames
           ]
       )
 
 instance Core.ToPath DescribeDeliveryChannelStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDeliveryChannelStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DescribeDeliveryChannelStatus action.
 --
 -- /See:/ 'newDescribeDeliveryChannelStatusResponse' smart constructor.
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
   { -- | A list that contains the status of a specified delivery channel.
-    deliveryChannelsStatus :: Core.Maybe [DeliveryChannelStatus],
+    deliveryChannelsStatus :: Prelude.Maybe [DeliveryChannelStatus],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDeliveryChannelStatusResponse' with all optional fields omitted.
@@ -154,23 +159,23 @@ data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusRespon
 -- 'httpStatus', 'describeDeliveryChannelStatusResponse_httpStatus' - The response's http status code.
 newDescribeDeliveryChannelStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDeliveryChannelStatusResponse
 newDescribeDeliveryChannelStatusResponse pHttpStatus_ =
   DescribeDeliveryChannelStatusResponse'
     { deliveryChannelsStatus =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list that contains the status of a specified delivery channel.
-describeDeliveryChannelStatusResponse_deliveryChannelsStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse (Core.Maybe [DeliveryChannelStatus])
-describeDeliveryChannelStatusResponse_deliveryChannelsStatus = Lens.lens (\DescribeDeliveryChannelStatusResponse' {deliveryChannelsStatus} -> deliveryChannelsStatus) (\s@DescribeDeliveryChannelStatusResponse' {} a -> s {deliveryChannelsStatus = a} :: DescribeDeliveryChannelStatusResponse) Core.. Lens.mapping Lens._Coerce
+describeDeliveryChannelStatusResponse_deliveryChannelsStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse (Prelude.Maybe [DeliveryChannelStatus])
+describeDeliveryChannelStatusResponse_deliveryChannelsStatus = Lens.lens (\DescribeDeliveryChannelStatusResponse' {deliveryChannelsStatus} -> deliveryChannelsStatus) (\s@DescribeDeliveryChannelStatusResponse' {} a -> s {deliveryChannelsStatus = a} :: DescribeDeliveryChannelStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeDeliveryChannelStatusResponse_httpStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse Core.Int
+describeDeliveryChannelStatusResponse_httpStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse Prelude.Int
 describeDeliveryChannelStatusResponse_httpStatus = Lens.lens (\DescribeDeliveryChannelStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeDeliveryChannelStatusResponse' {} a -> s {httpStatus = a} :: DescribeDeliveryChannelStatusResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDeliveryChannelStatusResponse

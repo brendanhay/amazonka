@@ -23,27 +23,28 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AttachmentStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a network interface attachment.
 --
 -- /See:/ 'newInstanceNetworkInterfaceAttachment' smart constructor.
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
   { -- | The attachment state.
-    status :: Core.Maybe AttachmentStatus,
+    status :: Prelude.Maybe AttachmentStatus,
     -- | The time stamp when the attachment initiated.
-    attachTime :: Core.Maybe Core.ISO8601,
+    attachTime :: Prelude.Maybe Core.ISO8601,
     -- | The ID of the network interface attachment.
-    attachmentId :: Core.Maybe Core.Text,
+    attachmentId :: Prelude.Maybe Prelude.Text,
     -- | The index of the network card.
-    networkCardIndex :: Core.Maybe Core.Int,
+    networkCardIndex :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether the network interface is deleted when the instance is
     -- terminated.
-    deleteOnTermination :: Core.Maybe Core.Bool,
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The index of the device on the instance for the network interface
     -- attachment.
-    deviceIndex :: Core.Maybe Core.Int
+    deviceIndex :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceNetworkInterfaceAttachment' with all optional fields omitted.
@@ -71,38 +72,38 @@ newInstanceNetworkInterfaceAttachment ::
 newInstanceNetworkInterfaceAttachment =
   InstanceNetworkInterfaceAttachment'
     { status =
-        Core.Nothing,
-      attachTime = Core.Nothing,
-      attachmentId = Core.Nothing,
-      networkCardIndex = Core.Nothing,
-      deleteOnTermination = Core.Nothing,
-      deviceIndex = Core.Nothing
+        Prelude.Nothing,
+      attachTime = Prelude.Nothing,
+      attachmentId = Prelude.Nothing,
+      networkCardIndex = Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing,
+      deviceIndex = Prelude.Nothing
     }
 
 -- | The attachment state.
-instanceNetworkInterfaceAttachment_status :: Lens.Lens' InstanceNetworkInterfaceAttachment (Core.Maybe AttachmentStatus)
+instanceNetworkInterfaceAttachment_status :: Lens.Lens' InstanceNetworkInterfaceAttachment (Prelude.Maybe AttachmentStatus)
 instanceNetworkInterfaceAttachment_status = Lens.lens (\InstanceNetworkInterfaceAttachment' {status} -> status) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {status = a} :: InstanceNetworkInterfaceAttachment)
 
 -- | The time stamp when the attachment initiated.
-instanceNetworkInterfaceAttachment_attachTime :: Lens.Lens' InstanceNetworkInterfaceAttachment (Core.Maybe Core.UTCTime)
-instanceNetworkInterfaceAttachment_attachTime = Lens.lens (\InstanceNetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {attachTime = a} :: InstanceNetworkInterfaceAttachment) Core.. Lens.mapping Core._Time
+instanceNetworkInterfaceAttachment_attachTime :: Lens.Lens' InstanceNetworkInterfaceAttachment (Prelude.Maybe Prelude.UTCTime)
+instanceNetworkInterfaceAttachment_attachTime = Lens.lens (\InstanceNetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {attachTime = a} :: InstanceNetworkInterfaceAttachment) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the network interface attachment.
-instanceNetworkInterfaceAttachment_attachmentId :: Lens.Lens' InstanceNetworkInterfaceAttachment (Core.Maybe Core.Text)
+instanceNetworkInterfaceAttachment_attachmentId :: Lens.Lens' InstanceNetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
 instanceNetworkInterfaceAttachment_attachmentId = Lens.lens (\InstanceNetworkInterfaceAttachment' {attachmentId} -> attachmentId) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {attachmentId = a} :: InstanceNetworkInterfaceAttachment)
 
 -- | The index of the network card.
-instanceNetworkInterfaceAttachment_networkCardIndex :: Lens.Lens' InstanceNetworkInterfaceAttachment (Core.Maybe Core.Int)
+instanceNetworkInterfaceAttachment_networkCardIndex :: Lens.Lens' InstanceNetworkInterfaceAttachment (Prelude.Maybe Prelude.Int)
 instanceNetworkInterfaceAttachment_networkCardIndex = Lens.lens (\InstanceNetworkInterfaceAttachment' {networkCardIndex} -> networkCardIndex) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {networkCardIndex = a} :: InstanceNetworkInterfaceAttachment)
 
 -- | Indicates whether the network interface is deleted when the instance is
 -- terminated.
-instanceNetworkInterfaceAttachment_deleteOnTermination :: Lens.Lens' InstanceNetworkInterfaceAttachment (Core.Maybe Core.Bool)
+instanceNetworkInterfaceAttachment_deleteOnTermination :: Lens.Lens' InstanceNetworkInterfaceAttachment (Prelude.Maybe Prelude.Bool)
 instanceNetworkInterfaceAttachment_deleteOnTermination = Lens.lens (\InstanceNetworkInterfaceAttachment' {deleteOnTermination} -> deleteOnTermination) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {deleteOnTermination = a} :: InstanceNetworkInterfaceAttachment)
 
 -- | The index of the device on the instance for the network interface
 -- attachment.
-instanceNetworkInterfaceAttachment_deviceIndex :: Lens.Lens' InstanceNetworkInterfaceAttachment (Core.Maybe Core.Int)
+instanceNetworkInterfaceAttachment_deviceIndex :: Lens.Lens' InstanceNetworkInterfaceAttachment (Prelude.Maybe Prelude.Int)
 instanceNetworkInterfaceAttachment_deviceIndex = Lens.lens (\InstanceNetworkInterfaceAttachment' {deviceIndex} -> deviceIndex) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {deviceIndex = a} :: InstanceNetworkInterfaceAttachment)
 
 instance
@@ -111,17 +112,17 @@ instance
   where
   parseXML x =
     InstanceNetworkInterfaceAttachment'
-      Core.<$> (x Core..@? "status")
-      Core.<*> (x Core..@? "attachTime")
-      Core.<*> (x Core..@? "attachmentId")
-      Core.<*> (x Core..@? "networkCardIndex")
-      Core.<*> (x Core..@? "deleteOnTermination")
-      Core.<*> (x Core..@? "deviceIndex")
+      Prelude.<$> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "attachTime")
+      Prelude.<*> (x Core..@? "attachmentId")
+      Prelude.<*> (x Core..@? "networkCardIndex")
+      Prelude.<*> (x Core..@? "deleteOnTermination")
+      Prelude.<*> (x Core..@? "deviceIndex")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InstanceNetworkInterfaceAttachment
 
 instance
-  Core.NFData
+  Prelude.NFData
     InstanceNetworkInterfaceAttachment

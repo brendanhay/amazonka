@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +62,11 @@ data StopInstance = StopInstance'
     -- You must also delete the formerly-associated instance in EC2 after
     -- troubleshooting and replacing the AWS OpsWorks Stacks instance with a
     -- new one.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The instance ID.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopInstance' with all optional fields omitted.
@@ -86,11 +87,11 @@ data StopInstance = StopInstance'
 -- 'instanceId', 'stopInstance_instanceId' - The instance ID.
 newStopInstance ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   StopInstance
 newStopInstance pInstanceId_ =
   StopInstance'
-    { force = Core.Nothing,
+    { force = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -101,11 +102,11 @@ newStopInstance pInstanceId_ =
 -- You must also delete the formerly-associated instance in EC2 after
 -- troubleshooting and replacing the AWS OpsWorks Stacks instance with a
 -- new one.
-stopInstance_force :: Lens.Lens' StopInstance (Core.Maybe Core.Bool)
+stopInstance_force :: Lens.Lens' StopInstance (Prelude.Maybe Prelude.Bool)
 stopInstance_force = Lens.lens (\StopInstance' {force} -> force) (\s@StopInstance' {} a -> s {force = a} :: StopInstance)
 
 -- | The instance ID.
-stopInstance_instanceId :: Lens.Lens' StopInstance Core.Text
+stopInstance_instanceId :: Lens.Lens' StopInstance Prelude.Text
 stopInstance_instanceId = Lens.lens (\StopInstance' {instanceId} -> instanceId) (\s@StopInstance' {} a -> s {instanceId = a} :: StopInstance)
 
 instance Core.AWSRequest StopInstance where
@@ -113,43 +114,45 @@ instance Core.AWSRequest StopInstance where
   request = Request.postJSON defaultService
   response = Response.receiveNull StopInstanceResponse'
 
-instance Core.Hashable StopInstance
+instance Prelude.Hashable StopInstance
 
-instance Core.NFData StopInstance
+instance Prelude.NFData StopInstance
 
 instance Core.ToHeaders StopInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.StopInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopInstance where
   toJSON StopInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Force" Core..=) Core.<$> force,
-            Core.Just ("InstanceId" Core..= instanceId)
+      ( Prelude.catMaybes
+          [ ("Force" Core..=) Prelude.<$> force,
+            Prelude.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
 instance Core.ToPath StopInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopInstanceResponse' with all optional fields omitted.
@@ -159,4 +162,4 @@ newStopInstanceResponse ::
   StopInstanceResponse
 newStopInstanceResponse = StopInstanceResponse'
 
-instance Core.NFData StopInstanceResponse
+instance Prelude.NFData StopInstanceResponse

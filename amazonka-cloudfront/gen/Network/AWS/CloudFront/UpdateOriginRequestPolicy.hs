@@ -59,6 +59,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,16 +68,16 @@ data UpdateOriginRequestPolicy = UpdateOriginRequestPolicy'
   { -- | The version of the origin request policy that you are updating. The
     -- version is returned in the origin request policy’s @ETag@ field in the
     -- response to @GetOriginRequestPolicyConfig@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | An origin request policy configuration.
     originRequestPolicyConfig :: OriginRequestPolicyConfig,
     -- | The unique identifier for the origin request policy that you are
     -- updating. The identifier is returned in a cache behavior’s
     -- @OriginRequestPolicyId@ field in the response to
     -- @GetDistributionConfig@.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOriginRequestPolicy' with all optional fields omitted.
@@ -100,13 +101,14 @@ newUpdateOriginRequestPolicy ::
   -- | 'originRequestPolicyConfig'
   OriginRequestPolicyConfig ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateOriginRequestPolicy
 newUpdateOriginRequestPolicy
   pOriginRequestPolicyConfig_
   pId_ =
     UpdateOriginRequestPolicy'
-      { ifMatch = Core.Nothing,
+      { ifMatch =
+          Prelude.Nothing,
         originRequestPolicyConfig =
           pOriginRequestPolicyConfig_,
         id = pId_
@@ -115,7 +117,7 @@ newUpdateOriginRequestPolicy
 -- | The version of the origin request policy that you are updating. The
 -- version is returned in the origin request policy’s @ETag@ field in the
 -- response to @GetOriginRequestPolicyConfig@.
-updateOriginRequestPolicy_ifMatch :: Lens.Lens' UpdateOriginRequestPolicy (Core.Maybe Core.Text)
+updateOriginRequestPolicy_ifMatch :: Lens.Lens' UpdateOriginRequestPolicy (Prelude.Maybe Prelude.Text)
 updateOriginRequestPolicy_ifMatch = Lens.lens (\UpdateOriginRequestPolicy' {ifMatch} -> ifMatch) (\s@UpdateOriginRequestPolicy' {} a -> s {ifMatch = a} :: UpdateOriginRequestPolicy)
 
 -- | An origin request policy configuration.
@@ -126,7 +128,7 @@ updateOriginRequestPolicy_originRequestPolicyConfig = Lens.lens (\UpdateOriginRe
 -- updating. The identifier is returned in a cache behavior’s
 -- @OriginRequestPolicyId@ field in the response to
 -- @GetDistributionConfig@.
-updateOriginRequestPolicy_id :: Lens.Lens' UpdateOriginRequestPolicy Core.Text
+updateOriginRequestPolicy_id :: Lens.Lens' UpdateOriginRequestPolicy Prelude.Text
 updateOriginRequestPolicy_id = Lens.lens (\UpdateOriginRequestPolicy' {id} -> id) (\s@UpdateOriginRequestPolicy' {} a -> s {id = a} :: UpdateOriginRequestPolicy)
 
 instance Core.AWSRequest UpdateOriginRequestPolicy where
@@ -138,14 +140,14 @@ instance Core.AWSRequest UpdateOriginRequestPolicy where
     Response.receiveXML
       ( \s h x ->
           UpdateOriginRequestPolicyResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateOriginRequestPolicy
+instance Prelude.Hashable UpdateOriginRequestPolicy
 
-instance Core.NFData UpdateOriginRequestPolicy
+instance Prelude.NFData UpdateOriginRequestPolicy
 
 instance Core.ToElement UpdateOriginRequestPolicy where
   toElement UpdateOriginRequestPolicy' {..} =
@@ -155,26 +157,26 @@ instance Core.ToElement UpdateOriginRequestPolicy where
 
 instance Core.ToHeaders UpdateOriginRequestPolicy where
   toHeaders UpdateOriginRequestPolicy' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath UpdateOriginRequestPolicy where
   toPath UpdateOriginRequestPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/origin-request-policy/", Core.toBS id]
 
 instance Core.ToQuery UpdateOriginRequestPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateOriginRequestPolicyResponse' smart constructor.
 data UpdateOriginRequestPolicyResponse = UpdateOriginRequestPolicyResponse'
   { -- | The current version of the origin request policy.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | An origin request policy.
-    originRequestPolicy :: Core.Maybe OriginRequestPolicy,
+    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOriginRequestPolicyResponse' with all optional fields omitted.
@@ -191,28 +193,28 @@ data UpdateOriginRequestPolicyResponse = UpdateOriginRequestPolicyResponse'
 -- 'httpStatus', 'updateOriginRequestPolicyResponse_httpStatus' - The response's http status code.
 newUpdateOriginRequestPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateOriginRequestPolicyResponse
 newUpdateOriginRequestPolicyResponse pHttpStatus_ =
   UpdateOriginRequestPolicyResponse'
     { eTag =
-        Core.Nothing,
-      originRequestPolicy = Core.Nothing,
+        Prelude.Nothing,
+      originRequestPolicy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the origin request policy.
-updateOriginRequestPolicyResponse_eTag :: Lens.Lens' UpdateOriginRequestPolicyResponse (Core.Maybe Core.Text)
+updateOriginRequestPolicyResponse_eTag :: Lens.Lens' UpdateOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
 updateOriginRequestPolicyResponse_eTag = Lens.lens (\UpdateOriginRequestPolicyResponse' {eTag} -> eTag) (\s@UpdateOriginRequestPolicyResponse' {} a -> s {eTag = a} :: UpdateOriginRequestPolicyResponse)
 
 -- | An origin request policy.
-updateOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' UpdateOriginRequestPolicyResponse (Core.Maybe OriginRequestPolicy)
+updateOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' UpdateOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
 updateOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\UpdateOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@UpdateOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: UpdateOriginRequestPolicyResponse)
 
 -- | The response's http status code.
-updateOriginRequestPolicyResponse_httpStatus :: Lens.Lens' UpdateOriginRequestPolicyResponse Core.Int
+updateOriginRequestPolicyResponse_httpStatus :: Lens.Lens' UpdateOriginRequestPolicyResponse Prelude.Int
 updateOriginRequestPolicyResponse_httpStatus = Lens.lens (\UpdateOriginRequestPolicyResponse' {httpStatus} -> httpStatus) (\s@UpdateOriginRequestPolicyResponse' {} a -> s {httpStatus = a} :: UpdateOriginRequestPolicyResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateOriginRequestPolicyResponse

@@ -26,6 +26,7 @@ import Network.AWS.EC2.Types.NatGatewayState
 import Network.AWS.EC2.Types.ProvisionedBandwidth
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a NAT gateway.
 --
@@ -33,7 +34,7 @@ import qualified Network.AWS.Lens as Lens
 data NatGateway = NatGateway'
   { -- | Information about the IP addresses and network interface associated with
     -- the NAT gateway.
-    natGatewayAddresses :: Core.Maybe [NatGatewayAddress],
+    natGatewayAddresses :: Prelude.Maybe [NatGatewayAddress],
     -- | If the NAT gateway could not be created, specifies the error message for
     -- the failure, that corresponds to the error code.
     --
@@ -55,18 +56,18 @@ data NatGateway = NatGateway'
     --
     -- -   For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx
     --     does not exist or could not be found.\"
-    failureMessage :: Core.Maybe Core.Text,
+    failureMessage :: Prelude.Maybe Prelude.Text,
     -- | If the NAT gateway could not be created, specifies the error code for
     -- the failure. (@InsufficientFreeAddressesInSubnet@ |
     -- @Gateway.NotAttached@ | @InvalidAllocationID.NotFound@ |
     -- @Resource.AlreadyAssociated@ | @InternalError@ |
     -- @InvalidSubnetID.NotFound@)
-    failureCode :: Core.Maybe Core.Text,
+    failureCode :: Prelude.Maybe Prelude.Text,
     -- | Reserved. If you need to sustain traffic greater than the
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits>,
     -- contact us through the
     -- <https://console.aws.amazon.com/support/home? Support Center>.
-    provisionedBandwidth :: Core.Maybe ProvisionedBandwidth,
+    provisionedBandwidth :: Prelude.Maybe ProvisionedBandwidth,
     -- | The state of the NAT gateway.
     --
     -- -   @pending@: The NAT gateway is being created and is not ready to
@@ -84,21 +85,21 @@ data NatGateway = NatGateway'
     --
     -- -   @deleted@: The NAT gateway has been terminated and is no longer
     --     processing traffic.
-    state :: Core.Maybe NatGatewayState,
+    state :: Prelude.Maybe NatGatewayState,
     -- | The date and time the NAT gateway was deleted, if applicable.
-    deleteTime :: Core.Maybe Core.ISO8601,
+    deleteTime :: Prelude.Maybe Core.ISO8601,
     -- | The tags for the NAT gateway.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The date and time the NAT gateway was created.
-    createTime :: Core.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Core.ISO8601,
     -- | The ID of the subnet in which the NAT gateway is located.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the NAT gateway.
-    natGatewayId :: Core.Maybe Core.Text,
+    natGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC in which the NAT gateway is located.
-    vpcId :: Core.Maybe Core.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NatGateway' with all optional fields omitted.
@@ -177,23 +178,23 @@ newNatGateway ::
   NatGateway
 newNatGateway =
   NatGateway'
-    { natGatewayAddresses = Core.Nothing,
-      failureMessage = Core.Nothing,
-      failureCode = Core.Nothing,
-      provisionedBandwidth = Core.Nothing,
-      state = Core.Nothing,
-      deleteTime = Core.Nothing,
-      tags = Core.Nothing,
-      createTime = Core.Nothing,
-      subnetId = Core.Nothing,
-      natGatewayId = Core.Nothing,
-      vpcId = Core.Nothing
+    { natGatewayAddresses = Prelude.Nothing,
+      failureMessage = Prelude.Nothing,
+      failureCode = Prelude.Nothing,
+      provisionedBandwidth = Prelude.Nothing,
+      state = Prelude.Nothing,
+      deleteTime = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      natGatewayId = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
 -- | Information about the IP addresses and network interface associated with
 -- the NAT gateway.
-natGateway_natGatewayAddresses :: Lens.Lens' NatGateway (Core.Maybe [NatGatewayAddress])
-natGateway_natGatewayAddresses = Lens.lens (\NatGateway' {natGatewayAddresses} -> natGatewayAddresses) (\s@NatGateway' {} a -> s {natGatewayAddresses = a} :: NatGateway) Core.. Lens.mapping Lens._Coerce
+natGateway_natGatewayAddresses :: Lens.Lens' NatGateway (Prelude.Maybe [NatGatewayAddress])
+natGateway_natGatewayAddresses = Lens.lens (\NatGateway' {natGatewayAddresses} -> natGatewayAddresses) (\s@NatGateway' {} a -> s {natGatewayAddresses = a} :: NatGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the NAT gateway could not be created, specifies the error message for
 -- the failure, that corresponds to the error code.
@@ -216,7 +217,7 @@ natGateway_natGatewayAddresses = Lens.lens (\NatGateway' {natGatewayAddresses} -
 --
 -- -   For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx
 --     does not exist or could not be found.\"
-natGateway_failureMessage :: Lens.Lens' NatGateway (Core.Maybe Core.Text)
+natGateway_failureMessage :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
 natGateway_failureMessage = Lens.lens (\NatGateway' {failureMessage} -> failureMessage) (\s@NatGateway' {} a -> s {failureMessage = a} :: NatGateway)
 
 -- | If the NAT gateway could not be created, specifies the error code for
@@ -224,14 +225,14 @@ natGateway_failureMessage = Lens.lens (\NatGateway' {failureMessage} -> failureM
 -- @Gateway.NotAttached@ | @InvalidAllocationID.NotFound@ |
 -- @Resource.AlreadyAssociated@ | @InternalError@ |
 -- @InvalidSubnetID.NotFound@)
-natGateway_failureCode :: Lens.Lens' NatGateway (Core.Maybe Core.Text)
+natGateway_failureCode :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
 natGateway_failureCode = Lens.lens (\NatGateway' {failureCode} -> failureCode) (\s@NatGateway' {} a -> s {failureCode = a} :: NatGateway)
 
 -- | Reserved. If you need to sustain traffic greater than the
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits>,
 -- contact us through the
 -- <https://console.aws.amazon.com/support/home? Support Center>.
-natGateway_provisionedBandwidth :: Lens.Lens' NatGateway (Core.Maybe ProvisionedBandwidth)
+natGateway_provisionedBandwidth :: Lens.Lens' NatGateway (Prelude.Maybe ProvisionedBandwidth)
 natGateway_provisionedBandwidth = Lens.lens (\NatGateway' {provisionedBandwidth} -> provisionedBandwidth) (\s@NatGateway' {} a -> s {provisionedBandwidth = a} :: NatGateway)
 
 -- | The state of the NAT gateway.
@@ -251,53 +252,53 @@ natGateway_provisionedBandwidth = Lens.lens (\NatGateway' {provisionedBandwidth}
 --
 -- -   @deleted@: The NAT gateway has been terminated and is no longer
 --     processing traffic.
-natGateway_state :: Lens.Lens' NatGateway (Core.Maybe NatGatewayState)
+natGateway_state :: Lens.Lens' NatGateway (Prelude.Maybe NatGatewayState)
 natGateway_state = Lens.lens (\NatGateway' {state} -> state) (\s@NatGateway' {} a -> s {state = a} :: NatGateway)
 
 -- | The date and time the NAT gateway was deleted, if applicable.
-natGateway_deleteTime :: Lens.Lens' NatGateway (Core.Maybe Core.UTCTime)
-natGateway_deleteTime = Lens.lens (\NatGateway' {deleteTime} -> deleteTime) (\s@NatGateway' {} a -> s {deleteTime = a} :: NatGateway) Core.. Lens.mapping Core._Time
+natGateway_deleteTime :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.UTCTime)
+natGateway_deleteTime = Lens.lens (\NatGateway' {deleteTime} -> deleteTime) (\s@NatGateway' {} a -> s {deleteTime = a} :: NatGateway) Prelude.. Lens.mapping Core._Time
 
 -- | The tags for the NAT gateway.
-natGateway_tags :: Lens.Lens' NatGateway (Core.Maybe [Tag])
-natGateway_tags = Lens.lens (\NatGateway' {tags} -> tags) (\s@NatGateway' {} a -> s {tags = a} :: NatGateway) Core.. Lens.mapping Lens._Coerce
+natGateway_tags :: Lens.Lens' NatGateway (Prelude.Maybe [Tag])
+natGateway_tags = Lens.lens (\NatGateway' {tags} -> tags) (\s@NatGateway' {} a -> s {tags = a} :: NatGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time the NAT gateway was created.
-natGateway_createTime :: Lens.Lens' NatGateway (Core.Maybe Core.UTCTime)
-natGateway_createTime = Lens.lens (\NatGateway' {createTime} -> createTime) (\s@NatGateway' {} a -> s {createTime = a} :: NatGateway) Core.. Lens.mapping Core._Time
+natGateway_createTime :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.UTCTime)
+natGateway_createTime = Lens.lens (\NatGateway' {createTime} -> createTime) (\s@NatGateway' {} a -> s {createTime = a} :: NatGateway) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the subnet in which the NAT gateway is located.
-natGateway_subnetId :: Lens.Lens' NatGateway (Core.Maybe Core.Text)
+natGateway_subnetId :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
 natGateway_subnetId = Lens.lens (\NatGateway' {subnetId} -> subnetId) (\s@NatGateway' {} a -> s {subnetId = a} :: NatGateway)
 
 -- | The ID of the NAT gateway.
-natGateway_natGatewayId :: Lens.Lens' NatGateway (Core.Maybe Core.Text)
+natGateway_natGatewayId :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
 natGateway_natGatewayId = Lens.lens (\NatGateway' {natGatewayId} -> natGatewayId) (\s@NatGateway' {} a -> s {natGatewayId = a} :: NatGateway)
 
 -- | The ID of the VPC in which the NAT gateway is located.
-natGateway_vpcId :: Lens.Lens' NatGateway (Core.Maybe Core.Text)
+natGateway_vpcId :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
 natGateway_vpcId = Lens.lens (\NatGateway' {vpcId} -> vpcId) (\s@NatGateway' {} a -> s {vpcId = a} :: NatGateway)
 
 instance Core.FromXML NatGateway where
   parseXML x =
     NatGateway'
-      Core.<$> ( x Core..@? "natGatewayAddressSet"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "failureMessage")
-      Core.<*> (x Core..@? "failureCode")
-      Core.<*> (x Core..@? "provisionedBandwidth")
-      Core.<*> (x Core..@? "state")
-      Core.<*> (x Core..@? "deleteTime")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "createTime")
-      Core.<*> (x Core..@? "subnetId")
-      Core.<*> (x Core..@? "natGatewayId")
-      Core.<*> (x Core..@? "vpcId")
+      Prelude.<$> ( x Core..@? "natGatewayAddressSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "failureMessage")
+      Prelude.<*> (x Core..@? "failureCode")
+      Prelude.<*> (x Core..@? "provisionedBandwidth")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "deleteTime")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "createTime")
+      Prelude.<*> (x Core..@? "subnetId")
+      Prelude.<*> (x Core..@? "natGatewayId")
+      Prelude.<*> (x Core..@? "vpcId")
 
-instance Core.Hashable NatGateway
+instance Prelude.Hashable NatGateway
 
-instance Core.NFData NatGateway
+instance Prelude.NFData NatGateway

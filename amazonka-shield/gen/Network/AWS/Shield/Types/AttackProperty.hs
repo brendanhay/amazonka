@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.AttackProperty where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.AttackLayer
 import Network.AWS.Shield.Types.AttackPropertyIdentifier
 import Network.AWS.Shield.Types.Contributor
@@ -31,23 +32,23 @@ import Network.AWS.Shield.Types.Unit
 -- /See:/ 'newAttackProperty' smart constructor.
 data AttackProperty = AttackProperty'
   { -- | The unit of the @Value@ of the contributions.
-    unit :: Core.Maybe Unit,
+    unit :: Prelude.Maybe Unit,
     -- | The total contributions made to this attack by all contributors, not
     -- just the five listed in the @TopContributors@ list.
-    total :: Core.Maybe Core.Integer,
+    total :: Prelude.Maybe Prelude.Integer,
     -- | Defines the DDoS attack property information that is provided. The
     -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
     -- are valid only for WordPress reflective pingback DDoS attacks.
-    attackPropertyIdentifier :: Core.Maybe AttackPropertyIdentifier,
+    attackPropertyIdentifier :: Prelude.Maybe AttackPropertyIdentifier,
     -- | The type of distributed denial of service (DDoS) event that was
     -- observed. @NETWORK@ indicates layer 3 and layer 4 events and
     -- @APPLICATION@ indicates layer 7 events.
-    attackLayer :: Core.Maybe AttackLayer,
+    attackLayer :: Prelude.Maybe AttackLayer,
     -- | The array of contributor objects that includes the top five contributors
     -- to an attack.
-    topContributors :: Core.Maybe [Contributor]
+    topContributors :: Prelude.Maybe [Contributor]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttackProperty' with all optional fields omitted.
@@ -76,38 +77,38 @@ newAttackProperty ::
   AttackProperty
 newAttackProperty =
   AttackProperty'
-    { unit = Core.Nothing,
-      total = Core.Nothing,
-      attackPropertyIdentifier = Core.Nothing,
-      attackLayer = Core.Nothing,
-      topContributors = Core.Nothing
+    { unit = Prelude.Nothing,
+      total = Prelude.Nothing,
+      attackPropertyIdentifier = Prelude.Nothing,
+      attackLayer = Prelude.Nothing,
+      topContributors = Prelude.Nothing
     }
 
 -- | The unit of the @Value@ of the contributions.
-attackProperty_unit :: Lens.Lens' AttackProperty (Core.Maybe Unit)
+attackProperty_unit :: Lens.Lens' AttackProperty (Prelude.Maybe Unit)
 attackProperty_unit = Lens.lens (\AttackProperty' {unit} -> unit) (\s@AttackProperty' {} a -> s {unit = a} :: AttackProperty)
 
 -- | The total contributions made to this attack by all contributors, not
 -- just the five listed in the @TopContributors@ list.
-attackProperty_total :: Lens.Lens' AttackProperty (Core.Maybe Core.Integer)
+attackProperty_total :: Lens.Lens' AttackProperty (Prelude.Maybe Prelude.Integer)
 attackProperty_total = Lens.lens (\AttackProperty' {total} -> total) (\s@AttackProperty' {} a -> s {total = a} :: AttackProperty)
 
 -- | Defines the DDoS attack property information that is provided. The
 -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
 -- are valid only for WordPress reflective pingback DDoS attacks.
-attackProperty_attackPropertyIdentifier :: Lens.Lens' AttackProperty (Core.Maybe AttackPropertyIdentifier)
+attackProperty_attackPropertyIdentifier :: Lens.Lens' AttackProperty (Prelude.Maybe AttackPropertyIdentifier)
 attackProperty_attackPropertyIdentifier = Lens.lens (\AttackProperty' {attackPropertyIdentifier} -> attackPropertyIdentifier) (\s@AttackProperty' {} a -> s {attackPropertyIdentifier = a} :: AttackProperty)
 
 -- | The type of distributed denial of service (DDoS) event that was
 -- observed. @NETWORK@ indicates layer 3 and layer 4 events and
 -- @APPLICATION@ indicates layer 7 events.
-attackProperty_attackLayer :: Lens.Lens' AttackProperty (Core.Maybe AttackLayer)
+attackProperty_attackLayer :: Lens.Lens' AttackProperty (Prelude.Maybe AttackLayer)
 attackProperty_attackLayer = Lens.lens (\AttackProperty' {attackLayer} -> attackLayer) (\s@AttackProperty' {} a -> s {attackLayer = a} :: AttackProperty)
 
 -- | The array of contributor objects that includes the top five contributors
 -- to an attack.
-attackProperty_topContributors :: Lens.Lens' AttackProperty (Core.Maybe [Contributor])
-attackProperty_topContributors = Lens.lens (\AttackProperty' {topContributors} -> topContributors) (\s@AttackProperty' {} a -> s {topContributors = a} :: AttackProperty) Core.. Lens.mapping Lens._Coerce
+attackProperty_topContributors :: Lens.Lens' AttackProperty (Prelude.Maybe [Contributor])
+attackProperty_topContributors = Lens.lens (\AttackProperty' {topContributors} -> topContributors) (\s@AttackProperty' {} a -> s {topContributors = a} :: AttackProperty) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AttackProperty where
   parseJSON =
@@ -115,13 +116,15 @@ instance Core.FromJSON AttackProperty where
       "AttackProperty"
       ( \x ->
           AttackProperty'
-            Core.<$> (x Core..:? "Unit")
-            Core.<*> (x Core..:? "Total")
-            Core.<*> (x Core..:? "AttackPropertyIdentifier")
-            Core.<*> (x Core..:? "AttackLayer")
-            Core.<*> (x Core..:? "TopContributors" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Unit")
+            Prelude.<*> (x Core..:? "Total")
+            Prelude.<*> (x Core..:? "AttackPropertyIdentifier")
+            Prelude.<*> (x Core..:? "AttackLayer")
+            Prelude.<*> ( x Core..:? "TopContributors"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable AttackProperty
+instance Prelude.Hashable AttackProperty
 
-instance Core.NFData AttackProperty
+instance Prelude.NFData AttackProperty

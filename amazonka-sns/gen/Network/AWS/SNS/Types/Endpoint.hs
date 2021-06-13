@@ -21,17 +21,18 @@ module Network.AWS.SNS.Types.Endpoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Endpoint for mobile app and device.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | Attributes for endpoint.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | EndpointArn for mobile app and device.
-    endpointArn :: Core.Maybe Core.Text
+    endpointArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Endpoint' with all optional fields omitted.
@@ -48,26 +49,26 @@ newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { attributes = Core.Nothing,
-      endpointArn = Core.Nothing
+    { attributes = Prelude.Nothing,
+      endpointArn = Prelude.Nothing
     }
 
 -- | Attributes for endpoint.
-endpoint_attributes :: Lens.Lens' Endpoint (Core.Maybe (Core.HashMap Core.Text Core.Text))
-endpoint_attributes = Lens.lens (\Endpoint' {attributes} -> attributes) (\s@Endpoint' {} a -> s {attributes = a} :: Endpoint) Core.. Lens.mapping Lens._Coerce
+endpoint_attributes :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+endpoint_attributes = Lens.lens (\Endpoint' {attributes} -> attributes) (\s@Endpoint' {} a -> s {attributes = a} :: Endpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | EndpointArn for mobile app and device.
-endpoint_endpointArn :: Lens.Lens' Endpoint (Core.Maybe Core.Text)
+endpoint_endpointArn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_endpointArn = Lens.lens (\Endpoint' {endpointArn} -> endpointArn) (\s@Endpoint' {} a -> s {endpointArn = a} :: Endpoint)
 
 instance Core.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
-               )
-      Core.<*> (x Core..@? "EndpointArn")
+      Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                  )
+      Prelude.<*> (x Core..@? "EndpointArn")
 
-instance Core.Hashable Endpoint
+instance Prelude.Hashable Endpoint
 
-instance Core.NFData Endpoint
+instance Prelude.NFData Endpoint

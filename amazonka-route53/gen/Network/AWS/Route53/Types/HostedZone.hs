@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.HostedZone where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.HostedZoneConfig
 import Network.AWS.Route53.Types.LinkedService
@@ -30,16 +31,16 @@ import Network.AWS.Route53.Types.LinkedService
 -- /See:/ 'newHostedZone' smart constructor.
 data HostedZone = HostedZone'
   { -- | The number of resource record sets in the hosted zone.
-    resourceRecordSetCount :: Core.Maybe Core.Integer,
+    resourceRecordSetCount :: Prelude.Maybe Prelude.Integer,
     -- | A complex type that includes the @Comment@ and @PrivateZone@ elements.
     -- If you omitted the @HostedZoneConfig@ and @Comment@ elements from the
     -- request, the @Config@ and @Comment@ elements don\'t appear in the
     -- response.
-    config :: Core.Maybe HostedZoneConfig,
+    config :: Prelude.Maybe HostedZoneConfig,
     -- | If the hosted zone was created by another service, the service that
     -- created the hosted zone. When a hosted zone is created by another
     -- service, you can\'t edit or delete it using Route 53.
-    linkedService :: Core.Maybe LinkedService,
+    linkedService :: Prelude.Maybe LinkedService,
     -- | The ID that Amazon Route 53 assigned to the hosted zone when you created
     -- it.
     id :: ResourceId,
@@ -49,12 +50,12 @@ data HostedZone = HostedZone'
     -- For information about how to specify characters other than @a-z@, @0-9@,
     -- and @-@ (hyphen) and how to specify internationalized domain names, see
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone>.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value that you specified for @CallerReference@ when you created the
     -- hosted zone.
-    callerReference :: Core.Text
+    callerReference :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostedZone' with all optional fields omitted.
@@ -91,35 +92,36 @@ newHostedZone ::
   -- | 'id'
   ResourceId ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'callerReference'
-  Core.Text ->
+  Prelude.Text ->
   HostedZone
 newHostedZone pId_ pName_ pCallerReference_ =
   HostedZone'
-    { resourceRecordSetCount = Core.Nothing,
-      config = Core.Nothing,
-      linkedService = Core.Nothing,
+    { resourceRecordSetCount =
+        Prelude.Nothing,
+      config = Prelude.Nothing,
+      linkedService = Prelude.Nothing,
       id = pId_,
       name = pName_,
       callerReference = pCallerReference_
     }
 
 -- | The number of resource record sets in the hosted zone.
-hostedZone_resourceRecordSetCount :: Lens.Lens' HostedZone (Core.Maybe Core.Integer)
+hostedZone_resourceRecordSetCount :: Lens.Lens' HostedZone (Prelude.Maybe Prelude.Integer)
 hostedZone_resourceRecordSetCount = Lens.lens (\HostedZone' {resourceRecordSetCount} -> resourceRecordSetCount) (\s@HostedZone' {} a -> s {resourceRecordSetCount = a} :: HostedZone)
 
 -- | A complex type that includes the @Comment@ and @PrivateZone@ elements.
 -- If you omitted the @HostedZoneConfig@ and @Comment@ elements from the
 -- request, the @Config@ and @Comment@ elements don\'t appear in the
 -- response.
-hostedZone_config :: Lens.Lens' HostedZone (Core.Maybe HostedZoneConfig)
+hostedZone_config :: Lens.Lens' HostedZone (Prelude.Maybe HostedZoneConfig)
 hostedZone_config = Lens.lens (\HostedZone' {config} -> config) (\s@HostedZone' {} a -> s {config = a} :: HostedZone)
 
 -- | If the hosted zone was created by another service, the service that
 -- created the hosted zone. When a hosted zone is created by another
 -- service, you can\'t edit or delete it using Route 53.
-hostedZone_linkedService :: Lens.Lens' HostedZone (Core.Maybe LinkedService)
+hostedZone_linkedService :: Lens.Lens' HostedZone (Prelude.Maybe LinkedService)
 hostedZone_linkedService = Lens.lens (\HostedZone' {linkedService} -> linkedService) (\s@HostedZone' {} a -> s {linkedService = a} :: HostedZone)
 
 -- | The ID that Amazon Route 53 assigned to the hosted zone when you created
@@ -133,24 +135,24 @@ hostedZone_id = Lens.lens (\HostedZone' {id} -> id) (\s@HostedZone' {} a -> s {i
 -- For information about how to specify characters other than @a-z@, @0-9@,
 -- and @-@ (hyphen) and how to specify internationalized domain names, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone>.
-hostedZone_name :: Lens.Lens' HostedZone Core.Text
+hostedZone_name :: Lens.Lens' HostedZone Prelude.Text
 hostedZone_name = Lens.lens (\HostedZone' {name} -> name) (\s@HostedZone' {} a -> s {name = a} :: HostedZone)
 
 -- | The value that you specified for @CallerReference@ when you created the
 -- hosted zone.
-hostedZone_callerReference :: Lens.Lens' HostedZone Core.Text
+hostedZone_callerReference :: Lens.Lens' HostedZone Prelude.Text
 hostedZone_callerReference = Lens.lens (\HostedZone' {callerReference} -> callerReference) (\s@HostedZone' {} a -> s {callerReference = a} :: HostedZone)
 
 instance Core.FromXML HostedZone where
   parseXML x =
     HostedZone'
-      Core.<$> (x Core..@? "ResourceRecordSetCount")
-      Core.<*> (x Core..@? "Config")
-      Core.<*> (x Core..@? "LinkedService")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "CallerReference")
+      Prelude.<$> (x Core..@? "ResourceRecordSetCount")
+      Prelude.<*> (x Core..@? "Config")
+      Prelude.<*> (x Core..@? "LinkedService")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "CallerReference")
 
-instance Core.Hashable HostedZone
+instance Prelude.Hashable HostedZone
 
-instance Core.NFData HostedZone
+instance Prelude.NFData HostedZone

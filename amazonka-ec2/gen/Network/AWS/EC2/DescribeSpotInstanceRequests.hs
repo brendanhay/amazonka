@@ -68,6 +68,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,18 +78,18 @@ import qualified Network.AWS.Response as Response
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
   { -- | The token to request the next set of results. This value is @null@ when
     -- there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 5 and 1000. To retrieve the remaining results, make
     -- another call with the returned @NextToken@ value.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | One or more Spot Instance request IDs.
-    spotInstanceRequestIds :: Core.Maybe [Core.Text],
+    spotInstanceRequestIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
     --
     -- -   @availability-zone-group@ - The Availability Zone group.
@@ -206,9 +207,9 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
     -- -   @valid-from@ - The start date of the request.
     --
     -- -   @valid-until@ - The end date of the request.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotInstanceRequests' with all optional fields omitted.
@@ -354,34 +355,34 @@ newDescribeSpotInstanceRequests ::
 newDescribeSpotInstanceRequests =
   DescribeSpotInstanceRequests'
     { nextToken =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      spotInstanceRequestIds = Core.Nothing,
-      filters = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      spotInstanceRequestIds = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token to request the next set of results. This value is @null@ when
 -- there are no more results to return.
-describeSpotInstanceRequests_nextToken :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe Core.Text)
+describeSpotInstanceRequests_nextToken :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Text)
 describeSpotInstanceRequests_nextToken = Lens.lens (\DescribeSpotInstanceRequests' {nextToken} -> nextToken) (\s@DescribeSpotInstanceRequests' {} a -> s {nextToken = a} :: DescribeSpotInstanceRequests)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeSpotInstanceRequests_dryRun :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe Core.Bool)
+describeSpotInstanceRequests_dryRun :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Bool)
 describeSpotInstanceRequests_dryRun = Lens.lens (\DescribeSpotInstanceRequests' {dryRun} -> dryRun) (\s@DescribeSpotInstanceRequests' {} a -> s {dryRun = a} :: DescribeSpotInstanceRequests)
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 5 and 1000. To retrieve the remaining results, make
 -- another call with the returned @NextToken@ value.
-describeSpotInstanceRequests_maxResults :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe Core.Int)
+describeSpotInstanceRequests_maxResults :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Int)
 describeSpotInstanceRequests_maxResults = Lens.lens (\DescribeSpotInstanceRequests' {maxResults} -> maxResults) (\s@DescribeSpotInstanceRequests' {} a -> s {maxResults = a} :: DescribeSpotInstanceRequests)
 
 -- | One or more Spot Instance request IDs.
-describeSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe [Core.Text])
-describeSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\DescribeSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@DescribeSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: DescribeSpotInstanceRequests) Core.. Lens.mapping Lens._Coerce
+describeSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe [Prelude.Text])
+describeSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\DescribeSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@DescribeSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: DescribeSpotInstanceRequests) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -500,30 +501,30 @@ describeSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\DescribeSpotIn
 -- -   @valid-from@ - The start date of the request.
 --
 -- -   @valid-until@ - The end date of the request.
-describeSpotInstanceRequests_filters :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe [Filter])
-describeSpotInstanceRequests_filters = Lens.lens (\DescribeSpotInstanceRequests' {filters} -> filters) (\s@DescribeSpotInstanceRequests' {} a -> s {filters = a} :: DescribeSpotInstanceRequests) Core.. Lens.mapping Lens._Coerce
+describeSpotInstanceRequests_filters :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe [Filter])
+describeSpotInstanceRequests_filters = Lens.lens (\DescribeSpotInstanceRequests' {filters} -> filters) (\s@DescribeSpotInstanceRequests' {} a -> s {filters = a} :: DescribeSpotInstanceRequests) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeSpotInstanceRequests where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeSpotInstanceRequestsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSpotInstanceRequestsResponse_spotInstanceRequests
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeSpotInstanceRequests_nextToken
+          Prelude.& describeSpotInstanceRequests_nextToken
           Lens..~ rs
           Lens.^? describeSpotInstanceRequestsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpotInstanceRequests where
   type
@@ -534,39 +535,44 @@ instance Core.AWSRequest DescribeSpotInstanceRequests where
     Response.receiveXML
       ( \s h x ->
           DescribeSpotInstanceRequestsResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "spotInstanceRequestSet"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "spotInstanceRequestSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSpotInstanceRequests
+instance
+  Prelude.Hashable
+    DescribeSpotInstanceRequests
 
-instance Core.NFData DescribeSpotInstanceRequests
+instance Prelude.NFData DescribeSpotInstanceRequests
 
 instance Core.ToHeaders DescribeSpotInstanceRequests where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeSpotInstanceRequests where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeSpotInstanceRequests where
   toQuery DescribeSpotInstanceRequests' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSpotInstanceRequests" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ( "DescribeSpotInstanceRequests" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "SpotInstanceRequestId"
-              Core.<$> spotInstanceRequestIds
+              Prelude.<$> spotInstanceRequestIds
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | Contains the output of DescribeSpotInstanceRequests.
@@ -575,13 +581,13 @@ instance Core.ToQuery DescribeSpotInstanceRequests where
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
   { -- | The token to use to retrieve the next set of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more Spot Instance requests.
-    spotInstanceRequests :: Core.Maybe [SpotInstanceRequest],
+    spotInstanceRequests :: Prelude.Maybe [SpotInstanceRequest],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotInstanceRequestsResponse' with all optional fields omitted.
@@ -599,29 +605,30 @@ data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
 -- 'httpStatus', 'describeSpotInstanceRequestsResponse_httpStatus' - The response's http status code.
 newDescribeSpotInstanceRequestsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSpotInstanceRequestsResponse
 newDescribeSpotInstanceRequestsResponse pHttpStatus_ =
   DescribeSpotInstanceRequestsResponse'
     { nextToken =
-        Core.Nothing,
-      spotInstanceRequests = Core.Nothing,
+        Prelude.Nothing,
+      spotInstanceRequests =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
-describeSpotInstanceRequestsResponse_nextToken :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Core.Maybe Core.Text)
+describeSpotInstanceRequestsResponse_nextToken :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Prelude.Maybe Prelude.Text)
 describeSpotInstanceRequestsResponse_nextToken = Lens.lens (\DescribeSpotInstanceRequestsResponse' {nextToken} -> nextToken) (\s@DescribeSpotInstanceRequestsResponse' {} a -> s {nextToken = a} :: DescribeSpotInstanceRequestsResponse)
 
 -- | One or more Spot Instance requests.
-describeSpotInstanceRequestsResponse_spotInstanceRequests :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Core.Maybe [SpotInstanceRequest])
-describeSpotInstanceRequestsResponse_spotInstanceRequests = Lens.lens (\DescribeSpotInstanceRequestsResponse' {spotInstanceRequests} -> spotInstanceRequests) (\s@DescribeSpotInstanceRequestsResponse' {} a -> s {spotInstanceRequests = a} :: DescribeSpotInstanceRequestsResponse) Core.. Lens.mapping Lens._Coerce
+describeSpotInstanceRequestsResponse_spotInstanceRequests :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Prelude.Maybe [SpotInstanceRequest])
+describeSpotInstanceRequestsResponse_spotInstanceRequests = Lens.lens (\DescribeSpotInstanceRequestsResponse' {spotInstanceRequests} -> spotInstanceRequests) (\s@DescribeSpotInstanceRequestsResponse' {} a -> s {spotInstanceRequests = a} :: DescribeSpotInstanceRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSpotInstanceRequestsResponse_httpStatus :: Lens.Lens' DescribeSpotInstanceRequestsResponse Core.Int
+describeSpotInstanceRequestsResponse_httpStatus :: Lens.Lens' DescribeSpotInstanceRequestsResponse Prelude.Int
 describeSpotInstanceRequestsResponse_httpStatus = Lens.lens (\DescribeSpotInstanceRequestsResponse' {httpStatus} -> httpStatus) (\s@DescribeSpotInstanceRequestsResponse' {} a -> s {httpStatus = a} :: DescribeSpotInstanceRequestsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeSpotInstanceRequestsResponse

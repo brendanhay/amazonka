@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,7 +74,7 @@ data UpdatePushTemplate = UpdatePushTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to save the updates as a new version of the message
     -- template. Valid values are: true, save the updates as a new version;
     -- and, false, save the updates to (overwrite) the latest existing version
@@ -83,15 +84,15 @@ data UpdatePushTemplate = UpdatePushTemplate'
     -- the updates to (overwrites) the latest existing version of the template.
     -- If you specify a value of true for this parameter, don\'t specify a
     -- value for the version parameter. Otherwise, an error will occur.
-    createNewVersion :: Core.Maybe Core.Bool,
+    createNewVersion :: Prelude.Maybe Prelude.Bool,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Core.Text,
+    templateName :: Prelude.Text,
     pushNotificationTemplateRequest :: PushNotificationTemplateRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePushTemplate' with all optional fields omitted.
@@ -142,7 +143,7 @@ data UpdatePushTemplate = UpdatePushTemplate'
 -- 'pushNotificationTemplateRequest', 'updatePushTemplate_pushNotificationTemplateRequest' - Undocumented member.
 newUpdatePushTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'pushNotificationTemplateRequest'
   PushNotificationTemplateRequest ->
   UpdatePushTemplate
@@ -150,8 +151,8 @@ newUpdatePushTemplate
   pTemplateName_
   pPushNotificationTemplateRequest_ =
     UpdatePushTemplate'
-      { version = Core.Nothing,
-        createNewVersion = Core.Nothing,
+      { version = Prelude.Nothing,
+        createNewVersion = Prelude.Nothing,
         templateName = pTemplateName_,
         pushNotificationTemplateRequest =
           pPushNotificationTemplateRequest_
@@ -179,7 +180,7 @@ newUpdatePushTemplate
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-updatePushTemplate_version :: Lens.Lens' UpdatePushTemplate (Core.Maybe Core.Text)
+updatePushTemplate_version :: Lens.Lens' UpdatePushTemplate (Prelude.Maybe Prelude.Text)
 updatePushTemplate_version = Lens.lens (\UpdatePushTemplate' {version} -> version) (\s@UpdatePushTemplate' {} a -> s {version = a} :: UpdatePushTemplate)
 
 -- | Specifies whether to save the updates as a new version of the message
@@ -191,14 +192,14 @@ updatePushTemplate_version = Lens.lens (\UpdatePushTemplate' {version} -> versio
 -- the updates to (overwrites) the latest existing version of the template.
 -- If you specify a value of true for this parameter, don\'t specify a
 -- value for the version parameter. Otherwise, an error will occur.
-updatePushTemplate_createNewVersion :: Lens.Lens' UpdatePushTemplate (Core.Maybe Core.Bool)
+updatePushTemplate_createNewVersion :: Lens.Lens' UpdatePushTemplate (Prelude.Maybe Prelude.Bool)
 updatePushTemplate_createNewVersion = Lens.lens (\UpdatePushTemplate' {createNewVersion} -> createNewVersion) (\s@UpdatePushTemplate' {} a -> s {createNewVersion = a} :: UpdatePushTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-updatePushTemplate_templateName :: Lens.Lens' UpdatePushTemplate Core.Text
+updatePushTemplate_templateName :: Lens.Lens' UpdatePushTemplate Prelude.Text
 updatePushTemplate_templateName = Lens.lens (\UpdatePushTemplate' {templateName} -> templateName) (\s@UpdatePushTemplate' {} a -> s {templateName = a} :: UpdatePushTemplate)
 
 -- | Undocumented member.
@@ -214,28 +215,30 @@ instance Core.AWSRequest UpdatePushTemplate where
     Response.receiveJSON
       ( \s h x ->
           UpdatePushTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdatePushTemplate
+instance Prelude.Hashable UpdatePushTemplate
 
-instance Core.NFData UpdatePushTemplate
+instance Prelude.NFData UpdatePushTemplate
 
 instance Core.ToHeaders UpdatePushTemplate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdatePushTemplate where
   toJSON UpdatePushTemplate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "PushNotificationTemplateRequest"
                   Core..= pushNotificationTemplateRequest
               )
@@ -244,12 +247,12 @@ instance Core.ToJSON UpdatePushTemplate where
 
 instance Core.ToPath UpdatePushTemplate where
   toPath UpdatePushTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/templates/", Core.toBS templateName, "/push"]
 
 instance Core.ToQuery UpdatePushTemplate where
   toQuery UpdatePushTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "version" Core.=: version,
         "create-new-version" Core.=: createNewVersion
       ]
@@ -257,10 +260,10 @@ instance Core.ToQuery UpdatePushTemplate where
 -- | /See:/ 'newUpdatePushTemplateResponse' smart constructor.
 data UpdatePushTemplateResponse = UpdatePushTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     messageBody :: MessageBody
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePushTemplateResponse' with all optional fields omitted.
@@ -275,7 +278,7 @@ data UpdatePushTemplateResponse = UpdatePushTemplateResponse'
 -- 'messageBody', 'updatePushTemplateResponse_messageBody' - Undocumented member.
 newUpdatePushTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'messageBody'
   MessageBody ->
   UpdatePushTemplateResponse
@@ -289,11 +292,11 @@ newUpdatePushTemplateResponse
       }
 
 -- | The response's http status code.
-updatePushTemplateResponse_httpStatus :: Lens.Lens' UpdatePushTemplateResponse Core.Int
+updatePushTemplateResponse_httpStatus :: Lens.Lens' UpdatePushTemplateResponse Prelude.Int
 updatePushTemplateResponse_httpStatus = Lens.lens (\UpdatePushTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdatePushTemplateResponse' {} a -> s {httpStatus = a} :: UpdatePushTemplateResponse)
 
 -- | Undocumented member.
 updatePushTemplateResponse_messageBody :: Lens.Lens' UpdatePushTemplateResponse MessageBody
 updatePushTemplateResponse_messageBody = Lens.lens (\UpdatePushTemplateResponse' {messageBody} -> messageBody) (\s@UpdatePushTemplateResponse' {} a -> s {messageBody = a} :: UpdatePushTemplateResponse)
 
-instance Core.NFData UpdatePushTemplateResponse
+instance Prelude.NFData UpdatePushTemplateResponse

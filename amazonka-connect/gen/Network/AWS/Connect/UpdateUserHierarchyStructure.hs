@@ -40,6 +40,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,9 +49,9 @@ data UpdateUserHierarchyStructure = UpdateUserHierarchyStructure'
   { -- | The hierarchy levels to update.
     hierarchyStructure :: HierarchyStructureUpdate,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserHierarchyStructure' with all optional fields omitted.
@@ -67,7 +68,7 @@ newUpdateUserHierarchyStructure ::
   -- | 'hierarchyStructure'
   HierarchyStructureUpdate ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateUserHierarchyStructure
 newUpdateUserHierarchyStructure
   pHierarchyStructure_
@@ -83,7 +84,7 @@ updateUserHierarchyStructure_hierarchyStructure :: Lens.Lens' UpdateUserHierarch
 updateUserHierarchyStructure_hierarchyStructure = Lens.lens (\UpdateUserHierarchyStructure' {hierarchyStructure} -> hierarchyStructure) (\s@UpdateUserHierarchyStructure' {} a -> s {hierarchyStructure = a} :: UpdateUserHierarchyStructure)
 
 -- | The identifier of the Amazon Connect instance.
-updateUserHierarchyStructure_instanceId :: Lens.Lens' UpdateUserHierarchyStructure Core.Text
+updateUserHierarchyStructure_instanceId :: Lens.Lens' UpdateUserHierarchyStructure Prelude.Text
 updateUserHierarchyStructure_instanceId = Lens.lens (\UpdateUserHierarchyStructure' {instanceId} -> instanceId) (\s@UpdateUserHierarchyStructure' {} a -> s {instanceId = a} :: UpdateUserHierarchyStructure)
 
 instance Core.AWSRequest UpdateUserHierarchyStructure where
@@ -95,41 +96,45 @@ instance Core.AWSRequest UpdateUserHierarchyStructure where
     Response.receiveNull
       UpdateUserHierarchyStructureResponse'
 
-instance Core.Hashable UpdateUserHierarchyStructure
+instance
+  Prelude.Hashable
+    UpdateUserHierarchyStructure
 
-instance Core.NFData UpdateUserHierarchyStructure
+instance Prelude.NFData UpdateUserHierarchyStructure
 
 instance Core.ToHeaders UpdateUserHierarchyStructure where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateUserHierarchyStructure where
   toJSON UpdateUserHierarchyStructure' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("HierarchyStructure" Core..= hierarchyStructure)
           ]
       )
 
 instance Core.ToPath UpdateUserHierarchyStructure where
   toPath UpdateUserHierarchyStructure' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/user-hierarchy-structure/", Core.toBS instanceId]
 
 instance Core.ToQuery UpdateUserHierarchyStructure where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserHierarchyStructureResponse' smart constructor.
 data UpdateUserHierarchyStructureResponse = UpdateUserHierarchyStructureResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserHierarchyStructureResponse' with all optional fields omitted.
@@ -141,5 +146,5 @@ newUpdateUserHierarchyStructureResponse =
   UpdateUserHierarchyStructureResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateUserHierarchyStructureResponse

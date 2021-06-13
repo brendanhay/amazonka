@@ -179,6 +179,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
@@ -193,7 +194,7 @@ data AssumeRole = AssumeRole'
     --
     -- The format for this parameter, as described by its regex pattern, is a
     -- sequence of six numeric digits.
-    tokenCode :: Core.Maybe Core.Text,
+    tokenCode :: Prelude.Maybe Prelude.Text,
     -- | A list of session tags that you want to pass. Each session tag consists
     -- of a key name and an associated value. For more information about
     -- session tags, see
@@ -231,7 +232,7 @@ data AssumeRole = AssumeRole'
     -- session, see the AWS CloudTrail logs. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
     -- in the /IAM User Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
     -- want to use as managed session policies. The policies must exist in the
     -- same account as the role.
@@ -259,7 +260,7 @@ data AssumeRole = AssumeRole'
     -- role that is being assumed. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
     -- in the /IAM User Guide/.
-    policyArns :: Core.Maybe [PolicyDescriptorType],
+    policyArns :: Prelude.Maybe [PolicyDescriptorType],
     -- | A list of keys for session tags that you want to set as transitive. If
     -- you set a tag key as transitive, the corresponding key and value passes
     -- to subsequent sessions in a role chain. For more information, see
@@ -271,7 +272,7 @@ data AssumeRole = AssumeRole'
     --
     -- If you choose not to specify a transitive tag key, then no tags are
     -- passed from this session to any subsequent sessions.
-    transitiveTagKeys :: Core.Maybe [Core.Text],
+    transitiveTagKeys :: Prelude.Maybe [Prelude.Text],
     -- | The identification number of the MFA device that is associated with the
     -- user who is making the @AssumeRole@ call. Specify this value if the
     -- trust policy of the role being assumed includes a condition that
@@ -284,7 +285,7 @@ data AssumeRole = AssumeRole'
     -- consisting of upper- and lower-case alphanumeric characters with no
     -- spaces. You can also include underscores or any of the following
     -- characters: =,.\@-
-    serialNumber :: Core.Maybe Core.Text,
+    serialNumber :: Prelude.Maybe Prelude.Text,
     -- | An IAM policy in JSON format that you want to use as an inline session
     -- policy.
     --
@@ -311,7 +312,7 @@ data AssumeRole = AssumeRole'
     -- requirements. The @PackedPolicySize@ response element indicates by
     -- percentage how close the policies and tags for your request are to the
     -- upper size limit.
-    policy :: Core.Maybe Core.Text,
+    policy :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier that might be required when you assume a role in
     -- another account. If the administrator of the account to which the role
     -- belongs provided you with an external ID, then provide that value in the
@@ -329,7 +330,7 @@ data AssumeRole = AssumeRole'
     -- consisting of upper- and lower-case alphanumeric characters with no
     -- spaces. You can also include underscores or any of the following
     -- characters: =,.\@:\/-
-    externalId :: Core.Maybe Core.Text,
+    externalId :: Prelude.Maybe Prelude.Text,
     -- | The duration, in seconds, of the role session. The value can range from
     -- 900 seconds (15 minutes) up to the maximum session duration setting for
     -- the role. This setting can have a value from 1 hour to 12 hours. If you
@@ -350,9 +351,9 @@ data AssumeRole = AssumeRole'
     -- console session. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console>
     -- in the /IAM User Guide/.
-    durationSeconds :: Core.Maybe Core.Natural,
+    durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the role to assume.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | An identifier for the assumed role session.
     --
     -- Use the role session name to uniquely identify a session when the same
@@ -368,9 +369,9 @@ data AssumeRole = AssumeRole'
     -- consisting of upper- and lower-case alphanumeric characters with no
     -- spaces. You can also include underscores or any of the following
     -- characters: =,.\@-
-    roleSessionName :: Core.Text
+    roleSessionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssumeRole' with all optional fields omitted.
@@ -565,20 +566,20 @@ data AssumeRole = AssumeRole'
 -- characters: =,.\@-
 newAssumeRole ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleSessionName'
-  Core.Text ->
+  Prelude.Text ->
   AssumeRole
 newAssumeRole pRoleArn_ pRoleSessionName_ =
   AssumeRole'
-    { tokenCode = Core.Nothing,
-      tags = Core.Nothing,
-      policyArns = Core.Nothing,
-      transitiveTagKeys = Core.Nothing,
-      serialNumber = Core.Nothing,
-      policy = Core.Nothing,
-      externalId = Core.Nothing,
-      durationSeconds = Core.Nothing,
+    { tokenCode = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      policyArns = Prelude.Nothing,
+      transitiveTagKeys = Prelude.Nothing,
+      serialNumber = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      externalId = Prelude.Nothing,
+      durationSeconds = Prelude.Nothing,
       roleArn = pRoleArn_,
       roleSessionName = pRoleSessionName_
     }
@@ -591,7 +592,7 @@ newAssumeRole pRoleArn_ pRoleSessionName_ =
 --
 -- The format for this parameter, as described by its regex pattern, is a
 -- sequence of six numeric digits.
-assumeRole_tokenCode :: Lens.Lens' AssumeRole (Core.Maybe Core.Text)
+assumeRole_tokenCode :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
 assumeRole_tokenCode = Lens.lens (\AssumeRole' {tokenCode} -> tokenCode) (\s@AssumeRole' {} a -> s {tokenCode = a} :: AssumeRole)
 
 -- | A list of session tags that you want to pass. Each session tag consists
@@ -631,8 +632,8 @@ assumeRole_tokenCode = Lens.lens (\AssumeRole' {tokenCode} -> tokenCode) (\s@Ass
 -- session, see the AWS CloudTrail logs. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
 -- in the /IAM User Guide/.
-assumeRole_tags :: Lens.Lens' AssumeRole (Core.Maybe [Tag])
-assumeRole_tags = Lens.lens (\AssumeRole' {tags} -> tags) (\s@AssumeRole' {} a -> s {tags = a} :: AssumeRole) Core.. Lens.mapping Lens._Coerce
+assumeRole_tags :: Lens.Lens' AssumeRole (Prelude.Maybe [Tag])
+assumeRole_tags = Lens.lens (\AssumeRole' {tags} -> tags) (\s@AssumeRole' {} a -> s {tags = a} :: AssumeRole) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
 -- want to use as managed session policies. The policies must exist in the
@@ -661,8 +662,8 @@ assumeRole_tags = Lens.lens (\AssumeRole' {tags} -> tags) (\s@AssumeRole' {} a -
 -- role that is being assumed. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
-assumeRole_policyArns :: Lens.Lens' AssumeRole (Core.Maybe [PolicyDescriptorType])
-assumeRole_policyArns = Lens.lens (\AssumeRole' {policyArns} -> policyArns) (\s@AssumeRole' {} a -> s {policyArns = a} :: AssumeRole) Core.. Lens.mapping Lens._Coerce
+assumeRole_policyArns :: Lens.Lens' AssumeRole (Prelude.Maybe [PolicyDescriptorType])
+assumeRole_policyArns = Lens.lens (\AssumeRole' {policyArns} -> policyArns) (\s@AssumeRole' {} a -> s {policyArns = a} :: AssumeRole) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of keys for session tags that you want to set as transitive. If
 -- you set a tag key as transitive, the corresponding key and value passes
@@ -675,8 +676,8 @@ assumeRole_policyArns = Lens.lens (\AssumeRole' {policyArns} -> policyArns) (\s@
 --
 -- If you choose not to specify a transitive tag key, then no tags are
 -- passed from this session to any subsequent sessions.
-assumeRole_transitiveTagKeys :: Lens.Lens' AssumeRole (Core.Maybe [Core.Text])
-assumeRole_transitiveTagKeys = Lens.lens (\AssumeRole' {transitiveTagKeys} -> transitiveTagKeys) (\s@AssumeRole' {} a -> s {transitiveTagKeys = a} :: AssumeRole) Core.. Lens.mapping Lens._Coerce
+assumeRole_transitiveTagKeys :: Lens.Lens' AssumeRole (Prelude.Maybe [Prelude.Text])
+assumeRole_transitiveTagKeys = Lens.lens (\AssumeRole' {transitiveTagKeys} -> transitiveTagKeys) (\s@AssumeRole' {} a -> s {transitiveTagKeys = a} :: AssumeRole) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identification number of the MFA device that is associated with the
 -- user who is making the @AssumeRole@ call. Specify this value if the
@@ -690,7 +691,7 @@ assumeRole_transitiveTagKeys = Lens.lens (\AssumeRole' {transitiveTagKeys} -> tr
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@-
-assumeRole_serialNumber :: Lens.Lens' AssumeRole (Core.Maybe Core.Text)
+assumeRole_serialNumber :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
 assumeRole_serialNumber = Lens.lens (\AssumeRole' {serialNumber} -> serialNumber) (\s@AssumeRole' {} a -> s {serialNumber = a} :: AssumeRole)
 
 -- | An IAM policy in JSON format that you want to use as an inline session
@@ -719,7 +720,7 @@ assumeRole_serialNumber = Lens.lens (\AssumeRole' {serialNumber} -> serialNumber
 -- requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
-assumeRole_policy :: Lens.Lens' AssumeRole (Core.Maybe Core.Text)
+assumeRole_policy :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
 assumeRole_policy = Lens.lens (\AssumeRole' {policy} -> policy) (\s@AssumeRole' {} a -> s {policy = a} :: AssumeRole)
 
 -- | A unique identifier that might be required when you assume a role in
@@ -739,7 +740,7 @@ assumeRole_policy = Lens.lens (\AssumeRole' {policy} -> policy) (\s@AssumeRole' 
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@:\/-
-assumeRole_externalId :: Lens.Lens' AssumeRole (Core.Maybe Core.Text)
+assumeRole_externalId :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
 assumeRole_externalId = Lens.lens (\AssumeRole' {externalId} -> externalId) (\s@AssumeRole' {} a -> s {externalId = a} :: AssumeRole)
 
 -- | The duration, in seconds, of the role session. The value can range from
@@ -762,11 +763,11 @@ assumeRole_externalId = Lens.lens (\AssumeRole' {externalId} -> externalId) (\s@
 -- console session. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console>
 -- in the /IAM User Guide/.
-assumeRole_durationSeconds :: Lens.Lens' AssumeRole (Core.Maybe Core.Natural)
+assumeRole_durationSeconds :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Natural)
 assumeRole_durationSeconds = Lens.lens (\AssumeRole' {durationSeconds} -> durationSeconds) (\s@AssumeRole' {} a -> s {durationSeconds = a} :: AssumeRole)
 
 -- | The Amazon Resource Name (ARN) of the role to assume.
-assumeRole_roleArn :: Lens.Lens' AssumeRole Core.Text
+assumeRole_roleArn :: Lens.Lens' AssumeRole Prelude.Text
 assumeRole_roleArn = Lens.lens (\AssumeRole' {roleArn} -> roleArn) (\s@AssumeRole' {} a -> s {roleArn = a} :: AssumeRole)
 
 -- | An identifier for the assumed role session.
@@ -784,7 +785,7 @@ assumeRole_roleArn = Lens.lens (\AssumeRole' {roleArn} -> roleArn) (\s@AssumeRol
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@-
-assumeRole_roleSessionName :: Lens.Lens' AssumeRole Core.Text
+assumeRole_roleSessionName :: Lens.Lens' AssumeRole Prelude.Text
 assumeRole_roleSessionName = Lens.lens (\AssumeRole' {roleSessionName} -> roleSessionName) (\s@AssumeRole' {} a -> s {roleSessionName = a} :: AssumeRole)
 
 instance Core.AWSRequest AssumeRole where
@@ -795,38 +796,40 @@ instance Core.AWSRequest AssumeRole where
       "AssumeRoleResult"
       ( \s h x ->
           AssumeRoleResponse'
-            Core.<$> (x Core..@? "Credentials")
-            Core.<*> (x Core..@? "AssumedRoleUser")
-            Core.<*> (x Core..@? "PackedPolicySize")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Credentials")
+            Prelude.<*> (x Core..@? "AssumedRoleUser")
+            Prelude.<*> (x Core..@? "PackedPolicySize")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssumeRole
+instance Prelude.Hashable AssumeRole
 
-instance Core.NFData AssumeRole
+instance Prelude.NFData AssumeRole
 
 instance Core.ToHeaders AssumeRole where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AssumeRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssumeRole where
   toQuery AssumeRole' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("AssumeRole" :: Core.ByteString),
-        "Version" Core.=: ("2011-06-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("AssumeRole" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-06-15" :: Prelude.ByteString),
         "TokenCode" Core.=: tokenCode,
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "PolicyArns"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> policyArns),
+            (Core.toQueryList "member" Prelude.<$> policyArns),
         "TransitiveTagKeys"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> transitiveTagKeys
+                Prelude.<$> transitiveTagKeys
             ),
         "SerialNumber" Core.=: serialNumber,
         "Policy" Core.=: policy,
@@ -847,23 +850,23 @@ data AssumeRoleResponse = AssumeRoleResponse'
     -- The size of the security token that STS API operations return is not
     -- fixed. We strongly recommend that you make no assumptions about the
     -- maximum size.
-    credentials :: Core.Maybe Core.AuthEnv,
+    credentials :: Prelude.Maybe Core.AuthEnv,
     -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
     -- identifiers that you can use to refer to the resulting temporary
     -- security credentials. For example, you can reference these credentials
     -- as a principal in a resource-based policy by using the ARN or assumed
     -- role ID. The ARN and ID include the @RoleSessionName@ that you specified
     -- when you called @AssumeRole@.
-    assumedRoleUser :: Core.Maybe AssumedRoleUser,
+    assumedRoleUser :: Prelude.Maybe AssumedRoleUser,
     -- | A percentage value that indicates the packed size of the session
     -- policies and session tags combined passed in the request. The request
     -- fails if the packed size is greater than 100 percent, which means the
     -- policies and tags exceeded the allowed space.
-    packedPolicySize :: Core.Maybe Core.Natural,
+    packedPolicySize :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssumeRoleResponse' with all optional fields omitted.
@@ -895,13 +898,13 @@ data AssumeRoleResponse = AssumeRoleResponse'
 -- 'httpStatus', 'assumeRoleResponse_httpStatus' - The response's http status code.
 newAssumeRoleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssumeRoleResponse
 newAssumeRoleResponse pHttpStatus_ =
   AssumeRoleResponse'
-    { credentials = Core.Nothing,
-      assumedRoleUser = Core.Nothing,
-      packedPolicySize = Core.Nothing,
+    { credentials = Prelude.Nothing,
+      assumedRoleUser = Prelude.Nothing,
+      packedPolicySize = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -911,7 +914,7 @@ newAssumeRoleResponse pHttpStatus_ =
 -- The size of the security token that STS API operations return is not
 -- fixed. We strongly recommend that you make no assumptions about the
 -- maximum size.
-assumeRoleResponse_credentials :: Lens.Lens' AssumeRoleResponse (Core.Maybe Core.AuthEnv)
+assumeRoleResponse_credentials :: Lens.Lens' AssumeRoleResponse (Prelude.Maybe Core.AuthEnv)
 assumeRoleResponse_credentials = Lens.lens (\AssumeRoleResponse' {credentials} -> credentials) (\s@AssumeRoleResponse' {} a -> s {credentials = a} :: AssumeRoleResponse)
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
@@ -920,18 +923,18 @@ assumeRoleResponse_credentials = Lens.lens (\AssumeRoleResponse' {credentials} -
 -- as a principal in a resource-based policy by using the ARN or assumed
 -- role ID. The ARN and ID include the @RoleSessionName@ that you specified
 -- when you called @AssumeRole@.
-assumeRoleResponse_assumedRoleUser :: Lens.Lens' AssumeRoleResponse (Core.Maybe AssumedRoleUser)
+assumeRoleResponse_assumedRoleUser :: Lens.Lens' AssumeRoleResponse (Prelude.Maybe AssumedRoleUser)
 assumeRoleResponse_assumedRoleUser = Lens.lens (\AssumeRoleResponse' {assumedRoleUser} -> assumedRoleUser) (\s@AssumeRoleResponse' {} a -> s {assumedRoleUser = a} :: AssumeRoleResponse)
 
 -- | A percentage value that indicates the packed size of the session
 -- policies and session tags combined passed in the request. The request
 -- fails if the packed size is greater than 100 percent, which means the
 -- policies and tags exceeded the allowed space.
-assumeRoleResponse_packedPolicySize :: Lens.Lens' AssumeRoleResponse (Core.Maybe Core.Natural)
+assumeRoleResponse_packedPolicySize :: Lens.Lens' AssumeRoleResponse (Prelude.Maybe Prelude.Natural)
 assumeRoleResponse_packedPolicySize = Lens.lens (\AssumeRoleResponse' {packedPolicySize} -> packedPolicySize) (\s@AssumeRoleResponse' {} a -> s {packedPolicySize = a} :: AssumeRoleResponse)
 
 -- | The response's http status code.
-assumeRoleResponse_httpStatus :: Lens.Lens' AssumeRoleResponse Core.Int
+assumeRoleResponse_httpStatus :: Lens.Lens' AssumeRoleResponse Prelude.Int
 assumeRoleResponse_httpStatus = Lens.lens (\AssumeRoleResponse' {httpStatus} -> httpStatus) (\s@AssumeRoleResponse' {} a -> s {httpStatus = a} :: AssumeRoleResponse)
 
-instance Core.NFData AssumeRoleResponse
+instance Prelude.NFData AssumeRoleResponse

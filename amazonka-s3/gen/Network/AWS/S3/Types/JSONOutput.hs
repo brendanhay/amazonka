@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.JSONOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies JSON as request\'s output serialization format.
@@ -29,9 +30,9 @@ import Network.AWS.S3.Internal
 data JSONOutput = JSONOutput'
   { -- | The value used to separate individual records in the output. If no value
     -- is specified, Amazon S3 uses a newline character (\'\\n\').
-    recordDelimiter :: Core.Maybe Core.Text
+    recordDelimiter :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JSONOutput' with all optional fields omitted.
@@ -46,18 +47,18 @@ data JSONOutput = JSONOutput'
 newJSONOutput ::
   JSONOutput
 newJSONOutput =
-  JSONOutput' {recordDelimiter = Core.Nothing}
+  JSONOutput' {recordDelimiter = Prelude.Nothing}
 
 -- | The value used to separate individual records in the output. If no value
 -- is specified, Amazon S3 uses a newline character (\'\\n\').
-jSONOutput_recordDelimiter :: Lens.Lens' JSONOutput (Core.Maybe Core.Text)
+jSONOutput_recordDelimiter :: Lens.Lens' JSONOutput (Prelude.Maybe Prelude.Text)
 jSONOutput_recordDelimiter = Lens.lens (\JSONOutput' {recordDelimiter} -> recordDelimiter) (\s@JSONOutput' {} a -> s {recordDelimiter = a} :: JSONOutput)
 
-instance Core.Hashable JSONOutput
+instance Prelude.Hashable JSONOutput
 
-instance Core.NFData JSONOutput
+instance Prelude.NFData JSONOutput
 
 instance Core.ToXML JSONOutput where
   toXML JSONOutput' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["RecordDelimiter" Core.@= recordDelimiter]

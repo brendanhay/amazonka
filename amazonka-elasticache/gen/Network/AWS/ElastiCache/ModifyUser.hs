@@ -52,23 +52,24 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyUser' smart constructor.
 data ModifyUser = ModifyUser'
   { -- | Adds additional user permissions to the access string.
-    appendAccessString :: Core.Maybe Core.Text,
+    appendAccessString :: Prelude.Maybe Prelude.Text,
     -- | The passwords belonging to the user. You are allowed up to two.
-    passwords :: Core.Maybe (Core.NonEmpty Core.Text),
+    passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Access permissions string used for this user.
-    accessString :: Core.Maybe Core.Text,
+    accessString :: Prelude.Maybe Prelude.Text,
     -- | Indicates no password is required for the user.
-    noPasswordRequired :: Core.Maybe Core.Bool,
+    noPasswordRequired :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the user.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyUser' with all optional fields omitted.
@@ -89,35 +90,35 @@ data ModifyUser = ModifyUser'
 -- 'userId', 'modifyUser_userId' - The ID of the user.
 newModifyUser ::
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyUser
 newModifyUser pUserId_ =
   ModifyUser'
-    { appendAccessString = Core.Nothing,
-      passwords = Core.Nothing,
-      accessString = Core.Nothing,
-      noPasswordRequired = Core.Nothing,
+    { appendAccessString = Prelude.Nothing,
+      passwords = Prelude.Nothing,
+      accessString = Prelude.Nothing,
+      noPasswordRequired = Prelude.Nothing,
       userId = pUserId_
     }
 
 -- | Adds additional user permissions to the access string.
-modifyUser_appendAccessString :: Lens.Lens' ModifyUser (Core.Maybe Core.Text)
+modifyUser_appendAccessString :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Text)
 modifyUser_appendAccessString = Lens.lens (\ModifyUser' {appendAccessString} -> appendAccessString) (\s@ModifyUser' {} a -> s {appendAccessString = a} :: ModifyUser)
 
 -- | The passwords belonging to the user. You are allowed up to two.
-modifyUser_passwords :: Lens.Lens' ModifyUser (Core.Maybe (Core.NonEmpty Core.Text))
-modifyUser_passwords = Lens.lens (\ModifyUser' {passwords} -> passwords) (\s@ModifyUser' {} a -> s {passwords = a} :: ModifyUser) Core.. Lens.mapping Lens._Coerce
+modifyUser_passwords :: Lens.Lens' ModifyUser (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+modifyUser_passwords = Lens.lens (\ModifyUser' {passwords} -> passwords) (\s@ModifyUser' {} a -> s {passwords = a} :: ModifyUser) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Access permissions string used for this user.
-modifyUser_accessString :: Lens.Lens' ModifyUser (Core.Maybe Core.Text)
+modifyUser_accessString :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Text)
 modifyUser_accessString = Lens.lens (\ModifyUser' {accessString} -> accessString) (\s@ModifyUser' {} a -> s {accessString = a} :: ModifyUser)
 
 -- | Indicates no password is required for the user.
-modifyUser_noPasswordRequired :: Lens.Lens' ModifyUser (Core.Maybe Core.Bool)
+modifyUser_noPasswordRequired :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Bool)
 modifyUser_noPasswordRequired = Lens.lens (\ModifyUser' {noPasswordRequired} -> noPasswordRequired) (\s@ModifyUser' {} a -> s {noPasswordRequired = a} :: ModifyUser)
 
 -- | The ID of the user.
-modifyUser_userId :: Lens.Lens' ModifyUser Core.Text
+modifyUser_userId :: Lens.Lens' ModifyUser Prelude.Text
 modifyUser_userId = Lens.lens (\ModifyUser' {userId} -> userId) (\s@ModifyUser' {} a -> s {userId = a} :: ModifyUser)
 
 instance Core.AWSRequest ModifyUser where
@@ -128,25 +129,27 @@ instance Core.AWSRequest ModifyUser where
       "ModifyUserResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable ModifyUser
+instance Prelude.Hashable ModifyUser
 
-instance Core.NFData ModifyUser
+instance Prelude.NFData ModifyUser
 
 instance Core.ToHeaders ModifyUser where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyUser where
   toQuery ModifyUser' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("ModifyUser" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ModifyUser" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "AppendAccessString" Core.=: appendAccessString,
         "Passwords"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> passwords),
+            (Core.toQueryList "member" Prelude.<$> passwords),
         "AccessString" Core.=: accessString,
         "NoPasswordRequired" Core.=: noPasswordRequired,
         "UserId" Core.=: userId

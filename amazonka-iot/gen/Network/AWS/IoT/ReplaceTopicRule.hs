@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newReplaceTopicRule' smart constructor.
 data ReplaceTopicRule = ReplaceTopicRule'
   { -- | The name of the rule.
-    ruleName :: Core.Text,
+    ruleName :: Prelude.Text,
     -- | The rule payload.
     topicRulePayload :: TopicRulePayload
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceTopicRule' with all optional fields omitted.
@@ -69,7 +70,7 @@ data ReplaceTopicRule = ReplaceTopicRule'
 -- 'topicRulePayload', 'replaceTopicRule_topicRulePayload' - The rule payload.
 newReplaceTopicRule ::
   -- | 'ruleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'topicRulePayload'
   TopicRulePayload ->
   ReplaceTopicRule
@@ -80,7 +81,7 @@ newReplaceTopicRule pRuleName_ pTopicRulePayload_ =
     }
 
 -- | The name of the rule.
-replaceTopicRule_ruleName :: Lens.Lens' ReplaceTopicRule Core.Text
+replaceTopicRule_ruleName :: Lens.Lens' ReplaceTopicRule Prelude.Text
 replaceTopicRule_ruleName = Lens.lens (\ReplaceTopicRule' {ruleName} -> ruleName) (\s@ReplaceTopicRule' {} a -> s {ruleName = a} :: ReplaceTopicRule)
 
 -- | The rule payload.
@@ -95,34 +96,34 @@ instance Core.AWSRequest ReplaceTopicRule where
   response =
     Response.receiveNull ReplaceTopicRuleResponse'
 
-instance Core.Hashable ReplaceTopicRule
+instance Prelude.Hashable ReplaceTopicRule
 
-instance Core.NFData ReplaceTopicRule
+instance Prelude.NFData ReplaceTopicRule
 
 instance Core.ToHeaders ReplaceTopicRule where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON ReplaceTopicRule where
   toJSON ReplaceTopicRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("topicRulePayload" Core..= topicRulePayload)
           ]
       )
 
 instance Core.ToPath ReplaceTopicRule where
   toPath ReplaceTopicRule' {..} =
-    Core.mconcat ["/rules/", Core.toBS ruleName]
+    Prelude.mconcat ["/rules/", Core.toBS ruleName]
 
 instance Core.ToQuery ReplaceTopicRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReplaceTopicRuleResponse' smart constructor.
 data ReplaceTopicRuleResponse = ReplaceTopicRuleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceTopicRuleResponse' with all optional fields omitted.
@@ -133,4 +134,4 @@ newReplaceTopicRuleResponse ::
 newReplaceTopicRuleResponse =
   ReplaceTopicRuleResponse'
 
-instance Core.NFData ReplaceTopicRuleResponse
+instance Prelude.NFData ReplaceTopicRuleResponse

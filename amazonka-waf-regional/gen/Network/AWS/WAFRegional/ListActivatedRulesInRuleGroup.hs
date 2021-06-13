@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -65,17 +66,17 @@ data ListActivatedRulesInRuleGroup = ListActivatedRulesInRuleGroup'
     -- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,
     -- specify the value of @NextMarker@ from the previous response to get
     -- information about another batch of @ActivatedRules@.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of
     -- ActivatedRule objects.
-    ruleGroupId :: Core.Maybe Core.Text,
+    ruleGroupId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return
     -- for this request. If you have more @ActivatedRules@ than the number that
     -- you specify for @Limit@, the response includes a @NextMarker@ value that
     -- you can use to get another batch of @ActivatedRules@.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListActivatedRulesInRuleGroup' with all optional fields omitted.
@@ -104,9 +105,9 @@ newListActivatedRulesInRuleGroup ::
 newListActivatedRulesInRuleGroup =
   ListActivatedRulesInRuleGroup'
     { nextMarker =
-        Core.Nothing,
-      ruleGroupId = Core.Nothing,
-      limit = Core.Nothing
+        Prelude.Nothing,
+      ruleGroupId = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @ActivatedRules@
@@ -115,19 +116,19 @@ newListActivatedRulesInRuleGroup =
 -- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,
 -- specify the value of @NextMarker@ from the previous response to get
 -- information about another batch of @ActivatedRules@.
-listActivatedRulesInRuleGroup_nextMarker :: Lens.Lens' ListActivatedRulesInRuleGroup (Core.Maybe Core.Text)
+listActivatedRulesInRuleGroup_nextMarker :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Text)
 listActivatedRulesInRuleGroup_nextMarker = Lens.lens (\ListActivatedRulesInRuleGroup' {nextMarker} -> nextMarker) (\s@ListActivatedRulesInRuleGroup' {} a -> s {nextMarker = a} :: ListActivatedRulesInRuleGroup)
 
 -- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of
 -- ActivatedRule objects.
-listActivatedRulesInRuleGroup_ruleGroupId :: Lens.Lens' ListActivatedRulesInRuleGroup (Core.Maybe Core.Text)
+listActivatedRulesInRuleGroup_ruleGroupId :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Text)
 listActivatedRulesInRuleGroup_ruleGroupId = Lens.lens (\ListActivatedRulesInRuleGroup' {ruleGroupId} -> ruleGroupId) (\s@ListActivatedRulesInRuleGroup' {} a -> s {ruleGroupId = a} :: ListActivatedRulesInRuleGroup)
 
 -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return
 -- for this request. If you have more @ActivatedRules@ than the number that
 -- you specify for @Limit@, the response includes a @NextMarker@ value that
 -- you can use to get another batch of @ActivatedRules@.
-listActivatedRulesInRuleGroup_limit :: Lens.Lens' ListActivatedRulesInRuleGroup (Core.Maybe Core.Natural)
+listActivatedRulesInRuleGroup_limit :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Natural)
 listActivatedRulesInRuleGroup_limit = Lens.lens (\ListActivatedRulesInRuleGroup' {limit} -> limit) (\s@ListActivatedRulesInRuleGroup' {} a -> s {limit = a} :: ListActivatedRulesInRuleGroup)
 
 instance
@@ -142,43 +143,47 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListActivatedRulesInRuleGroupResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "ActivatedRules" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "ActivatedRules" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListActivatedRulesInRuleGroup
+instance
+  Prelude.Hashable
+    ListActivatedRulesInRuleGroup
 
-instance Core.NFData ListActivatedRulesInRuleGroup
+instance Prelude.NFData ListActivatedRulesInRuleGroup
 
 instance Core.ToHeaders ListActivatedRulesInRuleGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.ListActivatedRulesInRuleGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListActivatedRulesInRuleGroup where
   toJSON ListActivatedRulesInRuleGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextMarker" Core..=) Core.<$> nextMarker,
-            ("RuleGroupId" Core..=) Core.<$> ruleGroupId,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
+            ("RuleGroupId" Core..=) Prelude.<$> ruleGroupId,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListActivatedRulesInRuleGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListActivatedRulesInRuleGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListActivatedRulesInRuleGroupResponse' smart constructor.
 data ListActivatedRulesInRuleGroupResponse = ListActivatedRulesInRuleGroupResponse'
@@ -187,13 +192,13 @@ data ListActivatedRulesInRuleGroupResponse = ListActivatedRulesInRuleGroupRespon
     -- list more @ActivatedRules@, submit another
     -- @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@
     -- value from the response in the @NextMarker@ value in the next request.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | An array of @ActivatedRules@ objects.
-    activatedRules :: Core.Maybe [ActivatedRule],
+    activatedRules :: Prelude.Maybe [ActivatedRule],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListActivatedRulesInRuleGroupResponse' with all optional fields omitted.
@@ -214,13 +219,13 @@ data ListActivatedRulesInRuleGroupResponse = ListActivatedRulesInRuleGroupRespon
 -- 'httpStatus', 'listActivatedRulesInRuleGroupResponse_httpStatus' - The response's http status code.
 newListActivatedRulesInRuleGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListActivatedRulesInRuleGroupResponse
 newListActivatedRulesInRuleGroupResponse pHttpStatus_ =
   ListActivatedRulesInRuleGroupResponse'
     { nextMarker =
-        Core.Nothing,
-      activatedRules = Core.Nothing,
+        Prelude.Nothing,
+      activatedRules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -229,17 +234,17 @@ newListActivatedRulesInRuleGroupResponse pHttpStatus_ =
 -- list more @ActivatedRules@, submit another
 -- @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@
 -- value from the response in the @NextMarker@ value in the next request.
-listActivatedRulesInRuleGroupResponse_nextMarker :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Core.Maybe Core.Text)
+listActivatedRulesInRuleGroupResponse_nextMarker :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Prelude.Maybe Prelude.Text)
 listActivatedRulesInRuleGroupResponse_nextMarker = Lens.lens (\ListActivatedRulesInRuleGroupResponse' {nextMarker} -> nextMarker) (\s@ListActivatedRulesInRuleGroupResponse' {} a -> s {nextMarker = a} :: ListActivatedRulesInRuleGroupResponse)
 
 -- | An array of @ActivatedRules@ objects.
-listActivatedRulesInRuleGroupResponse_activatedRules :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Core.Maybe [ActivatedRule])
-listActivatedRulesInRuleGroupResponse_activatedRules = Lens.lens (\ListActivatedRulesInRuleGroupResponse' {activatedRules} -> activatedRules) (\s@ListActivatedRulesInRuleGroupResponse' {} a -> s {activatedRules = a} :: ListActivatedRulesInRuleGroupResponse) Core.. Lens.mapping Lens._Coerce
+listActivatedRulesInRuleGroupResponse_activatedRules :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Prelude.Maybe [ActivatedRule])
+listActivatedRulesInRuleGroupResponse_activatedRules = Lens.lens (\ListActivatedRulesInRuleGroupResponse' {activatedRules} -> activatedRules) (\s@ListActivatedRulesInRuleGroupResponse' {} a -> s {activatedRules = a} :: ListActivatedRulesInRuleGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listActivatedRulesInRuleGroupResponse_httpStatus :: Lens.Lens' ListActivatedRulesInRuleGroupResponse Core.Int
+listActivatedRulesInRuleGroupResponse_httpStatus :: Lens.Lens' ListActivatedRulesInRuleGroupResponse Prelude.Int
 listActivatedRulesInRuleGroupResponse_httpStatus = Lens.lens (\ListActivatedRulesInRuleGroupResponse' {httpStatus} -> httpStatus) (\s@ListActivatedRulesInRuleGroupResponse' {} a -> s {httpStatus = a} :: ListActivatedRulesInRuleGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListActivatedRulesInRuleGroupResponse

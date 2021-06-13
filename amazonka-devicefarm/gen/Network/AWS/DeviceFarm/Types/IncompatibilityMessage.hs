@@ -22,13 +22,14 @@ module Network.AWS.DeviceFarm.Types.IncompatibilityMessage where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.DeviceAttribute
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about incompatibility.
 --
 -- /See:/ 'newIncompatibilityMessage' smart constructor.
 data IncompatibilityMessage = IncompatibilityMessage'
   { -- | A message about the incompatibility.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The type of incompatibility.
     --
     -- Allowed values include:
@@ -44,9 +45,9 @@ data IncompatibilityMessage = IncompatibilityMessage'
     -- -   REMOTE_ACCESS_ENABLED
     --
     -- -   APPIUM_VERSION
-    type' :: Core.Maybe DeviceAttribute
+    type' :: Prelude.Maybe DeviceAttribute
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IncompatibilityMessage' with all optional fields omitted.
@@ -77,12 +78,12 @@ newIncompatibilityMessage ::
   IncompatibilityMessage
 newIncompatibilityMessage =
   IncompatibilityMessage'
-    { message = Core.Nothing,
-      type' = Core.Nothing
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | A message about the incompatibility.
-incompatibilityMessage_message :: Lens.Lens' IncompatibilityMessage (Core.Maybe Core.Text)
+incompatibilityMessage_message :: Lens.Lens' IncompatibilityMessage (Prelude.Maybe Prelude.Text)
 incompatibilityMessage_message = Lens.lens (\IncompatibilityMessage' {message} -> message) (\s@IncompatibilityMessage' {} a -> s {message = a} :: IncompatibilityMessage)
 
 -- | The type of incompatibility.
@@ -100,7 +101,7 @@ incompatibilityMessage_message = Lens.lens (\IncompatibilityMessage' {message} -
 -- -   REMOTE_ACCESS_ENABLED
 --
 -- -   APPIUM_VERSION
-incompatibilityMessage_type :: Lens.Lens' IncompatibilityMessage (Core.Maybe DeviceAttribute)
+incompatibilityMessage_type :: Lens.Lens' IncompatibilityMessage (Prelude.Maybe DeviceAttribute)
 incompatibilityMessage_type = Lens.lens (\IncompatibilityMessage' {type'} -> type') (\s@IncompatibilityMessage' {} a -> s {type' = a} :: IncompatibilityMessage)
 
 instance Core.FromJSON IncompatibilityMessage where
@@ -109,9 +110,10 @@ instance Core.FromJSON IncompatibilityMessage where
       "IncompatibilityMessage"
       ( \x ->
           IncompatibilityMessage'
-            Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable IncompatibilityMessage
+instance Prelude.Hashable IncompatibilityMessage
 
-instance Core.NFData IncompatibilityMessage
+instance Prelude.NFData IncompatibilityMessage

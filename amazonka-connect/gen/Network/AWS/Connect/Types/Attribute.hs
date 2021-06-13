@@ -22,17 +22,18 @@ module Network.AWS.Connect.Types.Attribute where
 import Network.AWS.Connect.Types.InstanceAttributeType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A toggle for an individual feature at the instance level.
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
   { -- | The type of attribute.
-    attributeType :: Core.Maybe InstanceAttributeType,
+    attributeType :: Prelude.Maybe InstanceAttributeType,
     -- | The value of the attribute.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Attribute' with all optional fields omitted.
@@ -49,16 +50,16 @@ newAttribute ::
   Attribute
 newAttribute =
   Attribute'
-    { attributeType = Core.Nothing,
-      value = Core.Nothing
+    { attributeType = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The type of attribute.
-attribute_attributeType :: Lens.Lens' Attribute (Core.Maybe InstanceAttributeType)
+attribute_attributeType :: Lens.Lens' Attribute (Prelude.Maybe InstanceAttributeType)
 attribute_attributeType = Lens.lens (\Attribute' {attributeType} -> attributeType) (\s@Attribute' {} a -> s {attributeType = a} :: Attribute)
 
 -- | The value of the attribute.
-attribute_value :: Lens.Lens' Attribute (Core.Maybe Core.Text)
+attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 instance Core.FromJSON Attribute where
@@ -67,10 +68,10 @@ instance Core.FromJSON Attribute where
       "Attribute"
       ( \x ->
           Attribute'
-            Core.<$> (x Core..:? "AttributeType")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "AttributeType")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Attribute
+instance Prelude.Hashable Attribute
 
-instance Core.NFData Attribute
+instance Prelude.NFData Attribute

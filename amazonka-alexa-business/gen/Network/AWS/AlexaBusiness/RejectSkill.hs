@@ -44,15 +44,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRejectSkill' smart constructor.
 data RejectSkill = RejectSkill'
   { -- | The unique identifier of the skill.
-    skillId :: Core.Text
+    skillId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectSkill' with all optional fields omitted.
@@ -65,13 +66,13 @@ data RejectSkill = RejectSkill'
 -- 'skillId', 'rejectSkill_skillId' - The unique identifier of the skill.
 newRejectSkill ::
   -- | 'skillId'
-  Core.Text ->
+  Prelude.Text ->
   RejectSkill
 newRejectSkill pSkillId_ =
   RejectSkill' {skillId = pSkillId_}
 
 -- | The unique identifier of the skill.
-rejectSkill_skillId :: Lens.Lens' RejectSkill Core.Text
+rejectSkill_skillId :: Lens.Lens' RejectSkill Prelude.Text
 rejectSkill_skillId = Lens.lens (\RejectSkill' {skillId} -> skillId) (\s@RejectSkill' {} a -> s {skillId = a} :: RejectSkill)
 
 instance Core.AWSRequest RejectSkill where
@@ -81,43 +82,47 @@ instance Core.AWSRequest RejectSkill where
     Response.receiveEmpty
       ( \s h x ->
           RejectSkillResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RejectSkill
+instance Prelude.Hashable RejectSkill
 
-instance Core.NFData RejectSkill
+instance Prelude.NFData RejectSkill
 
 instance Core.ToHeaders RejectSkill where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.RejectSkill" :: Core.ByteString),
+              Core.=# ( "AlexaForBusiness.RejectSkill" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RejectSkill where
   toJSON RejectSkill' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SkillId" Core..= skillId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SkillId" Core..= skillId)]
       )
 
 instance Core.ToPath RejectSkill where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RejectSkill where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectSkillResponse' smart constructor.
 data RejectSkillResponse = RejectSkillResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectSkillResponse' with all optional fields omitted.
@@ -130,13 +135,13 @@ data RejectSkillResponse = RejectSkillResponse'
 -- 'httpStatus', 'rejectSkillResponse_httpStatus' - The response's http status code.
 newRejectSkillResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RejectSkillResponse
 newRejectSkillResponse pHttpStatus_ =
   RejectSkillResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-rejectSkillResponse_httpStatus :: Lens.Lens' RejectSkillResponse Core.Int
+rejectSkillResponse_httpStatus :: Lens.Lens' RejectSkillResponse Prelude.Int
 rejectSkillResponse_httpStatus = Lens.lens (\RejectSkillResponse' {httpStatus} -> httpStatus) (\s@RejectSkillResponse' {} a -> s {httpStatus = a} :: RejectSkillResponse)
 
-instance Core.NFData RejectSkillResponse
+instance Prelude.NFData RejectSkillResponse

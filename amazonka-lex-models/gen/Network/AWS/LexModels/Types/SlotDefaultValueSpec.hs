@@ -22,6 +22,7 @@ module Network.AWS.LexModels.Types.SlotDefaultValueSpec where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.SlotDefaultValue
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the default values for a slot. Default values are used when
 -- Amazon Lex hasn\'t determined a value for a slot.
@@ -38,7 +39,7 @@ data SlotDefaultValueSpec = SlotDefaultValueSpec'
     -- available, else it uses the fixed value.
     defaultValueList :: [SlotDefaultValue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SlotDefaultValueSpec' with all optional fields omitted.
@@ -61,7 +62,7 @@ newSlotDefaultValueSpec ::
 newSlotDefaultValueSpec =
   SlotDefaultValueSpec'
     { defaultValueList =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | The default values for a slot. You can specify more than one default.
@@ -73,7 +74,7 @@ newSlotDefaultValueSpec =
 -- fixed value in that order, Amazon Lex uses the context variable if it is
 -- available, else it uses the fixed value.
 slotDefaultValueSpec_defaultValueList :: Lens.Lens' SlotDefaultValueSpec [SlotDefaultValue]
-slotDefaultValueSpec_defaultValueList = Lens.lens (\SlotDefaultValueSpec' {defaultValueList} -> defaultValueList) (\s@SlotDefaultValueSpec' {} a -> s {defaultValueList = a} :: SlotDefaultValueSpec) Core.. Lens._Coerce
+slotDefaultValueSpec_defaultValueList = Lens.lens (\SlotDefaultValueSpec' {defaultValueList} -> defaultValueList) (\s@SlotDefaultValueSpec' {} a -> s {defaultValueList = a} :: SlotDefaultValueSpec) Prelude.. Lens._Coerce
 
 instance Core.FromJSON SlotDefaultValueSpec where
   parseJSON =
@@ -81,18 +82,20 @@ instance Core.FromJSON SlotDefaultValueSpec where
       "SlotDefaultValueSpec"
       ( \x ->
           SlotDefaultValueSpec'
-            Core.<$> (x Core..:? "defaultValueList" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "defaultValueList"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable SlotDefaultValueSpec
+instance Prelude.Hashable SlotDefaultValueSpec
 
-instance Core.NFData SlotDefaultValueSpec
+instance Prelude.NFData SlotDefaultValueSpec
 
 instance Core.ToJSON SlotDefaultValueSpec where
   toJSON SlotDefaultValueSpec' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("defaultValueList" Core..= defaultValueList)
           ]
       )

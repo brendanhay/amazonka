@@ -21,15 +21,16 @@ module Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The recurrence of the reports.
 --
 -- /See:/ 'newBusinessReportRecurrence' smart constructor.
 data BusinessReportRecurrence = BusinessReportRecurrence'
   { -- | The start date.
-    startDate :: Core.Maybe Core.Text
+    startDate :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BusinessReportRecurrence' with all optional fields omitted.
@@ -43,10 +44,13 @@ data BusinessReportRecurrence = BusinessReportRecurrence'
 newBusinessReportRecurrence ::
   BusinessReportRecurrence
 newBusinessReportRecurrence =
-  BusinessReportRecurrence' {startDate = Core.Nothing}
+  BusinessReportRecurrence'
+    { startDate =
+        Prelude.Nothing
+    }
 
 -- | The start date.
-businessReportRecurrence_startDate :: Lens.Lens' BusinessReportRecurrence (Core.Maybe Core.Text)
+businessReportRecurrence_startDate :: Lens.Lens' BusinessReportRecurrence (Prelude.Maybe Prelude.Text)
 businessReportRecurrence_startDate = Lens.lens (\BusinessReportRecurrence' {startDate} -> startDate) (\s@BusinessReportRecurrence' {} a -> s {startDate = a} :: BusinessReportRecurrence)
 
 instance Core.FromJSON BusinessReportRecurrence where
@@ -55,16 +59,16 @@ instance Core.FromJSON BusinessReportRecurrence where
       "BusinessReportRecurrence"
       ( \x ->
           BusinessReportRecurrence'
-            Core.<$> (x Core..:? "StartDate")
+            Prelude.<$> (x Core..:? "StartDate")
       )
 
-instance Core.Hashable BusinessReportRecurrence
+instance Prelude.Hashable BusinessReportRecurrence
 
-instance Core.NFData BusinessReportRecurrence
+instance Prelude.NFData BusinessReportRecurrence
 
 instance Core.ToJSON BusinessReportRecurrence where
   toJSON BusinessReportRecurrence' {..} =
     Core.object
-      ( Core.catMaybes
-          [("StartDate" Core..=) Core.<$> startDate]
+      ( Prelude.catMaybes
+          [("StartDate" Core..=) Prelude.<$> startDate]
       )

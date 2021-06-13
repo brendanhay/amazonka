@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -58,20 +59,20 @@ import Network.AWS.SageMaker.Types
 data CreateApp = CreateApp'
   { -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
     -- image created on the instance.
-    resourceSpec :: Core.Maybe ResourceSpec,
+    resourceSpec :: Prelude.Maybe ResourceSpec,
     -- | Each tag consists of a key and an optional value. Tag keys must be
     -- unique per resource.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The domain ID.
-    domainId :: Core.Text,
+    domainId :: Prelude.Text,
     -- | The user profile name.
-    userProfileName :: Core.Text,
+    userProfileName :: Prelude.Text,
     -- | The type of app.
     appType :: AppType,
     -- | The name of the app.
-    appName :: Core.Text
+    appName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateApp' with all optional fields omitted.
@@ -96,13 +97,13 @@ data CreateApp = CreateApp'
 -- 'appName', 'createApp_appName' - The name of the app.
 newCreateApp ::
   -- | 'domainId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userProfileName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'appType'
   AppType ->
   -- | 'appName'
-  Core.Text ->
+  Prelude.Text ->
   CreateApp
 newCreateApp
   pDomainId_
@@ -110,8 +111,8 @@ newCreateApp
   pAppType_
   pAppName_ =
     CreateApp'
-      { resourceSpec = Core.Nothing,
-        tags = Core.Nothing,
+      { resourceSpec = Prelude.Nothing,
+        tags = Prelude.Nothing,
         domainId = pDomainId_,
         userProfileName = pUserProfileName_,
         appType = pAppType_,
@@ -120,20 +121,20 @@ newCreateApp
 
 -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
 -- image created on the instance.
-createApp_resourceSpec :: Lens.Lens' CreateApp (Core.Maybe ResourceSpec)
+createApp_resourceSpec :: Lens.Lens' CreateApp (Prelude.Maybe ResourceSpec)
 createApp_resourceSpec = Lens.lens (\CreateApp' {resourceSpec} -> resourceSpec) (\s@CreateApp' {} a -> s {resourceSpec = a} :: CreateApp)
 
 -- | Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
-createApp_tags :: Lens.Lens' CreateApp (Core.Maybe [Tag])
-createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Core.. Lens.mapping Lens._Coerce
+createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe [Tag])
+createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The domain ID.
-createApp_domainId :: Lens.Lens' CreateApp Core.Text
+createApp_domainId :: Lens.Lens' CreateApp Prelude.Text
 createApp_domainId = Lens.lens (\CreateApp' {domainId} -> domainId) (\s@CreateApp' {} a -> s {domainId = a} :: CreateApp)
 
 -- | The user profile name.
-createApp_userProfileName :: Lens.Lens' CreateApp Core.Text
+createApp_userProfileName :: Lens.Lens' CreateApp Prelude.Text
 createApp_userProfileName = Lens.lens (\CreateApp' {userProfileName} -> userProfileName) (\s@CreateApp' {} a -> s {userProfileName = a} :: CreateApp)
 
 -- | The type of app.
@@ -141,7 +142,7 @@ createApp_appType :: Lens.Lens' CreateApp AppType
 createApp_appType = Lens.lens (\CreateApp' {appType} -> appType) (\s@CreateApp' {} a -> s {appType = a} :: CreateApp)
 
 -- | The name of the app.
-createApp_appName :: Lens.Lens' CreateApp Core.Text
+createApp_appName :: Lens.Lens' CreateApp Prelude.Text
 createApp_appName = Lens.lens (\CreateApp' {appName} -> appName) (\s@CreateApp' {} a -> s {appName = a} :: CreateApp)
 
 instance Core.AWSRequest CreateApp where
@@ -151,53 +152,55 @@ instance Core.AWSRequest CreateApp where
     Response.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            Core.<$> (x Core..?> "AppArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AppArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateApp
+instance Prelude.Hashable CreateApp
 
-instance Core.NFData CreateApp
+instance Prelude.NFData CreateApp
 
 instance Core.ToHeaders CreateApp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateApp" :: Core.ByteString),
+              Core.=# ("SageMaker.CreateApp" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateApp where
   toJSON CreateApp' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceSpec" Core..=) Core.<$> resourceSpec,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("DomainId" Core..= domainId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ResourceSpec" Core..=) Prelude.<$> resourceSpec,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("DomainId" Core..= domainId),
+            Prelude.Just
               ("UserProfileName" Core..= userProfileName),
-            Core.Just ("AppType" Core..= appType),
-            Core.Just ("AppName" Core..= appName)
+            Prelude.Just ("AppType" Core..= appType),
+            Prelude.Just ("AppName" Core..= appName)
           ]
       )
 
 instance Core.ToPath CreateApp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateApp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
   { -- | The Amazon Resource Name (ARN) of the app.
-    appArn :: Core.Maybe Core.Text,
+    appArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAppResponse' with all optional fields omitted.
@@ -212,20 +215,20 @@ data CreateAppResponse = CreateAppResponse'
 -- 'httpStatus', 'createAppResponse_httpStatus' - The response's http status code.
 newCreateAppResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAppResponse
 newCreateAppResponse pHttpStatus_ =
   CreateAppResponse'
-    { appArn = Core.Nothing,
+    { appArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the app.
-createAppResponse_appArn :: Lens.Lens' CreateAppResponse (Core.Maybe Core.Text)
+createAppResponse_appArn :: Lens.Lens' CreateAppResponse (Prelude.Maybe Prelude.Text)
 createAppResponse_appArn = Lens.lens (\CreateAppResponse' {appArn} -> appArn) (\s@CreateAppResponse' {} a -> s {appArn = a} :: CreateAppResponse)
 
 -- | The response's http status code.
-createAppResponse_httpStatus :: Lens.Lens' CreateAppResponse Core.Int
+createAppResponse_httpStatus :: Lens.Lens' CreateAppResponse Prelude.Int
 createAppResponse_httpStatus = Lens.lens (\CreateAppResponse' {httpStatus} -> httpStatus) (\s@CreateAppResponse' {} a -> s {httpStatus = a} :: CreateAppResponse)
 
-instance Core.NFData CreateAppResponse
+instance Prelude.NFData CreateAppResponse

@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,14 +65,14 @@ import qualified Network.AWS.Response as Response
 data CreateContainerServiceDeployment = CreateContainerServiceDeployment'
   { -- | An object that describes the settings of the public endpoint for the
     -- container service.
-    publicEndpoint :: Core.Maybe EndpointRequest,
+    publicEndpoint :: Prelude.Maybe EndpointRequest,
     -- | An object that describes the settings of the containers that will be
     -- launched on the container service.
-    containers :: Core.Maybe (Core.HashMap Core.Text Container),
+    containers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Container),
     -- | The name of the container service for which to create the deployment.
-    serviceName :: Core.Text
+    serviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateContainerServiceDeployment' with all optional fields omitted.
@@ -90,28 +91,28 @@ data CreateContainerServiceDeployment = CreateContainerServiceDeployment'
 -- 'serviceName', 'createContainerServiceDeployment_serviceName' - The name of the container service for which to create the deployment.
 newCreateContainerServiceDeployment ::
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   CreateContainerServiceDeployment
 newCreateContainerServiceDeployment pServiceName_ =
   CreateContainerServiceDeployment'
     { publicEndpoint =
-        Core.Nothing,
-      containers = Core.Nothing,
+        Prelude.Nothing,
+      containers = Prelude.Nothing,
       serviceName = pServiceName_
     }
 
 -- | An object that describes the settings of the public endpoint for the
 -- container service.
-createContainerServiceDeployment_publicEndpoint :: Lens.Lens' CreateContainerServiceDeployment (Core.Maybe EndpointRequest)
+createContainerServiceDeployment_publicEndpoint :: Lens.Lens' CreateContainerServiceDeployment (Prelude.Maybe EndpointRequest)
 createContainerServiceDeployment_publicEndpoint = Lens.lens (\CreateContainerServiceDeployment' {publicEndpoint} -> publicEndpoint) (\s@CreateContainerServiceDeployment' {} a -> s {publicEndpoint = a} :: CreateContainerServiceDeployment)
 
 -- | An object that describes the settings of the containers that will be
 -- launched on the container service.
-createContainerServiceDeployment_containers :: Lens.Lens' CreateContainerServiceDeployment (Core.Maybe (Core.HashMap Core.Text Container))
-createContainerServiceDeployment_containers = Lens.lens (\CreateContainerServiceDeployment' {containers} -> containers) (\s@CreateContainerServiceDeployment' {} a -> s {containers = a} :: CreateContainerServiceDeployment) Core.. Lens.mapping Lens._Coerce
+createContainerServiceDeployment_containers :: Lens.Lens' CreateContainerServiceDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Container))
+createContainerServiceDeployment_containers = Lens.lens (\CreateContainerServiceDeployment' {containers} -> containers) (\s@CreateContainerServiceDeployment' {} a -> s {containers = a} :: CreateContainerServiceDeployment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the container service for which to create the deployment.
-createContainerServiceDeployment_serviceName :: Lens.Lens' CreateContainerServiceDeployment Core.Text
+createContainerServiceDeployment_serviceName :: Lens.Lens' CreateContainerServiceDeployment Prelude.Text
 createContainerServiceDeployment_serviceName = Lens.lens (\CreateContainerServiceDeployment' {serviceName} -> serviceName) (\s@CreateContainerServiceDeployment' {} a -> s {serviceName = a} :: CreateContainerServiceDeployment)
 
 instance
@@ -126,59 +127,64 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateContainerServiceDeploymentResponse'
-            Core.<$> (x Core..?> "containerService")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "containerService")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateContainerServiceDeployment
 
-instance Core.NFData CreateContainerServiceDeployment
+instance
+  Prelude.NFData
+    CreateContainerServiceDeployment
 
 instance
   Core.ToHeaders
     CreateContainerServiceDeployment
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateContainerServiceDeployment" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateContainerServiceDeployment where
   toJSON CreateContainerServiceDeployment' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("publicEndpoint" Core..=) Core.<$> publicEndpoint,
-            ("containers" Core..=) Core.<$> containers,
-            Core.Just ("serviceName" Core..= serviceName)
+      ( Prelude.catMaybes
+          [ ("publicEndpoint" Core..=)
+              Prelude.<$> publicEndpoint,
+            ("containers" Core..=) Prelude.<$> containers,
+            Prelude.Just ("serviceName" Core..= serviceName)
           ]
       )
 
 instance Core.ToPath CreateContainerServiceDeployment where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     CreateContainerServiceDeployment
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContainerServiceDeploymentResponse' smart constructor.
 data CreateContainerServiceDeploymentResponse = CreateContainerServiceDeploymentResponse'
   { -- | An object that describes a container service.
-    containerService :: Core.Maybe ContainerService,
+    containerService :: Prelude.Maybe ContainerService,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateContainerServiceDeploymentResponse' with all optional fields omitted.
@@ -193,24 +199,24 @@ data CreateContainerServiceDeploymentResponse = CreateContainerServiceDeployment
 -- 'httpStatus', 'createContainerServiceDeploymentResponse_httpStatus' - The response's http status code.
 newCreateContainerServiceDeploymentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateContainerServiceDeploymentResponse
 newCreateContainerServiceDeploymentResponse
   pHttpStatus_ =
     CreateContainerServiceDeploymentResponse'
       { containerService =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object that describes a container service.
-createContainerServiceDeploymentResponse_containerService :: Lens.Lens' CreateContainerServiceDeploymentResponse (Core.Maybe ContainerService)
+createContainerServiceDeploymentResponse_containerService :: Lens.Lens' CreateContainerServiceDeploymentResponse (Prelude.Maybe ContainerService)
 createContainerServiceDeploymentResponse_containerService = Lens.lens (\CreateContainerServiceDeploymentResponse' {containerService} -> containerService) (\s@CreateContainerServiceDeploymentResponse' {} a -> s {containerService = a} :: CreateContainerServiceDeploymentResponse)
 
 -- | The response's http status code.
-createContainerServiceDeploymentResponse_httpStatus :: Lens.Lens' CreateContainerServiceDeploymentResponse Core.Int
+createContainerServiceDeploymentResponse_httpStatus :: Lens.Lens' CreateContainerServiceDeploymentResponse Prelude.Int
 createContainerServiceDeploymentResponse_httpStatus = Lens.lens (\CreateContainerServiceDeploymentResponse' {httpStatus} -> httpStatus) (\s@CreateContainerServiceDeploymentResponse' {} a -> s {httpStatus = a} :: CreateContainerServiceDeploymentResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateContainerServiceDeploymentResponse

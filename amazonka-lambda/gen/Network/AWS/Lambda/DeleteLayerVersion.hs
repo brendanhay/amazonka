@@ -43,17 +43,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLayerVersion' smart constructor.
 data DeleteLayerVersion = DeleteLayerVersion'
   { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Core.Text,
+    layerName :: Prelude.Text,
     -- | The version number.
-    versionNumber :: Core.Integer
+    versionNumber :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLayerVersion' with all optional fields omitted.
@@ -68,9 +69,9 @@ data DeleteLayerVersion = DeleteLayerVersion'
 -- 'versionNumber', 'deleteLayerVersion_versionNumber' - The version number.
 newDeleteLayerVersion ::
   -- | 'layerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'versionNumber'
-  Core.Integer ->
+  Prelude.Integer ->
   DeleteLayerVersion
 newDeleteLayerVersion pLayerName_ pVersionNumber_ =
   DeleteLayerVersion'
@@ -79,11 +80,11 @@ newDeleteLayerVersion pLayerName_ pVersionNumber_ =
     }
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
-deleteLayerVersion_layerName :: Lens.Lens' DeleteLayerVersion Core.Text
+deleteLayerVersion_layerName :: Lens.Lens' DeleteLayerVersion Prelude.Text
 deleteLayerVersion_layerName = Lens.lens (\DeleteLayerVersion' {layerName} -> layerName) (\s@DeleteLayerVersion' {} a -> s {layerName = a} :: DeleteLayerVersion)
 
 -- | The version number.
-deleteLayerVersion_versionNumber :: Lens.Lens' DeleteLayerVersion Core.Integer
+deleteLayerVersion_versionNumber :: Lens.Lens' DeleteLayerVersion Prelude.Integer
 deleteLayerVersion_versionNumber = Lens.lens (\DeleteLayerVersion' {versionNumber} -> versionNumber) (\s@DeleteLayerVersion' {} a -> s {versionNumber = a} :: DeleteLayerVersion)
 
 instance Core.AWSRequest DeleteLayerVersion where
@@ -94,16 +95,16 @@ instance Core.AWSRequest DeleteLayerVersion where
   response =
     Response.receiveNull DeleteLayerVersionResponse'
 
-instance Core.Hashable DeleteLayerVersion
+instance Prelude.Hashable DeleteLayerVersion
 
-instance Core.NFData DeleteLayerVersion
+instance Prelude.NFData DeleteLayerVersion
 
 instance Core.ToHeaders DeleteLayerVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteLayerVersion where
   toPath DeleteLayerVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2018-10-31/layers/",
         Core.toBS layerName,
         "/versions/",
@@ -111,13 +112,13 @@ instance Core.ToPath DeleteLayerVersion where
       ]
 
 instance Core.ToQuery DeleteLayerVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLayerVersionResponse' smart constructor.
 data DeleteLayerVersionResponse = DeleteLayerVersionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLayerVersionResponse' with all optional fields omitted.
@@ -128,4 +129,4 @@ newDeleteLayerVersionResponse ::
 newDeleteLayerVersionResponse =
   DeleteLayerVersionResponse'
 
-instance Core.NFData DeleteLayerVersionResponse
+instance Prelude.NFData DeleteLayerVersionResponse

@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.LinkedService where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | If a health check or hosted zone was created by another service,
@@ -33,14 +34,14 @@ data LinkedService = LinkedService'
   { -- | If the health check or hosted zone was created by another service, the
     -- service that created the resource. When a resource is created by another
     -- service, you can\'t edit or delete it using Amazon Route 53.
-    servicePrincipal :: Core.Maybe Core.Text,
+    servicePrincipal :: Prelude.Maybe Prelude.Text,
     -- | If the health check or hosted zone was created by another service, an
     -- optional description that can be provided by the other service. When a
     -- resource is created by another service, you can\'t edit or delete it
     -- using Amazon Route 53.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LinkedService' with all optional fields omitted.
@@ -62,29 +63,29 @@ newLinkedService ::
   LinkedService
 newLinkedService =
   LinkedService'
-    { servicePrincipal = Core.Nothing,
-      description = Core.Nothing
+    { servicePrincipal = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | If the health check or hosted zone was created by another service, the
 -- service that created the resource. When a resource is created by another
 -- service, you can\'t edit or delete it using Amazon Route 53.
-linkedService_servicePrincipal :: Lens.Lens' LinkedService (Core.Maybe Core.Text)
+linkedService_servicePrincipal :: Lens.Lens' LinkedService (Prelude.Maybe Prelude.Text)
 linkedService_servicePrincipal = Lens.lens (\LinkedService' {servicePrincipal} -> servicePrincipal) (\s@LinkedService' {} a -> s {servicePrincipal = a} :: LinkedService)
 
 -- | If the health check or hosted zone was created by another service, an
 -- optional description that can be provided by the other service. When a
 -- resource is created by another service, you can\'t edit or delete it
 -- using Amazon Route 53.
-linkedService_description :: Lens.Lens' LinkedService (Core.Maybe Core.Text)
+linkedService_description :: Lens.Lens' LinkedService (Prelude.Maybe Prelude.Text)
 linkedService_description = Lens.lens (\LinkedService' {description} -> description) (\s@LinkedService' {} a -> s {description = a} :: LinkedService)
 
 instance Core.FromXML LinkedService where
   parseXML x =
     LinkedService'
-      Core.<$> (x Core..@? "ServicePrincipal")
-      Core.<*> (x Core..@? "Description")
+      Prelude.<$> (x Core..@? "ServicePrincipal")
+      Prelude.<*> (x Core..@? "Description")
 
-instance Core.Hashable LinkedService
+instance Prelude.Hashable LinkedService
 
-instance Core.NFData LinkedService
+instance Prelude.NFData LinkedService

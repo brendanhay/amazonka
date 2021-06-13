@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.Endpoint
 import Network.AWS.ElastiCache.Types.NodeGroupMember
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a collection of cache nodes in a replication group. One node
 -- in the node group is the read\/write primary node. All the other nodes
@@ -32,24 +33,24 @@ import qualified Network.AWS.Lens as Lens
 data NodeGroup = NodeGroup'
   { -- | The current state of this replication group - @creating@, @available@,
     -- @modifying@, @deleting@.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The endpoint of the replica nodes in this node group (shard).
-    readerEndpoint :: Core.Maybe Endpoint,
+    readerEndpoint :: Prelude.Maybe Endpoint,
     -- | The identifier for the node group (shard). A Redis (cluster mode
     -- disabled) replication group contains only 1 node group; therefore, the
     -- node group ID is 0001. A Redis (cluster mode enabled) replication group
     -- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user
     -- can provide the id for a node group.
-    nodeGroupId :: Core.Maybe Core.Text,
+    nodeGroupId :: Prelude.Maybe Prelude.Text,
     -- | The endpoint of the primary node in this node group (shard).
-    primaryEndpoint :: Core.Maybe Endpoint,
+    primaryEndpoint :: Prelude.Maybe Endpoint,
     -- | The keyspace for this node group (shard).
-    slots :: Core.Maybe Core.Text,
+    slots :: Prelude.Maybe Prelude.Text,
     -- | A list containing information about individual nodes within the node
     -- group (shard).
-    nodeGroupMembers :: Core.Maybe [NodeGroupMember]
+    nodeGroupMembers :: Prelude.Maybe [NodeGroupMember]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeGroup' with all optional fields omitted.
@@ -80,21 +81,21 @@ newNodeGroup ::
   NodeGroup
 newNodeGroup =
   NodeGroup'
-    { status = Core.Nothing,
-      readerEndpoint = Core.Nothing,
-      nodeGroupId = Core.Nothing,
-      primaryEndpoint = Core.Nothing,
-      slots = Core.Nothing,
-      nodeGroupMembers = Core.Nothing
+    { status = Prelude.Nothing,
+      readerEndpoint = Prelude.Nothing,
+      nodeGroupId = Prelude.Nothing,
+      primaryEndpoint = Prelude.Nothing,
+      slots = Prelude.Nothing,
+      nodeGroupMembers = Prelude.Nothing
     }
 
 -- | The current state of this replication group - @creating@, @available@,
 -- @modifying@, @deleting@.
-nodeGroup_status :: Lens.Lens' NodeGroup (Core.Maybe Core.Text)
+nodeGroup_status :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
 nodeGroup_status = Lens.lens (\NodeGroup' {status} -> status) (\s@NodeGroup' {} a -> s {status = a} :: NodeGroup)
 
 -- | The endpoint of the replica nodes in this node group (shard).
-nodeGroup_readerEndpoint :: Lens.Lens' NodeGroup (Core.Maybe Endpoint)
+nodeGroup_readerEndpoint :: Lens.Lens' NodeGroup (Prelude.Maybe Endpoint)
 nodeGroup_readerEndpoint = Lens.lens (\NodeGroup' {readerEndpoint} -> readerEndpoint) (\s@NodeGroup' {} a -> s {readerEndpoint = a} :: NodeGroup)
 
 -- | The identifier for the node group (shard). A Redis (cluster mode
@@ -102,34 +103,35 @@ nodeGroup_readerEndpoint = Lens.lens (\NodeGroup' {readerEndpoint} -> readerEndp
 -- node group ID is 0001. A Redis (cluster mode enabled) replication group
 -- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user
 -- can provide the id for a node group.
-nodeGroup_nodeGroupId :: Lens.Lens' NodeGroup (Core.Maybe Core.Text)
+nodeGroup_nodeGroupId :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
 nodeGroup_nodeGroupId = Lens.lens (\NodeGroup' {nodeGroupId} -> nodeGroupId) (\s@NodeGroup' {} a -> s {nodeGroupId = a} :: NodeGroup)
 
 -- | The endpoint of the primary node in this node group (shard).
-nodeGroup_primaryEndpoint :: Lens.Lens' NodeGroup (Core.Maybe Endpoint)
+nodeGroup_primaryEndpoint :: Lens.Lens' NodeGroup (Prelude.Maybe Endpoint)
 nodeGroup_primaryEndpoint = Lens.lens (\NodeGroup' {primaryEndpoint} -> primaryEndpoint) (\s@NodeGroup' {} a -> s {primaryEndpoint = a} :: NodeGroup)
 
 -- | The keyspace for this node group (shard).
-nodeGroup_slots :: Lens.Lens' NodeGroup (Core.Maybe Core.Text)
+nodeGroup_slots :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
 nodeGroup_slots = Lens.lens (\NodeGroup' {slots} -> slots) (\s@NodeGroup' {} a -> s {slots = a} :: NodeGroup)
 
 -- | A list containing information about individual nodes within the node
 -- group (shard).
-nodeGroup_nodeGroupMembers :: Lens.Lens' NodeGroup (Core.Maybe [NodeGroupMember])
-nodeGroup_nodeGroupMembers = Lens.lens (\NodeGroup' {nodeGroupMembers} -> nodeGroupMembers) (\s@NodeGroup' {} a -> s {nodeGroupMembers = a} :: NodeGroup) Core.. Lens.mapping Lens._Coerce
+nodeGroup_nodeGroupMembers :: Lens.Lens' NodeGroup (Prelude.Maybe [NodeGroupMember])
+nodeGroup_nodeGroupMembers = Lens.lens (\NodeGroup' {nodeGroupMembers} -> nodeGroupMembers) (\s@NodeGroup' {} a -> s {nodeGroupMembers = a} :: NodeGroup) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML NodeGroup where
   parseXML x =
     NodeGroup'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "ReaderEndpoint")
-      Core.<*> (x Core..@? "NodeGroupId")
-      Core.<*> (x Core..@? "PrimaryEndpoint")
-      Core.<*> (x Core..@? "Slots")
-      Core.<*> ( x Core..@? "NodeGroupMembers" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "NodeGroupMember")
-               )
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "ReaderEndpoint")
+      Prelude.<*> (x Core..@? "NodeGroupId")
+      Prelude.<*> (x Core..@? "PrimaryEndpoint")
+      Prelude.<*> (x Core..@? "Slots")
+      Prelude.<*> ( x Core..@? "NodeGroupMembers"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "NodeGroupMember")
+                  )
 
-instance Core.Hashable NodeGroup
+instance Prelude.Hashable NodeGroup
 
-instance Core.NFData NodeGroup
+instance Prelude.NFData NodeGroup

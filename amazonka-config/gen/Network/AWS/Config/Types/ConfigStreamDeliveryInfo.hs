@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.ConfigStreamDeliveryInfo where
 import Network.AWS.Config.Types.DeliveryStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list that contains the status of the delivery of the configuration
 -- stream notification to the Amazon SNS topic.
@@ -29,20 +30,20 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newConfigStreamDeliveryInfo' smart constructor.
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
   { -- | The error message from the last attempted delivery.
-    lastErrorMessage :: Core.Maybe Core.Text,
+    lastErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code from the last attempted delivery.
-    lastErrorCode :: Core.Maybe Core.Text,
+    lastErrorCode :: Prelude.Maybe Prelude.Text,
     -- | Status of the last attempted delivery.
     --
     -- __Note__ Providing an SNS topic on a
     -- <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel>
     -- for AWS Config is optional. If the SNS delivery is turned off, the last
     -- status will be __Not_Applicable__.
-    lastStatus :: Core.Maybe DeliveryStatus,
+    lastStatus :: Prelude.Maybe DeliveryStatus,
     -- | The time from the last status change.
-    lastStatusChangeTime :: Core.Maybe Core.POSIX
+    lastStatusChangeTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigStreamDeliveryInfo' with all optional fields omitted.
@@ -69,18 +70,18 @@ newConfigStreamDeliveryInfo ::
 newConfigStreamDeliveryInfo =
   ConfigStreamDeliveryInfo'
     { lastErrorMessage =
-        Core.Nothing,
-      lastErrorCode = Core.Nothing,
-      lastStatus = Core.Nothing,
-      lastStatusChangeTime = Core.Nothing
+        Prelude.Nothing,
+      lastErrorCode = Prelude.Nothing,
+      lastStatus = Prelude.Nothing,
+      lastStatusChangeTime = Prelude.Nothing
     }
 
 -- | The error message from the last attempted delivery.
-configStreamDeliveryInfo_lastErrorMessage :: Lens.Lens' ConfigStreamDeliveryInfo (Core.Maybe Core.Text)
+configStreamDeliveryInfo_lastErrorMessage :: Lens.Lens' ConfigStreamDeliveryInfo (Prelude.Maybe Prelude.Text)
 configStreamDeliveryInfo_lastErrorMessage = Lens.lens (\ConfigStreamDeliveryInfo' {lastErrorMessage} -> lastErrorMessage) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastErrorMessage = a} :: ConfigStreamDeliveryInfo)
 
 -- | The error code from the last attempted delivery.
-configStreamDeliveryInfo_lastErrorCode :: Lens.Lens' ConfigStreamDeliveryInfo (Core.Maybe Core.Text)
+configStreamDeliveryInfo_lastErrorCode :: Lens.Lens' ConfigStreamDeliveryInfo (Prelude.Maybe Prelude.Text)
 configStreamDeliveryInfo_lastErrorCode = Lens.lens (\ConfigStreamDeliveryInfo' {lastErrorCode} -> lastErrorCode) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastErrorCode = a} :: ConfigStreamDeliveryInfo)
 
 -- | Status of the last attempted delivery.
@@ -89,12 +90,12 @@ configStreamDeliveryInfo_lastErrorCode = Lens.lens (\ConfigStreamDeliveryInfo' {
 -- <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel>
 -- for AWS Config is optional. If the SNS delivery is turned off, the last
 -- status will be __Not_Applicable__.
-configStreamDeliveryInfo_lastStatus :: Lens.Lens' ConfigStreamDeliveryInfo (Core.Maybe DeliveryStatus)
+configStreamDeliveryInfo_lastStatus :: Lens.Lens' ConfigStreamDeliveryInfo (Prelude.Maybe DeliveryStatus)
 configStreamDeliveryInfo_lastStatus = Lens.lens (\ConfigStreamDeliveryInfo' {lastStatus} -> lastStatus) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastStatus = a} :: ConfigStreamDeliveryInfo)
 
 -- | The time from the last status change.
-configStreamDeliveryInfo_lastStatusChangeTime :: Lens.Lens' ConfigStreamDeliveryInfo (Core.Maybe Core.UTCTime)
-configStreamDeliveryInfo_lastStatusChangeTime = Lens.lens (\ConfigStreamDeliveryInfo' {lastStatusChangeTime} -> lastStatusChangeTime) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastStatusChangeTime = a} :: ConfigStreamDeliveryInfo) Core.. Lens.mapping Core._Time
+configStreamDeliveryInfo_lastStatusChangeTime :: Lens.Lens' ConfigStreamDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
+configStreamDeliveryInfo_lastStatusChangeTime = Lens.lens (\ConfigStreamDeliveryInfo' {lastStatusChangeTime} -> lastStatusChangeTime) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastStatusChangeTime = a} :: ConfigStreamDeliveryInfo) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ConfigStreamDeliveryInfo where
   parseJSON =
@@ -102,12 +103,12 @@ instance Core.FromJSON ConfigStreamDeliveryInfo where
       "ConfigStreamDeliveryInfo"
       ( \x ->
           ConfigStreamDeliveryInfo'
-            Core.<$> (x Core..:? "lastErrorMessage")
-            Core.<*> (x Core..:? "lastErrorCode")
-            Core.<*> (x Core..:? "lastStatus")
-            Core.<*> (x Core..:? "lastStatusChangeTime")
+            Prelude.<$> (x Core..:? "lastErrorMessage")
+            Prelude.<*> (x Core..:? "lastErrorCode")
+            Prelude.<*> (x Core..:? "lastStatus")
+            Prelude.<*> (x Core..:? "lastStatusChangeTime")
       )
 
-instance Core.Hashable ConfigStreamDeliveryInfo
+instance Prelude.Hashable ConfigStreamDeliveryInfo
 
-instance Core.NFData ConfigStreamDeliveryInfo
+instance Prelude.NFData ConfigStreamDeliveryInfo

@@ -63,6 +63,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,25 +75,25 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
   { -- | A list of configuration options to remove from the configuration set.
     --
     -- Constraint: You can remove only @UserDefined@ configuration options.
-    optionsToRemove :: Core.Maybe [OptionSpecification],
+    optionsToRemove :: Prelude.Maybe [OptionSpecification],
     -- | A list of configuration option settings to update with the new specified
     -- option value.
-    optionSettings :: Core.Maybe [ConfigurationOptionSetting],
+    optionSettings :: Prelude.Maybe [ConfigurationOptionSetting],
     -- | A new description for the configuration.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the application associated with the configuration template
     -- to update.
     --
     -- If no application is found with this name, @UpdateConfigurationTemplate@
     -- returns an @InvalidParameterValue@ error.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The name of the configuration template to update.
     --
     -- If no configuration template is found with this name,
     -- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationTemplate' with all optional fields omitted.
@@ -123,18 +124,18 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
 -- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
 newUpdateConfigurationTemplate ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateConfigurationTemplate
 newUpdateConfigurationTemplate
   pApplicationName_
   pTemplateName_ =
     UpdateConfigurationTemplate'
       { optionsToRemove =
-          Core.Nothing,
-        optionSettings = Core.Nothing,
-        description = Core.Nothing,
+          Prelude.Nothing,
+        optionSettings = Prelude.Nothing,
+        description = Prelude.Nothing,
         applicationName = pApplicationName_,
         templateName = pTemplateName_
       }
@@ -142,16 +143,16 @@ newUpdateConfigurationTemplate
 -- | A list of configuration options to remove from the configuration set.
 --
 -- Constraint: You can remove only @UserDefined@ configuration options.
-updateConfigurationTemplate_optionsToRemove :: Lens.Lens' UpdateConfigurationTemplate (Core.Maybe [OptionSpecification])
-updateConfigurationTemplate_optionsToRemove = Lens.lens (\UpdateConfigurationTemplate' {optionsToRemove} -> optionsToRemove) (\s@UpdateConfigurationTemplate' {} a -> s {optionsToRemove = a} :: UpdateConfigurationTemplate) Core.. Lens.mapping Lens._Coerce
+updateConfigurationTemplate_optionsToRemove :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe [OptionSpecification])
+updateConfigurationTemplate_optionsToRemove = Lens.lens (\UpdateConfigurationTemplate' {optionsToRemove} -> optionsToRemove) (\s@UpdateConfigurationTemplate' {} a -> s {optionsToRemove = a} :: UpdateConfigurationTemplate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of configuration option settings to update with the new specified
 -- option value.
-updateConfigurationTemplate_optionSettings :: Lens.Lens' UpdateConfigurationTemplate (Core.Maybe [ConfigurationOptionSetting])
-updateConfigurationTemplate_optionSettings = Lens.lens (\UpdateConfigurationTemplate' {optionSettings} -> optionSettings) (\s@UpdateConfigurationTemplate' {} a -> s {optionSettings = a} :: UpdateConfigurationTemplate) Core.. Lens.mapping Lens._Coerce
+updateConfigurationTemplate_optionSettings :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe [ConfigurationOptionSetting])
+updateConfigurationTemplate_optionSettings = Lens.lens (\UpdateConfigurationTemplate' {optionSettings} -> optionSettings) (\s@UpdateConfigurationTemplate' {} a -> s {optionSettings = a} :: UpdateConfigurationTemplate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A new description for the configuration.
-updateConfigurationTemplate_description :: Lens.Lens' UpdateConfigurationTemplate (Core.Maybe Core.Text)
+updateConfigurationTemplate_description :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe Prelude.Text)
 updateConfigurationTemplate_description = Lens.lens (\UpdateConfigurationTemplate' {description} -> description) (\s@UpdateConfigurationTemplate' {} a -> s {description = a} :: UpdateConfigurationTemplate)
 
 -- | The name of the application associated with the configuration template
@@ -159,14 +160,14 @@ updateConfigurationTemplate_description = Lens.lens (\UpdateConfigurationTemplat
 --
 -- If no application is found with this name, @UpdateConfigurationTemplate@
 -- returns an @InvalidParameterValue@ error.
-updateConfigurationTemplate_applicationName :: Lens.Lens' UpdateConfigurationTemplate Core.Text
+updateConfigurationTemplate_applicationName :: Lens.Lens' UpdateConfigurationTemplate Prelude.Text
 updateConfigurationTemplate_applicationName = Lens.lens (\UpdateConfigurationTemplate' {applicationName} -> applicationName) (\s@UpdateConfigurationTemplate' {} a -> s {applicationName = a} :: UpdateConfigurationTemplate)
 
 -- | The name of the configuration template to update.
 --
 -- If no configuration template is found with this name,
 -- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
-updateConfigurationTemplate_templateName :: Lens.Lens' UpdateConfigurationTemplate Core.Text
+updateConfigurationTemplate_templateName :: Lens.Lens' UpdateConfigurationTemplate Prelude.Text
 updateConfigurationTemplate_templateName = Lens.lens (\UpdateConfigurationTemplate' {templateName} -> templateName) (\s@UpdateConfigurationTemplate' {} a -> s {templateName = a} :: UpdateConfigurationTemplate)
 
 instance Core.AWSRequest UpdateConfigurationTemplate where
@@ -179,28 +180,35 @@ instance Core.AWSRequest UpdateConfigurationTemplate where
       "UpdateConfigurationTemplateResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable UpdateConfigurationTemplate
+instance Prelude.Hashable UpdateConfigurationTemplate
 
-instance Core.NFData UpdateConfigurationTemplate
+instance Prelude.NFData UpdateConfigurationTemplate
 
 instance Core.ToHeaders UpdateConfigurationTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateConfigurationTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateConfigurationTemplate where
   toQuery UpdateConfigurationTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateConfigurationTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ( "UpdateConfigurationTemplate" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "OptionsToRemove"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> optionsToRemove),
+            ( Core.toQueryList "member"
+                Prelude.<$> optionsToRemove
+            ),
         "OptionSettings"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> optionSettings),
+            ( Core.toQueryList "member"
+                Prelude.<$> optionSettings
+            ),
         "Description" Core.=: description,
         "ApplicationName" Core.=: applicationName,
         "TemplateName" Core.=: templateName

@@ -23,25 +23,26 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.CertificateState
 import Network.AWS.DirectoryService.Types.CertificateType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains general information about a certificate.
 --
 -- /See:/ 'newCertificateInfo' smart constructor.
 data CertificateInfo = CertificateInfo'
   { -- | The common name for the certificate.
-    commonName :: Core.Maybe Core.Text,
+    commonName :: Prelude.Maybe Prelude.Text,
     -- | The state of the certificate.
-    state :: Core.Maybe CertificateState,
+    state :: Prelude.Maybe CertificateState,
     -- | The date and time when the certificate will expire.
-    expiryDateTime :: Core.Maybe Core.POSIX,
+    expiryDateTime :: Prelude.Maybe Core.POSIX,
     -- | The function that the registered certificate performs. Valid values
     -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
     -- @ClientLDAPS@.
-    type' :: Core.Maybe CertificateType,
+    type' :: Prelude.Maybe CertificateType,
     -- | The identifier of the certificate.
-    certificateId :: Core.Maybe Core.Text
+    certificateId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CertificateInfo' with all optional fields omitted.
@@ -66,33 +67,33 @@ newCertificateInfo ::
   CertificateInfo
 newCertificateInfo =
   CertificateInfo'
-    { commonName = Core.Nothing,
-      state = Core.Nothing,
-      expiryDateTime = Core.Nothing,
-      type' = Core.Nothing,
-      certificateId = Core.Nothing
+    { commonName = Prelude.Nothing,
+      state = Prelude.Nothing,
+      expiryDateTime = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      certificateId = Prelude.Nothing
     }
 
 -- | The common name for the certificate.
-certificateInfo_commonName :: Lens.Lens' CertificateInfo (Core.Maybe Core.Text)
+certificateInfo_commonName :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.Text)
 certificateInfo_commonName = Lens.lens (\CertificateInfo' {commonName} -> commonName) (\s@CertificateInfo' {} a -> s {commonName = a} :: CertificateInfo)
 
 -- | The state of the certificate.
-certificateInfo_state :: Lens.Lens' CertificateInfo (Core.Maybe CertificateState)
+certificateInfo_state :: Lens.Lens' CertificateInfo (Prelude.Maybe CertificateState)
 certificateInfo_state = Lens.lens (\CertificateInfo' {state} -> state) (\s@CertificateInfo' {} a -> s {state = a} :: CertificateInfo)
 
 -- | The date and time when the certificate will expire.
-certificateInfo_expiryDateTime :: Lens.Lens' CertificateInfo (Core.Maybe Core.UTCTime)
-certificateInfo_expiryDateTime = Lens.lens (\CertificateInfo' {expiryDateTime} -> expiryDateTime) (\s@CertificateInfo' {} a -> s {expiryDateTime = a} :: CertificateInfo) Core.. Lens.mapping Core._Time
+certificateInfo_expiryDateTime :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.UTCTime)
+certificateInfo_expiryDateTime = Lens.lens (\CertificateInfo' {expiryDateTime} -> expiryDateTime) (\s@CertificateInfo' {} a -> s {expiryDateTime = a} :: CertificateInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The function that the registered certificate performs. Valid values
 -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
 -- @ClientLDAPS@.
-certificateInfo_type :: Lens.Lens' CertificateInfo (Core.Maybe CertificateType)
+certificateInfo_type :: Lens.Lens' CertificateInfo (Prelude.Maybe CertificateType)
 certificateInfo_type = Lens.lens (\CertificateInfo' {type'} -> type') (\s@CertificateInfo' {} a -> s {type' = a} :: CertificateInfo)
 
 -- | The identifier of the certificate.
-certificateInfo_certificateId :: Lens.Lens' CertificateInfo (Core.Maybe Core.Text)
+certificateInfo_certificateId :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.Text)
 certificateInfo_certificateId = Lens.lens (\CertificateInfo' {certificateId} -> certificateId) (\s@CertificateInfo' {} a -> s {certificateId = a} :: CertificateInfo)
 
 instance Core.FromJSON CertificateInfo where
@@ -101,13 +102,13 @@ instance Core.FromJSON CertificateInfo where
       "CertificateInfo"
       ( \x ->
           CertificateInfo'
-            Core.<$> (x Core..:? "CommonName")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (x Core..:? "ExpiryDateTime")
-            Core.<*> (x Core..:? "Type")
-            Core.<*> (x Core..:? "CertificateId")
+            Prelude.<$> (x Core..:? "CommonName")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "ExpiryDateTime")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "CertificateId")
       )
 
-instance Core.Hashable CertificateInfo
+instance Prelude.Hashable CertificateInfo
 
-instance Core.NFData CertificateInfo
+instance Prelude.NFData CertificateInfo

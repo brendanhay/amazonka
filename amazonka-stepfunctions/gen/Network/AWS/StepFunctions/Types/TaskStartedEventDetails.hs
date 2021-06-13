@@ -21,17 +21,18 @@ module Network.AWS.StepFunctions.Types.TaskStartedEventDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the start of a task during an execution.
 --
 -- /See:/ 'newTaskStartedEventDetails' smart constructor.
 data TaskStartedEventDetails = TaskStartedEventDetails'
   { -- | The action of the resource called by a task state.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
-    resource :: Core.Text
+    resource :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TaskStartedEventDetails' with all optional fields omitted.
@@ -46,9 +47,9 @@ data TaskStartedEventDetails = TaskStartedEventDetails'
 -- 'resource', 'taskStartedEventDetails_resource' - The service name of the resource in a task state.
 newTaskStartedEventDetails ::
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resource'
-  Core.Text ->
+  Prelude.Text ->
   TaskStartedEventDetails
 newTaskStartedEventDetails pResourceType_ pResource_ =
   TaskStartedEventDetails'
@@ -58,11 +59,11 @@ newTaskStartedEventDetails pResourceType_ pResource_ =
     }
 
 -- | The action of the resource called by a task state.
-taskStartedEventDetails_resourceType :: Lens.Lens' TaskStartedEventDetails Core.Text
+taskStartedEventDetails_resourceType :: Lens.Lens' TaskStartedEventDetails Prelude.Text
 taskStartedEventDetails_resourceType = Lens.lens (\TaskStartedEventDetails' {resourceType} -> resourceType) (\s@TaskStartedEventDetails' {} a -> s {resourceType = a} :: TaskStartedEventDetails)
 
 -- | The service name of the resource in a task state.
-taskStartedEventDetails_resource :: Lens.Lens' TaskStartedEventDetails Core.Text
+taskStartedEventDetails_resource :: Lens.Lens' TaskStartedEventDetails Prelude.Text
 taskStartedEventDetails_resource = Lens.lens (\TaskStartedEventDetails' {resource} -> resource) (\s@TaskStartedEventDetails' {} a -> s {resource = a} :: TaskStartedEventDetails)
 
 instance Core.FromJSON TaskStartedEventDetails where
@@ -71,10 +72,10 @@ instance Core.FromJSON TaskStartedEventDetails where
       "TaskStartedEventDetails"
       ( \x ->
           TaskStartedEventDetails'
-            Core.<$> (x Core..: "resourceType")
-            Core.<*> (x Core..: "resource")
+            Prelude.<$> (x Core..: "resourceType")
+            Prelude.<*> (x Core..: "resource")
       )
 
-instance Core.Hashable TaskStartedEventDetails
+instance Prelude.Hashable TaskStartedEventDetails
 
-instance Core.NFData TaskStartedEventDetails
+instance Prelude.NFData TaskStartedEventDetails

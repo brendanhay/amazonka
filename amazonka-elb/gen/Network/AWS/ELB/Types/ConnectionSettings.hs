@@ -22,6 +22,7 @@ module Network.AWS.ELB.Types.ConnectionSettings where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the @ConnectionSettings@ attribute.
 --
@@ -30,9 +31,9 @@ data ConnectionSettings = ConnectionSettings'
   { -- | The time, in seconds, that the connection is allowed to be idle (no data
     -- has been sent over the connection) before it is closed by the load
     -- balancer.
-    idleTimeout :: Core.Natural
+    idleTimeout :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectionSettings' with all optional fields omitted.
@@ -47,7 +48,7 @@ data ConnectionSettings = ConnectionSettings'
 -- balancer.
 newConnectionSettings ::
   -- | 'idleTimeout'
-  Core.Natural ->
+  Prelude.Natural ->
   ConnectionSettings
 newConnectionSettings pIdleTimeout_ =
   ConnectionSettings' {idleTimeout = pIdleTimeout_}
@@ -55,18 +56,18 @@ newConnectionSettings pIdleTimeout_ =
 -- | The time, in seconds, that the connection is allowed to be idle (no data
 -- has been sent over the connection) before it is closed by the load
 -- balancer.
-connectionSettings_idleTimeout :: Lens.Lens' ConnectionSettings Core.Natural
+connectionSettings_idleTimeout :: Lens.Lens' ConnectionSettings Prelude.Natural
 connectionSettings_idleTimeout = Lens.lens (\ConnectionSettings' {idleTimeout} -> idleTimeout) (\s@ConnectionSettings' {} a -> s {idleTimeout = a} :: ConnectionSettings)
 
 instance Core.FromXML ConnectionSettings where
   parseXML x =
     ConnectionSettings'
-      Core.<$> (x Core..@ "IdleTimeout")
+      Prelude.<$> (x Core..@ "IdleTimeout")
 
-instance Core.Hashable ConnectionSettings
+instance Prelude.Hashable ConnectionSettings
 
-instance Core.NFData ConnectionSettings
+instance Prelude.NFData ConnectionSettings
 
 instance Core.ToQuery ConnectionSettings where
   toQuery ConnectionSettings' {..} =
-    Core.mconcat ["IdleTimeout" Core.=: idleTimeout]
+    Prelude.mconcat ["IdleTimeout" Core.=: idleTimeout]

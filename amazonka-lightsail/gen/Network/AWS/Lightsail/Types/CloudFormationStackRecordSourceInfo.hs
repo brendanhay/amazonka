@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the source of a CloudFormation stack record (i.e., the export
 -- snapshot record).
@@ -29,13 +30,13 @@ import Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType
 -- /See:/ 'newCloudFormationStackRecordSourceInfo' smart constructor.
 data CloudFormationStackRecordSourceInfo = CloudFormationStackRecordSourceInfo'
   { -- | The Amazon Resource Name (ARN) of the export snapshot record.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@).
-    resourceType :: Core.Maybe CloudFormationStackRecordSourceType,
+    resourceType :: Prelude.Maybe CloudFormationStackRecordSourceType,
     -- | The name of the record.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudFormationStackRecordSourceInfo' with all optional fields omitted.
@@ -55,21 +56,21 @@ newCloudFormationStackRecordSourceInfo ::
 newCloudFormationStackRecordSourceInfo =
   CloudFormationStackRecordSourceInfo'
     { arn =
-        Core.Nothing,
-      resourceType = Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the export snapshot record.
-cloudFormationStackRecordSourceInfo_arn :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe Core.Text)
+cloudFormationStackRecordSourceInfo_arn :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe Prelude.Text)
 cloudFormationStackRecordSourceInfo_arn = Lens.lens (\CloudFormationStackRecordSourceInfo' {arn} -> arn) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {arn = a} :: CloudFormationStackRecordSourceInfo)
 
 -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@).
-cloudFormationStackRecordSourceInfo_resourceType :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe CloudFormationStackRecordSourceType)
+cloudFormationStackRecordSourceInfo_resourceType :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe CloudFormationStackRecordSourceType)
 cloudFormationStackRecordSourceInfo_resourceType = Lens.lens (\CloudFormationStackRecordSourceInfo' {resourceType} -> resourceType) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {resourceType = a} :: CloudFormationStackRecordSourceInfo)
 
 -- | The name of the record.
-cloudFormationStackRecordSourceInfo_name :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe Core.Text)
+cloudFormationStackRecordSourceInfo_name :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe Prelude.Text)
 cloudFormationStackRecordSourceInfo_name = Lens.lens (\CloudFormationStackRecordSourceInfo' {name} -> name) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {name = a} :: CloudFormationStackRecordSourceInfo)
 
 instance
@@ -81,15 +82,15 @@ instance
       "CloudFormationStackRecordSourceInfo"
       ( \x ->
           CloudFormationStackRecordSourceInfo'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "name")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CloudFormationStackRecordSourceInfo
 
 instance
-  Core.NFData
+  Prelude.NFData
     CloudFormationStackRecordSourceInfo

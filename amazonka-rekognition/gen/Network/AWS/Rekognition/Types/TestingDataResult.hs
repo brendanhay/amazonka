@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.TestingDataResult where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.TestingData
 import Network.AWS.Rekognition.Types.ValidationData
 
@@ -30,15 +31,15 @@ import Network.AWS.Rekognition.Types.ValidationData
 -- /See:/ 'newTestingDataResult' smart constructor.
 data TestingDataResult = TestingDataResult'
   { -- | The testing dataset that was supplied for training.
-    input :: Core.Maybe TestingData,
+    input :: Prelude.Maybe TestingData,
     -- | The subset of the dataset that was actually tested. Some images (assets)
     -- might not be tested due to file formatting and other issues.
-    output :: Core.Maybe TestingData,
+    output :: Prelude.Maybe TestingData,
     -- | The location of the data validation manifest. The data validation
     -- manifest is created for the test dataset during model training.
-    validation :: Core.Maybe ValidationData
+    validation :: Prelude.Maybe ValidationData
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestingDataResult' with all optional fields omitted.
@@ -59,23 +60,23 @@ newTestingDataResult ::
   TestingDataResult
 newTestingDataResult =
   TestingDataResult'
-    { input = Core.Nothing,
-      output = Core.Nothing,
-      validation = Core.Nothing
+    { input = Prelude.Nothing,
+      output = Prelude.Nothing,
+      validation = Prelude.Nothing
     }
 
 -- | The testing dataset that was supplied for training.
-testingDataResult_input :: Lens.Lens' TestingDataResult (Core.Maybe TestingData)
+testingDataResult_input :: Lens.Lens' TestingDataResult (Prelude.Maybe TestingData)
 testingDataResult_input = Lens.lens (\TestingDataResult' {input} -> input) (\s@TestingDataResult' {} a -> s {input = a} :: TestingDataResult)
 
 -- | The subset of the dataset that was actually tested. Some images (assets)
 -- might not be tested due to file formatting and other issues.
-testingDataResult_output :: Lens.Lens' TestingDataResult (Core.Maybe TestingData)
+testingDataResult_output :: Lens.Lens' TestingDataResult (Prelude.Maybe TestingData)
 testingDataResult_output = Lens.lens (\TestingDataResult' {output} -> output) (\s@TestingDataResult' {} a -> s {output = a} :: TestingDataResult)
 
 -- | The location of the data validation manifest. The data validation
 -- manifest is created for the test dataset during model training.
-testingDataResult_validation :: Lens.Lens' TestingDataResult (Core.Maybe ValidationData)
+testingDataResult_validation :: Lens.Lens' TestingDataResult (Prelude.Maybe ValidationData)
 testingDataResult_validation = Lens.lens (\TestingDataResult' {validation} -> validation) (\s@TestingDataResult' {} a -> s {validation = a} :: TestingDataResult)
 
 instance Core.FromJSON TestingDataResult where
@@ -84,11 +85,11 @@ instance Core.FromJSON TestingDataResult where
       "TestingDataResult"
       ( \x ->
           TestingDataResult'
-            Core.<$> (x Core..:? "Input")
-            Core.<*> (x Core..:? "Output")
-            Core.<*> (x Core..:? "Validation")
+            Prelude.<$> (x Core..:? "Input")
+            Prelude.<*> (x Core..:? "Output")
+            Prelude.<*> (x Core..:? "Validation")
       )
 
-instance Core.Hashable TestingDataResult
+instance Prelude.Hashable TestingDataResult
 
-instance Core.NFData TestingDataResult
+instance Prelude.NFData TestingDataResult

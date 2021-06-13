@@ -111,6 +111,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -121,12 +122,12 @@ data ImportKeyMaterial = ImportKeyMaterial'
     -- unusable. You must omit this parameter when the @ExpirationModel@
     -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
     -- required.
-    validTo :: Core.Maybe Core.POSIX,
+    validTo :: Prelude.Maybe Core.POSIX,
     -- | Specifies whether the key material expires. The default is
     -- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
     -- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
     -- you must omit the @ValidTo@ parameter.
-    expirationModel :: Core.Maybe ExpirationModelType,
+    expirationModel :: Prelude.Maybe ExpirationModelType,
     -- | The identifier of the symmetric CMK that receives the imported key
     -- material. The CMK\'s @Origin@ must be @EXTERNAL@. This must be the same
     -- CMK specified in the @KeyID@ parameter of the corresponding
@@ -142,7 +143,7 @@ data ImportKeyMaterial = ImportKeyMaterial'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text,
+    keyId :: Prelude.Text,
     -- | The import token that you received in the response to a previous
     -- GetParametersForImport request. It must be from the same response that
     -- contained the public key that you used to encrypt the key material.
@@ -153,7 +154,7 @@ data ImportKeyMaterial = ImportKeyMaterial'
     -- @GetParametersForImport@ request.
     encryptedKeyMaterial :: Core.Base64
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportKeyMaterial' with all optional fields omitted.
@@ -208,19 +209,19 @@ data ImportKeyMaterial = ImportKeyMaterial'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newImportKeyMaterial ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'importToken'
-  Core.ByteString ->
+  Prelude.ByteString ->
   -- | 'encryptedKeyMaterial'
-  Core.ByteString ->
+  Prelude.ByteString ->
   ImportKeyMaterial
 newImportKeyMaterial
   pKeyId_
   pImportToken_
   pEncryptedKeyMaterial_ =
     ImportKeyMaterial'
-      { validTo = Core.Nothing,
-        expirationModel = Core.Nothing,
+      { validTo = Prelude.Nothing,
+        expirationModel = Prelude.Nothing,
         keyId = pKeyId_,
         importToken = Core._Base64 Lens.# pImportToken_,
         encryptedKeyMaterial =
@@ -232,14 +233,14 @@ newImportKeyMaterial
 -- unusable. You must omit this parameter when the @ExpirationModel@
 -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
 -- required.
-importKeyMaterial_validTo :: Lens.Lens' ImportKeyMaterial (Core.Maybe Core.UTCTime)
-importKeyMaterial_validTo = Lens.lens (\ImportKeyMaterial' {validTo} -> validTo) (\s@ImportKeyMaterial' {} a -> s {validTo = a} :: ImportKeyMaterial) Core.. Lens.mapping Core._Time
+importKeyMaterial_validTo :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe Prelude.UTCTime)
+importKeyMaterial_validTo = Lens.lens (\ImportKeyMaterial' {validTo} -> validTo) (\s@ImportKeyMaterial' {} a -> s {validTo = a} :: ImportKeyMaterial) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies whether the key material expires. The default is
 -- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
 -- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
 -- you must omit the @ValidTo@ parameter.
-importKeyMaterial_expirationModel :: Lens.Lens' ImportKeyMaterial (Core.Maybe ExpirationModelType)
+importKeyMaterial_expirationModel :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe ExpirationModelType)
 importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationModel} -> expirationModel) (\s@ImportKeyMaterial' {} a -> s {expirationModel = a} :: ImportKeyMaterial)
 
 -- | The identifier of the symmetric CMK that receives the imported key
@@ -257,7 +258,7 @@ importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationMo
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-importKeyMaterial_keyId :: Lens.Lens' ImportKeyMaterial Core.Text
+importKeyMaterial_keyId :: Lens.Lens' ImportKeyMaterial Prelude.Text
 importKeyMaterial_keyId = Lens.lens (\ImportKeyMaterial' {keyId} -> keyId) (\s@ImportKeyMaterial' {} a -> s {keyId = a} :: ImportKeyMaterial)
 
 -- | The import token that you received in the response to a previous
@@ -267,8 +268,8 @@ importKeyMaterial_keyId = Lens.lens (\ImportKeyMaterial' {keyId} -> keyId) (\s@I
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-importKeyMaterial_importToken :: Lens.Lens' ImportKeyMaterial Core.ByteString
-importKeyMaterial_importToken = Lens.lens (\ImportKeyMaterial' {importToken} -> importToken) (\s@ImportKeyMaterial' {} a -> s {importToken = a} :: ImportKeyMaterial) Core.. Core._Base64
+importKeyMaterial_importToken :: Lens.Lens' ImportKeyMaterial Prelude.ByteString
+importKeyMaterial_importToken = Lens.lens (\ImportKeyMaterial' {importToken} -> importToken) (\s@ImportKeyMaterial' {} a -> s {importToken = a} :: ImportKeyMaterial) Prelude.. Core._Base64
 
 -- | The encrypted key material to import. The key material must be encrypted
 -- with the public wrapping key that GetParametersForImport returned, using
@@ -278,8 +279,8 @@ importKeyMaterial_importToken = Lens.lens (\ImportKeyMaterial' {importToken} -> 
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-importKeyMaterial_encryptedKeyMaterial :: Lens.Lens' ImportKeyMaterial Core.ByteString
-importKeyMaterial_encryptedKeyMaterial = Lens.lens (\ImportKeyMaterial' {encryptedKeyMaterial} -> encryptedKeyMaterial) (\s@ImportKeyMaterial' {} a -> s {encryptedKeyMaterial = a} :: ImportKeyMaterial) Core.. Core._Base64
+importKeyMaterial_encryptedKeyMaterial :: Lens.Lens' ImportKeyMaterial Prelude.ByteString
+importKeyMaterial_encryptedKeyMaterial = Lens.lens (\ImportKeyMaterial' {encryptedKeyMaterial} -> encryptedKeyMaterial) (\s@ImportKeyMaterial' {} a -> s {encryptedKeyMaterial = a} :: ImportKeyMaterial) Prelude.. Core._Base64
 
 instance Core.AWSRequest ImportKeyMaterial where
   type
@@ -290,35 +291,38 @@ instance Core.AWSRequest ImportKeyMaterial where
     Response.receiveEmpty
       ( \s h x ->
           ImportKeyMaterialResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportKeyMaterial
+instance Prelude.Hashable ImportKeyMaterial
 
-instance Core.NFData ImportKeyMaterial
+instance Prelude.NFData ImportKeyMaterial
 
 instance Core.ToHeaders ImportKeyMaterial where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.ImportKeyMaterial" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ImportKeyMaterial where
   toJSON ImportKeyMaterial' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ValidTo" Core..=) Core.<$> validTo,
-            ("ExpirationModel" Core..=) Core.<$> expirationModel,
-            Core.Just ("KeyId" Core..= keyId),
-            Core.Just ("ImportToken" Core..= importToken),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ValidTo" Core..=) Prelude.<$> validTo,
+            ("ExpirationModel" Core..=)
+              Prelude.<$> expirationModel,
+            Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just ("ImportToken" Core..= importToken),
+            Prelude.Just
               ( "EncryptedKeyMaterial"
                   Core..= encryptedKeyMaterial
               )
@@ -326,17 +330,17 @@ instance Core.ToJSON ImportKeyMaterial where
       )
 
 instance Core.ToPath ImportKeyMaterial where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ImportKeyMaterial where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportKeyMaterialResponse' smart constructor.
 data ImportKeyMaterialResponse = ImportKeyMaterialResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportKeyMaterialResponse' with all optional fields omitted.
@@ -349,7 +353,7 @@ data ImportKeyMaterialResponse = ImportKeyMaterialResponse'
 -- 'httpStatus', 'importKeyMaterialResponse_httpStatus' - The response's http status code.
 newImportKeyMaterialResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportKeyMaterialResponse
 newImportKeyMaterialResponse pHttpStatus_ =
   ImportKeyMaterialResponse'
@@ -358,7 +362,7 @@ newImportKeyMaterialResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-importKeyMaterialResponse_httpStatus :: Lens.Lens' ImportKeyMaterialResponse Core.Int
+importKeyMaterialResponse_httpStatus :: Lens.Lens' ImportKeyMaterialResponse Prelude.Int
 importKeyMaterialResponse_httpStatus = Lens.lens (\ImportKeyMaterialResponse' {httpStatus} -> httpStatus) (\s@ImportKeyMaterialResponse' {} a -> s {httpStatus = a} :: ImportKeyMaterialResponse)
 
-instance Core.NFData ImportKeyMaterialResponse
+instance Prelude.NFData ImportKeyMaterialResponse

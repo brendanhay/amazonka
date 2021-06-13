@@ -52,6 +52,7 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,14 +63,14 @@ data DeleteRule = DeleteRule'
     -- ignored for rules that are not managed rules. You can check whether a
     -- rule is a managed rule by using @DescribeRule@ or @ListRules@ and
     -- checking the @ManagedBy@ field of the response.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The name or ARN of the event bus associated with the rule. If you omit
     -- this, the default event bus is used.
-    eventBusName :: Core.Maybe Core.Text,
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRule' with all optional fields omitted.
@@ -91,12 +92,12 @@ data DeleteRule = DeleteRule'
 -- 'name', 'deleteRule_name' - The name of the rule.
 newDeleteRule ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRule
 newDeleteRule pName_ =
   DeleteRule'
-    { force = Core.Nothing,
-      eventBusName = Core.Nothing,
+    { force = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
       name = pName_
     }
 
@@ -105,16 +106,16 @@ newDeleteRule pName_ =
 -- ignored for rules that are not managed rules. You can check whether a
 -- rule is a managed rule by using @DescribeRule@ or @ListRules@ and
 -- checking the @ManagedBy@ field of the response.
-deleteRule_force :: Lens.Lens' DeleteRule (Core.Maybe Core.Bool)
+deleteRule_force :: Lens.Lens' DeleteRule (Prelude.Maybe Prelude.Bool)
 deleteRule_force = Lens.lens (\DeleteRule' {force} -> force) (\s@DeleteRule' {} a -> s {force = a} :: DeleteRule)
 
 -- | The name or ARN of the event bus associated with the rule. If you omit
 -- this, the default event bus is used.
-deleteRule_eventBusName :: Lens.Lens' DeleteRule (Core.Maybe Core.Text)
+deleteRule_eventBusName :: Lens.Lens' DeleteRule (Prelude.Maybe Prelude.Text)
 deleteRule_eventBusName = Lens.lens (\DeleteRule' {eventBusName} -> eventBusName) (\s@DeleteRule' {} a -> s {eventBusName = a} :: DeleteRule)
 
 -- | The name of the rule.
-deleteRule_name :: Lens.Lens' DeleteRule Core.Text
+deleteRule_name :: Lens.Lens' DeleteRule Prelude.Text
 deleteRule_name = Lens.lens (\DeleteRule' {name} -> name) (\s@DeleteRule' {} a -> s {name = a} :: DeleteRule)
 
 instance Core.AWSRequest DeleteRule where
@@ -122,42 +123,44 @@ instance Core.AWSRequest DeleteRule where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteRuleResponse'
 
-instance Core.Hashable DeleteRule
+instance Prelude.Hashable DeleteRule
 
-instance Core.NFData DeleteRule
+instance Prelude.NFData DeleteRule
 
 instance Core.ToHeaders DeleteRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DeleteRule" :: Core.ByteString),
+              Core.=# ("AWSEvents.DeleteRule" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRule where
   toJSON DeleteRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Force" Core..=) Core.<$> force,
-            ("EventBusName" Core..=) Core.<$> eventBusName,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Force" Core..=) Prelude.<$> force,
+            ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath DeleteRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRuleResponse' smart constructor.
 data DeleteRuleResponse = DeleteRuleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRuleResponse' with all optional fields omitted.
@@ -167,4 +170,4 @@ newDeleteRuleResponse ::
   DeleteRuleResponse
 newDeleteRuleResponse = DeleteRuleResponse'
 
-instance Core.NFData DeleteRuleResponse
+instance Prelude.NFData DeleteRuleResponse

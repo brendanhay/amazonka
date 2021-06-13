@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartCrawlerSchedule' smart constructor.
 data StartCrawlerSchedule = StartCrawlerSchedule'
   { -- | Name of the crawler to schedule.
-    crawlerName :: Core.Text
+    crawlerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartCrawlerSchedule' with all optional fields omitted.
@@ -64,13 +65,13 @@ data StartCrawlerSchedule = StartCrawlerSchedule'
 -- 'crawlerName', 'startCrawlerSchedule_crawlerName' - Name of the crawler to schedule.
 newStartCrawlerSchedule ::
   -- | 'crawlerName'
-  Core.Text ->
+  Prelude.Text ->
   StartCrawlerSchedule
 newStartCrawlerSchedule pCrawlerName_ =
   StartCrawlerSchedule' {crawlerName = pCrawlerName_}
 
 -- | Name of the crawler to schedule.
-startCrawlerSchedule_crawlerName :: Lens.Lens' StartCrawlerSchedule Core.Text
+startCrawlerSchedule_crawlerName :: Lens.Lens' StartCrawlerSchedule Prelude.Text
 startCrawlerSchedule_crawlerName = Lens.lens (\StartCrawlerSchedule' {crawlerName} -> crawlerName) (\s@StartCrawlerSchedule' {} a -> s {crawlerName = a} :: StartCrawlerSchedule)
 
 instance Core.AWSRequest StartCrawlerSchedule where
@@ -82,43 +83,47 @@ instance Core.AWSRequest StartCrawlerSchedule where
     Response.receiveEmpty
       ( \s h x ->
           StartCrawlerScheduleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartCrawlerSchedule
+instance Prelude.Hashable StartCrawlerSchedule
 
-instance Core.NFData StartCrawlerSchedule
+instance Prelude.NFData StartCrawlerSchedule
 
 instance Core.ToHeaders StartCrawlerSchedule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StartCrawlerSchedule" :: Core.ByteString),
+              Core.=# ( "AWSGlue.StartCrawlerSchedule" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartCrawlerSchedule where
   toJSON StartCrawlerSchedule' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("CrawlerName" Core..= crawlerName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("CrawlerName" Core..= crawlerName)]
       )
 
 instance Core.ToPath StartCrawlerSchedule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartCrawlerSchedule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCrawlerScheduleResponse' smart constructor.
 data StartCrawlerScheduleResponse = StartCrawlerScheduleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartCrawlerScheduleResponse' with all optional fields omitted.
@@ -131,7 +136,7 @@ data StartCrawlerScheduleResponse = StartCrawlerScheduleResponse'
 -- 'httpStatus', 'startCrawlerScheduleResponse_httpStatus' - The response's http status code.
 newStartCrawlerScheduleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartCrawlerScheduleResponse
 newStartCrawlerScheduleResponse pHttpStatus_ =
   StartCrawlerScheduleResponse'
@@ -140,7 +145,7 @@ newStartCrawlerScheduleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startCrawlerScheduleResponse_httpStatus :: Lens.Lens' StartCrawlerScheduleResponse Core.Int
+startCrawlerScheduleResponse_httpStatus :: Lens.Lens' StartCrawlerScheduleResponse Prelude.Int
 startCrawlerScheduleResponse_httpStatus = Lens.lens (\StartCrawlerScheduleResponse' {httpStatus} -> httpStatus) (\s@StartCrawlerScheduleResponse' {} a -> s {httpStatus = a} :: StartCrawlerScheduleResponse)
 
-instance Core.NFData StartCrawlerScheduleResponse
+instance Prelude.NFData StartCrawlerScheduleResponse

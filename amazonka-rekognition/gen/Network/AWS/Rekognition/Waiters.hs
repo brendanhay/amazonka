@@ -17,6 +17,7 @@ module Network.AWS.Rekognition.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.DescribeProjectVersions
 import Network.AWS.Rekognition.Lens
 import Network.AWS.Rekognition.Types
@@ -36,12 +37,12 @@ newProjectVersionTrainingCompleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. projectVersionDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. projectVersionDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "TRAINING_FAILED"
@@ -49,12 +50,12 @@ newProjectVersionTrainingCompleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. projectVersionDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. projectVersionDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -73,12 +74,12 @@ newProjectVersionRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. projectVersionDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. projectVersionDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -86,12 +87,12 @@ newProjectVersionRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. projectVersionDescription_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. projectVersionDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

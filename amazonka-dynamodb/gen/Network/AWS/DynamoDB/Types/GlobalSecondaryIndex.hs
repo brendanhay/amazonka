@@ -24,6 +24,7 @@ import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import Network.AWS.DynamoDB.Types.ProvisionedThroughput
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a global secondary index.
 --
@@ -35,10 +36,10 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex'
     -- For current minimum and maximum provisioned throughput values, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
     -- in the /Amazon DynamoDB Developer Guide/.
-    provisionedThroughput :: Core.Maybe ProvisionedThroughput,
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
     -- | The name of the global secondary index. The name must be unique among
     -- all other indexes on this table.
-    indexName :: Core.Text,
+    indexName :: Prelude.Text,
     -- | The complete key schema for a global secondary index, which consists of
     -- one or more pairs of attribute names and key types:
     --
@@ -55,13 +56,13 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex'
     -- \"range attribute\" derives from the way DynamoDB stores items with the
     -- same partition key physically close together, in sorted order by the
     -- sort key value.
-    keySchema :: Core.NonEmpty KeySchemaElement,
+    keySchema :: Prelude.NonEmpty KeySchemaElement,
     -- | Represents attributes that are copied (projected) from the table into
     -- the global secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
     projection :: Projection
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GlobalSecondaryIndex' with all optional fields omitted.
@@ -103,9 +104,9 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex'
 -- attributes and index key attributes, which are automatically projected.
 newGlobalSecondaryIndex ::
   -- | 'indexName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'keySchema'
-  Core.NonEmpty KeySchemaElement ->
+  Prelude.NonEmpty KeySchemaElement ->
   -- | 'projection'
   Projection ->
   GlobalSecondaryIndex
@@ -115,7 +116,7 @@ newGlobalSecondaryIndex
   pProjection_ =
     GlobalSecondaryIndex'
       { provisionedThroughput =
-          Core.Nothing,
+          Prelude.Nothing,
         indexName = pIndexName_,
         keySchema = Lens._Coerce Lens.# pKeySchema_,
         projection = pProjection_
@@ -127,12 +128,12 @@ newGlobalSecondaryIndex
 -- For current minimum and maximum provisioned throughput values, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
 -- in the /Amazon DynamoDB Developer Guide/.
-globalSecondaryIndex_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndex (Core.Maybe ProvisionedThroughput)
+globalSecondaryIndex_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndex (Prelude.Maybe ProvisionedThroughput)
 globalSecondaryIndex_provisionedThroughput = Lens.lens (\GlobalSecondaryIndex' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndex' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndex)
 
 -- | The name of the global secondary index. The name must be unique among
 -- all other indexes on this table.
-globalSecondaryIndex_indexName :: Lens.Lens' GlobalSecondaryIndex Core.Text
+globalSecondaryIndex_indexName :: Lens.Lens' GlobalSecondaryIndex Prelude.Text
 globalSecondaryIndex_indexName = Lens.lens (\GlobalSecondaryIndex' {indexName} -> indexName) (\s@GlobalSecondaryIndex' {} a -> s {indexName = a} :: GlobalSecondaryIndex)
 
 -- | The complete key schema for a global secondary index, which consists of
@@ -151,8 +152,8 @@ globalSecondaryIndex_indexName = Lens.lens (\GlobalSecondaryIndex' {indexName} -
 -- \"range attribute\" derives from the way DynamoDB stores items with the
 -- same partition key physically close together, in sorted order by the
 -- sort key value.
-globalSecondaryIndex_keySchema :: Lens.Lens' GlobalSecondaryIndex (Core.NonEmpty KeySchemaElement)
-globalSecondaryIndex_keySchema = Lens.lens (\GlobalSecondaryIndex' {keySchema} -> keySchema) (\s@GlobalSecondaryIndex' {} a -> s {keySchema = a} :: GlobalSecondaryIndex) Core.. Lens._Coerce
+globalSecondaryIndex_keySchema :: Lens.Lens' GlobalSecondaryIndex (Prelude.NonEmpty KeySchemaElement)
+globalSecondaryIndex_keySchema = Lens.lens (\GlobalSecondaryIndex' {keySchema} -> keySchema) (\s@GlobalSecondaryIndex' {} a -> s {keySchema = a} :: GlobalSecondaryIndex) Prelude.. Lens._Coerce
 
 -- | Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key
@@ -160,18 +161,18 @@ globalSecondaryIndex_keySchema = Lens.lens (\GlobalSecondaryIndex' {keySchema} -
 globalSecondaryIndex_projection :: Lens.Lens' GlobalSecondaryIndex Projection
 globalSecondaryIndex_projection = Lens.lens (\GlobalSecondaryIndex' {projection} -> projection) (\s@GlobalSecondaryIndex' {} a -> s {projection = a} :: GlobalSecondaryIndex)
 
-instance Core.Hashable GlobalSecondaryIndex
+instance Prelude.Hashable GlobalSecondaryIndex
 
-instance Core.NFData GlobalSecondaryIndex
+instance Prelude.NFData GlobalSecondaryIndex
 
 instance Core.ToJSON GlobalSecondaryIndex where
   toJSON GlobalSecondaryIndex' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProvisionedThroughput" Core..=)
-              Core.<$> provisionedThroughput,
-            Core.Just ("IndexName" Core..= indexName),
-            Core.Just ("KeySchema" Core..= keySchema),
-            Core.Just ("Projection" Core..= projection)
+              Prelude.<$> provisionedThroughput,
+            Prelude.Just ("IndexName" Core..= indexName),
+            Prelude.Just ("KeySchema" Core..= keySchema),
+            Prelude.Just ("Projection" Core..= projection)
           ]
       )

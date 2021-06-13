@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,22 +75,22 @@ import qualified Network.AWS.Response as Response
 data CreatePreset = CreatePreset'
   { -- | A section of the request body that specifies the thumbnail parameters,
     -- if any.
-    thumbnails :: Core.Maybe Thumbnails,
+    thumbnails :: Prelude.Maybe Thumbnails,
     -- | A section of the request body that specifies the video parameters.
-    video :: Core.Maybe VideoParameters,
+    video :: Prelude.Maybe VideoParameters,
     -- | A section of the request body that specifies the audio parameters.
-    audio :: Core.Maybe AudioParameters,
+    audio :: Prelude.Maybe AudioParameters,
     -- | A description of the preset.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the preset. We recommend that the name be unique within the
     -- AWS account, but uniqueness is not enforced.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The container type for the output file. Valid values include @flac@,
     -- @flv@, @fmp4@, @gif@, @mp3@, @mp4@, @mpg@, @mxf@, @oga@, @ogg@, @ts@,
     -- and @webm@.
-    container :: Core.Text
+    container :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePreset' with all optional fields omitted.
@@ -116,46 +117,46 @@ data CreatePreset = CreatePreset'
 -- and @webm@.
 newCreatePreset ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'container'
-  Core.Text ->
+  Prelude.Text ->
   CreatePreset
 newCreatePreset pName_ pContainer_ =
   CreatePreset'
-    { thumbnails = Core.Nothing,
-      video = Core.Nothing,
-      audio = Core.Nothing,
-      description = Core.Nothing,
+    { thumbnails = Prelude.Nothing,
+      video = Prelude.Nothing,
+      audio = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       container = pContainer_
     }
 
 -- | A section of the request body that specifies the thumbnail parameters,
 -- if any.
-createPreset_thumbnails :: Lens.Lens' CreatePreset (Core.Maybe Thumbnails)
+createPreset_thumbnails :: Lens.Lens' CreatePreset (Prelude.Maybe Thumbnails)
 createPreset_thumbnails = Lens.lens (\CreatePreset' {thumbnails} -> thumbnails) (\s@CreatePreset' {} a -> s {thumbnails = a} :: CreatePreset)
 
 -- | A section of the request body that specifies the video parameters.
-createPreset_video :: Lens.Lens' CreatePreset (Core.Maybe VideoParameters)
+createPreset_video :: Lens.Lens' CreatePreset (Prelude.Maybe VideoParameters)
 createPreset_video = Lens.lens (\CreatePreset' {video} -> video) (\s@CreatePreset' {} a -> s {video = a} :: CreatePreset)
 
 -- | A section of the request body that specifies the audio parameters.
-createPreset_audio :: Lens.Lens' CreatePreset (Core.Maybe AudioParameters)
+createPreset_audio :: Lens.Lens' CreatePreset (Prelude.Maybe AudioParameters)
 createPreset_audio = Lens.lens (\CreatePreset' {audio} -> audio) (\s@CreatePreset' {} a -> s {audio = a} :: CreatePreset)
 
 -- | A description of the preset.
-createPreset_description :: Lens.Lens' CreatePreset (Core.Maybe Core.Text)
+createPreset_description :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
 createPreset_description = Lens.lens (\CreatePreset' {description} -> description) (\s@CreatePreset' {} a -> s {description = a} :: CreatePreset)
 
 -- | The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
-createPreset_name :: Lens.Lens' CreatePreset Core.Text
+createPreset_name :: Lens.Lens' CreatePreset Prelude.Text
 createPreset_name = Lens.lens (\CreatePreset' {name} -> name) (\s@CreatePreset' {} a -> s {name = a} :: CreatePreset)
 
 -- | The container type for the output file. Valid values include @flac@,
 -- @flv@, @fmp4@, @gif@, @mp3@, @mp4@, @mpg@, @mxf@, @oga@, @ogg@, @ts@,
 -- and @webm@.
-createPreset_container :: Lens.Lens' CreatePreset Core.Text
+createPreset_container :: Lens.Lens' CreatePreset Prelude.Text
 createPreset_container = Lens.lens (\CreatePreset' {container} -> container) (\s@CreatePreset' {} a -> s {container = a} :: CreatePreset)
 
 instance Core.AWSRequest CreatePreset where
@@ -165,36 +166,36 @@ instance Core.AWSRequest CreatePreset where
     Response.receiveJSON
       ( \s h x ->
           CreatePresetResponse'
-            Core.<$> (x Core..?> "Preset")
-            Core.<*> (x Core..?> "Warning")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Preset")
+            Prelude.<*> (x Core..?> "Warning")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePreset
+instance Prelude.Hashable CreatePreset
 
-instance Core.NFData CreatePreset
+instance Prelude.NFData CreatePreset
 
 instance Core.ToHeaders CreatePreset where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreatePreset where
   toJSON CreatePreset' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Thumbnails" Core..=) Core.<$> thumbnails,
-            ("Video" Core..=) Core.<$> video,
-            ("Audio" Core..=) Core.<$> audio,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Container" Core..= container)
+      ( Prelude.catMaybes
+          [ ("Thumbnails" Core..=) Prelude.<$> thumbnails,
+            ("Video" Core..=) Prelude.<$> video,
+            ("Audio" Core..=) Prelude.<$> audio,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Container" Core..= container)
           ]
       )
 
 instance Core.ToPath CreatePreset where
-  toPath = Core.const "/2012-09-25/presets"
+  toPath = Prelude.const "/2012-09-25/presets"
 
 instance Core.ToQuery CreatePreset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The @CreatePresetResponse@ structure.
 --
@@ -202,17 +203,17 @@ instance Core.ToQuery CreatePreset where
 data CreatePresetResponse = CreatePresetResponse'
   { -- | A section of the response body that provides information about the
     -- preset that is created.
-    preset :: Core.Maybe Preset,
+    preset :: Prelude.Maybe Preset,
     -- | If the preset settings don\'t comply with the standards for the video
     -- codec but Elastic Transcoder created the preset, this message explains
     -- the reason the preset settings don\'t meet the standard. Elastic
     -- Transcoder created the preset because the settings might produce
     -- acceptable output.
-    warning :: Core.Maybe Core.Text,
+    warning :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePresetResponse' with all optional fields omitted.
@@ -234,18 +235,18 @@ data CreatePresetResponse = CreatePresetResponse'
 -- 'httpStatus', 'createPresetResponse_httpStatus' - The response's http status code.
 newCreatePresetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePresetResponse
 newCreatePresetResponse pHttpStatus_ =
   CreatePresetResponse'
-    { preset = Core.Nothing,
-      warning = Core.Nothing,
+    { preset = Prelude.Nothing,
+      warning = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A section of the response body that provides information about the
 -- preset that is created.
-createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Core.Maybe Preset)
+createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Preset)
 createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> preset) (\s@CreatePresetResponse' {} a -> s {preset = a} :: CreatePresetResponse)
 
 -- | If the preset settings don\'t comply with the standards for the video
@@ -253,11 +254,11 @@ createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> pres
 -- the reason the preset settings don\'t meet the standard. Elastic
 -- Transcoder created the preset because the settings might produce
 -- acceptable output.
-createPresetResponse_warning :: Lens.Lens' CreatePresetResponse (Core.Maybe Core.Text)
+createPresetResponse_warning :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Prelude.Text)
 createPresetResponse_warning = Lens.lens (\CreatePresetResponse' {warning} -> warning) (\s@CreatePresetResponse' {} a -> s {warning = a} :: CreatePresetResponse)
 
 -- | The response's http status code.
-createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Core.Int
+createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Prelude.Int
 createPresetResponse_httpStatus = Lens.lens (\CreatePresetResponse' {httpStatus} -> httpStatus) (\s@CreatePresetResponse' {} a -> s {httpStatus = a} :: CreatePresetResponse)
 
-instance Core.NFData CreatePresetResponse
+instance Prelude.NFData CreatePresetResponse

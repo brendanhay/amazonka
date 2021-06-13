@@ -21,17 +21,18 @@ module Network.AWS.LexModels.Types.Intent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the specific version of an intent.
 --
 -- /See:/ 'newIntent' smart constructor.
 data Intent = Intent'
   { -- | The name of the intent.
-    intentName :: Core.Text,
+    intentName :: Prelude.Text,
     -- | The version of the intent.
-    intentVersion :: Core.Text
+    intentVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Intent' with all optional fields omitted.
@@ -46,9 +47,9 @@ data Intent = Intent'
 -- 'intentVersion', 'intent_intentVersion' - The version of the intent.
 newIntent ::
   -- | 'intentName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'intentVersion'
-  Core.Text ->
+  Prelude.Text ->
   Intent
 newIntent pIntentName_ pIntentVersion_ =
   Intent'
@@ -57,11 +58,11 @@ newIntent pIntentName_ pIntentVersion_ =
     }
 
 -- | The name of the intent.
-intent_intentName :: Lens.Lens' Intent Core.Text
+intent_intentName :: Lens.Lens' Intent Prelude.Text
 intent_intentName = Lens.lens (\Intent' {intentName} -> intentName) (\s@Intent' {} a -> s {intentName = a} :: Intent)
 
 -- | The version of the intent.
-intent_intentVersion :: Lens.Lens' Intent Core.Text
+intent_intentVersion :: Lens.Lens' Intent Prelude.Text
 intent_intentVersion = Lens.lens (\Intent' {intentVersion} -> intentVersion) (\s@Intent' {} a -> s {intentVersion = a} :: Intent)
 
 instance Core.FromJSON Intent where
@@ -70,19 +71,20 @@ instance Core.FromJSON Intent where
       "Intent"
       ( \x ->
           Intent'
-            Core.<$> (x Core..: "intentName")
-            Core.<*> (x Core..: "intentVersion")
+            Prelude.<$> (x Core..: "intentName")
+            Prelude.<*> (x Core..: "intentVersion")
       )
 
-instance Core.Hashable Intent
+instance Prelude.Hashable Intent
 
-instance Core.NFData Intent
+instance Prelude.NFData Intent
 
 instance Core.ToJSON Intent where
   toJSON Intent' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("intentName" Core..= intentName),
-            Core.Just ("intentVersion" Core..= intentVersion)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("intentName" Core..= intentName),
+            Prelude.Just
+              ("intentVersion" Core..= intentVersion)
           ]
       )

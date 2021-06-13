@@ -63,6 +63,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,13 +74,13 @@ data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'
   { -- | A unique identifier for a fleet. This fleet specified must match the
     -- fleet referenced in the VPC peering connection record. You can use
     -- either the fleet ID or ARN value.
-    fleetId :: Core.Text,
+    fleetId :: Prelude.Text,
     -- | A unique identifier for a VPC peering connection. This value is included
     -- in the VpcPeeringConnection object, which can be retrieved by calling
     -- DescribeVpcPeeringConnections.
-    vpcPeeringConnectionId :: Core.Text
+    vpcPeeringConnectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcPeeringConnection' with all optional fields omitted.
@@ -98,9 +99,9 @@ data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'
 -- DescribeVpcPeeringConnections.
 newDeleteVpcPeeringConnection ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpcPeeringConnectionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVpcPeeringConnection
 newDeleteVpcPeeringConnection
   pFleetId_
@@ -114,13 +115,13 @@ newDeleteVpcPeeringConnection
 -- | A unique identifier for a fleet. This fleet specified must match the
 -- fleet referenced in the VPC peering connection record. You can use
 -- either the fleet ID or ARN value.
-deleteVpcPeeringConnection_fleetId :: Lens.Lens' DeleteVpcPeeringConnection Core.Text
+deleteVpcPeeringConnection_fleetId :: Lens.Lens' DeleteVpcPeeringConnection Prelude.Text
 deleteVpcPeeringConnection_fleetId = Lens.lens (\DeleteVpcPeeringConnection' {fleetId} -> fleetId) (\s@DeleteVpcPeeringConnection' {} a -> s {fleetId = a} :: DeleteVpcPeeringConnection)
 
 -- | A unique identifier for a VPC peering connection. This value is included
 -- in the VpcPeeringConnection object, which can be retrieved by calling
 -- DescribeVpcPeeringConnections.
-deleteVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' DeleteVpcPeeringConnection Core.Text
+deleteVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' DeleteVpcPeeringConnection Prelude.Text
 deleteVpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\DeleteVpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@DeleteVpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: DeleteVpcPeeringConnection)
 
 instance Core.AWSRequest DeleteVpcPeeringConnection where
@@ -132,32 +133,34 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
     Response.receiveEmpty
       ( \s h x ->
           DeleteVpcPeeringConnectionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteVpcPeeringConnection
+instance Prelude.Hashable DeleteVpcPeeringConnection
 
-instance Core.NFData DeleteVpcPeeringConnection
+instance Prelude.NFData DeleteVpcPeeringConnection
 
 instance Core.ToHeaders DeleteVpcPeeringConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DeleteVpcPeeringConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteVpcPeeringConnection where
   toJSON DeleteVpcPeeringConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FleetId" Core..= fleetId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FleetId" Core..= fleetId),
+            Prelude.Just
               ( "VpcPeeringConnectionId"
                   Core..= vpcPeeringConnectionId
               )
@@ -165,17 +168,17 @@ instance Core.ToJSON DeleteVpcPeeringConnection where
       )
 
 instance Core.ToPath DeleteVpcPeeringConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVpcPeeringConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVpcPeeringConnectionResponse' smart constructor.
 data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcPeeringConnectionResponse' with all optional fields omitted.
@@ -188,7 +191,7 @@ data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse'
 -- 'httpStatus', 'deleteVpcPeeringConnectionResponse_httpStatus' - The response's http status code.
 newDeleteVpcPeeringConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteVpcPeeringConnectionResponse
 newDeleteVpcPeeringConnectionResponse pHttpStatus_ =
   DeleteVpcPeeringConnectionResponse'
@@ -197,9 +200,9 @@ newDeleteVpcPeeringConnectionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' DeleteVpcPeeringConnectionResponse Core.Int
+deleteVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' DeleteVpcPeeringConnectionResponse Prelude.Int
 deleteVpcPeeringConnectionResponse_httpStatus = Lens.lens (\DeleteVpcPeeringConnectionResponse' {httpStatus} -> httpStatus) (\s@DeleteVpcPeeringConnectionResponse' {} a -> s {httpStatus = a} :: DeleteVpcPeeringConnectionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteVpcPeeringConnectionResponse

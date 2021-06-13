@@ -71,6 +71,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -87,11 +88,11 @@ data ModifyDBCluster = ModifyDBCluster'
     -- Constraints:
     --
     -- -   Must be a value from 1 to 35
-    backupRetentionPeriod :: Core.Maybe Core.Int,
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether the DB cluster has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
     -- enabled. By default, deletion protection is disabled.
-    deletionProtection :: Core.Maybe Core.Bool,
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The daily time range during which automated backups are created if
     -- automated backups are enabled, using the @BackupRetentionPeriod@
     -- parameter.
@@ -110,7 +111,7 @@ data ModifyDBCluster = ModifyDBCluster'
     -- -   Must not conflict with the preferred maintenance window.
     --
     -- -   Must be at least 30 minutes.
-    preferredBackupWindow :: Core.Maybe Core.Text,
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable mapping of AWS Identity and
     -- Access Management (IAM) accounts to database accounts. By default,
     -- mapping is disabled.
@@ -118,7 +119,7 @@ data ModifyDBCluster = ModifyDBCluster'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
     -- in the /Amazon Aurora User Guide./
-    enableIAMDatabaseAuthentication :: Core.Maybe Core.Bool,
+    enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | The name of the DB parameter group to apply to all instances of the DB
     -- cluster.
     --
@@ -136,7 +137,7 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- -   The @DBInstanceParameterGroupName@ parameter is only valid in
     --     combination with the @AllowMajorVersionUpgrade@ parameter.
-    dbInstanceParameterGroupName :: Core.Maybe Core.Text,
+    dbInstanceParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates that the DB cluster should be associated with the
     -- specified option group. Changing this parameter doesn\'t result in an
     -- outage except in the following case, and the change is applied during
@@ -149,7 +150,7 @@ data ModifyDBCluster = ModifyDBCluster'
     -- Permanent options can\'t be removed from an option group. The option
     -- group can\'t be removed from a DB cluster once it is associated with a
     -- DB cluster.
-    optionGroupName :: Core.Maybe Core.Text,
+    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | The Active Directory directory ID to move the DB cluster to. Specify
     -- @none@ to remove the cluster from its current domain. The domain must be
     -- created prior to this operation.
@@ -157,23 +158,23 @@ data ModifyDBCluster = ModifyDBCluster'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
     -- in the /Amazon Aurora User Guide/.
-    domain :: Core.Maybe Core.Text,
+    domain :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether major version upgrades are allowed.
     --
     -- Constraints: You must allow major version upgrades when specifying a
     -- value for the @EngineVersion@ parameter that is a different major
     -- version than the DB cluster\'s current version.
-    allowMajorVersionUpgrade :: Core.Maybe Core.Bool,
+    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The scaling properties of the DB cluster. You can only modify scaling
     -- properties for DB clusters in @serverless@ DB engine mode.
-    scalingConfiguration :: Core.Maybe ScalingConfiguration,
+    scalingConfiguration :: Prelude.Maybe ScalingConfiguration,
     -- | The new password for the master database user. This password can contain
     -- any printable ASCII character except \"\/\", \"\"\", or \"\@\".
     --
     -- Constraints: Must contain from 8 to 41 characters.
-    masterUserPassword :: Core.Maybe Core.Text,
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | A list of VPC security groups that the DB cluster will belong to.
-    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates whether to enable the HTTP endpoint for an Aurora
     -- Serverless DB cluster. By default, the HTTP endpoint is disabled.
     --
@@ -185,7 +186,7 @@ data ModifyDBCluster = ModifyDBCluster'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
     -- in the /Amazon Aurora User Guide/.
-    enableHttpEndpoint :: Core.Maybe Core.Bool,
+    enableHttpEndpoint :: Prelude.Maybe Prelude.Bool,
     -- | The version number of the database engine to which you want to upgrade.
     -- Changing this parameter results in an outage. The change is applied
     -- during the next maintenance window unless @ApplyImmediately@ is enabled.
@@ -204,7 +205,7 @@ data ModifyDBCluster = ModifyDBCluster'
     -- use the following command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range during which system maintenance can occur, in
     -- Universal Coordinated Time (UTC).
     --
@@ -219,7 +220,7 @@ data ModifyDBCluster = ModifyDBCluster'
     -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
     --
     -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable this DB cluster to forward
     -- write operations to the primary cluster of an Aurora global database
     -- (GlobalCluster). By default, write operations are not allowed on Aurora
@@ -232,16 +233,16 @@ data ModifyDBCluster = ModifyDBCluster'
     -- of an Aurora global database, this value is used immediately if the
     -- primary is demoted by the FailoverGlobalCluster API operation, but it
     -- does nothing until then.
-    enableGlobalWriteForwarding :: Core.Maybe Core.Bool,
+    enableGlobalWriteForwarding :: Prelude.Maybe Prelude.Bool,
     -- | The port number on which the DB cluster accepts connections.
     --
     -- Constraints: Value must be @1150-65535@
     --
     -- Default: The same port as the original DB cluster.
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | Specify the name of the IAM role to be used when making API calls to the
     -- Directory Service.
-    domainIAMRoleName :: Core.Maybe Core.Text,
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | The new DB cluster identifier for the DB cluster when renaming a DB
     -- cluster. This value is stored as a lowercase string.
     --
@@ -254,13 +255,13 @@ data ModifyDBCluster = ModifyDBCluster'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @my-cluster2@
-    newDBClusterIdentifier' :: Core.Maybe Core.Text,
+    newDBClusterIdentifier' :: Prelude.Maybe Prelude.Text,
     -- | The configuration setting for the log types to be enabled for export to
     -- CloudWatch Logs for a specific DB cluster.
-    cloudwatchLogsExportConfiguration :: Core.Maybe CloudwatchLogsExportConfiguration,
+    cloudwatchLogsExportConfiguration :: Prelude.Maybe CloudwatchLogsExportConfiguration,
     -- | A value that indicates whether to copy all tags from the DB cluster to
     -- snapshots of the DB cluster. The default is not to copy them.
-    copyTagsToSnapshot :: Core.Maybe Core.Bool,
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The target backtrack window, in seconds. To disable backtracking, set
     -- this value to 0.
     --
@@ -272,7 +273,7 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- -   If specified, this value must be set to a number from 0 to 259,200
     --     (72 hours).
-    backtrackWindow :: Core.Maybe Core.Integer,
+    backtrackWindow :: Prelude.Maybe Prelude.Integer,
     -- | A value that indicates whether the modifications in this request and any
     -- pending modifications are asynchronously applied as soon as possible,
     -- regardless of the @PreferredMaintenanceWindow@ setting for the DB
@@ -289,17 +290,17 @@ data ModifyDBCluster = ModifyDBCluster'
     -- parameter.
     --
     -- By default, this parameter is disabled.
-    applyImmediately :: Core.Maybe Core.Bool,
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | The name of the DB cluster parameter group to use for the DB cluster.
-    dbClusterParameterGroupName :: Core.Maybe Core.Text,
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier for the cluster being modified. This parameter
     -- isn\'t case-sensitive.
     --
     -- Constraints: This identifier must match the identifier of an existing DB
     -- cluster.
-    dbClusterIdentifier :: Core.Text
+    dbClusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBCluster' with all optional fields omitted.
@@ -529,34 +530,34 @@ data ModifyDBCluster = ModifyDBCluster'
 -- cluster.
 newModifyDBCluster ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ModifyDBCluster
 newModifyDBCluster pDBClusterIdentifier_ =
   ModifyDBCluster'
     { backupRetentionPeriod =
-        Core.Nothing,
-      deletionProtection = Core.Nothing,
-      preferredBackupWindow = Core.Nothing,
-      enableIAMDatabaseAuthentication = Core.Nothing,
-      dbInstanceParameterGroupName = Core.Nothing,
-      optionGroupName = Core.Nothing,
-      domain = Core.Nothing,
-      allowMajorVersionUpgrade = Core.Nothing,
-      scalingConfiguration = Core.Nothing,
-      masterUserPassword = Core.Nothing,
-      vpcSecurityGroupIds = Core.Nothing,
-      enableHttpEndpoint = Core.Nothing,
-      engineVersion = Core.Nothing,
-      preferredMaintenanceWindow = Core.Nothing,
-      enableGlobalWriteForwarding = Core.Nothing,
-      port = Core.Nothing,
-      domainIAMRoleName = Core.Nothing,
-      newDBClusterIdentifier' = Core.Nothing,
-      cloudwatchLogsExportConfiguration = Core.Nothing,
-      copyTagsToSnapshot = Core.Nothing,
-      backtrackWindow = Core.Nothing,
-      applyImmediately = Core.Nothing,
-      dbClusterParameterGroupName = Core.Nothing,
+        Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
+      enableIAMDatabaseAuthentication = Prelude.Nothing,
+      dbInstanceParameterGroupName = Prelude.Nothing,
+      optionGroupName = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      allowMajorVersionUpgrade = Prelude.Nothing,
+      scalingConfiguration = Prelude.Nothing,
+      masterUserPassword = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
+      enableHttpEndpoint = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      enableGlobalWriteForwarding = Prelude.Nothing,
+      port = Prelude.Nothing,
+      domainIAMRoleName = Prelude.Nothing,
+      newDBClusterIdentifier' = Prelude.Nothing,
+      cloudwatchLogsExportConfiguration = Prelude.Nothing,
+      copyTagsToSnapshot = Prelude.Nothing,
+      backtrackWindow = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
+      dbClusterParameterGroupName = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
 
@@ -568,13 +569,13 @@ newModifyDBCluster pDBClusterIdentifier_ =
 -- Constraints:
 --
 -- -   Must be a value from 1 to 35
-modifyDBCluster_backupRetentionPeriod :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Int)
+modifyDBCluster_backupRetentionPeriod :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
 modifyDBCluster_backupRetentionPeriod = Lens.lens (\ModifyDBCluster' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBCluster' {} a -> s {backupRetentionPeriod = a} :: ModifyDBCluster)
 
 -- | A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled.
-modifyDBCluster_deletionProtection :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Bool)
+modifyDBCluster_deletionProtection :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_deletionProtection = Lens.lens (\ModifyDBCluster' {deletionProtection} -> deletionProtection) (\s@ModifyDBCluster' {} a -> s {deletionProtection = a} :: ModifyDBCluster)
 
 -- | The daily time range during which automated backups are created if
@@ -595,7 +596,7 @@ modifyDBCluster_deletionProtection = Lens.lens (\ModifyDBCluster' {deletionProte
 -- -   Must not conflict with the preferred maintenance window.
 --
 -- -   Must be at least 30 minutes.
-modifyDBCluster_preferredBackupWindow :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_preferredBackupWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_preferredBackupWindow = Lens.lens (\ModifyDBCluster' {preferredBackupWindow} -> preferredBackupWindow) (\s@ModifyDBCluster' {} a -> s {preferredBackupWindow = a} :: ModifyDBCluster)
 
 -- | A value that indicates whether to enable mapping of AWS Identity and
@@ -605,7 +606,7 @@ modifyDBCluster_preferredBackupWindow = Lens.lens (\ModifyDBCluster' {preferredB
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
 -- in the /Amazon Aurora User Guide./
-modifyDBCluster_enableIAMDatabaseAuthentication :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Bool)
+modifyDBCluster_enableIAMDatabaseAuthentication :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_enableIAMDatabaseAuthentication = Lens.lens (\ModifyDBCluster' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@ModifyDBCluster' {} a -> s {enableIAMDatabaseAuthentication = a} :: ModifyDBCluster)
 
 -- | The name of the DB parameter group to apply to all instances of the DB
@@ -625,7 +626,7 @@ modifyDBCluster_enableIAMDatabaseAuthentication = Lens.lens (\ModifyDBCluster' {
 --
 -- -   The @DBInstanceParameterGroupName@ parameter is only valid in
 --     combination with the @AllowMajorVersionUpgrade@ parameter.
-modifyDBCluster_dbInstanceParameterGroupName :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_dbInstanceParameterGroupName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_dbInstanceParameterGroupName = Lens.lens (\ModifyDBCluster' {dbInstanceParameterGroupName} -> dbInstanceParameterGroupName) (\s@ModifyDBCluster' {} a -> s {dbInstanceParameterGroupName = a} :: ModifyDBCluster)
 
 -- | A value that indicates that the DB cluster should be associated with the
@@ -640,7 +641,7 @@ modifyDBCluster_dbInstanceParameterGroupName = Lens.lens (\ModifyDBCluster' {dbI
 -- Permanent options can\'t be removed from an option group. The option
 -- group can\'t be removed from a DB cluster once it is associated with a
 -- DB cluster.
-modifyDBCluster_optionGroupName :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_optionGroupName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_optionGroupName = Lens.lens (\ModifyDBCluster' {optionGroupName} -> optionGroupName) (\s@ModifyDBCluster' {} a -> s {optionGroupName = a} :: ModifyDBCluster)
 
 -- | The Active Directory directory ID to move the DB cluster to. Specify
@@ -650,7 +651,7 @@ modifyDBCluster_optionGroupName = Lens.lens (\ModifyDBCluster' {optionGroupName}
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
 -- in the /Amazon Aurora User Guide/.
-modifyDBCluster_domain :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_domain :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_domain = Lens.lens (\ModifyDBCluster' {domain} -> domain) (\s@ModifyDBCluster' {} a -> s {domain = a} :: ModifyDBCluster)
 
 -- | A value that indicates whether major version upgrades are allowed.
@@ -658,24 +659,24 @@ modifyDBCluster_domain = Lens.lens (\ModifyDBCluster' {domain} -> domain) (\s@Mo
 -- Constraints: You must allow major version upgrades when specifying a
 -- value for the @EngineVersion@ parameter that is a different major
 -- version than the DB cluster\'s current version.
-modifyDBCluster_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Bool)
+modifyDBCluster_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_allowMajorVersionUpgrade = Lens.lens (\ModifyDBCluster' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyDBCluster' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyDBCluster)
 
 -- | The scaling properties of the DB cluster. You can only modify scaling
 -- properties for DB clusters in @serverless@ DB engine mode.
-modifyDBCluster_scalingConfiguration :: Lens.Lens' ModifyDBCluster (Core.Maybe ScalingConfiguration)
+modifyDBCluster_scalingConfiguration :: Lens.Lens' ModifyDBCluster (Prelude.Maybe ScalingConfiguration)
 modifyDBCluster_scalingConfiguration = Lens.lens (\ModifyDBCluster' {scalingConfiguration} -> scalingConfiguration) (\s@ModifyDBCluster' {} a -> s {scalingConfiguration = a} :: ModifyDBCluster)
 
 -- | The new password for the master database user. This password can contain
 -- any printable ASCII character except \"\/\", \"\"\", or \"\@\".
 --
 -- Constraints: Must contain from 8 to 41 characters.
-modifyDBCluster_masterUserPassword :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_masterUserPassword :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_masterUserPassword = Lens.lens (\ModifyDBCluster' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBCluster' {} a -> s {masterUserPassword = a} :: ModifyDBCluster)
 
 -- | A list of VPC security groups that the DB cluster will belong to.
-modifyDBCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyDBCluster (Core.Maybe [Core.Text])
-modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBCluster) Core.. Lens.mapping Lens._Coerce
+modifyDBCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyDBCluster (Prelude.Maybe [Prelude.Text])
+modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates whether to enable the HTTP endpoint for an Aurora
 -- Serverless DB cluster. By default, the HTTP endpoint is disabled.
@@ -688,7 +689,7 @@ modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityG
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
 -- in the /Amazon Aurora User Guide/.
-modifyDBCluster_enableHttpEndpoint :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Bool)
+modifyDBCluster_enableHttpEndpoint :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_enableHttpEndpoint = Lens.lens (\ModifyDBCluster' {enableHttpEndpoint} -> enableHttpEndpoint) (\s@ModifyDBCluster' {} a -> s {enableHttpEndpoint = a} :: ModifyDBCluster)
 
 -- | The version number of the database engine to which you want to upgrade.
@@ -709,7 +710,7 @@ modifyDBCluster_enableHttpEndpoint = Lens.lens (\ModifyDBCluster' {enableHttpEnd
 -- use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
-modifyDBCluster_engineVersion :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_engineVersion :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_engineVersion = Lens.lens (\ModifyDBCluster' {engineVersion} -> engineVersion) (\s@ModifyDBCluster' {} a -> s {engineVersion = a} :: ModifyDBCluster)
 
 -- | The weekly time range during which system maintenance can occur, in
@@ -726,7 +727,7 @@ modifyDBCluster_engineVersion = Lens.lens (\ModifyDBCluster' {engineVersion} -> 
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
 --
 -- Constraints: Minimum 30-minute window.
-modifyDBCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_preferredMaintenanceWindow = Lens.lens (\ModifyDBCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBCluster)
 
 -- | A value that indicates whether to enable this DB cluster to forward
@@ -741,7 +742,7 @@ modifyDBCluster_preferredMaintenanceWindow = Lens.lens (\ModifyDBCluster' {prefe
 -- of an Aurora global database, this value is used immediately if the
 -- primary is demoted by the FailoverGlobalCluster API operation, but it
 -- does nothing until then.
-modifyDBCluster_enableGlobalWriteForwarding :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Bool)
+modifyDBCluster_enableGlobalWriteForwarding :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_enableGlobalWriteForwarding = Lens.lens (\ModifyDBCluster' {enableGlobalWriteForwarding} -> enableGlobalWriteForwarding) (\s@ModifyDBCluster' {} a -> s {enableGlobalWriteForwarding = a} :: ModifyDBCluster)
 
 -- | The port number on which the DB cluster accepts connections.
@@ -749,12 +750,12 @@ modifyDBCluster_enableGlobalWriteForwarding = Lens.lens (\ModifyDBCluster' {enab
 -- Constraints: Value must be @1150-65535@
 --
 -- Default: The same port as the original DB cluster.
-modifyDBCluster_port :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Int)
+modifyDBCluster_port :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
 modifyDBCluster_port = Lens.lens (\ModifyDBCluster' {port} -> port) (\s@ModifyDBCluster' {} a -> s {port = a} :: ModifyDBCluster)
 
 -- | Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
-modifyDBCluster_domainIAMRoleName :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_domainIAMRoleName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_domainIAMRoleName = Lens.lens (\ModifyDBCluster' {domainIAMRoleName} -> domainIAMRoleName) (\s@ModifyDBCluster' {} a -> s {domainIAMRoleName = a} :: ModifyDBCluster)
 
 -- | The new DB cluster identifier for the DB cluster when renaming a DB
@@ -769,17 +770,17 @@ modifyDBCluster_domainIAMRoleName = Lens.lens (\ModifyDBCluster' {domainIAMRoleN
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-cluster2@
-modifyDBCluster_newDBClusterIdentifier :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_newDBClusterIdentifier :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_newDBClusterIdentifier = Lens.lens (\ModifyDBCluster' {newDBClusterIdentifier'} -> newDBClusterIdentifier') (\s@ModifyDBCluster' {} a -> s {newDBClusterIdentifier' = a} :: ModifyDBCluster)
 
 -- | The configuration setting for the log types to be enabled for export to
 -- CloudWatch Logs for a specific DB cluster.
-modifyDBCluster_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBCluster (Core.Maybe CloudwatchLogsExportConfiguration)
+modifyDBCluster_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBCluster (Prelude.Maybe CloudwatchLogsExportConfiguration)
 modifyDBCluster_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBCluster' {cloudwatchLogsExportConfiguration} -> cloudwatchLogsExportConfiguration) (\s@ModifyDBCluster' {} a -> s {cloudwatchLogsExportConfiguration = a} :: ModifyDBCluster)
 
 -- | A value that indicates whether to copy all tags from the DB cluster to
 -- snapshots of the DB cluster. The default is not to copy them.
-modifyDBCluster_copyTagsToSnapshot :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Bool)
+modifyDBCluster_copyTagsToSnapshot :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_copyTagsToSnapshot = Lens.lens (\ModifyDBCluster' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBCluster' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBCluster)
 
 -- | The target backtrack window, in seconds. To disable backtracking, set
@@ -793,7 +794,7 @@ modifyDBCluster_copyTagsToSnapshot = Lens.lens (\ModifyDBCluster' {copyTagsToSna
 --
 -- -   If specified, this value must be set to a number from 0 to 259,200
 --     (72 hours).
-modifyDBCluster_backtrackWindow :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Integer)
+modifyDBCluster_backtrackWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Integer)
 modifyDBCluster_backtrackWindow = Lens.lens (\ModifyDBCluster' {backtrackWindow} -> backtrackWindow) (\s@ModifyDBCluster' {} a -> s {backtrackWindow = a} :: ModifyDBCluster)
 
 -- | A value that indicates whether the modifications in this request and any
@@ -812,11 +813,11 @@ modifyDBCluster_backtrackWindow = Lens.lens (\ModifyDBCluster' {backtrackWindow}
 -- parameter.
 --
 -- By default, this parameter is disabled.
-modifyDBCluster_applyImmediately :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Bool)
+modifyDBCluster_applyImmediately :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_applyImmediately = Lens.lens (\ModifyDBCluster' {applyImmediately} -> applyImmediately) (\s@ModifyDBCluster' {} a -> s {applyImmediately = a} :: ModifyDBCluster)
 
 -- | The name of the DB cluster parameter group to use for the DB cluster.
-modifyDBCluster_dbClusterParameterGroupName :: Lens.Lens' ModifyDBCluster (Core.Maybe Core.Text)
+modifyDBCluster_dbClusterParameterGroupName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_dbClusterParameterGroupName = Lens.lens (\ModifyDBCluster' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@ModifyDBCluster' {} a -> s {dbClusterParameterGroupName = a} :: ModifyDBCluster)
 
 -- | The DB cluster identifier for the cluster being modified. This parameter
@@ -824,7 +825,7 @@ modifyDBCluster_dbClusterParameterGroupName = Lens.lens (\ModifyDBCluster' {dbCl
 --
 -- Constraints: This identifier must match the identifier of an existing DB
 -- cluster.
-modifyDBCluster_dbClusterIdentifier :: Lens.Lens' ModifyDBCluster Core.Text
+modifyDBCluster_dbClusterIdentifier :: Lens.Lens' ModifyDBCluster Prelude.Text
 modifyDBCluster_dbClusterIdentifier = Lens.lens (\ModifyDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@ModifyDBCluster' {} a -> s {dbClusterIdentifier = a} :: ModifyDBCluster)
 
 instance Core.AWSRequest ModifyDBCluster where
@@ -837,26 +838,27 @@ instance Core.AWSRequest ModifyDBCluster where
       "ModifyDBClusterResult"
       ( \s h x ->
           ModifyDBClusterResponse'
-            Core.<$> (x Core..@? "DBCluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyDBCluster
+instance Prelude.Hashable ModifyDBCluster
 
-instance Core.NFData ModifyDBCluster
+instance Prelude.NFData ModifyDBCluster
 
 instance Core.ToHeaders ModifyDBCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyDBCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyDBCluster where
   toQuery ModifyDBCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBCluster" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("ModifyDBCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "BackupRetentionPeriod"
           Core.=: backupRetentionPeriod,
         "DeletionProtection" Core.=: deletionProtection,
@@ -875,7 +877,7 @@ instance Core.ToQuery ModifyDBCluster where
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
-                Core.<$> vpcSecurityGroupIds
+                Prelude.<$> vpcSecurityGroupIds
             ),
         "EnableHttpEndpoint" Core.=: enableHttpEndpoint,
         "EngineVersion" Core.=: engineVersion,
@@ -899,11 +901,11 @@ instance Core.ToQuery ModifyDBCluster where
 
 -- | /See:/ 'newModifyDBClusterResponse' smart constructor.
 data ModifyDBClusterResponse = ModifyDBClusterResponse'
-  { dbCluster :: Core.Maybe DBCluster,
+  { dbCluster :: Prelude.Maybe DBCluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBClusterResponse' with all optional fields omitted.
@@ -918,20 +920,21 @@ data ModifyDBClusterResponse = ModifyDBClusterResponse'
 -- 'httpStatus', 'modifyDBClusterResponse_httpStatus' - The response's http status code.
 newModifyDBClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyDBClusterResponse
 newModifyDBClusterResponse pHttpStatus_ =
   ModifyDBClusterResponse'
-    { dbCluster = Core.Nothing,
+    { dbCluster =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyDBClusterResponse_dbCluster :: Lens.Lens' ModifyDBClusterResponse (Core.Maybe DBCluster)
+modifyDBClusterResponse_dbCluster :: Lens.Lens' ModifyDBClusterResponse (Prelude.Maybe DBCluster)
 modifyDBClusterResponse_dbCluster = Lens.lens (\ModifyDBClusterResponse' {dbCluster} -> dbCluster) (\s@ModifyDBClusterResponse' {} a -> s {dbCluster = a} :: ModifyDBClusterResponse)
 
 -- | The response's http status code.
-modifyDBClusterResponse_httpStatus :: Lens.Lens' ModifyDBClusterResponse Core.Int
+modifyDBClusterResponse_httpStatus :: Lens.Lens' ModifyDBClusterResponse Prelude.Int
 modifyDBClusterResponse_httpStatus = Lens.lens (\ModifyDBClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyDBClusterResponse' {} a -> s {httpStatus = a} :: ModifyDBClusterResponse)
 
-instance Core.NFData ModifyDBClusterResponse
+instance Prelude.NFData ModifyDBClusterResponse

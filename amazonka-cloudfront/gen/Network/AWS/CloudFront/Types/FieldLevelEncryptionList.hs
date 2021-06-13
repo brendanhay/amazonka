@@ -22,23 +22,24 @@ module Network.AWS.CloudFront.Types.FieldLevelEncryptionList where
 import Network.AWS.CloudFront.Types.FieldLevelEncryptionSummary
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | List of field-level encrpytion configurations.
 --
 -- /See:/ 'newFieldLevelEncryptionList' smart constructor.
 data FieldLevelEncryptionList = FieldLevelEncryptionList'
   { -- | An array of field-level encryption items.
-    items :: Core.Maybe [FieldLevelEncryptionSummary],
+    items :: Prelude.Maybe [FieldLevelEncryptionSummary],
     -- | If there are more elements to be listed, this element is present and
     -- contains the value that you can use for the @Marker@ request parameter
     -- to continue listing your configurations where you left off.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of elements you want in the response body.
-    maxItems :: Core.Int,
+    maxItems :: Prelude.Int,
     -- | The number of field-level encryption items.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FieldLevelEncryptionList' with all optional fields omitted.
@@ -59,47 +60,47 @@ data FieldLevelEncryptionList = FieldLevelEncryptionList'
 -- 'quantity', 'fieldLevelEncryptionList_quantity' - The number of field-level encryption items.
 newFieldLevelEncryptionList ::
   -- | 'maxItems'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   FieldLevelEncryptionList
 newFieldLevelEncryptionList pMaxItems_ pQuantity_ =
   FieldLevelEncryptionList'
-    { items = Core.Nothing,
-      nextMarker = Core.Nothing,
+    { items = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       maxItems = pMaxItems_,
       quantity = pQuantity_
     }
 
 -- | An array of field-level encryption items.
-fieldLevelEncryptionList_items :: Lens.Lens' FieldLevelEncryptionList (Core.Maybe [FieldLevelEncryptionSummary])
-fieldLevelEncryptionList_items = Lens.lens (\FieldLevelEncryptionList' {items} -> items) (\s@FieldLevelEncryptionList' {} a -> s {items = a} :: FieldLevelEncryptionList) Core.. Lens.mapping Lens._Coerce
+fieldLevelEncryptionList_items :: Lens.Lens' FieldLevelEncryptionList (Prelude.Maybe [FieldLevelEncryptionSummary])
+fieldLevelEncryptionList_items = Lens.lens (\FieldLevelEncryptionList' {items} -> items) (\s@FieldLevelEncryptionList' {} a -> s {items = a} :: FieldLevelEncryptionList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are more elements to be listed, this element is present and
 -- contains the value that you can use for the @Marker@ request parameter
 -- to continue listing your configurations where you left off.
-fieldLevelEncryptionList_nextMarker :: Lens.Lens' FieldLevelEncryptionList (Core.Maybe Core.Text)
+fieldLevelEncryptionList_nextMarker :: Lens.Lens' FieldLevelEncryptionList (Prelude.Maybe Prelude.Text)
 fieldLevelEncryptionList_nextMarker = Lens.lens (\FieldLevelEncryptionList' {nextMarker} -> nextMarker) (\s@FieldLevelEncryptionList' {} a -> s {nextMarker = a} :: FieldLevelEncryptionList)
 
 -- | The maximum number of elements you want in the response body.
-fieldLevelEncryptionList_maxItems :: Lens.Lens' FieldLevelEncryptionList Core.Int
+fieldLevelEncryptionList_maxItems :: Lens.Lens' FieldLevelEncryptionList Prelude.Int
 fieldLevelEncryptionList_maxItems = Lens.lens (\FieldLevelEncryptionList' {maxItems} -> maxItems) (\s@FieldLevelEncryptionList' {} a -> s {maxItems = a} :: FieldLevelEncryptionList)
 
 -- | The number of field-level encryption items.
-fieldLevelEncryptionList_quantity :: Lens.Lens' FieldLevelEncryptionList Core.Int
+fieldLevelEncryptionList_quantity :: Lens.Lens' FieldLevelEncryptionList Prelude.Int
 fieldLevelEncryptionList_quantity = Lens.lens (\FieldLevelEncryptionList' {quantity} -> quantity) (\s@FieldLevelEncryptionList' {} a -> s {quantity = a} :: FieldLevelEncryptionList)
 
 instance Core.FromXML FieldLevelEncryptionList where
   parseXML x =
     FieldLevelEncryptionList'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "FieldLevelEncryptionSummary")
-               )
-      Core.<*> (x Core..@? "NextMarker")
-      Core.<*> (x Core..@ "MaxItems")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "FieldLevelEncryptionSummary")
+                  )
+      Prelude.<*> (x Core..@? "NextMarker")
+      Prelude.<*> (x Core..@ "MaxItems")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable FieldLevelEncryptionList
+instance Prelude.Hashable FieldLevelEncryptionList
 
-instance Core.NFData FieldLevelEncryptionList
+instance Prelude.NFData FieldLevelEncryptionList

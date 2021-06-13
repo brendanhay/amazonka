@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.GlueTable where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The database and table in the AWS Glue Data Catalog that is used for
 -- input or output data.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newGlueTable' smart constructor.
 data GlueTable = GlueTable'
   { -- | The name of the connection to the AWS Glue Data Catalog.
-    connectionName :: Core.Maybe Core.Text,
+    connectionName :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the AWS Glue Data Catalog.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A database name in the AWS Glue Data Catalog.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | A table name in the AWS Glue Data Catalog.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GlueTable' with all optional fields omitted.
@@ -55,32 +56,32 @@ data GlueTable = GlueTable'
 -- 'tableName', 'glueTable_tableName' - A table name in the AWS Glue Data Catalog.
 newGlueTable ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   GlueTable
 newGlueTable pDatabaseName_ pTableName_ =
   GlueTable'
-    { connectionName = Core.Nothing,
-      catalogId = Core.Nothing,
+    { connectionName = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
 
 -- | The name of the connection to the AWS Glue Data Catalog.
-glueTable_connectionName :: Lens.Lens' GlueTable (Core.Maybe Core.Text)
+glueTable_connectionName :: Lens.Lens' GlueTable (Prelude.Maybe Prelude.Text)
 glueTable_connectionName = Lens.lens (\GlueTable' {connectionName} -> connectionName) (\s@GlueTable' {} a -> s {connectionName = a} :: GlueTable)
 
 -- | A unique identifier for the AWS Glue Data Catalog.
-glueTable_catalogId :: Lens.Lens' GlueTable (Core.Maybe Core.Text)
+glueTable_catalogId :: Lens.Lens' GlueTable (Prelude.Maybe Prelude.Text)
 glueTable_catalogId = Lens.lens (\GlueTable' {catalogId} -> catalogId) (\s@GlueTable' {} a -> s {catalogId = a} :: GlueTable)
 
 -- | A database name in the AWS Glue Data Catalog.
-glueTable_databaseName :: Lens.Lens' GlueTable Core.Text
+glueTable_databaseName :: Lens.Lens' GlueTable Prelude.Text
 glueTable_databaseName = Lens.lens (\GlueTable' {databaseName} -> databaseName) (\s@GlueTable' {} a -> s {databaseName = a} :: GlueTable)
 
 -- | A table name in the AWS Glue Data Catalog.
-glueTable_tableName :: Lens.Lens' GlueTable Core.Text
+glueTable_tableName :: Lens.Lens' GlueTable Prelude.Text
 glueTable_tableName = Lens.lens (\GlueTable' {tableName} -> tableName) (\s@GlueTable' {} a -> s {tableName = a} :: GlueTable)
 
 instance Core.FromJSON GlueTable where
@@ -89,23 +90,24 @@ instance Core.FromJSON GlueTable where
       "GlueTable"
       ( \x ->
           GlueTable'
-            Core.<$> (x Core..:? "ConnectionName")
-            Core.<*> (x Core..:? "CatalogId")
-            Core.<*> (x Core..: "DatabaseName")
-            Core.<*> (x Core..: "TableName")
+            Prelude.<$> (x Core..:? "ConnectionName")
+            Prelude.<*> (x Core..:? "CatalogId")
+            Prelude.<*> (x Core..: "DatabaseName")
+            Prelude.<*> (x Core..: "TableName")
       )
 
-instance Core.Hashable GlueTable
+instance Prelude.Hashable GlueTable
 
-instance Core.NFData GlueTable
+instance Prelude.NFData GlueTable
 
 instance Core.ToJSON GlueTable where
   toJSON GlueTable' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ConnectionName" Core..=) Core.<$> connectionName,
-            ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName)
+      ( Prelude.catMaybes
+          [ ("ConnectionName" Core..=)
+              Prelude.<$> connectionName,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )

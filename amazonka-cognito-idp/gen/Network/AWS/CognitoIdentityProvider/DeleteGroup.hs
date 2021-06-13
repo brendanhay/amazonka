@@ -41,17 +41,18 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
   { -- | The name of the group.
-    groupName :: Core.Text,
+    groupName :: Prelude.Text,
     -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text
+    userPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGroup' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteGroup = DeleteGroup'
 -- 'userPoolId', 'deleteGroup_userPoolId' - The user pool ID for the user pool.
 newDeleteGroup ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteGroup
 newDeleteGroup pGroupName_ pUserPoolId_ =
   DeleteGroup'
@@ -77,11 +78,11 @@ newDeleteGroup pGroupName_ pUserPoolId_ =
     }
 
 -- | The name of the group.
-deleteGroup_groupName :: Lens.Lens' DeleteGroup Core.Text
+deleteGroup_groupName :: Lens.Lens' DeleteGroup Prelude.Text
 deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
 -- | The user pool ID for the user pool.
-deleteGroup_userPoolId :: Lens.Lens' DeleteGroup Core.Text
+deleteGroup_userPoolId :: Lens.Lens' DeleteGroup Prelude.Text
 deleteGroup_userPoolId = Lens.lens (\DeleteGroup' {userPoolId} -> userPoolId) (\s@DeleteGroup' {} a -> s {userPoolId = a} :: DeleteGroup)
 
 instance Core.AWSRequest DeleteGroup where
@@ -89,43 +90,45 @@ instance Core.AWSRequest DeleteGroup where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteGroupResponse'
 
-instance Core.Hashable DeleteGroup
+instance Prelude.Hashable DeleteGroup
 
-instance Core.NFData DeleteGroup
+instance Prelude.NFData DeleteGroup
 
 instance Core.ToHeaders DeleteGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.DeleteGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteGroup where
   toJSON DeleteGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GroupName" Core..= groupName),
-            Core.Just ("UserPoolId" Core..= userPoolId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GroupName" Core..= groupName),
+            Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
 instance Core.ToPath DeleteGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGroupResponse' smart constructor.
 data DeleteGroupResponse = DeleteGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGroupResponse' with all optional fields omitted.
@@ -135,4 +138,4 @@ newDeleteGroupResponse ::
   DeleteGroupResponse
 newDeleteGroupResponse = DeleteGroupResponse'
 
-instance Core.NFData DeleteGroupResponse
+instance Prelude.NFData DeleteGroupResponse

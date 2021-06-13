@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,12 +66,12 @@ data DeleteStackSet = DeleteStackSet'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Core.Maybe CallAs,
+    callAs :: Prelude.Maybe CallAs,
     -- | The name or unique ID of the stack set that you\'re deleting. You can
     -- obtain this value by running ListStackSets.
-    stackSetName :: Core.Text
+    stackSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStackSet' with all optional fields omitted.
@@ -101,11 +102,11 @@ data DeleteStackSet = DeleteStackSet'
 -- obtain this value by running ListStackSets.
 newDeleteStackSet ::
   -- | 'stackSetName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteStackSet
 newDeleteStackSet pStackSetName_ =
   DeleteStackSet'
-    { callAs = Core.Nothing,
+    { callAs = Prelude.Nothing,
       stackSetName = pStackSetName_
     }
 
@@ -125,12 +126,12 @@ newDeleteStackSet pStackSetName_ =
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-deleteStackSet_callAs :: Lens.Lens' DeleteStackSet (Core.Maybe CallAs)
+deleteStackSet_callAs :: Lens.Lens' DeleteStackSet (Prelude.Maybe CallAs)
 deleteStackSet_callAs = Lens.lens (\DeleteStackSet' {callAs} -> callAs) (\s@DeleteStackSet' {} a -> s {callAs = a} :: DeleteStackSet)
 
 -- | The name or unique ID of the stack set that you\'re deleting. You can
 -- obtain this value by running ListStackSets.
-deleteStackSet_stackSetName :: Lens.Lens' DeleteStackSet Core.Text
+deleteStackSet_stackSetName :: Lens.Lens' DeleteStackSet Prelude.Text
 deleteStackSet_stackSetName = Lens.lens (\DeleteStackSet' {stackSetName} -> stackSetName) (\s@DeleteStackSet' {} a -> s {stackSetName = a} :: DeleteStackSet)
 
 instance Core.AWSRequest DeleteStackSet where
@@ -143,25 +144,26 @@ instance Core.AWSRequest DeleteStackSet where
       "DeleteStackSetResult"
       ( \s h x ->
           DeleteStackSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteStackSet
+instance Prelude.Hashable DeleteStackSet
 
-instance Core.NFData DeleteStackSet
+instance Prelude.NFData DeleteStackSet
 
 instance Core.ToHeaders DeleteStackSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteStackSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteStackSet where
   toQuery DeleteStackSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteStackSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("DeleteStackSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "CallAs" Core.=: callAs,
         "StackSetName" Core.=: stackSetName
       ]
@@ -169,9 +171,9 @@ instance Core.ToQuery DeleteStackSet where
 -- | /See:/ 'newDeleteStackSetResponse' smart constructor.
 data DeleteStackSetResponse = DeleteStackSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStackSetResponse' with all optional fields omitted.
@@ -184,13 +186,13 @@ data DeleteStackSetResponse = DeleteStackSetResponse'
 -- 'httpStatus', 'deleteStackSetResponse_httpStatus' - The response's http status code.
 newDeleteStackSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteStackSetResponse
 newDeleteStackSetResponse pHttpStatus_ =
   DeleteStackSetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteStackSetResponse_httpStatus :: Lens.Lens' DeleteStackSetResponse Core.Int
+deleteStackSetResponse_httpStatus :: Lens.Lens' DeleteStackSetResponse Prelude.Int
 deleteStackSetResponse_httpStatus = Lens.lens (\DeleteStackSetResponse' {httpStatus} -> httpStatus) (\s@DeleteStackSetResponse' {} a -> s {httpStatus = a} :: DeleteStackSetResponse)
 
-instance Core.NFData DeleteStackSetResponse
+instance Prelude.NFData DeleteStackSetResponse

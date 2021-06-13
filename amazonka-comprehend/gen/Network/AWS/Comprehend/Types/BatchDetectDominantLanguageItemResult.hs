@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.BatchDetectDominantLanguageItemResult where
 import Network.AWS.Comprehend.Types.DominantLanguage
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
 -- for each document that is successfully processed by the operation.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data BatchDetectDominantLanguageItemResult = BatchDetectDominantLanguageItemResult'
   { -- | One or more DominantLanguage objects describing the dominant languages
     -- in the document.
-    languages :: Core.Maybe [DominantLanguage],
+    languages :: Prelude.Maybe [DominantLanguage],
     -- | The zero-based index of the document in the input list.
-    index :: Core.Maybe Core.Int
+    index :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetectDominantLanguageItemResult' with all optional fields omitted.
@@ -53,17 +54,17 @@ newBatchDetectDominantLanguageItemResult ::
 newBatchDetectDominantLanguageItemResult =
   BatchDetectDominantLanguageItemResult'
     { languages =
-        Core.Nothing,
-      index = Core.Nothing
+        Prelude.Nothing,
+      index = Prelude.Nothing
     }
 
 -- | One or more DominantLanguage objects describing the dominant languages
 -- in the document.
-batchDetectDominantLanguageItemResult_languages :: Lens.Lens' BatchDetectDominantLanguageItemResult (Core.Maybe [DominantLanguage])
-batchDetectDominantLanguageItemResult_languages = Lens.lens (\BatchDetectDominantLanguageItemResult' {languages} -> languages) (\s@BatchDetectDominantLanguageItemResult' {} a -> s {languages = a} :: BatchDetectDominantLanguageItemResult) Core.. Lens.mapping Lens._Coerce
+batchDetectDominantLanguageItemResult_languages :: Lens.Lens' BatchDetectDominantLanguageItemResult (Prelude.Maybe [DominantLanguage])
+batchDetectDominantLanguageItemResult_languages = Lens.lens (\BatchDetectDominantLanguageItemResult' {languages} -> languages) (\s@BatchDetectDominantLanguageItemResult' {} a -> s {languages = a} :: BatchDetectDominantLanguageItemResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The zero-based index of the document in the input list.
-batchDetectDominantLanguageItemResult_index :: Lens.Lens' BatchDetectDominantLanguageItemResult (Core.Maybe Core.Int)
+batchDetectDominantLanguageItemResult_index :: Lens.Lens' BatchDetectDominantLanguageItemResult (Prelude.Maybe Prelude.Int)
 batchDetectDominantLanguageItemResult_index = Lens.lens (\BatchDetectDominantLanguageItemResult' {index} -> index) (\s@BatchDetectDominantLanguageItemResult' {} a -> s {index = a} :: BatchDetectDominantLanguageItemResult)
 
 instance
@@ -75,14 +76,14 @@ instance
       "BatchDetectDominantLanguageItemResult"
       ( \x ->
           BatchDetectDominantLanguageItemResult'
-            Core.<$> (x Core..:? "Languages" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Index")
+            Prelude.<$> (x Core..:? "Languages" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Index")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchDetectDominantLanguageItemResult
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchDetectDominantLanguageItemResult

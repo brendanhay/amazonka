@@ -121,6 +121,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -136,7 +137,7 @@ data PutSecretValue = PutSecretValue'
     --
     -- This parameter is not accessible if the secret using the Secrets Manager
     -- console.
-    secretBinary :: Core.Maybe (Core.Sensitive Core.Base64),
+    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | (Optional) Specifies a list of staging labels that are attached to this
     -- version of the secret. These staging labels are used to track the
     -- versions through the rotation process by the Lambda rotation function.
@@ -148,7 +149,7 @@ data PutSecretValue = PutSecretValue'
     --
     -- If you do not specify a value for @VersionStages@ then Secrets Manager
     -- automatically moves the staging label @AWSCURRENT@ to this new version.
-    versionStages :: Core.Maybe (Core.NonEmpty Core.Text),
+    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | (Optional) Specifies text data that you want to encrypt and store in
     -- this new version of the secret. Either @SecretString@ or @SecretBinary@
     -- must have a value, but not both. They cannot both be empty.
@@ -173,7 +174,7 @@ data PutSecretValue = PutSecretValue'
     -- If your command-line tool or SDK requires quotation marks around the
     -- parameter, you should use single quotes to avoid confusion with the
     -- double quotes required in the JSON text.
-    secretString :: Core.Maybe (Core.Sensitive Core.Text),
+    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | (Optional) Specifies a unique identifier for the new version of the
     -- secret.
     --
@@ -205,7 +206,7 @@ data PutSecretValue = PutSecretValue'
     --     new secret values.
     --
     -- This value becomes the @VersionId@ of the new version.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret to which you want to add a new version. You can
     -- specify either the Amazon Resource Name (ARN) or the friendly name of
     -- the secret. The secret must already exist.
@@ -228,9 +229,9 @@ data PutSecretValue = PutSecretValue'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Core.Text
+    secretId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutSecretValue' with all optional fields omitted.
@@ -347,14 +348,14 @@ data PutSecretValue = PutSecretValue'
 -- /AccessDeniedException/ error, depending on your permissions.
 newPutSecretValue ::
   -- | 'secretId'
-  Core.Text ->
+  Prelude.Text ->
   PutSecretValue
 newPutSecretValue pSecretId_ =
   PutSecretValue'
-    { secretBinary = Core.Nothing,
-      versionStages = Core.Nothing,
-      secretString = Core.Nothing,
-      clientRequestToken = Core.Nothing,
+    { secretBinary = Prelude.Nothing,
+      versionStages = Prelude.Nothing,
+      secretString = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       secretId = pSecretId_
     }
 
@@ -371,8 +372,8 @@ newPutSecretValue pSecretId_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-putSecretValue_secretBinary :: Lens.Lens' PutSecretValue (Core.Maybe Core.ByteString)
-putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secretBinary) (\s@PutSecretValue' {} a -> s {secretBinary = a} :: PutSecretValue) Core.. Lens.mapping (Core._Sensitive Core.. Core._Base64)
+putSecretValue_secretBinary :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.ByteString)
+putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secretBinary) (\s@PutSecretValue' {} a -> s {secretBinary = a} :: PutSecretValue) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
 -- | (Optional) Specifies a list of staging labels that are attached to this
 -- version of the secret. These staging labels are used to track the
@@ -385,8 +386,8 @@ putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secr
 --
 -- If you do not specify a value for @VersionStages@ then Secrets Manager
 -- automatically moves the staging label @AWSCURRENT@ to this new version.
-putSecretValue_versionStages :: Lens.Lens' PutSecretValue (Core.Maybe (Core.NonEmpty Core.Text))
-putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> versionStages) (\s@PutSecretValue' {} a -> s {versionStages = a} :: PutSecretValue) Core.. Lens.mapping Lens._Coerce
+putSecretValue_versionStages :: Lens.Lens' PutSecretValue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> versionStages) (\s@PutSecretValue' {} a -> s {versionStages = a} :: PutSecretValue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Optional) Specifies text data that you want to encrypt and store in
 -- this new version of the secret. Either @SecretString@ or @SecretBinary@
@@ -412,8 +413,8 @@ putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> ve
 -- If your command-line tool or SDK requires quotation marks around the
 -- parameter, you should use single quotes to avoid confusion with the
 -- double quotes required in the JSON text.
-putSecretValue_secretString :: Lens.Lens' PutSecretValue (Core.Maybe Core.Text)
-putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secretString) (\s@PutSecretValue' {} a -> s {secretString = a} :: PutSecretValue) Core.. Lens.mapping Core._Sensitive
+putSecretValue_secretString :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
+putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secretString) (\s@PutSecretValue' {} a -> s {secretString = a} :: PutSecretValue) Prelude.. Lens.mapping Core._Sensitive
 
 -- | (Optional) Specifies a unique identifier for the new version of the
 -- secret.
@@ -446,7 +447,7 @@ putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secr
 --     new secret values.
 --
 -- This value becomes the @VersionId@ of the new version.
-putSecretValue_clientRequestToken :: Lens.Lens' PutSecretValue (Core.Maybe Core.Text)
+putSecretValue_clientRequestToken :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
 putSecretValue_clientRequestToken = Lens.lens (\PutSecretValue' {clientRequestToken} -> clientRequestToken) (\s@PutSecretValue' {} a -> s {clientRequestToken = a} :: PutSecretValue)
 
 -- | Specifies the secret to which you want to add a new version. You can
@@ -471,7 +472,7 @@ putSecretValue_clientRequestToken = Lens.lens (\PutSecretValue' {clientRequestTo
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-putSecretValue_secretId :: Lens.Lens' PutSecretValue Core.Text
+putSecretValue_secretId :: Lens.Lens' PutSecretValue Prelude.Text
 putSecretValue_secretId = Lens.lens (\PutSecretValue' {secretId} -> secretId) (\s@PutSecretValue' {} a -> s {secretId = a} :: PutSecretValue)
 
 instance Core.AWSRequest PutSecretValue where
@@ -483,66 +484,70 @@ instance Core.AWSRequest PutSecretValue where
     Response.receiveJSON
       ( \s h x ->
           PutSecretValueResponse'
-            Core.<$> (x Core..?> "VersionStages")
-            Core.<*> (x Core..?> "ARN")
-            Core.<*> (x Core..?> "VersionId")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "VersionStages")
+            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutSecretValue
+instance Prelude.Hashable PutSecretValue
 
-instance Core.NFData PutSecretValue
+instance Prelude.NFData PutSecretValue
 
 instance Core.ToHeaders PutSecretValue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("secretsmanager.PutSecretValue" :: Core.ByteString),
+              Core.=# ( "secretsmanager.PutSecretValue" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutSecretValue where
   toJSON PutSecretValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SecretBinary" Core..=) Core.<$> secretBinary,
-            ("VersionStages" Core..=) Core.<$> versionStages,
-            ("SecretString" Core..=) Core.<$> secretString,
+      ( Prelude.catMaybes
+          [ ("SecretBinary" Core..=) Prelude.<$> secretBinary,
+            ("VersionStages" Core..=) Prelude.<$> versionStages,
+            ("SecretString" Core..=) Prelude.<$> secretString,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just ("SecretId" Core..= secretId)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just ("SecretId" Core..= secretId)
           ]
       )
 
 instance Core.ToPath PutSecretValue where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutSecretValue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutSecretValueResponse' smart constructor.
 data PutSecretValueResponse = PutSecretValueResponse'
   { -- | The list of staging labels that are currently attached to this version
     -- of the secret. Staging labels are used to track a version as it
     -- progresses through the secret rotation process.
-    versionStages :: Core.Maybe (Core.NonEmpty Core.Text),
+    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Name (ARN) for the secret for which you just created
     -- a version.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the version of the secret you just created or
     -- updated.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret for which you just created or updated a
     -- version.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutSecretValueResponse' with all optional fields omitted.
@@ -568,41 +573,41 @@ data PutSecretValueResponse = PutSecretValueResponse'
 -- 'httpStatus', 'putSecretValueResponse_httpStatus' - The response's http status code.
 newPutSecretValueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutSecretValueResponse
 newPutSecretValueResponse pHttpStatus_ =
   PutSecretValueResponse'
     { versionStages =
-        Core.Nothing,
-      arn = Core.Nothing,
-      versionId = Core.Nothing,
-      name = Core.Nothing,
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of staging labels that are currently attached to this version
 -- of the secret. Staging labels are used to track a version as it
 -- progresses through the secret rotation process.
-putSecretValueResponse_versionStages :: Lens.Lens' PutSecretValueResponse (Core.Maybe (Core.NonEmpty Core.Text))
-putSecretValueResponse_versionStages = Lens.lens (\PutSecretValueResponse' {versionStages} -> versionStages) (\s@PutSecretValueResponse' {} a -> s {versionStages = a} :: PutSecretValueResponse) Core.. Lens.mapping Lens._Coerce
+putSecretValueResponse_versionStages :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+putSecretValueResponse_versionStages = Lens.lens (\PutSecretValueResponse' {versionStages} -> versionStages) (\s@PutSecretValueResponse' {} a -> s {versionStages = a} :: PutSecretValueResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) for the secret for which you just created
 -- a version.
-putSecretValueResponse_arn :: Lens.Lens' PutSecretValueResponse (Core.Maybe Core.Text)
+putSecretValueResponse_arn :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_arn = Lens.lens (\PutSecretValueResponse' {arn} -> arn) (\s@PutSecretValueResponse' {} a -> s {arn = a} :: PutSecretValueResponse)
 
 -- | The unique identifier of the version of the secret you just created or
 -- updated.
-putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Core.Maybe Core.Text)
+putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_versionId = Lens.lens (\PutSecretValueResponse' {versionId} -> versionId) (\s@PutSecretValueResponse' {} a -> s {versionId = a} :: PutSecretValueResponse)
 
 -- | The friendly name of the secret for which you just created or updated a
 -- version.
-putSecretValueResponse_name :: Lens.Lens' PutSecretValueResponse (Core.Maybe Core.Text)
+putSecretValueResponse_name :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_name = Lens.lens (\PutSecretValueResponse' {name} -> name) (\s@PutSecretValueResponse' {} a -> s {name = a} :: PutSecretValueResponse)
 
 -- | The response's http status code.
-putSecretValueResponse_httpStatus :: Lens.Lens' PutSecretValueResponse Core.Int
+putSecretValueResponse_httpStatus :: Lens.Lens' PutSecretValueResponse Prelude.Int
 putSecretValueResponse_httpStatus = Lens.lens (\PutSecretValueResponse' {httpStatus} -> httpStatus) (\s@PutSecretValueResponse' {} a -> s {httpStatus = a} :: PutSecretValueResponse)
 
-instance Core.NFData PutSecretValueResponse
+instance Prelude.NFData PutSecretValueResponse

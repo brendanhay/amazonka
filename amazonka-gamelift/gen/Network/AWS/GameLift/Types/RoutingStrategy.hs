@@ -22,6 +22,7 @@ module Network.AWS.GameLift.Types.RoutingStrategy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.RoutingStrategyType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The routing configuration for a fleet alias.
 --
@@ -41,9 +42,9 @@ import qualified Network.AWS.Lens as Lens
 data RoutingStrategy = RoutingStrategy'
   { -- | The unique identifier for a fleet that the alias points to. This value
     -- is the fleet ID, not the fleet ARN.
-    fleetId :: Core.Maybe Core.Text,
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The message text to be used with a terminal routing strategy.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The type of routing strategy for the alias.
     --
     -- Possible routing types include the following:
@@ -55,9 +56,9 @@ data RoutingStrategy = RoutingStrategy'
     --     be used to display a message to the user. A terminal alias throws a
     --     TerminalRoutingStrategyException with the RoutingStrategy message
     --     embedded.
-    type' :: Core.Maybe RoutingStrategyType
+    type' :: Prelude.Maybe RoutingStrategyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RoutingStrategy' with all optional fields omitted.
@@ -87,18 +88,18 @@ newRoutingStrategy ::
   RoutingStrategy
 newRoutingStrategy =
   RoutingStrategy'
-    { fleetId = Core.Nothing,
-      message = Core.Nothing,
-      type' = Core.Nothing
+    { fleetId = Prelude.Nothing,
+      message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The unique identifier for a fleet that the alias points to. This value
 -- is the fleet ID, not the fleet ARN.
-routingStrategy_fleetId :: Lens.Lens' RoutingStrategy (Core.Maybe Core.Text)
+routingStrategy_fleetId :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
 routingStrategy_fleetId = Lens.lens (\RoutingStrategy' {fleetId} -> fleetId) (\s@RoutingStrategy' {} a -> s {fleetId = a} :: RoutingStrategy)
 
 -- | The message text to be used with a terminal routing strategy.
-routingStrategy_message :: Lens.Lens' RoutingStrategy (Core.Maybe Core.Text)
+routingStrategy_message :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
 routingStrategy_message = Lens.lens (\RoutingStrategy' {message} -> message) (\s@RoutingStrategy' {} a -> s {message = a} :: RoutingStrategy)
 
 -- | The type of routing strategy for the alias.
@@ -112,7 +113,7 @@ routingStrategy_message = Lens.lens (\RoutingStrategy' {message} -> message) (\s
 --     be used to display a message to the user. A terminal alias throws a
 --     TerminalRoutingStrategyException with the RoutingStrategy message
 --     embedded.
-routingStrategy_type :: Lens.Lens' RoutingStrategy (Core.Maybe RoutingStrategyType)
+routingStrategy_type :: Lens.Lens' RoutingStrategy (Prelude.Maybe RoutingStrategyType)
 routingStrategy_type = Lens.lens (\RoutingStrategy' {type'} -> type') (\s@RoutingStrategy' {} a -> s {type' = a} :: RoutingStrategy)
 
 instance Core.FromJSON RoutingStrategy where
@@ -121,21 +122,21 @@ instance Core.FromJSON RoutingStrategy where
       "RoutingStrategy"
       ( \x ->
           RoutingStrategy'
-            Core.<$> (x Core..:? "FleetId")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable RoutingStrategy
+instance Prelude.Hashable RoutingStrategy
 
-instance Core.NFData RoutingStrategy
+instance Prelude.NFData RoutingStrategy
 
 instance Core.ToJSON RoutingStrategy where
   toJSON RoutingStrategy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("FleetId" Core..=) Core.<$> fleetId,
-            ("Message" Core..=) Core.<$> message,
-            ("Type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("FleetId" Core..=) Prelude.<$> fleetId,
+            ("Message" Core..=) Prelude.<$> message,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

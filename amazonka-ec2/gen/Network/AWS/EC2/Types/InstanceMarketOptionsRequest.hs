@@ -24,17 +24,18 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.MarketType
 import Network.AWS.EC2.Types.SpotMarketOptions
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the market (purchasing) option for the instances.
 --
 -- /See:/ 'newInstanceMarketOptionsRequest' smart constructor.
 data InstanceMarketOptionsRequest = InstanceMarketOptionsRequest'
   { -- | The market type.
-    marketType :: Core.Maybe MarketType,
+    marketType :: Prelude.Maybe MarketType,
     -- | The options for Spot Instances.
-    spotOptions :: Core.Maybe SpotMarketOptions
+    spotOptions :: Prelude.Maybe SpotMarketOptions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceMarketOptionsRequest' with all optional fields omitted.
@@ -52,25 +53,27 @@ newInstanceMarketOptionsRequest ::
 newInstanceMarketOptionsRequest =
   InstanceMarketOptionsRequest'
     { marketType =
-        Core.Nothing,
-      spotOptions = Core.Nothing
+        Prelude.Nothing,
+      spotOptions = Prelude.Nothing
     }
 
 -- | The market type.
-instanceMarketOptionsRequest_marketType :: Lens.Lens' InstanceMarketOptionsRequest (Core.Maybe MarketType)
+instanceMarketOptionsRequest_marketType :: Lens.Lens' InstanceMarketOptionsRequest (Prelude.Maybe MarketType)
 instanceMarketOptionsRequest_marketType = Lens.lens (\InstanceMarketOptionsRequest' {marketType} -> marketType) (\s@InstanceMarketOptionsRequest' {} a -> s {marketType = a} :: InstanceMarketOptionsRequest)
 
 -- | The options for Spot Instances.
-instanceMarketOptionsRequest_spotOptions :: Lens.Lens' InstanceMarketOptionsRequest (Core.Maybe SpotMarketOptions)
+instanceMarketOptionsRequest_spotOptions :: Lens.Lens' InstanceMarketOptionsRequest (Prelude.Maybe SpotMarketOptions)
 instanceMarketOptionsRequest_spotOptions = Lens.lens (\InstanceMarketOptionsRequest' {spotOptions} -> spotOptions) (\s@InstanceMarketOptionsRequest' {} a -> s {spotOptions = a} :: InstanceMarketOptionsRequest)
 
-instance Core.Hashable InstanceMarketOptionsRequest
+instance
+  Prelude.Hashable
+    InstanceMarketOptionsRequest
 
-instance Core.NFData InstanceMarketOptionsRequest
+instance Prelude.NFData InstanceMarketOptionsRequest
 
 instance Core.ToQuery InstanceMarketOptionsRequest where
   toQuery InstanceMarketOptionsRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MarketType" Core.=: marketType,
         "SpotOptions" Core.=: spotOptions
       ]

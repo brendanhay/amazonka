@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -52,13 +53,13 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateAppImageConfig' smart constructor.
 data CreateAppImageConfig = CreateAppImageConfig'
   { -- | The KernelGatewayImageConfig.
-    kernelGatewayImageConfig :: Core.Maybe KernelGatewayImageConfig,
+    kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
     -- | A list of tags to apply to the AppImageConfig.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the AppImageConfig. Must be unique to your account.
-    appImageConfigName :: Core.Text
+    appImageConfigName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAppImageConfig' with all optional fields omitted.
@@ -75,26 +76,26 @@ data CreateAppImageConfig = CreateAppImageConfig'
 -- 'appImageConfigName', 'createAppImageConfig_appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
 newCreateAppImageConfig ::
   -- | 'appImageConfigName'
-  Core.Text ->
+  Prelude.Text ->
   CreateAppImageConfig
 newCreateAppImageConfig pAppImageConfigName_ =
   CreateAppImageConfig'
     { kernelGatewayImageConfig =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       appImageConfigName = pAppImageConfigName_
     }
 
 -- | The KernelGatewayImageConfig.
-createAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' CreateAppImageConfig (Core.Maybe KernelGatewayImageConfig)
+createAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe KernelGatewayImageConfig)
 createAppImageConfig_kernelGatewayImageConfig = Lens.lens (\CreateAppImageConfig' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@CreateAppImageConfig' {} a -> s {kernelGatewayImageConfig = a} :: CreateAppImageConfig)
 
 -- | A list of tags to apply to the AppImageConfig.
-createAppImageConfig_tags :: Lens.Lens' CreateAppImageConfig (Core.Maybe [Tag])
-createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\s@CreateAppImageConfig' {} a -> s {tags = a} :: CreateAppImageConfig) Core.. Lens.mapping Lens._Coerce
+createAppImageConfig_tags :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe [Tag])
+createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\s@CreateAppImageConfig' {} a -> s {tags = a} :: CreateAppImageConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the AppImageConfig. Must be unique to your account.
-createAppImageConfig_appImageConfigName :: Lens.Lens' CreateAppImageConfig Core.Text
+createAppImageConfig_appImageConfigName :: Lens.Lens' CreateAppImageConfig Prelude.Text
 createAppImageConfig_appImageConfigName = Lens.lens (\CreateAppImageConfig' {appImageConfigName} -> appImageConfigName) (\s@CreateAppImageConfig' {} a -> s {appImageConfigName = a} :: CreateAppImageConfig)
 
 instance Core.AWSRequest CreateAppImageConfig where
@@ -106,53 +107,55 @@ instance Core.AWSRequest CreateAppImageConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateAppImageConfigResponse'
-            Core.<$> (x Core..?> "AppImageConfigArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AppImageConfigArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateAppImageConfig
+instance Prelude.Hashable CreateAppImageConfig
 
-instance Core.NFData CreateAppImageConfig
+instance Prelude.NFData CreateAppImageConfig
 
 instance Core.ToHeaders CreateAppImageConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.CreateAppImageConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateAppImageConfig where
   toJSON CreateAppImageConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("KernelGatewayImageConfig" Core..=)
-              Core.<$> kernelGatewayImageConfig,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just
+              Prelude.<$> kernelGatewayImageConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("AppImageConfigName" Core..= appImageConfigName)
           ]
       )
 
 instance Core.ToPath CreateAppImageConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAppImageConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppImageConfigResponse' smart constructor.
 data CreateAppImageConfigResponse = CreateAppImageConfigResponse'
   { -- | The Amazon Resource Name (ARN) of the AppImageConfig.
-    appImageConfigArn :: Core.Maybe Core.Text,
+    appImageConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAppImageConfigResponse' with all optional fields omitted.
@@ -167,21 +170,21 @@ data CreateAppImageConfigResponse = CreateAppImageConfigResponse'
 -- 'httpStatus', 'createAppImageConfigResponse_httpStatus' - The response's http status code.
 newCreateAppImageConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAppImageConfigResponse
 newCreateAppImageConfigResponse pHttpStatus_ =
   CreateAppImageConfigResponse'
     { appImageConfigArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the AppImageConfig.
-createAppImageConfigResponse_appImageConfigArn :: Lens.Lens' CreateAppImageConfigResponse (Core.Maybe Core.Text)
+createAppImageConfigResponse_appImageConfigArn :: Lens.Lens' CreateAppImageConfigResponse (Prelude.Maybe Prelude.Text)
 createAppImageConfigResponse_appImageConfigArn = Lens.lens (\CreateAppImageConfigResponse' {appImageConfigArn} -> appImageConfigArn) (\s@CreateAppImageConfigResponse' {} a -> s {appImageConfigArn = a} :: CreateAppImageConfigResponse)
 
 -- | The response's http status code.
-createAppImageConfigResponse_httpStatus :: Lens.Lens' CreateAppImageConfigResponse Core.Int
+createAppImageConfigResponse_httpStatus :: Lens.Lens' CreateAppImageConfigResponse Prelude.Int
 createAppImageConfigResponse_httpStatus = Lens.lens (\CreateAppImageConfigResponse' {httpStatus} -> httpStatus) (\s@CreateAppImageConfigResponse' {} a -> s {httpStatus = a} :: CreateAppImageConfigResponse)
 
-instance Core.NFData CreateAppImageConfigResponse
+instance Prelude.NFData CreateAppImageConfigResponse

@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +60,12 @@ data ListTagsOfResource = ListTagsOfResource'
   { -- | An optional string that, if supplied, must be copied from the output of
     -- a previous call to ListTagOfResource. When provided in this manner, this
     -- API fetches the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon DynamoDB resource with tags to be listed. This value is an
     -- Amazon Resource Name (ARN).
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsOfResource' with all optional fields omitted.
@@ -82,23 +83,23 @@ data ListTagsOfResource = ListTagsOfResource'
 -- Amazon Resource Name (ARN).
 newListTagsOfResource ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsOfResource
 newListTagsOfResource pResourceArn_ =
   ListTagsOfResource'
-    { nextToken = Core.Nothing,
+    { nextToken = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
 
 -- | An optional string that, if supplied, must be copied from the output of
 -- a previous call to ListTagOfResource. When provided in this manner, this
 -- API fetches the next page of results.
-listTagsOfResource_nextToken :: Lens.Lens' ListTagsOfResource (Core.Maybe Core.Text)
+listTagsOfResource_nextToken :: Lens.Lens' ListTagsOfResource (Prelude.Maybe Prelude.Text)
 listTagsOfResource_nextToken = Lens.lens (\ListTagsOfResource' {nextToken} -> nextToken) (\s@ListTagsOfResource' {} a -> s {nextToken = a} :: ListTagsOfResource)
 
 -- | The Amazon DynamoDB resource with tags to be listed. This value is an
 -- Amazon Resource Name (ARN).
-listTagsOfResource_resourceArn :: Lens.Lens' ListTagsOfResource Core.Text
+listTagsOfResource_resourceArn :: Lens.Lens' ListTagsOfResource Prelude.Text
 listTagsOfResource_resourceArn = Lens.lens (\ListTagsOfResource' {resourceArn} -> resourceArn) (\s@ListTagsOfResource' {} a -> s {resourceArn = a} :: ListTagsOfResource)
 
 instance Core.AWSPager ListTagsOfResource where
@@ -106,21 +107,21 @@ instance Core.AWSPager ListTagsOfResource where
     | Core.stop
         ( rs
             Lens.^? listTagsOfResourceResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTagsOfResourceResponse_tags Core.. Lens._Just
+            Lens.^? listTagsOfResourceResponse_tags Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTagsOfResource_nextToken
+          Prelude.& listTagsOfResource_nextToken
           Lens..~ rs
           Lens.^? listTagsOfResourceResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTagsOfResource where
   type
@@ -131,55 +132,57 @@ instance Core.AWSRequest ListTagsOfResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsOfResourceResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTagsOfResource
+instance Prelude.Hashable ListTagsOfResource
 
-instance Core.NFData ListTagsOfResource
+instance Prelude.NFData ListTagsOfResource
 
 instance Core.ToHeaders ListTagsOfResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.ListTagsOfResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsOfResource where
   toJSON ListTagsOfResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            Core.Just ("ResourceArn" Core..= resourceArn)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("ResourceArn" Core..= resourceArn)
           ]
       )
 
 instance Core.ToPath ListTagsOfResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsOfResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsOfResourceResponse' smart constructor.
 data ListTagsOfResourceResponse = ListTagsOfResourceResponse'
   { -- | If this value is returned, there are additional results to be displayed.
     -- To retrieve them, call ListTagsOfResource again, with NextToken set to
     -- this value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The tags currently associated with the Amazon DynamoDB resource.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsOfResourceResponse' with all optional fields omitted.
@@ -198,28 +201,28 @@ data ListTagsOfResourceResponse = ListTagsOfResourceResponse'
 -- 'httpStatus', 'listTagsOfResourceResponse_httpStatus' - The response's http status code.
 newListTagsOfResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsOfResourceResponse
 newListTagsOfResourceResponse pHttpStatus_ =
   ListTagsOfResourceResponse'
     { nextToken =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call ListTagsOfResource again, with NextToken set to
 -- this value.
-listTagsOfResourceResponse_nextToken :: Lens.Lens' ListTagsOfResourceResponse (Core.Maybe Core.Text)
+listTagsOfResourceResponse_nextToken :: Lens.Lens' ListTagsOfResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsOfResourceResponse_nextToken = Lens.lens (\ListTagsOfResourceResponse' {nextToken} -> nextToken) (\s@ListTagsOfResourceResponse' {} a -> s {nextToken = a} :: ListTagsOfResourceResponse)
 
 -- | The tags currently associated with the Amazon DynamoDB resource.
-listTagsOfResourceResponse_tags :: Lens.Lens' ListTagsOfResourceResponse (Core.Maybe [Tag])
-listTagsOfResourceResponse_tags = Lens.lens (\ListTagsOfResourceResponse' {tags} -> tags) (\s@ListTagsOfResourceResponse' {} a -> s {tags = a} :: ListTagsOfResourceResponse) Core.. Lens.mapping Lens._Coerce
+listTagsOfResourceResponse_tags :: Lens.Lens' ListTagsOfResourceResponse (Prelude.Maybe [Tag])
+listTagsOfResourceResponse_tags = Lens.lens (\ListTagsOfResourceResponse' {tags} -> tags) (\s@ListTagsOfResourceResponse' {} a -> s {tags = a} :: ListTagsOfResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsOfResourceResponse_httpStatus :: Lens.Lens' ListTagsOfResourceResponse Core.Int
+listTagsOfResourceResponse_httpStatus :: Lens.Lens' ListTagsOfResourceResponse Prelude.Int
 listTagsOfResourceResponse_httpStatus = Lens.lens (\ListTagsOfResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsOfResourceResponse' {} a -> s {httpStatus = a} :: ListTagsOfResourceResponse)
 
-instance Core.NFData ListTagsOfResourceResponse
+instance Prelude.NFData ListTagsOfResourceResponse

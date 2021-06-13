@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +60,9 @@ data GetOpenIDConnectProvider = GetOpenIDConnectProvider'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    openIDConnectProviderArn :: Core.Text
+    openIDConnectProviderArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOpenIDConnectProvider' with all optional fields omitted.
@@ -80,7 +81,7 @@ data GetOpenIDConnectProvider = GetOpenIDConnectProvider'
 -- in the /AWS General Reference/.
 newGetOpenIDConnectProvider ::
   -- | 'openIDConnectProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   GetOpenIDConnectProvider
 newGetOpenIDConnectProvider
   pOpenIDConnectProviderArn_ =
@@ -96,7 +97,7 @@ newGetOpenIDConnectProvider
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-getOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' GetOpenIDConnectProvider Core.Text
+getOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' GetOpenIDConnectProvider Prelude.Text
 getOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\GetOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@GetOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: GetOpenIDConnectProvider)
 
 instance Core.AWSRequest GetOpenIDConnectProvider where
@@ -109,36 +110,37 @@ instance Core.AWSRequest GetOpenIDConnectProvider where
       "GetOpenIDConnectProviderResult"
       ( \s h x ->
           GetOpenIDConnectProviderResponse'
-            Core.<$> ( x Core..@? "ClientIDList" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "CreateDate")
-            Core.<*> ( x Core..@? "ThumbprintList" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "Url")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "ClientIDList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "CreateDate")
+            Prelude.<*> ( x Core..@? "ThumbprintList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "Url")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetOpenIDConnectProvider
+instance Prelude.Hashable GetOpenIDConnectProvider
 
-instance Core.NFData GetOpenIDConnectProvider
+instance Prelude.NFData GetOpenIDConnectProvider
 
 instance Core.ToHeaders GetOpenIDConnectProvider where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetOpenIDConnectProvider where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetOpenIDConnectProvider where
   toQuery GetOpenIDConnectProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetOpenIDConnectProvider" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("GetOpenIDConnectProvider" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "OpenIDConnectProviderArn"
           Core.=: openIDConnectProviderArn
       ]
@@ -150,27 +152,27 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
   { -- | A list of client IDs (also known as audiences) that are associated with
     -- the specified IAM OIDC provider resource object. For more information,
     -- see CreateOpenIDConnectProvider.
-    clientIDList :: Core.Maybe [Core.Text],
+    clientIDList :: Prelude.Maybe [Prelude.Text],
     -- | The date and time when the IAM OIDC provider resource object was created
     -- in the AWS account.
-    createDate :: Core.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Core.ISO8601,
     -- | A list of certificate thumbprints that are associated with the specified
     -- IAM OIDC provider resource object. For more information, see
     -- CreateOpenIDConnectProvider.
-    thumbprintList :: Core.Maybe [Core.Text],
+    thumbprintList :: Prelude.Maybe [Prelude.Text],
     -- | A list of tags that are attached to the specified IAM OIDC provider. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The URL that the IAM OIDC provider resource object is associated with.
     -- For more information, see CreateOpenIDConnectProvider.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOpenIDConnectProviderResponse' with all optional fields omitted.
@@ -203,51 +205,53 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
 -- 'httpStatus', 'getOpenIDConnectProviderResponse_httpStatus' - The response's http status code.
 newGetOpenIDConnectProviderResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetOpenIDConnectProviderResponse
 newGetOpenIDConnectProviderResponse pHttpStatus_ =
   GetOpenIDConnectProviderResponse'
     { clientIDList =
-        Core.Nothing,
-      createDate = Core.Nothing,
-      thumbprintList = Core.Nothing,
-      tags = Core.Nothing,
-      url = Core.Nothing,
+        Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      thumbprintList = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      url = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of client IDs (also known as audiences) that are associated with
 -- the specified IAM OIDC provider resource object. For more information,
 -- see CreateOpenIDConnectProvider.
-getOpenIDConnectProviderResponse_clientIDList :: Lens.Lens' GetOpenIDConnectProviderResponse (Core.Maybe [Core.Text])
-getOpenIDConnectProviderResponse_clientIDList = Lens.lens (\GetOpenIDConnectProviderResponse' {clientIDList} -> clientIDList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {clientIDList = a} :: GetOpenIDConnectProviderResponse) Core.. Lens.mapping Lens._Coerce
+getOpenIDConnectProviderResponse_clientIDList :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Prelude.Text])
+getOpenIDConnectProviderResponse_clientIDList = Lens.lens (\GetOpenIDConnectProviderResponse' {clientIDList} -> clientIDList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {clientIDList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time when the IAM OIDC provider resource object was created
 -- in the AWS account.
-getOpenIDConnectProviderResponse_createDate :: Lens.Lens' GetOpenIDConnectProviderResponse (Core.Maybe Core.UTCTime)
-getOpenIDConnectProviderResponse_createDate = Lens.lens (\GetOpenIDConnectProviderResponse' {createDate} -> createDate) (\s@GetOpenIDConnectProviderResponse' {} a -> s {createDate = a} :: GetOpenIDConnectProviderResponse) Core.. Lens.mapping Core._Time
+getOpenIDConnectProviderResponse_createDate :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.UTCTime)
+getOpenIDConnectProviderResponse_createDate = Lens.lens (\GetOpenIDConnectProviderResponse' {createDate} -> createDate) (\s@GetOpenIDConnectProviderResponse' {} a -> s {createDate = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OIDC provider resource object. For more information, see
 -- CreateOpenIDConnectProvider.
-getOpenIDConnectProviderResponse_thumbprintList :: Lens.Lens' GetOpenIDConnectProviderResponse (Core.Maybe [Core.Text])
-getOpenIDConnectProviderResponse_thumbprintList = Lens.lens (\GetOpenIDConnectProviderResponse' {thumbprintList} -> thumbprintList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {thumbprintList = a} :: GetOpenIDConnectProviderResponse) Core.. Lens.mapping Lens._Coerce
+getOpenIDConnectProviderResponse_thumbprintList :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Prelude.Text])
+getOpenIDConnectProviderResponse_thumbprintList = Lens.lens (\GetOpenIDConnectProviderResponse' {thumbprintList} -> thumbprintList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {thumbprintList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of tags that are attached to the specified IAM OIDC provider. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
-getOpenIDConnectProviderResponse_tags :: Lens.Lens' GetOpenIDConnectProviderResponse (Core.Maybe [Tag])
-getOpenIDConnectProviderResponse_tags = Lens.lens (\GetOpenIDConnectProviderResponse' {tags} -> tags) (\s@GetOpenIDConnectProviderResponse' {} a -> s {tags = a} :: GetOpenIDConnectProviderResponse) Core.. Lens.mapping Lens._Coerce
+getOpenIDConnectProviderResponse_tags :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Tag])
+getOpenIDConnectProviderResponse_tags = Lens.lens (\GetOpenIDConnectProviderResponse' {tags} -> tags) (\s@GetOpenIDConnectProviderResponse' {} a -> s {tags = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL that the IAM OIDC provider resource object is associated with.
 -- For more information, see CreateOpenIDConnectProvider.
-getOpenIDConnectProviderResponse_url :: Lens.Lens' GetOpenIDConnectProviderResponse (Core.Maybe Core.Text)
+getOpenIDConnectProviderResponse_url :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.Text)
 getOpenIDConnectProviderResponse_url = Lens.lens (\GetOpenIDConnectProviderResponse' {url} -> url) (\s@GetOpenIDConnectProviderResponse' {} a -> s {url = a} :: GetOpenIDConnectProviderResponse)
 
 -- | The response's http status code.
-getOpenIDConnectProviderResponse_httpStatus :: Lens.Lens' GetOpenIDConnectProviderResponse Core.Int
+getOpenIDConnectProviderResponse_httpStatus :: Lens.Lens' GetOpenIDConnectProviderResponse Prelude.Int
 getOpenIDConnectProviderResponse_httpStatus = Lens.lens (\GetOpenIDConnectProviderResponse' {httpStatus} -> httpStatus) (\s@GetOpenIDConnectProviderResponse' {} a -> s {httpStatus = a} :: GetOpenIDConnectProviderResponse)
 
-instance Core.NFData GetOpenIDConnectProviderResponse
+instance
+  Prelude.NFData
+    GetOpenIDConnectProviderResponse

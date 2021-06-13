@@ -22,19 +22,20 @@ module Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType where
 import Network.AWS.CognitoIdentityProvider.Types.FeedbackValueType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the event feedback type.
 --
 -- /See:/ 'newEventFeedbackType' smart constructor.
 data EventFeedbackType = EventFeedbackType'
   { -- | The event feedback date.
-    feedbackDate :: Core.Maybe Core.POSIX,
+    feedbackDate :: Prelude.Maybe Core.POSIX,
     -- | The event feedback value.
     feedbackValue :: FeedbackValueType,
     -- | The provider.
-    provider :: Core.Text
+    provider :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventFeedbackType' with all optional fields omitted.
@@ -53,25 +54,25 @@ newEventFeedbackType ::
   -- | 'feedbackValue'
   FeedbackValueType ->
   -- | 'provider'
-  Core.Text ->
+  Prelude.Text ->
   EventFeedbackType
 newEventFeedbackType pFeedbackValue_ pProvider_ =
   EventFeedbackType'
-    { feedbackDate = Core.Nothing,
+    { feedbackDate = Prelude.Nothing,
       feedbackValue = pFeedbackValue_,
       provider = pProvider_
     }
 
 -- | The event feedback date.
-eventFeedbackType_feedbackDate :: Lens.Lens' EventFeedbackType (Core.Maybe Core.UTCTime)
-eventFeedbackType_feedbackDate = Lens.lens (\EventFeedbackType' {feedbackDate} -> feedbackDate) (\s@EventFeedbackType' {} a -> s {feedbackDate = a} :: EventFeedbackType) Core.. Lens.mapping Core._Time
+eventFeedbackType_feedbackDate :: Lens.Lens' EventFeedbackType (Prelude.Maybe Prelude.UTCTime)
+eventFeedbackType_feedbackDate = Lens.lens (\EventFeedbackType' {feedbackDate} -> feedbackDate) (\s@EventFeedbackType' {} a -> s {feedbackDate = a} :: EventFeedbackType) Prelude.. Lens.mapping Core._Time
 
 -- | The event feedback value.
 eventFeedbackType_feedbackValue :: Lens.Lens' EventFeedbackType FeedbackValueType
 eventFeedbackType_feedbackValue = Lens.lens (\EventFeedbackType' {feedbackValue} -> feedbackValue) (\s@EventFeedbackType' {} a -> s {feedbackValue = a} :: EventFeedbackType)
 
 -- | The provider.
-eventFeedbackType_provider :: Lens.Lens' EventFeedbackType Core.Text
+eventFeedbackType_provider :: Lens.Lens' EventFeedbackType Prelude.Text
 eventFeedbackType_provider = Lens.lens (\EventFeedbackType' {provider} -> provider) (\s@EventFeedbackType' {} a -> s {provider = a} :: EventFeedbackType)
 
 instance Core.FromJSON EventFeedbackType where
@@ -80,11 +81,11 @@ instance Core.FromJSON EventFeedbackType where
       "EventFeedbackType"
       ( \x ->
           EventFeedbackType'
-            Core.<$> (x Core..:? "FeedbackDate")
-            Core.<*> (x Core..: "FeedbackValue")
-            Core.<*> (x Core..: "Provider")
+            Prelude.<$> (x Core..:? "FeedbackDate")
+            Prelude.<*> (x Core..: "FeedbackValue")
+            Prelude.<*> (x Core..: "Provider")
       )
 
-instance Core.Hashable EventFeedbackType
+instance Prelude.Hashable EventFeedbackType
 
-instance Core.NFData EventFeedbackType
+instance Prelude.NFData EventFeedbackType

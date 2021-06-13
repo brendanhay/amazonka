@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,11 +72,11 @@ data DeleteDeliveryStream = DeleteDeliveryStream'
     -- Data Firehose keeps retrying the delete operation.
     --
     -- The default value is false.
-    allowForceDelete :: Core.Maybe Core.Bool,
+    allowForceDelete :: Prelude.Maybe Prelude.Bool,
     -- | The name of the delivery stream.
-    deliveryStreamName :: Core.Text
+    deliveryStreamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeliveryStream' with all optional fields omitted.
@@ -100,12 +101,12 @@ data DeleteDeliveryStream = DeleteDeliveryStream'
 -- 'deliveryStreamName', 'deleteDeliveryStream_deliveryStreamName' - The name of the delivery stream.
 newDeleteDeliveryStream ::
   -- | 'deliveryStreamName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDeliveryStream
 newDeleteDeliveryStream pDeliveryStreamName_ =
   DeleteDeliveryStream'
     { allowForceDelete =
-        Core.Nothing,
+        Prelude.Nothing,
       deliveryStreamName = pDeliveryStreamName_
     }
 
@@ -120,11 +121,11 @@ newDeleteDeliveryStream pDeliveryStreamName_ =
 -- Data Firehose keeps retrying the delete operation.
 --
 -- The default value is false.
-deleteDeliveryStream_allowForceDelete :: Lens.Lens' DeleteDeliveryStream (Core.Maybe Core.Bool)
+deleteDeliveryStream_allowForceDelete :: Lens.Lens' DeleteDeliveryStream (Prelude.Maybe Prelude.Bool)
 deleteDeliveryStream_allowForceDelete = Lens.lens (\DeleteDeliveryStream' {allowForceDelete} -> allowForceDelete) (\s@DeleteDeliveryStream' {} a -> s {allowForceDelete = a} :: DeleteDeliveryStream)
 
 -- | The name of the delivery stream.
-deleteDeliveryStream_deliveryStreamName :: Lens.Lens' DeleteDeliveryStream Core.Text
+deleteDeliveryStream_deliveryStreamName :: Lens.Lens' DeleteDeliveryStream Prelude.Text
 deleteDeliveryStream_deliveryStreamName = Lens.lens (\DeleteDeliveryStream' {deliveryStreamName} -> deliveryStreamName) (\s@DeleteDeliveryStream' {} a -> s {deliveryStreamName = a} :: DeleteDeliveryStream)
 
 instance Core.AWSRequest DeleteDeliveryStream where
@@ -136,49 +137,51 @@ instance Core.AWSRequest DeleteDeliveryStream where
     Response.receiveEmpty
       ( \s h x ->
           DeleteDeliveryStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDeliveryStream
+instance Prelude.Hashable DeleteDeliveryStream
 
-instance Core.NFData DeleteDeliveryStream
+instance Prelude.NFData DeleteDeliveryStream
 
 instance Core.ToHeaders DeleteDeliveryStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Firehose_20150804.DeleteDeliveryStream" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDeliveryStream where
   toJSON DeleteDeliveryStream' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AllowForceDelete" Core..=)
-              Core.<$> allowForceDelete,
-            Core.Just
+              Prelude.<$> allowForceDelete,
+            Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName)
           ]
       )
 
 instance Core.ToPath DeleteDeliveryStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDeliveryStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeliveryStreamResponse' smart constructor.
 data DeleteDeliveryStreamResponse = DeleteDeliveryStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeliveryStreamResponse' with all optional fields omitted.
@@ -191,7 +194,7 @@ data DeleteDeliveryStreamResponse = DeleteDeliveryStreamResponse'
 -- 'httpStatus', 'deleteDeliveryStreamResponse_httpStatus' - The response's http status code.
 newDeleteDeliveryStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDeliveryStreamResponse
 newDeleteDeliveryStreamResponse pHttpStatus_ =
   DeleteDeliveryStreamResponse'
@@ -200,7 +203,7 @@ newDeleteDeliveryStreamResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteDeliveryStreamResponse_httpStatus :: Lens.Lens' DeleteDeliveryStreamResponse Core.Int
+deleteDeliveryStreamResponse_httpStatus :: Lens.Lens' DeleteDeliveryStreamResponse Prelude.Int
 deleteDeliveryStreamResponse_httpStatus = Lens.lens (\DeleteDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteDeliveryStreamResponse' {} a -> s {httpStatus = a} :: DeleteDeliveryStreamResponse)
 
-instance Core.NFData DeleteDeliveryStreamResponse
+instance Prelude.NFData DeleteDeliveryStreamResponse

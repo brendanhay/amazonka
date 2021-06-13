@@ -28,6 +28,7 @@ module Network.AWS.MediaLive.Types.DvbSubDestinationBackgroundColor
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Dvb Sub Destination Background Color
 newtype DvbSubDestinationBackgroundColor = DvbSubDestinationBackgroundColor'
@@ -35,15 +36,15 @@ newtype DvbSubDestinationBackgroundColor = DvbSubDestinationBackgroundColor'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

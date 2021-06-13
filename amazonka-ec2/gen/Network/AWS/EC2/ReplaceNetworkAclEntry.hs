@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,25 +59,25 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | TCP or UDP protocols: The range of ports the rule applies to. Required
     -- if specifying protocol 6 (TCP) or 17 (UDP).
-    portRange :: Core.Maybe PortRange,
+    portRange :: Prelude.Maybe PortRange,
     -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
     -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
-    icmpTypeCode :: Core.Maybe IcmpTypeCode,
+    icmpTypeCode :: Prelude.Maybe IcmpTypeCode,
     -- | The IPv6 network range to allow or deny, in CIDR notation (for example
     -- @2001:bd8:1234:1a00::\/64@).
-    ipv6CidrBlock :: Core.Maybe Core.Text,
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 network range to allow or deny, in CIDR notation (for example
     -- @172.16.0.0\/24@).
-    cidrBlock :: Core.Maybe Core.Text,
+    cidrBlock :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to replace the egress rule.
     --
     -- Default: If no value is specified, we replace the ingress rule.
-    egress :: Core.Bool,
+    egress :: Prelude.Bool,
     -- | The ID of the ACL.
-    networkAclId :: Core.Text,
+    networkAclId :: Prelude.Text,
     -- | The protocol number. A value of \"-1\" means all protocols. If you
     -- specify \"-1\" or a protocol number other than \"6\" (TCP), \"17\"
     -- (UDP), or \"1\" (ICMP), traffic on all ports is allowed, regardless of
@@ -85,13 +86,13 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry'
     -- ICMP types and codes allowed, regardless of any that you specify. If you
     -- specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you
     -- must specify an ICMP type and code.
-    protocol :: Core.Text,
+    protocol :: Prelude.Text,
     -- | Indicates whether to allow or deny the traffic that matches the rule.
     ruleAction :: RuleAction,
     -- | The rule number of the entry to replace.
-    ruleNumber :: Core.Int
+    ruleNumber :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceNetworkAclEntry' with all optional fields omitted.
@@ -138,15 +139,15 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry'
 -- 'ruleNumber', 'replaceNetworkAclEntry_ruleNumber' - The rule number of the entry to replace.
 newReplaceNetworkAclEntry ::
   -- | 'egress'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'networkAclId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'protocol'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ruleAction'
   RuleAction ->
   -- | 'ruleNumber'
-  Core.Int ->
+  Prelude.Int ->
   ReplaceNetworkAclEntry
 newReplaceNetworkAclEntry
   pEgress_
@@ -155,11 +156,11 @@ newReplaceNetworkAclEntry
   pRuleAction_
   pRuleNumber_ =
     ReplaceNetworkAclEntry'
-      { dryRun = Core.Nothing,
-        portRange = Core.Nothing,
-        icmpTypeCode = Core.Nothing,
-        ipv6CidrBlock = Core.Nothing,
-        cidrBlock = Core.Nothing,
+      { dryRun = Prelude.Nothing,
+        portRange = Prelude.Nothing,
+        icmpTypeCode = Prelude.Nothing,
+        ipv6CidrBlock = Prelude.Nothing,
+        cidrBlock = Prelude.Nothing,
         egress = pEgress_,
         networkAclId = pNetworkAclId_,
         protocol = pProtocol_,
@@ -171,37 +172,37 @@ newReplaceNetworkAclEntry
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-replaceNetworkAclEntry_dryRun :: Lens.Lens' ReplaceNetworkAclEntry (Core.Maybe Core.Bool)
+replaceNetworkAclEntry_dryRun :: Lens.Lens' ReplaceNetworkAclEntry (Prelude.Maybe Prelude.Bool)
 replaceNetworkAclEntry_dryRun = Lens.lens (\ReplaceNetworkAclEntry' {dryRun} -> dryRun) (\s@ReplaceNetworkAclEntry' {} a -> s {dryRun = a} :: ReplaceNetworkAclEntry)
 
 -- | TCP or UDP protocols: The range of ports the rule applies to. Required
 -- if specifying protocol 6 (TCP) or 17 (UDP).
-replaceNetworkAclEntry_portRange :: Lens.Lens' ReplaceNetworkAclEntry (Core.Maybe PortRange)
+replaceNetworkAclEntry_portRange :: Lens.Lens' ReplaceNetworkAclEntry (Prelude.Maybe PortRange)
 replaceNetworkAclEntry_portRange = Lens.lens (\ReplaceNetworkAclEntry' {portRange} -> portRange) (\s@ReplaceNetworkAclEntry' {} a -> s {portRange = a} :: ReplaceNetworkAclEntry)
 
 -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
 -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
-replaceNetworkAclEntry_icmpTypeCode :: Lens.Lens' ReplaceNetworkAclEntry (Core.Maybe IcmpTypeCode)
+replaceNetworkAclEntry_icmpTypeCode :: Lens.Lens' ReplaceNetworkAclEntry (Prelude.Maybe IcmpTypeCode)
 replaceNetworkAclEntry_icmpTypeCode = Lens.lens (\ReplaceNetworkAclEntry' {icmpTypeCode} -> icmpTypeCode) (\s@ReplaceNetworkAclEntry' {} a -> s {icmpTypeCode = a} :: ReplaceNetworkAclEntry)
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example
 -- @2001:bd8:1234:1a00::\/64@).
-replaceNetworkAclEntry_ipv6CidrBlock :: Lens.Lens' ReplaceNetworkAclEntry (Core.Maybe Core.Text)
+replaceNetworkAclEntry_ipv6CidrBlock :: Lens.Lens' ReplaceNetworkAclEntry (Prelude.Maybe Prelude.Text)
 replaceNetworkAclEntry_ipv6CidrBlock = Lens.lens (\ReplaceNetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@ReplaceNetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: ReplaceNetworkAclEntry)
 
 -- | The IPv4 network range to allow or deny, in CIDR notation (for example
 -- @172.16.0.0\/24@).
-replaceNetworkAclEntry_cidrBlock :: Lens.Lens' ReplaceNetworkAclEntry (Core.Maybe Core.Text)
+replaceNetworkAclEntry_cidrBlock :: Lens.Lens' ReplaceNetworkAclEntry (Prelude.Maybe Prelude.Text)
 replaceNetworkAclEntry_cidrBlock = Lens.lens (\ReplaceNetworkAclEntry' {cidrBlock} -> cidrBlock) (\s@ReplaceNetworkAclEntry' {} a -> s {cidrBlock = a} :: ReplaceNetworkAclEntry)
 
 -- | Indicates whether to replace the egress rule.
 --
 -- Default: If no value is specified, we replace the ingress rule.
-replaceNetworkAclEntry_egress :: Lens.Lens' ReplaceNetworkAclEntry Core.Bool
+replaceNetworkAclEntry_egress :: Lens.Lens' ReplaceNetworkAclEntry Prelude.Bool
 replaceNetworkAclEntry_egress = Lens.lens (\ReplaceNetworkAclEntry' {egress} -> egress) (\s@ReplaceNetworkAclEntry' {} a -> s {egress = a} :: ReplaceNetworkAclEntry)
 
 -- | The ID of the ACL.
-replaceNetworkAclEntry_networkAclId :: Lens.Lens' ReplaceNetworkAclEntry Core.Text
+replaceNetworkAclEntry_networkAclId :: Lens.Lens' ReplaceNetworkAclEntry Prelude.Text
 replaceNetworkAclEntry_networkAclId = Lens.lens (\ReplaceNetworkAclEntry' {networkAclId} -> networkAclId) (\s@ReplaceNetworkAclEntry' {} a -> s {networkAclId = a} :: ReplaceNetworkAclEntry)
 
 -- | The protocol number. A value of \"-1\" means all protocols. If you
@@ -212,7 +213,7 @@ replaceNetworkAclEntry_networkAclId = Lens.lens (\ReplaceNetworkAclEntry' {netwo
 -- ICMP types and codes allowed, regardless of any that you specify. If you
 -- specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you
 -- must specify an ICMP type and code.
-replaceNetworkAclEntry_protocol :: Lens.Lens' ReplaceNetworkAclEntry Core.Text
+replaceNetworkAclEntry_protocol :: Lens.Lens' ReplaceNetworkAclEntry Prelude.Text
 replaceNetworkAclEntry_protocol = Lens.lens (\ReplaceNetworkAclEntry' {protocol} -> protocol) (\s@ReplaceNetworkAclEntry' {} a -> s {protocol = a} :: ReplaceNetworkAclEntry)
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
@@ -220,7 +221,7 @@ replaceNetworkAclEntry_ruleAction :: Lens.Lens' ReplaceNetworkAclEntry RuleActio
 replaceNetworkAclEntry_ruleAction = Lens.lens (\ReplaceNetworkAclEntry' {ruleAction} -> ruleAction) (\s@ReplaceNetworkAclEntry' {} a -> s {ruleAction = a} :: ReplaceNetworkAclEntry)
 
 -- | The rule number of the entry to replace.
-replaceNetworkAclEntry_ruleNumber :: Lens.Lens' ReplaceNetworkAclEntry Core.Int
+replaceNetworkAclEntry_ruleNumber :: Lens.Lens' ReplaceNetworkAclEntry Prelude.Int
 replaceNetworkAclEntry_ruleNumber = Lens.lens (\ReplaceNetworkAclEntry' {ruleNumber} -> ruleNumber) (\s@ReplaceNetworkAclEntry' {} a -> s {ruleNumber = a} :: ReplaceNetworkAclEntry)
 
 instance Core.AWSRequest ReplaceNetworkAclEntry where
@@ -232,22 +233,23 @@ instance Core.AWSRequest ReplaceNetworkAclEntry where
     Response.receiveNull
       ReplaceNetworkAclEntryResponse'
 
-instance Core.Hashable ReplaceNetworkAclEntry
+instance Prelude.Hashable ReplaceNetworkAclEntry
 
-instance Core.NFData ReplaceNetworkAclEntry
+instance Prelude.NFData ReplaceNetworkAclEntry
 
 instance Core.ToHeaders ReplaceNetworkAclEntry where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ReplaceNetworkAclEntry where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ReplaceNetworkAclEntry where
   toQuery ReplaceNetworkAclEntry' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ReplaceNetworkAclEntry" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ReplaceNetworkAclEntry" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "PortRange" Core.=: portRange,
         "Icmp" Core.=: icmpTypeCode,
@@ -264,7 +266,7 @@ instance Core.ToQuery ReplaceNetworkAclEntry where
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceNetworkAclEntryResponse' with all optional fields omitted.
@@ -275,4 +277,6 @@ newReplaceNetworkAclEntryResponse ::
 newReplaceNetworkAclEntryResponse =
   ReplaceNetworkAclEntryResponse'
 
-instance Core.NFData ReplaceNetworkAclEntryResponse
+instance
+  Prelude.NFData
+    ReplaceNetworkAclEntryResponse

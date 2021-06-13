@@ -21,6 +21,7 @@ module Network.AWS.OpsWorks.Types.EnvironmentVariable where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an app\'s environment variable.
 --
@@ -30,18 +31,18 @@ data EnvironmentVariable = EnvironmentVariable'
     -- DescribeApps action. To conceal an environment variable\'s value, set
     -- @Secure@ to @true@. @DescribeApps@ then returns @*****FILTERED*****@
     -- instead of the actual value. The default value for @Secure@ is @false@.
-    secure :: Core.Maybe Core.Bool,
+    secure :: Prelude.Maybe Prelude.Bool,
     -- | (Required) The environment variable\'s name, which can consist of up to
     -- 64 characters and must be specified. The name can contain upper- and
     -- lowercase letters, numbers, and underscores (_), but it must start with
     -- a letter or underscore.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | (Optional) The environment variable\'s value, which can be left empty.
     -- If you specify a value, it can contain up to 256 characters, which must
     -- all be printable.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentVariable' with all optional fields omitted.
@@ -66,13 +67,13 @@ data EnvironmentVariable = EnvironmentVariable'
 -- all be printable.
 newEnvironmentVariable ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   EnvironmentVariable
 newEnvironmentVariable pKey_ pValue_ =
   EnvironmentVariable'
-    { secure = Core.Nothing,
+    { secure = Prelude.Nothing,
       key = pKey_,
       value = pValue_
     }
@@ -81,20 +82,20 @@ newEnvironmentVariable pKey_ pValue_ =
 -- DescribeApps action. To conceal an environment variable\'s value, set
 -- @Secure@ to @true@. @DescribeApps@ then returns @*****FILTERED*****@
 -- instead of the actual value. The default value for @Secure@ is @false@.
-environmentVariable_secure :: Lens.Lens' EnvironmentVariable (Core.Maybe Core.Bool)
+environmentVariable_secure :: Lens.Lens' EnvironmentVariable (Prelude.Maybe Prelude.Bool)
 environmentVariable_secure = Lens.lens (\EnvironmentVariable' {secure} -> secure) (\s@EnvironmentVariable' {} a -> s {secure = a} :: EnvironmentVariable)
 
 -- | (Required) The environment variable\'s name, which can consist of up to
 -- 64 characters and must be specified. The name can contain upper- and
 -- lowercase letters, numbers, and underscores (_), but it must start with
 -- a letter or underscore.
-environmentVariable_key :: Lens.Lens' EnvironmentVariable Core.Text
+environmentVariable_key :: Lens.Lens' EnvironmentVariable Prelude.Text
 environmentVariable_key = Lens.lens (\EnvironmentVariable' {key} -> key) (\s@EnvironmentVariable' {} a -> s {key = a} :: EnvironmentVariable)
 
 -- | (Optional) The environment variable\'s value, which can be left empty.
 -- If you specify a value, it can contain up to 256 characters, which must
 -- all be printable.
-environmentVariable_value :: Lens.Lens' EnvironmentVariable Core.Text
+environmentVariable_value :: Lens.Lens' EnvironmentVariable Prelude.Text
 environmentVariable_value = Lens.lens (\EnvironmentVariable' {value} -> value) (\s@EnvironmentVariable' {} a -> s {value = a} :: EnvironmentVariable)
 
 instance Core.FromJSON EnvironmentVariable where
@@ -103,21 +104,21 @@ instance Core.FromJSON EnvironmentVariable where
       "EnvironmentVariable"
       ( \x ->
           EnvironmentVariable'
-            Core.<$> (x Core..:? "Secure")
-            Core.<*> (x Core..: "Key")
-            Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..:? "Secure")
+            Prelude.<*> (x Core..: "Key")
+            Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable EnvironmentVariable
+instance Prelude.Hashable EnvironmentVariable
 
-instance Core.NFData EnvironmentVariable
+instance Prelude.NFData EnvironmentVariable
 
 instance Core.ToJSON EnvironmentVariable where
   toJSON EnvironmentVariable' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Secure" Core..=) Core.<$> secure,
-            Core.Just ("Key" Core..= key),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ ("Secure" Core..=) Prelude.<$> secure,
+            Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

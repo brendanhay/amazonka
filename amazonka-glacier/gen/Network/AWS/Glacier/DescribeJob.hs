@@ -86,6 +86,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -98,13 +99,13 @@ data DescribeJob = DescribeJob'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text,
+    vaultName :: Prelude.Text,
     -- | The ID of the job to describe.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeJob' with all optional fields omitted.
@@ -125,11 +126,11 @@ data DescribeJob = DescribeJob'
 -- 'jobId', 'describeJob_jobId' - The ID of the job to describe.
 newDescribeJob ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeJob
 newDescribeJob pAccountId_ pVaultName_ pJobId_ =
   DescribeJob'
@@ -143,36 +144,36 @@ newDescribeJob pAccountId_ pVaultName_ pJobId_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-describeJob_accountId :: Lens.Lens' DescribeJob Core.Text
+describeJob_accountId :: Lens.Lens' DescribeJob Prelude.Text
 describeJob_accountId = Lens.lens (\DescribeJob' {accountId} -> accountId) (\s@DescribeJob' {} a -> s {accountId = a} :: DescribeJob)
 
 -- | The name of the vault.
-describeJob_vaultName :: Lens.Lens' DescribeJob Core.Text
+describeJob_vaultName :: Lens.Lens' DescribeJob Prelude.Text
 describeJob_vaultName = Lens.lens (\DescribeJob' {vaultName} -> vaultName) (\s@DescribeJob' {} a -> s {vaultName = a} :: DescribeJob)
 
 -- | The ID of the job to describe.
-describeJob_jobId :: Lens.Lens' DescribeJob Core.Text
+describeJob_jobId :: Lens.Lens' DescribeJob Prelude.Text
 describeJob_jobId = Lens.lens (\DescribeJob' {jobId} -> jobId) (\s@DescribeJob' {} a -> s {jobId = a} :: DescribeJob)
 
 instance Core.AWSRequest DescribeJob where
   type AWSResponse DescribeJob = GlacierJobDescription
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.get defaultService
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable DescribeJob
+instance Prelude.Hashable DescribeJob
 
-instance Core.NFData DescribeJob
+instance Prelude.NFData DescribeJob
 
 instance Core.ToHeaders DescribeJob where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeJob where
   toPath DescribeJob' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -182,4 +183,4 @@ instance Core.ToPath DescribeJob where
       ]
 
 instance Core.ToQuery DescribeJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

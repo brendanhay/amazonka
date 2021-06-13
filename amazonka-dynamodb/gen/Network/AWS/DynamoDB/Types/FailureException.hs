@@ -21,17 +21,18 @@ module Network.AWS.DynamoDB.Types.FailureException where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a failure a contributor insights operation.
 --
 -- /See:/ 'newFailureException' smart constructor.
 data FailureException = FailureException'
   { -- | Exception name.
-    exceptionName :: Core.Maybe Core.Text,
+    exceptionName :: Prelude.Maybe Prelude.Text,
     -- | Description of the failure.
-    exceptionDescription :: Core.Maybe Core.Text
+    exceptionDescription :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailureException' with all optional fields omitted.
@@ -48,16 +49,16 @@ newFailureException ::
   FailureException
 newFailureException =
   FailureException'
-    { exceptionName = Core.Nothing,
-      exceptionDescription = Core.Nothing
+    { exceptionName = Prelude.Nothing,
+      exceptionDescription = Prelude.Nothing
     }
 
 -- | Exception name.
-failureException_exceptionName :: Lens.Lens' FailureException (Core.Maybe Core.Text)
+failureException_exceptionName :: Lens.Lens' FailureException (Prelude.Maybe Prelude.Text)
 failureException_exceptionName = Lens.lens (\FailureException' {exceptionName} -> exceptionName) (\s@FailureException' {} a -> s {exceptionName = a} :: FailureException)
 
 -- | Description of the failure.
-failureException_exceptionDescription :: Lens.Lens' FailureException (Core.Maybe Core.Text)
+failureException_exceptionDescription :: Lens.Lens' FailureException (Prelude.Maybe Prelude.Text)
 failureException_exceptionDescription = Lens.lens (\FailureException' {exceptionDescription} -> exceptionDescription) (\s@FailureException' {} a -> s {exceptionDescription = a} :: FailureException)
 
 instance Core.FromJSON FailureException where
@@ -66,10 +67,10 @@ instance Core.FromJSON FailureException where
       "FailureException"
       ( \x ->
           FailureException'
-            Core.<$> (x Core..:? "ExceptionName")
-            Core.<*> (x Core..:? "ExceptionDescription")
+            Prelude.<$> (x Core..:? "ExceptionName")
+            Prelude.<*> (x Core..:? "ExceptionDescription")
       )
 
-instance Core.Hashable FailureException
+instance Prelude.Hashable FailureException
 
-instance Core.NFData FailureException
+instance Prelude.NFData FailureException

@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,13 +74,13 @@ data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The name of the AWS service that is to be associated with the
     -- credentials. The service you specify here is the only service that can
     -- be accessed using these credentials.
-    serviceName :: Core.Text
+    serviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateServiceSpecificCredential' with all optional fields omitted.
@@ -104,9 +105,9 @@ data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
 -- be accessed using these credentials.
 newCreateServiceSpecificCredential ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   CreateServiceSpecificCredential
 newCreateServiceSpecificCredential
   pUserName_
@@ -126,13 +127,13 @@ newCreateServiceSpecificCredential
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-createServiceSpecificCredential_userName :: Lens.Lens' CreateServiceSpecificCredential Core.Text
+createServiceSpecificCredential_userName :: Lens.Lens' CreateServiceSpecificCredential Prelude.Text
 createServiceSpecificCredential_userName = Lens.lens (\CreateServiceSpecificCredential' {userName} -> userName) (\s@CreateServiceSpecificCredential' {} a -> s {userName = a} :: CreateServiceSpecificCredential)
 
 -- | The name of the AWS service that is to be associated with the
 -- credentials. The service you specify here is the only service that can
 -- be accessed using these credentials.
-createServiceSpecificCredential_serviceName :: Lens.Lens' CreateServiceSpecificCredential Core.Text
+createServiceSpecificCredential_serviceName :: Lens.Lens' CreateServiceSpecificCredential Prelude.Text
 createServiceSpecificCredential_serviceName = Lens.lens (\CreateServiceSpecificCredential' {serviceName} -> serviceName) (\s@CreateServiceSpecificCredential' {} a -> s {serviceName = a} :: CreateServiceSpecificCredential)
 
 instance
@@ -148,33 +149,36 @@ instance
       "CreateServiceSpecificCredentialResult"
       ( \s h x ->
           CreateServiceSpecificCredentialResponse'
-            Core.<$> (x Core..@? "ServiceSpecificCredential")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ServiceSpecificCredential")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateServiceSpecificCredential
 
-instance Core.NFData CreateServiceSpecificCredential
+instance
+  Prelude.NFData
+    CreateServiceSpecificCredential
 
 instance
   Core.ToHeaders
     CreateServiceSpecificCredential
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateServiceSpecificCredential where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateServiceSpecificCredential where
   toQuery CreateServiceSpecificCredential' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "CreateServiceSpecificCredential" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "ServiceName" Core.=: serviceName
       ]
@@ -187,11 +191,11 @@ data CreateServiceSpecificCredentialResponse = CreateServiceSpecificCredentialRe
     -- This is the only time that the password for this credential set is
     -- available. It cannot be recovered later. Instead, you must reset the
     -- password with ResetServiceSpecificCredential.
-    serviceSpecificCredential :: Core.Maybe ServiceSpecificCredential,
+    serviceSpecificCredential :: Prelude.Maybe ServiceSpecificCredential,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateServiceSpecificCredentialResponse' with all optional fields omitted.
@@ -211,13 +215,13 @@ data CreateServiceSpecificCredentialResponse = CreateServiceSpecificCredentialRe
 -- 'httpStatus', 'createServiceSpecificCredentialResponse_httpStatus' - The response's http status code.
 newCreateServiceSpecificCredentialResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateServiceSpecificCredentialResponse
 newCreateServiceSpecificCredentialResponse
   pHttpStatus_ =
     CreateServiceSpecificCredentialResponse'
       { serviceSpecificCredential =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -227,13 +231,13 @@ newCreateServiceSpecificCredentialResponse
 -- This is the only time that the password for this credential set is
 -- available. It cannot be recovered later. Instead, you must reset the
 -- password with ResetServiceSpecificCredential.
-createServiceSpecificCredentialResponse_serviceSpecificCredential :: Lens.Lens' CreateServiceSpecificCredentialResponse (Core.Maybe ServiceSpecificCredential)
+createServiceSpecificCredentialResponse_serviceSpecificCredential :: Lens.Lens' CreateServiceSpecificCredentialResponse (Prelude.Maybe ServiceSpecificCredential)
 createServiceSpecificCredentialResponse_serviceSpecificCredential = Lens.lens (\CreateServiceSpecificCredentialResponse' {serviceSpecificCredential} -> serviceSpecificCredential) (\s@CreateServiceSpecificCredentialResponse' {} a -> s {serviceSpecificCredential = a} :: CreateServiceSpecificCredentialResponse)
 
 -- | The response's http status code.
-createServiceSpecificCredentialResponse_httpStatus :: Lens.Lens' CreateServiceSpecificCredentialResponse Core.Int
+createServiceSpecificCredentialResponse_httpStatus :: Lens.Lens' CreateServiceSpecificCredentialResponse Prelude.Int
 createServiceSpecificCredentialResponse_httpStatus = Lens.lens (\CreateServiceSpecificCredentialResponse' {httpStatus} -> httpStatus) (\s@CreateServiceSpecificCredentialResponse' {} a -> s {httpStatus = a} :: CreateServiceSpecificCredentialResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateServiceSpecificCredentialResponse

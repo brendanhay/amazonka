@@ -21,17 +21,18 @@ module Network.AWS.SMS.Types.VmServerAddress where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a VM server location.
 --
 -- /See:/ 'newVmServerAddress' smart constructor.
 data VmServerAddress = VmServerAddress'
   { -- | The ID of the VM manager.
-    vmManagerId :: Core.Maybe Core.Text,
+    vmManagerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VM.
-    vmId :: Core.Maybe Core.Text
+    vmId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VmServerAddress' with all optional fields omitted.
@@ -48,16 +49,16 @@ newVmServerAddress ::
   VmServerAddress
 newVmServerAddress =
   VmServerAddress'
-    { vmManagerId = Core.Nothing,
-      vmId = Core.Nothing
+    { vmManagerId = Prelude.Nothing,
+      vmId = Prelude.Nothing
     }
 
 -- | The ID of the VM manager.
-vmServerAddress_vmManagerId :: Lens.Lens' VmServerAddress (Core.Maybe Core.Text)
+vmServerAddress_vmManagerId :: Lens.Lens' VmServerAddress (Prelude.Maybe Prelude.Text)
 vmServerAddress_vmManagerId = Lens.lens (\VmServerAddress' {vmManagerId} -> vmManagerId) (\s@VmServerAddress' {} a -> s {vmManagerId = a} :: VmServerAddress)
 
 -- | The ID of the VM.
-vmServerAddress_vmId :: Lens.Lens' VmServerAddress (Core.Maybe Core.Text)
+vmServerAddress_vmId :: Lens.Lens' VmServerAddress (Prelude.Maybe Prelude.Text)
 vmServerAddress_vmId = Lens.lens (\VmServerAddress' {vmId} -> vmId) (\s@VmServerAddress' {} a -> s {vmId = a} :: VmServerAddress)
 
 instance Core.FromJSON VmServerAddress where
@@ -66,19 +67,19 @@ instance Core.FromJSON VmServerAddress where
       "VmServerAddress"
       ( \x ->
           VmServerAddress'
-            Core.<$> (x Core..:? "vmManagerId")
-            Core.<*> (x Core..:? "vmId")
+            Prelude.<$> (x Core..:? "vmManagerId")
+            Prelude.<*> (x Core..:? "vmId")
       )
 
-instance Core.Hashable VmServerAddress
+instance Prelude.Hashable VmServerAddress
 
-instance Core.NFData VmServerAddress
+instance Prelude.NFData VmServerAddress
 
 instance Core.ToJSON VmServerAddress where
   toJSON VmServerAddress' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("vmManagerId" Core..=) Core.<$> vmManagerId,
-            ("vmId" Core..=) Core.<$> vmId
+      ( Prelude.catMaybes
+          [ ("vmManagerId" Core..=) Prelude.<$> vmManagerId,
+            ("vmId" Core..=) Prelude.<$> vmId
           ]
       )

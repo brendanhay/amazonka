@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains informations about errors.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data BatchPutMessageErrorEntry = BatchPutMessageErrorEntry'
   { -- | The ID of the message that caused the error. See the value corresponding
     -- to the @messageId@ key in the message object.
-    messageId :: Core.Maybe Core.Text,
+    messageId :: Prelude.Maybe Prelude.Text,
     -- | The message associated with the error.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The code associated with the error.
-    errorCode :: Core.Maybe Core.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchPutMessageErrorEntry' with all optional fields omitted.
@@ -55,22 +56,22 @@ newBatchPutMessageErrorEntry ::
 newBatchPutMessageErrorEntry =
   BatchPutMessageErrorEntry'
     { messageId =
-        Core.Nothing,
-      errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+        Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The ID of the message that caused the error. See the value corresponding
 -- to the @messageId@ key in the message object.
-batchPutMessageErrorEntry_messageId :: Lens.Lens' BatchPutMessageErrorEntry (Core.Maybe Core.Text)
+batchPutMessageErrorEntry_messageId :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
 batchPutMessageErrorEntry_messageId = Lens.lens (\BatchPutMessageErrorEntry' {messageId} -> messageId) (\s@BatchPutMessageErrorEntry' {} a -> s {messageId = a} :: BatchPutMessageErrorEntry)
 
 -- | The message associated with the error.
-batchPutMessageErrorEntry_errorMessage :: Lens.Lens' BatchPutMessageErrorEntry (Core.Maybe Core.Text)
+batchPutMessageErrorEntry_errorMessage :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
 batchPutMessageErrorEntry_errorMessage = Lens.lens (\BatchPutMessageErrorEntry' {errorMessage} -> errorMessage) (\s@BatchPutMessageErrorEntry' {} a -> s {errorMessage = a} :: BatchPutMessageErrorEntry)
 
 -- | The code associated with the error.
-batchPutMessageErrorEntry_errorCode :: Lens.Lens' BatchPutMessageErrorEntry (Core.Maybe Core.Text)
+batchPutMessageErrorEntry_errorCode :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
 batchPutMessageErrorEntry_errorCode = Lens.lens (\BatchPutMessageErrorEntry' {errorCode} -> errorCode) (\s@BatchPutMessageErrorEntry' {} a -> s {errorCode = a} :: BatchPutMessageErrorEntry)
 
 instance Core.FromJSON BatchPutMessageErrorEntry where
@@ -79,11 +80,11 @@ instance Core.FromJSON BatchPutMessageErrorEntry where
       "BatchPutMessageErrorEntry"
       ( \x ->
           BatchPutMessageErrorEntry'
-            Core.<$> (x Core..:? "messageId")
-            Core.<*> (x Core..:? "errorMessage")
-            Core.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Core..:? "messageId")
+            Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<*> (x Core..:? "errorCode")
       )
 
-instance Core.Hashable BatchPutMessageErrorEntry
+instance Prelude.Hashable BatchPutMessageErrorEntry
 
-instance Core.NFData BatchPutMessageErrorEntry
+instance Prelude.NFData BatchPutMessageErrorEntry

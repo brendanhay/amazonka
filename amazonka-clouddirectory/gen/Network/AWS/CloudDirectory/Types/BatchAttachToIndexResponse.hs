@@ -21,15 +21,16 @@ module Network.AWS.CloudDirectory.Types.BatchAttachToIndexResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a AttachToIndex response operation.
 --
 -- /See:/ 'newBatchAttachToIndexResponse' smart constructor.
 data BatchAttachToIndexResponse = BatchAttachToIndexResponse'
   { -- | The @ObjectIdentifier@ of the object that was attached to the index.
-    attachedObjectIdentifier :: Core.Maybe Core.Text
+    attachedObjectIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAttachToIndexResponse' with all optional fields omitted.
@@ -45,11 +46,11 @@ newBatchAttachToIndexResponse ::
 newBatchAttachToIndexResponse =
   BatchAttachToIndexResponse'
     { attachedObjectIdentifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the object that was attached to the index.
-batchAttachToIndexResponse_attachedObjectIdentifier :: Lens.Lens' BatchAttachToIndexResponse (Core.Maybe Core.Text)
+batchAttachToIndexResponse_attachedObjectIdentifier :: Lens.Lens' BatchAttachToIndexResponse (Prelude.Maybe Prelude.Text)
 batchAttachToIndexResponse_attachedObjectIdentifier = Lens.lens (\BatchAttachToIndexResponse' {attachedObjectIdentifier} -> attachedObjectIdentifier) (\s@BatchAttachToIndexResponse' {} a -> s {attachedObjectIdentifier = a} :: BatchAttachToIndexResponse)
 
 instance Core.FromJSON BatchAttachToIndexResponse where
@@ -58,9 +59,9 @@ instance Core.FromJSON BatchAttachToIndexResponse where
       "BatchAttachToIndexResponse"
       ( \x ->
           BatchAttachToIndexResponse'
-            Core.<$> (x Core..:? "AttachedObjectIdentifier")
+            Prelude.<$> (x Core..:? "AttachedObjectIdentifier")
       )
 
-instance Core.Hashable BatchAttachToIndexResponse
+instance Prelude.Hashable BatchAttachToIndexResponse
 
-instance Core.NFData BatchAttachToIndexResponse
+instance Prelude.NFData BatchAttachToIndexResponse

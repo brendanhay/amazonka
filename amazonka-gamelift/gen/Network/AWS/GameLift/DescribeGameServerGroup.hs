@@ -74,6 +74,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,9 +82,9 @@ import qualified Network.AWS.Response as Response
 data DescribeGameServerGroup = DescribeGameServerGroup'
   { -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
-    gameServerGroupName :: Core.Text
+    gameServerGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGameServerGroup' with all optional fields omitted.
@@ -97,7 +98,7 @@ data DescribeGameServerGroup = DescribeGameServerGroup'
 -- GameServerGroup name or ARN value.
 newDescribeGameServerGroup ::
   -- | 'gameServerGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeGameServerGroup
 newDescribeGameServerGroup pGameServerGroupName_ =
   DescribeGameServerGroup'
@@ -107,7 +108,7 @@ newDescribeGameServerGroup pGameServerGroupName_ =
 
 -- | A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
-describeGameServerGroup_gameServerGroupName :: Lens.Lens' DescribeGameServerGroup Core.Text
+describeGameServerGroup_gameServerGroupName :: Lens.Lens' DescribeGameServerGroup Prelude.Text
 describeGameServerGroup_gameServerGroupName = Lens.lens (\DescribeGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@DescribeGameServerGroup' {} a -> s {gameServerGroupName = a} :: DescribeGameServerGroup)
 
 instance Core.AWSRequest DescribeGameServerGroup where
@@ -119,51 +120,53 @@ instance Core.AWSRequest DescribeGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameServerGroupResponse'
-            Core.<$> (x Core..?> "GameServerGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeGameServerGroup
+instance Prelude.Hashable DescribeGameServerGroup
 
-instance Core.NFData DescribeGameServerGroup
+instance Prelude.NFData DescribeGameServerGroup
 
 instance Core.ToHeaders DescribeGameServerGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DescribeGameServerGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeGameServerGroup where
   toJSON DescribeGameServerGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("GameServerGroupName" Core..= gameServerGroupName)
           ]
       )
 
 instance Core.ToPath DescribeGameServerGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeGameServerGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGameServerGroupResponse' smart constructor.
 data DescribeGameServerGroupResponse = DescribeGameServerGroupResponse'
   { -- | An object with the property settings for the requested game server group
     -- resource.
-    gameServerGroup :: Core.Maybe GameServerGroup,
+    gameServerGroup :: Prelude.Maybe GameServerGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGameServerGroupResponse' with all optional fields omitted.
@@ -179,22 +182,24 @@ data DescribeGameServerGroupResponse = DescribeGameServerGroupResponse'
 -- 'httpStatus', 'describeGameServerGroupResponse_httpStatus' - The response's http status code.
 newDescribeGameServerGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeGameServerGroupResponse
 newDescribeGameServerGroupResponse pHttpStatus_ =
   DescribeGameServerGroupResponse'
     { gameServerGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object with the property settings for the requested game server group
 -- resource.
-describeGameServerGroupResponse_gameServerGroup :: Lens.Lens' DescribeGameServerGroupResponse (Core.Maybe GameServerGroup)
+describeGameServerGroupResponse_gameServerGroup :: Lens.Lens' DescribeGameServerGroupResponse (Prelude.Maybe GameServerGroup)
 describeGameServerGroupResponse_gameServerGroup = Lens.lens (\DescribeGameServerGroupResponse' {gameServerGroup} -> gameServerGroup) (\s@DescribeGameServerGroupResponse' {} a -> s {gameServerGroup = a} :: DescribeGameServerGroupResponse)
 
 -- | The response's http status code.
-describeGameServerGroupResponse_httpStatus :: Lens.Lens' DescribeGameServerGroupResponse Core.Int
+describeGameServerGroupResponse_httpStatus :: Lens.Lens' DescribeGameServerGroupResponse Prelude.Int
 describeGameServerGroupResponse_httpStatus = Lens.lens (\DescribeGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeGameServerGroupResponse' {} a -> s {httpStatus = a} :: DescribeGameServerGroupResponse)
 
-instance Core.NFData DescribeGameServerGroupResponse
+instance
+  Prelude.NFData
+    DescribeGameServerGroupResponse

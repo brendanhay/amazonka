@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.NoiseReducerFilterSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for a noise reducer filter
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data NoiseReducerFilterSettings = NoiseReducerFilterSettings'
   { -- | Relative strength of noise reducing filter. Higher values produce
     -- stronger filtering.
-    strength :: Core.Maybe Core.Natural
+    strength :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NoiseReducerFilterSettings' with all optional fields omitted.
@@ -47,12 +48,12 @@ newNoiseReducerFilterSettings ::
 newNoiseReducerFilterSettings =
   NoiseReducerFilterSettings'
     { strength =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Relative strength of noise reducing filter. Higher values produce
 -- stronger filtering.
-noiseReducerFilterSettings_strength :: Lens.Lens' NoiseReducerFilterSettings (Core.Maybe Core.Natural)
+noiseReducerFilterSettings_strength :: Lens.Lens' NoiseReducerFilterSettings (Prelude.Maybe Prelude.Natural)
 noiseReducerFilterSettings_strength = Lens.lens (\NoiseReducerFilterSettings' {strength} -> strength) (\s@NoiseReducerFilterSettings' {} a -> s {strength = a} :: NoiseReducerFilterSettings)
 
 instance Core.FromJSON NoiseReducerFilterSettings where
@@ -61,16 +62,16 @@ instance Core.FromJSON NoiseReducerFilterSettings where
       "NoiseReducerFilterSettings"
       ( \x ->
           NoiseReducerFilterSettings'
-            Core.<$> (x Core..:? "strength")
+            Prelude.<$> (x Core..:? "strength")
       )
 
-instance Core.Hashable NoiseReducerFilterSettings
+instance Prelude.Hashable NoiseReducerFilterSettings
 
-instance Core.NFData NoiseReducerFilterSettings
+instance Prelude.NFData NoiseReducerFilterSettings
 
 instance Core.ToJSON NoiseReducerFilterSettings where
   toJSON NoiseReducerFilterSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("strength" Core..=) Core.<$> strength]
+      ( Prelude.catMaybes
+          [("strength" Core..=) Prelude.<$> strength]
       )

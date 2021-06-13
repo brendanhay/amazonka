@@ -21,6 +21,7 @@ module Network.AWS.Greengrass.Types.BulkDeployment where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a bulk deployment. You cannot start a new bulk
 -- deployment while another one is still running or in a non-terminal
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newBulkDeployment' smart constructor.
 data BulkDeployment = BulkDeployment'
   { -- | The ID of the bulk deployment.
-    bulkDeploymentId :: Core.Maybe Core.Text,
+    bulkDeploymentId :: Prelude.Maybe Prelude.Text,
     -- | The time, in ISO format, when the deployment was created.
-    createdAt :: Core.Maybe Core.Text,
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the bulk deployment.
-    bulkDeploymentArn :: Core.Maybe Core.Text
+    bulkDeploymentArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BulkDeployment' with all optional fields omitted.
@@ -54,21 +55,21 @@ newBulkDeployment ::
   BulkDeployment
 newBulkDeployment =
   BulkDeployment'
-    { bulkDeploymentId = Core.Nothing,
-      createdAt = Core.Nothing,
-      bulkDeploymentArn = Core.Nothing
+    { bulkDeploymentId = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      bulkDeploymentArn = Prelude.Nothing
     }
 
 -- | The ID of the bulk deployment.
-bulkDeployment_bulkDeploymentId :: Lens.Lens' BulkDeployment (Core.Maybe Core.Text)
+bulkDeployment_bulkDeploymentId :: Lens.Lens' BulkDeployment (Prelude.Maybe Prelude.Text)
 bulkDeployment_bulkDeploymentId = Lens.lens (\BulkDeployment' {bulkDeploymentId} -> bulkDeploymentId) (\s@BulkDeployment' {} a -> s {bulkDeploymentId = a} :: BulkDeployment)
 
 -- | The time, in ISO format, when the deployment was created.
-bulkDeployment_createdAt :: Lens.Lens' BulkDeployment (Core.Maybe Core.Text)
+bulkDeployment_createdAt :: Lens.Lens' BulkDeployment (Prelude.Maybe Prelude.Text)
 bulkDeployment_createdAt = Lens.lens (\BulkDeployment' {createdAt} -> createdAt) (\s@BulkDeployment' {} a -> s {createdAt = a} :: BulkDeployment)
 
 -- | The ARN of the bulk deployment.
-bulkDeployment_bulkDeploymentArn :: Lens.Lens' BulkDeployment (Core.Maybe Core.Text)
+bulkDeployment_bulkDeploymentArn :: Lens.Lens' BulkDeployment (Prelude.Maybe Prelude.Text)
 bulkDeployment_bulkDeploymentArn = Lens.lens (\BulkDeployment' {bulkDeploymentArn} -> bulkDeploymentArn) (\s@BulkDeployment' {} a -> s {bulkDeploymentArn = a} :: BulkDeployment)
 
 instance Core.FromJSON BulkDeployment where
@@ -77,11 +78,11 @@ instance Core.FromJSON BulkDeployment where
       "BulkDeployment"
       ( \x ->
           BulkDeployment'
-            Core.<$> (x Core..:? "BulkDeploymentId")
-            Core.<*> (x Core..:? "CreatedAt")
-            Core.<*> (x Core..:? "BulkDeploymentArn")
+            Prelude.<$> (x Core..:? "BulkDeploymentId")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "BulkDeploymentArn")
       )
 
-instance Core.Hashable BulkDeployment
+instance Prelude.Hashable BulkDeployment
 
-instance Core.NFData BulkDeployment
+instance Prelude.NFData BulkDeployment

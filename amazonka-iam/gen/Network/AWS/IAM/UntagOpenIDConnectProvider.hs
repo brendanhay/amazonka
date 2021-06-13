@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +57,12 @@ data UntagOpenIDConnectProvider = UntagOpenIDConnectProvider'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    openIDConnectProviderArn :: Core.Text,
+    openIDConnectProviderArn :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified OIDC provider.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagOpenIDConnectProvider' with all optional fields omitted.
@@ -82,14 +83,14 @@ data UntagOpenIDConnectProvider = UntagOpenIDConnectProvider'
 -- keys are removed from the specified OIDC provider.
 newUntagOpenIDConnectProvider ::
   -- | 'openIDConnectProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   UntagOpenIDConnectProvider
 newUntagOpenIDConnectProvider
   pOpenIDConnectProviderArn_ =
     UntagOpenIDConnectProvider'
       { openIDConnectProviderArn =
           pOpenIDConnectProviderArn_,
-        tagKeys = Core.mempty
+        tagKeys = Prelude.mempty
       }
 
 -- | The ARN of the OIDC provider in IAM from which you want to remove tags.
@@ -98,13 +99,13 @@ newUntagOpenIDConnectProvider
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' UntagOpenIDConnectProvider Core.Text
+untagOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' UntagOpenIDConnectProvider Prelude.Text
 untagOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\UntagOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@UntagOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: UntagOpenIDConnectProvider)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified OIDC provider.
-untagOpenIDConnectProvider_tagKeys :: Lens.Lens' UntagOpenIDConnectProvider [Core.Text]
-untagOpenIDConnectProvider_tagKeys = Lens.lens (\UntagOpenIDConnectProvider' {tagKeys} -> tagKeys) (\s@UntagOpenIDConnectProvider' {} a -> s {tagKeys = a} :: UntagOpenIDConnectProvider) Core.. Lens._Coerce
+untagOpenIDConnectProvider_tagKeys :: Lens.Lens' UntagOpenIDConnectProvider [Prelude.Text]
+untagOpenIDConnectProvider_tagKeys = Lens.lens (\UntagOpenIDConnectProvider' {tagKeys} -> tagKeys) (\s@UntagOpenIDConnectProvider' {} a -> s {tagKeys = a} :: UntagOpenIDConnectProvider) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagOpenIDConnectProvider where
   type
@@ -115,22 +116,23 @@ instance Core.AWSRequest UntagOpenIDConnectProvider where
     Response.receiveNull
       UntagOpenIDConnectProviderResponse'
 
-instance Core.Hashable UntagOpenIDConnectProvider
+instance Prelude.Hashable UntagOpenIDConnectProvider
 
-instance Core.NFData UntagOpenIDConnectProvider
+instance Prelude.NFData UntagOpenIDConnectProvider
 
 instance Core.ToHeaders UntagOpenIDConnectProvider where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagOpenIDConnectProvider where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagOpenIDConnectProvider where
   toQuery UntagOpenIDConnectProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UntagOpenIDConnectProvider" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UntagOpenIDConnectProvider" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "OpenIDConnectProviderArn"
           Core.=: openIDConnectProviderArn,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
@@ -140,7 +142,7 @@ instance Core.ToQuery UntagOpenIDConnectProvider where
 data UntagOpenIDConnectProviderResponse = UntagOpenIDConnectProviderResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagOpenIDConnectProviderResponse' with all optional fields omitted.
@@ -152,5 +154,5 @@ newUntagOpenIDConnectProviderResponse =
   UntagOpenIDConnectProviderResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UntagOpenIDConnectProviderResponse

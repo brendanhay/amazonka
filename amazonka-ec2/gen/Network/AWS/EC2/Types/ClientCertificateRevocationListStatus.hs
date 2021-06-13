@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientCertificateRevocationListStatusCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a client certificate revocation list.
 --
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data ClientCertificateRevocationListStatus = ClientCertificateRevocationListStatus'
   { -- | A message about the status of the client certificate revocation list, if
     -- applicable.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The state of the client certificate revocation list.
-    code :: Core.Maybe ClientCertificateRevocationListStatusCode
+    code :: Prelude.Maybe ClientCertificateRevocationListStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientCertificateRevocationListStatus' with all optional fields omitted.
@@ -53,17 +54,17 @@ newClientCertificateRevocationListStatus ::
 newClientCertificateRevocationListStatus =
   ClientCertificateRevocationListStatus'
     { message =
-        Core.Nothing,
-      code = Core.Nothing
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | A message about the status of the client certificate revocation list, if
 -- applicable.
-clientCertificateRevocationListStatus_message :: Lens.Lens' ClientCertificateRevocationListStatus (Core.Maybe Core.Text)
+clientCertificateRevocationListStatus_message :: Lens.Lens' ClientCertificateRevocationListStatus (Prelude.Maybe Prelude.Text)
 clientCertificateRevocationListStatus_message = Lens.lens (\ClientCertificateRevocationListStatus' {message} -> message) (\s@ClientCertificateRevocationListStatus' {} a -> s {message = a} :: ClientCertificateRevocationListStatus)
 
 -- | The state of the client certificate revocation list.
-clientCertificateRevocationListStatus_code :: Lens.Lens' ClientCertificateRevocationListStatus (Core.Maybe ClientCertificateRevocationListStatusCode)
+clientCertificateRevocationListStatus_code :: Lens.Lens' ClientCertificateRevocationListStatus (Prelude.Maybe ClientCertificateRevocationListStatusCode)
 clientCertificateRevocationListStatus_code = Lens.lens (\ClientCertificateRevocationListStatus' {code} -> code) (\s@ClientCertificateRevocationListStatus' {} a -> s {code = a} :: ClientCertificateRevocationListStatus)
 
 instance
@@ -72,12 +73,13 @@ instance
   where
   parseXML x =
     ClientCertificateRevocationListStatus'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ClientCertificateRevocationListStatus
 
 instance
-  Core.NFData
+  Prelude.NFData
     ClientCertificateRevocationListStatus

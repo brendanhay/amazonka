@@ -113,6 +113,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -124,35 +125,35 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
     -- pairs. These properties are passed to a game server process in the
     -- GameSession object with a request to start a new game session (see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-    gameProperties :: Core.Maybe [GameProperty],
+    gameProperties :: Prelude.Maybe [GameProperty],
     -- | Set of custom game session properties, formatted as a single string
     -- value. This data is passed to a game server process in the GameSession
     -- object with a request to start a new game session (see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-    gameSessionData :: Core.Maybe Core.Text,
+    gameSessionData :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with a game session. Session
     -- names do not need to be unique.
-    gameSessionName :: Core.Maybe Core.Text,
+    gameSessionName :: Prelude.Maybe Prelude.Text,
     -- | Set of information on each player to create a player session for.
-    desiredPlayerSessions :: Core.Maybe [DesiredPlayerSession],
+    desiredPlayerSessions :: Prelude.Maybe [DesiredPlayerSession],
     -- | Set of values, expressed in milliseconds, indicating the amount of
     -- latency that a player experiences when connected to AWS Regions. This
     -- information is used to try to place the new game session where it can
     -- offer the best possible gameplay experience for the players.
-    playerLatencies :: Core.Maybe [PlayerLatency],
+    playerLatencies :: Prelude.Maybe [PlayerLatency],
     -- | A unique identifier to assign to the new game session placement. This
     -- value is developer-defined. The value must be unique across all Regions
     -- and cannot be reused unless you are resubmitting a canceled or timed-out
     -- placement request.
-    placementId :: Core.Text,
+    placementId :: Prelude.Text,
     -- | Name of the queue to use to place the new game session. You can use
     -- either the queue name or ARN value.
-    gameSessionQueueName :: Core.Text,
+    gameSessionQueueName :: Prelude.Text,
     -- | The maximum number of players that can be connected simultaneously to
     -- the game session.
-    maximumPlayerSessionCount :: Core.Natural
+    maximumPlayerSessionCount :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartGameSessionPlacement' with all optional fields omitted.
@@ -194,11 +195,11 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
 -- the game session.
 newStartGameSessionPlacement ::
   -- | 'placementId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'gameSessionQueueName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'maximumPlayerSessionCount'
-  Core.Natural ->
+  Prelude.Natural ->
   StartGameSessionPlacement
 newStartGameSessionPlacement
   pPlacementId_
@@ -206,11 +207,11 @@ newStartGameSessionPlacement
   pMaximumPlayerSessionCount_ =
     StartGameSessionPlacement'
       { gameProperties =
-          Core.Nothing,
-        gameSessionData = Core.Nothing,
-        gameSessionName = Core.Nothing,
-        desiredPlayerSessions = Core.Nothing,
-        playerLatencies = Core.Nothing,
+          Prelude.Nothing,
+        gameSessionData = Prelude.Nothing,
+        gameSessionName = Prelude.Nothing,
+        desiredPlayerSessions = Prelude.Nothing,
+        playerLatencies = Prelude.Nothing,
         placementId = pPlacementId_,
         gameSessionQueueName = pGameSessionQueueName_,
         maximumPlayerSessionCount =
@@ -221,47 +222,47 @@ newStartGameSessionPlacement
 -- pairs. These properties are passed to a game server process in the
 -- GameSession object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-startGameSessionPlacement_gameProperties :: Lens.Lens' StartGameSessionPlacement (Core.Maybe [GameProperty])
-startGameSessionPlacement_gameProperties = Lens.lens (\StartGameSessionPlacement' {gameProperties} -> gameProperties) (\s@StartGameSessionPlacement' {} a -> s {gameProperties = a} :: StartGameSessionPlacement) Core.. Lens.mapping Lens._Coerce
+startGameSessionPlacement_gameProperties :: Lens.Lens' StartGameSessionPlacement (Prelude.Maybe [GameProperty])
+startGameSessionPlacement_gameProperties = Lens.lens (\StartGameSessionPlacement' {gameProperties} -> gameProperties) (\s@StartGameSessionPlacement' {} a -> s {gameProperties = a} :: StartGameSessionPlacement) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
 -- object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-startGameSessionPlacement_gameSessionData :: Lens.Lens' StartGameSessionPlacement (Core.Maybe Core.Text)
+startGameSessionPlacement_gameSessionData :: Lens.Lens' StartGameSessionPlacement (Prelude.Maybe Prelude.Text)
 startGameSessionPlacement_gameSessionData = Lens.lens (\StartGameSessionPlacement' {gameSessionData} -> gameSessionData) (\s@StartGameSessionPlacement' {} a -> s {gameSessionData = a} :: StartGameSessionPlacement)
 
 -- | A descriptive label that is associated with a game session. Session
 -- names do not need to be unique.
-startGameSessionPlacement_gameSessionName :: Lens.Lens' StartGameSessionPlacement (Core.Maybe Core.Text)
+startGameSessionPlacement_gameSessionName :: Lens.Lens' StartGameSessionPlacement (Prelude.Maybe Prelude.Text)
 startGameSessionPlacement_gameSessionName = Lens.lens (\StartGameSessionPlacement' {gameSessionName} -> gameSessionName) (\s@StartGameSessionPlacement' {} a -> s {gameSessionName = a} :: StartGameSessionPlacement)
 
 -- | Set of information on each player to create a player session for.
-startGameSessionPlacement_desiredPlayerSessions :: Lens.Lens' StartGameSessionPlacement (Core.Maybe [DesiredPlayerSession])
-startGameSessionPlacement_desiredPlayerSessions = Lens.lens (\StartGameSessionPlacement' {desiredPlayerSessions} -> desiredPlayerSessions) (\s@StartGameSessionPlacement' {} a -> s {desiredPlayerSessions = a} :: StartGameSessionPlacement) Core.. Lens.mapping Lens._Coerce
+startGameSessionPlacement_desiredPlayerSessions :: Lens.Lens' StartGameSessionPlacement (Prelude.Maybe [DesiredPlayerSession])
+startGameSessionPlacement_desiredPlayerSessions = Lens.lens (\StartGameSessionPlacement' {desiredPlayerSessions} -> desiredPlayerSessions) (\s@StartGameSessionPlacement' {} a -> s {desiredPlayerSessions = a} :: StartGameSessionPlacement) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Set of values, expressed in milliseconds, indicating the amount of
 -- latency that a player experiences when connected to AWS Regions. This
 -- information is used to try to place the new game session where it can
 -- offer the best possible gameplay experience for the players.
-startGameSessionPlacement_playerLatencies :: Lens.Lens' StartGameSessionPlacement (Core.Maybe [PlayerLatency])
-startGameSessionPlacement_playerLatencies = Lens.lens (\StartGameSessionPlacement' {playerLatencies} -> playerLatencies) (\s@StartGameSessionPlacement' {} a -> s {playerLatencies = a} :: StartGameSessionPlacement) Core.. Lens.mapping Lens._Coerce
+startGameSessionPlacement_playerLatencies :: Lens.Lens' StartGameSessionPlacement (Prelude.Maybe [PlayerLatency])
+startGameSessionPlacement_playerLatencies = Lens.lens (\StartGameSessionPlacement' {playerLatencies} -> playerLatencies) (\s@StartGameSessionPlacement' {} a -> s {playerLatencies = a} :: StartGameSessionPlacement) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier to assign to the new game session placement. This
 -- value is developer-defined. The value must be unique across all Regions
 -- and cannot be reused unless you are resubmitting a canceled or timed-out
 -- placement request.
-startGameSessionPlacement_placementId :: Lens.Lens' StartGameSessionPlacement Core.Text
+startGameSessionPlacement_placementId :: Lens.Lens' StartGameSessionPlacement Prelude.Text
 startGameSessionPlacement_placementId = Lens.lens (\StartGameSessionPlacement' {placementId} -> placementId) (\s@StartGameSessionPlacement' {} a -> s {placementId = a} :: StartGameSessionPlacement)
 
 -- | Name of the queue to use to place the new game session. You can use
 -- either the queue name or ARN value.
-startGameSessionPlacement_gameSessionQueueName :: Lens.Lens' StartGameSessionPlacement Core.Text
+startGameSessionPlacement_gameSessionQueueName :: Lens.Lens' StartGameSessionPlacement Prelude.Text
 startGameSessionPlacement_gameSessionQueueName = Lens.lens (\StartGameSessionPlacement' {gameSessionQueueName} -> gameSessionQueueName) (\s@StartGameSessionPlacement' {} a -> s {gameSessionQueueName = a} :: StartGameSessionPlacement)
 
 -- | The maximum number of players that can be connected simultaneously to
 -- the game session.
-startGameSessionPlacement_maximumPlayerSessionCount :: Lens.Lens' StartGameSessionPlacement Core.Natural
+startGameSessionPlacement_maximumPlayerSessionCount :: Lens.Lens' StartGameSessionPlacement Prelude.Natural
 startGameSessionPlacement_maximumPlayerSessionCount = Lens.lens (\StartGameSessionPlacement' {maximumPlayerSessionCount} -> maximumPlayerSessionCount) (\s@StartGameSessionPlacement' {} a -> s {maximumPlayerSessionCount = a} :: StartGameSessionPlacement)
 
 instance Core.AWSRequest StartGameSessionPlacement where
@@ -273,43 +274,49 @@ instance Core.AWSRequest StartGameSessionPlacement where
     Response.receiveJSON
       ( \s h x ->
           StartGameSessionPlacementResponse'
-            Core.<$> (x Core..?> "GameSessionPlacement")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameSessionPlacement")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartGameSessionPlacement
+instance Prelude.Hashable StartGameSessionPlacement
 
-instance Core.NFData StartGameSessionPlacement
+instance Prelude.NFData StartGameSessionPlacement
 
 instance Core.ToHeaders StartGameSessionPlacement where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.StartGameSessionPlacement" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartGameSessionPlacement where
   toJSON StartGameSessionPlacement' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GameProperties" Core..=) Core.<$> gameProperties,
-            ("GameSessionData" Core..=) Core.<$> gameSessionData,
-            ("GameSessionName" Core..=) Core.<$> gameSessionName,
+      ( Prelude.catMaybes
+          [ ("GameProperties" Core..=)
+              Prelude.<$> gameProperties,
+            ("GameSessionData" Core..=)
+              Prelude.<$> gameSessionData,
+            ("GameSessionName" Core..=)
+              Prelude.<$> gameSessionName,
             ("DesiredPlayerSessions" Core..=)
-              Core.<$> desiredPlayerSessions,
-            ("PlayerLatencies" Core..=) Core.<$> playerLatencies,
-            Core.Just ("PlacementId" Core..= placementId),
-            Core.Just
+              Prelude.<$> desiredPlayerSessions,
+            ("PlayerLatencies" Core..=)
+              Prelude.<$> playerLatencies,
+            Prelude.Just ("PlacementId" Core..= placementId),
+            Prelude.Just
               ( "GameSessionQueueName"
                   Core..= gameSessionQueueName
               ),
-            Core.Just
+            Prelude.Just
               ( "MaximumPlayerSessionCount"
                   Core..= maximumPlayerSessionCount
               )
@@ -317,10 +324,10 @@ instance Core.ToJSON StartGameSessionPlacement where
       )
 
 instance Core.ToPath StartGameSessionPlacement where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartGameSessionPlacement where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -329,11 +336,11 @@ data StartGameSessionPlacementResponse = StartGameSessionPlacementResponse'
   { -- | Object that describes the newly created game session placement. This
     -- object includes all the information provided in the request, as well as
     -- start\/end time stamps and placement status.
-    gameSessionPlacement :: Core.Maybe GameSessionPlacement,
+    gameSessionPlacement :: Prelude.Maybe GameSessionPlacement,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartGameSessionPlacementResponse' with all optional fields omitted.
@@ -350,25 +357,25 @@ data StartGameSessionPlacementResponse = StartGameSessionPlacementResponse'
 -- 'httpStatus', 'startGameSessionPlacementResponse_httpStatus' - The response's http status code.
 newStartGameSessionPlacementResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartGameSessionPlacementResponse
 newStartGameSessionPlacementResponse pHttpStatus_ =
   StartGameSessionPlacementResponse'
     { gameSessionPlacement =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the newly created game session placement. This
 -- object includes all the information provided in the request, as well as
 -- start\/end time stamps and placement status.
-startGameSessionPlacementResponse_gameSessionPlacement :: Lens.Lens' StartGameSessionPlacementResponse (Core.Maybe GameSessionPlacement)
+startGameSessionPlacementResponse_gameSessionPlacement :: Lens.Lens' StartGameSessionPlacementResponse (Prelude.Maybe GameSessionPlacement)
 startGameSessionPlacementResponse_gameSessionPlacement = Lens.lens (\StartGameSessionPlacementResponse' {gameSessionPlacement} -> gameSessionPlacement) (\s@StartGameSessionPlacementResponse' {} a -> s {gameSessionPlacement = a} :: StartGameSessionPlacementResponse)
 
 -- | The response's http status code.
-startGameSessionPlacementResponse_httpStatus :: Lens.Lens' StartGameSessionPlacementResponse Core.Int
+startGameSessionPlacementResponse_httpStatus :: Lens.Lens' StartGameSessionPlacementResponse Prelude.Int
 startGameSessionPlacementResponse_httpStatus = Lens.lens (\StartGameSessionPlacementResponse' {httpStatus} -> httpStatus) (\s@StartGameSessionPlacementResponse' {} a -> s {httpStatus = a} :: StartGameSessionPlacementResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartGameSessionPlacementResponse

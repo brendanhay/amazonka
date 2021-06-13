@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data StopJob = StopJob'
   { -- | Represents the Amazon Resource Name (ARN) of the Device Farm job to
     -- stop.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopJob' with all optional fields omitted.
@@ -70,13 +71,13 @@ data StopJob = StopJob'
 -- stop.
 newStopJob ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   StopJob
 newStopJob pArn_ = StopJob' {arn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm job to
 -- stop.
-stopJob_arn :: Lens.Lens' StopJob Core.Text
+stopJob_arn :: Lens.Lens' StopJob Prelude.Text
 stopJob_arn = Lens.lens (\StopJob' {arn} -> arn) (\s@StopJob' {} a -> s {arn = a} :: StopJob)
 
 instance Core.AWSRequest StopJob where
@@ -86,44 +87,50 @@ instance Core.AWSRequest StopJob where
     Response.receiveJSON
       ( \s h x ->
           StopJobResponse'
-            Core.<$> (x Core..?> "job")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "job")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopJob
+instance Prelude.Hashable StopJob
 
-instance Core.NFData StopJob
+instance Prelude.NFData StopJob
 
 instance Core.ToHeaders StopJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DeviceFarm_20150623.StopJob" :: Core.ByteString),
+              Core.=# ( "DeviceFarm_20150623.StopJob" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopJob where
   toJSON StopJob' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
 instance Core.ToPath StopJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopJobResponse' smart constructor.
 data StopJobResponse = StopJobResponse'
   { -- | The job that was stopped.
-    job :: Core.Maybe Job,
+    job :: Prelude.Maybe Job,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopJobResponse' with all optional fields omitted.
@@ -138,20 +145,20 @@ data StopJobResponse = StopJobResponse'
 -- 'httpStatus', 'stopJobResponse_httpStatus' - The response's http status code.
 newStopJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopJobResponse
 newStopJobResponse pHttpStatus_ =
   StopJobResponse'
-    { job = Core.Nothing,
+    { job = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The job that was stopped.
-stopJobResponse_job :: Lens.Lens' StopJobResponse (Core.Maybe Job)
+stopJobResponse_job :: Lens.Lens' StopJobResponse (Prelude.Maybe Job)
 stopJobResponse_job = Lens.lens (\StopJobResponse' {job} -> job) (\s@StopJobResponse' {} a -> s {job = a} :: StopJobResponse)
 
 -- | The response's http status code.
-stopJobResponse_httpStatus :: Lens.Lens' StopJobResponse Core.Int
+stopJobResponse_httpStatus :: Lens.Lens' StopJobResponse Prelude.Int
 stopJobResponse_httpStatus = Lens.lens (\StopJobResponse' {httpStatus} -> httpStatus) (\s@StopJobResponse' {} a -> s {httpStatus = a} :: StopJobResponse)
 
-instance Core.NFData StopJobResponse
+instance Prelude.NFData StopJobResponse

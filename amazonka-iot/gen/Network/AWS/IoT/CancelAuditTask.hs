@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data CancelAuditTask = CancelAuditTask'
   { -- | The ID of the audit you want to cancel. You can only cancel an audit
     -- that is \"IN_PROGRESS\".
-    taskId :: Core.Text
+    taskId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelAuditTask' with all optional fields omitted.
@@ -66,14 +67,14 @@ data CancelAuditTask = CancelAuditTask'
 -- that is \"IN_PROGRESS\".
 newCancelAuditTask ::
   -- | 'taskId'
-  Core.Text ->
+  Prelude.Text ->
   CancelAuditTask
 newCancelAuditTask pTaskId_ =
   CancelAuditTask' {taskId = pTaskId_}
 
 -- | The ID of the audit you want to cancel. You can only cancel an audit
 -- that is \"IN_PROGRESS\".
-cancelAuditTask_taskId :: Lens.Lens' CancelAuditTask Core.Text
+cancelAuditTask_taskId :: Lens.Lens' CancelAuditTask Prelude.Text
 cancelAuditTask_taskId = Lens.lens (\CancelAuditTask' {taskId} -> taskId) (\s@CancelAuditTask' {} a -> s {taskId = a} :: CancelAuditTask)
 
 instance Core.AWSRequest CancelAuditTask where
@@ -85,33 +86,33 @@ instance Core.AWSRequest CancelAuditTask where
     Response.receiveEmpty
       ( \s h x ->
           CancelAuditTaskResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelAuditTask
+instance Prelude.Hashable CancelAuditTask
 
-instance Core.NFData CancelAuditTask
+instance Prelude.NFData CancelAuditTask
 
 instance Core.ToHeaders CancelAuditTask where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CancelAuditTask where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath CancelAuditTask where
   toPath CancelAuditTask' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/audit/tasks/", Core.toBS taskId, "/cancel"]
 
 instance Core.ToQuery CancelAuditTask where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelAuditTaskResponse' smart constructor.
 data CancelAuditTaskResponse = CancelAuditTaskResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelAuditTaskResponse' with all optional fields omitted.
@@ -124,13 +125,13 @@ data CancelAuditTaskResponse = CancelAuditTaskResponse'
 -- 'httpStatus', 'cancelAuditTaskResponse_httpStatus' - The response's http status code.
 newCancelAuditTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelAuditTaskResponse
 newCancelAuditTaskResponse pHttpStatus_ =
   CancelAuditTaskResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-cancelAuditTaskResponse_httpStatus :: Lens.Lens' CancelAuditTaskResponse Core.Int
+cancelAuditTaskResponse_httpStatus :: Lens.Lens' CancelAuditTaskResponse Prelude.Int
 cancelAuditTaskResponse_httpStatus = Lens.lens (\CancelAuditTaskResponse' {httpStatus} -> httpStatus) (\s@CancelAuditTaskResponse' {} a -> s {httpStatus = a} :: CancelAuditTaskResponse)
 
-instance Core.NFData CancelAuditTaskResponse
+instance Prelude.NFData CancelAuditTaskResponse

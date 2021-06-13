@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.ResourceCountFilters where
 import Network.AWS.Config.Types.ResourceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters the resource count based on account ID, region, and resource
 -- type.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResourceCountFilters' smart constructor.
 data ResourceCountFilters = ResourceCountFilters'
   { -- | The 12-digit ID of the account.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The type of the AWS resource.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The region where the account is located.
-    region :: Core.Maybe Core.Text
+    region :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceCountFilters' with all optional fields omitted.
@@ -54,33 +55,33 @@ newResourceCountFilters ::
   ResourceCountFilters
 newResourceCountFilters =
   ResourceCountFilters'
-    { accountId = Core.Nothing,
-      resourceType = Core.Nothing,
-      region = Core.Nothing
+    { accountId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | The 12-digit ID of the account.
-resourceCountFilters_accountId :: Lens.Lens' ResourceCountFilters (Core.Maybe Core.Text)
+resourceCountFilters_accountId :: Lens.Lens' ResourceCountFilters (Prelude.Maybe Prelude.Text)
 resourceCountFilters_accountId = Lens.lens (\ResourceCountFilters' {accountId} -> accountId) (\s@ResourceCountFilters' {} a -> s {accountId = a} :: ResourceCountFilters)
 
 -- | The type of the AWS resource.
-resourceCountFilters_resourceType :: Lens.Lens' ResourceCountFilters (Core.Maybe ResourceType)
+resourceCountFilters_resourceType :: Lens.Lens' ResourceCountFilters (Prelude.Maybe ResourceType)
 resourceCountFilters_resourceType = Lens.lens (\ResourceCountFilters' {resourceType} -> resourceType) (\s@ResourceCountFilters' {} a -> s {resourceType = a} :: ResourceCountFilters)
 
 -- | The region where the account is located.
-resourceCountFilters_region :: Lens.Lens' ResourceCountFilters (Core.Maybe Core.Text)
+resourceCountFilters_region :: Lens.Lens' ResourceCountFilters (Prelude.Maybe Prelude.Text)
 resourceCountFilters_region = Lens.lens (\ResourceCountFilters' {region} -> region) (\s@ResourceCountFilters' {} a -> s {region = a} :: ResourceCountFilters)
 
-instance Core.Hashable ResourceCountFilters
+instance Prelude.Hashable ResourceCountFilters
 
-instance Core.NFData ResourceCountFilters
+instance Prelude.NFData ResourceCountFilters
 
 instance Core.ToJSON ResourceCountFilters where
   toJSON ResourceCountFilters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AccountId" Core..=) Core.<$> accountId,
-            ("ResourceType" Core..=) Core.<$> resourceType,
-            ("Region" Core..=) Core.<$> region
+      ( Prelude.catMaybes
+          [ ("AccountId" Core..=) Prelude.<$> accountId,
+            ("ResourceType" Core..=) Prelude.<$> resourceType,
+            ("Region" Core..=) Prelude.<$> region
           ]
       )

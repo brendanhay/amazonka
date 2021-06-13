@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.OrganizationConformancePackStatus where
 import Network.AWS.Config.Types.OrganizationResourceStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the status for an organization conformance pack in an
 -- organization.
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOrganizationConformancePackStatus' smart constructor.
 data OrganizationConformancePackStatus = OrganizationConformancePackStatus'
   { -- | The timestamp of the last update.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | An error message indicating that organization conformance pack creation
     -- or deletion failed due to an error.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | An error code that is returned when organization conformance pack
     -- creation or deletion has failed in a member account.
-    errorCode :: Core.Maybe Core.Text,
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The name that you assign to organization conformance pack.
-    organizationConformancePackName :: Core.Text,
+    organizationConformancePackName :: Prelude.Text,
     -- | Indicates deployment status of an organization conformance pack. When
     -- master account calls PutOrganizationConformancePack for the first time,
     -- conformance pack status is created in all the member accounts. When
@@ -79,7 +80,7 @@ data OrganizationConformancePackStatus = OrganizationConformancePackStatus'
     --     in one or more member accounts within that organization.
     status :: OrganizationResourceStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationConformancePackStatus' with all optional fields omitted.
@@ -140,7 +141,7 @@ data OrganizationConformancePackStatus = OrganizationConformancePackStatus'
 --     in one or more member accounts within that organization.
 newOrganizationConformancePackStatus ::
   -- | 'organizationConformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   OrganizationResourceStatus ->
   OrganizationConformancePackStatus
@@ -149,30 +150,30 @@ newOrganizationConformancePackStatus
   pStatus_ =
     OrganizationConformancePackStatus'
       { lastUpdateTime =
-          Core.Nothing,
-        errorMessage = Core.Nothing,
-        errorCode = Core.Nothing,
+          Prelude.Nothing,
+        errorMessage = Prelude.Nothing,
+        errorCode = Prelude.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_,
         status = pStatus_
       }
 
 -- | The timestamp of the last update.
-organizationConformancePackStatus_lastUpdateTime :: Lens.Lens' OrganizationConformancePackStatus (Core.Maybe Core.UTCTime)
-organizationConformancePackStatus_lastUpdateTime = Lens.lens (\OrganizationConformancePackStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConformancePackStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConformancePackStatus) Core.. Lens.mapping Core._Time
+organizationConformancePackStatus_lastUpdateTime :: Lens.Lens' OrganizationConformancePackStatus (Prelude.Maybe Prelude.UTCTime)
+organizationConformancePackStatus_lastUpdateTime = Lens.lens (\OrganizationConformancePackStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConformancePackStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConformancePackStatus) Prelude.. Lens.mapping Core._Time
 
 -- | An error message indicating that organization conformance pack creation
 -- or deletion failed due to an error.
-organizationConformancePackStatus_errorMessage :: Lens.Lens' OrganizationConformancePackStatus (Core.Maybe Core.Text)
+organizationConformancePackStatus_errorMessage :: Lens.Lens' OrganizationConformancePackStatus (Prelude.Maybe Prelude.Text)
 organizationConformancePackStatus_errorMessage = Lens.lens (\OrganizationConformancePackStatus' {errorMessage} -> errorMessage) (\s@OrganizationConformancePackStatus' {} a -> s {errorMessage = a} :: OrganizationConformancePackStatus)
 
 -- | An error code that is returned when organization conformance pack
 -- creation or deletion has failed in a member account.
-organizationConformancePackStatus_errorCode :: Lens.Lens' OrganizationConformancePackStatus (Core.Maybe Core.Text)
+organizationConformancePackStatus_errorCode :: Lens.Lens' OrganizationConformancePackStatus (Prelude.Maybe Prelude.Text)
 organizationConformancePackStatus_errorCode = Lens.lens (\OrganizationConformancePackStatus' {errorCode} -> errorCode) (\s@OrganizationConformancePackStatus' {} a -> s {errorCode = a} :: OrganizationConformancePackStatus)
 
 -- | The name that you assign to organization conformance pack.
-organizationConformancePackStatus_organizationConformancePackName :: Lens.Lens' OrganizationConformancePackStatus Core.Text
+organizationConformancePackStatus_organizationConformancePackName :: Lens.Lens' OrganizationConformancePackStatus Prelude.Text
 organizationConformancePackStatus_organizationConformancePackName = Lens.lens (\OrganizationConformancePackStatus' {organizationConformancePackName} -> organizationConformancePackName) (\s@OrganizationConformancePackStatus' {} a -> s {organizationConformancePackName = a} :: OrganizationConformancePackStatus)
 
 -- | Indicates deployment status of an organization conformance pack. When
@@ -226,17 +227,17 @@ instance
       "OrganizationConformancePackStatus"
       ( \x ->
           OrganizationConformancePackStatus'
-            Core.<$> (x Core..:? "LastUpdateTime")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
-            Core.<*> (x Core..: "OrganizationConformancePackName")
-            Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..:? "LastUpdateTime")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..: "OrganizationConformancePackName")
+            Prelude.<*> (x Core..: "Status")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OrganizationConformancePackStatus
 
 instance
-  Core.NFData
+  Prelude.NFData
     OrganizationConformancePackStatus

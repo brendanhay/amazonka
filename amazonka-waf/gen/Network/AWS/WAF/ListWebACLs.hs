@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -66,14 +67,14 @@ data ListWebACLs = ListWebACLs'
     -- of @WebACL@ objects. For the second and subsequent @ListWebACLs@
     -- requests, specify the value of @NextMarker@ from the previous response
     -- to get information about another batch of @WebACL@ objects.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of @WebACL@ objects that you want AWS WAF to return
     -- for this request. If you have more @WebACL@ objects than the number that
     -- you specify for @Limit@, the response includes a @NextMarker@ value that
     -- you can use to get another batch of @WebACL@ objects.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWebACLs' with all optional fields omitted.
@@ -98,8 +99,8 @@ newListWebACLs ::
   ListWebACLs
 newListWebACLs =
   ListWebACLs'
-    { nextMarker = Core.Nothing,
-      limit = Core.Nothing
+    { nextMarker = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @WebACL@ objects
@@ -108,34 +109,34 @@ newListWebACLs =
 -- of @WebACL@ objects. For the second and subsequent @ListWebACLs@
 -- requests, specify the value of @NextMarker@ from the previous response
 -- to get information about another batch of @WebACL@ objects.
-listWebACLs_nextMarker :: Lens.Lens' ListWebACLs (Core.Maybe Core.Text)
+listWebACLs_nextMarker :: Lens.Lens' ListWebACLs (Prelude.Maybe Prelude.Text)
 listWebACLs_nextMarker = Lens.lens (\ListWebACLs' {nextMarker} -> nextMarker) (\s@ListWebACLs' {} a -> s {nextMarker = a} :: ListWebACLs)
 
 -- | Specifies the number of @WebACL@ objects that you want AWS WAF to return
 -- for this request. If you have more @WebACL@ objects than the number that
 -- you specify for @Limit@, the response includes a @NextMarker@ value that
 -- you can use to get another batch of @WebACL@ objects.
-listWebACLs_limit :: Lens.Lens' ListWebACLs (Core.Maybe Core.Natural)
+listWebACLs_limit :: Lens.Lens' ListWebACLs (Prelude.Maybe Prelude.Natural)
 listWebACLs_limit = Lens.lens (\ListWebACLs' {limit} -> limit) (\s@ListWebACLs' {} a -> s {limit = a} :: ListWebACLs)
 
 instance Core.AWSPager ListWebACLs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWebACLsResponse_nextMarker Core.. Lens._Just
+            Lens.^? listWebACLsResponse_nextMarker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listWebACLsResponse_webACLs Core.. Lens._Just
+            Lens.^? listWebACLsResponse_webACLs Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listWebACLs_nextMarker
+          Prelude.& listWebACLs_nextMarker
           Lens..~ rs
-          Lens.^? listWebACLsResponse_nextMarker Core.. Lens._Just
+          Lens.^? listWebACLsResponse_nextMarker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWebACLs where
   type AWSResponse ListWebACLs = ListWebACLsResponse
@@ -144,40 +145,44 @@ instance Core.AWSRequest ListWebACLs where
     Response.receiveJSON
       ( \s h x ->
           ListWebACLsResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "WebACLs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "WebACLs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListWebACLs
+instance Prelude.Hashable ListWebACLs
 
-instance Core.NFData ListWebACLs
+instance Prelude.NFData ListWebACLs
 
 instance Core.ToHeaders ListWebACLs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSWAF_20150824.ListWebACLs" :: Core.ByteString),
+              Core.=# ( "AWSWAF_20150824.ListWebACLs" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListWebACLs where
   toJSON ListWebACLs' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextMarker" Core..=) Core.<$> nextMarker,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListWebACLs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListWebACLs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWebACLsResponse' smart constructor.
 data ListWebACLsResponse = ListWebACLsResponse'
@@ -186,13 +191,13 @@ data ListWebACLsResponse = ListWebACLsResponse'
     -- list more @WebACL@ objects, submit another @ListWebACLs@ request, and
     -- specify the @NextMarker@ value from the response in the @NextMarker@
     -- value in the next request.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | An array of WebACLSummary objects.
-    webACLs :: Core.Maybe [WebACLSummary],
+    webACLs :: Prelude.Maybe [WebACLSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWebACLsResponse' with all optional fields omitted.
@@ -213,12 +218,12 @@ data ListWebACLsResponse = ListWebACLsResponse'
 -- 'httpStatus', 'listWebACLsResponse_httpStatus' - The response's http status code.
 newListWebACLsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListWebACLsResponse
 newListWebACLsResponse pHttpStatus_ =
   ListWebACLsResponse'
-    { nextMarker = Core.Nothing,
-      webACLs = Core.Nothing,
+    { nextMarker = Prelude.Nothing,
+      webACLs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -227,15 +232,15 @@ newListWebACLsResponse pHttpStatus_ =
 -- list more @WebACL@ objects, submit another @ListWebACLs@ request, and
 -- specify the @NextMarker@ value from the response in the @NextMarker@
 -- value in the next request.
-listWebACLsResponse_nextMarker :: Lens.Lens' ListWebACLsResponse (Core.Maybe Core.Text)
+listWebACLsResponse_nextMarker :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe Prelude.Text)
 listWebACLsResponse_nextMarker = Lens.lens (\ListWebACLsResponse' {nextMarker} -> nextMarker) (\s@ListWebACLsResponse' {} a -> s {nextMarker = a} :: ListWebACLsResponse)
 
 -- | An array of WebACLSummary objects.
-listWebACLsResponse_webACLs :: Lens.Lens' ListWebACLsResponse (Core.Maybe [WebACLSummary])
-listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webACLs) (\s@ListWebACLsResponse' {} a -> s {webACLs = a} :: ListWebACLsResponse) Core.. Lens.mapping Lens._Coerce
+listWebACLsResponse_webACLs :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe [WebACLSummary])
+listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webACLs) (\s@ListWebACLsResponse' {} a -> s {webACLs = a} :: ListWebACLsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listWebACLsResponse_httpStatus :: Lens.Lens' ListWebACLsResponse Core.Int
+listWebACLsResponse_httpStatus :: Lens.Lens' ListWebACLsResponse Prelude.Int
 listWebACLsResponse_httpStatus = Lens.lens (\ListWebACLsResponse' {httpStatus} -> httpStatus) (\s@ListWebACLsResponse' {} a -> s {httpStatus = a} :: ListWebACLsResponse)
 
-instance Core.NFData ListWebACLsResponse
+instance Prelude.NFData ListWebACLsResponse

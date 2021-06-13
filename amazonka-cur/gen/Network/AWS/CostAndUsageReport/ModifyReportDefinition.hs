@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostAndUsageReport.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyReportDefinition' smart constructor.
 data ModifyReportDefinition = ModifyReportDefinition'
-  { reportName :: Core.Text,
+  { reportName :: Prelude.Text,
     reportDefinition :: ReportDefinition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReportDefinition' with all optional fields omitted.
@@ -65,7 +66,7 @@ data ModifyReportDefinition = ModifyReportDefinition'
 -- 'reportDefinition', 'modifyReportDefinition_reportDefinition' - Undocumented member.
 newModifyReportDefinition ::
   -- | 'reportName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'reportDefinition'
   ReportDefinition ->
   ModifyReportDefinition
@@ -78,7 +79,7 @@ newModifyReportDefinition
       }
 
 -- | Undocumented member.
-modifyReportDefinition_reportName :: Lens.Lens' ModifyReportDefinition Core.Text
+modifyReportDefinition_reportName :: Lens.Lens' ModifyReportDefinition Prelude.Text
 modifyReportDefinition_reportName = Lens.lens (\ModifyReportDefinition' {reportName} -> reportName) (\s@ModifyReportDefinition' {} a -> s {reportName = a} :: ModifyReportDefinition)
 
 -- | Undocumented member.
@@ -94,48 +95,50 @@ instance Core.AWSRequest ModifyReportDefinition where
     Response.receiveEmpty
       ( \s h x ->
           ModifyReportDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyReportDefinition
+instance Prelude.Hashable ModifyReportDefinition
 
-instance Core.NFData ModifyReportDefinition
+instance Prelude.NFData ModifyReportDefinition
 
 instance Core.ToHeaders ModifyReportDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrigamiServiceGatewayService.ModifyReportDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyReportDefinition where
   toJSON ModifyReportDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ReportName" Core..= reportName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ReportName" Core..= reportName),
+            Prelude.Just
               ("ReportDefinition" Core..= reportDefinition)
           ]
       )
 
 instance Core.ToPath ModifyReportDefinition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyReportDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyReportDefinitionResponse' smart constructor.
 data ModifyReportDefinitionResponse = ModifyReportDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReportDefinitionResponse' with all optional fields omitted.
@@ -148,7 +151,7 @@ data ModifyReportDefinitionResponse = ModifyReportDefinitionResponse'
 -- 'httpStatus', 'modifyReportDefinitionResponse_httpStatus' - The response's http status code.
 newModifyReportDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyReportDefinitionResponse
 newModifyReportDefinitionResponse pHttpStatus_ =
   ModifyReportDefinitionResponse'
@@ -157,7 +160,9 @@ newModifyReportDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-modifyReportDefinitionResponse_httpStatus :: Lens.Lens' ModifyReportDefinitionResponse Core.Int
+modifyReportDefinitionResponse_httpStatus :: Lens.Lens' ModifyReportDefinitionResponse Prelude.Int
 modifyReportDefinitionResponse_httpStatus = Lens.lens (\ModifyReportDefinitionResponse' {httpStatus} -> httpStatus) (\s@ModifyReportDefinitionResponse' {} a -> s {httpStatus = a} :: ModifyReportDefinitionResponse)
 
-instance Core.NFData ModifyReportDefinitionResponse
+instance
+  Prelude.NFData
+    ModifyReportDefinitionResponse

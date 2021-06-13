@@ -43,15 +43,16 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPublicKey' smart constructor.
 data GetPublicKey = GetPublicKey'
   { -- | The identifier of the public key you are getting.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPublicKey' with all optional fields omitted.
@@ -64,12 +65,12 @@ data GetPublicKey = GetPublicKey'
 -- 'id', 'getPublicKey_id' - The identifier of the public key you are getting.
 newGetPublicKey ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetPublicKey
 newGetPublicKey pId_ = GetPublicKey' {id = pId_}
 
 -- | The identifier of the public key you are getting.
-getPublicKey_id :: Lens.Lens' GetPublicKey Core.Text
+getPublicKey_id :: Lens.Lens' GetPublicKey Prelude.Text
 getPublicKey_id = Lens.lens (\GetPublicKey' {id} -> id) (\s@GetPublicKey' {} a -> s {id = a} :: GetPublicKey)
 
 instance Core.AWSRequest GetPublicKey where
@@ -79,36 +80,36 @@ instance Core.AWSRequest GetPublicKey where
     Response.receiveXML
       ( \s h x ->
           GetPublicKeyResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPublicKey
+instance Prelude.Hashable GetPublicKey
 
-instance Core.NFData GetPublicKey
+instance Prelude.NFData GetPublicKey
 
 instance Core.ToHeaders GetPublicKey where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetPublicKey where
   toPath GetPublicKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/public-key/", Core.toBS id]
 
 instance Core.ToQuery GetPublicKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPublicKeyResponse' smart constructor.
 data GetPublicKeyResponse = GetPublicKeyResponse'
   { -- | The identifier for this version of the public key.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The public key.
-    publicKey :: Core.Maybe PublicKey,
+    publicKey :: Prelude.Maybe PublicKey,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPublicKeyResponse' with all optional fields omitted.
@@ -125,25 +126,25 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
 -- 'httpStatus', 'getPublicKeyResponse_httpStatus' - The response's http status code.
 newGetPublicKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPublicKeyResponse
 newGetPublicKeyResponse pHttpStatus_ =
   GetPublicKeyResponse'
-    { eTag = Core.Nothing,
-      publicKey = Core.Nothing,
+    { eTag = Prelude.Nothing,
+      publicKey = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier for this version of the public key.
-getPublicKeyResponse_eTag :: Lens.Lens' GetPublicKeyResponse (Core.Maybe Core.Text)
+getPublicKeyResponse_eTag :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe Prelude.Text)
 getPublicKeyResponse_eTag = Lens.lens (\GetPublicKeyResponse' {eTag} -> eTag) (\s@GetPublicKeyResponse' {} a -> s {eTag = a} :: GetPublicKeyResponse)
 
 -- | The public key.
-getPublicKeyResponse_publicKey :: Lens.Lens' GetPublicKeyResponse (Core.Maybe PublicKey)
+getPublicKeyResponse_publicKey :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe PublicKey)
 getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -> publicKey) (\s@GetPublicKeyResponse' {} a -> s {publicKey = a} :: GetPublicKeyResponse)
 
 -- | The response's http status code.
-getPublicKeyResponse_httpStatus :: Lens.Lens' GetPublicKeyResponse Core.Int
+getPublicKeyResponse_httpStatus :: Lens.Lens' GetPublicKeyResponse Prelude.Int
 getPublicKeyResponse_httpStatus = Lens.lens (\GetPublicKeyResponse' {httpStatus} -> httpStatus) (\s@GetPublicKeyResponse' {} a -> s {httpStatus = a} :: GetPublicKeyResponse)
 
-instance Core.NFData GetPublicKeyResponse
+instance Prelude.NFData GetPublicKeyResponse

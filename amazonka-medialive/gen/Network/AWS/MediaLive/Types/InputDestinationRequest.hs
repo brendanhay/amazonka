@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.InputDestinationRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Endpoint settings for a PUSH type input.
 --
 -- /See:/ 'newInputDestinationRequest' smart constructor.
 data InputDestinationRequest = InputDestinationRequest'
   { -- | A unique name for the location the RTMP stream is being pushed to.
-    streamName :: Core.Maybe Core.Text
+    streamName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputDestinationRequest' with all optional fields omitted.
@@ -43,19 +44,22 @@ data InputDestinationRequest = InputDestinationRequest'
 newInputDestinationRequest ::
   InputDestinationRequest
 newInputDestinationRequest =
-  InputDestinationRequest' {streamName = Core.Nothing}
+  InputDestinationRequest'
+    { streamName =
+        Prelude.Nothing
+    }
 
 -- | A unique name for the location the RTMP stream is being pushed to.
-inputDestinationRequest_streamName :: Lens.Lens' InputDestinationRequest (Core.Maybe Core.Text)
+inputDestinationRequest_streamName :: Lens.Lens' InputDestinationRequest (Prelude.Maybe Prelude.Text)
 inputDestinationRequest_streamName = Lens.lens (\InputDestinationRequest' {streamName} -> streamName) (\s@InputDestinationRequest' {} a -> s {streamName = a} :: InputDestinationRequest)
 
-instance Core.Hashable InputDestinationRequest
+instance Prelude.Hashable InputDestinationRequest
 
-instance Core.NFData InputDestinationRequest
+instance Prelude.NFData InputDestinationRequest
 
 instance Core.ToJSON InputDestinationRequest where
   toJSON InputDestinationRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [("streamName" Core..=) Core.<$> streamName]
+      ( Prelude.catMaybes
+          [("streamName" Core..=) Prelude.<$> streamName]
       )

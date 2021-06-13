@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Event
 import Network.AWS.Pinpoint.Types.PublicEndpoint
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a batch of endpoints and events to process.
 --
@@ -32,9 +33,9 @@ data EventsBatch = EventsBatch'
     -- endpoint.
     endpoint :: PublicEndpoint,
     -- | A set of properties that are associated with the event.
-    events :: Core.HashMap Core.Text Event
+    events :: Prelude.HashMap Prelude.Text Event
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventsBatch' with all optional fields omitted.
@@ -55,7 +56,7 @@ newEventsBatch ::
 newEventsBatch pEndpoint_ =
   EventsBatch'
     { endpoint = pEndpoint_,
-      events = Core.mempty
+      events = Prelude.mempty
     }
 
 -- | A set of properties and attributes that are associated with the
@@ -64,18 +65,18 @@ eventsBatch_endpoint :: Lens.Lens' EventsBatch PublicEndpoint
 eventsBatch_endpoint = Lens.lens (\EventsBatch' {endpoint} -> endpoint) (\s@EventsBatch' {} a -> s {endpoint = a} :: EventsBatch)
 
 -- | A set of properties that are associated with the event.
-eventsBatch_events :: Lens.Lens' EventsBatch (Core.HashMap Core.Text Event)
-eventsBatch_events = Lens.lens (\EventsBatch' {events} -> events) (\s@EventsBatch' {} a -> s {events = a} :: EventsBatch) Core.. Lens._Coerce
+eventsBatch_events :: Lens.Lens' EventsBatch (Prelude.HashMap Prelude.Text Event)
+eventsBatch_events = Lens.lens (\EventsBatch' {events} -> events) (\s@EventsBatch' {} a -> s {events = a} :: EventsBatch) Prelude.. Lens._Coerce
 
-instance Core.Hashable EventsBatch
+instance Prelude.Hashable EventsBatch
 
-instance Core.NFData EventsBatch
+instance Prelude.NFData EventsBatch
 
 instance Core.ToJSON EventsBatch where
   toJSON EventsBatch' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Endpoint" Core..= endpoint),
-            Core.Just ("Events" Core..= events)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Endpoint" Core..= endpoint),
+            Prelude.Just ("Events" Core..= events)
           ]
       )

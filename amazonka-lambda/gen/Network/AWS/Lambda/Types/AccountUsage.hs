@@ -21,18 +21,19 @@ module Network.AWS.Lambda.Types.AccountUsage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of functions and amount of storage in use.
 --
 -- /See:/ 'newAccountUsage' smart constructor.
 data AccountUsage = AccountUsage'
   { -- | The number of Lambda functions.
-    functionCount :: Core.Maybe Core.Integer,
+    functionCount :: Prelude.Maybe Prelude.Integer,
     -- | The amount of storage space, in bytes, that\'s being used by deployment
     -- packages and layer archives.
-    totalCodeSize :: Core.Maybe Core.Integer
+    totalCodeSize :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountUsage' with all optional fields omitted.
@@ -50,17 +51,17 @@ newAccountUsage ::
   AccountUsage
 newAccountUsage =
   AccountUsage'
-    { functionCount = Core.Nothing,
-      totalCodeSize = Core.Nothing
+    { functionCount = Prelude.Nothing,
+      totalCodeSize = Prelude.Nothing
     }
 
 -- | The number of Lambda functions.
-accountUsage_functionCount :: Lens.Lens' AccountUsage (Core.Maybe Core.Integer)
+accountUsage_functionCount :: Lens.Lens' AccountUsage (Prelude.Maybe Prelude.Integer)
 accountUsage_functionCount = Lens.lens (\AccountUsage' {functionCount} -> functionCount) (\s@AccountUsage' {} a -> s {functionCount = a} :: AccountUsage)
 
 -- | The amount of storage space, in bytes, that\'s being used by deployment
 -- packages and layer archives.
-accountUsage_totalCodeSize :: Lens.Lens' AccountUsage (Core.Maybe Core.Integer)
+accountUsage_totalCodeSize :: Lens.Lens' AccountUsage (Prelude.Maybe Prelude.Integer)
 accountUsage_totalCodeSize = Lens.lens (\AccountUsage' {totalCodeSize} -> totalCodeSize) (\s@AccountUsage' {} a -> s {totalCodeSize = a} :: AccountUsage)
 
 instance Core.FromJSON AccountUsage where
@@ -69,10 +70,10 @@ instance Core.FromJSON AccountUsage where
       "AccountUsage"
       ( \x ->
           AccountUsage'
-            Core.<$> (x Core..:? "FunctionCount")
-            Core.<*> (x Core..:? "TotalCodeSize")
+            Prelude.<$> (x Core..:? "FunctionCount")
+            Prelude.<*> (x Core..:? "TotalCodeSize")
       )
 
-instance Core.Hashable AccountUsage
+instance Prelude.Hashable AccountUsage
 
-instance Core.NFData AccountUsage
+instance Prelude.NFData AccountUsage

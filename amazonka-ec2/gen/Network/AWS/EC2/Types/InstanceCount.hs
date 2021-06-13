@@ -23,18 +23,19 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ListingState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance listing state.
 --
 -- /See:/ 'newInstanceCount' smart constructor.
 data InstanceCount = InstanceCount'
   { -- | The states of the listed Reserved Instances.
-    state :: Core.Maybe ListingState,
+    state :: Prelude.Maybe ListingState,
     -- | The number of listed Reserved Instances in the state specified by the
     -- @state@.
-    instanceCount :: Core.Maybe Core.Int
+    instanceCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceCount' with all optional fields omitted.
@@ -52,25 +53,25 @@ newInstanceCount ::
   InstanceCount
 newInstanceCount =
   InstanceCount'
-    { state = Core.Nothing,
-      instanceCount = Core.Nothing
+    { state = Prelude.Nothing,
+      instanceCount = Prelude.Nothing
     }
 
 -- | The states of the listed Reserved Instances.
-instanceCount_state :: Lens.Lens' InstanceCount (Core.Maybe ListingState)
+instanceCount_state :: Lens.Lens' InstanceCount (Prelude.Maybe ListingState)
 instanceCount_state = Lens.lens (\InstanceCount' {state} -> state) (\s@InstanceCount' {} a -> s {state = a} :: InstanceCount)
 
 -- | The number of listed Reserved Instances in the state specified by the
 -- @state@.
-instanceCount_instanceCount :: Lens.Lens' InstanceCount (Core.Maybe Core.Int)
+instanceCount_instanceCount :: Lens.Lens' InstanceCount (Prelude.Maybe Prelude.Int)
 instanceCount_instanceCount = Lens.lens (\InstanceCount' {instanceCount} -> instanceCount) (\s@InstanceCount' {} a -> s {instanceCount = a} :: InstanceCount)
 
 instance Core.FromXML InstanceCount where
   parseXML x =
     InstanceCount'
-      Core.<$> (x Core..@? "state")
-      Core.<*> (x Core..@? "instanceCount")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "instanceCount")
 
-instance Core.Hashable InstanceCount
+instance Prelude.Hashable InstanceCount
 
-instance Core.NFData InstanceCount
+instance Prelude.NFData InstanceCount

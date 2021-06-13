@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -54,11 +55,11 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
     -- Amazon Resource Name (ARN). For information about creating an ARN, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
     -- in the /Amazon RDS User Guide./
-    resourceName :: Core.Text,
+    resourceName :: Prelude.Text,
     -- | The tag key (name) of the tag to be removed.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromResource' with all optional fields omitted.
@@ -76,25 +77,25 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 -- 'tagKeys', 'removeTagsFromResource_tagKeys' - The tag key (name) of the tag to be removed.
 newRemoveTagsFromResource ::
   -- | 'resourceName'
-  Core.Text ->
+  Prelude.Text ->
   RemoveTagsFromResource
 newRemoveTagsFromResource pResourceName_ =
   RemoveTagsFromResource'
     { resourceName =
         pResourceName_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The Amazon RDS resource that the tags are removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
 -- in the /Amazon RDS User Guide./
-removeTagsFromResource_resourceName :: Lens.Lens' RemoveTagsFromResource Core.Text
+removeTagsFromResource_resourceName :: Lens.Lens' RemoveTagsFromResource Prelude.Text
 removeTagsFromResource_resourceName = Lens.lens (\RemoveTagsFromResource' {resourceName} -> resourceName) (\s@RemoveTagsFromResource' {} a -> s {resourceName = a} :: RemoveTagsFromResource)
 
 -- | The tag key (name) of the tag to be removed.
-removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Core.Text]
-removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Core.. Lens._Coerce
+removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Prelude.Text]
+removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RemoveTagsFromResource where
   type
@@ -105,22 +106,23 @@ instance Core.AWSRequest RemoveTagsFromResource where
     Response.receiveNull
       RemoveTagsFromResourceResponse'
 
-instance Core.Hashable RemoveTagsFromResource
+instance Prelude.Hashable RemoveTagsFromResource
 
-instance Core.NFData RemoveTagsFromResource
+instance Prelude.NFData RemoveTagsFromResource
 
 instance Core.ToHeaders RemoveTagsFromResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RemoveTagsFromResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveTagsFromResource where
   toQuery RemoveTagsFromResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveTagsFromResource" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("RemoveTagsFromResource" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ResourceName" Core.=: resourceName,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
@@ -129,7 +131,7 @@ instance Core.ToQuery RemoveTagsFromResource where
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromResourceResponse' with all optional fields omitted.
@@ -140,4 +142,6 @@ newRemoveTagsFromResourceResponse ::
 newRemoveTagsFromResourceResponse =
   RemoveTagsFromResourceResponse'
 
-instance Core.NFData RemoveTagsFromResourceResponse
+instance
+  Prelude.NFData
+    RemoveTagsFromResourceResponse

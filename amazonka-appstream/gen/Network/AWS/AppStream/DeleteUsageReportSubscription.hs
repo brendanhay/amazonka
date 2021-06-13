@@ -38,6 +38,7 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -45,7 +46,7 @@ import qualified Network.AWS.Response as Response
 data DeleteUsageReportSubscription = DeleteUsageReportSubscription'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUsageReportSubscription' with all optional fields omitted.
@@ -68,41 +69,45 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DeleteUsageReportSubscriptionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteUsageReportSubscription
+instance
+  Prelude.Hashable
+    DeleteUsageReportSubscription
 
-instance Core.NFData DeleteUsageReportSubscription
+instance Prelude.NFData DeleteUsageReportSubscription
 
 instance Core.ToHeaders DeleteUsageReportSubscription where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.DeleteUsageReportSubscription" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUsageReportSubscription where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DeleteUsageReportSubscription where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUsageReportSubscription where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUsageReportSubscriptionResponse' smart constructor.
 data DeleteUsageReportSubscriptionResponse = DeleteUsageReportSubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUsageReportSubscriptionResponse' with all optional fields omitted.
@@ -115,7 +120,7 @@ data DeleteUsageReportSubscriptionResponse = DeleteUsageReportSubscriptionRespon
 -- 'httpStatus', 'deleteUsageReportSubscriptionResponse_httpStatus' - The response's http status code.
 newDeleteUsageReportSubscriptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteUsageReportSubscriptionResponse
 newDeleteUsageReportSubscriptionResponse pHttpStatus_ =
   DeleteUsageReportSubscriptionResponse'
@@ -124,9 +129,9 @@ newDeleteUsageReportSubscriptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteUsageReportSubscriptionResponse_httpStatus :: Lens.Lens' DeleteUsageReportSubscriptionResponse Core.Int
+deleteUsageReportSubscriptionResponse_httpStatus :: Lens.Lens' DeleteUsageReportSubscriptionResponse Prelude.Int
 deleteUsageReportSubscriptionResponse_httpStatus = Lens.lens (\DeleteUsageReportSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DeleteUsageReportSubscriptionResponse' {} a -> s {httpStatus = a} :: DeleteUsageReportSubscriptionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteUsageReportSubscriptionResponse

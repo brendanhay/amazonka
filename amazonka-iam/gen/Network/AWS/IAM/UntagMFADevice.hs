@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +56,12 @@ data UntagMFADevice = UntagMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    serialNumber :: Core.Text,
+    serialNumber :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified instance profile.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagMFADevice' with all optional fields omitted.
@@ -83,12 +84,12 @@ data UntagMFADevice = UntagMFADevice'
 -- keys are removed from the specified instance profile.
 newUntagMFADevice ::
   -- | 'serialNumber'
-  Core.Text ->
+  Prelude.Text ->
   UntagMFADevice
 newUntagMFADevice pSerialNumber_ =
   UntagMFADevice'
     { serialNumber = pSerialNumber_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The unique identifier for the IAM virtual MFA device from which you want
@@ -99,13 +100,13 @@ newUntagMFADevice pSerialNumber_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagMFADevice_serialNumber :: Lens.Lens' UntagMFADevice Core.Text
+untagMFADevice_serialNumber :: Lens.Lens' UntagMFADevice Prelude.Text
 untagMFADevice_serialNumber = Lens.lens (\UntagMFADevice' {serialNumber} -> serialNumber) (\s@UntagMFADevice' {} a -> s {serialNumber = a} :: UntagMFADevice)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified instance profile.
-untagMFADevice_tagKeys :: Lens.Lens' UntagMFADevice [Core.Text]
-untagMFADevice_tagKeys = Lens.lens (\UntagMFADevice' {tagKeys} -> tagKeys) (\s@UntagMFADevice' {} a -> s {tagKeys = a} :: UntagMFADevice) Core.. Lens._Coerce
+untagMFADevice_tagKeys :: Lens.Lens' UntagMFADevice [Prelude.Text]
+untagMFADevice_tagKeys = Lens.lens (\UntagMFADevice' {tagKeys} -> tagKeys) (\s@UntagMFADevice' {} a -> s {tagKeys = a} :: UntagMFADevice) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagMFADevice where
   type
@@ -115,22 +116,23 @@ instance Core.AWSRequest UntagMFADevice where
   response =
     Response.receiveNull UntagMFADeviceResponse'
 
-instance Core.Hashable UntagMFADevice
+instance Prelude.Hashable UntagMFADevice
 
-instance Core.NFData UntagMFADevice
+instance Prelude.NFData UntagMFADevice
 
 instance Core.ToHeaders UntagMFADevice where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagMFADevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagMFADevice where
   toQuery UntagMFADevice' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UntagMFADevice" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UntagMFADevice" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "SerialNumber" Core.=: serialNumber,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
@@ -139,7 +141,7 @@ instance Core.ToQuery UntagMFADevice where
 data UntagMFADeviceResponse = UntagMFADeviceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagMFADeviceResponse' with all optional fields omitted.
@@ -149,4 +151,4 @@ newUntagMFADeviceResponse ::
   UntagMFADeviceResponse
 newUntagMFADeviceResponse = UntagMFADeviceResponse'
 
-instance Core.NFData UntagMFADeviceResponse
+instance Prelude.NFData UntagMFADeviceResponse

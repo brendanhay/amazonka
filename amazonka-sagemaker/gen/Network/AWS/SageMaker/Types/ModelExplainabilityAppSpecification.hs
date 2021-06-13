@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelExplainabilityAppSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Docker container image configuration object for the model explainability
 -- job.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newModelExplainabilityAppSpecification' smart constructor.
 data ModelExplainabilityAppSpecification = ModelExplainabilityAppSpecification'
   { -- | Sets the environment variables in the Docker container.
-    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The container image to be run by the model explainability job.
-    imageUri :: Core.Text,
+    imageUri :: Prelude.Text,
     -- | JSON formatted S3 file that defines explainability parameters. For more
     -- information on this JSON configuration file, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html Configure model explainability parameters>.
-    configUri :: Core.Text
+    configUri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelExplainabilityAppSpecification' with all optional fields omitted.
@@ -55,32 +56,32 @@ data ModelExplainabilityAppSpecification = ModelExplainabilityAppSpecification'
 -- <https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html Configure model explainability parameters>.
 newModelExplainabilityAppSpecification ::
   -- | 'imageUri'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'configUri'
-  Core.Text ->
+  Prelude.Text ->
   ModelExplainabilityAppSpecification
 newModelExplainabilityAppSpecification
   pImageUri_
   pConfigUri_ =
     ModelExplainabilityAppSpecification'
       { environment =
-          Core.Nothing,
+          Prelude.Nothing,
         imageUri = pImageUri_,
         configUri = pConfigUri_
       }
 
 -- | Sets the environment variables in the Docker container.
-modelExplainabilityAppSpecification_environment :: Lens.Lens' ModelExplainabilityAppSpecification (Core.Maybe (Core.HashMap Core.Text Core.Text))
-modelExplainabilityAppSpecification_environment = Lens.lens (\ModelExplainabilityAppSpecification' {environment} -> environment) (\s@ModelExplainabilityAppSpecification' {} a -> s {environment = a} :: ModelExplainabilityAppSpecification) Core.. Lens.mapping Lens._Coerce
+modelExplainabilityAppSpecification_environment :: Lens.Lens' ModelExplainabilityAppSpecification (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+modelExplainabilityAppSpecification_environment = Lens.lens (\ModelExplainabilityAppSpecification' {environment} -> environment) (\s@ModelExplainabilityAppSpecification' {} a -> s {environment = a} :: ModelExplainabilityAppSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The container image to be run by the model explainability job.
-modelExplainabilityAppSpecification_imageUri :: Lens.Lens' ModelExplainabilityAppSpecification Core.Text
+modelExplainabilityAppSpecification_imageUri :: Lens.Lens' ModelExplainabilityAppSpecification Prelude.Text
 modelExplainabilityAppSpecification_imageUri = Lens.lens (\ModelExplainabilityAppSpecification' {imageUri} -> imageUri) (\s@ModelExplainabilityAppSpecification' {} a -> s {imageUri = a} :: ModelExplainabilityAppSpecification)
 
 -- | JSON formatted S3 file that defines explainability parameters. For more
 -- information on this JSON configuration file, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html Configure model explainability parameters>.
-modelExplainabilityAppSpecification_configUri :: Lens.Lens' ModelExplainabilityAppSpecification Core.Text
+modelExplainabilityAppSpecification_configUri :: Lens.Lens' ModelExplainabilityAppSpecification Prelude.Text
 modelExplainabilityAppSpecification_configUri = Lens.lens (\ModelExplainabilityAppSpecification' {configUri} -> configUri) (\s@ModelExplainabilityAppSpecification' {} a -> s {configUri = a} :: ModelExplainabilityAppSpecification)
 
 instance
@@ -92,17 +93,17 @@ instance
       "ModelExplainabilityAppSpecification"
       ( \x ->
           ModelExplainabilityAppSpecification'
-            Core.<$> (x Core..:? "Environment" Core..!= Core.mempty)
-            Core.<*> (x Core..: "ImageUri")
-            Core.<*> (x Core..: "ConfigUri")
+            Prelude.<$> (x Core..:? "Environment" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "ImageUri")
+            Prelude.<*> (x Core..: "ConfigUri")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModelExplainabilityAppSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModelExplainabilityAppSpecification
 
 instance
@@ -111,9 +112,9 @@ instance
   where
   toJSON ModelExplainabilityAppSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Environment" Core..=) Core.<$> environment,
-            Core.Just ("ImageUri" Core..= imageUri),
-            Core.Just ("ConfigUri" Core..= configUri)
+      ( Prelude.catMaybes
+          [ ("Environment" Core..=) Prelude.<$> environment,
+            Prelude.Just ("ImageUri" Core..= imageUri),
+            Prelude.Just ("ConfigUri" Core..= configUri)
           ]
       )

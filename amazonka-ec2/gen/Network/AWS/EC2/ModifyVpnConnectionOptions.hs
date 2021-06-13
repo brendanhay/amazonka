@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,30 +61,30 @@ data ModifyVpnConnectionOptions = ModifyVpnConnectionOptions'
   { -- | The IPv6 CIDR on the AWS side of the VPN connection.
     --
     -- Default: @::\/0@
-    remoteIpv6NetworkCidr :: Core.Maybe Core.Text,
+    remoteIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
     -- connection.
     --
     -- Default: @::\/0@
-    localIpv6NetworkCidr :: Core.Maybe Core.Text,
+    localIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 CIDR on the AWS side of the VPN connection.
     --
     -- Default: @0.0.0.0\/0@
-    remoteIpv4NetworkCidr :: Core.Maybe Core.Text,
+    remoteIpv4NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN
     -- connection.
     --
     -- Default: @0.0.0.0\/0@
-    localIpv4NetworkCidr :: Core.Maybe Core.Text,
+    localIpv4NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Site-to-Site VPN connection.
-    vpnConnectionId :: Core.Text
+    vpnConnectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnConnectionOptions' with all optional fields omitted.
@@ -119,54 +120,54 @@ data ModifyVpnConnectionOptions = ModifyVpnConnectionOptions'
 -- 'vpnConnectionId', 'modifyVpnConnectionOptions_vpnConnectionId' - The ID of the Site-to-Site VPN connection.
 newModifyVpnConnectionOptions ::
   -- | 'vpnConnectionId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyVpnConnectionOptions
 newModifyVpnConnectionOptions pVpnConnectionId_ =
   ModifyVpnConnectionOptions'
     { remoteIpv6NetworkCidr =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      localIpv6NetworkCidr = Core.Nothing,
-      remoteIpv4NetworkCidr = Core.Nothing,
-      localIpv4NetworkCidr = Core.Nothing,
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      localIpv6NetworkCidr = Prelude.Nothing,
+      remoteIpv4NetworkCidr = Prelude.Nothing,
+      localIpv4NetworkCidr = Prelude.Nothing,
       vpnConnectionId = pVpnConnectionId_
     }
 
 -- | The IPv6 CIDR on the AWS side of the VPN connection.
 --
 -- Default: @::\/0@
-modifyVpnConnectionOptions_remoteIpv6NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Core.Maybe Core.Text)
+modifyVpnConnectionOptions_remoteIpv6NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Text)
 modifyVpnConnectionOptions_remoteIpv6NetworkCidr = Lens.lens (\ModifyVpnConnectionOptions' {remoteIpv6NetworkCidr} -> remoteIpv6NetworkCidr) (\s@ModifyVpnConnectionOptions' {} a -> s {remoteIpv6NetworkCidr = a} :: ModifyVpnConnectionOptions)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpnConnectionOptions_dryRun :: Lens.Lens' ModifyVpnConnectionOptions (Core.Maybe Core.Bool)
+modifyVpnConnectionOptions_dryRun :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Bool)
 modifyVpnConnectionOptions_dryRun = Lens.lens (\ModifyVpnConnectionOptions' {dryRun} -> dryRun) (\s@ModifyVpnConnectionOptions' {} a -> s {dryRun = a} :: ModifyVpnConnectionOptions)
 
 -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
 -- connection.
 --
 -- Default: @::\/0@
-modifyVpnConnectionOptions_localIpv6NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Core.Maybe Core.Text)
+modifyVpnConnectionOptions_localIpv6NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Text)
 modifyVpnConnectionOptions_localIpv6NetworkCidr = Lens.lens (\ModifyVpnConnectionOptions' {localIpv6NetworkCidr} -> localIpv6NetworkCidr) (\s@ModifyVpnConnectionOptions' {} a -> s {localIpv6NetworkCidr = a} :: ModifyVpnConnectionOptions)
 
 -- | The IPv4 CIDR on the AWS side of the VPN connection.
 --
 -- Default: @0.0.0.0\/0@
-modifyVpnConnectionOptions_remoteIpv4NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Core.Maybe Core.Text)
+modifyVpnConnectionOptions_remoteIpv4NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Text)
 modifyVpnConnectionOptions_remoteIpv4NetworkCidr = Lens.lens (\ModifyVpnConnectionOptions' {remoteIpv4NetworkCidr} -> remoteIpv4NetworkCidr) (\s@ModifyVpnConnectionOptions' {} a -> s {remoteIpv4NetworkCidr = a} :: ModifyVpnConnectionOptions)
 
 -- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN
 -- connection.
 --
 -- Default: @0.0.0.0\/0@
-modifyVpnConnectionOptions_localIpv4NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Core.Maybe Core.Text)
+modifyVpnConnectionOptions_localIpv4NetworkCidr :: Lens.Lens' ModifyVpnConnectionOptions (Prelude.Maybe Prelude.Text)
 modifyVpnConnectionOptions_localIpv4NetworkCidr = Lens.lens (\ModifyVpnConnectionOptions' {localIpv4NetworkCidr} -> localIpv4NetworkCidr) (\s@ModifyVpnConnectionOptions' {} a -> s {localIpv4NetworkCidr = a} :: ModifyVpnConnectionOptions)
 
 -- | The ID of the Site-to-Site VPN connection.
-modifyVpnConnectionOptions_vpnConnectionId :: Lens.Lens' ModifyVpnConnectionOptions Core.Text
+modifyVpnConnectionOptions_vpnConnectionId :: Lens.Lens' ModifyVpnConnectionOptions Prelude.Text
 modifyVpnConnectionOptions_vpnConnectionId = Lens.lens (\ModifyVpnConnectionOptions' {vpnConnectionId} -> vpnConnectionId) (\s@ModifyVpnConnectionOptions' {} a -> s {vpnConnectionId = a} :: ModifyVpnConnectionOptions)
 
 instance Core.AWSRequest ModifyVpnConnectionOptions where
@@ -178,26 +179,27 @@ instance Core.AWSRequest ModifyVpnConnectionOptions where
     Response.receiveXML
       ( \s h x ->
           ModifyVpnConnectionOptionsResponse'
-            Core.<$> (x Core..@? "vpnConnection")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "vpnConnection")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyVpnConnectionOptions
+instance Prelude.Hashable ModifyVpnConnectionOptions
 
-instance Core.NFData ModifyVpnConnectionOptions
+instance Prelude.NFData ModifyVpnConnectionOptions
 
 instance Core.ToHeaders ModifyVpnConnectionOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyVpnConnectionOptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyVpnConnectionOptions where
   toQuery ModifyVpnConnectionOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpnConnectionOptions" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyVpnConnectionOptions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "RemoteIpv6NetworkCidr"
           Core.=: remoteIpv6NetworkCidr,
         "DryRun" Core.=: dryRun,
@@ -210,11 +212,11 @@ instance Core.ToQuery ModifyVpnConnectionOptions where
 
 -- | /See:/ 'newModifyVpnConnectionOptionsResponse' smart constructor.
 data ModifyVpnConnectionOptionsResponse = ModifyVpnConnectionOptionsResponse'
-  { vpnConnection :: Core.Maybe VpnConnection,
+  { vpnConnection :: Prelude.Maybe VpnConnection,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnConnectionOptionsResponse' with all optional fields omitted.
@@ -229,23 +231,23 @@ data ModifyVpnConnectionOptionsResponse = ModifyVpnConnectionOptionsResponse'
 -- 'httpStatus', 'modifyVpnConnectionOptionsResponse_httpStatus' - The response's http status code.
 newModifyVpnConnectionOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyVpnConnectionOptionsResponse
 newModifyVpnConnectionOptionsResponse pHttpStatus_ =
   ModifyVpnConnectionOptionsResponse'
     { vpnConnection =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyVpnConnectionOptionsResponse_vpnConnection :: Lens.Lens' ModifyVpnConnectionOptionsResponse (Core.Maybe VpnConnection)
+modifyVpnConnectionOptionsResponse_vpnConnection :: Lens.Lens' ModifyVpnConnectionOptionsResponse (Prelude.Maybe VpnConnection)
 modifyVpnConnectionOptionsResponse_vpnConnection = Lens.lens (\ModifyVpnConnectionOptionsResponse' {vpnConnection} -> vpnConnection) (\s@ModifyVpnConnectionOptionsResponse' {} a -> s {vpnConnection = a} :: ModifyVpnConnectionOptionsResponse)
 
 -- | The response's http status code.
-modifyVpnConnectionOptionsResponse_httpStatus :: Lens.Lens' ModifyVpnConnectionOptionsResponse Core.Int
+modifyVpnConnectionOptionsResponse_httpStatus :: Lens.Lens' ModifyVpnConnectionOptionsResponse Prelude.Int
 modifyVpnConnectionOptionsResponse_httpStatus = Lens.lens (\ModifyVpnConnectionOptionsResponse' {httpStatus} -> httpStatus) (\s@ModifyVpnConnectionOptionsResponse' {} a -> s {httpStatus = a} :: ModifyVpnConnectionOptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyVpnConnectionOptionsResponse

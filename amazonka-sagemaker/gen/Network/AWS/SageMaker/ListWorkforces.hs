@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -57,18 +58,18 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListWorkforces' smart constructor.
 data ListWorkforces = ListWorkforces'
   { -- | Sort workforces in ascending or descending order.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A token to resume pagination.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter you can use to search for workforces using part of the
     -- workforce name.
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of workforces returned in the response.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Sort workforces using the workforce name or creation date.
-    sortBy :: Core.Maybe ListWorkforcesSortByOptions
+    sortBy :: Prelude.Maybe ListWorkforcesSortByOptions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWorkforces' with all optional fields omitted.
@@ -92,50 +93,51 @@ newListWorkforces ::
   ListWorkforces
 newListWorkforces =
   ListWorkforces'
-    { sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing,
-      sortBy = Core.Nothing
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
 
 -- | Sort workforces in ascending or descending order.
-listWorkforces_sortOrder :: Lens.Lens' ListWorkforces (Core.Maybe SortOrder)
+listWorkforces_sortOrder :: Lens.Lens' ListWorkforces (Prelude.Maybe SortOrder)
 listWorkforces_sortOrder = Lens.lens (\ListWorkforces' {sortOrder} -> sortOrder) (\s@ListWorkforces' {} a -> s {sortOrder = a} :: ListWorkforces)
 
 -- | A token to resume pagination.
-listWorkforces_nextToken :: Lens.Lens' ListWorkforces (Core.Maybe Core.Text)
+listWorkforces_nextToken :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Text)
 listWorkforces_nextToken = Lens.lens (\ListWorkforces' {nextToken} -> nextToken) (\s@ListWorkforces' {} a -> s {nextToken = a} :: ListWorkforces)
 
 -- | A filter you can use to search for workforces using part of the
 -- workforce name.
-listWorkforces_nameContains :: Lens.Lens' ListWorkforces (Core.Maybe Core.Text)
+listWorkforces_nameContains :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Text)
 listWorkforces_nameContains = Lens.lens (\ListWorkforces' {nameContains} -> nameContains) (\s@ListWorkforces' {} a -> s {nameContains = a} :: ListWorkforces)
 
 -- | The maximum number of workforces returned in the response.
-listWorkforces_maxResults :: Lens.Lens' ListWorkforces (Core.Maybe Core.Natural)
+listWorkforces_maxResults :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Natural)
 listWorkforces_maxResults = Lens.lens (\ListWorkforces' {maxResults} -> maxResults) (\s@ListWorkforces' {} a -> s {maxResults = a} :: ListWorkforces)
 
 -- | Sort workforces using the workforce name or creation date.
-listWorkforces_sortBy :: Lens.Lens' ListWorkforces (Core.Maybe ListWorkforcesSortByOptions)
+listWorkforces_sortBy :: Lens.Lens' ListWorkforces (Prelude.Maybe ListWorkforcesSortByOptions)
 listWorkforces_sortBy = Lens.lens (\ListWorkforces' {sortBy} -> sortBy) (\s@ListWorkforces' {} a -> s {sortBy = a} :: ListWorkforces)
 
 instance Core.AWSPager ListWorkforces where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWorkforcesResponse_nextToken Core.. Lens._Just
+            Lens.^? listWorkforcesResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         (rs Lens.^. listWorkforcesResponse_workforces) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listWorkforces_nextToken
+          Prelude.& listWorkforces_nextToken
           Lens..~ rs
-          Lens.^? listWorkforcesResponse_nextToken Core.. Lens._Just
+          Lens.^? listWorkforcesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkforces where
   type
@@ -146,54 +148,56 @@ instance Core.AWSRequest ListWorkforces where
     Response.receiveJSON
       ( \s h x ->
           ListWorkforcesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "Workforces" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "Workforces" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListWorkforces
+instance Prelude.Hashable ListWorkforces
 
-instance Core.NFData ListWorkforces
+instance Prelude.NFData ListWorkforces
 
 instance Core.ToHeaders ListWorkforces where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListWorkforces" :: Core.ByteString),
+              Core.=# ("SageMaker.ListWorkforces" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListWorkforces where
   toJSON ListWorkforces' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("NameContains" Core..=) Core.<$> nameContains,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("SortBy" Core..=) Core.<$> sortBy
+      ( Prelude.catMaybes
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
 instance Core.ToPath ListWorkforces where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListWorkforces where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWorkforcesResponse' smart constructor.
 data ListWorkforcesResponse = ListWorkforcesResponse'
   { -- | A token to resume pagination.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list containing information about your workforce.
     workforces :: [Workforce]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWorkforcesResponse' with all optional fields omitted.
@@ -210,25 +214,26 @@ data ListWorkforcesResponse = ListWorkforcesResponse'
 -- 'workforces', 'listWorkforcesResponse_workforces' - A list containing information about your workforce.
 newListWorkforcesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListWorkforcesResponse
 newListWorkforcesResponse pHttpStatus_ =
   ListWorkforcesResponse'
-    { nextToken = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      workforces = Core.mempty
+      workforces = Prelude.mempty
     }
 
 -- | A token to resume pagination.
-listWorkforcesResponse_nextToken :: Lens.Lens' ListWorkforcesResponse (Core.Maybe Core.Text)
+listWorkforcesResponse_nextToken :: Lens.Lens' ListWorkforcesResponse (Prelude.Maybe Prelude.Text)
 listWorkforcesResponse_nextToken = Lens.lens (\ListWorkforcesResponse' {nextToken} -> nextToken) (\s@ListWorkforcesResponse' {} a -> s {nextToken = a} :: ListWorkforcesResponse)
 
 -- | The response's http status code.
-listWorkforcesResponse_httpStatus :: Lens.Lens' ListWorkforcesResponse Core.Int
+listWorkforcesResponse_httpStatus :: Lens.Lens' ListWorkforcesResponse Prelude.Int
 listWorkforcesResponse_httpStatus = Lens.lens (\ListWorkforcesResponse' {httpStatus} -> httpStatus) (\s@ListWorkforcesResponse' {} a -> s {httpStatus = a} :: ListWorkforcesResponse)
 
 -- | A list containing information about your workforce.
 listWorkforcesResponse_workforces :: Lens.Lens' ListWorkforcesResponse [Workforce]
-listWorkforcesResponse_workforces = Lens.lens (\ListWorkforcesResponse' {workforces} -> workforces) (\s@ListWorkforcesResponse' {} a -> s {workforces = a} :: ListWorkforcesResponse) Core.. Lens._Coerce
+listWorkforcesResponse_workforces = Lens.lens (\ListWorkforcesResponse' {workforces} -> workforces) (\s@ListWorkforcesResponse' {} a -> s {workforces = a} :: ListWorkforcesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListWorkforcesResponse
+instance Prelude.NFData ListWorkforcesResponse

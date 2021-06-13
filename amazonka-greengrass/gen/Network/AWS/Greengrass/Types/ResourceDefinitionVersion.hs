@@ -22,15 +22,16 @@ module Network.AWS.Greengrass.Types.ResourceDefinitionVersion where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Resource
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a resource definition version.
 --
 -- /See:/ 'newResourceDefinitionVersion' smart constructor.
 data ResourceDefinitionVersion = ResourceDefinitionVersion'
   { -- | A list of resources.
-    resources :: Core.Maybe [Resource]
+    resources :: Prelude.Maybe [Resource]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceDefinitionVersion' with all optional fields omitted.
@@ -46,12 +47,12 @@ newResourceDefinitionVersion ::
 newResourceDefinitionVersion =
   ResourceDefinitionVersion'
     { resources =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A list of resources.
-resourceDefinitionVersion_resources :: Lens.Lens' ResourceDefinitionVersion (Core.Maybe [Resource])
-resourceDefinitionVersion_resources = Lens.lens (\ResourceDefinitionVersion' {resources} -> resources) (\s@ResourceDefinitionVersion' {} a -> s {resources = a} :: ResourceDefinitionVersion) Core.. Lens.mapping Lens._Coerce
+resourceDefinitionVersion_resources :: Lens.Lens' ResourceDefinitionVersion (Prelude.Maybe [Resource])
+resourceDefinitionVersion_resources = Lens.lens (\ResourceDefinitionVersion' {resources} -> resources) (\s@ResourceDefinitionVersion' {} a -> s {resources = a} :: ResourceDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ResourceDefinitionVersion where
   parseJSON =
@@ -59,16 +60,16 @@ instance Core.FromJSON ResourceDefinitionVersion where
       "ResourceDefinitionVersion"
       ( \x ->
           ResourceDefinitionVersion'
-            Core.<$> (x Core..:? "Resources" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Resources" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ResourceDefinitionVersion
+instance Prelude.Hashable ResourceDefinitionVersion
 
-instance Core.NFData ResourceDefinitionVersion
+instance Prelude.NFData ResourceDefinitionVersion
 
 instance Core.ToJSON ResourceDefinitionVersion where
   toJSON ResourceDefinitionVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Resources" Core..=) Core.<$> resources]
+      ( Prelude.catMaybes
+          [("Resources" Core..=) Prelude.<$> resources]
       )

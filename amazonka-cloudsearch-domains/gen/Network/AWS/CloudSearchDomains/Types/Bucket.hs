@@ -21,18 +21,19 @@ module Network.AWS.CloudSearchDomains.Types.Bucket where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A container for facet information.
 --
 -- /See:/ 'newBucket' smart constructor.
 data Bucket = Bucket'
   { -- | The facet value being counted.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The number of hits that contain the facet value in the specified facet
     -- field.
-    count :: Core.Maybe Core.Integer
+    count :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Bucket' with all optional fields omitted.
@@ -49,15 +50,18 @@ data Bucket = Bucket'
 newBucket ::
   Bucket
 newBucket =
-  Bucket' {value = Core.Nothing, count = Core.Nothing}
+  Bucket'
+    { value = Prelude.Nothing,
+      count = Prelude.Nothing
+    }
 
 -- | The facet value being counted.
-bucket_value :: Lens.Lens' Bucket (Core.Maybe Core.Text)
+bucket_value :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
 bucket_value = Lens.lens (\Bucket' {value} -> value) (\s@Bucket' {} a -> s {value = a} :: Bucket)
 
 -- | The number of hits that contain the facet value in the specified facet
 -- field.
-bucket_count :: Lens.Lens' Bucket (Core.Maybe Core.Integer)
+bucket_count :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Integer)
 bucket_count = Lens.lens (\Bucket' {count} -> count) (\s@Bucket' {} a -> s {count = a} :: Bucket)
 
 instance Core.FromJSON Bucket where
@@ -66,9 +70,10 @@ instance Core.FromJSON Bucket where
       "Bucket"
       ( \x ->
           Bucket'
-            Core.<$> (x Core..:? "value") Core.<*> (x Core..:? "count")
+            Prelude.<$> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "count")
       )
 
-instance Core.Hashable Bucket
+instance Prelude.Hashable Bucket
 
-instance Core.NFData Bucket
+instance Prelude.NFData Bucket

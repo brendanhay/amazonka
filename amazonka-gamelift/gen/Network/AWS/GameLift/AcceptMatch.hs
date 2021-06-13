@@ -84,6 +84,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,14 +94,14 @@ import qualified Network.AWS.Response as Response
 data AcceptMatch = AcceptMatch'
   { -- | A unique identifier for a matchmaking ticket. The ticket must be in
     -- status @REQUIRES_ACCEPTANCE@; otherwise this request will fail.
-    ticketId :: Core.Text,
+    ticketId :: Prelude.Text,
     -- | A unique identifier for a player delivering the response. This parameter
     -- can include one or multiple player IDs.
-    playerIds :: [Core.Text],
+    playerIds :: [Prelude.Text],
     -- | Player response to the proposed match.
     acceptanceType :: AcceptanceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptMatch' with all optional fields omitted.
@@ -119,26 +120,26 @@ data AcceptMatch = AcceptMatch'
 -- 'acceptanceType', 'acceptMatch_acceptanceType' - Player response to the proposed match.
 newAcceptMatch ::
   -- | 'ticketId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'acceptanceType'
   AcceptanceType ->
   AcceptMatch
 newAcceptMatch pTicketId_ pAcceptanceType_ =
   AcceptMatch'
     { ticketId = pTicketId_,
-      playerIds = Core.mempty,
+      playerIds = Prelude.mempty,
       acceptanceType = pAcceptanceType_
     }
 
 -- | A unique identifier for a matchmaking ticket. The ticket must be in
 -- status @REQUIRES_ACCEPTANCE@; otherwise this request will fail.
-acceptMatch_ticketId :: Lens.Lens' AcceptMatch Core.Text
+acceptMatch_ticketId :: Lens.Lens' AcceptMatch Prelude.Text
 acceptMatch_ticketId = Lens.lens (\AcceptMatch' {ticketId} -> ticketId) (\s@AcceptMatch' {} a -> s {ticketId = a} :: AcceptMatch)
 
 -- | A unique identifier for a player delivering the response. This parameter
 -- can include one or multiple player IDs.
-acceptMatch_playerIds :: Lens.Lens' AcceptMatch [Core.Text]
-acceptMatch_playerIds = Lens.lens (\AcceptMatch' {playerIds} -> playerIds) (\s@AcceptMatch' {} a -> s {playerIds = a} :: AcceptMatch) Core.. Lens._Coerce
+acceptMatch_playerIds :: Lens.Lens' AcceptMatch [Prelude.Text]
+acceptMatch_playerIds = Lens.lens (\AcceptMatch' {playerIds} -> playerIds) (\s@AcceptMatch' {} a -> s {playerIds = a} :: AcceptMatch) Prelude.. Lens._Coerce
 
 -- | Player response to the proposed match.
 acceptMatch_acceptanceType :: Lens.Lens' AcceptMatch AcceptanceType
@@ -151,46 +152,49 @@ instance Core.AWSRequest AcceptMatch where
     Response.receiveEmpty
       ( \s h x ->
           AcceptMatchResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AcceptMatch
+instance Prelude.Hashable AcceptMatch
 
-instance Core.NFData AcceptMatch
+instance Prelude.NFData AcceptMatch
 
 instance Core.ToHeaders AcceptMatch where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.AcceptMatch" :: Core.ByteString),
+              Core.=# ("GameLift.AcceptMatch" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AcceptMatch where
   toJSON AcceptMatch' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TicketId" Core..= ticketId),
-            Core.Just ("PlayerIds" Core..= playerIds),
-            Core.Just ("AcceptanceType" Core..= acceptanceType)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TicketId" Core..= ticketId),
+            Prelude.Just ("PlayerIds" Core..= playerIds),
+            Prelude.Just
+              ("AcceptanceType" Core..= acceptanceType)
           ]
       )
 
 instance Core.ToPath AcceptMatch where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AcceptMatch where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptMatchResponse' smart constructor.
 data AcceptMatchResponse = AcceptMatchResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptMatchResponse' with all optional fields omitted.
@@ -203,13 +207,13 @@ data AcceptMatchResponse = AcceptMatchResponse'
 -- 'httpStatus', 'acceptMatchResponse_httpStatus' - The response's http status code.
 newAcceptMatchResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AcceptMatchResponse
 newAcceptMatchResponse pHttpStatus_ =
   AcceptMatchResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-acceptMatchResponse_httpStatus :: Lens.Lens' AcceptMatchResponse Core.Int
+acceptMatchResponse_httpStatus :: Lens.Lens' AcceptMatchResponse Prelude.Int
 acceptMatchResponse_httpStatus = Lens.lens (\AcceptMatchResponse' {httpStatus} -> httpStatus) (\s@AcceptMatchResponse' {} a -> s {httpStatus = a} :: AcceptMatchResponse)
 
-instance Core.NFData AcceptMatchResponse
+instance Prelude.NFData AcceptMatchResponse

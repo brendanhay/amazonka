@@ -67,6 +67,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,25 +77,25 @@ import qualified Network.AWS.Response as Response
 data CreateDomainName = CreateDomainName'
   { -- | [Deprecated] Your edge-optimized endpoint\'s domain name certificate\'s
     -- private key.
-    certificatePrivateKey :: Core.Maybe Core.Text,
+    certificatePrivateKey :: Prelude.Maybe Prelude.Text,
     -- | The user-friendly name of the certificate that will be used by regional
     -- endpoint for this domain name.
-    regionalCertificateName :: Core.Maybe Core.Text,
-    mutualTlsAuthentication :: Core.Maybe MutualTlsAuthenticationInput,
+    regionalCertificateName :: Prelude.Maybe Prelude.Text,
+    mutualTlsAuthentication :: Prelude.Maybe MutualTlsAuthenticationInput,
     -- | The endpoint configuration of this DomainName showing the endpoint types
     -- of the domain name.
-    endpointConfiguration :: Core.Maybe EndpointConfiguration,
+    endpointConfiguration :: Prelude.Maybe EndpointConfiguration,
     -- | The reference to an AWS-managed certificate that will be used by
     -- edge-optimized endpoint for this domain name. AWS Certificate Manager is
     -- the only supported source.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Transport Layer Security (TLS) version + cipher suite for this
     -- DomainName. The valid values are @TLS_1_0@ and @TLS_1_2@.
-    securityPolicy :: Core.Maybe SecurityPolicy,
+    securityPolicy :: Prelude.Maybe SecurityPolicy,
     -- | [Deprecated] The intermediate certificates and optionally the root
     -- certificate, one after the other without any blank lines, used by an
     -- edge-optimized endpoint for this domain name. If you include the root
@@ -102,22 +103,22 @@ data CreateDomainName = CreateDomainName'
     -- certificates and end with the root certificate. Use the intermediate
     -- certificates that were provided by your certificate authority. Do not
     -- include any intermediaries that are not in the chain of trust path.
-    certificateChain :: Core.Maybe Core.Text,
+    certificateChain :: Prelude.Maybe Prelude.Text,
     -- | [Deprecated] The body of the server certificate that will be used by
     -- edge-optimized endpoint for this domain name provided by your
     -- certificate authority.
-    certificateBody :: Core.Maybe Core.Text,
+    certificateBody :: Prelude.Maybe Prelude.Text,
     -- | The reference to an AWS-managed certificate that will be used by
     -- regional endpoint for this domain name. AWS Certificate Manager is the
     -- only supported source.
-    regionalCertificateArn :: Core.Maybe Core.Text,
+    regionalCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The user-friendly name of the certificate that will be used by
     -- edge-optimized endpoint for this domain name.
-    certificateName :: Core.Maybe Core.Text,
+    certificateName :: Prelude.Maybe Prelude.Text,
     -- | [Required] The name of the DomainName resource.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDomainName' with all optional fields omitted.
@@ -171,59 +172,59 @@ data CreateDomainName = CreateDomainName'
 -- 'domainName', 'createDomainName_domainName' - [Required] The name of the DomainName resource.
 newCreateDomainName ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   CreateDomainName
 newCreateDomainName pDomainName_ =
   CreateDomainName'
     { certificatePrivateKey =
-        Core.Nothing,
-      regionalCertificateName = Core.Nothing,
-      mutualTlsAuthentication = Core.Nothing,
-      endpointConfiguration = Core.Nothing,
-      certificateArn = Core.Nothing,
-      tags = Core.Nothing,
-      securityPolicy = Core.Nothing,
-      certificateChain = Core.Nothing,
-      certificateBody = Core.Nothing,
-      regionalCertificateArn = Core.Nothing,
-      certificateName = Core.Nothing,
+        Prelude.Nothing,
+      regionalCertificateName = Prelude.Nothing,
+      mutualTlsAuthentication = Prelude.Nothing,
+      endpointConfiguration = Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      securityPolicy = Prelude.Nothing,
+      certificateChain = Prelude.Nothing,
+      certificateBody = Prelude.Nothing,
+      regionalCertificateArn = Prelude.Nothing,
+      certificateName = Prelude.Nothing,
       domainName = pDomainName_
     }
 
 -- | [Deprecated] Your edge-optimized endpoint\'s domain name certificate\'s
 -- private key.
-createDomainName_certificatePrivateKey :: Lens.Lens' CreateDomainName (Core.Maybe Core.Text)
+createDomainName_certificatePrivateKey :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_certificatePrivateKey = Lens.lens (\CreateDomainName' {certificatePrivateKey} -> certificatePrivateKey) (\s@CreateDomainName' {} a -> s {certificatePrivateKey = a} :: CreateDomainName)
 
 -- | The user-friendly name of the certificate that will be used by regional
 -- endpoint for this domain name.
-createDomainName_regionalCertificateName :: Lens.Lens' CreateDomainName (Core.Maybe Core.Text)
+createDomainName_regionalCertificateName :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_regionalCertificateName = Lens.lens (\CreateDomainName' {regionalCertificateName} -> regionalCertificateName) (\s@CreateDomainName' {} a -> s {regionalCertificateName = a} :: CreateDomainName)
 
 -- | Undocumented member.
-createDomainName_mutualTlsAuthentication :: Lens.Lens' CreateDomainName (Core.Maybe MutualTlsAuthenticationInput)
+createDomainName_mutualTlsAuthentication :: Lens.Lens' CreateDomainName (Prelude.Maybe MutualTlsAuthenticationInput)
 createDomainName_mutualTlsAuthentication = Lens.lens (\CreateDomainName' {mutualTlsAuthentication} -> mutualTlsAuthentication) (\s@CreateDomainName' {} a -> s {mutualTlsAuthentication = a} :: CreateDomainName)
 
 -- | The endpoint configuration of this DomainName showing the endpoint types
 -- of the domain name.
-createDomainName_endpointConfiguration :: Lens.Lens' CreateDomainName (Core.Maybe EndpointConfiguration)
+createDomainName_endpointConfiguration :: Lens.Lens' CreateDomainName (Prelude.Maybe EndpointConfiguration)
 createDomainName_endpointConfiguration = Lens.lens (\CreateDomainName' {endpointConfiguration} -> endpointConfiguration) (\s@CreateDomainName' {} a -> s {endpointConfiguration = a} :: CreateDomainName)
 
 -- | The reference to an AWS-managed certificate that will be used by
 -- edge-optimized endpoint for this domain name. AWS Certificate Manager is
 -- the only supported source.
-createDomainName_certificateArn :: Lens.Lens' CreateDomainName (Core.Maybe Core.Text)
+createDomainName_certificateArn :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_certificateArn = Lens.lens (\CreateDomainName' {certificateArn} -> certificateArn) (\s@CreateDomainName' {} a -> s {certificateArn = a} :: CreateDomainName)
 
 -- | The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
-createDomainName_tags :: Lens.Lens' CreateDomainName (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createDomainName_tags = Lens.lens (\CreateDomainName' {tags} -> tags) (\s@CreateDomainName' {} a -> s {tags = a} :: CreateDomainName) Core.. Lens.mapping Lens._Coerce
+createDomainName_tags :: Lens.Lens' CreateDomainName (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDomainName_tags = Lens.lens (\CreateDomainName' {tags} -> tags) (\s@CreateDomainName' {} a -> s {tags = a} :: CreateDomainName) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Transport Layer Security (TLS) version + cipher suite for this
 -- DomainName. The valid values are @TLS_1_0@ and @TLS_1_2@.
-createDomainName_securityPolicy :: Lens.Lens' CreateDomainName (Core.Maybe SecurityPolicy)
+createDomainName_securityPolicy :: Lens.Lens' CreateDomainName (Prelude.Maybe SecurityPolicy)
 createDomainName_securityPolicy = Lens.lens (\CreateDomainName' {securityPolicy} -> securityPolicy) (\s@CreateDomainName' {} a -> s {securityPolicy = a} :: CreateDomainName)
 
 -- | [Deprecated] The intermediate certificates and optionally the root
@@ -233,28 +234,28 @@ createDomainName_securityPolicy = Lens.lens (\CreateDomainName' {securityPolicy}
 -- certificates and end with the root certificate. Use the intermediate
 -- certificates that were provided by your certificate authority. Do not
 -- include any intermediaries that are not in the chain of trust path.
-createDomainName_certificateChain :: Lens.Lens' CreateDomainName (Core.Maybe Core.Text)
+createDomainName_certificateChain :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_certificateChain = Lens.lens (\CreateDomainName' {certificateChain} -> certificateChain) (\s@CreateDomainName' {} a -> s {certificateChain = a} :: CreateDomainName)
 
 -- | [Deprecated] The body of the server certificate that will be used by
 -- edge-optimized endpoint for this domain name provided by your
 -- certificate authority.
-createDomainName_certificateBody :: Lens.Lens' CreateDomainName (Core.Maybe Core.Text)
+createDomainName_certificateBody :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_certificateBody = Lens.lens (\CreateDomainName' {certificateBody} -> certificateBody) (\s@CreateDomainName' {} a -> s {certificateBody = a} :: CreateDomainName)
 
 -- | The reference to an AWS-managed certificate that will be used by
 -- regional endpoint for this domain name. AWS Certificate Manager is the
 -- only supported source.
-createDomainName_regionalCertificateArn :: Lens.Lens' CreateDomainName (Core.Maybe Core.Text)
+createDomainName_regionalCertificateArn :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_regionalCertificateArn = Lens.lens (\CreateDomainName' {regionalCertificateArn} -> regionalCertificateArn) (\s@CreateDomainName' {} a -> s {regionalCertificateArn = a} :: CreateDomainName)
 
 -- | The user-friendly name of the certificate that will be used by
 -- edge-optimized endpoint for this domain name.
-createDomainName_certificateName :: Lens.Lens' CreateDomainName (Core.Maybe Core.Text)
+createDomainName_certificateName :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_certificateName = Lens.lens (\CreateDomainName' {certificateName} -> certificateName) (\s@CreateDomainName' {} a -> s {certificateName = a} :: CreateDomainName)
 
 -- | [Required] The name of the DomainName resource.
-createDomainName_domainName :: Lens.Lens' CreateDomainName Core.Text
+createDomainName_domainName :: Lens.Lens' CreateDomainName Prelude.Text
 createDomainName_domainName = Lens.lens (\CreateDomainName' {domainName} -> domainName) (\s@CreateDomainName' {} a -> s {domainName = a} :: CreateDomainName)
 
 instance Core.AWSRequest CreateDomainName where
@@ -264,46 +265,50 @@ instance Core.AWSRequest CreateDomainName where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreateDomainName
+instance Prelude.Hashable CreateDomainName
 
-instance Core.NFData CreateDomainName
+instance Prelude.NFData CreateDomainName
 
 instance Core.ToHeaders CreateDomainName where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON CreateDomainName where
   toJSON CreateDomainName' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("certificatePrivateKey" Core..=)
-              Core.<$> certificatePrivateKey,
+              Prelude.<$> certificatePrivateKey,
             ("regionalCertificateName" Core..=)
-              Core.<$> regionalCertificateName,
+              Prelude.<$> regionalCertificateName,
             ("mutualTlsAuthentication" Core..=)
-              Core.<$> mutualTlsAuthentication,
+              Prelude.<$> mutualTlsAuthentication,
             ("endpointConfiguration" Core..=)
-              Core.<$> endpointConfiguration,
-            ("certificateArn" Core..=) Core.<$> certificateArn,
-            ("tags" Core..=) Core.<$> tags,
-            ("securityPolicy" Core..=) Core.<$> securityPolicy,
+              Prelude.<$> endpointConfiguration,
+            ("certificateArn" Core..=)
+              Prelude.<$> certificateArn,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("securityPolicy" Core..=)
+              Prelude.<$> securityPolicy,
             ("certificateChain" Core..=)
-              Core.<$> certificateChain,
-            ("certificateBody" Core..=) Core.<$> certificateBody,
+              Prelude.<$> certificateChain,
+            ("certificateBody" Core..=)
+              Prelude.<$> certificateBody,
             ("regionalCertificateArn" Core..=)
-              Core.<$> regionalCertificateArn,
-            ("certificateName" Core..=) Core.<$> certificateName,
-            Core.Just ("domainName" Core..= domainName)
+              Prelude.<$> regionalCertificateArn,
+            ("certificateName" Core..=)
+              Prelude.<$> certificateName,
+            Prelude.Just ("domainName" Core..= domainName)
           ]
       )
 
 instance Core.ToPath CreateDomainName where
-  toPath = Core.const "/domainnames"
+  toPath = Prelude.const "/domainnames"
 
 instance Core.ToQuery CreateDomainName where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

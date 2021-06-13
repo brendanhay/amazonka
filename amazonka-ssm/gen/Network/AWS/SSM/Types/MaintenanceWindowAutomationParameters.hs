@@ -21,13 +21,14 @@ module Network.AWS.SSM.Types.MaintenanceWindowAutomationParameters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The parameters for an AUTOMATION task type.
 --
 -- /See:/ 'newMaintenanceWindowAutomationParameters' smart constructor.
 data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParameters'
   { -- | The version of an Automation document to use during task execution.
-    documentVersion :: Core.Maybe Core.Text,
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the AUTOMATION task.
     --
     -- For information about specifying and updating task parameters, see
@@ -48,9 +49,9 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
     --
     -- For AUTOMATION task types, Systems Manager ignores any values specified
     -- for these parameters.
-    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowAutomationParameters' with all optional fields omitted.
@@ -87,12 +88,12 @@ newMaintenanceWindowAutomationParameters ::
 newMaintenanceWindowAutomationParameters =
   MaintenanceWindowAutomationParameters'
     { documentVersion =
-        Core.Nothing,
-      parameters = Core.Nothing
+        Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
 
 -- | The version of an Automation document to use during task execution.
-maintenanceWindowAutomationParameters_documentVersion :: Lens.Lens' MaintenanceWindowAutomationParameters (Core.Maybe Core.Text)
+maintenanceWindowAutomationParameters_documentVersion :: Lens.Lens' MaintenanceWindowAutomationParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowAutomationParameters_documentVersion = Lens.lens (\MaintenanceWindowAutomationParameters' {documentVersion} -> documentVersion) (\s@MaintenanceWindowAutomationParameters' {} a -> s {documentVersion = a} :: MaintenanceWindowAutomationParameters)
 
 -- | The parameters for the AUTOMATION task.
@@ -115,8 +116,8 @@ maintenanceWindowAutomationParameters_documentVersion = Lens.lens (\MaintenanceW
 --
 -- For AUTOMATION task types, Systems Manager ignores any values specified
 -- for these parameters.
-maintenanceWindowAutomationParameters_parameters :: Lens.Lens' MaintenanceWindowAutomationParameters (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-maintenanceWindowAutomationParameters_parameters = Lens.lens (\MaintenanceWindowAutomationParameters' {parameters} -> parameters) (\s@MaintenanceWindowAutomationParameters' {} a -> s {parameters = a} :: MaintenanceWindowAutomationParameters) Core.. Lens.mapping Lens._Coerce
+maintenanceWindowAutomationParameters_parameters :: Lens.Lens' MaintenanceWindowAutomationParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+maintenanceWindowAutomationParameters_parameters = Lens.lens (\MaintenanceWindowAutomationParameters' {parameters} -> parameters) (\s@MaintenanceWindowAutomationParameters' {} a -> s {parameters = a} :: MaintenanceWindowAutomationParameters) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -127,16 +128,16 @@ instance
       "MaintenanceWindowAutomationParameters"
       ( \x ->
           MaintenanceWindowAutomationParameters'
-            Core.<$> (x Core..:? "DocumentVersion")
-            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "DocumentVersion")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     MaintenanceWindowAutomationParameters
 
 instance
-  Core.NFData
+  Prelude.NFData
     MaintenanceWindowAutomationParameters
 
 instance
@@ -145,9 +146,9 @@ instance
   where
   toJSON MaintenanceWindowAutomationParameters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DocumentVersion" Core..=)
-              Core.<$> documentVersion,
-            ("Parameters" Core..=) Core.<$> parameters
+              Prelude.<$> documentVersion,
+            ("Parameters" Core..=) Prelude.<$> parameters
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.DvbSdtSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.OutputSdt
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Inserts DVB Service Description Table (NIT) at the specified table
 -- repetition interval.
@@ -35,18 +36,18 @@ data DvbSdtSettings = DvbSdtSettings'
     -- it will fall back on the user-defined values. Enter \"SDT Manually\"
     -- means user will enter the SDT information. \"No SDT\" means output
     -- stream will not contain SDT information.
-    outputSdt :: Core.Maybe OutputSdt,
+    outputSdt :: Prelude.Maybe OutputSdt,
     -- | The service name placed in the service_descriptor in the Service
     -- Description Table. Maximum length is 256 characters.
-    serviceName :: Core.Maybe Core.Text,
+    serviceName :: Prelude.Maybe Prelude.Text,
     -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
-    sdtInterval :: Core.Maybe Core.Natural,
+    sdtInterval :: Prelude.Maybe Prelude.Natural,
     -- | The service provider name placed in the service_descriptor in the
     -- Service Description Table. Maximum length is 256 characters.
-    serviceProviderName :: Core.Maybe Core.Text
+    serviceProviderName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DvbSdtSettings' with all optional fields omitted.
@@ -76,10 +77,10 @@ newDvbSdtSettings ::
   DvbSdtSettings
 newDvbSdtSettings =
   DvbSdtSettings'
-    { outputSdt = Core.Nothing,
-      serviceName = Core.Nothing,
-      sdtInterval = Core.Nothing,
-      serviceProviderName = Core.Nothing
+    { outputSdt = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
+      sdtInterval = Prelude.Nothing,
+      serviceProviderName = Prelude.Nothing
     }
 
 -- | Selects method of inserting SDT information into output stream. \"Follow
@@ -89,22 +90,22 @@ newDvbSdtSettings =
 -- it will fall back on the user-defined values. Enter \"SDT Manually\"
 -- means user will enter the SDT information. \"No SDT\" means output
 -- stream will not contain SDT information.
-dvbSdtSettings_outputSdt :: Lens.Lens' DvbSdtSettings (Core.Maybe OutputSdt)
+dvbSdtSettings_outputSdt :: Lens.Lens' DvbSdtSettings (Prelude.Maybe OutputSdt)
 dvbSdtSettings_outputSdt = Lens.lens (\DvbSdtSettings' {outputSdt} -> outputSdt) (\s@DvbSdtSettings' {} a -> s {outputSdt = a} :: DvbSdtSettings)
 
 -- | The service name placed in the service_descriptor in the Service
 -- Description Table. Maximum length is 256 characters.
-dvbSdtSettings_serviceName :: Lens.Lens' DvbSdtSettings (Core.Maybe Core.Text)
+dvbSdtSettings_serviceName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
 dvbSdtSettings_serviceName = Lens.lens (\DvbSdtSettings' {serviceName} -> serviceName) (\s@DvbSdtSettings' {} a -> s {serviceName = a} :: DvbSdtSettings)
 
 -- | The number of milliseconds between instances of this table in the output
 -- transport stream.
-dvbSdtSettings_sdtInterval :: Lens.Lens' DvbSdtSettings (Core.Maybe Core.Natural)
+dvbSdtSettings_sdtInterval :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Natural)
 dvbSdtSettings_sdtInterval = Lens.lens (\DvbSdtSettings' {sdtInterval} -> sdtInterval) (\s@DvbSdtSettings' {} a -> s {sdtInterval = a} :: DvbSdtSettings)
 
 -- | The service provider name placed in the service_descriptor in the
 -- Service Description Table. Maximum length is 256 characters.
-dvbSdtSettings_serviceProviderName :: Lens.Lens' DvbSdtSettings (Core.Maybe Core.Text)
+dvbSdtSettings_serviceProviderName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
 dvbSdtSettings_serviceProviderName = Lens.lens (\DvbSdtSettings' {serviceProviderName} -> serviceProviderName) (\s@DvbSdtSettings' {} a -> s {serviceProviderName = a} :: DvbSdtSettings)
 
 instance Core.FromJSON DvbSdtSettings where
@@ -113,24 +114,24 @@ instance Core.FromJSON DvbSdtSettings where
       "DvbSdtSettings"
       ( \x ->
           DvbSdtSettings'
-            Core.<$> (x Core..:? "outputSdt")
-            Core.<*> (x Core..:? "serviceName")
-            Core.<*> (x Core..:? "sdtInterval")
-            Core.<*> (x Core..:? "serviceProviderName")
+            Prelude.<$> (x Core..:? "outputSdt")
+            Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<*> (x Core..:? "sdtInterval")
+            Prelude.<*> (x Core..:? "serviceProviderName")
       )
 
-instance Core.Hashable DvbSdtSettings
+instance Prelude.Hashable DvbSdtSettings
 
-instance Core.NFData DvbSdtSettings
+instance Prelude.NFData DvbSdtSettings
 
 instance Core.ToJSON DvbSdtSettings where
   toJSON DvbSdtSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("outputSdt" Core..=) Core.<$> outputSdt,
-            ("serviceName" Core..=) Core.<$> serviceName,
-            ("sdtInterval" Core..=) Core.<$> sdtInterval,
+      ( Prelude.catMaybes
+          [ ("outputSdt" Core..=) Prelude.<$> outputSdt,
+            ("serviceName" Core..=) Prelude.<$> serviceName,
+            ("sdtInterval" Core..=) Prelude.<$> sdtInterval,
             ("serviceProviderName" Core..=)
-              Core.<$> serviceProviderName
+              Prelude.<$> serviceProviderName
           ]
       )

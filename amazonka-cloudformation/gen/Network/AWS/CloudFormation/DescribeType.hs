@@ -65,6 +65,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,11 +74,11 @@ data DescribeType = DescribeType'
   { -- | The name of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    typeName :: Core.Maybe Core.Text,
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a specific version of the extension. The version ID is the
     -- value at the end of the Amazon Resource Name (ARN) assigned to the
     -- extension version when it is registered.
@@ -85,13 +86,13 @@ data DescribeType = DescribeType'
     -- If you specify a @VersionId@, @DescribeType@ returns information about
     -- that specific extension version. Otherwise, it returns information about
     -- the default extension version.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The kind of extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    type' :: Core.Maybe RegistryType
+    type' :: Prelude.Maybe RegistryType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeType' with all optional fields omitted.
@@ -124,22 +125,22 @@ newDescribeType ::
   DescribeType
 newDescribeType =
   DescribeType'
-    { typeName = Core.Nothing,
-      arn = Core.Nothing,
-      versionId = Core.Nothing,
-      type' = Core.Nothing
+    { typeName = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The name of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-describeType_typeName :: Lens.Lens' DescribeType (Core.Maybe Core.Text)
+describeType_typeName :: Lens.Lens' DescribeType (Prelude.Maybe Prelude.Text)
 describeType_typeName = Lens.lens (\DescribeType' {typeName} -> typeName) (\s@DescribeType' {} a -> s {typeName = a} :: DescribeType)
 
 -- | The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-describeType_arn :: Lens.Lens' DescribeType (Core.Maybe Core.Text)
+describeType_arn :: Lens.Lens' DescribeType (Prelude.Maybe Prelude.Text)
 describeType_arn = Lens.lens (\DescribeType' {arn} -> arn) (\s@DescribeType' {} a -> s {arn = a} :: DescribeType)
 
 -- | The ID of a specific version of the extension. The version ID is the
@@ -149,13 +150,13 @@ describeType_arn = Lens.lens (\DescribeType' {arn} -> arn) (\s@DescribeType' {} 
 -- If you specify a @VersionId@, @DescribeType@ returns information about
 -- that specific extension version. Otherwise, it returns information about
 -- the default extension version.
-describeType_versionId :: Lens.Lens' DescribeType (Core.Maybe Core.Text)
+describeType_versionId :: Lens.Lens' DescribeType (Prelude.Maybe Prelude.Text)
 describeType_versionId = Lens.lens (\DescribeType' {versionId} -> versionId) (\s@DescribeType' {} a -> s {versionId = a} :: DescribeType)
 
 -- | The kind of extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-describeType_type :: Lens.Lens' DescribeType (Core.Maybe RegistryType)
+describeType_type :: Lens.Lens' DescribeType (Prelude.Maybe RegistryType)
 describeType_type = Lens.lens (\DescribeType' {type'} -> type') (\s@DescribeType' {} a -> s {type' = a} :: DescribeType)
 
 instance Core.AWSRequest DescribeType where
@@ -166,41 +167,42 @@ instance Core.AWSRequest DescribeType where
       "DescribeTypeResult"
       ( \s h x ->
           DescribeTypeResponse'
-            Core.<$> (x Core..@? "TypeName")
-            Core.<*> (x Core..@? "Schema")
-            Core.<*> (x Core..@? "LoggingConfig")
-            Core.<*> (x Core..@? "ExecutionRoleArn")
-            Core.<*> (x Core..@? "Arn")
-            Core.<*> (x Core..@? "DeprecatedStatus")
-            Core.<*> (x Core..@? "LastUpdated")
-            Core.<*> (x Core..@? "DefaultVersionId")
-            Core.<*> (x Core..@? "DocumentationUrl")
-            Core.<*> (x Core..@? "ProvisioningType")
-            Core.<*> (x Core..@? "Visibility")
-            Core.<*> (x Core..@? "Description")
-            Core.<*> (x Core..@? "SourceUrl")
-            Core.<*> (x Core..@? "IsDefaultVersion")
-            Core.<*> (x Core..@? "Type")
-            Core.<*> (x Core..@? "TimeCreated")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "TypeName")
+            Prelude.<*> (x Core..@? "Schema")
+            Prelude.<*> (x Core..@? "LoggingConfig")
+            Prelude.<*> (x Core..@? "ExecutionRoleArn")
+            Prelude.<*> (x Core..@? "Arn")
+            Prelude.<*> (x Core..@? "DeprecatedStatus")
+            Prelude.<*> (x Core..@? "LastUpdated")
+            Prelude.<*> (x Core..@? "DefaultVersionId")
+            Prelude.<*> (x Core..@? "DocumentationUrl")
+            Prelude.<*> (x Core..@? "ProvisioningType")
+            Prelude.<*> (x Core..@? "Visibility")
+            Prelude.<*> (x Core..@? "Description")
+            Prelude.<*> (x Core..@? "SourceUrl")
+            Prelude.<*> (x Core..@? "IsDefaultVersion")
+            Prelude.<*> (x Core..@? "Type")
+            Prelude.<*> (x Core..@? "TimeCreated")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeType
+instance Prelude.Hashable DescribeType
 
-instance Core.NFData DescribeType
+instance Prelude.NFData DescribeType
 
 instance Core.ToHeaders DescribeType where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeType where
   toQuery DescribeType' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeType" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("DescribeType" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "TypeName" Core.=: typeName,
         "Arn" Core.=: arn,
         "VersionId" Core.=: versionId,
@@ -210,15 +212,15 @@ instance Core.ToQuery DescribeType where
 -- | /See:/ 'newDescribeTypeResponse' smart constructor.
 data DescribeTypeResponse = DescribeTypeResponse'
   { -- | The name of the registered extension.
-    typeName :: Core.Maybe Core.Text,
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The schema that defines the extension.
     --
     -- For more information on extension schemas, see
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema>
     -- in the /CloudFormation CLI User Guide/.
-    schema :: Core.Maybe Core.Text,
+    schema :: Prelude.Maybe Prelude.Text,
     -- | Contains logging configuration information for an extension.
-    loggingConfig :: Core.Maybe LoggingConfig,
+    loggingConfig :: Prelude.Maybe LoggingConfig,
     -- | The Amazon Resource Name (ARN) of the IAM execution role used to
     -- register the extension. If your resource type calls AWS APIs in any of
     -- its handlers, you must create an
@@ -227,9 +229,9 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- provision that execution role in your account. CloudFormation then
     -- assumes that execution role to provide your extension with the
     -- appropriate credentials.
-    executionRoleArn :: Core.Maybe Core.Text,
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the extension.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The deprecation status of the extension version.
     --
     -- Valid values include:
@@ -240,17 +242,17 @@ data DescribeTypeResponse = DescribeTypeResponse'
     --
     -- -   @DEPRECATED@: The extension has been deregistered and can no longer
     --     be used in CloudFormation operations.
-    deprecatedStatus :: Core.Maybe DeprecatedStatus,
+    deprecatedStatus :: Prelude.Maybe DeprecatedStatus,
     -- | When the specified extension version was registered.
-    lastUpdated :: Core.Maybe Core.ISO8601,
+    lastUpdated :: Prelude.Maybe Core.ISO8601,
     -- | The ID of the default version of the extension. The default version is
     -- used when the extension version is not specified.
     --
     -- To set the default version of an extension, use
     -- @ SetTypeDefaultVersion @.
-    defaultVersionId :: Core.Maybe Core.Text,
+    defaultVersionId :: Prelude.Maybe Prelude.Text,
     -- | The URL of a page providing detailed documentation for this extension.
-    documentationUrl :: Core.Maybe Core.Text,
+    documentationUrl :: Prelude.Maybe Prelude.Text,
     -- | The provisioning behavior of the extension. AWS CloudFormation
     -- determines the provisioning type during registration, based on the types
     -- of handlers in the schema handler package submitted.
@@ -272,7 +274,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
     --     -   read
     --
     --     -   delete
-    provisioningType :: Core.Maybe ProvisioningType,
+    provisioningType :: Prelude.Maybe ProvisioningType,
     -- | The scope at which the extension is visible and usable in CloudFormation
     -- operations.
     --
@@ -284,21 +286,21 @@ data DescribeTypeResponse = DescribeTypeResponse'
     --
     -- -   @PUBLIC@: The extension is publically visible and usable within any
     --     Amazon account.
-    visibility :: Core.Maybe Visibility,
+    visibility :: Prelude.Maybe Visibility,
     -- | The description of the registered extension.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The URL of the source code for the extension.
-    sourceUrl :: Core.Maybe Core.Text,
+    sourceUrl :: Prelude.Maybe Prelude.Text,
     -- | Whether the specified extension version is set as the default version.
-    isDefaultVersion :: Core.Maybe Core.Bool,
+    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The kind of extension.
-    type' :: Core.Maybe RegistryType,
+    type' :: Prelude.Maybe RegistryType,
     -- | When the specified extension version was registered.
-    timeCreated :: Core.Maybe Core.ISO8601,
+    timeCreated :: Prelude.Maybe Core.ISO8601,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTypeResponse' with all optional fields omitted.
@@ -397,31 +399,31 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- 'httpStatus', 'describeTypeResponse_httpStatus' - The response's http status code.
 newDescribeTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTypeResponse
 newDescribeTypeResponse pHttpStatus_ =
   DescribeTypeResponse'
-    { typeName = Core.Nothing,
-      schema = Core.Nothing,
-      loggingConfig = Core.Nothing,
-      executionRoleArn = Core.Nothing,
-      arn = Core.Nothing,
-      deprecatedStatus = Core.Nothing,
-      lastUpdated = Core.Nothing,
-      defaultVersionId = Core.Nothing,
-      documentationUrl = Core.Nothing,
-      provisioningType = Core.Nothing,
-      visibility = Core.Nothing,
-      description = Core.Nothing,
-      sourceUrl = Core.Nothing,
-      isDefaultVersion = Core.Nothing,
-      type' = Core.Nothing,
-      timeCreated = Core.Nothing,
+    { typeName = Prelude.Nothing,
+      schema = Prelude.Nothing,
+      loggingConfig = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      deprecatedStatus = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
+      defaultVersionId = Prelude.Nothing,
+      documentationUrl = Prelude.Nothing,
+      provisioningType = Prelude.Nothing,
+      visibility = Prelude.Nothing,
+      description = Prelude.Nothing,
+      sourceUrl = Prelude.Nothing,
+      isDefaultVersion = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      timeCreated = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the registered extension.
-describeTypeResponse_typeName :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Text)
+describeTypeResponse_typeName :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_typeName = Lens.lens (\DescribeTypeResponse' {typeName} -> typeName) (\s@DescribeTypeResponse' {} a -> s {typeName = a} :: DescribeTypeResponse)
 
 -- | The schema that defines the extension.
@@ -429,11 +431,11 @@ describeTypeResponse_typeName = Lens.lens (\DescribeTypeResponse' {typeName} -> 
 -- For more information on extension schemas, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema>
 -- in the /CloudFormation CLI User Guide/.
-describeTypeResponse_schema :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Text)
+describeTypeResponse_schema :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_schema = Lens.lens (\DescribeTypeResponse' {schema} -> schema) (\s@DescribeTypeResponse' {} a -> s {schema = a} :: DescribeTypeResponse)
 
 -- | Contains logging configuration information for an extension.
-describeTypeResponse_loggingConfig :: Lens.Lens' DescribeTypeResponse (Core.Maybe LoggingConfig)
+describeTypeResponse_loggingConfig :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe LoggingConfig)
 describeTypeResponse_loggingConfig = Lens.lens (\DescribeTypeResponse' {loggingConfig} -> loggingConfig) (\s@DescribeTypeResponse' {} a -> s {loggingConfig = a} :: DescribeTypeResponse)
 
 -- | The Amazon Resource Name (ARN) of the IAM execution role used to
@@ -444,11 +446,11 @@ describeTypeResponse_loggingConfig = Lens.lens (\DescribeTypeResponse' {loggingC
 -- provision that execution role in your account. CloudFormation then
 -- assumes that execution role to provide your extension with the
 -- appropriate credentials.
-describeTypeResponse_executionRoleArn :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Text)
+describeTypeResponse_executionRoleArn :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_executionRoleArn = Lens.lens (\DescribeTypeResponse' {executionRoleArn} -> executionRoleArn) (\s@DescribeTypeResponse' {} a -> s {executionRoleArn = a} :: DescribeTypeResponse)
 
 -- | The Amazon Resource Name (ARN) of the extension.
-describeTypeResponse_arn :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Text)
+describeTypeResponse_arn :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_arn = Lens.lens (\DescribeTypeResponse' {arn} -> arn) (\s@DescribeTypeResponse' {} a -> s {arn = a} :: DescribeTypeResponse)
 
 -- | The deprecation status of the extension version.
@@ -461,23 +463,23 @@ describeTypeResponse_arn = Lens.lens (\DescribeTypeResponse' {arn} -> arn) (\s@D
 --
 -- -   @DEPRECATED@: The extension has been deregistered and can no longer
 --     be used in CloudFormation operations.
-describeTypeResponse_deprecatedStatus :: Lens.Lens' DescribeTypeResponse (Core.Maybe DeprecatedStatus)
+describeTypeResponse_deprecatedStatus :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe DeprecatedStatus)
 describeTypeResponse_deprecatedStatus = Lens.lens (\DescribeTypeResponse' {deprecatedStatus} -> deprecatedStatus) (\s@DescribeTypeResponse' {} a -> s {deprecatedStatus = a} :: DescribeTypeResponse)
 
 -- | When the specified extension version was registered.
-describeTypeResponse_lastUpdated :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.UTCTime)
-describeTypeResponse_lastUpdated = Lens.lens (\DescribeTypeResponse' {lastUpdated} -> lastUpdated) (\s@DescribeTypeResponse' {} a -> s {lastUpdated = a} :: DescribeTypeResponse) Core.. Lens.mapping Core._Time
+describeTypeResponse_lastUpdated :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.UTCTime)
+describeTypeResponse_lastUpdated = Lens.lens (\DescribeTypeResponse' {lastUpdated} -> lastUpdated) (\s@DescribeTypeResponse' {} a -> s {lastUpdated = a} :: DescribeTypeResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the default version of the extension. The default version is
 -- used when the extension version is not specified.
 --
 -- To set the default version of an extension, use
 -- @ SetTypeDefaultVersion @.
-describeTypeResponse_defaultVersionId :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Text)
+describeTypeResponse_defaultVersionId :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_defaultVersionId = Lens.lens (\DescribeTypeResponse' {defaultVersionId} -> defaultVersionId) (\s@DescribeTypeResponse' {} a -> s {defaultVersionId = a} :: DescribeTypeResponse)
 
 -- | The URL of a page providing detailed documentation for this extension.
-describeTypeResponse_documentationUrl :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Text)
+describeTypeResponse_documentationUrl :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_documentationUrl = Lens.lens (\DescribeTypeResponse' {documentationUrl} -> documentationUrl) (\s@DescribeTypeResponse' {} a -> s {documentationUrl = a} :: DescribeTypeResponse)
 
 -- | The provisioning behavior of the extension. AWS CloudFormation
@@ -501,7 +503,7 @@ describeTypeResponse_documentationUrl = Lens.lens (\DescribeTypeResponse' {docum
 --     -   read
 --
 --     -   delete
-describeTypeResponse_provisioningType :: Lens.Lens' DescribeTypeResponse (Core.Maybe ProvisioningType)
+describeTypeResponse_provisioningType :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe ProvisioningType)
 describeTypeResponse_provisioningType = Lens.lens (\DescribeTypeResponse' {provisioningType} -> provisioningType) (\s@DescribeTypeResponse' {} a -> s {provisioningType = a} :: DescribeTypeResponse)
 
 -- | The scope at which the extension is visible and usable in CloudFormation
@@ -515,31 +517,31 @@ describeTypeResponse_provisioningType = Lens.lens (\DescribeTypeResponse' {provi
 --
 -- -   @PUBLIC@: The extension is publically visible and usable within any
 --     Amazon account.
-describeTypeResponse_visibility :: Lens.Lens' DescribeTypeResponse (Core.Maybe Visibility)
+describeTypeResponse_visibility :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Visibility)
 describeTypeResponse_visibility = Lens.lens (\DescribeTypeResponse' {visibility} -> visibility) (\s@DescribeTypeResponse' {} a -> s {visibility = a} :: DescribeTypeResponse)
 
 -- | The description of the registered extension.
-describeTypeResponse_description :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Text)
+describeTypeResponse_description :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_description = Lens.lens (\DescribeTypeResponse' {description} -> description) (\s@DescribeTypeResponse' {} a -> s {description = a} :: DescribeTypeResponse)
 
 -- | The URL of the source code for the extension.
-describeTypeResponse_sourceUrl :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Text)
+describeTypeResponse_sourceUrl :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_sourceUrl = Lens.lens (\DescribeTypeResponse' {sourceUrl} -> sourceUrl) (\s@DescribeTypeResponse' {} a -> s {sourceUrl = a} :: DescribeTypeResponse)
 
 -- | Whether the specified extension version is set as the default version.
-describeTypeResponse_isDefaultVersion :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.Bool)
+describeTypeResponse_isDefaultVersion :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Bool)
 describeTypeResponse_isDefaultVersion = Lens.lens (\DescribeTypeResponse' {isDefaultVersion} -> isDefaultVersion) (\s@DescribeTypeResponse' {} a -> s {isDefaultVersion = a} :: DescribeTypeResponse)
 
 -- | The kind of extension.
-describeTypeResponse_type :: Lens.Lens' DescribeTypeResponse (Core.Maybe RegistryType)
+describeTypeResponse_type :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe RegistryType)
 describeTypeResponse_type = Lens.lens (\DescribeTypeResponse' {type'} -> type') (\s@DescribeTypeResponse' {} a -> s {type' = a} :: DescribeTypeResponse)
 
 -- | When the specified extension version was registered.
-describeTypeResponse_timeCreated :: Lens.Lens' DescribeTypeResponse (Core.Maybe Core.UTCTime)
-describeTypeResponse_timeCreated = Lens.lens (\DescribeTypeResponse' {timeCreated} -> timeCreated) (\s@DescribeTypeResponse' {} a -> s {timeCreated = a} :: DescribeTypeResponse) Core.. Lens.mapping Core._Time
+describeTypeResponse_timeCreated :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.UTCTime)
+describeTypeResponse_timeCreated = Lens.lens (\DescribeTypeResponse' {timeCreated} -> timeCreated) (\s@DescribeTypeResponse' {} a -> s {timeCreated = a} :: DescribeTypeResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeTypeResponse_httpStatus :: Lens.Lens' DescribeTypeResponse Core.Int
+describeTypeResponse_httpStatus :: Lens.Lens' DescribeTypeResponse Prelude.Int
 describeTypeResponse_httpStatus = Lens.lens (\DescribeTypeResponse' {httpStatus} -> httpStatus) (\s@DescribeTypeResponse' {} a -> s {httpStatus = a} :: DescribeTypeResponse)
 
-instance Core.NFData DescribeTypeResponse
+instance Prelude.NFData DescribeTypeResponse

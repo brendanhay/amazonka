@@ -22,17 +22,18 @@ module Network.AWS.IoT.Types.Field where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.FieldType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the name and data type at a field.
 --
 -- /See:/ 'newField' smart constructor.
 data Field = Field'
   { -- | The name of the field.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The datatype of the field.
-    type' :: Core.Maybe FieldType
+    type' :: Prelude.Maybe FieldType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Field' with all optional fields omitted.
@@ -48,14 +49,17 @@ data Field = Field'
 newField ::
   Field
 newField =
-  Field' {name = Core.Nothing, type' = Core.Nothing}
+  Field'
+    { name = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
 
 -- | The name of the field.
-field_name :: Lens.Lens' Field (Core.Maybe Core.Text)
+field_name :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
 field_name = Lens.lens (\Field' {name} -> name) (\s@Field' {} a -> s {name = a} :: Field)
 
 -- | The datatype of the field.
-field_type :: Lens.Lens' Field (Core.Maybe FieldType)
+field_type :: Lens.Lens' Field (Prelude.Maybe FieldType)
 field_type = Lens.lens (\Field' {type'} -> type') (\s@Field' {} a -> s {type' = a} :: Field)
 
 instance Core.FromJSON Field where
@@ -64,18 +68,18 @@ instance Core.FromJSON Field where
       "Field"
       ( \x ->
           Field'
-            Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable Field
+instance Prelude.Hashable Field
 
-instance Core.NFData Field
+instance Prelude.NFData Field
 
 instance Core.ToJSON Field where
   toJSON Field' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("name" Core..=) Core.<$> name,
-            ("type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("name" Core..=) Prelude.<$> name,
+            ("type" Core..=) Prelude.<$> type'
           ]
       )

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,13 +56,13 @@ data ListCertificates = ListCertificates'
     -- response element indicates that more certificates are available. Use the
     -- value of the returned @NextToken@ element in your request until the
     -- token comes back as @null@. Pass @null@ if this is the first call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of items that should show up on one page
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the directory.
-    directoryId :: Core.Text
+    directoryId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCertificates' with all optional fields omitted.
@@ -81,12 +82,12 @@ data ListCertificates = ListCertificates'
 -- 'directoryId', 'listCertificates_directoryId' - The identifier of the directory.
 newListCertificates ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   ListCertificates
 newListCertificates pDirectoryId_ =
   ListCertificates'
-    { nextToken = Core.Nothing,
-      limit = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      limit = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
 
@@ -94,15 +95,15 @@ newListCertificates pDirectoryId_ =
 -- response element indicates that more certificates are available. Use the
 -- value of the returned @NextToken@ element in your request until the
 -- token comes back as @null@. Pass @null@ if this is the first call.
-listCertificates_nextToken :: Lens.Lens' ListCertificates (Core.Maybe Core.Text)
+listCertificates_nextToken :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
 listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextToken) (\s@ListCertificates' {} a -> s {nextToken = a} :: ListCertificates)
 
 -- | The number of items that should show up on one page
-listCertificates_limit :: Lens.Lens' ListCertificates (Core.Maybe Core.Natural)
+listCertificates_limit :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
 listCertificates_limit = Lens.lens (\ListCertificates' {limit} -> limit) (\s@ListCertificates' {} a -> s {limit = a} :: ListCertificates)
 
 -- | The identifier of the directory.
-listCertificates_directoryId :: Lens.Lens' ListCertificates Core.Text
+listCertificates_directoryId :: Lens.Lens' ListCertificates Prelude.Text
 listCertificates_directoryId = Lens.lens (\ListCertificates' {directoryId} -> directoryId) (\s@ListCertificates' {} a -> s {directoryId = a} :: ListCertificates)
 
 instance Core.AWSRequest ListCertificates where
@@ -114,56 +115,60 @@ instance Core.AWSRequest ListCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "CertificatesInfo" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "CertificatesInfo"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListCertificates
+instance Prelude.Hashable ListCertificates
 
-instance Core.NFData ListCertificates
+instance Prelude.NFData ListCertificates
 
 instance Core.ToHeaders ListCertificates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.ListCertificates" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just ("DirectoryId" Core..= directoryId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("DirectoryId" Core..= directoryId)
           ]
       )
 
 instance Core.ToPath ListCertificates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListCertificates where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
   { -- | Indicates whether another page of certificates is available when the
     -- number of available certificates exceeds the page limit.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of certificates with basic details including certificate ID,
     -- certificate common name, certificate state.
-    certificatesInfo :: Core.Maybe [CertificateInfo],
+    certificatesInfo :: Prelude.Maybe [CertificateInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCertificatesResponse' with all optional fields omitted.
@@ -182,27 +187,28 @@ data ListCertificatesResponse = ListCertificatesResponse'
 -- 'httpStatus', 'listCertificatesResponse_httpStatus' - The response's http status code.
 newListCertificatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListCertificatesResponse
 newListCertificatesResponse pHttpStatus_ =
   ListCertificatesResponse'
-    { nextToken = Core.Nothing,
-      certificatesInfo = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      certificatesInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Indicates whether another page of certificates is available when the
 -- number of available certificates exceeds the page limit.
-listCertificatesResponse_nextToken :: Lens.Lens' ListCertificatesResponse (Core.Maybe Core.Text)
+listCertificatesResponse_nextToken :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe Prelude.Text)
 listCertificatesResponse_nextToken = Lens.lens (\ListCertificatesResponse' {nextToken} -> nextToken) (\s@ListCertificatesResponse' {} a -> s {nextToken = a} :: ListCertificatesResponse)
 
 -- | A list of certificates with basic details including certificate ID,
 -- certificate common name, certificate state.
-listCertificatesResponse_certificatesInfo :: Lens.Lens' ListCertificatesResponse (Core.Maybe [CertificateInfo])
-listCertificatesResponse_certificatesInfo = Lens.lens (\ListCertificatesResponse' {certificatesInfo} -> certificatesInfo) (\s@ListCertificatesResponse' {} a -> s {certificatesInfo = a} :: ListCertificatesResponse) Core.. Lens.mapping Lens._Coerce
+listCertificatesResponse_certificatesInfo :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe [CertificateInfo])
+listCertificatesResponse_certificatesInfo = Lens.lens (\ListCertificatesResponse' {certificatesInfo} -> certificatesInfo) (\s@ListCertificatesResponse' {} a -> s {certificatesInfo = a} :: ListCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Core.Int
+listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Prelude.Int
 listCertificatesResponse_httpStatus = Lens.lens (\ListCertificatesResponse' {httpStatus} -> httpStatus) (\s@ListCertificatesResponse' {} a -> s {httpStatus = a} :: ListCertificatesResponse)
 
-instance Core.NFData ListCertificatesResponse
+instance Prelude.NFData ListCertificatesResponse

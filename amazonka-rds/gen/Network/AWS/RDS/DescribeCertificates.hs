@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -63,14 +64,14 @@ data DescribeCertificates = DescribeCertificates'
     -- Constraints:
     --
     -- -   Must match an existing CertificateIdentifier.
-    certificateIdentifier :: Core.Maybe Core.Text,
+    certificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | This parameter isn\'t currently supported.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | An optional pagination token provided by a previous
     -- @DescribeCertificates@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -79,9 +80,9 @@ data DescribeCertificates = DescribeCertificates'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCertificates' with all optional fields omitted.
@@ -119,10 +120,10 @@ newDescribeCertificates ::
 newDescribeCertificates =
   DescribeCertificates'
     { certificateIdentifier =
-        Core.Nothing,
-      filters = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The user-supplied certificate identifier. If this parameter is
@@ -132,18 +133,18 @@ newDescribeCertificates =
 -- Constraints:
 --
 -- -   Must match an existing CertificateIdentifier.
-describeCertificates_certificateIdentifier :: Lens.Lens' DescribeCertificates (Core.Maybe Core.Text)
+describeCertificates_certificateIdentifier :: Lens.Lens' DescribeCertificates (Prelude.Maybe Prelude.Text)
 describeCertificates_certificateIdentifier = Lens.lens (\DescribeCertificates' {certificateIdentifier} -> certificateIdentifier) (\s@DescribeCertificates' {} a -> s {certificateIdentifier = a} :: DescribeCertificates)
 
 -- | This parameter isn\'t currently supported.
-describeCertificates_filters :: Lens.Lens' DescribeCertificates (Core.Maybe [Filter])
-describeCertificates_filters = Lens.lens (\DescribeCertificates' {filters} -> filters) (\s@DescribeCertificates' {} a -> s {filters = a} :: DescribeCertificates) Core.. Lens.mapping Lens._Coerce
+describeCertificates_filters :: Lens.Lens' DescribeCertificates (Prelude.Maybe [Filter])
+describeCertificates_filters = Lens.lens (\DescribeCertificates' {filters} -> filters) (\s@DescribeCertificates' {} a -> s {filters = a} :: DescribeCertificates) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- @DescribeCertificates@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-describeCertificates_marker :: Lens.Lens' DescribeCertificates (Core.Maybe Core.Text)
+describeCertificates_marker :: Lens.Lens' DescribeCertificates (Prelude.Maybe Prelude.Text)
 describeCertificates_marker = Lens.lens (\DescribeCertificates' {marker} -> marker) (\s@DescribeCertificates' {} a -> s {marker = a} :: DescribeCertificates)
 
 -- | The maximum number of records to include in the response. If more
@@ -154,7 +155,7 @@ describeCertificates_marker = Lens.lens (\DescribeCertificates' {marker} -> mark
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeCertificates_maxRecords :: Lens.Lens' DescribeCertificates (Core.Maybe Core.Int)
+describeCertificates_maxRecords :: Lens.Lens' DescribeCertificates (Prelude.Maybe Prelude.Int)
 describeCertificates_maxRecords = Lens.lens (\DescribeCertificates' {maxRecords} -> maxRecords) (\s@DescribeCertificates' {} a -> s {maxRecords = a} :: DescribeCertificates)
 
 instance Core.AWSPager DescribeCertificates where
@@ -162,21 +163,22 @@ instance Core.AWSPager DescribeCertificates where
     | Core.stop
         ( rs
             Lens.^? describeCertificatesResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCertificatesResponse_certificates
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeCertificates_marker
+          Prelude.& describeCertificates_marker
           Lens..~ rs
-          Lens.^? describeCertificatesResponse_marker Core.. Lens._Just
+          Lens.^? describeCertificatesResponse_marker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCertificates where
   type
@@ -188,34 +190,35 @@ instance Core.AWSRequest DescribeCertificates where
       "DescribeCertificatesResult"
       ( \s h x ->
           DescribeCertificatesResponse'
-            Core.<$> ( x Core..@? "Certificates" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "Certificate")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "Certificate")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeCertificates
+instance Prelude.Hashable DescribeCertificates
 
-instance Core.NFData DescribeCertificates
+instance Prelude.NFData DescribeCertificates
 
 instance Core.ToHeaders DescribeCertificates where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeCertificates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeCertificates where
   toQuery DescribeCertificates' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeCertificates" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DescribeCertificates" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "CertificateIdentifier"
           Core.=: certificateIdentifier,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Core.<$> filters),
+            (Core.toQueryList "Filter" Prelude.<$> filters),
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
       ]
@@ -225,16 +228,16 @@ instance Core.ToQuery DescribeCertificates where
 -- /See:/ 'newDescribeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
   { -- | The list of @Certificate@ objects for the AWS account.
-    certificates :: Core.Maybe [Certificate],
+    certificates :: Prelude.Maybe [Certificate],
     -- | An optional pagination token provided by a previous
     -- @DescribeCertificates@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@ .
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCertificatesResponse' with all optional fields omitted.
@@ -254,29 +257,29 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
 -- 'httpStatus', 'describeCertificatesResponse_httpStatus' - The response's http status code.
 newDescribeCertificatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeCertificatesResponse
 newDescribeCertificatesResponse pHttpStatus_ =
   DescribeCertificatesResponse'
     { certificates =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of @Certificate@ objects for the AWS account.
-describeCertificatesResponse_certificates :: Lens.Lens' DescribeCertificatesResponse (Core.Maybe [Certificate])
-describeCertificatesResponse_certificates = Lens.lens (\DescribeCertificatesResponse' {certificates} -> certificates) (\s@DescribeCertificatesResponse' {} a -> s {certificates = a} :: DescribeCertificatesResponse) Core.. Lens.mapping Lens._Coerce
+describeCertificatesResponse_certificates :: Lens.Lens' DescribeCertificatesResponse (Prelude.Maybe [Certificate])
+describeCertificatesResponse_certificates = Lens.lens (\DescribeCertificatesResponse' {certificates} -> certificates) (\s@DescribeCertificatesResponse' {} a -> s {certificates = a} :: DescribeCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- @DescribeCertificates@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@ .
-describeCertificatesResponse_marker :: Lens.Lens' DescribeCertificatesResponse (Core.Maybe Core.Text)
+describeCertificatesResponse_marker :: Lens.Lens' DescribeCertificatesResponse (Prelude.Maybe Prelude.Text)
 describeCertificatesResponse_marker = Lens.lens (\DescribeCertificatesResponse' {marker} -> marker) (\s@DescribeCertificatesResponse' {} a -> s {marker = a} :: DescribeCertificatesResponse)
 
 -- | The response's http status code.
-describeCertificatesResponse_httpStatus :: Lens.Lens' DescribeCertificatesResponse Core.Int
+describeCertificatesResponse_httpStatus :: Lens.Lens' DescribeCertificatesResponse Prelude.Int
 describeCertificatesResponse_httpStatus = Lens.lens (\DescribeCertificatesResponse' {httpStatus} -> httpStatus) (\s@DescribeCertificatesResponse' {} a -> s {httpStatus = a} :: DescribeCertificatesResponse)
 
-instance Core.NFData DescribeCertificatesResponse
+instance Prelude.NFData DescribeCertificatesResponse

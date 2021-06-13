@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text,
+    roleName :: Prelude.Text,
     -- | The policy that grants an entity permission to assume the role.
     --
     -- You must provide policies in JSON format in IAM. However, for AWS
@@ -72,9 +73,9 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyDocument :: Core.Text
+    policyDocument :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssumeRolePolicy' with all optional fields omitted.
@@ -111,9 +112,9 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
 --     carriage return (@\\u000D@)
 newUpdateAssumeRolePolicy ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyDocument'
-  Core.Text ->
+  Prelude.Text ->
   UpdateAssumeRolePolicy
 newUpdateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
   UpdateAssumeRolePolicy'
@@ -127,7 +128,7 @@ newUpdateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateAssumeRolePolicy_roleName :: Lens.Lens' UpdateAssumeRolePolicy Core.Text
+updateAssumeRolePolicy_roleName :: Lens.Lens' UpdateAssumeRolePolicy Prelude.Text
 updateAssumeRolePolicy_roleName = Lens.lens (\UpdateAssumeRolePolicy' {roleName} -> roleName) (\s@UpdateAssumeRolePolicy' {} a -> s {roleName = a} :: UpdateAssumeRolePolicy)
 
 -- | The policy that grants an entity permission to assume the role.
@@ -148,7 +149,7 @@ updateAssumeRolePolicy_roleName = Lens.lens (\UpdateAssumeRolePolicy' {roleName}
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-updateAssumeRolePolicy_policyDocument :: Lens.Lens' UpdateAssumeRolePolicy Core.Text
+updateAssumeRolePolicy_policyDocument :: Lens.Lens' UpdateAssumeRolePolicy Prelude.Text
 updateAssumeRolePolicy_policyDocument = Lens.lens (\UpdateAssumeRolePolicy' {policyDocument} -> policyDocument) (\s@UpdateAssumeRolePolicy' {} a -> s {policyDocument = a} :: UpdateAssumeRolePolicy)
 
 instance Core.AWSRequest UpdateAssumeRolePolicy where
@@ -160,22 +161,23 @@ instance Core.AWSRequest UpdateAssumeRolePolicy where
     Response.receiveNull
       UpdateAssumeRolePolicyResponse'
 
-instance Core.Hashable UpdateAssumeRolePolicy
+instance Prelude.Hashable UpdateAssumeRolePolicy
 
-instance Core.NFData UpdateAssumeRolePolicy
+instance Prelude.NFData UpdateAssumeRolePolicy
 
 instance Core.ToHeaders UpdateAssumeRolePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateAssumeRolePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateAssumeRolePolicy where
   toQuery UpdateAssumeRolePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateAssumeRolePolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UpdateAssumeRolePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName,
         "PolicyDocument" Core.=: policyDocument
       ]
@@ -184,7 +186,7 @@ instance Core.ToQuery UpdateAssumeRolePolicy where
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssumeRolePolicyResponse' with all optional fields omitted.
@@ -195,4 +197,6 @@ newUpdateAssumeRolePolicyResponse ::
 newUpdateAssumeRolePolicyResponse =
   UpdateAssumeRolePolicyResponse'
 
-instance Core.NFData UpdateAssumeRolePolicyResponse
+instance
+  Prelude.NFData
+    UpdateAssumeRolePolicyResponse

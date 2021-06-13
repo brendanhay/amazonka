@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.INDTaxDocuments where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The tax documents required in AWS Regions in India.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data INDTaxDocuments = INDTaxDocuments'
   { -- | The Goods and Services Tax (GST) documents required in AWS Regions in
     -- India.
-    gstin :: Core.Maybe Core.Text
+    gstin :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'INDTaxDocuments' with all optional fields omitted.
@@ -45,11 +46,11 @@ data INDTaxDocuments = INDTaxDocuments'
 newINDTaxDocuments ::
   INDTaxDocuments
 newINDTaxDocuments =
-  INDTaxDocuments' {gstin = Core.Nothing}
+  INDTaxDocuments' {gstin = Prelude.Nothing}
 
 -- | The Goods and Services Tax (GST) documents required in AWS Regions in
 -- India.
-iNDTaxDocuments_gstin :: Lens.Lens' INDTaxDocuments (Core.Maybe Core.Text)
+iNDTaxDocuments_gstin :: Lens.Lens' INDTaxDocuments (Prelude.Maybe Prelude.Text)
 iNDTaxDocuments_gstin = Lens.lens (\INDTaxDocuments' {gstin} -> gstin) (\s@INDTaxDocuments' {} a -> s {gstin = a} :: INDTaxDocuments)
 
 instance Core.FromJSON INDTaxDocuments where
@@ -57,14 +58,16 @@ instance Core.FromJSON INDTaxDocuments where
     Core.withObject
       "INDTaxDocuments"
       ( \x ->
-          INDTaxDocuments' Core.<$> (x Core..:? "GSTIN")
+          INDTaxDocuments' Prelude.<$> (x Core..:? "GSTIN")
       )
 
-instance Core.Hashable INDTaxDocuments
+instance Prelude.Hashable INDTaxDocuments
 
-instance Core.NFData INDTaxDocuments
+instance Prelude.NFData INDTaxDocuments
 
 instance Core.ToJSON INDTaxDocuments where
   toJSON INDTaxDocuments' {..} =
     Core.object
-      (Core.catMaybes [("GSTIN" Core..=) Core.<$> gstin])
+      ( Prelude.catMaybes
+          [("GSTIN" Core..=) Prelude.<$> gstin]
+      )

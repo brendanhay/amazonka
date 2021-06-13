@@ -48,32 +48,33 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyLaunchTemplate' smart constructor.
 data ModifyLaunchTemplate = ModifyLaunchTemplate'
   { -- | The version number of the launch template to set as the default version.
-    defaultVersion :: Core.Maybe Core.Text,
+    defaultVersion :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the launch template. You must specify either the launch
     -- template ID or launch template name in the request.
-    launchTemplateId :: Core.Maybe Core.Text,
+    launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template. You must specify either the launch
     -- template ID or launch template name in the request.
-    launchTemplateName :: Core.Maybe Core.Text,
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     --
     -- Constraint: Maximum 128 ASCII characters.
-    clientToken :: Core.Maybe Core.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyLaunchTemplate' with all optional fields omitted.
@@ -106,32 +107,32 @@ newModifyLaunchTemplate ::
 newModifyLaunchTemplate =
   ModifyLaunchTemplate'
     { defaultVersion =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      launchTemplateId = Core.Nothing,
-      launchTemplateName = Core.Nothing,
-      clientToken = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      launchTemplateId = Prelude.Nothing,
+      launchTemplateName = Prelude.Nothing,
+      clientToken = Prelude.Nothing
     }
 
 -- | The version number of the launch template to set as the default version.
-modifyLaunchTemplate_defaultVersion :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Core.Text)
+modifyLaunchTemplate_defaultVersion :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
 modifyLaunchTemplate_defaultVersion = Lens.lens (\ModifyLaunchTemplate' {defaultVersion} -> defaultVersion) (\s@ModifyLaunchTemplate' {} a -> s {defaultVersion = a} :: ModifyLaunchTemplate)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyLaunchTemplate_dryRun :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Core.Bool)
+modifyLaunchTemplate_dryRun :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Bool)
 modifyLaunchTemplate_dryRun = Lens.lens (\ModifyLaunchTemplate' {dryRun} -> dryRun) (\s@ModifyLaunchTemplate' {} a -> s {dryRun = a} :: ModifyLaunchTemplate)
 
 -- | The ID of the launch template. You must specify either the launch
 -- template ID or launch template name in the request.
-modifyLaunchTemplate_launchTemplateId :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Core.Text)
+modifyLaunchTemplate_launchTemplateId :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
 modifyLaunchTemplate_launchTemplateId = Lens.lens (\ModifyLaunchTemplate' {launchTemplateId} -> launchTemplateId) (\s@ModifyLaunchTemplate' {} a -> s {launchTemplateId = a} :: ModifyLaunchTemplate)
 
 -- | The name of the launch template. You must specify either the launch
 -- template ID or launch template name in the request.
-modifyLaunchTemplate_launchTemplateName :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Core.Text)
+modifyLaunchTemplate_launchTemplateName :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
 modifyLaunchTemplate_launchTemplateName = Lens.lens (\ModifyLaunchTemplate' {launchTemplateName} -> launchTemplateName) (\s@ModifyLaunchTemplate' {} a -> s {launchTemplateName = a} :: ModifyLaunchTemplate)
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -139,7 +140,7 @@ modifyLaunchTemplate_launchTemplateName = Lens.lens (\ModifyLaunchTemplate' {lau
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- Constraint: Maximum 128 ASCII characters.
-modifyLaunchTemplate_clientToken :: Lens.Lens' ModifyLaunchTemplate (Core.Maybe Core.Text)
+modifyLaunchTemplate_clientToken :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
 modifyLaunchTemplate_clientToken = Lens.lens (\ModifyLaunchTemplate' {clientToken} -> clientToken) (\s@ModifyLaunchTemplate' {} a -> s {clientToken = a} :: ModifyLaunchTemplate)
 
 instance Core.AWSRequest ModifyLaunchTemplate where
@@ -151,26 +152,27 @@ instance Core.AWSRequest ModifyLaunchTemplate where
     Response.receiveXML
       ( \s h x ->
           ModifyLaunchTemplateResponse'
-            Core.<$> (x Core..@? "launchTemplate")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "launchTemplate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyLaunchTemplate
+instance Prelude.Hashable ModifyLaunchTemplate
 
-instance Core.NFData ModifyLaunchTemplate
+instance Prelude.NFData ModifyLaunchTemplate
 
 instance Core.ToHeaders ModifyLaunchTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyLaunchTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyLaunchTemplate where
   toQuery ModifyLaunchTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyLaunchTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyLaunchTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "SetDefaultVersion" Core.=: defaultVersion,
         "DryRun" Core.=: dryRun,
         "LaunchTemplateId" Core.=: launchTemplateId,
@@ -181,11 +183,11 @@ instance Core.ToQuery ModifyLaunchTemplate where
 -- | /See:/ 'newModifyLaunchTemplateResponse' smart constructor.
 data ModifyLaunchTemplateResponse = ModifyLaunchTemplateResponse'
   { -- | Information about the launch template.
-    launchTemplate :: Core.Maybe LaunchTemplate,
+    launchTemplate :: Prelude.Maybe LaunchTemplate,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyLaunchTemplateResponse' with all optional fields omitted.
@@ -200,21 +202,21 @@ data ModifyLaunchTemplateResponse = ModifyLaunchTemplateResponse'
 -- 'httpStatus', 'modifyLaunchTemplateResponse_httpStatus' - The response's http status code.
 newModifyLaunchTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyLaunchTemplateResponse
 newModifyLaunchTemplateResponse pHttpStatus_ =
   ModifyLaunchTemplateResponse'
     { launchTemplate =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the launch template.
-modifyLaunchTemplateResponse_launchTemplate :: Lens.Lens' ModifyLaunchTemplateResponse (Core.Maybe LaunchTemplate)
+modifyLaunchTemplateResponse_launchTemplate :: Lens.Lens' ModifyLaunchTemplateResponse (Prelude.Maybe LaunchTemplate)
 modifyLaunchTemplateResponse_launchTemplate = Lens.lens (\ModifyLaunchTemplateResponse' {launchTemplate} -> launchTemplate) (\s@ModifyLaunchTemplateResponse' {} a -> s {launchTemplate = a} :: ModifyLaunchTemplateResponse)
 
 -- | The response's http status code.
-modifyLaunchTemplateResponse_httpStatus :: Lens.Lens' ModifyLaunchTemplateResponse Core.Int
+modifyLaunchTemplateResponse_httpStatus :: Lens.Lens' ModifyLaunchTemplateResponse Prelude.Int
 modifyLaunchTemplateResponse_httpStatus = Lens.lens (\ModifyLaunchTemplateResponse' {httpStatus} -> httpStatus) (\s@ModifyLaunchTemplateResponse' {} a -> s {httpStatus = a} :: ModifyLaunchTemplateResponse)
 
-instance Core.NFData ModifyLaunchTemplateResponse
+instance Prelude.NFData ModifyLaunchTemplateResponse

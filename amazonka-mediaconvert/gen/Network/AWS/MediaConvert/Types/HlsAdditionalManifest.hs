@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.HlsAdditionalManifest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the details for each additional HLS manifest that you want the
 -- service to generate for this output group. Each manifest can reference a
@@ -37,12 +38,12 @@ data HlsAdditionalManifest = HlsAdditionalManifest'
     -- HLS output groups, specify a manifestNameModifier that is different from
     -- the nameModifier of the output. The service uses the output name
     -- modifier to create unique names for the individual variant manifests.
-    manifestNameModifier :: Core.Maybe Core.Text,
+    manifestNameModifier :: Prelude.Maybe Prelude.Text,
     -- | Specify the outputs that you want this additional top-level manifest to
     -- reference.
-    selectedOutputs :: Core.Maybe [Core.Text]
+    selectedOutputs :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsAdditionalManifest' with all optional fields omitted.
@@ -69,8 +70,8 @@ newHlsAdditionalManifest ::
 newHlsAdditionalManifest =
   HlsAdditionalManifest'
     { manifestNameModifier =
-        Core.Nothing,
-      selectedOutputs = Core.Nothing
+        Prelude.Nothing,
+      selectedOutputs = Prelude.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this
@@ -82,13 +83,13 @@ newHlsAdditionalManifest =
 -- HLS output groups, specify a manifestNameModifier that is different from
 -- the nameModifier of the output. The service uses the output name
 -- modifier to create unique names for the individual variant manifests.
-hlsAdditionalManifest_manifestNameModifier :: Lens.Lens' HlsAdditionalManifest (Core.Maybe Core.Text)
+hlsAdditionalManifest_manifestNameModifier :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe Prelude.Text)
 hlsAdditionalManifest_manifestNameModifier = Lens.lens (\HlsAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@HlsAdditionalManifest' {} a -> s {manifestNameModifier = a} :: HlsAdditionalManifest)
 
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
-hlsAdditionalManifest_selectedOutputs :: Lens.Lens' HlsAdditionalManifest (Core.Maybe [Core.Text])
-hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@HlsAdditionalManifest' {} a -> s {selectedOutputs = a} :: HlsAdditionalManifest) Core.. Lens.mapping Lens._Coerce
+hlsAdditionalManifest_selectedOutputs :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe [Prelude.Text])
+hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@HlsAdditionalManifest' {} a -> s {selectedOutputs = a} :: HlsAdditionalManifest) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON HlsAdditionalManifest where
   parseJSON =
@@ -96,21 +97,23 @@ instance Core.FromJSON HlsAdditionalManifest where
       "HlsAdditionalManifest"
       ( \x ->
           HlsAdditionalManifest'
-            Core.<$> (x Core..:? "manifestNameModifier")
-            Core.<*> (x Core..:? "selectedOutputs" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "manifestNameModifier")
+            Prelude.<*> ( x Core..:? "selectedOutputs"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable HlsAdditionalManifest
+instance Prelude.Hashable HlsAdditionalManifest
 
-instance Core.NFData HlsAdditionalManifest
+instance Prelude.NFData HlsAdditionalManifest
 
 instance Core.ToJSON HlsAdditionalManifest where
   toJSON HlsAdditionalManifest' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("manifestNameModifier" Core..=)
-              Core.<$> manifestNameModifier,
+              Prelude.<$> manifestNameModifier,
             ("selectedOutputs" Core..=)
-              Core.<$> selectedOutputs
+              Prelude.<$> selectedOutputs
           ]
       )

@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -61,18 +62,18 @@ data CreateHttpNamespace = CreateHttpNamespace'
     -- @CreateHttpNamespace@ requests to be retried without the risk of
     -- executing the operation twice. @CreatorRequestId@ can be any unique
     -- string, for example, a date\/time stamp.
-    creatorRequestId :: Core.Maybe Core.Text,
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The tags to add to the namespace. Each tag consists of a key and an
     -- optional value, both of which you define. Tag keys can have a maximum
     -- character length of 128 characters, and tag values can have a maximum
     -- length of 256 characters.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A description for the namespace.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name that you want to assign to this namespace.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHttpNamespace' with all optional fields omitted.
@@ -97,14 +98,14 @@ data CreateHttpNamespace = CreateHttpNamespace'
 -- 'name', 'createHttpNamespace_name' - The name that you want to assign to this namespace.
 newCreateHttpNamespace ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateHttpNamespace
 newCreateHttpNamespace pName_ =
   CreateHttpNamespace'
     { creatorRequestId =
-        Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_
     }
 
@@ -112,22 +113,22 @@ newCreateHttpNamespace pName_ =
 -- @CreateHttpNamespace@ requests to be retried without the risk of
 -- executing the operation twice. @CreatorRequestId@ can be any unique
 -- string, for example, a date\/time stamp.
-createHttpNamespace_creatorRequestId :: Lens.Lens' CreateHttpNamespace (Core.Maybe Core.Text)
+createHttpNamespace_creatorRequestId :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
 createHttpNamespace_creatorRequestId = Lens.lens (\CreateHttpNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreateHttpNamespace' {} a -> s {creatorRequestId = a} :: CreateHttpNamespace)
 
 -- | The tags to add to the namespace. Each tag consists of a key and an
 -- optional value, both of which you define. Tag keys can have a maximum
 -- character length of 128 characters, and tag values can have a maximum
 -- length of 256 characters.
-createHttpNamespace_tags :: Lens.Lens' CreateHttpNamespace (Core.Maybe [Tag])
-createHttpNamespace_tags = Lens.lens (\CreateHttpNamespace' {tags} -> tags) (\s@CreateHttpNamespace' {} a -> s {tags = a} :: CreateHttpNamespace) Core.. Lens.mapping Lens._Coerce
+createHttpNamespace_tags :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe [Tag])
+createHttpNamespace_tags = Lens.lens (\CreateHttpNamespace' {tags} -> tags) (\s@CreateHttpNamespace' {} a -> s {tags = a} :: CreateHttpNamespace) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description for the namespace.
-createHttpNamespace_description :: Lens.Lens' CreateHttpNamespace (Core.Maybe Core.Text)
+createHttpNamespace_description :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
 createHttpNamespace_description = Lens.lens (\CreateHttpNamespace' {description} -> description) (\s@CreateHttpNamespace' {} a -> s {description = a} :: CreateHttpNamespace)
 
 -- | The name that you want to assign to this namespace.
-createHttpNamespace_name :: Lens.Lens' CreateHttpNamespace Core.Text
+createHttpNamespace_name :: Lens.Lens' CreateHttpNamespace Prelude.Text
 createHttpNamespace_name = Lens.lens (\CreateHttpNamespace' {name} -> name) (\s@CreateHttpNamespace' {} a -> s {name = a} :: CreateHttpNamespace)
 
 instance Core.AWSRequest CreateHttpNamespace where
@@ -139,55 +140,57 @@ instance Core.AWSRequest CreateHttpNamespace where
     Response.receiveJSON
       ( \s h x ->
           CreateHttpNamespaceResponse'
-            Core.<$> (x Core..?> "OperationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateHttpNamespace
+instance Prelude.Hashable CreateHttpNamespace
 
-instance Core.NFData CreateHttpNamespace
+instance Prelude.NFData CreateHttpNamespace
 
 instance Core.ToHeaders CreateHttpNamespace where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.CreateHttpNamespace" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateHttpNamespace where
   toJSON CreateHttpNamespace' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CreatorRequestId" Core..=)
-              Core.<$> creatorRequestId,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name)
+              Prelude.<$> creatorRequestId,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateHttpNamespace where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateHttpNamespace where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHttpNamespaceResponse' smart constructor.
 data CreateHttpNamespaceResponse = CreateHttpNamespaceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. To get the status of the operation, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHttpNamespaceResponse' with all optional fields omitted.
@@ -204,23 +207,23 @@ data CreateHttpNamespaceResponse = CreateHttpNamespaceResponse'
 -- 'httpStatus', 'createHttpNamespaceResponse_httpStatus' - The response's http status code.
 newCreateHttpNamespaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateHttpNamespaceResponse
 newCreateHttpNamespaceResponse pHttpStatus_ =
   CreateHttpNamespaceResponse'
     { operationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-createHttpNamespaceResponse_operationId :: Lens.Lens' CreateHttpNamespaceResponse (Core.Maybe Core.Text)
+createHttpNamespaceResponse_operationId :: Lens.Lens' CreateHttpNamespaceResponse (Prelude.Maybe Prelude.Text)
 createHttpNamespaceResponse_operationId = Lens.lens (\CreateHttpNamespaceResponse' {operationId} -> operationId) (\s@CreateHttpNamespaceResponse' {} a -> s {operationId = a} :: CreateHttpNamespaceResponse)
 
 -- | The response's http status code.
-createHttpNamespaceResponse_httpStatus :: Lens.Lens' CreateHttpNamespaceResponse Core.Int
+createHttpNamespaceResponse_httpStatus :: Lens.Lens' CreateHttpNamespaceResponse Prelude.Int
 createHttpNamespaceResponse_httpStatus = Lens.lens (\CreateHttpNamespaceResponse' {httpStatus} -> httpStatus) (\s@CreateHttpNamespaceResponse' {} a -> s {httpStatus = a} :: CreateHttpNamespaceResponse)
 
-instance Core.NFData CreateHttpNamespaceResponse
+instance Prelude.NFData CreateHttpNamespaceResponse

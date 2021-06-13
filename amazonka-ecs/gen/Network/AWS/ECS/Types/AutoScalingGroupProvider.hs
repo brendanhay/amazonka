@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.ManagedScaling
 import Network.AWS.ECS.Types.ManagedTerminationProtection
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of the Auto Scaling group for the capacity provider.
 --
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 data AutoScalingGroupProvider = AutoScalingGroupProvider'
   { -- | The managed scaling settings for the Auto Scaling group capacity
     -- provider.
-    managedScaling :: Core.Maybe ManagedScaling,
+    managedScaling :: Prelude.Maybe ManagedScaling,
     -- | The managed termination protection setting to use for the Auto Scaling
     -- group capacity provider. This determines whether the Auto Scaling group
     -- has managed termination protection.
@@ -49,11 +50,11 @@ data AutoScalingGroupProvider = AutoScalingGroupProvider'
     -- When managed termination protection is disabled, your Amazon EC2
     -- instances are not protected from termination when the Auto Scaling group
     -- scales in.
-    managedTerminationProtection :: Core.Maybe ManagedTerminationProtection,
+    managedTerminationProtection :: Prelude.Maybe ManagedTerminationProtection,
     -- | The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
-    autoScalingGroupArn :: Core.Text
+    autoScalingGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoScalingGroupProvider' with all optional fields omitted.
@@ -88,19 +89,19 @@ data AutoScalingGroupProvider = AutoScalingGroupProvider'
 -- 'autoScalingGroupArn', 'autoScalingGroupProvider_autoScalingGroupArn' - The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
 newAutoScalingGroupProvider ::
   -- | 'autoScalingGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   AutoScalingGroupProvider
 newAutoScalingGroupProvider pAutoScalingGroupArn_ =
   AutoScalingGroupProvider'
     { managedScaling =
-        Core.Nothing,
-      managedTerminationProtection = Core.Nothing,
+        Prelude.Nothing,
+      managedTerminationProtection = Prelude.Nothing,
       autoScalingGroupArn = pAutoScalingGroupArn_
     }
 
 -- | The managed scaling settings for the Auto Scaling group capacity
 -- provider.
-autoScalingGroupProvider_managedScaling :: Lens.Lens' AutoScalingGroupProvider (Core.Maybe ManagedScaling)
+autoScalingGroupProvider_managedScaling :: Lens.Lens' AutoScalingGroupProvider (Prelude.Maybe ManagedScaling)
 autoScalingGroupProvider_managedScaling = Lens.lens (\AutoScalingGroupProvider' {managedScaling} -> managedScaling) (\s@AutoScalingGroupProvider' {} a -> s {managedScaling = a} :: AutoScalingGroupProvider)
 
 -- | The managed termination protection setting to use for the Auto Scaling
@@ -121,11 +122,11 @@ autoScalingGroupProvider_managedScaling = Lens.lens (\AutoScalingGroupProvider' 
 -- When managed termination protection is disabled, your Amazon EC2
 -- instances are not protected from termination when the Auto Scaling group
 -- scales in.
-autoScalingGroupProvider_managedTerminationProtection :: Lens.Lens' AutoScalingGroupProvider (Core.Maybe ManagedTerminationProtection)
+autoScalingGroupProvider_managedTerminationProtection :: Lens.Lens' AutoScalingGroupProvider (Prelude.Maybe ManagedTerminationProtection)
 autoScalingGroupProvider_managedTerminationProtection = Lens.lens (\AutoScalingGroupProvider' {managedTerminationProtection} -> managedTerminationProtection) (\s@AutoScalingGroupProvider' {} a -> s {managedTerminationProtection = a} :: AutoScalingGroupProvider)
 
 -- | The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
-autoScalingGroupProvider_autoScalingGroupArn :: Lens.Lens' AutoScalingGroupProvider Core.Text
+autoScalingGroupProvider_autoScalingGroupArn :: Lens.Lens' AutoScalingGroupProvider Prelude.Text
 autoScalingGroupProvider_autoScalingGroupArn = Lens.lens (\AutoScalingGroupProvider' {autoScalingGroupArn} -> autoScalingGroupArn) (\s@AutoScalingGroupProvider' {} a -> s {autoScalingGroupArn = a} :: AutoScalingGroupProvider)
 
 instance Core.FromJSON AutoScalingGroupProvider where
@@ -134,23 +135,24 @@ instance Core.FromJSON AutoScalingGroupProvider where
       "AutoScalingGroupProvider"
       ( \x ->
           AutoScalingGroupProvider'
-            Core.<$> (x Core..:? "managedScaling")
-            Core.<*> (x Core..:? "managedTerminationProtection")
-            Core.<*> (x Core..: "autoScalingGroupArn")
+            Prelude.<$> (x Core..:? "managedScaling")
+            Prelude.<*> (x Core..:? "managedTerminationProtection")
+            Prelude.<*> (x Core..: "autoScalingGroupArn")
       )
 
-instance Core.Hashable AutoScalingGroupProvider
+instance Prelude.Hashable AutoScalingGroupProvider
 
-instance Core.NFData AutoScalingGroupProvider
+instance Prelude.NFData AutoScalingGroupProvider
 
 instance Core.ToJSON AutoScalingGroupProvider where
   toJSON AutoScalingGroupProvider' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("managedScaling" Core..=) Core.<$> managedScaling,
+      ( Prelude.catMaybes
+          [ ("managedScaling" Core..=)
+              Prelude.<$> managedScaling,
             ("managedTerminationProtection" Core..=)
-              Core.<$> managedTerminationProtection,
-            Core.Just
+              Prelude.<$> managedTerminationProtection,
+            Prelude.Just
               ("autoScalingGroupArn" Core..= autoScalingGroupArn)
           ]
       )

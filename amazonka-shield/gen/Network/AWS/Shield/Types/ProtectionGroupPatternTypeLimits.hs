@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits
 
 -- | Limits settings by pattern type in the protection groups for your
@@ -31,7 +32,7 @@ data ProtectionGroupPatternTypeLimits = ProtectionGroupPatternTypeLimits'
   { -- | Limits settings on protection groups with arbitrary pattern type.
     arbitraryPatternLimits :: ProtectionGroupArbitraryPatternLimits
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProtectionGroupPatternTypeLimits' with all optional fields omitted.
@@ -66,11 +67,13 @@ instance
       "ProtectionGroupPatternTypeLimits"
       ( \x ->
           ProtectionGroupPatternTypeLimits'
-            Core.<$> (x Core..: "ArbitraryPatternLimits")
+            Prelude.<$> (x Core..: "ArbitraryPatternLimits")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ProtectionGroupPatternTypeLimits
 
-instance Core.NFData ProtectionGroupPatternTypeLimits
+instance
+  Prelude.NFData
+    ProtectionGroupPatternTypeLimits

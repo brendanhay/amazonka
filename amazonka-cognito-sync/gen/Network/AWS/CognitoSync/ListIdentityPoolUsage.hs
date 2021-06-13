@@ -50,6 +50,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +59,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListIdentityPoolUsage' smart constructor.
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
   { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned.
-    maxResults :: Core.Maybe Core.Int
+    maxResults :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIdentityPoolUsage' with all optional fields omitted.
@@ -79,16 +80,16 @@ newListIdentityPoolUsage ::
   ListIdentityPoolUsage
 newListIdentityPoolUsage =
   ListIdentityPoolUsage'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A pagination token for obtaining the next page of results.
-listIdentityPoolUsage_nextToken :: Lens.Lens' ListIdentityPoolUsage (Core.Maybe Core.Text)
+listIdentityPoolUsage_nextToken :: Lens.Lens' ListIdentityPoolUsage (Prelude.Maybe Prelude.Text)
 listIdentityPoolUsage_nextToken = Lens.lens (\ListIdentityPoolUsage' {nextToken} -> nextToken) (\s@ListIdentityPoolUsage' {} a -> s {nextToken = a} :: ListIdentityPoolUsage)
 
 -- | The maximum number of results to be returned.
-listIdentityPoolUsage_maxResults :: Lens.Lens' ListIdentityPoolUsage (Core.Maybe Core.Int)
+listIdentityPoolUsage_maxResults :: Lens.Lens' ListIdentityPoolUsage (Prelude.Maybe Prelude.Int)
 listIdentityPoolUsage_maxResults = Lens.lens (\ListIdentityPoolUsage' {maxResults} -> maxResults) (\s@ListIdentityPoolUsage' {} a -> s {maxResults = a} :: ListIdentityPoolUsage)
 
 instance Core.AWSRequest ListIdentityPoolUsage where
@@ -100,34 +101,36 @@ instance Core.AWSRequest ListIdentityPoolUsage where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityPoolUsageResponse'
-            Core.<$> ( x Core..?> "IdentityPoolUsages"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "MaxResults")
-            Core.<*> (x Core..?> "Count")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "IdentityPoolUsages"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "MaxResults")
+            Prelude.<*> (x Core..?> "Count")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListIdentityPoolUsage
+instance Prelude.Hashable ListIdentityPoolUsage
 
-instance Core.NFData ListIdentityPoolUsage
+instance Prelude.NFData ListIdentityPoolUsage
 
 instance Core.ToHeaders ListIdentityPoolUsage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListIdentityPoolUsage where
-  toPath = Core.const "/identitypools"
+  toPath = Prelude.const "/identitypools"
 
 instance Core.ToQuery ListIdentityPoolUsage where
   toQuery ListIdentityPoolUsage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -137,17 +140,17 @@ instance Core.ToQuery ListIdentityPoolUsage where
 -- /See:/ 'newListIdentityPoolUsageResponse' smart constructor.
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
   { -- | Usage information for the identity pools.
-    identityPoolUsages :: Core.Maybe [IdentityPoolUsage],
+    identityPoolUsages :: Prelude.Maybe [IdentityPoolUsage],
     -- | A pagination token for obtaining the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Total number of identities for the identity pool.
-    count :: Core.Maybe Core.Int,
+    count :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIdentityPoolUsageResponse' with all optional fields omitted.
@@ -168,36 +171,36 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
 -- 'httpStatus', 'listIdentityPoolUsageResponse_httpStatus' - The response's http status code.
 newListIdentityPoolUsageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListIdentityPoolUsageResponse
 newListIdentityPoolUsageResponse pHttpStatus_ =
   ListIdentityPoolUsageResponse'
     { identityPoolUsages =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      count = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      count = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Usage information for the identity pools.
-listIdentityPoolUsageResponse_identityPoolUsages :: Lens.Lens' ListIdentityPoolUsageResponse (Core.Maybe [IdentityPoolUsage])
-listIdentityPoolUsageResponse_identityPoolUsages = Lens.lens (\ListIdentityPoolUsageResponse' {identityPoolUsages} -> identityPoolUsages) (\s@ListIdentityPoolUsageResponse' {} a -> s {identityPoolUsages = a} :: ListIdentityPoolUsageResponse) Core.. Lens.mapping Lens._Coerce
+listIdentityPoolUsageResponse_identityPoolUsages :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe [IdentityPoolUsage])
+listIdentityPoolUsageResponse_identityPoolUsages = Lens.lens (\ListIdentityPoolUsageResponse' {identityPoolUsages} -> identityPoolUsages) (\s@ListIdentityPoolUsageResponse' {} a -> s {identityPoolUsages = a} :: ListIdentityPoolUsageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token for obtaining the next page of results.
-listIdentityPoolUsageResponse_nextToken :: Lens.Lens' ListIdentityPoolUsageResponse (Core.Maybe Core.Text)
+listIdentityPoolUsageResponse_nextToken :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe Prelude.Text)
 listIdentityPoolUsageResponse_nextToken = Lens.lens (\ListIdentityPoolUsageResponse' {nextToken} -> nextToken) (\s@ListIdentityPoolUsageResponse' {} a -> s {nextToken = a} :: ListIdentityPoolUsageResponse)
 
 -- | The maximum number of results to be returned.
-listIdentityPoolUsageResponse_maxResults :: Lens.Lens' ListIdentityPoolUsageResponse (Core.Maybe Core.Int)
+listIdentityPoolUsageResponse_maxResults :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe Prelude.Int)
 listIdentityPoolUsageResponse_maxResults = Lens.lens (\ListIdentityPoolUsageResponse' {maxResults} -> maxResults) (\s@ListIdentityPoolUsageResponse' {} a -> s {maxResults = a} :: ListIdentityPoolUsageResponse)
 
 -- | Total number of identities for the identity pool.
-listIdentityPoolUsageResponse_count :: Lens.Lens' ListIdentityPoolUsageResponse (Core.Maybe Core.Int)
+listIdentityPoolUsageResponse_count :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe Prelude.Int)
 listIdentityPoolUsageResponse_count = Lens.lens (\ListIdentityPoolUsageResponse' {count} -> count) (\s@ListIdentityPoolUsageResponse' {} a -> s {count = a} :: ListIdentityPoolUsageResponse)
 
 -- | The response's http status code.
-listIdentityPoolUsageResponse_httpStatus :: Lens.Lens' ListIdentityPoolUsageResponse Core.Int
+listIdentityPoolUsageResponse_httpStatus :: Lens.Lens' ListIdentityPoolUsageResponse Prelude.Int
 listIdentityPoolUsageResponse_httpStatus = Lens.lens (\ListIdentityPoolUsageResponse' {httpStatus} -> httpStatus) (\s@ListIdentityPoolUsageResponse' {} a -> s {httpStatus = a} :: ListIdentityPoolUsageResponse)
 
-instance Core.NFData ListIdentityPoolUsageResponse
+instance Prelude.NFData ListIdentityPoolUsageResponse

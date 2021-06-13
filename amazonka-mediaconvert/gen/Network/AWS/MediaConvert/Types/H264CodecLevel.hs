@@ -42,6 +42,7 @@ module Network.AWS.MediaConvert.Types.H264CodecLevel
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify an H.264 level that is consistent with your output video
 -- settings. If you aren\'t sure what level to specify, choose Auto (AUTO).
@@ -50,15 +51,15 @@ newtype H264CodecLevel = H264CodecLevel'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

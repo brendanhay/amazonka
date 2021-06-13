@@ -21,15 +21,16 @@ module Network.AWS.WorkSpaces.Types.RebuildRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the information used to rebuild a WorkSpace.
 --
 -- /See:/ 'newRebuildRequest' smart constructor.
 data RebuildRequest = RebuildRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Core.Text
+    workspaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebuildRequest' with all optional fields omitted.
@@ -42,22 +43,22 @@ data RebuildRequest = RebuildRequest'
 -- 'workspaceId', 'rebuildRequest_workspaceId' - The identifier of the WorkSpace.
 newRebuildRequest ::
   -- | 'workspaceId'
-  Core.Text ->
+  Prelude.Text ->
   RebuildRequest
 newRebuildRequest pWorkspaceId_ =
   RebuildRequest' {workspaceId = pWorkspaceId_}
 
 -- | The identifier of the WorkSpace.
-rebuildRequest_workspaceId :: Lens.Lens' RebuildRequest Core.Text
+rebuildRequest_workspaceId :: Lens.Lens' RebuildRequest Prelude.Text
 rebuildRequest_workspaceId = Lens.lens (\RebuildRequest' {workspaceId} -> workspaceId) (\s@RebuildRequest' {} a -> s {workspaceId = a} :: RebuildRequest)
 
-instance Core.Hashable RebuildRequest
+instance Prelude.Hashable RebuildRequest
 
-instance Core.NFData RebuildRequest
+instance Prelude.NFData RebuildRequest
 
 instance Core.ToJSON RebuildRequest where
   toJSON RebuildRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("WorkspaceId" Core..= workspaceId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("WorkspaceId" Core..= workspaceId)]
       )

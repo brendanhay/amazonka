@@ -46,6 +46,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,16 +61,16 @@ data PutEvaluations = PutEvaluations'
     --
     -- When @TestMode@ is @true@, @PutEvaluations@ doesn\'t require a valid
     -- value for the @ResultToken@ parameter, but the value cannot be null.
-    testMode :: Core.Maybe Core.Bool,
+    testMode :: Prelude.Maybe Prelude.Bool,
     -- | The assessments that the AWS Lambda function performs. Each evaluation
     -- identifies an AWS resource and indicates whether it complies with the
     -- AWS Config rule that invokes the AWS Lambda function.
-    evaluations :: Core.Maybe [Evaluation],
+    evaluations :: Prelude.Maybe [Evaluation],
     -- | An encrypted token that associates an evaluation with an AWS Config
     -- rule. Identifies the rule and the event that triggered the evaluation.
-    resultToken :: Core.Text
+    resultToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutEvaluations' with all optional fields omitted.
@@ -95,12 +96,12 @@ data PutEvaluations = PutEvaluations'
 -- rule. Identifies the rule and the event that triggered the evaluation.
 newPutEvaluations ::
   -- | 'resultToken'
-  Core.Text ->
+  Prelude.Text ->
   PutEvaluations
 newPutEvaluations pResultToken_ =
   PutEvaluations'
-    { testMode = Core.Nothing,
-      evaluations = Core.Nothing,
+    { testMode = Prelude.Nothing,
+      evaluations = Prelude.Nothing,
       resultToken = pResultToken_
     }
 
@@ -111,18 +112,18 @@ newPutEvaluations pResultToken_ =
 --
 -- When @TestMode@ is @true@, @PutEvaluations@ doesn\'t require a valid
 -- value for the @ResultToken@ parameter, but the value cannot be null.
-putEvaluations_testMode :: Lens.Lens' PutEvaluations (Core.Maybe Core.Bool)
+putEvaluations_testMode :: Lens.Lens' PutEvaluations (Prelude.Maybe Prelude.Bool)
 putEvaluations_testMode = Lens.lens (\PutEvaluations' {testMode} -> testMode) (\s@PutEvaluations' {} a -> s {testMode = a} :: PutEvaluations)
 
 -- | The assessments that the AWS Lambda function performs. Each evaluation
 -- identifies an AWS resource and indicates whether it complies with the
 -- AWS Config rule that invokes the AWS Lambda function.
-putEvaluations_evaluations :: Lens.Lens' PutEvaluations (Core.Maybe [Evaluation])
-putEvaluations_evaluations = Lens.lens (\PutEvaluations' {evaluations} -> evaluations) (\s@PutEvaluations' {} a -> s {evaluations = a} :: PutEvaluations) Core.. Lens.mapping Lens._Coerce
+putEvaluations_evaluations :: Lens.Lens' PutEvaluations (Prelude.Maybe [Evaluation])
+putEvaluations_evaluations = Lens.lens (\PutEvaluations' {evaluations} -> evaluations) (\s@PutEvaluations' {} a -> s {evaluations = a} :: PutEvaluations) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An encrypted token that associates an evaluation with an AWS Config
 -- rule. Identifies the rule and the event that triggered the evaluation.
-putEvaluations_resultToken :: Lens.Lens' PutEvaluations Core.Text
+putEvaluations_resultToken :: Lens.Lens' PutEvaluations Prelude.Text
 putEvaluations_resultToken = Lens.lens (\PutEvaluations' {resultToken} -> resultToken) (\s@PutEvaluations' {} a -> s {resultToken = a} :: PutEvaluations)
 
 instance Core.AWSRequest PutEvaluations where
@@ -134,53 +135,57 @@ instance Core.AWSRequest PutEvaluations where
     Response.receiveJSON
       ( \s h x ->
           PutEvaluationsResponse'
-            Core.<$> (x Core..?> "FailedEvaluations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "FailedEvaluations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutEvaluations
+instance Prelude.Hashable PutEvaluations
 
-instance Core.NFData PutEvaluations
+instance Prelude.NFData PutEvaluations
 
 instance Core.ToHeaders PutEvaluations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutEvaluations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutEvaluations where
   toJSON PutEvaluations' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TestMode" Core..=) Core.<$> testMode,
-            ("Evaluations" Core..=) Core.<$> evaluations,
-            Core.Just ("ResultToken" Core..= resultToken)
+      ( Prelude.catMaybes
+          [ ("TestMode" Core..=) Prelude.<$> testMode,
+            ("Evaluations" Core..=) Prelude.<$> evaluations,
+            Prelude.Just ("ResultToken" Core..= resultToken)
           ]
       )
 
 instance Core.ToPath PutEvaluations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutEvaluations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newPutEvaluationsResponse' smart constructor.
 data PutEvaluationsResponse = PutEvaluationsResponse'
   { -- | Requests that failed because of a client or server error.
-    failedEvaluations :: Core.Maybe [Evaluation],
+    failedEvaluations :: Prelude.Maybe [Evaluation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutEvaluationsResponse' with all optional fields omitted.
@@ -195,21 +200,21 @@ data PutEvaluationsResponse = PutEvaluationsResponse'
 -- 'httpStatus', 'putEvaluationsResponse_httpStatus' - The response's http status code.
 newPutEvaluationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutEvaluationsResponse
 newPutEvaluationsResponse pHttpStatus_ =
   PutEvaluationsResponse'
     { failedEvaluations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Requests that failed because of a client or server error.
-putEvaluationsResponse_failedEvaluations :: Lens.Lens' PutEvaluationsResponse (Core.Maybe [Evaluation])
-putEvaluationsResponse_failedEvaluations = Lens.lens (\PutEvaluationsResponse' {failedEvaluations} -> failedEvaluations) (\s@PutEvaluationsResponse' {} a -> s {failedEvaluations = a} :: PutEvaluationsResponse) Core.. Lens.mapping Lens._Coerce
+putEvaluationsResponse_failedEvaluations :: Lens.Lens' PutEvaluationsResponse (Prelude.Maybe [Evaluation])
+putEvaluationsResponse_failedEvaluations = Lens.lens (\PutEvaluationsResponse' {failedEvaluations} -> failedEvaluations) (\s@PutEvaluationsResponse' {} a -> s {failedEvaluations = a} :: PutEvaluationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putEvaluationsResponse_httpStatus :: Lens.Lens' PutEvaluationsResponse Core.Int
+putEvaluationsResponse_httpStatus :: Lens.Lens' PutEvaluationsResponse Prelude.Int
 putEvaluationsResponse_httpStatus = Lens.lens (\PutEvaluationsResponse' {httpStatus} -> httpStatus) (\s@PutEvaluationsResponse' {} a -> s {httpStatus = a} :: PutEvaluationsResponse)
 
-instance Core.NFData PutEvaluationsResponse
+instance Prelude.NFData PutEvaluationsResponse

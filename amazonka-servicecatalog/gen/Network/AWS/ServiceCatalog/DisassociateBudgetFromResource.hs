@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -48,12 +49,12 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDisassociateBudgetFromResource' smart constructor.
 data DisassociateBudgetFromResource = DisassociateBudgetFromResource'
   { -- | The name of the budget you want to disassociate.
-    budgetName :: Core.Text,
+    budgetName :: Prelude.Text,
     -- | The resource identifier you want to disassociate from. Either a
     -- portfolio-id or a product-id.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateBudgetFromResource' with all optional fields omitted.
@@ -69,9 +70,9 @@ data DisassociateBudgetFromResource = DisassociateBudgetFromResource'
 -- portfolio-id or a product-id.
 newDisassociateBudgetFromResource ::
   -- | 'budgetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateBudgetFromResource
 newDisassociateBudgetFromResource
   pBudgetName_
@@ -83,12 +84,12 @@ newDisassociateBudgetFromResource
       }
 
 -- | The name of the budget you want to disassociate.
-disassociateBudgetFromResource_budgetName :: Lens.Lens' DisassociateBudgetFromResource Core.Text
+disassociateBudgetFromResource_budgetName :: Lens.Lens' DisassociateBudgetFromResource Prelude.Text
 disassociateBudgetFromResource_budgetName = Lens.lens (\DisassociateBudgetFromResource' {budgetName} -> budgetName) (\s@DisassociateBudgetFromResource' {} a -> s {budgetName = a} :: DisassociateBudgetFromResource)
 
 -- | The resource identifier you want to disassociate from. Either a
 -- portfolio-id or a product-id.
-disassociateBudgetFromResource_resourceId :: Lens.Lens' DisassociateBudgetFromResource Core.Text
+disassociateBudgetFromResource_resourceId :: Lens.Lens' DisassociateBudgetFromResource Prelude.Text
 disassociateBudgetFromResource_resourceId = Lens.lens (\DisassociateBudgetFromResource' {resourceId} -> resourceId) (\s@DisassociateBudgetFromResource' {} a -> s {resourceId = a} :: DisassociateBudgetFromResource)
 
 instance
@@ -103,50 +104,56 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DisassociateBudgetFromResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateBudgetFromResource
+instance
+  Prelude.Hashable
+    DisassociateBudgetFromResource
 
-instance Core.NFData DisassociateBudgetFromResource
+instance
+  Prelude.NFData
+    DisassociateBudgetFromResource
 
 instance
   Core.ToHeaders
     DisassociateBudgetFromResource
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DisassociateBudgetFromResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateBudgetFromResource where
   toJSON DisassociateBudgetFromResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("BudgetName" Core..= budgetName),
-            Core.Just ("ResourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("BudgetName" Core..= budgetName),
+            Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
 instance Core.ToPath DisassociateBudgetFromResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateBudgetFromResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateBudgetFromResourceResponse' smart constructor.
 data DisassociateBudgetFromResourceResponse = DisassociateBudgetFromResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateBudgetFromResourceResponse' with all optional fields omitted.
@@ -159,7 +166,7 @@ data DisassociateBudgetFromResourceResponse = DisassociateBudgetFromResourceResp
 -- 'httpStatus', 'disassociateBudgetFromResourceResponse_httpStatus' - The response's http status code.
 newDisassociateBudgetFromResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateBudgetFromResourceResponse
 newDisassociateBudgetFromResourceResponse
   pHttpStatus_ =
@@ -169,9 +176,9 @@ newDisassociateBudgetFromResourceResponse
       }
 
 -- | The response's http status code.
-disassociateBudgetFromResourceResponse_httpStatus :: Lens.Lens' DisassociateBudgetFromResourceResponse Core.Int
+disassociateBudgetFromResourceResponse_httpStatus :: Lens.Lens' DisassociateBudgetFromResourceResponse Prelude.Int
 disassociateBudgetFromResourceResponse_httpStatus = Lens.lens (\DisassociateBudgetFromResourceResponse' {httpStatus} -> httpStatus) (\s@DisassociateBudgetFromResourceResponse' {} a -> s {httpStatus = a} :: DisassociateBudgetFromResourceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateBudgetFromResourceResponse

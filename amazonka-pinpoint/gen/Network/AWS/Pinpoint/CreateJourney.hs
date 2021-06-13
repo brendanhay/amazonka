@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data CreateJourney = CreateJourney'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     writeJourneyRequest :: WriteJourneyRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateJourney' with all optional fields omitted.
@@ -69,7 +70,7 @@ data CreateJourney = CreateJourney'
 -- 'writeJourneyRequest', 'createJourney_writeJourneyRequest' - Undocumented member.
 newCreateJourney ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'writeJourneyRequest'
   WriteJourneyRequest ->
   CreateJourney
@@ -83,7 +84,7 @@ newCreateJourney
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-createJourney_applicationId :: Lens.Lens' CreateJourney Core.Text
+createJourney_applicationId :: Lens.Lens' CreateJourney Prelude.Text
 createJourney_applicationId = Lens.lens (\CreateJourney' {applicationId} -> applicationId) (\s@CreateJourney' {} a -> s {applicationId = a} :: CreateJourney)
 
 -- | Undocumented member.
@@ -99,47 +100,49 @@ instance Core.AWSRequest CreateJourney where
     Response.receiveJSON
       ( \s h x ->
           CreateJourneyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable CreateJourney
+instance Prelude.Hashable CreateJourney
 
-instance Core.NFData CreateJourney
+instance Prelude.NFData CreateJourney
 
 instance Core.ToHeaders CreateJourney where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateJourney where
   toJSON CreateJourney' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("WriteJourneyRequest" Core..= writeJourneyRequest)
           ]
       )
 
 instance Core.ToPath CreateJourney where
   toPath CreateJourney' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apps/", Core.toBS applicationId, "/journeys"]
 
 instance Core.ToQuery CreateJourney where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJourneyResponse' smart constructor.
 data CreateJourneyResponse = CreateJourneyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     journeyResponse :: JourneyResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateJourneyResponse' with all optional fields omitted.
@@ -154,7 +157,7 @@ data CreateJourneyResponse = CreateJourneyResponse'
 -- 'journeyResponse', 'createJourneyResponse_journeyResponse' - Undocumented member.
 newCreateJourneyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'journeyResponse'
   JourneyResponse ->
   CreateJourneyResponse
@@ -167,11 +170,11 @@ newCreateJourneyResponse
       }
 
 -- | The response's http status code.
-createJourneyResponse_httpStatus :: Lens.Lens' CreateJourneyResponse Core.Int
+createJourneyResponse_httpStatus :: Lens.Lens' CreateJourneyResponse Prelude.Int
 createJourneyResponse_httpStatus = Lens.lens (\CreateJourneyResponse' {httpStatus} -> httpStatus) (\s@CreateJourneyResponse' {} a -> s {httpStatus = a} :: CreateJourneyResponse)
 
 -- | Undocumented member.
 createJourneyResponse_journeyResponse :: Lens.Lens' CreateJourneyResponse JourneyResponse
 createJourneyResponse_journeyResponse = Lens.lens (\CreateJourneyResponse' {journeyResponse} -> journeyResponse) (\s@CreateJourneyResponse' {} a -> s {journeyResponse = a} :: CreateJourneyResponse)
 
-instance Core.NFData CreateJourneyResponse
+instance Prelude.NFData CreateJourneyResponse

@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -75,10 +76,10 @@ data GetObjectTagging = GetObjectTagging'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The versionId of the object for which to get the tagging information.
-    versionId :: Core.Maybe ObjectVersionId,
-    requestPayer :: Core.Maybe RequestPayer,
+    versionId :: Prelude.Maybe ObjectVersionId,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the object for which to get the tagging
     -- information.
     --
@@ -104,7 +105,7 @@ data GetObjectTagging = GetObjectTagging'
     -- | Object key for which to get the tagging information.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectTagging' with all optional fields omitted.
@@ -154,9 +155,9 @@ newGetObjectTagging ::
 newGetObjectTagging pBucket_ pKey_ =
   GetObjectTagging'
     { expectedBucketOwner =
-        Core.Nothing,
-      versionId = Core.Nothing,
-      requestPayer = Core.Nothing,
+        Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -164,15 +165,15 @@ newGetObjectTagging pBucket_ pKey_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getObjectTagging_expectedBucketOwner :: Lens.Lens' GetObjectTagging (Core.Maybe Core.Text)
+getObjectTagging_expectedBucketOwner :: Lens.Lens' GetObjectTagging (Prelude.Maybe Prelude.Text)
 getObjectTagging_expectedBucketOwner = Lens.lens (\GetObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectTagging' {} a -> s {expectedBucketOwner = a} :: GetObjectTagging)
 
 -- | The versionId of the object for which to get the tagging information.
-getObjectTagging_versionId :: Lens.Lens' GetObjectTagging (Core.Maybe ObjectVersionId)
+getObjectTagging_versionId :: Lens.Lens' GetObjectTagging (Prelude.Maybe ObjectVersionId)
 getObjectTagging_versionId = Lens.lens (\GetObjectTagging' {versionId} -> versionId) (\s@GetObjectTagging' {} a -> s {versionId = a} :: GetObjectTagging)
 
 -- | Undocumented member.
-getObjectTagging_requestPayer :: Lens.Lens' GetObjectTagging (Core.Maybe RequestPayer)
+getObjectTagging_requestPayer :: Lens.Lens' GetObjectTagging (Prelude.Maybe RequestPayer)
 getObjectTagging_requestPayer = Lens.lens (\GetObjectTagging' {requestPayer} -> requestPayer) (\s@GetObjectTagging' {} a -> s {requestPayer = a} :: GetObjectTagging)
 
 -- | The bucket name containing the object for which to get the tagging
@@ -212,20 +213,20 @@ instance Core.AWSRequest GetObjectTagging where
     Response.receiveXML
       ( \s h x ->
           GetObjectTaggingResponse'
-            Core.<$> (h Core..#? "x-amz-version-id")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "TagSet" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "Tag"
-                     )
+            Prelude.<$> (h Core..#? "x-amz-version-id")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "TagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "Tag"
+                        )
       )
 
-instance Core.Hashable GetObjectTagging
+instance Prelude.Hashable GetObjectTagging
 
-instance Core.NFData GetObjectTagging
+instance Prelude.NFData GetObjectTagging
 
 instance Core.ToHeaders GetObjectTagging where
   toHeaders GetObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer
@@ -233,24 +234,24 @@ instance Core.ToHeaders GetObjectTagging where
 
 instance Core.ToPath GetObjectTagging where
   toPath GetObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS bucket, "/", Core.toBS key]
 
 instance Core.ToQuery GetObjectTagging where
   toQuery GetObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["versionId" Core.=: versionId, "tagging"]
 
 -- | /See:/ 'newGetObjectTaggingResponse' smart constructor.
 data GetObjectTaggingResponse = GetObjectTaggingResponse'
   { -- | The versionId of the object for which you got the tagging information.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Contains the tag set.
     tagSet :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectTaggingResponse' with all optional fields omitted.
@@ -267,25 +268,26 @@ data GetObjectTaggingResponse = GetObjectTaggingResponse'
 -- 'tagSet', 'getObjectTaggingResponse_tagSet' - Contains the tag set.
 newGetObjectTaggingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetObjectTaggingResponse
 newGetObjectTaggingResponse pHttpStatus_ =
   GetObjectTaggingResponse'
-    { versionId = Core.Nothing,
+    { versionId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      tagSet = Core.mempty
+      tagSet = Prelude.mempty
     }
 
 -- | The versionId of the object for which you got the tagging information.
-getObjectTaggingResponse_versionId :: Lens.Lens' GetObjectTaggingResponse (Core.Maybe ObjectVersionId)
+getObjectTaggingResponse_versionId :: Lens.Lens' GetObjectTaggingResponse (Prelude.Maybe ObjectVersionId)
 getObjectTaggingResponse_versionId = Lens.lens (\GetObjectTaggingResponse' {versionId} -> versionId) (\s@GetObjectTaggingResponse' {} a -> s {versionId = a} :: GetObjectTaggingResponse)
 
 -- | The response's http status code.
-getObjectTaggingResponse_httpStatus :: Lens.Lens' GetObjectTaggingResponse Core.Int
+getObjectTaggingResponse_httpStatus :: Lens.Lens' GetObjectTaggingResponse Prelude.Int
 getObjectTaggingResponse_httpStatus = Lens.lens (\GetObjectTaggingResponse' {httpStatus} -> httpStatus) (\s@GetObjectTaggingResponse' {} a -> s {httpStatus = a} :: GetObjectTaggingResponse)
 
 -- | Contains the tag set.
 getObjectTaggingResponse_tagSet :: Lens.Lens' GetObjectTaggingResponse [Tag]
-getObjectTaggingResponse_tagSet = Lens.lens (\GetObjectTaggingResponse' {tagSet} -> tagSet) (\s@GetObjectTaggingResponse' {} a -> s {tagSet = a} :: GetObjectTaggingResponse) Core.. Lens._Coerce
+getObjectTaggingResponse_tagSet = Lens.lens (\GetObjectTaggingResponse' {tagSet} -> tagSet) (\s@GetObjectTaggingResponse' {} a -> s {tagSet = a} :: GetObjectTaggingResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData GetObjectTaggingResponse
+instance Prelude.NFData GetObjectTaggingResponse

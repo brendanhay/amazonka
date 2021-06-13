@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.DiskImageVolumeDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a disk image volume.
 --
 -- /See:/ 'newDiskImageVolumeDescription' smart constructor.
 data DiskImageVolumeDescription = DiskImageVolumeDescription'
   { -- | The volume identifier.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The size of the volume, in GiB.
-    size :: Core.Maybe Core.Integer
+    size :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiskImageVolumeDescription' with all optional fields omitted.
@@ -49,23 +50,23 @@ newDiskImageVolumeDescription ::
   DiskImageVolumeDescription
 newDiskImageVolumeDescription =
   DiskImageVolumeDescription'
-    { id = Core.Nothing,
-      size = Core.Nothing
+    { id = Prelude.Nothing,
+      size = Prelude.Nothing
     }
 
 -- | The volume identifier.
-diskImageVolumeDescription_id :: Lens.Lens' DiskImageVolumeDescription (Core.Maybe Core.Text)
+diskImageVolumeDescription_id :: Lens.Lens' DiskImageVolumeDescription (Prelude.Maybe Prelude.Text)
 diskImageVolumeDescription_id = Lens.lens (\DiskImageVolumeDescription' {id} -> id) (\s@DiskImageVolumeDescription' {} a -> s {id = a} :: DiskImageVolumeDescription)
 
 -- | The size of the volume, in GiB.
-diskImageVolumeDescription_size :: Lens.Lens' DiskImageVolumeDescription (Core.Maybe Core.Integer)
+diskImageVolumeDescription_size :: Lens.Lens' DiskImageVolumeDescription (Prelude.Maybe Prelude.Integer)
 diskImageVolumeDescription_size = Lens.lens (\DiskImageVolumeDescription' {size} -> size) (\s@DiskImageVolumeDescription' {} a -> s {size = a} :: DiskImageVolumeDescription)
 
 instance Core.FromXML DiskImageVolumeDescription where
   parseXML x =
     DiskImageVolumeDescription'
-      Core.<$> (x Core..@? "id") Core.<*> (x Core..@? "size")
+      Prelude.<$> (x Core..@? "id") Prelude.<*> (x Core..@? "size")
 
-instance Core.Hashable DiskImageVolumeDescription
+instance Prelude.Hashable DiskImageVolumeDescription
 
-instance Core.NFData DiskImageVolumeDescription
+instance Prelude.NFData DiskImageVolumeDescription

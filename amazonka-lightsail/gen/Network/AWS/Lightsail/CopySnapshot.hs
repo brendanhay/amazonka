@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,14 +81,14 @@ data CopySnapshot = CopySnapshot'
     -- -   Define this parameter only when copying an automatic snapshot as a
     --     manual snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
-    restoreDate :: Core.Maybe Core.Text,
+    restoreDate :: Prelude.Maybe Prelude.Text,
     -- | The name of the source manual snapshot to copy.
     --
     -- Constraint:
     --
     -- -   Define this parameter only when copying a manual snapshot as another
     --     manual snapshot.
-    sourceSnapshotName :: Core.Maybe Core.Text,
+    sourceSnapshotName :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value to indicate whether to use the latest available
     -- automatic snapshot of the specified source instance or disk.
     --
@@ -100,7 +101,7 @@ data CopySnapshot = CopySnapshot'
     -- -   Define this parameter only when copying an automatic snapshot as a
     --     manual snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
-    useLatestRestorableAutoSnapshot :: Core.Maybe Core.Bool,
+    useLatestRestorableAutoSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The name of the source instance or disk from which the source automatic
     -- snapshot was created.
     --
@@ -109,13 +110,13 @@ data CopySnapshot = CopySnapshot'
     -- -   Define this parameter only when copying an automatic snapshot as a
     --     manual snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
-    sourceResourceName :: Core.Maybe Core.Text,
+    sourceResourceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the new manual snapshot to be created as a copy.
-    targetSnapshotName :: Core.Text,
+    targetSnapshotName :: Prelude.Text,
     -- | The AWS Region where the source manual or automatic snapshot is located.
     sourceRegion :: RegionName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopySnapshot' with all optional fields omitted.
@@ -176,16 +177,16 @@ data CopySnapshot = CopySnapshot'
 -- 'sourceRegion', 'copySnapshot_sourceRegion' - The AWS Region where the source manual or automatic snapshot is located.
 newCopySnapshot ::
   -- | 'targetSnapshotName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceRegion'
   RegionName ->
   CopySnapshot
 newCopySnapshot pTargetSnapshotName_ pSourceRegion_ =
   CopySnapshot'
-    { restoreDate = Core.Nothing,
-      sourceSnapshotName = Core.Nothing,
-      useLatestRestorableAutoSnapshot = Core.Nothing,
-      sourceResourceName = Core.Nothing,
+    { restoreDate = Prelude.Nothing,
+      sourceSnapshotName = Prelude.Nothing,
+      useLatestRestorableAutoSnapshot = Prelude.Nothing,
+      sourceResourceName = Prelude.Nothing,
       targetSnapshotName = pTargetSnapshotName_,
       sourceRegion = pSourceRegion_
     }
@@ -206,7 +207,7 @@ newCopySnapshot pTargetSnapshotName_ pSourceRegion_ =
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
-copySnapshot_restoreDate :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
+copySnapshot_restoreDate :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_restoreDate = Lens.lens (\CopySnapshot' {restoreDate} -> restoreDate) (\s@CopySnapshot' {} a -> s {restoreDate = a} :: CopySnapshot)
 
 -- | The name of the source manual snapshot to copy.
@@ -215,7 +216,7 @@ copySnapshot_restoreDate = Lens.lens (\CopySnapshot' {restoreDate} -> restoreDat
 --
 -- -   Define this parameter only when copying a manual snapshot as another
 --     manual snapshot.
-copySnapshot_sourceSnapshotName :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
+copySnapshot_sourceSnapshotName :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_sourceSnapshotName = Lens.lens (\CopySnapshot' {sourceSnapshotName} -> sourceSnapshotName) (\s@CopySnapshot' {} a -> s {sourceSnapshotName = a} :: CopySnapshot)
 
 -- | A Boolean value to indicate whether to use the latest available
@@ -230,7 +231,7 @@ copySnapshot_sourceSnapshotName = Lens.lens (\CopySnapshot' {sourceSnapshotName}
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
-copySnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CopySnapshot (Core.Maybe Core.Bool)
+copySnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
 copySnapshot_useLatestRestorableAutoSnapshot = Lens.lens (\CopySnapshot' {useLatestRestorableAutoSnapshot} -> useLatestRestorableAutoSnapshot) (\s@CopySnapshot' {} a -> s {useLatestRestorableAutoSnapshot = a} :: CopySnapshot)
 
 -- | The name of the source instance or disk from which the source automatic
@@ -241,11 +242,11 @@ copySnapshot_useLatestRestorableAutoSnapshot = Lens.lens (\CopySnapshot' {useLat
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
-copySnapshot_sourceResourceName :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
+copySnapshot_sourceResourceName :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_sourceResourceName = Lens.lens (\CopySnapshot' {sourceResourceName} -> sourceResourceName) (\s@CopySnapshot' {} a -> s {sourceResourceName = a} :: CopySnapshot)
 
 -- | The name of the new manual snapshot to be created as a copy.
-copySnapshot_targetSnapshotName :: Lens.Lens' CopySnapshot Core.Text
+copySnapshot_targetSnapshotName :: Lens.Lens' CopySnapshot Prelude.Text
 copySnapshot_targetSnapshotName = Lens.lens (\CopySnapshot' {targetSnapshotName} -> targetSnapshotName) (\s@CopySnapshot' {} a -> s {targetSnapshotName = a} :: CopySnapshot)
 
 -- | The AWS Region where the source manual or automatic snapshot is located.
@@ -259,60 +260,62 @@ instance Core.AWSRequest CopySnapshot where
     Response.receiveJSON
       ( \s h x ->
           CopySnapshotResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CopySnapshot
+instance Prelude.Hashable CopySnapshot
 
-instance Core.NFData CopySnapshot
+instance Prelude.NFData CopySnapshot
 
 instance Core.ToHeaders CopySnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CopySnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CopySnapshot where
   toJSON CopySnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("restoreDate" Core..=) Core.<$> restoreDate,
+      ( Prelude.catMaybes
+          [ ("restoreDate" Core..=) Prelude.<$> restoreDate,
             ("sourceSnapshotName" Core..=)
-              Core.<$> sourceSnapshotName,
+              Prelude.<$> sourceSnapshotName,
             ("useLatestRestorableAutoSnapshot" Core..=)
-              Core.<$> useLatestRestorableAutoSnapshot,
+              Prelude.<$> useLatestRestorableAutoSnapshot,
             ("sourceResourceName" Core..=)
-              Core.<$> sourceResourceName,
-            Core.Just
+              Prelude.<$> sourceResourceName,
+            Prelude.Just
               ("targetSnapshotName" Core..= targetSnapshotName),
-            Core.Just ("sourceRegion" Core..= sourceRegion)
+            Prelude.Just ("sourceRegion" Core..= sourceRegion)
           ]
       )
 
 instance Core.ToPath CopySnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CopySnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopySnapshotResponse' with all optional fields omitted.
@@ -329,22 +332,22 @@ data CopySnapshotResponse = CopySnapshotResponse'
 -- 'httpStatus', 'copySnapshotResponse_httpStatus' - The response's http status code.
 newCopySnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CopySnapshotResponse
 newCopySnapshotResponse pHttpStatus_ =
   CopySnapshotResponse'
-    { operations = Core.Nothing,
+    { operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-copySnapshotResponse_operations :: Lens.Lens' CopySnapshotResponse (Core.Maybe [Operation])
-copySnapshotResponse_operations = Lens.lens (\CopySnapshotResponse' {operations} -> operations) (\s@CopySnapshotResponse' {} a -> s {operations = a} :: CopySnapshotResponse) Core.. Lens.mapping Lens._Coerce
+copySnapshotResponse_operations :: Lens.Lens' CopySnapshotResponse (Prelude.Maybe [Operation])
+copySnapshotResponse_operations = Lens.lens (\CopySnapshotResponse' {operations} -> operations) (\s@CopySnapshotResponse' {} a -> s {operations = a} :: CopySnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-copySnapshotResponse_httpStatus :: Lens.Lens' CopySnapshotResponse Core.Int
+copySnapshotResponse_httpStatus :: Lens.Lens' CopySnapshotResponse Prelude.Int
 copySnapshotResponse_httpStatus = Lens.lens (\CopySnapshotResponse' {httpStatus} -> httpStatus) (\s@CopySnapshotResponse' {} a -> s {httpStatus = a} :: CopySnapshotResponse)
 
-instance Core.NFData CopySnapshotResponse
+instance Prelude.NFData CopySnapshotResponse

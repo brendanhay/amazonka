@@ -57,6 +57,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -71,15 +72,15 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newListTapes' smart constructor.
 data ListTapes = ListTapes'
-  { tapeARNs :: Core.Maybe [Core.Text],
+  { tapeARNs :: Prelude.Maybe [Prelude.Text],
     -- | An optional number limit for the tapes in the list returned by this
     -- call.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | A string that indicates the position at which to begin the returned list
     -- of tapes.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTapes' with all optional fields omitted.
@@ -100,42 +101,43 @@ newListTapes ::
   ListTapes
 newListTapes =
   ListTapes'
-    { tapeARNs = Core.Nothing,
-      limit = Core.Nothing,
-      marker = Core.Nothing
+    { tapeARNs = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Undocumented member.
-listTapes_tapeARNs :: Lens.Lens' ListTapes (Core.Maybe [Core.Text])
-listTapes_tapeARNs = Lens.lens (\ListTapes' {tapeARNs} -> tapeARNs) (\s@ListTapes' {} a -> s {tapeARNs = a} :: ListTapes) Core.. Lens.mapping Lens._Coerce
+listTapes_tapeARNs :: Lens.Lens' ListTapes (Prelude.Maybe [Prelude.Text])
+listTapes_tapeARNs = Lens.lens (\ListTapes' {tapeARNs} -> tapeARNs) (\s@ListTapes' {} a -> s {tapeARNs = a} :: ListTapes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional number limit for the tapes in the list returned by this
 -- call.
-listTapes_limit :: Lens.Lens' ListTapes (Core.Maybe Core.Natural)
+listTapes_limit :: Lens.Lens' ListTapes (Prelude.Maybe Prelude.Natural)
 listTapes_limit = Lens.lens (\ListTapes' {limit} -> limit) (\s@ListTapes' {} a -> s {limit = a} :: ListTapes)
 
 -- | A string that indicates the position at which to begin the returned list
 -- of tapes.
-listTapes_marker :: Lens.Lens' ListTapes (Core.Maybe Core.Text)
+listTapes_marker :: Lens.Lens' ListTapes (Prelude.Maybe Prelude.Text)
 listTapes_marker = Lens.lens (\ListTapes' {marker} -> marker) (\s@ListTapes' {} a -> s {marker = a} :: ListTapes)
 
 instance Core.AWSPager ListTapes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTapesResponse_marker Core.. Lens._Just
+            Lens.^? listTapesResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTapesResponse_tapeInfos Core.. Lens._Just
+            Lens.^? listTapesResponse_tapeInfos Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTapes_marker
-          Lens..~ rs Lens.^? listTapesResponse_marker Core.. Lens._Just
+          Prelude.& listTapes_marker
+          Lens..~ rs
+          Lens.^? listTapesResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTapes where
   type AWSResponse ListTapes = ListTapesResponse
@@ -144,43 +146,45 @@ instance Core.AWSRequest ListTapes where
     Response.receiveJSON
       ( \s h x ->
           ListTapesResponse'
-            Core.<$> (x Core..?> "TapeInfos" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TapeInfos" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTapes
+instance Prelude.Hashable ListTapes
 
-instance Core.NFData ListTapes
+instance Prelude.NFData ListTapes
 
 instance Core.ToHeaders ListTapes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.ListTapes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTapes where
   toJSON ListTapes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TapeARNs" Core..=) Core.<$> tapeARNs,
-            ("Limit" Core..=) Core.<$> limit,
-            ("Marker" Core..=) Core.<$> marker
+      ( Prelude.catMaybes
+          [ ("TapeARNs" Core..=) Prelude.<$> tapeARNs,
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 
 instance Core.ToPath ListTapes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTapes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:
 --
@@ -190,16 +194,16 @@ instance Core.ToQuery ListTapes where
 --
 -- /See:/ 'newListTapesResponse' smart constructor.
 data ListTapesResponse = ListTapesResponse'
-  { tapeInfos :: Core.Maybe [TapeInfo],
+  { tapeInfos :: Prelude.Maybe [TapeInfo],
     -- | A string that indicates the position at which to begin returning the
     -- next list of tapes. Use the marker in your next request to continue
     -- pagination of tapes. If there are no more tapes to list, this element
     -- does not appear in the response body.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTapesResponse' with all optional fields omitted.
@@ -219,28 +223,28 @@ data ListTapesResponse = ListTapesResponse'
 -- 'httpStatus', 'listTapesResponse_httpStatus' - The response's http status code.
 newListTapesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTapesResponse
 newListTapesResponse pHttpStatus_ =
   ListTapesResponse'
-    { tapeInfos = Core.Nothing,
-      marker = Core.Nothing,
+    { tapeInfos = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listTapesResponse_tapeInfos :: Lens.Lens' ListTapesResponse (Core.Maybe [TapeInfo])
-listTapesResponse_tapeInfos = Lens.lens (\ListTapesResponse' {tapeInfos} -> tapeInfos) (\s@ListTapesResponse' {} a -> s {tapeInfos = a} :: ListTapesResponse) Core.. Lens.mapping Lens._Coerce
+listTapesResponse_tapeInfos :: Lens.Lens' ListTapesResponse (Prelude.Maybe [TapeInfo])
+listTapesResponse_tapeInfos = Lens.lens (\ListTapesResponse' {tapeInfos} -> tapeInfos) (\s@ListTapesResponse' {} a -> s {tapeInfos = a} :: ListTapesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string that indicates the position at which to begin returning the
 -- next list of tapes. Use the marker in your next request to continue
 -- pagination of tapes. If there are no more tapes to list, this element
 -- does not appear in the response body.
-listTapesResponse_marker :: Lens.Lens' ListTapesResponse (Core.Maybe Core.Text)
+listTapesResponse_marker :: Lens.Lens' ListTapesResponse (Prelude.Maybe Prelude.Text)
 listTapesResponse_marker = Lens.lens (\ListTapesResponse' {marker} -> marker) (\s@ListTapesResponse' {} a -> s {marker = a} :: ListTapesResponse)
 
 -- | The response's http status code.
-listTapesResponse_httpStatus :: Lens.Lens' ListTapesResponse Core.Int
+listTapesResponse_httpStatus :: Lens.Lens' ListTapesResponse Prelude.Int
 listTapesResponse_httpStatus = Lens.lens (\ListTapesResponse' {httpStatus} -> httpStatus) (\s@ListTapesResponse' {} a -> s {httpStatus = a} :: ListTapesResponse)
 
-instance Core.NFData ListTapesResponse
+instance Prelude.NFData ListTapesResponse

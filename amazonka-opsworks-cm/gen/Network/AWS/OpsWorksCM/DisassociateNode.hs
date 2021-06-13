@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,13 +68,13 @@ data DisassociateNode = DisassociateNode'
     -- -   @CHEF_ORGANIZATION@: The Chef organization with which the node was
     --     associated. By default only one organization named @default@ can
     --     exist.
-    engineAttributes :: Core.Maybe [EngineAttribute],
+    engineAttributes :: Prelude.Maybe [EngineAttribute],
     -- | The name of the server from which to disassociate the node.
-    serverName :: Core.Text,
+    serverName :: Prelude.Text,
     -- | The name of the client node.
-    nodeName :: Core.Text
+    nodeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateNode' with all optional fields omitted.
@@ -97,13 +98,14 @@ data DisassociateNode = DisassociateNode'
 -- 'nodeName', 'disassociateNode_nodeName' - The name of the client node.
 newDisassociateNode ::
   -- | 'serverName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'nodeName'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateNode
 newDisassociateNode pServerName_ pNodeName_ =
   DisassociateNode'
-    { engineAttributes = Core.Nothing,
+    { engineAttributes =
+        Prelude.Nothing,
       serverName = pServerName_,
       nodeName = pNodeName_
     }
@@ -116,15 +118,15 @@ newDisassociateNode pServerName_ pNodeName_ =
 -- -   @CHEF_ORGANIZATION@: The Chef organization with which the node was
 --     associated. By default only one organization named @default@ can
 --     exist.
-disassociateNode_engineAttributes :: Lens.Lens' DisassociateNode (Core.Maybe [EngineAttribute])
-disassociateNode_engineAttributes = Lens.lens (\DisassociateNode' {engineAttributes} -> engineAttributes) (\s@DisassociateNode' {} a -> s {engineAttributes = a} :: DisassociateNode) Core.. Lens.mapping Lens._Coerce
+disassociateNode_engineAttributes :: Lens.Lens' DisassociateNode (Prelude.Maybe [EngineAttribute])
+disassociateNode_engineAttributes = Lens.lens (\DisassociateNode' {engineAttributes} -> engineAttributes) (\s@DisassociateNode' {} a -> s {engineAttributes = a} :: DisassociateNode) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the server from which to disassociate the node.
-disassociateNode_serverName :: Lens.Lens' DisassociateNode Core.Text
+disassociateNode_serverName :: Lens.Lens' DisassociateNode Prelude.Text
 disassociateNode_serverName = Lens.lens (\DisassociateNode' {serverName} -> serverName) (\s@DisassociateNode' {} a -> s {serverName = a} :: DisassociateNode)
 
 -- | The name of the client node.
-disassociateNode_nodeName :: Lens.Lens' DisassociateNode Core.Text
+disassociateNode_nodeName :: Lens.Lens' DisassociateNode Prelude.Text
 disassociateNode_nodeName = Lens.lens (\DisassociateNode' {nodeName} -> nodeName) (\s@DisassociateNode' {} a -> s {nodeName = a} :: DisassociateNode)
 
 instance Core.AWSRequest DisassociateNode where
@@ -136,54 +138,56 @@ instance Core.AWSRequest DisassociateNode where
     Response.receiveJSON
       ( \s h x ->
           DisassociateNodeResponse'
-            Core.<$> (x Core..?> "NodeAssociationStatusToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NodeAssociationStatusToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateNode
+instance Prelude.Hashable DisassociateNode
 
-instance Core.NFData DisassociateNode
+instance Prelude.NFData DisassociateNode
 
 instance Core.ToHeaders DisassociateNode where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.DisassociateNode" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateNode where
   toJSON DisassociateNode' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EngineAttributes" Core..=)
-              Core.<$> engineAttributes,
-            Core.Just ("ServerName" Core..= serverName),
-            Core.Just ("NodeName" Core..= nodeName)
+              Prelude.<$> engineAttributes,
+            Prelude.Just ("ServerName" Core..= serverName),
+            Prelude.Just ("NodeName" Core..= nodeName)
           ]
       )
 
 instance Core.ToPath DisassociateNode where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateNode where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateNodeResponse' smart constructor.
 data DisassociateNodeResponse = DisassociateNodeResponse'
   { -- | Contains a token which can be passed to the
     -- @DescribeNodeAssociationStatus@ API call to get the status of the
     -- disassociation request.
-    nodeAssociationStatusToken :: Core.Maybe Core.Text,
+    nodeAssociationStatusToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateNodeResponse' with all optional fields omitted.
@@ -200,23 +204,23 @@ data DisassociateNodeResponse = DisassociateNodeResponse'
 -- 'httpStatus', 'disassociateNodeResponse_httpStatus' - The response's http status code.
 newDisassociateNodeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateNodeResponse
 newDisassociateNodeResponse pHttpStatus_ =
   DisassociateNodeResponse'
     { nodeAssociationStatusToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains a token which can be passed to the
 -- @DescribeNodeAssociationStatus@ API call to get the status of the
 -- disassociation request.
-disassociateNodeResponse_nodeAssociationStatusToken :: Lens.Lens' DisassociateNodeResponse (Core.Maybe Core.Text)
+disassociateNodeResponse_nodeAssociationStatusToken :: Lens.Lens' DisassociateNodeResponse (Prelude.Maybe Prelude.Text)
 disassociateNodeResponse_nodeAssociationStatusToken = Lens.lens (\DisassociateNodeResponse' {nodeAssociationStatusToken} -> nodeAssociationStatusToken) (\s@DisassociateNodeResponse' {} a -> s {nodeAssociationStatusToken = a} :: DisassociateNodeResponse)
 
 -- | The response's http status code.
-disassociateNodeResponse_httpStatus :: Lens.Lens' DisassociateNodeResponse Core.Int
+disassociateNodeResponse_httpStatus :: Lens.Lens' DisassociateNodeResponse Prelude.Int
 disassociateNodeResponse_httpStatus = Lens.lens (\DisassociateNodeResponse' {httpStatus} -> httpStatus) (\s@DisassociateNodeResponse' {} a -> s {httpStatus = a} :: DisassociateNodeResponse)
 
-instance Core.NFData DisassociateNodeResponse
+instance Prelude.NFData DisassociateNodeResponse

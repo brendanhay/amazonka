@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.TechnicalCueSegment where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.TechnicalCueType
 
 -- | Information about a technical cue segment. For more information, see
@@ -30,11 +31,11 @@ import Network.AWS.Rekognition.Types.TechnicalCueType
 data TechnicalCueSegment = TechnicalCueSegment'
   { -- | The confidence that Amazon Rekognition Video has in the accuracy of the
     -- detected segment.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | The type of the technical cue.
-    type' :: Core.Maybe TechnicalCueType
+    type' :: Prelude.Maybe TechnicalCueType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TechnicalCueSegment' with all optional fields omitted.
@@ -52,17 +53,17 @@ newTechnicalCueSegment ::
   TechnicalCueSegment
 newTechnicalCueSegment =
   TechnicalCueSegment'
-    { confidence = Core.Nothing,
-      type' = Core.Nothing
+    { confidence = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The confidence that Amazon Rekognition Video has in the accuracy of the
 -- detected segment.
-technicalCueSegment_confidence :: Lens.Lens' TechnicalCueSegment (Core.Maybe Core.Double)
+technicalCueSegment_confidence :: Lens.Lens' TechnicalCueSegment (Prelude.Maybe Prelude.Double)
 technicalCueSegment_confidence = Lens.lens (\TechnicalCueSegment' {confidence} -> confidence) (\s@TechnicalCueSegment' {} a -> s {confidence = a} :: TechnicalCueSegment)
 
 -- | The type of the technical cue.
-technicalCueSegment_type :: Lens.Lens' TechnicalCueSegment (Core.Maybe TechnicalCueType)
+technicalCueSegment_type :: Lens.Lens' TechnicalCueSegment (Prelude.Maybe TechnicalCueType)
 technicalCueSegment_type = Lens.lens (\TechnicalCueSegment' {type'} -> type') (\s@TechnicalCueSegment' {} a -> s {type' = a} :: TechnicalCueSegment)
 
 instance Core.FromJSON TechnicalCueSegment where
@@ -71,10 +72,10 @@ instance Core.FromJSON TechnicalCueSegment where
       "TechnicalCueSegment"
       ( \x ->
           TechnicalCueSegment'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable TechnicalCueSegment
+instance Prelude.Hashable TechnicalCueSegment
 
-instance Core.NFData TechnicalCueSegment
+instance Prelude.NFData TechnicalCueSegment

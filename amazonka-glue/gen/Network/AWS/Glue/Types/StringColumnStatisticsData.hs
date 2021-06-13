@@ -21,21 +21,22 @@ module Network.AWS.Glue.Types.StringColumnStatisticsData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines column statistics supported for character sequence data values.
 --
 -- /See:/ 'newStringColumnStatisticsData' smart constructor.
 data StringColumnStatisticsData = StringColumnStatisticsData'
   { -- | The size of the longest string in the column.
-    maximumLength :: Core.Natural,
+    maximumLength :: Prelude.Natural,
     -- | The average string length in the column.
-    averageLength :: Core.Double,
+    averageLength :: Prelude.Double,
     -- | The number of null values in the column.
-    numberOfNulls :: Core.Natural,
+    numberOfNulls :: Prelude.Natural,
     -- | The number of distinct values in a column.
-    numberOfDistinctValues :: Core.Natural
+    numberOfDistinctValues :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StringColumnStatisticsData' with all optional fields omitted.
@@ -54,13 +55,13 @@ data StringColumnStatisticsData = StringColumnStatisticsData'
 -- 'numberOfDistinctValues', 'stringColumnStatisticsData_numberOfDistinctValues' - The number of distinct values in a column.
 newStringColumnStatisticsData ::
   -- | 'maximumLength'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'averageLength'
-  Core.Double ->
+  Prelude.Double ->
   -- | 'numberOfNulls'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'numberOfDistinctValues'
-  Core.Natural ->
+  Prelude.Natural ->
   StringColumnStatisticsData
 newStringColumnStatisticsData
   pMaximumLength_
@@ -77,19 +78,19 @@ newStringColumnStatisticsData
       }
 
 -- | The size of the longest string in the column.
-stringColumnStatisticsData_maximumLength :: Lens.Lens' StringColumnStatisticsData Core.Natural
+stringColumnStatisticsData_maximumLength :: Lens.Lens' StringColumnStatisticsData Prelude.Natural
 stringColumnStatisticsData_maximumLength = Lens.lens (\StringColumnStatisticsData' {maximumLength} -> maximumLength) (\s@StringColumnStatisticsData' {} a -> s {maximumLength = a} :: StringColumnStatisticsData)
 
 -- | The average string length in the column.
-stringColumnStatisticsData_averageLength :: Lens.Lens' StringColumnStatisticsData Core.Double
+stringColumnStatisticsData_averageLength :: Lens.Lens' StringColumnStatisticsData Prelude.Double
 stringColumnStatisticsData_averageLength = Lens.lens (\StringColumnStatisticsData' {averageLength} -> averageLength) (\s@StringColumnStatisticsData' {} a -> s {averageLength = a} :: StringColumnStatisticsData)
 
 -- | The number of null values in the column.
-stringColumnStatisticsData_numberOfNulls :: Lens.Lens' StringColumnStatisticsData Core.Natural
+stringColumnStatisticsData_numberOfNulls :: Lens.Lens' StringColumnStatisticsData Prelude.Natural
 stringColumnStatisticsData_numberOfNulls = Lens.lens (\StringColumnStatisticsData' {numberOfNulls} -> numberOfNulls) (\s@StringColumnStatisticsData' {} a -> s {numberOfNulls = a} :: StringColumnStatisticsData)
 
 -- | The number of distinct values in a column.
-stringColumnStatisticsData_numberOfDistinctValues :: Lens.Lens' StringColumnStatisticsData Core.Natural
+stringColumnStatisticsData_numberOfDistinctValues :: Lens.Lens' StringColumnStatisticsData Prelude.Natural
 stringColumnStatisticsData_numberOfDistinctValues = Lens.lens (\StringColumnStatisticsData' {numberOfDistinctValues} -> numberOfDistinctValues) (\s@StringColumnStatisticsData' {} a -> s {numberOfDistinctValues = a} :: StringColumnStatisticsData)
 
 instance Core.FromJSON StringColumnStatisticsData where
@@ -98,24 +99,25 @@ instance Core.FromJSON StringColumnStatisticsData where
       "StringColumnStatisticsData"
       ( \x ->
           StringColumnStatisticsData'
-            Core.<$> (x Core..: "MaximumLength")
-            Core.<*> (x Core..: "AverageLength")
-            Core.<*> (x Core..: "NumberOfNulls")
-            Core.<*> (x Core..: "NumberOfDistinctValues")
+            Prelude.<$> (x Core..: "MaximumLength")
+            Prelude.<*> (x Core..: "AverageLength")
+            Prelude.<*> (x Core..: "NumberOfNulls")
+            Prelude.<*> (x Core..: "NumberOfDistinctValues")
       )
 
-instance Core.Hashable StringColumnStatisticsData
+instance Prelude.Hashable StringColumnStatisticsData
 
-instance Core.NFData StringColumnStatisticsData
+instance Prelude.NFData StringColumnStatisticsData
 
 instance Core.ToJSON StringColumnStatisticsData where
   toJSON StringColumnStatisticsData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("MaximumLength" Core..= maximumLength),
-            Core.Just ("AverageLength" Core..= averageLength),
-            Core.Just ("NumberOfNulls" Core..= numberOfNulls),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("MaximumLength" Core..= maximumLength),
+            Prelude.Just ("AverageLength" Core..= averageLength),
+            Prelude.Just ("NumberOfNulls" Core..= numberOfNulls),
+            Prelude.Just
               ( "NumberOfDistinctValues"
                   Core..= numberOfDistinctValues
               )

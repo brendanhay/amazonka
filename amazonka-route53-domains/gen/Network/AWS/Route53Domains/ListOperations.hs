@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -60,20 +61,20 @@ data ListOperations = ListOperations'
     -- operations that you submitted after a specified date and time. Specify
     -- the date and time in Unix time format and Coordinated Universal time
     -- (UTC).
-    submittedSince :: Core.Maybe Core.POSIX,
+    submittedSince :: Prelude.Maybe Core.POSIX,
     -- | Number of domains to be returned.
     --
     -- Default: 20
-    maxItems :: Core.Maybe Core.Int,
+    maxItems :: Prelude.Maybe Prelude.Int,
     -- | For an initial request for a list of operations, omit this element. If
     -- the number of operations that are not yet complete is greater than the
     -- value that you specified for @MaxItems@, you can use @Marker@ to return
     -- additional operations. Get the value of @NextPageMarker@ from the
     -- previous response, and submit another request that includes the value of
     -- @NextPageMarker@ in the @Marker@ element.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOperations' with all optional fields omitted.
@@ -102,22 +103,22 @@ newListOperations ::
   ListOperations
 newListOperations =
   ListOperations'
-    { submittedSince = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { submittedSince = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | An optional parameter that lets you get information about all the
 -- operations that you submitted after a specified date and time. Specify
 -- the date and time in Unix time format and Coordinated Universal time
 -- (UTC).
-listOperations_submittedSince :: Lens.Lens' ListOperations (Core.Maybe Core.UTCTime)
-listOperations_submittedSince = Lens.lens (\ListOperations' {submittedSince} -> submittedSince) (\s@ListOperations' {} a -> s {submittedSince = a} :: ListOperations) Core.. Lens.mapping Core._Time
+listOperations_submittedSince :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.UTCTime)
+listOperations_submittedSince = Lens.lens (\ListOperations' {submittedSince} -> submittedSince) (\s@ListOperations' {} a -> s {submittedSince = a} :: ListOperations) Prelude.. Lens.mapping Core._Time
 
 -- | Number of domains to be returned.
 --
 -- Default: 20
-listOperations_maxItems :: Lens.Lens' ListOperations (Core.Maybe Core.Int)
+listOperations_maxItems :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Int)
 listOperations_maxItems = Lens.lens (\ListOperations' {maxItems} -> maxItems) (\s@ListOperations' {} a -> s {maxItems = a} :: ListOperations)
 
 -- | For an initial request for a list of operations, omit this element. If
@@ -126,7 +127,7 @@ listOperations_maxItems = Lens.lens (\ListOperations' {maxItems} -> maxItems) (\
 -- additional operations. Get the value of @NextPageMarker@ from the
 -- previous response, and submit another request that includes the value of
 -- @NextPageMarker@ in the @Marker@ element.
-listOperations_marker :: Lens.Lens' ListOperations (Core.Maybe Core.Text)
+listOperations_marker :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
 listOperations_marker = Lens.lens (\ListOperations' {marker} -> marker) (\s@ListOperations' {} a -> s {marker = a} :: ListOperations)
 
 instance Core.AWSPager ListOperations where
@@ -134,19 +135,19 @@ instance Core.AWSPager ListOperations where
     | Core.stop
         ( rs
             Lens.^? listOperationsResponse_nextPageMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         (rs Lens.^. listOperationsResponse_operations) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listOperations_marker
+          Prelude.& listOperations_marker
           Lens..~ rs
           Lens.^? listOperationsResponse_nextPageMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOperations where
   type
@@ -157,43 +158,46 @@ instance Core.AWSRequest ListOperations where
     Response.receiveJSON
       ( \s h x ->
           ListOperationsResponse'
-            Core.<$> (x Core..?> "NextPageMarker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "Operations" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "NextPageMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "Operations" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListOperations
+instance Prelude.Hashable ListOperations
 
-instance Core.NFData ListOperations
+instance Prelude.NFData ListOperations
 
 instance Core.ToHeaders ListOperations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.ListOperations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListOperations where
   toJSON ListOperations' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SubmittedSince" Core..=) Core.<$> submittedSince,
-            ("MaxItems" Core..=) Core.<$> maxItems,
-            ("Marker" Core..=) Core.<$> marker
+      ( Prelude.catMaybes
+          [ ("SubmittedSince" Core..=)
+              Prelude.<$> submittedSince,
+            ("MaxItems" Core..=) Prelude.<$> maxItems,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 
 instance Core.ToPath ListOperations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListOperations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The ListOperations response includes the following elements.
 --
@@ -202,13 +206,13 @@ data ListOperationsResponse = ListOperationsResponse'
   { -- | If there are more operations than you specified for @MaxItems@ in the
     -- request, submit another request and include the value of
     -- @NextPageMarker@ in the value of @Marker@.
-    nextPageMarker :: Core.Maybe Core.Text,
+    nextPageMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Lists summaries of the operations.
     operations :: [OperationSummary]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOperationsResponse' with all optional fields omitted.
@@ -227,28 +231,28 @@ data ListOperationsResponse = ListOperationsResponse'
 -- 'operations', 'listOperationsResponse_operations' - Lists summaries of the operations.
 newListOperationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListOperationsResponse
 newListOperationsResponse pHttpStatus_ =
   ListOperationsResponse'
     { nextPageMarker =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      operations = Core.mempty
+      operations = Prelude.mempty
     }
 
 -- | If there are more operations than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of
 -- @NextPageMarker@ in the value of @Marker@.
-listOperationsResponse_nextPageMarker :: Lens.Lens' ListOperationsResponse (Core.Maybe Core.Text)
+listOperationsResponse_nextPageMarker :: Lens.Lens' ListOperationsResponse (Prelude.Maybe Prelude.Text)
 listOperationsResponse_nextPageMarker = Lens.lens (\ListOperationsResponse' {nextPageMarker} -> nextPageMarker) (\s@ListOperationsResponse' {} a -> s {nextPageMarker = a} :: ListOperationsResponse)
 
 -- | The response's http status code.
-listOperationsResponse_httpStatus :: Lens.Lens' ListOperationsResponse Core.Int
+listOperationsResponse_httpStatus :: Lens.Lens' ListOperationsResponse Prelude.Int
 listOperationsResponse_httpStatus = Lens.lens (\ListOperationsResponse' {httpStatus} -> httpStatus) (\s@ListOperationsResponse' {} a -> s {httpStatus = a} :: ListOperationsResponse)
 
 -- | Lists summaries of the operations.
 listOperationsResponse_operations :: Lens.Lens' ListOperationsResponse [OperationSummary]
-listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Core.. Lens._Coerce
+listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListOperationsResponse
+instance Prelude.NFData ListOperationsResponse

@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -47,9 +48,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newDeleteAppValidationConfiguration' smart constructor.
 data DeleteAppValidationConfiguration = DeleteAppValidationConfiguration'
   { -- | The ID of the application.
-    appId :: Core.Text
+    appId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAppValidationConfiguration' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteAppValidationConfiguration = DeleteAppValidationConfiguration'
 -- 'appId', 'deleteAppValidationConfiguration_appId' - The ID of the application.
 newDeleteAppValidationConfiguration ::
   -- | 'appId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAppValidationConfiguration
 newDeleteAppValidationConfiguration pAppId_ =
   DeleteAppValidationConfiguration' {appId = pAppId_}
 
 -- | The ID of the application.
-deleteAppValidationConfiguration_appId :: Lens.Lens' DeleteAppValidationConfiguration Core.Text
+deleteAppValidationConfiguration_appId :: Lens.Lens' DeleteAppValidationConfiguration Prelude.Text
 deleteAppValidationConfiguration_appId = Lens.lens (\DeleteAppValidationConfiguration' {appId} -> appId) (\s@DeleteAppValidationConfiguration' {} a -> s {appId = a} :: DeleteAppValidationConfiguration)
 
 instance
@@ -83,51 +84,57 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DeleteAppValidationConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteAppValidationConfiguration
 
-instance Core.NFData DeleteAppValidationConfiguration
+instance
+  Prelude.NFData
+    DeleteAppValidationConfiguration
 
 instance
   Core.ToHeaders
     DeleteAppValidationConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.DeleteAppValidationConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteAppValidationConfiguration where
   toJSON DeleteAppValidationConfiguration' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("appId" Core..= appId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("appId" Core..= appId)]
+      )
 
 instance Core.ToPath DeleteAppValidationConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteAppValidationConfiguration
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppValidationConfigurationResponse' smart constructor.
 data DeleteAppValidationConfigurationResponse = DeleteAppValidationConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAppValidationConfigurationResponse' with all optional fields omitted.
@@ -140,7 +147,7 @@ data DeleteAppValidationConfigurationResponse = DeleteAppValidationConfiguration
 -- 'httpStatus', 'deleteAppValidationConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteAppValidationConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteAppValidationConfigurationResponse
 newDeleteAppValidationConfigurationResponse
   pHttpStatus_ =
@@ -150,9 +157,9 @@ newDeleteAppValidationConfigurationResponse
       }
 
 -- | The response's http status code.
-deleteAppValidationConfigurationResponse_httpStatus :: Lens.Lens' DeleteAppValidationConfigurationResponse Core.Int
+deleteAppValidationConfigurationResponse_httpStatus :: Lens.Lens' DeleteAppValidationConfigurationResponse Prelude.Int
 deleteAppValidationConfigurationResponse_httpStatus = Lens.lens (\DeleteAppValidationConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteAppValidationConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteAppValidationConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteAppValidationConfigurationResponse

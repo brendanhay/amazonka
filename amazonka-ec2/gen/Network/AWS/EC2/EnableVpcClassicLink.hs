@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ data EnableVpcClassicLink = EnableVpcClassicLink'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPC.
-    vpcId :: Core.Text
+    vpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableVpcClassicLink' with all optional fields omitted.
@@ -82,11 +83,11 @@ data EnableVpcClassicLink = EnableVpcClassicLink'
 -- 'vpcId', 'enableVpcClassicLink_vpcId' - The ID of the VPC.
 newEnableVpcClassicLink ::
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   EnableVpcClassicLink
 newEnableVpcClassicLink pVpcId_ =
   EnableVpcClassicLink'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       vpcId = pVpcId_
     }
 
@@ -94,11 +95,11 @@ newEnableVpcClassicLink pVpcId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-enableVpcClassicLink_dryRun :: Lens.Lens' EnableVpcClassicLink (Core.Maybe Core.Bool)
+enableVpcClassicLink_dryRun :: Lens.Lens' EnableVpcClassicLink (Prelude.Maybe Prelude.Bool)
 enableVpcClassicLink_dryRun = Lens.lens (\EnableVpcClassicLink' {dryRun} -> dryRun) (\s@EnableVpcClassicLink' {} a -> s {dryRun = a} :: EnableVpcClassicLink)
 
 -- | The ID of the VPC.
-enableVpcClassicLink_vpcId :: Lens.Lens' EnableVpcClassicLink Core.Text
+enableVpcClassicLink_vpcId :: Lens.Lens' EnableVpcClassicLink Prelude.Text
 enableVpcClassicLink_vpcId = Lens.lens (\EnableVpcClassicLink' {vpcId} -> vpcId) (\s@EnableVpcClassicLink' {} a -> s {vpcId = a} :: EnableVpcClassicLink)
 
 instance Core.AWSRequest EnableVpcClassicLink where
@@ -110,26 +111,27 @@ instance Core.AWSRequest EnableVpcClassicLink where
     Response.receiveXML
       ( \s h x ->
           EnableVpcClassicLinkResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable EnableVpcClassicLink
+instance Prelude.Hashable EnableVpcClassicLink
 
-instance Core.NFData EnableVpcClassicLink
+instance Prelude.NFData EnableVpcClassicLink
 
 instance Core.ToHeaders EnableVpcClassicLink where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath EnableVpcClassicLink where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableVpcClassicLink where
   toQuery EnableVpcClassicLink' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableVpcClassicLink" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("EnableVpcClassicLink" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "VpcId" Core.=: vpcId
       ]
@@ -137,11 +139,11 @@ instance Core.ToQuery EnableVpcClassicLink where
 -- | /See:/ 'newEnableVpcClassicLinkResponse' smart constructor.
 data EnableVpcClassicLinkResponse = EnableVpcClassicLinkResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableVpcClassicLinkResponse' with all optional fields omitted.
@@ -156,21 +158,21 @@ data EnableVpcClassicLinkResponse = EnableVpcClassicLinkResponse'
 -- 'httpStatus', 'enableVpcClassicLinkResponse_httpStatus' - The response's http status code.
 newEnableVpcClassicLinkResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EnableVpcClassicLinkResponse
 newEnableVpcClassicLinkResponse pHttpStatus_ =
   EnableVpcClassicLinkResponse'
     { return' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-enableVpcClassicLinkResponse_return :: Lens.Lens' EnableVpcClassicLinkResponse (Core.Maybe Core.Bool)
+enableVpcClassicLinkResponse_return :: Lens.Lens' EnableVpcClassicLinkResponse (Prelude.Maybe Prelude.Bool)
 enableVpcClassicLinkResponse_return = Lens.lens (\EnableVpcClassicLinkResponse' {return'} -> return') (\s@EnableVpcClassicLinkResponse' {} a -> s {return' = a} :: EnableVpcClassicLinkResponse)
 
 -- | The response's http status code.
-enableVpcClassicLinkResponse_httpStatus :: Lens.Lens' EnableVpcClassicLinkResponse Core.Int
+enableVpcClassicLinkResponse_httpStatus :: Lens.Lens' EnableVpcClassicLinkResponse Prelude.Int
 enableVpcClassicLinkResponse_httpStatus = Lens.lens (\EnableVpcClassicLinkResponse' {httpStatus} -> httpStatus) (\s@EnableVpcClassicLinkResponse' {} a -> s {httpStatus = a} :: EnableVpcClassicLinkResponse)
 
-instance Core.NFData EnableVpcClassicLinkResponse
+instance Prelude.NFData EnableVpcClassicLinkResponse

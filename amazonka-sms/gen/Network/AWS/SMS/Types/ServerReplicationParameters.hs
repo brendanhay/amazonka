@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.ServerReplicationParameters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.LicenseType
 
 -- | The replication parameters for replicating a server.
@@ -29,11 +30,11 @@ import Network.AWS.SMS.Types.LicenseType
 data ServerReplicationParameters = ServerReplicationParameters'
   { -- | The number of recent AMIs to keep when creating a replication job for
     -- this server.
-    numberOfRecentAmisToKeep :: Core.Maybe Core.Int,
+    numberOfRecentAmisToKeep :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether the replication job produces encrypted AMIs.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The seed time for creating a replication job for the server.
-    seedTime :: Core.Maybe Core.POSIX,
+    seedTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
     -- This value can be any of the following:
     --
@@ -47,15 +48,15 @@ data ServerReplicationParameters = ServerReplicationParameters'
     --
     -- If encrypted is enabled but a KMS key ID is not specified, the
     -- customer\'s default KMS key for Amazon EBS is used.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The frequency of creating replication jobs for the server.
-    frequency :: Core.Maybe Core.Int,
+    frequency :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether to run the replication job one time.
-    runOnce :: Core.Maybe Core.Bool,
+    runOnce :: Prelude.Maybe Prelude.Bool,
     -- | The license type for creating a replication job for the server.
-    licenseType :: Core.Maybe LicenseType
+    licenseType :: Prelude.Maybe LicenseType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServerReplicationParameters' with all optional fields omitted.
@@ -96,27 +97,27 @@ newServerReplicationParameters ::
 newServerReplicationParameters =
   ServerReplicationParameters'
     { numberOfRecentAmisToKeep =
-        Core.Nothing,
-      encrypted = Core.Nothing,
-      seedTime = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      frequency = Core.Nothing,
-      runOnce = Core.Nothing,
-      licenseType = Core.Nothing
+        Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      seedTime = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      frequency = Prelude.Nothing,
+      runOnce = Prelude.Nothing,
+      licenseType = Prelude.Nothing
     }
 
 -- | The number of recent AMIs to keep when creating a replication job for
 -- this server.
-serverReplicationParameters_numberOfRecentAmisToKeep :: Lens.Lens' ServerReplicationParameters (Core.Maybe Core.Int)
+serverReplicationParameters_numberOfRecentAmisToKeep :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe Prelude.Int)
 serverReplicationParameters_numberOfRecentAmisToKeep = Lens.lens (\ServerReplicationParameters' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@ServerReplicationParameters' {} a -> s {numberOfRecentAmisToKeep = a} :: ServerReplicationParameters)
 
 -- | Indicates whether the replication job produces encrypted AMIs.
-serverReplicationParameters_encrypted :: Lens.Lens' ServerReplicationParameters (Core.Maybe Core.Bool)
+serverReplicationParameters_encrypted :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe Prelude.Bool)
 serverReplicationParameters_encrypted = Lens.lens (\ServerReplicationParameters' {encrypted} -> encrypted) (\s@ServerReplicationParameters' {} a -> s {encrypted = a} :: ServerReplicationParameters)
 
 -- | The seed time for creating a replication job for the server.
-serverReplicationParameters_seedTime :: Lens.Lens' ServerReplicationParameters (Core.Maybe Core.UTCTime)
-serverReplicationParameters_seedTime = Lens.lens (\ServerReplicationParameters' {seedTime} -> seedTime) (\s@ServerReplicationParameters' {} a -> s {seedTime = a} :: ServerReplicationParameters) Core.. Lens.mapping Core._Time
+serverReplicationParameters_seedTime :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe Prelude.UTCTime)
+serverReplicationParameters_seedTime = Lens.lens (\ServerReplicationParameters' {seedTime} -> seedTime) (\s@ServerReplicationParameters' {} a -> s {seedTime = a} :: ServerReplicationParameters) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -131,19 +132,19 @@ serverReplicationParameters_seedTime = Lens.lens (\ServerReplicationParameters' 
 --
 -- If encrypted is enabled but a KMS key ID is not specified, the
 -- customer\'s default KMS key for Amazon EBS is used.
-serverReplicationParameters_kmsKeyId :: Lens.Lens' ServerReplicationParameters (Core.Maybe Core.Text)
+serverReplicationParameters_kmsKeyId :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe Prelude.Text)
 serverReplicationParameters_kmsKeyId = Lens.lens (\ServerReplicationParameters' {kmsKeyId} -> kmsKeyId) (\s@ServerReplicationParameters' {} a -> s {kmsKeyId = a} :: ServerReplicationParameters)
 
 -- | The frequency of creating replication jobs for the server.
-serverReplicationParameters_frequency :: Lens.Lens' ServerReplicationParameters (Core.Maybe Core.Int)
+serverReplicationParameters_frequency :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe Prelude.Int)
 serverReplicationParameters_frequency = Lens.lens (\ServerReplicationParameters' {frequency} -> frequency) (\s@ServerReplicationParameters' {} a -> s {frequency = a} :: ServerReplicationParameters)
 
 -- | Indicates whether to run the replication job one time.
-serverReplicationParameters_runOnce :: Lens.Lens' ServerReplicationParameters (Core.Maybe Core.Bool)
+serverReplicationParameters_runOnce :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe Prelude.Bool)
 serverReplicationParameters_runOnce = Lens.lens (\ServerReplicationParameters' {runOnce} -> runOnce) (\s@ServerReplicationParameters' {} a -> s {runOnce = a} :: ServerReplicationParameters)
 
 -- | The license type for creating a replication job for the server.
-serverReplicationParameters_licenseType :: Lens.Lens' ServerReplicationParameters (Core.Maybe LicenseType)
+serverReplicationParameters_licenseType :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe LicenseType)
 serverReplicationParameters_licenseType = Lens.lens (\ServerReplicationParameters' {licenseType} -> licenseType) (\s@ServerReplicationParameters' {} a -> s {licenseType = a} :: ServerReplicationParameters)
 
 instance Core.FromJSON ServerReplicationParameters where
@@ -152,30 +153,30 @@ instance Core.FromJSON ServerReplicationParameters where
       "ServerReplicationParameters"
       ( \x ->
           ServerReplicationParameters'
-            Core.<$> (x Core..:? "numberOfRecentAmisToKeep")
-            Core.<*> (x Core..:? "encrypted")
-            Core.<*> (x Core..:? "seedTime")
-            Core.<*> (x Core..:? "kmsKeyId")
-            Core.<*> (x Core..:? "frequency")
-            Core.<*> (x Core..:? "runOnce")
-            Core.<*> (x Core..:? "licenseType")
+            Prelude.<$> (x Core..:? "numberOfRecentAmisToKeep")
+            Prelude.<*> (x Core..:? "encrypted")
+            Prelude.<*> (x Core..:? "seedTime")
+            Prelude.<*> (x Core..:? "kmsKeyId")
+            Prelude.<*> (x Core..:? "frequency")
+            Prelude.<*> (x Core..:? "runOnce")
+            Prelude.<*> (x Core..:? "licenseType")
       )
 
-instance Core.Hashable ServerReplicationParameters
+instance Prelude.Hashable ServerReplicationParameters
 
-instance Core.NFData ServerReplicationParameters
+instance Prelude.NFData ServerReplicationParameters
 
 instance Core.ToJSON ServerReplicationParameters where
   toJSON ServerReplicationParameters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("numberOfRecentAmisToKeep" Core..=)
-              Core.<$> numberOfRecentAmisToKeep,
-            ("encrypted" Core..=) Core.<$> encrypted,
-            ("seedTime" Core..=) Core.<$> seedTime,
-            ("kmsKeyId" Core..=) Core.<$> kmsKeyId,
-            ("frequency" Core..=) Core.<$> frequency,
-            ("runOnce" Core..=) Core.<$> runOnce,
-            ("licenseType" Core..=) Core.<$> licenseType
+              Prelude.<$> numberOfRecentAmisToKeep,
+            ("encrypted" Core..=) Prelude.<$> encrypted,
+            ("seedTime" Core..=) Prelude.<$> seedTime,
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("frequency" Core..=) Prelude.<$> frequency,
+            ("runOnce" Core..=) Prelude.<$> runOnce,
+            ("licenseType" Core..=) Prelude.<$> licenseType
           ]
       )

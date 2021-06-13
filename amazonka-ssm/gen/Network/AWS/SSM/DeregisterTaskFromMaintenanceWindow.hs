@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -50,11 +51,11 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeregisterTaskFromMaintenanceWindow' smart constructor.
 data DeregisterTaskFromMaintenanceWindow = DeregisterTaskFromMaintenanceWindow'
   { -- | The ID of the maintenance window the task should be removed from.
-    windowId :: Core.Text,
+    windowId :: Prelude.Text,
     -- | The ID of the task to remove from the maintenance window.
-    windowTaskId :: Core.Text
+    windowTaskId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterTaskFromMaintenanceWindow' with all optional fields omitted.
@@ -69,9 +70,9 @@ data DeregisterTaskFromMaintenanceWindow = DeregisterTaskFromMaintenanceWindow'
 -- 'windowTaskId', 'deregisterTaskFromMaintenanceWindow_windowTaskId' - The ID of the task to remove from the maintenance window.
 newDeregisterTaskFromMaintenanceWindow ::
   -- | 'windowId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'windowTaskId'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterTaskFromMaintenanceWindow
 newDeregisterTaskFromMaintenanceWindow
   pWindowId_
@@ -83,11 +84,11 @@ newDeregisterTaskFromMaintenanceWindow
       }
 
 -- | The ID of the maintenance window the task should be removed from.
-deregisterTaskFromMaintenanceWindow_windowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindow Core.Text
+deregisterTaskFromMaintenanceWindow_windowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindow Prelude.Text
 deregisterTaskFromMaintenanceWindow_windowId = Lens.lens (\DeregisterTaskFromMaintenanceWindow' {windowId} -> windowId) (\s@DeregisterTaskFromMaintenanceWindow' {} a -> s {windowId = a} :: DeregisterTaskFromMaintenanceWindow)
 
 -- | The ID of the task to remove from the maintenance window.
-deregisterTaskFromMaintenanceWindow_windowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindow Core.Text
+deregisterTaskFromMaintenanceWindow_windowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindow Prelude.Text
 deregisterTaskFromMaintenanceWindow_windowTaskId = Lens.lens (\DeregisterTaskFromMaintenanceWindow' {windowTaskId} -> windowTaskId) (\s@DeregisterTaskFromMaintenanceWindow' {} a -> s {windowTaskId = a} :: DeregisterTaskFromMaintenanceWindow)
 
 instance
@@ -102,17 +103,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeregisterTaskFromMaintenanceWindowResponse'
-            Core.<$> (x Core..?> "WindowTaskId")
-            Core.<*> (x Core..?> "WindowId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "WindowTaskId")
+              Prelude.<*> (x Core..?> "WindowId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeregisterTaskFromMaintenanceWindow
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeregisterTaskFromMaintenanceWindow
 
 instance
@@ -120,14 +121,16 @@ instance
     DeregisterTaskFromMaintenanceWindow
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DeregisterTaskFromMaintenanceWindow" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -137,9 +140,9 @@ instance
   where
   toJSON DeregisterTaskFromMaintenanceWindow' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("WindowId" Core..= windowId),
-            Core.Just ("WindowTaskId" Core..= windowTaskId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("WindowId" Core..= windowId),
+            Prelude.Just ("WindowTaskId" Core..= windowTaskId)
           ]
       )
 
@@ -147,24 +150,24 @@ instance
   Core.ToPath
     DeregisterTaskFromMaintenanceWindow
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeregisterTaskFromMaintenanceWindow
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterTaskFromMaintenanceWindowResponse' smart constructor.
 data DeregisterTaskFromMaintenanceWindowResponse = DeregisterTaskFromMaintenanceWindowResponse'
   { -- | The ID of the task removed from the maintenance window.
-    windowTaskId :: Core.Maybe Core.Text,
+    windowTaskId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window the task was removed from.
-    windowId :: Core.Maybe Core.Text,
+    windowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterTaskFromMaintenanceWindowResponse' with all optional fields omitted.
@@ -181,29 +184,29 @@ data DeregisterTaskFromMaintenanceWindowResponse = DeregisterTaskFromMaintenance
 -- 'httpStatus', 'deregisterTaskFromMaintenanceWindowResponse_httpStatus' - The response's http status code.
 newDeregisterTaskFromMaintenanceWindowResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterTaskFromMaintenanceWindowResponse
 newDeregisterTaskFromMaintenanceWindowResponse
   pHttpStatus_ =
     DeregisterTaskFromMaintenanceWindowResponse'
       { windowTaskId =
-          Core.Nothing,
-        windowId = Core.Nothing,
+          Prelude.Nothing,
+        windowId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The ID of the task removed from the maintenance window.
-deregisterTaskFromMaintenanceWindowResponse_windowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Core.Maybe Core.Text)
+deregisterTaskFromMaintenanceWindowResponse_windowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
 deregisterTaskFromMaintenanceWindowResponse_windowTaskId = Lens.lens (\DeregisterTaskFromMaintenanceWindowResponse' {windowTaskId} -> windowTaskId) (\s@DeregisterTaskFromMaintenanceWindowResponse' {} a -> s {windowTaskId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
 
 -- | The ID of the maintenance window the task was removed from.
-deregisterTaskFromMaintenanceWindowResponse_windowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Core.Maybe Core.Text)
+deregisterTaskFromMaintenanceWindowResponse_windowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
 deregisterTaskFromMaintenanceWindowResponse_windowId = Lens.lens (\DeregisterTaskFromMaintenanceWindowResponse' {windowId} -> windowId) (\s@DeregisterTaskFromMaintenanceWindowResponse' {} a -> s {windowId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
 
 -- | The response's http status code.
-deregisterTaskFromMaintenanceWindowResponse_httpStatus :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse Core.Int
+deregisterTaskFromMaintenanceWindowResponse_httpStatus :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse Prelude.Int
 deregisterTaskFromMaintenanceWindowResponse_httpStatus = Lens.lens (\DeregisterTaskFromMaintenanceWindowResponse' {httpStatus} -> httpStatus) (\s@DeregisterTaskFromMaintenanceWindowResponse' {} a -> s {httpStatus = a} :: DeregisterTaskFromMaintenanceWindowResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeregisterTaskFromMaintenanceWindowResponse

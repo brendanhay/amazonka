@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -72,7 +73,7 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
     --
     -- Example: @123e4567-e89b-12d3-a456-426655440000@
-    backtrackIdentifier :: Core.Maybe Core.Text,
+    backtrackIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more DB clusters to describe. Supported
     -- filters include the following:
     --
@@ -93,12 +94,12 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --
     --     The results list includes information about only the backtracks
     --     identified by these values.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | An optional pagination token provided by a previous
     -- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
     -- the response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -107,7 +108,7 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int,
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The DB cluster identifier of the DB cluster to be described. This
     -- parameter is stored as a lowercase string.
     --
@@ -120,9 +121,9 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     --
     -- Example: @my-cluster1@
-    dbClusterIdentifier :: Core.Text
+    dbClusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDBClusterBacktracks' with all optional fields omitted.
@@ -192,15 +193,15 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 -- Example: @my-cluster1@
 newDescribeDBClusterBacktracks ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDBClusterBacktracks
 newDescribeDBClusterBacktracks pDBClusterIdentifier_ =
   DescribeDBClusterBacktracks'
     { backtrackIdentifier =
-        Core.Nothing,
-      filters = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing,
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
 
@@ -214,7 +215,7 @@ newDescribeDBClusterBacktracks pDBClusterIdentifier_ =
 --     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
 --
 -- Example: @123e4567-e89b-12d3-a456-426655440000@
-describeDBClusterBacktracks_backtrackIdentifier :: Lens.Lens' DescribeDBClusterBacktracks (Core.Maybe Core.Text)
+describeDBClusterBacktracks_backtrackIdentifier :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
 describeDBClusterBacktracks_backtrackIdentifier = Lens.lens (\DescribeDBClusterBacktracks' {backtrackIdentifier} -> backtrackIdentifier) (\s@DescribeDBClusterBacktracks' {} a -> s {backtrackIdentifier = a} :: DescribeDBClusterBacktracks)
 
 -- | A filter that specifies one or more DB clusters to describe. Supported
@@ -237,14 +238,14 @@ describeDBClusterBacktracks_backtrackIdentifier = Lens.lens (\DescribeDBClusterB
 --
 --     The results list includes information about only the backtracks
 --     identified by these values.
-describeDBClusterBacktracks_filters :: Lens.Lens' DescribeDBClusterBacktracks (Core.Maybe [Filter])
-describeDBClusterBacktracks_filters = Lens.lens (\DescribeDBClusterBacktracks' {filters} -> filters) (\s@DescribeDBClusterBacktracks' {} a -> s {filters = a} :: DescribeDBClusterBacktracks) Core.. Lens.mapping Lens._Coerce
+describeDBClusterBacktracks_filters :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe [Filter])
+describeDBClusterBacktracks_filters = Lens.lens (\DescribeDBClusterBacktracks' {filters} -> filters) (\s@DescribeDBClusterBacktracks' {} a -> s {filters = a} :: DescribeDBClusterBacktracks) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-describeDBClusterBacktracks_marker :: Lens.Lens' DescribeDBClusterBacktracks (Core.Maybe Core.Text)
+describeDBClusterBacktracks_marker :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
 describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {marker} -> marker) (\s@DescribeDBClusterBacktracks' {} a -> s {marker = a} :: DescribeDBClusterBacktracks)
 
 -- | The maximum number of records to include in the response. If more
@@ -255,7 +256,7 @@ describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {m
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeDBClusterBacktracks_maxRecords :: Lens.Lens' DescribeDBClusterBacktracks (Core.Maybe Core.Int)
+describeDBClusterBacktracks_maxRecords :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Int)
 describeDBClusterBacktracks_maxRecords = Lens.lens (\DescribeDBClusterBacktracks' {maxRecords} -> maxRecords) (\s@DescribeDBClusterBacktracks' {} a -> s {maxRecords = a} :: DescribeDBClusterBacktracks)
 
 -- | The DB cluster identifier of the DB cluster to be described. This
@@ -270,7 +271,7 @@ describeDBClusterBacktracks_maxRecords = Lens.lens (\DescribeDBClusterBacktracks
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @my-cluster1@
-describeDBClusterBacktracks_dbClusterIdentifier :: Lens.Lens' DescribeDBClusterBacktracks Core.Text
+describeDBClusterBacktracks_dbClusterIdentifier :: Lens.Lens' DescribeDBClusterBacktracks Prelude.Text
 describeDBClusterBacktracks_dbClusterIdentifier = Lens.lens (\DescribeDBClusterBacktracks' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@DescribeDBClusterBacktracks' {} a -> s {dbClusterIdentifier = a} :: DescribeDBClusterBacktracks)
 
 instance Core.AWSPager DescribeDBClusterBacktracks where
@@ -278,22 +279,22 @@ instance Core.AWSPager DescribeDBClusterBacktracks where
     | Core.stop
         ( rs
             Lens.^? describeDBClusterBacktracksResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterBacktracksResponse_dbClusterBacktracks
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeDBClusterBacktracks_marker
+          Prelude.& describeDBClusterBacktracks_marker
           Lens..~ rs
           Lens.^? describeDBClusterBacktracksResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterBacktracks where
   type
@@ -305,34 +306,37 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
       "DescribeDBClusterBacktracksResult"
       ( \s h x ->
           DescribeDBClusterBacktracksResponse'
-            Core.<$> ( x Core..@? "DBClusterBacktracks"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "DBClusterBacktrack")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "DBClusterBacktracks"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "DBClusterBacktrack")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDBClusterBacktracks
+instance Prelude.Hashable DescribeDBClusterBacktracks
 
-instance Core.NFData DescribeDBClusterBacktracks
+instance Prelude.NFData DescribeDBClusterBacktracks
 
 instance Core.ToHeaders DescribeDBClusterBacktracks where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDBClusterBacktracks where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDBClusterBacktracks where
   toQuery DescribeDBClusterBacktracks' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBClusterBacktracks" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ( "DescribeDBClusterBacktracks" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "BacktrackIdentifier" Core.=: backtrackIdentifier,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Core.<$> filters),
+            (Core.toQueryList "Filter" Prelude.<$> filters),
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
@@ -344,14 +348,14 @@ instance Core.ToQuery DescribeDBClusterBacktracks where
 -- /See:/ 'newDescribeDBClusterBacktracksResponse' smart constructor.
 data DescribeDBClusterBacktracksResponse = DescribeDBClusterBacktracksResponse'
   { -- | Contains a list of backtracks for the user.
-    dbClusterBacktracks :: Core.Maybe [DBClusterBacktrack],
+    dbClusterBacktracks :: Prelude.Maybe [DBClusterBacktrack],
     -- | A pagination token that can be used in a later
     -- @DescribeDBClusterBacktracks@ request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDBClusterBacktracksResponse' with all optional fields omitted.
@@ -369,29 +373,29 @@ data DescribeDBClusterBacktracksResponse = DescribeDBClusterBacktracksResponse'
 -- 'httpStatus', 'describeDBClusterBacktracksResponse_httpStatus' - The response's http status code.
 newDescribeDBClusterBacktracksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDBClusterBacktracksResponse
 newDescribeDBClusterBacktracksResponse pHttpStatus_ =
   DescribeDBClusterBacktracksResponse'
     { dbClusterBacktracks =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains a list of backtracks for the user.
-describeDBClusterBacktracksResponse_dbClusterBacktracks :: Lens.Lens' DescribeDBClusterBacktracksResponse (Core.Maybe [DBClusterBacktrack])
-describeDBClusterBacktracksResponse_dbClusterBacktracks = Lens.lens (\DescribeDBClusterBacktracksResponse' {dbClusterBacktracks} -> dbClusterBacktracks) (\s@DescribeDBClusterBacktracksResponse' {} a -> s {dbClusterBacktracks = a} :: DescribeDBClusterBacktracksResponse) Core.. Lens.mapping Lens._Coerce
+describeDBClusterBacktracksResponse_dbClusterBacktracks :: Lens.Lens' DescribeDBClusterBacktracksResponse (Prelude.Maybe [DBClusterBacktrack])
+describeDBClusterBacktracksResponse_dbClusterBacktracks = Lens.lens (\DescribeDBClusterBacktracksResponse' {dbClusterBacktracks} -> dbClusterBacktracks) (\s@DescribeDBClusterBacktracksResponse' {} a -> s {dbClusterBacktracks = a} :: DescribeDBClusterBacktracksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that can be used in a later
 -- @DescribeDBClusterBacktracks@ request.
-describeDBClusterBacktracksResponse_marker :: Lens.Lens' DescribeDBClusterBacktracksResponse (Core.Maybe Core.Text)
+describeDBClusterBacktracksResponse_marker :: Lens.Lens' DescribeDBClusterBacktracksResponse (Prelude.Maybe Prelude.Text)
 describeDBClusterBacktracksResponse_marker = Lens.lens (\DescribeDBClusterBacktracksResponse' {marker} -> marker) (\s@DescribeDBClusterBacktracksResponse' {} a -> s {marker = a} :: DescribeDBClusterBacktracksResponse)
 
 -- | The response's http status code.
-describeDBClusterBacktracksResponse_httpStatus :: Lens.Lens' DescribeDBClusterBacktracksResponse Core.Int
+describeDBClusterBacktracksResponse_httpStatus :: Lens.Lens' DescribeDBClusterBacktracksResponse Prelude.Int
 describeDBClusterBacktracksResponse_httpStatus = Lens.lens (\DescribeDBClusterBacktracksResponse' {httpStatus} -> httpStatus) (\s@DescribeDBClusterBacktracksResponse' {} a -> s {httpStatus = a} :: DescribeDBClusterBacktracksResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDBClusterBacktracksResponse

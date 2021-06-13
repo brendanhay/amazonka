@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.ChannelMapping where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.OutputChannelMapping
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Channel mapping (ChannelMapping) contains the group of fields that hold
 -- the remixing value for each channel, in dB. Specify remix values to
@@ -41,9 +42,9 @@ data ChannelMapping = ChannelMapping'
   { -- | In your JSON job specification, include one child of OutputChannels for
     -- each audio channel that you want in your output. Each child should
     -- contain one instance of InputChannels or InputChannelsFineTune.
-    outputChannels :: Core.Maybe [OutputChannelMapping]
+    outputChannels :: Prelude.Maybe [OutputChannelMapping]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChannelMapping' with all optional fields omitted.
@@ -59,13 +60,13 @@ data ChannelMapping = ChannelMapping'
 newChannelMapping ::
   ChannelMapping
 newChannelMapping =
-  ChannelMapping' {outputChannels = Core.Nothing}
+  ChannelMapping' {outputChannels = Prelude.Nothing}
 
 -- | In your JSON job specification, include one child of OutputChannels for
 -- each audio channel that you want in your output. Each child should
 -- contain one instance of InputChannels or InputChannelsFineTune.
-channelMapping_outputChannels :: Lens.Lens' ChannelMapping (Core.Maybe [OutputChannelMapping])
-channelMapping_outputChannels = Lens.lens (\ChannelMapping' {outputChannels} -> outputChannels) (\s@ChannelMapping' {} a -> s {outputChannels = a} :: ChannelMapping) Core.. Lens.mapping Lens._Coerce
+channelMapping_outputChannels :: Lens.Lens' ChannelMapping (Prelude.Maybe [OutputChannelMapping])
+channelMapping_outputChannels = Lens.lens (\ChannelMapping' {outputChannels} -> outputChannels) (\s@ChannelMapping' {} a -> s {outputChannels = a} :: ChannelMapping) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ChannelMapping where
   parseJSON =
@@ -73,16 +74,20 @@ instance Core.FromJSON ChannelMapping where
       "ChannelMapping"
       ( \x ->
           ChannelMapping'
-            Core.<$> (x Core..:? "outputChannels" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "outputChannels"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ChannelMapping
+instance Prelude.Hashable ChannelMapping
 
-instance Core.NFData ChannelMapping
+instance Prelude.NFData ChannelMapping
 
 instance Core.ToJSON ChannelMapping where
   toJSON ChannelMapping' {..} =
     Core.object
-      ( Core.catMaybes
-          [("outputChannels" Core..=) Core.<$> outputChannels]
+      ( Prelude.catMaybes
+          [ ("outputChannels" Core..=)
+              Prelude.<$> outputChannels
+          ]
       )

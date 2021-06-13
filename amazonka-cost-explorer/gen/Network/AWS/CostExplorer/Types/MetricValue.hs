@@ -21,17 +21,18 @@ module Network.AWS.CostExplorer.Types.MetricValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The aggregated value for a metric.
 --
 -- /See:/ 'newMetricValue' smart constructor.
 data MetricValue = MetricValue'
   { -- | The actual number that represents the metric.
-    amount :: Core.Maybe Core.Text,
+    amount :: Prelude.Maybe Prelude.Text,
     -- | The unit that the metric is given in.
-    unit :: Core.Maybe Core.Text
+    unit :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricValue' with all optional fields omitted.
@@ -48,16 +49,16 @@ newMetricValue ::
   MetricValue
 newMetricValue =
   MetricValue'
-    { amount = Core.Nothing,
-      unit = Core.Nothing
+    { amount = Prelude.Nothing,
+      unit = Prelude.Nothing
     }
 
 -- | The actual number that represents the metric.
-metricValue_amount :: Lens.Lens' MetricValue (Core.Maybe Core.Text)
+metricValue_amount :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Text)
 metricValue_amount = Lens.lens (\MetricValue' {amount} -> amount) (\s@MetricValue' {} a -> s {amount = a} :: MetricValue)
 
 -- | The unit that the metric is given in.
-metricValue_unit :: Lens.Lens' MetricValue (Core.Maybe Core.Text)
+metricValue_unit :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Text)
 metricValue_unit = Lens.lens (\MetricValue' {unit} -> unit) (\s@MetricValue' {} a -> s {unit = a} :: MetricValue)
 
 instance Core.FromJSON MetricValue where
@@ -66,9 +67,10 @@ instance Core.FromJSON MetricValue where
       "MetricValue"
       ( \x ->
           MetricValue'
-            Core.<$> (x Core..:? "Amount") Core.<*> (x Core..:? "Unit")
+            Prelude.<$> (x Core..:? "Amount")
+            Prelude.<*> (x Core..:? "Unit")
       )
 
-instance Core.Hashable MetricValue
+instance Prelude.Hashable MetricValue
 
-instance Core.NFData MetricValue
+instance Prelude.NFData MetricValue

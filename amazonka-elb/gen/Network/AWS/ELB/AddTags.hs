@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +60,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | The name of the load balancer. You can specify one load balancer only.
-    loadBalancerNames :: [Core.Text],
+    loadBalancerNames :: [Prelude.Text],
     -- | The tags.
-    tags :: Core.NonEmpty Tag
+    tags :: Prelude.NonEmpty Tag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTags' with all optional fields omitted.
@@ -78,21 +79,21 @@ data AddTags = AddTags'
 -- 'tags', 'addTags_tags' - The tags.
 newAddTags ::
   -- | 'tags'
-  Core.NonEmpty Tag ->
+  Prelude.NonEmpty Tag ->
   AddTags
 newAddTags pTags_ =
   AddTags'
-    { loadBalancerNames = Core.mempty,
+    { loadBalancerNames = Prelude.mempty,
       tags = Lens._Coerce Lens.# pTags_
     }
 
 -- | The name of the load balancer. You can specify one load balancer only.
-addTags_loadBalancerNames :: Lens.Lens' AddTags [Core.Text]
-addTags_loadBalancerNames = Lens.lens (\AddTags' {loadBalancerNames} -> loadBalancerNames) (\s@AddTags' {} a -> s {loadBalancerNames = a} :: AddTags) Core.. Lens._Coerce
+addTags_loadBalancerNames :: Lens.Lens' AddTags [Prelude.Text]
+addTags_loadBalancerNames = Lens.lens (\AddTags' {loadBalancerNames} -> loadBalancerNames) (\s@AddTags' {} a -> s {loadBalancerNames = a} :: AddTags) Prelude.. Lens._Coerce
 
 -- | The tags.
-addTags_tags :: Lens.Lens' AddTags (Core.NonEmpty Tag)
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Core.. Lens._Coerce
+addTags_tags :: Lens.Lens' AddTags (Prelude.NonEmpty Tag)
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
@@ -102,24 +103,25 @@ instance Core.AWSRequest AddTags where
       "AddTagsResult"
       ( \s h x ->
           AddTagsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddTags
+instance Prelude.Hashable AddTags
 
-instance Core.NFData AddTags
+instance Prelude.NFData AddTags
 
 instance Core.ToHeaders AddTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AddTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTags where
   toQuery AddTags' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("AddTags" :: Core.ByteString),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action" Core.=: ("AddTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerNames"
           Core.=: Core.toQueryList "member" loadBalancerNames,
         "Tags" Core.=: Core.toQueryList "member" tags
@@ -130,9 +132,9 @@ instance Core.ToQuery AddTags where
 -- /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsResponse' with all optional fields omitted.
@@ -145,13 +147,13 @@ data AddTagsResponse = AddTagsResponse'
 -- 'httpStatus', 'addTagsResponse_httpStatus' - The response's http status code.
 newAddTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddTagsResponse
 newAddTagsResponse pHttpStatus_ =
   AddTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Core.Int
+addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Prelude.Int
 addTagsResponse_httpStatus = Lens.lens (\AddTagsResponse' {httpStatus} -> httpStatus) (\s@AddTagsResponse' {} a -> s {httpStatus = a} :: AddTagsResponse)
 
-instance Core.NFData AddTagsResponse
+instance Prelude.NFData AddTagsResponse

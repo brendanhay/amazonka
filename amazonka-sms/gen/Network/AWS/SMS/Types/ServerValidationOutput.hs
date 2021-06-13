@@ -21,15 +21,16 @@ module Network.AWS.SMS.Types.ServerValidationOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.Server
 
 -- | Contains output from validating an instance.
 --
 -- /See:/ 'newServerValidationOutput' smart constructor.
 data ServerValidationOutput = ServerValidationOutput'
-  { server :: Core.Maybe Server
+  { server :: Prelude.Maybe Server
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServerValidationOutput' with all optional fields omitted.
@@ -43,10 +44,10 @@ data ServerValidationOutput = ServerValidationOutput'
 newServerValidationOutput ::
   ServerValidationOutput
 newServerValidationOutput =
-  ServerValidationOutput' {server = Core.Nothing}
+  ServerValidationOutput' {server = Prelude.Nothing}
 
 -- | Undocumented member.
-serverValidationOutput_server :: Lens.Lens' ServerValidationOutput (Core.Maybe Server)
+serverValidationOutput_server :: Lens.Lens' ServerValidationOutput (Prelude.Maybe Server)
 serverValidationOutput_server = Lens.lens (\ServerValidationOutput' {server} -> server) (\s@ServerValidationOutput' {} a -> s {server = a} :: ServerValidationOutput)
 
 instance Core.FromJSON ServerValidationOutput where
@@ -55,9 +56,9 @@ instance Core.FromJSON ServerValidationOutput where
       "ServerValidationOutput"
       ( \x ->
           ServerValidationOutput'
-            Core.<$> (x Core..:? "server")
+            Prelude.<$> (x Core..:? "server")
       )
 
-instance Core.Hashable ServerValidationOutput
+instance Prelude.Hashable ServerValidationOutput
 
-instance Core.NFData ServerValidationOutput
+instance Prelude.NFData ServerValidationOutput

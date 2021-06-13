@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.CampaignState where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CampaignStatus
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the status of a campaign.
 --
@@ -34,9 +35,9 @@ data CampaignState = CampaignState'
     -- only if all campaign treatments have a status of COMPLETED. If you
     -- delete the segment that\'s associated with a campaign, the campaign
     -- fails and has a status of DELETED.
-    campaignStatus :: Core.Maybe CampaignStatus
+    campaignStatus :: Prelude.Maybe CampaignStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CampaignState' with all optional fields omitted.
@@ -56,7 +57,7 @@ data CampaignState = CampaignState'
 newCampaignState ::
   CampaignState
 newCampaignState =
-  CampaignState' {campaignStatus = Core.Nothing}
+  CampaignState' {campaignStatus = Prelude.Nothing}
 
 -- | The current status of the campaign, or the current status of a treatment
 -- that belongs to an A\/B test campaign.
@@ -65,7 +66,7 @@ newCampaignState =
 -- only if all campaign treatments have a status of COMPLETED. If you
 -- delete the segment that\'s associated with a campaign, the campaign
 -- fails and has a status of DELETED.
-campaignState_campaignStatus :: Lens.Lens' CampaignState (Core.Maybe CampaignStatus)
+campaignState_campaignStatus :: Lens.Lens' CampaignState (Prelude.Maybe CampaignStatus)
 campaignState_campaignStatus = Lens.lens (\CampaignState' {campaignStatus} -> campaignStatus) (\s@CampaignState' {} a -> s {campaignStatus = a} :: CampaignState)
 
 instance Core.FromJSON CampaignState where
@@ -74,9 +75,9 @@ instance Core.FromJSON CampaignState where
       "CampaignState"
       ( \x ->
           CampaignState'
-            Core.<$> (x Core..:? "CampaignStatus")
+            Prelude.<$> (x Core..:? "CampaignStatus")
       )
 
-instance Core.Hashable CampaignState
+instance Prelude.Hashable CampaignState
 
-instance Core.NFData CampaignState
+instance Prelude.NFData CampaignState

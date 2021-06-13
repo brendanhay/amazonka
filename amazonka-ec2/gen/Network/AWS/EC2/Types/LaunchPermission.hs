@@ -23,20 +23,21 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PermissionGroup
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch permission.
 --
 -- /See:/ 'newLaunchPermission' smart constructor.
 data LaunchPermission = LaunchPermission'
   { -- | The name of the group.
-    group' :: Core.Maybe PermissionGroup,
+    group' :: Prelude.Maybe PermissionGroup,
     -- | The AWS account ID.
     --
     -- Constraints: Up to 10 000 account IDs can be specified in a single
     -- request.
-    userId :: Core.Maybe Core.Text
+    userId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchPermission' with all optional fields omitted.
@@ -56,31 +57,32 @@ newLaunchPermission ::
   LaunchPermission
 newLaunchPermission =
   LaunchPermission'
-    { group' = Core.Nothing,
-      userId = Core.Nothing
+    { group' = Prelude.Nothing,
+      userId = Prelude.Nothing
     }
 
 -- | The name of the group.
-launchPermission_group :: Lens.Lens' LaunchPermission (Core.Maybe PermissionGroup)
+launchPermission_group :: Lens.Lens' LaunchPermission (Prelude.Maybe PermissionGroup)
 launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@LaunchPermission' {} a -> s {group' = a} :: LaunchPermission)
 
 -- | The AWS account ID.
 --
 -- Constraints: Up to 10 000 account IDs can be specified in a single
 -- request.
-launchPermission_userId :: Lens.Lens' LaunchPermission (Core.Maybe Core.Text)
+launchPermission_userId :: Lens.Lens' LaunchPermission (Prelude.Maybe Prelude.Text)
 launchPermission_userId = Lens.lens (\LaunchPermission' {userId} -> userId) (\s@LaunchPermission' {} a -> s {userId = a} :: LaunchPermission)
 
 instance Core.FromXML LaunchPermission where
   parseXML x =
     LaunchPermission'
-      Core.<$> (x Core..@? "group") Core.<*> (x Core..@? "userId")
+      Prelude.<$> (x Core..@? "group")
+      Prelude.<*> (x Core..@? "userId")
 
-instance Core.Hashable LaunchPermission
+instance Prelude.Hashable LaunchPermission
 
-instance Core.NFData LaunchPermission
+instance Prelude.NFData LaunchPermission
 
 instance Core.ToQuery LaunchPermission where
   toQuery LaunchPermission' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Group" Core.=: group', "UserId" Core.=: userId]

@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRoleAlias' smart constructor.
 data DeleteRoleAlias = DeleteRoleAlias'
   { -- | The role alias to delete.
-    roleAlias :: Core.Text
+    roleAlias :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRoleAlias' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteRoleAlias = DeleteRoleAlias'
 -- 'roleAlias', 'deleteRoleAlias_roleAlias' - The role alias to delete.
 newDeleteRoleAlias ::
   -- | 'roleAlias'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRoleAlias
 newDeleteRoleAlias pRoleAlias_ =
   DeleteRoleAlias' {roleAlias = pRoleAlias_}
 
 -- | The role alias to delete.
-deleteRoleAlias_roleAlias :: Lens.Lens' DeleteRoleAlias Core.Text
+deleteRoleAlias_roleAlias :: Lens.Lens' DeleteRoleAlias Prelude.Text
 deleteRoleAlias_roleAlias = Lens.lens (\DeleteRoleAlias' {roleAlias} -> roleAlias) (\s@DeleteRoleAlias' {} a -> s {roleAlias = a} :: DeleteRoleAlias)
 
 instance Core.AWSRequest DeleteRoleAlias where
@@ -80,30 +81,30 @@ instance Core.AWSRequest DeleteRoleAlias where
     Response.receiveEmpty
       ( \s h x ->
           DeleteRoleAliasResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRoleAlias
+instance Prelude.Hashable DeleteRoleAlias
 
-instance Core.NFData DeleteRoleAlias
+instance Prelude.NFData DeleteRoleAlias
 
 instance Core.ToHeaders DeleteRoleAlias where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteRoleAlias where
   toPath DeleteRoleAlias' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/role-aliases/", Core.toBS roleAlias]
 
 instance Core.ToQuery DeleteRoleAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRoleAliasResponse' smart constructor.
 data DeleteRoleAliasResponse = DeleteRoleAliasResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRoleAliasResponse' with all optional fields omitted.
@@ -116,13 +117,13 @@ data DeleteRoleAliasResponse = DeleteRoleAliasResponse'
 -- 'httpStatus', 'deleteRoleAliasResponse_httpStatus' - The response's http status code.
 newDeleteRoleAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRoleAliasResponse
 newDeleteRoleAliasResponse pHttpStatus_ =
   DeleteRoleAliasResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteRoleAliasResponse_httpStatus :: Lens.Lens' DeleteRoleAliasResponse Core.Int
+deleteRoleAliasResponse_httpStatus :: Lens.Lens' DeleteRoleAliasResponse Prelude.Int
 deleteRoleAliasResponse_httpStatus = Lens.lens (\DeleteRoleAliasResponse' {httpStatus} -> httpStatus) (\s@DeleteRoleAliasResponse' {} a -> s {httpStatus = a} :: DeleteRoleAliasResponse)
 
-instance Core.NFData DeleteRoleAliasResponse
+instance Prelude.NFData DeleteRoleAliasResponse

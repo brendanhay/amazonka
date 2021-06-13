@@ -22,17 +22,18 @@ module Network.AWS.AlexaBusiness.Types.IPDialIn where
 import Network.AWS.AlexaBusiness.Types.CommsProtocol
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The IP endpoint and protocol for calling.
 --
 -- /See:/ 'newIPDialIn' smart constructor.
 data IPDialIn = IPDialIn'
   { -- | The IP address.
-    endpoint :: Core.Text,
+    endpoint :: Prelude.Text,
     -- | The protocol, including SIP, SIPS, and H323.
     commsProtocol :: CommsProtocol
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IPDialIn' with all optional fields omitted.
@@ -47,7 +48,7 @@ data IPDialIn = IPDialIn'
 -- 'commsProtocol', 'iPDialIn_commsProtocol' - The protocol, including SIP, SIPS, and H323.
 newIPDialIn ::
   -- | 'endpoint'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'commsProtocol'
   CommsProtocol ->
   IPDialIn
@@ -58,7 +59,7 @@ newIPDialIn pEndpoint_ pCommsProtocol_ =
     }
 
 -- | The IP address.
-iPDialIn_endpoint :: Lens.Lens' IPDialIn Core.Text
+iPDialIn_endpoint :: Lens.Lens' IPDialIn Prelude.Text
 iPDialIn_endpoint = Lens.lens (\IPDialIn' {endpoint} -> endpoint) (\s@IPDialIn' {} a -> s {endpoint = a} :: IPDialIn)
 
 -- | The protocol, including SIP, SIPS, and H323.
@@ -71,19 +72,20 @@ instance Core.FromJSON IPDialIn where
       "IPDialIn"
       ( \x ->
           IPDialIn'
-            Core.<$> (x Core..: "Endpoint")
-            Core.<*> (x Core..: "CommsProtocol")
+            Prelude.<$> (x Core..: "Endpoint")
+            Prelude.<*> (x Core..: "CommsProtocol")
       )
 
-instance Core.Hashable IPDialIn
+instance Prelude.Hashable IPDialIn
 
-instance Core.NFData IPDialIn
+instance Prelude.NFData IPDialIn
 
 instance Core.ToJSON IPDialIn where
   toJSON IPDialIn' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Endpoint" Core..= endpoint),
-            Core.Just ("CommsProtocol" Core..= commsProtocol)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Endpoint" Core..= endpoint),
+            Prelude.Just
+              ("CommsProtocol" Core..= commsProtocol)
           ]
       )

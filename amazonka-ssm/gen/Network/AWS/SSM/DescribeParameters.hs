@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -63,17 +64,17 @@ import Network.AWS.SSM.Types
 data DescribeParameters = DescribeParameters'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters to limit the request results.
-    parameterFilters :: Core.Maybe [ParameterStringFilter],
+    parameterFilters :: Prelude.Maybe [ParameterStringFilter],
     -- | This data type is deprecated. Instead, use @ParameterFilters@.
-    filters :: Core.Maybe [ParametersFilter]
+    filters :: Prelude.Maybe [ParametersFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeParameters' with all optional fields omitted.
@@ -97,52 +98,52 @@ newDescribeParameters ::
   DescribeParameters
 newDescribeParameters =
   DescribeParameters'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      parameterFilters = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      parameterFilters = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeParameters_nextToken :: Lens.Lens' DescribeParameters (Core.Maybe Core.Text)
+describeParameters_nextToken :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
 describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> nextToken) (\s@DescribeParameters' {} a -> s {nextToken = a} :: DescribeParameters)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeParameters_maxResults :: Lens.Lens' DescribeParameters (Core.Maybe Core.Natural)
+describeParameters_maxResults :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Natural)
 describeParameters_maxResults = Lens.lens (\DescribeParameters' {maxResults} -> maxResults) (\s@DescribeParameters' {} a -> s {maxResults = a} :: DescribeParameters)
 
 -- | Filters to limit the request results.
-describeParameters_parameterFilters :: Lens.Lens' DescribeParameters (Core.Maybe [ParameterStringFilter])
-describeParameters_parameterFilters = Lens.lens (\DescribeParameters' {parameterFilters} -> parameterFilters) (\s@DescribeParameters' {} a -> s {parameterFilters = a} :: DescribeParameters) Core.. Lens.mapping Lens._Coerce
+describeParameters_parameterFilters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParameterStringFilter])
+describeParameters_parameterFilters = Lens.lens (\DescribeParameters' {parameterFilters} -> parameterFilters) (\s@DescribeParameters' {} a -> s {parameterFilters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This data type is deprecated. Instead, use @ParameterFilters@.
-describeParameters_filters :: Lens.Lens' DescribeParameters (Core.Maybe [ParametersFilter])
-describeParameters_filters = Lens.lens (\DescribeParameters' {filters} -> filters) (\s@DescribeParameters' {} a -> s {filters = a} :: DescribeParameters) Core.. Lens.mapping Lens._Coerce
+describeParameters_filters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParametersFilter])
+describeParameters_filters = Lens.lens (\DescribeParameters' {filters} -> filters) (\s@DescribeParameters' {} a -> s {filters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeParameters where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeParametersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeParametersResponse_parameters
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeParameters_nextToken
+          Prelude.& describeParameters_nextToken
           Lens..~ rs
           Lens.^? describeParametersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeParameters where
   type
@@ -153,54 +154,58 @@ instance Core.AWSRequest DescribeParameters where
     Response.receiveJSON
       ( \s h x ->
           DescribeParametersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Parameters" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeParameters
+instance Prelude.Hashable DescribeParameters
 
-instance Core.NFData DescribeParameters
+instance Prelude.NFData DescribeParameters
 
 instance Core.ToHeaders DescribeParameters where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DescribeParameters" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.DescribeParameters" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeParameters where
   toJSON DescribeParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ParameterFilters" Core..=)
-              Core.<$> parameterFilters,
-            ("Filters" Core..=) Core.<$> filters
+              Prelude.<$> parameterFilters,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath DescribeParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeParameters where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeParametersResponse' smart constructor.
 data DescribeParametersResponse = DescribeParametersResponse'
   { -- | The token to use when requesting the next set of items.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Parameters returned by the request.
-    parameters :: Core.Maybe [ParameterMetadata],
+    parameters :: Prelude.Maybe [ParameterMetadata],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeParametersResponse' with all optional fields omitted.
@@ -217,26 +222,26 @@ data DescribeParametersResponse = DescribeParametersResponse'
 -- 'httpStatus', 'describeParametersResponse_httpStatus' - The response's http status code.
 newDescribeParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeParametersResponse
 newDescribeParametersResponse pHttpStatus_ =
   DescribeParametersResponse'
     { nextToken =
-        Core.Nothing,
-      parameters = Core.Nothing,
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items.
-describeParametersResponse_nextToken :: Lens.Lens' DescribeParametersResponse (Core.Maybe Core.Text)
+describeParametersResponse_nextToken :: Lens.Lens' DescribeParametersResponse (Prelude.Maybe Prelude.Text)
 describeParametersResponse_nextToken = Lens.lens (\DescribeParametersResponse' {nextToken} -> nextToken) (\s@DescribeParametersResponse' {} a -> s {nextToken = a} :: DescribeParametersResponse)
 
 -- | Parameters returned by the request.
-describeParametersResponse_parameters :: Lens.Lens' DescribeParametersResponse (Core.Maybe [ParameterMetadata])
-describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Core.. Lens.mapping Lens._Coerce
+describeParametersResponse_parameters :: Lens.Lens' DescribeParametersResponse (Prelude.Maybe [ParameterMetadata])
+describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeParametersResponse_httpStatus :: Lens.Lens' DescribeParametersResponse Core.Int
+describeParametersResponse_httpStatus :: Lens.Lens' DescribeParametersResponse Prelude.Int
 describeParametersResponse_httpStatus = Lens.lens (\DescribeParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeParametersResponse' {} a -> s {httpStatus = a} :: DescribeParametersResponse)
 
-instance Core.NFData DescribeParametersResponse
+instance Prelude.NFData DescribeParametersResponse

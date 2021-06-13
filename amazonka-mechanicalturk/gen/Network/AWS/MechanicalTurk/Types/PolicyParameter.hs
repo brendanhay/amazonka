@@ -22,19 +22,20 @@ module Network.AWS.MechanicalTurk.Types.PolicyParameter where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.ParameterMapEntry
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Name of the parameter from the Review policy.
 --
 -- /See:/ 'newPolicyParameter' smart constructor.
 data PolicyParameter = PolicyParameter'
   { -- | Name of the parameter from the list of Review Polices.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The list of values of the Parameter
-    values :: Core.Maybe [Core.Text],
+    values :: Prelude.Maybe [Prelude.Text],
     -- | List of ParameterMapEntry objects.
-    mapEntries :: Core.Maybe [ParameterMapEntry]
+    mapEntries :: Prelude.Maybe [ParameterMapEntry]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyParameter' with all optional fields omitted.
@@ -53,22 +54,22 @@ newPolicyParameter ::
   PolicyParameter
 newPolicyParameter =
   PolicyParameter'
-    { key = Core.Nothing,
-      values = Core.Nothing,
-      mapEntries = Core.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing,
+      mapEntries = Prelude.Nothing
     }
 
 -- | Name of the parameter from the list of Review Polices.
-policyParameter_key :: Lens.Lens' PolicyParameter (Core.Maybe Core.Text)
+policyParameter_key :: Lens.Lens' PolicyParameter (Prelude.Maybe Prelude.Text)
 policyParameter_key = Lens.lens (\PolicyParameter' {key} -> key) (\s@PolicyParameter' {} a -> s {key = a} :: PolicyParameter)
 
 -- | The list of values of the Parameter
-policyParameter_values :: Lens.Lens' PolicyParameter (Core.Maybe [Core.Text])
-policyParameter_values = Lens.lens (\PolicyParameter' {values} -> values) (\s@PolicyParameter' {} a -> s {values = a} :: PolicyParameter) Core.. Lens.mapping Lens._Coerce
+policyParameter_values :: Lens.Lens' PolicyParameter (Prelude.Maybe [Prelude.Text])
+policyParameter_values = Lens.lens (\PolicyParameter' {values} -> values) (\s@PolicyParameter' {} a -> s {values = a} :: PolicyParameter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | List of ParameterMapEntry objects.
-policyParameter_mapEntries :: Lens.Lens' PolicyParameter (Core.Maybe [ParameterMapEntry])
-policyParameter_mapEntries = Lens.lens (\PolicyParameter' {mapEntries} -> mapEntries) (\s@PolicyParameter' {} a -> s {mapEntries = a} :: PolicyParameter) Core.. Lens.mapping Lens._Coerce
+policyParameter_mapEntries :: Lens.Lens' PolicyParameter (Prelude.Maybe [ParameterMapEntry])
+policyParameter_mapEntries = Lens.lens (\PolicyParameter' {mapEntries} -> mapEntries) (\s@PolicyParameter' {} a -> s {mapEntries = a} :: PolicyParameter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON PolicyParameter where
   parseJSON =
@@ -76,21 +77,21 @@ instance Core.FromJSON PolicyParameter where
       "PolicyParameter"
       ( \x ->
           PolicyParameter'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "MapEntries" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "MapEntries" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable PolicyParameter
+instance Prelude.Hashable PolicyParameter
 
-instance Core.NFData PolicyParameter
+instance Prelude.NFData PolicyParameter
 
 instance Core.ToJSON PolicyParameter where
   toJSON PolicyParameter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Values" Core..=) Core.<$> values,
-            ("MapEntries" Core..=) Core.<$> mapEntries
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values,
+            ("MapEntries" Core..=) Prelude.<$> mapEntries
           ]
       )

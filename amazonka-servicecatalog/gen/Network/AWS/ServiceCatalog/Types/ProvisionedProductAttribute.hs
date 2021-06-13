@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.ProvisionedProductAttribute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
 import Network.AWS.ServiceCatalog.Types.Tag
 
@@ -29,7 +30,7 @@ import Network.AWS.ServiceCatalog.Types.Tag
 -- /See:/ 'newProvisionedProductAttribute' smart constructor.
 data ProvisionedProductAttribute = ProvisionedProductAttribute'
   { -- | The current status message of the provisioned product.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The record identifier of the last successful request performed on this
     -- provisioned product of the following types:
     --
@@ -40,11 +41,11 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     -- -   ExecuteProvisionedProductPlan
     --
     -- -   TerminateProvisionedProduct
-    lastSuccessfulProvisioningRecordId :: Core.Maybe Core.Text,
+    lastSuccessfulProvisioningRecordId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Core.Maybe Core.Text,
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | The current status of the provisioned product.
     --
     -- -   @AVAILABLE@ - Stable state, ready to perform any operation. The most
@@ -69,27 +70,27 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     --     been created. After reviewing the list of resources to be created,
     --     execute the plan. Wait for an @AVAILABLE@ status before performing
     --     operations.
-    status :: Core.Maybe ProvisionedProductStatus,
+    status :: Prelude.Maybe ProvisionedProductStatus,
     -- | The Amazon Resource Name (ARN) of the IAM user.
-    userArn :: Core.Maybe Core.Text,
+    userArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the provisioning artifact.
-    provisioningArtifactName :: Core.Maybe Core.Text,
+    provisioningArtifactName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the provisioned product.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioned product.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Core.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Core.Maybe Core.Text,
+    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
     -- | The user-friendly name of the provisioned product.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name of the product.
-    productName :: Core.Maybe Core.Text,
+    productName :: Prelude.Maybe Prelude.Text,
     -- | One or more tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The product identifier.
-    productId :: Core.Maybe Core.Text,
+    productId :: Prelude.Maybe Prelude.Text,
     -- | The record identifier of the last request performed on this provisioned
     -- product of the following types:
     --
@@ -100,21 +101,21 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     -- -   ExecuteProvisionedProductPlan
     --
     -- -   TerminateProvisionedProduct
-    lastProvisioningRecordId :: Core.Maybe Core.Text,
+    lastProvisioningRecordId :: Prelude.Maybe Prelude.Text,
     -- | The type of provisioned product. The supported values are @CFN_STACK@
     -- and @CFN_STACKSET@.
-    type' :: Core.Maybe Core.Text,
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The assigned identifier for the resource, such as an EC2 instance ID or
     -- an S3 bucket name.
-    physicalId :: Core.Maybe Core.Text,
+    physicalId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM user in the session. This ARN might contain a session
     -- ID.
-    userArnSession :: Core.Maybe Core.Text,
+    userArnSession :: Prelude.Maybe Prelude.Text,
     -- | The record identifier of the last request performed on this provisioned
     -- product.
-    lastRecordId :: Core.Maybe Core.Text
+    lastRecordId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisionedProductAttribute' with all optional fields omitted.
@@ -213,30 +214,30 @@ newProvisionedProductAttribute ::
 newProvisionedProductAttribute =
   ProvisionedProductAttribute'
     { statusMessage =
-        Core.Nothing,
+        Prelude.Nothing,
       lastSuccessfulProvisioningRecordId =
-        Core.Nothing,
-      idempotencyToken = Core.Nothing,
-      status = Core.Nothing,
-      userArn = Core.Nothing,
-      provisioningArtifactName = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      createdTime = Core.Nothing,
-      provisioningArtifactId = Core.Nothing,
-      name = Core.Nothing,
-      productName = Core.Nothing,
-      tags = Core.Nothing,
-      productId = Core.Nothing,
-      lastProvisioningRecordId = Core.Nothing,
-      type' = Core.Nothing,
-      physicalId = Core.Nothing,
-      userArnSession = Core.Nothing,
-      lastRecordId = Core.Nothing
+        Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      userArn = Prelude.Nothing,
+      provisioningArtifactName = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      provisioningArtifactId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      productName = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      productId = Prelude.Nothing,
+      lastProvisioningRecordId = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      physicalId = Prelude.Nothing,
+      userArnSession = Prelude.Nothing,
+      lastRecordId = Prelude.Nothing
     }
 
 -- | The current status message of the provisioned product.
-provisionedProductAttribute_statusMessage :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_statusMessage :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_statusMessage = Lens.lens (\ProvisionedProductAttribute' {statusMessage} -> statusMessage) (\s@ProvisionedProductAttribute' {} a -> s {statusMessage = a} :: ProvisionedProductAttribute)
 
 -- | The record identifier of the last successful request performed on this
@@ -249,13 +250,13 @@ provisionedProductAttribute_statusMessage = Lens.lens (\ProvisionedProductAttrib
 -- -   ExecuteProvisionedProductPlan
 --
 -- -   TerminateProvisionedProduct
-provisionedProductAttribute_lastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_lastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_lastSuccessfulProvisioningRecordId = Lens.lens (\ProvisionedProductAttribute' {lastSuccessfulProvisioningRecordId} -> lastSuccessfulProvisioningRecordId) (\s@ProvisionedProductAttribute' {} a -> s {lastSuccessfulProvisioningRecordId = a} :: ProvisionedProductAttribute)
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-provisionedProductAttribute_idempotencyToken :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_idempotencyToken :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_idempotencyToken = Lens.lens (\ProvisionedProductAttribute' {idempotencyToken} -> idempotencyToken) (\s@ProvisionedProductAttribute' {} a -> s {idempotencyToken = a} :: ProvisionedProductAttribute)
 
 -- | The current status of the provisioned product.
@@ -282,47 +283,47 @@ provisionedProductAttribute_idempotencyToken = Lens.lens (\ProvisionedProductAtt
 --     been created. After reviewing the list of resources to be created,
 --     execute the plan. Wait for an @AVAILABLE@ status before performing
 --     operations.
-provisionedProductAttribute_status :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe ProvisionedProductStatus)
+provisionedProductAttribute_status :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe ProvisionedProductStatus)
 provisionedProductAttribute_status = Lens.lens (\ProvisionedProductAttribute' {status} -> status) (\s@ProvisionedProductAttribute' {} a -> s {status = a} :: ProvisionedProductAttribute)
 
 -- | The Amazon Resource Name (ARN) of the IAM user.
-provisionedProductAttribute_userArn :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_userArn :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_userArn = Lens.lens (\ProvisionedProductAttribute' {userArn} -> userArn) (\s@ProvisionedProductAttribute' {} a -> s {userArn = a} :: ProvisionedProductAttribute)
 
 -- | The name of the provisioning artifact.
-provisionedProductAttribute_provisioningArtifactName :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_provisioningArtifactName :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_provisioningArtifactName = Lens.lens (\ProvisionedProductAttribute' {provisioningArtifactName} -> provisioningArtifactName) (\s@ProvisionedProductAttribute' {} a -> s {provisioningArtifactName = a} :: ProvisionedProductAttribute)
 
 -- | The ARN of the provisioned product.
-provisionedProductAttribute_arn :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_arn :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_arn = Lens.lens (\ProvisionedProductAttribute' {arn} -> arn) (\s@ProvisionedProductAttribute' {} a -> s {arn = a} :: ProvisionedProductAttribute)
 
 -- | The identifier of the provisioned product.
-provisionedProductAttribute_id :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_id :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_id = Lens.lens (\ProvisionedProductAttribute' {id} -> id) (\s@ProvisionedProductAttribute' {} a -> s {id = a} :: ProvisionedProductAttribute)
 
 -- | The UTC time stamp of the creation time.
-provisionedProductAttribute_createdTime :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.UTCTime)
-provisionedProductAttribute_createdTime = Lens.lens (\ProvisionedProductAttribute' {createdTime} -> createdTime) (\s@ProvisionedProductAttribute' {} a -> s {createdTime = a} :: ProvisionedProductAttribute) Core.. Lens.mapping Core._Time
+provisionedProductAttribute_createdTime :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.UTCTime)
+provisionedProductAttribute_createdTime = Lens.lens (\ProvisionedProductAttribute' {createdTime} -> createdTime) (\s@ProvisionedProductAttribute' {} a -> s {createdTime = a} :: ProvisionedProductAttribute) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier of the provisioning artifact.
-provisionedProductAttribute_provisioningArtifactId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_provisioningArtifactId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_provisioningArtifactId = Lens.lens (\ProvisionedProductAttribute' {provisioningArtifactId} -> provisioningArtifactId) (\s@ProvisionedProductAttribute' {} a -> s {provisioningArtifactId = a} :: ProvisionedProductAttribute)
 
 -- | The user-friendly name of the provisioned product.
-provisionedProductAttribute_name :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_name :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_name = Lens.lens (\ProvisionedProductAttribute' {name} -> name) (\s@ProvisionedProductAttribute' {} a -> s {name = a} :: ProvisionedProductAttribute)
 
 -- | The name of the product.
-provisionedProductAttribute_productName :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_productName :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_productName = Lens.lens (\ProvisionedProductAttribute' {productName} -> productName) (\s@ProvisionedProductAttribute' {} a -> s {productName = a} :: ProvisionedProductAttribute)
 
 -- | One or more tags.
-provisionedProductAttribute_tags :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe [Tag])
-provisionedProductAttribute_tags = Lens.lens (\ProvisionedProductAttribute' {tags} -> tags) (\s@ProvisionedProductAttribute' {} a -> s {tags = a} :: ProvisionedProductAttribute) Core.. Lens.mapping Lens._Coerce
+provisionedProductAttribute_tags :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe [Tag])
+provisionedProductAttribute_tags = Lens.lens (\ProvisionedProductAttribute' {tags} -> tags) (\s@ProvisionedProductAttribute' {} a -> s {tags = a} :: ProvisionedProductAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The product identifier.
-provisionedProductAttribute_productId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_productId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_productId = Lens.lens (\ProvisionedProductAttribute' {productId} -> productId) (\s@ProvisionedProductAttribute' {} a -> s {productId = a} :: ProvisionedProductAttribute)
 
 -- | The record identifier of the last request performed on this provisioned
@@ -335,27 +336,27 @@ provisionedProductAttribute_productId = Lens.lens (\ProvisionedProductAttribute'
 -- -   ExecuteProvisionedProductPlan
 --
 -- -   TerminateProvisionedProduct
-provisionedProductAttribute_lastProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_lastProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_lastProvisioningRecordId = Lens.lens (\ProvisionedProductAttribute' {lastProvisioningRecordId} -> lastProvisioningRecordId) (\s@ProvisionedProductAttribute' {} a -> s {lastProvisioningRecordId = a} :: ProvisionedProductAttribute)
 
 -- | The type of provisioned product. The supported values are @CFN_STACK@
 -- and @CFN_STACKSET@.
-provisionedProductAttribute_type :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_type :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_type = Lens.lens (\ProvisionedProductAttribute' {type'} -> type') (\s@ProvisionedProductAttribute' {} a -> s {type' = a} :: ProvisionedProductAttribute)
 
 -- | The assigned identifier for the resource, such as an EC2 instance ID or
 -- an S3 bucket name.
-provisionedProductAttribute_physicalId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_physicalId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_physicalId = Lens.lens (\ProvisionedProductAttribute' {physicalId} -> physicalId) (\s@ProvisionedProductAttribute' {} a -> s {physicalId = a} :: ProvisionedProductAttribute)
 
 -- | The ARN of the IAM user in the session. This ARN might contain a session
 -- ID.
-provisionedProductAttribute_userArnSession :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_userArnSession :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_userArnSession = Lens.lens (\ProvisionedProductAttribute' {userArnSession} -> userArnSession) (\s@ProvisionedProductAttribute' {} a -> s {userArnSession = a} :: ProvisionedProductAttribute)
 
 -- | The record identifier of the last request performed on this provisioned
 -- product.
-provisionedProductAttribute_lastRecordId :: Lens.Lens' ProvisionedProductAttribute (Core.Maybe Core.Text)
+provisionedProductAttribute_lastRecordId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_lastRecordId = Lens.lens (\ProvisionedProductAttribute' {lastRecordId} -> lastRecordId) (\s@ProvisionedProductAttribute' {} a -> s {lastRecordId = a} :: ProvisionedProductAttribute)
 
 instance Core.FromJSON ProvisionedProductAttribute where
@@ -364,27 +365,27 @@ instance Core.FromJSON ProvisionedProductAttribute where
       "ProvisionedProductAttribute"
       ( \x ->
           ProvisionedProductAttribute'
-            Core.<$> (x Core..:? "StatusMessage")
-            Core.<*> (x Core..:? "LastSuccessfulProvisioningRecordId")
-            Core.<*> (x Core..:? "IdempotencyToken")
-            Core.<*> (x Core..:? "Status")
-            Core.<*> (x Core..:? "UserArn")
-            Core.<*> (x Core..:? "ProvisioningArtifactName")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "CreatedTime")
-            Core.<*> (x Core..:? "ProvisioningArtifactId")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "ProductName")
-            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ProductId")
-            Core.<*> (x Core..:? "LastProvisioningRecordId")
-            Core.<*> (x Core..:? "Type")
-            Core.<*> (x Core..:? "PhysicalId")
-            Core.<*> (x Core..:? "UserArnSession")
-            Core.<*> (x Core..:? "LastRecordId")
+            Prelude.<$> (x Core..:? "StatusMessage")
+            Prelude.<*> (x Core..:? "LastSuccessfulProvisioningRecordId")
+            Prelude.<*> (x Core..:? "IdempotencyToken")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "UserArn")
+            Prelude.<*> (x Core..:? "ProvisioningArtifactName")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ProductName")
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ProductId")
+            Prelude.<*> (x Core..:? "LastProvisioningRecordId")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "PhysicalId")
+            Prelude.<*> (x Core..:? "UserArnSession")
+            Prelude.<*> (x Core..:? "LastRecordId")
       )
 
-instance Core.Hashable ProvisionedProductAttribute
+instance Prelude.Hashable ProvisionedProductAttribute
 
-instance Core.NFData ProvisionedProductAttribute
+instance Prelude.NFData ProvisionedProductAttribute

@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.InputParallelismUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides updates to the parallelism count.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data InputParallelismUpdate = InputParallelismUpdate'
   { -- | Number of in-application streams to create for the specified streaming
     -- source.
-    countUpdate :: Core.Maybe Core.Natural
+    countUpdate :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputParallelismUpdate' with all optional fields omitted.
@@ -45,20 +46,23 @@ data InputParallelismUpdate = InputParallelismUpdate'
 newInputParallelismUpdate ::
   InputParallelismUpdate
 newInputParallelismUpdate =
-  InputParallelismUpdate' {countUpdate = Core.Nothing}
+  InputParallelismUpdate'
+    { countUpdate =
+        Prelude.Nothing
+    }
 
 -- | Number of in-application streams to create for the specified streaming
 -- source.
-inputParallelismUpdate_countUpdate :: Lens.Lens' InputParallelismUpdate (Core.Maybe Core.Natural)
+inputParallelismUpdate_countUpdate :: Lens.Lens' InputParallelismUpdate (Prelude.Maybe Prelude.Natural)
 inputParallelismUpdate_countUpdate = Lens.lens (\InputParallelismUpdate' {countUpdate} -> countUpdate) (\s@InputParallelismUpdate' {} a -> s {countUpdate = a} :: InputParallelismUpdate)
 
-instance Core.Hashable InputParallelismUpdate
+instance Prelude.Hashable InputParallelismUpdate
 
-instance Core.NFData InputParallelismUpdate
+instance Prelude.NFData InputParallelismUpdate
 
 instance Core.ToJSON InputParallelismUpdate where
   toJSON InputParallelismUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [("CountUpdate" Core..=) Core.<$> countUpdate]
+      ( Prelude.catMaybes
+          [("CountUpdate" Core..=) Prelude.<$> countUpdate]
       )

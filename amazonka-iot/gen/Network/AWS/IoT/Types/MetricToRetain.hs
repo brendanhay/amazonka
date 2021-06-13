@@ -22,17 +22,18 @@ module Network.AWS.IoT.Types.MetricToRetain where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.MetricDimension
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The metric you want to retain. Dimensions are optional.
 --
 -- /See:/ 'newMetricToRetain' smart constructor.
 data MetricToRetain = MetricToRetain'
   { -- | The dimension of a metric. This can\'t be used with custom metrics.
-    metricDimension :: Core.Maybe MetricDimension,
+    metricDimension :: Prelude.Maybe MetricDimension,
     -- | What is measured by the behavior.
-    metric :: Core.Text
+    metric :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricToRetain' with all optional fields omitted.
@@ -47,20 +48,20 @@ data MetricToRetain = MetricToRetain'
 -- 'metric', 'metricToRetain_metric' - What is measured by the behavior.
 newMetricToRetain ::
   -- | 'metric'
-  Core.Text ->
+  Prelude.Text ->
   MetricToRetain
 newMetricToRetain pMetric_ =
   MetricToRetain'
-    { metricDimension = Core.Nothing,
+    { metricDimension = Prelude.Nothing,
       metric = pMetric_
     }
 
 -- | The dimension of a metric. This can\'t be used with custom metrics.
-metricToRetain_metricDimension :: Lens.Lens' MetricToRetain (Core.Maybe MetricDimension)
+metricToRetain_metricDimension :: Lens.Lens' MetricToRetain (Prelude.Maybe MetricDimension)
 metricToRetain_metricDimension = Lens.lens (\MetricToRetain' {metricDimension} -> metricDimension) (\s@MetricToRetain' {} a -> s {metricDimension = a} :: MetricToRetain)
 
 -- | What is measured by the behavior.
-metricToRetain_metric :: Lens.Lens' MetricToRetain Core.Text
+metricToRetain_metric :: Lens.Lens' MetricToRetain Prelude.Text
 metricToRetain_metric = Lens.lens (\MetricToRetain' {metric} -> metric) (\s@MetricToRetain' {} a -> s {metric = a} :: MetricToRetain)
 
 instance Core.FromJSON MetricToRetain where
@@ -69,20 +70,20 @@ instance Core.FromJSON MetricToRetain where
       "MetricToRetain"
       ( \x ->
           MetricToRetain'
-            Core.<$> (x Core..:? "metricDimension")
-            Core.<*> (x Core..: "metric")
+            Prelude.<$> (x Core..:? "metricDimension")
+            Prelude.<*> (x Core..: "metric")
       )
 
-instance Core.Hashable MetricToRetain
+instance Prelude.Hashable MetricToRetain
 
-instance Core.NFData MetricToRetain
+instance Prelude.NFData MetricToRetain
 
 instance Core.ToJSON MetricToRetain where
   toJSON MetricToRetain' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("metricDimension" Core..=)
-              Core.<$> metricDimension,
-            Core.Just ("metric" Core..= metric)
+              Prelude.<$> metricDimension,
+            Prelude.Just ("metric" Core..= metric)
           ]
       )

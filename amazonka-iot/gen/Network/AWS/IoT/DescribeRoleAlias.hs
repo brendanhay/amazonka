@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRoleAlias' smart constructor.
 data DescribeRoleAlias = DescribeRoleAlias'
   { -- | The role alias to describe.
-    roleAlias :: Core.Text
+    roleAlias :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRoleAlias' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DescribeRoleAlias = DescribeRoleAlias'
 -- 'roleAlias', 'describeRoleAlias_roleAlias' - The role alias to describe.
 newDescribeRoleAlias ::
   -- | 'roleAlias'
-  Core.Text ->
+  Prelude.Text ->
   DescribeRoleAlias
 newDescribeRoleAlias pRoleAlias_ =
   DescribeRoleAlias' {roleAlias = pRoleAlias_}
 
 -- | The role alias to describe.
-describeRoleAlias_roleAlias :: Lens.Lens' DescribeRoleAlias Core.Text
+describeRoleAlias_roleAlias :: Lens.Lens' DescribeRoleAlias Prelude.Text
 describeRoleAlias_roleAlias = Lens.lens (\DescribeRoleAlias' {roleAlias} -> roleAlias) (\s@DescribeRoleAlias' {} a -> s {roleAlias = a} :: DescribeRoleAlias)
 
 instance Core.AWSRequest DescribeRoleAlias where
@@ -81,33 +82,33 @@ instance Core.AWSRequest DescribeRoleAlias where
     Response.receiveJSON
       ( \s h x ->
           DescribeRoleAliasResponse'
-            Core.<$> (x Core..?> "roleAliasDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "roleAliasDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRoleAlias
+instance Prelude.Hashable DescribeRoleAlias
 
-instance Core.NFData DescribeRoleAlias
+instance Prelude.NFData DescribeRoleAlias
 
 instance Core.ToHeaders DescribeRoleAlias where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeRoleAlias where
   toPath DescribeRoleAlias' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/role-aliases/", Core.toBS roleAlias]
 
 instance Core.ToQuery DescribeRoleAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRoleAliasResponse' smart constructor.
 data DescribeRoleAliasResponse = DescribeRoleAliasResponse'
   { -- | The role alias description.
-    roleAliasDescription :: Core.Maybe RoleAliasDescription,
+    roleAliasDescription :: Prelude.Maybe RoleAliasDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRoleAliasResponse' with all optional fields omitted.
@@ -122,21 +123,21 @@ data DescribeRoleAliasResponse = DescribeRoleAliasResponse'
 -- 'httpStatus', 'describeRoleAliasResponse_httpStatus' - The response's http status code.
 newDescribeRoleAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRoleAliasResponse
 newDescribeRoleAliasResponse pHttpStatus_ =
   DescribeRoleAliasResponse'
     { roleAliasDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The role alias description.
-describeRoleAliasResponse_roleAliasDescription :: Lens.Lens' DescribeRoleAliasResponse (Core.Maybe RoleAliasDescription)
+describeRoleAliasResponse_roleAliasDescription :: Lens.Lens' DescribeRoleAliasResponse (Prelude.Maybe RoleAliasDescription)
 describeRoleAliasResponse_roleAliasDescription = Lens.lens (\DescribeRoleAliasResponse' {roleAliasDescription} -> roleAliasDescription) (\s@DescribeRoleAliasResponse' {} a -> s {roleAliasDescription = a} :: DescribeRoleAliasResponse)
 
 -- | The response's http status code.
-describeRoleAliasResponse_httpStatus :: Lens.Lens' DescribeRoleAliasResponse Core.Int
+describeRoleAliasResponse_httpStatus :: Lens.Lens' DescribeRoleAliasResponse Prelude.Int
 describeRoleAliasResponse_httpStatus = Lens.lens (\DescribeRoleAliasResponse' {httpStatus} -> httpStatus) (\s@DescribeRoleAliasResponse' {} a -> s {httpStatus = a} :: DescribeRoleAliasResponse)
 
-instance Core.NFData DescribeRoleAliasResponse
+instance Prelude.NFData DescribeRoleAliasResponse

@@ -51,13 +51,14 @@ where
 import Network.AWS.ApplicationAutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeScalableTargets' smart constructor.
 data DescribeScalableTargets = DescribeScalableTargets'
   { -- | The token for the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of scalable targets. This value can be between 1 and
     -- 50. The default value is 50.
     --
@@ -66,7 +67,7 @@ data DescribeScalableTargets = DescribeScalableTargets'
     -- of results, include the @NextToken@ value in a subsequent call. If this
     -- parameter is not used, the operation returns up to 50 results and a
     -- @NextToken@ value, if applicable.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
     -- If you specify a scalable dimension, you must also specify a resource
@@ -125,7 +126,7 @@ data DescribeScalableTargets = DescribeScalableTargets'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
-    scalableDimension :: Core.Maybe ScalableDimension,
+    scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The identifier of the resource associated with the scalable target. This
     -- string consists of the resource type and unique identifier.
     --
@@ -186,13 +187,13 @@ data DescribeScalableTargets = DescribeScalableTargets'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceIds :: Core.Maybe [Core.Text],
+    resourceIds :: Prelude.Maybe [Prelude.Text],
     -- | The namespace of the AWS service that provides the resource. For a
     -- resource provided by your own application or service, use
     -- @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScalableTargets' with all optional fields omitted.
@@ -342,15 +343,16 @@ newDescribeScalableTargets ::
   DescribeScalableTargets
 newDescribeScalableTargets pServiceNamespace_ =
   DescribeScalableTargets'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      scalableDimension = Core.Nothing,
-      resourceIds = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      scalableDimension = Prelude.Nothing,
+      resourceIds = Prelude.Nothing,
       serviceNamespace = pServiceNamespace_
     }
 
 -- | The token for the next set of results.
-describeScalableTargets_nextToken :: Lens.Lens' DescribeScalableTargets (Core.Maybe Core.Text)
+describeScalableTargets_nextToken :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Text)
 describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextToken} -> nextToken) (\s@DescribeScalableTargets' {} a -> s {nextToken = a} :: DescribeScalableTargets)
 
 -- | The maximum number of scalable targets. This value can be between 1 and
@@ -361,7 +363,7 @@ describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextTo
 -- of results, include the @NextToken@ value in a subsequent call. If this
 -- parameter is not used, the operation returns up to 50 results and a
 -- @NextToken@ value, if applicable.
-describeScalableTargets_maxResults :: Lens.Lens' DescribeScalableTargets (Core.Maybe Core.Int)
+describeScalableTargets_maxResults :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Int)
 describeScalableTargets_maxResults = Lens.lens (\DescribeScalableTargets' {maxResults} -> maxResults) (\s@DescribeScalableTargets' {} a -> s {maxResults = a} :: DescribeScalableTargets)
 
 -- | The scalable dimension associated with the scalable target. This string
@@ -422,7 +424,7 @@ describeScalableTargets_maxResults = Lens.lens (\DescribeScalableTargets' {maxRe
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
-describeScalableTargets_scalableDimension :: Lens.Lens' DescribeScalableTargets (Core.Maybe ScalableDimension)
+describeScalableTargets_scalableDimension :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe ScalableDimension)
 describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets' {scalableDimension} -> scalableDimension) (\s@DescribeScalableTargets' {} a -> s {scalableDimension = a} :: DescribeScalableTargets)
 
 -- | The identifier of the resource associated with the scalable target. This
@@ -485,8 +487,8 @@ describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets'
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-describeScalableTargets_resourceIds :: Lens.Lens' DescribeScalableTargets (Core.Maybe [Core.Text])
-describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {resourceIds} -> resourceIds) (\s@DescribeScalableTargets' {} a -> s {resourceIds = a} :: DescribeScalableTargets) Core.. Lens.mapping Lens._Coerce
+describeScalableTargets_resourceIds :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe [Prelude.Text])
+describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {resourceIds} -> resourceIds) (\s@DescribeScalableTargets' {} a -> s {resourceIds = a} :: DescribeScalableTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace of the AWS service that provides the resource. For a
 -- resource provided by your own application or service, use
@@ -499,22 +501,22 @@ instance Core.AWSPager DescribeScalableTargets where
     | Core.stop
         ( rs
             Lens.^? describeScalableTargetsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScalableTargetsResponse_scalableTargets
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeScalableTargets_nextToken
+          Prelude.& describeScalableTargets_nextToken
           Lens..~ rs
           Lens.^? describeScalableTargetsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalableTargets where
   type
@@ -525,59 +527,63 @@ instance Core.AWSRequest DescribeScalableTargets where
     Response.receiveJSON
       ( \s h x ->
           DescribeScalableTargetsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ScalableTargets" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ScalableTargets"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeScalableTargets
+instance Prelude.Hashable DescribeScalableTargets
 
-instance Core.NFData DescribeScalableTargets
+instance Prelude.NFData DescribeScalableTargets
 
 instance Core.ToHeaders DescribeScalableTargets where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AnyScaleFrontendService.DescribeScalableTargets" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeScalableTargets where
   toJSON DescribeScalableTargets' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ScalableDimension" Core..=)
-              Core.<$> scalableDimension,
-            ("ResourceIds" Core..=) Core.<$> resourceIds,
-            Core.Just
+              Prelude.<$> scalableDimension,
+            ("ResourceIds" Core..=) Prelude.<$> resourceIds,
+            Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace)
           ]
       )
 
 instance Core.ToPath DescribeScalableTargets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeScalableTargets where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScalableTargetsResponse' smart constructor.
 data DescribeScalableTargetsResponse = DescribeScalableTargetsResponse'
   { -- | The token required to get the next set of results. This value is @null@
     -- if there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The scalable targets that match the request parameters.
-    scalableTargets :: Core.Maybe [ScalableTarget],
+    scalableTargets :: Prelude.Maybe [ScalableTarget],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScalableTargetsResponse' with all optional fields omitted.
@@ -595,27 +601,29 @@ data DescribeScalableTargetsResponse = DescribeScalableTargetsResponse'
 -- 'httpStatus', 'describeScalableTargetsResponse_httpStatus' - The response's http status code.
 newDescribeScalableTargetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScalableTargetsResponse
 newDescribeScalableTargetsResponse pHttpStatus_ =
   DescribeScalableTargetsResponse'
     { nextToken =
-        Core.Nothing,
-      scalableTargets = Core.Nothing,
+        Prelude.Nothing,
+      scalableTargets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token required to get the next set of results. This value is @null@
 -- if there are no more results to return.
-describeScalableTargetsResponse_nextToken :: Lens.Lens' DescribeScalableTargetsResponse (Core.Maybe Core.Text)
+describeScalableTargetsResponse_nextToken :: Lens.Lens' DescribeScalableTargetsResponse (Prelude.Maybe Prelude.Text)
 describeScalableTargetsResponse_nextToken = Lens.lens (\DescribeScalableTargetsResponse' {nextToken} -> nextToken) (\s@DescribeScalableTargetsResponse' {} a -> s {nextToken = a} :: DescribeScalableTargetsResponse)
 
 -- | The scalable targets that match the request parameters.
-describeScalableTargetsResponse_scalableTargets :: Lens.Lens' DescribeScalableTargetsResponse (Core.Maybe [ScalableTarget])
-describeScalableTargetsResponse_scalableTargets = Lens.lens (\DescribeScalableTargetsResponse' {scalableTargets} -> scalableTargets) (\s@DescribeScalableTargetsResponse' {} a -> s {scalableTargets = a} :: DescribeScalableTargetsResponse) Core.. Lens.mapping Lens._Coerce
+describeScalableTargetsResponse_scalableTargets :: Lens.Lens' DescribeScalableTargetsResponse (Prelude.Maybe [ScalableTarget])
+describeScalableTargetsResponse_scalableTargets = Lens.lens (\DescribeScalableTargetsResponse' {scalableTargets} -> scalableTargets) (\s@DescribeScalableTargetsResponse' {} a -> s {scalableTargets = a} :: DescribeScalableTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScalableTargetsResponse_httpStatus :: Lens.Lens' DescribeScalableTargetsResponse Core.Int
+describeScalableTargetsResponse_httpStatus :: Lens.Lens' DescribeScalableTargetsResponse Prelude.Int
 describeScalableTargetsResponse_httpStatus = Lens.lens (\DescribeScalableTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeScalableTargetsResponse' {} a -> s {httpStatus = a} :: DescribeScalableTargetsResponse)
 
-instance Core.NFData DescribeScalableTargetsResponse
+instance
+  Prelude.NFData
+    DescribeScalableTargetsResponse

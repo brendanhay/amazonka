@@ -45,17 +45,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateTrust' smart constructor.
 data UpdateTrust = UpdateTrust'
   { -- | Updates selective authentication for the trust.
-    selectiveAuth :: Core.Maybe SelectiveAuth,
+    selectiveAuth :: Prelude.Maybe SelectiveAuth,
     -- | Identifier of the trust relationship.
-    trustId :: Core.Text
+    trustId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTrust' with all optional fields omitted.
@@ -70,20 +71,20 @@ data UpdateTrust = UpdateTrust'
 -- 'trustId', 'updateTrust_trustId' - Identifier of the trust relationship.
 newUpdateTrust ::
   -- | 'trustId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateTrust
 newUpdateTrust pTrustId_ =
   UpdateTrust'
-    { selectiveAuth = Core.Nothing,
+    { selectiveAuth = Prelude.Nothing,
       trustId = pTrustId_
     }
 
 -- | Updates selective authentication for the trust.
-updateTrust_selectiveAuth :: Lens.Lens' UpdateTrust (Core.Maybe SelectiveAuth)
+updateTrust_selectiveAuth :: Lens.Lens' UpdateTrust (Prelude.Maybe SelectiveAuth)
 updateTrust_selectiveAuth = Lens.lens (\UpdateTrust' {selectiveAuth} -> selectiveAuth) (\s@UpdateTrust' {} a -> s {selectiveAuth = a} :: UpdateTrust)
 
 -- | Identifier of the trust relationship.
-updateTrust_trustId :: Lens.Lens' UpdateTrust Core.Text
+updateTrust_trustId :: Lens.Lens' UpdateTrust Prelude.Text
 updateTrust_trustId = Lens.lens (\UpdateTrust' {trustId} -> trustId) (\s@UpdateTrust' {} a -> s {trustId = a} :: UpdateTrust)
 
 instance Core.AWSRequest UpdateTrust where
@@ -93,52 +94,54 @@ instance Core.AWSRequest UpdateTrust where
     Response.receiveJSON
       ( \s h x ->
           UpdateTrustResponse'
-            Core.<$> (x Core..?> "TrustId")
-            Core.<*> (x Core..?> "RequestId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TrustId")
+            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateTrust
+instance Prelude.Hashable UpdateTrust
 
-instance Core.NFData UpdateTrust
+instance Prelude.NFData UpdateTrust
 
 instance Core.ToHeaders UpdateTrust where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.UpdateTrust" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateTrust where
   toJSON UpdateTrust' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SelectiveAuth" Core..=) Core.<$> selectiveAuth,
-            Core.Just ("TrustId" Core..= trustId)
+      ( Prelude.catMaybes
+          [ ("SelectiveAuth" Core..=) Prelude.<$> selectiveAuth,
+            Prelude.Just ("TrustId" Core..= trustId)
           ]
       )
 
 instance Core.ToPath UpdateTrust where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateTrust where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTrustResponse' smart constructor.
 data UpdateTrustResponse = UpdateTrustResponse'
   { -- | Identifier of the trust relationship.
-    trustId :: Core.Maybe Core.Text,
-    requestId :: Core.Maybe Core.Text,
+    trustId :: Prelude.Maybe Prelude.Text,
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTrustResponse' with all optional fields omitted.
@@ -155,25 +158,25 @@ data UpdateTrustResponse = UpdateTrustResponse'
 -- 'httpStatus', 'updateTrustResponse_httpStatus' - The response's http status code.
 newUpdateTrustResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateTrustResponse
 newUpdateTrustResponse pHttpStatus_ =
   UpdateTrustResponse'
-    { trustId = Core.Nothing,
-      requestId = Core.Nothing,
+    { trustId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Identifier of the trust relationship.
-updateTrustResponse_trustId :: Lens.Lens' UpdateTrustResponse (Core.Maybe Core.Text)
+updateTrustResponse_trustId :: Lens.Lens' UpdateTrustResponse (Prelude.Maybe Prelude.Text)
 updateTrustResponse_trustId = Lens.lens (\UpdateTrustResponse' {trustId} -> trustId) (\s@UpdateTrustResponse' {} a -> s {trustId = a} :: UpdateTrustResponse)
 
 -- | Undocumented member.
-updateTrustResponse_requestId :: Lens.Lens' UpdateTrustResponse (Core.Maybe Core.Text)
+updateTrustResponse_requestId :: Lens.Lens' UpdateTrustResponse (Prelude.Maybe Prelude.Text)
 updateTrustResponse_requestId = Lens.lens (\UpdateTrustResponse' {requestId} -> requestId) (\s@UpdateTrustResponse' {} a -> s {requestId = a} :: UpdateTrustResponse)
 
 -- | The response's http status code.
-updateTrustResponse_httpStatus :: Lens.Lens' UpdateTrustResponse Core.Int
+updateTrustResponse_httpStatus :: Lens.Lens' UpdateTrustResponse Prelude.Int
 updateTrustResponse_httpStatus = Lens.lens (\UpdateTrustResponse' {httpStatus} -> httpStatus) (\s@UpdateTrustResponse' {} a -> s {httpStatus = a} :: UpdateTrustResponse)
 
-instance Core.NFData UpdateTrustResponse
+instance Prelude.NFData UpdateTrustResponse

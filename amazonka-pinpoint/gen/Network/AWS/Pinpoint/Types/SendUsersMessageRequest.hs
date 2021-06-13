@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.DirectMessageConfiguration
 import Network.AWS.Pinpoint.Types.EndpointSendConfiguration
 import Network.AWS.Pinpoint.Types.TemplateConfiguration
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the configuration and other settings for a message to send to
 -- all the endpoints that are associated with a list of users.
@@ -35,12 +36,12 @@ data SendUsersMessageRequest = SendUsersMessageRequest'
     -- of the notification payload. Amazon Pinpoint also provides these
     -- attributes in the events that it generates for users-messages
     -- deliveries.
-    context :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique identifier for tracing the message. This identifier is
     -- visible to message recipients.
-    traceId :: Core.Maybe Core.Text,
+    traceId :: Prelude.Maybe Prelude.Text,
     -- | The message template to use for the message.
-    templateConfiguration :: Core.Maybe TemplateConfiguration,
+    templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The settings and content for the default message and any default
     -- messages that you defined for specific channels.
     messageConfiguration :: DirectMessageConfiguration,
@@ -50,9 +51,9 @@ data SendUsersMessageRequest = SendUsersMessageRequest'
     -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration>
     -- object to tailor the message for a user by specifying settings such as
     -- content overrides and message variables.
-    users :: Core.HashMap Core.Text EndpointSendConfiguration
+    users :: Prelude.HashMap Prelude.Text EndpointSendConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendUsersMessageRequest' with all optional fields omitted.
@@ -88,11 +89,11 @@ newSendUsersMessageRequest ::
   SendUsersMessageRequest
 newSendUsersMessageRequest pMessageConfiguration_ =
   SendUsersMessageRequest'
-    { context = Core.Nothing,
-      traceId = Core.Nothing,
-      templateConfiguration = Core.Nothing,
+    { context = Prelude.Nothing,
+      traceId = Prelude.Nothing,
+      templateConfiguration = Prelude.Nothing,
       messageConfiguration = pMessageConfiguration_,
-      users = Core.mempty
+      users = Prelude.mempty
     }
 
 -- | A map of custom attribute-value pairs. For a push notification, Amazon
@@ -100,16 +101,16 @@ newSendUsersMessageRequest pMessageConfiguration_ =
 -- of the notification payload. Amazon Pinpoint also provides these
 -- attributes in the events that it generates for users-messages
 -- deliveries.
-sendUsersMessageRequest_context :: Lens.Lens' SendUsersMessageRequest (Core.Maybe (Core.HashMap Core.Text Core.Text))
-sendUsersMessageRequest_context = Lens.lens (\SendUsersMessageRequest' {context} -> context) (\s@SendUsersMessageRequest' {} a -> s {context = a} :: SendUsersMessageRequest) Core.. Lens.mapping Lens._Coerce
+sendUsersMessageRequest_context :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+sendUsersMessageRequest_context = Lens.lens (\SendUsersMessageRequest' {context} -> context) (\s@SendUsersMessageRequest' {} a -> s {context = a} :: SendUsersMessageRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for tracing the message. This identifier is
 -- visible to message recipients.
-sendUsersMessageRequest_traceId :: Lens.Lens' SendUsersMessageRequest (Core.Maybe Core.Text)
+sendUsersMessageRequest_traceId :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe Prelude.Text)
 sendUsersMessageRequest_traceId = Lens.lens (\SendUsersMessageRequest' {traceId} -> traceId) (\s@SendUsersMessageRequest' {} a -> s {traceId = a} :: SendUsersMessageRequest)
 
 -- | The message template to use for the message.
-sendUsersMessageRequest_templateConfiguration :: Lens.Lens' SendUsersMessageRequest (Core.Maybe TemplateConfiguration)
+sendUsersMessageRequest_templateConfiguration :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe TemplateConfiguration)
 sendUsersMessageRequest_templateConfiguration = Lens.lens (\SendUsersMessageRequest' {templateConfiguration} -> templateConfiguration) (\s@SendUsersMessageRequest' {} a -> s {templateConfiguration = a} :: SendUsersMessageRequest)
 
 -- | The settings and content for the default message and any default
@@ -123,25 +124,25 @@ sendUsersMessageRequest_messageConfiguration = Lens.lens (\SendUsersMessageReque
 -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration>
 -- object to tailor the message for a user by specifying settings such as
 -- content overrides and message variables.
-sendUsersMessageRequest_users :: Lens.Lens' SendUsersMessageRequest (Core.HashMap Core.Text EndpointSendConfiguration)
-sendUsersMessageRequest_users = Lens.lens (\SendUsersMessageRequest' {users} -> users) (\s@SendUsersMessageRequest' {} a -> s {users = a} :: SendUsersMessageRequest) Core.. Lens._Coerce
+sendUsersMessageRequest_users :: Lens.Lens' SendUsersMessageRequest (Prelude.HashMap Prelude.Text EndpointSendConfiguration)
+sendUsersMessageRequest_users = Lens.lens (\SendUsersMessageRequest' {users} -> users) (\s@SendUsersMessageRequest' {} a -> s {users = a} :: SendUsersMessageRequest) Prelude.. Lens._Coerce
 
-instance Core.Hashable SendUsersMessageRequest
+instance Prelude.Hashable SendUsersMessageRequest
 
-instance Core.NFData SendUsersMessageRequest
+instance Prelude.NFData SendUsersMessageRequest
 
 instance Core.ToJSON SendUsersMessageRequest where
   toJSON SendUsersMessageRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Context" Core..=) Core.<$> context,
-            ("TraceId" Core..=) Core.<$> traceId,
+      ( Prelude.catMaybes
+          [ ("Context" Core..=) Prelude.<$> context,
+            ("TraceId" Core..=) Prelude.<$> traceId,
             ("TemplateConfiguration" Core..=)
-              Core.<$> templateConfiguration,
-            Core.Just
+              Prelude.<$> templateConfiguration,
+            Prelude.Just
               ( "MessageConfiguration"
                   Core..= messageConfiguration
               ),
-            Core.Just ("Users" Core..= users)
+            Prelude.Just ("Users" Core..= users)
           ]
       )

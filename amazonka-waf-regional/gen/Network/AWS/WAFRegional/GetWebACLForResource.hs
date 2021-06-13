@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -68,9 +69,9 @@ data GetWebACLForResource = GetWebACLForResource'
     --
     -- -   For an Amazon API Gateway stage:
     --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetWebACLForResource' with all optional fields omitted.
@@ -92,7 +93,7 @@ data GetWebACLForResource = GetWebACLForResource'
 --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
 newGetWebACLForResource ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   GetWebACLForResource
 newGetWebACLForResource pResourceArn_ =
   GetWebACLForResource' {resourceArn = pResourceArn_}
@@ -107,7 +108,7 @@ newGetWebACLForResource pResourceArn_ =
 --
 -- -   For an Amazon API Gateway stage:
 --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
-getWebACLForResource_resourceArn :: Lens.Lens' GetWebACLForResource Core.Text
+getWebACLForResource_resourceArn :: Lens.Lens' GetWebACLForResource Prelude.Text
 getWebACLForResource_resourceArn = Lens.lens (\GetWebACLForResource' {resourceArn} -> resourceArn) (\s@GetWebACLForResource' {} a -> s {resourceArn = a} :: GetWebACLForResource)
 
 instance Core.AWSRequest GetWebACLForResource where
@@ -119,50 +120,52 @@ instance Core.AWSRequest GetWebACLForResource where
     Response.receiveJSON
       ( \s h x ->
           GetWebACLForResourceResponse'
-            Core.<$> (x Core..?> "WebACLSummary")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "WebACLSummary")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetWebACLForResource
+instance Prelude.Hashable GetWebACLForResource
 
-instance Core.NFData GetWebACLForResource
+instance Prelude.NFData GetWebACLForResource
 
 instance Core.ToHeaders GetWebACLForResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.GetWebACLForResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetWebACLForResource where
   toJSON GetWebACLForResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ResourceArn" Core..= resourceArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
       )
 
 instance Core.ToPath GetWebACLForResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetWebACLForResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWebACLForResourceResponse' smart constructor.
 data GetWebACLForResourceResponse = GetWebACLForResourceResponse'
   { -- | Information about the web ACL that you specified in the
     -- @GetWebACLForResource@ request. If there is no associated resource, a
     -- null WebACLSummary is returned.
-    webACLSummary :: Core.Maybe WebACLSummary,
+    webACLSummary :: Prelude.Maybe WebACLSummary,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetWebACLForResourceResponse' with all optional fields omitted.
@@ -179,23 +182,23 @@ data GetWebACLForResourceResponse = GetWebACLForResourceResponse'
 -- 'httpStatus', 'getWebACLForResourceResponse_httpStatus' - The response's http status code.
 newGetWebACLForResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetWebACLForResourceResponse
 newGetWebACLForResourceResponse pHttpStatus_ =
   GetWebACLForResourceResponse'
     { webACLSummary =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the web ACL that you specified in the
 -- @GetWebACLForResource@ request. If there is no associated resource, a
 -- null WebACLSummary is returned.
-getWebACLForResourceResponse_webACLSummary :: Lens.Lens' GetWebACLForResourceResponse (Core.Maybe WebACLSummary)
+getWebACLForResourceResponse_webACLSummary :: Lens.Lens' GetWebACLForResourceResponse (Prelude.Maybe WebACLSummary)
 getWebACLForResourceResponse_webACLSummary = Lens.lens (\GetWebACLForResourceResponse' {webACLSummary} -> webACLSummary) (\s@GetWebACLForResourceResponse' {} a -> s {webACLSummary = a} :: GetWebACLForResourceResponse)
 
 -- | The response's http status code.
-getWebACLForResourceResponse_httpStatus :: Lens.Lens' GetWebACLForResourceResponse Core.Int
+getWebACLForResourceResponse_httpStatus :: Lens.Lens' GetWebACLForResourceResponse Prelude.Int
 getWebACLForResourceResponse_httpStatus = Lens.lens (\GetWebACLForResourceResponse' {httpStatus} -> httpStatus) (\s@GetWebACLForResourceResponse' {} a -> s {httpStatus = a} :: GetWebACLForResourceResponse)
 
-instance Core.NFData GetWebACLForResourceResponse
+instance Prelude.NFData GetWebACLForResourceResponse

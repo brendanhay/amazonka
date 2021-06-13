@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ConditionStepMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ConditionOutcome
 
 -- | Metadata for a Condition step.
@@ -28,9 +29,9 @@ import Network.AWS.SageMaker.Types.ConditionOutcome
 -- /See:/ 'newConditionStepMetadata' smart constructor.
 data ConditionStepMetadata = ConditionStepMetadata'
   { -- | The outcome of the Condition step evaluation.
-    outcome :: Core.Maybe ConditionOutcome
+    outcome :: Prelude.Maybe ConditionOutcome
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConditionStepMetadata' with all optional fields omitted.
@@ -44,10 +45,10 @@ data ConditionStepMetadata = ConditionStepMetadata'
 newConditionStepMetadata ::
   ConditionStepMetadata
 newConditionStepMetadata =
-  ConditionStepMetadata' {outcome = Core.Nothing}
+  ConditionStepMetadata' {outcome = Prelude.Nothing}
 
 -- | The outcome of the Condition step evaluation.
-conditionStepMetadata_outcome :: Lens.Lens' ConditionStepMetadata (Core.Maybe ConditionOutcome)
+conditionStepMetadata_outcome :: Lens.Lens' ConditionStepMetadata (Prelude.Maybe ConditionOutcome)
 conditionStepMetadata_outcome = Lens.lens (\ConditionStepMetadata' {outcome} -> outcome) (\s@ConditionStepMetadata' {} a -> s {outcome = a} :: ConditionStepMetadata)
 
 instance Core.FromJSON ConditionStepMetadata where
@@ -56,9 +57,9 @@ instance Core.FromJSON ConditionStepMetadata where
       "ConditionStepMetadata"
       ( \x ->
           ConditionStepMetadata'
-            Core.<$> (x Core..:? "Outcome")
+            Prelude.<$> (x Core..:? "Outcome")
       )
 
-instance Core.Hashable ConditionStepMetadata
+instance Prelude.Hashable ConditionStepMetadata
 
-instance Core.NFData ConditionStepMetadata
+instance Prelude.NFData ConditionStepMetadata

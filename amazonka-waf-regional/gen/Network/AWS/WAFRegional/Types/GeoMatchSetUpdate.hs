@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.GeoMatchSetUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ChangeAction
 import Network.AWS.WAFRegional.Types.GeoMatchConstraint
 
@@ -44,7 +45,7 @@ data GeoMatchSetUpdate = GeoMatchSetUpdate'
     -- search for.
     geoMatchConstraint :: GeoMatchConstraint
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GeoMatchSetUpdate' with all optional fields omitted.
@@ -79,16 +80,16 @@ geoMatchSetUpdate_action = Lens.lens (\GeoMatchSetUpdate' {action} -> action) (\
 geoMatchSetUpdate_geoMatchConstraint :: Lens.Lens' GeoMatchSetUpdate GeoMatchConstraint
 geoMatchSetUpdate_geoMatchConstraint = Lens.lens (\GeoMatchSetUpdate' {geoMatchConstraint} -> geoMatchConstraint) (\s@GeoMatchSetUpdate' {} a -> s {geoMatchConstraint = a} :: GeoMatchSetUpdate)
 
-instance Core.Hashable GeoMatchSetUpdate
+instance Prelude.Hashable GeoMatchSetUpdate
 
-instance Core.NFData GeoMatchSetUpdate
+instance Prelude.NFData GeoMatchSetUpdate
 
 instance Core.ToJSON GeoMatchSetUpdate where
   toJSON GeoMatchSetUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Action" Core..= action),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Action" Core..= action),
+            Prelude.Just
               ("GeoMatchConstraint" Core..= geoMatchConstraint)
           ]
       )

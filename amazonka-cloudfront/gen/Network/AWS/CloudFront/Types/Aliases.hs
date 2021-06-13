@@ -21,6 +21,7 @@ module Network.AWS.CloudFront.Types.Aliases where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data Aliases = Aliases'
   { -- | A complex type that contains the CNAME aliases, if any, that you want to
     -- associate with this distribution.
-    items :: Core.Maybe [Core.Text],
+    items :: Prelude.Maybe [Prelude.Text],
     -- | The number of CNAME aliases, if any, that you want to associate with
     -- this distribution.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Aliases' with all optional fields omitted.
@@ -51,40 +52,41 @@ data Aliases = Aliases'
 -- this distribution.
 newAliases ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   Aliases
 newAliases pQuantity_ =
   Aliases'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       quantity = pQuantity_
     }
 
 -- | A complex type that contains the CNAME aliases, if any, that you want to
 -- associate with this distribution.
-aliases_items :: Lens.Lens' Aliases (Core.Maybe [Core.Text])
-aliases_items = Lens.lens (\Aliases' {items} -> items) (\s@Aliases' {} a -> s {items = a} :: Aliases) Core.. Lens.mapping Lens._Coerce
+aliases_items :: Lens.Lens' Aliases (Prelude.Maybe [Prelude.Text])
+aliases_items = Lens.lens (\Aliases' {items} -> items) (\s@Aliases' {} a -> s {items = a} :: Aliases) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of CNAME aliases, if any, that you want to associate with
 -- this distribution.
-aliases_quantity :: Lens.Lens' Aliases Core.Int
+aliases_quantity :: Lens.Lens' Aliases Prelude.Int
 aliases_quantity = Lens.lens (\Aliases' {quantity} -> quantity) (\s@Aliases' {} a -> s {quantity = a} :: Aliases)
 
 instance Core.FromXML Aliases where
   parseXML x =
     Aliases'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "CNAME")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "CNAME")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable Aliases
+instance Prelude.Hashable Aliases
 
-instance Core.NFData Aliases
+instance Prelude.NFData Aliases
 
 instance Core.ToXML Aliases where
   toXML Aliases' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "CNAME" Core.<$> items),
+          Core.@= Core.toXML
+            (Core.toXMLList "CNAME" Prelude.<$> items),
         "Quantity" Core.@= quantity
       ]

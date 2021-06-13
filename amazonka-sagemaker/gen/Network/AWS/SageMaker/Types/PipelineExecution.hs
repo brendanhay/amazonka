@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.PipelineExecution where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.Parameter
 import Network.AWS.SageMaker.Types.PipelineExecutionStatus
 import Network.AWS.SageMaker.Types.UserContext
@@ -30,25 +31,25 @@ import Network.AWS.SageMaker.Types.UserContext
 -- /See:/ 'newPipelineExecution' smart constructor.
 data PipelineExecution = PipelineExecution'
   { -- | The Amazon Resource Name (ARN) of the pipeline that was executed.
-    pipelineArn :: Core.Maybe Core.Text,
+    pipelineArn :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the pipeline execution.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The description of the pipeline execution.
-    pipelineExecutionDescription :: Core.Maybe Core.Text,
+    pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of pipeline parameters. This list can be empty.
-    pipelineParameters :: Core.Maybe [Parameter],
+    pipelineParameters :: Prelude.Maybe [Parameter],
     -- | The display name of the pipeline execution.
-    pipelineExecutionDisplayName :: Core.Maybe Core.Text,
+    pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The status of the pipeline status.
-    pipelineExecutionStatus :: Core.Maybe PipelineExecutionStatus,
+    pipelineExecutionStatus :: Prelude.Maybe PipelineExecutionStatus,
     -- | The time that the pipeline execution was last modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
-    createdBy :: Core.Maybe UserContext,
-    lastModifiedBy :: Core.Maybe UserContext,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    createdBy :: Prelude.Maybe UserContext,
+    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The Amazon Resource Name (ARN) of the pipeline execution.
-    pipelineExecutionArn :: Core.Maybe Core.Text
+    pipelineExecutionArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PipelineExecution' with all optional fields omitted.
@@ -81,56 +82,56 @@ newPipelineExecution ::
   PipelineExecution
 newPipelineExecution =
   PipelineExecution'
-    { pipelineArn = Core.Nothing,
-      creationTime = Core.Nothing,
-      pipelineExecutionDescription = Core.Nothing,
-      pipelineParameters = Core.Nothing,
-      pipelineExecutionDisplayName = Core.Nothing,
-      pipelineExecutionStatus = Core.Nothing,
-      lastModifiedTime = Core.Nothing,
-      createdBy = Core.Nothing,
-      lastModifiedBy = Core.Nothing,
-      pipelineExecutionArn = Core.Nothing
+    { pipelineArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      pipelineExecutionDescription = Prelude.Nothing,
+      pipelineParameters = Prelude.Nothing,
+      pipelineExecutionDisplayName = Prelude.Nothing,
+      pipelineExecutionStatus = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
+      pipelineExecutionArn = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the pipeline that was executed.
-pipelineExecution_pipelineArn :: Lens.Lens' PipelineExecution (Core.Maybe Core.Text)
+pipelineExecution_pipelineArn :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
 pipelineExecution_pipelineArn = Lens.lens (\PipelineExecution' {pipelineArn} -> pipelineArn) (\s@PipelineExecution' {} a -> s {pipelineArn = a} :: PipelineExecution)
 
 -- | The creation time of the pipeline execution.
-pipelineExecution_creationTime :: Lens.Lens' PipelineExecution (Core.Maybe Core.UTCTime)
-pipelineExecution_creationTime = Lens.lens (\PipelineExecution' {creationTime} -> creationTime) (\s@PipelineExecution' {} a -> s {creationTime = a} :: PipelineExecution) Core.. Lens.mapping Core._Time
+pipelineExecution_creationTime :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.UTCTime)
+pipelineExecution_creationTime = Lens.lens (\PipelineExecution' {creationTime} -> creationTime) (\s@PipelineExecution' {} a -> s {creationTime = a} :: PipelineExecution) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the pipeline execution.
-pipelineExecution_pipelineExecutionDescription :: Lens.Lens' PipelineExecution (Core.Maybe Core.Text)
+pipelineExecution_pipelineExecutionDescription :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
 pipelineExecution_pipelineExecutionDescription = Lens.lens (\PipelineExecution' {pipelineExecutionDescription} -> pipelineExecutionDescription) (\s@PipelineExecution' {} a -> s {pipelineExecutionDescription = a} :: PipelineExecution)
 
 -- | Contains a list of pipeline parameters. This list can be empty.
-pipelineExecution_pipelineParameters :: Lens.Lens' PipelineExecution (Core.Maybe [Parameter])
-pipelineExecution_pipelineParameters = Lens.lens (\PipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@PipelineExecution' {} a -> s {pipelineParameters = a} :: PipelineExecution) Core.. Lens.mapping Lens._Coerce
+pipelineExecution_pipelineParameters :: Lens.Lens' PipelineExecution (Prelude.Maybe [Parameter])
+pipelineExecution_pipelineParameters = Lens.lens (\PipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@PipelineExecution' {} a -> s {pipelineParameters = a} :: PipelineExecution) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The display name of the pipeline execution.
-pipelineExecution_pipelineExecutionDisplayName :: Lens.Lens' PipelineExecution (Core.Maybe Core.Text)
+pipelineExecution_pipelineExecutionDisplayName :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
 pipelineExecution_pipelineExecutionDisplayName = Lens.lens (\PipelineExecution' {pipelineExecutionDisplayName} -> pipelineExecutionDisplayName) (\s@PipelineExecution' {} a -> s {pipelineExecutionDisplayName = a} :: PipelineExecution)
 
 -- | The status of the pipeline status.
-pipelineExecution_pipelineExecutionStatus :: Lens.Lens' PipelineExecution (Core.Maybe PipelineExecutionStatus)
+pipelineExecution_pipelineExecutionStatus :: Lens.Lens' PipelineExecution (Prelude.Maybe PipelineExecutionStatus)
 pipelineExecution_pipelineExecutionStatus = Lens.lens (\PipelineExecution' {pipelineExecutionStatus} -> pipelineExecutionStatus) (\s@PipelineExecution' {} a -> s {pipelineExecutionStatus = a} :: PipelineExecution)
 
 -- | The time that the pipeline execution was last modified.
-pipelineExecution_lastModifiedTime :: Lens.Lens' PipelineExecution (Core.Maybe Core.UTCTime)
-pipelineExecution_lastModifiedTime = Lens.lens (\PipelineExecution' {lastModifiedTime} -> lastModifiedTime) (\s@PipelineExecution' {} a -> s {lastModifiedTime = a} :: PipelineExecution) Core.. Lens.mapping Core._Time
+pipelineExecution_lastModifiedTime :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.UTCTime)
+pipelineExecution_lastModifiedTime = Lens.lens (\PipelineExecution' {lastModifiedTime} -> lastModifiedTime) (\s@PipelineExecution' {} a -> s {lastModifiedTime = a} :: PipelineExecution) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-pipelineExecution_createdBy :: Lens.Lens' PipelineExecution (Core.Maybe UserContext)
+pipelineExecution_createdBy :: Lens.Lens' PipelineExecution (Prelude.Maybe UserContext)
 pipelineExecution_createdBy = Lens.lens (\PipelineExecution' {createdBy} -> createdBy) (\s@PipelineExecution' {} a -> s {createdBy = a} :: PipelineExecution)
 
 -- | Undocumented member.
-pipelineExecution_lastModifiedBy :: Lens.Lens' PipelineExecution (Core.Maybe UserContext)
+pipelineExecution_lastModifiedBy :: Lens.Lens' PipelineExecution (Prelude.Maybe UserContext)
 pipelineExecution_lastModifiedBy = Lens.lens (\PipelineExecution' {lastModifiedBy} -> lastModifiedBy) (\s@PipelineExecution' {} a -> s {lastModifiedBy = a} :: PipelineExecution)
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
-pipelineExecution_pipelineExecutionArn :: Lens.Lens' PipelineExecution (Core.Maybe Core.Text)
+pipelineExecution_pipelineExecutionArn :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
 pipelineExecution_pipelineExecutionArn = Lens.lens (\PipelineExecution' {pipelineExecutionArn} -> pipelineExecutionArn) (\s@PipelineExecution' {} a -> s {pipelineExecutionArn = a} :: PipelineExecution)
 
 instance Core.FromJSON PipelineExecution where
@@ -139,20 +140,20 @@ instance Core.FromJSON PipelineExecution where
       "PipelineExecution"
       ( \x ->
           PipelineExecution'
-            Core.<$> (x Core..:? "PipelineArn")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "PipelineExecutionDescription")
-            Core.<*> ( x Core..:? "PipelineParameters"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "PipelineExecutionDisplayName")
-            Core.<*> (x Core..:? "PipelineExecutionStatus")
-            Core.<*> (x Core..:? "LastModifiedTime")
-            Core.<*> (x Core..:? "CreatedBy")
-            Core.<*> (x Core..:? "LastModifiedBy")
-            Core.<*> (x Core..:? "PipelineExecutionArn")
+            Prelude.<$> (x Core..:? "PipelineArn")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "PipelineExecutionDescription")
+            Prelude.<*> ( x Core..:? "PipelineParameters"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "PipelineExecutionDisplayName")
+            Prelude.<*> (x Core..:? "PipelineExecutionStatus")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "PipelineExecutionArn")
       )
 
-instance Core.Hashable PipelineExecution
+instance Prelude.Hashable PipelineExecution
 
-instance Core.NFData PipelineExecution
+instance Prelude.NFData PipelineExecution

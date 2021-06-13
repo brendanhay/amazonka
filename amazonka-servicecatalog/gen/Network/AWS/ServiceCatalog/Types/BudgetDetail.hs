@@ -21,15 +21,16 @@ module Network.AWS.ServiceCatalog.Types.BudgetDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a budget.
 --
 -- /See:/ 'newBudgetDetail' smart constructor.
 data BudgetDetail = BudgetDetail'
   { -- | Name of the associated budget.
-    budgetName :: Core.Maybe Core.Text
+    budgetName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BudgetDetail' with all optional fields omitted.
@@ -43,10 +44,10 @@ data BudgetDetail = BudgetDetail'
 newBudgetDetail ::
   BudgetDetail
 newBudgetDetail =
-  BudgetDetail' {budgetName = Core.Nothing}
+  BudgetDetail' {budgetName = Prelude.Nothing}
 
 -- | Name of the associated budget.
-budgetDetail_budgetName :: Lens.Lens' BudgetDetail (Core.Maybe Core.Text)
+budgetDetail_budgetName :: Lens.Lens' BudgetDetail (Prelude.Maybe Prelude.Text)
 budgetDetail_budgetName = Lens.lens (\BudgetDetail' {budgetName} -> budgetName) (\s@BudgetDetail' {} a -> s {budgetName = a} :: BudgetDetail)
 
 instance Core.FromJSON BudgetDetail where
@@ -54,9 +55,9 @@ instance Core.FromJSON BudgetDetail where
     Core.withObject
       "BudgetDetail"
       ( \x ->
-          BudgetDetail' Core.<$> (x Core..:? "BudgetName")
+          BudgetDetail' Prelude.<$> (x Core..:? "BudgetName")
       )
 
-instance Core.Hashable BudgetDetail
+instance Prelude.Hashable BudgetDetail
 
-instance Core.NFData BudgetDetail
+instance Prelude.NFData BudgetDetail

@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +59,15 @@ data UpdateSAMLProvider = UpdateSAMLProvider'
     -- authentication response (assertions) that are received from the IdP. You
     -- must generate the metadata document using the identity management
     -- software that is used as your organization\'s IdP.
-    sAMLMetadataDocument :: Core.Text,
+    sAMLMetadataDocument :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the SAML provider to update.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    sAMLProviderArn :: Core.Text
+    sAMLProviderArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSAMLProvider' with all optional fields omitted.
@@ -90,9 +91,9 @@ data UpdateSAMLProvider = UpdateSAMLProvider'
 -- in the /AWS General Reference/.
 newUpdateSAMLProvider ::
   -- | 'sAMLMetadataDocument'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sAMLProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateSAMLProvider
 newUpdateSAMLProvider
   pSAMLMetadataDocument_
@@ -109,7 +110,7 @@ newUpdateSAMLProvider
 -- authentication response (assertions) that are received from the IdP. You
 -- must generate the metadata document using the identity management
 -- software that is used as your organization\'s IdP.
-updateSAMLProvider_sAMLMetadataDocument :: Lens.Lens' UpdateSAMLProvider Core.Text
+updateSAMLProvider_sAMLMetadataDocument :: Lens.Lens' UpdateSAMLProvider Prelude.Text
 updateSAMLProvider_sAMLMetadataDocument = Lens.lens (\UpdateSAMLProvider' {sAMLMetadataDocument} -> sAMLMetadataDocument) (\s@UpdateSAMLProvider' {} a -> s {sAMLMetadataDocument = a} :: UpdateSAMLProvider)
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to update.
@@ -117,7 +118,7 @@ updateSAMLProvider_sAMLMetadataDocument = Lens.lens (\UpdateSAMLProvider' {sAMLM
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-updateSAMLProvider_sAMLProviderArn :: Lens.Lens' UpdateSAMLProvider Core.Text
+updateSAMLProvider_sAMLProviderArn :: Lens.Lens' UpdateSAMLProvider Prelude.Text
 updateSAMLProvider_sAMLProviderArn = Lens.lens (\UpdateSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@UpdateSAMLProvider' {} a -> s {sAMLProviderArn = a} :: UpdateSAMLProvider)
 
 instance Core.AWSRequest UpdateSAMLProvider where
@@ -130,26 +131,27 @@ instance Core.AWSRequest UpdateSAMLProvider where
       "UpdateSAMLProviderResult"
       ( \s h x ->
           UpdateSAMLProviderResponse'
-            Core.<$> (x Core..@? "SAMLProviderArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "SAMLProviderArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateSAMLProvider
+instance Prelude.Hashable UpdateSAMLProvider
 
-instance Core.NFData UpdateSAMLProvider
+instance Prelude.NFData UpdateSAMLProvider
 
 instance Core.ToHeaders UpdateSAMLProvider where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateSAMLProvider where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSAMLProvider where
   toQuery UpdateSAMLProvider' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateSAMLProvider" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UpdateSAMLProvider" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "SAMLMetadataDocument" Core.=: sAMLMetadataDocument,
         "SAMLProviderArn" Core.=: sAMLProviderArn
       ]
@@ -159,11 +161,11 @@ instance Core.ToQuery UpdateSAMLProvider where
 -- /See:/ 'newUpdateSAMLProviderResponse' smart constructor.
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
   { -- | The Amazon Resource Name (ARN) of the SAML provider that was updated.
-    sAMLProviderArn :: Core.Maybe Core.Text,
+    sAMLProviderArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSAMLProviderResponse' with all optional fields omitted.
@@ -178,21 +180,21 @@ data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
 -- 'httpStatus', 'updateSAMLProviderResponse_httpStatus' - The response's http status code.
 newUpdateSAMLProviderResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateSAMLProviderResponse
 newUpdateSAMLProviderResponse pHttpStatus_ =
   UpdateSAMLProviderResponse'
     { sAMLProviderArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider that was updated.
-updateSAMLProviderResponse_sAMLProviderArn :: Lens.Lens' UpdateSAMLProviderResponse (Core.Maybe Core.Text)
+updateSAMLProviderResponse_sAMLProviderArn :: Lens.Lens' UpdateSAMLProviderResponse (Prelude.Maybe Prelude.Text)
 updateSAMLProviderResponse_sAMLProviderArn = Lens.lens (\UpdateSAMLProviderResponse' {sAMLProviderArn} -> sAMLProviderArn) (\s@UpdateSAMLProviderResponse' {} a -> s {sAMLProviderArn = a} :: UpdateSAMLProviderResponse)
 
 -- | The response's http status code.
-updateSAMLProviderResponse_httpStatus :: Lens.Lens' UpdateSAMLProviderResponse Core.Int
+updateSAMLProviderResponse_httpStatus :: Lens.Lens' UpdateSAMLProviderResponse Prelude.Int
 updateSAMLProviderResponse_httpStatus = Lens.lens (\UpdateSAMLProviderResponse' {httpStatus} -> httpStatus) (\s@UpdateSAMLProviderResponse' {} a -> s {httpStatus = a} :: UpdateSAMLProviderResponse)
 
-instance Core.NFData UpdateSAMLProviderResponse
+instance Prelude.NFData UpdateSAMLProviderResponse

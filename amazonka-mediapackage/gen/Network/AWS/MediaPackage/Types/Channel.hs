@@ -24,23 +24,24 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.EgressAccessLogs
 import Network.AWS.MediaPackage.Types.HlsIngest
 import Network.AWS.MediaPackage.Types.IngressAccessLogs
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A Channel resource configuration.
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { egressAccessLogs :: Core.Maybe EgressAccessLogs,
-    hlsIngest :: Core.Maybe HlsIngest,
+  { egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
+    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
-    id :: Core.Maybe Core.Text,
-    ingressAccessLogs :: Core.Maybe IngressAccessLogs,
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    id :: Prelude.Maybe Prelude.Text,
+    ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short text description of the Channel.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Channel' with all optional fields omitted.
@@ -67,41 +68,41 @@ newChannel ::
   Channel
 newChannel =
   Channel'
-    { egressAccessLogs = Core.Nothing,
-      hlsIngest = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      ingressAccessLogs = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing
+    { egressAccessLogs = Prelude.Nothing,
+      hlsIngest = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      ingressAccessLogs = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | Undocumented member.
-channel_egressAccessLogs :: Lens.Lens' Channel (Core.Maybe EgressAccessLogs)
+channel_egressAccessLogs :: Lens.Lens' Channel (Prelude.Maybe EgressAccessLogs)
 channel_egressAccessLogs = Lens.lens (\Channel' {egressAccessLogs} -> egressAccessLogs) (\s@Channel' {} a -> s {egressAccessLogs = a} :: Channel)
 
 -- | Undocumented member.
-channel_hlsIngest :: Lens.Lens' Channel (Core.Maybe HlsIngest)
+channel_hlsIngest :: Lens.Lens' Channel (Prelude.Maybe HlsIngest)
 channel_hlsIngest = Lens.lens (\Channel' {hlsIngest} -> hlsIngest) (\s@Channel' {} a -> s {hlsIngest = a} :: Channel)
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
-channel_arn :: Lens.Lens' Channel (Core.Maybe Core.Text)
+channel_arn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_arn = Lens.lens (\Channel' {arn} -> arn) (\s@Channel' {} a -> s {arn = a} :: Channel)
 
 -- | The ID of the Channel.
-channel_id :: Lens.Lens' Channel (Core.Maybe Core.Text)
+channel_id :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_id = Lens.lens (\Channel' {id} -> id) (\s@Channel' {} a -> s {id = a} :: Channel)
 
 -- | Undocumented member.
-channel_ingressAccessLogs :: Lens.Lens' Channel (Core.Maybe IngressAccessLogs)
+channel_ingressAccessLogs :: Lens.Lens' Channel (Prelude.Maybe IngressAccessLogs)
 channel_ingressAccessLogs = Lens.lens (\Channel' {ingressAccessLogs} -> ingressAccessLogs) (\s@Channel' {} a -> s {ingressAccessLogs = a} :: Channel)
 
 -- | Undocumented member.
-channel_tags :: Lens.Lens' Channel (Core.Maybe (Core.HashMap Core.Text Core.Text))
-channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Core.. Lens.mapping Lens._Coerce
+channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A short text description of the Channel.
-channel_description :: Lens.Lens' Channel (Core.Maybe Core.Text)
+channel_description :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_description = Lens.lens (\Channel' {description} -> description) (\s@Channel' {} a -> s {description = a} :: Channel)
 
 instance Core.FromJSON Channel where
@@ -110,15 +111,15 @@ instance Core.FromJSON Channel where
       "Channel"
       ( \x ->
           Channel'
-            Core.<$> (x Core..:? "egressAccessLogs")
-            Core.<*> (x Core..:? "hlsIngest")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "ingressAccessLogs")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "egressAccessLogs")
+            Prelude.<*> (x Core..:? "hlsIngest")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "ingressAccessLogs")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "description")
       )
 
-instance Core.Hashable Channel
+instance Prelude.Hashable Channel
 
-instance Core.NFData Channel
+instance Prelude.NFData Channel

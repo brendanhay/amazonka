@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ContinuationEvent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- |
@@ -29,7 +30,7 @@ import Network.AWS.S3.Internal
 data ContinuationEvent = ContinuationEvent'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContinuationEvent' with all optional fields omitted.
@@ -40,8 +41,9 @@ newContinuationEvent ::
 newContinuationEvent = ContinuationEvent'
 
 instance Core.FromXML ContinuationEvent where
-  parseXML = Core.const (Core.pure ContinuationEvent')
+  parseXML =
+    Prelude.const (Prelude.pure ContinuationEvent')
 
-instance Core.Hashable ContinuationEvent
+instance Prelude.Hashable ContinuationEvent
 
-instance Core.NFData ContinuationEvent
+instance Prelude.NFData ContinuationEvent

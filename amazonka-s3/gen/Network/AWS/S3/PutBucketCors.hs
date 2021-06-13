@@ -85,6 +85,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -94,7 +95,7 @@ data PutBucketCors = PutBucketCors'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
     -- used as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, go to
@@ -102,7 +103,7 @@ data PutBucketCors = PutBucketCors'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | Specifies the bucket impacted by the @cors@configuration.
     bucket :: BucketName,
     -- | Describes the cross-origin access configuration for objects in an Amazon
@@ -111,7 +112,7 @@ data PutBucketCors = PutBucketCors'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     cORSConfiguration :: CORSConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketCors' with all optional fields omitted.
@@ -147,8 +148,9 @@ newPutBucketCors ::
   PutBucketCors
 newPutBucketCors pBucket_ pCORSConfiguration_ =
   PutBucketCors'
-    { expectedBucketOwner = Core.Nothing,
-      contentMD5 = Core.Nothing,
+    { expectedBucketOwner =
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
       bucket = pBucket_,
       cORSConfiguration = pCORSConfiguration_
     }
@@ -156,7 +158,7 @@ newPutBucketCors pBucket_ pCORSConfiguration_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketCors_expectedBucketOwner :: Lens.Lens' PutBucketCors (Core.Maybe Core.Text)
+putBucketCors_expectedBucketOwner :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text)
 putBucketCors_expectedBucketOwner = Lens.lens (\PutBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketCors' {} a -> s {expectedBucketOwner = a} :: PutBucketCors)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
@@ -166,7 +168,7 @@ putBucketCors_expectedBucketOwner = Lens.lens (\PutBucketCors' {expectedBucketOw
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketCors_contentMD5 :: Lens.Lens' PutBucketCors (Core.Maybe Core.Text)
+putBucketCors_contentMD5 :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text)
 putBucketCors_contentMD5 = Lens.lens (\PutBucketCors' {contentMD5} -> contentMD5) (\s@PutBucketCors' {} a -> s {contentMD5 = a} :: PutBucketCors)
 
 -- | Specifies the bucket impacted by the @cors@configuration.
@@ -188,9 +190,9 @@ instance Core.AWSRequest PutBucketCors where
   response =
     Response.receiveNull PutBucketCorsResponse'
 
-instance Core.Hashable PutBucketCors
+instance Prelude.Hashable PutBucketCors
 
-instance Core.NFData PutBucketCors
+instance Prelude.NFData PutBucketCors
 
 instance Core.ToElement PutBucketCors where
   toElement PutBucketCors' {..} =
@@ -200,7 +202,7 @@ instance Core.ToElement PutBucketCors where
 
 instance Core.ToHeaders PutBucketCors where
   toHeaders PutBucketCors' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5
@@ -208,16 +210,16 @@ instance Core.ToHeaders PutBucketCors where
 
 instance Core.ToPath PutBucketCors where
   toPath PutBucketCors' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutBucketCors where
-  toQuery = Core.const (Core.mconcat ["cors"])
+  toQuery = Prelude.const (Prelude.mconcat ["cors"])
 
 -- | /See:/ 'newPutBucketCorsResponse' smart constructor.
 data PutBucketCorsResponse = PutBucketCorsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketCorsResponse' with all optional fields omitted.
@@ -227,4 +229,4 @@ newPutBucketCorsResponse ::
   PutBucketCorsResponse
 newPutBucketCorsResponse = PutBucketCorsResponse'
 
-instance Core.NFData PutBucketCorsResponse
+instance Prelude.NFData PutBucketCorsResponse

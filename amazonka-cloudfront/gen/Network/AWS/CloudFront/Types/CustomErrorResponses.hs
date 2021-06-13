@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.CustomErrorResponses where
 import Network.AWS.CloudFront.Types.CustomErrorResponse
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that controls:
 --
@@ -41,13 +42,13 @@ data CustomErrorResponses = CustomErrorResponses'
   { -- | A complex type that contains a @CustomErrorResponse@ element for each
     -- HTTP status code for which you want to specify a custom error page
     -- and\/or a caching duration.
-    items :: Core.Maybe [CustomErrorResponse],
+    items :: Prelude.Maybe [CustomErrorResponse],
     -- | The number of HTTP status codes for which you want to specify a custom
     -- error page and\/or a caching duration. If @Quantity@ is @0@, you can
     -- omit @Items@.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomErrorResponses' with all optional fields omitted.
@@ -66,45 +67,45 @@ data CustomErrorResponses = CustomErrorResponses'
 -- omit @Items@.
 newCustomErrorResponses ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   CustomErrorResponses
 newCustomErrorResponses pQuantity_ =
   CustomErrorResponses'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       quantity = pQuantity_
     }
 
 -- | A complex type that contains a @CustomErrorResponse@ element for each
 -- HTTP status code for which you want to specify a custom error page
 -- and\/or a caching duration.
-customErrorResponses_items :: Lens.Lens' CustomErrorResponses (Core.Maybe [CustomErrorResponse])
-customErrorResponses_items = Lens.lens (\CustomErrorResponses' {items} -> items) (\s@CustomErrorResponses' {} a -> s {items = a} :: CustomErrorResponses) Core.. Lens.mapping Lens._Coerce
+customErrorResponses_items :: Lens.Lens' CustomErrorResponses (Prelude.Maybe [CustomErrorResponse])
+customErrorResponses_items = Lens.lens (\CustomErrorResponses' {items} -> items) (\s@CustomErrorResponses' {} a -> s {items = a} :: CustomErrorResponses) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of HTTP status codes for which you want to specify a custom
 -- error page and\/or a caching duration. If @Quantity@ is @0@, you can
 -- omit @Items@.
-customErrorResponses_quantity :: Lens.Lens' CustomErrorResponses Core.Int
+customErrorResponses_quantity :: Lens.Lens' CustomErrorResponses Prelude.Int
 customErrorResponses_quantity = Lens.lens (\CustomErrorResponses' {quantity} -> quantity) (\s@CustomErrorResponses' {} a -> s {quantity = a} :: CustomErrorResponses)
 
 instance Core.FromXML CustomErrorResponses where
   parseXML x =
     CustomErrorResponses'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "CustomErrorResponse")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "CustomErrorResponse")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable CustomErrorResponses
+instance Prelude.Hashable CustomErrorResponses
 
-instance Core.NFData CustomErrorResponses
+instance Prelude.NFData CustomErrorResponses
 
 instance Core.ToXML CustomErrorResponses where
   toXML CustomErrorResponses' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
           Core.@= Core.toXML
             ( Core.toXMLList "CustomErrorResponse"
-                Core.<$> items
+                Prelude.<$> items
             ),
         "Quantity" Core.@= quantity
       ]

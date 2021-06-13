@@ -114,6 +114,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -136,18 +137,18 @@ data UpdateWebACL = UpdateWebACL'
     --     @ActivatedRule|OverrideAction@.
     --
     -- -   WafAction: Contains @Type@
-    updates :: Core.Maybe [WebACLUpdate],
+    updates :: Prelude.Maybe [WebACLUpdate],
     -- | A default action for the web ACL, either ALLOW or BLOCK. AWS WAF
     -- performs the default action if a request doesn\'t match the criteria in
     -- any of the rules in a web ACL.
-    defaultAction :: Core.Maybe WafAction,
+    defaultAction :: Prelude.Maybe WafAction,
     -- | The @WebACLId@ of the WebACL that you want to update. @WebACLId@ is
     -- returned by CreateWebACL and by ListWebACLs.
-    webACLId :: Core.Text,
+    webACLId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateWebACL' with all optional fields omitted.
@@ -184,14 +185,14 @@ data UpdateWebACL = UpdateWebACL'
 -- 'changeToken', 'updateWebACL_changeToken' - The value returned by the most recent call to GetChangeToken.
 newUpdateWebACL ::
   -- | 'webACLId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   UpdateWebACL
 newUpdateWebACL pWebACLId_ pChangeToken_ =
   UpdateWebACL'
-    { updates = Core.Nothing,
-      defaultAction = Core.Nothing,
+    { updates = Prelude.Nothing,
+      defaultAction = Prelude.Nothing,
       webACLId = pWebACLId_,
       changeToken = pChangeToken_
     }
@@ -212,22 +213,22 @@ newUpdateWebACL pWebACLId_ pChangeToken_ =
 --     @ActivatedRule|OverrideAction@.
 --
 -- -   WafAction: Contains @Type@
-updateWebACL_updates :: Lens.Lens' UpdateWebACL (Core.Maybe [WebACLUpdate])
-updateWebACL_updates = Lens.lens (\UpdateWebACL' {updates} -> updates) (\s@UpdateWebACL' {} a -> s {updates = a} :: UpdateWebACL) Core.. Lens.mapping Lens._Coerce
+updateWebACL_updates :: Lens.Lens' UpdateWebACL (Prelude.Maybe [WebACLUpdate])
+updateWebACL_updates = Lens.lens (\UpdateWebACL' {updates} -> updates) (\s@UpdateWebACL' {} a -> s {updates = a} :: UpdateWebACL) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A default action for the web ACL, either ALLOW or BLOCK. AWS WAF
 -- performs the default action if a request doesn\'t match the criteria in
 -- any of the rules in a web ACL.
-updateWebACL_defaultAction :: Lens.Lens' UpdateWebACL (Core.Maybe WafAction)
+updateWebACL_defaultAction :: Lens.Lens' UpdateWebACL (Prelude.Maybe WafAction)
 updateWebACL_defaultAction = Lens.lens (\UpdateWebACL' {defaultAction} -> defaultAction) (\s@UpdateWebACL' {} a -> s {defaultAction = a} :: UpdateWebACL)
 
 -- | The @WebACLId@ of the WebACL that you want to update. @WebACLId@ is
 -- returned by CreateWebACL and by ListWebACLs.
-updateWebACL_webACLId :: Lens.Lens' UpdateWebACL Core.Text
+updateWebACL_webACLId :: Lens.Lens' UpdateWebACL Prelude.Text
 updateWebACL_webACLId = Lens.lens (\UpdateWebACL' {webACLId} -> webACLId) (\s@UpdateWebACL' {} a -> s {webACLId = a} :: UpdateWebACL)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateWebACL_changeToken :: Lens.Lens' UpdateWebACL Core.Text
+updateWebACL_changeToken :: Lens.Lens' UpdateWebACL Prelude.Text
 updateWebACL_changeToken = Lens.lens (\UpdateWebACL' {changeToken} -> changeToken) (\s@UpdateWebACL' {} a -> s {changeToken = a} :: UpdateWebACL)
 
 instance Core.AWSRequest UpdateWebACL where
@@ -237,52 +238,56 @@ instance Core.AWSRequest UpdateWebACL where
     Response.receiveJSON
       ( \s h x ->
           UpdateWebACLResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateWebACL
+instance Prelude.Hashable UpdateWebACL
 
-instance Core.NFData UpdateWebACL
+instance Prelude.NFData UpdateWebACL
 
 instance Core.ToHeaders UpdateWebACL where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSWAF_20150824.UpdateWebACL" :: Core.ByteString),
+              Core.=# ( "AWSWAF_20150824.UpdateWebACL" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateWebACL where
   toJSON UpdateWebACL' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Updates" Core..=) Core.<$> updates,
-            ("DefaultAction" Core..=) Core.<$> defaultAction,
-            Core.Just ("WebACLId" Core..= webACLId),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ ("Updates" Core..=) Prelude.<$> updates,
+            ("DefaultAction" Core..=) Prelude.<$> defaultAction,
+            Prelude.Just ("WebACLId" Core..= webACLId),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath UpdateWebACL where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateWebACL where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWebACLResponse' smart constructor.
 data UpdateWebACLResponse = UpdateWebACLResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateWebACL@ request.
     -- You can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateWebACLResponse' with all optional fields omitted.
@@ -299,22 +304,23 @@ data UpdateWebACLResponse = UpdateWebACLResponse'
 -- 'httpStatus', 'updateWebACLResponse_httpStatus' - The response's http status code.
 newUpdateWebACLResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateWebACLResponse
 newUpdateWebACLResponse pHttpStatus_ =
   UpdateWebACLResponse'
-    { changeToken = Core.Nothing,
+    { changeToken =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateWebACL@ request.
 -- You can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-updateWebACLResponse_changeToken :: Lens.Lens' UpdateWebACLResponse (Core.Maybe Core.Text)
+updateWebACLResponse_changeToken :: Lens.Lens' UpdateWebACLResponse (Prelude.Maybe Prelude.Text)
 updateWebACLResponse_changeToken = Lens.lens (\UpdateWebACLResponse' {changeToken} -> changeToken) (\s@UpdateWebACLResponse' {} a -> s {changeToken = a} :: UpdateWebACLResponse)
 
 -- | The response's http status code.
-updateWebACLResponse_httpStatus :: Lens.Lens' UpdateWebACLResponse Core.Int
+updateWebACLResponse_httpStatus :: Lens.Lens' UpdateWebACLResponse Prelude.Int
 updateWebACLResponse_httpStatus = Lens.lens (\UpdateWebACLResponse' {httpStatus} -> httpStatus) (\s@UpdateWebACLResponse' {} a -> s {httpStatus = a} :: UpdateWebACLResponse)
 
-instance Core.NFData UpdateWebACLResponse
+instance Prelude.NFData UpdateWebACLResponse

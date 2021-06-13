@@ -57,6 +57,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,7 +65,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newExportJournalToS' smart constructor.
 data ExportJournalToS = ExportJournalToS'
   { -- | The name of the ledger.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The inclusive start date and time for the range of journal contents that
     -- you want to export.
     --
@@ -97,9 +98,9 @@ data ExportJournalToS = ExportJournalToS'
     --
     -- -   (Optional) Use your customer master key (CMK) in AWS Key Management
     --     Service (AWS KMS) for server-side encryption of your exported data.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportJournalToS' with all optional fields omitted.
@@ -145,15 +146,15 @@ data ExportJournalToS = ExportJournalToS'
 --     Service (AWS KMS) for server-side encryption of your exported data.
 newExportJournalToS ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inclusiveStartTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'exclusiveEndTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 's3ExportConfiguration'
   S3ExportConfiguration ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   ExportJournalToS
 newExportJournalToS
   pName_
@@ -172,7 +173,7 @@ newExportJournalToS
       }
 
 -- | The name of the ledger.
-exportJournalToS_name :: Lens.Lens' ExportJournalToS Core.Text
+exportJournalToS_name :: Lens.Lens' ExportJournalToS Prelude.Text
 exportJournalToS_name = Lens.lens (\ExportJournalToS' {name} -> name) (\s@ExportJournalToS' {} a -> s {name = a} :: ExportJournalToS)
 
 -- | The inclusive start date and time for the range of journal contents that
@@ -186,8 +187,8 @@ exportJournalToS_name = Lens.lens (\ExportJournalToS' {name} -> name) (\s@Export
 -- If you provide an @InclusiveStartTime@ that is before the ledger\'s
 -- @CreationDateTime@, Amazon QLDB defaults it to the ledger\'s
 -- @CreationDateTime@.
-exportJournalToS_inclusiveStartTime :: Lens.Lens' ExportJournalToS Core.UTCTime
-exportJournalToS_inclusiveStartTime = Lens.lens (\ExportJournalToS' {inclusiveStartTime} -> inclusiveStartTime) (\s@ExportJournalToS' {} a -> s {inclusiveStartTime = a} :: ExportJournalToS) Core.. Core._Time
+exportJournalToS_inclusiveStartTime :: Lens.Lens' ExportJournalToS Prelude.UTCTime
+exportJournalToS_inclusiveStartTime = Lens.lens (\ExportJournalToS' {inclusiveStartTime} -> inclusiveStartTime) (\s@ExportJournalToS' {} a -> s {inclusiveStartTime = a} :: ExportJournalToS) Prelude.. Core._Time
 
 -- | The exclusive end date and time for the range of journal contents that
 -- you want to export.
@@ -197,8 +198,8 @@ exportJournalToS_inclusiveStartTime = Lens.lens (\ExportJournalToS' {inclusiveSt
 --
 -- The @ExclusiveEndTime@ must be less than or equal to the current UTC
 -- date and time.
-exportJournalToS_exclusiveEndTime :: Lens.Lens' ExportJournalToS Core.UTCTime
-exportJournalToS_exclusiveEndTime = Lens.lens (\ExportJournalToS' {exclusiveEndTime} -> exclusiveEndTime) (\s@ExportJournalToS' {} a -> s {exclusiveEndTime = a} :: ExportJournalToS) Core.. Core._Time
+exportJournalToS_exclusiveEndTime :: Lens.Lens' ExportJournalToS Prelude.UTCTime
+exportJournalToS_exclusiveEndTime = Lens.lens (\ExportJournalToS' {exclusiveEndTime} -> exclusiveEndTime) (\s@ExportJournalToS' {} a -> s {exclusiveEndTime = a} :: ExportJournalToS) Prelude.. Core._Time
 
 -- | The configuration settings of the Amazon S3 bucket destination for your
 -- export request.
@@ -213,7 +214,7 @@ exportJournalToS_s3ExportConfiguration = Lens.lens (\ExportJournalToS' {s3Export
 --
 -- -   (Optional) Use your customer master key (CMK) in AWS Key Management
 --     Service (AWS KMS) for server-side encryption of your exported data.
-exportJournalToS_roleArn :: Lens.Lens' ExportJournalToS Core.Text
+exportJournalToS_roleArn :: Lens.Lens' ExportJournalToS Prelude.Text
 exportJournalToS_roleArn = Lens.lens (\ExportJournalToS' {roleArn} -> roleArn) (\s@ExportJournalToS' {} a -> s {roleArn = a} :: ExportJournalToS)
 
 instance Core.AWSRequest ExportJournalToS where
@@ -225,58 +226,60 @@ instance Core.AWSRequest ExportJournalToS where
     Response.receiveJSON
       ( \s h x ->
           ExportJournalToSResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ExportId")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ExportId")
       )
 
-instance Core.Hashable ExportJournalToS
+instance Prelude.Hashable ExportJournalToS
 
-instance Core.NFData ExportJournalToS
+instance Prelude.NFData ExportJournalToS
 
 instance Core.ToHeaders ExportJournalToS where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ExportJournalToS where
   toJSON ExportJournalToS' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("InclusiveStartTime" Core..= inclusiveStartTime),
-            Core.Just
+            Prelude.Just
               ("ExclusiveEndTime" Core..= exclusiveEndTime),
-            Core.Just
+            Prelude.Just
               ( "S3ExportConfiguration"
                   Core..= s3ExportConfiguration
               ),
-            Core.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("RoleArn" Core..= roleArn)
           ]
       )
 
 instance Core.ToPath ExportJournalToS where
   toPath ExportJournalToS' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/ledgers/", Core.toBS name, "/journal-s3-exports"]
 
 instance Core.ToQuery ExportJournalToS where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExportJournalToSResponse' smart constructor.
 data ExportJournalToSResponse = ExportJournalToSResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The unique ID that QLDB assigns to each journal export job.
     --
     -- To describe your export request and check the status of the job, you can
     -- use @ExportId@ to call @DescribeJournalS3Export@.
-    exportId :: Core.Text
+    exportId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportJournalToSResponse' with all optional fields omitted.
@@ -294,9 +297,9 @@ data ExportJournalToSResponse = ExportJournalToSResponse'
 -- use @ExportId@ to call @DescribeJournalS3Export@.
 newExportJournalToSResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'exportId'
-  Core.Text ->
+  Prelude.Text ->
   ExportJournalToSResponse
 newExportJournalToSResponse pHttpStatus_ pExportId_ =
   ExportJournalToSResponse'
@@ -306,14 +309,14 @@ newExportJournalToSResponse pHttpStatus_ pExportId_ =
     }
 
 -- | The response's http status code.
-exportJournalToSResponse_httpStatus :: Lens.Lens' ExportJournalToSResponse Core.Int
+exportJournalToSResponse_httpStatus :: Lens.Lens' ExportJournalToSResponse Prelude.Int
 exportJournalToSResponse_httpStatus = Lens.lens (\ExportJournalToSResponse' {httpStatus} -> httpStatus) (\s@ExportJournalToSResponse' {} a -> s {httpStatus = a} :: ExportJournalToSResponse)
 
 -- | The unique ID that QLDB assigns to each journal export job.
 --
 -- To describe your export request and check the status of the job, you can
 -- use @ExportId@ to call @DescribeJournalS3Export@.
-exportJournalToSResponse_exportId :: Lens.Lens' ExportJournalToSResponse Core.Text
+exportJournalToSResponse_exportId :: Lens.Lens' ExportJournalToSResponse Prelude.Text
 exportJournalToSResponse_exportId = Lens.lens (\ExportJournalToSResponse' {exportId} -> exportId) (\s@ExportJournalToSResponse' {} a -> s {exportId = a} :: ExportJournalToSResponse)
 
-instance Core.NFData ExportJournalToSResponse
+instance Prelude.NFData ExportJournalToSResponse

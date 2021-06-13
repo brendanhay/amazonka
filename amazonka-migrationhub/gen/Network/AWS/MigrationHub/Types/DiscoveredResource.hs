@@ -21,6 +21,7 @@ module Network.AWS.MigrationHub.Types.DiscoveredResource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Object representing the on-premises resource being migrated.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data DiscoveredResource = DiscoveredResource'
   { -- | A description that can be free-form text to record additional detail
     -- about the discovered resource for clarity or later reference.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The configurationId in Application Discovery Service that uniquely
     -- identifies the on-premise resource.
-    configurationId :: Core.Text
+    configurationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiscoveredResource' with all optional fields omitted.
@@ -50,22 +51,22 @@ data DiscoveredResource = DiscoveredResource'
 -- identifies the on-premise resource.
 newDiscoveredResource ::
   -- | 'configurationId'
-  Core.Text ->
+  Prelude.Text ->
   DiscoveredResource
 newDiscoveredResource pConfigurationId_ =
   DiscoveredResource'
-    { description = Core.Nothing,
+    { description = Prelude.Nothing,
       configurationId = pConfigurationId_
     }
 
 -- | A description that can be free-form text to record additional detail
 -- about the discovered resource for clarity or later reference.
-discoveredResource_description :: Lens.Lens' DiscoveredResource (Core.Maybe Core.Text)
+discoveredResource_description :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
 discoveredResource_description = Lens.lens (\DiscoveredResource' {description} -> description) (\s@DiscoveredResource' {} a -> s {description = a} :: DiscoveredResource)
 
 -- | The configurationId in Application Discovery Service that uniquely
 -- identifies the on-premise resource.
-discoveredResource_configurationId :: Lens.Lens' DiscoveredResource Core.Text
+discoveredResource_configurationId :: Lens.Lens' DiscoveredResource Prelude.Text
 discoveredResource_configurationId = Lens.lens (\DiscoveredResource' {configurationId} -> configurationId) (\s@DiscoveredResource' {} a -> s {configurationId = a} :: DiscoveredResource)
 
 instance Core.FromJSON DiscoveredResource where
@@ -74,20 +75,20 @@ instance Core.FromJSON DiscoveredResource where
       "DiscoveredResource"
       ( \x ->
           DiscoveredResource'
-            Core.<$> (x Core..:? "Description")
-            Core.<*> (x Core..: "ConfigurationId")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..: "ConfigurationId")
       )
 
-instance Core.Hashable DiscoveredResource
+instance Prelude.Hashable DiscoveredResource
 
-instance Core.NFData DiscoveredResource
+instance Prelude.NFData DiscoveredResource
 
 instance Core.ToJSON DiscoveredResource where
   toJSON DiscoveredResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Description" Core..=) Core.<$> description,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just
               ("ConfigurationId" Core..= configurationId)
           ]
       )

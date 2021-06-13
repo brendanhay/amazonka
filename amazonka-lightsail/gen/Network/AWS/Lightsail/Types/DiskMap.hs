@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.DiskMap where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block storage disk mapping.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data DiskMap = DiskMap'
   { -- | The original disk path exposed to the instance (for example,
     -- @\/dev\/sdh@).
-    originalDiskPath :: Core.Maybe Core.Text,
+    originalDiskPath :: Prelude.Maybe Prelude.Text,
     -- | The new disk name (e.g., @my-new-disk@).
-    newDiskName' :: Core.Maybe Core.Text
+    newDiskName' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiskMap' with all optional fields omitted.
@@ -50,29 +51,29 @@ newDiskMap ::
   DiskMap
 newDiskMap =
   DiskMap'
-    { originalDiskPath = Core.Nothing,
-      newDiskName' = Core.Nothing
+    { originalDiskPath = Prelude.Nothing,
+      newDiskName' = Prelude.Nothing
     }
 
 -- | The original disk path exposed to the instance (for example,
 -- @\/dev\/sdh@).
-diskMap_originalDiskPath :: Lens.Lens' DiskMap (Core.Maybe Core.Text)
+diskMap_originalDiskPath :: Lens.Lens' DiskMap (Prelude.Maybe Prelude.Text)
 diskMap_originalDiskPath = Lens.lens (\DiskMap' {originalDiskPath} -> originalDiskPath) (\s@DiskMap' {} a -> s {originalDiskPath = a} :: DiskMap)
 
 -- | The new disk name (e.g., @my-new-disk@).
-diskMap_newDiskName :: Lens.Lens' DiskMap (Core.Maybe Core.Text)
+diskMap_newDiskName :: Lens.Lens' DiskMap (Prelude.Maybe Prelude.Text)
 diskMap_newDiskName = Lens.lens (\DiskMap' {newDiskName'} -> newDiskName') (\s@DiskMap' {} a -> s {newDiskName' = a} :: DiskMap)
 
-instance Core.Hashable DiskMap
+instance Prelude.Hashable DiskMap
 
-instance Core.NFData DiskMap
+instance Prelude.NFData DiskMap
 
 instance Core.ToJSON DiskMap where
   toJSON DiskMap' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("originalDiskPath" Core..=)
-              Core.<$> originalDiskPath,
-            ("newDiskName" Core..=) Core.<$> newDiskName'
+              Prelude.<$> originalDiskPath,
+            ("newDiskName" Core..=) Prelude.<$> newDiskName'
           ]
       )

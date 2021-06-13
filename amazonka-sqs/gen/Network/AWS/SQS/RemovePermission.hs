@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -61,12 +62,12 @@ data RemovePermission = RemovePermission'
   { -- | The URL of the Amazon SQS queue from which permissions are removed.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Core.Text,
+    queueUrl :: Prelude.Text,
     -- | The identification of the permission to remove. This is the label added
     -- using the @ AddPermission @ action.
-    label :: Core.Text
+    label :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemovePermission' with all optional fields omitted.
@@ -84,9 +85,9 @@ data RemovePermission = RemovePermission'
 -- using the @ AddPermission @ action.
 newRemovePermission ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'label'
-  Core.Text ->
+  Prelude.Text ->
   RemovePermission
 newRemovePermission pQueueUrl_ pLabel_ =
   RemovePermission'
@@ -97,12 +98,12 @@ newRemovePermission pQueueUrl_ pLabel_ =
 -- | The URL of the Amazon SQS queue from which permissions are removed.
 --
 -- Queue URLs and names are case-sensitive.
-removePermission_queueUrl :: Lens.Lens' RemovePermission Core.Text
+removePermission_queueUrl :: Lens.Lens' RemovePermission Prelude.Text
 removePermission_queueUrl = Lens.lens (\RemovePermission' {queueUrl} -> queueUrl) (\s@RemovePermission' {} a -> s {queueUrl = a} :: RemovePermission)
 
 -- | The identification of the permission to remove. This is the label added
 -- using the @ AddPermission @ action.
-removePermission_label :: Lens.Lens' RemovePermission Core.Text
+removePermission_label :: Lens.Lens' RemovePermission Prelude.Text
 removePermission_label = Lens.lens (\RemovePermission' {label} -> label) (\s@RemovePermission' {} a -> s {label = a} :: RemovePermission)
 
 instance Core.AWSRequest RemovePermission where
@@ -113,22 +114,23 @@ instance Core.AWSRequest RemovePermission where
   response =
     Response.receiveNull RemovePermissionResponse'
 
-instance Core.Hashable RemovePermission
+instance Prelude.Hashable RemovePermission
 
-instance Core.NFData RemovePermission
+instance Prelude.NFData RemovePermission
 
 instance Core.ToHeaders RemovePermission where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RemovePermission where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemovePermission where
   toQuery RemovePermission' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RemovePermission" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+          Core.=: ("RemovePermission" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueUrl" Core.=: queueUrl,
         "Label" Core.=: label
       ]
@@ -137,7 +139,7 @@ instance Core.ToQuery RemovePermission where
 data RemovePermissionResponse = RemovePermissionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemovePermissionResponse' with all optional fields omitted.
@@ -148,4 +150,4 @@ newRemovePermissionResponse ::
 newRemovePermissionResponse =
   RemovePermissionResponse'
 
-instance Core.NFData RemovePermissionResponse
+instance Prelude.NFData RemovePermissionResponse

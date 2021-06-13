@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.InputClipping where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | To transcode only portions of your input (clips), include one Input
 -- clipping (one instance of InputClipping in the JSON job file) for each
@@ -38,7 +39,7 @@ data InputClipping = InputClipping'
     -- your setting for Input timecode source. For example, if you have
     -- embedded timecodes that start at 01:00:00:00 and you want your clip to
     -- begin five minutes into the video, use 01:05:00:00.
-    startTimecode :: Core.Maybe Core.Text,
+    startTimecode :: Prelude.Maybe Prelude.Text,
     -- | Set End timecode (EndTimecode) to the end of the portion of the input
     -- you are clipping. The frame corresponding to the End timecode value is
     -- included in the clip. Start timecode or End timecode may be left blank,
@@ -48,9 +49,9 @@ data InputClipping = InputClipping'
     -- source under input settings (InputTimecodeSource). For example, if you
     -- have embedded timecodes that start at 01:00:00:00 and you want your clip
     -- to end six minutes into the video, use 01:06:00:00.
-    endTimecode :: Core.Maybe Core.Text
+    endTimecode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputClipping' with all optional fields omitted.
@@ -83,8 +84,8 @@ newInputClipping ::
   InputClipping
 newInputClipping =
   InputClipping'
-    { startTimecode = Core.Nothing,
-      endTimecode = Core.Nothing
+    { startTimecode = Prelude.Nothing,
+      endTimecode = Prelude.Nothing
     }
 
 -- | Set Start timecode (StartTimecode) to the beginning of the portion of
@@ -96,7 +97,7 @@ newInputClipping =
 -- your setting for Input timecode source. For example, if you have
 -- embedded timecodes that start at 01:00:00:00 and you want your clip to
 -- begin five minutes into the video, use 01:05:00:00.
-inputClipping_startTimecode :: Lens.Lens' InputClipping (Core.Maybe Core.Text)
+inputClipping_startTimecode :: Lens.Lens' InputClipping (Prelude.Maybe Prelude.Text)
 inputClipping_startTimecode = Lens.lens (\InputClipping' {startTimecode} -> startTimecode) (\s@InputClipping' {} a -> s {startTimecode = a} :: InputClipping)
 
 -- | Set End timecode (EndTimecode) to the end of the portion of the input
@@ -108,7 +109,7 @@ inputClipping_startTimecode = Lens.lens (\InputClipping' {startTimecode} -> star
 -- source under input settings (InputTimecodeSource). For example, if you
 -- have embedded timecodes that start at 01:00:00:00 and you want your clip
 -- to end six minutes into the video, use 01:06:00:00.
-inputClipping_endTimecode :: Lens.Lens' InputClipping (Core.Maybe Core.Text)
+inputClipping_endTimecode :: Lens.Lens' InputClipping (Prelude.Maybe Prelude.Text)
 inputClipping_endTimecode = Lens.lens (\InputClipping' {endTimecode} -> endTimecode) (\s@InputClipping' {} a -> s {endTimecode = a} :: InputClipping)
 
 instance Core.FromJSON InputClipping where
@@ -117,19 +118,19 @@ instance Core.FromJSON InputClipping where
       "InputClipping"
       ( \x ->
           InputClipping'
-            Core.<$> (x Core..:? "startTimecode")
-            Core.<*> (x Core..:? "endTimecode")
+            Prelude.<$> (x Core..:? "startTimecode")
+            Prelude.<*> (x Core..:? "endTimecode")
       )
 
-instance Core.Hashable InputClipping
+instance Prelude.Hashable InputClipping
 
-instance Core.NFData InputClipping
+instance Prelude.NFData InputClipping
 
 instance Core.ToJSON InputClipping where
   toJSON InputClipping' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("startTimecode" Core..=) Core.<$> startTimecode,
-            ("endTimecode" Core..=) Core.<$> endTimecode
+      ( Prelude.catMaybes
+          [ ("startTimecode" Core..=) Prelude.<$> startTimecode,
+            ("endTimecode" Core..=) Prelude.<$> endTimecode
           ]
       )

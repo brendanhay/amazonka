@@ -48,6 +48,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ import qualified Network.AWS.Response as Response
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
   { -- | Whether to display the deployed configuration (@true@) or include any
     -- pending changes (@false@). Defaults to @false@.
-    deployed :: Core.Maybe Core.Bool,
+    deployed :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain you want to describe.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAvailabilityOptions' with all optional fields omitted.
@@ -80,22 +81,22 @@ data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
 -- 'domainName', 'describeAvailabilityOptions_domainName' - The name of the domain you want to describe.
 newDescribeAvailabilityOptions ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeAvailabilityOptions
 newDescribeAvailabilityOptions pDomainName_ =
   DescribeAvailabilityOptions'
     { deployed =
-        Core.Nothing,
+        Prelude.Nothing,
       domainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-describeAvailabilityOptions_deployed :: Lens.Lens' DescribeAvailabilityOptions (Core.Maybe Core.Bool)
+describeAvailabilityOptions_deployed :: Lens.Lens' DescribeAvailabilityOptions (Prelude.Maybe Prelude.Bool)
 describeAvailabilityOptions_deployed = Lens.lens (\DescribeAvailabilityOptions' {deployed} -> deployed) (\s@DescribeAvailabilityOptions' {} a -> s {deployed = a} :: DescribeAvailabilityOptions)
 
 -- | The name of the domain you want to describe.
-describeAvailabilityOptions_domainName :: Lens.Lens' DescribeAvailabilityOptions Core.Text
+describeAvailabilityOptions_domainName :: Lens.Lens' DescribeAvailabilityOptions Prelude.Text
 describeAvailabilityOptions_domainName = Lens.lens (\DescribeAvailabilityOptions' {domainName} -> domainName) (\s@DescribeAvailabilityOptions' {} a -> s {domainName = a} :: DescribeAvailabilityOptions)
 
 instance Core.AWSRequest DescribeAvailabilityOptions where
@@ -108,26 +109,29 @@ instance Core.AWSRequest DescribeAvailabilityOptions where
       "DescribeAvailabilityOptionsResult"
       ( \s h x ->
           DescribeAvailabilityOptionsResponse'
-            Core.<$> (x Core..@? "AvailabilityOptions")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "AvailabilityOptions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAvailabilityOptions
+instance Prelude.Hashable DescribeAvailabilityOptions
 
-instance Core.NFData DescribeAvailabilityOptions
+instance Prelude.NFData DescribeAvailabilityOptions
 
 instance Core.ToHeaders DescribeAvailabilityOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeAvailabilityOptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAvailabilityOptions where
   toQuery DescribeAvailabilityOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAvailabilityOptions" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ( "DescribeAvailabilityOptions" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "Deployed" Core.=: deployed,
         "DomainName" Core.=: domainName
       ]
@@ -140,11 +144,11 @@ instance Core.ToQuery DescribeAvailabilityOptions where
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
   { -- | The availability options configured for the domain. Indicates whether
     -- Multi-AZ is enabled for the domain.
-    availabilityOptions :: Core.Maybe AvailabilityOptionsStatus,
+    availabilityOptions :: Prelude.Maybe AvailabilityOptionsStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAvailabilityOptionsResponse' with all optional fields omitted.
@@ -160,24 +164,24 @@ data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
 -- 'httpStatus', 'describeAvailabilityOptionsResponse_httpStatus' - The response's http status code.
 newDescribeAvailabilityOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAvailabilityOptionsResponse
 newDescribeAvailabilityOptionsResponse pHttpStatus_ =
   DescribeAvailabilityOptionsResponse'
     { availabilityOptions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
-describeAvailabilityOptionsResponse_availabilityOptions :: Lens.Lens' DescribeAvailabilityOptionsResponse (Core.Maybe AvailabilityOptionsStatus)
+describeAvailabilityOptionsResponse_availabilityOptions :: Lens.Lens' DescribeAvailabilityOptionsResponse (Prelude.Maybe AvailabilityOptionsStatus)
 describeAvailabilityOptionsResponse_availabilityOptions = Lens.lens (\DescribeAvailabilityOptionsResponse' {availabilityOptions} -> availabilityOptions) (\s@DescribeAvailabilityOptionsResponse' {} a -> s {availabilityOptions = a} :: DescribeAvailabilityOptionsResponse)
 
 -- | The response's http status code.
-describeAvailabilityOptionsResponse_httpStatus :: Lens.Lens' DescribeAvailabilityOptionsResponse Core.Int
+describeAvailabilityOptionsResponse_httpStatus :: Lens.Lens' DescribeAvailabilityOptionsResponse Prelude.Int
 describeAvailabilityOptionsResponse_httpStatus = Lens.lens (\DescribeAvailabilityOptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeAvailabilityOptionsResponse' {} a -> s {httpStatus = a} :: DescribeAvailabilityOptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAvailabilityOptionsResponse

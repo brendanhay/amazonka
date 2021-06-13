@@ -21,6 +21,7 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The range of timestamps for which to return fragments.
 --
@@ -51,7 +52,7 @@ data ClipTimestampRange = ClipTimestampRange'
     -- @EndTimestamp@ value and continue past it are included in the session.
     endTimestamp :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClipTimestampRange' with all optional fields omitted.
@@ -81,9 +82,9 @@ data ClipTimestampRange = ClipTimestampRange'
 -- @EndTimestamp@ value and continue past it are included in the session.
 newClipTimestampRange ::
   -- | 'startTimestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTimestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ClipTimestampRange
 newClipTimestampRange pStartTimestamp_ pEndTimestamp_ =
   ClipTimestampRange'
@@ -99,8 +100,8 @@ newClipTimestampRange pStartTimestamp_ pEndTimestamp_ =
 -- @StartTimestamp@ and continue past it are included in the session. If
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
-clipTimestampRange_startTimestamp :: Lens.Lens' ClipTimestampRange Core.UTCTime
-clipTimestampRange_startTimestamp = Lens.lens (\ClipTimestampRange' {startTimestamp} -> startTimestamp) (\s@ClipTimestampRange' {} a -> s {startTimestamp = a} :: ClipTimestampRange) Core.. Core._Time
+clipTimestampRange_startTimestamp :: Lens.Lens' ClipTimestampRange Prelude.UTCTime
+clipTimestampRange_startTimestamp = Lens.lens (\ClipTimestampRange' {startTimestamp} -> startTimestamp) (\s@ClipTimestampRange' {} a -> s {startTimestamp = a} :: ClipTimestampRange) Prelude.. Core._Time
 
 -- | The end of the timestamp range for the requested media.
 --
@@ -112,18 +113,19 @@ clipTimestampRange_startTimestamp = Lens.lens (\ClipTimestampRange' {startTimest
 -- This value is inclusive. The @EndTimestamp@ is compared to the
 -- (starting) timestamp of the fragment. Fragments that start before the
 -- @EndTimestamp@ value and continue past it are included in the session.
-clipTimestampRange_endTimestamp :: Lens.Lens' ClipTimestampRange Core.UTCTime
-clipTimestampRange_endTimestamp = Lens.lens (\ClipTimestampRange' {endTimestamp} -> endTimestamp) (\s@ClipTimestampRange' {} a -> s {endTimestamp = a} :: ClipTimestampRange) Core.. Core._Time
+clipTimestampRange_endTimestamp :: Lens.Lens' ClipTimestampRange Prelude.UTCTime
+clipTimestampRange_endTimestamp = Lens.lens (\ClipTimestampRange' {endTimestamp} -> endTimestamp) (\s@ClipTimestampRange' {} a -> s {endTimestamp = a} :: ClipTimestampRange) Prelude.. Core._Time
 
-instance Core.Hashable ClipTimestampRange
+instance Prelude.Hashable ClipTimestampRange
 
-instance Core.NFData ClipTimestampRange
+instance Prelude.NFData ClipTimestampRange
 
 instance Core.ToJSON ClipTimestampRange where
   toJSON ClipTimestampRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("StartTimestamp" Core..= startTimestamp),
-            Core.Just ("EndTimestamp" Core..= endTimestamp)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("StartTimestamp" Core..= startTimestamp),
+            Prelude.Just ("EndTimestamp" Core..= endTimestamp)
           ]
       )

@@ -51,6 +51,7 @@ where
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,20 +60,20 @@ data ListCertificates = ListCertificates'
   { -- | Use this parameter only when paginating results and only in a subsequent
     -- request after you receive a response with truncated results. Set it to
     -- the value of @NextToken@ from the response you just received.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filter the certificate list. For more information, see the Filters
     -- structure.
-    includes :: Core.Maybe Filters,
+    includes :: Prelude.Maybe Filters,
     -- | Filter the certificate list by status value.
-    certificateStatuses :: Core.Maybe [CertificateStatus],
+    certificateStatuses :: Prelude.Maybe [CertificateStatus],
     -- | Use this parameter when paginating results to specify the maximum number
     -- of items to return in the response. If additional items exist beyond the
     -- number you specify, the @NextToken@ element is sent in the response. Use
     -- this @NextToken@ value in a subsequent request to retrieve additional
     -- items.
-    maxItems :: Core.Maybe Core.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCertificates' with all optional fields omitted.
@@ -100,54 +101,56 @@ newListCertificates ::
   ListCertificates
 newListCertificates =
   ListCertificates'
-    { nextToken = Core.Nothing,
-      includes = Core.Nothing,
-      certificateStatuses = Core.Nothing,
-      maxItems = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      includes = Prelude.Nothing,
+      certificateStatuses = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
 -- request after you receive a response with truncated results. Set it to
 -- the value of @NextToken@ from the response you just received.
-listCertificates_nextToken :: Lens.Lens' ListCertificates (Core.Maybe Core.Text)
+listCertificates_nextToken :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
 listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextToken) (\s@ListCertificates' {} a -> s {nextToken = a} :: ListCertificates)
 
 -- | Filter the certificate list. For more information, see the Filters
 -- structure.
-listCertificates_includes :: Lens.Lens' ListCertificates (Core.Maybe Filters)
+listCertificates_includes :: Lens.Lens' ListCertificates (Prelude.Maybe Filters)
 listCertificates_includes = Lens.lens (\ListCertificates' {includes} -> includes) (\s@ListCertificates' {} a -> s {includes = a} :: ListCertificates)
 
 -- | Filter the certificate list by status value.
-listCertificates_certificateStatuses :: Lens.Lens' ListCertificates (Core.Maybe [CertificateStatus])
-listCertificates_certificateStatuses = Lens.lens (\ListCertificates' {certificateStatuses} -> certificateStatuses) (\s@ListCertificates' {} a -> s {certificateStatuses = a} :: ListCertificates) Core.. Lens.mapping Lens._Coerce
+listCertificates_certificateStatuses :: Lens.Lens' ListCertificates (Prelude.Maybe [CertificateStatus])
+listCertificates_certificateStatuses = Lens.lens (\ListCertificates' {certificateStatuses} -> certificateStatuses) (\s@ListCertificates' {} a -> s {certificateStatuses = a} :: ListCertificates) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use this parameter when paginating results to specify the maximum number
 -- of items to return in the response. If additional items exist beyond the
 -- number you specify, the @NextToken@ element is sent in the response. Use
 -- this @NextToken@ value in a subsequent request to retrieve additional
 -- items.
-listCertificates_maxItems :: Lens.Lens' ListCertificates (Core.Maybe Core.Natural)
+listCertificates_maxItems :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
 listCertificates_maxItems = Lens.lens (\ListCertificates' {maxItems} -> maxItems) (\s@ListCertificates' {} a -> s {maxItems = a} :: ListCertificates)
 
 instance Core.AWSPager ListCertificates where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listCertificatesResponse_nextToken Core.. Lens._Just
+            Lens.^? listCertificatesResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCertificatesResponse_certificateSummaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listCertificates_nextToken
+          Prelude.& listCertificates_nextToken
           Lens..~ rs
-          Lens.^? listCertificatesResponse_nextToken Core.. Lens._Just
+          Lens.^? listCertificatesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCertificates where
   type
@@ -158,59 +161,61 @@ instance Core.AWSRequest ListCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "CertificateSummaryList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "CertificateSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListCertificates
+instance Prelude.Hashable ListCertificates
 
-instance Core.NFData ListCertificates
+instance Prelude.NFData ListCertificates
 
 instance Core.ToHeaders ListCertificates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CertificateManager.ListCertificates" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Includes" Core..=) Core.<$> includes,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Includes" Core..=) Prelude.<$> includes,
             ("CertificateStatuses" Core..=)
-              Core.<$> certificateStatuses,
-            ("MaxItems" Core..=) Core.<$> maxItems
+              Prelude.<$> certificateStatuses,
+            ("MaxItems" Core..=) Prelude.<$> maxItems
           ]
       )
 
 instance Core.ToPath ListCertificates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListCertificates where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
   { -- | When the list is truncated, this value is present and contains the value
     -- to use for the @NextToken@ parameter in a subsequent pagination request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of ACM certificates.
-    certificateSummaryList :: Core.Maybe [CertificateSummary],
+    certificateSummaryList :: Prelude.Maybe [CertificateSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCertificatesResponse' with all optional fields omitted.
@@ -228,26 +233,27 @@ data ListCertificatesResponse = ListCertificatesResponse'
 -- 'httpStatus', 'listCertificatesResponse_httpStatus' - The response's http status code.
 newListCertificatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListCertificatesResponse
 newListCertificatesResponse pHttpStatus_ =
   ListCertificatesResponse'
-    { nextToken = Core.Nothing,
-      certificateSummaryList = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      certificateSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | When the list is truncated, this value is present and contains the value
 -- to use for the @NextToken@ parameter in a subsequent pagination request.
-listCertificatesResponse_nextToken :: Lens.Lens' ListCertificatesResponse (Core.Maybe Core.Text)
+listCertificatesResponse_nextToken :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe Prelude.Text)
 listCertificatesResponse_nextToken = Lens.lens (\ListCertificatesResponse' {nextToken} -> nextToken) (\s@ListCertificatesResponse' {} a -> s {nextToken = a} :: ListCertificatesResponse)
 
 -- | A list of ACM certificates.
-listCertificatesResponse_certificateSummaryList :: Lens.Lens' ListCertificatesResponse (Core.Maybe [CertificateSummary])
-listCertificatesResponse_certificateSummaryList = Lens.lens (\ListCertificatesResponse' {certificateSummaryList} -> certificateSummaryList) (\s@ListCertificatesResponse' {} a -> s {certificateSummaryList = a} :: ListCertificatesResponse) Core.. Lens.mapping Lens._Coerce
+listCertificatesResponse_certificateSummaryList :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe [CertificateSummary])
+listCertificatesResponse_certificateSummaryList = Lens.lens (\ListCertificatesResponse' {certificateSummaryList} -> certificateSummaryList) (\s@ListCertificatesResponse' {} a -> s {certificateSummaryList = a} :: ListCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Core.Int
+listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Prelude.Int
 listCertificatesResponse_httpStatus = Lens.lens (\ListCertificatesResponse' {httpStatus} -> httpStatus) (\s@ListCertificatesResponse' {} a -> s {httpStatus = a} :: ListCertificatesResponse)
 
-instance Core.NFData ListCertificatesResponse
+instance Prelude.NFData ListCertificatesResponse

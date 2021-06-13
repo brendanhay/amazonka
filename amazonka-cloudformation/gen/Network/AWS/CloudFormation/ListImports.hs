@@ -53,6 +53,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,12 +62,12 @@ data ListImports = ListImports'
   { -- | A string (provided by the ListImports response output) that identifies
     -- the next page of stacks that are importing the specified exported output
     -- value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the exported output value. AWS CloudFormation returns the
     -- stack names that are importing this value.
-    exportName :: Core.Text
+    exportName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListImports' with all optional fields omitted.
@@ -84,43 +85,43 @@ data ListImports = ListImports'
 -- stack names that are importing this value.
 newListImports ::
   -- | 'exportName'
-  Core.Text ->
+  Prelude.Text ->
   ListImports
 newListImports pExportName_ =
   ListImports'
-    { nextToken = Core.Nothing,
+    { nextToken = Prelude.Nothing,
       exportName = pExportName_
     }
 
 -- | A string (provided by the ListImports response output) that identifies
 -- the next page of stacks that are importing the specified exported output
 -- value.
-listImports_nextToken :: Lens.Lens' ListImports (Core.Maybe Core.Text)
+listImports_nextToken :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
 listImports_nextToken = Lens.lens (\ListImports' {nextToken} -> nextToken) (\s@ListImports' {} a -> s {nextToken = a} :: ListImports)
 
 -- | The name of the exported output value. AWS CloudFormation returns the
 -- stack names that are importing this value.
-listImports_exportName :: Lens.Lens' ListImports Core.Text
+listImports_exportName :: Lens.Lens' ListImports Prelude.Text
 listImports_exportName = Lens.lens (\ListImports' {exportName} -> exportName) (\s@ListImports' {} a -> s {exportName = a} :: ListImports)
 
 instance Core.AWSPager ListImports where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listImportsResponse_nextToken Core.. Lens._Just
+            Lens.^? listImportsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listImportsResponse_imports Core.. Lens._Just
+            Lens.^? listImportsResponse_imports Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listImports_nextToken
+          Prelude.& listImports_nextToken
           Lens..~ rs
-          Lens.^? listImportsResponse_nextToken Core.. Lens._Just
+          Lens.^? listImportsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImports where
   type AWSResponse ListImports = ListImportsResponse
@@ -130,28 +131,30 @@ instance Core.AWSRequest ListImports where
       "ListImportsResult"
       ( \s h x ->
           ListImportsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "Imports" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "Imports" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListImports
+instance Prelude.Hashable ListImports
 
-instance Core.NFData ListImports
+instance Prelude.NFData ListImports
 
 instance Core.ToHeaders ListImports where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListImports where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListImports where
   toQuery ListImports' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("ListImports" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListImports" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "ExportName" Core.=: exportName
       ]
@@ -160,14 +163,14 @@ instance Core.ToQuery ListImports where
 data ListImportsResponse = ListImportsResponse'
   { -- | A string that identifies the next page of exports. If there is no
     -- additional page, this value is null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of stack names that are importing the specified exported output
     -- value.
-    imports :: Core.Maybe [Core.Text],
+    imports :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListImportsResponse' with all optional fields omitted.
@@ -186,27 +189,27 @@ data ListImportsResponse = ListImportsResponse'
 -- 'httpStatus', 'listImportsResponse_httpStatus' - The response's http status code.
 newListImportsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListImportsResponse
 newListImportsResponse pHttpStatus_ =
   ListImportsResponse'
-    { nextToken = Core.Nothing,
-      imports = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      imports = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A string that identifies the next page of exports. If there is no
 -- additional page, this value is null.
-listImportsResponse_nextToken :: Lens.Lens' ListImportsResponse (Core.Maybe Core.Text)
+listImportsResponse_nextToken :: Lens.Lens' ListImportsResponse (Prelude.Maybe Prelude.Text)
 listImportsResponse_nextToken = Lens.lens (\ListImportsResponse' {nextToken} -> nextToken) (\s@ListImportsResponse' {} a -> s {nextToken = a} :: ListImportsResponse)
 
 -- | A list of stack names that are importing the specified exported output
 -- value.
-listImportsResponse_imports :: Lens.Lens' ListImportsResponse (Core.Maybe [Core.Text])
-listImportsResponse_imports = Lens.lens (\ListImportsResponse' {imports} -> imports) (\s@ListImportsResponse' {} a -> s {imports = a} :: ListImportsResponse) Core.. Lens.mapping Lens._Coerce
+listImportsResponse_imports :: Lens.Lens' ListImportsResponse (Prelude.Maybe [Prelude.Text])
+listImportsResponse_imports = Lens.lens (\ListImportsResponse' {imports} -> imports) (\s@ListImportsResponse' {} a -> s {imports = a} :: ListImportsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listImportsResponse_httpStatus :: Lens.Lens' ListImportsResponse Core.Int
+listImportsResponse_httpStatus :: Lens.Lens' ListImportsResponse Prelude.Int
 listImportsResponse_httpStatus = Lens.lens (\ListImportsResponse' {httpStatus} -> httpStatus) (\s@ListImportsResponse' {} a -> s {httpStatus = a} :: ListImportsResponse)
 
-instance Core.NFData ListImportsResponse
+instance Prelude.NFData ListImportsResponse

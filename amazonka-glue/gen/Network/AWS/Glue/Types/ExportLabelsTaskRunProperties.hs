@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.ExportLabelsTaskRunProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration properties for an exporting labels task run.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data ExportLabelsTaskRunProperties = ExportLabelsTaskRunProperties'
   { -- | The Amazon Simple Storage Service (Amazon S3) path where you will export
     -- the labels.
-    outputS3Path :: Core.Maybe Core.Text
+    outputS3Path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportLabelsTaskRunProperties' with all optional fields omitted.
@@ -47,12 +48,12 @@ newExportLabelsTaskRunProperties ::
 newExportLabelsTaskRunProperties =
   ExportLabelsTaskRunProperties'
     { outputS3Path =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Simple Storage Service (Amazon S3) path where you will export
 -- the labels.
-exportLabelsTaskRunProperties_outputS3Path :: Lens.Lens' ExportLabelsTaskRunProperties (Core.Maybe Core.Text)
+exportLabelsTaskRunProperties_outputS3Path :: Lens.Lens' ExportLabelsTaskRunProperties (Prelude.Maybe Prelude.Text)
 exportLabelsTaskRunProperties_outputS3Path = Lens.lens (\ExportLabelsTaskRunProperties' {outputS3Path} -> outputS3Path) (\s@ExportLabelsTaskRunProperties' {} a -> s {outputS3Path = a} :: ExportLabelsTaskRunProperties)
 
 instance Core.FromJSON ExportLabelsTaskRunProperties where
@@ -61,9 +62,11 @@ instance Core.FromJSON ExportLabelsTaskRunProperties where
       "ExportLabelsTaskRunProperties"
       ( \x ->
           ExportLabelsTaskRunProperties'
-            Core.<$> (x Core..:? "OutputS3Path")
+            Prelude.<$> (x Core..:? "OutputS3Path")
       )
 
-instance Core.Hashable ExportLabelsTaskRunProperties
+instance
+  Prelude.Hashable
+    ExportLabelsTaskRunProperties
 
-instance Core.NFData ExportLabelsTaskRunProperties
+instance Prelude.NFData ExportLabelsTaskRunProperties

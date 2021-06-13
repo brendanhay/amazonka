@@ -22,6 +22,7 @@ module Network.AWS.Connect.Types.S3Config where
 import Network.AWS.Connect.Types.EncryptionConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Amazon Simple Storage Service (Amazon S3) storage
 -- type.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newS3Config' smart constructor.
 data S3Config = S3Config'
   { -- | The Amazon S3 encryption configuration.
-    encryptionConfig :: Core.Maybe EncryptionConfig,
+    encryptionConfig :: Prelude.Maybe EncryptionConfig,
     -- | The S3 bucket name.
-    bucketName :: Core.Text,
+    bucketName :: Prelude.Text,
     -- | The S3 bucket prefix.
-    bucketPrefix :: Core.Text
+    bucketPrefix :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3Config' with all optional fields omitted.
@@ -52,27 +53,27 @@ data S3Config = S3Config'
 -- 'bucketPrefix', 's3Config_bucketPrefix' - The S3 bucket prefix.
 newS3Config ::
   -- | 'bucketName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'bucketPrefix'
-  Core.Text ->
+  Prelude.Text ->
   S3Config
 newS3Config pBucketName_ pBucketPrefix_ =
   S3Config'
-    { encryptionConfig = Core.Nothing,
+    { encryptionConfig = Prelude.Nothing,
       bucketName = pBucketName_,
       bucketPrefix = pBucketPrefix_
     }
 
 -- | The Amazon S3 encryption configuration.
-s3Config_encryptionConfig :: Lens.Lens' S3Config (Core.Maybe EncryptionConfig)
+s3Config_encryptionConfig :: Lens.Lens' S3Config (Prelude.Maybe EncryptionConfig)
 s3Config_encryptionConfig = Lens.lens (\S3Config' {encryptionConfig} -> encryptionConfig) (\s@S3Config' {} a -> s {encryptionConfig = a} :: S3Config)
 
 -- | The S3 bucket name.
-s3Config_bucketName :: Lens.Lens' S3Config Core.Text
+s3Config_bucketName :: Lens.Lens' S3Config Prelude.Text
 s3Config_bucketName = Lens.lens (\S3Config' {bucketName} -> bucketName) (\s@S3Config' {} a -> s {bucketName = a} :: S3Config)
 
 -- | The S3 bucket prefix.
-s3Config_bucketPrefix :: Lens.Lens' S3Config Core.Text
+s3Config_bucketPrefix :: Lens.Lens' S3Config Prelude.Text
 s3Config_bucketPrefix = Lens.lens (\S3Config' {bucketPrefix} -> bucketPrefix) (\s@S3Config' {} a -> s {bucketPrefix = a} :: S3Config)
 
 instance Core.FromJSON S3Config where
@@ -81,22 +82,22 @@ instance Core.FromJSON S3Config where
       "S3Config"
       ( \x ->
           S3Config'
-            Core.<$> (x Core..:? "EncryptionConfig")
-            Core.<*> (x Core..: "BucketName")
-            Core.<*> (x Core..: "BucketPrefix")
+            Prelude.<$> (x Core..:? "EncryptionConfig")
+            Prelude.<*> (x Core..: "BucketName")
+            Prelude.<*> (x Core..: "BucketPrefix")
       )
 
-instance Core.Hashable S3Config
+instance Prelude.Hashable S3Config
 
-instance Core.NFData S3Config
+instance Prelude.NFData S3Config
 
 instance Core.ToJSON S3Config where
   toJSON S3Config' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EncryptionConfig" Core..=)
-              Core.<$> encryptionConfig,
-            Core.Just ("BucketName" Core..= bucketName),
-            Core.Just ("BucketPrefix" Core..= bucketPrefix)
+              Prelude.<$> encryptionConfig,
+            Prelude.Just ("BucketName" Core..= bucketName),
+            Prelude.Just ("BucketPrefix" Core..= bucketPrefix)
           ]
       )

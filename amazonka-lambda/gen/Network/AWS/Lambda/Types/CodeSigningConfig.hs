@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.AllowedPublishers
 import Network.AWS.Lambda.Types.CodeSigningPolicies
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about a Code signing configuration.
 --
 -- /See:/ 'newCodeSigningConfig' smart constructor.
 data CodeSigningConfig = CodeSigningConfig'
   { -- | Code signing configuration description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Unique identifer for the Code signing configuration.
-    codeSigningConfigId :: Core.Text,
+    codeSigningConfigId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Code signing configuration.
-    codeSigningConfigArn :: Core.Text,
+    codeSigningConfigArn :: Prelude.Text,
     -- | List of allowed publishers.
     allowedPublishers :: AllowedPublishers,
     -- | The code signing policy controls the validation failure action for
@@ -41,9 +42,9 @@ data CodeSigningConfig = CodeSigningConfig'
     codeSigningPolicies :: CodeSigningPolicies,
     -- | The date and time that the Code signing configuration was last modified,
     -- in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
-    lastModified :: Core.Text
+    lastModified :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CodeSigningConfig' with all optional fields omitted.
@@ -68,15 +69,15 @@ data CodeSigningConfig = CodeSigningConfig'
 -- in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
 newCodeSigningConfig ::
   -- | 'codeSigningConfigId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'codeSigningConfigArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'allowedPublishers'
   AllowedPublishers ->
   -- | 'codeSigningPolicies'
   CodeSigningPolicies ->
   -- | 'lastModified'
-  Core.Text ->
+  Prelude.Text ->
   CodeSigningConfig
 newCodeSigningConfig
   pCodeSigningConfigId_
@@ -85,7 +86,7 @@ newCodeSigningConfig
   pCodeSigningPolicies_
   pLastModified_ =
     CodeSigningConfig'
-      { description = Core.Nothing,
+      { description = Prelude.Nothing,
         codeSigningConfigId = pCodeSigningConfigId_,
         codeSigningConfigArn = pCodeSigningConfigArn_,
         allowedPublishers = pAllowedPublishers_,
@@ -94,15 +95,15 @@ newCodeSigningConfig
       }
 
 -- | Code signing configuration description.
-codeSigningConfig_description :: Lens.Lens' CodeSigningConfig (Core.Maybe Core.Text)
+codeSigningConfig_description :: Lens.Lens' CodeSigningConfig (Prelude.Maybe Prelude.Text)
 codeSigningConfig_description = Lens.lens (\CodeSigningConfig' {description} -> description) (\s@CodeSigningConfig' {} a -> s {description = a} :: CodeSigningConfig)
 
 -- | Unique identifer for the Code signing configuration.
-codeSigningConfig_codeSigningConfigId :: Lens.Lens' CodeSigningConfig Core.Text
+codeSigningConfig_codeSigningConfigId :: Lens.Lens' CodeSigningConfig Prelude.Text
 codeSigningConfig_codeSigningConfigId = Lens.lens (\CodeSigningConfig' {codeSigningConfigId} -> codeSigningConfigId) (\s@CodeSigningConfig' {} a -> s {codeSigningConfigId = a} :: CodeSigningConfig)
 
 -- | The Amazon Resource Name (ARN) of the Code signing configuration.
-codeSigningConfig_codeSigningConfigArn :: Lens.Lens' CodeSigningConfig Core.Text
+codeSigningConfig_codeSigningConfigArn :: Lens.Lens' CodeSigningConfig Prelude.Text
 codeSigningConfig_codeSigningConfigArn = Lens.lens (\CodeSigningConfig' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@CodeSigningConfig' {} a -> s {codeSigningConfigArn = a} :: CodeSigningConfig)
 
 -- | List of allowed publishers.
@@ -116,7 +117,7 @@ codeSigningConfig_codeSigningPolicies = Lens.lens (\CodeSigningConfig' {codeSign
 
 -- | The date and time that the Code signing configuration was last modified,
 -- in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
-codeSigningConfig_lastModified :: Lens.Lens' CodeSigningConfig Core.Text
+codeSigningConfig_lastModified :: Lens.Lens' CodeSigningConfig Prelude.Text
 codeSigningConfig_lastModified = Lens.lens (\CodeSigningConfig' {lastModified} -> lastModified) (\s@CodeSigningConfig' {} a -> s {lastModified = a} :: CodeSigningConfig)
 
 instance Core.FromJSON CodeSigningConfig where
@@ -125,14 +126,14 @@ instance Core.FromJSON CodeSigningConfig where
       "CodeSigningConfig"
       ( \x ->
           CodeSigningConfig'
-            Core.<$> (x Core..:? "Description")
-            Core.<*> (x Core..: "CodeSigningConfigId")
-            Core.<*> (x Core..: "CodeSigningConfigArn")
-            Core.<*> (x Core..: "AllowedPublishers")
-            Core.<*> (x Core..: "CodeSigningPolicies")
-            Core.<*> (x Core..: "LastModified")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..: "CodeSigningConfigId")
+            Prelude.<*> (x Core..: "CodeSigningConfigArn")
+            Prelude.<*> (x Core..: "AllowedPublishers")
+            Prelude.<*> (x Core..: "CodeSigningPolicies")
+            Prelude.<*> (x Core..: "LastModified")
       )
 
-instance Core.Hashable CodeSigningConfig
+instance Prelude.Hashable CodeSigningConfig
 
-instance Core.NFData CodeSigningConfig
+instance Prelude.NFData CodeSigningConfig

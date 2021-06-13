@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,14 +60,14 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the current association between the original network ACL and
     -- the subnet.
-    associationId :: Core.Text,
+    associationId :: Prelude.Text,
     -- | The ID of the new network ACL to associate with the subnet.
-    networkAclId :: Core.Text
+    networkAclId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceNetworkAclAssociation' with all optional fields omitted.
@@ -87,16 +88,16 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation'
 -- 'networkAclId', 'replaceNetworkAclAssociation_networkAclId' - The ID of the new network ACL to associate with the subnet.
 newReplaceNetworkAclAssociation ::
   -- | 'associationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'networkAclId'
-  Core.Text ->
+  Prelude.Text ->
   ReplaceNetworkAclAssociation
 newReplaceNetworkAclAssociation
   pAssociationId_
   pNetworkAclId_ =
     ReplaceNetworkAclAssociation'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         associationId = pAssociationId_,
         networkAclId = pNetworkAclId_
       }
@@ -105,16 +106,16 @@ newReplaceNetworkAclAssociation
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-replaceNetworkAclAssociation_dryRun :: Lens.Lens' ReplaceNetworkAclAssociation (Core.Maybe Core.Bool)
+replaceNetworkAclAssociation_dryRun :: Lens.Lens' ReplaceNetworkAclAssociation (Prelude.Maybe Prelude.Bool)
 replaceNetworkAclAssociation_dryRun = Lens.lens (\ReplaceNetworkAclAssociation' {dryRun} -> dryRun) (\s@ReplaceNetworkAclAssociation' {} a -> s {dryRun = a} :: ReplaceNetworkAclAssociation)
 
 -- | The ID of the current association between the original network ACL and
 -- the subnet.
-replaceNetworkAclAssociation_associationId :: Lens.Lens' ReplaceNetworkAclAssociation Core.Text
+replaceNetworkAclAssociation_associationId :: Lens.Lens' ReplaceNetworkAclAssociation Prelude.Text
 replaceNetworkAclAssociation_associationId = Lens.lens (\ReplaceNetworkAclAssociation' {associationId} -> associationId) (\s@ReplaceNetworkAclAssociation' {} a -> s {associationId = a} :: ReplaceNetworkAclAssociation)
 
 -- | The ID of the new network ACL to associate with the subnet.
-replaceNetworkAclAssociation_networkAclId :: Lens.Lens' ReplaceNetworkAclAssociation Core.Text
+replaceNetworkAclAssociation_networkAclId :: Lens.Lens' ReplaceNetworkAclAssociation Prelude.Text
 replaceNetworkAclAssociation_networkAclId = Lens.lens (\ReplaceNetworkAclAssociation' {networkAclId} -> networkAclId) (\s@ReplaceNetworkAclAssociation' {} a -> s {networkAclId = a} :: ReplaceNetworkAclAssociation)
 
 instance Core.AWSRequest ReplaceNetworkAclAssociation where
@@ -126,26 +127,31 @@ instance Core.AWSRequest ReplaceNetworkAclAssociation where
     Response.receiveXML
       ( \s h x ->
           ReplaceNetworkAclAssociationResponse'
-            Core.<$> (x Core..@? "newAssociationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "newAssociationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ReplaceNetworkAclAssociation
+instance
+  Prelude.Hashable
+    ReplaceNetworkAclAssociation
 
-instance Core.NFData ReplaceNetworkAclAssociation
+instance Prelude.NFData ReplaceNetworkAclAssociation
 
 instance Core.ToHeaders ReplaceNetworkAclAssociation where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ReplaceNetworkAclAssociation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ReplaceNetworkAclAssociation where
   toQuery ReplaceNetworkAclAssociation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ReplaceNetworkAclAssociation" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ( "ReplaceNetworkAclAssociation" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "AssociationId" Core.=: associationId,
         "NetworkAclId" Core.=: networkAclId
@@ -154,11 +160,11 @@ instance Core.ToQuery ReplaceNetworkAclAssociation where
 -- | /See:/ 'newReplaceNetworkAclAssociationResponse' smart constructor.
 data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse'
   { -- | The ID of the new association.
-    newAssociationId' :: Core.Maybe Core.Text,
+    newAssociationId' :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceNetworkAclAssociationResponse' with all optional fields omitted.
@@ -173,23 +179,23 @@ data ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
 -- 'httpStatus', 'replaceNetworkAclAssociationResponse_httpStatus' - The response's http status code.
 newReplaceNetworkAclAssociationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ReplaceNetworkAclAssociationResponse
 newReplaceNetworkAclAssociationResponse pHttpStatus_ =
   ReplaceNetworkAclAssociationResponse'
     { newAssociationId' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the new association.
-replaceNetworkAclAssociationResponse_newAssociationId :: Lens.Lens' ReplaceNetworkAclAssociationResponse (Core.Maybe Core.Text)
+replaceNetworkAclAssociationResponse_newAssociationId :: Lens.Lens' ReplaceNetworkAclAssociationResponse (Prelude.Maybe Prelude.Text)
 replaceNetworkAclAssociationResponse_newAssociationId = Lens.lens (\ReplaceNetworkAclAssociationResponse' {newAssociationId'} -> newAssociationId') (\s@ReplaceNetworkAclAssociationResponse' {} a -> s {newAssociationId' = a} :: ReplaceNetworkAclAssociationResponse)
 
 -- | The response's http status code.
-replaceNetworkAclAssociationResponse_httpStatus :: Lens.Lens' ReplaceNetworkAclAssociationResponse Core.Int
+replaceNetworkAclAssociationResponse_httpStatus :: Lens.Lens' ReplaceNetworkAclAssociationResponse Prelude.Int
 replaceNetworkAclAssociationResponse_httpStatus = Lens.lens (\ReplaceNetworkAclAssociationResponse' {httpStatus} -> httpStatus) (\s@ReplaceNetworkAclAssociationResponse' {} a -> s {httpStatus = a} :: ReplaceNetworkAclAssociationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReplaceNetworkAclAssociationResponse

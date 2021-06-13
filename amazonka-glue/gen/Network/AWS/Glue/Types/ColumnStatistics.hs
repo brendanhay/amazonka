@@ -22,6 +22,7 @@ module Network.AWS.Glue.Types.ColumnStatistics where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ColumnStatisticsData
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the generated column-level statistics for a table or
 -- partition.
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newColumnStatistics' smart constructor.
 data ColumnStatistics = ColumnStatistics'
   { -- | Name of column which statistics belong to.
-    columnName :: Core.Text,
+    columnName :: Prelude.Text,
     -- | The data type of the column.
-    columnType :: Core.Text,
+    columnType :: Prelude.Text,
     -- | The timestamp of when column statistics were generated.
     analyzedTime :: Core.POSIX,
     -- | A @ColumnStatisticData@ object that contains the statistics data values.
     statisticsData :: ColumnStatisticsData
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ColumnStatistics' with all optional fields omitted.
@@ -56,11 +57,11 @@ data ColumnStatistics = ColumnStatistics'
 -- 'statisticsData', 'columnStatistics_statisticsData' - A @ColumnStatisticData@ object that contains the statistics data values.
 newColumnStatistics ::
   -- | 'columnName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'columnType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'analyzedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'statisticsData'
   ColumnStatisticsData ->
   ColumnStatistics
@@ -77,16 +78,16 @@ newColumnStatistics
       }
 
 -- | Name of column which statistics belong to.
-columnStatistics_columnName :: Lens.Lens' ColumnStatistics Core.Text
+columnStatistics_columnName :: Lens.Lens' ColumnStatistics Prelude.Text
 columnStatistics_columnName = Lens.lens (\ColumnStatistics' {columnName} -> columnName) (\s@ColumnStatistics' {} a -> s {columnName = a} :: ColumnStatistics)
 
 -- | The data type of the column.
-columnStatistics_columnType :: Lens.Lens' ColumnStatistics Core.Text
+columnStatistics_columnType :: Lens.Lens' ColumnStatistics Prelude.Text
 columnStatistics_columnType = Lens.lens (\ColumnStatistics' {columnType} -> columnType) (\s@ColumnStatistics' {} a -> s {columnType = a} :: ColumnStatistics)
 
 -- | The timestamp of when column statistics were generated.
-columnStatistics_analyzedTime :: Lens.Lens' ColumnStatistics Core.UTCTime
-columnStatistics_analyzedTime = Lens.lens (\ColumnStatistics' {analyzedTime} -> analyzedTime) (\s@ColumnStatistics' {} a -> s {analyzedTime = a} :: ColumnStatistics) Core.. Core._Time
+columnStatistics_analyzedTime :: Lens.Lens' ColumnStatistics Prelude.UTCTime
+columnStatistics_analyzedTime = Lens.lens (\ColumnStatistics' {analyzedTime} -> analyzedTime) (\s@ColumnStatistics' {} a -> s {analyzedTime = a} :: ColumnStatistics) Prelude.. Core._Time
 
 -- | A @ColumnStatisticData@ object that contains the statistics data values.
 columnStatistics_statisticsData :: Lens.Lens' ColumnStatistics ColumnStatisticsData
@@ -98,23 +99,24 @@ instance Core.FromJSON ColumnStatistics where
       "ColumnStatistics"
       ( \x ->
           ColumnStatistics'
-            Core.<$> (x Core..: "ColumnName")
-            Core.<*> (x Core..: "ColumnType")
-            Core.<*> (x Core..: "AnalyzedTime")
-            Core.<*> (x Core..: "StatisticsData")
+            Prelude.<$> (x Core..: "ColumnName")
+            Prelude.<*> (x Core..: "ColumnType")
+            Prelude.<*> (x Core..: "AnalyzedTime")
+            Prelude.<*> (x Core..: "StatisticsData")
       )
 
-instance Core.Hashable ColumnStatistics
+instance Prelude.Hashable ColumnStatistics
 
-instance Core.NFData ColumnStatistics
+instance Prelude.NFData ColumnStatistics
 
 instance Core.ToJSON ColumnStatistics where
   toJSON ColumnStatistics' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ColumnName" Core..= columnName),
-            Core.Just ("ColumnType" Core..= columnType),
-            Core.Just ("AnalyzedTime" Core..= analyzedTime),
-            Core.Just ("StatisticsData" Core..= statisticsData)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ColumnName" Core..= columnName),
+            Prelude.Just ("ColumnType" Core..= columnType),
+            Prelude.Just ("AnalyzedTime" Core..= analyzedTime),
+            Prelude.Just
+              ("StatisticsData" Core..= statisticsData)
           ]
       )

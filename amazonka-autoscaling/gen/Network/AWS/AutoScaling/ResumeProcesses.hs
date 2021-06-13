@@ -44,6 +44,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,11 +71,11 @@ data ResumeProcesses = ResumeProcesses'
     -- -   @ScheduledActions@
     --
     -- If you omit this parameter, all processes are specified.
-    scalingProcesses :: Core.Maybe [Core.Text],
+    scalingProcesses :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text
+    autoScalingGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResumeProcesses' with all optional fields omitted.
@@ -109,11 +110,12 @@ data ResumeProcesses = ResumeProcesses'
 -- 'autoScalingGroupName', 'resumeProcesses_autoScalingGroupName' - The name of the Auto Scaling group.
 newResumeProcesses ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   ResumeProcesses
 newResumeProcesses pAutoScalingGroupName_ =
   ResumeProcesses'
-    { scalingProcesses = Core.Nothing,
+    { scalingProcesses =
+        Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -138,11 +140,11 @@ newResumeProcesses pAutoScalingGroupName_ =
 -- -   @ScheduledActions@
 --
 -- If you omit this parameter, all processes are specified.
-resumeProcesses_scalingProcesses :: Lens.Lens' ResumeProcesses (Core.Maybe [Core.Text])
-resumeProcesses_scalingProcesses = Lens.lens (\ResumeProcesses' {scalingProcesses} -> scalingProcesses) (\s@ResumeProcesses' {} a -> s {scalingProcesses = a} :: ResumeProcesses) Core.. Lens.mapping Lens._Coerce
+resumeProcesses_scalingProcesses :: Lens.Lens' ResumeProcesses (Prelude.Maybe [Prelude.Text])
+resumeProcesses_scalingProcesses = Lens.lens (\ResumeProcesses' {scalingProcesses} -> scalingProcesses) (\s@ResumeProcesses' {} a -> s {scalingProcesses = a} :: ResumeProcesses) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-resumeProcesses_autoScalingGroupName :: Lens.Lens' ResumeProcesses Core.Text
+resumeProcesses_autoScalingGroupName :: Lens.Lens' ResumeProcesses Prelude.Text
 resumeProcesses_autoScalingGroupName = Lens.lens (\ResumeProcesses' {autoScalingGroupName} -> autoScalingGroupName) (\s@ResumeProcesses' {} a -> s {autoScalingGroupName = a} :: ResumeProcesses)
 
 instance Core.AWSRequest ResumeProcesses where
@@ -153,26 +155,27 @@ instance Core.AWSRequest ResumeProcesses where
   response =
     Response.receiveNull ResumeProcessesResponse'
 
-instance Core.Hashable ResumeProcesses
+instance Prelude.Hashable ResumeProcesses
 
-instance Core.NFData ResumeProcesses
+instance Prelude.NFData ResumeProcesses
 
 instance Core.ToHeaders ResumeProcesses where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ResumeProcesses where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResumeProcesses where
   toQuery ResumeProcesses' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ResumeProcesses" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("ResumeProcesses" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "ScalingProcesses"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> scalingProcesses
+                Prelude.<$> scalingProcesses
             ),
         "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
@@ -181,7 +184,7 @@ instance Core.ToQuery ResumeProcesses where
 data ResumeProcessesResponse = ResumeProcessesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResumeProcessesResponse' with all optional fields omitted.
@@ -191,4 +194,4 @@ newResumeProcessesResponse ::
   ResumeProcessesResponse
 newResumeProcessesResponse = ResumeProcessesResponse'
 
-instance Core.NFData ResumeProcessesResponse
+instance Prelude.NFData ResumeProcessesResponse

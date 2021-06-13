@@ -49,20 +49,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeHostReservations' smart constructor.
 data DescribeHostReservations = DescribeHostReservations'
   { -- | The token to use to retrieve the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
     -- @maxResults@ is given a larger value than 500, you receive an error.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The host reservation IDs.
-    hostReservationIdSet :: Core.Maybe [Core.Text],
+    hostReservationIdSet :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @instance-family@ - The instance family (for example, @m4@).
@@ -82,9 +83,9 @@ data DescribeHostReservations = DescribeHostReservations'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filter' :: Core.Maybe [Filter]
+    filter' :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHostReservations' with all optional fields omitted.
@@ -126,26 +127,27 @@ newDescribeHostReservations ::
   DescribeHostReservations
 newDescribeHostReservations =
   DescribeHostReservations'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      hostReservationIdSet = Core.Nothing,
-      filter' = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      hostReservationIdSet = Prelude.Nothing,
+      filter' = Prelude.Nothing
     }
 
 -- | The token to use to retrieve the next page of results.
-describeHostReservations_nextToken :: Lens.Lens' DescribeHostReservations (Core.Maybe Core.Text)
+describeHostReservations_nextToken :: Lens.Lens' DescribeHostReservations (Prelude.Maybe Prelude.Text)
 describeHostReservations_nextToken = Lens.lens (\DescribeHostReservations' {nextToken} -> nextToken) (\s@DescribeHostReservations' {} a -> s {nextToken = a} :: DescribeHostReservations)
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
-describeHostReservations_maxResults :: Lens.Lens' DescribeHostReservations (Core.Maybe Core.Int)
+describeHostReservations_maxResults :: Lens.Lens' DescribeHostReservations (Prelude.Maybe Prelude.Int)
 describeHostReservations_maxResults = Lens.lens (\DescribeHostReservations' {maxResults} -> maxResults) (\s@DescribeHostReservations' {} a -> s {maxResults = a} :: DescribeHostReservations)
 
 -- | The host reservation IDs.
-describeHostReservations_hostReservationIdSet :: Lens.Lens' DescribeHostReservations (Core.Maybe [Core.Text])
-describeHostReservations_hostReservationIdSet = Lens.lens (\DescribeHostReservations' {hostReservationIdSet} -> hostReservationIdSet) (\s@DescribeHostReservations' {} a -> s {hostReservationIdSet = a} :: DescribeHostReservations) Core.. Lens.mapping Lens._Coerce
+describeHostReservations_hostReservationIdSet :: Lens.Lens' DescribeHostReservations (Prelude.Maybe [Prelude.Text])
+describeHostReservations_hostReservationIdSet = Lens.lens (\DescribeHostReservations' {hostReservationIdSet} -> hostReservationIdSet) (\s@DescribeHostReservations' {} a -> s {hostReservationIdSet = a} :: DescribeHostReservations) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -166,30 +168,30 @@ describeHostReservations_hostReservationIdSet = Lens.lens (\DescribeHostReservat
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describeHostReservations_filter :: Lens.Lens' DescribeHostReservations (Core.Maybe [Filter])
-describeHostReservations_filter = Lens.lens (\DescribeHostReservations' {filter'} -> filter') (\s@DescribeHostReservations' {} a -> s {filter' = a} :: DescribeHostReservations) Core.. Lens.mapping Lens._Coerce
+describeHostReservations_filter :: Lens.Lens' DescribeHostReservations (Prelude.Maybe [Filter])
+describeHostReservations_filter = Lens.lens (\DescribeHostReservations' {filter'} -> filter') (\s@DescribeHostReservations' {} a -> s {filter' = a} :: DescribeHostReservations) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeHostReservations where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeHostReservationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeHostReservationsResponse_hostReservationSet
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeHostReservations_nextToken
+          Prelude.& describeHostReservations_nextToken
           Lens..~ rs
           Lens.^? describeHostReservationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeHostReservations where
   type
@@ -200,50 +202,52 @@ instance Core.AWSRequest DescribeHostReservations where
     Response.receiveXML
       ( \s h x ->
           DescribeHostReservationsResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "hostReservationSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "hostReservationSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeHostReservations
+instance Prelude.Hashable DescribeHostReservations
 
-instance Core.NFData DescribeHostReservations
+instance Prelude.NFData DescribeHostReservations
 
 instance Core.ToHeaders DescribeHostReservations where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeHostReservations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeHostReservations where
   toQuery DescribeHostReservations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeHostReservations" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeHostReservations" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "HostReservationIdSet"
-              Core.<$> hostReservationIdSet
+              Prelude.<$> hostReservationIdSet
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filter')
+          (Core.toQueryList "Filter" Prelude.<$> filter')
       ]
 
 -- | /See:/ 'newDescribeHostReservationsResponse' smart constructor.
 data DescribeHostReservationsResponse = DescribeHostReservationsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Details about the reservation\'s configuration.
-    hostReservationSet :: Core.Maybe [HostReservation],
+    hostReservationSet :: Prelude.Maybe [HostReservation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHostReservationsResponse' with all optional fields omitted.
@@ -261,27 +265,29 @@ data DescribeHostReservationsResponse = DescribeHostReservationsResponse'
 -- 'httpStatus', 'describeHostReservationsResponse_httpStatus' - The response's http status code.
 newDescribeHostReservationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeHostReservationsResponse
 newDescribeHostReservationsResponse pHttpStatus_ =
   DescribeHostReservationsResponse'
     { nextToken =
-        Core.Nothing,
-      hostReservationSet = Core.Nothing,
+        Prelude.Nothing,
+      hostReservationSet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeHostReservationsResponse_nextToken :: Lens.Lens' DescribeHostReservationsResponse (Core.Maybe Core.Text)
+describeHostReservationsResponse_nextToken :: Lens.Lens' DescribeHostReservationsResponse (Prelude.Maybe Prelude.Text)
 describeHostReservationsResponse_nextToken = Lens.lens (\DescribeHostReservationsResponse' {nextToken} -> nextToken) (\s@DescribeHostReservationsResponse' {} a -> s {nextToken = a} :: DescribeHostReservationsResponse)
 
 -- | Details about the reservation\'s configuration.
-describeHostReservationsResponse_hostReservationSet :: Lens.Lens' DescribeHostReservationsResponse (Core.Maybe [HostReservation])
-describeHostReservationsResponse_hostReservationSet = Lens.lens (\DescribeHostReservationsResponse' {hostReservationSet} -> hostReservationSet) (\s@DescribeHostReservationsResponse' {} a -> s {hostReservationSet = a} :: DescribeHostReservationsResponse) Core.. Lens.mapping Lens._Coerce
+describeHostReservationsResponse_hostReservationSet :: Lens.Lens' DescribeHostReservationsResponse (Prelude.Maybe [HostReservation])
+describeHostReservationsResponse_hostReservationSet = Lens.lens (\DescribeHostReservationsResponse' {hostReservationSet} -> hostReservationSet) (\s@DescribeHostReservationsResponse' {} a -> s {hostReservationSet = a} :: DescribeHostReservationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeHostReservationsResponse_httpStatus :: Lens.Lens' DescribeHostReservationsResponse Core.Int
+describeHostReservationsResponse_httpStatus :: Lens.Lens' DescribeHostReservationsResponse Prelude.Int
 describeHostReservationsResponse_httpStatus = Lens.lens (\DescribeHostReservationsResponse' {httpStatus} -> httpStatus) (\s@DescribeHostReservationsResponse' {} a -> s {httpStatus = a} :: DescribeHostReservationsResponse)
 
-instance Core.NFData DescribeHostReservationsResponse
+instance
+  Prelude.NFData
+    DescribeHostReservationsResponse

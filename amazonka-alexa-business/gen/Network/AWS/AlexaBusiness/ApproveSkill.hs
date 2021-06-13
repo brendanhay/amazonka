@@ -43,15 +43,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newApproveSkill' smart constructor.
 data ApproveSkill = ApproveSkill'
   { -- | The unique identifier of the skill.
-    skillId :: Core.Text
+    skillId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApproveSkill' with all optional fields omitted.
@@ -64,13 +65,13 @@ data ApproveSkill = ApproveSkill'
 -- 'skillId', 'approveSkill_skillId' - The unique identifier of the skill.
 newApproveSkill ::
   -- | 'skillId'
-  Core.Text ->
+  Prelude.Text ->
   ApproveSkill
 newApproveSkill pSkillId_ =
   ApproveSkill' {skillId = pSkillId_}
 
 -- | The unique identifier of the skill.
-approveSkill_skillId :: Lens.Lens' ApproveSkill Core.Text
+approveSkill_skillId :: Lens.Lens' ApproveSkill Prelude.Text
 approveSkill_skillId = Lens.lens (\ApproveSkill' {skillId} -> skillId) (\s@ApproveSkill' {} a -> s {skillId = a} :: ApproveSkill)
 
 instance Core.AWSRequest ApproveSkill where
@@ -80,43 +81,47 @@ instance Core.AWSRequest ApproveSkill where
     Response.receiveEmpty
       ( \s h x ->
           ApproveSkillResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ApproveSkill
+instance Prelude.Hashable ApproveSkill
 
-instance Core.NFData ApproveSkill
+instance Prelude.NFData ApproveSkill
 
 instance Core.ToHeaders ApproveSkill where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.ApproveSkill" :: Core.ByteString),
+              Core.=# ( "AlexaForBusiness.ApproveSkill" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ApproveSkill where
   toJSON ApproveSkill' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SkillId" Core..= skillId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SkillId" Core..= skillId)]
       )
 
 instance Core.ToPath ApproveSkill where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ApproveSkill where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newApproveSkillResponse' smart constructor.
 data ApproveSkillResponse = ApproveSkillResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApproveSkillResponse' with all optional fields omitted.
@@ -129,13 +134,13 @@ data ApproveSkillResponse = ApproveSkillResponse'
 -- 'httpStatus', 'approveSkillResponse_httpStatus' - The response's http status code.
 newApproveSkillResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ApproveSkillResponse
 newApproveSkillResponse pHttpStatus_ =
   ApproveSkillResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-approveSkillResponse_httpStatus :: Lens.Lens' ApproveSkillResponse Core.Int
+approveSkillResponse_httpStatus :: Lens.Lens' ApproveSkillResponse Prelude.Int
 approveSkillResponse_httpStatus = Lens.lens (\ApproveSkillResponse' {httpStatus} -> httpStatus) (\s@ApproveSkillResponse' {} a -> s {httpStatus = a} :: ApproveSkillResponse)
 
-instance Core.NFData ApproveSkillResponse
+instance Prelude.NFData ApproveSkillResponse

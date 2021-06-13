@@ -71,17 +71,18 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetectStackDrift' smart constructor.
 data DetectStackDrift = DetectStackDrift'
   { -- | The logical names of any resources you want to use as filters.
-    logicalResourceIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    logicalResourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the stack for which you want to detect drift.
-    stackName :: Core.Text
+    stackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectStackDrift' with all optional fields omitted.
@@ -96,21 +97,21 @@ data DetectStackDrift = DetectStackDrift'
 -- 'stackName', 'detectStackDrift_stackName' - The name of the stack for which you want to detect drift.
 newDetectStackDrift ::
   -- | 'stackName'
-  Core.Text ->
+  Prelude.Text ->
   DetectStackDrift
 newDetectStackDrift pStackName_ =
   DetectStackDrift'
     { logicalResourceIds =
-        Core.Nothing,
+        Prelude.Nothing,
       stackName = pStackName_
     }
 
 -- | The logical names of any resources you want to use as filters.
-detectStackDrift_logicalResourceIds :: Lens.Lens' DetectStackDrift (Core.Maybe (Core.NonEmpty Core.Text))
-detectStackDrift_logicalResourceIds = Lens.lens (\DetectStackDrift' {logicalResourceIds} -> logicalResourceIds) (\s@DetectStackDrift' {} a -> s {logicalResourceIds = a} :: DetectStackDrift) Core.. Lens.mapping Lens._Coerce
+detectStackDrift_logicalResourceIds :: Lens.Lens' DetectStackDrift (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+detectStackDrift_logicalResourceIds = Lens.lens (\DetectStackDrift' {logicalResourceIds} -> logicalResourceIds) (\s@DetectStackDrift' {} a -> s {logicalResourceIds = a} :: DetectStackDrift) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the stack for which you want to detect drift.
-detectStackDrift_stackName :: Lens.Lens' DetectStackDrift Core.Text
+detectStackDrift_stackName :: Lens.Lens' DetectStackDrift Prelude.Text
 detectStackDrift_stackName = Lens.lens (\DetectStackDrift' {stackName} -> stackName) (\s@DetectStackDrift' {} a -> s {stackName = a} :: DetectStackDrift)
 
 instance Core.AWSRequest DetectStackDrift where
@@ -123,30 +124,31 @@ instance Core.AWSRequest DetectStackDrift where
       "DetectStackDriftResult"
       ( \s h x ->
           DetectStackDriftResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "StackDriftDetectionId")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "StackDriftDetectionId")
       )
 
-instance Core.Hashable DetectStackDrift
+instance Prelude.Hashable DetectStackDrift
 
-instance Core.NFData DetectStackDrift
+instance Prelude.NFData DetectStackDrift
 
 instance Core.ToHeaders DetectStackDrift where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetectStackDrift where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetectStackDrift where
   toQuery DetectStackDrift' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetectStackDrift" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("DetectStackDrift" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "LogicalResourceIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> logicalResourceIds
+                Prelude.<$> logicalResourceIds
             ),
         "StackName" Core.=: stackName
       ]
@@ -154,16 +156,16 @@ instance Core.ToQuery DetectStackDrift where
 -- | /See:/ 'newDetectStackDriftResponse' smart constructor.
 data DetectStackDriftResponse = DetectStackDriftResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The ID of the drift detection results of this operation.
     --
     -- AWS CloudFormation generates new results, with a new drift detection ID,
     -- each time this operation is run. However, the number of drift results
     -- AWS CloudFormation retains for any given stack, and for how long, may
     -- vary.
-    stackDriftDetectionId :: Core.Text
+    stackDriftDetectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectStackDriftResponse' with all optional fields omitted.
@@ -183,9 +185,9 @@ data DetectStackDriftResponse = DetectStackDriftResponse'
 -- vary.
 newDetectStackDriftResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'stackDriftDetectionId'
-  Core.Text ->
+  Prelude.Text ->
   DetectStackDriftResponse
 newDetectStackDriftResponse
   pHttpStatus_
@@ -197,7 +199,7 @@ newDetectStackDriftResponse
       }
 
 -- | The response's http status code.
-detectStackDriftResponse_httpStatus :: Lens.Lens' DetectStackDriftResponse Core.Int
+detectStackDriftResponse_httpStatus :: Lens.Lens' DetectStackDriftResponse Prelude.Int
 detectStackDriftResponse_httpStatus = Lens.lens (\DetectStackDriftResponse' {httpStatus} -> httpStatus) (\s@DetectStackDriftResponse' {} a -> s {httpStatus = a} :: DetectStackDriftResponse)
 
 -- | The ID of the drift detection results of this operation.
@@ -206,7 +208,7 @@ detectStackDriftResponse_httpStatus = Lens.lens (\DetectStackDriftResponse' {htt
 -- each time this operation is run. However, the number of drift results
 -- AWS CloudFormation retains for any given stack, and for how long, may
 -- vary.
-detectStackDriftResponse_stackDriftDetectionId :: Lens.Lens' DetectStackDriftResponse Core.Text
+detectStackDriftResponse_stackDriftDetectionId :: Lens.Lens' DetectStackDriftResponse Prelude.Text
 detectStackDriftResponse_stackDriftDetectionId = Lens.lens (\DetectStackDriftResponse' {stackDriftDetectionId} -> stackDriftDetectionId) (\s@DetectStackDriftResponse' {} a -> s {stackDriftDetectionId = a} :: DetectStackDriftResponse)
 
-instance Core.NFData DetectStackDriftResponse
+instance Prelude.NFData DetectStackDriftResponse

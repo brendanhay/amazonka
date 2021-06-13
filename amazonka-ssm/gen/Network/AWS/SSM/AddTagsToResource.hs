@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -90,7 +91,7 @@ data AddTagsToResource = AddTagsToResource'
     -- The ManagedInstance type for this API action is only for on-premises
     -- managed instances. You must specify the name of the managed instance in
     -- the following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | One or more tags. The value parameter is required, but if you don\'t
     -- want the tag to have a value, specify the parameter with no value, and
     -- we set the value to an empty string.
@@ -98,7 +99,7 @@ data AddTagsToResource = AddTagsToResource'
     -- Do not enter personally identifiable information in this field.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToResource' with all optional fields omitted.
@@ -139,13 +140,13 @@ newAddTagsToResource ::
   -- | 'resourceType'
   ResourceTypeForTagging ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   AddTagsToResource
 newAddTagsToResource pResourceType_ pResourceId_ =
   AddTagsToResource'
     { resourceType = pResourceType_,
       resourceId = pResourceId_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | Specifies the type of resource you are tagging.
@@ -171,7 +172,7 @@ addTagsToResource_resourceType = Lens.lens (\AddTagsToResource' {resourceType} -
 -- The ManagedInstance type for this API action is only for on-premises
 -- managed instances. You must specify the name of the managed instance in
 -- the following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
-addTagsToResource_resourceId :: Lens.Lens' AddTagsToResource Core.Text
+addTagsToResource_resourceId :: Lens.Lens' AddTagsToResource Prelude.Text
 addTagsToResource_resourceId = Lens.lens (\AddTagsToResource' {resourceId} -> resourceId) (\s@AddTagsToResource' {} a -> s {resourceId = a} :: AddTagsToResource)
 
 -- | One or more tags. The value parameter is required, but if you don\'t
@@ -180,7 +181,7 @@ addTagsToResource_resourceId = Lens.lens (\AddTagsToResource' {resourceId} -> re
 --
 -- Do not enter personally identifiable information in this field.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
-addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Core.. Lens._Coerce
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTagsToResource where
   type
@@ -191,46 +192,50 @@ instance Core.AWSRequest AddTagsToResource where
     Response.receiveEmpty
       ( \s h x ->
           AddTagsToResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddTagsToResource
+instance Prelude.Hashable AddTagsToResource
 
-instance Core.NFData AddTagsToResource
+instance Prelude.NFData AddTagsToResource
 
 instance Core.ToHeaders AddTagsToResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.AddTagsToResource" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.AddTagsToResource" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTagsToResource where
   toJSON AddTagsToResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceType" Core..= resourceType),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("Tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath AddTagsToResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTagsToResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToResourceResponse' with all optional fields omitted.
@@ -243,7 +248,7 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse'
 -- 'httpStatus', 'addTagsToResourceResponse_httpStatus' - The response's http status code.
 newAddTagsToResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddTagsToResourceResponse
 newAddTagsToResourceResponse pHttpStatus_ =
   AddTagsToResourceResponse'
@@ -252,7 +257,7 @@ newAddTagsToResourceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-addTagsToResourceResponse_httpStatus :: Lens.Lens' AddTagsToResourceResponse Core.Int
+addTagsToResourceResponse_httpStatus :: Lens.Lens' AddTagsToResourceResponse Prelude.Int
 addTagsToResourceResponse_httpStatus = Lens.lens (\AddTagsToResourceResponse' {httpStatus} -> httpStatus) (\s@AddTagsToResourceResponse' {} a -> s {httpStatus = a} :: AddTagsToResourceResponse)
 
-instance Core.NFData AddTagsToResourceResponse
+instance Prelude.NFData AddTagsToResourceResponse

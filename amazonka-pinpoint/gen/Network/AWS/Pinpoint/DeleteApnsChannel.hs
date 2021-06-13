@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteApnsChannel = DeleteApnsChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApnsChannel' with all optional fields omitted.
@@ -66,14 +67,14 @@ data DeleteApnsChannel = DeleteApnsChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteApnsChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteApnsChannel
 newDeleteApnsChannel pApplicationId_ =
   DeleteApnsChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteApnsChannel_applicationId :: Lens.Lens' DeleteApnsChannel Core.Text
+deleteApnsChannel_applicationId :: Lens.Lens' DeleteApnsChannel Prelude.Text
 deleteApnsChannel_applicationId = Lens.lens (\DeleteApnsChannel' {applicationId} -> applicationId) (\s@DeleteApnsChannel' {} a -> s {applicationId = a} :: DeleteApnsChannel)
 
 instance Core.AWSRequest DeleteApnsChannel where
@@ -85,41 +86,43 @@ instance Core.AWSRequest DeleteApnsChannel where
     Response.receiveJSON
       ( \s h x ->
           DeleteApnsChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteApnsChannel
+instance Prelude.Hashable DeleteApnsChannel
 
-instance Core.NFData DeleteApnsChannel
+instance Prelude.NFData DeleteApnsChannel
 
 instance Core.ToHeaders DeleteApnsChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteApnsChannel where
   toPath DeleteApnsChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/apns"
       ]
 
 instance Core.ToQuery DeleteApnsChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApnsChannelResponse' smart constructor.
 data DeleteApnsChannelResponse = DeleteApnsChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     aPNSChannelResponse :: APNSChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApnsChannelResponse' with all optional fields omitted.
@@ -134,7 +137,7 @@ data DeleteApnsChannelResponse = DeleteApnsChannelResponse'
 -- 'aPNSChannelResponse', 'deleteApnsChannelResponse_aPNSChannelResponse' - Undocumented member.
 newDeleteApnsChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'aPNSChannelResponse'
   APNSChannelResponse ->
   DeleteApnsChannelResponse
@@ -148,11 +151,11 @@ newDeleteApnsChannelResponse
       }
 
 -- | The response's http status code.
-deleteApnsChannelResponse_httpStatus :: Lens.Lens' DeleteApnsChannelResponse Core.Int
+deleteApnsChannelResponse_httpStatus :: Lens.Lens' DeleteApnsChannelResponse Prelude.Int
 deleteApnsChannelResponse_httpStatus = Lens.lens (\DeleteApnsChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteApnsChannelResponse' {} a -> s {httpStatus = a} :: DeleteApnsChannelResponse)
 
 -- | Undocumented member.
 deleteApnsChannelResponse_aPNSChannelResponse :: Lens.Lens' DeleteApnsChannelResponse APNSChannelResponse
 deleteApnsChannelResponse_aPNSChannelResponse = Lens.lens (\DeleteApnsChannelResponse' {aPNSChannelResponse} -> aPNSChannelResponse) (\s@DeleteApnsChannelResponse' {} a -> s {aPNSChannelResponse = a} :: DeleteApnsChannelResponse)
 
-instance Core.NFData DeleteApnsChannelResponse
+instance Prelude.NFData DeleteApnsChannelResponse

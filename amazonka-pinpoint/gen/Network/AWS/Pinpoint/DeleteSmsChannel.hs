@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteSmsChannel = DeleteSmsChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSmsChannel' with all optional fields omitted.
@@ -66,14 +67,14 @@ data DeleteSmsChannel = DeleteSmsChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteSmsChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSmsChannel
 newDeleteSmsChannel pApplicationId_ =
   DeleteSmsChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteSmsChannel_applicationId :: Lens.Lens' DeleteSmsChannel Core.Text
+deleteSmsChannel_applicationId :: Lens.Lens' DeleteSmsChannel Prelude.Text
 deleteSmsChannel_applicationId = Lens.lens (\DeleteSmsChannel' {applicationId} -> applicationId) (\s@DeleteSmsChannel' {} a -> s {applicationId = a} :: DeleteSmsChannel)
 
 instance Core.AWSRequest DeleteSmsChannel where
@@ -85,41 +86,43 @@ instance Core.AWSRequest DeleteSmsChannel where
     Response.receiveJSON
       ( \s h x ->
           DeleteSmsChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteSmsChannel
+instance Prelude.Hashable DeleteSmsChannel
 
-instance Core.NFData DeleteSmsChannel
+instance Prelude.NFData DeleteSmsChannel
 
 instance Core.ToHeaders DeleteSmsChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteSmsChannel where
   toPath DeleteSmsChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/sms"
       ]
 
 instance Core.ToQuery DeleteSmsChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSmsChannelResponse' smart constructor.
 data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     sMSChannelResponse :: SMSChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSmsChannelResponse' with all optional fields omitted.
@@ -134,7 +137,7 @@ data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
 -- 'sMSChannelResponse', 'deleteSmsChannelResponse_sMSChannelResponse' - Undocumented member.
 newDeleteSmsChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'sMSChannelResponse'
   SMSChannelResponse ->
   DeleteSmsChannelResponse
@@ -148,11 +151,11 @@ newDeleteSmsChannelResponse
       }
 
 -- | The response's http status code.
-deleteSmsChannelResponse_httpStatus :: Lens.Lens' DeleteSmsChannelResponse Core.Int
+deleteSmsChannelResponse_httpStatus :: Lens.Lens' DeleteSmsChannelResponse Prelude.Int
 deleteSmsChannelResponse_httpStatus = Lens.lens (\DeleteSmsChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteSmsChannelResponse' {} a -> s {httpStatus = a} :: DeleteSmsChannelResponse)
 
 -- | Undocumented member.
 deleteSmsChannelResponse_sMSChannelResponse :: Lens.Lens' DeleteSmsChannelResponse SMSChannelResponse
 deleteSmsChannelResponse_sMSChannelResponse = Lens.lens (\DeleteSmsChannelResponse' {sMSChannelResponse} -> sMSChannelResponse) (\s@DeleteSmsChannelResponse' {} a -> s {sMSChannelResponse = a} :: DeleteSmsChannelResponse)
 
-instance Core.NFData DeleteSmsChannelResponse
+instance Prelude.NFData DeleteSmsChannelResponse

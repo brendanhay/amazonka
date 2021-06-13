@@ -70,6 +70,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,30 +80,30 @@ import qualified Network.AWS.Response as Response
 data DescribeApplicableIndividualAssessments = DescribeApplicableIndividualAssessments'
   { -- | Name of the migration type that each provided individual assessment must
     -- support.
-    migrationType :: Core.Maybe MigrationTypeValue,
+    migrationType :: Prelude.Maybe MigrationTypeValue,
     -- | Amazon Resource Name (ARN) of a migration task on which you want to base
     -- the default list of individual assessments.
-    replicationTaskArn :: Core.Maybe Core.Text,
+    replicationTaskArn :: Prelude.Maybe Prelude.Text,
     -- | Name of a database engine that the specified replication instance
     -- supports as a source.
-    sourceEngineName :: Core.Maybe Core.Text,
+    sourceEngineName :: Prelude.Maybe Prelude.Text,
     -- | ARN of a replication instance on which you want to base the default list
     -- of individual assessments.
-    replicationInstanceArn :: Core.Maybe Core.Text,
+    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | Name of a database engine that the specified replication instance
     -- supports as a target.
-    targetEngineName :: Core.Maybe Core.Text,
+    targetEngineName :: Prelude.Maybe Prelude.Text,
     -- | Optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of records to include in the response. If more records
     -- exist than the specified @MaxRecords@ value, a pagination token called a
     -- marker is included in the response so that the remaining results can be
     -- retrieved.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicableIndividualAssessments' with all optional fields omitted.
@@ -140,52 +141,53 @@ newDescribeApplicableIndividualAssessments ::
 newDescribeApplicableIndividualAssessments =
   DescribeApplicableIndividualAssessments'
     { migrationType =
-        Core.Nothing,
-      replicationTaskArn = Core.Nothing,
-      sourceEngineName = Core.Nothing,
+        Prelude.Nothing,
+      replicationTaskArn =
+        Prelude.Nothing,
+      sourceEngineName = Prelude.Nothing,
       replicationInstanceArn =
-        Core.Nothing,
-      targetEngineName = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      targetEngineName = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | Name of the migration type that each provided individual assessment must
 -- support.
-describeApplicableIndividualAssessments_migrationType :: Lens.Lens' DescribeApplicableIndividualAssessments (Core.Maybe MigrationTypeValue)
+describeApplicableIndividualAssessments_migrationType :: Lens.Lens' DescribeApplicableIndividualAssessments (Prelude.Maybe MigrationTypeValue)
 describeApplicableIndividualAssessments_migrationType = Lens.lens (\DescribeApplicableIndividualAssessments' {migrationType} -> migrationType) (\s@DescribeApplicableIndividualAssessments' {} a -> s {migrationType = a} :: DescribeApplicableIndividualAssessments)
 
 -- | Amazon Resource Name (ARN) of a migration task on which you want to base
 -- the default list of individual assessments.
-describeApplicableIndividualAssessments_replicationTaskArn :: Lens.Lens' DescribeApplicableIndividualAssessments (Core.Maybe Core.Text)
+describeApplicableIndividualAssessments_replicationTaskArn :: Lens.Lens' DescribeApplicableIndividualAssessments (Prelude.Maybe Prelude.Text)
 describeApplicableIndividualAssessments_replicationTaskArn = Lens.lens (\DescribeApplicableIndividualAssessments' {replicationTaskArn} -> replicationTaskArn) (\s@DescribeApplicableIndividualAssessments' {} a -> s {replicationTaskArn = a} :: DescribeApplicableIndividualAssessments)
 
 -- | Name of a database engine that the specified replication instance
 -- supports as a source.
-describeApplicableIndividualAssessments_sourceEngineName :: Lens.Lens' DescribeApplicableIndividualAssessments (Core.Maybe Core.Text)
+describeApplicableIndividualAssessments_sourceEngineName :: Lens.Lens' DescribeApplicableIndividualAssessments (Prelude.Maybe Prelude.Text)
 describeApplicableIndividualAssessments_sourceEngineName = Lens.lens (\DescribeApplicableIndividualAssessments' {sourceEngineName} -> sourceEngineName) (\s@DescribeApplicableIndividualAssessments' {} a -> s {sourceEngineName = a} :: DescribeApplicableIndividualAssessments)
 
 -- | ARN of a replication instance on which you want to base the default list
 -- of individual assessments.
-describeApplicableIndividualAssessments_replicationInstanceArn :: Lens.Lens' DescribeApplicableIndividualAssessments (Core.Maybe Core.Text)
+describeApplicableIndividualAssessments_replicationInstanceArn :: Lens.Lens' DescribeApplicableIndividualAssessments (Prelude.Maybe Prelude.Text)
 describeApplicableIndividualAssessments_replicationInstanceArn = Lens.lens (\DescribeApplicableIndividualAssessments' {replicationInstanceArn} -> replicationInstanceArn) (\s@DescribeApplicableIndividualAssessments' {} a -> s {replicationInstanceArn = a} :: DescribeApplicableIndividualAssessments)
 
 -- | Name of a database engine that the specified replication instance
 -- supports as a target.
-describeApplicableIndividualAssessments_targetEngineName :: Lens.Lens' DescribeApplicableIndividualAssessments (Core.Maybe Core.Text)
+describeApplicableIndividualAssessments_targetEngineName :: Lens.Lens' DescribeApplicableIndividualAssessments (Prelude.Maybe Prelude.Text)
 describeApplicableIndividualAssessments_targetEngineName = Lens.lens (\DescribeApplicableIndividualAssessments' {targetEngineName} -> targetEngineName) (\s@DescribeApplicableIndividualAssessments' {} a -> s {targetEngineName = a} :: DescribeApplicableIndividualAssessments)
 
 -- | Optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeApplicableIndividualAssessments_marker :: Lens.Lens' DescribeApplicableIndividualAssessments (Core.Maybe Core.Text)
+describeApplicableIndividualAssessments_marker :: Lens.Lens' DescribeApplicableIndividualAssessments (Prelude.Maybe Prelude.Text)
 describeApplicableIndividualAssessments_marker = Lens.lens (\DescribeApplicableIndividualAssessments' {marker} -> marker) (\s@DescribeApplicableIndividualAssessments' {} a -> s {marker = a} :: DescribeApplicableIndividualAssessments)
 
 -- | Maximum number of records to include in the response. If more records
 -- exist than the specified @MaxRecords@ value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved.
-describeApplicableIndividualAssessments_maxRecords :: Lens.Lens' DescribeApplicableIndividualAssessments (Core.Maybe Core.Int)
+describeApplicableIndividualAssessments_maxRecords :: Lens.Lens' DescribeApplicableIndividualAssessments (Prelude.Maybe Prelude.Int)
 describeApplicableIndividualAssessments_maxRecords = Lens.lens (\DescribeApplicableIndividualAssessments' {maxRecords} -> maxRecords) (\s@DescribeApplicableIndividualAssessments' {} a -> s {maxRecords = a} :: DescribeApplicableIndividualAssessments)
 
 instance
@@ -201,19 +203,19 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicableIndividualAssessmentsResponse'
-            Core.<$> ( x Core..?> "IndividualAssessmentNames"
-                         Core..!@ Core.mempty
-                     )
-              Core.<*> (x Core..?> "Marker")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "IndividualAssessmentNames"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "Marker")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeApplicableIndividualAssessments
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeApplicableIndividualAssessments
 
 instance
@@ -221,14 +223,16 @@ instance
     DescribeApplicableIndividualAssessments
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.DescribeApplicableIndividualAssessments" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -238,18 +242,18 @@ instance
   where
   toJSON DescribeApplicableIndividualAssessments' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MigrationType" Core..=) Core.<$> migrationType,
+      ( Prelude.catMaybes
+          [ ("MigrationType" Core..=) Prelude.<$> migrationType,
             ("ReplicationTaskArn" Core..=)
-              Core.<$> replicationTaskArn,
+              Prelude.<$> replicationTaskArn,
             ("SourceEngineName" Core..=)
-              Core.<$> sourceEngineName,
+              Prelude.<$> sourceEngineName,
             ("ReplicationInstanceArn" Core..=)
-              Core.<$> replicationInstanceArn,
+              Prelude.<$> replicationInstanceArn,
             ("TargetEngineName" Core..=)
-              Core.<$> targetEngineName,
-            ("Marker" Core..=) Core.<$> marker,
-            ("MaxRecords" Core..=) Core.<$> maxRecords
+              Prelude.<$> targetEngineName,
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords
           ]
       )
 
@@ -257,13 +261,13 @@ instance
   Core.ToPath
     DescribeApplicableIndividualAssessments
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeApplicableIndividualAssessments
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
@@ -276,16 +280,16 @@ data DescribeApplicableIndividualAssessmentsResponse = DescribeApplicableIndivid
     -- configurations, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Working with premigration assessment runs>
     -- in the /AWS Database Migration Service User Guide./
-    individualAssessmentNames :: Core.Maybe [Core.Text],
+    individualAssessmentNames :: Prelude.Maybe [Prelude.Text],
     -- | Pagination token returned for you to pass to a subsequent request. If
     -- you pass this token as the @Marker@ value in a subsequent request, the
     -- response includes only records beyond the marker, up to the value
     -- specified in the request by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicableIndividualAssessmentsResponse' with all optional fields omitted.
@@ -311,14 +315,14 @@ data DescribeApplicableIndividualAssessmentsResponse = DescribeApplicableIndivid
 -- 'httpStatus', 'describeApplicableIndividualAssessmentsResponse_httpStatus' - The response's http status code.
 newDescribeApplicableIndividualAssessmentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeApplicableIndividualAssessmentsResponse
 newDescribeApplicableIndividualAssessmentsResponse
   pHttpStatus_ =
     DescribeApplicableIndividualAssessmentsResponse'
       { individualAssessmentNames =
-          Core.Nothing,
-        marker = Core.Nothing,
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -329,20 +333,20 @@ newDescribeApplicableIndividualAssessmentsResponse
 -- configurations, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Working with premigration assessment runs>
 -- in the /AWS Database Migration Service User Guide./
-describeApplicableIndividualAssessmentsResponse_individualAssessmentNames :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse (Core.Maybe [Core.Text])
-describeApplicableIndividualAssessmentsResponse_individualAssessmentNames = Lens.lens (\DescribeApplicableIndividualAssessmentsResponse' {individualAssessmentNames} -> individualAssessmentNames) (\s@DescribeApplicableIndividualAssessmentsResponse' {} a -> s {individualAssessmentNames = a} :: DescribeApplicableIndividualAssessmentsResponse) Core.. Lens.mapping Lens._Coerce
+describeApplicableIndividualAssessmentsResponse_individualAssessmentNames :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse (Prelude.Maybe [Prelude.Text])
+describeApplicableIndividualAssessmentsResponse_individualAssessmentNames = Lens.lens (\DescribeApplicableIndividualAssessmentsResponse' {individualAssessmentNames} -> individualAssessmentNames) (\s@DescribeApplicableIndividualAssessmentsResponse' {} a -> s {individualAssessmentNames = a} :: DescribeApplicableIndividualAssessmentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Pagination token returned for you to pass to a subsequent request. If
 -- you pass this token as the @Marker@ value in a subsequent request, the
 -- response includes only records beyond the marker, up to the value
 -- specified in the request by @MaxRecords@.
-describeApplicableIndividualAssessmentsResponse_marker :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse (Core.Maybe Core.Text)
+describeApplicableIndividualAssessmentsResponse_marker :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse (Prelude.Maybe Prelude.Text)
 describeApplicableIndividualAssessmentsResponse_marker = Lens.lens (\DescribeApplicableIndividualAssessmentsResponse' {marker} -> marker) (\s@DescribeApplicableIndividualAssessmentsResponse' {} a -> s {marker = a} :: DescribeApplicableIndividualAssessmentsResponse)
 
 -- | The response's http status code.
-describeApplicableIndividualAssessmentsResponse_httpStatus :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse Core.Int
+describeApplicableIndividualAssessmentsResponse_httpStatus :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse Prelude.Int
 describeApplicableIndividualAssessmentsResponse_httpStatus = Lens.lens (\DescribeApplicableIndividualAssessmentsResponse' {httpStatus} -> httpStatus) (\s@DescribeApplicableIndividualAssessmentsResponse' {} a -> s {httpStatus = a} :: DescribeApplicableIndividualAssessmentsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeApplicableIndividualAssessmentsResponse

@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.CreateTemplateMessageBody where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a request to create a message template.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data CreateTemplateMessageBody = CreateTemplateMessageBody'
   { -- | The message that\'s returned from the API for the request to create the
     -- message template.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the message template that was created.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the request to create the message template.
-    requestID :: Core.Maybe Core.Text
+    requestID :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTemplateMessageBody' with all optional fields omitted.
@@ -54,22 +55,23 @@ newCreateTemplateMessageBody ::
   CreateTemplateMessageBody
 newCreateTemplateMessageBody =
   CreateTemplateMessageBody'
-    { message = Core.Nothing,
-      arn = Core.Nothing,
-      requestID = Core.Nothing
+    { message =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      requestID = Prelude.Nothing
     }
 
 -- | The message that\'s returned from the API for the request to create the
 -- message template.
-createTemplateMessageBody_message :: Lens.Lens' CreateTemplateMessageBody (Core.Maybe Core.Text)
+createTemplateMessageBody_message :: Lens.Lens' CreateTemplateMessageBody (Prelude.Maybe Prelude.Text)
 createTemplateMessageBody_message = Lens.lens (\CreateTemplateMessageBody' {message} -> message) (\s@CreateTemplateMessageBody' {} a -> s {message = a} :: CreateTemplateMessageBody)
 
 -- | The Amazon Resource Name (ARN) of the message template that was created.
-createTemplateMessageBody_arn :: Lens.Lens' CreateTemplateMessageBody (Core.Maybe Core.Text)
+createTemplateMessageBody_arn :: Lens.Lens' CreateTemplateMessageBody (Prelude.Maybe Prelude.Text)
 createTemplateMessageBody_arn = Lens.lens (\CreateTemplateMessageBody' {arn} -> arn) (\s@CreateTemplateMessageBody' {} a -> s {arn = a} :: CreateTemplateMessageBody)
 
 -- | The unique identifier for the request to create the message template.
-createTemplateMessageBody_requestID :: Lens.Lens' CreateTemplateMessageBody (Core.Maybe Core.Text)
+createTemplateMessageBody_requestID :: Lens.Lens' CreateTemplateMessageBody (Prelude.Maybe Prelude.Text)
 createTemplateMessageBody_requestID = Lens.lens (\CreateTemplateMessageBody' {requestID} -> requestID) (\s@CreateTemplateMessageBody' {} a -> s {requestID = a} :: CreateTemplateMessageBody)
 
 instance Core.FromJSON CreateTemplateMessageBody where
@@ -78,11 +80,11 @@ instance Core.FromJSON CreateTemplateMessageBody where
       "CreateTemplateMessageBody"
       ( \x ->
           CreateTemplateMessageBody'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "RequestID")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "RequestID")
       )
 
-instance Core.Hashable CreateTemplateMessageBody
+instance Prelude.Hashable CreateTemplateMessageBody
 
-instance Core.NFData CreateTemplateMessageBody
+instance Prelude.NFData CreateTemplateMessageBody

@@ -29,6 +29,7 @@ import Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetada
 import Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a pull request event.
 --
@@ -36,34 +37,34 @@ import qualified Network.AWS.Lens as Lens
 data PullRequestEvent = PullRequestEvent'
   { -- | Information about the change in mergability state for the pull request
     -- event.
-    pullRequestMergedStateChangedEventMetadata :: Core.Maybe PullRequestMergedStateChangedEventMetadata,
+    pullRequestMergedStateChangedEventMetadata :: Prelude.Maybe PullRequestMergedStateChangedEventMetadata,
     -- | Information about the updated source branch for the pull request event.
-    pullRequestSourceReferenceUpdatedEventMetadata :: Core.Maybe PullRequestSourceReferenceUpdatedEventMetadata,
+    pullRequestSourceReferenceUpdatedEventMetadata :: Prelude.Maybe PullRequestSourceReferenceUpdatedEventMetadata,
     -- | Information about an approval state change for a pull request.
-    approvalStateChangedEventMetadata :: Core.Maybe ApprovalStateChangedEventMetadata,
+    approvalStateChangedEventMetadata :: Prelude.Maybe ApprovalStateChangedEventMetadata,
     -- | The type of the pull request event (for example, a status change event
     -- (PULL_REQUEST_STATUS_CHANGED) or update event
     -- (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).
-    pullRequestEventType :: Core.Maybe PullRequestEventType,
+    pullRequestEventType :: Prelude.Maybe PullRequestEventType,
     -- | The day and time of the pull request event, in timestamp format.
-    eventDate :: Core.Maybe Core.POSIX,
+    eventDate :: Prelude.Maybe Core.POSIX,
     -- | Information about the source and destination branches for the pull
     -- request.
-    pullRequestCreatedEventMetadata :: Core.Maybe PullRequestCreatedEventMetadata,
+    pullRequestCreatedEventMetadata :: Prelude.Maybe PullRequestCreatedEventMetadata,
     -- | The system-generated ID of the pull request.
-    pullRequestId :: Core.Maybe Core.Text,
+    pullRequestId :: Prelude.Maybe Prelude.Text,
     -- | Information about an approval rule override event for a pull request.
-    approvalRuleOverriddenEventMetadata :: Core.Maybe ApprovalRuleOverriddenEventMetadata,
+    approvalRuleOverriddenEventMetadata :: Prelude.Maybe ApprovalRuleOverriddenEventMetadata,
     -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the
     -- event. Examples include updating the pull request with more commits or
     -- changing the status of a pull request.
-    actorArn :: Core.Maybe Core.Text,
+    actorArn :: Prelude.Maybe Prelude.Text,
     -- | Information about the change in status for the pull request event.
-    pullRequestStatusChangedEventMetadata :: Core.Maybe PullRequestStatusChangedEventMetadata,
+    pullRequestStatusChangedEventMetadata :: Prelude.Maybe PullRequestStatusChangedEventMetadata,
     -- | Information about a pull request event.
-    approvalRuleEventMetadata :: Core.Maybe ApprovalRuleEventMetadata
+    approvalRuleEventMetadata :: Prelude.Maybe ApprovalRuleEventMetadata
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PullRequestEvent' with all optional fields omitted.
@@ -105,68 +106,70 @@ newPullRequestEvent ::
 newPullRequestEvent =
   PullRequestEvent'
     { pullRequestMergedStateChangedEventMetadata =
-        Core.Nothing,
+        Prelude.Nothing,
       pullRequestSourceReferenceUpdatedEventMetadata =
-        Core.Nothing,
-      approvalStateChangedEventMetadata = Core.Nothing,
-      pullRequestEventType = Core.Nothing,
-      eventDate = Core.Nothing,
-      pullRequestCreatedEventMetadata = Core.Nothing,
-      pullRequestId = Core.Nothing,
-      approvalRuleOverriddenEventMetadata = Core.Nothing,
-      actorArn = Core.Nothing,
-      pullRequestStatusChangedEventMetadata = Core.Nothing,
-      approvalRuleEventMetadata = Core.Nothing
+        Prelude.Nothing,
+      approvalStateChangedEventMetadata = Prelude.Nothing,
+      pullRequestEventType = Prelude.Nothing,
+      eventDate = Prelude.Nothing,
+      pullRequestCreatedEventMetadata = Prelude.Nothing,
+      pullRequestId = Prelude.Nothing,
+      approvalRuleOverriddenEventMetadata =
+        Prelude.Nothing,
+      actorArn = Prelude.Nothing,
+      pullRequestStatusChangedEventMetadata =
+        Prelude.Nothing,
+      approvalRuleEventMetadata = Prelude.Nothing
     }
 
 -- | Information about the change in mergability state for the pull request
 -- event.
-pullRequestEvent_pullRequestMergedStateChangedEventMetadata :: Lens.Lens' PullRequestEvent (Core.Maybe PullRequestMergedStateChangedEventMetadata)
+pullRequestEvent_pullRequestMergedStateChangedEventMetadata :: Lens.Lens' PullRequestEvent (Prelude.Maybe PullRequestMergedStateChangedEventMetadata)
 pullRequestEvent_pullRequestMergedStateChangedEventMetadata = Lens.lens (\PullRequestEvent' {pullRequestMergedStateChangedEventMetadata} -> pullRequestMergedStateChangedEventMetadata) (\s@PullRequestEvent' {} a -> s {pullRequestMergedStateChangedEventMetadata = a} :: PullRequestEvent)
 
 -- | Information about the updated source branch for the pull request event.
-pullRequestEvent_pullRequestSourceReferenceUpdatedEventMetadata :: Lens.Lens' PullRequestEvent (Core.Maybe PullRequestSourceReferenceUpdatedEventMetadata)
+pullRequestEvent_pullRequestSourceReferenceUpdatedEventMetadata :: Lens.Lens' PullRequestEvent (Prelude.Maybe PullRequestSourceReferenceUpdatedEventMetadata)
 pullRequestEvent_pullRequestSourceReferenceUpdatedEventMetadata = Lens.lens (\PullRequestEvent' {pullRequestSourceReferenceUpdatedEventMetadata} -> pullRequestSourceReferenceUpdatedEventMetadata) (\s@PullRequestEvent' {} a -> s {pullRequestSourceReferenceUpdatedEventMetadata = a} :: PullRequestEvent)
 
 -- | Information about an approval state change for a pull request.
-pullRequestEvent_approvalStateChangedEventMetadata :: Lens.Lens' PullRequestEvent (Core.Maybe ApprovalStateChangedEventMetadata)
+pullRequestEvent_approvalStateChangedEventMetadata :: Lens.Lens' PullRequestEvent (Prelude.Maybe ApprovalStateChangedEventMetadata)
 pullRequestEvent_approvalStateChangedEventMetadata = Lens.lens (\PullRequestEvent' {approvalStateChangedEventMetadata} -> approvalStateChangedEventMetadata) (\s@PullRequestEvent' {} a -> s {approvalStateChangedEventMetadata = a} :: PullRequestEvent)
 
 -- | The type of the pull request event (for example, a status change event
 -- (PULL_REQUEST_STATUS_CHANGED) or update event
 -- (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).
-pullRequestEvent_pullRequestEventType :: Lens.Lens' PullRequestEvent (Core.Maybe PullRequestEventType)
+pullRequestEvent_pullRequestEventType :: Lens.Lens' PullRequestEvent (Prelude.Maybe PullRequestEventType)
 pullRequestEvent_pullRequestEventType = Lens.lens (\PullRequestEvent' {pullRequestEventType} -> pullRequestEventType) (\s@PullRequestEvent' {} a -> s {pullRequestEventType = a} :: PullRequestEvent)
 
 -- | The day and time of the pull request event, in timestamp format.
-pullRequestEvent_eventDate :: Lens.Lens' PullRequestEvent (Core.Maybe Core.UTCTime)
-pullRequestEvent_eventDate = Lens.lens (\PullRequestEvent' {eventDate} -> eventDate) (\s@PullRequestEvent' {} a -> s {eventDate = a} :: PullRequestEvent) Core.. Lens.mapping Core._Time
+pullRequestEvent_eventDate :: Lens.Lens' PullRequestEvent (Prelude.Maybe Prelude.UTCTime)
+pullRequestEvent_eventDate = Lens.lens (\PullRequestEvent' {eventDate} -> eventDate) (\s@PullRequestEvent' {} a -> s {eventDate = a} :: PullRequestEvent) Prelude.. Lens.mapping Core._Time
 
 -- | Information about the source and destination branches for the pull
 -- request.
-pullRequestEvent_pullRequestCreatedEventMetadata :: Lens.Lens' PullRequestEvent (Core.Maybe PullRequestCreatedEventMetadata)
+pullRequestEvent_pullRequestCreatedEventMetadata :: Lens.Lens' PullRequestEvent (Prelude.Maybe PullRequestCreatedEventMetadata)
 pullRequestEvent_pullRequestCreatedEventMetadata = Lens.lens (\PullRequestEvent' {pullRequestCreatedEventMetadata} -> pullRequestCreatedEventMetadata) (\s@PullRequestEvent' {} a -> s {pullRequestCreatedEventMetadata = a} :: PullRequestEvent)
 
 -- | The system-generated ID of the pull request.
-pullRequestEvent_pullRequestId :: Lens.Lens' PullRequestEvent (Core.Maybe Core.Text)
+pullRequestEvent_pullRequestId :: Lens.Lens' PullRequestEvent (Prelude.Maybe Prelude.Text)
 pullRequestEvent_pullRequestId = Lens.lens (\PullRequestEvent' {pullRequestId} -> pullRequestId) (\s@PullRequestEvent' {} a -> s {pullRequestId = a} :: PullRequestEvent)
 
 -- | Information about an approval rule override event for a pull request.
-pullRequestEvent_approvalRuleOverriddenEventMetadata :: Lens.Lens' PullRequestEvent (Core.Maybe ApprovalRuleOverriddenEventMetadata)
+pullRequestEvent_approvalRuleOverriddenEventMetadata :: Lens.Lens' PullRequestEvent (Prelude.Maybe ApprovalRuleOverriddenEventMetadata)
 pullRequestEvent_approvalRuleOverriddenEventMetadata = Lens.lens (\PullRequestEvent' {approvalRuleOverriddenEventMetadata} -> approvalRuleOverriddenEventMetadata) (\s@PullRequestEvent' {} a -> s {approvalRuleOverriddenEventMetadata = a} :: PullRequestEvent)
 
 -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the
 -- event. Examples include updating the pull request with more commits or
 -- changing the status of a pull request.
-pullRequestEvent_actorArn :: Lens.Lens' PullRequestEvent (Core.Maybe Core.Text)
+pullRequestEvent_actorArn :: Lens.Lens' PullRequestEvent (Prelude.Maybe Prelude.Text)
 pullRequestEvent_actorArn = Lens.lens (\PullRequestEvent' {actorArn} -> actorArn) (\s@PullRequestEvent' {} a -> s {actorArn = a} :: PullRequestEvent)
 
 -- | Information about the change in status for the pull request event.
-pullRequestEvent_pullRequestStatusChangedEventMetadata :: Lens.Lens' PullRequestEvent (Core.Maybe PullRequestStatusChangedEventMetadata)
+pullRequestEvent_pullRequestStatusChangedEventMetadata :: Lens.Lens' PullRequestEvent (Prelude.Maybe PullRequestStatusChangedEventMetadata)
 pullRequestEvent_pullRequestStatusChangedEventMetadata = Lens.lens (\PullRequestEvent' {pullRequestStatusChangedEventMetadata} -> pullRequestStatusChangedEventMetadata) (\s@PullRequestEvent' {} a -> s {pullRequestStatusChangedEventMetadata = a} :: PullRequestEvent)
 
 -- | Information about a pull request event.
-pullRequestEvent_approvalRuleEventMetadata :: Lens.Lens' PullRequestEvent (Core.Maybe ApprovalRuleEventMetadata)
+pullRequestEvent_approvalRuleEventMetadata :: Lens.Lens' PullRequestEvent (Prelude.Maybe ApprovalRuleEventMetadata)
 pullRequestEvent_approvalRuleEventMetadata = Lens.lens (\PullRequestEvent' {approvalRuleEventMetadata} -> approvalRuleEventMetadata) (\s@PullRequestEvent' {} a -> s {approvalRuleEventMetadata = a} :: PullRequestEvent)
 
 instance Core.FromJSON PullRequestEvent where
@@ -175,23 +178,23 @@ instance Core.FromJSON PullRequestEvent where
       "PullRequestEvent"
       ( \x ->
           PullRequestEvent'
-            Core.<$> ( x
-                         Core..:? "pullRequestMergedStateChangedEventMetadata"
-                     )
-            Core.<*> ( x
-                         Core..:? "pullRequestSourceReferenceUpdatedEventMetadata"
-                     )
-            Core.<*> (x Core..:? "approvalStateChangedEventMetadata")
-            Core.<*> (x Core..:? "pullRequestEventType")
-            Core.<*> (x Core..:? "eventDate")
-            Core.<*> (x Core..:? "pullRequestCreatedEventMetadata")
-            Core.<*> (x Core..:? "pullRequestId")
-            Core.<*> (x Core..:? "approvalRuleOverriddenEventMetadata")
-            Core.<*> (x Core..:? "actorArn")
-            Core.<*> (x Core..:? "pullRequestStatusChangedEventMetadata")
-            Core.<*> (x Core..:? "approvalRuleEventMetadata")
+            Prelude.<$> ( x
+                            Core..:? "pullRequestMergedStateChangedEventMetadata"
+                        )
+            Prelude.<*> ( x
+                            Core..:? "pullRequestSourceReferenceUpdatedEventMetadata"
+                        )
+            Prelude.<*> (x Core..:? "approvalStateChangedEventMetadata")
+            Prelude.<*> (x Core..:? "pullRequestEventType")
+            Prelude.<*> (x Core..:? "eventDate")
+            Prelude.<*> (x Core..:? "pullRequestCreatedEventMetadata")
+            Prelude.<*> (x Core..:? "pullRequestId")
+            Prelude.<*> (x Core..:? "approvalRuleOverriddenEventMetadata")
+            Prelude.<*> (x Core..:? "actorArn")
+            Prelude.<*> (x Core..:? "pullRequestStatusChangedEventMetadata")
+            Prelude.<*> (x Core..:? "approvalRuleEventMetadata")
       )
 
-instance Core.Hashable PullRequestEvent
+instance Prelude.Hashable PullRequestEvent
 
-instance Core.NFData PullRequestEvent
+instance Prelude.NFData PullRequestEvent

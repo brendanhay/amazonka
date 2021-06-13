@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.Entity where
 import Network.AWS.Comprehend.Types.EntityType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about an entity.
 --
@@ -32,22 +33,22 @@ data Entity = Entity'
     -- A /code point/ is the abstract character from a particular graphical
     -- representation. For example, a multi-byte UTF-8 character maps to a
     -- single code point.
-    endOffset :: Core.Maybe Core.Int,
+    endOffset :: Prelude.Maybe Prelude.Int,
     -- | The entity\'s type.
-    type' :: Core.Maybe EntityType,
+    type' :: Prelude.Maybe EntityType,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
-    score :: Core.Maybe Core.Double,
+    score :: Prelude.Maybe Prelude.Double,
     -- | The text of the entity.
-    text :: Core.Maybe Core.Text,
+    text :: Prelude.Maybe Prelude.Text,
     -- | A character offset in the input text that shows where the entity begins
     -- (the first character is at position 0). The offset returns the position
     -- of each UTF-8 code point in the string. A /code point/ is the abstract
     -- character from a particular graphical representation. For example, a
     -- multi-byte UTF-8 character maps to a single code point.
-    beginOffset :: Core.Maybe Core.Int
+    beginOffset :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Entity' with all optional fields omitted.
@@ -79,11 +80,11 @@ newEntity ::
   Entity
 newEntity =
   Entity'
-    { endOffset = Core.Nothing,
-      type' = Core.Nothing,
-      score = Core.Nothing,
-      text = Core.Nothing,
-      beginOffset = Core.Nothing
+    { endOffset = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      score = Prelude.Nothing,
+      text = Prelude.Nothing,
+      beginOffset = Prelude.Nothing
     }
 
 -- | A character offset in the input text that shows where the entity ends.
@@ -91,20 +92,20 @@ newEntity =
 -- A /code point/ is the abstract character from a particular graphical
 -- representation. For example, a multi-byte UTF-8 character maps to a
 -- single code point.
-entity_endOffset :: Lens.Lens' Entity (Core.Maybe Core.Int)
+entity_endOffset :: Lens.Lens' Entity (Prelude.Maybe Prelude.Int)
 entity_endOffset = Lens.lens (\Entity' {endOffset} -> endOffset) (\s@Entity' {} a -> s {endOffset = a} :: Entity)
 
 -- | The entity\'s type.
-entity_type :: Lens.Lens' Entity (Core.Maybe EntityType)
+entity_type :: Lens.Lens' Entity (Prelude.Maybe EntityType)
 entity_type = Lens.lens (\Entity' {type'} -> type') (\s@Entity' {} a -> s {type' = a} :: Entity)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
-entity_score :: Lens.Lens' Entity (Core.Maybe Core.Double)
+entity_score :: Lens.Lens' Entity (Prelude.Maybe Prelude.Double)
 entity_score = Lens.lens (\Entity' {score} -> score) (\s@Entity' {} a -> s {score = a} :: Entity)
 
 -- | The text of the entity.
-entity_text :: Lens.Lens' Entity (Core.Maybe Core.Text)
+entity_text :: Lens.Lens' Entity (Prelude.Maybe Prelude.Text)
 entity_text = Lens.lens (\Entity' {text} -> text) (\s@Entity' {} a -> s {text = a} :: Entity)
 
 -- | A character offset in the input text that shows where the entity begins
@@ -112,7 +113,7 @@ entity_text = Lens.lens (\Entity' {text} -> text) (\s@Entity' {} a -> s {text = 
 -- of each UTF-8 code point in the string. A /code point/ is the abstract
 -- character from a particular graphical representation. For example, a
 -- multi-byte UTF-8 character maps to a single code point.
-entity_beginOffset :: Lens.Lens' Entity (Core.Maybe Core.Int)
+entity_beginOffset :: Lens.Lens' Entity (Prelude.Maybe Prelude.Int)
 entity_beginOffset = Lens.lens (\Entity' {beginOffset} -> beginOffset) (\s@Entity' {} a -> s {beginOffset = a} :: Entity)
 
 instance Core.FromJSON Entity where
@@ -121,13 +122,13 @@ instance Core.FromJSON Entity where
       "Entity"
       ( \x ->
           Entity'
-            Core.<$> (x Core..:? "EndOffset")
-            Core.<*> (x Core..:? "Type")
-            Core.<*> (x Core..:? "Score")
-            Core.<*> (x Core..:? "Text")
-            Core.<*> (x Core..:? "BeginOffset")
+            Prelude.<$> (x Core..:? "EndOffset")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Score")
+            Prelude.<*> (x Core..:? "Text")
+            Prelude.<*> (x Core..:? "BeginOffset")
       )
 
-instance Core.Hashable Entity
+instance Prelude.Hashable Entity
 
-instance Core.NFData Entity
+instance Prelude.NFData Entity

@@ -21,15 +21,16 @@ module Network.AWS.WorkSpaces.Types.RebootRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the information used to reboot a WorkSpace.
 --
 -- /See:/ 'newRebootRequest' smart constructor.
 data RebootRequest = RebootRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Core.Text
+    workspaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebootRequest' with all optional fields omitted.
@@ -42,22 +43,22 @@ data RebootRequest = RebootRequest'
 -- 'workspaceId', 'rebootRequest_workspaceId' - The identifier of the WorkSpace.
 newRebootRequest ::
   -- | 'workspaceId'
-  Core.Text ->
+  Prelude.Text ->
   RebootRequest
 newRebootRequest pWorkspaceId_ =
   RebootRequest' {workspaceId = pWorkspaceId_}
 
 -- | The identifier of the WorkSpace.
-rebootRequest_workspaceId :: Lens.Lens' RebootRequest Core.Text
+rebootRequest_workspaceId :: Lens.Lens' RebootRequest Prelude.Text
 rebootRequest_workspaceId = Lens.lens (\RebootRequest' {workspaceId} -> workspaceId) (\s@RebootRequest' {} a -> s {workspaceId = a} :: RebootRequest)
 
-instance Core.Hashable RebootRequest
+instance Prelude.Hashable RebootRequest
 
-instance Core.NFData RebootRequest
+instance Prelude.NFData RebootRequest
 
 instance Core.ToJSON RebootRequest where
   toJSON RebootRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("WorkspaceId" Core..= workspaceId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("WorkspaceId" Core..= workspaceId)]
       )

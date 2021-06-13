@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -57,11 +58,11 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGroupResources' smart constructor.
 data GroupResources = GroupResources'
   { -- | The name or the ARN of the resource group to add resources to.
-    group' :: Core.Text,
+    group' :: Prelude.Text,
     -- | The list of ARNs for resources to be added to the group.
-    resourceArns :: Core.NonEmpty Core.Text
+    resourceArns :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupResources' with all optional fields omitted.
@@ -76,9 +77,9 @@ data GroupResources = GroupResources'
 -- 'resourceArns', 'groupResources_resourceArns' - The list of ARNs for resources to be added to the group.
 newGroupResources ::
   -- | 'group''
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceArns'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   GroupResources
 newGroupResources pGroup_ pResourceArns_ =
   GroupResources'
@@ -87,12 +88,12 @@ newGroupResources pGroup_ pResourceArns_ =
     }
 
 -- | The name or the ARN of the resource group to add resources to.
-groupResources_group :: Lens.Lens' GroupResources Core.Text
+groupResources_group :: Lens.Lens' GroupResources Prelude.Text
 groupResources_group = Lens.lens (\GroupResources' {group'} -> group') (\s@GroupResources' {} a -> s {group' = a} :: GroupResources)
 
 -- | The list of ARNs for resources to be added to the group.
-groupResources_resourceArns :: Lens.Lens' GroupResources (Core.NonEmpty Core.Text)
-groupResources_resourceArns = Lens.lens (\GroupResources' {resourceArns} -> resourceArns) (\s@GroupResources' {} a -> s {resourceArns = a} :: GroupResources) Core.. Lens._Coerce
+groupResources_resourceArns :: Lens.Lens' GroupResources (Prelude.NonEmpty Prelude.Text)
+groupResources_resourceArns = Lens.lens (\GroupResources' {resourceArns} -> resourceArns) (\s@GroupResources' {} a -> s {resourceArns = a} :: GroupResources) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GroupResources where
   type
@@ -103,52 +104,52 @@ instance Core.AWSRequest GroupResources where
     Response.receiveJSON
       ( \s h x ->
           GroupResourcesResponse'
-            Core.<$> (x Core..?> "Succeeded")
-            Core.<*> (x Core..?> "Pending" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Failed" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Succeeded")
+            Prelude.<*> (x Core..?> "Pending" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Failed" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GroupResources
+instance Prelude.Hashable GroupResources
 
-instance Core.NFData GroupResources
+instance Prelude.NFData GroupResources
 
 instance Core.ToHeaders GroupResources where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GroupResources where
   toJSON GroupResources' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Group" Core..= group'),
-            Core.Just ("ResourceArns" Core..= resourceArns)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Group" Core..= group'),
+            Prelude.Just ("ResourceArns" Core..= resourceArns)
           ]
       )
 
 instance Core.ToPath GroupResources where
-  toPath = Core.const "/group-resources"
+  toPath = Prelude.const "/group-resources"
 
 instance Core.ToQuery GroupResources where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGroupResourcesResponse' smart constructor.
 data GroupResourcesResponse = GroupResourcesResponse'
   { -- | A list of ARNs of resources that were successfully added to the group by
     -- this operation.
-    succeeded :: Core.Maybe (Core.NonEmpty Core.Text),
+    succeeded :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of ARNs of any resources that are still in the process of being
     -- added to the group by this operation. These pending additions continue
     -- asynchronously. You can check the status of pending additions by using
     -- the @ ListGroupResources @ operation, and checking the @Resources@ array
     -- in the response and the @Status@ field of each object in that array.
-    pending :: Core.Maybe [PendingResource],
+    pending :: Prelude.Maybe [PendingResource],
     -- | A list of ARNs of any resources that failed to be added to the group by
     -- this operation.
-    failed :: Core.Maybe [FailedResource],
+    failed :: Prelude.Maybe [FailedResource],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupResourcesResponse' with all optional fields omitted.
@@ -173,36 +174,37 @@ data GroupResourcesResponse = GroupResourcesResponse'
 -- 'httpStatus', 'groupResourcesResponse_httpStatus' - The response's http status code.
 newGroupResourcesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GroupResourcesResponse
 newGroupResourcesResponse pHttpStatus_ =
   GroupResourcesResponse'
-    { succeeded = Core.Nothing,
-      pending = Core.Nothing,
-      failed = Core.Nothing,
+    { succeeded =
+        Prelude.Nothing,
+      pending = Prelude.Nothing,
+      failed = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of ARNs of resources that were successfully added to the group by
 -- this operation.
-groupResourcesResponse_succeeded :: Lens.Lens' GroupResourcesResponse (Core.Maybe (Core.NonEmpty Core.Text))
-groupResourcesResponse_succeeded = Lens.lens (\GroupResourcesResponse' {succeeded} -> succeeded) (\s@GroupResourcesResponse' {} a -> s {succeeded = a} :: GroupResourcesResponse) Core.. Lens.mapping Lens._Coerce
+groupResourcesResponse_succeeded :: Lens.Lens' GroupResourcesResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+groupResourcesResponse_succeeded = Lens.lens (\GroupResourcesResponse' {succeeded} -> succeeded) (\s@GroupResourcesResponse' {} a -> s {succeeded = a} :: GroupResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of ARNs of any resources that are still in the process of being
 -- added to the group by this operation. These pending additions continue
 -- asynchronously. You can check the status of pending additions by using
 -- the @ ListGroupResources @ operation, and checking the @Resources@ array
 -- in the response and the @Status@ field of each object in that array.
-groupResourcesResponse_pending :: Lens.Lens' GroupResourcesResponse (Core.Maybe [PendingResource])
-groupResourcesResponse_pending = Lens.lens (\GroupResourcesResponse' {pending} -> pending) (\s@GroupResourcesResponse' {} a -> s {pending = a} :: GroupResourcesResponse) Core.. Lens.mapping Lens._Coerce
+groupResourcesResponse_pending :: Lens.Lens' GroupResourcesResponse (Prelude.Maybe [PendingResource])
+groupResourcesResponse_pending = Lens.lens (\GroupResourcesResponse' {pending} -> pending) (\s@GroupResourcesResponse' {} a -> s {pending = a} :: GroupResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of ARNs of any resources that failed to be added to the group by
 -- this operation.
-groupResourcesResponse_failed :: Lens.Lens' GroupResourcesResponse (Core.Maybe [FailedResource])
-groupResourcesResponse_failed = Lens.lens (\GroupResourcesResponse' {failed} -> failed) (\s@GroupResourcesResponse' {} a -> s {failed = a} :: GroupResourcesResponse) Core.. Lens.mapping Lens._Coerce
+groupResourcesResponse_failed :: Lens.Lens' GroupResourcesResponse (Prelude.Maybe [FailedResource])
+groupResourcesResponse_failed = Lens.lens (\GroupResourcesResponse' {failed} -> failed) (\s@GroupResourcesResponse' {} a -> s {failed = a} :: GroupResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-groupResourcesResponse_httpStatus :: Lens.Lens' GroupResourcesResponse Core.Int
+groupResourcesResponse_httpStatus :: Lens.Lens' GroupResourcesResponse Prelude.Int
 groupResourcesResponse_httpStatus = Lens.lens (\GroupResourcesResponse' {httpStatus} -> httpStatus) (\s@GroupResourcesResponse' {} a -> s {httpStatus = a} :: GroupResourcesResponse)
 
-instance Core.NFData GroupResourcesResponse
+instance Prelude.NFData GroupResourcesResponse

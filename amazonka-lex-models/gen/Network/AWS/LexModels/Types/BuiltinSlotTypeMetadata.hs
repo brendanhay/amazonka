@@ -22,6 +22,7 @@ module Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Locale
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a built in slot type.
 --
@@ -31,11 +32,11 @@ data BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata'
     -- for a slot type, see
     -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference>
     -- in the /Alexa Skills Kit/.
-    signature :: Core.Maybe Core.Text,
+    signature :: Prelude.Maybe Prelude.Text,
     -- | A list of target locales for the slot.
-    supportedLocales :: Core.Maybe [Locale]
+    supportedLocales :: Prelude.Maybe [Locale]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BuiltinSlotTypeMetadata' with all optional fields omitted.
@@ -55,20 +56,21 @@ newBuiltinSlotTypeMetadata ::
   BuiltinSlotTypeMetadata
 newBuiltinSlotTypeMetadata =
   BuiltinSlotTypeMetadata'
-    { signature = Core.Nothing,
-      supportedLocales = Core.Nothing
+    { signature =
+        Prelude.Nothing,
+      supportedLocales = Prelude.Nothing
     }
 
 -- | A unique identifier for the built-in slot type. To find the signature
 -- for a slot type, see
 -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference>
 -- in the /Alexa Skills Kit/.
-builtinSlotTypeMetadata_signature :: Lens.Lens' BuiltinSlotTypeMetadata (Core.Maybe Core.Text)
+builtinSlotTypeMetadata_signature :: Lens.Lens' BuiltinSlotTypeMetadata (Prelude.Maybe Prelude.Text)
 builtinSlotTypeMetadata_signature = Lens.lens (\BuiltinSlotTypeMetadata' {signature} -> signature) (\s@BuiltinSlotTypeMetadata' {} a -> s {signature = a} :: BuiltinSlotTypeMetadata)
 
 -- | A list of target locales for the slot.
-builtinSlotTypeMetadata_supportedLocales :: Lens.Lens' BuiltinSlotTypeMetadata (Core.Maybe [Locale])
-builtinSlotTypeMetadata_supportedLocales = Lens.lens (\BuiltinSlotTypeMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinSlotTypeMetadata' {} a -> s {supportedLocales = a} :: BuiltinSlotTypeMetadata) Core.. Lens.mapping Lens._Coerce
+builtinSlotTypeMetadata_supportedLocales :: Lens.Lens' BuiltinSlotTypeMetadata (Prelude.Maybe [Locale])
+builtinSlotTypeMetadata_supportedLocales = Lens.lens (\BuiltinSlotTypeMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinSlotTypeMetadata' {} a -> s {supportedLocales = a} :: BuiltinSlotTypeMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON BuiltinSlotTypeMetadata where
   parseJSON =
@@ -76,10 +78,12 @@ instance Core.FromJSON BuiltinSlotTypeMetadata where
       "BuiltinSlotTypeMetadata"
       ( \x ->
           BuiltinSlotTypeMetadata'
-            Core.<$> (x Core..:? "signature")
-            Core.<*> (x Core..:? "supportedLocales" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "signature")
+            Prelude.<*> ( x Core..:? "supportedLocales"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable BuiltinSlotTypeMetadata
+instance Prelude.Hashable BuiltinSlotTypeMetadata
 
-instance Core.NFData BuiltinSlotTypeMetadata
+instance Prelude.NFData BuiltinSlotTypeMetadata

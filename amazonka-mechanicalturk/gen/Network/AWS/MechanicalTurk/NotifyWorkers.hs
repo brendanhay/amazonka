@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,15 +56,15 @@ import qualified Network.AWS.Response as Response
 data NotifyWorkers = NotifyWorkers'
   { -- | The subject line of the email message to send. Can include up to 200
     -- characters.
-    subject :: Core.Text,
+    subject :: Prelude.Text,
     -- | The text of the email message to send. Can include up to 4,096
     -- characters
-    messageText :: Core.Text,
+    messageText :: Prelude.Text,
     -- | A list of Worker IDs you wish to notify. You can notify upto 100 Workers
     -- at a time.
-    workerIds :: [Core.Text]
+    workerIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotifyWorkers' with all optional fields omitted.
@@ -83,31 +84,31 @@ data NotifyWorkers = NotifyWorkers'
 -- at a time.
 newNotifyWorkers ::
   -- | 'subject'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'messageText'
-  Core.Text ->
+  Prelude.Text ->
   NotifyWorkers
 newNotifyWorkers pSubject_ pMessageText_ =
   NotifyWorkers'
     { subject = pSubject_,
       messageText = pMessageText_,
-      workerIds = Core.mempty
+      workerIds = Prelude.mempty
     }
 
 -- | The subject line of the email message to send. Can include up to 200
 -- characters.
-notifyWorkers_subject :: Lens.Lens' NotifyWorkers Core.Text
+notifyWorkers_subject :: Lens.Lens' NotifyWorkers Prelude.Text
 notifyWorkers_subject = Lens.lens (\NotifyWorkers' {subject} -> subject) (\s@NotifyWorkers' {} a -> s {subject = a} :: NotifyWorkers)
 
 -- | The text of the email message to send. Can include up to 4,096
 -- characters
-notifyWorkers_messageText :: Lens.Lens' NotifyWorkers Core.Text
+notifyWorkers_messageText :: Lens.Lens' NotifyWorkers Prelude.Text
 notifyWorkers_messageText = Lens.lens (\NotifyWorkers' {messageText} -> messageText) (\s@NotifyWorkers' {} a -> s {messageText = a} :: NotifyWorkers)
 
 -- | A list of Worker IDs you wish to notify. You can notify upto 100 Workers
 -- at a time.
-notifyWorkers_workerIds :: Lens.Lens' NotifyWorkers [Core.Text]
-notifyWorkers_workerIds = Lens.lens (\NotifyWorkers' {workerIds} -> workerIds) (\s@NotifyWorkers' {} a -> s {workerIds = a} :: NotifyWorkers) Core.. Lens._Coerce
+notifyWorkers_workerIds :: Lens.Lens' NotifyWorkers [Prelude.Text]
+notifyWorkers_workerIds = Lens.lens (\NotifyWorkers' {workerIds} -> workerIds) (\s@NotifyWorkers' {} a -> s {workerIds = a} :: NotifyWorkers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest NotifyWorkers where
   type
@@ -118,55 +119,57 @@ instance Core.AWSRequest NotifyWorkers where
     Response.receiveJSON
       ( \s h x ->
           NotifyWorkersResponse'
-            Core.<$> ( x Core..?> "NotifyWorkersFailureStatuses"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "NotifyWorkersFailureStatuses"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable NotifyWorkers
+instance Prelude.Hashable NotifyWorkers
 
-instance Core.NFData NotifyWorkers
+instance Prelude.NFData NotifyWorkers
 
 instance Core.ToHeaders NotifyWorkers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.NotifyWorkers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON NotifyWorkers where
   toJSON NotifyWorkers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Subject" Core..= subject),
-            Core.Just ("MessageText" Core..= messageText),
-            Core.Just ("WorkerIds" Core..= workerIds)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Subject" Core..= subject),
+            Prelude.Just ("MessageText" Core..= messageText),
+            Prelude.Just ("WorkerIds" Core..= workerIds)
           ]
       )
 
 instance Core.ToPath NotifyWorkers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery NotifyWorkers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newNotifyWorkersResponse' smart constructor.
 data NotifyWorkersResponse = NotifyWorkersResponse'
   { -- | When MTurk sends notifications to the list of Workers, it returns back
     -- any failures it encounters in this list of NotifyWorkersFailureStatus
     -- objects.
-    notifyWorkersFailureStatuses :: Core.Maybe [NotifyWorkersFailureStatus],
+    notifyWorkersFailureStatuses :: Prelude.Maybe [NotifyWorkersFailureStatus],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotifyWorkersResponse' with all optional fields omitted.
@@ -183,23 +186,23 @@ data NotifyWorkersResponse = NotifyWorkersResponse'
 -- 'httpStatus', 'notifyWorkersResponse_httpStatus' - The response's http status code.
 newNotifyWorkersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   NotifyWorkersResponse
 newNotifyWorkersResponse pHttpStatus_ =
   NotifyWorkersResponse'
     { notifyWorkersFailureStatuses =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | When MTurk sends notifications to the list of Workers, it returns back
 -- any failures it encounters in this list of NotifyWorkersFailureStatus
 -- objects.
-notifyWorkersResponse_notifyWorkersFailureStatuses :: Lens.Lens' NotifyWorkersResponse (Core.Maybe [NotifyWorkersFailureStatus])
-notifyWorkersResponse_notifyWorkersFailureStatuses = Lens.lens (\NotifyWorkersResponse' {notifyWorkersFailureStatuses} -> notifyWorkersFailureStatuses) (\s@NotifyWorkersResponse' {} a -> s {notifyWorkersFailureStatuses = a} :: NotifyWorkersResponse) Core.. Lens.mapping Lens._Coerce
+notifyWorkersResponse_notifyWorkersFailureStatuses :: Lens.Lens' NotifyWorkersResponse (Prelude.Maybe [NotifyWorkersFailureStatus])
+notifyWorkersResponse_notifyWorkersFailureStatuses = Lens.lens (\NotifyWorkersResponse' {notifyWorkersFailureStatuses} -> notifyWorkersFailureStatuses) (\s@NotifyWorkersResponse' {} a -> s {notifyWorkersFailureStatuses = a} :: NotifyWorkersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-notifyWorkersResponse_httpStatus :: Lens.Lens' NotifyWorkersResponse Core.Int
+notifyWorkersResponse_httpStatus :: Lens.Lens' NotifyWorkersResponse Prelude.Int
 notifyWorkersResponse_httpStatus = Lens.lens (\NotifyWorkersResponse' {httpStatus} -> httpStatus) (\s@NotifyWorkersResponse' {} a -> s {httpStatus = a} :: NotifyWorkersResponse)
 
-instance Core.NFData NotifyWorkersResponse
+instance Prelude.NFData NotifyWorkersResponse

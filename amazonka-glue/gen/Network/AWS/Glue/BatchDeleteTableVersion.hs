@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,18 +53,18 @@ import qualified Network.AWS.Response as Response
 data BatchDeleteTableVersion = BatchDeleteTableVersion'
   { -- | The ID of the Data Catalog where the tables reside. If none is provided,
     -- the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The database in the catalog in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the table. For Hive compatibility, this name is entirely
     -- lowercase.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | A list of the IDs of versions to be deleted. A @VersionId@ is a string
     -- representation of an integer. Each version is incremented by 1.
-    versionIds :: [Core.Text]
+    versionIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteTableVersion' with all optional fields omitted.
@@ -86,37 +87,38 @@ data BatchDeleteTableVersion = BatchDeleteTableVersion'
 -- representation of an integer. Each version is incremented by 1.
 newBatchDeleteTableVersion ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   BatchDeleteTableVersion
 newBatchDeleteTableVersion pDatabaseName_ pTableName_ =
   BatchDeleteTableVersion'
-    { catalogId = Core.Nothing,
+    { catalogId =
+        Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_,
-      versionIds = Core.mempty
+      versionIds = Prelude.mempty
     }
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided,
 -- the AWS account ID is used by default.
-batchDeleteTableVersion_catalogId :: Lens.Lens' BatchDeleteTableVersion (Core.Maybe Core.Text)
+batchDeleteTableVersion_catalogId :: Lens.Lens' BatchDeleteTableVersion (Prelude.Maybe Prelude.Text)
 batchDeleteTableVersion_catalogId = Lens.lens (\BatchDeleteTableVersion' {catalogId} -> catalogId) (\s@BatchDeleteTableVersion' {} a -> s {catalogId = a} :: BatchDeleteTableVersion)
 
 -- | The database in the catalog in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
-batchDeleteTableVersion_databaseName :: Lens.Lens' BatchDeleteTableVersion Core.Text
+batchDeleteTableVersion_databaseName :: Lens.Lens' BatchDeleteTableVersion Prelude.Text
 batchDeleteTableVersion_databaseName = Lens.lens (\BatchDeleteTableVersion' {databaseName} -> databaseName) (\s@BatchDeleteTableVersion' {} a -> s {databaseName = a} :: BatchDeleteTableVersion)
 
 -- | The name of the table. For Hive compatibility, this name is entirely
 -- lowercase.
-batchDeleteTableVersion_tableName :: Lens.Lens' BatchDeleteTableVersion Core.Text
+batchDeleteTableVersion_tableName :: Lens.Lens' BatchDeleteTableVersion Prelude.Text
 batchDeleteTableVersion_tableName = Lens.lens (\BatchDeleteTableVersion' {tableName} -> tableName) (\s@BatchDeleteTableVersion' {} a -> s {tableName = a} :: BatchDeleteTableVersion)
 
 -- | A list of the IDs of versions to be deleted. A @VersionId@ is a string
 -- representation of an integer. Each version is incremented by 1.
-batchDeleteTableVersion_versionIds :: Lens.Lens' BatchDeleteTableVersion [Core.Text]
-batchDeleteTableVersion_versionIds = Lens.lens (\BatchDeleteTableVersion' {versionIds} -> versionIds) (\s@BatchDeleteTableVersion' {} a -> s {versionIds = a} :: BatchDeleteTableVersion) Core.. Lens._Coerce
+batchDeleteTableVersion_versionIds :: Lens.Lens' BatchDeleteTableVersion [Prelude.Text]
+batchDeleteTableVersion_versionIds = Lens.lens (\BatchDeleteTableVersion' {versionIds} -> versionIds) (\s@BatchDeleteTableVersion' {} a -> s {versionIds = a} :: BatchDeleteTableVersion) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchDeleteTableVersion where
   type
@@ -127,53 +129,55 @@ instance Core.AWSRequest BatchDeleteTableVersion where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteTableVersionResponse'
-            Core.<$> (x Core..?> "Errors" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchDeleteTableVersion
+instance Prelude.Hashable BatchDeleteTableVersion
 
-instance Core.NFData BatchDeleteTableVersion
+instance Prelude.NFData BatchDeleteTableVersion
 
 instance Core.ToHeaders BatchDeleteTableVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.BatchDeleteTableVersion" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchDeleteTableVersion where
   toJSON BatchDeleteTableVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just ("VersionIds" Core..= versionIds)
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just ("VersionIds" Core..= versionIds)
           ]
       )
 
 instance Core.ToPath BatchDeleteTableVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDeleteTableVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteTableVersionResponse' smart constructor.
 data BatchDeleteTableVersionResponse = BatchDeleteTableVersionResponse'
   { -- | A list of errors encountered while trying to delete the specified table
     -- versions.
-    errors :: Core.Maybe [TableVersionError],
+    errors :: Prelude.Maybe [TableVersionError],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteTableVersionResponse' with all optional fields omitted.
@@ -189,22 +193,24 @@ data BatchDeleteTableVersionResponse = BatchDeleteTableVersionResponse'
 -- 'httpStatus', 'batchDeleteTableVersionResponse_httpStatus' - The response's http status code.
 newBatchDeleteTableVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDeleteTableVersionResponse
 newBatchDeleteTableVersionResponse pHttpStatus_ =
   BatchDeleteTableVersionResponse'
     { errors =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of errors encountered while trying to delete the specified table
 -- versions.
-batchDeleteTableVersionResponse_errors :: Lens.Lens' BatchDeleteTableVersionResponse (Core.Maybe [TableVersionError])
-batchDeleteTableVersionResponse_errors = Lens.lens (\BatchDeleteTableVersionResponse' {errors} -> errors) (\s@BatchDeleteTableVersionResponse' {} a -> s {errors = a} :: BatchDeleteTableVersionResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteTableVersionResponse_errors :: Lens.Lens' BatchDeleteTableVersionResponse (Prelude.Maybe [TableVersionError])
+batchDeleteTableVersionResponse_errors = Lens.lens (\BatchDeleteTableVersionResponse' {errors} -> errors) (\s@BatchDeleteTableVersionResponse' {} a -> s {errors = a} :: BatchDeleteTableVersionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeleteTableVersionResponse_httpStatus :: Lens.Lens' BatchDeleteTableVersionResponse Core.Int
+batchDeleteTableVersionResponse_httpStatus :: Lens.Lens' BatchDeleteTableVersionResponse Prelude.Int
 batchDeleteTableVersionResponse_httpStatus = Lens.lens (\BatchDeleteTableVersionResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteTableVersionResponse' {} a -> s {httpStatus = a} :: BatchDeleteTableVersionResponse)
 
-instance Core.NFData BatchDeleteTableVersionResponse
+instance
+  Prelude.NFData
+    BatchDeleteTableVersionResponse

@@ -27,19 +27,20 @@ import Network.AWS.MediaLive.Types.Eac3Settings
 import Network.AWS.MediaLive.Types.Mp2Settings
 import Network.AWS.MediaLive.Types.PassThroughSettings
 import Network.AWS.MediaLive.Types.WavSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Codec Settings
 --
 -- /See:/ 'newAudioCodecSettings' smart constructor.
 data AudioCodecSettings = AudioCodecSettings'
-  { ac3Settings :: Core.Maybe Ac3Settings,
-    mp2Settings :: Core.Maybe Mp2Settings,
-    passThroughSettings :: Core.Maybe PassThroughSettings,
-    eac3Settings :: Core.Maybe Eac3Settings,
-    aacSettings :: Core.Maybe AacSettings,
-    wavSettings :: Core.Maybe WavSettings
+  { ac3Settings :: Prelude.Maybe Ac3Settings,
+    mp2Settings :: Prelude.Maybe Mp2Settings,
+    passThroughSettings :: Prelude.Maybe PassThroughSettings,
+    eac3Settings :: Prelude.Maybe Eac3Settings,
+    aacSettings :: Prelude.Maybe AacSettings,
+    wavSettings :: Prelude.Maybe WavSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioCodecSettings' with all optional fields omitted.
@@ -64,36 +65,36 @@ newAudioCodecSettings ::
   AudioCodecSettings
 newAudioCodecSettings =
   AudioCodecSettings'
-    { ac3Settings = Core.Nothing,
-      mp2Settings = Core.Nothing,
-      passThroughSettings = Core.Nothing,
-      eac3Settings = Core.Nothing,
-      aacSettings = Core.Nothing,
-      wavSettings = Core.Nothing
+    { ac3Settings = Prelude.Nothing,
+      mp2Settings = Prelude.Nothing,
+      passThroughSettings = Prelude.Nothing,
+      eac3Settings = Prelude.Nothing,
+      aacSettings = Prelude.Nothing,
+      wavSettings = Prelude.Nothing
     }
 
 -- | Undocumented member.
-audioCodecSettings_ac3Settings :: Lens.Lens' AudioCodecSettings (Core.Maybe Ac3Settings)
+audioCodecSettings_ac3Settings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe Ac3Settings)
 audioCodecSettings_ac3Settings = Lens.lens (\AudioCodecSettings' {ac3Settings} -> ac3Settings) (\s@AudioCodecSettings' {} a -> s {ac3Settings = a} :: AudioCodecSettings)
 
 -- | Undocumented member.
-audioCodecSettings_mp2Settings :: Lens.Lens' AudioCodecSettings (Core.Maybe Mp2Settings)
+audioCodecSettings_mp2Settings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe Mp2Settings)
 audioCodecSettings_mp2Settings = Lens.lens (\AudioCodecSettings' {mp2Settings} -> mp2Settings) (\s@AudioCodecSettings' {} a -> s {mp2Settings = a} :: AudioCodecSettings)
 
 -- | Undocumented member.
-audioCodecSettings_passThroughSettings :: Lens.Lens' AudioCodecSettings (Core.Maybe PassThroughSettings)
+audioCodecSettings_passThroughSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe PassThroughSettings)
 audioCodecSettings_passThroughSettings = Lens.lens (\AudioCodecSettings' {passThroughSettings} -> passThroughSettings) (\s@AudioCodecSettings' {} a -> s {passThroughSettings = a} :: AudioCodecSettings)
 
 -- | Undocumented member.
-audioCodecSettings_eac3Settings :: Lens.Lens' AudioCodecSettings (Core.Maybe Eac3Settings)
+audioCodecSettings_eac3Settings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe Eac3Settings)
 audioCodecSettings_eac3Settings = Lens.lens (\AudioCodecSettings' {eac3Settings} -> eac3Settings) (\s@AudioCodecSettings' {} a -> s {eac3Settings = a} :: AudioCodecSettings)
 
 -- | Undocumented member.
-audioCodecSettings_aacSettings :: Lens.Lens' AudioCodecSettings (Core.Maybe AacSettings)
+audioCodecSettings_aacSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe AacSettings)
 audioCodecSettings_aacSettings = Lens.lens (\AudioCodecSettings' {aacSettings} -> aacSettings) (\s@AudioCodecSettings' {} a -> s {aacSettings = a} :: AudioCodecSettings)
 
 -- | Undocumented member.
-audioCodecSettings_wavSettings :: Lens.Lens' AudioCodecSettings (Core.Maybe WavSettings)
+audioCodecSettings_wavSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe WavSettings)
 audioCodecSettings_wavSettings = Lens.lens (\AudioCodecSettings' {wavSettings} -> wavSettings) (\s@AudioCodecSettings' {} a -> s {wavSettings = a} :: AudioCodecSettings)
 
 instance Core.FromJSON AudioCodecSettings where
@@ -102,28 +103,28 @@ instance Core.FromJSON AudioCodecSettings where
       "AudioCodecSettings"
       ( \x ->
           AudioCodecSettings'
-            Core.<$> (x Core..:? "ac3Settings")
-            Core.<*> (x Core..:? "mp2Settings")
-            Core.<*> (x Core..:? "passThroughSettings")
-            Core.<*> (x Core..:? "eac3Settings")
-            Core.<*> (x Core..:? "aacSettings")
-            Core.<*> (x Core..:? "wavSettings")
+            Prelude.<$> (x Core..:? "ac3Settings")
+            Prelude.<*> (x Core..:? "mp2Settings")
+            Prelude.<*> (x Core..:? "passThroughSettings")
+            Prelude.<*> (x Core..:? "eac3Settings")
+            Prelude.<*> (x Core..:? "aacSettings")
+            Prelude.<*> (x Core..:? "wavSettings")
       )
 
-instance Core.Hashable AudioCodecSettings
+instance Prelude.Hashable AudioCodecSettings
 
-instance Core.NFData AudioCodecSettings
+instance Prelude.NFData AudioCodecSettings
 
 instance Core.ToJSON AudioCodecSettings where
   toJSON AudioCodecSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ac3Settings" Core..=) Core.<$> ac3Settings,
-            ("mp2Settings" Core..=) Core.<$> mp2Settings,
+      ( Prelude.catMaybes
+          [ ("ac3Settings" Core..=) Prelude.<$> ac3Settings,
+            ("mp2Settings" Core..=) Prelude.<$> mp2Settings,
             ("passThroughSettings" Core..=)
-              Core.<$> passThroughSettings,
-            ("eac3Settings" Core..=) Core.<$> eac3Settings,
-            ("aacSettings" Core..=) Core.<$> aacSettings,
-            ("wavSettings" Core..=) Core.<$> wavSettings
+              Prelude.<$> passThroughSettings,
+            ("eac3Settings" Core..=) Prelude.<$> eac3Settings,
+            ("aacSettings" Core..=) Prelude.<$> aacSettings,
+            ("wavSettings" Core..=) Prelude.<$> wavSettings
           ]
       )

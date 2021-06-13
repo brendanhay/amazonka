@@ -21,17 +21,18 @@ module Network.AWS.SSM.Types.InstanceAggregatedAssociationOverview where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status information about the aggregated associations.
 --
 -- /See:/ 'newInstanceAggregatedAssociationOverview' smart constructor.
 data InstanceAggregatedAssociationOverview = InstanceAggregatedAssociationOverview'
   { -- | Detailed status information about the aggregated associations.
-    detailedStatus :: Core.Maybe Core.Text,
+    detailedStatus :: Prelude.Maybe Prelude.Text,
     -- | The number of associations for the instance(s).
-    instanceAssociationStatusAggregatedCount :: Core.Maybe (Core.HashMap Core.Text Core.Int)
+    instanceAssociationStatusAggregatedCount :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceAggregatedAssociationOverview' with all optional fields omitted.
@@ -49,18 +50,18 @@ newInstanceAggregatedAssociationOverview ::
 newInstanceAggregatedAssociationOverview =
   InstanceAggregatedAssociationOverview'
     { detailedStatus =
-        Core.Nothing,
+        Prelude.Nothing,
       instanceAssociationStatusAggregatedCount =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Detailed status information about the aggregated associations.
-instanceAggregatedAssociationOverview_detailedStatus :: Lens.Lens' InstanceAggregatedAssociationOverview (Core.Maybe Core.Text)
+instanceAggregatedAssociationOverview_detailedStatus :: Lens.Lens' InstanceAggregatedAssociationOverview (Prelude.Maybe Prelude.Text)
 instanceAggregatedAssociationOverview_detailedStatus = Lens.lens (\InstanceAggregatedAssociationOverview' {detailedStatus} -> detailedStatus) (\s@InstanceAggregatedAssociationOverview' {} a -> s {detailedStatus = a} :: InstanceAggregatedAssociationOverview)
 
 -- | The number of associations for the instance(s).
-instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount :: Lens.Lens' InstanceAggregatedAssociationOverview (Core.Maybe (Core.HashMap Core.Text Core.Int))
-instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount = Lens.lens (\InstanceAggregatedAssociationOverview' {instanceAssociationStatusAggregatedCount} -> instanceAssociationStatusAggregatedCount) (\s@InstanceAggregatedAssociationOverview' {} a -> s {instanceAssociationStatusAggregatedCount = a} :: InstanceAggregatedAssociationOverview) Core.. Lens.mapping Lens._Coerce
+instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount :: Lens.Lens' InstanceAggregatedAssociationOverview (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
+instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount = Lens.lens (\InstanceAggregatedAssociationOverview' {instanceAssociationStatusAggregatedCount} -> instanceAssociationStatusAggregatedCount) (\s@InstanceAggregatedAssociationOverview' {} a -> s {instanceAssociationStatusAggregatedCount = a} :: InstanceAggregatedAssociationOverview) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -71,17 +72,17 @@ instance
       "InstanceAggregatedAssociationOverview"
       ( \x ->
           InstanceAggregatedAssociationOverview'
-            Core.<$> (x Core..:? "DetailedStatus")
-            Core.<*> ( x
-                         Core..:? "InstanceAssociationStatusAggregatedCount"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "DetailedStatus")
+            Prelude.<*> ( x
+                            Core..:? "InstanceAssociationStatusAggregatedCount"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InstanceAggregatedAssociationOverview
 
 instance
-  Core.NFData
+  Prelude.NFData
     InstanceAggregatedAssociationOverview

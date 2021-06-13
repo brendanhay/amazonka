@@ -48,18 +48,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagDeliveryStream' smart constructor.
 data UntagDeliveryStream = UntagDeliveryStream'
   { -- | The name of the delivery stream.
-    deliveryStreamName :: Core.Text,
+    deliveryStreamName :: Prelude.Text,
     -- | A list of tag keys. Each corresponding tag is removed from the delivery
     -- stream.
-    tagKeys :: Core.NonEmpty Core.Text
+    tagKeys :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagDeliveryStream' with all optional fields omitted.
@@ -75,9 +76,9 @@ data UntagDeliveryStream = UntagDeliveryStream'
 -- stream.
 newUntagDeliveryStream ::
   -- | 'deliveryStreamName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tagKeys'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   UntagDeliveryStream
 newUntagDeliveryStream pDeliveryStreamName_ pTagKeys_ =
   UntagDeliveryStream'
@@ -87,13 +88,13 @@ newUntagDeliveryStream pDeliveryStreamName_ pTagKeys_ =
     }
 
 -- | The name of the delivery stream.
-untagDeliveryStream_deliveryStreamName :: Lens.Lens' UntagDeliveryStream Core.Text
+untagDeliveryStream_deliveryStreamName :: Lens.Lens' UntagDeliveryStream Prelude.Text
 untagDeliveryStream_deliveryStreamName = Lens.lens (\UntagDeliveryStream' {deliveryStreamName} -> deliveryStreamName) (\s@UntagDeliveryStream' {} a -> s {deliveryStreamName = a} :: UntagDeliveryStream)
 
 -- | A list of tag keys. Each corresponding tag is removed from the delivery
 -- stream.
-untagDeliveryStream_tagKeys :: Lens.Lens' UntagDeliveryStream (Core.NonEmpty Core.Text)
-untagDeliveryStream_tagKeys = Lens.lens (\UntagDeliveryStream' {tagKeys} -> tagKeys) (\s@UntagDeliveryStream' {} a -> s {tagKeys = a} :: UntagDeliveryStream) Core.. Lens._Coerce
+untagDeliveryStream_tagKeys :: Lens.Lens' UntagDeliveryStream (Prelude.NonEmpty Prelude.Text)
+untagDeliveryStream_tagKeys = Lens.lens (\UntagDeliveryStream' {tagKeys} -> tagKeys) (\s@UntagDeliveryStream' {} a -> s {tagKeys = a} :: UntagDeliveryStream) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagDeliveryStream where
   type
@@ -104,48 +105,50 @@ instance Core.AWSRequest UntagDeliveryStream where
     Response.receiveEmpty
       ( \s h x ->
           UntagDeliveryStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UntagDeliveryStream
+instance Prelude.Hashable UntagDeliveryStream
 
-instance Core.NFData UntagDeliveryStream
+instance Prelude.NFData UntagDeliveryStream
 
 instance Core.ToHeaders UntagDeliveryStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Firehose_20150804.UntagDeliveryStream" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UntagDeliveryStream where
   toJSON UntagDeliveryStream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName),
-            Core.Just ("TagKeys" Core..= tagKeys)
+            Prelude.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
 instance Core.ToPath UntagDeliveryStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagDeliveryStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagDeliveryStreamResponse' smart constructor.
 data UntagDeliveryStreamResponse = UntagDeliveryStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagDeliveryStreamResponse' with all optional fields omitted.
@@ -158,7 +161,7 @@ data UntagDeliveryStreamResponse = UntagDeliveryStreamResponse'
 -- 'httpStatus', 'untagDeliveryStreamResponse_httpStatus' - The response's http status code.
 newUntagDeliveryStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UntagDeliveryStreamResponse
 newUntagDeliveryStreamResponse pHttpStatus_ =
   UntagDeliveryStreamResponse'
@@ -167,7 +170,7 @@ newUntagDeliveryStreamResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-untagDeliveryStreamResponse_httpStatus :: Lens.Lens' UntagDeliveryStreamResponse Core.Int
+untagDeliveryStreamResponse_httpStatus :: Lens.Lens' UntagDeliveryStreamResponse Prelude.Int
 untagDeliveryStreamResponse_httpStatus = Lens.lens (\UntagDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@UntagDeliveryStreamResponse' {} a -> s {httpStatus = a} :: UntagDeliveryStreamResponse)
 
-instance Core.NFData UntagDeliveryStreamResponse
+instance Prelude.NFData UntagDeliveryStreamResponse

@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,17 +53,17 @@ import qualified Network.AWS.Response as Response
 data DisassociateDiscoveredResource = DisassociateDiscoveredResource'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Core.Text,
+    progressUpdateStream :: Prelude.Text,
     -- | The identifier given to the MigrationTask. /Do not store personal data
     -- in this field./
-    migrationTaskName :: Core.Text,
+    migrationTaskName :: Prelude.Text,
     -- | ConfigurationId of the Application Discovery Service resource to be
     -- disassociated.
-    configurationId :: Core.Text
+    configurationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateDiscoveredResource' with all optional fields omitted.
@@ -84,11 +85,11 @@ data DisassociateDiscoveredResource = DisassociateDiscoveredResource'
 -- disassociated.
 newDisassociateDiscoveredResource ::
   -- | 'progressUpdateStream'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'migrationTaskName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'configurationId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateDiscoveredResource
 newDisassociateDiscoveredResource
   pProgressUpdateStream_
@@ -96,7 +97,7 @@ newDisassociateDiscoveredResource
   pConfigurationId_ =
     DisassociateDiscoveredResource'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         progressUpdateStream =
           pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
@@ -105,21 +106,21 @@ newDisassociateDiscoveredResource
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-disassociateDiscoveredResource_dryRun :: Lens.Lens' DisassociateDiscoveredResource (Core.Maybe Core.Bool)
+disassociateDiscoveredResource_dryRun :: Lens.Lens' DisassociateDiscoveredResource (Prelude.Maybe Prelude.Bool)
 disassociateDiscoveredResource_dryRun = Lens.lens (\DisassociateDiscoveredResource' {dryRun} -> dryRun) (\s@DisassociateDiscoveredResource' {} a -> s {dryRun = a} :: DisassociateDiscoveredResource)
 
 -- | The name of the ProgressUpdateStream.
-disassociateDiscoveredResource_progressUpdateStream :: Lens.Lens' DisassociateDiscoveredResource Core.Text
+disassociateDiscoveredResource_progressUpdateStream :: Lens.Lens' DisassociateDiscoveredResource Prelude.Text
 disassociateDiscoveredResource_progressUpdateStream = Lens.lens (\DisassociateDiscoveredResource' {progressUpdateStream} -> progressUpdateStream) (\s@DisassociateDiscoveredResource' {} a -> s {progressUpdateStream = a} :: DisassociateDiscoveredResource)
 
 -- | The identifier given to the MigrationTask. /Do not store personal data
 -- in this field./
-disassociateDiscoveredResource_migrationTaskName :: Lens.Lens' DisassociateDiscoveredResource Core.Text
+disassociateDiscoveredResource_migrationTaskName :: Lens.Lens' DisassociateDiscoveredResource Prelude.Text
 disassociateDiscoveredResource_migrationTaskName = Lens.lens (\DisassociateDiscoveredResource' {migrationTaskName} -> migrationTaskName) (\s@DisassociateDiscoveredResource' {} a -> s {migrationTaskName = a} :: DisassociateDiscoveredResource)
 
 -- | ConfigurationId of the Application Discovery Service resource to be
 -- disassociated.
-disassociateDiscoveredResource_configurationId :: Lens.Lens' DisassociateDiscoveredResource Core.Text
+disassociateDiscoveredResource_configurationId :: Lens.Lens' DisassociateDiscoveredResource Prelude.Text
 disassociateDiscoveredResource_configurationId = Lens.lens (\DisassociateDiscoveredResource' {configurationId} -> configurationId) (\s@DisassociateDiscoveredResource' {} a -> s {configurationId = a} :: DisassociateDiscoveredResource)
 
 instance
@@ -134,57 +135,63 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDiscoveredResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateDiscoveredResource
+instance
+  Prelude.Hashable
+    DisassociateDiscoveredResource
 
-instance Core.NFData DisassociateDiscoveredResource
+instance
+  Prelude.NFData
+    DisassociateDiscoveredResource
 
 instance
   Core.ToHeaders
     DisassociateDiscoveredResource
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMigrationHub.DisassociateDiscoveredResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateDiscoveredResource where
   toJSON DisassociateDiscoveredResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DryRun" Core..=) Core.<$> dryRun,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+            Prelude.Just
               ( "ProgressUpdateStream"
                   Core..= progressUpdateStream
               ),
-            Core.Just
+            Prelude.Just
               ("MigrationTaskName" Core..= migrationTaskName),
-            Core.Just
+            Prelude.Just
               ("ConfigurationId" Core..= configurationId)
           ]
       )
 
 instance Core.ToPath DisassociateDiscoveredResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateDiscoveredResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateDiscoveredResourceResponse' smart constructor.
 data DisassociateDiscoveredResourceResponse = DisassociateDiscoveredResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateDiscoveredResourceResponse' with all optional fields omitted.
@@ -197,7 +204,7 @@ data DisassociateDiscoveredResourceResponse = DisassociateDiscoveredResourceResp
 -- 'httpStatus', 'disassociateDiscoveredResourceResponse_httpStatus' - The response's http status code.
 newDisassociateDiscoveredResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateDiscoveredResourceResponse
 newDisassociateDiscoveredResourceResponse
   pHttpStatus_ =
@@ -207,9 +214,9 @@ newDisassociateDiscoveredResourceResponse
       }
 
 -- | The response's http status code.
-disassociateDiscoveredResourceResponse_httpStatus :: Lens.Lens' DisassociateDiscoveredResourceResponse Core.Int
+disassociateDiscoveredResourceResponse_httpStatus :: Lens.Lens' DisassociateDiscoveredResourceResponse Prelude.Int
 disassociateDiscoveredResourceResponse_httpStatus = Lens.lens (\DisassociateDiscoveredResourceResponse' {httpStatus} -> httpStatus) (\s@DisassociateDiscoveredResourceResponse' {} a -> s {httpStatus = a} :: DisassociateDiscoveredResourceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateDiscoveredResourceResponse

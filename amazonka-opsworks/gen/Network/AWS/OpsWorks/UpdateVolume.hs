@@ -48,19 +48,20 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateVolume' smart constructor.
 data UpdateVolume = UpdateVolume'
   { -- | The new name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The new mount point.
-    mountPoint :: Core.Maybe Core.Text,
+    mountPoint :: Prelude.Maybe Prelude.Text,
     -- | The volume ID.
-    volumeId :: Core.Text
+    volumeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateVolume' with all optional fields omitted.
@@ -77,25 +78,25 @@ data UpdateVolume = UpdateVolume'
 -- 'volumeId', 'updateVolume_volumeId' - The volume ID.
 newUpdateVolume ::
   -- | 'volumeId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateVolume
 newUpdateVolume pVolumeId_ =
   UpdateVolume'
-    { name = Core.Nothing,
-      mountPoint = Core.Nothing,
+    { name = Prelude.Nothing,
+      mountPoint = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
 -- | The new name.
-updateVolume_name :: Lens.Lens' UpdateVolume (Core.Maybe Core.Text)
+updateVolume_name :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
 updateVolume_name = Lens.lens (\UpdateVolume' {name} -> name) (\s@UpdateVolume' {} a -> s {name = a} :: UpdateVolume)
 
 -- | The new mount point.
-updateVolume_mountPoint :: Lens.Lens' UpdateVolume (Core.Maybe Core.Text)
+updateVolume_mountPoint :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
 updateVolume_mountPoint = Lens.lens (\UpdateVolume' {mountPoint} -> mountPoint) (\s@UpdateVolume' {} a -> s {mountPoint = a} :: UpdateVolume)
 
 -- | The volume ID.
-updateVolume_volumeId :: Lens.Lens' UpdateVolume Core.Text
+updateVolume_volumeId :: Lens.Lens' UpdateVolume Prelude.Text
 updateVolume_volumeId = Lens.lens (\UpdateVolume' {volumeId} -> volumeId) (\s@UpdateVolume' {} a -> s {volumeId = a} :: UpdateVolume)
 
 instance Core.AWSRequest UpdateVolume where
@@ -103,44 +104,46 @@ instance Core.AWSRequest UpdateVolume where
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateVolumeResponse'
 
-instance Core.Hashable UpdateVolume
+instance Prelude.Hashable UpdateVolume
 
-instance Core.NFData UpdateVolume
+instance Prelude.NFData UpdateVolume
 
 instance Core.ToHeaders UpdateVolume where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.UpdateVolume" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateVolume where
   toJSON UpdateVolume' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            ("MountPoint" Core..=) Core.<$> mountPoint,
-            Core.Just ("VolumeId" Core..= volumeId)
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("MountPoint" Core..=) Prelude.<$> mountPoint,
+            Prelude.Just ("VolumeId" Core..= volumeId)
           ]
       )
 
 instance Core.ToPath UpdateVolume where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateVolume where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVolumeResponse' smart constructor.
 data UpdateVolumeResponse = UpdateVolumeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateVolumeResponse' with all optional fields omitted.
@@ -150,4 +153,4 @@ newUpdateVolumeResponse ::
   UpdateVolumeResponse
 newUpdateVolumeResponse = UpdateVolumeResponse'
 
-instance Core.NFData UpdateVolumeResponse
+instance Prelude.NFData UpdateVolumeResponse

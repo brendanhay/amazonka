@@ -19,3 +19,4 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Lens
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude

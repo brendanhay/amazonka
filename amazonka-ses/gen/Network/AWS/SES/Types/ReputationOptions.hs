@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.ReputationOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the reputation settings for a configuration
 -- set.
@@ -34,7 +35,7 @@ data ReputationOptions = ReputationOptions'
     -- If the value is @true@, reputation metrics are published. If the value
     -- is @false@, reputation metrics are not published. The default value is
     -- @false@.
-    reputationMetricsEnabled :: Core.Maybe Core.Bool,
+    reputationMetricsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The date and time at which the reputation metrics for the configuration
     -- set were last reset. Resetting these metrics is known as a /fresh
     -- start/.
@@ -46,16 +47,16 @@ data ReputationOptions = ReputationOptions'
     --
     -- If email sending for the configuration set has never been disabled and
     -- later re-enabled, the value of this attribute is @null@.
-    lastFreshStart :: Core.Maybe Core.ISO8601,
+    lastFreshStart :: Prelude.Maybe Core.ISO8601,
     -- | Describes whether email sending is enabled or disabled for the
     -- configuration set. If the value is @true@, then Amazon SES will send
     -- emails that use the configuration set. If the value is @false@, Amazon
     -- SES will not send emails that use the configuration set. The default
     -- value is @true@. You can change this setting using
     -- UpdateConfigurationSetSendingEnabled.
-    sendingEnabled :: Core.Maybe Core.Bool
+    sendingEnabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReputationOptions' with all optional fields omitted.
@@ -96,9 +97,9 @@ newReputationOptions ::
 newReputationOptions =
   ReputationOptions'
     { reputationMetricsEnabled =
-        Core.Nothing,
-      lastFreshStart = Core.Nothing,
-      sendingEnabled = Core.Nothing
+        Prelude.Nothing,
+      lastFreshStart = Prelude.Nothing,
+      sendingEnabled = Prelude.Nothing
     }
 
 -- | Describes whether or not Amazon SES publishes reputation metrics for the
@@ -108,7 +109,7 @@ newReputationOptions =
 -- If the value is @true@, reputation metrics are published. If the value
 -- is @false@, reputation metrics are not published. The default value is
 -- @false@.
-reputationOptions_reputationMetricsEnabled :: Lens.Lens' ReputationOptions (Core.Maybe Core.Bool)
+reputationOptions_reputationMetricsEnabled :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.Bool)
 reputationOptions_reputationMetricsEnabled = Lens.lens (\ReputationOptions' {reputationMetricsEnabled} -> reputationMetricsEnabled) (\s@ReputationOptions' {} a -> s {reputationMetricsEnabled = a} :: ReputationOptions)
 
 -- | The date and time at which the reputation metrics for the configuration
@@ -122,8 +123,8 @@ reputationOptions_reputationMetricsEnabled = Lens.lens (\ReputationOptions' {rep
 --
 -- If email sending for the configuration set has never been disabled and
 -- later re-enabled, the value of this attribute is @null@.
-reputationOptions_lastFreshStart :: Lens.Lens' ReputationOptions (Core.Maybe Core.UTCTime)
-reputationOptions_lastFreshStart = Lens.lens (\ReputationOptions' {lastFreshStart} -> lastFreshStart) (\s@ReputationOptions' {} a -> s {lastFreshStart = a} :: ReputationOptions) Core.. Lens.mapping Core._Time
+reputationOptions_lastFreshStart :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.UTCTime)
+reputationOptions_lastFreshStart = Lens.lens (\ReputationOptions' {lastFreshStart} -> lastFreshStart) (\s@ReputationOptions' {} a -> s {lastFreshStart = a} :: ReputationOptions) Prelude.. Lens.mapping Core._Time
 
 -- | Describes whether email sending is enabled or disabled for the
 -- configuration set. If the value is @true@, then Amazon SES will send
@@ -131,16 +132,16 @@ reputationOptions_lastFreshStart = Lens.lens (\ReputationOptions' {lastFreshStar
 -- SES will not send emails that use the configuration set. The default
 -- value is @true@. You can change this setting using
 -- UpdateConfigurationSetSendingEnabled.
-reputationOptions_sendingEnabled :: Lens.Lens' ReputationOptions (Core.Maybe Core.Bool)
+reputationOptions_sendingEnabled :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.Bool)
 reputationOptions_sendingEnabled = Lens.lens (\ReputationOptions' {sendingEnabled} -> sendingEnabled) (\s@ReputationOptions' {} a -> s {sendingEnabled = a} :: ReputationOptions)
 
 instance Core.FromXML ReputationOptions where
   parseXML x =
     ReputationOptions'
-      Core.<$> (x Core..@? "ReputationMetricsEnabled")
-      Core.<*> (x Core..@? "LastFreshStart")
-      Core.<*> (x Core..@? "SendingEnabled")
+      Prelude.<$> (x Core..@? "ReputationMetricsEnabled")
+      Prelude.<*> (x Core..@? "LastFreshStart")
+      Prelude.<*> (x Core..@? "SendingEnabled")
 
-instance Core.Hashable ReputationOptions
+instance Prelude.Hashable ReputationOptions
 
-instance Core.NFData ReputationOptions
+instance Prelude.NFData ReputationOptions

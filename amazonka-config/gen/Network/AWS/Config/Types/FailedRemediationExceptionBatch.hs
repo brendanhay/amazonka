@@ -22,17 +22,18 @@ module Network.AWS.Config.Types.FailedRemediationExceptionBatch where
 import Network.AWS.Config.Types.RemediationException
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | List of each of the failed remediation exceptions with specific reasons.
 --
 -- /See:/ 'newFailedRemediationExceptionBatch' smart constructor.
 data FailedRemediationExceptionBatch = FailedRemediationExceptionBatch'
   { -- | Returns a failure message. For example, the auto-remediation has failed.
-    failureMessage :: Core.Maybe Core.Text,
+    failureMessage :: Prelude.Maybe Prelude.Text,
     -- | Returns remediation exception resource key object of the failed items.
-    failedItems :: Core.Maybe [RemediationException]
+    failedItems :: Prelude.Maybe [RemediationException]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailedRemediationExceptionBatch' with all optional fields omitted.
@@ -50,17 +51,17 @@ newFailedRemediationExceptionBatch ::
 newFailedRemediationExceptionBatch =
   FailedRemediationExceptionBatch'
     { failureMessage =
-        Core.Nothing,
-      failedItems = Core.Nothing
+        Prelude.Nothing,
+      failedItems = Prelude.Nothing
     }
 
 -- | Returns a failure message. For example, the auto-remediation has failed.
-failedRemediationExceptionBatch_failureMessage :: Lens.Lens' FailedRemediationExceptionBatch (Core.Maybe Core.Text)
+failedRemediationExceptionBatch_failureMessage :: Lens.Lens' FailedRemediationExceptionBatch (Prelude.Maybe Prelude.Text)
 failedRemediationExceptionBatch_failureMessage = Lens.lens (\FailedRemediationExceptionBatch' {failureMessage} -> failureMessage) (\s@FailedRemediationExceptionBatch' {} a -> s {failureMessage = a} :: FailedRemediationExceptionBatch)
 
 -- | Returns remediation exception resource key object of the failed items.
-failedRemediationExceptionBatch_failedItems :: Lens.Lens' FailedRemediationExceptionBatch (Core.Maybe [RemediationException])
-failedRemediationExceptionBatch_failedItems = Lens.lens (\FailedRemediationExceptionBatch' {failedItems} -> failedItems) (\s@FailedRemediationExceptionBatch' {} a -> s {failedItems = a} :: FailedRemediationExceptionBatch) Core.. Lens.mapping Lens._Coerce
+failedRemediationExceptionBatch_failedItems :: Lens.Lens' FailedRemediationExceptionBatch (Prelude.Maybe [RemediationException])
+failedRemediationExceptionBatch_failedItems = Lens.lens (\FailedRemediationExceptionBatch' {failedItems} -> failedItems) (\s@FailedRemediationExceptionBatch' {} a -> s {failedItems = a} :: FailedRemediationExceptionBatch) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -71,12 +72,14 @@ instance
       "FailedRemediationExceptionBatch"
       ( \x ->
           FailedRemediationExceptionBatch'
-            Core.<$> (x Core..:? "FailureMessage")
-            Core.<*> (x Core..:? "FailedItems" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "FailureMessage")
+            Prelude.<*> (x Core..:? "FailedItems" Core..!= Prelude.mempty)
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FailedRemediationExceptionBatch
 
-instance Core.NFData FailedRemediationExceptionBatch
+instance
+  Prelude.NFData
+    FailedRemediationExceptionBatch

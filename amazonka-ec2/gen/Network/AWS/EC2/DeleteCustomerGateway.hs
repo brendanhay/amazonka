@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ data DeleteCustomerGateway = DeleteCustomerGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the customer gateway.
-    customerGatewayId :: Core.Text
+    customerGatewayId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomerGateway' with all optional fields omitted.
@@ -73,11 +74,11 @@ data DeleteCustomerGateway = DeleteCustomerGateway'
 -- 'customerGatewayId', 'deleteCustomerGateway_customerGatewayId' - The ID of the customer gateway.
 newDeleteCustomerGateway ::
   -- | 'customerGatewayId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCustomerGateway
 newDeleteCustomerGateway pCustomerGatewayId_ =
   DeleteCustomerGateway'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       customerGatewayId = pCustomerGatewayId_
     }
 
@@ -85,11 +86,11 @@ newDeleteCustomerGateway pCustomerGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteCustomerGateway_dryRun :: Lens.Lens' DeleteCustomerGateway (Core.Maybe Core.Bool)
+deleteCustomerGateway_dryRun :: Lens.Lens' DeleteCustomerGateway (Prelude.Maybe Prelude.Bool)
 deleteCustomerGateway_dryRun = Lens.lens (\DeleteCustomerGateway' {dryRun} -> dryRun) (\s@DeleteCustomerGateway' {} a -> s {dryRun = a} :: DeleteCustomerGateway)
 
 -- | The ID of the customer gateway.
-deleteCustomerGateway_customerGatewayId :: Lens.Lens' DeleteCustomerGateway Core.Text
+deleteCustomerGateway_customerGatewayId :: Lens.Lens' DeleteCustomerGateway Prelude.Text
 deleteCustomerGateway_customerGatewayId = Lens.lens (\DeleteCustomerGateway' {customerGatewayId} -> customerGatewayId) (\s@DeleteCustomerGateway' {} a -> s {customerGatewayId = a} :: DeleteCustomerGateway)
 
 instance Core.AWSRequest DeleteCustomerGateway where
@@ -100,22 +101,23 @@ instance Core.AWSRequest DeleteCustomerGateway where
   response =
     Response.receiveNull DeleteCustomerGatewayResponse'
 
-instance Core.Hashable DeleteCustomerGateway
+instance Prelude.Hashable DeleteCustomerGateway
 
-instance Core.NFData DeleteCustomerGateway
+instance Prelude.NFData DeleteCustomerGateway
 
 instance Core.ToHeaders DeleteCustomerGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteCustomerGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCustomerGateway where
   toQuery DeleteCustomerGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteCustomerGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteCustomerGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "CustomerGatewayId" Core.=: customerGatewayId
       ]
@@ -124,7 +126,7 @@ instance Core.ToQuery DeleteCustomerGateway where
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomerGatewayResponse' with all optional fields omitted.
@@ -135,4 +137,4 @@ newDeleteCustomerGatewayResponse ::
 newDeleteCustomerGatewayResponse =
   DeleteCustomerGatewayResponse'
 
-instance Core.NFData DeleteCustomerGatewayResponse
+instance Prelude.NFData DeleteCustomerGatewayResponse

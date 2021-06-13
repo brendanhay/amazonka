@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.EventCondition where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventDimensions
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the conditions to evaluate for an event that applies to an
 -- activity in a journey.
@@ -30,11 +31,11 @@ import Network.AWS.Pinpoint.Types.EventDimensions
 data EventCondition = EventCondition'
   { -- | The message identifier (message_id) for the message to use when
     -- determining whether message events meet the condition.
-    messageActivity :: Core.Maybe Core.Text,
+    messageActivity :: Prelude.Maybe Prelude.Text,
     -- | The dimensions for the event filter to use for the activity.
-    dimensions :: Core.Maybe EventDimensions
+    dimensions :: Prelude.Maybe EventDimensions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventCondition' with all optional fields omitted.
@@ -52,17 +53,17 @@ newEventCondition ::
   EventCondition
 newEventCondition =
   EventCondition'
-    { messageActivity = Core.Nothing,
-      dimensions = Core.Nothing
+    { messageActivity = Prelude.Nothing,
+      dimensions = Prelude.Nothing
     }
 
 -- | The message identifier (message_id) for the message to use when
 -- determining whether message events meet the condition.
-eventCondition_messageActivity :: Lens.Lens' EventCondition (Core.Maybe Core.Text)
+eventCondition_messageActivity :: Lens.Lens' EventCondition (Prelude.Maybe Prelude.Text)
 eventCondition_messageActivity = Lens.lens (\EventCondition' {messageActivity} -> messageActivity) (\s@EventCondition' {} a -> s {messageActivity = a} :: EventCondition)
 
 -- | The dimensions for the event filter to use for the activity.
-eventCondition_dimensions :: Lens.Lens' EventCondition (Core.Maybe EventDimensions)
+eventCondition_dimensions :: Lens.Lens' EventCondition (Prelude.Maybe EventDimensions)
 eventCondition_dimensions = Lens.lens (\EventCondition' {dimensions} -> dimensions) (\s@EventCondition' {} a -> s {dimensions = a} :: EventCondition)
 
 instance Core.FromJSON EventCondition where
@@ -71,20 +72,20 @@ instance Core.FromJSON EventCondition where
       "EventCondition"
       ( \x ->
           EventCondition'
-            Core.<$> (x Core..:? "MessageActivity")
-            Core.<*> (x Core..:? "Dimensions")
+            Prelude.<$> (x Core..:? "MessageActivity")
+            Prelude.<*> (x Core..:? "Dimensions")
       )
 
-instance Core.Hashable EventCondition
+instance Prelude.Hashable EventCondition
 
-instance Core.NFData EventCondition
+instance Prelude.NFData EventCondition
 
 instance Core.ToJSON EventCondition where
   toJSON EventCondition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MessageActivity" Core..=)
-              Core.<$> messageActivity,
-            ("Dimensions" Core..=) Core.<$> dimensions
+              Prelude.<$> messageActivity,
+            ("Dimensions" Core..=) Prelude.<$> dimensions
           ]
       )

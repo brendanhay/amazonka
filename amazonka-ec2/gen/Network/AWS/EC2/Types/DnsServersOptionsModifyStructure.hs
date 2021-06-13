@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.DnsServersOptionsModifyStructure where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the DNS server to be used.
 --
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 data DnsServersOptionsModifyStructure = DnsServersOptionsModifyStructure'
   { -- | Indicates whether DNS servers should be used. Specify @False@ to delete
     -- the existing DNS servers.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The IPv4 address range, in CIDR notation, of the DNS servers to be used.
     -- You can specify up to two DNS servers. Ensure that the DNS servers can
     -- be reached by the clients. The specified values overwrite the existing
     -- values.
-    customDnsServers :: Core.Maybe [Core.Text]
+    customDnsServers :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DnsServersOptionsModifyStructure' with all optional fields omitted.
@@ -58,37 +59,39 @@ newDnsServersOptionsModifyStructure ::
 newDnsServersOptionsModifyStructure =
   DnsServersOptionsModifyStructure'
     { enabled =
-        Core.Nothing,
-      customDnsServers = Core.Nothing
+        Prelude.Nothing,
+      customDnsServers = Prelude.Nothing
     }
 
 -- | Indicates whether DNS servers should be used. Specify @False@ to delete
 -- the existing DNS servers.
-dnsServersOptionsModifyStructure_enabled :: Lens.Lens' DnsServersOptionsModifyStructure (Core.Maybe Core.Bool)
+dnsServersOptionsModifyStructure_enabled :: Lens.Lens' DnsServersOptionsModifyStructure (Prelude.Maybe Prelude.Bool)
 dnsServersOptionsModifyStructure_enabled = Lens.lens (\DnsServersOptionsModifyStructure' {enabled} -> enabled) (\s@DnsServersOptionsModifyStructure' {} a -> s {enabled = a} :: DnsServersOptionsModifyStructure)
 
 -- | The IPv4 address range, in CIDR notation, of the DNS servers to be used.
 -- You can specify up to two DNS servers. Ensure that the DNS servers can
 -- be reached by the clients. The specified values overwrite the existing
 -- values.
-dnsServersOptionsModifyStructure_customDnsServers :: Lens.Lens' DnsServersOptionsModifyStructure (Core.Maybe [Core.Text])
-dnsServersOptionsModifyStructure_customDnsServers = Lens.lens (\DnsServersOptionsModifyStructure' {customDnsServers} -> customDnsServers) (\s@DnsServersOptionsModifyStructure' {} a -> s {customDnsServers = a} :: DnsServersOptionsModifyStructure) Core.. Lens.mapping Lens._Coerce
+dnsServersOptionsModifyStructure_customDnsServers :: Lens.Lens' DnsServersOptionsModifyStructure (Prelude.Maybe [Prelude.Text])
+dnsServersOptionsModifyStructure_customDnsServers = Lens.lens (\DnsServersOptionsModifyStructure' {customDnsServers} -> customDnsServers) (\s@DnsServersOptionsModifyStructure' {} a -> s {customDnsServers = a} :: DnsServersOptionsModifyStructure) Prelude.. Lens.mapping Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DnsServersOptionsModifyStructure
 
-instance Core.NFData DnsServersOptionsModifyStructure
+instance
+  Prelude.NFData
+    DnsServersOptionsModifyStructure
 
 instance
   Core.ToQuery
     DnsServersOptionsModifyStructure
   where
   toQuery DnsServersOptionsModifyStructure' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Enabled" Core.=: enabled,
         Core.toQuery
           ( Core.toQueryList "CustomDnsServers"
-              Core.<$> customDnsServers
+              Prelude.<$> customDnsServers
           )
       ]

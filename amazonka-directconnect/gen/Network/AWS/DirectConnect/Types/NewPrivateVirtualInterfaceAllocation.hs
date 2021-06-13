@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.AddressFamily
 import Network.AWS.DirectConnect.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a private virtual interface to be provisioned on a
 -- connection.
@@ -31,31 +32,31 @@ import qualified Network.AWS.Lens as Lens
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
   { -- | The authentication key for BGP configuration. This string has a minimum
     -- length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Core.Maybe Core.Text,
+    authKey :: Prelude.Maybe Prelude.Text,
     -- | The maximum transmission unit (MTU), in bytes. The supported values are
     -- 1500 and 9001. The default value is 1500.
-    mtu :: Core.Maybe Core.Int,
+    mtu :: Prelude.Maybe Prelude.Int,
     -- | The tags associated with the private virtual interface.
-    tags :: Core.Maybe (Core.NonEmpty Tag),
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The address family for the BGP peer.
-    addressFamily :: Core.Maybe AddressFamily,
+    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
-    amazonAddress :: Core.Maybe Core.Text,
+    amazonAddress :: Prelude.Maybe Prelude.Text,
     -- | The IP address assigned to the customer interface.
-    customerAddress :: Core.Maybe Core.Text,
+    customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
-    virtualInterfaceName :: Core.Text,
+    virtualInterfaceName :: Prelude.Text,
     -- | The ID of the VLAN.
-    vlan :: Core.Int,
+    vlan :: Prelude.Int,
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
     -- configuration.
     --
     -- The valid values are 1-2147483647.
-    asn :: Core.Int
+    asn :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NewPrivateVirtualInterfaceAllocation' with all optional fields omitted.
@@ -91,11 +92,11 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 -- The valid values are 1-2147483647.
 newNewPrivateVirtualInterfaceAllocation ::
   -- | 'virtualInterfaceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vlan'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'asn'
-  Core.Int ->
+  Prelude.Int ->
   NewPrivateVirtualInterfaceAllocation
 newNewPrivateVirtualInterfaceAllocation
   pVirtualInterfaceName_
@@ -103,12 +104,12 @@ newNewPrivateVirtualInterfaceAllocation
   pAsn_ =
     NewPrivateVirtualInterfaceAllocation'
       { authKey =
-          Core.Nothing,
-        mtu = Core.Nothing,
-        tags = Core.Nothing,
-        addressFamily = Core.Nothing,
-        amazonAddress = Core.Nothing,
-        customerAddress = Core.Nothing,
+          Prelude.Nothing,
+        mtu = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        addressFamily = Prelude.Nothing,
+        amazonAddress = Prelude.Nothing,
+        customerAddress = Prelude.Nothing,
         virtualInterfaceName =
           pVirtualInterfaceName_,
         vlan = pVlan_,
@@ -117,53 +118,53 @@ newNewPrivateVirtualInterfaceAllocation
 
 -- | The authentication key for BGP configuration. This string has a minimum
 -- length of 6 characters and and a maximun lenth of 80 characters.
-newPrivateVirtualInterfaceAllocation_authKey :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Core.Maybe Core.Text)
+newPrivateVirtualInterfaceAllocation_authKey :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterfaceAllocation_authKey = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {authKey} -> authKey) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {authKey = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The maximum transmission unit (MTU), in bytes. The supported values are
 -- 1500 and 9001. The default value is 1500.
-newPrivateVirtualInterfaceAllocation_mtu :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Core.Maybe Core.Int)
+newPrivateVirtualInterfaceAllocation_mtu :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Int)
 newPrivateVirtualInterfaceAllocation_mtu = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {mtu} -> mtu) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {mtu = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The tags associated with the private virtual interface.
-newPrivateVirtualInterfaceAllocation_tags :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Core.Maybe (Core.NonEmpty Tag))
-newPrivateVirtualInterfaceAllocation_tags = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPrivateVirtualInterfaceAllocation) Core.. Lens.mapping Lens._Coerce
+newPrivateVirtualInterfaceAllocation_tags :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
+newPrivateVirtualInterfaceAllocation_tags = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPrivateVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The address family for the BGP peer.
-newPrivateVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Core.Maybe AddressFamily)
+newPrivateVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe AddressFamily)
 newPrivateVirtualInterfaceAllocation_addressFamily = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {addressFamily} -> addressFamily) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {addressFamily = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The IP address assigned to the Amazon interface.
-newPrivateVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Core.Maybe Core.Text)
+newPrivateVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterfaceAllocation_amazonAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {amazonAddress} -> amazonAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {amazonAddress = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The IP address assigned to the customer interface.
-newPrivateVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Core.Maybe Core.Text)
+newPrivateVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterfaceAllocation_customerAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {customerAddress} -> customerAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {customerAddress = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
-newPrivateVirtualInterfaceAllocation_virtualInterfaceName :: Lens.Lens' NewPrivateVirtualInterfaceAllocation Core.Text
+newPrivateVirtualInterfaceAllocation_virtualInterfaceName :: Lens.Lens' NewPrivateVirtualInterfaceAllocation Prelude.Text
 newPrivateVirtualInterfaceAllocation_virtualInterfaceName = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {virtualInterfaceName} -> virtualInterfaceName) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {virtualInterfaceName = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The ID of the VLAN.
-newPrivateVirtualInterfaceAllocation_vlan :: Lens.Lens' NewPrivateVirtualInterfaceAllocation Core.Int
+newPrivateVirtualInterfaceAllocation_vlan :: Lens.Lens' NewPrivateVirtualInterfaceAllocation Prelude.Int
 newPrivateVirtualInterfaceAllocation_vlan = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {vlan} -> vlan) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {vlan = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration.
 --
 -- The valid values are 1-2147483647.
-newPrivateVirtualInterfaceAllocation_asn :: Lens.Lens' NewPrivateVirtualInterfaceAllocation Core.Int
+newPrivateVirtualInterfaceAllocation_asn :: Lens.Lens' NewPrivateVirtualInterfaceAllocation Prelude.Int
 newPrivateVirtualInterfaceAllocation_asn = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {asn} -> asn) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {asn = a} :: NewPrivateVirtualInterfaceAllocation)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     NewPrivateVirtualInterfaceAllocation
 
 instance
-  Core.NFData
+  Prelude.NFData
     NewPrivateVirtualInterfaceAllocation
 
 instance
@@ -172,18 +173,19 @@ instance
   where
   toJSON NewPrivateVirtualInterfaceAllocation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("authKey" Core..=) Core.<$> authKey,
-            ("mtu" Core..=) Core.<$> mtu,
-            ("tags" Core..=) Core.<$> tags,
-            ("addressFamily" Core..=) Core.<$> addressFamily,
-            ("amazonAddress" Core..=) Core.<$> amazonAddress,
-            ("customerAddress" Core..=) Core.<$> customerAddress,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("authKey" Core..=) Prelude.<$> authKey,
+            ("mtu" Core..=) Prelude.<$> mtu,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
+            ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
+            ("customerAddress" Core..=)
+              Prelude.<$> customerAddress,
+            Prelude.Just
               ( "virtualInterfaceName"
                   Core..= virtualInterfaceName
               ),
-            Core.Just ("vlan" Core..= vlan),
-            Core.Just ("asn" Core..= asn)
+            Prelude.Just ("vlan" Core..= vlan),
+            Prelude.Just ("asn" Core..= asn)
           ]
       )

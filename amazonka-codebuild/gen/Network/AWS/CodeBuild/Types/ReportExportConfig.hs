@@ -23,6 +23,7 @@ import Network.AWS.CodeBuild.Types.ReportExportConfigType
 import Network.AWS.CodeBuild.Types.S3ReportExportConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the location where the run of a report is exported.
 --
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 data ReportExportConfig = ReportExportConfig'
   { -- | A @S3ReportExportConfig@ object that contains information about the S3
     -- bucket where the run of a report is exported.
-    s3Destination :: Core.Maybe S3ReportExportConfig,
+    s3Destination :: Prelude.Maybe S3ReportExportConfig,
     -- | The export configuration type. Valid values are:
     --
     -- -   @S3@: The report results are exported to an S3 bucket.
     --
     -- -   @NO_EXPORT@: The report results are not exported.
-    exportConfigType :: Core.Maybe ReportExportConfigType
+    exportConfigType :: Prelude.Maybe ReportExportConfigType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReportExportConfig' with all optional fields omitted.
@@ -60,13 +61,14 @@ newReportExportConfig ::
   ReportExportConfig
 newReportExportConfig =
   ReportExportConfig'
-    { s3Destination = Core.Nothing,
-      exportConfigType = Core.Nothing
+    { s3Destination =
+        Prelude.Nothing,
+      exportConfigType = Prelude.Nothing
     }
 
 -- | A @S3ReportExportConfig@ object that contains information about the S3
 -- bucket where the run of a report is exported.
-reportExportConfig_s3Destination :: Lens.Lens' ReportExportConfig (Core.Maybe S3ReportExportConfig)
+reportExportConfig_s3Destination :: Lens.Lens' ReportExportConfig (Prelude.Maybe S3ReportExportConfig)
 reportExportConfig_s3Destination = Lens.lens (\ReportExportConfig' {s3Destination} -> s3Destination) (\s@ReportExportConfig' {} a -> s {s3Destination = a} :: ReportExportConfig)
 
 -- | The export configuration type. Valid values are:
@@ -74,7 +76,7 @@ reportExportConfig_s3Destination = Lens.lens (\ReportExportConfig' {s3Destinatio
 -- -   @S3@: The report results are exported to an S3 bucket.
 --
 -- -   @NO_EXPORT@: The report results are not exported.
-reportExportConfig_exportConfigType :: Lens.Lens' ReportExportConfig (Core.Maybe ReportExportConfigType)
+reportExportConfig_exportConfigType :: Lens.Lens' ReportExportConfig (Prelude.Maybe ReportExportConfigType)
 reportExportConfig_exportConfigType = Lens.lens (\ReportExportConfig' {exportConfigType} -> exportConfigType) (\s@ReportExportConfig' {} a -> s {exportConfigType = a} :: ReportExportConfig)
 
 instance Core.FromJSON ReportExportConfig where
@@ -83,20 +85,20 @@ instance Core.FromJSON ReportExportConfig where
       "ReportExportConfig"
       ( \x ->
           ReportExportConfig'
-            Core.<$> (x Core..:? "s3Destination")
-            Core.<*> (x Core..:? "exportConfigType")
+            Prelude.<$> (x Core..:? "s3Destination")
+            Prelude.<*> (x Core..:? "exportConfigType")
       )
 
-instance Core.Hashable ReportExportConfig
+instance Prelude.Hashable ReportExportConfig
 
-instance Core.NFData ReportExportConfig
+instance Prelude.NFData ReportExportConfig
 
 instance Core.ToJSON ReportExportConfig where
   toJSON ReportExportConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("s3Destination" Core..=) Core.<$> s3Destination,
+      ( Prelude.catMaybes
+          [ ("s3Destination" Core..=) Prelude.<$> s3Destination,
             ("exportConfigType" Core..=)
-              Core.<$> exportConfigType
+              Prelude.<$> exportConfigType
           ]
       )

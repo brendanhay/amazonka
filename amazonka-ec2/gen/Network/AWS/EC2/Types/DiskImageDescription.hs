@@ -23,13 +23,14 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DiskImageFormat
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a disk image.
 --
 -- /See:/ 'newDiskImageDescription' smart constructor.
 data DiskImageDescription = DiskImageDescription'
   { -- | The disk image format.
-    format :: Core.Maybe DiskImageFormat,
+    format :: Prelude.Maybe DiskImageFormat,
     -- | A presigned URL for the import manifest stored in Amazon S3. For
     -- information about creating a presigned URL for an Amazon S3 object, read
     -- the \"Query String Request Authentication Alternative\" section of the
@@ -39,13 +40,13 @@ data DiskImageDescription = DiskImageDescription'
     -- For information about the import manifest referenced by this API action,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
-    importManifestUrl :: Core.Maybe Core.Text,
+    importManifestUrl :: Prelude.Maybe Prelude.Text,
     -- | The checksum computed for the disk image.
-    checksum :: Core.Maybe Core.Text,
+    checksum :: Prelude.Maybe Prelude.Text,
     -- | The size of the disk image, in GiB.
-    size :: Core.Maybe Core.Integer
+    size :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiskImageDescription' with all optional fields omitted.
@@ -74,14 +75,14 @@ newDiskImageDescription ::
   DiskImageDescription
 newDiskImageDescription =
   DiskImageDescription'
-    { format = Core.Nothing,
-      importManifestUrl = Core.Nothing,
-      checksum = Core.Nothing,
-      size = Core.Nothing
+    { format = Prelude.Nothing,
+      importManifestUrl = Prelude.Nothing,
+      checksum = Prelude.Nothing,
+      size = Prelude.Nothing
     }
 
 -- | The disk image format.
-diskImageDescription_format :: Lens.Lens' DiskImageDescription (Core.Maybe DiskImageFormat)
+diskImageDescription_format :: Lens.Lens' DiskImageDescription (Prelude.Maybe DiskImageFormat)
 diskImageDescription_format = Lens.lens (\DiskImageDescription' {format} -> format) (\s@DiskImageDescription' {} a -> s {format = a} :: DiskImageDescription)
 
 -- | A presigned URL for the import manifest stored in Amazon S3. For
@@ -93,25 +94,25 @@ diskImageDescription_format = Lens.lens (\DiskImageDescription' {format} -> form
 -- For information about the import manifest referenced by this API action,
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
-diskImageDescription_importManifestUrl :: Lens.Lens' DiskImageDescription (Core.Maybe Core.Text)
+diskImageDescription_importManifestUrl :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Text)
 diskImageDescription_importManifestUrl = Lens.lens (\DiskImageDescription' {importManifestUrl} -> importManifestUrl) (\s@DiskImageDescription' {} a -> s {importManifestUrl = a} :: DiskImageDescription)
 
 -- | The checksum computed for the disk image.
-diskImageDescription_checksum :: Lens.Lens' DiskImageDescription (Core.Maybe Core.Text)
+diskImageDescription_checksum :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Text)
 diskImageDescription_checksum = Lens.lens (\DiskImageDescription' {checksum} -> checksum) (\s@DiskImageDescription' {} a -> s {checksum = a} :: DiskImageDescription)
 
 -- | The size of the disk image, in GiB.
-diskImageDescription_size :: Lens.Lens' DiskImageDescription (Core.Maybe Core.Integer)
+diskImageDescription_size :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Integer)
 diskImageDescription_size = Lens.lens (\DiskImageDescription' {size} -> size) (\s@DiskImageDescription' {} a -> s {size = a} :: DiskImageDescription)
 
 instance Core.FromXML DiskImageDescription where
   parseXML x =
     DiskImageDescription'
-      Core.<$> (x Core..@? "format")
-      Core.<*> (x Core..@? "importManifestUrl")
-      Core.<*> (x Core..@? "checksum")
-      Core.<*> (x Core..@? "size")
+      Prelude.<$> (x Core..@? "format")
+      Prelude.<*> (x Core..@? "importManifestUrl")
+      Prelude.<*> (x Core..@? "checksum")
+      Prelude.<*> (x Core..@? "size")
 
-instance Core.Hashable DiskImageDescription
+instance Prelude.Hashable DiskImageDescription
 
-instance Core.NFData DiskImageDescription
+instance Prelude.NFData DiskImageDescription

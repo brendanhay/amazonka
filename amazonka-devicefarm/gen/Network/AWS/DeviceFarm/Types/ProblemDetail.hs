@@ -21,17 +21,18 @@ module Network.AWS.DeviceFarm.Types.ProblemDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a problem detail.
 --
 -- /See:/ 'newProblemDetail' smart constructor.
 data ProblemDetail = ProblemDetail'
   { -- | The problem detail\'s ARN.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The problem detail\'s name.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProblemDetail' with all optional fields omitted.
@@ -48,16 +49,16 @@ newProblemDetail ::
   ProblemDetail
 newProblemDetail =
   ProblemDetail'
-    { arn = Core.Nothing,
-      name = Core.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The problem detail\'s ARN.
-problemDetail_arn :: Lens.Lens' ProblemDetail (Core.Maybe Core.Text)
+problemDetail_arn :: Lens.Lens' ProblemDetail (Prelude.Maybe Prelude.Text)
 problemDetail_arn = Lens.lens (\ProblemDetail' {arn} -> arn) (\s@ProblemDetail' {} a -> s {arn = a} :: ProblemDetail)
 
 -- | The problem detail\'s name.
-problemDetail_name :: Lens.Lens' ProblemDetail (Core.Maybe Core.Text)
+problemDetail_name :: Lens.Lens' ProblemDetail (Prelude.Maybe Prelude.Text)
 problemDetail_name = Lens.lens (\ProblemDetail' {name} -> name) (\s@ProblemDetail' {} a -> s {name = a} :: ProblemDetail)
 
 instance Core.FromJSON ProblemDetail where
@@ -66,9 +67,9 @@ instance Core.FromJSON ProblemDetail where
       "ProblemDetail"
       ( \x ->
           ProblemDetail'
-            Core.<$> (x Core..:? "arn") Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "arn") Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable ProblemDetail
+instance Prelude.Hashable ProblemDetail
 
-instance Core.NFData ProblemDetail
+instance Prelude.NFData ProblemDetail

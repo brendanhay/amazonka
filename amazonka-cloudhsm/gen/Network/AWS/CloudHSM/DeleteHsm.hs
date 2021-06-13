@@ -57,6 +57,7 @@ where
 import Network.AWS.CloudHSM.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,9 +66,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteHsm' smart constructor.
 data DeleteHsm = DeleteHsm'
   { -- | The ARN of the HSM to delete.
-    hsmArn :: Core.Text
+    hsmArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteHsm' with all optional fields omitted.
@@ -80,12 +81,12 @@ data DeleteHsm = DeleteHsm'
 -- 'hsmArn', 'deleteHsm_hsmArn' - The ARN of the HSM to delete.
 newDeleteHsm ::
   -- | 'hsmArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteHsm
 newDeleteHsm pHsmArn_ = DeleteHsm' {hsmArn = pHsmArn_}
 
 -- | The ARN of the HSM to delete.
-deleteHsm_hsmArn :: Lens.Lens' DeleteHsm Core.Text
+deleteHsm_hsmArn :: Lens.Lens' DeleteHsm Prelude.Text
 deleteHsm_hsmArn = Lens.lens (\DeleteHsm' {hsmArn} -> hsmArn) (\s@DeleteHsm' {} a -> s {hsmArn = a} :: DeleteHsm)
 
 instance Core.AWSRequest DeleteHsm where
@@ -95,50 +96,52 @@ instance Core.AWSRequest DeleteHsm where
     Response.receiveJSON
       ( \s h x ->
           DeleteHsmResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "Status")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Status")
       )
 
-instance Core.Hashable DeleteHsm
+instance Prelude.Hashable DeleteHsm
 
-instance Core.NFData DeleteHsm
+instance Prelude.NFData DeleteHsm
 
 instance Core.ToHeaders DeleteHsm where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CloudHsmFrontendService.DeleteHsm" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteHsm where
   toJSON DeleteHsm' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("HsmArn" Core..= hsmArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("HsmArn" Core..= hsmArn)]
       )
 
 instance Core.ToPath DeleteHsm where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteHsm where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the DeleteHsm operation.
 --
 -- /See:/ 'newDeleteHsmResponse' smart constructor.
 data DeleteHsmResponse = DeleteHsmResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The status of the operation.
-    status :: Core.Text
+    status :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteHsmResponse' with all optional fields omitted.
@@ -153,9 +156,9 @@ data DeleteHsmResponse = DeleteHsmResponse'
 -- 'status', 'deleteHsmResponse_status' - The status of the operation.
 newDeleteHsmResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   DeleteHsmResponse
 newDeleteHsmResponse pHttpStatus_ pStatus_ =
   DeleteHsmResponse'
@@ -164,11 +167,11 @@ newDeleteHsmResponse pHttpStatus_ pStatus_ =
     }
 
 -- | The response's http status code.
-deleteHsmResponse_httpStatus :: Lens.Lens' DeleteHsmResponse Core.Int
+deleteHsmResponse_httpStatus :: Lens.Lens' DeleteHsmResponse Prelude.Int
 deleteHsmResponse_httpStatus = Lens.lens (\DeleteHsmResponse' {httpStatus} -> httpStatus) (\s@DeleteHsmResponse' {} a -> s {httpStatus = a} :: DeleteHsmResponse)
 
 -- | The status of the operation.
-deleteHsmResponse_status :: Lens.Lens' DeleteHsmResponse Core.Text
+deleteHsmResponse_status :: Lens.Lens' DeleteHsmResponse Prelude.Text
 deleteHsmResponse_status = Lens.lens (\DeleteHsmResponse' {status} -> status) (\s@DeleteHsmResponse' {} a -> s {status = a} :: DeleteHsmResponse)
 
-instance Core.NFData DeleteHsmResponse
+instance Prelude.NFData DeleteHsmResponse

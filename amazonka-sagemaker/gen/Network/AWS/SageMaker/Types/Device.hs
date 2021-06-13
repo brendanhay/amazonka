@@ -21,19 +21,20 @@ module Network.AWS.SageMaker.Types.Device where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information of a particular device.
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
   { -- | AWS Internet of Things (IoT) object name.
-    iotThingName :: Core.Maybe Core.Text,
+    iotThingName :: Prelude.Maybe Prelude.Text,
     -- | Description of the device.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the device.
-    deviceName :: Core.Text
+    deviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Device' with all optional fields omitted.
@@ -50,37 +51,37 @@ data Device = Device'
 -- 'deviceName', 'device_deviceName' - The name of the device.
 newDevice ::
   -- | 'deviceName'
-  Core.Text ->
+  Prelude.Text ->
   Device
 newDevice pDeviceName_ =
   Device'
-    { iotThingName = Core.Nothing,
-      description = Core.Nothing,
+    { iotThingName = Prelude.Nothing,
+      description = Prelude.Nothing,
       deviceName = pDeviceName_
     }
 
 -- | AWS Internet of Things (IoT) object name.
-device_iotThingName :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_iotThingName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_iotThingName = Lens.lens (\Device' {iotThingName} -> iotThingName) (\s@Device' {} a -> s {iotThingName = a} :: Device)
 
 -- | Description of the device.
-device_description :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_description :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_description = Lens.lens (\Device' {description} -> description) (\s@Device' {} a -> s {description = a} :: Device)
 
 -- | The name of the device.
-device_deviceName :: Lens.Lens' Device Core.Text
+device_deviceName :: Lens.Lens' Device Prelude.Text
 device_deviceName = Lens.lens (\Device' {deviceName} -> deviceName) (\s@Device' {} a -> s {deviceName = a} :: Device)
 
-instance Core.Hashable Device
+instance Prelude.Hashable Device
 
-instance Core.NFData Device
+instance Prelude.NFData Device
 
 instance Core.ToJSON Device where
   toJSON Device' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IotThingName" Core..=) Core.<$> iotThingName,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("DeviceName" Core..= deviceName)
+      ( Prelude.catMaybes
+          [ ("IotThingName" Core..=) Prelude.<$> iotThingName,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("DeviceName" Core..= deviceName)
           ]
       )

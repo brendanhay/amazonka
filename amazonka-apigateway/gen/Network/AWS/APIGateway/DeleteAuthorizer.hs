@@ -41,6 +41,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteAuthorizer' smart constructor.
 data DeleteAuthorizer = DeleteAuthorizer'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the Authorizer resource.
-    authorizerId :: Core.Text
+    authorizerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAuthorizer' with all optional fields omitted.
@@ -68,9 +69,9 @@ data DeleteAuthorizer = DeleteAuthorizer'
 -- 'authorizerId', 'deleteAuthorizer_authorizerId' - [Required] The identifier of the Authorizer resource.
 newDeleteAuthorizer ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authorizerId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAuthorizer
 newDeleteAuthorizer pRestApiId_ pAuthorizerId_ =
   DeleteAuthorizer'
@@ -79,11 +80,11 @@ newDeleteAuthorizer pRestApiId_ pAuthorizerId_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteAuthorizer_restApiId :: Lens.Lens' DeleteAuthorizer Core.Text
+deleteAuthorizer_restApiId :: Lens.Lens' DeleteAuthorizer Prelude.Text
 deleteAuthorizer_restApiId = Lens.lens (\DeleteAuthorizer' {restApiId} -> restApiId) (\s@DeleteAuthorizer' {} a -> s {restApiId = a} :: DeleteAuthorizer)
 
 -- | [Required] The identifier of the Authorizer resource.
-deleteAuthorizer_authorizerId :: Lens.Lens' DeleteAuthorizer Core.Text
+deleteAuthorizer_authorizerId :: Lens.Lens' DeleteAuthorizer Prelude.Text
 deleteAuthorizer_authorizerId = Lens.lens (\DeleteAuthorizer' {authorizerId} -> authorizerId) (\s@DeleteAuthorizer' {} a -> s {authorizerId = a} :: DeleteAuthorizer)
 
 instance Core.AWSRequest DeleteAuthorizer where
@@ -94,22 +95,22 @@ instance Core.AWSRequest DeleteAuthorizer where
   response =
     Response.receiveNull DeleteAuthorizerResponse'
 
-instance Core.Hashable DeleteAuthorizer
+instance Prelude.Hashable DeleteAuthorizer
 
-instance Core.NFData DeleteAuthorizer
+instance Prelude.NFData DeleteAuthorizer
 
 instance Core.ToHeaders DeleteAuthorizer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteAuthorizer where
   toPath DeleteAuthorizer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/authorizers/",
@@ -117,13 +118,13 @@ instance Core.ToPath DeleteAuthorizer where
       ]
 
 instance Core.ToQuery DeleteAuthorizer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAuthorizerResponse' smart constructor.
 data DeleteAuthorizerResponse = DeleteAuthorizerResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAuthorizerResponse' with all optional fields omitted.
@@ -134,4 +135,4 @@ newDeleteAuthorizerResponse ::
 newDeleteAuthorizerResponse =
   DeleteAuthorizerResponse'
 
-instance Core.NFData DeleteAuthorizerResponse
+instance Prelude.NFData DeleteAuthorizerResponse

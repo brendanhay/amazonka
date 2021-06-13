@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PlacementGroupStrategy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the placement group support of the instance type.
 --
 -- /See:/ 'newPlacementGroupInfo' smart constructor.
 data PlacementGroupInfo = PlacementGroupInfo'
   { -- | The supported placement group types.
-    supportedStrategies :: Core.Maybe [PlacementGroupStrategy]
+    supportedStrategies :: Prelude.Maybe [PlacementGroupStrategy]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PlacementGroupInfo' with all optional fields omitted.
@@ -47,21 +48,21 @@ newPlacementGroupInfo ::
 newPlacementGroupInfo =
   PlacementGroupInfo'
     { supportedStrategies =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The supported placement group types.
-placementGroupInfo_supportedStrategies :: Lens.Lens' PlacementGroupInfo (Core.Maybe [PlacementGroupStrategy])
-placementGroupInfo_supportedStrategies = Lens.lens (\PlacementGroupInfo' {supportedStrategies} -> supportedStrategies) (\s@PlacementGroupInfo' {} a -> s {supportedStrategies = a} :: PlacementGroupInfo) Core.. Lens.mapping Lens._Coerce
+placementGroupInfo_supportedStrategies :: Lens.Lens' PlacementGroupInfo (Prelude.Maybe [PlacementGroupStrategy])
+placementGroupInfo_supportedStrategies = Lens.lens (\PlacementGroupInfo' {supportedStrategies} -> supportedStrategies) (\s@PlacementGroupInfo' {} a -> s {supportedStrategies = a} :: PlacementGroupInfo) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML PlacementGroupInfo where
   parseXML x =
     PlacementGroupInfo'
-      Core.<$> ( x Core..@? "supportedStrategies"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> ( x Core..@? "supportedStrategies"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable PlacementGroupInfo
+instance Prelude.Hashable PlacementGroupInfo
 
-instance Core.NFData PlacementGroupInfo
+instance Prelude.NFData PlacementGroupInfo

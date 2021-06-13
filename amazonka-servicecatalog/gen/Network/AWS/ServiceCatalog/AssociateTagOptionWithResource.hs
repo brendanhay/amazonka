@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -49,11 +50,11 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newAssociateTagOptionWithResource' smart constructor.
 data AssociateTagOptionWithResource = AssociateTagOptionWithResource'
   { -- | The resource identifier.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The TagOption identifier.
-    tagOptionId :: Core.Text
+    tagOptionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateTagOptionWithResource' with all optional fields omitted.
@@ -68,9 +69,9 @@ data AssociateTagOptionWithResource = AssociateTagOptionWithResource'
 -- 'tagOptionId', 'associateTagOptionWithResource_tagOptionId' - The TagOption identifier.
 newAssociateTagOptionWithResource ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tagOptionId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateTagOptionWithResource
 newAssociateTagOptionWithResource
   pResourceId_
@@ -82,11 +83,11 @@ newAssociateTagOptionWithResource
       }
 
 -- | The resource identifier.
-associateTagOptionWithResource_resourceId :: Lens.Lens' AssociateTagOptionWithResource Core.Text
+associateTagOptionWithResource_resourceId :: Lens.Lens' AssociateTagOptionWithResource Prelude.Text
 associateTagOptionWithResource_resourceId = Lens.lens (\AssociateTagOptionWithResource' {resourceId} -> resourceId) (\s@AssociateTagOptionWithResource' {} a -> s {resourceId = a} :: AssociateTagOptionWithResource)
 
 -- | The TagOption identifier.
-associateTagOptionWithResource_tagOptionId :: Lens.Lens' AssociateTagOptionWithResource Core.Text
+associateTagOptionWithResource_tagOptionId :: Lens.Lens' AssociateTagOptionWithResource Prelude.Text
 associateTagOptionWithResource_tagOptionId = Lens.lens (\AssociateTagOptionWithResource' {tagOptionId} -> tagOptionId) (\s@AssociateTagOptionWithResource' {} a -> s {tagOptionId = a} :: AssociateTagOptionWithResource)
 
 instance
@@ -101,50 +102,56 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           AssociateTagOptionWithResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateTagOptionWithResource
+instance
+  Prelude.Hashable
+    AssociateTagOptionWithResource
 
-instance Core.NFData AssociateTagOptionWithResource
+instance
+  Prelude.NFData
+    AssociateTagOptionWithResource
 
 instance
   Core.ToHeaders
     AssociateTagOptionWithResource
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.AssociateTagOptionWithResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateTagOptionWithResource where
   toJSON AssociateTagOptionWithResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("TagOptionId" Core..= tagOptionId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("TagOptionId" Core..= tagOptionId)
           ]
       )
 
 instance Core.ToPath AssociateTagOptionWithResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateTagOptionWithResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateTagOptionWithResourceResponse' smart constructor.
 data AssociateTagOptionWithResourceResponse = AssociateTagOptionWithResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateTagOptionWithResourceResponse' with all optional fields omitted.
@@ -157,7 +164,7 @@ data AssociateTagOptionWithResourceResponse = AssociateTagOptionWithResourceResp
 -- 'httpStatus', 'associateTagOptionWithResourceResponse_httpStatus' - The response's http status code.
 newAssociateTagOptionWithResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateTagOptionWithResourceResponse
 newAssociateTagOptionWithResourceResponse
   pHttpStatus_ =
@@ -167,9 +174,9 @@ newAssociateTagOptionWithResourceResponse
       }
 
 -- | The response's http status code.
-associateTagOptionWithResourceResponse_httpStatus :: Lens.Lens' AssociateTagOptionWithResourceResponse Core.Int
+associateTagOptionWithResourceResponse_httpStatus :: Lens.Lens' AssociateTagOptionWithResourceResponse Prelude.Int
 associateTagOptionWithResourceResponse_httpStatus = Lens.lens (\AssociateTagOptionWithResourceResponse' {httpStatus} -> httpStatus) (\s@AssociateTagOptionWithResourceResponse' {} a -> s {httpStatus = a} :: AssociateTagOptionWithResourceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateTagOptionWithResourceResponse

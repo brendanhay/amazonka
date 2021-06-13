@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.PlacedPlayerSession where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a player session that was created as part of a
 -- StartGameSessionPlacement request. This object contains only the player
@@ -45,11 +46,11 @@ import qualified Network.AWS.Lens as Lens
 data PlacedPlayerSession = PlacedPlayerSession'
   { -- | A unique identifier for a player that is associated with this player
     -- session.
-    playerId :: Core.Maybe Core.Text,
+    playerId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a player session.
-    playerSessionId :: Core.Maybe Core.Text
+    playerSessionId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PlacedPlayerSession' with all optional fields omitted.
@@ -67,17 +68,17 @@ newPlacedPlayerSession ::
   PlacedPlayerSession
 newPlacedPlayerSession =
   PlacedPlayerSession'
-    { playerId = Core.Nothing,
-      playerSessionId = Core.Nothing
+    { playerId = Prelude.Nothing,
+      playerSessionId = Prelude.Nothing
     }
 
 -- | A unique identifier for a player that is associated with this player
 -- session.
-placedPlayerSession_playerId :: Lens.Lens' PlacedPlayerSession (Core.Maybe Core.Text)
+placedPlayerSession_playerId :: Lens.Lens' PlacedPlayerSession (Prelude.Maybe Prelude.Text)
 placedPlayerSession_playerId = Lens.lens (\PlacedPlayerSession' {playerId} -> playerId) (\s@PlacedPlayerSession' {} a -> s {playerId = a} :: PlacedPlayerSession)
 
 -- | A unique identifier for a player session.
-placedPlayerSession_playerSessionId :: Lens.Lens' PlacedPlayerSession (Core.Maybe Core.Text)
+placedPlayerSession_playerSessionId :: Lens.Lens' PlacedPlayerSession (Prelude.Maybe Prelude.Text)
 placedPlayerSession_playerSessionId = Lens.lens (\PlacedPlayerSession' {playerSessionId} -> playerSessionId) (\s@PlacedPlayerSession' {} a -> s {playerSessionId = a} :: PlacedPlayerSession)
 
 instance Core.FromJSON PlacedPlayerSession where
@@ -86,10 +87,10 @@ instance Core.FromJSON PlacedPlayerSession where
       "PlacedPlayerSession"
       ( \x ->
           PlacedPlayerSession'
-            Core.<$> (x Core..:? "PlayerId")
-            Core.<*> (x Core..:? "PlayerSessionId")
+            Prelude.<$> (x Core..:? "PlayerId")
+            Prelude.<*> (x Core..:? "PlayerSessionId")
       )
 
-instance Core.Hashable PlacedPlayerSession
+instance Prelude.Hashable PlacedPlayerSession
 
-instance Core.NFData PlacedPlayerSession
+instance Prelude.NFData PlacedPlayerSession

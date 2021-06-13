@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.CoversBodyPart where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an item of Personal Protective Equipment covering a
 -- corresponding body part. For more information, see
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCoversBodyPart' smart constructor.
 data CoversBodyPart = CoversBodyPart'
   { -- | The confidence that Amazon Rekognition has in the value of @Value@.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | True if the PPE covers the corresponding body part, otherwise false.
-    value :: Core.Maybe Core.Bool
+    value :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CoversBodyPart' with all optional fields omitted.
@@ -50,16 +51,16 @@ newCoversBodyPart ::
   CoversBodyPart
 newCoversBodyPart =
   CoversBodyPart'
-    { confidence = Core.Nothing,
-      value = Core.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The confidence that Amazon Rekognition has in the value of @Value@.
-coversBodyPart_confidence :: Lens.Lens' CoversBodyPart (Core.Maybe Core.Double)
+coversBodyPart_confidence :: Lens.Lens' CoversBodyPart (Prelude.Maybe Prelude.Double)
 coversBodyPart_confidence = Lens.lens (\CoversBodyPart' {confidence} -> confidence) (\s@CoversBodyPart' {} a -> s {confidence = a} :: CoversBodyPart)
 
 -- | True if the PPE covers the corresponding body part, otherwise false.
-coversBodyPart_value :: Lens.Lens' CoversBodyPart (Core.Maybe Core.Bool)
+coversBodyPart_value :: Lens.Lens' CoversBodyPart (Prelude.Maybe Prelude.Bool)
 coversBodyPart_value = Lens.lens (\CoversBodyPart' {value} -> value) (\s@CoversBodyPart' {} a -> s {value = a} :: CoversBodyPart)
 
 instance Core.FromJSON CoversBodyPart where
@@ -68,10 +69,10 @@ instance Core.FromJSON CoversBodyPart where
       "CoversBodyPart"
       ( \x ->
           CoversBodyPart'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable CoversBodyPart
+instance Prelude.Hashable CoversBodyPart
 
-instance Core.NFData CoversBodyPart
+instance Prelude.NFData CoversBodyPart

@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -44,9 +45,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopAutoMLJob' smart constructor.
 data StopAutoMLJob = StopAutoMLJob'
   { -- | The name of the object you are requesting.
-    autoMLJobName :: Core.Text
+    autoMLJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAutoMLJob' with all optional fields omitted.
@@ -59,13 +60,13 @@ data StopAutoMLJob = StopAutoMLJob'
 -- 'autoMLJobName', 'stopAutoMLJob_autoMLJobName' - The name of the object you are requesting.
 newStopAutoMLJob ::
   -- | 'autoMLJobName'
-  Core.Text ->
+  Prelude.Text ->
   StopAutoMLJob
 newStopAutoMLJob pAutoMLJobName_ =
   StopAutoMLJob' {autoMLJobName = pAutoMLJobName_}
 
 -- | The name of the object you are requesting.
-stopAutoMLJob_autoMLJobName :: Lens.Lens' StopAutoMLJob Core.Text
+stopAutoMLJob_autoMLJobName :: Lens.Lens' StopAutoMLJob Prelude.Text
 stopAutoMLJob_autoMLJobName = Lens.lens (\StopAutoMLJob' {autoMLJobName} -> autoMLJobName) (\s@StopAutoMLJob' {} a -> s {autoMLJobName = a} :: StopAutoMLJob)
 
 instance Core.AWSRequest StopAutoMLJob where
@@ -76,39 +77,43 @@ instance Core.AWSRequest StopAutoMLJob where
   response =
     Response.receiveNull StopAutoMLJobResponse'
 
-instance Core.Hashable StopAutoMLJob
+instance Prelude.Hashable StopAutoMLJob
 
-instance Core.NFData StopAutoMLJob
+instance Prelude.NFData StopAutoMLJob
 
 instance Core.ToHeaders StopAutoMLJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.StopAutoMLJob" :: Core.ByteString),
+              Core.=# ("SageMaker.StopAutoMLJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopAutoMLJob where
   toJSON StopAutoMLJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AutoMLJobName" Core..= autoMLJobName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("AutoMLJobName" Core..= autoMLJobName)
+          ]
       )
 
 instance Core.ToPath StopAutoMLJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopAutoMLJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopAutoMLJobResponse' smart constructor.
 data StopAutoMLJobResponse = StopAutoMLJobResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAutoMLJobResponse' with all optional fields omitted.
@@ -118,4 +123,4 @@ newStopAutoMLJobResponse ::
   StopAutoMLJobResponse
 newStopAutoMLJobResponse = StopAutoMLJobResponse'
 
-instance Core.NFData StopAutoMLJobResponse
+instance Prelude.NFData StopAutoMLJobResponse

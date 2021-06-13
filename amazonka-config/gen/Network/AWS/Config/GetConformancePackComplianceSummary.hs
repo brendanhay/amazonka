@@ -46,6 +46,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +54,13 @@ import qualified Network.AWS.Response as Response
 data GetConformancePackComplianceSummary = GetConformancePackComplianceSummary'
   { -- | The nextToken string returned on a previous page that you use to get the
     -- next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of conformance packs returned on each page.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Names of conformance packs.
-    conformancePackNames :: Core.NonEmpty Core.Text
+    conformancePackNames :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConformancePackComplianceSummary' with all optional fields omitted.
@@ -77,14 +78,14 @@ data GetConformancePackComplianceSummary = GetConformancePackComplianceSummary'
 -- 'conformancePackNames', 'getConformancePackComplianceSummary_conformancePackNames' - Names of conformance packs.
 newGetConformancePackComplianceSummary ::
   -- | 'conformancePackNames'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   GetConformancePackComplianceSummary
 newGetConformancePackComplianceSummary
   pConformancePackNames_ =
     GetConformancePackComplianceSummary'
       { nextToken =
-          Core.Nothing,
-        limit = Core.Nothing,
+          Prelude.Nothing,
+        limit = Prelude.Nothing,
         conformancePackNames =
           Lens._Coerce
             Lens.# pConformancePackNames_
@@ -92,16 +93,16 @@ newGetConformancePackComplianceSummary
 
 -- | The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
-getConformancePackComplianceSummary_nextToken :: Lens.Lens' GetConformancePackComplianceSummary (Core.Maybe Core.Text)
+getConformancePackComplianceSummary_nextToken :: Lens.Lens' GetConformancePackComplianceSummary (Prelude.Maybe Prelude.Text)
 getConformancePackComplianceSummary_nextToken = Lens.lens (\GetConformancePackComplianceSummary' {nextToken} -> nextToken) (\s@GetConformancePackComplianceSummary' {} a -> s {nextToken = a} :: GetConformancePackComplianceSummary)
 
 -- | The maximum number of conformance packs returned on each page.
-getConformancePackComplianceSummary_limit :: Lens.Lens' GetConformancePackComplianceSummary (Core.Maybe Core.Natural)
+getConformancePackComplianceSummary_limit :: Lens.Lens' GetConformancePackComplianceSummary (Prelude.Maybe Prelude.Natural)
 getConformancePackComplianceSummary_limit = Lens.lens (\GetConformancePackComplianceSummary' {limit} -> limit) (\s@GetConformancePackComplianceSummary' {} a -> s {limit = a} :: GetConformancePackComplianceSummary)
 
 -- | Names of conformance packs.
-getConformancePackComplianceSummary_conformancePackNames :: Lens.Lens' GetConformancePackComplianceSummary (Core.NonEmpty Core.Text)
-getConformancePackComplianceSummary_conformancePackNames = Lens.lens (\GetConformancePackComplianceSummary' {conformancePackNames} -> conformancePackNames) (\s@GetConformancePackComplianceSummary' {} a -> s {conformancePackNames = a} :: GetConformancePackComplianceSummary) Core.. Lens._Coerce
+getConformancePackComplianceSummary_conformancePackNames :: Lens.Lens' GetConformancePackComplianceSummary (Prelude.NonEmpty Prelude.Text)
+getConformancePackComplianceSummary_conformancePackNames = Lens.lens (\GetConformancePackComplianceSummary' {conformancePackNames} -> conformancePackNames) (\s@GetConformancePackComplianceSummary' {} a -> s {conformancePackNames = a} :: GetConformancePackComplianceSummary) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -115,17 +116,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetConformancePackComplianceSummaryResponse'
-            Core.<$> (x Core..?> "ConformancePackComplianceSummaryList")
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ConformancePackComplianceSummaryList")
+              Prelude.<*> (x Core..?> "NextToken")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetConformancePackComplianceSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetConformancePackComplianceSummary
 
 instance
@@ -133,14 +134,16 @@ instance
     GetConformancePackComplianceSummary
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.GetConformancePackComplianceSummary" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -150,10 +153,10 @@ instance
   where
   toJSON GetConformancePackComplianceSummary' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just
               ( "ConformancePackNames"
                   Core..= conformancePackNames
               )
@@ -164,25 +167,25 @@ instance
   Core.ToPath
     GetConformancePackComplianceSummary
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetConformancePackComplianceSummary
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConformancePackComplianceSummaryResponse' smart constructor.
 data GetConformancePackComplianceSummaryResponse = GetConformancePackComplianceSummaryResponse'
   { -- | A list of @ConformancePackComplianceSummary@ objects.
-    conformancePackComplianceSummaryList :: Core.Maybe (Core.NonEmpty ConformancePackComplianceSummary),
+    conformancePackComplianceSummaryList :: Prelude.Maybe (Prelude.NonEmpty ConformancePackComplianceSummary),
     -- | The nextToken string returned on a previous page that you use to get the
     -- next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConformancePackComplianceSummaryResponse' with all optional fields omitted.
@@ -200,30 +203,30 @@ data GetConformancePackComplianceSummaryResponse = GetConformancePackComplianceS
 -- 'httpStatus', 'getConformancePackComplianceSummaryResponse_httpStatus' - The response's http status code.
 newGetConformancePackComplianceSummaryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetConformancePackComplianceSummaryResponse
 newGetConformancePackComplianceSummaryResponse
   pHttpStatus_ =
     GetConformancePackComplianceSummaryResponse'
       { conformancePackComplianceSummaryList =
-          Core.Nothing,
-        nextToken = Core.Nothing,
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list of @ConformancePackComplianceSummary@ objects.
-getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList :: Lens.Lens' GetConformancePackComplianceSummaryResponse (Core.Maybe (Core.NonEmpty ConformancePackComplianceSummary))
-getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList = Lens.lens (\GetConformancePackComplianceSummaryResponse' {conformancePackComplianceSummaryList} -> conformancePackComplianceSummaryList) (\s@GetConformancePackComplianceSummaryResponse' {} a -> s {conformancePackComplianceSummaryList = a} :: GetConformancePackComplianceSummaryResponse) Core.. Lens.mapping Lens._Coerce
+getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList :: Lens.Lens' GetConformancePackComplianceSummaryResponse (Prelude.Maybe (Prelude.NonEmpty ConformancePackComplianceSummary))
+getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList = Lens.lens (\GetConformancePackComplianceSummaryResponse' {conformancePackComplianceSummaryList} -> conformancePackComplianceSummaryList) (\s@GetConformancePackComplianceSummaryResponse' {} a -> s {conformancePackComplianceSummaryList = a} :: GetConformancePackComplianceSummaryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
-getConformancePackComplianceSummaryResponse_nextToken :: Lens.Lens' GetConformancePackComplianceSummaryResponse (Core.Maybe Core.Text)
+getConformancePackComplianceSummaryResponse_nextToken :: Lens.Lens' GetConformancePackComplianceSummaryResponse (Prelude.Maybe Prelude.Text)
 getConformancePackComplianceSummaryResponse_nextToken = Lens.lens (\GetConformancePackComplianceSummaryResponse' {nextToken} -> nextToken) (\s@GetConformancePackComplianceSummaryResponse' {} a -> s {nextToken = a} :: GetConformancePackComplianceSummaryResponse)
 
 -- | The response's http status code.
-getConformancePackComplianceSummaryResponse_httpStatus :: Lens.Lens' GetConformancePackComplianceSummaryResponse Core.Int
+getConformancePackComplianceSummaryResponse_httpStatus :: Lens.Lens' GetConformancePackComplianceSummaryResponse Prelude.Int
 getConformancePackComplianceSummaryResponse_httpStatus = Lens.lens (\GetConformancePackComplianceSummaryResponse' {httpStatus} -> httpStatus) (\s@GetConformancePackComplianceSummaryResponse' {} a -> s {httpStatus = a} :: GetConformancePackComplianceSummaryResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetConformancePackComplianceSummaryResponse

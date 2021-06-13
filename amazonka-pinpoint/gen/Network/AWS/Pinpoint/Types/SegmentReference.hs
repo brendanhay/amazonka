@@ -21,17 +21,18 @@ module Network.AWS.Pinpoint.Types.SegmentReference where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the segment identifier and version of a segment.
 --
 -- /See:/ 'newSegmentReference' smart constructor.
 data SegmentReference = SegmentReference'
   { -- | The version number of the segment.
-    version :: Core.Maybe Core.Int,
+    version :: Prelude.Maybe Prelude.Int,
     -- | The unique identifier for the segment.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SegmentReference' with all optional fields omitted.
@@ -46,20 +47,20 @@ data SegmentReference = SegmentReference'
 -- 'id', 'segmentReference_id' - The unique identifier for the segment.
 newSegmentReference ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   SegmentReference
 newSegmentReference pId_ =
   SegmentReference'
-    { version = Core.Nothing,
+    { version = Prelude.Nothing,
       id = pId_
     }
 
 -- | The version number of the segment.
-segmentReference_version :: Lens.Lens' SegmentReference (Core.Maybe Core.Int)
+segmentReference_version :: Lens.Lens' SegmentReference (Prelude.Maybe Prelude.Int)
 segmentReference_version = Lens.lens (\SegmentReference' {version} -> version) (\s@SegmentReference' {} a -> s {version = a} :: SegmentReference)
 
 -- | The unique identifier for the segment.
-segmentReference_id :: Lens.Lens' SegmentReference Core.Text
+segmentReference_id :: Lens.Lens' SegmentReference Prelude.Text
 segmentReference_id = Lens.lens (\SegmentReference' {id} -> id) (\s@SegmentReference' {} a -> s {id = a} :: SegmentReference)
 
 instance Core.FromJSON SegmentReference where
@@ -68,18 +69,18 @@ instance Core.FromJSON SegmentReference where
       "SegmentReference"
       ( \x ->
           SegmentReference'
-            Core.<$> (x Core..:? "Version") Core.<*> (x Core..: "Id")
+            Prelude.<$> (x Core..:? "Version") Prelude.<*> (x Core..: "Id")
       )
 
-instance Core.Hashable SegmentReference
+instance Prelude.Hashable SegmentReference
 
-instance Core.NFData SegmentReference
+instance Prelude.NFData SegmentReference
 
 instance Core.ToJSON SegmentReference where
   toJSON SegmentReference' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Version" Core..=) Core.<$> version,
-            Core.Just ("Id" Core..= id)
+      ( Prelude.catMaybes
+          [ ("Version" Core..=) Prelude.<$> version,
+            Prelude.Just ("Id" Core..= id)
           ]
       )

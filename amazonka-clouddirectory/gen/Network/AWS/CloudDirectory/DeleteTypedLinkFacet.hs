@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data DeleteTypedLinkFacet = DeleteTypedLinkFacet'
   { -- | The Amazon Resource Name (ARN) that is associated with the schema. For
     -- more information, see arns.
-    schemaArn :: Core.Text,
+    schemaArn :: Prelude.Text,
     -- | The unique name of the typed link facet.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTypedLinkFacet' with all optional fields omitted.
@@ -70,9 +71,9 @@ data DeleteTypedLinkFacet = DeleteTypedLinkFacet'
 -- 'name', 'deleteTypedLinkFacet_name' - The unique name of the typed link facet.
 newDeleteTypedLinkFacet ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTypedLinkFacet
 newDeleteTypedLinkFacet pSchemaArn_ pName_ =
   DeleteTypedLinkFacet'
@@ -82,11 +83,11 @@ newDeleteTypedLinkFacet pSchemaArn_ pName_ =
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For
 -- more information, see arns.
-deleteTypedLinkFacet_schemaArn :: Lens.Lens' DeleteTypedLinkFacet Core.Text
+deleteTypedLinkFacet_schemaArn :: Lens.Lens' DeleteTypedLinkFacet Prelude.Text
 deleteTypedLinkFacet_schemaArn = Lens.lens (\DeleteTypedLinkFacet' {schemaArn} -> schemaArn) (\s@DeleteTypedLinkFacet' {} a -> s {schemaArn = a} :: DeleteTypedLinkFacet)
 
 -- | The unique name of the typed link facet.
-deleteTypedLinkFacet_name :: Lens.Lens' DeleteTypedLinkFacet Core.Text
+deleteTypedLinkFacet_name :: Lens.Lens' DeleteTypedLinkFacet Prelude.Text
 deleteTypedLinkFacet_name = Lens.lens (\DeleteTypedLinkFacet' {name} -> name) (\s@DeleteTypedLinkFacet' {} a -> s {name = a} :: DeleteTypedLinkFacet)
 
 instance Core.AWSRequest DeleteTypedLinkFacet where
@@ -98,37 +99,39 @@ instance Core.AWSRequest DeleteTypedLinkFacet where
     Response.receiveEmpty
       ( \s h x ->
           DeleteTypedLinkFacetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTypedLinkFacet
+instance Prelude.Hashable DeleteTypedLinkFacet
 
-instance Core.NFData DeleteTypedLinkFacet
+instance Prelude.NFData DeleteTypedLinkFacet
 
 instance Core.ToHeaders DeleteTypedLinkFacet where
   toHeaders DeleteTypedLinkFacet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON DeleteTypedLinkFacet where
   toJSON DeleteTypedLinkFacet' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteTypedLinkFacet where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
 
 instance Core.ToQuery DeleteTypedLinkFacet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTypedLinkFacetResponse' smart constructor.
 data DeleteTypedLinkFacetResponse = DeleteTypedLinkFacetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTypedLinkFacetResponse' with all optional fields omitted.
@@ -141,7 +144,7 @@ data DeleteTypedLinkFacetResponse = DeleteTypedLinkFacetResponse'
 -- 'httpStatus', 'deleteTypedLinkFacetResponse_httpStatus' - The response's http status code.
 newDeleteTypedLinkFacetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTypedLinkFacetResponse
 newDeleteTypedLinkFacetResponse pHttpStatus_ =
   DeleteTypedLinkFacetResponse'
@@ -150,7 +153,7 @@ newDeleteTypedLinkFacetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTypedLinkFacetResponse_httpStatus :: Lens.Lens' DeleteTypedLinkFacetResponse Core.Int
+deleteTypedLinkFacetResponse_httpStatus :: Lens.Lens' DeleteTypedLinkFacetResponse Prelude.Int
 deleteTypedLinkFacetResponse_httpStatus = Lens.lens (\DeleteTypedLinkFacetResponse' {httpStatus} -> httpStatus) (\s@DeleteTypedLinkFacetResponse' {} a -> s {httpStatus = a} :: DeleteTypedLinkFacetResponse)
 
-instance Core.NFData DeleteTypedLinkFacetResponse
+instance Prelude.NFData DeleteTypedLinkFacetResponse

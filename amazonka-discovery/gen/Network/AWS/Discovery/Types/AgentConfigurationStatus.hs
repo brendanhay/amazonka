@@ -21,6 +21,7 @@ module Network.AWS.Discovery.Types.AgentConfigurationStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about agents or connectors that were instructed to start
 -- collecting data. Information includes the agent\/connector ID, a
@@ -30,16 +31,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAgentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
   { -- | The agent\/connector ID.
-    agentId :: Core.Maybe Core.Text,
+    agentId :: Prelude.Maybe Prelude.Text,
     -- | Information about the status of the @StartDataCollection@ and
     -- @StopDataCollection@ operations. The system has recorded the data
     -- collection operation. The agent\/connector receives this command the
     -- next time it polls for a new command.
-    operationSucceeded :: Core.Maybe Core.Bool,
+    operationSucceeded :: Prelude.Maybe Prelude.Bool,
     -- | A description of the operation performed.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AgentConfigurationStatus' with all optional fields omitted.
@@ -61,24 +62,25 @@ newAgentConfigurationStatus ::
   AgentConfigurationStatus
 newAgentConfigurationStatus =
   AgentConfigurationStatus'
-    { agentId = Core.Nothing,
-      operationSucceeded = Core.Nothing,
-      description = Core.Nothing
+    { agentId =
+        Prelude.Nothing,
+      operationSucceeded = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The agent\/connector ID.
-agentConfigurationStatus_agentId :: Lens.Lens' AgentConfigurationStatus (Core.Maybe Core.Text)
+agentConfigurationStatus_agentId :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
 agentConfigurationStatus_agentId = Lens.lens (\AgentConfigurationStatus' {agentId} -> agentId) (\s@AgentConfigurationStatus' {} a -> s {agentId = a} :: AgentConfigurationStatus)
 
 -- | Information about the status of the @StartDataCollection@ and
 -- @StopDataCollection@ operations. The system has recorded the data
 -- collection operation. The agent\/connector receives this command the
 -- next time it polls for a new command.
-agentConfigurationStatus_operationSucceeded :: Lens.Lens' AgentConfigurationStatus (Core.Maybe Core.Bool)
+agentConfigurationStatus_operationSucceeded :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Bool)
 agentConfigurationStatus_operationSucceeded = Lens.lens (\AgentConfigurationStatus' {operationSucceeded} -> operationSucceeded) (\s@AgentConfigurationStatus' {} a -> s {operationSucceeded = a} :: AgentConfigurationStatus)
 
 -- | A description of the operation performed.
-agentConfigurationStatus_description :: Lens.Lens' AgentConfigurationStatus (Core.Maybe Core.Text)
+agentConfigurationStatus_description :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
 agentConfigurationStatus_description = Lens.lens (\AgentConfigurationStatus' {description} -> description) (\s@AgentConfigurationStatus' {} a -> s {description = a} :: AgentConfigurationStatus)
 
 instance Core.FromJSON AgentConfigurationStatus where
@@ -87,11 +89,11 @@ instance Core.FromJSON AgentConfigurationStatus where
       "AgentConfigurationStatus"
       ( \x ->
           AgentConfigurationStatus'
-            Core.<$> (x Core..:? "agentId")
-            Core.<*> (x Core..:? "operationSucceeded")
-            Core.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "agentId")
+            Prelude.<*> (x Core..:? "operationSucceeded")
+            Prelude.<*> (x Core..:? "description")
       )
 
-instance Core.Hashable AgentConfigurationStatus
+instance Prelude.Hashable AgentConfigurationStatus
 
-instance Core.NFData AgentConfigurationStatus
+instance Prelude.NFData AgentConfigurationStatus

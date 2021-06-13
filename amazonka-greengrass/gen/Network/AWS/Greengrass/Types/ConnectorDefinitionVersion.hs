@@ -22,6 +22,7 @@ module Network.AWS.Greengrass.Types.ConnectorDefinitionVersion where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Connector
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the connector definition version, which is a container
 -- for connectors.
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data ConnectorDefinitionVersion = ConnectorDefinitionVersion'
   { -- | A list of references to connectors in this version, with their
     -- corresponding configuration settings.
-    connectors :: Core.Maybe [Connector]
+    connectors :: Prelude.Maybe [Connector]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectorDefinitionVersion' with all optional fields omitted.
@@ -49,13 +50,13 @@ newConnectorDefinitionVersion ::
 newConnectorDefinitionVersion =
   ConnectorDefinitionVersion'
     { connectors =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A list of references to connectors in this version, with their
 -- corresponding configuration settings.
-connectorDefinitionVersion_connectors :: Lens.Lens' ConnectorDefinitionVersion (Core.Maybe [Connector])
-connectorDefinitionVersion_connectors = Lens.lens (\ConnectorDefinitionVersion' {connectors} -> connectors) (\s@ConnectorDefinitionVersion' {} a -> s {connectors = a} :: ConnectorDefinitionVersion) Core.. Lens.mapping Lens._Coerce
+connectorDefinitionVersion_connectors :: Lens.Lens' ConnectorDefinitionVersion (Prelude.Maybe [Connector])
+connectorDefinitionVersion_connectors = Lens.lens (\ConnectorDefinitionVersion' {connectors} -> connectors) (\s@ConnectorDefinitionVersion' {} a -> s {connectors = a} :: ConnectorDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ConnectorDefinitionVersion where
   parseJSON =
@@ -63,16 +64,16 @@ instance Core.FromJSON ConnectorDefinitionVersion where
       "ConnectorDefinitionVersion"
       ( \x ->
           ConnectorDefinitionVersion'
-            Core.<$> (x Core..:? "Connectors" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Connectors" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ConnectorDefinitionVersion
+instance Prelude.Hashable ConnectorDefinitionVersion
 
-instance Core.NFData ConnectorDefinitionVersion
+instance Prelude.NFData ConnectorDefinitionVersion
 
 instance Core.ToJSON ConnectorDefinitionVersion where
   toJSON ConnectorDefinitionVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Connectors" Core..=) Core.<$> connectors]
+      ( Prelude.catMaybes
+          [("Connectors" Core..=) Prelude.<$> connectors]
       )

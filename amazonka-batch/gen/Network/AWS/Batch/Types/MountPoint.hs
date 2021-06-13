@@ -21,6 +21,7 @@ module Network.AWS.Batch.Types.MountPoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on a Docker volume mount point that\'s used in a job\'s
 -- container properties. This parameter maps to @Volumes@ in the
@@ -33,13 +34,13 @@ data MountPoint = MountPoint'
   { -- | If this value is @true@, the container has read-only access to the
     -- volume. Otherwise, the container can write to the volume. The default
     -- value is @false@.
-    readOnly :: Core.Maybe Core.Bool,
+    readOnly :: Prelude.Maybe Prelude.Bool,
     -- | The name of the volume to mount.
-    sourceVolume :: Core.Maybe Core.Text,
+    sourceVolume :: Prelude.Maybe Prelude.Text,
     -- | The path on the container where the host volume is mounted.
-    containerPath :: Core.Maybe Core.Text
+    containerPath :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MountPoint' with all optional fields omitted.
@@ -60,23 +61,23 @@ newMountPoint ::
   MountPoint
 newMountPoint =
   MountPoint'
-    { readOnly = Core.Nothing,
-      sourceVolume = Core.Nothing,
-      containerPath = Core.Nothing
+    { readOnly = Prelude.Nothing,
+      sourceVolume = Prelude.Nothing,
+      containerPath = Prelude.Nothing
     }
 
 -- | If this value is @true@, the container has read-only access to the
 -- volume. Otherwise, the container can write to the volume. The default
 -- value is @false@.
-mountPoint_readOnly :: Lens.Lens' MountPoint (Core.Maybe Core.Bool)
+mountPoint_readOnly :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Bool)
 mountPoint_readOnly = Lens.lens (\MountPoint' {readOnly} -> readOnly) (\s@MountPoint' {} a -> s {readOnly = a} :: MountPoint)
 
 -- | The name of the volume to mount.
-mountPoint_sourceVolume :: Lens.Lens' MountPoint (Core.Maybe Core.Text)
+mountPoint_sourceVolume :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Text)
 mountPoint_sourceVolume = Lens.lens (\MountPoint' {sourceVolume} -> sourceVolume) (\s@MountPoint' {} a -> s {sourceVolume = a} :: MountPoint)
 
 -- | The path on the container where the host volume is mounted.
-mountPoint_containerPath :: Lens.Lens' MountPoint (Core.Maybe Core.Text)
+mountPoint_containerPath :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Text)
 mountPoint_containerPath = Lens.lens (\MountPoint' {containerPath} -> containerPath) (\s@MountPoint' {} a -> s {containerPath = a} :: MountPoint)
 
 instance Core.FromJSON MountPoint where
@@ -85,21 +86,21 @@ instance Core.FromJSON MountPoint where
       "MountPoint"
       ( \x ->
           MountPoint'
-            Core.<$> (x Core..:? "readOnly")
-            Core.<*> (x Core..:? "sourceVolume")
-            Core.<*> (x Core..:? "containerPath")
+            Prelude.<$> (x Core..:? "readOnly")
+            Prelude.<*> (x Core..:? "sourceVolume")
+            Prelude.<*> (x Core..:? "containerPath")
       )
 
-instance Core.Hashable MountPoint
+instance Prelude.Hashable MountPoint
 
-instance Core.NFData MountPoint
+instance Prelude.NFData MountPoint
 
 instance Core.ToJSON MountPoint where
   toJSON MountPoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("readOnly" Core..=) Core.<$> readOnly,
-            ("sourceVolume" Core..=) Core.<$> sourceVolume,
-            ("containerPath" Core..=) Core.<$> containerPath
+      ( Prelude.catMaybes
+          [ ("readOnly" Core..=) Prelude.<$> readOnly,
+            ("sourceVolume" Core..=) Prelude.<$> sourceVolume,
+            ("containerPath" Core..=) Prelude.<$> containerPath
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MonitoringResources where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringClusterConfig
 
 -- | Identifies the resources to deploy for a monitoring job.
@@ -31,7 +32,7 @@ data MonitoringResources = MonitoringResources'
     -- job.
     clusterConfig :: MonitoringClusterConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringResources' with all optional fields omitted.
@@ -64,16 +65,18 @@ instance Core.FromJSON MonitoringResources where
       "MonitoringResources"
       ( \x ->
           MonitoringResources'
-            Core.<$> (x Core..: "ClusterConfig")
+            Prelude.<$> (x Core..: "ClusterConfig")
       )
 
-instance Core.Hashable MonitoringResources
+instance Prelude.Hashable MonitoringResources
 
-instance Core.NFData MonitoringResources
+instance Prelude.NFData MonitoringResources
 
 instance Core.ToJSON MonitoringResources where
   toJSON MonitoringResources' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ClusterConfig" Core..= clusterConfig)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ClusterConfig" Core..= clusterConfig)
+          ]
       )

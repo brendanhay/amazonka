@@ -44,17 +44,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeStream' smart constructor.
 data DescribeStream = DescribeStream'
   { -- | The Amazon Resource Name (ARN) of the stream.
-    streamARN :: Core.Maybe Core.Text,
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream.
-    streamName :: Core.Maybe Core.Text
+    streamName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStream' with all optional fields omitted.
@@ -71,16 +72,16 @@ newDescribeStream ::
   DescribeStream
 newDescribeStream =
   DescribeStream'
-    { streamARN = Core.Nothing,
-      streamName = Core.Nothing
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the stream.
-describeStream_streamARN :: Lens.Lens' DescribeStream (Core.Maybe Core.Text)
+describeStream_streamARN :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Text)
 describeStream_streamARN = Lens.lens (\DescribeStream' {streamARN} -> streamARN) (\s@DescribeStream' {} a -> s {streamARN = a} :: DescribeStream)
 
 -- | The name of the stream.
-describeStream_streamName :: Lens.Lens' DescribeStream (Core.Maybe Core.Text)
+describeStream_streamName :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Text)
 describeStream_streamName = Lens.lens (\DescribeStream' {streamName} -> streamName) (\s@DescribeStream' {} a -> s {streamName = a} :: DescribeStream)
 
 instance Core.AWSRequest DescribeStream where
@@ -92,40 +93,40 @@ instance Core.AWSRequest DescribeStream where
     Response.receiveJSON
       ( \s h x ->
           DescribeStreamResponse'
-            Core.<$> (x Core..?> "StreamInfo")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "StreamInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeStream
+instance Prelude.Hashable DescribeStream
 
-instance Core.NFData DescribeStream
+instance Prelude.NFData DescribeStream
 
 instance Core.ToHeaders DescribeStream where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON DescribeStream where
   toJSON DescribeStream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StreamARN" Core..=) Core.<$> streamARN,
-            ("StreamName" Core..=) Core.<$> streamName
+      ( Prelude.catMaybes
+          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("StreamName" Core..=) Prelude.<$> streamName
           ]
       )
 
 instance Core.ToPath DescribeStream where
-  toPath = Core.const "/describeStream"
+  toPath = Prelude.const "/describeStream"
 
 instance Core.ToQuery DescribeStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
   { -- | An object that describes the stream.
-    streamInfo :: Core.Maybe StreamInfo,
+    streamInfo :: Prelude.Maybe StreamInfo,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStreamResponse' with all optional fields omitted.
@@ -140,20 +141,21 @@ data DescribeStreamResponse = DescribeStreamResponse'
 -- 'httpStatus', 'describeStreamResponse_httpStatus' - The response's http status code.
 newDescribeStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeStreamResponse
 newDescribeStreamResponse pHttpStatus_ =
   DescribeStreamResponse'
-    { streamInfo = Core.Nothing,
+    { streamInfo =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes the stream.
-describeStreamResponse_streamInfo :: Lens.Lens' DescribeStreamResponse (Core.Maybe StreamInfo)
+describeStreamResponse_streamInfo :: Lens.Lens' DescribeStreamResponse (Prelude.Maybe StreamInfo)
 describeStreamResponse_streamInfo = Lens.lens (\DescribeStreamResponse' {streamInfo} -> streamInfo) (\s@DescribeStreamResponse' {} a -> s {streamInfo = a} :: DescribeStreamResponse)
 
 -- | The response's http status code.
-describeStreamResponse_httpStatus :: Lens.Lens' DescribeStreamResponse Core.Int
+describeStreamResponse_httpStatus :: Lens.Lens' DescribeStreamResponse Prelude.Int
 describeStreamResponse_httpStatus = Lens.lens (\DescribeStreamResponse' {httpStatus} -> httpStatus) (\s@DescribeStreamResponse' {} a -> s {httpStatus = a} :: DescribeStreamResponse)
 
-instance Core.NFData DescribeStreamResponse
+instance Prelude.NFData DescribeStreamResponse

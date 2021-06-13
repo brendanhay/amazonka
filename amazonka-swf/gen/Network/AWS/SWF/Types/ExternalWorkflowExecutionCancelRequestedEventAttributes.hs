@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttrib
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecution
 
 -- | Provides the details of the @ExternalWorkflowExecutionCancelRequested@
@@ -36,9 +37,9 @@ data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowE
     -- to cancel this external workflow execution. This information can be
     -- useful for diagnosing problems by tracing back the chain of events
     -- leading up to this event.
-    initiatedEventId :: Core.Integer
+    initiatedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExternalWorkflowExecutionCancelRequestedEventAttributes' with all optional fields omitted.
@@ -60,7 +61,7 @@ newExternalWorkflowExecutionCancelRequestedEventAttributes ::
   -- | 'workflowExecution'
   WorkflowExecution ->
   -- | 'initiatedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   ExternalWorkflowExecutionCancelRequestedEventAttributes
 newExternalWorkflowExecutionCancelRequestedEventAttributes
   pWorkflowExecution_
@@ -82,7 +83,7 @@ externalWorkflowExecutionCancelRequestedEventAttributes_workflowExecution = Lens
 -- to cancel this external workflow execution. This information can be
 -- useful for diagnosing problems by tracing back the chain of events
 -- leading up to this event.
-externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId :: Lens.Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes Core.Integer
+externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId :: Lens.Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes Prelude.Integer
 externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId = Lens.lens (\ExternalWorkflowExecutionCancelRequestedEventAttributes' {initiatedEventId} -> initiatedEventId) (\s@ExternalWorkflowExecutionCancelRequestedEventAttributes' {} a -> s {initiatedEventId = a} :: ExternalWorkflowExecutionCancelRequestedEventAttributes)
 
 instance
@@ -94,14 +95,14 @@ instance
       "ExternalWorkflowExecutionCancelRequestedEventAttributes"
       ( \x ->
           ExternalWorkflowExecutionCancelRequestedEventAttributes'
-            Core.<$> (x Core..: "workflowExecution")
-              Core.<*> (x Core..: "initiatedEventId")
+            Prelude.<$> (x Core..: "workflowExecution")
+              Prelude.<*> (x Core..: "initiatedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ExternalWorkflowExecutionCancelRequestedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ExternalWorkflowExecutionCancelRequestedEventAttributes

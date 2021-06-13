@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -64,23 +65,23 @@ data PutObjectLockConfiguration = PutObjectLockConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The Object Lock configuration that you want to apply to the specified
     -- bucket.
-    objectLockConfiguration :: Core.Maybe ObjectLockConfiguration,
+    objectLockConfiguration :: Prelude.Maybe ObjectLockConfiguration,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
-    requestPayer :: Core.Maybe RequestPayer,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | A token to allow Object Lock to be enabled for an existing bucket.
-    token :: Core.Maybe Core.Text,
+    token :: Prelude.Maybe Prelude.Text,
     -- | The bucket whose Object Lock configuration you want to create or
     -- replace.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutObjectLockConfiguration' with all optional fields omitted.
@@ -115,38 +116,38 @@ newPutObjectLockConfiguration ::
 newPutObjectLockConfiguration pBucket_ =
   PutObjectLockConfiguration'
     { expectedBucketOwner =
-        Core.Nothing,
-      objectLockConfiguration = Core.Nothing,
-      contentMD5 = Core.Nothing,
-      requestPayer = Core.Nothing,
-      token = Core.Nothing,
+        Prelude.Nothing,
+      objectLockConfiguration = Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
+      token = Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe Core.Text)
+putObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
 putObjectLockConfiguration_expectedBucketOwner = Lens.lens (\PutObjectLockConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLockConfiguration' {} a -> s {expectedBucketOwner = a} :: PutObjectLockConfiguration)
 
 -- | The Object Lock configuration that you want to apply to the specified
 -- bucket.
-putObjectLockConfiguration_objectLockConfiguration :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe ObjectLockConfiguration)
+putObjectLockConfiguration_objectLockConfiguration :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe ObjectLockConfiguration)
 putObjectLockConfiguration_objectLockConfiguration = Lens.lens (\PutObjectLockConfiguration' {objectLockConfiguration} -> objectLockConfiguration) (\s@PutObjectLockConfiguration' {} a -> s {objectLockConfiguration = a} :: PutObjectLockConfiguration)
 
 -- | The MD5 hash for the request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putObjectLockConfiguration_contentMD5 :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe Core.Text)
+putObjectLockConfiguration_contentMD5 :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
 putObjectLockConfiguration_contentMD5 = Lens.lens (\PutObjectLockConfiguration' {contentMD5} -> contentMD5) (\s@PutObjectLockConfiguration' {} a -> s {contentMD5 = a} :: PutObjectLockConfiguration)
 
 -- | Undocumented member.
-putObjectLockConfiguration_requestPayer :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe RequestPayer)
+putObjectLockConfiguration_requestPayer :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe RequestPayer)
 putObjectLockConfiguration_requestPayer = Lens.lens (\PutObjectLockConfiguration' {requestPayer} -> requestPayer) (\s@PutObjectLockConfiguration' {} a -> s {requestPayer = a} :: PutObjectLockConfiguration)
 
 -- | A token to allow Object Lock to be enabled for an existing bucket.
-putObjectLockConfiguration_token :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe Core.Text)
+putObjectLockConfiguration_token :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
 putObjectLockConfiguration_token = Lens.lens (\PutObjectLockConfiguration' {token} -> token) (\s@PutObjectLockConfiguration' {} a -> s {token = a} :: PutObjectLockConfiguration)
 
 -- | The bucket whose Object Lock configuration you want to create or
@@ -163,13 +164,13 @@ instance Core.AWSRequest PutObjectLockConfiguration where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectLockConfigurationResponse'
-            Core.<$> (h Core..#? "x-amz-request-charged")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutObjectLockConfiguration
+instance Prelude.Hashable PutObjectLockConfiguration
 
-instance Core.NFData PutObjectLockConfiguration
+instance Prelude.NFData PutObjectLockConfiguration
 
 instance Core.ToElement PutObjectLockConfiguration where
   toElement PutObjectLockConfiguration' {..} =
@@ -179,7 +180,7 @@ instance Core.ToElement PutObjectLockConfiguration where
 
 instance Core.ToHeaders PutObjectLockConfiguration where
   toHeaders PutObjectLockConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5,
@@ -189,18 +190,19 @@ instance Core.ToHeaders PutObjectLockConfiguration where
 
 instance Core.ToPath PutObjectLockConfiguration where
   toPath PutObjectLockConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutObjectLockConfiguration where
-  toQuery = Core.const (Core.mconcat ["object-lock"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["object-lock"])
 
 -- | /See:/ 'newPutObjectLockConfigurationResponse' smart constructor.
 data PutObjectLockConfigurationResponse = PutObjectLockConfigurationResponse'
-  { requestCharged :: Core.Maybe RequestCharged,
+  { requestCharged :: Prelude.Maybe RequestCharged,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutObjectLockConfigurationResponse' with all optional fields omitted.
@@ -215,23 +217,23 @@ data PutObjectLockConfigurationResponse = PutObjectLockConfigurationResponse'
 -- 'httpStatus', 'putObjectLockConfigurationResponse_httpStatus' - The response's http status code.
 newPutObjectLockConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutObjectLockConfigurationResponse
 newPutObjectLockConfigurationResponse pHttpStatus_ =
   PutObjectLockConfigurationResponse'
     { requestCharged =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-putObjectLockConfigurationResponse_requestCharged :: Lens.Lens' PutObjectLockConfigurationResponse (Core.Maybe RequestCharged)
+putObjectLockConfigurationResponse_requestCharged :: Lens.Lens' PutObjectLockConfigurationResponse (Prelude.Maybe RequestCharged)
 putObjectLockConfigurationResponse_requestCharged = Lens.lens (\PutObjectLockConfigurationResponse' {requestCharged} -> requestCharged) (\s@PutObjectLockConfigurationResponse' {} a -> s {requestCharged = a} :: PutObjectLockConfigurationResponse)
 
 -- | The response's http status code.
-putObjectLockConfigurationResponse_httpStatus :: Lens.Lens' PutObjectLockConfigurationResponse Core.Int
+putObjectLockConfigurationResponse_httpStatus :: Lens.Lens' PutObjectLockConfigurationResponse Prelude.Int
 putObjectLockConfigurationResponse_httpStatus = Lens.lens (\PutObjectLockConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutObjectLockConfigurationResponse' {} a -> s {httpStatus = a} :: PutObjectLockConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutObjectLockConfigurationResponse

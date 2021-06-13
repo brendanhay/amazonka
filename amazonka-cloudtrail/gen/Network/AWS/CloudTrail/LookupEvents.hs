@@ -87,6 +87,7 @@ where
 import Network.AWS.CloudTrail.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -99,28 +100,28 @@ data LookupEvents = LookupEvents'
     -- specified in the the original call. For example, if the original call
     -- specified an AttributeKey of \'Username\' with a value of \'root\', the
     -- call with NextToken should include those same parameters.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of events to return. Possible values are 1 through 50. The
     -- default is 50.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies that only events that occur after or at the specified time are
     -- returned. If the specified start time is after the specified end time,
     -- an error is returned.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies that only events that occur before or at the specified time
     -- are returned. If the specified end time is before the specified start
     -- time, an error is returned.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies the event category. If you do not specify an event category,
     -- events of the category are not returned in the response. For example, if
     -- you do not specify @insight@ as the value of @EventCategory@, no
     -- Insights events are returned.
-    eventCategory :: Core.Maybe EventCategory,
+    eventCategory :: Prelude.Maybe EventCategory,
     -- | Contains a list of lookup attributes. Currently the list can contain
     -- only one item.
-    lookupAttributes :: Core.Maybe [LookupAttribute]
+    lookupAttributes :: Prelude.Maybe [LookupAttribute]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LookupEvents' with all optional fields omitted.
@@ -158,12 +159,12 @@ newLookupEvents ::
   LookupEvents
 newLookupEvents =
   LookupEvents'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      eventCategory = Core.Nothing,
-      lookupAttributes = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      eventCategory = Prelude.Nothing,
+      lookupAttributes = Prelude.Nothing
     }
 
 -- | The token to use to get the next page of results after a previous API
@@ -171,56 +172,56 @@ newLookupEvents =
 -- specified in the the original call. For example, if the original call
 -- specified an AttributeKey of \'Username\' with a value of \'root\', the
 -- call with NextToken should include those same parameters.
-lookupEvents_nextToken :: Lens.Lens' LookupEvents (Core.Maybe Core.Text)
+lookupEvents_nextToken :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.Text)
 lookupEvents_nextToken = Lens.lens (\LookupEvents' {nextToken} -> nextToken) (\s@LookupEvents' {} a -> s {nextToken = a} :: LookupEvents)
 
 -- | The number of events to return. Possible values are 1 through 50. The
 -- default is 50.
-lookupEvents_maxResults :: Lens.Lens' LookupEvents (Core.Maybe Core.Natural)
+lookupEvents_maxResults :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.Natural)
 lookupEvents_maxResults = Lens.lens (\LookupEvents' {maxResults} -> maxResults) (\s@LookupEvents' {} a -> s {maxResults = a} :: LookupEvents)
 
 -- | Specifies that only events that occur after or at the specified time are
 -- returned. If the specified start time is after the specified end time,
 -- an error is returned.
-lookupEvents_startTime :: Lens.Lens' LookupEvents (Core.Maybe Core.UTCTime)
-lookupEvents_startTime = Lens.lens (\LookupEvents' {startTime} -> startTime) (\s@LookupEvents' {} a -> s {startTime = a} :: LookupEvents) Core.. Lens.mapping Core._Time
+lookupEvents_startTime :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.UTCTime)
+lookupEvents_startTime = Lens.lens (\LookupEvents' {startTime} -> startTime) (\s@LookupEvents' {} a -> s {startTime = a} :: LookupEvents) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies that only events that occur before or at the specified time
 -- are returned. If the specified end time is before the specified start
 -- time, an error is returned.
-lookupEvents_endTime :: Lens.Lens' LookupEvents (Core.Maybe Core.UTCTime)
-lookupEvents_endTime = Lens.lens (\LookupEvents' {endTime} -> endTime) (\s@LookupEvents' {} a -> s {endTime = a} :: LookupEvents) Core.. Lens.mapping Core._Time
+lookupEvents_endTime :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.UTCTime)
+lookupEvents_endTime = Lens.lens (\LookupEvents' {endTime} -> endTime) (\s@LookupEvents' {} a -> s {endTime = a} :: LookupEvents) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies the event category. If you do not specify an event category,
 -- events of the category are not returned in the response. For example, if
 -- you do not specify @insight@ as the value of @EventCategory@, no
 -- Insights events are returned.
-lookupEvents_eventCategory :: Lens.Lens' LookupEvents (Core.Maybe EventCategory)
+lookupEvents_eventCategory :: Lens.Lens' LookupEvents (Prelude.Maybe EventCategory)
 lookupEvents_eventCategory = Lens.lens (\LookupEvents' {eventCategory} -> eventCategory) (\s@LookupEvents' {} a -> s {eventCategory = a} :: LookupEvents)
 
 -- | Contains a list of lookup attributes. Currently the list can contain
 -- only one item.
-lookupEvents_lookupAttributes :: Lens.Lens' LookupEvents (Core.Maybe [LookupAttribute])
-lookupEvents_lookupAttributes = Lens.lens (\LookupEvents' {lookupAttributes} -> lookupAttributes) (\s@LookupEvents' {} a -> s {lookupAttributes = a} :: LookupEvents) Core.. Lens.mapping Lens._Coerce
+lookupEvents_lookupAttributes :: Lens.Lens' LookupEvents (Prelude.Maybe [LookupAttribute])
+lookupEvents_lookupAttributes = Lens.lens (\LookupEvents' {lookupAttributes} -> lookupAttributes) (\s@LookupEvents' {} a -> s {lookupAttributes = a} :: LookupEvents) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager LookupEvents where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? lookupEventsResponse_nextToken Core.. Lens._Just
+            Lens.^? lookupEventsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? lookupEventsResponse_events Core.. Lens._Just
+            Lens.^? lookupEventsResponse_events Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& lookupEvents_nextToken
+          Prelude.& lookupEvents_nextToken
           Lens..~ rs
-          Lens.^? lookupEventsResponse_nextToken Core.. Lens._Just
+          Lens.^? lookupEventsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest LookupEvents where
   type AWSResponse LookupEvents = LookupEventsResponse
@@ -229,47 +230,49 @@ instance Core.AWSRequest LookupEvents where
     Response.receiveJSON
       ( \s h x ->
           LookupEventsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Events" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable LookupEvents
+instance Prelude.Hashable LookupEvents
 
-instance Core.NFData LookupEvents
+instance Prelude.NFData LookupEvents
 
 instance Core.ToHeaders LookupEvents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.LookupEvents" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON LookupEvents where
   toJSON LookupEvents' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("StartTime" Core..=) Core.<$> startTime,
-            ("EndTime" Core..=) Core.<$> endTime,
-            ("EventCategory" Core..=) Core.<$> eventCategory,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("StartTime" Core..=) Prelude.<$> startTime,
+            ("EndTime" Core..=) Prelude.<$> endTime,
+            ("EventCategory" Core..=) Prelude.<$> eventCategory,
             ("LookupAttributes" Core..=)
-              Core.<$> lookupAttributes
+              Prelude.<$> lookupAttributes
           ]
       )
 
 instance Core.ToPath LookupEvents where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery LookupEvents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains a response to a LookupEvents action.
 --
@@ -281,15 +284,15 @@ data LookupEventsResponse = LookupEventsResponse'
     -- call. For example, if the original call specified an AttributeKey of
     -- \'Username\' with a value of \'root\', the call with NextToken should
     -- include those same parameters.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of events returned based on the lookup attributes specified and
     -- the CloudTrail event. The events list is sorted by time. The most recent
     -- event is listed first.
-    events :: Core.Maybe [Event],
+    events :: Prelude.Maybe [Event],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LookupEventsResponse' with all optional fields omitted.
@@ -313,12 +316,12 @@ data LookupEventsResponse = LookupEventsResponse'
 -- 'httpStatus', 'lookupEventsResponse_httpStatus' - The response's http status code.
 newLookupEventsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   LookupEventsResponse
 newLookupEventsResponse pHttpStatus_ =
   LookupEventsResponse'
-    { nextToken = Core.Nothing,
-      events = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      events = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -328,17 +331,17 @@ newLookupEventsResponse pHttpStatus_ =
 -- call. For example, if the original call specified an AttributeKey of
 -- \'Username\' with a value of \'root\', the call with NextToken should
 -- include those same parameters.
-lookupEventsResponse_nextToken :: Lens.Lens' LookupEventsResponse (Core.Maybe Core.Text)
+lookupEventsResponse_nextToken :: Lens.Lens' LookupEventsResponse (Prelude.Maybe Prelude.Text)
 lookupEventsResponse_nextToken = Lens.lens (\LookupEventsResponse' {nextToken} -> nextToken) (\s@LookupEventsResponse' {} a -> s {nextToken = a} :: LookupEventsResponse)
 
 -- | A list of events returned based on the lookup attributes specified and
 -- the CloudTrail event. The events list is sorted by time. The most recent
 -- event is listed first.
-lookupEventsResponse_events :: Lens.Lens' LookupEventsResponse (Core.Maybe [Event])
-lookupEventsResponse_events = Lens.lens (\LookupEventsResponse' {events} -> events) (\s@LookupEventsResponse' {} a -> s {events = a} :: LookupEventsResponse) Core.. Lens.mapping Lens._Coerce
+lookupEventsResponse_events :: Lens.Lens' LookupEventsResponse (Prelude.Maybe [Event])
+lookupEventsResponse_events = Lens.lens (\LookupEventsResponse' {events} -> events) (\s@LookupEventsResponse' {} a -> s {events = a} :: LookupEventsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-lookupEventsResponse_httpStatus :: Lens.Lens' LookupEventsResponse Core.Int
+lookupEventsResponse_httpStatus :: Lens.Lens' LookupEventsResponse Prelude.Int
 lookupEventsResponse_httpStatus = Lens.lens (\LookupEventsResponse' {httpStatus} -> httpStatus) (\s@LookupEventsResponse' {} a -> s {httpStatus = a} :: LookupEventsResponse)
 
-instance Core.NFData LookupEventsResponse
+instance Prelude.NFData LookupEventsResponse

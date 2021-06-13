@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.Position where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the row and column of a location of a @Statement@ element in a
 -- policy document.
@@ -31,11 +32,11 @@ import qualified Network.AWS.Lens as Lens
 data Position = Position'
   { -- | The column in the line containing the specified position in the
     -- document.
-    column :: Core.Maybe Core.Int,
+    column :: Prelude.Maybe Prelude.Int,
     -- | The line containing the specified position in the document.
-    line :: Core.Maybe Core.Int
+    line :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Position' with all optional fields omitted.
@@ -53,24 +54,24 @@ newPosition ::
   Position
 newPosition =
   Position'
-    { column = Core.Nothing,
-      line = Core.Nothing
+    { column = Prelude.Nothing,
+      line = Prelude.Nothing
     }
 
 -- | The column in the line containing the specified position in the
 -- document.
-position_column :: Lens.Lens' Position (Core.Maybe Core.Int)
+position_column :: Lens.Lens' Position (Prelude.Maybe Prelude.Int)
 position_column = Lens.lens (\Position' {column} -> column) (\s@Position' {} a -> s {column = a} :: Position)
 
 -- | The line containing the specified position in the document.
-position_line :: Lens.Lens' Position (Core.Maybe Core.Int)
+position_line :: Lens.Lens' Position (Prelude.Maybe Prelude.Int)
 position_line = Lens.lens (\Position' {line} -> line) (\s@Position' {} a -> s {line = a} :: Position)
 
 instance Core.FromXML Position where
   parseXML x =
     Position'
-      Core.<$> (x Core..@? "Column") Core.<*> (x Core..@? "Line")
+      Prelude.<$> (x Core..@? "Column") Prelude.<*> (x Core..@? "Line")
 
-instance Core.Hashable Position
+instance Prelude.Hashable Position
 
-instance Core.NFData Position
+instance Prelude.NFData Position

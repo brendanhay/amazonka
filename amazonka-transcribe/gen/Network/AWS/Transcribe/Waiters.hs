@@ -17,5 +17,6 @@ module Network.AWS.Transcribe.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Transcribe.Lens
 import Network.AWS.Transcribe.Types

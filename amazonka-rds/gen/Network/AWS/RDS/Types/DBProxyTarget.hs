@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBProxyTarget where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.TargetHealth
 import Network.AWS.RDS.Types.TargetType
 
@@ -36,26 +37,26 @@ data DBProxyTarget = DBProxyTarget'
   { -- | The DB cluster identifier when the target represents an Aurora DB
     -- cluster. This field is blank when the target represents an RDS DB
     -- instance.
-    trackedClusterId :: Core.Maybe Core.Text,
+    trackedClusterId :: Prelude.Maybe Prelude.Text,
     -- | The identifier representing the target. It can be the instance
     -- identifier for an RDS DB instance, or the cluster identifier for an
     -- Aurora DB cluster.
-    rdsResourceId :: Core.Maybe Core.Text,
+    rdsResourceId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB
     -- cluster.
-    targetArn :: Core.Maybe Core.Text,
+    targetArn :: Prelude.Maybe Prelude.Text,
     -- | The port that the RDS Proxy uses to connect to the target RDS DB
     -- instance or Aurora DB cluster.
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | The writer endpoint for the RDS DB instance or Aurora DB cluster.
-    endpoint :: Core.Maybe Core.Text,
+    endpoint :: Prelude.Maybe Prelude.Text,
     -- | Specifies the kind of database, such as an RDS DB instance or an Aurora
     -- DB cluster, that the target represents.
-    type' :: Core.Maybe TargetType,
+    type' :: Prelude.Maybe TargetType,
     -- | Information about the connection health of the RDS Proxy target.
-    targetHealth :: Core.Maybe TargetHealth
+    targetHealth :: Prelude.Maybe TargetHealth
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBProxyTarget' with all optional fields omitted.
@@ -89,61 +90,61 @@ newDBProxyTarget ::
   DBProxyTarget
 newDBProxyTarget =
   DBProxyTarget'
-    { trackedClusterId = Core.Nothing,
-      rdsResourceId = Core.Nothing,
-      targetArn = Core.Nothing,
-      port = Core.Nothing,
-      endpoint = Core.Nothing,
-      type' = Core.Nothing,
-      targetHealth = Core.Nothing
+    { trackedClusterId = Prelude.Nothing,
+      rdsResourceId = Prelude.Nothing,
+      targetArn = Prelude.Nothing,
+      port = Prelude.Nothing,
+      endpoint = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      targetHealth = Prelude.Nothing
     }
 
 -- | The DB cluster identifier when the target represents an Aurora DB
 -- cluster. This field is blank when the target represents an RDS DB
 -- instance.
-dbProxyTarget_trackedClusterId :: Lens.Lens' DBProxyTarget (Core.Maybe Core.Text)
+dbProxyTarget_trackedClusterId :: Lens.Lens' DBProxyTarget (Prelude.Maybe Prelude.Text)
 dbProxyTarget_trackedClusterId = Lens.lens (\DBProxyTarget' {trackedClusterId} -> trackedClusterId) (\s@DBProxyTarget' {} a -> s {trackedClusterId = a} :: DBProxyTarget)
 
 -- | The identifier representing the target. It can be the instance
 -- identifier for an RDS DB instance, or the cluster identifier for an
 -- Aurora DB cluster.
-dbProxyTarget_rdsResourceId :: Lens.Lens' DBProxyTarget (Core.Maybe Core.Text)
+dbProxyTarget_rdsResourceId :: Lens.Lens' DBProxyTarget (Prelude.Maybe Prelude.Text)
 dbProxyTarget_rdsResourceId = Lens.lens (\DBProxyTarget' {rdsResourceId} -> rdsResourceId) (\s@DBProxyTarget' {} a -> s {rdsResourceId = a} :: DBProxyTarget)
 
 -- | The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB
 -- cluster.
-dbProxyTarget_targetArn :: Lens.Lens' DBProxyTarget (Core.Maybe Core.Text)
+dbProxyTarget_targetArn :: Lens.Lens' DBProxyTarget (Prelude.Maybe Prelude.Text)
 dbProxyTarget_targetArn = Lens.lens (\DBProxyTarget' {targetArn} -> targetArn) (\s@DBProxyTarget' {} a -> s {targetArn = a} :: DBProxyTarget)
 
 -- | The port that the RDS Proxy uses to connect to the target RDS DB
 -- instance or Aurora DB cluster.
-dbProxyTarget_port :: Lens.Lens' DBProxyTarget (Core.Maybe Core.Int)
+dbProxyTarget_port :: Lens.Lens' DBProxyTarget (Prelude.Maybe Prelude.Int)
 dbProxyTarget_port = Lens.lens (\DBProxyTarget' {port} -> port) (\s@DBProxyTarget' {} a -> s {port = a} :: DBProxyTarget)
 
 -- | The writer endpoint for the RDS DB instance or Aurora DB cluster.
-dbProxyTarget_endpoint :: Lens.Lens' DBProxyTarget (Core.Maybe Core.Text)
+dbProxyTarget_endpoint :: Lens.Lens' DBProxyTarget (Prelude.Maybe Prelude.Text)
 dbProxyTarget_endpoint = Lens.lens (\DBProxyTarget' {endpoint} -> endpoint) (\s@DBProxyTarget' {} a -> s {endpoint = a} :: DBProxyTarget)
 
 -- | Specifies the kind of database, such as an RDS DB instance or an Aurora
 -- DB cluster, that the target represents.
-dbProxyTarget_type :: Lens.Lens' DBProxyTarget (Core.Maybe TargetType)
+dbProxyTarget_type :: Lens.Lens' DBProxyTarget (Prelude.Maybe TargetType)
 dbProxyTarget_type = Lens.lens (\DBProxyTarget' {type'} -> type') (\s@DBProxyTarget' {} a -> s {type' = a} :: DBProxyTarget)
 
 -- | Information about the connection health of the RDS Proxy target.
-dbProxyTarget_targetHealth :: Lens.Lens' DBProxyTarget (Core.Maybe TargetHealth)
+dbProxyTarget_targetHealth :: Lens.Lens' DBProxyTarget (Prelude.Maybe TargetHealth)
 dbProxyTarget_targetHealth = Lens.lens (\DBProxyTarget' {targetHealth} -> targetHealth) (\s@DBProxyTarget' {} a -> s {targetHealth = a} :: DBProxyTarget)
 
 instance Core.FromXML DBProxyTarget where
   parseXML x =
     DBProxyTarget'
-      Core.<$> (x Core..@? "TrackedClusterId")
-      Core.<*> (x Core..@? "RdsResourceId")
-      Core.<*> (x Core..@? "TargetArn")
-      Core.<*> (x Core..@? "Port")
-      Core.<*> (x Core..@? "Endpoint")
-      Core.<*> (x Core..@? "Type")
-      Core.<*> (x Core..@? "TargetHealth")
+      Prelude.<$> (x Core..@? "TrackedClusterId")
+      Prelude.<*> (x Core..@? "RdsResourceId")
+      Prelude.<*> (x Core..@? "TargetArn")
+      Prelude.<*> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "Endpoint")
+      Prelude.<*> (x Core..@? "Type")
+      Prelude.<*> (x Core..@? "TargetHealth")
 
-instance Core.Hashable DBProxyTarget
+instance Prelude.Hashable DBProxyTarget
 
-instance Core.NFData DBProxyTarget
+instance Prelude.NFData DBProxyTarget

@@ -44,17 +44,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRebalanceSlotsInGlobalReplicationGroup' smart constructor.
 data RebalanceSlotsInGlobalReplicationGroup = RebalanceSlotsInGlobalReplicationGroup'
   { -- | The name of the Global Datastore
-    globalReplicationGroupId :: Core.Text,
+    globalReplicationGroupId :: Prelude.Text,
     -- | If @True@, redistribution is applied immediately.
-    applyImmediately :: Core.Bool
+    applyImmediately :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebalanceSlotsInGlobalReplicationGroup' with all optional fields omitted.
@@ -69,9 +70,9 @@ data RebalanceSlotsInGlobalReplicationGroup = RebalanceSlotsInGlobalReplicationG
 -- 'applyImmediately', 'rebalanceSlotsInGlobalReplicationGroup_applyImmediately' - If @True@, redistribution is applied immediately.
 newRebalanceSlotsInGlobalReplicationGroup ::
   -- | 'globalReplicationGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applyImmediately'
-  Core.Bool ->
+  Prelude.Bool ->
   RebalanceSlotsInGlobalReplicationGroup
 newRebalanceSlotsInGlobalReplicationGroup
   pGlobalReplicationGroupId_
@@ -84,11 +85,11 @@ newRebalanceSlotsInGlobalReplicationGroup
       }
 
 -- | The name of the Global Datastore
-rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Core.Text
+rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Prelude.Text
 rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\RebalanceSlotsInGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@RebalanceSlotsInGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: RebalanceSlotsInGlobalReplicationGroup)
 
 -- | If @True@, redistribution is applied immediately.
-rebalanceSlotsInGlobalReplicationGroup_applyImmediately :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Core.Bool
+rebalanceSlotsInGlobalReplicationGroup_applyImmediately :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Prelude.Bool
 rebalanceSlotsInGlobalReplicationGroup_applyImmediately = Lens.lens (\RebalanceSlotsInGlobalReplicationGroup' {applyImmediately} -> applyImmediately) (\s@RebalanceSlotsInGlobalReplicationGroup' {} a -> s {applyImmediately = a} :: RebalanceSlotsInGlobalReplicationGroup)
 
 instance
@@ -105,41 +106,42 @@ instance
       "RebalanceSlotsInGlobalReplicationGroupResult"
       ( \s h x ->
           RebalanceSlotsInGlobalReplicationGroupResponse'
-            Core.<$> (x Core..@? "GlobalReplicationGroup")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "GlobalReplicationGroup")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RebalanceSlotsInGlobalReplicationGroup
 
 instance
-  Core.NFData
+  Prelude.NFData
     RebalanceSlotsInGlobalReplicationGroup
 
 instance
   Core.ToHeaders
     RebalanceSlotsInGlobalReplicationGroup
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     RebalanceSlotsInGlobalReplicationGroup
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     RebalanceSlotsInGlobalReplicationGroup
   where
   toQuery RebalanceSlotsInGlobalReplicationGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "RebalanceSlotsInGlobalReplicationGroup" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "GlobalReplicationGroupId"
           Core.=: globalReplicationGroupId,
         "ApplyImmediately" Core.=: applyImmediately
@@ -147,11 +149,11 @@ instance
 
 -- | /See:/ 'newRebalanceSlotsInGlobalReplicationGroupResponse' smart constructor.
 data RebalanceSlotsInGlobalReplicationGroupResponse = RebalanceSlotsInGlobalReplicationGroupResponse'
-  { globalReplicationGroup :: Core.Maybe GlobalReplicationGroup,
+  { globalReplicationGroup :: Prelude.Maybe GlobalReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebalanceSlotsInGlobalReplicationGroupResponse' with all optional fields omitted.
@@ -166,24 +168,24 @@ data RebalanceSlotsInGlobalReplicationGroupResponse = RebalanceSlotsInGlobalRepl
 -- 'httpStatus', 'rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus' - The response's http status code.
 newRebalanceSlotsInGlobalReplicationGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RebalanceSlotsInGlobalReplicationGroupResponse
 newRebalanceSlotsInGlobalReplicationGroupResponse
   pHttpStatus_ =
     RebalanceSlotsInGlobalReplicationGroupResponse'
       { globalReplicationGroup =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-rebalanceSlotsInGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse (Core.Maybe GlobalReplicationGroup)
+rebalanceSlotsInGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse (Prelude.Maybe GlobalReplicationGroup)
 rebalanceSlotsInGlobalReplicationGroupResponse_globalReplicationGroup = Lens.lens (\RebalanceSlotsInGlobalReplicationGroupResponse' {globalReplicationGroup} -> globalReplicationGroup) (\s@RebalanceSlotsInGlobalReplicationGroupResponse' {} a -> s {globalReplicationGroup = a} :: RebalanceSlotsInGlobalReplicationGroupResponse)
 
 -- | The response's http status code.
-rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse Core.Int
+rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse Prelude.Int
 rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus = Lens.lens (\RebalanceSlotsInGlobalReplicationGroupResponse' {httpStatus} -> httpStatus) (\s@RebalanceSlotsInGlobalReplicationGroupResponse' {} a -> s {httpStatus = a} :: RebalanceSlotsInGlobalReplicationGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RebalanceSlotsInGlobalReplicationGroupResponse

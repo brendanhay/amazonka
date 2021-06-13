@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ScheduledActionFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.ScheduledActionFilterName
 
@@ -32,9 +33,9 @@ data ScheduledActionFilter = ScheduledActionFilter'
     name :: ScheduledActionFilterName,
     -- | List of values. Compare if the value (of type defined by @Name@) equals
     -- an item in the list of scheduled actions.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledActionFilter' with all optional fields omitted.
@@ -55,7 +56,7 @@ newScheduledActionFilter ::
 newScheduledActionFilter pName_ =
   ScheduledActionFilter'
     { name = pName_,
-      values = Core.mempty
+      values = Prelude.mempty
     }
 
 -- | The type of element to filter.
@@ -64,16 +65,16 @@ scheduledActionFilter_name = Lens.lens (\ScheduledActionFilter' {name} -> name) 
 
 -- | List of values. Compare if the value (of type defined by @Name@) equals
 -- an item in the list of scheduled actions.
-scheduledActionFilter_values :: Lens.Lens' ScheduledActionFilter [Core.Text]
-scheduledActionFilter_values = Lens.lens (\ScheduledActionFilter' {values} -> values) (\s@ScheduledActionFilter' {} a -> s {values = a} :: ScheduledActionFilter) Core.. Lens._Coerce
+scheduledActionFilter_values :: Lens.Lens' ScheduledActionFilter [Prelude.Text]
+scheduledActionFilter_values = Lens.lens (\ScheduledActionFilter' {values} -> values) (\s@ScheduledActionFilter' {} a -> s {values = a} :: ScheduledActionFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable ScheduledActionFilter
+instance Prelude.Hashable ScheduledActionFilter
 
-instance Core.NFData ScheduledActionFilter
+instance Prelude.NFData ScheduledActionFilter
 
 instance Core.ToQuery ScheduledActionFilter where
   toQuery ScheduledActionFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Name" Core.=: name,
         "Values" Core.=: Core.toQueryList "item" values
       ]

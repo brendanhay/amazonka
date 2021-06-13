@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the path to the @ObjectIdentifiers@ that is associated with the
 -- directory.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data PathToObjectIdentifiers = PathToObjectIdentifiers'
   { -- | Lists @ObjectIdentifiers@ starting from directory root to the object in
     -- the request.
-    objectIdentifiers :: Core.Maybe [Core.Text],
+    objectIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The path that is used to identify the object starting from directory
     -- root.
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PathToObjectIdentifiers' with all optional fields omitted.
@@ -54,18 +55,18 @@ newPathToObjectIdentifiers ::
 newPathToObjectIdentifiers =
   PathToObjectIdentifiers'
     { objectIdentifiers =
-        Core.Nothing,
-      path = Core.Nothing
+        Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | Lists @ObjectIdentifiers@ starting from directory root to the object in
 -- the request.
-pathToObjectIdentifiers_objectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Core.Maybe [Core.Text])
-pathToObjectIdentifiers_objectIdentifiers = Lens.lens (\PathToObjectIdentifiers' {objectIdentifiers} -> objectIdentifiers) (\s@PathToObjectIdentifiers' {} a -> s {objectIdentifiers = a} :: PathToObjectIdentifiers) Core.. Lens.mapping Lens._Coerce
+pathToObjectIdentifiers_objectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Prelude.Maybe [Prelude.Text])
+pathToObjectIdentifiers_objectIdentifiers = Lens.lens (\PathToObjectIdentifiers' {objectIdentifiers} -> objectIdentifiers) (\s@PathToObjectIdentifiers' {} a -> s {objectIdentifiers = a} :: PathToObjectIdentifiers) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path that is used to identify the object starting from directory
 -- root.
-pathToObjectIdentifiers_path :: Lens.Lens' PathToObjectIdentifiers (Core.Maybe Core.Text)
+pathToObjectIdentifiers_path :: Lens.Lens' PathToObjectIdentifiers (Prelude.Maybe Prelude.Text)
 pathToObjectIdentifiers_path = Lens.lens (\PathToObjectIdentifiers' {path} -> path) (\s@PathToObjectIdentifiers' {} a -> s {path = a} :: PathToObjectIdentifiers)
 
 instance Core.FromJSON PathToObjectIdentifiers where
@@ -74,10 +75,12 @@ instance Core.FromJSON PathToObjectIdentifiers where
       "PathToObjectIdentifiers"
       ( \x ->
           PathToObjectIdentifiers'
-            Core.<$> (x Core..:? "ObjectIdentifiers" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Path")
+            Prelude.<$> ( x Core..:? "ObjectIdentifiers"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Path")
       )
 
-instance Core.Hashable PathToObjectIdentifiers
+instance Prelude.Hashable PathToObjectIdentifiers
 
-instance Core.NFData PathToObjectIdentifiers
+instance Prelude.NFData PathToObjectIdentifiers

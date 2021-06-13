@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,9 +57,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDescribePatchGroupState' smart constructor.
 data DescribePatchGroupState = DescribePatchGroupState'
   { -- | The name of the patch group whose patch snapshot should be retrieved.
-    patchGroup :: Core.Text
+    patchGroup :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePatchGroupState' with all optional fields omitted.
@@ -71,13 +72,13 @@ data DescribePatchGroupState = DescribePatchGroupState'
 -- 'patchGroup', 'describePatchGroupState_patchGroup' - The name of the patch group whose patch snapshot should be retrieved.
 newDescribePatchGroupState ::
   -- | 'patchGroup'
-  Core.Text ->
+  Prelude.Text ->
   DescribePatchGroupState
 newDescribePatchGroupState pPatchGroup_ =
   DescribePatchGroupState' {patchGroup = pPatchGroup_}
 
 -- | The name of the patch group whose patch snapshot should be retrieved.
-describePatchGroupState_patchGroup :: Lens.Lens' DescribePatchGroupState Core.Text
+describePatchGroupState_patchGroup :: Lens.Lens' DescribePatchGroupState Prelude.Text
 describePatchGroupState_patchGroup = Lens.lens (\DescribePatchGroupState' {patchGroup} -> patchGroup) (\s@DescribePatchGroupState' {} a -> s {patchGroup = a} :: DescribePatchGroupState)
 
 instance Core.AWSRequest DescribePatchGroupState where
@@ -89,61 +90,63 @@ instance Core.AWSRequest DescribePatchGroupState where
     Response.receiveJSON
       ( \s h x ->
           DescribePatchGroupStateResponse'
-            Core.<$> (x Core..?> "InstancesWithInstalledOtherPatches")
-            Core.<*> ( x
-                         Core..?> "InstancesWithUnreportedNotApplicablePatches"
-                     )
-            Core.<*> (x Core..?> "InstancesWithInstalledRejectedPatches")
-            Core.<*> (x Core..?> "Instances")
-            Core.<*> (x Core..?> "InstancesWithMissingPatches")
-            Core.<*> ( x
-                         Core..?> "InstancesWithInstalledPendingRebootPatches"
-                     )
-            Core.<*> (x Core..?> "InstancesWithFailedPatches")
-            Core.<*> (x Core..?> "InstancesWithInstalledPatches")
-            Core.<*> (x Core..?> "InstancesWithNotApplicablePatches")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "InstancesWithInstalledOtherPatches")
+            Prelude.<*> ( x
+                            Core..?> "InstancesWithUnreportedNotApplicablePatches"
+                        )
+            Prelude.<*> (x Core..?> "InstancesWithInstalledRejectedPatches")
+            Prelude.<*> (x Core..?> "Instances")
+            Prelude.<*> (x Core..?> "InstancesWithMissingPatches")
+            Prelude.<*> ( x
+                            Core..?> "InstancesWithInstalledPendingRebootPatches"
+                        )
+            Prelude.<*> (x Core..?> "InstancesWithFailedPatches")
+            Prelude.<*> (x Core..?> "InstancesWithInstalledPatches")
+            Prelude.<*> (x Core..?> "InstancesWithNotApplicablePatches")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribePatchGroupState
+instance Prelude.Hashable DescribePatchGroupState
 
-instance Core.NFData DescribePatchGroupState
+instance Prelude.NFData DescribePatchGroupState
 
 instance Core.ToHeaders DescribePatchGroupState where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DescribePatchGroupState" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribePatchGroupState where
   toJSON DescribePatchGroupState' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("PatchGroup" Core..= patchGroup)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("PatchGroup" Core..= patchGroup)]
       )
 
 instance Core.ToPath DescribePatchGroupState where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePatchGroupState where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePatchGroupStateResponse' smart constructor.
 data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
   { -- | The number of instances with patches installed that aren\'t defined in
     -- the patch baseline.
-    instancesWithInstalledOtherPatches :: Core.Maybe Core.Int,
+    instancesWithInstalledOtherPatches :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with @NotApplicable@ patches beyond the
     -- supported limit, which are not reported by name to Systems Manager
     -- Inventory.
-    instancesWithUnreportedNotApplicablePatches :: Core.Maybe Core.Int,
+    instancesWithUnreportedNotApplicablePatches :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with patches installed that are specified in a
     -- RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were
     -- typically installed before they were added to a RejectedPatches list.
@@ -151,26 +154,26 @@ data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
     -- If ALLOW_AS_DEPENDENCY is the specified option for
     -- RejectedPatchesAction, the value of
     -- InstancesWithInstalledRejectedPatches will always be 0 (zero).
-    instancesWithInstalledRejectedPatches :: Core.Maybe Core.Int,
+    instancesWithInstalledRejectedPatches :: Prelude.Maybe Prelude.Int,
     -- | The number of instances in the patch group.
-    instances :: Core.Maybe Core.Int,
+    instances :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with missing patches from the patch baseline.
-    instancesWithMissingPatches :: Core.Maybe Core.Int,
+    instancesWithMissingPatches :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with patches installed by Patch Manager that
     -- have not been rebooted after the patch installation. The status of these
     -- instances is NON_COMPLIANT.
-    instancesWithInstalledPendingRebootPatches :: Core.Maybe Core.Int,
+    instancesWithInstalledPendingRebootPatches :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with patches from the patch baseline that failed
     -- to install.
-    instancesWithFailedPatches :: Core.Maybe Core.Int,
+    instancesWithFailedPatches :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with installed patches.
-    instancesWithInstalledPatches :: Core.Maybe Core.Int,
+    instancesWithInstalledPatches :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with patches that aren\'t applicable.
-    instancesWithNotApplicablePatches :: Core.Maybe Core.Int,
+    instancesWithNotApplicablePatches :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePatchGroupStateResponse' with all optional fields omitted.
@@ -213,37 +216,39 @@ data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
 -- 'httpStatus', 'describePatchGroupStateResponse_httpStatus' - The response's http status code.
 newDescribePatchGroupStateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePatchGroupStateResponse
 newDescribePatchGroupStateResponse pHttpStatus_ =
   DescribePatchGroupStateResponse'
     { instancesWithInstalledOtherPatches =
-        Core.Nothing,
+        Prelude.Nothing,
       instancesWithUnreportedNotApplicablePatches =
-        Core.Nothing,
+        Prelude.Nothing,
       instancesWithInstalledRejectedPatches =
-        Core.Nothing,
-      instances = Core.Nothing,
-      instancesWithMissingPatches = Core.Nothing,
+        Prelude.Nothing,
+      instances = Prelude.Nothing,
+      instancesWithMissingPatches =
+        Prelude.Nothing,
       instancesWithInstalledPendingRebootPatches =
-        Core.Nothing,
-      instancesWithFailedPatches = Core.Nothing,
+        Prelude.Nothing,
+      instancesWithFailedPatches =
+        Prelude.Nothing,
       instancesWithInstalledPatches =
-        Core.Nothing,
+        Prelude.Nothing,
       instancesWithNotApplicablePatches =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of instances with patches installed that aren\'t defined in
 -- the patch baseline.
-describePatchGroupStateResponse_instancesWithInstalledOtherPatches :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instancesWithInstalledOtherPatches :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instancesWithInstalledOtherPatches = Lens.lens (\DescribePatchGroupStateResponse' {instancesWithInstalledOtherPatches} -> instancesWithInstalledOtherPatches) (\s@DescribePatchGroupStateResponse' {} a -> s {instancesWithInstalledOtherPatches = a} :: DescribePatchGroupStateResponse)
 
 -- | The number of instances with @NotApplicable@ patches beyond the
 -- supported limit, which are not reported by name to Systems Manager
 -- Inventory.
-describePatchGroupStateResponse_instancesWithUnreportedNotApplicablePatches :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instancesWithUnreportedNotApplicablePatches :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instancesWithUnreportedNotApplicablePatches = Lens.lens (\DescribePatchGroupStateResponse' {instancesWithUnreportedNotApplicablePatches} -> instancesWithUnreportedNotApplicablePatches) (\s@DescribePatchGroupStateResponse' {} a -> s {instancesWithUnreportedNotApplicablePatches = a} :: DescribePatchGroupStateResponse)
 
 -- | The number of instances with patches installed that are specified in a
@@ -253,38 +258,40 @@ describePatchGroupStateResponse_instancesWithUnreportedNotApplicablePatches = Le
 -- If ALLOW_AS_DEPENDENCY is the specified option for
 -- RejectedPatchesAction, the value of
 -- InstancesWithInstalledRejectedPatches will always be 0 (zero).
-describePatchGroupStateResponse_instancesWithInstalledRejectedPatches :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instancesWithInstalledRejectedPatches :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instancesWithInstalledRejectedPatches = Lens.lens (\DescribePatchGroupStateResponse' {instancesWithInstalledRejectedPatches} -> instancesWithInstalledRejectedPatches) (\s@DescribePatchGroupStateResponse' {} a -> s {instancesWithInstalledRejectedPatches = a} :: DescribePatchGroupStateResponse)
 
 -- | The number of instances in the patch group.
-describePatchGroupStateResponse_instances :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instances :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instances = Lens.lens (\DescribePatchGroupStateResponse' {instances} -> instances) (\s@DescribePatchGroupStateResponse' {} a -> s {instances = a} :: DescribePatchGroupStateResponse)
 
 -- | The number of instances with missing patches from the patch baseline.
-describePatchGroupStateResponse_instancesWithMissingPatches :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instancesWithMissingPatches :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instancesWithMissingPatches = Lens.lens (\DescribePatchGroupStateResponse' {instancesWithMissingPatches} -> instancesWithMissingPatches) (\s@DescribePatchGroupStateResponse' {} a -> s {instancesWithMissingPatches = a} :: DescribePatchGroupStateResponse)
 
 -- | The number of instances with patches installed by Patch Manager that
 -- have not been rebooted after the patch installation. The status of these
 -- instances is NON_COMPLIANT.
-describePatchGroupStateResponse_instancesWithInstalledPendingRebootPatches :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instancesWithInstalledPendingRebootPatches :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instancesWithInstalledPendingRebootPatches = Lens.lens (\DescribePatchGroupStateResponse' {instancesWithInstalledPendingRebootPatches} -> instancesWithInstalledPendingRebootPatches) (\s@DescribePatchGroupStateResponse' {} a -> s {instancesWithInstalledPendingRebootPatches = a} :: DescribePatchGroupStateResponse)
 
 -- | The number of instances with patches from the patch baseline that failed
 -- to install.
-describePatchGroupStateResponse_instancesWithFailedPatches :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instancesWithFailedPatches :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instancesWithFailedPatches = Lens.lens (\DescribePatchGroupStateResponse' {instancesWithFailedPatches} -> instancesWithFailedPatches) (\s@DescribePatchGroupStateResponse' {} a -> s {instancesWithFailedPatches = a} :: DescribePatchGroupStateResponse)
 
 -- | The number of instances with installed patches.
-describePatchGroupStateResponse_instancesWithInstalledPatches :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instancesWithInstalledPatches :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instancesWithInstalledPatches = Lens.lens (\DescribePatchGroupStateResponse' {instancesWithInstalledPatches} -> instancesWithInstalledPatches) (\s@DescribePatchGroupStateResponse' {} a -> s {instancesWithInstalledPatches = a} :: DescribePatchGroupStateResponse)
 
 -- | The number of instances with patches that aren\'t applicable.
-describePatchGroupStateResponse_instancesWithNotApplicablePatches :: Lens.Lens' DescribePatchGroupStateResponse (Core.Maybe Core.Int)
+describePatchGroupStateResponse_instancesWithNotApplicablePatches :: Lens.Lens' DescribePatchGroupStateResponse (Prelude.Maybe Prelude.Int)
 describePatchGroupStateResponse_instancesWithNotApplicablePatches = Lens.lens (\DescribePatchGroupStateResponse' {instancesWithNotApplicablePatches} -> instancesWithNotApplicablePatches) (\s@DescribePatchGroupStateResponse' {} a -> s {instancesWithNotApplicablePatches = a} :: DescribePatchGroupStateResponse)
 
 -- | The response's http status code.
-describePatchGroupStateResponse_httpStatus :: Lens.Lens' DescribePatchGroupStateResponse Core.Int
+describePatchGroupStateResponse_httpStatus :: Lens.Lens' DescribePatchGroupStateResponse Prelude.Int
 describePatchGroupStateResponse_httpStatus = Lens.lens (\DescribePatchGroupStateResponse' {httpStatus} -> httpStatus) (\s@DescribePatchGroupStateResponse' {} a -> s {httpStatus = a} :: DescribePatchGroupStateResponse)
 
-instance Core.NFData DescribePatchGroupStateResponse
+instance
+  Prelude.NFData
+    DescribePatchGroupStateResponse

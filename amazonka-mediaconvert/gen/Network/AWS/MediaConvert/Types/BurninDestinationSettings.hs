@@ -28,6 +28,7 @@ import Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
 import Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
 import Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing
 import Network.AWS.MediaConvert.Types.FontScript
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Burn-In Destination Settings.
 --
@@ -42,36 +43,36 @@ data BurninDestinationSettings = BurninDestinationSettings'
     -- source captions that are STL, 608\/embedded or teletext. These source
     -- settings are already pre-defined by the caption stream. All burn-in and
     -- DVB-Sub font settings must match.
-    alignment :: Core.Maybe BurninSubtitleAlignment,
+    alignment :: Prelude.Maybe BurninSubtitleAlignment,
     -- | Specifies the opacity of the shadow. 255 is opaque; 0 is transparent.
     -- Leaving this parameter blank is equivalent to setting it to 0
     -- (transparent). All burn-in and DVB-Sub font settings must match.
-    shadowOpacity :: Core.Maybe Core.Natural,
+    shadowOpacity :: Prelude.Maybe Prelude.Natural,
     -- | Only applies to jobs with input captions in Teletext or STL formats.
     -- Specify whether the spacing between letters in your captions is set by
     -- the captions grid or varies depending on letter width. Choose fixed grid
     -- to conform to the spacing specified in the captions file more
     -- accurately. Choose proportional to make the text easier to read if the
     -- captions are closed caption.
-    teletextSpacing :: Core.Maybe BurninSubtitleTeletextSpacing,
+    teletextSpacing :: Prelude.Maybe BurninSubtitleTeletextSpacing,
     -- | Specifies the color of the shadow cast by the captions. All burn-in and
     -- DVB-Sub font settings must match.
-    shadowColor :: Core.Maybe BurninSubtitleShadowColor,
+    shadowColor :: Prelude.Maybe BurninSubtitleShadowColor,
     -- | Specifies font outline color. This option is not valid for source
     -- captions that are either 608\/embedded or teletext. These source
     -- settings are already pre-defined by the caption stream. All burn-in and
     -- DVB-Sub font settings must match.
-    outlineColor :: Core.Maybe BurninSubtitleOutlineColor,
+    outlineColor :: Prelude.Maybe BurninSubtitleOutlineColor,
     -- | Specifies the opacity of the background rectangle. 255 is opaque; 0 is
     -- transparent. Leaving this parameter blank is equivalent to setting it to
     -- 0 (transparent). All burn-in and DVB-Sub font settings must match.
-    backgroundOpacity :: Core.Maybe Core.Natural,
+    backgroundOpacity :: Prelude.Maybe Prelude.Natural,
     -- | Provide the font script, using an ISO 15924 script code, if the
     -- LanguageCode is not sufficient for determining the script type. Where
     -- LanguageCode or CustomLanguageCode is sufficient, use \"AUTOMATIC\" or
     -- leave unset. This is used to help determine the appropriate font for
     -- rendering burn-in captions.
-    fontScript :: Core.Maybe FontScript,
+    fontScript :: Prelude.Maybe FontScript,
     -- | Specifies the horizontal position of the caption relative to the left
     -- side of the output in pixels. A value of 10 would result in the captions
     -- starting 10 pixels from the left of the output. If no explicit
@@ -80,23 +81,23 @@ data BurninDestinationSettings = BurninDestinationSettings'
     -- source captions that are STL, 608\/embedded or teletext. These source
     -- settings are already pre-defined by the caption stream. All burn-in and
     -- DVB-Sub font settings must match.
-    xPosition :: Core.Maybe Core.Natural,
+    xPosition :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the color of the burned-in captions. This option is not valid
     -- for source captions that are STL, 608\/embedded or teletext. These
     -- source settings are already pre-defined by the caption stream. All
     -- burn-in and DVB-Sub font settings must match.
-    fontColor :: Core.Maybe BurninSubtitleFontColor,
+    fontColor :: Prelude.Maybe BurninSubtitleFontColor,
     -- | A positive integer indicates the exact font size in points. Set to 0 for
     -- automatic font size selection. All burn-in and DVB-Sub font settings
     -- must match.
-    fontSize :: Core.Maybe Core.Natural,
+    fontSize :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the color of the rectangle behind the captions. All burn-in
     -- and DVB-Sub font settings must match.
-    backgroundColor :: Core.Maybe BurninSubtitleBackgroundColor,
+    backgroundColor :: Prelude.Maybe BurninSubtitleBackgroundColor,
     -- | Specifies the horizontal offset of the shadow relative to the captions
     -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
     -- left. All burn-in and DVB-Sub font settings must match.
-    shadowXOffset :: Core.Maybe Core.Int,
+    shadowXOffset :: Prelude.Maybe Prelude.Int,
     -- | Specifies the vertical position of the caption relative to the top of
     -- the output in pixels. A value of 10 would result in the captions
     -- starting 10 pixels from the top of the output. If no explicit y_position
@@ -104,24 +105,24 @@ data BurninDestinationSettings = BurninDestinationSettings'
     -- output. This option is not valid for source captions that are STL,
     -- 608\/embedded or teletext. These source settings are already pre-defined
     -- by the caption stream. All burn-in and DVB-Sub font settings must match.
-    yPosition :: Core.Maybe Core.Natural,
+    yPosition :: Prelude.Maybe Prelude.Natural,
     -- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
     -- and DVB-Sub font settings must match.
-    fontResolution :: Core.Maybe Core.Natural,
+    fontResolution :: Prelude.Maybe Prelude.Natural,
     -- | Specifies font outline size in pixels. This option is not valid for
     -- source captions that are either 608\/embedded or teletext. These source
     -- settings are already pre-defined by the caption stream. All burn-in and
     -- DVB-Sub font settings must match.
-    outlineSize :: Core.Maybe Core.Natural,
+    outlineSize :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
     -- transparent. All burn-in and DVB-Sub font settings must match.
-    fontOpacity :: Core.Maybe Core.Natural,
+    fontOpacity :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the vertical offset of the shadow relative to the captions in
     -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
     -- text. All burn-in and DVB-Sub font settings must match.
-    shadowYOffset :: Core.Maybe Core.Int
+    shadowYOffset :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BurninDestinationSettings' with all optional fields omitted.
@@ -222,23 +223,23 @@ newBurninDestinationSettings ::
 newBurninDestinationSettings =
   BurninDestinationSettings'
     { alignment =
-        Core.Nothing,
-      shadowOpacity = Core.Nothing,
-      teletextSpacing = Core.Nothing,
-      shadowColor = Core.Nothing,
-      outlineColor = Core.Nothing,
-      backgroundOpacity = Core.Nothing,
-      fontScript = Core.Nothing,
-      xPosition = Core.Nothing,
-      fontColor = Core.Nothing,
-      fontSize = Core.Nothing,
-      backgroundColor = Core.Nothing,
-      shadowXOffset = Core.Nothing,
-      yPosition = Core.Nothing,
-      fontResolution = Core.Nothing,
-      outlineSize = Core.Nothing,
-      fontOpacity = Core.Nothing,
-      shadowYOffset = Core.Nothing
+        Prelude.Nothing,
+      shadowOpacity = Prelude.Nothing,
+      teletextSpacing = Prelude.Nothing,
+      shadowColor = Prelude.Nothing,
+      outlineColor = Prelude.Nothing,
+      backgroundOpacity = Prelude.Nothing,
+      fontScript = Prelude.Nothing,
+      xPosition = Prelude.Nothing,
+      fontColor = Prelude.Nothing,
+      fontSize = Prelude.Nothing,
+      backgroundColor = Prelude.Nothing,
+      shadowXOffset = Prelude.Nothing,
+      yPosition = Prelude.Nothing,
+      fontResolution = Prelude.Nothing,
+      outlineSize = Prelude.Nothing,
+      fontOpacity = Prelude.Nothing,
+      shadowYOffset = Prelude.Nothing
     }
 
 -- | If no explicit x_position or y_position is provided, setting alignment
@@ -250,13 +251,13 @@ newBurninDestinationSettings =
 -- source captions that are STL, 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
 -- DVB-Sub font settings must match.
-burninDestinationSettings_alignment :: Lens.Lens' BurninDestinationSettings (Core.Maybe BurninSubtitleAlignment)
+burninDestinationSettings_alignment :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleAlignment)
 burninDestinationSettings_alignment = Lens.lens (\BurninDestinationSettings' {alignment} -> alignment) (\s@BurninDestinationSettings' {} a -> s {alignment = a} :: BurninDestinationSettings)
 
 -- | Specifies the opacity of the shadow. 255 is opaque; 0 is transparent.
 -- Leaving this parameter blank is equivalent to setting it to 0
 -- (transparent). All burn-in and DVB-Sub font settings must match.
-burninDestinationSettings_shadowOpacity :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Natural)
+burninDestinationSettings_shadowOpacity :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_shadowOpacity = Lens.lens (\BurninDestinationSettings' {shadowOpacity} -> shadowOpacity) (\s@BurninDestinationSettings' {} a -> s {shadowOpacity = a} :: BurninDestinationSettings)
 
 -- | Only applies to jobs with input captions in Teletext or STL formats.
@@ -265,25 +266,25 @@ burninDestinationSettings_shadowOpacity = Lens.lens (\BurninDestinationSettings'
 -- to conform to the spacing specified in the captions file more
 -- accurately. Choose proportional to make the text easier to read if the
 -- captions are closed caption.
-burninDestinationSettings_teletextSpacing :: Lens.Lens' BurninDestinationSettings (Core.Maybe BurninSubtitleTeletextSpacing)
+burninDestinationSettings_teletextSpacing :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleTeletextSpacing)
 burninDestinationSettings_teletextSpacing = Lens.lens (\BurninDestinationSettings' {teletextSpacing} -> teletextSpacing) (\s@BurninDestinationSettings' {} a -> s {teletextSpacing = a} :: BurninDestinationSettings)
 
 -- | Specifies the color of the shadow cast by the captions. All burn-in and
 -- DVB-Sub font settings must match.
-burninDestinationSettings_shadowColor :: Lens.Lens' BurninDestinationSettings (Core.Maybe BurninSubtitleShadowColor)
+burninDestinationSettings_shadowColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleShadowColor)
 burninDestinationSettings_shadowColor = Lens.lens (\BurninDestinationSettings' {shadowColor} -> shadowColor) (\s@BurninDestinationSettings' {} a -> s {shadowColor = a} :: BurninDestinationSettings)
 
 -- | Specifies font outline color. This option is not valid for source
 -- captions that are either 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
 -- DVB-Sub font settings must match.
-burninDestinationSettings_outlineColor :: Lens.Lens' BurninDestinationSettings (Core.Maybe BurninSubtitleOutlineColor)
+burninDestinationSettings_outlineColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleOutlineColor)
 burninDestinationSettings_outlineColor = Lens.lens (\BurninDestinationSettings' {outlineColor} -> outlineColor) (\s@BurninDestinationSettings' {} a -> s {outlineColor = a} :: BurninDestinationSettings)
 
 -- | Specifies the opacity of the background rectangle. 255 is opaque; 0 is
 -- transparent. Leaving this parameter blank is equivalent to setting it to
 -- 0 (transparent). All burn-in and DVB-Sub font settings must match.
-burninDestinationSettings_backgroundOpacity :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Natural)
+burninDestinationSettings_backgroundOpacity :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_backgroundOpacity = Lens.lens (\BurninDestinationSettings' {backgroundOpacity} -> backgroundOpacity) (\s@BurninDestinationSettings' {} a -> s {backgroundOpacity = a} :: BurninDestinationSettings)
 
 -- | Provide the font script, using an ISO 15924 script code, if the
@@ -291,7 +292,7 @@ burninDestinationSettings_backgroundOpacity = Lens.lens (\BurninDestinationSetti
 -- LanguageCode or CustomLanguageCode is sufficient, use \"AUTOMATIC\" or
 -- leave unset. This is used to help determine the appropriate font for
 -- rendering burn-in captions.
-burninDestinationSettings_fontScript :: Lens.Lens' BurninDestinationSettings (Core.Maybe FontScript)
+burninDestinationSettings_fontScript :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe FontScript)
 burninDestinationSettings_fontScript = Lens.lens (\BurninDestinationSettings' {fontScript} -> fontScript) (\s@BurninDestinationSettings' {} a -> s {fontScript = a} :: BurninDestinationSettings)
 
 -- | Specifies the horizontal position of the caption relative to the left
@@ -302,31 +303,31 @@ burninDestinationSettings_fontScript = Lens.lens (\BurninDestinationSettings' {f
 -- source captions that are STL, 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
 -- DVB-Sub font settings must match.
-burninDestinationSettings_xPosition :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Natural)
+burninDestinationSettings_xPosition :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_xPosition = Lens.lens (\BurninDestinationSettings' {xPosition} -> xPosition) (\s@BurninDestinationSettings' {} a -> s {xPosition = a} :: BurninDestinationSettings)
 
 -- | Specifies the color of the burned-in captions. This option is not valid
 -- for source captions that are STL, 608\/embedded or teletext. These
 -- source settings are already pre-defined by the caption stream. All
 -- burn-in and DVB-Sub font settings must match.
-burninDestinationSettings_fontColor :: Lens.Lens' BurninDestinationSettings (Core.Maybe BurninSubtitleFontColor)
+burninDestinationSettings_fontColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleFontColor)
 burninDestinationSettings_fontColor = Lens.lens (\BurninDestinationSettings' {fontColor} -> fontColor) (\s@BurninDestinationSettings' {} a -> s {fontColor = a} :: BurninDestinationSettings)
 
 -- | A positive integer indicates the exact font size in points. Set to 0 for
 -- automatic font size selection. All burn-in and DVB-Sub font settings
 -- must match.
-burninDestinationSettings_fontSize :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Natural)
+burninDestinationSettings_fontSize :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_fontSize = Lens.lens (\BurninDestinationSettings' {fontSize} -> fontSize) (\s@BurninDestinationSettings' {} a -> s {fontSize = a} :: BurninDestinationSettings)
 
 -- | Specifies the color of the rectangle behind the captions. All burn-in
 -- and DVB-Sub font settings must match.
-burninDestinationSettings_backgroundColor :: Lens.Lens' BurninDestinationSettings (Core.Maybe BurninSubtitleBackgroundColor)
+burninDestinationSettings_backgroundColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleBackgroundColor)
 burninDestinationSettings_backgroundColor = Lens.lens (\BurninDestinationSettings' {backgroundColor} -> backgroundColor) (\s@BurninDestinationSettings' {} a -> s {backgroundColor = a} :: BurninDestinationSettings)
 
 -- | Specifies the horizontal offset of the shadow relative to the captions
 -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
 -- left. All burn-in and DVB-Sub font settings must match.
-burninDestinationSettings_shadowXOffset :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Int)
+burninDestinationSettings_shadowXOffset :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Int)
 burninDestinationSettings_shadowXOffset = Lens.lens (\BurninDestinationSettings' {shadowXOffset} -> shadowXOffset) (\s@BurninDestinationSettings' {} a -> s {shadowXOffset = a} :: BurninDestinationSettings)
 
 -- | Specifies the vertical position of the caption relative to the top of
@@ -336,30 +337,30 @@ burninDestinationSettings_shadowXOffset = Lens.lens (\BurninDestinationSettings'
 -- output. This option is not valid for source captions that are STL,
 -- 608\/embedded or teletext. These source settings are already pre-defined
 -- by the caption stream. All burn-in and DVB-Sub font settings must match.
-burninDestinationSettings_yPosition :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Natural)
+burninDestinationSettings_yPosition :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_yPosition = Lens.lens (\BurninDestinationSettings' {yPosition} -> yPosition) (\s@BurninDestinationSettings' {} a -> s {yPosition = a} :: BurninDestinationSettings)
 
 -- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
 -- and DVB-Sub font settings must match.
-burninDestinationSettings_fontResolution :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Natural)
+burninDestinationSettings_fontResolution :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_fontResolution = Lens.lens (\BurninDestinationSettings' {fontResolution} -> fontResolution) (\s@BurninDestinationSettings' {} a -> s {fontResolution = a} :: BurninDestinationSettings)
 
 -- | Specifies font outline size in pixels. This option is not valid for
 -- source captions that are either 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
 -- DVB-Sub font settings must match.
-burninDestinationSettings_outlineSize :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Natural)
+burninDestinationSettings_outlineSize :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_outlineSize = Lens.lens (\BurninDestinationSettings' {outlineSize} -> outlineSize) (\s@BurninDestinationSettings' {} a -> s {outlineSize = a} :: BurninDestinationSettings)
 
 -- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
 -- transparent. All burn-in and DVB-Sub font settings must match.
-burninDestinationSettings_fontOpacity :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Natural)
+burninDestinationSettings_fontOpacity :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_fontOpacity = Lens.lens (\BurninDestinationSettings' {fontOpacity} -> fontOpacity) (\s@BurninDestinationSettings' {} a -> s {fontOpacity = a} :: BurninDestinationSettings)
 
 -- | Specifies the vertical offset of the shadow relative to the captions in
 -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
 -- text. All burn-in and DVB-Sub font settings must match.
-burninDestinationSettings_shadowYOffset :: Lens.Lens' BurninDestinationSettings (Core.Maybe Core.Int)
+burninDestinationSettings_shadowYOffset :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Int)
 burninDestinationSettings_shadowYOffset = Lens.lens (\BurninDestinationSettings' {shadowYOffset} -> shadowYOffset) (\s@BurninDestinationSettings' {} a -> s {shadowYOffset = a} :: BurninDestinationSettings)
 
 instance Core.FromJSON BurninDestinationSettings where
@@ -368,50 +369,53 @@ instance Core.FromJSON BurninDestinationSettings where
       "BurninDestinationSettings"
       ( \x ->
           BurninDestinationSettings'
-            Core.<$> (x Core..:? "alignment")
-            Core.<*> (x Core..:? "shadowOpacity")
-            Core.<*> (x Core..:? "teletextSpacing")
-            Core.<*> (x Core..:? "shadowColor")
-            Core.<*> (x Core..:? "outlineColor")
-            Core.<*> (x Core..:? "backgroundOpacity")
-            Core.<*> (x Core..:? "fontScript")
-            Core.<*> (x Core..:? "xPosition")
-            Core.<*> (x Core..:? "fontColor")
-            Core.<*> (x Core..:? "fontSize")
-            Core.<*> (x Core..:? "backgroundColor")
-            Core.<*> (x Core..:? "shadowXOffset")
-            Core.<*> (x Core..:? "yPosition")
-            Core.<*> (x Core..:? "fontResolution")
-            Core.<*> (x Core..:? "outlineSize")
-            Core.<*> (x Core..:? "fontOpacity")
-            Core.<*> (x Core..:? "shadowYOffset")
+            Prelude.<$> (x Core..:? "alignment")
+            Prelude.<*> (x Core..:? "shadowOpacity")
+            Prelude.<*> (x Core..:? "teletextSpacing")
+            Prelude.<*> (x Core..:? "shadowColor")
+            Prelude.<*> (x Core..:? "outlineColor")
+            Prelude.<*> (x Core..:? "backgroundOpacity")
+            Prelude.<*> (x Core..:? "fontScript")
+            Prelude.<*> (x Core..:? "xPosition")
+            Prelude.<*> (x Core..:? "fontColor")
+            Prelude.<*> (x Core..:? "fontSize")
+            Prelude.<*> (x Core..:? "backgroundColor")
+            Prelude.<*> (x Core..:? "shadowXOffset")
+            Prelude.<*> (x Core..:? "yPosition")
+            Prelude.<*> (x Core..:? "fontResolution")
+            Prelude.<*> (x Core..:? "outlineSize")
+            Prelude.<*> (x Core..:? "fontOpacity")
+            Prelude.<*> (x Core..:? "shadowYOffset")
       )
 
-instance Core.Hashable BurninDestinationSettings
+instance Prelude.Hashable BurninDestinationSettings
 
-instance Core.NFData BurninDestinationSettings
+instance Prelude.NFData BurninDestinationSettings
 
 instance Core.ToJSON BurninDestinationSettings where
   toJSON BurninDestinationSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("alignment" Core..=) Core.<$> alignment,
-            ("shadowOpacity" Core..=) Core.<$> shadowOpacity,
-            ("teletextSpacing" Core..=) Core.<$> teletextSpacing,
-            ("shadowColor" Core..=) Core.<$> shadowColor,
-            ("outlineColor" Core..=) Core.<$> outlineColor,
+      ( Prelude.catMaybes
+          [ ("alignment" Core..=) Prelude.<$> alignment,
+            ("shadowOpacity" Core..=) Prelude.<$> shadowOpacity,
+            ("teletextSpacing" Core..=)
+              Prelude.<$> teletextSpacing,
+            ("shadowColor" Core..=) Prelude.<$> shadowColor,
+            ("outlineColor" Core..=) Prelude.<$> outlineColor,
             ("backgroundOpacity" Core..=)
-              Core.<$> backgroundOpacity,
-            ("fontScript" Core..=) Core.<$> fontScript,
-            ("xPosition" Core..=) Core.<$> xPosition,
-            ("fontColor" Core..=) Core.<$> fontColor,
-            ("fontSize" Core..=) Core.<$> fontSize,
-            ("backgroundColor" Core..=) Core.<$> backgroundColor,
-            ("shadowXOffset" Core..=) Core.<$> shadowXOffset,
-            ("yPosition" Core..=) Core.<$> yPosition,
-            ("fontResolution" Core..=) Core.<$> fontResolution,
-            ("outlineSize" Core..=) Core.<$> outlineSize,
-            ("fontOpacity" Core..=) Core.<$> fontOpacity,
-            ("shadowYOffset" Core..=) Core.<$> shadowYOffset
+              Prelude.<$> backgroundOpacity,
+            ("fontScript" Core..=) Prelude.<$> fontScript,
+            ("xPosition" Core..=) Prelude.<$> xPosition,
+            ("fontColor" Core..=) Prelude.<$> fontColor,
+            ("fontSize" Core..=) Prelude.<$> fontSize,
+            ("backgroundColor" Core..=)
+              Prelude.<$> backgroundColor,
+            ("shadowXOffset" Core..=) Prelude.<$> shadowXOffset,
+            ("yPosition" Core..=) Prelude.<$> yPosition,
+            ("fontResolution" Core..=)
+              Prelude.<$> fontResolution,
+            ("outlineSize" Core..=) Prelude.<$> outlineSize,
+            ("fontOpacity" Core..=) Prelude.<$> fontOpacity,
+            ("shadowYOffset" Core..=) Prelude.<$> shadowYOffset
           ]
       )

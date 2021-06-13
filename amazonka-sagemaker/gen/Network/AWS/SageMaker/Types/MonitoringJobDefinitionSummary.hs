@@ -21,21 +21,22 @@ module Network.AWS.SageMaker.Types.MonitoringJobDefinitionSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about a monitoring job.
 --
 -- /See:/ 'newMonitoringJobDefinitionSummary' smart constructor.
 data MonitoringJobDefinitionSummary = MonitoringJobDefinitionSummary'
   { -- | The name of the monitoring job.
-    monitoringJobDefinitionName :: Core.Text,
+    monitoringJobDefinitionName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the monitoring job.
-    monitoringJobDefinitionArn :: Core.Text,
+    monitoringJobDefinitionArn :: Prelude.Text,
     -- | The time that the monitoring job was created.
     creationTime :: Core.POSIX,
     -- | The name of the endpoint that the job monitors.
-    endpointName :: Core.Text
+    endpointName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringJobDefinitionSummary' with all optional fields omitted.
@@ -54,13 +55,13 @@ data MonitoringJobDefinitionSummary = MonitoringJobDefinitionSummary'
 -- 'endpointName', 'monitoringJobDefinitionSummary_endpointName' - The name of the endpoint that the job monitors.
 newMonitoringJobDefinitionSummary ::
   -- | 'monitoringJobDefinitionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'monitoringJobDefinitionArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endpointName'
-  Core.Text ->
+  Prelude.Text ->
   MonitoringJobDefinitionSummary
 newMonitoringJobDefinitionSummary
   pMonitoringJobDefinitionName_
@@ -78,19 +79,19 @@ newMonitoringJobDefinitionSummary
       }
 
 -- | The name of the monitoring job.
-monitoringJobDefinitionSummary_monitoringJobDefinitionName :: Lens.Lens' MonitoringJobDefinitionSummary Core.Text
+monitoringJobDefinitionSummary_monitoringJobDefinitionName :: Lens.Lens' MonitoringJobDefinitionSummary Prelude.Text
 monitoringJobDefinitionSummary_monitoringJobDefinitionName = Lens.lens (\MonitoringJobDefinitionSummary' {monitoringJobDefinitionName} -> monitoringJobDefinitionName) (\s@MonitoringJobDefinitionSummary' {} a -> s {monitoringJobDefinitionName = a} :: MonitoringJobDefinitionSummary)
 
 -- | The Amazon Resource Name (ARN) of the monitoring job.
-monitoringJobDefinitionSummary_monitoringJobDefinitionArn :: Lens.Lens' MonitoringJobDefinitionSummary Core.Text
+monitoringJobDefinitionSummary_monitoringJobDefinitionArn :: Lens.Lens' MonitoringJobDefinitionSummary Prelude.Text
 monitoringJobDefinitionSummary_monitoringJobDefinitionArn = Lens.lens (\MonitoringJobDefinitionSummary' {monitoringJobDefinitionArn} -> monitoringJobDefinitionArn) (\s@MonitoringJobDefinitionSummary' {} a -> s {monitoringJobDefinitionArn = a} :: MonitoringJobDefinitionSummary)
 
 -- | The time that the monitoring job was created.
-monitoringJobDefinitionSummary_creationTime :: Lens.Lens' MonitoringJobDefinitionSummary Core.UTCTime
-monitoringJobDefinitionSummary_creationTime = Lens.lens (\MonitoringJobDefinitionSummary' {creationTime} -> creationTime) (\s@MonitoringJobDefinitionSummary' {} a -> s {creationTime = a} :: MonitoringJobDefinitionSummary) Core.. Core._Time
+monitoringJobDefinitionSummary_creationTime :: Lens.Lens' MonitoringJobDefinitionSummary Prelude.UTCTime
+monitoringJobDefinitionSummary_creationTime = Lens.lens (\MonitoringJobDefinitionSummary' {creationTime} -> creationTime) (\s@MonitoringJobDefinitionSummary' {} a -> s {creationTime = a} :: MonitoringJobDefinitionSummary) Prelude.. Core._Time
 
 -- | The name of the endpoint that the job monitors.
-monitoringJobDefinitionSummary_endpointName :: Lens.Lens' MonitoringJobDefinitionSummary Core.Text
+monitoringJobDefinitionSummary_endpointName :: Lens.Lens' MonitoringJobDefinitionSummary Prelude.Text
 monitoringJobDefinitionSummary_endpointName = Lens.lens (\MonitoringJobDefinitionSummary' {endpointName} -> endpointName) (\s@MonitoringJobDefinitionSummary' {} a -> s {endpointName = a} :: MonitoringJobDefinitionSummary)
 
 instance Core.FromJSON MonitoringJobDefinitionSummary where
@@ -99,12 +100,16 @@ instance Core.FromJSON MonitoringJobDefinitionSummary where
       "MonitoringJobDefinitionSummary"
       ( \x ->
           MonitoringJobDefinitionSummary'
-            Core.<$> (x Core..: "MonitoringJobDefinitionName")
-            Core.<*> (x Core..: "MonitoringJobDefinitionArn")
-            Core.<*> (x Core..: "CreationTime")
-            Core.<*> (x Core..: "EndpointName")
+            Prelude.<$> (x Core..: "MonitoringJobDefinitionName")
+            Prelude.<*> (x Core..: "MonitoringJobDefinitionArn")
+            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Core..: "EndpointName")
       )
 
-instance Core.Hashable MonitoringJobDefinitionSummary
+instance
+  Prelude.Hashable
+    MonitoringJobDefinitionSummary
 
-instance Core.NFData MonitoringJobDefinitionSummary
+instance
+  Prelude.NFData
+    MonitoringJobDefinitionSummary

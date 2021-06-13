@@ -94,6 +94,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -106,7 +107,7 @@ data CreateServer = CreateServer'
     -- If you do not specify this parameter, AWS OpsWorks CM creates one new
     -- security group that uses TCP ports 22 and 443, open to 0.0.0.0\/0
     -- (everyone).
-    securityGroupIds :: Core.Maybe [Core.Text],
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The start time for a one-hour period during which AWS OpsWorks CM backs
     -- up application-level data on your server if automated backups are
     -- enabled. Valid values must be specified in one of the following formats:
@@ -122,15 +123,15 @@ data CreateServer = CreateServer'
     --
     -- __Example:__ @Mon:08:00@, which represents a start time of every Monday
     -- at 08:00 UTC. (8:00 a.m.)
-    preferredBackupWindow :: Core.Maybe Core.Text,
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | Enable or disable scheduled backups. Valid values are @true@ or @false@.
     -- The default value is @true@.
-    disableAutomatedBackup :: Core.Maybe Core.Bool,
+    disableAutomatedBackup :: Prelude.Maybe Prelude.Bool,
     -- | A private key in PEM format for connecting to the server by using HTTPS.
     -- The private key must not be encrypted; it cannot be protected by a
     -- password or passphrase. If you specify a custom private key, you must
     -- also specify values for @CustomDomain@ and @CustomCertificate@.
-    customPrivateKey :: Core.Maybe (Core.Sensitive Core.Text),
+    customPrivateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Optional engine attributes on a specified server.
     --
     -- __Attributes accepted in a Chef createServer request:__
@@ -162,7 +163,7 @@ data CreateServer = CreateServer'
     -- -   @PUPPET_R10K_PRIVATE_KEY@: If you are using a private Git
     --     repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded
     --     private SSH key.
-    engineAttributes :: Core.Maybe [EngineAttribute],
+    engineAttributes :: Prelude.Maybe [EngineAttribute],
     -- | An optional public endpoint of a server, such as
     -- @https:\/\/aws.my-company.com@. To access the server, create a CNAME DNS
     -- record in your preferred DNS service that points the custom domain to
@@ -171,10 +172,10 @@ data CreateServer = CreateServer'
     -- using the generated @Endpoint@ value if the server is using a custom
     -- domain. If you specify a custom domain, you must also specify values for
     -- @CustomCertificate@ and @CustomPrivateKey@.
-    customDomain :: Core.Maybe Core.Text,
+    customDomain :: Prelude.Maybe Prelude.Text,
     -- | If you specify this field, AWS OpsWorks CM creates the server by using
     -- the backup represented by BackupId.
-    backupId :: Core.Maybe Core.Text,
+    backupId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of subnets in which to launch the server EC2 instance.
     --
     -- Amazon EC2-Classic customers: This field is required. All servers must
@@ -187,18 +188,18 @@ data CreateServer = CreateServer'
     --
     -- For more information about supported Amazon EC2 platforms, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon EC2 key pair to set for the instance. This parameter is
     -- optional; if desired, you may specify this parameter to connect to your
     -- instances by using SSH.
-    keyPair :: Core.Maybe Core.Text,
+    keyPair :: Prelude.Maybe Prelude.Text,
     -- | Associate a public IP address with a server that you are launching.
     -- Valid values are @true@ or @false@. The default value is @true@.
-    associatePublicIpAddress :: Core.Maybe Core.Bool,
+    associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
     -- | The major release version of the engine that you want to use. For a Chef
     -- server, the valid value for EngineVersion is currently @2@. For a Puppet
     -- server, the valid value is @2017@.
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The start time for a one-hour period each week during which AWS OpsWorks
     -- CM performs maintenance on the instance. Valid values must be specified
     -- in the following format: @DDD:HH:MM@. @MM@ must be specified as @00@.
@@ -208,7 +209,7 @@ data CreateServer = CreateServer'
     --
     -- __Example:__ @Mon:08:00@, which represents a start time of every Monday
     -- at 08:00 UTC. (8:00 a.m.)
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | A map that contains tag keys and tag values to attach to an AWS OpsWorks
     -- for Chef Automate or AWS OpsWorks for Puppet Enterprise server.
     --
@@ -227,14 +228,14 @@ data CreateServer = CreateServer'
     --
     -- -   A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM
     --     server.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The number of automated backups that you want to keep. Whenever a new
     -- backup is created, AWS OpsWorks CM deletes the oldest backups if this
     -- number is exceeded. The default value is @1@.
-    backupRetentionCount :: Core.Maybe Core.Natural,
+    backupRetentionCount :: Prelude.Maybe Prelude.Natural,
     -- | The engine model of the server. Valid values in this release include
     -- @Monolithic@ for Puppet and @Single@ for Chef.
-    engineModel :: Core.Maybe Core.Text,
+    engineModel :: Prelude.Maybe Prelude.Text,
     -- | A PEM-formatted HTTPS certificate. The value can be be a single,
     -- self-signed certificate, or a certificate chain. If you specify a custom
     -- certificate, you must also specify values for @CustomDomain@ and
@@ -256,15 +257,15 @@ data CreateServer = CreateServer'
     --     if present, must match the value of @CustomDomain@.
     --
     -- -   The certificate must match the value of @CustomPrivateKey@.
-    customCertificate :: Core.Maybe Core.Text,
+    customCertificate :: Prelude.Maybe Prelude.Text,
     -- | The configuration management engine to use. Valid values include
     -- @ChefAutomate@ and @Puppet@.
-    engine :: Core.Text,
+    engine :: Prelude.Text,
     -- | The name of the server. The server name must be unique within your AWS
     -- account, within each region. Server names must start with a letter; then
     -- letters, numbers, or hyphens (-) are allowed, up to a maximum of 40
     -- characters.
-    serverName :: Core.Text,
+    serverName :: Prelude.Text,
     -- | The ARN of the instance profile that your Amazon EC2 instances use.
     -- Although the AWS OpsWorks console typically creates the instance profile
     -- for you, if you are using API commands instead, run the
@@ -272,9 +273,9 @@ data CreateServer = CreateServer'
     -- https:\/\/s3.amazonaws.com\/opsworks-cm-us-east-1-prod-default-assets\/misc\/opsworks-cm-roles.yaml.
     -- This template creates a CloudFormation stack that includes the instance
     -- profile you need.
-    instanceProfileArn :: Core.Text,
+    instanceProfileArn :: Prelude.Text,
     -- | The Amazon EC2 instance type to use. For example, @m5.large@.
-    instanceType :: Core.Text,
+    instanceType :: Prelude.Text,
     -- | The service role that the AWS OpsWorks CM service backend uses to work
     -- with your account. Although the AWS OpsWorks management console
     -- typically creates the service role for you, if you are using the AWS CLI
@@ -283,9 +284,9 @@ data CreateServer = CreateServer'
     -- https:\/\/s3.amazonaws.com\/opsworks-cm-us-east-1-prod-default-assets\/misc\/opsworks-cm-roles.yaml.
     -- This template creates a CloudFormation stack that includes the service
     -- role and instance profile that you need.
-    serviceRoleArn :: Core.Text
+    serviceRoleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateServer' with all optional fields omitted.
@@ -481,15 +482,15 @@ data CreateServer = CreateServer'
 -- role and instance profile that you need.
 newCreateServer ::
   -- | 'engine'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serverName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceProfileArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateServer
 newCreateServer
   pEngine_
@@ -498,22 +499,22 @@ newCreateServer
   pInstanceType_
   pServiceRoleArn_ =
     CreateServer'
-      { securityGroupIds = Core.Nothing,
-        preferredBackupWindow = Core.Nothing,
-        disableAutomatedBackup = Core.Nothing,
-        customPrivateKey = Core.Nothing,
-        engineAttributes = Core.Nothing,
-        customDomain = Core.Nothing,
-        backupId = Core.Nothing,
-        subnetIds = Core.Nothing,
-        keyPair = Core.Nothing,
-        associatePublicIpAddress = Core.Nothing,
-        engineVersion = Core.Nothing,
-        preferredMaintenanceWindow = Core.Nothing,
-        tags = Core.Nothing,
-        backupRetentionCount = Core.Nothing,
-        engineModel = Core.Nothing,
-        customCertificate = Core.Nothing,
+      { securityGroupIds = Prelude.Nothing,
+        preferredBackupWindow = Prelude.Nothing,
+        disableAutomatedBackup = Prelude.Nothing,
+        customPrivateKey = Prelude.Nothing,
+        engineAttributes = Prelude.Nothing,
+        customDomain = Prelude.Nothing,
+        backupId = Prelude.Nothing,
+        subnetIds = Prelude.Nothing,
+        keyPair = Prelude.Nothing,
+        associatePublicIpAddress = Prelude.Nothing,
+        engineVersion = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        backupRetentionCount = Prelude.Nothing,
+        engineModel = Prelude.Nothing,
+        customCertificate = Prelude.Nothing,
         engine = pEngine_,
         serverName = pServerName_,
         instanceProfileArn = pInstanceProfileArn_,
@@ -528,8 +529,8 @@ newCreateServer
 -- If you do not specify this parameter, AWS OpsWorks CM creates one new
 -- security group that uses TCP ports 22 and 443, open to 0.0.0.0\/0
 -- (everyone).
-createServer_securityGroupIds :: Lens.Lens' CreateServer (Core.Maybe [Core.Text])
-createServer_securityGroupIds = Lens.lens (\CreateServer' {securityGroupIds} -> securityGroupIds) (\s@CreateServer' {} a -> s {securityGroupIds = a} :: CreateServer) Core.. Lens.mapping Lens._Coerce
+createServer_securityGroupIds :: Lens.Lens' CreateServer (Prelude.Maybe [Prelude.Text])
+createServer_securityGroupIds = Lens.lens (\CreateServer' {securityGroupIds} -> securityGroupIds) (\s@CreateServer' {} a -> s {securityGroupIds = a} :: CreateServer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The start time for a one-hour period during which AWS OpsWorks CM backs
 -- up application-level data on your server if automated backups are
@@ -546,20 +547,20 @@ createServer_securityGroupIds = Lens.lens (\CreateServer' {securityGroupIds} -> 
 --
 -- __Example:__ @Mon:08:00@, which represents a start time of every Monday
 -- at 08:00 UTC. (8:00 a.m.)
-createServer_preferredBackupWindow :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
+createServer_preferredBackupWindow :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_preferredBackupWindow = Lens.lens (\CreateServer' {preferredBackupWindow} -> preferredBackupWindow) (\s@CreateServer' {} a -> s {preferredBackupWindow = a} :: CreateServer)
 
 -- | Enable or disable scheduled backups. Valid values are @true@ or @false@.
 -- The default value is @true@.
-createServer_disableAutomatedBackup :: Lens.Lens' CreateServer (Core.Maybe Core.Bool)
+createServer_disableAutomatedBackup :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Bool)
 createServer_disableAutomatedBackup = Lens.lens (\CreateServer' {disableAutomatedBackup} -> disableAutomatedBackup) (\s@CreateServer' {} a -> s {disableAutomatedBackup = a} :: CreateServer)
 
 -- | A private key in PEM format for connecting to the server by using HTTPS.
 -- The private key must not be encrypted; it cannot be protected by a
 -- password or passphrase. If you specify a custom private key, you must
 -- also specify values for @CustomDomain@ and @CustomCertificate@.
-createServer_customPrivateKey :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
-createServer_customPrivateKey = Lens.lens (\CreateServer' {customPrivateKey} -> customPrivateKey) (\s@CreateServer' {} a -> s {customPrivateKey = a} :: CreateServer) Core.. Lens.mapping Core._Sensitive
+createServer_customPrivateKey :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
+createServer_customPrivateKey = Lens.lens (\CreateServer' {customPrivateKey} -> customPrivateKey) (\s@CreateServer' {} a -> s {customPrivateKey = a} :: CreateServer) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Optional engine attributes on a specified server.
 --
@@ -592,8 +593,8 @@ createServer_customPrivateKey = Lens.lens (\CreateServer' {customPrivateKey} -> 
 -- -   @PUPPET_R10K_PRIVATE_KEY@: If you are using a private Git
 --     repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded
 --     private SSH key.
-createServer_engineAttributes :: Lens.Lens' CreateServer (Core.Maybe [EngineAttribute])
-createServer_engineAttributes = Lens.lens (\CreateServer' {engineAttributes} -> engineAttributes) (\s@CreateServer' {} a -> s {engineAttributes = a} :: CreateServer) Core.. Lens.mapping Lens._Coerce
+createServer_engineAttributes :: Lens.Lens' CreateServer (Prelude.Maybe [EngineAttribute])
+createServer_engineAttributes = Lens.lens (\CreateServer' {engineAttributes} -> engineAttributes) (\s@CreateServer' {} a -> s {engineAttributes = a} :: CreateServer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional public endpoint of a server, such as
 -- @https:\/\/aws.my-company.com@. To access the server, create a CNAME DNS
@@ -603,12 +604,12 @@ createServer_engineAttributes = Lens.lens (\CreateServer' {engineAttributes} -> 
 -- using the generated @Endpoint@ value if the server is using a custom
 -- domain. If you specify a custom domain, you must also specify values for
 -- @CustomCertificate@ and @CustomPrivateKey@.
-createServer_customDomain :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
+createServer_customDomain :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_customDomain = Lens.lens (\CreateServer' {customDomain} -> customDomain) (\s@CreateServer' {} a -> s {customDomain = a} :: CreateServer)
 
 -- | If you specify this field, AWS OpsWorks CM creates the server by using
 -- the backup represented by BackupId.
-createServer_backupId :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
+createServer_backupId :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_backupId = Lens.lens (\CreateServer' {backupId} -> backupId) (\s@CreateServer' {} a -> s {backupId = a} :: CreateServer)
 
 -- | The IDs of subnets in which to launch the server EC2 instance.
@@ -623,24 +624,24 @@ createServer_backupId = Lens.lens (\CreateServer' {backupId} -> backupId) (\s@Cr
 --
 -- For more information about supported Amazon EC2 platforms, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-createServer_subnetIds :: Lens.Lens' CreateServer (Core.Maybe [Core.Text])
-createServer_subnetIds = Lens.lens (\CreateServer' {subnetIds} -> subnetIds) (\s@CreateServer' {} a -> s {subnetIds = a} :: CreateServer) Core.. Lens.mapping Lens._Coerce
+createServer_subnetIds :: Lens.Lens' CreateServer (Prelude.Maybe [Prelude.Text])
+createServer_subnetIds = Lens.lens (\CreateServer' {subnetIds} -> subnetIds) (\s@CreateServer' {} a -> s {subnetIds = a} :: CreateServer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon EC2 key pair to set for the instance. This parameter is
 -- optional; if desired, you may specify this parameter to connect to your
 -- instances by using SSH.
-createServer_keyPair :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
+createServer_keyPair :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_keyPair = Lens.lens (\CreateServer' {keyPair} -> keyPair) (\s@CreateServer' {} a -> s {keyPair = a} :: CreateServer)
 
 -- | Associate a public IP address with a server that you are launching.
 -- Valid values are @true@ or @false@. The default value is @true@.
-createServer_associatePublicIpAddress :: Lens.Lens' CreateServer (Core.Maybe Core.Bool)
+createServer_associatePublicIpAddress :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Bool)
 createServer_associatePublicIpAddress = Lens.lens (\CreateServer' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@CreateServer' {} a -> s {associatePublicIpAddress = a} :: CreateServer)
 
 -- | The major release version of the engine that you want to use. For a Chef
 -- server, the valid value for EngineVersion is currently @2@. For a Puppet
 -- server, the valid value is @2017@.
-createServer_engineVersion :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
+createServer_engineVersion :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_engineVersion = Lens.lens (\CreateServer' {engineVersion} -> engineVersion) (\s@CreateServer' {} a -> s {engineVersion = a} :: CreateServer)
 
 -- | The start time for a one-hour period each week during which AWS OpsWorks
@@ -652,7 +653,7 @@ createServer_engineVersion = Lens.lens (\CreateServer' {engineVersion} -> engine
 --
 -- __Example:__ @Mon:08:00@, which represents a start time of every Monday
 -- at 08:00 UTC. (8:00 a.m.)
-createServer_preferredMaintenanceWindow :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
+createServer_preferredMaintenanceWindow :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_preferredMaintenanceWindow = Lens.lens (\CreateServer' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateServer' {} a -> s {preferredMaintenanceWindow = a} :: CreateServer)
 
 -- | A map that contains tag keys and tag values to attach to an AWS OpsWorks
@@ -673,18 +674,18 @@ createServer_preferredMaintenanceWindow = Lens.lens (\CreateServer' {preferredMa
 --
 -- -   A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM
 --     server.
-createServer_tags :: Lens.Lens' CreateServer (Core.Maybe [Tag])
-createServer_tags = Lens.lens (\CreateServer' {tags} -> tags) (\s@CreateServer' {} a -> s {tags = a} :: CreateServer) Core.. Lens.mapping Lens._Coerce
+createServer_tags :: Lens.Lens' CreateServer (Prelude.Maybe [Tag])
+createServer_tags = Lens.lens (\CreateServer' {tags} -> tags) (\s@CreateServer' {} a -> s {tags = a} :: CreateServer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of automated backups that you want to keep. Whenever a new
 -- backup is created, AWS OpsWorks CM deletes the oldest backups if this
 -- number is exceeded. The default value is @1@.
-createServer_backupRetentionCount :: Lens.Lens' CreateServer (Core.Maybe Core.Natural)
+createServer_backupRetentionCount :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Natural)
 createServer_backupRetentionCount = Lens.lens (\CreateServer' {backupRetentionCount} -> backupRetentionCount) (\s@CreateServer' {} a -> s {backupRetentionCount = a} :: CreateServer)
 
 -- | The engine model of the server. Valid values in this release include
 -- @Monolithic@ for Puppet and @Single@ for Chef.
-createServer_engineModel :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
+createServer_engineModel :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_engineModel = Lens.lens (\CreateServer' {engineModel} -> engineModel) (\s@CreateServer' {} a -> s {engineModel = a} :: CreateServer)
 
 -- | A PEM-formatted HTTPS certificate. The value can be be a single,
@@ -708,19 +709,19 @@ createServer_engineModel = Lens.lens (\CreateServer' {engineModel} -> engineMode
 --     if present, must match the value of @CustomDomain@.
 --
 -- -   The certificate must match the value of @CustomPrivateKey@.
-createServer_customCertificate :: Lens.Lens' CreateServer (Core.Maybe Core.Text)
+createServer_customCertificate :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_customCertificate = Lens.lens (\CreateServer' {customCertificate} -> customCertificate) (\s@CreateServer' {} a -> s {customCertificate = a} :: CreateServer)
 
 -- | The configuration management engine to use. Valid values include
 -- @ChefAutomate@ and @Puppet@.
-createServer_engine :: Lens.Lens' CreateServer Core.Text
+createServer_engine :: Lens.Lens' CreateServer Prelude.Text
 createServer_engine = Lens.lens (\CreateServer' {engine} -> engine) (\s@CreateServer' {} a -> s {engine = a} :: CreateServer)
 
 -- | The name of the server. The server name must be unique within your AWS
 -- account, within each region. Server names must start with a letter; then
 -- letters, numbers, or hyphens (-) are allowed, up to a maximum of 40
 -- characters.
-createServer_serverName :: Lens.Lens' CreateServer Core.Text
+createServer_serverName :: Lens.Lens' CreateServer Prelude.Text
 createServer_serverName = Lens.lens (\CreateServer' {serverName} -> serverName) (\s@CreateServer' {} a -> s {serverName = a} :: CreateServer)
 
 -- | The ARN of the instance profile that your Amazon EC2 instances use.
@@ -730,11 +731,11 @@ createServer_serverName = Lens.lens (\CreateServer' {serverName} -> serverName) 
 -- https:\/\/s3.amazonaws.com\/opsworks-cm-us-east-1-prod-default-assets\/misc\/opsworks-cm-roles.yaml.
 -- This template creates a CloudFormation stack that includes the instance
 -- profile you need.
-createServer_instanceProfileArn :: Lens.Lens' CreateServer Core.Text
+createServer_instanceProfileArn :: Lens.Lens' CreateServer Prelude.Text
 createServer_instanceProfileArn = Lens.lens (\CreateServer' {instanceProfileArn} -> instanceProfileArn) (\s@CreateServer' {} a -> s {instanceProfileArn = a} :: CreateServer)
 
 -- | The Amazon EC2 instance type to use. For example, @m5.large@.
-createServer_instanceType :: Lens.Lens' CreateServer Core.Text
+createServer_instanceType :: Lens.Lens' CreateServer Prelude.Text
 createServer_instanceType = Lens.lens (\CreateServer' {instanceType} -> instanceType) (\s@CreateServer' {} a -> s {instanceType = a} :: CreateServer)
 
 -- | The service role that the AWS OpsWorks CM service backend uses to work
@@ -745,7 +746,7 @@ createServer_instanceType = Lens.lens (\CreateServer' {instanceType} -> instance
 -- https:\/\/s3.amazonaws.com\/opsworks-cm-us-east-1-prod-default-assets\/misc\/opsworks-cm-roles.yaml.
 -- This template creates a CloudFormation stack that includes the service
 -- role and instance profile that you need.
-createServer_serviceRoleArn :: Lens.Lens' CreateServer Core.Text
+createServer_serviceRoleArn :: Lens.Lens' CreateServer Prelude.Text
 createServer_serviceRoleArn = Lens.lens (\CreateServer' {serviceRoleArn} -> serviceRoleArn) (\s@CreateServer' {} a -> s {serviceRoleArn = a} :: CreateServer)
 
 instance Core.AWSRequest CreateServer where
@@ -755,79 +756,82 @@ instance Core.AWSRequest CreateServer where
     Response.receiveJSON
       ( \s h x ->
           CreateServerResponse'
-            Core.<$> (x Core..?> "Server")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Server")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateServer
+instance Prelude.Hashable CreateServer
 
-instance Core.NFData CreateServer
+instance Prelude.NFData CreateServer
 
 instance Core.ToHeaders CreateServer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.CreateServer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateServer where
   toJSON CreateServer' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SecurityGroupIds" Core..=)
-              Core.<$> securityGroupIds,
+              Prelude.<$> securityGroupIds,
             ("PreferredBackupWindow" Core..=)
-              Core.<$> preferredBackupWindow,
+              Prelude.<$> preferredBackupWindow,
             ("DisableAutomatedBackup" Core..=)
-              Core.<$> disableAutomatedBackup,
+              Prelude.<$> disableAutomatedBackup,
             ("CustomPrivateKey" Core..=)
-              Core.<$> customPrivateKey,
+              Prelude.<$> customPrivateKey,
             ("EngineAttributes" Core..=)
-              Core.<$> engineAttributes,
-            ("CustomDomain" Core..=) Core.<$> customDomain,
-            ("BackupId" Core..=) Core.<$> backupId,
-            ("SubnetIds" Core..=) Core.<$> subnetIds,
-            ("KeyPair" Core..=) Core.<$> keyPair,
+              Prelude.<$> engineAttributes,
+            ("CustomDomain" Core..=) Prelude.<$> customDomain,
+            ("BackupId" Core..=) Prelude.<$> backupId,
+            ("SubnetIds" Core..=) Prelude.<$> subnetIds,
+            ("KeyPair" Core..=) Prelude.<$> keyPair,
             ("AssociatePublicIpAddress" Core..=)
-              Core.<$> associatePublicIpAddress,
-            ("EngineVersion" Core..=) Core.<$> engineVersion,
+              Prelude.<$> associatePublicIpAddress,
+            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
             ("PreferredMaintenanceWindow" Core..=)
-              Core.<$> preferredMaintenanceWindow,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> preferredMaintenanceWindow,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("BackupRetentionCount" Core..=)
-              Core.<$> backupRetentionCount,
-            ("EngineModel" Core..=) Core.<$> engineModel,
+              Prelude.<$> backupRetentionCount,
+            ("EngineModel" Core..=) Prelude.<$> engineModel,
             ("CustomCertificate" Core..=)
-              Core.<$> customCertificate,
-            Core.Just ("Engine" Core..= engine),
-            Core.Just ("ServerName" Core..= serverName),
-            Core.Just
+              Prelude.<$> customCertificate,
+            Prelude.Just ("Engine" Core..= engine),
+            Prelude.Just ("ServerName" Core..= serverName),
+            Prelude.Just
               ("InstanceProfileArn" Core..= instanceProfileArn),
-            Core.Just ("InstanceType" Core..= instanceType),
-            Core.Just ("ServiceRoleArn" Core..= serviceRoleArn)
+            Prelude.Just ("InstanceType" Core..= instanceType),
+            Prelude.Just
+              ("ServiceRoleArn" Core..= serviceRoleArn)
           ]
       )
 
 instance Core.ToPath CreateServer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateServer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServerResponse' smart constructor.
 data CreateServerResponse = CreateServerResponse'
   { -- | The server that is created by the request.
-    server :: Core.Maybe Server,
+    server :: Prelude.Maybe Server,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateServerResponse' with all optional fields omitted.
@@ -842,20 +846,20 @@ data CreateServerResponse = CreateServerResponse'
 -- 'httpStatus', 'createServerResponse_httpStatus' - The response's http status code.
 newCreateServerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateServerResponse
 newCreateServerResponse pHttpStatus_ =
   CreateServerResponse'
-    { server = Core.Nothing,
+    { server = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The server that is created by the request.
-createServerResponse_server :: Lens.Lens' CreateServerResponse (Core.Maybe Server)
+createServerResponse_server :: Lens.Lens' CreateServerResponse (Prelude.Maybe Server)
 createServerResponse_server = Lens.lens (\CreateServerResponse' {server} -> server) (\s@CreateServerResponse' {} a -> s {server = a} :: CreateServerResponse)
 
 -- | The response's http status code.
-createServerResponse_httpStatus :: Lens.Lens' CreateServerResponse Core.Int
+createServerResponse_httpStatus :: Lens.Lens' CreateServerResponse Prelude.Int
 createServerResponse_httpStatus = Lens.lens (\CreateServerResponse' {httpStatus} -> httpStatus) (\s@CreateServerResponse' {} a -> s {httpStatus = a} :: CreateServerResponse)
 
-instance Core.NFData CreateServerResponse
+instance Prelude.NFData CreateServerResponse

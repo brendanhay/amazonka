@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When enabled the output audio is corrected using the chosen algorithm.
 -- If disabled, the audio will be measured but not adjusted.
@@ -35,15 +36,15 @@ newtype AudioNormalizationAlgorithmControl = AudioNormalizationAlgorithmControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

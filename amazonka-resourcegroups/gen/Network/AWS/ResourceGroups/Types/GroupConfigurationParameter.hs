@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.GroupConfigurationParameter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A parameter for a group configuration item. For details about group
 -- service configuration syntax, see
@@ -31,13 +32,13 @@ data GroupConfigurationParameter = GroupConfigurationParameter'
   { -- | The value or values to be used for the specified parameter. For the list
     -- of values you can use with each parameter, see
     -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
-    values :: Core.Maybe [Core.Text],
+    values :: Prelude.Maybe [Prelude.Text],
     -- | The name of the group configuration parameter. For the list of
     -- parameters that you can use with each configuration item type, see
     -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupConfigurationParameter' with all optional fields omitted.
@@ -56,24 +57,25 @@ data GroupConfigurationParameter = GroupConfigurationParameter'
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
 newGroupConfigurationParameter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GroupConfigurationParameter
 newGroupConfigurationParameter pName_ =
   GroupConfigurationParameter'
-    { values = Core.Nothing,
+    { values =
+        Prelude.Nothing,
       name = pName_
     }
 
 -- | The value or values to be used for the specified parameter. For the list
 -- of values you can use with each parameter, see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
-groupConfigurationParameter_values :: Lens.Lens' GroupConfigurationParameter (Core.Maybe [Core.Text])
-groupConfigurationParameter_values = Lens.lens (\GroupConfigurationParameter' {values} -> values) (\s@GroupConfigurationParameter' {} a -> s {values = a} :: GroupConfigurationParameter) Core.. Lens.mapping Lens._Coerce
+groupConfigurationParameter_values :: Lens.Lens' GroupConfigurationParameter (Prelude.Maybe [Prelude.Text])
+groupConfigurationParameter_values = Lens.lens (\GroupConfigurationParameter' {values} -> values) (\s@GroupConfigurationParameter' {} a -> s {values = a} :: GroupConfigurationParameter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the group configuration parameter. For the list of
 -- parameters that you can use with each configuration item type, see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
-groupConfigurationParameter_name :: Lens.Lens' GroupConfigurationParameter Core.Text
+groupConfigurationParameter_name :: Lens.Lens' GroupConfigurationParameter Prelude.Text
 groupConfigurationParameter_name = Lens.lens (\GroupConfigurationParameter' {name} -> name) (\s@GroupConfigurationParameter' {} a -> s {name = a} :: GroupConfigurationParameter)
 
 instance Core.FromJSON GroupConfigurationParameter where
@@ -82,19 +84,19 @@ instance Core.FromJSON GroupConfigurationParameter where
       "GroupConfigurationParameter"
       ( \x ->
           GroupConfigurationParameter'
-            Core.<$> (x Core..:? "Values" Core..!= Core.mempty)
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable GroupConfigurationParameter
+instance Prelude.Hashable GroupConfigurationParameter
 
-instance Core.NFData GroupConfigurationParameter
+instance Prelude.NFData GroupConfigurationParameter
 
 instance Core.ToJSON GroupConfigurationParameter where
   toJSON GroupConfigurationParameter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Values" Core..=) Core.<$> values,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Values" Core..=) Prelude.<$> values,
+            Prelude.Just ("Name" Core..= name)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate wher
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the settings of a global secondary index for a global table
 -- that will be modified.
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 data ReplicaGlobalSecondaryIndexSettingsUpdate = ReplicaGlobalSecondaryIndexSettingsUpdate'
   { -- | The maximum number of strongly consistent reads consumed per second
     -- before DynamoDB returns a @ThrottlingException@.
-    provisionedReadCapacityUnits :: Core.Maybe Core.Natural,
+    provisionedReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | Auto scaling settings for managing a global secondary index replica\'s
     -- read capacity units.
-    provisionedReadCapacityAutoScalingSettingsUpdate :: Core.Maybe AutoScalingSettingsUpdate,
+    provisionedReadCapacityAutoScalingSettingsUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
     -- | The name of the global secondary index. The name must be unique among
     -- all other indexes on this table.
-    indexName :: Core.Text
+    indexName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicaGlobalSecondaryIndexSettingsUpdate' with all optional fields omitted.
@@ -58,39 +59,39 @@ data ReplicaGlobalSecondaryIndexSettingsUpdate = ReplicaGlobalSecondaryIndexSett
 -- all other indexes on this table.
 newReplicaGlobalSecondaryIndexSettingsUpdate ::
   -- | 'indexName'
-  Core.Text ->
+  Prelude.Text ->
   ReplicaGlobalSecondaryIndexSettingsUpdate
 newReplicaGlobalSecondaryIndexSettingsUpdate
   pIndexName_ =
     ReplicaGlobalSecondaryIndexSettingsUpdate'
       { provisionedReadCapacityUnits =
-          Core.Nothing,
+          Prelude.Nothing,
         provisionedReadCapacityAutoScalingSettingsUpdate =
-          Core.Nothing,
+          Prelude.Nothing,
         indexName = pIndexName_
       }
 
 -- | The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a @ThrottlingException@.
-replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Core.Maybe Core.Natural)
+replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Prelude.Maybe Prelude.Natural)
 replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits = Lens.lens (\ReplicaGlobalSecondaryIndexSettingsUpdate' {provisionedReadCapacityUnits} -> provisionedReadCapacityUnits) (\s@ReplicaGlobalSecondaryIndexSettingsUpdate' {} a -> s {provisionedReadCapacityUnits = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
 
 -- | Auto scaling settings for managing a global secondary index replica\'s
 -- read capacity units.
-replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Core.Maybe AutoScalingSettingsUpdate)
+replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
 replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate = Lens.lens (\ReplicaGlobalSecondaryIndexSettingsUpdate' {provisionedReadCapacityAutoScalingSettingsUpdate} -> provisionedReadCapacityAutoScalingSettingsUpdate) (\s@ReplicaGlobalSecondaryIndexSettingsUpdate' {} a -> s {provisionedReadCapacityAutoScalingSettingsUpdate = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
 
 -- | The name of the global secondary index. The name must be unique among
 -- all other indexes on this table.
-replicaGlobalSecondaryIndexSettingsUpdate_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate Core.Text
+replicaGlobalSecondaryIndexSettingsUpdate_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate Prelude.Text
 replicaGlobalSecondaryIndexSettingsUpdate_indexName = Lens.lens (\ReplicaGlobalSecondaryIndexSettingsUpdate' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndexSettingsUpdate' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReplicaGlobalSecondaryIndexSettingsUpdate
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReplicaGlobalSecondaryIndexSettingsUpdate
 
 instance
@@ -99,13 +100,13 @@ instance
   where
   toJSON ReplicaGlobalSecondaryIndexSettingsUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProvisionedReadCapacityUnits" Core..=)
-              Core.<$> provisionedReadCapacityUnits,
+              Prelude.<$> provisionedReadCapacityUnits,
             ( "ProvisionedReadCapacityAutoScalingSettingsUpdate"
                 Core..=
             )
-              Core.<$> provisionedReadCapacityAutoScalingSettingsUpdate,
-            Core.Just ("IndexName" Core..= indexName)
+              Prelude.<$> provisionedReadCapacityAutoScalingSettingsUpdate,
+            Prelude.Just ("IndexName" Core..= indexName)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.JourneyLimits where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies limits on the messages that a journey can send and the number
 -- of times participants can enter a journey.
@@ -30,14 +31,14 @@ data JourneyLimits = JourneyLimits'
   { -- | The maximum number of times that a participant can enter the journey.
     -- The maximum value is 100. To allow participants to enter the journey an
     -- unlimited number of times, set this value to 0.
-    endpointReentryCap :: Core.Maybe Core.Int,
+    endpointReentryCap :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of messages that the journey can send each second.
-    messagesPerSecond :: Core.Maybe Core.Int,
+    messagesPerSecond :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of messages that the journey can send to a single
     -- participant during a 24-hour period. The maximum value is 100.
-    dailyCap :: Core.Maybe Core.Int
+    dailyCap :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JourneyLimits' with all optional fields omitted.
@@ -59,24 +60,25 @@ newJourneyLimits ::
   JourneyLimits
 newJourneyLimits =
   JourneyLimits'
-    { endpointReentryCap = Core.Nothing,
-      messagesPerSecond = Core.Nothing,
-      dailyCap = Core.Nothing
+    { endpointReentryCap =
+        Prelude.Nothing,
+      messagesPerSecond = Prelude.Nothing,
+      dailyCap = Prelude.Nothing
     }
 
 -- | The maximum number of times that a participant can enter the journey.
 -- The maximum value is 100. To allow participants to enter the journey an
 -- unlimited number of times, set this value to 0.
-journeyLimits_endpointReentryCap :: Lens.Lens' JourneyLimits (Core.Maybe Core.Int)
+journeyLimits_endpointReentryCap :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Int)
 journeyLimits_endpointReentryCap = Lens.lens (\JourneyLimits' {endpointReentryCap} -> endpointReentryCap) (\s@JourneyLimits' {} a -> s {endpointReentryCap = a} :: JourneyLimits)
 
 -- | The maximum number of messages that the journey can send each second.
-journeyLimits_messagesPerSecond :: Lens.Lens' JourneyLimits (Core.Maybe Core.Int)
+journeyLimits_messagesPerSecond :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Int)
 journeyLimits_messagesPerSecond = Lens.lens (\JourneyLimits' {messagesPerSecond} -> messagesPerSecond) (\s@JourneyLimits' {} a -> s {messagesPerSecond = a} :: JourneyLimits)
 
 -- | The maximum number of messages that the journey can send to a single
 -- participant during a 24-hour period. The maximum value is 100.
-journeyLimits_dailyCap :: Lens.Lens' JourneyLimits (Core.Maybe Core.Int)
+journeyLimits_dailyCap :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Int)
 journeyLimits_dailyCap = Lens.lens (\JourneyLimits' {dailyCap} -> dailyCap) (\s@JourneyLimits' {} a -> s {dailyCap = a} :: JourneyLimits)
 
 instance Core.FromJSON JourneyLimits where
@@ -85,23 +87,23 @@ instance Core.FromJSON JourneyLimits where
       "JourneyLimits"
       ( \x ->
           JourneyLimits'
-            Core.<$> (x Core..:? "EndpointReentryCap")
-            Core.<*> (x Core..:? "MessagesPerSecond")
-            Core.<*> (x Core..:? "DailyCap")
+            Prelude.<$> (x Core..:? "EndpointReentryCap")
+            Prelude.<*> (x Core..:? "MessagesPerSecond")
+            Prelude.<*> (x Core..:? "DailyCap")
       )
 
-instance Core.Hashable JourneyLimits
+instance Prelude.Hashable JourneyLimits
 
-instance Core.NFData JourneyLimits
+instance Prelude.NFData JourneyLimits
 
 instance Core.ToJSON JourneyLimits where
   toJSON JourneyLimits' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EndpointReentryCap" Core..=)
-              Core.<$> endpointReentryCap,
+              Prelude.<$> endpointReentryCap,
             ("MessagesPerSecond" Core..=)
-              Core.<$> messagesPerSecond,
-            ("DailyCap" Core..=) Core.<$> dailyCap
+              Prelude.<$> messagesPerSecond,
+            ("DailyCap" Core..=) Prelude.<$> dailyCap
           ]
       )

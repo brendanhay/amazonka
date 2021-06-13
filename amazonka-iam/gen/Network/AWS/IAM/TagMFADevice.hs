@@ -68,6 +68,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,12 +82,12 @@ data TagMFADevice = TagMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    serialNumber :: Core.Text,
+    serialNumber :: Prelude.Text,
     -- | The list of tags that you want to attach to the IAM virtual MFA device.
     -- Each tag consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagMFADevice' with all optional fields omitted.
@@ -109,12 +110,12 @@ data TagMFADevice = TagMFADevice'
 -- Each tag consists of a key name and an associated value.
 newTagMFADevice ::
   -- | 'serialNumber'
-  Core.Text ->
+  Prelude.Text ->
   TagMFADevice
 newTagMFADevice pSerialNumber_ =
   TagMFADevice'
     { serialNumber = pSerialNumber_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The unique identifier for the IAM virtual MFA device to which you want
@@ -125,35 +126,36 @@ newTagMFADevice pSerialNumber_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagMFADevice_serialNumber :: Lens.Lens' TagMFADevice Core.Text
+tagMFADevice_serialNumber :: Lens.Lens' TagMFADevice Prelude.Text
 tagMFADevice_serialNumber = Lens.lens (\TagMFADevice' {serialNumber} -> serialNumber) (\s@TagMFADevice' {} a -> s {serialNumber = a} :: TagMFADevice)
 
 -- | The list of tags that you want to attach to the IAM virtual MFA device.
 -- Each tag consists of a key name and an associated value.
 tagMFADevice_tags :: Lens.Lens' TagMFADevice [Tag]
-tagMFADevice_tags = Lens.lens (\TagMFADevice' {tags} -> tags) (\s@TagMFADevice' {} a -> s {tags = a} :: TagMFADevice) Core.. Lens._Coerce
+tagMFADevice_tags = Lens.lens (\TagMFADevice' {tags} -> tags) (\s@TagMFADevice' {} a -> s {tags = a} :: TagMFADevice) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagMFADevice where
   type AWSResponse TagMFADevice = TagMFADeviceResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull TagMFADeviceResponse'
 
-instance Core.Hashable TagMFADevice
+instance Prelude.Hashable TagMFADevice
 
-instance Core.NFData TagMFADevice
+instance Prelude.NFData TagMFADevice
 
 instance Core.ToHeaders TagMFADevice where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath TagMFADevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagMFADevice where
   toQuery TagMFADevice' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("TagMFADevice" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("TagMFADevice" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "SerialNumber" Core.=: serialNumber,
         "Tags" Core.=: Core.toQueryList "member" tags
       ]
@@ -162,7 +164,7 @@ instance Core.ToQuery TagMFADevice where
 data TagMFADeviceResponse = TagMFADeviceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagMFADeviceResponse' with all optional fields omitted.
@@ -172,4 +174,4 @@ newTagMFADeviceResponse ::
   TagMFADeviceResponse
 newTagMFADeviceResponse = TagMFADeviceResponse'
 
-instance Core.NFData TagMFADeviceResponse
+instance Prelude.NFData TagMFADeviceResponse

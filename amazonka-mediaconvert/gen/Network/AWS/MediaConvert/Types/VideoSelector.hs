@@ -26,6 +26,7 @@ import Network.AWS.MediaConvert.Types.ColorSpace
 import Network.AWS.MediaConvert.Types.ColorSpaceUsage
 import Network.AWS.MediaConvert.Types.Hdr10Metadata
 import Network.AWS.MediaConvert.Types.InputRotate
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Selector for video.
 --
@@ -41,7 +42,7 @@ data VideoSelector = VideoSelector'
     -- source when it is present. If there\'s no color metadata in your input
     -- file, the service defaults to using values you specify in the input
     -- settings.
-    colorSpaceUsage :: Core.Maybe ColorSpaceUsage,
+    colorSpaceUsage :: Prelude.Maybe ColorSpaceUsage,
     -- | Use these settings to provide HDR 10 metadata that is missing or
     -- inaccurate in your input video. Appropriate values vary depending on the
     -- input video and must be provided by a color grader. The color grader
@@ -55,10 +56,10 @@ data VideoSelector = VideoSelector'
     -- included in an output, set Color metadata (ColorMetadata). For more
     -- information about MediaConvert HDR jobs, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
-    hdr10Metadata :: Core.Maybe Hdr10Metadata,
+    hdr10Metadata :: Prelude.Maybe Hdr10Metadata,
     -- | Selects a specific program from within a multi-program transport stream.
     -- Note that Quad 4K is not currently supported.
-    programNumber :: Core.Maybe Core.Int,
+    programNumber :: Prelude.Maybe Prelude.Int,
     -- | Use Rotate (InputRotate) to specify how the service rotates your video.
     -- You can choose automatic rotation or specify a rotation. You can specify
     -- a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video
@@ -69,7 +70,7 @@ data VideoSelector = VideoSelector'
     -- any other rotation, the service will default to no rotation. By default,
     -- the service does no rotation, even if your input video has rotation
     -- metadata. The service doesn\'t pass through rotation metadata.
-    rotate :: Core.Maybe InputRotate,
+    rotate :: Prelude.Maybe InputRotate,
     -- | If your input video has accurate color space metadata, or if you don\'t
     -- know about color space, leave this set to the default value Follow
     -- (FOLLOW). The service will automatically detect your input color space.
@@ -81,22 +82,22 @@ data VideoSelector = VideoSelector'
     -- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more
     -- information about MediaConvert HDR jobs, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
-    colorSpace :: Core.Maybe ColorSpace,
+    colorSpace :: Prelude.Maybe ColorSpace,
     -- | Ignore this setting unless this input is a QuickTime animation with an
     -- alpha channel. Use this setting to create separate Key and Fill outputs.
     -- In each output, specify which part of the input MediaConvert uses. Leave
     -- this setting at the default value DISCARD to delete the alpha channel
     -- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
     -- map the alpha channel to the luma channel of your outputs.
-    alphaBehavior :: Core.Maybe AlphaBehavior,
+    alphaBehavior :: Prelude.Maybe AlphaBehavior,
     -- | Use PID (Pid) to select specific video data from an input file. Specify
     -- this value as an integer; the system automatically converts it to the
     -- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
     -- identifier, is an identifier for a set of data in an MPEG-2 transport
     -- stream container.
-    pid :: Core.Maybe Core.Natural
+    pid :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VideoSelector' with all optional fields omitted.
@@ -173,13 +174,13 @@ newVideoSelector ::
   VideoSelector
 newVideoSelector =
   VideoSelector'
-    { colorSpaceUsage = Core.Nothing,
-      hdr10Metadata = Core.Nothing,
-      programNumber = Core.Nothing,
-      rotate = Core.Nothing,
-      colorSpace = Core.Nothing,
-      alphaBehavior = Core.Nothing,
-      pid = Core.Nothing
+    { colorSpaceUsage = Prelude.Nothing,
+      hdr10Metadata = Prelude.Nothing,
+      programNumber = Prelude.Nothing,
+      rotate = Prelude.Nothing,
+      colorSpace = Prelude.Nothing,
+      alphaBehavior = Prelude.Nothing,
+      pid = Prelude.Nothing
     }
 
 -- | There are two sources for color metadata, the input file and the job
@@ -192,7 +193,7 @@ newVideoSelector =
 -- source when it is present. If there\'s no color metadata in your input
 -- file, the service defaults to using values you specify in the input
 -- settings.
-videoSelector_colorSpaceUsage :: Lens.Lens' VideoSelector (Core.Maybe ColorSpaceUsage)
+videoSelector_colorSpaceUsage :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpaceUsage)
 videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> colorSpaceUsage) (\s@VideoSelector' {} a -> s {colorSpaceUsage = a} :: VideoSelector)
 
 -- | Use these settings to provide HDR 10 metadata that is missing or
@@ -208,12 +209,12 @@ videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> 
 -- included in an output, set Color metadata (ColorMetadata). For more
 -- information about MediaConvert HDR jobs, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
-videoSelector_hdr10Metadata :: Lens.Lens' VideoSelector (Core.Maybe Hdr10Metadata)
+videoSelector_hdr10Metadata :: Lens.Lens' VideoSelector (Prelude.Maybe Hdr10Metadata)
 videoSelector_hdr10Metadata = Lens.lens (\VideoSelector' {hdr10Metadata} -> hdr10Metadata) (\s@VideoSelector' {} a -> s {hdr10Metadata = a} :: VideoSelector)
 
 -- | Selects a specific program from within a multi-program transport stream.
 -- Note that Quad 4K is not currently supported.
-videoSelector_programNumber :: Lens.Lens' VideoSelector (Core.Maybe Core.Int)
+videoSelector_programNumber :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Int)
 videoSelector_programNumber = Lens.lens (\VideoSelector' {programNumber} -> programNumber) (\s@VideoSelector' {} a -> s {programNumber = a} :: VideoSelector)
 
 -- | Use Rotate (InputRotate) to specify how the service rotates your video.
@@ -226,7 +227,7 @@ videoSelector_programNumber = Lens.lens (\VideoSelector' {programNumber} -> prog
 -- any other rotation, the service will default to no rotation. By default,
 -- the service does no rotation, even if your input video has rotation
 -- metadata. The service doesn\'t pass through rotation metadata.
-videoSelector_rotate :: Lens.Lens' VideoSelector (Core.Maybe InputRotate)
+videoSelector_rotate :: Lens.Lens' VideoSelector (Prelude.Maybe InputRotate)
 videoSelector_rotate = Lens.lens (\VideoSelector' {rotate} -> rotate) (\s@VideoSelector' {} a -> s {rotate = a} :: VideoSelector)
 
 -- | If your input video has accurate color space metadata, or if you don\'t
@@ -240,7 +241,7 @@ videoSelector_rotate = Lens.lens (\VideoSelector' {rotate} -> rotate) (\s@VideoS
 -- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more
 -- information about MediaConvert HDR jobs, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
-videoSelector_colorSpace :: Lens.Lens' VideoSelector (Core.Maybe ColorSpace)
+videoSelector_colorSpace :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpace)
 videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace) (\s@VideoSelector' {} a -> s {colorSpace = a} :: VideoSelector)
 
 -- | Ignore this setting unless this input is a QuickTime animation with an
@@ -249,7 +250,7 @@ videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace
 -- this setting at the default value DISCARD to delete the alpha channel
 -- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
 -- map the alpha channel to the luma channel of your outputs.
-videoSelector_alphaBehavior :: Lens.Lens' VideoSelector (Core.Maybe AlphaBehavior)
+videoSelector_alphaBehavior :: Lens.Lens' VideoSelector (Prelude.Maybe AlphaBehavior)
 videoSelector_alphaBehavior = Lens.lens (\VideoSelector' {alphaBehavior} -> alphaBehavior) (\s@VideoSelector' {} a -> s {alphaBehavior = a} :: VideoSelector)
 
 -- | Use PID (Pid) to select specific video data from an input file. Specify
@@ -257,7 +258,7 @@ videoSelector_alphaBehavior = Lens.lens (\VideoSelector' {alphaBehavior} -> alph
 -- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
 -- identifier, is an identifier for a set of data in an MPEG-2 transport
 -- stream container.
-videoSelector_pid :: Lens.Lens' VideoSelector (Core.Maybe Core.Natural)
+videoSelector_pid :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Natural)
 videoSelector_pid = Lens.lens (\VideoSelector' {pid} -> pid) (\s@VideoSelector' {} a -> s {pid = a} :: VideoSelector)
 
 instance Core.FromJSON VideoSelector where
@@ -266,30 +267,30 @@ instance Core.FromJSON VideoSelector where
       "VideoSelector"
       ( \x ->
           VideoSelector'
-            Core.<$> (x Core..:? "colorSpaceUsage")
-            Core.<*> (x Core..:? "hdr10Metadata")
-            Core.<*> (x Core..:? "programNumber")
-            Core.<*> (x Core..:? "rotate")
-            Core.<*> (x Core..:? "colorSpace")
-            Core.<*> (x Core..:? "alphaBehavior")
-            Core.<*> (x Core..:? "pid")
+            Prelude.<$> (x Core..:? "colorSpaceUsage")
+            Prelude.<*> (x Core..:? "hdr10Metadata")
+            Prelude.<*> (x Core..:? "programNumber")
+            Prelude.<*> (x Core..:? "rotate")
+            Prelude.<*> (x Core..:? "colorSpace")
+            Prelude.<*> (x Core..:? "alphaBehavior")
+            Prelude.<*> (x Core..:? "pid")
       )
 
-instance Core.Hashable VideoSelector
+instance Prelude.Hashable VideoSelector
 
-instance Core.NFData VideoSelector
+instance Prelude.NFData VideoSelector
 
 instance Core.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("colorSpaceUsage" Core..=)
-              Core.<$> colorSpaceUsage,
-            ("hdr10Metadata" Core..=) Core.<$> hdr10Metadata,
-            ("programNumber" Core..=) Core.<$> programNumber,
-            ("rotate" Core..=) Core.<$> rotate,
-            ("colorSpace" Core..=) Core.<$> colorSpace,
-            ("alphaBehavior" Core..=) Core.<$> alphaBehavior,
-            ("pid" Core..=) Core.<$> pid
+              Prelude.<$> colorSpaceUsage,
+            ("hdr10Metadata" Core..=) Prelude.<$> hdr10Metadata,
+            ("programNumber" Core..=) Prelude.<$> programNumber,
+            ("rotate" Core..=) Prelude.<$> rotate,
+            ("colorSpace" Core..=) Prelude.<$> colorSpace,
+            ("alphaBehavior" Core..=) Prelude.<$> alphaBehavior,
+            ("pid" Core..=) Prelude.<$> pid
           ]
       )

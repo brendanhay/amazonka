@@ -21,17 +21,18 @@ module Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A programming language supported by the platform.
 --
 -- /See:/ 'newPlatformProgrammingLanguage' smart constructor.
 data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
   { -- | The version of the programming language.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the programming language.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PlatformProgrammingLanguage' with all optional fields omitted.
@@ -49,23 +50,24 @@ newPlatformProgrammingLanguage ::
 newPlatformProgrammingLanguage =
   PlatformProgrammingLanguage'
     { version =
-        Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The version of the programming language.
-platformProgrammingLanguage_version :: Lens.Lens' PlatformProgrammingLanguage (Core.Maybe Core.Text)
+platformProgrammingLanguage_version :: Lens.Lens' PlatformProgrammingLanguage (Prelude.Maybe Prelude.Text)
 platformProgrammingLanguage_version = Lens.lens (\PlatformProgrammingLanguage' {version} -> version) (\s@PlatformProgrammingLanguage' {} a -> s {version = a} :: PlatformProgrammingLanguage)
 
 -- | The name of the programming language.
-platformProgrammingLanguage_name :: Lens.Lens' PlatformProgrammingLanguage (Core.Maybe Core.Text)
+platformProgrammingLanguage_name :: Lens.Lens' PlatformProgrammingLanguage (Prelude.Maybe Prelude.Text)
 platformProgrammingLanguage_name = Lens.lens (\PlatformProgrammingLanguage' {name} -> name) (\s@PlatformProgrammingLanguage' {} a -> s {name = a} :: PlatformProgrammingLanguage)
 
 instance Core.FromXML PlatformProgrammingLanguage where
   parseXML x =
     PlatformProgrammingLanguage'
-      Core.<$> (x Core..@? "Version") Core.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Version")
+      Prelude.<*> (x Core..@? "Name")
 
-instance Core.Hashable PlatformProgrammingLanguage
+instance Prelude.Hashable PlatformProgrammingLanguage
 
-instance Core.NFData PlatformProgrammingLanguage
+instance Prelude.NFData PlatformProgrammingLanguage

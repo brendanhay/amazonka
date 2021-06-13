@@ -21,15 +21,16 @@ module Network.AWS.CloudFront.Types.TagKeys where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains zero or more @Tag@ elements.
 --
 -- /See:/ 'newTagKeys' smart constructor.
 data TagKeys = TagKeys'
   { -- | A complex type that contains @Tag@ key elements.
-    items :: Core.Maybe [Core.Text]
+    items :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagKeys' with all optional fields omitted.
@@ -42,19 +43,19 @@ data TagKeys = TagKeys'
 -- 'items', 'tagKeys_items' - A complex type that contains @Tag@ key elements.
 newTagKeys ::
   TagKeys
-newTagKeys = TagKeys' {items = Core.Nothing}
+newTagKeys = TagKeys' {items = Prelude.Nothing}
 
 -- | A complex type that contains @Tag@ key elements.
-tagKeys_items :: Lens.Lens' TagKeys (Core.Maybe [Core.Text])
-tagKeys_items = Lens.lens (\TagKeys' {items} -> items) (\s@TagKeys' {} a -> s {items = a} :: TagKeys) Core.. Lens.mapping Lens._Coerce
+tagKeys_items :: Lens.Lens' TagKeys (Prelude.Maybe [Prelude.Text])
+tagKeys_items = Lens.lens (\TagKeys' {items} -> items) (\s@TagKeys' {} a -> s {items = a} :: TagKeys) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable TagKeys
+instance Prelude.Hashable TagKeys
 
-instance Core.NFData TagKeys
+instance Prelude.NFData TagKeys
 
 instance Core.ToXML TagKeys where
   toXML TagKeys' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Key" Core.<$> items)
+          Core.@= Core.toXML (Core.toXMLList "Key" Prelude.<$> items)
       ]

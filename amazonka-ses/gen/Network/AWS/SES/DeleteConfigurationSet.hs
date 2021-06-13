@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -57,9 +58,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newDeleteConfigurationSet' smart constructor.
 data DeleteConfigurationSet = DeleteConfigurationSet'
   { -- | The name of the configuration set to delete.
-    configurationSetName :: Core.Text
+    configurationSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationSet' with all optional fields omitted.
@@ -72,7 +73,7 @@ data DeleteConfigurationSet = DeleteConfigurationSet'
 -- 'configurationSetName', 'deleteConfigurationSet_configurationSetName' - The name of the configuration set to delete.
 newDeleteConfigurationSet ::
   -- | 'configurationSetName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConfigurationSet
 newDeleteConfigurationSet pConfigurationSetName_ =
   DeleteConfigurationSet'
@@ -81,7 +82,7 @@ newDeleteConfigurationSet pConfigurationSetName_ =
     }
 
 -- | The name of the configuration set to delete.
-deleteConfigurationSet_configurationSetName :: Lens.Lens' DeleteConfigurationSet Core.Text
+deleteConfigurationSet_configurationSetName :: Lens.Lens' DeleteConfigurationSet Prelude.Text
 deleteConfigurationSet_configurationSetName = Lens.lens (\DeleteConfigurationSet' {configurationSetName} -> configurationSetName) (\s@DeleteConfigurationSet' {} a -> s {configurationSetName = a} :: DeleteConfigurationSet)
 
 instance Core.AWSRequest DeleteConfigurationSet where
@@ -94,25 +95,26 @@ instance Core.AWSRequest DeleteConfigurationSet where
       "DeleteConfigurationSetResult"
       ( \s h x ->
           DeleteConfigurationSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteConfigurationSet
+instance Prelude.Hashable DeleteConfigurationSet
 
-instance Core.NFData DeleteConfigurationSet
+instance Prelude.NFData DeleteConfigurationSet
 
 instance Core.ToHeaders DeleteConfigurationSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteConfigurationSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteConfigurationSet where
   toQuery DeleteConfigurationSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteConfigurationSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("DeleteConfigurationSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ConfigurationSetName" Core.=: configurationSetName
       ]
 
@@ -121,9 +123,9 @@ instance Core.ToQuery DeleteConfigurationSet where
 -- /See:/ 'newDeleteConfigurationSetResponse' smart constructor.
 data DeleteConfigurationSetResponse = DeleteConfigurationSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationSetResponse' with all optional fields omitted.
@@ -136,7 +138,7 @@ data DeleteConfigurationSetResponse = DeleteConfigurationSetResponse'
 -- 'httpStatus', 'deleteConfigurationSetResponse_httpStatus' - The response's http status code.
 newDeleteConfigurationSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteConfigurationSetResponse
 newDeleteConfigurationSetResponse pHttpStatus_ =
   DeleteConfigurationSetResponse'
@@ -145,7 +147,9 @@ newDeleteConfigurationSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteConfigurationSetResponse_httpStatus :: Lens.Lens' DeleteConfigurationSetResponse Core.Int
+deleteConfigurationSetResponse_httpStatus :: Lens.Lens' DeleteConfigurationSetResponse Prelude.Int
 deleteConfigurationSetResponse_httpStatus = Lens.lens (\DeleteConfigurationSetResponse' {httpStatus} -> httpStatus) (\s@DeleteConfigurationSetResponse' {} a -> s {httpStatus = a} :: DeleteConfigurationSetResponse)
 
-instance Core.NFData DeleteConfigurationSetResponse
+instance
+  Prelude.NFData
+    DeleteConfigurationSetResponse

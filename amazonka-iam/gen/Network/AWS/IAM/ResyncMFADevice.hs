@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,24 +59,24 @@ data ResyncMFADevice = ResyncMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | Serial number that uniquely identifies the MFA device.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    serialNumber :: Core.Text,
+    serialNumber :: Prelude.Text,
     -- | An authentication code emitted by the device.
     --
     -- The format for this parameter is a sequence of six digits.
-    authenticationCode1 :: Core.Text,
+    authenticationCode1 :: Prelude.Text,
     -- | A subsequent authentication code emitted by the device.
     --
     -- The format for this parameter is a sequence of six digits.
-    authenticationCode2 :: Core.Text
+    authenticationCode2 :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResyncMFADevice' with all optional fields omitted.
@@ -108,13 +109,13 @@ data ResyncMFADevice = ResyncMFADevice'
 -- The format for this parameter is a sequence of six digits.
 newResyncMFADevice ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serialNumber'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authenticationCode1'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authenticationCode2'
-  Core.Text ->
+  Prelude.Text ->
   ResyncMFADevice
 newResyncMFADevice
   pUserName_
@@ -134,7 +135,7 @@ newResyncMFADevice
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-resyncMFADevice_userName :: Lens.Lens' ResyncMFADevice Core.Text
+resyncMFADevice_userName :: Lens.Lens' ResyncMFADevice Prelude.Text
 resyncMFADevice_userName = Lens.lens (\ResyncMFADevice' {userName} -> userName) (\s@ResyncMFADevice' {} a -> s {userName = a} :: ResyncMFADevice)
 
 -- | Serial number that uniquely identifies the MFA device.
@@ -143,19 +144,19 @@ resyncMFADevice_userName = Lens.lens (\ResyncMFADevice' {userName} -> userName) 
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-resyncMFADevice_serialNumber :: Lens.Lens' ResyncMFADevice Core.Text
+resyncMFADevice_serialNumber :: Lens.Lens' ResyncMFADevice Prelude.Text
 resyncMFADevice_serialNumber = Lens.lens (\ResyncMFADevice' {serialNumber} -> serialNumber) (\s@ResyncMFADevice' {} a -> s {serialNumber = a} :: ResyncMFADevice)
 
 -- | An authentication code emitted by the device.
 --
 -- The format for this parameter is a sequence of six digits.
-resyncMFADevice_authenticationCode1 :: Lens.Lens' ResyncMFADevice Core.Text
+resyncMFADevice_authenticationCode1 :: Lens.Lens' ResyncMFADevice Prelude.Text
 resyncMFADevice_authenticationCode1 = Lens.lens (\ResyncMFADevice' {authenticationCode1} -> authenticationCode1) (\s@ResyncMFADevice' {} a -> s {authenticationCode1 = a} :: ResyncMFADevice)
 
 -- | A subsequent authentication code emitted by the device.
 --
 -- The format for this parameter is a sequence of six digits.
-resyncMFADevice_authenticationCode2 :: Lens.Lens' ResyncMFADevice Core.Text
+resyncMFADevice_authenticationCode2 :: Lens.Lens' ResyncMFADevice Prelude.Text
 resyncMFADevice_authenticationCode2 = Lens.lens (\ResyncMFADevice' {authenticationCode2} -> authenticationCode2) (\s@ResyncMFADevice' {} a -> s {authenticationCode2 = a} :: ResyncMFADevice)
 
 instance Core.AWSRequest ResyncMFADevice where
@@ -166,22 +167,23 @@ instance Core.AWSRequest ResyncMFADevice where
   response =
     Response.receiveNull ResyncMFADeviceResponse'
 
-instance Core.Hashable ResyncMFADevice
+instance Prelude.Hashable ResyncMFADevice
 
-instance Core.NFData ResyncMFADevice
+instance Prelude.NFData ResyncMFADevice
 
 instance Core.ToHeaders ResyncMFADevice where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ResyncMFADevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResyncMFADevice where
   toQuery ResyncMFADevice' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ResyncMFADevice" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ResyncMFADevice" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "SerialNumber" Core.=: serialNumber,
         "AuthenticationCode1" Core.=: authenticationCode1,
@@ -192,7 +194,7 @@ instance Core.ToQuery ResyncMFADevice where
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResyncMFADeviceResponse' with all optional fields omitted.
@@ -202,4 +204,4 @@ newResyncMFADeviceResponse ::
   ResyncMFADeviceResponse
 newResyncMFADeviceResponse = ResyncMFADeviceResponse'
 
-instance Core.NFData ResyncMFADeviceResponse
+instance Prelude.NFData ResyncMFADeviceResponse

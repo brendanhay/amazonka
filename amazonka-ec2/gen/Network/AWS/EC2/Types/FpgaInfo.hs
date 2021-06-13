@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FpgaDeviceInfo
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the FPGAs for the instance type.
 --
 -- /See:/ 'newFpgaInfo' smart constructor.
 data FpgaInfo = FpgaInfo'
   { -- | The total memory of all FPGA accelerators for the instance type.
-    totalFpgaMemoryInMiB :: Core.Maybe Core.Int,
+    totalFpgaMemoryInMiB :: Prelude.Maybe Prelude.Int,
     -- | Describes the FPGAs for the instance type.
-    fpgas :: Core.Maybe [FpgaDeviceInfo]
+    fpgas :: Prelude.Maybe [FpgaDeviceInfo]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FpgaInfo' with all optional fields omitted.
@@ -50,26 +51,26 @@ newFpgaInfo ::
   FpgaInfo
 newFpgaInfo =
   FpgaInfo'
-    { totalFpgaMemoryInMiB = Core.Nothing,
-      fpgas = Core.Nothing
+    { totalFpgaMemoryInMiB = Prelude.Nothing,
+      fpgas = Prelude.Nothing
     }
 
 -- | The total memory of all FPGA accelerators for the instance type.
-fpgaInfo_totalFpgaMemoryInMiB :: Lens.Lens' FpgaInfo (Core.Maybe Core.Int)
+fpgaInfo_totalFpgaMemoryInMiB :: Lens.Lens' FpgaInfo (Prelude.Maybe Prelude.Int)
 fpgaInfo_totalFpgaMemoryInMiB = Lens.lens (\FpgaInfo' {totalFpgaMemoryInMiB} -> totalFpgaMemoryInMiB) (\s@FpgaInfo' {} a -> s {totalFpgaMemoryInMiB = a} :: FpgaInfo)
 
 -- | Describes the FPGAs for the instance type.
-fpgaInfo_fpgas :: Lens.Lens' FpgaInfo (Core.Maybe [FpgaDeviceInfo])
-fpgaInfo_fpgas = Lens.lens (\FpgaInfo' {fpgas} -> fpgas) (\s@FpgaInfo' {} a -> s {fpgas = a} :: FpgaInfo) Core.. Lens.mapping Lens._Coerce
+fpgaInfo_fpgas :: Lens.Lens' FpgaInfo (Prelude.Maybe [FpgaDeviceInfo])
+fpgaInfo_fpgas = Lens.lens (\FpgaInfo' {fpgas} -> fpgas) (\s@FpgaInfo' {} a -> s {fpgas = a} :: FpgaInfo) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML FpgaInfo where
   parseXML x =
     FpgaInfo'
-      Core.<$> (x Core..@? "totalFpgaMemoryInMiB")
-      Core.<*> ( x Core..@? "fpgas" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "totalFpgaMemoryInMiB")
+      Prelude.<*> ( x Core..@? "fpgas" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable FpgaInfo
+instance Prelude.Hashable FpgaInfo
 
-instance Core.NFData FpgaInfo
+instance Prelude.NFData FpgaInfo

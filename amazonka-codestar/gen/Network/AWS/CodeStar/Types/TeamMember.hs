@@ -21,6 +21,7 @@ module Network.AWS.CodeStar.Types.TeamMember where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a team member in a project.
 --
@@ -28,16 +29,16 @@ import qualified Network.AWS.Lens as Lens
 data TeamMember = TeamMember'
   { -- | Whether the user is allowed to remotely access project resources using
     -- an SSH public\/private key pair.
-    remoteAccessAllowed :: Core.Maybe Core.Bool,
+    remoteAccessAllowed :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the user in IAM.
-    userArn :: Core.Text,
+    userArn :: Prelude.Text,
     -- | The role assigned to the user in the project. Project roles have
     -- different levels of access. For more information, see
     -- <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams>
     -- in the /AWS CodeStar User Guide/.
-    projectRole :: Core.Text
+    projectRole :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TeamMember' with all optional fields omitted.
@@ -58,31 +59,31 @@ data TeamMember = TeamMember'
 -- in the /AWS CodeStar User Guide/.
 newTeamMember ::
   -- | 'userArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'projectRole'
-  Core.Text ->
+  Prelude.Text ->
   TeamMember
 newTeamMember pUserArn_ pProjectRole_ =
   TeamMember'
-    { remoteAccessAllowed = Core.Nothing,
+    { remoteAccessAllowed = Prelude.Nothing,
       userArn = pUserArn_,
       projectRole = pProjectRole_
     }
 
 -- | Whether the user is allowed to remotely access project resources using
 -- an SSH public\/private key pair.
-teamMember_remoteAccessAllowed :: Lens.Lens' TeamMember (Core.Maybe Core.Bool)
+teamMember_remoteAccessAllowed :: Lens.Lens' TeamMember (Prelude.Maybe Prelude.Bool)
 teamMember_remoteAccessAllowed = Lens.lens (\TeamMember' {remoteAccessAllowed} -> remoteAccessAllowed) (\s@TeamMember' {} a -> s {remoteAccessAllowed = a} :: TeamMember)
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
-teamMember_userArn :: Lens.Lens' TeamMember Core.Text
+teamMember_userArn :: Lens.Lens' TeamMember Prelude.Text
 teamMember_userArn = Lens.lens (\TeamMember' {userArn} -> userArn) (\s@TeamMember' {} a -> s {userArn = a} :: TeamMember)
 
 -- | The role assigned to the user in the project. Project roles have
 -- different levels of access. For more information, see
 -- <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams>
 -- in the /AWS CodeStar User Guide/.
-teamMember_projectRole :: Lens.Lens' TeamMember Core.Text
+teamMember_projectRole :: Lens.Lens' TeamMember Prelude.Text
 teamMember_projectRole = Lens.lens (\TeamMember' {projectRole} -> projectRole) (\s@TeamMember' {} a -> s {projectRole = a} :: TeamMember)
 
 instance Core.FromJSON TeamMember where
@@ -91,11 +92,11 @@ instance Core.FromJSON TeamMember where
       "TeamMember"
       ( \x ->
           TeamMember'
-            Core.<$> (x Core..:? "remoteAccessAllowed")
-            Core.<*> (x Core..: "userArn")
-            Core.<*> (x Core..: "projectRole")
+            Prelude.<$> (x Core..:? "remoteAccessAllowed")
+            Prelude.<*> (x Core..: "userArn")
+            Prelude.<*> (x Core..: "projectRole")
       )
 
-instance Core.Hashable TeamMember
+instance Prelude.Hashable TeamMember
 
-instance Core.NFData TeamMember
+instance Prelude.NFData TeamMember

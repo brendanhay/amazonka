@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.JobCommand where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies code executed when a job is run.
 --
@@ -28,16 +29,16 @@ import qualified Network.AWS.Lens as Lens
 data JobCommand = JobCommand'
   { -- | The Python version being used to execute a Python shell job. Allowed
     -- values are 2 or 3.
-    pythonVersion :: Core.Maybe Core.Text,
+    pythonVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
     -- that executes a job.
-    scriptLocation :: Core.Maybe Core.Text,
+    scriptLocation :: Prelude.Maybe Prelude.Text,
     -- | The name of the job command. For an Apache Spark ETL job, this must be
     -- @glueetl@. For a Python shell job, it must be @pythonshell@. For an
     -- Apache Spark streaming ETL job, this must be @gluestreaming@.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobCommand' with all optional fields omitted.
@@ -60,25 +61,25 @@ newJobCommand ::
   JobCommand
 newJobCommand =
   JobCommand'
-    { pythonVersion = Core.Nothing,
-      scriptLocation = Core.Nothing,
-      name = Core.Nothing
+    { pythonVersion = Prelude.Nothing,
+      scriptLocation = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Python version being used to execute a Python shell job. Allowed
 -- values are 2 or 3.
-jobCommand_pythonVersion :: Lens.Lens' JobCommand (Core.Maybe Core.Text)
+jobCommand_pythonVersion :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
 jobCommand_pythonVersion = Lens.lens (\JobCommand' {pythonVersion} -> pythonVersion) (\s@JobCommand' {} a -> s {pythonVersion = a} :: JobCommand)
 
 -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
 -- that executes a job.
-jobCommand_scriptLocation :: Lens.Lens' JobCommand (Core.Maybe Core.Text)
+jobCommand_scriptLocation :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
 jobCommand_scriptLocation = Lens.lens (\JobCommand' {scriptLocation} -> scriptLocation) (\s@JobCommand' {} a -> s {scriptLocation = a} :: JobCommand)
 
 -- | The name of the job command. For an Apache Spark ETL job, this must be
 -- @glueetl@. For a Python shell job, it must be @pythonshell@. For an
 -- Apache Spark streaming ETL job, this must be @gluestreaming@.
-jobCommand_name :: Lens.Lens' JobCommand (Core.Maybe Core.Text)
+jobCommand_name :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
 jobCommand_name = Lens.lens (\JobCommand' {name} -> name) (\s@JobCommand' {} a -> s {name = a} :: JobCommand)
 
 instance Core.FromJSON JobCommand where
@@ -87,21 +88,22 @@ instance Core.FromJSON JobCommand where
       "JobCommand"
       ( \x ->
           JobCommand'
-            Core.<$> (x Core..:? "PythonVersion")
-            Core.<*> (x Core..:? "ScriptLocation")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "PythonVersion")
+            Prelude.<*> (x Core..:? "ScriptLocation")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable JobCommand
+instance Prelude.Hashable JobCommand
 
-instance Core.NFData JobCommand
+instance Prelude.NFData JobCommand
 
 instance Core.ToJSON JobCommand where
   toJSON JobCommand' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PythonVersion" Core..=) Core.<$> pythonVersion,
-            ("ScriptLocation" Core..=) Core.<$> scriptLocation,
-            ("Name" Core..=) Core.<$> name
+      ( Prelude.catMaybes
+          [ ("PythonVersion" Core..=) Prelude.<$> pythonVersion,
+            ("ScriptLocation" Core..=)
+              Prelude.<$> scriptLocation,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

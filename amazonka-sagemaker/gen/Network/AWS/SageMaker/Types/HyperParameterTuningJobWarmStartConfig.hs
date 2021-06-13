@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType
 import Network.AWS.SageMaker.Types.ParentHyperParameterTuningJob
 
@@ -49,7 +50,7 @@ data HyperParameterTuningJobWarmStartConfig = HyperParameterTuningJobWarmStartCo
     --
     -- Hyperparameter tuning jobs created before October 1, 2018 cannot be used
     -- as parent jobs for warm start tuning jobs.
-    parentHyperParameterTuningJobs :: Core.NonEmpty ParentHyperParameterTuningJob,
+    parentHyperParameterTuningJobs :: Prelude.NonEmpty ParentHyperParameterTuningJob,
     -- | Specifies one of the following:
     --
     -- [IDENTICAL_DATA_AND_ALGORITHM]
@@ -79,7 +80,7 @@ data HyperParameterTuningJobWarmStartConfig = HyperParameterTuningJobWarmStartCo
     --     be the same as for all parent jobs.
     warmStartType :: HyperParameterTuningJobWarmStartType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HyperParameterTuningJobWarmStartConfig' with all optional fields omitted.
@@ -126,7 +127,7 @@ data HyperParameterTuningJobWarmStartConfig = HyperParameterTuningJobWarmStartCo
 --     be the same as for all parent jobs.
 newHyperParameterTuningJobWarmStartConfig ::
   -- | 'parentHyperParameterTuningJobs'
-  Core.NonEmpty ParentHyperParameterTuningJob ->
+  Prelude.NonEmpty ParentHyperParameterTuningJob ->
   -- | 'warmStartType'
   HyperParameterTuningJobWarmStartType ->
   HyperParameterTuningJobWarmStartConfig
@@ -147,8 +148,8 @@ newHyperParameterTuningJobWarmStartConfig
 --
 -- Hyperparameter tuning jobs created before October 1, 2018 cannot be used
 -- as parent jobs for warm start tuning jobs.
-hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs :: Lens.Lens' HyperParameterTuningJobWarmStartConfig (Core.NonEmpty ParentHyperParameterTuningJob)
-hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs = Lens.lens (\HyperParameterTuningJobWarmStartConfig' {parentHyperParameterTuningJobs} -> parentHyperParameterTuningJobs) (\s@HyperParameterTuningJobWarmStartConfig' {} a -> s {parentHyperParameterTuningJobs = a} :: HyperParameterTuningJobWarmStartConfig) Core.. Lens._Coerce
+hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs :: Lens.Lens' HyperParameterTuningJobWarmStartConfig (Prelude.NonEmpty ParentHyperParameterTuningJob)
+hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs = Lens.lens (\HyperParameterTuningJobWarmStartConfig' {parentHyperParameterTuningJobs} -> parentHyperParameterTuningJobs) (\s@HyperParameterTuningJobWarmStartConfig' {} a -> s {parentHyperParameterTuningJobs = a} :: HyperParameterTuningJobWarmStartConfig) Prelude.. Lens._Coerce
 
 -- | Specifies one of the following:
 --
@@ -189,16 +190,16 @@ instance
       "HyperParameterTuningJobWarmStartConfig"
       ( \x ->
           HyperParameterTuningJobWarmStartConfig'
-            Core.<$> (x Core..: "ParentHyperParameterTuningJobs")
-            Core.<*> (x Core..: "WarmStartType")
+            Prelude.<$> (x Core..: "ParentHyperParameterTuningJobs")
+            Prelude.<*> (x Core..: "WarmStartType")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HyperParameterTuningJobWarmStartConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     HyperParameterTuningJobWarmStartConfig
 
 instance
@@ -207,11 +208,12 @@ instance
   where
   toJSON HyperParameterTuningJobWarmStartConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ParentHyperParameterTuningJobs"
                   Core..= parentHyperParameterTuningJobs
               ),
-            Core.Just ("WarmStartType" Core..= warmStartType)
+            Prelude.Just
+              ("WarmStartType" Core..= warmStartType)
           ]
       )

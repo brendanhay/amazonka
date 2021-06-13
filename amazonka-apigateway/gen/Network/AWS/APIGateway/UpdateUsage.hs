@@ -48,6 +48,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +59,14 @@ import qualified Network.AWS.Response as Response
 data UpdateUsage = UpdateUsage'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The Id of the usage plan associated with the usage data.
-    usagePlanId :: Core.Text,
+    usagePlanId :: Prelude.Text,
     -- | [Required] The identifier of the API key associated with the usage plan
     -- in which a temporary extension is granted to the remaining quota.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUsage' with all optional fields omitted.
@@ -84,29 +85,29 @@ data UpdateUsage = UpdateUsage'
 -- in which a temporary extension is granted to the remaining quota.
 newUpdateUsage ::
   -- | 'usagePlanId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateUsage
 newUpdateUsage pUsagePlanId_ pKeyId_ =
   UpdateUsage'
-    { patchOperations = Core.Nothing,
+    { patchOperations = Prelude.Nothing,
       usagePlanId = pUsagePlanId_,
       keyId = pKeyId_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateUsage_patchOperations :: Lens.Lens' UpdateUsage (Core.Maybe [PatchOperation])
-updateUsage_patchOperations = Lens.lens (\UpdateUsage' {patchOperations} -> patchOperations) (\s@UpdateUsage' {} a -> s {patchOperations = a} :: UpdateUsage) Core.. Lens.mapping Lens._Coerce
+updateUsage_patchOperations :: Lens.Lens' UpdateUsage (Prelude.Maybe [PatchOperation])
+updateUsage_patchOperations = Lens.lens (\UpdateUsage' {patchOperations} -> patchOperations) (\s@UpdateUsage' {} a -> s {patchOperations = a} :: UpdateUsage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The Id of the usage plan associated with the usage data.
-updateUsage_usagePlanId :: Lens.Lens' UpdateUsage Core.Text
+updateUsage_usagePlanId :: Lens.Lens' UpdateUsage Prelude.Text
 updateUsage_usagePlanId = Lens.lens (\UpdateUsage' {usagePlanId} -> usagePlanId) (\s@UpdateUsage' {} a -> s {usagePlanId = a} :: UpdateUsage)
 
 -- | [Required] The identifier of the API key associated with the usage plan
 -- in which a temporary extension is granted to the remaining quota.
-updateUsage_keyId :: Lens.Lens' UpdateUsage Core.Text
+updateUsage_keyId :: Lens.Lens' UpdateUsage Prelude.Text
 updateUsage_keyId = Lens.lens (\UpdateUsage' {keyId} -> keyId) (\s@UpdateUsage' {} a -> s {keyId = a} :: UpdateUsage)
 
 instance Core.AWSRequest UpdateUsage where
@@ -116,31 +117,31 @@ instance Core.AWSRequest UpdateUsage where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateUsage
+instance Prelude.Hashable UpdateUsage
 
-instance Core.NFData UpdateUsage
+instance Prelude.NFData UpdateUsage
 
 instance Core.ToHeaders UpdateUsage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateUsage where
   toJSON UpdateUsage' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateUsage where
   toPath UpdateUsage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/usageplans/",
         Core.toBS usagePlanId,
         "/keys/",
@@ -149,4 +150,4 @@ instance Core.ToPath UpdateUsage where
       ]
 
 instance Core.ToQuery UpdateUsage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

@@ -89,6 +89,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -98,16 +99,16 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
     -- request. When the results of the request exceed @MaxResults@, this value
     -- can be used to retrieve the next page of results. This value is @null@
     -- when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the volumes.
     --
     -- Default: Describes all your volumes.
-    volumeIds :: Core.Maybe [Core.Text],
+    volumeIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of volume results returned by @DescribeVolumeStatus@
     -- in paginated output. When this parameter is used, the request only
     -- returns @MaxResults@ results in a single page along with a @NextToken@
@@ -117,7 +118,7 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
     -- larger than 1,000, only 1,000 results are returned. If this parameter is
     -- not used, then @DescribeVolumeStatus@ returns all results. You cannot
     -- specify this parameter and the volume IDs parameter in the same request.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The filters.
     --
     -- -   @action.code@ - The action code for the event (for example,
@@ -151,9 +152,9 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
     --
     -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
     --     | @warning@ | @insufficient-data@).
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVolumeStatus' with all optional fields omitted.
@@ -224,32 +225,32 @@ newDescribeVolumeStatus ::
   DescribeVolumeStatus
 newDescribeVolumeStatus =
   DescribeVolumeStatus'
-    { nextToken = Core.Nothing,
-      dryRun = Core.Nothing,
-      volumeIds = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      volumeIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
 -- request. When the results of the request exceed @MaxResults@, this value
 -- can be used to retrieve the next page of results. This value is @null@
 -- when there are no more results to return.
-describeVolumeStatus_nextToken :: Lens.Lens' DescribeVolumeStatus (Core.Maybe Core.Text)
+describeVolumeStatus_nextToken :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Text)
 describeVolumeStatus_nextToken = Lens.lens (\DescribeVolumeStatus' {nextToken} -> nextToken) (\s@DescribeVolumeStatus' {} a -> s {nextToken = a} :: DescribeVolumeStatus)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeVolumeStatus_dryRun :: Lens.Lens' DescribeVolumeStatus (Core.Maybe Core.Bool)
+describeVolumeStatus_dryRun :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Bool)
 describeVolumeStatus_dryRun = Lens.lens (\DescribeVolumeStatus' {dryRun} -> dryRun) (\s@DescribeVolumeStatus' {} a -> s {dryRun = a} :: DescribeVolumeStatus)
 
 -- | The IDs of the volumes.
 --
 -- Default: Describes all your volumes.
-describeVolumeStatus_volumeIds :: Lens.Lens' DescribeVolumeStatus (Core.Maybe [Core.Text])
-describeVolumeStatus_volumeIds = Lens.lens (\DescribeVolumeStatus' {volumeIds} -> volumeIds) (\s@DescribeVolumeStatus' {} a -> s {volumeIds = a} :: DescribeVolumeStatus) Core.. Lens.mapping Lens._Coerce
+describeVolumeStatus_volumeIds :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Prelude.Text])
+describeVolumeStatus_volumeIds = Lens.lens (\DescribeVolumeStatus' {volumeIds} -> volumeIds) (\s@DescribeVolumeStatus' {} a -> s {volumeIds = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of volume results returned by @DescribeVolumeStatus@
 -- in paginated output. When this parameter is used, the request only
@@ -260,7 +261,7 @@ describeVolumeStatus_volumeIds = Lens.lens (\DescribeVolumeStatus' {volumeIds} -
 -- larger than 1,000, only 1,000 results are returned. If this parameter is
 -- not used, then @DescribeVolumeStatus@ returns all results. You cannot
 -- specify this parameter and the volume IDs parameter in the same request.
-describeVolumeStatus_maxResults :: Lens.Lens' DescribeVolumeStatus (Core.Maybe Core.Int)
+describeVolumeStatus_maxResults :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Int)
 describeVolumeStatus_maxResults = Lens.lens (\DescribeVolumeStatus' {maxResults} -> maxResults) (\s@DescribeVolumeStatus' {} a -> s {maxResults = a} :: DescribeVolumeStatus)
 
 -- | The filters.
@@ -296,30 +297,30 @@ describeVolumeStatus_maxResults = Lens.lens (\DescribeVolumeStatus' {maxResults}
 --
 -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
 --     | @warning@ | @insufficient-data@).
-describeVolumeStatus_filters :: Lens.Lens' DescribeVolumeStatus (Core.Maybe [Filter])
-describeVolumeStatus_filters = Lens.lens (\DescribeVolumeStatus' {filters} -> filters) (\s@DescribeVolumeStatus' {} a -> s {filters = a} :: DescribeVolumeStatus) Core.. Lens.mapping Lens._Coerce
+describeVolumeStatus_filters :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Filter])
+describeVolumeStatus_filters = Lens.lens (\DescribeVolumeStatus' {filters} -> filters) (\s@DescribeVolumeStatus' {} a -> s {filters = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeVolumeStatus where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeVolumeStatusResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVolumeStatusResponse_volumeStatuses
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeVolumeStatus_nextToken
+          Prelude.& describeVolumeStatus_nextToken
           Lens..~ rs
           Lens.^? describeVolumeStatusResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumeStatus where
   type
@@ -330,49 +331,50 @@ instance Core.AWSRequest DescribeVolumeStatus where
     Response.receiveXML
       ( \s h x ->
           DescribeVolumeStatusResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "volumeStatusSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "volumeStatusSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeVolumeStatus
+instance Prelude.Hashable DescribeVolumeStatus
 
-instance Core.NFData DescribeVolumeStatus
+instance Prelude.NFData DescribeVolumeStatus
 
 instance Core.ToHeaders DescribeVolumeStatus where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeVolumeStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeVolumeStatus where
   toQuery DescribeVolumeStatus' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVolumeStatus" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeVolumeStatus" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "VolumeId" Core.<$> volumeIds),
+          (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeVolumeStatusResponse' smart constructor.
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the status of the volumes.
-    volumeStatuses :: Core.Maybe [VolumeStatusItem],
+    volumeStatuses :: Prelude.Maybe [VolumeStatusItem],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVolumeStatusResponse' with all optional fields omitted.
@@ -390,27 +392,27 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
 -- 'httpStatus', 'describeVolumeStatusResponse_httpStatus' - The response's http status code.
 newDescribeVolumeStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeVolumeStatusResponse
 newDescribeVolumeStatusResponse pHttpStatus_ =
   DescribeVolumeStatusResponse'
     { nextToken =
-        Core.Nothing,
-      volumeStatuses = Core.Nothing,
+        Prelude.Nothing,
+      volumeStatuses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeVolumeStatusResponse_nextToken :: Lens.Lens' DescribeVolumeStatusResponse (Core.Maybe Core.Text)
+describeVolumeStatusResponse_nextToken :: Lens.Lens' DescribeVolumeStatusResponse (Prelude.Maybe Prelude.Text)
 describeVolumeStatusResponse_nextToken = Lens.lens (\DescribeVolumeStatusResponse' {nextToken} -> nextToken) (\s@DescribeVolumeStatusResponse' {} a -> s {nextToken = a} :: DescribeVolumeStatusResponse)
 
 -- | Information about the status of the volumes.
-describeVolumeStatusResponse_volumeStatuses :: Lens.Lens' DescribeVolumeStatusResponse (Core.Maybe [VolumeStatusItem])
-describeVolumeStatusResponse_volumeStatuses = Lens.lens (\DescribeVolumeStatusResponse' {volumeStatuses} -> volumeStatuses) (\s@DescribeVolumeStatusResponse' {} a -> s {volumeStatuses = a} :: DescribeVolumeStatusResponse) Core.. Lens.mapping Lens._Coerce
+describeVolumeStatusResponse_volumeStatuses :: Lens.Lens' DescribeVolumeStatusResponse (Prelude.Maybe [VolumeStatusItem])
+describeVolumeStatusResponse_volumeStatuses = Lens.lens (\DescribeVolumeStatusResponse' {volumeStatuses} -> volumeStatuses) (\s@DescribeVolumeStatusResponse' {} a -> s {volumeStatuses = a} :: DescribeVolumeStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVolumeStatusResponse_httpStatus :: Lens.Lens' DescribeVolumeStatusResponse Core.Int
+describeVolumeStatusResponse_httpStatus :: Lens.Lens' DescribeVolumeStatusResponse Prelude.Int
 describeVolumeStatusResponse_httpStatus = Lens.lens (\DescribeVolumeStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeVolumeStatusResponse' {} a -> s {httpStatus = a} :: DescribeVolumeStatusResponse)
 
-instance Core.NFData DescribeVolumeStatusResponse
+instance Prelude.NFData DescribeVolumeStatusResponse

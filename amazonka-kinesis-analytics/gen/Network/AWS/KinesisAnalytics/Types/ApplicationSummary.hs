@@ -22,6 +22,7 @@ module Network.AWS.KinesisAnalytics.Types.ApplicationSummary where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.ApplicationStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This documentation is for version 1 of the Amazon Kinesis Data Analytics
 -- API, which only supports SQL applications. Version 2 of the API supports
@@ -34,13 +35,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
   { -- | Name of the application.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | ARN of the application.
-    applicationARN :: Core.Text,
+    applicationARN :: Prelude.Text,
     -- | Status of the application.
     applicationStatus :: ApplicationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationSummary' with all optional fields omitted.
@@ -57,9 +58,9 @@ data ApplicationSummary = ApplicationSummary'
 -- 'applicationStatus', 'applicationSummary_applicationStatus' - Status of the application.
 newApplicationSummary ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationStatus'
   ApplicationStatus ->
   ApplicationSummary
@@ -75,11 +76,11 @@ newApplicationSummary
       }
 
 -- | Name of the application.
-applicationSummary_applicationName :: Lens.Lens' ApplicationSummary Core.Text
+applicationSummary_applicationName :: Lens.Lens' ApplicationSummary Prelude.Text
 applicationSummary_applicationName = Lens.lens (\ApplicationSummary' {applicationName} -> applicationName) (\s@ApplicationSummary' {} a -> s {applicationName = a} :: ApplicationSummary)
 
 -- | ARN of the application.
-applicationSummary_applicationARN :: Lens.Lens' ApplicationSummary Core.Text
+applicationSummary_applicationARN :: Lens.Lens' ApplicationSummary Prelude.Text
 applicationSummary_applicationARN = Lens.lens (\ApplicationSummary' {applicationARN} -> applicationARN) (\s@ApplicationSummary' {} a -> s {applicationARN = a} :: ApplicationSummary)
 
 -- | Status of the application.
@@ -92,11 +93,11 @@ instance Core.FromJSON ApplicationSummary where
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Core.<$> (x Core..: "ApplicationName")
-            Core.<*> (x Core..: "ApplicationARN")
-            Core.<*> (x Core..: "ApplicationStatus")
+            Prelude.<$> (x Core..: "ApplicationName")
+            Prelude.<*> (x Core..: "ApplicationARN")
+            Prelude.<*> (x Core..: "ApplicationStatus")
       )
 
-instance Core.Hashable ApplicationSummary
+instance Prelude.Hashable ApplicationSummary
 
-instance Core.NFData ApplicationSummary
+instance Prelude.NFData ApplicationSummary

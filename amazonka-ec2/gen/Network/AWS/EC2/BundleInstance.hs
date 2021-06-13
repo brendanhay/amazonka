@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +62,7 @@ data BundleInstance = BundleInstance'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance to bundle.
     --
     -- Type: String
@@ -69,14 +70,14 @@ data BundleInstance = BundleInstance'
     -- Default: None
     --
     -- Required: Yes
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The bucket in which to store the AMI. You can specify a bucket that you
     -- already own or a new bucket that Amazon EC2 creates on your behalf. If
     -- you specify a bucket that belongs to someone else, Amazon EC2 returns an
     -- error.
     storage :: Storage
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BundleInstance' with all optional fields omitted.
@@ -105,13 +106,13 @@ data BundleInstance = BundleInstance'
 -- error.
 newBundleInstance ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'storage'
   Storage ->
   BundleInstance
 newBundleInstance pInstanceId_ pStorage_ =
   BundleInstance'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       instanceId = pInstanceId_,
       storage = pStorage_
     }
@@ -120,7 +121,7 @@ newBundleInstance pInstanceId_ pStorage_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-bundleInstance_dryRun :: Lens.Lens' BundleInstance (Core.Maybe Core.Bool)
+bundleInstance_dryRun :: Lens.Lens' BundleInstance (Prelude.Maybe Prelude.Bool)
 bundleInstance_dryRun = Lens.lens (\BundleInstance' {dryRun} -> dryRun) (\s@BundleInstance' {} a -> s {dryRun = a} :: BundleInstance)
 
 -- | The ID of the instance to bundle.
@@ -130,7 +131,7 @@ bundleInstance_dryRun = Lens.lens (\BundleInstance' {dryRun} -> dryRun) (\s@Bund
 -- Default: None
 --
 -- Required: Yes
-bundleInstance_instanceId :: Lens.Lens' BundleInstance Core.Text
+bundleInstance_instanceId :: Lens.Lens' BundleInstance Prelude.Text
 bundleInstance_instanceId = Lens.lens (\BundleInstance' {instanceId} -> instanceId) (\s@BundleInstance' {} a -> s {instanceId = a} :: BundleInstance)
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
@@ -149,26 +150,27 @@ instance Core.AWSRequest BundleInstance where
     Response.receiveXML
       ( \s h x ->
           BundleInstanceResponse'
-            Core.<$> (x Core..@? "bundleInstanceTask")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "bundleInstanceTask")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BundleInstance
+instance Prelude.Hashable BundleInstance
 
-instance Core.NFData BundleInstance
+instance Prelude.NFData BundleInstance
 
 instance Core.ToHeaders BundleInstance where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath BundleInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BundleInstance where
   toQuery BundleInstance' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("BundleInstance" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("BundleInstance" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "InstanceId" Core.=: instanceId,
         "Storage" Core.=: storage
@@ -179,11 +181,11 @@ instance Core.ToQuery BundleInstance where
 -- /See:/ 'newBundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
   { -- | Information about the bundle task.
-    bundleTask :: Core.Maybe BundleTask,
+    bundleTask :: Prelude.Maybe BundleTask,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BundleInstanceResponse' with all optional fields omitted.
@@ -198,20 +200,21 @@ data BundleInstanceResponse = BundleInstanceResponse'
 -- 'httpStatus', 'bundleInstanceResponse_httpStatus' - The response's http status code.
 newBundleInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BundleInstanceResponse
 newBundleInstanceResponse pHttpStatus_ =
   BundleInstanceResponse'
-    { bundleTask = Core.Nothing,
+    { bundleTask =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the bundle task.
-bundleInstanceResponse_bundleTask :: Lens.Lens' BundleInstanceResponse (Core.Maybe BundleTask)
+bundleInstanceResponse_bundleTask :: Lens.Lens' BundleInstanceResponse (Prelude.Maybe BundleTask)
 bundleInstanceResponse_bundleTask = Lens.lens (\BundleInstanceResponse' {bundleTask} -> bundleTask) (\s@BundleInstanceResponse' {} a -> s {bundleTask = a} :: BundleInstanceResponse)
 
 -- | The response's http status code.
-bundleInstanceResponse_httpStatus :: Lens.Lens' BundleInstanceResponse Core.Int
+bundleInstanceResponse_httpStatus :: Lens.Lens' BundleInstanceResponse Prelude.Int
 bundleInstanceResponse_httpStatus = Lens.lens (\BundleInstanceResponse' {httpStatus} -> httpStatus) (\s@BundleInstanceResponse' {} a -> s {httpStatus = a} :: BundleInstanceResponse)
 
-instance Core.NFData BundleInstanceResponse
+instance Prelude.NFData BundleInstanceResponse

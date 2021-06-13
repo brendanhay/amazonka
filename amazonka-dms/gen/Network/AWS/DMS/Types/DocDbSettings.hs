@@ -22,6 +22,7 @@ module Network.AWS.DMS.Types.DocDbSettings where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.NestingLevelValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information that defines a DocumentDB endpoint.
 --
@@ -30,22 +31,22 @@ data DocDbSettings = DocDbSettings'
   { -- | The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerSecret@ that contains the DocumentDB endpoint connection
     -- details.
-    secretsManagerSecretId :: Core.Maybe Core.Text,
+    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | The name of the server on the DocumentDB source endpoint.
-    serverName :: Core.Maybe Core.Text,
+    serverName :: Prelude.Maybe Prelude.Text,
     -- | The AWS KMS key identifier that is used to encrypt the content on the
     -- replication instance. If you don\'t specify a value for the @KmsKeyId@
     -- parameter, then AWS DMS uses your default encryption key. AWS KMS
     -- creates the default encryption key for your AWS account. Your AWS
     -- account has a different default encryption key for each AWS Region.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The password for the user account you use to access the DocumentDB
     -- source endpoint.
-    password :: Core.Maybe (Core.Sensitive Core.Text),
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The port value for the DocumentDB source endpoint.
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | The user name you use to access the DocumentDB source endpoint.
-    username :: Core.Maybe Core.Text,
+    username :: Prelude.Maybe Prelude.Text,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
     -- DMS as the trusted entity and grants the required permissions to access
     -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
@@ -60,26 +61,26 @@ data DocDbSettings = DocDbSettings'
     -- @SecretsManagerSecretId@ required to access it, see
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
     -- in the /AWS Database Migration Service User Guide/.
-    secretsManagerAccessRoleArn :: Core.Maybe Core.Text,
+    secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the document ID. Use this setting when @NestingLevel@ is set
     -- to @\"none\"@.
     --
     -- Default value is @\"false\"@.
-    extractDocId :: Core.Maybe Core.Bool,
+    extractDocId :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the number of documents to preview to determine the document
     -- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
     --
     -- Must be a positive value greater than @0@. Default value is @1000@.
-    docsToInvestigate :: Core.Maybe Core.Int,
+    docsToInvestigate :: Prelude.Maybe Prelude.Int,
     -- | Specifies either document or table mode.
     --
     -- Default value is @\"none\"@. Specify @\"none\"@ to use document mode.
     -- Specify @\"one\"@ to use table mode.
-    nestingLevel :: Core.Maybe NestingLevelValue,
+    nestingLevel :: Prelude.Maybe NestingLevelValue,
     -- | The database name on the DocumentDB source endpoint.
-    databaseName :: Core.Maybe Core.Text
+    databaseName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocDbSettings' with all optional fields omitted.
@@ -144,27 +145,27 @@ newDocDbSettings ::
 newDocDbSettings =
   DocDbSettings'
     { secretsManagerSecretId =
-        Core.Nothing,
-      serverName = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      password = Core.Nothing,
-      port = Core.Nothing,
-      username = Core.Nothing,
-      secretsManagerAccessRoleArn = Core.Nothing,
-      extractDocId = Core.Nothing,
-      docsToInvestigate = Core.Nothing,
-      nestingLevel = Core.Nothing,
-      databaseName = Core.Nothing
+        Prelude.Nothing,
+      serverName = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      password = Prelude.Nothing,
+      port = Prelude.Nothing,
+      username = Prelude.Nothing,
+      secretsManagerAccessRoleArn = Prelude.Nothing,
+      extractDocId = Prelude.Nothing,
+      docsToInvestigate = Prelude.Nothing,
+      nestingLevel = Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
 
 -- | The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the DocumentDB endpoint connection
 -- details.
-docDbSettings_secretsManagerSecretId :: Lens.Lens' DocDbSettings (Core.Maybe Core.Text)
+docDbSettings_secretsManagerSecretId :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_secretsManagerSecretId = Lens.lens (\DocDbSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@DocDbSettings' {} a -> s {secretsManagerSecretId = a} :: DocDbSettings)
 
 -- | The name of the server on the DocumentDB source endpoint.
-docDbSettings_serverName :: Lens.Lens' DocDbSettings (Core.Maybe Core.Text)
+docDbSettings_serverName :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_serverName = Lens.lens (\DocDbSettings' {serverName} -> serverName) (\s@DocDbSettings' {} a -> s {serverName = a} :: DocDbSettings)
 
 -- | The AWS KMS key identifier that is used to encrypt the content on the
@@ -172,20 +173,20 @@ docDbSettings_serverName = Lens.lens (\DocDbSettings' {serverName} -> serverName
 -- parameter, then AWS DMS uses your default encryption key. AWS KMS
 -- creates the default encryption key for your AWS account. Your AWS
 -- account has a different default encryption key for each AWS Region.
-docDbSettings_kmsKeyId :: Lens.Lens' DocDbSettings (Core.Maybe Core.Text)
+docDbSettings_kmsKeyId :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_kmsKeyId = Lens.lens (\DocDbSettings' {kmsKeyId} -> kmsKeyId) (\s@DocDbSettings' {} a -> s {kmsKeyId = a} :: DocDbSettings)
 
 -- | The password for the user account you use to access the DocumentDB
 -- source endpoint.
-docDbSettings_password :: Lens.Lens' DocDbSettings (Core.Maybe Core.Text)
-docDbSettings_password = Lens.lens (\DocDbSettings' {password} -> password) (\s@DocDbSettings' {} a -> s {password = a} :: DocDbSettings) Core.. Lens.mapping Core._Sensitive
+docDbSettings_password :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
+docDbSettings_password = Lens.lens (\DocDbSettings' {password} -> password) (\s@DocDbSettings' {} a -> s {password = a} :: DocDbSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The port value for the DocumentDB source endpoint.
-docDbSettings_port :: Lens.Lens' DocDbSettings (Core.Maybe Core.Int)
+docDbSettings_port :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Int)
 docDbSettings_port = Lens.lens (\DocDbSettings' {port} -> port) (\s@DocDbSettings' {} a -> s {port = a} :: DocDbSettings)
 
 -- | The user name you use to access the DocumentDB source endpoint.
-docDbSettings_username :: Lens.Lens' DocDbSettings (Core.Maybe Core.Text)
+docDbSettings_username :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_username = Lens.lens (\DocDbSettings' {username} -> username) (\s@DocDbSettings' {} a -> s {username = a} :: DocDbSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
@@ -202,32 +203,32 @@ docDbSettings_username = Lens.lens (\DocDbSettings' {username} -> username) (\s@
 -- @SecretsManagerSecretId@ required to access it, see
 -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
 -- in the /AWS Database Migration Service User Guide/.
-docDbSettings_secretsManagerAccessRoleArn :: Lens.Lens' DocDbSettings (Core.Maybe Core.Text)
+docDbSettings_secretsManagerAccessRoleArn :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_secretsManagerAccessRoleArn = Lens.lens (\DocDbSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@DocDbSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: DocDbSettings)
 
 -- | Specifies the document ID. Use this setting when @NestingLevel@ is set
 -- to @\"none\"@.
 --
 -- Default value is @\"false\"@.
-docDbSettings_extractDocId :: Lens.Lens' DocDbSettings (Core.Maybe Core.Bool)
+docDbSettings_extractDocId :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Bool)
 docDbSettings_extractDocId = Lens.lens (\DocDbSettings' {extractDocId} -> extractDocId) (\s@DocDbSettings' {} a -> s {extractDocId = a} :: DocDbSettings)
 
 -- | Indicates the number of documents to preview to determine the document
 -- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
 --
 -- Must be a positive value greater than @0@. Default value is @1000@.
-docDbSettings_docsToInvestigate :: Lens.Lens' DocDbSettings (Core.Maybe Core.Int)
+docDbSettings_docsToInvestigate :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Int)
 docDbSettings_docsToInvestigate = Lens.lens (\DocDbSettings' {docsToInvestigate} -> docsToInvestigate) (\s@DocDbSettings' {} a -> s {docsToInvestigate = a} :: DocDbSettings)
 
 -- | Specifies either document or table mode.
 --
 -- Default value is @\"none\"@. Specify @\"none\"@ to use document mode.
 -- Specify @\"one\"@ to use table mode.
-docDbSettings_nestingLevel :: Lens.Lens' DocDbSettings (Core.Maybe NestingLevelValue)
+docDbSettings_nestingLevel :: Lens.Lens' DocDbSettings (Prelude.Maybe NestingLevelValue)
 docDbSettings_nestingLevel = Lens.lens (\DocDbSettings' {nestingLevel} -> nestingLevel) (\s@DocDbSettings' {} a -> s {nestingLevel = a} :: DocDbSettings)
 
 -- | The database name on the DocumentDB source endpoint.
-docDbSettings_databaseName :: Lens.Lens' DocDbSettings (Core.Maybe Core.Text)
+docDbSettings_databaseName :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_databaseName = Lens.lens (\DocDbSettings' {databaseName} -> databaseName) (\s@DocDbSettings' {} a -> s {databaseName = a} :: DocDbSettings)
 
 instance Core.FromJSON DocDbSettings where
@@ -236,40 +237,40 @@ instance Core.FromJSON DocDbSettings where
       "DocDbSettings"
       ( \x ->
           DocDbSettings'
-            Core.<$> (x Core..:? "SecretsManagerSecretId")
-            Core.<*> (x Core..:? "ServerName")
-            Core.<*> (x Core..:? "KmsKeyId")
-            Core.<*> (x Core..:? "Password")
-            Core.<*> (x Core..:? "Port")
-            Core.<*> (x Core..:? "Username")
-            Core.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Core.<*> (x Core..:? "ExtractDocId")
-            Core.<*> (x Core..:? "DocsToInvestigate")
-            Core.<*> (x Core..:? "NestingLevel")
-            Core.<*> (x Core..:? "DatabaseName")
+            Prelude.<$> (x Core..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Core..:? "ServerName")
+            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "Password")
+            Prelude.<*> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Core..:? "ExtractDocId")
+            Prelude.<*> (x Core..:? "DocsToInvestigate")
+            Prelude.<*> (x Core..:? "NestingLevel")
+            Prelude.<*> (x Core..:? "DatabaseName")
       )
 
-instance Core.Hashable DocDbSettings
+instance Prelude.Hashable DocDbSettings
 
-instance Core.NFData DocDbSettings
+instance Prelude.NFData DocDbSettings
 
 instance Core.ToJSON DocDbSettings where
   toJSON DocDbSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SecretsManagerSecretId" Core..=)
-              Core.<$> secretsManagerSecretId,
-            ("ServerName" Core..=) Core.<$> serverName,
-            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            ("Password" Core..=) Core.<$> password,
-            ("Port" Core..=) Core.<$> port,
-            ("Username" Core..=) Core.<$> username,
+              Prelude.<$> secretsManagerSecretId,
+            ("ServerName" Core..=) Prelude.<$> serverName,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("Password" Core..=) Prelude.<$> password,
+            ("Port" Core..=) Prelude.<$> port,
+            ("Username" Core..=) Prelude.<$> username,
             ("SecretsManagerAccessRoleArn" Core..=)
-              Core.<$> secretsManagerAccessRoleArn,
-            ("ExtractDocId" Core..=) Core.<$> extractDocId,
+              Prelude.<$> secretsManagerAccessRoleArn,
+            ("ExtractDocId" Core..=) Prelude.<$> extractDocId,
             ("DocsToInvestigate" Core..=)
-              Core.<$> docsToInvestigate,
-            ("NestingLevel" Core..=) Core.<$> nestingLevel,
-            ("DatabaseName" Core..=) Core.<$> databaseName
+              Prelude.<$> docsToInvestigate,
+            ("NestingLevel" Core..=) Prelude.<$> nestingLevel,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

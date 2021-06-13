@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TensorBoardAppSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ResourceSpec
 
 -- | The TensorBoard app settings.
@@ -29,9 +30,9 @@ import Network.AWS.SageMaker.Types.ResourceSpec
 data TensorBoardAppSettings = TensorBoardAppSettings'
   { -- | The default instance type and the Amazon Resource Name (ARN) of the
     -- SageMaker image created on the instance.
-    defaultResourceSpec :: Core.Maybe ResourceSpec
+    defaultResourceSpec :: Prelude.Maybe ResourceSpec
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TensorBoardAppSettings' with all optional fields omitted.
@@ -48,12 +49,12 @@ newTensorBoardAppSettings ::
 newTensorBoardAppSettings =
   TensorBoardAppSettings'
     { defaultResourceSpec =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the
 -- SageMaker image created on the instance.
-tensorBoardAppSettings_defaultResourceSpec :: Lens.Lens' TensorBoardAppSettings (Core.Maybe ResourceSpec)
+tensorBoardAppSettings_defaultResourceSpec :: Lens.Lens' TensorBoardAppSettings (Prelude.Maybe ResourceSpec)
 tensorBoardAppSettings_defaultResourceSpec = Lens.lens (\TensorBoardAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@TensorBoardAppSettings' {} a -> s {defaultResourceSpec = a} :: TensorBoardAppSettings)
 
 instance Core.FromJSON TensorBoardAppSettings where
@@ -62,18 +63,18 @@ instance Core.FromJSON TensorBoardAppSettings where
       "TensorBoardAppSettings"
       ( \x ->
           TensorBoardAppSettings'
-            Core.<$> (x Core..:? "DefaultResourceSpec")
+            Prelude.<$> (x Core..:? "DefaultResourceSpec")
       )
 
-instance Core.Hashable TensorBoardAppSettings
+instance Prelude.Hashable TensorBoardAppSettings
 
-instance Core.NFData TensorBoardAppSettings
+instance Prelude.NFData TensorBoardAppSettings
 
 instance Core.ToJSON TensorBoardAppSettings where
   toJSON TensorBoardAppSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DefaultResourceSpec" Core..=)
-              Core.<$> defaultResourceSpec
+              Prelude.<$> defaultResourceSpec
           ]
       )

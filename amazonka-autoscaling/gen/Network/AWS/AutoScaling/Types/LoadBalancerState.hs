@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.LoadBalancerState where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a Classic Load Balancer.
 --
@@ -55,11 +56,11 @@ data LoadBalancerState = LoadBalancerState'
     --
     -- -   @Removed@ - All instances in the group are deregistered from the
     --     load balancer.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The name of the load balancer.
-    loadBalancerName :: Core.Maybe Core.Text
+    loadBalancerName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerState' with all optional fields omitted.
@@ -93,8 +94,8 @@ newLoadBalancerState ::
   LoadBalancerState
 newLoadBalancerState =
   LoadBalancerState'
-    { state = Core.Nothing,
-      loadBalancerName = Core.Nothing
+    { state = Prelude.Nothing,
+      loadBalancerName = Prelude.Nothing
     }
 
 -- | One of the following load balancer states:
@@ -115,19 +116,19 @@ newLoadBalancerState =
 --
 -- -   @Removed@ - All instances in the group are deregistered from the
 --     load balancer.
-loadBalancerState_state :: Lens.Lens' LoadBalancerState (Core.Maybe Core.Text)
+loadBalancerState_state :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
 loadBalancerState_state = Lens.lens (\LoadBalancerState' {state} -> state) (\s@LoadBalancerState' {} a -> s {state = a} :: LoadBalancerState)
 
 -- | The name of the load balancer.
-loadBalancerState_loadBalancerName :: Lens.Lens' LoadBalancerState (Core.Maybe Core.Text)
+loadBalancerState_loadBalancerName :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
 loadBalancerState_loadBalancerName = Lens.lens (\LoadBalancerState' {loadBalancerName} -> loadBalancerName) (\s@LoadBalancerState' {} a -> s {loadBalancerName = a} :: LoadBalancerState)
 
 instance Core.FromXML LoadBalancerState where
   parseXML x =
     LoadBalancerState'
-      Core.<$> (x Core..@? "State")
-      Core.<*> (x Core..@? "LoadBalancerName")
+      Prelude.<$> (x Core..@? "State")
+      Prelude.<*> (x Core..@? "LoadBalancerName")
 
-instance Core.Hashable LoadBalancerState
+instance Prelude.Hashable LoadBalancerState
 
-instance Core.NFData LoadBalancerState
+instance Prelude.NFData LoadBalancerState

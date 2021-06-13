@@ -21,15 +21,16 @@ module Network.AWS.SQS.Types.DeleteMessageBatchResultEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Encloses the @Id@ of an entry in @ DeleteMessageBatch.@
 --
 -- /See:/ 'newDeleteMessageBatchResultEntry' smart constructor.
 data DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
   { -- | Represents a successfully deleted message.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMessageBatchResultEntry' with all optional fields omitted.
@@ -42,20 +43,22 @@ data DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
 -- 'id', 'deleteMessageBatchResultEntry_id' - Represents a successfully deleted message.
 newDeleteMessageBatchResultEntry ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMessageBatchResultEntry
 newDeleteMessageBatchResultEntry pId_ =
   DeleteMessageBatchResultEntry' {id = pId_}
 
 -- | Represents a successfully deleted message.
-deleteMessageBatchResultEntry_id :: Lens.Lens' DeleteMessageBatchResultEntry Core.Text
+deleteMessageBatchResultEntry_id :: Lens.Lens' DeleteMessageBatchResultEntry Prelude.Text
 deleteMessageBatchResultEntry_id = Lens.lens (\DeleteMessageBatchResultEntry' {id} -> id) (\s@DeleteMessageBatchResultEntry' {} a -> s {id = a} :: DeleteMessageBatchResultEntry)
 
 instance Core.FromXML DeleteMessageBatchResultEntry where
   parseXML x =
     DeleteMessageBatchResultEntry'
-      Core.<$> (x Core..@ "Id")
+      Prelude.<$> (x Core..@ "Id")
 
-instance Core.Hashable DeleteMessageBatchResultEntry
+instance
+  Prelude.Hashable
+    DeleteMessageBatchResultEntry
 
-instance Core.NFData DeleteMessageBatchResultEntry
+instance Prelude.NFData DeleteMessageBatchResultEntry

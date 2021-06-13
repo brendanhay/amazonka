@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ data GetServerCertificate = GetServerCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    serverCertificateName :: Core.Text
+    serverCertificateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetServerCertificate' with all optional fields omitted.
@@ -81,7 +82,7 @@ data GetServerCertificate = GetServerCertificate'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newGetServerCertificate ::
   -- | 'serverCertificateName'
-  Core.Text ->
+  Prelude.Text ->
   GetServerCertificate
 newGetServerCertificate pServerCertificateName_ =
   GetServerCertificate'
@@ -96,7 +97,7 @@ newGetServerCertificate pServerCertificateName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getServerCertificate_serverCertificateName :: Lens.Lens' GetServerCertificate Core.Text
+getServerCertificate_serverCertificateName :: Lens.Lens' GetServerCertificate Prelude.Text
 getServerCertificate_serverCertificateName = Lens.lens (\GetServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@GetServerCertificate' {} a -> s {serverCertificateName = a} :: GetServerCertificate)
 
 instance Core.AWSRequest GetServerCertificate where
@@ -109,26 +110,27 @@ instance Core.AWSRequest GetServerCertificate where
       "GetServerCertificateResult"
       ( \s h x ->
           GetServerCertificateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "ServerCertificate")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "ServerCertificate")
       )
 
-instance Core.Hashable GetServerCertificate
+instance Prelude.Hashable GetServerCertificate
 
-instance Core.NFData GetServerCertificate
+instance Prelude.NFData GetServerCertificate
 
 instance Core.ToHeaders GetServerCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetServerCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetServerCertificate where
   toQuery GetServerCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetServerCertificate" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("GetServerCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "ServerCertificateName"
           Core.=: serverCertificateName
       ]
@@ -138,11 +140,11 @@ instance Core.ToQuery GetServerCertificate where
 -- /See:/ 'newGetServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A structure containing details about the server certificate.
     serverCertificate :: ServerCertificate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetServerCertificateResponse' with all optional fields omitted.
@@ -157,7 +159,7 @@ data GetServerCertificateResponse = GetServerCertificateResponse'
 -- 'serverCertificate', 'getServerCertificateResponse_serverCertificate' - A structure containing details about the server certificate.
 newGetServerCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'serverCertificate'
   ServerCertificate ->
   GetServerCertificateResponse
@@ -171,11 +173,11 @@ newGetServerCertificateResponse
       }
 
 -- | The response's http status code.
-getServerCertificateResponse_httpStatus :: Lens.Lens' GetServerCertificateResponse Core.Int
+getServerCertificateResponse_httpStatus :: Lens.Lens' GetServerCertificateResponse Prelude.Int
 getServerCertificateResponse_httpStatus = Lens.lens (\GetServerCertificateResponse' {httpStatus} -> httpStatus) (\s@GetServerCertificateResponse' {} a -> s {httpStatus = a} :: GetServerCertificateResponse)
 
 -- | A structure containing details about the server certificate.
 getServerCertificateResponse_serverCertificate :: Lens.Lens' GetServerCertificateResponse ServerCertificate
 getServerCertificateResponse_serverCertificate = Lens.lens (\GetServerCertificateResponse' {serverCertificate} -> serverCertificate) (\s@GetServerCertificateResponse' {} a -> s {serverCertificate = a} :: GetServerCertificateResponse)
 
-instance Core.NFData GetServerCertificateResponse
+instance Prelude.NFData GetServerCertificateResponse

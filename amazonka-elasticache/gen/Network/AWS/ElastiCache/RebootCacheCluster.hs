@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,13 +70,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRebootCacheCluster' smart constructor.
 data RebootCacheCluster = RebootCacheCluster'
   { -- | The cluster identifier. This parameter is stored as a lowercase string.
-    cacheClusterId :: Core.Text,
+    cacheClusterId :: Prelude.Text,
     -- | A list of cache node IDs to reboot. A node ID is a numeric identifier
     -- (0001, 0002, etc.). To reboot an entire cluster, specify all of the
     -- cache node IDs.
-    cacheNodeIdsToReboot :: [Core.Text]
+    cacheNodeIdsToReboot :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebootCacheCluster' with all optional fields omitted.
@@ -92,24 +93,24 @@ data RebootCacheCluster = RebootCacheCluster'
 -- cache node IDs.
 newRebootCacheCluster ::
   -- | 'cacheClusterId'
-  Core.Text ->
+  Prelude.Text ->
   RebootCacheCluster
 newRebootCacheCluster pCacheClusterId_ =
   RebootCacheCluster'
     { cacheClusterId =
         pCacheClusterId_,
-      cacheNodeIdsToReboot = Core.mempty
+      cacheNodeIdsToReboot = Prelude.mempty
     }
 
 -- | The cluster identifier. This parameter is stored as a lowercase string.
-rebootCacheCluster_cacheClusterId :: Lens.Lens' RebootCacheCluster Core.Text
+rebootCacheCluster_cacheClusterId :: Lens.Lens' RebootCacheCluster Prelude.Text
 rebootCacheCluster_cacheClusterId = Lens.lens (\RebootCacheCluster' {cacheClusterId} -> cacheClusterId) (\s@RebootCacheCluster' {} a -> s {cacheClusterId = a} :: RebootCacheCluster)
 
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier
 -- (0001, 0002, etc.). To reboot an entire cluster, specify all of the
 -- cache node IDs.
-rebootCacheCluster_cacheNodeIdsToReboot :: Lens.Lens' RebootCacheCluster [Core.Text]
-rebootCacheCluster_cacheNodeIdsToReboot = Lens.lens (\RebootCacheCluster' {cacheNodeIdsToReboot} -> cacheNodeIdsToReboot) (\s@RebootCacheCluster' {} a -> s {cacheNodeIdsToReboot = a} :: RebootCacheCluster) Core.. Lens._Coerce
+rebootCacheCluster_cacheNodeIdsToReboot :: Lens.Lens' RebootCacheCluster [Prelude.Text]
+rebootCacheCluster_cacheNodeIdsToReboot = Lens.lens (\RebootCacheCluster' {cacheNodeIdsToReboot} -> cacheNodeIdsToReboot) (\s@RebootCacheCluster' {} a -> s {cacheNodeIdsToReboot = a} :: RebootCacheCluster) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RebootCacheCluster where
   type
@@ -121,26 +122,27 @@ instance Core.AWSRequest RebootCacheCluster where
       "RebootCacheClusterResult"
       ( \s h x ->
           RebootCacheClusterResponse'
-            Core.<$> (x Core..@? "CacheCluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "CacheCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RebootCacheCluster
+instance Prelude.Hashable RebootCacheCluster
 
-instance Core.NFData RebootCacheCluster
+instance Prelude.NFData RebootCacheCluster
 
 instance Core.ToHeaders RebootCacheCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RebootCacheCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RebootCacheCluster where
   toQuery RebootCacheCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RebootCacheCluster" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("RebootCacheCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheClusterId" Core.=: cacheClusterId,
         "CacheNodeIdsToReboot"
           Core.=: Core.toQueryList "CacheNodeId" cacheNodeIdsToReboot
@@ -148,11 +150,11 @@ instance Core.ToQuery RebootCacheCluster where
 
 -- | /See:/ 'newRebootCacheClusterResponse' smart constructor.
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
-  { cacheCluster :: Core.Maybe CacheCluster,
+  { cacheCluster :: Prelude.Maybe CacheCluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebootCacheClusterResponse' with all optional fields omitted.
@@ -167,21 +169,21 @@ data RebootCacheClusterResponse = RebootCacheClusterResponse'
 -- 'httpStatus', 'rebootCacheClusterResponse_httpStatus' - The response's http status code.
 newRebootCacheClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RebootCacheClusterResponse
 newRebootCacheClusterResponse pHttpStatus_ =
   RebootCacheClusterResponse'
     { cacheCluster =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-rebootCacheClusterResponse_cacheCluster :: Lens.Lens' RebootCacheClusterResponse (Core.Maybe CacheCluster)
+rebootCacheClusterResponse_cacheCluster :: Lens.Lens' RebootCacheClusterResponse (Prelude.Maybe CacheCluster)
 rebootCacheClusterResponse_cacheCluster = Lens.lens (\RebootCacheClusterResponse' {cacheCluster} -> cacheCluster) (\s@RebootCacheClusterResponse' {} a -> s {cacheCluster = a} :: RebootCacheClusterResponse)
 
 -- | The response's http status code.
-rebootCacheClusterResponse_httpStatus :: Lens.Lens' RebootCacheClusterResponse Core.Int
+rebootCacheClusterResponse_httpStatus :: Lens.Lens' RebootCacheClusterResponse Prelude.Int
 rebootCacheClusterResponse_httpStatus = Lens.lens (\RebootCacheClusterResponse' {httpStatus} -> httpStatus) (\s@RebootCacheClusterResponse' {} a -> s {httpStatus = a} :: RebootCacheClusterResponse)
 
-instance Core.NFData RebootCacheClusterResponse
+instance Prelude.NFData RebootCacheClusterResponse

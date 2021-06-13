@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DeleteFleetError
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an EC2 Fleet that was not successfully deleted.
 --
 -- /See:/ 'newDeleteFleetErrorItem' smart constructor.
 data DeleteFleetErrorItem = DeleteFleetErrorItem'
   { -- | The ID of the EC2 Fleet.
-    fleetId :: Core.Maybe Core.Text,
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The error.
-    error :: Core.Maybe DeleteFleetError
+    error :: Prelude.Maybe DeleteFleetError
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFleetErrorItem' with all optional fields omitted.
@@ -50,23 +51,24 @@ newDeleteFleetErrorItem ::
   DeleteFleetErrorItem
 newDeleteFleetErrorItem =
   DeleteFleetErrorItem'
-    { fleetId = Core.Nothing,
-      error = Core.Nothing
+    { fleetId = Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | The ID of the EC2 Fleet.
-deleteFleetErrorItem_fleetId :: Lens.Lens' DeleteFleetErrorItem (Core.Maybe Core.Text)
+deleteFleetErrorItem_fleetId :: Lens.Lens' DeleteFleetErrorItem (Prelude.Maybe Prelude.Text)
 deleteFleetErrorItem_fleetId = Lens.lens (\DeleteFleetErrorItem' {fleetId} -> fleetId) (\s@DeleteFleetErrorItem' {} a -> s {fleetId = a} :: DeleteFleetErrorItem)
 
 -- | The error.
-deleteFleetErrorItem_error :: Lens.Lens' DeleteFleetErrorItem (Core.Maybe DeleteFleetError)
+deleteFleetErrorItem_error :: Lens.Lens' DeleteFleetErrorItem (Prelude.Maybe DeleteFleetError)
 deleteFleetErrorItem_error = Lens.lens (\DeleteFleetErrorItem' {error} -> error) (\s@DeleteFleetErrorItem' {} a -> s {error = a} :: DeleteFleetErrorItem)
 
 instance Core.FromXML DeleteFleetErrorItem where
   parseXML x =
     DeleteFleetErrorItem'
-      Core.<$> (x Core..@? "fleetId") Core.<*> (x Core..@? "error")
+      Prelude.<$> (x Core..@? "fleetId")
+      Prelude.<*> (x Core..@? "error")
 
-instance Core.Hashable DeleteFleetErrorItem
+instance Prelude.Hashable DeleteFleetErrorItem
 
-instance Core.NFData DeleteFleetErrorItem
+instance Prelude.NFData DeleteFleetErrorItem

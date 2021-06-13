@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TrafficRoutingConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CapacitySize
 import Network.AWS.SageMaker.Types.TrafficRoutingConfigType
 
@@ -28,11 +29,11 @@ import Network.AWS.SageMaker.Types.TrafficRoutingConfigType
 --
 -- /See:/ 'newTrafficRoutingConfig' smart constructor.
 data TrafficRoutingConfig = TrafficRoutingConfig'
-  { canarySize :: Core.Maybe CapacitySize,
+  { canarySize :: Prelude.Maybe CapacitySize,
     type' :: TrafficRoutingConfigType,
-    waitIntervalInSeconds :: Core.Natural
+    waitIntervalInSeconds :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrafficRoutingConfig' with all optional fields omitted.
@@ -51,19 +52,19 @@ newTrafficRoutingConfig ::
   -- | 'type''
   TrafficRoutingConfigType ->
   -- | 'waitIntervalInSeconds'
-  Core.Natural ->
+  Prelude.Natural ->
   TrafficRoutingConfig
 newTrafficRoutingConfig
   pType_
   pWaitIntervalInSeconds_ =
     TrafficRoutingConfig'
-      { canarySize = Core.Nothing,
+      { canarySize = Prelude.Nothing,
         type' = pType_,
         waitIntervalInSeconds = pWaitIntervalInSeconds_
       }
 
 -- |
-trafficRoutingConfig_canarySize :: Lens.Lens' TrafficRoutingConfig (Core.Maybe CapacitySize)
+trafficRoutingConfig_canarySize :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe CapacitySize)
 trafficRoutingConfig_canarySize = Lens.lens (\TrafficRoutingConfig' {canarySize} -> canarySize) (\s@TrafficRoutingConfig' {} a -> s {canarySize = a} :: TrafficRoutingConfig)
 
 -- |
@@ -71,7 +72,7 @@ trafficRoutingConfig_type :: Lens.Lens' TrafficRoutingConfig TrafficRoutingConfi
 trafficRoutingConfig_type = Lens.lens (\TrafficRoutingConfig' {type'} -> type') (\s@TrafficRoutingConfig' {} a -> s {type' = a} :: TrafficRoutingConfig)
 
 -- |
-trafficRoutingConfig_waitIntervalInSeconds :: Lens.Lens' TrafficRoutingConfig Core.Natural
+trafficRoutingConfig_waitIntervalInSeconds :: Lens.Lens' TrafficRoutingConfig Prelude.Natural
 trafficRoutingConfig_waitIntervalInSeconds = Lens.lens (\TrafficRoutingConfig' {waitIntervalInSeconds} -> waitIntervalInSeconds) (\s@TrafficRoutingConfig' {} a -> s {waitIntervalInSeconds = a} :: TrafficRoutingConfig)
 
 instance Core.FromJSON TrafficRoutingConfig where
@@ -80,22 +81,22 @@ instance Core.FromJSON TrafficRoutingConfig where
       "TrafficRoutingConfig"
       ( \x ->
           TrafficRoutingConfig'
-            Core.<$> (x Core..:? "CanarySize")
-            Core.<*> (x Core..: "Type")
-            Core.<*> (x Core..: "WaitIntervalInSeconds")
+            Prelude.<$> (x Core..:? "CanarySize")
+            Prelude.<*> (x Core..: "Type")
+            Prelude.<*> (x Core..: "WaitIntervalInSeconds")
       )
 
-instance Core.Hashable TrafficRoutingConfig
+instance Prelude.Hashable TrafficRoutingConfig
 
-instance Core.NFData TrafficRoutingConfig
+instance Prelude.NFData TrafficRoutingConfig
 
 instance Core.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CanarySize" Core..=) Core.<$> canarySize,
-            Core.Just ("Type" Core..= type'),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CanarySize" Core..=) Prelude.<$> canarySize,
+            Prelude.Just ("Type" Core..= type'),
+            Prelude.Just
               ( "WaitIntervalInSeconds"
                   Core..= waitIntervalInSeconds
               )

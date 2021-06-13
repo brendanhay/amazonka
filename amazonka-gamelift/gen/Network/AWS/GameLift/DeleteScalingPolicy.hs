@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,12 +75,12 @@ import qualified Network.AWS.Response as Response
 data DeleteScalingPolicy = DeleteScalingPolicy'
   { -- | A descriptive label that is associated with a scaling policy. Policy
     -- names do not need to be unique.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A unique identifier for a fleet to be deleted. You can use either the
     -- fleet ID or ARN value.
-    fleetId :: Core.Text
+    fleetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteScalingPolicy' with all optional fields omitted.
@@ -96,9 +97,9 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 -- fleet ID or ARN value.
 newDeleteScalingPolicy ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteScalingPolicy
 newDeleteScalingPolicy pName_ pFleetId_ =
   DeleteScalingPolicy'
@@ -108,12 +109,12 @@ newDeleteScalingPolicy pName_ pFleetId_ =
 
 -- | A descriptive label that is associated with a scaling policy. Policy
 -- names do not need to be unique.
-deleteScalingPolicy_name :: Lens.Lens' DeleteScalingPolicy Core.Text
+deleteScalingPolicy_name :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_name = Lens.lens (\DeleteScalingPolicy' {name} -> name) (\s@DeleteScalingPolicy' {} a -> s {name = a} :: DeleteScalingPolicy)
 
 -- | A unique identifier for a fleet to be deleted. You can use either the
 -- fleet ID or ARN value.
-deleteScalingPolicy_fleetId :: Lens.Lens' DeleteScalingPolicy Core.Text
+deleteScalingPolicy_fleetId :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_fleetId = Lens.lens (\DeleteScalingPolicy' {fleetId} -> fleetId) (\s@DeleteScalingPolicy' {} a -> s {fleetId = a} :: DeleteScalingPolicy)
 
 instance Core.AWSRequest DeleteScalingPolicy where
@@ -124,41 +125,45 @@ instance Core.AWSRequest DeleteScalingPolicy where
   response =
     Response.receiveNull DeleteScalingPolicyResponse'
 
-instance Core.Hashable DeleteScalingPolicy
+instance Prelude.Hashable DeleteScalingPolicy
 
-instance Core.NFData DeleteScalingPolicy
+instance Prelude.NFData DeleteScalingPolicy
 
 instance Core.ToHeaders DeleteScalingPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DeleteScalingPolicy" :: Core.ByteString),
+              Core.=# ( "GameLift.DeleteScalingPolicy" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteScalingPolicy where
   toJSON DeleteScalingPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("FleetId" Core..= fleetId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("FleetId" Core..= fleetId)
           ]
       )
 
 instance Core.ToPath DeleteScalingPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteScalingPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteScalingPolicyResponse' smart constructor.
 data DeleteScalingPolicyResponse = DeleteScalingPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteScalingPolicyResponse' with all optional fields omitted.
@@ -169,4 +174,4 @@ newDeleteScalingPolicyResponse ::
 newDeleteScalingPolicyResponse =
   DeleteScalingPolicyResponse'
 
-instance Core.NFData DeleteScalingPolicyResponse
+instance Prelude.NFData DeleteScalingPolicyResponse

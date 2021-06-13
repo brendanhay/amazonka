@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -57,15 +58,15 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
   { -- | Don\'t use this parameter. Use @Group@ instead.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The name or the ARN of the resource group to modify.
-    group' :: Core.Maybe Core.Text,
+    group' :: Prelude.Maybe Prelude.Text,
     -- | The new description that you want to update the resource group with.
     -- Descriptions can contain letters, numbers, hyphens, underscores,
     -- periods, and spaces.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGroup' with all optional fields omitted.
@@ -86,23 +87,23 @@ newUpdateGroup ::
   UpdateGroup
 newUpdateGroup =
   UpdateGroup'
-    { groupName = Core.Nothing,
-      group' = Core.Nothing,
-      description = Core.Nothing
+    { groupName = Prelude.Nothing,
+      group' = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | Don\'t use this parameter. Use @Group@ instead.
-updateGroup_groupName :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
+updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 -- | The name or the ARN of the resource group to modify.
-updateGroup_group :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
+updateGroup_group :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_group = Lens.lens (\UpdateGroup' {group'} -> group') (\s@UpdateGroup' {} a -> s {group' = a} :: UpdateGroup)
 
 -- | The new description that you want to update the resource group with.
 -- Descriptions can contain letters, numbers, hyphens, underscores,
 -- periods, and spaces.
-updateGroup_description :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
+updateGroup_description :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_description = Lens.lens (\UpdateGroup' {description} -> description) (\s@UpdateGroup' {} a -> s {description = a} :: UpdateGroup)
 
 instance Core.AWSRequest UpdateGroup where
@@ -112,41 +113,41 @@ instance Core.AWSRequest UpdateGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateGroupResponse'
-            Core.<$> (x Core..?> "Group")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Group")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateGroup
+instance Prelude.Hashable UpdateGroup
 
-instance Core.NFData UpdateGroup
+instance Prelude.NFData UpdateGroup
 
 instance Core.ToHeaders UpdateGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GroupName" Core..=) Core.<$> groupName,
-            ("Group" Core..=) Core.<$> group',
-            ("Description" Core..=) Core.<$> description
+      ( Prelude.catMaybes
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("Group" Core..=) Prelude.<$> group',
+            ("Description" Core..=) Prelude.<$> description
           ]
       )
 
 instance Core.ToPath UpdateGroup where
-  toPath = Core.const "/update-group"
+  toPath = Prelude.const "/update-group"
 
 instance Core.ToQuery UpdateGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
   { -- | The update description of the resource group.
-    group' :: Core.Maybe Group,
+    group' :: Prelude.Maybe Group,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGroupResponse' with all optional fields omitted.
@@ -161,20 +162,20 @@ data UpdateGroupResponse = UpdateGroupResponse'
 -- 'httpStatus', 'updateGroupResponse_httpStatus' - The response's http status code.
 newUpdateGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateGroupResponse
 newUpdateGroupResponse pHttpStatus_ =
   UpdateGroupResponse'
-    { group' = Core.Nothing,
+    { group' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The update description of the resource group.
-updateGroupResponse_group :: Lens.Lens' UpdateGroupResponse (Core.Maybe Group)
+updateGroupResponse_group :: Lens.Lens' UpdateGroupResponse (Prelude.Maybe Group)
 updateGroupResponse_group = Lens.lens (\UpdateGroupResponse' {group'} -> group') (\s@UpdateGroupResponse' {} a -> s {group' = a} :: UpdateGroupResponse)
 
 -- | The response's http status code.
-updateGroupResponse_httpStatus :: Lens.Lens' UpdateGroupResponse Core.Int
+updateGroupResponse_httpStatus :: Lens.Lens' UpdateGroupResponse Prelude.Int
 updateGroupResponse_httpStatus = Lens.lens (\UpdateGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateGroupResponse' {} a -> s {httpStatus = a} :: UpdateGroupResponse)
 
-instance Core.NFData UpdateGroupResponse
+instance Prelude.NFData UpdateGroupResponse

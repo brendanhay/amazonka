@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ClusterParameterGroupNameMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- |
@@ -30,11 +31,11 @@ data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
   { -- | The status of the parameter group. For example, if you made a change to
     -- a parameter group name-value pair, then the change could be pending a
     -- reboot of an associated cluster.
-    parameterGroupStatus :: Core.Maybe Core.Text,
+    parameterGroupStatus :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster parameter group.
-    parameterGroupName :: Core.Maybe Core.Text
+    parameterGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClusterParameterGroupNameMessage' with all optional fields omitted.
@@ -54,18 +55,18 @@ newClusterParameterGroupNameMessage ::
 newClusterParameterGroupNameMessage =
   ClusterParameterGroupNameMessage'
     { parameterGroupStatus =
-        Core.Nothing,
-      parameterGroupName = Core.Nothing
+        Prelude.Nothing,
+      parameterGroupName = Prelude.Nothing
     }
 
 -- | The status of the parameter group. For example, if you made a change to
 -- a parameter group name-value pair, then the change could be pending a
 -- reboot of an associated cluster.
-clusterParameterGroupNameMessage_parameterGroupStatus :: Lens.Lens' ClusterParameterGroupNameMessage (Core.Maybe Core.Text)
+clusterParameterGroupNameMessage_parameterGroupStatus :: Lens.Lens' ClusterParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
 clusterParameterGroupNameMessage_parameterGroupStatus = Lens.lens (\ClusterParameterGroupNameMessage' {parameterGroupStatus} -> parameterGroupStatus) (\s@ClusterParameterGroupNameMessage' {} a -> s {parameterGroupStatus = a} :: ClusterParameterGroupNameMessage)
 
 -- | The name of the cluster parameter group.
-clusterParameterGroupNameMessage_parameterGroupName :: Lens.Lens' ClusterParameterGroupNameMessage (Core.Maybe Core.Text)
+clusterParameterGroupNameMessage_parameterGroupName :: Lens.Lens' ClusterParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
 clusterParameterGroupNameMessage_parameterGroupName = Lens.lens (\ClusterParameterGroupNameMessage' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroupNameMessage' {} a -> s {parameterGroupName = a} :: ClusterParameterGroupNameMessage)
 
 instance
@@ -74,11 +75,13 @@ instance
   where
   parseXML x =
     ClusterParameterGroupNameMessage'
-      Core.<$> (x Core..@? "ParameterGroupStatus")
-      Core.<*> (x Core..@? "ParameterGroupName")
+      Prelude.<$> (x Core..@? "ParameterGroupStatus")
+      Prelude.<*> (x Core..@? "ParameterGroupName")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ClusterParameterGroupNameMessage
 
-instance Core.NFData ClusterParameterGroupNameMessage
+instance
+  Prelude.NFData
+    ClusterParameterGroupNameMessage

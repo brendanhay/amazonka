@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -56,9 +57,9 @@ data DeleteDBSnapshot = DeleteDBSnapshot'
     --
     -- Constraints: Must be the name of an existing DB snapshot in the
     -- @available@ state.
-    dbSnapshotIdentifier :: Core.Text
+    dbSnapshotIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBSnapshot' with all optional fields omitted.
@@ -74,7 +75,7 @@ data DeleteDBSnapshot = DeleteDBSnapshot'
 -- @available@ state.
 newDeleteDBSnapshot ::
   -- | 'dbSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDBSnapshot
 newDeleteDBSnapshot pDBSnapshotIdentifier_ =
   DeleteDBSnapshot'
@@ -86,7 +87,7 @@ newDeleteDBSnapshot pDBSnapshotIdentifier_ =
 --
 -- Constraints: Must be the name of an existing DB snapshot in the
 -- @available@ state.
-deleteDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' DeleteDBSnapshot Core.Text
+deleteDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' DeleteDBSnapshot Prelude.Text
 deleteDBSnapshot_dbSnapshotIdentifier = Lens.lens (\DeleteDBSnapshot' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DeleteDBSnapshot' {} a -> s {dbSnapshotIdentifier = a} :: DeleteDBSnapshot)
 
 instance Core.AWSRequest DeleteDBSnapshot where
@@ -99,36 +100,37 @@ instance Core.AWSRequest DeleteDBSnapshot where
       "DeleteDBSnapshotResult"
       ( \s h x ->
           DeleteDBSnapshotResponse'
-            Core.<$> (x Core..@? "DBSnapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBSnapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDBSnapshot
+instance Prelude.Hashable DeleteDBSnapshot
 
-instance Core.NFData DeleteDBSnapshot
+instance Prelude.NFData DeleteDBSnapshot
 
 instance Core.ToHeaders DeleteDBSnapshot where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDBSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDBSnapshot where
   toQuery DeleteDBSnapshot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBSnapshot" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeleteDBSnapshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
       ]
 
 -- | /See:/ 'newDeleteDBSnapshotResponse' smart constructor.
 data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
-  { dbSnapshot :: Core.Maybe DBSnapshot,
+  { dbSnapshot :: Prelude.Maybe DBSnapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBSnapshotResponse' with all optional fields omitted.
@@ -143,21 +145,21 @@ data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
 -- 'httpStatus', 'deleteDBSnapshotResponse_httpStatus' - The response's http status code.
 newDeleteDBSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDBSnapshotResponse
 newDeleteDBSnapshotResponse pHttpStatus_ =
   DeleteDBSnapshotResponse'
     { dbSnapshot =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteDBSnapshotResponse_dbSnapshot :: Lens.Lens' DeleteDBSnapshotResponse (Core.Maybe DBSnapshot)
+deleteDBSnapshotResponse_dbSnapshot :: Lens.Lens' DeleteDBSnapshotResponse (Prelude.Maybe DBSnapshot)
 deleteDBSnapshotResponse_dbSnapshot = Lens.lens (\DeleteDBSnapshotResponse' {dbSnapshot} -> dbSnapshot) (\s@DeleteDBSnapshotResponse' {} a -> s {dbSnapshot = a} :: DeleteDBSnapshotResponse)
 
 -- | The response's http status code.
-deleteDBSnapshotResponse_httpStatus :: Lens.Lens' DeleteDBSnapshotResponse Core.Int
+deleteDBSnapshotResponse_httpStatus :: Lens.Lens' DeleteDBSnapshotResponse Prelude.Int
 deleteDBSnapshotResponse_httpStatus = Lens.lens (\DeleteDBSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteDBSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteDBSnapshotResponse)
 
-instance Core.NFData DeleteDBSnapshotResponse
+instance Prelude.NFData DeleteDBSnapshotResponse

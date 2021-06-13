@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.CreateBucketConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | The configuration information for the bucket.
@@ -30,9 +31,9 @@ data CreateBucketConfiguration = CreateBucketConfiguration'
   { -- | Specifies the Region where the bucket will be created. If you don\'t
     -- specify a Region, the bucket is created in the US East (N. Virginia)
     -- Region (us-east-1).
-    locationConstraint :: Core.Maybe LocationConstraint
+    locationConstraint :: Prelude.Maybe LocationConstraint
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBucketConfiguration' with all optional fields omitted.
@@ -50,20 +51,20 @@ newCreateBucketConfiguration ::
 newCreateBucketConfiguration =
   CreateBucketConfiguration'
     { locationConstraint =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies the Region where the bucket will be created. If you don\'t
 -- specify a Region, the bucket is created in the US East (N. Virginia)
 -- Region (us-east-1).
-createBucketConfiguration_locationConstraint :: Lens.Lens' CreateBucketConfiguration (Core.Maybe LocationConstraint)
+createBucketConfiguration_locationConstraint :: Lens.Lens' CreateBucketConfiguration (Prelude.Maybe LocationConstraint)
 createBucketConfiguration_locationConstraint = Lens.lens (\CreateBucketConfiguration' {locationConstraint} -> locationConstraint) (\s@CreateBucketConfiguration' {} a -> s {locationConstraint = a} :: CreateBucketConfiguration)
 
-instance Core.Hashable CreateBucketConfiguration
+instance Prelude.Hashable CreateBucketConfiguration
 
-instance Core.NFData CreateBucketConfiguration
+instance Prelude.NFData CreateBucketConfiguration
 
 instance Core.ToXML CreateBucketConfiguration where
   toXML CreateBucketConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["LocationConstraint" Core.@= locationConstraint]

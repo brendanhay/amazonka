@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteVirtualInterface' smart constructor.
 data DeleteVirtualInterface = DeleteVirtualInterface'
   { -- | The ID of the virtual interface.
-    virtualInterfaceId :: Core.Text
+    virtualInterfaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVirtualInterface' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteVirtualInterface = DeleteVirtualInterface'
 -- 'virtualInterfaceId', 'deleteVirtualInterface_virtualInterfaceId' - The ID of the virtual interface.
 newDeleteVirtualInterface ::
   -- | 'virtualInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVirtualInterface
 newDeleteVirtualInterface pVirtualInterfaceId_ =
   DeleteVirtualInterface'
@@ -72,7 +73,7 @@ newDeleteVirtualInterface pVirtualInterfaceId_ =
     }
 
 -- | The ID of the virtual interface.
-deleteVirtualInterface_virtualInterfaceId :: Lens.Lens' DeleteVirtualInterface Core.Text
+deleteVirtualInterface_virtualInterfaceId :: Lens.Lens' DeleteVirtualInterface Prelude.Text
 deleteVirtualInterface_virtualInterfaceId = Lens.lens (\DeleteVirtualInterface' {virtualInterfaceId} -> virtualInterfaceId) (\s@DeleteVirtualInterface' {} a -> s {virtualInterfaceId = a} :: DeleteVirtualInterface)
 
 instance Core.AWSRequest DeleteVirtualInterface where
@@ -84,41 +85,43 @@ instance Core.AWSRequest DeleteVirtualInterface where
     Response.receiveJSON
       ( \s h x ->
           DeleteVirtualInterfaceResponse'
-            Core.<$> (x Core..?> "virtualInterfaceState")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "virtualInterfaceState")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteVirtualInterface
+instance Prelude.Hashable DeleteVirtualInterface
 
-instance Core.NFData DeleteVirtualInterface
+instance Prelude.NFData DeleteVirtualInterface
 
 instance Core.ToHeaders DeleteVirtualInterface where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.DeleteVirtualInterface" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteVirtualInterface where
   toJSON DeleteVirtualInterface' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("virtualInterfaceId" Core..= virtualInterfaceId)
           ]
       )
 
 instance Core.ToPath DeleteVirtualInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVirtualInterface where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVirtualInterfaceResponse' smart constructor.
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
@@ -155,11 +158,11 @@ data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
     --     enters the @Rejected@ state.
     --
     -- -   @unknown@: The state of the virtual interface is not available.
-    virtualInterfaceState :: Core.Maybe VirtualInterfaceState,
+    virtualInterfaceState :: Prelude.Maybe VirtualInterfaceState,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVirtualInterfaceResponse' with all optional fields omitted.
@@ -206,12 +209,12 @@ data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
 -- 'httpStatus', 'deleteVirtualInterfaceResponse_httpStatus' - The response's http status code.
 newDeleteVirtualInterfaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteVirtualInterfaceResponse
 newDeleteVirtualInterfaceResponse pHttpStatus_ =
   DeleteVirtualInterfaceResponse'
     { virtualInterfaceState =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -248,11 +251,13 @@ newDeleteVirtualInterfaceResponse pHttpStatus_ =
 --     enters the @Rejected@ state.
 --
 -- -   @unknown@: The state of the virtual interface is not available.
-deleteVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' DeleteVirtualInterfaceResponse (Core.Maybe VirtualInterfaceState)
+deleteVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' DeleteVirtualInterfaceResponse (Prelude.Maybe VirtualInterfaceState)
 deleteVirtualInterfaceResponse_virtualInterfaceState = Lens.lens (\DeleteVirtualInterfaceResponse' {virtualInterfaceState} -> virtualInterfaceState) (\s@DeleteVirtualInterfaceResponse' {} a -> s {virtualInterfaceState = a} :: DeleteVirtualInterfaceResponse)
 
 -- | The response's http status code.
-deleteVirtualInterfaceResponse_httpStatus :: Lens.Lens' DeleteVirtualInterfaceResponse Core.Int
+deleteVirtualInterfaceResponse_httpStatus :: Lens.Lens' DeleteVirtualInterfaceResponse Prelude.Int
 deleteVirtualInterfaceResponse_httpStatus = Lens.lens (\DeleteVirtualInterfaceResponse' {httpStatus} -> httpStatus) (\s@DeleteVirtualInterfaceResponse' {} a -> s {httpStatus = a} :: DeleteVirtualInterfaceResponse)
 
-instance Core.NFData DeleteVirtualInterfaceResponse
+instance
+  Prelude.NFData
+    DeleteVirtualInterfaceResponse

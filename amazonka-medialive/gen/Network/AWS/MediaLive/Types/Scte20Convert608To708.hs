@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.Scte20Convert608To708
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Scte20 Convert608 To708
 newtype Scte20Convert608To708 = Scte20Convert608To708'
@@ -34,15 +35,15 @@ newtype Scte20Convert608To708 = Scte20Convert608To708'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

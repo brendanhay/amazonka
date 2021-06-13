@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.DeleteMarkerReplication where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.DeleteMarkerReplicationStatus
 
@@ -45,9 +46,9 @@ data DeleteMarkerReplication = DeleteMarkerReplication'
   { -- | Indicates whether to replicate delete markers.
     --
     -- Indicates whether to replicate delete markers.
-    status :: Core.Maybe DeleteMarkerReplicationStatus
+    status :: Prelude.Maybe DeleteMarkerReplicationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMarkerReplication' with all optional fields omitted.
@@ -63,23 +64,23 @@ data DeleteMarkerReplication = DeleteMarkerReplication'
 newDeleteMarkerReplication ::
   DeleteMarkerReplication
 newDeleteMarkerReplication =
-  DeleteMarkerReplication' {status = Core.Nothing}
+  DeleteMarkerReplication' {status = Prelude.Nothing}
 
 -- | Indicates whether to replicate delete markers.
 --
 -- Indicates whether to replicate delete markers.
-deleteMarkerReplication_status :: Lens.Lens' DeleteMarkerReplication (Core.Maybe DeleteMarkerReplicationStatus)
+deleteMarkerReplication_status :: Lens.Lens' DeleteMarkerReplication (Prelude.Maybe DeleteMarkerReplicationStatus)
 deleteMarkerReplication_status = Lens.lens (\DeleteMarkerReplication' {status} -> status) (\s@DeleteMarkerReplication' {} a -> s {status = a} :: DeleteMarkerReplication)
 
 instance Core.FromXML DeleteMarkerReplication where
   parseXML x =
     DeleteMarkerReplication'
-      Core.<$> (x Core..@? "Status")
+      Prelude.<$> (x Core..@? "Status")
 
-instance Core.Hashable DeleteMarkerReplication
+instance Prelude.Hashable DeleteMarkerReplication
 
-instance Core.NFData DeleteMarkerReplication
+instance Prelude.NFData DeleteMarkerReplication
 
 instance Core.ToXML DeleteMarkerReplication where
   toXML DeleteMarkerReplication' {..} =
-    Core.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Core.@= status]

@@ -46,6 +46,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,14 +57,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateDomainEndpointOptions' smart constructor.
 data UpdateDomainEndpointOptions = UpdateDomainEndpointOptions'
   { -- | A string that represents the name of a domain.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | Whether to require that all requests to the domain arrive over HTTPS. We
     -- recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For
     -- compatibility with older clients, the default is
     -- Policy-Min-TLS-1-0-2019-07.
     domainEndpointOptions :: DomainEndpointOptions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainEndpointOptions' with all optional fields omitted.
@@ -81,7 +82,7 @@ data UpdateDomainEndpointOptions = UpdateDomainEndpointOptions'
 -- Policy-Min-TLS-1-0-2019-07.
 newUpdateDomainEndpointOptions ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'domainEndpointOptions'
   DomainEndpointOptions ->
   UpdateDomainEndpointOptions
@@ -96,7 +97,7 @@ newUpdateDomainEndpointOptions
       }
 
 -- | A string that represents the name of a domain.
-updateDomainEndpointOptions_domainName :: Lens.Lens' UpdateDomainEndpointOptions Core.Text
+updateDomainEndpointOptions_domainName :: Lens.Lens' UpdateDomainEndpointOptions Prelude.Text
 updateDomainEndpointOptions_domainName = Lens.lens (\UpdateDomainEndpointOptions' {domainName} -> domainName) (\s@UpdateDomainEndpointOptions' {} a -> s {domainName = a} :: UpdateDomainEndpointOptions)
 
 -- | Whether to require that all requests to the domain arrive over HTTPS. We
@@ -116,26 +117,29 @@ instance Core.AWSRequest UpdateDomainEndpointOptions where
       "UpdateDomainEndpointOptionsResult"
       ( \s h x ->
           UpdateDomainEndpointOptionsResponse'
-            Core.<$> (x Core..@? "DomainEndpointOptions")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DomainEndpointOptions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDomainEndpointOptions
+instance Prelude.Hashable UpdateDomainEndpointOptions
 
-instance Core.NFData UpdateDomainEndpointOptions
+instance Prelude.NFData UpdateDomainEndpointOptions
 
 instance Core.ToHeaders UpdateDomainEndpointOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateDomainEndpointOptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDomainEndpointOptions where
   toQuery UpdateDomainEndpointOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateDomainEndpointOptions" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ( "UpdateDomainEndpointOptions" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainName" Core.=: domainName,
         "DomainEndpointOptions"
           Core.=: domainEndpointOptions
@@ -147,11 +151,11 @@ instance Core.ToQuery UpdateDomainEndpointOptions where
 -- /See:/ 'newUpdateDomainEndpointOptionsResponse' smart constructor.
 data UpdateDomainEndpointOptionsResponse = UpdateDomainEndpointOptionsResponse'
   { -- | The newly-configured domain endpoint options.
-    domainEndpointOptions :: Core.Maybe DomainEndpointOptionsStatus,
+    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptionsStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainEndpointOptionsResponse' with all optional fields omitted.
@@ -166,23 +170,23 @@ data UpdateDomainEndpointOptionsResponse = UpdateDomainEndpointOptionsResponse'
 -- 'httpStatus', 'updateDomainEndpointOptionsResponse_httpStatus' - The response's http status code.
 newUpdateDomainEndpointOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDomainEndpointOptionsResponse
 newUpdateDomainEndpointOptionsResponse pHttpStatus_ =
   UpdateDomainEndpointOptionsResponse'
     { domainEndpointOptions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The newly-configured domain endpoint options.
-updateDomainEndpointOptionsResponse_domainEndpointOptions :: Lens.Lens' UpdateDomainEndpointOptionsResponse (Core.Maybe DomainEndpointOptionsStatus)
+updateDomainEndpointOptionsResponse_domainEndpointOptions :: Lens.Lens' UpdateDomainEndpointOptionsResponse (Prelude.Maybe DomainEndpointOptionsStatus)
 updateDomainEndpointOptionsResponse_domainEndpointOptions = Lens.lens (\UpdateDomainEndpointOptionsResponse' {domainEndpointOptions} -> domainEndpointOptions) (\s@UpdateDomainEndpointOptionsResponse' {} a -> s {domainEndpointOptions = a} :: UpdateDomainEndpointOptionsResponse)
 
 -- | The response's http status code.
-updateDomainEndpointOptionsResponse_httpStatus :: Lens.Lens' UpdateDomainEndpointOptionsResponse Core.Int
+updateDomainEndpointOptionsResponse_httpStatus :: Lens.Lens' UpdateDomainEndpointOptionsResponse Prelude.Int
 updateDomainEndpointOptionsResponse_httpStatus = Lens.lens (\UpdateDomainEndpointOptionsResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainEndpointOptionsResponse' {} a -> s {httpStatus = a} :: UpdateDomainEndpointOptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateDomainEndpointOptionsResponse

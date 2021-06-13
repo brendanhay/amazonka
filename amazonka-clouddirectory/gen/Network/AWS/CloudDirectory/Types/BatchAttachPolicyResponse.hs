@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of an AttachPolicy response operation.
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data BatchAttachPolicyResponse = BatchAttachPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAttachPolicyResponse' with all optional fields omitted.
@@ -43,8 +44,8 @@ instance Core.FromJSON BatchAttachPolicyResponse where
   parseJSON =
     Core.withObject
       "BatchAttachPolicyResponse"
-      (\x -> Core.pure BatchAttachPolicyResponse')
+      (\x -> Prelude.pure BatchAttachPolicyResponse')
 
-instance Core.Hashable BatchAttachPolicyResponse
+instance Prelude.Hashable BatchAttachPolicyResponse
 
-instance Core.NFData BatchAttachPolicyResponse
+instance Prelude.NFData BatchAttachPolicyResponse

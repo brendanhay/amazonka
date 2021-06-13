@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.AwsJobPresignedUrlConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for pre-signed URLs. Valid when @protocols@
 -- contains HTTP.
@@ -30,9 +31,9 @@ data AwsJobPresignedUrlConfig = AwsJobPresignedUrlConfig'
   { -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -
     -- 3600, the default value is 1800 seconds. Pre-signed URLs are generated
     -- when a request for the job document is received.
-    expiresInSec :: Core.Maybe Core.Integer
+    expiresInSec :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AwsJobPresignedUrlConfig' with all optional fields omitted.
@@ -50,13 +51,13 @@ newAwsJobPresignedUrlConfig ::
 newAwsJobPresignedUrlConfig =
   AwsJobPresignedUrlConfig'
     { expiresInSec =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -
 -- 3600, the default value is 1800 seconds. Pre-signed URLs are generated
 -- when a request for the job document is received.
-awsJobPresignedUrlConfig_expiresInSec :: Lens.Lens' AwsJobPresignedUrlConfig (Core.Maybe Core.Integer)
+awsJobPresignedUrlConfig_expiresInSec :: Lens.Lens' AwsJobPresignedUrlConfig (Prelude.Maybe Prelude.Integer)
 awsJobPresignedUrlConfig_expiresInSec = Lens.lens (\AwsJobPresignedUrlConfig' {expiresInSec} -> expiresInSec) (\s@AwsJobPresignedUrlConfig' {} a -> s {expiresInSec = a} :: AwsJobPresignedUrlConfig)
 
 instance Core.FromJSON AwsJobPresignedUrlConfig where
@@ -65,16 +66,16 @@ instance Core.FromJSON AwsJobPresignedUrlConfig where
       "AwsJobPresignedUrlConfig"
       ( \x ->
           AwsJobPresignedUrlConfig'
-            Core.<$> (x Core..:? "expiresInSec")
+            Prelude.<$> (x Core..:? "expiresInSec")
       )
 
-instance Core.Hashable AwsJobPresignedUrlConfig
+instance Prelude.Hashable AwsJobPresignedUrlConfig
 
-instance Core.NFData AwsJobPresignedUrlConfig
+instance Prelude.NFData AwsJobPresignedUrlConfig
 
 instance Core.ToJSON AwsJobPresignedUrlConfig where
   toJSON AwsJobPresignedUrlConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [("expiresInSec" Core..=) Core.<$> expiresInSec]
+      ( Prelude.catMaybes
+          [("expiresInSec" Core..=) Prelude.<$> expiresInSec]
       )

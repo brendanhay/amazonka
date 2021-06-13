@@ -21,6 +21,7 @@ module Network.AWS.EMR.Types.PortRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of port ranges that are permitted to allow inbound traffic from
 -- all public IP addresses. To specify a single port, use the same value
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPortRange' smart constructor.
 data PortRange = PortRange'
   { -- | The smallest port number in a specified range of port numbers.
-    maxRange :: Core.Maybe Core.Int,
+    maxRange :: Prelude.Maybe Prelude.Int,
     -- | The smallest port number in a specified range of port numbers.
-    minRange :: Core.Int
+    minRange :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PortRange' with all optional fields omitted.
@@ -48,20 +49,20 @@ data PortRange = PortRange'
 -- 'minRange', 'portRange_minRange' - The smallest port number in a specified range of port numbers.
 newPortRange ::
   -- | 'minRange'
-  Core.Int ->
+  Prelude.Int ->
   PortRange
 newPortRange pMinRange_ =
   PortRange'
-    { maxRange = Core.Nothing,
+    { maxRange = Prelude.Nothing,
       minRange = pMinRange_
     }
 
 -- | The smallest port number in a specified range of port numbers.
-portRange_maxRange :: Lens.Lens' PortRange (Core.Maybe Core.Int)
+portRange_maxRange :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Int)
 portRange_maxRange = Lens.lens (\PortRange' {maxRange} -> maxRange) (\s@PortRange' {} a -> s {maxRange = a} :: PortRange)
 
 -- | The smallest port number in a specified range of port numbers.
-portRange_minRange :: Lens.Lens' PortRange Core.Int
+portRange_minRange :: Lens.Lens' PortRange Prelude.Int
 portRange_minRange = Lens.lens (\PortRange' {minRange} -> minRange) (\s@PortRange' {} a -> s {minRange = a} :: PortRange)
 
 instance Core.FromJSON PortRange where
@@ -70,19 +71,19 @@ instance Core.FromJSON PortRange where
       "PortRange"
       ( \x ->
           PortRange'
-            Core.<$> (x Core..:? "MaxRange")
-            Core.<*> (x Core..: "MinRange")
+            Prelude.<$> (x Core..:? "MaxRange")
+            Prelude.<*> (x Core..: "MinRange")
       )
 
-instance Core.Hashable PortRange
+instance Prelude.Hashable PortRange
 
-instance Core.NFData PortRange
+instance Prelude.NFData PortRange
 
 instance Core.ToJSON PortRange where
   toJSON PortRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxRange" Core..=) Core.<$> maxRange,
-            Core.Just ("MinRange" Core..= minRange)
+      ( Prelude.catMaybes
+          [ ("MaxRange" Core..=) Prelude.<$> maxRange,
+            Prelude.Just ("MinRange" Core..= minRange)
           ]
       )

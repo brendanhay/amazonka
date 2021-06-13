@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.SampledHTTPRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.HTTPRequest
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -42,24 +43,24 @@ import Network.AWS.WAF.Types.HTTPRequest
 data SampledHTTPRequest = SampledHTTPRequest'
   { -- | The time at which AWS WAF received the request from your AWS resource,
     -- in Unix time format (in seconds).
-    timestamp :: Core.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Core.POSIX,
     -- | The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
     -- @COUNT@.
-    action :: Core.Maybe Core.Text,
+    action :: Prelude.Maybe Prelude.Text,
     -- | This value is returned if the @GetSampledRequests@ request specifies the
     -- ID of a @RuleGroup@ rather than the ID of an individual rule.
     -- @RuleWithinRuleGroup@ is the rule within the specified @RuleGroup@ that
     -- matched the request listed in the response.
-    ruleWithinRuleGroup :: Core.Maybe Core.Text,
+    ruleWithinRuleGroup :: Prelude.Maybe Prelude.Text,
     -- | A complex type that contains detailed information about the request.
     request :: HTTPRequest,
     -- | A value that indicates how one result in the response relates
     -- proportionally to other results in the response. A result that has a
     -- weight of @2@ represents roughly twice as many CloudFront web requests
     -- as a result that has a weight of @1@.
-    weight :: Core.Natural
+    weight :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SampledHTTPRequest' with all optional fields omitted.
@@ -90,32 +91,32 @@ newSampledHTTPRequest ::
   -- | 'request'
   HTTPRequest ->
   -- | 'weight'
-  Core.Natural ->
+  Prelude.Natural ->
   SampledHTTPRequest
 newSampledHTTPRequest pRequest_ pWeight_ =
   SampledHTTPRequest'
-    { timestamp = Core.Nothing,
-      action = Core.Nothing,
-      ruleWithinRuleGroup = Core.Nothing,
+    { timestamp = Prelude.Nothing,
+      action = Prelude.Nothing,
+      ruleWithinRuleGroup = Prelude.Nothing,
       request = pRequest_,
       weight = pWeight_
     }
 
 -- | The time at which AWS WAF received the request from your AWS resource,
 -- in Unix time format (in seconds).
-sampledHTTPRequest_timestamp :: Lens.Lens' SampledHTTPRequest (Core.Maybe Core.UTCTime)
-sampledHTTPRequest_timestamp = Lens.lens (\SampledHTTPRequest' {timestamp} -> timestamp) (\s@SampledHTTPRequest' {} a -> s {timestamp = a} :: SampledHTTPRequest) Core.. Lens.mapping Core._Time
+sampledHTTPRequest_timestamp :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.UTCTime)
+sampledHTTPRequest_timestamp = Lens.lens (\SampledHTTPRequest' {timestamp} -> timestamp) (\s@SampledHTTPRequest' {} a -> s {timestamp = a} :: SampledHTTPRequest) Prelude.. Lens.mapping Core._Time
 
 -- | The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
 -- @COUNT@.
-sampledHTTPRequest_action :: Lens.Lens' SampledHTTPRequest (Core.Maybe Core.Text)
+sampledHTTPRequest_action :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.Text)
 sampledHTTPRequest_action = Lens.lens (\SampledHTTPRequest' {action} -> action) (\s@SampledHTTPRequest' {} a -> s {action = a} :: SampledHTTPRequest)
 
 -- | This value is returned if the @GetSampledRequests@ request specifies the
 -- ID of a @RuleGroup@ rather than the ID of an individual rule.
 -- @RuleWithinRuleGroup@ is the rule within the specified @RuleGroup@ that
 -- matched the request listed in the response.
-sampledHTTPRequest_ruleWithinRuleGroup :: Lens.Lens' SampledHTTPRequest (Core.Maybe Core.Text)
+sampledHTTPRequest_ruleWithinRuleGroup :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.Text)
 sampledHTTPRequest_ruleWithinRuleGroup = Lens.lens (\SampledHTTPRequest' {ruleWithinRuleGroup} -> ruleWithinRuleGroup) (\s@SampledHTTPRequest' {} a -> s {ruleWithinRuleGroup = a} :: SampledHTTPRequest)
 
 -- | A complex type that contains detailed information about the request.
@@ -126,7 +127,7 @@ sampledHTTPRequest_request = Lens.lens (\SampledHTTPRequest' {request} -> reques
 -- proportionally to other results in the response. A result that has a
 -- weight of @2@ represents roughly twice as many CloudFront web requests
 -- as a result that has a weight of @1@.
-sampledHTTPRequest_weight :: Lens.Lens' SampledHTTPRequest Core.Natural
+sampledHTTPRequest_weight :: Lens.Lens' SampledHTTPRequest Prelude.Natural
 sampledHTTPRequest_weight = Lens.lens (\SampledHTTPRequest' {weight} -> weight) (\s@SampledHTTPRequest' {} a -> s {weight = a} :: SampledHTTPRequest)
 
 instance Core.FromJSON SampledHTTPRequest where
@@ -135,13 +136,13 @@ instance Core.FromJSON SampledHTTPRequest where
       "SampledHTTPRequest"
       ( \x ->
           SampledHTTPRequest'
-            Core.<$> (x Core..:? "Timestamp")
-            Core.<*> (x Core..:? "Action")
-            Core.<*> (x Core..:? "RuleWithinRuleGroup")
-            Core.<*> (x Core..: "Request")
-            Core.<*> (x Core..: "Weight")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Core..:? "RuleWithinRuleGroup")
+            Prelude.<*> (x Core..: "Request")
+            Prelude.<*> (x Core..: "Weight")
       )
 
-instance Core.Hashable SampledHTTPRequest
+instance Prelude.Hashable SampledHTTPRequest
 
-instance Core.NFData SampledHTTPRequest
+instance Prelude.NFData SampledHTTPRequest

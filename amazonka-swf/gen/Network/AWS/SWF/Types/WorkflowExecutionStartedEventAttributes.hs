@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowExecutionStartedEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.TaskList
 import Network.AWS.SWF.Types.WorkflowExecution
@@ -31,40 +32,40 @@ import Network.AWS.SWF.Types.WorkflowType
 -- /See:/ 'newWorkflowExecutionStartedEventAttributes' smart constructor.
 data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes'
   { -- | The input provided to the workflow execution.
-    input :: Core.Maybe Core.Text,
+    input :: Prelude.Maybe Prelude.Text,
     -- | If this workflow execution was started due to a
     -- @ContinueAsNewWorkflowExecution@ decision, then it contains the @runId@
     -- of the previous workflow execution that was closed and continued as this
     -- execution.
-    continuedExecutionRunId :: Core.Maybe Core.Text,
+    continuedExecutionRunId :: Prelude.Maybe Prelude.Text,
     -- | The IAM role attached to the workflow execution.
-    lambdaRole :: Core.Maybe Core.Text,
+    lambdaRole :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
     -- to the @StartChildWorkflowExecution@ Decision to start this workflow
     -- execution. The source event with this ID can be found in the history of
     -- the source workflow execution. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    parentInitiatedEventId :: Core.Maybe Core.Integer,
+    parentInitiatedEventId :: Prelude.Maybe Prelude.Integer,
     -- | The priority of the decision tasks in the workflow execution.
-    taskPriority :: Core.Maybe Core.Text,
+    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The maximum duration for this workflow execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    executionStartToCloseTimeout :: Core.Maybe Core.Text,
+    executionStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The maximum duration of decision tasks for this workflow type.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    taskStartToCloseTimeout :: Core.Maybe Core.Text,
+    taskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The list of tags associated with this workflow execution. An execution
     -- can have up to 5 tags.
-    tagList :: Core.Maybe [Core.Text],
+    tagList :: Prelude.Maybe [Prelude.Text],
     -- | The source workflow execution that started this workflow execution. The
     -- member isn\'t set if the workflow execution was not started by a
     -- workflow.
-    parentWorkflowExecution :: Core.Maybe WorkflowExecution,
+    parentWorkflowExecution :: Prelude.Maybe WorkflowExecution,
     -- | The policy to use for the child workflow executions if this workflow
     -- execution is terminated, by calling the TerminateWorkflowExecution
     -- action explicitly or due to an expired timeout.
@@ -87,7 +88,7 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
     -- | The workflow type of this execution.
     workflowType :: WorkflowType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionStartedEventAttributes' with all optional fields omitted.
@@ -166,38 +167,38 @@ newWorkflowExecutionStartedEventAttributes
   pWorkflowType_ =
     WorkflowExecutionStartedEventAttributes'
       { input =
-          Core.Nothing,
+          Prelude.Nothing,
         continuedExecutionRunId =
-          Core.Nothing,
-        lambdaRole = Core.Nothing,
+          Prelude.Nothing,
+        lambdaRole = Prelude.Nothing,
         parentInitiatedEventId =
-          Core.Nothing,
-        taskPriority = Core.Nothing,
+          Prelude.Nothing,
+        taskPriority = Prelude.Nothing,
         executionStartToCloseTimeout =
-          Core.Nothing,
+          Prelude.Nothing,
         taskStartToCloseTimeout =
-          Core.Nothing,
-        tagList = Core.Nothing,
+          Prelude.Nothing,
+        tagList = Prelude.Nothing,
         parentWorkflowExecution =
-          Core.Nothing,
+          Prelude.Nothing,
         childPolicy = pChildPolicy_,
         taskList = pTaskList_,
         workflowType = pWorkflowType_
       }
 
 -- | The input provided to the workflow execution.
-workflowExecutionStartedEventAttributes_input :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe Core.Text)
+workflowExecutionStartedEventAttributes_input :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionStartedEventAttributes_input = Lens.lens (\WorkflowExecutionStartedEventAttributes' {input} -> input) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {input = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | If this workflow execution was started due to a
 -- @ContinueAsNewWorkflowExecution@ decision, then it contains the @runId@
 -- of the previous workflow execution that was closed and continued as this
 -- execution.
-workflowExecutionStartedEventAttributes_continuedExecutionRunId :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe Core.Text)
+workflowExecutionStartedEventAttributes_continuedExecutionRunId :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionStartedEventAttributes_continuedExecutionRunId = Lens.lens (\WorkflowExecutionStartedEventAttributes' {continuedExecutionRunId} -> continuedExecutionRunId) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {continuedExecutionRunId = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | The IAM role attached to the workflow execution.
-workflowExecutionStartedEventAttributes_lambdaRole :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe Core.Text)
+workflowExecutionStartedEventAttributes_lambdaRole :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionStartedEventAttributes_lambdaRole = Lens.lens (\WorkflowExecutionStartedEventAttributes' {lambdaRole} -> lambdaRole) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {lambdaRole = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
@@ -206,36 +207,36 @@ workflowExecutionStartedEventAttributes_lambdaRole = Lens.lens (\WorkflowExecuti
 -- the source workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-workflowExecutionStartedEventAttributes_parentInitiatedEventId :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe Core.Integer)
+workflowExecutionStartedEventAttributes_parentInitiatedEventId :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Integer)
 workflowExecutionStartedEventAttributes_parentInitiatedEventId = Lens.lens (\WorkflowExecutionStartedEventAttributes' {parentInitiatedEventId} -> parentInitiatedEventId) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {parentInitiatedEventId = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | The priority of the decision tasks in the workflow execution.
-workflowExecutionStartedEventAttributes_taskPriority :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe Core.Text)
+workflowExecutionStartedEventAttributes_taskPriority :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionStartedEventAttributes_taskPriority = Lens.lens (\WorkflowExecutionStartedEventAttributes' {taskPriority} -> taskPriority) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {taskPriority = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | The maximum duration for this workflow execution.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-workflowExecutionStartedEventAttributes_executionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe Core.Text)
+workflowExecutionStartedEventAttributes_executionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionStartedEventAttributes_executionStartToCloseTimeout = Lens.lens (\WorkflowExecutionStartedEventAttributes' {executionStartToCloseTimeout} -> executionStartToCloseTimeout) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {executionStartToCloseTimeout = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | The maximum duration of decision tasks for this workflow type.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-workflowExecutionStartedEventAttributes_taskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe Core.Text)
+workflowExecutionStartedEventAttributes_taskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionStartedEventAttributes_taskStartToCloseTimeout = Lens.lens (\WorkflowExecutionStartedEventAttributes' {taskStartToCloseTimeout} -> taskStartToCloseTimeout) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {taskStartToCloseTimeout = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | The list of tags associated with this workflow execution. An execution
 -- can have up to 5 tags.
-workflowExecutionStartedEventAttributes_tagList :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe [Core.Text])
-workflowExecutionStartedEventAttributes_tagList = Lens.lens (\WorkflowExecutionStartedEventAttributes' {tagList} -> tagList) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {tagList = a} :: WorkflowExecutionStartedEventAttributes) Core.. Lens.mapping Lens._Coerce
+workflowExecutionStartedEventAttributes_tagList :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe [Prelude.Text])
+workflowExecutionStartedEventAttributes_tagList = Lens.lens (\WorkflowExecutionStartedEventAttributes' {tagList} -> tagList) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {tagList = a} :: WorkflowExecutionStartedEventAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The source workflow execution that started this workflow execution. The
 -- member isn\'t set if the workflow execution was not started by a
 -- workflow.
-workflowExecutionStartedEventAttributes_parentWorkflowExecution :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Core.Maybe WorkflowExecution)
+workflowExecutionStartedEventAttributes_parentWorkflowExecution :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe WorkflowExecution)
 workflowExecutionStartedEventAttributes_parentWorkflowExecution = Lens.lens (\WorkflowExecutionStartedEventAttributes' {parentWorkflowExecution} -> parentWorkflowExecution) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {parentWorkflowExecution = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | The policy to use for the child workflow executions if this workflow
@@ -274,24 +275,24 @@ instance
       "WorkflowExecutionStartedEventAttributes"
       ( \x ->
           WorkflowExecutionStartedEventAttributes'
-            Core.<$> (x Core..:? "input")
-            Core.<*> (x Core..:? "continuedExecutionRunId")
-            Core.<*> (x Core..:? "lambdaRole")
-            Core.<*> (x Core..:? "parentInitiatedEventId")
-            Core.<*> (x Core..:? "taskPriority")
-            Core.<*> (x Core..:? "executionStartToCloseTimeout")
-            Core.<*> (x Core..:? "taskStartToCloseTimeout")
-            Core.<*> (x Core..:? "tagList" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "parentWorkflowExecution")
-            Core.<*> (x Core..: "childPolicy")
-            Core.<*> (x Core..: "taskList")
-            Core.<*> (x Core..: "workflowType")
+            Prelude.<$> (x Core..:? "input")
+            Prelude.<*> (x Core..:? "continuedExecutionRunId")
+            Prelude.<*> (x Core..:? "lambdaRole")
+            Prelude.<*> (x Core..:? "parentInitiatedEventId")
+            Prelude.<*> (x Core..:? "taskPriority")
+            Prelude.<*> (x Core..:? "executionStartToCloseTimeout")
+            Prelude.<*> (x Core..:? "taskStartToCloseTimeout")
+            Prelude.<*> (x Core..:? "tagList" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "parentWorkflowExecution")
+            Prelude.<*> (x Core..: "childPolicy")
+            Prelude.<*> (x Core..: "taskList")
+            Prelude.<*> (x Core..: "workflowType")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     WorkflowExecutionStartedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     WorkflowExecutionStartedEventAttributes

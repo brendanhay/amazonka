@@ -23,6 +23,7 @@ import Network.AWS.CloudSearch.Types.Expression
 import Network.AWS.CloudSearch.Types.OptionStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The value of an @Expression@ and its current status.
 --
@@ -33,7 +34,7 @@ data ExpressionStatus = ExpressionStatus'
     options :: Expression,
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExpressionStatus' with all optional fields omitted.
@@ -71,8 +72,9 @@ expressionStatus_status = Lens.lens (\ExpressionStatus' {status} -> status) (\s@
 instance Core.FromXML ExpressionStatus where
   parseXML x =
     ExpressionStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Options")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable ExpressionStatus
+instance Prelude.Hashable ExpressionStatus
 
-instance Core.NFData ExpressionStatus
+instance Prelude.NFData ExpressionStatus

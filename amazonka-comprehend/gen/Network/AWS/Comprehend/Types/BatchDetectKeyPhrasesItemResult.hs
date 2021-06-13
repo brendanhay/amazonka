@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.BatchDetectKeyPhrasesItemResult where
 import Network.AWS.Comprehend.Types.KeyPhrase
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
 -- for each document that is successfully processed by the operation.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data BatchDetectKeyPhrasesItemResult = BatchDetectKeyPhrasesItemResult'
   { -- | One or more KeyPhrase objects, one for each key phrase detected in the
     -- document.
-    keyPhrases :: Core.Maybe [KeyPhrase],
+    keyPhrases :: Prelude.Maybe [KeyPhrase],
     -- | The zero-based index of the document in the input list.
-    index :: Core.Maybe Core.Int
+    index :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetectKeyPhrasesItemResult' with all optional fields omitted.
@@ -53,17 +54,17 @@ newBatchDetectKeyPhrasesItemResult ::
 newBatchDetectKeyPhrasesItemResult =
   BatchDetectKeyPhrasesItemResult'
     { keyPhrases =
-        Core.Nothing,
-      index = Core.Nothing
+        Prelude.Nothing,
+      index = Prelude.Nothing
     }
 
 -- | One or more KeyPhrase objects, one for each key phrase detected in the
 -- document.
-batchDetectKeyPhrasesItemResult_keyPhrases :: Lens.Lens' BatchDetectKeyPhrasesItemResult (Core.Maybe [KeyPhrase])
-batchDetectKeyPhrasesItemResult_keyPhrases = Lens.lens (\BatchDetectKeyPhrasesItemResult' {keyPhrases} -> keyPhrases) (\s@BatchDetectKeyPhrasesItemResult' {} a -> s {keyPhrases = a} :: BatchDetectKeyPhrasesItemResult) Core.. Lens.mapping Lens._Coerce
+batchDetectKeyPhrasesItemResult_keyPhrases :: Lens.Lens' BatchDetectKeyPhrasesItemResult (Prelude.Maybe [KeyPhrase])
+batchDetectKeyPhrasesItemResult_keyPhrases = Lens.lens (\BatchDetectKeyPhrasesItemResult' {keyPhrases} -> keyPhrases) (\s@BatchDetectKeyPhrasesItemResult' {} a -> s {keyPhrases = a} :: BatchDetectKeyPhrasesItemResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The zero-based index of the document in the input list.
-batchDetectKeyPhrasesItemResult_index :: Lens.Lens' BatchDetectKeyPhrasesItemResult (Core.Maybe Core.Int)
+batchDetectKeyPhrasesItemResult_index :: Lens.Lens' BatchDetectKeyPhrasesItemResult (Prelude.Maybe Prelude.Int)
 batchDetectKeyPhrasesItemResult_index = Lens.lens (\BatchDetectKeyPhrasesItemResult' {index} -> index) (\s@BatchDetectKeyPhrasesItemResult' {} a -> s {index = a} :: BatchDetectKeyPhrasesItemResult)
 
 instance
@@ -75,12 +76,14 @@ instance
       "BatchDetectKeyPhrasesItemResult"
       ( \x ->
           BatchDetectKeyPhrasesItemResult'
-            Core.<$> (x Core..:? "KeyPhrases" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Index")
+            Prelude.<$> (x Core..:? "KeyPhrases" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Index")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchDetectKeyPhrasesItemResult
 
-instance Core.NFData BatchDetectKeyPhrasesItemResult
+instance
+  Prelude.NFData
+    BatchDetectKeyPhrasesItemResult

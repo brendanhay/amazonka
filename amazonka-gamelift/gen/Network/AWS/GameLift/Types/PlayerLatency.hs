@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.PlayerLatency where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Regional latency information for a player, used when requesting a new
 -- game session with StartGameSessionPlacement. This value indicates the
@@ -32,14 +33,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPlayerLatency' smart constructor.
 data PlayerLatency = PlayerLatency'
   { -- | A unique identifier for a player associated with the latency data.
-    playerId :: Core.Maybe Core.Text,
+    playerId :: Prelude.Maybe Prelude.Text,
     -- | Amount of time that represents the time lag experienced by the player
     -- when connected to the specified Region.
-    latencyInMilliseconds :: Core.Maybe Core.Double,
+    latencyInMilliseconds :: Prelude.Maybe Prelude.Double,
     -- | Name of the Region that is associated with the latency value.
-    regionIdentifier :: Core.Maybe Core.Text
+    regionIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PlayerLatency' with all optional fields omitted.
@@ -59,22 +60,22 @@ newPlayerLatency ::
   PlayerLatency
 newPlayerLatency =
   PlayerLatency'
-    { playerId = Core.Nothing,
-      latencyInMilliseconds = Core.Nothing,
-      regionIdentifier = Core.Nothing
+    { playerId = Prelude.Nothing,
+      latencyInMilliseconds = Prelude.Nothing,
+      regionIdentifier = Prelude.Nothing
     }
 
 -- | A unique identifier for a player associated with the latency data.
-playerLatency_playerId :: Lens.Lens' PlayerLatency (Core.Maybe Core.Text)
+playerLatency_playerId :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Text)
 playerLatency_playerId = Lens.lens (\PlayerLatency' {playerId} -> playerId) (\s@PlayerLatency' {} a -> s {playerId = a} :: PlayerLatency)
 
 -- | Amount of time that represents the time lag experienced by the player
 -- when connected to the specified Region.
-playerLatency_latencyInMilliseconds :: Lens.Lens' PlayerLatency (Core.Maybe Core.Double)
+playerLatency_latencyInMilliseconds :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Double)
 playerLatency_latencyInMilliseconds = Lens.lens (\PlayerLatency' {latencyInMilliseconds} -> latencyInMilliseconds) (\s@PlayerLatency' {} a -> s {latencyInMilliseconds = a} :: PlayerLatency)
 
 -- | Name of the Region that is associated with the latency value.
-playerLatency_regionIdentifier :: Lens.Lens' PlayerLatency (Core.Maybe Core.Text)
+playerLatency_regionIdentifier :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Text)
 playerLatency_regionIdentifier = Lens.lens (\PlayerLatency' {regionIdentifier} -> regionIdentifier) (\s@PlayerLatency' {} a -> s {regionIdentifier = a} :: PlayerLatency)
 
 instance Core.FromJSON PlayerLatency where
@@ -83,23 +84,23 @@ instance Core.FromJSON PlayerLatency where
       "PlayerLatency"
       ( \x ->
           PlayerLatency'
-            Core.<$> (x Core..:? "PlayerId")
-            Core.<*> (x Core..:? "LatencyInMilliseconds")
-            Core.<*> (x Core..:? "RegionIdentifier")
+            Prelude.<$> (x Core..:? "PlayerId")
+            Prelude.<*> (x Core..:? "LatencyInMilliseconds")
+            Prelude.<*> (x Core..:? "RegionIdentifier")
       )
 
-instance Core.Hashable PlayerLatency
+instance Prelude.Hashable PlayerLatency
 
-instance Core.NFData PlayerLatency
+instance Prelude.NFData PlayerLatency
 
 instance Core.ToJSON PlayerLatency where
   toJSON PlayerLatency' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PlayerId" Core..=) Core.<$> playerId,
+      ( Prelude.catMaybes
+          [ ("PlayerId" Core..=) Prelude.<$> playerId,
             ("LatencyInMilliseconds" Core..=)
-              Core.<$> latencyInMilliseconds,
+              Prelude.<$> latencyInMilliseconds,
             ("RegionIdentifier" Core..=)
-              Core.<$> regionIdentifier
+              Prelude.<$> regionIdentifier
           ]
       )

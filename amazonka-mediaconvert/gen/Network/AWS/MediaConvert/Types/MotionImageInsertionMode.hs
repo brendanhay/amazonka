@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.MotionImageInsertionMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Choose the type of motion graphic asset that you are providing for your
 -- overlay. You can choose either a .mov file or a series of .png files.
@@ -35,15 +36,15 @@ newtype MotionImageInsertionMode = MotionImageInsertionMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

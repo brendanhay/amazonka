@@ -207,6 +207,7 @@ import Network.AWS.KMS.Types.SigningAlgorithmSpec
 import Network.AWS.KMS.Types.Tag
 import Network.AWS.KMS.Types.WrappingKeySpec
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-11-01@ of the Amazon Key Management Service SDK configuration.
@@ -220,7 +221,7 @@ defaultService =
       Core._serviceVersion = "2014-11-01",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseJSONError "KMS",
       Core._serviceRetry = retry
@@ -235,59 +236,61 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The request was rejected because the specified custom key store name is
 -- already assigned to another custom key store in the account. Try again
 -- with a custom key store name that is unique in the account.
-_CustomKeyStoreNameInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CustomKeyStoreNameInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CustomKeyStoreNameInUseException =
   Core._MatchServiceError
     defaultService
     "CustomKeyStoreNameInUseException"
 
 -- | The request was rejected because the specified alias name is not valid.
-_InvalidAliasNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidAliasNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidAliasNameException =
   Core._MatchServiceError
     defaultService
@@ -295,7 +298,7 @@ _InvalidAliasNameException =
 
 -- | The request was rejected because the specified policy is not
 -- syntactically or semantically correct.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
     defaultService
@@ -303,7 +306,7 @@ _MalformedPolicyDocumentException =
 
 -- | The request was rejected because AWS KMS cannot find a custom key store
 -- with the specified key store name or ID.
-_CustomKeyStoreNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CustomKeyStoreNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CustomKeyStoreNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -325,7 +328,7 @@ _CustomKeyStoreNotFoundException =
 --
 -- To find the encryption or signing algorithms supported for a particular
 -- CMK, use the DescribeKey operation.
-_InvalidKeyUsageException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidKeyUsageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidKeyUsageException =
   Core._MatchServiceError
     defaultService
@@ -333,7 +336,7 @@ _InvalidKeyUsageException =
 
 -- | The request was rejected because the specified entity or resource could
 -- not be found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -345,7 +348,7 @@ _NotFoundException =
 -- For more information about how key state affects the use of a CMK, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
 -- in the //AWS Key Management Service Developer Guide// .
-_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSInvalidStateException =
   Core._MatchServiceError
     defaultService
@@ -353,7 +356,7 @@ _KMSInvalidStateException =
 
 -- | The request was rejected because the marker that specifies where
 -- pagination should next begin is not valid.
-_InvalidMarkerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidMarkerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidMarkerException =
   Core._MatchServiceError
     defaultService
@@ -362,7 +365,7 @@ _InvalidMarkerException =
 -- | The request was rejected because AWS KMS cannot find the AWS CloudHSM
 -- cluster with the specified cluster ID. Retry the request with a
 -- different cluster ID.
-_CloudHsmClusterNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CloudHsmClusterNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CloudHsmClusterNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -372,7 +375,7 @@ _CloudHsmClusterNotFoundException =
 -- data. The @KeyId@ in a Decrypt request and the @SourceKeyId@ in a
 -- ReEncrypt request must identify the same CMK that was used to encrypt
 -- the ciphertext.
-_IncorrectKeyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IncorrectKeyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IncorrectKeyException =
   Core._MatchServiceError
     defaultService
@@ -385,7 +388,7 @@ _IncorrectKeyException =
 --
 -- From the ImportKeyMaterial operation, the request was rejected because
 -- AWS KMS could not decrypt the encrypted (wrapped) key material.
-_InvalidCiphertextException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidCiphertextException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidCiphertextException =
   Core._MatchServiceError
     defaultService
@@ -393,7 +396,7 @@ _InvalidCiphertextException =
 
 -- | The request was rejected because a specified ARN, or an ARN in a key
 -- policy, is not valid.
-_InvalidArnException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidArnException =
   Core._MatchServiceError
     defaultService
@@ -437,7 +440,7 @@ _InvalidArnException =
 -- groups, see
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html Configure a Default Security Group>
 -- in the //AWS CloudHSM User Guide// .
-_CloudHsmClusterInvalidConfigurationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CloudHsmClusterInvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CloudHsmClusterInvalidConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -447,7 +450,7 @@ _CloudHsmClusterInvalidConfigurationException =
 -- customer master keys (CMKs). After verifying that you do not need to use
 -- the CMKs, use the ScheduleKeyDeletion operation to delete the CMKs.
 -- After they are deleted, you can delete the custom key store.
-_CustomKeyStoreHasCMKsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CustomKeyStoreHasCMKsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CustomKeyStoreHasCMKsException =
   Core._MatchServiceError
     defaultService
@@ -466,7 +469,7 @@ _CustomKeyStoreHasCMKsException =
 -- To view the cluster certificate of a cluster, use the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
-_CloudHsmClusterNotRelatedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CloudHsmClusterNotRelatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CloudHsmClusterNotRelatedException =
   Core._MatchServiceError
     defaultService
@@ -490,14 +493,14 @@ _CloudHsmClusterNotRelatedException =
 -- -   You requested the ConnectCustomKeyStore operation on a custom key
 --     store with a @ConnectionState@ of @DISCONNECTING@ or @FAILED@. This
 --     operation is valid for all other @ConnectionState@ values.
-_CustomKeyStoreInvalidStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CustomKeyStoreInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CustomKeyStoreInvalidStateException =
   Core._MatchServiceError
     defaultService
     "CustomKeyStoreInvalidStateException"
 
 -- | The request was rejected because the specified CMK is not enabled.
-_DisabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DisabledException =
   Core._MatchServiceError
     defaultService
@@ -505,7 +508,7 @@ _DisabledException =
 
 -- | The request was rejected because a specified parameter is not supported
 -- or a specified resource is not valid for this operation.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService
@@ -515,7 +518,7 @@ _UnsupportedOperationException =
 -- Signature verification fails when it cannot confirm that signature was
 -- produced by signing the specified message with the specified CMK and
 -- signing algorithm.
-_KMSInvalidSignatureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidSignatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSInvalidSignatureException =
   Core._MatchServiceError
     defaultService
@@ -525,7 +528,7 @@ _KMSInvalidSignatureException =
 -- information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html Quotas>
 -- in the /AWS Key Management Service Developer Guide/.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -533,7 +536,7 @@ _LimitExceededException =
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -543,7 +546,7 @@ _AlreadyExistsException =
 -- Use GetParametersForImport to get a new import token and public key, use
 -- the new public key to encrypt the key material, and then try the request
 -- again.
-_ExpiredImportTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ExpiredImportTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ExpiredImportTokenException =
   Core._MatchServiceError
     defaultService
@@ -558,7 +561,7 @@ _ExpiredImportTokenException =
 -- To view the cluster certificate of a cluster, use the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
-_CloudHsmClusterInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CloudHsmClusterInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CloudHsmClusterInUseException =
   Core._MatchServiceError
     defaultService
@@ -570,14 +573,14 @@ _CloudHsmClusterInUseException =
 -- instructions, see
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html Getting Started>
 -- in the /AWS CloudHSM User Guide/.
-_CloudHsmClusterNotActiveException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CloudHsmClusterNotActiveException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CloudHsmClusterNotActiveException =
   Core._MatchServiceError
     defaultService
     "CloudHsmClusterNotActiveException"
 
 -- | The request was rejected because the specified grant token is not valid.
-_InvalidGrantTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidGrantTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidGrantTokenException =
   Core._MatchServiceError
     defaultService
@@ -585,7 +588,7 @@ _InvalidGrantTokenException =
 
 -- | The system timed out while trying to fulfill the request. The request
 -- can be retried.
-_DependencyTimeoutException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DependencyTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DependencyTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -599,7 +602,7 @@ _DependencyTimeoutException =
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr initialize the cluster>,
 -- you create the trust anchor certificate and save it in the
 -- @customerCA.crt@ file.
-_IncorrectTrustAnchorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IncorrectTrustAnchorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IncorrectTrustAnchorException =
   Core._MatchServiceError
     defaultService
@@ -607,14 +610,14 @@ _IncorrectTrustAnchorException =
 
 -- | The request was rejected because the provided import token is invalid or
 -- is associated with a different customer master key (CMK).
-_InvalidImportTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidImportTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidImportTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidImportTokenException"
 
 -- | The request was rejected because one or more tags are not valid.
-_TagException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TagException =
   Core._MatchServiceError
     defaultService
@@ -622,14 +625,14 @@ _TagException =
 
 -- | The request was rejected because an internal exception occurred. The
 -- request can be retried.
-_KMSInternalException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_KMSInternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSInternalException =
   Core._MatchServiceError
     defaultService
     "KMSInternalException"
 
 -- | The request was rejected because the specified @GrantId@ is not valid.
-_InvalidGrantIdException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidGrantIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidGrantIdException =
   Core._MatchServiceError
     defaultService
@@ -638,7 +641,7 @@ _InvalidGrantIdException =
 -- | The request was rejected because the key material in the request is,
 -- expired, invalid, or is not the same key material that was previously
 -- imported into this customer master key (CMK).
-_IncorrectKeyMaterialException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IncorrectKeyMaterialException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IncorrectKeyMaterialException =
   Core._MatchServiceError
     defaultService
@@ -646,7 +649,7 @@ _IncorrectKeyMaterialException =
 
 -- | The request was rejected because the specified CMK was not available.
 -- You can retry the request.
-_KeyUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_KeyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KeyUnavailableException =
   Core._MatchServiceError
     defaultService

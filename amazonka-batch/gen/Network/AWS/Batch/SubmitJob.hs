@@ -60,6 +60,7 @@ where
 import Network.AWS.Batch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +75,7 @@ data SubmitJob = SubmitJob'
     -- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
     -- each index child of this job must wait for the corresponding index child
     -- of each dependency to complete before it can begin.
-    dependsOn :: Core.Maybe [JobDependency],
+    dependsOn :: Prelude.Maybe [JobDependency],
     -- | The timeout configuration for this SubmitJob operation. You can specify
     -- a timeout duration after which AWS Batch terminates your jobs if they
     -- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
@@ -84,13 +85,13 @@ data SubmitJob = SubmitJob'
     -- configuration as the parent job. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    timeout :: Core.Maybe JobTimeout,
+    timeout :: Prelude.Maybe JobTimeout,
     -- | The array properties for the submitted job, such as the size of the
     -- array. The array size can be between 2 and 10,000. If you specify array
     -- properties for a job, it becomes an array job. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
     -- in the /AWS Batch User Guide/.
-    arrayProperties :: Core.Maybe ArrayProperties,
+    arrayProperties :: Prelude.Maybe ArrayProperties,
     -- | A list of container overrides in JSON format that specify the name of a
     -- container in the specified job definition and the overrides it should
     -- receive. You can override the default command for a container (that\'s
@@ -98,29 +99,29 @@ data SubmitJob = SubmitJob'
     -- override. You can also override existing environment variables (that are
     -- specified in the job definition or Docker image) on a container or add
     -- new environment variables to it with an @environment@ override.
-    containerOverrides :: Core.Maybe ContainerOverrides,
+    containerOverrides :: Prelude.Maybe ContainerOverrides,
     -- | A list of node overrides in JSON format that specify the node range to
     -- target and the container overrides for that node range.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources;
     -- use @containerOverrides@ instead.
-    nodeOverrides :: Core.Maybe NodeOverrides,
+    nodeOverrides :: Prelude.Maybe NodeOverrides,
     -- | The tags that you apply to the job request to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
     -- in /AWS General Reference/.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The retry strategy to use for failed jobs from this SubmitJob operation.
     -- When a retry strategy is specified here, it overrides the retry strategy
     -- defined in the job definition.
-    retryStrategy :: Core.Maybe RetryStrategy,
+    retryStrategy :: Prelude.Maybe RetryStrategy,
     -- | Additional parameters passed to the job that replace parameter
     -- substitution placeholders that are set in the job definition. Parameters
     -- are specified as a key and value pair mapping. Parameters in a
     -- @SubmitJob@ request override any corresponding parameter defaults from
     -- the job definition.
-    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies whether to propagate the tags from the job or job definition
     -- to the corresponding Amazon ECS task. If no value is specified, the tags
     -- aren\'t propagated. Tags can only be propagated to the tasks during task
@@ -129,21 +130,21 @@ data SubmitJob = SubmitJob'
     -- and job definition is over 50, the job is moved to the @FAILED@ state.
     -- When specified, this overrides the tag propagation setting in the job
     -- definition.
-    propagateTags :: Core.Maybe Core.Bool,
+    propagateTags :: Prelude.Maybe Prelude.Bool,
     -- | The name of the job. The first character must be alphanumeric, and up to
     -- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
     -- are allowed.
-    jobName :: Core.Text,
+    jobName :: Prelude.Text,
     -- | The job queue into which the job is submitted. You can specify either
     -- the name or the Amazon Resource Name (ARN) of the queue.
-    jobQueue :: Core.Text,
+    jobQueue :: Prelude.Text,
     -- | The job definition used by this job. This value can be one of @name@,
     -- @name:revision@, or the Amazon Resource Name (ARN) for the job
     -- definition. If @name@ is specified without a revision then the latest
     -- active revision is used.
-    jobDefinition :: Core.Text
+    jobDefinition :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubmitJob' with all optional fields omitted.
@@ -229,23 +230,23 @@ data SubmitJob = SubmitJob'
 -- active revision is used.
 newSubmitJob ::
   -- | 'jobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobQueue'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobDefinition'
-  Core.Text ->
+  Prelude.Text ->
   SubmitJob
 newSubmitJob pJobName_ pJobQueue_ pJobDefinition_ =
   SubmitJob'
-    { dependsOn = Core.Nothing,
-      timeout = Core.Nothing,
-      arrayProperties = Core.Nothing,
-      containerOverrides = Core.Nothing,
-      nodeOverrides = Core.Nothing,
-      tags = Core.Nothing,
-      retryStrategy = Core.Nothing,
-      parameters = Core.Nothing,
-      propagateTags = Core.Nothing,
+    { dependsOn = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      arrayProperties = Prelude.Nothing,
+      containerOverrides = Prelude.Nothing,
+      nodeOverrides = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      retryStrategy = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      propagateTags = Prelude.Nothing,
       jobName = pJobName_,
       jobQueue = pJobQueue_,
       jobDefinition = pJobDefinition_
@@ -258,8 +259,8 @@ newSubmitJob pJobName_ pJobQueue_ pJobDefinition_ =
 -- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
 -- each index child of this job must wait for the corresponding index child
 -- of each dependency to complete before it can begin.
-submitJob_dependsOn :: Lens.Lens' SubmitJob (Core.Maybe [JobDependency])
-submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Core.. Lens.mapping Lens._Coerce
+submitJob_dependsOn :: Lens.Lens' SubmitJob (Prelude.Maybe [JobDependency])
+submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The timeout configuration for this SubmitJob operation. You can specify
 -- a timeout duration after which AWS Batch terminates your jobs if they
@@ -270,7 +271,7 @@ submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@Submi
 -- configuration as the parent job. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-submitJob_timeout :: Lens.Lens' SubmitJob (Core.Maybe JobTimeout)
+submitJob_timeout :: Lens.Lens' SubmitJob (Prelude.Maybe JobTimeout)
 submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' {} a -> s {timeout = a} :: SubmitJob)
 
 -- | The array properties for the submitted job, such as the size of the
@@ -278,7 +279,7 @@ submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' 
 -- properties for a job, it becomes an array job. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
 -- in the /AWS Batch User Guide/.
-submitJob_arrayProperties :: Lens.Lens' SubmitJob (Core.Maybe ArrayProperties)
+submitJob_arrayProperties :: Lens.Lens' SubmitJob (Prelude.Maybe ArrayProperties)
 submitJob_arrayProperties = Lens.lens (\SubmitJob' {arrayProperties} -> arrayProperties) (\s@SubmitJob' {} a -> s {arrayProperties = a} :: SubmitJob)
 
 -- | A list of container overrides in JSON format that specify the name of a
@@ -288,7 +289,7 @@ submitJob_arrayProperties = Lens.lens (\SubmitJob' {arrayProperties} -> arrayPro
 -- override. You can also override existing environment variables (that are
 -- specified in the job definition or Docker image) on a container or add
 -- new environment variables to it with an @environment@ override.
-submitJob_containerOverrides :: Lens.Lens' SubmitJob (Core.Maybe ContainerOverrides)
+submitJob_containerOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe ContainerOverrides)
 submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> containerOverrides) (\s@SubmitJob' {} a -> s {containerOverrides = a} :: SubmitJob)
 
 -- | A list of node overrides in JSON format that specify the node range to
@@ -296,7 +297,7 @@ submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> co
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources;
 -- use @containerOverrides@ instead.
-submitJob_nodeOverrides :: Lens.Lens' SubmitJob (Core.Maybe NodeOverrides)
+submitJob_nodeOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe NodeOverrides)
 submitJob_nodeOverrides = Lens.lens (\SubmitJob' {nodeOverrides} -> nodeOverrides) (\s@SubmitJob' {} a -> s {nodeOverrides = a} :: SubmitJob)
 
 -- | The tags that you apply to the job request to help you categorize and
@@ -304,13 +305,13 @@ submitJob_nodeOverrides = Lens.lens (\SubmitJob' {nodeOverrides} -> nodeOverride
 -- value. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
 -- in /AWS General Reference/.
-submitJob_tags :: Lens.Lens' SubmitJob (Core.Maybe (Core.HashMap Core.Text Core.Text))
-submitJob_tags = Lens.lens (\SubmitJob' {tags} -> tags) (\s@SubmitJob' {} a -> s {tags = a} :: SubmitJob) Core.. Lens.mapping Lens._Coerce
+submitJob_tags :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+submitJob_tags = Lens.lens (\SubmitJob' {tags} -> tags) (\s@SubmitJob' {} a -> s {tags = a} :: SubmitJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The retry strategy to use for failed jobs from this SubmitJob operation.
 -- When a retry strategy is specified here, it overrides the retry strategy
 -- defined in the job definition.
-submitJob_retryStrategy :: Lens.Lens' SubmitJob (Core.Maybe RetryStrategy)
+submitJob_retryStrategy :: Lens.Lens' SubmitJob (Prelude.Maybe RetryStrategy)
 submitJob_retryStrategy = Lens.lens (\SubmitJob' {retryStrategy} -> retryStrategy) (\s@SubmitJob' {} a -> s {retryStrategy = a} :: SubmitJob)
 
 -- | Additional parameters passed to the job that replace parameter
@@ -318,8 +319,8 @@ submitJob_retryStrategy = Lens.lens (\SubmitJob' {retryStrategy} -> retryStrateg
 -- are specified as a key and value pair mapping. Parameters in a
 -- @SubmitJob@ request override any corresponding parameter defaults from
 -- the job definition.
-submitJob_parameters :: Lens.Lens' SubmitJob (Core.Maybe (Core.HashMap Core.Text Core.Text))
-submitJob_parameters = Lens.lens (\SubmitJob' {parameters} -> parameters) (\s@SubmitJob' {} a -> s {parameters = a} :: SubmitJob) Core.. Lens.mapping Lens._Coerce
+submitJob_parameters :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+submitJob_parameters = Lens.lens (\SubmitJob' {parameters} -> parameters) (\s@SubmitJob' {} a -> s {parameters = a} :: SubmitJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -329,25 +330,25 @@ submitJob_parameters = Lens.lens (\SubmitJob' {parameters} -> parameters) (\s@Su
 -- and job definition is over 50, the job is moved to the @FAILED@ state.
 -- When specified, this overrides the tag propagation setting in the job
 -- definition.
-submitJob_propagateTags :: Lens.Lens' SubmitJob (Core.Maybe Core.Bool)
+submitJob_propagateTags :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Bool)
 submitJob_propagateTags = Lens.lens (\SubmitJob' {propagateTags} -> propagateTags) (\s@SubmitJob' {} a -> s {propagateTags = a} :: SubmitJob)
 
 -- | The name of the job. The first character must be alphanumeric, and up to
 -- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
 -- are allowed.
-submitJob_jobName :: Lens.Lens' SubmitJob Core.Text
+submitJob_jobName :: Lens.Lens' SubmitJob Prelude.Text
 submitJob_jobName = Lens.lens (\SubmitJob' {jobName} -> jobName) (\s@SubmitJob' {} a -> s {jobName = a} :: SubmitJob)
 
 -- | The job queue into which the job is submitted. You can specify either
 -- the name or the Amazon Resource Name (ARN) of the queue.
-submitJob_jobQueue :: Lens.Lens' SubmitJob Core.Text
+submitJob_jobQueue :: Lens.Lens' SubmitJob Prelude.Text
 submitJob_jobQueue = Lens.lens (\SubmitJob' {jobQueue} -> jobQueue) (\s@SubmitJob' {} a -> s {jobQueue = a} :: SubmitJob)
 
 -- | The job definition used by this job. This value can be one of @name@,
 -- @name:revision@, or the Amazon Resource Name (ARN) for the job
 -- definition. If @name@ is specified without a revision then the latest
 -- active revision is used.
-submitJob_jobDefinition :: Lens.Lens' SubmitJob Core.Text
+submitJob_jobDefinition :: Lens.Lens' SubmitJob Prelude.Text
 submitJob_jobDefinition = Lens.lens (\SubmitJob' {jobDefinition} -> jobDefinition) (\s@SubmitJob' {} a -> s {jobDefinition = a} :: SubmitJob)
 
 instance Core.AWSRequest SubmitJob where
@@ -357,63 +358,67 @@ instance Core.AWSRequest SubmitJob where
     Response.receiveJSON
       ( \s h x ->
           SubmitJobResponse'
-            Core.<$> (x Core..?> "jobArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "jobName")
-            Core.<*> (x Core..:> "jobId")
+            Prelude.<$> (x Core..?> "jobArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "jobName")
+            Prelude.<*> (x Core..:> "jobId")
       )
 
-instance Core.Hashable SubmitJob
+instance Prelude.Hashable SubmitJob
 
-instance Core.NFData SubmitJob
+instance Prelude.NFData SubmitJob
 
 instance Core.ToHeaders SubmitJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SubmitJob where
   toJSON SubmitJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("dependsOn" Core..=) Core.<$> dependsOn,
-            ("timeout" Core..=) Core.<$> timeout,
-            ("arrayProperties" Core..=) Core.<$> arrayProperties,
+      ( Prelude.catMaybes
+          [ ("dependsOn" Core..=) Prelude.<$> dependsOn,
+            ("timeout" Core..=) Prelude.<$> timeout,
+            ("arrayProperties" Core..=)
+              Prelude.<$> arrayProperties,
             ("containerOverrides" Core..=)
-              Core.<$> containerOverrides,
-            ("nodeOverrides" Core..=) Core.<$> nodeOverrides,
-            ("tags" Core..=) Core.<$> tags,
-            ("retryStrategy" Core..=) Core.<$> retryStrategy,
-            ("parameters" Core..=) Core.<$> parameters,
-            ("propagateTags" Core..=) Core.<$> propagateTags,
-            Core.Just ("jobName" Core..= jobName),
-            Core.Just ("jobQueue" Core..= jobQueue),
-            Core.Just ("jobDefinition" Core..= jobDefinition)
+              Prelude.<$> containerOverrides,
+            ("nodeOverrides" Core..=) Prelude.<$> nodeOverrides,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("retryStrategy" Core..=) Prelude.<$> retryStrategy,
+            ("parameters" Core..=) Prelude.<$> parameters,
+            ("propagateTags" Core..=) Prelude.<$> propagateTags,
+            Prelude.Just ("jobName" Core..= jobName),
+            Prelude.Just ("jobQueue" Core..= jobQueue),
+            Prelude.Just
+              ("jobDefinition" Core..= jobDefinition)
           ]
       )
 
 instance Core.ToPath SubmitJob where
-  toPath = Core.const "/v1/submitjob"
+  toPath = Prelude.const "/v1/submitjob"
 
 instance Core.ToQuery SubmitJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSubmitJobResponse' smart constructor.
 data SubmitJobResponse = SubmitJobResponse'
   { -- | The Amazon Resource Name (ARN) for the job.
-    jobArn :: Core.Maybe Core.Text,
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The name of the job.
-    jobName :: Core.Text,
+    jobName :: Prelude.Text,
     -- | The unique identifier for the job.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubmitJobResponse' with all optional fields omitted.
@@ -432,34 +437,34 @@ data SubmitJobResponse = SubmitJobResponse'
 -- 'jobId', 'submitJobResponse_jobId' - The unique identifier for the job.
 newSubmitJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'jobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   SubmitJobResponse
 newSubmitJobResponse pHttpStatus_ pJobName_ pJobId_ =
   SubmitJobResponse'
-    { jobArn = Core.Nothing,
+    { jobArn = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       jobName = pJobName_,
       jobId = pJobId_
     }
 
 -- | The Amazon Resource Name (ARN) for the job.
-submitJobResponse_jobArn :: Lens.Lens' SubmitJobResponse (Core.Maybe Core.Text)
+submitJobResponse_jobArn :: Lens.Lens' SubmitJobResponse (Prelude.Maybe Prelude.Text)
 submitJobResponse_jobArn = Lens.lens (\SubmitJobResponse' {jobArn} -> jobArn) (\s@SubmitJobResponse' {} a -> s {jobArn = a} :: SubmitJobResponse)
 
 -- | The response's http status code.
-submitJobResponse_httpStatus :: Lens.Lens' SubmitJobResponse Core.Int
+submitJobResponse_httpStatus :: Lens.Lens' SubmitJobResponse Prelude.Int
 submitJobResponse_httpStatus = Lens.lens (\SubmitJobResponse' {httpStatus} -> httpStatus) (\s@SubmitJobResponse' {} a -> s {httpStatus = a} :: SubmitJobResponse)
 
 -- | The name of the job.
-submitJobResponse_jobName :: Lens.Lens' SubmitJobResponse Core.Text
+submitJobResponse_jobName :: Lens.Lens' SubmitJobResponse Prelude.Text
 submitJobResponse_jobName = Lens.lens (\SubmitJobResponse' {jobName} -> jobName) (\s@SubmitJobResponse' {} a -> s {jobName = a} :: SubmitJobResponse)
 
 -- | The unique identifier for the job.
-submitJobResponse_jobId :: Lens.Lens' SubmitJobResponse Core.Text
+submitJobResponse_jobId :: Lens.Lens' SubmitJobResponse Prelude.Text
 submitJobResponse_jobId = Lens.lens (\SubmitJobResponse' {jobId} -> jobId) (\s@SubmitJobResponse' {} a -> s {jobId = a} :: SubmitJobResponse)
 
-instance Core.NFData SubmitJobResponse
+instance Prelude.NFData SubmitJobResponse

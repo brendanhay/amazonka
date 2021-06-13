@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -62,11 +63,11 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeJournalS3Export' smart constructor.
 data DescribeJournalS3Export = DescribeJournalS3Export'
   { -- | The name of the ledger.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The unique ID of the journal export job that you want to describe.
-    exportId :: Core.Text
+    exportId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeJournalS3Export' with all optional fields omitted.
@@ -81,9 +82,9 @@ data DescribeJournalS3Export = DescribeJournalS3Export'
 -- 'exportId', 'describeJournalS3Export_exportId' - The unique ID of the journal export job that you want to describe.
 newDescribeJournalS3Export ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'exportId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeJournalS3Export
 newDescribeJournalS3Export pName_ pExportId_ =
   DescribeJournalS3Export'
@@ -92,11 +93,11 @@ newDescribeJournalS3Export pName_ pExportId_ =
     }
 
 -- | The name of the ledger.
-describeJournalS3Export_name :: Lens.Lens' DescribeJournalS3Export Core.Text
+describeJournalS3Export_name :: Lens.Lens' DescribeJournalS3Export Prelude.Text
 describeJournalS3Export_name = Lens.lens (\DescribeJournalS3Export' {name} -> name) (\s@DescribeJournalS3Export' {} a -> s {name = a} :: DescribeJournalS3Export)
 
 -- | The unique ID of the journal export job that you want to describe.
-describeJournalS3Export_exportId :: Lens.Lens' DescribeJournalS3Export Core.Text
+describeJournalS3Export_exportId :: Lens.Lens' DescribeJournalS3Export Prelude.Text
 describeJournalS3Export_exportId = Lens.lens (\DescribeJournalS3Export' {exportId} -> exportId) (\s@DescribeJournalS3Export' {} a -> s {exportId = a} :: DescribeJournalS3Export)
 
 instance Core.AWSRequest DescribeJournalS3Export where
@@ -108,26 +109,28 @@ instance Core.AWSRequest DescribeJournalS3Export where
     Response.receiveJSON
       ( \s h x ->
           DescribeJournalS3ExportResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ExportDescription")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ExportDescription")
       )
 
-instance Core.Hashable DescribeJournalS3Export
+instance Prelude.Hashable DescribeJournalS3Export
 
-instance Core.NFData DescribeJournalS3Export
+instance Prelude.NFData DescribeJournalS3Export
 
 instance Core.ToHeaders DescribeJournalS3Export where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeJournalS3Export where
   toPath DescribeJournalS3Export' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/ledgers/",
         Core.toBS name,
         "/journal-s3-exports/",
@@ -135,17 +138,17 @@ instance Core.ToPath DescribeJournalS3Export where
       ]
 
 instance Core.ToQuery DescribeJournalS3Export where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJournalS3ExportResponse' smart constructor.
 data DescribeJournalS3ExportResponse = DescribeJournalS3ExportResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the journal export job returned by a
     -- @DescribeJournalS3Export@ request.
     exportDescription :: JournalS3ExportDescription
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeJournalS3ExportResponse' with all optional fields omitted.
@@ -161,7 +164,7 @@ data DescribeJournalS3ExportResponse = DescribeJournalS3ExportResponse'
 -- @DescribeJournalS3Export@ request.
 newDescribeJournalS3ExportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'exportDescription'
   JournalS3ExportDescription ->
   DescribeJournalS3ExportResponse
@@ -175,7 +178,7 @@ newDescribeJournalS3ExportResponse
       }
 
 -- | The response's http status code.
-describeJournalS3ExportResponse_httpStatus :: Lens.Lens' DescribeJournalS3ExportResponse Core.Int
+describeJournalS3ExportResponse_httpStatus :: Lens.Lens' DescribeJournalS3ExportResponse Prelude.Int
 describeJournalS3ExportResponse_httpStatus = Lens.lens (\DescribeJournalS3ExportResponse' {httpStatus} -> httpStatus) (\s@DescribeJournalS3ExportResponse' {} a -> s {httpStatus = a} :: DescribeJournalS3ExportResponse)
 
 -- | Information about the journal export job returned by a
@@ -183,4 +186,6 @@ describeJournalS3ExportResponse_httpStatus = Lens.lens (\DescribeJournalS3Export
 describeJournalS3ExportResponse_exportDescription :: Lens.Lens' DescribeJournalS3ExportResponse JournalS3ExportDescription
 describeJournalS3ExportResponse_exportDescription = Lens.lens (\DescribeJournalS3ExportResponse' {exportDescription} -> exportDescription) (\s@DescribeJournalS3ExportResponse' {} a -> s {exportDescription = a} :: DescribeJournalS3ExportResponse)
 
-instance Core.NFData DescribeJournalS3ExportResponse
+instance
+  Prelude.NFData
+    DescribeJournalS3ExportResponse

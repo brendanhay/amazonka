@@ -21,17 +21,18 @@ module Network.AWS.EKS.Types.IdentityProviderConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an identity provider configuration.
 --
 -- /See:/ 'newIdentityProviderConfig' smart constructor.
 data IdentityProviderConfig = IdentityProviderConfig'
   { -- | The type of the identity provider configuration.
-    type' :: Core.Text,
+    type' :: Prelude.Text,
     -- | The name of the identity provider configuration.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IdentityProviderConfig' with all optional fields omitted.
@@ -46,9 +47,9 @@ data IdentityProviderConfig = IdentityProviderConfig'
 -- 'name', 'identityProviderConfig_name' - The name of the identity provider configuration.
 newIdentityProviderConfig ::
   -- | 'type''
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   IdentityProviderConfig
 newIdentityProviderConfig pType_ pName_ =
   IdentityProviderConfig'
@@ -57,11 +58,11 @@ newIdentityProviderConfig pType_ pName_ =
     }
 
 -- | The type of the identity provider configuration.
-identityProviderConfig_type :: Lens.Lens' IdentityProviderConfig Core.Text
+identityProviderConfig_type :: Lens.Lens' IdentityProviderConfig Prelude.Text
 identityProviderConfig_type = Lens.lens (\IdentityProviderConfig' {type'} -> type') (\s@IdentityProviderConfig' {} a -> s {type' = a} :: IdentityProviderConfig)
 
 -- | The name of the identity provider configuration.
-identityProviderConfig_name :: Lens.Lens' IdentityProviderConfig Core.Text
+identityProviderConfig_name :: Lens.Lens' IdentityProviderConfig Prelude.Text
 identityProviderConfig_name = Lens.lens (\IdentityProviderConfig' {name} -> name) (\s@IdentityProviderConfig' {} a -> s {name = a} :: IdentityProviderConfig)
 
 instance Core.FromJSON IdentityProviderConfig where
@@ -70,18 +71,18 @@ instance Core.FromJSON IdentityProviderConfig where
       "IdentityProviderConfig"
       ( \x ->
           IdentityProviderConfig'
-            Core.<$> (x Core..: "type") Core.<*> (x Core..: "name")
+            Prelude.<$> (x Core..: "type") Prelude.<*> (x Core..: "name")
       )
 
-instance Core.Hashable IdentityProviderConfig
+instance Prelude.Hashable IdentityProviderConfig
 
-instance Core.NFData IdentityProviderConfig
+instance Prelude.NFData IdentityProviderConfig
 
 instance Core.ToJSON IdentityProviderConfig where
   toJSON IdentityProviderConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("type" Core..= type'),
-            Core.Just ("name" Core..= name)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("type" Core..= type'),
+            Prelude.Just ("name" Core..= name)
           ]
       )

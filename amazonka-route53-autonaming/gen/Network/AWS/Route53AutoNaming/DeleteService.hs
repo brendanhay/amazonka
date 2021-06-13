@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -48,9 +49,9 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newDeleteService' smart constructor.
 data DeleteService = DeleteService'
   { -- | The ID of the service that you want to delete.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteService' with all optional fields omitted.
@@ -63,12 +64,12 @@ data DeleteService = DeleteService'
 -- 'id', 'deleteService_id' - The ID of the service that you want to delete.
 newDeleteService ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteService
 newDeleteService pId_ = DeleteService' {id = pId_}
 
 -- | The ID of the service that you want to delete.
-deleteService_id :: Lens.Lens' DeleteService Core.Text
+deleteService_id :: Lens.Lens' DeleteService Prelude.Text
 deleteService_id = Lens.lens (\DeleteService' {id} -> id) (\s@DeleteService' {} a -> s {id = a} :: DeleteService)
 
 instance Core.AWSRequest DeleteService where
@@ -80,43 +81,45 @@ instance Core.AWSRequest DeleteService where
     Response.receiveEmpty
       ( \s h x ->
           DeleteServiceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteService
+instance Prelude.Hashable DeleteService
 
-instance Core.NFData DeleteService
+instance Prelude.NFData DeleteService
 
 instance Core.ToHeaders DeleteService where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.DeleteService" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteService where
   toJSON DeleteService' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Id" Core..= id)])
+      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
 
 instance Core.ToPath DeleteService where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteService where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServiceResponse' smart constructor.
 data DeleteServiceResponse = DeleteServiceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceResponse' with all optional fields omitted.
@@ -129,13 +132,13 @@ data DeleteServiceResponse = DeleteServiceResponse'
 -- 'httpStatus', 'deleteServiceResponse_httpStatus' - The response's http status code.
 newDeleteServiceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteServiceResponse
 newDeleteServiceResponse pHttpStatus_ =
   DeleteServiceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteServiceResponse_httpStatus :: Lens.Lens' DeleteServiceResponse Core.Int
+deleteServiceResponse_httpStatus :: Lens.Lens' DeleteServiceResponse Prelude.Int
 deleteServiceResponse_httpStatus = Lens.lens (\DeleteServiceResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceResponse' {} a -> s {httpStatus = a} :: DeleteServiceResponse)
 
-instance Core.NFData DeleteServiceResponse
+instance Prelude.NFData DeleteServiceResponse

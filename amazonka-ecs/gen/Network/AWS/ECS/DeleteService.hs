@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,15 +71,15 @@ data DeleteService = DeleteService'
   { -- | If @true@, allows you to delete a service even if it has not been scaled
     -- down to zero tasks. It is only necessary to use this if the service is
     -- using the @REPLICA@ scheduling strategy.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service to delete. If you do not specify a cluster, the
     -- default cluster is assumed.
-    cluster :: Core.Maybe Core.Text,
+    cluster :: Prelude.Maybe Prelude.Text,
     -- | The name of the service to delete.
-    service :: Core.Text
+    service :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteService' with all optional fields omitted.
@@ -99,29 +100,29 @@ data DeleteService = DeleteService'
 -- 'service', 'deleteService_service' - The name of the service to delete.
 newDeleteService ::
   -- | 'service'
-  Core.Text ->
+  Prelude.Text ->
   DeleteService
 newDeleteService pService_ =
   DeleteService'
-    { force = Core.Nothing,
-      cluster = Core.Nothing,
+    { force = Prelude.Nothing,
+      cluster = Prelude.Nothing,
       service = pService_
     }
 
 -- | If @true@, allows you to delete a service even if it has not been scaled
 -- down to zero tasks. It is only necessary to use this if the service is
 -- using the @REPLICA@ scheduling strategy.
-deleteService_force :: Lens.Lens' DeleteService (Core.Maybe Core.Bool)
+deleteService_force :: Lens.Lens' DeleteService (Prelude.Maybe Prelude.Bool)
 deleteService_force = Lens.lens (\DeleteService' {force} -> force) (\s@DeleteService' {} a -> s {force = a} :: DeleteService)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service to delete. If you do not specify a cluster, the
 -- default cluster is assumed.
-deleteService_cluster :: Lens.Lens' DeleteService (Core.Maybe Core.Text)
+deleteService_cluster :: Lens.Lens' DeleteService (Prelude.Maybe Prelude.Text)
 deleteService_cluster = Lens.lens (\DeleteService' {cluster} -> cluster) (\s@DeleteService' {} a -> s {cluster = a} :: DeleteService)
 
 -- | The name of the service to delete.
-deleteService_service :: Lens.Lens' DeleteService Core.Text
+deleteService_service :: Lens.Lens' DeleteService Prelude.Text
 deleteService_service = Lens.lens (\DeleteService' {service} -> service) (\s@DeleteService' {} a -> s {service = a} :: DeleteService)
 
 instance Core.AWSRequest DeleteService where
@@ -133,51 +134,53 @@ instance Core.AWSRequest DeleteService where
     Response.receiveJSON
       ( \s h x ->
           DeleteServiceResponse'
-            Core.<$> (x Core..?> "service")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "service")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteService
+instance Prelude.Hashable DeleteService
 
-instance Core.NFData DeleteService
+instance Prelude.NFData DeleteService
 
 instance Core.ToHeaders DeleteService where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteService" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteService where
   toJSON DeleteService' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("force" Core..=) Core.<$> force,
-            ("cluster" Core..=) Core.<$> cluster,
-            Core.Just ("service" Core..= service)
+      ( Prelude.catMaybes
+          [ ("force" Core..=) Prelude.<$> force,
+            ("cluster" Core..=) Prelude.<$> cluster,
+            Prelude.Just ("service" Core..= service)
           ]
       )
 
 instance Core.ToPath DeleteService where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteService where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServiceResponse' smart constructor.
 data DeleteServiceResponse = DeleteServiceResponse'
   { -- | The full description of the deleted service.
-    service :: Core.Maybe ContainerService,
+    service :: Prelude.Maybe ContainerService,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceResponse' with all optional fields omitted.
@@ -192,20 +195,20 @@ data DeleteServiceResponse = DeleteServiceResponse'
 -- 'httpStatus', 'deleteServiceResponse_httpStatus' - The response's http status code.
 newDeleteServiceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteServiceResponse
 newDeleteServiceResponse pHttpStatus_ =
   DeleteServiceResponse'
-    { service = Core.Nothing,
+    { service = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of the deleted service.
-deleteServiceResponse_service :: Lens.Lens' DeleteServiceResponse (Core.Maybe ContainerService)
+deleteServiceResponse_service :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe ContainerService)
 deleteServiceResponse_service = Lens.lens (\DeleteServiceResponse' {service} -> service) (\s@DeleteServiceResponse' {} a -> s {service = a} :: DeleteServiceResponse)
 
 -- | The response's http status code.
-deleteServiceResponse_httpStatus :: Lens.Lens' DeleteServiceResponse Core.Int
+deleteServiceResponse_httpStatus :: Lens.Lens' DeleteServiceResponse Prelude.Int
 deleteServiceResponse_httpStatus = Lens.lens (\DeleteServiceResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceResponse' {} a -> s {httpStatus = a} :: DeleteServiceResponse)
 
-instance Core.NFData DeleteServiceResponse
+instance Prelude.NFData DeleteServiceResponse

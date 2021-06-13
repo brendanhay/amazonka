@@ -48,6 +48,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,14 +71,14 @@ data GetActionType = GetActionType'
     category :: ActionCategory,
     -- | The creator of an action type that was created with any supported
     -- integration model. There are two valid values: @AWS@ and @ThirdParty@.
-    owner :: Core.Text,
+    owner :: Prelude.Text,
     -- | The provider of the action type being called. The provider name is
     -- specified when the action type is created.
-    provider :: Core.Text,
+    provider :: Prelude.Text,
     -- | A string that describes the action type version.
-    version :: Core.Text
+    version :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetActionType' with all optional fields omitted.
@@ -113,11 +114,11 @@ newGetActionType ::
   -- | 'category'
   ActionCategory ->
   -- | 'owner'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'provider'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Text ->
+  Prelude.Text ->
   GetActionType
 newGetActionType
   pCategory_
@@ -150,16 +151,16 @@ getActionType_category = Lens.lens (\GetActionType' {category} -> category) (\s@
 
 -- | The creator of an action type that was created with any supported
 -- integration model. There are two valid values: @AWS@ and @ThirdParty@.
-getActionType_owner :: Lens.Lens' GetActionType Core.Text
+getActionType_owner :: Lens.Lens' GetActionType Prelude.Text
 getActionType_owner = Lens.lens (\GetActionType' {owner} -> owner) (\s@GetActionType' {} a -> s {owner = a} :: GetActionType)
 
 -- | The provider of the action type being called. The provider name is
 -- specified when the action type is created.
-getActionType_provider :: Lens.Lens' GetActionType Core.Text
+getActionType_provider :: Lens.Lens' GetActionType Prelude.Text
 getActionType_provider = Lens.lens (\GetActionType' {provider} -> provider) (\s@GetActionType' {} a -> s {provider = a} :: GetActionType)
 
 -- | A string that describes the action type version.
-getActionType_version :: Lens.Lens' GetActionType Core.Text
+getActionType_version :: Lens.Lens' GetActionType Prelude.Text
 getActionType_version = Lens.lens (\GetActionType' {version} -> version) (\s@GetActionType' {} a -> s {version = a} :: GetActionType)
 
 instance Core.AWSRequest GetActionType where
@@ -171,53 +172,55 @@ instance Core.AWSRequest GetActionType where
     Response.receiveJSON
       ( \s h x ->
           GetActionTypeResponse'
-            Core.<$> (x Core..?> "actionType")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "actionType")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetActionType
+instance Prelude.Hashable GetActionType
 
-instance Core.NFData GetActionType
+instance Prelude.NFData GetActionType
 
 instance Core.ToHeaders GetActionType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.GetActionType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetActionType where
   toJSON GetActionType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("category" Core..= category),
-            Core.Just ("owner" Core..= owner),
-            Core.Just ("provider" Core..= provider),
-            Core.Just ("version" Core..= version)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("category" Core..= category),
+            Prelude.Just ("owner" Core..= owner),
+            Prelude.Just ("provider" Core..= provider),
+            Prelude.Just ("version" Core..= version)
           ]
       )
 
 instance Core.ToPath GetActionType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetActionType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetActionTypeResponse' smart constructor.
 data GetActionTypeResponse = GetActionTypeResponse'
   { -- | The action type information for the requested action type, such as the
     -- action type ID.
-    actionType :: Core.Maybe ActionTypeDeclaration,
+    actionType :: Prelude.Maybe ActionTypeDeclaration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetActionTypeResponse' with all optional fields omitted.
@@ -233,21 +236,22 @@ data GetActionTypeResponse = GetActionTypeResponse'
 -- 'httpStatus', 'getActionTypeResponse_httpStatus' - The response's http status code.
 newGetActionTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetActionTypeResponse
 newGetActionTypeResponse pHttpStatus_ =
   GetActionTypeResponse'
-    { actionType = Core.Nothing,
+    { actionType =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The action type information for the requested action type, such as the
 -- action type ID.
-getActionTypeResponse_actionType :: Lens.Lens' GetActionTypeResponse (Core.Maybe ActionTypeDeclaration)
+getActionTypeResponse_actionType :: Lens.Lens' GetActionTypeResponse (Prelude.Maybe ActionTypeDeclaration)
 getActionTypeResponse_actionType = Lens.lens (\GetActionTypeResponse' {actionType} -> actionType) (\s@GetActionTypeResponse' {} a -> s {actionType = a} :: GetActionTypeResponse)
 
 -- | The response's http status code.
-getActionTypeResponse_httpStatus :: Lens.Lens' GetActionTypeResponse Core.Int
+getActionTypeResponse_httpStatus :: Lens.Lens' GetActionTypeResponse Prelude.Int
 getActionTypeResponse_httpStatus = Lens.lens (\GetActionTypeResponse' {httpStatus} -> httpStatus) (\s@GetActionTypeResponse' {} a -> s {httpStatus = a} :: GetActionTypeResponse)
 
-instance Core.NFData GetActionTypeResponse
+instance Prelude.NFData GetActionTypeResponse

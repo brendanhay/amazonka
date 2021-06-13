@@ -27,6 +27,7 @@ import Network.AWS.CloudFront.Types.TrustedSigners
 import Network.AWS.CloudFront.Types.ViewerProtocolPolicy
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that describes the default cache behavior if you don’t
 -- specify a @CacheBehavior@ element or if request URLs don’t match any of
@@ -37,33 +38,33 @@ import qualified Network.AWS.Lens as Lens
 data DefaultCacheBehavior = DefaultCacheBehavior'
   { -- | A complex type that contains zero or more Lambda function associations
     -- for a cache behavior.
-    lambdaFunctionAssociations :: Core.Maybe LambdaFunctionAssociations,
-    allowedMethods :: Core.Maybe AllowedMethods,
+    lambdaFunctionAssociations :: Prelude.Maybe LambdaFunctionAssociations,
+    allowedMethods :: Prelude.Maybe AllowedMethods,
     -- | The unique identifier of the cache policy that is attached to the
     -- default cache behavior. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
     -- or
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html Using the managed cache policies>
     -- in the /Amazon CloudFront Developer Guide/.
-    cachePolicyId :: Core.Maybe Core.Text,
+    cachePolicyId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether you want to distribute media files in the Microsoft
     -- Smooth Streaming format using the origin that is associated with this
     -- cache behavior. If so, specify @true@; if not, specify @false@. If you
     -- specify @true@ for @SmoothStreaming@, you can still distribute other
     -- content using this cache behavior if the content matches the value of
     -- @PathPattern@.
-    smoothStreaming :: Core.Maybe Core.Bool,
+    smoothStreaming :: Prelude.Maybe Prelude.Bool,
     -- | The value of @ID@ for the field-level encryption configuration that you
     -- want CloudFront to use for encrypting specific fields of data for the
     -- default cache behavior.
-    fieldLevelEncryptionId :: Core.Maybe Core.Text,
+    fieldLevelEncryptionId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the origin request policy that is attached to
     -- the default cache behavior. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy Creating origin request policies>
     -- or
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html Using the managed origin request policies>
     -- in the /Amazon CloudFront Developer Guide/.
-    originRequestPolicyId :: Core.Maybe Core.Text,
+    originRequestPolicyId :: Prelude.Maybe Prelude.Text,
     -- | This field is deprecated. We recommend that you use the @MaxTTL@ field
     -- in a cache policy instead of this field. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
@@ -79,7 +80,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     -- objects. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
     -- in the /Amazon CloudFront Developer Guide/.
-    maxTTL :: Core.Maybe Core.Integer,
+    maxTTL :: Prelude.Maybe Prelude.Integer,
     -- | This field is deprecated. We recommend that you use a cache policy or an
     -- origin request policy instead of this field. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html Working with policies>
@@ -101,7 +102,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     --
     -- A complex type that specifies how CloudFront handles query strings,
     -- cookies, and HTTP headers.
-    forwardedValues :: Core.Maybe ForwardedValues,
+    forwardedValues :: Prelude.Maybe ForwardedValues,
     -- | This field is deprecated. We recommend that you use the @DefaultTTL@
     -- field in a cache policy instead of this field. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
@@ -117,12 +118,12 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     -- objects. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
     -- in the /Amazon CloudFront Developer Guide/.
-    defaultTTL :: Core.Maybe Core.Integer,
+    defaultTTL :: Prelude.Maybe Prelude.Integer,
     -- | The Amazon Resource Name (ARN) of the real-time log configuration that
     -- is attached to this cache behavior. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html Real-time logs>
     -- in the /Amazon CloudFront Developer Guide/.
-    realtimeLogConfigArn :: Core.Maybe Core.Text,
+    realtimeLogConfigArn :: Prelude.Maybe Prelude.Text,
     -- | This field is deprecated. We recommend that you use the @MinTTL@ field
     -- in a cache policy instead of this field. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
@@ -139,13 +140,13 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     -- You must specify @0@ for @MinTTL@ if you configure CloudFront to forward
     -- all headers to your origin (under @Headers@, if you specify @1@ for
     -- @Quantity@ and @*@ for @Name@).
-    minTTL :: Core.Maybe Core.Integer,
+    minTTL :: Prelude.Maybe Prelude.Integer,
     -- | Whether you want CloudFront to automatically compress certain files for
     -- this cache behavior. If so, specify @true@; if not, specify @false@. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html Serving Compressed Files>
     -- in the /Amazon CloudFront Developer Guide/.
-    compress :: Core.Maybe Core.Bool,
+    compress :: Prelude.Maybe Prelude.Bool,
     -- | A list of key groups that CloudFront can use to validate signed URLs or
     -- signed cookies.
     --
@@ -157,7 +158,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     -- verify the signature. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
     -- in the /Amazon CloudFront Developer Guide/.
-    trustedKeyGroups :: Core.Maybe TrustedKeyGroups,
+    trustedKeyGroups :: Prelude.Maybe TrustedKeyGroups,
     -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
     --
     -- A list of AWS account IDs whose public keys CloudFront can use to
@@ -171,10 +172,10 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     -- to verify the signature. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
     -- in the /Amazon CloudFront Developer Guide/.
-    trustedSigners :: Core.Maybe TrustedSigners,
+    trustedSigners :: Prelude.Maybe TrustedSigners,
     -- | The value of @ID@ for the origin that you want CloudFront to route
     -- requests to when they use the default cache behavior.
-    targetOriginId :: Core.Text,
+    targetOriginId :: Prelude.Text,
     -- | The protocol that viewers can use to access the files in the origin
     -- specified by @TargetOriginId@ when a request matches the path pattern in
     -- @PathPattern@. You can specify the following options:
@@ -204,7 +205,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     -- in the /Amazon CloudFront Developer Guide/.
     viewerProtocolPolicy :: ViewerProtocolPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefaultCacheBehavior' with all optional fields omitted.
@@ -384,7 +385,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
 -- in the /Amazon CloudFront Developer Guide/.
 newDefaultCacheBehavior ::
   -- | 'targetOriginId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'viewerProtocolPolicy'
   ViewerProtocolPolicy ->
   DefaultCacheBehavior
@@ -393,31 +394,31 @@ newDefaultCacheBehavior
   pViewerProtocolPolicy_ =
     DefaultCacheBehavior'
       { lambdaFunctionAssociations =
-          Core.Nothing,
-        allowedMethods = Core.Nothing,
-        cachePolicyId = Core.Nothing,
-        smoothStreaming = Core.Nothing,
-        fieldLevelEncryptionId = Core.Nothing,
-        originRequestPolicyId = Core.Nothing,
-        maxTTL = Core.Nothing,
-        forwardedValues = Core.Nothing,
-        defaultTTL = Core.Nothing,
-        realtimeLogConfigArn = Core.Nothing,
-        minTTL = Core.Nothing,
-        compress = Core.Nothing,
-        trustedKeyGroups = Core.Nothing,
-        trustedSigners = Core.Nothing,
+          Prelude.Nothing,
+        allowedMethods = Prelude.Nothing,
+        cachePolicyId = Prelude.Nothing,
+        smoothStreaming = Prelude.Nothing,
+        fieldLevelEncryptionId = Prelude.Nothing,
+        originRequestPolicyId = Prelude.Nothing,
+        maxTTL = Prelude.Nothing,
+        forwardedValues = Prelude.Nothing,
+        defaultTTL = Prelude.Nothing,
+        realtimeLogConfigArn = Prelude.Nothing,
+        minTTL = Prelude.Nothing,
+        compress = Prelude.Nothing,
+        trustedKeyGroups = Prelude.Nothing,
+        trustedSigners = Prelude.Nothing,
         targetOriginId = pTargetOriginId_,
         viewerProtocolPolicy = pViewerProtocolPolicy_
       }
 
 -- | A complex type that contains zero or more Lambda function associations
 -- for a cache behavior.
-defaultCacheBehavior_lambdaFunctionAssociations :: Lens.Lens' DefaultCacheBehavior (Core.Maybe LambdaFunctionAssociations)
+defaultCacheBehavior_lambdaFunctionAssociations :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe LambdaFunctionAssociations)
 defaultCacheBehavior_lambdaFunctionAssociations = Lens.lens (\DefaultCacheBehavior' {lambdaFunctionAssociations} -> lambdaFunctionAssociations) (\s@DefaultCacheBehavior' {} a -> s {lambdaFunctionAssociations = a} :: DefaultCacheBehavior)
 
 -- | Undocumented member.
-defaultCacheBehavior_allowedMethods :: Lens.Lens' DefaultCacheBehavior (Core.Maybe AllowedMethods)
+defaultCacheBehavior_allowedMethods :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe AllowedMethods)
 defaultCacheBehavior_allowedMethods = Lens.lens (\DefaultCacheBehavior' {allowedMethods} -> allowedMethods) (\s@DefaultCacheBehavior' {} a -> s {allowedMethods = a} :: DefaultCacheBehavior)
 
 -- | The unique identifier of the cache policy that is attached to the
@@ -426,7 +427,7 @@ defaultCacheBehavior_allowedMethods = Lens.lens (\DefaultCacheBehavior' {allowed
 -- or
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html Using the managed cache policies>
 -- in the /Amazon CloudFront Developer Guide/.
-defaultCacheBehavior_cachePolicyId :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Text)
+defaultCacheBehavior_cachePolicyId :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Text)
 defaultCacheBehavior_cachePolicyId = Lens.lens (\DefaultCacheBehavior' {cachePolicyId} -> cachePolicyId) (\s@DefaultCacheBehavior' {} a -> s {cachePolicyId = a} :: DefaultCacheBehavior)
 
 -- | Indicates whether you want to distribute media files in the Microsoft
@@ -435,13 +436,13 @@ defaultCacheBehavior_cachePolicyId = Lens.lens (\DefaultCacheBehavior' {cachePol
 -- specify @true@ for @SmoothStreaming@, you can still distribute other
 -- content using this cache behavior if the content matches the value of
 -- @PathPattern@.
-defaultCacheBehavior_smoothStreaming :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Bool)
+defaultCacheBehavior_smoothStreaming :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Bool)
 defaultCacheBehavior_smoothStreaming = Lens.lens (\DefaultCacheBehavior' {smoothStreaming} -> smoothStreaming) (\s@DefaultCacheBehavior' {} a -> s {smoothStreaming = a} :: DefaultCacheBehavior)
 
 -- | The value of @ID@ for the field-level encryption configuration that you
 -- want CloudFront to use for encrypting specific fields of data for the
 -- default cache behavior.
-defaultCacheBehavior_fieldLevelEncryptionId :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Text)
+defaultCacheBehavior_fieldLevelEncryptionId :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Text)
 defaultCacheBehavior_fieldLevelEncryptionId = Lens.lens (\DefaultCacheBehavior' {fieldLevelEncryptionId} -> fieldLevelEncryptionId) (\s@DefaultCacheBehavior' {} a -> s {fieldLevelEncryptionId = a} :: DefaultCacheBehavior)
 
 -- | The unique identifier of the origin request policy that is attached to
@@ -450,7 +451,7 @@ defaultCacheBehavior_fieldLevelEncryptionId = Lens.lens (\DefaultCacheBehavior' 
 -- or
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html Using the managed origin request policies>
 -- in the /Amazon CloudFront Developer Guide/.
-defaultCacheBehavior_originRequestPolicyId :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Text)
+defaultCacheBehavior_originRequestPolicyId :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Text)
 defaultCacheBehavior_originRequestPolicyId = Lens.lens (\DefaultCacheBehavior' {originRequestPolicyId} -> originRequestPolicyId) (\s@DefaultCacheBehavior' {} a -> s {originRequestPolicyId = a} :: DefaultCacheBehavior)
 
 -- | This field is deprecated. We recommend that you use the @MaxTTL@ field
@@ -468,7 +469,7 @@ defaultCacheBehavior_originRequestPolicyId = Lens.lens (\DefaultCacheBehavior' {
 -- objects. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
 -- in the /Amazon CloudFront Developer Guide/.
-defaultCacheBehavior_maxTTL :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Integer)
+defaultCacheBehavior_maxTTL :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Integer)
 defaultCacheBehavior_maxTTL = Lens.lens (\DefaultCacheBehavior' {maxTTL} -> maxTTL) (\s@DefaultCacheBehavior' {} a -> s {maxTTL = a} :: DefaultCacheBehavior)
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
@@ -492,7 +493,7 @@ defaultCacheBehavior_maxTTL = Lens.lens (\DefaultCacheBehavior' {maxTTL} -> maxT
 --
 -- A complex type that specifies how CloudFront handles query strings,
 -- cookies, and HTTP headers.
-defaultCacheBehavior_forwardedValues :: Lens.Lens' DefaultCacheBehavior (Core.Maybe ForwardedValues)
+defaultCacheBehavior_forwardedValues :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe ForwardedValues)
 defaultCacheBehavior_forwardedValues = Lens.lens (\DefaultCacheBehavior' {forwardedValues} -> forwardedValues) (\s@DefaultCacheBehavior' {} a -> s {forwardedValues = a} :: DefaultCacheBehavior)
 
 -- | This field is deprecated. We recommend that you use the @DefaultTTL@
@@ -510,14 +511,14 @@ defaultCacheBehavior_forwardedValues = Lens.lens (\DefaultCacheBehavior' {forwar
 -- objects. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
 -- in the /Amazon CloudFront Developer Guide/.
-defaultCacheBehavior_defaultTTL :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Integer)
+defaultCacheBehavior_defaultTTL :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Integer)
 defaultCacheBehavior_defaultTTL = Lens.lens (\DefaultCacheBehavior' {defaultTTL} -> defaultTTL) (\s@DefaultCacheBehavior' {} a -> s {defaultTTL = a} :: DefaultCacheBehavior)
 
 -- | The Amazon Resource Name (ARN) of the real-time log configuration that
 -- is attached to this cache behavior. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html Real-time logs>
 -- in the /Amazon CloudFront Developer Guide/.
-defaultCacheBehavior_realtimeLogConfigArn :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Text)
+defaultCacheBehavior_realtimeLogConfigArn :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Text)
 defaultCacheBehavior_realtimeLogConfigArn = Lens.lens (\DefaultCacheBehavior' {realtimeLogConfigArn} -> realtimeLogConfigArn) (\s@DefaultCacheBehavior' {} a -> s {realtimeLogConfigArn = a} :: DefaultCacheBehavior)
 
 -- | This field is deprecated. We recommend that you use the @MinTTL@ field
@@ -536,7 +537,7 @@ defaultCacheBehavior_realtimeLogConfigArn = Lens.lens (\DefaultCacheBehavior' {r
 -- You must specify @0@ for @MinTTL@ if you configure CloudFront to forward
 -- all headers to your origin (under @Headers@, if you specify @1@ for
 -- @Quantity@ and @*@ for @Name@).
-defaultCacheBehavior_minTTL :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Integer)
+defaultCacheBehavior_minTTL :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Integer)
 defaultCacheBehavior_minTTL = Lens.lens (\DefaultCacheBehavior' {minTTL} -> minTTL) (\s@DefaultCacheBehavior' {} a -> s {minTTL = a} :: DefaultCacheBehavior)
 
 -- | Whether you want CloudFront to automatically compress certain files for
@@ -544,7 +545,7 @@ defaultCacheBehavior_minTTL = Lens.lens (\DefaultCacheBehavior' {minTTL} -> minT
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html Serving Compressed Files>
 -- in the /Amazon CloudFront Developer Guide/.
-defaultCacheBehavior_compress :: Lens.Lens' DefaultCacheBehavior (Core.Maybe Core.Bool)
+defaultCacheBehavior_compress :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Bool)
 defaultCacheBehavior_compress = Lens.lens (\DefaultCacheBehavior' {compress} -> compress) (\s@DefaultCacheBehavior' {} a -> s {compress = a} :: DefaultCacheBehavior)
 
 -- | A list of key groups that CloudFront can use to validate signed URLs or
@@ -558,7 +559,7 @@ defaultCacheBehavior_compress = Lens.lens (\DefaultCacheBehavior' {compress} -> 
 -- verify the signature. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
 -- in the /Amazon CloudFront Developer Guide/.
-defaultCacheBehavior_trustedKeyGroups :: Lens.Lens' DefaultCacheBehavior (Core.Maybe TrustedKeyGroups)
+defaultCacheBehavior_trustedKeyGroups :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe TrustedKeyGroups)
 defaultCacheBehavior_trustedKeyGroups = Lens.lens (\DefaultCacheBehavior' {trustedKeyGroups} -> trustedKeyGroups) (\s@DefaultCacheBehavior' {} a -> s {trustedKeyGroups = a} :: DefaultCacheBehavior)
 
 -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
@@ -574,12 +575,12 @@ defaultCacheBehavior_trustedKeyGroups = Lens.lens (\DefaultCacheBehavior' {trust
 -- to verify the signature. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
 -- in the /Amazon CloudFront Developer Guide/.
-defaultCacheBehavior_trustedSigners :: Lens.Lens' DefaultCacheBehavior (Core.Maybe TrustedSigners)
+defaultCacheBehavior_trustedSigners :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe TrustedSigners)
 defaultCacheBehavior_trustedSigners = Lens.lens (\DefaultCacheBehavior' {trustedSigners} -> trustedSigners) (\s@DefaultCacheBehavior' {} a -> s {trustedSigners = a} :: DefaultCacheBehavior)
 
 -- | The value of @ID@ for the origin that you want CloudFront to route
 -- requests to when they use the default cache behavior.
-defaultCacheBehavior_targetOriginId :: Lens.Lens' DefaultCacheBehavior Core.Text
+defaultCacheBehavior_targetOriginId :: Lens.Lens' DefaultCacheBehavior Prelude.Text
 defaultCacheBehavior_targetOriginId = Lens.lens (\DefaultCacheBehavior' {targetOriginId} -> targetOriginId) (\s@DefaultCacheBehavior' {} a -> s {targetOriginId = a} :: DefaultCacheBehavior)
 
 -- | The protocol that viewers can use to access the files in the origin
@@ -615,30 +616,30 @@ defaultCacheBehavior_viewerProtocolPolicy = Lens.lens (\DefaultCacheBehavior' {v
 instance Core.FromXML DefaultCacheBehavior where
   parseXML x =
     DefaultCacheBehavior'
-      Core.<$> (x Core..@? "LambdaFunctionAssociations")
-      Core.<*> (x Core..@? "AllowedMethods")
-      Core.<*> (x Core..@? "CachePolicyId")
-      Core.<*> (x Core..@? "SmoothStreaming")
-      Core.<*> (x Core..@? "FieldLevelEncryptionId")
-      Core.<*> (x Core..@? "OriginRequestPolicyId")
-      Core.<*> (x Core..@? "MaxTTL")
-      Core.<*> (x Core..@? "ForwardedValues")
-      Core.<*> (x Core..@? "DefaultTTL")
-      Core.<*> (x Core..@? "RealtimeLogConfigArn")
-      Core.<*> (x Core..@? "MinTTL")
-      Core.<*> (x Core..@? "Compress")
-      Core.<*> (x Core..@? "TrustedKeyGroups")
-      Core.<*> (x Core..@? "TrustedSigners")
-      Core.<*> (x Core..@ "TargetOriginId")
-      Core.<*> (x Core..@ "ViewerProtocolPolicy")
+      Prelude.<$> (x Core..@? "LambdaFunctionAssociations")
+      Prelude.<*> (x Core..@? "AllowedMethods")
+      Prelude.<*> (x Core..@? "CachePolicyId")
+      Prelude.<*> (x Core..@? "SmoothStreaming")
+      Prelude.<*> (x Core..@? "FieldLevelEncryptionId")
+      Prelude.<*> (x Core..@? "OriginRequestPolicyId")
+      Prelude.<*> (x Core..@? "MaxTTL")
+      Prelude.<*> (x Core..@? "ForwardedValues")
+      Prelude.<*> (x Core..@? "DefaultTTL")
+      Prelude.<*> (x Core..@? "RealtimeLogConfigArn")
+      Prelude.<*> (x Core..@? "MinTTL")
+      Prelude.<*> (x Core..@? "Compress")
+      Prelude.<*> (x Core..@? "TrustedKeyGroups")
+      Prelude.<*> (x Core..@? "TrustedSigners")
+      Prelude.<*> (x Core..@ "TargetOriginId")
+      Prelude.<*> (x Core..@ "ViewerProtocolPolicy")
 
-instance Core.Hashable DefaultCacheBehavior
+instance Prelude.Hashable DefaultCacheBehavior
 
-instance Core.NFData DefaultCacheBehavior
+instance Prelude.NFData DefaultCacheBehavior
 
 instance Core.ToXML DefaultCacheBehavior where
   toXML DefaultCacheBehavior' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "LambdaFunctionAssociations"
           Core.@= lambdaFunctionAssociations,
         "AllowedMethods" Core.@= allowedMethods,

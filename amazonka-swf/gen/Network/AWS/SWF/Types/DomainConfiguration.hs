@@ -21,15 +21,16 @@ module Network.AWS.SWF.Types.DomainConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the configuration settings of a domain.
 --
 -- /See:/ 'newDomainConfiguration' smart constructor.
 data DomainConfiguration = DomainConfiguration'
   { -- | The retention period for workflow executions in this domain.
-    workflowExecutionRetentionPeriodInDays :: Core.Text
+    workflowExecutionRetentionPeriodInDays :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainConfiguration' with all optional fields omitted.
@@ -42,7 +43,7 @@ data DomainConfiguration = DomainConfiguration'
 -- 'workflowExecutionRetentionPeriodInDays', 'domainConfiguration_workflowExecutionRetentionPeriodInDays' - The retention period for workflow executions in this domain.
 newDomainConfiguration ::
   -- | 'workflowExecutionRetentionPeriodInDays'
-  Core.Text ->
+  Prelude.Text ->
   DomainConfiguration
 newDomainConfiguration
   pWorkflowExecutionRetentionPeriodInDays_ =
@@ -52,7 +53,7 @@ newDomainConfiguration
       }
 
 -- | The retention period for workflow executions in this domain.
-domainConfiguration_workflowExecutionRetentionPeriodInDays :: Lens.Lens' DomainConfiguration Core.Text
+domainConfiguration_workflowExecutionRetentionPeriodInDays :: Lens.Lens' DomainConfiguration Prelude.Text
 domainConfiguration_workflowExecutionRetentionPeriodInDays = Lens.lens (\DomainConfiguration' {workflowExecutionRetentionPeriodInDays} -> workflowExecutionRetentionPeriodInDays) (\s@DomainConfiguration' {} a -> s {workflowExecutionRetentionPeriodInDays = a} :: DomainConfiguration)
 
 instance Core.FromJSON DomainConfiguration where
@@ -61,9 +62,9 @@ instance Core.FromJSON DomainConfiguration where
       "DomainConfiguration"
       ( \x ->
           DomainConfiguration'
-            Core.<$> (x Core..: "workflowExecutionRetentionPeriodInDays")
+            Prelude.<$> (x Core..: "workflowExecutionRetentionPeriodInDays")
       )
 
-instance Core.Hashable DomainConfiguration
+instance Prelude.Hashable DomainConfiguration
 
-instance Core.NFData DomainConfiguration
+instance Prelude.NFData DomainConfiguration

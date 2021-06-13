@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.KeyGroup where
 import Network.AWS.CloudFront.Types.KeyGroupConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A key group.
 --
@@ -31,13 +32,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKeyGroup' smart constructor.
 data KeyGroup = KeyGroup'
   { -- | The identifier for the key group.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The date and time when the key group was last modified.
     lastModifiedTime :: Core.ISO8601,
     -- | The key group configuration.
     keyGroupConfig :: KeyGroupConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeyGroup' with all optional fields omitted.
@@ -54,9 +55,9 @@ data KeyGroup = KeyGroup'
 -- 'keyGroupConfig', 'keyGroup_keyGroupConfig' - The key group configuration.
 newKeyGroup ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'keyGroupConfig'
   KeyGroupConfig ->
   KeyGroup
@@ -69,12 +70,12 @@ newKeyGroup pId_ pLastModifiedTime_ pKeyGroupConfig_ =
     }
 
 -- | The identifier for the key group.
-keyGroup_id :: Lens.Lens' KeyGroup Core.Text
+keyGroup_id :: Lens.Lens' KeyGroup Prelude.Text
 keyGroup_id = Lens.lens (\KeyGroup' {id} -> id) (\s@KeyGroup' {} a -> s {id = a} :: KeyGroup)
 
 -- | The date and time when the key group was last modified.
-keyGroup_lastModifiedTime :: Lens.Lens' KeyGroup Core.UTCTime
-keyGroup_lastModifiedTime = Lens.lens (\KeyGroup' {lastModifiedTime} -> lastModifiedTime) (\s@KeyGroup' {} a -> s {lastModifiedTime = a} :: KeyGroup) Core.. Core._Time
+keyGroup_lastModifiedTime :: Lens.Lens' KeyGroup Prelude.UTCTime
+keyGroup_lastModifiedTime = Lens.lens (\KeyGroup' {lastModifiedTime} -> lastModifiedTime) (\s@KeyGroup' {} a -> s {lastModifiedTime = a} :: KeyGroup) Prelude.. Core._Time
 
 -- | The key group configuration.
 keyGroup_keyGroupConfig :: Lens.Lens' KeyGroup KeyGroupConfig
@@ -83,10 +84,10 @@ keyGroup_keyGroupConfig = Lens.lens (\KeyGroup' {keyGroupConfig} -> keyGroupConf
 instance Core.FromXML KeyGroup where
   parseXML x =
     KeyGroup'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "LastModifiedTime")
-      Core.<*> (x Core..@ "KeyGroupConfig")
+      Prelude.<$> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "LastModifiedTime")
+      Prelude.<*> (x Core..@ "KeyGroupConfig")
 
-instance Core.Hashable KeyGroup
+instance Prelude.Hashable KeyGroup
 
-instance Core.NFData KeyGroup
+instance Prelude.NFData KeyGroup

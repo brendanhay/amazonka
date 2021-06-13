@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.CancelTimerDecisionAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @CancelTimer@ decision.
 --
@@ -47,9 +48,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCancelTimerDecisionAttributes' smart constructor.
 data CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
   { -- | The unique ID of the timer to cancel.
-    timerId :: Core.Text
+    timerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelTimerDecisionAttributes' with all optional fields omitted.
@@ -62,22 +63,24 @@ data CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
 -- 'timerId', 'cancelTimerDecisionAttributes_timerId' - The unique ID of the timer to cancel.
 newCancelTimerDecisionAttributes ::
   -- | 'timerId'
-  Core.Text ->
+  Prelude.Text ->
   CancelTimerDecisionAttributes
 newCancelTimerDecisionAttributes pTimerId_ =
   CancelTimerDecisionAttributes' {timerId = pTimerId_}
 
 -- | The unique ID of the timer to cancel.
-cancelTimerDecisionAttributes_timerId :: Lens.Lens' CancelTimerDecisionAttributes Core.Text
+cancelTimerDecisionAttributes_timerId :: Lens.Lens' CancelTimerDecisionAttributes Prelude.Text
 cancelTimerDecisionAttributes_timerId = Lens.lens (\CancelTimerDecisionAttributes' {timerId} -> timerId) (\s@CancelTimerDecisionAttributes' {} a -> s {timerId = a} :: CancelTimerDecisionAttributes)
 
-instance Core.Hashable CancelTimerDecisionAttributes
+instance
+  Prelude.Hashable
+    CancelTimerDecisionAttributes
 
-instance Core.NFData CancelTimerDecisionAttributes
+instance Prelude.NFData CancelTimerDecisionAttributes
 
 instance Core.ToJSON CancelTimerDecisionAttributes where
   toJSON CancelTimerDecisionAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("timerId" Core..= timerId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("timerId" Core..= timerId)]
       )

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +55,7 @@ data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
   { -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -63,11 +64,11 @@ data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int,
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Core.Text
+    replicationInstanceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationInstanceTaskLogs' with all optional fields omitted.
@@ -93,14 +94,14 @@ data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
 -- 'replicationInstanceArn', 'describeReplicationInstanceTaskLogs_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 newDescribeReplicationInstanceTaskLogs ::
   -- | 'replicationInstanceArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeReplicationInstanceTaskLogs
 newDescribeReplicationInstanceTaskLogs
   pReplicationInstanceArn_ =
     DescribeReplicationInstanceTaskLogs'
       { marker =
-          Core.Nothing,
-        maxRecords = Core.Nothing,
+          Prelude.Nothing,
+        maxRecords = Prelude.Nothing,
         replicationInstanceArn =
           pReplicationInstanceArn_
       }
@@ -108,7 +109,7 @@ newDescribeReplicationInstanceTaskLogs
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeReplicationInstanceTaskLogs_marker :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Core.Maybe Core.Text)
+describeReplicationInstanceTaskLogs_marker :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Prelude.Maybe Prelude.Text)
 describeReplicationInstanceTaskLogs_marker = Lens.lens (\DescribeReplicationInstanceTaskLogs' {marker} -> marker) (\s@DescribeReplicationInstanceTaskLogs' {} a -> s {marker = a} :: DescribeReplicationInstanceTaskLogs)
 
 -- | The maximum number of records to include in the response. If more
@@ -119,11 +120,11 @@ describeReplicationInstanceTaskLogs_marker = Lens.lens (\DescribeReplicationInst
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeReplicationInstanceTaskLogs_maxRecords :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Core.Maybe Core.Int)
+describeReplicationInstanceTaskLogs_maxRecords :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Prelude.Maybe Prelude.Int)
 describeReplicationInstanceTaskLogs_maxRecords = Lens.lens (\DescribeReplicationInstanceTaskLogs' {maxRecords} -> maxRecords) (\s@DescribeReplicationInstanceTaskLogs' {} a -> s {maxRecords = a} :: DescribeReplicationInstanceTaskLogs)
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-describeReplicationInstanceTaskLogs_replicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogs Core.Text
+describeReplicationInstanceTaskLogs_replicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogs Prelude.Text
 describeReplicationInstanceTaskLogs_replicationInstanceArn = Lens.lens (\DescribeReplicationInstanceTaskLogs' {replicationInstanceArn} -> replicationInstanceArn) (\s@DescribeReplicationInstanceTaskLogs' {} a -> s {replicationInstanceArn = a} :: DescribeReplicationInstanceTaskLogs)
 
 instance
@@ -138,20 +139,20 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationInstanceTaskLogsResponse'
-            Core.<$> ( x Core..?> "ReplicationInstanceTaskLogs"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "ReplicationInstanceArn")
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ReplicationInstanceTaskLogs"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "ReplicationInstanceArn")
+              Prelude.<*> (x Core..?> "Marker")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeReplicationInstanceTaskLogs
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeReplicationInstanceTaskLogs
 
 instance
@@ -159,14 +160,16 @@ instance
     DescribeReplicationInstanceTaskLogs
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.DescribeReplicationInstanceTaskLogs" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -176,10 +179,10 @@ instance
   where
   toJSON DescribeReplicationInstanceTaskLogs' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Marker" Core..=) Core.<$> marker,
-            ("MaxRecords" Core..=) Core.<$> maxRecords,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            Prelude.Just
               ( "ReplicationInstanceArn"
                   Core..= replicationInstanceArn
               )
@@ -190,29 +193,29 @@ instance
   Core.ToPath
     DescribeReplicationInstanceTaskLogs
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeReplicationInstanceTaskLogs
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeReplicationInstanceTaskLogsResponse' smart constructor.
 data DescribeReplicationInstanceTaskLogsResponse = DescribeReplicationInstanceTaskLogsResponse'
   { -- | An array of replication task log metadata. Each member of the array
     -- contains the replication task name, ARN, and task log size (in bytes).
-    replicationInstanceTaskLogs :: Core.Maybe [ReplicationInstanceTaskLog],
+    replicationInstanceTaskLogs :: Prelude.Maybe [ReplicationInstanceTaskLog],
     -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Core.Maybe Core.Text,
+    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationInstanceTaskLogsResponse' with all optional fields omitted.
@@ -234,38 +237,38 @@ data DescribeReplicationInstanceTaskLogsResponse = DescribeReplicationInstanceTa
 -- 'httpStatus', 'describeReplicationInstanceTaskLogsResponse_httpStatus' - The response's http status code.
 newDescribeReplicationInstanceTaskLogsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeReplicationInstanceTaskLogsResponse
 newDescribeReplicationInstanceTaskLogsResponse
   pHttpStatus_ =
     DescribeReplicationInstanceTaskLogsResponse'
       { replicationInstanceTaskLogs =
-          Core.Nothing,
+          Prelude.Nothing,
         replicationInstanceArn =
-          Core.Nothing,
-        marker = Core.Nothing,
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of replication task log metadata. Each member of the array
 -- contains the replication task name, ARN, and task log size (in bytes).
-describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Core.Maybe [ReplicationInstanceTaskLog])
-describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {replicationInstanceTaskLogs} -> replicationInstanceTaskLogs) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {replicationInstanceTaskLogs = a} :: DescribeReplicationInstanceTaskLogsResponse) Core.. Lens.mapping Lens._Coerce
+describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Prelude.Maybe [ReplicationInstanceTaskLog])
+describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {replicationInstanceTaskLogs} -> replicationInstanceTaskLogs) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {replicationInstanceTaskLogs = a} :: DescribeReplicationInstanceTaskLogsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-describeReplicationInstanceTaskLogsResponse_replicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Core.Maybe Core.Text)
+describeReplicationInstanceTaskLogsResponse_replicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Prelude.Maybe Prelude.Text)
 describeReplicationInstanceTaskLogsResponse_replicationInstanceArn = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {replicationInstanceArn} -> replicationInstanceArn) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {replicationInstanceArn = a} :: DescribeReplicationInstanceTaskLogsResponse)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeReplicationInstanceTaskLogsResponse_marker :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Core.Maybe Core.Text)
+describeReplicationInstanceTaskLogsResponse_marker :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Prelude.Maybe Prelude.Text)
 describeReplicationInstanceTaskLogsResponse_marker = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {marker} -> marker) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {marker = a} :: DescribeReplicationInstanceTaskLogsResponse)
 
 -- | The response's http status code.
-describeReplicationInstanceTaskLogsResponse_httpStatus :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse Core.Int
+describeReplicationInstanceTaskLogsResponse_httpStatus :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse Prelude.Int
 describeReplicationInstanceTaskLogsResponse_httpStatus = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {httpStatus} -> httpStatus) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {httpStatus = a} :: DescribeReplicationInstanceTaskLogsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeReplicationInstanceTaskLogsResponse

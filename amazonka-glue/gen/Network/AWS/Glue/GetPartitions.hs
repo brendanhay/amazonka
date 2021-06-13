@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,15 +60,15 @@ import qualified Network.AWS.Response as Response
 data GetPartitions = GetPartitions'
   { -- | A continuation token, if this is not the first call to retrieve these
     -- partitions.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Data Catalog where the partitions in question reside. If
     -- none is provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of partitions to return in a single response.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The segment of the table\'s partitions to scan in this request.
-    segment :: Core.Maybe Segment,
-    excludeColumnSchema :: Core.Maybe Core.Bool,
+    segment :: Prelude.Maybe Segment,
+    excludeColumnSchema :: Prelude.Maybe Prelude.Bool,
     -- | An expression that filters the partitions to be returned.
     --
     -- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause.
@@ -149,13 +150,13 @@ data GetPartitions = GetPartitions'
     -- be compatible with the catalog partitions.
     --
     -- /Sample API Call/:
-    expression :: Core.Maybe Core.Text,
+    expression :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partitions reside.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the partitions\' table.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPartitions' with all optional fields omitted.
@@ -264,42 +265,42 @@ data GetPartitions = GetPartitions'
 -- 'tableName', 'getPartitions_tableName' - The name of the partitions\' table.
 newGetPartitions ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   GetPartitions
 newGetPartitions pDatabaseName_ pTableName_ =
   GetPartitions'
-    { nextToken = Core.Nothing,
-      catalogId = Core.Nothing,
-      maxResults = Core.Nothing,
-      segment = Core.Nothing,
-      excludeColumnSchema = Core.Nothing,
-      expression = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      segment = Prelude.Nothing,
+      excludeColumnSchema = Prelude.Nothing,
+      expression = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
 
 -- | A continuation token, if this is not the first call to retrieve these
 -- partitions.
-getPartitions_nextToken :: Lens.Lens' GetPartitions (Core.Maybe Core.Text)
+getPartitions_nextToken :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
 getPartitions_nextToken = Lens.lens (\GetPartitions' {nextToken} -> nextToken) (\s@GetPartitions' {} a -> s {nextToken = a} :: GetPartitions)
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
 -- none is provided, the AWS account ID is used by default.
-getPartitions_catalogId :: Lens.Lens' GetPartitions (Core.Maybe Core.Text)
+getPartitions_catalogId :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
 getPartitions_catalogId = Lens.lens (\GetPartitions' {catalogId} -> catalogId) (\s@GetPartitions' {} a -> s {catalogId = a} :: GetPartitions)
 
 -- | The maximum number of partitions to return in a single response.
-getPartitions_maxResults :: Lens.Lens' GetPartitions (Core.Maybe Core.Natural)
+getPartitions_maxResults :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Natural)
 getPartitions_maxResults = Lens.lens (\GetPartitions' {maxResults} -> maxResults) (\s@GetPartitions' {} a -> s {maxResults = a} :: GetPartitions)
 
 -- | The segment of the table\'s partitions to scan in this request.
-getPartitions_segment :: Lens.Lens' GetPartitions (Core.Maybe Segment)
+getPartitions_segment :: Lens.Lens' GetPartitions (Prelude.Maybe Segment)
 getPartitions_segment = Lens.lens (\GetPartitions' {segment} -> segment) (\s@GetPartitions' {} a -> s {segment = a} :: GetPartitions)
 
 -- | Undocumented member.
-getPartitions_excludeColumnSchema :: Lens.Lens' GetPartitions (Core.Maybe Core.Bool)
+getPartitions_excludeColumnSchema :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Bool)
 getPartitions_excludeColumnSchema = Lens.lens (\GetPartitions' {excludeColumnSchema} -> excludeColumnSchema) (\s@GetPartitions' {} a -> s {excludeColumnSchema = a} :: GetPartitions)
 
 -- | An expression that filters the partitions to be returned.
@@ -383,35 +384,36 @@ getPartitions_excludeColumnSchema = Lens.lens (\GetPartitions' {excludeColumnSch
 -- be compatible with the catalog partitions.
 --
 -- /Sample API Call/:
-getPartitions_expression :: Lens.Lens' GetPartitions (Core.Maybe Core.Text)
+getPartitions_expression :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
 getPartitions_expression = Lens.lens (\GetPartitions' {expression} -> expression) (\s@GetPartitions' {} a -> s {expression = a} :: GetPartitions)
 
 -- | The name of the catalog database where the partitions reside.
-getPartitions_databaseName :: Lens.Lens' GetPartitions Core.Text
+getPartitions_databaseName :: Lens.Lens' GetPartitions Prelude.Text
 getPartitions_databaseName = Lens.lens (\GetPartitions' {databaseName} -> databaseName) (\s@GetPartitions' {} a -> s {databaseName = a} :: GetPartitions)
 
 -- | The name of the partitions\' table.
-getPartitions_tableName :: Lens.Lens' GetPartitions Core.Text
+getPartitions_tableName :: Lens.Lens' GetPartitions Prelude.Text
 getPartitions_tableName = Lens.lens (\GetPartitions' {tableName} -> tableName) (\s@GetPartitions' {} a -> s {tableName = a} :: GetPartitions)
 
 instance Core.AWSPager GetPartitions where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getPartitionsResponse_nextToken Core.. Lens._Just
+            Lens.^? getPartitionsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getPartitionsResponse_partitions Core.. Lens._Just
+            Lens.^? getPartitionsResponse_partitions
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getPartitions_nextToken
+          Prelude.& getPartitions_nextToken
           Lens..~ rs
-          Lens.^? getPartitionsResponse_nextToken Core.. Lens._Just
+          Lens.^? getPartitionsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetPartitions where
   type
@@ -422,59 +424,61 @@ instance Core.AWSRequest GetPartitions where
     Response.receiveJSON
       ( \s h x ->
           GetPartitionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Partitions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPartitions
+instance Prelude.Hashable GetPartitions
 
-instance Core.NFData GetPartitions
+instance Prelude.NFData GetPartitions
 
 instance Core.ToHeaders GetPartitions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetPartitions" :: Core.ByteString),
+              Core.=# ("AWSGlue.GetPartitions" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPartitions where
   toJSON GetPartitions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("CatalogId" Core..=) Core.<$> catalogId,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Segment" Core..=) Core.<$> segment,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Segment" Core..=) Prelude.<$> segment,
             ("ExcludeColumnSchema" Core..=)
-              Core.<$> excludeColumnSchema,
-            ("Expression" Core..=) Core.<$> expression,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName)
+              Prelude.<$> excludeColumnSchema,
+            ("Expression" Core..=) Prelude.<$> expression,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )
 
 instance Core.ToPath GetPartitions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPartitions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPartitionsResponse' smart constructor.
 data GetPartitionsResponse = GetPartitionsResponse'
   { -- | A continuation token, if the returned list of partitions does not
     -- include the last one.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of requested partitions.
-    partitions :: Core.Maybe [Partition],
+    partitions :: Prelude.Maybe [Partition],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPartitionsResponse' with all optional fields omitted.
@@ -492,26 +496,26 @@ data GetPartitionsResponse = GetPartitionsResponse'
 -- 'httpStatus', 'getPartitionsResponse_httpStatus' - The response's http status code.
 newGetPartitionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPartitionsResponse
 newGetPartitionsResponse pHttpStatus_ =
   GetPartitionsResponse'
-    { nextToken = Core.Nothing,
-      partitions = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      partitions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token, if the returned list of partitions does not
 -- include the last one.
-getPartitionsResponse_nextToken :: Lens.Lens' GetPartitionsResponse (Core.Maybe Core.Text)
+getPartitionsResponse_nextToken :: Lens.Lens' GetPartitionsResponse (Prelude.Maybe Prelude.Text)
 getPartitionsResponse_nextToken = Lens.lens (\GetPartitionsResponse' {nextToken} -> nextToken) (\s@GetPartitionsResponse' {} a -> s {nextToken = a} :: GetPartitionsResponse)
 
 -- | A list of requested partitions.
-getPartitionsResponse_partitions :: Lens.Lens' GetPartitionsResponse (Core.Maybe [Partition])
-getPartitionsResponse_partitions = Lens.lens (\GetPartitionsResponse' {partitions} -> partitions) (\s@GetPartitionsResponse' {} a -> s {partitions = a} :: GetPartitionsResponse) Core.. Lens.mapping Lens._Coerce
+getPartitionsResponse_partitions :: Lens.Lens' GetPartitionsResponse (Prelude.Maybe [Partition])
+getPartitionsResponse_partitions = Lens.lens (\GetPartitionsResponse' {partitions} -> partitions) (\s@GetPartitionsResponse' {} a -> s {partitions = a} :: GetPartitionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getPartitionsResponse_httpStatus :: Lens.Lens' GetPartitionsResponse Core.Int
+getPartitionsResponse_httpStatus :: Lens.Lens' GetPartitionsResponse Prelude.Int
 getPartitionsResponse_httpStatus = Lens.lens (\GetPartitionsResponse' {httpStatus} -> httpStatus) (\s@GetPartitionsResponse' {} a -> s {httpStatus = a} :: GetPartitionsResponse)
 
-instance Core.NFData GetPartitionsResponse
+instance Prelude.NFData GetPartitionsResponse

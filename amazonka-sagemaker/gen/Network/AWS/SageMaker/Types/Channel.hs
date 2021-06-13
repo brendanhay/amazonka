@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.Channel where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CompressionType
 import Network.AWS.SageMaker.Types.DataSource
 import Network.AWS.SageMaker.Types.RecordWrapper
@@ -32,7 +33,7 @@ import Network.AWS.SageMaker.Types.TrainingInputMode
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
   { -- | The MIME type of the data.
-    contentType :: Core.Maybe Core.Text,
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | Specify RecordIO as the value when input data is in raw format but the
     -- training algorithm requires the RecordIO format. In this case, Amazon
     -- SageMaker wraps each individual S3 object in a RecordIO record. If the
@@ -41,7 +42,7 @@ data Channel = Channel'
     -- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
     --
     -- In File mode, leave this field unset or set it to None.
-    recordWrapperType :: Core.Maybe RecordWrapper,
+    recordWrapperType :: Prelude.Maybe RecordWrapper,
     -- | A configuration for a shuffle option for input data in a channel. If you
     -- use @S3Prefix@ for @S3DataType@, this shuffles the results of the S3 key
     -- prefix matches. If you use @ManifestFile@, the order of the S3 object
@@ -57,11 +58,11 @@ data Channel = Channel'
     -- @S3DataDistributionType@ of @ShardedByS3Key@, the data is shuffled
     -- across nodes so that the content sent to a particular node on the first
     -- epoch might be sent to a different node on the second epoch.
-    shuffleConfig :: Core.Maybe ShuffleConfig,
+    shuffleConfig :: Prelude.Maybe ShuffleConfig,
     -- | If training data is compressed, the compression type. The default value
     -- is @None@. @CompressionType@ is used only in Pipe input mode. In File
     -- mode, leave this field unset or set it to None.
-    compressionType :: Core.Maybe CompressionType,
+    compressionType :: Prelude.Maybe CompressionType,
     -- | (Optional) The input mode to use for the data channel in a training job.
     -- If you don\'t set a value for @InputMode@, Amazon SageMaker uses the
     -- value set for @TrainingInputMode@. Use this parameter to override the
@@ -73,13 +74,13 @@ data Channel = Channel'
     -- directly from Amazon S3 to the container, choose @Pipe@ input mode.
     --
     -- To use a model for incremental training, choose @File@ input model.
-    inputMode :: Core.Maybe TrainingInputMode,
+    inputMode :: Prelude.Maybe TrainingInputMode,
     -- | The name of the channel.
-    channelName :: Core.Text,
+    channelName :: Prelude.Text,
     -- | The location of the channel data.
     dataSource :: DataSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Channel' with all optional fields omitted.
@@ -137,23 +138,23 @@ data Channel = Channel'
 -- 'dataSource', 'channel_dataSource' - The location of the channel data.
 newChannel ::
   -- | 'channelName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataSource'
   DataSource ->
   Channel
 newChannel pChannelName_ pDataSource_ =
   Channel'
-    { contentType = Core.Nothing,
-      recordWrapperType = Core.Nothing,
-      shuffleConfig = Core.Nothing,
-      compressionType = Core.Nothing,
-      inputMode = Core.Nothing,
+    { contentType = Prelude.Nothing,
+      recordWrapperType = Prelude.Nothing,
+      shuffleConfig = Prelude.Nothing,
+      compressionType = Prelude.Nothing,
+      inputMode = Prelude.Nothing,
       channelName = pChannelName_,
       dataSource = pDataSource_
     }
 
 -- | The MIME type of the data.
-channel_contentType :: Lens.Lens' Channel (Core.Maybe Core.Text)
+channel_contentType :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_contentType = Lens.lens (\Channel' {contentType} -> contentType) (\s@Channel' {} a -> s {contentType = a} :: Channel)
 
 -- | Specify RecordIO as the value when input data is in raw format but the
@@ -164,7 +165,7 @@ channel_contentType = Lens.lens (\Channel' {contentType} -> contentType) (\s@Cha
 -- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
 --
 -- In File mode, leave this field unset or set it to None.
-channel_recordWrapperType :: Lens.Lens' Channel (Core.Maybe RecordWrapper)
+channel_recordWrapperType :: Lens.Lens' Channel (Prelude.Maybe RecordWrapper)
 channel_recordWrapperType = Lens.lens (\Channel' {recordWrapperType} -> recordWrapperType) (\s@Channel' {} a -> s {recordWrapperType = a} :: Channel)
 
 -- | A configuration for a shuffle option for input data in a channel. If you
@@ -182,13 +183,13 @@ channel_recordWrapperType = Lens.lens (\Channel' {recordWrapperType} -> recordWr
 -- @S3DataDistributionType@ of @ShardedByS3Key@, the data is shuffled
 -- across nodes so that the content sent to a particular node on the first
 -- epoch might be sent to a different node on the second epoch.
-channel_shuffleConfig :: Lens.Lens' Channel (Core.Maybe ShuffleConfig)
+channel_shuffleConfig :: Lens.Lens' Channel (Prelude.Maybe ShuffleConfig)
 channel_shuffleConfig = Lens.lens (\Channel' {shuffleConfig} -> shuffleConfig) (\s@Channel' {} a -> s {shuffleConfig = a} :: Channel)
 
 -- | If training data is compressed, the compression type. The default value
 -- is @None@. @CompressionType@ is used only in Pipe input mode. In File
 -- mode, leave this field unset or set it to None.
-channel_compressionType :: Lens.Lens' Channel (Core.Maybe CompressionType)
+channel_compressionType :: Lens.Lens' Channel (Prelude.Maybe CompressionType)
 channel_compressionType = Lens.lens (\Channel' {compressionType} -> compressionType) (\s@Channel' {} a -> s {compressionType = a} :: Channel)
 
 -- | (Optional) The input mode to use for the data channel in a training job.
@@ -202,11 +203,11 @@ channel_compressionType = Lens.lens (\Channel' {compressionType} -> compressionT
 -- directly from Amazon S3 to the container, choose @Pipe@ input mode.
 --
 -- To use a model for incremental training, choose @File@ input model.
-channel_inputMode :: Lens.Lens' Channel (Core.Maybe TrainingInputMode)
+channel_inputMode :: Lens.Lens' Channel (Prelude.Maybe TrainingInputMode)
 channel_inputMode = Lens.lens (\Channel' {inputMode} -> inputMode) (\s@Channel' {} a -> s {inputMode = a} :: Channel)
 
 -- | The name of the channel.
-channel_channelName :: Lens.Lens' Channel Core.Text
+channel_channelName :: Lens.Lens' Channel Prelude.Text
 channel_channelName = Lens.lens (\Channel' {channelName} -> channelName) (\s@Channel' {} a -> s {channelName = a} :: Channel)
 
 -- | The location of the channel data.
@@ -219,30 +220,31 @@ instance Core.FromJSON Channel where
       "Channel"
       ( \x ->
           Channel'
-            Core.<$> (x Core..:? "ContentType")
-            Core.<*> (x Core..:? "RecordWrapperType")
-            Core.<*> (x Core..:? "ShuffleConfig")
-            Core.<*> (x Core..:? "CompressionType")
-            Core.<*> (x Core..:? "InputMode")
-            Core.<*> (x Core..: "ChannelName")
-            Core.<*> (x Core..: "DataSource")
+            Prelude.<$> (x Core..:? "ContentType")
+            Prelude.<*> (x Core..:? "RecordWrapperType")
+            Prelude.<*> (x Core..:? "ShuffleConfig")
+            Prelude.<*> (x Core..:? "CompressionType")
+            Prelude.<*> (x Core..:? "InputMode")
+            Prelude.<*> (x Core..: "ChannelName")
+            Prelude.<*> (x Core..: "DataSource")
       )
 
-instance Core.Hashable Channel
+instance Prelude.Hashable Channel
 
-instance Core.NFData Channel
+instance Prelude.NFData Channel
 
 instance Core.ToJSON Channel where
   toJSON Channel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ContentType" Core..=) Core.<$> contentType,
+      ( Prelude.catMaybes
+          [ ("ContentType" Core..=) Prelude.<$> contentType,
             ("RecordWrapperType" Core..=)
-              Core.<$> recordWrapperType,
-            ("ShuffleConfig" Core..=) Core.<$> shuffleConfig,
-            ("CompressionType" Core..=) Core.<$> compressionType,
-            ("InputMode" Core..=) Core.<$> inputMode,
-            Core.Just ("ChannelName" Core..= channelName),
-            Core.Just ("DataSource" Core..= dataSource)
+              Prelude.<$> recordWrapperType,
+            ("ShuffleConfig" Core..=) Prelude.<$> shuffleConfig,
+            ("CompressionType" Core..=)
+              Prelude.<$> compressionType,
+            ("InputMode" Core..=) Prelude.<$> inputMode,
+            Prelude.Just ("ChannelName" Core..= channelName),
+            Prelude.Just ("DataSource" Core..= dataSource)
           ]
       )

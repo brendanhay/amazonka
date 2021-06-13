@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,18 +59,18 @@ data GetRelationalDatabaseEvents = GetRelationalDatabaseEvents'
     -- Default: @60@
     --
     -- The minimum is 1 and the maximum is 14 days (20160 minutes).
-    durationInMinutes :: Core.Maybe Core.Int,
+    durationInMinutes :: Prelude.Maybe Prelude.Int,
     -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetRelationalDatabaseEvents@
     -- request. If your results are paginated, the response will return a next
     -- page token that you can specify as the page token in a subsequent
     -- request.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the database from which to get events.
-    relationalDatabaseName :: Core.Text
+    relationalDatabaseName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseEvents' with all optional fields omitted.
@@ -96,14 +97,14 @@ data GetRelationalDatabaseEvents = GetRelationalDatabaseEvents'
 -- 'relationalDatabaseName', 'getRelationalDatabaseEvents_relationalDatabaseName' - The name of the database from which to get events.
 newGetRelationalDatabaseEvents ::
   -- | 'relationalDatabaseName'
-  Core.Text ->
+  Prelude.Text ->
   GetRelationalDatabaseEvents
 newGetRelationalDatabaseEvents
   pRelationalDatabaseName_ =
     GetRelationalDatabaseEvents'
       { durationInMinutes =
-          Core.Nothing,
-        pageToken = Core.Nothing,
+          Prelude.Nothing,
+        pageToken = Prelude.Nothing,
         relationalDatabaseName =
           pRelationalDatabaseName_
       }
@@ -114,7 +115,7 @@ newGetRelationalDatabaseEvents
 -- Default: @60@
 --
 -- The minimum is 1 and the maximum is 14 days (20160 minutes).
-getRelationalDatabaseEvents_durationInMinutes :: Lens.Lens' GetRelationalDatabaseEvents (Core.Maybe Core.Int)
+getRelationalDatabaseEvents_durationInMinutes :: Lens.Lens' GetRelationalDatabaseEvents (Prelude.Maybe Prelude.Int)
 getRelationalDatabaseEvents_durationInMinutes = Lens.lens (\GetRelationalDatabaseEvents' {durationInMinutes} -> durationInMinutes) (\s@GetRelationalDatabaseEvents' {} a -> s {durationInMinutes = a} :: GetRelationalDatabaseEvents)
 
 -- | The token to advance to the next page of results from your request.
@@ -123,11 +124,11 @@ getRelationalDatabaseEvents_durationInMinutes = Lens.lens (\GetRelationalDatabas
 -- request. If your results are paginated, the response will return a next
 -- page token that you can specify as the page token in a subsequent
 -- request.
-getRelationalDatabaseEvents_pageToken :: Lens.Lens' GetRelationalDatabaseEvents (Core.Maybe Core.Text)
+getRelationalDatabaseEvents_pageToken :: Lens.Lens' GetRelationalDatabaseEvents (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseEvents_pageToken = Lens.lens (\GetRelationalDatabaseEvents' {pageToken} -> pageToken) (\s@GetRelationalDatabaseEvents' {} a -> s {pageToken = a} :: GetRelationalDatabaseEvents)
 
 -- | The name of the database from which to get events.
-getRelationalDatabaseEvents_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseEvents Core.Text
+getRelationalDatabaseEvents_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseEvents Prelude.Text
 getRelationalDatabaseEvents_relationalDatabaseName = Lens.lens (\GetRelationalDatabaseEvents' {relationalDatabaseName} -> relationalDatabaseName) (\s@GetRelationalDatabaseEvents' {} a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseEvents)
 
 instance Core.AWSPager GetRelationalDatabaseEvents where
@@ -135,22 +136,22 @@ instance Core.AWSPager GetRelationalDatabaseEvents where
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseEventsResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseEventsResponse_relationalDatabaseEvents
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getRelationalDatabaseEvents_pageToken
+          Prelude.& getRelationalDatabaseEvents_pageToken
           Lens..~ rs
           Lens.^? getRelationalDatabaseEventsResponse_nextPageToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRelationalDatabaseEvents where
   type
@@ -161,38 +162,40 @@ instance Core.AWSRequest GetRelationalDatabaseEvents where
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseEventsResponse'
-            Core.<$> (x Core..?> "nextPageToken")
-            Core.<*> ( x Core..?> "relationalDatabaseEvents"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> ( x Core..?> "relationalDatabaseEvents"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRelationalDatabaseEvents
+instance Prelude.Hashable GetRelationalDatabaseEvents
 
-instance Core.NFData GetRelationalDatabaseEvents
+instance Prelude.NFData GetRelationalDatabaseEvents
 
 instance Core.ToHeaders GetRelationalDatabaseEvents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetRelationalDatabaseEvents" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRelationalDatabaseEvents where
   toJSON GetRelationalDatabaseEvents' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("durationInMinutes" Core..=)
-              Core.<$> durationInMinutes,
-            ("pageToken" Core..=) Core.<$> pageToken,
-            Core.Just
+              Prelude.<$> durationInMinutes,
+            ("pageToken" Core..=) Prelude.<$> pageToken,
+            Prelude.Just
               ( "relationalDatabaseName"
                   Core..= relationalDatabaseName
               )
@@ -200,10 +203,10 @@ instance Core.ToJSON GetRelationalDatabaseEvents where
       )
 
 instance Core.ToPath GetRelationalDatabaseEvents where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRelationalDatabaseEvents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseEventsResponse' smart constructor.
 data GetRelationalDatabaseEventsResponse = GetRelationalDatabaseEventsResponse'
@@ -215,14 +218,14 @@ data GetRelationalDatabaseEventsResponse = GetRelationalDatabaseEventsResponse'
     -- To get the next page of results, perform another
     -- @GetRelationalDatabaseEvents@ request and specify the next page token
     -- using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | An object describing the result of your get relational database events
     -- request.
-    relationalDatabaseEvents :: Core.Maybe [RelationalDatabaseEvent],
+    relationalDatabaseEvents :: Prelude.Maybe [RelationalDatabaseEvent],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseEventsResponse' with all optional fields omitted.
@@ -247,14 +250,14 @@ data GetRelationalDatabaseEventsResponse = GetRelationalDatabaseEventsResponse'
 -- 'httpStatus', 'getRelationalDatabaseEventsResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseEventsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRelationalDatabaseEventsResponse
 newGetRelationalDatabaseEventsResponse pHttpStatus_ =
   GetRelationalDatabaseEventsResponse'
     { nextPageToken =
-        Core.Nothing,
+        Prelude.Nothing,
       relationalDatabaseEvents =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -266,18 +269,18 @@ newGetRelationalDatabaseEventsResponse pHttpStatus_ =
 -- To get the next page of results, perform another
 -- @GetRelationalDatabaseEvents@ request and specify the next page token
 -- using the @pageToken@ parameter.
-getRelationalDatabaseEventsResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseEventsResponse (Core.Maybe Core.Text)
+getRelationalDatabaseEventsResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseEventsResponse (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseEventsResponse_nextPageToken = Lens.lens (\GetRelationalDatabaseEventsResponse' {nextPageToken} -> nextPageToken) (\s@GetRelationalDatabaseEventsResponse' {} a -> s {nextPageToken = a} :: GetRelationalDatabaseEventsResponse)
 
 -- | An object describing the result of your get relational database events
 -- request.
-getRelationalDatabaseEventsResponse_relationalDatabaseEvents :: Lens.Lens' GetRelationalDatabaseEventsResponse (Core.Maybe [RelationalDatabaseEvent])
-getRelationalDatabaseEventsResponse_relationalDatabaseEvents = Lens.lens (\GetRelationalDatabaseEventsResponse' {relationalDatabaseEvents} -> relationalDatabaseEvents) (\s@GetRelationalDatabaseEventsResponse' {} a -> s {relationalDatabaseEvents = a} :: GetRelationalDatabaseEventsResponse) Core.. Lens.mapping Lens._Coerce
+getRelationalDatabaseEventsResponse_relationalDatabaseEvents :: Lens.Lens' GetRelationalDatabaseEventsResponse (Prelude.Maybe [RelationalDatabaseEvent])
+getRelationalDatabaseEventsResponse_relationalDatabaseEvents = Lens.lens (\GetRelationalDatabaseEventsResponse' {relationalDatabaseEvents} -> relationalDatabaseEvents) (\s@GetRelationalDatabaseEventsResponse' {} a -> s {relationalDatabaseEvents = a} :: GetRelationalDatabaseEventsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getRelationalDatabaseEventsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseEventsResponse Core.Int
+getRelationalDatabaseEventsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseEventsResponse Prelude.Int
 getRelationalDatabaseEventsResponse_httpStatus = Lens.lens (\GetRelationalDatabaseEventsResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseEventsResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseEventsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetRelationalDatabaseEventsResponse

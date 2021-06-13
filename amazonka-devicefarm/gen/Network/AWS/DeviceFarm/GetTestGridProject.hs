@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetTestGridProject = GetTestGridProject'
   { -- | The ARN of the Selenium testing project, from either
     -- CreateTestGridProject or ListTestGridProjects.
-    projectArn :: Core.Text
+    projectArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTestGridProject' with all optional fields omitted.
@@ -65,14 +66,14 @@ data GetTestGridProject = GetTestGridProject'
 -- CreateTestGridProject or ListTestGridProjects.
 newGetTestGridProject ::
   -- | 'projectArn'
-  Core.Text ->
+  Prelude.Text ->
   GetTestGridProject
 newGetTestGridProject pProjectArn_ =
   GetTestGridProject' {projectArn = pProjectArn_}
 
 -- | The ARN of the Selenium testing project, from either
 -- CreateTestGridProject or ListTestGridProjects.
-getTestGridProject_projectArn :: Lens.Lens' GetTestGridProject Core.Text
+getTestGridProject_projectArn :: Lens.Lens' GetTestGridProject Prelude.Text
 getTestGridProject_projectArn = Lens.lens (\GetTestGridProject' {projectArn} -> projectArn) (\s@GetTestGridProject' {} a -> s {projectArn = a} :: GetTestGridProject)
 
 instance Core.AWSRequest GetTestGridProject where
@@ -84,48 +85,50 @@ instance Core.AWSRequest GetTestGridProject where
     Response.receiveJSON
       ( \s h x ->
           GetTestGridProjectResponse'
-            Core.<$> (x Core..?> "testGridProject")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "testGridProject")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTestGridProject
+instance Prelude.Hashable GetTestGridProject
 
-instance Core.NFData GetTestGridProject
+instance Prelude.NFData GetTestGridProject
 
 instance Core.ToHeaders GetTestGridProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.GetTestGridProject" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetTestGridProject where
   toJSON GetTestGridProject' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("projectArn" Core..= projectArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("projectArn" Core..= projectArn)]
       )
 
 instance Core.ToPath GetTestGridProject where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTestGridProject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTestGridProjectResponse' smart constructor.
 data GetTestGridProjectResponse = GetTestGridProjectResponse'
   { -- | A TestGridProject.
-    testGridProject :: Core.Maybe TestGridProject,
+    testGridProject :: Prelude.Maybe TestGridProject,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTestGridProjectResponse' with all optional fields omitted.
@@ -140,21 +143,21 @@ data GetTestGridProjectResponse = GetTestGridProjectResponse'
 -- 'httpStatus', 'getTestGridProjectResponse_httpStatus' - The response's http status code.
 newGetTestGridProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTestGridProjectResponse
 newGetTestGridProjectResponse pHttpStatus_ =
   GetTestGridProjectResponse'
     { testGridProject =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A TestGridProject.
-getTestGridProjectResponse_testGridProject :: Lens.Lens' GetTestGridProjectResponse (Core.Maybe TestGridProject)
+getTestGridProjectResponse_testGridProject :: Lens.Lens' GetTestGridProjectResponse (Prelude.Maybe TestGridProject)
 getTestGridProjectResponse_testGridProject = Lens.lens (\GetTestGridProjectResponse' {testGridProject} -> testGridProject) (\s@GetTestGridProjectResponse' {} a -> s {testGridProject = a} :: GetTestGridProjectResponse)
 
 -- | The response's http status code.
-getTestGridProjectResponse_httpStatus :: Lens.Lens' GetTestGridProjectResponse Core.Int
+getTestGridProjectResponse_httpStatus :: Lens.Lens' GetTestGridProjectResponse Prelude.Int
 getTestGridProjectResponse_httpStatus = Lens.lens (\GetTestGridProjectResponse' {httpStatus} -> httpStatus) (\s@GetTestGridProjectResponse' {} a -> s {httpStatus = a} :: GetTestGridProjectResponse)
 
-instance Core.NFData GetTestGridProjectResponse
+instance Prelude.NFData GetTestGridProjectResponse

@@ -21,17 +21,18 @@ module Network.AWS.DAX.Types.SecurityGroupMembership where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An individual VPC security group and its status.
 --
 -- /See:/ 'newSecurityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
   { -- | The status of this security group.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for this security group.
-    securityGroupIdentifier :: Core.Maybe Core.Text
+    securityGroupIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecurityGroupMembership' with all optional fields omitted.
@@ -48,16 +49,16 @@ newSecurityGroupMembership ::
   SecurityGroupMembership
 newSecurityGroupMembership =
   SecurityGroupMembership'
-    { status = Core.Nothing,
-      securityGroupIdentifier = Core.Nothing
+    { status = Prelude.Nothing,
+      securityGroupIdentifier = Prelude.Nothing
     }
 
 -- | The status of this security group.
-securityGroupMembership_status :: Lens.Lens' SecurityGroupMembership (Core.Maybe Core.Text)
+securityGroupMembership_status :: Lens.Lens' SecurityGroupMembership (Prelude.Maybe Prelude.Text)
 securityGroupMembership_status = Lens.lens (\SecurityGroupMembership' {status} -> status) (\s@SecurityGroupMembership' {} a -> s {status = a} :: SecurityGroupMembership)
 
 -- | The unique ID for this security group.
-securityGroupMembership_securityGroupIdentifier :: Lens.Lens' SecurityGroupMembership (Core.Maybe Core.Text)
+securityGroupMembership_securityGroupIdentifier :: Lens.Lens' SecurityGroupMembership (Prelude.Maybe Prelude.Text)
 securityGroupMembership_securityGroupIdentifier = Lens.lens (\SecurityGroupMembership' {securityGroupIdentifier} -> securityGroupIdentifier) (\s@SecurityGroupMembership' {} a -> s {securityGroupIdentifier = a} :: SecurityGroupMembership)
 
 instance Core.FromJSON SecurityGroupMembership where
@@ -66,10 +67,10 @@ instance Core.FromJSON SecurityGroupMembership where
       "SecurityGroupMembership"
       ( \x ->
           SecurityGroupMembership'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "SecurityGroupIdentifier")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "SecurityGroupIdentifier")
       )
 
-instance Core.Hashable SecurityGroupMembership
+instance Prelude.Hashable SecurityGroupMembership
 
-instance Core.NFData SecurityGroupMembership
+instance Prelude.NFData SecurityGroupMembership

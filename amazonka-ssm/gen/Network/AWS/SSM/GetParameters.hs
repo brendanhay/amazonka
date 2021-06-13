@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -53,11 +54,11 @@ data GetParameters = GetParameters'
   { -- | Return decrypted secure string value. Return decrypted values for secure
     -- string parameters. This flag is ignored for String and StringList
     -- parameter types.
-    withDecryption :: Core.Maybe Core.Bool,
+    withDecryption :: Prelude.Maybe Prelude.Bool,
     -- | Names of the parameters for which you want to query information.
-    names :: Core.NonEmpty Core.Text
+    names :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParameters' with all optional fields omitted.
@@ -74,23 +75,23 @@ data GetParameters = GetParameters'
 -- 'names', 'getParameters_names' - Names of the parameters for which you want to query information.
 newGetParameters ::
   -- | 'names'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   GetParameters
 newGetParameters pNames_ =
   GetParameters'
-    { withDecryption = Core.Nothing,
+    { withDecryption = Prelude.Nothing,
       names = Lens._Coerce Lens.# pNames_
     }
 
 -- | Return decrypted secure string value. Return decrypted values for secure
 -- string parameters. This flag is ignored for String and StringList
 -- parameter types.
-getParameters_withDecryption :: Lens.Lens' GetParameters (Core.Maybe Core.Bool)
+getParameters_withDecryption :: Lens.Lens' GetParameters (Prelude.Maybe Prelude.Bool)
 getParameters_withDecryption = Lens.lens (\GetParameters' {withDecryption} -> withDecryption) (\s@GetParameters' {} a -> s {withDecryption = a} :: GetParameters)
 
 -- | Names of the parameters for which you want to query information.
-getParameters_names :: Lens.Lens' GetParameters (Core.NonEmpty Core.Text)
-getParameters_names = Lens.lens (\GetParameters' {names} -> names) (\s@GetParameters' {} a -> s {names = a} :: GetParameters) Core.. Lens._Coerce
+getParameters_names :: Lens.Lens' GetParameters (Prelude.NonEmpty Prelude.Text)
+getParameters_names = Lens.lens (\GetParameters' {names} -> names) (\s@GetParameters' {} a -> s {names = a} :: GetParameters) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetParameters where
   type
@@ -101,52 +102,57 @@ instance Core.AWSRequest GetParameters where
     Response.receiveJSON
       ( \s h x ->
           GetParametersResponse'
-            Core.<$> (x Core..?> "InvalidParameters" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Parameters" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "InvalidParameters"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetParameters
+instance Prelude.Hashable GetParameters
 
-instance Core.NFData GetParameters
+instance Prelude.NFData GetParameters
 
 instance Core.ToHeaders GetParameters where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetParameters" :: Core.ByteString),
+              Core.=# ("AmazonSSM.GetParameters" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetParameters where
   toJSON GetParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("WithDecryption" Core..=) Core.<$> withDecryption,
-            Core.Just ("Names" Core..= names)
+      ( Prelude.catMaybes
+          [ ("WithDecryption" Core..=)
+              Prelude.<$> withDecryption,
+            Prelude.Just ("Names" Core..= names)
           ]
       )
 
 instance Core.ToPath GetParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetParameters where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParametersResponse' smart constructor.
 data GetParametersResponse = GetParametersResponse'
   { -- | A list of parameters that are not formatted correctly or do not run
     -- during an execution.
-    invalidParameters :: Core.Maybe [Core.Text],
+    invalidParameters :: Prelude.Maybe [Prelude.Text],
     -- | A list of details for a parameter.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParametersResponse' with all optional fields omitted.
@@ -164,27 +170,27 @@ data GetParametersResponse = GetParametersResponse'
 -- 'httpStatus', 'getParametersResponse_httpStatus' - The response's http status code.
 newGetParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetParametersResponse
 newGetParametersResponse pHttpStatus_ =
   GetParametersResponse'
     { invalidParameters =
-        Core.Nothing,
-      parameters = Core.Nothing,
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of parameters that are not formatted correctly or do not run
 -- during an execution.
-getParametersResponse_invalidParameters :: Lens.Lens' GetParametersResponse (Core.Maybe [Core.Text])
-getParametersResponse_invalidParameters = Lens.lens (\GetParametersResponse' {invalidParameters} -> invalidParameters) (\s@GetParametersResponse' {} a -> s {invalidParameters = a} :: GetParametersResponse) Core.. Lens.mapping Lens._Coerce
+getParametersResponse_invalidParameters :: Lens.Lens' GetParametersResponse (Prelude.Maybe [Prelude.Text])
+getParametersResponse_invalidParameters = Lens.lens (\GetParametersResponse' {invalidParameters} -> invalidParameters) (\s@GetParametersResponse' {} a -> s {invalidParameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of details for a parameter.
-getParametersResponse_parameters :: Lens.Lens' GetParametersResponse (Core.Maybe [Parameter])
-getParametersResponse_parameters = Lens.lens (\GetParametersResponse' {parameters} -> parameters) (\s@GetParametersResponse' {} a -> s {parameters = a} :: GetParametersResponse) Core.. Lens.mapping Lens._Coerce
+getParametersResponse_parameters :: Lens.Lens' GetParametersResponse (Prelude.Maybe [Parameter])
+getParametersResponse_parameters = Lens.lens (\GetParametersResponse' {parameters} -> parameters) (\s@GetParametersResponse' {} a -> s {parameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getParametersResponse_httpStatus :: Lens.Lens' GetParametersResponse Core.Int
+getParametersResponse_httpStatus :: Lens.Lens' GetParametersResponse Prelude.Int
 getParametersResponse_httpStatus = Lens.lens (\GetParametersResponse' {httpStatus} -> httpStatus) (\s@GetParametersResponse' {} a -> s {httpStatus = a} :: GetParametersResponse)
 
-instance Core.NFData GetParametersResponse
+instance Prelude.NFData GetParametersResponse

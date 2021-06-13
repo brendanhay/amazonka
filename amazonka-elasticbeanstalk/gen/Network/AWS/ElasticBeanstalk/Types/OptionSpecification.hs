@@ -21,19 +21,20 @@ module Network.AWS.ElasticBeanstalk.Types.OptionSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A specification identifying an individual configuration option.
 --
 -- /See:/ 'newOptionSpecification' smart constructor.
 data OptionSpecification = OptionSpecification'
   { -- | The name of the configuration option.
-    optionName :: Core.Maybe Core.Text,
+    optionName :: Prelude.Maybe Prelude.Text,
     -- | A unique namespace identifying the option\'s associated AWS resource.
-    namespace :: Core.Maybe Core.Text,
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | A unique resource name for a time-based scaling configuration option.
-    resourceName :: Core.Maybe Core.Text
+    resourceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OptionSpecification' with all optional fields omitted.
@@ -52,30 +53,30 @@ newOptionSpecification ::
   OptionSpecification
 newOptionSpecification =
   OptionSpecification'
-    { optionName = Core.Nothing,
-      namespace = Core.Nothing,
-      resourceName = Core.Nothing
+    { optionName = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      resourceName = Prelude.Nothing
     }
 
 -- | The name of the configuration option.
-optionSpecification_optionName :: Lens.Lens' OptionSpecification (Core.Maybe Core.Text)
+optionSpecification_optionName :: Lens.Lens' OptionSpecification (Prelude.Maybe Prelude.Text)
 optionSpecification_optionName = Lens.lens (\OptionSpecification' {optionName} -> optionName) (\s@OptionSpecification' {} a -> s {optionName = a} :: OptionSpecification)
 
 -- | A unique namespace identifying the option\'s associated AWS resource.
-optionSpecification_namespace :: Lens.Lens' OptionSpecification (Core.Maybe Core.Text)
+optionSpecification_namespace :: Lens.Lens' OptionSpecification (Prelude.Maybe Prelude.Text)
 optionSpecification_namespace = Lens.lens (\OptionSpecification' {namespace} -> namespace) (\s@OptionSpecification' {} a -> s {namespace = a} :: OptionSpecification)
 
 -- | A unique resource name for a time-based scaling configuration option.
-optionSpecification_resourceName :: Lens.Lens' OptionSpecification (Core.Maybe Core.Text)
+optionSpecification_resourceName :: Lens.Lens' OptionSpecification (Prelude.Maybe Prelude.Text)
 optionSpecification_resourceName = Lens.lens (\OptionSpecification' {resourceName} -> resourceName) (\s@OptionSpecification' {} a -> s {resourceName = a} :: OptionSpecification)
 
-instance Core.Hashable OptionSpecification
+instance Prelude.Hashable OptionSpecification
 
-instance Core.NFData OptionSpecification
+instance Prelude.NFData OptionSpecification
 
 instance Core.ToQuery OptionSpecification where
   toQuery OptionSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "OptionName" Core.=: optionName,
         "Namespace" Core.=: namespace,
         "ResourceName" Core.=: resourceName

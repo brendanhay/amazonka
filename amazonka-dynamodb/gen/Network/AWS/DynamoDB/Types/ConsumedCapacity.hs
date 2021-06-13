@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.ConsumedCapacity where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.Capacity
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The capacity units consumed by an operation. The data returned includes
 -- the total provisioned throughput consumed, along with statistics for the
@@ -34,23 +35,23 @@ import qualified Network.AWS.Lens as Lens
 data ConsumedCapacity = ConsumedCapacity'
   { -- | The amount of throughput consumed on each local index affected by the
     -- operation.
-    localSecondaryIndexes :: Core.Maybe (Core.HashMap Core.Text Capacity),
+    localSecondaryIndexes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Capacity),
     -- | The amount of throughput consumed on each global index affected by the
     -- operation.
-    globalSecondaryIndexes :: Core.Maybe (Core.HashMap Core.Text Capacity),
+    globalSecondaryIndexes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Capacity),
     -- | The name of the table that was affected by the operation.
-    tableName :: Core.Maybe Core.Text,
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The total number of write capacity units consumed by the operation.
-    writeCapacityUnits :: Core.Maybe Core.Double,
+    writeCapacityUnits :: Prelude.Maybe Prelude.Double,
     -- | The total number of capacity units consumed by the operation.
-    capacityUnits :: Core.Maybe Core.Double,
+    capacityUnits :: Prelude.Maybe Prelude.Double,
     -- | The amount of throughput consumed on the table affected by the
     -- operation.
-    table :: Core.Maybe Capacity,
+    table :: Prelude.Maybe Capacity,
     -- | The total number of read capacity units consumed by the operation.
-    readCapacityUnits :: Core.Maybe Core.Double
+    readCapacityUnits :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConsumedCapacity' with all optional fields omitted.
@@ -81,44 +82,44 @@ newConsumedCapacity ::
 newConsumedCapacity =
   ConsumedCapacity'
     { localSecondaryIndexes =
-        Core.Nothing,
-      globalSecondaryIndexes = Core.Nothing,
-      tableName = Core.Nothing,
-      writeCapacityUnits = Core.Nothing,
-      capacityUnits = Core.Nothing,
-      table = Core.Nothing,
-      readCapacityUnits = Core.Nothing
+        Prelude.Nothing,
+      globalSecondaryIndexes = Prelude.Nothing,
+      tableName = Prelude.Nothing,
+      writeCapacityUnits = Prelude.Nothing,
+      capacityUnits = Prelude.Nothing,
+      table = Prelude.Nothing,
+      readCapacityUnits = Prelude.Nothing
     }
 
 -- | The amount of throughput consumed on each local index affected by the
 -- operation.
-consumedCapacity_localSecondaryIndexes :: Lens.Lens' ConsumedCapacity (Core.Maybe (Core.HashMap Core.Text Capacity))
-consumedCapacity_localSecondaryIndexes = Lens.lens (\ConsumedCapacity' {localSecondaryIndexes} -> localSecondaryIndexes) (\s@ConsumedCapacity' {} a -> s {localSecondaryIndexes = a} :: ConsumedCapacity) Core.. Lens.mapping Lens._Coerce
+consumedCapacity_localSecondaryIndexes :: Lens.Lens' ConsumedCapacity (Prelude.Maybe (Prelude.HashMap Prelude.Text Capacity))
+consumedCapacity_localSecondaryIndexes = Lens.lens (\ConsumedCapacity' {localSecondaryIndexes} -> localSecondaryIndexes) (\s@ConsumedCapacity' {} a -> s {localSecondaryIndexes = a} :: ConsumedCapacity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The amount of throughput consumed on each global index affected by the
 -- operation.
-consumedCapacity_globalSecondaryIndexes :: Lens.Lens' ConsumedCapacity (Core.Maybe (Core.HashMap Core.Text Capacity))
-consumedCapacity_globalSecondaryIndexes = Lens.lens (\ConsumedCapacity' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@ConsumedCapacity' {} a -> s {globalSecondaryIndexes = a} :: ConsumedCapacity) Core.. Lens.mapping Lens._Coerce
+consumedCapacity_globalSecondaryIndexes :: Lens.Lens' ConsumedCapacity (Prelude.Maybe (Prelude.HashMap Prelude.Text Capacity))
+consumedCapacity_globalSecondaryIndexes = Lens.lens (\ConsumedCapacity' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@ConsumedCapacity' {} a -> s {globalSecondaryIndexes = a} :: ConsumedCapacity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the table that was affected by the operation.
-consumedCapacity_tableName :: Lens.Lens' ConsumedCapacity (Core.Maybe Core.Text)
+consumedCapacity_tableName :: Lens.Lens' ConsumedCapacity (Prelude.Maybe Prelude.Text)
 consumedCapacity_tableName = Lens.lens (\ConsumedCapacity' {tableName} -> tableName) (\s@ConsumedCapacity' {} a -> s {tableName = a} :: ConsumedCapacity)
 
 -- | The total number of write capacity units consumed by the operation.
-consumedCapacity_writeCapacityUnits :: Lens.Lens' ConsumedCapacity (Core.Maybe Core.Double)
+consumedCapacity_writeCapacityUnits :: Lens.Lens' ConsumedCapacity (Prelude.Maybe Prelude.Double)
 consumedCapacity_writeCapacityUnits = Lens.lens (\ConsumedCapacity' {writeCapacityUnits} -> writeCapacityUnits) (\s@ConsumedCapacity' {} a -> s {writeCapacityUnits = a} :: ConsumedCapacity)
 
 -- | The total number of capacity units consumed by the operation.
-consumedCapacity_capacityUnits :: Lens.Lens' ConsumedCapacity (Core.Maybe Core.Double)
+consumedCapacity_capacityUnits :: Lens.Lens' ConsumedCapacity (Prelude.Maybe Prelude.Double)
 consumedCapacity_capacityUnits = Lens.lens (\ConsumedCapacity' {capacityUnits} -> capacityUnits) (\s@ConsumedCapacity' {} a -> s {capacityUnits = a} :: ConsumedCapacity)
 
 -- | The amount of throughput consumed on the table affected by the
 -- operation.
-consumedCapacity_table :: Lens.Lens' ConsumedCapacity (Core.Maybe Capacity)
+consumedCapacity_table :: Lens.Lens' ConsumedCapacity (Prelude.Maybe Capacity)
 consumedCapacity_table = Lens.lens (\ConsumedCapacity' {table} -> table) (\s@ConsumedCapacity' {} a -> s {table = a} :: ConsumedCapacity)
 
 -- | The total number of read capacity units consumed by the operation.
-consumedCapacity_readCapacityUnits :: Lens.Lens' ConsumedCapacity (Core.Maybe Core.Double)
+consumedCapacity_readCapacityUnits :: Lens.Lens' ConsumedCapacity (Prelude.Maybe Prelude.Double)
 consumedCapacity_readCapacityUnits = Lens.lens (\ConsumedCapacity' {readCapacityUnits} -> readCapacityUnits) (\s@ConsumedCapacity' {} a -> s {readCapacityUnits = a} :: ConsumedCapacity)
 
 instance Core.FromJSON ConsumedCapacity where
@@ -127,19 +128,19 @@ instance Core.FromJSON ConsumedCapacity where
       "ConsumedCapacity"
       ( \x ->
           ConsumedCapacity'
-            Core.<$> ( x Core..:? "LocalSecondaryIndexes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "TableName")
-            Core.<*> (x Core..:? "WriteCapacityUnits")
-            Core.<*> (x Core..:? "CapacityUnits")
-            Core.<*> (x Core..:? "Table")
-            Core.<*> (x Core..:? "ReadCapacityUnits")
+            Prelude.<$> ( x Core..:? "LocalSecondaryIndexes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "WriteCapacityUnits")
+            Prelude.<*> (x Core..:? "CapacityUnits")
+            Prelude.<*> (x Core..:? "Table")
+            Prelude.<*> (x Core..:? "ReadCapacityUnits")
       )
 
-instance Core.Hashable ConsumedCapacity
+instance Prelude.Hashable ConsumedCapacity
 
-instance Core.NFData ConsumedCapacity
+instance Prelude.NFData ConsumedCapacity

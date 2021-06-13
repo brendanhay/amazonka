@@ -21,6 +21,7 @@ module Network.AWS.CodeBuild.Types.ProjectBadge where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the build badge for the build project.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data ProjectBadge = ProjectBadge'
   { -- | The publicly-accessible URL through which you can access the build badge
     -- for your project.
-    badgeRequestUrl :: Core.Maybe Core.Text,
+    badgeRequestUrl :: Prelude.Maybe Prelude.Text,
     -- | Set this to true to generate a publicly accessible URL for your
     -- project\'s build badge.
-    badgeEnabled :: Core.Maybe Core.Bool
+    badgeEnabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProjectBadge' with all optional fields omitted.
@@ -52,18 +53,18 @@ newProjectBadge ::
   ProjectBadge
 newProjectBadge =
   ProjectBadge'
-    { badgeRequestUrl = Core.Nothing,
-      badgeEnabled = Core.Nothing
+    { badgeRequestUrl = Prelude.Nothing,
+      badgeEnabled = Prelude.Nothing
     }
 
 -- | The publicly-accessible URL through which you can access the build badge
 -- for your project.
-projectBadge_badgeRequestUrl :: Lens.Lens' ProjectBadge (Core.Maybe Core.Text)
+projectBadge_badgeRequestUrl :: Lens.Lens' ProjectBadge (Prelude.Maybe Prelude.Text)
 projectBadge_badgeRequestUrl = Lens.lens (\ProjectBadge' {badgeRequestUrl} -> badgeRequestUrl) (\s@ProjectBadge' {} a -> s {badgeRequestUrl = a} :: ProjectBadge)
 
 -- | Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
-projectBadge_badgeEnabled :: Lens.Lens' ProjectBadge (Core.Maybe Core.Bool)
+projectBadge_badgeEnabled :: Lens.Lens' ProjectBadge (Prelude.Maybe Prelude.Bool)
 projectBadge_badgeEnabled = Lens.lens (\ProjectBadge' {badgeEnabled} -> badgeEnabled) (\s@ProjectBadge' {} a -> s {badgeEnabled = a} :: ProjectBadge)
 
 instance Core.FromJSON ProjectBadge where
@@ -72,10 +73,10 @@ instance Core.FromJSON ProjectBadge where
       "ProjectBadge"
       ( \x ->
           ProjectBadge'
-            Core.<$> (x Core..:? "badgeRequestUrl")
-            Core.<*> (x Core..:? "badgeEnabled")
+            Prelude.<$> (x Core..:? "badgeRequestUrl")
+            Prelude.<*> (x Core..:? "badgeEnabled")
       )
 
-instance Core.Hashable ProjectBadge
+instance Prelude.Hashable ProjectBadge
 
-instance Core.NFData ProjectBadge
+instance Prelude.NFData ProjectBadge

@@ -21,6 +21,7 @@ module Network.AWS.StorageGateway.Types.CacheAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Lists refresh cache information.
 --
@@ -33,9 +34,9 @@ data CacheAttributes = CacheAttributes'
     -- seconds.
     --
     -- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-    cacheStaleTimeoutInSeconds :: Core.Maybe Core.Int
+    cacheStaleTimeoutInSeconds :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CacheAttributes' with all optional fields omitted.
@@ -57,7 +58,7 @@ newCacheAttributes ::
 newCacheAttributes =
   CacheAttributes'
     { cacheStaleTimeoutInSeconds =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Refreshes a file share\'s cache by using Time To Live (TTL). TTL is the
@@ -67,7 +68,7 @@ newCacheAttributes =
 -- seconds.
 --
 -- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-cacheAttributes_cacheStaleTimeoutInSeconds :: Lens.Lens' CacheAttributes (Core.Maybe Core.Int)
+cacheAttributes_cacheStaleTimeoutInSeconds :: Lens.Lens' CacheAttributes (Prelude.Maybe Prelude.Int)
 cacheAttributes_cacheStaleTimeoutInSeconds = Lens.lens (\CacheAttributes' {cacheStaleTimeoutInSeconds} -> cacheStaleTimeoutInSeconds) (\s@CacheAttributes' {} a -> s {cacheStaleTimeoutInSeconds = a} :: CacheAttributes)
 
 instance Core.FromJSON CacheAttributes where
@@ -76,18 +77,18 @@ instance Core.FromJSON CacheAttributes where
       "CacheAttributes"
       ( \x ->
           CacheAttributes'
-            Core.<$> (x Core..:? "CacheStaleTimeoutInSeconds")
+            Prelude.<$> (x Core..:? "CacheStaleTimeoutInSeconds")
       )
 
-instance Core.Hashable CacheAttributes
+instance Prelude.Hashable CacheAttributes
 
-instance Core.NFData CacheAttributes
+instance Prelude.NFData CacheAttributes
 
 instance Core.ToJSON CacheAttributes where
   toJSON CacheAttributes' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CacheStaleTimeoutInSeconds" Core..=)
-              Core.<$> cacheStaleTimeoutInSeconds
+              Prelude.<$> cacheStaleTimeoutInSeconds
           ]
       )

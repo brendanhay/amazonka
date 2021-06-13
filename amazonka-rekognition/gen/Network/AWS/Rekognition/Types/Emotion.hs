@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Emotion where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.EmotionName
 
 -- | The emotions that appear to be expressed on the face, and the confidence
@@ -33,11 +34,11 @@ import Network.AWS.Rekognition.Types.EmotionName
 -- /See:/ 'newEmotion' smart constructor.
 data Emotion = Emotion'
   { -- | Level of confidence in the determination.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | Type of emotion detected.
-    type' :: Core.Maybe EmotionName
+    type' :: Prelude.Maybe EmotionName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Emotion' with all optional fields omitted.
@@ -54,16 +55,16 @@ newEmotion ::
   Emotion
 newEmotion =
   Emotion'
-    { confidence = Core.Nothing,
-      type' = Core.Nothing
+    { confidence = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | Level of confidence in the determination.
-emotion_confidence :: Lens.Lens' Emotion (Core.Maybe Core.Double)
+emotion_confidence :: Lens.Lens' Emotion (Prelude.Maybe Prelude.Double)
 emotion_confidence = Lens.lens (\Emotion' {confidence} -> confidence) (\s@Emotion' {} a -> s {confidence = a} :: Emotion)
 
 -- | Type of emotion detected.
-emotion_type :: Lens.Lens' Emotion (Core.Maybe EmotionName)
+emotion_type :: Lens.Lens' Emotion (Prelude.Maybe EmotionName)
 emotion_type = Lens.lens (\Emotion' {type'} -> type') (\s@Emotion' {} a -> s {type' = a} :: Emotion)
 
 instance Core.FromJSON Emotion where
@@ -72,10 +73,10 @@ instance Core.FromJSON Emotion where
       "Emotion"
       ( \x ->
           Emotion'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable Emotion
+instance Prelude.Hashable Emotion
 
-instance Core.NFData Emotion
+instance Prelude.NFData Emotion

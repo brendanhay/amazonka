@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AssociationComplianceSeverity
 import Network.AWS.SSM.Types.AssociationSyncCompliance
 import Network.AWS.SSM.Types.InstanceAssociationOutputLocation
@@ -47,22 +48,22 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- as well. If you need to ensure that there won\'t be more than max-errors
     -- failed executions, set MaxConcurrency to 1 so that executions proceed
     -- one at a time.
-    maxErrors :: Core.Maybe Core.Text,
+    maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The severity level to assign to the association.
-    complianceSeverity :: Core.Maybe AssociationComplianceSeverity,
+    complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
     -- | Specify the target for the association. This target is required for
     -- associations that use an Automation document and target resources by
     -- using rate controls.
-    automationTargetParameterName :: Core.Maybe Core.Text,
+    automationTargetParameterName :: Prelude.Maybe Prelude.Text,
     -- | The instances targeted by the request.
-    targets :: Core.Maybe [Target],
+    targets :: Prelude.Maybe [Target],
     -- | Use this action to create an association in multiple Regions and
     -- multiple accounts.
-    targetLocations :: Core.Maybe (Core.NonEmpty TargetLocation),
+    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
     -- | A cron expression that specifies a schedule when the association runs.
-    scheduleExpression :: Core.Maybe Core.Text,
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
@@ -73,21 +74,21 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- is allowed to run. During the next association interval, the new
     -- instance will process its association within the limit specified for
     -- MaxConcurrency.
-    maxConcurrency :: Core.Maybe Core.Text,
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | Specify a descriptive name for the association.
-    associationName :: Core.Maybe Core.Text,
+    associationName :: Prelude.Maybe Prelude.Text,
     -- | The document version.
-    documentVersion :: Core.Maybe Core.Text,
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameters for a document.
-    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | An S3 bucket where you want to store the results of this request.
-    outputLocation :: Core.Maybe InstanceAssociationOutputLocation,
+    outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
     -- | By default, when you create a new associations, the system runs it
     -- immediately after it is created and then according to the schedule you
     -- specified. Specify this option if you don\'t want an association to run
     -- immediately after you create it. This parameter is not supported for
     -- rate expressions.
-    applyOnlyAtCronInterval :: Core.Maybe Core.Bool,
+    applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
     -- | The mode for generating association compliance. You can specify @AUTO@
     -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
     -- association execution to determine the compliance status. If the
@@ -101,7 +102,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- PutComplianceItems API action.
     --
     -- By default, all associations use @AUTO@ mode.
-    syncCompliance :: Core.Maybe AssociationSyncCompliance,
+    syncCompliance :: Prelude.Maybe AssociationSyncCompliance,
     -- | The name of the SSM document that contains the configuration information
     -- for the instance. You can specify Command or Automation documents.
     --
@@ -120,9 +121,9 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- For AWS-predefined documents and SSM documents you created in your
     -- account, you only need to specify the document name. For example,
     -- @AWS-ApplyPatchBaseline@ or @My-Document@.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAssociationBatchRequestEntry' with all optional fields omitted.
@@ -222,26 +223,27 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- @AWS-ApplyPatchBaseline@ or @My-Document@.
 newCreateAssociationBatchRequestEntry ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateAssociationBatchRequestEntry
 newCreateAssociationBatchRequestEntry pName_ =
   CreateAssociationBatchRequestEntry'
     { maxErrors =
-        Core.Nothing,
-      instanceId = Core.Nothing,
-      complianceSeverity = Core.Nothing,
+        Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      complianceSeverity = Prelude.Nothing,
       automationTargetParameterName =
-        Core.Nothing,
-      targets = Core.Nothing,
-      targetLocations = Core.Nothing,
-      scheduleExpression = Core.Nothing,
-      maxConcurrency = Core.Nothing,
-      associationName = Core.Nothing,
-      documentVersion = Core.Nothing,
-      parameters = Core.Nothing,
-      outputLocation = Core.Nothing,
-      applyOnlyAtCronInterval = Core.Nothing,
-      syncCompliance = Core.Nothing,
+        Prelude.Nothing,
+      targets = Prelude.Nothing,
+      targetLocations = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      maxConcurrency = Prelude.Nothing,
+      associationName = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      outputLocation = Prelude.Nothing,
+      applyOnlyAtCronInterval =
+        Prelude.Nothing,
+      syncCompliance = Prelude.Nothing,
       name = pName_
     }
 
@@ -260,34 +262,34 @@ newCreateAssociationBatchRequestEntry pName_ =
 -- as well. If you need to ensure that there won\'t be more than max-errors
 -- failed executions, set MaxConcurrency to 1 so that executions proceed
 -- one at a time.
-createAssociationBatchRequestEntry_maxErrors :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe Core.Text)
+createAssociationBatchRequestEntry_maxErrors :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_maxErrors = Lens.lens (\CreateAssociationBatchRequestEntry' {maxErrors} -> maxErrors) (\s@CreateAssociationBatchRequestEntry' {} a -> s {maxErrors = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The ID of the instance.
-createAssociationBatchRequestEntry_instanceId :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe Core.Text)
+createAssociationBatchRequestEntry_instanceId :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_instanceId = Lens.lens (\CreateAssociationBatchRequestEntry' {instanceId} -> instanceId) (\s@CreateAssociationBatchRequestEntry' {} a -> s {instanceId = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The severity level to assign to the association.
-createAssociationBatchRequestEntry_complianceSeverity :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe AssociationComplianceSeverity)
+createAssociationBatchRequestEntry_complianceSeverity :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe AssociationComplianceSeverity)
 createAssociationBatchRequestEntry_complianceSeverity = Lens.lens (\CreateAssociationBatchRequestEntry' {complianceSeverity} -> complianceSeverity) (\s@CreateAssociationBatchRequestEntry' {} a -> s {complianceSeverity = a} :: CreateAssociationBatchRequestEntry)
 
 -- | Specify the target for the association. This target is required for
 -- associations that use an Automation document and target resources by
 -- using rate controls.
-createAssociationBatchRequestEntry_automationTargetParameterName :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe Core.Text)
+createAssociationBatchRequestEntry_automationTargetParameterName :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_automationTargetParameterName = Lens.lens (\CreateAssociationBatchRequestEntry' {automationTargetParameterName} -> automationTargetParameterName) (\s@CreateAssociationBatchRequestEntry' {} a -> s {automationTargetParameterName = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The instances targeted by the request.
-createAssociationBatchRequestEntry_targets :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe [Target])
-createAssociationBatchRequestEntry_targets = Lens.lens (\CreateAssociationBatchRequestEntry' {targets} -> targets) (\s@CreateAssociationBatchRequestEntry' {} a -> s {targets = a} :: CreateAssociationBatchRequestEntry) Core.. Lens.mapping Lens._Coerce
+createAssociationBatchRequestEntry_targets :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe [Target])
+createAssociationBatchRequestEntry_targets = Lens.lens (\CreateAssociationBatchRequestEntry' {targets} -> targets) (\s@CreateAssociationBatchRequestEntry' {} a -> s {targets = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use this action to create an association in multiple Regions and
 -- multiple accounts.
-createAssociationBatchRequestEntry_targetLocations :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe (Core.NonEmpty TargetLocation))
-createAssociationBatchRequestEntry_targetLocations = Lens.lens (\CreateAssociationBatchRequestEntry' {targetLocations} -> targetLocations) (\s@CreateAssociationBatchRequestEntry' {} a -> s {targetLocations = a} :: CreateAssociationBatchRequestEntry) Core.. Lens.mapping Lens._Coerce
+createAssociationBatchRequestEntry_targetLocations :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
+createAssociationBatchRequestEntry_targetLocations = Lens.lens (\CreateAssociationBatchRequestEntry' {targetLocations} -> targetLocations) (\s@CreateAssociationBatchRequestEntry' {} a -> s {targetLocations = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A cron expression that specifies a schedule when the association runs.
-createAssociationBatchRequestEntry_scheduleExpression :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe Core.Text)
+createAssociationBatchRequestEntry_scheduleExpression :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_scheduleExpression = Lens.lens (\CreateAssociationBatchRequestEntry' {scheduleExpression} -> scheduleExpression) (\s@CreateAssociationBatchRequestEntry' {} a -> s {scheduleExpression = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The maximum number of targets allowed to run the association at the same
@@ -300,23 +302,23 @@ createAssociationBatchRequestEntry_scheduleExpression = Lens.lens (\CreateAssoci
 -- is allowed to run. During the next association interval, the new
 -- instance will process its association within the limit specified for
 -- MaxConcurrency.
-createAssociationBatchRequestEntry_maxConcurrency :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe Core.Text)
+createAssociationBatchRequestEntry_maxConcurrency :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_maxConcurrency = Lens.lens (\CreateAssociationBatchRequestEntry' {maxConcurrency} -> maxConcurrency) (\s@CreateAssociationBatchRequestEntry' {} a -> s {maxConcurrency = a} :: CreateAssociationBatchRequestEntry)
 
 -- | Specify a descriptive name for the association.
-createAssociationBatchRequestEntry_associationName :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe Core.Text)
+createAssociationBatchRequestEntry_associationName :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_associationName = Lens.lens (\CreateAssociationBatchRequestEntry' {associationName} -> associationName) (\s@CreateAssociationBatchRequestEntry' {} a -> s {associationName = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The document version.
-createAssociationBatchRequestEntry_documentVersion :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe Core.Text)
+createAssociationBatchRequestEntry_documentVersion :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_documentVersion = Lens.lens (\CreateAssociationBatchRequestEntry' {documentVersion} -> documentVersion) (\s@CreateAssociationBatchRequestEntry' {} a -> s {documentVersion = a} :: CreateAssociationBatchRequestEntry)
 
 -- | A description of the parameters for a document.
-createAssociationBatchRequestEntry_parameters :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-createAssociationBatchRequestEntry_parameters = Lens.lens (\CreateAssociationBatchRequestEntry' {parameters} -> parameters) (\s@CreateAssociationBatchRequestEntry' {} a -> s {parameters = a} :: CreateAssociationBatchRequestEntry) Core.. Lens.mapping Lens._Coerce
+createAssociationBatchRequestEntry_parameters :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+createAssociationBatchRequestEntry_parameters = Lens.lens (\CreateAssociationBatchRequestEntry' {parameters} -> parameters) (\s@CreateAssociationBatchRequestEntry' {} a -> s {parameters = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An S3 bucket where you want to store the results of this request.
-createAssociationBatchRequestEntry_outputLocation :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe InstanceAssociationOutputLocation)
+createAssociationBatchRequestEntry_outputLocation :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe InstanceAssociationOutputLocation)
 createAssociationBatchRequestEntry_outputLocation = Lens.lens (\CreateAssociationBatchRequestEntry' {outputLocation} -> outputLocation) (\s@CreateAssociationBatchRequestEntry' {} a -> s {outputLocation = a} :: CreateAssociationBatchRequestEntry)
 
 -- | By default, when you create a new associations, the system runs it
@@ -324,7 +326,7 @@ createAssociationBatchRequestEntry_outputLocation = Lens.lens (\CreateAssociatio
 -- specified. Specify this option if you don\'t want an association to run
 -- immediately after you create it. This parameter is not supported for
 -- rate expressions.
-createAssociationBatchRequestEntry_applyOnlyAtCronInterval :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe Core.Bool)
+createAssociationBatchRequestEntry_applyOnlyAtCronInterval :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Bool)
 createAssociationBatchRequestEntry_applyOnlyAtCronInterval = Lens.lens (\CreateAssociationBatchRequestEntry' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@CreateAssociationBatchRequestEntry' {} a -> s {applyOnlyAtCronInterval = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The mode for generating association compliance. You can specify @AUTO@
@@ -340,7 +342,7 @@ createAssociationBatchRequestEntry_applyOnlyAtCronInterval = Lens.lens (\CreateA
 -- PutComplianceItems API action.
 --
 -- By default, all associations use @AUTO@ mode.
-createAssociationBatchRequestEntry_syncCompliance :: Lens.Lens' CreateAssociationBatchRequestEntry (Core.Maybe AssociationSyncCompliance)
+createAssociationBatchRequestEntry_syncCompliance :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe AssociationSyncCompliance)
 createAssociationBatchRequestEntry_syncCompliance = Lens.lens (\CreateAssociationBatchRequestEntry' {syncCompliance} -> syncCompliance) (\s@CreateAssociationBatchRequestEntry' {} a -> s {syncCompliance = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The name of the SSM document that contains the configuration information
@@ -361,7 +363,7 @@ createAssociationBatchRequestEntry_syncCompliance = Lens.lens (\CreateAssociatio
 -- For AWS-predefined documents and SSM documents you created in your
 -- account, you only need to specify the document name. For example,
 -- @AWS-ApplyPatchBaseline@ or @My-Document@.
-createAssociationBatchRequestEntry_name :: Lens.Lens' CreateAssociationBatchRequestEntry Core.Text
+createAssociationBatchRequestEntry_name :: Lens.Lens' CreateAssociationBatchRequestEntry Prelude.Text
 createAssociationBatchRequestEntry_name = Lens.lens (\CreateAssociationBatchRequestEntry' {name} -> name) (\s@CreateAssociationBatchRequestEntry' {} a -> s {name = a} :: CreateAssociationBatchRequestEntry)
 
 instance
@@ -373,29 +375,29 @@ instance
       "CreateAssociationBatchRequestEntry"
       ( \x ->
           CreateAssociationBatchRequestEntry'
-            Core.<$> (x Core..:? "MaxErrors")
-            Core.<*> (x Core..:? "InstanceId")
-            Core.<*> (x Core..:? "ComplianceSeverity")
-            Core.<*> (x Core..:? "AutomationTargetParameterName")
-            Core.<*> (x Core..:? "Targets" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "TargetLocations")
-            Core.<*> (x Core..:? "ScheduleExpression")
-            Core.<*> (x Core..:? "MaxConcurrency")
-            Core.<*> (x Core..:? "AssociationName")
-            Core.<*> (x Core..:? "DocumentVersion")
-            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "OutputLocation")
-            Core.<*> (x Core..:? "ApplyOnlyAtCronInterval")
-            Core.<*> (x Core..:? "SyncCompliance")
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..:? "MaxErrors")
+            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "ComplianceSeverity")
+            Prelude.<*> (x Core..:? "AutomationTargetParameterName")
+            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TargetLocations")
+            Prelude.<*> (x Core..:? "ScheduleExpression")
+            Prelude.<*> (x Core..:? "MaxConcurrency")
+            Prelude.<*> (x Core..:? "AssociationName")
+            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "OutputLocation")
+            Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
+            Prelude.<*> (x Core..:? "SyncCompliance")
+            Prelude.<*> (x Core..: "Name")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateAssociationBatchRequestEntry
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateAssociationBatchRequestEntry
 
 instance
@@ -404,25 +406,31 @@ instance
   where
   toJSON CreateAssociationBatchRequestEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxErrors" Core..=) Core.<$> maxErrors,
-            ("InstanceId" Core..=) Core.<$> instanceId,
+      ( Prelude.catMaybes
+          [ ("MaxErrors" Core..=) Prelude.<$> maxErrors,
+            ("InstanceId" Core..=) Prelude.<$> instanceId,
             ("ComplianceSeverity" Core..=)
-              Core.<$> complianceSeverity,
+              Prelude.<$> complianceSeverity,
             ("AutomationTargetParameterName" Core..=)
-              Core.<$> automationTargetParameterName,
-            ("Targets" Core..=) Core.<$> targets,
-            ("TargetLocations" Core..=) Core.<$> targetLocations,
+              Prelude.<$> automationTargetParameterName,
+            ("Targets" Core..=) Prelude.<$> targets,
+            ("TargetLocations" Core..=)
+              Prelude.<$> targetLocations,
             ("ScheduleExpression" Core..=)
-              Core.<$> scheduleExpression,
-            ("MaxConcurrency" Core..=) Core.<$> maxConcurrency,
-            ("AssociationName" Core..=) Core.<$> associationName,
-            ("DocumentVersion" Core..=) Core.<$> documentVersion,
-            ("Parameters" Core..=) Core.<$> parameters,
-            ("OutputLocation" Core..=) Core.<$> outputLocation,
+              Prelude.<$> scheduleExpression,
+            ("MaxConcurrency" Core..=)
+              Prelude.<$> maxConcurrency,
+            ("AssociationName" Core..=)
+              Prelude.<$> associationName,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion,
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("OutputLocation" Core..=)
+              Prelude.<$> outputLocation,
             ("ApplyOnlyAtCronInterval" Core..=)
-              Core.<$> applyOnlyAtCronInterval,
-            ("SyncCompliance" Core..=) Core.<$> syncCompliance,
-            Core.Just ("Name" Core..= name)
+              Prelude.<$> applyOnlyAtCronInterval,
+            ("SyncCompliance" Core..=)
+              Prelude.<$> syncCompliance,
+            Prelude.Just ("Name" Core..= name)
           ]
       )

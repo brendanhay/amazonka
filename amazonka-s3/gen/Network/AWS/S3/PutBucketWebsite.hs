@@ -108,6 +108,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -117,7 +118,7 @@ data PutBucketWebsite = PutBucketWebsite'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
@@ -125,13 +126,13 @@ data PutBucketWebsite = PutBucketWebsite'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for the request.
     websiteConfiguration :: WebsiteConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketWebsite' with all optional fields omitted.
@@ -165,8 +166,8 @@ newPutBucketWebsite ::
 newPutBucketWebsite pBucket_ pWebsiteConfiguration_ =
   PutBucketWebsite'
     { expectedBucketOwner =
-        Core.Nothing,
-      contentMD5 = Core.Nothing,
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
       bucket = pBucket_,
       websiteConfiguration = pWebsiteConfiguration_
     }
@@ -174,7 +175,7 @@ newPutBucketWebsite pBucket_ pWebsiteConfiguration_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketWebsite_expectedBucketOwner :: Lens.Lens' PutBucketWebsite (Core.Maybe Core.Text)
+putBucketWebsite_expectedBucketOwner :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
 putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketWebsite' {} a -> s {expectedBucketOwner = a} :: PutBucketWebsite)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
@@ -184,7 +185,7 @@ putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBu
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketWebsite_contentMD5 :: Lens.Lens' PutBucketWebsite (Core.Maybe Core.Text)
+putBucketWebsite_contentMD5 :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
 putBucketWebsite_contentMD5 = Lens.lens (\PutBucketWebsite' {contentMD5} -> contentMD5) (\s@PutBucketWebsite' {} a -> s {contentMD5 = a} :: PutBucketWebsite)
 
 -- | The bucket name.
@@ -203,9 +204,9 @@ instance Core.AWSRequest PutBucketWebsite where
   response =
     Response.receiveNull PutBucketWebsiteResponse'
 
-instance Core.Hashable PutBucketWebsite
+instance Prelude.Hashable PutBucketWebsite
 
-instance Core.NFData PutBucketWebsite
+instance Prelude.NFData PutBucketWebsite
 
 instance Core.ToElement PutBucketWebsite where
   toElement PutBucketWebsite' {..} =
@@ -215,7 +216,7 @@ instance Core.ToElement PutBucketWebsite where
 
 instance Core.ToHeaders PutBucketWebsite where
   toHeaders PutBucketWebsite' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5
@@ -223,16 +224,16 @@ instance Core.ToHeaders PutBucketWebsite where
 
 instance Core.ToPath PutBucketWebsite where
   toPath PutBucketWebsite' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutBucketWebsite where
-  toQuery = Core.const (Core.mconcat ["website"])
+  toQuery = Prelude.const (Prelude.mconcat ["website"])
 
 -- | /See:/ 'newPutBucketWebsiteResponse' smart constructor.
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketWebsiteResponse' with all optional fields omitted.
@@ -243,4 +244,4 @@ newPutBucketWebsiteResponse ::
 newPutBucketWebsiteResponse =
   PutBucketWebsiteResponse'
 
-instance Core.NFData PutBucketWebsiteResponse
+instance Prelude.NFData PutBucketWebsiteResponse

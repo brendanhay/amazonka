@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.PolicyTemplateName
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that adds a blank policy to
 -- restrict permissions.
@@ -32,7 +33,7 @@ data ReplaceDefaultPolicyVersionParams = ReplaceDefaultPolicyVersionParams'
     -- @BLANK_POLICY@.
     templateName :: PolicyTemplateName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplaceDefaultPolicyVersionParams' with all optional fields omitted.
@@ -68,15 +69,15 @@ instance
       "ReplaceDefaultPolicyVersionParams"
       ( \x ->
           ReplaceDefaultPolicyVersionParams'
-            Core.<$> (x Core..: "templateName")
+            Prelude.<$> (x Core..: "templateName")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReplaceDefaultPolicyVersionParams
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReplaceDefaultPolicyVersionParams
 
 instance
@@ -85,6 +86,6 @@ instance
   where
   toJSON ReplaceDefaultPolicyVersionParams' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("templateName" Core..= templateName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("templateName" Core..= templateName)]
       )

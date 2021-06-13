@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.AuditSuppression where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ResourceIdentifier
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters out specific findings of a Device Defender audit.
 --
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 data AuditSuppression = AuditSuppression'
   { -- | The expiration date (epoch timestamp in seconds) that you want the
     -- suppression to adhere to.
-    expirationDate :: Core.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Core.POSIX,
     -- | The description of the audit suppression.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a suppression should exist indefinitely or not.
-    suppressIndefinitely :: Core.Maybe Core.Bool,
-    checkName :: Core.Text,
+    suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
+    checkName :: Prelude.Text,
     resourceIdentifier :: ResourceIdentifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuditSuppression' with all optional fields omitted.
@@ -59,34 +60,34 @@ data AuditSuppression = AuditSuppression'
 -- 'resourceIdentifier', 'auditSuppression_resourceIdentifier' - Undocumented member.
 newAuditSuppression ::
   -- | 'checkName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceIdentifier'
   ResourceIdentifier ->
   AuditSuppression
 newAuditSuppression pCheckName_ pResourceIdentifier_ =
   AuditSuppression'
-    { expirationDate = Core.Nothing,
-      description = Core.Nothing,
-      suppressIndefinitely = Core.Nothing,
+    { expirationDate = Prelude.Nothing,
+      description = Prelude.Nothing,
+      suppressIndefinitely = Prelude.Nothing,
       checkName = pCheckName_,
       resourceIdentifier = pResourceIdentifier_
     }
 
 -- | The expiration date (epoch timestamp in seconds) that you want the
 -- suppression to adhere to.
-auditSuppression_expirationDate :: Lens.Lens' AuditSuppression (Core.Maybe Core.UTCTime)
-auditSuppression_expirationDate = Lens.lens (\AuditSuppression' {expirationDate} -> expirationDate) (\s@AuditSuppression' {} a -> s {expirationDate = a} :: AuditSuppression) Core.. Lens.mapping Core._Time
+auditSuppression_expirationDate :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.UTCTime)
+auditSuppression_expirationDate = Lens.lens (\AuditSuppression' {expirationDate} -> expirationDate) (\s@AuditSuppression' {} a -> s {expirationDate = a} :: AuditSuppression) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the audit suppression.
-auditSuppression_description :: Lens.Lens' AuditSuppression (Core.Maybe Core.Text)
+auditSuppression_description :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.Text)
 auditSuppression_description = Lens.lens (\AuditSuppression' {description} -> description) (\s@AuditSuppression' {} a -> s {description = a} :: AuditSuppression)
 
 -- | Indicates whether a suppression should exist indefinitely or not.
-auditSuppression_suppressIndefinitely :: Lens.Lens' AuditSuppression (Core.Maybe Core.Bool)
+auditSuppression_suppressIndefinitely :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.Bool)
 auditSuppression_suppressIndefinitely = Lens.lens (\AuditSuppression' {suppressIndefinitely} -> suppressIndefinitely) (\s@AuditSuppression' {} a -> s {suppressIndefinitely = a} :: AuditSuppression)
 
 -- | Undocumented member.
-auditSuppression_checkName :: Lens.Lens' AuditSuppression Core.Text
+auditSuppression_checkName :: Lens.Lens' AuditSuppression Prelude.Text
 auditSuppression_checkName = Lens.lens (\AuditSuppression' {checkName} -> checkName) (\s@AuditSuppression' {} a -> s {checkName = a} :: AuditSuppression)
 
 -- | Undocumented member.
@@ -99,13 +100,13 @@ instance Core.FromJSON AuditSuppression where
       "AuditSuppression"
       ( \x ->
           AuditSuppression'
-            Core.<$> (x Core..:? "expirationDate")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "suppressIndefinitely")
-            Core.<*> (x Core..: "checkName")
-            Core.<*> (x Core..: "resourceIdentifier")
+            Prelude.<$> (x Core..:? "expirationDate")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "suppressIndefinitely")
+            Prelude.<*> (x Core..: "checkName")
+            Prelude.<*> (x Core..: "resourceIdentifier")
       )
 
-instance Core.Hashable AuditSuppression
+instance Prelude.Hashable AuditSuppression
 
-instance Core.NFData AuditSuppression
+instance Prelude.NFData AuditSuppression

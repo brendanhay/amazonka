@@ -23,6 +23,7 @@ import Network.AWS.CloudSearch.Types.OptionStatus
 import Network.AWS.CloudSearch.Types.Suggester
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The value of a @Suggester@ and its current status.
 --
@@ -31,7 +32,7 @@ data SuggesterStatus = SuggesterStatus'
   { options :: Suggester,
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SuggesterStatus' with all optional fields omitted.
@@ -67,8 +68,9 @@ suggesterStatus_status = Lens.lens (\SuggesterStatus' {status} -> status) (\s@Su
 instance Core.FromXML SuggesterStatus where
   parseXML x =
     SuggesterStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Options")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable SuggesterStatus
+instance Prelude.Hashable SuggesterStatus
 
-instance Core.NFData SuggesterStatus
+instance Prelude.NFData SuggesterStatus

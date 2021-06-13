@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ParentHyperParameterTuningJob where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A previously completed or stopped hyperparameter tuning job to be used
 -- as a starting point for a new hyperparameter tuning job.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data ParentHyperParameterTuningJob = ParentHyperParameterTuningJob'
   { -- | The name of the hyperparameter tuning job to be used as a starting point
     -- for a new hyperparameter tuning job.
-    hyperParameterTuningJobName :: Core.Maybe Core.Text
+    hyperParameterTuningJobName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParentHyperParameterTuningJob' with all optional fields omitted.
@@ -48,12 +49,12 @@ newParentHyperParameterTuningJob ::
 newParentHyperParameterTuningJob =
   ParentHyperParameterTuningJob'
     { hyperParameterTuningJobName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the hyperparameter tuning job to be used as a starting point
 -- for a new hyperparameter tuning job.
-parentHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' ParentHyperParameterTuningJob (Core.Maybe Core.Text)
+parentHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' ParentHyperParameterTuningJob (Prelude.Maybe Prelude.Text)
 parentHyperParameterTuningJob_hyperParameterTuningJobName = Lens.lens (\ParentHyperParameterTuningJob' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@ParentHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobName = a} :: ParentHyperParameterTuningJob)
 
 instance Core.FromJSON ParentHyperParameterTuningJob where
@@ -62,18 +63,20 @@ instance Core.FromJSON ParentHyperParameterTuningJob where
       "ParentHyperParameterTuningJob"
       ( \x ->
           ParentHyperParameterTuningJob'
-            Core.<$> (x Core..:? "HyperParameterTuningJobName")
+            Prelude.<$> (x Core..:? "HyperParameterTuningJobName")
       )
 
-instance Core.Hashable ParentHyperParameterTuningJob
+instance
+  Prelude.Hashable
+    ParentHyperParameterTuningJob
 
-instance Core.NFData ParentHyperParameterTuningJob
+instance Prelude.NFData ParentHyperParameterTuningJob
 
 instance Core.ToJSON ParentHyperParameterTuningJob where
   toJSON ParentHyperParameterTuningJob' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("HyperParameterTuningJobName" Core..=)
-              Core.<$> hyperParameterTuningJobName
+              Prelude.<$> hyperParameterTuningJobName
           ]
       )

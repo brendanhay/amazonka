@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The strategies for managing your Spot Instances that are at an elevated
 -- risk of being interrupted.
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 data FleetSpotMaintenanceStrategiesRequest = FleetSpotMaintenanceStrategiesRequest'
   { -- | The strategy to use when Amazon EC2 emits a signal that your Spot
     -- Instance is at an elevated risk of being interrupted.
-    capacityRebalance :: Core.Maybe FleetSpotCapacityRebalanceRequest
+    capacityRebalance :: Prelude.Maybe FleetSpotCapacityRebalanceRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetSpotMaintenanceStrategiesRequest' with all optional fields omitted.
@@ -50,20 +51,20 @@ newFleetSpotMaintenanceStrategiesRequest ::
 newFleetSpotMaintenanceStrategiesRequest =
   FleetSpotMaintenanceStrategiesRequest'
     { capacityRebalance =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot
 -- Instance is at an elevated risk of being interrupted.
-fleetSpotMaintenanceStrategiesRequest_capacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategiesRequest (Core.Maybe FleetSpotCapacityRebalanceRequest)
+fleetSpotMaintenanceStrategiesRequest_capacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategiesRequest (Prelude.Maybe FleetSpotCapacityRebalanceRequest)
 fleetSpotMaintenanceStrategiesRequest_capacityRebalance = Lens.lens (\FleetSpotMaintenanceStrategiesRequest' {capacityRebalance} -> capacityRebalance) (\s@FleetSpotMaintenanceStrategiesRequest' {} a -> s {capacityRebalance = a} :: FleetSpotMaintenanceStrategiesRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FleetSpotMaintenanceStrategiesRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     FleetSpotMaintenanceStrategiesRequest
 
 instance
@@ -71,5 +72,5 @@ instance
     FleetSpotMaintenanceStrategiesRequest
   where
   toQuery FleetSpotMaintenanceStrategiesRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["CapacityRebalance" Core.=: capacityRebalance]

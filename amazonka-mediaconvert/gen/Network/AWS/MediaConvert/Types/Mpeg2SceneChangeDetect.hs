@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Mpeg2SceneChangeDetect
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enable this setting to insert I-frames at scene changes that the service
 -- automatically detects. This improves video quality and is enabled by
@@ -36,15 +37,15 @@ newtype Mpeg2SceneChangeDetect = Mpeg2SceneChangeDetect'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

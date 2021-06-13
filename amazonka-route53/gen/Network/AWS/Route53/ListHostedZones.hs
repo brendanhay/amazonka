@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -67,13 +68,13 @@ data ListHostedZones = ListHostedZones'
   { -- | If you\'re using reusable delegation sets and you want to list all of
     -- the hosted zones that are associated with a reusable delegation set,
     -- specify the ID of that reusable delegation set.
-    delegationSetId :: Core.Maybe ResourceId,
+    delegationSetId :: Prelude.Maybe ResourceId,
     -- | (Optional) The maximum number of hosted zones that you want Amazon Route
     -- 53 to return. If you have more than @maxitems@ hosted zones, the value
     -- of @IsTruncated@ in the response is @true@, and the value of
     -- @NextMarker@ is the hosted zone ID of the first hosted zone that Route
     -- 53 will return if you submit another request.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | If the value of @IsTruncated@ in the previous response was @true@, you
     -- have more hosted zones. To get more hosted zones, submit another
     -- @ListHostedZones@ request.
@@ -84,9 +85,9 @@ data ListHostedZones = ListHostedZones'
     --
     -- If the value of @IsTruncated@ in the previous response was @false@,
     -- there are no more hosted zones to get.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHostedZones' with all optional fields omitted.
@@ -120,15 +121,15 @@ newListHostedZones ::
   ListHostedZones
 newListHostedZones =
   ListHostedZones'
-    { delegationSetId = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { delegationSetId = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | If you\'re using reusable delegation sets and you want to list all of
 -- the hosted zones that are associated with a reusable delegation set,
 -- specify the ID of that reusable delegation set.
-listHostedZones_delegationSetId :: Lens.Lens' ListHostedZones (Core.Maybe ResourceId)
+listHostedZones_delegationSetId :: Lens.Lens' ListHostedZones (Prelude.Maybe ResourceId)
 listHostedZones_delegationSetId = Lens.lens (\ListHostedZones' {delegationSetId} -> delegationSetId) (\s@ListHostedZones' {} a -> s {delegationSetId = a} :: ListHostedZones)
 
 -- | (Optional) The maximum number of hosted zones that you want Amazon Route
@@ -136,7 +137,7 @@ listHostedZones_delegationSetId = Lens.lens (\ListHostedZones' {delegationSetId}
 -- of @IsTruncated@ in the response is @true@, and the value of
 -- @NextMarker@ is the hosted zone ID of the first hosted zone that Route
 -- 53 will return if you submit another request.
-listHostedZones_maxItems :: Lens.Lens' ListHostedZones (Core.Maybe Core.Text)
+listHostedZones_maxItems :: Lens.Lens' ListHostedZones (Prelude.Maybe Prelude.Text)
 listHostedZones_maxItems = Lens.lens (\ListHostedZones' {maxItems} -> maxItems) (\s@ListHostedZones' {} a -> s {maxItems = a} :: ListHostedZones)
 
 -- | If the value of @IsTruncated@ in the previous response was @true@, you
@@ -149,25 +150,27 @@ listHostedZones_maxItems = Lens.lens (\ListHostedZones' {maxItems} -> maxItems) 
 --
 -- If the value of @IsTruncated@ in the previous response was @false@,
 -- there are no more hosted zones to get.
-listHostedZones_marker :: Lens.Lens' ListHostedZones (Core.Maybe Core.Text)
+listHostedZones_marker :: Lens.Lens' ListHostedZones (Prelude.Maybe Prelude.Text)
 listHostedZones_marker = Lens.lens (\ListHostedZones' {marker} -> marker) (\s@ListHostedZones' {} a -> s {marker = a} :: ListHostedZones)
 
 instance Core.AWSPager ListHostedZones where
   page rq rs
     | Core.stop
         (rs Lens.^. listHostedZonesResponse_isTruncated) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listHostedZonesResponse_nextMarker Core.. Lens._Just
+            Lens.^? listHostedZonesResponse_nextMarker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listHostedZones_marker
+          Prelude.& listHostedZones_marker
           Lens..~ rs
-          Lens.^? listHostedZonesResponse_nextMarker Core.. Lens._Just
+          Lens.^? listHostedZonesResponse_nextMarker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHostedZones where
   type
@@ -178,29 +181,29 @@ instance Core.AWSRequest ListHostedZones where
     Response.receiveXML
       ( \s h x ->
           ListHostedZonesResponse'
-            Core.<$> (x Core..@? "NextMarker")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "HostedZones" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "HostedZone"
-                     )
-            Core.<*> (x Core..@ "IsTruncated")
-            Core.<*> (x Core..@ "MaxItems")
+            Prelude.<$> (x Core..@? "NextMarker")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "HostedZones" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "HostedZone"
+                        )
+            Prelude.<*> (x Core..@ "IsTruncated")
+            Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Core.Hashable ListHostedZones
+instance Prelude.Hashable ListHostedZones
 
-instance Core.NFData ListHostedZones
+instance Prelude.NFData ListHostedZones
 
 instance Core.ToHeaders ListHostedZones where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListHostedZones where
-  toPath = Core.const "/2013-04-01/hostedzone"
+  toPath = Prelude.const "/2013-04-01/hostedzone"
 
 instance Core.ToQuery ListHostedZones where
   toQuery ListHostedZones' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "delegationsetid" Core.=: delegationSetId,
         "maxitems" Core.=: maxItems,
         "marker" Core.=: marker
@@ -214,25 +217,25 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
     -- the response in the @marker@ parameter.
     --
     -- This element is present only if @IsTruncated@ is @true@.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | For the second and subsequent calls to @ListHostedZones@, @Marker@ is
     -- the value that you specified for the @marker@ parameter in the request
     -- that produced the current response.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains general information about the hosted zone.
     hostedZones :: [HostedZone],
     -- | A flag indicating whether there are more hosted zones to be listed. If
     -- the response was truncated, you can get more hosted zones by submitting
     -- another @ListHostedZones@ request and specifying the value of
     -- @NextMarker@ in the @marker@ parameter.
-    isTruncated :: Core.Bool,
+    isTruncated :: Prelude.Bool,
     -- | The value that you specified for the @maxitems@ parameter in the call to
     -- @ListHostedZones@ that produced the current response.
-    maxItems :: Core.Text
+    maxItems :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHostedZonesResponse' with all optional fields omitted.
@@ -266,21 +269,22 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
 -- @ListHostedZones@ that produced the current response.
 newListHostedZonesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'isTruncated'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'maxItems'
-  Core.Text ->
+  Prelude.Text ->
   ListHostedZonesResponse
 newListHostedZonesResponse
   pHttpStatus_
   pIsTruncated_
   pMaxItems_ =
     ListHostedZonesResponse'
-      { nextMarker = Core.Nothing,
-        marker = Core.Nothing,
+      { nextMarker =
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        hostedZones = Core.mempty,
+        hostedZones = Prelude.mempty,
         isTruncated = pIsTruncated_,
         maxItems = pMaxItems_
       }
@@ -291,33 +295,33 @@ newListHostedZonesResponse
 -- the response in the @marker@ parameter.
 --
 -- This element is present only if @IsTruncated@ is @true@.
-listHostedZonesResponse_nextMarker :: Lens.Lens' ListHostedZonesResponse (Core.Maybe Core.Text)
+listHostedZonesResponse_nextMarker :: Lens.Lens' ListHostedZonesResponse (Prelude.Maybe Prelude.Text)
 listHostedZonesResponse_nextMarker = Lens.lens (\ListHostedZonesResponse' {nextMarker} -> nextMarker) (\s@ListHostedZonesResponse' {} a -> s {nextMarker = a} :: ListHostedZonesResponse)
 
 -- | For the second and subsequent calls to @ListHostedZones@, @Marker@ is
 -- the value that you specified for the @marker@ parameter in the request
 -- that produced the current response.
-listHostedZonesResponse_marker :: Lens.Lens' ListHostedZonesResponse (Core.Maybe Core.Text)
+listHostedZonesResponse_marker :: Lens.Lens' ListHostedZonesResponse (Prelude.Maybe Prelude.Text)
 listHostedZonesResponse_marker = Lens.lens (\ListHostedZonesResponse' {marker} -> marker) (\s@ListHostedZonesResponse' {} a -> s {marker = a} :: ListHostedZonesResponse)
 
 -- | The response's http status code.
-listHostedZonesResponse_httpStatus :: Lens.Lens' ListHostedZonesResponse Core.Int
+listHostedZonesResponse_httpStatus :: Lens.Lens' ListHostedZonesResponse Prelude.Int
 listHostedZonesResponse_httpStatus = Lens.lens (\ListHostedZonesResponse' {httpStatus} -> httpStatus) (\s@ListHostedZonesResponse' {} a -> s {httpStatus = a} :: ListHostedZonesResponse)
 
 -- | A complex type that contains general information about the hosted zone.
 listHostedZonesResponse_hostedZones :: Lens.Lens' ListHostedZonesResponse [HostedZone]
-listHostedZonesResponse_hostedZones = Lens.lens (\ListHostedZonesResponse' {hostedZones} -> hostedZones) (\s@ListHostedZonesResponse' {} a -> s {hostedZones = a} :: ListHostedZonesResponse) Core.. Lens._Coerce
+listHostedZonesResponse_hostedZones = Lens.lens (\ListHostedZonesResponse' {hostedZones} -> hostedZones) (\s@ListHostedZonesResponse' {} a -> s {hostedZones = a} :: ListHostedZonesResponse) Prelude.. Lens._Coerce
 
 -- | A flag indicating whether there are more hosted zones to be listed. If
 -- the response was truncated, you can get more hosted zones by submitting
 -- another @ListHostedZones@ request and specifying the value of
 -- @NextMarker@ in the @marker@ parameter.
-listHostedZonesResponse_isTruncated :: Lens.Lens' ListHostedZonesResponse Core.Bool
+listHostedZonesResponse_isTruncated :: Lens.Lens' ListHostedZonesResponse Prelude.Bool
 listHostedZonesResponse_isTruncated = Lens.lens (\ListHostedZonesResponse' {isTruncated} -> isTruncated) (\s@ListHostedZonesResponse' {} a -> s {isTruncated = a} :: ListHostedZonesResponse)
 
 -- | The value that you specified for the @maxitems@ parameter in the call to
 -- @ListHostedZones@ that produced the current response.
-listHostedZonesResponse_maxItems :: Lens.Lens' ListHostedZonesResponse Core.Text
+listHostedZonesResponse_maxItems :: Lens.Lens' ListHostedZonesResponse Prelude.Text
 listHostedZonesResponse_maxItems = Lens.lens (\ListHostedZonesResponse' {maxItems} -> maxItems) (\s@ListHostedZonesResponse' {} a -> s {maxItems = a} :: ListHostedZonesResponse)
 
-instance Core.NFData ListHostedZonesResponse
+instance Prelude.NFData ListHostedZonesResponse

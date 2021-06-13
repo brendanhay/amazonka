@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.EbsInstanceBlockDeviceSpecification
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device mapping entry.
 --
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'
   { -- | Parameters used to automatically set up EBS volumes when the instance is
     -- launched.
-    ebs :: Core.Maybe EbsInstanceBlockDeviceSpecification,
+    ebs :: Prelude.Maybe EbsInstanceBlockDeviceSpecification,
     -- | suppress the specified device included in the block device mapping.
-    noDevice :: Core.Maybe Core.Text,
+    noDevice :: Prelude.Maybe Prelude.Text,
     -- | The virtual device name.
-    virtualName :: Core.Maybe Core.Text,
+    virtualName :: Prelude.Maybe Prelude.Text,
     -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-    deviceName :: Core.Maybe Core.Text
+    deviceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceBlockDeviceMappingSpecification' with all optional fields omitted.
@@ -61,35 +62,35 @@ newInstanceBlockDeviceMappingSpecification ::
 newInstanceBlockDeviceMappingSpecification =
   InstanceBlockDeviceMappingSpecification'
     { ebs =
-        Core.Nothing,
-      noDevice = Core.Nothing,
-      virtualName = Core.Nothing,
-      deviceName = Core.Nothing
+        Prelude.Nothing,
+      noDevice = Prelude.Nothing,
+      virtualName = Prelude.Nothing,
+      deviceName = Prelude.Nothing
     }
 
 -- | Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
-instanceBlockDeviceMappingSpecification_ebs :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Core.Maybe EbsInstanceBlockDeviceSpecification)
+instanceBlockDeviceMappingSpecification_ebs :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Prelude.Maybe EbsInstanceBlockDeviceSpecification)
 instanceBlockDeviceMappingSpecification_ebs = Lens.lens (\InstanceBlockDeviceMappingSpecification' {ebs} -> ebs) (\s@InstanceBlockDeviceMappingSpecification' {} a -> s {ebs = a} :: InstanceBlockDeviceMappingSpecification)
 
 -- | suppress the specified device included in the block device mapping.
-instanceBlockDeviceMappingSpecification_noDevice :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Core.Maybe Core.Text)
+instanceBlockDeviceMappingSpecification_noDevice :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Prelude.Maybe Prelude.Text)
 instanceBlockDeviceMappingSpecification_noDevice = Lens.lens (\InstanceBlockDeviceMappingSpecification' {noDevice} -> noDevice) (\s@InstanceBlockDeviceMappingSpecification' {} a -> s {noDevice = a} :: InstanceBlockDeviceMappingSpecification)
 
 -- | The virtual device name.
-instanceBlockDeviceMappingSpecification_virtualName :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Core.Maybe Core.Text)
+instanceBlockDeviceMappingSpecification_virtualName :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Prelude.Maybe Prelude.Text)
 instanceBlockDeviceMappingSpecification_virtualName = Lens.lens (\InstanceBlockDeviceMappingSpecification' {virtualName} -> virtualName) (\s@InstanceBlockDeviceMappingSpecification' {} a -> s {virtualName = a} :: InstanceBlockDeviceMappingSpecification)
 
 -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-instanceBlockDeviceMappingSpecification_deviceName :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Core.Maybe Core.Text)
+instanceBlockDeviceMappingSpecification_deviceName :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Prelude.Maybe Prelude.Text)
 instanceBlockDeviceMappingSpecification_deviceName = Lens.lens (\InstanceBlockDeviceMappingSpecification' {deviceName} -> deviceName) (\s@InstanceBlockDeviceMappingSpecification' {} a -> s {deviceName = a} :: InstanceBlockDeviceMappingSpecification)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InstanceBlockDeviceMappingSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     InstanceBlockDeviceMappingSpecification
 
 instance
@@ -97,7 +98,7 @@ instance
     InstanceBlockDeviceMappingSpecification
   where
   toQuery InstanceBlockDeviceMappingSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Ebs" Core.=: ebs,
         "NoDevice" Core.=: noDevice,
         "VirtualName" Core.=: virtualName,

@@ -21,6 +21,7 @@ module Network.AWS.CloudWatch.Types.Range where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies one range of days or times to exclude from use for training an
 -- anomaly detection model.
@@ -34,7 +35,7 @@ data Range = Range'
     -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
     endTime :: Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Range' with all optional fields omitted.
@@ -51,9 +52,9 @@ data Range = Range'
 -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
 newRange ::
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   Range
 newRange pStartTime_ pEndTime_ =
   Range'
@@ -63,27 +64,27 @@ newRange pStartTime_ pEndTime_ =
 
 -- | The start time of the range to exclude. The format is
 -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
-range_startTime :: Lens.Lens' Range Core.UTCTime
-range_startTime = Lens.lens (\Range' {startTime} -> startTime) (\s@Range' {} a -> s {startTime = a} :: Range) Core.. Core._Time
+range_startTime :: Lens.Lens' Range Prelude.UTCTime
+range_startTime = Lens.lens (\Range' {startTime} -> startTime) (\s@Range' {} a -> s {startTime = a} :: Range) Prelude.. Core._Time
 
 -- | The end time of the range to exclude. The format is
 -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
-range_endTime :: Lens.Lens' Range Core.UTCTime
-range_endTime = Lens.lens (\Range' {endTime} -> endTime) (\s@Range' {} a -> s {endTime = a} :: Range) Core.. Core._Time
+range_endTime :: Lens.Lens' Range Prelude.UTCTime
+range_endTime = Lens.lens (\Range' {endTime} -> endTime) (\s@Range' {} a -> s {endTime = a} :: Range) Prelude.. Core._Time
 
 instance Core.FromXML Range where
   parseXML x =
     Range'
-      Core.<$> (x Core..@ "StartTime")
-      Core.<*> (x Core..@ "EndTime")
+      Prelude.<$> (x Core..@ "StartTime")
+      Prelude.<*> (x Core..@ "EndTime")
 
-instance Core.Hashable Range
+instance Prelude.Hashable Range
 
-instance Core.NFData Range
+instance Prelude.NFData Range
 
 instance Core.ToQuery Range where
   toQuery Range' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "StartTime" Core.=: startTime,
         "EndTime" Core.=: endTime
       ]

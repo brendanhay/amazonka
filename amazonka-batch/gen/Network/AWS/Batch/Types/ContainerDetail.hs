@@ -32,6 +32,7 @@ import Network.AWS.Batch.Types.Ulimit
 import Network.AWS.Batch.Types.Volume
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the details of a container that\'s part of a job.
 --
@@ -41,15 +42,15 @@ data ContainerDetail = ContainerDetail'
     -- container. The log group for AWS Batch jobs is @\/aws\/batch\/job@. Each
     -- container attempt receives a log stream name when they reach the
     -- @RUNNING@ status.
-    logStreamName :: Core.Maybe Core.Text,
+    logStreamName :: Prelude.Maybe Prelude.Text,
     -- | Linux-specific modifications that are applied to the container, such as
     -- details for device mappings.
-    linuxParameters :: Core.Maybe LinuxParameters,
+    linuxParameters :: Prelude.Maybe LinuxParameters,
     -- | For jobs run on EC2 resources that didn\'t specify memory requirements
     -- using @ResourceRequirement@, the number of MiB of memory reserved for
     -- the job. For other jobs, including all run on Fargate resources, see
     -- @resourceRequirements@.
-    memory :: Core.Maybe Core.Int,
+    memory :: Prelude.Maybe Prelude.Int,
     -- | The user name to use inside the container. This parameter maps to @User@
     -- in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -57,27 +58,27 @@ data ContainerDetail = ContainerDetail'
     -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
     -- @--user@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
-    user :: Core.Maybe Core.Text,
+    user :: Prelude.Maybe Prelude.Text,
     -- | The instance type of the underlying host infrastructure of a multi-node
     -- parallel job.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources.
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The network configuration for jobs running on Fargate resources. Jobs
     -- running on EC2 resources must not specify this parameter.
-    networkConfiguration :: Core.Maybe NetworkConfiguration,
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The Amazon Resource Name (ARN) of the execution role that AWS Batch can
     -- assume. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html AWS Batch execution IAM role>
     -- in the /AWS Batch User Guide/.
-    executionRoleArn :: Core.Maybe Core.Text,
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | When this parameter is true, the container is given elevated permissions
     -- on the host container instance (similar to the @root@ user). The default
     -- value is false.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources
     -- and shouldn\'t be provided, or specified as false.
-    privileged :: Core.Maybe Core.Bool,
+    privileged :: Prelude.Maybe Prelude.Bool,
     -- | The number of vCPUs reserved for the container. Jobs running on EC2
     -- resources can specify the vCPU requirement for the job using
     -- @resourceRequirements@ but the vCPU requirements can\'t be specified
@@ -95,33 +96,33 @@ data ContainerDetail = ContainerDetail'
     -- This parameter isn\'t applicable to jobs running on Fargate resources.
     -- Jobs running on Fargate resources must specify the vCPU requirement for
     -- the job using @resourceRequirements@.
-    vcpus :: Core.Maybe Core.Int,
+    vcpus :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the container instance that the
     -- container is running on.
-    containerInstanceArn :: Core.Maybe Core.Text,
+    containerInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | A list of volumes associated with the job.
-    volumes :: Core.Maybe [Volume],
+    volumes :: Prelude.Maybe [Volume],
     -- | The environment variables to pass to a container.
     --
     -- Environment variables must not start with @AWS_BATCH@; this naming
     -- convention is reserved for variables that are set by the AWS Batch
     -- service.
-    environment :: Core.Maybe [KeyValuePair],
+    environment :: Prelude.Maybe [KeyValuePair],
     -- | The platform configuration for jobs running on Fargate resources. Jobs
     -- running on EC2 resources must not specify this parameter.
-    fargatePlatformConfiguration :: Core.Maybe FargatePlatformConfiguration,
+    fargatePlatformConfiguration :: Prelude.Maybe FargatePlatformConfiguration,
     -- | The exit code to return upon completion.
-    exitCode :: Core.Maybe Core.Int,
+    exitCode :: Prelude.Maybe Prelude.Int,
     -- | The secrets to pass to the container. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying sensitive data>
     -- in the /AWS Batch User Guide/.
-    secrets :: Core.Maybe [Secret],
+    secrets :: Prelude.Maybe [Secret],
     -- | The mount points for data volumes in your container.
-    mountPoints :: Core.Maybe [MountPoint],
+    mountPoints :: Prelude.Maybe [MountPoint],
     -- | The image used to start the container.
-    image :: Core.Maybe Core.Text,
+    image :: Prelude.Maybe Prelude.Text,
     -- | The command that\'s passed to the container.
-    command :: Core.Maybe [Core.Text],
+    command :: Prelude.Maybe [Prelude.Text],
     -- | The log configuration specification for the container.
     --
     -- This parameter maps to @LogConfig@ in the
@@ -158,15 +159,15 @@ data ContainerDetail = ContainerDetail'
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    logConfiguration :: Core.Maybe LogConfiguration,
+    logConfiguration :: Prelude.Maybe LogConfiguration,
     -- | A short (255 max characters) human-readable string to provide additional
     -- details about a running or stopped container.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The type and amount of resources to assign to a container. The supported
     -- resources include @GPU@, @MEMORY@, and @VCPU@.
-    resourceRequirements :: Core.Maybe [ResourceRequirement],
+    resourceRequirements :: Prelude.Maybe [ResourceRequirement],
     -- | The Amazon Resource Name (ARN) associated with the job upon execution.
-    jobRoleArn :: Core.Maybe Core.Text,
+    jobRoleArn :: Prelude.Maybe Prelude.Text,
     -- | When this parameter is true, the container is given read-only access to
     -- its root file system. This parameter maps to @ReadonlyRootfs@ in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -174,7 +175,7 @@ data ContainerDetail = ContainerDetail'
     -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
     -- @--read-only@ option to
     -- <https://docs.docker.com/engine/reference/commandline/run/ docker run> .
-    readonlyRootFilesystem :: Core.Maybe Core.Bool,
+    readonlyRootFilesystem :: Prelude.Maybe Prelude.Bool,
     -- | A list of @ulimit@ values to set in the container. This parameter maps
     -- to @Ulimits@ in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -184,15 +185,15 @@ data ContainerDetail = ContainerDetail'
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources.
-    ulimits :: Core.Maybe [Ulimit],
+    ulimits :: Prelude.Maybe [Ulimit],
     -- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
     -- with the container job. Each container attempt receives a task ARN when
     -- they reach the @STARTING@ status.
-    taskArn :: Core.Maybe Core.Text,
+    taskArn :: Prelude.Maybe Prelude.Text,
     -- | The network interfaces associated with the job.
-    networkInterfaces :: Core.Maybe [NetworkInterface]
+    networkInterfaces :: Prelude.Maybe [NetworkInterface]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerDetail' with all optional fields omitted.
@@ -359,51 +360,51 @@ newContainerDetail ::
   ContainerDetail
 newContainerDetail =
   ContainerDetail'
-    { logStreamName = Core.Nothing,
-      linuxParameters = Core.Nothing,
-      memory = Core.Nothing,
-      user = Core.Nothing,
-      instanceType = Core.Nothing,
-      networkConfiguration = Core.Nothing,
-      executionRoleArn = Core.Nothing,
-      privileged = Core.Nothing,
-      vcpus = Core.Nothing,
-      containerInstanceArn = Core.Nothing,
-      volumes = Core.Nothing,
-      environment = Core.Nothing,
-      fargatePlatformConfiguration = Core.Nothing,
-      exitCode = Core.Nothing,
-      secrets = Core.Nothing,
-      mountPoints = Core.Nothing,
-      image = Core.Nothing,
-      command = Core.Nothing,
-      logConfiguration = Core.Nothing,
-      reason = Core.Nothing,
-      resourceRequirements = Core.Nothing,
-      jobRoleArn = Core.Nothing,
-      readonlyRootFilesystem = Core.Nothing,
-      ulimits = Core.Nothing,
-      taskArn = Core.Nothing,
-      networkInterfaces = Core.Nothing
+    { logStreamName = Prelude.Nothing,
+      linuxParameters = Prelude.Nothing,
+      memory = Prelude.Nothing,
+      user = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
+      privileged = Prelude.Nothing,
+      vcpus = Prelude.Nothing,
+      containerInstanceArn = Prelude.Nothing,
+      volumes = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      fargatePlatformConfiguration = Prelude.Nothing,
+      exitCode = Prelude.Nothing,
+      secrets = Prelude.Nothing,
+      mountPoints = Prelude.Nothing,
+      image = Prelude.Nothing,
+      command = Prelude.Nothing,
+      logConfiguration = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      resourceRequirements = Prelude.Nothing,
+      jobRoleArn = Prelude.Nothing,
+      readonlyRootFilesystem = Prelude.Nothing,
+      ulimits = Prelude.Nothing,
+      taskArn = Prelude.Nothing,
+      networkInterfaces = Prelude.Nothing
     }
 
 -- | The name of the CloudWatch Logs log stream associated with the
 -- container. The log group for AWS Batch jobs is @\/aws\/batch\/job@. Each
 -- container attempt receives a log stream name when they reach the
 -- @RUNNING@ status.
-containerDetail_logStreamName :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_logStreamName :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_logStreamName = Lens.lens (\ContainerDetail' {logStreamName} -> logStreamName) (\s@ContainerDetail' {} a -> s {logStreamName = a} :: ContainerDetail)
 
 -- | Linux-specific modifications that are applied to the container, such as
 -- details for device mappings.
-containerDetail_linuxParameters :: Lens.Lens' ContainerDetail (Core.Maybe LinuxParameters)
+containerDetail_linuxParameters :: Lens.Lens' ContainerDetail (Prelude.Maybe LinuxParameters)
 containerDetail_linuxParameters = Lens.lens (\ContainerDetail' {linuxParameters} -> linuxParameters) (\s@ContainerDetail' {} a -> s {linuxParameters = a} :: ContainerDetail)
 
 -- | For jobs run on EC2 resources that didn\'t specify memory requirements
 -- using @ResourceRequirement@, the number of MiB of memory reserved for
 -- the job. For other jobs, including all run on Fargate resources, see
 -- @resourceRequirements@.
-containerDetail_memory :: Lens.Lens' ContainerDetail (Core.Maybe Core.Int)
+containerDetail_memory :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Int)
 containerDetail_memory = Lens.lens (\ContainerDetail' {memory} -> memory) (\s@ContainerDetail' {} a -> s {memory = a} :: ContainerDetail)
 
 -- | The user name to use inside the container. This parameter maps to @User@
@@ -413,26 +414,26 @@ containerDetail_memory = Lens.lens (\ContainerDetail' {memory} -> memory) (\s@Co
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
 -- @--user@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
-containerDetail_user :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_user :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_user = Lens.lens (\ContainerDetail' {user} -> user) (\s@ContainerDetail' {} a -> s {user = a} :: ContainerDetail)
 
 -- | The instance type of the underlying host infrastructure of a multi-node
 -- parallel job.
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources.
-containerDetail_instanceType :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_instanceType :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_instanceType = Lens.lens (\ContainerDetail' {instanceType} -> instanceType) (\s@ContainerDetail' {} a -> s {instanceType = a} :: ContainerDetail)
 
 -- | The network configuration for jobs running on Fargate resources. Jobs
 -- running on EC2 resources must not specify this parameter.
-containerDetail_networkConfiguration :: Lens.Lens' ContainerDetail (Core.Maybe NetworkConfiguration)
+containerDetail_networkConfiguration :: Lens.Lens' ContainerDetail (Prelude.Maybe NetworkConfiguration)
 containerDetail_networkConfiguration = Lens.lens (\ContainerDetail' {networkConfiguration} -> networkConfiguration) (\s@ContainerDetail' {} a -> s {networkConfiguration = a} :: ContainerDetail)
 
 -- | The Amazon Resource Name (ARN) of the execution role that AWS Batch can
 -- assume. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html AWS Batch execution IAM role>
 -- in the /AWS Batch User Guide/.
-containerDetail_executionRoleArn :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_executionRoleArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_executionRoleArn = Lens.lens (\ContainerDetail' {executionRoleArn} -> executionRoleArn) (\s@ContainerDetail' {} a -> s {executionRoleArn = a} :: ContainerDetail)
 
 -- | When this parameter is true, the container is given elevated permissions
@@ -441,7 +442,7 @@ containerDetail_executionRoleArn = Lens.lens (\ContainerDetail' {executionRoleAr
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources
 -- and shouldn\'t be provided, or specified as false.
-containerDetail_privileged :: Lens.Lens' ContainerDetail (Core.Maybe Core.Bool)
+containerDetail_privileged :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Bool)
 containerDetail_privileged = Lens.lens (\ContainerDetail' {privileged} -> privileged) (\s@ContainerDetail' {} a -> s {privileged = a} :: ContainerDetail)
 
 -- | The number of vCPUs reserved for the container. Jobs running on EC2
@@ -461,52 +462,52 @@ containerDetail_privileged = Lens.lens (\ContainerDetail' {privileged} -> privil
 -- This parameter isn\'t applicable to jobs running on Fargate resources.
 -- Jobs running on Fargate resources must specify the vCPU requirement for
 -- the job using @resourceRequirements@.
-containerDetail_vcpus :: Lens.Lens' ContainerDetail (Core.Maybe Core.Int)
+containerDetail_vcpus :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Int)
 containerDetail_vcpus = Lens.lens (\ContainerDetail' {vcpus} -> vcpus) (\s@ContainerDetail' {} a -> s {vcpus = a} :: ContainerDetail)
 
 -- | The Amazon Resource Name (ARN) of the container instance that the
 -- container is running on.
-containerDetail_containerInstanceArn :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_containerInstanceArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_containerInstanceArn = Lens.lens (\ContainerDetail' {containerInstanceArn} -> containerInstanceArn) (\s@ContainerDetail' {} a -> s {containerInstanceArn = a} :: ContainerDetail)
 
 -- | A list of volumes associated with the job.
-containerDetail_volumes :: Lens.Lens' ContainerDetail (Core.Maybe [Volume])
-containerDetail_volumes = Lens.lens (\ContainerDetail' {volumes} -> volumes) (\s@ContainerDetail' {} a -> s {volumes = a} :: ContainerDetail) Core.. Lens.mapping Lens._Coerce
+containerDetail_volumes :: Lens.Lens' ContainerDetail (Prelude.Maybe [Volume])
+containerDetail_volumes = Lens.lens (\ContainerDetail' {volumes} -> volumes) (\s@ContainerDetail' {} a -> s {volumes = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The environment variables to pass to a container.
 --
 -- Environment variables must not start with @AWS_BATCH@; this naming
 -- convention is reserved for variables that are set by the AWS Batch
 -- service.
-containerDetail_environment :: Lens.Lens' ContainerDetail (Core.Maybe [KeyValuePair])
-containerDetail_environment = Lens.lens (\ContainerDetail' {environment} -> environment) (\s@ContainerDetail' {} a -> s {environment = a} :: ContainerDetail) Core.. Lens.mapping Lens._Coerce
+containerDetail_environment :: Lens.Lens' ContainerDetail (Prelude.Maybe [KeyValuePair])
+containerDetail_environment = Lens.lens (\ContainerDetail' {environment} -> environment) (\s@ContainerDetail' {} a -> s {environment = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The platform configuration for jobs running on Fargate resources. Jobs
 -- running on EC2 resources must not specify this parameter.
-containerDetail_fargatePlatformConfiguration :: Lens.Lens' ContainerDetail (Core.Maybe FargatePlatformConfiguration)
+containerDetail_fargatePlatformConfiguration :: Lens.Lens' ContainerDetail (Prelude.Maybe FargatePlatformConfiguration)
 containerDetail_fargatePlatformConfiguration = Lens.lens (\ContainerDetail' {fargatePlatformConfiguration} -> fargatePlatformConfiguration) (\s@ContainerDetail' {} a -> s {fargatePlatformConfiguration = a} :: ContainerDetail)
 
 -- | The exit code to return upon completion.
-containerDetail_exitCode :: Lens.Lens' ContainerDetail (Core.Maybe Core.Int)
+containerDetail_exitCode :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Int)
 containerDetail_exitCode = Lens.lens (\ContainerDetail' {exitCode} -> exitCode) (\s@ContainerDetail' {} a -> s {exitCode = a} :: ContainerDetail)
 
 -- | The secrets to pass to the container. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying sensitive data>
 -- in the /AWS Batch User Guide/.
-containerDetail_secrets :: Lens.Lens' ContainerDetail (Core.Maybe [Secret])
-containerDetail_secrets = Lens.lens (\ContainerDetail' {secrets} -> secrets) (\s@ContainerDetail' {} a -> s {secrets = a} :: ContainerDetail) Core.. Lens.mapping Lens._Coerce
+containerDetail_secrets :: Lens.Lens' ContainerDetail (Prelude.Maybe [Secret])
+containerDetail_secrets = Lens.lens (\ContainerDetail' {secrets} -> secrets) (\s@ContainerDetail' {} a -> s {secrets = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The mount points for data volumes in your container.
-containerDetail_mountPoints :: Lens.Lens' ContainerDetail (Core.Maybe [MountPoint])
-containerDetail_mountPoints = Lens.lens (\ContainerDetail' {mountPoints} -> mountPoints) (\s@ContainerDetail' {} a -> s {mountPoints = a} :: ContainerDetail) Core.. Lens.mapping Lens._Coerce
+containerDetail_mountPoints :: Lens.Lens' ContainerDetail (Prelude.Maybe [MountPoint])
+containerDetail_mountPoints = Lens.lens (\ContainerDetail' {mountPoints} -> mountPoints) (\s@ContainerDetail' {} a -> s {mountPoints = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The image used to start the container.
-containerDetail_image :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_image :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_image = Lens.lens (\ContainerDetail' {image} -> image) (\s@ContainerDetail' {} a -> s {image = a} :: ContainerDetail)
 
 -- | The command that\'s passed to the container.
-containerDetail_command :: Lens.Lens' ContainerDetail (Core.Maybe [Core.Text])
-containerDetail_command = Lens.lens (\ContainerDetail' {command} -> command) (\s@ContainerDetail' {} a -> s {command = a} :: ContainerDetail) Core.. Lens.mapping Lens._Coerce
+containerDetail_command :: Lens.Lens' ContainerDetail (Prelude.Maybe [Prelude.Text])
+containerDetail_command = Lens.lens (\ContainerDetail' {command} -> command) (\s@ContainerDetail' {} a -> s {command = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The log configuration specification for the container.
 --
@@ -544,21 +545,21 @@ containerDetail_command = Lens.lens (\ContainerDetail' {command} -> command) (\s
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-containerDetail_logConfiguration :: Lens.Lens' ContainerDetail (Core.Maybe LogConfiguration)
+containerDetail_logConfiguration :: Lens.Lens' ContainerDetail (Prelude.Maybe LogConfiguration)
 containerDetail_logConfiguration = Lens.lens (\ContainerDetail' {logConfiguration} -> logConfiguration) (\s@ContainerDetail' {} a -> s {logConfiguration = a} :: ContainerDetail)
 
 -- | A short (255 max characters) human-readable string to provide additional
 -- details about a running or stopped container.
-containerDetail_reason :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_reason :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_reason = Lens.lens (\ContainerDetail' {reason} -> reason) (\s@ContainerDetail' {} a -> s {reason = a} :: ContainerDetail)
 
 -- | The type and amount of resources to assign to a container. The supported
 -- resources include @GPU@, @MEMORY@, and @VCPU@.
-containerDetail_resourceRequirements :: Lens.Lens' ContainerDetail (Core.Maybe [ResourceRequirement])
-containerDetail_resourceRequirements = Lens.lens (\ContainerDetail' {resourceRequirements} -> resourceRequirements) (\s@ContainerDetail' {} a -> s {resourceRequirements = a} :: ContainerDetail) Core.. Lens.mapping Lens._Coerce
+containerDetail_resourceRequirements :: Lens.Lens' ContainerDetail (Prelude.Maybe [ResourceRequirement])
+containerDetail_resourceRequirements = Lens.lens (\ContainerDetail' {resourceRequirements} -> resourceRequirements) (\s@ContainerDetail' {} a -> s {resourceRequirements = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) associated with the job upon execution.
-containerDetail_jobRoleArn :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_jobRoleArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_jobRoleArn = Lens.lens (\ContainerDetail' {jobRoleArn} -> jobRoleArn) (\s@ContainerDetail' {} a -> s {jobRoleArn = a} :: ContainerDetail)
 
 -- | When this parameter is true, the container is given read-only access to
@@ -568,7 +569,7 @@ containerDetail_jobRoleArn = Lens.lens (\ContainerDetail' {jobRoleArn} -> jobRol
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
 -- @--read-only@ option to
 -- <https://docs.docker.com/engine/reference/commandline/run/ docker run> .
-containerDetail_readonlyRootFilesystem :: Lens.Lens' ContainerDetail (Core.Maybe Core.Bool)
+containerDetail_readonlyRootFilesystem :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Bool)
 containerDetail_readonlyRootFilesystem = Lens.lens (\ContainerDetail' {readonlyRootFilesystem} -> readonlyRootFilesystem) (\s@ContainerDetail' {} a -> s {readonlyRootFilesystem = a} :: ContainerDetail)
 
 -- | A list of @ulimit@ values to set in the container. This parameter maps
@@ -580,18 +581,18 @@ containerDetail_readonlyRootFilesystem = Lens.lens (\ContainerDetail' {readonlyR
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources.
-containerDetail_ulimits :: Lens.Lens' ContainerDetail (Core.Maybe [Ulimit])
-containerDetail_ulimits = Lens.lens (\ContainerDetail' {ulimits} -> ulimits) (\s@ContainerDetail' {} a -> s {ulimits = a} :: ContainerDetail) Core.. Lens.mapping Lens._Coerce
+containerDetail_ulimits :: Lens.Lens' ContainerDetail (Prelude.Maybe [Ulimit])
+containerDetail_ulimits = Lens.lens (\ContainerDetail' {ulimits} -> ulimits) (\s@ContainerDetail' {} a -> s {ulimits = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
 -- with the container job. Each container attempt receives a task ARN when
 -- they reach the @STARTING@ status.
-containerDetail_taskArn :: Lens.Lens' ContainerDetail (Core.Maybe Core.Text)
+containerDetail_taskArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_taskArn = Lens.lens (\ContainerDetail' {taskArn} -> taskArn) (\s@ContainerDetail' {} a -> s {taskArn = a} :: ContainerDetail)
 
 -- | The network interfaces associated with the job.
-containerDetail_networkInterfaces :: Lens.Lens' ContainerDetail (Core.Maybe [NetworkInterface])
-containerDetail_networkInterfaces = Lens.lens (\ContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@ContainerDetail' {} a -> s {networkInterfaces = a} :: ContainerDetail) Core.. Lens.mapping Lens._Coerce
+containerDetail_networkInterfaces :: Lens.Lens' ContainerDetail (Prelude.Maybe [NetworkInterface])
+containerDetail_networkInterfaces = Lens.lens (\ContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@ContainerDetail' {} a -> s {networkInterfaces = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ContainerDetail where
   parseJSON =
@@ -599,38 +600,38 @@ instance Core.FromJSON ContainerDetail where
       "ContainerDetail"
       ( \x ->
           ContainerDetail'
-            Core.<$> (x Core..:? "logStreamName")
-            Core.<*> (x Core..:? "linuxParameters")
-            Core.<*> (x Core..:? "memory")
-            Core.<*> (x Core..:? "user")
-            Core.<*> (x Core..:? "instanceType")
-            Core.<*> (x Core..:? "networkConfiguration")
-            Core.<*> (x Core..:? "executionRoleArn")
-            Core.<*> (x Core..:? "privileged")
-            Core.<*> (x Core..:? "vcpus")
-            Core.<*> (x Core..:? "containerInstanceArn")
-            Core.<*> (x Core..:? "volumes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "environment" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "fargatePlatformConfiguration")
-            Core.<*> (x Core..:? "exitCode")
-            Core.<*> (x Core..:? "secrets" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "mountPoints" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "image")
-            Core.<*> (x Core..:? "command" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "logConfiguration")
-            Core.<*> (x Core..:? "reason")
-            Core.<*> ( x Core..:? "resourceRequirements"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "jobRoleArn")
-            Core.<*> (x Core..:? "readonlyRootFilesystem")
-            Core.<*> (x Core..:? "ulimits" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "taskArn")
-            Core.<*> ( x Core..:? "networkInterfaces"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "logStreamName")
+            Prelude.<*> (x Core..:? "linuxParameters")
+            Prelude.<*> (x Core..:? "memory")
+            Prelude.<*> (x Core..:? "user")
+            Prelude.<*> (x Core..:? "instanceType")
+            Prelude.<*> (x Core..:? "networkConfiguration")
+            Prelude.<*> (x Core..:? "executionRoleArn")
+            Prelude.<*> (x Core..:? "privileged")
+            Prelude.<*> (x Core..:? "vcpus")
+            Prelude.<*> (x Core..:? "containerInstanceArn")
+            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "environment" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "fargatePlatformConfiguration")
+            Prelude.<*> (x Core..:? "exitCode")
+            Prelude.<*> (x Core..:? "secrets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "mountPoints" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "image")
+            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "logConfiguration")
+            Prelude.<*> (x Core..:? "reason")
+            Prelude.<*> ( x Core..:? "resourceRequirements"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "jobRoleArn")
+            Prelude.<*> (x Core..:? "readonlyRootFilesystem")
+            Prelude.<*> (x Core..:? "ulimits" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "taskArn")
+            Prelude.<*> ( x Core..:? "networkInterfaces"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ContainerDetail
+instance Prelude.Hashable ContainerDetail
 
-instance Core.NFData ContainerDetail
+instance Prelude.NFData ContainerDetail

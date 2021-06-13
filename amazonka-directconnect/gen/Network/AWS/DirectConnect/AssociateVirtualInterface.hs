@@ -78,17 +78,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateVirtualInterface' smart constructor.
 data AssociateVirtualInterface = AssociateVirtualInterface'
   { -- | The ID of the virtual interface.
-    virtualInterfaceId :: Core.Text,
+    virtualInterfaceId :: Prelude.Text,
     -- | The ID of the LAG or connection.
-    connectionId :: Core.Text
+    connectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateVirtualInterface' with all optional fields omitted.
@@ -103,9 +104,9 @@ data AssociateVirtualInterface = AssociateVirtualInterface'
 -- 'connectionId', 'associateVirtualInterface_connectionId' - The ID of the LAG or connection.
 newAssociateVirtualInterface ::
   -- | 'virtualInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateVirtualInterface
 newAssociateVirtualInterface
   pVirtualInterfaceId_
@@ -117,11 +118,11 @@ newAssociateVirtualInterface
       }
 
 -- | The ID of the virtual interface.
-associateVirtualInterface_virtualInterfaceId :: Lens.Lens' AssociateVirtualInterface Core.Text
+associateVirtualInterface_virtualInterfaceId :: Lens.Lens' AssociateVirtualInterface Prelude.Text
 associateVirtualInterface_virtualInterfaceId = Lens.lens (\AssociateVirtualInterface' {virtualInterfaceId} -> virtualInterfaceId) (\s@AssociateVirtualInterface' {} a -> s {virtualInterfaceId = a} :: AssociateVirtualInterface)
 
 -- | The ID of the LAG or connection.
-associateVirtualInterface_connectionId :: Lens.Lens' AssociateVirtualInterface Core.Text
+associateVirtualInterface_connectionId :: Lens.Lens' AssociateVirtualInterface Prelude.Text
 associateVirtualInterface_connectionId = Lens.lens (\AssociateVirtualInterface' {connectionId} -> connectionId) (\s@AssociateVirtualInterface' {} a -> s {connectionId = a} :: AssociateVirtualInterface)
 
 instance Core.AWSRequest AssociateVirtualInterface where
@@ -133,35 +134,37 @@ instance Core.AWSRequest AssociateVirtualInterface where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable AssociateVirtualInterface
+instance Prelude.Hashable AssociateVirtualInterface
 
-instance Core.NFData AssociateVirtualInterface
+instance Prelude.NFData AssociateVirtualInterface
 
 instance Core.ToHeaders AssociateVirtualInterface where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.AssociateVirtualInterface" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateVirtualInterface where
   toJSON AssociateVirtualInterface' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("virtualInterfaceId" Core..= virtualInterfaceId),
-            Core.Just ("connectionId" Core..= connectionId)
+            Prelude.Just ("connectionId" Core..= connectionId)
           ]
       )
 
 instance Core.ToPath AssociateVirtualInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateVirtualInterface where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

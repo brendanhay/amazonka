@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the status and settings of the APNs (Apple Push Notification
 -- service) sandbox channel for an application.
@@ -30,31 +31,31 @@ data APNSSandboxChannelRequest = APNSSandboxChannelRequest'
   { -- | The default authentication method that you want Amazon Pinpoint to use
     -- when authenticating with the APNs sandbox environment, key or
     -- certificate.
-    defaultAuthenticationMethod :: Core.Maybe Core.Text,
+    defaultAuthenticationMethod :: Prelude.Maybe Prelude.Text,
     -- | The authentication key to use for APNs tokens.
-    tokenKey :: Core.Maybe Core.Text,
+    tokenKey :: Prelude.Maybe Prelude.Text,
     -- | The bundle identifier that\'s assigned to your iOS app. This identifier
     -- is used for APNs tokens.
-    bundleId :: Core.Maybe Core.Text,
+    bundleId :: Prelude.Maybe Prelude.Text,
     -- | The identifier that\'s assigned to your Apple developer account team.
     -- This identifier is used for APNs tokens.
-    teamId :: Core.Maybe Core.Text,
+    teamId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to enable the APNs sandbox channel for the
     -- application.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The private key for the APNs client certificate that you want Amazon
     -- Pinpoint to use to communicate with the APNs sandbox environment.
-    privateKey :: Core.Maybe Core.Text,
+    privateKey :: Prelude.Maybe Prelude.Text,
     -- | The key identifier that\'s assigned to your APNs signing key, if you
     -- want Amazon Pinpoint to communicate with the APNs sandbox environment by
     -- using APNs tokens.
-    tokenKeyId :: Core.Maybe Core.Text,
+    tokenKeyId :: Prelude.Maybe Prelude.Text,
     -- | The APNs client certificate that you received from Apple, if you want
     -- Amazon Pinpoint to communicate with the APNs sandbox environment by
     -- using an APNs certificate.
-    certificate :: Core.Maybe Core.Text
+    certificate :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'APNSSandboxChannelRequest' with all optional fields omitted.
@@ -94,74 +95,74 @@ newAPNSSandboxChannelRequest ::
 newAPNSSandboxChannelRequest =
   APNSSandboxChannelRequest'
     { defaultAuthenticationMethod =
-        Core.Nothing,
-      tokenKey = Core.Nothing,
-      bundleId = Core.Nothing,
-      teamId = Core.Nothing,
-      enabled = Core.Nothing,
-      privateKey = Core.Nothing,
-      tokenKeyId = Core.Nothing,
-      certificate = Core.Nothing
+        Prelude.Nothing,
+      tokenKey = Prelude.Nothing,
+      bundleId = Prelude.Nothing,
+      teamId = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      privateKey = Prelude.Nothing,
+      tokenKeyId = Prelude.Nothing,
+      certificate = Prelude.Nothing
     }
 
 -- | The default authentication method that you want Amazon Pinpoint to use
 -- when authenticating with the APNs sandbox environment, key or
 -- certificate.
-aPNSSandboxChannelRequest_defaultAuthenticationMethod :: Lens.Lens' APNSSandboxChannelRequest (Core.Maybe Core.Text)
+aPNSSandboxChannelRequest_defaultAuthenticationMethod :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelRequest_defaultAuthenticationMethod = Lens.lens (\APNSSandboxChannelRequest' {defaultAuthenticationMethod} -> defaultAuthenticationMethod) (\s@APNSSandboxChannelRequest' {} a -> s {defaultAuthenticationMethod = a} :: APNSSandboxChannelRequest)
 
 -- | The authentication key to use for APNs tokens.
-aPNSSandboxChannelRequest_tokenKey :: Lens.Lens' APNSSandboxChannelRequest (Core.Maybe Core.Text)
+aPNSSandboxChannelRequest_tokenKey :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelRequest_tokenKey = Lens.lens (\APNSSandboxChannelRequest' {tokenKey} -> tokenKey) (\s@APNSSandboxChannelRequest' {} a -> s {tokenKey = a} :: APNSSandboxChannelRequest)
 
 -- | The bundle identifier that\'s assigned to your iOS app. This identifier
 -- is used for APNs tokens.
-aPNSSandboxChannelRequest_bundleId :: Lens.Lens' APNSSandboxChannelRequest (Core.Maybe Core.Text)
+aPNSSandboxChannelRequest_bundleId :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelRequest_bundleId = Lens.lens (\APNSSandboxChannelRequest' {bundleId} -> bundleId) (\s@APNSSandboxChannelRequest' {} a -> s {bundleId = a} :: APNSSandboxChannelRequest)
 
 -- | The identifier that\'s assigned to your Apple developer account team.
 -- This identifier is used for APNs tokens.
-aPNSSandboxChannelRequest_teamId :: Lens.Lens' APNSSandboxChannelRequest (Core.Maybe Core.Text)
+aPNSSandboxChannelRequest_teamId :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelRequest_teamId = Lens.lens (\APNSSandboxChannelRequest' {teamId} -> teamId) (\s@APNSSandboxChannelRequest' {} a -> s {teamId = a} :: APNSSandboxChannelRequest)
 
 -- | Specifies whether to enable the APNs sandbox channel for the
 -- application.
-aPNSSandboxChannelRequest_enabled :: Lens.Lens' APNSSandboxChannelRequest (Core.Maybe Core.Bool)
+aPNSSandboxChannelRequest_enabled :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Bool)
 aPNSSandboxChannelRequest_enabled = Lens.lens (\APNSSandboxChannelRequest' {enabled} -> enabled) (\s@APNSSandboxChannelRequest' {} a -> s {enabled = a} :: APNSSandboxChannelRequest)
 
 -- | The private key for the APNs client certificate that you want Amazon
 -- Pinpoint to use to communicate with the APNs sandbox environment.
-aPNSSandboxChannelRequest_privateKey :: Lens.Lens' APNSSandboxChannelRequest (Core.Maybe Core.Text)
+aPNSSandboxChannelRequest_privateKey :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelRequest_privateKey = Lens.lens (\APNSSandboxChannelRequest' {privateKey} -> privateKey) (\s@APNSSandboxChannelRequest' {} a -> s {privateKey = a} :: APNSSandboxChannelRequest)
 
 -- | The key identifier that\'s assigned to your APNs signing key, if you
 -- want Amazon Pinpoint to communicate with the APNs sandbox environment by
 -- using APNs tokens.
-aPNSSandboxChannelRequest_tokenKeyId :: Lens.Lens' APNSSandboxChannelRequest (Core.Maybe Core.Text)
+aPNSSandboxChannelRequest_tokenKeyId :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelRequest_tokenKeyId = Lens.lens (\APNSSandboxChannelRequest' {tokenKeyId} -> tokenKeyId) (\s@APNSSandboxChannelRequest' {} a -> s {tokenKeyId = a} :: APNSSandboxChannelRequest)
 
 -- | The APNs client certificate that you received from Apple, if you want
 -- Amazon Pinpoint to communicate with the APNs sandbox environment by
 -- using an APNs certificate.
-aPNSSandboxChannelRequest_certificate :: Lens.Lens' APNSSandboxChannelRequest (Core.Maybe Core.Text)
+aPNSSandboxChannelRequest_certificate :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelRequest_certificate = Lens.lens (\APNSSandboxChannelRequest' {certificate} -> certificate) (\s@APNSSandboxChannelRequest' {} a -> s {certificate = a} :: APNSSandboxChannelRequest)
 
-instance Core.Hashable APNSSandboxChannelRequest
+instance Prelude.Hashable APNSSandboxChannelRequest
 
-instance Core.NFData APNSSandboxChannelRequest
+instance Prelude.NFData APNSSandboxChannelRequest
 
 instance Core.ToJSON APNSSandboxChannelRequest where
   toJSON APNSSandboxChannelRequest' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DefaultAuthenticationMethod" Core..=)
-              Core.<$> defaultAuthenticationMethod,
-            ("TokenKey" Core..=) Core.<$> tokenKey,
-            ("BundleId" Core..=) Core.<$> bundleId,
-            ("TeamId" Core..=) Core.<$> teamId,
-            ("Enabled" Core..=) Core.<$> enabled,
-            ("PrivateKey" Core..=) Core.<$> privateKey,
-            ("TokenKeyId" Core..=) Core.<$> tokenKeyId,
-            ("Certificate" Core..=) Core.<$> certificate
+              Prelude.<$> defaultAuthenticationMethod,
+            ("TokenKey" Core..=) Prelude.<$> tokenKey,
+            ("BundleId" Core..=) Prelude.<$> bundleId,
+            ("TeamId" Core..=) Prelude.<$> teamId,
+            ("Enabled" Core..=) Prelude.<$> enabled,
+            ("PrivateKey" Core..=) Prelude.<$> privateKey,
+            ("TokenKeyId" Core..=) Prelude.<$> tokenKeyId,
+            ("Certificate" Core..=) Prelude.<$> certificate
           ]
       )

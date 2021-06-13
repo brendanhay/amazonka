@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -59,13 +60,13 @@ data DescribeProjects = DescribeProjects'
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per paginated call. The largest
     -- value you can specify is 100. If you specify a value greater than 100, a
     -- ValidationException error occurs. The default value is 100.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProjects' with all optional fields omitted.
@@ -87,42 +88,44 @@ newDescribeProjects ::
   DescribeProjects
 newDescribeProjects =
   DescribeProjects'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
-describeProjects_nextToken :: Lens.Lens' DescribeProjects (Core.Maybe Core.Text)
+describeProjects_nextToken :: Lens.Lens' DescribeProjects (Prelude.Maybe Prelude.Text)
 describeProjects_nextToken = Lens.lens (\DescribeProjects' {nextToken} -> nextToken) (\s@DescribeProjects' {} a -> s {nextToken = a} :: DescribeProjects)
 
 -- | The maximum number of results to return per paginated call. The largest
 -- value you can specify is 100. If you specify a value greater than 100, a
 -- ValidationException error occurs. The default value is 100.
-describeProjects_maxResults :: Lens.Lens' DescribeProjects (Core.Maybe Core.Natural)
+describeProjects_maxResults :: Lens.Lens' DescribeProjects (Prelude.Maybe Prelude.Natural)
 describeProjects_maxResults = Lens.lens (\DescribeProjects' {maxResults} -> maxResults) (\s@DescribeProjects' {} a -> s {maxResults = a} :: DescribeProjects)
 
 instance Core.AWSPager DescribeProjects where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeProjectsResponse_nextToken Core.. Lens._Just
+            Lens.^? describeProjectsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeProjectsResponse_projectDescriptions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeProjects_nextToken
+          Prelude.& describeProjects_nextToken
           Lens..~ rs
-          Lens.^? describeProjectsResponse_nextToken Core.. Lens._Just
+          Lens.^? describeProjectsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeProjects where
   type
@@ -133,44 +136,46 @@ instance Core.AWSRequest DescribeProjects where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "ProjectDescriptions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ProjectDescriptions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeProjects
+instance Prelude.Hashable DescribeProjects
 
-instance Core.NFData DescribeProjects
+instance Prelude.NFData DescribeProjects
 
 instance Core.ToHeaders DescribeProjects where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.DescribeProjects" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeProjects where
   toJSON DescribeProjects' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath DescribeProjects where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeProjects where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProjectsResponse' smart constructor.
 data DescribeProjectsResponse = DescribeProjectsResponse'
@@ -178,14 +183,14 @@ data DescribeProjectsResponse = DescribeProjectsResponse'
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of project descriptions. The list is sorted by the date and time
     -- the projects are created.
-    projectDescriptions :: Core.Maybe [ProjectDescription],
+    projectDescriptions :: Prelude.Maybe [ProjectDescription],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProjectsResponse' with all optional fields omitted.
@@ -206,12 +211,13 @@ data DescribeProjectsResponse = DescribeProjectsResponse'
 -- 'httpStatus', 'describeProjectsResponse_httpStatus' - The response's http status code.
 newDescribeProjectsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeProjectsResponse
 newDescribeProjectsResponse pHttpStatus_ =
   DescribeProjectsResponse'
-    { nextToken = Core.Nothing,
-      projectDescriptions = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      projectDescriptions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -219,16 +225,16 @@ newDescribeProjectsResponse pHttpStatus_ =
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
-describeProjectsResponse_nextToken :: Lens.Lens' DescribeProjectsResponse (Core.Maybe Core.Text)
+describeProjectsResponse_nextToken :: Lens.Lens' DescribeProjectsResponse (Prelude.Maybe Prelude.Text)
 describeProjectsResponse_nextToken = Lens.lens (\DescribeProjectsResponse' {nextToken} -> nextToken) (\s@DescribeProjectsResponse' {} a -> s {nextToken = a} :: DescribeProjectsResponse)
 
 -- | A list of project descriptions. The list is sorted by the date and time
 -- the projects are created.
-describeProjectsResponse_projectDescriptions :: Lens.Lens' DescribeProjectsResponse (Core.Maybe [ProjectDescription])
-describeProjectsResponse_projectDescriptions = Lens.lens (\DescribeProjectsResponse' {projectDescriptions} -> projectDescriptions) (\s@DescribeProjectsResponse' {} a -> s {projectDescriptions = a} :: DescribeProjectsResponse) Core.. Lens.mapping Lens._Coerce
+describeProjectsResponse_projectDescriptions :: Lens.Lens' DescribeProjectsResponse (Prelude.Maybe [ProjectDescription])
+describeProjectsResponse_projectDescriptions = Lens.lens (\DescribeProjectsResponse' {projectDescriptions} -> projectDescriptions) (\s@DescribeProjectsResponse' {} a -> s {projectDescriptions = a} :: DescribeProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeProjectsResponse_httpStatus :: Lens.Lens' DescribeProjectsResponse Core.Int
+describeProjectsResponse_httpStatus :: Lens.Lens' DescribeProjectsResponse Prelude.Int
 describeProjectsResponse_httpStatus = Lens.lens (\DescribeProjectsResponse' {httpStatus} -> httpStatus) (\s@DescribeProjectsResponse' {} a -> s {httpStatus = a} :: DescribeProjectsResponse)
 
-instance Core.NFData DescribeProjectsResponse
+instance Prelude.NFData DescribeProjectsResponse

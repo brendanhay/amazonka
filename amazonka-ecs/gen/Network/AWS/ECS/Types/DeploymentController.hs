@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.DeploymentController where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.DeploymentControllerType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The deployment controller to use for the service. For more information,
 -- see
@@ -54,7 +55,7 @@ data DeploymentController = DeploymentController'
     --     deployment process for an Amazon ECS service.
     type' :: DeploymentControllerType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeploymentController' with all optional fields omitted.
@@ -123,14 +124,16 @@ instance Core.FromJSON DeploymentController where
     Core.withObject
       "DeploymentController"
       ( \x ->
-          DeploymentController' Core.<$> (x Core..: "type")
+          DeploymentController' Prelude.<$> (x Core..: "type")
       )
 
-instance Core.Hashable DeploymentController
+instance Prelude.Hashable DeploymentController
 
-instance Core.NFData DeploymentController
+instance Prelude.NFData DeploymentController
 
 instance Core.ToJSON DeploymentController where
   toJSON DeploymentController' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("type" Core..= type')])
+      ( Prelude.catMaybes
+          [Prelude.Just ("type" Core..= type')]
+      )

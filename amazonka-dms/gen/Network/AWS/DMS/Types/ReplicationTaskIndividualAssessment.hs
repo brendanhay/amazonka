@@ -21,6 +21,7 @@ module Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information that describes an individual assessment from a
 -- premigration assessment run.
@@ -42,19 +43,19 @@ data ReplicationTaskIndividualAssessment = ReplicationTaskIndividualAssessment'
     -- -   @\"pending\"@
     --
     -- -   @\"running\"@
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | ARN of the premigration assessment run that is created to run this
     -- individual assessment.
-    replicationTaskAssessmentRunArn :: Core.Maybe Core.Text,
+    replicationTaskAssessmentRunArn :: Prelude.Maybe Prelude.Text,
     -- | Name of this individual assessment.
-    individualAssessmentName :: Core.Maybe Core.Text,
+    individualAssessmentName :: Prelude.Maybe Prelude.Text,
     -- | Date when this individual assessment was started as part of running the
     -- @StartReplicationTaskAssessmentRun@ operation.
-    replicationTaskIndividualAssessmentStartDate :: Core.Maybe Core.POSIX,
+    replicationTaskIndividualAssessmentStartDate :: Prelude.Maybe Core.POSIX,
     -- | Amazon Resource Name (ARN) of this individual assessment.
-    replicationTaskIndividualAssessmentArn :: Core.Maybe Core.Text
+    replicationTaskIndividualAssessmentArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationTaskIndividualAssessment' with all optional fields omitted.
@@ -94,15 +95,15 @@ newReplicationTaskIndividualAssessment ::
 newReplicationTaskIndividualAssessment =
   ReplicationTaskIndividualAssessment'
     { status =
-        Core.Nothing,
+        Prelude.Nothing,
       replicationTaskAssessmentRunArn =
-        Core.Nothing,
+        Prelude.Nothing,
       individualAssessmentName =
-        Core.Nothing,
+        Prelude.Nothing,
       replicationTaskIndividualAssessmentStartDate =
-        Core.Nothing,
+        Prelude.Nothing,
       replicationTaskIndividualAssessmentArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Individual assessment status.
@@ -120,25 +121,25 @@ newReplicationTaskIndividualAssessment =
 -- -   @\"pending\"@
 --
 -- -   @\"running\"@
-replicationTaskIndividualAssessment_status :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Core.Text)
+replicationTaskIndividualAssessment_status :: Lens.Lens' ReplicationTaskIndividualAssessment (Prelude.Maybe Prelude.Text)
 replicationTaskIndividualAssessment_status = Lens.lens (\ReplicationTaskIndividualAssessment' {status} -> status) (\s@ReplicationTaskIndividualAssessment' {} a -> s {status = a} :: ReplicationTaskIndividualAssessment)
 
 -- | ARN of the premigration assessment run that is created to run this
 -- individual assessment.
-replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Core.Text)
+replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn :: Lens.Lens' ReplicationTaskIndividualAssessment (Prelude.Maybe Prelude.Text)
 replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn = Lens.lens (\ReplicationTaskIndividualAssessment' {replicationTaskAssessmentRunArn} -> replicationTaskAssessmentRunArn) (\s@ReplicationTaskIndividualAssessment' {} a -> s {replicationTaskAssessmentRunArn = a} :: ReplicationTaskIndividualAssessment)
 
 -- | Name of this individual assessment.
-replicationTaskIndividualAssessment_individualAssessmentName :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Core.Text)
+replicationTaskIndividualAssessment_individualAssessmentName :: Lens.Lens' ReplicationTaskIndividualAssessment (Prelude.Maybe Prelude.Text)
 replicationTaskIndividualAssessment_individualAssessmentName = Lens.lens (\ReplicationTaskIndividualAssessment' {individualAssessmentName} -> individualAssessmentName) (\s@ReplicationTaskIndividualAssessment' {} a -> s {individualAssessmentName = a} :: ReplicationTaskIndividualAssessment)
 
 -- | Date when this individual assessment was started as part of running the
 -- @StartReplicationTaskAssessmentRun@ operation.
-replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Core.UTCTime)
-replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate = Lens.lens (\ReplicationTaskIndividualAssessment' {replicationTaskIndividualAssessmentStartDate} -> replicationTaskIndividualAssessmentStartDate) (\s@ReplicationTaskIndividualAssessment' {} a -> s {replicationTaskIndividualAssessmentStartDate = a} :: ReplicationTaskIndividualAssessment) Core.. Lens.mapping Core._Time
+replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate :: Lens.Lens' ReplicationTaskIndividualAssessment (Prelude.Maybe Prelude.UTCTime)
+replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate = Lens.lens (\ReplicationTaskIndividualAssessment' {replicationTaskIndividualAssessmentStartDate} -> replicationTaskIndividualAssessmentStartDate) (\s@ReplicationTaskIndividualAssessment' {} a -> s {replicationTaskIndividualAssessmentStartDate = a} :: ReplicationTaskIndividualAssessment) Prelude.. Lens.mapping Core._Time
 
 -- | Amazon Resource Name (ARN) of this individual assessment.
-replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Core.Text)
+replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn :: Lens.Lens' ReplicationTaskIndividualAssessment (Prelude.Maybe Prelude.Text)
 replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn = Lens.lens (\ReplicationTaskIndividualAssessment' {replicationTaskIndividualAssessmentArn} -> replicationTaskIndividualAssessmentArn) (\s@ReplicationTaskIndividualAssessment' {} a -> s {replicationTaskIndividualAssessmentArn = a} :: ReplicationTaskIndividualAssessment)
 
 instance
@@ -150,21 +151,21 @@ instance
       "ReplicationTaskIndividualAssessment"
       ( \x ->
           ReplicationTaskIndividualAssessment'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "ReplicationTaskAssessmentRunArn")
-            Core.<*> (x Core..:? "IndividualAssessmentName")
-            Core.<*> ( x
-                         Core..:? "ReplicationTaskIndividualAssessmentStartDate"
-                     )
-            Core.<*> ( x
-                         Core..:? "ReplicationTaskIndividualAssessmentArn"
-                     )
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "ReplicationTaskAssessmentRunArn")
+            Prelude.<*> (x Core..:? "IndividualAssessmentName")
+            Prelude.<*> ( x
+                            Core..:? "ReplicationTaskIndividualAssessmentStartDate"
+                        )
+            Prelude.<*> ( x
+                            Core..:? "ReplicationTaskIndividualAssessmentArn"
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReplicationTaskIndividualAssessment
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReplicationTaskIndividualAssessment

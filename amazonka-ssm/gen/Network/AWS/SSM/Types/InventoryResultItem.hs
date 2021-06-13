@@ -21,27 +21,28 @@ module Network.AWS.SSM.Types.InventoryResultItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The inventory result item.
 --
 -- /See:/ 'newInventoryResultItem' smart constructor.
 data InventoryResultItem = InventoryResultItem'
   { -- | The time inventory item data was captured.
-    captureTime :: Core.Maybe Core.Text,
+    captureTime :: Prelude.Maybe Prelude.Text,
     -- | MD5 hash of the inventory item type contents. The content hash is used
     -- to determine whether to update inventory information. The PutInventory
     -- API does not update the inventory item type contents if the MD5 hash has
     -- not changed since last update.
-    contentHash :: Core.Maybe Core.Text,
+    contentHash :: Prelude.Maybe Prelude.Text,
     -- | The name of the inventory result item type.
-    typeName :: Core.Text,
+    typeName :: Prelude.Text,
     -- | The schema version for the inventory result item\/
-    schemaVersion :: Core.Text,
+    schemaVersion :: Prelude.Text,
     -- | Contains all the inventory data of the item type. Results include
     -- attribute names and values.
-    content :: [Core.HashMap Core.Text Core.Text]
+    content :: [Prelude.HashMap Prelude.Text Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryResultItem' with all optional fields omitted.
@@ -66,42 +67,42 @@ data InventoryResultItem = InventoryResultItem'
 -- attribute names and values.
 newInventoryResultItem ::
   -- | 'typeName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'schemaVersion'
-  Core.Text ->
+  Prelude.Text ->
   InventoryResultItem
 newInventoryResultItem pTypeName_ pSchemaVersion_ =
   InventoryResultItem'
-    { captureTime = Core.Nothing,
-      contentHash = Core.Nothing,
+    { captureTime = Prelude.Nothing,
+      contentHash = Prelude.Nothing,
       typeName = pTypeName_,
       schemaVersion = pSchemaVersion_,
-      content = Core.mempty
+      content = Prelude.mempty
     }
 
 -- | The time inventory item data was captured.
-inventoryResultItem_captureTime :: Lens.Lens' InventoryResultItem (Core.Maybe Core.Text)
+inventoryResultItem_captureTime :: Lens.Lens' InventoryResultItem (Prelude.Maybe Prelude.Text)
 inventoryResultItem_captureTime = Lens.lens (\InventoryResultItem' {captureTime} -> captureTime) (\s@InventoryResultItem' {} a -> s {captureTime = a} :: InventoryResultItem)
 
 -- | MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
 -- API does not update the inventory item type contents if the MD5 hash has
 -- not changed since last update.
-inventoryResultItem_contentHash :: Lens.Lens' InventoryResultItem (Core.Maybe Core.Text)
+inventoryResultItem_contentHash :: Lens.Lens' InventoryResultItem (Prelude.Maybe Prelude.Text)
 inventoryResultItem_contentHash = Lens.lens (\InventoryResultItem' {contentHash} -> contentHash) (\s@InventoryResultItem' {} a -> s {contentHash = a} :: InventoryResultItem)
 
 -- | The name of the inventory result item type.
-inventoryResultItem_typeName :: Lens.Lens' InventoryResultItem Core.Text
+inventoryResultItem_typeName :: Lens.Lens' InventoryResultItem Prelude.Text
 inventoryResultItem_typeName = Lens.lens (\InventoryResultItem' {typeName} -> typeName) (\s@InventoryResultItem' {} a -> s {typeName = a} :: InventoryResultItem)
 
 -- | The schema version for the inventory result item\/
-inventoryResultItem_schemaVersion :: Lens.Lens' InventoryResultItem Core.Text
+inventoryResultItem_schemaVersion :: Lens.Lens' InventoryResultItem Prelude.Text
 inventoryResultItem_schemaVersion = Lens.lens (\InventoryResultItem' {schemaVersion} -> schemaVersion) (\s@InventoryResultItem' {} a -> s {schemaVersion = a} :: InventoryResultItem)
 
 -- | Contains all the inventory data of the item type. Results include
 -- attribute names and values.
-inventoryResultItem_content :: Lens.Lens' InventoryResultItem [Core.HashMap Core.Text Core.Text]
-inventoryResultItem_content = Lens.lens (\InventoryResultItem' {content} -> content) (\s@InventoryResultItem' {} a -> s {content = a} :: InventoryResultItem) Core.. Lens._Coerce
+inventoryResultItem_content :: Lens.Lens' InventoryResultItem [Prelude.HashMap Prelude.Text Prelude.Text]
+inventoryResultItem_content = Lens.lens (\InventoryResultItem' {content} -> content) (\s@InventoryResultItem' {} a -> s {content = a} :: InventoryResultItem) Prelude.. Lens._Coerce
 
 instance Core.FromJSON InventoryResultItem where
   parseJSON =
@@ -109,13 +110,13 @@ instance Core.FromJSON InventoryResultItem where
       "InventoryResultItem"
       ( \x ->
           InventoryResultItem'
-            Core.<$> (x Core..:? "CaptureTime")
-            Core.<*> (x Core..:? "ContentHash")
-            Core.<*> (x Core..: "TypeName")
-            Core.<*> (x Core..: "SchemaVersion")
-            Core.<*> (x Core..:? "Content" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "CaptureTime")
+            Prelude.<*> (x Core..:? "ContentHash")
+            Prelude.<*> (x Core..: "TypeName")
+            Prelude.<*> (x Core..: "SchemaVersion")
+            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable InventoryResultItem
+instance Prelude.Hashable InventoryResultItem
 
-instance Core.NFData InventoryResultItem
+instance Prelude.NFData InventoryResultItem

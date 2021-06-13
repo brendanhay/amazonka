@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.ClientConnectOptions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The options for managing connection authorization for new client
 -- connections.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 data ClientConnectOptions = ClientConnectOptions'
   { -- | Indicates whether client connect options are enabled. The default is
     -- @false@ (not enabled).
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
     -- connection authorization.
-    lambdaFunctionArn :: Core.Maybe Core.Text
+    lambdaFunctionArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientConnectOptions' with all optional fields omitted.
@@ -54,27 +55,27 @@ newClientConnectOptions ::
   ClientConnectOptions
 newClientConnectOptions =
   ClientConnectOptions'
-    { enabled = Core.Nothing,
-      lambdaFunctionArn = Core.Nothing
+    { enabled = Prelude.Nothing,
+      lambdaFunctionArn = Prelude.Nothing
     }
 
 -- | Indicates whether client connect options are enabled. The default is
 -- @false@ (not enabled).
-clientConnectOptions_enabled :: Lens.Lens' ClientConnectOptions (Core.Maybe Core.Bool)
+clientConnectOptions_enabled :: Lens.Lens' ClientConnectOptions (Prelude.Maybe Prelude.Bool)
 clientConnectOptions_enabled = Lens.lens (\ClientConnectOptions' {enabled} -> enabled) (\s@ClientConnectOptions' {} a -> s {enabled = a} :: ClientConnectOptions)
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
 -- connection authorization.
-clientConnectOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectOptions (Core.Maybe Core.Text)
+clientConnectOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectOptions (Prelude.Maybe Prelude.Text)
 clientConnectOptions_lambdaFunctionArn = Lens.lens (\ClientConnectOptions' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@ClientConnectOptions' {} a -> s {lambdaFunctionArn = a} :: ClientConnectOptions)
 
-instance Core.Hashable ClientConnectOptions
+instance Prelude.Hashable ClientConnectOptions
 
-instance Core.NFData ClientConnectOptions
+instance Prelude.NFData ClientConnectOptions
 
 instance Core.ToQuery ClientConnectOptions where
   toQuery ClientConnectOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Enabled" Core.=: enabled,
         "LambdaFunctionArn" Core.=: lambdaFunctionArn
       ]

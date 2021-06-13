@@ -21,15 +21,16 @@ module Network.AWS.GuardDuty.Types.DomainDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the domain.
 --
 -- /See:/ 'newDomainDetails' smart constructor.
 data DomainDetails = DomainDetails'
   { -- | The domain information for the AWS API call.
-    domain :: Core.Maybe Core.Text
+    domain :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainDetails' with all optional fields omitted.
@@ -43,10 +44,10 @@ data DomainDetails = DomainDetails'
 newDomainDetails ::
   DomainDetails
 newDomainDetails =
-  DomainDetails' {domain = Core.Nothing}
+  DomainDetails' {domain = Prelude.Nothing}
 
 -- | The domain information for the AWS API call.
-domainDetails_domain :: Lens.Lens' DomainDetails (Core.Maybe Core.Text)
+domainDetails_domain :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
 domainDetails_domain = Lens.lens (\DomainDetails' {domain} -> domain) (\s@DomainDetails' {} a -> s {domain = a} :: DomainDetails)
 
 instance Core.FromJSON DomainDetails where
@@ -54,9 +55,9 @@ instance Core.FromJSON DomainDetails where
     Core.withObject
       "DomainDetails"
       ( \x ->
-          DomainDetails' Core.<$> (x Core..:? "domain")
+          DomainDetails' Prelude.<$> (x Core..:? "domain")
       )
 
-instance Core.Hashable DomainDetails
+instance Prelude.Hashable DomainDetails
 
-instance Core.NFData DomainDetails
+instance Prelude.NFData DomainDetails

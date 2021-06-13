@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ data DisableSso = DisableSso'
   { -- | The password of an alternate account to use to disable single-sign on.
     -- This is only used for AD Connector directories. For more information,
     -- see the /UserName/ parameter.
-    password :: Core.Maybe (Core.Sensitive Core.Text),
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The username of an alternate account to use to disable single-sign on.
     -- This is only used for AD Connector directories. This account must have
     -- privileges to remove a service principal name.
@@ -63,11 +64,11 @@ data DisableSso = DisableSso'
     -- /UserName/ and /Password/ parameters. These credentials are only used to
     -- disable single sign-on and are not stored by the service. The AD
     -- Connector service account is not changed.
-    userName :: Core.Maybe Core.Text,
+    userName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the directory for which to disable single-sign on.
-    directoryId :: Core.Text
+    directoryId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableSso' with all optional fields omitted.
@@ -94,20 +95,20 @@ data DisableSso = DisableSso'
 -- 'directoryId', 'disableSso_directoryId' - The identifier of the directory for which to disable single-sign on.
 newDisableSso ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   DisableSso
 newDisableSso pDirectoryId_ =
   DisableSso'
-    { password = Core.Nothing,
-      userName = Core.Nothing,
+    { password = Prelude.Nothing,
+      userName = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
 
 -- | The password of an alternate account to use to disable single-sign on.
 -- This is only used for AD Connector directories. For more information,
 -- see the /UserName/ parameter.
-disableSso_password :: Lens.Lens' DisableSso (Core.Maybe Core.Text)
-disableSso_password = Lens.lens (\DisableSso' {password} -> password) (\s@DisableSso' {} a -> s {password = a} :: DisableSso) Core.. Lens.mapping Core._Sensitive
+disableSso_password :: Lens.Lens' DisableSso (Prelude.Maybe Prelude.Text)
+disableSso_password = Lens.lens (\DisableSso' {password} -> password) (\s@DisableSso' {} a -> s {password = a} :: DisableSso) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The username of an alternate account to use to disable single-sign on.
 -- This is only used for AD Connector directories. This account must have
@@ -118,11 +119,11 @@ disableSso_password = Lens.lens (\DisableSso' {password} -> password) (\s@Disabl
 -- /UserName/ and /Password/ parameters. These credentials are only used to
 -- disable single sign-on and are not stored by the service. The AD
 -- Connector service account is not changed.
-disableSso_userName :: Lens.Lens' DisableSso (Core.Maybe Core.Text)
+disableSso_userName :: Lens.Lens' DisableSso (Prelude.Maybe Prelude.Text)
 disableSso_userName = Lens.lens (\DisableSso' {userName} -> userName) (\s@DisableSso' {} a -> s {userName = a} :: DisableSso)
 
 -- | The identifier of the directory for which to disable single-sign on.
-disableSso_directoryId :: Lens.Lens' DisableSso Core.Text
+disableSso_directoryId :: Lens.Lens' DisableSso Prelude.Text
 disableSso_directoryId = Lens.lens (\DisableSso' {directoryId} -> directoryId) (\s@DisableSso' {} a -> s {directoryId = a} :: DisableSso)
 
 instance Core.AWSRequest DisableSso where
@@ -132,50 +133,52 @@ instance Core.AWSRequest DisableSso where
     Response.receiveEmpty
       ( \s h x ->
           DisableSsoResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisableSso
+instance Prelude.Hashable DisableSso
 
-instance Core.NFData DisableSso
+instance Prelude.NFData DisableSso
 
 instance Core.ToHeaders DisableSso where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.DisableSso" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisableSso where
   toJSON DisableSso' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Password" Core..=) Core.<$> password,
-            ("UserName" Core..=) Core.<$> userName,
-            Core.Just ("DirectoryId" Core..= directoryId)
+      ( Prelude.catMaybes
+          [ ("Password" Core..=) Prelude.<$> password,
+            ("UserName" Core..=) Prelude.<$> userName,
+            Prelude.Just ("DirectoryId" Core..= directoryId)
           ]
       )
 
 instance Core.ToPath DisableSso where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableSso where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the DisableSso operation.
 --
 -- /See:/ 'newDisableSsoResponse' smart constructor.
 data DisableSsoResponse = DisableSsoResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableSsoResponse' with all optional fields omitted.
@@ -188,13 +191,13 @@ data DisableSsoResponse = DisableSsoResponse'
 -- 'httpStatus', 'disableSsoResponse_httpStatus' - The response's http status code.
 newDisableSsoResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisableSsoResponse
 newDisableSsoResponse pHttpStatus_ =
   DisableSsoResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-disableSsoResponse_httpStatus :: Lens.Lens' DisableSsoResponse Core.Int
+disableSsoResponse_httpStatus :: Lens.Lens' DisableSsoResponse Prelude.Int
 disableSsoResponse_httpStatus = Lens.lens (\DisableSsoResponse' {httpStatus} -> httpStatus) (\s@DisableSsoResponse' {} a -> s {httpStatus = a} :: DisableSsoResponse)
 
-instance Core.NFData DisableSsoResponse
+instance Prelude.NFData DisableSsoResponse

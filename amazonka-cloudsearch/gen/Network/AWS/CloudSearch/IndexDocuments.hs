@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newIndexDocuments' smart constructor.
 data IndexDocuments = IndexDocuments'
-  { domainName :: Core.Text
+  { domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IndexDocuments' with all optional fields omitted.
@@ -67,13 +68,13 @@ data IndexDocuments = IndexDocuments'
 -- 'domainName', 'indexDocuments_domainName' - Undocumented member.
 newIndexDocuments ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   IndexDocuments
 newIndexDocuments pDomainName_ =
   IndexDocuments' {domainName = pDomainName_}
 
 -- | Undocumented member.
-indexDocuments_domainName :: Lens.Lens' IndexDocuments Core.Text
+indexDocuments_domainName :: Lens.Lens' IndexDocuments Prelude.Text
 indexDocuments_domainName = Lens.lens (\IndexDocuments' {domainName} -> domainName) (\s@IndexDocuments' {} a -> s {domainName = a} :: IndexDocuments)
 
 instance Core.AWSRequest IndexDocuments where
@@ -86,28 +87,29 @@ instance Core.AWSRequest IndexDocuments where
       "IndexDocumentsResult"
       ( \s h x ->
           IndexDocumentsResponse'
-            Core.<$> ( x Core..@? "FieldNames" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "FieldNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable IndexDocuments
+instance Prelude.Hashable IndexDocuments
 
-instance Core.NFData IndexDocuments
+instance Prelude.NFData IndexDocuments
 
 instance Core.ToHeaders IndexDocuments where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath IndexDocuments where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery IndexDocuments where
   toQuery IndexDocuments' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("IndexDocuments" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("IndexDocuments" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainName" Core.=: domainName
       ]
 
@@ -117,11 +119,11 @@ instance Core.ToQuery IndexDocuments where
 -- /See:/ 'newIndexDocumentsResponse' smart constructor.
 data IndexDocumentsResponse = IndexDocumentsResponse'
   { -- | The names of the fields that are currently being indexed.
-    fieldNames :: Core.Maybe [Core.Text],
+    fieldNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IndexDocumentsResponse' with all optional fields omitted.
@@ -136,20 +138,21 @@ data IndexDocumentsResponse = IndexDocumentsResponse'
 -- 'httpStatus', 'indexDocumentsResponse_httpStatus' - The response's http status code.
 newIndexDocumentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   IndexDocumentsResponse
 newIndexDocumentsResponse pHttpStatus_ =
   IndexDocumentsResponse'
-    { fieldNames = Core.Nothing,
+    { fieldNames =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The names of the fields that are currently being indexed.
-indexDocumentsResponse_fieldNames :: Lens.Lens' IndexDocumentsResponse (Core.Maybe [Core.Text])
-indexDocumentsResponse_fieldNames = Lens.lens (\IndexDocumentsResponse' {fieldNames} -> fieldNames) (\s@IndexDocumentsResponse' {} a -> s {fieldNames = a} :: IndexDocumentsResponse) Core.. Lens.mapping Lens._Coerce
+indexDocumentsResponse_fieldNames :: Lens.Lens' IndexDocumentsResponse (Prelude.Maybe [Prelude.Text])
+indexDocumentsResponse_fieldNames = Lens.lens (\IndexDocumentsResponse' {fieldNames} -> fieldNames) (\s@IndexDocumentsResponse' {} a -> s {fieldNames = a} :: IndexDocumentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-indexDocumentsResponse_httpStatus :: Lens.Lens' IndexDocumentsResponse Core.Int
+indexDocumentsResponse_httpStatus :: Lens.Lens' IndexDocumentsResponse Prelude.Int
 indexDocumentsResponse_httpStatus = Lens.lens (\IndexDocumentsResponse' {httpStatus} -> httpStatus) (\s@IndexDocumentsResponse' {} a -> s {httpStatus = a} :: IndexDocumentsResponse)
 
-instance Core.NFData IndexDocumentsResponse
+instance Prelude.NFData IndexDocumentsResponse

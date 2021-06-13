@@ -22,6 +22,7 @@ module Network.AWS.CodePipeline.Types.ArtifactDetail where
 import Network.AWS.CodePipeline.Types.S3Location
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Artifact details for the action execution, such as the artifact
 -- location.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newArtifactDetail' smart constructor.
 data ArtifactDetail = ArtifactDetail'
   { -- | The Amazon S3 artifact location for the action execution.
-    s3location :: Core.Maybe S3Location,
+    s3location :: Prelude.Maybe S3Location,
     -- | The artifact object name for the action execution.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArtifactDetail' with all optional fields omitted.
@@ -50,16 +51,16 @@ newArtifactDetail ::
   ArtifactDetail
 newArtifactDetail =
   ArtifactDetail'
-    { s3location = Core.Nothing,
-      name = Core.Nothing
+    { s3location = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon S3 artifact location for the action execution.
-artifactDetail_s3location :: Lens.Lens' ArtifactDetail (Core.Maybe S3Location)
+artifactDetail_s3location :: Lens.Lens' ArtifactDetail (Prelude.Maybe S3Location)
 artifactDetail_s3location = Lens.lens (\ArtifactDetail' {s3location} -> s3location) (\s@ArtifactDetail' {} a -> s {s3location = a} :: ArtifactDetail)
 
 -- | The artifact object name for the action execution.
-artifactDetail_name :: Lens.Lens' ArtifactDetail (Core.Maybe Core.Text)
+artifactDetail_name :: Lens.Lens' ArtifactDetail (Prelude.Maybe Prelude.Text)
 artifactDetail_name = Lens.lens (\ArtifactDetail' {name} -> name) (\s@ArtifactDetail' {} a -> s {name = a} :: ArtifactDetail)
 
 instance Core.FromJSON ArtifactDetail where
@@ -68,10 +69,10 @@ instance Core.FromJSON ArtifactDetail where
       "ArtifactDetail"
       ( \x ->
           ArtifactDetail'
-            Core.<$> (x Core..:? "s3location")
-            Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "s3location")
+            Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable ArtifactDetail
+instance Prelude.Hashable ArtifactDetail
 
-instance Core.NFData ArtifactDetail
+instance Prelude.NFData ArtifactDetail

@@ -30,6 +30,7 @@ module Network.AWS.MediaConvert.Types.TeletextPageType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A page type as defined in the standard ETSI EN 300 468, Table 94
 newtype TeletextPageType = TeletextPageType'
@@ -37,15 +38,15 @@ newtype TeletextPageType = TeletextPageType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

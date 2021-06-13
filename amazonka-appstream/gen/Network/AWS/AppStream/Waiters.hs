@@ -20,6 +20,7 @@ import Network.AWS.AppStream.Lens
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.AppStream.DescribeFleets' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newFleetStopped :: Core.Wait DescribeFleets
@@ -34,30 +35,30 @@ newFleetStopped =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Core.. Lens._Just)
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
-                Core.. fleet_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. fleet_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "PENDING_ACTIVATE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Core.. Lens._Just)
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
-                Core.. fleet_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. fleet_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "ACTIVE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Core.. Lens._Just)
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
-                Core.. fleet_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. fleet_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -75,30 +76,30 @@ newFleetStarted =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Core.. Lens._Just)
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
-                Core.. fleet_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. fleet_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "PENDING_DEACTIVATE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Core.. Lens._Just)
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
-                Core.. fleet_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. fleet_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "INACTIVE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Core.. Lens._Just)
+                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
                 )
-                Core.. fleet_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. fleet_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

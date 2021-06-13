@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -72,21 +73,21 @@ data PutBucketPolicy = PutBucketPolicy'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The MD5 hash of the request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | Set this parameter to true to confirm that you want to remove your
     -- permissions to change this bucket policy in the future.
-    confirmRemoveSelfBucketAccess :: Core.Maybe Core.Bool,
+    confirmRemoveSelfBucketAccess :: Prelude.Maybe Prelude.Bool,
     -- | The name of the bucket.
     bucket :: BucketName,
     -- | The bucket policy as a JSON document.
-    policy :: Core.ByteString
+    policy :: Prelude.ByteString
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketPolicy' with all optional fields omitted.
@@ -115,14 +116,14 @@ newPutBucketPolicy ::
   -- | 'bucket'
   BucketName ->
   -- | 'policy'
-  Core.ByteString ->
+  Prelude.ByteString ->
   PutBucketPolicy
 newPutBucketPolicy pBucket_ pPolicy_ =
   PutBucketPolicy'
     { expectedBucketOwner =
-        Core.Nothing,
-      contentMD5 = Core.Nothing,
-      confirmRemoveSelfBucketAccess = Core.Nothing,
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
+      confirmRemoveSelfBucketAccess = Prelude.Nothing,
       bucket = pBucket_,
       policy = pPolicy_
     }
@@ -130,19 +131,19 @@ newPutBucketPolicy pBucket_ pPolicy_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketPolicy_expectedBucketOwner :: Lens.Lens' PutBucketPolicy (Core.Maybe Core.Text)
+putBucketPolicy_expectedBucketOwner :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Text)
 putBucketPolicy_expectedBucketOwner = Lens.lens (\PutBucketPolicy' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketPolicy' {} a -> s {expectedBucketOwner = a} :: PutBucketPolicy)
 
 -- | The MD5 hash of the request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketPolicy_contentMD5 :: Lens.Lens' PutBucketPolicy (Core.Maybe Core.Text)
+putBucketPolicy_contentMD5 :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Text)
 putBucketPolicy_contentMD5 = Lens.lens (\PutBucketPolicy' {contentMD5} -> contentMD5) (\s@PutBucketPolicy' {} a -> s {contentMD5 = a} :: PutBucketPolicy)
 
 -- | Set this parameter to true to confirm that you want to remove your
 -- permissions to change this bucket policy in the future.
-putBucketPolicy_confirmRemoveSelfBucketAccess :: Lens.Lens' PutBucketPolicy (Core.Maybe Core.Bool)
+putBucketPolicy_confirmRemoveSelfBucketAccess :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Bool)
 putBucketPolicy_confirmRemoveSelfBucketAccess = Lens.lens (\PutBucketPolicy' {confirmRemoveSelfBucketAccess} -> confirmRemoveSelfBucketAccess) (\s@PutBucketPolicy' {} a -> s {confirmRemoveSelfBucketAccess = a} :: PutBucketPolicy)
 
 -- | The name of the bucket.
@@ -150,7 +151,7 @@ putBucketPolicy_bucket :: Lens.Lens' PutBucketPolicy BucketName
 putBucketPolicy_bucket = Lens.lens (\PutBucketPolicy' {bucket} -> bucket) (\s@PutBucketPolicy' {} a -> s {bucket = a} :: PutBucketPolicy)
 
 -- | The bucket policy as a JSON document.
-putBucketPolicy_policy :: Lens.Lens' PutBucketPolicy Core.ByteString
+putBucketPolicy_policy :: Lens.Lens' PutBucketPolicy Prelude.ByteString
 putBucketPolicy_policy = Lens.lens (\PutBucketPolicy' {policy} -> policy) (\s@PutBucketPolicy' {} a -> s {policy = a} :: PutBucketPolicy)
 
 instance Core.AWSRequest PutBucketPolicy where
@@ -159,20 +160,20 @@ instance Core.AWSRequest PutBucketPolicy where
       PutBucketPolicyResponse
   request =
     Request.contentMD5Header
-      Core.. Request.putBody defaultService
+      Prelude.. Request.putBody defaultService
   response =
     Response.receiveNull PutBucketPolicyResponse'
 
-instance Core.Hashable PutBucketPolicy
+instance Prelude.Hashable PutBucketPolicy
 
-instance Core.NFData PutBucketPolicy
+instance Prelude.NFData PutBucketPolicy
 
 instance Core.ToBody PutBucketPolicy where
   toBody PutBucketPolicy' {..} = Core.toBody policy
 
 instance Core.ToHeaders PutBucketPolicy where
   toHeaders PutBucketPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5,
@@ -182,16 +183,16 @@ instance Core.ToHeaders PutBucketPolicy where
 
 instance Core.ToPath PutBucketPolicy where
   toPath PutBucketPolicy' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutBucketPolicy where
-  toQuery = Core.const (Core.mconcat ["policy"])
+  toQuery = Prelude.const (Prelude.mconcat ["policy"])
 
 -- | /See:/ 'newPutBucketPolicyResponse' smart constructor.
 data PutBucketPolicyResponse = PutBucketPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketPolicyResponse' with all optional fields omitted.
@@ -201,4 +202,4 @@ newPutBucketPolicyResponse ::
   PutBucketPolicyResponse
 newPutBucketPolicyResponse = PutBucketPolicyResponse'
 
-instance Core.NFData PutBucketPolicyResponse
+instance Prelude.NFData PutBucketPolicyResponse

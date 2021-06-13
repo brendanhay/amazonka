@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +58,9 @@ data ListDevices = ListDevices'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the project.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Used to select a set of devices. A filter is made up of an attribute, an
     -- operator, and one or more values.
     --
@@ -127,9 +128,9 @@ data ListDevices = ListDevices'
     --     -   In a request, the AVAILABILITY attribute takes the following
     --         values: AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
     --         TEMPORARY_NOT_AVAILABLE.
-    filters :: Core.Maybe [DeviceFilter]
+    filters :: Prelude.Maybe [DeviceFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDevices' with all optional fields omitted.
@@ -216,19 +217,19 @@ newListDevices ::
   ListDevices
 newListDevices =
   ListDevices'
-    { nextToken = Core.Nothing,
-      arn = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listDevices_nextToken :: Lens.Lens' ListDevices (Core.Maybe Core.Text)
+listDevices_nextToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
 listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@ListDevices' {} a -> s {nextToken = a} :: ListDevices)
 
 -- | The Amazon Resource Name (ARN) of the project.
-listDevices_arn :: Lens.Lens' ListDevices (Core.Maybe Core.Text)
+listDevices_arn :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
 listDevices_arn = Lens.lens (\ListDevices' {arn} -> arn) (\s@ListDevices' {} a -> s {arn = a} :: ListDevices)
 
 -- | Used to select a set of devices. A filter is made up of an attribute, an
@@ -298,27 +299,27 @@ listDevices_arn = Lens.lens (\ListDevices' {arn} -> arn) (\s@ListDevices' {} a -
 --     -   In a request, the AVAILABILITY attribute takes the following
 --         values: AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
 --         TEMPORARY_NOT_AVAILABLE.
-listDevices_filters :: Lens.Lens' ListDevices (Core.Maybe [DeviceFilter])
-listDevices_filters = Lens.lens (\ListDevices' {filters} -> filters) (\s@ListDevices' {} a -> s {filters = a} :: ListDevices) Core.. Lens.mapping Lens._Coerce
+listDevices_filters :: Lens.Lens' ListDevices (Prelude.Maybe [DeviceFilter])
+listDevices_filters = Lens.lens (\ListDevices' {filters} -> filters) (\s@ListDevices' {} a -> s {filters = a} :: ListDevices) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListDevices where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDevicesResponse_nextToken Core.. Lens._Just
+            Lens.^? listDevicesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDevicesResponse_devices Core.. Lens._Just
+            Lens.^? listDevicesResponse_devices Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDevices_nextToken
+          Prelude.& listDevices_nextToken
           Lens..~ rs
-          Lens.^? listDevicesResponse_nextToken Core.. Lens._Just
+          Lens.^? listDevicesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDevices where
   type AWSResponse ListDevices = ListDevicesResponse
@@ -327,43 +328,45 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "devices" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDevices
+instance Prelude.Hashable ListDevices
 
-instance Core.NFData ListDevices
+instance Prelude.NFData ListDevices
 
 instance Core.ToHeaders ListDevices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.ListDevices" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListDevices where
   toJSON ListDevices' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("arn" Core..=) Core.<$> arn,
-            ("filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("arn" Core..=) Prelude.<$> arn,
+            ("filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath ListDevices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListDevices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a list devices operation.
 --
@@ -372,13 +375,13 @@ data ListDevicesResponse = ListDevicesResponse'
   { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the devices.
-    devices :: Core.Maybe [Device],
+    devices :: Prelude.Maybe [Device],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDevicesResponse' with all optional fields omitted.
@@ -397,27 +400,27 @@ data ListDevicesResponse = ListDevicesResponse'
 -- 'httpStatus', 'listDevicesResponse_httpStatus' - The response's http status code.
 newListDevicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDevicesResponse
 newListDevicesResponse pHttpStatus_ =
   ListDevicesResponse'
-    { nextToken = Core.Nothing,
-      devices = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      devices = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
-listDevicesResponse_nextToken :: Lens.Lens' ListDevicesResponse (Core.Maybe Core.Text)
+listDevicesResponse_nextToken :: Lens.Lens' ListDevicesResponse (Prelude.Maybe Prelude.Text)
 listDevicesResponse_nextToken = Lens.lens (\ListDevicesResponse' {nextToken} -> nextToken) (\s@ListDevicesResponse' {} a -> s {nextToken = a} :: ListDevicesResponse)
 
 -- | Information about the devices.
-listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Core.Maybe [Device])
-listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Core.. Lens.mapping Lens._Coerce
+listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Prelude.Maybe [Device])
+listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDevicesResponse_httpStatus :: Lens.Lens' ListDevicesResponse Core.Int
+listDevicesResponse_httpStatus :: Lens.Lens' ListDevicesResponse Prelude.Int
 listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -> httpStatus) (\s@ListDevicesResponse' {} a -> s {httpStatus = a} :: ListDevicesResponse)
 
-instance Core.NFData ListDevicesResponse
+instance Prelude.NFData ListDevicesResponse

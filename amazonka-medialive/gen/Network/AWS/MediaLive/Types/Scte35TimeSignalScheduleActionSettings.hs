@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35Descriptor
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for a SCTE-35 time_signal.
 --
@@ -30,7 +31,7 @@ data Scte35TimeSignalScheduleActionSettings = Scte35TimeSignalScheduleActionSett
   { -- | The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
     scte35Descriptors :: [Scte35Descriptor]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Scte35TimeSignalScheduleActionSettings' with all optional fields omitted.
@@ -46,12 +47,12 @@ newScte35TimeSignalScheduleActionSettings ::
 newScte35TimeSignalScheduleActionSettings =
   Scte35TimeSignalScheduleActionSettings'
     { scte35Descriptors =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
 scte35TimeSignalScheduleActionSettings_scte35Descriptors :: Lens.Lens' Scte35TimeSignalScheduleActionSettings [Scte35Descriptor]
-scte35TimeSignalScheduleActionSettings_scte35Descriptors = Lens.lens (\Scte35TimeSignalScheduleActionSettings' {scte35Descriptors} -> scte35Descriptors) (\s@Scte35TimeSignalScheduleActionSettings' {} a -> s {scte35Descriptors = a} :: Scte35TimeSignalScheduleActionSettings) Core.. Lens._Coerce
+scte35TimeSignalScheduleActionSettings_scte35Descriptors = Lens.lens (\Scte35TimeSignalScheduleActionSettings' {scte35Descriptors} -> scte35Descriptors) (\s@Scte35TimeSignalScheduleActionSettings' {} a -> s {scte35Descriptors = a} :: Scte35TimeSignalScheduleActionSettings) Prelude.. Lens._Coerce
 
 instance
   Core.FromJSON
@@ -62,17 +63,17 @@ instance
       "Scte35TimeSignalScheduleActionSettings"
       ( \x ->
           Scte35TimeSignalScheduleActionSettings'
-            Core.<$> ( x Core..:? "scte35Descriptors"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "scte35Descriptors"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     Scte35TimeSignalScheduleActionSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     Scte35TimeSignalScheduleActionSettings
 
 instance
@@ -81,8 +82,8 @@ instance
   where
   toJSON Scte35TimeSignalScheduleActionSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("scte35Descriptors" Core..= scte35Descriptors)
           ]
       )

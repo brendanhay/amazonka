@@ -24,27 +24,28 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
 import Network.AWS.MediaLive.Types.MultiplexProgramPipelineDetail
 import Network.AWS.MediaLive.Types.MultiplexProgramSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The multiplex program object.
 --
 -- /See:/ 'newMultiplexProgram' smart constructor.
 data MultiplexProgram = MultiplexProgram'
   { -- | The packet identifier map for this multiplex program.
-    packetIdentifiersMap :: Core.Maybe MultiplexProgramPacketIdentifiersMap,
+    packetIdentifiersMap :: Prelude.Maybe MultiplexProgramPacketIdentifiersMap,
     -- | The settings for this multiplex program.
-    multiplexProgramSettings :: Core.Maybe MultiplexProgramSettings,
+    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
     -- | The MediaLive channel associated with the program.
-    channelId :: Core.Maybe Core.Text,
+    channelId :: Prelude.Maybe Prelude.Text,
     -- | The name of the multiplex program.
-    programName :: Core.Maybe Core.Text,
+    programName :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the current sources for the specified program
     -- in the specified multiplex. Keep in mind that each multiplex pipeline
     -- connects to both pipelines in a given source channel (the channel
     -- identified by the program). But only one of those channel pipelines is
     -- ever active at one time.
-    pipelineDetails :: Core.Maybe [MultiplexProgramPipelineDetail]
+    pipelineDetails :: Prelude.Maybe [MultiplexProgramPipelineDetail]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiplexProgram' with all optional fields omitted.
@@ -72,27 +73,27 @@ newMultiplexProgram ::
 newMultiplexProgram =
   MultiplexProgram'
     { packetIdentifiersMap =
-        Core.Nothing,
-      multiplexProgramSettings = Core.Nothing,
-      channelId = Core.Nothing,
-      programName = Core.Nothing,
-      pipelineDetails = Core.Nothing
+        Prelude.Nothing,
+      multiplexProgramSettings = Prelude.Nothing,
+      channelId = Prelude.Nothing,
+      programName = Prelude.Nothing,
+      pipelineDetails = Prelude.Nothing
     }
 
 -- | The packet identifier map for this multiplex program.
-multiplexProgram_packetIdentifiersMap :: Lens.Lens' MultiplexProgram (Core.Maybe MultiplexProgramPacketIdentifiersMap)
+multiplexProgram_packetIdentifiersMap :: Lens.Lens' MultiplexProgram (Prelude.Maybe MultiplexProgramPacketIdentifiersMap)
 multiplexProgram_packetIdentifiersMap = Lens.lens (\MultiplexProgram' {packetIdentifiersMap} -> packetIdentifiersMap) (\s@MultiplexProgram' {} a -> s {packetIdentifiersMap = a} :: MultiplexProgram)
 
 -- | The settings for this multiplex program.
-multiplexProgram_multiplexProgramSettings :: Lens.Lens' MultiplexProgram (Core.Maybe MultiplexProgramSettings)
+multiplexProgram_multiplexProgramSettings :: Lens.Lens' MultiplexProgram (Prelude.Maybe MultiplexProgramSettings)
 multiplexProgram_multiplexProgramSettings = Lens.lens (\MultiplexProgram' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@MultiplexProgram' {} a -> s {multiplexProgramSettings = a} :: MultiplexProgram)
 
 -- | The MediaLive channel associated with the program.
-multiplexProgram_channelId :: Lens.Lens' MultiplexProgram (Core.Maybe Core.Text)
+multiplexProgram_channelId :: Lens.Lens' MultiplexProgram (Prelude.Maybe Prelude.Text)
 multiplexProgram_channelId = Lens.lens (\MultiplexProgram' {channelId} -> channelId) (\s@MultiplexProgram' {} a -> s {channelId = a} :: MultiplexProgram)
 
 -- | The name of the multiplex program.
-multiplexProgram_programName :: Lens.Lens' MultiplexProgram (Core.Maybe Core.Text)
+multiplexProgram_programName :: Lens.Lens' MultiplexProgram (Prelude.Maybe Prelude.Text)
 multiplexProgram_programName = Lens.lens (\MultiplexProgram' {programName} -> programName) (\s@MultiplexProgram' {} a -> s {programName = a} :: MultiplexProgram)
 
 -- | Contains information about the current sources for the specified program
@@ -100,8 +101,8 @@ multiplexProgram_programName = Lens.lens (\MultiplexProgram' {programName} -> pr
 -- connects to both pipelines in a given source channel (the channel
 -- identified by the program). But only one of those channel pipelines is
 -- ever active at one time.
-multiplexProgram_pipelineDetails :: Lens.Lens' MultiplexProgram (Core.Maybe [MultiplexProgramPipelineDetail])
-multiplexProgram_pipelineDetails = Lens.lens (\MultiplexProgram' {pipelineDetails} -> pipelineDetails) (\s@MultiplexProgram' {} a -> s {pipelineDetails = a} :: MultiplexProgram) Core.. Lens.mapping Lens._Coerce
+multiplexProgram_pipelineDetails :: Lens.Lens' MultiplexProgram (Prelude.Maybe [MultiplexProgramPipelineDetail])
+multiplexProgram_pipelineDetails = Lens.lens (\MultiplexProgram' {pipelineDetails} -> pipelineDetails) (\s@MultiplexProgram' {} a -> s {pipelineDetails = a} :: MultiplexProgram) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON MultiplexProgram where
   parseJSON =
@@ -109,13 +110,15 @@ instance Core.FromJSON MultiplexProgram where
       "MultiplexProgram"
       ( \x ->
           MultiplexProgram'
-            Core.<$> (x Core..:? "packetIdentifiersMap")
-            Core.<*> (x Core..:? "multiplexProgramSettings")
-            Core.<*> (x Core..:? "channelId")
-            Core.<*> (x Core..:? "programName")
-            Core.<*> (x Core..:? "pipelineDetails" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "packetIdentifiersMap")
+            Prelude.<*> (x Core..:? "multiplexProgramSettings")
+            Prelude.<*> (x Core..:? "channelId")
+            Prelude.<*> (x Core..:? "programName")
+            Prelude.<*> ( x Core..:? "pipelineDetails"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable MultiplexProgram
+instance Prelude.Hashable MultiplexProgram
 
-instance Core.NFData MultiplexProgram
+instance Prelude.NFData MultiplexProgram

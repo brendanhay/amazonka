@@ -48,6 +48,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +57,15 @@ data ListRoutingProfileQueues = ListRoutingProfileQueues'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
-    routingProfileId :: Core.Text
+    routingProfileId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRoutingProfileQueues' with all optional fields omitted.
@@ -85,16 +86,17 @@ data ListRoutingProfileQueues = ListRoutingProfileQueues'
 -- 'routingProfileId', 'listRoutingProfileQueues_routingProfileId' - The identifier of the routing profile.
 newListRoutingProfileQueues ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routingProfileId'
-  Core.Text ->
+  Prelude.Text ->
   ListRoutingProfileQueues
 newListRoutingProfileQueues
   pInstanceId_
   pRoutingProfileId_ =
     ListRoutingProfileQueues'
-      { nextToken = Core.Nothing,
-        maxResults = Core.Nothing,
+      { nextToken =
+          Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         instanceId = pInstanceId_,
         routingProfileId = pRoutingProfileId_
       }
@@ -102,19 +104,19 @@ newListRoutingProfileQueues
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listRoutingProfileQueues_nextToken :: Lens.Lens' ListRoutingProfileQueues (Core.Maybe Core.Text)
+listRoutingProfileQueues_nextToken :: Lens.Lens' ListRoutingProfileQueues (Prelude.Maybe Prelude.Text)
 listRoutingProfileQueues_nextToken = Lens.lens (\ListRoutingProfileQueues' {nextToken} -> nextToken) (\s@ListRoutingProfileQueues' {} a -> s {nextToken = a} :: ListRoutingProfileQueues)
 
 -- | The maximum number of results to return per page.
-listRoutingProfileQueues_maxResults :: Lens.Lens' ListRoutingProfileQueues (Core.Maybe Core.Natural)
+listRoutingProfileQueues_maxResults :: Lens.Lens' ListRoutingProfileQueues (Prelude.Maybe Prelude.Natural)
 listRoutingProfileQueues_maxResults = Lens.lens (\ListRoutingProfileQueues' {maxResults} -> maxResults) (\s@ListRoutingProfileQueues' {} a -> s {maxResults = a} :: ListRoutingProfileQueues)
 
 -- | The identifier of the Amazon Connect instance.
-listRoutingProfileQueues_instanceId :: Lens.Lens' ListRoutingProfileQueues Core.Text
+listRoutingProfileQueues_instanceId :: Lens.Lens' ListRoutingProfileQueues Prelude.Text
 listRoutingProfileQueues_instanceId = Lens.lens (\ListRoutingProfileQueues' {instanceId} -> instanceId) (\s@ListRoutingProfileQueues' {} a -> s {instanceId = a} :: ListRoutingProfileQueues)
 
 -- | The identifier of the routing profile.
-listRoutingProfileQueues_routingProfileId :: Lens.Lens' ListRoutingProfileQueues Core.Text
+listRoutingProfileQueues_routingProfileId :: Lens.Lens' ListRoutingProfileQueues Prelude.Text
 listRoutingProfileQueues_routingProfileId = Lens.lens (\ListRoutingProfileQueues' {routingProfileId} -> routingProfileId) (\s@ListRoutingProfileQueues' {} a -> s {routingProfileId = a} :: ListRoutingProfileQueues)
 
 instance Core.AWSPager ListRoutingProfileQueues where
@@ -122,22 +124,22 @@ instance Core.AWSPager ListRoutingProfileQueues where
     | Core.stop
         ( rs
             Lens.^? listRoutingProfileQueuesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listRoutingProfileQueues_nextToken
+          Prelude.& listRoutingProfileQueues_nextToken
           Lens..~ rs
           Lens.^? listRoutingProfileQueuesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoutingProfileQueues where
   type
@@ -148,29 +150,31 @@ instance Core.AWSRequest ListRoutingProfileQueues where
     Response.receiveJSON
       ( \s h x ->
           ListRoutingProfileQueuesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "RoutingProfileQueueConfigSummaryList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "RoutingProfileQueueConfigSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListRoutingProfileQueues
+instance Prelude.Hashable ListRoutingProfileQueues
 
-instance Core.NFData ListRoutingProfileQueues
+instance Prelude.NFData ListRoutingProfileQueues
 
 instance Core.ToHeaders ListRoutingProfileQueues where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListRoutingProfileQueues where
   toPath ListRoutingProfileQueues' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/routing-profiles/",
         Core.toBS instanceId,
         "/",
@@ -180,7 +184,7 @@ instance Core.ToPath ListRoutingProfileQueues where
 
 instance Core.ToQuery ListRoutingProfileQueues where
   toQuery ListRoutingProfileQueues' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -189,13 +193,13 @@ instance Core.ToQuery ListRoutingProfileQueues where
 data ListRoutingProfileQueuesResponse = ListRoutingProfileQueuesResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the routing profiles.
-    routingProfileQueueConfigSummaryList :: Core.Maybe [RoutingProfileQueueConfigSummary],
+    routingProfileQueueConfigSummaryList :: Prelude.Maybe [RoutingProfileQueueConfigSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRoutingProfileQueuesResponse' with all optional fields omitted.
@@ -213,28 +217,30 @@ data ListRoutingProfileQueuesResponse = ListRoutingProfileQueuesResponse'
 -- 'httpStatus', 'listRoutingProfileQueuesResponse_httpStatus' - The response's http status code.
 newListRoutingProfileQueuesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRoutingProfileQueuesResponse
 newListRoutingProfileQueuesResponse pHttpStatus_ =
   ListRoutingProfileQueuesResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       routingProfileQueueConfigSummaryList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listRoutingProfileQueuesResponse_nextToken :: Lens.Lens' ListRoutingProfileQueuesResponse (Core.Maybe Core.Text)
+listRoutingProfileQueuesResponse_nextToken :: Lens.Lens' ListRoutingProfileQueuesResponse (Prelude.Maybe Prelude.Text)
 listRoutingProfileQueuesResponse_nextToken = Lens.lens (\ListRoutingProfileQueuesResponse' {nextToken} -> nextToken) (\s@ListRoutingProfileQueuesResponse' {} a -> s {nextToken = a} :: ListRoutingProfileQueuesResponse)
 
 -- | Information about the routing profiles.
-listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList :: Lens.Lens' ListRoutingProfileQueuesResponse (Core.Maybe [RoutingProfileQueueConfigSummary])
-listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList = Lens.lens (\ListRoutingProfileQueuesResponse' {routingProfileQueueConfigSummaryList} -> routingProfileQueueConfigSummaryList) (\s@ListRoutingProfileQueuesResponse' {} a -> s {routingProfileQueueConfigSummaryList = a} :: ListRoutingProfileQueuesResponse) Core.. Lens.mapping Lens._Coerce
+listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList :: Lens.Lens' ListRoutingProfileQueuesResponse (Prelude.Maybe [RoutingProfileQueueConfigSummary])
+listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList = Lens.lens (\ListRoutingProfileQueuesResponse' {routingProfileQueueConfigSummaryList} -> routingProfileQueueConfigSummaryList) (\s@ListRoutingProfileQueuesResponse' {} a -> s {routingProfileQueueConfigSummaryList = a} :: ListRoutingProfileQueuesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRoutingProfileQueuesResponse_httpStatus :: Lens.Lens' ListRoutingProfileQueuesResponse Core.Int
+listRoutingProfileQueuesResponse_httpStatus :: Lens.Lens' ListRoutingProfileQueuesResponse Prelude.Int
 listRoutingProfileQueuesResponse_httpStatus = Lens.lens (\ListRoutingProfileQueuesResponse' {httpStatus} -> httpStatus) (\s@ListRoutingProfileQueuesResponse' {} a -> s {httpStatus = a} :: ListRoutingProfileQueuesResponse)
 
-instance Core.NFData ListRoutingProfileQueuesResponse
+instance
+  Prelude.NFData
+    ListRoutingProfileQueuesResponse

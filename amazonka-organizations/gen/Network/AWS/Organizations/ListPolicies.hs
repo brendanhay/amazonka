@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,7 +69,7 @@ data ListPolicies = ListPolicies'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -79,7 +80,7 @@ data ListPolicies = ListPolicies'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the type of policy that you want to include in the response.
     -- You must specify one of the following values:
     --
@@ -92,7 +93,7 @@ data ListPolicies = ListPolicies'
     -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
     filter' :: PolicyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPolicies' with all optional fields omitted.
@@ -135,8 +136,8 @@ newListPolicies ::
   ListPolicies
 newListPolicies pFilter_ =
   ListPolicies'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       filter' = pFilter_
     }
 
@@ -145,7 +146,7 @@ newListPolicies pFilter_ =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listPolicies_nextToken :: Lens.Lens' ListPolicies (Core.Maybe Core.Text)
+listPolicies_nextToken :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
 listPolicies_nextToken = Lens.lens (\ListPolicies' {nextToken} -> nextToken) (\s@ListPolicies' {} a -> s {nextToken = a} :: ListPolicies)
 
 -- | The total number of results that you want included on each page of the
@@ -158,7 +159,7 @@ listPolicies_nextToken = Lens.lens (\ListPolicies' {nextToken} -> nextToken) (\s
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listPolicies_maxResults :: Lens.Lens' ListPolicies (Core.Maybe Core.Natural)
+listPolicies_maxResults :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
 listPolicies_maxResults = Lens.lens (\ListPolicies' {maxResults} -> maxResults) (\s@ListPolicies' {} a -> s {maxResults = a} :: ListPolicies)
 
 -- | Specifies the type of policy that you want to include in the response.
@@ -178,20 +179,20 @@ instance Core.AWSPager ListPolicies where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_nextToken Core.. Lens._Just
+            Lens.^? listPoliciesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_policies Core.. Lens._Just
+            Lens.^? listPoliciesResponse_policies Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPolicies_nextToken
+          Prelude.& listPolicies_nextToken
           Lens..~ rs
-          Lens.^? listPoliciesResponse_nextToken Core.. Lens._Just
+          Lens.^? listPoliciesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -200,43 +201,45 @@ instance Core.AWSRequest ListPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListPoliciesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Policies" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Policies" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPolicies
+instance Prelude.Hashable ListPolicies
 
-instance Core.NFData ListPolicies
+instance Prelude.NFData ListPolicies
 
 instance Core.ToHeaders ListPolicies where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.ListPolicies" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListPolicies where
   toJSON ListPolicies' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("Filter" Core..= filter')
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filter" Core..= filter')
           ]
       )
 
 instance Core.ToPath ListPolicies where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListPolicies where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
@@ -245,15 +248,15 @@ data ListPoliciesResponse = ListPoliciesResponse'
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of policies that match the filter criteria in the request. The
     -- output list doesn\'t include the policy contents. To see the content for
     -- a policy, see DescribePolicy.
-    policies :: Core.Maybe [PolicySummary],
+    policies :: Prelude.Maybe [PolicySummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPoliciesResponse' with all optional fields omitted.
@@ -276,12 +279,12 @@ data ListPoliciesResponse = ListPoliciesResponse'
 -- 'httpStatus', 'listPoliciesResponse_httpStatus' - The response's http status code.
 newListPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPoliciesResponse
 newListPoliciesResponse pHttpStatus_ =
   ListPoliciesResponse'
-    { nextToken = Core.Nothing,
-      policies = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      policies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -290,17 +293,17 @@ newListPoliciesResponse pHttpStatus_ =
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listPoliciesResponse_nextToken :: Lens.Lens' ListPoliciesResponse (Core.Maybe Core.Text)
+listPoliciesResponse_nextToken :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe Prelude.Text)
 listPoliciesResponse_nextToken = Lens.lens (\ListPoliciesResponse' {nextToken} -> nextToken) (\s@ListPoliciesResponse' {} a -> s {nextToken = a} :: ListPoliciesResponse)
 
 -- | A list of policies that match the filter criteria in the request. The
 -- output list doesn\'t include the policy contents. To see the content for
 -- a policy, see DescribePolicy.
-listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Core.Maybe [PolicySummary])
-listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Core.. Lens.mapping Lens._Coerce
+listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [PolicySummary])
+listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Core.Int
+listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int
 listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesResponse' {} a -> s {httpStatus = a} :: ListPoliciesResponse)
 
-instance Core.NFData ListPoliciesResponse
+instance Prelude.NFData ListPoliciesResponse

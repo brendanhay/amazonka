@@ -22,6 +22,7 @@ module Network.AWS.CloudTrail.Types.LookupAttribute where
 import Network.AWS.CloudTrail.Types.LookupAttributeKey
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an attribute and value that filter the events returned.
 --
@@ -30,9 +31,9 @@ data LookupAttribute = LookupAttribute'
   { -- | Specifies an attribute on which to filter the events returned.
     attributeKey :: LookupAttributeKey,
     -- | Specifies a value for the specified AttributeKey.
-    attributeValue :: Core.Text
+    attributeValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LookupAttribute' with all optional fields omitted.
@@ -49,7 +50,7 @@ newLookupAttribute ::
   -- | 'attributeKey'
   LookupAttributeKey ->
   -- | 'attributeValue'
-  Core.Text ->
+  Prelude.Text ->
   LookupAttribute
 newLookupAttribute pAttributeKey_ pAttributeValue_ =
   LookupAttribute'
@@ -62,18 +63,19 @@ lookupAttribute_attributeKey :: Lens.Lens' LookupAttribute LookupAttributeKey
 lookupAttribute_attributeKey = Lens.lens (\LookupAttribute' {attributeKey} -> attributeKey) (\s@LookupAttribute' {} a -> s {attributeKey = a} :: LookupAttribute)
 
 -- | Specifies a value for the specified AttributeKey.
-lookupAttribute_attributeValue :: Lens.Lens' LookupAttribute Core.Text
+lookupAttribute_attributeValue :: Lens.Lens' LookupAttribute Prelude.Text
 lookupAttribute_attributeValue = Lens.lens (\LookupAttribute' {attributeValue} -> attributeValue) (\s@LookupAttribute' {} a -> s {attributeValue = a} :: LookupAttribute)
 
-instance Core.Hashable LookupAttribute
+instance Prelude.Hashable LookupAttribute
 
-instance Core.NFData LookupAttribute
+instance Prelude.NFData LookupAttribute
 
 instance Core.ToJSON LookupAttribute where
   toJSON LookupAttribute' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AttributeKey" Core..= attributeKey),
-            Core.Just ("AttributeValue" Core..= attributeValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AttributeKey" Core..= attributeKey),
+            Prelude.Just
+              ("AttributeValue" Core..= attributeValue)
           ]
       )

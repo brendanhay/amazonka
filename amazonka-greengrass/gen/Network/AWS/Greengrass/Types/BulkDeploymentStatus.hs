@@ -31,6 +31,7 @@ module Network.AWS.Greengrass.Types.BulkDeploymentStatus
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The current status of the bulk deployment.
 newtype BulkDeploymentStatus = BulkDeploymentStatus'
@@ -38,15 +39,15 @@ newtype BulkDeploymentStatus = BulkDeploymentStatus'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

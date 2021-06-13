@@ -45,15 +45,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopBulkDeployment' smart constructor.
 data StopBulkDeployment = StopBulkDeployment'
   { -- | The ID of the bulk deployment.
-    bulkDeploymentId :: Core.Text
+    bulkDeploymentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopBulkDeployment' with all optional fields omitted.
@@ -66,7 +67,7 @@ data StopBulkDeployment = StopBulkDeployment'
 -- 'bulkDeploymentId', 'stopBulkDeployment_bulkDeploymentId' - The ID of the bulk deployment.
 newStopBulkDeployment ::
   -- | 'bulkDeploymentId'
-  Core.Text ->
+  Prelude.Text ->
   StopBulkDeployment
 newStopBulkDeployment pBulkDeploymentId_ =
   StopBulkDeployment'
@@ -75,7 +76,7 @@ newStopBulkDeployment pBulkDeploymentId_ =
     }
 
 -- | The ID of the bulk deployment.
-stopBulkDeployment_bulkDeploymentId :: Lens.Lens' StopBulkDeployment Core.Text
+stopBulkDeployment_bulkDeploymentId :: Lens.Lens' StopBulkDeployment Prelude.Text
 stopBulkDeployment_bulkDeploymentId = Lens.lens (\StopBulkDeployment' {bulkDeploymentId} -> bulkDeploymentId) (\s@StopBulkDeployment' {} a -> s {bulkDeploymentId = a} :: StopBulkDeployment)
 
 instance Core.AWSRequest StopBulkDeployment where
@@ -87,42 +88,44 @@ instance Core.AWSRequest StopBulkDeployment where
     Response.receiveEmpty
       ( \s h x ->
           StopBulkDeploymentResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopBulkDeployment
+instance Prelude.Hashable StopBulkDeployment
 
-instance Core.NFData StopBulkDeployment
+instance Prelude.NFData StopBulkDeployment
 
 instance Core.ToHeaders StopBulkDeployment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopBulkDeployment where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath StopBulkDeployment where
   toPath StopBulkDeployment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/bulk/deployments/",
         Core.toBS bulkDeploymentId,
         "/$stop"
       ]
 
 instance Core.ToQuery StopBulkDeployment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopBulkDeploymentResponse' smart constructor.
 data StopBulkDeploymentResponse = StopBulkDeploymentResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopBulkDeploymentResponse' with all optional fields omitted.
@@ -135,7 +138,7 @@ data StopBulkDeploymentResponse = StopBulkDeploymentResponse'
 -- 'httpStatus', 'stopBulkDeploymentResponse_httpStatus' - The response's http status code.
 newStopBulkDeploymentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopBulkDeploymentResponse
 newStopBulkDeploymentResponse pHttpStatus_ =
   StopBulkDeploymentResponse'
@@ -144,7 +147,7 @@ newStopBulkDeploymentResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopBulkDeploymentResponse_httpStatus :: Lens.Lens' StopBulkDeploymentResponse Core.Int
+stopBulkDeploymentResponse_httpStatus :: Lens.Lens' StopBulkDeploymentResponse Prelude.Int
 stopBulkDeploymentResponse_httpStatus = Lens.lens (\StopBulkDeploymentResponse' {httpStatus} -> httpStatus) (\s@StopBulkDeploymentResponse' {} a -> s {httpStatus = a} :: StopBulkDeploymentResponse)
 
-instance Core.NFData StopBulkDeploymentResponse
+instance Prelude.NFData StopBulkDeploymentResponse

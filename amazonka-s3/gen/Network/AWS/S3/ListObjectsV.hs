@@ -93,6 +93,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -102,33 +103,33 @@ data ListObjectsV = ListObjectsV'
   { -- | StartAfter is where you want Amazon S3 to start listing from. Amazon S3
     -- starts listing after this specified key. StartAfter can be any key in
     -- the bucket.
-    startAfter :: Core.Maybe Core.Text,
+    startAfter :: Prelude.Maybe Prelude.Text,
     -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Encoding type used by Amazon S3 to encode object keys in the response.
-    encodingType :: Core.Maybe EncodingType,
+    encodingType :: Prelude.Maybe EncodingType,
     -- | A delimiter is a character you use to group keys.
-    delimiter :: Core.Maybe Delimiter,
+    delimiter :: Prelude.Maybe Delimiter,
     -- | Limits the response to keys that begin with the specified prefix.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | Sets the maximum number of keys returned in the response. By default the
     -- API returns up to 1,000 key names. The response might contain fewer keys
     -- but will never contain more.
-    maxKeys :: Core.Maybe Core.Int,
+    maxKeys :: Prelude.Maybe Prelude.Int,
     -- | Confirms that the requester knows that she or he will be charged for the
     -- list objects request in V2 style. Bucket owners need not specify this
     -- parameter in their requests.
-    requestPayer :: Core.Maybe RequestPayer,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The owner field is not present in listV2 by default, if you want to
     -- return owner field with each key in the result then set the fetch owner
     -- field to true.
-    fetchOwner :: Core.Maybe Core.Bool,
+    fetchOwner :: Prelude.Maybe Prelude.Bool,
     -- | ContinuationToken indicates Amazon S3 that the list is being continued
     -- on this bucket with a token. ContinuationToken is obfuscated and is not
     -- a real key.
-    continuationToken :: Core.Maybe Core.Text,
+    continuationToken :: Prelude.Maybe Prelude.Text,
     -- | Bucket name to list.
     --
     -- When using this API with an access point, you must direct requests to
@@ -151,7 +152,7 @@ data ListObjectsV = ListObjectsV'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListObjectsV' with all optional fields omitted.
@@ -217,64 +218,64 @@ newListObjectsV ::
   ListObjectsV
 newListObjectsV pBucket_ =
   ListObjectsV'
-    { startAfter = Core.Nothing,
-      expectedBucketOwner = Core.Nothing,
-      encodingType = Core.Nothing,
-      delimiter = Core.Nothing,
-      prefix = Core.Nothing,
-      maxKeys = Core.Nothing,
-      requestPayer = Core.Nothing,
-      fetchOwner = Core.Nothing,
-      continuationToken = Core.Nothing,
+    { startAfter = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
+      encodingType = Prelude.Nothing,
+      delimiter = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      maxKeys = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
+      fetchOwner = Prelude.Nothing,
+      continuationToken = Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | StartAfter is where you want Amazon S3 to start listing from. Amazon S3
 -- starts listing after this specified key. StartAfter can be any key in
 -- the bucket.
-listObjectsV_startAfter :: Lens.Lens' ListObjectsV (Core.Maybe Core.Text)
+listObjectsV_startAfter :: Lens.Lens' ListObjectsV (Prelude.Maybe Prelude.Text)
 listObjectsV_startAfter = Lens.lens (\ListObjectsV' {startAfter} -> startAfter) (\s@ListObjectsV' {} a -> s {startAfter = a} :: ListObjectsV)
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-listObjectsV_expectedBucketOwner :: Lens.Lens' ListObjectsV (Core.Maybe Core.Text)
+listObjectsV_expectedBucketOwner :: Lens.Lens' ListObjectsV (Prelude.Maybe Prelude.Text)
 listObjectsV_expectedBucketOwner = Lens.lens (\ListObjectsV' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListObjectsV' {} a -> s {expectedBucketOwner = a} :: ListObjectsV)
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-listObjectsV_encodingType :: Lens.Lens' ListObjectsV (Core.Maybe EncodingType)
+listObjectsV_encodingType :: Lens.Lens' ListObjectsV (Prelude.Maybe EncodingType)
 listObjectsV_encodingType = Lens.lens (\ListObjectsV' {encodingType} -> encodingType) (\s@ListObjectsV' {} a -> s {encodingType = a} :: ListObjectsV)
 
 -- | A delimiter is a character you use to group keys.
-listObjectsV_delimiter :: Lens.Lens' ListObjectsV (Core.Maybe Delimiter)
+listObjectsV_delimiter :: Lens.Lens' ListObjectsV (Prelude.Maybe Delimiter)
 listObjectsV_delimiter = Lens.lens (\ListObjectsV' {delimiter} -> delimiter) (\s@ListObjectsV' {} a -> s {delimiter = a} :: ListObjectsV)
 
 -- | Limits the response to keys that begin with the specified prefix.
-listObjectsV_prefix :: Lens.Lens' ListObjectsV (Core.Maybe Core.Text)
+listObjectsV_prefix :: Lens.Lens' ListObjectsV (Prelude.Maybe Prelude.Text)
 listObjectsV_prefix = Lens.lens (\ListObjectsV' {prefix} -> prefix) (\s@ListObjectsV' {} a -> s {prefix = a} :: ListObjectsV)
 
 -- | Sets the maximum number of keys returned in the response. By default the
 -- API returns up to 1,000 key names. The response might contain fewer keys
 -- but will never contain more.
-listObjectsV_maxKeys :: Lens.Lens' ListObjectsV (Core.Maybe Core.Int)
+listObjectsV_maxKeys :: Lens.Lens' ListObjectsV (Prelude.Maybe Prelude.Int)
 listObjectsV_maxKeys = Lens.lens (\ListObjectsV' {maxKeys} -> maxKeys) (\s@ListObjectsV' {} a -> s {maxKeys = a} :: ListObjectsV)
 
 -- | Confirms that the requester knows that she or he will be charged for the
 -- list objects request in V2 style. Bucket owners need not specify this
 -- parameter in their requests.
-listObjectsV_requestPayer :: Lens.Lens' ListObjectsV (Core.Maybe RequestPayer)
+listObjectsV_requestPayer :: Lens.Lens' ListObjectsV (Prelude.Maybe RequestPayer)
 listObjectsV_requestPayer = Lens.lens (\ListObjectsV' {requestPayer} -> requestPayer) (\s@ListObjectsV' {} a -> s {requestPayer = a} :: ListObjectsV)
 
 -- | The owner field is not present in listV2 by default, if you want to
 -- return owner field with each key in the result then set the fetch owner
 -- field to true.
-listObjectsV_fetchOwner :: Lens.Lens' ListObjectsV (Core.Maybe Core.Bool)
+listObjectsV_fetchOwner :: Lens.Lens' ListObjectsV (Prelude.Maybe Prelude.Bool)
 listObjectsV_fetchOwner = Lens.lens (\ListObjectsV' {fetchOwner} -> fetchOwner) (\s@ListObjectsV' {} a -> s {fetchOwner = a} :: ListObjectsV)
 
 -- | ContinuationToken indicates Amazon S3 that the list is being continued
 -- on this bucket with a token. ContinuationToken is obfuscated and is not
 -- a real key.
-listObjectsV_continuationToken :: Lens.Lens' ListObjectsV (Core.Maybe Core.Text)
+listObjectsV_continuationToken :: Lens.Lens' ListObjectsV (Prelude.Maybe Prelude.Text)
 listObjectsV_continuationToken = Lens.lens (\ListObjectsV' {continuationToken} -> continuationToken) (\s@ListObjectsV' {} a -> s {continuationToken = a} :: ListObjectsV)
 
 -- | Bucket name to list.
@@ -307,28 +308,28 @@ instance Core.AWSRequest ListObjectsV where
     Response.receiveXML
       ( \s h x ->
           ListObjectsVResponse'
-            Core.<$> (x Core..@? "StartAfter")
-            Core.<*> (x Core..@? "KeyCount")
-            Core.<*> (Core.may (Core.parseXMLList "CommonPrefixes") x)
-            Core.<*> (x Core..@? "EncodingType")
-            Core.<*> (x Core..@? "Delimiter")
-            Core.<*> (x Core..@? "Prefix")
-            Core.<*> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "MaxKeys")
-            Core.<*> (Core.may (Core.parseXMLList "Contents") x)
-            Core.<*> (x Core..@? "Name")
-            Core.<*> (x Core..@? "NextContinuationToken")
-            Core.<*> (x Core..@? "ContinuationToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "StartAfter")
+            Prelude.<*> (x Core..@? "KeyCount")
+            Prelude.<*> (Core.may (Core.parseXMLList "CommonPrefixes") x)
+            Prelude.<*> (x Core..@? "EncodingType")
+            Prelude.<*> (x Core..@? "Delimiter")
+            Prelude.<*> (x Core..@? "Prefix")
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "MaxKeys")
+            Prelude.<*> (Core.may (Core.parseXMLList "Contents") x)
+            Prelude.<*> (x Core..@? "Name")
+            Prelude.<*> (x Core..@? "NextContinuationToken")
+            Prelude.<*> (x Core..@? "ContinuationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListObjectsV
+instance Prelude.Hashable ListObjectsV
 
-instance Core.NFData ListObjectsV
+instance Prelude.NFData ListObjectsV
 
 instance Core.ToHeaders ListObjectsV where
   toHeaders ListObjectsV' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer
@@ -336,11 +337,11 @@ instance Core.ToHeaders ListObjectsV where
 
 instance Core.ToPath ListObjectsV where
   toPath ListObjectsV' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery ListObjectsV where
   toQuery ListObjectsV' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "start-after" Core.=: startAfter,
         "encoding-type" Core.=: encodingType,
         "delimiter" Core.=: delimiter,
@@ -354,11 +355,11 @@ instance Core.ToQuery ListObjectsV where
 -- | /See:/ 'newListObjectsVResponse' smart constructor.
 data ListObjectsVResponse = ListObjectsVResponse'
   { -- | If StartAfter was sent with the request, it is included in the response.
-    startAfter :: Core.Maybe Core.Text,
+    startAfter :: Prelude.Maybe Prelude.Text,
     -- | KeyCount is the number of keys returned with this request. KeyCount will
     -- always be less than or equals to MaxKeys field. Say you ask for 50 keys,
     -- your result will include less than equals 50 keys
-    keyCount :: Core.Maybe Core.Int,
+    keyCount :: Prelude.Maybe Prelude.Int,
     -- | All of the keys (up to 1,000) rolled up into a common prefix count as a
     -- single return when calculating the number of returns.
     --
@@ -374,7 +375,7 @@ data ListObjectsVResponse = ListObjectsVResponse'
     -- (@\/@) as in @notes\/summer\/july@, the common prefix is
     -- @notes\/summer\/@. All of the keys that roll up into a common prefix
     -- count as a single return when calculating the number of returns.
-    commonPrefixes :: Core.Maybe [CommonPrefix],
+    commonPrefixes :: Prelude.Maybe [CommonPrefix],
     -- | Encoding type used by Amazon S3 to encode object key names in the XML
     -- response.
     --
@@ -383,25 +384,25 @@ data ListObjectsVResponse = ListObjectsVResponse'
     -- following response elements:
     --
     -- @Delimiter, Prefix, Key,@ and @StartAfter@.
-    encodingType :: Core.Maybe EncodingType,
+    encodingType :: Prelude.Maybe EncodingType,
     -- | Causes keys that contain the same string between the prefix and the
     -- first occurrence of the delimiter to be rolled up into a single result
     -- element in the CommonPrefixes collection. These rolled-up keys are not
     -- returned elsewhere in the response. Each rolled-up result counts as only
     -- one return against the @MaxKeys@ value.
-    delimiter :: Core.Maybe Delimiter,
+    delimiter :: Prelude.Maybe Delimiter,
     -- | Keys that begin with the indicated prefix.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | Set to false if all of the results were returned. Set to true if more
     -- keys are available to return. If the number of results exceeds that
     -- specified by MaxKeys, all of the results might not be returned.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | Sets the maximum number of keys returned in the response. By default the
     -- API returns up to 1,000 key names. The response might contain fewer keys
     -- but will never contain more.
-    maxKeys :: Core.Maybe Core.Int,
+    maxKeys :: Prelude.Maybe Prelude.Int,
     -- | Metadata about each object returned.
-    contents :: Core.Maybe [Object],
+    contents :: Prelude.Maybe [Object],
     -- | The bucket name.
     --
     -- When using this API with an access point, you must direct requests to
@@ -422,20 +423,20 @@ data ListObjectsVResponse = ListObjectsVResponse'
     -- information about S3 on Outposts ARNs, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
     -- in the /Amazon Simple Storage Service Developer Guide/.
-    name :: Core.Maybe BucketName,
+    name :: Prelude.Maybe BucketName,
     -- | @NextContinuationToken@ is sent when @isTruncated@ is true, which means
     -- there are more keys in the bucket that can be listed. The next list
     -- requests to Amazon S3 can be continued with this
     -- @NextContinuationToken@. @NextContinuationToken@ is obfuscated and is
     -- not a real key
-    nextContinuationToken :: Core.Maybe Core.Text,
+    nextContinuationToken :: Prelude.Maybe Prelude.Text,
     -- | If ContinuationToken was sent with the request, it is included in the
     -- response.
-    continuationToken :: Core.Maybe Core.Text,
+    continuationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListObjectsVResponse' with all optional fields omitted.
@@ -527,33 +528,33 @@ data ListObjectsVResponse = ListObjectsVResponse'
 -- 'httpStatus', 'listObjectsVResponse_httpStatus' - The response's http status code.
 newListObjectsVResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListObjectsVResponse
 newListObjectsVResponse pHttpStatus_ =
   ListObjectsVResponse'
-    { startAfter = Core.Nothing,
-      keyCount = Core.Nothing,
-      commonPrefixes = Core.Nothing,
-      encodingType = Core.Nothing,
-      delimiter = Core.Nothing,
-      prefix = Core.Nothing,
-      isTruncated = Core.Nothing,
-      maxKeys = Core.Nothing,
-      contents = Core.Nothing,
-      name = Core.Nothing,
-      nextContinuationToken = Core.Nothing,
-      continuationToken = Core.Nothing,
+    { startAfter = Prelude.Nothing,
+      keyCount = Prelude.Nothing,
+      commonPrefixes = Prelude.Nothing,
+      encodingType = Prelude.Nothing,
+      delimiter = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
+      maxKeys = Prelude.Nothing,
+      contents = Prelude.Nothing,
+      name = Prelude.Nothing,
+      nextContinuationToken = Prelude.Nothing,
+      continuationToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If StartAfter was sent with the request, it is included in the response.
-listObjectsVResponse_startAfter :: Lens.Lens' ListObjectsVResponse (Core.Maybe Core.Text)
+listObjectsVResponse_startAfter :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe Prelude.Text)
 listObjectsVResponse_startAfter = Lens.lens (\ListObjectsVResponse' {startAfter} -> startAfter) (\s@ListObjectsVResponse' {} a -> s {startAfter = a} :: ListObjectsVResponse)
 
 -- | KeyCount is the number of keys returned with this request. KeyCount will
 -- always be less than or equals to MaxKeys field. Say you ask for 50 keys,
 -- your result will include less than equals 50 keys
-listObjectsVResponse_keyCount :: Lens.Lens' ListObjectsVResponse (Core.Maybe Core.Int)
+listObjectsVResponse_keyCount :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe Prelude.Int)
 listObjectsVResponse_keyCount = Lens.lens (\ListObjectsVResponse' {keyCount} -> keyCount) (\s@ListObjectsVResponse' {} a -> s {keyCount = a} :: ListObjectsVResponse)
 
 -- | All of the keys (up to 1,000) rolled up into a common prefix count as a
@@ -571,8 +572,8 @@ listObjectsVResponse_keyCount = Lens.lens (\ListObjectsVResponse' {keyCount} -> 
 -- (@\/@) as in @notes\/summer\/july@, the common prefix is
 -- @notes\/summer\/@. All of the keys that roll up into a common prefix
 -- count as a single return when calculating the number of returns.
-listObjectsVResponse_commonPrefixes :: Lens.Lens' ListObjectsVResponse (Core.Maybe [CommonPrefix])
-listObjectsVResponse_commonPrefixes = Lens.lens (\ListObjectsVResponse' {commonPrefixes} -> commonPrefixes) (\s@ListObjectsVResponse' {} a -> s {commonPrefixes = a} :: ListObjectsVResponse) Core.. Lens.mapping Lens._Coerce
+listObjectsVResponse_commonPrefixes :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe [CommonPrefix])
+listObjectsVResponse_commonPrefixes = Lens.lens (\ListObjectsVResponse' {commonPrefixes} -> commonPrefixes) (\s@ListObjectsVResponse' {} a -> s {commonPrefixes = a} :: ListObjectsVResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Encoding type used by Amazon S3 to encode object key names in the XML
 -- response.
@@ -582,7 +583,7 @@ listObjectsVResponse_commonPrefixes = Lens.lens (\ListObjectsVResponse' {commonP
 -- following response elements:
 --
 -- @Delimiter, Prefix, Key,@ and @StartAfter@.
-listObjectsVResponse_encodingType :: Lens.Lens' ListObjectsVResponse (Core.Maybe EncodingType)
+listObjectsVResponse_encodingType :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe EncodingType)
 listObjectsVResponse_encodingType = Lens.lens (\ListObjectsVResponse' {encodingType} -> encodingType) (\s@ListObjectsVResponse' {} a -> s {encodingType = a} :: ListObjectsVResponse)
 
 -- | Causes keys that contain the same string between the prefix and the
@@ -590,28 +591,28 @@ listObjectsVResponse_encodingType = Lens.lens (\ListObjectsVResponse' {encodingT
 -- element in the CommonPrefixes collection. These rolled-up keys are not
 -- returned elsewhere in the response. Each rolled-up result counts as only
 -- one return against the @MaxKeys@ value.
-listObjectsVResponse_delimiter :: Lens.Lens' ListObjectsVResponse (Core.Maybe Delimiter)
+listObjectsVResponse_delimiter :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe Delimiter)
 listObjectsVResponse_delimiter = Lens.lens (\ListObjectsVResponse' {delimiter} -> delimiter) (\s@ListObjectsVResponse' {} a -> s {delimiter = a} :: ListObjectsVResponse)
 
 -- | Keys that begin with the indicated prefix.
-listObjectsVResponse_prefix :: Lens.Lens' ListObjectsVResponse (Core.Maybe Core.Text)
+listObjectsVResponse_prefix :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe Prelude.Text)
 listObjectsVResponse_prefix = Lens.lens (\ListObjectsVResponse' {prefix} -> prefix) (\s@ListObjectsVResponse' {} a -> s {prefix = a} :: ListObjectsVResponse)
 
 -- | Set to false if all of the results were returned. Set to true if more
 -- keys are available to return. If the number of results exceeds that
 -- specified by MaxKeys, all of the results might not be returned.
-listObjectsVResponse_isTruncated :: Lens.Lens' ListObjectsVResponse (Core.Maybe Core.Bool)
+listObjectsVResponse_isTruncated :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe Prelude.Bool)
 listObjectsVResponse_isTruncated = Lens.lens (\ListObjectsVResponse' {isTruncated} -> isTruncated) (\s@ListObjectsVResponse' {} a -> s {isTruncated = a} :: ListObjectsVResponse)
 
 -- | Sets the maximum number of keys returned in the response. By default the
 -- API returns up to 1,000 key names. The response might contain fewer keys
 -- but will never contain more.
-listObjectsVResponse_maxKeys :: Lens.Lens' ListObjectsVResponse (Core.Maybe Core.Int)
+listObjectsVResponse_maxKeys :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe Prelude.Int)
 listObjectsVResponse_maxKeys = Lens.lens (\ListObjectsVResponse' {maxKeys} -> maxKeys) (\s@ListObjectsVResponse' {} a -> s {maxKeys = a} :: ListObjectsVResponse)
 
 -- | Metadata about each object returned.
-listObjectsVResponse_contents :: Lens.Lens' ListObjectsVResponse (Core.Maybe [Object])
-listObjectsVResponse_contents = Lens.lens (\ListObjectsVResponse' {contents} -> contents) (\s@ListObjectsVResponse' {} a -> s {contents = a} :: ListObjectsVResponse) Core.. Lens.mapping Lens._Coerce
+listObjectsVResponse_contents :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe [Object])
+listObjectsVResponse_contents = Lens.lens (\ListObjectsVResponse' {contents} -> contents) (\s@ListObjectsVResponse' {} a -> s {contents = a} :: ListObjectsVResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The bucket name.
 --
@@ -633,7 +634,7 @@ listObjectsVResponse_contents = Lens.lens (\ListObjectsVResponse' {contents} -> 
 -- information about S3 on Outposts ARNs, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
 -- in the /Amazon Simple Storage Service Developer Guide/.
-listObjectsVResponse_name :: Lens.Lens' ListObjectsVResponse (Core.Maybe BucketName)
+listObjectsVResponse_name :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe BucketName)
 listObjectsVResponse_name = Lens.lens (\ListObjectsVResponse' {name} -> name) (\s@ListObjectsVResponse' {} a -> s {name = a} :: ListObjectsVResponse)
 
 -- | @NextContinuationToken@ is sent when @isTruncated@ is true, which means
@@ -641,16 +642,16 @@ listObjectsVResponse_name = Lens.lens (\ListObjectsVResponse' {name} -> name) (\
 -- requests to Amazon S3 can be continued with this
 -- @NextContinuationToken@. @NextContinuationToken@ is obfuscated and is
 -- not a real key
-listObjectsVResponse_nextContinuationToken :: Lens.Lens' ListObjectsVResponse (Core.Maybe Core.Text)
+listObjectsVResponse_nextContinuationToken :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe Prelude.Text)
 listObjectsVResponse_nextContinuationToken = Lens.lens (\ListObjectsVResponse' {nextContinuationToken} -> nextContinuationToken) (\s@ListObjectsVResponse' {} a -> s {nextContinuationToken = a} :: ListObjectsVResponse)
 
 -- | If ContinuationToken was sent with the request, it is included in the
 -- response.
-listObjectsVResponse_continuationToken :: Lens.Lens' ListObjectsVResponse (Core.Maybe Core.Text)
+listObjectsVResponse_continuationToken :: Lens.Lens' ListObjectsVResponse (Prelude.Maybe Prelude.Text)
 listObjectsVResponse_continuationToken = Lens.lens (\ListObjectsVResponse' {continuationToken} -> continuationToken) (\s@ListObjectsVResponse' {} a -> s {continuationToken = a} :: ListObjectsVResponse)
 
 -- | The response's http status code.
-listObjectsVResponse_httpStatus :: Lens.Lens' ListObjectsVResponse Core.Int
+listObjectsVResponse_httpStatus :: Lens.Lens' ListObjectsVResponse Prelude.Int
 listObjectsVResponse_httpStatus = Lens.lens (\ListObjectsVResponse' {httpStatus} -> httpStatus) (\s@ListObjectsVResponse' {} a -> s {httpStatus = a} :: ListObjectsVResponse)
 
-instance Core.NFData ListObjectsVResponse
+instance Prelude.NFData ListObjectsVResponse

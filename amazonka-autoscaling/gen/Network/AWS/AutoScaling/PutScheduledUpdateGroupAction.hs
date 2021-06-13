@@ -52,18 +52,19 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
   { -- | The minimum size of the Auto Scaling group.
-    minSize :: Core.Maybe Core.Int,
+    minSize :: Prelude.Maybe Prelude.Int,
     -- | The desired capacity is the initial capacity of the Auto Scaling group
     -- after the scheduled action runs and the capacity it attempts to
     -- maintain. It can scale beyond this capacity if you add more scaling
     -- conditions.
-    desiredCapacity :: Core.Maybe Core.Int,
+    desiredCapacity :: Prelude.Maybe Prelude.Int,
     -- | The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ
     -- format in UTC\/GMT only and in quotes (for example,
     -- @\"2019-06-01T00:00:00Z\"@).
@@ -74,10 +75,10 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     --
     -- If you try to schedule your action in the past, Amazon EC2 Auto Scaling
     -- returns an error message.
-    startTime :: Core.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Core.ISO8601,
     -- | The date and time for the recurring schedule to end. Amazon EC2 Auto
     -- Scaling does not perform the action after this time.
-    endTime :: Core.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Core.ISO8601,
     -- | The recurring schedule for this action, in Unix cron syntax format. This
     -- format consists of five fields separated by white spaces: [Minute]
     -- [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be
@@ -86,17 +87,17 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     --
     -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
     -- form the boundaries of when the recurring action starts and stops.
-    recurrence :: Core.Maybe Core.Text,
+    recurrence :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of the Auto Scaling group.
-    maxSize :: Core.Maybe Core.Int,
+    maxSize :: Prelude.Maybe Prelude.Int,
     -- | This parameter is no longer used.
-    time :: Core.Maybe Core.ISO8601,
+    time :: Prelude.Maybe Core.ISO8601,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | The name of this scaling action.
-    scheduledActionName :: Core.Text
+    scheduledActionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutScheduledUpdateGroupAction' with all optional fields omitted.
@@ -145,36 +146,36 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 -- 'scheduledActionName', 'putScheduledUpdateGroupAction_scheduledActionName' - The name of this scaling action.
 newPutScheduledUpdateGroupAction ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scheduledActionName'
-  Core.Text ->
+  Prelude.Text ->
   PutScheduledUpdateGroupAction
 newPutScheduledUpdateGroupAction
   pAutoScalingGroupName_
   pScheduledActionName_ =
     PutScheduledUpdateGroupAction'
       { minSize =
-          Core.Nothing,
-        desiredCapacity = Core.Nothing,
-        startTime = Core.Nothing,
-        endTime = Core.Nothing,
-        recurrence = Core.Nothing,
-        maxSize = Core.Nothing,
-        time = Core.Nothing,
+          Prelude.Nothing,
+        desiredCapacity = Prelude.Nothing,
+        startTime = Prelude.Nothing,
+        endTime = Prelude.Nothing,
+        recurrence = Prelude.Nothing,
+        maxSize = Prelude.Nothing,
+        time = Prelude.Nothing,
         autoScalingGroupName =
           pAutoScalingGroupName_,
         scheduledActionName = pScheduledActionName_
       }
 
 -- | The minimum size of the Auto Scaling group.
-putScheduledUpdateGroupAction_minSize :: Lens.Lens' PutScheduledUpdateGroupAction (Core.Maybe Core.Int)
+putScheduledUpdateGroupAction_minSize :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
 putScheduledUpdateGroupAction_minSize = Lens.lens (\PutScheduledUpdateGroupAction' {minSize} -> minSize) (\s@PutScheduledUpdateGroupAction' {} a -> s {minSize = a} :: PutScheduledUpdateGroupAction)
 
 -- | The desired capacity is the initial capacity of the Auto Scaling group
 -- after the scheduled action runs and the capacity it attempts to
 -- maintain. It can scale beyond this capacity if you add more scaling
 -- conditions.
-putScheduledUpdateGroupAction_desiredCapacity :: Lens.Lens' PutScheduledUpdateGroupAction (Core.Maybe Core.Int)
+putScheduledUpdateGroupAction_desiredCapacity :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
 putScheduledUpdateGroupAction_desiredCapacity = Lens.lens (\PutScheduledUpdateGroupAction' {desiredCapacity} -> desiredCapacity) (\s@PutScheduledUpdateGroupAction' {} a -> s {desiredCapacity = a} :: PutScheduledUpdateGroupAction)
 
 -- | The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ
@@ -187,13 +188,13 @@ putScheduledUpdateGroupAction_desiredCapacity = Lens.lens (\PutScheduledUpdateGr
 --
 -- If you try to schedule your action in the past, Amazon EC2 Auto Scaling
 -- returns an error message.
-putScheduledUpdateGroupAction_startTime :: Lens.Lens' PutScheduledUpdateGroupAction (Core.Maybe Core.UTCTime)
-putScheduledUpdateGroupAction_startTime = Lens.lens (\PutScheduledUpdateGroupAction' {startTime} -> startTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {startTime = a} :: PutScheduledUpdateGroupAction) Core.. Lens.mapping Core._Time
+putScheduledUpdateGroupAction_startTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledUpdateGroupAction_startTime = Lens.lens (\PutScheduledUpdateGroupAction' {startTime} -> startTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {startTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time for the recurring schedule to end. Amazon EC2 Auto
 -- Scaling does not perform the action after this time.
-putScheduledUpdateGroupAction_endTime :: Lens.Lens' PutScheduledUpdateGroupAction (Core.Maybe Core.UTCTime)
-putScheduledUpdateGroupAction_endTime = Lens.lens (\PutScheduledUpdateGroupAction' {endTime} -> endTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {endTime = a} :: PutScheduledUpdateGroupAction) Core.. Lens.mapping Core._Time
+putScheduledUpdateGroupAction_endTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledUpdateGroupAction_endTime = Lens.lens (\PutScheduledUpdateGroupAction' {endTime} -> endTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {endTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 
 -- | The recurring schedule for this action, in Unix cron syntax format. This
 -- format consists of five fields separated by white spaces: [Minute]
@@ -203,23 +204,23 @@ putScheduledUpdateGroupAction_endTime = Lens.lens (\PutScheduledUpdateGroupActio
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action starts and stops.
-putScheduledUpdateGroupAction_recurrence :: Lens.Lens' PutScheduledUpdateGroupAction (Core.Maybe Core.Text)
+putScheduledUpdateGroupAction_recurrence :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
 putScheduledUpdateGroupAction_recurrence = Lens.lens (\PutScheduledUpdateGroupAction' {recurrence} -> recurrence) (\s@PutScheduledUpdateGroupAction' {} a -> s {recurrence = a} :: PutScheduledUpdateGroupAction)
 
 -- | The maximum size of the Auto Scaling group.
-putScheduledUpdateGroupAction_maxSize :: Lens.Lens' PutScheduledUpdateGroupAction (Core.Maybe Core.Int)
+putScheduledUpdateGroupAction_maxSize :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
 putScheduledUpdateGroupAction_maxSize = Lens.lens (\PutScheduledUpdateGroupAction' {maxSize} -> maxSize) (\s@PutScheduledUpdateGroupAction' {} a -> s {maxSize = a} :: PutScheduledUpdateGroupAction)
 
 -- | This parameter is no longer used.
-putScheduledUpdateGroupAction_time :: Lens.Lens' PutScheduledUpdateGroupAction (Core.Maybe Core.UTCTime)
-putScheduledUpdateGroupAction_time = Lens.lens (\PutScheduledUpdateGroupAction' {time} -> time) (\s@PutScheduledUpdateGroupAction' {} a -> s {time = a} :: PutScheduledUpdateGroupAction) Core.. Lens.mapping Core._Time
+putScheduledUpdateGroupAction_time :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledUpdateGroupAction_time = Lens.lens (\PutScheduledUpdateGroupAction' {time} -> time) (\s@PutScheduledUpdateGroupAction' {} a -> s {time = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the Auto Scaling group.
-putScheduledUpdateGroupAction_autoScalingGroupName :: Lens.Lens' PutScheduledUpdateGroupAction Core.Text
+putScheduledUpdateGroupAction_autoScalingGroupName :: Lens.Lens' PutScheduledUpdateGroupAction Prelude.Text
 putScheduledUpdateGroupAction_autoScalingGroupName = Lens.lens (\PutScheduledUpdateGroupAction' {autoScalingGroupName} -> autoScalingGroupName) (\s@PutScheduledUpdateGroupAction' {} a -> s {autoScalingGroupName = a} :: PutScheduledUpdateGroupAction)
 
 -- | The name of this scaling action.
-putScheduledUpdateGroupAction_scheduledActionName :: Lens.Lens' PutScheduledUpdateGroupAction Core.Text
+putScheduledUpdateGroupAction_scheduledActionName :: Lens.Lens' PutScheduledUpdateGroupAction Prelude.Text
 putScheduledUpdateGroupAction_scheduledActionName = Lens.lens (\PutScheduledUpdateGroupAction' {scheduledActionName} -> scheduledActionName) (\s@PutScheduledUpdateGroupAction' {} a -> s {scheduledActionName = a} :: PutScheduledUpdateGroupAction)
 
 instance
@@ -234,22 +235,27 @@ instance
     Response.receiveNull
       PutScheduledUpdateGroupActionResponse'
 
-instance Core.Hashable PutScheduledUpdateGroupAction
+instance
+  Prelude.Hashable
+    PutScheduledUpdateGroupAction
 
-instance Core.NFData PutScheduledUpdateGroupAction
+instance Prelude.NFData PutScheduledUpdateGroupAction
 
 instance Core.ToHeaders PutScheduledUpdateGroupAction where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PutScheduledUpdateGroupAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutScheduledUpdateGroupAction where
   toQuery PutScheduledUpdateGroupAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PutScheduledUpdateGroupAction" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ( "PutScheduledUpdateGroupAction" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "MinSize" Core.=: minSize,
         "DesiredCapacity" Core.=: desiredCapacity,
         "StartTime" Core.=: startTime,
@@ -265,7 +271,7 @@ instance Core.ToQuery PutScheduledUpdateGroupAction where
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutScheduledUpdateGroupActionResponse' with all optional fields omitted.
@@ -277,5 +283,5 @@ newPutScheduledUpdateGroupActionResponse =
   PutScheduledUpdateGroupActionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutScheduledUpdateGroupActionResponse

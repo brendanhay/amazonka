@@ -25,6 +25,7 @@ import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
 import Network.AWS.Firehose.Types.CompressionFormat
 import Network.AWS.Firehose.Types.EncryptionConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a destination in Amazon S3.
 --
@@ -34,21 +35,21 @@ data S3DestinationDescription = S3DestinationDescription'
     -- before writing them to S3. This prefix appears immediately following the
     -- bucket name. For information about how to specify this prefix, see
     -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
-    errorOutputPrefix :: Core.Maybe Core.Text,
+    errorOutputPrefix :: Prelude.Maybe Prelude.Text,
     -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Core.Maybe CloudWatchLoggingOptions,
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
     -- delivered Amazon S3 files. You can also specify a custom prefix, as
     -- described in
     -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS credentials. For more
     -- information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    roleARN :: Core.Text,
+    roleARN :: Prelude.Text,
     -- | The ARN of the S3 bucket. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    bucketARN :: Core.Text,
+    bucketARN :: Prelude.Text,
     -- | The buffering option. If no value is specified, @BufferingHints@ object
     -- default values are used.
     bufferingHints :: BufferingHints,
@@ -59,7 +60,7 @@ data S3DestinationDescription = S3DestinationDescription'
     -- no encryption.
     encryptionConfiguration :: EncryptionConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3DestinationDescription' with all optional fields omitted.
@@ -98,9 +99,9 @@ data S3DestinationDescription = S3DestinationDescription'
 -- no encryption.
 newS3DestinationDescription ::
   -- | 'roleARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'bucketARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'bufferingHints'
   BufferingHints ->
   -- | 'compressionFormat'
@@ -116,9 +117,9 @@ newS3DestinationDescription
   pEncryptionConfiguration_ =
     S3DestinationDescription'
       { errorOutputPrefix =
-          Core.Nothing,
-        cloudWatchLoggingOptions = Core.Nothing,
-        prefix = Core.Nothing,
+          Prelude.Nothing,
+        cloudWatchLoggingOptions = Prelude.Nothing,
+        prefix = Prelude.Nothing,
         roleARN = pRoleARN_,
         bucketARN = pBucketARN_,
         bufferingHints = pBufferingHints_,
@@ -131,29 +132,29 @@ newS3DestinationDescription
 -- before writing them to S3. This prefix appears immediately following the
 -- bucket name. For information about how to specify this prefix, see
 -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
-s3DestinationDescription_errorOutputPrefix :: Lens.Lens' S3DestinationDescription (Core.Maybe Core.Text)
+s3DestinationDescription_errorOutputPrefix :: Lens.Lens' S3DestinationDescription (Prelude.Maybe Prelude.Text)
 s3DestinationDescription_errorOutputPrefix = Lens.lens (\S3DestinationDescription' {errorOutputPrefix} -> errorOutputPrefix) (\s@S3DestinationDescription' {} a -> s {errorOutputPrefix = a} :: S3DestinationDescription)
 
 -- | The Amazon CloudWatch logging options for your delivery stream.
-s3DestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' S3DestinationDescription (Core.Maybe CloudWatchLoggingOptions)
+s3DestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' S3DestinationDescription (Prelude.Maybe CloudWatchLoggingOptions)
 s3DestinationDescription_cloudWatchLoggingOptions = Lens.lens (\S3DestinationDescription' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@S3DestinationDescription' {} a -> s {cloudWatchLoggingOptions = a} :: S3DestinationDescription)
 
 -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
 -- delivered Amazon S3 files. You can also specify a custom prefix, as
 -- described in
 -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
-s3DestinationDescription_prefix :: Lens.Lens' S3DestinationDescription (Core.Maybe Core.Text)
+s3DestinationDescription_prefix :: Lens.Lens' S3DestinationDescription (Prelude.Maybe Prelude.Text)
 s3DestinationDescription_prefix = Lens.lens (\S3DestinationDescription' {prefix} -> prefix) (\s@S3DestinationDescription' {} a -> s {prefix = a} :: S3DestinationDescription)
 
 -- | The Amazon Resource Name (ARN) of the AWS credentials. For more
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-s3DestinationDescription_roleARN :: Lens.Lens' S3DestinationDescription Core.Text
+s3DestinationDescription_roleARN :: Lens.Lens' S3DestinationDescription Prelude.Text
 s3DestinationDescription_roleARN = Lens.lens (\S3DestinationDescription' {roleARN} -> roleARN) (\s@S3DestinationDescription' {} a -> s {roleARN = a} :: S3DestinationDescription)
 
 -- | The ARN of the S3 bucket. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-s3DestinationDescription_bucketARN :: Lens.Lens' S3DestinationDescription Core.Text
+s3DestinationDescription_bucketARN :: Lens.Lens' S3DestinationDescription Prelude.Text
 s3DestinationDescription_bucketARN = Lens.lens (\S3DestinationDescription' {bucketARN} -> bucketARN) (\s@S3DestinationDescription' {} a -> s {bucketARN = a} :: S3DestinationDescription)
 
 -- | The buffering option. If no value is specified, @BufferingHints@ object
@@ -177,16 +178,16 @@ instance Core.FromJSON S3DestinationDescription where
       "S3DestinationDescription"
       ( \x ->
           S3DestinationDescription'
-            Core.<$> (x Core..:? "ErrorOutputPrefix")
-            Core.<*> (x Core..:? "CloudWatchLoggingOptions")
-            Core.<*> (x Core..:? "Prefix")
-            Core.<*> (x Core..: "RoleARN")
-            Core.<*> (x Core..: "BucketARN")
-            Core.<*> (x Core..: "BufferingHints")
-            Core.<*> (x Core..: "CompressionFormat")
-            Core.<*> (x Core..: "EncryptionConfiguration")
+            Prelude.<$> (x Core..:? "ErrorOutputPrefix")
+            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Core..:? "Prefix")
+            Prelude.<*> (x Core..: "RoleARN")
+            Prelude.<*> (x Core..: "BucketARN")
+            Prelude.<*> (x Core..: "BufferingHints")
+            Prelude.<*> (x Core..: "CompressionFormat")
+            Prelude.<*> (x Core..: "EncryptionConfiguration")
       )
 
-instance Core.Hashable S3DestinationDescription
+instance Prelude.Hashable S3DestinationDescription
 
-instance Core.NFData S3DestinationDescription
+instance Prelude.NFData S3DestinationDescription

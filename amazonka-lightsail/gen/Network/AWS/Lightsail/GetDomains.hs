@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data GetDomains = GetDomains'
     -- To get a page token, perform an initial @GetDomains@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Core.Maybe Core.Text
+    pageToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDomains' with all optional fields omitted.
@@ -74,34 +75,36 @@ data GetDomains = GetDomains'
 -- you can specify as the page token in a subsequent request.
 newGetDomains ::
   GetDomains
-newGetDomains = GetDomains' {pageToken = Core.Nothing}
+newGetDomains =
+  GetDomains' {pageToken = Prelude.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetDomains@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
-getDomains_pageToken :: Lens.Lens' GetDomains (Core.Maybe Core.Text)
+getDomains_pageToken :: Lens.Lens' GetDomains (Prelude.Maybe Prelude.Text)
 getDomains_pageToken = Lens.lens (\GetDomains' {pageToken} -> pageToken) (\s@GetDomains' {} a -> s {pageToken = a} :: GetDomains)
 
 instance Core.AWSPager GetDomains where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getDomainsResponse_nextPageToken Core.. Lens._Just
+            Lens.^? getDomainsResponse_nextPageToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getDomainsResponse_domains Core.. Lens._Just
+            Lens.^? getDomainsResponse_domains Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getDomains_pageToken
+          Prelude.& getDomains_pageToken
           Lens..~ rs
-          Lens.^? getDomainsResponse_nextPageToken Core.. Lens._Just
+          Lens.^? getDomainsResponse_nextPageToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDomains where
   type AWSResponse GetDomains = GetDomainsResponse
@@ -110,44 +113,48 @@ instance Core.AWSRequest GetDomains where
     Response.receiveJSON
       ( \s h x ->
           GetDomainsResponse'
-            Core.<$> (x Core..?> "domains" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "nextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "domains" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDomains
+instance Prelude.Hashable GetDomains
 
-instance Core.NFData GetDomains
+instance Prelude.NFData GetDomains
 
 instance Core.ToHeaders GetDomains where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Lightsail_20161128.GetDomains" :: Core.ByteString),
+              Core.=# ( "Lightsail_20161128.GetDomains" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDomains where
   toJSON GetDomains' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pageToken" Core..=) Core.<$> pageToken]
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
       )
 
 instance Core.ToPath GetDomains where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDomains where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDomainsResponse' smart constructor.
 data GetDomainsResponse = GetDomainsResponse'
   { -- | An array of key-value pairs containing information about each of the
     -- domain entries in the user\'s account.
-    domains :: Core.Maybe [Domain],
+    domains :: Prelude.Maybe [Domain],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -155,11 +162,11 @@ data GetDomainsResponse = GetDomainsResponse'
     --
     -- To get the next page of results, perform another @GetDomains@ request
     -- and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDomainsResponse' with all optional fields omitted.
@@ -183,19 +190,19 @@ data GetDomainsResponse = GetDomainsResponse'
 -- 'httpStatus', 'getDomainsResponse_httpStatus' - The response's http status code.
 newGetDomainsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDomainsResponse
 newGetDomainsResponse pHttpStatus_ =
   GetDomainsResponse'
-    { domains = Core.Nothing,
-      nextPageToken = Core.Nothing,
+    { domains = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs containing information about each of the
 -- domain entries in the user\'s account.
-getDomainsResponse_domains :: Lens.Lens' GetDomainsResponse (Core.Maybe [Domain])
-getDomainsResponse_domains = Lens.lens (\GetDomainsResponse' {domains} -> domains) (\s@GetDomainsResponse' {} a -> s {domains = a} :: GetDomainsResponse) Core.. Lens.mapping Lens._Coerce
+getDomainsResponse_domains :: Lens.Lens' GetDomainsResponse (Prelude.Maybe [Domain])
+getDomainsResponse_domains = Lens.lens (\GetDomainsResponse' {domains} -> domains) (\s@GetDomainsResponse' {} a -> s {domains = a} :: GetDomainsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -204,11 +211,11 @@ getDomainsResponse_domains = Lens.lens (\GetDomainsResponse' {domains} -> domain
 --
 -- To get the next page of results, perform another @GetDomains@ request
 -- and specify the next page token using the @pageToken@ parameter.
-getDomainsResponse_nextPageToken :: Lens.Lens' GetDomainsResponse (Core.Maybe Core.Text)
+getDomainsResponse_nextPageToken :: Lens.Lens' GetDomainsResponse (Prelude.Maybe Prelude.Text)
 getDomainsResponse_nextPageToken = Lens.lens (\GetDomainsResponse' {nextPageToken} -> nextPageToken) (\s@GetDomainsResponse' {} a -> s {nextPageToken = a} :: GetDomainsResponse)
 
 -- | The response's http status code.
-getDomainsResponse_httpStatus :: Lens.Lens' GetDomainsResponse Core.Int
+getDomainsResponse_httpStatus :: Lens.Lens' GetDomainsResponse Prelude.Int
 getDomainsResponse_httpStatus = Lens.lens (\GetDomainsResponse' {httpStatus} -> httpStatus) (\s@GetDomainsResponse' {} a -> s {httpStatus = a} :: GetDomainsResponse)
 
-instance Core.NFData GetDomainsResponse
+instance Prelude.NFData GetDomainsResponse

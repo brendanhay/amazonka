@@ -21,13 +21,14 @@ module Network.AWS.ServiceCatalog.Types.ConstraintSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about a constraint.
 --
 -- /See:/ 'newConstraintSummary' smart constructor.
 data ConstraintSummary = ConstraintSummary'
   { -- | The description of the constraint.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of constraint.
     --
     -- -   @LAUNCH@
@@ -37,9 +38,9 @@ data ConstraintSummary = ConstraintSummary'
     -- -   STACKSET
     --
     -- -   @TEMPLATE@
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConstraintSummary' with all optional fields omitted.
@@ -64,12 +65,12 @@ newConstraintSummary ::
   ConstraintSummary
 newConstraintSummary =
   ConstraintSummary'
-    { description = Core.Nothing,
-      type' = Core.Nothing
+    { description = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The description of the constraint.
-constraintSummary_description :: Lens.Lens' ConstraintSummary (Core.Maybe Core.Text)
+constraintSummary_description :: Lens.Lens' ConstraintSummary (Prelude.Maybe Prelude.Text)
 constraintSummary_description = Lens.lens (\ConstraintSummary' {description} -> description) (\s@ConstraintSummary' {} a -> s {description = a} :: ConstraintSummary)
 
 -- | The type of constraint.
@@ -81,7 +82,7 @@ constraintSummary_description = Lens.lens (\ConstraintSummary' {description} -> 
 -- -   STACKSET
 --
 -- -   @TEMPLATE@
-constraintSummary_type :: Lens.Lens' ConstraintSummary (Core.Maybe Core.Text)
+constraintSummary_type :: Lens.Lens' ConstraintSummary (Prelude.Maybe Prelude.Text)
 constraintSummary_type = Lens.lens (\ConstraintSummary' {type'} -> type') (\s@ConstraintSummary' {} a -> s {type' = a} :: ConstraintSummary)
 
 instance Core.FromJSON ConstraintSummary where
@@ -90,10 +91,10 @@ instance Core.FromJSON ConstraintSummary where
       "ConstraintSummary"
       ( \x ->
           ConstraintSummary'
-            Core.<$> (x Core..:? "Description")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable ConstraintSummary
+instance Prelude.Hashable ConstraintSummary
 
-instance Core.NFData ConstraintSummary
+instance Prelude.NFData ConstraintSummary

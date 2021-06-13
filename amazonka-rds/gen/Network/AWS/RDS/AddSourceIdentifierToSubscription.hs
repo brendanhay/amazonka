@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
   { -- | The name of the RDS event notification subscription you want to add a
     -- source identifier to.
-    subscriptionName :: Core.Text,
+    subscriptionName :: Prelude.Text,
     -- | The identifier of the event source to be added.
     --
     -- Constraints:
@@ -75,9 +76,9 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
     --
     -- -   If the source type is a DB cluster snapshot, a
     --     @DBClusterSnapshotIdentifier@ value must be supplied.
-    sourceIdentifier :: Core.Text
+    sourceIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddSourceIdentifierToSubscription' with all optional fields omitted.
@@ -113,9 +114,9 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
 --     @DBClusterSnapshotIdentifier@ value must be supplied.
 newAddSourceIdentifierToSubscription ::
   -- | 'subscriptionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   AddSourceIdentifierToSubscription
 newAddSourceIdentifierToSubscription
   pSubscriptionName_
@@ -128,7 +129,7 @@ newAddSourceIdentifierToSubscription
 
 -- | The name of the RDS event notification subscription you want to add a
 -- source identifier to.
-addSourceIdentifierToSubscription_subscriptionName :: Lens.Lens' AddSourceIdentifierToSubscription Core.Text
+addSourceIdentifierToSubscription_subscriptionName :: Lens.Lens' AddSourceIdentifierToSubscription Prelude.Text
 addSourceIdentifierToSubscription_subscriptionName = Lens.lens (\AddSourceIdentifierToSubscription' {subscriptionName} -> subscriptionName) (\s@AddSourceIdentifierToSubscription' {} a -> s {subscriptionName = a} :: AddSourceIdentifierToSubscription)
 
 -- | The identifier of the event source to be added.
@@ -152,7 +153,7 @@ addSourceIdentifierToSubscription_subscriptionName = Lens.lens (\AddSourceIdenti
 --
 -- -   If the source type is a DB cluster snapshot, a
 --     @DBClusterSnapshotIdentifier@ value must be supplied.
-addSourceIdentifierToSubscription_sourceIdentifier :: Lens.Lens' AddSourceIdentifierToSubscription Core.Text
+addSourceIdentifierToSubscription_sourceIdentifier :: Lens.Lens' AddSourceIdentifierToSubscription Prelude.Text
 addSourceIdentifierToSubscription_sourceIdentifier = Lens.lens (\AddSourceIdentifierToSubscription' {sourceIdentifier} -> sourceIdentifier) (\s@AddSourceIdentifierToSubscription' {} a -> s {sourceIdentifier = a} :: AddSourceIdentifierToSubscription)
 
 instance
@@ -168,52 +169,53 @@ instance
       "AddSourceIdentifierToSubscriptionResult"
       ( \s h x ->
           AddSourceIdentifierToSubscriptionResponse'
-            Core.<$> (x Core..@? "EventSubscription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "EventSubscription")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AddSourceIdentifierToSubscription
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddSourceIdentifierToSubscription
 
 instance
   Core.ToHeaders
     AddSourceIdentifierToSubscription
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     AddSourceIdentifierToSubscription
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AddSourceIdentifierToSubscription
   where
   toQuery AddSourceIdentifierToSubscription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "AddSourceIdentifierToSubscription" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "SubscriptionName" Core.=: subscriptionName,
         "SourceIdentifier" Core.=: sourceIdentifier
       ]
 
 -- | /See:/ 'newAddSourceIdentifierToSubscriptionResponse' smart constructor.
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
-  { eventSubscription :: Core.Maybe EventSubscription,
+  { eventSubscription :: Prelude.Maybe EventSubscription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddSourceIdentifierToSubscriptionResponse' with all optional fields omitted.
@@ -228,24 +230,24 @@ data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscripti
 -- 'httpStatus', 'addSourceIdentifierToSubscriptionResponse_httpStatus' - The response's http status code.
 newAddSourceIdentifierToSubscriptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddSourceIdentifierToSubscriptionResponse
 newAddSourceIdentifierToSubscriptionResponse
   pHttpStatus_ =
     AddSourceIdentifierToSubscriptionResponse'
       { eventSubscription =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-addSourceIdentifierToSubscriptionResponse_eventSubscription :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse (Core.Maybe EventSubscription)
+addSourceIdentifierToSubscriptionResponse_eventSubscription :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse (Prelude.Maybe EventSubscription)
 addSourceIdentifierToSubscriptionResponse_eventSubscription = Lens.lens (\AddSourceIdentifierToSubscriptionResponse' {eventSubscription} -> eventSubscription) (\s@AddSourceIdentifierToSubscriptionResponse' {} a -> s {eventSubscription = a} :: AddSourceIdentifierToSubscriptionResponse)
 
 -- | The response's http status code.
-addSourceIdentifierToSubscriptionResponse_httpStatus :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse Core.Int
+addSourceIdentifierToSubscriptionResponse_httpStatus :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse Prelude.Int
 addSourceIdentifierToSubscriptionResponse_httpStatus = Lens.lens (\AddSourceIdentifierToSubscriptionResponse' {httpStatus} -> httpStatus) (\s@AddSourceIdentifierToSubscriptionResponse' {} a -> s {httpStatus = a} :: AddSourceIdentifierToSubscriptionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddSourceIdentifierToSubscriptionResponse

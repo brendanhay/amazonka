@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information that shows whether a resource is compliant with the
 -- effective tag policy, including details on any noncompliant tag keys.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newComplianceDetails' smart constructor.
 data ComplianceDetails = ComplianceDetails'
   { -- | Whether a resource is compliant with the effective tag policy.
-    complianceStatus :: Core.Maybe Core.Bool,
+    complianceStatus :: Prelude.Maybe Prelude.Bool,
     -- | These tag keys on the resource are noncompliant with the effective tag
     -- policy.
-    noncompliantKeys :: Core.Maybe [Core.Text],
+    noncompliantKeys :: Prelude.Maybe [Prelude.Text],
     -- | These are keys defined in the effective policy that are on the resource
     -- with either incorrect case treatment or noncompliant values.
-    keysWithNoncompliantValues :: Core.Maybe [Core.Text]
+    keysWithNoncompliantValues :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ComplianceDetails' with all optional fields omitted.
@@ -57,24 +58,25 @@ newComplianceDetails ::
   ComplianceDetails
 newComplianceDetails =
   ComplianceDetails'
-    { complianceStatus = Core.Nothing,
-      noncompliantKeys = Core.Nothing,
-      keysWithNoncompliantValues = Core.Nothing
+    { complianceStatus =
+        Prelude.Nothing,
+      noncompliantKeys = Prelude.Nothing,
+      keysWithNoncompliantValues = Prelude.Nothing
     }
 
 -- | Whether a resource is compliant with the effective tag policy.
-complianceDetails_complianceStatus :: Lens.Lens' ComplianceDetails (Core.Maybe Core.Bool)
+complianceDetails_complianceStatus :: Lens.Lens' ComplianceDetails (Prelude.Maybe Prelude.Bool)
 complianceDetails_complianceStatus = Lens.lens (\ComplianceDetails' {complianceStatus} -> complianceStatus) (\s@ComplianceDetails' {} a -> s {complianceStatus = a} :: ComplianceDetails)
 
 -- | These tag keys on the resource are noncompliant with the effective tag
 -- policy.
-complianceDetails_noncompliantKeys :: Lens.Lens' ComplianceDetails (Core.Maybe [Core.Text])
-complianceDetails_noncompliantKeys = Lens.lens (\ComplianceDetails' {noncompliantKeys} -> noncompliantKeys) (\s@ComplianceDetails' {} a -> s {noncompliantKeys = a} :: ComplianceDetails) Core.. Lens.mapping Lens._Coerce
+complianceDetails_noncompliantKeys :: Lens.Lens' ComplianceDetails (Prelude.Maybe [Prelude.Text])
+complianceDetails_noncompliantKeys = Lens.lens (\ComplianceDetails' {noncompliantKeys} -> noncompliantKeys) (\s@ComplianceDetails' {} a -> s {noncompliantKeys = a} :: ComplianceDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | These are keys defined in the effective policy that are on the resource
 -- with either incorrect case treatment or noncompliant values.
-complianceDetails_keysWithNoncompliantValues :: Lens.Lens' ComplianceDetails (Core.Maybe [Core.Text])
-complianceDetails_keysWithNoncompliantValues = Lens.lens (\ComplianceDetails' {keysWithNoncompliantValues} -> keysWithNoncompliantValues) (\s@ComplianceDetails' {} a -> s {keysWithNoncompliantValues = a} :: ComplianceDetails) Core.. Lens.mapping Lens._Coerce
+complianceDetails_keysWithNoncompliantValues :: Lens.Lens' ComplianceDetails (Prelude.Maybe [Prelude.Text])
+complianceDetails_keysWithNoncompliantValues = Lens.lens (\ComplianceDetails' {keysWithNoncompliantValues} -> keysWithNoncompliantValues) (\s@ComplianceDetails' {} a -> s {keysWithNoncompliantValues = a} :: ComplianceDetails) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ComplianceDetails where
   parseJSON =
@@ -82,13 +84,15 @@ instance Core.FromJSON ComplianceDetails where
       "ComplianceDetails"
       ( \x ->
           ComplianceDetails'
-            Core.<$> (x Core..:? "ComplianceStatus")
-            Core.<*> (x Core..:? "NoncompliantKeys" Core..!= Core.mempty)
-            Core.<*> ( x Core..:? "KeysWithNoncompliantValues"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "ComplianceStatus")
+            Prelude.<*> ( x Core..:? "NoncompliantKeys"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "KeysWithNoncompliantValues"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ComplianceDetails
+instance Prelude.Hashable ComplianceDetails
 
-instance Core.NFData ComplianceDetails
+instance Prelude.NFData ComplianceDetails

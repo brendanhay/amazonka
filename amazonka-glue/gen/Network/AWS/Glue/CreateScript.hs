@@ -45,19 +45,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateScript' smart constructor.
 data CreateScript = CreateScript'
   { -- | A list of the nodes in the DAG.
-    dagNodes :: Core.Maybe [CodeGenNode],
+    dagNodes :: Prelude.Maybe [CodeGenNode],
     -- | The programming language of the resulting code from the DAG.
-    language :: Core.Maybe Language,
+    language :: Prelude.Maybe Language,
     -- | A list of the edges in the DAG.
-    dagEdges :: Core.Maybe [CodeGenEdge]
+    dagEdges :: Prelude.Maybe [CodeGenEdge]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateScript' with all optional fields omitted.
@@ -76,22 +77,22 @@ newCreateScript ::
   CreateScript
 newCreateScript =
   CreateScript'
-    { dagNodes = Core.Nothing,
-      language = Core.Nothing,
-      dagEdges = Core.Nothing
+    { dagNodes = Prelude.Nothing,
+      language = Prelude.Nothing,
+      dagEdges = Prelude.Nothing
     }
 
 -- | A list of the nodes in the DAG.
-createScript_dagNodes :: Lens.Lens' CreateScript (Core.Maybe [CodeGenNode])
-createScript_dagNodes = Lens.lens (\CreateScript' {dagNodes} -> dagNodes) (\s@CreateScript' {} a -> s {dagNodes = a} :: CreateScript) Core.. Lens.mapping Lens._Coerce
+createScript_dagNodes :: Lens.Lens' CreateScript (Prelude.Maybe [CodeGenNode])
+createScript_dagNodes = Lens.lens (\CreateScript' {dagNodes} -> dagNodes) (\s@CreateScript' {} a -> s {dagNodes = a} :: CreateScript) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The programming language of the resulting code from the DAG.
-createScript_language :: Lens.Lens' CreateScript (Core.Maybe Language)
+createScript_language :: Lens.Lens' CreateScript (Prelude.Maybe Language)
 createScript_language = Lens.lens (\CreateScript' {language} -> language) (\s@CreateScript' {} a -> s {language = a} :: CreateScript)
 
 -- | A list of the edges in the DAG.
-createScript_dagEdges :: Lens.Lens' CreateScript (Core.Maybe [CodeGenEdge])
-createScript_dagEdges = Lens.lens (\CreateScript' {dagEdges} -> dagEdges) (\s@CreateScript' {} a -> s {dagEdges = a} :: CreateScript) Core.. Lens.mapping Lens._Coerce
+createScript_dagEdges :: Lens.Lens' CreateScript (Prelude.Maybe [CodeGenEdge])
+createScript_dagEdges = Lens.lens (\CreateScript' {dagEdges} -> dagEdges) (\s@CreateScript' {} a -> s {dagEdges = a} :: CreateScript) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest CreateScript where
   type AWSResponse CreateScript = CreateScriptResponse
@@ -100,52 +101,54 @@ instance Core.AWSRequest CreateScript where
     Response.receiveJSON
       ( \s h x ->
           CreateScriptResponse'
-            Core.<$> (x Core..?> "PythonScript")
-            Core.<*> (x Core..?> "ScalaCode")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PythonScript")
+            Prelude.<*> (x Core..?> "ScalaCode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateScript
+instance Prelude.Hashable CreateScript
 
-instance Core.NFData CreateScript
+instance Prelude.NFData CreateScript
 
 instance Core.ToHeaders CreateScript where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateScript" :: Core.ByteString),
+              Core.=# ("AWSGlue.CreateScript" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateScript where
   toJSON CreateScript' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DagNodes" Core..=) Core.<$> dagNodes,
-            ("Language" Core..=) Core.<$> language,
-            ("DagEdges" Core..=) Core.<$> dagEdges
+      ( Prelude.catMaybes
+          [ ("DagNodes" Core..=) Prelude.<$> dagNodes,
+            ("Language" Core..=) Prelude.<$> language,
+            ("DagEdges" Core..=) Prelude.<$> dagEdges
           ]
       )
 
 instance Core.ToPath CreateScript where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateScript where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateScriptResponse' smart constructor.
 data CreateScriptResponse = CreateScriptResponse'
   { -- | The Python script generated from the DAG.
-    pythonScript :: Core.Maybe Core.Text,
+    pythonScript :: Prelude.Maybe Prelude.Text,
     -- | The Scala code generated from the DAG.
-    scalaCode :: Core.Maybe Core.Text,
+    scalaCode :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateScriptResponse' with all optional fields omitted.
@@ -162,25 +165,26 @@ data CreateScriptResponse = CreateScriptResponse'
 -- 'httpStatus', 'createScriptResponse_httpStatus' - The response's http status code.
 newCreateScriptResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateScriptResponse
 newCreateScriptResponse pHttpStatus_ =
   CreateScriptResponse'
-    { pythonScript = Core.Nothing,
-      scalaCode = Core.Nothing,
+    { pythonScript =
+        Prelude.Nothing,
+      scalaCode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Python script generated from the DAG.
-createScriptResponse_pythonScript :: Lens.Lens' CreateScriptResponse (Core.Maybe Core.Text)
+createScriptResponse_pythonScript :: Lens.Lens' CreateScriptResponse (Prelude.Maybe Prelude.Text)
 createScriptResponse_pythonScript = Lens.lens (\CreateScriptResponse' {pythonScript} -> pythonScript) (\s@CreateScriptResponse' {} a -> s {pythonScript = a} :: CreateScriptResponse)
 
 -- | The Scala code generated from the DAG.
-createScriptResponse_scalaCode :: Lens.Lens' CreateScriptResponse (Core.Maybe Core.Text)
+createScriptResponse_scalaCode :: Lens.Lens' CreateScriptResponse (Prelude.Maybe Prelude.Text)
 createScriptResponse_scalaCode = Lens.lens (\CreateScriptResponse' {scalaCode} -> scalaCode) (\s@CreateScriptResponse' {} a -> s {scalaCode = a} :: CreateScriptResponse)
 
 -- | The response's http status code.
-createScriptResponse_httpStatus :: Lens.Lens' CreateScriptResponse Core.Int
+createScriptResponse_httpStatus :: Lens.Lens' CreateScriptResponse Prelude.Int
 createScriptResponse_httpStatus = Lens.lens (\CreateScriptResponse' {httpStatus} -> httpStatus) (\s@CreateScriptResponse' {} a -> s {httpStatus = a} :: CreateScriptResponse)
 
-instance Core.NFData CreateScriptResponse
+instance Prelude.NFData CreateScriptResponse

@@ -22,6 +22,7 @@ module Network.AWS.AutoScalingPlans.Types.PredefinedLoadMetricSpecification wher
 import Network.AWS.AutoScalingPlans.Types.LoadMetricType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a predefined metric that can be used for predictive scaling.
 --
@@ -58,11 +59,11 @@ data PredefinedLoadMetricSpecification = PredefinedLoadMetricSpecification'
     -- API operation. To find the ARN for the target group, use the
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
     -- API operation.
-    resourceLabel :: Core.Maybe Core.Text,
+    resourceLabel :: Prelude.Maybe Prelude.Text,
     -- | The metric type.
     predefinedLoadMetricType :: LoadMetricType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PredefinedLoadMetricSpecification' with all optional fields omitted.
@@ -107,7 +108,7 @@ newPredefinedLoadMetricSpecification
   pPredefinedLoadMetricType_ =
     PredefinedLoadMetricSpecification'
       { resourceLabel =
-          Core.Nothing,
+          Prelude.Nothing,
         predefinedLoadMetricType =
           pPredefinedLoadMetricType_
       }
@@ -137,7 +138,7 @@ newPredefinedLoadMetricSpecification
 -- API operation. To find the ARN for the target group, use the
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
-predefinedLoadMetricSpecification_resourceLabel :: Lens.Lens' PredefinedLoadMetricSpecification (Core.Maybe Core.Text)
+predefinedLoadMetricSpecification_resourceLabel :: Lens.Lens' PredefinedLoadMetricSpecification (Prelude.Maybe Prelude.Text)
 predefinedLoadMetricSpecification_resourceLabel = Lens.lens (\PredefinedLoadMetricSpecification' {resourceLabel} -> resourceLabel) (\s@PredefinedLoadMetricSpecification' {} a -> s {resourceLabel = a} :: PredefinedLoadMetricSpecification)
 
 -- | The metric type.
@@ -153,16 +154,16 @@ instance
       "PredefinedLoadMetricSpecification"
       ( \x ->
           PredefinedLoadMetricSpecification'
-            Core.<$> (x Core..:? "ResourceLabel")
-            Core.<*> (x Core..: "PredefinedLoadMetricType")
+            Prelude.<$> (x Core..:? "ResourceLabel")
+            Prelude.<*> (x Core..: "PredefinedLoadMetricType")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PredefinedLoadMetricSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     PredefinedLoadMetricSpecification
 
 instance
@@ -171,9 +172,9 @@ instance
   where
   toJSON PredefinedLoadMetricSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceLabel" Core..=) Core.<$> resourceLabel,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ResourceLabel" Core..=) Prelude.<$> resourceLabel,
+            Prelude.Just
               ( "PredefinedLoadMetricType"
                   Core..= predefinedLoadMetricType
               )

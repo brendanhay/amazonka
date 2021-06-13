@@ -22,26 +22,27 @@ module Network.AWS.MediaLive.Types.HlsWebdavSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.HlsWebdavHttpTransferMode
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Hls Webdav Settings
 --
 -- /See:/ 'newHlsWebdavSettings' smart constructor.
 data HlsWebdavSettings = HlsWebdavSettings'
   { -- | Size in seconds of file cache for streaming outputs.
-    filecacheDuration :: Core.Maybe Core.Natural,
+    filecacheDuration :: Prelude.Maybe Prelude.Natural,
     -- | Number of retry attempts that will be made before the Live Event is put
     -- into an error state.
-    numRetries :: Core.Maybe Core.Natural,
+    numRetries :: Prelude.Maybe Prelude.Natural,
     -- | Specify whether or not to use chunked transfer encoding to WebDAV.
-    httpTransferMode :: Core.Maybe HlsWebdavHttpTransferMode,
+    httpTransferMode :: Prelude.Maybe HlsWebdavHttpTransferMode,
     -- | Number of seconds to wait before retrying connection to the CDN if the
     -- connection is lost.
-    connectionRetryInterval :: Core.Maybe Core.Natural,
+    connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
-    restartDelay :: Core.Maybe Core.Natural
+    restartDelay :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsWebdavSettings' with all optional fields omitted.
@@ -68,34 +69,34 @@ newHlsWebdavSettings ::
 newHlsWebdavSettings =
   HlsWebdavSettings'
     { filecacheDuration =
-        Core.Nothing,
-      numRetries = Core.Nothing,
-      httpTransferMode = Core.Nothing,
-      connectionRetryInterval = Core.Nothing,
-      restartDelay = Core.Nothing
+        Prelude.Nothing,
+      numRetries = Prelude.Nothing,
+      httpTransferMode = Prelude.Nothing,
+      connectionRetryInterval = Prelude.Nothing,
+      restartDelay = Prelude.Nothing
     }
 
 -- | Size in seconds of file cache for streaming outputs.
-hlsWebdavSettings_filecacheDuration :: Lens.Lens' HlsWebdavSettings (Core.Maybe Core.Natural)
+hlsWebdavSettings_filecacheDuration :: Lens.Lens' HlsWebdavSettings (Prelude.Maybe Prelude.Natural)
 hlsWebdavSettings_filecacheDuration = Lens.lens (\HlsWebdavSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsWebdavSettings' {} a -> s {filecacheDuration = a} :: HlsWebdavSettings)
 
 -- | Number of retry attempts that will be made before the Live Event is put
 -- into an error state.
-hlsWebdavSettings_numRetries :: Lens.Lens' HlsWebdavSettings (Core.Maybe Core.Natural)
+hlsWebdavSettings_numRetries :: Lens.Lens' HlsWebdavSettings (Prelude.Maybe Prelude.Natural)
 hlsWebdavSettings_numRetries = Lens.lens (\HlsWebdavSettings' {numRetries} -> numRetries) (\s@HlsWebdavSettings' {} a -> s {numRetries = a} :: HlsWebdavSettings)
 
 -- | Specify whether or not to use chunked transfer encoding to WebDAV.
-hlsWebdavSettings_httpTransferMode :: Lens.Lens' HlsWebdavSettings (Core.Maybe HlsWebdavHttpTransferMode)
+hlsWebdavSettings_httpTransferMode :: Lens.Lens' HlsWebdavSettings (Prelude.Maybe HlsWebdavHttpTransferMode)
 hlsWebdavSettings_httpTransferMode = Lens.lens (\HlsWebdavSettings' {httpTransferMode} -> httpTransferMode) (\s@HlsWebdavSettings' {} a -> s {httpTransferMode = a} :: HlsWebdavSettings)
 
 -- | Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
-hlsWebdavSettings_connectionRetryInterval :: Lens.Lens' HlsWebdavSettings (Core.Maybe Core.Natural)
+hlsWebdavSettings_connectionRetryInterval :: Lens.Lens' HlsWebdavSettings (Prelude.Maybe Prelude.Natural)
 hlsWebdavSettings_connectionRetryInterval = Lens.lens (\HlsWebdavSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@HlsWebdavSettings' {} a -> s {connectionRetryInterval = a} :: HlsWebdavSettings)
 
 -- | If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
-hlsWebdavSettings_restartDelay :: Lens.Lens' HlsWebdavSettings (Core.Maybe Core.Natural)
+hlsWebdavSettings_restartDelay :: Lens.Lens' HlsWebdavSettings (Prelude.Maybe Prelude.Natural)
 hlsWebdavSettings_restartDelay = Lens.lens (\HlsWebdavSettings' {restartDelay} -> restartDelay) (\s@HlsWebdavSettings' {} a -> s {restartDelay = a} :: HlsWebdavSettings)
 
 instance Core.FromJSON HlsWebdavSettings where
@@ -104,28 +105,28 @@ instance Core.FromJSON HlsWebdavSettings where
       "HlsWebdavSettings"
       ( \x ->
           HlsWebdavSettings'
-            Core.<$> (x Core..:? "filecacheDuration")
-            Core.<*> (x Core..:? "numRetries")
-            Core.<*> (x Core..:? "httpTransferMode")
-            Core.<*> (x Core..:? "connectionRetryInterval")
-            Core.<*> (x Core..:? "restartDelay")
+            Prelude.<$> (x Core..:? "filecacheDuration")
+            Prelude.<*> (x Core..:? "numRetries")
+            Prelude.<*> (x Core..:? "httpTransferMode")
+            Prelude.<*> (x Core..:? "connectionRetryInterval")
+            Prelude.<*> (x Core..:? "restartDelay")
       )
 
-instance Core.Hashable HlsWebdavSettings
+instance Prelude.Hashable HlsWebdavSettings
 
-instance Core.NFData HlsWebdavSettings
+instance Prelude.NFData HlsWebdavSettings
 
 instance Core.ToJSON HlsWebdavSettings where
   toJSON HlsWebdavSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("filecacheDuration" Core..=)
-              Core.<$> filecacheDuration,
-            ("numRetries" Core..=) Core.<$> numRetries,
+              Prelude.<$> filecacheDuration,
+            ("numRetries" Core..=) Prelude.<$> numRetries,
             ("httpTransferMode" Core..=)
-              Core.<$> httpTransferMode,
+              Prelude.<$> httpTransferMode,
             ("connectionRetryInterval" Core..=)
-              Core.<$> connectionRetryInterval,
-            ("restartDelay" Core..=) Core.<$> restartDelay
+              Prelude.<$> connectionRetryInterval,
+            ("restartDelay" Core..=) Prelude.<$> restartDelay
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.ConformancePackComplianceFilters where
 import Network.AWS.Config.Types.ConformancePackComplianceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters the conformance pack by compliance types and AWS Config rule
 -- names.
@@ -31,11 +32,11 @@ data ConformancePackComplianceFilters = ConformancePackComplianceFilters'
   { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
-    complianceType :: Core.Maybe ConformancePackComplianceType,
+    complianceType :: Prelude.Maybe ConformancePackComplianceType,
     -- | Filters the results by AWS Config rule names.
-    configRuleNames :: Core.Maybe [Core.Text]
+    configRuleNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConformancePackComplianceFilters' with all optional fields omitted.
@@ -55,32 +56,35 @@ newConformancePackComplianceFilters ::
 newConformancePackComplianceFilters =
   ConformancePackComplianceFilters'
     { complianceType =
-        Core.Nothing,
-      configRuleNames = Core.Nothing
+        Prelude.Nothing,
+      configRuleNames = Prelude.Nothing
     }
 
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
-conformancePackComplianceFilters_complianceType :: Lens.Lens' ConformancePackComplianceFilters (Core.Maybe ConformancePackComplianceType)
+conformancePackComplianceFilters_complianceType :: Lens.Lens' ConformancePackComplianceFilters (Prelude.Maybe ConformancePackComplianceType)
 conformancePackComplianceFilters_complianceType = Lens.lens (\ConformancePackComplianceFilters' {complianceType} -> complianceType) (\s@ConformancePackComplianceFilters' {} a -> s {complianceType = a} :: ConformancePackComplianceFilters)
 
 -- | Filters the results by AWS Config rule names.
-conformancePackComplianceFilters_configRuleNames :: Lens.Lens' ConformancePackComplianceFilters (Core.Maybe [Core.Text])
-conformancePackComplianceFilters_configRuleNames = Lens.lens (\ConformancePackComplianceFilters' {configRuleNames} -> configRuleNames) (\s@ConformancePackComplianceFilters' {} a -> s {configRuleNames = a} :: ConformancePackComplianceFilters) Core.. Lens.mapping Lens._Coerce
+conformancePackComplianceFilters_configRuleNames :: Lens.Lens' ConformancePackComplianceFilters (Prelude.Maybe [Prelude.Text])
+conformancePackComplianceFilters_configRuleNames = Lens.lens (\ConformancePackComplianceFilters' {configRuleNames} -> configRuleNames) (\s@ConformancePackComplianceFilters' {} a -> s {configRuleNames = a} :: ConformancePackComplianceFilters) Prelude.. Lens.mapping Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ConformancePackComplianceFilters
 
-instance Core.NFData ConformancePackComplianceFilters
+instance
+  Prelude.NFData
+    ConformancePackComplianceFilters
 
 instance Core.ToJSON ConformancePackComplianceFilters where
   toJSON ConformancePackComplianceFilters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ComplianceType" Core..=) Core.<$> complianceType,
+      ( Prelude.catMaybes
+          [ ("ComplianceType" Core..=)
+              Prelude.<$> complianceType,
             ("ConfigRuleNames" Core..=)
-              Core.<$> configRuleNames
+              Prelude.<$> configRuleNames
           ]
       )

@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateDefaultBranch' smart constructor.
 data UpdateDefaultBranch = UpdateDefaultBranch'
   { -- | The name of the repository to set or change the default branch for.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The name of the branch to set as the default.
-    defaultBranchName :: Core.Text
+    defaultBranchName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDefaultBranch' with all optional fields omitted.
@@ -70,9 +71,9 @@ data UpdateDefaultBranch = UpdateDefaultBranch'
 -- 'defaultBranchName', 'updateDefaultBranch_defaultBranchName' - The name of the branch to set as the default.
 newUpdateDefaultBranch ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'defaultBranchName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDefaultBranch
 newUpdateDefaultBranch
   pRepositoryName_
@@ -84,11 +85,11 @@ newUpdateDefaultBranch
       }
 
 -- | The name of the repository to set or change the default branch for.
-updateDefaultBranch_repositoryName :: Lens.Lens' UpdateDefaultBranch Core.Text
+updateDefaultBranch_repositoryName :: Lens.Lens' UpdateDefaultBranch Prelude.Text
 updateDefaultBranch_repositoryName = Lens.lens (\UpdateDefaultBranch' {repositoryName} -> repositoryName) (\s@UpdateDefaultBranch' {} a -> s {repositoryName = a} :: UpdateDefaultBranch)
 
 -- | The name of the branch to set as the default.
-updateDefaultBranch_defaultBranchName :: Lens.Lens' UpdateDefaultBranch Core.Text
+updateDefaultBranch_defaultBranchName :: Lens.Lens' UpdateDefaultBranch Prelude.Text
 updateDefaultBranch_defaultBranchName = Lens.lens (\UpdateDefaultBranch' {defaultBranchName} -> defaultBranchName) (\s@UpdateDefaultBranch' {} a -> s {defaultBranchName = a} :: UpdateDefaultBranch)
 
 instance Core.AWSRequest UpdateDefaultBranch where
@@ -99,44 +100,47 @@ instance Core.AWSRequest UpdateDefaultBranch where
   response =
     Response.receiveNull UpdateDefaultBranchResponse'
 
-instance Core.Hashable UpdateDefaultBranch
+instance Prelude.Hashable UpdateDefaultBranch
 
-instance Core.NFData UpdateDefaultBranch
+instance Prelude.NFData UpdateDefaultBranch
 
 instance Core.ToHeaders UpdateDefaultBranch where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.UpdateDefaultBranch" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDefaultBranch where
   toJSON UpdateDefaultBranch' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just
               ("defaultBranchName" Core..= defaultBranchName)
           ]
       )
 
 instance Core.ToPath UpdateDefaultBranch where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDefaultBranch where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDefaultBranchResponse' smart constructor.
 data UpdateDefaultBranchResponse = UpdateDefaultBranchResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDefaultBranchResponse' with all optional fields omitted.
@@ -147,4 +151,4 @@ newUpdateDefaultBranchResponse ::
 newUpdateDefaultBranchResponse =
   UpdateDefaultBranchResponse'
 
-instance Core.NFData UpdateDefaultBranchResponse
+instance Prelude.NFData UpdateDefaultBranchResponse

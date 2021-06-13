@@ -24,6 +24,7 @@ import Network.AWS.CertificateManager.Types.FailureReason
 import Network.AWS.CertificateManager.Types.RenewalStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the status of ACM\'s
 -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal>
@@ -33,7 +34,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRenewalSummary' smart constructor.
 data RenewalSummary = RenewalSummary'
   { -- | The reason that a renewal request was unsuccessful.
-    renewalStatusReason :: Core.Maybe FailureReason,
+    renewalStatusReason :: Prelude.Maybe FailureReason,
     -- | The status of ACM\'s
     -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal>
     -- of the certificate.
@@ -44,11 +45,11 @@ data RenewalSummary = RenewalSummary'
     -- This is different from the initial validation that occurs as a result of
     -- the RequestCertificate request. This field exists only when the
     -- certificate type is @AMAZON_ISSUED@.
-    domainValidationOptions :: Core.NonEmpty DomainValidation,
+    domainValidationOptions :: Prelude.NonEmpty DomainValidation,
     -- | The time at which the renewal summary was last updated.
     updatedAt :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RenewalSummary' with all optional fields omitted.
@@ -76,16 +77,17 @@ newRenewalSummary ::
   -- | 'renewalStatus'
   RenewalStatus ->
   -- | 'domainValidationOptions'
-  Core.NonEmpty DomainValidation ->
+  Prelude.NonEmpty DomainValidation ->
   -- | 'updatedAt'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   RenewalSummary
 newRenewalSummary
   pRenewalStatus_
   pDomainValidationOptions_
   pUpdatedAt_ =
     RenewalSummary'
-      { renewalStatusReason = Core.Nothing,
+      { renewalStatusReason =
+          Prelude.Nothing,
         renewalStatus = pRenewalStatus_,
         domainValidationOptions =
           Lens._Coerce Lens.# pDomainValidationOptions_,
@@ -93,7 +95,7 @@ newRenewalSummary
       }
 
 -- | The reason that a renewal request was unsuccessful.
-renewalSummary_renewalStatusReason :: Lens.Lens' RenewalSummary (Core.Maybe FailureReason)
+renewalSummary_renewalStatusReason :: Lens.Lens' RenewalSummary (Prelude.Maybe FailureReason)
 renewalSummary_renewalStatusReason = Lens.lens (\RenewalSummary' {renewalStatusReason} -> renewalStatusReason) (\s@RenewalSummary' {} a -> s {renewalStatusReason = a} :: RenewalSummary)
 
 -- | The status of ACM\'s
@@ -108,12 +110,12 @@ renewalSummary_renewalStatus = Lens.lens (\RenewalSummary' {renewalStatus} -> re
 -- This is different from the initial validation that occurs as a result of
 -- the RequestCertificate request. This field exists only when the
 -- certificate type is @AMAZON_ISSUED@.
-renewalSummary_domainValidationOptions :: Lens.Lens' RenewalSummary (Core.NonEmpty DomainValidation)
-renewalSummary_domainValidationOptions = Lens.lens (\RenewalSummary' {domainValidationOptions} -> domainValidationOptions) (\s@RenewalSummary' {} a -> s {domainValidationOptions = a} :: RenewalSummary) Core.. Lens._Coerce
+renewalSummary_domainValidationOptions :: Lens.Lens' RenewalSummary (Prelude.NonEmpty DomainValidation)
+renewalSummary_domainValidationOptions = Lens.lens (\RenewalSummary' {domainValidationOptions} -> domainValidationOptions) (\s@RenewalSummary' {} a -> s {domainValidationOptions = a} :: RenewalSummary) Prelude.. Lens._Coerce
 
 -- | The time at which the renewal summary was last updated.
-renewalSummary_updatedAt :: Lens.Lens' RenewalSummary Core.UTCTime
-renewalSummary_updatedAt = Lens.lens (\RenewalSummary' {updatedAt} -> updatedAt) (\s@RenewalSummary' {} a -> s {updatedAt = a} :: RenewalSummary) Core.. Core._Time
+renewalSummary_updatedAt :: Lens.Lens' RenewalSummary Prelude.UTCTime
+renewalSummary_updatedAt = Lens.lens (\RenewalSummary' {updatedAt} -> updatedAt) (\s@RenewalSummary' {} a -> s {updatedAt = a} :: RenewalSummary) Prelude.. Core._Time
 
 instance Core.FromJSON RenewalSummary where
   parseJSON =
@@ -121,12 +123,12 @@ instance Core.FromJSON RenewalSummary where
       "RenewalSummary"
       ( \x ->
           RenewalSummary'
-            Core.<$> (x Core..:? "RenewalStatusReason")
-            Core.<*> (x Core..: "RenewalStatus")
-            Core.<*> (x Core..: "DomainValidationOptions")
-            Core.<*> (x Core..: "UpdatedAt")
+            Prelude.<$> (x Core..:? "RenewalStatusReason")
+            Prelude.<*> (x Core..: "RenewalStatus")
+            Prelude.<*> (x Core..: "DomainValidationOptions")
+            Prelude.<*> (x Core..: "UpdatedAt")
       )
 
-instance Core.Hashable RenewalSummary
+instance Prelude.Hashable RenewalSummary
 
-instance Core.NFData RenewalSummary
+instance Prelude.NFData RenewalSummary

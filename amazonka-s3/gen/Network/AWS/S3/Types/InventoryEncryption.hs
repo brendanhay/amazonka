@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.InventoryEncryption where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.SSEKMS
 import Network.AWS.S3.Types.SSES3
@@ -31,11 +32,11 @@ import Network.AWS.S3.Types.SSES3
 -- /See:/ 'newInventoryEncryption' smart constructor.
 data InventoryEncryption = InventoryEncryption'
   { -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
-    ssekms :: Core.Maybe SSEKMS,
+    ssekms :: Prelude.Maybe SSEKMS,
     -- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.
-    sses3 :: Core.Maybe SSES3
+    sses3 :: Prelude.Maybe SSES3
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryEncryption' with all optional fields omitted.
@@ -52,28 +53,29 @@ newInventoryEncryption ::
   InventoryEncryption
 newInventoryEncryption =
   InventoryEncryption'
-    { ssekms = Core.Nothing,
-      sses3 = Core.Nothing
+    { ssekms = Prelude.Nothing,
+      sses3 = Prelude.Nothing
     }
 
 -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
-inventoryEncryption_ssekms :: Lens.Lens' InventoryEncryption (Core.Maybe SSEKMS)
+inventoryEncryption_ssekms :: Lens.Lens' InventoryEncryption (Prelude.Maybe SSEKMS)
 inventoryEncryption_ssekms = Lens.lens (\InventoryEncryption' {ssekms} -> ssekms) (\s@InventoryEncryption' {} a -> s {ssekms = a} :: InventoryEncryption)
 
 -- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.
-inventoryEncryption_sses3 :: Lens.Lens' InventoryEncryption (Core.Maybe SSES3)
+inventoryEncryption_sses3 :: Lens.Lens' InventoryEncryption (Prelude.Maybe SSES3)
 inventoryEncryption_sses3 = Lens.lens (\InventoryEncryption' {sses3} -> sses3) (\s@InventoryEncryption' {} a -> s {sses3 = a} :: InventoryEncryption)
 
 instance Core.FromXML InventoryEncryption where
   parseXML x =
     InventoryEncryption'
-      Core.<$> (x Core..@? "SSE-KMS") Core.<*> (x Core..@? "SSE-S3")
+      Prelude.<$> (x Core..@? "SSE-KMS")
+      Prelude.<*> (x Core..@? "SSE-S3")
 
-instance Core.Hashable InventoryEncryption
+instance Prelude.Hashable InventoryEncryption
 
-instance Core.NFData InventoryEncryption
+instance Prelude.NFData InventoryEncryption
 
 instance Core.ToXML InventoryEncryption where
   toXML InventoryEncryption' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["SSE-KMS" Core.@= ssekms, "SSE-S3" Core.@= sses3]

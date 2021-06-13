@@ -74,6 +74,7 @@ where
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,13 +83,13 @@ data ListPermissions = ListPermissions'
   { -- | When paginating results, use this parameter in a subsequent request
     -- after you receive a response with truncated results. Set it to the value
     -- of __NextToken__ from the response you just received.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | When paginating results, use this parameter to specify the maximum
     -- number of items to return in the response. If additional items exist
     -- beyond the number you specify, the __NextToken__ element is sent in the
     -- response. Use this __NextToken__ value in a subsequent request to
     -- retrieve additional items.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Number (ARN) of the private CA to inspect. You can
     -- find the ARN by calling the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
@@ -97,9 +98,9 @@ data ListPermissions = ListPermissions'
     -- You can get a private CA\'s ARN by running the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action.
-    certificateAuthorityArn :: Core.Text
+    certificateAuthorityArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPermissions' with all optional fields omitted.
@@ -129,19 +130,19 @@ data ListPermissions = ListPermissions'
 -- action.
 newListPermissions ::
   -- | 'certificateAuthorityArn'
-  Core.Text ->
+  Prelude.Text ->
   ListPermissions
 newListPermissions pCertificateAuthorityArn_ =
   ListPermissions'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       certificateAuthorityArn = pCertificateAuthorityArn_
     }
 
 -- | When paginating results, use this parameter in a subsequent request
 -- after you receive a response with truncated results. Set it to the value
 -- of __NextToken__ from the response you just received.
-listPermissions_nextToken :: Lens.Lens' ListPermissions (Core.Maybe Core.Text)
+listPermissions_nextToken :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
 listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToken) (\s@ListPermissions' {} a -> s {nextToken = a} :: ListPermissions)
 
 -- | When paginating results, use this parameter to specify the maximum
@@ -149,7 +150,7 @@ listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToke
 -- beyond the number you specify, the __NextToken__ element is sent in the
 -- response. Use this __NextToken__ value in a subsequent request to
 -- retrieve additional items.
-listPermissions_maxResults :: Lens.Lens' ListPermissions (Core.Maybe Core.Natural)
+listPermissions_maxResults :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Natural)
 listPermissions_maxResults = Lens.lens (\ListPermissions' {maxResults} -> maxResults) (\s@ListPermissions' {} a -> s {maxResults = a} :: ListPermissions)
 
 -- | The Amazon Resource Number (ARN) of the private CA to inspect. You can
@@ -160,28 +161,30 @@ listPermissions_maxResults = Lens.lens (\ListPermissions' {maxResults} -> maxRes
 -- You can get a private CA\'s ARN by running the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action.
-listPermissions_certificateAuthorityArn :: Lens.Lens' ListPermissions Core.Text
+listPermissions_certificateAuthorityArn :: Lens.Lens' ListPermissions Prelude.Text
 listPermissions_certificateAuthorityArn = Lens.lens (\ListPermissions' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@ListPermissions' {} a -> s {certificateAuthorityArn = a} :: ListPermissions)
 
 instance Core.AWSPager ListPermissions where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPermissionsResponse_nextToken Core.. Lens._Just
+            Lens.^? listPermissionsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPermissionsResponse_permissions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPermissions_nextToken
+          Prelude.& listPermissions_nextToken
           Lens..~ rs
-          Lens.^? listPermissionsResponse_nextToken Core.. Lens._Just
+          Lens.^? listPermissionsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPermissions where
   type
@@ -192,33 +195,37 @@ instance Core.AWSRequest ListPermissions where
     Response.receiveJSON
       ( \s h x ->
           ListPermissionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Permissions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Permissions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPermissions
+instance Prelude.Hashable ListPermissions
 
-instance Core.NFData ListPermissions
+instance Prelude.NFData ListPermissions
 
 instance Core.ToHeaders ListPermissions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ACMPrivateCA.ListPermissions" :: Core.ByteString),
+              Core.=# ( "ACMPrivateCA.ListPermissions" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListPermissions where
   toJSON ListPermissions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just
               ( "CertificateAuthorityArn"
                   Core..= certificateAuthorityArn
               )
@@ -226,24 +233,24 @@ instance Core.ToJSON ListPermissions where
       )
 
 instance Core.ToPath ListPermissions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListPermissions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPermissionsResponse' smart constructor.
 data ListPermissionsResponse = ListPermissionsResponse'
   { -- | When the list is truncated, this value is present and should be used for
     -- the __NextToken__ parameter in a subsequent pagination request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Summary information about each permission assigned by the specified
     -- private CA, including the action enabled, the policy provided, and the
     -- time of creation.
-    permissions :: Core.Maybe [Permission],
+    permissions :: Prelude.Maybe [Permission],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPermissionsResponse' with all optional fields omitted.
@@ -263,28 +270,29 @@ data ListPermissionsResponse = ListPermissionsResponse'
 -- 'httpStatus', 'listPermissionsResponse_httpStatus' - The response's http status code.
 newListPermissionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPermissionsResponse
 newListPermissionsResponse pHttpStatus_ =
   ListPermissionsResponse'
-    { nextToken = Core.Nothing,
-      permissions = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      permissions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | When the list is truncated, this value is present and should be used for
 -- the __NextToken__ parameter in a subsequent pagination request.
-listPermissionsResponse_nextToken :: Lens.Lens' ListPermissionsResponse (Core.Maybe Core.Text)
+listPermissionsResponse_nextToken :: Lens.Lens' ListPermissionsResponse (Prelude.Maybe Prelude.Text)
 listPermissionsResponse_nextToken = Lens.lens (\ListPermissionsResponse' {nextToken} -> nextToken) (\s@ListPermissionsResponse' {} a -> s {nextToken = a} :: ListPermissionsResponse)
 
 -- | Summary information about each permission assigned by the specified
 -- private CA, including the action enabled, the policy provided, and the
 -- time of creation.
-listPermissionsResponse_permissions :: Lens.Lens' ListPermissionsResponse (Core.Maybe [Permission])
-listPermissionsResponse_permissions = Lens.lens (\ListPermissionsResponse' {permissions} -> permissions) (\s@ListPermissionsResponse' {} a -> s {permissions = a} :: ListPermissionsResponse) Core.. Lens.mapping Lens._Coerce
+listPermissionsResponse_permissions :: Lens.Lens' ListPermissionsResponse (Prelude.Maybe [Permission])
+listPermissionsResponse_permissions = Lens.lens (\ListPermissionsResponse' {permissions} -> permissions) (\s@ListPermissionsResponse' {} a -> s {permissions = a} :: ListPermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPermissionsResponse_httpStatus :: Lens.Lens' ListPermissionsResponse Core.Int
+listPermissionsResponse_httpStatus :: Lens.Lens' ListPermissionsResponse Prelude.Int
 listPermissionsResponse_httpStatus = Lens.lens (\ListPermissionsResponse' {httpStatus} -> httpStatus) (\s@ListPermissionsResponse' {} a -> s {httpStatus = a} :: ListPermissionsResponse)
 
-instance Core.NFData ListPermissionsResponse
+instance Prelude.NFData ListPermissionsResponse

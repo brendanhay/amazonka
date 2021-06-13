@@ -21,6 +21,7 @@ module Network.AWS.CloudFormation.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Tag type enables you to specify a key-value pair that can be used to
 -- store information about an AWS CloudFormation stack.
@@ -30,12 +31,12 @@ data Tag = Tag'
   { -- | /Required/. A string used to identify this tag. You can specify a
     -- maximum of 128 characters for a tag key. Tags owned by Amazon Web
     -- Services (AWS) have the reserved prefix: @aws:@.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | /Required/. A string containing the value for this tag. You can specify
     -- a maximum of 256 characters for a tag value.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -53,9 +54,9 @@ data Tag = Tag'
 -- a maximum of 256 characters for a tag value.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
@@ -63,24 +64,24 @@ newTag pKey_ pValue_ =
 -- | /Required/. A string used to identify this tag. You can specify a
 -- maximum of 128 characters for a tag key. Tags owned by Amazon Web
 -- Services (AWS) have the reserved prefix: @aws:@.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | /Required/. A string containing the value for this tag. You can specify
 -- a maximum of 256 characters for a tag value.
-tag_value :: Lens.Lens' Tag Core.Text
+tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Core.<$> (x Core..@ "Key") Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@ "Key") Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToQuery Tag where
   toQuery Tag' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Key" Core.=: key, "Value" Core.=: value]

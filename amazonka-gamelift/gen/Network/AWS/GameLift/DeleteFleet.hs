@@ -66,6 +66,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,9 +76,9 @@ import qualified Network.AWS.Response as Response
 data DeleteFleet = DeleteFleet'
   { -- | A unique identifier for a fleet to be deleted. You can use either the
     -- fleet ID or ARN value.
-    fleetId :: Core.Text
+    fleetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFleet' with all optional fields omitted.
@@ -91,14 +92,14 @@ data DeleteFleet = DeleteFleet'
 -- fleet ID or ARN value.
 newDeleteFleet ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFleet
 newDeleteFleet pFleetId_ =
   DeleteFleet' {fleetId = pFleetId_}
 
 -- | A unique identifier for a fleet to be deleted. You can use either the
 -- fleet ID or ARN value.
-deleteFleet_fleetId :: Lens.Lens' DeleteFleet Core.Text
+deleteFleet_fleetId :: Lens.Lens' DeleteFleet Prelude.Text
 deleteFleet_fleetId = Lens.lens (\DeleteFleet' {fleetId} -> fleetId) (\s@DeleteFleet' {} a -> s {fleetId = a} :: DeleteFleet)
 
 instance Core.AWSRequest DeleteFleet where
@@ -106,39 +107,41 @@ instance Core.AWSRequest DeleteFleet where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteFleetResponse'
 
-instance Core.Hashable DeleteFleet
+instance Prelude.Hashable DeleteFleet
 
-instance Core.NFData DeleteFleet
+instance Prelude.NFData DeleteFleet
 
 instance Core.ToHeaders DeleteFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DeleteFleet" :: Core.ByteString),
+              Core.=# ("GameLift.DeleteFleet" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteFleet where
   toJSON DeleteFleet' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("FleetId" Core..= fleetId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("FleetId" Core..= fleetId)]
       )
 
 instance Core.ToPath DeleteFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFleetResponse' smart constructor.
 data DeleteFleetResponse = DeleteFleetResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFleetResponse' with all optional fields omitted.
@@ -148,4 +151,4 @@ newDeleteFleetResponse ::
   DeleteFleetResponse
 newDeleteFleetResponse = DeleteFleetResponse'
 
-instance Core.NFData DeleteFleetResponse
+instance Prelude.NFData DeleteFleetResponse

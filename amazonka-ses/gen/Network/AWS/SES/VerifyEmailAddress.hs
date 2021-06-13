@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -49,9 +50,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newVerifyEmailAddress' smart constructor.
 data VerifyEmailAddress = VerifyEmailAddress'
   { -- | The email address to be verified.
-    emailAddress :: Core.Text
+    emailAddress :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VerifyEmailAddress' with all optional fields omitted.
@@ -64,13 +65,13 @@ data VerifyEmailAddress = VerifyEmailAddress'
 -- 'emailAddress', 'verifyEmailAddress_emailAddress' - The email address to be verified.
 newVerifyEmailAddress ::
   -- | 'emailAddress'
-  Core.Text ->
+  Prelude.Text ->
   VerifyEmailAddress
 newVerifyEmailAddress pEmailAddress_ =
   VerifyEmailAddress' {emailAddress = pEmailAddress_}
 
 -- | The email address to be verified.
-verifyEmailAddress_emailAddress :: Lens.Lens' VerifyEmailAddress Core.Text
+verifyEmailAddress_emailAddress :: Lens.Lens' VerifyEmailAddress Prelude.Text
 verifyEmailAddress_emailAddress = Lens.lens (\VerifyEmailAddress' {emailAddress} -> emailAddress) (\s@VerifyEmailAddress' {} a -> s {emailAddress = a} :: VerifyEmailAddress)
 
 instance Core.AWSRequest VerifyEmailAddress where
@@ -81,22 +82,23 @@ instance Core.AWSRequest VerifyEmailAddress where
   response =
     Response.receiveNull VerifyEmailAddressResponse'
 
-instance Core.Hashable VerifyEmailAddress
+instance Prelude.Hashable VerifyEmailAddress
 
-instance Core.NFData VerifyEmailAddress
+instance Prelude.NFData VerifyEmailAddress
 
 instance Core.ToHeaders VerifyEmailAddress where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath VerifyEmailAddress where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery VerifyEmailAddress where
   toQuery VerifyEmailAddress' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("VerifyEmailAddress" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("VerifyEmailAddress" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "EmailAddress" Core.=: emailAddress
       ]
 
@@ -104,7 +106,7 @@ instance Core.ToQuery VerifyEmailAddress where
 data VerifyEmailAddressResponse = VerifyEmailAddressResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VerifyEmailAddressResponse' with all optional fields omitted.
@@ -115,4 +117,4 @@ newVerifyEmailAddressResponse ::
 newVerifyEmailAddressResponse =
   VerifyEmailAddressResponse'
 
-instance Core.NFData VerifyEmailAddressResponse
+instance Prelude.NFData VerifyEmailAddressResponse

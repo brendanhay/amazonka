@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -61,9 +62,9 @@ import Network.AWS.Snowball.Types
 data GetJobUnlockCode = GetJobUnlockCode'
   { -- | The ID for the job that you want to get the @UnlockCode@ value for, for
     -- example @JID123e4567-e89b-12d3-a456-426655440000@.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJobUnlockCode' with all optional fields omitted.
@@ -77,14 +78,14 @@ data GetJobUnlockCode = GetJobUnlockCode'
 -- example @JID123e4567-e89b-12d3-a456-426655440000@.
 newGetJobUnlockCode ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   GetJobUnlockCode
 newGetJobUnlockCode pJobId_ =
   GetJobUnlockCode' {jobId = pJobId_}
 
 -- | The ID for the job that you want to get the @UnlockCode@ value for, for
 -- example @JID123e4567-e89b-12d3-a456-426655440000@.
-getJobUnlockCode_jobId :: Lens.Lens' GetJobUnlockCode Core.Text
+getJobUnlockCode_jobId :: Lens.Lens' GetJobUnlockCode Prelude.Text
 getJobUnlockCode_jobId = Lens.lens (\GetJobUnlockCode' {jobId} -> jobId) (\s@GetJobUnlockCode' {} a -> s {jobId = a} :: GetJobUnlockCode)
 
 instance Core.AWSRequest GetJobUnlockCode where
@@ -96,47 +97,51 @@ instance Core.AWSRequest GetJobUnlockCode where
     Response.receiveJSON
       ( \s h x ->
           GetJobUnlockCodeResponse'
-            Core.<$> (x Core..?> "UnlockCode")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UnlockCode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetJobUnlockCode
+instance Prelude.Hashable GetJobUnlockCode
 
-instance Core.NFData GetJobUnlockCode
+instance Prelude.NFData GetJobUnlockCode
 
 instance Core.ToHeaders GetJobUnlockCode where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.GetJobUnlockCode" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetJobUnlockCode where
   toJSON GetJobUnlockCode' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
 instance Core.ToPath GetJobUnlockCode where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetJobUnlockCode where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetJobUnlockCodeResponse' smart constructor.
 data GetJobUnlockCodeResponse = GetJobUnlockCodeResponse'
   { -- | The @UnlockCode@ value for the specified job. The @UnlockCode@ value can
     -- be accessed for up to 90 days after the job has been created.
-    unlockCode :: Core.Maybe Core.Text,
+    unlockCode :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJobUnlockCodeResponse' with all optional fields omitted.
@@ -152,22 +157,22 @@ data GetJobUnlockCodeResponse = GetJobUnlockCodeResponse'
 -- 'httpStatus', 'getJobUnlockCodeResponse_httpStatus' - The response's http status code.
 newGetJobUnlockCodeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetJobUnlockCodeResponse
 newGetJobUnlockCodeResponse pHttpStatus_ =
   GetJobUnlockCodeResponse'
     { unlockCode =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @UnlockCode@ value for the specified job. The @UnlockCode@ value can
 -- be accessed for up to 90 days after the job has been created.
-getJobUnlockCodeResponse_unlockCode :: Lens.Lens' GetJobUnlockCodeResponse (Core.Maybe Core.Text)
+getJobUnlockCodeResponse_unlockCode :: Lens.Lens' GetJobUnlockCodeResponse (Prelude.Maybe Prelude.Text)
 getJobUnlockCodeResponse_unlockCode = Lens.lens (\GetJobUnlockCodeResponse' {unlockCode} -> unlockCode) (\s@GetJobUnlockCodeResponse' {} a -> s {unlockCode = a} :: GetJobUnlockCodeResponse)
 
 -- | The response's http status code.
-getJobUnlockCodeResponse_httpStatus :: Lens.Lens' GetJobUnlockCodeResponse Core.Int
+getJobUnlockCodeResponse_httpStatus :: Lens.Lens' GetJobUnlockCodeResponse Prelude.Int
 getJobUnlockCodeResponse_httpStatus = Lens.lens (\GetJobUnlockCodeResponse' {httpStatus} -> httpStatus) (\s@GetJobUnlockCodeResponse' {} a -> s {httpStatus = a} :: GetJobUnlockCodeResponse)
 
-instance Core.NFData GetJobUnlockCodeResponse
+instance Prelude.NFData GetJobUnlockCodeResponse

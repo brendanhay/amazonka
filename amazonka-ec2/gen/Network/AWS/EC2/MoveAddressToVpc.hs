@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ data MoveAddressToVpc = MoveAddressToVpc'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Elastic IP address.
-    publicIp :: Core.Text
+    publicIp :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MoveAddressToVpc' with all optional fields omitted.
@@ -82,11 +83,11 @@ data MoveAddressToVpc = MoveAddressToVpc'
 -- 'publicIp', 'moveAddressToVpc_publicIp' - The Elastic IP address.
 newMoveAddressToVpc ::
   -- | 'publicIp'
-  Core.Text ->
+  Prelude.Text ->
   MoveAddressToVpc
 newMoveAddressToVpc pPublicIp_ =
   MoveAddressToVpc'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       publicIp = pPublicIp_
     }
 
@@ -94,11 +95,11 @@ newMoveAddressToVpc pPublicIp_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-moveAddressToVpc_dryRun :: Lens.Lens' MoveAddressToVpc (Core.Maybe Core.Bool)
+moveAddressToVpc_dryRun :: Lens.Lens' MoveAddressToVpc (Prelude.Maybe Prelude.Bool)
 moveAddressToVpc_dryRun = Lens.lens (\MoveAddressToVpc' {dryRun} -> dryRun) (\s@MoveAddressToVpc' {} a -> s {dryRun = a} :: MoveAddressToVpc)
 
 -- | The Elastic IP address.
-moveAddressToVpc_publicIp :: Lens.Lens' MoveAddressToVpc Core.Text
+moveAddressToVpc_publicIp :: Lens.Lens' MoveAddressToVpc Prelude.Text
 moveAddressToVpc_publicIp = Lens.lens (\MoveAddressToVpc' {publicIp} -> publicIp) (\s@MoveAddressToVpc' {} a -> s {publicIp = a} :: MoveAddressToVpc)
 
 instance Core.AWSRequest MoveAddressToVpc where
@@ -110,27 +111,28 @@ instance Core.AWSRequest MoveAddressToVpc where
     Response.receiveXML
       ( \s h x ->
           MoveAddressToVpcResponse'
-            Core.<$> (x Core..@? "status")
-            Core.<*> (x Core..@? "allocationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "status")
+            Prelude.<*> (x Core..@? "allocationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable MoveAddressToVpc
+instance Prelude.Hashable MoveAddressToVpc
 
-instance Core.NFData MoveAddressToVpc
+instance Prelude.NFData MoveAddressToVpc
 
 instance Core.ToHeaders MoveAddressToVpc where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath MoveAddressToVpc where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery MoveAddressToVpc where
   toQuery MoveAddressToVpc' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("MoveAddressToVpc" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("MoveAddressToVpc" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "PublicIp" Core.=: publicIp
       ]
@@ -138,13 +140,13 @@ instance Core.ToQuery MoveAddressToVpc where
 -- | /See:/ 'newMoveAddressToVpcResponse' smart constructor.
 data MoveAddressToVpcResponse = MoveAddressToVpcResponse'
   { -- | The status of the move of the IP address.
-    status :: Core.Maybe AddressStatus,
+    status :: Prelude.Maybe AddressStatus,
     -- | The allocation ID for the Elastic IP address.
-    allocationId :: Core.Maybe Core.Text,
+    allocationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MoveAddressToVpcResponse' with all optional fields omitted.
@@ -161,25 +163,25 @@ data MoveAddressToVpcResponse = MoveAddressToVpcResponse'
 -- 'httpStatus', 'moveAddressToVpcResponse_httpStatus' - The response's http status code.
 newMoveAddressToVpcResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   MoveAddressToVpcResponse
 newMoveAddressToVpcResponse pHttpStatus_ =
   MoveAddressToVpcResponse'
-    { status = Core.Nothing,
-      allocationId = Core.Nothing,
+    { status = Prelude.Nothing,
+      allocationId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the move of the IP address.
-moveAddressToVpcResponse_status :: Lens.Lens' MoveAddressToVpcResponse (Core.Maybe AddressStatus)
+moveAddressToVpcResponse_status :: Lens.Lens' MoveAddressToVpcResponse (Prelude.Maybe AddressStatus)
 moveAddressToVpcResponse_status = Lens.lens (\MoveAddressToVpcResponse' {status} -> status) (\s@MoveAddressToVpcResponse' {} a -> s {status = a} :: MoveAddressToVpcResponse)
 
 -- | The allocation ID for the Elastic IP address.
-moveAddressToVpcResponse_allocationId :: Lens.Lens' MoveAddressToVpcResponse (Core.Maybe Core.Text)
+moveAddressToVpcResponse_allocationId :: Lens.Lens' MoveAddressToVpcResponse (Prelude.Maybe Prelude.Text)
 moveAddressToVpcResponse_allocationId = Lens.lens (\MoveAddressToVpcResponse' {allocationId} -> allocationId) (\s@MoveAddressToVpcResponse' {} a -> s {allocationId = a} :: MoveAddressToVpcResponse)
 
 -- | The response's http status code.
-moveAddressToVpcResponse_httpStatus :: Lens.Lens' MoveAddressToVpcResponse Core.Int
+moveAddressToVpcResponse_httpStatus :: Lens.Lens' MoveAddressToVpcResponse Prelude.Int
 moveAddressToVpcResponse_httpStatus = Lens.lens (\MoveAddressToVpcResponse' {httpStatus} -> httpStatus) (\s@MoveAddressToVpcResponse' {} a -> s {httpStatus = a} :: MoveAddressToVpcResponse)
 
-instance Core.NFData MoveAddressToVpcResponse
+instance Prelude.NFData MoveAddressToVpcResponse

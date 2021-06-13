@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteMitigationAction' smart constructor.
 data DeleteMitigationAction = DeleteMitigationAction'
   { -- | The name of the mitigation action that you want to delete.
-    actionName :: Core.Text
+    actionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMitigationAction' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteMitigationAction = DeleteMitigationAction'
 -- 'actionName', 'deleteMitigationAction_actionName' - The name of the mitigation action that you want to delete.
 newDeleteMitigationAction ::
   -- | 'actionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMitigationAction
 newDeleteMitigationAction pActionName_ =
   DeleteMitigationAction' {actionName = pActionName_}
 
 -- | The name of the mitigation action that you want to delete.
-deleteMitigationAction_actionName :: Lens.Lens' DeleteMitigationAction Core.Text
+deleteMitigationAction_actionName :: Lens.Lens' DeleteMitigationAction Prelude.Text
 deleteMitigationAction_actionName = Lens.lens (\DeleteMitigationAction' {actionName} -> actionName) (\s@DeleteMitigationAction' {} a -> s {actionName = a} :: DeleteMitigationAction)
 
 instance Core.AWSRequest DeleteMitigationAction where
@@ -80,30 +81,30 @@ instance Core.AWSRequest DeleteMitigationAction where
     Response.receiveEmpty
       ( \s h x ->
           DeleteMitigationActionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteMitigationAction
+instance Prelude.Hashable DeleteMitigationAction
 
-instance Core.NFData DeleteMitigationAction
+instance Prelude.NFData DeleteMitigationAction
 
 instance Core.ToHeaders DeleteMitigationAction where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteMitigationAction where
   toPath DeleteMitigationAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/mitigationactions/actions/", Core.toBS actionName]
 
 instance Core.ToQuery DeleteMitigationAction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMitigationActionResponse' smart constructor.
 data DeleteMitigationActionResponse = DeleteMitigationActionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMitigationActionResponse' with all optional fields omitted.
@@ -116,7 +117,7 @@ data DeleteMitigationActionResponse = DeleteMitigationActionResponse'
 -- 'httpStatus', 'deleteMitigationActionResponse_httpStatus' - The response's http status code.
 newDeleteMitigationActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteMitigationActionResponse
 newDeleteMitigationActionResponse pHttpStatus_ =
   DeleteMitigationActionResponse'
@@ -125,7 +126,9 @@ newDeleteMitigationActionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteMitigationActionResponse_httpStatus :: Lens.Lens' DeleteMitigationActionResponse Core.Int
+deleteMitigationActionResponse_httpStatus :: Lens.Lens' DeleteMitigationActionResponse Prelude.Int
 deleteMitigationActionResponse_httpStatus = Lens.lens (\DeleteMitigationActionResponse' {httpStatus} -> httpStatus) (\s@DeleteMitigationActionResponse' {} a -> s {httpStatus = a} :: DeleteMitigationActionResponse)
 
-instance Core.NFData DeleteMitigationActionResponse
+instance
+  Prelude.NFData
+    DeleteMitigationActionResponse

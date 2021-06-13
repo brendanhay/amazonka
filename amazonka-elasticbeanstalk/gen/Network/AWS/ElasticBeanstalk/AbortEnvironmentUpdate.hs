@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,12 +50,12 @@ import qualified Network.AWS.Response as Response
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
   { -- | This specifies the ID of the environment with the in-progress update
     -- that you want to cancel.
-    environmentId :: Core.Maybe Core.Text,
+    environmentId :: Prelude.Maybe Prelude.Text,
     -- | This specifies the name of the environment with the in-progress update
     -- that you want to cancel.
-    environmentName :: Core.Maybe Core.Text
+    environmentName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AbortEnvironmentUpdate' with all optional fields omitted.
@@ -74,18 +75,18 @@ newAbortEnvironmentUpdate ::
 newAbortEnvironmentUpdate =
   AbortEnvironmentUpdate'
     { environmentId =
-        Core.Nothing,
-      environmentName = Core.Nothing
+        Prelude.Nothing,
+      environmentName = Prelude.Nothing
     }
 
 -- | This specifies the ID of the environment with the in-progress update
 -- that you want to cancel.
-abortEnvironmentUpdate_environmentId :: Lens.Lens' AbortEnvironmentUpdate (Core.Maybe Core.Text)
+abortEnvironmentUpdate_environmentId :: Lens.Lens' AbortEnvironmentUpdate (Prelude.Maybe Prelude.Text)
 abortEnvironmentUpdate_environmentId = Lens.lens (\AbortEnvironmentUpdate' {environmentId} -> environmentId) (\s@AbortEnvironmentUpdate' {} a -> s {environmentId = a} :: AbortEnvironmentUpdate)
 
 -- | This specifies the name of the environment with the in-progress update
 -- that you want to cancel.
-abortEnvironmentUpdate_environmentName :: Lens.Lens' AbortEnvironmentUpdate (Core.Maybe Core.Text)
+abortEnvironmentUpdate_environmentName :: Lens.Lens' AbortEnvironmentUpdate (Prelude.Maybe Prelude.Text)
 abortEnvironmentUpdate_environmentName = Lens.lens (\AbortEnvironmentUpdate' {environmentName} -> environmentName) (\s@AbortEnvironmentUpdate' {} a -> s {environmentName = a} :: AbortEnvironmentUpdate)
 
 instance Core.AWSRequest AbortEnvironmentUpdate where
@@ -97,22 +98,23 @@ instance Core.AWSRequest AbortEnvironmentUpdate where
     Response.receiveNull
       AbortEnvironmentUpdateResponse'
 
-instance Core.Hashable AbortEnvironmentUpdate
+instance Prelude.Hashable AbortEnvironmentUpdate
 
-instance Core.NFData AbortEnvironmentUpdate
+instance Prelude.NFData AbortEnvironmentUpdate
 
 instance Core.ToHeaders AbortEnvironmentUpdate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AbortEnvironmentUpdate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AbortEnvironmentUpdate where
   toQuery AbortEnvironmentUpdate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AbortEnvironmentUpdate" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("AbortEnvironmentUpdate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "EnvironmentId" Core.=: environmentId,
         "EnvironmentName" Core.=: environmentName
       ]
@@ -121,7 +123,7 @@ instance Core.ToQuery AbortEnvironmentUpdate where
 data AbortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AbortEnvironmentUpdateResponse' with all optional fields omitted.
@@ -132,4 +134,6 @@ newAbortEnvironmentUpdateResponse ::
 newAbortEnvironmentUpdateResponse =
   AbortEnvironmentUpdateResponse'
 
-instance Core.NFData AbortEnvironmentUpdateResponse
+instance
+  Prelude.NFData
+    AbortEnvironmentUpdateResponse

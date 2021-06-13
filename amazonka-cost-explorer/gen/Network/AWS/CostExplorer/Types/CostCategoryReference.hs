@@ -22,6 +22,7 @@ module Network.AWS.CostExplorer.Types.CostCategoryReference where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A reference to a Cost Category containing only enough information to
 -- identify the Cost Category.
@@ -32,21 +33,21 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCostCategoryReference' smart constructor.
 data CostCategoryReference = CostCategoryReference'
   { -- | The number of rules associated with a specific Cost Category.
-    numberOfRules :: Core.Maybe Core.Natural,
+    numberOfRules :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier for your Cost Category.
-    costCategoryArn :: Core.Maybe Core.Text,
+    costCategoryArn :: Prelude.Maybe Prelude.Text,
     -- | A list of unique cost category values in a specific cost category.
-    values :: Core.Maybe [Core.Text],
+    values :: Prelude.Maybe [Prelude.Text],
     -- | The list of processing statuses for Cost Management products for a
     -- specific cost category.
-    processingStatus :: Core.Maybe [CostCategoryProcessingStatus],
-    name :: Core.Maybe Core.Text,
+    processingStatus :: Prelude.Maybe [CostCategoryProcessingStatus],
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Cost Category\'s effective start date.
-    effectiveStart :: Core.Maybe Core.Text,
+    effectiveStart :: Prelude.Maybe Prelude.Text,
     -- | The Cost Category\'s effective end date.
-    effectiveEnd :: Core.Maybe Core.Text
+    effectiveEnd :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CostCategoryReference' with all optional fields omitted.
@@ -75,42 +76,42 @@ newCostCategoryReference ::
 newCostCategoryReference =
   CostCategoryReference'
     { numberOfRules =
-        Core.Nothing,
-      costCategoryArn = Core.Nothing,
-      values = Core.Nothing,
-      processingStatus = Core.Nothing,
-      name = Core.Nothing,
-      effectiveStart = Core.Nothing,
-      effectiveEnd = Core.Nothing
+        Prelude.Nothing,
+      costCategoryArn = Prelude.Nothing,
+      values = Prelude.Nothing,
+      processingStatus = Prelude.Nothing,
+      name = Prelude.Nothing,
+      effectiveStart = Prelude.Nothing,
+      effectiveEnd = Prelude.Nothing
     }
 
 -- | The number of rules associated with a specific Cost Category.
-costCategoryReference_numberOfRules :: Lens.Lens' CostCategoryReference (Core.Maybe Core.Natural)
+costCategoryReference_numberOfRules :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Natural)
 costCategoryReference_numberOfRules = Lens.lens (\CostCategoryReference' {numberOfRules} -> numberOfRules) (\s@CostCategoryReference' {} a -> s {numberOfRules = a} :: CostCategoryReference)
 
 -- | The unique identifier for your Cost Category.
-costCategoryReference_costCategoryArn :: Lens.Lens' CostCategoryReference (Core.Maybe Core.Text)
+costCategoryReference_costCategoryArn :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Text)
 costCategoryReference_costCategoryArn = Lens.lens (\CostCategoryReference' {costCategoryArn} -> costCategoryArn) (\s@CostCategoryReference' {} a -> s {costCategoryArn = a} :: CostCategoryReference)
 
 -- | A list of unique cost category values in a specific cost category.
-costCategoryReference_values :: Lens.Lens' CostCategoryReference (Core.Maybe [Core.Text])
-costCategoryReference_values = Lens.lens (\CostCategoryReference' {values} -> values) (\s@CostCategoryReference' {} a -> s {values = a} :: CostCategoryReference) Core.. Lens.mapping Lens._Coerce
+costCategoryReference_values :: Lens.Lens' CostCategoryReference (Prelude.Maybe [Prelude.Text])
+costCategoryReference_values = Lens.lens (\CostCategoryReference' {values} -> values) (\s@CostCategoryReference' {} a -> s {values = a} :: CostCategoryReference) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of processing statuses for Cost Management products for a
 -- specific cost category.
-costCategoryReference_processingStatus :: Lens.Lens' CostCategoryReference (Core.Maybe [CostCategoryProcessingStatus])
-costCategoryReference_processingStatus = Lens.lens (\CostCategoryReference' {processingStatus} -> processingStatus) (\s@CostCategoryReference' {} a -> s {processingStatus = a} :: CostCategoryReference) Core.. Lens.mapping Lens._Coerce
+costCategoryReference_processingStatus :: Lens.Lens' CostCategoryReference (Prelude.Maybe [CostCategoryProcessingStatus])
+costCategoryReference_processingStatus = Lens.lens (\CostCategoryReference' {processingStatus} -> processingStatus) (\s@CostCategoryReference' {} a -> s {processingStatus = a} :: CostCategoryReference) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-costCategoryReference_name :: Lens.Lens' CostCategoryReference (Core.Maybe Core.Text)
+costCategoryReference_name :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Text)
 costCategoryReference_name = Lens.lens (\CostCategoryReference' {name} -> name) (\s@CostCategoryReference' {} a -> s {name = a} :: CostCategoryReference)
 
 -- | The Cost Category\'s effective start date.
-costCategoryReference_effectiveStart :: Lens.Lens' CostCategoryReference (Core.Maybe Core.Text)
+costCategoryReference_effectiveStart :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Text)
 costCategoryReference_effectiveStart = Lens.lens (\CostCategoryReference' {effectiveStart} -> effectiveStart) (\s@CostCategoryReference' {} a -> s {effectiveStart = a} :: CostCategoryReference)
 
 -- | The Cost Category\'s effective end date.
-costCategoryReference_effectiveEnd :: Lens.Lens' CostCategoryReference (Core.Maybe Core.Text)
+costCategoryReference_effectiveEnd :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Text)
 costCategoryReference_effectiveEnd = Lens.lens (\CostCategoryReference' {effectiveEnd} -> effectiveEnd) (\s@CostCategoryReference' {} a -> s {effectiveEnd = a} :: CostCategoryReference)
 
 instance Core.FromJSON CostCategoryReference where
@@ -119,15 +120,17 @@ instance Core.FromJSON CostCategoryReference where
       "CostCategoryReference"
       ( \x ->
           CostCategoryReference'
-            Core.<$> (x Core..:? "NumberOfRules")
-            Core.<*> (x Core..:? "CostCategoryArn")
-            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ProcessingStatus" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "EffectiveStart")
-            Core.<*> (x Core..:? "EffectiveEnd")
+            Prelude.<$> (x Core..:? "NumberOfRules")
+            Prelude.<*> (x Core..:? "CostCategoryArn")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "ProcessingStatus"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "EffectiveStart")
+            Prelude.<*> (x Core..:? "EffectiveEnd")
       )
 
-instance Core.Hashable CostCategoryReference
+instance Prelude.Hashable CostCategoryReference
 
-instance Core.NFData CostCategoryReference
+instance Prelude.NFData CostCategoryReference

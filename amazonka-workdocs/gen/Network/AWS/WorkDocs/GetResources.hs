@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -55,20 +56,20 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newGetResources' smart constructor.
 data GetResources = GetResources'
   { -- | The collection type.
-    collectionType :: Core.Maybe ResourceCollectionType,
+    collectionType :: Prelude.Maybe ResourceCollectionType,
     -- | The user ID for the resource collection. This is a required field for
     -- accessing the API operation using IAM credentials.
-    userId :: Core.Maybe Core.Text,
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The maximum number of resources to return.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. This marker was received from a
     -- previous call.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetResources' with all optional fields omitted.
@@ -94,34 +95,34 @@ newGetResources ::
   GetResources
 newGetResources =
   GetResources'
-    { collectionType = Core.Nothing,
-      userId = Core.Nothing,
-      authenticationToken = Core.Nothing,
-      limit = Core.Nothing,
-      marker = Core.Nothing
+    { collectionType = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The collection type.
-getResources_collectionType :: Lens.Lens' GetResources (Core.Maybe ResourceCollectionType)
+getResources_collectionType :: Lens.Lens' GetResources (Prelude.Maybe ResourceCollectionType)
 getResources_collectionType = Lens.lens (\GetResources' {collectionType} -> collectionType) (\s@GetResources' {} a -> s {collectionType = a} :: GetResources)
 
 -- | The user ID for the resource collection. This is a required field for
 -- accessing the API operation using IAM credentials.
-getResources_userId :: Lens.Lens' GetResources (Core.Maybe Core.Text)
+getResources_userId :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
 getResources_userId = Lens.lens (\GetResources' {userId} -> userId) (\s@GetResources' {} a -> s {userId = a} :: GetResources)
 
 -- | The Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-getResources_authenticationToken :: Lens.Lens' GetResources (Core.Maybe Core.Text)
-getResources_authenticationToken = Lens.lens (\GetResources' {authenticationToken} -> authenticationToken) (\s@GetResources' {} a -> s {authenticationToken = a} :: GetResources) Core.. Lens.mapping Core._Sensitive
+getResources_authenticationToken :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
+getResources_authenticationToken = Lens.lens (\GetResources' {authenticationToken} -> authenticationToken) (\s@GetResources' {} a -> s {authenticationToken = a} :: GetResources) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The maximum number of resources to return.
-getResources_limit :: Lens.Lens' GetResources (Core.Maybe Core.Natural)
+getResources_limit :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Natural)
 getResources_limit = Lens.lens (\GetResources' {limit} -> limit) (\s@GetResources' {} a -> s {limit = a} :: GetResources)
 
 -- | The marker for the next set of results. This marker was received from a
 -- previous call.
-getResources_marker :: Lens.Lens' GetResources (Core.Maybe Core.Text)
+getResources_marker :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
 getResources_marker = Lens.lens (\GetResources' {marker} -> marker) (\s@GetResources' {} a -> s {marker = a} :: GetResources)
 
 instance Core.AWSRequest GetResources where
@@ -131,30 +132,30 @@ instance Core.AWSRequest GetResources where
     Response.receiveJSON
       ( \s h x ->
           GetResourcesResponse'
-            Core.<$> (x Core..?> "Documents" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Folders" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Documents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Folders" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetResources
+instance Prelude.Hashable GetResources
 
-instance Core.NFData GetResources
+instance Prelude.NFData GetResources
 
 instance Core.ToHeaders GetResources where
   toHeaders GetResources' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath GetResources where
-  toPath = Core.const "/api/v1/resources"
+  toPath = Prelude.const "/api/v1/resources"
 
 instance Core.ToQuery GetResources where
   toQuery GetResources' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "collectionType" Core.=: collectionType,
         "userId" Core.=: userId,
         "limit" Core.=: limit,
@@ -164,16 +165,16 @@ instance Core.ToQuery GetResources where
 -- | /See:/ 'newGetResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
   { -- | The documents in the specified collection.
-    documents :: Core.Maybe [DocumentMetadata],
+    documents :: Prelude.Maybe [DocumentMetadata],
     -- | The folders in the specified folder.
-    folders :: Core.Maybe [FolderMetadata],
+    folders :: Prelude.Maybe [FolderMetadata],
     -- | The marker to use when requesting the next set of results. If there are
     -- no additional results, the string is empty.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetResourcesResponse' with all optional fields omitted.
@@ -193,31 +194,31 @@ data GetResourcesResponse = GetResourcesResponse'
 -- 'httpStatus', 'getResourcesResponse_httpStatus' - The response's http status code.
 newGetResourcesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetResourcesResponse
 newGetResourcesResponse pHttpStatus_ =
   GetResourcesResponse'
-    { documents = Core.Nothing,
-      folders = Core.Nothing,
-      marker = Core.Nothing,
+    { documents = Prelude.Nothing,
+      folders = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The documents in the specified collection.
-getResourcesResponse_documents :: Lens.Lens' GetResourcesResponse (Core.Maybe [DocumentMetadata])
-getResourcesResponse_documents = Lens.lens (\GetResourcesResponse' {documents} -> documents) (\s@GetResourcesResponse' {} a -> s {documents = a} :: GetResourcesResponse) Core.. Lens.mapping Lens._Coerce
+getResourcesResponse_documents :: Lens.Lens' GetResourcesResponse (Prelude.Maybe [DocumentMetadata])
+getResourcesResponse_documents = Lens.lens (\GetResourcesResponse' {documents} -> documents) (\s@GetResourcesResponse' {} a -> s {documents = a} :: GetResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The folders in the specified folder.
-getResourcesResponse_folders :: Lens.Lens' GetResourcesResponse (Core.Maybe [FolderMetadata])
-getResourcesResponse_folders = Lens.lens (\GetResourcesResponse' {folders} -> folders) (\s@GetResourcesResponse' {} a -> s {folders = a} :: GetResourcesResponse) Core.. Lens.mapping Lens._Coerce
+getResourcesResponse_folders :: Lens.Lens' GetResourcesResponse (Prelude.Maybe [FolderMetadata])
+getResourcesResponse_folders = Lens.lens (\GetResourcesResponse' {folders} -> folders) (\s@GetResourcesResponse' {} a -> s {folders = a} :: GetResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
-getResourcesResponse_marker :: Lens.Lens' GetResourcesResponse (Core.Maybe Core.Text)
+getResourcesResponse_marker :: Lens.Lens' GetResourcesResponse (Prelude.Maybe Prelude.Text)
 getResourcesResponse_marker = Lens.lens (\GetResourcesResponse' {marker} -> marker) (\s@GetResourcesResponse' {} a -> s {marker = a} :: GetResourcesResponse)
 
 -- | The response's http status code.
-getResourcesResponse_httpStatus :: Lens.Lens' GetResourcesResponse Core.Int
+getResourcesResponse_httpStatus :: Lens.Lens' GetResourcesResponse Prelude.Int
 getResourcesResponse_httpStatus = Lens.lens (\GetResourcesResponse' {httpStatus} -> httpStatus) (\s@GetResourcesResponse' {} a -> s {httpStatus = a} :: GetResourcesResponse)
 
-instance Core.NFData GetResourcesResponse
+instance Prelude.NFData GetResourcesResponse

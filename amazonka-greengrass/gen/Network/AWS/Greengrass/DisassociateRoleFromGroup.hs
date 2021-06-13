@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateRoleFromGroup' smart constructor.
 data DisassociateRoleFromGroup = DisassociateRoleFromGroup'
   { -- | The ID of the Greengrass group.
-    groupId :: Core.Text
+    groupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateRoleFromGroup' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DisassociateRoleFromGroup = DisassociateRoleFromGroup'
 -- 'groupId', 'disassociateRoleFromGroup_groupId' - The ID of the Greengrass group.
 newDisassociateRoleFromGroup ::
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateRoleFromGroup
 newDisassociateRoleFromGroup pGroupId_ =
   DisassociateRoleFromGroup' {groupId = pGroupId_}
 
 -- | The ID of the Greengrass group.
-disassociateRoleFromGroup_groupId :: Lens.Lens' DisassociateRoleFromGroup Core.Text
+disassociateRoleFromGroup_groupId :: Lens.Lens' DisassociateRoleFromGroup Prelude.Text
 disassociateRoleFromGroup_groupId = Lens.lens (\DisassociateRoleFromGroup' {groupId} -> groupId) (\s@DisassociateRoleFromGroup' {} a -> s {groupId = a} :: DisassociateRoleFromGroup)
 
 instance Core.AWSRequest DisassociateRoleFromGroup where
@@ -81,40 +82,42 @@ instance Core.AWSRequest DisassociateRoleFromGroup where
     Response.receiveJSON
       ( \s h x ->
           DisassociateRoleFromGroupResponse'
-            Core.<$> (x Core..?> "DisassociatedAt")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DisassociatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateRoleFromGroup
+instance Prelude.Hashable DisassociateRoleFromGroup
 
-instance Core.NFData DisassociateRoleFromGroup
+instance Prelude.NFData DisassociateRoleFromGroup
 
 instance Core.ToHeaders DisassociateRoleFromGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DisassociateRoleFromGroup where
   toPath DisassociateRoleFromGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/greengrass/groups/", Core.toBS groupId, "/role"]
 
 instance Core.ToQuery DisassociateRoleFromGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateRoleFromGroupResponse' smart constructor.
 data DisassociateRoleFromGroupResponse = DisassociateRoleFromGroupResponse'
   { -- | The time, in milliseconds since the epoch, when the role was
     -- disassociated from the group.
-    disassociatedAt :: Core.Maybe Core.Text,
+    disassociatedAt :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateRoleFromGroupResponse' with all optional fields omitted.
@@ -130,24 +133,24 @@ data DisassociateRoleFromGroupResponse = DisassociateRoleFromGroupResponse'
 -- 'httpStatus', 'disassociateRoleFromGroupResponse_httpStatus' - The response's http status code.
 newDisassociateRoleFromGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateRoleFromGroupResponse
 newDisassociateRoleFromGroupResponse pHttpStatus_ =
   DisassociateRoleFromGroupResponse'
     { disassociatedAt =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time, in milliseconds since the epoch, when the role was
 -- disassociated from the group.
-disassociateRoleFromGroupResponse_disassociatedAt :: Lens.Lens' DisassociateRoleFromGroupResponse (Core.Maybe Core.Text)
+disassociateRoleFromGroupResponse_disassociatedAt :: Lens.Lens' DisassociateRoleFromGroupResponse (Prelude.Maybe Prelude.Text)
 disassociateRoleFromGroupResponse_disassociatedAt = Lens.lens (\DisassociateRoleFromGroupResponse' {disassociatedAt} -> disassociatedAt) (\s@DisassociateRoleFromGroupResponse' {} a -> s {disassociatedAt = a} :: DisassociateRoleFromGroupResponse)
 
 -- | The response's http status code.
-disassociateRoleFromGroupResponse_httpStatus :: Lens.Lens' DisassociateRoleFromGroupResponse Core.Int
+disassociateRoleFromGroupResponse_httpStatus :: Lens.Lens' DisassociateRoleFromGroupResponse Prelude.Int
 disassociateRoleFromGroupResponse_httpStatus = Lens.lens (\DisassociateRoleFromGroupResponse' {httpStatus} -> httpStatus) (\s@DisassociateRoleFromGroupResponse' {} a -> s {httpStatus = a} :: DisassociateRoleFromGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateRoleFromGroupResponse

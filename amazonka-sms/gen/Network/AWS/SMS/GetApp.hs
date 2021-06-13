@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -50,9 +51,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newGetApp' smart constructor.
 data GetApp = GetApp'
   { -- | The ID of the application.
-    appId :: Core.Maybe Core.Text
+    appId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApp' with all optional fields omitted.
@@ -65,10 +66,10 @@ data GetApp = GetApp'
 -- 'appId', 'getApp_appId' - The ID of the application.
 newGetApp ::
   GetApp
-newGetApp = GetApp' {appId = Core.Nothing}
+newGetApp = GetApp' {appId = Prelude.Nothing}
 
 -- | The ID of the application.
-getApp_appId :: Lens.Lens' GetApp (Core.Maybe Core.Text)
+getApp_appId :: Lens.Lens' GetApp (Prelude.Maybe Prelude.Text)
 getApp_appId = Lens.lens (\GetApp' {appId} -> appId) (\s@GetApp' {} a -> s {appId = a} :: GetApp)
 
 instance Core.AWSRequest GetApp where
@@ -78,52 +79,56 @@ instance Core.AWSRequest GetApp where
     Response.receiveJSON
       ( \s h x ->
           GetAppResponse'
-            Core.<$> (x Core..?> "appSummary")
-            Core.<*> (x Core..?> "serverGroups" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "appSummary")
+            Prelude.<*> (x Core..?> "serverGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetApp
+instance Prelude.Hashable GetApp
 
-instance Core.NFData GetApp
+instance Prelude.NFData GetApp
 
 instance Core.ToHeaders GetApp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.GetApp" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetApp where
   toJSON GetApp' {..} =
     Core.object
-      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
+      ( Prelude.catMaybes
+          [("appId" Core..=) Prelude.<$> appId]
+      )
 
 instance Core.ToPath GetApp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetApp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
   { -- | Information about the application.
-    appSummary :: Core.Maybe AppSummary,
+    appSummary :: Prelude.Maybe AppSummary,
     -- | The server groups that belong to the application.
-    serverGroups :: Core.Maybe [ServerGroup],
+    serverGroups :: Prelude.Maybe [ServerGroup],
     -- | The tags associated with the application.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAppResponse' with all optional fields omitted.
@@ -142,30 +147,30 @@ data GetAppResponse = GetAppResponse'
 -- 'httpStatus', 'getAppResponse_httpStatus' - The response's http status code.
 newGetAppResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAppResponse
 newGetAppResponse pHttpStatus_ =
   GetAppResponse'
-    { appSummary = Core.Nothing,
-      serverGroups = Core.Nothing,
-      tags = Core.Nothing,
+    { appSummary = Prelude.Nothing,
+      serverGroups = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the application.
-getAppResponse_appSummary :: Lens.Lens' GetAppResponse (Core.Maybe AppSummary)
+getAppResponse_appSummary :: Lens.Lens' GetAppResponse (Prelude.Maybe AppSummary)
 getAppResponse_appSummary = Lens.lens (\GetAppResponse' {appSummary} -> appSummary) (\s@GetAppResponse' {} a -> s {appSummary = a} :: GetAppResponse)
 
 -- | The server groups that belong to the application.
-getAppResponse_serverGroups :: Lens.Lens' GetAppResponse (Core.Maybe [ServerGroup])
-getAppResponse_serverGroups = Lens.lens (\GetAppResponse' {serverGroups} -> serverGroups) (\s@GetAppResponse' {} a -> s {serverGroups = a} :: GetAppResponse) Core.. Lens.mapping Lens._Coerce
+getAppResponse_serverGroups :: Lens.Lens' GetAppResponse (Prelude.Maybe [ServerGroup])
+getAppResponse_serverGroups = Lens.lens (\GetAppResponse' {serverGroups} -> serverGroups) (\s@GetAppResponse' {} a -> s {serverGroups = a} :: GetAppResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The tags associated with the application.
-getAppResponse_tags :: Lens.Lens' GetAppResponse (Core.Maybe [Tag])
-getAppResponse_tags = Lens.lens (\GetAppResponse' {tags} -> tags) (\s@GetAppResponse' {} a -> s {tags = a} :: GetAppResponse) Core.. Lens.mapping Lens._Coerce
+getAppResponse_tags :: Lens.Lens' GetAppResponse (Prelude.Maybe [Tag])
+getAppResponse_tags = Lens.lens (\GetAppResponse' {tags} -> tags) (\s@GetAppResponse' {} a -> s {tags = a} :: GetAppResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getAppResponse_httpStatus :: Lens.Lens' GetAppResponse Core.Int
+getAppResponse_httpStatus :: Lens.Lens' GetAppResponse Prelude.Int
 getAppResponse_httpStatus = Lens.lens (\GetAppResponse' {httpStatus} -> httpStatus) (\s@GetAppResponse' {} a -> s {httpStatus = a} :: GetAppResponse)
 
-instance Core.NFData GetAppResponse
+instance Prelude.NFData GetAppResponse

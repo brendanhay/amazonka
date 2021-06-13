@@ -21,6 +21,7 @@ module Network.AWS.AppStream.Types.ApplicationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The persistent application settings for users of a stack.
 --
@@ -30,12 +31,12 @@ data ApplicationSettings = ApplicationSettings'
     -- settings are stored. You can allow the same persistent application
     -- settings to be used across multiple stacks by specifying the same
     -- settings group for each stack.
-    settingsGroup :: Core.Maybe Core.Text,
+    settingsGroup :: Prelude.Maybe Prelude.Text,
     -- | Enables or disables persistent application settings for users during
     -- their streaming sessions.
-    enabled :: Core.Bool
+    enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationSettings' with all optional fields omitted.
@@ -54,11 +55,12 @@ data ApplicationSettings = ApplicationSettings'
 -- their streaming sessions.
 newApplicationSettings ::
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   ApplicationSettings
 newApplicationSettings pEnabled_ =
   ApplicationSettings'
-    { settingsGroup = Core.Nothing,
+    { settingsGroup =
+        Prelude.Nothing,
       enabled = pEnabled_
     }
 
@@ -66,23 +68,23 @@ newApplicationSettings pEnabled_ =
 -- settings are stored. You can allow the same persistent application
 -- settings to be used across multiple stacks by specifying the same
 -- settings group for each stack.
-applicationSettings_settingsGroup :: Lens.Lens' ApplicationSettings (Core.Maybe Core.Text)
+applicationSettings_settingsGroup :: Lens.Lens' ApplicationSettings (Prelude.Maybe Prelude.Text)
 applicationSettings_settingsGroup = Lens.lens (\ApplicationSettings' {settingsGroup} -> settingsGroup) (\s@ApplicationSettings' {} a -> s {settingsGroup = a} :: ApplicationSettings)
 
 -- | Enables or disables persistent application settings for users during
 -- their streaming sessions.
-applicationSettings_enabled :: Lens.Lens' ApplicationSettings Core.Bool
+applicationSettings_enabled :: Lens.Lens' ApplicationSettings Prelude.Bool
 applicationSettings_enabled = Lens.lens (\ApplicationSettings' {enabled} -> enabled) (\s@ApplicationSettings' {} a -> s {enabled = a} :: ApplicationSettings)
 
-instance Core.Hashable ApplicationSettings
+instance Prelude.Hashable ApplicationSettings
 
-instance Core.NFData ApplicationSettings
+instance Prelude.NFData ApplicationSettings
 
 instance Core.ToJSON ApplicationSettings where
   toJSON ApplicationSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SettingsGroup" Core..=) Core.<$> settingsGroup,
-            Core.Just ("Enabled" Core..= enabled)
+      ( Prelude.catMaybes
+          [ ("SettingsGroup" Core..=) Prelude.<$> settingsGroup,
+            Prelude.Just ("Enabled" Core..= enabled)
           ]
       )

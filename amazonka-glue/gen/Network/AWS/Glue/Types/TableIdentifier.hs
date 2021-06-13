@@ -21,19 +21,20 @@ module Network.AWS.Glue.Types.TableIdentifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that describes a target table for resource linking.
 --
 -- /See:/ 'newTableIdentifier' smart constructor.
 data TableIdentifier = TableIdentifier'
   { -- | The ID of the Data Catalog in which the table resides.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the target table.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database that contains the target table.
-    databaseName :: Core.Maybe Core.Text
+    databaseName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TableIdentifier' with all optional fields omitted.
@@ -52,21 +53,21 @@ newTableIdentifier ::
   TableIdentifier
 newTableIdentifier =
   TableIdentifier'
-    { catalogId = Core.Nothing,
-      name = Core.Nothing,
-      databaseName = Core.Nothing
+    { catalogId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
 
 -- | The ID of the Data Catalog in which the table resides.
-tableIdentifier_catalogId :: Lens.Lens' TableIdentifier (Core.Maybe Core.Text)
+tableIdentifier_catalogId :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
 tableIdentifier_catalogId = Lens.lens (\TableIdentifier' {catalogId} -> catalogId) (\s@TableIdentifier' {} a -> s {catalogId = a} :: TableIdentifier)
 
 -- | The name of the target table.
-tableIdentifier_name :: Lens.Lens' TableIdentifier (Core.Maybe Core.Text)
+tableIdentifier_name :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
 tableIdentifier_name = Lens.lens (\TableIdentifier' {name} -> name) (\s@TableIdentifier' {} a -> s {name = a} :: TableIdentifier)
 
 -- | The name of the catalog database that contains the target table.
-tableIdentifier_databaseName :: Lens.Lens' TableIdentifier (Core.Maybe Core.Text)
+tableIdentifier_databaseName :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
 tableIdentifier_databaseName = Lens.lens (\TableIdentifier' {databaseName} -> databaseName) (\s@TableIdentifier' {} a -> s {databaseName = a} :: TableIdentifier)
 
 instance Core.FromJSON TableIdentifier where
@@ -75,21 +76,21 @@ instance Core.FromJSON TableIdentifier where
       "TableIdentifier"
       ( \x ->
           TableIdentifier'
-            Core.<$> (x Core..:? "CatalogId")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "DatabaseName")
+            Prelude.<$> (x Core..:? "CatalogId")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "DatabaseName")
       )
 
-instance Core.Hashable TableIdentifier
+instance Prelude.Hashable TableIdentifier
 
-instance Core.NFData TableIdentifier
+instance Prelude.NFData TableIdentifier
 
 instance Core.ToJSON TableIdentifier where
   toJSON TableIdentifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            ("Name" Core..=) Core.<$> name,
-            ("DatabaseName" Core..=) Core.<$> databaseName
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("Name" Core..=) Prelude.<$> name,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

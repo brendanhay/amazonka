@@ -24,45 +24,46 @@ import Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
 import Network.AWS.ElasticSearch.Types.RecurringCharge
 import Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of a reserved Elasticsearch instance.
 --
 -- /See:/ 'newReservedElasticsearchInstance' smart constructor.
 data ReservedElasticsearchInstance = ReservedElasticsearchInstance'
   { -- | The customer-specified identifier to track this reservation.
-    reservationName :: Core.Maybe Core.Text,
+    reservationName :: Prelude.Maybe Prelude.Text,
     -- | The payment option as defined in the reserved Elasticsearch instance
     -- offering.
-    paymentOption :: Core.Maybe ReservedElasticsearchInstancePaymentOption,
+    paymentOption :: Prelude.Maybe ReservedElasticsearchInstancePaymentOption,
     -- | The number of Elasticsearch instances that have been reserved.
-    elasticsearchInstanceCount :: Core.Maybe Core.Int,
+    elasticsearchInstanceCount :: Prelude.Maybe Prelude.Int,
     -- | The duration, in seconds, for which the Elasticsearch instance is
     -- reserved.
-    duration :: Core.Maybe Core.Int,
+    duration :: Prelude.Maybe Prelude.Int,
     -- | The time the reservation started.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The currency code for the reserved Elasticsearch instance offering.
-    currencyCode :: Core.Maybe Core.Text,
+    currencyCode :: Prelude.Maybe Prelude.Text,
     -- | The Elasticsearch instance type offered by the reserved instance
     -- offering.
-    elasticsearchInstanceType :: Core.Maybe ESPartitionInstanceType,
+    elasticsearchInstanceType :: Prelude.Maybe ESPartitionInstanceType,
     -- | The state of the reserved Elasticsearch instance.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The upfront fixed charge you will paid to purchase the specific reserved
     -- Elasticsearch instance offering.
-    fixedPrice :: Core.Maybe Core.Double,
+    fixedPrice :: Prelude.Maybe Prelude.Double,
     -- | The unique identifier for the reservation.
-    reservedElasticsearchInstanceId :: Core.Maybe Core.Text,
+    reservedElasticsearchInstanceId :: Prelude.Maybe Prelude.Text,
     -- | The offering identifier.
-    reservedElasticsearchInstanceOfferingId :: Core.Maybe Core.Text,
+    reservedElasticsearchInstanceOfferingId :: Prelude.Maybe Prelude.Text,
     -- | The rate you are charged for each hour for the domain that is using this
     -- reserved instance.
-    usagePrice :: Core.Maybe Core.Double,
+    usagePrice :: Prelude.Maybe Prelude.Double,
     -- | The charge to your account regardless of whether you are creating any
     -- domains using the instance offering.
-    recurringCharges :: Core.Maybe [RecurringCharge]
+    recurringCharges :: Prelude.Maybe [RecurringCharge]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservedElasticsearchInstance' with all optional fields omitted.
@@ -108,80 +109,80 @@ newReservedElasticsearchInstance ::
 newReservedElasticsearchInstance =
   ReservedElasticsearchInstance'
     { reservationName =
-        Core.Nothing,
-      paymentOption = Core.Nothing,
-      elasticsearchInstanceCount = Core.Nothing,
-      duration = Core.Nothing,
-      startTime = Core.Nothing,
-      currencyCode = Core.Nothing,
-      elasticsearchInstanceType = Core.Nothing,
-      state = Core.Nothing,
-      fixedPrice = Core.Nothing,
+        Prelude.Nothing,
+      paymentOption = Prelude.Nothing,
+      elasticsearchInstanceCount = Prelude.Nothing,
+      duration = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      currencyCode = Prelude.Nothing,
+      elasticsearchInstanceType = Prelude.Nothing,
+      state = Prelude.Nothing,
+      fixedPrice = Prelude.Nothing,
       reservedElasticsearchInstanceId =
-        Core.Nothing,
+        Prelude.Nothing,
       reservedElasticsearchInstanceOfferingId =
-        Core.Nothing,
-      usagePrice = Core.Nothing,
-      recurringCharges = Core.Nothing
+        Prelude.Nothing,
+      usagePrice = Prelude.Nothing,
+      recurringCharges = Prelude.Nothing
     }
 
 -- | The customer-specified identifier to track this reservation.
-reservedElasticsearchInstance_reservationName :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Text)
+reservedElasticsearchInstance_reservationName :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Text)
 reservedElasticsearchInstance_reservationName = Lens.lens (\ReservedElasticsearchInstance' {reservationName} -> reservationName) (\s@ReservedElasticsearchInstance' {} a -> s {reservationName = a} :: ReservedElasticsearchInstance)
 
 -- | The payment option as defined in the reserved Elasticsearch instance
 -- offering.
-reservedElasticsearchInstance_paymentOption :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe ReservedElasticsearchInstancePaymentOption)
+reservedElasticsearchInstance_paymentOption :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe ReservedElasticsearchInstancePaymentOption)
 reservedElasticsearchInstance_paymentOption = Lens.lens (\ReservedElasticsearchInstance' {paymentOption} -> paymentOption) (\s@ReservedElasticsearchInstance' {} a -> s {paymentOption = a} :: ReservedElasticsearchInstance)
 
 -- | The number of Elasticsearch instances that have been reserved.
-reservedElasticsearchInstance_elasticsearchInstanceCount :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Int)
+reservedElasticsearchInstance_elasticsearchInstanceCount :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Int)
 reservedElasticsearchInstance_elasticsearchInstanceCount = Lens.lens (\ReservedElasticsearchInstance' {elasticsearchInstanceCount} -> elasticsearchInstanceCount) (\s@ReservedElasticsearchInstance' {} a -> s {elasticsearchInstanceCount = a} :: ReservedElasticsearchInstance)
 
 -- | The duration, in seconds, for which the Elasticsearch instance is
 -- reserved.
-reservedElasticsearchInstance_duration :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Int)
+reservedElasticsearchInstance_duration :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Int)
 reservedElasticsearchInstance_duration = Lens.lens (\ReservedElasticsearchInstance' {duration} -> duration) (\s@ReservedElasticsearchInstance' {} a -> s {duration = a} :: ReservedElasticsearchInstance)
 
 -- | The time the reservation started.
-reservedElasticsearchInstance_startTime :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.UTCTime)
-reservedElasticsearchInstance_startTime = Lens.lens (\ReservedElasticsearchInstance' {startTime} -> startTime) (\s@ReservedElasticsearchInstance' {} a -> s {startTime = a} :: ReservedElasticsearchInstance) Core.. Lens.mapping Core._Time
+reservedElasticsearchInstance_startTime :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.UTCTime)
+reservedElasticsearchInstance_startTime = Lens.lens (\ReservedElasticsearchInstance' {startTime} -> startTime) (\s@ReservedElasticsearchInstance' {} a -> s {startTime = a} :: ReservedElasticsearchInstance) Prelude.. Lens.mapping Core._Time
 
 -- | The currency code for the reserved Elasticsearch instance offering.
-reservedElasticsearchInstance_currencyCode :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Text)
+reservedElasticsearchInstance_currencyCode :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Text)
 reservedElasticsearchInstance_currencyCode = Lens.lens (\ReservedElasticsearchInstance' {currencyCode} -> currencyCode) (\s@ReservedElasticsearchInstance' {} a -> s {currencyCode = a} :: ReservedElasticsearchInstance)
 
 -- | The Elasticsearch instance type offered by the reserved instance
 -- offering.
-reservedElasticsearchInstance_elasticsearchInstanceType :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe ESPartitionInstanceType)
+reservedElasticsearchInstance_elasticsearchInstanceType :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe ESPartitionInstanceType)
 reservedElasticsearchInstance_elasticsearchInstanceType = Lens.lens (\ReservedElasticsearchInstance' {elasticsearchInstanceType} -> elasticsearchInstanceType) (\s@ReservedElasticsearchInstance' {} a -> s {elasticsearchInstanceType = a} :: ReservedElasticsearchInstance)
 
 -- | The state of the reserved Elasticsearch instance.
-reservedElasticsearchInstance_state :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Text)
+reservedElasticsearchInstance_state :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Text)
 reservedElasticsearchInstance_state = Lens.lens (\ReservedElasticsearchInstance' {state} -> state) (\s@ReservedElasticsearchInstance' {} a -> s {state = a} :: ReservedElasticsearchInstance)
 
 -- | The upfront fixed charge you will paid to purchase the specific reserved
 -- Elasticsearch instance offering.
-reservedElasticsearchInstance_fixedPrice :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Double)
+reservedElasticsearchInstance_fixedPrice :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Double)
 reservedElasticsearchInstance_fixedPrice = Lens.lens (\ReservedElasticsearchInstance' {fixedPrice} -> fixedPrice) (\s@ReservedElasticsearchInstance' {} a -> s {fixedPrice = a} :: ReservedElasticsearchInstance)
 
 -- | The unique identifier for the reservation.
-reservedElasticsearchInstance_reservedElasticsearchInstanceId :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Text)
+reservedElasticsearchInstance_reservedElasticsearchInstanceId :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Text)
 reservedElasticsearchInstance_reservedElasticsearchInstanceId = Lens.lens (\ReservedElasticsearchInstance' {reservedElasticsearchInstanceId} -> reservedElasticsearchInstanceId) (\s@ReservedElasticsearchInstance' {} a -> s {reservedElasticsearchInstanceId = a} :: ReservedElasticsearchInstance)
 
 -- | The offering identifier.
-reservedElasticsearchInstance_reservedElasticsearchInstanceOfferingId :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Text)
+reservedElasticsearchInstance_reservedElasticsearchInstanceOfferingId :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Text)
 reservedElasticsearchInstance_reservedElasticsearchInstanceOfferingId = Lens.lens (\ReservedElasticsearchInstance' {reservedElasticsearchInstanceOfferingId} -> reservedElasticsearchInstanceOfferingId) (\s@ReservedElasticsearchInstance' {} a -> s {reservedElasticsearchInstanceOfferingId = a} :: ReservedElasticsearchInstance)
 
 -- | The rate you are charged for each hour for the domain that is using this
 -- reserved instance.
-reservedElasticsearchInstance_usagePrice :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe Core.Double)
+reservedElasticsearchInstance_usagePrice :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe Prelude.Double)
 reservedElasticsearchInstance_usagePrice = Lens.lens (\ReservedElasticsearchInstance' {usagePrice} -> usagePrice) (\s@ReservedElasticsearchInstance' {} a -> s {usagePrice = a} :: ReservedElasticsearchInstance)
 
 -- | The charge to your account regardless of whether you are creating any
 -- domains using the instance offering.
-reservedElasticsearchInstance_recurringCharges :: Lens.Lens' ReservedElasticsearchInstance (Core.Maybe [RecurringCharge])
-reservedElasticsearchInstance_recurringCharges = Lens.lens (\ReservedElasticsearchInstance' {recurringCharges} -> recurringCharges) (\s@ReservedElasticsearchInstance' {} a -> s {recurringCharges = a} :: ReservedElasticsearchInstance) Core.. Lens.mapping Lens._Coerce
+reservedElasticsearchInstance_recurringCharges :: Lens.Lens' ReservedElasticsearchInstance (Prelude.Maybe [RecurringCharge])
+reservedElasticsearchInstance_recurringCharges = Lens.lens (\ReservedElasticsearchInstance' {recurringCharges} -> recurringCharges) (\s@ReservedElasticsearchInstance' {} a -> s {recurringCharges = a} :: ReservedElasticsearchInstance) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ReservedElasticsearchInstance where
   parseJSON =
@@ -189,23 +190,27 @@ instance Core.FromJSON ReservedElasticsearchInstance where
       "ReservedElasticsearchInstance"
       ( \x ->
           ReservedElasticsearchInstance'
-            Core.<$> (x Core..:? "ReservationName")
-            Core.<*> (x Core..:? "PaymentOption")
-            Core.<*> (x Core..:? "ElasticsearchInstanceCount")
-            Core.<*> (x Core..:? "Duration")
-            Core.<*> (x Core..:? "StartTime")
-            Core.<*> (x Core..:? "CurrencyCode")
-            Core.<*> (x Core..:? "ElasticsearchInstanceType")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (x Core..:? "FixedPrice")
-            Core.<*> (x Core..:? "ReservedElasticsearchInstanceId")
-            Core.<*> ( x
-                         Core..:? "ReservedElasticsearchInstanceOfferingId"
-                     )
-            Core.<*> (x Core..:? "UsagePrice")
-            Core.<*> (x Core..:? "RecurringCharges" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "ReservationName")
+            Prelude.<*> (x Core..:? "PaymentOption")
+            Prelude.<*> (x Core..:? "ElasticsearchInstanceCount")
+            Prelude.<*> (x Core..:? "Duration")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "CurrencyCode")
+            Prelude.<*> (x Core..:? "ElasticsearchInstanceType")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "FixedPrice")
+            Prelude.<*> (x Core..:? "ReservedElasticsearchInstanceId")
+            Prelude.<*> ( x
+                            Core..:? "ReservedElasticsearchInstanceOfferingId"
+                        )
+            Prelude.<*> (x Core..:? "UsagePrice")
+            Prelude.<*> ( x Core..:? "RecurringCharges"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ReservedElasticsearchInstance
+instance
+  Prelude.Hashable
+    ReservedElasticsearchInstance
 
-instance Core.NFData ReservedElasticsearchInstance
+instance Prelude.NFData ReservedElasticsearchInstance

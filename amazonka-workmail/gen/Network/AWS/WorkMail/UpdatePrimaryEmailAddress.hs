@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -52,13 +53,13 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newUpdatePrimaryEmailAddress' smart constructor.
 data UpdatePrimaryEmailAddress = UpdatePrimaryEmailAddress'
   { -- | The organization that contains the user, group, or resource to update.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The user, group, or resource to update.
-    entityId :: Core.Text,
+    entityId :: Prelude.Text,
     -- | The value of the email to be updated as primary.
-    email :: Core.Text
+    email :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePrimaryEmailAddress' with all optional fields omitted.
@@ -75,11 +76,11 @@ data UpdatePrimaryEmailAddress = UpdatePrimaryEmailAddress'
 -- 'email', 'updatePrimaryEmailAddress_email' - The value of the email to be updated as primary.
 newUpdatePrimaryEmailAddress ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'entityId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'email'
-  Core.Text ->
+  Prelude.Text ->
   UpdatePrimaryEmailAddress
 newUpdatePrimaryEmailAddress
   pOrganizationId_
@@ -93,15 +94,15 @@ newUpdatePrimaryEmailAddress
       }
 
 -- | The organization that contains the user, group, or resource to update.
-updatePrimaryEmailAddress_organizationId :: Lens.Lens' UpdatePrimaryEmailAddress Core.Text
+updatePrimaryEmailAddress_organizationId :: Lens.Lens' UpdatePrimaryEmailAddress Prelude.Text
 updatePrimaryEmailAddress_organizationId = Lens.lens (\UpdatePrimaryEmailAddress' {organizationId} -> organizationId) (\s@UpdatePrimaryEmailAddress' {} a -> s {organizationId = a} :: UpdatePrimaryEmailAddress)
 
 -- | The user, group, or resource to update.
-updatePrimaryEmailAddress_entityId :: Lens.Lens' UpdatePrimaryEmailAddress Core.Text
+updatePrimaryEmailAddress_entityId :: Lens.Lens' UpdatePrimaryEmailAddress Prelude.Text
 updatePrimaryEmailAddress_entityId = Lens.lens (\UpdatePrimaryEmailAddress' {entityId} -> entityId) (\s@UpdatePrimaryEmailAddress' {} a -> s {entityId = a} :: UpdatePrimaryEmailAddress)
 
 -- | The value of the email to be updated as primary.
-updatePrimaryEmailAddress_email :: Lens.Lens' UpdatePrimaryEmailAddress Core.Text
+updatePrimaryEmailAddress_email :: Lens.Lens' UpdatePrimaryEmailAddress Prelude.Text
 updatePrimaryEmailAddress_email = Lens.lens (\UpdatePrimaryEmailAddress' {email} -> email) (\s@UpdatePrimaryEmailAddress' {} a -> s {email = a} :: UpdatePrimaryEmailAddress)
 
 instance Core.AWSRequest UpdatePrimaryEmailAddress where
@@ -113,48 +114,51 @@ instance Core.AWSRequest UpdatePrimaryEmailAddress where
     Response.receiveEmpty
       ( \s h x ->
           UpdatePrimaryEmailAddressResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdatePrimaryEmailAddress
+instance Prelude.Hashable UpdatePrimaryEmailAddress
 
-instance Core.NFData UpdatePrimaryEmailAddress
+instance Prelude.NFData UpdatePrimaryEmailAddress
 
 instance Core.ToHeaders UpdatePrimaryEmailAddress where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.UpdatePrimaryEmailAddress" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdatePrimaryEmailAddress where
   toJSON UpdatePrimaryEmailAddress' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("EntityId" Core..= entityId),
-            Core.Just ("Email" Core..= email)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("EntityId" Core..= entityId),
+            Prelude.Just ("Email" Core..= email)
           ]
       )
 
 instance Core.ToPath UpdatePrimaryEmailAddress where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdatePrimaryEmailAddress where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePrimaryEmailAddressResponse' smart constructor.
 data UpdatePrimaryEmailAddressResponse = UpdatePrimaryEmailAddressResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePrimaryEmailAddressResponse' with all optional fields omitted.
@@ -167,7 +171,7 @@ data UpdatePrimaryEmailAddressResponse = UpdatePrimaryEmailAddressResponse'
 -- 'httpStatus', 'updatePrimaryEmailAddressResponse_httpStatus' - The response's http status code.
 newUpdatePrimaryEmailAddressResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdatePrimaryEmailAddressResponse
 newUpdatePrimaryEmailAddressResponse pHttpStatus_ =
   UpdatePrimaryEmailAddressResponse'
@@ -176,9 +180,9 @@ newUpdatePrimaryEmailAddressResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updatePrimaryEmailAddressResponse_httpStatus :: Lens.Lens' UpdatePrimaryEmailAddressResponse Core.Int
+updatePrimaryEmailAddressResponse_httpStatus :: Lens.Lens' UpdatePrimaryEmailAddressResponse Prelude.Int
 updatePrimaryEmailAddressResponse_httpStatus = Lens.lens (\UpdatePrimaryEmailAddressResponse' {httpStatus} -> httpStatus) (\s@UpdatePrimaryEmailAddressResponse' {} a -> s {httpStatus = a} :: UpdatePrimaryEmailAddressResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdatePrimaryEmailAddressResponse

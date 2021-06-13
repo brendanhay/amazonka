@@ -23,6 +23,7 @@ import Network.AWS.CertificateManagerPCA.Types.ASN1Subject
 import Network.AWS.CertificateManagerPCA.Types.Extensions
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains X.509 certificate information to be placed in an issued
 -- certificate. An @APIPassthrough@ or @APICSRPassthrough@ template variant
@@ -35,10 +36,10 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newApiPassthrough' smart constructor.
 data ApiPassthrough = ApiPassthrough'
   { -- | Specifies X.509 extension information for a certificate.
-    extensions :: Core.Maybe Extensions,
-    subject :: Core.Maybe ASN1Subject
+    extensions :: Prelude.Maybe Extensions,
+    subject :: Prelude.Maybe ASN1Subject
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApiPassthrough' with all optional fields omitted.
@@ -55,27 +56,27 @@ newApiPassthrough ::
   ApiPassthrough
 newApiPassthrough =
   ApiPassthrough'
-    { extensions = Core.Nothing,
-      subject = Core.Nothing
+    { extensions = Prelude.Nothing,
+      subject = Prelude.Nothing
     }
 
 -- | Specifies X.509 extension information for a certificate.
-apiPassthrough_extensions :: Lens.Lens' ApiPassthrough (Core.Maybe Extensions)
+apiPassthrough_extensions :: Lens.Lens' ApiPassthrough (Prelude.Maybe Extensions)
 apiPassthrough_extensions = Lens.lens (\ApiPassthrough' {extensions} -> extensions) (\s@ApiPassthrough' {} a -> s {extensions = a} :: ApiPassthrough)
 
 -- | Undocumented member.
-apiPassthrough_subject :: Lens.Lens' ApiPassthrough (Core.Maybe ASN1Subject)
+apiPassthrough_subject :: Lens.Lens' ApiPassthrough (Prelude.Maybe ASN1Subject)
 apiPassthrough_subject = Lens.lens (\ApiPassthrough' {subject} -> subject) (\s@ApiPassthrough' {} a -> s {subject = a} :: ApiPassthrough)
 
-instance Core.Hashable ApiPassthrough
+instance Prelude.Hashable ApiPassthrough
 
-instance Core.NFData ApiPassthrough
+instance Prelude.NFData ApiPassthrough
 
 instance Core.ToJSON ApiPassthrough where
   toJSON ApiPassthrough' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Extensions" Core..=) Core.<$> extensions,
-            ("Subject" Core..=) Core.<$> subject
+      ( Prelude.catMaybes
+          [ ("Extensions" Core..=) Prelude.<$> extensions,
+            ("Subject" Core..=) Prelude.<$> subject
           ]
       )

@@ -78,6 +78,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -107,11 +108,11 @@ data CreateHealthCheck = CreateHealthCheck'
     -- -   If you send a @CreateHealthCheck@ request with a unique
     --     @CallerReference@ but settings identical to an existing health
     --     check, Route 53 creates the health check.
-    callerReference :: Core.Text,
+    callerReference :: Prelude.Text,
     -- | A complex type that contains settings for a new health check.
     healthCheckConfig :: HealthCheckConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHealthCheck' with all optional fields omitted.
@@ -146,7 +147,7 @@ data CreateHealthCheck = CreateHealthCheck'
 -- 'healthCheckConfig', 'createHealthCheck_healthCheckConfig' - A complex type that contains settings for a new health check.
 newCreateHealthCheck ::
   -- | 'callerReference'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'healthCheckConfig'
   HealthCheckConfig ->
   CreateHealthCheck
@@ -180,7 +181,7 @@ newCreateHealthCheck
 -- -   If you send a @CreateHealthCheck@ request with a unique
 --     @CallerReference@ but settings identical to an existing health
 --     check, Route 53 creates the health check.
-createHealthCheck_callerReference :: Lens.Lens' CreateHealthCheck Core.Text
+createHealthCheck_callerReference :: Lens.Lens' CreateHealthCheck Prelude.Text
 createHealthCheck_callerReference = Lens.lens (\CreateHealthCheck' {callerReference} -> callerReference) (\s@CreateHealthCheck' {} a -> s {callerReference = a} :: CreateHealthCheck)
 
 -- | A complex type that contains settings for a new health check.
@@ -196,14 +197,14 @@ instance Core.AWSRequest CreateHealthCheck where
     Response.receiveXML
       ( \s h x ->
           CreateHealthCheckResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "HealthCheck")
-            Core.<*> (h Core..# "Location")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "HealthCheck")
+            Prelude.<*> (h Core..# "Location")
       )
 
-instance Core.Hashable CreateHealthCheck
+instance Prelude.Hashable CreateHealthCheck
 
-instance Core.NFData CreateHealthCheck
+instance Prelude.NFData CreateHealthCheck
 
 instance Core.ToElement CreateHealthCheck where
   toElement =
@@ -211,17 +212,17 @@ instance Core.ToElement CreateHealthCheck where
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateHealthCheckRequest"
 
 instance Core.ToHeaders CreateHealthCheck where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateHealthCheck where
-  toPath = Core.const "/2013-04-01/healthcheck"
+  toPath = Prelude.const "/2013-04-01/healthcheck"
 
 instance Core.ToQuery CreateHealthCheck where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML CreateHealthCheck where
   toXML CreateHealthCheck' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "CallerReference" Core.@= callerReference,
         "HealthCheckConfig" Core.@= healthCheckConfig
       ]
@@ -232,14 +233,14 @@ instance Core.ToXML CreateHealthCheck where
 -- /See:/ 'newCreateHealthCheckResponse' smart constructor.
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains identifying information about the health
     -- check.
     healthCheck :: HealthCheck,
     -- | The unique URL representing the new health check.
-    location :: Core.Text
+    location :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHealthCheckResponse' with all optional fields omitted.
@@ -257,11 +258,11 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse'
 -- 'location', 'createHealthCheckResponse_location' - The unique URL representing the new health check.
 newCreateHealthCheckResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'healthCheck'
   HealthCheck ->
   -- | 'location'
-  Core.Text ->
+  Prelude.Text ->
   CreateHealthCheckResponse
 newCreateHealthCheckResponse
   pHttpStatus_
@@ -275,7 +276,7 @@ newCreateHealthCheckResponse
       }
 
 -- | The response's http status code.
-createHealthCheckResponse_httpStatus :: Lens.Lens' CreateHealthCheckResponse Core.Int
+createHealthCheckResponse_httpStatus :: Lens.Lens' CreateHealthCheckResponse Prelude.Int
 createHealthCheckResponse_httpStatus = Lens.lens (\CreateHealthCheckResponse' {httpStatus} -> httpStatus) (\s@CreateHealthCheckResponse' {} a -> s {httpStatus = a} :: CreateHealthCheckResponse)
 
 -- | A complex type that contains identifying information about the health
@@ -284,7 +285,7 @@ createHealthCheckResponse_healthCheck :: Lens.Lens' CreateHealthCheckResponse He
 createHealthCheckResponse_healthCheck = Lens.lens (\CreateHealthCheckResponse' {healthCheck} -> healthCheck) (\s@CreateHealthCheckResponse' {} a -> s {healthCheck = a} :: CreateHealthCheckResponse)
 
 -- | The unique URL representing the new health check.
-createHealthCheckResponse_location :: Lens.Lens' CreateHealthCheckResponse Core.Text
+createHealthCheckResponse_location :: Lens.Lens' CreateHealthCheckResponse Prelude.Text
 createHealthCheckResponse_location = Lens.lens (\CreateHealthCheckResponse' {location} -> location) (\s@CreateHealthCheckResponse' {} a -> s {location = a} :: CreateHealthCheckResponse)
 
-instance Core.NFData CreateHealthCheckResponse
+instance Prelude.NFData CreateHealthCheckResponse

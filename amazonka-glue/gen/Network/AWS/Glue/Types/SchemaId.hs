@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.SchemaId where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The unique ID of the schema in the AWS Glue schema registry.
 --
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 data SchemaId = SchemaId'
   { -- | The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or
     -- @SchemaName@ has to be provided.
-    schemaArn :: Core.Maybe Core.Text,
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the schema registry that contains the schema.
-    registryName :: Core.Maybe Core.Text,
+    registryName :: Prelude.Maybe Prelude.Text,
     -- | The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be
     -- provided.
-    schemaName :: Core.Maybe Core.Text
+    schemaName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SchemaId' with all optional fields omitted.
@@ -56,23 +57,23 @@ newSchemaId ::
   SchemaId
 newSchemaId =
   SchemaId'
-    { schemaArn = Core.Nothing,
-      registryName = Core.Nothing,
-      schemaName = Core.Nothing
+    { schemaArn = Prelude.Nothing,
+      registryName = Prelude.Nothing,
+      schemaName = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or
 -- @SchemaName@ has to be provided.
-schemaId_schemaArn :: Lens.Lens' SchemaId (Core.Maybe Core.Text)
+schemaId_schemaArn :: Lens.Lens' SchemaId (Prelude.Maybe Prelude.Text)
 schemaId_schemaArn = Lens.lens (\SchemaId' {schemaArn} -> schemaArn) (\s@SchemaId' {} a -> s {schemaArn = a} :: SchemaId)
 
 -- | The name of the schema registry that contains the schema.
-schemaId_registryName :: Lens.Lens' SchemaId (Core.Maybe Core.Text)
+schemaId_registryName :: Lens.Lens' SchemaId (Prelude.Maybe Prelude.Text)
 schemaId_registryName = Lens.lens (\SchemaId' {registryName} -> registryName) (\s@SchemaId' {} a -> s {registryName = a} :: SchemaId)
 
 -- | The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be
 -- provided.
-schemaId_schemaName :: Lens.Lens' SchemaId (Core.Maybe Core.Text)
+schemaId_schemaName :: Lens.Lens' SchemaId (Prelude.Maybe Prelude.Text)
 schemaId_schemaName = Lens.lens (\SchemaId' {schemaName} -> schemaName) (\s@SchemaId' {} a -> s {schemaName = a} :: SchemaId)
 
 instance Core.FromJSON SchemaId where
@@ -81,21 +82,21 @@ instance Core.FromJSON SchemaId where
       "SchemaId"
       ( \x ->
           SchemaId'
-            Core.<$> (x Core..:? "SchemaArn")
-            Core.<*> (x Core..:? "RegistryName")
-            Core.<*> (x Core..:? "SchemaName")
+            Prelude.<$> (x Core..:? "SchemaArn")
+            Prelude.<*> (x Core..:? "RegistryName")
+            Prelude.<*> (x Core..:? "SchemaName")
       )
 
-instance Core.Hashable SchemaId
+instance Prelude.Hashable SchemaId
 
-instance Core.NFData SchemaId
+instance Prelude.NFData SchemaId
 
 instance Core.ToJSON SchemaId where
   toJSON SchemaId' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SchemaArn" Core..=) Core.<$> schemaArn,
-            ("RegistryName" Core..=) Core.<$> registryName,
-            ("SchemaName" Core..=) Core.<$> schemaName
+      ( Prelude.catMaybes
+          [ ("SchemaArn" Core..=) Prelude.<$> schemaArn,
+            ("RegistryName" Core..=) Prelude.<$> registryName,
+            ("SchemaName" Core..=) Prelude.<$> schemaName
           ]
       )

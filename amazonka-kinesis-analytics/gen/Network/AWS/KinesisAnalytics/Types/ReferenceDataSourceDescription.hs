@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
 import Network.AWS.KinesisAnalytics.Types.SourceSchema
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the reference data source configured for an application.
 --
@@ -31,23 +32,23 @@ data ReferenceDataSourceDescription = ReferenceDataSourceDescription'
   { -- | Describes the format of the data in the streaming source, and how each
     -- data element maps to corresponding columns created in the in-application
     -- stream.
-    referenceSchema :: Core.Maybe SourceSchema,
+    referenceSchema :: Prelude.Maybe SourceSchema,
     -- | ID of the reference data source. This is the ID that Amazon Kinesis
     -- Analytics assigns when you add the reference data source to your
     -- application using the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource>
     -- operation.
-    referenceId :: Core.Text,
+    referenceId :: Prelude.Text,
     -- | The in-application table name created by the specific reference data
     -- source configuration.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | Provides the S3 bucket name, the object key name that contains the
     -- reference data. It also provides the Amazon Resource Name (ARN) of the
     -- IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3
     -- object and populate the in-application reference table.
     s3ReferenceDataSourceDescription :: S3ReferenceDataSourceDescription
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReferenceDataSourceDescription' with all optional fields omitted.
@@ -76,9 +77,9 @@ data ReferenceDataSourceDescription = ReferenceDataSourceDescription'
 -- object and populate the in-application reference table.
 newReferenceDataSourceDescription ::
   -- | 'referenceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 's3ReferenceDataSourceDescription'
   S3ReferenceDataSourceDescription ->
   ReferenceDataSourceDescription
@@ -88,7 +89,7 @@ newReferenceDataSourceDescription
   pS3ReferenceDataSourceDescription_ =
     ReferenceDataSourceDescription'
       { referenceSchema =
-          Core.Nothing,
+          Prelude.Nothing,
         referenceId = pReferenceId_,
         tableName = pTableName_,
         s3ReferenceDataSourceDescription =
@@ -98,7 +99,7 @@ newReferenceDataSourceDescription
 -- | Describes the format of the data in the streaming source, and how each
 -- data element maps to corresponding columns created in the in-application
 -- stream.
-referenceDataSourceDescription_referenceSchema :: Lens.Lens' ReferenceDataSourceDescription (Core.Maybe SourceSchema)
+referenceDataSourceDescription_referenceSchema :: Lens.Lens' ReferenceDataSourceDescription (Prelude.Maybe SourceSchema)
 referenceDataSourceDescription_referenceSchema = Lens.lens (\ReferenceDataSourceDescription' {referenceSchema} -> referenceSchema) (\s@ReferenceDataSourceDescription' {} a -> s {referenceSchema = a} :: ReferenceDataSourceDescription)
 
 -- | ID of the reference data source. This is the ID that Amazon Kinesis
@@ -106,12 +107,12 @@ referenceDataSourceDescription_referenceSchema = Lens.lens (\ReferenceDataSource
 -- application using the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource>
 -- operation.
-referenceDataSourceDescription_referenceId :: Lens.Lens' ReferenceDataSourceDescription Core.Text
+referenceDataSourceDescription_referenceId :: Lens.Lens' ReferenceDataSourceDescription Prelude.Text
 referenceDataSourceDescription_referenceId = Lens.lens (\ReferenceDataSourceDescription' {referenceId} -> referenceId) (\s@ReferenceDataSourceDescription' {} a -> s {referenceId = a} :: ReferenceDataSourceDescription)
 
 -- | The in-application table name created by the specific reference data
 -- source configuration.
-referenceDataSourceDescription_tableName :: Lens.Lens' ReferenceDataSourceDescription Core.Text
+referenceDataSourceDescription_tableName :: Lens.Lens' ReferenceDataSourceDescription Prelude.Text
 referenceDataSourceDescription_tableName = Lens.lens (\ReferenceDataSourceDescription' {tableName} -> tableName) (\s@ReferenceDataSourceDescription' {} a -> s {tableName = a} :: ReferenceDataSourceDescription)
 
 -- | Provides the S3 bucket name, the object key name that contains the
@@ -127,12 +128,16 @@ instance Core.FromJSON ReferenceDataSourceDescription where
       "ReferenceDataSourceDescription"
       ( \x ->
           ReferenceDataSourceDescription'
-            Core.<$> (x Core..:? "ReferenceSchema")
-            Core.<*> (x Core..: "ReferenceId")
-            Core.<*> (x Core..: "TableName")
-            Core.<*> (x Core..: "S3ReferenceDataSourceDescription")
+            Prelude.<$> (x Core..:? "ReferenceSchema")
+            Prelude.<*> (x Core..: "ReferenceId")
+            Prelude.<*> (x Core..: "TableName")
+            Prelude.<*> (x Core..: "S3ReferenceDataSourceDescription")
       )
 
-instance Core.Hashable ReferenceDataSourceDescription
+instance
+  Prelude.Hashable
+    ReferenceDataSourceDescription
 
-instance Core.NFData ReferenceDataSourceDescription
+instance
+  Prelude.NFData
+    ReferenceDataSourceDescription

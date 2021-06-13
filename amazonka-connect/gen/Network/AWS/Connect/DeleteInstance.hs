@@ -41,15 +41,16 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteInstance' smart constructor.
 data DeleteInstance = DeleteInstance'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstance' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteInstance = DeleteInstance'
 -- 'instanceId', 'deleteInstance_instanceId' - The identifier of the Amazon Connect instance.
 newDeleteInstance ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteInstance
 newDeleteInstance pInstanceId_ =
   DeleteInstance' {instanceId = pInstanceId_}
 
 -- | The identifier of the Amazon Connect instance.
-deleteInstance_instanceId :: Lens.Lens' DeleteInstance Core.Text
+deleteInstance_instanceId :: Lens.Lens' DeleteInstance Prelude.Text
 deleteInstance_instanceId = Lens.lens (\DeleteInstance' {instanceId} -> instanceId) (\s@DeleteInstance' {} a -> s {instanceId = a} :: DeleteInstance)
 
 instance Core.AWSRequest DeleteInstance where
@@ -79,31 +80,34 @@ instance Core.AWSRequest DeleteInstance where
   response =
     Response.receiveNull DeleteInstanceResponse'
 
-instance Core.Hashable DeleteInstance
+instance Prelude.Hashable DeleteInstance
 
-instance Core.NFData DeleteInstance
+instance Prelude.NFData DeleteInstance
 
 instance Core.ToHeaders DeleteInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteInstance where
   toPath DeleteInstance' {..} =
-    Core.mconcat ["/instance/", Core.toBS instanceId]
+    Prelude.mconcat
+      ["/instance/", Core.toBS instanceId]
 
 instance Core.ToQuery DeleteInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceResponse' with all optional fields omitted.
@@ -113,4 +117,4 @@ newDeleteInstanceResponse ::
   DeleteInstanceResponse
 newDeleteInstanceResponse = DeleteInstanceResponse'
 
-instance Core.NFData DeleteInstanceResponse
+instance Prelude.NFData DeleteInstanceResponse

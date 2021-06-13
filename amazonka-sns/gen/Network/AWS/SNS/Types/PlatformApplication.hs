@@ -21,17 +21,18 @@ module Network.AWS.SNS.Types.PlatformApplication where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Platform application object.
 --
 -- /See:/ 'newPlatformApplication' smart constructor.
 data PlatformApplication = PlatformApplication'
   { -- | PlatformApplicationArn for platform application object.
-    platformApplicationArn :: Core.Maybe Core.Text,
+    platformApplicationArn :: Prelude.Maybe Prelude.Text,
     -- | Attributes for platform application object.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PlatformApplication' with all optional fields omitted.
@@ -49,26 +50,26 @@ newPlatformApplication ::
 newPlatformApplication =
   PlatformApplication'
     { platformApplicationArn =
-        Core.Nothing,
-      attributes = Core.Nothing
+        Prelude.Nothing,
+      attributes = Prelude.Nothing
     }
 
 -- | PlatformApplicationArn for platform application object.
-platformApplication_platformApplicationArn :: Lens.Lens' PlatformApplication (Core.Maybe Core.Text)
+platformApplication_platformApplicationArn :: Lens.Lens' PlatformApplication (Prelude.Maybe Prelude.Text)
 platformApplication_platformApplicationArn = Lens.lens (\PlatformApplication' {platformApplicationArn} -> platformApplicationArn) (\s@PlatformApplication' {} a -> s {platformApplicationArn = a} :: PlatformApplication)
 
 -- | Attributes for platform application object.
-platformApplication_attributes :: Lens.Lens' PlatformApplication (Core.Maybe (Core.HashMap Core.Text Core.Text))
-platformApplication_attributes = Lens.lens (\PlatformApplication' {attributes} -> attributes) (\s@PlatformApplication' {} a -> s {attributes = a} :: PlatformApplication) Core.. Lens.mapping Lens._Coerce
+platformApplication_attributes :: Lens.Lens' PlatformApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+platformApplication_attributes = Lens.lens (\PlatformApplication' {attributes} -> attributes) (\s@PlatformApplication' {} a -> s {attributes = a} :: PlatformApplication) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML PlatformApplication where
   parseXML x =
     PlatformApplication'
-      Core.<$> (x Core..@? "PlatformApplicationArn")
-      Core.<*> ( x Core..@? "Attributes" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
-               )
+      Prelude.<$> (x Core..@? "PlatformApplicationArn")
+      Prelude.<*> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                  )
 
-instance Core.Hashable PlatformApplication
+instance Prelude.Hashable PlatformApplication
 
-instance Core.NFData PlatformApplication
+instance Prelude.NFData PlatformApplication

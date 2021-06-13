@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings wh
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for the action to insert a user-defined ID3 tag in each HLS
 -- segment
@@ -31,9 +32,9 @@ data HlsId3SegmentTaggingScheduleActionSettings = HlsId3SegmentTaggingScheduleAc
     -- identifiers to substitute in segment-related values.\\nSupported keyword
     -- identifiers:
     -- https:\/\/docs.aws.amazon.com\/medialive\/latest\/ug\/variable-data-identifiers.html
-    tag :: Core.Text
+    tag :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsId3SegmentTaggingScheduleActionSettings' with all optional fields omitted.
@@ -49,7 +50,7 @@ data HlsId3SegmentTaggingScheduleActionSettings = HlsId3SegmentTaggingScheduleAc
 -- https:\/\/docs.aws.amazon.com\/medialive\/latest\/ug\/variable-data-identifiers.html
 newHlsId3SegmentTaggingScheduleActionSettings ::
   -- | 'tag'
-  Core.Text ->
+  Prelude.Text ->
   HlsId3SegmentTaggingScheduleActionSettings
 newHlsId3SegmentTaggingScheduleActionSettings pTag_ =
   HlsId3SegmentTaggingScheduleActionSettings'
@@ -61,7 +62,7 @@ newHlsId3SegmentTaggingScheduleActionSettings pTag_ =
 -- identifiers to substitute in segment-related values.\\nSupported keyword
 -- identifiers:
 -- https:\/\/docs.aws.amazon.com\/medialive\/latest\/ug\/variable-data-identifiers.html
-hlsId3SegmentTaggingScheduleActionSettings_tag :: Lens.Lens' HlsId3SegmentTaggingScheduleActionSettings Core.Text
+hlsId3SegmentTaggingScheduleActionSettings_tag :: Lens.Lens' HlsId3SegmentTaggingScheduleActionSettings Prelude.Text
 hlsId3SegmentTaggingScheduleActionSettings_tag = Lens.lens (\HlsId3SegmentTaggingScheduleActionSettings' {tag} -> tag) (\s@HlsId3SegmentTaggingScheduleActionSettings' {} a -> s {tag = a} :: HlsId3SegmentTaggingScheduleActionSettings)
 
 instance
@@ -73,15 +74,15 @@ instance
       "HlsId3SegmentTaggingScheduleActionSettings"
       ( \x ->
           HlsId3SegmentTaggingScheduleActionSettings'
-            Core.<$> (x Core..: "tag")
+            Prelude.<$> (x Core..: "tag")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HlsId3SegmentTaggingScheduleActionSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     HlsId3SegmentTaggingScheduleActionSettings
 
 instance
@@ -91,4 +92,6 @@ instance
   toJSON
     HlsId3SegmentTaggingScheduleActionSettings' {..} =
       Core.object
-        (Core.catMaybes [Core.Just ("tag" Core..= tag)])
+        ( Prelude.catMaybes
+            [Prelude.Just ("tag" Core..= tag)]
+        )

@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,7 +66,7 @@ data DescribeEffectivePolicy = DescribeEffectivePolicy'
   { -- | When you\'re signed in as the management account, specify the ID of the
     -- account that you want details about. Specifying an organization root or
     -- organizational unit (OU) as the target is not supported.
-    targetId :: Core.Maybe Core.Text,
+    targetId :: Prelude.Maybe Prelude.Text,
     -- | The type of policy that you want information about. You can specify one
     -- of the following values:
     --
@@ -76,7 +77,7 @@ data DescribeEffectivePolicy = DescribeEffectivePolicy'
     -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
     policyType :: EffectivePolicyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEffectivePolicy' with all optional fields omitted.
@@ -104,14 +105,15 @@ newDescribeEffectivePolicy ::
   DescribeEffectivePolicy
 newDescribeEffectivePolicy pPolicyType_ =
   DescribeEffectivePolicy'
-    { targetId = Core.Nothing,
+    { targetId =
+        Prelude.Nothing,
       policyType = pPolicyType_
     }
 
 -- | When you\'re signed in as the management account, specify the ID of the
 -- account that you want details about. Specifying an organization root or
 -- organizational unit (OU) as the target is not supported.
-describeEffectivePolicy_targetId :: Lens.Lens' DescribeEffectivePolicy (Core.Maybe Core.Text)
+describeEffectivePolicy_targetId :: Lens.Lens' DescribeEffectivePolicy (Prelude.Maybe Prelude.Text)
 describeEffectivePolicy_targetId = Lens.lens (\DescribeEffectivePolicy' {targetId} -> targetId) (\s@DescribeEffectivePolicy' {} a -> s {targetId = a} :: DescribeEffectivePolicy)
 
 -- | The type of policy that you want information about. You can specify one
@@ -134,50 +136,52 @@ instance Core.AWSRequest DescribeEffectivePolicy where
     Response.receiveJSON
       ( \s h x ->
           DescribeEffectivePolicyResponse'
-            Core.<$> (x Core..?> "EffectivePolicy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "EffectivePolicy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEffectivePolicy
+instance Prelude.Hashable DescribeEffectivePolicy
 
-instance Core.NFData DescribeEffectivePolicy
+instance Prelude.NFData DescribeEffectivePolicy
 
 instance Core.ToHeaders DescribeEffectivePolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.DescribeEffectivePolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEffectivePolicy where
   toJSON DescribeEffectivePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TargetId" Core..=) Core.<$> targetId,
-            Core.Just ("PolicyType" Core..= policyType)
+      ( Prelude.catMaybes
+          [ ("TargetId" Core..=) Prelude.<$> targetId,
+            Prelude.Just ("PolicyType" Core..= policyType)
           ]
       )
 
 instance Core.ToPath DescribeEffectivePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEffectivePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEffectivePolicyResponse' smart constructor.
 data DescribeEffectivePolicyResponse = DescribeEffectivePolicyResponse'
   { -- | The contents of the effective policy.
-    effectivePolicy :: Core.Maybe EffectivePolicy,
+    effectivePolicy :: Prelude.Maybe EffectivePolicy,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEffectivePolicyResponse' with all optional fields omitted.
@@ -192,21 +196,23 @@ data DescribeEffectivePolicyResponse = DescribeEffectivePolicyResponse'
 -- 'httpStatus', 'describeEffectivePolicyResponse_httpStatus' - The response's http status code.
 newDescribeEffectivePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEffectivePolicyResponse
 newDescribeEffectivePolicyResponse pHttpStatus_ =
   DescribeEffectivePolicyResponse'
     { effectivePolicy =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The contents of the effective policy.
-describeEffectivePolicyResponse_effectivePolicy :: Lens.Lens' DescribeEffectivePolicyResponse (Core.Maybe EffectivePolicy)
+describeEffectivePolicyResponse_effectivePolicy :: Lens.Lens' DescribeEffectivePolicyResponse (Prelude.Maybe EffectivePolicy)
 describeEffectivePolicyResponse_effectivePolicy = Lens.lens (\DescribeEffectivePolicyResponse' {effectivePolicy} -> effectivePolicy) (\s@DescribeEffectivePolicyResponse' {} a -> s {effectivePolicy = a} :: DescribeEffectivePolicyResponse)
 
 -- | The response's http status code.
-describeEffectivePolicyResponse_httpStatus :: Lens.Lens' DescribeEffectivePolicyResponse Core.Int
+describeEffectivePolicyResponse_httpStatus :: Lens.Lens' DescribeEffectivePolicyResponse Prelude.Int
 describeEffectivePolicyResponse_httpStatus = Lens.lens (\DescribeEffectivePolicyResponse' {httpStatus} -> httpStatus) (\s@DescribeEffectivePolicyResponse' {} a -> s {httpStatus = a} :: DescribeEffectivePolicyResponse)
 
-instance Core.NFData DescribeEffectivePolicyResponse
+instance
+  Prelude.NFData
+    DescribeEffectivePolicyResponse

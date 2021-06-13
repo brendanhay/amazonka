@@ -73,6 +73,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -83,13 +84,13 @@ data ModifyCertificates = ModifyCertificates'
     --
     -- To determine the valid values, use the @describe-certificates@ AWS CLI
     -- command or the @DescribeCertificates@ API operation.
-    certificateIdentifier :: Core.Maybe Core.Text,
+    certificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to remove the override for the default
     -- certificate. If the override is removed, the default certificate is the
     -- system default.
-    removeCustomerOverride :: Core.Maybe Core.Bool
+    removeCustomerOverride :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyCertificates' with all optional fields omitted.
@@ -112,21 +113,21 @@ newModifyCertificates ::
 newModifyCertificates =
   ModifyCertificates'
     { certificateIdentifier =
-        Core.Nothing,
-      removeCustomerOverride = Core.Nothing
+        Prelude.Nothing,
+      removeCustomerOverride = Prelude.Nothing
     }
 
 -- | The new default certificate identifier to override the current one with.
 --
 -- To determine the valid values, use the @describe-certificates@ AWS CLI
 -- command or the @DescribeCertificates@ API operation.
-modifyCertificates_certificateIdentifier :: Lens.Lens' ModifyCertificates (Core.Maybe Core.Text)
+modifyCertificates_certificateIdentifier :: Lens.Lens' ModifyCertificates (Prelude.Maybe Prelude.Text)
 modifyCertificates_certificateIdentifier = Lens.lens (\ModifyCertificates' {certificateIdentifier} -> certificateIdentifier) (\s@ModifyCertificates' {} a -> s {certificateIdentifier = a} :: ModifyCertificates)
 
 -- | A value that indicates whether to remove the override for the default
 -- certificate. If the override is removed, the default certificate is the
 -- system default.
-modifyCertificates_removeCustomerOverride :: Lens.Lens' ModifyCertificates (Core.Maybe Core.Bool)
+modifyCertificates_removeCustomerOverride :: Lens.Lens' ModifyCertificates (Prelude.Maybe Prelude.Bool)
 modifyCertificates_removeCustomerOverride = Lens.lens (\ModifyCertificates' {removeCustomerOverride} -> removeCustomerOverride) (\s@ModifyCertificates' {} a -> s {removeCustomerOverride = a} :: ModifyCertificates)
 
 instance Core.AWSRequest ModifyCertificates where
@@ -139,26 +140,27 @@ instance Core.AWSRequest ModifyCertificates where
       "ModifyCertificatesResult"
       ( \s h x ->
           ModifyCertificatesResponse'
-            Core.<$> (x Core..@? "Certificate")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Certificate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyCertificates
+instance Prelude.Hashable ModifyCertificates
 
-instance Core.NFData ModifyCertificates
+instance Prelude.NFData ModifyCertificates
 
 instance Core.ToHeaders ModifyCertificates where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyCertificates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyCertificates where
   toQuery ModifyCertificates' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCertificates" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("ModifyCertificates" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "CertificateIdentifier"
           Core.=: certificateIdentifier,
         "RemoveCustomerOverride"
@@ -167,11 +169,11 @@ instance Core.ToQuery ModifyCertificates where
 
 -- | /See:/ 'newModifyCertificatesResponse' smart constructor.
 data ModifyCertificatesResponse = ModifyCertificatesResponse'
-  { certificate :: Core.Maybe Certificate,
+  { certificate :: Prelude.Maybe Certificate,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyCertificatesResponse' with all optional fields omitted.
@@ -186,21 +188,21 @@ data ModifyCertificatesResponse = ModifyCertificatesResponse'
 -- 'httpStatus', 'modifyCertificatesResponse_httpStatus' - The response's http status code.
 newModifyCertificatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyCertificatesResponse
 newModifyCertificatesResponse pHttpStatus_ =
   ModifyCertificatesResponse'
     { certificate =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyCertificatesResponse_certificate :: Lens.Lens' ModifyCertificatesResponse (Core.Maybe Certificate)
+modifyCertificatesResponse_certificate :: Lens.Lens' ModifyCertificatesResponse (Prelude.Maybe Certificate)
 modifyCertificatesResponse_certificate = Lens.lens (\ModifyCertificatesResponse' {certificate} -> certificate) (\s@ModifyCertificatesResponse' {} a -> s {certificate = a} :: ModifyCertificatesResponse)
 
 -- | The response's http status code.
-modifyCertificatesResponse_httpStatus :: Lens.Lens' ModifyCertificatesResponse Core.Int
+modifyCertificatesResponse_httpStatus :: Lens.Lens' ModifyCertificatesResponse Prelude.Int
 modifyCertificatesResponse_httpStatus = Lens.lens (\ModifyCertificatesResponse' {httpStatus} -> httpStatus) (\s@ModifyCertificatesResponse' {} a -> s {httpStatus = a} :: ModifyCertificatesResponse)
 
-instance Core.NFData ModifyCertificatesResponse
+instance Prelude.NFData ModifyCertificatesResponse

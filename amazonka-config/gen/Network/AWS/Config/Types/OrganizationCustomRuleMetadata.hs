@@ -23,6 +23,7 @@ import Network.AWS.Config.Types.MaximumExecutionFrequency
 import Network.AWS.Config.Types.OrganizationConfigRuleTriggerType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that specifies organization custom rule metadata such as
 -- resource type, resource ID of AWS resource, Lamdba function ARN, and
@@ -35,7 +36,7 @@ import qualified Network.AWS.Lens as Lens
 data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
   { -- | One part of a key-value pair that make up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
-    tagKeyScope :: Core.Maybe Core.Text,
+    tagKeyScope :: Prelude.Maybe Prelude.Text,
     -- | The maximum frequency with which AWS Config runs evaluations for a rule.
     -- Your custom rule is triggered when AWS Config delivers the configuration
     -- snapshot. For more information, see ConfigSnapshotDeliveryProperties.
@@ -43,21 +44,21 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
     -- By default, rules with a periodic trigger are evaluated every 24 hours.
     -- To change the frequency, specify a valid value for the
     -- @MaximumExecutionFrequency@ parameter.
-    maximumExecutionFrequency :: Core.Maybe MaximumExecutionFrequency,
+    maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
     -- | The ID of the AWS resource that was evaluated.
-    resourceIdScope :: Core.Maybe Core.Text,
+    resourceIdScope :: Prelude.Maybe Prelude.Text,
     -- | A string, in JSON format, that is passed to organization config rule
     -- Lambda function.
-    inputParameters :: Core.Maybe Core.Text,
+    inputParameters :: Prelude.Maybe Prelude.Text,
     -- | The description that you provide for organization config rule.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of the AWS resource that was evaluated.
-    resourceTypesScope :: Core.Maybe [Core.Text],
+    resourceTypesScope :: Prelude.Maybe [Prelude.Text],
     -- | The optional part of a key-value pair that make up a tag. A value acts
     -- as a descriptor within a tag category (key).
-    tagValueScope :: Core.Maybe Core.Text,
+    tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | The lambda function ARN.
-    lambdaFunctionArn :: Core.Text,
+    lambdaFunctionArn :: Prelude.Text,
     -- | The type of notification that triggers AWS Config to run an evaluation
     -- for a rule. You can specify the following notification types:
     --
@@ -75,7 +76,7 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
     --     frequency specified for @MaximumExecutionFrequency@.
     organizationConfigRuleTriggerTypes :: [OrganizationConfigRuleTriggerType]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationCustomRuleMetadata' with all optional fields omitted.
@@ -127,26 +128,26 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
 --     frequency specified for @MaximumExecutionFrequency@.
 newOrganizationCustomRuleMetadata ::
   -- | 'lambdaFunctionArn'
-  Core.Text ->
+  Prelude.Text ->
   OrganizationCustomRuleMetadata
 newOrganizationCustomRuleMetadata pLambdaFunctionArn_ =
   OrganizationCustomRuleMetadata'
     { tagKeyScope =
-        Core.Nothing,
-      maximumExecutionFrequency = Core.Nothing,
-      resourceIdScope = Core.Nothing,
-      inputParameters = Core.Nothing,
-      description = Core.Nothing,
-      resourceTypesScope = Core.Nothing,
-      tagValueScope = Core.Nothing,
+        Prelude.Nothing,
+      maximumExecutionFrequency = Prelude.Nothing,
+      resourceIdScope = Prelude.Nothing,
+      inputParameters = Prelude.Nothing,
+      description = Prelude.Nothing,
+      resourceTypesScope = Prelude.Nothing,
+      tagValueScope = Prelude.Nothing,
       lambdaFunctionArn = pLambdaFunctionArn_,
       organizationConfigRuleTriggerTypes =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
-organizationCustomRuleMetadata_tagKeyScope :: Lens.Lens' OrganizationCustomRuleMetadata (Core.Maybe Core.Text)
+organizationCustomRuleMetadata_tagKeyScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_tagKeyScope = Lens.lens (\OrganizationCustomRuleMetadata' {tagKeyScope} -> tagKeyScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {tagKeyScope = a} :: OrganizationCustomRuleMetadata)
 
 -- | The maximum frequency with which AWS Config runs evaluations for a rule.
@@ -156,33 +157,33 @@ organizationCustomRuleMetadata_tagKeyScope = Lens.lens (\OrganizationCustomRuleM
 -- By default, rules with a periodic trigger are evaluated every 24 hours.
 -- To change the frequency, specify a valid value for the
 -- @MaximumExecutionFrequency@ parameter.
-organizationCustomRuleMetadata_maximumExecutionFrequency :: Lens.Lens' OrganizationCustomRuleMetadata (Core.Maybe MaximumExecutionFrequency)
+organizationCustomRuleMetadata_maximumExecutionFrequency :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe MaximumExecutionFrequency)
 organizationCustomRuleMetadata_maximumExecutionFrequency = Lens.lens (\OrganizationCustomRuleMetadata' {maximumExecutionFrequency} -> maximumExecutionFrequency) (\s@OrganizationCustomRuleMetadata' {} a -> s {maximumExecutionFrequency = a} :: OrganizationCustomRuleMetadata)
 
 -- | The ID of the AWS resource that was evaluated.
-organizationCustomRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationCustomRuleMetadata (Core.Maybe Core.Text)
+organizationCustomRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_resourceIdScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceIdScope} -> resourceIdScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceIdScope = a} :: OrganizationCustomRuleMetadata)
 
 -- | A string, in JSON format, that is passed to organization config rule
 -- Lambda function.
-organizationCustomRuleMetadata_inputParameters :: Lens.Lens' OrganizationCustomRuleMetadata (Core.Maybe Core.Text)
+organizationCustomRuleMetadata_inputParameters :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_inputParameters = Lens.lens (\OrganizationCustomRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationCustomRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationCustomRuleMetadata)
 
 -- | The description that you provide for organization config rule.
-organizationCustomRuleMetadata_description :: Lens.Lens' OrganizationCustomRuleMetadata (Core.Maybe Core.Text)
+organizationCustomRuleMetadata_description :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_description = Lens.lens (\OrganizationCustomRuleMetadata' {description} -> description) (\s@OrganizationCustomRuleMetadata' {} a -> s {description = a} :: OrganizationCustomRuleMetadata)
 
 -- | The type of the AWS resource that was evaluated.
-organizationCustomRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationCustomRuleMetadata (Core.Maybe [Core.Text])
-organizationCustomRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationCustomRuleMetadata) Core.. Lens.mapping Lens._Coerce
+organizationCustomRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe [Prelude.Text])
+organizationCustomRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationCustomRuleMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The optional part of a key-value pair that make up a tag. A value acts
 -- as a descriptor within a tag category (key).
-organizationCustomRuleMetadata_tagValueScope :: Lens.Lens' OrganizationCustomRuleMetadata (Core.Maybe Core.Text)
+organizationCustomRuleMetadata_tagValueScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_tagValueScope = Lens.lens (\OrganizationCustomRuleMetadata' {tagValueScope} -> tagValueScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {tagValueScope = a} :: OrganizationCustomRuleMetadata)
 
 -- | The lambda function ARN.
-organizationCustomRuleMetadata_lambdaFunctionArn :: Lens.Lens' OrganizationCustomRuleMetadata Core.Text
+organizationCustomRuleMetadata_lambdaFunctionArn :: Lens.Lens' OrganizationCustomRuleMetadata Prelude.Text
 organizationCustomRuleMetadata_lambdaFunctionArn = Lens.lens (\OrganizationCustomRuleMetadata' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@OrganizationCustomRuleMetadata' {} a -> s {lambdaFunctionArn = a} :: OrganizationCustomRuleMetadata)
 
 -- | The type of notification that triggers AWS Config to run an evaluation
@@ -201,7 +202,7 @@ organizationCustomRuleMetadata_lambdaFunctionArn = Lens.lens (\OrganizationCusto
 -- -   @ScheduledNotification@ - Triggers a periodic evaluation at the
 --     frequency specified for @MaximumExecutionFrequency@.
 organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes :: Lens.Lens' OrganizationCustomRuleMetadata [OrganizationConfigRuleTriggerType]
-organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes = Lens.lens (\OrganizationCustomRuleMetadata' {organizationConfigRuleTriggerTypes} -> organizationConfigRuleTriggerTypes) (\s@OrganizationCustomRuleMetadata' {} a -> s {organizationConfigRuleTriggerTypes = a} :: OrganizationCustomRuleMetadata) Core.. Lens._Coerce
+organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes = Lens.lens (\OrganizationCustomRuleMetadata' {organizationConfigRuleTriggerTypes} -> organizationConfigRuleTriggerTypes) (\s@OrganizationCustomRuleMetadata' {} a -> s {organizationConfigRuleTriggerTypes = a} :: OrganizationCustomRuleMetadata) Prelude.. Lens._Coerce
 
 instance Core.FromJSON OrganizationCustomRuleMetadata where
   parseJSON =
@@ -209,41 +210,47 @@ instance Core.FromJSON OrganizationCustomRuleMetadata where
       "OrganizationCustomRuleMetadata"
       ( \x ->
           OrganizationCustomRuleMetadata'
-            Core.<$> (x Core..:? "TagKeyScope")
-            Core.<*> (x Core..:? "MaximumExecutionFrequency")
-            Core.<*> (x Core..:? "ResourceIdScope")
-            Core.<*> (x Core..:? "InputParameters")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> ( x Core..:? "ResourceTypesScope"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "TagValueScope")
-            Core.<*> (x Core..: "LambdaFunctionArn")
-            Core.<*> ( x Core..:? "OrganizationConfigRuleTriggerTypes"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "TagKeyScope")
+            Prelude.<*> (x Core..:? "MaximumExecutionFrequency")
+            Prelude.<*> (x Core..:? "ResourceIdScope")
+            Prelude.<*> (x Core..:? "InputParameters")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> ( x Core..:? "ResourceTypesScope"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "TagValueScope")
+            Prelude.<*> (x Core..: "LambdaFunctionArn")
+            Prelude.<*> ( x Core..:? "OrganizationConfigRuleTriggerTypes"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable OrganizationCustomRuleMetadata
+instance
+  Prelude.Hashable
+    OrganizationCustomRuleMetadata
 
-instance Core.NFData OrganizationCustomRuleMetadata
+instance
+  Prelude.NFData
+    OrganizationCustomRuleMetadata
 
 instance Core.ToJSON OrganizationCustomRuleMetadata where
   toJSON OrganizationCustomRuleMetadata' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TagKeyScope" Core..=) Core.<$> tagKeyScope,
+      ( Prelude.catMaybes
+          [ ("TagKeyScope" Core..=) Prelude.<$> tagKeyScope,
             ("MaximumExecutionFrequency" Core..=)
-              Core.<$> maximumExecutionFrequency,
-            ("ResourceIdScope" Core..=) Core.<$> resourceIdScope,
-            ("InputParameters" Core..=) Core.<$> inputParameters,
-            ("Description" Core..=) Core.<$> description,
+              Prelude.<$> maximumExecutionFrequency,
+            ("ResourceIdScope" Core..=)
+              Prelude.<$> resourceIdScope,
+            ("InputParameters" Core..=)
+              Prelude.<$> inputParameters,
+            ("Description" Core..=) Prelude.<$> description,
             ("ResourceTypesScope" Core..=)
-              Core.<$> resourceTypesScope,
-            ("TagValueScope" Core..=) Core.<$> tagValueScope,
-            Core.Just
+              Prelude.<$> resourceTypesScope,
+            ("TagValueScope" Core..=) Prelude.<$> tagValueScope,
+            Prelude.Just
               ("LambdaFunctionArn" Core..= lambdaFunctionArn),
-            Core.Just
+            Prelude.Just
               ( "OrganizationConfigRuleTriggerTypes"
                   Core..= organizationConfigRuleTriggerTypes
               )

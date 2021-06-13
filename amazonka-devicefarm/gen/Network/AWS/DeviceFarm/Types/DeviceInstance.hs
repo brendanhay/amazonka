@@ -23,25 +23,26 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.InstanceProfile
 import Network.AWS.DeviceFarm.Types.InstanceStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the device instance.
 --
 -- /See:/ 'newDeviceInstance' smart constructor.
 data DeviceInstance = DeviceInstance'
   { -- | Unique device identifier for the device instance.
-    udid :: Core.Maybe Core.Text,
+    udid :: Prelude.Maybe Prelude.Text,
     -- | The status of the device instance. Valid values are listed here.
-    status :: Core.Maybe InstanceStatus,
+    status :: Prelude.Maybe InstanceStatus,
     -- | The ARN of the device.
-    deviceArn :: Core.Maybe Core.Text,
+    deviceArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the device instance.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | An array of strings that describe the device instance.
-    labels :: Core.Maybe [Core.Text],
+    labels :: Prelude.Maybe [Prelude.Text],
     -- | A object that contains information about the instance profile.
-    instanceProfile :: Core.Maybe InstanceProfile
+    instanceProfile :: Prelude.Maybe InstanceProfile
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeviceInstance' with all optional fields omitted.
@@ -66,36 +67,36 @@ newDeviceInstance ::
   DeviceInstance
 newDeviceInstance =
   DeviceInstance'
-    { udid = Core.Nothing,
-      status = Core.Nothing,
-      deviceArn = Core.Nothing,
-      arn = Core.Nothing,
-      labels = Core.Nothing,
-      instanceProfile = Core.Nothing
+    { udid = Prelude.Nothing,
+      status = Prelude.Nothing,
+      deviceArn = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      labels = Prelude.Nothing,
+      instanceProfile = Prelude.Nothing
     }
 
 -- | Unique device identifier for the device instance.
-deviceInstance_udid :: Lens.Lens' DeviceInstance (Core.Maybe Core.Text)
+deviceInstance_udid :: Lens.Lens' DeviceInstance (Prelude.Maybe Prelude.Text)
 deviceInstance_udid = Lens.lens (\DeviceInstance' {udid} -> udid) (\s@DeviceInstance' {} a -> s {udid = a} :: DeviceInstance)
 
 -- | The status of the device instance. Valid values are listed here.
-deviceInstance_status :: Lens.Lens' DeviceInstance (Core.Maybe InstanceStatus)
+deviceInstance_status :: Lens.Lens' DeviceInstance (Prelude.Maybe InstanceStatus)
 deviceInstance_status = Lens.lens (\DeviceInstance' {status} -> status) (\s@DeviceInstance' {} a -> s {status = a} :: DeviceInstance)
 
 -- | The ARN of the device.
-deviceInstance_deviceArn :: Lens.Lens' DeviceInstance (Core.Maybe Core.Text)
+deviceInstance_deviceArn :: Lens.Lens' DeviceInstance (Prelude.Maybe Prelude.Text)
 deviceInstance_deviceArn = Lens.lens (\DeviceInstance' {deviceArn} -> deviceArn) (\s@DeviceInstance' {} a -> s {deviceArn = a} :: DeviceInstance)
 
 -- | The Amazon Resource Name (ARN) of the device instance.
-deviceInstance_arn :: Lens.Lens' DeviceInstance (Core.Maybe Core.Text)
+deviceInstance_arn :: Lens.Lens' DeviceInstance (Prelude.Maybe Prelude.Text)
 deviceInstance_arn = Lens.lens (\DeviceInstance' {arn} -> arn) (\s@DeviceInstance' {} a -> s {arn = a} :: DeviceInstance)
 
 -- | An array of strings that describe the device instance.
-deviceInstance_labels :: Lens.Lens' DeviceInstance (Core.Maybe [Core.Text])
-deviceInstance_labels = Lens.lens (\DeviceInstance' {labels} -> labels) (\s@DeviceInstance' {} a -> s {labels = a} :: DeviceInstance) Core.. Lens.mapping Lens._Coerce
+deviceInstance_labels :: Lens.Lens' DeviceInstance (Prelude.Maybe [Prelude.Text])
+deviceInstance_labels = Lens.lens (\DeviceInstance' {labels} -> labels) (\s@DeviceInstance' {} a -> s {labels = a} :: DeviceInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A object that contains information about the instance profile.
-deviceInstance_instanceProfile :: Lens.Lens' DeviceInstance (Core.Maybe InstanceProfile)
+deviceInstance_instanceProfile :: Lens.Lens' DeviceInstance (Prelude.Maybe InstanceProfile)
 deviceInstance_instanceProfile = Lens.lens (\DeviceInstance' {instanceProfile} -> instanceProfile) (\s@DeviceInstance' {} a -> s {instanceProfile = a} :: DeviceInstance)
 
 instance Core.FromJSON DeviceInstance where
@@ -104,14 +105,14 @@ instance Core.FromJSON DeviceInstance where
       "DeviceInstance"
       ( \x ->
           DeviceInstance'
-            Core.<$> (x Core..:? "udid")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "deviceArn")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "labels" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "instanceProfile")
+            Prelude.<$> (x Core..:? "udid")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "deviceArn")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "instanceProfile")
       )
 
-instance Core.Hashable DeviceInstance
+instance Prelude.Hashable DeviceInstance
 
-instance Core.NFData DeviceInstance
+instance Prelude.NFData DeviceInstance

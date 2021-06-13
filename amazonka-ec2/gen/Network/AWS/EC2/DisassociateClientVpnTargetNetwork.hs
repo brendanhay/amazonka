@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,14 +65,14 @@ data DisassociateClientVpnTargetNetwork = DisassociateClientVpnTargetNetwork'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Client VPN endpoint from which to disassociate the target
     -- network.
-    clientVpnEndpointId :: Core.Text,
+    clientVpnEndpointId :: Prelude.Text,
     -- | The ID of the target network association.
-    associationId :: Core.Text
+    associationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateClientVpnTargetNetwork' with all optional fields omitted.
@@ -92,16 +93,16 @@ data DisassociateClientVpnTargetNetwork = DisassociateClientVpnTargetNetwork'
 -- 'associationId', 'disassociateClientVpnTargetNetwork_associationId' - The ID of the target network association.
 newDisassociateClientVpnTargetNetwork ::
   -- | 'clientVpnEndpointId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'associationId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateClientVpnTargetNetwork
 newDisassociateClientVpnTargetNetwork
   pClientVpnEndpointId_
   pAssociationId_ =
     DisassociateClientVpnTargetNetwork'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         clientVpnEndpointId =
           pClientVpnEndpointId_,
         associationId = pAssociationId_
@@ -111,16 +112,16 @@ newDisassociateClientVpnTargetNetwork
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disassociateClientVpnTargetNetwork_dryRun :: Lens.Lens' DisassociateClientVpnTargetNetwork (Core.Maybe Core.Bool)
+disassociateClientVpnTargetNetwork_dryRun :: Lens.Lens' DisassociateClientVpnTargetNetwork (Prelude.Maybe Prelude.Bool)
 disassociateClientVpnTargetNetwork_dryRun = Lens.lens (\DisassociateClientVpnTargetNetwork' {dryRun} -> dryRun) (\s@DisassociateClientVpnTargetNetwork' {} a -> s {dryRun = a} :: DisassociateClientVpnTargetNetwork)
 
 -- | The ID of the Client VPN endpoint from which to disassociate the target
 -- network.
-disassociateClientVpnTargetNetwork_clientVpnEndpointId :: Lens.Lens' DisassociateClientVpnTargetNetwork Core.Text
+disassociateClientVpnTargetNetwork_clientVpnEndpointId :: Lens.Lens' DisassociateClientVpnTargetNetwork Prelude.Text
 disassociateClientVpnTargetNetwork_clientVpnEndpointId = Lens.lens (\DisassociateClientVpnTargetNetwork' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@DisassociateClientVpnTargetNetwork' {} a -> s {clientVpnEndpointId = a} :: DisassociateClientVpnTargetNetwork)
 
 -- | The ID of the target network association.
-disassociateClientVpnTargetNetwork_associationId :: Lens.Lens' DisassociateClientVpnTargetNetwork Core.Text
+disassociateClientVpnTargetNetwork_associationId :: Lens.Lens' DisassociateClientVpnTargetNetwork Prelude.Text
 disassociateClientVpnTargetNetwork_associationId = Lens.lens (\DisassociateClientVpnTargetNetwork' {associationId} -> associationId) (\s@DisassociateClientVpnTargetNetwork' {} a -> s {associationId = a} :: DisassociateClientVpnTargetNetwork)
 
 instance
@@ -135,42 +136,43 @@ instance
     Response.receiveXML
       ( \s h x ->
           DisassociateClientVpnTargetNetworkResponse'
-            Core.<$> (x Core..@? "status")
-            Core.<*> (x Core..@? "associationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "status")
+              Prelude.<*> (x Core..@? "associationId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisassociateClientVpnTargetNetwork
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateClientVpnTargetNetwork
 
 instance
   Core.ToHeaders
     DisassociateClientVpnTargetNetwork
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DisassociateClientVpnTargetNetwork
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DisassociateClientVpnTargetNetwork
   where
   toQuery DisassociateClientVpnTargetNetwork' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DisassociateClientVpnTargetNetwork" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
         "AssociationId" Core.=: associationId
@@ -179,13 +181,13 @@ instance
 -- | /See:/ 'newDisassociateClientVpnTargetNetworkResponse' smart constructor.
 data DisassociateClientVpnTargetNetworkResponse = DisassociateClientVpnTargetNetworkResponse'
   { -- | The current state of the target network association.
-    status :: Core.Maybe AssociationStatus,
+    status :: Prelude.Maybe AssociationStatus,
     -- | The ID of the target network association.
-    associationId :: Core.Maybe Core.Text,
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateClientVpnTargetNetworkResponse' with all optional fields omitted.
@@ -202,29 +204,29 @@ data DisassociateClientVpnTargetNetworkResponse = DisassociateClientVpnTargetNet
 -- 'httpStatus', 'disassociateClientVpnTargetNetworkResponse_httpStatus' - The response's http status code.
 newDisassociateClientVpnTargetNetworkResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateClientVpnTargetNetworkResponse
 newDisassociateClientVpnTargetNetworkResponse
   pHttpStatus_ =
     DisassociateClientVpnTargetNetworkResponse'
       { status =
-          Core.Nothing,
-        associationId = Core.Nothing,
+          Prelude.Nothing,
+        associationId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current state of the target network association.
-disassociateClientVpnTargetNetworkResponse_status :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse (Core.Maybe AssociationStatus)
+disassociateClientVpnTargetNetworkResponse_status :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse (Prelude.Maybe AssociationStatus)
 disassociateClientVpnTargetNetworkResponse_status = Lens.lens (\DisassociateClientVpnTargetNetworkResponse' {status} -> status) (\s@DisassociateClientVpnTargetNetworkResponse' {} a -> s {status = a} :: DisassociateClientVpnTargetNetworkResponse)
 
 -- | The ID of the target network association.
-disassociateClientVpnTargetNetworkResponse_associationId :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse (Core.Maybe Core.Text)
+disassociateClientVpnTargetNetworkResponse_associationId :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse (Prelude.Maybe Prelude.Text)
 disassociateClientVpnTargetNetworkResponse_associationId = Lens.lens (\DisassociateClientVpnTargetNetworkResponse' {associationId} -> associationId) (\s@DisassociateClientVpnTargetNetworkResponse' {} a -> s {associationId = a} :: DisassociateClientVpnTargetNetworkResponse)
 
 -- | The response's http status code.
-disassociateClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse Core.Int
+disassociateClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse Prelude.Int
 disassociateClientVpnTargetNetworkResponse_httpStatus = Lens.lens (\DisassociateClientVpnTargetNetworkResponse' {httpStatus} -> httpStatus) (\s@DisassociateClientVpnTargetNetworkResponse' {} a -> s {httpStatus = a} :: DisassociateClientVpnTargetNetworkResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateClientVpnTargetNetworkResponse

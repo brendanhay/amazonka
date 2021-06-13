@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.EventCategoriesMap where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the results of a successful invocation of the
 -- @DescribeEventCategories@ operation.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
   { -- | The event categories for the specified source type
-    eventCategories :: Core.Maybe [Core.Text],
+    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The source type that the returned categories belong to
-    sourceType :: Core.Maybe Core.Text
+    sourceType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventCategoriesMap' with all optional fields omitted.
@@ -49,26 +50,27 @@ newEventCategoriesMap ::
   EventCategoriesMap
 newEventCategoriesMap =
   EventCategoriesMap'
-    { eventCategories = Core.Nothing,
-      sourceType = Core.Nothing
+    { eventCategories =
+        Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
 
 -- | The event categories for the specified source type
-eventCategoriesMap_eventCategories :: Lens.Lens' EventCategoriesMap (Core.Maybe [Core.Text])
-eventCategoriesMap_eventCategories = Lens.lens (\EventCategoriesMap' {eventCategories} -> eventCategories) (\s@EventCategoriesMap' {} a -> s {eventCategories = a} :: EventCategoriesMap) Core.. Lens.mapping Lens._Coerce
+eventCategoriesMap_eventCategories :: Lens.Lens' EventCategoriesMap (Prelude.Maybe [Prelude.Text])
+eventCategoriesMap_eventCategories = Lens.lens (\EventCategoriesMap' {eventCategories} -> eventCategories) (\s@EventCategoriesMap' {} a -> s {eventCategories = a} :: EventCategoriesMap) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The source type that the returned categories belong to
-eventCategoriesMap_sourceType :: Lens.Lens' EventCategoriesMap (Core.Maybe Core.Text)
+eventCategoriesMap_sourceType :: Lens.Lens' EventCategoriesMap (Prelude.Maybe Prelude.Text)
 eventCategoriesMap_sourceType = Lens.lens (\EventCategoriesMap' {sourceType} -> sourceType) (\s@EventCategoriesMap' {} a -> s {sourceType = a} :: EventCategoriesMap)
 
 instance Core.FromXML EventCategoriesMap where
   parseXML x =
     EventCategoriesMap'
-      Core.<$> ( x Core..@? "EventCategories" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "EventCategory")
-               )
-      Core.<*> (x Core..@? "SourceType")
+      Prelude.<$> ( x Core..@? "EventCategories" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
+                  )
+      Prelude.<*> (x Core..@? "SourceType")
 
-instance Core.Hashable EventCategoriesMap
+instance Prelude.Hashable EventCategoriesMap
 
-instance Core.NFData EventCategoriesMap
+instance Prelude.NFData EventCategoriesMap

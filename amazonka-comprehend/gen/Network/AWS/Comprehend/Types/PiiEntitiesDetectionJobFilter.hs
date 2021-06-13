@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobFilter where
 import Network.AWS.Comprehend.Types.JobStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information for filtering a list of PII entity detection jobs.
 --
@@ -29,19 +30,19 @@ import qualified Network.AWS.Lens as Lens
 data PiiEntitiesDetectionJobFilter = PiiEntitiesDetectionJobFilter'
   { -- | Filters the list of jobs based on job status. Returns only jobs with the
     -- specified status.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
-    submitTimeBefore :: Core.Maybe Core.POSIX,
+    submitTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted after the specified time.
     -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Core.Maybe Core.POSIX,
+    submitTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Filters on the name of the job.
-    jobName :: Core.Maybe Core.Text
+    jobName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PiiEntitiesDetectionJobFilter' with all optional fields omitted.
@@ -68,45 +69,48 @@ newPiiEntitiesDetectionJobFilter ::
 newPiiEntitiesDetectionJobFilter =
   PiiEntitiesDetectionJobFilter'
     { jobStatus =
-        Core.Nothing,
-      submitTimeBefore = Core.Nothing,
-      submitTimeAfter = Core.Nothing,
-      jobName = Core.Nothing
+        Prelude.Nothing,
+      submitTimeBefore = Prelude.Nothing,
+      submitTimeAfter = Prelude.Nothing,
+      jobName = Prelude.Nothing
     }
 
 -- | Filters the list of jobs based on job status. Returns only jobs with the
 -- specified status.
-piiEntitiesDetectionJobFilter_jobStatus :: Lens.Lens' PiiEntitiesDetectionJobFilter (Core.Maybe JobStatus)
+piiEntitiesDetectionJobFilter_jobStatus :: Lens.Lens' PiiEntitiesDetectionJobFilter (Prelude.Maybe JobStatus)
 piiEntitiesDetectionJobFilter_jobStatus = Lens.lens (\PiiEntitiesDetectionJobFilter' {jobStatus} -> jobStatus) (\s@PiiEntitiesDetectionJobFilter' {} a -> s {jobStatus = a} :: PiiEntitiesDetectionJobFilter)
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
-piiEntitiesDetectionJobFilter_submitTimeBefore :: Lens.Lens' PiiEntitiesDetectionJobFilter (Core.Maybe Core.UTCTime)
-piiEntitiesDetectionJobFilter_submitTimeBefore = Lens.lens (\PiiEntitiesDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@PiiEntitiesDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: PiiEntitiesDetectionJobFilter) Core.. Lens.mapping Core._Time
+piiEntitiesDetectionJobFilter_submitTimeBefore :: Lens.Lens' PiiEntitiesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
+piiEntitiesDetectionJobFilter_submitTimeBefore = Lens.lens (\PiiEntitiesDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@PiiEntitiesDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: PiiEntitiesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted after the specified time.
 -- Jobs are returned in descending order, newest to oldest.
-piiEntitiesDetectionJobFilter_submitTimeAfter :: Lens.Lens' PiiEntitiesDetectionJobFilter (Core.Maybe Core.UTCTime)
-piiEntitiesDetectionJobFilter_submitTimeAfter = Lens.lens (\PiiEntitiesDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@PiiEntitiesDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: PiiEntitiesDetectionJobFilter) Core.. Lens.mapping Core._Time
+piiEntitiesDetectionJobFilter_submitTimeAfter :: Lens.Lens' PiiEntitiesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
+piiEntitiesDetectionJobFilter_submitTimeAfter = Lens.lens (\PiiEntitiesDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@PiiEntitiesDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: PiiEntitiesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
 -- | Filters on the name of the job.
-piiEntitiesDetectionJobFilter_jobName :: Lens.Lens' PiiEntitiesDetectionJobFilter (Core.Maybe Core.Text)
+piiEntitiesDetectionJobFilter_jobName :: Lens.Lens' PiiEntitiesDetectionJobFilter (Prelude.Maybe Prelude.Text)
 piiEntitiesDetectionJobFilter_jobName = Lens.lens (\PiiEntitiesDetectionJobFilter' {jobName} -> jobName) (\s@PiiEntitiesDetectionJobFilter' {} a -> s {jobName = a} :: PiiEntitiesDetectionJobFilter)
 
-instance Core.Hashable PiiEntitiesDetectionJobFilter
+instance
+  Prelude.Hashable
+    PiiEntitiesDetectionJobFilter
 
-instance Core.NFData PiiEntitiesDetectionJobFilter
+instance Prelude.NFData PiiEntitiesDetectionJobFilter
 
 instance Core.ToJSON PiiEntitiesDetectionJobFilter where
   toJSON PiiEntitiesDetectionJobFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("JobStatus" Core..=) Core.<$> jobStatus,
+      ( Prelude.catMaybes
+          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
             ("SubmitTimeBefore" Core..=)
-              Core.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Core..=) Core.<$> submitTimeAfter,
-            ("JobName" Core..=) Core.<$> jobName
+              Prelude.<$> submitTimeBefore,
+            ("SubmitTimeAfter" Core..=)
+              Prelude.<$> submitTimeAfter,
+            ("JobName" Core..=) Prelude.<$> jobName
           ]
       )

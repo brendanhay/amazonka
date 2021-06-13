@@ -54,6 +54,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,7 +72,7 @@ data CreateStackSet = CreateStackSet'
     --     the IAM roles required to deploy to accounts managed by AWS
     --     Organizations. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
-    permissionModel :: Core.Maybe PermissionModels,
+    permissionModel :: Prelude.Maybe PermissionModels,
     -- | The name of the IAM execution role to use to create the stack set. If
     -- you do not specify an execution role, AWS CloudFormation uses the
     -- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
@@ -80,7 +81,7 @@ data CreateStackSet = CreateStackSet'
     -- Specify an IAM role only if you are using customized execution roles to
     -- control which stack resources users and groups can include in their
     -- stack sets.
-    executionRoleName :: Core.Maybe Core.Text,
+    executionRoleName :: Prelude.Maybe Prelude.Text,
     -- | In some cases, you must explicitly acknowledge that your stack set
     -- template contains certain capabilities in order for AWS CloudFormation
     -- to create the stack set and related stack instances.
@@ -142,7 +143,7 @@ data CreateStackSet = CreateStackSet'
     --     transforms, which are macros hosted by AWS CloudFormation.) Even if
     --     you specify this capability, if you include a macro in your template
     --     the stack set operation will fail.
-    capabilities :: Core.Maybe [Capability],
+    capabilities :: Prelude.Maybe [Capability],
     -- | The location of the file that contains the template body. The URL must
     -- point to a template (maximum size: 460,800 bytes) that\'s located in an
     -- Amazon S3 bucket or a Systems Manager document. For more information,
@@ -152,7 +153,7 @@ data CreateStackSet = CreateStackSet'
     --
     -- Conditional: You must specify either the TemplateBody or the TemplateURL
     -- parameter, but not both.
-    templateURL :: Core.Maybe Core.Text,
+    templateURL :: Prelude.Maybe Prelude.Text,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -174,7 +175,7 @@ data CreateStackSet = CreateStackSet'
     -- Stack sets with service-managed permissions are created in the
     -- management account, including stack sets that are created by delegated
     -- administrators.
-    callAs :: Core.Maybe CallAs,
+    callAs :: Prelude.Maybe CallAs,
     -- | The Amazon Resource Number (ARN) of the IAM role to use to create this
     -- stack set.
     --
@@ -183,7 +184,7 @@ data CreateStackSet = CreateStackSet'
     -- the same administrator account. For more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
     -- in the /AWS CloudFormation User Guide/.
-    administrationRoleARN :: Core.Maybe Core.Text,
+    administrationRoleARN :: Prelude.Maybe Prelude.Text,
     -- | The key-value pairs to associate with this stack set and the stacks
     -- created from it. AWS CloudFormation also propagates these tags to
     -- supported resources that are created in the stacks. A maximum number of
@@ -193,14 +194,14 @@ data CreateStackSet = CreateStackSet'
     -- CloudFormation checks to see if you have the required IAM permission to
     -- tag resources. If you don\'t, the entire @CreateStackSet@ action fails
     -- with an @access denied@ error, and the stack set is not created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Describes whether StackSets automatically deploys to AWS Organizations
     -- accounts that are added to the target organization or organizational
     -- unit (OU). Specify only if @PermissionModel@ is @SERVICE_MANAGED@.
-    autoDeployment :: Core.Maybe AutoDeployment,
+    autoDeployment :: Prelude.Maybe AutoDeployment,
     -- | A description of the stack set. You can use the description to identify
     -- the stack set\'s purpose or other important information.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for this @CreateStackSet@ request. Specify this
     -- token if you plan to retry requests so that AWS CloudFormation knows
     -- that you\'re not attempting to create another stack set with the same
@@ -209,7 +210,7 @@ data CreateStackSet = CreateStackSet'
     --
     -- If you don\'t specify an operation ID, the SDK generates one
     -- automatically.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The structure that contains the template body, with a minimum length of
     -- 1 byte and a maximum length of 51,200 bytes. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -217,18 +218,18 @@ data CreateStackSet = CreateStackSet'
     --
     -- Conditional: You must specify either the TemplateBody or the TemplateURL
     -- parameter, but not both.
-    templateBody :: Core.Maybe Core.Text,
+    templateBody :: Prelude.Maybe Prelude.Text,
     -- | The input parameters for the stack set template.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | The name to associate with the stack set. The name must be unique in the
     -- Region where you create your stack set.
     --
     -- A stack name can contain only alphanumeric characters (case-sensitive)
     -- and hyphens. It must start with an alphabetic character and can\'t be
     -- longer than 128 characters.
-    stackSetName :: Core.Text
+    stackSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStackSet' with all optional fields omitted.
@@ -407,22 +408,22 @@ data CreateStackSet = CreateStackSet'
 -- longer than 128 characters.
 newCreateStackSet ::
   -- | 'stackSetName'
-  Core.Text ->
+  Prelude.Text ->
   CreateStackSet
 newCreateStackSet pStackSetName_ =
   CreateStackSet'
-    { permissionModel = Core.Nothing,
-      executionRoleName = Core.Nothing,
-      capabilities = Core.Nothing,
-      templateURL = Core.Nothing,
-      callAs = Core.Nothing,
-      administrationRoleARN = Core.Nothing,
-      tags = Core.Nothing,
-      autoDeployment = Core.Nothing,
-      description = Core.Nothing,
-      clientRequestToken = Core.Nothing,
-      templateBody = Core.Nothing,
-      parameters = Core.Nothing,
+    { permissionModel = Prelude.Nothing,
+      executionRoleName = Prelude.Nothing,
+      capabilities = Prelude.Nothing,
+      templateURL = Prelude.Nothing,
+      callAs = Prelude.Nothing,
+      administrationRoleARN = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      autoDeployment = Prelude.Nothing,
+      description = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       stackSetName = pStackSetName_
     }
 
@@ -438,7 +439,7 @@ newCreateStackSet pStackSetName_ =
 --     the IAM roles required to deploy to accounts managed by AWS
 --     Organizations. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
-createStackSet_permissionModel :: Lens.Lens' CreateStackSet (Core.Maybe PermissionModels)
+createStackSet_permissionModel :: Lens.Lens' CreateStackSet (Prelude.Maybe PermissionModels)
 createStackSet_permissionModel = Lens.lens (\CreateStackSet' {permissionModel} -> permissionModel) (\s@CreateStackSet' {} a -> s {permissionModel = a} :: CreateStackSet)
 
 -- | The name of the IAM execution role to use to create the stack set. If
@@ -449,7 +450,7 @@ createStackSet_permissionModel = Lens.lens (\CreateStackSet' {permissionModel} -
 -- Specify an IAM role only if you are using customized execution roles to
 -- control which stack resources users and groups can include in their
 -- stack sets.
-createStackSet_executionRoleName :: Lens.Lens' CreateStackSet (Core.Maybe Core.Text)
+createStackSet_executionRoleName :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_executionRoleName = Lens.lens (\CreateStackSet' {executionRoleName} -> executionRoleName) (\s@CreateStackSet' {} a -> s {executionRoleName = a} :: CreateStackSet)
 
 -- | In some cases, you must explicitly acknowledge that your stack set
@@ -513,8 +514,8 @@ createStackSet_executionRoleName = Lens.lens (\CreateStackSet' {executionRoleNam
 --     transforms, which are macros hosted by AWS CloudFormation.) Even if
 --     you specify this capability, if you include a macro in your template
 --     the stack set operation will fail.
-createStackSet_capabilities :: Lens.Lens' CreateStackSet (Core.Maybe [Capability])
-createStackSet_capabilities = Lens.lens (\CreateStackSet' {capabilities} -> capabilities) (\s@CreateStackSet' {} a -> s {capabilities = a} :: CreateStackSet) Core.. Lens.mapping Lens._Coerce
+createStackSet_capabilities :: Lens.Lens' CreateStackSet (Prelude.Maybe [Capability])
+createStackSet_capabilities = Lens.lens (\CreateStackSet' {capabilities} -> capabilities) (\s@CreateStackSet' {} a -> s {capabilities = a} :: CreateStackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The location of the file that contains the template body. The URL must
 -- point to a template (maximum size: 460,800 bytes) that\'s located in an
@@ -525,7 +526,7 @@ createStackSet_capabilities = Lens.lens (\CreateStackSet' {capabilities} -> capa
 --
 -- Conditional: You must specify either the TemplateBody or the TemplateURL
 -- parameter, but not both.
-createStackSet_templateURL :: Lens.Lens' CreateStackSet (Core.Maybe Core.Text)
+createStackSet_templateURL :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_templateURL = Lens.lens (\CreateStackSet' {templateURL} -> templateURL) (\s@CreateStackSet' {} a -> s {templateURL = a} :: CreateStackSet)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
@@ -549,7 +550,7 @@ createStackSet_templateURL = Lens.lens (\CreateStackSet' {templateURL} -> templa
 -- Stack sets with service-managed permissions are created in the
 -- management account, including stack sets that are created by delegated
 -- administrators.
-createStackSet_callAs :: Lens.Lens' CreateStackSet (Core.Maybe CallAs)
+createStackSet_callAs :: Lens.Lens' CreateStackSet (Prelude.Maybe CallAs)
 createStackSet_callAs = Lens.lens (\CreateStackSet' {callAs} -> callAs) (\s@CreateStackSet' {} a -> s {callAs = a} :: CreateStackSet)
 
 -- | The Amazon Resource Number (ARN) of the IAM role to use to create this
@@ -560,7 +561,7 @@ createStackSet_callAs = Lens.lens (\CreateStackSet' {callAs} -> callAs) (\s@Crea
 -- the same administrator account. For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
 -- in the /AWS CloudFormation User Guide/.
-createStackSet_administrationRoleARN :: Lens.Lens' CreateStackSet (Core.Maybe Core.Text)
+createStackSet_administrationRoleARN :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_administrationRoleARN = Lens.lens (\CreateStackSet' {administrationRoleARN} -> administrationRoleARN) (\s@CreateStackSet' {} a -> s {administrationRoleARN = a} :: CreateStackSet)
 
 -- | The key-value pairs to associate with this stack set and the stacks
@@ -572,18 +573,18 @@ createStackSet_administrationRoleARN = Lens.lens (\CreateStackSet' {administrati
 -- CloudFormation checks to see if you have the required IAM permission to
 -- tag resources. If you don\'t, the entire @CreateStackSet@ action fails
 -- with an @access denied@ error, and the stack set is not created.
-createStackSet_tags :: Lens.Lens' CreateStackSet (Core.Maybe [Tag])
-createStackSet_tags = Lens.lens (\CreateStackSet' {tags} -> tags) (\s@CreateStackSet' {} a -> s {tags = a} :: CreateStackSet) Core.. Lens.mapping Lens._Coerce
+createStackSet_tags :: Lens.Lens' CreateStackSet (Prelude.Maybe [Tag])
+createStackSet_tags = Lens.lens (\CreateStackSet' {tags} -> tags) (\s@CreateStackSet' {} a -> s {tags = a} :: CreateStackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Describes whether StackSets automatically deploys to AWS Organizations
 -- accounts that are added to the target organization or organizational
 -- unit (OU). Specify only if @PermissionModel@ is @SERVICE_MANAGED@.
-createStackSet_autoDeployment :: Lens.Lens' CreateStackSet (Core.Maybe AutoDeployment)
+createStackSet_autoDeployment :: Lens.Lens' CreateStackSet (Prelude.Maybe AutoDeployment)
 createStackSet_autoDeployment = Lens.lens (\CreateStackSet' {autoDeployment} -> autoDeployment) (\s@CreateStackSet' {} a -> s {autoDeployment = a} :: CreateStackSet)
 
 -- | A description of the stack set. You can use the description to identify
 -- the stack set\'s purpose or other important information.
-createStackSet_description :: Lens.Lens' CreateStackSet (Core.Maybe Core.Text)
+createStackSet_description :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_description = Lens.lens (\CreateStackSet' {description} -> description) (\s@CreateStackSet' {} a -> s {description = a} :: CreateStackSet)
 
 -- | A unique identifier for this @CreateStackSet@ request. Specify this
@@ -594,7 +595,7 @@ createStackSet_description = Lens.lens (\CreateStackSet' {description} -> descri
 --
 -- If you don\'t specify an operation ID, the SDK generates one
 -- automatically.
-createStackSet_clientRequestToken :: Lens.Lens' CreateStackSet (Core.Maybe Core.Text)
+createStackSet_clientRequestToken :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_clientRequestToken = Lens.lens (\CreateStackSet' {clientRequestToken} -> clientRequestToken) (\s@CreateStackSet' {} a -> s {clientRequestToken = a} :: CreateStackSet)
 
 -- | The structure that contains the template body, with a minimum length of
@@ -604,12 +605,12 @@ createStackSet_clientRequestToken = Lens.lens (\CreateStackSet' {clientRequestTo
 --
 -- Conditional: You must specify either the TemplateBody or the TemplateURL
 -- parameter, but not both.
-createStackSet_templateBody :: Lens.Lens' CreateStackSet (Core.Maybe Core.Text)
+createStackSet_templateBody :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_templateBody = Lens.lens (\CreateStackSet' {templateBody} -> templateBody) (\s@CreateStackSet' {} a -> s {templateBody = a} :: CreateStackSet)
 
 -- | The input parameters for the stack set template.
-createStackSet_parameters :: Lens.Lens' CreateStackSet (Core.Maybe [Parameter])
-createStackSet_parameters = Lens.lens (\CreateStackSet' {parameters} -> parameters) (\s@CreateStackSet' {} a -> s {parameters = a} :: CreateStackSet) Core.. Lens.mapping Lens._Coerce
+createStackSet_parameters :: Lens.Lens' CreateStackSet (Prelude.Maybe [Parameter])
+createStackSet_parameters = Lens.lens (\CreateStackSet' {parameters} -> parameters) (\s@CreateStackSet' {} a -> s {parameters = a} :: CreateStackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name to associate with the stack set. The name must be unique in the
 -- Region where you create your stack set.
@@ -617,7 +618,7 @@ createStackSet_parameters = Lens.lens (\CreateStackSet' {parameters} -> paramete
 -- A stack name can contain only alphanumeric characters (case-sensitive)
 -- and hyphens. It must start with an alphabetic character and can\'t be
 -- longer than 128 characters.
-createStackSet_stackSetName :: Lens.Lens' CreateStackSet Core.Text
+createStackSet_stackSetName :: Lens.Lens' CreateStackSet Prelude.Text
 createStackSet_stackSetName = Lens.lens (\CreateStackSet' {stackSetName} -> stackSetName) (\s@CreateStackSet' {} a -> s {stackSetName = a} :: CreateStackSet)
 
 instance Core.AWSRequest CreateStackSet where
@@ -630,56 +631,57 @@ instance Core.AWSRequest CreateStackSet where
       "CreateStackSetResult"
       ( \s h x ->
           CreateStackSetResponse'
-            Core.<$> (x Core..@? "StackSetId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "StackSetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateStackSet
+instance Prelude.Hashable CreateStackSet
 
-instance Core.NFData CreateStackSet
+instance Prelude.NFData CreateStackSet
 
 instance Core.ToHeaders CreateStackSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateStackSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateStackSet where
   toQuery CreateStackSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateStackSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("CreateStackSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "PermissionModel" Core.=: permissionModel,
         "ExecutionRoleName" Core.=: executionRoleName,
         "Capabilities"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> capabilities),
+            (Core.toQueryList "member" Prelude.<$> capabilities),
         "TemplateURL" Core.=: templateURL,
         "CallAs" Core.=: callAs,
         "AdministrationRoleARN"
           Core.=: administrationRoleARN,
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "AutoDeployment" Core.=: autoDeployment,
         "Description" Core.=: description,
         "ClientRequestToken" Core.=: clientRequestToken,
         "TemplateBody" Core.=: templateBody,
         "Parameters"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> parameters),
+            (Core.toQueryList "member" Prelude.<$> parameters),
         "StackSetName" Core.=: stackSetName
       ]
 
 -- | /See:/ 'newCreateStackSetResponse' smart constructor.
 data CreateStackSetResponse = CreateStackSetResponse'
   { -- | The ID of the stack set that you\'re creating.
-    stackSetId :: Core.Maybe Core.Text,
+    stackSetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStackSetResponse' with all optional fields omitted.
@@ -694,20 +696,21 @@ data CreateStackSetResponse = CreateStackSetResponse'
 -- 'httpStatus', 'createStackSetResponse_httpStatus' - The response's http status code.
 newCreateStackSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateStackSetResponse
 newCreateStackSetResponse pHttpStatus_ =
   CreateStackSetResponse'
-    { stackSetId = Core.Nothing,
+    { stackSetId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the stack set that you\'re creating.
-createStackSetResponse_stackSetId :: Lens.Lens' CreateStackSetResponse (Core.Maybe Core.Text)
+createStackSetResponse_stackSetId :: Lens.Lens' CreateStackSetResponse (Prelude.Maybe Prelude.Text)
 createStackSetResponse_stackSetId = Lens.lens (\CreateStackSetResponse' {stackSetId} -> stackSetId) (\s@CreateStackSetResponse' {} a -> s {stackSetId = a} :: CreateStackSetResponse)
 
 -- | The response's http status code.
-createStackSetResponse_httpStatus :: Lens.Lens' CreateStackSetResponse Core.Int
+createStackSetResponse_httpStatus :: Lens.Lens' CreateStackSetResponse Prelude.Int
 createStackSetResponse_httpStatus = Lens.lens (\CreateStackSetResponse' {httpStatus} -> httpStatus) (\s@CreateStackSetResponse' {} a -> s {httpStatus = a} :: CreateStackSetResponse)
 
-instance Core.NFData CreateStackSetResponse
+instance Prelude.NFData CreateStackSetResponse

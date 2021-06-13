@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.RuleSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -43,12 +44,12 @@ data RuleSummary = RuleSummary'
     -- DeleteRule).
     --
     -- @RuleId@ is returned by CreateRule and by ListRules.
-    ruleId :: Core.Text,
+    ruleId :: Prelude.Text,
     -- | A friendly name or description of the Rule. You can\'t change the name
     -- of a @Rule@ after you create it.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RuleSummary' with all optional fields omitted.
@@ -70,9 +71,9 @@ data RuleSummary = RuleSummary'
 -- of a @Rule@ after you create it.
 newRuleSummary ::
   -- | 'ruleId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   RuleSummary
 newRuleSummary pRuleId_ pName_ =
   RuleSummary' {ruleId = pRuleId_, name = pName_}
@@ -84,12 +85,12 @@ newRuleSummary pRuleId_ pName_ =
 -- DeleteRule).
 --
 -- @RuleId@ is returned by CreateRule and by ListRules.
-ruleSummary_ruleId :: Lens.Lens' RuleSummary Core.Text
+ruleSummary_ruleId :: Lens.Lens' RuleSummary Prelude.Text
 ruleSummary_ruleId = Lens.lens (\RuleSummary' {ruleId} -> ruleId) (\s@RuleSummary' {} a -> s {ruleId = a} :: RuleSummary)
 
 -- | A friendly name or description of the Rule. You can\'t change the name
 -- of a @Rule@ after you create it.
-ruleSummary_name :: Lens.Lens' RuleSummary Core.Text
+ruleSummary_name :: Lens.Lens' RuleSummary Prelude.Text
 ruleSummary_name = Lens.lens (\RuleSummary' {name} -> name) (\s@RuleSummary' {} a -> s {name = a} :: RuleSummary)
 
 instance Core.FromJSON RuleSummary where
@@ -98,9 +99,9 @@ instance Core.FromJSON RuleSummary where
       "RuleSummary"
       ( \x ->
           RuleSummary'
-            Core.<$> (x Core..: "RuleId") Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..: "RuleId") Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable RuleSummary
+instance Prelude.Hashable RuleSummary
 
-instance Core.NFData RuleSummary
+instance Prelude.NFData RuleSummary

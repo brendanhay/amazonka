@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelBiasJobInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 import Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input
 
@@ -32,7 +33,7 @@ data ModelBiasJobInput = ModelBiasJobInput'
     -- | Location of ground truth labels to use in model bias job.
     groundTruthS3Input :: MonitoringGroundTruthS3Input
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelBiasJobInput' with all optional fields omitted.
@@ -73,20 +74,21 @@ instance Core.FromJSON ModelBiasJobInput where
       "ModelBiasJobInput"
       ( \x ->
           ModelBiasJobInput'
-            Core.<$> (x Core..: "EndpointInput")
-            Core.<*> (x Core..: "GroundTruthS3Input")
+            Prelude.<$> (x Core..: "EndpointInput")
+            Prelude.<*> (x Core..: "GroundTruthS3Input")
       )
 
-instance Core.Hashable ModelBiasJobInput
+instance Prelude.Hashable ModelBiasJobInput
 
-instance Core.NFData ModelBiasJobInput
+instance Prelude.NFData ModelBiasJobInput
 
 instance Core.ToJSON ModelBiasJobInput where
   toJSON ModelBiasJobInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("EndpointInput" Core..= endpointInput),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("EndpointInput" Core..= endpointInput),
+            Prelude.Just
               ("GroundTruthS3Input" Core..= groundTruthS3Input)
           ]
       )

@@ -72,6 +72,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -86,7 +87,7 @@ data DescribeTags = DescribeTags'
     -- @environment@. If you specify both of these tag keys in the request,
     -- Amazon Redshift returns a response with all resources that have either
     -- or both of these tag keys associated with them.
-    tagKeys :: Core.Maybe [Core.Text],
+    tagKeys :: Prelude.Maybe [Prelude.Text],
     -- | The type of resource with which you want to view tags. Valid resource
     -- types are:
     --
@@ -114,32 +115,32 @@ data DescribeTags = DescribeTags'
     -- constructing ARNs, go to
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals>
     -- in the Amazon Redshift Cluster Management Guide.
-    resourceType :: Core.Maybe Core.Text,
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
     -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-    resourceName :: Core.Maybe Core.Text,
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | A tag value or values for which you want to return all matching
     -- resources that are associated with the specified value or values. For
     -- example, suppose that you have resources tagged with values called
     -- @admin@ and @test@. If you specify both of these tag values in the
     -- request, Amazon Redshift returns a response with all resources that have
     -- either or both of these tag values associated with them.
-    tagValues :: Core.Maybe [Core.Text],
+    tagValues :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @marker@ parameter and retrying the command. If the
     -- @marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number or response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
     -- retrieve the next set of records by retrying the command with the
     -- returned @marker@ value.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTags' with all optional fields omitted.
@@ -210,12 +211,12 @@ newDescribeTags ::
   DescribeTags
 newDescribeTags =
   DescribeTags'
-    { tagKeys = Core.Nothing,
-      resourceType = Core.Nothing,
-      resourceName = Core.Nothing,
-      tagValues = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+    { tagKeys = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
+      tagValues = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching resources
@@ -224,8 +225,8 @@ newDescribeTags =
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with all resources that have either
 -- or both of these tag keys associated with them.
-describeTags_tagKeys :: Lens.Lens' DescribeTags (Core.Maybe [Core.Text])
-describeTags_tagKeys = Lens.lens (\DescribeTags' {tagKeys} -> tagKeys) (\s@DescribeTags' {} a -> s {tagKeys = a} :: DescribeTags) Core.. Lens.mapping Lens._Coerce
+describeTags_tagKeys :: Lens.Lens' DescribeTags (Prelude.Maybe [Prelude.Text])
+describeTags_tagKeys = Lens.lens (\DescribeTags' {tagKeys} -> tagKeys) (\s@DescribeTags' {} a -> s {tagKeys = a} :: DescribeTags) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of resource with which you want to view tags. Valid resource
 -- types are:
@@ -254,12 +255,12 @@ describeTags_tagKeys = Lens.lens (\DescribeTags' {tagKeys} -> tagKeys) (\s@Descr
 -- constructing ARNs, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals>
 -- in the Amazon Redshift Cluster Management Guide.
-describeTags_resourceType :: Lens.Lens' DescribeTags (Core.Maybe Core.Text)
+describeTags_resourceType :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
 describeTags_resourceType = Lens.lens (\DescribeTags' {resourceType} -> resourceType) (\s@DescribeTags' {} a -> s {resourceType = a} :: DescribeTags)
 
 -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
 -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-describeTags_resourceName :: Lens.Lens' DescribeTags (Core.Maybe Core.Text)
+describeTags_resourceName :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
 describeTags_resourceName = Lens.lens (\DescribeTags' {resourceName} -> resourceName) (\s@DescribeTags' {} a -> s {resourceName = a} :: DescribeTags)
 
 -- | A tag value or values for which you want to return all matching
@@ -268,8 +269,8 @@ describeTags_resourceName = Lens.lens (\DescribeTags' {resourceName} -> resource
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
-describeTags_tagValues :: Lens.Lens' DescribeTags (Core.Maybe [Core.Text])
-describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s@DescribeTags' {} a -> s {tagValues = a} :: DescribeTags) Core.. Lens.mapping Lens._Coerce
+describeTags_tagValues :: Lens.Lens' DescribeTags (Prelude.Maybe [Prelude.Text])
+describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s@DescribeTags' {} a -> s {tagValues = a} :: DescribeTags) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -277,7 +278,7 @@ describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s
 -- marker value in the @marker@ parameter and retrying the command. If the
 -- @marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeTags_marker :: Lens.Lens' DescribeTags (Core.Maybe Core.Text)
+describeTags_marker :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
 describeTags_marker = Lens.lens (\DescribeTags' {marker} -> marker) (\s@DescribeTags' {} a -> s {marker = a} :: DescribeTags)
 
 -- | The maximum number or response records to return in each call. If the
@@ -285,28 +286,28 @@ describeTags_marker = Lens.lens (\DescribeTags' {marker} -> marker) (\s@Describe
 -- value, a value is returned in a @marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned @marker@ value.
-describeTags_maxRecords :: Lens.Lens' DescribeTags (Core.Maybe Core.Int)
+describeTags_maxRecords :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Int)
 describeTags_maxRecords = Lens.lens (\DescribeTags' {maxRecords} -> maxRecords) (\s@DescribeTags' {} a -> s {maxRecords = a} :: DescribeTags)
 
 instance Core.AWSPager DescribeTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeTagsResponse_marker Core.. Lens._Just
+            Lens.^? describeTagsResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTagsResponse_taggedResources
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeTags_marker
+          Prelude.& describeTags_marker
           Lens..~ rs
-          Lens.^? describeTagsResponse_marker Core.. Lens._Just
+          Lens.^? describeTagsResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -316,37 +317,38 @@ instance Core.AWSRequest DescribeTags where
       "DescribeTagsResult"
       ( \s h x ->
           DescribeTagsResponse'
-            Core.<$> ( x Core..@? "TaggedResources" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "TaggedResource")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "TaggedResources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "TaggedResource")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTags
+instance Prelude.Hashable DescribeTags
 
-instance Core.NFData DescribeTags
+instance Prelude.NFData DescribeTags
 
 instance Core.ToHeaders DescribeTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTags where
   toQuery DescribeTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTags" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DescribeTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "TagKeys"
           Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Core.<$> tagKeys),
+            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
         "ResourceType" Core.=: resourceType,
         "ResourceName" Core.=: resourceName,
         "TagValues"
           Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Core.<$> tagValues),
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
       ]
@@ -356,18 +358,18 @@ instance Core.ToQuery DescribeTags where
 -- /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
   { -- | A list of tags with their associated resources.
-    taggedResources :: Core.Maybe [TaggedResource],
+    taggedResources :: Prelude.Maybe [TaggedResource],
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTagsResponse' with all optional fields omitted.
@@ -389,19 +391,19 @@ data DescribeTagsResponse = DescribeTagsResponse'
 -- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
 newDescribeTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTagsResponse
 newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
     { taggedResources =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of tags with their associated resources.
-describeTagsResponse_taggedResources :: Lens.Lens' DescribeTagsResponse (Core.Maybe [TaggedResource])
-describeTagsResponse_taggedResources = Lens.lens (\DescribeTagsResponse' {taggedResources} -> taggedResources) (\s@DescribeTagsResponse' {} a -> s {taggedResources = a} :: DescribeTagsResponse) Core.. Lens.mapping Lens._Coerce
+describeTagsResponse_taggedResources :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [TaggedResource])
+describeTagsResponse_taggedResources = Lens.lens (\DescribeTagsResponse' {taggedResources} -> taggedResources) (\s@DescribeTagsResponse' {} a -> s {taggedResources = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -409,11 +411,11 @@ describeTagsResponse_taggedResources = Lens.lens (\DescribeTagsResponse' {tagged
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-describeTagsResponse_marker :: Lens.Lens' DescribeTagsResponse (Core.Maybe Core.Text)
+describeTagsResponse_marker :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe Prelude.Text)
 describeTagsResponse_marker = Lens.lens (\DescribeTagsResponse' {marker} -> marker) (\s@DescribeTagsResponse' {} a -> s {marker = a} :: DescribeTagsResponse)
 
 -- | The response's http status code.
-describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Core.Int
+describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
 describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
 
-instance Core.NFData DescribeTagsResponse
+instance Prelude.NFData DescribeTagsResponse

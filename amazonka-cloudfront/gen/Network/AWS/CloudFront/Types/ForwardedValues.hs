@@ -24,6 +24,7 @@ import Network.AWS.CloudFront.Types.Headers
 import Network.AWS.CloudFront.Types.QueryStringCacheKeys
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
 -- origin request policy instead of this field.
@@ -59,7 +60,7 @@ data ForwardedValues = ForwardedValues'
     -- A complex type that contains information about the query string
     -- parameters that you want CloudFront to use for caching for this cache
     -- behavior.
-    queryStringCacheKeys :: Core.Maybe QueryStringCacheKeys,
+    queryStringCacheKeys :: Prelude.Maybe QueryStringCacheKeys,
     -- | This field is deprecated. We recommend that you use a cache policy or an
     -- origin request policy instead of this field.
     --
@@ -82,7 +83,7 @@ data ForwardedValues = ForwardedValues'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html Caching Content Based on Request Headers>
     -- in the /Amazon CloudFront Developer Guide/.
-    headers :: Core.Maybe Headers,
+    headers :: Prelude.Maybe Headers,
     -- | This field is deprecated. We recommend that you use a cache policy or an
     -- origin request policy instead of this field.
     --
@@ -121,7 +122,7 @@ data ForwardedValues = ForwardedValues'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html Configuring CloudFront to Cache Based on Query String Parameters>
     -- in the /Amazon CloudFront Developer Guide/.
-    queryString :: Core.Bool,
+    queryString :: Prelude.Bool,
     -- | This field is deprecated. We recommend that you use a cache policy or an
     -- origin request policy instead of this field.
     --
@@ -142,7 +143,7 @@ data ForwardedValues = ForwardedValues'
     -- in the /Amazon CloudFront Developer Guide/.
     cookies :: CookiePreference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ForwardedValues' with all optional fields omitted.
@@ -251,15 +252,15 @@ data ForwardedValues = ForwardedValues'
 -- in the /Amazon CloudFront Developer Guide/.
 newForwardedValues ::
   -- | 'queryString'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'cookies'
   CookiePreference ->
   ForwardedValues
 newForwardedValues pQueryString_ pCookies_ =
   ForwardedValues'
     { queryStringCacheKeys =
-        Core.Nothing,
-      headers = Core.Nothing,
+        Prelude.Nothing,
+      headers = Prelude.Nothing,
       queryString = pQueryString_,
       cookies = pCookies_
     }
@@ -280,7 +281,7 @@ newForwardedValues pQueryString_ pCookies_ =
 -- A complex type that contains information about the query string
 -- parameters that you want CloudFront to use for caching for this cache
 -- behavior.
-forwardedValues_queryStringCacheKeys :: Lens.Lens' ForwardedValues (Core.Maybe QueryStringCacheKeys)
+forwardedValues_queryStringCacheKeys :: Lens.Lens' ForwardedValues (Prelude.Maybe QueryStringCacheKeys)
 forwardedValues_queryStringCacheKeys = Lens.lens (\ForwardedValues' {queryStringCacheKeys} -> queryStringCacheKeys) (\s@ForwardedValues' {} a -> s {queryStringCacheKeys = a} :: ForwardedValues)
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
@@ -305,7 +306,7 @@ forwardedValues_queryStringCacheKeys = Lens.lens (\ForwardedValues' {queryString
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html Caching Content Based on Request Headers>
 -- in the /Amazon CloudFront Developer Guide/.
-forwardedValues_headers :: Lens.Lens' ForwardedValues (Core.Maybe Headers)
+forwardedValues_headers :: Lens.Lens' ForwardedValues (Prelude.Maybe Headers)
 forwardedValues_headers = Lens.lens (\ForwardedValues' {headers} -> headers) (\s@ForwardedValues' {} a -> s {headers = a} :: ForwardedValues)
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
@@ -346,7 +347,7 @@ forwardedValues_headers = Lens.lens (\ForwardedValues' {headers} -> headers) (\s
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html Configuring CloudFront to Cache Based on Query String Parameters>
 -- in the /Amazon CloudFront Developer Guide/.
-forwardedValues_queryString :: Lens.Lens' ForwardedValues Core.Bool
+forwardedValues_queryString :: Lens.Lens' ForwardedValues Prelude.Bool
 forwardedValues_queryString = Lens.lens (\ForwardedValues' {queryString} -> queryString) (\s@ForwardedValues' {} a -> s {queryString = a} :: ForwardedValues)
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
@@ -373,18 +374,18 @@ forwardedValues_cookies = Lens.lens (\ForwardedValues' {cookies} -> cookies) (\s
 instance Core.FromXML ForwardedValues where
   parseXML x =
     ForwardedValues'
-      Core.<$> (x Core..@? "QueryStringCacheKeys")
-      Core.<*> (x Core..@? "Headers")
-      Core.<*> (x Core..@ "QueryString")
-      Core.<*> (x Core..@ "Cookies")
+      Prelude.<$> (x Core..@? "QueryStringCacheKeys")
+      Prelude.<*> (x Core..@? "Headers")
+      Prelude.<*> (x Core..@ "QueryString")
+      Prelude.<*> (x Core..@ "Cookies")
 
-instance Core.Hashable ForwardedValues
+instance Prelude.Hashable ForwardedValues
 
-instance Core.NFData ForwardedValues
+instance Prelude.NFData ForwardedValues
 
 instance Core.ToXML ForwardedValues where
   toXML ForwardedValues' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "QueryStringCacheKeys" Core.@= queryStringCacheKeys,
         "Headers" Core.@= headers,
         "QueryString" Core.@= queryString,

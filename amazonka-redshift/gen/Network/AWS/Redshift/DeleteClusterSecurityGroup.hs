@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,9 +54,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteClusterSecurityGroup' smart constructor.
 data DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
   { -- | The name of the cluster security group to be deleted.
-    clusterSecurityGroupName :: Core.Text
+    clusterSecurityGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterSecurityGroup' with all optional fields omitted.
@@ -68,7 +69,7 @@ data DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
 -- 'clusterSecurityGroupName', 'deleteClusterSecurityGroup_clusterSecurityGroupName' - The name of the cluster security group to be deleted.
 newDeleteClusterSecurityGroup ::
   -- | 'clusterSecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteClusterSecurityGroup
 newDeleteClusterSecurityGroup
   pClusterSecurityGroupName_ =
@@ -78,7 +79,7 @@ newDeleteClusterSecurityGroup
       }
 
 -- | The name of the cluster security group to be deleted.
-deleteClusterSecurityGroup_clusterSecurityGroupName :: Lens.Lens' DeleteClusterSecurityGroup Core.Text
+deleteClusterSecurityGroup_clusterSecurityGroupName :: Lens.Lens' DeleteClusterSecurityGroup Prelude.Text
 deleteClusterSecurityGroup_clusterSecurityGroupName = Lens.lens (\DeleteClusterSecurityGroup' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@DeleteClusterSecurityGroup' {} a -> s {clusterSecurityGroupName = a} :: DeleteClusterSecurityGroup)
 
 instance Core.AWSRequest DeleteClusterSecurityGroup where
@@ -90,22 +91,23 @@ instance Core.AWSRequest DeleteClusterSecurityGroup where
     Response.receiveNull
       DeleteClusterSecurityGroupResponse'
 
-instance Core.Hashable DeleteClusterSecurityGroup
+instance Prelude.Hashable DeleteClusterSecurityGroup
 
-instance Core.NFData DeleteClusterSecurityGroup
+instance Prelude.NFData DeleteClusterSecurityGroup
 
 instance Core.ToHeaders DeleteClusterSecurityGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteClusterSecurityGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteClusterSecurityGroup where
   toQuery DeleteClusterSecurityGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteClusterSecurityGroup" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DeleteClusterSecurityGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterSecurityGroupName"
           Core.=: clusterSecurityGroupName
       ]
@@ -114,7 +116,7 @@ instance Core.ToQuery DeleteClusterSecurityGroup where
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterSecurityGroupResponse' with all optional fields omitted.
@@ -126,5 +128,5 @@ newDeleteClusterSecurityGroupResponse =
   DeleteClusterSecurityGroupResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteClusterSecurityGroupResponse

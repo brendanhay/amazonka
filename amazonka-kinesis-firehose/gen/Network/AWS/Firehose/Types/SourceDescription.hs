@@ -22,6 +22,7 @@ module Network.AWS.Firehose.Types.SourceDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.KinesisStreamSourceDescription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about a Kinesis data stream used as the source for a Kinesis
 -- Data Firehose delivery stream.
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data SourceDescription = SourceDescription'
   { -- | The KinesisStreamSourceDescription value for the source Kinesis data
     -- stream.
-    kinesisStreamSourceDescription :: Core.Maybe KinesisStreamSourceDescription
+    kinesisStreamSourceDescription :: Prelude.Maybe KinesisStreamSourceDescription
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceDescription' with all optional fields omitted.
@@ -49,12 +50,12 @@ newSourceDescription ::
 newSourceDescription =
   SourceDescription'
     { kinesisStreamSourceDescription =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The KinesisStreamSourceDescription value for the source Kinesis data
 -- stream.
-sourceDescription_kinesisStreamSourceDescription :: Lens.Lens' SourceDescription (Core.Maybe KinesisStreamSourceDescription)
+sourceDescription_kinesisStreamSourceDescription :: Lens.Lens' SourceDescription (Prelude.Maybe KinesisStreamSourceDescription)
 sourceDescription_kinesisStreamSourceDescription = Lens.lens (\SourceDescription' {kinesisStreamSourceDescription} -> kinesisStreamSourceDescription) (\s@SourceDescription' {} a -> s {kinesisStreamSourceDescription = a} :: SourceDescription)
 
 instance Core.FromJSON SourceDescription where
@@ -63,9 +64,9 @@ instance Core.FromJSON SourceDescription where
       "SourceDescription"
       ( \x ->
           SourceDescription'
-            Core.<$> (x Core..:? "KinesisStreamSourceDescription")
+            Prelude.<$> (x Core..:? "KinesisStreamSourceDescription")
       )
 
-instance Core.Hashable SourceDescription
+instance Prelude.Hashable SourceDescription
 
-instance Core.NFData SourceDescription
+instance Prelude.NFData SourceDescription

@@ -21,6 +21,7 @@ module Network.AWS.Firehose.Types.BufferingHints where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes hints for the buffering to perform before delivering data to
 -- the destination. These options are treated as hints, and therefore
@@ -40,14 +41,14 @@ data BufferingHints = BufferingHints'
     -- of data you typically ingest into the delivery stream in 10 seconds. For
     -- example, if you typically ingest data at 1 MiB\/sec, the value should be
     -- 10 MiB or higher.
-    sizeInMBs :: Core.Maybe Core.Natural,
+    sizeInMBs :: Prelude.Maybe Prelude.Natural,
     -- | Buffer incoming data for the specified period of time, in seconds,
     -- before delivering it to the destination. The default value is 300. This
     -- parameter is optional but if you specify a value for it, you must also
     -- specify a value for @SizeInMBs@, and vice versa.
-    intervalInSeconds :: Core.Maybe Core.Natural
+    intervalInSeconds :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BufferingHints' with all optional fields omitted.
@@ -75,8 +76,8 @@ newBufferingHints ::
   BufferingHints
 newBufferingHints =
   BufferingHints'
-    { sizeInMBs = Core.Nothing,
-      intervalInSeconds = Core.Nothing
+    { sizeInMBs = Prelude.Nothing,
+      intervalInSeconds = Prelude.Nothing
     }
 
 -- | Buffer incoming data to the specified size, in MiBs, before delivering
@@ -88,14 +89,14 @@ newBufferingHints =
 -- of data you typically ingest into the delivery stream in 10 seconds. For
 -- example, if you typically ingest data at 1 MiB\/sec, the value should be
 -- 10 MiB or higher.
-bufferingHints_sizeInMBs :: Lens.Lens' BufferingHints (Core.Maybe Core.Natural)
+bufferingHints_sizeInMBs :: Lens.Lens' BufferingHints (Prelude.Maybe Prelude.Natural)
 bufferingHints_sizeInMBs = Lens.lens (\BufferingHints' {sizeInMBs} -> sizeInMBs) (\s@BufferingHints' {} a -> s {sizeInMBs = a} :: BufferingHints)
 
 -- | Buffer incoming data for the specified period of time, in seconds,
 -- before delivering it to the destination. The default value is 300. This
 -- parameter is optional but if you specify a value for it, you must also
 -- specify a value for @SizeInMBs@, and vice versa.
-bufferingHints_intervalInSeconds :: Lens.Lens' BufferingHints (Core.Maybe Core.Natural)
+bufferingHints_intervalInSeconds :: Lens.Lens' BufferingHints (Prelude.Maybe Prelude.Natural)
 bufferingHints_intervalInSeconds = Lens.lens (\BufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@BufferingHints' {} a -> s {intervalInSeconds = a} :: BufferingHints)
 
 instance Core.FromJSON BufferingHints where
@@ -104,20 +105,20 @@ instance Core.FromJSON BufferingHints where
       "BufferingHints"
       ( \x ->
           BufferingHints'
-            Core.<$> (x Core..:? "SizeInMBs")
-            Core.<*> (x Core..:? "IntervalInSeconds")
+            Prelude.<$> (x Core..:? "SizeInMBs")
+            Prelude.<*> (x Core..:? "IntervalInSeconds")
       )
 
-instance Core.Hashable BufferingHints
+instance Prelude.Hashable BufferingHints
 
-instance Core.NFData BufferingHints
+instance Prelude.NFData BufferingHints
 
 instance Core.ToJSON BufferingHints where
   toJSON BufferingHints' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SizeInMBs" Core..=) Core.<$> sizeInMBs,
+      ( Prelude.catMaybes
+          [ ("SizeInMBs" Core..=) Prelude.<$> sizeInMBs,
             ("IntervalInSeconds" Core..=)
-              Core.<$> intervalInSeconds
+              Prelude.<$> intervalInSeconds
           ]
       )

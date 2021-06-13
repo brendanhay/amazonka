@@ -21,6 +21,7 @@ import Network.AWS.ECR.GetLifecyclePolicyPreview
 import Network.AWS.ECR.Lens
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.ECR.DescribeImageScanFindings' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageScanComplete :: Core.Wait DescribeImageScanFindings
@@ -34,19 +35,19 @@ newImageScanComplete =
             "COMPLETE"
             Core.AcceptSuccess
             ( describeImageScanFindingsResponse_imageScanStatus
-                Core.. Lens._Just
-                Core.. imageScanStatus_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. imageScanStatus_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeImageScanFindingsResponse_imageScanStatus
-                Core.. Lens._Just
-                Core.. imageScanStatus_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. imageScanStatus_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -64,15 +65,15 @@ newLifecyclePolicyPreviewComplete =
             "COMPLETE"
             Core.AcceptSuccess
             ( getLifecyclePolicyPreviewResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( getLifecyclePolicyPreviewResponse_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

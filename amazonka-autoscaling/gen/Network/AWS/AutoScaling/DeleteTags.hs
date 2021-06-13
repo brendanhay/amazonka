@@ -38,6 +38,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,7 +47,7 @@ data DeleteTags = DeleteTags'
   { -- | One or more tags.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTags' with all optional fields omitted.
@@ -59,32 +60,34 @@ data DeleteTags = DeleteTags'
 -- 'tags', 'deleteTags_tags' - One or more tags.
 newDeleteTags ::
   DeleteTags
-newDeleteTags = DeleteTags' {tags = Core.mempty}
+newDeleteTags = DeleteTags' {tags = Prelude.mempty}
 
 -- | One or more tags.
 deleteTags_tags :: Lens.Lens' DeleteTags [Tag]
-deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Core.. Lens._Coerce
+deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteTagsResponse'
 
-instance Core.Hashable DeleteTags
+instance Prelude.Hashable DeleteTags
 
-instance Core.NFData DeleteTags
+instance Prelude.NFData DeleteTags
 
 instance Core.ToHeaders DeleteTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("DeleteTags" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
@@ -92,7 +95,7 @@ instance Core.ToQuery DeleteTags where
 data DeleteTagsResponse = DeleteTagsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsResponse' with all optional fields omitted.
@@ -102,4 +105,4 @@ newDeleteTagsResponse ::
   DeleteTagsResponse
 newDeleteTagsResponse = DeleteTagsResponse'
 
-instance Core.NFData DeleteTagsResponse
+instance Prelude.NFData DeleteTagsResponse

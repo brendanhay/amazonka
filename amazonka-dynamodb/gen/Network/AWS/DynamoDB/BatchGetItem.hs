@@ -101,6 +101,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -108,7 +109,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newBatchGetItem' smart constructor.
 data BatchGetItem = BatchGetItem'
-  { returnConsumedCapacity :: Core.Maybe ReturnConsumedCapacity,
+  { returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | A map of one or more table names and, for each table, a map that
     -- describes one or more items to retrieve from that table. Each table name
     -- can be used only once per @BatchGetItem@ request.
@@ -181,9 +182,9 @@ data BatchGetItem = BatchGetItem'
     --     @ProjectionExpression@ instead. For more information, see
     --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
     --     in the /Amazon DynamoDB Developer Guide/.
-    requestItems :: Core.HashMap Core.Text KeysAndAttributes
+    requestItems :: Prelude.HashMap Prelude.Text KeysAndAttributes
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetItem' with all optional fields omitted.
@@ -272,12 +273,12 @@ newBatchGetItem ::
 newBatchGetItem =
   BatchGetItem'
     { returnConsumedCapacity =
-        Core.Nothing,
-      requestItems = Core.mempty
+        Prelude.Nothing,
+      requestItems = Prelude.mempty
     }
 
 -- | Undocumented member.
-batchGetItem_returnConsumedCapacity :: Lens.Lens' BatchGetItem (Core.Maybe ReturnConsumedCapacity)
+batchGetItem_returnConsumedCapacity :: Lens.Lens' BatchGetItem (Prelude.Maybe ReturnConsumedCapacity)
 batchGetItem_returnConsumedCapacity = Lens.lens (\BatchGetItem' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@BatchGetItem' {} a -> s {returnConsumedCapacity = a} :: BatchGetItem)
 
 -- | A map of one or more table names and, for each table, a map that
@@ -352,8 +353,8 @@ batchGetItem_returnConsumedCapacity = Lens.lens (\BatchGetItem' {returnConsumedC
 --     @ProjectionExpression@ instead. For more information, see
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
 --     in the /Amazon DynamoDB Developer Guide/.
-batchGetItem_requestItems :: Lens.Lens' BatchGetItem (Core.HashMap Core.Text KeysAndAttributes)
-batchGetItem_requestItems = Lens.lens (\BatchGetItem' {requestItems} -> requestItems) (\s@BatchGetItem' {} a -> s {requestItems = a} :: BatchGetItem) Core.. Lens._Coerce
+batchGetItem_requestItems :: Lens.Lens' BatchGetItem (Prelude.HashMap Prelude.Text KeysAndAttributes)
+batchGetItem_requestItems = Lens.lens (\BatchGetItem' {requestItems} -> requestItems) (\s@BatchGetItem' {} a -> s {requestItems = a} :: BatchGetItem) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetItem where
   type AWSResponse BatchGetItem = BatchGetItemResponse
@@ -362,44 +363,50 @@ instance Core.AWSRequest BatchGetItem where
     Response.receiveJSON
       ( \s h x ->
           BatchGetItemResponse'
-            Core.<$> (x Core..?> "UnprocessedKeys" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ConsumedCapacity" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Responses" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "UnprocessedKeys"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "ConsumedCapacity"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Responses" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetItem
+instance Prelude.Hashable BatchGetItem
 
-instance Core.NFData BatchGetItem
+instance Prelude.NFData BatchGetItem
 
 instance Core.ToHeaders BatchGetItem where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.BatchGetItem" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetItem where
   toJSON BatchGetItem' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReturnConsumedCapacity" Core..=)
-              Core.<$> returnConsumedCapacity,
-            Core.Just ("RequestItems" Core..= requestItems)
+              Prelude.<$> returnConsumedCapacity,
+            Prelude.Just ("RequestItems" Core..= requestItems)
           ]
       )
 
 instance Core.ToPath BatchGetItem where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetItem where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @BatchGetItem@ operation.
 --
@@ -426,7 +433,7 @@ data BatchGetItemResponse = BatchGetItemResponse'
     --
     -- If there are no unprocessed keys remaining, the response contains an
     -- empty @UnprocessedKeys@ map.
-    unprocessedKeys :: Core.Maybe (Core.HashMap Core.Text KeysAndAttributes),
+    unprocessedKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text KeysAndAttributes),
     -- | The read capacity units consumed by the entire @BatchGetItem@ operation.
     --
     -- Each element consists of:
@@ -434,15 +441,15 @@ data BatchGetItemResponse = BatchGetItemResponse'
     -- -   @TableName@ - The table that consumed the provisioned throughput.
     --
     -- -   @CapacityUnits@ - The total number of capacity units consumed.
-    consumedCapacity :: Core.Maybe [ConsumedCapacity],
+    consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
     -- | A map of table name to a list of items. Each object in @Responses@
     -- consists of a table name, along with a map of attribute data consisting
     -- of the data type and attribute value.
-    responses :: Core.Maybe (Core.HashMap Core.Text [Core.HashMap Core.Text AttributeValue]),
+    responses :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.HashMap Prelude.Text AttributeValue]),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetItemResponse' with all optional fields omitted.
@@ -489,14 +496,14 @@ data BatchGetItemResponse = BatchGetItemResponse'
 -- 'httpStatus', 'batchGetItemResponse_httpStatus' - The response's http status code.
 newBatchGetItemResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetItemResponse
 newBatchGetItemResponse pHttpStatus_ =
   BatchGetItemResponse'
     { unprocessedKeys =
-        Core.Nothing,
-      consumedCapacity = Core.Nothing,
-      responses = Core.Nothing,
+        Prelude.Nothing,
+      consumedCapacity = Prelude.Nothing,
+      responses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -521,8 +528,8 @@ newBatchGetItemResponse pHttpStatus_ =
 --
 -- If there are no unprocessed keys remaining, the response contains an
 -- empty @UnprocessedKeys@ map.
-batchGetItemResponse_unprocessedKeys :: Lens.Lens' BatchGetItemResponse (Core.Maybe (Core.HashMap Core.Text KeysAndAttributes))
-batchGetItemResponse_unprocessedKeys = Lens.lens (\BatchGetItemResponse' {unprocessedKeys} -> unprocessedKeys) (\s@BatchGetItemResponse' {} a -> s {unprocessedKeys = a} :: BatchGetItemResponse) Core.. Lens.mapping Lens._Coerce
+batchGetItemResponse_unprocessedKeys :: Lens.Lens' BatchGetItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text KeysAndAttributes))
+batchGetItemResponse_unprocessedKeys = Lens.lens (\BatchGetItemResponse' {unprocessedKeys} -> unprocessedKeys) (\s@BatchGetItemResponse' {} a -> s {unprocessedKeys = a} :: BatchGetItemResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The read capacity units consumed by the entire @BatchGetItem@ operation.
 --
@@ -531,17 +538,17 @@ batchGetItemResponse_unprocessedKeys = Lens.lens (\BatchGetItemResponse' {unproc
 -- -   @TableName@ - The table that consumed the provisioned throughput.
 --
 -- -   @CapacityUnits@ - The total number of capacity units consumed.
-batchGetItemResponse_consumedCapacity :: Lens.Lens' BatchGetItemResponse (Core.Maybe [ConsumedCapacity])
-batchGetItemResponse_consumedCapacity = Lens.lens (\BatchGetItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchGetItemResponse' {} a -> s {consumedCapacity = a} :: BatchGetItemResponse) Core.. Lens.mapping Lens._Coerce
+batchGetItemResponse_consumedCapacity :: Lens.Lens' BatchGetItemResponse (Prelude.Maybe [ConsumedCapacity])
+batchGetItemResponse_consumedCapacity = Lens.lens (\BatchGetItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchGetItemResponse' {} a -> s {consumedCapacity = a} :: BatchGetItemResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A map of table name to a list of items. Each object in @Responses@
 -- consists of a table name, along with a map of attribute data consisting
 -- of the data type and attribute value.
-batchGetItemResponse_responses :: Lens.Lens' BatchGetItemResponse (Core.Maybe (Core.HashMap Core.Text [Core.HashMap Core.Text AttributeValue]))
-batchGetItemResponse_responses = Lens.lens (\BatchGetItemResponse' {responses} -> responses) (\s@BatchGetItemResponse' {} a -> s {responses = a} :: BatchGetItemResponse) Core.. Lens.mapping Lens._Coerce
+batchGetItemResponse_responses :: Lens.Lens' BatchGetItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.HashMap Prelude.Text AttributeValue]))
+batchGetItemResponse_responses = Lens.lens (\BatchGetItemResponse' {responses} -> responses) (\s@BatchGetItemResponse' {} a -> s {responses = a} :: BatchGetItemResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetItemResponse_httpStatus :: Lens.Lens' BatchGetItemResponse Core.Int
+batchGetItemResponse_httpStatus :: Lens.Lens' BatchGetItemResponse Prelude.Int
 batchGetItemResponse_httpStatus = Lens.lens (\BatchGetItemResponse' {httpStatus} -> httpStatus) (\s@BatchGetItemResponse' {} a -> s {httpStatus = a} :: BatchGetItemResponse)
 
-instance Core.NFData BatchGetItemResponse
+instance Prelude.NFData BatchGetItemResponse

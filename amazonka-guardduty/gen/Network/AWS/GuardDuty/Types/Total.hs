@@ -21,6 +21,7 @@ module Network.AWS.GuardDuty.Types.Total where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the total usage with the corresponding currency unit for that
 -- value.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTotal' smart constructor.
 data Total = Total'
   { -- | The total usage.
-    amount :: Core.Maybe Core.Text,
+    amount :: Prelude.Maybe Prelude.Text,
     -- | The currency unit that the amount is given in.
-    unit :: Core.Maybe Core.Text
+    unit :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Total' with all optional fields omitted.
@@ -48,14 +49,17 @@ data Total = Total'
 newTotal ::
   Total
 newTotal =
-  Total' {amount = Core.Nothing, unit = Core.Nothing}
+  Total'
+    { amount = Prelude.Nothing,
+      unit = Prelude.Nothing
+    }
 
 -- | The total usage.
-total_amount :: Lens.Lens' Total (Core.Maybe Core.Text)
+total_amount :: Lens.Lens' Total (Prelude.Maybe Prelude.Text)
 total_amount = Lens.lens (\Total' {amount} -> amount) (\s@Total' {} a -> s {amount = a} :: Total)
 
 -- | The currency unit that the amount is given in.
-total_unit :: Lens.Lens' Total (Core.Maybe Core.Text)
+total_unit :: Lens.Lens' Total (Prelude.Maybe Prelude.Text)
 total_unit = Lens.lens (\Total' {unit} -> unit) (\s@Total' {} a -> s {unit = a} :: Total)
 
 instance Core.FromJSON Total where
@@ -64,9 +68,10 @@ instance Core.FromJSON Total where
       "Total"
       ( \x ->
           Total'
-            Core.<$> (x Core..:? "amount") Core.<*> (x Core..:? "unit")
+            Prelude.<$> (x Core..:? "amount")
+            Prelude.<*> (x Core..:? "unit")
       )
 
-instance Core.Hashable Total
+instance Prelude.Hashable Total
 
-instance Core.NFData Total
+instance Prelude.NFData Total

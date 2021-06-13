@@ -84,6 +84,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -91,9 +92,9 @@ import qualified Network.AWS.Response as Response
 data DisconnectCustomKeyStore = DisconnectCustomKeyStore'
   { -- | Enter the ID of the custom key store you want to disconnect. To find the
     -- ID of a custom key store, use the DescribeCustomKeyStores operation.
-    customKeyStoreId :: Core.Text
+    customKeyStoreId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisconnectCustomKeyStore' with all optional fields omitted.
@@ -107,7 +108,7 @@ data DisconnectCustomKeyStore = DisconnectCustomKeyStore'
 -- ID of a custom key store, use the DescribeCustomKeyStores operation.
 newDisconnectCustomKeyStore ::
   -- | 'customKeyStoreId'
-  Core.Text ->
+  Prelude.Text ->
   DisconnectCustomKeyStore
 newDisconnectCustomKeyStore pCustomKeyStoreId_ =
   DisconnectCustomKeyStore'
@@ -117,7 +118,7 @@ newDisconnectCustomKeyStore pCustomKeyStoreId_ =
 
 -- | Enter the ID of the custom key store you want to disconnect. To find the
 -- ID of a custom key store, use the DescribeCustomKeyStores operation.
-disconnectCustomKeyStore_customKeyStoreId :: Lens.Lens' DisconnectCustomKeyStore Core.Text
+disconnectCustomKeyStore_customKeyStoreId :: Lens.Lens' DisconnectCustomKeyStore Prelude.Text
 disconnectCustomKeyStore_customKeyStoreId = Lens.lens (\DisconnectCustomKeyStore' {customKeyStoreId} -> customKeyStoreId) (\s@DisconnectCustomKeyStore' {} a -> s {customKeyStoreId = a} :: DisconnectCustomKeyStore)
 
 instance Core.AWSRequest DisconnectCustomKeyStore where
@@ -129,47 +130,49 @@ instance Core.AWSRequest DisconnectCustomKeyStore where
     Response.receiveEmpty
       ( \s h x ->
           DisconnectCustomKeyStoreResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisconnectCustomKeyStore
+instance Prelude.Hashable DisconnectCustomKeyStore
 
-instance Core.NFData DisconnectCustomKeyStore
+instance Prelude.NFData DisconnectCustomKeyStore
 
 instance Core.ToHeaders DisconnectCustomKeyStore where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.DisconnectCustomKeyStore" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisconnectCustomKeyStore where
   toJSON DisconnectCustomKeyStore' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CustomKeyStoreId" Core..= customKeyStoreId)
           ]
       )
 
 instance Core.ToPath DisconnectCustomKeyStore where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisconnectCustomKeyStore where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisconnectCustomKeyStoreResponse' smart constructor.
 data DisconnectCustomKeyStoreResponse = DisconnectCustomKeyStoreResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisconnectCustomKeyStoreResponse' with all optional fields omitted.
@@ -182,7 +185,7 @@ data DisconnectCustomKeyStoreResponse = DisconnectCustomKeyStoreResponse'
 -- 'httpStatus', 'disconnectCustomKeyStoreResponse_httpStatus' - The response's http status code.
 newDisconnectCustomKeyStoreResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisconnectCustomKeyStoreResponse
 newDisconnectCustomKeyStoreResponse pHttpStatus_ =
   DisconnectCustomKeyStoreResponse'
@@ -191,7 +194,9 @@ newDisconnectCustomKeyStoreResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disconnectCustomKeyStoreResponse_httpStatus :: Lens.Lens' DisconnectCustomKeyStoreResponse Core.Int
+disconnectCustomKeyStoreResponse_httpStatus :: Lens.Lens' DisconnectCustomKeyStoreResponse Prelude.Int
 disconnectCustomKeyStoreResponse_httpStatus = Lens.lens (\DisconnectCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@DisconnectCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: DisconnectCustomKeyStoreResponse)
 
-instance Core.NFData DisconnectCustomKeyStoreResponse
+instance
+  Prelude.NFData
+    DisconnectCustomKeyStoreResponse

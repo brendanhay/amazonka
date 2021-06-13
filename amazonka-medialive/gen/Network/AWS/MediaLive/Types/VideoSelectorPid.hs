@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.VideoSelectorPid where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Video Selector Pid
 --
 -- /See:/ 'newVideoSelectorPid' smart constructor.
 data VideoSelectorPid = VideoSelectorPid'
   { -- | Selects a specific PID from within a video source.
-    pid :: Core.Maybe Core.Natural
+    pid :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VideoSelectorPid' with all optional fields omitted.
@@ -43,10 +44,10 @@ data VideoSelectorPid = VideoSelectorPid'
 newVideoSelectorPid ::
   VideoSelectorPid
 newVideoSelectorPid =
-  VideoSelectorPid' {pid = Core.Nothing}
+  VideoSelectorPid' {pid = Prelude.Nothing}
 
 -- | Selects a specific PID from within a video source.
-videoSelectorPid_pid :: Lens.Lens' VideoSelectorPid (Core.Maybe Core.Natural)
+videoSelectorPid_pid :: Lens.Lens' VideoSelectorPid (Prelude.Maybe Prelude.Natural)
 videoSelectorPid_pid = Lens.lens (\VideoSelectorPid' {pid} -> pid) (\s@VideoSelectorPid' {} a -> s {pid = a} :: VideoSelectorPid)
 
 instance Core.FromJSON VideoSelectorPid where
@@ -54,14 +55,14 @@ instance Core.FromJSON VideoSelectorPid where
     Core.withObject
       "VideoSelectorPid"
       ( \x ->
-          VideoSelectorPid' Core.<$> (x Core..:? "pid")
+          VideoSelectorPid' Prelude.<$> (x Core..:? "pid")
       )
 
-instance Core.Hashable VideoSelectorPid
+instance Prelude.Hashable VideoSelectorPid
 
-instance Core.NFData VideoSelectorPid
+instance Prelude.NFData VideoSelectorPid
 
 instance Core.ToJSON VideoSelectorPid where
   toJSON VideoSelectorPid' {..} =
     Core.object
-      (Core.catMaybes [("pid" Core..=) Core.<$> pid])
+      (Prelude.catMaybes [("pid" Core..=) Prelude.<$> pid])

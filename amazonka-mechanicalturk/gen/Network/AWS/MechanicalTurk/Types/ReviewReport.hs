@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.ReviewActionDetail
 import Network.AWS.MechanicalTurk.Types.ReviewResultDetail
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains both ReviewResult and ReviewAction elements for a particular
 -- HIT.
@@ -31,12 +32,12 @@ import Network.AWS.MechanicalTurk.Types.ReviewResultDetail
 data ReviewReport = ReviewReport'
   { -- | A list of ReviewAction objects for each action specified in the Review
     -- Policy.
-    reviewActions :: Core.Maybe [ReviewActionDetail],
+    reviewActions :: Prelude.Maybe [ReviewActionDetail],
     -- | A list of ReviewResults objects for each action specified in the Review
     -- Policy.
-    reviewResults :: Core.Maybe [ReviewResultDetail]
+    reviewResults :: Prelude.Maybe [ReviewResultDetail]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReviewReport' with all optional fields omitted.
@@ -55,19 +56,19 @@ newReviewReport ::
   ReviewReport
 newReviewReport =
   ReviewReport'
-    { reviewActions = Core.Nothing,
-      reviewResults = Core.Nothing
+    { reviewActions = Prelude.Nothing,
+      reviewResults = Prelude.Nothing
     }
 
 -- | A list of ReviewAction objects for each action specified in the Review
 -- Policy.
-reviewReport_reviewActions :: Lens.Lens' ReviewReport (Core.Maybe [ReviewActionDetail])
-reviewReport_reviewActions = Lens.lens (\ReviewReport' {reviewActions} -> reviewActions) (\s@ReviewReport' {} a -> s {reviewActions = a} :: ReviewReport) Core.. Lens.mapping Lens._Coerce
+reviewReport_reviewActions :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewActionDetail])
+reviewReport_reviewActions = Lens.lens (\ReviewReport' {reviewActions} -> reviewActions) (\s@ReviewReport' {} a -> s {reviewActions = a} :: ReviewReport) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of ReviewResults objects for each action specified in the Review
 -- Policy.
-reviewReport_reviewResults :: Lens.Lens' ReviewReport (Core.Maybe [ReviewResultDetail])
-reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> reviewResults) (\s@ReviewReport' {} a -> s {reviewResults = a} :: ReviewReport) Core.. Lens.mapping Lens._Coerce
+reviewReport_reviewResults :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewResultDetail])
+reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> reviewResults) (\s@ReviewReport' {} a -> s {reviewResults = a} :: ReviewReport) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ReviewReport where
   parseJSON =
@@ -75,10 +76,10 @@ instance Core.FromJSON ReviewReport where
       "ReviewReport"
       ( \x ->
           ReviewReport'
-            Core.<$> (x Core..:? "ReviewActions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ReviewResults" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "ReviewActions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ReviewResults" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ReviewReport
+instance Prelude.Hashable ReviewReport
 
-instance Core.NFData ReviewReport
+instance Prelude.NFData ReviewReport

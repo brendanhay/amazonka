@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTJobsData.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPendingJobExecutions' smart constructor.
 data GetPendingJobExecutions = GetPendingJobExecutions'
   { -- | The name of the thing that is executing the job.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPendingJobExecutions' with all optional fields omitted.
@@ -64,13 +65,13 @@ data GetPendingJobExecutions = GetPendingJobExecutions'
 -- 'thingName', 'getPendingJobExecutions_thingName' - The name of the thing that is executing the job.
 newGetPendingJobExecutions ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   GetPendingJobExecutions
 newGetPendingJobExecutions pThingName_ =
   GetPendingJobExecutions' {thingName = pThingName_}
 
 -- | The name of the thing that is executing the job.
-getPendingJobExecutions_thingName :: Lens.Lens' GetPendingJobExecutions Core.Text
+getPendingJobExecutions_thingName :: Lens.Lens' GetPendingJobExecutions Prelude.Text
 getPendingJobExecutions_thingName = Lens.lens (\GetPendingJobExecutions' {thingName} -> thingName) (\s@GetPendingJobExecutions' {} a -> s {thingName = a} :: GetPendingJobExecutions)
 
 instance Core.AWSRequest GetPendingJobExecutions where
@@ -82,36 +83,36 @@ instance Core.AWSRequest GetPendingJobExecutions where
     Response.receiveJSON
       ( \s h x ->
           GetPendingJobExecutionsResponse'
-            Core.<$> (x Core..?> "inProgressJobs" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "queuedJobs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "inProgressJobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "queuedJobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPendingJobExecutions
+instance Prelude.Hashable GetPendingJobExecutions
 
-instance Core.NFData GetPendingJobExecutions
+instance Prelude.NFData GetPendingJobExecutions
 
 instance Core.ToHeaders GetPendingJobExecutions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetPendingJobExecutions where
   toPath GetPendingJobExecutions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/things/", Core.toBS thingName, "/jobs"]
 
 instance Core.ToQuery GetPendingJobExecutions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPendingJobExecutionsResponse' smart constructor.
 data GetPendingJobExecutionsResponse = GetPendingJobExecutionsResponse'
   { -- | A list of JobExecutionSummary objects with status IN_PROGRESS.
-    inProgressJobs :: Core.Maybe [JobExecutionSummary],
+    inProgressJobs :: Prelude.Maybe [JobExecutionSummary],
     -- | A list of JobExecutionSummary objects with status QUEUED.
-    queuedJobs :: Core.Maybe [JobExecutionSummary],
+    queuedJobs :: Prelude.Maybe [JobExecutionSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPendingJobExecutionsResponse' with all optional fields omitted.
@@ -128,26 +129,28 @@ data GetPendingJobExecutionsResponse = GetPendingJobExecutionsResponse'
 -- 'httpStatus', 'getPendingJobExecutionsResponse_httpStatus' - The response's http status code.
 newGetPendingJobExecutionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPendingJobExecutionsResponse
 newGetPendingJobExecutionsResponse pHttpStatus_ =
   GetPendingJobExecutionsResponse'
     { inProgressJobs =
-        Core.Nothing,
-      queuedJobs = Core.Nothing,
+        Prelude.Nothing,
+      queuedJobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of JobExecutionSummary objects with status IN_PROGRESS.
-getPendingJobExecutionsResponse_inProgressJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Core.Maybe [JobExecutionSummary])
-getPendingJobExecutionsResponse_inProgressJobs = Lens.lens (\GetPendingJobExecutionsResponse' {inProgressJobs} -> inProgressJobs) (\s@GetPendingJobExecutionsResponse' {} a -> s {inProgressJobs = a} :: GetPendingJobExecutionsResponse) Core.. Lens.mapping Lens._Coerce
+getPendingJobExecutionsResponse_inProgressJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Prelude.Maybe [JobExecutionSummary])
+getPendingJobExecutionsResponse_inProgressJobs = Lens.lens (\GetPendingJobExecutionsResponse' {inProgressJobs} -> inProgressJobs) (\s@GetPendingJobExecutionsResponse' {} a -> s {inProgressJobs = a} :: GetPendingJobExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of JobExecutionSummary objects with status QUEUED.
-getPendingJobExecutionsResponse_queuedJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Core.Maybe [JobExecutionSummary])
-getPendingJobExecutionsResponse_queuedJobs = Lens.lens (\GetPendingJobExecutionsResponse' {queuedJobs} -> queuedJobs) (\s@GetPendingJobExecutionsResponse' {} a -> s {queuedJobs = a} :: GetPendingJobExecutionsResponse) Core.. Lens.mapping Lens._Coerce
+getPendingJobExecutionsResponse_queuedJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Prelude.Maybe [JobExecutionSummary])
+getPendingJobExecutionsResponse_queuedJobs = Lens.lens (\GetPendingJobExecutionsResponse' {queuedJobs} -> queuedJobs) (\s@GetPendingJobExecutionsResponse' {} a -> s {queuedJobs = a} :: GetPendingJobExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getPendingJobExecutionsResponse_httpStatus :: Lens.Lens' GetPendingJobExecutionsResponse Core.Int
+getPendingJobExecutionsResponse_httpStatus :: Lens.Lens' GetPendingJobExecutionsResponse Prelude.Int
 getPendingJobExecutionsResponse_httpStatus = Lens.lens (\GetPendingJobExecutionsResponse' {httpStatus} -> httpStatus) (\s@GetPendingJobExecutionsResponse' {} a -> s {httpStatus = a} :: GetPendingJobExecutionsResponse)
 
-instance Core.NFData GetPendingJobExecutionsResponse
+instance
+  Prelude.NFData
+    GetPendingJobExecutionsResponse

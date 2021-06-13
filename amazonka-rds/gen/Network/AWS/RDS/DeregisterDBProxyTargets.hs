@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -51,16 +52,16 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeregisterDBProxyTargets' smart constructor.
 data DeregisterDBProxyTargets = DeregisterDBProxyTargets'
   { -- | One or more DB cluster identifiers.
-    dbClusterIdentifiers :: Core.Maybe [Core.Text],
+    dbClusterIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the @DBProxyTargetGroup@.
-    targetGroupName :: Core.Maybe Core.Text,
+    targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | One or more DB instance identifiers.
-    dbInstanceIdentifiers :: Core.Maybe [Core.Text],
+    dbInstanceIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the @DBProxy@ that is associated with the
     -- @DBProxyTargetGroup@.
-    dbProxyName :: Core.Text
+    dbProxyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterDBProxyTargets' with all optional fields omitted.
@@ -80,32 +81,32 @@ data DeregisterDBProxyTargets = DeregisterDBProxyTargets'
 -- @DBProxyTargetGroup@.
 newDeregisterDBProxyTargets ::
   -- | 'dbProxyName'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterDBProxyTargets
 newDeregisterDBProxyTargets pDBProxyName_ =
   DeregisterDBProxyTargets'
     { dbClusterIdentifiers =
-        Core.Nothing,
-      targetGroupName = Core.Nothing,
-      dbInstanceIdentifiers = Core.Nothing,
+        Prelude.Nothing,
+      targetGroupName = Prelude.Nothing,
+      dbInstanceIdentifiers = Prelude.Nothing,
       dbProxyName = pDBProxyName_
     }
 
 -- | One or more DB cluster identifiers.
-deregisterDBProxyTargets_dbClusterIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Core.Maybe [Core.Text])
-deregisterDBProxyTargets_dbClusterIdentifiers = Lens.lens (\DeregisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@DeregisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: DeregisterDBProxyTargets) Core.. Lens.mapping Lens._Coerce
+deregisterDBProxyTargets_dbClusterIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
+deregisterDBProxyTargets_dbClusterIdentifiers = Lens.lens (\DeregisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@DeregisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: DeregisterDBProxyTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the @DBProxyTargetGroup@.
-deregisterDBProxyTargets_targetGroupName :: Lens.Lens' DeregisterDBProxyTargets (Core.Maybe Core.Text)
+deregisterDBProxyTargets_targetGroupName :: Lens.Lens' DeregisterDBProxyTargets (Prelude.Maybe Prelude.Text)
 deregisterDBProxyTargets_targetGroupName = Lens.lens (\DeregisterDBProxyTargets' {targetGroupName} -> targetGroupName) (\s@DeregisterDBProxyTargets' {} a -> s {targetGroupName = a} :: DeregisterDBProxyTargets)
 
 -- | One or more DB instance identifiers.
-deregisterDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Core.Maybe [Core.Text])
-deregisterDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\DeregisterDBProxyTargets' {dbInstanceIdentifiers} -> dbInstanceIdentifiers) (\s@DeregisterDBProxyTargets' {} a -> s {dbInstanceIdentifiers = a} :: DeregisterDBProxyTargets) Core.. Lens.mapping Lens._Coerce
+deregisterDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
+deregisterDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\DeregisterDBProxyTargets' {dbInstanceIdentifiers} -> dbInstanceIdentifiers) (\s@DeregisterDBProxyTargets' {} a -> s {dbInstanceIdentifiers = a} :: DeregisterDBProxyTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the @DBProxy@ that is associated with the
 -- @DBProxyTargetGroup@.
-deregisterDBProxyTargets_dbProxyName :: Lens.Lens' DeregisterDBProxyTargets Core.Text
+deregisterDBProxyTargets_dbProxyName :: Lens.Lens' DeregisterDBProxyTargets Prelude.Text
 deregisterDBProxyTargets_dbProxyName = Lens.lens (\DeregisterDBProxyTargets' {dbProxyName} -> dbProxyName) (\s@DeregisterDBProxyTargets' {} a -> s {dbProxyName = a} :: DeregisterDBProxyTargets)
 
 instance Core.AWSRequest DeregisterDBProxyTargets where
@@ -118,35 +119,36 @@ instance Core.AWSRequest DeregisterDBProxyTargets where
       "DeregisterDBProxyTargetsResult"
       ( \s h x ->
           DeregisterDBProxyTargetsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeregisterDBProxyTargets
+instance Prelude.Hashable DeregisterDBProxyTargets
 
-instance Core.NFData DeregisterDBProxyTargets
+instance Prelude.NFData DeregisterDBProxyTargets
 
 instance Core.ToHeaders DeregisterDBProxyTargets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeregisterDBProxyTargets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterDBProxyTargets where
   toQuery DeregisterDBProxyTargets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeregisterDBProxyTargets" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeregisterDBProxyTargets" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterIdentifiers"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> dbClusterIdentifiers
+                Prelude.<$> dbClusterIdentifiers
             ),
         "TargetGroupName" Core.=: targetGroupName,
         "DBInstanceIdentifiers"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> dbInstanceIdentifiers
+                Prelude.<$> dbInstanceIdentifiers
             ),
         "DBProxyName" Core.=: dbProxyName
       ]
@@ -154,9 +156,9 @@ instance Core.ToQuery DeregisterDBProxyTargets where
 -- | /See:/ 'newDeregisterDBProxyTargetsResponse' smart constructor.
 data DeregisterDBProxyTargetsResponse = DeregisterDBProxyTargetsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterDBProxyTargetsResponse' with all optional fields omitted.
@@ -169,7 +171,7 @@ data DeregisterDBProxyTargetsResponse = DeregisterDBProxyTargetsResponse'
 -- 'httpStatus', 'deregisterDBProxyTargetsResponse_httpStatus' - The response's http status code.
 newDeregisterDBProxyTargetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterDBProxyTargetsResponse
 newDeregisterDBProxyTargetsResponse pHttpStatus_ =
   DeregisterDBProxyTargetsResponse'
@@ -178,7 +180,9 @@ newDeregisterDBProxyTargetsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deregisterDBProxyTargetsResponse_httpStatus :: Lens.Lens' DeregisterDBProxyTargetsResponse Core.Int
+deregisterDBProxyTargetsResponse_httpStatus :: Lens.Lens' DeregisterDBProxyTargetsResponse Prelude.Int
 deregisterDBProxyTargetsResponse_httpStatus = Lens.lens (\DeregisterDBProxyTargetsResponse' {httpStatus} -> httpStatus) (\s@DeregisterDBProxyTargetsResponse' {} a -> s {httpStatus = a} :: DeregisterDBProxyTargetsResponse)
 
-instance Core.NFData DeregisterDBProxyTargetsResponse
+instance
+  Prelude.NFData
+    DeregisterDBProxyTargetsResponse

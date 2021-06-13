@@ -56,6 +56,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -63,9 +64,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCancelExportTask' smart constructor.
 data CancelExportTask = CancelExportTask'
   { -- | The identifier of the snapshot export task to cancel.
-    exportTaskIdentifier :: Core.Text
+    exportTaskIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelExportTask' with all optional fields omitted.
@@ -78,7 +79,7 @@ data CancelExportTask = CancelExportTask'
 -- 'exportTaskIdentifier', 'cancelExportTask_exportTaskIdentifier' - The identifier of the snapshot export task to cancel.
 newCancelExportTask ::
   -- | 'exportTaskIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   CancelExportTask
 newCancelExportTask pExportTaskIdentifier_ =
   CancelExportTask'
@@ -87,7 +88,7 @@ newCancelExportTask pExportTaskIdentifier_ =
     }
 
 -- | The identifier of the snapshot export task to cancel.
-cancelExportTask_exportTaskIdentifier :: Lens.Lens' CancelExportTask Core.Text
+cancelExportTask_exportTaskIdentifier :: Lens.Lens' CancelExportTask Prelude.Text
 cancelExportTask_exportTaskIdentifier = Lens.lens (\CancelExportTask' {exportTaskIdentifier} -> exportTaskIdentifier) (\s@CancelExportTask' {} a -> s {exportTaskIdentifier = a} :: CancelExportTask)
 
 instance Core.AWSRequest CancelExportTask where
@@ -98,21 +99,22 @@ instance Core.AWSRequest CancelExportTask where
       "CancelExportTaskResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable CancelExportTask
+instance Prelude.Hashable CancelExportTask
 
-instance Core.NFData CancelExportTask
+instance Prelude.NFData CancelExportTask
 
 instance Core.ToHeaders CancelExportTask where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CancelExportTask where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelExportTask where
   toQuery CancelExportTask' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CancelExportTask" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("CancelExportTask" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ExportTaskIdentifier" Core.=: exportTaskIdentifier
       ]

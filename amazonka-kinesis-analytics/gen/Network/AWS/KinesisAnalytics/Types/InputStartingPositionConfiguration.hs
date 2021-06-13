@@ -22,6 +22,7 @@ module Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration whe
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputStartingPosition
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the point at which the application reads from the streaming
 -- source.
@@ -40,9 +41,9 @@ data InputStartingPositionConfiguration = InputStartingPositionConfiguration'
     --
     -- -   @LAST_STOPPED_POINT@ - Resume reading from where the application
     --     last stopped reading.
-    inputStartingPosition :: Core.Maybe InputStartingPosition
+    inputStartingPosition :: Prelude.Maybe InputStartingPosition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputStartingPositionConfiguration' with all optional fields omitted.
@@ -69,7 +70,7 @@ newInputStartingPositionConfiguration ::
 newInputStartingPositionConfiguration =
   InputStartingPositionConfiguration'
     { inputStartingPosition =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The starting position on the stream.
@@ -84,7 +85,7 @@ newInputStartingPositionConfiguration =
 --
 -- -   @LAST_STOPPED_POINT@ - Resume reading from where the application
 --     last stopped reading.
-inputStartingPositionConfiguration_inputStartingPosition :: Lens.Lens' InputStartingPositionConfiguration (Core.Maybe InputStartingPosition)
+inputStartingPositionConfiguration_inputStartingPosition :: Lens.Lens' InputStartingPositionConfiguration (Prelude.Maybe InputStartingPosition)
 inputStartingPositionConfiguration_inputStartingPosition = Lens.lens (\InputStartingPositionConfiguration' {inputStartingPosition} -> inputStartingPosition) (\s@InputStartingPositionConfiguration' {} a -> s {inputStartingPosition = a} :: InputStartingPositionConfiguration)
 
 instance
@@ -96,15 +97,15 @@ instance
       "InputStartingPositionConfiguration"
       ( \x ->
           InputStartingPositionConfiguration'
-            Core.<$> (x Core..:? "InputStartingPosition")
+            Prelude.<$> (x Core..:? "InputStartingPosition")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InputStartingPositionConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     InputStartingPositionConfiguration
 
 instance
@@ -113,8 +114,8 @@ instance
   where
   toJSON InputStartingPositionConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("InputStartingPosition" Core..=)
-              Core.<$> inputStartingPosition
+              Prelude.<$> inputStartingPosition
           ]
       )

@@ -24,19 +24,20 @@ import Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode
 import Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a scaling activity.
 --
 -- /See:/ 'newScalingActivity' smart constructor.
 data ScalingActivity = ScalingActivity'
   { -- | A simple message about the current status of the scaling activity.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The details about the scaling activity.
-    details :: Core.Maybe Core.Text,
+    details :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for when the scaling activity ended.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier of the scaling activity.
-    activityId :: Core.Text,
+    activityId :: Prelude.Text,
     -- | The namespace of the AWS service that provides the resource, or a
     -- @custom-resource@.
     serviceNamespace :: ServiceNamespace,
@@ -100,7 +101,7 @@ data ScalingActivity = ScalingActivity'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
     --
@@ -160,15 +161,15 @@ data ScalingActivity = ScalingActivity'
     scalableDimension :: ScalableDimension,
     -- | A simple description of what action the scaling activity intends to
     -- accomplish.
-    description :: Core.Text,
+    description :: Prelude.Text,
     -- | A simple description of what caused the scaling activity to happen.
-    cause :: Core.Text,
+    cause :: Prelude.Text,
     -- | The Unix timestamp for when the scaling activity began.
     startTime :: Core.POSIX,
     -- | Indicates the status of the scaling activity.
     statusCode :: ScalingActivityStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingActivity' with all optional fields omitted.
@@ -317,19 +318,19 @@ data ScalingActivity = ScalingActivity'
 -- 'statusCode', 'scalingActivity_statusCode' - Indicates the status of the scaling activity.
 newScalingActivity ::
   -- | 'activityId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'cause'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'statusCode'
   ScalingActivityStatusCode ->
   ScalingActivity
@@ -343,9 +344,9 @@ newScalingActivity
   pStartTime_
   pStatusCode_ =
     ScalingActivity'
-      { statusMessage = Core.Nothing,
-        details = Core.Nothing,
-        endTime = Core.Nothing,
+      { statusMessage = Prelude.Nothing,
+        details = Prelude.Nothing,
+        endTime = Prelude.Nothing,
         activityId = pActivityId_,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
@@ -357,19 +358,19 @@ newScalingActivity
       }
 
 -- | A simple message about the current status of the scaling activity.
-scalingActivity_statusMessage :: Lens.Lens' ScalingActivity (Core.Maybe Core.Text)
+scalingActivity_statusMessage :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
 scalingActivity_statusMessage = Lens.lens (\ScalingActivity' {statusMessage} -> statusMessage) (\s@ScalingActivity' {} a -> s {statusMessage = a} :: ScalingActivity)
 
 -- | The details about the scaling activity.
-scalingActivity_details :: Lens.Lens' ScalingActivity (Core.Maybe Core.Text)
+scalingActivity_details :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
 scalingActivity_details = Lens.lens (\ScalingActivity' {details} -> details) (\s@ScalingActivity' {} a -> s {details = a} :: ScalingActivity)
 
 -- | The Unix timestamp for when the scaling activity ended.
-scalingActivity_endTime :: Lens.Lens' ScalingActivity (Core.Maybe Core.UTCTime)
-scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Core.. Lens.mapping Core._Time
+scalingActivity_endTime :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.UTCTime)
+scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier of the scaling activity.
-scalingActivity_activityId :: Lens.Lens' ScalingActivity Core.Text
+scalingActivity_activityId :: Lens.Lens' ScalingActivity Prelude.Text
 scalingActivity_activityId = Lens.lens (\ScalingActivity' {activityId} -> activityId) (\s@ScalingActivity' {} a -> s {activityId = a} :: ScalingActivity)
 
 -- | The namespace of the AWS service that provides the resource, or a
@@ -437,7 +438,7 @@ scalingActivity_serviceNamespace = Lens.lens (\ScalingActivity' {serviceNamespac
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-scalingActivity_resourceId :: Lens.Lens' ScalingActivity Core.Text
+scalingActivity_resourceId :: Lens.Lens' ScalingActivity Prelude.Text
 scalingActivity_resourceId = Lens.lens (\ScalingActivity' {resourceId} -> resourceId) (\s@ScalingActivity' {} a -> s {resourceId = a} :: ScalingActivity)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -501,16 +502,16 @@ scalingActivity_scalableDimension = Lens.lens (\ScalingActivity' {scalableDimens
 
 -- | A simple description of what action the scaling activity intends to
 -- accomplish.
-scalingActivity_description :: Lens.Lens' ScalingActivity Core.Text
+scalingActivity_description :: Lens.Lens' ScalingActivity Prelude.Text
 scalingActivity_description = Lens.lens (\ScalingActivity' {description} -> description) (\s@ScalingActivity' {} a -> s {description = a} :: ScalingActivity)
 
 -- | A simple description of what caused the scaling activity to happen.
-scalingActivity_cause :: Lens.Lens' ScalingActivity Core.Text
+scalingActivity_cause :: Lens.Lens' ScalingActivity Prelude.Text
 scalingActivity_cause = Lens.lens (\ScalingActivity' {cause} -> cause) (\s@ScalingActivity' {} a -> s {cause = a} :: ScalingActivity)
 
 -- | The Unix timestamp for when the scaling activity began.
-scalingActivity_startTime :: Lens.Lens' ScalingActivity Core.UTCTime
-scalingActivity_startTime = Lens.lens (\ScalingActivity' {startTime} -> startTime) (\s@ScalingActivity' {} a -> s {startTime = a} :: ScalingActivity) Core.. Core._Time
+scalingActivity_startTime :: Lens.Lens' ScalingActivity Prelude.UTCTime
+scalingActivity_startTime = Lens.lens (\ScalingActivity' {startTime} -> startTime) (\s@ScalingActivity' {} a -> s {startTime = a} :: ScalingActivity) Prelude.. Core._Time
 
 -- | Indicates the status of the scaling activity.
 scalingActivity_statusCode :: Lens.Lens' ScalingActivity ScalingActivityStatusCode
@@ -522,19 +523,19 @@ instance Core.FromJSON ScalingActivity where
       "ScalingActivity"
       ( \x ->
           ScalingActivity'
-            Core.<$> (x Core..:? "StatusMessage")
-            Core.<*> (x Core..:? "Details")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..: "ActivityId")
-            Core.<*> (x Core..: "ServiceNamespace")
-            Core.<*> (x Core..: "ResourceId")
-            Core.<*> (x Core..: "ScalableDimension")
-            Core.<*> (x Core..: "Description")
-            Core.<*> (x Core..: "Cause")
-            Core.<*> (x Core..: "StartTime")
-            Core.<*> (x Core..: "StatusCode")
+            Prelude.<$> (x Core..:? "StatusMessage")
+            Prelude.<*> (x Core..:? "Details")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..: "ActivityId")
+            Prelude.<*> (x Core..: "ServiceNamespace")
+            Prelude.<*> (x Core..: "ResourceId")
+            Prelude.<*> (x Core..: "ScalableDimension")
+            Prelude.<*> (x Core..: "Description")
+            Prelude.<*> (x Core..: "Cause")
+            Prelude.<*> (x Core..: "StartTime")
+            Prelude.<*> (x Core..: "StatusCode")
       )
 
-instance Core.Hashable ScalingActivity
+instance Prelude.Hashable ScalingActivity
 
-instance Core.NFData ScalingActivity
+instance Prelude.NFData ScalingActivity

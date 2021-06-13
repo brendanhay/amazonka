@@ -32,6 +32,7 @@ module Network.AWS.MediaConvert.Types.H264AdaptiveQuantization
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Keep the default value, Auto (AUTO), for this setting to have
 -- MediaConvert automatically apply the best types of quantization for your
@@ -49,15 +50,15 @@ newtype H264AdaptiveQuantization = H264AdaptiveQuantization'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TransformDataSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TransformS3DataSource
 
 -- | Describes the location of the channel data.
@@ -30,7 +31,7 @@ data TransformDataSource = TransformDataSource'
   { -- | The S3 location of the data source that is associated with a channel.
     s3DataSource :: TransformS3DataSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransformDataSource' with all optional fields omitted.
@@ -58,16 +59,16 @@ instance Core.FromJSON TransformDataSource where
       "TransformDataSource"
       ( \x ->
           TransformDataSource'
-            Core.<$> (x Core..: "S3DataSource")
+            Prelude.<$> (x Core..: "S3DataSource")
       )
 
-instance Core.Hashable TransformDataSource
+instance Prelude.Hashable TransformDataSource
 
-instance Core.NFData TransformDataSource
+instance Prelude.NFData TransformDataSource
 
 instance Core.ToJSON TransformDataSource where
   toJSON TransformDataSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("S3DataSource" Core..= s3DataSource)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("S3DataSource" Core..= s3DataSource)]
       )

@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.FilterRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.FilterRuleName
 
@@ -35,11 +36,11 @@ data FilterRule = FilterRule'
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
     -- in the /Amazon Simple Storage Service Developer Guide/.
-    name :: Core.Maybe FilterRuleName,
+    name :: Prelude.Maybe FilterRuleName,
     -- | The value that the filter searches for in object key names.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FilterRule' with all optional fields omitted.
@@ -61,8 +62,8 @@ newFilterRule ::
   FilterRule
 newFilterRule =
   FilterRule'
-    { name = Core.Nothing,
-      value = Core.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The object key name prefix or suffix identifying one or more objects to
@@ -71,23 +72,23 @@ newFilterRule =
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
 -- in the /Amazon Simple Storage Service Developer Guide/.
-filterRule_name :: Lens.Lens' FilterRule (Core.Maybe FilterRuleName)
+filterRule_name :: Lens.Lens' FilterRule (Prelude.Maybe FilterRuleName)
 filterRule_name = Lens.lens (\FilterRule' {name} -> name) (\s@FilterRule' {} a -> s {name = a} :: FilterRule)
 
 -- | The value that the filter searches for in object key names.
-filterRule_value :: Lens.Lens' FilterRule (Core.Maybe Core.Text)
+filterRule_value :: Lens.Lens' FilterRule (Prelude.Maybe Prelude.Text)
 filterRule_value = Lens.lens (\FilterRule' {value} -> value) (\s@FilterRule' {} a -> s {value = a} :: FilterRule)
 
 instance Core.FromXML FilterRule where
   parseXML x =
     FilterRule'
-      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Value")
 
-instance Core.Hashable FilterRule
+instance Prelude.Hashable FilterRule
 
-instance Core.NFData FilterRule
+instance Prelude.NFData FilterRule
 
 instance Core.ToXML FilterRule where
   toXML FilterRule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Name" Core.@= name, "Value" Core.@= value]

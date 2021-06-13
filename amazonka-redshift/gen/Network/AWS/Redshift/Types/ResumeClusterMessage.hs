@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ResumeClusterMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a resume cluster operation. For example, a scheduled action to
@@ -29,9 +30,9 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newResumeClusterMessage' smart constructor.
 data ResumeClusterMessage = ResumeClusterMessage'
   { -- | The identifier of the cluster to be resumed.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResumeClusterMessage' with all optional fields omitted.
@@ -44,7 +45,7 @@ data ResumeClusterMessage = ResumeClusterMessage'
 -- 'clusterIdentifier', 'resumeClusterMessage_clusterIdentifier' - The identifier of the cluster to be resumed.
 newResumeClusterMessage ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ResumeClusterMessage
 newResumeClusterMessage pClusterIdentifier_ =
   ResumeClusterMessage'
@@ -53,19 +54,19 @@ newResumeClusterMessage pClusterIdentifier_ =
     }
 
 -- | The identifier of the cluster to be resumed.
-resumeClusterMessage_clusterIdentifier :: Lens.Lens' ResumeClusterMessage Core.Text
+resumeClusterMessage_clusterIdentifier :: Lens.Lens' ResumeClusterMessage Prelude.Text
 resumeClusterMessage_clusterIdentifier = Lens.lens (\ResumeClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@ResumeClusterMessage' {} a -> s {clusterIdentifier = a} :: ResumeClusterMessage)
 
 instance Core.FromXML ResumeClusterMessage where
   parseXML x =
     ResumeClusterMessage'
-      Core.<$> (x Core..@ "ClusterIdentifier")
+      Prelude.<$> (x Core..@ "ClusterIdentifier")
 
-instance Core.Hashable ResumeClusterMessage
+instance Prelude.Hashable ResumeClusterMessage
 
-instance Core.NFData ResumeClusterMessage
+instance Prelude.NFData ResumeClusterMessage
 
 instance Core.ToQuery ResumeClusterMessage where
   toQuery ResumeClusterMessage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["ClusterIdentifier" Core.=: clusterIdentifier]

@@ -21,6 +21,7 @@ module Network.AWS.Support.Types.RecentCaseCommunications where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Support.Types.Communication
 
 -- | The five most recent communications associated with the case.
@@ -28,11 +29,11 @@ import Network.AWS.Support.Types.Communication
 -- /See:/ 'newRecentCaseCommunications' smart constructor.
 data RecentCaseCommunications = RecentCaseCommunications'
   { -- | A resumption point for pagination.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The five most recent communications associated with the case.
-    communications :: Core.Maybe [Communication]
+    communications :: Prelude.Maybe [Communication]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecentCaseCommunications' with all optional fields omitted.
@@ -49,17 +50,18 @@ newRecentCaseCommunications ::
   RecentCaseCommunications
 newRecentCaseCommunications =
   RecentCaseCommunications'
-    { nextToken = Core.Nothing,
-      communications = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      communications = Prelude.Nothing
     }
 
 -- | A resumption point for pagination.
-recentCaseCommunications_nextToken :: Lens.Lens' RecentCaseCommunications (Core.Maybe Core.Text)
+recentCaseCommunications_nextToken :: Lens.Lens' RecentCaseCommunications (Prelude.Maybe Prelude.Text)
 recentCaseCommunications_nextToken = Lens.lens (\RecentCaseCommunications' {nextToken} -> nextToken) (\s@RecentCaseCommunications' {} a -> s {nextToken = a} :: RecentCaseCommunications)
 
 -- | The five most recent communications associated with the case.
-recentCaseCommunications_communications :: Lens.Lens' RecentCaseCommunications (Core.Maybe [Communication])
-recentCaseCommunications_communications = Lens.lens (\RecentCaseCommunications' {communications} -> communications) (\s@RecentCaseCommunications' {} a -> s {communications = a} :: RecentCaseCommunications) Core.. Lens.mapping Lens._Coerce
+recentCaseCommunications_communications :: Lens.Lens' RecentCaseCommunications (Prelude.Maybe [Communication])
+recentCaseCommunications_communications = Lens.lens (\RecentCaseCommunications' {communications} -> communications) (\s@RecentCaseCommunications' {} a -> s {communications = a} :: RecentCaseCommunications) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON RecentCaseCommunications where
   parseJSON =
@@ -67,10 +69,12 @@ instance Core.FromJSON RecentCaseCommunications where
       "RecentCaseCommunications"
       ( \x ->
           RecentCaseCommunications'
-            Core.<$> (x Core..:? "nextToken")
-            Core.<*> (x Core..:? "communications" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "nextToken")
+            Prelude.<*> ( x Core..:? "communications"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable RecentCaseCommunications
+instance Prelude.Hashable RecentCaseCommunications
 
-instance Core.NFData RecentCaseCommunications
+instance Prelude.NFData RecentCaseCommunications

@@ -22,17 +22,18 @@ module Network.AWS.AutoScalingPlans.Types.ApplicationSource where
 import Network.AWS.AutoScalingPlans.Types.TagFilter
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an application source.
 --
 -- /See:/ 'newApplicationSource' smart constructor.
 data ApplicationSource = ApplicationSource'
   { -- | A set of tags (up to 50).
-    tagFilters :: Core.Maybe [TagFilter],
+    tagFilters :: Prelude.Maybe [TagFilter],
     -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-    cloudFormationStackARN :: Core.Maybe Core.Text
+    cloudFormationStackARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationSource' with all optional fields omitted.
@@ -49,16 +50,16 @@ newApplicationSource ::
   ApplicationSource
 newApplicationSource =
   ApplicationSource'
-    { tagFilters = Core.Nothing,
-      cloudFormationStackARN = Core.Nothing
+    { tagFilters = Prelude.Nothing,
+      cloudFormationStackARN = Prelude.Nothing
     }
 
 -- | A set of tags (up to 50).
-applicationSource_tagFilters :: Lens.Lens' ApplicationSource (Core.Maybe [TagFilter])
-applicationSource_tagFilters = Lens.lens (\ApplicationSource' {tagFilters} -> tagFilters) (\s@ApplicationSource' {} a -> s {tagFilters = a} :: ApplicationSource) Core.. Lens.mapping Lens._Coerce
+applicationSource_tagFilters :: Lens.Lens' ApplicationSource (Prelude.Maybe [TagFilter])
+applicationSource_tagFilters = Lens.lens (\ApplicationSource' {tagFilters} -> tagFilters) (\s@ApplicationSource' {} a -> s {tagFilters = a} :: ApplicationSource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-applicationSource_cloudFormationStackARN :: Lens.Lens' ApplicationSource (Core.Maybe Core.Text)
+applicationSource_cloudFormationStackARN :: Lens.Lens' ApplicationSource (Prelude.Maybe Prelude.Text)
 applicationSource_cloudFormationStackARN = Lens.lens (\ApplicationSource' {cloudFormationStackARN} -> cloudFormationStackARN) (\s@ApplicationSource' {} a -> s {cloudFormationStackARN = a} :: ApplicationSource)
 
 instance Core.FromJSON ApplicationSource where
@@ -67,20 +68,20 @@ instance Core.FromJSON ApplicationSource where
       "ApplicationSource"
       ( \x ->
           ApplicationSource'
-            Core.<$> (x Core..:? "TagFilters" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "CloudFormationStackARN")
+            Prelude.<$> (x Core..:? "TagFilters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CloudFormationStackARN")
       )
 
-instance Core.Hashable ApplicationSource
+instance Prelude.Hashable ApplicationSource
 
-instance Core.NFData ApplicationSource
+instance Prelude.NFData ApplicationSource
 
 instance Core.ToJSON ApplicationSource where
   toJSON ApplicationSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TagFilters" Core..=) Core.<$> tagFilters,
+      ( Prelude.catMaybes
+          [ ("TagFilters" Core..=) Prelude.<$> tagFilters,
             ("CloudFormationStackARN" Core..=)
-              Core.<$> cloudFormationStackARN
+              Prelude.<$> cloudFormationStackARN
           ]
       )

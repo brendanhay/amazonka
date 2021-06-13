@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -52,11 +53,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newGetSearchSuggestions' smart constructor.
 data GetSearchSuggestions = GetSearchSuggestions'
   { -- | Limits the property names that are included in the response.
-    suggestionQuery :: Core.Maybe SuggestionQuery,
+    suggestionQuery :: Prelude.Maybe SuggestionQuery,
     -- | The name of the Amazon SageMaker resource to search for.
     resource :: ResourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSearchSuggestions' with all optional fields omitted.
@@ -76,12 +77,12 @@ newGetSearchSuggestions ::
 newGetSearchSuggestions pResource_ =
   GetSearchSuggestions'
     { suggestionQuery =
-        Core.Nothing,
+        Prelude.Nothing,
       resource = pResource_
     }
 
 -- | Limits the property names that are included in the response.
-getSearchSuggestions_suggestionQuery :: Lens.Lens' GetSearchSuggestions (Core.Maybe SuggestionQuery)
+getSearchSuggestions_suggestionQuery :: Lens.Lens' GetSearchSuggestions (Prelude.Maybe SuggestionQuery)
 getSearchSuggestions_suggestionQuery = Lens.lens (\GetSearchSuggestions' {suggestionQuery} -> suggestionQuery) (\s@GetSearchSuggestions' {} a -> s {suggestionQuery = a} :: GetSearchSuggestions)
 
 -- | The name of the Amazon SageMaker resource to search for.
@@ -97,54 +98,56 @@ instance Core.AWSRequest GetSearchSuggestions where
     Response.receiveJSON
       ( \s h x ->
           GetSearchSuggestionsResponse'
-            Core.<$> ( x Core..?> "PropertyNameSuggestions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "PropertyNameSuggestions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSearchSuggestions
+instance Prelude.Hashable GetSearchSuggestions
 
-instance Core.NFData GetSearchSuggestions
+instance Prelude.NFData GetSearchSuggestions
 
 instance Core.ToHeaders GetSearchSuggestions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.GetSearchSuggestions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSearchSuggestions where
   toJSON GetSearchSuggestions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SuggestionQuery" Core..=)
-              Core.<$> suggestionQuery,
-            Core.Just ("Resource" Core..= resource)
+              Prelude.<$> suggestionQuery,
+            Prelude.Just ("Resource" Core..= resource)
           ]
       )
 
 instance Core.ToPath GetSearchSuggestions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSearchSuggestions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSearchSuggestionsResponse' smart constructor.
 data GetSearchSuggestionsResponse = GetSearchSuggestionsResponse'
   { -- | A list of property names for a @Resource@ that match a
     -- @SuggestionQuery@.
-    propertyNameSuggestions :: Core.Maybe [PropertyNameSuggestion],
+    propertyNameSuggestions :: Prelude.Maybe [PropertyNameSuggestion],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSearchSuggestionsResponse' with all optional fields omitted.
@@ -160,22 +163,22 @@ data GetSearchSuggestionsResponse = GetSearchSuggestionsResponse'
 -- 'httpStatus', 'getSearchSuggestionsResponse_httpStatus' - The response's http status code.
 newGetSearchSuggestionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSearchSuggestionsResponse
 newGetSearchSuggestionsResponse pHttpStatus_ =
   GetSearchSuggestionsResponse'
     { propertyNameSuggestions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of property names for a @Resource@ that match a
 -- @SuggestionQuery@.
-getSearchSuggestionsResponse_propertyNameSuggestions :: Lens.Lens' GetSearchSuggestionsResponse (Core.Maybe [PropertyNameSuggestion])
-getSearchSuggestionsResponse_propertyNameSuggestions = Lens.lens (\GetSearchSuggestionsResponse' {propertyNameSuggestions} -> propertyNameSuggestions) (\s@GetSearchSuggestionsResponse' {} a -> s {propertyNameSuggestions = a} :: GetSearchSuggestionsResponse) Core.. Lens.mapping Lens._Coerce
+getSearchSuggestionsResponse_propertyNameSuggestions :: Lens.Lens' GetSearchSuggestionsResponse (Prelude.Maybe [PropertyNameSuggestion])
+getSearchSuggestionsResponse_propertyNameSuggestions = Lens.lens (\GetSearchSuggestionsResponse' {propertyNameSuggestions} -> propertyNameSuggestions) (\s@GetSearchSuggestionsResponse' {} a -> s {propertyNameSuggestions = a} :: GetSearchSuggestionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getSearchSuggestionsResponse_httpStatus :: Lens.Lens' GetSearchSuggestionsResponse Core.Int
+getSearchSuggestionsResponse_httpStatus :: Lens.Lens' GetSearchSuggestionsResponse Prelude.Int
 getSearchSuggestionsResponse_httpStatus = Lens.lens (\GetSearchSuggestionsResponse' {httpStatus} -> httpStatus) (\s@GetSearchSuggestionsResponse' {} a -> s {httpStatus = a} :: GetSearchSuggestionsResponse)
 
-instance Core.NFData GetSearchSuggestionsResponse
+instance Prelude.NFData GetSearchSuggestionsResponse

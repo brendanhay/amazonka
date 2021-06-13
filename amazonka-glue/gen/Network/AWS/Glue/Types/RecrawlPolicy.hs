@@ -22,6 +22,7 @@ module Network.AWS.Glue.Types.RecrawlPolicy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.RecrawlBehavior
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When crawling an Amazon S3 data source after the first crawl is
 -- complete, specifies whether to crawl the entire dataset again or to
@@ -40,9 +41,9 @@ data RecrawlPolicy = RecrawlPolicy'
     --
     -- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that
     -- were added since the last crawler run.
-    recrawlBehavior :: Core.Maybe RecrawlBehavior
+    recrawlBehavior :: Prelude.Maybe RecrawlBehavior
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecrawlPolicy' with all optional fields omitted.
@@ -63,7 +64,7 @@ data RecrawlPolicy = RecrawlPolicy'
 newRecrawlPolicy ::
   RecrawlPolicy
 newRecrawlPolicy =
-  RecrawlPolicy' {recrawlBehavior = Core.Nothing}
+  RecrawlPolicy' {recrawlBehavior = Prelude.Nothing}
 
 -- | Specifies whether to crawl the entire dataset again or to crawl only
 -- folders that were added since the last crawler run.
@@ -73,7 +74,7 @@ newRecrawlPolicy =
 --
 -- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that
 -- were added since the last crawler run.
-recrawlPolicy_recrawlBehavior :: Lens.Lens' RecrawlPolicy (Core.Maybe RecrawlBehavior)
+recrawlPolicy_recrawlBehavior :: Lens.Lens' RecrawlPolicy (Prelude.Maybe RecrawlBehavior)
 recrawlPolicy_recrawlBehavior = Lens.lens (\RecrawlPolicy' {recrawlBehavior} -> recrawlBehavior) (\s@RecrawlPolicy' {} a -> s {recrawlBehavior = a} :: RecrawlPolicy)
 
 instance Core.FromJSON RecrawlPolicy where
@@ -82,18 +83,18 @@ instance Core.FromJSON RecrawlPolicy where
       "RecrawlPolicy"
       ( \x ->
           RecrawlPolicy'
-            Core.<$> (x Core..:? "RecrawlBehavior")
+            Prelude.<$> (x Core..:? "RecrawlBehavior")
       )
 
-instance Core.Hashable RecrawlPolicy
+instance Prelude.Hashable RecrawlPolicy
 
-instance Core.NFData RecrawlPolicy
+instance Prelude.NFData RecrawlPolicy
 
 instance Core.ToJSON RecrawlPolicy where
   toJSON RecrawlPolicy' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RecrawlBehavior" Core..=)
-              Core.<$> recrawlBehavior
+              Prelude.<$> recrawlBehavior
           ]
       )

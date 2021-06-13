@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,12 +64,12 @@ import qualified Network.AWS.Response as Response
 data CreateMembers = CreateMembers'
   { -- | The unique ID of the detector of the GuardDuty account that you want to
     -- associate member accounts with.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | A list of account ID and email address pairs of the accounts that you
     -- want to associate with the GuardDuty administrator account.
-    accountDetails :: Core.NonEmpty AccountDetail
+    accountDetails :: Prelude.NonEmpty AccountDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMembers' with all optional fields omitted.
@@ -85,9 +86,9 @@ data CreateMembers = CreateMembers'
 -- want to associate with the GuardDuty administrator account.
 newCreateMembers ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accountDetails'
-  Core.NonEmpty AccountDetail ->
+  Prelude.NonEmpty AccountDetail ->
   CreateMembers
 newCreateMembers pDetectorId_ pAccountDetails_ =
   CreateMembers'
@@ -98,13 +99,13 @@ newCreateMembers pDetectorId_ pAccountDetails_ =
 
 -- | The unique ID of the detector of the GuardDuty account that you want to
 -- associate member accounts with.
-createMembers_detectorId :: Lens.Lens' CreateMembers Core.Text
+createMembers_detectorId :: Lens.Lens' CreateMembers Prelude.Text
 createMembers_detectorId = Lens.lens (\CreateMembers' {detectorId} -> detectorId) (\s@CreateMembers' {} a -> s {detectorId = a} :: CreateMembers)
 
 -- | A list of account ID and email address pairs of the accounts that you
 -- want to associate with the GuardDuty administrator account.
-createMembers_accountDetails :: Lens.Lens' CreateMembers (Core.NonEmpty AccountDetail)
-createMembers_accountDetails = Lens.lens (\CreateMembers' {accountDetails} -> accountDetails) (\s@CreateMembers' {} a -> s {accountDetails = a} :: CreateMembers) Core.. Lens._Coerce
+createMembers_accountDetails :: Lens.Lens' CreateMembers (Prelude.NonEmpty AccountDetail)
+createMembers_accountDetails = Lens.lens (\CreateMembers' {accountDetails} -> accountDetails) (\s@CreateMembers' {} a -> s {accountDetails = a} :: CreateMembers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateMembers where
   type
@@ -115,51 +116,53 @@ instance Core.AWSRequest CreateMembers where
     Response.receiveJSON
       ( \s h x ->
           CreateMembersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "unprocessedAccounts"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable CreateMembers
+instance Prelude.Hashable CreateMembers
 
-instance Core.NFData CreateMembers
+instance Prelude.NFData CreateMembers
 
 instance Core.ToHeaders CreateMembers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateMembers where
   toJSON CreateMembers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("accountDetails" Core..= accountDetails)
           ]
       )
 
 instance Core.ToPath CreateMembers where
   toPath CreateMembers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/detector/", Core.toBS detectorId, "/member"]
 
 instance Core.ToQuery CreateMembers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMembersResponse' smart constructor.
 data CreateMembersResponse = CreateMembersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of objects that include the @accountIds@ of the unprocessed
     -- accounts and a result string that explains why each was unprocessed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMembersResponse' with all optional fields omitted.
@@ -175,21 +178,21 @@ data CreateMembersResponse = CreateMembersResponse'
 -- accounts and a result string that explains why each was unprocessed.
 newCreateMembersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateMembersResponse
 newCreateMembersResponse pHttpStatus_ =
   CreateMembersResponse'
     { httpStatus = pHttpStatus_,
-      unprocessedAccounts = Core.mempty
+      unprocessedAccounts = Prelude.mempty
     }
 
 -- | The response's http status code.
-createMembersResponse_httpStatus :: Lens.Lens' CreateMembersResponse Core.Int
+createMembersResponse_httpStatus :: Lens.Lens' CreateMembersResponse Prelude.Int
 createMembersResponse_httpStatus = Lens.lens (\CreateMembersResponse' {httpStatus} -> httpStatus) (\s@CreateMembersResponse' {} a -> s {httpStatus = a} :: CreateMembersResponse)
 
 -- | A list of objects that include the @accountIds@ of the unprocessed
 -- accounts and a result string that explains why each was unprocessed.
 createMembersResponse_unprocessedAccounts :: Lens.Lens' CreateMembersResponse [UnprocessedAccount]
-createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@CreateMembersResponse' {} a -> s {unprocessedAccounts = a} :: CreateMembersResponse) Core.. Lens._Coerce
+createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@CreateMembersResponse' {} a -> s {unprocessedAccounts = a} :: CreateMembersResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData CreateMembersResponse
+instance Prelude.NFData CreateMembersResponse

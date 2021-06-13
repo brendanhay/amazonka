@@ -23,35 +23,36 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.Action
 import Network.AWS.GuardDuty.Types.Evidence
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains additional information about the generated finding.
 --
 -- /See:/ 'newServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
   { -- | The resource role information for this finding.
-    resourceRole :: Core.Maybe Core.Text,
+    resourceRole :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this finding is archived.
-    archived :: Core.Maybe Core.Bool,
+    archived :: Prelude.Maybe Prelude.Bool,
     -- | The first-seen timestamp of the activity that prompted GuardDuty to
     -- generate this finding.
-    eventFirstSeen :: Core.Maybe Core.Text,
+    eventFirstSeen :: Prelude.Maybe Prelude.Text,
     -- | The last-seen timestamp of the activity that prompted GuardDuty to
     -- generate this finding.
-    eventLastSeen :: Core.Maybe Core.Text,
+    eventLastSeen :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS service (GuardDuty) that generated a finding.
-    serviceName :: Core.Maybe Core.Text,
+    serviceName :: Prelude.Maybe Prelude.Text,
     -- | The detector ID for the GuardDuty service.
-    detectorId :: Core.Maybe Core.Text,
+    detectorId :: Prelude.Maybe Prelude.Text,
     -- | Information about the activity that is described in a finding.
-    action :: Core.Maybe Action,
+    action :: Prelude.Maybe Action,
     -- | An evidence object associated with the service.
-    evidence :: Core.Maybe Evidence,
+    evidence :: Prelude.Maybe Evidence,
     -- | The total count of the occurrences of this finding type.
-    count :: Core.Maybe Core.Int,
+    count :: Prelude.Maybe Prelude.Int,
     -- | Feedback that was submitted about the finding.
-    userFeedback :: Core.Maybe Core.Text
+    userFeedback :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceInfo' with all optional fields omitted.
@@ -86,58 +87,58 @@ newServiceInfo ::
   ServiceInfo
 newServiceInfo =
   ServiceInfo'
-    { resourceRole = Core.Nothing,
-      archived = Core.Nothing,
-      eventFirstSeen = Core.Nothing,
-      eventLastSeen = Core.Nothing,
-      serviceName = Core.Nothing,
-      detectorId = Core.Nothing,
-      action = Core.Nothing,
-      evidence = Core.Nothing,
-      count = Core.Nothing,
-      userFeedback = Core.Nothing
+    { resourceRole = Prelude.Nothing,
+      archived = Prelude.Nothing,
+      eventFirstSeen = Prelude.Nothing,
+      eventLastSeen = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
+      detectorId = Prelude.Nothing,
+      action = Prelude.Nothing,
+      evidence = Prelude.Nothing,
+      count = Prelude.Nothing,
+      userFeedback = Prelude.Nothing
     }
 
 -- | The resource role information for this finding.
-serviceInfo_resourceRole :: Lens.Lens' ServiceInfo (Core.Maybe Core.Text)
+serviceInfo_resourceRole :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_resourceRole = Lens.lens (\ServiceInfo' {resourceRole} -> resourceRole) (\s@ServiceInfo' {} a -> s {resourceRole = a} :: ServiceInfo)
 
 -- | Indicates whether this finding is archived.
-serviceInfo_archived :: Lens.Lens' ServiceInfo (Core.Maybe Core.Bool)
+serviceInfo_archived :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Bool)
 serviceInfo_archived = Lens.lens (\ServiceInfo' {archived} -> archived) (\s@ServiceInfo' {} a -> s {archived = a} :: ServiceInfo)
 
 -- | The first-seen timestamp of the activity that prompted GuardDuty to
 -- generate this finding.
-serviceInfo_eventFirstSeen :: Lens.Lens' ServiceInfo (Core.Maybe Core.Text)
+serviceInfo_eventFirstSeen :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_eventFirstSeen = Lens.lens (\ServiceInfo' {eventFirstSeen} -> eventFirstSeen) (\s@ServiceInfo' {} a -> s {eventFirstSeen = a} :: ServiceInfo)
 
 -- | The last-seen timestamp of the activity that prompted GuardDuty to
 -- generate this finding.
-serviceInfo_eventLastSeen :: Lens.Lens' ServiceInfo (Core.Maybe Core.Text)
+serviceInfo_eventLastSeen :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_eventLastSeen = Lens.lens (\ServiceInfo' {eventLastSeen} -> eventLastSeen) (\s@ServiceInfo' {} a -> s {eventLastSeen = a} :: ServiceInfo)
 
 -- | The name of the AWS service (GuardDuty) that generated a finding.
-serviceInfo_serviceName :: Lens.Lens' ServiceInfo (Core.Maybe Core.Text)
+serviceInfo_serviceName :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_serviceName = Lens.lens (\ServiceInfo' {serviceName} -> serviceName) (\s@ServiceInfo' {} a -> s {serviceName = a} :: ServiceInfo)
 
 -- | The detector ID for the GuardDuty service.
-serviceInfo_detectorId :: Lens.Lens' ServiceInfo (Core.Maybe Core.Text)
+serviceInfo_detectorId :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_detectorId = Lens.lens (\ServiceInfo' {detectorId} -> detectorId) (\s@ServiceInfo' {} a -> s {detectorId = a} :: ServiceInfo)
 
 -- | Information about the activity that is described in a finding.
-serviceInfo_action :: Lens.Lens' ServiceInfo (Core.Maybe Action)
+serviceInfo_action :: Lens.Lens' ServiceInfo (Prelude.Maybe Action)
 serviceInfo_action = Lens.lens (\ServiceInfo' {action} -> action) (\s@ServiceInfo' {} a -> s {action = a} :: ServiceInfo)
 
 -- | An evidence object associated with the service.
-serviceInfo_evidence :: Lens.Lens' ServiceInfo (Core.Maybe Evidence)
+serviceInfo_evidence :: Lens.Lens' ServiceInfo (Prelude.Maybe Evidence)
 serviceInfo_evidence = Lens.lens (\ServiceInfo' {evidence} -> evidence) (\s@ServiceInfo' {} a -> s {evidence = a} :: ServiceInfo)
 
 -- | The total count of the occurrences of this finding type.
-serviceInfo_count :: Lens.Lens' ServiceInfo (Core.Maybe Core.Int)
+serviceInfo_count :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Int)
 serviceInfo_count = Lens.lens (\ServiceInfo' {count} -> count) (\s@ServiceInfo' {} a -> s {count = a} :: ServiceInfo)
 
 -- | Feedback that was submitted about the finding.
-serviceInfo_userFeedback :: Lens.Lens' ServiceInfo (Core.Maybe Core.Text)
+serviceInfo_userFeedback :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_userFeedback = Lens.lens (\ServiceInfo' {userFeedback} -> userFeedback) (\s@ServiceInfo' {} a -> s {userFeedback = a} :: ServiceInfo)
 
 instance Core.FromJSON ServiceInfo where
@@ -146,18 +147,18 @@ instance Core.FromJSON ServiceInfo where
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            Core.<$> (x Core..:? "resourceRole")
-            Core.<*> (x Core..:? "archived")
-            Core.<*> (x Core..:? "eventFirstSeen")
-            Core.<*> (x Core..:? "eventLastSeen")
-            Core.<*> (x Core..:? "serviceName")
-            Core.<*> (x Core..:? "detectorId")
-            Core.<*> (x Core..:? "action")
-            Core.<*> (x Core..:? "evidence")
-            Core.<*> (x Core..:? "count")
-            Core.<*> (x Core..:? "userFeedback")
+            Prelude.<$> (x Core..:? "resourceRole")
+            Prelude.<*> (x Core..:? "archived")
+            Prelude.<*> (x Core..:? "eventFirstSeen")
+            Prelude.<*> (x Core..:? "eventLastSeen")
+            Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<*> (x Core..:? "detectorId")
+            Prelude.<*> (x Core..:? "action")
+            Prelude.<*> (x Core..:? "evidence")
+            Prelude.<*> (x Core..:? "count")
+            Prelude.<*> (x Core..:? "userFeedback")
       )
 
-instance Core.Hashable ServiceInfo
+instance Prelude.Hashable ServiceInfo
 
-instance Core.NFData ServiceInfo
+instance Prelude.NFData ServiceInfo

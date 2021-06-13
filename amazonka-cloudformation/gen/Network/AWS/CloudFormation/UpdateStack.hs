@@ -66,6 +66,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,7 +82,7 @@ data UpdateStack = UpdateStack'
     -- overriding stack policy during this update. If you do not specify a
     -- stack policy, the current policy that is associated with the stack will
     -- be used.
-    stackPolicyDuringUpdateBody :: Core.Maybe Core.Text,
+    stackPolicyDuringUpdateBody :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
     -- (IAM) role that AWS CloudFormation assumes to update the stack. AWS
     -- CloudFormation uses the role\'s credentials to make calls on your
@@ -94,7 +95,7 @@ data UpdateStack = UpdateStack'
     -- previously associated with the stack. If no role is available, AWS
     -- CloudFormation uses a temporary session that is generated from your user
     -- credentials.
-    roleARN :: Core.Maybe Core.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The template resource types that you have permissions to work with for
     -- this update stack action, such as @AWS::EC2::Instance@, @AWS::EC2::*@,
     -- or @Custom::MyCustomInstance@.
@@ -105,7 +106,7 @@ data UpdateStack = UpdateStack'
     -- (IAM) uses this parameter for AWS CloudFormation-specific condition keys
     -- in IAM policies. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>.
-    resourceTypes :: Core.Maybe [Core.Text],
+    resourceTypes :: Prelude.Maybe [Prelude.Text],
     -- | In some cases, you must explicitly acknowledge that your stack template
     -- contains certain capabilities in order for AWS CloudFormation to update
     -- the stack.
@@ -181,7 +182,7 @@ data UpdateStack = UpdateStack'
     --
     --     For more information, see
     --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using AWS CloudFormation Macros to Perform Custom Processing on Templates>.
-    capabilities :: Core.Maybe [Capability],
+    capabilities :: Prelude.Maybe [Capability],
     -- | Structure containing a new stack policy body. You can specify either the
     -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
     --
@@ -189,7 +190,7 @@ data UpdateStack = UpdateStack'
     -- new resource that you created during a stack update. If you do not
     -- specify a stack policy, the current policy that is associated with the
     -- stack is unchanged.
-    stackPolicyBody :: Core.Maybe Core.Text,
+    stackPolicyBody :: Prelude.Maybe Prelude.Text,
     -- | Location of file containing the template body. The URL must point to a
     -- template that is located in an Amazon S3 bucket or a Systems Manager
     -- document. For more information, go to
@@ -199,11 +200,11 @@ data UpdateStack = UpdateStack'
     -- Conditional: You must specify only one of the following parameters:
     -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
     -- @true@.
-    templateURL :: Core.Maybe Core.Text,
+    templateURL :: Prelude.Maybe Prelude.Text,
     -- | Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
     -- that AWS CloudFormation associates with the stack. Specify an empty list
     -- to remove all notification topics.
-    notificationARNs :: Core.Maybe [Core.Text],
+    notificationARNs :: Prelude.Maybe [Prelude.Text],
     -- | Location of a file containing the updated stack policy. The URL must
     -- point to a policy (max size: 16KB) located in an S3 bucket in the same
     -- Region as the stack. You can specify either the @StackPolicyBody@ or the
@@ -213,7 +214,7 @@ data UpdateStack = UpdateStack'
     -- new resource that you created during a stack update. If you do not
     -- specify a stack policy, the current policy that is associated with the
     -- stack is unchanged.
-    stackPolicyURL :: Core.Maybe Core.Text,
+    stackPolicyURL :: Prelude.Maybe Prelude.Text,
     -- | Location of a file containing the temporary overriding stack policy. The
     -- URL must point to a policy (max size: 16KB) located in an S3 bucket in
     -- the same Region as the stack. You can specify either the
@@ -224,7 +225,7 @@ data UpdateStack = UpdateStack'
     -- overriding stack policy during this update. If you do not specify a
     -- stack policy, the current policy that is associated with the stack will
     -- be used.
-    stackPolicyDuringUpdateURL :: Core.Maybe Core.Text,
+    stackPolicyDuringUpdateURL :: Prelude.Maybe Prelude.Text,
     -- | Key-value pairs to associate with this stack. AWS CloudFormation also
     -- propagates these tags to supported resources in the stack. You can
     -- specify a maximum number of 50 tags.
@@ -232,11 +233,11 @@ data UpdateStack = UpdateStack'
     -- If you don\'t specify this parameter, AWS CloudFormation doesn\'t modify
     -- the stack\'s tags. If you specify an empty value, AWS CloudFormation
     -- removes all associated tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The rollback triggers for AWS CloudFormation to monitor during stack
     -- creation and updating operations, and for the specified monitoring
     -- period afterwards.
-    rollbackConfiguration :: Core.Maybe RollbackConfiguration,
+    rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
     -- | A unique identifier for this @UpdateStack@ request. Specify this token
     -- if you plan to retry requests so that AWS CloudFormation knows that
     -- you\'re not attempting to update a stack with the same name. You might
@@ -256,7 +257,7 @@ data UpdateStack = UpdateStack'
     -- the console, each stack event would be assigned the same token in the
     -- following format:
     -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Structure containing the template body with a minimum length of 1 byte
     -- and a maximum length of 51,200 bytes. (For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -265,23 +266,23 @@ data UpdateStack = UpdateStack'
     -- Conditional: You must specify only one of the following parameters:
     -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
     -- @true@.
-    templateBody :: Core.Maybe Core.Text,
+    templateBody :: Prelude.Maybe Prelude.Text,
     -- | A list of @Parameter@ structures that specify input parameters for the
     -- stack. For more information, see the
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
     -- data type.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | Reuse the existing template that is associated with the stack that you
     -- are updating.
     --
     -- Conditional: You must specify only one of the following parameters:
     -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
     -- @true@.
-    usePreviousTemplate :: Core.Maybe Core.Bool,
+    usePreviousTemplate :: Prelude.Maybe Prelude.Bool,
     -- | The name or unique stack ID of the stack to update.
-    stackName :: Core.Text
+    stackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStack' with all optional fields omitted.
@@ -499,26 +500,26 @@ data UpdateStack = UpdateStack'
 -- 'stackName', 'updateStack_stackName' - The name or unique stack ID of the stack to update.
 newUpdateStack ::
   -- | 'stackName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateStack
 newUpdateStack pStackName_ =
   UpdateStack'
     { stackPolicyDuringUpdateBody =
-        Core.Nothing,
-      roleARN = Core.Nothing,
-      resourceTypes = Core.Nothing,
-      capabilities = Core.Nothing,
-      stackPolicyBody = Core.Nothing,
-      templateURL = Core.Nothing,
-      notificationARNs = Core.Nothing,
-      stackPolicyURL = Core.Nothing,
-      stackPolicyDuringUpdateURL = Core.Nothing,
-      tags = Core.Nothing,
-      rollbackConfiguration = Core.Nothing,
-      clientRequestToken = Core.Nothing,
-      templateBody = Core.Nothing,
-      parameters = Core.Nothing,
-      usePreviousTemplate = Core.Nothing,
+        Prelude.Nothing,
+      roleARN = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing,
+      capabilities = Prelude.Nothing,
+      stackPolicyBody = Prelude.Nothing,
+      templateURL = Prelude.Nothing,
+      notificationARNs = Prelude.Nothing,
+      stackPolicyURL = Prelude.Nothing,
+      stackPolicyDuringUpdateURL = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      rollbackConfiguration = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      usePreviousTemplate = Prelude.Nothing,
       stackName = pStackName_
     }
 
@@ -530,7 +531,7 @@ newUpdateStack pStackName_ =
 -- overriding stack policy during this update. If you do not specify a
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
-updateStack_stackPolicyDuringUpdateBody :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
+updateStack_stackPolicyDuringUpdateBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_stackPolicyDuringUpdateBody = Lens.lens (\UpdateStack' {stackPolicyDuringUpdateBody} -> stackPolicyDuringUpdateBody) (\s@UpdateStack' {} a -> s {stackPolicyDuringUpdateBody = a} :: UpdateStack)
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
@@ -545,7 +546,7 @@ updateStack_stackPolicyDuringUpdateBody = Lens.lens (\UpdateStack' {stackPolicyD
 -- previously associated with the stack. If no role is available, AWS
 -- CloudFormation uses a temporary session that is generated from your user
 -- credentials.
-updateStack_roleARN :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
+updateStack_roleARN :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_roleARN = Lens.lens (\UpdateStack' {roleARN} -> roleARN) (\s@UpdateStack' {} a -> s {roleARN = a} :: UpdateStack)
 
 -- | The template resource types that you have permissions to work with for
@@ -558,8 +559,8 @@ updateStack_roleARN = Lens.lens (\UpdateStack' {roleARN} -> roleARN) (\s@UpdateS
 -- (IAM) uses this parameter for AWS CloudFormation-specific condition keys
 -- in IAM policies. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>.
-updateStack_resourceTypes :: Lens.Lens' UpdateStack (Core.Maybe [Core.Text])
-updateStack_resourceTypes = Lens.lens (\UpdateStack' {resourceTypes} -> resourceTypes) (\s@UpdateStack' {} a -> s {resourceTypes = a} :: UpdateStack) Core.. Lens.mapping Lens._Coerce
+updateStack_resourceTypes :: Lens.Lens' UpdateStack (Prelude.Maybe [Prelude.Text])
+updateStack_resourceTypes = Lens.lens (\UpdateStack' {resourceTypes} -> resourceTypes) (\s@UpdateStack' {} a -> s {resourceTypes = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | In some cases, you must explicitly acknowledge that your stack template
 -- contains certain capabilities in order for AWS CloudFormation to update
@@ -636,8 +637,8 @@ updateStack_resourceTypes = Lens.lens (\UpdateStack' {resourceTypes} -> resource
 --
 --     For more information, see
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using AWS CloudFormation Macros to Perform Custom Processing on Templates>.
-updateStack_capabilities :: Lens.Lens' UpdateStack (Core.Maybe [Capability])
-updateStack_capabilities = Lens.lens (\UpdateStack' {capabilities} -> capabilities) (\s@UpdateStack' {} a -> s {capabilities = a} :: UpdateStack) Core.. Lens.mapping Lens._Coerce
+updateStack_capabilities :: Lens.Lens' UpdateStack (Prelude.Maybe [Capability])
+updateStack_capabilities = Lens.lens (\UpdateStack' {capabilities} -> capabilities) (\s@UpdateStack' {} a -> s {capabilities = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Structure containing a new stack policy body. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
@@ -646,7 +647,7 @@ updateStack_capabilities = Lens.lens (\UpdateStack' {capabilities} -> capabiliti
 -- new resource that you created during a stack update. If you do not
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
-updateStack_stackPolicyBody :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
+updateStack_stackPolicyBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_stackPolicyBody = Lens.lens (\UpdateStack' {stackPolicyBody} -> stackPolicyBody) (\s@UpdateStack' {} a -> s {stackPolicyBody = a} :: UpdateStack)
 
 -- | Location of file containing the template body. The URL must point to a
@@ -658,14 +659,14 @@ updateStack_stackPolicyBody = Lens.lens (\UpdateStack' {stackPolicyBody} -> stac
 -- Conditional: You must specify only one of the following parameters:
 -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
 -- @true@.
-updateStack_templateURL :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
+updateStack_templateURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_templateURL = Lens.lens (\UpdateStack' {templateURL} -> templateURL) (\s@UpdateStack' {} a -> s {templateURL = a} :: UpdateStack)
 
 -- | Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
 -- that AWS CloudFormation associates with the stack. Specify an empty list
 -- to remove all notification topics.
-updateStack_notificationARNs :: Lens.Lens' UpdateStack (Core.Maybe [Core.Text])
-updateStack_notificationARNs = Lens.lens (\UpdateStack' {notificationARNs} -> notificationARNs) (\s@UpdateStack' {} a -> s {notificationARNs = a} :: UpdateStack) Core.. Lens.mapping Lens._Coerce
+updateStack_notificationARNs :: Lens.Lens' UpdateStack (Prelude.Maybe [Prelude.Text])
+updateStack_notificationARNs = Lens.lens (\UpdateStack' {notificationARNs} -> notificationARNs) (\s@UpdateStack' {} a -> s {notificationARNs = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Location of a file containing the updated stack policy. The URL must
 -- point to a policy (max size: 16KB) located in an S3 bucket in the same
@@ -676,7 +677,7 @@ updateStack_notificationARNs = Lens.lens (\UpdateStack' {notificationARNs} -> no
 -- new resource that you created during a stack update. If you do not
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
-updateStack_stackPolicyURL :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
+updateStack_stackPolicyURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_stackPolicyURL = Lens.lens (\UpdateStack' {stackPolicyURL} -> stackPolicyURL) (\s@UpdateStack' {} a -> s {stackPolicyURL = a} :: UpdateStack)
 
 -- | Location of a file containing the temporary overriding stack policy. The
@@ -689,7 +690,7 @@ updateStack_stackPolicyURL = Lens.lens (\UpdateStack' {stackPolicyURL} -> stackP
 -- overriding stack policy during this update. If you do not specify a
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
-updateStack_stackPolicyDuringUpdateURL :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
+updateStack_stackPolicyDuringUpdateURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_stackPolicyDuringUpdateURL = Lens.lens (\UpdateStack' {stackPolicyDuringUpdateURL} -> stackPolicyDuringUpdateURL) (\s@UpdateStack' {} a -> s {stackPolicyDuringUpdateURL = a} :: UpdateStack)
 
 -- | Key-value pairs to associate with this stack. AWS CloudFormation also
@@ -699,13 +700,13 @@ updateStack_stackPolicyDuringUpdateURL = Lens.lens (\UpdateStack' {stackPolicyDu
 -- If you don\'t specify this parameter, AWS CloudFormation doesn\'t modify
 -- the stack\'s tags. If you specify an empty value, AWS CloudFormation
 -- removes all associated tags.
-updateStack_tags :: Lens.Lens' UpdateStack (Core.Maybe [Tag])
-updateStack_tags = Lens.lens (\UpdateStack' {tags} -> tags) (\s@UpdateStack' {} a -> s {tags = a} :: UpdateStack) Core.. Lens.mapping Lens._Coerce
+updateStack_tags :: Lens.Lens' UpdateStack (Prelude.Maybe [Tag])
+updateStack_tags = Lens.lens (\UpdateStack' {tags} -> tags) (\s@UpdateStack' {} a -> s {tags = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The rollback triggers for AWS CloudFormation to monitor during stack
 -- creation and updating operations, and for the specified monitoring
 -- period afterwards.
-updateStack_rollbackConfiguration :: Lens.Lens' UpdateStack (Core.Maybe RollbackConfiguration)
+updateStack_rollbackConfiguration :: Lens.Lens' UpdateStack (Prelude.Maybe RollbackConfiguration)
 updateStack_rollbackConfiguration = Lens.lens (\UpdateStack' {rollbackConfiguration} -> rollbackConfiguration) (\s@UpdateStack' {} a -> s {rollbackConfiguration = a} :: UpdateStack)
 
 -- | A unique identifier for this @UpdateStack@ request. Specify this token
@@ -727,7 +728,7 @@ updateStack_rollbackConfiguration = Lens.lens (\UpdateStack' {rollbackConfigurat
 -- the console, each stack event would be assigned the same token in the
 -- following format:
 -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-updateStack_clientRequestToken :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
+updateStack_clientRequestToken :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_clientRequestToken = Lens.lens (\UpdateStack' {clientRequestToken} -> clientRequestToken) (\s@UpdateStack' {} a -> s {clientRequestToken = a} :: UpdateStack)
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -738,15 +739,15 @@ updateStack_clientRequestToken = Lens.lens (\UpdateStack' {clientRequestToken} -
 -- Conditional: You must specify only one of the following parameters:
 -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
 -- @true@.
-updateStack_templateBody :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
+updateStack_templateBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_templateBody = Lens.lens (\UpdateStack' {templateBody} -> templateBody) (\s@UpdateStack' {} a -> s {templateBody = a} :: UpdateStack)
 
 -- | A list of @Parameter@ structures that specify input parameters for the
 -- stack. For more information, see the
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
 -- data type.
-updateStack_parameters :: Lens.Lens' UpdateStack (Core.Maybe [Parameter])
-updateStack_parameters = Lens.lens (\UpdateStack' {parameters} -> parameters) (\s@UpdateStack' {} a -> s {parameters = a} :: UpdateStack) Core.. Lens.mapping Lens._Coerce
+updateStack_parameters :: Lens.Lens' UpdateStack (Prelude.Maybe [Parameter])
+updateStack_parameters = Lens.lens (\UpdateStack' {parameters} -> parameters) (\s@UpdateStack' {} a -> s {parameters = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Reuse the existing template that is associated with the stack that you
 -- are updating.
@@ -754,11 +755,11 @@ updateStack_parameters = Lens.lens (\UpdateStack' {parameters} -> parameters) (\
 -- Conditional: You must specify only one of the following parameters:
 -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
 -- @true@.
-updateStack_usePreviousTemplate :: Lens.Lens' UpdateStack (Core.Maybe Core.Bool)
+updateStack_usePreviousTemplate :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
 updateStack_usePreviousTemplate = Lens.lens (\UpdateStack' {usePreviousTemplate} -> usePreviousTemplate) (\s@UpdateStack' {} a -> s {usePreviousTemplate = a} :: UpdateStack)
 
 -- | The name or unique stack ID of the stack to update.
-updateStack_stackName :: Lens.Lens' UpdateStack Core.Text
+updateStack_stackName :: Lens.Lens' UpdateStack Prelude.Text
 updateStack_stackName = Lens.lens (\UpdateStack' {stackName} -> stackName) (\s@UpdateStack' {} a -> s {stackName = a} :: UpdateStack)
 
 instance Core.AWSRequest UpdateStack where
@@ -769,54 +770,58 @@ instance Core.AWSRequest UpdateStack where
       "UpdateStackResult"
       ( \s h x ->
           UpdateStackResponse'
-            Core.<$> (x Core..@? "StackId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "StackId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateStack
+instance Prelude.Hashable UpdateStack
 
-instance Core.NFData UpdateStack
+instance Prelude.NFData UpdateStack
 
 instance Core.ToHeaders UpdateStack where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateStack where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateStack where
   toQuery UpdateStack' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("UpdateStack" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("UpdateStack" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "StackPolicyDuringUpdateBody"
           Core.=: stackPolicyDuringUpdateBody,
         "RoleARN" Core.=: roleARN,
         "ResourceTypes"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> resourceTypes),
+            ( Core.toQueryList "member"
+                Prelude.<$> resourceTypes
+            ),
         "Capabilities"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> capabilities),
+            (Core.toQueryList "member" Prelude.<$> capabilities),
         "StackPolicyBody" Core.=: stackPolicyBody,
         "TemplateURL" Core.=: templateURL,
         "NotificationARNs"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> notificationARNs
+                Prelude.<$> notificationARNs
             ),
         "StackPolicyURL" Core.=: stackPolicyURL,
         "StackPolicyDuringUpdateURL"
           Core.=: stackPolicyDuringUpdateURL,
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "RollbackConfiguration"
           Core.=: rollbackConfiguration,
         "ClientRequestToken" Core.=: clientRequestToken,
         "TemplateBody" Core.=: templateBody,
         "Parameters"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> parameters),
+            (Core.toQueryList "member" Prelude.<$> parameters),
         "UsePreviousTemplate" Core.=: usePreviousTemplate,
         "StackName" Core.=: stackName
       ]
@@ -826,11 +831,11 @@ instance Core.ToQuery UpdateStack where
 -- /See:/ 'newUpdateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
   { -- | Unique identifier of the stack.
-    stackId :: Core.Maybe Core.Text,
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStackResponse' with all optional fields omitted.
@@ -845,20 +850,20 @@ data UpdateStackResponse = UpdateStackResponse'
 -- 'httpStatus', 'updateStackResponse_httpStatus' - The response's http status code.
 newUpdateStackResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateStackResponse
 newUpdateStackResponse pHttpStatus_ =
   UpdateStackResponse'
-    { stackId = Core.Nothing,
+    { stackId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Unique identifier of the stack.
-updateStackResponse_stackId :: Lens.Lens' UpdateStackResponse (Core.Maybe Core.Text)
+updateStackResponse_stackId :: Lens.Lens' UpdateStackResponse (Prelude.Maybe Prelude.Text)
 updateStackResponse_stackId = Lens.lens (\UpdateStackResponse' {stackId} -> stackId) (\s@UpdateStackResponse' {} a -> s {stackId = a} :: UpdateStackResponse)
 
 -- | The response's http status code.
-updateStackResponse_httpStatus :: Lens.Lens' UpdateStackResponse Core.Int
+updateStackResponse_httpStatus :: Lens.Lens' UpdateStackResponse Prelude.Int
 updateStackResponse_httpStatus = Lens.lens (\UpdateStackResponse' {httpStatus} -> httpStatus) (\s@UpdateStackResponse' {} a -> s {httpStatus = a} :: UpdateStackResponse)
 
-instance Core.NFData UpdateStackResponse
+instance Prelude.NFData UpdateStackResponse

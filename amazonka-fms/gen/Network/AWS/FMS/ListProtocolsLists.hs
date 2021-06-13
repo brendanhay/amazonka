@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,10 +56,10 @@ data ListProtocolsLists = ListProtocolsLists'
     -- token in the response. For all but the first request, you provide the
     -- token returned by the prior request in the request parameters, to
     -- retrieve the next batch of objects.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the lists to retrieve are default lists owned by AWS
     -- Firewall Manager.
-    defaultLists :: Core.Maybe Core.Bool,
+    defaultLists :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of objects that you want AWS Firewall Manager to
     -- return for this request. If more objects are available, in the response,
     -- AWS Firewall Manager provides a @NextToken@ value that you can use in a
@@ -66,9 +67,9 @@ data ListProtocolsLists = ListProtocolsLists'
     --
     -- If you don\'t specify this, AWS Firewall Manager returns all available
     -- objects.
-    maxResults :: Core.Natural
+    maxResults :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProtocolsLists' with all optional fields omitted.
@@ -96,12 +97,12 @@ data ListProtocolsLists = ListProtocolsLists'
 -- objects.
 newListProtocolsLists ::
   -- | 'maxResults'
-  Core.Natural ->
+  Prelude.Natural ->
   ListProtocolsLists
 newListProtocolsLists pMaxResults_ =
   ListProtocolsLists'
-    { nextToken = Core.Nothing,
-      defaultLists = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      defaultLists = Prelude.Nothing,
       maxResults = pMaxResults_
     }
 
@@ -110,12 +111,12 @@ newListProtocolsLists pMaxResults_ =
 -- token in the response. For all but the first request, you provide the
 -- token returned by the prior request in the request parameters, to
 -- retrieve the next batch of objects.
-listProtocolsLists_nextToken :: Lens.Lens' ListProtocolsLists (Core.Maybe Core.Text)
+listProtocolsLists_nextToken :: Lens.Lens' ListProtocolsLists (Prelude.Maybe Prelude.Text)
 listProtocolsLists_nextToken = Lens.lens (\ListProtocolsLists' {nextToken} -> nextToken) (\s@ListProtocolsLists' {} a -> s {nextToken = a} :: ListProtocolsLists)
 
 -- | Specifies whether the lists to retrieve are default lists owned by AWS
 -- Firewall Manager.
-listProtocolsLists_defaultLists :: Lens.Lens' ListProtocolsLists (Core.Maybe Core.Bool)
+listProtocolsLists_defaultLists :: Lens.Lens' ListProtocolsLists (Prelude.Maybe Prelude.Bool)
 listProtocolsLists_defaultLists = Lens.lens (\ListProtocolsLists' {defaultLists} -> defaultLists) (\s@ListProtocolsLists' {} a -> s {defaultLists = a} :: ListProtocolsLists)
 
 -- | The maximum number of objects that you want AWS Firewall Manager to
@@ -125,7 +126,7 @@ listProtocolsLists_defaultLists = Lens.lens (\ListProtocolsLists' {defaultLists}
 --
 -- If you don\'t specify this, AWS Firewall Manager returns all available
 -- objects.
-listProtocolsLists_maxResults :: Lens.Lens' ListProtocolsLists Core.Natural
+listProtocolsLists_maxResults :: Lens.Lens' ListProtocolsLists Prelude.Natural
 listProtocolsLists_maxResults = Lens.lens (\ListProtocolsLists' {maxResults} -> maxResults) (\s@ListProtocolsLists' {} a -> s {maxResults = a} :: ListProtocolsLists)
 
 instance Core.AWSRequest ListProtocolsLists where
@@ -137,43 +138,45 @@ instance Core.AWSRequest ListProtocolsLists where
     Response.receiveJSON
       ( \s h x ->
           ListProtocolsListsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ProtocolsLists" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ProtocolsLists" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListProtocolsLists
+instance Prelude.Hashable ListProtocolsLists
 
-instance Core.NFData ListProtocolsLists
+instance Prelude.NFData ListProtocolsLists
 
 instance Core.ToHeaders ListProtocolsLists where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.ListProtocolsLists" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListProtocolsLists where
   toJSON ListProtocolsLists' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("DefaultLists" Core..=) Core.<$> defaultLists,
-            Core.Just ("MaxResults" Core..= maxResults)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("DefaultLists" Core..=) Prelude.<$> defaultLists,
+            Prelude.Just ("MaxResults" Core..= maxResults)
           ]
       )
 
 instance Core.ToPath ListProtocolsLists where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListProtocolsLists where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProtocolsListsResponse' smart constructor.
 data ListProtocolsListsResponse = ListProtocolsListsResponse'
@@ -181,13 +184,13 @@ data ListProtocolsListsResponse = ListProtocolsListsResponse'
     -- have more objects than the maximum, AWS Firewall Manager returns this
     -- token in the response. You can use this token in subsequent requests to
     -- retrieve the next batch of objects.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @ProtocolsListDataSummary@ objects.
-    protocolsLists :: Core.Maybe [ProtocolsListDataSummary],
+    protocolsLists :: Prelude.Maybe [ProtocolsListDataSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListProtocolsListsResponse' with all optional fields omitted.
@@ -207,13 +210,13 @@ data ListProtocolsListsResponse = ListProtocolsListsResponse'
 -- 'httpStatus', 'listProtocolsListsResponse_httpStatus' - The response's http status code.
 newListProtocolsListsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListProtocolsListsResponse
 newListProtocolsListsResponse pHttpStatus_ =
   ListProtocolsListsResponse'
     { nextToken =
-        Core.Nothing,
-      protocolsLists = Core.Nothing,
+        Prelude.Nothing,
+      protocolsLists = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -221,15 +224,15 @@ newListProtocolsListsResponse pHttpStatus_ =
 -- have more objects than the maximum, AWS Firewall Manager returns this
 -- token in the response. You can use this token in subsequent requests to
 -- retrieve the next batch of objects.
-listProtocolsListsResponse_nextToken :: Lens.Lens' ListProtocolsListsResponse (Core.Maybe Core.Text)
+listProtocolsListsResponse_nextToken :: Lens.Lens' ListProtocolsListsResponse (Prelude.Maybe Prelude.Text)
 listProtocolsListsResponse_nextToken = Lens.lens (\ListProtocolsListsResponse' {nextToken} -> nextToken) (\s@ListProtocolsListsResponse' {} a -> s {nextToken = a} :: ListProtocolsListsResponse)
 
 -- | An array of @ProtocolsListDataSummary@ objects.
-listProtocolsListsResponse_protocolsLists :: Lens.Lens' ListProtocolsListsResponse (Core.Maybe [ProtocolsListDataSummary])
-listProtocolsListsResponse_protocolsLists = Lens.lens (\ListProtocolsListsResponse' {protocolsLists} -> protocolsLists) (\s@ListProtocolsListsResponse' {} a -> s {protocolsLists = a} :: ListProtocolsListsResponse) Core.. Lens.mapping Lens._Coerce
+listProtocolsListsResponse_protocolsLists :: Lens.Lens' ListProtocolsListsResponse (Prelude.Maybe [ProtocolsListDataSummary])
+listProtocolsListsResponse_protocolsLists = Lens.lens (\ListProtocolsListsResponse' {protocolsLists} -> protocolsLists) (\s@ListProtocolsListsResponse' {} a -> s {protocolsLists = a} :: ListProtocolsListsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listProtocolsListsResponse_httpStatus :: Lens.Lens' ListProtocolsListsResponse Core.Int
+listProtocolsListsResponse_httpStatus :: Lens.Lens' ListProtocolsListsResponse Prelude.Int
 listProtocolsListsResponse_httpStatus = Lens.lens (\ListProtocolsListsResponse' {httpStatus} -> httpStatus) (\s@ListProtocolsListsResponse' {} a -> s {httpStatus = a} :: ListProtocolsListsResponse)
 
-instance Core.NFData ListProtocolsListsResponse
+instance Prelude.NFData ListProtocolsListsResponse

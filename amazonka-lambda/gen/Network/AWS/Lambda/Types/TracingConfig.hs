@@ -22,6 +22,7 @@ module Network.AWS.Lambda.Types.TracingConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.TracingMode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The function\'s AWS X-Ray tracing configuration. To sample and record
 -- incoming requests, set @Mode@ to @Active@.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTracingConfig' smart constructor.
 data TracingConfig = TracingConfig'
   { -- | The tracing mode.
-    mode :: Core.Maybe TracingMode
+    mode :: Prelude.Maybe TracingMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TracingConfig' with all optional fields omitted.
@@ -45,17 +46,19 @@ data TracingConfig = TracingConfig'
 newTracingConfig ::
   TracingConfig
 newTracingConfig =
-  TracingConfig' {mode = Core.Nothing}
+  TracingConfig' {mode = Prelude.Nothing}
 
 -- | The tracing mode.
-tracingConfig_mode :: Lens.Lens' TracingConfig (Core.Maybe TracingMode)
+tracingConfig_mode :: Lens.Lens' TracingConfig (Prelude.Maybe TracingMode)
 tracingConfig_mode = Lens.lens (\TracingConfig' {mode} -> mode) (\s@TracingConfig' {} a -> s {mode = a} :: TracingConfig)
 
-instance Core.Hashable TracingConfig
+instance Prelude.Hashable TracingConfig
 
-instance Core.NFData TracingConfig
+instance Prelude.NFData TracingConfig
 
 instance Core.ToJSON TracingConfig where
   toJSON TracingConfig' {..} =
     Core.object
-      (Core.catMaybes [("Mode" Core..=) Core.<$> mode])
+      ( Prelude.catMaybes
+          [("Mode" Core..=) Prelude.<$> mode]
+      )

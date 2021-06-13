@@ -22,25 +22,26 @@ module Network.AWS.OpsWorks.Types.StackSummary where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.InstancesCount
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summarizes the number of layers, instances, and apps in a stack.
 --
 -- /See:/ 'newStackSummary' smart constructor.
 data StackSummary = StackSummary'
   { -- | The stack ID.
-    stackId :: Core.Maybe Core.Text,
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The number of layers.
-    layersCount :: Core.Maybe Core.Int,
+    layersCount :: Prelude.Maybe Prelude.Int,
     -- | The stack\'s ARN.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The stack name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | An @InstancesCount@ object with the number of instances in each status.
-    instancesCount :: Core.Maybe InstancesCount,
+    instancesCount :: Prelude.Maybe InstancesCount,
     -- | The number of apps.
-    appsCount :: Core.Maybe Core.Int
+    appsCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackSummary' with all optional fields omitted.
@@ -65,36 +66,36 @@ newStackSummary ::
   StackSummary
 newStackSummary =
   StackSummary'
-    { stackId = Core.Nothing,
-      layersCount = Core.Nothing,
-      arn = Core.Nothing,
-      name = Core.Nothing,
-      instancesCount = Core.Nothing,
-      appsCount = Core.Nothing
+    { stackId = Prelude.Nothing,
+      layersCount = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      instancesCount = Prelude.Nothing,
+      appsCount = Prelude.Nothing
     }
 
 -- | The stack ID.
-stackSummary_stackId :: Lens.Lens' StackSummary (Core.Maybe Core.Text)
+stackSummary_stackId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_stackId = Lens.lens (\StackSummary' {stackId} -> stackId) (\s@StackSummary' {} a -> s {stackId = a} :: StackSummary)
 
 -- | The number of layers.
-stackSummary_layersCount :: Lens.Lens' StackSummary (Core.Maybe Core.Int)
+stackSummary_layersCount :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Int)
 stackSummary_layersCount = Lens.lens (\StackSummary' {layersCount} -> layersCount) (\s@StackSummary' {} a -> s {layersCount = a} :: StackSummary)
 
 -- | The stack\'s ARN.
-stackSummary_arn :: Lens.Lens' StackSummary (Core.Maybe Core.Text)
+stackSummary_arn :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_arn = Lens.lens (\StackSummary' {arn} -> arn) (\s@StackSummary' {} a -> s {arn = a} :: StackSummary)
 
 -- | The stack name.
-stackSummary_name :: Lens.Lens' StackSummary (Core.Maybe Core.Text)
+stackSummary_name :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_name = Lens.lens (\StackSummary' {name} -> name) (\s@StackSummary' {} a -> s {name = a} :: StackSummary)
 
 -- | An @InstancesCount@ object with the number of instances in each status.
-stackSummary_instancesCount :: Lens.Lens' StackSummary (Core.Maybe InstancesCount)
+stackSummary_instancesCount :: Lens.Lens' StackSummary (Prelude.Maybe InstancesCount)
 stackSummary_instancesCount = Lens.lens (\StackSummary' {instancesCount} -> instancesCount) (\s@StackSummary' {} a -> s {instancesCount = a} :: StackSummary)
 
 -- | The number of apps.
-stackSummary_appsCount :: Lens.Lens' StackSummary (Core.Maybe Core.Int)
+stackSummary_appsCount :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Int)
 stackSummary_appsCount = Lens.lens (\StackSummary' {appsCount} -> appsCount) (\s@StackSummary' {} a -> s {appsCount = a} :: StackSummary)
 
 instance Core.FromJSON StackSummary where
@@ -103,14 +104,14 @@ instance Core.FromJSON StackSummary where
       "StackSummary"
       ( \x ->
           StackSummary'
-            Core.<$> (x Core..:? "StackId")
-            Core.<*> (x Core..:? "LayersCount")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "InstancesCount")
-            Core.<*> (x Core..:? "AppsCount")
+            Prelude.<$> (x Core..:? "StackId")
+            Prelude.<*> (x Core..:? "LayersCount")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "InstancesCount")
+            Prelude.<*> (x Core..:? "AppsCount")
       )
 
-instance Core.Hashable StackSummary
+instance Prelude.Hashable StackSummary
 
-instance Core.NFData StackSummary
+instance Prelude.NFData StackSummary

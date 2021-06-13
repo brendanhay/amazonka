@@ -46,21 +46,22 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAdminUpdateAuthEventFeedback' smart constructor.
 data AdminUpdateAuthEventFeedback = AdminUpdateAuthEventFeedback'
   { -- | The user pool ID.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The user pool username.
-    username :: Core.Sensitive Core.Text,
+    username :: Core.Sensitive Prelude.Text,
     -- | The authentication event ID.
-    eventId :: Core.Text,
+    eventId :: Prelude.Text,
     -- | The authentication event feedback value.
     feedbackValue :: FeedbackValueType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminUpdateAuthEventFeedback' with all optional fields omitted.
@@ -79,11 +80,11 @@ data AdminUpdateAuthEventFeedback = AdminUpdateAuthEventFeedback'
 -- 'feedbackValue', 'adminUpdateAuthEventFeedback_feedbackValue' - The authentication event feedback value.
 newAdminUpdateAuthEventFeedback ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'eventId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'feedbackValue'
   FeedbackValueType ->
   AdminUpdateAuthEventFeedback
@@ -101,15 +102,15 @@ newAdminUpdateAuthEventFeedback
       }
 
 -- | The user pool ID.
-adminUpdateAuthEventFeedback_userPoolId :: Lens.Lens' AdminUpdateAuthEventFeedback Core.Text
+adminUpdateAuthEventFeedback_userPoolId :: Lens.Lens' AdminUpdateAuthEventFeedback Prelude.Text
 adminUpdateAuthEventFeedback_userPoolId = Lens.lens (\AdminUpdateAuthEventFeedback' {userPoolId} -> userPoolId) (\s@AdminUpdateAuthEventFeedback' {} a -> s {userPoolId = a} :: AdminUpdateAuthEventFeedback)
 
 -- | The user pool username.
-adminUpdateAuthEventFeedback_username :: Lens.Lens' AdminUpdateAuthEventFeedback Core.Text
-adminUpdateAuthEventFeedback_username = Lens.lens (\AdminUpdateAuthEventFeedback' {username} -> username) (\s@AdminUpdateAuthEventFeedback' {} a -> s {username = a} :: AdminUpdateAuthEventFeedback) Core.. Core._Sensitive
+adminUpdateAuthEventFeedback_username :: Lens.Lens' AdminUpdateAuthEventFeedback Prelude.Text
+adminUpdateAuthEventFeedback_username = Lens.lens (\AdminUpdateAuthEventFeedback' {username} -> username) (\s@AdminUpdateAuthEventFeedback' {} a -> s {username = a} :: AdminUpdateAuthEventFeedback) Prelude.. Core._Sensitive
 
 -- | The authentication event ID.
-adminUpdateAuthEventFeedback_eventId :: Lens.Lens' AdminUpdateAuthEventFeedback Core.Text
+adminUpdateAuthEventFeedback_eventId :: Lens.Lens' AdminUpdateAuthEventFeedback Prelude.Text
 adminUpdateAuthEventFeedback_eventId = Lens.lens (\AdminUpdateAuthEventFeedback' {eventId} -> eventId) (\s@AdminUpdateAuthEventFeedback' {} a -> s {eventId = a} :: AdminUpdateAuthEventFeedback)
 
 -- | The authentication event feedback value.
@@ -125,49 +126,54 @@ instance Core.AWSRequest AdminUpdateAuthEventFeedback where
     Response.receiveEmpty
       ( \s h x ->
           AdminUpdateAuthEventFeedbackResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AdminUpdateAuthEventFeedback
+instance
+  Prelude.Hashable
+    AdminUpdateAuthEventFeedback
 
-instance Core.NFData AdminUpdateAuthEventFeedback
+instance Prelude.NFData AdminUpdateAuthEventFeedback
 
 instance Core.ToHeaders AdminUpdateAuthEventFeedback where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminUpdateAuthEventFeedback where
   toJSON AdminUpdateAuthEventFeedback' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Username" Core..= username),
-            Core.Just ("EventId" Core..= eventId),
-            Core.Just ("FeedbackValue" Core..= feedbackValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("EventId" Core..= eventId),
+            Prelude.Just
+              ("FeedbackValue" Core..= feedbackValue)
           ]
       )
 
 instance Core.ToPath AdminUpdateAuthEventFeedback where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminUpdateAuthEventFeedback where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminUpdateAuthEventFeedbackResponse' smart constructor.
 data AdminUpdateAuthEventFeedbackResponse = AdminUpdateAuthEventFeedbackResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminUpdateAuthEventFeedbackResponse' with all optional fields omitted.
@@ -180,7 +186,7 @@ data AdminUpdateAuthEventFeedbackResponse = AdminUpdateAuthEventFeedbackResponse
 -- 'httpStatus', 'adminUpdateAuthEventFeedbackResponse_httpStatus' - The response's http status code.
 newAdminUpdateAuthEventFeedbackResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AdminUpdateAuthEventFeedbackResponse
 newAdminUpdateAuthEventFeedbackResponse pHttpStatus_ =
   AdminUpdateAuthEventFeedbackResponse'
@@ -189,9 +195,9 @@ newAdminUpdateAuthEventFeedbackResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminUpdateAuthEventFeedbackResponse_httpStatus :: Lens.Lens' AdminUpdateAuthEventFeedbackResponse Core.Int
+adminUpdateAuthEventFeedbackResponse_httpStatus :: Lens.Lens' AdminUpdateAuthEventFeedbackResponse Prelude.Int
 adminUpdateAuthEventFeedbackResponse_httpStatus = Lens.lens (\AdminUpdateAuthEventFeedbackResponse' {httpStatus} -> httpStatus) (\s@AdminUpdateAuthEventFeedbackResponse' {} a -> s {httpStatus = a} :: AdminUpdateAuthEventFeedbackResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AdminUpdateAuthEventFeedbackResponse

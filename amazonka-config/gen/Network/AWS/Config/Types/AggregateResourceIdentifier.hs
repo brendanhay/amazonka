@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.AggregateResourceIdentifier where
 import Network.AWS.Config.Types.ResourceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details that identify a resource that is collected by AWS Config
 -- aggregator, including the resource type, ID, (if available) the custom
@@ -30,17 +31,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAggregateResourceIdentifier' smart constructor.
 data AggregateResourceIdentifier = AggregateResourceIdentifier'
   { -- | The name of the AWS resource.
-    resourceName :: Core.Maybe Core.Text,
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The 12-digit account ID of the source account.
-    sourceAccountId :: Core.Text,
+    sourceAccountId :: Prelude.Text,
     -- | The source region where data is aggregated.
-    sourceRegion :: Core.Text,
+    sourceRegion :: Prelude.Text,
     -- | The ID of the AWS resource.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The type of the AWS resource.
     resourceType :: ResourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AggregateResourceIdentifier' with all optional fields omitted.
@@ -61,11 +62,11 @@ data AggregateResourceIdentifier = AggregateResourceIdentifier'
 -- 'resourceType', 'aggregateResourceIdentifier_resourceType' - The type of the AWS resource.
 newAggregateResourceIdentifier ::
   -- | 'sourceAccountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceRegion'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
   ResourceType ->
   AggregateResourceIdentifier
@@ -76,7 +77,7 @@ newAggregateResourceIdentifier
   pResourceType_ =
     AggregateResourceIdentifier'
       { resourceName =
-          Core.Nothing,
+          Prelude.Nothing,
         sourceAccountId = pSourceAccountId_,
         sourceRegion = pSourceRegion_,
         resourceId = pResourceId_,
@@ -84,19 +85,19 @@ newAggregateResourceIdentifier
       }
 
 -- | The name of the AWS resource.
-aggregateResourceIdentifier_resourceName :: Lens.Lens' AggregateResourceIdentifier (Core.Maybe Core.Text)
+aggregateResourceIdentifier_resourceName :: Lens.Lens' AggregateResourceIdentifier (Prelude.Maybe Prelude.Text)
 aggregateResourceIdentifier_resourceName = Lens.lens (\AggregateResourceIdentifier' {resourceName} -> resourceName) (\s@AggregateResourceIdentifier' {} a -> s {resourceName = a} :: AggregateResourceIdentifier)
 
 -- | The 12-digit account ID of the source account.
-aggregateResourceIdentifier_sourceAccountId :: Lens.Lens' AggregateResourceIdentifier Core.Text
+aggregateResourceIdentifier_sourceAccountId :: Lens.Lens' AggregateResourceIdentifier Prelude.Text
 aggregateResourceIdentifier_sourceAccountId = Lens.lens (\AggregateResourceIdentifier' {sourceAccountId} -> sourceAccountId) (\s@AggregateResourceIdentifier' {} a -> s {sourceAccountId = a} :: AggregateResourceIdentifier)
 
 -- | The source region where data is aggregated.
-aggregateResourceIdentifier_sourceRegion :: Lens.Lens' AggregateResourceIdentifier Core.Text
+aggregateResourceIdentifier_sourceRegion :: Lens.Lens' AggregateResourceIdentifier Prelude.Text
 aggregateResourceIdentifier_sourceRegion = Lens.lens (\AggregateResourceIdentifier' {sourceRegion} -> sourceRegion) (\s@AggregateResourceIdentifier' {} a -> s {sourceRegion = a} :: AggregateResourceIdentifier)
 
 -- | The ID of the AWS resource.
-aggregateResourceIdentifier_resourceId :: Lens.Lens' AggregateResourceIdentifier Core.Text
+aggregateResourceIdentifier_resourceId :: Lens.Lens' AggregateResourceIdentifier Prelude.Text
 aggregateResourceIdentifier_resourceId = Lens.lens (\AggregateResourceIdentifier' {resourceId} -> resourceId) (\s@AggregateResourceIdentifier' {} a -> s {resourceId = a} :: AggregateResourceIdentifier)
 
 -- | The type of the AWS resource.
@@ -109,26 +110,26 @@ instance Core.FromJSON AggregateResourceIdentifier where
       "AggregateResourceIdentifier"
       ( \x ->
           AggregateResourceIdentifier'
-            Core.<$> (x Core..:? "ResourceName")
-            Core.<*> (x Core..: "SourceAccountId")
-            Core.<*> (x Core..: "SourceRegion")
-            Core.<*> (x Core..: "ResourceId")
-            Core.<*> (x Core..: "ResourceType")
+            Prelude.<$> (x Core..:? "ResourceName")
+            Prelude.<*> (x Core..: "SourceAccountId")
+            Prelude.<*> (x Core..: "SourceRegion")
+            Prelude.<*> (x Core..: "ResourceId")
+            Prelude.<*> (x Core..: "ResourceType")
       )
 
-instance Core.Hashable AggregateResourceIdentifier
+instance Prelude.Hashable AggregateResourceIdentifier
 
-instance Core.NFData AggregateResourceIdentifier
+instance Prelude.NFData AggregateResourceIdentifier
 
 instance Core.ToJSON AggregateResourceIdentifier where
   toJSON AggregateResourceIdentifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceName" Core..=) Core.<$> resourceName,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ResourceName" Core..=) Prelude.<$> resourceName,
+            Prelude.Just
               ("SourceAccountId" Core..= sourceAccountId),
-            Core.Just ("SourceRegion" Core..= sourceRegion),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("ResourceType" Core..= resourceType)
+            Prelude.Just ("SourceRegion" Core..= sourceRegion),
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("ResourceType" Core..= resourceType)
           ]
       )

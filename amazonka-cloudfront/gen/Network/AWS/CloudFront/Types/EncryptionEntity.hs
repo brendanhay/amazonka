@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.EncryptionEntity where
 import Network.AWS.CloudFront.Types.FieldPatterns
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Complex data type for field-level encryption profiles that includes the
 -- encryption key and field pattern specifications.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data EncryptionEntity = EncryptionEntity'
   { -- | The public key associated with a set of field-level encryption patterns,
     -- to be used when encrypting the fields that match the patterns.
-    publicKeyId :: Core.Text,
+    publicKeyId :: Prelude.Text,
     -- | The provider associated with the public key being used for encryption.
     -- This value must also be provided with the private key for applications
     -- to be able to decrypt data.
-    providerId :: Core.Text,
+    providerId :: Prelude.Text,
     -- | Field patterns in a field-level encryption content type profile specify
     -- the fields that you want to be encrypted. You can provide the full field
     -- name, or any beginning characters followed by a wildcard (*). You can\'t
@@ -42,7 +43,7 @@ data EncryptionEntity = EncryptionEntity'
     -- Note that field patterns are case-sensitive.
     fieldPatterns :: FieldPatterns
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EncryptionEntity' with all optional fields omitted.
@@ -66,9 +67,9 @@ data EncryptionEntity = EncryptionEntity'
 -- Note that field patterns are case-sensitive.
 newEncryptionEntity ::
   -- | 'publicKeyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'providerId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fieldPatterns'
   FieldPatterns ->
   EncryptionEntity
@@ -84,13 +85,13 @@ newEncryptionEntity
 
 -- | The public key associated with a set of field-level encryption patterns,
 -- to be used when encrypting the fields that match the patterns.
-encryptionEntity_publicKeyId :: Lens.Lens' EncryptionEntity Core.Text
+encryptionEntity_publicKeyId :: Lens.Lens' EncryptionEntity Prelude.Text
 encryptionEntity_publicKeyId = Lens.lens (\EncryptionEntity' {publicKeyId} -> publicKeyId) (\s@EncryptionEntity' {} a -> s {publicKeyId = a} :: EncryptionEntity)
 
 -- | The provider associated with the public key being used for encryption.
 -- This value must also be provided with the private key for applications
 -- to be able to decrypt data.
-encryptionEntity_providerId :: Lens.Lens' EncryptionEntity Core.Text
+encryptionEntity_providerId :: Lens.Lens' EncryptionEntity Prelude.Text
 encryptionEntity_providerId = Lens.lens (\EncryptionEntity' {providerId} -> providerId) (\s@EncryptionEntity' {} a -> s {providerId = a} :: EncryptionEntity)
 
 -- | Field patterns in a field-level encryption content type profile specify
@@ -104,17 +105,17 @@ encryptionEntity_fieldPatterns = Lens.lens (\EncryptionEntity' {fieldPatterns} -
 instance Core.FromXML EncryptionEntity where
   parseXML x =
     EncryptionEntity'
-      Core.<$> (x Core..@ "PublicKeyId")
-      Core.<*> (x Core..@ "ProviderId")
-      Core.<*> (x Core..@ "FieldPatterns")
+      Prelude.<$> (x Core..@ "PublicKeyId")
+      Prelude.<*> (x Core..@ "ProviderId")
+      Prelude.<*> (x Core..@ "FieldPatterns")
 
-instance Core.Hashable EncryptionEntity
+instance Prelude.Hashable EncryptionEntity
 
-instance Core.NFData EncryptionEntity
+instance Prelude.NFData EncryptionEntity
 
 instance Core.ToXML EncryptionEntity where
   toXML EncryptionEntity' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "PublicKeyId" Core.@= publicKeyId,
         "ProviderId" Core.@= providerId,
         "FieldPatterns" Core.@= fieldPatterns

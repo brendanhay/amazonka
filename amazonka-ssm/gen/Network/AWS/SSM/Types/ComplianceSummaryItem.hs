@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.ComplianceSummaryItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.CompliantSummary
 import Network.AWS.SSM.Types.NonCompliantSummary
 
@@ -29,14 +30,14 @@ import Network.AWS.SSM.Types.NonCompliantSummary
 -- /See:/ 'newComplianceSummaryItem' smart constructor.
 data ComplianceSummaryItem = ComplianceSummaryItem'
   { -- | A list of COMPLIANT items for the specified compliance type.
-    compliantSummary :: Core.Maybe CompliantSummary,
+    compliantSummary :: Prelude.Maybe CompliantSummary,
     -- | The type of compliance item. For example, the compliance type can be
     -- Association, Patch, or Custom:string.
-    complianceType :: Core.Maybe Core.Text,
+    complianceType :: Prelude.Maybe Prelude.Text,
     -- | A list of NON_COMPLIANT items for the specified compliance type.
-    nonCompliantSummary :: Core.Maybe NonCompliantSummary
+    nonCompliantSummary :: Prelude.Maybe NonCompliantSummary
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ComplianceSummaryItem' with all optional fields omitted.
@@ -57,22 +58,22 @@ newComplianceSummaryItem ::
 newComplianceSummaryItem =
   ComplianceSummaryItem'
     { compliantSummary =
-        Core.Nothing,
-      complianceType = Core.Nothing,
-      nonCompliantSummary = Core.Nothing
+        Prelude.Nothing,
+      complianceType = Prelude.Nothing,
+      nonCompliantSummary = Prelude.Nothing
     }
 
 -- | A list of COMPLIANT items for the specified compliance type.
-complianceSummaryItem_compliantSummary :: Lens.Lens' ComplianceSummaryItem (Core.Maybe CompliantSummary)
+complianceSummaryItem_compliantSummary :: Lens.Lens' ComplianceSummaryItem (Prelude.Maybe CompliantSummary)
 complianceSummaryItem_compliantSummary = Lens.lens (\ComplianceSummaryItem' {compliantSummary} -> compliantSummary) (\s@ComplianceSummaryItem' {} a -> s {compliantSummary = a} :: ComplianceSummaryItem)
 
 -- | The type of compliance item. For example, the compliance type can be
 -- Association, Patch, or Custom:string.
-complianceSummaryItem_complianceType :: Lens.Lens' ComplianceSummaryItem (Core.Maybe Core.Text)
+complianceSummaryItem_complianceType :: Lens.Lens' ComplianceSummaryItem (Prelude.Maybe Prelude.Text)
 complianceSummaryItem_complianceType = Lens.lens (\ComplianceSummaryItem' {complianceType} -> complianceType) (\s@ComplianceSummaryItem' {} a -> s {complianceType = a} :: ComplianceSummaryItem)
 
 -- | A list of NON_COMPLIANT items for the specified compliance type.
-complianceSummaryItem_nonCompliantSummary :: Lens.Lens' ComplianceSummaryItem (Core.Maybe NonCompliantSummary)
+complianceSummaryItem_nonCompliantSummary :: Lens.Lens' ComplianceSummaryItem (Prelude.Maybe NonCompliantSummary)
 complianceSummaryItem_nonCompliantSummary = Lens.lens (\ComplianceSummaryItem' {nonCompliantSummary} -> nonCompliantSummary) (\s@ComplianceSummaryItem' {} a -> s {nonCompliantSummary = a} :: ComplianceSummaryItem)
 
 instance Core.FromJSON ComplianceSummaryItem where
@@ -81,11 +82,11 @@ instance Core.FromJSON ComplianceSummaryItem where
       "ComplianceSummaryItem"
       ( \x ->
           ComplianceSummaryItem'
-            Core.<$> (x Core..:? "CompliantSummary")
-            Core.<*> (x Core..:? "ComplianceType")
-            Core.<*> (x Core..:? "NonCompliantSummary")
+            Prelude.<$> (x Core..:? "CompliantSummary")
+            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<*> (x Core..:? "NonCompliantSummary")
       )
 
-instance Core.Hashable ComplianceSummaryItem
+instance Prelude.Hashable ComplianceSummaryItem
 
-instance Core.NFData ComplianceSummaryItem
+instance Prelude.NFData ComplianceSummaryItem

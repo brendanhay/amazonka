@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowExecutionCount where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the count of workflow executions returned from
 -- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions
@@ -30,11 +31,11 @@ data WorkflowExecutionCount = WorkflowExecutionCount'
   { -- | If set to true, indicates that the actual count was more than the
     -- maximum supported by this API and the count returned is the truncated
     -- value.
-    truncated :: Core.Maybe Core.Bool,
+    truncated :: Prelude.Maybe Prelude.Bool,
     -- | The number of workflow executions.
-    count :: Core.Natural
+    count :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionCount' with all optional fields omitted.
@@ -51,22 +52,23 @@ data WorkflowExecutionCount = WorkflowExecutionCount'
 -- 'count', 'workflowExecutionCount_count' - The number of workflow executions.
 newWorkflowExecutionCount ::
   -- | 'count'
-  Core.Natural ->
+  Prelude.Natural ->
   WorkflowExecutionCount
 newWorkflowExecutionCount pCount_ =
   WorkflowExecutionCount'
-    { truncated = Core.Nothing,
+    { truncated =
+        Prelude.Nothing,
       count = pCount_
     }
 
 -- | If set to true, indicates that the actual count was more than the
 -- maximum supported by this API and the count returned is the truncated
 -- value.
-workflowExecutionCount_truncated :: Lens.Lens' WorkflowExecutionCount (Core.Maybe Core.Bool)
+workflowExecutionCount_truncated :: Lens.Lens' WorkflowExecutionCount (Prelude.Maybe Prelude.Bool)
 workflowExecutionCount_truncated = Lens.lens (\WorkflowExecutionCount' {truncated} -> truncated) (\s@WorkflowExecutionCount' {} a -> s {truncated = a} :: WorkflowExecutionCount)
 
 -- | The number of workflow executions.
-workflowExecutionCount_count :: Lens.Lens' WorkflowExecutionCount Core.Natural
+workflowExecutionCount_count :: Lens.Lens' WorkflowExecutionCount Prelude.Natural
 workflowExecutionCount_count = Lens.lens (\WorkflowExecutionCount' {count} -> count) (\s@WorkflowExecutionCount' {} a -> s {count = a} :: WorkflowExecutionCount)
 
 instance Core.FromJSON WorkflowExecutionCount where
@@ -75,10 +77,10 @@ instance Core.FromJSON WorkflowExecutionCount where
       "WorkflowExecutionCount"
       ( \x ->
           WorkflowExecutionCount'
-            Core.<$> (x Core..:? "truncated")
-            Core.<*> (x Core..: "count")
+            Prelude.<$> (x Core..:? "truncated")
+            Prelude.<*> (x Core..: "count")
       )
 
-instance Core.Hashable WorkflowExecutionCount
+instance Prelude.Hashable WorkflowExecutionCount
 
-instance Core.NFData WorkflowExecutionCount
+instance Prelude.NFData WorkflowExecutionCount

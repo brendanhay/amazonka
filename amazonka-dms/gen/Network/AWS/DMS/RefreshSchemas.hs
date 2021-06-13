@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data RefreshSchemas = RefreshSchemas'
   { -- | The Amazon Resource Name (ARN) string that uniquely identifies the
     -- endpoint.
-    endpointArn :: Core.Text,
+    endpointArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Core.Text
+    replicationInstanceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RefreshSchemas' with all optional fields omitted.
@@ -74,9 +75,9 @@ data RefreshSchemas = RefreshSchemas'
 -- 'replicationInstanceArn', 'refreshSchemas_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 newRefreshSchemas ::
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'replicationInstanceArn'
-  Core.Text ->
+  Prelude.Text ->
   RefreshSchemas
 newRefreshSchemas
   pEndpointArn_
@@ -88,11 +89,11 @@ newRefreshSchemas
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the
 -- endpoint.
-refreshSchemas_endpointArn :: Lens.Lens' RefreshSchemas Core.Text
+refreshSchemas_endpointArn :: Lens.Lens' RefreshSchemas Prelude.Text
 refreshSchemas_endpointArn = Lens.lens (\RefreshSchemas' {endpointArn} -> endpointArn) (\s@RefreshSchemas' {} a -> s {endpointArn = a} :: RefreshSchemas)
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-refreshSchemas_replicationInstanceArn :: Lens.Lens' RefreshSchemas Core.Text
+refreshSchemas_replicationInstanceArn :: Lens.Lens' RefreshSchemas Prelude.Text
 refreshSchemas_replicationInstanceArn = Lens.lens (\RefreshSchemas' {replicationInstanceArn} -> replicationInstanceArn) (\s@RefreshSchemas' {} a -> s {replicationInstanceArn = a} :: RefreshSchemas)
 
 instance Core.AWSRequest RefreshSchemas where
@@ -104,33 +105,35 @@ instance Core.AWSRequest RefreshSchemas where
     Response.receiveJSON
       ( \s h x ->
           RefreshSchemasResponse'
-            Core.<$> (x Core..?> "RefreshSchemasStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RefreshSchemasStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RefreshSchemas
+instance Prelude.Hashable RefreshSchemas
 
-instance Core.NFData RefreshSchemas
+instance Prelude.NFData RefreshSchemas
 
 instance Core.ToHeaders RefreshSchemas where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.RefreshSchemas" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RefreshSchemas where
   toJSON RefreshSchemas' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("EndpointArn" Core..= endpointArn),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("EndpointArn" Core..= endpointArn),
+            Prelude.Just
               ( "ReplicationInstanceArn"
                   Core..= replicationInstanceArn
               )
@@ -138,21 +141,21 @@ instance Core.ToJSON RefreshSchemas where
       )
 
 instance Core.ToPath RefreshSchemas where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RefreshSchemas where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newRefreshSchemasResponse' smart constructor.
 data RefreshSchemasResponse = RefreshSchemasResponse'
   { -- | The status of the refreshed schema.
-    refreshSchemasStatus :: Core.Maybe RefreshSchemasStatus,
+    refreshSchemasStatus :: Prelude.Maybe RefreshSchemasStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RefreshSchemasResponse' with all optional fields omitted.
@@ -167,21 +170,21 @@ data RefreshSchemasResponse = RefreshSchemasResponse'
 -- 'httpStatus', 'refreshSchemasResponse_httpStatus' - The response's http status code.
 newRefreshSchemasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RefreshSchemasResponse
 newRefreshSchemasResponse pHttpStatus_ =
   RefreshSchemasResponse'
     { refreshSchemasStatus =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the refreshed schema.
-refreshSchemasResponse_refreshSchemasStatus :: Lens.Lens' RefreshSchemasResponse (Core.Maybe RefreshSchemasStatus)
+refreshSchemasResponse_refreshSchemasStatus :: Lens.Lens' RefreshSchemasResponse (Prelude.Maybe RefreshSchemasStatus)
 refreshSchemasResponse_refreshSchemasStatus = Lens.lens (\RefreshSchemasResponse' {refreshSchemasStatus} -> refreshSchemasStatus) (\s@RefreshSchemasResponse' {} a -> s {refreshSchemasStatus = a} :: RefreshSchemasResponse)
 
 -- | The response's http status code.
-refreshSchemasResponse_httpStatus :: Lens.Lens' RefreshSchemasResponse Core.Int
+refreshSchemasResponse_httpStatus :: Lens.Lens' RefreshSchemasResponse Prelude.Int
 refreshSchemasResponse_httpStatus = Lens.lens (\RefreshSchemasResponse' {httpStatus} -> httpStatus) (\s@RefreshSchemasResponse' {} a -> s {httpStatus = a} :: RefreshSchemasResponse)
 
-instance Core.NFData RefreshSchemasResponse
+instance Prelude.NFData RefreshSchemasResponse

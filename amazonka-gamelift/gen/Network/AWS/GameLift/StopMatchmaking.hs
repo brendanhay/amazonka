@@ -69,6 +69,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,9 +78,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newStopMatchmaking' smart constructor.
 data StopMatchmaking = StopMatchmaking'
   { -- | A unique identifier for a matchmaking ticket.
-    ticketId :: Core.Text
+    ticketId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopMatchmaking' with all optional fields omitted.
@@ -92,13 +93,13 @@ data StopMatchmaking = StopMatchmaking'
 -- 'ticketId', 'stopMatchmaking_ticketId' - A unique identifier for a matchmaking ticket.
 newStopMatchmaking ::
   -- | 'ticketId'
-  Core.Text ->
+  Prelude.Text ->
   StopMatchmaking
 newStopMatchmaking pTicketId_ =
   StopMatchmaking' {ticketId = pTicketId_}
 
 -- | A unique identifier for a matchmaking ticket.
-stopMatchmaking_ticketId :: Lens.Lens' StopMatchmaking Core.Text
+stopMatchmaking_ticketId :: Lens.Lens' StopMatchmaking Prelude.Text
 stopMatchmaking_ticketId = Lens.lens (\StopMatchmaking' {ticketId} -> ticketId) (\s@StopMatchmaking' {} a -> s {ticketId = a} :: StopMatchmaking)
 
 instance Core.AWSRequest StopMatchmaking where
@@ -110,43 +111,45 @@ instance Core.AWSRequest StopMatchmaking where
     Response.receiveEmpty
       ( \s h x ->
           StopMatchmakingResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopMatchmaking
+instance Prelude.Hashable StopMatchmaking
 
-instance Core.NFData StopMatchmaking
+instance Prelude.NFData StopMatchmaking
 
 instance Core.ToHeaders StopMatchmaking where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.StopMatchmaking" :: Core.ByteString),
+              Core.=# ("GameLift.StopMatchmaking" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopMatchmaking where
   toJSON StopMatchmaking' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("TicketId" Core..= ticketId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("TicketId" Core..= ticketId)]
       )
 
 instance Core.ToPath StopMatchmaking where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopMatchmaking where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopMatchmakingResponse' smart constructor.
 data StopMatchmakingResponse = StopMatchmakingResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopMatchmakingResponse' with all optional fields omitted.
@@ -159,13 +162,13 @@ data StopMatchmakingResponse = StopMatchmakingResponse'
 -- 'httpStatus', 'stopMatchmakingResponse_httpStatus' - The response's http status code.
 newStopMatchmakingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopMatchmakingResponse
 newStopMatchmakingResponse pHttpStatus_ =
   StopMatchmakingResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-stopMatchmakingResponse_httpStatus :: Lens.Lens' StopMatchmakingResponse Core.Int
+stopMatchmakingResponse_httpStatus :: Lens.Lens' StopMatchmakingResponse Prelude.Int
 stopMatchmakingResponse_httpStatus = Lens.lens (\StopMatchmakingResponse' {httpStatus} -> httpStatus) (\s@StopMatchmakingResponse' {} a -> s {httpStatus = a} :: StopMatchmakingResponse)
 
-instance Core.NFData StopMatchmakingResponse
+instance Prelude.NFData StopMatchmakingResponse

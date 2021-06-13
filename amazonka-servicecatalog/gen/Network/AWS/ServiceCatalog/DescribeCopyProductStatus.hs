@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -57,12 +58,12 @@ data DescribeCopyProductStatus = DescribeCopyProductStatus'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The token for the copy product operation. This token is returned by
     -- CopyProduct.
-    copyProductToken :: Core.Text
+    copyProductToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCopyProductStatus' with all optional fields omitted.
@@ -84,12 +85,12 @@ data DescribeCopyProductStatus = DescribeCopyProductStatus'
 -- CopyProduct.
 newDescribeCopyProductStatus ::
   -- | 'copyProductToken'
-  Core.Text ->
+  Prelude.Text ->
   DescribeCopyProductStatus
 newDescribeCopyProductStatus pCopyProductToken_ =
   DescribeCopyProductStatus'
     { acceptLanguage =
-        Core.Nothing,
+        Prelude.Nothing,
       copyProductToken = pCopyProductToken_
     }
 
@@ -100,12 +101,12 @@ newDescribeCopyProductStatus pCopyProductToken_ =
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-describeCopyProductStatus_acceptLanguage :: Lens.Lens' DescribeCopyProductStatus (Core.Maybe Core.Text)
+describeCopyProductStatus_acceptLanguage :: Lens.Lens' DescribeCopyProductStatus (Prelude.Maybe Prelude.Text)
 describeCopyProductStatus_acceptLanguage = Lens.lens (\DescribeCopyProductStatus' {acceptLanguage} -> acceptLanguage) (\s@DescribeCopyProductStatus' {} a -> s {acceptLanguage = a} :: DescribeCopyProductStatus)
 
 -- | The token for the copy product operation. This token is returned by
 -- CopyProduct.
-describeCopyProductStatus_copyProductToken :: Lens.Lens' DescribeCopyProductStatus Core.Text
+describeCopyProductStatus_copyProductToken :: Lens.Lens' DescribeCopyProductStatus Prelude.Text
 describeCopyProductStatus_copyProductToken = Lens.lens (\DescribeCopyProductStatus' {copyProductToken} -> copyProductToken) (\s@DescribeCopyProductStatus' {} a -> s {copyProductToken = a} :: DescribeCopyProductStatus)
 
 instance Core.AWSRequest DescribeCopyProductStatus where
@@ -117,57 +118,60 @@ instance Core.AWSRequest DescribeCopyProductStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribeCopyProductStatusResponse'
-            Core.<$> (x Core..?> "StatusDetail")
-            Core.<*> (x Core..?> "TargetProductId")
-            Core.<*> (x Core..?> "CopyProductStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "StatusDetail")
+            Prelude.<*> (x Core..?> "TargetProductId")
+            Prelude.<*> (x Core..?> "CopyProductStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeCopyProductStatus
+instance Prelude.Hashable DescribeCopyProductStatus
 
-instance Core.NFData DescribeCopyProductStatus
+instance Prelude.NFData DescribeCopyProductStatus
 
 instance Core.ToHeaders DescribeCopyProductStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DescribeCopyProductStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeCopyProductStatus where
   toJSON DescribeCopyProductStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just
               ("CopyProductToken" Core..= copyProductToken)
           ]
       )
 
 instance Core.ToPath DescribeCopyProductStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeCopyProductStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCopyProductStatusResponse' smart constructor.
 data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
   { -- | The status message.
-    statusDetail :: Core.Maybe Core.Text,
+    statusDetail :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the copied product.
-    targetProductId :: Core.Maybe Core.Text,
+    targetProductId :: Prelude.Maybe Prelude.Text,
     -- | The status of the copy product operation.
-    copyProductStatus :: Core.Maybe CopyProductStatus,
+    copyProductStatus :: Prelude.Maybe CopyProductStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCopyProductStatusResponse' with all optional fields omitted.
@@ -186,33 +190,33 @@ data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
 -- 'httpStatus', 'describeCopyProductStatusResponse_httpStatus' - The response's http status code.
 newDescribeCopyProductStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeCopyProductStatusResponse
 newDescribeCopyProductStatusResponse pHttpStatus_ =
   DescribeCopyProductStatusResponse'
     { statusDetail =
-        Core.Nothing,
-      targetProductId = Core.Nothing,
-      copyProductStatus = Core.Nothing,
+        Prelude.Nothing,
+      targetProductId = Prelude.Nothing,
+      copyProductStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status message.
-describeCopyProductStatusResponse_statusDetail :: Lens.Lens' DescribeCopyProductStatusResponse (Core.Maybe Core.Text)
+describeCopyProductStatusResponse_statusDetail :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe Prelude.Text)
 describeCopyProductStatusResponse_statusDetail = Lens.lens (\DescribeCopyProductStatusResponse' {statusDetail} -> statusDetail) (\s@DescribeCopyProductStatusResponse' {} a -> s {statusDetail = a} :: DescribeCopyProductStatusResponse)
 
 -- | The identifier of the copied product.
-describeCopyProductStatusResponse_targetProductId :: Lens.Lens' DescribeCopyProductStatusResponse (Core.Maybe Core.Text)
+describeCopyProductStatusResponse_targetProductId :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe Prelude.Text)
 describeCopyProductStatusResponse_targetProductId = Lens.lens (\DescribeCopyProductStatusResponse' {targetProductId} -> targetProductId) (\s@DescribeCopyProductStatusResponse' {} a -> s {targetProductId = a} :: DescribeCopyProductStatusResponse)
 
 -- | The status of the copy product operation.
-describeCopyProductStatusResponse_copyProductStatus :: Lens.Lens' DescribeCopyProductStatusResponse (Core.Maybe CopyProductStatus)
+describeCopyProductStatusResponse_copyProductStatus :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe CopyProductStatus)
 describeCopyProductStatusResponse_copyProductStatus = Lens.lens (\DescribeCopyProductStatusResponse' {copyProductStatus} -> copyProductStatus) (\s@DescribeCopyProductStatusResponse' {} a -> s {copyProductStatus = a} :: DescribeCopyProductStatusResponse)
 
 -- | The response's http status code.
-describeCopyProductStatusResponse_httpStatus :: Lens.Lens' DescribeCopyProductStatusResponse Core.Int
+describeCopyProductStatusResponse_httpStatus :: Lens.Lens' DescribeCopyProductStatusResponse Prelude.Int
 describeCopyProductStatusResponse_httpStatus = Lens.lens (\DescribeCopyProductStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeCopyProductStatusResponse' {} a -> s {httpStatus = a} :: DescribeCopyProductStatusResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeCopyProductStatusResponse

@@ -69,6 +69,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,9 +79,9 @@ data DescribeBroker = DescribeBroker'
     -- 1-50 characters long, must contain only letters, numbers, dashes, and
     -- underscores, and must not contain whitespaces, brackets, wildcard
     -- characters, or special characters.
-    brokerId :: Core.Text
+    brokerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBroker' with all optional fields omitted.
@@ -96,7 +97,7 @@ data DescribeBroker = DescribeBroker'
 -- characters, or special characters.
 newDescribeBroker ::
   -- | 'brokerId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeBroker
 newDescribeBroker pBrokerId_ =
   DescribeBroker' {brokerId = pBrokerId_}
@@ -105,7 +106,7 @@ newDescribeBroker pBrokerId_ =
 -- 1-50 characters long, must contain only letters, numbers, dashes, and
 -- underscores, and must not contain whitespaces, brackets, wildcard
 -- characters, or special characters.
-describeBroker_brokerId :: Lens.Lens' DescribeBroker Core.Text
+describeBroker_brokerId :: Lens.Lens' DescribeBroker Prelude.Text
 describeBroker_brokerId = Lens.lens (\DescribeBroker' {brokerId} -> brokerId) (\s@DescribeBroker' {} a -> s {brokerId = a} :: DescribeBroker)
 
 instance Core.AWSRequest DescribeBroker where
@@ -117,88 +118,93 @@ instance Core.AWSRequest DescribeBroker where
     Response.receiveJSON
       ( \s h x ->
           DescribeBrokerResponse'
-            Core.<$> (x Core..?> "encryptionOptions")
-            Core.<*> (x Core..?> "brokerName")
-            Core.<*> (x Core..?> "brokerInstances" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "storageType")
-            Core.<*> (x Core..?> "ldapServerMetadata")
-            Core.<*> (x Core..?> "brokerId")
-            Core.<*> (x Core..?> "pendingHostInstanceType")
-            Core.<*> (x Core..?> "engineType")
-            Core.<*> (x Core..?> "configurations")
-            Core.<*> (x Core..?> "authenticationStrategy")
-            Core.<*> (x Core..?> "subnetIds" Core..!@ Core.mempty)
-            Core.<*> ( x Core..?> "pendingSecurityGroups"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "publiclyAccessible")
-            Core.<*> (x Core..?> "securityGroups" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "logs")
-            Core.<*> (x Core..?> "pendingAuthenticationStrategy")
-            Core.<*> (x Core..?> "maintenanceWindowStartTime")
-            Core.<*> (x Core..?> "engineVersion")
-            Core.<*> (x Core..?> "brokerState")
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "hostInstanceType")
-            Core.<*> (x Core..?> "pendingLdapServerMetadata")
-            Core.<*> (x Core..?> "brokerArn")
-            Core.<*> (x Core..?> "pendingEngineVersion")
-            Core.<*> (x Core..?> "created")
-            Core.<*> (x Core..?> "autoMinorVersionUpgrade")
-            Core.<*> (x Core..?> "users" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "deploymentMode")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "encryptionOptions")
+            Prelude.<*> (x Core..?> "brokerName")
+            Prelude.<*> ( x Core..?> "brokerInstances"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "storageType")
+            Prelude.<*> (x Core..?> "ldapServerMetadata")
+            Prelude.<*> (x Core..?> "brokerId")
+            Prelude.<*> (x Core..?> "pendingHostInstanceType")
+            Prelude.<*> (x Core..?> "engineType")
+            Prelude.<*> (x Core..?> "configurations")
+            Prelude.<*> (x Core..?> "authenticationStrategy")
+            Prelude.<*> (x Core..?> "subnetIds" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "pendingSecurityGroups"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "publiclyAccessible")
+            Prelude.<*> (x Core..?> "securityGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "logs")
+            Prelude.<*> (x Core..?> "pendingAuthenticationStrategy")
+            Prelude.<*> (x Core..?> "maintenanceWindowStartTime")
+            Prelude.<*> (x Core..?> "engineVersion")
+            Prelude.<*> (x Core..?> "brokerState")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "hostInstanceType")
+            Prelude.<*> (x Core..?> "pendingLdapServerMetadata")
+            Prelude.<*> (x Core..?> "brokerArn")
+            Prelude.<*> (x Core..?> "pendingEngineVersion")
+            Prelude.<*> (x Core..?> "created")
+            Prelude.<*> (x Core..?> "autoMinorVersionUpgrade")
+            Prelude.<*> (x Core..?> "users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "deploymentMode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeBroker
+instance Prelude.Hashable DescribeBroker
 
-instance Core.NFData DescribeBroker
+instance Prelude.NFData DescribeBroker
 
 instance Core.ToHeaders DescribeBroker where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeBroker where
   toPath DescribeBroker' {..} =
-    Core.mconcat ["/v1/brokers/", Core.toBS brokerId]
+    Prelude.mconcat
+      ["/v1/brokers/", Core.toBS brokerId]
 
 instance Core.ToQuery DescribeBroker where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBrokerResponse' smart constructor.
 data DescribeBrokerResponse = DescribeBrokerResponse'
   { -- | Encryption options for the broker.
-    encryptionOptions :: Core.Maybe EncryptionOptions,
+    encryptionOptions :: Prelude.Maybe EncryptionOptions,
     -- | The name of the broker. This value must be unique in your AWS account,
     -- 1-50 characters long, must contain only letters, numbers, dashes, and
     -- underscores, and must not contain whitespaces, brackets, wildcard
     -- characters, or special characters.
-    brokerName :: Core.Maybe Core.Text,
+    brokerName :: Prelude.Maybe Prelude.Text,
     -- | A list of information about allocated brokers.
-    brokerInstances :: Core.Maybe [BrokerInstance],
+    brokerInstances :: Prelude.Maybe [BrokerInstance],
     -- | The broker\'s storage type.
-    storageType :: Core.Maybe BrokerStorageType,
+    storageType :: Prelude.Maybe BrokerStorageType,
     -- | The metadata of the LDAP server used to authenticate and authorize
     -- connections to the broker.
-    ldapServerMetadata :: Core.Maybe LdapServerMetadataOutput,
+    ldapServerMetadata :: Prelude.Maybe LdapServerMetadataOutput,
     -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Core.Maybe Core.Text,
+    brokerId :: Prelude.Maybe Prelude.Text,
     -- | The host instance type of the broker to upgrade to. For a list of
     -- supported instance types, see
     -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
-    pendingHostInstanceType :: Core.Maybe Core.Text,
+    pendingHostInstanceType :: Prelude.Maybe Prelude.Text,
     -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports
     -- ACTIVEMQ and RABBITMQ.
-    engineType :: Core.Maybe EngineType,
+    engineType :: Prelude.Maybe EngineType,
     -- | The list of all revisions for the specified configuration.
-    configurations :: Core.Maybe Configurations,
+    configurations :: Prelude.Maybe Configurations,
     -- | The authentication strategy used to secure the broker.
-    authenticationStrategy :: Core.Maybe AuthenticationStrategy,
+    authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | The list of groups that define which subnets and IP ranges the broker
     -- can use from different Availability Zones. A SINGLE_INSTANCE deployment
     -- requires one subnet (for example, the default subnet). An
@@ -206,56 +212,56 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
     -- CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when
     -- deployed with public accessibility, deployment without public
     -- accessibility requires at least one subnet.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The list of pending security groups to authorize connections to brokers.
-    pendingSecurityGroups :: Core.Maybe [Core.Text],
+    pendingSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Required. Enables connections from applications outside of the VPC that
     -- hosts the broker\'s subnets.
-    publiclyAccessible :: Core.Maybe Core.Bool,
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | The list of security groups (1 minimum, 5 maximum) that authorizes
     -- connections to brokers.
-    securityGroups :: Core.Maybe [Core.Text],
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The list of information about logs currently enabled and pending to be
     -- deployed for the specified broker.
-    logs :: Core.Maybe LogsSummary,
+    logs :: Prelude.Maybe LogsSummary,
     -- | The authentication strategy that will be applied when the broker is
     -- rebooted.
-    pendingAuthenticationStrategy :: Core.Maybe AuthenticationStrategy,
+    pendingAuthenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | The parameters that determine the WeeklyStartTime.
-    maintenanceWindowStartTime :: Core.Maybe WeeklyStartTime,
+    maintenanceWindowStartTime :: Prelude.Maybe WeeklyStartTime,
     -- | The version of the broker engine. For a list of supported engine
     -- versions, see
     -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The status of the broker.
-    brokerState :: Core.Maybe BrokerState,
+    brokerState :: Prelude.Maybe BrokerState,
     -- | The list of all tags associated with this broker.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The broker\'s instance type.
-    hostInstanceType :: Core.Maybe Core.Text,
+    hostInstanceType :: Prelude.Maybe Prelude.Text,
     -- | The metadata of the LDAP server that will be used to authenticate and
     -- authorize connections to the broker once it is rebooted.
-    pendingLdapServerMetadata :: Core.Maybe LdapServerMetadataOutput,
+    pendingLdapServerMetadata :: Prelude.Maybe LdapServerMetadataOutput,
     -- | The Amazon Resource Name (ARN) of the broker.
-    brokerArn :: Core.Maybe Core.Text,
+    brokerArn :: Prelude.Maybe Prelude.Text,
     -- | The version of the broker engine to upgrade to. For a list of supported
     -- engine versions, see
     -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-    pendingEngineVersion :: Core.Maybe Core.Text,
+    pendingEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | The time when the broker was created.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | Required. Enables automatic upgrades to new minor versions for brokers,
     -- as Apache releases the versions. The automatic upgrades occur during the
     -- maintenance window of the broker or after a manual broker reboot.
-    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The list of all broker usernames for the specified broker.
-    users :: Core.Maybe [UserSummary],
+    users :: Prelude.Maybe [UserSummary],
     -- | Required. The deployment mode of the broker.
-    deploymentMode :: Core.Maybe DeploymentMode,
+    deploymentMode :: Prelude.Maybe DeploymentMode,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBrokerResponse' with all optional fields omitted.
@@ -348,87 +354,87 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 -- 'httpStatus', 'describeBrokerResponse_httpStatus' - The response's http status code.
 newDescribeBrokerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeBrokerResponse
 newDescribeBrokerResponse pHttpStatus_ =
   DescribeBrokerResponse'
     { encryptionOptions =
-        Core.Nothing,
-      brokerName = Core.Nothing,
-      brokerInstances = Core.Nothing,
-      storageType = Core.Nothing,
-      ldapServerMetadata = Core.Nothing,
-      brokerId = Core.Nothing,
-      pendingHostInstanceType = Core.Nothing,
-      engineType = Core.Nothing,
-      configurations = Core.Nothing,
-      authenticationStrategy = Core.Nothing,
-      subnetIds = Core.Nothing,
-      pendingSecurityGroups = Core.Nothing,
-      publiclyAccessible = Core.Nothing,
-      securityGroups = Core.Nothing,
-      logs = Core.Nothing,
-      pendingAuthenticationStrategy = Core.Nothing,
-      maintenanceWindowStartTime = Core.Nothing,
-      engineVersion = Core.Nothing,
-      brokerState = Core.Nothing,
-      tags = Core.Nothing,
-      hostInstanceType = Core.Nothing,
-      pendingLdapServerMetadata = Core.Nothing,
-      brokerArn = Core.Nothing,
-      pendingEngineVersion = Core.Nothing,
-      created = Core.Nothing,
-      autoMinorVersionUpgrade = Core.Nothing,
-      users = Core.Nothing,
-      deploymentMode = Core.Nothing,
+        Prelude.Nothing,
+      brokerName = Prelude.Nothing,
+      brokerInstances = Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      ldapServerMetadata = Prelude.Nothing,
+      brokerId = Prelude.Nothing,
+      pendingHostInstanceType = Prelude.Nothing,
+      engineType = Prelude.Nothing,
+      configurations = Prelude.Nothing,
+      authenticationStrategy = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      pendingSecurityGroups = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      logs = Prelude.Nothing,
+      pendingAuthenticationStrategy = Prelude.Nothing,
+      maintenanceWindowStartTime = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      brokerState = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      hostInstanceType = Prelude.Nothing,
+      pendingLdapServerMetadata = Prelude.Nothing,
+      brokerArn = Prelude.Nothing,
+      pendingEngineVersion = Prelude.Nothing,
+      created = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      users = Prelude.Nothing,
+      deploymentMode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Encryption options for the broker.
-describeBrokerResponse_encryptionOptions :: Lens.Lens' DescribeBrokerResponse (Core.Maybe EncryptionOptions)
+describeBrokerResponse_encryptionOptions :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe EncryptionOptions)
 describeBrokerResponse_encryptionOptions = Lens.lens (\DescribeBrokerResponse' {encryptionOptions} -> encryptionOptions) (\s@DescribeBrokerResponse' {} a -> s {encryptionOptions = a} :: DescribeBrokerResponse)
 
 -- | The name of the broker. This value must be unique in your AWS account,
 -- 1-50 characters long, must contain only letters, numbers, dashes, and
 -- underscores, and must not contain whitespaces, brackets, wildcard
 -- characters, or special characters.
-describeBrokerResponse_brokerName :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Text)
+describeBrokerResponse_brokerName :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_brokerName = Lens.lens (\DescribeBrokerResponse' {brokerName} -> brokerName) (\s@DescribeBrokerResponse' {} a -> s {brokerName = a} :: DescribeBrokerResponse)
 
 -- | A list of information about allocated brokers.
-describeBrokerResponse_brokerInstances :: Lens.Lens' DescribeBrokerResponse (Core.Maybe [BrokerInstance])
-describeBrokerResponse_brokerInstances = Lens.lens (\DescribeBrokerResponse' {brokerInstances} -> brokerInstances) (\s@DescribeBrokerResponse' {} a -> s {brokerInstances = a} :: DescribeBrokerResponse) Core.. Lens.mapping Lens._Coerce
+describeBrokerResponse_brokerInstances :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [BrokerInstance])
+describeBrokerResponse_brokerInstances = Lens.lens (\DescribeBrokerResponse' {brokerInstances} -> brokerInstances) (\s@DescribeBrokerResponse' {} a -> s {brokerInstances = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The broker\'s storage type.
-describeBrokerResponse_storageType :: Lens.Lens' DescribeBrokerResponse (Core.Maybe BrokerStorageType)
+describeBrokerResponse_storageType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe BrokerStorageType)
 describeBrokerResponse_storageType = Lens.lens (\DescribeBrokerResponse' {storageType} -> storageType) (\s@DescribeBrokerResponse' {} a -> s {storageType = a} :: DescribeBrokerResponse)
 
 -- | The metadata of the LDAP server used to authenticate and authorize
 -- connections to the broker.
-describeBrokerResponse_ldapServerMetadata :: Lens.Lens' DescribeBrokerResponse (Core.Maybe LdapServerMetadataOutput)
+describeBrokerResponse_ldapServerMetadata :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe LdapServerMetadataOutput)
 describeBrokerResponse_ldapServerMetadata = Lens.lens (\DescribeBrokerResponse' {ldapServerMetadata} -> ldapServerMetadata) (\s@DescribeBrokerResponse' {} a -> s {ldapServerMetadata = a} :: DescribeBrokerResponse)
 
 -- | The unique ID that Amazon MQ generates for the broker.
-describeBrokerResponse_brokerId :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Text)
+describeBrokerResponse_brokerId :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_brokerId = Lens.lens (\DescribeBrokerResponse' {brokerId} -> brokerId) (\s@DescribeBrokerResponse' {} a -> s {brokerId = a} :: DescribeBrokerResponse)
 
 -- | The host instance type of the broker to upgrade to. For a list of
 -- supported instance types, see
 -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
-describeBrokerResponse_pendingHostInstanceType :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Text)
+describeBrokerResponse_pendingHostInstanceType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_pendingHostInstanceType = Lens.lens (\DescribeBrokerResponse' {pendingHostInstanceType} -> pendingHostInstanceType) (\s@DescribeBrokerResponse' {} a -> s {pendingHostInstanceType = a} :: DescribeBrokerResponse)
 
 -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports
 -- ACTIVEMQ and RABBITMQ.
-describeBrokerResponse_engineType :: Lens.Lens' DescribeBrokerResponse (Core.Maybe EngineType)
+describeBrokerResponse_engineType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe EngineType)
 describeBrokerResponse_engineType = Lens.lens (\DescribeBrokerResponse' {engineType} -> engineType) (\s@DescribeBrokerResponse' {} a -> s {engineType = a} :: DescribeBrokerResponse)
 
 -- | The list of all revisions for the specified configuration.
-describeBrokerResponse_configurations :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Configurations)
+describeBrokerResponse_configurations :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Configurations)
 describeBrokerResponse_configurations = Lens.lens (\DescribeBrokerResponse' {configurations} -> configurations) (\s@DescribeBrokerResponse' {} a -> s {configurations = a} :: DescribeBrokerResponse)
 
 -- | The authentication strategy used to secure the broker.
-describeBrokerResponse_authenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Core.Maybe AuthenticationStrategy)
+describeBrokerResponse_authenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe AuthenticationStrategy)
 describeBrokerResponse_authenticationStrategy = Lens.lens (\DescribeBrokerResponse' {authenticationStrategy} -> authenticationStrategy) (\s@DescribeBrokerResponse' {} a -> s {authenticationStrategy = a} :: DescribeBrokerResponse)
 
 -- | The list of groups that define which subnets and IP ranges the broker
@@ -438,90 +444,90 @@ describeBrokerResponse_authenticationStrategy = Lens.lens (\DescribeBrokerRespon
 -- CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when
 -- deployed with public accessibility, deployment without public
 -- accessibility requires at least one subnet.
-describeBrokerResponse_subnetIds :: Lens.Lens' DescribeBrokerResponse (Core.Maybe [Core.Text])
-describeBrokerResponse_subnetIds = Lens.lens (\DescribeBrokerResponse' {subnetIds} -> subnetIds) (\s@DescribeBrokerResponse' {} a -> s {subnetIds = a} :: DescribeBrokerResponse) Core.. Lens.mapping Lens._Coerce
+describeBrokerResponse_subnetIds :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [Prelude.Text])
+describeBrokerResponse_subnetIds = Lens.lens (\DescribeBrokerResponse' {subnetIds} -> subnetIds) (\s@DescribeBrokerResponse' {} a -> s {subnetIds = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of pending security groups to authorize connections to brokers.
-describeBrokerResponse_pendingSecurityGroups :: Lens.Lens' DescribeBrokerResponse (Core.Maybe [Core.Text])
-describeBrokerResponse_pendingSecurityGroups = Lens.lens (\DescribeBrokerResponse' {pendingSecurityGroups} -> pendingSecurityGroups) (\s@DescribeBrokerResponse' {} a -> s {pendingSecurityGroups = a} :: DescribeBrokerResponse) Core.. Lens.mapping Lens._Coerce
+describeBrokerResponse_pendingSecurityGroups :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [Prelude.Text])
+describeBrokerResponse_pendingSecurityGroups = Lens.lens (\DescribeBrokerResponse' {pendingSecurityGroups} -> pendingSecurityGroups) (\s@DescribeBrokerResponse' {} a -> s {pendingSecurityGroups = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Required. Enables connections from applications outside of the VPC that
 -- hosts the broker\'s subnets.
-describeBrokerResponse_publiclyAccessible :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Bool)
+describeBrokerResponse_publiclyAccessible :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Bool)
 describeBrokerResponse_publiclyAccessible = Lens.lens (\DescribeBrokerResponse' {publiclyAccessible} -> publiclyAccessible) (\s@DescribeBrokerResponse' {} a -> s {publiclyAccessible = a} :: DescribeBrokerResponse)
 
 -- | The list of security groups (1 minimum, 5 maximum) that authorizes
 -- connections to brokers.
-describeBrokerResponse_securityGroups :: Lens.Lens' DescribeBrokerResponse (Core.Maybe [Core.Text])
-describeBrokerResponse_securityGroups = Lens.lens (\DescribeBrokerResponse' {securityGroups} -> securityGroups) (\s@DescribeBrokerResponse' {} a -> s {securityGroups = a} :: DescribeBrokerResponse) Core.. Lens.mapping Lens._Coerce
+describeBrokerResponse_securityGroups :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [Prelude.Text])
+describeBrokerResponse_securityGroups = Lens.lens (\DescribeBrokerResponse' {securityGroups} -> securityGroups) (\s@DescribeBrokerResponse' {} a -> s {securityGroups = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of information about logs currently enabled and pending to be
 -- deployed for the specified broker.
-describeBrokerResponse_logs :: Lens.Lens' DescribeBrokerResponse (Core.Maybe LogsSummary)
+describeBrokerResponse_logs :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe LogsSummary)
 describeBrokerResponse_logs = Lens.lens (\DescribeBrokerResponse' {logs} -> logs) (\s@DescribeBrokerResponse' {} a -> s {logs = a} :: DescribeBrokerResponse)
 
 -- | The authentication strategy that will be applied when the broker is
 -- rebooted.
-describeBrokerResponse_pendingAuthenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Core.Maybe AuthenticationStrategy)
+describeBrokerResponse_pendingAuthenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe AuthenticationStrategy)
 describeBrokerResponse_pendingAuthenticationStrategy = Lens.lens (\DescribeBrokerResponse' {pendingAuthenticationStrategy} -> pendingAuthenticationStrategy) (\s@DescribeBrokerResponse' {} a -> s {pendingAuthenticationStrategy = a} :: DescribeBrokerResponse)
 
 -- | The parameters that determine the WeeklyStartTime.
-describeBrokerResponse_maintenanceWindowStartTime :: Lens.Lens' DescribeBrokerResponse (Core.Maybe WeeklyStartTime)
+describeBrokerResponse_maintenanceWindowStartTime :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe WeeklyStartTime)
 describeBrokerResponse_maintenanceWindowStartTime = Lens.lens (\DescribeBrokerResponse' {maintenanceWindowStartTime} -> maintenanceWindowStartTime) (\s@DescribeBrokerResponse' {} a -> s {maintenanceWindowStartTime = a} :: DescribeBrokerResponse)
 
 -- | The version of the broker engine. For a list of supported engine
 -- versions, see
 -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-describeBrokerResponse_engineVersion :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Text)
+describeBrokerResponse_engineVersion :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_engineVersion = Lens.lens (\DescribeBrokerResponse' {engineVersion} -> engineVersion) (\s@DescribeBrokerResponse' {} a -> s {engineVersion = a} :: DescribeBrokerResponse)
 
 -- | The status of the broker.
-describeBrokerResponse_brokerState :: Lens.Lens' DescribeBrokerResponse (Core.Maybe BrokerState)
+describeBrokerResponse_brokerState :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe BrokerState)
 describeBrokerResponse_brokerState = Lens.lens (\DescribeBrokerResponse' {brokerState} -> brokerState) (\s@DescribeBrokerResponse' {} a -> s {brokerState = a} :: DescribeBrokerResponse)
 
 -- | The list of all tags associated with this broker.
-describeBrokerResponse_tags :: Lens.Lens' DescribeBrokerResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-describeBrokerResponse_tags = Lens.lens (\DescribeBrokerResponse' {tags} -> tags) (\s@DescribeBrokerResponse' {} a -> s {tags = a} :: DescribeBrokerResponse) Core.. Lens.mapping Lens._Coerce
+describeBrokerResponse_tags :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeBrokerResponse_tags = Lens.lens (\DescribeBrokerResponse' {tags} -> tags) (\s@DescribeBrokerResponse' {} a -> s {tags = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The broker\'s instance type.
-describeBrokerResponse_hostInstanceType :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Text)
+describeBrokerResponse_hostInstanceType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_hostInstanceType = Lens.lens (\DescribeBrokerResponse' {hostInstanceType} -> hostInstanceType) (\s@DescribeBrokerResponse' {} a -> s {hostInstanceType = a} :: DescribeBrokerResponse)
 
 -- | The metadata of the LDAP server that will be used to authenticate and
 -- authorize connections to the broker once it is rebooted.
-describeBrokerResponse_pendingLdapServerMetadata :: Lens.Lens' DescribeBrokerResponse (Core.Maybe LdapServerMetadataOutput)
+describeBrokerResponse_pendingLdapServerMetadata :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe LdapServerMetadataOutput)
 describeBrokerResponse_pendingLdapServerMetadata = Lens.lens (\DescribeBrokerResponse' {pendingLdapServerMetadata} -> pendingLdapServerMetadata) (\s@DescribeBrokerResponse' {} a -> s {pendingLdapServerMetadata = a} :: DescribeBrokerResponse)
 
 -- | The Amazon Resource Name (ARN) of the broker.
-describeBrokerResponse_brokerArn :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Text)
+describeBrokerResponse_brokerArn :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_brokerArn = Lens.lens (\DescribeBrokerResponse' {brokerArn} -> brokerArn) (\s@DescribeBrokerResponse' {} a -> s {brokerArn = a} :: DescribeBrokerResponse)
 
 -- | The version of the broker engine to upgrade to. For a list of supported
 -- engine versions, see
 -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-describeBrokerResponse_pendingEngineVersion :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Text)
+describeBrokerResponse_pendingEngineVersion :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_pendingEngineVersion = Lens.lens (\DescribeBrokerResponse' {pendingEngineVersion} -> pendingEngineVersion) (\s@DescribeBrokerResponse' {} a -> s {pendingEngineVersion = a} :: DescribeBrokerResponse)
 
 -- | The time when the broker was created.
-describeBrokerResponse_created :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.UTCTime)
-describeBrokerResponse_created = Lens.lens (\DescribeBrokerResponse' {created} -> created) (\s@DescribeBrokerResponse' {} a -> s {created = a} :: DescribeBrokerResponse) Core.. Lens.mapping Core._Time
+describeBrokerResponse_created :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.UTCTime)
+describeBrokerResponse_created = Lens.lens (\DescribeBrokerResponse' {created} -> created) (\s@DescribeBrokerResponse' {} a -> s {created = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Required. Enables automatic upgrades to new minor versions for brokers,
 -- as Apache releases the versions. The automatic upgrades occur during the
 -- maintenance window of the broker or after a manual broker reboot.
-describeBrokerResponse_autoMinorVersionUpgrade :: Lens.Lens' DescribeBrokerResponse (Core.Maybe Core.Bool)
+describeBrokerResponse_autoMinorVersionUpgrade :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Bool)
 describeBrokerResponse_autoMinorVersionUpgrade = Lens.lens (\DescribeBrokerResponse' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@DescribeBrokerResponse' {} a -> s {autoMinorVersionUpgrade = a} :: DescribeBrokerResponse)
 
 -- | The list of all broker usernames for the specified broker.
-describeBrokerResponse_users :: Lens.Lens' DescribeBrokerResponse (Core.Maybe [UserSummary])
-describeBrokerResponse_users = Lens.lens (\DescribeBrokerResponse' {users} -> users) (\s@DescribeBrokerResponse' {} a -> s {users = a} :: DescribeBrokerResponse) Core.. Lens.mapping Lens._Coerce
+describeBrokerResponse_users :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [UserSummary])
+describeBrokerResponse_users = Lens.lens (\DescribeBrokerResponse' {users} -> users) (\s@DescribeBrokerResponse' {} a -> s {users = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Required. The deployment mode of the broker.
-describeBrokerResponse_deploymentMode :: Lens.Lens' DescribeBrokerResponse (Core.Maybe DeploymentMode)
+describeBrokerResponse_deploymentMode :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe DeploymentMode)
 describeBrokerResponse_deploymentMode = Lens.lens (\DescribeBrokerResponse' {deploymentMode} -> deploymentMode) (\s@DescribeBrokerResponse' {} a -> s {deploymentMode = a} :: DescribeBrokerResponse)
 
 -- | The response's http status code.
-describeBrokerResponse_httpStatus :: Lens.Lens' DescribeBrokerResponse Core.Int
+describeBrokerResponse_httpStatus :: Lens.Lens' DescribeBrokerResponse Prelude.Int
 describeBrokerResponse_httpStatus = Lens.lens (\DescribeBrokerResponse' {httpStatus} -> httpStatus) (\s@DescribeBrokerResponse' {} a -> s {httpStatus = a} :: DescribeBrokerResponse)
 
-instance Core.NFData DescribeBrokerResponse
+instance Prelude.NFData DescribeBrokerResponse

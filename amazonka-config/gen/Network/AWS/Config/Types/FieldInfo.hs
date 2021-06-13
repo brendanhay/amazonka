@@ -21,15 +21,16 @@ module Network.AWS.Config.Types.FieldInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the fields such as name of the field.
 --
 -- /See:/ 'newFieldInfo' smart constructor.
 data FieldInfo = FieldInfo'
   { -- | Name of the field.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FieldInfo' with all optional fields omitted.
@@ -42,18 +43,18 @@ data FieldInfo = FieldInfo'
 -- 'name', 'fieldInfo_name' - Name of the field.
 newFieldInfo ::
   FieldInfo
-newFieldInfo = FieldInfo' {name = Core.Nothing}
+newFieldInfo = FieldInfo' {name = Prelude.Nothing}
 
 -- | Name of the field.
-fieldInfo_name :: Lens.Lens' FieldInfo (Core.Maybe Core.Text)
+fieldInfo_name :: Lens.Lens' FieldInfo (Prelude.Maybe Prelude.Text)
 fieldInfo_name = Lens.lens (\FieldInfo' {name} -> name) (\s@FieldInfo' {} a -> s {name = a} :: FieldInfo)
 
 instance Core.FromJSON FieldInfo where
   parseJSON =
     Core.withObject
       "FieldInfo"
-      (\x -> FieldInfo' Core.<$> (x Core..:? "Name"))
+      (\x -> FieldInfo' Prelude.<$> (x Core..:? "Name"))
 
-instance Core.Hashable FieldInfo
+instance Prelude.Hashable FieldInfo
 
-instance Core.NFData FieldInfo
+instance Prelude.NFData FieldInfo

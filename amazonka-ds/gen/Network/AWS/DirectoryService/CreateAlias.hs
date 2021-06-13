@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +58,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
   { -- | The identifier of the directory for which to create the alias.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | The requested alias.
     --
     -- The alias must be unique amongst all aliases in AWS. This operation
     -- throws an @EntityAlreadyExistsException@ error if the alias already
     -- exists.
-    alias :: Core.Text
+    alias :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAlias' with all optional fields omitted.
@@ -84,9 +85,9 @@ data CreateAlias = CreateAlias'
 -- exists.
 newCreateAlias ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'alias'
-  Core.Text ->
+  Prelude.Text ->
   CreateAlias
 newCreateAlias pDirectoryId_ pAlias_ =
   CreateAlias'
@@ -95,7 +96,7 @@ newCreateAlias pDirectoryId_ pAlias_ =
     }
 
 -- | The identifier of the directory for which to create the alias.
-createAlias_directoryId :: Lens.Lens' CreateAlias Core.Text
+createAlias_directoryId :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_directoryId = Lens.lens (\CreateAlias' {directoryId} -> directoryId) (\s@CreateAlias' {} a -> s {directoryId = a} :: CreateAlias)
 
 -- | The requested alias.
@@ -103,7 +104,7 @@ createAlias_directoryId = Lens.lens (\CreateAlias' {directoryId} -> directoryId)
 -- The alias must be unique amongst all aliases in AWS. This operation
 -- throws an @EntityAlreadyExistsException@ error if the alias already
 -- exists.
-createAlias_alias :: Lens.Lens' CreateAlias Core.Text
+createAlias_alias :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_alias = Lens.lens (\CreateAlias' {alias} -> alias) (\s@CreateAlias' {} a -> s {alias = a} :: CreateAlias)
 
 instance Core.AWSRequest CreateAlias where
@@ -113,55 +114,57 @@ instance Core.AWSRequest CreateAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateAliasResponse'
-            Core.<$> (x Core..?> "Alias")
-            Core.<*> (x Core..?> "DirectoryId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Alias")
+            Prelude.<*> (x Core..?> "DirectoryId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateAlias
+instance Prelude.Hashable CreateAlias
 
-instance Core.NFData CreateAlias
+instance Prelude.NFData CreateAlias
 
 instance Core.ToHeaders CreateAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.CreateAlias" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("Alias" Core..= alias)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("Alias" Core..= alias)
           ]
       )
 
 instance Core.ToPath CreateAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the CreateAlias operation.
 --
 -- /See:/ 'newCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
   { -- | The alias for the directory.
-    alias :: Core.Maybe Core.Text,
+    alias :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the directory.
-    directoryId :: Core.Maybe Core.Text,
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAliasResponse' with all optional fields omitted.
@@ -178,25 +181,25 @@ data CreateAliasResponse = CreateAliasResponse'
 -- 'httpStatus', 'createAliasResponse_httpStatus' - The response's http status code.
 newCreateAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAliasResponse
 newCreateAliasResponse pHttpStatus_ =
   CreateAliasResponse'
-    { alias = Core.Nothing,
-      directoryId = Core.Nothing,
+    { alias = Prelude.Nothing,
+      directoryId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The alias for the directory.
-createAliasResponse_alias :: Lens.Lens' CreateAliasResponse (Core.Maybe Core.Text)
+createAliasResponse_alias :: Lens.Lens' CreateAliasResponse (Prelude.Maybe Prelude.Text)
 createAliasResponse_alias = Lens.lens (\CreateAliasResponse' {alias} -> alias) (\s@CreateAliasResponse' {} a -> s {alias = a} :: CreateAliasResponse)
 
 -- | The identifier of the directory.
-createAliasResponse_directoryId :: Lens.Lens' CreateAliasResponse (Core.Maybe Core.Text)
+createAliasResponse_directoryId :: Lens.Lens' CreateAliasResponse (Prelude.Maybe Prelude.Text)
 createAliasResponse_directoryId = Lens.lens (\CreateAliasResponse' {directoryId} -> directoryId) (\s@CreateAliasResponse' {} a -> s {directoryId = a} :: CreateAliasResponse)
 
 -- | The response's http status code.
-createAliasResponse_httpStatus :: Lens.Lens' CreateAliasResponse Core.Int
+createAliasResponse_httpStatus :: Lens.Lens' CreateAliasResponse Prelude.Int
 createAliasResponse_httpStatus = Lens.lens (\CreateAliasResponse' {httpStatus} -> httpStatus) (\s@CreateAliasResponse' {} a -> s {httpStatus = a} :: CreateAliasResponse)
 
-instance Core.NFData CreateAliasResponse
+instance Prelude.NFData CreateAliasResponse

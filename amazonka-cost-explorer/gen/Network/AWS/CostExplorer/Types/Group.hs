@@ -22,17 +22,18 @@ module Network.AWS.CostExplorer.Types.Group where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.MetricValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | One level of grouped data in the results.
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
   { -- | The metrics that are included in this group.
-    metrics :: Core.Maybe (Core.HashMap Core.Text MetricValue),
+    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue),
     -- | The keys that are included in this group.
-    keys :: Core.Maybe [Core.Text]
+    keys :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Group' with all optional fields omitted.
@@ -48,15 +49,18 @@ data Group = Group'
 newGroup ::
   Group
 newGroup =
-  Group' {metrics = Core.Nothing, keys = Core.Nothing}
+  Group'
+    { metrics = Prelude.Nothing,
+      keys = Prelude.Nothing
+    }
 
 -- | The metrics that are included in this group.
-group_metrics :: Lens.Lens' Group (Core.Maybe (Core.HashMap Core.Text MetricValue))
-group_metrics = Lens.lens (\Group' {metrics} -> metrics) (\s@Group' {} a -> s {metrics = a} :: Group) Core.. Lens.mapping Lens._Coerce
+group_metrics :: Lens.Lens' Group (Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue))
+group_metrics = Lens.lens (\Group' {metrics} -> metrics) (\s@Group' {} a -> s {metrics = a} :: Group) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The keys that are included in this group.
-group_keys :: Lens.Lens' Group (Core.Maybe [Core.Text])
-group_keys = Lens.lens (\Group' {keys} -> keys) (\s@Group' {} a -> s {keys = a} :: Group) Core.. Lens.mapping Lens._Coerce
+group_keys :: Lens.Lens' Group (Prelude.Maybe [Prelude.Text])
+group_keys = Lens.lens (\Group' {keys} -> keys) (\s@Group' {} a -> s {keys = a} :: Group) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Group where
   parseJSON =
@@ -64,10 +68,10 @@ instance Core.FromJSON Group where
       "Group"
       ( \x ->
           Group'
-            Core.<$> (x Core..:? "Metrics" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Keys" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Metrics" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Keys" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Group
+instance Prelude.Hashable Group
 
-instance Core.NFData Group
+instance Prelude.NFData Group

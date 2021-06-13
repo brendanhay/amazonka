@@ -54,32 +54,33 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListIncomingTypedLinks' smart constructor.
 data ListIncomingTypedLinks = ListIncomingTypedLinks'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters are interpreted in the order of the attributes on the typed link
     -- facet, not the order in which they are supplied to any API calls.
-    filterTypedLink :: Core.Maybe TypedLinkSchemaAndFacetName,
+    filterTypedLink :: Prelude.Maybe TypedLinkSchemaAndFacetName,
     -- | The maximum number of results to retrieve.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The consistency level to execute the request at.
-    consistencyLevel :: Core.Maybe ConsistencyLevel,
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | Provides range filters for multiple attributes. When providing ranges to
     -- typed link selection, any inexact ranges must be specified at the end.
     -- Any attributes that do not have a range specified are presumed to match
     -- the entire range.
-    filterAttributeRanges :: Core.Maybe [TypedLinkAttributeRange],
+    filterAttributeRanges :: Prelude.Maybe [TypedLinkAttributeRange],
     -- | The Amazon Resource Name (ARN) of the directory where you want to list
     -- the typed links.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | Reference that identifies the object whose attributes will be listed.
     objectReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIncomingTypedLinks' with all optional fields omitted.
@@ -109,7 +110,7 @@ data ListIncomingTypedLinks = ListIncomingTypedLinks'
 -- 'objectReference', 'listIncomingTypedLinks_objectReference' - Reference that identifies the object whose attributes will be listed.
 newListIncomingTypedLinks ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'objectReference'
   ObjectReference ->
   ListIncomingTypedLinks
@@ -117,42 +118,43 @@ newListIncomingTypedLinks
   pDirectoryArn_
   pObjectReference_ =
     ListIncomingTypedLinks'
-      { nextToken = Core.Nothing,
-        filterTypedLink = Core.Nothing,
-        maxResults = Core.Nothing,
-        consistencyLevel = Core.Nothing,
-        filterAttributeRanges = Core.Nothing,
+      { nextToken =
+          Prelude.Nothing,
+        filterTypedLink = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        consistencyLevel = Prelude.Nothing,
+        filterAttributeRanges = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
 
 -- | The pagination token.
-listIncomingTypedLinks_nextToken :: Lens.Lens' ListIncomingTypedLinks (Core.Maybe Core.Text)
+listIncomingTypedLinks_nextToken :: Lens.Lens' ListIncomingTypedLinks (Prelude.Maybe Prelude.Text)
 listIncomingTypedLinks_nextToken = Lens.lens (\ListIncomingTypedLinks' {nextToken} -> nextToken) (\s@ListIncomingTypedLinks' {} a -> s {nextToken = a} :: ListIncomingTypedLinks)
 
 -- | Filters are interpreted in the order of the attributes on the typed link
 -- facet, not the order in which they are supplied to any API calls.
-listIncomingTypedLinks_filterTypedLink :: Lens.Lens' ListIncomingTypedLinks (Core.Maybe TypedLinkSchemaAndFacetName)
+listIncomingTypedLinks_filterTypedLink :: Lens.Lens' ListIncomingTypedLinks (Prelude.Maybe TypedLinkSchemaAndFacetName)
 listIncomingTypedLinks_filterTypedLink = Lens.lens (\ListIncomingTypedLinks' {filterTypedLink} -> filterTypedLink) (\s@ListIncomingTypedLinks' {} a -> s {filterTypedLink = a} :: ListIncomingTypedLinks)
 
 -- | The maximum number of results to retrieve.
-listIncomingTypedLinks_maxResults :: Lens.Lens' ListIncomingTypedLinks (Core.Maybe Core.Natural)
+listIncomingTypedLinks_maxResults :: Lens.Lens' ListIncomingTypedLinks (Prelude.Maybe Prelude.Natural)
 listIncomingTypedLinks_maxResults = Lens.lens (\ListIncomingTypedLinks' {maxResults} -> maxResults) (\s@ListIncomingTypedLinks' {} a -> s {maxResults = a} :: ListIncomingTypedLinks)
 
 -- | The consistency level to execute the request at.
-listIncomingTypedLinks_consistencyLevel :: Lens.Lens' ListIncomingTypedLinks (Core.Maybe ConsistencyLevel)
+listIncomingTypedLinks_consistencyLevel :: Lens.Lens' ListIncomingTypedLinks (Prelude.Maybe ConsistencyLevel)
 listIncomingTypedLinks_consistencyLevel = Lens.lens (\ListIncomingTypedLinks' {consistencyLevel} -> consistencyLevel) (\s@ListIncomingTypedLinks' {} a -> s {consistencyLevel = a} :: ListIncomingTypedLinks)
 
 -- | Provides range filters for multiple attributes. When providing ranges to
 -- typed link selection, any inexact ranges must be specified at the end.
 -- Any attributes that do not have a range specified are presumed to match
 -- the entire range.
-listIncomingTypedLinks_filterAttributeRanges :: Lens.Lens' ListIncomingTypedLinks (Core.Maybe [TypedLinkAttributeRange])
-listIncomingTypedLinks_filterAttributeRanges = Lens.lens (\ListIncomingTypedLinks' {filterAttributeRanges} -> filterAttributeRanges) (\s@ListIncomingTypedLinks' {} a -> s {filterAttributeRanges = a} :: ListIncomingTypedLinks) Core.. Lens.mapping Lens._Coerce
+listIncomingTypedLinks_filterAttributeRanges :: Lens.Lens' ListIncomingTypedLinks (Prelude.Maybe [TypedLinkAttributeRange])
+listIncomingTypedLinks_filterAttributeRanges = Lens.lens (\ListIncomingTypedLinks' {filterAttributeRanges} -> filterAttributeRanges) (\s@ListIncomingTypedLinks' {} a -> s {filterAttributeRanges = a} :: ListIncomingTypedLinks) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to list
 -- the typed links.
-listIncomingTypedLinks_directoryArn :: Lens.Lens' ListIncomingTypedLinks Core.Text
+listIncomingTypedLinks_directoryArn :: Lens.Lens' ListIncomingTypedLinks Prelude.Text
 listIncomingTypedLinks_directoryArn = Lens.lens (\ListIncomingTypedLinks' {directoryArn} -> directoryArn) (\s@ListIncomingTypedLinks' {} a -> s {directoryArn = a} :: ListIncomingTypedLinks)
 
 -- | Reference that identifies the object whose attributes will be listed.
@@ -164,22 +166,22 @@ instance Core.AWSPager ListIncomingTypedLinks where
     | Core.stop
         ( rs
             Lens.^? listIncomingTypedLinksResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listIncomingTypedLinksResponse_linkSpecifiers
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listIncomingTypedLinks_nextToken
+          Prelude.& listIncomingTypedLinks_nextToken
           Lens..~ rs
           Lens.^? listIncomingTypedLinksResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIncomingTypedLinks where
   type
@@ -190,54 +192,55 @@ instance Core.AWSRequest ListIncomingTypedLinks where
     Response.receiveJSON
       ( \s h x ->
           ListIncomingTypedLinksResponse'
-            Core.<$> (x Core..?> "LinkSpecifiers" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "LinkSpecifiers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListIncomingTypedLinks
+instance Prelude.Hashable ListIncomingTypedLinks
 
-instance Core.NFData ListIncomingTypedLinks
+instance Prelude.NFData ListIncomingTypedLinks
 
 instance Core.ToHeaders ListIncomingTypedLinks where
   toHeaders ListIncomingTypedLinks' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON ListIncomingTypedLinks where
   toJSON ListIncomingTypedLinks' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("FilterTypedLink" Core..=) Core.<$> filterTypedLink,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("FilterTypedLink" Core..=)
+              Prelude.<$> filterTypedLink,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ConsistencyLevel" Core..=)
-              Core.<$> consistencyLevel,
+              Prelude.<$> consistencyLevel,
             ("FilterAttributeRanges" Core..=)
-              Core.<$> filterAttributeRanges,
-            Core.Just
+              Prelude.<$> filterAttributeRanges,
+            Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
       )
 
 instance Core.ToPath ListIncomingTypedLinks where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/incoming"
 
 instance Core.ToQuery ListIncomingTypedLinks where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListIncomingTypedLinksResponse' smart constructor.
 data ListIncomingTypedLinksResponse = ListIncomingTypedLinksResponse'
   { -- | Returns one or more typed link specifiers as output.
-    linkSpecifiers :: Core.Maybe [TypedLinkSpecifier],
+    linkSpecifiers :: Prelude.Maybe [TypedLinkSpecifier],
     -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIncomingTypedLinksResponse' with all optional fields omitted.
@@ -254,26 +257,28 @@ data ListIncomingTypedLinksResponse = ListIncomingTypedLinksResponse'
 -- 'httpStatus', 'listIncomingTypedLinksResponse_httpStatus' - The response's http status code.
 newListIncomingTypedLinksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListIncomingTypedLinksResponse
 newListIncomingTypedLinksResponse pHttpStatus_ =
   ListIncomingTypedLinksResponse'
     { linkSpecifiers =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns one or more typed link specifiers as output.
-listIncomingTypedLinksResponse_linkSpecifiers :: Lens.Lens' ListIncomingTypedLinksResponse (Core.Maybe [TypedLinkSpecifier])
-listIncomingTypedLinksResponse_linkSpecifiers = Lens.lens (\ListIncomingTypedLinksResponse' {linkSpecifiers} -> linkSpecifiers) (\s@ListIncomingTypedLinksResponse' {} a -> s {linkSpecifiers = a} :: ListIncomingTypedLinksResponse) Core.. Lens.mapping Lens._Coerce
+listIncomingTypedLinksResponse_linkSpecifiers :: Lens.Lens' ListIncomingTypedLinksResponse (Prelude.Maybe [TypedLinkSpecifier])
+listIncomingTypedLinksResponse_linkSpecifiers = Lens.lens (\ListIncomingTypedLinksResponse' {linkSpecifiers} -> linkSpecifiers) (\s@ListIncomingTypedLinksResponse' {} a -> s {linkSpecifiers = a} :: ListIncomingTypedLinksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token.
-listIncomingTypedLinksResponse_nextToken :: Lens.Lens' ListIncomingTypedLinksResponse (Core.Maybe Core.Text)
+listIncomingTypedLinksResponse_nextToken :: Lens.Lens' ListIncomingTypedLinksResponse (Prelude.Maybe Prelude.Text)
 listIncomingTypedLinksResponse_nextToken = Lens.lens (\ListIncomingTypedLinksResponse' {nextToken} -> nextToken) (\s@ListIncomingTypedLinksResponse' {} a -> s {nextToken = a} :: ListIncomingTypedLinksResponse)
 
 -- | The response's http status code.
-listIncomingTypedLinksResponse_httpStatus :: Lens.Lens' ListIncomingTypedLinksResponse Core.Int
+listIncomingTypedLinksResponse_httpStatus :: Lens.Lens' ListIncomingTypedLinksResponse Prelude.Int
 listIncomingTypedLinksResponse_httpStatus = Lens.lens (\ListIncomingTypedLinksResponse' {httpStatus} -> httpStatus) (\s@ListIncomingTypedLinksResponse' {} a -> s {httpStatus = a} :: ListIncomingTypedLinksResponse)
 
-instance Core.NFData ListIncomingTypedLinksResponse
+instance
+  Prelude.NFData
+    ListIncomingTypedLinksResponse

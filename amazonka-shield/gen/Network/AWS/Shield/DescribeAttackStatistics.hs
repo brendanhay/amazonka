@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -60,7 +61,7 @@ import Network.AWS.Shield.Types
 data DescribeAttackStatistics = DescribeAttackStatistics'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAttackStatistics' with all optional fields omitted.
@@ -80,46 +81,48 @@ instance Core.AWSRequest DescribeAttackStatistics where
     Response.receiveJSON
       ( \s h x ->
           DescribeAttackStatisticsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "TimeRange")
-            Core.<*> (x Core..?> "DataItems" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "TimeRange")
+            Prelude.<*> (x Core..?> "DataItems" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable DescribeAttackStatistics
+instance Prelude.Hashable DescribeAttackStatistics
 
-instance Core.NFData DescribeAttackStatistics
+instance Prelude.NFData DescribeAttackStatistics
 
 instance Core.ToHeaders DescribeAttackStatistics where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.DescribeAttackStatistics" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeAttackStatistics where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DescribeAttackStatistics where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAttackStatistics where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAttackStatisticsResponse' smart constructor.
 data DescribeAttackStatisticsResponse = DescribeAttackStatisticsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     timeRange :: TimeRange,
     -- | The data that describes the attacks detected during the time period.
     dataItems :: [AttackStatisticsDataItem]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAttackStatisticsResponse' with all optional fields omitted.
@@ -136,7 +139,7 @@ data DescribeAttackStatisticsResponse = DescribeAttackStatisticsResponse'
 -- 'dataItems', 'describeAttackStatisticsResponse_dataItems' - The data that describes the attacks detected during the time period.
 newDescribeAttackStatisticsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'timeRange'
   TimeRange ->
   DescribeAttackStatisticsResponse
@@ -147,11 +150,11 @@ newDescribeAttackStatisticsResponse
       { httpStatus =
           pHttpStatus_,
         timeRange = pTimeRange_,
-        dataItems = Core.mempty
+        dataItems = Prelude.mempty
       }
 
 -- | The response's http status code.
-describeAttackStatisticsResponse_httpStatus :: Lens.Lens' DescribeAttackStatisticsResponse Core.Int
+describeAttackStatisticsResponse_httpStatus :: Lens.Lens' DescribeAttackStatisticsResponse Prelude.Int
 describeAttackStatisticsResponse_httpStatus = Lens.lens (\DescribeAttackStatisticsResponse' {httpStatus} -> httpStatus) (\s@DescribeAttackStatisticsResponse' {} a -> s {httpStatus = a} :: DescribeAttackStatisticsResponse)
 
 -- | Undocumented member.
@@ -160,6 +163,8 @@ describeAttackStatisticsResponse_timeRange = Lens.lens (\DescribeAttackStatistic
 
 -- | The data that describes the attacks detected during the time period.
 describeAttackStatisticsResponse_dataItems :: Lens.Lens' DescribeAttackStatisticsResponse [AttackStatisticsDataItem]
-describeAttackStatisticsResponse_dataItems = Lens.lens (\DescribeAttackStatisticsResponse' {dataItems} -> dataItems) (\s@DescribeAttackStatisticsResponse' {} a -> s {dataItems = a} :: DescribeAttackStatisticsResponse) Core.. Lens._Coerce
+describeAttackStatisticsResponse_dataItems = Lens.lens (\DescribeAttackStatisticsResponse' {dataItems} -> dataItems) (\s@DescribeAttackStatisticsResponse' {} a -> s {dataItems = a} :: DescribeAttackStatisticsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DescribeAttackStatisticsResponse
+instance
+  Prelude.NFData
+    DescribeAttackStatisticsResponse

@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -53,12 +54,12 @@ data CreateReturnShippingLabel = CreateReturnShippingLabel'
     -- soon the device is returned to AWS. This speed represents how quickly it
     -- moves to its destination while in transit. Regional shipping speeds are
     -- as follows:
-    shippingOption :: Core.Maybe ShippingOption,
+    shippingOption :: Prelude.Maybe ShippingOption,
     -- | The ID for a job that you want to create the return shipping label for.
     -- For example @JID123e4567-e89b-12d3-a456-426655440000@.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReturnShippingLabel' with all optional fields omitted.
@@ -77,12 +78,12 @@ data CreateReturnShippingLabel = CreateReturnShippingLabel'
 -- For example @JID123e4567-e89b-12d3-a456-426655440000@.
 newCreateReturnShippingLabel ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   CreateReturnShippingLabel
 newCreateReturnShippingLabel pJobId_ =
   CreateReturnShippingLabel'
     { shippingOption =
-        Core.Nothing,
+        Prelude.Nothing,
       jobId = pJobId_
     }
 
@@ -90,12 +91,12 @@ newCreateReturnShippingLabel pJobId_ =
 -- soon the device is returned to AWS. This speed represents how quickly it
 -- moves to its destination while in transit. Regional shipping speeds are
 -- as follows:
-createReturnShippingLabel_shippingOption :: Lens.Lens' CreateReturnShippingLabel (Core.Maybe ShippingOption)
+createReturnShippingLabel_shippingOption :: Lens.Lens' CreateReturnShippingLabel (Prelude.Maybe ShippingOption)
 createReturnShippingLabel_shippingOption = Lens.lens (\CreateReturnShippingLabel' {shippingOption} -> shippingOption) (\s@CreateReturnShippingLabel' {} a -> s {shippingOption = a} :: CreateReturnShippingLabel)
 
 -- | The ID for a job that you want to create the return shipping label for.
 -- For example @JID123e4567-e89b-12d3-a456-426655440000@.
-createReturnShippingLabel_jobId :: Lens.Lens' CreateReturnShippingLabel Core.Text
+createReturnShippingLabel_jobId :: Lens.Lens' CreateReturnShippingLabel Prelude.Text
 createReturnShippingLabel_jobId = Lens.lens (\CreateReturnShippingLabel' {jobId} -> jobId) (\s@CreateReturnShippingLabel' {} a -> s {jobId = a} :: CreateReturnShippingLabel)
 
 instance Core.AWSRequest CreateReturnShippingLabel where
@@ -107,51 +108,54 @@ instance Core.AWSRequest CreateReturnShippingLabel where
     Response.receiveJSON
       ( \s h x ->
           CreateReturnShippingLabelResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateReturnShippingLabel
+instance Prelude.Hashable CreateReturnShippingLabel
 
-instance Core.NFData CreateReturnShippingLabel
+instance Prelude.NFData CreateReturnShippingLabel
 
 instance Core.ToHeaders CreateReturnShippingLabel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.CreateReturnShippingLabel" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateReturnShippingLabel where
   toJSON CreateReturnShippingLabel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ShippingOption" Core..=) Core.<$> shippingOption,
-            Core.Just ("JobId" Core..= jobId)
+      ( Prelude.catMaybes
+          [ ("ShippingOption" Core..=)
+              Prelude.<$> shippingOption,
+            Prelude.Just ("JobId" Core..= jobId)
           ]
       )
 
 instance Core.ToPath CreateReturnShippingLabel where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateReturnShippingLabel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateReturnShippingLabelResponse' smart constructor.
 data CreateReturnShippingLabelResponse = CreateReturnShippingLabelResponse'
   { -- | The status information of the task on a Snow device that is being
     -- returned to AWS.
-    status :: Core.Maybe ShippingLabelStatus,
+    status :: Prelude.Maybe ShippingLabelStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReturnShippingLabelResponse' with all optional fields omitted.
@@ -167,24 +171,24 @@ data CreateReturnShippingLabelResponse = CreateReturnShippingLabelResponse'
 -- 'httpStatus', 'createReturnShippingLabelResponse_httpStatus' - The response's http status code.
 newCreateReturnShippingLabelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateReturnShippingLabelResponse
 newCreateReturnShippingLabelResponse pHttpStatus_ =
   CreateReturnShippingLabelResponse'
     { status =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status information of the task on a Snow device that is being
 -- returned to AWS.
-createReturnShippingLabelResponse_status :: Lens.Lens' CreateReturnShippingLabelResponse (Core.Maybe ShippingLabelStatus)
+createReturnShippingLabelResponse_status :: Lens.Lens' CreateReturnShippingLabelResponse (Prelude.Maybe ShippingLabelStatus)
 createReturnShippingLabelResponse_status = Lens.lens (\CreateReturnShippingLabelResponse' {status} -> status) (\s@CreateReturnShippingLabelResponse' {} a -> s {status = a} :: CreateReturnShippingLabelResponse)
 
 -- | The response's http status code.
-createReturnShippingLabelResponse_httpStatus :: Lens.Lens' CreateReturnShippingLabelResponse Core.Int
+createReturnShippingLabelResponse_httpStatus :: Lens.Lens' CreateReturnShippingLabelResponse Prelude.Int
 createReturnShippingLabelResponse_httpStatus = Lens.lens (\CreateReturnShippingLabelResponse' {httpStatus} -> httpStatus) (\s@CreateReturnShippingLabelResponse' {} a -> s {httpStatus = a} :: CreateReturnShippingLabelResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateReturnShippingLabelResponse

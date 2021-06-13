@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.EmbeddedConvert608To708
 import Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for embedded captions Source
 --
@@ -31,22 +32,22 @@ data EmbeddedSourceSettings = EmbeddedSourceSettings'
   { -- | By default, the service terminates any unterminated captions at the end
     -- of each input. If you want the caption to continue onto your next input,
     -- disable this setting.
-    terminateCaptions :: Core.Maybe EmbeddedTerminateCaptions,
+    terminateCaptions :: Prelude.Maybe EmbeddedTerminateCaptions,
     -- | Specify whether this set of input captions appears in your outputs in
     -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
     -- MediaConvert includes the captions data in two ways: it passes the 608
     -- data through using the 608 compatibility bytes fields of the 708
     -- wrapper, and it also translates the 608 data into 708.
-    convert608To708 :: Core.Maybe EmbeddedConvert608To708,
+    convert608To708 :: Prelude.Maybe EmbeddedConvert608To708,
     -- | Specifies the video track index used for extracting captions. The system
     -- only supports one input video track, so this should always be set to
     -- \'1\'.
-    source608TrackNumber :: Core.Maybe Core.Natural,
+    source608TrackNumber :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the 608\/708 channel number within the video track from which
     -- to extract captions. Unused for passthrough.
-    source608ChannelNumber :: Core.Maybe Core.Natural
+    source608ChannelNumber :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EmbeddedSourceSettings' with all optional fields omitted.
@@ -77,16 +78,16 @@ newEmbeddedSourceSettings ::
 newEmbeddedSourceSettings =
   EmbeddedSourceSettings'
     { terminateCaptions =
-        Core.Nothing,
-      convert608To708 = Core.Nothing,
-      source608TrackNumber = Core.Nothing,
-      source608ChannelNumber = Core.Nothing
+        Prelude.Nothing,
+      convert608To708 = Prelude.Nothing,
+      source608TrackNumber = Prelude.Nothing,
+      source608ChannelNumber = Prelude.Nothing
     }
 
 -- | By default, the service terminates any unterminated captions at the end
 -- of each input. If you want the caption to continue onto your next input,
 -- disable this setting.
-embeddedSourceSettings_terminateCaptions :: Lens.Lens' EmbeddedSourceSettings (Core.Maybe EmbeddedTerminateCaptions)
+embeddedSourceSettings_terminateCaptions :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedTerminateCaptions)
 embeddedSourceSettings_terminateCaptions = Lens.lens (\EmbeddedSourceSettings' {terminateCaptions} -> terminateCaptions) (\s@EmbeddedSourceSettings' {} a -> s {terminateCaptions = a} :: EmbeddedSourceSettings)
 
 -- | Specify whether this set of input captions appears in your outputs in
@@ -94,18 +95,18 @@ embeddedSourceSettings_terminateCaptions = Lens.lens (\EmbeddedSourceSettings' {
 -- MediaConvert includes the captions data in two ways: it passes the 608
 -- data through using the 608 compatibility bytes fields of the 708
 -- wrapper, and it also translates the 608 data into 708.
-embeddedSourceSettings_convert608To708 :: Lens.Lens' EmbeddedSourceSettings (Core.Maybe EmbeddedConvert608To708)
+embeddedSourceSettings_convert608To708 :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedConvert608To708)
 embeddedSourceSettings_convert608To708 = Lens.lens (\EmbeddedSourceSettings' {convert608To708} -> convert608To708) (\s@EmbeddedSourceSettings' {} a -> s {convert608To708 = a} :: EmbeddedSourceSettings)
 
 -- | Specifies the video track index used for extracting captions. The system
 -- only supports one input video track, so this should always be set to
 -- \'1\'.
-embeddedSourceSettings_source608TrackNumber :: Lens.Lens' EmbeddedSourceSettings (Core.Maybe Core.Natural)
+embeddedSourceSettings_source608TrackNumber :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe Prelude.Natural)
 embeddedSourceSettings_source608TrackNumber = Lens.lens (\EmbeddedSourceSettings' {source608TrackNumber} -> source608TrackNumber) (\s@EmbeddedSourceSettings' {} a -> s {source608TrackNumber = a} :: EmbeddedSourceSettings)
 
 -- | Specifies the 608\/708 channel number within the video track from which
 -- to extract captions. Unused for passthrough.
-embeddedSourceSettings_source608ChannelNumber :: Lens.Lens' EmbeddedSourceSettings (Core.Maybe Core.Natural)
+embeddedSourceSettings_source608ChannelNumber :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe Prelude.Natural)
 embeddedSourceSettings_source608ChannelNumber = Lens.lens (\EmbeddedSourceSettings' {source608ChannelNumber} -> source608ChannelNumber) (\s@EmbeddedSourceSettings' {} a -> s {source608ChannelNumber = a} :: EmbeddedSourceSettings)
 
 instance Core.FromJSON EmbeddedSourceSettings where
@@ -114,26 +115,27 @@ instance Core.FromJSON EmbeddedSourceSettings where
       "EmbeddedSourceSettings"
       ( \x ->
           EmbeddedSourceSettings'
-            Core.<$> (x Core..:? "terminateCaptions")
-            Core.<*> (x Core..:? "convert608To708")
-            Core.<*> (x Core..:? "source608TrackNumber")
-            Core.<*> (x Core..:? "source608ChannelNumber")
+            Prelude.<$> (x Core..:? "terminateCaptions")
+            Prelude.<*> (x Core..:? "convert608To708")
+            Prelude.<*> (x Core..:? "source608TrackNumber")
+            Prelude.<*> (x Core..:? "source608ChannelNumber")
       )
 
-instance Core.Hashable EmbeddedSourceSettings
+instance Prelude.Hashable EmbeddedSourceSettings
 
-instance Core.NFData EmbeddedSourceSettings
+instance Prelude.NFData EmbeddedSourceSettings
 
 instance Core.ToJSON EmbeddedSourceSettings where
   toJSON EmbeddedSourceSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("terminateCaptions" Core..=)
-              Core.<$> terminateCaptions,
-            ("convert608To708" Core..=) Core.<$> convert608To708,
+              Prelude.<$> terminateCaptions,
+            ("convert608To708" Core..=)
+              Prelude.<$> convert608To708,
             ("source608TrackNumber" Core..=)
-              Core.<$> source608TrackNumber,
+              Prelude.<$> source608TrackNumber,
             ("source608ChannelNumber" Core..=)
-              Core.<$> source608ChannelNumber
+              Prelude.<$> source608ChannelNumber
           ]
       )

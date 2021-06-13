@@ -23,6 +23,7 @@ import Network.AWS.CodeDeploy.Types.LifecycleEvent
 import Network.AWS.CodeDeploy.Types.TargetStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the target to be updated by an AWS CloudFormation
 -- blue\/green deployment. This target type is used for all deployments
@@ -31,26 +32,26 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCloudFormationTarget' smart constructor.
 data CloudFormationTarget = CloudFormationTarget'
   { -- | The unique ID of an AWS CloudFormation blue\/green deployment.
-    deploymentId :: Core.Maybe Core.Text,
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The status of an AWS CloudFormation blue\/green deployment\'s target
     -- application.
-    status :: Core.Maybe TargetStatus,
+    status :: Prelude.Maybe TargetStatus,
     -- | The unique ID of a deployment target that has a type
     -- of @CloudFormationTarget@.
-    targetId :: Core.Maybe Core.Text,
+    targetId :: Prelude.Maybe Prelude.Text,
     -- | The percentage of production traffic that the target version of an AWS
     -- CloudFormation blue\/green deployment receives.
-    targetVersionWeight :: Core.Maybe Core.Double,
+    targetVersionWeight :: Prelude.Maybe Prelude.Double,
     -- | The resource type for the AWS CloudFormation blue\/green deployment.
-    resourceType :: Core.Maybe Core.Text,
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | The lifecycle events of the AWS CloudFormation blue\/green deployment to
     -- this target application.
-    lifecycleEvents :: Core.Maybe [LifecycleEvent],
+    lifecycleEvents :: Prelude.Maybe [LifecycleEvent],
     -- | The date and time when the target application was updated by an AWS
     -- CloudFormation blue\/green deployment.
-    lastUpdatedAt :: Core.Maybe Core.POSIX
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudFormationTarget' with all optional fields omitted.
@@ -82,47 +83,48 @@ newCloudFormationTarget ::
   CloudFormationTarget
 newCloudFormationTarget =
   CloudFormationTarget'
-    { deploymentId = Core.Nothing,
-      status = Core.Nothing,
-      targetId = Core.Nothing,
-      targetVersionWeight = Core.Nothing,
-      resourceType = Core.Nothing,
-      lifecycleEvents = Core.Nothing,
-      lastUpdatedAt = Core.Nothing
+    { deploymentId =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      targetId = Prelude.Nothing,
+      targetVersionWeight = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      lifecycleEvents = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing
     }
 
 -- | The unique ID of an AWS CloudFormation blue\/green deployment.
-cloudFormationTarget_deploymentId :: Lens.Lens' CloudFormationTarget (Core.Maybe Core.Text)
+cloudFormationTarget_deploymentId :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.Text)
 cloudFormationTarget_deploymentId = Lens.lens (\CloudFormationTarget' {deploymentId} -> deploymentId) (\s@CloudFormationTarget' {} a -> s {deploymentId = a} :: CloudFormationTarget)
 
 -- | The status of an AWS CloudFormation blue\/green deployment\'s target
 -- application.
-cloudFormationTarget_status :: Lens.Lens' CloudFormationTarget (Core.Maybe TargetStatus)
+cloudFormationTarget_status :: Lens.Lens' CloudFormationTarget (Prelude.Maybe TargetStatus)
 cloudFormationTarget_status = Lens.lens (\CloudFormationTarget' {status} -> status) (\s@CloudFormationTarget' {} a -> s {status = a} :: CloudFormationTarget)
 
 -- | The unique ID of a deployment target that has a type
 -- of @CloudFormationTarget@.
-cloudFormationTarget_targetId :: Lens.Lens' CloudFormationTarget (Core.Maybe Core.Text)
+cloudFormationTarget_targetId :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.Text)
 cloudFormationTarget_targetId = Lens.lens (\CloudFormationTarget' {targetId} -> targetId) (\s@CloudFormationTarget' {} a -> s {targetId = a} :: CloudFormationTarget)
 
 -- | The percentage of production traffic that the target version of an AWS
 -- CloudFormation blue\/green deployment receives.
-cloudFormationTarget_targetVersionWeight :: Lens.Lens' CloudFormationTarget (Core.Maybe Core.Double)
+cloudFormationTarget_targetVersionWeight :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.Double)
 cloudFormationTarget_targetVersionWeight = Lens.lens (\CloudFormationTarget' {targetVersionWeight} -> targetVersionWeight) (\s@CloudFormationTarget' {} a -> s {targetVersionWeight = a} :: CloudFormationTarget)
 
 -- | The resource type for the AWS CloudFormation blue\/green deployment.
-cloudFormationTarget_resourceType :: Lens.Lens' CloudFormationTarget (Core.Maybe Core.Text)
+cloudFormationTarget_resourceType :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.Text)
 cloudFormationTarget_resourceType = Lens.lens (\CloudFormationTarget' {resourceType} -> resourceType) (\s@CloudFormationTarget' {} a -> s {resourceType = a} :: CloudFormationTarget)
 
 -- | The lifecycle events of the AWS CloudFormation blue\/green deployment to
 -- this target application.
-cloudFormationTarget_lifecycleEvents :: Lens.Lens' CloudFormationTarget (Core.Maybe [LifecycleEvent])
-cloudFormationTarget_lifecycleEvents = Lens.lens (\CloudFormationTarget' {lifecycleEvents} -> lifecycleEvents) (\s@CloudFormationTarget' {} a -> s {lifecycleEvents = a} :: CloudFormationTarget) Core.. Lens.mapping Lens._Coerce
+cloudFormationTarget_lifecycleEvents :: Lens.Lens' CloudFormationTarget (Prelude.Maybe [LifecycleEvent])
+cloudFormationTarget_lifecycleEvents = Lens.lens (\CloudFormationTarget' {lifecycleEvents} -> lifecycleEvents) (\s@CloudFormationTarget' {} a -> s {lifecycleEvents = a} :: CloudFormationTarget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time when the target application was updated by an AWS
 -- CloudFormation blue\/green deployment.
-cloudFormationTarget_lastUpdatedAt :: Lens.Lens' CloudFormationTarget (Core.Maybe Core.UTCTime)
-cloudFormationTarget_lastUpdatedAt = Lens.lens (\CloudFormationTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@CloudFormationTarget' {} a -> s {lastUpdatedAt = a} :: CloudFormationTarget) Core.. Lens.mapping Core._Time
+cloudFormationTarget_lastUpdatedAt :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.UTCTime)
+cloudFormationTarget_lastUpdatedAt = Lens.lens (\CloudFormationTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@CloudFormationTarget' {} a -> s {lastUpdatedAt = a} :: CloudFormationTarget) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON CloudFormationTarget where
   parseJSON =
@@ -130,15 +132,17 @@ instance Core.FromJSON CloudFormationTarget where
       "CloudFormationTarget"
       ( \x ->
           CloudFormationTarget'
-            Core.<$> (x Core..:? "deploymentId")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "targetId")
-            Core.<*> (x Core..:? "targetVersionWeight")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "lifecycleEvents" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<$> (x Core..:? "deploymentId")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "targetId")
+            Prelude.<*> (x Core..:? "targetVersionWeight")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> ( x Core..:? "lifecycleEvents"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
       )
 
-instance Core.Hashable CloudFormationTarget
+instance Prelude.Hashable CloudFormationTarget
 
-instance Core.NFData CloudFormationTarget
+instance Prelude.NFData CloudFormationTarget

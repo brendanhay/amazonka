@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,12 +52,12 @@ import qualified Network.AWS.Response as Response
 data RemoveTags = RemoveTags'
   { -- | Specifies the @ARN@ for the Elasticsearch domain from which you want to
     -- delete the specified tags.
-    arn :: Core.Text,
+    arn :: Prelude.Text,
     -- | Specifies the @TagKey@ list which you want to remove from the
     -- Elasticsearch domain.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTags' with all optional fields omitted.
@@ -73,53 +74,53 @@ data RemoveTags = RemoveTags'
 -- Elasticsearch domain.
 newRemoveTags ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   RemoveTags
 newRemoveTags pARN_ =
-  RemoveTags' {arn = pARN_, tagKeys = Core.mempty}
+  RemoveTags' {arn = pARN_, tagKeys = Prelude.mempty}
 
 -- | Specifies the @ARN@ for the Elasticsearch domain from which you want to
 -- delete the specified tags.
-removeTags_arn :: Lens.Lens' RemoveTags Core.Text
+removeTags_arn :: Lens.Lens' RemoveTags Prelude.Text
 removeTags_arn = Lens.lens (\RemoveTags' {arn} -> arn) (\s@RemoveTags' {} a -> s {arn = a} :: RemoveTags)
 
 -- | Specifies the @TagKey@ list which you want to remove from the
 -- Elasticsearch domain.
-removeTags_tagKeys :: Lens.Lens' RemoveTags [Core.Text]
-removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Core.. Lens._Coerce
+removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull RemoveTagsResponse'
 
-instance Core.Hashable RemoveTags
+instance Prelude.Hashable RemoveTags
 
-instance Core.NFData RemoveTags
+instance Prelude.NFData RemoveTags
 
 instance Core.ToHeaders RemoveTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON RemoveTags where
   toJSON RemoveTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ARN" Core..= arn),
-            Core.Just ("TagKeys" Core..= tagKeys)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ARN" Core..= arn),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
 instance Core.ToPath RemoveTags where
-  toPath = Core.const "/2015-01-01/tags-removal"
+  toPath = Prelude.const "/2015-01-01/tags-removal"
 
 instance Core.ToQuery RemoveTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveTagsResponse' smart constructor.
 data RemoveTagsResponse = RemoveTagsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsResponse' with all optional fields omitted.
@@ -129,4 +130,4 @@ newRemoveTagsResponse ::
   RemoveTagsResponse
 newRemoveTagsResponse = RemoveTagsResponse'
 
-instance Core.NFData RemoveTagsResponse
+instance Prelude.NFData RemoveTagsResponse

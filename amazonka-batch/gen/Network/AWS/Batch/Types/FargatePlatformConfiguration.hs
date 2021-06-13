@@ -21,6 +21,7 @@ module Network.AWS.Batch.Types.FargatePlatformConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The platform configuration for jobs running on Fargate resources. Jobs
 -- running on EC2 resources must not specify this parameter.
@@ -34,9 +35,9 @@ data FargatePlatformConfiguration = FargatePlatformConfiguration'
     -- Fargate platform for compute resources. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate platform versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    platformVersion :: Core.Maybe Core.Text
+    platformVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FargatePlatformConfiguration' with all optional fields omitted.
@@ -58,7 +59,7 @@ newFargatePlatformConfiguration ::
 newFargatePlatformConfiguration =
   FargatePlatformConfiguration'
     { platformVersion =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The AWS Fargate platform version on which the jobs are running. A
@@ -68,7 +69,7 @@ newFargatePlatformConfiguration =
 -- Fargate platform for compute resources. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate platform versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-fargatePlatformConfiguration_platformVersion :: Lens.Lens' FargatePlatformConfiguration (Core.Maybe Core.Text)
+fargatePlatformConfiguration_platformVersion :: Lens.Lens' FargatePlatformConfiguration (Prelude.Maybe Prelude.Text)
 fargatePlatformConfiguration_platformVersion = Lens.lens (\FargatePlatformConfiguration' {platformVersion} -> platformVersion) (\s@FargatePlatformConfiguration' {} a -> s {platformVersion = a} :: FargatePlatformConfiguration)
 
 instance Core.FromJSON FargatePlatformConfiguration where
@@ -77,18 +78,20 @@ instance Core.FromJSON FargatePlatformConfiguration where
       "FargatePlatformConfiguration"
       ( \x ->
           FargatePlatformConfiguration'
-            Core.<$> (x Core..:? "platformVersion")
+            Prelude.<$> (x Core..:? "platformVersion")
       )
 
-instance Core.Hashable FargatePlatformConfiguration
+instance
+  Prelude.Hashable
+    FargatePlatformConfiguration
 
-instance Core.NFData FargatePlatformConfiguration
+instance Prelude.NFData FargatePlatformConfiguration
 
 instance Core.ToJSON FargatePlatformConfiguration where
   toJSON FargatePlatformConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("platformVersion" Core..=)
-              Core.<$> platformVersion
+              Prelude.<$> platformVersion
           ]
       )

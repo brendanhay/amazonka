@@ -25,17 +25,18 @@ import Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
 import Network.AWS.MediaLive.Types.Hdr10Settings
 import Network.AWS.MediaLive.Types.Rec601Settings
 import Network.AWS.MediaLive.Types.Rec709Settings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | H265 Color Space Settings
 --
 -- /See:/ 'newH265ColorSpaceSettings' smart constructor.
 data H265ColorSpaceSettings = H265ColorSpaceSettings'
-  { rec601Settings :: Core.Maybe Rec601Settings,
-    rec709Settings :: Core.Maybe Rec709Settings,
-    colorSpacePassthroughSettings :: Core.Maybe ColorSpacePassthroughSettings,
-    hdr10Settings :: Core.Maybe Hdr10Settings
+  { rec601Settings :: Prelude.Maybe Rec601Settings,
+    rec709Settings :: Prelude.Maybe Rec709Settings,
+    colorSpacePassthroughSettings :: Prelude.Maybe ColorSpacePassthroughSettings,
+    hdr10Settings :: Prelude.Maybe Hdr10Settings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'H265ColorSpaceSettings' with all optional fields omitted.
@@ -57,26 +58,26 @@ newH265ColorSpaceSettings ::
 newH265ColorSpaceSettings =
   H265ColorSpaceSettings'
     { rec601Settings =
-        Core.Nothing,
-      rec709Settings = Core.Nothing,
-      colorSpacePassthroughSettings = Core.Nothing,
-      hdr10Settings = Core.Nothing
+        Prelude.Nothing,
+      rec709Settings = Prelude.Nothing,
+      colorSpacePassthroughSettings = Prelude.Nothing,
+      hdr10Settings = Prelude.Nothing
     }
 
 -- | Undocumented member.
-h265ColorSpaceSettings_rec601Settings :: Lens.Lens' H265ColorSpaceSettings (Core.Maybe Rec601Settings)
+h265ColorSpaceSettings_rec601Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe Rec601Settings)
 h265ColorSpaceSettings_rec601Settings = Lens.lens (\H265ColorSpaceSettings' {rec601Settings} -> rec601Settings) (\s@H265ColorSpaceSettings' {} a -> s {rec601Settings = a} :: H265ColorSpaceSettings)
 
 -- | Undocumented member.
-h265ColorSpaceSettings_rec709Settings :: Lens.Lens' H265ColorSpaceSettings (Core.Maybe Rec709Settings)
+h265ColorSpaceSettings_rec709Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe Rec709Settings)
 h265ColorSpaceSettings_rec709Settings = Lens.lens (\H265ColorSpaceSettings' {rec709Settings} -> rec709Settings) (\s@H265ColorSpaceSettings' {} a -> s {rec709Settings = a} :: H265ColorSpaceSettings)
 
 -- | Undocumented member.
-h265ColorSpaceSettings_colorSpacePassthroughSettings :: Lens.Lens' H265ColorSpaceSettings (Core.Maybe ColorSpacePassthroughSettings)
+h265ColorSpaceSettings_colorSpacePassthroughSettings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe ColorSpacePassthroughSettings)
 h265ColorSpaceSettings_colorSpacePassthroughSettings = Lens.lens (\H265ColorSpaceSettings' {colorSpacePassthroughSettings} -> colorSpacePassthroughSettings) (\s@H265ColorSpaceSettings' {} a -> s {colorSpacePassthroughSettings = a} :: H265ColorSpaceSettings)
 
 -- | Undocumented member.
-h265ColorSpaceSettings_hdr10Settings :: Lens.Lens' H265ColorSpaceSettings (Core.Maybe Hdr10Settings)
+h265ColorSpaceSettings_hdr10Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe Hdr10Settings)
 h265ColorSpaceSettings_hdr10Settings = Lens.lens (\H265ColorSpaceSettings' {hdr10Settings} -> hdr10Settings) (\s@H265ColorSpaceSettings' {} a -> s {hdr10Settings = a} :: H265ColorSpaceSettings)
 
 instance Core.FromJSON H265ColorSpaceSettings where
@@ -85,24 +86,26 @@ instance Core.FromJSON H265ColorSpaceSettings where
       "H265ColorSpaceSettings"
       ( \x ->
           H265ColorSpaceSettings'
-            Core.<$> (x Core..:? "rec601Settings")
-            Core.<*> (x Core..:? "rec709Settings")
-            Core.<*> (x Core..:? "colorSpacePassthroughSettings")
-            Core.<*> (x Core..:? "hdr10Settings")
+            Prelude.<$> (x Core..:? "rec601Settings")
+            Prelude.<*> (x Core..:? "rec709Settings")
+            Prelude.<*> (x Core..:? "colorSpacePassthroughSettings")
+            Prelude.<*> (x Core..:? "hdr10Settings")
       )
 
-instance Core.Hashable H265ColorSpaceSettings
+instance Prelude.Hashable H265ColorSpaceSettings
 
-instance Core.NFData H265ColorSpaceSettings
+instance Prelude.NFData H265ColorSpaceSettings
 
 instance Core.ToJSON H265ColorSpaceSettings where
   toJSON H265ColorSpaceSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("rec601Settings" Core..=) Core.<$> rec601Settings,
-            ("rec709Settings" Core..=) Core.<$> rec709Settings,
+      ( Prelude.catMaybes
+          [ ("rec601Settings" Core..=)
+              Prelude.<$> rec601Settings,
+            ("rec709Settings" Core..=)
+              Prelude.<$> rec709Settings,
             ("colorSpacePassthroughSettings" Core..=)
-              Core.<$> colorSpacePassthroughSettings,
-            ("hdr10Settings" Core..=) Core.<$> hdr10Settings
+              Prelude.<$> colorSpacePassthroughSettings,
+            ("hdr10Settings" Core..=) Prelude.<$> hdr10Settings
           ]
       )

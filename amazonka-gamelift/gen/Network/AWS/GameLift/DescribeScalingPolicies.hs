@@ -80,6 +80,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -90,7 +91,7 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
   { -- | Token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Scaling policy status to filter results on. A scaling policy is only in
     -- force when in an @ACTIVE@ status.
     --
@@ -110,15 +111,15 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     --
     -- -   __ERROR__ -- An error occurred in creating the policy. It should be
     --     removed and recreated.
-    statusFilter :: Core.Maybe ScalingStatusType,
+    statusFilter :: Prelude.Maybe ScalingStatusType,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for a fleet to retrieve scaling policies for. You
     -- can use either the fleet ID or ARN value.
-    fleetId :: Core.Text
+    fleetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingPolicies' with all optional fields omitted.
@@ -159,20 +160,21 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- can use either the fleet ID or ARN value.
 newDescribeScalingPolicies ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeScalingPolicies
 newDescribeScalingPolicies pFleetId_ =
   DescribeScalingPolicies'
-    { nextToken = Core.Nothing,
-      statusFilter = Core.Nothing,
-      limit = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      statusFilter = Prelude.Nothing,
+      limit = Prelude.Nothing,
       fleetId = pFleetId_
     }
 
 -- | Token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-describeScalingPolicies_nextToken :: Lens.Lens' DescribeScalingPolicies (Core.Maybe Core.Text)
+describeScalingPolicies_nextToken :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
 describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextToken} -> nextToken) (\s@DescribeScalingPolicies' {} a -> s {nextToken = a} :: DescribeScalingPolicies)
 
 -- | Scaling policy status to filter results on. A scaling policy is only in
@@ -194,17 +196,17 @@ describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextTo
 --
 -- -   __ERROR__ -- An error occurred in creating the policy. It should be
 --     removed and recreated.
-describeScalingPolicies_statusFilter :: Lens.Lens' DescribeScalingPolicies (Core.Maybe ScalingStatusType)
+describeScalingPolicies_statusFilter :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe ScalingStatusType)
 describeScalingPolicies_statusFilter = Lens.lens (\DescribeScalingPolicies' {statusFilter} -> statusFilter) (\s@DescribeScalingPolicies' {} a -> s {statusFilter = a} :: DescribeScalingPolicies)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
-describeScalingPolicies_limit :: Lens.Lens' DescribeScalingPolicies (Core.Maybe Core.Natural)
+describeScalingPolicies_limit :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Natural)
 describeScalingPolicies_limit = Lens.lens (\DescribeScalingPolicies' {limit} -> limit) (\s@DescribeScalingPolicies' {} a -> s {limit = a} :: DescribeScalingPolicies)
 
 -- | A unique identifier for a fleet to retrieve scaling policies for. You
 -- can use either the fleet ID or ARN value.
-describeScalingPolicies_fleetId :: Lens.Lens' DescribeScalingPolicies Core.Text
+describeScalingPolicies_fleetId :: Lens.Lens' DescribeScalingPolicies Prelude.Text
 describeScalingPolicies_fleetId = Lens.lens (\DescribeScalingPolicies' {fleetId} -> fleetId) (\s@DescribeScalingPolicies' {} a -> s {fleetId = a} :: DescribeScalingPolicies)
 
 instance Core.AWSPager DescribeScalingPolicies where
@@ -212,22 +214,22 @@ instance Core.AWSPager DescribeScalingPolicies where
     | Core.stop
         ( rs
             Lens.^? describeScalingPoliciesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScalingPoliciesResponse_scalingPolicies
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeScalingPolicies_nextToken
+          Prelude.& describeScalingPolicies_nextToken
           Lens..~ rs
           Lens.^? describeScalingPoliciesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingPolicies where
   type
@@ -238,44 +240,48 @@ instance Core.AWSRequest DescribeScalingPolicies where
     Response.receiveJSON
       ( \s h x ->
           DescribeScalingPoliciesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ScalingPolicies" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ScalingPolicies"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeScalingPolicies
+instance Prelude.Hashable DescribeScalingPolicies
 
-instance Core.NFData DescribeScalingPolicies
+instance Prelude.NFData DescribeScalingPolicies
 
 instance Core.ToHeaders DescribeScalingPolicies where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DescribeScalingPolicies" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeScalingPolicies where
   toJSON DescribeScalingPolicies' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("StatusFilter" Core..=) Core.<$> statusFilter,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just ("FleetId" Core..= fleetId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("StatusFilter" Core..=) Prelude.<$> statusFilter,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("FleetId" Core..= fleetId)
           ]
       )
 
 instance Core.ToPath DescribeScalingPolicies where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeScalingPolicies where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -284,14 +290,14 @@ data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
   { -- | Token that indicates where to resume retrieving results on the next call
     -- to this operation. If no token is returned, these results represent the
     -- end of the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A collection of objects containing the scaling policies matching the
     -- request.
-    scalingPolicies :: Core.Maybe [ScalingPolicy],
+    scalingPolicies :: Prelude.Maybe [ScalingPolicy],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingPoliciesResponse' with all optional fields omitted.
@@ -311,29 +317,31 @@ data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
 -- 'httpStatus', 'describeScalingPoliciesResponse_httpStatus' - The response's http status code.
 newDescribeScalingPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScalingPoliciesResponse
 newDescribeScalingPoliciesResponse pHttpStatus_ =
   DescribeScalingPoliciesResponse'
     { nextToken =
-        Core.Nothing,
-      scalingPolicies = Core.Nothing,
+        Prelude.Nothing,
+      scalingPolicies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Token that indicates where to resume retrieving results on the next call
 -- to this operation. If no token is returned, these results represent the
 -- end of the list.
-describeScalingPoliciesResponse_nextToken :: Lens.Lens' DescribeScalingPoliciesResponse (Core.Maybe Core.Text)
+describeScalingPoliciesResponse_nextToken :: Lens.Lens' DescribeScalingPoliciesResponse (Prelude.Maybe Prelude.Text)
 describeScalingPoliciesResponse_nextToken = Lens.lens (\DescribeScalingPoliciesResponse' {nextToken} -> nextToken) (\s@DescribeScalingPoliciesResponse' {} a -> s {nextToken = a} :: DescribeScalingPoliciesResponse)
 
 -- | A collection of objects containing the scaling policies matching the
 -- request.
-describeScalingPoliciesResponse_scalingPolicies :: Lens.Lens' DescribeScalingPoliciesResponse (Core.Maybe [ScalingPolicy])
-describeScalingPoliciesResponse_scalingPolicies = Lens.lens (\DescribeScalingPoliciesResponse' {scalingPolicies} -> scalingPolicies) (\s@DescribeScalingPoliciesResponse' {} a -> s {scalingPolicies = a} :: DescribeScalingPoliciesResponse) Core.. Lens.mapping Lens._Coerce
+describeScalingPoliciesResponse_scalingPolicies :: Lens.Lens' DescribeScalingPoliciesResponse (Prelude.Maybe [ScalingPolicy])
+describeScalingPoliciesResponse_scalingPolicies = Lens.lens (\DescribeScalingPoliciesResponse' {scalingPolicies} -> scalingPolicies) (\s@DescribeScalingPoliciesResponse' {} a -> s {scalingPolicies = a} :: DescribeScalingPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScalingPoliciesResponse_httpStatus :: Lens.Lens' DescribeScalingPoliciesResponse Core.Int
+describeScalingPoliciesResponse_httpStatus :: Lens.Lens' DescribeScalingPoliciesResponse Prelude.Int
 describeScalingPoliciesResponse_httpStatus = Lens.lens (\DescribeScalingPoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribeScalingPoliciesResponse' {} a -> s {httpStatus = a} :: DescribeScalingPoliciesResponse)
 
-instance Core.NFData DescribeScalingPoliciesResponse
+instance
+  Prelude.NFData
+    DescribeScalingPoliciesResponse

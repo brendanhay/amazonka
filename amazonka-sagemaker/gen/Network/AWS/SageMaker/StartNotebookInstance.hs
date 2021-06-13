@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -48,9 +49,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStartNotebookInstance' smart constructor.
 data StartNotebookInstance = StartNotebookInstance'
   { -- | The name of the notebook instance to start.
-    notebookInstanceName :: Core.Text
+    notebookInstanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartNotebookInstance' with all optional fields omitted.
@@ -63,7 +64,7 @@ data StartNotebookInstance = StartNotebookInstance'
 -- 'notebookInstanceName', 'startNotebookInstance_notebookInstanceName' - The name of the notebook instance to start.
 newStartNotebookInstance ::
   -- | 'notebookInstanceName'
-  Core.Text ->
+  Prelude.Text ->
   StartNotebookInstance
 newStartNotebookInstance pNotebookInstanceName_ =
   StartNotebookInstance'
@@ -72,7 +73,7 @@ newStartNotebookInstance pNotebookInstanceName_ =
     }
 
 -- | The name of the notebook instance to start.
-startNotebookInstance_notebookInstanceName :: Lens.Lens' StartNotebookInstance Core.Text
+startNotebookInstance_notebookInstanceName :: Lens.Lens' StartNotebookInstance Prelude.Text
 startNotebookInstance_notebookInstanceName = Lens.lens (\StartNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@StartNotebookInstance' {} a -> s {notebookInstanceName = a} :: StartNotebookInstance)
 
 instance Core.AWSRequest StartNotebookInstance where
@@ -83,28 +84,30 @@ instance Core.AWSRequest StartNotebookInstance where
   response =
     Response.receiveNull StartNotebookInstanceResponse'
 
-instance Core.Hashable StartNotebookInstance
+instance Prelude.Hashable StartNotebookInstance
 
-instance Core.NFData StartNotebookInstance
+instance Prelude.NFData StartNotebookInstance
 
 instance Core.ToHeaders StartNotebookInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.StartNotebookInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartNotebookInstance where
   toJSON StartNotebookInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "NotebookInstanceName"
                   Core..= notebookInstanceName
               )
@@ -112,16 +115,16 @@ instance Core.ToJSON StartNotebookInstance where
       )
 
 instance Core.ToPath StartNotebookInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartNotebookInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartNotebookInstanceResponse' smart constructor.
 data StartNotebookInstanceResponse = StartNotebookInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartNotebookInstanceResponse' with all optional fields omitted.
@@ -132,4 +135,4 @@ newStartNotebookInstanceResponse ::
 newStartNotebookInstanceResponse =
   StartNotebookInstanceResponse'
 
-instance Core.NFData StartNotebookInstanceResponse
+instance Prelude.NFData StartNotebookInstanceResponse

@@ -57,6 +57,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,18 +67,18 @@ import qualified Network.AWS.Response as Response
 data ExecuteChangeSet = ExecuteChangeSet'
   { -- | If you specified the name of a change set, specify the stack name or ID
     -- (ARN) that is associated with the change set you want to execute.
-    stackName :: Core.Maybe Core.Text,
+    stackName :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for this @ExecuteChangeSet@ request. Specify this
     -- token if you plan to retry requests so that AWS CloudFormation knows
     -- that you\'re not attempting to execute a change set to update a stack
     -- with the same name. You might retry @ExecuteChangeSet@ requests to
     -- ensure that AWS CloudFormation successfully received them.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the change set that you want use to update the
     -- specified stack.
-    changeSetName :: Core.Text
+    changeSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecuteChangeSet' with all optional fields omitted.
@@ -100,18 +101,18 @@ data ExecuteChangeSet = ExecuteChangeSet'
 -- specified stack.
 newExecuteChangeSet ::
   -- | 'changeSetName'
-  Core.Text ->
+  Prelude.Text ->
   ExecuteChangeSet
 newExecuteChangeSet pChangeSetName_ =
   ExecuteChangeSet'
-    { stackName = Core.Nothing,
-      clientRequestToken = Core.Nothing,
+    { stackName = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       changeSetName = pChangeSetName_
     }
 
 -- | If you specified the name of a change set, specify the stack name or ID
 -- (ARN) that is associated with the change set you want to execute.
-executeChangeSet_stackName :: Lens.Lens' ExecuteChangeSet (Core.Maybe Core.Text)
+executeChangeSet_stackName :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Text)
 executeChangeSet_stackName = Lens.lens (\ExecuteChangeSet' {stackName} -> stackName) (\s@ExecuteChangeSet' {} a -> s {stackName = a} :: ExecuteChangeSet)
 
 -- | A unique identifier for this @ExecuteChangeSet@ request. Specify this
@@ -119,12 +120,12 @@ executeChangeSet_stackName = Lens.lens (\ExecuteChangeSet' {stackName} -> stackN
 -- that you\'re not attempting to execute a change set to update a stack
 -- with the same name. You might retry @ExecuteChangeSet@ requests to
 -- ensure that AWS CloudFormation successfully received them.
-executeChangeSet_clientRequestToken :: Lens.Lens' ExecuteChangeSet (Core.Maybe Core.Text)
+executeChangeSet_clientRequestToken :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Text)
 executeChangeSet_clientRequestToken = Lens.lens (\ExecuteChangeSet' {clientRequestToken} -> clientRequestToken) (\s@ExecuteChangeSet' {} a -> s {clientRequestToken = a} :: ExecuteChangeSet)
 
 -- | The name or ARN of the change set that you want use to update the
 -- specified stack.
-executeChangeSet_changeSetName :: Lens.Lens' ExecuteChangeSet Core.Text
+executeChangeSet_changeSetName :: Lens.Lens' ExecuteChangeSet Prelude.Text
 executeChangeSet_changeSetName = Lens.lens (\ExecuteChangeSet' {changeSetName} -> changeSetName) (\s@ExecuteChangeSet' {} a -> s {changeSetName = a} :: ExecuteChangeSet)
 
 instance Core.AWSRequest ExecuteChangeSet where
@@ -137,25 +138,26 @@ instance Core.AWSRequest ExecuteChangeSet where
       "ExecuteChangeSetResult"
       ( \s h x ->
           ExecuteChangeSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ExecuteChangeSet
+instance Prelude.Hashable ExecuteChangeSet
 
-instance Core.NFData ExecuteChangeSet
+instance Prelude.NFData ExecuteChangeSet
 
 instance Core.ToHeaders ExecuteChangeSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ExecuteChangeSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ExecuteChangeSet where
   toQuery ExecuteChangeSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ExecuteChangeSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("ExecuteChangeSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "StackName" Core.=: stackName,
         "ClientRequestToken" Core.=: clientRequestToken,
         "ChangeSetName" Core.=: changeSetName
@@ -166,9 +168,9 @@ instance Core.ToQuery ExecuteChangeSet where
 -- /See:/ 'newExecuteChangeSetResponse' smart constructor.
 data ExecuteChangeSetResponse = ExecuteChangeSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecuteChangeSetResponse' with all optional fields omitted.
@@ -181,7 +183,7 @@ data ExecuteChangeSetResponse = ExecuteChangeSetResponse'
 -- 'httpStatus', 'executeChangeSetResponse_httpStatus' - The response's http status code.
 newExecuteChangeSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ExecuteChangeSetResponse
 newExecuteChangeSetResponse pHttpStatus_ =
   ExecuteChangeSetResponse'
@@ -190,7 +192,7 @@ newExecuteChangeSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-executeChangeSetResponse_httpStatus :: Lens.Lens' ExecuteChangeSetResponse Core.Int
+executeChangeSetResponse_httpStatus :: Lens.Lens' ExecuteChangeSetResponse Prelude.Int
 executeChangeSetResponse_httpStatus = Lens.lens (\ExecuteChangeSetResponse' {httpStatus} -> httpStatus) (\s@ExecuteChangeSetResponse' {} a -> s {httpStatus = a} :: ExecuteChangeSetResponse)
 
-instance Core.NFData ExecuteChangeSetResponse
+instance Prelude.NFData ExecuteChangeSetResponse

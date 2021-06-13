@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.Patch where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents metadata about a patch.
 --
@@ -28,74 +29,74 @@ import qualified Network.AWS.Lens as Lens
 data Patch = Patch'
   { -- | The severity of the patch, such as @Critical@, @Important@, or
     -- @Moderate@. Applies to Windows patches only.
-    msrcSeverity :: Core.Maybe Core.Text,
+    msrcSeverity :: Prelude.Maybe Prelude.Text,
     -- | The name of the vendor providing the patch.
-    vendor :: Core.Maybe Core.Text,
+    vendor :: Prelude.Maybe Prelude.Text,
     -- | The epoch of the patch. For example in
     -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the epoch value is
     -- @20180914-2@. Applies to Linux-based instances only.
-    epoch :: Core.Maybe Core.Int,
+    epoch :: Prelude.Maybe Prelude.Int,
     -- | The specific product the patch is applicable for. For example,
     -- @WindowsServer2016@ or @AmazonLinux2018.03@.
-    product :: Core.Maybe Core.Text,
+    product :: Prelude.Maybe Prelude.Text,
     -- | The severity level of the patch. For example, @CRITICAL@ or @MODERATE@.
-    severity :: Core.Maybe Core.Text,
+    severity :: Prelude.Maybe Prelude.Text,
     -- | The title of the patch.
-    title :: Core.Maybe Core.Text,
+    title :: Prelude.Maybe Prelude.Text,
     -- | The ID of the patch. Applies to Windows patches only.
     --
     -- This ID is not the same as the Microsoft Knowledge Base ID.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The product family the patch is applicable for. For example, @Windows@
     -- or @Amazon Linux 2@.
-    productFamily :: Core.Maybe Core.Text,
+    productFamily :: Prelude.Maybe Prelude.Text,
     -- | The version number of the patch. For example, in
     -- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
     -- by @-1@. Applies to Linux-based instances only.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The source patch repository for the operating system and version, such
     -- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@
     -- for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
-    repository :: Core.Maybe Core.Text,
+    repository :: Prelude.Maybe Prelude.Text,
     -- | The name of the patch. Applies to Linux-based instances only.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Bugzilla ID of the patch. For example, @1600646@. Applies to
     -- Linux-based instances only.
-    bugzillaIds :: Core.Maybe [Core.Text],
+    bugzillaIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the Microsoft Security Response Center (MSRC) bulletin the
     -- patch is related to. For example, @MS14-045@. Applies to Windows patches
     -- only.
-    msrcNumber :: Core.Maybe Core.Text,
+    msrcNumber :: Prelude.Maybe Prelude.Text,
     -- | The particular release of a patch. For example, in
     -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the release is @2.amaz1@.
     -- Applies to Linux-based instances only.
-    release :: Core.Maybe Core.Text,
+    release :: Prelude.Maybe Prelude.Text,
     -- | The Common Vulnerabilities and Exposures (CVE) ID of the patch. For
     -- example, @CVE-2011-3192@. Applies to Linux-based instances only.
-    cVEIds :: Core.Maybe [Core.Text],
+    cVEIds :: Prelude.Maybe [Prelude.Text],
     -- | The classification of the patch. For example, @SecurityUpdates@,
     -- @Updates@, or @CriticalUpdates@.
-    classification :: Core.Maybe Core.Text,
+    classification :: Prelude.Maybe Prelude.Text,
     -- | The description of the patch.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to
     -- Linux-based instances only.
-    advisoryIds :: Core.Maybe [Core.Text],
+    advisoryIds :: Prelude.Maybe [Prelude.Text],
     -- | The architecture of the patch. For example, in
     -- @example-pkg-0.710.10-2.7.abcd.x86_64@, the architecture is indicated by
     -- @x86_64@. Applies to Linux-based instances only.
-    arch :: Core.Maybe Core.Text,
+    arch :: Prelude.Maybe Prelude.Text,
     -- | The date the patch was released.
-    releaseDate :: Core.Maybe Core.POSIX,
+    releaseDate :: Prelude.Maybe Core.POSIX,
     -- | The language of the patch if it\'s language-specific.
-    language :: Core.Maybe Core.Text,
+    language :: Prelude.Maybe Prelude.Text,
     -- | The Microsoft Knowledge Base ID of the patch. Applies to Windows patches
     -- only.
-    kbNumber :: Core.Maybe Core.Text,
+    kbNumber :: Prelude.Maybe Prelude.Text,
     -- | The URL where more information can be obtained about the patch.
-    contentUrl :: Core.Maybe Core.Text
+    contentUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Patch' with all optional fields omitted.
@@ -176,143 +177,143 @@ newPatch ::
   Patch
 newPatch =
   Patch'
-    { msrcSeverity = Core.Nothing,
-      vendor = Core.Nothing,
-      epoch = Core.Nothing,
-      product = Core.Nothing,
-      severity = Core.Nothing,
-      title = Core.Nothing,
-      id = Core.Nothing,
-      productFamily = Core.Nothing,
-      version = Core.Nothing,
-      repository = Core.Nothing,
-      name = Core.Nothing,
-      bugzillaIds = Core.Nothing,
-      msrcNumber = Core.Nothing,
-      release = Core.Nothing,
-      cVEIds = Core.Nothing,
-      classification = Core.Nothing,
-      description = Core.Nothing,
-      advisoryIds = Core.Nothing,
-      arch = Core.Nothing,
-      releaseDate = Core.Nothing,
-      language = Core.Nothing,
-      kbNumber = Core.Nothing,
-      contentUrl = Core.Nothing
+    { msrcSeverity = Prelude.Nothing,
+      vendor = Prelude.Nothing,
+      epoch = Prelude.Nothing,
+      product = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      title = Prelude.Nothing,
+      id = Prelude.Nothing,
+      productFamily = Prelude.Nothing,
+      version = Prelude.Nothing,
+      repository = Prelude.Nothing,
+      name = Prelude.Nothing,
+      bugzillaIds = Prelude.Nothing,
+      msrcNumber = Prelude.Nothing,
+      release = Prelude.Nothing,
+      cVEIds = Prelude.Nothing,
+      classification = Prelude.Nothing,
+      description = Prelude.Nothing,
+      advisoryIds = Prelude.Nothing,
+      arch = Prelude.Nothing,
+      releaseDate = Prelude.Nothing,
+      language = Prelude.Nothing,
+      kbNumber = Prelude.Nothing,
+      contentUrl = Prelude.Nothing
     }
 
 -- | The severity of the patch, such as @Critical@, @Important@, or
 -- @Moderate@. Applies to Windows patches only.
-patch_msrcSeverity :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_msrcSeverity :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_msrcSeverity = Lens.lens (\Patch' {msrcSeverity} -> msrcSeverity) (\s@Patch' {} a -> s {msrcSeverity = a} :: Patch)
 
 -- | The name of the vendor providing the patch.
-patch_vendor :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_vendor :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_vendor = Lens.lens (\Patch' {vendor} -> vendor) (\s@Patch' {} a -> s {vendor = a} :: Patch)
 
 -- | The epoch of the patch. For example in
 -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the epoch value is
 -- @20180914-2@. Applies to Linux-based instances only.
-patch_epoch :: Lens.Lens' Patch (Core.Maybe Core.Int)
+patch_epoch :: Lens.Lens' Patch (Prelude.Maybe Prelude.Int)
 patch_epoch = Lens.lens (\Patch' {epoch} -> epoch) (\s@Patch' {} a -> s {epoch = a} :: Patch)
 
 -- | The specific product the patch is applicable for. For example,
 -- @WindowsServer2016@ or @AmazonLinux2018.03@.
-patch_product :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_product :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_product = Lens.lens (\Patch' {product} -> product) (\s@Patch' {} a -> s {product = a} :: Patch)
 
 -- | The severity level of the patch. For example, @CRITICAL@ or @MODERATE@.
-patch_severity :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_severity :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_severity = Lens.lens (\Patch' {severity} -> severity) (\s@Patch' {} a -> s {severity = a} :: Patch)
 
 -- | The title of the patch.
-patch_title :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_title :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_title = Lens.lens (\Patch' {title} -> title) (\s@Patch' {} a -> s {title = a} :: Patch)
 
 -- | The ID of the patch. Applies to Windows patches only.
 --
 -- This ID is not the same as the Microsoft Knowledge Base ID.
-patch_id :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_id :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_id = Lens.lens (\Patch' {id} -> id) (\s@Patch' {} a -> s {id = a} :: Patch)
 
 -- | The product family the patch is applicable for. For example, @Windows@
 -- or @Amazon Linux 2@.
-patch_productFamily :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_productFamily :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_productFamily = Lens.lens (\Patch' {productFamily} -> productFamily) (\s@Patch' {} a -> s {productFamily = a} :: Patch)
 
 -- | The version number of the patch. For example, in
 -- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
 -- by @-1@. Applies to Linux-based instances only.
-patch_version :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_version :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_version = Lens.lens (\Patch' {version} -> version) (\s@Patch' {} a -> s {version = a} :: Patch)
 
 -- | The source patch repository for the operating system and version, such
 -- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@
 -- for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
-patch_repository :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_repository :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_repository = Lens.lens (\Patch' {repository} -> repository) (\s@Patch' {} a -> s {repository = a} :: Patch)
 
 -- | The name of the patch. Applies to Linux-based instances only.
-patch_name :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_name :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_name = Lens.lens (\Patch' {name} -> name) (\s@Patch' {} a -> s {name = a} :: Patch)
 
 -- | The Bugzilla ID of the patch. For example, @1600646@. Applies to
 -- Linux-based instances only.
-patch_bugzillaIds :: Lens.Lens' Patch (Core.Maybe [Core.Text])
-patch_bugzillaIds = Lens.lens (\Patch' {bugzillaIds} -> bugzillaIds) (\s@Patch' {} a -> s {bugzillaIds = a} :: Patch) Core.. Lens.mapping Lens._Coerce
+patch_bugzillaIds :: Lens.Lens' Patch (Prelude.Maybe [Prelude.Text])
+patch_bugzillaIds = Lens.lens (\Patch' {bugzillaIds} -> bugzillaIds) (\s@Patch' {} a -> s {bugzillaIds = a} :: Patch) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Microsoft Security Response Center (MSRC) bulletin the
 -- patch is related to. For example, @MS14-045@. Applies to Windows patches
 -- only.
-patch_msrcNumber :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_msrcNumber :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_msrcNumber = Lens.lens (\Patch' {msrcNumber} -> msrcNumber) (\s@Patch' {} a -> s {msrcNumber = a} :: Patch)
 
 -- | The particular release of a patch. For example, in
 -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the release is @2.amaz1@.
 -- Applies to Linux-based instances only.
-patch_release :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_release :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_release = Lens.lens (\Patch' {release} -> release) (\s@Patch' {} a -> s {release = a} :: Patch)
 
 -- | The Common Vulnerabilities and Exposures (CVE) ID of the patch. For
 -- example, @CVE-2011-3192@. Applies to Linux-based instances only.
-patch_cVEIds :: Lens.Lens' Patch (Core.Maybe [Core.Text])
-patch_cVEIds = Lens.lens (\Patch' {cVEIds} -> cVEIds) (\s@Patch' {} a -> s {cVEIds = a} :: Patch) Core.. Lens.mapping Lens._Coerce
+patch_cVEIds :: Lens.Lens' Patch (Prelude.Maybe [Prelude.Text])
+patch_cVEIds = Lens.lens (\Patch' {cVEIds} -> cVEIds) (\s@Patch' {} a -> s {cVEIds = a} :: Patch) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The classification of the patch. For example, @SecurityUpdates@,
 -- @Updates@, or @CriticalUpdates@.
-patch_classification :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_classification :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_classification = Lens.lens (\Patch' {classification} -> classification) (\s@Patch' {} a -> s {classification = a} :: Patch)
 
 -- | The description of the patch.
-patch_description :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_description :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_description = Lens.lens (\Patch' {description} -> description) (\s@Patch' {} a -> s {description = a} :: Patch)
 
 -- | The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to
 -- Linux-based instances only.
-patch_advisoryIds :: Lens.Lens' Patch (Core.Maybe [Core.Text])
-patch_advisoryIds = Lens.lens (\Patch' {advisoryIds} -> advisoryIds) (\s@Patch' {} a -> s {advisoryIds = a} :: Patch) Core.. Lens.mapping Lens._Coerce
+patch_advisoryIds :: Lens.Lens' Patch (Prelude.Maybe [Prelude.Text])
+patch_advisoryIds = Lens.lens (\Patch' {advisoryIds} -> advisoryIds) (\s@Patch' {} a -> s {advisoryIds = a} :: Patch) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The architecture of the patch. For example, in
 -- @example-pkg-0.710.10-2.7.abcd.x86_64@, the architecture is indicated by
 -- @x86_64@. Applies to Linux-based instances only.
-patch_arch :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_arch :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_arch = Lens.lens (\Patch' {arch} -> arch) (\s@Patch' {} a -> s {arch = a} :: Patch)
 
 -- | The date the patch was released.
-patch_releaseDate :: Lens.Lens' Patch (Core.Maybe Core.UTCTime)
-patch_releaseDate = Lens.lens (\Patch' {releaseDate} -> releaseDate) (\s@Patch' {} a -> s {releaseDate = a} :: Patch) Core.. Lens.mapping Core._Time
+patch_releaseDate :: Lens.Lens' Patch (Prelude.Maybe Prelude.UTCTime)
+patch_releaseDate = Lens.lens (\Patch' {releaseDate} -> releaseDate) (\s@Patch' {} a -> s {releaseDate = a} :: Patch) Prelude.. Lens.mapping Core._Time
 
 -- | The language of the patch if it\'s language-specific.
-patch_language :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_language :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_language = Lens.lens (\Patch' {language} -> language) (\s@Patch' {} a -> s {language = a} :: Patch)
 
 -- | The Microsoft Knowledge Base ID of the patch. Applies to Windows patches
 -- only.
-patch_kbNumber :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_kbNumber :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_kbNumber = Lens.lens (\Patch' {kbNumber} -> kbNumber) (\s@Patch' {} a -> s {kbNumber = a} :: Patch)
 
 -- | The URL where more information can be obtained about the patch.
-patch_contentUrl :: Lens.Lens' Patch (Core.Maybe Core.Text)
+patch_contentUrl :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_contentUrl = Lens.lens (\Patch' {contentUrl} -> contentUrl) (\s@Patch' {} a -> s {contentUrl = a} :: Patch)
 
 instance Core.FromJSON Patch where
@@ -321,31 +322,31 @@ instance Core.FromJSON Patch where
       "Patch"
       ( \x ->
           Patch'
-            Core.<$> (x Core..:? "MsrcSeverity")
-            Core.<*> (x Core..:? "Vendor")
-            Core.<*> (x Core..:? "Epoch")
-            Core.<*> (x Core..:? "Product")
-            Core.<*> (x Core..:? "Severity")
-            Core.<*> (x Core..:? "Title")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "ProductFamily")
-            Core.<*> (x Core..:? "Version")
-            Core.<*> (x Core..:? "Repository")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "BugzillaIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "MsrcNumber")
-            Core.<*> (x Core..:? "Release")
-            Core.<*> (x Core..:? "CVEIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Classification")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "AdvisoryIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Arch")
-            Core.<*> (x Core..:? "ReleaseDate")
-            Core.<*> (x Core..:? "Language")
-            Core.<*> (x Core..:? "KbNumber")
-            Core.<*> (x Core..:? "ContentUrl")
+            Prelude.<$> (x Core..:? "MsrcSeverity")
+            Prelude.<*> (x Core..:? "Vendor")
+            Prelude.<*> (x Core..:? "Epoch")
+            Prelude.<*> (x Core..:? "Product")
+            Prelude.<*> (x Core..:? "Severity")
+            Prelude.<*> (x Core..:? "Title")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "ProductFamily")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Repository")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "BugzillaIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "MsrcNumber")
+            Prelude.<*> (x Core..:? "Release")
+            Prelude.<*> (x Core..:? "CVEIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Classification")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "AdvisoryIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Arch")
+            Prelude.<*> (x Core..:? "ReleaseDate")
+            Prelude.<*> (x Core..:? "Language")
+            Prelude.<*> (x Core..:? "KbNumber")
+            Prelude.<*> (x Core..:? "ContentUrl")
       )
 
-instance Core.Hashable Patch
+instance Prelude.Hashable Patch
 
-instance Core.NFData Patch
+instance Prelude.NFData Patch

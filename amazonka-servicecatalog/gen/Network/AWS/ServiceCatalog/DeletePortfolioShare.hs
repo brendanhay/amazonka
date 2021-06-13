@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -57,9 +58,9 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDeletePortfolioShare' smart constructor.
 data DeletePortfolioShare = DeletePortfolioShare'
   { -- | The AWS account ID.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The organization node to whom you are going to stop sharing.
-    organizationNode :: Core.Maybe OrganizationNode,
+    organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -67,11 +68,11 @@ data DeletePortfolioShare = DeletePortfolioShare'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
-    portfolioId :: Core.Text
+    portfolioId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePortfolioShare' with all optional fields omitted.
@@ -96,22 +97,22 @@ data DeletePortfolioShare = DeletePortfolioShare'
 -- 'portfolioId', 'deletePortfolioShare_portfolioId' - The portfolio identifier.
 newDeletePortfolioShare ::
   -- | 'portfolioId'
-  Core.Text ->
+  Prelude.Text ->
   DeletePortfolioShare
 newDeletePortfolioShare pPortfolioId_ =
   DeletePortfolioShare'
-    { accountId = Core.Nothing,
-      organizationNode = Core.Nothing,
-      acceptLanguage = Core.Nothing,
+    { accountId = Prelude.Nothing,
+      organizationNode = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
 
 -- | The AWS account ID.
-deletePortfolioShare_accountId :: Lens.Lens' DeletePortfolioShare (Core.Maybe Core.Text)
+deletePortfolioShare_accountId :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe Prelude.Text)
 deletePortfolioShare_accountId = Lens.lens (\DeletePortfolioShare' {accountId} -> accountId) (\s@DeletePortfolioShare' {} a -> s {accountId = a} :: DeletePortfolioShare)
 
 -- | The organization node to whom you are going to stop sharing.
-deletePortfolioShare_organizationNode :: Lens.Lens' DeletePortfolioShare (Core.Maybe OrganizationNode)
+deletePortfolioShare_organizationNode :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe OrganizationNode)
 deletePortfolioShare_organizationNode = Lens.lens (\DeletePortfolioShare' {organizationNode} -> organizationNode) (\s@DeletePortfolioShare' {} a -> s {organizationNode = a} :: DeletePortfolioShare)
 
 -- | The language code.
@@ -121,11 +122,11 @@ deletePortfolioShare_organizationNode = Lens.lens (\DeletePortfolioShare' {organ
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deletePortfolioShare_acceptLanguage :: Lens.Lens' DeletePortfolioShare (Core.Maybe Core.Text)
+deletePortfolioShare_acceptLanguage :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe Prelude.Text)
 deletePortfolioShare_acceptLanguage = Lens.lens (\DeletePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@DeletePortfolioShare' {} a -> s {acceptLanguage = a} :: DeletePortfolioShare)
 
 -- | The portfolio identifier.
-deletePortfolioShare_portfolioId :: Lens.Lens' DeletePortfolioShare Core.Text
+deletePortfolioShare_portfolioId :: Lens.Lens' DeletePortfolioShare Prelude.Text
 deletePortfolioShare_portfolioId = Lens.lens (\DeletePortfolioShare' {portfolioId} -> portfolioId) (\s@DeletePortfolioShare' {} a -> s {portfolioId = a} :: DeletePortfolioShare)
 
 instance Core.AWSRequest DeletePortfolioShare where
@@ -137,54 +138,57 @@ instance Core.AWSRequest DeletePortfolioShare where
     Response.receiveJSON
       ( \s h x ->
           DeletePortfolioShareResponse'
-            Core.<$> (x Core..?> "PortfolioShareToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PortfolioShareToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeletePortfolioShare
+instance Prelude.Hashable DeletePortfolioShare
 
-instance Core.NFData DeletePortfolioShare
+instance Prelude.NFData DeletePortfolioShare
 
 instance Core.ToHeaders DeletePortfolioShare where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DeletePortfolioShare" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeletePortfolioShare where
   toJSON DeletePortfolioShare' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AccountId" Core..=) Core.<$> accountId,
+      ( Prelude.catMaybes
+          [ ("AccountId" Core..=) Prelude.<$> accountId,
             ("OrganizationNode" Core..=)
-              Core.<$> organizationNode,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("PortfolioId" Core..= portfolioId)
+              Prelude.<$> organizationNode,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
 instance Core.ToPath DeletePortfolioShare where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePortfolioShare where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePortfolioShareResponse' smart constructor.
 data DeletePortfolioShareResponse = DeletePortfolioShareResponse'
   { -- | The portfolio share unique identifier. This will only be returned if
     -- delete is made to an organization node.
-    portfolioShareToken :: Core.Maybe Core.Text,
+    portfolioShareToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePortfolioShareResponse' with all optional fields omitted.
@@ -200,22 +204,22 @@ data DeletePortfolioShareResponse = DeletePortfolioShareResponse'
 -- 'httpStatus', 'deletePortfolioShareResponse_httpStatus' - The response's http status code.
 newDeletePortfolioShareResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeletePortfolioShareResponse
 newDeletePortfolioShareResponse pHttpStatus_ =
   DeletePortfolioShareResponse'
     { portfolioShareToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The portfolio share unique identifier. This will only be returned if
 -- delete is made to an organization node.
-deletePortfolioShareResponse_portfolioShareToken :: Lens.Lens' DeletePortfolioShareResponse (Core.Maybe Core.Text)
+deletePortfolioShareResponse_portfolioShareToken :: Lens.Lens' DeletePortfolioShareResponse (Prelude.Maybe Prelude.Text)
 deletePortfolioShareResponse_portfolioShareToken = Lens.lens (\DeletePortfolioShareResponse' {portfolioShareToken} -> portfolioShareToken) (\s@DeletePortfolioShareResponse' {} a -> s {portfolioShareToken = a} :: DeletePortfolioShareResponse)
 
 -- | The response's http status code.
-deletePortfolioShareResponse_httpStatus :: Lens.Lens' DeletePortfolioShareResponse Core.Int
+deletePortfolioShareResponse_httpStatus :: Lens.Lens' DeletePortfolioShareResponse Prelude.Int
 deletePortfolioShareResponse_httpStatus = Lens.lens (\DeletePortfolioShareResponse' {httpStatus} -> httpStatus) (\s@DeletePortfolioShareResponse' {} a -> s {httpStatus = a} :: DeletePortfolioShareResponse)
 
-instance Core.NFData DeletePortfolioShareResponse
+instance Prelude.NFData DeletePortfolioShareResponse

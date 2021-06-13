@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -57,15 +58,15 @@ import Network.AWS.SSM.Types
 data DescribeActivations = DescribeActivations'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter to view information about your activations.
-    filters :: Core.Maybe [DescribeActivationsFilter]
+    filters :: Prelude.Maybe [DescribeActivationsFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeActivations' with all optional fields omitted.
@@ -87,47 +88,47 @@ newDescribeActivations ::
   DescribeActivations
 newDescribeActivations =
   DescribeActivations'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-describeActivations_nextToken :: Lens.Lens' DescribeActivations (Core.Maybe Core.Text)
+describeActivations_nextToken :: Lens.Lens' DescribeActivations (Prelude.Maybe Prelude.Text)
 describeActivations_nextToken = Lens.lens (\DescribeActivations' {nextToken} -> nextToken) (\s@DescribeActivations' {} a -> s {nextToken = a} :: DescribeActivations)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeActivations_maxResults :: Lens.Lens' DescribeActivations (Core.Maybe Core.Natural)
+describeActivations_maxResults :: Lens.Lens' DescribeActivations (Prelude.Maybe Prelude.Natural)
 describeActivations_maxResults = Lens.lens (\DescribeActivations' {maxResults} -> maxResults) (\s@DescribeActivations' {} a -> s {maxResults = a} :: DescribeActivations)
 
 -- | A filter to view information about your activations.
-describeActivations_filters :: Lens.Lens' DescribeActivations (Core.Maybe [DescribeActivationsFilter])
-describeActivations_filters = Lens.lens (\DescribeActivations' {filters} -> filters) (\s@DescribeActivations' {} a -> s {filters = a} :: DescribeActivations) Core.. Lens.mapping Lens._Coerce
+describeActivations_filters :: Lens.Lens' DescribeActivations (Prelude.Maybe [DescribeActivationsFilter])
+describeActivations_filters = Lens.lens (\DescribeActivations' {filters} -> filters) (\s@DescribeActivations' {} a -> s {filters = a} :: DescribeActivations) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeActivations where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeActivationsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeActivationsResponse_activationList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeActivations_nextToken
+          Prelude.& describeActivations_nextToken
           Lens..~ rs
           Lens.^? describeActivationsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeActivations where
   type
@@ -138,53 +139,57 @@ instance Core.AWSRequest DescribeActivations where
     Response.receiveJSON
       ( \s h x ->
           DescribeActivationsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ActivationList" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ActivationList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeActivations
+instance Prelude.Hashable DescribeActivations
 
-instance Core.NFData DescribeActivations
+instance Prelude.NFData DescribeActivations
 
 instance Core.ToHeaders DescribeActivations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DescribeActivations" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.DescribeActivations" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeActivations where
   toJSON DescribeActivations' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath DescribeActivations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeActivations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeActivationsResponse' smart constructor.
 data DescribeActivationsResponse = DescribeActivationsResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of activations for your AWS account.
-    activationList :: Core.Maybe [Activation],
+    activationList :: Prelude.Maybe [Activation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeActivationsResponse' with all optional fields omitted.
@@ -202,27 +207,27 @@ data DescribeActivationsResponse = DescribeActivationsResponse'
 -- 'httpStatus', 'describeActivationsResponse_httpStatus' - The response's http status code.
 newDescribeActivationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeActivationsResponse
 newDescribeActivationsResponse pHttpStatus_ =
   DescribeActivationsResponse'
     { nextToken =
-        Core.Nothing,
-      activationList = Core.Nothing,
+        Prelude.Nothing,
+      activationList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-describeActivationsResponse_nextToken :: Lens.Lens' DescribeActivationsResponse (Core.Maybe Core.Text)
+describeActivationsResponse_nextToken :: Lens.Lens' DescribeActivationsResponse (Prelude.Maybe Prelude.Text)
 describeActivationsResponse_nextToken = Lens.lens (\DescribeActivationsResponse' {nextToken} -> nextToken) (\s@DescribeActivationsResponse' {} a -> s {nextToken = a} :: DescribeActivationsResponse)
 
 -- | A list of activations for your AWS account.
-describeActivationsResponse_activationList :: Lens.Lens' DescribeActivationsResponse (Core.Maybe [Activation])
-describeActivationsResponse_activationList = Lens.lens (\DescribeActivationsResponse' {activationList} -> activationList) (\s@DescribeActivationsResponse' {} a -> s {activationList = a} :: DescribeActivationsResponse) Core.. Lens.mapping Lens._Coerce
+describeActivationsResponse_activationList :: Lens.Lens' DescribeActivationsResponse (Prelude.Maybe [Activation])
+describeActivationsResponse_activationList = Lens.lens (\DescribeActivationsResponse' {activationList} -> activationList) (\s@DescribeActivationsResponse' {} a -> s {activationList = a} :: DescribeActivationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeActivationsResponse_httpStatus :: Lens.Lens' DescribeActivationsResponse Core.Int
+describeActivationsResponse_httpStatus :: Lens.Lens' DescribeActivationsResponse Prelude.Int
 describeActivationsResponse_httpStatus = Lens.lens (\DescribeActivationsResponse' {httpStatus} -> httpStatus) (\s@DescribeActivationsResponse' {} a -> s {httpStatus = a} :: DescribeActivationsResponse)
 
-instance Core.NFData DescribeActivationsResponse
+instance Prelude.NFData DescribeActivationsResponse

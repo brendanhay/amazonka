@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.ParametersFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ParametersFilterKey
 
 -- | This data type is deprecated. Instead, use ParameterStringFilter.
@@ -30,9 +31,9 @@ data ParametersFilter = ParametersFilter'
   { -- | The name of the filter.
     key :: ParametersFilterKey,
     -- | The filter values.
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParametersFilter' with all optional fields omitted.
@@ -49,7 +50,7 @@ newParametersFilter ::
   -- | 'key'
   ParametersFilterKey ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   ParametersFilter
 newParametersFilter pKey_ pValues_ =
   ParametersFilter'
@@ -62,18 +63,18 @@ parametersFilter_key :: Lens.Lens' ParametersFilter ParametersFilterKey
 parametersFilter_key = Lens.lens (\ParametersFilter' {key} -> key) (\s@ParametersFilter' {} a -> s {key = a} :: ParametersFilter)
 
 -- | The filter values.
-parametersFilter_values :: Lens.Lens' ParametersFilter (Core.NonEmpty Core.Text)
-parametersFilter_values = Lens.lens (\ParametersFilter' {values} -> values) (\s@ParametersFilter' {} a -> s {values = a} :: ParametersFilter) Core.. Lens._Coerce
+parametersFilter_values :: Lens.Lens' ParametersFilter (Prelude.NonEmpty Prelude.Text)
+parametersFilter_values = Lens.lens (\ParametersFilter' {values} -> values) (\s@ParametersFilter' {} a -> s {values = a} :: ParametersFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable ParametersFilter
+instance Prelude.Hashable ParametersFilter
 
-instance Core.NFData ParametersFilter
+instance Prelude.NFData ParametersFilter
 
 instance Core.ToJSON ParametersFilter where
   toJSON ParametersFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

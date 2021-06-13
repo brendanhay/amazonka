@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteLoadBalancerPolicy' smart constructor.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The name of the policy.
-    policyName :: Core.Text
+    policyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerPolicy' with all optional fields omitted.
@@ -70,9 +71,9 @@ data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
 -- 'policyName', 'deleteLoadBalancerPolicy_policyName' - The name of the policy.
 newDeleteLoadBalancerPolicy ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLoadBalancerPolicy
 newDeleteLoadBalancerPolicy
   pLoadBalancerName_
@@ -84,11 +85,11 @@ newDeleteLoadBalancerPolicy
       }
 
 -- | The name of the load balancer.
-deleteLoadBalancerPolicy_loadBalancerName :: Lens.Lens' DeleteLoadBalancerPolicy Core.Text
+deleteLoadBalancerPolicy_loadBalancerName :: Lens.Lens' DeleteLoadBalancerPolicy Prelude.Text
 deleteLoadBalancerPolicy_loadBalancerName = Lens.lens (\DeleteLoadBalancerPolicy' {loadBalancerName} -> loadBalancerName) (\s@DeleteLoadBalancerPolicy' {} a -> s {loadBalancerName = a} :: DeleteLoadBalancerPolicy)
 
 -- | The name of the policy.
-deleteLoadBalancerPolicy_policyName :: Lens.Lens' DeleteLoadBalancerPolicy Core.Text
+deleteLoadBalancerPolicy_policyName :: Lens.Lens' DeleteLoadBalancerPolicy Prelude.Text
 deleteLoadBalancerPolicy_policyName = Lens.lens (\DeleteLoadBalancerPolicy' {policyName} -> policyName) (\s@DeleteLoadBalancerPolicy' {} a -> s {policyName = a} :: DeleteLoadBalancerPolicy)
 
 instance Core.AWSRequest DeleteLoadBalancerPolicy where
@@ -101,25 +102,26 @@ instance Core.AWSRequest DeleteLoadBalancerPolicy where
       "DeleteLoadBalancerPolicyResult"
       ( \s h x ->
           DeleteLoadBalancerPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteLoadBalancerPolicy
+instance Prelude.Hashable DeleteLoadBalancerPolicy
 
-instance Core.NFData DeleteLoadBalancerPolicy
+instance Prelude.NFData DeleteLoadBalancerPolicy
 
 instance Core.ToHeaders DeleteLoadBalancerPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteLoadBalancerPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLoadBalancerPolicy where
   toQuery DeleteLoadBalancerPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteLoadBalancerPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+          Core.=: ("DeleteLoadBalancerPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerName" Core.=: loadBalancerName,
         "PolicyName" Core.=: policyName
       ]
@@ -129,9 +131,9 @@ instance Core.ToQuery DeleteLoadBalancerPolicy where
 -- /See:/ 'newDeleteLoadBalancerPolicyResponse' smart constructor.
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerPolicyResponse' with all optional fields omitted.
@@ -144,7 +146,7 @@ data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
 -- 'httpStatus', 'deleteLoadBalancerPolicyResponse_httpStatus' - The response's http status code.
 newDeleteLoadBalancerPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLoadBalancerPolicyResponse
 newDeleteLoadBalancerPolicyResponse pHttpStatus_ =
   DeleteLoadBalancerPolicyResponse'
@@ -153,7 +155,9 @@ newDeleteLoadBalancerPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteLoadBalancerPolicyResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerPolicyResponse Core.Int
+deleteLoadBalancerPolicyResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerPolicyResponse Prelude.Int
 deleteLoadBalancerPolicyResponse_httpStatus = Lens.lens (\DeleteLoadBalancerPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteLoadBalancerPolicyResponse' {} a -> s {httpStatus = a} :: DeleteLoadBalancerPolicyResponse)
 
-instance Core.NFData DeleteLoadBalancerPolicyResponse
+instance
+  Prelude.NFData
+    DeleteLoadBalancerPolicyResponse

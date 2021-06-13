@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.HlsProgramDateTime
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
 -- files. The value is calculated as follows: either the program date and
@@ -38,15 +39,15 @@ newtype HlsProgramDateTime = HlsProgramDateTime'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

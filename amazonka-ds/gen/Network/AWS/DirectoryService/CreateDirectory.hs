@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,15 +66,15 @@ import qualified Network.AWS.Response as Response
 data CreateDirectory = CreateDirectory'
   { -- | A DirectoryVpcSettings object that contains additional information for
     -- the operation.
-    vpcSettings :: Core.Maybe DirectoryVpcSettings,
+    vpcSettings :: Prelude.Maybe DirectoryVpcSettings,
     -- | The NetBIOS name of the directory, such as @CORP@.
-    shortName :: Core.Maybe Core.Text,
+    shortName :: Prelude.Maybe Prelude.Text,
     -- | The tags to be assigned to the Simple AD directory.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A description for the directory.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified name for the directory, such as @corp.example.com@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The password for the directory administrator. The directory creation
     -- process creates a directory administrator account with the user name
     -- @Administrator@ and this password.
@@ -104,11 +105,11 @@ data CreateDirectory = CreateDirectory'
     -- enforced, see
     -- <https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements Password must meet complexity requirements>
     -- on the Microsoft website.
-    password :: Core.Sensitive Core.Text,
+    password :: Core.Sensitive Prelude.Text,
     -- | The size of the directory.
     size :: DirectorySize
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDirectory' with all optional fields omitted.
@@ -163,18 +164,18 @@ data CreateDirectory = CreateDirectory'
 -- 'size', 'createDirectory_size' - The size of the directory.
 newCreateDirectory ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'password'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'size'
   DirectorySize ->
   CreateDirectory
 newCreateDirectory pName_ pPassword_ pSize_ =
   CreateDirectory'
-    { vpcSettings = Core.Nothing,
-      shortName = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
+    { vpcSettings = Prelude.Nothing,
+      shortName = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       password = Core._Sensitive Lens.# pPassword_,
       size = pSize_
@@ -182,23 +183,23 @@ newCreateDirectory pName_ pPassword_ pSize_ =
 
 -- | A DirectoryVpcSettings object that contains additional information for
 -- the operation.
-createDirectory_vpcSettings :: Lens.Lens' CreateDirectory (Core.Maybe DirectoryVpcSettings)
+createDirectory_vpcSettings :: Lens.Lens' CreateDirectory (Prelude.Maybe DirectoryVpcSettings)
 createDirectory_vpcSettings = Lens.lens (\CreateDirectory' {vpcSettings} -> vpcSettings) (\s@CreateDirectory' {} a -> s {vpcSettings = a} :: CreateDirectory)
 
 -- | The NetBIOS name of the directory, such as @CORP@.
-createDirectory_shortName :: Lens.Lens' CreateDirectory (Core.Maybe Core.Text)
+createDirectory_shortName :: Lens.Lens' CreateDirectory (Prelude.Maybe Prelude.Text)
 createDirectory_shortName = Lens.lens (\CreateDirectory' {shortName} -> shortName) (\s@CreateDirectory' {} a -> s {shortName = a} :: CreateDirectory)
 
 -- | The tags to be assigned to the Simple AD directory.
-createDirectory_tags :: Lens.Lens' CreateDirectory (Core.Maybe [Tag])
-createDirectory_tags = Lens.lens (\CreateDirectory' {tags} -> tags) (\s@CreateDirectory' {} a -> s {tags = a} :: CreateDirectory) Core.. Lens.mapping Lens._Coerce
+createDirectory_tags :: Lens.Lens' CreateDirectory (Prelude.Maybe [Tag])
+createDirectory_tags = Lens.lens (\CreateDirectory' {tags} -> tags) (\s@CreateDirectory' {} a -> s {tags = a} :: CreateDirectory) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description for the directory.
-createDirectory_description :: Lens.Lens' CreateDirectory (Core.Maybe Core.Text)
+createDirectory_description :: Lens.Lens' CreateDirectory (Prelude.Maybe Prelude.Text)
 createDirectory_description = Lens.lens (\CreateDirectory' {description} -> description) (\s@CreateDirectory' {} a -> s {description = a} :: CreateDirectory)
 
 -- | The fully qualified name for the directory, such as @corp.example.com@.
-createDirectory_name :: Lens.Lens' CreateDirectory Core.Text
+createDirectory_name :: Lens.Lens' CreateDirectory Prelude.Text
 createDirectory_name = Lens.lens (\CreateDirectory' {name} -> name) (\s@CreateDirectory' {} a -> s {name = a} :: CreateDirectory)
 
 -- | The password for the directory administrator. The directory creation
@@ -231,8 +232,8 @@ createDirectory_name = Lens.lens (\CreateDirectory' {name} -> name) (\s@CreateDi
 -- enforced, see
 -- <https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements Password must meet complexity requirements>
 -- on the Microsoft website.
-createDirectory_password :: Lens.Lens' CreateDirectory Core.Text
-createDirectory_password = Lens.lens (\CreateDirectory' {password} -> password) (\s@CreateDirectory' {} a -> s {password = a} :: CreateDirectory) Core.. Core._Sensitive
+createDirectory_password :: Lens.Lens' CreateDirectory Prelude.Text
+createDirectory_password = Lens.lens (\CreateDirectory' {password} -> password) (\s@CreateDirectory' {} a -> s {password = a} :: CreateDirectory) Prelude.. Core._Sensitive
 
 -- | The size of the directory.
 createDirectory_size :: Lens.Lens' CreateDirectory DirectorySize
@@ -247,57 +248,59 @@ instance Core.AWSRequest CreateDirectory where
     Response.receiveJSON
       ( \s h x ->
           CreateDirectoryResponse'
-            Core.<$> (x Core..?> "DirectoryId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DirectoryId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDirectory
+instance Prelude.Hashable CreateDirectory
 
-instance Core.NFData CreateDirectory
+instance Prelude.NFData CreateDirectory
 
 instance Core.ToHeaders CreateDirectory where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.CreateDirectory" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDirectory where
   toJSON CreateDirectory' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("VpcSettings" Core..=) Core.<$> vpcSettings,
-            ("ShortName" Core..=) Core.<$> shortName,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Password" Core..= password),
-            Core.Just ("Size" Core..= size)
+      ( Prelude.catMaybes
+          [ ("VpcSettings" Core..=) Prelude.<$> vpcSettings,
+            ("ShortName" Core..=) Prelude.<$> shortName,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Password" Core..= password),
+            Prelude.Just ("Size" Core..= size)
           ]
       )
 
 instance Core.ToPath CreateDirectory where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the CreateDirectory operation.
 --
 -- /See:/ 'newCreateDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
   { -- | The identifier of the directory that was created.
-    directoryId :: Core.Maybe Core.Text,
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDirectoryResponse' with all optional fields omitted.
@@ -312,21 +315,21 @@ data CreateDirectoryResponse = CreateDirectoryResponse'
 -- 'httpStatus', 'createDirectoryResponse_httpStatus' - The response's http status code.
 newCreateDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDirectoryResponse
 newCreateDirectoryResponse pHttpStatus_ =
   CreateDirectoryResponse'
     { directoryId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the directory that was created.
-createDirectoryResponse_directoryId :: Lens.Lens' CreateDirectoryResponse (Core.Maybe Core.Text)
+createDirectoryResponse_directoryId :: Lens.Lens' CreateDirectoryResponse (Prelude.Maybe Prelude.Text)
 createDirectoryResponse_directoryId = Lens.lens (\CreateDirectoryResponse' {directoryId} -> directoryId) (\s@CreateDirectoryResponse' {} a -> s {directoryId = a} :: CreateDirectoryResponse)
 
 -- | The response's http status code.
-createDirectoryResponse_httpStatus :: Lens.Lens' CreateDirectoryResponse Core.Int
+createDirectoryResponse_httpStatus :: Lens.Lens' CreateDirectoryResponse Prelude.Int
 createDirectoryResponse_httpStatus = Lens.lens (\CreateDirectoryResponse' {httpStatus} -> httpStatus) (\s@CreateDirectoryResponse' {} a -> s {httpStatus = a} :: CreateDirectoryResponse)
 
-instance Core.NFData CreateDirectoryResponse
+instance Prelude.NFData CreateDirectoryResponse

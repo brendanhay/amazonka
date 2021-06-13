@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.M2tsAudioStreamType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | M2ts Audio Stream Type
 newtype M2tsAudioStreamType = M2tsAudioStreamType'
@@ -34,15 +35,15 @@ newtype M2tsAudioStreamType = M2tsAudioStreamType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

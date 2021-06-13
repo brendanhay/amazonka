@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -52,9 +53,9 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newGetOperation' smart constructor.
 data GetOperation = GetOperation'
   { -- | The ID of the operation that you want to get more information about.
-    operationId :: Core.Text
+    operationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOperation' with all optional fields omitted.
@@ -67,13 +68,13 @@ data GetOperation = GetOperation'
 -- 'operationId', 'getOperation_operationId' - The ID of the operation that you want to get more information about.
 newGetOperation ::
   -- | 'operationId'
-  Core.Text ->
+  Prelude.Text ->
   GetOperation
 newGetOperation pOperationId_ =
   GetOperation' {operationId = pOperationId_}
 
 -- | The ID of the operation that you want to get more information about.
-getOperation_operationId :: Lens.Lens' GetOperation Core.Text
+getOperation_operationId :: Lens.Lens' GetOperation Prelude.Text
 getOperation_operationId = Lens.lens (\GetOperation' {operationId} -> operationId) (\s@GetOperation' {} a -> s {operationId = a} :: GetOperation)
 
 instance Core.AWSRequest GetOperation where
@@ -83,48 +84,50 @@ instance Core.AWSRequest GetOperation where
     Response.receiveJSON
       ( \s h x ->
           GetOperationResponse'
-            Core.<$> (x Core..?> "Operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetOperation
+instance Prelude.Hashable GetOperation
 
-instance Core.NFData GetOperation
+instance Prelude.NFData GetOperation
 
 instance Core.ToHeaders GetOperation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.GetOperation" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetOperation where
   toJSON GetOperation' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("OperationId" Core..= operationId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("OperationId" Core..= operationId)]
       )
 
 instance Core.ToPath GetOperation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetOperation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOperationResponse' smart constructor.
 data GetOperationResponse = GetOperationResponse'
   { -- | A complex type that contains information about the operation.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOperationResponse' with all optional fields omitted.
@@ -139,20 +142,20 @@ data GetOperationResponse = GetOperationResponse'
 -- 'httpStatus', 'getOperationResponse_httpStatus' - The response's http status code.
 newGetOperationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetOperationResponse
 newGetOperationResponse pHttpStatus_ =
   GetOperationResponse'
-    { operation = Core.Nothing,
+    { operation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A complex type that contains information about the operation.
-getOperationResponse_operation :: Lens.Lens' GetOperationResponse (Core.Maybe Operation)
+getOperationResponse_operation :: Lens.Lens' GetOperationResponse (Prelude.Maybe Operation)
 getOperationResponse_operation = Lens.lens (\GetOperationResponse' {operation} -> operation) (\s@GetOperationResponse' {} a -> s {operation = a} :: GetOperationResponse)
 
 -- | The response's http status code.
-getOperationResponse_httpStatus :: Lens.Lens' GetOperationResponse Core.Int
+getOperationResponse_httpStatus :: Lens.Lens' GetOperationResponse Prelude.Int
 getOperationResponse_httpStatus = Lens.lens (\GetOperationResponse' {httpStatus} -> httpStatus) (\s@GetOperationResponse' {} a -> s {httpStatus = a} :: GetOperationResponse)
 
-instance Core.NFData GetOperationResponse
+instance Prelude.NFData GetOperationResponse

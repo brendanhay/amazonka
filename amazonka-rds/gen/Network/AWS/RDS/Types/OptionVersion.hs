@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.OptionVersion where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The version for an option. Option group option versions are returned by
 -- the @DescribeOptionGroupOptions@ action.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data OptionVersion = OptionVersion'
   { -- | True if the version is the default version of the option, and otherwise
     -- false.
-    isDefault :: Core.Maybe Core.Bool,
+    isDefault :: Prelude.Maybe Prelude.Bool,
     -- | The version of the option.
-    version :: Core.Maybe Core.Text
+    version :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OptionVersion' with all optional fields omitted.
@@ -51,25 +52,25 @@ newOptionVersion ::
   OptionVersion
 newOptionVersion =
   OptionVersion'
-    { isDefault = Core.Nothing,
-      version = Core.Nothing
+    { isDefault = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | True if the version is the default version of the option, and otherwise
 -- false.
-optionVersion_isDefault :: Lens.Lens' OptionVersion (Core.Maybe Core.Bool)
+optionVersion_isDefault :: Lens.Lens' OptionVersion (Prelude.Maybe Prelude.Bool)
 optionVersion_isDefault = Lens.lens (\OptionVersion' {isDefault} -> isDefault) (\s@OptionVersion' {} a -> s {isDefault = a} :: OptionVersion)
 
 -- | The version of the option.
-optionVersion_version :: Lens.Lens' OptionVersion (Core.Maybe Core.Text)
+optionVersion_version :: Lens.Lens' OptionVersion (Prelude.Maybe Prelude.Text)
 optionVersion_version = Lens.lens (\OptionVersion' {version} -> version) (\s@OptionVersion' {} a -> s {version = a} :: OptionVersion)
 
 instance Core.FromXML OptionVersion where
   parseXML x =
     OptionVersion'
-      Core.<$> (x Core..@? "IsDefault")
-      Core.<*> (x Core..@? "Version")
+      Prelude.<$> (x Core..@? "IsDefault")
+      Prelude.<*> (x Core..@? "Version")
 
-instance Core.Hashable OptionVersion
+instance Prelude.Hashable OptionVersion
 
-instance Core.NFData OptionVersion
+instance Prelude.NFData OptionVersion

@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data UpdateApplicationSettings = UpdateApplicationSettings'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     writeApplicationSettingsRequest :: WriteApplicationSettingsRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationSettings' with all optional fields omitted.
@@ -69,7 +70,7 @@ data UpdateApplicationSettings = UpdateApplicationSettings'
 -- 'writeApplicationSettingsRequest', 'updateApplicationSettings_writeApplicationSettingsRequest' - Undocumented member.
 newUpdateApplicationSettings ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'writeApplicationSettingsRequest'
   WriteApplicationSettingsRequest ->
   UpdateApplicationSettings
@@ -85,7 +86,7 @@ newUpdateApplicationSettings
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateApplicationSettings_applicationId :: Lens.Lens' UpdateApplicationSettings Core.Text
+updateApplicationSettings_applicationId :: Lens.Lens' UpdateApplicationSettings Prelude.Text
 updateApplicationSettings_applicationId = Lens.lens (\UpdateApplicationSettings' {applicationId} -> applicationId) (\s@UpdateApplicationSettings' {} a -> s {applicationId = a} :: UpdateApplicationSettings)
 
 -- | Undocumented member.
@@ -101,28 +102,30 @@ instance Core.AWSRequest UpdateApplicationSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateApplicationSettingsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateApplicationSettings
+instance Prelude.Hashable UpdateApplicationSettings
 
-instance Core.NFData UpdateApplicationSettings
+instance Prelude.NFData UpdateApplicationSettings
 
 instance Core.ToHeaders UpdateApplicationSettings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateApplicationSettings where
   toJSON UpdateApplicationSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "WriteApplicationSettingsRequest"
                   Core..= writeApplicationSettingsRequest
               )
@@ -131,19 +134,19 @@ instance Core.ToJSON UpdateApplicationSettings where
 
 instance Core.ToPath UpdateApplicationSettings where
   toPath UpdateApplicationSettings' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apps/", Core.toBS applicationId, "/settings"]
 
 instance Core.ToQuery UpdateApplicationSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationSettingsResponse' smart constructor.
 data UpdateApplicationSettingsResponse = UpdateApplicationSettingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     applicationSettingsResource :: ApplicationSettingsResource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationSettingsResponse' with all optional fields omitted.
@@ -158,7 +161,7 @@ data UpdateApplicationSettingsResponse = UpdateApplicationSettingsResponse'
 -- 'applicationSettingsResource', 'updateApplicationSettingsResponse_applicationSettingsResource' - Undocumented member.
 newUpdateApplicationSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'applicationSettingsResource'
   ApplicationSettingsResource ->
   UpdateApplicationSettingsResponse
@@ -173,7 +176,7 @@ newUpdateApplicationSettingsResponse
       }
 
 -- | The response's http status code.
-updateApplicationSettingsResponse_httpStatus :: Lens.Lens' UpdateApplicationSettingsResponse Core.Int
+updateApplicationSettingsResponse_httpStatus :: Lens.Lens' UpdateApplicationSettingsResponse Prelude.Int
 updateApplicationSettingsResponse_httpStatus = Lens.lens (\UpdateApplicationSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateApplicationSettingsResponse' {} a -> s {httpStatus = a} :: UpdateApplicationSettingsResponse)
 
 -- | Undocumented member.
@@ -181,5 +184,5 @@ updateApplicationSettingsResponse_applicationSettingsResource :: Lens.Lens' Upda
 updateApplicationSettingsResponse_applicationSettingsResource = Lens.lens (\UpdateApplicationSettingsResponse' {applicationSettingsResource} -> applicationSettingsResource) (\s@UpdateApplicationSettingsResponse' {} a -> s {applicationSettingsResource = a} :: UpdateApplicationSettingsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateApplicationSettingsResponse

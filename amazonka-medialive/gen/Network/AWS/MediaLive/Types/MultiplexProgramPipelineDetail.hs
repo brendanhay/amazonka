@@ -21,18 +21,19 @@ module Network.AWS.MediaLive.Types.MultiplexProgramPipelineDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The current source for one of the pipelines in the multiplex.
 --
 -- /See:/ 'newMultiplexProgramPipelineDetail' smart constructor.
 data MultiplexProgramPipelineDetail = MultiplexProgramPipelineDetail'
   { -- | Identifies a specific pipeline in the multiplex.
-    pipelineId :: Core.Maybe Core.Text,
+    pipelineId :: Prelude.Maybe Prelude.Text,
     -- | Identifies the channel pipeline that is currently active for the
     -- pipeline (identified by PipelineId) in the multiplex.
-    activeChannelPipeline :: Core.Maybe Core.Text
+    activeChannelPipeline :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiplexProgramPipelineDetail' with all optional fields omitted.
@@ -51,17 +52,17 @@ newMultiplexProgramPipelineDetail ::
 newMultiplexProgramPipelineDetail =
   MultiplexProgramPipelineDetail'
     { pipelineId =
-        Core.Nothing,
-      activeChannelPipeline = Core.Nothing
+        Prelude.Nothing,
+      activeChannelPipeline = Prelude.Nothing
     }
 
 -- | Identifies a specific pipeline in the multiplex.
-multiplexProgramPipelineDetail_pipelineId :: Lens.Lens' MultiplexProgramPipelineDetail (Core.Maybe Core.Text)
+multiplexProgramPipelineDetail_pipelineId :: Lens.Lens' MultiplexProgramPipelineDetail (Prelude.Maybe Prelude.Text)
 multiplexProgramPipelineDetail_pipelineId = Lens.lens (\MultiplexProgramPipelineDetail' {pipelineId} -> pipelineId) (\s@MultiplexProgramPipelineDetail' {} a -> s {pipelineId = a} :: MultiplexProgramPipelineDetail)
 
 -- | Identifies the channel pipeline that is currently active for the
 -- pipeline (identified by PipelineId) in the multiplex.
-multiplexProgramPipelineDetail_activeChannelPipeline :: Lens.Lens' MultiplexProgramPipelineDetail (Core.Maybe Core.Text)
+multiplexProgramPipelineDetail_activeChannelPipeline :: Lens.Lens' MultiplexProgramPipelineDetail (Prelude.Maybe Prelude.Text)
 multiplexProgramPipelineDetail_activeChannelPipeline = Lens.lens (\MultiplexProgramPipelineDetail' {activeChannelPipeline} -> activeChannelPipeline) (\s@MultiplexProgramPipelineDetail' {} a -> s {activeChannelPipeline = a} :: MultiplexProgramPipelineDetail)
 
 instance Core.FromJSON MultiplexProgramPipelineDetail where
@@ -70,10 +71,14 @@ instance Core.FromJSON MultiplexProgramPipelineDetail where
       "MultiplexProgramPipelineDetail"
       ( \x ->
           MultiplexProgramPipelineDetail'
-            Core.<$> (x Core..:? "pipelineId")
-            Core.<*> (x Core..:? "activeChannelPipeline")
+            Prelude.<$> (x Core..:? "pipelineId")
+            Prelude.<*> (x Core..:? "activeChannelPipeline")
       )
 
-instance Core.Hashable MultiplexProgramPipelineDetail
+instance
+  Prelude.Hashable
+    MultiplexProgramPipelineDetail
 
-instance Core.NFData MultiplexProgramPipelineDetail
+instance
+  Prelude.NFData
+    MultiplexProgramPipelineDetail

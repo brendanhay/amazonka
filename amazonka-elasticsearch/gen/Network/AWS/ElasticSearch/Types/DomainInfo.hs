@@ -21,13 +21,14 @@ module Network.AWS.ElasticSearch.Types.DomainInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newDomainInfo' smart constructor.
 data DomainInfo = DomainInfo'
   { -- | Specifies the @DomainName@.
-    domainName :: Core.Maybe Core.Text
+    domainName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainInfo' with all optional fields omitted.
@@ -41,10 +42,10 @@ data DomainInfo = DomainInfo'
 newDomainInfo ::
   DomainInfo
 newDomainInfo =
-  DomainInfo' {domainName = Core.Nothing}
+  DomainInfo' {domainName = Prelude.Nothing}
 
 -- | Specifies the @DomainName@.
-domainInfo_domainName :: Lens.Lens' DomainInfo (Core.Maybe Core.Text)
+domainInfo_domainName :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
 domainInfo_domainName = Lens.lens (\DomainInfo' {domainName} -> domainName) (\s@DomainInfo' {} a -> s {domainName = a} :: DomainInfo)
 
 instance Core.FromJSON DomainInfo where
@@ -52,9 +53,9 @@ instance Core.FromJSON DomainInfo where
     Core.withObject
       "DomainInfo"
       ( \x ->
-          DomainInfo' Core.<$> (x Core..:? "DomainName")
+          DomainInfo' Prelude.<$> (x Core..:? "DomainName")
       )
 
-instance Core.Hashable DomainInfo
+instance Prelude.Hashable DomainInfo
 
-instance Core.NFData DomainInfo
+instance Prelude.NFData DomainInfo

@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeEventTopics = DescribeEventTopics'
   { -- | The Directory ID for which to get the list of associated SNS topics. If
     -- this member is null, associations for all Directory IDs are returned.
-    directoryId :: Core.Maybe Core.Text,
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | A list of SNS topic names for which to obtain the information. If this
     -- member is null, all associations for the specified Directory ID are
     -- returned.
     --
     -- An empty list results in an @InvalidParameterException@ being thrown.
-    topicNames :: Core.Maybe [Core.Text]
+    topicNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventTopics' with all optional fields omitted.
@@ -86,13 +87,13 @@ newDescribeEventTopics ::
   DescribeEventTopics
 newDescribeEventTopics =
   DescribeEventTopics'
-    { directoryId = Core.Nothing,
-      topicNames = Core.Nothing
+    { directoryId = Prelude.Nothing,
+      topicNames = Prelude.Nothing
     }
 
 -- | The Directory ID for which to get the list of associated SNS topics. If
 -- this member is null, associations for all Directory IDs are returned.
-describeEventTopics_directoryId :: Lens.Lens' DescribeEventTopics (Core.Maybe Core.Text)
+describeEventTopics_directoryId :: Lens.Lens' DescribeEventTopics (Prelude.Maybe Prelude.Text)
 describeEventTopics_directoryId = Lens.lens (\DescribeEventTopics' {directoryId} -> directoryId) (\s@DescribeEventTopics' {} a -> s {directoryId = a} :: DescribeEventTopics)
 
 -- | A list of SNS topic names for which to obtain the information. If this
@@ -100,8 +101,8 @@ describeEventTopics_directoryId = Lens.lens (\DescribeEventTopics' {directoryId}
 -- returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
-describeEventTopics_topicNames :: Lens.Lens' DescribeEventTopics (Core.Maybe [Core.Text])
-describeEventTopics_topicNames = Lens.lens (\DescribeEventTopics' {topicNames} -> topicNames) (\s@DescribeEventTopics' {} a -> s {topicNames = a} :: DescribeEventTopics) Core.. Lens.mapping Lens._Coerce
+describeEventTopics_topicNames :: Lens.Lens' DescribeEventTopics (Prelude.Maybe [Prelude.Text])
+describeEventTopics_topicNames = Lens.lens (\DescribeEventTopics' {topicNames} -> topicNames) (\s@DescribeEventTopics' {} a -> s {topicNames = a} :: DescribeEventTopics) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeEventTopics where
   type
@@ -112,41 +113,43 @@ instance Core.AWSRequest DescribeEventTopics where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventTopicsResponse'
-            Core.<$> (x Core..?> "EventTopics" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "EventTopics" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEventTopics
+instance Prelude.Hashable DescribeEventTopics
 
-instance Core.NFData DescribeEventTopics
+instance Prelude.NFData DescribeEventTopics
 
 instance Core.ToHeaders DescribeEventTopics where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.DescribeEventTopics" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEventTopics where
   toJSON DescribeEventTopics' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DirectoryId" Core..=) Core.<$> directoryId,
-            ("TopicNames" Core..=) Core.<$> topicNames
+      ( Prelude.catMaybes
+          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
+            ("TopicNames" Core..=) Prelude.<$> topicNames
           ]
       )
 
 instance Core.ToPath DescribeEventTopics where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEventTopics where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a DescribeEventTopic request.
 --
@@ -154,11 +157,11 @@ instance Core.ToQuery DescribeEventTopics where
 data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
   { -- | A list of SNS topic names that receive status messages from the
     -- specified Directory ID.
-    eventTopics :: Core.Maybe [EventTopic],
+    eventTopics :: Prelude.Maybe [EventTopic],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEventTopicsResponse' with all optional fields omitted.
@@ -174,22 +177,22 @@ data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
 -- 'httpStatus', 'describeEventTopicsResponse_httpStatus' - The response's http status code.
 newDescribeEventTopicsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEventTopicsResponse
 newDescribeEventTopicsResponse pHttpStatus_ =
   DescribeEventTopicsResponse'
     { eventTopics =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of SNS topic names that receive status messages from the
 -- specified Directory ID.
-describeEventTopicsResponse_eventTopics :: Lens.Lens' DescribeEventTopicsResponse (Core.Maybe [EventTopic])
-describeEventTopicsResponse_eventTopics = Lens.lens (\DescribeEventTopicsResponse' {eventTopics} -> eventTopics) (\s@DescribeEventTopicsResponse' {} a -> s {eventTopics = a} :: DescribeEventTopicsResponse) Core.. Lens.mapping Lens._Coerce
+describeEventTopicsResponse_eventTopics :: Lens.Lens' DescribeEventTopicsResponse (Prelude.Maybe [EventTopic])
+describeEventTopicsResponse_eventTopics = Lens.lens (\DescribeEventTopicsResponse' {eventTopics} -> eventTopics) (\s@DescribeEventTopicsResponse' {} a -> s {eventTopics = a} :: DescribeEventTopicsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventTopicsResponse_httpStatus :: Lens.Lens' DescribeEventTopicsResponse Core.Int
+describeEventTopicsResponse_httpStatus :: Lens.Lens' DescribeEventTopicsResponse Prelude.Int
 describeEventTopicsResponse_httpStatus = Lens.lens (\DescribeEventTopicsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventTopicsResponse' {} a -> s {httpStatus = a} :: DescribeEventTopicsResponse)
 
-instance Core.NFData DescribeEventTopicsResponse
+instance Prelude.NFData DescribeEventTopicsResponse

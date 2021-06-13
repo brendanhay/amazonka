@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,18 +64,18 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
     -- configuration. If the load falls below these thresholds for a specified
     -- amount of time, AWS OpsWorks Stacks stops a specified number of
     -- instances.
-    downScaling :: Core.Maybe AutoScalingThresholds,
+    downScaling :: Prelude.Maybe AutoScalingThresholds,
     -- | Enables load-based auto scaling for the layer.
-    enable :: Core.Maybe Core.Bool,
+    enable :: Prelude.Maybe Prelude.Bool,
     -- | An @AutoScalingThresholds@ object with the upscaling threshold
     -- configuration. If the load exceeds these thresholds for a specified
     -- amount of time, AWS OpsWorks Stacks starts a specified number of
     -- instances.
-    upScaling :: Core.Maybe AutoScalingThresholds,
+    upScaling :: Prelude.Maybe AutoScalingThresholds,
     -- | The layer ID.
-    layerId :: Core.Text
+    layerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetLoadBasedAutoScaling' with all optional fields omitted.
@@ -99,14 +100,14 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
 -- 'layerId', 'setLoadBasedAutoScaling_layerId' - The layer ID.
 newSetLoadBasedAutoScaling ::
   -- | 'layerId'
-  Core.Text ->
+  Prelude.Text ->
   SetLoadBasedAutoScaling
 newSetLoadBasedAutoScaling pLayerId_ =
   SetLoadBasedAutoScaling'
     { downScaling =
-        Core.Nothing,
-      enable = Core.Nothing,
-      upScaling = Core.Nothing,
+        Prelude.Nothing,
+      enable = Prelude.Nothing,
+      upScaling = Prelude.Nothing,
       layerId = pLayerId_
     }
 
@@ -114,22 +115,22 @@ newSetLoadBasedAutoScaling pLayerId_ =
 -- configuration. If the load falls below these thresholds for a specified
 -- amount of time, AWS OpsWorks Stacks stops a specified number of
 -- instances.
-setLoadBasedAutoScaling_downScaling :: Lens.Lens' SetLoadBasedAutoScaling (Core.Maybe AutoScalingThresholds)
+setLoadBasedAutoScaling_downScaling :: Lens.Lens' SetLoadBasedAutoScaling (Prelude.Maybe AutoScalingThresholds)
 setLoadBasedAutoScaling_downScaling = Lens.lens (\SetLoadBasedAutoScaling' {downScaling} -> downScaling) (\s@SetLoadBasedAutoScaling' {} a -> s {downScaling = a} :: SetLoadBasedAutoScaling)
 
 -- | Enables load-based auto scaling for the layer.
-setLoadBasedAutoScaling_enable :: Lens.Lens' SetLoadBasedAutoScaling (Core.Maybe Core.Bool)
+setLoadBasedAutoScaling_enable :: Lens.Lens' SetLoadBasedAutoScaling (Prelude.Maybe Prelude.Bool)
 setLoadBasedAutoScaling_enable = Lens.lens (\SetLoadBasedAutoScaling' {enable} -> enable) (\s@SetLoadBasedAutoScaling' {} a -> s {enable = a} :: SetLoadBasedAutoScaling)
 
 -- | An @AutoScalingThresholds@ object with the upscaling threshold
 -- configuration. If the load exceeds these thresholds for a specified
 -- amount of time, AWS OpsWorks Stacks starts a specified number of
 -- instances.
-setLoadBasedAutoScaling_upScaling :: Lens.Lens' SetLoadBasedAutoScaling (Core.Maybe AutoScalingThresholds)
+setLoadBasedAutoScaling_upScaling :: Lens.Lens' SetLoadBasedAutoScaling (Prelude.Maybe AutoScalingThresholds)
 setLoadBasedAutoScaling_upScaling = Lens.lens (\SetLoadBasedAutoScaling' {upScaling} -> upScaling) (\s@SetLoadBasedAutoScaling' {} a -> s {upScaling = a} :: SetLoadBasedAutoScaling)
 
 -- | The layer ID.
-setLoadBasedAutoScaling_layerId :: Lens.Lens' SetLoadBasedAutoScaling Core.Text
+setLoadBasedAutoScaling_layerId :: Lens.Lens' SetLoadBasedAutoScaling Prelude.Text
 setLoadBasedAutoScaling_layerId = Lens.lens (\SetLoadBasedAutoScaling' {layerId} -> layerId) (\s@SetLoadBasedAutoScaling' {} a -> s {layerId = a} :: SetLoadBasedAutoScaling)
 
 instance Core.AWSRequest SetLoadBasedAutoScaling where
@@ -141,45 +142,47 @@ instance Core.AWSRequest SetLoadBasedAutoScaling where
     Response.receiveNull
       SetLoadBasedAutoScalingResponse'
 
-instance Core.Hashable SetLoadBasedAutoScaling
+instance Prelude.Hashable SetLoadBasedAutoScaling
 
-instance Core.NFData SetLoadBasedAutoScaling
+instance Prelude.NFData SetLoadBasedAutoScaling
 
 instance Core.ToHeaders SetLoadBasedAutoScaling where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.SetLoadBasedAutoScaling" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetLoadBasedAutoScaling where
   toJSON SetLoadBasedAutoScaling' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DownScaling" Core..=) Core.<$> downScaling,
-            ("Enable" Core..=) Core.<$> enable,
-            ("UpScaling" Core..=) Core.<$> upScaling,
-            Core.Just ("LayerId" Core..= layerId)
+      ( Prelude.catMaybes
+          [ ("DownScaling" Core..=) Prelude.<$> downScaling,
+            ("Enable" Core..=) Prelude.<$> enable,
+            ("UpScaling" Core..=) Prelude.<$> upScaling,
+            Prelude.Just ("LayerId" Core..= layerId)
           ]
       )
 
 instance Core.ToPath SetLoadBasedAutoScaling where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetLoadBasedAutoScaling where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetLoadBasedAutoScalingResponse' smart constructor.
 data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetLoadBasedAutoScalingResponse' with all optional fields omitted.
@@ -190,4 +193,6 @@ newSetLoadBasedAutoScalingResponse ::
 newSetLoadBasedAutoScalingResponse =
   SetLoadBasedAutoScalingResponse'
 
-instance Core.NFData SetLoadBasedAutoScalingResponse
+instance
+  Prelude.NFData
+    SetLoadBasedAutoScalingResponse

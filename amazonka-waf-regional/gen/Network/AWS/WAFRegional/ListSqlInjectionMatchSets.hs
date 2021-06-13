@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -68,14 +69,14 @@ data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
     -- @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@
     -- from the previous response to get information about another batch of
     -- @SqlInjectionMatchSets@.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of SqlInjectionMatchSet objects that you want AWS
     -- WAF to return for this request. If you have more @SqlInjectionMatchSet@
     -- objects than the number you specify for @Limit@, the response includes a
     -- @NextMarker@ value that you can use to get another batch of @Rules@.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSqlInjectionMatchSets' with all optional fields omitted.
@@ -102,8 +103,8 @@ newListSqlInjectionMatchSets ::
 newListSqlInjectionMatchSets =
   ListSqlInjectionMatchSets'
     { nextMarker =
-        Core.Nothing,
-      limit = Core.Nothing
+        Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more
@@ -113,14 +114,14 @@ newListSqlInjectionMatchSets =
 -- @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@
 -- from the previous response to get information about another batch of
 -- @SqlInjectionMatchSets@.
-listSqlInjectionMatchSets_nextMarker :: Lens.Lens' ListSqlInjectionMatchSets (Core.Maybe Core.Text)
+listSqlInjectionMatchSets_nextMarker :: Lens.Lens' ListSqlInjectionMatchSets (Prelude.Maybe Prelude.Text)
 listSqlInjectionMatchSets_nextMarker = Lens.lens (\ListSqlInjectionMatchSets' {nextMarker} -> nextMarker) (\s@ListSqlInjectionMatchSets' {} a -> s {nextMarker = a} :: ListSqlInjectionMatchSets)
 
 -- | Specifies the number of SqlInjectionMatchSet objects that you want AWS
 -- WAF to return for this request. If you have more @SqlInjectionMatchSet@
 -- objects than the number you specify for @Limit@, the response includes a
 -- @NextMarker@ value that you can use to get another batch of @Rules@.
-listSqlInjectionMatchSets_limit :: Lens.Lens' ListSqlInjectionMatchSets (Core.Maybe Core.Natural)
+listSqlInjectionMatchSets_limit :: Lens.Lens' ListSqlInjectionMatchSets (Prelude.Maybe Prelude.Natural)
 listSqlInjectionMatchSets_limit = Lens.lens (\ListSqlInjectionMatchSets' {limit} -> limit) (\s@ListSqlInjectionMatchSets' {} a -> s {limit = a} :: ListSqlInjectionMatchSets)
 
 instance Core.AWSRequest ListSqlInjectionMatchSets where
@@ -132,62 +133,64 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
     Response.receiveJSON
       ( \s h x ->
           ListSqlInjectionMatchSetsResponse'
-            Core.<$> ( x Core..?> "SqlInjectionMatchSets"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "NextMarker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "SqlInjectionMatchSets"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListSqlInjectionMatchSets
+instance Prelude.Hashable ListSqlInjectionMatchSets
 
-instance Core.NFData ListSqlInjectionMatchSets
+instance Prelude.NFData ListSqlInjectionMatchSets
 
 instance Core.ToHeaders ListSqlInjectionMatchSets where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.ListSqlInjectionMatchSets" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListSqlInjectionMatchSets where
   toJSON ListSqlInjectionMatchSets' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextMarker" Core..=) Core.<$> nextMarker,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListSqlInjectionMatchSets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListSqlInjectionMatchSets where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a ListSqlInjectionMatchSets request.
 --
 -- /See:/ 'newListSqlInjectionMatchSetsResponse' smart constructor.
 data ListSqlInjectionMatchSetsResponse = ListSqlInjectionMatchSetsResponse'
   { -- | An array of SqlInjectionMatchSetSummary objects.
-    sqlInjectionMatchSets :: Core.Maybe [SqlInjectionMatchSetSummary],
+    sqlInjectionMatchSets :: Prelude.Maybe [SqlInjectionMatchSetSummary],
     -- | If you have more SqlInjectionMatchSet objects than the number that you
     -- specified for @Limit@ in the request, the response includes a
     -- @NextMarker@ value. To list more @SqlInjectionMatchSet@ objects, submit
     -- another @ListSqlInjectionMatchSets@ request, and specify the
     -- @NextMarker@ value from the response in the @NextMarker@ value in the
     -- next request.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSqlInjectionMatchSetsResponse' with all optional fields omitted.
@@ -209,19 +212,19 @@ data ListSqlInjectionMatchSetsResponse = ListSqlInjectionMatchSetsResponse'
 -- 'httpStatus', 'listSqlInjectionMatchSetsResponse_httpStatus' - The response's http status code.
 newListSqlInjectionMatchSetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListSqlInjectionMatchSetsResponse
 newListSqlInjectionMatchSetsResponse pHttpStatus_ =
   ListSqlInjectionMatchSetsResponse'
     { sqlInjectionMatchSets =
-        Core.Nothing,
-      nextMarker = Core.Nothing,
+        Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of SqlInjectionMatchSetSummary objects.
-listSqlInjectionMatchSetsResponse_sqlInjectionMatchSets :: Lens.Lens' ListSqlInjectionMatchSetsResponse (Core.Maybe [SqlInjectionMatchSetSummary])
-listSqlInjectionMatchSetsResponse_sqlInjectionMatchSets = Lens.lens (\ListSqlInjectionMatchSetsResponse' {sqlInjectionMatchSets} -> sqlInjectionMatchSets) (\s@ListSqlInjectionMatchSetsResponse' {} a -> s {sqlInjectionMatchSets = a} :: ListSqlInjectionMatchSetsResponse) Core.. Lens.mapping Lens._Coerce
+listSqlInjectionMatchSetsResponse_sqlInjectionMatchSets :: Lens.Lens' ListSqlInjectionMatchSetsResponse (Prelude.Maybe [SqlInjectionMatchSetSummary])
+listSqlInjectionMatchSetsResponse_sqlInjectionMatchSets = Lens.lens (\ListSqlInjectionMatchSetsResponse' {sqlInjectionMatchSets} -> sqlInjectionMatchSets) (\s@ListSqlInjectionMatchSetsResponse' {} a -> s {sqlInjectionMatchSets = a} :: ListSqlInjectionMatchSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If you have more SqlInjectionMatchSet objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
@@ -229,13 +232,13 @@ listSqlInjectionMatchSetsResponse_sqlInjectionMatchSets = Lens.lens (\ListSqlInj
 -- another @ListSqlInjectionMatchSets@ request, and specify the
 -- @NextMarker@ value from the response in the @NextMarker@ value in the
 -- next request.
-listSqlInjectionMatchSetsResponse_nextMarker :: Lens.Lens' ListSqlInjectionMatchSetsResponse (Core.Maybe Core.Text)
+listSqlInjectionMatchSetsResponse_nextMarker :: Lens.Lens' ListSqlInjectionMatchSetsResponse (Prelude.Maybe Prelude.Text)
 listSqlInjectionMatchSetsResponse_nextMarker = Lens.lens (\ListSqlInjectionMatchSetsResponse' {nextMarker} -> nextMarker) (\s@ListSqlInjectionMatchSetsResponse' {} a -> s {nextMarker = a} :: ListSqlInjectionMatchSetsResponse)
 
 -- | The response's http status code.
-listSqlInjectionMatchSetsResponse_httpStatus :: Lens.Lens' ListSqlInjectionMatchSetsResponse Core.Int
+listSqlInjectionMatchSetsResponse_httpStatus :: Lens.Lens' ListSqlInjectionMatchSetsResponse Prelude.Int
 listSqlInjectionMatchSetsResponse_httpStatus = Lens.lens (\ListSqlInjectionMatchSetsResponse' {httpStatus} -> httpStatus) (\s@ListSqlInjectionMatchSetsResponse' {} a -> s {httpStatus = a} :: ListSqlInjectionMatchSetsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListSqlInjectionMatchSetsResponse

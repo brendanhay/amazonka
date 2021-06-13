@@ -40,6 +40,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data GetComplianceSummaryByConfigRule = GetComplianceSummaryByConfigRule'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetComplianceSummaryByConfigRule' with all optional fields omitted.
@@ -70,43 +71,47 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetComplianceSummaryByConfigRuleResponse'
-            Core.<$> (x Core..?> "ComplianceSummary")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ComplianceSummary")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetComplianceSummaryByConfigRule
 
-instance Core.NFData GetComplianceSummaryByConfigRule
+instance
+  Prelude.NFData
+    GetComplianceSummaryByConfigRule
 
 instance
   Core.ToHeaders
     GetComplianceSummaryByConfigRule
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.GetComplianceSummaryByConfigRule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetComplianceSummaryByConfigRule where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetComplianceSummaryByConfigRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetComplianceSummaryByConfigRule
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
@@ -114,11 +119,11 @@ instance
 data GetComplianceSummaryByConfigRuleResponse = GetComplianceSummaryByConfigRuleResponse'
   { -- | The number of AWS Config rules that are compliant and the number that
     -- are noncompliant, up to a maximum of 25 for each.
-    complianceSummary :: Core.Maybe ComplianceSummary,
+    complianceSummary :: Prelude.Maybe ComplianceSummary,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetComplianceSummaryByConfigRuleResponse' with all optional fields omitted.
@@ -134,25 +139,25 @@ data GetComplianceSummaryByConfigRuleResponse = GetComplianceSummaryByConfigRule
 -- 'httpStatus', 'getComplianceSummaryByConfigRuleResponse_httpStatus' - The response's http status code.
 newGetComplianceSummaryByConfigRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetComplianceSummaryByConfigRuleResponse
 newGetComplianceSummaryByConfigRuleResponse
   pHttpStatus_ =
     GetComplianceSummaryByConfigRuleResponse'
       { complianceSummary =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The number of AWS Config rules that are compliant and the number that
 -- are noncompliant, up to a maximum of 25 for each.
-getComplianceSummaryByConfigRuleResponse_complianceSummary :: Lens.Lens' GetComplianceSummaryByConfigRuleResponse (Core.Maybe ComplianceSummary)
+getComplianceSummaryByConfigRuleResponse_complianceSummary :: Lens.Lens' GetComplianceSummaryByConfigRuleResponse (Prelude.Maybe ComplianceSummary)
 getComplianceSummaryByConfigRuleResponse_complianceSummary = Lens.lens (\GetComplianceSummaryByConfigRuleResponse' {complianceSummary} -> complianceSummary) (\s@GetComplianceSummaryByConfigRuleResponse' {} a -> s {complianceSummary = a} :: GetComplianceSummaryByConfigRuleResponse)
 
 -- | The response's http status code.
-getComplianceSummaryByConfigRuleResponse_httpStatus :: Lens.Lens' GetComplianceSummaryByConfigRuleResponse Core.Int
+getComplianceSummaryByConfigRuleResponse_httpStatus :: Lens.Lens' GetComplianceSummaryByConfigRuleResponse Prelude.Int
 getComplianceSummaryByConfigRuleResponse_httpStatus = Lens.lens (\GetComplianceSummaryByConfigRuleResponse' {httpStatus} -> httpStatus) (\s@GetComplianceSummaryByConfigRuleResponse' {} a -> s {httpStatus = a} :: GetComplianceSummaryByConfigRuleResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetComplianceSummaryByConfigRuleResponse

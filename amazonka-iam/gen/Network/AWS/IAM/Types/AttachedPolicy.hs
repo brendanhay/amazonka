@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.AttachedPolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an attached policy.
 --
@@ -36,10 +37,10 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAttachedPolicy' smart constructor.
 data AttachedPolicy = AttachedPolicy'
   { -- | The friendly name of the attached policy.
-    policyName :: Core.Maybe Core.Text,
-    policyArn :: Core.Maybe Core.Text
+    policyName :: Prelude.Maybe Prelude.Text,
+    policyArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachedPolicy' with all optional fields omitted.
@@ -56,24 +57,24 @@ newAttachedPolicy ::
   AttachedPolicy
 newAttachedPolicy =
   AttachedPolicy'
-    { policyName = Core.Nothing,
-      policyArn = Core.Nothing
+    { policyName = Prelude.Nothing,
+      policyArn = Prelude.Nothing
     }
 
 -- | The friendly name of the attached policy.
-attachedPolicy_policyName :: Lens.Lens' AttachedPolicy (Core.Maybe Core.Text)
+attachedPolicy_policyName :: Lens.Lens' AttachedPolicy (Prelude.Maybe Prelude.Text)
 attachedPolicy_policyName = Lens.lens (\AttachedPolicy' {policyName} -> policyName) (\s@AttachedPolicy' {} a -> s {policyName = a} :: AttachedPolicy)
 
 -- | Undocumented member.
-attachedPolicy_policyArn :: Lens.Lens' AttachedPolicy (Core.Maybe Core.Text)
+attachedPolicy_policyArn :: Lens.Lens' AttachedPolicy (Prelude.Maybe Prelude.Text)
 attachedPolicy_policyArn = Lens.lens (\AttachedPolicy' {policyArn} -> policyArn) (\s@AttachedPolicy' {} a -> s {policyArn = a} :: AttachedPolicy)
 
 instance Core.FromXML AttachedPolicy where
   parseXML x =
     AttachedPolicy'
-      Core.<$> (x Core..@? "PolicyName")
-      Core.<*> (x Core..@? "PolicyArn")
+      Prelude.<$> (x Core..@? "PolicyName")
+      Prelude.<*> (x Core..@? "PolicyArn")
 
-instance Core.Hashable AttachedPolicy
+instance Prelude.Hashable AttachedPolicy
 
-instance Core.NFData AttachedPolicy
+instance Prelude.NFData AttachedPolicy

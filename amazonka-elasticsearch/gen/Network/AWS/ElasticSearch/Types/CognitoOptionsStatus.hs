@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.CognitoOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the Cognito options for the specified Elasticsearch domain.
 --
@@ -34,7 +35,7 @@ data CognitoOptionsStatus = CognitoOptionsStatus'
     -- Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CognitoOptionsStatus' with all optional fields omitted.
@@ -75,9 +76,10 @@ instance Core.FromJSON CognitoOptionsStatus where
       "CognitoOptionsStatus"
       ( \x ->
           CognitoOptionsStatus'
-            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..: "Options")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable CognitoOptionsStatus
+instance Prelude.Hashable CognitoOptionsStatus
 
-instance Core.NFData CognitoOptionsStatus
+instance Prelude.NFData CognitoOptionsStatus

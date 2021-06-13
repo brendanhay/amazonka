@@ -24,44 +24,45 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ScheduledInstancesIpv6Address
 import Network.AWS.EC2.Types.ScheduledInstancesPrivateIpAddressConfig
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a network interface for a Scheduled Instance.
 --
 -- /See:/ 'newScheduledInstancesNetworkInterface' smart constructor.
 data ScheduledInstancesNetworkInterface = ScheduledInstancesNetworkInterface'
   { -- | The IDs of the security groups.
-    groups :: Core.Maybe [Core.Text],
+    groups :: Prelude.Maybe [Prelude.Text],
     -- | The specific IPv6 addresses from the subnet range.
-    ipv6Addresses :: Core.Maybe [ScheduledInstancesIpv6Address],
+    ipv6Addresses :: Prelude.Maybe [ScheduledInstancesIpv6Address],
     -- | Indicates whether to assign a public IPv4 address to instances launched
     -- in a VPC. The public IPv4 address can only be assigned to a network
     -- interface for eth0, and can only be assigned to a new network interface,
     -- not an existing one. You cannot specify more than one network interface
     -- in the request. If launching into a default subnet, the default value is
     -- @true@.
-    associatePublicIpAddress :: Core.Maybe Core.Bool,
+    associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
     -- | The number of IPv6 addresses to assign to the network interface. The
     -- IPv6 addresses are automatically selected from the subnet range.
-    ipv6AddressCount :: Core.Maybe Core.Int,
+    ipv6AddressCount :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether to delete the interface when the instance is
     -- terminated.
-    deleteOnTermination :: Core.Maybe Core.Bool,
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the network interface.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The index of the device for the network interface attachment.
-    deviceIndex :: Core.Maybe Core.Int,
+    deviceIndex :: Prelude.Maybe Prelude.Int,
     -- | The number of secondary private IPv4 addresses.
-    secondaryPrivateIpAddressCount :: Core.Maybe Core.Int,
+    secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
     -- | The private IPv4 addresses.
-    privateIpAddressConfigs :: Core.Maybe [ScheduledInstancesPrivateIpAddressConfig],
+    privateIpAddressConfigs :: Prelude.Maybe [ScheduledInstancesPrivateIpAddressConfig],
     -- | The IPv4 address of the network interface within the subnet.
-    privateIpAddress :: Core.Maybe Core.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesNetworkInterface' with all optional fields omitted.
@@ -106,28 +107,30 @@ newScheduledInstancesNetworkInterface ::
 newScheduledInstancesNetworkInterface =
   ScheduledInstancesNetworkInterface'
     { groups =
-        Core.Nothing,
-      ipv6Addresses = Core.Nothing,
-      associatePublicIpAddress = Core.Nothing,
-      ipv6AddressCount = Core.Nothing,
-      deleteOnTermination = Core.Nothing,
-      networkInterfaceId = Core.Nothing,
-      subnetId = Core.Nothing,
-      description = Core.Nothing,
-      deviceIndex = Core.Nothing,
+        Prelude.Nothing,
+      ipv6Addresses = Prelude.Nothing,
+      associatePublicIpAddress =
+        Prelude.Nothing,
+      ipv6AddressCount = Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      deviceIndex = Prelude.Nothing,
       secondaryPrivateIpAddressCount =
-        Core.Nothing,
-      privateIpAddressConfigs = Core.Nothing,
-      privateIpAddress = Core.Nothing
+        Prelude.Nothing,
+      privateIpAddressConfigs =
+        Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
 
 -- | The IDs of the security groups.
-scheduledInstancesNetworkInterface_groups :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe [Core.Text])
-scheduledInstancesNetworkInterface_groups = Lens.lens (\ScheduledInstancesNetworkInterface' {groups} -> groups) (\s@ScheduledInstancesNetworkInterface' {} a -> s {groups = a} :: ScheduledInstancesNetworkInterface) Core.. Lens.mapping Lens._Coerce
+scheduledInstancesNetworkInterface_groups :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe [Prelude.Text])
+scheduledInstancesNetworkInterface_groups = Lens.lens (\ScheduledInstancesNetworkInterface' {groups} -> groups) (\s@ScheduledInstancesNetworkInterface' {} a -> s {groups = a} :: ScheduledInstancesNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The specific IPv6 addresses from the subnet range.
-scheduledInstancesNetworkInterface_ipv6Addresses :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe [ScheduledInstancesIpv6Address])
-scheduledInstancesNetworkInterface_ipv6Addresses = Lens.lens (\ScheduledInstancesNetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@ScheduledInstancesNetworkInterface' {} a -> s {ipv6Addresses = a} :: ScheduledInstancesNetworkInterface) Core.. Lens.mapping Lens._Coerce
+scheduledInstancesNetworkInterface_ipv6Addresses :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe [ScheduledInstancesIpv6Address])
+scheduledInstancesNetworkInterface_ipv6Addresses = Lens.lens (\ScheduledInstancesNetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@ScheduledInstancesNetworkInterface' {} a -> s {ipv6Addresses = a} :: ScheduledInstancesNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether to assign a public IPv4 address to instances launched
 -- in a VPC. The public IPv4 address can only be assigned to a network
@@ -135,53 +138,53 @@ scheduledInstancesNetworkInterface_ipv6Addresses = Lens.lens (\ScheduledInstance
 -- not an existing one. You cannot specify more than one network interface
 -- in the request. If launching into a default subnet, the default value is
 -- @true@.
-scheduledInstancesNetworkInterface_associatePublicIpAddress :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Bool)
+scheduledInstancesNetworkInterface_associatePublicIpAddress :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Bool)
 scheduledInstancesNetworkInterface_associatePublicIpAddress = Lens.lens (\ScheduledInstancesNetworkInterface' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@ScheduledInstancesNetworkInterface' {} a -> s {associatePublicIpAddress = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The number of IPv6 addresses to assign to the network interface. The
 -- IPv6 addresses are automatically selected from the subnet range.
-scheduledInstancesNetworkInterface_ipv6AddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Int)
+scheduledInstancesNetworkInterface_ipv6AddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Int)
 scheduledInstancesNetworkInterface_ipv6AddressCount = Lens.lens (\ScheduledInstancesNetworkInterface' {ipv6AddressCount} -> ipv6AddressCount) (\s@ScheduledInstancesNetworkInterface' {} a -> s {ipv6AddressCount = a} :: ScheduledInstancesNetworkInterface)
 
 -- | Indicates whether to delete the interface when the instance is
 -- terminated.
-scheduledInstancesNetworkInterface_deleteOnTermination :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Bool)
+scheduledInstancesNetworkInterface_deleteOnTermination :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Bool)
 scheduledInstancesNetworkInterface_deleteOnTermination = Lens.lens (\ScheduledInstancesNetworkInterface' {deleteOnTermination} -> deleteOnTermination) (\s@ScheduledInstancesNetworkInterface' {} a -> s {deleteOnTermination = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The ID of the network interface.
-scheduledInstancesNetworkInterface_networkInterfaceId :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Text)
+scheduledInstancesNetworkInterface_networkInterfaceId :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
 scheduledInstancesNetworkInterface_networkInterfaceId = Lens.lens (\ScheduledInstancesNetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@ScheduledInstancesNetworkInterface' {} a -> s {networkInterfaceId = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The ID of the subnet.
-scheduledInstancesNetworkInterface_subnetId :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Text)
+scheduledInstancesNetworkInterface_subnetId :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
 scheduledInstancesNetworkInterface_subnetId = Lens.lens (\ScheduledInstancesNetworkInterface' {subnetId} -> subnetId) (\s@ScheduledInstancesNetworkInterface' {} a -> s {subnetId = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The description.
-scheduledInstancesNetworkInterface_description :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Text)
+scheduledInstancesNetworkInterface_description :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
 scheduledInstancesNetworkInterface_description = Lens.lens (\ScheduledInstancesNetworkInterface' {description} -> description) (\s@ScheduledInstancesNetworkInterface' {} a -> s {description = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The index of the device for the network interface attachment.
-scheduledInstancesNetworkInterface_deviceIndex :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Int)
+scheduledInstancesNetworkInterface_deviceIndex :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Int)
 scheduledInstancesNetworkInterface_deviceIndex = Lens.lens (\ScheduledInstancesNetworkInterface' {deviceIndex} -> deviceIndex) (\s@ScheduledInstancesNetworkInterface' {} a -> s {deviceIndex = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The number of secondary private IPv4 addresses.
-scheduledInstancesNetworkInterface_secondaryPrivateIpAddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Int)
+scheduledInstancesNetworkInterface_secondaryPrivateIpAddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Int)
 scheduledInstancesNetworkInterface_secondaryPrivateIpAddressCount = Lens.lens (\ScheduledInstancesNetworkInterface' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@ScheduledInstancesNetworkInterface' {} a -> s {secondaryPrivateIpAddressCount = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The private IPv4 addresses.
-scheduledInstancesNetworkInterface_privateIpAddressConfigs :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe [ScheduledInstancesPrivateIpAddressConfig])
-scheduledInstancesNetworkInterface_privateIpAddressConfigs = Lens.lens (\ScheduledInstancesNetworkInterface' {privateIpAddressConfigs} -> privateIpAddressConfigs) (\s@ScheduledInstancesNetworkInterface' {} a -> s {privateIpAddressConfigs = a} :: ScheduledInstancesNetworkInterface) Core.. Lens.mapping Lens._Coerce
+scheduledInstancesNetworkInterface_privateIpAddressConfigs :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe [ScheduledInstancesPrivateIpAddressConfig])
+scheduledInstancesNetworkInterface_privateIpAddressConfigs = Lens.lens (\ScheduledInstancesNetworkInterface' {privateIpAddressConfigs} -> privateIpAddressConfigs) (\s@ScheduledInstancesNetworkInterface' {} a -> s {privateIpAddressConfigs = a} :: ScheduledInstancesNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IPv4 address of the network interface within the subnet.
-scheduledInstancesNetworkInterface_privateIpAddress :: Lens.Lens' ScheduledInstancesNetworkInterface (Core.Maybe Core.Text)
+scheduledInstancesNetworkInterface_privateIpAddress :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
 scheduledInstancesNetworkInterface_privateIpAddress = Lens.lens (\ScheduledInstancesNetworkInterface' {privateIpAddress} -> privateIpAddress) (\s@ScheduledInstancesNetworkInterface' {} a -> s {privateIpAddress = a} :: ScheduledInstancesNetworkInterface)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ScheduledInstancesNetworkInterface
 
 instance
-  Core.NFData
+  Prelude.NFData
     ScheduledInstancesNetworkInterface
 
 instance
@@ -189,12 +192,12 @@ instance
     ScheduledInstancesNetworkInterface
   where
   toQuery ScheduledInstancesNetworkInterface' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ Core.toQuery
-          (Core.toQueryList "Group" Core.<$> groups),
+          (Core.toQueryList "Group" Prelude.<$> groups),
         Core.toQuery
           ( Core.toQueryList "Ipv6Address"
-              Core.<$> ipv6Addresses
+              Prelude.<$> ipv6Addresses
           ),
         "AssociatePublicIpAddress"
           Core.=: associatePublicIpAddress,
@@ -208,7 +211,7 @@ instance
           Core.=: secondaryPrivateIpAddressCount,
         Core.toQuery
           ( Core.toQueryList "PrivateIpAddressConfig"
-              Core.<$> privateIpAddressConfigs
+              Prelude.<$> privateIpAddressConfigs
           ),
         "PrivateIpAddress" Core.=: privateIpAddress
       ]

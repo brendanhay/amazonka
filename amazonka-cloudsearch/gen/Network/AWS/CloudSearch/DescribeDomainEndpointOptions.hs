@@ -46,6 +46,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +60,11 @@ data DescribeDomainEndpointOptions = DescribeDomainEndpointOptions'
   { -- | Whether to retrieve the latest configuration (which might be in a
     -- Processing state) or the current, active configuration. Defaults to
     -- @false@.
-    deployed :: Core.Maybe Core.Bool,
+    deployed :: Prelude.Maybe Prelude.Bool,
     -- | A string that represents the name of a domain.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomainEndpointOptions' with all optional fields omitted.
@@ -80,23 +81,23 @@ data DescribeDomainEndpointOptions = DescribeDomainEndpointOptions'
 -- 'domainName', 'describeDomainEndpointOptions_domainName' - A string that represents the name of a domain.
 newDescribeDomainEndpointOptions ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDomainEndpointOptions
 newDescribeDomainEndpointOptions pDomainName_ =
   DescribeDomainEndpointOptions'
     { deployed =
-        Core.Nothing,
+        Prelude.Nothing,
       domainName = pDomainName_
     }
 
 -- | Whether to retrieve the latest configuration (which might be in a
 -- Processing state) or the current, active configuration. Defaults to
 -- @false@.
-describeDomainEndpointOptions_deployed :: Lens.Lens' DescribeDomainEndpointOptions (Core.Maybe Core.Bool)
+describeDomainEndpointOptions_deployed :: Lens.Lens' DescribeDomainEndpointOptions (Prelude.Maybe Prelude.Bool)
 describeDomainEndpointOptions_deployed = Lens.lens (\DescribeDomainEndpointOptions' {deployed} -> deployed) (\s@DescribeDomainEndpointOptions' {} a -> s {deployed = a} :: DescribeDomainEndpointOptions)
 
 -- | A string that represents the name of a domain.
-describeDomainEndpointOptions_domainName :: Lens.Lens' DescribeDomainEndpointOptions Core.Text
+describeDomainEndpointOptions_domainName :: Lens.Lens' DescribeDomainEndpointOptions Prelude.Text
 describeDomainEndpointOptions_domainName = Lens.lens (\DescribeDomainEndpointOptions' {domainName} -> domainName) (\s@DescribeDomainEndpointOptions' {} a -> s {domainName = a} :: DescribeDomainEndpointOptions)
 
 instance
@@ -112,26 +113,31 @@ instance
       "DescribeDomainEndpointOptionsResult"
       ( \s h x ->
           DescribeDomainEndpointOptionsResponse'
-            Core.<$> (x Core..@? "DomainEndpointOptions")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DomainEndpointOptions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDomainEndpointOptions
+instance
+  Prelude.Hashable
+    DescribeDomainEndpointOptions
 
-instance Core.NFData DescribeDomainEndpointOptions
+instance Prelude.NFData DescribeDomainEndpointOptions
 
 instance Core.ToHeaders DescribeDomainEndpointOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDomainEndpointOptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDomainEndpointOptions where
   toQuery DescribeDomainEndpointOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDomainEndpointOptions" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ( "DescribeDomainEndpointOptions" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "Deployed" Core.=: deployed,
         "DomainName" Core.=: domainName
       ]
@@ -142,11 +148,11 @@ instance Core.ToQuery DescribeDomainEndpointOptions where
 -- /See:/ 'newDescribeDomainEndpointOptionsResponse' smart constructor.
 data DescribeDomainEndpointOptionsResponse = DescribeDomainEndpointOptionsResponse'
   { -- | The status and configuration of a search domain\'s endpoint options.
-    domainEndpointOptions :: Core.Maybe DomainEndpointOptionsStatus,
+    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptionsStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomainEndpointOptionsResponse' with all optional fields omitted.
@@ -161,23 +167,23 @@ data DescribeDomainEndpointOptionsResponse = DescribeDomainEndpointOptionsRespon
 -- 'httpStatus', 'describeDomainEndpointOptionsResponse_httpStatus' - The response's http status code.
 newDescribeDomainEndpointOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDomainEndpointOptionsResponse
 newDescribeDomainEndpointOptionsResponse pHttpStatus_ =
   DescribeDomainEndpointOptionsResponse'
     { domainEndpointOptions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status and configuration of a search domain\'s endpoint options.
-describeDomainEndpointOptionsResponse_domainEndpointOptions :: Lens.Lens' DescribeDomainEndpointOptionsResponse (Core.Maybe DomainEndpointOptionsStatus)
+describeDomainEndpointOptionsResponse_domainEndpointOptions :: Lens.Lens' DescribeDomainEndpointOptionsResponse (Prelude.Maybe DomainEndpointOptionsStatus)
 describeDomainEndpointOptionsResponse_domainEndpointOptions = Lens.lens (\DescribeDomainEndpointOptionsResponse' {domainEndpointOptions} -> domainEndpointOptions) (\s@DescribeDomainEndpointOptionsResponse' {} a -> s {domainEndpointOptions = a} :: DescribeDomainEndpointOptionsResponse)
 
 -- | The response's http status code.
-describeDomainEndpointOptionsResponse_httpStatus :: Lens.Lens' DescribeDomainEndpointOptionsResponse Core.Int
+describeDomainEndpointOptionsResponse_httpStatus :: Lens.Lens' DescribeDomainEndpointOptionsResponse Prelude.Int
 describeDomainEndpointOptionsResponse_httpStatus = Lens.lens (\DescribeDomainEndpointOptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainEndpointOptionsResponse' {} a -> s {httpStatus = a} :: DescribeDomainEndpointOptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDomainEndpointOptionsResponse

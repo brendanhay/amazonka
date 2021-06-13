@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,14 +63,14 @@ data DescribeDeliveryStream = DescribeDeliveryStream'
   { -- | The ID of the destination to start returning the destination
     -- information. Kinesis Data Firehose supports one destination per delivery
     -- stream.
-    exclusiveStartDestinationId :: Core.Maybe Core.Text,
+    exclusiveStartDestinationId :: Prelude.Maybe Prelude.Text,
     -- | The limit on the number of destinations to return. You can have one
     -- destination per delivery stream.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the delivery stream.
-    deliveryStreamName :: Core.Text
+    deliveryStreamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDeliveryStream' with all optional fields omitted.
@@ -89,29 +90,29 @@ data DescribeDeliveryStream = DescribeDeliveryStream'
 -- 'deliveryStreamName', 'describeDeliveryStream_deliveryStreamName' - The name of the delivery stream.
 newDescribeDeliveryStream ::
   -- | 'deliveryStreamName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDeliveryStream
 newDescribeDeliveryStream pDeliveryStreamName_ =
   DescribeDeliveryStream'
     { exclusiveStartDestinationId =
-        Core.Nothing,
-      limit = Core.Nothing,
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
       deliveryStreamName = pDeliveryStreamName_
     }
 
 -- | The ID of the destination to start returning the destination
 -- information. Kinesis Data Firehose supports one destination per delivery
 -- stream.
-describeDeliveryStream_exclusiveStartDestinationId :: Lens.Lens' DescribeDeliveryStream (Core.Maybe Core.Text)
+describeDeliveryStream_exclusiveStartDestinationId :: Lens.Lens' DescribeDeliveryStream (Prelude.Maybe Prelude.Text)
 describeDeliveryStream_exclusiveStartDestinationId = Lens.lens (\DescribeDeliveryStream' {exclusiveStartDestinationId} -> exclusiveStartDestinationId) (\s@DescribeDeliveryStream' {} a -> s {exclusiveStartDestinationId = a} :: DescribeDeliveryStream)
 
 -- | The limit on the number of destinations to return. You can have one
 -- destination per delivery stream.
-describeDeliveryStream_limit :: Lens.Lens' DescribeDeliveryStream (Core.Maybe Core.Natural)
+describeDeliveryStream_limit :: Lens.Lens' DescribeDeliveryStream (Prelude.Maybe Prelude.Natural)
 describeDeliveryStream_limit = Lens.lens (\DescribeDeliveryStream' {limit} -> limit) (\s@DescribeDeliveryStream' {} a -> s {limit = a} :: DescribeDeliveryStream)
 
 -- | The name of the delivery stream.
-describeDeliveryStream_deliveryStreamName :: Lens.Lens' DescribeDeliveryStream Core.Text
+describeDeliveryStream_deliveryStreamName :: Lens.Lens' DescribeDeliveryStream Prelude.Text
 describeDeliveryStream_deliveryStreamName = Lens.lens (\DescribeDeliveryStream' {deliveryStreamName} -> deliveryStreamName) (\s@DescribeDeliveryStream' {} a -> s {deliveryStreamName = a} :: DescribeDeliveryStream)
 
 instance Core.AWSRequest DescribeDeliveryStream where
@@ -123,53 +124,55 @@ instance Core.AWSRequest DescribeDeliveryStream where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeliveryStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "DeliveryStreamDescription")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "DeliveryStreamDescription")
       )
 
-instance Core.Hashable DescribeDeliveryStream
+instance Prelude.Hashable DescribeDeliveryStream
 
-instance Core.NFData DescribeDeliveryStream
+instance Prelude.NFData DescribeDeliveryStream
 
 instance Core.ToHeaders DescribeDeliveryStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Firehose_20150804.DescribeDeliveryStream" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDeliveryStream where
   toJSON DescribeDeliveryStream' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExclusiveStartDestinationId" Core..=)
-              Core.<$> exclusiveStartDestinationId,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just
+              Prelude.<$> exclusiveStartDestinationId,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName)
           ]
       )
 
 instance Core.ToPath DescribeDeliveryStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDeliveryStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the delivery stream.
     deliveryStreamDescription :: DeliveryStreamDescription
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDeliveryStreamResponse' with all optional fields omitted.
@@ -184,7 +187,7 @@ data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
 -- 'deliveryStreamDescription', 'describeDeliveryStreamResponse_deliveryStreamDescription' - Information about the delivery stream.
 newDescribeDeliveryStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'deliveryStreamDescription'
   DeliveryStreamDescription ->
   DescribeDeliveryStreamResponse
@@ -199,11 +202,13 @@ newDescribeDeliveryStreamResponse
       }
 
 -- | The response's http status code.
-describeDeliveryStreamResponse_httpStatus :: Lens.Lens' DescribeDeliveryStreamResponse Core.Int
+describeDeliveryStreamResponse_httpStatus :: Lens.Lens' DescribeDeliveryStreamResponse Prelude.Int
 describeDeliveryStreamResponse_httpStatus = Lens.lens (\DescribeDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@DescribeDeliveryStreamResponse' {} a -> s {httpStatus = a} :: DescribeDeliveryStreamResponse)
 
 -- | Information about the delivery stream.
 describeDeliveryStreamResponse_deliveryStreamDescription :: Lens.Lens' DescribeDeliveryStreamResponse DeliveryStreamDescription
 describeDeliveryStreamResponse_deliveryStreamDescription = Lens.lens (\DescribeDeliveryStreamResponse' {deliveryStreamDescription} -> deliveryStreamDescription) (\s@DescribeDeliveryStreamResponse' {} a -> s {deliveryStreamDescription = a} :: DescribeDeliveryStreamResponse)
 
-instance Core.NFData DescribeDeliveryStreamResponse
+instance
+  Prelude.NFData
+    DescribeDeliveryStreamResponse

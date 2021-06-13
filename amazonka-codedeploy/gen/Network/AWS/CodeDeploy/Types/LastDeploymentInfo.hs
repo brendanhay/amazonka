@@ -22,6 +22,7 @@ module Network.AWS.CodeDeploy.Types.LastDeploymentInfo where
 import Network.AWS.CodeDeploy.Types.DeploymentStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the most recent attempted or successful deployment to
 -- a deployment group.
@@ -29,17 +30,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLastDeploymentInfo' smart constructor.
 data LastDeploymentInfo = LastDeploymentInfo'
   { -- | The unique ID of a deployment.
-    deploymentId :: Core.Maybe Core.Text,
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The status of the most recent deployment.
-    status :: Core.Maybe DeploymentStatus,
+    status :: Prelude.Maybe DeploymentStatus,
     -- | A timestamp that indicates when the most recent deployment to the
     -- deployment group was complete.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | A timestamp that indicates when the most recent deployment to the
     -- deployment group started.
-    createTime :: Core.Maybe Core.POSIX
+    createTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LastDeploymentInfo' with all optional fields omitted.
@@ -62,29 +63,29 @@ newLastDeploymentInfo ::
   LastDeploymentInfo
 newLastDeploymentInfo =
   LastDeploymentInfo'
-    { deploymentId = Core.Nothing,
-      status = Core.Nothing,
-      endTime = Core.Nothing,
-      createTime = Core.Nothing
+    { deploymentId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      createTime = Prelude.Nothing
     }
 
 -- | The unique ID of a deployment.
-lastDeploymentInfo_deploymentId :: Lens.Lens' LastDeploymentInfo (Core.Maybe Core.Text)
+lastDeploymentInfo_deploymentId :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe Prelude.Text)
 lastDeploymentInfo_deploymentId = Lens.lens (\LastDeploymentInfo' {deploymentId} -> deploymentId) (\s@LastDeploymentInfo' {} a -> s {deploymentId = a} :: LastDeploymentInfo)
 
 -- | The status of the most recent deployment.
-lastDeploymentInfo_status :: Lens.Lens' LastDeploymentInfo (Core.Maybe DeploymentStatus)
+lastDeploymentInfo_status :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe DeploymentStatus)
 lastDeploymentInfo_status = Lens.lens (\LastDeploymentInfo' {status} -> status) (\s@LastDeploymentInfo' {} a -> s {status = a} :: LastDeploymentInfo)
 
 -- | A timestamp that indicates when the most recent deployment to the
 -- deployment group was complete.
-lastDeploymentInfo_endTime :: Lens.Lens' LastDeploymentInfo (Core.Maybe Core.UTCTime)
-lastDeploymentInfo_endTime = Lens.lens (\LastDeploymentInfo' {endTime} -> endTime) (\s@LastDeploymentInfo' {} a -> s {endTime = a} :: LastDeploymentInfo) Core.. Lens.mapping Core._Time
+lastDeploymentInfo_endTime :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe Prelude.UTCTime)
+lastDeploymentInfo_endTime = Lens.lens (\LastDeploymentInfo' {endTime} -> endTime) (\s@LastDeploymentInfo' {} a -> s {endTime = a} :: LastDeploymentInfo) Prelude.. Lens.mapping Core._Time
 
 -- | A timestamp that indicates when the most recent deployment to the
 -- deployment group started.
-lastDeploymentInfo_createTime :: Lens.Lens' LastDeploymentInfo (Core.Maybe Core.UTCTime)
-lastDeploymentInfo_createTime = Lens.lens (\LastDeploymentInfo' {createTime} -> createTime) (\s@LastDeploymentInfo' {} a -> s {createTime = a} :: LastDeploymentInfo) Core.. Lens.mapping Core._Time
+lastDeploymentInfo_createTime :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe Prelude.UTCTime)
+lastDeploymentInfo_createTime = Lens.lens (\LastDeploymentInfo' {createTime} -> createTime) (\s@LastDeploymentInfo' {} a -> s {createTime = a} :: LastDeploymentInfo) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON LastDeploymentInfo where
   parseJSON =
@@ -92,12 +93,12 @@ instance Core.FromJSON LastDeploymentInfo where
       "LastDeploymentInfo"
       ( \x ->
           LastDeploymentInfo'
-            Core.<$> (x Core..:? "deploymentId")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "endTime")
-            Core.<*> (x Core..:? "createTime")
+            Prelude.<$> (x Core..:? "deploymentId")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "endTime")
+            Prelude.<*> (x Core..:? "createTime")
       )
 
-instance Core.Hashable LastDeploymentInfo
+instance Prelude.Hashable LastDeploymentInfo
 
-instance Core.NFData LastDeploymentInfo
+instance Prelude.NFData LastDeploymentInfo

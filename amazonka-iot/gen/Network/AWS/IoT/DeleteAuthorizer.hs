@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAuthorizer' smart constructor.
 data DeleteAuthorizer = DeleteAuthorizer'
   { -- | The name of the authorizer to delete.
-    authorizerName :: Core.Text
+    authorizerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAuthorizer' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteAuthorizer = DeleteAuthorizer'
 -- 'authorizerName', 'deleteAuthorizer_authorizerName' - The name of the authorizer to delete.
 newDeleteAuthorizer ::
   -- | 'authorizerName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAuthorizer
 newDeleteAuthorizer pAuthorizerName_ =
   DeleteAuthorizer'
@@ -71,7 +72,7 @@ newDeleteAuthorizer pAuthorizerName_ =
     }
 
 -- | The name of the authorizer to delete.
-deleteAuthorizer_authorizerName :: Lens.Lens' DeleteAuthorizer Core.Text
+deleteAuthorizer_authorizerName :: Lens.Lens' DeleteAuthorizer Prelude.Text
 deleteAuthorizer_authorizerName = Lens.lens (\DeleteAuthorizer' {authorizerName} -> authorizerName) (\s@DeleteAuthorizer' {} a -> s {authorizerName = a} :: DeleteAuthorizer)
 
 instance Core.AWSRequest DeleteAuthorizer where
@@ -83,30 +84,30 @@ instance Core.AWSRequest DeleteAuthorizer where
     Response.receiveEmpty
       ( \s h x ->
           DeleteAuthorizerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteAuthorizer
+instance Prelude.Hashable DeleteAuthorizer
 
-instance Core.NFData DeleteAuthorizer
+instance Prelude.NFData DeleteAuthorizer
 
 instance Core.ToHeaders DeleteAuthorizer where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteAuthorizer where
   toPath DeleteAuthorizer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/authorizer/", Core.toBS authorizerName]
 
 instance Core.ToQuery DeleteAuthorizer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAuthorizerResponse' smart constructor.
 data DeleteAuthorizerResponse = DeleteAuthorizerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAuthorizerResponse' with all optional fields omitted.
@@ -119,7 +120,7 @@ data DeleteAuthorizerResponse = DeleteAuthorizerResponse'
 -- 'httpStatus', 'deleteAuthorizerResponse_httpStatus' - The response's http status code.
 newDeleteAuthorizerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteAuthorizerResponse
 newDeleteAuthorizerResponse pHttpStatus_ =
   DeleteAuthorizerResponse'
@@ -128,7 +129,7 @@ newDeleteAuthorizerResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteAuthorizerResponse_httpStatus :: Lens.Lens' DeleteAuthorizerResponse Core.Int
+deleteAuthorizerResponse_httpStatus :: Lens.Lens' DeleteAuthorizerResponse Prelude.Int
 deleteAuthorizerResponse_httpStatus = Lens.lens (\DeleteAuthorizerResponse' {httpStatus} -> httpStatus) (\s@DeleteAuthorizerResponse' {} a -> s {httpStatus = a} :: DeleteAuthorizerResponse)
 
-instance Core.NFData DeleteAuthorizerResponse
+instance Prelude.NFData DeleteAuthorizerResponse

@@ -21,6 +21,7 @@ module Network.AWS.AWSHealth.Types.EventDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The detailed description of the event. Included in the information
 -- returned by the
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEventDescription' smart constructor.
 data EventDescription = EventDescription'
   { -- | The most recent description of the event.
-    latestDescription :: Core.Maybe Core.Text
+    latestDescription :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventDescription' with all optional fields omitted.
@@ -46,10 +47,13 @@ data EventDescription = EventDescription'
 newEventDescription ::
   EventDescription
 newEventDescription =
-  EventDescription' {latestDescription = Core.Nothing}
+  EventDescription'
+    { latestDescription =
+        Prelude.Nothing
+    }
 
 -- | The most recent description of the event.
-eventDescription_latestDescription :: Lens.Lens' EventDescription (Core.Maybe Core.Text)
+eventDescription_latestDescription :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
 eventDescription_latestDescription = Lens.lens (\EventDescription' {latestDescription} -> latestDescription) (\s@EventDescription' {} a -> s {latestDescription = a} :: EventDescription)
 
 instance Core.FromJSON EventDescription where
@@ -58,9 +62,9 @@ instance Core.FromJSON EventDescription where
       "EventDescription"
       ( \x ->
           EventDescription'
-            Core.<$> (x Core..:? "latestDescription")
+            Prelude.<$> (x Core..:? "latestDescription")
       )
 
-instance Core.Hashable EventDescription
+instance Prelude.Hashable EventDescription
 
-instance Core.NFData EventDescription
+instance Prelude.NFData EventDescription

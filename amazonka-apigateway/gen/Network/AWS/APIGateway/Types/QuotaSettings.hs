@@ -22,6 +22,7 @@ module Network.AWS.APIGateway.Types.QuotaSettings where
 import Network.AWS.APIGateway.Types.QuotaPeriodType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Quotas configured for a usage plan.
 --
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 data QuotaSettings = QuotaSettings'
   { -- | The time period in which the limit applies. Valid values are \"DAY\",
     -- \"WEEK\" or \"MONTH\".
-    period :: Core.Maybe QuotaPeriodType,
+    period :: Prelude.Maybe QuotaPeriodType,
     -- | The maximum number of requests that can be made in a given time period.
-    limit :: Core.Maybe Core.Int,
+    limit :: Prelude.Maybe Prelude.Int,
     -- | The day that a time period starts. For example, with a time period of
     -- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
     -- on Monday.
-    offset :: Core.Maybe Core.Int
+    offset :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QuotaSettings' with all optional fields omitted.
@@ -59,24 +60,24 @@ newQuotaSettings ::
   QuotaSettings
 newQuotaSettings =
   QuotaSettings'
-    { period = Core.Nothing,
-      limit = Core.Nothing,
-      offset = Core.Nothing
+    { period = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      offset = Prelude.Nothing
     }
 
 -- | The time period in which the limit applies. Valid values are \"DAY\",
 -- \"WEEK\" or \"MONTH\".
-quotaSettings_period :: Lens.Lens' QuotaSettings (Core.Maybe QuotaPeriodType)
+quotaSettings_period :: Lens.Lens' QuotaSettings (Prelude.Maybe QuotaPeriodType)
 quotaSettings_period = Lens.lens (\QuotaSettings' {period} -> period) (\s@QuotaSettings' {} a -> s {period = a} :: QuotaSettings)
 
 -- | The maximum number of requests that can be made in a given time period.
-quotaSettings_limit :: Lens.Lens' QuotaSettings (Core.Maybe Core.Int)
+quotaSettings_limit :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
 quotaSettings_limit = Lens.lens (\QuotaSettings' {limit} -> limit) (\s@QuotaSettings' {} a -> s {limit = a} :: QuotaSettings)
 
 -- | The day that a time period starts. For example, with a time period of
 -- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
 -- on Monday.
-quotaSettings_offset :: Lens.Lens' QuotaSettings (Core.Maybe Core.Int)
+quotaSettings_offset :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
 quotaSettings_offset = Lens.lens (\QuotaSettings' {offset} -> offset) (\s@QuotaSettings' {} a -> s {offset = a} :: QuotaSettings)
 
 instance Core.FromJSON QuotaSettings where
@@ -85,21 +86,21 @@ instance Core.FromJSON QuotaSettings where
       "QuotaSettings"
       ( \x ->
           QuotaSettings'
-            Core.<$> (x Core..:? "period")
-            Core.<*> (x Core..:? "limit")
-            Core.<*> (x Core..:? "offset")
+            Prelude.<$> (x Core..:? "period")
+            Prelude.<*> (x Core..:? "limit")
+            Prelude.<*> (x Core..:? "offset")
       )
 
-instance Core.Hashable QuotaSettings
+instance Prelude.Hashable QuotaSettings
 
-instance Core.NFData QuotaSettings
+instance Prelude.NFData QuotaSettings
 
 instance Core.ToJSON QuotaSettings where
   toJSON QuotaSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("period" Core..=) Core.<$> period,
-            ("limit" Core..=) Core.<$> limit,
-            ("offset" Core..=) Core.<$> offset
+      ( Prelude.catMaybes
+          [ ("period" Core..=) Prelude.<$> period,
+            ("limit" Core..=) Prelude.<$> limit,
+            ("offset" Core..=) Prelude.<$> offset
           ]
       )

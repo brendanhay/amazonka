@@ -21,25 +21,26 @@ module Network.AWS.Glue.Types.JsonClassifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A classifier for @JSON@ content.
 --
 -- /See:/ 'newJsonClassifier' smart constructor.
 data JsonClassifier = JsonClassifier'
   { -- | The time that this classifier was registered.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The version of this classifier.
-    version :: Core.Maybe Core.Integer,
+    version :: Prelude.Maybe Prelude.Integer,
     -- | The time that this classifier was last updated.
-    lastUpdated :: Core.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | The name of the classifier.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A @JsonPath@ string defining the JSON data for the classifier to
     -- classify. AWS Glue supports a subset of JsonPath, as described in
     -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
-    jsonPath :: Core.Text
+    jsonPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JsonClassifier' with all optional fields omitted.
@@ -62,39 +63,39 @@ data JsonClassifier = JsonClassifier'
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
 newJsonClassifier ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jsonPath'
-  Core.Text ->
+  Prelude.Text ->
   JsonClassifier
 newJsonClassifier pName_ pJsonPath_ =
   JsonClassifier'
-    { creationTime = Core.Nothing,
-      version = Core.Nothing,
-      lastUpdated = Core.Nothing,
+    { creationTime = Prelude.Nothing,
+      version = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
       name = pName_,
       jsonPath = pJsonPath_
     }
 
 -- | The time that this classifier was registered.
-jsonClassifier_creationTime :: Lens.Lens' JsonClassifier (Core.Maybe Core.UTCTime)
-jsonClassifier_creationTime = Lens.lens (\JsonClassifier' {creationTime} -> creationTime) (\s@JsonClassifier' {} a -> s {creationTime = a} :: JsonClassifier) Core.. Lens.mapping Core._Time
+jsonClassifier_creationTime :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.UTCTime)
+jsonClassifier_creationTime = Lens.lens (\JsonClassifier' {creationTime} -> creationTime) (\s@JsonClassifier' {} a -> s {creationTime = a} :: JsonClassifier) Prelude.. Lens.mapping Core._Time
 
 -- | The version of this classifier.
-jsonClassifier_version :: Lens.Lens' JsonClassifier (Core.Maybe Core.Integer)
+jsonClassifier_version :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.Integer)
 jsonClassifier_version = Lens.lens (\JsonClassifier' {version} -> version) (\s@JsonClassifier' {} a -> s {version = a} :: JsonClassifier)
 
 -- | The time that this classifier was last updated.
-jsonClassifier_lastUpdated :: Lens.Lens' JsonClassifier (Core.Maybe Core.UTCTime)
-jsonClassifier_lastUpdated = Lens.lens (\JsonClassifier' {lastUpdated} -> lastUpdated) (\s@JsonClassifier' {} a -> s {lastUpdated = a} :: JsonClassifier) Core.. Lens.mapping Core._Time
+jsonClassifier_lastUpdated :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.UTCTime)
+jsonClassifier_lastUpdated = Lens.lens (\JsonClassifier' {lastUpdated} -> lastUpdated) (\s@JsonClassifier' {} a -> s {lastUpdated = a} :: JsonClassifier) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the classifier.
-jsonClassifier_name :: Lens.Lens' JsonClassifier Core.Text
+jsonClassifier_name :: Lens.Lens' JsonClassifier Prelude.Text
 jsonClassifier_name = Lens.lens (\JsonClassifier' {name} -> name) (\s@JsonClassifier' {} a -> s {name = a} :: JsonClassifier)
 
 -- | A @JsonPath@ string defining the JSON data for the classifier to
 -- classify. AWS Glue supports a subset of JsonPath, as described in
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
-jsonClassifier_jsonPath :: Lens.Lens' JsonClassifier Core.Text
+jsonClassifier_jsonPath :: Lens.Lens' JsonClassifier Prelude.Text
 jsonClassifier_jsonPath = Lens.lens (\JsonClassifier' {jsonPath} -> jsonPath) (\s@JsonClassifier' {} a -> s {jsonPath = a} :: JsonClassifier)
 
 instance Core.FromJSON JsonClassifier where
@@ -103,13 +104,13 @@ instance Core.FromJSON JsonClassifier where
       "JsonClassifier"
       ( \x ->
           JsonClassifier'
-            Core.<$> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "Version")
-            Core.<*> (x Core..:? "LastUpdated")
-            Core.<*> (x Core..: "Name")
-            Core.<*> (x Core..: "JsonPath")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "JsonPath")
       )
 
-instance Core.Hashable JsonClassifier
+instance Prelude.Hashable JsonClassifier
 
-instance Core.NFData JsonClassifier
+instance Prelude.NFData JsonClassifier

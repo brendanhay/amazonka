@@ -21,17 +21,18 @@ module Network.AWS.IoTAnalytics.Types.DatasetEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The reference to a data set entry.
 --
 -- /See:/ 'newDatasetEntry' smart constructor.
 data DatasetEntry = DatasetEntry'
   { -- | The presigned URI of the data set item.
-    dataURI :: Core.Maybe Core.Text,
+    dataURI :: Prelude.Maybe Prelude.Text,
     -- | The name of the data set item.
-    entryName :: Core.Maybe Core.Text
+    entryName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatasetEntry' with all optional fields omitted.
@@ -48,16 +49,16 @@ newDatasetEntry ::
   DatasetEntry
 newDatasetEntry =
   DatasetEntry'
-    { dataURI = Core.Nothing,
-      entryName = Core.Nothing
+    { dataURI = Prelude.Nothing,
+      entryName = Prelude.Nothing
     }
 
 -- | The presigned URI of the data set item.
-datasetEntry_dataURI :: Lens.Lens' DatasetEntry (Core.Maybe Core.Text)
+datasetEntry_dataURI :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
 datasetEntry_dataURI = Lens.lens (\DatasetEntry' {dataURI} -> dataURI) (\s@DatasetEntry' {} a -> s {dataURI = a} :: DatasetEntry)
 
 -- | The name of the data set item.
-datasetEntry_entryName :: Lens.Lens' DatasetEntry (Core.Maybe Core.Text)
+datasetEntry_entryName :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
 datasetEntry_entryName = Lens.lens (\DatasetEntry' {entryName} -> entryName) (\s@DatasetEntry' {} a -> s {entryName = a} :: DatasetEntry)
 
 instance Core.FromJSON DatasetEntry where
@@ -66,10 +67,10 @@ instance Core.FromJSON DatasetEntry where
       "DatasetEntry"
       ( \x ->
           DatasetEntry'
-            Core.<$> (x Core..:? "dataURI")
-            Core.<*> (x Core..:? "entryName")
+            Prelude.<$> (x Core..:? "dataURI")
+            Prelude.<*> (x Core..:? "entryName")
       )
 
-instance Core.Hashable DatasetEntry
+instance Prelude.Hashable DatasetEntry
 
-instance Core.NFData DatasetEntry
+instance Prelude.NFData DatasetEntry

@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.ExecutionProperty where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An execution property of a job.
 --
@@ -29,9 +30,9 @@ data ExecutionProperty = ExecutionProperty'
   { -- | The maximum number of concurrent runs allowed for the job. The default
     -- is 1. An error is returned when this threshold is reached. The maximum
     -- value you can specify is controlled by a service limit.
-    maxConcurrentRuns :: Core.Maybe Core.Int
+    maxConcurrentRuns :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecutionProperty' with all optional fields omitted.
@@ -49,13 +50,13 @@ newExecutionProperty ::
 newExecutionProperty =
   ExecutionProperty'
     { maxConcurrentRuns =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The maximum number of concurrent runs allowed for the job. The default
 -- is 1. An error is returned when this threshold is reached. The maximum
 -- value you can specify is controlled by a service limit.
-executionProperty_maxConcurrentRuns :: Lens.Lens' ExecutionProperty (Core.Maybe Core.Int)
+executionProperty_maxConcurrentRuns :: Lens.Lens' ExecutionProperty (Prelude.Maybe Prelude.Int)
 executionProperty_maxConcurrentRuns = Lens.lens (\ExecutionProperty' {maxConcurrentRuns} -> maxConcurrentRuns) (\s@ExecutionProperty' {} a -> s {maxConcurrentRuns = a} :: ExecutionProperty)
 
 instance Core.FromJSON ExecutionProperty where
@@ -64,18 +65,18 @@ instance Core.FromJSON ExecutionProperty where
       "ExecutionProperty"
       ( \x ->
           ExecutionProperty'
-            Core.<$> (x Core..:? "MaxConcurrentRuns")
+            Prelude.<$> (x Core..:? "MaxConcurrentRuns")
       )
 
-instance Core.Hashable ExecutionProperty
+instance Prelude.Hashable ExecutionProperty
 
-instance Core.NFData ExecutionProperty
+instance Prelude.NFData ExecutionProperty
 
 instance Core.ToJSON ExecutionProperty where
   toJSON ExecutionProperty' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MaxConcurrentRuns" Core..=)
-              Core.<$> maxConcurrentRuns
+              Prelude.<$> maxConcurrentRuns
           ]
       )

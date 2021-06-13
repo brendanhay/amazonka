@@ -64,6 +64,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +75,7 @@ data ListAliases = ListAliases'
   { -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The routing type to filter results on. Use this parameter to retrieve
     -- only aliases with a certain routing type. To retrieve all aliases, leave
     -- this parameter empty.
@@ -88,15 +89,15 @@ data ListAliases = ListAliases'
     --     can be used to display a message to the user. A terminal alias
     --     throws a TerminalRoutingStrategyException with the RoutingStrategy
     --     message embedded.
-    routingStrategyType :: Core.Maybe RoutingStrategyType,
+    routingStrategyType :: Prelude.Maybe RoutingStrategyType,
     -- | A descriptive label that is associated with an alias. Alias names do not
     -- need to be unique.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAliases' with all optional fields omitted.
@@ -133,16 +134,16 @@ newListAliases ::
   ListAliases
 newListAliases =
   ListAliases'
-    { nextToken = Core.Nothing,
-      routingStrategyType = Core.Nothing,
-      name = Core.Nothing,
-      limit = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      routingStrategyType = Prelude.Nothing,
+      name = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-listAliases_nextToken :: Lens.Lens' ListAliases (Core.Maybe Core.Text)
+listAliases_nextToken :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_nextToken = Lens.lens (\ListAliases' {nextToken} -> nextToken) (\s@ListAliases' {} a -> s {nextToken = a} :: ListAliases)
 
 -- | The routing type to filter results on. Use this parameter to retrieve
@@ -158,37 +159,37 @@ listAliases_nextToken = Lens.lens (\ListAliases' {nextToken} -> nextToken) (\s@L
 --     can be used to display a message to the user. A terminal alias
 --     throws a TerminalRoutingStrategyException with the RoutingStrategy
 --     message embedded.
-listAliases_routingStrategyType :: Lens.Lens' ListAliases (Core.Maybe RoutingStrategyType)
+listAliases_routingStrategyType :: Lens.Lens' ListAliases (Prelude.Maybe RoutingStrategyType)
 listAliases_routingStrategyType = Lens.lens (\ListAliases' {routingStrategyType} -> routingStrategyType) (\s@ListAliases' {} a -> s {routingStrategyType = a} :: ListAliases)
 
 -- | A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
-listAliases_name :: Lens.Lens' ListAliases (Core.Maybe Core.Text)
+listAliases_name :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_name = Lens.lens (\ListAliases' {name} -> name) (\s@ListAliases' {} a -> s {name = a} :: ListAliases)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
-listAliases_limit :: Lens.Lens' ListAliases (Core.Maybe Core.Natural)
+listAliases_limit :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
 listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' {} a -> s {limit = a} :: ListAliases)
 
 instance Core.AWSPager ListAliases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_nextToken Core.. Lens._Just
+            Lens.^? listAliasesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_aliases Core.. Lens._Just
+            Lens.^? listAliasesResponse_aliases Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAliases_nextToken
+          Prelude.& listAliases_nextToken
           Lens..~ rs
-          Lens.^? listAliasesResponse_nextToken Core.. Lens._Just
+          Lens.^? listAliasesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAliases where
   type AWSResponse ListAliases = ListAliasesResponse
@@ -197,43 +198,45 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Aliases" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAliases
+instance Prelude.Hashable ListAliases
 
-instance Core.NFData ListAliases
+instance Prelude.NFData ListAliases
 
 instance Core.ToHeaders ListAliases where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.ListAliases" :: Core.ByteString),
+              Core.=# ("GameLift.ListAliases" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListAliases where
   toJSON ListAliases' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("RoutingStrategyType" Core..=)
-              Core.<$> routingStrategyType,
-            ("Name" Core..=) Core.<$> name,
-            ("Limit" Core..=) Core.<$> limit
+              Prelude.<$> routingStrategyType,
+            ("Name" Core..=) Prelude.<$> name,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListAliases where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListAliases where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -242,13 +245,13 @@ data ListAliasesResponse = ListAliasesResponse'
   { -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A collection of alias resources that match the request parameters.
-    aliases :: Core.Maybe [Alias],
+    aliases :: Prelude.Maybe [Alias],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAliasesResponse' with all optional fields omitted.
@@ -267,27 +270,27 @@ data ListAliasesResponse = ListAliasesResponse'
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { nextToken = Core.Nothing,
-      aliases = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      aliases = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
-listAliasesResponse_nextToken :: Lens.Lens' ListAliasesResponse (Core.Maybe Core.Text)
+listAliasesResponse_nextToken :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
 listAliasesResponse_nextToken = Lens.lens (\ListAliasesResponse' {nextToken} -> nextToken) (\s@ListAliasesResponse' {} a -> s {nextToken = a} :: ListAliasesResponse)
 
 -- | A collection of alias resources that match the request parameters.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Core.Maybe [Alias])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Core.. Lens.mapping Lens._Coerce
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [Alias])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Core.Int
+listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
 listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -> httpStatus) (\s@ListAliasesResponse' {} a -> s {httpStatus = a} :: ListAliasesResponse)
 
-instance Core.NFData ListAliasesResponse
+instance Prelude.NFData ListAliasesResponse

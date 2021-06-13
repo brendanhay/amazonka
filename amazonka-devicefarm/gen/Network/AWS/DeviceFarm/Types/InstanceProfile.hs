@@ -21,6 +21,7 @@ module Network.AWS.DeviceFarm.Types.InstanceProfile where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the instance profile.
 --
@@ -31,21 +32,21 @@ data InstanceProfile = InstanceProfile'
     --
     -- The list of packages is considered only if you set @packageCleanup@ to
     -- @true@.
-    excludeAppPackagesFromCleanup :: Core.Maybe [Core.Text],
+    excludeAppPackagesFromCleanup :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the instance profile.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The description of the instance profile.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | When set to @true@, Device Farm reboots the instance after a test run.
     -- The default value is @true@.
-    rebootAfterUse :: Core.Maybe Core.Bool,
+    rebootAfterUse :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, Device Farm removes app packages after a test run.
     -- The default value is @false@ for private devices.
-    packageCleanup :: Core.Maybe Core.Bool
+    packageCleanup :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceProfile' with all optional fields omitted.
@@ -77,12 +78,12 @@ newInstanceProfile ::
 newInstanceProfile =
   InstanceProfile'
     { excludeAppPackagesFromCleanup =
-        Core.Nothing,
-      arn = Core.Nothing,
-      name = Core.Nothing,
-      description = Core.Nothing,
-      rebootAfterUse = Core.Nothing,
-      packageCleanup = Core.Nothing
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      rebootAfterUse = Prelude.Nothing,
+      packageCleanup = Prelude.Nothing
     }
 
 -- | An array of strings containing the list of app packages that should not
@@ -90,29 +91,29 @@ newInstanceProfile =
 --
 -- The list of packages is considered only if you set @packageCleanup@ to
 -- @true@.
-instanceProfile_excludeAppPackagesFromCleanup :: Lens.Lens' InstanceProfile (Core.Maybe [Core.Text])
-instanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\InstanceProfile' {excludeAppPackagesFromCleanup} -> excludeAppPackagesFromCleanup) (\s@InstanceProfile' {} a -> s {excludeAppPackagesFromCleanup = a} :: InstanceProfile) Core.. Lens.mapping Lens._Coerce
+instanceProfile_excludeAppPackagesFromCleanup :: Lens.Lens' InstanceProfile (Prelude.Maybe [Prelude.Text])
+instanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\InstanceProfile' {excludeAppPackagesFromCleanup} -> excludeAppPackagesFromCleanup) (\s@InstanceProfile' {} a -> s {excludeAppPackagesFromCleanup = a} :: InstanceProfile) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-instanceProfile_arn :: Lens.Lens' InstanceProfile (Core.Maybe Core.Text)
+instanceProfile_arn :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
 instanceProfile_arn = Lens.lens (\InstanceProfile' {arn} -> arn) (\s@InstanceProfile' {} a -> s {arn = a} :: InstanceProfile)
 
 -- | The name of the instance profile.
-instanceProfile_name :: Lens.Lens' InstanceProfile (Core.Maybe Core.Text)
+instanceProfile_name :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
 instanceProfile_name = Lens.lens (\InstanceProfile' {name} -> name) (\s@InstanceProfile' {} a -> s {name = a} :: InstanceProfile)
 
 -- | The description of the instance profile.
-instanceProfile_description :: Lens.Lens' InstanceProfile (Core.Maybe Core.Text)
+instanceProfile_description :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Text)
 instanceProfile_description = Lens.lens (\InstanceProfile' {description} -> description) (\s@InstanceProfile' {} a -> s {description = a} :: InstanceProfile)
 
 -- | When set to @true@, Device Farm reboots the instance after a test run.
 -- The default value is @true@.
-instanceProfile_rebootAfterUse :: Lens.Lens' InstanceProfile (Core.Maybe Core.Bool)
+instanceProfile_rebootAfterUse :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Bool)
 instanceProfile_rebootAfterUse = Lens.lens (\InstanceProfile' {rebootAfterUse} -> rebootAfterUse) (\s@InstanceProfile' {} a -> s {rebootAfterUse = a} :: InstanceProfile)
 
 -- | When set to @true@, Device Farm removes app packages after a test run.
 -- The default value is @false@ for private devices.
-instanceProfile_packageCleanup :: Lens.Lens' InstanceProfile (Core.Maybe Core.Bool)
+instanceProfile_packageCleanup :: Lens.Lens' InstanceProfile (Prelude.Maybe Prelude.Bool)
 instanceProfile_packageCleanup = Lens.lens (\InstanceProfile' {packageCleanup} -> packageCleanup) (\s@InstanceProfile' {} a -> s {packageCleanup = a} :: InstanceProfile)
 
 instance Core.FromJSON InstanceProfile where
@@ -121,16 +122,16 @@ instance Core.FromJSON InstanceProfile where
       "InstanceProfile"
       ( \x ->
           InstanceProfile'
-            Core.<$> ( x Core..:? "excludeAppPackagesFromCleanup"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "rebootAfterUse")
-            Core.<*> (x Core..:? "packageCleanup")
+            Prelude.<$> ( x Core..:? "excludeAppPackagesFromCleanup"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "rebootAfterUse")
+            Prelude.<*> (x Core..:? "packageCleanup")
       )
 
-instance Core.Hashable InstanceProfile
+instance Prelude.Hashable InstanceProfile
 
-instance Core.NFData InstanceProfile
+instance Prelude.NFData InstanceProfile

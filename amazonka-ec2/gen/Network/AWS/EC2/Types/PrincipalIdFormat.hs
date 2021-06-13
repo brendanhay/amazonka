@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.IdFormat
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | PrincipalIdFormat description
 --
 -- /See:/ 'newPrincipalIdFormat' smart constructor.
 data PrincipalIdFormat = PrincipalIdFormat'
   { -- | PrincipalIdFormatARN description
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | PrincipalIdFormatStatuses description
-    statuses :: Core.Maybe [IdFormat]
+    statuses :: Prelude.Maybe [IdFormat]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PrincipalIdFormat' with all optional fields omitted.
@@ -50,26 +51,26 @@ newPrincipalIdFormat ::
   PrincipalIdFormat
 newPrincipalIdFormat =
   PrincipalIdFormat'
-    { arn = Core.Nothing,
-      statuses = Core.Nothing
+    { arn = Prelude.Nothing,
+      statuses = Prelude.Nothing
     }
 
 -- | PrincipalIdFormatARN description
-principalIdFormat_arn :: Lens.Lens' PrincipalIdFormat (Core.Maybe Core.Text)
+principalIdFormat_arn :: Lens.Lens' PrincipalIdFormat (Prelude.Maybe Prelude.Text)
 principalIdFormat_arn = Lens.lens (\PrincipalIdFormat' {arn} -> arn) (\s@PrincipalIdFormat' {} a -> s {arn = a} :: PrincipalIdFormat)
 
 -- | PrincipalIdFormatStatuses description
-principalIdFormat_statuses :: Lens.Lens' PrincipalIdFormat (Core.Maybe [IdFormat])
-principalIdFormat_statuses = Lens.lens (\PrincipalIdFormat' {statuses} -> statuses) (\s@PrincipalIdFormat' {} a -> s {statuses = a} :: PrincipalIdFormat) Core.. Lens.mapping Lens._Coerce
+principalIdFormat_statuses :: Lens.Lens' PrincipalIdFormat (Prelude.Maybe [IdFormat])
+principalIdFormat_statuses = Lens.lens (\PrincipalIdFormat' {statuses} -> statuses) (\s@PrincipalIdFormat' {} a -> s {statuses = a} :: PrincipalIdFormat) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML PrincipalIdFormat where
   parseXML x =
     PrincipalIdFormat'
-      Core.<$> (x Core..@? "arn")
-      Core.<*> ( x Core..@? "statusSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "arn")
+      Prelude.<*> ( x Core..@? "statusSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable PrincipalIdFormat
+instance Prelude.Hashable PrincipalIdFormat
 
-instance Core.NFData PrincipalIdFormat
+instance Prelude.NFData PrincipalIdFormat

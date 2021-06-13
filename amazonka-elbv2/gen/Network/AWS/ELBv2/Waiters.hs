@@ -21,6 +21,7 @@ import Network.AWS.ELBv2.DescribeTargetHealth
 import Network.AWS.ELBv2.Lens
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newLoadBalancersDeleted :: Core.Wait DescribeLoadBalancers
@@ -36,14 +37,14 @@ newLoadBalancersDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeLoadBalancersResponse_loadBalancers
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. loadBalancer_state
-                Core.. Lens._Just
-                Core.. loadBalancerState_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. loadBalancer_state
+                Prelude.. Lens._Just
+                Prelude.. loadBalancerState_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "LoadBalancerNotFound"
@@ -66,14 +67,14 @@ newTargetDeregistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeTargetHealthResponse_targetHealthDescriptions
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. targetHealthDescription_targetHealth
-                Core.. Lens._Just
-                Core.. targetHealth_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. targetHealthDescription_targetHealth
+                Prelude.. Lens._Just
+                Prelude.. targetHealth_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -92,14 +93,14 @@ newLoadBalancerAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeLoadBalancersResponse_loadBalancers
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. loadBalancer_state
-                Core.. Lens._Just
-                Core.. loadBalancerState_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. loadBalancer_state
+                Prelude.. Lens._Just
+                Prelude.. loadBalancerState_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "provisioning"
@@ -107,14 +108,14 @@ newLoadBalancerAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeLoadBalancersResponse_loadBalancers
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. loadBalancer_state
-                Core.. Lens._Just
-                Core.. loadBalancerState_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. loadBalancer_state
+                Prelude.. Lens._Just
+                Prelude.. loadBalancerState_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "LoadBalancerNotFound"
@@ -136,14 +137,14 @@ newTargetInService =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeTargetHealthResponse_targetHealthDescriptions
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. targetHealthDescription_targetHealth
-                Core.. Lens._Just
-                Core.. targetHealth_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. targetHealthDescription_targetHealth
+                Prelude.. Lens._Just
+                Prelude.. targetHealth_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError "InvalidInstance" Core.AcceptRetry
         ]

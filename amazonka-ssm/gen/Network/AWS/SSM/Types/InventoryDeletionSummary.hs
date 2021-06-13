@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.InventoryDeletionSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InventoryDeletionSummaryItem
 
 -- | Information about the delete operation.
@@ -28,14 +29,14 @@ import Network.AWS.SSM.Types.InventoryDeletionSummaryItem
 -- /See:/ 'newInventoryDeletionSummary' smart constructor.
 data InventoryDeletionSummary = InventoryDeletionSummary'
   { -- | Remaining number of items to delete.
-    remainingCount :: Core.Maybe Core.Int,
+    remainingCount :: Prelude.Maybe Prelude.Int,
     -- | The total number of items to delete. This count does not change during
     -- the delete operation.
-    totalCount :: Core.Maybe Core.Int,
+    totalCount :: Prelude.Maybe Prelude.Int,
     -- | A list of counts and versions for deleted items.
-    summaryItems :: Core.Maybe [InventoryDeletionSummaryItem]
+    summaryItems :: Prelude.Maybe [InventoryDeletionSummaryItem]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryDeletionSummary' with all optional fields omitted.
@@ -56,23 +57,23 @@ newInventoryDeletionSummary ::
 newInventoryDeletionSummary =
   InventoryDeletionSummary'
     { remainingCount =
-        Core.Nothing,
-      totalCount = Core.Nothing,
-      summaryItems = Core.Nothing
+        Prelude.Nothing,
+      totalCount = Prelude.Nothing,
+      summaryItems = Prelude.Nothing
     }
 
 -- | Remaining number of items to delete.
-inventoryDeletionSummary_remainingCount :: Lens.Lens' InventoryDeletionSummary (Core.Maybe Core.Int)
+inventoryDeletionSummary_remainingCount :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe Prelude.Int)
 inventoryDeletionSummary_remainingCount = Lens.lens (\InventoryDeletionSummary' {remainingCount} -> remainingCount) (\s@InventoryDeletionSummary' {} a -> s {remainingCount = a} :: InventoryDeletionSummary)
 
 -- | The total number of items to delete. This count does not change during
 -- the delete operation.
-inventoryDeletionSummary_totalCount :: Lens.Lens' InventoryDeletionSummary (Core.Maybe Core.Int)
+inventoryDeletionSummary_totalCount :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe Prelude.Int)
 inventoryDeletionSummary_totalCount = Lens.lens (\InventoryDeletionSummary' {totalCount} -> totalCount) (\s@InventoryDeletionSummary' {} a -> s {totalCount = a} :: InventoryDeletionSummary)
 
 -- | A list of counts and versions for deleted items.
-inventoryDeletionSummary_summaryItems :: Lens.Lens' InventoryDeletionSummary (Core.Maybe [InventoryDeletionSummaryItem])
-inventoryDeletionSummary_summaryItems = Lens.lens (\InventoryDeletionSummary' {summaryItems} -> summaryItems) (\s@InventoryDeletionSummary' {} a -> s {summaryItems = a} :: InventoryDeletionSummary) Core.. Lens.mapping Lens._Coerce
+inventoryDeletionSummary_summaryItems :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe [InventoryDeletionSummaryItem])
+inventoryDeletionSummary_summaryItems = Lens.lens (\InventoryDeletionSummary' {summaryItems} -> summaryItems) (\s@InventoryDeletionSummary' {} a -> s {summaryItems = a} :: InventoryDeletionSummary) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON InventoryDeletionSummary where
   parseJSON =
@@ -80,11 +81,11 @@ instance Core.FromJSON InventoryDeletionSummary where
       "InventoryDeletionSummary"
       ( \x ->
           InventoryDeletionSummary'
-            Core.<$> (x Core..:? "RemainingCount")
-            Core.<*> (x Core..:? "TotalCount")
-            Core.<*> (x Core..:? "SummaryItems" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "RemainingCount")
+            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<*> (x Core..:? "SummaryItems" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable InventoryDeletionSummary
+instance Prelude.Hashable InventoryDeletionSummary
 
-instance Core.NFData InventoryDeletionSummary
+instance Prelude.NFData InventoryDeletionSummary

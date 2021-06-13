@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.CmafKeyProviderType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify whether your DRM encryption key is static or from a key provider
 -- that follows the SPEKE standard. For more information about SPEKE, see
@@ -36,15 +37,15 @@ newtype CmafKeyProviderType = CmafKeyProviderType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

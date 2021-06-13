@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.CampaignHook where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Mode
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies settings for invoking an AWS Lambda function that customizes a
 -- segment for a campaign.
@@ -39,15 +40,15 @@ data CampaignHook = CampaignHook'
     --     supported anymore. To send a campaign through a custom channel, use
     --     the CustomDeliveryConfiguration and CampaignCustomMessage objects of
     --     the campaign.
-    mode :: Core.Maybe Mode,
+    mode :: Prelude.Maybe Mode,
     -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
     -- Amazon Pinpoint invokes to customize a segment for a campaign.
-    lambdaFunctionName :: Core.Maybe Core.Text,
+    lambdaFunctionName :: Prelude.Maybe Prelude.Text,
     -- | The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function
     -- over HTTPS.
-    webUrl :: Core.Maybe Core.Text
+    webUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CampaignHook' with all optional fields omitted.
@@ -78,9 +79,9 @@ newCampaignHook ::
   CampaignHook
 newCampaignHook =
   CampaignHook'
-    { mode = Core.Nothing,
-      lambdaFunctionName = Core.Nothing,
-      webUrl = Core.Nothing
+    { mode = Prelude.Nothing,
+      lambdaFunctionName = Prelude.Nothing,
+      webUrl = Prelude.Nothing
     }
 
 -- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.
@@ -94,17 +95,17 @@ newCampaignHook =
 --     supported anymore. To send a campaign through a custom channel, use
 --     the CustomDeliveryConfiguration and CampaignCustomMessage objects of
 --     the campaign.
-campaignHook_mode :: Lens.Lens' CampaignHook (Core.Maybe Mode)
+campaignHook_mode :: Lens.Lens' CampaignHook (Prelude.Maybe Mode)
 campaignHook_mode = Lens.lens (\CampaignHook' {mode} -> mode) (\s@CampaignHook' {} a -> s {mode = a} :: CampaignHook)
 
 -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that
 -- Amazon Pinpoint invokes to customize a segment for a campaign.
-campaignHook_lambdaFunctionName :: Lens.Lens' CampaignHook (Core.Maybe Core.Text)
+campaignHook_lambdaFunctionName :: Lens.Lens' CampaignHook (Prelude.Maybe Prelude.Text)
 campaignHook_lambdaFunctionName = Lens.lens (\CampaignHook' {lambdaFunctionName} -> lambdaFunctionName) (\s@CampaignHook' {} a -> s {lambdaFunctionName = a} :: CampaignHook)
 
 -- | The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function
 -- over HTTPS.
-campaignHook_webUrl :: Lens.Lens' CampaignHook (Core.Maybe Core.Text)
+campaignHook_webUrl :: Lens.Lens' CampaignHook (Prelude.Maybe Prelude.Text)
 campaignHook_webUrl = Lens.lens (\CampaignHook' {webUrl} -> webUrl) (\s@CampaignHook' {} a -> s {webUrl = a} :: CampaignHook)
 
 instance Core.FromJSON CampaignHook where
@@ -113,22 +114,22 @@ instance Core.FromJSON CampaignHook where
       "CampaignHook"
       ( \x ->
           CampaignHook'
-            Core.<$> (x Core..:? "Mode")
-            Core.<*> (x Core..:? "LambdaFunctionName")
-            Core.<*> (x Core..:? "WebUrl")
+            Prelude.<$> (x Core..:? "Mode")
+            Prelude.<*> (x Core..:? "LambdaFunctionName")
+            Prelude.<*> (x Core..:? "WebUrl")
       )
 
-instance Core.Hashable CampaignHook
+instance Prelude.Hashable CampaignHook
 
-instance Core.NFData CampaignHook
+instance Prelude.NFData CampaignHook
 
 instance Core.ToJSON CampaignHook where
   toJSON CampaignHook' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Mode" Core..=) Core.<$> mode,
+      ( Prelude.catMaybes
+          [ ("Mode" Core..=) Prelude.<$> mode,
             ("LambdaFunctionName" Core..=)
-              Core.<$> lambdaFunctionName,
-            ("WebUrl" Core..=) Core.<$> webUrl
+              Prelude.<$> lambdaFunctionName,
+            ("WebUrl" Core..=) Prelude.<$> webUrl
           ]
       )

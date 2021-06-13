@@ -50,6 +50,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,16 +61,16 @@ data DeleteDataset = DeleteDataset'
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Core.Text,
+    identityPoolId :: Prelude.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityId :: Core.Text,
+    identityId :: Prelude.Text,
     -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
     -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-    datasetName :: Core.Text
+    datasetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDataset' with all optional fields omitted.
@@ -91,11 +92,11 @@ data DeleteDataset = DeleteDataset'
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
 newDeleteDataset ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identityId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'datasetName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDataset
 newDeleteDataset
   pIdentityPoolId_
@@ -110,18 +111,18 @@ newDeleteDataset
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-deleteDataset_identityPoolId :: Lens.Lens' DeleteDataset Core.Text
+deleteDataset_identityPoolId :: Lens.Lens' DeleteDataset Prelude.Text
 deleteDataset_identityPoolId = Lens.lens (\DeleteDataset' {identityPoolId} -> identityPoolId) (\s@DeleteDataset' {} a -> s {identityPoolId = a} :: DeleteDataset)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-deleteDataset_identityId :: Lens.Lens' DeleteDataset Core.Text
+deleteDataset_identityId :: Lens.Lens' DeleteDataset Prelude.Text
 deleteDataset_identityId = Lens.lens (\DeleteDataset' {identityId} -> identityId) (\s@DeleteDataset' {} a -> s {identityId = a} :: DeleteDataset)
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-deleteDataset_datasetName :: Lens.Lens' DeleteDataset Core.Text
+deleteDataset_datasetName :: Lens.Lens' DeleteDataset Prelude.Text
 deleteDataset_datasetName = Lens.lens (\DeleteDataset' {datasetName} -> datasetName) (\s@DeleteDataset' {} a -> s {datasetName = a} :: DeleteDataset)
 
 instance Core.AWSRequest DeleteDataset where
@@ -133,26 +134,28 @@ instance Core.AWSRequest DeleteDataset where
     Response.receiveJSON
       ( \s h x ->
           DeleteDatasetResponse'
-            Core.<$> (x Core..?> "Dataset")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Dataset")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDataset
+instance Prelude.Hashable DeleteDataset
 
-instance Core.NFData DeleteDataset
+instance Prelude.NFData DeleteDataset
 
 instance Core.ToHeaders DeleteDataset where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteDataset where
   toPath DeleteDataset' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/identitypools/",
         Core.toBS identityPoolId,
         "/identities/",
@@ -162,7 +165,7 @@ instance Core.ToPath DeleteDataset where
       ]
 
 instance Core.ToQuery DeleteDataset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response to a successful DeleteDataset request.
 --
@@ -173,11 +176,11 @@ data DeleteDatasetResponse = DeleteDatasetResponse'
     -- associated with a particular entity in an application (like a saved
     -- game). Datasets are automatically created if they don\'t exist. Data is
     -- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
-    dataset :: Core.Maybe Dataset,
+    dataset :: Prelude.Maybe Dataset,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDatasetResponse' with all optional fields omitted.
@@ -196,11 +199,11 @@ data DeleteDatasetResponse = DeleteDatasetResponse'
 -- 'httpStatus', 'deleteDatasetResponse_httpStatus' - The response's http status code.
 newDeleteDatasetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDatasetResponse
 newDeleteDatasetResponse pHttpStatus_ =
   DeleteDatasetResponse'
-    { dataset = Core.Nothing,
+    { dataset = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -209,11 +212,11 @@ newDeleteDatasetResponse pHttpStatus_ =
 -- associated with a particular entity in an application (like a saved
 -- game). Datasets are automatically created if they don\'t exist. Data is
 -- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
-deleteDatasetResponse_dataset :: Lens.Lens' DeleteDatasetResponse (Core.Maybe Dataset)
+deleteDatasetResponse_dataset :: Lens.Lens' DeleteDatasetResponse (Prelude.Maybe Dataset)
 deleteDatasetResponse_dataset = Lens.lens (\DeleteDatasetResponse' {dataset} -> dataset) (\s@DeleteDatasetResponse' {} a -> s {dataset = a} :: DeleteDatasetResponse)
 
 -- | The response's http status code.
-deleteDatasetResponse_httpStatus :: Lens.Lens' DeleteDatasetResponse Core.Int
+deleteDatasetResponse_httpStatus :: Lens.Lens' DeleteDatasetResponse Prelude.Int
 deleteDatasetResponse_httpStatus = Lens.lens (\DeleteDatasetResponse' {httpStatus} -> httpStatus) (\s@DeleteDatasetResponse' {} a -> s {httpStatus = a} :: DeleteDatasetResponse)
 
-instance Core.NFData DeleteDatasetResponse
+instance Prelude.NFData DeleteDatasetResponse

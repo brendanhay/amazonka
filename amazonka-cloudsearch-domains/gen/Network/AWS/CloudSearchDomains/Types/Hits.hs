@@ -22,22 +22,23 @@ module Network.AWS.CloudSearchDomains.Types.Hits where
 import Network.AWS.CloudSearchDomains.Types.Hit
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The collection of documents that match the search request.
 --
 -- /See:/ 'newHits' smart constructor.
 data Hits = Hits'
   { -- | The total number of documents that match the search request.
-    found :: Core.Maybe Core.Integer,
+    found :: Prelude.Maybe Prelude.Integer,
     -- | A document that matches the search request.
-    hit :: Core.Maybe [Hit],
+    hit :: Prelude.Maybe [Hit],
     -- | A cursor that can be used to retrieve the next set of matching documents
     -- when you want to page through a large result set.
-    cursor :: Core.Maybe Core.Text,
+    cursor :: Prelude.Maybe Prelude.Text,
     -- | The index of the first matching document.
-    start :: Core.Maybe Core.Integer
+    start :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Hits' with all optional fields omitted.
@@ -59,27 +60,27 @@ newHits ::
   Hits
 newHits =
   Hits'
-    { found = Core.Nothing,
-      hit = Core.Nothing,
-      cursor = Core.Nothing,
-      start = Core.Nothing
+    { found = Prelude.Nothing,
+      hit = Prelude.Nothing,
+      cursor = Prelude.Nothing,
+      start = Prelude.Nothing
     }
 
 -- | The total number of documents that match the search request.
-hits_found :: Lens.Lens' Hits (Core.Maybe Core.Integer)
+hits_found :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
 hits_found = Lens.lens (\Hits' {found} -> found) (\s@Hits' {} a -> s {found = a} :: Hits)
 
 -- | A document that matches the search request.
-hits_hit :: Lens.Lens' Hits (Core.Maybe [Hit])
-hits_hit = Lens.lens (\Hits' {hit} -> hit) (\s@Hits' {} a -> s {hit = a} :: Hits) Core.. Lens.mapping Lens._Coerce
+hits_hit :: Lens.Lens' Hits (Prelude.Maybe [Hit])
+hits_hit = Lens.lens (\Hits' {hit} -> hit) (\s@Hits' {} a -> s {hit = a} :: Hits) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A cursor that can be used to retrieve the next set of matching documents
 -- when you want to page through a large result set.
-hits_cursor :: Lens.Lens' Hits (Core.Maybe Core.Text)
+hits_cursor :: Lens.Lens' Hits (Prelude.Maybe Prelude.Text)
 hits_cursor = Lens.lens (\Hits' {cursor} -> cursor) (\s@Hits' {} a -> s {cursor = a} :: Hits)
 
 -- | The index of the first matching document.
-hits_start :: Lens.Lens' Hits (Core.Maybe Core.Integer)
+hits_start :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
 hits_start = Lens.lens (\Hits' {start} -> start) (\s@Hits' {} a -> s {start = a} :: Hits)
 
 instance Core.FromJSON Hits where
@@ -88,12 +89,12 @@ instance Core.FromJSON Hits where
       "Hits"
       ( \x ->
           Hits'
-            Core.<$> (x Core..:? "found")
-            Core.<*> (x Core..:? "hit" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "cursor")
-            Core.<*> (x Core..:? "start")
+            Prelude.<$> (x Core..:? "found")
+            Prelude.<*> (x Core..:? "hit" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "cursor")
+            Prelude.<*> (x Core..:? "start")
       )
 
-instance Core.Hashable Hits
+instance Prelude.Hashable Hits
 
-instance Core.NFData Hits
+instance Prelude.NFData Hits

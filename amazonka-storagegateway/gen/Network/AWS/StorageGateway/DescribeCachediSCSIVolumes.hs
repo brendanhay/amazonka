@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -56,9 +57,9 @@ data DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
     -- Name (ARN) of a cached volume. All of the specified cached volumes must
     -- be from the same gateway. Use ListVolumes to get volume ARNs for a
     -- gateway.
-    volumeARNs :: [Core.Text]
+    volumeARNs :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCachediSCSIVolumes' with all optional fields omitted.
@@ -77,15 +78,15 @@ newDescribeCachediSCSIVolumes ::
 newDescribeCachediSCSIVolumes =
   DescribeCachediSCSIVolumes'
     { volumeARNs =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | An array of strings where each string represents the Amazon Resource
 -- Name (ARN) of a cached volume. All of the specified cached volumes must
 -- be from the same gateway. Use ListVolumes to get volume ARNs for a
 -- gateway.
-describeCachediSCSIVolumes_volumeARNs :: Lens.Lens' DescribeCachediSCSIVolumes [Core.Text]
-describeCachediSCSIVolumes_volumeARNs = Lens.lens (\DescribeCachediSCSIVolumes' {volumeARNs} -> volumeARNs) (\s@DescribeCachediSCSIVolumes' {} a -> s {volumeARNs = a} :: DescribeCachediSCSIVolumes) Core.. Lens._Coerce
+describeCachediSCSIVolumes_volumeARNs :: Lens.Lens' DescribeCachediSCSIVolumes [Prelude.Text]
+describeCachediSCSIVolumes_volumeARNs = Lens.lens (\DescribeCachediSCSIVolumes' {volumeARNs} -> volumeARNs) (\s@DescribeCachediSCSIVolumes' {} a -> s {volumeARNs = a} :: DescribeCachediSCSIVolumes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeCachediSCSIVolumes where
   type
@@ -96,41 +97,43 @@ instance Core.AWSRequest DescribeCachediSCSIVolumes where
     Response.receiveJSON
       ( \s h x ->
           DescribeCachediSCSIVolumesResponse'
-            Core.<$> ( x Core..?> "CachediSCSIVolumes"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "CachediSCSIVolumes"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeCachediSCSIVolumes
+instance Prelude.Hashable DescribeCachediSCSIVolumes
 
-instance Core.NFData DescribeCachediSCSIVolumes
+instance Prelude.NFData DescribeCachediSCSIVolumes
 
 instance Core.ToHeaders DescribeCachediSCSIVolumes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DescribeCachediSCSIVolumes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeCachediSCSIVolumes where
   toJSON DescribeCachediSCSIVolumes' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("VolumeARNs" Core..= volumeARNs)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("VolumeARNs" Core..= volumeARNs)]
       )
 
 instance Core.ToPath DescribeCachediSCSIVolumes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeCachediSCSIVolumes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:
 --
@@ -138,11 +141,11 @@ instance Core.ToQuery DescribeCachediSCSIVolumes where
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
   { -- | An array of objects where each object contains metadata about one cached
     -- volume.
-    cachediSCSIVolumes :: Core.Maybe [CachediSCSIVolume],
+    cachediSCSIVolumes :: Prelude.Maybe [CachediSCSIVolume],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCachediSCSIVolumesResponse' with all optional fields omitted.
@@ -158,24 +161,24 @@ data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
 -- 'httpStatus', 'describeCachediSCSIVolumesResponse_httpStatus' - The response's http status code.
 newDescribeCachediSCSIVolumesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeCachediSCSIVolumesResponse
 newDescribeCachediSCSIVolumesResponse pHttpStatus_ =
   DescribeCachediSCSIVolumesResponse'
     { cachediSCSIVolumes =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
-describeCachediSCSIVolumesResponse_cachediSCSIVolumes :: Lens.Lens' DescribeCachediSCSIVolumesResponse (Core.Maybe [CachediSCSIVolume])
-describeCachediSCSIVolumesResponse_cachediSCSIVolumes = Lens.lens (\DescribeCachediSCSIVolumesResponse' {cachediSCSIVolumes} -> cachediSCSIVolumes) (\s@DescribeCachediSCSIVolumesResponse' {} a -> s {cachediSCSIVolumes = a} :: DescribeCachediSCSIVolumesResponse) Core.. Lens.mapping Lens._Coerce
+describeCachediSCSIVolumesResponse_cachediSCSIVolumes :: Lens.Lens' DescribeCachediSCSIVolumesResponse (Prelude.Maybe [CachediSCSIVolume])
+describeCachediSCSIVolumesResponse_cachediSCSIVolumes = Lens.lens (\DescribeCachediSCSIVolumesResponse' {cachediSCSIVolumes} -> cachediSCSIVolumes) (\s@DescribeCachediSCSIVolumesResponse' {} a -> s {cachediSCSIVolumes = a} :: DescribeCachediSCSIVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeCachediSCSIVolumesResponse_httpStatus :: Lens.Lens' DescribeCachediSCSIVolumesResponse Core.Int
+describeCachediSCSIVolumesResponse_httpStatus :: Lens.Lens' DescribeCachediSCSIVolumesResponse Prelude.Int
 describeCachediSCSIVolumesResponse_httpStatus = Lens.lens (\DescribeCachediSCSIVolumesResponse' {httpStatus} -> httpStatus) (\s@DescribeCachediSCSIVolumesResponse' {} a -> s {httpStatus = a} :: DescribeCachediSCSIVolumesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeCachediSCSIVolumesResponse

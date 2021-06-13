@@ -49,17 +49,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeContributorInsights' smart constructor.
 data DescribeContributorInsights = DescribeContributorInsights'
   { -- | The name of the global secondary index to describe, if applicable.
-    indexName :: Core.Maybe Core.Text,
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The name of the table to describe.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeContributorInsights' with all optional fields omitted.
@@ -74,21 +75,21 @@ data DescribeContributorInsights = DescribeContributorInsights'
 -- 'tableName', 'describeContributorInsights_tableName' - The name of the table to describe.
 newDescribeContributorInsights ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeContributorInsights
 newDescribeContributorInsights pTableName_ =
   DescribeContributorInsights'
     { indexName =
-        Core.Nothing,
+        Prelude.Nothing,
       tableName = pTableName_
     }
 
 -- | The name of the global secondary index to describe, if applicable.
-describeContributorInsights_indexName :: Lens.Lens' DescribeContributorInsights (Core.Maybe Core.Text)
+describeContributorInsights_indexName :: Lens.Lens' DescribeContributorInsights (Prelude.Maybe Prelude.Text)
 describeContributorInsights_indexName = Lens.lens (\DescribeContributorInsights' {indexName} -> indexName) (\s@DescribeContributorInsights' {} a -> s {indexName = a} :: DescribeContributorInsights)
 
 -- | The name of the table to describe.
-describeContributorInsights_tableName :: Lens.Lens' DescribeContributorInsights Core.Text
+describeContributorInsights_tableName :: Lens.Lens' DescribeContributorInsights Prelude.Text
 describeContributorInsights_tableName = Lens.lens (\DescribeContributorInsights' {tableName} -> tableName) (\s@DescribeContributorInsights' {} a -> s {tableName = a} :: DescribeContributorInsights)
 
 instance Core.AWSRequest DescribeContributorInsights where
@@ -100,57 +101,59 @@ instance Core.AWSRequest DescribeContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           DescribeContributorInsightsResponse'
-            Core.<$> (x Core..?> "TableName")
-            Core.<*> (x Core..?> "IndexName")
-            Core.<*> (x Core..?> "ContributorInsightsStatus")
-            Core.<*> (x Core..?> "FailureException")
-            Core.<*> ( x Core..?> "ContributorInsightsRuleList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "LastUpdateDateTime")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TableName")
+            Prelude.<*> (x Core..?> "IndexName")
+            Prelude.<*> (x Core..?> "ContributorInsightsStatus")
+            Prelude.<*> (x Core..?> "FailureException")
+            Prelude.<*> ( x Core..?> "ContributorInsightsRuleList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "LastUpdateDateTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeContributorInsights
+instance Prelude.Hashable DescribeContributorInsights
 
-instance Core.NFData DescribeContributorInsights
+instance Prelude.NFData DescribeContributorInsights
 
 instance Core.ToHeaders DescribeContributorInsights where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.DescribeContributorInsights" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeContributorInsights where
   toJSON DescribeContributorInsights' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IndexName" Core..=) Core.<$> indexName,
-            Core.Just ("TableName" Core..= tableName)
+      ( Prelude.catMaybes
+          [ ("IndexName" Core..=) Prelude.<$> indexName,
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )
 
 instance Core.ToPath DescribeContributorInsights where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeContributorInsights where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeContributorInsightsResponse' smart constructor.
 data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
   { -- | The name of the table being described.
-    tableName :: Core.Maybe Core.Text,
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The name of the global secondary index being described.
-    indexName :: Core.Maybe Core.Text,
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | Current Status contributor insights.
-    contributorInsightsStatus :: Core.Maybe ContributorInsightsStatus,
+    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus,
     -- | Returns information about the last failure that encountered.
     --
     -- The most common exceptions for a FAILED status are:
@@ -168,15 +171,15 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
     --
     -- -   InternalServerError - Failed to create Amazon CloudWatch Contributor
     --     Insights rules. Please retry request.
-    failureException :: Core.Maybe FailureException,
+    failureException :: Prelude.Maybe FailureException,
     -- | List of names of the associated Alpine rules.
-    contributorInsightsRuleList :: Core.Maybe [Core.Text],
+    contributorInsightsRuleList :: Prelude.Maybe [Prelude.Text],
     -- | Timestamp of the last time the status was changed.
-    lastUpdateDateTime :: Core.Maybe Core.POSIX,
+    lastUpdateDateTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeContributorInsightsResponse' with all optional fields omitted.
@@ -217,32 +220,32 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
 -- 'httpStatus', 'describeContributorInsightsResponse_httpStatus' - The response's http status code.
 newDescribeContributorInsightsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeContributorInsightsResponse
 newDescribeContributorInsightsResponse pHttpStatus_ =
   DescribeContributorInsightsResponse'
     { tableName =
-        Core.Nothing,
-      indexName = Core.Nothing,
+        Prelude.Nothing,
+      indexName = Prelude.Nothing,
       contributorInsightsStatus =
-        Core.Nothing,
-      failureException = Core.Nothing,
+        Prelude.Nothing,
+      failureException = Prelude.Nothing,
       contributorInsightsRuleList =
-        Core.Nothing,
-      lastUpdateDateTime = Core.Nothing,
+        Prelude.Nothing,
+      lastUpdateDateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the table being described.
-describeContributorInsightsResponse_tableName :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe Core.Text)
+describeContributorInsightsResponse_tableName :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.Text)
 describeContributorInsightsResponse_tableName = Lens.lens (\DescribeContributorInsightsResponse' {tableName} -> tableName) (\s@DescribeContributorInsightsResponse' {} a -> s {tableName = a} :: DescribeContributorInsightsResponse)
 
 -- | The name of the global secondary index being described.
-describeContributorInsightsResponse_indexName :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe Core.Text)
+describeContributorInsightsResponse_indexName :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.Text)
 describeContributorInsightsResponse_indexName = Lens.lens (\DescribeContributorInsightsResponse' {indexName} -> indexName) (\s@DescribeContributorInsightsResponse' {} a -> s {indexName = a} :: DescribeContributorInsightsResponse)
 
 -- | Current Status contributor insights.
-describeContributorInsightsResponse_contributorInsightsStatus :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe ContributorInsightsStatus)
+describeContributorInsightsResponse_contributorInsightsStatus :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe ContributorInsightsStatus)
 describeContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\DescribeContributorInsightsResponse' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@DescribeContributorInsightsResponse' {} a -> s {contributorInsightsStatus = a} :: DescribeContributorInsightsResponse)
 
 -- | Returns information about the last failure that encountered.
@@ -262,21 +265,21 @@ describeContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\Desc
 --
 -- -   InternalServerError - Failed to create Amazon CloudWatch Contributor
 --     Insights rules. Please retry request.
-describeContributorInsightsResponse_failureException :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe FailureException)
+describeContributorInsightsResponse_failureException :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe FailureException)
 describeContributorInsightsResponse_failureException = Lens.lens (\DescribeContributorInsightsResponse' {failureException} -> failureException) (\s@DescribeContributorInsightsResponse' {} a -> s {failureException = a} :: DescribeContributorInsightsResponse)
 
 -- | List of names of the associated Alpine rules.
-describeContributorInsightsResponse_contributorInsightsRuleList :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe [Core.Text])
-describeContributorInsightsResponse_contributorInsightsRuleList = Lens.lens (\DescribeContributorInsightsResponse' {contributorInsightsRuleList} -> contributorInsightsRuleList) (\s@DescribeContributorInsightsResponse' {} a -> s {contributorInsightsRuleList = a} :: DescribeContributorInsightsResponse) Core.. Lens.mapping Lens._Coerce
+describeContributorInsightsResponse_contributorInsightsRuleList :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe [Prelude.Text])
+describeContributorInsightsResponse_contributorInsightsRuleList = Lens.lens (\DescribeContributorInsightsResponse' {contributorInsightsRuleList} -> contributorInsightsRuleList) (\s@DescribeContributorInsightsResponse' {} a -> s {contributorInsightsRuleList = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Timestamp of the last time the status was changed.
-describeContributorInsightsResponse_lastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Core.Maybe Core.UTCTime)
-describeContributorInsightsResponse_lastUpdateDateTime = Lens.lens (\DescribeContributorInsightsResponse' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@DescribeContributorInsightsResponse' {} a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse) Core.. Lens.mapping Core._Time
+describeContributorInsightsResponse_lastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.UTCTime)
+describeContributorInsightsResponse_lastUpdateDateTime = Lens.lens (\DescribeContributorInsightsResponse' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@DescribeContributorInsightsResponse' {} a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeContributorInsightsResponse_httpStatus :: Lens.Lens' DescribeContributorInsightsResponse Core.Int
+describeContributorInsightsResponse_httpStatus :: Lens.Lens' DescribeContributorInsightsResponse Prelude.Int
 describeContributorInsightsResponse_httpStatus = Lens.lens (\DescribeContributorInsightsResponse' {httpStatus} -> httpStatus) (\s@DescribeContributorInsightsResponse' {} a -> s {httpStatus = a} :: DescribeContributorInsightsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeContributorInsightsResponse

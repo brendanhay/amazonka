@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,14 +56,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListPolicies' smart constructor.
 data ListPolicies = ListPolicies'
   { -- | The result page size.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the order for results. If true, the results are returned in
     -- ascending creation order.
-    ascendingOrder :: Core.Maybe Core.Bool,
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
     -- | The marker for the next set of results.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPolicies' with all optional fields omitted.
@@ -82,42 +83,42 @@ newListPolicies ::
   ListPolicies
 newListPolicies =
   ListPolicies'
-    { pageSize = Core.Nothing,
-      ascendingOrder = Core.Nothing,
-      marker = Core.Nothing
+    { pageSize = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The result page size.
-listPolicies_pageSize :: Lens.Lens' ListPolicies (Core.Maybe Core.Natural)
+listPolicies_pageSize :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
 listPolicies_pageSize = Lens.lens (\ListPolicies' {pageSize} -> pageSize) (\s@ListPolicies' {} a -> s {pageSize = a} :: ListPolicies)
 
 -- | Specifies the order for results. If true, the results are returned in
 -- ascending creation order.
-listPolicies_ascendingOrder :: Lens.Lens' ListPolicies (Core.Maybe Core.Bool)
+listPolicies_ascendingOrder :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Bool)
 listPolicies_ascendingOrder = Lens.lens (\ListPolicies' {ascendingOrder} -> ascendingOrder) (\s@ListPolicies' {} a -> s {ascendingOrder = a} :: ListPolicies)
 
 -- | The marker for the next set of results.
-listPolicies_marker :: Lens.Lens' ListPolicies (Core.Maybe Core.Text)
+listPolicies_marker :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
 listPolicies_marker = Lens.lens (\ListPolicies' {marker} -> marker) (\s@ListPolicies' {} a -> s {marker = a} :: ListPolicies)
 
 instance Core.AWSPager ListPolicies where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_nextMarker Core.. Lens._Just
+            Lens.^? listPoliciesResponse_nextMarker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_policies Core.. Lens._Just
+            Lens.^? listPoliciesResponse_policies Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPolicies_marker
+          Prelude.& listPolicies_marker
           Lens..~ rs
-          Lens.^? listPoliciesResponse_nextMarker Core.. Lens._Just
+          Lens.^? listPoliciesResponse_nextMarker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -126,24 +127,24 @@ instance Core.AWSRequest ListPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListPoliciesResponse'
-            Core.<$> (x Core..?> "policies" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "nextMarker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "policies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPolicies
+instance Prelude.Hashable ListPolicies
 
-instance Core.NFData ListPolicies
+instance Prelude.NFData ListPolicies
 
 instance Core.ToHeaders ListPolicies where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListPolicies where
-  toPath = Core.const "/policies"
+  toPath = Prelude.const "/policies"
 
 instance Core.ToQuery ListPolicies where
   toQuery ListPolicies' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "pageSize" Core.=: pageSize,
         "isAscendingOrder" Core.=: ascendingOrder,
         "marker" Core.=: marker
@@ -154,14 +155,14 @@ instance Core.ToQuery ListPolicies where
 -- /See:/ 'newListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
   { -- | The descriptions of the policies.
-    policies :: Core.Maybe [Policy],
+    policies :: Prelude.Maybe [Policy],
     -- | The marker for the next set of results, or null if there are no
     -- additional results.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPoliciesResponse' with all optional fields omitted.
@@ -179,26 +180,26 @@ data ListPoliciesResponse = ListPoliciesResponse'
 -- 'httpStatus', 'listPoliciesResponse_httpStatus' - The response's http status code.
 newListPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPoliciesResponse
 newListPoliciesResponse pHttpStatus_ =
   ListPoliciesResponse'
-    { policies = Core.Nothing,
-      nextMarker = Core.Nothing,
+    { policies = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The descriptions of the policies.
-listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Core.Maybe [Policy])
-listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Core.. Lens.mapping Lens._Coerce
+listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [Policy])
+listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker for the next set of results, or null if there are no
 -- additional results.
-listPoliciesResponse_nextMarker :: Lens.Lens' ListPoliciesResponse (Core.Maybe Core.Text)
+listPoliciesResponse_nextMarker :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe Prelude.Text)
 listPoliciesResponse_nextMarker = Lens.lens (\ListPoliciesResponse' {nextMarker} -> nextMarker) (\s@ListPoliciesResponse' {} a -> s {nextMarker = a} :: ListPoliciesResponse)
 
 -- | The response's http status code.
-listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Core.Int
+listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int
 listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesResponse' {} a -> s {httpStatus = a} :: ListPoliciesResponse)
 
-instance Core.NFData ListPoliciesResponse
+instance Prelude.NFData ListPoliciesResponse

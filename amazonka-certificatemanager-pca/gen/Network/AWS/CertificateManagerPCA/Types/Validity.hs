@@ -22,6 +22,7 @@ module Network.AWS.CertificateManagerPCA.Types.Validity where
 import Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Validity specifies the period of time during which a certificate is
 -- valid. Validity can be expressed as an explicit date and time when the
@@ -40,7 +41,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newValidity' smart constructor.
 data Validity = Validity'
   { -- | A long integer interpreted according to the value of @Type@, below.
-    value :: Core.Natural,
+    value :: Prelude.Natural,
     -- | Determines how /ACM Private CA/ interprets the @Value@ parameter, an
     -- integer. Supported validity types include those listed below. Type
     -- definitions with values include a sample input value and the resulting
@@ -78,7 +79,7 @@ data Validity = Validity'
     -- absolute time (@ABSOLUTE@ or @END_DATE@) is one second.
     type' :: ValidityPeriodType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Validity' with all optional fields omitted.
@@ -127,7 +128,7 @@ data Validity = Validity'
 -- absolute time (@ABSOLUTE@ or @END_DATE@) is one second.
 newValidity ::
   -- | 'value'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'type''
   ValidityPeriodType ->
   Validity
@@ -135,7 +136,7 @@ newValidity pValue_ pType_ =
   Validity' {value = pValue_, type' = pType_}
 
 -- | A long integer interpreted according to the value of @Type@, below.
-validity_value :: Lens.Lens' Validity Core.Natural
+validity_value :: Lens.Lens' Validity Prelude.Natural
 validity_value = Lens.lens (\Validity' {value} -> value) (\s@Validity' {} a -> s {value = a} :: Validity)
 
 -- | Determines how /ACM Private CA/ interprets the @Value@ parameter, an
@@ -176,15 +177,15 @@ validity_value = Lens.lens (\Validity' {value} -> value) (\s@Validity' {} a -> s
 validity_type :: Lens.Lens' Validity ValidityPeriodType
 validity_type = Lens.lens (\Validity' {type'} -> type') (\s@Validity' {} a -> s {type' = a} :: Validity)
 
-instance Core.Hashable Validity
+instance Prelude.Hashable Validity
 
-instance Core.NFData Validity
+instance Prelude.NFData Validity
 
 instance Core.ToJSON Validity where
   toJSON Validity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Value" Core..= value),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Value" Core..= value),
+            Prelude.Just ("Type" Core..= type')
           ]
       )

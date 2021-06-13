@@ -21,24 +21,25 @@ module Network.AWS.AutoScaling.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a tag for an Auto Scaling group.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The tag key.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The name of the group.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The type of resource. The only supported value is @auto-scaling-group@.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | Determines whether the tag is added to new instances as they are
     -- launched in the group.
-    propagateAtLaunch :: Core.Bool,
+    propagateAtLaunch :: Prelude.Bool,
     -- | The tag value.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -60,15 +61,15 @@ data Tag = Tag'
 -- 'value', 'tag_value' - The tag value.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'propagateAtLaunch'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag
   pKey_
@@ -85,33 +86,33 @@ newTag
       }
 
 -- | The tag key.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The name of the group.
-tag_resourceId :: Lens.Lens' Tag Core.Text
+tag_resourceId :: Lens.Lens' Tag Prelude.Text
 tag_resourceId = Lens.lens (\Tag' {resourceId} -> resourceId) (\s@Tag' {} a -> s {resourceId = a} :: Tag)
 
 -- | The type of resource. The only supported value is @auto-scaling-group@.
-tag_resourceType :: Lens.Lens' Tag Core.Text
+tag_resourceType :: Lens.Lens' Tag Prelude.Text
 tag_resourceType = Lens.lens (\Tag' {resourceType} -> resourceType) (\s@Tag' {} a -> s {resourceType = a} :: Tag)
 
 -- | Determines whether the tag is added to new instances as they are
 -- launched in the group.
-tag_propagateAtLaunch :: Lens.Lens' Tag Core.Bool
+tag_propagateAtLaunch :: Lens.Lens' Tag Prelude.Bool
 tag_propagateAtLaunch = Lens.lens (\Tag' {propagateAtLaunch} -> propagateAtLaunch) (\s@Tag' {} a -> s {propagateAtLaunch = a} :: Tag)
 
 -- | The tag value.
-tag_value :: Lens.Lens' Tag Core.Text
+tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToQuery Tag where
   toQuery Tag' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Key" Core.=: key,
         "ResourceId" Core.=: resourceId,
         "ResourceType" Core.=: resourceType,

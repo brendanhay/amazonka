@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetLoadBalancer' smart constructor.
 data GetLoadBalancer = GetLoadBalancer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text
+    loadBalancerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLoadBalancer' with all optional fields omitted.
@@ -63,7 +64,7 @@ data GetLoadBalancer = GetLoadBalancer'
 -- 'loadBalancerName', 'getLoadBalancer_loadBalancerName' - The name of the load balancer.
 newGetLoadBalancer ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   GetLoadBalancer
 newGetLoadBalancer pLoadBalancerName_ =
   GetLoadBalancer'
@@ -72,7 +73,7 @@ newGetLoadBalancer pLoadBalancerName_ =
     }
 
 -- | The name of the load balancer.
-getLoadBalancer_loadBalancerName :: Lens.Lens' GetLoadBalancer Core.Text
+getLoadBalancer_loadBalancerName :: Lens.Lens' GetLoadBalancer Prelude.Text
 getLoadBalancer_loadBalancerName = Lens.lens (\GetLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@GetLoadBalancer' {} a -> s {loadBalancerName = a} :: GetLoadBalancer)
 
 instance Core.AWSRequest GetLoadBalancer where
@@ -84,50 +85,52 @@ instance Core.AWSRequest GetLoadBalancer where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancerResponse'
-            Core.<$> (x Core..?> "loadBalancer")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "loadBalancer")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetLoadBalancer
+instance Prelude.Hashable GetLoadBalancer
 
-instance Core.NFData GetLoadBalancer
+instance Prelude.NFData GetLoadBalancer
 
 instance Core.ToHeaders GetLoadBalancer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetLoadBalancer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetLoadBalancer where
   toJSON GetLoadBalancer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName)
           ]
       )
 
 instance Core.ToPath GetLoadBalancer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetLoadBalancer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLoadBalancerResponse' smart constructor.
 data GetLoadBalancerResponse = GetLoadBalancerResponse'
   { -- | An object containing information about your load balancer.
-    loadBalancer :: Core.Maybe LoadBalancer,
+    loadBalancer :: Prelude.Maybe LoadBalancer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLoadBalancerResponse' with all optional fields omitted.
@@ -142,21 +145,21 @@ data GetLoadBalancerResponse = GetLoadBalancerResponse'
 -- 'httpStatus', 'getLoadBalancerResponse_httpStatus' - The response's http status code.
 newGetLoadBalancerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetLoadBalancerResponse
 newGetLoadBalancerResponse pHttpStatus_ =
   GetLoadBalancerResponse'
     { loadBalancer =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object containing information about your load balancer.
-getLoadBalancerResponse_loadBalancer :: Lens.Lens' GetLoadBalancerResponse (Core.Maybe LoadBalancer)
+getLoadBalancerResponse_loadBalancer :: Lens.Lens' GetLoadBalancerResponse (Prelude.Maybe LoadBalancer)
 getLoadBalancerResponse_loadBalancer = Lens.lens (\GetLoadBalancerResponse' {loadBalancer} -> loadBalancer) (\s@GetLoadBalancerResponse' {} a -> s {loadBalancer = a} :: GetLoadBalancerResponse)
 
 -- | The response's http status code.
-getLoadBalancerResponse_httpStatus :: Lens.Lens' GetLoadBalancerResponse Core.Int
+getLoadBalancerResponse_httpStatus :: Lens.Lens' GetLoadBalancerResponse Prelude.Int
 getLoadBalancerResponse_httpStatus = Lens.lens (\GetLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@GetLoadBalancerResponse' {} a -> s {httpStatus = a} :: GetLoadBalancerResponse)
 
-instance Core.NFData GetLoadBalancerResponse
+instance Prelude.NFData GetLoadBalancerResponse

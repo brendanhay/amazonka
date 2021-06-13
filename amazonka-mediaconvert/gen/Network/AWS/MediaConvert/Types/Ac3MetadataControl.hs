@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Ac3MetadataControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD,
 -- DD+, or DolbyE decoder that supplied this audio data. If audio was not
@@ -37,15 +38,15 @@ newtype Ac3MetadataControl = Ac3MetadataControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

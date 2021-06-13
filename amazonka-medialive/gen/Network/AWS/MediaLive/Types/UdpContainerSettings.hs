@@ -22,14 +22,15 @@ module Network.AWS.MediaLive.Types.UdpContainerSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.M2tsSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Udp Container Settings
 --
 -- /See:/ 'newUdpContainerSettings' smart constructor.
 data UdpContainerSettings = UdpContainerSettings'
-  { m2tsSettings :: Core.Maybe M2tsSettings
+  { m2tsSettings :: Prelude.Maybe M2tsSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UdpContainerSettings' with all optional fields omitted.
@@ -43,10 +44,13 @@ data UdpContainerSettings = UdpContainerSettings'
 newUdpContainerSettings ::
   UdpContainerSettings
 newUdpContainerSettings =
-  UdpContainerSettings' {m2tsSettings = Core.Nothing}
+  UdpContainerSettings'
+    { m2tsSettings =
+        Prelude.Nothing
+    }
 
 -- | Undocumented member.
-udpContainerSettings_m2tsSettings :: Lens.Lens' UdpContainerSettings (Core.Maybe M2tsSettings)
+udpContainerSettings_m2tsSettings :: Lens.Lens' UdpContainerSettings (Prelude.Maybe M2tsSettings)
 udpContainerSettings_m2tsSettings = Lens.lens (\UdpContainerSettings' {m2tsSettings} -> m2tsSettings) (\s@UdpContainerSettings' {} a -> s {m2tsSettings = a} :: UdpContainerSettings)
 
 instance Core.FromJSON UdpContainerSettings where
@@ -55,16 +59,16 @@ instance Core.FromJSON UdpContainerSettings where
       "UdpContainerSettings"
       ( \x ->
           UdpContainerSettings'
-            Core.<$> (x Core..:? "m2tsSettings")
+            Prelude.<$> (x Core..:? "m2tsSettings")
       )
 
-instance Core.Hashable UdpContainerSettings
+instance Prelude.Hashable UdpContainerSettings
 
-instance Core.NFData UdpContainerSettings
+instance Prelude.NFData UdpContainerSettings
 
 instance Core.ToJSON UdpContainerSettings where
   toJSON UdpContainerSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("m2tsSettings" Core..=) Core.<$> m2tsSettings]
+      ( Prelude.catMaybes
+          [("m2tsSettings" Core..=) Prelude.<$> m2tsSettings]
       )

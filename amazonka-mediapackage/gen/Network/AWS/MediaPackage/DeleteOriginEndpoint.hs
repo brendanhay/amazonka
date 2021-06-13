@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteOriginEndpoint' smart constructor.
 data DeleteOriginEndpoint = DeleteOriginEndpoint'
   { -- | The ID of the OriginEndpoint to delete.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOriginEndpoint' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteOriginEndpoint = DeleteOriginEndpoint'
 -- 'id', 'deleteOriginEndpoint_id' - The ID of the OriginEndpoint to delete.
 newDeleteOriginEndpoint ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteOriginEndpoint
 newDeleteOriginEndpoint pId_ =
   DeleteOriginEndpoint' {id = pId_}
 
 -- | The ID of the OriginEndpoint to delete.
-deleteOriginEndpoint_id :: Lens.Lens' DeleteOriginEndpoint Core.Text
+deleteOriginEndpoint_id :: Lens.Lens' DeleteOriginEndpoint Prelude.Text
 deleteOriginEndpoint_id = Lens.lens (\DeleteOriginEndpoint' {id} -> id) (\s@DeleteOriginEndpoint' {} a -> s {id = a} :: DeleteOriginEndpoint)
 
 instance Core.AWSRequest DeleteOriginEndpoint where
@@ -80,35 +81,38 @@ instance Core.AWSRequest DeleteOriginEndpoint where
     Response.receiveEmpty
       ( \s h x ->
           DeleteOriginEndpointResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteOriginEndpoint
+instance Prelude.Hashable DeleteOriginEndpoint
 
-instance Core.NFData DeleteOriginEndpoint
+instance Prelude.NFData DeleteOriginEndpoint
 
 instance Core.ToHeaders DeleteOriginEndpoint where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteOriginEndpoint where
   toPath DeleteOriginEndpoint' {..} =
-    Core.mconcat ["/origin_endpoints/", Core.toBS id]
+    Prelude.mconcat
+      ["/origin_endpoints/", Core.toBS id]
 
 instance Core.ToQuery DeleteOriginEndpoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOriginEndpointResponse' smart constructor.
 data DeleteOriginEndpointResponse = DeleteOriginEndpointResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOriginEndpointResponse' with all optional fields omitted.
@@ -121,7 +125,7 @@ data DeleteOriginEndpointResponse = DeleteOriginEndpointResponse'
 -- 'httpStatus', 'deleteOriginEndpointResponse_httpStatus' - The response's http status code.
 newDeleteOriginEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteOriginEndpointResponse
 newDeleteOriginEndpointResponse pHttpStatus_ =
   DeleteOriginEndpointResponse'
@@ -130,7 +134,7 @@ newDeleteOriginEndpointResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteOriginEndpointResponse_httpStatus :: Lens.Lens' DeleteOriginEndpointResponse Core.Int
+deleteOriginEndpointResponse_httpStatus :: Lens.Lens' DeleteOriginEndpointResponse Prelude.Int
 deleteOriginEndpointResponse_httpStatus = Lens.lens (\DeleteOriginEndpointResponse' {httpStatus} -> httpStatus) (\s@DeleteOriginEndpointResponse' {} a -> s {httpStatus = a} :: DeleteOriginEndpointResponse)
 
-instance Core.NFData DeleteOriginEndpointResponse
+instance Prelude.NFData DeleteOriginEndpointResponse

@@ -23,6 +23,7 @@ import Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId
 import Network.AWS.CertificateManagerPCA.Types.Qualifier
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Modifies the @CertPolicyId@ of a @PolicyInformation@ object with a
 -- qualifier. ACM Private CA supports the certification practice statement
@@ -36,7 +37,7 @@ data PolicyQualifierInfo = PolicyQualifierInfo'
     -- a CPS qualifier in this field.
     qualifier :: Qualifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyQualifierInfo' with all optional fields omitted.
@@ -74,16 +75,16 @@ policyQualifierInfo_policyQualifierId = Lens.lens (\PolicyQualifierInfo' {policy
 policyQualifierInfo_qualifier :: Lens.Lens' PolicyQualifierInfo Qualifier
 policyQualifierInfo_qualifier = Lens.lens (\PolicyQualifierInfo' {qualifier} -> qualifier) (\s@PolicyQualifierInfo' {} a -> s {qualifier = a} :: PolicyQualifierInfo)
 
-instance Core.Hashable PolicyQualifierInfo
+instance Prelude.Hashable PolicyQualifierInfo
 
-instance Core.NFData PolicyQualifierInfo
+instance Prelude.NFData PolicyQualifierInfo
 
 instance Core.ToJSON PolicyQualifierInfo where
   toJSON PolicyQualifierInfo' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("PolicyQualifierId" Core..= policyQualifierId),
-            Core.Just ("Qualifier" Core..= qualifier)
+            Prelude.Just ("Qualifier" Core..= qualifier)
           ]
       )

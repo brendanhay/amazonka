@@ -93,6 +93,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -111,15 +112,15 @@ data CreateGameSessionQueue = CreateGameSessionQueue'
     -- the placement. A player latency policy must set a value for
     -- @MaximumIndividualPlayerLatencyMilliseconds@. If none is set, this API
     -- request fails.
-    playerLatencyPolicies :: Core.Maybe [PlayerLatencyPolicy],
+    playerLatencyPolicies :: Prelude.Maybe [PlayerLatencyPolicy],
     -- | The maximum time, in seconds, that a new game session placement request
     -- remains in the queue. When a request exceeds this time, the game session
     -- placement changes to a @TIMED_OUT@ status.
-    timeoutInSeconds :: Core.Maybe Core.Natural,
+    timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A list of fleets that can be used to fulfill game session placement
     -- requests in the queue. Fleets are identified by either a fleet ARN or a
     -- fleet alias ARN. Destinations are listed in default preference order.
-    destinations :: Core.Maybe [GameSessionQueueDestination],
+    destinations :: Prelude.Maybe [GameSessionQueueDestination],
     -- | A list of labels to assign to the new game session queue resource. Tags
     -- are developer-defined key-value pairs. Tagging AWS resources are useful
     -- for resource management, access management and cost allocation. For more
@@ -129,12 +130,12 @@ data CreateGameSessionQueue = CreateGameSessionQueue'
     -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGameSessionQueue' with all optional fields omitted.
@@ -178,15 +179,15 @@ data CreateGameSessionQueue = CreateGameSessionQueue'
 -- names must be unique within each Region.
 newCreateGameSessionQueue ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateGameSessionQueue
 newCreateGameSessionQueue pName_ =
   CreateGameSessionQueue'
     { playerLatencyPolicies =
-        Core.Nothing,
-      timeoutInSeconds = Core.Nothing,
-      destinations = Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
 
@@ -201,20 +202,20 @@ newCreateGameSessionQueue pName_ =
 -- the placement. A player latency policy must set a value for
 -- @MaximumIndividualPlayerLatencyMilliseconds@. If none is set, this API
 -- request fails.
-createGameSessionQueue_playerLatencyPolicies :: Lens.Lens' CreateGameSessionQueue (Core.Maybe [PlayerLatencyPolicy])
-createGameSessionQueue_playerLatencyPolicies = Lens.lens (\CreateGameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@CreateGameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: CreateGameSessionQueue) Core.. Lens.mapping Lens._Coerce
+createGameSessionQueue_playerLatencyPolicies :: Lens.Lens' CreateGameSessionQueue (Prelude.Maybe [PlayerLatencyPolicy])
+createGameSessionQueue_playerLatencyPolicies = Lens.lens (\CreateGameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@CreateGameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: CreateGameSessionQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
 -- placement changes to a @TIMED_OUT@ status.
-createGameSessionQueue_timeoutInSeconds :: Lens.Lens' CreateGameSessionQueue (Core.Maybe Core.Natural)
+createGameSessionQueue_timeoutInSeconds :: Lens.Lens' CreateGameSessionQueue (Prelude.Maybe Prelude.Natural)
 createGameSessionQueue_timeoutInSeconds = Lens.lens (\CreateGameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@CreateGameSessionQueue' {} a -> s {timeoutInSeconds = a} :: CreateGameSessionQueue)
 
 -- | A list of fleets that can be used to fulfill game session placement
 -- requests in the queue. Fleets are identified by either a fleet ARN or a
 -- fleet alias ARN. Destinations are listed in default preference order.
-createGameSessionQueue_destinations :: Lens.Lens' CreateGameSessionQueue (Core.Maybe [GameSessionQueueDestination])
-createGameSessionQueue_destinations = Lens.lens (\CreateGameSessionQueue' {destinations} -> destinations) (\s@CreateGameSessionQueue' {} a -> s {destinations = a} :: CreateGameSessionQueue) Core.. Lens.mapping Lens._Coerce
+createGameSessionQueue_destinations :: Lens.Lens' CreateGameSessionQueue (Prelude.Maybe [GameSessionQueueDestination])
+createGameSessionQueue_destinations = Lens.lens (\CreateGameSessionQueue' {destinations} -> destinations) (\s@CreateGameSessionQueue' {} a -> s {destinations = a} :: CreateGameSessionQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of labels to assign to the new game session queue resource. Tags
 -- are developer-defined key-value pairs. Tagging AWS resources are useful
@@ -225,12 +226,12 @@ createGameSessionQueue_destinations = Lens.lens (\CreateGameSessionQueue' {desti
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
-createGameSessionQueue_tags :: Lens.Lens' CreateGameSessionQueue (Core.Maybe [Tag])
-createGameSessionQueue_tags = Lens.lens (\CreateGameSessionQueue' {tags} -> tags) (\s@CreateGameSessionQueue' {} a -> s {tags = a} :: CreateGameSessionQueue) Core.. Lens.mapping Lens._Coerce
+createGameSessionQueue_tags :: Lens.Lens' CreateGameSessionQueue (Prelude.Maybe [Tag])
+createGameSessionQueue_tags = Lens.lens (\CreateGameSessionQueue' {tags} -> tags) (\s@CreateGameSessionQueue' {} a -> s {tags = a} :: CreateGameSessionQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region.
-createGameSessionQueue_name :: Lens.Lens' CreateGameSessionQueue Core.Text
+createGameSessionQueue_name :: Lens.Lens' CreateGameSessionQueue Prelude.Text
 createGameSessionQueue_name = Lens.lens (\CreateGameSessionQueue' {name} -> name) (\s@CreateGameSessionQueue' {} a -> s {name = a} :: CreateGameSessionQueue)
 
 instance Core.AWSRequest CreateGameSessionQueue where
@@ -242,57 +243,59 @@ instance Core.AWSRequest CreateGameSessionQueue where
     Response.receiveJSON
       ( \s h x ->
           CreateGameSessionQueueResponse'
-            Core.<$> (x Core..?> "GameSessionQueue")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameSessionQueue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateGameSessionQueue
+instance Prelude.Hashable CreateGameSessionQueue
 
-instance Core.NFData CreateGameSessionQueue
+instance Prelude.NFData CreateGameSessionQueue
 
 instance Core.ToHeaders CreateGameSessionQueue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.CreateGameSessionQueue" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateGameSessionQueue where
   toJSON CreateGameSessionQueue' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PlayerLatencyPolicies" Core..=)
-              Core.<$> playerLatencyPolicies,
+              Prelude.<$> playerLatencyPolicies,
             ("TimeoutInSeconds" Core..=)
-              Core.<$> timeoutInSeconds,
-            ("Destinations" Core..=) Core.<$> destinations,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("Name" Core..= name)
+              Prelude.<$> timeoutInSeconds,
+            ("Destinations" Core..=) Prelude.<$> destinations,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateGameSessionQueue where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateGameSessionQueue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newCreateGameSessionQueueResponse' smart constructor.
 data CreateGameSessionQueueResponse = CreateGameSessionQueueResponse'
   { -- | An object that describes the newly created game session queue.
-    gameSessionQueue :: Core.Maybe GameSessionQueue,
+    gameSessionQueue :: Prelude.Maybe GameSessionQueue,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGameSessionQueueResponse' with all optional fields omitted.
@@ -307,21 +310,23 @@ data CreateGameSessionQueueResponse = CreateGameSessionQueueResponse'
 -- 'httpStatus', 'createGameSessionQueueResponse_httpStatus' - The response's http status code.
 newCreateGameSessionQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateGameSessionQueueResponse
 newCreateGameSessionQueueResponse pHttpStatus_ =
   CreateGameSessionQueueResponse'
     { gameSessionQueue =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes the newly created game session queue.
-createGameSessionQueueResponse_gameSessionQueue :: Lens.Lens' CreateGameSessionQueueResponse (Core.Maybe GameSessionQueue)
+createGameSessionQueueResponse_gameSessionQueue :: Lens.Lens' CreateGameSessionQueueResponse (Prelude.Maybe GameSessionQueue)
 createGameSessionQueueResponse_gameSessionQueue = Lens.lens (\CreateGameSessionQueueResponse' {gameSessionQueue} -> gameSessionQueue) (\s@CreateGameSessionQueueResponse' {} a -> s {gameSessionQueue = a} :: CreateGameSessionQueueResponse)
 
 -- | The response's http status code.
-createGameSessionQueueResponse_httpStatus :: Lens.Lens' CreateGameSessionQueueResponse Core.Int
+createGameSessionQueueResponse_httpStatus :: Lens.Lens' CreateGameSessionQueueResponse Prelude.Int
 createGameSessionQueueResponse_httpStatus = Lens.lens (\CreateGameSessionQueueResponse' {httpStatus} -> httpStatus) (\s@CreateGameSessionQueueResponse' {} a -> s {httpStatus = a} :: CreateGameSessionQueueResponse)
 
-instance Core.NFData CreateGameSessionQueueResponse
+instance
+  Prelude.NFData
+    CreateGameSessionQueueResponse

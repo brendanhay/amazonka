@@ -42,18 +42,19 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRemediationConfiguration' smart constructor.
 data DeleteRemediationConfiguration = DeleteRemediationConfiguration'
   { -- | The type of a resource.
-    resourceType :: Core.Maybe Core.Text,
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS Config rule for which you want to delete remediation
     -- configuration.
-    configRuleName :: Core.Text
+    configRuleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRemediationConfiguration' with all optional fields omitted.
@@ -69,22 +70,22 @@ data DeleteRemediationConfiguration = DeleteRemediationConfiguration'
 -- configuration.
 newDeleteRemediationConfiguration ::
   -- | 'configRuleName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRemediationConfiguration
 newDeleteRemediationConfiguration pConfigRuleName_ =
   DeleteRemediationConfiguration'
     { resourceType =
-        Core.Nothing,
+        Prelude.Nothing,
       configRuleName = pConfigRuleName_
     }
 
 -- | The type of a resource.
-deleteRemediationConfiguration_resourceType :: Lens.Lens' DeleteRemediationConfiguration (Core.Maybe Core.Text)
+deleteRemediationConfiguration_resourceType :: Lens.Lens' DeleteRemediationConfiguration (Prelude.Maybe Prelude.Text)
 deleteRemediationConfiguration_resourceType = Lens.lens (\DeleteRemediationConfiguration' {resourceType} -> resourceType) (\s@DeleteRemediationConfiguration' {} a -> s {resourceType = a} :: DeleteRemediationConfiguration)
 
 -- | The name of the AWS Config rule for which you want to delete remediation
 -- configuration.
-deleteRemediationConfiguration_configRuleName :: Lens.Lens' DeleteRemediationConfiguration Core.Text
+deleteRemediationConfiguration_configRuleName :: Lens.Lens' DeleteRemediationConfiguration Prelude.Text
 deleteRemediationConfiguration_configRuleName = Lens.lens (\DeleteRemediationConfiguration' {configRuleName} -> configRuleName) (\s@DeleteRemediationConfiguration' {} a -> s {configRuleName = a} :: DeleteRemediationConfiguration)
 
 instance
@@ -99,50 +100,57 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DeleteRemediationConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRemediationConfiguration
+instance
+  Prelude.Hashable
+    DeleteRemediationConfiguration
 
-instance Core.NFData DeleteRemediationConfiguration
+instance
+  Prelude.NFData
+    DeleteRemediationConfiguration
 
 instance
   Core.ToHeaders
     DeleteRemediationConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteRemediationConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRemediationConfiguration where
   toJSON DeleteRemediationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceType" Core..=) Core.<$> resourceType,
-            Core.Just ("ConfigRuleName" Core..= configRuleName)
+      ( Prelude.catMaybes
+          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
+            Prelude.Just
+              ("ConfigRuleName" Core..= configRuleName)
           ]
       )
 
 instance Core.ToPath DeleteRemediationConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRemediationConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRemediationConfigurationResponse' smart constructor.
 data DeleteRemediationConfigurationResponse = DeleteRemediationConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRemediationConfigurationResponse' with all optional fields omitted.
@@ -155,7 +163,7 @@ data DeleteRemediationConfigurationResponse = DeleteRemediationConfigurationResp
 -- 'httpStatus', 'deleteRemediationConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteRemediationConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRemediationConfigurationResponse
 newDeleteRemediationConfigurationResponse
   pHttpStatus_ =
@@ -165,9 +173,9 @@ newDeleteRemediationConfigurationResponse
       }
 
 -- | The response's http status code.
-deleteRemediationConfigurationResponse_httpStatus :: Lens.Lens' DeleteRemediationConfigurationResponse Core.Int
+deleteRemediationConfigurationResponse_httpStatus :: Lens.Lens' DeleteRemediationConfigurationResponse Prelude.Int
 deleteRemediationConfigurationResponse_httpStatus = Lens.lens (\DeleteRemediationConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteRemediationConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteRemediationConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteRemediationConfigurationResponse

@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,11 +62,11 @@ data UpdateLedger = UpdateLedger'
     -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
     -- operation to set the flag to @false@. The QLDB console disables deletion
     -- protection for you when you use it to delete a ledger.
-    deletionProtection :: Core.Maybe Core.Bool,
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The name of the ledger.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateLedger' with all optional fields omitted.
@@ -88,11 +89,11 @@ data UpdateLedger = UpdateLedger'
 -- 'name', 'updateLedger_name' - The name of the ledger.
 newUpdateLedger ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdateLedger
 newUpdateLedger pName_ =
   UpdateLedger'
-    { deletionProtection = Core.Nothing,
+    { deletionProtection = Prelude.Nothing,
       name = pName_
     }
 
@@ -105,11 +106,11 @@ newUpdateLedger pName_ =
 -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
 -- operation to set the flag to @false@. The QLDB console disables deletion
 -- protection for you when you use it to delete a ledger.
-updateLedger_deletionProtection :: Lens.Lens' UpdateLedger (Core.Maybe Core.Bool)
+updateLedger_deletionProtection :: Lens.Lens' UpdateLedger (Prelude.Maybe Prelude.Bool)
 updateLedger_deletionProtection = Lens.lens (\UpdateLedger' {deletionProtection} -> deletionProtection) (\s@UpdateLedger' {} a -> s {deletionProtection = a} :: UpdateLedger)
 
 -- | The name of the ledger.
-updateLedger_name :: Lens.Lens' UpdateLedger Core.Text
+updateLedger_name :: Lens.Lens' UpdateLedger Prelude.Text
 updateLedger_name = Lens.lens (\UpdateLedger' {name} -> name) (\s@UpdateLedger' {} a -> s {name = a} :: UpdateLedger)
 
 instance Core.AWSRequest UpdateLedger where
@@ -119,42 +120,44 @@ instance Core.AWSRequest UpdateLedger where
     Response.receiveJSON
       ( \s h x ->
           UpdateLedgerResponse'
-            Core.<$> (x Core..?> "DeletionProtection")
-            Core.<*> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "State")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (x Core..?> "CreationDateTime")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DeletionProtection")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "CreationDateTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateLedger
+instance Prelude.Hashable UpdateLedger
 
-instance Core.NFData UpdateLedger
+instance Prelude.NFData UpdateLedger
 
 instance Core.ToHeaders UpdateLedger where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateLedger where
   toJSON UpdateLedger' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DeletionProtection" Core..=)
-              Core.<$> deletionProtection
+              Prelude.<$> deletionProtection
           ]
       )
 
 instance Core.ToPath UpdateLedger where
   toPath UpdateLedger' {..} =
-    Core.mconcat ["/ledgers/", Core.toBS name]
+    Prelude.mconcat ["/ledgers/", Core.toBS name]
 
 instance Core.ToQuery UpdateLedger where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLedgerResponse' smart constructor.
 data UpdateLedgerResponse = UpdateLedgerResponse'
@@ -167,21 +170,21 @@ data UpdateLedgerResponse = UpdateLedgerResponse'
     -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
     -- operation to set the flag to @false@. The QLDB console disables deletion
     -- protection for you when you use it to delete a ledger.
-    deletionProtection :: Core.Maybe Core.Bool,
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) for the ledger.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the ledger.
-    state :: Core.Maybe LedgerState,
+    state :: Prelude.Maybe LedgerState,
     -- | The name of the ledger.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
-    creationDateTime :: Core.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateLedgerResponse' with all optional fields omitted.
@@ -214,16 +217,16 @@ data UpdateLedgerResponse = UpdateLedgerResponse'
 -- 'httpStatus', 'updateLedgerResponse_httpStatus' - The response's http status code.
 newUpdateLedgerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateLedgerResponse
 newUpdateLedgerResponse pHttpStatus_ =
   UpdateLedgerResponse'
     { deletionProtection =
-        Core.Nothing,
-      arn = Core.Nothing,
-      state = Core.Nothing,
-      name = Core.Nothing,
-      creationDateTime = Core.Nothing,
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      state = Prelude.Nothing,
+      name = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -236,29 +239,29 @@ newUpdateLedgerResponse pHttpStatus_ =
 -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
 -- operation to set the flag to @false@. The QLDB console disables deletion
 -- protection for you when you use it to delete a ledger.
-updateLedgerResponse_deletionProtection :: Lens.Lens' UpdateLedgerResponse (Core.Maybe Core.Bool)
+updateLedgerResponse_deletionProtection :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe Prelude.Bool)
 updateLedgerResponse_deletionProtection = Lens.lens (\UpdateLedgerResponse' {deletionProtection} -> deletionProtection) (\s@UpdateLedgerResponse' {} a -> s {deletionProtection = a} :: UpdateLedgerResponse)
 
 -- | The Amazon Resource Name (ARN) for the ledger.
-updateLedgerResponse_arn :: Lens.Lens' UpdateLedgerResponse (Core.Maybe Core.Text)
+updateLedgerResponse_arn :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe Prelude.Text)
 updateLedgerResponse_arn = Lens.lens (\UpdateLedgerResponse' {arn} -> arn) (\s@UpdateLedgerResponse' {} a -> s {arn = a} :: UpdateLedgerResponse)
 
 -- | The current status of the ledger.
-updateLedgerResponse_state :: Lens.Lens' UpdateLedgerResponse (Core.Maybe LedgerState)
+updateLedgerResponse_state :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe LedgerState)
 updateLedgerResponse_state = Lens.lens (\UpdateLedgerResponse' {state} -> state) (\s@UpdateLedgerResponse' {} a -> s {state = a} :: UpdateLedgerResponse)
 
 -- | The name of the ledger.
-updateLedgerResponse_name :: Lens.Lens' UpdateLedgerResponse (Core.Maybe Core.Text)
+updateLedgerResponse_name :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe Prelude.Text)
 updateLedgerResponse_name = Lens.lens (\UpdateLedgerResponse' {name} -> name) (\s@UpdateLedgerResponse' {} a -> s {name = a} :: UpdateLedgerResponse)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
-updateLedgerResponse_creationDateTime :: Lens.Lens' UpdateLedgerResponse (Core.Maybe Core.UTCTime)
-updateLedgerResponse_creationDateTime = Lens.lens (\UpdateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@UpdateLedgerResponse' {} a -> s {creationDateTime = a} :: UpdateLedgerResponse) Core.. Lens.mapping Core._Time
+updateLedgerResponse_creationDateTime :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe Prelude.UTCTime)
+updateLedgerResponse_creationDateTime = Lens.lens (\UpdateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@UpdateLedgerResponse' {} a -> s {creationDateTime = a} :: UpdateLedgerResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-updateLedgerResponse_httpStatus :: Lens.Lens' UpdateLedgerResponse Core.Int
+updateLedgerResponse_httpStatus :: Lens.Lens' UpdateLedgerResponse Prelude.Int
 updateLedgerResponse_httpStatus = Lens.lens (\UpdateLedgerResponse' {httpStatus} -> httpStatus) (\s@UpdateLedgerResponse' {} a -> s {httpStatus = a} :: UpdateLedgerResponse)
 
-instance Core.NFData UpdateLedgerResponse
+instance Prelude.NFData UpdateLedgerResponse

@@ -60,6 +60,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,16 +72,16 @@ data SetAlarmState = SetAlarmState'
     -- For SNS or EC2 alarm actions, this is just informational. But for EC2
     -- Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling
     -- policy uses the information in this field to take the correct action.
-    stateReasonData :: Core.Maybe Core.Text,
+    stateReasonData :: Prelude.Maybe Prelude.Text,
     -- | The name of the alarm.
-    alarmName :: Core.Text,
+    alarmName :: Prelude.Text,
     -- | The value of the state.
     stateValue :: StateValue,
     -- | The reason that this alarm is set to this specific state, in text
     -- format.
-    stateReason :: Core.Text
+    stateReason :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetAlarmState' with all optional fields omitted.
@@ -105,18 +106,18 @@ data SetAlarmState = SetAlarmState'
 -- format.
 newSetAlarmState ::
   -- | 'alarmName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stateValue'
   StateValue ->
   -- | 'stateReason'
-  Core.Text ->
+  Prelude.Text ->
   SetAlarmState
 newSetAlarmState
   pAlarmName_
   pStateValue_
   pStateReason_ =
     SetAlarmState'
-      { stateReasonData = Core.Nothing,
+      { stateReasonData = Prelude.Nothing,
         alarmName = pAlarmName_,
         stateValue = pStateValue_,
         stateReason = pStateReason_
@@ -128,11 +129,11 @@ newSetAlarmState
 -- For SNS or EC2 alarm actions, this is just informational. But for EC2
 -- Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling
 -- policy uses the information in this field to take the correct action.
-setAlarmState_stateReasonData :: Lens.Lens' SetAlarmState (Core.Maybe Core.Text)
+setAlarmState_stateReasonData :: Lens.Lens' SetAlarmState (Prelude.Maybe Prelude.Text)
 setAlarmState_stateReasonData = Lens.lens (\SetAlarmState' {stateReasonData} -> stateReasonData) (\s@SetAlarmState' {} a -> s {stateReasonData = a} :: SetAlarmState)
 
 -- | The name of the alarm.
-setAlarmState_alarmName :: Lens.Lens' SetAlarmState Core.Text
+setAlarmState_alarmName :: Lens.Lens' SetAlarmState Prelude.Text
 setAlarmState_alarmName = Lens.lens (\SetAlarmState' {alarmName} -> alarmName) (\s@SetAlarmState' {} a -> s {alarmName = a} :: SetAlarmState)
 
 -- | The value of the state.
@@ -141,7 +142,7 @@ setAlarmState_stateValue = Lens.lens (\SetAlarmState' {stateValue} -> stateValue
 
 -- | The reason that this alarm is set to this specific state, in text
 -- format.
-setAlarmState_stateReason :: Lens.Lens' SetAlarmState Core.Text
+setAlarmState_stateReason :: Lens.Lens' SetAlarmState Prelude.Text
 setAlarmState_stateReason = Lens.lens (\SetAlarmState' {stateReason} -> stateReason) (\s@SetAlarmState' {} a -> s {stateReason = a} :: SetAlarmState)
 
 instance Core.AWSRequest SetAlarmState where
@@ -152,22 +153,23 @@ instance Core.AWSRequest SetAlarmState where
   response =
     Response.receiveNull SetAlarmStateResponse'
 
-instance Core.Hashable SetAlarmState
+instance Prelude.Hashable SetAlarmState
 
-instance Core.NFData SetAlarmState
+instance Prelude.NFData SetAlarmState
 
 instance Core.ToHeaders SetAlarmState where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetAlarmState where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetAlarmState where
   toQuery SetAlarmState' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetAlarmState" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("SetAlarmState" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "StateReasonData" Core.=: stateReasonData,
         "AlarmName" Core.=: alarmName,
         "StateValue" Core.=: stateValue,
@@ -178,7 +180,7 @@ instance Core.ToQuery SetAlarmState where
 data SetAlarmStateResponse = SetAlarmStateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetAlarmStateResponse' with all optional fields omitted.
@@ -188,4 +190,4 @@ newSetAlarmStateResponse ::
   SetAlarmStateResponse
 newSetAlarmStateResponse = SetAlarmStateResponse'
 
-instance Core.NFData SetAlarmStateResponse
+instance Prelude.NFData SetAlarmStateResponse

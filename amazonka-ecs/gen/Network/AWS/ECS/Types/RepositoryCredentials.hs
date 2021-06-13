@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.RepositoryCredentials where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The repository credentials for private registry authentication.
 --
@@ -34,9 +35,9 @@ data RepositoryCredentials = RepositoryCredentials'
     -- you can use either the full ARN or the name of the secret. When you are
     -- using the AWS Management Console, you must specify the full ARN of the
     -- secret.
-    credentialsParameter :: Core.Text
+    credentialsParameter :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RepositoryCredentials' with all optional fields omitted.
@@ -56,7 +57,7 @@ data RepositoryCredentials = RepositoryCredentials'
 -- secret.
 newRepositoryCredentials ::
   -- | 'credentialsParameter'
-  Core.Text ->
+  Prelude.Text ->
   RepositoryCredentials
 newRepositoryCredentials pCredentialsParameter_ =
   RepositoryCredentials'
@@ -72,7 +73,7 @@ newRepositoryCredentials pCredentialsParameter_ =
 -- you can use either the full ARN or the name of the secret. When you are
 -- using the AWS Management Console, you must specify the full ARN of the
 -- secret.
-repositoryCredentials_credentialsParameter :: Lens.Lens' RepositoryCredentials Core.Text
+repositoryCredentials_credentialsParameter :: Lens.Lens' RepositoryCredentials Prelude.Text
 repositoryCredentials_credentialsParameter = Lens.lens (\RepositoryCredentials' {credentialsParameter} -> credentialsParameter) (\s@RepositoryCredentials' {} a -> s {credentialsParameter = a} :: RepositoryCredentials)
 
 instance Core.FromJSON RepositoryCredentials where
@@ -81,18 +82,18 @@ instance Core.FromJSON RepositoryCredentials where
       "RepositoryCredentials"
       ( \x ->
           RepositoryCredentials'
-            Core.<$> (x Core..: "credentialsParameter")
+            Prelude.<$> (x Core..: "credentialsParameter")
       )
 
-instance Core.Hashable RepositoryCredentials
+instance Prelude.Hashable RepositoryCredentials
 
-instance Core.NFData RepositoryCredentials
+instance Prelude.NFData RepositoryCredentials
 
 instance Core.ToJSON RepositoryCredentials where
   toJSON RepositoryCredentials' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "credentialsParameter"
                   Core..= credentialsParameter
               )

@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -62,9 +63,9 @@ import Network.AWS.SES.Types
 data DeleteConfigurationSetTrackingOptions = DeleteConfigurationSetTrackingOptions'
   { -- | The name of the configuration set from which you want to delete the
     -- tracking options.
-    configurationSetName :: Core.Text
+    configurationSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationSetTrackingOptions' with all optional fields omitted.
@@ -78,7 +79,7 @@ data DeleteConfigurationSetTrackingOptions = DeleteConfigurationSetTrackingOptio
 -- tracking options.
 newDeleteConfigurationSetTrackingOptions ::
   -- | 'configurationSetName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConfigurationSetTrackingOptions
 newDeleteConfigurationSetTrackingOptions
   pConfigurationSetName_ =
@@ -89,7 +90,7 @@ newDeleteConfigurationSetTrackingOptions
 
 -- | The name of the configuration set from which you want to delete the
 -- tracking options.
-deleteConfigurationSetTrackingOptions_configurationSetName :: Lens.Lens' DeleteConfigurationSetTrackingOptions Core.Text
+deleteConfigurationSetTrackingOptions_configurationSetName :: Lens.Lens' DeleteConfigurationSetTrackingOptions Prelude.Text
 deleteConfigurationSetTrackingOptions_configurationSetName = Lens.lens (\DeleteConfigurationSetTrackingOptions' {configurationSetName} -> configurationSetName) (\s@DeleteConfigurationSetTrackingOptions' {} a -> s {configurationSetName = a} :: DeleteConfigurationSetTrackingOptions)
 
 instance
@@ -106,40 +107,41 @@ instance
       "DeleteConfigurationSetTrackingOptionsResult"
       ( \s h x ->
           DeleteConfigurationSetTrackingOptionsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteConfigurationSetTrackingOptions
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteConfigurationSetTrackingOptions
 
 instance
   Core.ToHeaders
     DeleteConfigurationSetTrackingOptions
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DeleteConfigurationSetTrackingOptions
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteConfigurationSetTrackingOptions
   where
   toQuery DeleteConfigurationSetTrackingOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DeleteConfigurationSetTrackingOptions" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ConfigurationSetName" Core.=: configurationSetName
       ]
 
@@ -148,9 +150,9 @@ instance
 -- /See:/ 'newDeleteConfigurationSetTrackingOptionsResponse' smart constructor.
 data DeleteConfigurationSetTrackingOptionsResponse = DeleteConfigurationSetTrackingOptionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationSetTrackingOptionsResponse' with all optional fields omitted.
@@ -163,7 +165,7 @@ data DeleteConfigurationSetTrackingOptionsResponse = DeleteConfigurationSetTrack
 -- 'httpStatus', 'deleteConfigurationSetTrackingOptionsResponse_httpStatus' - The response's http status code.
 newDeleteConfigurationSetTrackingOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteConfigurationSetTrackingOptionsResponse
 newDeleteConfigurationSetTrackingOptionsResponse
   pHttpStatus_ =
@@ -173,9 +175,9 @@ newDeleteConfigurationSetTrackingOptionsResponse
       }
 
 -- | The response's http status code.
-deleteConfigurationSetTrackingOptionsResponse_httpStatus :: Lens.Lens' DeleteConfigurationSetTrackingOptionsResponse Core.Int
+deleteConfigurationSetTrackingOptionsResponse_httpStatus :: Lens.Lens' DeleteConfigurationSetTrackingOptionsResponse Prelude.Int
 deleteConfigurationSetTrackingOptionsResponse_httpStatus = Lens.lens (\DeleteConfigurationSetTrackingOptionsResponse' {httpStatus} -> httpStatus) (\s@DeleteConfigurationSetTrackingOptionsResponse' {} a -> s {httpStatus = a} :: DeleteConfigurationSetTrackingOptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteConfigurationSetTrackingOptionsResponse

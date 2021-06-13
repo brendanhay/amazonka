@@ -86,6 +86,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -94,15 +95,15 @@ data PublishVersion = PublishVersion'
   { -- | Only update the function if the revision ID matches the ID that\'s
     -- specified. Use this option to avoid publishing a version if the function
     -- configuration has changed since you last updated it.
-    revisionId :: Core.Maybe Core.Text,
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | Only publish a version if the hash value matches the value that\'s
     -- specified. Use this option to avoid publishing a version if the function
     -- code has changed since you last updated it. You can get the hash for the
     -- version that you uploaded from the output of UpdateFunctionCode.
-    codeSha256 :: Core.Maybe Core.Text,
+    codeSha256 :: Prelude.Maybe Prelude.Text,
     -- | A description for the version to override the description in the
     -- function configuration.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -116,9 +117,9 @@ data PublishVersion = PublishVersion'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublishVersion' with all optional fields omitted.
@@ -155,32 +156,32 @@ data PublishVersion = PublishVersion'
 -- the function name, it is limited to 64 characters in length.
 newPublishVersion ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   PublishVersion
 newPublishVersion pFunctionName_ =
   PublishVersion'
-    { revisionId = Core.Nothing,
-      codeSha256 = Core.Nothing,
-      description = Core.Nothing,
+    { revisionId = Prelude.Nothing,
+      codeSha256 = Prelude.Nothing,
+      description = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
 -- | Only update the function if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid publishing a version if the function
 -- configuration has changed since you last updated it.
-publishVersion_revisionId :: Lens.Lens' PublishVersion (Core.Maybe Core.Text)
+publishVersion_revisionId :: Lens.Lens' PublishVersion (Prelude.Maybe Prelude.Text)
 publishVersion_revisionId = Lens.lens (\PublishVersion' {revisionId} -> revisionId) (\s@PublishVersion' {} a -> s {revisionId = a} :: PublishVersion)
 
 -- | Only publish a version if the hash value matches the value that\'s
 -- specified. Use this option to avoid publishing a version if the function
 -- code has changed since you last updated it. You can get the hash for the
 -- version that you uploaded from the output of UpdateFunctionCode.
-publishVersion_codeSha256 :: Lens.Lens' PublishVersion (Core.Maybe Core.Text)
+publishVersion_codeSha256 :: Lens.Lens' PublishVersion (Prelude.Maybe Prelude.Text)
 publishVersion_codeSha256 = Lens.lens (\PublishVersion' {codeSha256} -> codeSha256) (\s@PublishVersion' {} a -> s {codeSha256 = a} :: PublishVersion)
 
 -- | A description for the version to override the description in the
 -- function configuration.
-publishVersion_description :: Lens.Lens' PublishVersion (Core.Maybe Core.Text)
+publishVersion_description :: Lens.Lens' PublishVersion (Prelude.Maybe Prelude.Text)
 publishVersion_description = Lens.lens (\PublishVersion' {description} -> description) (\s@PublishVersion' {} a -> s {description = a} :: PublishVersion)
 
 -- | The name of the Lambda function.
@@ -196,7 +197,7 @@ publishVersion_description = Lens.lens (\PublishVersion' {description} -> descri
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-publishVersion_functionName :: Lens.Lens' PublishVersion Core.Text
+publishVersion_functionName :: Lens.Lens' PublishVersion Prelude.Text
 publishVersion_functionName = Lens.lens (\PublishVersion' {functionName} -> functionName) (\s@PublishVersion' {} a -> s {functionName = a} :: PublishVersion)
 
 instance Core.AWSRequest PublishVersion where
@@ -208,30 +209,30 @@ instance Core.AWSRequest PublishVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable PublishVersion
+instance Prelude.Hashable PublishVersion
 
-instance Core.NFData PublishVersion
+instance Prelude.NFData PublishVersion
 
 instance Core.ToHeaders PublishVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON PublishVersion where
   toJSON PublishVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RevisionId" Core..=) Core.<$> revisionId,
-            ("CodeSha256" Core..=) Core.<$> codeSha256,
-            ("Description" Core..=) Core.<$> description
+      ( Prelude.catMaybes
+          [ ("RevisionId" Core..=) Prelude.<$> revisionId,
+            ("CodeSha256" Core..=) Prelude.<$> codeSha256,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )
 
 instance Core.ToPath PublishVersion where
   toPath PublishVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/versions"
       ]
 
 instance Core.ToQuery PublishVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

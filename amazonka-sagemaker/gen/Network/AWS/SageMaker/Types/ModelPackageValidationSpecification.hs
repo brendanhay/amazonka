@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelPackageValidationSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ModelPackageValidationProfile
 
 -- | Specifies batch transform jobs that Amazon SageMaker runs to validate
@@ -29,13 +30,13 @@ import Network.AWS.SageMaker.Types.ModelPackageValidationProfile
 -- /See:/ 'newModelPackageValidationSpecification' smart constructor.
 data ModelPackageValidationSpecification = ModelPackageValidationSpecification'
   { -- | The IAM roles to be used for the validation of the model package.
-    validationRole :: Core.Text,
+    validationRole :: Prelude.Text,
     -- | An array of @ModelPackageValidationProfile@ objects, each of which
     -- specifies a batch transform job that Amazon SageMaker runs to validate
     -- your model package.
-    validationProfiles :: Core.NonEmpty ModelPackageValidationProfile
+    validationProfiles :: Prelude.NonEmpty ModelPackageValidationProfile
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelPackageValidationSpecification' with all optional fields omitted.
@@ -52,9 +53,9 @@ data ModelPackageValidationSpecification = ModelPackageValidationSpecification'
 -- your model package.
 newModelPackageValidationSpecification ::
   -- | 'validationRole'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'validationProfiles'
-  Core.NonEmpty ModelPackageValidationProfile ->
+  Prelude.NonEmpty ModelPackageValidationProfile ->
   ModelPackageValidationSpecification
 newModelPackageValidationSpecification
   pValidationRole_
@@ -68,14 +69,14 @@ newModelPackageValidationSpecification
       }
 
 -- | The IAM roles to be used for the validation of the model package.
-modelPackageValidationSpecification_validationRole :: Lens.Lens' ModelPackageValidationSpecification Core.Text
+modelPackageValidationSpecification_validationRole :: Lens.Lens' ModelPackageValidationSpecification Prelude.Text
 modelPackageValidationSpecification_validationRole = Lens.lens (\ModelPackageValidationSpecification' {validationRole} -> validationRole) (\s@ModelPackageValidationSpecification' {} a -> s {validationRole = a} :: ModelPackageValidationSpecification)
 
 -- | An array of @ModelPackageValidationProfile@ objects, each of which
 -- specifies a batch transform job that Amazon SageMaker runs to validate
 -- your model package.
-modelPackageValidationSpecification_validationProfiles :: Lens.Lens' ModelPackageValidationSpecification (Core.NonEmpty ModelPackageValidationProfile)
-modelPackageValidationSpecification_validationProfiles = Lens.lens (\ModelPackageValidationSpecification' {validationProfiles} -> validationProfiles) (\s@ModelPackageValidationSpecification' {} a -> s {validationProfiles = a} :: ModelPackageValidationSpecification) Core.. Lens._Coerce
+modelPackageValidationSpecification_validationProfiles :: Lens.Lens' ModelPackageValidationSpecification (Prelude.NonEmpty ModelPackageValidationProfile)
+modelPackageValidationSpecification_validationProfiles = Lens.lens (\ModelPackageValidationSpecification' {validationProfiles} -> validationProfiles) (\s@ModelPackageValidationSpecification' {} a -> s {validationProfiles = a} :: ModelPackageValidationSpecification) Prelude.. Lens._Coerce
 
 instance
   Core.FromJSON
@@ -86,16 +87,16 @@ instance
       "ModelPackageValidationSpecification"
       ( \x ->
           ModelPackageValidationSpecification'
-            Core.<$> (x Core..: "ValidationRole")
-            Core.<*> (x Core..: "ValidationProfiles")
+            Prelude.<$> (x Core..: "ValidationRole")
+            Prelude.<*> (x Core..: "ValidationProfiles")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModelPackageValidationSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModelPackageValidationSpecification
 
 instance
@@ -104,9 +105,10 @@ instance
   where
   toJSON ModelPackageValidationSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ValidationRole" Core..= validationRole),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ValidationRole" Core..= validationRole),
+            Prelude.Just
               ("ValidationProfiles" Core..= validationProfiles)
           ]
       )

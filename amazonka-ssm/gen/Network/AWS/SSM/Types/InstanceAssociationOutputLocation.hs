@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.InstanceAssociationOutputLocation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.S3OutputLocation
 
 -- | An S3 bucket where you want to store the results of this request.
@@ -28,9 +29,9 @@ import Network.AWS.SSM.Types.S3OutputLocation
 -- /See:/ 'newInstanceAssociationOutputLocation' smart constructor.
 data InstanceAssociationOutputLocation = InstanceAssociationOutputLocation'
   { -- | An S3 bucket where you want to store the results of this request.
-    s3Location :: Core.Maybe S3OutputLocation
+    s3Location :: Prelude.Maybe S3OutputLocation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceAssociationOutputLocation' with all optional fields omitted.
@@ -46,11 +47,11 @@ newInstanceAssociationOutputLocation ::
 newInstanceAssociationOutputLocation =
   InstanceAssociationOutputLocation'
     { s3Location =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | An S3 bucket where you want to store the results of this request.
-instanceAssociationOutputLocation_s3Location :: Lens.Lens' InstanceAssociationOutputLocation (Core.Maybe S3OutputLocation)
+instanceAssociationOutputLocation_s3Location :: Lens.Lens' InstanceAssociationOutputLocation (Prelude.Maybe S3OutputLocation)
 instanceAssociationOutputLocation_s3Location = Lens.lens (\InstanceAssociationOutputLocation' {s3Location} -> s3Location) (\s@InstanceAssociationOutputLocation' {} a -> s {s3Location = a} :: InstanceAssociationOutputLocation)
 
 instance
@@ -62,15 +63,15 @@ instance
       "InstanceAssociationOutputLocation"
       ( \x ->
           InstanceAssociationOutputLocation'
-            Core.<$> (x Core..:? "S3Location")
+            Prelude.<$> (x Core..:? "S3Location")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InstanceAssociationOutputLocation
 
 instance
-  Core.NFData
+  Prelude.NFData
     InstanceAssociationOutputLocation
 
 instance
@@ -79,6 +80,6 @@ instance
   where
   toJSON InstanceAssociationOutputLocation' {..} =
     Core.object
-      ( Core.catMaybes
-          [("S3Location" Core..=) Core.<$> s3Location]
+      ( Prelude.catMaybes
+          [("S3Location" Core..=) Prelude.<$> s3Location]
       )

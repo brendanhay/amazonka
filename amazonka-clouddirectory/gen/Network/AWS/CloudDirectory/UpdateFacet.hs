@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,17 +59,17 @@ data UpdateFacet = UpdateFacet'
   { -- | List of attributes that need to be updated in a given schema Facet. Each
     -- attribute is followed by @AttributeAction@, which specifies the type of
     -- update operation to perform.
-    attributeUpdates :: Core.Maybe [FacetAttributeUpdate],
+    attributeUpdates :: Prelude.Maybe [FacetAttributeUpdate],
     -- | The object type that is associated with the facet. See
     -- CreateFacetRequest$ObjectType for more details.
-    objectType :: Core.Maybe ObjectType,
+    objectType :: Prelude.Maybe ObjectType,
     -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
     -- more information, see arns.
-    schemaArn :: Core.Text,
+    schemaArn :: Prelude.Text,
     -- | The name of the facet.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFacet' with all optional fields omitted.
@@ -91,14 +92,14 @@ data UpdateFacet = UpdateFacet'
 -- 'name', 'updateFacet_name' - The name of the facet.
 newUpdateFacet ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFacet
 newUpdateFacet pSchemaArn_ pName_ =
   UpdateFacet'
-    { attributeUpdates = Core.Nothing,
-      objectType = Core.Nothing,
+    { attributeUpdates = Prelude.Nothing,
+      objectType = Prelude.Nothing,
       schemaArn = pSchemaArn_,
       name = pName_
     }
@@ -106,21 +107,21 @@ newUpdateFacet pSchemaArn_ pName_ =
 -- | List of attributes that need to be updated in a given schema Facet. Each
 -- attribute is followed by @AttributeAction@, which specifies the type of
 -- update operation to perform.
-updateFacet_attributeUpdates :: Lens.Lens' UpdateFacet (Core.Maybe [FacetAttributeUpdate])
-updateFacet_attributeUpdates = Lens.lens (\UpdateFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateFacet' {} a -> s {attributeUpdates = a} :: UpdateFacet) Core.. Lens.mapping Lens._Coerce
+updateFacet_attributeUpdates :: Lens.Lens' UpdateFacet (Prelude.Maybe [FacetAttributeUpdate])
+updateFacet_attributeUpdates = Lens.lens (\UpdateFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateFacet' {} a -> s {attributeUpdates = a} :: UpdateFacet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The object type that is associated with the facet. See
 -- CreateFacetRequest$ObjectType for more details.
-updateFacet_objectType :: Lens.Lens' UpdateFacet (Core.Maybe ObjectType)
+updateFacet_objectType :: Lens.Lens' UpdateFacet (Prelude.Maybe ObjectType)
 updateFacet_objectType = Lens.lens (\UpdateFacet' {objectType} -> objectType) (\s@UpdateFacet' {} a -> s {objectType = a} :: UpdateFacet)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
 -- more information, see arns.
-updateFacet_schemaArn :: Lens.Lens' UpdateFacet Core.Text
+updateFacet_schemaArn :: Lens.Lens' UpdateFacet Prelude.Text
 updateFacet_schemaArn = Lens.lens (\UpdateFacet' {schemaArn} -> schemaArn) (\s@UpdateFacet' {} a -> s {schemaArn = a} :: UpdateFacet)
 
 -- | The name of the facet.
-updateFacet_name :: Lens.Lens' UpdateFacet Core.Text
+updateFacet_name :: Lens.Lens' UpdateFacet Prelude.Text
 updateFacet_name = Lens.lens (\UpdateFacet' {name} -> name) (\s@UpdateFacet' {} a -> s {name = a} :: UpdateFacet)
 
 instance Core.AWSRequest UpdateFacet where
@@ -130,42 +131,43 @@ instance Core.AWSRequest UpdateFacet where
     Response.receiveEmpty
       ( \s h x ->
           UpdateFacetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateFacet
+instance Prelude.Hashable UpdateFacet
 
-instance Core.NFData UpdateFacet
+instance Prelude.NFData UpdateFacet
 
 instance Core.ToHeaders UpdateFacet where
   toHeaders UpdateFacet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON UpdateFacet where
   toJSON UpdateFacet' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AttributeUpdates" Core..=)
-              Core.<$> attributeUpdates,
-            ("ObjectType" Core..=) Core.<$> objectType,
-            Core.Just ("Name" Core..= name)
+              Prelude.<$> attributeUpdates,
+            ("ObjectType" Core..=) Prelude.<$> objectType,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath UpdateFacet where
   toPath =
-    Core.const "/amazonclouddirectory/2017-01-11/facet"
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/facet"
 
 instance Core.ToQuery UpdateFacet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFacetResponse' smart constructor.
 data UpdateFacetResponse = UpdateFacetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFacetResponse' with all optional fields omitted.
@@ -178,13 +180,13 @@ data UpdateFacetResponse = UpdateFacetResponse'
 -- 'httpStatus', 'updateFacetResponse_httpStatus' - The response's http status code.
 newUpdateFacetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateFacetResponse
 newUpdateFacetResponse pHttpStatus_ =
   UpdateFacetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateFacetResponse_httpStatus :: Lens.Lens' UpdateFacetResponse Core.Int
+updateFacetResponse_httpStatus :: Lens.Lens' UpdateFacetResponse Prelude.Int
 updateFacetResponse_httpStatus = Lens.lens (\UpdateFacetResponse' {httpStatus} -> httpStatus) (\s@UpdateFacetResponse' {} a -> s {httpStatus = a} :: UpdateFacetResponse)
 
-instance Core.NFData UpdateFacetResponse
+instance Prelude.NFData UpdateFacetResponse

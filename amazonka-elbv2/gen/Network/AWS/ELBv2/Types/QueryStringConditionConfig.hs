@@ -22,6 +22,7 @@ module Network.AWS.ELBv2.Types.QueryStringConditionConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.QueryStringKeyValuePair
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a query string condition.
 --
@@ -42,9 +43,9 @@ data QueryStringConditionConfig = QueryStringConditionConfig'
     --
     -- If you specify multiple key\/value pairs or values, the condition is
     -- satisfied if one of them is found in the query string.
-    values :: Core.Maybe [QueryStringKeyValuePair]
+    values :: Prelude.Maybe [QueryStringKeyValuePair]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryStringConditionConfig' with all optional fields omitted.
@@ -66,7 +67,10 @@ data QueryStringConditionConfig = QueryStringConditionConfig'
 newQueryStringConditionConfig ::
   QueryStringConditionConfig
 newQueryStringConditionConfig =
-  QueryStringConditionConfig' {values = Core.Nothing}
+  QueryStringConditionConfig'
+    { values =
+        Prelude.Nothing
+    }
 
 -- | One or more key\/value pairs or values to find in the query string. The
 -- maximum size of each string is 128 characters. The comparison is case
@@ -77,24 +81,24 @@ newQueryStringConditionConfig =
 --
 -- If you specify multiple key\/value pairs or values, the condition is
 -- satisfied if one of them is found in the query string.
-queryStringConditionConfig_values :: Lens.Lens' QueryStringConditionConfig (Core.Maybe [QueryStringKeyValuePair])
-queryStringConditionConfig_values = Lens.lens (\QueryStringConditionConfig' {values} -> values) (\s@QueryStringConditionConfig' {} a -> s {values = a} :: QueryStringConditionConfig) Core.. Lens.mapping Lens._Coerce
+queryStringConditionConfig_values :: Lens.Lens' QueryStringConditionConfig (Prelude.Maybe [QueryStringKeyValuePair])
+queryStringConditionConfig_values = Lens.lens (\QueryStringConditionConfig' {values} -> values) (\s@QueryStringConditionConfig' {} a -> s {values = a} :: QueryStringConditionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML QueryStringConditionConfig where
   parseXML x =
     QueryStringConditionConfig'
-      Core.<$> ( x Core..@? "Values" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable QueryStringConditionConfig
+instance Prelude.Hashable QueryStringConditionConfig
 
-instance Core.NFData QueryStringConditionConfig
+instance Prelude.NFData QueryStringConditionConfig
 
 instance Core.ToQuery QueryStringConditionConfig where
   toQuery QueryStringConditionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Values"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> values)
+            (Core.toQueryList "member" Prelude.<$> values)
       ]

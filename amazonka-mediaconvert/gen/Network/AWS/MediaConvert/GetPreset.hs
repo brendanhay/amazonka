@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPreset' smart constructor.
 data GetPreset = GetPreset'
   { -- | The name of the preset.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPreset' with all optional fields omitted.
@@ -63,12 +64,12 @@ data GetPreset = GetPreset'
 -- 'name', 'getPreset_name' - The name of the preset.
 newGetPreset ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetPreset
 newGetPreset pName_ = GetPreset' {name = pName_}
 
 -- | The name of the preset.
-getPreset_name :: Lens.Lens' GetPreset Core.Text
+getPreset_name :: Lens.Lens' GetPreset Prelude.Text
 getPreset_name = Lens.lens (\GetPreset' {name} -> name) (\s@GetPreset' {} a -> s {name = a} :: GetPreset)
 
 instance Core.AWSRequest GetPreset where
@@ -78,41 +79,43 @@ instance Core.AWSRequest GetPreset where
     Response.receiveJSON
       ( \s h x ->
           GetPresetResponse'
-            Core.<$> (x Core..?> "preset")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "preset")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPreset
+instance Prelude.Hashable GetPreset
 
-instance Core.NFData GetPreset
+instance Prelude.NFData GetPreset
 
 instance Core.ToHeaders GetPreset where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetPreset where
   toPath GetPreset' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2017-08-29/presets/", Core.toBS name]
 
 instance Core.ToQuery GetPreset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPresetResponse' smart constructor.
 data GetPresetResponse = GetPresetResponse'
   { -- | A preset is a collection of preconfigured media conversion settings that
     -- you want MediaConvert to apply to the output during the conversion
     -- process.
-    preset :: Core.Maybe Preset,
+    preset :: Prelude.Maybe Preset,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPresetResponse' with all optional fields omitted.
@@ -129,22 +132,22 @@ data GetPresetResponse = GetPresetResponse'
 -- 'httpStatus', 'getPresetResponse_httpStatus' - The response's http status code.
 newGetPresetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPresetResponse
 newGetPresetResponse pHttpStatus_ =
   GetPresetResponse'
-    { preset = Core.Nothing,
+    { preset = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A preset is a collection of preconfigured media conversion settings that
 -- you want MediaConvert to apply to the output during the conversion
 -- process.
-getPresetResponse_preset :: Lens.Lens' GetPresetResponse (Core.Maybe Preset)
+getPresetResponse_preset :: Lens.Lens' GetPresetResponse (Prelude.Maybe Preset)
 getPresetResponse_preset = Lens.lens (\GetPresetResponse' {preset} -> preset) (\s@GetPresetResponse' {} a -> s {preset = a} :: GetPresetResponse)
 
 -- | The response's http status code.
-getPresetResponse_httpStatus :: Lens.Lens' GetPresetResponse Core.Int
+getPresetResponse_httpStatus :: Lens.Lens' GetPresetResponse Prelude.Int
 getPresetResponse_httpStatus = Lens.lens (\GetPresetResponse' {httpStatus} -> httpStatus) (\s@GetPresetResponse' {} a -> s {httpStatus = a} :: GetPresetResponse)
 
-instance Core.NFData GetPresetResponse
+instance Prelude.NFData GetPresetResponse

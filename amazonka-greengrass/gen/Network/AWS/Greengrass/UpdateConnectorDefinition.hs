@@ -42,17 +42,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateConnectorDefinition' smart constructor.
 data UpdateConnectorDefinition = UpdateConnectorDefinition'
   { -- | The name of the definition.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the connector definition.
-    connectorDefinitionId :: Core.Text
+    connectorDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectorDefinition' with all optional fields omitted.
@@ -67,20 +68,20 @@ data UpdateConnectorDefinition = UpdateConnectorDefinition'
 -- 'connectorDefinitionId', 'updateConnectorDefinition_connectorDefinitionId' - The ID of the connector definition.
 newUpdateConnectorDefinition ::
   -- | 'connectorDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateConnectorDefinition
 newUpdateConnectorDefinition pConnectorDefinitionId_ =
   UpdateConnectorDefinition'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       connectorDefinitionId = pConnectorDefinitionId_
     }
 
 -- | The name of the definition.
-updateConnectorDefinition_name :: Lens.Lens' UpdateConnectorDefinition (Core.Maybe Core.Text)
+updateConnectorDefinition_name :: Lens.Lens' UpdateConnectorDefinition (Prelude.Maybe Prelude.Text)
 updateConnectorDefinition_name = Lens.lens (\UpdateConnectorDefinition' {name} -> name) (\s@UpdateConnectorDefinition' {} a -> s {name = a} :: UpdateConnectorDefinition)
 
 -- | The ID of the connector definition.
-updateConnectorDefinition_connectorDefinitionId :: Lens.Lens' UpdateConnectorDefinition Core.Text
+updateConnectorDefinition_connectorDefinitionId :: Lens.Lens' UpdateConnectorDefinition Prelude.Text
 updateConnectorDefinition_connectorDefinitionId = Lens.lens (\UpdateConnectorDefinition' {connectorDefinitionId} -> connectorDefinitionId) (\s@UpdateConnectorDefinition' {} a -> s {connectorDefinitionId = a} :: UpdateConnectorDefinition)
 
 instance Core.AWSRequest UpdateConnectorDefinition where
@@ -92,43 +93,47 @@ instance Core.AWSRequest UpdateConnectorDefinition where
     Response.receiveEmpty
       ( \s h x ->
           UpdateConnectorDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateConnectorDefinition
+instance Prelude.Hashable UpdateConnectorDefinition
 
-instance Core.NFData UpdateConnectorDefinition
+instance Prelude.NFData UpdateConnectorDefinition
 
 instance Core.ToHeaders UpdateConnectorDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateConnectorDefinition where
   toJSON UpdateConnectorDefinition' {..} =
     Core.object
-      (Core.catMaybes [("Name" Core..=) Core.<$> name])
+      ( Prelude.catMaybes
+          [("Name" Core..=) Prelude.<$> name]
+      )
 
 instance Core.ToPath UpdateConnectorDefinition where
   toPath UpdateConnectorDefinition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/connectors/",
         Core.toBS connectorDefinitionId
       ]
 
 instance Core.ToQuery UpdateConnectorDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectorDefinitionResponse' smart constructor.
 data UpdateConnectorDefinitionResponse = UpdateConnectorDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectorDefinitionResponse' with all optional fields omitted.
@@ -141,7 +146,7 @@ data UpdateConnectorDefinitionResponse = UpdateConnectorDefinitionResponse'
 -- 'httpStatus', 'updateConnectorDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateConnectorDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateConnectorDefinitionResponse
 newUpdateConnectorDefinitionResponse pHttpStatus_ =
   UpdateConnectorDefinitionResponse'
@@ -150,9 +155,9 @@ newUpdateConnectorDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateConnectorDefinitionResponse_httpStatus :: Lens.Lens' UpdateConnectorDefinitionResponse Core.Int
+updateConnectorDefinitionResponse_httpStatus :: Lens.Lens' UpdateConnectorDefinitionResponse Prelude.Int
 updateConnectorDefinitionResponse_httpStatus = Lens.lens (\UpdateConnectorDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateConnectorDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateConnectorDefinitionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateConnectorDefinitionResponse

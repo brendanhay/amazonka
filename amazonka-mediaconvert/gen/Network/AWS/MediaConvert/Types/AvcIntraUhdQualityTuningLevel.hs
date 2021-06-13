@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
 -- many transcoding passes MediaConvert does with your video. When you
@@ -40,15 +41,15 @@ newtype AvcIntraUhdQualityTuningLevel = AvcIntraUhdQualityTuningLevel'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -21,18 +21,19 @@ module Network.AWS.Glue.Types.Order where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the sort order of a sorted column.
 --
 -- /See:/ 'newOrder' smart constructor.
 data Order = Order'
   { -- | The name of the column.
-    column :: Core.Text,
+    column :: Prelude.Text,
     -- | Indicates that the column is sorted in ascending order (@== 1@), or in
     -- descending order (@==0@).
-    sortOrder :: Core.Natural
+    sortOrder :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Order' with all optional fields omitted.
@@ -48,20 +49,20 @@ data Order = Order'
 -- descending order (@==0@).
 newOrder ::
   -- | 'column'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sortOrder'
-  Core.Natural ->
+  Prelude.Natural ->
   Order
 newOrder pColumn_ pSortOrder_ =
   Order' {column = pColumn_, sortOrder = pSortOrder_}
 
 -- | The name of the column.
-order_column :: Lens.Lens' Order Core.Text
+order_column :: Lens.Lens' Order Prelude.Text
 order_column = Lens.lens (\Order' {column} -> column) (\s@Order' {} a -> s {column = a} :: Order)
 
 -- | Indicates that the column is sorted in ascending order (@== 1@), or in
 -- descending order (@==0@).
-order_sortOrder :: Lens.Lens' Order Core.Natural
+order_sortOrder :: Lens.Lens' Order Prelude.Natural
 order_sortOrder = Lens.lens (\Order' {sortOrder} -> sortOrder) (\s@Order' {} a -> s {sortOrder = a} :: Order)
 
 instance Core.FromJSON Order where
@@ -70,19 +71,19 @@ instance Core.FromJSON Order where
       "Order"
       ( \x ->
           Order'
-            Core.<$> (x Core..: "Column")
-            Core.<*> (x Core..: "SortOrder")
+            Prelude.<$> (x Core..: "Column")
+            Prelude.<*> (x Core..: "SortOrder")
       )
 
-instance Core.Hashable Order
+instance Prelude.Hashable Order
 
-instance Core.NFData Order
+instance Prelude.NFData Order
 
 instance Core.ToJSON Order where
   toJSON Order' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Column" Core..= column),
-            Core.Just ("SortOrder" Core..= sortOrder)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Column" Core..= column),
+            Prelude.Just ("SortOrder" Core..= sortOrder)
           ]
       )

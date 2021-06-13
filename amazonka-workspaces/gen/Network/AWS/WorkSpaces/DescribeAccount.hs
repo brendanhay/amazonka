@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -48,7 +49,7 @@ import Network.AWS.WorkSpaces.Types
 data DescribeAccount = DescribeAccount'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccount' with all optional fields omitted.
@@ -67,41 +68,43 @@ instance Core.AWSRequest DescribeAccount where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountResponse'
-            Core.<$> (x Core..?> "DedicatedTenancySupport")
-            Core.<*> (x Core..?> "DedicatedTenancyManagementCidrRange")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DedicatedTenancySupport")
+            Prelude.<*> (x Core..?> "DedicatedTenancyManagementCidrRange")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAccount
+instance Prelude.Hashable DescribeAccount
 
-instance Core.NFData DescribeAccount
+instance Prelude.NFData DescribeAccount
 
 instance Core.ToHeaders DescribeAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DescribeAccount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeAccount where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DescribeAccount where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccountResponse' smart constructor.
 data DescribeAccountResponse = DescribeAccountResponse'
   { -- | The status of BYOL (whether BYOL is enabled or disabled).
-    dedicatedTenancySupport :: Core.Maybe DedicatedTenancySupportResultEnum,
+    dedicatedTenancySupport :: Prelude.Maybe DedicatedTenancySupportResultEnum,
     -- | The IP address range, specified as an IPv4 CIDR block, used for the
     -- management network interface.
     --
@@ -109,11 +112,11 @@ data DescribeAccountResponse = DescribeAccountResponse'
     -- WorkSpaces management network. It is used for interactive streaming of
     -- the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon
     -- WorkSpaces to manage the WorkSpace.
-    dedicatedTenancyManagementCidrRange :: Core.Maybe Core.Text,
+    dedicatedTenancyManagementCidrRange :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountResponse' with all optional fields omitted.
@@ -136,18 +139,19 @@ data DescribeAccountResponse = DescribeAccountResponse'
 -- 'httpStatus', 'describeAccountResponse_httpStatus' - The response's http status code.
 newDescribeAccountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAccountResponse
 newDescribeAccountResponse pHttpStatus_ =
   DescribeAccountResponse'
     { dedicatedTenancySupport =
-        Core.Nothing,
-      dedicatedTenancyManagementCidrRange = Core.Nothing,
+        Prelude.Nothing,
+      dedicatedTenancyManagementCidrRange =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of BYOL (whether BYOL is enabled or disabled).
-describeAccountResponse_dedicatedTenancySupport :: Lens.Lens' DescribeAccountResponse (Core.Maybe DedicatedTenancySupportResultEnum)
+describeAccountResponse_dedicatedTenancySupport :: Lens.Lens' DescribeAccountResponse (Prelude.Maybe DedicatedTenancySupportResultEnum)
 describeAccountResponse_dedicatedTenancySupport = Lens.lens (\DescribeAccountResponse' {dedicatedTenancySupport} -> dedicatedTenancySupport) (\s@DescribeAccountResponse' {} a -> s {dedicatedTenancySupport = a} :: DescribeAccountResponse)
 
 -- | The IP address range, specified as an IPv4 CIDR block, used for the
@@ -157,11 +161,11 @@ describeAccountResponse_dedicatedTenancySupport = Lens.lens (\DescribeAccountRes
 -- WorkSpaces management network. It is used for interactive streaming of
 -- the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon
 -- WorkSpaces to manage the WorkSpace.
-describeAccountResponse_dedicatedTenancyManagementCidrRange :: Lens.Lens' DescribeAccountResponse (Core.Maybe Core.Text)
+describeAccountResponse_dedicatedTenancyManagementCidrRange :: Lens.Lens' DescribeAccountResponse (Prelude.Maybe Prelude.Text)
 describeAccountResponse_dedicatedTenancyManagementCidrRange = Lens.lens (\DescribeAccountResponse' {dedicatedTenancyManagementCidrRange} -> dedicatedTenancyManagementCidrRange) (\s@DescribeAccountResponse' {} a -> s {dedicatedTenancyManagementCidrRange = a} :: DescribeAccountResponse)
 
 -- | The response's http status code.
-describeAccountResponse_httpStatus :: Lens.Lens' DescribeAccountResponse Core.Int
+describeAccountResponse_httpStatus :: Lens.Lens' DescribeAccountResponse Prelude.Int
 describeAccountResponse_httpStatus = Lens.lens (\DescribeAccountResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountResponse' {} a -> s {httpStatus = a} :: DescribeAccountResponse)
 
-instance Core.NFData DescribeAccountResponse
+instance Prelude.NFData DescribeAccountResponse

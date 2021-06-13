@@ -21,22 +21,23 @@ module Network.AWS.IoT.Types.CloudwatchAlarmAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action that updates a CloudWatch alarm.
 --
 -- /See:/ 'newCloudwatchAlarmAction' smart constructor.
 data CloudwatchAlarmAction = CloudwatchAlarmAction'
   { -- | The IAM role that allows access to the CloudWatch alarm.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The CloudWatch alarm name.
-    alarmName :: Core.Text,
+    alarmName :: Prelude.Text,
     -- | The reason for the alarm change.
-    stateReason :: Core.Text,
+    stateReason :: Prelude.Text,
     -- | The value of the alarm state. Acceptable values are: OK, ALARM,
     -- INSUFFICIENT_DATA.
-    stateValue :: Core.Text
+    stateValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudwatchAlarmAction' with all optional fields omitted.
@@ -56,13 +57,13 @@ data CloudwatchAlarmAction = CloudwatchAlarmAction'
 -- INSUFFICIENT_DATA.
 newCloudwatchAlarmAction ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'alarmName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stateReason'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stateValue'
-  Core.Text ->
+  Prelude.Text ->
   CloudwatchAlarmAction
 newCloudwatchAlarmAction
   pRoleArn_
@@ -77,20 +78,20 @@ newCloudwatchAlarmAction
       }
 
 -- | The IAM role that allows access to the CloudWatch alarm.
-cloudwatchAlarmAction_roleArn :: Lens.Lens' CloudwatchAlarmAction Core.Text
+cloudwatchAlarmAction_roleArn :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
 cloudwatchAlarmAction_roleArn = Lens.lens (\CloudwatchAlarmAction' {roleArn} -> roleArn) (\s@CloudwatchAlarmAction' {} a -> s {roleArn = a} :: CloudwatchAlarmAction)
 
 -- | The CloudWatch alarm name.
-cloudwatchAlarmAction_alarmName :: Lens.Lens' CloudwatchAlarmAction Core.Text
+cloudwatchAlarmAction_alarmName :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
 cloudwatchAlarmAction_alarmName = Lens.lens (\CloudwatchAlarmAction' {alarmName} -> alarmName) (\s@CloudwatchAlarmAction' {} a -> s {alarmName = a} :: CloudwatchAlarmAction)
 
 -- | The reason for the alarm change.
-cloudwatchAlarmAction_stateReason :: Lens.Lens' CloudwatchAlarmAction Core.Text
+cloudwatchAlarmAction_stateReason :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
 cloudwatchAlarmAction_stateReason = Lens.lens (\CloudwatchAlarmAction' {stateReason} -> stateReason) (\s@CloudwatchAlarmAction' {} a -> s {stateReason = a} :: CloudwatchAlarmAction)
 
 -- | The value of the alarm state. Acceptable values are: OK, ALARM,
 -- INSUFFICIENT_DATA.
-cloudwatchAlarmAction_stateValue :: Lens.Lens' CloudwatchAlarmAction Core.Text
+cloudwatchAlarmAction_stateValue :: Lens.Lens' CloudwatchAlarmAction Prelude.Text
 cloudwatchAlarmAction_stateValue = Lens.lens (\CloudwatchAlarmAction' {stateValue} -> stateValue) (\s@CloudwatchAlarmAction' {} a -> s {stateValue = a} :: CloudwatchAlarmAction)
 
 instance Core.FromJSON CloudwatchAlarmAction where
@@ -99,23 +100,23 @@ instance Core.FromJSON CloudwatchAlarmAction where
       "CloudwatchAlarmAction"
       ( \x ->
           CloudwatchAlarmAction'
-            Core.<$> (x Core..: "roleArn")
-            Core.<*> (x Core..: "alarmName")
-            Core.<*> (x Core..: "stateReason")
-            Core.<*> (x Core..: "stateValue")
+            Prelude.<$> (x Core..: "roleArn")
+            Prelude.<*> (x Core..: "alarmName")
+            Prelude.<*> (x Core..: "stateReason")
+            Prelude.<*> (x Core..: "stateValue")
       )
 
-instance Core.Hashable CloudwatchAlarmAction
+instance Prelude.Hashable CloudwatchAlarmAction
 
-instance Core.NFData CloudwatchAlarmAction
+instance Prelude.NFData CloudwatchAlarmAction
 
 instance Core.ToJSON CloudwatchAlarmAction where
   toJSON CloudwatchAlarmAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("roleArn" Core..= roleArn),
-            Core.Just ("alarmName" Core..= alarmName),
-            Core.Just ("stateReason" Core..= stateReason),
-            Core.Just ("stateValue" Core..= stateValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("roleArn" Core..= roleArn),
+            Prelude.Just ("alarmName" Core..= alarmName),
+            Prelude.Just ("stateReason" Core..= stateReason),
+            Prelude.Just ("stateValue" Core..= stateValue)
           ]
       )

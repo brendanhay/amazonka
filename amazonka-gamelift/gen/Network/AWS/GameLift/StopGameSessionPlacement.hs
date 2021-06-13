@@ -64,6 +64,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,9 +73,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newStopGameSessionPlacement' smart constructor.
 data StopGameSessionPlacement = StopGameSessionPlacement'
   { -- | A unique identifier for a game session placement to cancel.
-    placementId :: Core.Text
+    placementId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopGameSessionPlacement' with all optional fields omitted.
@@ -87,7 +88,7 @@ data StopGameSessionPlacement = StopGameSessionPlacement'
 -- 'placementId', 'stopGameSessionPlacement_placementId' - A unique identifier for a game session placement to cancel.
 newStopGameSessionPlacement ::
   -- | 'placementId'
-  Core.Text ->
+  Prelude.Text ->
   StopGameSessionPlacement
 newStopGameSessionPlacement pPlacementId_ =
   StopGameSessionPlacement'
@@ -96,7 +97,7 @@ newStopGameSessionPlacement pPlacementId_ =
     }
 
 -- | A unique identifier for a game session placement to cancel.
-stopGameSessionPlacement_placementId :: Lens.Lens' StopGameSessionPlacement Core.Text
+stopGameSessionPlacement_placementId :: Lens.Lens' StopGameSessionPlacement Prelude.Text
 stopGameSessionPlacement_placementId = Lens.lens (\StopGameSessionPlacement' {placementId} -> placementId) (\s@StopGameSessionPlacement' {} a -> s {placementId = a} :: StopGameSessionPlacement)
 
 instance Core.AWSRequest StopGameSessionPlacement where
@@ -108,39 +109,41 @@ instance Core.AWSRequest StopGameSessionPlacement where
     Response.receiveJSON
       ( \s h x ->
           StopGameSessionPlacementResponse'
-            Core.<$> (x Core..?> "GameSessionPlacement")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameSessionPlacement")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopGameSessionPlacement
+instance Prelude.Hashable StopGameSessionPlacement
 
-instance Core.NFData StopGameSessionPlacement
+instance Prelude.NFData StopGameSessionPlacement
 
 instance Core.ToHeaders StopGameSessionPlacement where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.StopGameSessionPlacement" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopGameSessionPlacement where
   toJSON StopGameSessionPlacement' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("PlacementId" Core..= placementId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("PlacementId" Core..= placementId)]
       )
 
 instance Core.ToPath StopGameSessionPlacement where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopGameSessionPlacement where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -148,11 +151,11 @@ instance Core.ToQuery StopGameSessionPlacement where
 data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
   { -- | Object that describes the canceled game session placement, with
     -- @CANCELLED@ status and an end time stamp.
-    gameSessionPlacement :: Core.Maybe GameSessionPlacement,
+    gameSessionPlacement :: Prelude.Maybe GameSessionPlacement,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopGameSessionPlacementResponse' with all optional fields omitted.
@@ -168,22 +171,24 @@ data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
 -- 'httpStatus', 'stopGameSessionPlacementResponse_httpStatus' - The response's http status code.
 newStopGameSessionPlacementResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopGameSessionPlacementResponse
 newStopGameSessionPlacementResponse pHttpStatus_ =
   StopGameSessionPlacementResponse'
     { gameSessionPlacement =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the canceled game session placement, with
 -- @CANCELLED@ status and an end time stamp.
-stopGameSessionPlacementResponse_gameSessionPlacement :: Lens.Lens' StopGameSessionPlacementResponse (Core.Maybe GameSessionPlacement)
+stopGameSessionPlacementResponse_gameSessionPlacement :: Lens.Lens' StopGameSessionPlacementResponse (Prelude.Maybe GameSessionPlacement)
 stopGameSessionPlacementResponse_gameSessionPlacement = Lens.lens (\StopGameSessionPlacementResponse' {gameSessionPlacement} -> gameSessionPlacement) (\s@StopGameSessionPlacementResponse' {} a -> s {gameSessionPlacement = a} :: StopGameSessionPlacementResponse)
 
 -- | The response's http status code.
-stopGameSessionPlacementResponse_httpStatus :: Lens.Lens' StopGameSessionPlacementResponse Core.Int
+stopGameSessionPlacementResponse_httpStatus :: Lens.Lens' StopGameSessionPlacementResponse Prelude.Int
 stopGameSessionPlacementResponse_httpStatus = Lens.lens (\StopGameSessionPlacementResponse' {httpStatus} -> httpStatus) (\s@StopGameSessionPlacementResponse' {} a -> s {httpStatus = a} :: StopGameSessionPlacementResponse)
 
-instance Core.NFData StopGameSessionPlacementResponse
+instance
+  Prelude.NFData
+    StopGameSessionPlacementResponse

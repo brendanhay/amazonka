@@ -42,17 +42,18 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteResourceConfig' smart constructor.
 data DeleteResourceConfig = DeleteResourceConfig'
   { -- | The type of the resource.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | Unique identifier of the resource.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceConfig' with all optional fields omitted.
@@ -67,9 +68,9 @@ data DeleteResourceConfig = DeleteResourceConfig'
 -- 'resourceId', 'deleteResourceConfig_resourceId' - Unique identifier of the resource.
 newDeleteResourceConfig ::
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteResourceConfig
 newDeleteResourceConfig pResourceType_ pResourceId_ =
   DeleteResourceConfig'
@@ -79,11 +80,11 @@ newDeleteResourceConfig pResourceType_ pResourceId_ =
     }
 
 -- | The type of the resource.
-deleteResourceConfig_resourceType :: Lens.Lens' DeleteResourceConfig Core.Text
+deleteResourceConfig_resourceType :: Lens.Lens' DeleteResourceConfig Prelude.Text
 deleteResourceConfig_resourceType = Lens.lens (\DeleteResourceConfig' {resourceType} -> resourceType) (\s@DeleteResourceConfig' {} a -> s {resourceType = a} :: DeleteResourceConfig)
 
 -- | Unique identifier of the resource.
-deleteResourceConfig_resourceId :: Lens.Lens' DeleteResourceConfig Core.Text
+deleteResourceConfig_resourceId :: Lens.Lens' DeleteResourceConfig Prelude.Text
 deleteResourceConfig_resourceId = Lens.lens (\DeleteResourceConfig' {resourceId} -> resourceId) (\s@DeleteResourceConfig' {} a -> s {resourceId = a} :: DeleteResourceConfig)
 
 instance Core.AWSRequest DeleteResourceConfig where
@@ -94,43 +95,45 @@ instance Core.AWSRequest DeleteResourceConfig where
   response =
     Response.receiveNull DeleteResourceConfigResponse'
 
-instance Core.Hashable DeleteResourceConfig
+instance Prelude.Hashable DeleteResourceConfig
 
-instance Core.NFData DeleteResourceConfig
+instance Prelude.NFData DeleteResourceConfig
 
 instance Core.ToHeaders DeleteResourceConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteResourceConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteResourceConfig where
   toJSON DeleteResourceConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceType" Core..= resourceType),
-            Core.Just ("ResourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
 instance Core.ToPath DeleteResourceConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteResourceConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceConfigResponse' smart constructor.
 data DeleteResourceConfigResponse = DeleteResourceConfigResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceConfigResponse' with all optional fields omitted.
@@ -141,4 +144,4 @@ newDeleteResourceConfigResponse ::
 newDeleteResourceConfigResponse =
   DeleteResourceConfigResponse'
 
-instance Core.NFData DeleteResourceConfigResponse
+instance Prelude.NFData DeleteResourceConfigResponse

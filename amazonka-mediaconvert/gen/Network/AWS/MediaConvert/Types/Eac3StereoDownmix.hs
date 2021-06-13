@@ -29,6 +29,7 @@ module Network.AWS.MediaConvert.Types.Eac3StereoDownmix
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Choose how the service does stereo downmixing. This setting only applies
 -- if you keep the default value of 3\/2 - L, R, C, Ls, Rs
@@ -40,15 +41,15 @@ newtype Eac3StereoDownmix = Eac3StereoDownmix'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

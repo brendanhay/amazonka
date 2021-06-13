@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +58,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateConfiguration' smart constructor.
 data UpdateConfiguration = UpdateConfiguration'
   { -- | Required. The base64-encoded XML configuration.
-    data' :: Core.Maybe Core.Text,
+    data' :: Prelude.Maybe Prelude.Text,
     -- | The description of the configuration.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The unique ID that Amazon MQ generates for the configuration.
-    configurationId :: Core.Text
+    configurationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConfiguration' with all optional fields omitted.
@@ -80,25 +81,25 @@ data UpdateConfiguration = UpdateConfiguration'
 -- 'configurationId', 'updateConfiguration_configurationId' - The unique ID that Amazon MQ generates for the configuration.
 newUpdateConfiguration ::
   -- | 'configurationId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateConfiguration
 newUpdateConfiguration pConfigurationId_ =
   UpdateConfiguration'
-    { data' = Core.Nothing,
-      description = Core.Nothing,
+    { data' = Prelude.Nothing,
+      description = Prelude.Nothing,
       configurationId = pConfigurationId_
     }
 
 -- | Required. The base64-encoded XML configuration.
-updateConfiguration_data :: Lens.Lens' UpdateConfiguration (Core.Maybe Core.Text)
+updateConfiguration_data :: Lens.Lens' UpdateConfiguration (Prelude.Maybe Prelude.Text)
 updateConfiguration_data = Lens.lens (\UpdateConfiguration' {data'} -> data') (\s@UpdateConfiguration' {} a -> s {data' = a} :: UpdateConfiguration)
 
 -- | The description of the configuration.
-updateConfiguration_description :: Lens.Lens' UpdateConfiguration (Core.Maybe Core.Text)
+updateConfiguration_description :: Lens.Lens' UpdateConfiguration (Prelude.Maybe Prelude.Text)
 updateConfiguration_description = Lens.lens (\UpdateConfiguration' {description} -> description) (\s@UpdateConfiguration' {} a -> s {description = a} :: UpdateConfiguration)
 
 -- | The unique ID that Amazon MQ generates for the configuration.
-updateConfiguration_configurationId :: Lens.Lens' UpdateConfiguration Core.Text
+updateConfiguration_configurationId :: Lens.Lens' UpdateConfiguration Prelude.Text
 updateConfiguration_configurationId = Lens.lens (\UpdateConfiguration' {configurationId} -> configurationId) (\s@UpdateConfiguration' {} a -> s {configurationId = a} :: UpdateConfiguration)
 
 instance Core.AWSRequest UpdateConfiguration where
@@ -110,66 +111,68 @@ instance Core.AWSRequest UpdateConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateConfigurationResponse'
-            Core.<$> (x Core..?> "warnings" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "latestRevision")
-            Core.<*> (x Core..?> "arn")
-            Core.<*> (x Core..?> "id")
-            Core.<*> (x Core..?> "name")
-            Core.<*> (x Core..?> "created")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "latestRevision")
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "created")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateConfiguration
+instance Prelude.Hashable UpdateConfiguration
 
-instance Core.NFData UpdateConfiguration
+instance Prelude.NFData UpdateConfiguration
 
 instance Core.ToHeaders UpdateConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateConfiguration where
   toJSON UpdateConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("data" Core..=) Core.<$> data',
-            ("description" Core..=) Core.<$> description
+      ( Prelude.catMaybes
+          [ ("data" Core..=) Prelude.<$> data',
+            ("description" Core..=) Prelude.<$> description
           ]
       )
 
 instance Core.ToPath UpdateConfiguration where
   toPath UpdateConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/configurations/", Core.toBS configurationId]
 
 instance Core.ToQuery UpdateConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConfigurationResponse' smart constructor.
 data UpdateConfigurationResponse = UpdateConfigurationResponse'
   { -- | The list of the first 20 warnings about the configuration XML elements
     -- or attributes that were sanitized.
-    warnings :: Core.Maybe [SanitizationWarning],
+    warnings :: Prelude.Maybe [SanitizationWarning],
     -- | The latest revision of the configuration.
-    latestRevision :: Core.Maybe ConfigurationRevision,
+    latestRevision :: Prelude.Maybe ConfigurationRevision,
     -- | Required. The Amazon Resource Name (ARN) of the configuration.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | Required. The name of the configuration. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 1-150 characters long.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Required. The date and time of the configuration.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationResponse' with all optional fields omitted.
@@ -197,49 +200,49 @@ data UpdateConfigurationResponse = UpdateConfigurationResponse'
 -- 'httpStatus', 'updateConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateConfigurationResponse
 newUpdateConfigurationResponse pHttpStatus_ =
   UpdateConfigurationResponse'
     { warnings =
-        Core.Nothing,
-      latestRevision = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      created = Core.Nothing,
+        Prelude.Nothing,
+      latestRevision = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      created = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of the first 20 warnings about the configuration XML elements
 -- or attributes that were sanitized.
-updateConfigurationResponse_warnings :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe [SanitizationWarning])
-updateConfigurationResponse_warnings = Lens.lens (\UpdateConfigurationResponse' {warnings} -> warnings) (\s@UpdateConfigurationResponse' {} a -> s {warnings = a} :: UpdateConfigurationResponse) Core.. Lens.mapping Lens._Coerce
+updateConfigurationResponse_warnings :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe [SanitizationWarning])
+updateConfigurationResponse_warnings = Lens.lens (\UpdateConfigurationResponse' {warnings} -> warnings) (\s@UpdateConfigurationResponse' {} a -> s {warnings = a} :: UpdateConfigurationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The latest revision of the configuration.
-updateConfigurationResponse_latestRevision :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe ConfigurationRevision)
+updateConfigurationResponse_latestRevision :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe ConfigurationRevision)
 updateConfigurationResponse_latestRevision = Lens.lens (\UpdateConfigurationResponse' {latestRevision} -> latestRevision) (\s@UpdateConfigurationResponse' {} a -> s {latestRevision = a} :: UpdateConfigurationResponse)
 
 -- | Required. The Amazon Resource Name (ARN) of the configuration.
-updateConfigurationResponse_arn :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
+updateConfigurationResponse_arn :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateConfigurationResponse_arn = Lens.lens (\UpdateConfigurationResponse' {arn} -> arn) (\s@UpdateConfigurationResponse' {} a -> s {arn = a} :: UpdateConfigurationResponse)
 
 -- | Required. The unique ID that Amazon MQ generates for the configuration.
-updateConfigurationResponse_id :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
+updateConfigurationResponse_id :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateConfigurationResponse_id = Lens.lens (\UpdateConfigurationResponse' {id} -> id) (\s@UpdateConfigurationResponse' {} a -> s {id = a} :: UpdateConfigurationResponse)
 
 -- | Required. The name of the configuration. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 1-150 characters long.
-updateConfigurationResponse_name :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
+updateConfigurationResponse_name :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateConfigurationResponse_name = Lens.lens (\UpdateConfigurationResponse' {name} -> name) (\s@UpdateConfigurationResponse' {} a -> s {name = a} :: UpdateConfigurationResponse)
 
 -- | Required. The date and time of the configuration.
-updateConfigurationResponse_created :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.UTCTime)
-updateConfigurationResponse_created = Lens.lens (\UpdateConfigurationResponse' {created} -> created) (\s@UpdateConfigurationResponse' {} a -> s {created = a} :: UpdateConfigurationResponse) Core.. Lens.mapping Core._Time
+updateConfigurationResponse_created :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+updateConfigurationResponse_created = Lens.lens (\UpdateConfigurationResponse' {created} -> created) (\s@UpdateConfigurationResponse' {} a -> s {created = a} :: UpdateConfigurationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-updateConfigurationResponse_httpStatus :: Lens.Lens' UpdateConfigurationResponse Core.Int
+updateConfigurationResponse_httpStatus :: Lens.Lens' UpdateConfigurationResponse Prelude.Int
 updateConfigurationResponse_httpStatus = Lens.lens (\UpdateConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateConfigurationResponse)
 
-instance Core.NFData UpdateConfigurationResponse
+instance Prelude.NFData UpdateConfigurationResponse

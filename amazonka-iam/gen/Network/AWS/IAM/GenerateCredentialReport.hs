@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data GenerateCredentialReport = GenerateCredentialReport'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateCredentialReport' with all optional fields omitted.
@@ -71,28 +72,29 @@ instance Core.AWSRequest GenerateCredentialReport where
       "GenerateCredentialReportResult"
       ( \s h x ->
           GenerateCredentialReportResponse'
-            Core.<$> (x Core..@? "State")
-            Core.<*> (x Core..@? "Description")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "State")
+            Prelude.<*> (x Core..@? "Description")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GenerateCredentialReport
+instance Prelude.Hashable GenerateCredentialReport
 
-instance Core.NFData GenerateCredentialReport
+instance Prelude.NFData GenerateCredentialReport
 
 instance Core.ToHeaders GenerateCredentialReport where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GenerateCredentialReport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GenerateCredentialReport where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GenerateCredentialReport" :: Core.ByteString),
-            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
+              Core.=: ("GenerateCredentialReport" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 
@@ -101,13 +103,13 @@ instance Core.ToQuery GenerateCredentialReport where
 -- /See:/ 'newGenerateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
   { -- | Information about the state of the credential report.
-    state :: Core.Maybe ReportStateType,
+    state :: Prelude.Maybe ReportStateType,
     -- | Information about the credential report.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateCredentialReportResponse' with all optional fields omitted.
@@ -124,26 +126,28 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
 -- 'httpStatus', 'generateCredentialReportResponse_httpStatus' - The response's http status code.
 newGenerateCredentialReportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GenerateCredentialReportResponse
 newGenerateCredentialReportResponse pHttpStatus_ =
   GenerateCredentialReportResponse'
     { state =
-        Core.Nothing,
-      description = Core.Nothing,
+        Prelude.Nothing,
+      description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the state of the credential report.
-generateCredentialReportResponse_state :: Lens.Lens' GenerateCredentialReportResponse (Core.Maybe ReportStateType)
+generateCredentialReportResponse_state :: Lens.Lens' GenerateCredentialReportResponse (Prelude.Maybe ReportStateType)
 generateCredentialReportResponse_state = Lens.lens (\GenerateCredentialReportResponse' {state} -> state) (\s@GenerateCredentialReportResponse' {} a -> s {state = a} :: GenerateCredentialReportResponse)
 
 -- | Information about the credential report.
-generateCredentialReportResponse_description :: Lens.Lens' GenerateCredentialReportResponse (Core.Maybe Core.Text)
+generateCredentialReportResponse_description :: Lens.Lens' GenerateCredentialReportResponse (Prelude.Maybe Prelude.Text)
 generateCredentialReportResponse_description = Lens.lens (\GenerateCredentialReportResponse' {description} -> description) (\s@GenerateCredentialReportResponse' {} a -> s {description = a} :: GenerateCredentialReportResponse)
 
 -- | The response's http status code.
-generateCredentialReportResponse_httpStatus :: Lens.Lens' GenerateCredentialReportResponse Core.Int
+generateCredentialReportResponse_httpStatus :: Lens.Lens' GenerateCredentialReportResponse Prelude.Int
 generateCredentialReportResponse_httpStatus = Lens.lens (\GenerateCredentialReportResponse' {httpStatus} -> httpStatus) (\s@GenerateCredentialReportResponse' {} a -> s {httpStatus = a} :: GenerateCredentialReportResponse)
 
-instance Core.NFData GenerateCredentialReportResponse
+instance
+  Prelude.NFData
+    GenerateCredentialReportResponse

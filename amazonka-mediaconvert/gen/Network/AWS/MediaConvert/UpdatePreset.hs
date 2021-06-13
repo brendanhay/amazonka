@@ -45,21 +45,22 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdatePreset' smart constructor.
 data UpdatePreset = UpdatePreset'
   { -- | The new category for the preset, if you are changing it.
-    category :: Core.Maybe Core.Text,
+    category :: Prelude.Maybe Prelude.Text,
     -- | The new description for the preset, if you are changing it.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Settings for preset
-    settings :: Core.Maybe PresetSettings,
+    settings :: Prelude.Maybe PresetSettings,
     -- | The name of the preset you are modifying.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePreset' with all optional fields omitted.
@@ -78,30 +79,30 @@ data UpdatePreset = UpdatePreset'
 -- 'name', 'updatePreset_name' - The name of the preset you are modifying.
 newUpdatePreset ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   UpdatePreset
 newUpdatePreset pName_ =
   UpdatePreset'
-    { category = Core.Nothing,
-      description = Core.Nothing,
-      settings = Core.Nothing,
+    { category = Prelude.Nothing,
+      description = Prelude.Nothing,
+      settings = Prelude.Nothing,
       name = pName_
     }
 
 -- | The new category for the preset, if you are changing it.
-updatePreset_category :: Lens.Lens' UpdatePreset (Core.Maybe Core.Text)
+updatePreset_category :: Lens.Lens' UpdatePreset (Prelude.Maybe Prelude.Text)
 updatePreset_category = Lens.lens (\UpdatePreset' {category} -> category) (\s@UpdatePreset' {} a -> s {category = a} :: UpdatePreset)
 
 -- | The new description for the preset, if you are changing it.
-updatePreset_description :: Lens.Lens' UpdatePreset (Core.Maybe Core.Text)
+updatePreset_description :: Lens.Lens' UpdatePreset (Prelude.Maybe Prelude.Text)
 updatePreset_description = Lens.lens (\UpdatePreset' {description} -> description) (\s@UpdatePreset' {} a -> s {description = a} :: UpdatePreset)
 
 -- | Settings for preset
-updatePreset_settings :: Lens.Lens' UpdatePreset (Core.Maybe PresetSettings)
+updatePreset_settings :: Lens.Lens' UpdatePreset (Prelude.Maybe PresetSettings)
 updatePreset_settings = Lens.lens (\UpdatePreset' {settings} -> settings) (\s@UpdatePreset' {} a -> s {settings = a} :: UpdatePreset)
 
 -- | The name of the preset you are modifying.
-updatePreset_name :: Lens.Lens' UpdatePreset Core.Text
+updatePreset_name :: Lens.Lens' UpdatePreset Prelude.Text
 updatePreset_name = Lens.lens (\UpdatePreset' {name} -> name) (\s@UpdatePreset' {} a -> s {name = a} :: UpdatePreset)
 
 instance Core.AWSRequest UpdatePreset where
@@ -111,51 +112,53 @@ instance Core.AWSRequest UpdatePreset where
     Response.receiveJSON
       ( \s h x ->
           UpdatePresetResponse'
-            Core.<$> (x Core..?> "preset")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "preset")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdatePreset
+instance Prelude.Hashable UpdatePreset
 
-instance Core.NFData UpdatePreset
+instance Prelude.NFData UpdatePreset
 
 instance Core.ToHeaders UpdatePreset where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdatePreset where
   toJSON UpdatePreset' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("category" Core..=) Core.<$> category,
-            ("description" Core..=) Core.<$> description,
-            ("settings" Core..=) Core.<$> settings
+      ( Prelude.catMaybes
+          [ ("category" Core..=) Prelude.<$> category,
+            ("description" Core..=) Prelude.<$> description,
+            ("settings" Core..=) Prelude.<$> settings
           ]
       )
 
 instance Core.ToPath UpdatePreset where
   toPath UpdatePreset' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2017-08-29/presets/", Core.toBS name]
 
 instance Core.ToQuery UpdatePreset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePresetResponse' smart constructor.
 data UpdatePresetResponse = UpdatePresetResponse'
   { -- | A preset is a collection of preconfigured media conversion settings that
     -- you want MediaConvert to apply to the output during the conversion
     -- process.
-    preset :: Core.Maybe Preset,
+    preset :: Prelude.Maybe Preset,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePresetResponse' with all optional fields omitted.
@@ -172,22 +175,22 @@ data UpdatePresetResponse = UpdatePresetResponse'
 -- 'httpStatus', 'updatePresetResponse_httpStatus' - The response's http status code.
 newUpdatePresetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdatePresetResponse
 newUpdatePresetResponse pHttpStatus_ =
   UpdatePresetResponse'
-    { preset = Core.Nothing,
+    { preset = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A preset is a collection of preconfigured media conversion settings that
 -- you want MediaConvert to apply to the output during the conversion
 -- process.
-updatePresetResponse_preset :: Lens.Lens' UpdatePresetResponse (Core.Maybe Preset)
+updatePresetResponse_preset :: Lens.Lens' UpdatePresetResponse (Prelude.Maybe Preset)
 updatePresetResponse_preset = Lens.lens (\UpdatePresetResponse' {preset} -> preset) (\s@UpdatePresetResponse' {} a -> s {preset = a} :: UpdatePresetResponse)
 
 -- | The response's http status code.
-updatePresetResponse_httpStatus :: Lens.Lens' UpdatePresetResponse Core.Int
+updatePresetResponse_httpStatus :: Lens.Lens' UpdatePresetResponse Prelude.Int
 updatePresetResponse_httpStatus = Lens.lens (\UpdatePresetResponse' {httpStatus} -> httpStatus) (\s@UpdatePresetResponse' {} a -> s {httpStatus = a} :: UpdatePresetResponse)
 
-instance Core.NFData UpdatePresetResponse
+instance Prelude.NFData UpdatePresetResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.FlowDefinitionOutputConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about where human output will be stored.
 --
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 data FlowDefinitionOutputConfig = FlowDefinitionOutputConfig'
   { -- | The Amazon Key Management Service (KMS) key ID for server-side
     -- encryption.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 path where the object containing human output will be made
     -- available.
     --
     -- To learn more about the format of Amazon A2I output data, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-output-data.html Amazon A2I Output Data>.
-    s3OutputPath :: Core.Text
+    s3OutputPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlowDefinitionOutputConfig' with all optional fields omitted.
@@ -56,18 +57,18 @@ data FlowDefinitionOutputConfig = FlowDefinitionOutputConfig'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-output-data.html Amazon A2I Output Data>.
 newFlowDefinitionOutputConfig ::
   -- | 's3OutputPath'
-  Core.Text ->
+  Prelude.Text ->
   FlowDefinitionOutputConfig
 newFlowDefinitionOutputConfig pS3OutputPath_ =
   FlowDefinitionOutputConfig'
     { kmsKeyId =
-        Core.Nothing,
+        Prelude.Nothing,
       s3OutputPath = pS3OutputPath_
     }
 
 -- | The Amazon Key Management Service (KMS) key ID for server-side
 -- encryption.
-flowDefinitionOutputConfig_kmsKeyId :: Lens.Lens' FlowDefinitionOutputConfig (Core.Maybe Core.Text)
+flowDefinitionOutputConfig_kmsKeyId :: Lens.Lens' FlowDefinitionOutputConfig (Prelude.Maybe Prelude.Text)
 flowDefinitionOutputConfig_kmsKeyId = Lens.lens (\FlowDefinitionOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@FlowDefinitionOutputConfig' {} a -> s {kmsKeyId = a} :: FlowDefinitionOutputConfig)
 
 -- | The Amazon S3 path where the object containing human output will be made
@@ -75,7 +76,7 @@ flowDefinitionOutputConfig_kmsKeyId = Lens.lens (\FlowDefinitionOutputConfig' {k
 --
 -- To learn more about the format of Amazon A2I output data, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-output-data.html Amazon A2I Output Data>.
-flowDefinitionOutputConfig_s3OutputPath :: Lens.Lens' FlowDefinitionOutputConfig Core.Text
+flowDefinitionOutputConfig_s3OutputPath :: Lens.Lens' FlowDefinitionOutputConfig Prelude.Text
 flowDefinitionOutputConfig_s3OutputPath = Lens.lens (\FlowDefinitionOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@FlowDefinitionOutputConfig' {} a -> s {s3OutputPath = a} :: FlowDefinitionOutputConfig)
 
 instance Core.FromJSON FlowDefinitionOutputConfig where
@@ -84,19 +85,19 @@ instance Core.FromJSON FlowDefinitionOutputConfig where
       "FlowDefinitionOutputConfig"
       ( \x ->
           FlowDefinitionOutputConfig'
-            Core.<$> (x Core..:? "KmsKeyId")
-            Core.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Core.Hashable FlowDefinitionOutputConfig
+instance Prelude.Hashable FlowDefinitionOutputConfig
 
-instance Core.NFData FlowDefinitionOutputConfig
+instance Prelude.NFData FlowDefinitionOutputConfig
 
 instance Core.ToJSON FlowDefinitionOutputConfig where
   toJSON FlowDefinitionOutputConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            Core.Just ("S3OutputPath" Core..= s3OutputPath)
+      ( Prelude.catMaybes
+          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

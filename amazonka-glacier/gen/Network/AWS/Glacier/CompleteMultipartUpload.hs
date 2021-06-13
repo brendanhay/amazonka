@@ -93,6 +93,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -109,22 +110,22 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text,
+    vaultName :: Prelude.Text,
     -- | The upload ID of the multipart upload.
-    uploadId :: Core.Text,
+    uploadId :: Prelude.Text,
     -- | The total size, in bytes, of the entire archive. This value should be
     -- the sum of all the sizes of the individual parts that you uploaded.
-    archiveSize :: Core.Text,
+    archiveSize :: Prelude.Text,
     -- | The SHA256 tree hash of the entire archive. It is the tree hash of
     -- SHA256 tree hash of the individual parts. If the value you specify in
     -- the request does not match the SHA256 tree hash of the final assembled
     -- archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an
     -- error and the request fails.
-    checksum :: Core.Text
+    checksum :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompleteMultipartUpload' with all optional fields omitted.
@@ -154,15 +155,15 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 -- error and the request fails.
 newCompleteMultipartUpload ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'uploadId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'archiveSize'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'checksum'
-  Core.Text ->
+  Prelude.Text ->
   CompleteMultipartUpload
 newCompleteMultipartUpload
   pAccountId_
@@ -183,20 +184,20 @@ newCompleteMultipartUpload
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-completeMultipartUpload_accountId :: Lens.Lens' CompleteMultipartUpload Core.Text
+completeMultipartUpload_accountId :: Lens.Lens' CompleteMultipartUpload Prelude.Text
 completeMultipartUpload_accountId = Lens.lens (\CompleteMultipartUpload' {accountId} -> accountId) (\s@CompleteMultipartUpload' {} a -> s {accountId = a} :: CompleteMultipartUpload)
 
 -- | The name of the vault.
-completeMultipartUpload_vaultName :: Lens.Lens' CompleteMultipartUpload Core.Text
+completeMultipartUpload_vaultName :: Lens.Lens' CompleteMultipartUpload Prelude.Text
 completeMultipartUpload_vaultName = Lens.lens (\CompleteMultipartUpload' {vaultName} -> vaultName) (\s@CompleteMultipartUpload' {} a -> s {vaultName = a} :: CompleteMultipartUpload)
 
 -- | The upload ID of the multipart upload.
-completeMultipartUpload_uploadId :: Lens.Lens' CompleteMultipartUpload Core.Text
+completeMultipartUpload_uploadId :: Lens.Lens' CompleteMultipartUpload Prelude.Text
 completeMultipartUpload_uploadId = Lens.lens (\CompleteMultipartUpload' {uploadId} -> uploadId) (\s@CompleteMultipartUpload' {} a -> s {uploadId = a} :: CompleteMultipartUpload)
 
 -- | The total size, in bytes, of the entire archive. This value should be
 -- the sum of all the sizes of the individual parts that you uploaded.
-completeMultipartUpload_archiveSize :: Lens.Lens' CompleteMultipartUpload Core.Text
+completeMultipartUpload_archiveSize :: Lens.Lens' CompleteMultipartUpload Prelude.Text
 completeMultipartUpload_archiveSize = Lens.lens (\CompleteMultipartUpload' {archiveSize} -> archiveSize) (\s@CompleteMultipartUpload' {} a -> s {archiveSize = a} :: CompleteMultipartUpload)
 
 -- | The SHA256 tree hash of the entire archive. It is the tree hash of
@@ -204,7 +205,7 @@ completeMultipartUpload_archiveSize = Lens.lens (\CompleteMultipartUpload' {arch
 -- the request does not match the SHA256 tree hash of the final assembled
 -- archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an
 -- error and the request fails.
-completeMultipartUpload_checksum :: Lens.Lens' CompleteMultipartUpload Core.Text
+completeMultipartUpload_checksum :: Lens.Lens' CompleteMultipartUpload Prelude.Text
 completeMultipartUpload_checksum = Lens.lens (\CompleteMultipartUpload' {checksum} -> checksum) (\s@CompleteMultipartUpload' {} a -> s {checksum = a} :: CompleteMultipartUpload)
 
 instance Core.AWSRequest CompleteMultipartUpload where
@@ -213,33 +214,33 @@ instance Core.AWSRequest CompleteMultipartUpload where
       ArchiveCreationOutput
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.postJSON defaultService
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ArchiveCreationOutput'
-            Core.<$> (h Core..#? "x-amz-archive-id")
-            Core.<*> (h Core..#? "Location")
-            Core.<*> (h Core..#? "x-amz-sha256-tree-hash")
+            Prelude.<$> (h Core..#? "x-amz-archive-id")
+            Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
       )
 
-instance Core.Hashable CompleteMultipartUpload
+instance Prelude.Hashable CompleteMultipartUpload
 
-instance Core.NFData CompleteMultipartUpload
+instance Prelude.NFData CompleteMultipartUpload
 
 instance Core.ToHeaders CompleteMultipartUpload where
   toHeaders CompleteMultipartUpload' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-archive-size" Core.=# archiveSize,
         "x-amz-sha256-tree-hash" Core.=# checksum
       ]
 
 instance Core.ToJSON CompleteMultipartUpload where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath CompleteMultipartUpload where
   toPath CompleteMultipartUpload' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -249,4 +250,4 @@ instance Core.ToPath CompleteMultipartUpload where
       ]
 
 instance Core.ToQuery CompleteMultipartUpload where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

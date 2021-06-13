@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.AttachedDisk where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block storage disk that is attached to an instance, and is
 -- included in an automatic snapshot.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAttachedDisk' smart constructor.
 data AttachedDisk = AttachedDisk'
   { -- | The size of the disk in GB.
-    sizeInGb :: Core.Maybe Core.Int,
+    sizeInGb :: Prelude.Maybe Prelude.Int,
     -- | The path of the disk (e.g., @\/dev\/xvdf@).
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachedDisk' with all optional fields omitted.
@@ -49,16 +50,16 @@ newAttachedDisk ::
   AttachedDisk
 newAttachedDisk =
   AttachedDisk'
-    { sizeInGb = Core.Nothing,
-      path = Core.Nothing
+    { sizeInGb = Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | The size of the disk in GB.
-attachedDisk_sizeInGb :: Lens.Lens' AttachedDisk (Core.Maybe Core.Int)
+attachedDisk_sizeInGb :: Lens.Lens' AttachedDisk (Prelude.Maybe Prelude.Int)
 attachedDisk_sizeInGb = Lens.lens (\AttachedDisk' {sizeInGb} -> sizeInGb) (\s@AttachedDisk' {} a -> s {sizeInGb = a} :: AttachedDisk)
 
 -- | The path of the disk (e.g., @\/dev\/xvdf@).
-attachedDisk_path :: Lens.Lens' AttachedDisk (Core.Maybe Core.Text)
+attachedDisk_path :: Lens.Lens' AttachedDisk (Prelude.Maybe Prelude.Text)
 attachedDisk_path = Lens.lens (\AttachedDisk' {path} -> path) (\s@AttachedDisk' {} a -> s {path = a} :: AttachedDisk)
 
 instance Core.FromJSON AttachedDisk where
@@ -67,9 +68,10 @@ instance Core.FromJSON AttachedDisk where
       "AttachedDisk"
       ( \x ->
           AttachedDisk'
-            Core.<$> (x Core..:? "sizeInGb") Core.<*> (x Core..:? "path")
+            Prelude.<$> (x Core..:? "sizeInGb")
+            Prelude.<*> (x Core..:? "path")
       )
 
-instance Core.Hashable AttachedDisk
+instance Prelude.Hashable AttachedDisk
 
-instance Core.NFData AttachedDisk
+instance Prelude.NFData AttachedDisk

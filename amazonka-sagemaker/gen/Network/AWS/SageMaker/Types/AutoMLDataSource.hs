@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AutoMLDataSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLS3DataSource
 
 -- | The data source for the Autopilot job.
@@ -32,7 +33,7 @@ data AutoMLDataSource = AutoMLDataSource'
     -- The input data must be in CSV format and contain at least 500 rows.
     s3DataSource :: AutoMLS3DataSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoMLDataSource' with all optional fields omitted.
@@ -64,16 +65,16 @@ instance Core.FromJSON AutoMLDataSource where
       "AutoMLDataSource"
       ( \x ->
           AutoMLDataSource'
-            Core.<$> (x Core..: "S3DataSource")
+            Prelude.<$> (x Core..: "S3DataSource")
       )
 
-instance Core.Hashable AutoMLDataSource
+instance Prelude.Hashable AutoMLDataSource
 
-instance Core.NFData AutoMLDataSource
+instance Prelude.NFData AutoMLDataSource
 
 instance Core.ToJSON AutoMLDataSource where
   toJSON AutoMLDataSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("S3DataSource" Core..= s3DataSource)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("S3DataSource" Core..= s3DataSource)]
       )

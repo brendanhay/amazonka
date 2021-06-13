@@ -59,25 +59,26 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSearchTables' smart constructor.
 data SearchTables = SearchTables'
   { -- | A continuation token, included if this is a continuation call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of criteria for sorting the results by a field name, in an
     -- ascending or descending order.
-    sortCriteria :: Core.Maybe [SortCriterion],
+    sortCriteria :: Prelude.Maybe [SortCriterion],
     -- | A unique identifier, consisting of @ account_id @.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tables to return in a single response.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A string used for a text search.
     --
     -- Specifying a value in quotes filters based on an exact match to the
     -- value.
-    searchText :: Core.Maybe Core.Text,
+    searchText :: Prelude.Maybe Prelude.Text,
     -- | Allows you to specify that you want to search the tables shared with
     -- your account. The allowable values are @FOREIGN@ or @ALL@.
     --
@@ -86,7 +87,7 @@ data SearchTables = SearchTables'
     --
     -- -   If set to @ALL@, will search the tables shared with your account, as
     --     well as the tables in yor local account.
-    resourceShareType :: Core.Maybe ResourceShareType,
+    resourceShareType :: Prelude.Maybe ResourceShareType,
     -- | A list of key-value pairs, and a comparator used to filter the search
     -- results. Returns all entities matching the predicate.
     --
@@ -99,9 +100,9 @@ data SearchTables = SearchTables'
     -- @Value@ member of @PropertyPredicate@. For example, if @Key=Name@ and
     -- @Value=link@, tables named @customer-link@ and @xx-link-yy@ are
     -- returned, but @xxlinkyy@ is not returned.
-    filters :: Core.Maybe [PropertyPredicate]
+    filters :: Prelude.Maybe [PropertyPredicate]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchTables' with all optional fields omitted.
@@ -150,37 +151,37 @@ newSearchTables ::
   SearchTables
 newSearchTables =
   SearchTables'
-    { nextToken = Core.Nothing,
-      sortCriteria = Core.Nothing,
-      catalogId = Core.Nothing,
-      maxResults = Core.Nothing,
-      searchText = Core.Nothing,
-      resourceShareType = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      sortCriteria = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      searchText = Prelude.Nothing,
+      resourceShareType = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | A continuation token, included if this is a continuation call.
-searchTables_nextToken :: Lens.Lens' SearchTables (Core.Maybe Core.Text)
+searchTables_nextToken :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
 searchTables_nextToken = Lens.lens (\SearchTables' {nextToken} -> nextToken) (\s@SearchTables' {} a -> s {nextToken = a} :: SearchTables)
 
 -- | A list of criteria for sorting the results by a field name, in an
 -- ascending or descending order.
-searchTables_sortCriteria :: Lens.Lens' SearchTables (Core.Maybe [SortCriterion])
-searchTables_sortCriteria = Lens.lens (\SearchTables' {sortCriteria} -> sortCriteria) (\s@SearchTables' {} a -> s {sortCriteria = a} :: SearchTables) Core.. Lens.mapping Lens._Coerce
+searchTables_sortCriteria :: Lens.Lens' SearchTables (Prelude.Maybe [SortCriterion])
+searchTables_sortCriteria = Lens.lens (\SearchTables' {sortCriteria} -> sortCriteria) (\s@SearchTables' {} a -> s {sortCriteria = a} :: SearchTables) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier, consisting of @ account_id @.
-searchTables_catalogId :: Lens.Lens' SearchTables (Core.Maybe Core.Text)
+searchTables_catalogId :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
 searchTables_catalogId = Lens.lens (\SearchTables' {catalogId} -> catalogId) (\s@SearchTables' {} a -> s {catalogId = a} :: SearchTables)
 
 -- | The maximum number of tables to return in a single response.
-searchTables_maxResults :: Lens.Lens' SearchTables (Core.Maybe Core.Natural)
+searchTables_maxResults :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Natural)
 searchTables_maxResults = Lens.lens (\SearchTables' {maxResults} -> maxResults) (\s@SearchTables' {} a -> s {maxResults = a} :: SearchTables)
 
 -- | A string used for a text search.
 --
 -- Specifying a value in quotes filters based on an exact match to the
 -- value.
-searchTables_searchText :: Lens.Lens' SearchTables (Core.Maybe Core.Text)
+searchTables_searchText :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
 searchTables_searchText = Lens.lens (\SearchTables' {searchText} -> searchText) (\s@SearchTables' {} a -> s {searchText = a} :: SearchTables)
 
 -- | Allows you to specify that you want to search the tables shared with
@@ -191,7 +192,7 @@ searchTables_searchText = Lens.lens (\SearchTables' {searchText} -> searchText) 
 --
 -- -   If set to @ALL@, will search the tables shared with your account, as
 --     well as the tables in yor local account.
-searchTables_resourceShareType :: Lens.Lens' SearchTables (Core.Maybe ResourceShareType)
+searchTables_resourceShareType :: Lens.Lens' SearchTables (Prelude.Maybe ResourceShareType)
 searchTables_resourceShareType = Lens.lens (\SearchTables' {resourceShareType} -> resourceShareType) (\s@SearchTables' {} a -> s {resourceShareType = a} :: SearchTables)
 
 -- | A list of key-value pairs, and a comparator used to filter the search
@@ -206,8 +207,8 @@ searchTables_resourceShareType = Lens.lens (\SearchTables' {resourceShareType} -
 -- @Value@ member of @PropertyPredicate@. For example, if @Key=Name@ and
 -- @Value=link@, tables named @customer-link@ and @xx-link-yy@ are
 -- returned, but @xxlinkyy@ is not returned.
-searchTables_filters :: Lens.Lens' SearchTables (Core.Maybe [PropertyPredicate])
-searchTables_filters = Lens.lens (\SearchTables' {filters} -> filters) (\s@SearchTables' {} a -> s {filters = a} :: SearchTables) Core.. Lens.mapping Lens._Coerce
+searchTables_filters :: Lens.Lens' SearchTables (Prelude.Maybe [PropertyPredicate])
+searchTables_filters = Lens.lens (\SearchTables' {filters} -> filters) (\s@SearchTables' {} a -> s {filters = a} :: SearchTables) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest SearchTables where
   type AWSResponse SearchTables = SearchTablesResponse
@@ -216,59 +217,61 @@ instance Core.AWSRequest SearchTables where
     Response.receiveJSON
       ( \s h x ->
           SearchTablesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "TableList" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SearchTables
+instance Prelude.Hashable SearchTables
 
-instance Core.NFData SearchTables
+instance Prelude.NFData SearchTables
 
 instance Core.ToHeaders SearchTables where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.SearchTables" :: Core.ByteString),
+              Core.=# ("AWSGlue.SearchTables" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SearchTables where
   toJSON SearchTables' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("SortCriteria" Core..=) Core.<$> sortCriteria,
-            ("CatalogId" Core..=) Core.<$> catalogId,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("SearchText" Core..=) Core.<$> searchText,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SearchText" Core..=) Prelude.<$> searchText,
             ("ResourceShareType" Core..=)
-              Core.<$> resourceShareType,
-            ("Filters" Core..=) Core.<$> filters
+              Prelude.<$> resourceShareType,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath SearchTables where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SearchTables where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchTablesResponse' smart constructor.
 data SearchTablesResponse = SearchTablesResponse'
   { -- | A continuation token, present if the current list segment is not the
     -- last.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of the requested @Table@ objects. The @SearchTables@ response
     -- returns only the tables that you have access to.
-    tableList :: Core.Maybe [Table],
+    tableList :: Prelude.Maybe [Table],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchTablesResponse' with all optional fields omitted.
@@ -287,27 +290,27 @@ data SearchTablesResponse = SearchTablesResponse'
 -- 'httpStatus', 'searchTablesResponse_httpStatus' - The response's http status code.
 newSearchTablesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SearchTablesResponse
 newSearchTablesResponse pHttpStatus_ =
   SearchTablesResponse'
-    { nextToken = Core.Nothing,
-      tableList = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      tableList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token, present if the current list segment is not the
 -- last.
-searchTablesResponse_nextToken :: Lens.Lens' SearchTablesResponse (Core.Maybe Core.Text)
+searchTablesResponse_nextToken :: Lens.Lens' SearchTablesResponse (Prelude.Maybe Prelude.Text)
 searchTablesResponse_nextToken = Lens.lens (\SearchTablesResponse' {nextToken} -> nextToken) (\s@SearchTablesResponse' {} a -> s {nextToken = a} :: SearchTablesResponse)
 
 -- | A list of the requested @Table@ objects. The @SearchTables@ response
 -- returns only the tables that you have access to.
-searchTablesResponse_tableList :: Lens.Lens' SearchTablesResponse (Core.Maybe [Table])
-searchTablesResponse_tableList = Lens.lens (\SearchTablesResponse' {tableList} -> tableList) (\s@SearchTablesResponse' {} a -> s {tableList = a} :: SearchTablesResponse) Core.. Lens.mapping Lens._Coerce
+searchTablesResponse_tableList :: Lens.Lens' SearchTablesResponse (Prelude.Maybe [Table])
+searchTablesResponse_tableList = Lens.lens (\SearchTablesResponse' {tableList} -> tableList) (\s@SearchTablesResponse' {} a -> s {tableList = a} :: SearchTablesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-searchTablesResponse_httpStatus :: Lens.Lens' SearchTablesResponse Core.Int
+searchTablesResponse_httpStatus :: Lens.Lens' SearchTablesResponse Prelude.Int
 searchTablesResponse_httpStatus = Lens.lens (\SearchTablesResponse' {httpStatus} -> httpStatus) (\s@SearchTablesResponse' {} a -> s {httpStatus = a} :: SearchTablesResponse)
 
-instance Core.NFData SearchTablesResponse
+instance Prelude.NFData SearchTablesResponse

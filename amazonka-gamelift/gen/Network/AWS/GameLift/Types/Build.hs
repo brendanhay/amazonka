@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.BuildStatus
 import Network.AWS.GameLift.Types.OperatingSystem
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Properties describing a custom game build.
 --
@@ -54,35 +55,35 @@ data Build = Build'
     --
     -- -   __FAILED__ -- The game build upload failed. You cannot create new
     --     fleets for this build.
-    status :: Core.Maybe BuildStatus,
+    status :: Prelude.Maybe BuildStatus,
     -- | Time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- \"1469498468.057\").
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | Version information that is associated with a build or script. Version
     -- strings do not need to be unique. This value can be set using
     -- CreateBuild or UpdateBuild.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with a build. Build names do not
     -- need to be unique. It can be set using CreateBuild or UpdateBuild.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | File size of the uploaded game build, expressed in bytes. When the build
     -- status is @INITIALIZED@, this value is 0.
-    sizeOnDisk :: Core.Maybe Core.Natural,
+    sizeOnDisk :: Prelude.Maybe Prelude.Natural,
     -- | Amazon Resource Name
     -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
     -- that is assigned to a GameLift build resource and uniquely identifies
     -- it. ARNs are unique across all Regions. In a GameLift build ARN, the
     -- resource ID matches the /BuildId/ value.
-    buildArn :: Core.Maybe Core.Text,
+    buildArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a build.
-    buildId :: Core.Maybe Core.Text,
+    buildId :: Prelude.Maybe Prelude.Text,
     -- | Operating system that the game server binaries are built to run on. This
     -- value determines the type of fleet resources that you can use for this
     -- build.
-    operatingSystem :: Core.Maybe OperatingSystem
+    operatingSystem :: Prelude.Maybe OperatingSystem
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Build' with all optional fields omitted.
@@ -136,14 +137,14 @@ newBuild ::
   Build
 newBuild =
   Build'
-    { status = Core.Nothing,
-      creationTime = Core.Nothing,
-      version = Core.Nothing,
-      name = Core.Nothing,
-      sizeOnDisk = Core.Nothing,
-      buildArn = Core.Nothing,
-      buildId = Core.Nothing,
-      operatingSystem = Core.Nothing
+    { status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      version = Prelude.Nothing,
+      name = Prelude.Nothing,
+      sizeOnDisk = Prelude.Nothing,
+      buildArn = Prelude.Nothing,
+      buildId = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing
     }
 
 -- | Current status of the build.
@@ -160,29 +161,29 @@ newBuild =
 --
 -- -   __FAILED__ -- The game build upload failed. You cannot create new
 --     fleets for this build.
-build_status :: Lens.Lens' Build (Core.Maybe BuildStatus)
+build_status :: Lens.Lens' Build (Prelude.Maybe BuildStatus)
 build_status = Lens.lens (\Build' {status} -> status) (\s@Build' {} a -> s {status = a} :: Build)
 
 -- | Time stamp indicating when this data object was created. Format is a
 -- number expressed in Unix time as milliseconds (for example
 -- \"1469498468.057\").
-build_creationTime :: Lens.Lens' Build (Core.Maybe Core.UTCTime)
-build_creationTime = Lens.lens (\Build' {creationTime} -> creationTime) (\s@Build' {} a -> s {creationTime = a} :: Build) Core.. Lens.mapping Core._Time
+build_creationTime :: Lens.Lens' Build (Prelude.Maybe Prelude.UTCTime)
+build_creationTime = Lens.lens (\Build' {creationTime} -> creationTime) (\s@Build' {} a -> s {creationTime = a} :: Build) Prelude.. Lens.mapping Core._Time
 
 -- | Version information that is associated with a build or script. Version
 -- strings do not need to be unique. This value can be set using
 -- CreateBuild or UpdateBuild.
-build_version :: Lens.Lens' Build (Core.Maybe Core.Text)
+build_version :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_version = Lens.lens (\Build' {version} -> version) (\s@Build' {} a -> s {version = a} :: Build)
 
 -- | A descriptive label that is associated with a build. Build names do not
 -- need to be unique. It can be set using CreateBuild or UpdateBuild.
-build_name :: Lens.Lens' Build (Core.Maybe Core.Text)
+build_name :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_name = Lens.lens (\Build' {name} -> name) (\s@Build' {} a -> s {name = a} :: Build)
 
 -- | File size of the uploaded game build, expressed in bytes. When the build
 -- status is @INITIALIZED@, this value is 0.
-build_sizeOnDisk :: Lens.Lens' Build (Core.Maybe Core.Natural)
+build_sizeOnDisk :: Lens.Lens' Build (Prelude.Maybe Prelude.Natural)
 build_sizeOnDisk = Lens.lens (\Build' {sizeOnDisk} -> sizeOnDisk) (\s@Build' {} a -> s {sizeOnDisk = a} :: Build)
 
 -- | Amazon Resource Name
@@ -190,17 +191,17 @@ build_sizeOnDisk = Lens.lens (\Build' {sizeOnDisk} -> sizeOnDisk) (\s@Build' {} 
 -- that is assigned to a GameLift build resource and uniquely identifies
 -- it. ARNs are unique across all Regions. In a GameLift build ARN, the
 -- resource ID matches the /BuildId/ value.
-build_buildArn :: Lens.Lens' Build (Core.Maybe Core.Text)
+build_buildArn :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_buildArn = Lens.lens (\Build' {buildArn} -> buildArn) (\s@Build' {} a -> s {buildArn = a} :: Build)
 
 -- | A unique identifier for a build.
-build_buildId :: Lens.Lens' Build (Core.Maybe Core.Text)
+build_buildId :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_buildId = Lens.lens (\Build' {buildId} -> buildId) (\s@Build' {} a -> s {buildId = a} :: Build)
 
 -- | Operating system that the game server binaries are built to run on. This
 -- value determines the type of fleet resources that you can use for this
 -- build.
-build_operatingSystem :: Lens.Lens' Build (Core.Maybe OperatingSystem)
+build_operatingSystem :: Lens.Lens' Build (Prelude.Maybe OperatingSystem)
 build_operatingSystem = Lens.lens (\Build' {operatingSystem} -> operatingSystem) (\s@Build' {} a -> s {operatingSystem = a} :: Build)
 
 instance Core.FromJSON Build where
@@ -209,16 +210,16 @@ instance Core.FromJSON Build where
       "Build"
       ( \x ->
           Build'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "Version")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "SizeOnDisk")
-            Core.<*> (x Core..:? "BuildArn")
-            Core.<*> (x Core..:? "BuildId")
-            Core.<*> (x Core..:? "OperatingSystem")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "SizeOnDisk")
+            Prelude.<*> (x Core..:? "BuildArn")
+            Prelude.<*> (x Core..:? "BuildId")
+            Prelude.<*> (x Core..:? "OperatingSystem")
       )
 
-instance Core.Hashable Build
+instance Prelude.Hashable Build
 
-instance Core.NFData Build
+instance Prelude.NFData Build

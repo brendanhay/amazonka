@@ -21,6 +21,7 @@ module Network.AWS.ElasticBeanstalk.Types.Deployment where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an application version deployment.
 --
@@ -33,18 +34,18 @@ data Deployment = Deployment'
     -- -   @Deployed@ : The deployment succeeded.
     --
     -- -   @Failed@ : The deployment failed.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The ID of the deployment. This number increases by one each time that
     -- you deploy source code or change instance configuration settings.
-    deploymentId :: Core.Maybe Core.Integer,
+    deploymentId :: Prelude.Maybe Prelude.Integer,
     -- | The version label of the application version in the deployment.
-    versionLabel :: Core.Maybe Core.Text,
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | For in-progress deployments, the time that the deployment started.
     --
     -- For completed deployments, the time that the deployment ended.
-    deploymentTime :: Core.Maybe Core.ISO8601
+    deploymentTime :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Deployment' with all optional fields omitted.
@@ -74,10 +75,10 @@ newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { status = Core.Nothing,
-      deploymentId = Core.Nothing,
-      versionLabel = Core.Nothing,
-      deploymentTime = Core.Nothing
+    { status = Prelude.Nothing,
+      deploymentId = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
+      deploymentTime = Prelude.Nothing
     }
 
 -- | The status of the deployment:
@@ -87,32 +88,32 @@ newDeployment =
 -- -   @Deployed@ : The deployment succeeded.
 --
 -- -   @Failed@ : The deployment failed.
-deployment_status :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_status :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_status = Lens.lens (\Deployment' {status} -> status) (\s@Deployment' {} a -> s {status = a} :: Deployment)
 
 -- | The ID of the deployment. This number increases by one each time that
 -- you deploy source code or change instance configuration settings.
-deployment_deploymentId :: Lens.Lens' Deployment (Core.Maybe Core.Integer)
+deployment_deploymentId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Integer)
 deployment_deploymentId = Lens.lens (\Deployment' {deploymentId} -> deploymentId) (\s@Deployment' {} a -> s {deploymentId = a} :: Deployment)
 
 -- | The version label of the application version in the deployment.
-deployment_versionLabel :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_versionLabel :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_versionLabel = Lens.lens (\Deployment' {versionLabel} -> versionLabel) (\s@Deployment' {} a -> s {versionLabel = a} :: Deployment)
 
 -- | For in-progress deployments, the time that the deployment started.
 --
 -- For completed deployments, the time that the deployment ended.
-deployment_deploymentTime :: Lens.Lens' Deployment (Core.Maybe Core.UTCTime)
-deployment_deploymentTime = Lens.lens (\Deployment' {deploymentTime} -> deploymentTime) (\s@Deployment' {} a -> s {deploymentTime = a} :: Deployment) Core.. Lens.mapping Core._Time
+deployment_deploymentTime :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
+deployment_deploymentTime = Lens.lens (\Deployment' {deploymentTime} -> deploymentTime) (\s@Deployment' {} a -> s {deploymentTime = a} :: Deployment) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML Deployment where
   parseXML x =
     Deployment'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "DeploymentId")
-      Core.<*> (x Core..@? "VersionLabel")
-      Core.<*> (x Core..@? "DeploymentTime")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "DeploymentId")
+      Prelude.<*> (x Core..@? "VersionLabel")
+      Prelude.<*> (x Core..@? "DeploymentTime")
 
-instance Core.Hashable Deployment
+instance Prelude.Hashable Deployment
 
-instance Core.NFData Deployment
+instance Prelude.NFData Deployment

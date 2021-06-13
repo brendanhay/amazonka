@@ -23,6 +23,7 @@ import Network.AWS.CloudSearch.Types.AnalysisOptions
 import Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for an analysis scheme. Each analysis scheme
 -- has a unique name and specifies the language of the text to be
@@ -32,11 +33,11 @@ import qualified Network.AWS.Lens as Lens
 --
 -- /See:/ 'newAnalysisScheme' smart constructor.
 data AnalysisScheme = AnalysisScheme'
-  { analysisOptions :: Core.Maybe AnalysisOptions,
-    analysisSchemeName :: Core.Text,
+  { analysisOptions :: Prelude.Maybe AnalysisOptions,
+    analysisSchemeName :: Prelude.Text,
     analysisSchemeLanguage :: AnalysisSchemeLanguage
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalysisScheme' with all optional fields omitted.
@@ -53,7 +54,7 @@ data AnalysisScheme = AnalysisScheme'
 -- 'analysisSchemeLanguage', 'analysisScheme_analysisSchemeLanguage' - Undocumented member.
 newAnalysisScheme ::
   -- | 'analysisSchemeName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'analysisSchemeLanguage'
   AnalysisSchemeLanguage ->
   AnalysisScheme
@@ -61,17 +62,17 @@ newAnalysisScheme
   pAnalysisSchemeName_
   pAnalysisSchemeLanguage_ =
     AnalysisScheme'
-      { analysisOptions = Core.Nothing,
+      { analysisOptions = Prelude.Nothing,
         analysisSchemeName = pAnalysisSchemeName_,
         analysisSchemeLanguage = pAnalysisSchemeLanguage_
       }
 
 -- | Undocumented member.
-analysisScheme_analysisOptions :: Lens.Lens' AnalysisScheme (Core.Maybe AnalysisOptions)
+analysisScheme_analysisOptions :: Lens.Lens' AnalysisScheme (Prelude.Maybe AnalysisOptions)
 analysisScheme_analysisOptions = Lens.lens (\AnalysisScheme' {analysisOptions} -> analysisOptions) (\s@AnalysisScheme' {} a -> s {analysisOptions = a} :: AnalysisScheme)
 
 -- | Undocumented member.
-analysisScheme_analysisSchemeName :: Lens.Lens' AnalysisScheme Core.Text
+analysisScheme_analysisSchemeName :: Lens.Lens' AnalysisScheme Prelude.Text
 analysisScheme_analysisSchemeName = Lens.lens (\AnalysisScheme' {analysisSchemeName} -> analysisSchemeName) (\s@AnalysisScheme' {} a -> s {analysisSchemeName = a} :: AnalysisScheme)
 
 -- | Undocumented member.
@@ -81,17 +82,17 @@ analysisScheme_analysisSchemeLanguage = Lens.lens (\AnalysisScheme' {analysisSch
 instance Core.FromXML AnalysisScheme where
   parseXML x =
     AnalysisScheme'
-      Core.<$> (x Core..@? "AnalysisOptions")
-      Core.<*> (x Core..@ "AnalysisSchemeName")
-      Core.<*> (x Core..@ "AnalysisSchemeLanguage")
+      Prelude.<$> (x Core..@? "AnalysisOptions")
+      Prelude.<*> (x Core..@ "AnalysisSchemeName")
+      Prelude.<*> (x Core..@ "AnalysisSchemeLanguage")
 
-instance Core.Hashable AnalysisScheme
+instance Prelude.Hashable AnalysisScheme
 
-instance Core.NFData AnalysisScheme
+instance Prelude.NFData AnalysisScheme
 
 instance Core.ToQuery AnalysisScheme where
   toQuery AnalysisScheme' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "AnalysisOptions" Core.=: analysisOptions,
         "AnalysisSchemeName" Core.=: analysisSchemeName,
         "AnalysisSchemeLanguage"

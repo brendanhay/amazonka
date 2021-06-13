@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ConnectionPasswordEncryption
 import Network.AWS.Glue.Types.EncryptionAtRest
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains configuration information for maintaining Data Catalog
 -- security.
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDataCatalogEncryptionSettings' smart constructor.
 data DataCatalogEncryptionSettings = DataCatalogEncryptionSettings'
   { -- | Specifies the encryption-at-rest configuration for the Data Catalog.
-    encryptionAtRest :: Core.Maybe EncryptionAtRest,
+    encryptionAtRest :: Prelude.Maybe EncryptionAtRest,
     -- | When connection password protection is enabled, the Data Catalog uses a
     -- customer-provided key to encrypt the password as part of
     -- @CreateConnection@ or @UpdateConnection@ and store it in the
     -- @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable
     -- catalog encryption or only password encryption.
-    connectionPasswordEncryption :: Core.Maybe ConnectionPasswordEncryption
+    connectionPasswordEncryption :: Prelude.Maybe ConnectionPasswordEncryption
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataCatalogEncryptionSettings' with all optional fields omitted.
@@ -60,12 +61,13 @@ newDataCatalogEncryptionSettings ::
 newDataCatalogEncryptionSettings =
   DataCatalogEncryptionSettings'
     { encryptionAtRest =
-        Core.Nothing,
-      connectionPasswordEncryption = Core.Nothing
+        Prelude.Nothing,
+      connectionPasswordEncryption =
+        Prelude.Nothing
     }
 
 -- | Specifies the encryption-at-rest configuration for the Data Catalog.
-dataCatalogEncryptionSettings_encryptionAtRest :: Lens.Lens' DataCatalogEncryptionSettings (Core.Maybe EncryptionAtRest)
+dataCatalogEncryptionSettings_encryptionAtRest :: Lens.Lens' DataCatalogEncryptionSettings (Prelude.Maybe EncryptionAtRest)
 dataCatalogEncryptionSettings_encryptionAtRest = Lens.lens (\DataCatalogEncryptionSettings' {encryptionAtRest} -> encryptionAtRest) (\s@DataCatalogEncryptionSettings' {} a -> s {encryptionAtRest = a} :: DataCatalogEncryptionSettings)
 
 -- | When connection password protection is enabled, the Data Catalog uses a
@@ -73,7 +75,7 @@ dataCatalogEncryptionSettings_encryptionAtRest = Lens.lens (\DataCatalogEncrypti
 -- @CreateConnection@ or @UpdateConnection@ and store it in the
 -- @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable
 -- catalog encryption or only password encryption.
-dataCatalogEncryptionSettings_connectionPasswordEncryption :: Lens.Lens' DataCatalogEncryptionSettings (Core.Maybe ConnectionPasswordEncryption)
+dataCatalogEncryptionSettings_connectionPasswordEncryption :: Lens.Lens' DataCatalogEncryptionSettings (Prelude.Maybe ConnectionPasswordEncryption)
 dataCatalogEncryptionSettings_connectionPasswordEncryption = Lens.lens (\DataCatalogEncryptionSettings' {connectionPasswordEncryption} -> connectionPasswordEncryption) (\s@DataCatalogEncryptionSettings' {} a -> s {connectionPasswordEncryption = a} :: DataCatalogEncryptionSettings)
 
 instance Core.FromJSON DataCatalogEncryptionSettings where
@@ -82,21 +84,23 @@ instance Core.FromJSON DataCatalogEncryptionSettings where
       "DataCatalogEncryptionSettings"
       ( \x ->
           DataCatalogEncryptionSettings'
-            Core.<$> (x Core..:? "EncryptionAtRest")
-            Core.<*> (x Core..:? "ConnectionPasswordEncryption")
+            Prelude.<$> (x Core..:? "EncryptionAtRest")
+            Prelude.<*> (x Core..:? "ConnectionPasswordEncryption")
       )
 
-instance Core.Hashable DataCatalogEncryptionSettings
+instance
+  Prelude.Hashable
+    DataCatalogEncryptionSettings
 
-instance Core.NFData DataCatalogEncryptionSettings
+instance Prelude.NFData DataCatalogEncryptionSettings
 
 instance Core.ToJSON DataCatalogEncryptionSettings where
   toJSON DataCatalogEncryptionSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EncryptionAtRest" Core..=)
-              Core.<$> encryptionAtRest,
+              Prelude.<$> encryptionAtRest,
             ("ConnectionPasswordEncryption" Core..=)
-              Core.<$> connectionPasswordEncryption
+              Prelude.<$> connectionPasswordEncryption
           ]
       )

@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,15 +61,15 @@ data ListSteps = ListSteps'
   { -- | The filter to limit the step list based on the identifier of the steps.
     -- You can specify a maximum of ten Step IDs. The character constraint
     -- applies to the overall length of the array.
-    stepIds :: Core.Maybe [Core.Text],
+    stepIds :: Prelude.Maybe [Prelude.Text],
     -- | The filter to limit the step list based on certain states.
-    stepStates :: Core.Maybe [StepState],
+    stepStates :: Prelude.Maybe [StepState],
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster for which to list the steps.
-    clusterId :: Core.Text
+    clusterId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSteps' with all optional fields omitted.
@@ -89,51 +90,52 @@ data ListSteps = ListSteps'
 -- 'clusterId', 'listSteps_clusterId' - The identifier of the cluster for which to list the steps.
 newListSteps ::
   -- | 'clusterId'
-  Core.Text ->
+  Prelude.Text ->
   ListSteps
 newListSteps pClusterId_ =
   ListSteps'
-    { stepIds = Core.Nothing,
-      stepStates = Core.Nothing,
-      marker = Core.Nothing,
+    { stepIds = Prelude.Nothing,
+      stepStates = Prelude.Nothing,
+      marker = Prelude.Nothing,
       clusterId = pClusterId_
     }
 
 -- | The filter to limit the step list based on the identifier of the steps.
 -- You can specify a maximum of ten Step IDs. The character constraint
 -- applies to the overall length of the array.
-listSteps_stepIds :: Lens.Lens' ListSteps (Core.Maybe [Core.Text])
-listSteps_stepIds = Lens.lens (\ListSteps' {stepIds} -> stepIds) (\s@ListSteps' {} a -> s {stepIds = a} :: ListSteps) Core.. Lens.mapping Lens._Coerce
+listSteps_stepIds :: Lens.Lens' ListSteps (Prelude.Maybe [Prelude.Text])
+listSteps_stepIds = Lens.lens (\ListSteps' {stepIds} -> stepIds) (\s@ListSteps' {} a -> s {stepIds = a} :: ListSteps) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filter to limit the step list based on certain states.
-listSteps_stepStates :: Lens.Lens' ListSteps (Core.Maybe [StepState])
-listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Core.. Lens.mapping Lens._Coerce
+listSteps_stepStates :: Lens.Lens' ListSteps (Prelude.Maybe [StepState])
+listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
-listSteps_marker :: Lens.Lens' ListSteps (Core.Maybe Core.Text)
+listSteps_marker :: Lens.Lens' ListSteps (Prelude.Maybe Prelude.Text)
 listSteps_marker = Lens.lens (\ListSteps' {marker} -> marker) (\s@ListSteps' {} a -> s {marker = a} :: ListSteps)
 
 -- | The identifier of the cluster for which to list the steps.
-listSteps_clusterId :: Lens.Lens' ListSteps Core.Text
+listSteps_clusterId :: Lens.Lens' ListSteps Prelude.Text
 listSteps_clusterId = Lens.lens (\ListSteps' {clusterId} -> clusterId) (\s@ListSteps' {} a -> s {clusterId = a} :: ListSteps)
 
 instance Core.AWSPager ListSteps where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listStepsResponse_marker Core.. Lens._Just
+            Lens.^? listStepsResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listStepsResponse_steps Core.. Lens._Just
+            Lens.^? listStepsResponse_steps Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listSteps_marker
-          Lens..~ rs Lens.^? listStepsResponse_marker Core.. Lens._Just
+          Prelude.& listSteps_marker
+          Lens..~ rs
+          Lens.^? listStepsResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSteps where
   type AWSResponse ListSteps = ListStepsResponse
@@ -142,42 +144,44 @@ instance Core.AWSRequest ListSteps where
     Response.receiveJSON
       ( \s h x ->
           ListStepsResponse'
-            Core.<$> (x Core..?> "Steps" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Steps" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListSteps
+instance Prelude.Hashable ListSteps
 
-instance Core.NFData ListSteps
+instance Prelude.NFData ListSteps
 
 instance Core.ToHeaders ListSteps where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ElasticMapReduce.ListSteps" :: Core.ByteString),
+              Core.=# ("ElasticMapReduce.ListSteps" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListSteps where
   toJSON ListSteps' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StepIds" Core..=) Core.<$> stepIds,
-            ("StepStates" Core..=) Core.<$> stepStates,
-            ("Marker" Core..=) Core.<$> marker,
-            Core.Just ("ClusterId" Core..= clusterId)
+      ( Prelude.catMaybes
+          [ ("StepIds" Core..=) Prelude.<$> stepIds,
+            ("StepStates" Core..=) Prelude.<$> stepStates,
+            ("Marker" Core..=) Prelude.<$> marker,
+            Prelude.Just ("ClusterId" Core..= clusterId)
           ]
       )
 
 instance Core.ToPath ListSteps where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListSteps where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | This output contains the list of steps returned in reverse order. This
 -- means that the last step is the first element in the list.
@@ -185,13 +189,13 @@ instance Core.ToQuery ListSteps where
 -- /See:/ 'newListStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
   { -- | The filtered list of steps for the cluster.
-    steps :: Core.Maybe [StepSummary],
+    steps :: Prelude.Maybe [StepSummary],
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStepsResponse' with all optional fields omitted.
@@ -208,25 +212,25 @@ data ListStepsResponse = ListStepsResponse'
 -- 'httpStatus', 'listStepsResponse_httpStatus' - The response's http status code.
 newListStepsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListStepsResponse
 newListStepsResponse pHttpStatus_ =
   ListStepsResponse'
-    { steps = Core.Nothing,
-      marker = Core.Nothing,
+    { steps = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The filtered list of steps for the cluster.
-listStepsResponse_steps :: Lens.Lens' ListStepsResponse (Core.Maybe [StepSummary])
-listStepsResponse_steps = Lens.lens (\ListStepsResponse' {steps} -> steps) (\s@ListStepsResponse' {} a -> s {steps = a} :: ListStepsResponse) Core.. Lens.mapping Lens._Coerce
+listStepsResponse_steps :: Lens.Lens' ListStepsResponse (Prelude.Maybe [StepSummary])
+listStepsResponse_steps = Lens.lens (\ListStepsResponse' {steps} -> steps) (\s@ListStepsResponse' {} a -> s {steps = a} :: ListStepsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
-listStepsResponse_marker :: Lens.Lens' ListStepsResponse (Core.Maybe Core.Text)
+listStepsResponse_marker :: Lens.Lens' ListStepsResponse (Prelude.Maybe Prelude.Text)
 listStepsResponse_marker = Lens.lens (\ListStepsResponse' {marker} -> marker) (\s@ListStepsResponse' {} a -> s {marker = a} :: ListStepsResponse)
 
 -- | The response's http status code.
-listStepsResponse_httpStatus :: Lens.Lens' ListStepsResponse Core.Int
+listStepsResponse_httpStatus :: Lens.Lens' ListStepsResponse Prelude.Int
 listStepsResponse_httpStatus = Lens.lens (\ListStepsResponse' {httpStatus} -> httpStatus) (\s@ListStepsResponse' {} a -> s {httpStatus = a} :: ListStepsResponse)
 
-instance Core.NFData ListStepsResponse
+instance Prelude.NFData ListStepsResponse

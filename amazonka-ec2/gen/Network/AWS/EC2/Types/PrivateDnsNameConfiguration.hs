@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DnsNameState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the private DNS name for the service endpoint. For
 -- more information about these parameters, see
@@ -35,17 +36,17 @@ data PrivateDnsNameConfiguration = PrivateDnsNameConfiguration'
     --
     -- >Consumers of the endpoint service can use the private name only when
     -- the state is @verified@.
-    state :: Core.Maybe DnsNameState,
+    state :: Prelude.Maybe DnsNameState,
     -- | The name of the record subdomain the service provider needs to create.
     -- The service provider adds the @value@ text to the @name@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The value the service provider adds to the private DNS name domain
     -- record before verification.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The endpoint service verification type, for example TXT.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PrivateDnsNameConfiguration' with all optional fields omitted.
@@ -71,41 +72,42 @@ newPrivateDnsNameConfiguration ::
   PrivateDnsNameConfiguration
 newPrivateDnsNameConfiguration =
   PrivateDnsNameConfiguration'
-    { state = Core.Nothing,
-      name = Core.Nothing,
-      value = Core.Nothing,
-      type' = Core.Nothing
+    { state =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      value = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The verification state of the VPC endpoint service.
 --
 -- >Consumers of the endpoint service can use the private name only when
 -- the state is @verified@.
-privateDnsNameConfiguration_state :: Lens.Lens' PrivateDnsNameConfiguration (Core.Maybe DnsNameState)
+privateDnsNameConfiguration_state :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe DnsNameState)
 privateDnsNameConfiguration_state = Lens.lens (\PrivateDnsNameConfiguration' {state} -> state) (\s@PrivateDnsNameConfiguration' {} a -> s {state = a} :: PrivateDnsNameConfiguration)
 
 -- | The name of the record subdomain the service provider needs to create.
 -- The service provider adds the @value@ text to the @name@.
-privateDnsNameConfiguration_name :: Lens.Lens' PrivateDnsNameConfiguration (Core.Maybe Core.Text)
+privateDnsNameConfiguration_name :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
 privateDnsNameConfiguration_name = Lens.lens (\PrivateDnsNameConfiguration' {name} -> name) (\s@PrivateDnsNameConfiguration' {} a -> s {name = a} :: PrivateDnsNameConfiguration)
 
 -- | The value the service provider adds to the private DNS name domain
 -- record before verification.
-privateDnsNameConfiguration_value :: Lens.Lens' PrivateDnsNameConfiguration (Core.Maybe Core.Text)
+privateDnsNameConfiguration_value :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
 privateDnsNameConfiguration_value = Lens.lens (\PrivateDnsNameConfiguration' {value} -> value) (\s@PrivateDnsNameConfiguration' {} a -> s {value = a} :: PrivateDnsNameConfiguration)
 
 -- | The endpoint service verification type, for example TXT.
-privateDnsNameConfiguration_type :: Lens.Lens' PrivateDnsNameConfiguration (Core.Maybe Core.Text)
+privateDnsNameConfiguration_type :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
 privateDnsNameConfiguration_type = Lens.lens (\PrivateDnsNameConfiguration' {type'} -> type') (\s@PrivateDnsNameConfiguration' {} a -> s {type' = a} :: PrivateDnsNameConfiguration)
 
 instance Core.FromXML PrivateDnsNameConfiguration where
   parseXML x =
     PrivateDnsNameConfiguration'
-      Core.<$> (x Core..@? "state")
-      Core.<*> (x Core..@? "name")
-      Core.<*> (x Core..@? "value")
-      Core.<*> (x Core..@? "type")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "name")
+      Prelude.<*> (x Core..@? "value")
+      Prelude.<*> (x Core..@? "type")
 
-instance Core.Hashable PrivateDnsNameConfiguration
+instance Prelude.Hashable PrivateDnsNameConfiguration
 
-instance Core.NFData PrivateDnsNameConfiguration
+instance Prelude.NFData PrivateDnsNameConfiguration

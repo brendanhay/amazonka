@@ -21,6 +21,7 @@ module Network.AWS.ElasticSearch.Types.MasterUserOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Credentials for the master user: username and password, ARN, or both.
 --
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 data MasterUserOptions = MasterUserOptions'
   { -- | The master user\'s password, which is stored in the Amazon Elasticsearch
     -- Service domain\'s internal database.
-    masterUserPassword :: Core.Maybe (Core.Sensitive Core.Text),
+    masterUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The master user\'s username, which is stored in the Amazon Elasticsearch
     -- Service domain\'s internal database.
-    masterUserName :: Core.Maybe (Core.Sensitive Core.Text),
+    masterUserName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | ARN for the master user (if IAM is enabled).
-    masterUserARN :: Core.Maybe Core.Text
+    masterUserARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MasterUserOptions' with all optional fields omitted.
@@ -57,36 +58,37 @@ newMasterUserOptions ::
 newMasterUserOptions =
   MasterUserOptions'
     { masterUserPassword =
-        Core.Nothing,
-      masterUserName = Core.Nothing,
-      masterUserARN = Core.Nothing
+        Prelude.Nothing,
+      masterUserName = Prelude.Nothing,
+      masterUserARN = Prelude.Nothing
     }
 
 -- | The master user\'s password, which is stored in the Amazon Elasticsearch
 -- Service domain\'s internal database.
-masterUserOptions_masterUserPassword :: Lens.Lens' MasterUserOptions (Core.Maybe Core.Text)
-masterUserOptions_masterUserPassword = Lens.lens (\MasterUserOptions' {masterUserPassword} -> masterUserPassword) (\s@MasterUserOptions' {} a -> s {masterUserPassword = a} :: MasterUserOptions) Core.. Lens.mapping Core._Sensitive
+masterUserOptions_masterUserPassword :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
+masterUserOptions_masterUserPassword = Lens.lens (\MasterUserOptions' {masterUserPassword} -> masterUserPassword) (\s@MasterUserOptions' {} a -> s {masterUserPassword = a} :: MasterUserOptions) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The master user\'s username, which is stored in the Amazon Elasticsearch
 -- Service domain\'s internal database.
-masterUserOptions_masterUserName :: Lens.Lens' MasterUserOptions (Core.Maybe Core.Text)
-masterUserOptions_masterUserName = Lens.lens (\MasterUserOptions' {masterUserName} -> masterUserName) (\s@MasterUserOptions' {} a -> s {masterUserName = a} :: MasterUserOptions) Core.. Lens.mapping Core._Sensitive
+masterUserOptions_masterUserName :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
+masterUserOptions_masterUserName = Lens.lens (\MasterUserOptions' {masterUserName} -> masterUserName) (\s@MasterUserOptions' {} a -> s {masterUserName = a} :: MasterUserOptions) Prelude.. Lens.mapping Core._Sensitive
 
 -- | ARN for the master user (if IAM is enabled).
-masterUserOptions_masterUserARN :: Lens.Lens' MasterUserOptions (Core.Maybe Core.Text)
+masterUserOptions_masterUserARN :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
 masterUserOptions_masterUserARN = Lens.lens (\MasterUserOptions' {masterUserARN} -> masterUserARN) (\s@MasterUserOptions' {} a -> s {masterUserARN = a} :: MasterUserOptions)
 
-instance Core.Hashable MasterUserOptions
+instance Prelude.Hashable MasterUserOptions
 
-instance Core.NFData MasterUserOptions
+instance Prelude.NFData MasterUserOptions
 
 instance Core.ToJSON MasterUserOptions where
   toJSON MasterUserOptions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MasterUserPassword" Core..=)
-              Core.<$> masterUserPassword,
-            ("MasterUserName" Core..=) Core.<$> masterUserName,
-            ("MasterUserARN" Core..=) Core.<$> masterUserARN
+              Prelude.<$> masterUserPassword,
+            ("MasterUserName" Core..=)
+              Prelude.<$> masterUserName,
+            ("MasterUserARN" Core..=) Prelude.<$> masterUserARN
           ]
       )

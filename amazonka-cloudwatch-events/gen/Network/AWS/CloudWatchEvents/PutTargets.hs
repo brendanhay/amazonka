@@ -165,6 +165,7 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -172,13 +173,13 @@ import qualified Network.AWS.Response as Response
 data PutTargets = PutTargets'
   { -- | The name or ARN of the event bus associated with the rule. If you omit
     -- this, the default event bus is used.
-    eventBusName :: Core.Maybe Core.Text,
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule.
-    rule :: Core.Text,
+    rule :: Prelude.Text,
     -- | The targets to update or add to the rule.
-    targets :: Core.NonEmpty Target
+    targets :: Prelude.NonEmpty Target
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutTargets' with all optional fields omitted.
@@ -196,29 +197,29 @@ data PutTargets = PutTargets'
 -- 'targets', 'putTargets_targets' - The targets to update or add to the rule.
 newPutTargets ::
   -- | 'rule'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targets'
-  Core.NonEmpty Target ->
+  Prelude.NonEmpty Target ->
   PutTargets
 newPutTargets pRule_ pTargets_ =
   PutTargets'
-    { eventBusName = Core.Nothing,
+    { eventBusName = Prelude.Nothing,
       rule = pRule_,
       targets = Lens._Coerce Lens.# pTargets_
     }
 
 -- | The name or ARN of the event bus associated with the rule. If you omit
 -- this, the default event bus is used.
-putTargets_eventBusName :: Lens.Lens' PutTargets (Core.Maybe Core.Text)
+putTargets_eventBusName :: Lens.Lens' PutTargets (Prelude.Maybe Prelude.Text)
 putTargets_eventBusName = Lens.lens (\PutTargets' {eventBusName} -> eventBusName) (\s@PutTargets' {} a -> s {eventBusName = a} :: PutTargets)
 
 -- | The name of the rule.
-putTargets_rule :: Lens.Lens' PutTargets Core.Text
+putTargets_rule :: Lens.Lens' PutTargets Prelude.Text
 putTargets_rule = Lens.lens (\PutTargets' {rule} -> rule) (\s@PutTargets' {} a -> s {rule = a} :: PutTargets)
 
 -- | The targets to update or add to the rule.
-putTargets_targets :: Lens.Lens' PutTargets (Core.NonEmpty Target)
-putTargets_targets = Lens.lens (\PutTargets' {targets} -> targets) (\s@PutTargets' {} a -> s {targets = a} :: PutTargets) Core.. Lens._Coerce
+putTargets_targets :: Lens.Lens' PutTargets (Prelude.NonEmpty Target)
+putTargets_targets = Lens.lens (\PutTargets' {targets} -> targets) (\s@PutTargets' {} a -> s {targets = a} :: PutTargets) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutTargets where
   type AWSResponse PutTargets = PutTargetsResponse
@@ -227,52 +228,54 @@ instance Core.AWSRequest PutTargets where
     Response.receiveJSON
       ( \s h x ->
           PutTargetsResponse'
-            Core.<$> (x Core..?> "FailedEntryCount")
-            Core.<*> (x Core..?> "FailedEntries" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FailedEntryCount")
+            Prelude.<*> (x Core..?> "FailedEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutTargets
+instance Prelude.Hashable PutTargets
 
-instance Core.NFData PutTargets
+instance Prelude.NFData PutTargets
 
 instance Core.ToHeaders PutTargets where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.PutTargets" :: Core.ByteString),
+              Core.=# ("AWSEvents.PutTargets" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutTargets where
   toJSON PutTargets' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EventBusName" Core..=) Core.<$> eventBusName,
-            Core.Just ("Rule" Core..= rule),
-            Core.Just ("Targets" Core..= targets)
+      ( Prelude.catMaybes
+          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            Prelude.Just ("Rule" Core..= rule),
+            Prelude.Just ("Targets" Core..= targets)
           ]
       )
 
 instance Core.ToPath PutTargets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutTargets where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutTargetsResponse' smart constructor.
 data PutTargetsResponse = PutTargetsResponse'
   { -- | The number of failed entries.
-    failedEntryCount :: Core.Maybe Core.Int,
+    failedEntryCount :: Prelude.Maybe Prelude.Int,
     -- | The failed target entries.
-    failedEntries :: Core.Maybe [PutTargetsResultEntry],
+    failedEntries :: Prelude.Maybe [PutTargetsResultEntry],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutTargetsResponse' with all optional fields omitted.
@@ -289,26 +292,26 @@ data PutTargetsResponse = PutTargetsResponse'
 -- 'httpStatus', 'putTargetsResponse_httpStatus' - The response's http status code.
 newPutTargetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutTargetsResponse
 newPutTargetsResponse pHttpStatus_ =
   PutTargetsResponse'
     { failedEntryCount =
-        Core.Nothing,
-      failedEntries = Core.Nothing,
+        Prelude.Nothing,
+      failedEntries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of failed entries.
-putTargetsResponse_failedEntryCount :: Lens.Lens' PutTargetsResponse (Core.Maybe Core.Int)
+putTargetsResponse_failedEntryCount :: Lens.Lens' PutTargetsResponse (Prelude.Maybe Prelude.Int)
 putTargetsResponse_failedEntryCount = Lens.lens (\PutTargetsResponse' {failedEntryCount} -> failedEntryCount) (\s@PutTargetsResponse' {} a -> s {failedEntryCount = a} :: PutTargetsResponse)
 
 -- | The failed target entries.
-putTargetsResponse_failedEntries :: Lens.Lens' PutTargetsResponse (Core.Maybe [PutTargetsResultEntry])
-putTargetsResponse_failedEntries = Lens.lens (\PutTargetsResponse' {failedEntries} -> failedEntries) (\s@PutTargetsResponse' {} a -> s {failedEntries = a} :: PutTargetsResponse) Core.. Lens.mapping Lens._Coerce
+putTargetsResponse_failedEntries :: Lens.Lens' PutTargetsResponse (Prelude.Maybe [PutTargetsResultEntry])
+putTargetsResponse_failedEntries = Lens.lens (\PutTargetsResponse' {failedEntries} -> failedEntries) (\s@PutTargetsResponse' {} a -> s {failedEntries = a} :: PutTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putTargetsResponse_httpStatus :: Lens.Lens' PutTargetsResponse Core.Int
+putTargetsResponse_httpStatus :: Lens.Lens' PutTargetsResponse Prelude.Int
 putTargetsResponse_httpStatus = Lens.lens (\PutTargetsResponse' {httpStatus} -> httpStatus) (\s@PutTargetsResponse' {} a -> s {httpStatus = a} :: PutTargetsResponse)
 
-instance Core.NFData PutTargetsResponse
+instance Prelude.NFData PutTargetsResponse

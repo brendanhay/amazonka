@@ -22,15 +22,16 @@ module Network.AWS.EKS.Types.AddonHealth where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.AddonIssue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The health of the add-on.
 --
 -- /See:/ 'newAddonHealth' smart constructor.
 data AddonHealth = AddonHealth'
   { -- | An object that represents the add-on\'s health issues.
-    issues :: Core.Maybe [AddonIssue]
+    issues :: Prelude.Maybe [AddonIssue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddonHealth' with all optional fields omitted.
@@ -43,11 +44,12 @@ data AddonHealth = AddonHealth'
 -- 'issues', 'addonHealth_issues' - An object that represents the add-on\'s health issues.
 newAddonHealth ::
   AddonHealth
-newAddonHealth = AddonHealth' {issues = Core.Nothing}
+newAddonHealth =
+  AddonHealth' {issues = Prelude.Nothing}
 
 -- | An object that represents the add-on\'s health issues.
-addonHealth_issues :: Lens.Lens' AddonHealth (Core.Maybe [AddonIssue])
-addonHealth_issues = Lens.lens (\AddonHealth' {issues} -> issues) (\s@AddonHealth' {} a -> s {issues = a} :: AddonHealth) Core.. Lens.mapping Lens._Coerce
+addonHealth_issues :: Lens.Lens' AddonHealth (Prelude.Maybe [AddonIssue])
+addonHealth_issues = Lens.lens (\AddonHealth' {issues} -> issues) (\s@AddonHealth' {} a -> s {issues = a} :: AddonHealth) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AddonHealth where
   parseJSON =
@@ -55,9 +57,9 @@ instance Core.FromJSON AddonHealth where
       "AddonHealth"
       ( \x ->
           AddonHealth'
-            Core.<$> (x Core..:? "issues" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "issues" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable AddonHealth
+instance Prelude.Hashable AddonHealth
 
-instance Core.NFData AddonHealth
+instance Prelude.NFData AddonHealth

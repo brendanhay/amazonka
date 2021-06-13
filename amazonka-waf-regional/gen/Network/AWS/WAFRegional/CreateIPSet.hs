@@ -75,6 +75,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -83,11 +84,11 @@ import Network.AWS.WAFRegional.Types
 data CreateIPSet = CreateIPSet'
   { -- | A friendly name or description of the IPSet. You can\'t change @Name@
     -- after you create the @IPSet@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateIPSet' with all optional fields omitted.
@@ -103,9 +104,9 @@ data CreateIPSet = CreateIPSet'
 -- 'changeToken', 'createIPSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newCreateIPSet ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   CreateIPSet
 newCreateIPSet pName_ pChangeToken_ =
   CreateIPSet'
@@ -115,11 +116,11 @@ newCreateIPSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the IPSet. You can\'t change @Name@
 -- after you create the @IPSet@.
-createIPSet_name :: Lens.Lens' CreateIPSet Core.Text
+createIPSet_name :: Lens.Lens' CreateIPSet Prelude.Text
 createIPSet_name = Lens.lens (\CreateIPSet' {name} -> name) (\s@CreateIPSet' {} a -> s {name = a} :: CreateIPSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-createIPSet_changeToken :: Lens.Lens' CreateIPSet Core.Text
+createIPSet_changeToken :: Lens.Lens' CreateIPSet Prelude.Text
 createIPSet_changeToken = Lens.lens (\CreateIPSet' {changeToken} -> changeToken) (\s@CreateIPSet' {} a -> s {changeToken = a} :: CreateIPSet)
 
 instance Core.AWSRequest CreateIPSet where
@@ -129,55 +130,57 @@ instance Core.AWSRequest CreateIPSet where
     Response.receiveJSON
       ( \s h x ->
           CreateIPSetResponse'
-            Core.<$> (x Core..?> "IPSet")
-            Core.<*> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "IPSet")
+            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateIPSet
+instance Prelude.Hashable CreateIPSet
 
-instance Core.NFData CreateIPSet
+instance Prelude.NFData CreateIPSet
 
 instance Core.ToHeaders CreateIPSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.CreateIPSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateIPSet where
   toJSON CreateIPSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath CreateIPSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateIPSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIPSetResponse' smart constructor.
 data CreateIPSetResponse = CreateIPSetResponse'
   { -- | The IPSet returned in the @CreateIPSet@ response.
-    iPSet :: Core.Maybe IPSet,
+    iPSet :: Prelude.Maybe IPSet,
     -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You
     -- can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateIPSetResponse' with all optional fields omitted.
@@ -196,27 +199,27 @@ data CreateIPSetResponse = CreateIPSetResponse'
 -- 'httpStatus', 'createIPSetResponse_httpStatus' - The response's http status code.
 newCreateIPSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateIPSetResponse
 newCreateIPSetResponse pHttpStatus_ =
   CreateIPSetResponse'
-    { iPSet = Core.Nothing,
-      changeToken = Core.Nothing,
+    { iPSet = Prelude.Nothing,
+      changeToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IPSet returned in the @CreateIPSet@ response.
-createIPSetResponse_iPSet :: Lens.Lens' CreateIPSetResponse (Core.Maybe IPSet)
+createIPSetResponse_iPSet :: Lens.Lens' CreateIPSetResponse (Prelude.Maybe IPSet)
 createIPSetResponse_iPSet = Lens.lens (\CreateIPSetResponse' {iPSet} -> iPSet) (\s@CreateIPSetResponse' {} a -> s {iPSet = a} :: CreateIPSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You
 -- can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-createIPSetResponse_changeToken :: Lens.Lens' CreateIPSetResponse (Core.Maybe Core.Text)
+createIPSetResponse_changeToken :: Lens.Lens' CreateIPSetResponse (Prelude.Maybe Prelude.Text)
 createIPSetResponse_changeToken = Lens.lens (\CreateIPSetResponse' {changeToken} -> changeToken) (\s@CreateIPSetResponse' {} a -> s {changeToken = a} :: CreateIPSetResponse)
 
 -- | The response's http status code.
-createIPSetResponse_httpStatus :: Lens.Lens' CreateIPSetResponse Core.Int
+createIPSetResponse_httpStatus :: Lens.Lens' CreateIPSetResponse Prelude.Int
 createIPSetResponse_httpStatus = Lens.lens (\CreateIPSetResponse' {httpStatus} -> httpStatus) (\s@CreateIPSetResponse' {} a -> s {httpStatus = a} :: CreateIPSetResponse)
 
-instance Core.NFData CreateIPSetResponse
+instance Prelude.NFData CreateIPSetResponse

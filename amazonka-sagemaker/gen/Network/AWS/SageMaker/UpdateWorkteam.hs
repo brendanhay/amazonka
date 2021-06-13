@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -76,15 +77,15 @@ data UpdateWorkteam = UpdateWorkteam'
     -- in @Groups@ when you make this request to remain on the work team. If
     -- you do not include these user groups, they will no longer be associated
     -- with the work team you update.
-    memberDefinitions :: Core.Maybe (Core.NonEmpty MemberDefinition),
+    memberDefinitions :: Prelude.Maybe (Prelude.NonEmpty MemberDefinition),
     -- | Configures SNS topic notifications for available or expiring work items
-    notificationConfiguration :: Core.Maybe NotificationConfiguration,
+    notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
     -- | An updated description for the work team.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the work team to update.
-    workteamName :: Core.Text
+    workteamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateWorkteam' with all optional fields omitted.
@@ -127,13 +128,14 @@ data UpdateWorkteam = UpdateWorkteam'
 -- 'workteamName', 'updateWorkteam_workteamName' - The name of the work team to update.
 newUpdateWorkteam ::
   -- | 'workteamName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateWorkteam
 newUpdateWorkteam pWorkteamName_ =
   UpdateWorkteam'
-    { memberDefinitions = Core.Nothing,
-      notificationConfiguration = Core.Nothing,
-      description = Core.Nothing,
+    { memberDefinitions =
+        Prelude.Nothing,
+      notificationConfiguration = Prelude.Nothing,
+      description = Prelude.Nothing,
       workteamName = pWorkteamName_
     }
 
@@ -162,19 +164,19 @@ newUpdateWorkteam pWorkteamName_ =
 -- in @Groups@ when you make this request to remain on the work team. If
 -- you do not include these user groups, they will no longer be associated
 -- with the work team you update.
-updateWorkteam_memberDefinitions :: Lens.Lens' UpdateWorkteam (Core.Maybe (Core.NonEmpty MemberDefinition))
-updateWorkteam_memberDefinitions = Lens.lens (\UpdateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@UpdateWorkteam' {} a -> s {memberDefinitions = a} :: UpdateWorkteam) Core.. Lens.mapping Lens._Coerce
+updateWorkteam_memberDefinitions :: Lens.Lens' UpdateWorkteam (Prelude.Maybe (Prelude.NonEmpty MemberDefinition))
+updateWorkteam_memberDefinitions = Lens.lens (\UpdateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@UpdateWorkteam' {} a -> s {memberDefinitions = a} :: UpdateWorkteam) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Configures SNS topic notifications for available or expiring work items
-updateWorkteam_notificationConfiguration :: Lens.Lens' UpdateWorkteam (Core.Maybe NotificationConfiguration)
+updateWorkteam_notificationConfiguration :: Lens.Lens' UpdateWorkteam (Prelude.Maybe NotificationConfiguration)
 updateWorkteam_notificationConfiguration = Lens.lens (\UpdateWorkteam' {notificationConfiguration} -> notificationConfiguration) (\s@UpdateWorkteam' {} a -> s {notificationConfiguration = a} :: UpdateWorkteam)
 
 -- | An updated description for the work team.
-updateWorkteam_description :: Lens.Lens' UpdateWorkteam (Core.Maybe Core.Text)
+updateWorkteam_description :: Lens.Lens' UpdateWorkteam (Prelude.Maybe Prelude.Text)
 updateWorkteam_description = Lens.lens (\UpdateWorkteam' {description} -> description) (\s@UpdateWorkteam' {} a -> s {description = a} :: UpdateWorkteam)
 
 -- | The name of the work team to update.
-updateWorkteam_workteamName :: Lens.Lens' UpdateWorkteam Core.Text
+updateWorkteam_workteamName :: Lens.Lens' UpdateWorkteam Prelude.Text
 updateWorkteam_workteamName = Lens.lens (\UpdateWorkteam' {workteamName} -> workteamName) (\s@UpdateWorkteam' {} a -> s {workteamName = a} :: UpdateWorkteam)
 
 instance Core.AWSRequest UpdateWorkteam where
@@ -186,52 +188,54 @@ instance Core.AWSRequest UpdateWorkteam where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkteamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "Workteam")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Workteam")
       )
 
-instance Core.Hashable UpdateWorkteam
+instance Prelude.Hashable UpdateWorkteam
 
-instance Core.NFData UpdateWorkteam
+instance Prelude.NFData UpdateWorkteam
 
 instance Core.ToHeaders UpdateWorkteam where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateWorkteam" :: Core.ByteString),
+              Core.=# ("SageMaker.UpdateWorkteam" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateWorkteam where
   toJSON UpdateWorkteam' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MemberDefinitions" Core..=)
-              Core.<$> memberDefinitions,
+              Prelude.<$> memberDefinitions,
             ("NotificationConfiguration" Core..=)
-              Core.<$> notificationConfiguration,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("WorkteamName" Core..= workteamName)
+              Prelude.<$> notificationConfiguration,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("WorkteamName" Core..= workteamName)
           ]
       )
 
 instance Core.ToPath UpdateWorkteam where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateWorkteam where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkteamResponse' smart constructor.
 data UpdateWorkteamResponse = UpdateWorkteamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A @Workteam@ object that describes the updated work team.
     workteam :: Workteam
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateWorkteamResponse' with all optional fields omitted.
@@ -246,7 +250,7 @@ data UpdateWorkteamResponse = UpdateWorkteamResponse'
 -- 'workteam', 'updateWorkteamResponse_workteam' - A @Workteam@ object that describes the updated work team.
 newUpdateWorkteamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'workteam'
   Workteam ->
   UpdateWorkteamResponse
@@ -257,11 +261,11 @@ newUpdateWorkteamResponse pHttpStatus_ pWorkteam_ =
     }
 
 -- | The response's http status code.
-updateWorkteamResponse_httpStatus :: Lens.Lens' UpdateWorkteamResponse Core.Int
+updateWorkteamResponse_httpStatus :: Lens.Lens' UpdateWorkteamResponse Prelude.Int
 updateWorkteamResponse_httpStatus = Lens.lens (\UpdateWorkteamResponse' {httpStatus} -> httpStatus) (\s@UpdateWorkteamResponse' {} a -> s {httpStatus = a} :: UpdateWorkteamResponse)
 
 -- | A @Workteam@ object that describes the updated work team.
 updateWorkteamResponse_workteam :: Lens.Lens' UpdateWorkteamResponse Workteam
 updateWorkteamResponse_workteam = Lens.lens (\UpdateWorkteamResponse' {workteam} -> workteam) (\s@UpdateWorkteamResponse' {} a -> s {workteam = a} :: UpdateWorkteamResponse)
 
-instance Core.NFData UpdateWorkteamResponse
+instance Prelude.NFData UpdateWorkteamResponse

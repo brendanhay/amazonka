@@ -51,6 +51,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,22 +63,22 @@ data GetDocumentationParts = GetDocumentationParts'
   { -- | The status of the API documentation parts to retrieve. Valid values are
     -- @DOCUMENTED@ for retrieving DocumentationPart resources with content and
     -- @UNDOCUMENTED@ for DocumentationPart resources without content.
-    locationStatus :: Core.Maybe LocationStatusType,
+    locationStatus :: Prelude.Maybe LocationStatusType,
     -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The type of API entities of the to-be-retrieved documentation parts.
-    type' :: Core.Maybe DocumentationPartType,
+    type' :: Prelude.Maybe DocumentationPartType,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int,
+    limit :: Prelude.Maybe Prelude.Int,
     -- | The path of API entities of the to-be-retrieved documentation parts.
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | The name of API entities of the to-be-retrieved documentation parts.
-    nameQuery :: Core.Maybe Core.Text,
+    nameQuery :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text
+    restApiId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDocumentationParts' with all optional fields omitted.
@@ -105,49 +106,49 @@ data GetDocumentationParts = GetDocumentationParts'
 -- 'restApiId', 'getDocumentationParts_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetDocumentationParts ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   GetDocumentationParts
 newGetDocumentationParts pRestApiId_ =
   GetDocumentationParts'
     { locationStatus =
-        Core.Nothing,
-      position = Core.Nothing,
-      type' = Core.Nothing,
-      limit = Core.Nothing,
-      path = Core.Nothing,
-      nameQuery = Core.Nothing,
+        Prelude.Nothing,
+      position = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      path = Prelude.Nothing,
+      nameQuery = Prelude.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | The status of the API documentation parts to retrieve. Valid values are
 -- @DOCUMENTED@ for retrieving DocumentationPart resources with content and
 -- @UNDOCUMENTED@ for DocumentationPart resources without content.
-getDocumentationParts_locationStatus :: Lens.Lens' GetDocumentationParts (Core.Maybe LocationStatusType)
+getDocumentationParts_locationStatus :: Lens.Lens' GetDocumentationParts (Prelude.Maybe LocationStatusType)
 getDocumentationParts_locationStatus = Lens.lens (\GetDocumentationParts' {locationStatus} -> locationStatus) (\s@GetDocumentationParts' {} a -> s {locationStatus = a} :: GetDocumentationParts)
 
 -- | The current pagination position in the paged result set.
-getDocumentationParts_position :: Lens.Lens' GetDocumentationParts (Core.Maybe Core.Text)
+getDocumentationParts_position :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
 getDocumentationParts_position = Lens.lens (\GetDocumentationParts' {position} -> position) (\s@GetDocumentationParts' {} a -> s {position = a} :: GetDocumentationParts)
 
 -- | The type of API entities of the to-be-retrieved documentation parts.
-getDocumentationParts_type :: Lens.Lens' GetDocumentationParts (Core.Maybe DocumentationPartType)
+getDocumentationParts_type :: Lens.Lens' GetDocumentationParts (Prelude.Maybe DocumentationPartType)
 getDocumentationParts_type = Lens.lens (\GetDocumentationParts' {type'} -> type') (\s@GetDocumentationParts' {} a -> s {type' = a} :: GetDocumentationParts)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getDocumentationParts_limit :: Lens.Lens' GetDocumentationParts (Core.Maybe Core.Int)
+getDocumentationParts_limit :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Int)
 getDocumentationParts_limit = Lens.lens (\GetDocumentationParts' {limit} -> limit) (\s@GetDocumentationParts' {} a -> s {limit = a} :: GetDocumentationParts)
 
 -- | The path of API entities of the to-be-retrieved documentation parts.
-getDocumentationParts_path :: Lens.Lens' GetDocumentationParts (Core.Maybe Core.Text)
+getDocumentationParts_path :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
 getDocumentationParts_path = Lens.lens (\GetDocumentationParts' {path} -> path) (\s@GetDocumentationParts' {} a -> s {path = a} :: GetDocumentationParts)
 
 -- | The name of API entities of the to-be-retrieved documentation parts.
-getDocumentationParts_nameQuery :: Lens.Lens' GetDocumentationParts (Core.Maybe Core.Text)
+getDocumentationParts_nameQuery :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
 getDocumentationParts_nameQuery = Lens.lens (\GetDocumentationParts' {nameQuery} -> nameQuery) (\s@GetDocumentationParts' {} a -> s {nameQuery = a} :: GetDocumentationParts)
 
 -- | [Required] The string identifier of the associated RestApi.
-getDocumentationParts_restApiId :: Lens.Lens' GetDocumentationParts Core.Text
+getDocumentationParts_restApiId :: Lens.Lens' GetDocumentationParts Prelude.Text
 getDocumentationParts_restApiId = Lens.lens (\GetDocumentationParts' {restApiId} -> restApiId) (\s@GetDocumentationParts' {} a -> s {restApiId = a} :: GetDocumentationParts)
 
 instance Core.AWSPager GetDocumentationParts where
@@ -155,22 +156,22 @@ instance Core.AWSPager GetDocumentationParts where
     | Core.stop
         ( rs
             Lens.^? getDocumentationPartsResponse_position
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getDocumentationPartsResponse_items
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getDocumentationParts_position
+          Prelude.& getDocumentationParts_position
           Lens..~ rs
           Lens.^? getDocumentationPartsResponse_position
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDocumentationParts where
   type
@@ -181,27 +182,27 @@ instance Core.AWSRequest GetDocumentationParts where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentationPartsResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDocumentationParts
+instance Prelude.Hashable GetDocumentationParts
 
-instance Core.NFData GetDocumentationParts
+instance Prelude.NFData GetDocumentationParts
 
 instance Core.ToHeaders GetDocumentationParts where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetDocumentationParts where
   toPath GetDocumentationParts' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/documentation/parts"
@@ -209,7 +210,7 @@ instance Core.ToPath GetDocumentationParts where
 
 instance Core.ToQuery GetDocumentationParts where
   toQuery GetDocumentationParts' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "locationStatus" Core.=: locationStatus,
         "position" Core.=: position,
         "type" Core.=: type',
@@ -226,12 +227,12 @@ instance Core.ToQuery GetDocumentationParts where
 -- /See:/ 'newGetDocumentationPartsResponse' smart constructor.
 data GetDocumentationPartsResponse = GetDocumentationPartsResponse'
   { -- | The current page of elements from this collection.
-    items :: Core.Maybe [DocumentationPart],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [DocumentationPart],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDocumentationPartsResponse' with all optional fields omitted.
@@ -248,26 +249,26 @@ data GetDocumentationPartsResponse = GetDocumentationPartsResponse'
 -- 'httpStatus', 'getDocumentationPartsResponse_httpStatus' - The response's http status code.
 newGetDocumentationPartsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDocumentationPartsResponse
 newGetDocumentationPartsResponse pHttpStatus_ =
   GetDocumentationPartsResponse'
     { items =
-        Core.Nothing,
-      position = Core.Nothing,
+        Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getDocumentationPartsResponse_items :: Lens.Lens' GetDocumentationPartsResponse (Core.Maybe [DocumentationPart])
-getDocumentationPartsResponse_items = Lens.lens (\GetDocumentationPartsResponse' {items} -> items) (\s@GetDocumentationPartsResponse' {} a -> s {items = a} :: GetDocumentationPartsResponse) Core.. Lens.mapping Lens._Coerce
+getDocumentationPartsResponse_items :: Lens.Lens' GetDocumentationPartsResponse (Prelude.Maybe [DocumentationPart])
+getDocumentationPartsResponse_items = Lens.lens (\GetDocumentationPartsResponse' {items} -> items) (\s@GetDocumentationPartsResponse' {} a -> s {items = a} :: GetDocumentationPartsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getDocumentationPartsResponse_position :: Lens.Lens' GetDocumentationPartsResponse (Core.Maybe Core.Text)
+getDocumentationPartsResponse_position :: Lens.Lens' GetDocumentationPartsResponse (Prelude.Maybe Prelude.Text)
 getDocumentationPartsResponse_position = Lens.lens (\GetDocumentationPartsResponse' {position} -> position) (\s@GetDocumentationPartsResponse' {} a -> s {position = a} :: GetDocumentationPartsResponse)
 
 -- | The response's http status code.
-getDocumentationPartsResponse_httpStatus :: Lens.Lens' GetDocumentationPartsResponse Core.Int
+getDocumentationPartsResponse_httpStatus :: Lens.Lens' GetDocumentationPartsResponse Prelude.Int
 getDocumentationPartsResponse_httpStatus = Lens.lens (\GetDocumentationPartsResponse' {httpStatus} -> httpStatus) (\s@GetDocumentationPartsResponse' {} a -> s {httpStatus = a} :: GetDocumentationPartsResponse)
 
-instance Core.NFData GetDocumentationPartsResponse
+instance Prelude.NFData GetDocumentationPartsResponse

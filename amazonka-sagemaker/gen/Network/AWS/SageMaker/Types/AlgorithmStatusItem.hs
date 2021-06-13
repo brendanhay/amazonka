@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AlgorithmStatusItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.DetailedAlgorithmStatus
 
 -- | Represents the overall status of an algorithm.
@@ -28,14 +29,14 @@ import Network.AWS.SageMaker.Types.DetailedAlgorithmStatus
 -- /See:/ 'newAlgorithmStatusItem' smart constructor.
 data AlgorithmStatusItem = AlgorithmStatusItem'
   { -- | if the overall status is @Failed@, the reason for the failure.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the algorithm for which the overall status is being
     -- reported.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The current status.
     status :: DetailedAlgorithmStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AlgorithmStatusItem' with all optional fields omitted.
@@ -53,24 +54,25 @@ data AlgorithmStatusItem = AlgorithmStatusItem'
 -- 'status', 'algorithmStatusItem_status' - The current status.
 newAlgorithmStatusItem ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   DetailedAlgorithmStatus ->
   AlgorithmStatusItem
 newAlgorithmStatusItem pName_ pStatus_ =
   AlgorithmStatusItem'
-    { failureReason = Core.Nothing,
+    { failureReason =
+        Prelude.Nothing,
       name = pName_,
       status = pStatus_
     }
 
 -- | if the overall status is @Failed@, the reason for the failure.
-algorithmStatusItem_failureReason :: Lens.Lens' AlgorithmStatusItem (Core.Maybe Core.Text)
+algorithmStatusItem_failureReason :: Lens.Lens' AlgorithmStatusItem (Prelude.Maybe Prelude.Text)
 algorithmStatusItem_failureReason = Lens.lens (\AlgorithmStatusItem' {failureReason} -> failureReason) (\s@AlgorithmStatusItem' {} a -> s {failureReason = a} :: AlgorithmStatusItem)
 
 -- | The name of the algorithm for which the overall status is being
 -- reported.
-algorithmStatusItem_name :: Lens.Lens' AlgorithmStatusItem Core.Text
+algorithmStatusItem_name :: Lens.Lens' AlgorithmStatusItem Prelude.Text
 algorithmStatusItem_name = Lens.lens (\AlgorithmStatusItem' {name} -> name) (\s@AlgorithmStatusItem' {} a -> s {name = a} :: AlgorithmStatusItem)
 
 -- | The current status.
@@ -83,11 +85,11 @@ instance Core.FromJSON AlgorithmStatusItem where
       "AlgorithmStatusItem"
       ( \x ->
           AlgorithmStatusItem'
-            Core.<$> (x Core..:? "FailureReason")
-            Core.<*> (x Core..: "Name")
-            Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable AlgorithmStatusItem
+instance Prelude.Hashable AlgorithmStatusItem
 
-instance Core.NFData AlgorithmStatusItem
+instance Prelude.NFData AlgorithmStatusItem

@@ -44,20 +44,21 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetRoomSkillParameter' smart constructor.
 data GetRoomSkillParameter = GetRoomSkillParameter'
   { -- | The ARN of the room from which to get the room skill parameter details.
-    roomArn :: Core.Maybe Core.Text,
+    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the skill from which to get the room skill parameter details.
     -- Required.
-    skillId :: Core.Text,
+    skillId :: Prelude.Text,
     -- | The room skill parameter key for which to get details. Required.
-    parameterKey :: Core.Text
+    parameterKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRoomSkillParameter' with all optional fields omitted.
@@ -75,28 +76,28 @@ data GetRoomSkillParameter = GetRoomSkillParameter'
 -- 'parameterKey', 'getRoomSkillParameter_parameterKey' - The room skill parameter key for which to get details. Required.
 newGetRoomSkillParameter ::
   -- | 'skillId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'parameterKey'
-  Core.Text ->
+  Prelude.Text ->
   GetRoomSkillParameter
 newGetRoomSkillParameter pSkillId_ pParameterKey_ =
   GetRoomSkillParameter'
-    { roomArn = Core.Nothing,
+    { roomArn = Prelude.Nothing,
       skillId = pSkillId_,
       parameterKey = pParameterKey_
     }
 
 -- | The ARN of the room from which to get the room skill parameter details.
-getRoomSkillParameter_roomArn :: Lens.Lens' GetRoomSkillParameter (Core.Maybe Core.Text)
+getRoomSkillParameter_roomArn :: Lens.Lens' GetRoomSkillParameter (Prelude.Maybe Prelude.Text)
 getRoomSkillParameter_roomArn = Lens.lens (\GetRoomSkillParameter' {roomArn} -> roomArn) (\s@GetRoomSkillParameter' {} a -> s {roomArn = a} :: GetRoomSkillParameter)
 
 -- | The ARN of the skill from which to get the room skill parameter details.
 -- Required.
-getRoomSkillParameter_skillId :: Lens.Lens' GetRoomSkillParameter Core.Text
+getRoomSkillParameter_skillId :: Lens.Lens' GetRoomSkillParameter Prelude.Text
 getRoomSkillParameter_skillId = Lens.lens (\GetRoomSkillParameter' {skillId} -> skillId) (\s@GetRoomSkillParameter' {} a -> s {skillId = a} :: GetRoomSkillParameter)
 
 -- | The room skill parameter key for which to get details. Required.
-getRoomSkillParameter_parameterKey :: Lens.Lens' GetRoomSkillParameter Core.Text
+getRoomSkillParameter_parameterKey :: Lens.Lens' GetRoomSkillParameter Prelude.Text
 getRoomSkillParameter_parameterKey = Lens.lens (\GetRoomSkillParameter' {parameterKey} -> parameterKey) (\s@GetRoomSkillParameter' {} a -> s {parameterKey = a} :: GetRoomSkillParameter)
 
 instance Core.AWSRequest GetRoomSkillParameter where
@@ -108,51 +109,53 @@ instance Core.AWSRequest GetRoomSkillParameter where
     Response.receiveJSON
       ( \s h x ->
           GetRoomSkillParameterResponse'
-            Core.<$> (x Core..?> "RoomSkillParameter")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RoomSkillParameter")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRoomSkillParameter
+instance Prelude.Hashable GetRoomSkillParameter
 
-instance Core.NFData GetRoomSkillParameter
+instance Prelude.NFData GetRoomSkillParameter
 
 instance Core.ToHeaders GetRoomSkillParameter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.GetRoomSkillParameter" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRoomSkillParameter where
   toJSON GetRoomSkillParameter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoomArn" Core..=) Core.<$> roomArn,
-            Core.Just ("SkillId" Core..= skillId),
-            Core.Just ("ParameterKey" Core..= parameterKey)
+      ( Prelude.catMaybes
+          [ ("RoomArn" Core..=) Prelude.<$> roomArn,
+            Prelude.Just ("SkillId" Core..= skillId),
+            Prelude.Just ("ParameterKey" Core..= parameterKey)
           ]
       )
 
 instance Core.ToPath GetRoomSkillParameter where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRoomSkillParameter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRoomSkillParameterResponse' smart constructor.
 data GetRoomSkillParameterResponse = GetRoomSkillParameterResponse'
   { -- | The details of the room skill parameter requested. Required.
-    roomSkillParameter :: Core.Maybe RoomSkillParameter,
+    roomSkillParameter :: Prelude.Maybe RoomSkillParameter,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRoomSkillParameterResponse' with all optional fields omitted.
@@ -167,21 +170,21 @@ data GetRoomSkillParameterResponse = GetRoomSkillParameterResponse'
 -- 'httpStatus', 'getRoomSkillParameterResponse_httpStatus' - The response's http status code.
 newGetRoomSkillParameterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRoomSkillParameterResponse
 newGetRoomSkillParameterResponse pHttpStatus_ =
   GetRoomSkillParameterResponse'
     { roomSkillParameter =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the room skill parameter requested. Required.
-getRoomSkillParameterResponse_roomSkillParameter :: Lens.Lens' GetRoomSkillParameterResponse (Core.Maybe RoomSkillParameter)
+getRoomSkillParameterResponse_roomSkillParameter :: Lens.Lens' GetRoomSkillParameterResponse (Prelude.Maybe RoomSkillParameter)
 getRoomSkillParameterResponse_roomSkillParameter = Lens.lens (\GetRoomSkillParameterResponse' {roomSkillParameter} -> roomSkillParameter) (\s@GetRoomSkillParameterResponse' {} a -> s {roomSkillParameter = a} :: GetRoomSkillParameterResponse)
 
 -- | The response's http status code.
-getRoomSkillParameterResponse_httpStatus :: Lens.Lens' GetRoomSkillParameterResponse Core.Int
+getRoomSkillParameterResponse_httpStatus :: Lens.Lens' GetRoomSkillParameterResponse Prelude.Int
 getRoomSkillParameterResponse_httpStatus = Lens.lens (\GetRoomSkillParameterResponse' {httpStatus} -> httpStatus) (\s@GetRoomSkillParameterResponse' {} a -> s {httpStatus = a} :: GetRoomSkillParameterResponse)
 
-instance Core.NFData GetRoomSkillParameterResponse
+instance Prelude.NFData GetRoomSkillParameterResponse

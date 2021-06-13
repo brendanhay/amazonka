@@ -21,13 +21,14 @@ module Network.AWS.ElasticBeanstalk.Types.PlatformBranchSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about a platform branch.
 --
 -- /See:/ 'newPlatformBranchSummary' smart constructor.
 data PlatformBranchSummary = PlatformBranchSummary'
   { -- | The name of the platform branch.
-    branchName :: Core.Maybe Core.Text,
+    branchName :: Prelude.Maybe Prelude.Text,
     -- | An ordinal number that designates the order in which platform branches
     -- have been added to a platform. This can be helpful, for example, if your
     -- code calls the @ListPlatformBranches@ action and then displays a list of
@@ -35,19 +36,19 @@ data PlatformBranchSummary = PlatformBranchSummary'
     --
     -- A larger @BranchOrder@ value designates a newer platform branch within
     -- the platform.
-    branchOrder :: Core.Maybe Core.Int,
+    branchOrder :: Prelude.Maybe Prelude.Int,
     -- | The support life cycle state of the platform branch.
     --
     -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
-    lifecycleState :: Core.Maybe Core.Text,
+    lifecycleState :: Prelude.Maybe Prelude.Text,
     -- | The environment tiers that platform versions in this branch support.
     --
     -- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
-    supportedTierList :: Core.Maybe [Core.Text],
+    supportedTierList :: Prelude.Maybe [Prelude.Text],
     -- | The name of the platform to which this platform branch belongs.
-    platformName :: Core.Maybe Core.Text
+    platformName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PlatformBranchSummary' with all optional fields omitted.
@@ -80,15 +81,16 @@ newPlatformBranchSummary ::
   PlatformBranchSummary
 newPlatformBranchSummary =
   PlatformBranchSummary'
-    { branchName = Core.Nothing,
-      branchOrder = Core.Nothing,
-      lifecycleState = Core.Nothing,
-      supportedTierList = Core.Nothing,
-      platformName = Core.Nothing
+    { branchName =
+        Prelude.Nothing,
+      branchOrder = Prelude.Nothing,
+      lifecycleState = Prelude.Nothing,
+      supportedTierList = Prelude.Nothing,
+      platformName = Prelude.Nothing
     }
 
 -- | The name of the platform branch.
-platformBranchSummary_branchName :: Lens.Lens' PlatformBranchSummary (Core.Maybe Core.Text)
+platformBranchSummary_branchName :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
 platformBranchSummary_branchName = Lens.lens (\PlatformBranchSummary' {branchName} -> branchName) (\s@PlatformBranchSummary' {} a -> s {branchName = a} :: PlatformBranchSummary)
 
 -- | An ordinal number that designates the order in which platform branches
@@ -98,36 +100,37 @@ platformBranchSummary_branchName = Lens.lens (\PlatformBranchSummary' {branchNam
 --
 -- A larger @BranchOrder@ value designates a newer platform branch within
 -- the platform.
-platformBranchSummary_branchOrder :: Lens.Lens' PlatformBranchSummary (Core.Maybe Core.Int)
+platformBranchSummary_branchOrder :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Int)
 platformBranchSummary_branchOrder = Lens.lens (\PlatformBranchSummary' {branchOrder} -> branchOrder) (\s@PlatformBranchSummary' {} a -> s {branchOrder = a} :: PlatformBranchSummary)
 
 -- | The support life cycle state of the platform branch.
 --
 -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
-platformBranchSummary_lifecycleState :: Lens.Lens' PlatformBranchSummary (Core.Maybe Core.Text)
+platformBranchSummary_lifecycleState :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
 platformBranchSummary_lifecycleState = Lens.lens (\PlatformBranchSummary' {lifecycleState} -> lifecycleState) (\s@PlatformBranchSummary' {} a -> s {lifecycleState = a} :: PlatformBranchSummary)
 
 -- | The environment tiers that platform versions in this branch support.
 --
 -- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
-platformBranchSummary_supportedTierList :: Lens.Lens' PlatformBranchSummary (Core.Maybe [Core.Text])
-platformBranchSummary_supportedTierList = Lens.lens (\PlatformBranchSummary' {supportedTierList} -> supportedTierList) (\s@PlatformBranchSummary' {} a -> s {supportedTierList = a} :: PlatformBranchSummary) Core.. Lens.mapping Lens._Coerce
+platformBranchSummary_supportedTierList :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe [Prelude.Text])
+platformBranchSummary_supportedTierList = Lens.lens (\PlatformBranchSummary' {supportedTierList} -> supportedTierList) (\s@PlatformBranchSummary' {} a -> s {supportedTierList = a} :: PlatformBranchSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the platform to which this platform branch belongs.
-platformBranchSummary_platformName :: Lens.Lens' PlatformBranchSummary (Core.Maybe Core.Text)
+platformBranchSummary_platformName :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
 platformBranchSummary_platformName = Lens.lens (\PlatformBranchSummary' {platformName} -> platformName) (\s@PlatformBranchSummary' {} a -> s {platformName = a} :: PlatformBranchSummary)
 
 instance Core.FromXML PlatformBranchSummary where
   parseXML x =
     PlatformBranchSummary'
-      Core.<$> (x Core..@? "BranchName")
-      Core.<*> (x Core..@? "BranchOrder")
-      Core.<*> (x Core..@? "LifecycleState")
-      Core.<*> ( x Core..@? "SupportedTierList" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "PlatformName")
+      Prelude.<$> (x Core..@? "BranchName")
+      Prelude.<*> (x Core..@? "BranchOrder")
+      Prelude.<*> (x Core..@? "LifecycleState")
+      Prelude.<*> ( x Core..@? "SupportedTierList"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "PlatformName")
 
-instance Core.Hashable PlatformBranchSummary
+instance Prelude.Hashable PlatformBranchSummary
 
-instance Core.NFData PlatformBranchSummary
+instance Prelude.NFData PlatformBranchSummary

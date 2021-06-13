@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ServerSideEncryptionRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ServerSideEncryptionByDefault
 
@@ -37,13 +38,13 @@ data ServerSideEncryptionRule = ServerSideEncryptionRule'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
     -- in the /Amazon Simple Storage Service Developer Guide/.
-    bucketKeyEnabled :: Core.Maybe Core.Bool,
+    bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the default server-side encryption to apply to new objects in
     -- the bucket. If a PUT Object request doesn\'t specify any server-side
     -- encryption, this default encryption will be applied.
-    applyServerSideEncryptionByDefault :: Core.Maybe ServerSideEncryptionByDefault
+    applyServerSideEncryptionByDefault :: Prelude.Maybe ServerSideEncryptionByDefault
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServerSideEncryptionRule' with all optional fields omitted.
@@ -71,8 +72,9 @@ newServerSideEncryptionRule ::
 newServerSideEncryptionRule =
   ServerSideEncryptionRule'
     { bucketKeyEnabled =
-        Core.Nothing,
-      applyServerSideEncryptionByDefault = Core.Nothing
+        Prelude.Nothing,
+      applyServerSideEncryptionByDefault =
+        Prelude.Nothing
     }
 
 -- | Specifies whether Amazon S3 should use an S3 Bucket Key with server-side
@@ -84,28 +86,28 @@ newServerSideEncryptionRule =
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
 -- in the /Amazon Simple Storage Service Developer Guide/.
-serverSideEncryptionRule_bucketKeyEnabled :: Lens.Lens' ServerSideEncryptionRule (Core.Maybe Core.Bool)
+serverSideEncryptionRule_bucketKeyEnabled :: Lens.Lens' ServerSideEncryptionRule (Prelude.Maybe Prelude.Bool)
 serverSideEncryptionRule_bucketKeyEnabled = Lens.lens (\ServerSideEncryptionRule' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@ServerSideEncryptionRule' {} a -> s {bucketKeyEnabled = a} :: ServerSideEncryptionRule)
 
 -- | Specifies the default server-side encryption to apply to new objects in
 -- the bucket. If a PUT Object request doesn\'t specify any server-side
 -- encryption, this default encryption will be applied.
-serverSideEncryptionRule_applyServerSideEncryptionByDefault :: Lens.Lens' ServerSideEncryptionRule (Core.Maybe ServerSideEncryptionByDefault)
+serverSideEncryptionRule_applyServerSideEncryptionByDefault :: Lens.Lens' ServerSideEncryptionRule (Prelude.Maybe ServerSideEncryptionByDefault)
 serverSideEncryptionRule_applyServerSideEncryptionByDefault = Lens.lens (\ServerSideEncryptionRule' {applyServerSideEncryptionByDefault} -> applyServerSideEncryptionByDefault) (\s@ServerSideEncryptionRule' {} a -> s {applyServerSideEncryptionByDefault = a} :: ServerSideEncryptionRule)
 
 instance Core.FromXML ServerSideEncryptionRule where
   parseXML x =
     ServerSideEncryptionRule'
-      Core.<$> (x Core..@? "BucketKeyEnabled")
-      Core.<*> (x Core..@? "ApplyServerSideEncryptionByDefault")
+      Prelude.<$> (x Core..@? "BucketKeyEnabled")
+      Prelude.<*> (x Core..@? "ApplyServerSideEncryptionByDefault")
 
-instance Core.Hashable ServerSideEncryptionRule
+instance Prelude.Hashable ServerSideEncryptionRule
 
-instance Core.NFData ServerSideEncryptionRule
+instance Prelude.NFData ServerSideEncryptionRule
 
 instance Core.ToXML ServerSideEncryptionRule where
   toXML ServerSideEncryptionRule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "BucketKeyEnabled" Core.@= bucketKeyEnabled,
         "ApplyServerSideEncryptionByDefault"
           Core.@= applyServerSideEncryptionByDefault

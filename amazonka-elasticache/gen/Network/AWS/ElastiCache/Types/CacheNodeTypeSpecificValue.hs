@@ -21,17 +21,18 @@ module Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A value that applies only to a certain cache node type.
 --
 -- /See:/ 'newCacheNodeTypeSpecificValue' smart constructor.
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
   { -- | The cache node type for which this value applies.
-    cacheNodeType :: Core.Maybe Core.Text,
+    cacheNodeType :: Prelude.Maybe Prelude.Text,
     -- | The value for the cache node type.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CacheNodeTypeSpecificValue' with all optional fields omitted.
@@ -49,24 +50,24 @@ newCacheNodeTypeSpecificValue ::
 newCacheNodeTypeSpecificValue =
   CacheNodeTypeSpecificValue'
     { cacheNodeType =
-        Core.Nothing,
-      value = Core.Nothing
+        Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The cache node type for which this value applies.
-cacheNodeTypeSpecificValue_cacheNodeType :: Lens.Lens' CacheNodeTypeSpecificValue (Core.Maybe Core.Text)
+cacheNodeTypeSpecificValue_cacheNodeType :: Lens.Lens' CacheNodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificValue_cacheNodeType = Lens.lens (\CacheNodeTypeSpecificValue' {cacheNodeType} -> cacheNodeType) (\s@CacheNodeTypeSpecificValue' {} a -> s {cacheNodeType = a} :: CacheNodeTypeSpecificValue)
 
 -- | The value for the cache node type.
-cacheNodeTypeSpecificValue_value :: Lens.Lens' CacheNodeTypeSpecificValue (Core.Maybe Core.Text)
+cacheNodeTypeSpecificValue_value :: Lens.Lens' CacheNodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificValue_value = Lens.lens (\CacheNodeTypeSpecificValue' {value} -> value) (\s@CacheNodeTypeSpecificValue' {} a -> s {value = a} :: CacheNodeTypeSpecificValue)
 
 instance Core.FromXML CacheNodeTypeSpecificValue where
   parseXML x =
     CacheNodeTypeSpecificValue'
-      Core.<$> (x Core..@? "CacheNodeType")
-      Core.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "CacheNodeType")
+      Prelude.<*> (x Core..@? "Value")
 
-instance Core.Hashable CacheNodeTypeSpecificValue
+instance Prelude.Hashable CacheNodeTypeSpecificValue
 
-instance Core.NFData CacheNodeTypeSpecificValue
+instance Prelude.NFData CacheNodeTypeSpecificValue

@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.AribDestinationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Arib Destination Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data AribDestinationSettings = AribDestinationSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AribDestinationSettings' with all optional fields omitted.
@@ -42,11 +43,11 @@ instance Core.FromJSON AribDestinationSettings where
   parseJSON =
     Core.withObject
       "AribDestinationSettings"
-      (\x -> Core.pure AribDestinationSettings')
+      (\x -> Prelude.pure AribDestinationSettings')
 
-instance Core.Hashable AribDestinationSettings
+instance Prelude.Hashable AribDestinationSettings
 
-instance Core.NFData AribDestinationSettings
+instance Prelude.NFData AribDestinationSettings
 
 instance Core.ToJSON AribDestinationSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

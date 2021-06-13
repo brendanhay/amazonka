@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetLaunchTemplateOverridesRequest
 import Network.AWS.EC2.Types.FleetLaunchTemplateSpecificationRequest
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch template and overrides.
 --
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data FleetLaunchTemplateConfigRequest = FleetLaunchTemplateConfigRequest'
   { -- | The launch template to use. You must specify either the launch template
     -- ID or launch template name in the request.
-    launchTemplateSpecification :: Core.Maybe FleetLaunchTemplateSpecificationRequest,
+    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecificationRequest,
     -- | Any parameters that you specify override the same parameters in the
     -- launch template.
-    overrides :: Core.Maybe [FleetLaunchTemplateOverridesRequest]
+    overrides :: Prelude.Maybe [FleetLaunchTemplateOverridesRequest]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetLaunchTemplateConfigRequest' with all optional fields omitted.
@@ -56,34 +57,36 @@ newFleetLaunchTemplateConfigRequest ::
 newFleetLaunchTemplateConfigRequest =
   FleetLaunchTemplateConfigRequest'
     { launchTemplateSpecification =
-        Core.Nothing,
-      overrides = Core.Nothing
+        Prelude.Nothing,
+      overrides = Prelude.Nothing
     }
 
 -- | The launch template to use. You must specify either the launch template
 -- ID or launch template name in the request.
-fleetLaunchTemplateConfigRequest_launchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfigRequest (Core.Maybe FleetLaunchTemplateSpecificationRequest)
+fleetLaunchTemplateConfigRequest_launchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfigRequest (Prelude.Maybe FleetLaunchTemplateSpecificationRequest)
 fleetLaunchTemplateConfigRequest_launchTemplateSpecification = Lens.lens (\FleetLaunchTemplateConfigRequest' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@FleetLaunchTemplateConfigRequest' {} a -> s {launchTemplateSpecification = a} :: FleetLaunchTemplateConfigRequest)
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template.
-fleetLaunchTemplateConfigRequest_overrides :: Lens.Lens' FleetLaunchTemplateConfigRequest (Core.Maybe [FleetLaunchTemplateOverridesRequest])
-fleetLaunchTemplateConfigRequest_overrides = Lens.lens (\FleetLaunchTemplateConfigRequest' {overrides} -> overrides) (\s@FleetLaunchTemplateConfigRequest' {} a -> s {overrides = a} :: FleetLaunchTemplateConfigRequest) Core.. Lens.mapping Lens._Coerce
+fleetLaunchTemplateConfigRequest_overrides :: Lens.Lens' FleetLaunchTemplateConfigRequest (Prelude.Maybe [FleetLaunchTemplateOverridesRequest])
+fleetLaunchTemplateConfigRequest_overrides = Lens.lens (\FleetLaunchTemplateConfigRequest' {overrides} -> overrides) (\s@FleetLaunchTemplateConfigRequest' {} a -> s {overrides = a} :: FleetLaunchTemplateConfigRequest) Prelude.. Lens.mapping Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FleetLaunchTemplateConfigRequest
 
-instance Core.NFData FleetLaunchTemplateConfigRequest
+instance
+  Prelude.NFData
+    FleetLaunchTemplateConfigRequest
 
 instance
   Core.ToQuery
     FleetLaunchTemplateConfigRequest
   where
   toQuery FleetLaunchTemplateConfigRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "LaunchTemplateSpecification"
           Core.=: launchTemplateSpecification,
         Core.toQuery
-          (Core.toQueryList "Overrides" Core.<$> overrides)
+          (Core.toQueryList "Overrides" Prelude.<$> overrides)
       ]

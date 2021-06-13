@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Gender where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.GenderType
 
 -- | The predicted gender of a detected face.
@@ -44,11 +45,11 @@ import Network.AWS.Rekognition.Types.GenderType
 -- /See:/ 'newGender' smart constructor.
 data Gender = Gender'
   { -- | Level of confidence in the prediction.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | The predicted gender of the face.
-    value :: Core.Maybe GenderType
+    value :: Prelude.Maybe GenderType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Gender' with all optional fields omitted.
@@ -65,16 +66,16 @@ newGender ::
   Gender
 newGender =
   Gender'
-    { confidence = Core.Nothing,
-      value = Core.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Level of confidence in the prediction.
-gender_confidence :: Lens.Lens' Gender (Core.Maybe Core.Double)
+gender_confidence :: Lens.Lens' Gender (Prelude.Maybe Prelude.Double)
 gender_confidence = Lens.lens (\Gender' {confidence} -> confidence) (\s@Gender' {} a -> s {confidence = a} :: Gender)
 
 -- | The predicted gender of the face.
-gender_value :: Lens.Lens' Gender (Core.Maybe GenderType)
+gender_value :: Lens.Lens' Gender (Prelude.Maybe GenderType)
 gender_value = Lens.lens (\Gender' {value} -> value) (\s@Gender' {} a -> s {value = a} :: Gender)
 
 instance Core.FromJSON Gender where
@@ -83,10 +84,10 @@ instance Core.FromJSON Gender where
       "Gender"
       ( \x ->
           Gender'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Gender
+instance Prelude.Hashable Gender
 
-instance Core.NFData Gender
+instance Prelude.NFData Gender

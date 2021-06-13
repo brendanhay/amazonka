@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.WriteEventStream where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the Amazon Resource Name (ARN) of an event stream to publish
 -- events to and the AWS Identity and Access Management (IAM) role to use
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 data WriteEventStream = WriteEventStream'
   { -- | The AWS Identity and Access Management (IAM) role that authorizes Amazon
     -- Pinpoint to publish event data to the stream in your AWS account.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or
     -- Amazon Kinesis Data Firehose delivery stream that you want to publish
     -- event data to.
@@ -40,9 +41,9 @@ data WriteEventStream = WriteEventStream'
     --
     -- For a Kinesis Data Firehose delivery stream, the ARN format is:
     -- arn:aws:firehose:region:account-id:deliverystream\/stream_name
-    destinationStreamArn :: Core.Text
+    destinationStreamArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WriteEventStream' with all optional fields omitted.
@@ -66,9 +67,9 @@ data WriteEventStream = WriteEventStream'
 -- arn:aws:firehose:region:account-id:deliverystream\/stream_name
 newWriteEventStream ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationStreamArn'
-  Core.Text ->
+  Prelude.Text ->
   WriteEventStream
 newWriteEventStream pRoleArn_ pDestinationStreamArn_ =
   WriteEventStream'
@@ -78,7 +79,7 @@ newWriteEventStream pRoleArn_ pDestinationStreamArn_ =
 
 -- | The AWS Identity and Access Management (IAM) role that authorizes Amazon
 -- Pinpoint to publish event data to the stream in your AWS account.
-writeEventStream_roleArn :: Lens.Lens' WriteEventStream Core.Text
+writeEventStream_roleArn :: Lens.Lens' WriteEventStream Prelude.Text
 writeEventStream_roleArn = Lens.lens (\WriteEventStream' {roleArn} -> roleArn) (\s@WriteEventStream' {} a -> s {roleArn = a} :: WriteEventStream)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or
@@ -90,19 +91,19 @@ writeEventStream_roleArn = Lens.lens (\WriteEventStream' {roleArn} -> roleArn) (
 --
 -- For a Kinesis Data Firehose delivery stream, the ARN format is:
 -- arn:aws:firehose:region:account-id:deliverystream\/stream_name
-writeEventStream_destinationStreamArn :: Lens.Lens' WriteEventStream Core.Text
+writeEventStream_destinationStreamArn :: Lens.Lens' WriteEventStream Prelude.Text
 writeEventStream_destinationStreamArn = Lens.lens (\WriteEventStream' {destinationStreamArn} -> destinationStreamArn) (\s@WriteEventStream' {} a -> s {destinationStreamArn = a} :: WriteEventStream)
 
-instance Core.Hashable WriteEventStream
+instance Prelude.Hashable WriteEventStream
 
-instance Core.NFData WriteEventStream
+instance Prelude.NFData WriteEventStream
 
 instance Core.ToJSON WriteEventStream where
   toJSON WriteEventStream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("RoleArn" Core..= roleArn),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("RoleArn" Core..= roleArn),
+            Prelude.Just
               ( "DestinationStreamArn"
                   Core..= destinationStreamArn
               )

@@ -21,6 +21,7 @@ module Network.AWS.APIGateway.Types.AccessLogSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Access log settings, including the access log format and access log
 -- destination ARN.
@@ -31,14 +32,14 @@ data AccessLogSettings = AccessLogSettings'
     -- Kinesis Data Firehose delivery stream to receive access logs. If you
     -- specify a Kinesis Data Firehose delivery stream, the stream name must
     -- begin with @amazon-apigateway-@.
-    destinationArn :: Core.Maybe Core.Text,
+    destinationArn :: Prelude.Maybe Prelude.Text,
     -- | A single line format of the access logs of data, as specified by
     -- selected
     -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference $context variables>.
     -- The format must include at least @$context.requestId@.
-    format :: Core.Maybe Core.Text
+    format :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessLogSettings' with all optional fields omitted.
@@ -61,22 +62,23 @@ newAccessLogSettings ::
   AccessLogSettings
 newAccessLogSettings =
   AccessLogSettings'
-    { destinationArn = Core.Nothing,
-      format = Core.Nothing
+    { destinationArn =
+        Prelude.Nothing,
+      format = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
 -- Kinesis Data Firehose delivery stream to receive access logs. If you
 -- specify a Kinesis Data Firehose delivery stream, the stream name must
 -- begin with @amazon-apigateway-@.
-accessLogSettings_destinationArn :: Lens.Lens' AccessLogSettings (Core.Maybe Core.Text)
+accessLogSettings_destinationArn :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
 accessLogSettings_destinationArn = Lens.lens (\AccessLogSettings' {destinationArn} -> destinationArn) (\s@AccessLogSettings' {} a -> s {destinationArn = a} :: AccessLogSettings)
 
 -- | A single line format of the access logs of data, as specified by
 -- selected
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference $context variables>.
 -- The format must include at least @$context.requestId@.
-accessLogSettings_format :: Lens.Lens' AccessLogSettings (Core.Maybe Core.Text)
+accessLogSettings_format :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
 accessLogSettings_format = Lens.lens (\AccessLogSettings' {format} -> format) (\s@AccessLogSettings' {} a -> s {format = a} :: AccessLogSettings)
 
 instance Core.FromJSON AccessLogSettings where
@@ -85,10 +87,10 @@ instance Core.FromJSON AccessLogSettings where
       "AccessLogSettings"
       ( \x ->
           AccessLogSettings'
-            Core.<$> (x Core..:? "destinationArn")
-            Core.<*> (x Core..:? "format")
+            Prelude.<$> (x Core..:? "destinationArn")
+            Prelude.<*> (x Core..:? "format")
       )
 
-instance Core.Hashable AccessLogSettings
+instance Prelude.Hashable AccessLogSettings
 
-instance Core.NFData AccessLogSettings
+instance Prelude.NFData AccessLogSettings

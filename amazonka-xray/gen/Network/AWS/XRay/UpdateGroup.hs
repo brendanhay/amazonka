@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -51,7 +52,7 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
   { -- | The case-sensitive name of the group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The structure containing configurations related to insights.
     --
     -- -   The InsightsEnabled boolean can be set to true to enable insights
@@ -60,14 +61,14 @@ data UpdateGroup = UpdateGroup'
     -- -   The NotifcationsEnabled boolean can be set to true to enable
     --     insights notifications for the group. Notifications can only be
     --     enabled on a group with InsightsEnabled set to true.
-    insightsConfiguration :: Core.Maybe InsightsConfiguration,
+    insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
     -- | The updated filter expression defining criteria by which to group
     -- traces.
-    filterExpression :: Core.Maybe Core.Text,
+    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | The ARN that was generated upon creation.
-    groupARN :: Core.Maybe Core.Text
+    groupARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGroup' with all optional fields omitted.
@@ -96,14 +97,14 @@ newUpdateGroup ::
   UpdateGroup
 newUpdateGroup =
   UpdateGroup'
-    { groupName = Core.Nothing,
-      insightsConfiguration = Core.Nothing,
-      filterExpression = Core.Nothing,
-      groupARN = Core.Nothing
+    { groupName = Prelude.Nothing,
+      insightsConfiguration = Prelude.Nothing,
+      filterExpression = Prelude.Nothing,
+      groupARN = Prelude.Nothing
     }
 
 -- | The case-sensitive name of the group.
-updateGroup_groupName :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
+updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 -- | The structure containing configurations related to insights.
@@ -114,16 +115,16 @@ updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@U
 -- -   The NotifcationsEnabled boolean can be set to true to enable
 --     insights notifications for the group. Notifications can only be
 --     enabled on a group with InsightsEnabled set to true.
-updateGroup_insightsConfiguration :: Lens.Lens' UpdateGroup (Core.Maybe InsightsConfiguration)
+updateGroup_insightsConfiguration :: Lens.Lens' UpdateGroup (Prelude.Maybe InsightsConfiguration)
 updateGroup_insightsConfiguration = Lens.lens (\UpdateGroup' {insightsConfiguration} -> insightsConfiguration) (\s@UpdateGroup' {} a -> s {insightsConfiguration = a} :: UpdateGroup)
 
 -- | The updated filter expression defining criteria by which to group
 -- traces.
-updateGroup_filterExpression :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
+updateGroup_filterExpression :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_filterExpression = Lens.lens (\UpdateGroup' {filterExpression} -> filterExpression) (\s@UpdateGroup' {} a -> s {filterExpression = a} :: UpdateGroup)
 
 -- | The ARN that was generated upon creation.
-updateGroup_groupARN :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
+updateGroup_groupARN :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_groupARN = Lens.lens (\UpdateGroup' {groupARN} -> groupARN) (\s@UpdateGroup' {} a -> s {groupARN = a} :: UpdateGroup)
 
 instance Core.AWSRequest UpdateGroup where
@@ -133,46 +134,46 @@ instance Core.AWSRequest UpdateGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateGroupResponse'
-            Core.<$> (x Core..?> "Group")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Group")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateGroup
+instance Prelude.Hashable UpdateGroup
 
-instance Core.NFData UpdateGroup
+instance Prelude.NFData UpdateGroup
 
 instance Core.ToHeaders UpdateGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GroupName" Core..=) Core.<$> groupName,
+      ( Prelude.catMaybes
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
             ("InsightsConfiguration" Core..=)
-              Core.<$> insightsConfiguration,
+              Prelude.<$> insightsConfiguration,
             ("FilterExpression" Core..=)
-              Core.<$> filterExpression,
-            ("GroupARN" Core..=) Core.<$> groupARN
+              Prelude.<$> filterExpression,
+            ("GroupARN" Core..=) Prelude.<$> groupARN
           ]
       )
 
 instance Core.ToPath UpdateGroup where
-  toPath = Core.const "/UpdateGroup"
+  toPath = Prelude.const "/UpdateGroup"
 
 instance Core.ToQuery UpdateGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
   { -- | The group that was updated. Contains the name of the group that was
     -- updated, the ARN of the group that was updated, the updated filter
     -- expression, and the updated insight configuration assigned to the group.
-    group' :: Core.Maybe Group,
+    group' :: Prelude.Maybe Group,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGroupResponse' with all optional fields omitted.
@@ -189,22 +190,22 @@ data UpdateGroupResponse = UpdateGroupResponse'
 -- 'httpStatus', 'updateGroupResponse_httpStatus' - The response's http status code.
 newUpdateGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateGroupResponse
 newUpdateGroupResponse pHttpStatus_ =
   UpdateGroupResponse'
-    { group' = Core.Nothing,
+    { group' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The group that was updated. Contains the name of the group that was
 -- updated, the ARN of the group that was updated, the updated filter
 -- expression, and the updated insight configuration assigned to the group.
-updateGroupResponse_group :: Lens.Lens' UpdateGroupResponse (Core.Maybe Group)
+updateGroupResponse_group :: Lens.Lens' UpdateGroupResponse (Prelude.Maybe Group)
 updateGroupResponse_group = Lens.lens (\UpdateGroupResponse' {group'} -> group') (\s@UpdateGroupResponse' {} a -> s {group' = a} :: UpdateGroupResponse)
 
 -- | The response's http status code.
-updateGroupResponse_httpStatus :: Lens.Lens' UpdateGroupResponse Core.Int
+updateGroupResponse_httpStatus :: Lens.Lens' UpdateGroupResponse Prelude.Int
 updateGroupResponse_httpStatus = Lens.lens (\UpdateGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateGroupResponse' {} a -> s {httpStatus = a} :: UpdateGroupResponse)
 
-instance Core.NFData UpdateGroupResponse
+instance Prelude.NFData UpdateGroupResponse

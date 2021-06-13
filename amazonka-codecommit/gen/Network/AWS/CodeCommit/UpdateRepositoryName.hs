@@ -45,6 +45,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateRepositoryName' smart constructor.
 data UpdateRepositoryName = UpdateRepositoryName'
   { -- | The current name of the repository.
-    oldName :: Core.Text,
+    oldName :: Prelude.Text,
     -- | The new name for the repository.
-    newName' :: Core.Text
+    newName' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRepositoryName' with all optional fields omitted.
@@ -72,9 +73,9 @@ data UpdateRepositoryName = UpdateRepositoryName'
 -- 'newName'', 'updateRepositoryName_newName' - The new name for the repository.
 newUpdateRepositoryName ::
   -- | 'oldName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'newName''
-  Core.Text ->
+  Prelude.Text ->
   UpdateRepositoryName
 newUpdateRepositoryName pOldName_ pNewName_ =
   UpdateRepositoryName'
@@ -83,11 +84,11 @@ newUpdateRepositoryName pOldName_ pNewName_ =
     }
 
 -- | The current name of the repository.
-updateRepositoryName_oldName :: Lens.Lens' UpdateRepositoryName Core.Text
+updateRepositoryName_oldName :: Lens.Lens' UpdateRepositoryName Prelude.Text
 updateRepositoryName_oldName = Lens.lens (\UpdateRepositoryName' {oldName} -> oldName) (\s@UpdateRepositoryName' {} a -> s {oldName = a} :: UpdateRepositoryName)
 
 -- | The new name for the repository.
-updateRepositoryName_newName :: Lens.Lens' UpdateRepositoryName Core.Text
+updateRepositoryName_newName :: Lens.Lens' UpdateRepositoryName Prelude.Text
 updateRepositoryName_newName = Lens.lens (\UpdateRepositoryName' {newName'} -> newName') (\s@UpdateRepositoryName' {} a -> s {newName' = a} :: UpdateRepositoryName)
 
 instance Core.AWSRequest UpdateRepositoryName where
@@ -98,43 +99,45 @@ instance Core.AWSRequest UpdateRepositoryName where
   response =
     Response.receiveNull UpdateRepositoryNameResponse'
 
-instance Core.Hashable UpdateRepositoryName
+instance Prelude.Hashable UpdateRepositoryName
 
-instance Core.NFData UpdateRepositoryName
+instance Prelude.NFData UpdateRepositoryName
 
 instance Core.ToHeaders UpdateRepositoryName where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.UpdateRepositoryName" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRepositoryName where
   toJSON UpdateRepositoryName' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("oldName" Core..= oldName),
-            Core.Just ("newName" Core..= newName')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("oldName" Core..= oldName),
+            Prelude.Just ("newName" Core..= newName')
           ]
       )
 
 instance Core.ToPath UpdateRepositoryName where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRepositoryName where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRepositoryNameResponse' smart constructor.
 data UpdateRepositoryNameResponse = UpdateRepositoryNameResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRepositoryNameResponse' with all optional fields omitted.
@@ -145,4 +148,4 @@ newUpdateRepositoryNameResponse ::
 newUpdateRepositoryNameResponse =
   UpdateRepositoryNameResponse'
 
-instance Core.NFData UpdateRepositoryNameResponse
+instance Prelude.NFData UpdateRepositoryNameResponse

@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.PushMessageActivity where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.JourneyPushMessage
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for a push notification activity in a journey.
 -- This type of activity sends a push notification to participants.
@@ -31,13 +32,13 @@ data PushMessageActivity = PushMessageActivity'
   { -- | The name of the push notification template to use for the message. If
     -- specified, this value must match the name of an existing message
     -- template.
-    templateName :: Core.Maybe Core.Text,
+    templateName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time to live (TTL) value for push notifications that are
     -- sent to participants in a journey.
-    messageConfig :: Core.Maybe JourneyPushMessage,
+    messageConfig :: Prelude.Maybe JourneyPushMessage,
     -- | The unique identifier for the next activity to perform, after the
     -- message is sent.
-    nextActivity :: Core.Maybe Core.Text,
+    nextActivity :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the version of the push notification template
     -- to use for the message. If specified, this value must match the
     -- identifier for an existing template version. To retrieve a list of
@@ -49,9 +50,9 @@ data PushMessageActivity = PushMessageActivity'
     -- the version of a template that\'s been most recently reviewed and
     -- approved for use, depending on your workflow. It isn\'t necessarily the
     -- latest version of a template.
-    templateVersion :: Core.Maybe Core.Text
+    templateVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PushMessageActivity' with all optional fields omitted.
@@ -86,26 +87,27 @@ newPushMessageActivity ::
   PushMessageActivity
 newPushMessageActivity =
   PushMessageActivity'
-    { templateName = Core.Nothing,
-      messageConfig = Core.Nothing,
-      nextActivity = Core.Nothing,
-      templateVersion = Core.Nothing
+    { templateName =
+        Prelude.Nothing,
+      messageConfig = Prelude.Nothing,
+      nextActivity = Prelude.Nothing,
+      templateVersion = Prelude.Nothing
     }
 
 -- | The name of the push notification template to use for the message. If
 -- specified, this value must match the name of an existing message
 -- template.
-pushMessageActivity_templateName :: Lens.Lens' PushMessageActivity (Core.Maybe Core.Text)
+pushMessageActivity_templateName :: Lens.Lens' PushMessageActivity (Prelude.Maybe Prelude.Text)
 pushMessageActivity_templateName = Lens.lens (\PushMessageActivity' {templateName} -> templateName) (\s@PushMessageActivity' {} a -> s {templateName = a} :: PushMessageActivity)
 
 -- | Specifies the time to live (TTL) value for push notifications that are
 -- sent to participants in a journey.
-pushMessageActivity_messageConfig :: Lens.Lens' PushMessageActivity (Core.Maybe JourneyPushMessage)
+pushMessageActivity_messageConfig :: Lens.Lens' PushMessageActivity (Prelude.Maybe JourneyPushMessage)
 pushMessageActivity_messageConfig = Lens.lens (\PushMessageActivity' {messageConfig} -> messageConfig) (\s@PushMessageActivity' {} a -> s {messageConfig = a} :: PushMessageActivity)
 
 -- | The unique identifier for the next activity to perform, after the
 -- message is sent.
-pushMessageActivity_nextActivity :: Lens.Lens' PushMessageActivity (Core.Maybe Core.Text)
+pushMessageActivity_nextActivity :: Lens.Lens' PushMessageActivity (Prelude.Maybe Prelude.Text)
 pushMessageActivity_nextActivity = Lens.lens (\PushMessageActivity' {nextActivity} -> nextActivity) (\s@PushMessageActivity' {} a -> s {nextActivity = a} :: PushMessageActivity)
 
 -- | The unique identifier for the version of the push notification template
@@ -119,7 +121,7 @@ pushMessageActivity_nextActivity = Lens.lens (\PushMessageActivity' {nextActivit
 -- the version of a template that\'s been most recently reviewed and
 -- approved for use, depending on your workflow. It isn\'t necessarily the
 -- latest version of a template.
-pushMessageActivity_templateVersion :: Lens.Lens' PushMessageActivity (Core.Maybe Core.Text)
+pushMessageActivity_templateVersion :: Lens.Lens' PushMessageActivity (Prelude.Maybe Prelude.Text)
 pushMessageActivity_templateVersion = Lens.lens (\PushMessageActivity' {templateVersion} -> templateVersion) (\s@PushMessageActivity' {} a -> s {templateVersion = a} :: PushMessageActivity)
 
 instance Core.FromJSON PushMessageActivity where
@@ -128,24 +130,24 @@ instance Core.FromJSON PushMessageActivity where
       "PushMessageActivity"
       ( \x ->
           PushMessageActivity'
-            Core.<$> (x Core..:? "TemplateName")
-            Core.<*> (x Core..:? "MessageConfig")
-            Core.<*> (x Core..:? "NextActivity")
-            Core.<*> (x Core..:? "TemplateVersion")
+            Prelude.<$> (x Core..:? "TemplateName")
+            Prelude.<*> (x Core..:? "MessageConfig")
+            Prelude.<*> (x Core..:? "NextActivity")
+            Prelude.<*> (x Core..:? "TemplateVersion")
       )
 
-instance Core.Hashable PushMessageActivity
+instance Prelude.Hashable PushMessageActivity
 
-instance Core.NFData PushMessageActivity
+instance Prelude.NFData PushMessageActivity
 
 instance Core.ToJSON PushMessageActivity where
   toJSON PushMessageActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TemplateName" Core..=) Core.<$> templateName,
-            ("MessageConfig" Core..=) Core.<$> messageConfig,
-            ("NextActivity" Core..=) Core.<$> nextActivity,
+      ( Prelude.catMaybes
+          [ ("TemplateName" Core..=) Prelude.<$> templateName,
+            ("MessageConfig" Core..=) Prelude.<$> messageConfig,
+            ("NextActivity" Core..=) Prelude.<$> nextActivity,
             ("TemplateVersion" Core..=)
-              Core.<$> templateVersion
+              Prelude.<$> templateVersion
           ]
       )

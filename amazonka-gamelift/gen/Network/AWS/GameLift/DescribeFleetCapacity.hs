@@ -95,6 +95,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -107,16 +108,16 @@ data DescribeFleetCapacity = DescribeFleetCapacity'
     -- To start at the beginning of the result set, do not specify a value.
     -- This parameter is ignored when the request specifies one or a list of
     -- fleet IDs.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a fleet(s) to retrieve capacity information for.
     -- You can use either the fleet ID or ARN value.
-    fleetIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages. This parameter
     -- is ignored when the request specifies one or a list of fleet IDs.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeFleetCapacity' with all optional fields omitted.
@@ -142,9 +143,9 @@ newDescribeFleetCapacity ::
   DescribeFleetCapacity
 newDescribeFleetCapacity =
   DescribeFleetCapacity'
-    { nextToken = Core.Nothing,
-      fleetIds = Core.Nothing,
-      limit = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      fleetIds = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | Token that indicates the start of the next sequential page of results.
@@ -152,18 +153,18 @@ newDescribeFleetCapacity =
 -- To start at the beginning of the result set, do not specify a value.
 -- This parameter is ignored when the request specifies one or a list of
 -- fleet IDs.
-describeFleetCapacity_nextToken :: Lens.Lens' DescribeFleetCapacity (Core.Maybe Core.Text)
+describeFleetCapacity_nextToken :: Lens.Lens' DescribeFleetCapacity (Prelude.Maybe Prelude.Text)
 describeFleetCapacity_nextToken = Lens.lens (\DescribeFleetCapacity' {nextToken} -> nextToken) (\s@DescribeFleetCapacity' {} a -> s {nextToken = a} :: DescribeFleetCapacity)
 
 -- | A unique identifier for a fleet(s) to retrieve capacity information for.
 -- You can use either the fleet ID or ARN value.
-describeFleetCapacity_fleetIds :: Lens.Lens' DescribeFleetCapacity (Core.Maybe (Core.NonEmpty Core.Text))
-describeFleetCapacity_fleetIds = Lens.lens (\DescribeFleetCapacity' {fleetIds} -> fleetIds) (\s@DescribeFleetCapacity' {} a -> s {fleetIds = a} :: DescribeFleetCapacity) Core.. Lens.mapping Lens._Coerce
+describeFleetCapacity_fleetIds :: Lens.Lens' DescribeFleetCapacity (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeFleetCapacity_fleetIds = Lens.lens (\DescribeFleetCapacity' {fleetIds} -> fleetIds) (\s@DescribeFleetCapacity' {} a -> s {fleetIds = a} :: DescribeFleetCapacity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. This parameter
 -- is ignored when the request specifies one or a list of fleet IDs.
-describeFleetCapacity_limit :: Lens.Lens' DescribeFleetCapacity (Core.Maybe Core.Natural)
+describeFleetCapacity_limit :: Lens.Lens' DescribeFleetCapacity (Prelude.Maybe Prelude.Natural)
 describeFleetCapacity_limit = Lens.lens (\DescribeFleetCapacity' {limit} -> limit) (\s@DescribeFleetCapacity' {} a -> s {limit = a} :: DescribeFleetCapacity)
 
 instance Core.AWSPager DescribeFleetCapacity where
@@ -171,22 +172,22 @@ instance Core.AWSPager DescribeFleetCapacity where
     | Core.stop
         ( rs
             Lens.^? describeFleetCapacityResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFleetCapacityResponse_fleetCapacity
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeFleetCapacity_nextToken
+          Prelude.& describeFleetCapacity_nextToken
           Lens..~ rs
           Lens.^? describeFleetCapacityResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFleetCapacity where
   type
@@ -197,43 +198,45 @@ instance Core.AWSRequest DescribeFleetCapacity where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetCapacityResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "FleetCapacity" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "FleetCapacity" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeFleetCapacity
+instance Prelude.Hashable DescribeFleetCapacity
 
-instance Core.NFData DescribeFleetCapacity
+instance Prelude.NFData DescribeFleetCapacity
 
 instance Core.ToHeaders DescribeFleetCapacity where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DescribeFleetCapacity" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeFleetCapacity where
   toJSON DescribeFleetCapacity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("FleetIds" Core..=) Core.<$> fleetIds,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("FleetIds" Core..=) Prelude.<$> fleetIds,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath DescribeFleetCapacity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeFleetCapacity where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -242,15 +245,15 @@ data DescribeFleetCapacityResponse = DescribeFleetCapacityResponse'
   { -- | Token that indicates where to resume retrieving results on the next call
     -- to this operation. If no token is returned, these results represent the
     -- end of the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A collection of objects containing capacity information for each
     -- requested fleet ID. Leave this parameter empty to retrieve capacity
     -- information for all fleets.
-    fleetCapacity :: Core.Maybe [FleetCapacity],
+    fleetCapacity :: Prelude.Maybe [FleetCapacity],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeFleetCapacityResponse' with all optional fields omitted.
@@ -271,30 +274,30 @@ data DescribeFleetCapacityResponse = DescribeFleetCapacityResponse'
 -- 'httpStatus', 'describeFleetCapacityResponse_httpStatus' - The response's http status code.
 newDescribeFleetCapacityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeFleetCapacityResponse
 newDescribeFleetCapacityResponse pHttpStatus_ =
   DescribeFleetCapacityResponse'
     { nextToken =
-        Core.Nothing,
-      fleetCapacity = Core.Nothing,
+        Prelude.Nothing,
+      fleetCapacity = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Token that indicates where to resume retrieving results on the next call
 -- to this operation. If no token is returned, these results represent the
 -- end of the list.
-describeFleetCapacityResponse_nextToken :: Lens.Lens' DescribeFleetCapacityResponse (Core.Maybe Core.Text)
+describeFleetCapacityResponse_nextToken :: Lens.Lens' DescribeFleetCapacityResponse (Prelude.Maybe Prelude.Text)
 describeFleetCapacityResponse_nextToken = Lens.lens (\DescribeFleetCapacityResponse' {nextToken} -> nextToken) (\s@DescribeFleetCapacityResponse' {} a -> s {nextToken = a} :: DescribeFleetCapacityResponse)
 
 -- | A collection of objects containing capacity information for each
 -- requested fleet ID. Leave this parameter empty to retrieve capacity
 -- information for all fleets.
-describeFleetCapacityResponse_fleetCapacity :: Lens.Lens' DescribeFleetCapacityResponse (Core.Maybe [FleetCapacity])
-describeFleetCapacityResponse_fleetCapacity = Lens.lens (\DescribeFleetCapacityResponse' {fleetCapacity} -> fleetCapacity) (\s@DescribeFleetCapacityResponse' {} a -> s {fleetCapacity = a} :: DescribeFleetCapacityResponse) Core.. Lens.mapping Lens._Coerce
+describeFleetCapacityResponse_fleetCapacity :: Lens.Lens' DescribeFleetCapacityResponse (Prelude.Maybe [FleetCapacity])
+describeFleetCapacityResponse_fleetCapacity = Lens.lens (\DescribeFleetCapacityResponse' {fleetCapacity} -> fleetCapacity) (\s@DescribeFleetCapacityResponse' {} a -> s {fleetCapacity = a} :: DescribeFleetCapacityResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeFleetCapacityResponse_httpStatus :: Lens.Lens' DescribeFleetCapacityResponse Core.Int
+describeFleetCapacityResponse_httpStatus :: Lens.Lens' DescribeFleetCapacityResponse Prelude.Int
 describeFleetCapacityResponse_httpStatus = Lens.lens (\DescribeFleetCapacityResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetCapacityResponse' {} a -> s {httpStatus = a} :: DescribeFleetCapacityResponse)
 
-instance Core.NFData DescribeFleetCapacityResponse
+instance Prelude.NFData DescribeFleetCapacityResponse

@@ -22,25 +22,26 @@ module Network.AWS.Connect.Types.QuickConnect where
 import Network.AWS.Connect.Types.QuickConnectConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a quick connect.
 --
 -- /See:/ 'newQuickConnect' smart constructor.
 data QuickConnect = QuickConnect'
   { -- | The identifier for the quick connect.
-    quickConnectId :: Core.Maybe Core.Text,
+    quickConnectId :: Prelude.Maybe Prelude.Text,
     -- | The name of the quick connect.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | One or more tags.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Contains information about the quick connect.
-    quickConnectConfig :: Core.Maybe QuickConnectConfig,
+    quickConnectConfig :: Prelude.Maybe QuickConnectConfig,
     -- | The Amazon Resource Name (ARN) of the quick connect.
-    quickConnectARN :: Core.Maybe Core.Text,
+    quickConnectARN :: Prelude.Maybe Prelude.Text,
     -- | The description.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QuickConnect' with all optional fields omitted.
@@ -65,36 +66,36 @@ newQuickConnect ::
   QuickConnect
 newQuickConnect =
   QuickConnect'
-    { quickConnectId = Core.Nothing,
-      name = Core.Nothing,
-      tags = Core.Nothing,
-      quickConnectConfig = Core.Nothing,
-      quickConnectARN = Core.Nothing,
-      description = Core.Nothing
+    { quickConnectId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      quickConnectConfig = Prelude.Nothing,
+      quickConnectARN = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The identifier for the quick connect.
-quickConnect_quickConnectId :: Lens.Lens' QuickConnect (Core.Maybe Core.Text)
+quickConnect_quickConnectId :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
 quickConnect_quickConnectId = Lens.lens (\QuickConnect' {quickConnectId} -> quickConnectId) (\s@QuickConnect' {} a -> s {quickConnectId = a} :: QuickConnect)
 
 -- | The name of the quick connect.
-quickConnect_name :: Lens.Lens' QuickConnect (Core.Maybe Core.Text)
+quickConnect_name :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
 quickConnect_name = Lens.lens (\QuickConnect' {name} -> name) (\s@QuickConnect' {} a -> s {name = a} :: QuickConnect)
 
 -- | One or more tags.
-quickConnect_tags :: Lens.Lens' QuickConnect (Core.Maybe (Core.HashMap Core.Text Core.Text))
-quickConnect_tags = Lens.lens (\QuickConnect' {tags} -> tags) (\s@QuickConnect' {} a -> s {tags = a} :: QuickConnect) Core.. Lens.mapping Lens._Coerce
+quickConnect_tags :: Lens.Lens' QuickConnect (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+quickConnect_tags = Lens.lens (\QuickConnect' {tags} -> tags) (\s@QuickConnect' {} a -> s {tags = a} :: QuickConnect) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contains information about the quick connect.
-quickConnect_quickConnectConfig :: Lens.Lens' QuickConnect (Core.Maybe QuickConnectConfig)
+quickConnect_quickConnectConfig :: Lens.Lens' QuickConnect (Prelude.Maybe QuickConnectConfig)
 quickConnect_quickConnectConfig = Lens.lens (\QuickConnect' {quickConnectConfig} -> quickConnectConfig) (\s@QuickConnect' {} a -> s {quickConnectConfig = a} :: QuickConnect)
 
 -- | The Amazon Resource Name (ARN) of the quick connect.
-quickConnect_quickConnectARN :: Lens.Lens' QuickConnect (Core.Maybe Core.Text)
+quickConnect_quickConnectARN :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
 quickConnect_quickConnectARN = Lens.lens (\QuickConnect' {quickConnectARN} -> quickConnectARN) (\s@QuickConnect' {} a -> s {quickConnectARN = a} :: QuickConnect)
 
 -- | The description.
-quickConnect_description :: Lens.Lens' QuickConnect (Core.Maybe Core.Text)
+quickConnect_description :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
 quickConnect_description = Lens.lens (\QuickConnect' {description} -> description) (\s@QuickConnect' {} a -> s {description = a} :: QuickConnect)
 
 instance Core.FromJSON QuickConnect where
@@ -103,14 +104,14 @@ instance Core.FromJSON QuickConnect where
       "QuickConnect"
       ( \x ->
           QuickConnect'
-            Core.<$> (x Core..:? "QuickConnectId")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "QuickConnectConfig")
-            Core.<*> (x Core..:? "QuickConnectARN")
-            Core.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "QuickConnectId")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "QuickConnectConfig")
+            Prelude.<*> (x Core..:? "QuickConnectARN")
+            Prelude.<*> (x Core..:? "Description")
       )
 
-instance Core.Hashable QuickConnect
+instance Prelude.Hashable QuickConnect
 
-instance Core.NFData QuickConnect
+instance Prelude.NFData QuickConnect

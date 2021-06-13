@@ -23,6 +23,7 @@ import Network.AWS.CertificateManagerPCA.Types.AccessMethod
 import Network.AWS.CertificateManagerPCA.Types.GeneralName
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides access information used by the @authorityInfoAccess@ and
 -- @subjectInfoAccess@ extensions described in
@@ -35,7 +36,7 @@ data AccessDescription = AccessDescription'
     -- | The location of @AccessDescription@ information.
     accessLocation :: GeneralName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessDescription' with all optional fields omitted.
@@ -74,19 +75,20 @@ instance Core.FromJSON AccessDescription where
       "AccessDescription"
       ( \x ->
           AccessDescription'
-            Core.<$> (x Core..: "AccessMethod")
-            Core.<*> (x Core..: "AccessLocation")
+            Prelude.<$> (x Core..: "AccessMethod")
+            Prelude.<*> (x Core..: "AccessLocation")
       )
 
-instance Core.Hashable AccessDescription
+instance Prelude.Hashable AccessDescription
 
-instance Core.NFData AccessDescription
+instance Prelude.NFData AccessDescription
 
 instance Core.ToJSON AccessDescription where
   toJSON AccessDescription' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AccessMethod" Core..= accessMethod),
-            Core.Just ("AccessLocation" Core..= accessLocation)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccessMethod" Core..= accessMethod),
+            Prelude.Just
+              ("AccessLocation" Core..= accessLocation)
           ]
       )

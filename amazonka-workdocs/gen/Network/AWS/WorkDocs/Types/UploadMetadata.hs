@@ -21,17 +21,18 @@ module Network.AWS.WorkDocs.Types.UploadMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the upload.
 --
 -- /See:/ 'newUploadMetadata' smart constructor.
 data UploadMetadata = UploadMetadata'
   { -- | The signed headers.
-    signedHeaders :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    signedHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The URL of the upload.
-    uploadUrl :: Core.Maybe (Core.Sensitive Core.Text)
+    uploadUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadMetadata' with all optional fields omitted.
@@ -48,17 +49,17 @@ newUploadMetadata ::
   UploadMetadata
 newUploadMetadata =
   UploadMetadata'
-    { signedHeaders = Core.Nothing,
-      uploadUrl = Core.Nothing
+    { signedHeaders = Prelude.Nothing,
+      uploadUrl = Prelude.Nothing
     }
 
 -- | The signed headers.
-uploadMetadata_signedHeaders :: Lens.Lens' UploadMetadata (Core.Maybe (Core.HashMap Core.Text Core.Text))
-uploadMetadata_signedHeaders = Lens.lens (\UploadMetadata' {signedHeaders} -> signedHeaders) (\s@UploadMetadata' {} a -> s {signedHeaders = a} :: UploadMetadata) Core.. Lens.mapping Lens._Coerce
+uploadMetadata_signedHeaders :: Lens.Lens' UploadMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+uploadMetadata_signedHeaders = Lens.lens (\UploadMetadata' {signedHeaders} -> signedHeaders) (\s@UploadMetadata' {} a -> s {signedHeaders = a} :: UploadMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL of the upload.
-uploadMetadata_uploadUrl :: Lens.Lens' UploadMetadata (Core.Maybe Core.Text)
-uploadMetadata_uploadUrl = Lens.lens (\UploadMetadata' {uploadUrl} -> uploadUrl) (\s@UploadMetadata' {} a -> s {uploadUrl = a} :: UploadMetadata) Core.. Lens.mapping Core._Sensitive
+uploadMetadata_uploadUrl :: Lens.Lens' UploadMetadata (Prelude.Maybe Prelude.Text)
+uploadMetadata_uploadUrl = Lens.lens (\UploadMetadata' {uploadUrl} -> uploadUrl) (\s@UploadMetadata' {} a -> s {uploadUrl = a} :: UploadMetadata) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON UploadMetadata where
   parseJSON =
@@ -66,10 +67,10 @@ instance Core.FromJSON UploadMetadata where
       "UploadMetadata"
       ( \x ->
           UploadMetadata'
-            Core.<$> (x Core..:? "SignedHeaders" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "UploadUrl")
+            Prelude.<$> (x Core..:? "SignedHeaders" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "UploadUrl")
       )
 
-instance Core.Hashable UploadMetadata
+instance Prelude.Hashable UploadMetadata
 
-instance Core.NFData UploadMetadata
+instance Prelude.NFData UploadMetadata

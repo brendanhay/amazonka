@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.BatchArrayProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The array properties for the submitted job, such as the size of the
 -- array. The array size can be between 2 and 10,000. If you specify array
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 data BatchArrayProperties = BatchArrayProperties'
   { -- | The size of the array, if this is an array batch job. Valid values are
     -- integers between 2 and 10,000.
-    size :: Core.Maybe Core.Int
+    size :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchArrayProperties' with all optional fields omitted.
@@ -48,11 +49,11 @@ data BatchArrayProperties = BatchArrayProperties'
 newBatchArrayProperties ::
   BatchArrayProperties
 newBatchArrayProperties =
-  BatchArrayProperties' {size = Core.Nothing}
+  BatchArrayProperties' {size = Prelude.Nothing}
 
 -- | The size of the array, if this is an array batch job. Valid values are
 -- integers between 2 and 10,000.
-batchArrayProperties_size :: Lens.Lens' BatchArrayProperties (Core.Maybe Core.Int)
+batchArrayProperties_size :: Lens.Lens' BatchArrayProperties (Prelude.Maybe Prelude.Int)
 batchArrayProperties_size = Lens.lens (\BatchArrayProperties' {size} -> size) (\s@BatchArrayProperties' {} a -> s {size = a} :: BatchArrayProperties)
 
 instance Core.FromJSON BatchArrayProperties where
@@ -60,14 +61,17 @@ instance Core.FromJSON BatchArrayProperties where
     Core.withObject
       "BatchArrayProperties"
       ( \x ->
-          BatchArrayProperties' Core.<$> (x Core..:? "Size")
+          BatchArrayProperties'
+            Prelude.<$> (x Core..:? "Size")
       )
 
-instance Core.Hashable BatchArrayProperties
+instance Prelude.Hashable BatchArrayProperties
 
-instance Core.NFData BatchArrayProperties
+instance Prelude.NFData BatchArrayProperties
 
 instance Core.ToJSON BatchArrayProperties where
   toJSON BatchArrayProperties' {..} =
     Core.object
-      (Core.catMaybes [("Size" Core..=) Core.<$> size])
+      ( Prelude.catMaybes
+          [("Size" Core..=) Prelude.<$> size]
+      )

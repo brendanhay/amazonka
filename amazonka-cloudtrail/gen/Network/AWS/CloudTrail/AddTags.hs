@@ -48,6 +48,7 @@ where
 import Network.AWS.CloudTrail.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,14 +57,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | Contains a list of CloudTrail tags, up to a limit of 50
-    tagsList :: Core.Maybe [Tag],
+    tagsList :: Prelude.Maybe [Tag],
     -- | Specifies the ARN of the trail to which one or more tags will be added.
     -- The format of a trail ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTags' with all optional fields omitted.
@@ -81,23 +82,23 @@ data AddTags = AddTags'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newAddTags ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   AddTags
 newAddTags pResourceId_ =
   AddTags'
-    { tagsList = Core.Nothing,
+    { tagsList = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
 -- | Contains a list of CloudTrail tags, up to a limit of 50
-addTags_tagsList :: Lens.Lens' AddTags (Core.Maybe [Tag])
-addTags_tagsList = Lens.lens (\AddTags' {tagsList} -> tagsList) (\s@AddTags' {} a -> s {tagsList = a} :: AddTags) Core.. Lens.mapping Lens._Coerce
+addTags_tagsList :: Lens.Lens' AddTags (Prelude.Maybe [Tag])
+addTags_tagsList = Lens.lens (\AddTags' {tagsList} -> tagsList) (\s@AddTags' {} a -> s {tagsList = a} :: AddTags) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the ARN of the trail to which one or more tags will be added.
 -- The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-addTags_resourceId :: Lens.Lens' AddTags Core.Text
+addTags_resourceId :: Lens.Lens' AddTags Prelude.Text
 addTags_resourceId = Lens.lens (\AddTags' {resourceId} -> resourceId) (\s@AddTags' {} a -> s {resourceId = a} :: AddTags)
 
 instance Core.AWSRequest AddTags where
@@ -107,40 +108,42 @@ instance Core.AWSRequest AddTags where
     Response.receiveEmpty
       ( \s h x ->
           AddTagsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddTags
+instance Prelude.Hashable AddTags
 
-instance Core.NFData AddTags
+instance Prelude.NFData AddTags
 
 instance Core.ToHeaders AddTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTags where
   toJSON AddTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TagsList" Core..=) Core.<$> tagsList,
-            Core.Just ("ResourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ ("TagsList" Core..=) Prelude.<$> tagsList,
+            Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
 instance Core.ToPath AddTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,
 -- returns an error.
@@ -148,9 +151,9 @@ instance Core.ToQuery AddTags where
 -- /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsResponse' with all optional fields omitted.
@@ -163,13 +166,13 @@ data AddTagsResponse = AddTagsResponse'
 -- 'httpStatus', 'addTagsResponse_httpStatus' - The response's http status code.
 newAddTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddTagsResponse
 newAddTagsResponse pHttpStatus_ =
   AddTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Core.Int
+addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Prelude.Int
 addTagsResponse_httpStatus = Lens.lens (\AddTagsResponse' {httpStatus} -> httpStatus) (\s@AddTagsResponse' {} a -> s {httpStatus = a} :: AddTagsResponse)
 
-instance Core.NFData AddTagsResponse
+instance Prelude.NFData AddTagsResponse

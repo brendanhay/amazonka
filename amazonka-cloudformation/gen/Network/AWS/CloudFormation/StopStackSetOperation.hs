@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,14 +66,14 @@ data StopStackSetOperation = StopStackSetOperation'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Core.Maybe CallAs,
+    callAs :: Prelude.Maybe CallAs,
     -- | The name or unique ID of the stack set that you want to stop the
     -- operation for.
-    stackSetName :: Core.Text,
+    stackSetName :: Prelude.Text,
     -- | The ID of the stack operation.
-    operationId :: Core.Text
+    operationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopStackSetOperation' with all optional fields omitted.
@@ -105,13 +106,13 @@ data StopStackSetOperation = StopStackSetOperation'
 -- 'operationId', 'stopStackSetOperation_operationId' - The ID of the stack operation.
 newStopStackSetOperation ::
   -- | 'stackSetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'operationId'
-  Core.Text ->
+  Prelude.Text ->
   StopStackSetOperation
 newStopStackSetOperation pStackSetName_ pOperationId_ =
   StopStackSetOperation'
-    { callAs = Core.Nothing,
+    { callAs = Prelude.Nothing,
       stackSetName = pStackSetName_,
       operationId = pOperationId_
     }
@@ -132,16 +133,16 @@ newStopStackSetOperation pStackSetName_ pOperationId_ =
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-stopStackSetOperation_callAs :: Lens.Lens' StopStackSetOperation (Core.Maybe CallAs)
+stopStackSetOperation_callAs :: Lens.Lens' StopStackSetOperation (Prelude.Maybe CallAs)
 stopStackSetOperation_callAs = Lens.lens (\StopStackSetOperation' {callAs} -> callAs) (\s@StopStackSetOperation' {} a -> s {callAs = a} :: StopStackSetOperation)
 
 -- | The name or unique ID of the stack set that you want to stop the
 -- operation for.
-stopStackSetOperation_stackSetName :: Lens.Lens' StopStackSetOperation Core.Text
+stopStackSetOperation_stackSetName :: Lens.Lens' StopStackSetOperation Prelude.Text
 stopStackSetOperation_stackSetName = Lens.lens (\StopStackSetOperation' {stackSetName} -> stackSetName) (\s@StopStackSetOperation' {} a -> s {stackSetName = a} :: StopStackSetOperation)
 
 -- | The ID of the stack operation.
-stopStackSetOperation_operationId :: Lens.Lens' StopStackSetOperation Core.Text
+stopStackSetOperation_operationId :: Lens.Lens' StopStackSetOperation Prelude.Text
 stopStackSetOperation_operationId = Lens.lens (\StopStackSetOperation' {operationId} -> operationId) (\s@StopStackSetOperation' {} a -> s {operationId = a} :: StopStackSetOperation)
 
 instance Core.AWSRequest StopStackSetOperation where
@@ -154,25 +155,26 @@ instance Core.AWSRequest StopStackSetOperation where
       "StopStackSetOperationResult"
       ( \s h x ->
           StopStackSetOperationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopStackSetOperation
+instance Prelude.Hashable StopStackSetOperation
 
-instance Core.NFData StopStackSetOperation
+instance Prelude.NFData StopStackSetOperation
 
 instance Core.ToHeaders StopStackSetOperation where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath StopStackSetOperation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopStackSetOperation where
   toQuery StopStackSetOperation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("StopStackSetOperation" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("StopStackSetOperation" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "CallAs" Core.=: callAs,
         "StackSetName" Core.=: stackSetName,
         "OperationId" Core.=: operationId
@@ -181,9 +183,9 @@ instance Core.ToQuery StopStackSetOperation where
 -- | /See:/ 'newStopStackSetOperationResponse' smart constructor.
 data StopStackSetOperationResponse = StopStackSetOperationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopStackSetOperationResponse' with all optional fields omitted.
@@ -196,7 +198,7 @@ data StopStackSetOperationResponse = StopStackSetOperationResponse'
 -- 'httpStatus', 'stopStackSetOperationResponse_httpStatus' - The response's http status code.
 newStopStackSetOperationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopStackSetOperationResponse
 newStopStackSetOperationResponse pHttpStatus_ =
   StopStackSetOperationResponse'
@@ -205,7 +207,7 @@ newStopStackSetOperationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopStackSetOperationResponse_httpStatus :: Lens.Lens' StopStackSetOperationResponse Core.Int
+stopStackSetOperationResponse_httpStatus :: Lens.Lens' StopStackSetOperationResponse Prelude.Int
 stopStackSetOperationResponse_httpStatus = Lens.lens (\StopStackSetOperationResponse' {httpStatus} -> httpStatus) (\s@StopStackSetOperationResponse' {} a -> s {httpStatus = a} :: StopStackSetOperationResponse)
 
-instance Core.NFData StopStackSetOperationResponse
+instance Prelude.NFData StopStackSetOperationResponse

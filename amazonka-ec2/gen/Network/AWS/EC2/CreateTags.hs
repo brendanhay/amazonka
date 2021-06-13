@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,18 +62,18 @@ data CreateTags = CreateTags'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the resources, separated by spaces.
     --
     -- Constraints: Up to 1000 resource IDs. We recommend breaking up this
     -- request into smaller batches.
-    resources :: [Core.Text],
+    resources :: [Prelude.Text],
     -- | The tags. The @value@ parameter is required, but if you don\'t want the
     -- tag to have a value, specify the parameter with no value, and we set the
     -- value to an empty string.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTags' with all optional fields omitted.
@@ -99,51 +100,53 @@ newCreateTags ::
   CreateTags
 newCreateTags =
   CreateTags'
-    { dryRun = Core.Nothing,
-      resources = Core.mempty,
-      tags = Core.mempty
+    { dryRun = Prelude.Nothing,
+      resources = Prelude.mempty,
+      tags = Prelude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createTags_dryRun :: Lens.Lens' CreateTags (Core.Maybe Core.Bool)
+createTags_dryRun :: Lens.Lens' CreateTags (Prelude.Maybe Prelude.Bool)
 createTags_dryRun = Lens.lens (\CreateTags' {dryRun} -> dryRun) (\s@CreateTags' {} a -> s {dryRun = a} :: CreateTags)
 
 -- | The IDs of the resources, separated by spaces.
 --
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this
 -- request into smaller batches.
-createTags_resources :: Lens.Lens' CreateTags [Core.Text]
-createTags_resources = Lens.lens (\CreateTags' {resources} -> resources) (\s@CreateTags' {} a -> s {resources = a} :: CreateTags) Core.. Lens._Coerce
+createTags_resources :: Lens.Lens' CreateTags [Prelude.Text]
+createTags_resources = Lens.lens (\CreateTags' {resources} -> resources) (\s@CreateTags' {} a -> s {resources = a} :: CreateTags) Prelude.. Lens._Coerce
 
 -- | The tags. The @value@ parameter is required, but if you don\'t want the
 -- tag to have a value, specify the parameter with no value, and we set the
 -- value to an empty string.
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Core.. Lens._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull CreateTagsResponse'
 
-instance Core.Hashable CreateTags
+instance Prelude.Hashable CreateTags
 
-instance Core.NFData CreateTags
+instance Prelude.NFData CreateTags
 
 instance Core.ToHeaders CreateTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTags where
   toQuery CreateTags' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CreateTags" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQueryList "ResourceId" resources,
         Core.toQueryList "Tag" tags
@@ -153,7 +156,7 @@ instance Core.ToQuery CreateTags where
 data CreateTagsResponse = CreateTagsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTagsResponse' with all optional fields omitted.
@@ -163,4 +166,4 @@ newCreateTagsResponse ::
   CreateTagsResponse
 newCreateTagsResponse = CreateTagsResponse'
 
-instance Core.NFData CreateTagsResponse
+instance Prelude.NFData CreateTagsResponse

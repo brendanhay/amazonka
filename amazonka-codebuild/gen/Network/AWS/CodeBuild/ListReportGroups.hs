@@ -48,6 +48,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +56,7 @@ import qualified Network.AWS.Response as Response
 data ListReportGroups = ListReportGroups'
   { -- | Used to specify the order to sort the list of returned report groups.
     -- Valid values are @ASCENDING@ and @DESCENDING@.
-    sortOrder :: Core.Maybe SortOrderType,
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
@@ -63,11 +64,11 @@ data ListReportGroups = ListReportGroups'
     -- token to the call. To get all of the items in the list, keep calling
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of paginated report groups returned per response. Use
     -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
     -- objects. The default value is 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The criterion to be used to list build report groups. Valid values
     -- include:
     --
@@ -77,9 +78,9 @@ data ListReportGroups = ListReportGroups'
     --     changed.
     --
     -- -   @NAME@: List based on each report group\'s name.
-    sortBy :: Core.Maybe ReportGroupSortByType
+    sortBy :: Prelude.Maybe ReportGroupSortByType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListReportGroups' with all optional fields omitted.
@@ -117,15 +118,15 @@ newListReportGroups ::
   ListReportGroups
 newListReportGroups =
   ListReportGroups'
-    { sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      sortBy = Core.Nothing
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
 
 -- | Used to specify the order to sort the list of returned report groups.
 -- Valid values are @ASCENDING@ and @DESCENDING@.
-listReportGroups_sortOrder :: Lens.Lens' ListReportGroups (Core.Maybe SortOrderType)
+listReportGroups_sortOrder :: Lens.Lens' ListReportGroups (Prelude.Maybe SortOrderType)
 listReportGroups_sortOrder = Lens.lens (\ListReportGroups' {sortOrder} -> sortOrder) (\s@ListReportGroups' {} a -> s {sortOrder = a} :: ListReportGroups)
 
 -- | During a previous call, the maximum number of items that can be returned
@@ -135,13 +136,13 @@ listReportGroups_sortOrder = Lens.lens (\ListReportGroups' {sortOrder} -> sortOr
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
-listReportGroups_nextToken :: Lens.Lens' ListReportGroups (Core.Maybe Core.Text)
+listReportGroups_nextToken :: Lens.Lens' ListReportGroups (Prelude.Maybe Prelude.Text)
 listReportGroups_nextToken = Lens.lens (\ListReportGroups' {nextToken} -> nextToken) (\s@ListReportGroups' {} a -> s {nextToken = a} :: ListReportGroups)
 
 -- | The maximum number of paginated report groups returned per response. Use
 -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
 -- objects. The default value is 100.
-listReportGroups_maxResults :: Lens.Lens' ListReportGroups (Core.Maybe Core.Natural)
+listReportGroups_maxResults :: Lens.Lens' ListReportGroups (Prelude.Maybe Prelude.Natural)
 listReportGroups_maxResults = Lens.lens (\ListReportGroups' {maxResults} -> maxResults) (\s@ListReportGroups' {} a -> s {maxResults = a} :: ListReportGroups)
 
 -- | The criterion to be used to list build report groups. Valid values
@@ -153,29 +154,31 @@ listReportGroups_maxResults = Lens.lens (\ListReportGroups' {maxResults} -> maxR
 --     changed.
 --
 -- -   @NAME@: List based on each report group\'s name.
-listReportGroups_sortBy :: Lens.Lens' ListReportGroups (Core.Maybe ReportGroupSortByType)
+listReportGroups_sortBy :: Lens.Lens' ListReportGroups (Prelude.Maybe ReportGroupSortByType)
 listReportGroups_sortBy = Lens.lens (\ListReportGroups' {sortBy} -> sortBy) (\s@ListReportGroups' {} a -> s {sortBy = a} :: ListReportGroups)
 
 instance Core.AWSPager ListReportGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listReportGroupsResponse_nextToken Core.. Lens._Just
+            Lens.^? listReportGroupsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listReportGroupsResponse_reportGroups
-              Core.. Lens._Just
-              Core.. Lens.to Core.toList
+              Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listReportGroups_nextToken
+          Prelude.& listReportGroups_nextToken
           Lens..~ rs
-          Lens.^? listReportGroupsResponse_nextToken Core.. Lens._Just
+          Lens.^? listReportGroupsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReportGroups where
   type
@@ -186,44 +189,46 @@ instance Core.AWSRequest ListReportGroups where
     Response.receiveJSON
       ( \s h x ->
           ListReportGroupsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "reportGroups")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "reportGroups")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListReportGroups
+instance Prelude.Hashable ListReportGroups
 
-instance Core.NFData ListReportGroups
+instance Prelude.NFData ListReportGroups
 
 instance Core.ToHeaders ListReportGroups where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.ListReportGroups" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListReportGroups where
   toJSON ListReportGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("sortOrder" Core..=) Core.<$> sortOrder,
-            ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("sortBy" Core..=) Core.<$> sortBy
+      ( Prelude.catMaybes
+          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("sortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
 instance Core.ToPath ListReportGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListReportGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListReportGroupsResponse' smart constructor.
 data ListReportGroupsResponse = ListReportGroupsResponse'
@@ -234,13 +239,13 @@ data ListReportGroupsResponse = ListReportGroupsResponse'
     -- token to the call. To get all of the items in the list, keep calling
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of ARNs for the report groups in the current AWS account.
-    reportGroups :: Core.Maybe (Core.NonEmpty Core.Text),
+    reportGroups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListReportGroupsResponse' with all optional fields omitted.
@@ -263,12 +268,13 @@ data ListReportGroupsResponse = ListReportGroupsResponse'
 -- 'httpStatus', 'listReportGroupsResponse_httpStatus' - The response's http status code.
 newListReportGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListReportGroupsResponse
 newListReportGroupsResponse pHttpStatus_ =
   ListReportGroupsResponse'
-    { nextToken = Core.Nothing,
-      reportGroups = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      reportGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -279,15 +285,15 @@ newListReportGroupsResponse pHttpStatus_ =
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
-listReportGroupsResponse_nextToken :: Lens.Lens' ListReportGroupsResponse (Core.Maybe Core.Text)
+listReportGroupsResponse_nextToken :: Lens.Lens' ListReportGroupsResponse (Prelude.Maybe Prelude.Text)
 listReportGroupsResponse_nextToken = Lens.lens (\ListReportGroupsResponse' {nextToken} -> nextToken) (\s@ListReportGroupsResponse' {} a -> s {nextToken = a} :: ListReportGroupsResponse)
 
 -- | The list of ARNs for the report groups in the current AWS account.
-listReportGroupsResponse_reportGroups :: Lens.Lens' ListReportGroupsResponse (Core.Maybe (Core.NonEmpty Core.Text))
-listReportGroupsResponse_reportGroups = Lens.lens (\ListReportGroupsResponse' {reportGroups} -> reportGroups) (\s@ListReportGroupsResponse' {} a -> s {reportGroups = a} :: ListReportGroupsResponse) Core.. Lens.mapping Lens._Coerce
+listReportGroupsResponse_reportGroups :: Lens.Lens' ListReportGroupsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listReportGroupsResponse_reportGroups = Lens.lens (\ListReportGroupsResponse' {reportGroups} -> reportGroups) (\s@ListReportGroupsResponse' {} a -> s {reportGroups = a} :: ListReportGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listReportGroupsResponse_httpStatus :: Lens.Lens' ListReportGroupsResponse Core.Int
+listReportGroupsResponse_httpStatus :: Lens.Lens' ListReportGroupsResponse Prelude.Int
 listReportGroupsResponse_httpStatus = Lens.lens (\ListReportGroupsResponse' {httpStatus} -> httpStatus) (\s@ListReportGroupsResponse' {} a -> s {httpStatus = a} :: ListReportGroupsResponse)
 
-instance Core.NFData ListReportGroupsResponse
+instance Prelude.NFData ListReportGroupsResponse

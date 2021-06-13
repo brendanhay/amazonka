@@ -46,6 +46,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListBranches' smart constructor.
 data ListBranches = ListBranches'
   { -- | An enumeration token that allows the operation to batch the results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that contains the branches.
-    repositoryName :: Core.Text
+    repositoryName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBranches' with all optional fields omitted.
@@ -73,40 +74,40 @@ data ListBranches = ListBranches'
 -- 'repositoryName', 'listBranches_repositoryName' - The name of the repository that contains the branches.
 newListBranches ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   ListBranches
 newListBranches pRepositoryName_ =
   ListBranches'
-    { nextToken = Core.Nothing,
+    { nextToken = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
 
 -- | An enumeration token that allows the operation to batch the results.
-listBranches_nextToken :: Lens.Lens' ListBranches (Core.Maybe Core.Text)
+listBranches_nextToken :: Lens.Lens' ListBranches (Prelude.Maybe Prelude.Text)
 listBranches_nextToken = Lens.lens (\ListBranches' {nextToken} -> nextToken) (\s@ListBranches' {} a -> s {nextToken = a} :: ListBranches)
 
 -- | The name of the repository that contains the branches.
-listBranches_repositoryName :: Lens.Lens' ListBranches Core.Text
+listBranches_repositoryName :: Lens.Lens' ListBranches Prelude.Text
 listBranches_repositoryName = Lens.lens (\ListBranches' {repositoryName} -> repositoryName) (\s@ListBranches' {} a -> s {repositoryName = a} :: ListBranches)
 
 instance Core.AWSPager ListBranches where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listBranchesResponse_nextToken Core.. Lens._Just
+            Lens.^? listBranchesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBranchesResponse_branches Core.. Lens._Just
+            Lens.^? listBranchesResponse_branches Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listBranches_nextToken
+          Prelude.& listBranches_nextToken
           Lens..~ rs
-          Lens.^? listBranchesResponse_nextToken Core.. Lens._Just
+          Lens.^? listBranchesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBranches where
   type AWSResponse ListBranches = ListBranchesResponse
@@ -115,55 +116,58 @@ instance Core.AWSRequest ListBranches where
     Response.receiveJSON
       ( \s h x ->
           ListBranchesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "branches" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "branches" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListBranches
+instance Prelude.Hashable ListBranches
 
-instance Core.NFData ListBranches
+instance Prelude.NFData ListBranches
 
 instance Core.ToHeaders ListBranches where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.ListBranches" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListBranches where
   toJSON ListBranches' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            Core.Just ("repositoryName" Core..= repositoryName)
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
 instance Core.ToPath ListBranches where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListBranches where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a list branches operation.
 --
 -- /See:/ 'newListBranchesResponse' smart constructor.
 data ListBranchesResponse = ListBranchesResponse'
   { -- | An enumeration token that returns the batch of the results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of branch names.
-    branches :: Core.Maybe [Core.Text],
+    branches :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBranchesResponse' with all optional fields omitted.
@@ -180,25 +184,25 @@ data ListBranchesResponse = ListBranchesResponse'
 -- 'httpStatus', 'listBranchesResponse_httpStatus' - The response's http status code.
 newListBranchesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListBranchesResponse
 newListBranchesResponse pHttpStatus_ =
   ListBranchesResponse'
-    { nextToken = Core.Nothing,
-      branches = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      branches = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An enumeration token that returns the batch of the results.
-listBranchesResponse_nextToken :: Lens.Lens' ListBranchesResponse (Core.Maybe Core.Text)
+listBranchesResponse_nextToken :: Lens.Lens' ListBranchesResponse (Prelude.Maybe Prelude.Text)
 listBranchesResponse_nextToken = Lens.lens (\ListBranchesResponse' {nextToken} -> nextToken) (\s@ListBranchesResponse' {} a -> s {nextToken = a} :: ListBranchesResponse)
 
 -- | The list of branch names.
-listBranchesResponse_branches :: Lens.Lens' ListBranchesResponse (Core.Maybe [Core.Text])
-listBranchesResponse_branches = Lens.lens (\ListBranchesResponse' {branches} -> branches) (\s@ListBranchesResponse' {} a -> s {branches = a} :: ListBranchesResponse) Core.. Lens.mapping Lens._Coerce
+listBranchesResponse_branches :: Lens.Lens' ListBranchesResponse (Prelude.Maybe [Prelude.Text])
+listBranchesResponse_branches = Lens.lens (\ListBranchesResponse' {branches} -> branches) (\s@ListBranchesResponse' {} a -> s {branches = a} :: ListBranchesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listBranchesResponse_httpStatus :: Lens.Lens' ListBranchesResponse Core.Int
+listBranchesResponse_httpStatus :: Lens.Lens' ListBranchesResponse Prelude.Int
 listBranchesResponse_httpStatus = Lens.lens (\ListBranchesResponse' {httpStatus} -> httpStatus) (\s@ListBranchesResponse' {} a -> s {httpStatus = a} :: ListBranchesResponse)
 
-instance Core.NFData ListBranchesResponse
+instance Prelude.NFData ListBranchesResponse

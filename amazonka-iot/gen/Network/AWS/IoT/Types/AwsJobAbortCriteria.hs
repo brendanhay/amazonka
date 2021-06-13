@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AwsJobAbortCriteriaAbortAction
 import Network.AWS.IoT.Types.AwsJobAbortCriteriaFailureType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The criteria that determine when and how a job abort takes place.
 --
@@ -37,12 +38,12 @@ data AwsJobAbortCriteria = AwsJobAbortCriteria'
     --
     -- AWS IoT supports up to two digits after the decimal (for example, 10.9
     -- and 10.99, but not 10.999).
-    thresholdPercentage :: Core.Double,
+    thresholdPercentage :: Prelude.Double,
     -- | The minimum number of things which must receive job execution
     -- notifications before the job can be aborted.
-    minNumberOfExecutedThings :: Core.Natural
+    minNumberOfExecutedThings :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AwsJobAbortCriteria' with all optional fields omitted.
@@ -70,9 +71,9 @@ newAwsJobAbortCriteria ::
   -- | 'action'
   AwsJobAbortCriteriaAbortAction ->
   -- | 'thresholdPercentage'
-  Core.Double ->
+  Prelude.Double ->
   -- | 'minNumberOfExecutedThings'
-  Core.Natural ->
+  Prelude.Natural ->
   AwsJobAbortCriteria
 newAwsJobAbortCriteria
   pFailureType_
@@ -100,27 +101,27 @@ awsJobAbortCriteria_action = Lens.lens (\AwsJobAbortCriteria' {action} -> action
 --
 -- AWS IoT supports up to two digits after the decimal (for example, 10.9
 -- and 10.99, but not 10.999).
-awsJobAbortCriteria_thresholdPercentage :: Lens.Lens' AwsJobAbortCriteria Core.Double
+awsJobAbortCriteria_thresholdPercentage :: Lens.Lens' AwsJobAbortCriteria Prelude.Double
 awsJobAbortCriteria_thresholdPercentage = Lens.lens (\AwsJobAbortCriteria' {thresholdPercentage} -> thresholdPercentage) (\s@AwsJobAbortCriteria' {} a -> s {thresholdPercentage = a} :: AwsJobAbortCriteria)
 
 -- | The minimum number of things which must receive job execution
 -- notifications before the job can be aborted.
-awsJobAbortCriteria_minNumberOfExecutedThings :: Lens.Lens' AwsJobAbortCriteria Core.Natural
+awsJobAbortCriteria_minNumberOfExecutedThings :: Lens.Lens' AwsJobAbortCriteria Prelude.Natural
 awsJobAbortCriteria_minNumberOfExecutedThings = Lens.lens (\AwsJobAbortCriteria' {minNumberOfExecutedThings} -> minNumberOfExecutedThings) (\s@AwsJobAbortCriteria' {} a -> s {minNumberOfExecutedThings = a} :: AwsJobAbortCriteria)
 
-instance Core.Hashable AwsJobAbortCriteria
+instance Prelude.Hashable AwsJobAbortCriteria
 
-instance Core.NFData AwsJobAbortCriteria
+instance Prelude.NFData AwsJobAbortCriteria
 
 instance Core.ToJSON AwsJobAbortCriteria where
   toJSON AwsJobAbortCriteria' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("failureType" Core..= failureType),
-            Core.Just ("action" Core..= action),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("failureType" Core..= failureType),
+            Prelude.Just ("action" Core..= action),
+            Prelude.Just
               ("thresholdPercentage" Core..= thresholdPercentage),
-            Core.Just
+            Prelude.Just
               ( "minNumberOfExecutedThings"
                   Core..= minNumberOfExecutedThings
               )

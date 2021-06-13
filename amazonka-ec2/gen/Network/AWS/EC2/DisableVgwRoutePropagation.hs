@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +53,13 @@ data DisableVgwRoutePropagation = DisableVgwRoutePropagation'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the virtual private gateway.
-    gatewayId :: Core.Text,
+    gatewayId :: Prelude.Text,
     -- | The ID of the route table.
-    routeTableId :: Core.Text
+    routeTableId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableVgwRoutePropagation' with all optional fields omitted.
@@ -78,15 +79,16 @@ data DisableVgwRoutePropagation = DisableVgwRoutePropagation'
 -- 'routeTableId', 'disableVgwRoutePropagation_routeTableId' - The ID of the route table.
 newDisableVgwRoutePropagation ::
   -- | 'gatewayId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routeTableId'
-  Core.Text ->
+  Prelude.Text ->
   DisableVgwRoutePropagation
 newDisableVgwRoutePropagation
   pGatewayId_
   pRouteTableId_ =
     DisableVgwRoutePropagation'
-      { dryRun = Core.Nothing,
+      { dryRun =
+          Prelude.Nothing,
         gatewayId = pGatewayId_,
         routeTableId = pRouteTableId_
       }
@@ -95,15 +97,15 @@ newDisableVgwRoutePropagation
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disableVgwRoutePropagation_dryRun :: Lens.Lens' DisableVgwRoutePropagation (Core.Maybe Core.Bool)
+disableVgwRoutePropagation_dryRun :: Lens.Lens' DisableVgwRoutePropagation (Prelude.Maybe Prelude.Bool)
 disableVgwRoutePropagation_dryRun = Lens.lens (\DisableVgwRoutePropagation' {dryRun} -> dryRun) (\s@DisableVgwRoutePropagation' {} a -> s {dryRun = a} :: DisableVgwRoutePropagation)
 
 -- | The ID of the virtual private gateway.
-disableVgwRoutePropagation_gatewayId :: Lens.Lens' DisableVgwRoutePropagation Core.Text
+disableVgwRoutePropagation_gatewayId :: Lens.Lens' DisableVgwRoutePropagation Prelude.Text
 disableVgwRoutePropagation_gatewayId = Lens.lens (\DisableVgwRoutePropagation' {gatewayId} -> gatewayId) (\s@DisableVgwRoutePropagation' {} a -> s {gatewayId = a} :: DisableVgwRoutePropagation)
 
 -- | The ID of the route table.
-disableVgwRoutePropagation_routeTableId :: Lens.Lens' DisableVgwRoutePropagation Core.Text
+disableVgwRoutePropagation_routeTableId :: Lens.Lens' DisableVgwRoutePropagation Prelude.Text
 disableVgwRoutePropagation_routeTableId = Lens.lens (\DisableVgwRoutePropagation' {routeTableId} -> routeTableId) (\s@DisableVgwRoutePropagation' {} a -> s {routeTableId = a} :: DisableVgwRoutePropagation)
 
 instance Core.AWSRequest DisableVgwRoutePropagation where
@@ -115,22 +117,23 @@ instance Core.AWSRequest DisableVgwRoutePropagation where
     Response.receiveNull
       DisableVgwRoutePropagationResponse'
 
-instance Core.Hashable DisableVgwRoutePropagation
+instance Prelude.Hashable DisableVgwRoutePropagation
 
-instance Core.NFData DisableVgwRoutePropagation
+instance Prelude.NFData DisableVgwRoutePropagation
 
 instance Core.ToHeaders DisableVgwRoutePropagation where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisableVgwRoutePropagation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableVgwRoutePropagation where
   toQuery DisableVgwRoutePropagation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableVgwRoutePropagation" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DisableVgwRoutePropagation" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "GatewayId" Core.=: gatewayId,
         "RouteTableId" Core.=: routeTableId
@@ -140,7 +143,7 @@ instance Core.ToQuery DisableVgwRoutePropagation where
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableVgwRoutePropagationResponse' with all optional fields omitted.
@@ -152,5 +155,5 @@ newDisableVgwRoutePropagationResponse =
   DisableVgwRoutePropagationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisableVgwRoutePropagationResponse

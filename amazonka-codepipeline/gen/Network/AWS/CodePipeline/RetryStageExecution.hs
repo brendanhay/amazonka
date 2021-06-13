@@ -48,6 +48,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,18 +57,18 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRetryStageExecution' smart constructor.
 data RetryStageExecution = RetryStageExecution'
   { -- | The name of the pipeline that contains the failed stage.
-    pipelineName :: Core.Text,
+    pipelineName :: Prelude.Text,
     -- | The name of the failed stage to be retried.
-    stageName :: Core.Text,
+    stageName :: Prelude.Text,
     -- | The ID of the pipeline execution in the failed stage to be retried. Use
     -- the GetPipelineState action to retrieve the current pipelineExecutionId
     -- of the failed stage
-    pipelineExecutionId :: Core.Text,
+    pipelineExecutionId :: Prelude.Text,
     -- | The scope of the retry attempt. Currently, the only supported value is
     -- FAILED_ACTIONS.
     retryMode :: StageRetryMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetryStageExecution' with all optional fields omitted.
@@ -89,11 +90,11 @@ data RetryStageExecution = RetryStageExecution'
 -- FAILED_ACTIONS.
 newRetryStageExecution ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'pipelineExecutionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'retryMode'
   StageRetryMode ->
   RetryStageExecution
@@ -110,17 +111,17 @@ newRetryStageExecution
       }
 
 -- | The name of the pipeline that contains the failed stage.
-retryStageExecution_pipelineName :: Lens.Lens' RetryStageExecution Core.Text
+retryStageExecution_pipelineName :: Lens.Lens' RetryStageExecution Prelude.Text
 retryStageExecution_pipelineName = Lens.lens (\RetryStageExecution' {pipelineName} -> pipelineName) (\s@RetryStageExecution' {} a -> s {pipelineName = a} :: RetryStageExecution)
 
 -- | The name of the failed stage to be retried.
-retryStageExecution_stageName :: Lens.Lens' RetryStageExecution Core.Text
+retryStageExecution_stageName :: Lens.Lens' RetryStageExecution Prelude.Text
 retryStageExecution_stageName = Lens.lens (\RetryStageExecution' {stageName} -> stageName) (\s@RetryStageExecution' {} a -> s {stageName = a} :: RetryStageExecution)
 
 -- | The ID of the pipeline execution in the failed stage to be retried. Use
 -- the GetPipelineState action to retrieve the current pipelineExecutionId
 -- of the failed stage
-retryStageExecution_pipelineExecutionId :: Lens.Lens' RetryStageExecution Core.Text
+retryStageExecution_pipelineExecutionId :: Lens.Lens' RetryStageExecution Prelude.Text
 retryStageExecution_pipelineExecutionId = Lens.lens (\RetryStageExecution' {pipelineExecutionId} -> pipelineExecutionId) (\s@RetryStageExecution' {} a -> s {pipelineExecutionId = a} :: RetryStageExecution)
 
 -- | The scope of the retry attempt. Currently, the only supported value is
@@ -137,55 +138,57 @@ instance Core.AWSRequest RetryStageExecution where
     Response.receiveJSON
       ( \s h x ->
           RetryStageExecutionResponse'
-            Core.<$> (x Core..?> "pipelineExecutionId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "pipelineExecutionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RetryStageExecution
+instance Prelude.Hashable RetryStageExecution
 
-instance Core.NFData RetryStageExecution
+instance Prelude.NFData RetryStageExecution
 
 instance Core.ToHeaders RetryStageExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.RetryStageExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RetryStageExecution where
   toJSON RetryStageExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pipelineName" Core..= pipelineName),
-            Core.Just ("stageName" Core..= stageName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("pipelineName" Core..= pipelineName),
+            Prelude.Just ("stageName" Core..= stageName),
+            Prelude.Just
               ("pipelineExecutionId" Core..= pipelineExecutionId),
-            Core.Just ("retryMode" Core..= retryMode)
+            Prelude.Just ("retryMode" Core..= retryMode)
           ]
       )
 
 instance Core.ToPath RetryStageExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RetryStageExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @RetryStageExecution@ action.
 --
 -- /See:/ 'newRetryStageExecutionResponse' smart constructor.
 data RetryStageExecutionResponse = RetryStageExecutionResponse'
   { -- | The ID of the current workflow execution in the failed stage.
-    pipelineExecutionId :: Core.Maybe Core.Text,
+    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetryStageExecutionResponse' with all optional fields omitted.
@@ -200,21 +203,21 @@ data RetryStageExecutionResponse = RetryStageExecutionResponse'
 -- 'httpStatus', 'retryStageExecutionResponse_httpStatus' - The response's http status code.
 newRetryStageExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RetryStageExecutionResponse
 newRetryStageExecutionResponse pHttpStatus_ =
   RetryStageExecutionResponse'
     { pipelineExecutionId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the current workflow execution in the failed stage.
-retryStageExecutionResponse_pipelineExecutionId :: Lens.Lens' RetryStageExecutionResponse (Core.Maybe Core.Text)
+retryStageExecutionResponse_pipelineExecutionId :: Lens.Lens' RetryStageExecutionResponse (Prelude.Maybe Prelude.Text)
 retryStageExecutionResponse_pipelineExecutionId = Lens.lens (\RetryStageExecutionResponse' {pipelineExecutionId} -> pipelineExecutionId) (\s@RetryStageExecutionResponse' {} a -> s {pipelineExecutionId = a} :: RetryStageExecutionResponse)
 
 -- | The response's http status code.
-retryStageExecutionResponse_httpStatus :: Lens.Lens' RetryStageExecutionResponse Core.Int
+retryStageExecutionResponse_httpStatus :: Lens.Lens' RetryStageExecutionResponse Prelude.Int
 retryStageExecutionResponse_httpStatus = Lens.lens (\RetryStageExecutionResponse' {httpStatus} -> httpStatus) (\s@RetryStageExecutionResponse' {} a -> s {httpStatus = a} :: RetryStageExecutionResponse)
 
-instance Core.NFData RetryStageExecutionResponse
+instance Prelude.NFData RetryStageExecutionResponse

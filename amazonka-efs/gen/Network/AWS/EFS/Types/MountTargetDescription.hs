@@ -22,41 +22,42 @@ module Network.AWS.EFS.Types.MountTargetDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.LifeCycleState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a description of a mount target.
 --
 -- /See:/ 'newMountTargetDescription' smart constructor.
 data MountTargetDescription = MountTargetDescription'
   { -- | AWS account ID that owns the resource.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Availability Zone (AZ) that the mount target resides in.
     -- AZs are independently mapped to names for each AWS account. For example,
     -- the Availability Zone @us-east-1a@ for your AWS account might not be the
     -- same location as @us-east-1a@ for another AWS account.
-    availabilityZoneName :: Core.Maybe Core.Text,
+    availabilityZoneName :: Prelude.Maybe Prelude.Text,
     -- | The unique and consistent identifier of the Availability Zone (AZ) that
     -- the mount target resides in. For example, @use1-az1@ is an AZ ID for the
     -- us-east-1 Region and it has the same location in every AWS account.
-    availabilityZoneId :: Core.Maybe Core.Text,
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | Address at which the file system can be mounted by using the mount
     -- target.
-    ipAddress :: Core.Maybe Core.Text,
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface that Amazon EFS created when it created
     -- the mount target.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The Virtual Private Cloud (VPC) ID that the mount target is configured
     -- in.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | System-assigned mount target ID.
-    mountTargetId :: Core.Text,
+    mountTargetId :: Prelude.Text,
     -- | The ID of the file system for which the mount target is intended.
-    fileSystemId :: Core.Text,
+    fileSystemId :: Prelude.Text,
     -- | The ID of the mount target\'s subnet.
-    subnetId :: Core.Text,
+    subnetId :: Prelude.Text,
     -- | Lifecycle state of the mount target.
     lifeCycleState :: LifeCycleState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MountTargetDescription' with all optional fields omitted.
@@ -95,11 +96,11 @@ data MountTargetDescription = MountTargetDescription'
 -- 'lifeCycleState', 'mountTargetDescription_lifeCycleState' - Lifecycle state of the mount target.
 newMountTargetDescription ::
   -- | 'mountTargetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'subnetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lifeCycleState'
   LifeCycleState ->
   MountTargetDescription
@@ -109,12 +110,12 @@ newMountTargetDescription
   pSubnetId_
   pLifeCycleState_ =
     MountTargetDescription'
-      { ownerId = Core.Nothing,
-        availabilityZoneName = Core.Nothing,
-        availabilityZoneId = Core.Nothing,
-        ipAddress = Core.Nothing,
-        networkInterfaceId = Core.Nothing,
-        vpcId = Core.Nothing,
+      { ownerId = Prelude.Nothing,
+        availabilityZoneName = Prelude.Nothing,
+        availabilityZoneId = Prelude.Nothing,
+        ipAddress = Prelude.Nothing,
+        networkInterfaceId = Prelude.Nothing,
+        vpcId = Prelude.Nothing,
         mountTargetId = pMountTargetId_,
         fileSystemId = pFileSystemId_,
         subnetId = pSubnetId_,
@@ -122,47 +123,47 @@ newMountTargetDescription
       }
 
 -- | AWS account ID that owns the resource.
-mountTargetDescription_ownerId :: Lens.Lens' MountTargetDescription (Core.Maybe Core.Text)
+mountTargetDescription_ownerId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
 mountTargetDescription_ownerId = Lens.lens (\MountTargetDescription' {ownerId} -> ownerId) (\s@MountTargetDescription' {} a -> s {ownerId = a} :: MountTargetDescription)
 
 -- | The name of the Availability Zone (AZ) that the mount target resides in.
 -- AZs are independently mapped to names for each AWS account. For example,
 -- the Availability Zone @us-east-1a@ for your AWS account might not be the
 -- same location as @us-east-1a@ for another AWS account.
-mountTargetDescription_availabilityZoneName :: Lens.Lens' MountTargetDescription (Core.Maybe Core.Text)
+mountTargetDescription_availabilityZoneName :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
 mountTargetDescription_availabilityZoneName = Lens.lens (\MountTargetDescription' {availabilityZoneName} -> availabilityZoneName) (\s@MountTargetDescription' {} a -> s {availabilityZoneName = a} :: MountTargetDescription)
 
 -- | The unique and consistent identifier of the Availability Zone (AZ) that
 -- the mount target resides in. For example, @use1-az1@ is an AZ ID for the
 -- us-east-1 Region and it has the same location in every AWS account.
-mountTargetDescription_availabilityZoneId :: Lens.Lens' MountTargetDescription (Core.Maybe Core.Text)
+mountTargetDescription_availabilityZoneId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
 mountTargetDescription_availabilityZoneId = Lens.lens (\MountTargetDescription' {availabilityZoneId} -> availabilityZoneId) (\s@MountTargetDescription' {} a -> s {availabilityZoneId = a} :: MountTargetDescription)
 
 -- | Address at which the file system can be mounted by using the mount
 -- target.
-mountTargetDescription_ipAddress :: Lens.Lens' MountTargetDescription (Core.Maybe Core.Text)
+mountTargetDescription_ipAddress :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
 mountTargetDescription_ipAddress = Lens.lens (\MountTargetDescription' {ipAddress} -> ipAddress) (\s@MountTargetDescription' {} a -> s {ipAddress = a} :: MountTargetDescription)
 
 -- | The ID of the network interface that Amazon EFS created when it created
 -- the mount target.
-mountTargetDescription_networkInterfaceId :: Lens.Lens' MountTargetDescription (Core.Maybe Core.Text)
+mountTargetDescription_networkInterfaceId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
 mountTargetDescription_networkInterfaceId = Lens.lens (\MountTargetDescription' {networkInterfaceId} -> networkInterfaceId) (\s@MountTargetDescription' {} a -> s {networkInterfaceId = a} :: MountTargetDescription)
 
 -- | The Virtual Private Cloud (VPC) ID that the mount target is configured
 -- in.
-mountTargetDescription_vpcId :: Lens.Lens' MountTargetDescription (Core.Maybe Core.Text)
+mountTargetDescription_vpcId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
 mountTargetDescription_vpcId = Lens.lens (\MountTargetDescription' {vpcId} -> vpcId) (\s@MountTargetDescription' {} a -> s {vpcId = a} :: MountTargetDescription)
 
 -- | System-assigned mount target ID.
-mountTargetDescription_mountTargetId :: Lens.Lens' MountTargetDescription Core.Text
+mountTargetDescription_mountTargetId :: Lens.Lens' MountTargetDescription Prelude.Text
 mountTargetDescription_mountTargetId = Lens.lens (\MountTargetDescription' {mountTargetId} -> mountTargetId) (\s@MountTargetDescription' {} a -> s {mountTargetId = a} :: MountTargetDescription)
 
 -- | The ID of the file system for which the mount target is intended.
-mountTargetDescription_fileSystemId :: Lens.Lens' MountTargetDescription Core.Text
+mountTargetDescription_fileSystemId :: Lens.Lens' MountTargetDescription Prelude.Text
 mountTargetDescription_fileSystemId = Lens.lens (\MountTargetDescription' {fileSystemId} -> fileSystemId) (\s@MountTargetDescription' {} a -> s {fileSystemId = a} :: MountTargetDescription)
 
 -- | The ID of the mount target\'s subnet.
-mountTargetDescription_subnetId :: Lens.Lens' MountTargetDescription Core.Text
+mountTargetDescription_subnetId :: Lens.Lens' MountTargetDescription Prelude.Text
 mountTargetDescription_subnetId = Lens.lens (\MountTargetDescription' {subnetId} -> subnetId) (\s@MountTargetDescription' {} a -> s {subnetId = a} :: MountTargetDescription)
 
 -- | Lifecycle state of the mount target.
@@ -175,18 +176,18 @@ instance Core.FromJSON MountTargetDescription where
       "MountTargetDescription"
       ( \x ->
           MountTargetDescription'
-            Core.<$> (x Core..:? "OwnerId")
-            Core.<*> (x Core..:? "AvailabilityZoneName")
-            Core.<*> (x Core..:? "AvailabilityZoneId")
-            Core.<*> (x Core..:? "IpAddress")
-            Core.<*> (x Core..:? "NetworkInterfaceId")
-            Core.<*> (x Core..:? "VpcId")
-            Core.<*> (x Core..: "MountTargetId")
-            Core.<*> (x Core..: "FileSystemId")
-            Core.<*> (x Core..: "SubnetId")
-            Core.<*> (x Core..: "LifeCycleState")
+            Prelude.<$> (x Core..:? "OwnerId")
+            Prelude.<*> (x Core..:? "AvailabilityZoneName")
+            Prelude.<*> (x Core..:? "AvailabilityZoneId")
+            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<*> (x Core..:? "NetworkInterfaceId")
+            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..: "MountTargetId")
+            Prelude.<*> (x Core..: "FileSystemId")
+            Prelude.<*> (x Core..: "SubnetId")
+            Prelude.<*> (x Core..: "LifeCycleState")
       )
 
-instance Core.Hashable MountTargetDescription
+instance Prelude.Hashable MountTargetDescription
 
-instance Core.NFData MountTargetDescription
+instance Prelude.NFData MountTargetDescription

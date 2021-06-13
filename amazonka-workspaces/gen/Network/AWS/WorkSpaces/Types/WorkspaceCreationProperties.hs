@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the default properties that are used for creating WorkSpaces.
 -- For more information, see
@@ -31,7 +32,7 @@ data WorkspaceCreationProperties = WorkspaceCreationProperties'
   { -- | Indicates whether maintenance mode is enabled for your WorkSpaces. For
     -- more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance>.
-    enableMaintenanceMode :: Core.Maybe Core.Bool,
+    enableMaintenanceMode :: Prelude.Maybe Prelude.Bool,
     -- | The default organizational unit (OU) for your WorkSpaces directories.
     -- This string must be the full Lightweight Directory Access Protocol
     -- (LDAP) distinguished name for the target domain and OU. It must be in
@@ -45,9 +46,9 @@ data WorkspaceCreationProperties = WorkspaceCreationProperties'
     --     in the Microsoft documentation.
     --
     -- -   The API doesn\'t validate whether the OU exists.
-    defaultOu :: Core.Maybe Core.Text,
+    defaultOu :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether internet access is enabled for your WorkSpaces.
-    enableInternetAccess :: Core.Maybe Core.Bool,
+    enableInternetAccess :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.
     --
     -- If WorkDocs is already enabled for a WorkSpaces directory and you
@@ -64,13 +65,13 @@ data WorkspaceCreationProperties = WorkspaceCreationProperties'
     -- If you enable WorkDocs on a directory that already has existing
     -- WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are
     -- launched in the directory will have WorkDocs enabled.
-    enableWorkDocs :: Core.Maybe Core.Bool,
+    enableWorkDocs :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of your custom security group.
-    customSecurityGroupId :: Core.Maybe Core.Text,
+    customSecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether users are local administrators of their WorkSpaces.
-    userEnabledAsLocalAdministrator :: Core.Maybe Core.Bool
+    userEnabledAsLocalAdministrator :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkspaceCreationProperties' with all optional fields omitted.
@@ -125,18 +126,19 @@ newWorkspaceCreationProperties ::
 newWorkspaceCreationProperties =
   WorkspaceCreationProperties'
     { enableMaintenanceMode =
-        Core.Nothing,
-      defaultOu = Core.Nothing,
-      enableInternetAccess = Core.Nothing,
-      enableWorkDocs = Core.Nothing,
-      customSecurityGroupId = Core.Nothing,
-      userEnabledAsLocalAdministrator = Core.Nothing
+        Prelude.Nothing,
+      defaultOu = Prelude.Nothing,
+      enableInternetAccess = Prelude.Nothing,
+      enableWorkDocs = Prelude.Nothing,
+      customSecurityGroupId = Prelude.Nothing,
+      userEnabledAsLocalAdministrator =
+        Prelude.Nothing
     }
 
 -- | Indicates whether maintenance mode is enabled for your WorkSpaces. For
 -- more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance>.
-workspaceCreationProperties_enableMaintenanceMode :: Lens.Lens' WorkspaceCreationProperties (Core.Maybe Core.Bool)
+workspaceCreationProperties_enableMaintenanceMode :: Lens.Lens' WorkspaceCreationProperties (Prelude.Maybe Prelude.Bool)
 workspaceCreationProperties_enableMaintenanceMode = Lens.lens (\WorkspaceCreationProperties' {enableMaintenanceMode} -> enableMaintenanceMode) (\s@WorkspaceCreationProperties' {} a -> s {enableMaintenanceMode = a} :: WorkspaceCreationProperties)
 
 -- | The default organizational unit (OU) for your WorkSpaces directories.
@@ -152,11 +154,11 @@ workspaceCreationProperties_enableMaintenanceMode = Lens.lens (\WorkspaceCreatio
 --     in the Microsoft documentation.
 --
 -- -   The API doesn\'t validate whether the OU exists.
-workspaceCreationProperties_defaultOu :: Lens.Lens' WorkspaceCreationProperties (Core.Maybe Core.Text)
+workspaceCreationProperties_defaultOu :: Lens.Lens' WorkspaceCreationProperties (Prelude.Maybe Prelude.Text)
 workspaceCreationProperties_defaultOu = Lens.lens (\WorkspaceCreationProperties' {defaultOu} -> defaultOu) (\s@WorkspaceCreationProperties' {} a -> s {defaultOu = a} :: WorkspaceCreationProperties)
 
 -- | Indicates whether internet access is enabled for your WorkSpaces.
-workspaceCreationProperties_enableInternetAccess :: Lens.Lens' WorkspaceCreationProperties (Core.Maybe Core.Bool)
+workspaceCreationProperties_enableInternetAccess :: Lens.Lens' WorkspaceCreationProperties (Prelude.Maybe Prelude.Bool)
 workspaceCreationProperties_enableInternetAccess = Lens.lens (\WorkspaceCreationProperties' {enableInternetAccess} -> enableInternetAccess) (\s@WorkspaceCreationProperties' {} a -> s {enableInternetAccess = a} :: WorkspaceCreationProperties)
 
 -- | Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.
@@ -175,34 +177,35 @@ workspaceCreationProperties_enableInternetAccess = Lens.lens (\WorkspaceCreation
 -- If you enable WorkDocs on a directory that already has existing
 -- WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are
 -- launched in the directory will have WorkDocs enabled.
-workspaceCreationProperties_enableWorkDocs :: Lens.Lens' WorkspaceCreationProperties (Core.Maybe Core.Bool)
+workspaceCreationProperties_enableWorkDocs :: Lens.Lens' WorkspaceCreationProperties (Prelude.Maybe Prelude.Bool)
 workspaceCreationProperties_enableWorkDocs = Lens.lens (\WorkspaceCreationProperties' {enableWorkDocs} -> enableWorkDocs) (\s@WorkspaceCreationProperties' {} a -> s {enableWorkDocs = a} :: WorkspaceCreationProperties)
 
 -- | The identifier of your custom security group.
-workspaceCreationProperties_customSecurityGroupId :: Lens.Lens' WorkspaceCreationProperties (Core.Maybe Core.Text)
+workspaceCreationProperties_customSecurityGroupId :: Lens.Lens' WorkspaceCreationProperties (Prelude.Maybe Prelude.Text)
 workspaceCreationProperties_customSecurityGroupId = Lens.lens (\WorkspaceCreationProperties' {customSecurityGroupId} -> customSecurityGroupId) (\s@WorkspaceCreationProperties' {} a -> s {customSecurityGroupId = a} :: WorkspaceCreationProperties)
 
 -- | Indicates whether users are local administrators of their WorkSpaces.
-workspaceCreationProperties_userEnabledAsLocalAdministrator :: Lens.Lens' WorkspaceCreationProperties (Core.Maybe Core.Bool)
+workspaceCreationProperties_userEnabledAsLocalAdministrator :: Lens.Lens' WorkspaceCreationProperties (Prelude.Maybe Prelude.Bool)
 workspaceCreationProperties_userEnabledAsLocalAdministrator = Lens.lens (\WorkspaceCreationProperties' {userEnabledAsLocalAdministrator} -> userEnabledAsLocalAdministrator) (\s@WorkspaceCreationProperties' {} a -> s {userEnabledAsLocalAdministrator = a} :: WorkspaceCreationProperties)
 
-instance Core.Hashable WorkspaceCreationProperties
+instance Prelude.Hashable WorkspaceCreationProperties
 
-instance Core.NFData WorkspaceCreationProperties
+instance Prelude.NFData WorkspaceCreationProperties
 
 instance Core.ToJSON WorkspaceCreationProperties where
   toJSON WorkspaceCreationProperties' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EnableMaintenanceMode" Core..=)
-              Core.<$> enableMaintenanceMode,
-            ("DefaultOu" Core..=) Core.<$> defaultOu,
+              Prelude.<$> enableMaintenanceMode,
+            ("DefaultOu" Core..=) Prelude.<$> defaultOu,
             ("EnableInternetAccess" Core..=)
-              Core.<$> enableInternetAccess,
-            ("EnableWorkDocs" Core..=) Core.<$> enableWorkDocs,
+              Prelude.<$> enableInternetAccess,
+            ("EnableWorkDocs" Core..=)
+              Prelude.<$> enableWorkDocs,
             ("CustomSecurityGroupId" Core..=)
-              Core.<$> customSecurityGroupId,
+              Prelude.<$> customSecurityGroupId,
             ("UserEnabledAsLocalAdministrator" Core..=)
-              Core.<$> userEnabledAsLocalAdministrator
+              Prelude.<$> userEnabledAsLocalAdministrator
           ]
       )

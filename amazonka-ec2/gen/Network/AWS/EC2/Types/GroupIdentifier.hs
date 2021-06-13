@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.GroupIdentifier where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a security group.
 --
 -- /See:/ 'newGroupIdentifier' smart constructor.
 data GroupIdentifier = GroupIdentifier'
   { -- | The name of the security group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the security group.
-    groupId :: Core.Maybe Core.Text
+    groupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupIdentifier' with all optional fields omitted.
@@ -49,31 +50,31 @@ newGroupIdentifier ::
   GroupIdentifier
 newGroupIdentifier =
   GroupIdentifier'
-    { groupName = Core.Nothing,
-      groupId = Core.Nothing
+    { groupName = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
 
 -- | The name of the security group.
-groupIdentifier_groupName :: Lens.Lens' GroupIdentifier (Core.Maybe Core.Text)
+groupIdentifier_groupName :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
 groupIdentifier_groupName = Lens.lens (\GroupIdentifier' {groupName} -> groupName) (\s@GroupIdentifier' {} a -> s {groupName = a} :: GroupIdentifier)
 
 -- | The ID of the security group.
-groupIdentifier_groupId :: Lens.Lens' GroupIdentifier (Core.Maybe Core.Text)
+groupIdentifier_groupId :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
 groupIdentifier_groupId = Lens.lens (\GroupIdentifier' {groupId} -> groupId) (\s@GroupIdentifier' {} a -> s {groupId = a} :: GroupIdentifier)
 
 instance Core.FromXML GroupIdentifier where
   parseXML x =
     GroupIdentifier'
-      Core.<$> (x Core..@? "groupName")
-      Core.<*> (x Core..@? "groupId")
+      Prelude.<$> (x Core..@? "groupName")
+      Prelude.<*> (x Core..@? "groupId")
 
-instance Core.Hashable GroupIdentifier
+instance Prelude.Hashable GroupIdentifier
 
-instance Core.NFData GroupIdentifier
+instance Prelude.NFData GroupIdentifier
 
 instance Core.ToQuery GroupIdentifier where
   toQuery GroupIdentifier' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "GroupName" Core.=: groupName,
         "GroupId" Core.=: groupId
       ]

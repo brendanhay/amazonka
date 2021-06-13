@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.CacheBehavior where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.BehaviorEnum
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the default cache behavior of an Amazon Lightsail content
 -- delivery network (CDN) distribution.
@@ -45,9 +46,9 @@ data CacheBehavior = CacheBehavior'
     --     @CacheBehaviorPerPath@ parameter. This behavior is ideal for
     --     websites or web applications that use cookies, headers, and query
     --     strings to personalize content for individual users.
-    behavior :: Core.Maybe BehaviorEnum
+    behavior :: Prelude.Maybe BehaviorEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CacheBehavior' with all optional fields omitted.
@@ -77,7 +78,7 @@ data CacheBehavior = CacheBehavior'
 newCacheBehavior ::
   CacheBehavior
 newCacheBehavior =
-  CacheBehavior' {behavior = Core.Nothing}
+  CacheBehavior' {behavior = Prelude.Nothing}
 
 -- | The cache behavior of the distribution.
 --
@@ -96,7 +97,7 @@ newCacheBehavior =
 --     @CacheBehaviorPerPath@ parameter. This behavior is ideal for
 --     websites or web applications that use cookies, headers, and query
 --     strings to personalize content for individual users.
-cacheBehavior_behavior :: Lens.Lens' CacheBehavior (Core.Maybe BehaviorEnum)
+cacheBehavior_behavior :: Lens.Lens' CacheBehavior (Prelude.Maybe BehaviorEnum)
 cacheBehavior_behavior = Lens.lens (\CacheBehavior' {behavior} -> behavior) (\s@CacheBehavior' {} a -> s {behavior = a} :: CacheBehavior)
 
 instance Core.FromJSON CacheBehavior where
@@ -104,16 +105,16 @@ instance Core.FromJSON CacheBehavior where
     Core.withObject
       "CacheBehavior"
       ( \x ->
-          CacheBehavior' Core.<$> (x Core..:? "behavior")
+          CacheBehavior' Prelude.<$> (x Core..:? "behavior")
       )
 
-instance Core.Hashable CacheBehavior
+instance Prelude.Hashable CacheBehavior
 
-instance Core.NFData CacheBehavior
+instance Prelude.NFData CacheBehavior
 
 instance Core.ToJSON CacheBehavior where
   toJSON CacheBehavior' {..} =
     Core.object
-      ( Core.catMaybes
-          [("behavior" Core..=) Core.<$> behavior]
+      ( Prelude.catMaybes
+          [("behavior" Core..=) Prelude.<$> behavior]
       )

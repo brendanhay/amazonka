@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ReservedInstancesConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the modification request\/s.
 --
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
   { -- | The target Reserved Instances configurations supplied as part of the
     -- modification request.
-    targetConfiguration :: Core.Maybe ReservedInstancesConfiguration,
+    targetConfiguration :: Prelude.Maybe ReservedInstancesConfiguration,
     -- | The ID for the Reserved Instances that were created as part of the
     -- modification request. This field is only available when the modification
     -- is fulfilled.
-    reservedInstancesId :: Core.Maybe Core.Text
+    reservedInstancesId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservedInstancesModificationResult' with all optional fields omitted.
@@ -57,19 +58,19 @@ newReservedInstancesModificationResult ::
 newReservedInstancesModificationResult =
   ReservedInstancesModificationResult'
     { targetConfiguration =
-        Core.Nothing,
-      reservedInstancesId = Core.Nothing
+        Prelude.Nothing,
+      reservedInstancesId = Prelude.Nothing
     }
 
 -- | The target Reserved Instances configurations supplied as part of the
 -- modification request.
-reservedInstancesModificationResult_targetConfiguration :: Lens.Lens' ReservedInstancesModificationResult (Core.Maybe ReservedInstancesConfiguration)
+reservedInstancesModificationResult_targetConfiguration :: Lens.Lens' ReservedInstancesModificationResult (Prelude.Maybe ReservedInstancesConfiguration)
 reservedInstancesModificationResult_targetConfiguration = Lens.lens (\ReservedInstancesModificationResult' {targetConfiguration} -> targetConfiguration) (\s@ReservedInstancesModificationResult' {} a -> s {targetConfiguration = a} :: ReservedInstancesModificationResult)
 
 -- | The ID for the Reserved Instances that were created as part of the
 -- modification request. This field is only available when the modification
 -- is fulfilled.
-reservedInstancesModificationResult_reservedInstancesId :: Lens.Lens' ReservedInstancesModificationResult (Core.Maybe Core.Text)
+reservedInstancesModificationResult_reservedInstancesId :: Lens.Lens' ReservedInstancesModificationResult (Prelude.Maybe Prelude.Text)
 reservedInstancesModificationResult_reservedInstancesId = Lens.lens (\ReservedInstancesModificationResult' {reservedInstancesId} -> reservedInstancesId) (\s@ReservedInstancesModificationResult' {} a -> s {reservedInstancesId = a} :: ReservedInstancesModificationResult)
 
 instance
@@ -78,13 +79,13 @@ instance
   where
   parseXML x =
     ReservedInstancesModificationResult'
-      Core.<$> (x Core..@? "targetConfiguration")
-      Core.<*> (x Core..@? "reservedInstancesId")
+      Prelude.<$> (x Core..@? "targetConfiguration")
+      Prelude.<*> (x Core..@? "reservedInstancesId")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReservedInstancesModificationResult
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReservedInstancesModificationResult

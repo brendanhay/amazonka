@@ -21,6 +21,7 @@ module Network.AWS.Inspector.Types.PrivateIp where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a private IP address associated with a
 -- network interface. This data type is used as a response element in the
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPrivateIp' smart constructor.
 data PrivateIp = PrivateIp'
   { -- | The DNS name of the private IP address.
-    privateDnsName :: Core.Maybe Core.Text,
+    privateDnsName :: Prelude.Maybe Prelude.Text,
     -- | The full IP address of the network inteface.
-    privateIpAddress :: Core.Maybe Core.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PrivateIp' with all optional fields omitted.
@@ -50,16 +51,16 @@ newPrivateIp ::
   PrivateIp
 newPrivateIp =
   PrivateIp'
-    { privateDnsName = Core.Nothing,
-      privateIpAddress = Core.Nothing
+    { privateDnsName = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
 
 -- | The DNS name of the private IP address.
-privateIp_privateDnsName :: Lens.Lens' PrivateIp (Core.Maybe Core.Text)
+privateIp_privateDnsName :: Lens.Lens' PrivateIp (Prelude.Maybe Prelude.Text)
 privateIp_privateDnsName = Lens.lens (\PrivateIp' {privateDnsName} -> privateDnsName) (\s@PrivateIp' {} a -> s {privateDnsName = a} :: PrivateIp)
 
 -- | The full IP address of the network inteface.
-privateIp_privateIpAddress :: Lens.Lens' PrivateIp (Core.Maybe Core.Text)
+privateIp_privateIpAddress :: Lens.Lens' PrivateIp (Prelude.Maybe Prelude.Text)
 privateIp_privateIpAddress = Lens.lens (\PrivateIp' {privateIpAddress} -> privateIpAddress) (\s@PrivateIp' {} a -> s {privateIpAddress = a} :: PrivateIp)
 
 instance Core.FromJSON PrivateIp where
@@ -68,10 +69,10 @@ instance Core.FromJSON PrivateIp where
       "PrivateIp"
       ( \x ->
           PrivateIp'
-            Core.<$> (x Core..:? "privateDnsName")
-            Core.<*> (x Core..:? "privateIpAddress")
+            Prelude.<$> (x Core..:? "privateDnsName")
+            Prelude.<*> (x Core..:? "privateIpAddress")
       )
 
-instance Core.Hashable PrivateIp
+instance Prelude.Hashable PrivateIp
 
-instance Core.NFData PrivateIp
+instance Prelude.NFData PrivateIp

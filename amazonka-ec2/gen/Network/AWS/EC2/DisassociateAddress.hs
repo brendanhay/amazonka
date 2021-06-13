@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +59,13 @@ data DisassociateAddress = DisassociateAddress'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | [EC2-VPC] The association ID. Required for EC2-VPC.
-    associationId :: Core.Maybe Core.Text,
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-    publicIp :: Core.Maybe Core.Text
+    publicIp :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateAddress' with all optional fields omitted.
@@ -86,24 +87,24 @@ newDisassociateAddress ::
   DisassociateAddress
 newDisassociateAddress =
   DisassociateAddress'
-    { dryRun = Core.Nothing,
-      associationId = Core.Nothing,
-      publicIp = Core.Nothing
+    { dryRun = Prelude.Nothing,
+      associationId = Prelude.Nothing,
+      publicIp = Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disassociateAddress_dryRun :: Lens.Lens' DisassociateAddress (Core.Maybe Core.Bool)
+disassociateAddress_dryRun :: Lens.Lens' DisassociateAddress (Prelude.Maybe Prelude.Bool)
 disassociateAddress_dryRun = Lens.lens (\DisassociateAddress' {dryRun} -> dryRun) (\s@DisassociateAddress' {} a -> s {dryRun = a} :: DisassociateAddress)
 
 -- | [EC2-VPC] The association ID. Required for EC2-VPC.
-disassociateAddress_associationId :: Lens.Lens' DisassociateAddress (Core.Maybe Core.Text)
+disassociateAddress_associationId :: Lens.Lens' DisassociateAddress (Prelude.Maybe Prelude.Text)
 disassociateAddress_associationId = Lens.lens (\DisassociateAddress' {associationId} -> associationId) (\s@DisassociateAddress' {} a -> s {associationId = a} :: DisassociateAddress)
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-disassociateAddress_publicIp :: Lens.Lens' DisassociateAddress (Core.Maybe Core.Text)
+disassociateAddress_publicIp :: Lens.Lens' DisassociateAddress (Prelude.Maybe Prelude.Text)
 disassociateAddress_publicIp = Lens.lens (\DisassociateAddress' {publicIp} -> publicIp) (\s@DisassociateAddress' {} a -> s {publicIp = a} :: DisassociateAddress)
 
 instance Core.AWSRequest DisassociateAddress where
@@ -114,22 +115,23 @@ instance Core.AWSRequest DisassociateAddress where
   response =
     Response.receiveNull DisassociateAddressResponse'
 
-instance Core.Hashable DisassociateAddress
+instance Prelude.Hashable DisassociateAddress
 
-instance Core.NFData DisassociateAddress
+instance Prelude.NFData DisassociateAddress
 
 instance Core.ToHeaders DisassociateAddress where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisassociateAddress where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateAddress where
   toQuery DisassociateAddress' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisassociateAddress" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DisassociateAddress" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "AssociationId" Core.=: associationId,
         "PublicIp" Core.=: publicIp
@@ -139,7 +141,7 @@ instance Core.ToQuery DisassociateAddress where
 data DisassociateAddressResponse = DisassociateAddressResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateAddressResponse' with all optional fields omitted.
@@ -150,4 +152,4 @@ newDisassociateAddressResponse ::
 newDisassociateAddressResponse =
   DisassociateAddressResponse'
 
-instance Core.NFData DisassociateAddressResponse
+instance Prelude.NFData DisassociateAddressResponse

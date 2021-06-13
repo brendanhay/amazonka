@@ -21,19 +21,20 @@ module Network.AWS.Athena.Types.Column where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains metadata for a column in a table.
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
   { -- | Optional information about the column.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The data type of the column.
-    type' :: Core.Maybe Core.Text,
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The name of the column.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Column' with all optional fields omitted.
@@ -50,25 +51,25 @@ data Column = Column'
 -- 'name', 'column_name' - The name of the column.
 newColumn ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Column
 newColumn pName_ =
   Column'
-    { comment = Core.Nothing,
-      type' = Core.Nothing,
+    { comment = Prelude.Nothing,
+      type' = Prelude.Nothing,
       name = pName_
     }
 
 -- | Optional information about the column.
-column_comment :: Lens.Lens' Column (Core.Maybe Core.Text)
+column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
 column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s {comment = a} :: Column)
 
 -- | The data type of the column.
-column_type :: Lens.Lens' Column (Core.Maybe Core.Text)
+column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
 -- | The name of the column.
-column_name :: Lens.Lens' Column Core.Text
+column_name :: Lens.Lens' Column Prelude.Text
 column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = a} :: Column)
 
 instance Core.FromJSON Column where
@@ -77,11 +78,11 @@ instance Core.FromJSON Column where
       "Column"
       ( \x ->
           Column'
-            Core.<$> (x Core..:? "Comment")
-            Core.<*> (x Core..:? "Type")
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..:? "Comment")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable Column
+instance Prelude.Hashable Column
 
-instance Core.NFData Column
+instance Prelude.NFData Column

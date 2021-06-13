@@ -68,29 +68,30 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDiscoverInputSchema' smart constructor.
 data DiscoverInputSchema = DiscoverInputSchema'
   { -- | Amazon Resource Name (ARN) of the streaming source.
-    resourceARN :: Core.Maybe Core.Text,
+    resourceARN :: Prelude.Maybe Prelude.Text,
     -- | Point at which you want Amazon Kinesis Analytics to start reading
     -- records from the specified streaming source discovery purposes.
-    inputStartingPositionConfiguration :: Core.Maybe InputStartingPositionConfiguration,
+    inputStartingPositionConfiguration :: Prelude.Maybe InputStartingPositionConfiguration,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream on your behalf.
-    roleARN :: Core.Maybe Core.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | Specify this parameter to discover a schema from data in an Amazon S3
     -- object.
-    s3Configuration :: Core.Maybe S3Configuration,
+    s3Configuration :: Prelude.Maybe S3Configuration,
     -- | The
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration>
     -- to use to preprocess the records before discovering the schema of the
     -- records.
-    inputProcessingConfiguration :: Core.Maybe InputProcessingConfiguration
+    inputProcessingConfiguration :: Prelude.Maybe InputProcessingConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiscoverInputSchema' with all optional fields omitted.
@@ -119,37 +120,37 @@ newDiscoverInputSchema ::
   DiscoverInputSchema
 newDiscoverInputSchema =
   DiscoverInputSchema'
-    { resourceARN = Core.Nothing,
-      inputStartingPositionConfiguration = Core.Nothing,
-      roleARN = Core.Nothing,
-      s3Configuration = Core.Nothing,
-      inputProcessingConfiguration = Core.Nothing
+    { resourceARN = Prelude.Nothing,
+      inputStartingPositionConfiguration = Prelude.Nothing,
+      roleARN = Prelude.Nothing,
+      s3Configuration = Prelude.Nothing,
+      inputProcessingConfiguration = Prelude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the streaming source.
-discoverInputSchema_resourceARN :: Lens.Lens' DiscoverInputSchema (Core.Maybe Core.Text)
+discoverInputSchema_resourceARN :: Lens.Lens' DiscoverInputSchema (Prelude.Maybe Prelude.Text)
 discoverInputSchema_resourceARN = Lens.lens (\DiscoverInputSchema' {resourceARN} -> resourceARN) (\s@DiscoverInputSchema' {} a -> s {resourceARN = a} :: DiscoverInputSchema)
 
 -- | Point at which you want Amazon Kinesis Analytics to start reading
 -- records from the specified streaming source discovery purposes.
-discoverInputSchema_inputStartingPositionConfiguration :: Lens.Lens' DiscoverInputSchema (Core.Maybe InputStartingPositionConfiguration)
+discoverInputSchema_inputStartingPositionConfiguration :: Lens.Lens' DiscoverInputSchema (Prelude.Maybe InputStartingPositionConfiguration)
 discoverInputSchema_inputStartingPositionConfiguration = Lens.lens (\DiscoverInputSchema' {inputStartingPositionConfiguration} -> inputStartingPositionConfiguration) (\s@DiscoverInputSchema' {} a -> s {inputStartingPositionConfiguration = a} :: DiscoverInputSchema)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream on your behalf.
-discoverInputSchema_roleARN :: Lens.Lens' DiscoverInputSchema (Core.Maybe Core.Text)
+discoverInputSchema_roleARN :: Lens.Lens' DiscoverInputSchema (Prelude.Maybe Prelude.Text)
 discoverInputSchema_roleARN = Lens.lens (\DiscoverInputSchema' {roleARN} -> roleARN) (\s@DiscoverInputSchema' {} a -> s {roleARN = a} :: DiscoverInputSchema)
 
 -- | Specify this parameter to discover a schema from data in an Amazon S3
 -- object.
-discoverInputSchema_s3Configuration :: Lens.Lens' DiscoverInputSchema (Core.Maybe S3Configuration)
+discoverInputSchema_s3Configuration :: Lens.Lens' DiscoverInputSchema (Prelude.Maybe S3Configuration)
 discoverInputSchema_s3Configuration = Lens.lens (\DiscoverInputSchema' {s3Configuration} -> s3Configuration) (\s@DiscoverInputSchema' {} a -> s {s3Configuration = a} :: DiscoverInputSchema)
 
 -- | The
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration>
 -- to use to preprocess the records before discovering the schema of the
 -- records.
-discoverInputSchema_inputProcessingConfiguration :: Lens.Lens' DiscoverInputSchema (Core.Maybe InputProcessingConfiguration)
+discoverInputSchema_inputProcessingConfiguration :: Lens.Lens' DiscoverInputSchema (Prelude.Maybe InputProcessingConfiguration)
 discoverInputSchema_inputProcessingConfiguration = Lens.lens (\DiscoverInputSchema' {inputProcessingConfiguration} -> inputProcessingConfiguration) (\s@DiscoverInputSchema' {} a -> s {inputProcessingConfiguration = a} :: DiscoverInputSchema)
 
 instance Core.AWSRequest DiscoverInputSchema where
@@ -161,53 +162,58 @@ instance Core.AWSRequest DiscoverInputSchema where
     Response.receiveJSON
       ( \s h x ->
           DiscoverInputSchemaResponse'
-            Core.<$> (x Core..?> "InputSchema")
-            Core.<*> ( x Core..?> "ProcessedInputRecords"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "RawInputRecords" Core..!@ Core.mempty)
-            Core.<*> ( x Core..?> "ParsedInputRecords"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "InputSchema")
+            Prelude.<*> ( x Core..?> "ProcessedInputRecords"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "RawInputRecords"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "ParsedInputRecords"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DiscoverInputSchema
+instance Prelude.Hashable DiscoverInputSchema
 
-instance Core.NFData DiscoverInputSchema
+instance Prelude.NFData DiscoverInputSchema
 
 instance Core.ToHeaders DiscoverInputSchema where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "KinesisAnalytics_20150814.DiscoverInputSchema" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DiscoverInputSchema where
   toJSON DiscoverInputSchema' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceARN" Core..=) Core.<$> resourceARN,
+      ( Prelude.catMaybes
+          [ ("ResourceARN" Core..=) Prelude.<$> resourceARN,
             ("InputStartingPositionConfiguration" Core..=)
-              Core.<$> inputStartingPositionConfiguration,
-            ("RoleARN" Core..=) Core.<$> roleARN,
-            ("S3Configuration" Core..=) Core.<$> s3Configuration,
+              Prelude.<$> inputStartingPositionConfiguration,
+            ("RoleARN" Core..=) Prelude.<$> roleARN,
+            ("S3Configuration" Core..=)
+              Prelude.<$> s3Configuration,
             ("InputProcessingConfiguration" Core..=)
-              Core.<$> inputProcessingConfiguration
+              Prelude.<$> inputProcessingConfiguration
           ]
       )
 
 instance Core.ToPath DiscoverInputSchema where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DiscoverInputSchema where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
@@ -216,19 +222,19 @@ data DiscoverInputSchemaResponse = DiscoverInputSchemaResponse'
   { -- | Schema inferred from the streaming source. It identifies the format of
     -- the data in the streaming source and how each data element maps to
     -- corresponding columns in the in-application stream that you can create.
-    inputSchema :: Core.Maybe SourceSchema,
+    inputSchema :: Prelude.Maybe SourceSchema,
     -- | Stream data that was modified by the processor specified in the
     -- @InputProcessingConfiguration@ parameter.
-    processedInputRecords :: Core.Maybe [Core.Text],
+    processedInputRecords :: Prelude.Maybe [Prelude.Text],
     -- | Raw stream data that was sampled to infer the schema.
-    rawInputRecords :: Core.Maybe [Core.Text],
+    rawInputRecords :: Prelude.Maybe [Prelude.Text],
     -- | An array of elements, where each element corresponds to a row in a
     -- stream record (a stream record can have more than one row).
-    parsedInputRecords :: Core.Maybe [[Core.Text]],
+    parsedInputRecords :: Prelude.Maybe [[Prelude.Text]],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiscoverInputSchemaResponse' with all optional fields omitted.
@@ -253,40 +259,40 @@ data DiscoverInputSchemaResponse = DiscoverInputSchemaResponse'
 -- 'httpStatus', 'discoverInputSchemaResponse_httpStatus' - The response's http status code.
 newDiscoverInputSchemaResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DiscoverInputSchemaResponse
 newDiscoverInputSchemaResponse pHttpStatus_ =
   DiscoverInputSchemaResponse'
     { inputSchema =
-        Core.Nothing,
-      processedInputRecords = Core.Nothing,
-      rawInputRecords = Core.Nothing,
-      parsedInputRecords = Core.Nothing,
+        Prelude.Nothing,
+      processedInputRecords = Prelude.Nothing,
+      rawInputRecords = Prelude.Nothing,
+      parsedInputRecords = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Schema inferred from the streaming source. It identifies the format of
 -- the data in the streaming source and how each data element maps to
 -- corresponding columns in the in-application stream that you can create.
-discoverInputSchemaResponse_inputSchema :: Lens.Lens' DiscoverInputSchemaResponse (Core.Maybe SourceSchema)
+discoverInputSchemaResponse_inputSchema :: Lens.Lens' DiscoverInputSchemaResponse (Prelude.Maybe SourceSchema)
 discoverInputSchemaResponse_inputSchema = Lens.lens (\DiscoverInputSchemaResponse' {inputSchema} -> inputSchema) (\s@DiscoverInputSchemaResponse' {} a -> s {inputSchema = a} :: DiscoverInputSchemaResponse)
 
 -- | Stream data that was modified by the processor specified in the
 -- @InputProcessingConfiguration@ parameter.
-discoverInputSchemaResponse_processedInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Core.Maybe [Core.Text])
-discoverInputSchemaResponse_processedInputRecords = Lens.lens (\DiscoverInputSchemaResponse' {processedInputRecords} -> processedInputRecords) (\s@DiscoverInputSchemaResponse' {} a -> s {processedInputRecords = a} :: DiscoverInputSchemaResponse) Core.. Lens.mapping Lens._Coerce
+discoverInputSchemaResponse_processedInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Prelude.Maybe [Prelude.Text])
+discoverInputSchemaResponse_processedInputRecords = Lens.lens (\DiscoverInputSchemaResponse' {processedInputRecords} -> processedInputRecords) (\s@DiscoverInputSchemaResponse' {} a -> s {processedInputRecords = a} :: DiscoverInputSchemaResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Raw stream data that was sampled to infer the schema.
-discoverInputSchemaResponse_rawInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Core.Maybe [Core.Text])
-discoverInputSchemaResponse_rawInputRecords = Lens.lens (\DiscoverInputSchemaResponse' {rawInputRecords} -> rawInputRecords) (\s@DiscoverInputSchemaResponse' {} a -> s {rawInputRecords = a} :: DiscoverInputSchemaResponse) Core.. Lens.mapping Lens._Coerce
+discoverInputSchemaResponse_rawInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Prelude.Maybe [Prelude.Text])
+discoverInputSchemaResponse_rawInputRecords = Lens.lens (\DiscoverInputSchemaResponse' {rawInputRecords} -> rawInputRecords) (\s@DiscoverInputSchemaResponse' {} a -> s {rawInputRecords = a} :: DiscoverInputSchemaResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of elements, where each element corresponds to a row in a
 -- stream record (a stream record can have more than one row).
-discoverInputSchemaResponse_parsedInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Core.Maybe [[Core.Text]])
-discoverInputSchemaResponse_parsedInputRecords = Lens.lens (\DiscoverInputSchemaResponse' {parsedInputRecords} -> parsedInputRecords) (\s@DiscoverInputSchemaResponse' {} a -> s {parsedInputRecords = a} :: DiscoverInputSchemaResponse) Core.. Lens.mapping Lens._Coerce
+discoverInputSchemaResponse_parsedInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Prelude.Maybe [[Prelude.Text]])
+discoverInputSchemaResponse_parsedInputRecords = Lens.lens (\DiscoverInputSchemaResponse' {parsedInputRecords} -> parsedInputRecords) (\s@DiscoverInputSchemaResponse' {} a -> s {parsedInputRecords = a} :: DiscoverInputSchemaResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-discoverInputSchemaResponse_httpStatus :: Lens.Lens' DiscoverInputSchemaResponse Core.Int
+discoverInputSchemaResponse_httpStatus :: Lens.Lens' DiscoverInputSchemaResponse Prelude.Int
 discoverInputSchemaResponse_httpStatus = Lens.lens (\DiscoverInputSchemaResponse' {httpStatus} -> httpStatus) (\s@DiscoverInputSchemaResponse' {} a -> s {httpStatus = a} :: DiscoverInputSchemaResponse)
 
-instance Core.NFData DiscoverInputSchemaResponse
+instance Prelude.NFData DiscoverInputSchemaResponse

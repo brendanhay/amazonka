@@ -47,13 +47,14 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newUpdateSMBSecurityStrategy' smart constructor.
 data UpdateSMBSecurityStrategy = UpdateSMBSecurityStrategy'
-  { gatewayARN :: Core.Text,
+  { gatewayARN :: Prelude.Text,
     -- | Specifies the type of security strategy.
     --
     -- ClientSpecified: if you use this option, requests are established based
@@ -73,7 +74,7 @@ data UpdateSMBSecurityStrategy = UpdateSMBSecurityStrategy'
     -- 2012 or newer.
     sMBSecurityStrategy :: SMBSecurityStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSMBSecurityStrategy' with all optional fields omitted.
@@ -104,7 +105,7 @@ data UpdateSMBSecurityStrategy = UpdateSMBSecurityStrategy'
 -- 2012 or newer.
 newUpdateSMBSecurityStrategy ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sMBSecurityStrategy'
   SMBSecurityStrategy ->
   UpdateSMBSecurityStrategy
@@ -118,7 +119,7 @@ newUpdateSMBSecurityStrategy
       }
 
 -- | Undocumented member.
-updateSMBSecurityStrategy_gatewayARN :: Lens.Lens' UpdateSMBSecurityStrategy Core.Text
+updateSMBSecurityStrategy_gatewayARN :: Lens.Lens' UpdateSMBSecurityStrategy Prelude.Text
 updateSMBSecurityStrategy_gatewayARN = Lens.lens (\UpdateSMBSecurityStrategy' {gatewayARN} -> gatewayARN) (\s@UpdateSMBSecurityStrategy' {} a -> s {gatewayARN = a} :: UpdateSMBSecurityStrategy)
 
 -- | Specifies the type of security strategy.
@@ -150,50 +151,52 @@ instance Core.AWSRequest UpdateSMBSecurityStrategy where
     Response.receiveJSON
       ( \s h x ->
           UpdateSMBSecurityStrategyResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateSMBSecurityStrategy
+instance Prelude.Hashable UpdateSMBSecurityStrategy
 
-instance Core.NFData UpdateSMBSecurityStrategy
+instance Prelude.NFData UpdateSMBSecurityStrategy
 
 instance Core.ToHeaders UpdateSMBSecurityStrategy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.UpdateSMBSecurityStrategy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSMBSecurityStrategy where
   toJSON UpdateSMBSecurityStrategy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GatewayARN" Core..= gatewayARN),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just
               ("SMBSecurityStrategy" Core..= sMBSecurityStrategy)
           ]
       )
 
 instance Core.ToPath UpdateSMBSecurityStrategy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSMBSecurityStrategy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSMBSecurityStrategyResponse' smart constructor.
 data UpdateSMBSecurityStrategyResponse = UpdateSMBSecurityStrategyResponse'
-  { gatewayARN :: Core.Maybe Core.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSMBSecurityStrategyResponse' with all optional fields omitted.
@@ -208,23 +211,23 @@ data UpdateSMBSecurityStrategyResponse = UpdateSMBSecurityStrategyResponse'
 -- 'httpStatus', 'updateSMBSecurityStrategyResponse_httpStatus' - The response's http status code.
 newUpdateSMBSecurityStrategyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateSMBSecurityStrategyResponse
 newUpdateSMBSecurityStrategyResponse pHttpStatus_ =
   UpdateSMBSecurityStrategyResponse'
     { gatewayARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateSMBSecurityStrategyResponse_gatewayARN :: Lens.Lens' UpdateSMBSecurityStrategyResponse (Core.Maybe Core.Text)
+updateSMBSecurityStrategyResponse_gatewayARN :: Lens.Lens' UpdateSMBSecurityStrategyResponse (Prelude.Maybe Prelude.Text)
 updateSMBSecurityStrategyResponse_gatewayARN = Lens.lens (\UpdateSMBSecurityStrategyResponse' {gatewayARN} -> gatewayARN) (\s@UpdateSMBSecurityStrategyResponse' {} a -> s {gatewayARN = a} :: UpdateSMBSecurityStrategyResponse)
 
 -- | The response's http status code.
-updateSMBSecurityStrategyResponse_httpStatus :: Lens.Lens' UpdateSMBSecurityStrategyResponse Core.Int
+updateSMBSecurityStrategyResponse_httpStatus :: Lens.Lens' UpdateSMBSecurityStrategyResponse Prelude.Int
 updateSMBSecurityStrategyResponse_httpStatus = Lens.lens (\UpdateSMBSecurityStrategyResponse' {httpStatus} -> httpStatus) (\s@UpdateSMBSecurityStrategyResponse' {} a -> s {httpStatus = a} :: UpdateSMBSecurityStrategyResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateSMBSecurityStrategyResponse

@@ -21,6 +21,7 @@ module Network.AWS.StorageGateway.Types.GatewayInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a gateway object.
 --
@@ -29,24 +30,24 @@ data GatewayInfo = GatewayInfo'
   { -- | The state of the gateway.
     --
     -- Valid Values: @DISABLED@ | @ACTIVE@
-    gatewayOperationalState :: Core.Maybe Core.Text,
+    gatewayOperationalState :: Prelude.Maybe Prelude.Text,
     -- | The name of the gateway.
-    gatewayName :: Core.Maybe Core.Text,
+    gatewayName :: Prelude.Maybe Prelude.Text,
     -- | The type of the gateway.
-    gatewayType :: Core.Maybe Core.Text,
+    gatewayType :: Prelude.Maybe Prelude.Text,
     -- | The AWS Region where the Amazon EC2 instance is located.
-    ec2InstanceRegion :: Core.Maybe Core.Text,
+    ec2InstanceRegion :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
-    ec2InstanceId :: Core.Maybe Core.Text,
+    ec2InstanceId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
     -- operation to return a list of gateways for your account and AWS Region.
-    gatewayARN :: Core.Maybe Core.Text,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier assigned to your gateway during activation. This
     -- ID becomes part of the gateway Amazon Resource Name (ARN), which you use
     -- as input for other operations.
-    gatewayId :: Core.Maybe Core.Text
+    gatewayId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GatewayInfo' with all optional fields omitted.
@@ -79,46 +80,46 @@ newGatewayInfo ::
 newGatewayInfo =
   GatewayInfo'
     { gatewayOperationalState =
-        Core.Nothing,
-      gatewayName = Core.Nothing,
-      gatewayType = Core.Nothing,
-      ec2InstanceRegion = Core.Nothing,
-      ec2InstanceId = Core.Nothing,
-      gatewayARN = Core.Nothing,
-      gatewayId = Core.Nothing
+        Prelude.Nothing,
+      gatewayName = Prelude.Nothing,
+      gatewayType = Prelude.Nothing,
+      ec2InstanceRegion = Prelude.Nothing,
+      ec2InstanceId = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
+      gatewayId = Prelude.Nothing
     }
 
 -- | The state of the gateway.
 --
 -- Valid Values: @DISABLED@ | @ACTIVE@
-gatewayInfo_gatewayOperationalState :: Lens.Lens' GatewayInfo (Core.Maybe Core.Text)
+gatewayInfo_gatewayOperationalState :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_gatewayOperationalState = Lens.lens (\GatewayInfo' {gatewayOperationalState} -> gatewayOperationalState) (\s@GatewayInfo' {} a -> s {gatewayOperationalState = a} :: GatewayInfo)
 
 -- | The name of the gateway.
-gatewayInfo_gatewayName :: Lens.Lens' GatewayInfo (Core.Maybe Core.Text)
+gatewayInfo_gatewayName :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_gatewayName = Lens.lens (\GatewayInfo' {gatewayName} -> gatewayName) (\s@GatewayInfo' {} a -> s {gatewayName = a} :: GatewayInfo)
 
 -- | The type of the gateway.
-gatewayInfo_gatewayType :: Lens.Lens' GatewayInfo (Core.Maybe Core.Text)
+gatewayInfo_gatewayType :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_gatewayType = Lens.lens (\GatewayInfo' {gatewayType} -> gatewayType) (\s@GatewayInfo' {} a -> s {gatewayType = a} :: GatewayInfo)
 
 -- | The AWS Region where the Amazon EC2 instance is located.
-gatewayInfo_ec2InstanceRegion :: Lens.Lens' GatewayInfo (Core.Maybe Core.Text)
+gatewayInfo_ec2InstanceRegion :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_ec2InstanceRegion = Lens.lens (\GatewayInfo' {ec2InstanceRegion} -> ec2InstanceRegion) (\s@GatewayInfo' {} a -> s {ec2InstanceRegion = a} :: GatewayInfo)
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
-gatewayInfo_ec2InstanceId :: Lens.Lens' GatewayInfo (Core.Maybe Core.Text)
+gatewayInfo_ec2InstanceId :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_ec2InstanceId = Lens.lens (\GatewayInfo' {ec2InstanceId} -> ec2InstanceId) (\s@GatewayInfo' {} a -> s {ec2InstanceId = a} :: GatewayInfo)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and AWS Region.
-gatewayInfo_gatewayARN :: Lens.Lens' GatewayInfo (Core.Maybe Core.Text)
+gatewayInfo_gatewayARN :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_gatewayARN = Lens.lens (\GatewayInfo' {gatewayARN} -> gatewayARN) (\s@GatewayInfo' {} a -> s {gatewayARN = a} :: GatewayInfo)
 
 -- | The unique identifier assigned to your gateway during activation. This
 -- ID becomes part of the gateway Amazon Resource Name (ARN), which you use
 -- as input for other operations.
-gatewayInfo_gatewayId :: Lens.Lens' GatewayInfo (Core.Maybe Core.Text)
+gatewayInfo_gatewayId :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_gatewayId = Lens.lens (\GatewayInfo' {gatewayId} -> gatewayId) (\s@GatewayInfo' {} a -> s {gatewayId = a} :: GatewayInfo)
 
 instance Core.FromJSON GatewayInfo where
@@ -127,15 +128,15 @@ instance Core.FromJSON GatewayInfo where
       "GatewayInfo"
       ( \x ->
           GatewayInfo'
-            Core.<$> (x Core..:? "GatewayOperationalState")
-            Core.<*> (x Core..:? "GatewayName")
-            Core.<*> (x Core..:? "GatewayType")
-            Core.<*> (x Core..:? "Ec2InstanceRegion")
-            Core.<*> (x Core..:? "Ec2InstanceId")
-            Core.<*> (x Core..:? "GatewayARN")
-            Core.<*> (x Core..:? "GatewayId")
+            Prelude.<$> (x Core..:? "GatewayOperationalState")
+            Prelude.<*> (x Core..:? "GatewayName")
+            Prelude.<*> (x Core..:? "GatewayType")
+            Prelude.<*> (x Core..:? "Ec2InstanceRegion")
+            Prelude.<*> (x Core..:? "Ec2InstanceId")
+            Prelude.<*> (x Core..:? "GatewayARN")
+            Prelude.<*> (x Core..:? "GatewayId")
       )
 
-instance Core.Hashable GatewayInfo
+instance Prelude.Hashable GatewayInfo
 
-instance Core.NFData GatewayInfo
+instance Prelude.NFData GatewayInfo

@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,23 +57,23 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetInventorySchema' smart constructor.
 data GetInventorySchema = GetInventorySchema'
   { -- | The type of inventory item to return.
-    typeName :: Core.Maybe Core.Text,
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns the sub-type schema for a specified inventory type.
-    subType :: Core.Maybe Core.Bool,
+    subType :: Prelude.Maybe Prelude.Bool,
     -- | Returns inventory schemas that support aggregation. For example, this
     -- call returns the @AWS:InstanceInformation@ type, because it supports
     -- aggregation based on the @PlatformName@, @PlatformType@, and
     -- @PlatformVersion@ attributes.
-    aggregator :: Core.Maybe Core.Bool,
+    aggregator :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInventorySchema' with all optional fields omitted.
@@ -101,37 +102,37 @@ newGetInventorySchema ::
   GetInventorySchema
 newGetInventorySchema =
   GetInventorySchema'
-    { typeName = Core.Nothing,
-      nextToken = Core.Nothing,
-      subType = Core.Nothing,
-      aggregator = Core.Nothing,
-      maxResults = Core.Nothing
+    { typeName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      subType = Prelude.Nothing,
+      aggregator = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The type of inventory item to return.
-getInventorySchema_typeName :: Lens.Lens' GetInventorySchema (Core.Maybe Core.Text)
+getInventorySchema_typeName :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Text)
 getInventorySchema_typeName = Lens.lens (\GetInventorySchema' {typeName} -> typeName) (\s@GetInventorySchema' {} a -> s {typeName = a} :: GetInventorySchema)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-getInventorySchema_nextToken :: Lens.Lens' GetInventorySchema (Core.Maybe Core.Text)
+getInventorySchema_nextToken :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Text)
 getInventorySchema_nextToken = Lens.lens (\GetInventorySchema' {nextToken} -> nextToken) (\s@GetInventorySchema' {} a -> s {nextToken = a} :: GetInventorySchema)
 
 -- | Returns the sub-type schema for a specified inventory type.
-getInventorySchema_subType :: Lens.Lens' GetInventorySchema (Core.Maybe Core.Bool)
+getInventorySchema_subType :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Bool)
 getInventorySchema_subType = Lens.lens (\GetInventorySchema' {subType} -> subType) (\s@GetInventorySchema' {} a -> s {subType = a} :: GetInventorySchema)
 
 -- | Returns inventory schemas that support aggregation. For example, this
 -- call returns the @AWS:InstanceInformation@ type, because it supports
 -- aggregation based on the @PlatformName@, @PlatformType@, and
 -- @PlatformVersion@ attributes.
-getInventorySchema_aggregator :: Lens.Lens' GetInventorySchema (Core.Maybe Core.Bool)
+getInventorySchema_aggregator :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Bool)
 getInventorySchema_aggregator = Lens.lens (\GetInventorySchema' {aggregator} -> aggregator) (\s@GetInventorySchema' {} a -> s {aggregator = a} :: GetInventorySchema)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-getInventorySchema_maxResults :: Lens.Lens' GetInventorySchema (Core.Maybe Core.Natural)
+getInventorySchema_maxResults :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Natural)
 getInventorySchema_maxResults = Lens.lens (\GetInventorySchema' {maxResults} -> maxResults) (\s@GetInventorySchema' {} a -> s {maxResults = a} :: GetInventorySchema)
 
 instance Core.AWSPager GetInventorySchema where
@@ -139,21 +140,22 @@ instance Core.AWSPager GetInventorySchema where
     | Core.stop
         ( rs
             Lens.^? getInventorySchemaResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getInventorySchemaResponse_schemas Core.. Lens._Just
+            Lens.^? getInventorySchemaResponse_schemas
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getInventorySchema_nextToken
+          Prelude.& getInventorySchema_nextToken
           Lens..~ rs
           Lens.^? getInventorySchemaResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetInventorySchema where
   type
@@ -164,55 +166,59 @@ instance Core.AWSRequest GetInventorySchema where
     Response.receiveJSON
       ( \s h x ->
           GetInventorySchemaResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Schemas" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInventorySchema
+instance Prelude.Hashable GetInventorySchema
 
-instance Core.NFData GetInventorySchema
+instance Prelude.NFData GetInventorySchema
 
 instance Core.ToHeaders GetInventorySchema where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetInventorySchema" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.GetInventorySchema" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetInventorySchema where
   toJSON GetInventorySchema' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TypeName" Core..=) Core.<$> typeName,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("SubType" Core..=) Core.<$> subType,
-            ("Aggregator" Core..=) Core.<$> aggregator,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("TypeName" Core..=) Prelude.<$> typeName,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SubType" Core..=) Prelude.<$> subType,
+            ("Aggregator" Core..=) Prelude.<$> aggregator,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath GetInventorySchema where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetInventorySchema where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInventorySchemaResponse' smart constructor.
 data GetInventorySchemaResponse = GetInventorySchemaResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Inventory schemas returned by the request.
-    schemas :: Core.Maybe [InventoryItemSchema],
+    schemas :: Prelude.Maybe [InventoryItemSchema],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInventorySchemaResponse' with all optional fields omitted.
@@ -230,27 +236,27 @@ data GetInventorySchemaResponse = GetInventorySchemaResponse'
 -- 'httpStatus', 'getInventorySchemaResponse_httpStatus' - The response's http status code.
 newGetInventorySchemaResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInventorySchemaResponse
 newGetInventorySchemaResponse pHttpStatus_ =
   GetInventorySchemaResponse'
     { nextToken =
-        Core.Nothing,
-      schemas = Core.Nothing,
+        Prelude.Nothing,
+      schemas = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-getInventorySchemaResponse_nextToken :: Lens.Lens' GetInventorySchemaResponse (Core.Maybe Core.Text)
+getInventorySchemaResponse_nextToken :: Lens.Lens' GetInventorySchemaResponse (Prelude.Maybe Prelude.Text)
 getInventorySchemaResponse_nextToken = Lens.lens (\GetInventorySchemaResponse' {nextToken} -> nextToken) (\s@GetInventorySchemaResponse' {} a -> s {nextToken = a} :: GetInventorySchemaResponse)
 
 -- | Inventory schemas returned by the request.
-getInventorySchemaResponse_schemas :: Lens.Lens' GetInventorySchemaResponse (Core.Maybe [InventoryItemSchema])
-getInventorySchemaResponse_schemas = Lens.lens (\GetInventorySchemaResponse' {schemas} -> schemas) (\s@GetInventorySchemaResponse' {} a -> s {schemas = a} :: GetInventorySchemaResponse) Core.. Lens.mapping Lens._Coerce
+getInventorySchemaResponse_schemas :: Lens.Lens' GetInventorySchemaResponse (Prelude.Maybe [InventoryItemSchema])
+getInventorySchemaResponse_schemas = Lens.lens (\GetInventorySchemaResponse' {schemas} -> schemas) (\s@GetInventorySchemaResponse' {} a -> s {schemas = a} :: GetInventorySchemaResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getInventorySchemaResponse_httpStatus :: Lens.Lens' GetInventorySchemaResponse Core.Int
+getInventorySchemaResponse_httpStatus :: Lens.Lens' GetInventorySchemaResponse Prelude.Int
 getInventorySchemaResponse_httpStatus = Lens.lens (\GetInventorySchemaResponse' {httpStatus} -> httpStatus) (\s@GetInventorySchemaResponse' {} a -> s {httpStatus = a} :: GetInventorySchemaResponse)
 
-instance Core.NFData GetInventorySchemaResponse
+instance Prelude.NFData GetInventorySchemaResponse

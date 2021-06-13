@@ -22,16 +22,17 @@ module Network.AWS.CloudSearch.Types.AccessPoliciesStatus where
 import Network.AWS.CloudSearch.Types.OptionStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configured access rules for the domain\'s document and search
 -- endpoints, and the current status of those rules.
 --
 -- /See:/ 'newAccessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
-  { options :: Core.Text,
+  { options :: Prelude.Text,
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessPoliciesStatus' with all optional fields omitted.
@@ -46,7 +47,7 @@ data AccessPoliciesStatus = AccessPoliciesStatus'
 -- 'status', 'accessPoliciesStatus_status' - Undocumented member.
 newAccessPoliciesStatus ::
   -- | 'options'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   OptionStatus ->
   AccessPoliciesStatus
@@ -57,7 +58,7 @@ newAccessPoliciesStatus pOptions_ pStatus_ =
     }
 
 -- | Undocumented member.
-accessPoliciesStatus_options :: Lens.Lens' AccessPoliciesStatus Core.Text
+accessPoliciesStatus_options :: Lens.Lens' AccessPoliciesStatus Prelude.Text
 accessPoliciesStatus_options = Lens.lens (\AccessPoliciesStatus' {options} -> options) (\s@AccessPoliciesStatus' {} a -> s {options = a} :: AccessPoliciesStatus)
 
 -- | Undocumented member.
@@ -67,8 +68,9 @@ accessPoliciesStatus_status = Lens.lens (\AccessPoliciesStatus' {status} -> stat
 instance Core.FromXML AccessPoliciesStatus where
   parseXML x =
     AccessPoliciesStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Options")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable AccessPoliciesStatus
+instance Prelude.Hashable AccessPoliciesStatus
 
-instance Core.NFData AccessPoliciesStatus
+instance Prelude.NFData AccessPoliciesStatus

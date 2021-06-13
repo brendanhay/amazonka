@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,9 +57,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeImage' smart constructor.
 data DescribeImage = DescribeImage'
   { -- | The name of the image to describe.
-    imageName :: Core.Text
+    imageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImage' with all optional fields omitted.
@@ -71,13 +72,13 @@ data DescribeImage = DescribeImage'
 -- 'imageName', 'describeImage_imageName' - The name of the image to describe.
 newDescribeImage ::
   -- | 'imageName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeImage
 newDescribeImage pImageName_ =
   DescribeImage' {imageName = pImageName_}
 
 -- | The name of the image to describe.
-describeImage_imageName :: Lens.Lens' DescribeImage Core.Text
+describeImage_imageName :: Lens.Lens' DescribeImage Prelude.Text
 describeImage_imageName = Lens.lens (\DescribeImage' {imageName} -> imageName) (\s@DescribeImage' {} a -> s {imageName = a} :: DescribeImage)
 
 instance Core.AWSRequest DescribeImage where
@@ -89,72 +90,74 @@ instance Core.AWSRequest DescribeImage where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageResponse'
-            Core.<$> (x Core..?> "CreationTime")
-            Core.<*> (x Core..?> "RoleArn")
-            Core.<*> (x Core..?> "ImageName")
-            Core.<*> (x Core..?> "FailureReason")
-            Core.<*> (x Core..?> "LastModifiedTime")
-            Core.<*> (x Core..?> "Description")
-            Core.<*> (x Core..?> "ImageStatus")
-            Core.<*> (x Core..?> "DisplayName")
-            Core.<*> (x Core..?> "ImageArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "ImageName")
+            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "ImageStatus")
+            Prelude.<*> (x Core..?> "DisplayName")
+            Prelude.<*> (x Core..?> "ImageArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeImage
+instance Prelude.Hashable DescribeImage
 
-instance Core.NFData DescribeImage
+instance Prelude.NFData DescribeImage
 
 instance Core.ToHeaders DescribeImage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeImage" :: Core.ByteString),
+              Core.=# ("SageMaker.DescribeImage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeImage where
   toJSON DescribeImage' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ImageName" Core..= imageName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ImageName" Core..= imageName)]
       )
 
 instance Core.ToPath DescribeImage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeImage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImageResponse' smart constructor.
 data DescribeImageResponse = DescribeImageResponse'
   { -- | When the image was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the IAM role that enables Amazon
     -- SageMaker to perform tasks on your behalf.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the image.
-    imageName :: Core.Maybe Core.Text,
+    imageName :: Prelude.Maybe Prelude.Text,
     -- | When a create, update, or delete operation fails, the reason for the
     -- failure.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | When the image was last modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The description of the image.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The status of the image.
-    imageStatus :: Core.Maybe ImageStatus,
+    imageStatus :: Prelude.Maybe ImageStatus,
     -- | The name of the image as displayed.
-    displayName :: Core.Maybe Core.Text,
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image.
-    imageArn :: Core.Maybe Core.Text,
+    imageArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImageResponse' with all optional fields omitted.
@@ -187,62 +190,63 @@ data DescribeImageResponse = DescribeImageResponse'
 -- 'httpStatus', 'describeImageResponse_httpStatus' - The response's http status code.
 newDescribeImageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeImageResponse
 newDescribeImageResponse pHttpStatus_ =
   DescribeImageResponse'
-    { creationTime = Core.Nothing,
-      roleArn = Core.Nothing,
-      imageName = Core.Nothing,
-      failureReason = Core.Nothing,
-      lastModifiedTime = Core.Nothing,
-      description = Core.Nothing,
-      imageStatus = Core.Nothing,
-      displayName = Core.Nothing,
-      imageArn = Core.Nothing,
+    { creationTime =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      imageName = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      description = Prelude.Nothing,
+      imageStatus = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      imageArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | When the image was created.
-describeImageResponse_creationTime :: Lens.Lens' DescribeImageResponse (Core.Maybe Core.UTCTime)
-describeImageResponse_creationTime = Lens.lens (\DescribeImageResponse' {creationTime} -> creationTime) (\s@DescribeImageResponse' {} a -> s {creationTime = a} :: DescribeImageResponse) Core.. Lens.mapping Core._Time
+describeImageResponse_creationTime :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.UTCTime)
+describeImageResponse_creationTime = Lens.lens (\DescribeImageResponse' {creationTime} -> creationTime) (\s@DescribeImageResponse' {} a -> s {creationTime = a} :: DescribeImageResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the IAM role that enables Amazon
 -- SageMaker to perform tasks on your behalf.
-describeImageResponse_roleArn :: Lens.Lens' DescribeImageResponse (Core.Maybe Core.Text)
+describeImageResponse_roleArn :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_roleArn = Lens.lens (\DescribeImageResponse' {roleArn} -> roleArn) (\s@DescribeImageResponse' {} a -> s {roleArn = a} :: DescribeImageResponse)
 
 -- | The name of the image.
-describeImageResponse_imageName :: Lens.Lens' DescribeImageResponse (Core.Maybe Core.Text)
+describeImageResponse_imageName :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_imageName = Lens.lens (\DescribeImageResponse' {imageName} -> imageName) (\s@DescribeImageResponse' {} a -> s {imageName = a} :: DescribeImageResponse)
 
 -- | When a create, update, or delete operation fails, the reason for the
 -- failure.
-describeImageResponse_failureReason :: Lens.Lens' DescribeImageResponse (Core.Maybe Core.Text)
+describeImageResponse_failureReason :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_failureReason = Lens.lens (\DescribeImageResponse' {failureReason} -> failureReason) (\s@DescribeImageResponse' {} a -> s {failureReason = a} :: DescribeImageResponse)
 
 -- | When the image was last modified.
-describeImageResponse_lastModifiedTime :: Lens.Lens' DescribeImageResponse (Core.Maybe Core.UTCTime)
-describeImageResponse_lastModifiedTime = Lens.lens (\DescribeImageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageResponse) Core.. Lens.mapping Core._Time
+describeImageResponse_lastModifiedTime :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.UTCTime)
+describeImageResponse_lastModifiedTime = Lens.lens (\DescribeImageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the image.
-describeImageResponse_description :: Lens.Lens' DescribeImageResponse (Core.Maybe Core.Text)
+describeImageResponse_description :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_description = Lens.lens (\DescribeImageResponse' {description} -> description) (\s@DescribeImageResponse' {} a -> s {description = a} :: DescribeImageResponse)
 
 -- | The status of the image.
-describeImageResponse_imageStatus :: Lens.Lens' DescribeImageResponse (Core.Maybe ImageStatus)
+describeImageResponse_imageStatus :: Lens.Lens' DescribeImageResponse (Prelude.Maybe ImageStatus)
 describeImageResponse_imageStatus = Lens.lens (\DescribeImageResponse' {imageStatus} -> imageStatus) (\s@DescribeImageResponse' {} a -> s {imageStatus = a} :: DescribeImageResponse)
 
 -- | The name of the image as displayed.
-describeImageResponse_displayName :: Lens.Lens' DescribeImageResponse (Core.Maybe Core.Text)
+describeImageResponse_displayName :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_displayName = Lens.lens (\DescribeImageResponse' {displayName} -> displayName) (\s@DescribeImageResponse' {} a -> s {displayName = a} :: DescribeImageResponse)
 
 -- | The Amazon Resource Name (ARN) of the image.
-describeImageResponse_imageArn :: Lens.Lens' DescribeImageResponse (Core.Maybe Core.Text)
+describeImageResponse_imageArn :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.Text)
 describeImageResponse_imageArn = Lens.lens (\DescribeImageResponse' {imageArn} -> imageArn) (\s@DescribeImageResponse' {} a -> s {imageArn = a} :: DescribeImageResponse)
 
 -- | The response's http status code.
-describeImageResponse_httpStatus :: Lens.Lens' DescribeImageResponse Core.Int
+describeImageResponse_httpStatus :: Lens.Lens' DescribeImageResponse Prelude.Int
 describeImageResponse_httpStatus = Lens.lens (\DescribeImageResponse' {httpStatus} -> httpStatus) (\s@DescribeImageResponse' {} a -> s {httpStatus = a} :: DescribeImageResponse)
 
-instance Core.NFData DescribeImageResponse
+instance Prelude.NFData DescribeImageResponse

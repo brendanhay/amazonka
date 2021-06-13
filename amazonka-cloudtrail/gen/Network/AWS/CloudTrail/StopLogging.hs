@@ -48,6 +48,7 @@ where
 import Network.AWS.CloudTrail.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +62,9 @@ data StopLogging = StopLogging'
     -- is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopLogging' with all optional fields omitted.
@@ -80,7 +81,7 @@ data StopLogging = StopLogging'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newStopLogging ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   StopLogging
 newStopLogging pName_ = StopLogging' {name = pName_}
 
@@ -89,7 +90,7 @@ newStopLogging pName_ = StopLogging' {name = pName_}
 -- is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-stopLogging_name :: Lens.Lens' StopLogging Core.Text
+stopLogging_name :: Lens.Lens' StopLogging Prelude.Text
 stopLogging_name = Lens.lens (\StopLogging' {name} -> name) (\s@StopLogging' {} a -> s {name = a} :: StopLogging)
 
 instance Core.AWSRequest StopLogging where
@@ -99,36 +100,40 @@ instance Core.AWSRequest StopLogging where
     Response.receiveEmpty
       ( \s h x ->
           StopLoggingResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopLogging
+instance Prelude.Hashable StopLogging
 
-instance Core.NFData StopLogging
+instance Prelude.NFData StopLogging
 
 instance Core.ToHeaders StopLogging where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StopLogging" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopLogging where
   toJSON StopLogging' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath StopLogging where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopLogging where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,
 -- returns an error.
@@ -136,9 +141,9 @@ instance Core.ToQuery StopLogging where
 -- /See:/ 'newStopLoggingResponse' smart constructor.
 data StopLoggingResponse = StopLoggingResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopLoggingResponse' with all optional fields omitted.
@@ -151,13 +156,13 @@ data StopLoggingResponse = StopLoggingResponse'
 -- 'httpStatus', 'stopLoggingResponse_httpStatus' - The response's http status code.
 newStopLoggingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopLoggingResponse
 newStopLoggingResponse pHttpStatus_ =
   StopLoggingResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-stopLoggingResponse_httpStatus :: Lens.Lens' StopLoggingResponse Core.Int
+stopLoggingResponse_httpStatus :: Lens.Lens' StopLoggingResponse Prelude.Int
 stopLoggingResponse_httpStatus = Lens.lens (\StopLoggingResponse' {httpStatus} -> httpStatus) (\s@StopLoggingResponse' {} a -> s {httpStatus = a} :: StopLoggingResponse)
 
-instance Core.NFData StopLoggingResponse
+instance Prelude.NFData StopLoggingResponse

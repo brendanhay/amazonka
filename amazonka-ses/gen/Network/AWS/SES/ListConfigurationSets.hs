@@ -57,6 +57,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -71,11 +72,11 @@ data ListConfigurationSets = ListConfigurationSets'
   { -- | A token returned from a previous call to @ListConfigurationSets@ to
     -- indicate the position of the configuration set in the configuration set
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of configuration sets to return.
-    maxItems :: Core.Maybe Core.Int
+    maxItems :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListConfigurationSets' with all optional fields omitted.
@@ -94,18 +95,18 @@ newListConfigurationSets ::
   ListConfigurationSets
 newListConfigurationSets =
   ListConfigurationSets'
-    { nextToken = Core.Nothing,
-      maxItems = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
 
 -- | A token returned from a previous call to @ListConfigurationSets@ to
 -- indicate the position of the configuration set in the configuration set
 -- list.
-listConfigurationSets_nextToken :: Lens.Lens' ListConfigurationSets (Core.Maybe Core.Text)
+listConfigurationSets_nextToken :: Lens.Lens' ListConfigurationSets (Prelude.Maybe Prelude.Text)
 listConfigurationSets_nextToken = Lens.lens (\ListConfigurationSets' {nextToken} -> nextToken) (\s@ListConfigurationSets' {} a -> s {nextToken = a} :: ListConfigurationSets)
 
 -- | The number of configuration sets to return.
-listConfigurationSets_maxItems :: Lens.Lens' ListConfigurationSets (Core.Maybe Core.Int)
+listConfigurationSets_maxItems :: Lens.Lens' ListConfigurationSets (Prelude.Maybe Prelude.Int)
 listConfigurationSets_maxItems = Lens.lens (\ListConfigurationSets' {maxItems} -> maxItems) (\s@ListConfigurationSets' {} a -> s {maxItems = a} :: ListConfigurationSets)
 
 instance Core.AWSPager ListConfigurationSets where
@@ -113,22 +114,22 @@ instance Core.AWSPager ListConfigurationSets where
     | Core.stop
         ( rs
             Lens.^? listConfigurationSetsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listConfigurationSetsResponse_configurationSets
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listConfigurationSets_nextToken
+          Prelude.& listConfigurationSets_nextToken
           Lens..~ rs
           Lens.^? listConfigurationSetsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConfigurationSets where
   type
@@ -140,29 +141,31 @@ instance Core.AWSRequest ListConfigurationSets where
       "ListConfigurationSetsResult"
       ( \s h x ->
           ListConfigurationSetsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "ConfigurationSets" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "ConfigurationSets"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListConfigurationSets
+instance Prelude.Hashable ListConfigurationSets
 
-instance Core.NFData ListConfigurationSets
+instance Prelude.NFData ListConfigurationSets
 
 instance Core.ToHeaders ListConfigurationSets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListConfigurationSets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListConfigurationSets where
   toQuery ListConfigurationSets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListConfigurationSets" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("ListConfigurationSets" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MaxItems" Core.=: maxItems
       ]
@@ -177,13 +180,13 @@ data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
   { -- | A token indicating that there are additional configuration sets
     -- available to be listed. Pass this token to successive calls of
     -- @ListConfigurationSets@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of configuration sets.
-    configurationSets :: Core.Maybe [ConfigurationSet],
+    configurationSets :: Prelude.Maybe [ConfigurationSet],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListConfigurationSetsResponse' with all optional fields omitted.
@@ -202,28 +205,28 @@ data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
 -- 'httpStatus', 'listConfigurationSetsResponse_httpStatus' - The response's http status code.
 newListConfigurationSetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListConfigurationSetsResponse
 newListConfigurationSetsResponse pHttpStatus_ =
   ListConfigurationSetsResponse'
     { nextToken =
-        Core.Nothing,
-      configurationSets = Core.Nothing,
+        Prelude.Nothing,
+      configurationSets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token indicating that there are additional configuration sets
 -- available to be listed. Pass this token to successive calls of
 -- @ListConfigurationSets@.
-listConfigurationSetsResponse_nextToken :: Lens.Lens' ListConfigurationSetsResponse (Core.Maybe Core.Text)
+listConfigurationSetsResponse_nextToken :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe Prelude.Text)
 listConfigurationSetsResponse_nextToken = Lens.lens (\ListConfigurationSetsResponse' {nextToken} -> nextToken) (\s@ListConfigurationSetsResponse' {} a -> s {nextToken = a} :: ListConfigurationSetsResponse)
 
 -- | A list of configuration sets.
-listConfigurationSetsResponse_configurationSets :: Lens.Lens' ListConfigurationSetsResponse (Core.Maybe [ConfigurationSet])
-listConfigurationSetsResponse_configurationSets = Lens.lens (\ListConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@ListConfigurationSetsResponse' {} a -> s {configurationSets = a} :: ListConfigurationSetsResponse) Core.. Lens.mapping Lens._Coerce
+listConfigurationSetsResponse_configurationSets :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe [ConfigurationSet])
+listConfigurationSetsResponse_configurationSets = Lens.lens (\ListConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@ListConfigurationSetsResponse' {} a -> s {configurationSets = a} :: ListConfigurationSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listConfigurationSetsResponse_httpStatus :: Lens.Lens' ListConfigurationSetsResponse Core.Int
+listConfigurationSetsResponse_httpStatus :: Lens.Lens' ListConfigurationSetsResponse Prelude.Int
 listConfigurationSetsResponse_httpStatus = Lens.lens (\ListConfigurationSetsResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationSetsResponse' {} a -> s {httpStatus = a} :: ListConfigurationSetsResponse)
 
-instance Core.NFData ListConfigurationSetsResponse
+instance Prelude.NFData ListConfigurationSetsResponse

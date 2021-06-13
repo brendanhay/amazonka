@@ -22,18 +22,19 @@ module Network.AWS.CodePipeline.Types.ApprovalResult where
 import Network.AWS.CodePipeline.Types.ApprovalStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the result of an approval request.
 --
 -- /See:/ 'newApprovalResult' smart constructor.
 data ApprovalResult = ApprovalResult'
   { -- | The summary of the current status of the approval request.
-    summary :: Core.Text,
+    summary :: Prelude.Text,
     -- | The response submitted by a reviewer assigned to an approval action
     -- request.
     status :: ApprovalStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApprovalResult' with all optional fields omitted.
@@ -49,7 +50,7 @@ data ApprovalResult = ApprovalResult'
 -- request.
 newApprovalResult ::
   -- | 'summary'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   ApprovalStatus ->
   ApprovalResult
@@ -60,7 +61,7 @@ newApprovalResult pSummary_ pStatus_ =
     }
 
 -- | The summary of the current status of the approval request.
-approvalResult_summary :: Lens.Lens' ApprovalResult Core.Text
+approvalResult_summary :: Lens.Lens' ApprovalResult Prelude.Text
 approvalResult_summary = Lens.lens (\ApprovalResult' {summary} -> summary) (\s@ApprovalResult' {} a -> s {summary = a} :: ApprovalResult)
 
 -- | The response submitted by a reviewer assigned to an approval action
@@ -68,15 +69,15 @@ approvalResult_summary = Lens.lens (\ApprovalResult' {summary} -> summary) (\s@A
 approvalResult_status :: Lens.Lens' ApprovalResult ApprovalStatus
 approvalResult_status = Lens.lens (\ApprovalResult' {status} -> status) (\s@ApprovalResult' {} a -> s {status = a} :: ApprovalResult)
 
-instance Core.Hashable ApprovalResult
+instance Prelude.Hashable ApprovalResult
 
-instance Core.NFData ApprovalResult
+instance Prelude.NFData ApprovalResult
 
 instance Core.ToJSON ApprovalResult where
   toJSON ApprovalResult' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("summary" Core..= summary),
-            Core.Just ("status" Core..= status)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("summary" Core..= summary),
+            Prelude.Just ("status" Core..= status)
           ]
       )

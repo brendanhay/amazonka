@@ -61,6 +61,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -74,7 +75,7 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup'
     -- Constraints:
     --
     -- -   If supplied, must match the name of an existing @DBParameterGroup@.
-    dbParameterGroupName :: Core.Text,
+    dbParameterGroupName :: Prelude.Text,
     -- | An array of parameter names, values, and the apply method for the
     -- parameter update. At least one parameter name, value, and apply method
     -- must be supplied; later arguments are optional. A maximum of 20
@@ -87,7 +88,7 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup'
     -- changes are applied when you reboot the DB instance without failover.
     parameters :: [Parameter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBParameterGroup' with all optional fields omitted.
@@ -115,13 +116,13 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup'
 -- changes are applied when you reboot the DB instance without failover.
 newModifyDBParameterGroup ::
   -- | 'dbParameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   ModifyDBParameterGroup
 newModifyDBParameterGroup pDBParameterGroupName_ =
   ModifyDBParameterGroup'
     { dbParameterGroupName =
         pDBParameterGroupName_,
-      parameters = Core.mempty
+      parameters = Prelude.mempty
     }
 
 -- | The name of the DB parameter group.
@@ -129,7 +130,7 @@ newModifyDBParameterGroup pDBParameterGroupName_ =
 -- Constraints:
 --
 -- -   If supplied, must match the name of an existing @DBParameterGroup@.
-modifyDBParameterGroup_dbParameterGroupName :: Lens.Lens' ModifyDBParameterGroup Core.Text
+modifyDBParameterGroup_dbParameterGroupName :: Lens.Lens' ModifyDBParameterGroup Prelude.Text
 modifyDBParameterGroup_dbParameterGroupName = Lens.lens (\ModifyDBParameterGroup' {dbParameterGroupName} -> dbParameterGroupName) (\s@ModifyDBParameterGroup' {} a -> s {dbParameterGroupName = a} :: ModifyDBParameterGroup)
 
 -- | An array of parameter names, values, and the apply method for the
@@ -143,7 +144,7 @@ modifyDBParameterGroup_dbParameterGroupName = Lens.lens (\ModifyDBParameterGroup
 -- use the pending-reboot value for both dynamic and static parameters, and
 -- changes are applied when you reboot the DB instance without failover.
 modifyDBParameterGroup_parameters :: Lens.Lens' ModifyDBParameterGroup [Parameter]
-modifyDBParameterGroup_parameters = Lens.lens (\ModifyDBParameterGroup' {parameters} -> parameters) (\s@ModifyDBParameterGroup' {} a -> s {parameters = a} :: ModifyDBParameterGroup) Core.. Lens._Coerce
+modifyDBParameterGroup_parameters = Lens.lens (\ModifyDBParameterGroup' {parameters} -> parameters) (\s@ModifyDBParameterGroup' {} a -> s {parameters = a} :: ModifyDBParameterGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ModifyDBParameterGroup where
   type
@@ -155,22 +156,23 @@ instance Core.AWSRequest ModifyDBParameterGroup where
       "ModifyDBParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable ModifyDBParameterGroup
+instance Prelude.Hashable ModifyDBParameterGroup
 
-instance Core.NFData ModifyDBParameterGroup
+instance Prelude.NFData ModifyDBParameterGroup
 
 instance Core.ToHeaders ModifyDBParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyDBParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyDBParameterGroup where
   toQuery ModifyDBParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("ModifyDBParameterGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBParameterGroupName" Core.=: dbParameterGroupName,
         "Parameters"
           Core.=: Core.toQueryList "Parameter" parameters

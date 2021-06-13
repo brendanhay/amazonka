@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.TargetDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a target.
 --
@@ -45,18 +46,18 @@ data TargetDescription = TargetDescription'
     --
     -- If the target type is @lambda@, this parameter is optional and the only
     -- supported value is @all@.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The port on which the target is listening. If the target group protocol
     -- is GENEVE, the supported port is 6081. Not used if the target is a
     -- Lambda function.
-    port :: Core.Maybe Core.Natural,
+    port :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the target. If the target type of the target group is
     -- @instance@, specify an instance ID. If the target type is @ip@, specify
     -- an IP address. If the target type is @lambda@, specify the ARN of the
     -- Lambda function.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetDescription' with all optional fields omitted.
@@ -96,12 +97,13 @@ data TargetDescription = TargetDescription'
 -- Lambda function.
 newTargetDescription ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   TargetDescription
 newTargetDescription pId_ =
   TargetDescription'
-    { availabilityZone = Core.Nothing,
-      port = Core.Nothing,
+    { availabilityZone =
+        Prelude.Nothing,
+      port = Prelude.Nothing,
       id = pId_
     }
 
@@ -124,36 +126,36 @@ newTargetDescription pId_ =
 --
 -- If the target type is @lambda@, this parameter is optional and the only
 -- supported value is @all@.
-targetDescription_availabilityZone :: Lens.Lens' TargetDescription (Core.Maybe Core.Text)
+targetDescription_availabilityZone :: Lens.Lens' TargetDescription (Prelude.Maybe Prelude.Text)
 targetDescription_availabilityZone = Lens.lens (\TargetDescription' {availabilityZone} -> availabilityZone) (\s@TargetDescription' {} a -> s {availabilityZone = a} :: TargetDescription)
 
 -- | The port on which the target is listening. If the target group protocol
 -- is GENEVE, the supported port is 6081. Not used if the target is a
 -- Lambda function.
-targetDescription_port :: Lens.Lens' TargetDescription (Core.Maybe Core.Natural)
+targetDescription_port :: Lens.Lens' TargetDescription (Prelude.Maybe Prelude.Natural)
 targetDescription_port = Lens.lens (\TargetDescription' {port} -> port) (\s@TargetDescription' {} a -> s {port = a} :: TargetDescription)
 
 -- | The ID of the target. If the target type of the target group is
 -- @instance@, specify an instance ID. If the target type is @ip@, specify
 -- an IP address. If the target type is @lambda@, specify the ARN of the
 -- Lambda function.
-targetDescription_id :: Lens.Lens' TargetDescription Core.Text
+targetDescription_id :: Lens.Lens' TargetDescription Prelude.Text
 targetDescription_id = Lens.lens (\TargetDescription' {id} -> id) (\s@TargetDescription' {} a -> s {id = a} :: TargetDescription)
 
 instance Core.FromXML TargetDescription where
   parseXML x =
     TargetDescription'
-      Core.<$> (x Core..@? "AvailabilityZone")
-      Core.<*> (x Core..@? "Port")
-      Core.<*> (x Core..@ "Id")
+      Prelude.<$> (x Core..@? "AvailabilityZone")
+      Prelude.<*> (x Core..@? "Port")
+      Prelude.<*> (x Core..@ "Id")
 
-instance Core.Hashable TargetDescription
+instance Prelude.Hashable TargetDescription
 
-instance Core.NFData TargetDescription
+instance Prelude.NFData TargetDescription
 
 instance Core.ToQuery TargetDescription where
   toQuery TargetDescription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "AvailabilityZone" Core.=: availabilityZone,
         "Port" Core.=: port,
         "Id" Core.=: id

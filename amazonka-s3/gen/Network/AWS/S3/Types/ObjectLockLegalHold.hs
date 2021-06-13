@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ObjectLockLegalHold where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectLockLegalHoldStatus
 
@@ -29,9 +30,9 @@ import Network.AWS.S3.Types.ObjectLockLegalHoldStatus
 -- /See:/ 'newObjectLockLegalHold' smart constructor.
 data ObjectLockLegalHold = ObjectLockLegalHold'
   { -- | Indicates whether the specified object has a Legal Hold in place.
-    status :: Core.Maybe ObjectLockLegalHoldStatus
+    status :: Prelude.Maybe ObjectLockLegalHoldStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ObjectLockLegalHold' with all optional fields omitted.
@@ -45,20 +46,21 @@ data ObjectLockLegalHold = ObjectLockLegalHold'
 newObjectLockLegalHold ::
   ObjectLockLegalHold
 newObjectLockLegalHold =
-  ObjectLockLegalHold' {status = Core.Nothing}
+  ObjectLockLegalHold' {status = Prelude.Nothing}
 
 -- | Indicates whether the specified object has a Legal Hold in place.
-objectLockLegalHold_status :: Lens.Lens' ObjectLockLegalHold (Core.Maybe ObjectLockLegalHoldStatus)
+objectLockLegalHold_status :: Lens.Lens' ObjectLockLegalHold (Prelude.Maybe ObjectLockLegalHoldStatus)
 objectLockLegalHold_status = Lens.lens (\ObjectLockLegalHold' {status} -> status) (\s@ObjectLockLegalHold' {} a -> s {status = a} :: ObjectLockLegalHold)
 
 instance Core.FromXML ObjectLockLegalHold where
   parseXML x =
-    ObjectLockLegalHold' Core.<$> (x Core..@? "Status")
+    ObjectLockLegalHold'
+      Prelude.<$> (x Core..@? "Status")
 
-instance Core.Hashable ObjectLockLegalHold
+instance Prelude.Hashable ObjectLockLegalHold
 
-instance Core.NFData ObjectLockLegalHold
+instance Prelude.NFData ObjectLockLegalHold
 
 instance Core.ToXML ObjectLockLegalHold where
   toXML ObjectLockLegalHold' {..} =
-    Core.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Core.@= status]

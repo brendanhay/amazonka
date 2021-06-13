@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +57,7 @@ data ListIdentityProviderConfigs = ListIdentityProviderConfigs'
     -- @IdentityProviderConfigsRequest@ where @maxResults@ was used and the
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of identity provider configurations returned by
     -- @ListIdentityProviderConfigs@ in paginated output. When you use this
     -- parameter, @ListIdentityProviderConfigs@ returns only @maxResults@
@@ -66,12 +67,12 @@ data ListIdentityProviderConfigs = ListIdentityProviderConfigs'
     -- value. This value can be between 1 and 100. If you don\'t use this
     -- parameter, @ListIdentityProviderConfigs@ returns up to 100 results and a
     -- @nextToken@ value, if applicable.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The cluster name that you want to list identity provider configurations
     -- for.
-    clusterName :: Core.Text
+    clusterName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIdentityProviderConfigs' with all optional fields omitted.
@@ -100,13 +101,13 @@ data ListIdentityProviderConfigs = ListIdentityProviderConfigs'
 -- for.
 newListIdentityProviderConfigs ::
   -- | 'clusterName'
-  Core.Text ->
+  Prelude.Text ->
   ListIdentityProviderConfigs
 newListIdentityProviderConfigs pClusterName_ =
   ListIdentityProviderConfigs'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       clusterName = pClusterName_
     }
 
@@ -114,7 +115,7 @@ newListIdentityProviderConfigs pClusterName_ =
 -- @IdentityProviderConfigsRequest@ where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
-listIdentityProviderConfigs_nextToken :: Lens.Lens' ListIdentityProviderConfigs (Core.Maybe Core.Text)
+listIdentityProviderConfigs_nextToken :: Lens.Lens' ListIdentityProviderConfigs (Prelude.Maybe Prelude.Text)
 listIdentityProviderConfigs_nextToken = Lens.lens (\ListIdentityProviderConfigs' {nextToken} -> nextToken) (\s@ListIdentityProviderConfigs' {} a -> s {nextToken = a} :: ListIdentityProviderConfigs)
 
 -- | The maximum number of identity provider configurations returned by
@@ -126,12 +127,12 @@ listIdentityProviderConfigs_nextToken = Lens.lens (\ListIdentityProviderConfigs'
 -- value. This value can be between 1 and 100. If you don\'t use this
 -- parameter, @ListIdentityProviderConfigs@ returns up to 100 results and a
 -- @nextToken@ value, if applicable.
-listIdentityProviderConfigs_maxResults :: Lens.Lens' ListIdentityProviderConfigs (Core.Maybe Core.Natural)
+listIdentityProviderConfigs_maxResults :: Lens.Lens' ListIdentityProviderConfigs (Prelude.Maybe Prelude.Natural)
 listIdentityProviderConfigs_maxResults = Lens.lens (\ListIdentityProviderConfigs' {maxResults} -> maxResults) (\s@ListIdentityProviderConfigs' {} a -> s {maxResults = a} :: ListIdentityProviderConfigs)
 
 -- | The cluster name that you want to list identity provider configurations
 -- for.
-listIdentityProviderConfigs_clusterName :: Lens.Lens' ListIdentityProviderConfigs Core.Text
+listIdentityProviderConfigs_clusterName :: Lens.Lens' ListIdentityProviderConfigs Prelude.Text
 listIdentityProviderConfigs_clusterName = Lens.lens (\ListIdentityProviderConfigs' {clusterName} -> clusterName) (\s@ListIdentityProviderConfigs' {} a -> s {clusterName = a} :: ListIdentityProviderConfigs)
 
 instance Core.AWSPager ListIdentityProviderConfigs where
@@ -139,22 +140,22 @@ instance Core.AWSPager ListIdentityProviderConfigs where
     | Core.stop
         ( rs
             Lens.^? listIdentityProviderConfigsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listIdentityProviderConfigsResponse_identityProviderConfigs
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listIdentityProviderConfigs_nextToken
+          Prelude.& listIdentityProviderConfigs_nextToken
           Lens..~ rs
           Lens.^? listIdentityProviderConfigsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIdentityProviderConfigs where
   type
@@ -165,29 +166,31 @@ instance Core.AWSRequest ListIdentityProviderConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityProviderConfigsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> ( x Core..?> "identityProviderConfigs"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "identityProviderConfigs"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListIdentityProviderConfigs
+instance Prelude.Hashable ListIdentityProviderConfigs
 
-instance Core.NFData ListIdentityProviderConfigs
+instance Prelude.NFData ListIdentityProviderConfigs
 
 instance Core.ToHeaders ListIdentityProviderConfigs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListIdentityProviderConfigs where
   toPath ListIdentityProviderConfigs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/clusters/",
         Core.toBS clusterName,
         "/identity-provider-configs"
@@ -195,7 +198,7 @@ instance Core.ToPath ListIdentityProviderConfigs where
 
 instance Core.ToQuery ListIdentityProviderConfigs where
   toQuery ListIdentityProviderConfigs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -207,13 +210,13 @@ data ListIdentityProviderConfigsResponse = ListIdentityProviderConfigsResponse'
     -- the results exceeded the value of that parameter. Pagination continues
     -- from the end of the previous results that returned the @nextToken@
     -- value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identity provider configurations for the cluster.
-    identityProviderConfigs :: Core.Maybe [IdentityProviderConfig],
+    identityProviderConfigs :: Prelude.Maybe [IdentityProviderConfig],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListIdentityProviderConfigsResponse' with all optional fields omitted.
@@ -234,13 +237,14 @@ data ListIdentityProviderConfigsResponse = ListIdentityProviderConfigsResponse'
 -- 'httpStatus', 'listIdentityProviderConfigsResponse_httpStatus' - The response's http status code.
 newListIdentityProviderConfigsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListIdentityProviderConfigsResponse
 newListIdentityProviderConfigsResponse pHttpStatus_ =
   ListIdentityProviderConfigsResponse'
     { nextToken =
-        Core.Nothing,
-      identityProviderConfigs = Core.Nothing,
+        Prelude.Nothing,
+      identityProviderConfigs =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -249,17 +253,17 @@ newListIdentityProviderConfigsResponse pHttpStatus_ =
 -- the results exceeded the value of that parameter. Pagination continues
 -- from the end of the previous results that returned the @nextToken@
 -- value.
-listIdentityProviderConfigsResponse_nextToken :: Lens.Lens' ListIdentityProviderConfigsResponse (Core.Maybe Core.Text)
+listIdentityProviderConfigsResponse_nextToken :: Lens.Lens' ListIdentityProviderConfigsResponse (Prelude.Maybe Prelude.Text)
 listIdentityProviderConfigsResponse_nextToken = Lens.lens (\ListIdentityProviderConfigsResponse' {nextToken} -> nextToken) (\s@ListIdentityProviderConfigsResponse' {} a -> s {nextToken = a} :: ListIdentityProviderConfigsResponse)
 
 -- | The identity provider configurations for the cluster.
-listIdentityProviderConfigsResponse_identityProviderConfigs :: Lens.Lens' ListIdentityProviderConfigsResponse (Core.Maybe [IdentityProviderConfig])
-listIdentityProviderConfigsResponse_identityProviderConfigs = Lens.lens (\ListIdentityProviderConfigsResponse' {identityProviderConfigs} -> identityProviderConfigs) (\s@ListIdentityProviderConfigsResponse' {} a -> s {identityProviderConfigs = a} :: ListIdentityProviderConfigsResponse) Core.. Lens.mapping Lens._Coerce
+listIdentityProviderConfigsResponse_identityProviderConfigs :: Lens.Lens' ListIdentityProviderConfigsResponse (Prelude.Maybe [IdentityProviderConfig])
+listIdentityProviderConfigsResponse_identityProviderConfigs = Lens.lens (\ListIdentityProviderConfigsResponse' {identityProviderConfigs} -> identityProviderConfigs) (\s@ListIdentityProviderConfigsResponse' {} a -> s {identityProviderConfigs = a} :: ListIdentityProviderConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listIdentityProviderConfigsResponse_httpStatus :: Lens.Lens' ListIdentityProviderConfigsResponse Core.Int
+listIdentityProviderConfigsResponse_httpStatus :: Lens.Lens' ListIdentityProviderConfigsResponse Prelude.Int
 listIdentityProviderConfigsResponse_httpStatus = Lens.lens (\ListIdentityProviderConfigsResponse' {httpStatus} -> httpStatus) (\s@ListIdentityProviderConfigsResponse' {} a -> s {httpStatus = a} :: ListIdentityProviderConfigsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListIdentityProviderConfigsResponse

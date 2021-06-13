@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Instance where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 
 -- | An instance of a label returned by Amazon Rekognition Image
@@ -29,12 +30,12 @@ import Network.AWS.Rekognition.Types.BoundingBox
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The position of the label instance on the image.
-    boundingBox :: Core.Maybe BoundingBox,
+    boundingBox :: Prelude.Maybe BoundingBox,
     -- | The confidence that Amazon Rekognition has in the accuracy of the
     -- bounding box.
-    confidence :: Core.Maybe Core.Double
+    confidence :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -52,17 +53,17 @@ newInstance ::
   Instance
 newInstance =
   Instance'
-    { boundingBox = Core.Nothing,
-      confidence = Core.Nothing
+    { boundingBox = Prelude.Nothing,
+      confidence = Prelude.Nothing
     }
 
 -- | The position of the label instance on the image.
-instance_boundingBox :: Lens.Lens' Instance (Core.Maybe BoundingBox)
+instance_boundingBox :: Lens.Lens' Instance (Prelude.Maybe BoundingBox)
 instance_boundingBox = Lens.lens (\Instance' {boundingBox} -> boundingBox) (\s@Instance' {} a -> s {boundingBox = a} :: Instance)
 
 -- | The confidence that Amazon Rekognition has in the accuracy of the
 -- bounding box.
-instance_confidence :: Lens.Lens' Instance (Core.Maybe Core.Double)
+instance_confidence :: Lens.Lens' Instance (Prelude.Maybe Prelude.Double)
 instance_confidence = Lens.lens (\Instance' {confidence} -> confidence) (\s@Instance' {} a -> s {confidence = a} :: Instance)
 
 instance Core.FromJSON Instance where
@@ -71,10 +72,10 @@ instance Core.FromJSON Instance where
       "Instance"
       ( \x ->
           Instance'
-            Core.<$> (x Core..:? "BoundingBox")
-            Core.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "BoundingBox")
+            Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Core.Hashable Instance
+instance Prelude.Hashable Instance
 
-instance Core.NFData Instance
+instance Prelude.NFData Instance

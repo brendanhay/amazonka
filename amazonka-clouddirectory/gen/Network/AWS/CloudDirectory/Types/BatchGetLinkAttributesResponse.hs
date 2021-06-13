@@ -22,15 +22,16 @@ module Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse where
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a GetLinkAttributes response operation.
 --
 -- /See:/ 'newBatchGetLinkAttributesResponse' smart constructor.
 data BatchGetLinkAttributesResponse = BatchGetLinkAttributesResponse'
   { -- | The attributes that are associated with the typed link.
-    attributes :: Core.Maybe [AttributeKeyAndValue]
+    attributes :: Prelude.Maybe [AttributeKeyAndValue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetLinkAttributesResponse' with all optional fields omitted.
@@ -46,12 +47,12 @@ newBatchGetLinkAttributesResponse ::
 newBatchGetLinkAttributesResponse =
   BatchGetLinkAttributesResponse'
     { attributes =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The attributes that are associated with the typed link.
-batchGetLinkAttributesResponse_attributes :: Lens.Lens' BatchGetLinkAttributesResponse (Core.Maybe [AttributeKeyAndValue])
-batchGetLinkAttributesResponse_attributes = Lens.lens (\BatchGetLinkAttributesResponse' {attributes} -> attributes) (\s@BatchGetLinkAttributesResponse' {} a -> s {attributes = a} :: BatchGetLinkAttributesResponse) Core.. Lens.mapping Lens._Coerce
+batchGetLinkAttributesResponse_attributes :: Lens.Lens' BatchGetLinkAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
+batchGetLinkAttributesResponse_attributes = Lens.lens (\BatchGetLinkAttributesResponse' {attributes} -> attributes) (\s@BatchGetLinkAttributesResponse' {} a -> s {attributes = a} :: BatchGetLinkAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON BatchGetLinkAttributesResponse where
   parseJSON =
@@ -59,9 +60,13 @@ instance Core.FromJSON BatchGetLinkAttributesResponse where
       "BatchGetLinkAttributesResponse"
       ( \x ->
           BatchGetLinkAttributesResponse'
-            Core.<$> (x Core..:? "Attributes" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Attributes" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable BatchGetLinkAttributesResponse
+instance
+  Prelude.Hashable
+    BatchGetLinkAttributesResponse
 
-instance Core.NFData BatchGetLinkAttributesResponse
+instance
+  Prelude.NFData
+    BatchGetLinkAttributesResponse

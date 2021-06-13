@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -52,16 +53,16 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
   { -- | The identifier of the organization for which the user is created.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The name for the new user. WorkMail directory user names have a maximum
     -- length of 64. All others have a maximum length of 20.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The display name for the new user.
-    displayName :: Core.Text,
+    displayName :: Prelude.Text,
     -- | The password for the new user.
-    password :: Core.Sensitive Core.Text
+    password :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUser' with all optional fields omitted.
@@ -81,13 +82,13 @@ data CreateUser = CreateUser'
 -- 'password', 'createUser_password' - The password for the new user.
 newCreateUser ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'displayName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'password'
-  Core.Text ->
+  Prelude.Text ->
   CreateUser
 newCreateUser
   pOrganizationId_
@@ -102,21 +103,21 @@ newCreateUser
       }
 
 -- | The identifier of the organization for which the user is created.
-createUser_organizationId :: Lens.Lens' CreateUser Core.Text
+createUser_organizationId :: Lens.Lens' CreateUser Prelude.Text
 createUser_organizationId = Lens.lens (\CreateUser' {organizationId} -> organizationId) (\s@CreateUser' {} a -> s {organizationId = a} :: CreateUser)
 
 -- | The name for the new user. WorkMail directory user names have a maximum
 -- length of 64. All others have a maximum length of 20.
-createUser_name :: Lens.Lens' CreateUser Core.Text
+createUser_name :: Lens.Lens' CreateUser Prelude.Text
 createUser_name = Lens.lens (\CreateUser' {name} -> name) (\s@CreateUser' {} a -> s {name = a} :: CreateUser)
 
 -- | The display name for the new user.
-createUser_displayName :: Lens.Lens' CreateUser Core.Text
+createUser_displayName :: Lens.Lens' CreateUser Prelude.Text
 createUser_displayName = Lens.lens (\CreateUser' {displayName} -> displayName) (\s@CreateUser' {} a -> s {displayName = a} :: CreateUser)
 
 -- | The password for the new user.
-createUser_password :: Lens.Lens' CreateUser Core.Text
-createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser) Core.. Core._Sensitive
+createUser_password :: Lens.Lens' CreateUser Prelude.Text
+createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
@@ -125,50 +126,53 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Core.<$> (x Core..?> "UserId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UserId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateUser
+instance Prelude.Hashable CreateUser
 
-instance Core.NFData CreateUser
+instance Prelude.NFData CreateUser
 
 instance Core.ToHeaders CreateUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("WorkMailService.CreateUser" :: Core.ByteString),
+              Core.=# ("WorkMailService.CreateUser" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("Name" Core..= name),
-            Core.Just ("DisplayName" Core..= displayName),
-            Core.Just ("Password" Core..= password)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("DisplayName" Core..= displayName),
+            Prelude.Just ("Password" Core..= password)
           ]
       )
 
 instance Core.ToPath CreateUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
   { -- | The identifier for the new user.
-    userId :: Core.Maybe Core.Text,
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUserResponse' with all optional fields omitted.
@@ -183,20 +187,20 @@ data CreateUserResponse = CreateUserResponse'
 -- 'httpStatus', 'createUserResponse_httpStatus' - The response's http status code.
 newCreateUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateUserResponse
 newCreateUserResponse pHttpStatus_ =
   CreateUserResponse'
-    { userId = Core.Nothing,
+    { userId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier for the new user.
-createUserResponse_userId :: Lens.Lens' CreateUserResponse (Core.Maybe Core.Text)
+createUserResponse_userId :: Lens.Lens' CreateUserResponse (Prelude.Maybe Prelude.Text)
 createUserResponse_userId = Lens.lens (\CreateUserResponse' {userId} -> userId) (\s@CreateUserResponse' {} a -> s {userId = a} :: CreateUserResponse)
 
 -- | The response's http status code.
-createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Core.Int
+createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Prelude.Int
 createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> httpStatus) (\s@CreateUserResponse' {} a -> s {httpStatus = a} :: CreateUserResponse)
 
-instance Core.NFData CreateUserResponse
+instance Prelude.NFData CreateUserResponse

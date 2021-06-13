@@ -21,6 +21,7 @@ module Network.AWS.Lambda.Types.ImageConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration values that override the container image Dockerfile
 -- settings. See
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newImageConfig' smart constructor.
 data ImageConfig = ImageConfig'
   { -- | Specifies the working directory.
-    workingDirectory :: Core.Maybe Core.Text,
+    workingDirectory :: Prelude.Maybe Prelude.Text,
     -- | Specifies the entry point to their application, which is typically the
     -- location of the runtime executable.
-    entryPoint :: Core.Maybe [Core.Text],
+    entryPoint :: Prelude.Maybe [Prelude.Text],
     -- | Specifies parameters that you want to pass in with ENTRYPOINT.
-    command :: Core.Maybe [Core.Text]
+    command :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageConfig' with all optional fields omitted.
@@ -56,23 +57,23 @@ newImageConfig ::
   ImageConfig
 newImageConfig =
   ImageConfig'
-    { workingDirectory = Core.Nothing,
-      entryPoint = Core.Nothing,
-      command = Core.Nothing
+    { workingDirectory = Prelude.Nothing,
+      entryPoint = Prelude.Nothing,
+      command = Prelude.Nothing
     }
 
 -- | Specifies the working directory.
-imageConfig_workingDirectory :: Lens.Lens' ImageConfig (Core.Maybe Core.Text)
+imageConfig_workingDirectory :: Lens.Lens' ImageConfig (Prelude.Maybe Prelude.Text)
 imageConfig_workingDirectory = Lens.lens (\ImageConfig' {workingDirectory} -> workingDirectory) (\s@ImageConfig' {} a -> s {workingDirectory = a} :: ImageConfig)
 
 -- | Specifies the entry point to their application, which is typically the
 -- location of the runtime executable.
-imageConfig_entryPoint :: Lens.Lens' ImageConfig (Core.Maybe [Core.Text])
-imageConfig_entryPoint = Lens.lens (\ImageConfig' {entryPoint} -> entryPoint) (\s@ImageConfig' {} a -> s {entryPoint = a} :: ImageConfig) Core.. Lens.mapping Lens._Coerce
+imageConfig_entryPoint :: Lens.Lens' ImageConfig (Prelude.Maybe [Prelude.Text])
+imageConfig_entryPoint = Lens.lens (\ImageConfig' {entryPoint} -> entryPoint) (\s@ImageConfig' {} a -> s {entryPoint = a} :: ImageConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies parameters that you want to pass in with ENTRYPOINT.
-imageConfig_command :: Lens.Lens' ImageConfig (Core.Maybe [Core.Text])
-imageConfig_command = Lens.lens (\ImageConfig' {command} -> command) (\s@ImageConfig' {} a -> s {command = a} :: ImageConfig) Core.. Lens.mapping Lens._Coerce
+imageConfig_command :: Lens.Lens' ImageConfig (Prelude.Maybe [Prelude.Text])
+imageConfig_command = Lens.lens (\ImageConfig' {command} -> command) (\s@ImageConfig' {} a -> s {command = a} :: ImageConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ImageConfig where
   parseJSON =
@@ -80,22 +81,22 @@ instance Core.FromJSON ImageConfig where
       "ImageConfig"
       ( \x ->
           ImageConfig'
-            Core.<$> (x Core..:? "WorkingDirectory")
-            Core.<*> (x Core..:? "EntryPoint" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Command" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "WorkingDirectory")
+            Prelude.<*> (x Core..:? "EntryPoint" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Command" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ImageConfig
+instance Prelude.Hashable ImageConfig
 
-instance Core.NFData ImageConfig
+instance Prelude.NFData ImageConfig
 
 instance Core.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("WorkingDirectory" Core..=)
-              Core.<$> workingDirectory,
-            ("EntryPoint" Core..=) Core.<$> entryPoint,
-            ("Command" Core..=) Core.<$> command
+              Prelude.<$> workingDirectory,
+            ("EntryPoint" Core..=) Prelude.<$> entryPoint,
+            ("Command" Core..=) Prelude.<$> command
           ]
       )

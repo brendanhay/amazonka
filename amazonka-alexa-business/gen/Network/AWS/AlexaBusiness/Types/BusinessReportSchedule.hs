@@ -25,31 +25,32 @@ import Network.AWS.AlexaBusiness.Types.BusinessReportFormat
 import Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The schedule of the usage report.
 --
 -- /See:/ 'newBusinessReportSchedule' smart constructor.
 data BusinessReportSchedule = BusinessReportSchedule'
   { -- | The content range of the reports.
-    contentRange :: Core.Maybe BusinessReportContentRange,
+    contentRange :: Prelude.Maybe BusinessReportContentRange,
     -- | The format of the generated report (individual CSV files or zipped files
     -- of individual files).
-    format :: Core.Maybe BusinessReportFormat,
+    format :: Prelude.Maybe BusinessReportFormat,
     -- | The ARN of the business report schedule.
-    scheduleArn :: Core.Maybe Core.Text,
+    scheduleArn :: Prelude.Maybe Prelude.Text,
     -- | The details of the last business report delivery for a specified time
     -- interval.
-    lastBusinessReport :: Core.Maybe BusinessReport,
+    lastBusinessReport :: Prelude.Maybe BusinessReport,
     -- | The S3 key where the report is delivered.
-    s3KeyPrefix :: Core.Maybe Core.Text,
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The recurrence of the reports.
-    recurrence :: Core.Maybe BusinessReportRecurrence,
+    recurrence :: Prelude.Maybe BusinessReportRecurrence,
     -- | The S3 bucket name of the output reports.
-    s3BucketName :: Core.Maybe Core.Text,
+    s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The name identifier of the schedule.
-    scheduleName :: Core.Maybe Core.Text
+    scheduleName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BusinessReportSchedule' with all optional fields omitted.
@@ -81,48 +82,48 @@ newBusinessReportSchedule ::
 newBusinessReportSchedule =
   BusinessReportSchedule'
     { contentRange =
-        Core.Nothing,
-      format = Core.Nothing,
-      scheduleArn = Core.Nothing,
-      lastBusinessReport = Core.Nothing,
-      s3KeyPrefix = Core.Nothing,
-      recurrence = Core.Nothing,
-      s3BucketName = Core.Nothing,
-      scheduleName = Core.Nothing
+        Prelude.Nothing,
+      format = Prelude.Nothing,
+      scheduleArn = Prelude.Nothing,
+      lastBusinessReport = Prelude.Nothing,
+      s3KeyPrefix = Prelude.Nothing,
+      recurrence = Prelude.Nothing,
+      s3BucketName = Prelude.Nothing,
+      scheduleName = Prelude.Nothing
     }
 
 -- | The content range of the reports.
-businessReportSchedule_contentRange :: Lens.Lens' BusinessReportSchedule (Core.Maybe BusinessReportContentRange)
+businessReportSchedule_contentRange :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe BusinessReportContentRange)
 businessReportSchedule_contentRange = Lens.lens (\BusinessReportSchedule' {contentRange} -> contentRange) (\s@BusinessReportSchedule' {} a -> s {contentRange = a} :: BusinessReportSchedule)
 
 -- | The format of the generated report (individual CSV files or zipped files
 -- of individual files).
-businessReportSchedule_format :: Lens.Lens' BusinessReportSchedule (Core.Maybe BusinessReportFormat)
+businessReportSchedule_format :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe BusinessReportFormat)
 businessReportSchedule_format = Lens.lens (\BusinessReportSchedule' {format} -> format) (\s@BusinessReportSchedule' {} a -> s {format = a} :: BusinessReportSchedule)
 
 -- | The ARN of the business report schedule.
-businessReportSchedule_scheduleArn :: Lens.Lens' BusinessReportSchedule (Core.Maybe Core.Text)
+businessReportSchedule_scheduleArn :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe Prelude.Text)
 businessReportSchedule_scheduleArn = Lens.lens (\BusinessReportSchedule' {scheduleArn} -> scheduleArn) (\s@BusinessReportSchedule' {} a -> s {scheduleArn = a} :: BusinessReportSchedule)
 
 -- | The details of the last business report delivery for a specified time
 -- interval.
-businessReportSchedule_lastBusinessReport :: Lens.Lens' BusinessReportSchedule (Core.Maybe BusinessReport)
+businessReportSchedule_lastBusinessReport :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe BusinessReport)
 businessReportSchedule_lastBusinessReport = Lens.lens (\BusinessReportSchedule' {lastBusinessReport} -> lastBusinessReport) (\s@BusinessReportSchedule' {} a -> s {lastBusinessReport = a} :: BusinessReportSchedule)
 
 -- | The S3 key where the report is delivered.
-businessReportSchedule_s3KeyPrefix :: Lens.Lens' BusinessReportSchedule (Core.Maybe Core.Text)
+businessReportSchedule_s3KeyPrefix :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe Prelude.Text)
 businessReportSchedule_s3KeyPrefix = Lens.lens (\BusinessReportSchedule' {s3KeyPrefix} -> s3KeyPrefix) (\s@BusinessReportSchedule' {} a -> s {s3KeyPrefix = a} :: BusinessReportSchedule)
 
 -- | The recurrence of the reports.
-businessReportSchedule_recurrence :: Lens.Lens' BusinessReportSchedule (Core.Maybe BusinessReportRecurrence)
+businessReportSchedule_recurrence :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe BusinessReportRecurrence)
 businessReportSchedule_recurrence = Lens.lens (\BusinessReportSchedule' {recurrence} -> recurrence) (\s@BusinessReportSchedule' {} a -> s {recurrence = a} :: BusinessReportSchedule)
 
 -- | The S3 bucket name of the output reports.
-businessReportSchedule_s3BucketName :: Lens.Lens' BusinessReportSchedule (Core.Maybe Core.Text)
+businessReportSchedule_s3BucketName :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe Prelude.Text)
 businessReportSchedule_s3BucketName = Lens.lens (\BusinessReportSchedule' {s3BucketName} -> s3BucketName) (\s@BusinessReportSchedule' {} a -> s {s3BucketName = a} :: BusinessReportSchedule)
 
 -- | The name identifier of the schedule.
-businessReportSchedule_scheduleName :: Lens.Lens' BusinessReportSchedule (Core.Maybe Core.Text)
+businessReportSchedule_scheduleName :: Lens.Lens' BusinessReportSchedule (Prelude.Maybe Prelude.Text)
 businessReportSchedule_scheduleName = Lens.lens (\BusinessReportSchedule' {scheduleName} -> scheduleName) (\s@BusinessReportSchedule' {} a -> s {scheduleName = a} :: BusinessReportSchedule)
 
 instance Core.FromJSON BusinessReportSchedule where
@@ -131,16 +132,16 @@ instance Core.FromJSON BusinessReportSchedule where
       "BusinessReportSchedule"
       ( \x ->
           BusinessReportSchedule'
-            Core.<$> (x Core..:? "ContentRange")
-            Core.<*> (x Core..:? "Format")
-            Core.<*> (x Core..:? "ScheduleArn")
-            Core.<*> (x Core..:? "LastBusinessReport")
-            Core.<*> (x Core..:? "S3KeyPrefix")
-            Core.<*> (x Core..:? "Recurrence")
-            Core.<*> (x Core..:? "S3BucketName")
-            Core.<*> (x Core..:? "ScheduleName")
+            Prelude.<$> (x Core..:? "ContentRange")
+            Prelude.<*> (x Core..:? "Format")
+            Prelude.<*> (x Core..:? "ScheduleArn")
+            Prelude.<*> (x Core..:? "LastBusinessReport")
+            Prelude.<*> (x Core..:? "S3KeyPrefix")
+            Prelude.<*> (x Core..:? "Recurrence")
+            Prelude.<*> (x Core..:? "S3BucketName")
+            Prelude.<*> (x Core..:? "ScheduleName")
       )
 
-instance Core.Hashable BusinessReportSchedule
+instance Prelude.Hashable BusinessReportSchedule
 
-instance Core.NFData BusinessReportSchedule
+instance Prelude.NFData BusinessReportSchedule

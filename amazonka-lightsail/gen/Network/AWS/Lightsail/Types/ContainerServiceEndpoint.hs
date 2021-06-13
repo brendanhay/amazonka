@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.ContainerServiceEndpoint where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the public endpoint configuration of a deployment of an Amazon
 -- Lightsail container service.
@@ -29,15 +30,15 @@ import Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
 -- /See:/ 'newContainerServiceEndpoint' smart constructor.
 data ContainerServiceEndpoint = ContainerServiceEndpoint'
   { -- | The port of the specified container to which traffic is forwarded to.
-    containerPort :: Core.Maybe Core.Int,
+    containerPort :: Prelude.Maybe Prelude.Int,
     -- | The name of the container entry of the deployment that the endpoint
     -- configuration applies to.
-    containerName :: Core.Maybe Core.Text,
+    containerName :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the health check configuration of the
     -- container.
-    healthCheck :: Core.Maybe ContainerServiceHealthCheckConfig
+    healthCheck :: Prelude.Maybe ContainerServiceHealthCheckConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerServiceEndpoint' with all optional fields omitted.
@@ -59,23 +60,23 @@ newContainerServiceEndpoint ::
 newContainerServiceEndpoint =
   ContainerServiceEndpoint'
     { containerPort =
-        Core.Nothing,
-      containerName = Core.Nothing,
-      healthCheck = Core.Nothing
+        Prelude.Nothing,
+      containerName = Prelude.Nothing,
+      healthCheck = Prelude.Nothing
     }
 
 -- | The port of the specified container to which traffic is forwarded to.
-containerServiceEndpoint_containerPort :: Lens.Lens' ContainerServiceEndpoint (Core.Maybe Core.Int)
+containerServiceEndpoint_containerPort :: Lens.Lens' ContainerServiceEndpoint (Prelude.Maybe Prelude.Int)
 containerServiceEndpoint_containerPort = Lens.lens (\ContainerServiceEndpoint' {containerPort} -> containerPort) (\s@ContainerServiceEndpoint' {} a -> s {containerPort = a} :: ContainerServiceEndpoint)
 
 -- | The name of the container entry of the deployment that the endpoint
 -- configuration applies to.
-containerServiceEndpoint_containerName :: Lens.Lens' ContainerServiceEndpoint (Core.Maybe Core.Text)
+containerServiceEndpoint_containerName :: Lens.Lens' ContainerServiceEndpoint (Prelude.Maybe Prelude.Text)
 containerServiceEndpoint_containerName = Lens.lens (\ContainerServiceEndpoint' {containerName} -> containerName) (\s@ContainerServiceEndpoint' {} a -> s {containerName = a} :: ContainerServiceEndpoint)
 
 -- | An object that describes the health check configuration of the
 -- container.
-containerServiceEndpoint_healthCheck :: Lens.Lens' ContainerServiceEndpoint (Core.Maybe ContainerServiceHealthCheckConfig)
+containerServiceEndpoint_healthCheck :: Lens.Lens' ContainerServiceEndpoint (Prelude.Maybe ContainerServiceHealthCheckConfig)
 containerServiceEndpoint_healthCheck = Lens.lens (\ContainerServiceEndpoint' {healthCheck} -> healthCheck) (\s@ContainerServiceEndpoint' {} a -> s {healthCheck = a} :: ContainerServiceEndpoint)
 
 instance Core.FromJSON ContainerServiceEndpoint where
@@ -84,11 +85,11 @@ instance Core.FromJSON ContainerServiceEndpoint where
       "ContainerServiceEndpoint"
       ( \x ->
           ContainerServiceEndpoint'
-            Core.<$> (x Core..:? "containerPort")
-            Core.<*> (x Core..:? "containerName")
-            Core.<*> (x Core..:? "healthCheck")
+            Prelude.<$> (x Core..:? "containerPort")
+            Prelude.<*> (x Core..:? "containerName")
+            Prelude.<*> (x Core..:? "healthCheck")
       )
 
-instance Core.Hashable ContainerServiceEndpoint
+instance Prelude.Hashable ContainerServiceEndpoint
 
-instance Core.NFData ContainerServiceEndpoint
+instance Prelude.NFData ContainerServiceEndpoint

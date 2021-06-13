@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.NotificationContext where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.ValidationStatus
 
 -- | Contains the status of validating an application.
@@ -28,13 +29,13 @@ import Network.AWS.SMS.Types.ValidationStatus
 -- /See:/ 'newNotificationContext' smart constructor.
 data NotificationContext = NotificationContext'
   { -- | The status message.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The status of the validation.
-    status :: Core.Maybe ValidationStatus,
+    status :: Prelude.Maybe ValidationStatus,
     -- | The ID of the validation.
-    validationId :: Core.Maybe Core.Text
+    validationId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotificationContext' with all optional fields omitted.
@@ -53,33 +54,34 @@ newNotificationContext ::
   NotificationContext
 newNotificationContext =
   NotificationContext'
-    { statusMessage = Core.Nothing,
-      status = Core.Nothing,
-      validationId = Core.Nothing
+    { statusMessage =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      validationId = Prelude.Nothing
     }
 
 -- | The status message.
-notificationContext_statusMessage :: Lens.Lens' NotificationContext (Core.Maybe Core.Text)
+notificationContext_statusMessage :: Lens.Lens' NotificationContext (Prelude.Maybe Prelude.Text)
 notificationContext_statusMessage = Lens.lens (\NotificationContext' {statusMessage} -> statusMessage) (\s@NotificationContext' {} a -> s {statusMessage = a} :: NotificationContext)
 
 -- | The status of the validation.
-notificationContext_status :: Lens.Lens' NotificationContext (Core.Maybe ValidationStatus)
+notificationContext_status :: Lens.Lens' NotificationContext (Prelude.Maybe ValidationStatus)
 notificationContext_status = Lens.lens (\NotificationContext' {status} -> status) (\s@NotificationContext' {} a -> s {status = a} :: NotificationContext)
 
 -- | The ID of the validation.
-notificationContext_validationId :: Lens.Lens' NotificationContext (Core.Maybe Core.Text)
+notificationContext_validationId :: Lens.Lens' NotificationContext (Prelude.Maybe Prelude.Text)
 notificationContext_validationId = Lens.lens (\NotificationContext' {validationId} -> validationId) (\s@NotificationContext' {} a -> s {validationId = a} :: NotificationContext)
 
-instance Core.Hashable NotificationContext
+instance Prelude.Hashable NotificationContext
 
-instance Core.NFData NotificationContext
+instance Prelude.NFData NotificationContext
 
 instance Core.ToJSON NotificationContext where
   toJSON NotificationContext' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("statusMessage" Core..=) Core.<$> statusMessage,
-            ("status" Core..=) Core.<$> status,
-            ("validationId" Core..=) Core.<$> validationId
+      ( Prelude.catMaybes
+          [ ("statusMessage" Core..=) Prelude.<$> statusMessage,
+            ("status" Core..=) Prelude.<$> status,
+            ("validationId" Core..=) Prelude.<$> validationId
           ]
       )

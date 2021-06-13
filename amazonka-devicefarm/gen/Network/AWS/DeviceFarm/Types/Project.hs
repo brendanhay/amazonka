@@ -21,6 +21,7 @@ module Network.AWS.DeviceFarm.Types.Project where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an operating-system neutral workspace for running and
 -- managing tests.
@@ -28,16 +29,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newProject' smart constructor.
 data Project = Project'
   { -- | The project\'s ARN.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The project\'s name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | When the project was created.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | The default number of minutes (at the project level) a test run executes
     -- before it times out. The default value is 150 minutes.
-    defaultJobTimeoutMinutes :: Core.Maybe Core.Int
+    defaultJobTimeoutMinutes :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Project' with all optional fields omitted.
@@ -59,27 +60,27 @@ newProject ::
   Project
 newProject =
   Project'
-    { arn = Core.Nothing,
-      name = Core.Nothing,
-      created = Core.Nothing,
-      defaultJobTimeoutMinutes = Core.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      created = Prelude.Nothing,
+      defaultJobTimeoutMinutes = Prelude.Nothing
     }
 
 -- | The project\'s ARN.
-project_arn :: Lens.Lens' Project (Core.Maybe Core.Text)
+project_arn :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
 project_arn = Lens.lens (\Project' {arn} -> arn) (\s@Project' {} a -> s {arn = a} :: Project)
 
 -- | The project\'s name.
-project_name :: Lens.Lens' Project (Core.Maybe Core.Text)
+project_name :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
 project_name = Lens.lens (\Project' {name} -> name) (\s@Project' {} a -> s {name = a} :: Project)
 
 -- | When the project was created.
-project_created :: Lens.Lens' Project (Core.Maybe Core.UTCTime)
-project_created = Lens.lens (\Project' {created} -> created) (\s@Project' {} a -> s {created = a} :: Project) Core.. Lens.mapping Core._Time
+project_created :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
+project_created = Lens.lens (\Project' {created} -> created) (\s@Project' {} a -> s {created = a} :: Project) Prelude.. Lens.mapping Core._Time
 
 -- | The default number of minutes (at the project level) a test run executes
 -- before it times out. The default value is 150 minutes.
-project_defaultJobTimeoutMinutes :: Lens.Lens' Project (Core.Maybe Core.Int)
+project_defaultJobTimeoutMinutes :: Lens.Lens' Project (Prelude.Maybe Prelude.Int)
 project_defaultJobTimeoutMinutes = Lens.lens (\Project' {defaultJobTimeoutMinutes} -> defaultJobTimeoutMinutes) (\s@Project' {} a -> s {defaultJobTimeoutMinutes = a} :: Project)
 
 instance Core.FromJSON Project where
@@ -88,12 +89,12 @@ instance Core.FromJSON Project where
       "Project"
       ( \x ->
           Project'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "created")
-            Core.<*> (x Core..:? "defaultJobTimeoutMinutes")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "defaultJobTimeoutMinutes")
       )
 
-instance Core.Hashable Project
+instance Prelude.Hashable Project
 
-instance Core.NFData Project
+instance Prelude.NFData Project

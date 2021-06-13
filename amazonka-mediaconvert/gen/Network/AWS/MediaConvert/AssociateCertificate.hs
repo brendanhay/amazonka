@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data AssociateCertificate = AssociateCertificate'
   { -- | The ARN of the ACM certificate that you want to associate with your
     -- MediaConvert resource.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateCertificate' with all optional fields omitted.
@@ -65,14 +66,14 @@ data AssociateCertificate = AssociateCertificate'
 -- MediaConvert resource.
 newAssociateCertificate ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   AssociateCertificate
 newAssociateCertificate pArn_ =
   AssociateCertificate' {arn = pArn_}
 
 -- | The ARN of the ACM certificate that you want to associate with your
 -- MediaConvert resource.
-associateCertificate_arn :: Lens.Lens' AssociateCertificate Core.Text
+associateCertificate_arn :: Lens.Lens' AssociateCertificate Prelude.Text
 associateCertificate_arn = Lens.lens (\AssociateCertificate' {arn} -> arn) (\s@AssociateCertificate' {} a -> s {arn = a} :: AssociateCertificate)
 
 instance Core.AWSRequest AssociateCertificate where
@@ -84,39 +85,43 @@ instance Core.AWSRequest AssociateCertificate where
     Response.receiveEmpty
       ( \s h x ->
           AssociateCertificateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateCertificate
+instance Prelude.Hashable AssociateCertificate
 
-instance Core.NFData AssociateCertificate
+instance Prelude.NFData AssociateCertificate
 
 instance Core.ToHeaders AssociateCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateCertificate where
   toJSON AssociateCertificate' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
 instance Core.ToPath AssociateCertificate where
-  toPath = Core.const "/2017-08-29/certificates"
+  toPath = Prelude.const "/2017-08-29/certificates"
 
 instance Core.ToQuery AssociateCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateCertificateResponse' smart constructor.
 data AssociateCertificateResponse = AssociateCertificateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateCertificateResponse' with all optional fields omitted.
@@ -129,7 +134,7 @@ data AssociateCertificateResponse = AssociateCertificateResponse'
 -- 'httpStatus', 'associateCertificateResponse_httpStatus' - The response's http status code.
 newAssociateCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateCertificateResponse
 newAssociateCertificateResponse pHttpStatus_ =
   AssociateCertificateResponse'
@@ -138,7 +143,7 @@ newAssociateCertificateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateCertificateResponse_httpStatus :: Lens.Lens' AssociateCertificateResponse Core.Int
+associateCertificateResponse_httpStatus :: Lens.Lens' AssociateCertificateResponse Prelude.Int
 associateCertificateResponse_httpStatus = Lens.lens (\AssociateCertificateResponse' {httpStatus} -> httpStatus) (\s@AssociateCertificateResponse' {} a -> s {httpStatus = a} :: AssociateCertificateResponse)
 
-instance Core.NFData AssociateCertificateResponse
+instance Prelude.NFData AssociateCertificateResponse

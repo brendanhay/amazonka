@@ -79,6 +79,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -93,14 +94,14 @@ data RegisterActivityType = RegisterActivityType'
     -- For more information about setting task priority, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /in the /Amazon SWF Developer Guide/./.
-    defaultTaskPriority :: Core.Maybe Core.Text,
+    defaultTaskPriority :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the default task list to use for scheduling tasks of
     -- this activity type. This default task list is used if a task list isn\'t
     -- provided when a task is scheduled through the @ScheduleActivityTask@
     -- Decision.
-    defaultTaskList :: Core.Maybe TaskList,
+    defaultTaskList :: Prelude.Maybe TaskList,
     -- | A textual description of the activity type.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the default maximum duration that a task of this
     -- activity type can wait before being assigned to a worker. This default
     -- can be overridden when scheduling an activity task using the
@@ -108,14 +109,14 @@ data RegisterActivityType = RegisterActivityType'
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskScheduleToStartTimeout :: Core.Maybe Core.Text,
+    defaultTaskScheduleToStartTimeout :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the default maximum duration that a worker can take to
     -- process tasks of this activity type. This default can be overridden when
     -- scheduling an activity task using the @ScheduleActivityTask@ Decision.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskStartToCloseTimeout :: Core.Maybe Core.Text,
+    defaultTaskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the default maximum time before which a worker
     -- processing a task of this type must report progress by calling
     -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
@@ -128,23 +129,23 @@ data RegisterActivityType = RegisterActivityType'
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskHeartbeatTimeout :: Core.Maybe Core.Text,
+    defaultTaskHeartbeatTimeout :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the default maximum duration for a task of this
     -- activity type. This default can be overridden when scheduling an
     -- activity task using the @ScheduleActivityTask@ Decision.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskScheduleToCloseTimeout :: Core.Maybe Core.Text,
+    defaultTaskScheduleToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain in which this activity is to be registered.
-    domain :: Core.Text,
+    domain :: Prelude.Text,
     -- | The name of the activity type within the domain.
     --
     -- The specified string must not start or end with whitespace. It must not
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- /be/ the literal string @arn@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The version of the activity type.
     --
     -- The activity type consists of the name and version, the combination of
@@ -154,9 +155,9 @@ data RegisterActivityType = RegisterActivityType'
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- /be/ the literal string @arn@.
-    version :: Core.Text
+    version :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterActivityType' with all optional fields omitted.
@@ -237,22 +238,22 @@ data RegisterActivityType = RegisterActivityType'
 -- /be/ the literal string @arn@.
 newRegisterActivityType ::
   -- | 'domain'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Text ->
+  Prelude.Text ->
   RegisterActivityType
 newRegisterActivityType pDomain_ pName_ pVersion_ =
   RegisterActivityType'
     { defaultTaskPriority =
-        Core.Nothing,
-      defaultTaskList = Core.Nothing,
-      description = Core.Nothing,
-      defaultTaskScheduleToStartTimeout = Core.Nothing,
-      defaultTaskStartToCloseTimeout = Core.Nothing,
-      defaultTaskHeartbeatTimeout = Core.Nothing,
-      defaultTaskScheduleToCloseTimeout = Core.Nothing,
+        Prelude.Nothing,
+      defaultTaskList = Prelude.Nothing,
+      description = Prelude.Nothing,
+      defaultTaskScheduleToStartTimeout = Prelude.Nothing,
+      defaultTaskStartToCloseTimeout = Prelude.Nothing,
+      defaultTaskHeartbeatTimeout = Prelude.Nothing,
+      defaultTaskScheduleToCloseTimeout = Prelude.Nothing,
       domain = pDomain_,
       name = pName_,
       version = pVersion_
@@ -266,18 +267,18 @@ newRegisterActivityType pDomain_ pName_ pVersion_ =
 -- For more information about setting task priority, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /in the /Amazon SWF Developer Guide/./.
-registerActivityType_defaultTaskPriority :: Lens.Lens' RegisterActivityType (Core.Maybe Core.Text)
+registerActivityType_defaultTaskPriority :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
 registerActivityType_defaultTaskPriority = Lens.lens (\RegisterActivityType' {defaultTaskPriority} -> defaultTaskPriority) (\s@RegisterActivityType' {} a -> s {defaultTaskPriority = a} :: RegisterActivityType)
 
 -- | If set, specifies the default task list to use for scheduling tasks of
 -- this activity type. This default task list is used if a task list isn\'t
 -- provided when a task is scheduled through the @ScheduleActivityTask@
 -- Decision.
-registerActivityType_defaultTaskList :: Lens.Lens' RegisterActivityType (Core.Maybe TaskList)
+registerActivityType_defaultTaskList :: Lens.Lens' RegisterActivityType (Prelude.Maybe TaskList)
 registerActivityType_defaultTaskList = Lens.lens (\RegisterActivityType' {defaultTaskList} -> defaultTaskList) (\s@RegisterActivityType' {} a -> s {defaultTaskList = a} :: RegisterActivityType)
 
 -- | A textual description of the activity type.
-registerActivityType_description :: Lens.Lens' RegisterActivityType (Core.Maybe Core.Text)
+registerActivityType_description :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
 registerActivityType_description = Lens.lens (\RegisterActivityType' {description} -> description) (\s@RegisterActivityType' {} a -> s {description = a} :: RegisterActivityType)
 
 -- | If set, specifies the default maximum duration that a task of this
@@ -287,7 +288,7 @@ registerActivityType_description = Lens.lens (\RegisterActivityType' {descriptio
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-registerActivityType_defaultTaskScheduleToStartTimeout :: Lens.Lens' RegisterActivityType (Core.Maybe Core.Text)
+registerActivityType_defaultTaskScheduleToStartTimeout :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
 registerActivityType_defaultTaskScheduleToStartTimeout = Lens.lens (\RegisterActivityType' {defaultTaskScheduleToStartTimeout} -> defaultTaskScheduleToStartTimeout) (\s@RegisterActivityType' {} a -> s {defaultTaskScheduleToStartTimeout = a} :: RegisterActivityType)
 
 -- | If set, specifies the default maximum duration that a worker can take to
@@ -296,7 +297,7 @@ registerActivityType_defaultTaskScheduleToStartTimeout = Lens.lens (\RegisterAct
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-registerActivityType_defaultTaskStartToCloseTimeout :: Lens.Lens' RegisterActivityType (Core.Maybe Core.Text)
+registerActivityType_defaultTaskStartToCloseTimeout :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
 registerActivityType_defaultTaskStartToCloseTimeout = Lens.lens (\RegisterActivityType' {defaultTaskStartToCloseTimeout} -> defaultTaskStartToCloseTimeout) (\s@RegisterActivityType' {} a -> s {defaultTaskStartToCloseTimeout = a} :: RegisterActivityType)
 
 -- | If set, specifies the default maximum time before which a worker
@@ -311,7 +312,7 @@ registerActivityType_defaultTaskStartToCloseTimeout = Lens.lens (\RegisterActivi
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-registerActivityType_defaultTaskHeartbeatTimeout :: Lens.Lens' RegisterActivityType (Core.Maybe Core.Text)
+registerActivityType_defaultTaskHeartbeatTimeout :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
 registerActivityType_defaultTaskHeartbeatTimeout = Lens.lens (\RegisterActivityType' {defaultTaskHeartbeatTimeout} -> defaultTaskHeartbeatTimeout) (\s@RegisterActivityType' {} a -> s {defaultTaskHeartbeatTimeout = a} :: RegisterActivityType)
 
 -- | If set, specifies the default maximum duration for a task of this
@@ -320,11 +321,11 @@ registerActivityType_defaultTaskHeartbeatTimeout = Lens.lens (\RegisterActivityT
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-registerActivityType_defaultTaskScheduleToCloseTimeout :: Lens.Lens' RegisterActivityType (Core.Maybe Core.Text)
+registerActivityType_defaultTaskScheduleToCloseTimeout :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
 registerActivityType_defaultTaskScheduleToCloseTimeout = Lens.lens (\RegisterActivityType' {defaultTaskScheduleToCloseTimeout} -> defaultTaskScheduleToCloseTimeout) (\s@RegisterActivityType' {} a -> s {defaultTaskScheduleToCloseTimeout = a} :: RegisterActivityType)
 
 -- | The name of the domain in which this activity is to be registered.
-registerActivityType_domain :: Lens.Lens' RegisterActivityType Core.Text
+registerActivityType_domain :: Lens.Lens' RegisterActivityType Prelude.Text
 registerActivityType_domain = Lens.lens (\RegisterActivityType' {domain} -> domain) (\s@RegisterActivityType' {} a -> s {domain = a} :: RegisterActivityType)
 
 -- | The name of the activity type within the domain.
@@ -333,7 +334,7 @@ registerActivityType_domain = Lens.lens (\RegisterActivityType' {domain} -> doma
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- /be/ the literal string @arn@.
-registerActivityType_name :: Lens.Lens' RegisterActivityType Core.Text
+registerActivityType_name :: Lens.Lens' RegisterActivityType Prelude.Text
 registerActivityType_name = Lens.lens (\RegisterActivityType' {name} -> name) (\s@RegisterActivityType' {} a -> s {name = a} :: RegisterActivityType)
 
 -- | The version of the activity type.
@@ -345,7 +346,7 @@ registerActivityType_name = Lens.lens (\RegisterActivityType' {name} -> name) (\
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- /be/ the literal string @arn@.
-registerActivityType_version :: Lens.Lens' RegisterActivityType Core.Text
+registerActivityType_version :: Lens.Lens' RegisterActivityType Prelude.Text
 registerActivityType_version = Lens.lens (\RegisterActivityType' {version} -> version) (\s@RegisterActivityType' {} a -> s {version = a} :: RegisterActivityType)
 
 instance Core.AWSRequest RegisterActivityType where
@@ -356,56 +357,59 @@ instance Core.AWSRequest RegisterActivityType where
   response =
     Response.receiveNull RegisterActivityTypeResponse'
 
-instance Core.Hashable RegisterActivityType
+instance Prelude.Hashable RegisterActivityType
 
-instance Core.NFData RegisterActivityType
+instance Prelude.NFData RegisterActivityType
 
 instance Core.ToHeaders RegisterActivityType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.RegisterActivityType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RegisterActivityType where
   toJSON RegisterActivityType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("defaultTaskPriority" Core..=)
-              Core.<$> defaultTaskPriority,
-            ("defaultTaskList" Core..=) Core.<$> defaultTaskList,
-            ("description" Core..=) Core.<$> description,
+              Prelude.<$> defaultTaskPriority,
+            ("defaultTaskList" Core..=)
+              Prelude.<$> defaultTaskList,
+            ("description" Core..=) Prelude.<$> description,
             ("defaultTaskScheduleToStartTimeout" Core..=)
-              Core.<$> defaultTaskScheduleToStartTimeout,
+              Prelude.<$> defaultTaskScheduleToStartTimeout,
             ("defaultTaskStartToCloseTimeout" Core..=)
-              Core.<$> defaultTaskStartToCloseTimeout,
+              Prelude.<$> defaultTaskStartToCloseTimeout,
             ("defaultTaskHeartbeatTimeout" Core..=)
-              Core.<$> defaultTaskHeartbeatTimeout,
+              Prelude.<$> defaultTaskHeartbeatTimeout,
             ("defaultTaskScheduleToCloseTimeout" Core..=)
-              Core.<$> defaultTaskScheduleToCloseTimeout,
-            Core.Just ("domain" Core..= domain),
-            Core.Just ("name" Core..= name),
-            Core.Just ("version" Core..= version)
+              Prelude.<$> defaultTaskScheduleToCloseTimeout,
+            Prelude.Just ("domain" Core..= domain),
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("version" Core..= version)
           ]
       )
 
 instance Core.ToPath RegisterActivityType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterActivityType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterActivityTypeResponse' smart constructor.
 data RegisterActivityTypeResponse = RegisterActivityTypeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterActivityTypeResponse' with all optional fields omitted.
@@ -416,4 +420,4 @@ newRegisterActivityTypeResponse ::
 newRegisterActivityTypeResponse =
   RegisterActivityTypeResponse'
 
-instance Core.NFData RegisterActivityTypeResponse
+instance Prelude.NFData RegisterActivityTypeResponse

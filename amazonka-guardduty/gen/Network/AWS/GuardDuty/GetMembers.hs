@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data GetMembers = GetMembers'
   { -- | The unique ID of the detector of the GuardDuty account whose members you
     -- want to retrieve.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | A list of account IDs of the GuardDuty member accounts that you want to
     -- describe.
-    accountIds :: Core.NonEmpty Core.Text
+    accountIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMembers' with all optional fields omitted.
@@ -74,9 +75,9 @@ data GetMembers = GetMembers'
 -- describe.
 newGetMembers ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accountIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   GetMembers
 newGetMembers pDetectorId_ pAccountIds_ =
   GetMembers'
@@ -86,13 +87,13 @@ newGetMembers pDetectorId_ pAccountIds_ =
 
 -- | The unique ID of the detector of the GuardDuty account whose members you
 -- want to retrieve.
-getMembers_detectorId :: Lens.Lens' GetMembers Core.Text
+getMembers_detectorId :: Lens.Lens' GetMembers Prelude.Text
 getMembers_detectorId = Lens.lens (\GetMembers' {detectorId} -> detectorId) (\s@GetMembers' {} a -> s {detectorId = a} :: GetMembers)
 
 -- | A list of account IDs of the GuardDuty member accounts that you want to
 -- describe.
-getMembers_accountIds :: Lens.Lens' GetMembers (Core.NonEmpty Core.Text)
-getMembers_accountIds = Lens.lens (\GetMembers' {accountIds} -> accountIds) (\s@GetMembers' {} a -> s {accountIds = a} :: GetMembers) Core.. Lens._Coerce
+getMembers_accountIds :: Lens.Lens' GetMembers (Prelude.NonEmpty Prelude.Text)
+getMembers_accountIds = Lens.lens (\GetMembers' {accountIds} -> accountIds) (\s@GetMembers' {} a -> s {accountIds = a} :: GetMembers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetMembers where
   type AWSResponse GetMembers = GetMembersResponse
@@ -101,52 +102,54 @@ instance Core.AWSRequest GetMembers where
     Response.receiveJSON
       ( \s h x ->
           GetMembersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "members" Core..!@ Core.mempty)
-            Core.<*> ( x Core..?> "unprocessedAccounts"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "members" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable GetMembers
+instance Prelude.Hashable GetMembers
 
-instance Core.NFData GetMembers
+instance Prelude.NFData GetMembers
 
 instance Core.ToHeaders GetMembers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetMembers where
   toJSON GetMembers' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("accountIds" Core..= accountIds)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("accountIds" Core..= accountIds)]
       )
 
 instance Core.ToPath GetMembers where
   toPath GetMembers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/detector/", Core.toBS detectorId, "/member/get"]
 
 instance Core.ToQuery GetMembers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMembersResponse' smart constructor.
 data GetMembersResponse = GetMembersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of members.
     members :: [Member],
     -- | A list of objects that contain the unprocessed account and a result
     -- string that explains why it was unprocessed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMembersResponse' with all optional fields omitted.
@@ -164,26 +167,26 @@ data GetMembersResponse = GetMembersResponse'
 -- string that explains why it was unprocessed.
 newGetMembersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetMembersResponse
 newGetMembersResponse pHttpStatus_ =
   GetMembersResponse'
     { httpStatus = pHttpStatus_,
-      members = Core.mempty,
-      unprocessedAccounts = Core.mempty
+      members = Prelude.mempty,
+      unprocessedAccounts = Prelude.mempty
     }
 
 -- | The response's http status code.
-getMembersResponse_httpStatus :: Lens.Lens' GetMembersResponse Core.Int
+getMembersResponse_httpStatus :: Lens.Lens' GetMembersResponse Prelude.Int
 getMembersResponse_httpStatus = Lens.lens (\GetMembersResponse' {httpStatus} -> httpStatus) (\s@GetMembersResponse' {} a -> s {httpStatus = a} :: GetMembersResponse)
 
 -- | A list of members.
 getMembersResponse_members :: Lens.Lens' GetMembersResponse [Member]
-getMembersResponse_members = Lens.lens (\GetMembersResponse' {members} -> members) (\s@GetMembersResponse' {} a -> s {members = a} :: GetMembersResponse) Core.. Lens._Coerce
+getMembersResponse_members = Lens.lens (\GetMembersResponse' {members} -> members) (\s@GetMembersResponse' {} a -> s {members = a} :: GetMembersResponse) Prelude.. Lens._Coerce
 
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 getMembersResponse_unprocessedAccounts :: Lens.Lens' GetMembersResponse [UnprocessedAccount]
-getMembersResponse_unprocessedAccounts = Lens.lens (\GetMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMembersResponse' {} a -> s {unprocessedAccounts = a} :: GetMembersResponse) Core.. Lens._Coerce
+getMembersResponse_unprocessedAccounts = Lens.lens (\GetMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMembersResponse' {} a -> s {unprocessedAccounts = a} :: GetMembersResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData GetMembersResponse
+instance Prelude.NFData GetMembersResponse

@@ -22,6 +22,7 @@ module Network.AWS.Glue.Types.TableError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ErrorDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An error record for table operations.
 --
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data TableError = TableError'
   { -- | The name of the table. For Hive compatibility, this must be entirely
     -- lowercase.
-    tableName :: Core.Maybe Core.Text,
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The details about the error.
-    errorDetail :: Core.Maybe ErrorDetail
+    errorDetail :: Prelude.Maybe ErrorDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TableError' with all optional fields omitted.
@@ -51,17 +52,17 @@ newTableError ::
   TableError
 newTableError =
   TableError'
-    { tableName = Core.Nothing,
-      errorDetail = Core.Nothing
+    { tableName = Prelude.Nothing,
+      errorDetail = Prelude.Nothing
     }
 
 -- | The name of the table. For Hive compatibility, this must be entirely
 -- lowercase.
-tableError_tableName :: Lens.Lens' TableError (Core.Maybe Core.Text)
+tableError_tableName :: Lens.Lens' TableError (Prelude.Maybe Prelude.Text)
 tableError_tableName = Lens.lens (\TableError' {tableName} -> tableName) (\s@TableError' {} a -> s {tableName = a} :: TableError)
 
 -- | The details about the error.
-tableError_errorDetail :: Lens.Lens' TableError (Core.Maybe ErrorDetail)
+tableError_errorDetail :: Lens.Lens' TableError (Prelude.Maybe ErrorDetail)
 tableError_errorDetail = Lens.lens (\TableError' {errorDetail} -> errorDetail) (\s@TableError' {} a -> s {errorDetail = a} :: TableError)
 
 instance Core.FromJSON TableError where
@@ -70,10 +71,10 @@ instance Core.FromJSON TableError where
       "TableError"
       ( \x ->
           TableError'
-            Core.<$> (x Core..:? "TableName")
-            Core.<*> (x Core..:? "ErrorDetail")
+            Prelude.<$> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
-instance Core.Hashable TableError
+instance Prelude.Hashable TableError
 
-instance Core.NFData TableError
+instance Prelude.NFData TableError

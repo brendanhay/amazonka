@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,14 +71,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetLoadBalancerPoliciesForBackendServer' smart constructor.
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The port number associated with the EC2 instance.
-    instancePort :: Core.Int,
+    instancePort :: Prelude.Int,
     -- | The names of the policies. If the list is empty, then all current
     -- polices are removed from the EC2 instance.
-    policyNames :: [Core.Text]
+    policyNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetLoadBalancerPoliciesForBackendServer' with all optional fields omitted.
@@ -95,9 +96,9 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
 -- polices are removed from the EC2 instance.
 newSetLoadBalancerPoliciesForBackendServer ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instancePort'
-  Core.Int ->
+  Prelude.Int ->
   SetLoadBalancerPoliciesForBackendServer
 newSetLoadBalancerPoliciesForBackendServer
   pLoadBalancerName_
@@ -106,21 +107,21 @@ newSetLoadBalancerPoliciesForBackendServer
       { loadBalancerName =
           pLoadBalancerName_,
         instancePort = pInstancePort_,
-        policyNames = Core.mempty
+        policyNames = Prelude.mempty
       }
 
 -- | The name of the load balancer.
-setLoadBalancerPoliciesForBackendServer_loadBalancerName :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer Core.Text
+setLoadBalancerPoliciesForBackendServer_loadBalancerName :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer Prelude.Text
 setLoadBalancerPoliciesForBackendServer_loadBalancerName = Lens.lens (\SetLoadBalancerPoliciesForBackendServer' {loadBalancerName} -> loadBalancerName) (\s@SetLoadBalancerPoliciesForBackendServer' {} a -> s {loadBalancerName = a} :: SetLoadBalancerPoliciesForBackendServer)
 
 -- | The port number associated with the EC2 instance.
-setLoadBalancerPoliciesForBackendServer_instancePort :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer Core.Int
+setLoadBalancerPoliciesForBackendServer_instancePort :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer Prelude.Int
 setLoadBalancerPoliciesForBackendServer_instancePort = Lens.lens (\SetLoadBalancerPoliciesForBackendServer' {instancePort} -> instancePort) (\s@SetLoadBalancerPoliciesForBackendServer' {} a -> s {instancePort = a} :: SetLoadBalancerPoliciesForBackendServer)
 
 -- | The names of the policies. If the list is empty, then all current
 -- polices are removed from the EC2 instance.
-setLoadBalancerPoliciesForBackendServer_policyNames :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer [Core.Text]
-setLoadBalancerPoliciesForBackendServer_policyNames = Lens.lens (\SetLoadBalancerPoliciesForBackendServer' {policyNames} -> policyNames) (\s@SetLoadBalancerPoliciesForBackendServer' {} a -> s {policyNames = a} :: SetLoadBalancerPoliciesForBackendServer) Core.. Lens._Coerce
+setLoadBalancerPoliciesForBackendServer_policyNames :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer [Prelude.Text]
+setLoadBalancerPoliciesForBackendServer_policyNames = Lens.lens (\SetLoadBalancerPoliciesForBackendServer' {policyNames} -> policyNames) (\s@SetLoadBalancerPoliciesForBackendServer' {} a -> s {policyNames = a} :: SetLoadBalancerPoliciesForBackendServer) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -136,40 +137,41 @@ instance
       "SetLoadBalancerPoliciesForBackendServerResult"
       ( \s h x ->
           SetLoadBalancerPoliciesForBackendServerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SetLoadBalancerPoliciesForBackendServer
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetLoadBalancerPoliciesForBackendServer
 
 instance
   Core.ToHeaders
     SetLoadBalancerPoliciesForBackendServer
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     SetLoadBalancerPoliciesForBackendServer
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     SetLoadBalancerPoliciesForBackendServer
   where
   toQuery SetLoadBalancerPoliciesForBackendServer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "SetLoadBalancerPoliciesForBackendServer" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerName" Core.=: loadBalancerName,
         "InstancePort" Core.=: instancePort,
         "PolicyNames"
@@ -181,9 +183,9 @@ instance
 -- /See:/ 'newSetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetLoadBalancerPoliciesForBackendServerResponse' with all optional fields omitted.
@@ -196,7 +198,7 @@ data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesFo
 -- 'httpStatus', 'setLoadBalancerPoliciesForBackendServerResponse_httpStatus' - The response's http status code.
 newSetLoadBalancerPoliciesForBackendServerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetLoadBalancerPoliciesForBackendServerResponse
 newSetLoadBalancerPoliciesForBackendServerResponse
   pHttpStatus_ =
@@ -206,9 +208,9 @@ newSetLoadBalancerPoliciesForBackendServerResponse
       }
 
 -- | The response's http status code.
-setLoadBalancerPoliciesForBackendServerResponse_httpStatus :: Lens.Lens' SetLoadBalancerPoliciesForBackendServerResponse Core.Int
+setLoadBalancerPoliciesForBackendServerResponse_httpStatus :: Lens.Lens' SetLoadBalancerPoliciesForBackendServerResponse Prelude.Int
 setLoadBalancerPoliciesForBackendServerResponse_httpStatus = Lens.lens (\SetLoadBalancerPoliciesForBackendServerResponse' {httpStatus} -> httpStatus) (\s@SetLoadBalancerPoliciesForBackendServerResponse' {} a -> s {httpStatus = a} :: SetLoadBalancerPoliciesForBackendServerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetLoadBalancerPoliciesForBackendServerResponse

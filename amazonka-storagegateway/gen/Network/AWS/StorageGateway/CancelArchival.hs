@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -52,12 +53,12 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newCancelArchival' smart constructor.
 data CancelArchival = CancelArchival'
-  { gatewayARN :: Core.Text,
+  { gatewayARN :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
     -- archiving for.
-    tapeARN :: Core.Text
+    tapeARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelArchival' with all optional fields omitted.
@@ -73,9 +74,9 @@ data CancelArchival = CancelArchival'
 -- archiving for.
 newCancelArchival ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tapeARN'
-  Core.Text ->
+  Prelude.Text ->
   CancelArchival
 newCancelArchival pGatewayARN_ pTapeARN_ =
   CancelArchival'
@@ -84,12 +85,12 @@ newCancelArchival pGatewayARN_ pTapeARN_ =
     }
 
 -- | Undocumented member.
-cancelArchival_gatewayARN :: Lens.Lens' CancelArchival Core.Text
+cancelArchival_gatewayARN :: Lens.Lens' CancelArchival Prelude.Text
 cancelArchival_gatewayARN = Lens.lens (\CancelArchival' {gatewayARN} -> gatewayARN) (\s@CancelArchival' {} a -> s {gatewayARN = a} :: CancelArchival)
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
 -- archiving for.
-cancelArchival_tapeARN :: Lens.Lens' CancelArchival Core.Text
+cancelArchival_tapeARN :: Lens.Lens' CancelArchival Prelude.Text
 cancelArchival_tapeARN = Lens.lens (\CancelArchival' {tapeARN} -> tapeARN) (\s@CancelArchival' {} a -> s {tapeARN = a} :: CancelArchival)
 
 instance Core.AWSRequest CancelArchival where
@@ -101,41 +102,43 @@ instance Core.AWSRequest CancelArchival where
     Response.receiveJSON
       ( \s h x ->
           CancelArchivalResponse'
-            Core.<$> (x Core..?> "TapeARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelArchival
+instance Prelude.Hashable CancelArchival
 
-instance Core.NFData CancelArchival
+instance Prelude.NFData CancelArchival
 
 instance Core.ToHeaders CancelArchival where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.CancelArchival" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelArchival where
   toJSON CancelArchival' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GatewayARN" Core..= gatewayARN),
-            Core.Just ("TapeARN" Core..= tapeARN)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just ("TapeARN" Core..= tapeARN)
           ]
       )
 
 instance Core.ToPath CancelArchival where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelArchival where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | CancelArchivalOutput
 --
@@ -143,11 +146,11 @@ instance Core.ToQuery CancelArchival where
 data CancelArchivalResponse = CancelArchivalResponse'
   { -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
     -- was canceled.
-    tapeARN :: Core.Maybe Core.Text,
+    tapeARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelArchivalResponse' with all optional fields omitted.
@@ -163,21 +166,21 @@ data CancelArchivalResponse = CancelArchivalResponse'
 -- 'httpStatus', 'cancelArchivalResponse_httpStatus' - The response's http status code.
 newCancelArchivalResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelArchivalResponse
 newCancelArchivalResponse pHttpStatus_ =
   CancelArchivalResponse'
-    { tapeARN = Core.Nothing,
+    { tapeARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
 -- was canceled.
-cancelArchivalResponse_tapeARN :: Lens.Lens' CancelArchivalResponse (Core.Maybe Core.Text)
+cancelArchivalResponse_tapeARN :: Lens.Lens' CancelArchivalResponse (Prelude.Maybe Prelude.Text)
 cancelArchivalResponse_tapeARN = Lens.lens (\CancelArchivalResponse' {tapeARN} -> tapeARN) (\s@CancelArchivalResponse' {} a -> s {tapeARN = a} :: CancelArchivalResponse)
 
 -- | The response's http status code.
-cancelArchivalResponse_httpStatus :: Lens.Lens' CancelArchivalResponse Core.Int
+cancelArchivalResponse_httpStatus :: Lens.Lens' CancelArchivalResponse Prelude.Int
 cancelArchivalResponse_httpStatus = Lens.lens (\CancelArchivalResponse' {httpStatus} -> httpStatus) (\s@CancelArchivalResponse' {} a -> s {httpStatus = a} :: CancelArchivalResponse)
 
-instance Core.NFData CancelArchivalResponse
+instance Prelude.NFData CancelArchivalResponse

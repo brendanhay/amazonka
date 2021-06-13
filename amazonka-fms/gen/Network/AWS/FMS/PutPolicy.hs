@@ -69,17 +69,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutPolicy' smart constructor.
 data PutPolicy = PutPolicy'
   { -- | The tags to add to the AWS resource.
-    tagList :: Core.Maybe [Tag],
+    tagList :: Prelude.Maybe [Tag],
     -- | The details of the AWS Firewall Manager policy to be created.
     policy :: Policy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPolicy' with all optional fields omitted.
@@ -98,13 +99,13 @@ newPutPolicy ::
   PutPolicy
 newPutPolicy pPolicy_ =
   PutPolicy'
-    { tagList = Core.Nothing,
+    { tagList = Prelude.Nothing,
       policy = pPolicy_
     }
 
 -- | The tags to add to the AWS resource.
-putPolicy_tagList :: Lens.Lens' PutPolicy (Core.Maybe [Tag])
-putPolicy_tagList = Lens.lens (\PutPolicy' {tagList} -> tagList) (\s@PutPolicy' {} a -> s {tagList = a} :: PutPolicy) Core.. Lens.mapping Lens._Coerce
+putPolicy_tagList :: Lens.Lens' PutPolicy (Prelude.Maybe [Tag])
+putPolicy_tagList = Lens.lens (\PutPolicy' {tagList} -> tagList) (\s@PutPolicy' {} a -> s {tagList = a} :: PutPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The details of the AWS Firewall Manager policy to be created.
 putPolicy_policy :: Lens.Lens' PutPolicy Policy
@@ -117,51 +118,53 @@ instance Core.AWSRequest PutPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutPolicyResponse'
-            Core.<$> (x Core..?> "Policy")
-            Core.<*> (x Core..?> "PolicyArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<*> (x Core..?> "PolicyArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutPolicy
+instance Prelude.Hashable PutPolicy
 
-instance Core.NFData PutPolicy
+instance Prelude.NFData PutPolicy
 
 instance Core.ToHeaders PutPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSFMS_20180101.PutPolicy" :: Core.ByteString),
+              Core.=# ("AWSFMS_20180101.PutPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutPolicy where
   toJSON PutPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TagList" Core..=) Core.<$> tagList,
-            Core.Just ("Policy" Core..= policy)
+      ( Prelude.catMaybes
+          [ ("TagList" Core..=) Prelude.<$> tagList,
+            Prelude.Just ("Policy" Core..= policy)
           ]
       )
 
 instance Core.ToPath PutPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPolicyResponse' smart constructor.
 data PutPolicyResponse = PutPolicyResponse'
   { -- | The details of the AWS Firewall Manager policy.
-    policy :: Core.Maybe Policy,
+    policy :: Prelude.Maybe Policy,
     -- | The Amazon Resource Name (ARN) of the policy.
-    policyArn :: Core.Maybe Core.Text,
+    policyArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPolicyResponse' with all optional fields omitted.
@@ -178,25 +181,25 @@ data PutPolicyResponse = PutPolicyResponse'
 -- 'httpStatus', 'putPolicyResponse_httpStatus' - The response's http status code.
 newPutPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutPolicyResponse
 newPutPolicyResponse pHttpStatus_ =
   PutPolicyResponse'
-    { policy = Core.Nothing,
-      policyArn = Core.Nothing,
+    { policy = Prelude.Nothing,
+      policyArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the AWS Firewall Manager policy.
-putPolicyResponse_policy :: Lens.Lens' PutPolicyResponse (Core.Maybe Policy)
+putPolicyResponse_policy :: Lens.Lens' PutPolicyResponse (Prelude.Maybe Policy)
 putPolicyResponse_policy = Lens.lens (\PutPolicyResponse' {policy} -> policy) (\s@PutPolicyResponse' {} a -> s {policy = a} :: PutPolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the policy.
-putPolicyResponse_policyArn :: Lens.Lens' PutPolicyResponse (Core.Maybe Core.Text)
+putPolicyResponse_policyArn :: Lens.Lens' PutPolicyResponse (Prelude.Maybe Prelude.Text)
 putPolicyResponse_policyArn = Lens.lens (\PutPolicyResponse' {policyArn} -> policyArn) (\s@PutPolicyResponse' {} a -> s {policyArn = a} :: PutPolicyResponse)
 
 -- | The response's http status code.
-putPolicyResponse_httpStatus :: Lens.Lens' PutPolicyResponse Core.Int
+putPolicyResponse_httpStatus :: Lens.Lens' PutPolicyResponse Prelude.Int
 putPolicyResponse_httpStatus = Lens.lens (\PutPolicyResponse' {httpStatus} -> httpStatus) (\s@PutPolicyResponse' {} a -> s {httpStatus = a} :: PutPolicyResponse)
 
-instance Core.NFData PutPolicyResponse
+instance Prelude.NFData PutPolicyResponse

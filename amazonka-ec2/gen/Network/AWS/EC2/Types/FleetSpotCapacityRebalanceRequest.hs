@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetReplacementStrategy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Spot Instance replacement strategy to use when Amazon EC2 emits a
 -- signal that your Spot Instance is at an elevated risk of being
@@ -44,9 +45,9 @@ data FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
     -- rebalance is not automatically terminated. You can terminate it, or you
     -- can leave it running. You are charged for all instances while they are
     -- running.
-    replacementStrategy :: Core.Maybe FleetReplacementStrategy
+    replacementStrategy :: Prelude.Maybe FleetReplacementStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetSpotCapacityRebalanceRequest' with all optional fields omitted.
@@ -73,7 +74,7 @@ newFleetSpotCapacityRebalanceRequest ::
 newFleetSpotCapacityRebalanceRequest =
   FleetSpotCapacityRebalanceRequest'
     { replacementStrategy =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The replacement strategy to use. Only available for fleets of type
@@ -88,15 +89,15 @@ newFleetSpotCapacityRebalanceRequest =
 -- rebalance is not automatically terminated. You can terminate it, or you
 -- can leave it running. You are charged for all instances while they are
 -- running.
-fleetSpotCapacityRebalanceRequest_replacementStrategy :: Lens.Lens' FleetSpotCapacityRebalanceRequest (Core.Maybe FleetReplacementStrategy)
+fleetSpotCapacityRebalanceRequest_replacementStrategy :: Lens.Lens' FleetSpotCapacityRebalanceRequest (Prelude.Maybe FleetReplacementStrategy)
 fleetSpotCapacityRebalanceRequest_replacementStrategy = Lens.lens (\FleetSpotCapacityRebalanceRequest' {replacementStrategy} -> replacementStrategy) (\s@FleetSpotCapacityRebalanceRequest' {} a -> s {replacementStrategy = a} :: FleetSpotCapacityRebalanceRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FleetSpotCapacityRebalanceRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     FleetSpotCapacityRebalanceRequest
 
 instance
@@ -104,5 +105,5 @@ instance
     FleetSpotCapacityRebalanceRequest
   where
   toQuery FleetSpotCapacityRebalanceRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["ReplacementStrategy" Core.=: replacementStrategy]

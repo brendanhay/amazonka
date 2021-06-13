@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.InstanceSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about the instances that you
 -- registered by using a specified service.
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newInstanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
   { -- | The ID for an instance that you created by using a specified service.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | A string map that contains the following information:
     --
     -- -   The attributes that are associate with the instance.
@@ -62,9 +63,9 @@ data InstanceSummary = InstanceSummary'
     --     returns for the port. In addition, if the service includes
     --     @HealthCheckConfig@, the port on the endpoint that Route 53 sends
     --     requests to.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceSummary' with all optional fields omitted.
@@ -113,12 +114,12 @@ newInstanceSummary ::
   InstanceSummary
 newInstanceSummary =
   InstanceSummary'
-    { id = Core.Nothing,
-      attributes = Core.Nothing
+    { id = Prelude.Nothing,
+      attributes = Prelude.Nothing
     }
 
 -- | The ID for an instance that you created by using a specified service.
-instanceSummary_id :: Lens.Lens' InstanceSummary (Core.Maybe Core.Text)
+instanceSummary_id :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.Text)
 instanceSummary_id = Lens.lens (\InstanceSummary' {id} -> id) (\s@InstanceSummary' {} a -> s {id = a} :: InstanceSummary)
 
 -- | A string map that contains the following information:
@@ -154,8 +155,8 @@ instanceSummary_id = Lens.lens (\InstanceSummary' {id} -> id) (\s@InstanceSummar
 --     returns for the port. In addition, if the service includes
 --     @HealthCheckConfig@, the port on the endpoint that Route 53 sends
 --     requests to.
-instanceSummary_attributes :: Lens.Lens' InstanceSummary (Core.Maybe (Core.HashMap Core.Text Core.Text))
-instanceSummary_attributes = Lens.lens (\InstanceSummary' {attributes} -> attributes) (\s@InstanceSummary' {} a -> s {attributes = a} :: InstanceSummary) Core.. Lens.mapping Lens._Coerce
+instanceSummary_attributes :: Lens.Lens' InstanceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+instanceSummary_attributes = Lens.lens (\InstanceSummary' {attributes} -> attributes) (\s@InstanceSummary' {} a -> s {attributes = a} :: InstanceSummary) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON InstanceSummary where
   parseJSON =
@@ -163,10 +164,10 @@ instance Core.FromJSON InstanceSummary where
       "InstanceSummary"
       ( \x ->
           InstanceSummary'
-            Core.<$> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Attributes" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable InstanceSummary
+instance Prelude.Hashable InstanceSummary
 
-instance Core.NFData InstanceSummary
+instance Prelude.NFData InstanceSummary

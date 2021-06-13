@@ -22,6 +22,7 @@ module Network.AWS.KinesisVideo.Types.ResourceEndpointListItem where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types.ChannelProtocol
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that describes the endpoint of the signaling channel returned
 -- by the @GetSignalingChannelEndpoint@ API.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 data ResourceEndpointListItem = ResourceEndpointListItem'
   { -- | The endpoint of the signaling channel returned by the
     -- @GetSignalingChannelEndpoint@ API.
-    resourceEndpoint :: Core.Maybe Core.Text,
+    resourceEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The protocol of the signaling channel returned by the
     -- @GetSignalingChannelEndpoint@ API.
-    protocol :: Core.Maybe ChannelProtocol
+    protocol :: Prelude.Maybe ChannelProtocol
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceEndpointListItem' with all optional fields omitted.
@@ -55,18 +56,18 @@ newResourceEndpointListItem ::
 newResourceEndpointListItem =
   ResourceEndpointListItem'
     { resourceEndpoint =
-        Core.Nothing,
-      protocol = Core.Nothing
+        Prelude.Nothing,
+      protocol = Prelude.Nothing
     }
 
 -- | The endpoint of the signaling channel returned by the
 -- @GetSignalingChannelEndpoint@ API.
-resourceEndpointListItem_resourceEndpoint :: Lens.Lens' ResourceEndpointListItem (Core.Maybe Core.Text)
+resourceEndpointListItem_resourceEndpoint :: Lens.Lens' ResourceEndpointListItem (Prelude.Maybe Prelude.Text)
 resourceEndpointListItem_resourceEndpoint = Lens.lens (\ResourceEndpointListItem' {resourceEndpoint} -> resourceEndpoint) (\s@ResourceEndpointListItem' {} a -> s {resourceEndpoint = a} :: ResourceEndpointListItem)
 
 -- | The protocol of the signaling channel returned by the
 -- @GetSignalingChannelEndpoint@ API.
-resourceEndpointListItem_protocol :: Lens.Lens' ResourceEndpointListItem (Core.Maybe ChannelProtocol)
+resourceEndpointListItem_protocol :: Lens.Lens' ResourceEndpointListItem (Prelude.Maybe ChannelProtocol)
 resourceEndpointListItem_protocol = Lens.lens (\ResourceEndpointListItem' {protocol} -> protocol) (\s@ResourceEndpointListItem' {} a -> s {protocol = a} :: ResourceEndpointListItem)
 
 instance Core.FromJSON ResourceEndpointListItem where
@@ -75,10 +76,10 @@ instance Core.FromJSON ResourceEndpointListItem where
       "ResourceEndpointListItem"
       ( \x ->
           ResourceEndpointListItem'
-            Core.<$> (x Core..:? "ResourceEndpoint")
-            Core.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Core..:? "ResourceEndpoint")
+            Prelude.<*> (x Core..:? "Protocol")
       )
 
-instance Core.Hashable ResourceEndpointListItem
+instance Prelude.Hashable ResourceEndpointListItem
 
-instance Core.NFData ResourceEndpointListItem
+instance Prelude.NFData ResourceEndpointListItem

@@ -27,32 +27,33 @@ import Network.AWS.CognitoIdentityProvider.Types.EventRiskType
 import Network.AWS.CognitoIdentityProvider.Types.EventType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The authentication event type.
 --
 -- /See:/ 'newAuthEventType' smart constructor.
 data AuthEventType = AuthEventType'
   { -- | The event type.
-    eventType :: Core.Maybe EventType,
+    eventType :: Prelude.Maybe EventType,
     -- | The event ID.
-    eventId :: Core.Maybe Core.Text,
+    eventId :: Prelude.Maybe Prelude.Text,
     -- | The challenge responses.
-    challengeResponses :: Core.Maybe [ChallengeResponseType],
+    challengeResponses :: Prelude.Maybe [ChallengeResponseType],
     -- | The user context data captured at the time of an event request. It
     -- provides additional information about the client from which event the
     -- request is received.
-    eventContextData :: Core.Maybe EventContextDataType,
+    eventContextData :: Prelude.Maybe EventContextDataType,
     -- | The creation date
-    creationDate :: Core.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The event risk.
-    eventRisk :: Core.Maybe EventRiskType,
+    eventRisk :: Prelude.Maybe EventRiskType,
     -- | The event response.
-    eventResponse :: Core.Maybe EventResponseType,
+    eventResponse :: Prelude.Maybe EventResponseType,
     -- | A flag specifying the user feedback captured at the time of an event
     -- request is good or bad.
-    eventFeedback :: Core.Maybe EventFeedbackType
+    eventFeedback :: Prelude.Maybe EventFeedbackType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthEventType' with all optional fields omitted.
@@ -84,49 +85,49 @@ newAuthEventType ::
   AuthEventType
 newAuthEventType =
   AuthEventType'
-    { eventType = Core.Nothing,
-      eventId = Core.Nothing,
-      challengeResponses = Core.Nothing,
-      eventContextData = Core.Nothing,
-      creationDate = Core.Nothing,
-      eventRisk = Core.Nothing,
-      eventResponse = Core.Nothing,
-      eventFeedback = Core.Nothing
+    { eventType = Prelude.Nothing,
+      eventId = Prelude.Nothing,
+      challengeResponses = Prelude.Nothing,
+      eventContextData = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      eventRisk = Prelude.Nothing,
+      eventResponse = Prelude.Nothing,
+      eventFeedback = Prelude.Nothing
     }
 
 -- | The event type.
-authEventType_eventType :: Lens.Lens' AuthEventType (Core.Maybe EventType)
+authEventType_eventType :: Lens.Lens' AuthEventType (Prelude.Maybe EventType)
 authEventType_eventType = Lens.lens (\AuthEventType' {eventType} -> eventType) (\s@AuthEventType' {} a -> s {eventType = a} :: AuthEventType)
 
 -- | The event ID.
-authEventType_eventId :: Lens.Lens' AuthEventType (Core.Maybe Core.Text)
+authEventType_eventId :: Lens.Lens' AuthEventType (Prelude.Maybe Prelude.Text)
 authEventType_eventId = Lens.lens (\AuthEventType' {eventId} -> eventId) (\s@AuthEventType' {} a -> s {eventId = a} :: AuthEventType)
 
 -- | The challenge responses.
-authEventType_challengeResponses :: Lens.Lens' AuthEventType (Core.Maybe [ChallengeResponseType])
-authEventType_challengeResponses = Lens.lens (\AuthEventType' {challengeResponses} -> challengeResponses) (\s@AuthEventType' {} a -> s {challengeResponses = a} :: AuthEventType) Core.. Lens.mapping Lens._Coerce
+authEventType_challengeResponses :: Lens.Lens' AuthEventType (Prelude.Maybe [ChallengeResponseType])
+authEventType_challengeResponses = Lens.lens (\AuthEventType' {challengeResponses} -> challengeResponses) (\s@AuthEventType' {} a -> s {challengeResponses = a} :: AuthEventType) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user context data captured at the time of an event request. It
 -- provides additional information about the client from which event the
 -- request is received.
-authEventType_eventContextData :: Lens.Lens' AuthEventType (Core.Maybe EventContextDataType)
+authEventType_eventContextData :: Lens.Lens' AuthEventType (Prelude.Maybe EventContextDataType)
 authEventType_eventContextData = Lens.lens (\AuthEventType' {eventContextData} -> eventContextData) (\s@AuthEventType' {} a -> s {eventContextData = a} :: AuthEventType)
 
 -- | The creation date
-authEventType_creationDate :: Lens.Lens' AuthEventType (Core.Maybe Core.UTCTime)
-authEventType_creationDate = Lens.lens (\AuthEventType' {creationDate} -> creationDate) (\s@AuthEventType' {} a -> s {creationDate = a} :: AuthEventType) Core.. Lens.mapping Core._Time
+authEventType_creationDate :: Lens.Lens' AuthEventType (Prelude.Maybe Prelude.UTCTime)
+authEventType_creationDate = Lens.lens (\AuthEventType' {creationDate} -> creationDate) (\s@AuthEventType' {} a -> s {creationDate = a} :: AuthEventType) Prelude.. Lens.mapping Core._Time
 
 -- | The event risk.
-authEventType_eventRisk :: Lens.Lens' AuthEventType (Core.Maybe EventRiskType)
+authEventType_eventRisk :: Lens.Lens' AuthEventType (Prelude.Maybe EventRiskType)
 authEventType_eventRisk = Lens.lens (\AuthEventType' {eventRisk} -> eventRisk) (\s@AuthEventType' {} a -> s {eventRisk = a} :: AuthEventType)
 
 -- | The event response.
-authEventType_eventResponse :: Lens.Lens' AuthEventType (Core.Maybe EventResponseType)
+authEventType_eventResponse :: Lens.Lens' AuthEventType (Prelude.Maybe EventResponseType)
 authEventType_eventResponse = Lens.lens (\AuthEventType' {eventResponse} -> eventResponse) (\s@AuthEventType' {} a -> s {eventResponse = a} :: AuthEventType)
 
 -- | A flag specifying the user feedback captured at the time of an event
 -- request is good or bad.
-authEventType_eventFeedback :: Lens.Lens' AuthEventType (Core.Maybe EventFeedbackType)
+authEventType_eventFeedback :: Lens.Lens' AuthEventType (Prelude.Maybe EventFeedbackType)
 authEventType_eventFeedback = Lens.lens (\AuthEventType' {eventFeedback} -> eventFeedback) (\s@AuthEventType' {} a -> s {eventFeedback = a} :: AuthEventType)
 
 instance Core.FromJSON AuthEventType where
@@ -135,18 +136,18 @@ instance Core.FromJSON AuthEventType where
       "AuthEventType"
       ( \x ->
           AuthEventType'
-            Core.<$> (x Core..:? "EventType")
-            Core.<*> (x Core..:? "EventId")
-            Core.<*> ( x Core..:? "ChallengeResponses"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "EventContextData")
-            Core.<*> (x Core..:? "CreationDate")
-            Core.<*> (x Core..:? "EventRisk")
-            Core.<*> (x Core..:? "EventResponse")
-            Core.<*> (x Core..:? "EventFeedback")
+            Prelude.<$> (x Core..:? "EventType")
+            Prelude.<*> (x Core..:? "EventId")
+            Prelude.<*> ( x Core..:? "ChallengeResponses"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "EventContextData")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "EventRisk")
+            Prelude.<*> (x Core..:? "EventResponse")
+            Prelude.<*> (x Core..:? "EventFeedback")
       )
 
-instance Core.Hashable AuthEventType
+instance Prelude.Hashable AuthEventType
 
-instance Core.NFData AuthEventType
+instance Prelude.NFData AuthEventType

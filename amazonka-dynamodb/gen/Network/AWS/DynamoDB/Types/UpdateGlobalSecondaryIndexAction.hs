@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ProvisionedThroughput
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the new provisioned throughput settings to be applied to a
 -- global secondary index.
@@ -29,7 +30,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUpdateGlobalSecondaryIndexAction' smart constructor.
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
   { -- | The name of the global secondary index to be updated.
-    indexName :: Core.Text,
+    indexName :: Prelude.Text,
     -- | Represents the provisioned throughput settings for the specified global
     -- secondary index.
     --
@@ -38,7 +39,7 @@ data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
     -- in the /Amazon DynamoDB Developer Guide/.
     provisionedThroughput :: ProvisionedThroughput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGlobalSecondaryIndexAction' with all optional fields omitted.
@@ -58,7 +59,7 @@ data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
 -- in the /Amazon DynamoDB Developer Guide/.
 newUpdateGlobalSecondaryIndexAction ::
   -- | 'indexName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'provisionedThroughput'
   ProvisionedThroughput ->
   UpdateGlobalSecondaryIndexAction
@@ -73,7 +74,7 @@ newUpdateGlobalSecondaryIndexAction
       }
 
 -- | The name of the global secondary index to be updated.
-updateGlobalSecondaryIndexAction_indexName :: Lens.Lens' UpdateGlobalSecondaryIndexAction Core.Text
+updateGlobalSecondaryIndexAction_indexName :: Lens.Lens' UpdateGlobalSecondaryIndexAction Prelude.Text
 updateGlobalSecondaryIndexAction_indexName = Lens.lens (\UpdateGlobalSecondaryIndexAction' {indexName} -> indexName) (\s@UpdateGlobalSecondaryIndexAction' {} a -> s {indexName = a} :: UpdateGlobalSecondaryIndexAction)
 
 -- | Represents the provisioned throughput settings for the specified global
@@ -86,17 +87,19 @@ updateGlobalSecondaryIndexAction_provisionedThroughput :: Lens.Lens' UpdateGloba
 updateGlobalSecondaryIndexAction_provisionedThroughput = Lens.lens (\UpdateGlobalSecondaryIndexAction' {provisionedThroughput} -> provisionedThroughput) (\s@UpdateGlobalSecondaryIndexAction' {} a -> s {provisionedThroughput = a} :: UpdateGlobalSecondaryIndexAction)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateGlobalSecondaryIndexAction
 
-instance Core.NFData UpdateGlobalSecondaryIndexAction
+instance
+  Prelude.NFData
+    UpdateGlobalSecondaryIndexAction
 
 instance Core.ToJSON UpdateGlobalSecondaryIndexAction where
   toJSON UpdateGlobalSecondaryIndexAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("IndexName" Core..= indexName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("IndexName" Core..= indexName),
+            Prelude.Just
               ( "ProvisionedThroughput"
                   Core..= provisionedThroughput
               )

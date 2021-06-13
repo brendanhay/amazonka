@@ -23,6 +23,7 @@ import Network.AWS.CloudWatchEvents.Types.BatchArrayProperties
 import Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The custom parameters to be used when the target is an AWS Batch job.
 --
@@ -32,20 +33,20 @@ data BatchParameters = BatchParameters'
     -- array. The array size can be between 2 and 10,000. If you specify array
     -- properties for a job, it becomes an array job. This parameter is used
     -- only if the target is an AWS Batch job.
-    arrayProperties :: Core.Maybe BatchArrayProperties,
+    arrayProperties :: Prelude.Maybe BatchArrayProperties,
     -- | The retry strategy to use for failed jobs, if the target is an AWS Batch
     -- job. The retry strategy is the number of times to retry the failed job
     -- execution. Valid values are 1–10. When you specify a retry strategy
     -- here, it overrides the retry strategy defined in the job definition.
-    retryStrategy :: Core.Maybe BatchRetryStrategy,
+    retryStrategy :: Prelude.Maybe BatchRetryStrategy,
     -- | The ARN or name of the job definition to use if the event target is an
     -- AWS Batch job. This job definition must already exist.
-    jobDefinition :: Core.Text,
+    jobDefinition :: Prelude.Text,
     -- | The name to use for this execution of the job, if the target is an AWS
     -- Batch job.
-    jobName :: Core.Text
+    jobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchParameters' with all optional fields omitted.
@@ -72,14 +73,14 @@ data BatchParameters = BatchParameters'
 -- Batch job.
 newBatchParameters ::
   -- | 'jobDefinition'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobName'
-  Core.Text ->
+  Prelude.Text ->
   BatchParameters
 newBatchParameters pJobDefinition_ pJobName_ =
   BatchParameters'
-    { arrayProperties = Core.Nothing,
-      retryStrategy = Core.Nothing,
+    { arrayProperties = Prelude.Nothing,
+      retryStrategy = Prelude.Nothing,
       jobDefinition = pJobDefinition_,
       jobName = pJobName_
     }
@@ -88,24 +89,24 @@ newBatchParameters pJobDefinition_ pJobName_ =
 -- array. The array size can be between 2 and 10,000. If you specify array
 -- properties for a job, it becomes an array job. This parameter is used
 -- only if the target is an AWS Batch job.
-batchParameters_arrayProperties :: Lens.Lens' BatchParameters (Core.Maybe BatchArrayProperties)
+batchParameters_arrayProperties :: Lens.Lens' BatchParameters (Prelude.Maybe BatchArrayProperties)
 batchParameters_arrayProperties = Lens.lens (\BatchParameters' {arrayProperties} -> arrayProperties) (\s@BatchParameters' {} a -> s {arrayProperties = a} :: BatchParameters)
 
 -- | The retry strategy to use for failed jobs, if the target is an AWS Batch
 -- job. The retry strategy is the number of times to retry the failed job
 -- execution. Valid values are 1–10. When you specify a retry strategy
 -- here, it overrides the retry strategy defined in the job definition.
-batchParameters_retryStrategy :: Lens.Lens' BatchParameters (Core.Maybe BatchRetryStrategy)
+batchParameters_retryStrategy :: Lens.Lens' BatchParameters (Prelude.Maybe BatchRetryStrategy)
 batchParameters_retryStrategy = Lens.lens (\BatchParameters' {retryStrategy} -> retryStrategy) (\s@BatchParameters' {} a -> s {retryStrategy = a} :: BatchParameters)
 
 -- | The ARN or name of the job definition to use if the event target is an
 -- AWS Batch job. This job definition must already exist.
-batchParameters_jobDefinition :: Lens.Lens' BatchParameters Core.Text
+batchParameters_jobDefinition :: Lens.Lens' BatchParameters Prelude.Text
 batchParameters_jobDefinition = Lens.lens (\BatchParameters' {jobDefinition} -> jobDefinition) (\s@BatchParameters' {} a -> s {jobDefinition = a} :: BatchParameters)
 
 -- | The name to use for this execution of the job, if the target is an AWS
 -- Batch job.
-batchParameters_jobName :: Lens.Lens' BatchParameters Core.Text
+batchParameters_jobName :: Lens.Lens' BatchParameters Prelude.Text
 batchParameters_jobName = Lens.lens (\BatchParameters' {jobName} -> jobName) (\s@BatchParameters' {} a -> s {jobName = a} :: BatchParameters)
 
 instance Core.FromJSON BatchParameters where
@@ -114,24 +115,24 @@ instance Core.FromJSON BatchParameters where
       "BatchParameters"
       ( \x ->
           BatchParameters'
-            Core.<$> (x Core..:? "ArrayProperties")
-            Core.<*> (x Core..:? "RetryStrategy")
-            Core.<*> (x Core..: "JobDefinition")
-            Core.<*> (x Core..: "JobName")
+            Prelude.<$> (x Core..:? "ArrayProperties")
+            Prelude.<*> (x Core..:? "RetryStrategy")
+            Prelude.<*> (x Core..: "JobDefinition")
+            Prelude.<*> (x Core..: "JobName")
       )
 
-instance Core.Hashable BatchParameters
+instance Prelude.Hashable BatchParameters
 
-instance Core.NFData BatchParameters
+instance Prelude.NFData BatchParameters
 
 instance Core.ToJSON BatchParameters where
   toJSON BatchParameters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ArrayProperties" Core..=)
-              Core.<$> arrayProperties,
-            ("RetryStrategy" Core..=) Core.<$> retryStrategy,
-            Core.Just ("JobDefinition" Core..= jobDefinition),
-            Core.Just ("JobName" Core..= jobName)
+              Prelude.<$> arrayProperties,
+            ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
+            Prelude.Just ("JobDefinition" Core..= jobDefinition),
+            Prelude.Just ("JobName" Core..= jobName)
           ]
       )

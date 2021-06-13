@@ -44,6 +44,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
   { -- | The user pool ID for the user pool you want to describe.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The app client ID of the app associated with the user pool.
-    clientId :: Core.Sensitive Core.Text
+    clientId :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserPoolClient' with all optional fields omitted.
@@ -71,9 +72,9 @@ data DescribeUserPoolClient = DescribeUserPoolClient'
 -- 'clientId', 'describeUserPoolClient_clientId' - The app client ID of the app associated with the user pool.
 newDescribeUserPoolClient ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeUserPoolClient
 newDescribeUserPoolClient pUserPoolId_ pClientId_ =
   DescribeUserPoolClient'
@@ -82,12 +83,12 @@ newDescribeUserPoolClient pUserPoolId_ pClientId_ =
     }
 
 -- | The user pool ID for the user pool you want to describe.
-describeUserPoolClient_userPoolId :: Lens.Lens' DescribeUserPoolClient Core.Text
+describeUserPoolClient_userPoolId :: Lens.Lens' DescribeUserPoolClient Prelude.Text
 describeUserPoolClient_userPoolId = Lens.lens (\DescribeUserPoolClient' {userPoolId} -> userPoolId) (\s@DescribeUserPoolClient' {} a -> s {userPoolId = a} :: DescribeUserPoolClient)
 
 -- | The app client ID of the app associated with the user pool.
-describeUserPoolClient_clientId :: Lens.Lens' DescribeUserPoolClient Core.Text
-describeUserPoolClient_clientId = Lens.lens (\DescribeUserPoolClient' {clientId} -> clientId) (\s@DescribeUserPoolClient' {} a -> s {clientId = a} :: DescribeUserPoolClient) Core.. Core._Sensitive
+describeUserPoolClient_clientId :: Lens.Lens' DescribeUserPoolClient Prelude.Text
+describeUserPoolClient_clientId = Lens.lens (\DescribeUserPoolClient' {clientId} -> clientId) (\s@DescribeUserPoolClient' {} a -> s {clientId = a} :: DescribeUserPoolClient) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest DescribeUserPoolClient where
   type
@@ -98,41 +99,43 @@ instance Core.AWSRequest DescribeUserPoolClient where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserPoolClientResponse'
-            Core.<$> (x Core..?> "UserPoolClient")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UserPoolClient")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeUserPoolClient
+instance Prelude.Hashable DescribeUserPoolClient
 
-instance Core.NFData DescribeUserPoolClient
+instance Prelude.NFData DescribeUserPoolClient
 
 instance Core.ToHeaders DescribeUserPoolClient where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolClient" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeUserPoolClient where
   toJSON DescribeUserPoolClient' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("ClientId" Core..= clientId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("ClientId" Core..= clientId)
           ]
       )
 
 instance Core.ToPath DescribeUserPoolClient where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeUserPoolClient where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server from a request to describe the
 -- user pool client.
@@ -141,11 +144,11 @@ instance Core.ToQuery DescribeUserPoolClient where
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
   { -- | The user pool client from a server response to describe the user pool
     -- client.
-    userPoolClient :: Core.Maybe UserPoolClientType,
+    userPoolClient :: Prelude.Maybe UserPoolClientType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeUserPoolClientResponse' with all optional fields omitted.
@@ -161,22 +164,24 @@ data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
 -- 'httpStatus', 'describeUserPoolClientResponse_httpStatus' - The response's http status code.
 newDescribeUserPoolClientResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeUserPoolClientResponse
 newDescribeUserPoolClientResponse pHttpStatus_ =
   DescribeUserPoolClientResponse'
     { userPoolClient =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user pool client from a server response to describe the user pool
 -- client.
-describeUserPoolClientResponse_userPoolClient :: Lens.Lens' DescribeUserPoolClientResponse (Core.Maybe UserPoolClientType)
+describeUserPoolClientResponse_userPoolClient :: Lens.Lens' DescribeUserPoolClientResponse (Prelude.Maybe UserPoolClientType)
 describeUserPoolClientResponse_userPoolClient = Lens.lens (\DescribeUserPoolClientResponse' {userPoolClient} -> userPoolClient) (\s@DescribeUserPoolClientResponse' {} a -> s {userPoolClient = a} :: DescribeUserPoolClientResponse)
 
 -- | The response's http status code.
-describeUserPoolClientResponse_httpStatus :: Lens.Lens' DescribeUserPoolClientResponse Core.Int
+describeUserPoolClientResponse_httpStatus :: Lens.Lens' DescribeUserPoolClientResponse Prelude.Int
 describeUserPoolClientResponse_httpStatus = Lens.lens (\DescribeUserPoolClientResponse' {httpStatus} -> httpStatus) (\s@DescribeUserPoolClientResponse' {} a -> s {httpStatus = a} :: DescribeUserPoolClientResponse)
 
-instance Core.NFData DescribeUserPoolClientResponse
+instance
+  Prelude.NFData
+    DescribeUserPoolClientResponse

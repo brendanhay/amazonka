@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.DeadLetterConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A @DeadLetterConfig@ object that contains information about a
 -- dead-letter queue configuration.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data DeadLetterConfig = DeadLetterConfig'
   { -- | The ARN of the SQS queue specified as the target for the dead-letter
     -- queue.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeadLetterConfig' with all optional fields omitted.
@@ -46,11 +47,11 @@ data DeadLetterConfig = DeadLetterConfig'
 newDeadLetterConfig ::
   DeadLetterConfig
 newDeadLetterConfig =
-  DeadLetterConfig' {arn = Core.Nothing}
+  DeadLetterConfig' {arn = Prelude.Nothing}
 
 -- | The ARN of the SQS queue specified as the target for the dead-letter
 -- queue.
-deadLetterConfig_arn :: Lens.Lens' DeadLetterConfig (Core.Maybe Core.Text)
+deadLetterConfig_arn :: Lens.Lens' DeadLetterConfig (Prelude.Maybe Prelude.Text)
 deadLetterConfig_arn = Lens.lens (\DeadLetterConfig' {arn} -> arn) (\s@DeadLetterConfig' {} a -> s {arn = a} :: DeadLetterConfig)
 
 instance Core.FromJSON DeadLetterConfig where
@@ -58,14 +59,14 @@ instance Core.FromJSON DeadLetterConfig where
     Core.withObject
       "DeadLetterConfig"
       ( \x ->
-          DeadLetterConfig' Core.<$> (x Core..:? "Arn")
+          DeadLetterConfig' Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Core.Hashable DeadLetterConfig
+instance Prelude.Hashable DeadLetterConfig
 
-instance Core.NFData DeadLetterConfig
+instance Prelude.NFData DeadLetterConfig
 
 instance Core.ToJSON DeadLetterConfig where
   toJSON DeadLetterConfig' {..} =
     Core.object
-      (Core.catMaybes [("Arn" Core..=) Core.<$> arn])
+      (Prelude.catMaybes [("Arn" Core..=) Prelude.<$> arn])

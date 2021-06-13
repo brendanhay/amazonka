@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.RenderableTask where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains input values for a task.
 --
@@ -31,9 +32,9 @@ data RenderableTask = RenderableTask'
     -- variable @task.input@. For example, if you define a variable
     -- @task.input.text@ in your template, you can supply the variable in the
     -- JSON object as @\"text\": \"sample text\"@.
-    input :: Core.Text
+    input :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RenderableTask' with all optional fields omitted.
@@ -50,7 +51,7 @@ data RenderableTask = RenderableTask'
 -- JSON object as @\"text\": \"sample text\"@.
 newRenderableTask ::
   -- | 'input'
-  Core.Text ->
+  Prelude.Text ->
   RenderableTask
 newRenderableTask pInput_ =
   RenderableTask' {input = pInput_}
@@ -60,14 +61,16 @@ newRenderableTask pInput_ =
 -- variable @task.input@. For example, if you define a variable
 -- @task.input.text@ in your template, you can supply the variable in the
 -- JSON object as @\"text\": \"sample text\"@.
-renderableTask_input :: Lens.Lens' RenderableTask Core.Text
+renderableTask_input :: Lens.Lens' RenderableTask Prelude.Text
 renderableTask_input = Lens.lens (\RenderableTask' {input} -> input) (\s@RenderableTask' {} a -> s {input = a} :: RenderableTask)
 
-instance Core.Hashable RenderableTask
+instance Prelude.Hashable RenderableTask
 
-instance Core.NFData RenderableTask
+instance Prelude.NFData RenderableTask
 
 instance Core.ToJSON RenderableTask where
   toJSON RenderableTask' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Input" Core..= input)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Input" Core..= input)]
+      )

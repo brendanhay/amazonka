@@ -24,6 +24,7 @@ import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
 import Network.AWS.ElasticBeanstalk.Types.S3Location
 import Network.AWS.ElasticBeanstalk.Types.SourceBuildInformation
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the properties of an application version.
 --
@@ -51,29 +52,29 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
     -- -   @Failed@ – Either the AWS CodeBuild build failed or configuration
     --     files didn\'t pass validation. This application version isn\'t
     --     usable.
-    status :: Core.Maybe ApplicationVersionStatus,
+    status :: Prelude.Maybe ApplicationVersionStatus,
     -- | The creation date of the application version.
-    dateCreated :: Core.Maybe Core.ISO8601,
+    dateCreated :: Prelude.Maybe Core.ISO8601,
     -- | The storage location of the application version\'s source bundle in
     -- Amazon S3.
-    sourceBundle :: Core.Maybe S3Location,
+    sourceBundle :: Prelude.Maybe S3Location,
     -- | If the version\'s source code was retrieved from AWS CodeCommit, the
     -- location of the source code for the application version.
-    sourceBuildInformation :: Core.Maybe SourceBuildInformation,
+    sourceBuildInformation :: Prelude.Maybe SourceBuildInformation,
     -- | A unique identifier for the application version.
-    versionLabel :: Core.Maybe Core.Text,
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | The last modified date of the application version.
-    dateUpdated :: Core.Maybe Core.ISO8601,
+    dateUpdated :: Prelude.Maybe Core.ISO8601,
     -- | The description of the application version.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Reference to the artifact from the AWS CodeBuild build.
-    buildArn :: Core.Maybe Core.Text,
+    buildArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application version.
-    applicationVersionArn :: Core.Maybe Core.Text,
+    applicationVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the application to which the application version belongs.
-    applicationName :: Core.Maybe Core.Text
+    applicationName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationVersionDescription' with all optional fields omitted.
@@ -130,16 +131,16 @@ newApplicationVersionDescription ::
 newApplicationVersionDescription =
   ApplicationVersionDescription'
     { status =
-        Core.Nothing,
-      dateCreated = Core.Nothing,
-      sourceBundle = Core.Nothing,
-      sourceBuildInformation = Core.Nothing,
-      versionLabel = Core.Nothing,
-      dateUpdated = Core.Nothing,
-      description = Core.Nothing,
-      buildArn = Core.Nothing,
-      applicationVersionArn = Core.Nothing,
-      applicationName = Core.Nothing
+        Prelude.Nothing,
+      dateCreated = Prelude.Nothing,
+      sourceBundle = Prelude.Nothing,
+      sourceBuildInformation = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
+      dateUpdated = Prelude.Nothing,
+      description = Prelude.Nothing,
+      buildArn = Prelude.Nothing,
+      applicationVersionArn = Prelude.Nothing,
+      applicationName = Prelude.Nothing
     }
 
 -- | The processing status of the application version. Reflects the state of
@@ -164,61 +165,63 @@ newApplicationVersionDescription =
 -- -   @Failed@ – Either the AWS CodeBuild build failed or configuration
 --     files didn\'t pass validation. This application version isn\'t
 --     usable.
-applicationVersionDescription_status :: Lens.Lens' ApplicationVersionDescription (Core.Maybe ApplicationVersionStatus)
+applicationVersionDescription_status :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe ApplicationVersionStatus)
 applicationVersionDescription_status = Lens.lens (\ApplicationVersionDescription' {status} -> status) (\s@ApplicationVersionDescription' {} a -> s {status = a} :: ApplicationVersionDescription)
 
 -- | The creation date of the application version.
-applicationVersionDescription_dateCreated :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.UTCTime)
-applicationVersionDescription_dateCreated = Lens.lens (\ApplicationVersionDescription' {dateCreated} -> dateCreated) (\s@ApplicationVersionDescription' {} a -> s {dateCreated = a} :: ApplicationVersionDescription) Core.. Lens.mapping Core._Time
+applicationVersionDescription_dateCreated :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.UTCTime)
+applicationVersionDescription_dateCreated = Lens.lens (\ApplicationVersionDescription' {dateCreated} -> dateCreated) (\s@ApplicationVersionDescription' {} a -> s {dateCreated = a} :: ApplicationVersionDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The storage location of the application version\'s source bundle in
 -- Amazon S3.
-applicationVersionDescription_sourceBundle :: Lens.Lens' ApplicationVersionDescription (Core.Maybe S3Location)
+applicationVersionDescription_sourceBundle :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe S3Location)
 applicationVersionDescription_sourceBundle = Lens.lens (\ApplicationVersionDescription' {sourceBundle} -> sourceBundle) (\s@ApplicationVersionDescription' {} a -> s {sourceBundle = a} :: ApplicationVersionDescription)
 
 -- | If the version\'s source code was retrieved from AWS CodeCommit, the
 -- location of the source code for the application version.
-applicationVersionDescription_sourceBuildInformation :: Lens.Lens' ApplicationVersionDescription (Core.Maybe SourceBuildInformation)
+applicationVersionDescription_sourceBuildInformation :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe SourceBuildInformation)
 applicationVersionDescription_sourceBuildInformation = Lens.lens (\ApplicationVersionDescription' {sourceBuildInformation} -> sourceBuildInformation) (\s@ApplicationVersionDescription' {} a -> s {sourceBuildInformation = a} :: ApplicationVersionDescription)
 
 -- | A unique identifier for the application version.
-applicationVersionDescription_versionLabel :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.Text)
+applicationVersionDescription_versionLabel :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
 applicationVersionDescription_versionLabel = Lens.lens (\ApplicationVersionDescription' {versionLabel} -> versionLabel) (\s@ApplicationVersionDescription' {} a -> s {versionLabel = a} :: ApplicationVersionDescription)
 
 -- | The last modified date of the application version.
-applicationVersionDescription_dateUpdated :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.UTCTime)
-applicationVersionDescription_dateUpdated = Lens.lens (\ApplicationVersionDescription' {dateUpdated} -> dateUpdated) (\s@ApplicationVersionDescription' {} a -> s {dateUpdated = a} :: ApplicationVersionDescription) Core.. Lens.mapping Core._Time
+applicationVersionDescription_dateUpdated :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.UTCTime)
+applicationVersionDescription_dateUpdated = Lens.lens (\ApplicationVersionDescription' {dateUpdated} -> dateUpdated) (\s@ApplicationVersionDescription' {} a -> s {dateUpdated = a} :: ApplicationVersionDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the application version.
-applicationVersionDescription_description :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.Text)
+applicationVersionDescription_description :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
 applicationVersionDescription_description = Lens.lens (\ApplicationVersionDescription' {description} -> description) (\s@ApplicationVersionDescription' {} a -> s {description = a} :: ApplicationVersionDescription)
 
 -- | Reference to the artifact from the AWS CodeBuild build.
-applicationVersionDescription_buildArn :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.Text)
+applicationVersionDescription_buildArn :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
 applicationVersionDescription_buildArn = Lens.lens (\ApplicationVersionDescription' {buildArn} -> buildArn) (\s@ApplicationVersionDescription' {} a -> s {buildArn = a} :: ApplicationVersionDescription)
 
 -- | The Amazon Resource Name (ARN) of the application version.
-applicationVersionDescription_applicationVersionArn :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.Text)
+applicationVersionDescription_applicationVersionArn :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
 applicationVersionDescription_applicationVersionArn = Lens.lens (\ApplicationVersionDescription' {applicationVersionArn} -> applicationVersionArn) (\s@ApplicationVersionDescription' {} a -> s {applicationVersionArn = a} :: ApplicationVersionDescription)
 
 -- | The name of the application to which the application version belongs.
-applicationVersionDescription_applicationName :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.Text)
+applicationVersionDescription_applicationName :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
 applicationVersionDescription_applicationName = Lens.lens (\ApplicationVersionDescription' {applicationName} -> applicationName) (\s@ApplicationVersionDescription' {} a -> s {applicationName = a} :: ApplicationVersionDescription)
 
 instance Core.FromXML ApplicationVersionDescription where
   parseXML x =
     ApplicationVersionDescription'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "DateCreated")
-      Core.<*> (x Core..@? "SourceBundle")
-      Core.<*> (x Core..@? "SourceBuildInformation")
-      Core.<*> (x Core..@? "VersionLabel")
-      Core.<*> (x Core..@? "DateUpdated")
-      Core.<*> (x Core..@? "Description")
-      Core.<*> (x Core..@? "BuildArn")
-      Core.<*> (x Core..@? "ApplicationVersionArn")
-      Core.<*> (x Core..@? "ApplicationName")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "DateCreated")
+      Prelude.<*> (x Core..@? "SourceBundle")
+      Prelude.<*> (x Core..@? "SourceBuildInformation")
+      Prelude.<*> (x Core..@? "VersionLabel")
+      Prelude.<*> (x Core..@? "DateUpdated")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "BuildArn")
+      Prelude.<*> (x Core..@? "ApplicationVersionArn")
+      Prelude.<*> (x Core..@? "ApplicationName")
 
-instance Core.Hashable ApplicationVersionDescription
+instance
+  Prelude.Hashable
+    ApplicationVersionDescription
 
-instance Core.NFData ApplicationVersionDescription
+instance Prelude.NFData ApplicationVersionDescription

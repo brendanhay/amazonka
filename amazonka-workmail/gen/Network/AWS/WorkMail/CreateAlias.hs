@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -50,13 +51,13 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
   { -- | The organization under which the member (user or group) exists.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The member (user or group) to which this alias is added.
-    entityId :: Core.Text,
+    entityId :: Prelude.Text,
     -- | The alias to add to the member set.
-    alias :: Core.Text
+    alias :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAlias' with all optional fields omitted.
@@ -73,11 +74,11 @@ data CreateAlias = CreateAlias'
 -- 'alias', 'createAlias_alias' - The alias to add to the member set.
 newCreateAlias ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'entityId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'alias'
-  Core.Text ->
+  Prelude.Text ->
   CreateAlias
 newCreateAlias pOrganizationId_ pEntityId_ pAlias_ =
   CreateAlias'
@@ -87,15 +88,15 @@ newCreateAlias pOrganizationId_ pEntityId_ pAlias_ =
     }
 
 -- | The organization under which the member (user or group) exists.
-createAlias_organizationId :: Lens.Lens' CreateAlias Core.Text
+createAlias_organizationId :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_organizationId = Lens.lens (\CreateAlias' {organizationId} -> organizationId) (\s@CreateAlias' {} a -> s {organizationId = a} :: CreateAlias)
 
 -- | The member (user or group) to which this alias is added.
-createAlias_entityId :: Lens.Lens' CreateAlias Core.Text
+createAlias_entityId :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_entityId = Lens.lens (\CreateAlias' {entityId} -> entityId) (\s@CreateAlias' {} a -> s {entityId = a} :: CreateAlias)
 
 -- | The alias to add to the member set.
-createAlias_alias :: Lens.Lens' CreateAlias Core.Text
+createAlias_alias :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_alias = Lens.lens (\CreateAlias' {alias} -> alias) (\s@CreateAlias' {} a -> s {alias = a} :: CreateAlias)
 
 instance Core.AWSRequest CreateAlias where
@@ -105,46 +106,51 @@ instance Core.AWSRequest CreateAlias where
     Response.receiveEmpty
       ( \s h x ->
           CreateAliasResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateAlias
+instance Prelude.Hashable CreateAlias
 
-instance Core.NFData CreateAlias
+instance Prelude.NFData CreateAlias
 
 instance Core.ToHeaders CreateAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("WorkMailService.CreateAlias" :: Core.ByteString),
+              Core.=# ( "WorkMailService.CreateAlias" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("EntityId" Core..= entityId),
-            Core.Just ("Alias" Core..= alias)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("EntityId" Core..= entityId),
+            Prelude.Just ("Alias" Core..= alias)
           ]
       )
 
 instance Core.ToPath CreateAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAliasResponse' with all optional fields omitted.
@@ -157,13 +163,13 @@ data CreateAliasResponse = CreateAliasResponse'
 -- 'httpStatus', 'createAliasResponse_httpStatus' - The response's http status code.
 newCreateAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAliasResponse
 newCreateAliasResponse pHttpStatus_ =
   CreateAliasResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createAliasResponse_httpStatus :: Lens.Lens' CreateAliasResponse Core.Int
+createAliasResponse_httpStatus :: Lens.Lens' CreateAliasResponse Prelude.Int
 createAliasResponse_httpStatus = Lens.lens (\CreateAliasResponse' {httpStatus} -> httpStatus) (\s@CreateAliasResponse' {} a -> s {httpStatus = a} :: CreateAliasResponse)
 
-instance Core.NFData CreateAliasResponse
+instance Prelude.NFData CreateAliasResponse

@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.TransitGatewayConnectRequestBgpOptions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The BGP options for the Connect attachment.
 --
 -- /See:/ 'newTransitGatewayConnectRequestBgpOptions' smart constructor.
 data TransitGatewayConnectRequestBgpOptions = TransitGatewayConnectRequestBgpOptions'
   { -- | The peer Autonomous System Number (ASN).
-    peerAsn :: Core.Maybe Core.Integer
+    peerAsn :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayConnectRequestBgpOptions' with all optional fields omitted.
@@ -46,19 +47,19 @@ newTransitGatewayConnectRequestBgpOptions ::
 newTransitGatewayConnectRequestBgpOptions =
   TransitGatewayConnectRequestBgpOptions'
     { peerAsn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The peer Autonomous System Number (ASN).
-transitGatewayConnectRequestBgpOptions_peerAsn :: Lens.Lens' TransitGatewayConnectRequestBgpOptions (Core.Maybe Core.Integer)
+transitGatewayConnectRequestBgpOptions_peerAsn :: Lens.Lens' TransitGatewayConnectRequestBgpOptions (Prelude.Maybe Prelude.Integer)
 transitGatewayConnectRequestBgpOptions_peerAsn = Lens.lens (\TransitGatewayConnectRequestBgpOptions' {peerAsn} -> peerAsn) (\s@TransitGatewayConnectRequestBgpOptions' {} a -> s {peerAsn = a} :: TransitGatewayConnectRequestBgpOptions)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     TransitGatewayConnectRequestBgpOptions
 
 instance
-  Core.NFData
+  Prelude.NFData
     TransitGatewayConnectRequestBgpOptions
 
 instance
@@ -66,4 +67,4 @@ instance
     TransitGatewayConnectRequestBgpOptions
   where
   toQuery TransitGatewayConnectRequestBgpOptions' {..} =
-    Core.mconcat ["PeerAsn" Core.=: peerAsn]
+    Prelude.mconcat ["PeerAsn" Core.=: peerAsn]

@@ -22,6 +22,7 @@ module Network.AWS.Firehose.Types.ProcessorParameter where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.ProcessorParameterName
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the processor parameter.
 --
@@ -30,9 +31,9 @@ data ProcessorParameter = ProcessorParameter'
   { -- | The name of the parameter.
     parameterName :: ProcessorParameterName,
     -- | The parameter value.
-    parameterValue :: Core.Text
+    parameterValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessorParameter' with all optional fields omitted.
@@ -49,7 +50,7 @@ newProcessorParameter ::
   -- | 'parameterName'
   ProcessorParameterName ->
   -- | 'parameterValue'
-  Core.Text ->
+  Prelude.Text ->
   ProcessorParameter
 newProcessorParameter
   pParameterName_
@@ -65,7 +66,7 @@ processorParameter_parameterName :: Lens.Lens' ProcessorParameter ProcessorParam
 processorParameter_parameterName = Lens.lens (\ProcessorParameter' {parameterName} -> parameterName) (\s@ProcessorParameter' {} a -> s {parameterName = a} :: ProcessorParameter)
 
 -- | The parameter value.
-processorParameter_parameterValue :: Lens.Lens' ProcessorParameter Core.Text
+processorParameter_parameterValue :: Lens.Lens' ProcessorParameter Prelude.Text
 processorParameter_parameterValue = Lens.lens (\ProcessorParameter' {parameterValue} -> parameterValue) (\s@ProcessorParameter' {} a -> s {parameterValue = a} :: ProcessorParameter)
 
 instance Core.FromJSON ProcessorParameter where
@@ -74,19 +75,21 @@ instance Core.FromJSON ProcessorParameter where
       "ProcessorParameter"
       ( \x ->
           ProcessorParameter'
-            Core.<$> (x Core..: "ParameterName")
-            Core.<*> (x Core..: "ParameterValue")
+            Prelude.<$> (x Core..: "ParameterName")
+            Prelude.<*> (x Core..: "ParameterValue")
       )
 
-instance Core.Hashable ProcessorParameter
+instance Prelude.Hashable ProcessorParameter
 
-instance Core.NFData ProcessorParameter
+instance Prelude.NFData ProcessorParameter
 
 instance Core.ToJSON ProcessorParameter where
   toJSON ProcessorParameter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ParameterName" Core..= parameterName),
-            Core.Just ("ParameterValue" Core..= parameterValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ParameterName" Core..= parameterName),
+            Prelude.Just
+              ("ParameterValue" Core..= parameterValue)
           ]
       )

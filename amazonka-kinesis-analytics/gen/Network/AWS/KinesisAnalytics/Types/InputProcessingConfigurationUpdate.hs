@@ -22,6 +22,7 @@ module Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationUpdate whe
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes updates to an
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration>.
@@ -32,7 +33,7 @@ data InputProcessingConfigurationUpdate = InputProcessingConfigurationUpdate'
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor>.
     inputLambdaProcessorUpdate :: InputLambdaProcessorUpdate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputProcessingConfigurationUpdate' with all optional fields omitted.
@@ -61,11 +62,11 @@ inputProcessingConfigurationUpdate_inputLambdaProcessorUpdate :: Lens.Lens' Inpu
 inputProcessingConfigurationUpdate_inputLambdaProcessorUpdate = Lens.lens (\InputProcessingConfigurationUpdate' {inputLambdaProcessorUpdate} -> inputLambdaProcessorUpdate) (\s@InputProcessingConfigurationUpdate' {} a -> s {inputLambdaProcessorUpdate = a} :: InputProcessingConfigurationUpdate)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InputProcessingConfigurationUpdate
 
 instance
-  Core.NFData
+  Prelude.NFData
     InputProcessingConfigurationUpdate
 
 instance
@@ -74,8 +75,8 @@ instance
   where
   toJSON InputProcessingConfigurationUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "InputLambdaProcessorUpdate"
                   Core..= inputLambdaProcessorUpdate
               )

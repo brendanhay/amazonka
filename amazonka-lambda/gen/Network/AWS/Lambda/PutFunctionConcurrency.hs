@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,11 +74,11 @@ data PutFunctionConcurrency = PutFunctionConcurrency'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text,
+    functionName :: Prelude.Text,
     -- | The number of simultaneous executions to reserve for the function.
-    reservedConcurrentExecutions :: Core.Natural
+    reservedConcurrentExecutions :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutFunctionConcurrency' with all optional fields omitted.
@@ -104,9 +105,9 @@ data PutFunctionConcurrency = PutFunctionConcurrency'
 -- 'reservedConcurrentExecutions', 'putFunctionConcurrency_reservedConcurrentExecutions' - The number of simultaneous executions to reserve for the function.
 newPutFunctionConcurrency ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'reservedConcurrentExecutions'
-  Core.Natural ->
+  Prelude.Natural ->
   PutFunctionConcurrency
 newPutFunctionConcurrency
   pFunctionName_
@@ -131,11 +132,11 @@ newPutFunctionConcurrency
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-putFunctionConcurrency_functionName :: Lens.Lens' PutFunctionConcurrency Core.Text
+putFunctionConcurrency_functionName :: Lens.Lens' PutFunctionConcurrency Prelude.Text
 putFunctionConcurrency_functionName = Lens.lens (\PutFunctionConcurrency' {functionName} -> functionName) (\s@PutFunctionConcurrency' {} a -> s {functionName = a} :: PutFunctionConcurrency)
 
 -- | The number of simultaneous executions to reserve for the function.
-putFunctionConcurrency_reservedConcurrentExecutions :: Lens.Lens' PutFunctionConcurrency Core.Natural
+putFunctionConcurrency_reservedConcurrentExecutions :: Lens.Lens' PutFunctionConcurrency Prelude.Natural
 putFunctionConcurrency_reservedConcurrentExecutions = Lens.lens (\PutFunctionConcurrency' {reservedConcurrentExecutions} -> reservedConcurrentExecutions) (\s@PutFunctionConcurrency' {} a -> s {reservedConcurrentExecutions = a} :: PutFunctionConcurrency)
 
 instance Core.AWSRequest PutFunctionConcurrency where
@@ -145,18 +146,18 @@ instance Core.AWSRequest PutFunctionConcurrency where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable PutFunctionConcurrency
+instance Prelude.Hashable PutFunctionConcurrency
 
-instance Core.NFData PutFunctionConcurrency
+instance Prelude.NFData PutFunctionConcurrency
 
 instance Core.ToHeaders PutFunctionConcurrency where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON PutFunctionConcurrency where
   toJSON PutFunctionConcurrency' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ReservedConcurrentExecutions"
                   Core..= reservedConcurrentExecutions
               )
@@ -165,11 +166,11 @@ instance Core.ToJSON PutFunctionConcurrency where
 
 instance Core.ToPath PutFunctionConcurrency where
   toPath PutFunctionConcurrency' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2017-10-31/functions/",
         Core.toBS functionName,
         "/concurrency"
       ]
 
 instance Core.ToQuery PutFunctionConcurrency where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

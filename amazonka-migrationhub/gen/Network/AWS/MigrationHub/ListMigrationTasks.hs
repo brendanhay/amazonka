@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,13 +64,13 @@ data ListMigrationTasks = ListMigrationTasks'
   { -- | If a @NextToken@ was returned by a previous call, there are more results
     -- available. To retrieve the next page of results, make the call again
     -- using the returned token in @NextToken@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Value to specify how many results are returned per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filter migration tasks by discovered resource name.
-    resourceName :: Core.Maybe Core.Text
+    resourceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListMigrationTasks' with all optional fields omitted.
@@ -90,23 +91,23 @@ newListMigrationTasks ::
   ListMigrationTasks
 newListMigrationTasks =
   ListMigrationTasks'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      resourceName = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      resourceName = Prelude.Nothing
     }
 
 -- | If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again
 -- using the returned token in @NextToken@.
-listMigrationTasks_nextToken :: Lens.Lens' ListMigrationTasks (Core.Maybe Core.Text)
+listMigrationTasks_nextToken :: Lens.Lens' ListMigrationTasks (Prelude.Maybe Prelude.Text)
 listMigrationTasks_nextToken = Lens.lens (\ListMigrationTasks' {nextToken} -> nextToken) (\s@ListMigrationTasks' {} a -> s {nextToken = a} :: ListMigrationTasks)
 
 -- | Value to specify how many results are returned per page.
-listMigrationTasks_maxResults :: Lens.Lens' ListMigrationTasks (Core.Maybe Core.Natural)
+listMigrationTasks_maxResults :: Lens.Lens' ListMigrationTasks (Prelude.Maybe Prelude.Natural)
 listMigrationTasks_maxResults = Lens.lens (\ListMigrationTasks' {maxResults} -> maxResults) (\s@ListMigrationTasks' {} a -> s {maxResults = a} :: ListMigrationTasks)
 
 -- | Filter migration tasks by discovered resource name.
-listMigrationTasks_resourceName :: Lens.Lens' ListMigrationTasks (Core.Maybe Core.Text)
+listMigrationTasks_resourceName :: Lens.Lens' ListMigrationTasks (Prelude.Maybe Prelude.Text)
 listMigrationTasks_resourceName = Lens.lens (\ListMigrationTasks' {resourceName} -> resourceName) (\s@ListMigrationTasks' {} a -> s {resourceName = a} :: ListMigrationTasks)
 
 instance Core.AWSPager ListMigrationTasks where
@@ -114,22 +115,22 @@ instance Core.AWSPager ListMigrationTasks where
     | Core.stop
         ( rs
             Lens.^? listMigrationTasksResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listMigrationTasksResponse_migrationTaskSummaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listMigrationTasks_nextToken
+          Prelude.& listMigrationTasks_nextToken
           Lens..~ rs
           Lens.^? listMigrationTasksResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMigrationTasks where
   type
@@ -140,60 +141,62 @@ instance Core.AWSRequest ListMigrationTasks where
     Response.receiveJSON
       ( \s h x ->
           ListMigrationTasksResponse'
-            Core.<$> ( x Core..?> "MigrationTaskSummaryList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "MigrationTaskSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListMigrationTasks
+instance Prelude.Hashable ListMigrationTasks
 
-instance Core.NFData ListMigrationTasks
+instance Prelude.NFData ListMigrationTasks
 
 instance Core.ToHeaders ListMigrationTasks where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMigrationHub.ListMigrationTasks" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListMigrationTasks where
   toJSON ListMigrationTasks' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("ResourceName" Core..=) Core.<$> resourceName
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ResourceName" Core..=) Prelude.<$> resourceName
           ]
       )
 
 instance Core.ToPath ListMigrationTasks where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListMigrationTasks where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMigrationTasksResponse' smart constructor.
 data ListMigrationTasksResponse = ListMigrationTasksResponse'
   { -- | Lists the migration task\'s summary which includes: @MigrationTaskName@,
     -- @ProgressPercent@, @ProgressUpdateStream@, @Status@, and the
     -- @UpdateDateTime@ for each task.
-    migrationTaskSummaryList :: Core.Maybe [MigrationTaskSummary],
+    migrationTaskSummaryList :: Prelude.Maybe [MigrationTaskSummary],
     -- | If there are more migration tasks than the max result, return the next
     -- token to be passed to the next call as a bookmark of where to start
     -- from.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListMigrationTasksResponse' with all optional fields omitted.
@@ -214,30 +217,30 @@ data ListMigrationTasksResponse = ListMigrationTasksResponse'
 -- 'httpStatus', 'listMigrationTasksResponse_httpStatus' - The response's http status code.
 newListMigrationTasksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListMigrationTasksResponse
 newListMigrationTasksResponse pHttpStatus_ =
   ListMigrationTasksResponse'
     { migrationTaskSummaryList =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Lists the migration task\'s summary which includes: @MigrationTaskName@,
 -- @ProgressPercent@, @ProgressUpdateStream@, @Status@, and the
 -- @UpdateDateTime@ for each task.
-listMigrationTasksResponse_migrationTaskSummaryList :: Lens.Lens' ListMigrationTasksResponse (Core.Maybe [MigrationTaskSummary])
-listMigrationTasksResponse_migrationTaskSummaryList = Lens.lens (\ListMigrationTasksResponse' {migrationTaskSummaryList} -> migrationTaskSummaryList) (\s@ListMigrationTasksResponse' {} a -> s {migrationTaskSummaryList = a} :: ListMigrationTasksResponse) Core.. Lens.mapping Lens._Coerce
+listMigrationTasksResponse_migrationTaskSummaryList :: Lens.Lens' ListMigrationTasksResponse (Prelude.Maybe [MigrationTaskSummary])
+listMigrationTasksResponse_migrationTaskSummaryList = Lens.lens (\ListMigrationTasksResponse' {migrationTaskSummaryList} -> migrationTaskSummaryList) (\s@ListMigrationTasksResponse' {} a -> s {migrationTaskSummaryList = a} :: ListMigrationTasksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are more migration tasks than the max result, return the next
 -- token to be passed to the next call as a bookmark of where to start
 -- from.
-listMigrationTasksResponse_nextToken :: Lens.Lens' ListMigrationTasksResponse (Core.Maybe Core.Text)
+listMigrationTasksResponse_nextToken :: Lens.Lens' ListMigrationTasksResponse (Prelude.Maybe Prelude.Text)
 listMigrationTasksResponse_nextToken = Lens.lens (\ListMigrationTasksResponse' {nextToken} -> nextToken) (\s@ListMigrationTasksResponse' {} a -> s {nextToken = a} :: ListMigrationTasksResponse)
 
 -- | The response's http status code.
-listMigrationTasksResponse_httpStatus :: Lens.Lens' ListMigrationTasksResponse Core.Int
+listMigrationTasksResponse_httpStatus :: Lens.Lens' ListMigrationTasksResponse Prelude.Int
 listMigrationTasksResponse_httpStatus = Lens.lens (\ListMigrationTasksResponse' {httpStatus} -> httpStatus) (\s@ListMigrationTasksResponse' {} a -> s {httpStatus = a} :: ListMigrationTasksResponse)
 
-instance Core.NFData ListMigrationTasksResponse
+instance Prelude.NFData ListMigrationTasksResponse

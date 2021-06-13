@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.DataQualityBaselineConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringConstraintsResource
 import Network.AWS.SageMaker.Types.MonitoringStatisticsResource
 
@@ -30,13 +31,13 @@ import Network.AWS.SageMaker.Types.MonitoringStatisticsResource
 --
 -- /See:/ 'newDataQualityBaselineConfig' smart constructor.
 data DataQualityBaselineConfig = DataQualityBaselineConfig'
-  { statisticsResource :: Core.Maybe MonitoringStatisticsResource,
-    constraintsResource :: Core.Maybe MonitoringConstraintsResource,
+  { statisticsResource :: Prelude.Maybe MonitoringStatisticsResource,
+    constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
     -- | The name of the job that performs baselining for the data quality
     -- monitoring job.
-    baseliningJobName :: Core.Maybe Core.Text
+    baseliningJobName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataQualityBaselineConfig' with all optional fields omitted.
@@ -57,22 +58,22 @@ newDataQualityBaselineConfig ::
 newDataQualityBaselineConfig =
   DataQualityBaselineConfig'
     { statisticsResource =
-        Core.Nothing,
-      constraintsResource = Core.Nothing,
-      baseliningJobName = Core.Nothing
+        Prelude.Nothing,
+      constraintsResource = Prelude.Nothing,
+      baseliningJobName = Prelude.Nothing
     }
 
 -- | Undocumented member.
-dataQualityBaselineConfig_statisticsResource :: Lens.Lens' DataQualityBaselineConfig (Core.Maybe MonitoringStatisticsResource)
+dataQualityBaselineConfig_statisticsResource :: Lens.Lens' DataQualityBaselineConfig (Prelude.Maybe MonitoringStatisticsResource)
 dataQualityBaselineConfig_statisticsResource = Lens.lens (\DataQualityBaselineConfig' {statisticsResource} -> statisticsResource) (\s@DataQualityBaselineConfig' {} a -> s {statisticsResource = a} :: DataQualityBaselineConfig)
 
 -- | Undocumented member.
-dataQualityBaselineConfig_constraintsResource :: Lens.Lens' DataQualityBaselineConfig (Core.Maybe MonitoringConstraintsResource)
+dataQualityBaselineConfig_constraintsResource :: Lens.Lens' DataQualityBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
 dataQualityBaselineConfig_constraintsResource = Lens.lens (\DataQualityBaselineConfig' {constraintsResource} -> constraintsResource) (\s@DataQualityBaselineConfig' {} a -> s {constraintsResource = a} :: DataQualityBaselineConfig)
 
 -- | The name of the job that performs baselining for the data quality
 -- monitoring job.
-dataQualityBaselineConfig_baseliningJobName :: Lens.Lens' DataQualityBaselineConfig (Core.Maybe Core.Text)
+dataQualityBaselineConfig_baseliningJobName :: Lens.Lens' DataQualityBaselineConfig (Prelude.Maybe Prelude.Text)
 dataQualityBaselineConfig_baseliningJobName = Lens.lens (\DataQualityBaselineConfig' {baseliningJobName} -> baseliningJobName) (\s@DataQualityBaselineConfig' {} a -> s {baseliningJobName = a} :: DataQualityBaselineConfig)
 
 instance Core.FromJSON DataQualityBaselineConfig where
@@ -81,24 +82,24 @@ instance Core.FromJSON DataQualityBaselineConfig where
       "DataQualityBaselineConfig"
       ( \x ->
           DataQualityBaselineConfig'
-            Core.<$> (x Core..:? "StatisticsResource")
-            Core.<*> (x Core..:? "ConstraintsResource")
-            Core.<*> (x Core..:? "BaseliningJobName")
+            Prelude.<$> (x Core..:? "StatisticsResource")
+            Prelude.<*> (x Core..:? "ConstraintsResource")
+            Prelude.<*> (x Core..:? "BaseliningJobName")
       )
 
-instance Core.Hashable DataQualityBaselineConfig
+instance Prelude.Hashable DataQualityBaselineConfig
 
-instance Core.NFData DataQualityBaselineConfig
+instance Prelude.NFData DataQualityBaselineConfig
 
 instance Core.ToJSON DataQualityBaselineConfig where
   toJSON DataQualityBaselineConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("StatisticsResource" Core..=)
-              Core.<$> statisticsResource,
+              Prelude.<$> statisticsResource,
             ("ConstraintsResource" Core..=)
-              Core.<$> constraintsResource,
+              Prelude.<$> constraintsResource,
             ("BaseliningJobName" Core..=)
-              Core.<$> baseliningJobName
+              Prelude.<$> baseliningJobName
           ]
       )

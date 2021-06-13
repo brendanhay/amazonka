@@ -42,17 +42,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateIndexingConfiguration' smart constructor.
 data UpdateIndexingConfiguration = UpdateIndexingConfiguration'
   { -- | Thing group indexing configuration.
-    thingGroupIndexingConfiguration :: Core.Maybe ThingGroupIndexingConfiguration,
+    thingGroupIndexingConfiguration :: Prelude.Maybe ThingGroupIndexingConfiguration,
     -- | Thing indexing configuration.
-    thingIndexingConfiguration :: Core.Maybe ThingIndexingConfiguration
+    thingIndexingConfiguration :: Prelude.Maybe ThingIndexingConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateIndexingConfiguration' with all optional fields omitted.
@@ -70,16 +71,16 @@ newUpdateIndexingConfiguration ::
 newUpdateIndexingConfiguration =
   UpdateIndexingConfiguration'
     { thingGroupIndexingConfiguration =
-        Core.Nothing,
-      thingIndexingConfiguration = Core.Nothing
+        Prelude.Nothing,
+      thingIndexingConfiguration = Prelude.Nothing
     }
 
 -- | Thing group indexing configuration.
-updateIndexingConfiguration_thingGroupIndexingConfiguration :: Lens.Lens' UpdateIndexingConfiguration (Core.Maybe ThingGroupIndexingConfiguration)
+updateIndexingConfiguration_thingGroupIndexingConfiguration :: Lens.Lens' UpdateIndexingConfiguration (Prelude.Maybe ThingGroupIndexingConfiguration)
 updateIndexingConfiguration_thingGroupIndexingConfiguration = Lens.lens (\UpdateIndexingConfiguration' {thingGroupIndexingConfiguration} -> thingGroupIndexingConfiguration) (\s@UpdateIndexingConfiguration' {} a -> s {thingGroupIndexingConfiguration = a} :: UpdateIndexingConfiguration)
 
 -- | Thing indexing configuration.
-updateIndexingConfiguration_thingIndexingConfiguration :: Lens.Lens' UpdateIndexingConfiguration (Core.Maybe ThingIndexingConfiguration)
+updateIndexingConfiguration_thingIndexingConfiguration :: Lens.Lens' UpdateIndexingConfiguration (Prelude.Maybe ThingIndexingConfiguration)
 updateIndexingConfiguration_thingIndexingConfiguration = Lens.lens (\UpdateIndexingConfiguration' {thingIndexingConfiguration} -> thingIndexingConfiguration) (\s@UpdateIndexingConfiguration' {} a -> s {thingIndexingConfiguration = a} :: UpdateIndexingConfiguration)
 
 instance Core.AWSRequest UpdateIndexingConfiguration where
@@ -91,39 +92,39 @@ instance Core.AWSRequest UpdateIndexingConfiguration where
     Response.receiveEmpty
       ( \s h x ->
           UpdateIndexingConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateIndexingConfiguration
+instance Prelude.Hashable UpdateIndexingConfiguration
 
-instance Core.NFData UpdateIndexingConfiguration
+instance Prelude.NFData UpdateIndexingConfiguration
 
 instance Core.ToHeaders UpdateIndexingConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateIndexingConfiguration where
   toJSON UpdateIndexingConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("thingGroupIndexingConfiguration" Core..=)
-              Core.<$> thingGroupIndexingConfiguration,
+              Prelude.<$> thingGroupIndexingConfiguration,
             ("thingIndexingConfiguration" Core..=)
-              Core.<$> thingIndexingConfiguration
+              Prelude.<$> thingIndexingConfiguration
           ]
       )
 
 instance Core.ToPath UpdateIndexingConfiguration where
-  toPath = Core.const "/indexing/config"
+  toPath = Prelude.const "/indexing/config"
 
 instance Core.ToQuery UpdateIndexingConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIndexingConfigurationResponse' smart constructor.
 data UpdateIndexingConfigurationResponse = UpdateIndexingConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateIndexingConfigurationResponse' with all optional fields omitted.
@@ -136,7 +137,7 @@ data UpdateIndexingConfigurationResponse = UpdateIndexingConfigurationResponse'
 -- 'httpStatus', 'updateIndexingConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateIndexingConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateIndexingConfigurationResponse
 newUpdateIndexingConfigurationResponse pHttpStatus_ =
   UpdateIndexingConfigurationResponse'
@@ -145,9 +146,9 @@ newUpdateIndexingConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateIndexingConfigurationResponse_httpStatus :: Lens.Lens' UpdateIndexingConfigurationResponse Core.Int
+updateIndexingConfigurationResponse_httpStatus :: Lens.Lens' UpdateIndexingConfigurationResponse Prelude.Int
 updateIndexingConfigurationResponse_httpStatus = Lens.lens (\UpdateIndexingConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateIndexingConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateIndexingConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateIndexingConfigurationResponse

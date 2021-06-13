@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,13 +61,13 @@ import qualified Network.AWS.Response as Response
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the resource to which you want to add
     -- a tag.
-    resourceArn :: Core.Maybe Core.Text,
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource to which you are adding tags.
-    resourceName :: Core.Text,
+    resourceName :: Prelude.Text,
     -- | The tag key and optional value.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -84,27 +85,27 @@ data TagResource = TagResource'
 -- 'tags', 'tagResource_tags' - The tag key and optional value.
 newTagResource ::
   -- | 'resourceName'
-  Core.Text ->
+  Prelude.Text ->
   TagResource
 newTagResource pResourceName_ =
   TagResource'
-    { resourceArn = Core.Nothing,
+    { resourceArn = Prelude.Nothing,
       resourceName = pResourceName_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the resource to which you want to add
 -- a tag.
-tagResource_resourceArn :: Lens.Lens' TagResource (Core.Maybe Core.Text)
+tagResource_resourceArn :: Lens.Lens' TagResource (Prelude.Maybe Prelude.Text)
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | The name of the resource to which you are adding tags.
-tagResource_resourceName :: Lens.Lens' TagResource Core.Text
+tagResource_resourceName :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceName = Lens.lens (\TagResource' {resourceName} -> resourceName) (\s@TagResource' {} a -> s {resourceName = a} :: TagResource)
 
 -- | The tag key and optional value.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Core.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
@@ -113,53 +114,55 @@ instance Core.AWSRequest TagResource where
     Response.receiveJSON
       ( \s h x ->
           TagResourceResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TagResource
+instance Prelude.Hashable TagResource
 
-instance Core.NFData TagResource
+instance Prelude.NFData TagResource
 
 instance Core.ToHeaders TagResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.TagResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("resourceArn" Core..=) Core.<$> resourceArn,
-            Core.Just ("resourceName" Core..= resourceName),
-            Core.Just ("tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ ("resourceArn" Core..=) Prelude.<$> resourceArn,
+            Prelude.Just ("resourceName" Core..= resourceName),
+            Prelude.Just ("tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath TagResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -176,22 +179,22 @@ data TagResourceResponse = TagResourceResponse'
 -- 'httpStatus', 'tagResourceResponse_httpStatus' - The response's http status code.
 newTagResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TagResourceResponse
 newTagResourceResponse pHttpStatus_ =
   TagResourceResponse'
-    { operations = Core.Nothing,
+    { operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-tagResourceResponse_operations :: Lens.Lens' TagResourceResponse (Core.Maybe [Operation])
-tagResourceResponse_operations = Lens.lens (\TagResourceResponse' {operations} -> operations) (\s@TagResourceResponse' {} a -> s {operations = a} :: TagResourceResponse) Core.. Lens.mapping Lens._Coerce
+tagResourceResponse_operations :: Lens.Lens' TagResourceResponse (Prelude.Maybe [Operation])
+tagResourceResponse_operations = Lens.lens (\TagResourceResponse' {operations} -> operations) (\s@TagResourceResponse' {} a -> s {operations = a} :: TagResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Core.Int
+tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int
 tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -> httpStatus) (\s@TagResourceResponse' {} a -> s {httpStatus = a} :: TagResourceResponse)
 
-instance Core.NFData TagResourceResponse
+instance Prelude.NFData TagResourceResponse

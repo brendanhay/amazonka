@@ -77,6 +77,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -86,7 +87,7 @@ data PutBucketVersioning = PutBucketVersioning'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
@@ -94,16 +95,16 @@ data PutBucketVersioning = PutBucketVersioning'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The concatenation of the authentication device\'s serial number, a
     -- space, and the value that is displayed on your authentication device.
-    mfa :: Core.Maybe Core.Text,
+    mfa :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for setting the versioning state.
     versioningConfiguration :: VersioningConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketVersioning' with all optional fields omitted.
@@ -142,9 +143,9 @@ newPutBucketVersioning
   pVersioningConfiguration_ =
     PutBucketVersioning'
       { expectedBucketOwner =
-          Core.Nothing,
-        contentMD5 = Core.Nothing,
-        mfa = Core.Nothing,
+          Prelude.Nothing,
+        contentMD5 = Prelude.Nothing,
+        mfa = Prelude.Nothing,
         bucket = pBucket_,
         versioningConfiguration = pVersioningConfiguration_
       }
@@ -152,7 +153,7 @@ newPutBucketVersioning
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketVersioning_expectedBucketOwner :: Lens.Lens' PutBucketVersioning (Core.Maybe Core.Text)
+putBucketVersioning_expectedBucketOwner :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
 putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketVersioning' {} a -> s {expectedBucketOwner = a} :: PutBucketVersioning)
 
 -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
@@ -162,12 +163,12 @@ putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expe
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketVersioning_contentMD5 :: Lens.Lens' PutBucketVersioning (Core.Maybe Core.Text)
+putBucketVersioning_contentMD5 :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
 putBucketVersioning_contentMD5 = Lens.lens (\PutBucketVersioning' {contentMD5} -> contentMD5) (\s@PutBucketVersioning' {} a -> s {contentMD5 = a} :: PutBucketVersioning)
 
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
-putBucketVersioning_mfa :: Lens.Lens' PutBucketVersioning (Core.Maybe Core.Text)
+putBucketVersioning_mfa :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
 putBucketVersioning_mfa = Lens.lens (\PutBucketVersioning' {mfa} -> mfa) (\s@PutBucketVersioning' {} a -> s {mfa = a} :: PutBucketVersioning)
 
 -- | The bucket name.
@@ -186,9 +187,9 @@ instance Core.AWSRequest PutBucketVersioning where
   response =
     Response.receiveNull PutBucketVersioningResponse'
 
-instance Core.Hashable PutBucketVersioning
+instance Prelude.Hashable PutBucketVersioning
 
-instance Core.NFData PutBucketVersioning
+instance Prelude.NFData PutBucketVersioning
 
 instance Core.ToElement PutBucketVersioning where
   toElement PutBucketVersioning' {..} =
@@ -198,7 +199,7 @@ instance Core.ToElement PutBucketVersioning where
 
 instance Core.ToHeaders PutBucketVersioning where
   toHeaders PutBucketVersioning' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5,
@@ -207,16 +208,17 @@ instance Core.ToHeaders PutBucketVersioning where
 
 instance Core.ToPath PutBucketVersioning where
   toPath PutBucketVersioning' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutBucketVersioning where
-  toQuery = Core.const (Core.mconcat ["versioning"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["versioning"])
 
 -- | /See:/ 'newPutBucketVersioningResponse' smart constructor.
 data PutBucketVersioningResponse = PutBucketVersioningResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketVersioningResponse' with all optional fields omitted.
@@ -227,4 +229,4 @@ newPutBucketVersioningResponse ::
 newPutBucketVersioningResponse =
   PutBucketVersioningResponse'
 
-instance Core.NFData PutBucketVersioningResponse
+instance Prelude.NFData PutBucketVersioningResponse

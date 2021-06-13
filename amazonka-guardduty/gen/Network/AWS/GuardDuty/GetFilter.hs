@@ -48,17 +48,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetFilter' smart constructor.
 data GetFilter = GetFilter'
   { -- | The unique ID of the detector that the filter is associated with.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | The name of the filter you want to get.
-    filterName :: Core.Text
+    filterName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFilter' with all optional fields omitted.
@@ -73,9 +74,9 @@ data GetFilter = GetFilter'
 -- 'filterName', 'getFilter_filterName' - The name of the filter you want to get.
 newGetFilter ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filterName'
-  Core.Text ->
+  Prelude.Text ->
   GetFilter
 newGetFilter pDetectorId_ pFilterName_ =
   GetFilter'
@@ -84,11 +85,11 @@ newGetFilter pDetectorId_ pFilterName_ =
     }
 
 -- | The unique ID of the detector that the filter is associated with.
-getFilter_detectorId :: Lens.Lens' GetFilter Core.Text
+getFilter_detectorId :: Lens.Lens' GetFilter Prelude.Text
 getFilter_detectorId = Lens.lens (\GetFilter' {detectorId} -> detectorId) (\s@GetFilter' {} a -> s {detectorId = a} :: GetFilter)
 
 -- | The name of the filter you want to get.
-getFilter_filterName :: Lens.Lens' GetFilter Core.Text
+getFilter_filterName :: Lens.Lens' GetFilter Prelude.Text
 getFilter_filterName = Lens.lens (\GetFilter' {filterName} -> filterName) (\s@GetFilter' {} a -> s {filterName = a} :: GetFilter)
 
 instance Core.AWSRequest GetFilter where
@@ -98,31 +99,33 @@ instance Core.AWSRequest GetFilter where
     Response.receiveJSON
       ( \s h x ->
           GetFilterResponse'
-            Core.<$> (x Core..?> "rank")
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "description")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "name")
-            Core.<*> (x Core..:> "action")
-            Core.<*> (x Core..:> "findingCriteria")
+            Prelude.<$> (x Core..?> "rank")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Core..:> "action")
+            Prelude.<*> (x Core..:> "findingCriteria")
       )
 
-instance Core.Hashable GetFilter
+instance Prelude.Hashable GetFilter
 
-instance Core.NFData GetFilter
+instance Prelude.NFData GetFilter
 
 instance Core.ToHeaders GetFilter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetFilter where
   toPath GetFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/filter/",
@@ -130,29 +133,29 @@ instance Core.ToPath GetFilter where
       ]
 
 instance Core.ToQuery GetFilter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFilterResponse' smart constructor.
 data GetFilterResponse = GetFilterResponse'
   { -- | Specifies the position of the filter in the list of current filters.
     -- Also specifies the order in which this filter is applied to the
     -- findings.
-    rank :: Core.Maybe Core.Natural,
+    rank :: Prelude.Maybe Prelude.Natural,
     -- | The tags of the filter resource.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the filter.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The name of the filter.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Specifies the action that is to be applied to the findings that match
     -- the filter.
     action :: FilterAction,
     -- | Represents the criteria to be used in the filter for querying findings.
     findingCriteria :: FindingCriteria
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFilterResponse' with all optional fields omitted.
@@ -180,9 +183,9 @@ data GetFilterResponse = GetFilterResponse'
 -- 'findingCriteria', 'getFilterResponse_findingCriteria' - Represents the criteria to be used in the filter for querying findings.
 newGetFilterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'action'
   FilterAction ->
   -- | 'findingCriteria'
@@ -194,9 +197,9 @@ newGetFilterResponse
   pAction_
   pFindingCriteria_ =
     GetFilterResponse'
-      { rank = Core.Nothing,
-        tags = Core.Nothing,
-        description = Core.Nothing,
+      { rank = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         name = pName_,
         action = pAction_,
@@ -206,23 +209,23 @@ newGetFilterResponse
 -- | Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
 -- findings.
-getFilterResponse_rank :: Lens.Lens' GetFilterResponse (Core.Maybe Core.Natural)
+getFilterResponse_rank :: Lens.Lens' GetFilterResponse (Prelude.Maybe Prelude.Natural)
 getFilterResponse_rank = Lens.lens (\GetFilterResponse' {rank} -> rank) (\s@GetFilterResponse' {} a -> s {rank = a} :: GetFilterResponse)
 
 -- | The tags of the filter resource.
-getFilterResponse_tags :: Lens.Lens' GetFilterResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getFilterResponse_tags = Lens.lens (\GetFilterResponse' {tags} -> tags) (\s@GetFilterResponse' {} a -> s {tags = a} :: GetFilterResponse) Core.. Lens.mapping Lens._Coerce
+getFilterResponse_tags :: Lens.Lens' GetFilterResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getFilterResponse_tags = Lens.lens (\GetFilterResponse' {tags} -> tags) (\s@GetFilterResponse' {} a -> s {tags = a} :: GetFilterResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the filter.
-getFilterResponse_description :: Lens.Lens' GetFilterResponse (Core.Maybe Core.Text)
+getFilterResponse_description :: Lens.Lens' GetFilterResponse (Prelude.Maybe Prelude.Text)
 getFilterResponse_description = Lens.lens (\GetFilterResponse' {description} -> description) (\s@GetFilterResponse' {} a -> s {description = a} :: GetFilterResponse)
 
 -- | The response's http status code.
-getFilterResponse_httpStatus :: Lens.Lens' GetFilterResponse Core.Int
+getFilterResponse_httpStatus :: Lens.Lens' GetFilterResponse Prelude.Int
 getFilterResponse_httpStatus = Lens.lens (\GetFilterResponse' {httpStatus} -> httpStatus) (\s@GetFilterResponse' {} a -> s {httpStatus = a} :: GetFilterResponse)
 
 -- | The name of the filter.
-getFilterResponse_name :: Lens.Lens' GetFilterResponse Core.Text
+getFilterResponse_name :: Lens.Lens' GetFilterResponse Prelude.Text
 getFilterResponse_name = Lens.lens (\GetFilterResponse' {name} -> name) (\s@GetFilterResponse' {} a -> s {name = a} :: GetFilterResponse)
 
 -- | Specifies the action that is to be applied to the findings that match
@@ -234,4 +237,4 @@ getFilterResponse_action = Lens.lens (\GetFilterResponse' {action} -> action) (\
 getFilterResponse_findingCriteria :: Lens.Lens' GetFilterResponse FindingCriteria
 getFilterResponse_findingCriteria = Lens.lens (\GetFilterResponse' {findingCriteria} -> findingCriteria) (\s@GetFilterResponse' {} a -> s {findingCriteria = a} :: GetFilterResponse)
 
-instance Core.NFData GetFilterResponse
+instance Prelude.NFData GetFilterResponse

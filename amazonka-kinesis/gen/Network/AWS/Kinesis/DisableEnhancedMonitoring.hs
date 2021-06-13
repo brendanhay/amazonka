@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
   { -- | The name of the Kinesis data stream for which to disable enhanced
     -- monitoring.
-    streamName :: Core.Text,
+    streamName :: Prelude.Text,
     -- | List of shard-level metrics to disable.
     --
     -- The following are the valid shard-level metrics. The value \"@ALL@\"
@@ -80,7 +81,7 @@ data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
     -- in the /Amazon Kinesis Data Streams Developer Guide/.
     shardLevelMetrics :: [MetricsName]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableEnhancedMonitoring' with all optional fields omitted.
@@ -119,18 +120,18 @@ data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 newDisableEnhancedMonitoring ::
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   DisableEnhancedMonitoring
 newDisableEnhancedMonitoring pStreamName_ =
   DisableEnhancedMonitoring'
     { streamName =
         pStreamName_,
-      shardLevelMetrics = Core.mempty
+      shardLevelMetrics = Prelude.mempty
     }
 
 -- | The name of the Kinesis data stream for which to disable enhanced
 -- monitoring.
-disableEnhancedMonitoring_streamName :: Lens.Lens' DisableEnhancedMonitoring Core.Text
+disableEnhancedMonitoring_streamName :: Lens.Lens' DisableEnhancedMonitoring Prelude.Text
 disableEnhancedMonitoring_streamName = Lens.lens (\DisableEnhancedMonitoring' {streamName} -> streamName) (\s@DisableEnhancedMonitoring' {} a -> s {streamName = a} :: DisableEnhancedMonitoring)
 
 -- | List of shard-level metrics to disable.
@@ -158,7 +159,7 @@ disableEnhancedMonitoring_streamName = Lens.lens (\DisableEnhancedMonitoring' {s
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 disableEnhancedMonitoring_shardLevelMetrics :: Lens.Lens' DisableEnhancedMonitoring [MetricsName]
-disableEnhancedMonitoring_shardLevelMetrics = Lens.lens (\DisableEnhancedMonitoring' {shardLevelMetrics} -> shardLevelMetrics) (\s@DisableEnhancedMonitoring' {} a -> s {shardLevelMetrics = a} :: DisableEnhancedMonitoring) Core.. Lens._Coerce
+disableEnhancedMonitoring_shardLevelMetrics = Lens.lens (\DisableEnhancedMonitoring' {shardLevelMetrics} -> shardLevelMetrics) (\s@DisableEnhancedMonitoring' {} a -> s {shardLevelMetrics = a} :: DisableEnhancedMonitoring) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DisableEnhancedMonitoring where
   type
@@ -169,35 +170,37 @@ instance Core.AWSRequest DisableEnhancedMonitoring where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable DisableEnhancedMonitoring
+instance Prelude.Hashable DisableEnhancedMonitoring
 
-instance Core.NFData DisableEnhancedMonitoring
+instance Prelude.NFData DisableEnhancedMonitoring
 
 instance Core.ToHeaders DisableEnhancedMonitoring where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Kinesis_20131202.DisableEnhancedMonitoring" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisableEnhancedMonitoring where
   toJSON DisableEnhancedMonitoring' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("StreamName" Core..= streamName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("StreamName" Core..= streamName),
+            Prelude.Just
               ("ShardLevelMetrics" Core..= shardLevelMetrics)
           ]
       )
 
 instance Core.ToPath DisableEnhancedMonitoring where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableEnhancedMonitoring where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

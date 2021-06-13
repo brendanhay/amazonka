@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Eac3AttenuationControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround
 -- channels. Only used for 3\/2 coding mode.
@@ -35,15 +36,15 @@ newtype Eac3AttenuationControl = Eac3AttenuationControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

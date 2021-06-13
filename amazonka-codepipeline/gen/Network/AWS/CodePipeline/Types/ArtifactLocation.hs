@@ -23,17 +23,18 @@ import Network.AWS.CodePipeline.Types.ArtifactLocationType
 import Network.AWS.CodePipeline.Types.S3ArtifactLocation
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the location of an artifact.
 --
 -- /See:/ 'newArtifactLocation' smart constructor.
 data ArtifactLocation = ArtifactLocation'
   { -- | The S3 bucket that contains the artifact.
-    s3Location :: Core.Maybe S3ArtifactLocation,
+    s3Location :: Prelude.Maybe S3ArtifactLocation,
     -- | The type of artifact in the location.
-    type' :: Core.Maybe ArtifactLocationType
+    type' :: Prelude.Maybe ArtifactLocationType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArtifactLocation' with all optional fields omitted.
@@ -50,16 +51,16 @@ newArtifactLocation ::
   ArtifactLocation
 newArtifactLocation =
   ArtifactLocation'
-    { s3Location = Core.Nothing,
-      type' = Core.Nothing
+    { s3Location = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The S3 bucket that contains the artifact.
-artifactLocation_s3Location :: Lens.Lens' ArtifactLocation (Core.Maybe S3ArtifactLocation)
+artifactLocation_s3Location :: Lens.Lens' ArtifactLocation (Prelude.Maybe S3ArtifactLocation)
 artifactLocation_s3Location = Lens.lens (\ArtifactLocation' {s3Location} -> s3Location) (\s@ArtifactLocation' {} a -> s {s3Location = a} :: ArtifactLocation)
 
 -- | The type of artifact in the location.
-artifactLocation_type :: Lens.Lens' ArtifactLocation (Core.Maybe ArtifactLocationType)
+artifactLocation_type :: Lens.Lens' ArtifactLocation (Prelude.Maybe ArtifactLocationType)
 artifactLocation_type = Lens.lens (\ArtifactLocation' {type'} -> type') (\s@ArtifactLocation' {} a -> s {type' = a} :: ArtifactLocation)
 
 instance Core.FromJSON ArtifactLocation where
@@ -68,10 +69,10 @@ instance Core.FromJSON ArtifactLocation where
       "ArtifactLocation"
       ( \x ->
           ArtifactLocation'
-            Core.<$> (x Core..:? "s3Location")
-            Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "s3Location")
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable ArtifactLocation
+instance Prelude.Hashable ArtifactLocation
 
-instance Core.NFData ArtifactLocation
+instance Prelude.NFData ArtifactLocation

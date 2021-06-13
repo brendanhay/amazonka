@@ -21,6 +21,7 @@ module Network.AWS.Organizations.Types.DelegatedService where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the AWS service for which the account is a
 -- delegated administrator.
@@ -30,12 +31,12 @@ data DelegatedService = DelegatedService'
   { -- | The name of a service that can request an operation for the specified
     -- service. This is typically in the form of a URL, such as:
     -- @ servicename.amazonaws.com@.
-    servicePrincipal :: Core.Maybe Core.Text,
+    servicePrincipal :: Prelude.Maybe Prelude.Text,
     -- | The date that the account became a delegated administrator for this
     -- service.
-    delegationEnabledDate :: Core.Maybe Core.POSIX
+    delegationEnabledDate :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DelegatedService' with all optional fields omitted.
@@ -55,20 +56,21 @@ newDelegatedService ::
   DelegatedService
 newDelegatedService =
   DelegatedService'
-    { servicePrincipal = Core.Nothing,
-      delegationEnabledDate = Core.Nothing
+    { servicePrincipal =
+        Prelude.Nothing,
+      delegationEnabledDate = Prelude.Nothing
     }
 
 -- | The name of a service that can request an operation for the specified
 -- service. This is typically in the form of a URL, such as:
 -- @ servicename.amazonaws.com@.
-delegatedService_servicePrincipal :: Lens.Lens' DelegatedService (Core.Maybe Core.Text)
+delegatedService_servicePrincipal :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.Text)
 delegatedService_servicePrincipal = Lens.lens (\DelegatedService' {servicePrincipal} -> servicePrincipal) (\s@DelegatedService' {} a -> s {servicePrincipal = a} :: DelegatedService)
 
 -- | The date that the account became a delegated administrator for this
 -- service.
-delegatedService_delegationEnabledDate :: Lens.Lens' DelegatedService (Core.Maybe Core.UTCTime)
-delegatedService_delegationEnabledDate = Lens.lens (\DelegatedService' {delegationEnabledDate} -> delegationEnabledDate) (\s@DelegatedService' {} a -> s {delegationEnabledDate = a} :: DelegatedService) Core.. Lens.mapping Core._Time
+delegatedService_delegationEnabledDate :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.UTCTime)
+delegatedService_delegationEnabledDate = Lens.lens (\DelegatedService' {delegationEnabledDate} -> delegationEnabledDate) (\s@DelegatedService' {} a -> s {delegationEnabledDate = a} :: DelegatedService) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON DelegatedService where
   parseJSON =
@@ -76,10 +78,10 @@ instance Core.FromJSON DelegatedService where
       "DelegatedService"
       ( \x ->
           DelegatedService'
-            Core.<$> (x Core..:? "ServicePrincipal")
-            Core.<*> (x Core..:? "DelegationEnabledDate")
+            Prelude.<$> (x Core..:? "ServicePrincipal")
+            Prelude.<*> (x Core..:? "DelegationEnabledDate")
       )
 
-instance Core.Hashable DelegatedService
+instance Prelude.Hashable DelegatedService
 
-instance Core.NFData DelegatedService
+instance Prelude.NFData DelegatedService

@@ -21,6 +21,7 @@ module Network.AWS.ElastiCache.Types.CacheParameterGroupNameMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of one of the following operations:
 --
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCacheParameterGroupNameMessage' smart constructor.
 data CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
   { -- | The name of the cache parameter group.
-    cacheParameterGroupName :: Core.Maybe Core.Text
+    cacheParameterGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CacheParameterGroupNameMessage' with all optional fields omitted.
@@ -49,18 +50,22 @@ newCacheParameterGroupNameMessage ::
 newCacheParameterGroupNameMessage =
   CacheParameterGroupNameMessage'
     { cacheParameterGroupName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the cache parameter group.
-cacheParameterGroupNameMessage_cacheParameterGroupName :: Lens.Lens' CacheParameterGroupNameMessage (Core.Maybe Core.Text)
+cacheParameterGroupNameMessage_cacheParameterGroupName :: Lens.Lens' CacheParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
 cacheParameterGroupNameMessage_cacheParameterGroupName = Lens.lens (\CacheParameterGroupNameMessage' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@CacheParameterGroupNameMessage' {} a -> s {cacheParameterGroupName = a} :: CacheParameterGroupNameMessage)
 
 instance Core.FromXML CacheParameterGroupNameMessage where
   parseXML x =
     CacheParameterGroupNameMessage'
-      Core.<$> (x Core..@? "CacheParameterGroupName")
+      Prelude.<$> (x Core..@? "CacheParameterGroupName")
 
-instance Core.Hashable CacheParameterGroupNameMessage
+instance
+  Prelude.Hashable
+    CacheParameterGroupNameMessage
 
-instance Core.NFData CacheParameterGroupNameMessage
+instance
+  Prelude.NFData
+    CacheParameterGroupNameMessage

@@ -21,6 +21,7 @@ module Network.AWS.DMS.Types.DynamoDbSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the Amazon Resource Name (ARN) of the AWS Identity and Access
 -- Management (IAM) role used to define an Amazon DynamoDB target endpoint.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDynamoDbSettings' smart constructor.
 data DynamoDbSettings = DynamoDbSettings'
   { -- | The Amazon Resource Name (ARN) used by the service access IAM role.
-    serviceAccessRoleArn :: Core.Text
+    serviceAccessRoleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DynamoDbSettings' with all optional fields omitted.
@@ -43,7 +44,7 @@ data DynamoDbSettings = DynamoDbSettings'
 -- 'serviceAccessRoleArn', 'dynamoDbSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service access IAM role.
 newDynamoDbSettings ::
   -- | 'serviceAccessRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   DynamoDbSettings
 newDynamoDbSettings pServiceAccessRoleArn_ =
   DynamoDbSettings'
@@ -52,7 +53,7 @@ newDynamoDbSettings pServiceAccessRoleArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) used by the service access IAM role.
-dynamoDbSettings_serviceAccessRoleArn :: Lens.Lens' DynamoDbSettings Core.Text
+dynamoDbSettings_serviceAccessRoleArn :: Lens.Lens' DynamoDbSettings Prelude.Text
 dynamoDbSettings_serviceAccessRoleArn = Lens.lens (\DynamoDbSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@DynamoDbSettings' {} a -> s {serviceAccessRoleArn = a} :: DynamoDbSettings)
 
 instance Core.FromJSON DynamoDbSettings where
@@ -61,18 +62,18 @@ instance Core.FromJSON DynamoDbSettings where
       "DynamoDbSettings"
       ( \x ->
           DynamoDbSettings'
-            Core.<$> (x Core..: "ServiceAccessRoleArn")
+            Prelude.<$> (x Core..: "ServiceAccessRoleArn")
       )
 
-instance Core.Hashable DynamoDbSettings
+instance Prelude.Hashable DynamoDbSettings
 
-instance Core.NFData DynamoDbSettings
+instance Prelude.NFData DynamoDbSettings
 
 instance Core.ToJSON DynamoDbSettings where
   toJSON DynamoDbSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ServiceAccessRoleArn"
                   Core..= serviceAccessRoleArn
               )

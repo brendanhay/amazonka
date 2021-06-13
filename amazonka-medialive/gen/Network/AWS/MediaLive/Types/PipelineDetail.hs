@@ -21,22 +21,23 @@ module Network.AWS.MediaLive.Types.PipelineDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Runtime details of a pipeline when a channel is running.
 --
 -- /See:/ 'newPipelineDetail' smart constructor.
 data PipelineDetail = PipelineDetail'
   { -- | Pipeline ID
-    pipelineId :: Core.Maybe Core.Text,
+    pipelineId :: Prelude.Maybe Prelude.Text,
     -- | The name of the active input attachment currently being ingested by this
     -- pipeline.
-    activeInputAttachmentName :: Core.Maybe Core.Text,
+    activeInputAttachmentName :: Prelude.Maybe Prelude.Text,
     -- | The name of the input switch schedule action that occurred most recently
     -- and that resulted in the switch to the current input attachment for this
     -- pipeline.
-    activeInputSwitchActionName :: Core.Maybe Core.Text
+    activeInputSwitchActionName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PipelineDetail' with all optional fields omitted.
@@ -58,24 +59,24 @@ newPipelineDetail ::
   PipelineDetail
 newPipelineDetail =
   PipelineDetail'
-    { pipelineId = Core.Nothing,
-      activeInputAttachmentName = Core.Nothing,
-      activeInputSwitchActionName = Core.Nothing
+    { pipelineId = Prelude.Nothing,
+      activeInputAttachmentName = Prelude.Nothing,
+      activeInputSwitchActionName = Prelude.Nothing
     }
 
 -- | Pipeline ID
-pipelineDetail_pipelineId :: Lens.Lens' PipelineDetail (Core.Maybe Core.Text)
+pipelineDetail_pipelineId :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
 pipelineDetail_pipelineId = Lens.lens (\PipelineDetail' {pipelineId} -> pipelineId) (\s@PipelineDetail' {} a -> s {pipelineId = a} :: PipelineDetail)
 
 -- | The name of the active input attachment currently being ingested by this
 -- pipeline.
-pipelineDetail_activeInputAttachmentName :: Lens.Lens' PipelineDetail (Core.Maybe Core.Text)
+pipelineDetail_activeInputAttachmentName :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
 pipelineDetail_activeInputAttachmentName = Lens.lens (\PipelineDetail' {activeInputAttachmentName} -> activeInputAttachmentName) (\s@PipelineDetail' {} a -> s {activeInputAttachmentName = a} :: PipelineDetail)
 
 -- | The name of the input switch schedule action that occurred most recently
 -- and that resulted in the switch to the current input attachment for this
 -- pipeline.
-pipelineDetail_activeInputSwitchActionName :: Lens.Lens' PipelineDetail (Core.Maybe Core.Text)
+pipelineDetail_activeInputSwitchActionName :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
 pipelineDetail_activeInputSwitchActionName = Lens.lens (\PipelineDetail' {activeInputSwitchActionName} -> activeInputSwitchActionName) (\s@PipelineDetail' {} a -> s {activeInputSwitchActionName = a} :: PipelineDetail)
 
 instance Core.FromJSON PipelineDetail where
@@ -84,11 +85,11 @@ instance Core.FromJSON PipelineDetail where
       "PipelineDetail"
       ( \x ->
           PipelineDetail'
-            Core.<$> (x Core..:? "pipelineId")
-            Core.<*> (x Core..:? "activeInputAttachmentName")
-            Core.<*> (x Core..:? "activeInputSwitchActionName")
+            Prelude.<$> (x Core..:? "pipelineId")
+            Prelude.<*> (x Core..:? "activeInputAttachmentName")
+            Prelude.<*> (x Core..:? "activeInputSwitchActionName")
       )
 
-instance Core.Hashable PipelineDetail
+instance Prelude.Hashable PipelineDetail
 
-instance Core.NFData PipelineDetail
+instance Prelude.NFData PipelineDetail

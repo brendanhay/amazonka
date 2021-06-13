@@ -47,6 +47,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,10 +57,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDefineExpression' smart constructor.
 data DefineExpression = DefineExpression'
-  { domainName :: Core.Text,
+  { domainName :: Prelude.Text,
     expression :: Expression
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefineExpression' with all optional fields omitted.
@@ -74,7 +75,7 @@ data DefineExpression = DefineExpression'
 -- 'expression', 'defineExpression_expression' - Undocumented member.
 newDefineExpression ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'expression'
   Expression ->
   DefineExpression
@@ -85,7 +86,7 @@ newDefineExpression pDomainName_ pExpression_ =
     }
 
 -- | Undocumented member.
-defineExpression_domainName :: Lens.Lens' DefineExpression Core.Text
+defineExpression_domainName :: Lens.Lens' DefineExpression Prelude.Text
 defineExpression_domainName = Lens.lens (\DefineExpression' {domainName} -> domainName) (\s@DefineExpression' {} a -> s {domainName = a} :: DefineExpression)
 
 -- | Undocumented member.
@@ -102,26 +103,27 @@ instance Core.AWSRequest DefineExpression where
       "DefineExpressionResult"
       ( \s h x ->
           DefineExpressionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "Expression")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Expression")
       )
 
-instance Core.Hashable DefineExpression
+instance Prelude.Hashable DefineExpression
 
-instance Core.NFData DefineExpression
+instance Prelude.NFData DefineExpression
 
 instance Core.ToHeaders DefineExpression where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DefineExpression where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DefineExpression where
   toQuery DefineExpression' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DefineExpression" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("DefineExpression" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainName" Core.=: domainName,
         "Expression" Core.=: expression
       ]
@@ -132,10 +134,10 @@ instance Core.ToQuery DefineExpression where
 -- /See:/ 'newDefineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     expression :: ExpressionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefineExpressionResponse' with all optional fields omitted.
@@ -150,7 +152,7 @@ data DefineExpressionResponse = DefineExpressionResponse'
 -- 'expression', 'defineExpressionResponse_expression' - Undocumented member.
 newDefineExpressionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'expression'
   ExpressionStatus ->
   DefineExpressionResponse
@@ -162,11 +164,11 @@ newDefineExpressionResponse pHttpStatus_ pExpression_ =
     }
 
 -- | The response's http status code.
-defineExpressionResponse_httpStatus :: Lens.Lens' DefineExpressionResponse Core.Int
+defineExpressionResponse_httpStatus :: Lens.Lens' DefineExpressionResponse Prelude.Int
 defineExpressionResponse_httpStatus = Lens.lens (\DefineExpressionResponse' {httpStatus} -> httpStatus) (\s@DefineExpressionResponse' {} a -> s {httpStatus = a} :: DefineExpressionResponse)
 
 -- | Undocumented member.
 defineExpressionResponse_expression :: Lens.Lens' DefineExpressionResponse ExpressionStatus
 defineExpressionResponse_expression = Lens.lens (\DefineExpressionResponse' {expression} -> expression) (\s@DefineExpressionResponse' {} a -> s {expression = a} :: DefineExpressionResponse)
 
-instance Core.NFData DefineExpressionResponse
+instance Prelude.NFData DefineExpressionResponse

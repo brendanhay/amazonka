@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -50,11 +51,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newModifySelfservicePermissions' smart constructor.
 data ModifySelfservicePermissions = ModifySelfservicePermissions'
   { -- | The identifier of the directory.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The permissions to enable or disable self-service capabilities.
     selfservicePermissions :: SelfservicePermissions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySelfservicePermissions' with all optional fields omitted.
@@ -69,7 +70,7 @@ data ModifySelfservicePermissions = ModifySelfservicePermissions'
 -- 'selfservicePermissions', 'modifySelfservicePermissions_selfservicePermissions' - The permissions to enable or disable self-service capabilities.
 newModifySelfservicePermissions ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'selfservicePermissions'
   SelfservicePermissions ->
   ModifySelfservicePermissions
@@ -84,7 +85,7 @@ newModifySelfservicePermissions
       }
 
 -- | The identifier of the directory.
-modifySelfservicePermissions_resourceId :: Lens.Lens' ModifySelfservicePermissions Core.Text
+modifySelfservicePermissions_resourceId :: Lens.Lens' ModifySelfservicePermissions Prelude.Text
 modifySelfservicePermissions_resourceId = Lens.lens (\ModifySelfservicePermissions' {resourceId} -> resourceId) (\s@ModifySelfservicePermissions' {} a -> s {resourceId = a} :: ModifySelfservicePermissions)
 
 -- | The permissions to enable or disable self-service capabilities.
@@ -100,32 +101,36 @@ instance Core.AWSRequest ModifySelfservicePermissions where
     Response.receiveEmpty
       ( \s h x ->
           ModifySelfservicePermissionsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifySelfservicePermissions
+instance
+  Prelude.Hashable
+    ModifySelfservicePermissions
 
-instance Core.NFData ModifySelfservicePermissions
+instance Prelude.NFData ModifySelfservicePermissions
 
 instance Core.ToHeaders ModifySelfservicePermissions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.ModifySelfservicePermissions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifySelfservicePermissions where
   toJSON ModifySelfservicePermissions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just
               ( "SelfservicePermissions"
                   Core..= selfservicePermissions
               )
@@ -133,17 +138,17 @@ instance Core.ToJSON ModifySelfservicePermissions where
       )
 
 instance Core.ToPath ModifySelfservicePermissions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifySelfservicePermissions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifySelfservicePermissionsResponse' smart constructor.
 data ModifySelfservicePermissionsResponse = ModifySelfservicePermissionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifySelfservicePermissionsResponse' with all optional fields omitted.
@@ -156,7 +161,7 @@ data ModifySelfservicePermissionsResponse = ModifySelfservicePermissionsResponse
 -- 'httpStatus', 'modifySelfservicePermissionsResponse_httpStatus' - The response's http status code.
 newModifySelfservicePermissionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifySelfservicePermissionsResponse
 newModifySelfservicePermissionsResponse pHttpStatus_ =
   ModifySelfservicePermissionsResponse'
@@ -165,9 +170,9 @@ newModifySelfservicePermissionsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-modifySelfservicePermissionsResponse_httpStatus :: Lens.Lens' ModifySelfservicePermissionsResponse Core.Int
+modifySelfservicePermissionsResponse_httpStatus :: Lens.Lens' ModifySelfservicePermissionsResponse Prelude.Int
 modifySelfservicePermissionsResponse_httpStatus = Lens.lens (\ModifySelfservicePermissionsResponse' {httpStatus} -> httpStatus) (\s@ModifySelfservicePermissionsResponse' {} a -> s {httpStatus = a} :: ModifySelfservicePermissionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifySelfservicePermissionsResponse

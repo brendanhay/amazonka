@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +58,15 @@ data ModifyTransitGateway = ModifyTransitGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The options to modify.
-    options :: Core.Maybe ModifyTransitGatewayOptions,
+    options :: Prelude.Maybe ModifyTransitGatewayOptions,
     -- | The description for the transit gateway.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Core.Text
+    transitGatewayId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyTransitGateway' with all optional fields omitted.
@@ -87,13 +88,13 @@ data ModifyTransitGateway = ModifyTransitGateway'
 -- 'transitGatewayId', 'modifyTransitGateway_transitGatewayId' - The ID of the transit gateway.
 newModifyTransitGateway ::
   -- | 'transitGatewayId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyTransitGateway
 newModifyTransitGateway pTransitGatewayId_ =
   ModifyTransitGateway'
-    { dryRun = Core.Nothing,
-      options = Core.Nothing,
-      description = Core.Nothing,
+    { dryRun = Prelude.Nothing,
+      options = Prelude.Nothing,
+      description = Prelude.Nothing,
       transitGatewayId = pTransitGatewayId_
     }
 
@@ -101,19 +102,19 @@ newModifyTransitGateway pTransitGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyTransitGateway_dryRun :: Lens.Lens' ModifyTransitGateway (Core.Maybe Core.Bool)
+modifyTransitGateway_dryRun :: Lens.Lens' ModifyTransitGateway (Prelude.Maybe Prelude.Bool)
 modifyTransitGateway_dryRun = Lens.lens (\ModifyTransitGateway' {dryRun} -> dryRun) (\s@ModifyTransitGateway' {} a -> s {dryRun = a} :: ModifyTransitGateway)
 
 -- | The options to modify.
-modifyTransitGateway_options :: Lens.Lens' ModifyTransitGateway (Core.Maybe ModifyTransitGatewayOptions)
+modifyTransitGateway_options :: Lens.Lens' ModifyTransitGateway (Prelude.Maybe ModifyTransitGatewayOptions)
 modifyTransitGateway_options = Lens.lens (\ModifyTransitGateway' {options} -> options) (\s@ModifyTransitGateway' {} a -> s {options = a} :: ModifyTransitGateway)
 
 -- | The description for the transit gateway.
-modifyTransitGateway_description :: Lens.Lens' ModifyTransitGateway (Core.Maybe Core.Text)
+modifyTransitGateway_description :: Lens.Lens' ModifyTransitGateway (Prelude.Maybe Prelude.Text)
 modifyTransitGateway_description = Lens.lens (\ModifyTransitGateway' {description} -> description) (\s@ModifyTransitGateway' {} a -> s {description = a} :: ModifyTransitGateway)
 
 -- | The ID of the transit gateway.
-modifyTransitGateway_transitGatewayId :: Lens.Lens' ModifyTransitGateway Core.Text
+modifyTransitGateway_transitGatewayId :: Lens.Lens' ModifyTransitGateway Prelude.Text
 modifyTransitGateway_transitGatewayId = Lens.lens (\ModifyTransitGateway' {transitGatewayId} -> transitGatewayId) (\s@ModifyTransitGateway' {} a -> s {transitGatewayId = a} :: ModifyTransitGateway)
 
 instance Core.AWSRequest ModifyTransitGateway where
@@ -125,26 +126,27 @@ instance Core.AWSRequest ModifyTransitGateway where
     Response.receiveXML
       ( \s h x ->
           ModifyTransitGatewayResponse'
-            Core.<$> (x Core..@? "transitGateway")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGateway")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyTransitGateway
+instance Prelude.Hashable ModifyTransitGateway
 
-instance Core.NFData ModifyTransitGateway
+instance Prelude.NFData ModifyTransitGateway
 
 instance Core.ToHeaders ModifyTransitGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyTransitGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyTransitGateway where
   toQuery ModifyTransitGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyTransitGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyTransitGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Options" Core.=: options,
         "Description" Core.=: description,
@@ -153,11 +155,11 @@ instance Core.ToQuery ModifyTransitGateway where
 
 -- | /See:/ 'newModifyTransitGatewayResponse' smart constructor.
 data ModifyTransitGatewayResponse = ModifyTransitGatewayResponse'
-  { transitGateway :: Core.Maybe TransitGateway,
+  { transitGateway :: Prelude.Maybe TransitGateway,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyTransitGatewayResponse' with all optional fields omitted.
@@ -172,21 +174,21 @@ data ModifyTransitGatewayResponse = ModifyTransitGatewayResponse'
 -- 'httpStatus', 'modifyTransitGatewayResponse_httpStatus' - The response's http status code.
 newModifyTransitGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyTransitGatewayResponse
 newModifyTransitGatewayResponse pHttpStatus_ =
   ModifyTransitGatewayResponse'
     { transitGateway =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyTransitGatewayResponse_transitGateway :: Lens.Lens' ModifyTransitGatewayResponse (Core.Maybe TransitGateway)
+modifyTransitGatewayResponse_transitGateway :: Lens.Lens' ModifyTransitGatewayResponse (Prelude.Maybe TransitGateway)
 modifyTransitGatewayResponse_transitGateway = Lens.lens (\ModifyTransitGatewayResponse' {transitGateway} -> transitGateway) (\s@ModifyTransitGatewayResponse' {} a -> s {transitGateway = a} :: ModifyTransitGatewayResponse)
 
 -- | The response's http status code.
-modifyTransitGatewayResponse_httpStatus :: Lens.Lens' ModifyTransitGatewayResponse Core.Int
+modifyTransitGatewayResponse_httpStatus :: Lens.Lens' ModifyTransitGatewayResponse Prelude.Int
 modifyTransitGatewayResponse_httpStatus = Lens.lens (\ModifyTransitGatewayResponse' {httpStatus} -> httpStatus) (\s@ModifyTransitGatewayResponse' {} a -> s {httpStatus = a} :: ModifyTransitGatewayResponse)
 
-instance Core.NFData ModifyTransitGatewayResponse
+instance Prelude.NFData ModifyTransitGatewayResponse

@@ -44,15 +44,16 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisableDirectory' smart constructor.
 data DisableDirectory = DisableDirectory'
   { -- | The ARN of the directory to disable.
-    directoryArn :: Core.Text
+    directoryArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableDirectory' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DisableDirectory = DisableDirectory'
 -- 'directoryArn', 'disableDirectory_directoryArn' - The ARN of the directory to disable.
 newDisableDirectory ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   DisableDirectory
 newDisableDirectory pDirectoryArn_ =
   DisableDirectory' {directoryArn = pDirectoryArn_}
 
 -- | The ARN of the directory to disable.
-disableDirectory_directoryArn :: Lens.Lens' DisableDirectory Core.Text
+disableDirectory_directoryArn :: Lens.Lens' DisableDirectory Prelude.Text
 disableDirectory_directoryArn = Lens.lens (\DisableDirectory' {directoryArn} -> directoryArn) (\s@DisableDirectory' {} a -> s {directoryArn = a} :: DisableDirectory)
 
 instance Core.AWSRequest DisableDirectory where
@@ -83,38 +84,38 @@ instance Core.AWSRequest DisableDirectory where
     Response.receiveJSON
       ( \s h x ->
           DisableDirectoryResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "DirectoryArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "DirectoryArn")
       )
 
-instance Core.Hashable DisableDirectory
+instance Prelude.Hashable DisableDirectory
 
-instance Core.NFData DisableDirectory
+instance Prelude.NFData DisableDirectory
 
 instance Core.ToHeaders DisableDirectory where
   toHeaders DisableDirectory' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON DisableDirectory where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DisableDirectory where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/directory/disable"
 
 instance Core.ToQuery DisableDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableDirectoryResponse' smart constructor.
 data DisableDirectoryResponse = DisableDirectoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The ARN of the directory that has been disabled.
-    directoryArn :: Core.Text
+    directoryArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableDirectoryResponse' with all optional fields omitted.
@@ -129,9 +130,9 @@ data DisableDirectoryResponse = DisableDirectoryResponse'
 -- 'directoryArn', 'disableDirectoryResponse_directoryArn' - The ARN of the directory that has been disabled.
 newDisableDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   DisableDirectoryResponse
 newDisableDirectoryResponse
   pHttpStatus_
@@ -143,11 +144,11 @@ newDisableDirectoryResponse
       }
 
 -- | The response's http status code.
-disableDirectoryResponse_httpStatus :: Lens.Lens' DisableDirectoryResponse Core.Int
+disableDirectoryResponse_httpStatus :: Lens.Lens' DisableDirectoryResponse Prelude.Int
 disableDirectoryResponse_httpStatus = Lens.lens (\DisableDirectoryResponse' {httpStatus} -> httpStatus) (\s@DisableDirectoryResponse' {} a -> s {httpStatus = a} :: DisableDirectoryResponse)
 
 -- | The ARN of the directory that has been disabled.
-disableDirectoryResponse_directoryArn :: Lens.Lens' DisableDirectoryResponse Core.Text
+disableDirectoryResponse_directoryArn :: Lens.Lens' DisableDirectoryResponse Prelude.Text
 disableDirectoryResponse_directoryArn = Lens.lens (\DisableDirectoryResponse' {directoryArn} -> directoryArn) (\s@DisableDirectoryResponse' {} a -> s {directoryArn = a} :: DisableDirectoryResponse)
 
-instance Core.NFData DisableDirectoryResponse
+instance Prelude.NFData DisableDirectoryResponse

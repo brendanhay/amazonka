@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data GetDistributionBundles = GetDistributionBundles'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDistributionBundles' with all optional fields omitted.
@@ -69,44 +70,46 @@ instance Core.AWSRequest GetDistributionBundles where
     Response.receiveJSON
       ( \s h x ->
           GetDistributionBundlesResponse'
-            Core.<$> (x Core..?> "bundles" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "bundles" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDistributionBundles
+instance Prelude.Hashable GetDistributionBundles
 
-instance Core.NFData GetDistributionBundles
+instance Prelude.NFData GetDistributionBundles
 
 instance Core.ToHeaders GetDistributionBundles where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetDistributionBundles" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDistributionBundles where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetDistributionBundles where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDistributionBundles where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDistributionBundlesResponse' smart constructor.
 data GetDistributionBundlesResponse = GetDistributionBundlesResponse'
   { -- | An object that describes a distribution bundle.
-    bundles :: Core.Maybe [DistributionBundle],
+    bundles :: Prelude.Maybe [DistributionBundle],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDistributionBundlesResponse' with all optional fields omitted.
@@ -121,21 +124,23 @@ data GetDistributionBundlesResponse = GetDistributionBundlesResponse'
 -- 'httpStatus', 'getDistributionBundlesResponse_httpStatus' - The response's http status code.
 newGetDistributionBundlesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDistributionBundlesResponse
 newGetDistributionBundlesResponse pHttpStatus_ =
   GetDistributionBundlesResponse'
     { bundles =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes a distribution bundle.
-getDistributionBundlesResponse_bundles :: Lens.Lens' GetDistributionBundlesResponse (Core.Maybe [DistributionBundle])
-getDistributionBundlesResponse_bundles = Lens.lens (\GetDistributionBundlesResponse' {bundles} -> bundles) (\s@GetDistributionBundlesResponse' {} a -> s {bundles = a} :: GetDistributionBundlesResponse) Core.. Lens.mapping Lens._Coerce
+getDistributionBundlesResponse_bundles :: Lens.Lens' GetDistributionBundlesResponse (Prelude.Maybe [DistributionBundle])
+getDistributionBundlesResponse_bundles = Lens.lens (\GetDistributionBundlesResponse' {bundles} -> bundles) (\s@GetDistributionBundlesResponse' {} a -> s {bundles = a} :: GetDistributionBundlesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDistributionBundlesResponse_httpStatus :: Lens.Lens' GetDistributionBundlesResponse Core.Int
+getDistributionBundlesResponse_httpStatus :: Lens.Lens' GetDistributionBundlesResponse Prelude.Int
 getDistributionBundlesResponse_httpStatus = Lens.lens (\GetDistributionBundlesResponse' {httpStatus} -> httpStatus) (\s@GetDistributionBundlesResponse' {} a -> s {httpStatus = a} :: GetDistributionBundlesResponse)
 
-instance Core.NFData GetDistributionBundlesResponse
+instance
+  Prelude.NFData
+    GetDistributionBundlesResponse

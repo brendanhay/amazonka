@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MonitoringOutputConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringOutput
 
 -- | The output configuration for monitoring jobs.
@@ -30,12 +31,12 @@ data MonitoringOutputConfig = MonitoringOutputConfig'
   { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt the model artifacts at rest using Amazon S3 server-side
     -- encryption.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Monitoring outputs for monitoring jobs. This is where the output of the
     -- periodic monitoring jobs is uploaded.
-    monitoringOutputs :: Core.NonEmpty MonitoringOutput
+    monitoringOutputs :: Prelude.NonEmpty MonitoringOutput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringOutputConfig' with all optional fields omitted.
@@ -53,11 +54,11 @@ data MonitoringOutputConfig = MonitoringOutputConfig'
 -- periodic monitoring jobs is uploaded.
 newMonitoringOutputConfig ::
   -- | 'monitoringOutputs'
-  Core.NonEmpty MonitoringOutput ->
+  Prelude.NonEmpty MonitoringOutput ->
   MonitoringOutputConfig
 newMonitoringOutputConfig pMonitoringOutputs_ =
   MonitoringOutputConfig'
-    { kmsKeyId = Core.Nothing,
+    { kmsKeyId = Prelude.Nothing,
       monitoringOutputs =
         Lens._Coerce Lens.# pMonitoringOutputs_
     }
@@ -65,13 +66,13 @@ newMonitoringOutputConfig pMonitoringOutputs_ =
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt the model artifacts at rest using Amazon S3 server-side
 -- encryption.
-monitoringOutputConfig_kmsKeyId :: Lens.Lens' MonitoringOutputConfig (Core.Maybe Core.Text)
+monitoringOutputConfig_kmsKeyId :: Lens.Lens' MonitoringOutputConfig (Prelude.Maybe Prelude.Text)
 monitoringOutputConfig_kmsKeyId = Lens.lens (\MonitoringOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@MonitoringOutputConfig' {} a -> s {kmsKeyId = a} :: MonitoringOutputConfig)
 
 -- | Monitoring outputs for monitoring jobs. This is where the output of the
 -- periodic monitoring jobs is uploaded.
-monitoringOutputConfig_monitoringOutputs :: Lens.Lens' MonitoringOutputConfig (Core.NonEmpty MonitoringOutput)
-monitoringOutputConfig_monitoringOutputs = Lens.lens (\MonitoringOutputConfig' {monitoringOutputs} -> monitoringOutputs) (\s@MonitoringOutputConfig' {} a -> s {monitoringOutputs = a} :: MonitoringOutputConfig) Core.. Lens._Coerce
+monitoringOutputConfig_monitoringOutputs :: Lens.Lens' MonitoringOutputConfig (Prelude.NonEmpty MonitoringOutput)
+monitoringOutputConfig_monitoringOutputs = Lens.lens (\MonitoringOutputConfig' {monitoringOutputs} -> monitoringOutputs) (\s@MonitoringOutputConfig' {} a -> s {monitoringOutputs = a} :: MonitoringOutputConfig) Prelude.. Lens._Coerce
 
 instance Core.FromJSON MonitoringOutputConfig where
   parseJSON =
@@ -79,20 +80,20 @@ instance Core.FromJSON MonitoringOutputConfig where
       "MonitoringOutputConfig"
       ( \x ->
           MonitoringOutputConfig'
-            Core.<$> (x Core..:? "KmsKeyId")
-            Core.<*> (x Core..: "MonitoringOutputs")
+            Prelude.<$> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..: "MonitoringOutputs")
       )
 
-instance Core.Hashable MonitoringOutputConfig
+instance Prelude.Hashable MonitoringOutputConfig
 
-instance Core.NFData MonitoringOutputConfig
+instance Prelude.NFData MonitoringOutputConfig
 
 instance Core.ToJSON MonitoringOutputConfig where
   toJSON MonitoringOutputConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            Prelude.Just
               ("MonitoringOutputs" Core..= monitoringOutputs)
           ]
       )

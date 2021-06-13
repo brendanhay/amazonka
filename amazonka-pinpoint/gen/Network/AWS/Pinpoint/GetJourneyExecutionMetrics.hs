@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,18 +55,18 @@ data GetJourneyExecutionMetrics = GetJourneyExecutionMetrics'
   { -- | The string that specifies which page of results to return in a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Core.Maybe Core.Text,
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     -- | The unique identifier for the journey.
-    journeyId :: Core.Text
+    journeyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJourneyExecutionMetrics' with all optional fields omitted.
@@ -89,17 +90,17 @@ data GetJourneyExecutionMetrics = GetJourneyExecutionMetrics'
 -- 'journeyId', 'getJourneyExecutionMetrics_journeyId' - The unique identifier for the journey.
 newGetJourneyExecutionMetrics ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'journeyId'
-  Core.Text ->
+  Prelude.Text ->
   GetJourneyExecutionMetrics
 newGetJourneyExecutionMetrics
   pApplicationId_
   pJourneyId_ =
     GetJourneyExecutionMetrics'
       { nextToken =
-          Core.Nothing,
-        pageSize = Core.Nothing,
+          Prelude.Nothing,
+        pageSize = Prelude.Nothing,
         applicationId = pApplicationId_,
         journeyId = pJourneyId_
       }
@@ -107,22 +108,22 @@ newGetJourneyExecutionMetrics
 -- | The string that specifies which page of results to return in a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getJourneyExecutionMetrics_nextToken :: Lens.Lens' GetJourneyExecutionMetrics (Core.Maybe Core.Text)
+getJourneyExecutionMetrics_nextToken :: Lens.Lens' GetJourneyExecutionMetrics (Prelude.Maybe Prelude.Text)
 getJourneyExecutionMetrics_nextToken = Lens.lens (\GetJourneyExecutionMetrics' {nextToken} -> nextToken) (\s@GetJourneyExecutionMetrics' {} a -> s {nextToken = a} :: GetJourneyExecutionMetrics)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getJourneyExecutionMetrics_pageSize :: Lens.Lens' GetJourneyExecutionMetrics (Core.Maybe Core.Text)
+getJourneyExecutionMetrics_pageSize :: Lens.Lens' GetJourneyExecutionMetrics (Prelude.Maybe Prelude.Text)
 getJourneyExecutionMetrics_pageSize = Lens.lens (\GetJourneyExecutionMetrics' {pageSize} -> pageSize) (\s@GetJourneyExecutionMetrics' {} a -> s {pageSize = a} :: GetJourneyExecutionMetrics)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getJourneyExecutionMetrics_applicationId :: Lens.Lens' GetJourneyExecutionMetrics Core.Text
+getJourneyExecutionMetrics_applicationId :: Lens.Lens' GetJourneyExecutionMetrics Prelude.Text
 getJourneyExecutionMetrics_applicationId = Lens.lens (\GetJourneyExecutionMetrics' {applicationId} -> applicationId) (\s@GetJourneyExecutionMetrics' {} a -> s {applicationId = a} :: GetJourneyExecutionMetrics)
 
 -- | The unique identifier for the journey.
-getJourneyExecutionMetrics_journeyId :: Lens.Lens' GetJourneyExecutionMetrics Core.Text
+getJourneyExecutionMetrics_journeyId :: Lens.Lens' GetJourneyExecutionMetrics Prelude.Text
 getJourneyExecutionMetrics_journeyId = Lens.lens (\GetJourneyExecutionMetrics' {journeyId} -> journeyId) (\s@GetJourneyExecutionMetrics' {} a -> s {journeyId = a} :: GetJourneyExecutionMetrics)
 
 instance Core.AWSRequest GetJourneyExecutionMetrics where
@@ -134,26 +135,28 @@ instance Core.AWSRequest GetJourneyExecutionMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetJourneyExecutionMetricsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetJourneyExecutionMetrics
+instance Prelude.Hashable GetJourneyExecutionMetrics
 
-instance Core.NFData GetJourneyExecutionMetrics
+instance Prelude.NFData GetJourneyExecutionMetrics
 
 instance Core.ToHeaders GetJourneyExecutionMetrics where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetJourneyExecutionMetrics where
   toPath GetJourneyExecutionMetrics' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/journeys/",
@@ -163,7 +166,7 @@ instance Core.ToPath GetJourneyExecutionMetrics where
 
 instance Core.ToQuery GetJourneyExecutionMetrics where
   toQuery GetJourneyExecutionMetrics' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "next-token" Core.=: nextToken,
         "page-size" Core.=: pageSize
       ]
@@ -171,10 +174,10 @@ instance Core.ToQuery GetJourneyExecutionMetrics where
 -- | /See:/ 'newGetJourneyExecutionMetricsResponse' smart constructor.
 data GetJourneyExecutionMetricsResponse = GetJourneyExecutionMetricsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     journeyExecutionMetricsResponse :: JourneyExecutionMetricsResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJourneyExecutionMetricsResponse' with all optional fields omitted.
@@ -189,7 +192,7 @@ data GetJourneyExecutionMetricsResponse = GetJourneyExecutionMetricsResponse'
 -- 'journeyExecutionMetricsResponse', 'getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse' - Undocumented member.
 newGetJourneyExecutionMetricsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'journeyExecutionMetricsResponse'
   JourneyExecutionMetricsResponse ->
   GetJourneyExecutionMetricsResponse
@@ -204,7 +207,7 @@ newGetJourneyExecutionMetricsResponse
       }
 
 -- | The response's http status code.
-getJourneyExecutionMetricsResponse_httpStatus :: Lens.Lens' GetJourneyExecutionMetricsResponse Core.Int
+getJourneyExecutionMetricsResponse_httpStatus :: Lens.Lens' GetJourneyExecutionMetricsResponse Prelude.Int
 getJourneyExecutionMetricsResponse_httpStatus = Lens.lens (\GetJourneyExecutionMetricsResponse' {httpStatus} -> httpStatus) (\s@GetJourneyExecutionMetricsResponse' {} a -> s {httpStatus = a} :: GetJourneyExecutionMetricsResponse)
 
 -- | Undocumented member.
@@ -212,5 +215,5 @@ getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse :: Lens.Lens'
 getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse = Lens.lens (\GetJourneyExecutionMetricsResponse' {journeyExecutionMetricsResponse} -> journeyExecutionMetricsResponse) (\s@GetJourneyExecutionMetricsResponse' {} a -> s {journeyExecutionMetricsResponse = a} :: GetJourneyExecutionMetricsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetJourneyExecutionMetricsResponse

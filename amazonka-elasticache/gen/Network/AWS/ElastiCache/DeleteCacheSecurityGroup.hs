@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
   { -- | The name of the cache security group to delete.
     --
     -- You cannot delete the default security group.
-    cacheSecurityGroupName :: Core.Text
+    cacheSecurityGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCacheSecurityGroup' with all optional fields omitted.
@@ -68,7 +69,7 @@ data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
 -- You cannot delete the default security group.
 newDeleteCacheSecurityGroup ::
   -- | 'cacheSecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCacheSecurityGroup
 newDeleteCacheSecurityGroup pCacheSecurityGroupName_ =
   DeleteCacheSecurityGroup'
@@ -79,7 +80,7 @@ newDeleteCacheSecurityGroup pCacheSecurityGroupName_ =
 -- | The name of the cache security group to delete.
 --
 -- You cannot delete the default security group.
-deleteCacheSecurityGroup_cacheSecurityGroupName :: Lens.Lens' DeleteCacheSecurityGroup Core.Text
+deleteCacheSecurityGroup_cacheSecurityGroupName :: Lens.Lens' DeleteCacheSecurityGroup Prelude.Text
 deleteCacheSecurityGroup_cacheSecurityGroupName = Lens.lens (\DeleteCacheSecurityGroup' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@DeleteCacheSecurityGroup' {} a -> s {cacheSecurityGroupName = a} :: DeleteCacheSecurityGroup)
 
 instance Core.AWSRequest DeleteCacheSecurityGroup where
@@ -91,22 +92,23 @@ instance Core.AWSRequest DeleteCacheSecurityGroup where
     Response.receiveNull
       DeleteCacheSecurityGroupResponse'
 
-instance Core.Hashable DeleteCacheSecurityGroup
+instance Prelude.Hashable DeleteCacheSecurityGroup
 
-instance Core.NFData DeleteCacheSecurityGroup
+instance Prelude.NFData DeleteCacheSecurityGroup
 
 instance Core.ToHeaders DeleteCacheSecurityGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteCacheSecurityGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCacheSecurityGroup where
   toQuery DeleteCacheSecurityGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteCacheSecurityGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("DeleteCacheSecurityGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheSecurityGroupName"
           Core.=: cacheSecurityGroupName
       ]
@@ -115,7 +117,7 @@ instance Core.ToQuery DeleteCacheSecurityGroup where
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCacheSecurityGroupResponse' with all optional fields omitted.
@@ -126,4 +128,6 @@ newDeleteCacheSecurityGroupResponse ::
 newDeleteCacheSecurityGroupResponse =
   DeleteCacheSecurityGroupResponse'
 
-instance Core.NFData DeleteCacheSecurityGroupResponse
+instance
+  Prelude.NFData
+    DeleteCacheSecurityGroupResponse

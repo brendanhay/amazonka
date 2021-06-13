@@ -44,6 +44,7 @@ where
 import Network.AWS.CognitoIdentity.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,14 +53,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUnlinkIdentity' smart constructor.
 data UnlinkIdentity = UnlinkIdentity'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Core.Text,
+    identityId :: Prelude.Text,
     -- | A set of optional name-value pairs that map provider names to provider
     -- tokens.
-    logins :: Core.HashMap Core.Text Core.Text,
+    logins :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | Provider names to unlink from this identity.
-    loginsToRemove :: [Core.Text]
+    loginsToRemove :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnlinkIdentity' with all optional fields omitted.
@@ -77,27 +78,27 @@ data UnlinkIdentity = UnlinkIdentity'
 -- 'loginsToRemove', 'unlinkIdentity_loginsToRemove' - Provider names to unlink from this identity.
 newUnlinkIdentity ::
   -- | 'identityId'
-  Core.Text ->
+  Prelude.Text ->
   UnlinkIdentity
 newUnlinkIdentity pIdentityId_ =
   UnlinkIdentity'
     { identityId = pIdentityId_,
-      logins = Core.mempty,
-      loginsToRemove = Core.mempty
+      logins = Prelude.mempty,
+      loginsToRemove = Prelude.mempty
     }
 
 -- | A unique identifier in the format REGION:GUID.
-unlinkIdentity_identityId :: Lens.Lens' UnlinkIdentity Core.Text
+unlinkIdentity_identityId :: Lens.Lens' UnlinkIdentity Prelude.Text
 unlinkIdentity_identityId = Lens.lens (\UnlinkIdentity' {identityId} -> identityId) (\s@UnlinkIdentity' {} a -> s {identityId = a} :: UnlinkIdentity)
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-unlinkIdentity_logins :: Lens.Lens' UnlinkIdentity (Core.HashMap Core.Text Core.Text)
-unlinkIdentity_logins = Lens.lens (\UnlinkIdentity' {logins} -> logins) (\s@UnlinkIdentity' {} a -> s {logins = a} :: UnlinkIdentity) Core.. Lens._Coerce
+unlinkIdentity_logins :: Lens.Lens' UnlinkIdentity (Prelude.HashMap Prelude.Text Prelude.Text)
+unlinkIdentity_logins = Lens.lens (\UnlinkIdentity' {logins} -> logins) (\s@UnlinkIdentity' {} a -> s {logins = a} :: UnlinkIdentity) Prelude.. Lens._Coerce
 
 -- | Provider names to unlink from this identity.
-unlinkIdentity_loginsToRemove :: Lens.Lens' UnlinkIdentity [Core.Text]
-unlinkIdentity_loginsToRemove = Lens.lens (\UnlinkIdentity' {loginsToRemove} -> loginsToRemove) (\s@UnlinkIdentity' {} a -> s {loginsToRemove = a} :: UnlinkIdentity) Core.. Lens._Coerce
+unlinkIdentity_loginsToRemove :: Lens.Lens' UnlinkIdentity [Prelude.Text]
+unlinkIdentity_loginsToRemove = Lens.lens (\UnlinkIdentity' {loginsToRemove} -> loginsToRemove) (\s@UnlinkIdentity' {} a -> s {loginsToRemove = a} :: UnlinkIdentity) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UnlinkIdentity where
   type
@@ -107,44 +108,47 @@ instance Core.AWSRequest UnlinkIdentity where
   response =
     Response.receiveNull UnlinkIdentityResponse'
 
-instance Core.Hashable UnlinkIdentity
+instance Prelude.Hashable UnlinkIdentity
 
-instance Core.NFData UnlinkIdentity
+instance Prelude.NFData UnlinkIdentity
 
 instance Core.ToHeaders UnlinkIdentity where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityService.UnlinkIdentity" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UnlinkIdentity where
   toJSON UnlinkIdentity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("IdentityId" Core..= identityId),
-            Core.Just ("Logins" Core..= logins),
-            Core.Just ("LoginsToRemove" Core..= loginsToRemove)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("IdentityId" Core..= identityId),
+            Prelude.Just ("Logins" Core..= logins),
+            Prelude.Just
+              ("LoginsToRemove" Core..= loginsToRemove)
           ]
       )
 
 instance Core.ToPath UnlinkIdentity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UnlinkIdentity where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnlinkIdentityResponse' smart constructor.
 data UnlinkIdentityResponse = UnlinkIdentityResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnlinkIdentityResponse' with all optional fields omitted.
@@ -154,4 +158,4 @@ newUnlinkIdentityResponse ::
   UnlinkIdentityResponse
 newUnlinkIdentityResponse = UnlinkIdentityResponse'
 
-instance Core.NFData UnlinkIdentityResponse
+instance Prelude.NFData UnlinkIdentityResponse

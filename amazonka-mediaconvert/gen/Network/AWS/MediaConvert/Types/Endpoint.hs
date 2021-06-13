@@ -21,15 +21,16 @@ module Network.AWS.MediaConvert.Types.Endpoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an account-specific API endpoint.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | URL of endpoint
-    url :: Core.Maybe Core.Text
+    url :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Endpoint' with all optional fields omitted.
@@ -42,18 +43,18 @@ data Endpoint = Endpoint'
 -- 'url', 'endpoint_url' - URL of endpoint
 newEndpoint ::
   Endpoint
-newEndpoint = Endpoint' {url = Core.Nothing}
+newEndpoint = Endpoint' {url = Prelude.Nothing}
 
 -- | URL of endpoint
-endpoint_url :: Lens.Lens' Endpoint (Core.Maybe Core.Text)
+endpoint_url :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_url = Lens.lens (\Endpoint' {url} -> url) (\s@Endpoint' {} a -> s {url = a} :: Endpoint)
 
 instance Core.FromJSON Endpoint where
   parseJSON =
     Core.withObject
       "Endpoint"
-      (\x -> Endpoint' Core.<$> (x Core..:? "url"))
+      (\x -> Endpoint' Prelude.<$> (x Core..:? "url"))
 
-instance Core.Hashable Endpoint
+instance Prelude.Hashable Endpoint
 
-instance Core.NFData Endpoint
+instance Prelude.NFData Endpoint

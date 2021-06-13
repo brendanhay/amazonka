@@ -58,6 +58,7 @@ where
 import Network.AWS.CloudHSM.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,13 +66,13 @@ import qualified Network.AWS.Response as Response
 data ModifyHapg = ModifyHapg'
   { -- | The list of partition serial numbers to make members of the
     -- high-availability partition group.
-    partitionSerialList :: Core.Maybe [Core.Text],
+    partitionSerialList :: Prelude.Maybe [Prelude.Text],
     -- | The new label for the high-availability partition group.
-    label :: Core.Maybe Core.Text,
+    label :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the high-availability partition group to modify.
-    hapgArn :: Core.Text
+    hapgArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyHapg' with all optional fields omitted.
@@ -89,26 +90,26 @@ data ModifyHapg = ModifyHapg'
 -- 'hapgArn', 'modifyHapg_hapgArn' - The ARN of the high-availability partition group to modify.
 newModifyHapg ::
   -- | 'hapgArn'
-  Core.Text ->
+  Prelude.Text ->
   ModifyHapg
 newModifyHapg pHapgArn_ =
   ModifyHapg'
-    { partitionSerialList = Core.Nothing,
-      label = Core.Nothing,
+    { partitionSerialList = Prelude.Nothing,
+      label = Prelude.Nothing,
       hapgArn = pHapgArn_
     }
 
 -- | The list of partition serial numbers to make members of the
 -- high-availability partition group.
-modifyHapg_partitionSerialList :: Lens.Lens' ModifyHapg (Core.Maybe [Core.Text])
-modifyHapg_partitionSerialList = Lens.lens (\ModifyHapg' {partitionSerialList} -> partitionSerialList) (\s@ModifyHapg' {} a -> s {partitionSerialList = a} :: ModifyHapg) Core.. Lens.mapping Lens._Coerce
+modifyHapg_partitionSerialList :: Lens.Lens' ModifyHapg (Prelude.Maybe [Prelude.Text])
+modifyHapg_partitionSerialList = Lens.lens (\ModifyHapg' {partitionSerialList} -> partitionSerialList) (\s@ModifyHapg' {} a -> s {partitionSerialList = a} :: ModifyHapg) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new label for the high-availability partition group.
-modifyHapg_label :: Lens.Lens' ModifyHapg (Core.Maybe Core.Text)
+modifyHapg_label :: Lens.Lens' ModifyHapg (Prelude.Maybe Prelude.Text)
 modifyHapg_label = Lens.lens (\ModifyHapg' {label} -> label) (\s@ModifyHapg' {} a -> s {label = a} :: ModifyHapg)
 
 -- | The ARN of the high-availability partition group to modify.
-modifyHapg_hapgArn :: Lens.Lens' ModifyHapg Core.Text
+modifyHapg_hapgArn :: Lens.Lens' ModifyHapg Prelude.Text
 modifyHapg_hapgArn = Lens.lens (\ModifyHapg' {hapgArn} -> hapgArn) (\s@ModifyHapg' {} a -> s {hapgArn = a} :: ModifyHapg)
 
 instance Core.AWSRequest ModifyHapg where
@@ -118,52 +119,54 @@ instance Core.AWSRequest ModifyHapg where
     Response.receiveJSON
       ( \s h x ->
           ModifyHapgResponse'
-            Core.<$> (x Core..?> "HapgArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HapgArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyHapg
+instance Prelude.Hashable ModifyHapg
 
-instance Core.NFData ModifyHapg
+instance Prelude.NFData ModifyHapg
 
 instance Core.ToHeaders ModifyHapg where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CloudHsmFrontendService.ModifyHapg" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyHapg where
   toJSON ModifyHapg' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PartitionSerialList" Core..=)
-              Core.<$> partitionSerialList,
-            ("Label" Core..=) Core.<$> label,
-            Core.Just ("HapgArn" Core..= hapgArn)
+              Prelude.<$> partitionSerialList,
+            ("Label" Core..=) Prelude.<$> label,
+            Prelude.Just ("HapgArn" Core..= hapgArn)
           ]
       )
 
 instance Core.ToPath ModifyHapg where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyHapg where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyHapgResponse' smart constructor.
 data ModifyHapgResponse = ModifyHapgResponse'
   { -- | The ARN of the high-availability partition group.
-    hapgArn :: Core.Maybe Core.Text,
+    hapgArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyHapgResponse' with all optional fields omitted.
@@ -178,20 +181,20 @@ data ModifyHapgResponse = ModifyHapgResponse'
 -- 'httpStatus', 'modifyHapgResponse_httpStatus' - The response's http status code.
 newModifyHapgResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyHapgResponse
 newModifyHapgResponse pHttpStatus_ =
   ModifyHapgResponse'
-    { hapgArn = Core.Nothing,
+    { hapgArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the high-availability partition group.
-modifyHapgResponse_hapgArn :: Lens.Lens' ModifyHapgResponse (Core.Maybe Core.Text)
+modifyHapgResponse_hapgArn :: Lens.Lens' ModifyHapgResponse (Prelude.Maybe Prelude.Text)
 modifyHapgResponse_hapgArn = Lens.lens (\ModifyHapgResponse' {hapgArn} -> hapgArn) (\s@ModifyHapgResponse' {} a -> s {hapgArn = a} :: ModifyHapgResponse)
 
 -- | The response's http status code.
-modifyHapgResponse_httpStatus :: Lens.Lens' ModifyHapgResponse Core.Int
+modifyHapgResponse_httpStatus :: Lens.Lens' ModifyHapgResponse Prelude.Int
 modifyHapgResponse_httpStatus = Lens.lens (\ModifyHapgResponse' {httpStatus} -> httpStatus) (\s@ModifyHapgResponse' {} a -> s {httpStatus = a} :: ModifyHapgResponse)
 
-instance Core.NFData ModifyHapgResponse
+instance Prelude.NFData ModifyHapgResponse

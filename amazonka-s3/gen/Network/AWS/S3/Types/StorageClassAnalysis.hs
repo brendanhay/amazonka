@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.StorageClassAnalysis where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.StorageClassAnalysisDataExport
 
@@ -32,9 +33,9 @@ import Network.AWS.S3.Types.StorageClassAnalysisDataExport
 data StorageClassAnalysis = StorageClassAnalysis'
   { -- | Specifies how data related to the storage class analysis for an Amazon
     -- S3 bucket should be exported.
-    dataExport :: Core.Maybe StorageClassAnalysisDataExport
+    dataExport :: Prelude.Maybe StorageClassAnalysisDataExport
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StorageClassAnalysis' with all optional fields omitted.
@@ -49,22 +50,22 @@ data StorageClassAnalysis = StorageClassAnalysis'
 newStorageClassAnalysis ::
   StorageClassAnalysis
 newStorageClassAnalysis =
-  StorageClassAnalysis' {dataExport = Core.Nothing}
+  StorageClassAnalysis' {dataExport = Prelude.Nothing}
 
 -- | Specifies how data related to the storage class analysis for an Amazon
 -- S3 bucket should be exported.
-storageClassAnalysis_dataExport :: Lens.Lens' StorageClassAnalysis (Core.Maybe StorageClassAnalysisDataExport)
+storageClassAnalysis_dataExport :: Lens.Lens' StorageClassAnalysis (Prelude.Maybe StorageClassAnalysisDataExport)
 storageClassAnalysis_dataExport = Lens.lens (\StorageClassAnalysis' {dataExport} -> dataExport) (\s@StorageClassAnalysis' {} a -> s {dataExport = a} :: StorageClassAnalysis)
 
 instance Core.FromXML StorageClassAnalysis where
   parseXML x =
     StorageClassAnalysis'
-      Core.<$> (x Core..@? "DataExport")
+      Prelude.<$> (x Core..@? "DataExport")
 
-instance Core.Hashable StorageClassAnalysis
+instance Prelude.Hashable StorageClassAnalysis
 
-instance Core.NFData StorageClassAnalysis
+instance Prelude.NFData StorageClassAnalysis
 
 instance Core.ToXML StorageClassAnalysis where
   toXML StorageClassAnalysis' {..} =
-    Core.mconcat ["DataExport" Core.@= dataExport]
+    Prelude.mconcat ["DataExport" Core.@= dataExport]

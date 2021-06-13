@@ -49,23 +49,24 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAttachedIndices' smart constructor.
 data ListAttachedIndices = ListAttachedIndices'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to retrieve.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The consistency level to use for this operation.
-    consistencyLevel :: Core.Maybe ConsistencyLevel,
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | The ARN of the directory.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | A reference to the object that has indices attached.
     targetReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAttachedIndices' with all optional fields omitted.
@@ -86,7 +87,7 @@ data ListAttachedIndices = ListAttachedIndices'
 -- 'targetReference', 'listAttachedIndices_targetReference' - A reference to the object that has indices attached.
 newListAttachedIndices ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetReference'
   ObjectReference ->
   ListAttachedIndices
@@ -94,27 +95,27 @@ newListAttachedIndices
   pDirectoryArn_
   pTargetReference_ =
     ListAttachedIndices'
-      { nextToken = Core.Nothing,
-        maxResults = Core.Nothing,
-        consistencyLevel = Core.Nothing,
+      { nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        consistencyLevel = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         targetReference = pTargetReference_
       }
 
 -- | The pagination token.
-listAttachedIndices_nextToken :: Lens.Lens' ListAttachedIndices (Core.Maybe Core.Text)
+listAttachedIndices_nextToken :: Lens.Lens' ListAttachedIndices (Prelude.Maybe Prelude.Text)
 listAttachedIndices_nextToken = Lens.lens (\ListAttachedIndices' {nextToken} -> nextToken) (\s@ListAttachedIndices' {} a -> s {nextToken = a} :: ListAttachedIndices)
 
 -- | The maximum number of results to retrieve.
-listAttachedIndices_maxResults :: Lens.Lens' ListAttachedIndices (Core.Maybe Core.Natural)
+listAttachedIndices_maxResults :: Lens.Lens' ListAttachedIndices (Prelude.Maybe Prelude.Natural)
 listAttachedIndices_maxResults = Lens.lens (\ListAttachedIndices' {maxResults} -> maxResults) (\s@ListAttachedIndices' {} a -> s {maxResults = a} :: ListAttachedIndices)
 
 -- | The consistency level to use for this operation.
-listAttachedIndices_consistencyLevel :: Lens.Lens' ListAttachedIndices (Core.Maybe ConsistencyLevel)
+listAttachedIndices_consistencyLevel :: Lens.Lens' ListAttachedIndices (Prelude.Maybe ConsistencyLevel)
 listAttachedIndices_consistencyLevel = Lens.lens (\ListAttachedIndices' {consistencyLevel} -> consistencyLevel) (\s@ListAttachedIndices' {} a -> s {consistencyLevel = a} :: ListAttachedIndices)
 
 -- | The ARN of the directory.
-listAttachedIndices_directoryArn :: Lens.Lens' ListAttachedIndices Core.Text
+listAttachedIndices_directoryArn :: Lens.Lens' ListAttachedIndices Prelude.Text
 listAttachedIndices_directoryArn = Lens.lens (\ListAttachedIndices' {directoryArn} -> directoryArn) (\s@ListAttachedIndices' {} a -> s {directoryArn = a} :: ListAttachedIndices)
 
 -- | A reference to the object that has indices attached.
@@ -126,22 +127,22 @@ instance Core.AWSPager ListAttachedIndices where
     | Core.stop
         ( rs
             Lens.^? listAttachedIndicesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAttachedIndicesResponse_indexAttachments
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAttachedIndices_nextToken
+          Prelude.& listAttachedIndices_nextToken
           Lens..~ rs
           Lens.^? listAttachedIndicesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedIndices where
   type
@@ -152,18 +153,20 @@ instance Core.AWSRequest ListAttachedIndices where
     Response.receiveJSON
       ( \s h x ->
           ListAttachedIndicesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "IndexAttachments" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "IndexAttachments"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAttachedIndices
+instance Prelude.Hashable ListAttachedIndices
 
-instance Core.NFData ListAttachedIndices
+instance Prelude.NFData ListAttachedIndices
 
 instance Core.ToHeaders ListAttachedIndices where
   toHeaders ListAttachedIndices' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-consistency-level" Core.=# consistencyLevel,
         "x-amz-data-partition" Core.=# directoryArn
       ]
@@ -171,32 +174,32 @@ instance Core.ToHeaders ListAttachedIndices where
 instance Core.ToJSON ListAttachedIndices where
   toJSON ListAttachedIndices' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just
               ("TargetReference" Core..= targetReference)
           ]
       )
 
 instance Core.ToPath ListAttachedIndices where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/object/indices"
 
 instance Core.ToQuery ListAttachedIndices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAttachedIndicesResponse' smart constructor.
 data ListAttachedIndicesResponse = ListAttachedIndicesResponse'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The indices attached to the specified object.
-    indexAttachments :: Core.Maybe [IndexAttachment],
+    indexAttachments :: Prelude.Maybe [IndexAttachment],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAttachedIndicesResponse' with all optional fields omitted.
@@ -213,26 +216,26 @@ data ListAttachedIndicesResponse = ListAttachedIndicesResponse'
 -- 'httpStatus', 'listAttachedIndicesResponse_httpStatus' - The response's http status code.
 newListAttachedIndicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAttachedIndicesResponse
 newListAttachedIndicesResponse pHttpStatus_ =
   ListAttachedIndicesResponse'
     { nextToken =
-        Core.Nothing,
-      indexAttachments = Core.Nothing,
+        Prelude.Nothing,
+      indexAttachments = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token.
-listAttachedIndicesResponse_nextToken :: Lens.Lens' ListAttachedIndicesResponse (Core.Maybe Core.Text)
+listAttachedIndicesResponse_nextToken :: Lens.Lens' ListAttachedIndicesResponse (Prelude.Maybe Prelude.Text)
 listAttachedIndicesResponse_nextToken = Lens.lens (\ListAttachedIndicesResponse' {nextToken} -> nextToken) (\s@ListAttachedIndicesResponse' {} a -> s {nextToken = a} :: ListAttachedIndicesResponse)
 
 -- | The indices attached to the specified object.
-listAttachedIndicesResponse_indexAttachments :: Lens.Lens' ListAttachedIndicesResponse (Core.Maybe [IndexAttachment])
-listAttachedIndicesResponse_indexAttachments = Lens.lens (\ListAttachedIndicesResponse' {indexAttachments} -> indexAttachments) (\s@ListAttachedIndicesResponse' {} a -> s {indexAttachments = a} :: ListAttachedIndicesResponse) Core.. Lens.mapping Lens._Coerce
+listAttachedIndicesResponse_indexAttachments :: Lens.Lens' ListAttachedIndicesResponse (Prelude.Maybe [IndexAttachment])
+listAttachedIndicesResponse_indexAttachments = Lens.lens (\ListAttachedIndicesResponse' {indexAttachments} -> indexAttachments) (\s@ListAttachedIndicesResponse' {} a -> s {indexAttachments = a} :: ListAttachedIndicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAttachedIndicesResponse_httpStatus :: Lens.Lens' ListAttachedIndicesResponse Core.Int
+listAttachedIndicesResponse_httpStatus :: Lens.Lens' ListAttachedIndicesResponse Prelude.Int
 listAttachedIndicesResponse_httpStatus = Lens.lens (\ListAttachedIndicesResponse' {httpStatus} -> httpStatus) (\s@ListAttachedIndicesResponse' {} a -> s {httpStatus = a} :: ListAttachedIndicesResponse)
 
-instance Core.NFData ListAttachedIndicesResponse
+instance Prelude.NFData ListAttachedIndicesResponse

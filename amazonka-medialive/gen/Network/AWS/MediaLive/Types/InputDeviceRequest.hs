@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.InputDeviceRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for an input device.
 --
 -- /See:/ 'newInputDeviceRequest' smart constructor.
 data InputDeviceRequest = InputDeviceRequest'
   { -- | The unique ID for the device.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputDeviceRequest' with all optional fields omitted.
@@ -43,17 +44,17 @@ data InputDeviceRequest = InputDeviceRequest'
 newInputDeviceRequest ::
   InputDeviceRequest
 newInputDeviceRequest =
-  InputDeviceRequest' {id = Core.Nothing}
+  InputDeviceRequest' {id = Prelude.Nothing}
 
 -- | The unique ID for the device.
-inputDeviceRequest_id :: Lens.Lens' InputDeviceRequest (Core.Maybe Core.Text)
+inputDeviceRequest_id :: Lens.Lens' InputDeviceRequest (Prelude.Maybe Prelude.Text)
 inputDeviceRequest_id = Lens.lens (\InputDeviceRequest' {id} -> id) (\s@InputDeviceRequest' {} a -> s {id = a} :: InputDeviceRequest)
 
-instance Core.Hashable InputDeviceRequest
+instance Prelude.Hashable InputDeviceRequest
 
-instance Core.NFData InputDeviceRequest
+instance Prelude.NFData InputDeviceRequest
 
 instance Core.ToJSON InputDeviceRequest where
   toJSON InputDeviceRequest' {..} =
     Core.object
-      (Core.catMaybes [("id" Core..=) Core.<$> id])
+      (Prelude.catMaybes [("id" Core..=) Prelude.<$> id])

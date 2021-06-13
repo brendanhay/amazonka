@@ -22,6 +22,7 @@ module Network.AWS.DMS.Types.MySQLSettings where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.TargetDbType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information that defines a MySQL endpoint.
 --
@@ -31,30 +32,30 @@ data MySQLSettings = MySQLSettings'
     -- single database or multiple databases.
     --
     -- Example: @targetDbType=MULTIPLE_DATABASES@
-    targetDbType :: Core.Maybe TargetDbType,
+    targetDbType :: Prelude.Maybe TargetDbType,
     -- | Specifies the time zone for the source MySQL database.
     --
     -- Example: @serverTimezone=US\/Pacific;@
     --
     -- Note: Do not enclose time zones in single quotes.
-    serverTimezone :: Core.Maybe Core.Text,
+    serverTimezone :: Prelude.Maybe Prelude.Text,
     -- | The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
     -- details.
-    secretsManagerSecretId :: Core.Maybe Core.Text,
+    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | Specifies a script to run immediately after AWS DMS connects to the
     -- endpoint. The migration task continues running regardless if the SQL
     -- statement succeeds or fails.
-    afterConnectScript :: Core.Maybe Core.Text,
+    afterConnectScript :: Prelude.Maybe Prelude.Text,
     -- | Fully qualified domain name of the endpoint.
-    serverName :: Core.Maybe Core.Text,
+    serverName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum size (in KB) of any .csv file used to transfer
     -- data to a MySQL-compatible database.
     --
     -- Example: @maxFileSize=512@
-    maxFileSize :: Core.Maybe Core.Int,
+    maxFileSize :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection password.
-    password :: Core.Maybe (Core.Sensitive Core.Text),
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specifies how often to check the binary log for new changes\/events when
     -- the database is idle.
     --
@@ -62,11 +63,11 @@ data MySQLSettings = MySQLSettings'
     --
     -- In the example, AWS DMS checks for changes in the binary logs every five
     -- seconds.
-    eventsPollInterval :: Core.Maybe Core.Int,
+    eventsPollInterval :: Prelude.Maybe Prelude.Int,
     -- | Endpoint TCP port.
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection user name.
-    username :: Core.Maybe Core.Text,
+    username :: Prelude.Maybe Prelude.Text,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
     -- DMS as the trusted entity and grants the required permissions to access
     -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
@@ -81,7 +82,7 @@ data MySQLSettings = MySQLSettings'
     -- @SecretsManagerSecretId@ required to access it, see
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
     -- in the /AWS Database Migration Service User Guide/.
-    secretsManagerAccessRoleArn :: Core.Maybe Core.Text,
+    secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Improves performance when loading data into the MySQL-compatible target
     -- database. Specifies how many threads to use to load the data into the
     -- MySQL-compatible target database. Setting a large number of threads can
@@ -89,11 +90,11 @@ data MySQLSettings = MySQLSettings'
     -- connection is required for each thread.
     --
     -- Example: @parallelLoadThreads=1@
-    parallelLoadThreads :: Core.Maybe Core.Int,
+    parallelLoadThreads :: Prelude.Maybe Prelude.Int,
     -- | Database name for the endpoint.
-    databaseName :: Core.Maybe Core.Text
+    databaseName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MySQLSettings' with all optional fields omitted.
@@ -171,26 +172,26 @@ newMySQLSettings ::
   MySQLSettings
 newMySQLSettings =
   MySQLSettings'
-    { targetDbType = Core.Nothing,
-      serverTimezone = Core.Nothing,
-      secretsManagerSecretId = Core.Nothing,
-      afterConnectScript = Core.Nothing,
-      serverName = Core.Nothing,
-      maxFileSize = Core.Nothing,
-      password = Core.Nothing,
-      eventsPollInterval = Core.Nothing,
-      port = Core.Nothing,
-      username = Core.Nothing,
-      secretsManagerAccessRoleArn = Core.Nothing,
-      parallelLoadThreads = Core.Nothing,
-      databaseName = Core.Nothing
+    { targetDbType = Prelude.Nothing,
+      serverTimezone = Prelude.Nothing,
+      secretsManagerSecretId = Prelude.Nothing,
+      afterConnectScript = Prelude.Nothing,
+      serverName = Prelude.Nothing,
+      maxFileSize = Prelude.Nothing,
+      password = Prelude.Nothing,
+      eventsPollInterval = Prelude.Nothing,
+      port = Prelude.Nothing,
+      username = Prelude.Nothing,
+      secretsManagerAccessRoleArn = Prelude.Nothing,
+      parallelLoadThreads = Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
 
 -- | Specifies where to migrate source tables on the target, either to a
 -- single database or multiple databases.
 --
 -- Example: @targetDbType=MULTIPLE_DATABASES@
-mySQLSettings_targetDbType :: Lens.Lens' MySQLSettings (Core.Maybe TargetDbType)
+mySQLSettings_targetDbType :: Lens.Lens' MySQLSettings (Prelude.Maybe TargetDbType)
 mySQLSettings_targetDbType = Lens.lens (\MySQLSettings' {targetDbType} -> targetDbType) (\s@MySQLSettings' {} a -> s {targetDbType = a} :: MySQLSettings)
 
 -- | Specifies the time zone for the source MySQL database.
@@ -198,35 +199,35 @@ mySQLSettings_targetDbType = Lens.lens (\MySQLSettings' {targetDbType} -> target
 -- Example: @serverTimezone=US\/Pacific;@
 --
 -- Note: Do not enclose time zones in single quotes.
-mySQLSettings_serverTimezone :: Lens.Lens' MySQLSettings (Core.Maybe Core.Text)
+mySQLSettings_serverTimezone :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_serverTimezone = Lens.lens (\MySQLSettings' {serverTimezone} -> serverTimezone) (\s@MySQLSettings' {} a -> s {serverTimezone = a} :: MySQLSettings)
 
 -- | The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
 -- details.
-mySQLSettings_secretsManagerSecretId :: Lens.Lens' MySQLSettings (Core.Maybe Core.Text)
+mySQLSettings_secretsManagerSecretId :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_secretsManagerSecretId = Lens.lens (\MySQLSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MySQLSettings' {} a -> s {secretsManagerSecretId = a} :: MySQLSettings)
 
 -- | Specifies a script to run immediately after AWS DMS connects to the
 -- endpoint. The migration task continues running regardless if the SQL
 -- statement succeeds or fails.
-mySQLSettings_afterConnectScript :: Lens.Lens' MySQLSettings (Core.Maybe Core.Text)
+mySQLSettings_afterConnectScript :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_afterConnectScript = Lens.lens (\MySQLSettings' {afterConnectScript} -> afterConnectScript) (\s@MySQLSettings' {} a -> s {afterConnectScript = a} :: MySQLSettings)
 
 -- | Fully qualified domain name of the endpoint.
-mySQLSettings_serverName :: Lens.Lens' MySQLSettings (Core.Maybe Core.Text)
+mySQLSettings_serverName :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_serverName = Lens.lens (\MySQLSettings' {serverName} -> serverName) (\s@MySQLSettings' {} a -> s {serverName = a} :: MySQLSettings)
 
 -- | Specifies the maximum size (in KB) of any .csv file used to transfer
 -- data to a MySQL-compatible database.
 --
 -- Example: @maxFileSize=512@
-mySQLSettings_maxFileSize :: Lens.Lens' MySQLSettings (Core.Maybe Core.Int)
+mySQLSettings_maxFileSize :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Int)
 mySQLSettings_maxFileSize = Lens.lens (\MySQLSettings' {maxFileSize} -> maxFileSize) (\s@MySQLSettings' {} a -> s {maxFileSize = a} :: MySQLSettings)
 
 -- | Endpoint connection password.
-mySQLSettings_password :: Lens.Lens' MySQLSettings (Core.Maybe Core.Text)
-mySQLSettings_password = Lens.lens (\MySQLSettings' {password} -> password) (\s@MySQLSettings' {} a -> s {password = a} :: MySQLSettings) Core.. Lens.mapping Core._Sensitive
+mySQLSettings_password :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
+mySQLSettings_password = Lens.lens (\MySQLSettings' {password} -> password) (\s@MySQLSettings' {} a -> s {password = a} :: MySQLSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Specifies how often to check the binary log for new changes\/events when
 -- the database is idle.
@@ -235,15 +236,15 @@ mySQLSettings_password = Lens.lens (\MySQLSettings' {password} -> password) (\s@
 --
 -- In the example, AWS DMS checks for changes in the binary logs every five
 -- seconds.
-mySQLSettings_eventsPollInterval :: Lens.Lens' MySQLSettings (Core.Maybe Core.Int)
+mySQLSettings_eventsPollInterval :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Int)
 mySQLSettings_eventsPollInterval = Lens.lens (\MySQLSettings' {eventsPollInterval} -> eventsPollInterval) (\s@MySQLSettings' {} a -> s {eventsPollInterval = a} :: MySQLSettings)
 
 -- | Endpoint TCP port.
-mySQLSettings_port :: Lens.Lens' MySQLSettings (Core.Maybe Core.Int)
+mySQLSettings_port :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Int)
 mySQLSettings_port = Lens.lens (\MySQLSettings' {port} -> port) (\s@MySQLSettings' {} a -> s {port = a} :: MySQLSettings)
 
 -- | Endpoint connection user name.
-mySQLSettings_username :: Lens.Lens' MySQLSettings (Core.Maybe Core.Text)
+mySQLSettings_username :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_username = Lens.lens (\MySQLSettings' {username} -> username) (\s@MySQLSettings' {} a -> s {username = a} :: MySQLSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
@@ -260,7 +261,7 @@ mySQLSettings_username = Lens.lens (\MySQLSettings' {username} -> username) (\s@
 -- @SecretsManagerSecretId@ required to access it, see
 -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
 -- in the /AWS Database Migration Service User Guide/.
-mySQLSettings_secretsManagerAccessRoleArn :: Lens.Lens' MySQLSettings (Core.Maybe Core.Text)
+mySQLSettings_secretsManagerAccessRoleArn :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_secretsManagerAccessRoleArn = Lens.lens (\MySQLSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@MySQLSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: MySQLSettings)
 
 -- | Improves performance when loading data into the MySQL-compatible target
@@ -270,11 +271,11 @@ mySQLSettings_secretsManagerAccessRoleArn = Lens.lens (\MySQLSettings' {secretsM
 -- connection is required for each thread.
 --
 -- Example: @parallelLoadThreads=1@
-mySQLSettings_parallelLoadThreads :: Lens.Lens' MySQLSettings (Core.Maybe Core.Int)
+mySQLSettings_parallelLoadThreads :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Int)
 mySQLSettings_parallelLoadThreads = Lens.lens (\MySQLSettings' {parallelLoadThreads} -> parallelLoadThreads) (\s@MySQLSettings' {} a -> s {parallelLoadThreads = a} :: MySQLSettings)
 
 -- | Database name for the endpoint.
-mySQLSettings_databaseName :: Lens.Lens' MySQLSettings (Core.Maybe Core.Text)
+mySQLSettings_databaseName :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_databaseName = Lens.lens (\MySQLSettings' {databaseName} -> databaseName) (\s@MySQLSettings' {} a -> s {databaseName = a} :: MySQLSettings)
 
 instance Core.FromJSON MySQLSettings where
@@ -283,46 +284,47 @@ instance Core.FromJSON MySQLSettings where
       "MySQLSettings"
       ( \x ->
           MySQLSettings'
-            Core.<$> (x Core..:? "TargetDbType")
-            Core.<*> (x Core..:? "ServerTimezone")
-            Core.<*> (x Core..:? "SecretsManagerSecretId")
-            Core.<*> (x Core..:? "AfterConnectScript")
-            Core.<*> (x Core..:? "ServerName")
-            Core.<*> (x Core..:? "MaxFileSize")
-            Core.<*> (x Core..:? "Password")
-            Core.<*> (x Core..:? "EventsPollInterval")
-            Core.<*> (x Core..:? "Port")
-            Core.<*> (x Core..:? "Username")
-            Core.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Core.<*> (x Core..:? "ParallelLoadThreads")
-            Core.<*> (x Core..:? "DatabaseName")
+            Prelude.<$> (x Core..:? "TargetDbType")
+            Prelude.<*> (x Core..:? "ServerTimezone")
+            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Core..:? "AfterConnectScript")
+            Prelude.<*> (x Core..:? "ServerName")
+            Prelude.<*> (x Core..:? "MaxFileSize")
+            Prelude.<*> (x Core..:? "Password")
+            Prelude.<*> (x Core..:? "EventsPollInterval")
+            Prelude.<*> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Core..:? "ParallelLoadThreads")
+            Prelude.<*> (x Core..:? "DatabaseName")
       )
 
-instance Core.Hashable MySQLSettings
+instance Prelude.Hashable MySQLSettings
 
-instance Core.NFData MySQLSettings
+instance Prelude.NFData MySQLSettings
 
 instance Core.ToJSON MySQLSettings where
   toJSON MySQLSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TargetDbType" Core..=) Core.<$> targetDbType,
-            ("ServerTimezone" Core..=) Core.<$> serverTimezone,
+      ( Prelude.catMaybes
+          [ ("TargetDbType" Core..=) Prelude.<$> targetDbType,
+            ("ServerTimezone" Core..=)
+              Prelude.<$> serverTimezone,
             ("SecretsManagerSecretId" Core..=)
-              Core.<$> secretsManagerSecretId,
+              Prelude.<$> secretsManagerSecretId,
             ("AfterConnectScript" Core..=)
-              Core.<$> afterConnectScript,
-            ("ServerName" Core..=) Core.<$> serverName,
-            ("MaxFileSize" Core..=) Core.<$> maxFileSize,
-            ("Password" Core..=) Core.<$> password,
+              Prelude.<$> afterConnectScript,
+            ("ServerName" Core..=) Prelude.<$> serverName,
+            ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
+            ("Password" Core..=) Prelude.<$> password,
             ("EventsPollInterval" Core..=)
-              Core.<$> eventsPollInterval,
-            ("Port" Core..=) Core.<$> port,
-            ("Username" Core..=) Core.<$> username,
+              Prelude.<$> eventsPollInterval,
+            ("Port" Core..=) Prelude.<$> port,
+            ("Username" Core..=) Prelude.<$> username,
             ("SecretsManagerAccessRoleArn" Core..=)
-              Core.<$> secretsManagerAccessRoleArn,
+              Prelude.<$> secretsManagerAccessRoleArn,
             ("ParallelLoadThreads" Core..=)
-              Core.<$> parallelLoadThreads,
-            ("DatabaseName" Core..=) Core.<$> databaseName
+              Prelude.<$> parallelLoadThreads,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

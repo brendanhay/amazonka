@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.ShippingDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.Shipment
 import Network.AWS.Snowball.Types.ShippingOption
 
@@ -46,15 +47,15 @@ data ShippingDetails = ShippingDetails'
     --
     -- -   In the United States of America (US), you have access to one-day
     --     shipping and two-day shipping.
-    shippingOption :: Core.Maybe ShippingOption,
+    shippingOption :: Prelude.Maybe ShippingOption,
     -- | The @Status@ and @TrackingNumber@ values for a Snow device being
     -- delivered to the address that you specified for a particular job.
-    outboundShipment :: Core.Maybe Shipment,
+    outboundShipment :: Prelude.Maybe Shipment,
     -- | The @Status@ and @TrackingNumber@ values for a Snow device being
     -- returned to AWS for a particular job.
-    inboundShipment :: Core.Maybe Shipment
+    inboundShipment :: Prelude.Maybe Shipment
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ShippingDetails' with all optional fields omitted.
@@ -91,9 +92,9 @@ newShippingDetails ::
   ShippingDetails
 newShippingDetails =
   ShippingDetails'
-    { shippingOption = Core.Nothing,
-      outboundShipment = Core.Nothing,
-      inboundShipment = Core.Nothing
+    { shippingOption = Prelude.Nothing,
+      outboundShipment = Prelude.Nothing,
+      inboundShipment = Prelude.Nothing
     }
 
 -- | The shipping speed for a particular job. This speed doesn\'t dictate how
@@ -113,17 +114,17 @@ newShippingDetails =
 --
 -- -   In the United States of America (US), you have access to one-day
 --     shipping and two-day shipping.
-shippingDetails_shippingOption :: Lens.Lens' ShippingDetails (Core.Maybe ShippingOption)
+shippingDetails_shippingOption :: Lens.Lens' ShippingDetails (Prelude.Maybe ShippingOption)
 shippingDetails_shippingOption = Lens.lens (\ShippingDetails' {shippingOption} -> shippingOption) (\s@ShippingDetails' {} a -> s {shippingOption = a} :: ShippingDetails)
 
 -- | The @Status@ and @TrackingNumber@ values for a Snow device being
 -- delivered to the address that you specified for a particular job.
-shippingDetails_outboundShipment :: Lens.Lens' ShippingDetails (Core.Maybe Shipment)
+shippingDetails_outboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
 shippingDetails_outboundShipment = Lens.lens (\ShippingDetails' {outboundShipment} -> outboundShipment) (\s@ShippingDetails' {} a -> s {outboundShipment = a} :: ShippingDetails)
 
 -- | The @Status@ and @TrackingNumber@ values for a Snow device being
 -- returned to AWS for a particular job.
-shippingDetails_inboundShipment :: Lens.Lens' ShippingDetails (Core.Maybe Shipment)
+shippingDetails_inboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
 shippingDetails_inboundShipment = Lens.lens (\ShippingDetails' {inboundShipment} -> inboundShipment) (\s@ShippingDetails' {} a -> s {inboundShipment = a} :: ShippingDetails)
 
 instance Core.FromJSON ShippingDetails where
@@ -132,11 +133,11 @@ instance Core.FromJSON ShippingDetails where
       "ShippingDetails"
       ( \x ->
           ShippingDetails'
-            Core.<$> (x Core..:? "ShippingOption")
-            Core.<*> (x Core..:? "OutboundShipment")
-            Core.<*> (x Core..:? "InboundShipment")
+            Prelude.<$> (x Core..:? "ShippingOption")
+            Prelude.<*> (x Core..:? "OutboundShipment")
+            Prelude.<*> (x Core..:? "InboundShipment")
       )
 
-instance Core.Hashable ShippingDetails
+instance Prelude.Hashable ShippingDetails
 
-instance Core.NFData ShippingDetails
+instance Prelude.NFData ShippingDetails

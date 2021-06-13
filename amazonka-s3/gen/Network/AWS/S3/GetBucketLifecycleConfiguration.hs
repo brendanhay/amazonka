@@ -80,6 +80,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -89,11 +90,11 @@ data GetBucketLifecycleConfiguration = GetBucketLifecycleConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to get the lifecycle information.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketLifecycleConfiguration' with all optional fields omitted.
@@ -115,14 +116,14 @@ newGetBucketLifecycleConfiguration ::
 newGetBucketLifecycleConfiguration pBucket_ =
   GetBucketLifecycleConfiguration'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketLifecycleConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketLifecycleConfiguration (Core.Maybe Core.Text)
+getBucketLifecycleConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketLifecycleConfiguration (Prelude.Maybe Prelude.Text)
 getBucketLifecycleConfiguration_expectedBucketOwner = Lens.lens (\GetBucketLifecycleConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketLifecycleConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketLifecycleConfiguration)
 
 -- | The name of the bucket for which to get the lifecycle information.
@@ -141,41 +142,44 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketLifecycleConfigurationResponse'
-            Core.<$> (Core.may (Core.parseXMLList "Rule") x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.may (Core.parseXMLList "Rule") x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetBucketLifecycleConfiguration
 
-instance Core.NFData GetBucketLifecycleConfiguration
+instance
+  Prelude.NFData
+    GetBucketLifecycleConfiguration
 
 instance
   Core.ToHeaders
     GetBucketLifecycleConfiguration
   where
   toHeaders GetBucketLifecycleConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetBucketLifecycleConfiguration where
   toPath GetBucketLifecycleConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery GetBucketLifecycleConfiguration where
-  toQuery = Core.const (Core.mconcat ["lifecycle"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["lifecycle"])
 
 -- | /See:/ 'newGetBucketLifecycleConfigurationResponse' smart constructor.
 data GetBucketLifecycleConfigurationResponse = GetBucketLifecycleConfigurationResponse'
   { -- | Container for a lifecycle rule.
-    rules :: Core.Maybe [LifecycleRule],
+    rules :: Prelude.Maybe [LifecycleRule],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketLifecycleConfigurationResponse' with all optional fields omitted.
@@ -190,24 +194,24 @@ data GetBucketLifecycleConfigurationResponse = GetBucketLifecycleConfigurationRe
 -- 'httpStatus', 'getBucketLifecycleConfigurationResponse_httpStatus' - The response's http status code.
 newGetBucketLifecycleConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBucketLifecycleConfigurationResponse
 newGetBucketLifecycleConfigurationResponse
   pHttpStatus_ =
     GetBucketLifecycleConfigurationResponse'
       { rules =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Container for a lifecycle rule.
-getBucketLifecycleConfigurationResponse_rules :: Lens.Lens' GetBucketLifecycleConfigurationResponse (Core.Maybe [LifecycleRule])
-getBucketLifecycleConfigurationResponse_rules = Lens.lens (\GetBucketLifecycleConfigurationResponse' {rules} -> rules) (\s@GetBucketLifecycleConfigurationResponse' {} a -> s {rules = a} :: GetBucketLifecycleConfigurationResponse) Core.. Lens.mapping Lens._Coerce
+getBucketLifecycleConfigurationResponse_rules :: Lens.Lens' GetBucketLifecycleConfigurationResponse (Prelude.Maybe [LifecycleRule])
+getBucketLifecycleConfigurationResponse_rules = Lens.lens (\GetBucketLifecycleConfigurationResponse' {rules} -> rules) (\s@GetBucketLifecycleConfigurationResponse' {} a -> s {rules = a} :: GetBucketLifecycleConfigurationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getBucketLifecycleConfigurationResponse_httpStatus :: Lens.Lens' GetBucketLifecycleConfigurationResponse Core.Int
+getBucketLifecycleConfigurationResponse_httpStatus :: Lens.Lens' GetBucketLifecycleConfigurationResponse Prelude.Int
 getBucketLifecycleConfigurationResponse_httpStatus = Lens.lens (\GetBucketLifecycleConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetBucketLifecycleConfigurationResponse' {} a -> s {httpStatus = a} :: GetBucketLifecycleConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBucketLifecycleConfigurationResponse

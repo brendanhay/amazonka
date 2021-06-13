@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'newLaunchTemplateLicenseConfiguration' smart constructor.
 data LaunchTemplateLicenseConfiguration = LaunchTemplateLicenseConfiguration'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Core.Maybe Core.Text
+    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateLicenseConfiguration' with all optional fields omitted.
@@ -46,11 +47,11 @@ newLaunchTemplateLicenseConfiguration ::
 newLaunchTemplateLicenseConfiguration =
   LaunchTemplateLicenseConfiguration'
     { licenseConfigurationArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-launchTemplateLicenseConfiguration_licenseConfigurationArn :: Lens.Lens' LaunchTemplateLicenseConfiguration (Core.Maybe Core.Text)
+launchTemplateLicenseConfiguration_licenseConfigurationArn :: Lens.Lens' LaunchTemplateLicenseConfiguration (Prelude.Maybe Prelude.Text)
 launchTemplateLicenseConfiguration_licenseConfigurationArn = Lens.lens (\LaunchTemplateLicenseConfiguration' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LaunchTemplateLicenseConfiguration' {} a -> s {licenseConfigurationArn = a} :: LaunchTemplateLicenseConfiguration)
 
 instance
@@ -59,12 +60,12 @@ instance
   where
   parseXML x =
     LaunchTemplateLicenseConfiguration'
-      Core.<$> (x Core..@? "licenseConfigurationArn")
+      Prelude.<$> (x Core..@? "licenseConfigurationArn")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateLicenseConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateLicenseConfiguration

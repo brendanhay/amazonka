@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.ColorSpaceUsage
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | There are two sources for color metadata, the input file and the job
 -- input settings Color space (ColorSpace) and HDR master display
@@ -43,15 +44,15 @@ newtype ColorSpaceUsage = ColorSpaceUsage'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

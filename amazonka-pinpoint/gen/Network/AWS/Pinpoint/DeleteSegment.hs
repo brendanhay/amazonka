@@ -43,18 +43,19 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSegment' smart constructor.
 data DeleteSegment = DeleteSegment'
   { -- | The unique identifier for the segment.
-    segmentId :: Core.Text,
+    segmentId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSegment' with all optional fields omitted.
@@ -70,9 +71,9 @@ data DeleteSegment = DeleteSegment'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteSegment ::
   -- | 'segmentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSegment
 newDeleteSegment pSegmentId_ pApplicationId_ =
   DeleteSegment'
@@ -81,12 +82,12 @@ newDeleteSegment pSegmentId_ pApplicationId_ =
     }
 
 -- | The unique identifier for the segment.
-deleteSegment_segmentId :: Lens.Lens' DeleteSegment Core.Text
+deleteSegment_segmentId :: Lens.Lens' DeleteSegment Prelude.Text
 deleteSegment_segmentId = Lens.lens (\DeleteSegment' {segmentId} -> segmentId) (\s@DeleteSegment' {} a -> s {segmentId = a} :: DeleteSegment)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteSegment_applicationId :: Lens.Lens' DeleteSegment Core.Text
+deleteSegment_applicationId :: Lens.Lens' DeleteSegment Prelude.Text
 deleteSegment_applicationId = Lens.lens (\DeleteSegment' {applicationId} -> applicationId) (\s@DeleteSegment' {} a -> s {applicationId = a} :: DeleteSegment)
 
 instance Core.AWSRequest DeleteSegment where
@@ -98,26 +99,28 @@ instance Core.AWSRequest DeleteSegment where
     Response.receiveJSON
       ( \s h x ->
           DeleteSegmentResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteSegment
+instance Prelude.Hashable DeleteSegment
 
-instance Core.NFData DeleteSegment
+instance Prelude.NFData DeleteSegment
 
 instance Core.ToHeaders DeleteSegment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteSegment where
   toPath DeleteSegment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/segments/",
@@ -125,15 +128,15 @@ instance Core.ToPath DeleteSegment where
       ]
 
 instance Core.ToQuery DeleteSegment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSegmentResponse' smart constructor.
 data DeleteSegmentResponse = DeleteSegmentResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     segmentResponse :: SegmentResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSegmentResponse' with all optional fields omitted.
@@ -148,7 +151,7 @@ data DeleteSegmentResponse = DeleteSegmentResponse'
 -- 'segmentResponse', 'deleteSegmentResponse_segmentResponse' - Undocumented member.
 newDeleteSegmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'segmentResponse'
   SegmentResponse ->
   DeleteSegmentResponse
@@ -161,11 +164,11 @@ newDeleteSegmentResponse
       }
 
 -- | The response's http status code.
-deleteSegmentResponse_httpStatus :: Lens.Lens' DeleteSegmentResponse Core.Int
+deleteSegmentResponse_httpStatus :: Lens.Lens' DeleteSegmentResponse Prelude.Int
 deleteSegmentResponse_httpStatus = Lens.lens (\DeleteSegmentResponse' {httpStatus} -> httpStatus) (\s@DeleteSegmentResponse' {} a -> s {httpStatus = a} :: DeleteSegmentResponse)
 
 -- | Undocumented member.
 deleteSegmentResponse_segmentResponse :: Lens.Lens' DeleteSegmentResponse SegmentResponse
 deleteSegmentResponse_segmentResponse = Lens.lens (\DeleteSegmentResponse' {segmentResponse} -> segmentResponse) (\s@DeleteSegmentResponse' {} a -> s {segmentResponse = a} :: DeleteSegmentResponse)
 
-instance Core.NFData DeleteSegmentResponse
+instance Prelude.NFData DeleteSegmentResponse

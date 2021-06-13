@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +59,11 @@ data RebootInstances = RebootInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The instance IDs.
-    instanceIds :: [Core.Text]
+    instanceIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebootInstances' with all optional fields omitted.
@@ -82,20 +83,20 @@ newRebootInstances ::
   RebootInstances
 newRebootInstances =
   RebootInstances'
-    { dryRun = Core.Nothing,
-      instanceIds = Core.mempty
+    { dryRun = Prelude.Nothing,
+      instanceIds = Prelude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rebootInstances_dryRun :: Lens.Lens' RebootInstances (Core.Maybe Core.Bool)
+rebootInstances_dryRun :: Lens.Lens' RebootInstances (Prelude.Maybe Prelude.Bool)
 rebootInstances_dryRun = Lens.lens (\RebootInstances' {dryRun} -> dryRun) (\s@RebootInstances' {} a -> s {dryRun = a} :: RebootInstances)
 
 -- | The instance IDs.
-rebootInstances_instanceIds :: Lens.Lens' RebootInstances [Core.Text]
-rebootInstances_instanceIds = Lens.lens (\RebootInstances' {instanceIds} -> instanceIds) (\s@RebootInstances' {} a -> s {instanceIds = a} :: RebootInstances) Core.. Lens._Coerce
+rebootInstances_instanceIds :: Lens.Lens' RebootInstances [Prelude.Text]
+rebootInstances_instanceIds = Lens.lens (\RebootInstances' {instanceIds} -> instanceIds) (\s@RebootInstances' {} a -> s {instanceIds = a} :: RebootInstances) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RebootInstances where
   type
@@ -105,22 +106,23 @@ instance Core.AWSRequest RebootInstances where
   response =
     Response.receiveNull RebootInstancesResponse'
 
-instance Core.Hashable RebootInstances
+instance Prelude.Hashable RebootInstances
 
-instance Core.NFData RebootInstances
+instance Prelude.NFData RebootInstances
 
 instance Core.ToHeaders RebootInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RebootInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RebootInstances where
   toQuery RebootInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RebootInstances" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("RebootInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQueryList "InstanceId" instanceIds
       ]
@@ -129,7 +131,7 @@ instance Core.ToQuery RebootInstances where
 data RebootInstancesResponse = RebootInstancesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebootInstancesResponse' with all optional fields omitted.
@@ -139,4 +141,4 @@ newRebootInstancesResponse ::
   RebootInstancesResponse
 newRebootInstancesResponse = RebootInstancesResponse'
 
-instance Core.NFData RebootInstancesResponse
+instance Prelude.NFData RebootInstancesResponse

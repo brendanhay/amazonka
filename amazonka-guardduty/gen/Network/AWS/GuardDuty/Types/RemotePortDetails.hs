@@ -21,17 +21,18 @@ module Network.AWS.GuardDuty.Types.RemotePortDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the remote port.
 --
 -- /See:/ 'newRemotePortDetails' smart constructor.
 data RemotePortDetails = RemotePortDetails'
   { -- | The port name of the remote connection.
-    portName :: Core.Maybe Core.Text,
+    portName :: Prelude.Maybe Prelude.Text,
     -- | The port number of the remote connection.
-    port :: Core.Maybe Core.Int
+    port :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemotePortDetails' with all optional fields omitted.
@@ -48,16 +49,16 @@ newRemotePortDetails ::
   RemotePortDetails
 newRemotePortDetails =
   RemotePortDetails'
-    { portName = Core.Nothing,
-      port = Core.Nothing
+    { portName = Prelude.Nothing,
+      port = Prelude.Nothing
     }
 
 -- | The port name of the remote connection.
-remotePortDetails_portName :: Lens.Lens' RemotePortDetails (Core.Maybe Core.Text)
+remotePortDetails_portName :: Lens.Lens' RemotePortDetails (Prelude.Maybe Prelude.Text)
 remotePortDetails_portName = Lens.lens (\RemotePortDetails' {portName} -> portName) (\s@RemotePortDetails' {} a -> s {portName = a} :: RemotePortDetails)
 
 -- | The port number of the remote connection.
-remotePortDetails_port :: Lens.Lens' RemotePortDetails (Core.Maybe Core.Int)
+remotePortDetails_port :: Lens.Lens' RemotePortDetails (Prelude.Maybe Prelude.Int)
 remotePortDetails_port = Lens.lens (\RemotePortDetails' {port} -> port) (\s@RemotePortDetails' {} a -> s {port = a} :: RemotePortDetails)
 
 instance Core.FromJSON RemotePortDetails where
@@ -66,9 +67,10 @@ instance Core.FromJSON RemotePortDetails where
       "RemotePortDetails"
       ( \x ->
           RemotePortDetails'
-            Core.<$> (x Core..:? "portName") Core.<*> (x Core..:? "port")
+            Prelude.<$> (x Core..:? "portName")
+            Prelude.<*> (x Core..:? "port")
       )
 
-instance Core.Hashable RemotePortDetails
+instance Prelude.Hashable RemotePortDetails
 
-instance Core.NFData RemotePortDetails
+instance Prelude.NFData RemotePortDetails

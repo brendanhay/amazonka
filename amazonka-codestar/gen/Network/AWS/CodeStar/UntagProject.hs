@@ -42,17 +42,18 @@ where
 import Network.AWS.CodeStar.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagProject' smart constructor.
 data UntagProject = UntagProject'
   { -- | The ID of the project to remove tags from.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The tags to remove from the project.
-    tags :: [Core.Text]
+    tags :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagProject' with all optional fields omitted.
@@ -67,18 +68,18 @@ data UntagProject = UntagProject'
 -- 'tags', 'untagProject_tags' - The tags to remove from the project.
 newUntagProject ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UntagProject
 newUntagProject pId_ =
-  UntagProject' {id = pId_, tags = Core.mempty}
+  UntagProject' {id = pId_, tags = Prelude.mempty}
 
 -- | The ID of the project to remove tags from.
-untagProject_id :: Lens.Lens' UntagProject Core.Text
+untagProject_id :: Lens.Lens' UntagProject Prelude.Text
 untagProject_id = Lens.lens (\UntagProject' {id} -> id) (\s@UntagProject' {} a -> s {id = a} :: UntagProject)
 
 -- | The tags to remove from the project.
-untagProject_tags :: Lens.Lens' UntagProject [Core.Text]
-untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' {} a -> s {tags = a} :: UntagProject) Core.. Lens._Coerce
+untagProject_tags :: Lens.Lens' UntagProject [Prelude.Text]
+untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' {} a -> s {tags = a} :: UntagProject) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagProject where
   type AWSResponse UntagProject = UntagProjectResponse
@@ -87,47 +88,49 @@ instance Core.AWSRequest UntagProject where
     Response.receiveEmpty
       ( \s h x ->
           UntagProjectResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UntagProject
+instance Prelude.Hashable UntagProject
 
-instance Core.NFData UntagProject
+instance Prelude.NFData UntagProject
 
 instance Core.ToHeaders UntagProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeStar_20170419.UntagProject" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UntagProject where
   toJSON UntagProject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("id" Core..= id),
-            Core.Just ("tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("id" Core..= id),
+            Prelude.Just ("tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath UntagProject where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagProject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagProjectResponse' smart constructor.
 data UntagProjectResponse = UntagProjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagProjectResponse' with all optional fields omitted.
@@ -140,13 +143,13 @@ data UntagProjectResponse = UntagProjectResponse'
 -- 'httpStatus', 'untagProjectResponse_httpStatus' - The response's http status code.
 newUntagProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UntagProjectResponse
 newUntagProjectResponse pHttpStatus_ =
   UntagProjectResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-untagProjectResponse_httpStatus :: Lens.Lens' UntagProjectResponse Core.Int
+untagProjectResponse_httpStatus :: Lens.Lens' UntagProjectResponse Prelude.Int
 untagProjectResponse_httpStatus = Lens.lens (\UntagProjectResponse' {httpStatus} -> httpStatus) (\s@UntagProjectResponse' {} a -> s {httpStatus = a} :: UntagProjectResponse)
 
-instance Core.NFData UntagProjectResponse
+instance Prelude.NFData UntagProjectResponse

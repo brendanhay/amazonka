@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.DvbSubSourceSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | DVB Sub Source Settings
 --
@@ -29,9 +30,9 @@ data DvbSubSourceSettings = DvbSubSourceSettings'
   { -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
     -- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed
     -- through, regardless of selectors.
-    pid :: Core.Maybe Core.Natural
+    pid :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DvbSubSourceSettings' with all optional fields omitted.
@@ -47,12 +48,12 @@ data DvbSubSourceSettings = DvbSubSourceSettings'
 newDvbSubSourceSettings ::
   DvbSubSourceSettings
 newDvbSubSourceSettings =
-  DvbSubSourceSettings' {pid = Core.Nothing}
+  DvbSubSourceSettings' {pid = Prelude.Nothing}
 
 -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
 -- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed
 -- through, regardless of selectors.
-dvbSubSourceSettings_pid :: Lens.Lens' DvbSubSourceSettings (Core.Maybe Core.Natural)
+dvbSubSourceSettings_pid :: Lens.Lens' DvbSubSourceSettings (Prelude.Maybe Prelude.Natural)
 dvbSubSourceSettings_pid = Lens.lens (\DvbSubSourceSettings' {pid} -> pid) (\s@DvbSubSourceSettings' {} a -> s {pid = a} :: DvbSubSourceSettings)
 
 instance Core.FromJSON DvbSubSourceSettings where
@@ -60,14 +61,14 @@ instance Core.FromJSON DvbSubSourceSettings where
     Core.withObject
       "DvbSubSourceSettings"
       ( \x ->
-          DvbSubSourceSettings' Core.<$> (x Core..:? "pid")
+          DvbSubSourceSettings' Prelude.<$> (x Core..:? "pid")
       )
 
-instance Core.Hashable DvbSubSourceSettings
+instance Prelude.Hashable DvbSubSourceSettings
 
-instance Core.NFData DvbSubSourceSettings
+instance Prelude.NFData DvbSubSourceSettings
 
 instance Core.ToJSON DvbSubSourceSettings where
   toJSON DvbSubSourceSettings' {..} =
     Core.object
-      (Core.catMaybes [("pid" Core..=) Core.<$> pid])
+      (Prelude.catMaybes [("pid" Core..=) Prelude.<$> pid])

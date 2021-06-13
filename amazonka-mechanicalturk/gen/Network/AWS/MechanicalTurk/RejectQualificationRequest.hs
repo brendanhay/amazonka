@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +54,12 @@ import qualified Network.AWS.Response as Response
 data RejectQualificationRequest = RejectQualificationRequest'
   { -- | A text message explaining why the request was rejected, to be shown to
     -- the Worker who made the request.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Qualification request, as returned by the
     -- @ListQualificationRequests@ operation.
-    qualificationRequestId :: Core.Text
+    qualificationRequestId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectQualificationRequest' with all optional fields omitted.
@@ -75,24 +76,25 @@ data RejectQualificationRequest = RejectQualificationRequest'
 -- @ListQualificationRequests@ operation.
 newRejectQualificationRequest ::
   -- | 'qualificationRequestId'
-  Core.Text ->
+  Prelude.Text ->
   RejectQualificationRequest
 newRejectQualificationRequest
   pQualificationRequestId_ =
     RejectQualificationRequest'
-      { reason = Core.Nothing,
+      { reason =
+          Prelude.Nothing,
         qualificationRequestId =
           pQualificationRequestId_
       }
 
 -- | A text message explaining why the request was rejected, to be shown to
 -- the Worker who made the request.
-rejectQualificationRequest_reason :: Lens.Lens' RejectQualificationRequest (Core.Maybe Core.Text)
+rejectQualificationRequest_reason :: Lens.Lens' RejectQualificationRequest (Prelude.Maybe Prelude.Text)
 rejectQualificationRequest_reason = Lens.lens (\RejectQualificationRequest' {reason} -> reason) (\s@RejectQualificationRequest' {} a -> s {reason = a} :: RejectQualificationRequest)
 
 -- | The ID of the Qualification request, as returned by the
 -- @ListQualificationRequests@ operation.
-rejectQualificationRequest_qualificationRequestId :: Lens.Lens' RejectQualificationRequest Core.Text
+rejectQualificationRequest_qualificationRequestId :: Lens.Lens' RejectQualificationRequest Prelude.Text
 rejectQualificationRequest_qualificationRequestId = Lens.lens (\RejectQualificationRequest' {qualificationRequestId} -> qualificationRequestId) (\s@RejectQualificationRequest' {} a -> s {qualificationRequestId = a} :: RejectQualificationRequest)
 
 instance Core.AWSRequest RejectQualificationRequest where
@@ -104,32 +106,34 @@ instance Core.AWSRequest RejectQualificationRequest where
     Response.receiveEmpty
       ( \s h x ->
           RejectQualificationRequestResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RejectQualificationRequest
+instance Prelude.Hashable RejectQualificationRequest
 
-instance Core.NFData RejectQualificationRequest
+instance Prelude.NFData RejectQualificationRequest
 
 instance Core.ToHeaders RejectQualificationRequest where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.RejectQualificationRequest" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RejectQualificationRequest where
   toJSON RejectQualificationRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Reason" Core..=) Core.<$> reason,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Reason" Core..=) Prelude.<$> reason,
+            Prelude.Just
               ( "QualificationRequestId"
                   Core..= qualificationRequestId
               )
@@ -137,17 +141,17 @@ instance Core.ToJSON RejectQualificationRequest where
       )
 
 instance Core.ToPath RejectQualificationRequest where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RejectQualificationRequest where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectQualificationRequestResponse' smart constructor.
 data RejectQualificationRequestResponse = RejectQualificationRequestResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectQualificationRequestResponse' with all optional fields omitted.
@@ -160,7 +164,7 @@ data RejectQualificationRequestResponse = RejectQualificationRequestResponse'
 -- 'httpStatus', 'rejectQualificationRequestResponse_httpStatus' - The response's http status code.
 newRejectQualificationRequestResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RejectQualificationRequestResponse
 newRejectQualificationRequestResponse pHttpStatus_ =
   RejectQualificationRequestResponse'
@@ -169,9 +173,9 @@ newRejectQualificationRequestResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-rejectQualificationRequestResponse_httpStatus :: Lens.Lens' RejectQualificationRequestResponse Core.Int
+rejectQualificationRequestResponse_httpStatus :: Lens.Lens' RejectQualificationRequestResponse Prelude.Int
 rejectQualificationRequestResponse_httpStatus = Lens.lens (\RejectQualificationRequestResponse' {httpStatus} -> httpStatus) (\s@RejectQualificationRequestResponse' {} a -> s {httpStatus = a} :: RejectQualificationRequestResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectQualificationRequestResponse

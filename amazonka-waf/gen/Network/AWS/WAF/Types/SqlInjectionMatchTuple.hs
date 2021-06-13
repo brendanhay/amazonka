@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.SqlInjectionMatchTuple where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.FieldToMatch
 import Network.AWS.WAF.Types.TextTransformation
 
@@ -117,7 +118,7 @@ data SqlInjectionMatchTuple = SqlInjectionMatchTuple'
     -- Specify @NONE@ if you don\'t want to perform any text transformations.
     textTransformation :: TextTransformation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SqlInjectionMatchTuple' with all optional fields omitted.
@@ -305,20 +306,20 @@ instance Core.FromJSON SqlInjectionMatchTuple where
       "SqlInjectionMatchTuple"
       ( \x ->
           SqlInjectionMatchTuple'
-            Core.<$> (x Core..: "FieldToMatch")
-            Core.<*> (x Core..: "TextTransformation")
+            Prelude.<$> (x Core..: "FieldToMatch")
+            Prelude.<*> (x Core..: "TextTransformation")
       )
 
-instance Core.Hashable SqlInjectionMatchTuple
+instance Prelude.Hashable SqlInjectionMatchTuple
 
-instance Core.NFData SqlInjectionMatchTuple
+instance Prelude.NFData SqlInjectionMatchTuple
 
 instance Core.ToJSON SqlInjectionMatchTuple where
   toJSON SqlInjectionMatchTuple' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+            Prelude.Just
               ("TextTransformation" Core..= textTransformation)
           ]
       )

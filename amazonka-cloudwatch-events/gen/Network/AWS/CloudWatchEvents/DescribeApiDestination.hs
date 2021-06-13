@@ -51,15 +51,16 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeApiDestination' smart constructor.
 data DescribeApiDestination = DescribeApiDestination'
   { -- | The name of the API destination to retrieve.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApiDestination' with all optional fields omitted.
@@ -72,13 +73,13 @@ data DescribeApiDestination = DescribeApiDestination'
 -- 'name', 'describeApiDestination_name' - The name of the API destination to retrieve.
 newDescribeApiDestination ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DescribeApiDestination
 newDescribeApiDestination pName_ =
   DescribeApiDestination' {name = pName_}
 
 -- | The name of the API destination to retrieve.
-describeApiDestination_name :: Lens.Lens' DescribeApiDestination Core.Text
+describeApiDestination_name :: Lens.Lens' DescribeApiDestination Prelude.Text
 describeApiDestination_name = Lens.lens (\DescribeApiDestination' {name} -> name) (\s@DescribeApiDestination' {} a -> s {name = a} :: DescribeApiDestination)
 
 instance Core.AWSRequest DescribeApiDestination where
@@ -90,67 +91,71 @@ instance Core.AWSRequest DescribeApiDestination where
     Response.receiveJSON
       ( \s h x ->
           DescribeApiDestinationResponse'
-            Core.<$> (x Core..?> "HttpMethod")
-            Core.<*> (x Core..?> "CreationTime")
-            Core.<*> (x Core..?> "ApiDestinationArn")
-            Core.<*> (x Core..?> "InvocationEndpoint")
-            Core.<*> (x Core..?> "ApiDestinationState")
-            Core.<*> (x Core..?> "ConnectionArn")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (x Core..?> "LastModifiedTime")
-            Core.<*> (x Core..?> "Description")
-            Core.<*> (x Core..?> "InvocationRateLimitPerSecond")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HttpMethod")
+            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "ApiDestinationArn")
+            Prelude.<*> (x Core..?> "InvocationEndpoint")
+            Prelude.<*> (x Core..?> "ApiDestinationState")
+            Prelude.<*> (x Core..?> "ConnectionArn")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "InvocationRateLimitPerSecond")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeApiDestination
+instance Prelude.Hashable DescribeApiDestination
 
-instance Core.NFData DescribeApiDestination
+instance Prelude.NFData DescribeApiDestination
 
 instance Core.ToHeaders DescribeApiDestination where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSEvents.DescribeApiDestination" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeApiDestination where
   toJSON DescribeApiDestination' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DescribeApiDestination where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeApiDestination where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeApiDestinationResponse' smart constructor.
 data DescribeApiDestinationResponse = DescribeApiDestinationResponse'
   { -- | The method to use to connect to the HTTP endpoint.
-    httpMethod :: Core.Maybe ApiDestinationHttpMethod,
+    httpMethod :: Prelude.Maybe ApiDestinationHttpMethod,
     -- | A time stamp for the time that the API destination was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the API destination retrieved.
-    apiDestinationArn :: Core.Maybe Core.Text,
+    apiDestinationArn :: Prelude.Maybe Prelude.Text,
     -- | The URL to use to connect to the HTTP endpoint.
-    invocationEndpoint :: Core.Maybe Core.Text,
+    invocationEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The state of the API destination retrieved.
-    apiDestinationState :: Core.Maybe ApiDestinationState,
+    apiDestinationState :: Prelude.Maybe ApiDestinationState,
     -- | The ARN of the connection specified for the API destination retrieved.
-    connectionArn :: Core.Maybe Core.Text,
+    connectionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the API destination retrieved.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the API destination was last modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The description for the API destination retrieved.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of invocations per second to specified for the API
     -- destination. Note that if you set the invocation rate maximum to a value
     -- lower the rate necessary to send all events received on to the
@@ -158,11 +163,11 @@ data DescribeApiDestinationResponse = DescribeApiDestinationResponse'
     -- 24-hour retry window. If you plan to set the rate lower than the rate
     -- necessary to deliver all events, consider using a dead-letter queue to
     -- catch events that are not delivered within 24 hours.
-    invocationRateLimitPerSecond :: Core.Maybe Core.Natural,
+    invocationRateLimitPerSecond :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApiDestinationResponse' with all optional fields omitted.
@@ -201,58 +206,59 @@ data DescribeApiDestinationResponse = DescribeApiDestinationResponse'
 -- 'httpStatus', 'describeApiDestinationResponse_httpStatus' - The response's http status code.
 newDescribeApiDestinationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeApiDestinationResponse
 newDescribeApiDestinationResponse pHttpStatus_ =
   DescribeApiDestinationResponse'
     { httpMethod =
-        Core.Nothing,
-      creationTime = Core.Nothing,
-      apiDestinationArn = Core.Nothing,
-      invocationEndpoint = Core.Nothing,
-      apiDestinationState = Core.Nothing,
-      connectionArn = Core.Nothing,
-      name = Core.Nothing,
-      lastModifiedTime = Core.Nothing,
-      description = Core.Nothing,
-      invocationRateLimitPerSecond = Core.Nothing,
+        Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      apiDestinationArn = Prelude.Nothing,
+      invocationEndpoint = Prelude.Nothing,
+      apiDestinationState = Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      description = Prelude.Nothing,
+      invocationRateLimitPerSecond =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The method to use to connect to the HTTP endpoint.
-describeApiDestinationResponse_httpMethod :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe ApiDestinationHttpMethod)
+describeApiDestinationResponse_httpMethod :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe ApiDestinationHttpMethod)
 describeApiDestinationResponse_httpMethod = Lens.lens (\DescribeApiDestinationResponse' {httpMethod} -> httpMethod) (\s@DescribeApiDestinationResponse' {} a -> s {httpMethod = a} :: DescribeApiDestinationResponse)
 
 -- | A time stamp for the time that the API destination was created.
-describeApiDestinationResponse_creationTime :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe Core.UTCTime)
-describeApiDestinationResponse_creationTime = Lens.lens (\DescribeApiDestinationResponse' {creationTime} -> creationTime) (\s@DescribeApiDestinationResponse' {} a -> s {creationTime = a} :: DescribeApiDestinationResponse) Core.. Lens.mapping Core._Time
+describeApiDestinationResponse_creationTime :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
+describeApiDestinationResponse_creationTime = Lens.lens (\DescribeApiDestinationResponse' {creationTime} -> creationTime) (\s@DescribeApiDestinationResponse' {} a -> s {creationTime = a} :: DescribeApiDestinationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the API destination retrieved.
-describeApiDestinationResponse_apiDestinationArn :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe Core.Text)
+describeApiDestinationResponse_apiDestinationArn :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)
 describeApiDestinationResponse_apiDestinationArn = Lens.lens (\DescribeApiDestinationResponse' {apiDestinationArn} -> apiDestinationArn) (\s@DescribeApiDestinationResponse' {} a -> s {apiDestinationArn = a} :: DescribeApiDestinationResponse)
 
 -- | The URL to use to connect to the HTTP endpoint.
-describeApiDestinationResponse_invocationEndpoint :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe Core.Text)
+describeApiDestinationResponse_invocationEndpoint :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)
 describeApiDestinationResponse_invocationEndpoint = Lens.lens (\DescribeApiDestinationResponse' {invocationEndpoint} -> invocationEndpoint) (\s@DescribeApiDestinationResponse' {} a -> s {invocationEndpoint = a} :: DescribeApiDestinationResponse)
 
 -- | The state of the API destination retrieved.
-describeApiDestinationResponse_apiDestinationState :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe ApiDestinationState)
+describeApiDestinationResponse_apiDestinationState :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe ApiDestinationState)
 describeApiDestinationResponse_apiDestinationState = Lens.lens (\DescribeApiDestinationResponse' {apiDestinationState} -> apiDestinationState) (\s@DescribeApiDestinationResponse' {} a -> s {apiDestinationState = a} :: DescribeApiDestinationResponse)
 
 -- | The ARN of the connection specified for the API destination retrieved.
-describeApiDestinationResponse_connectionArn :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe Core.Text)
+describeApiDestinationResponse_connectionArn :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)
 describeApiDestinationResponse_connectionArn = Lens.lens (\DescribeApiDestinationResponse' {connectionArn} -> connectionArn) (\s@DescribeApiDestinationResponse' {} a -> s {connectionArn = a} :: DescribeApiDestinationResponse)
 
 -- | The name of the API destination retrieved.
-describeApiDestinationResponse_name :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe Core.Text)
+describeApiDestinationResponse_name :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)
 describeApiDestinationResponse_name = Lens.lens (\DescribeApiDestinationResponse' {name} -> name) (\s@DescribeApiDestinationResponse' {} a -> s {name = a} :: DescribeApiDestinationResponse)
 
 -- | A time stamp for the time that the API destination was last modified.
-describeApiDestinationResponse_lastModifiedTime :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe Core.UTCTime)
-describeApiDestinationResponse_lastModifiedTime = Lens.lens (\DescribeApiDestinationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeApiDestinationResponse' {} a -> s {lastModifiedTime = a} :: DescribeApiDestinationResponse) Core.. Lens.mapping Core._Time
+describeApiDestinationResponse_lastModifiedTime :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
+describeApiDestinationResponse_lastModifiedTime = Lens.lens (\DescribeApiDestinationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeApiDestinationResponse' {} a -> s {lastModifiedTime = a} :: DescribeApiDestinationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The description for the API destination retrieved.
-describeApiDestinationResponse_description :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe Core.Text)
+describeApiDestinationResponse_description :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)
 describeApiDestinationResponse_description = Lens.lens (\DescribeApiDestinationResponse' {description} -> description) (\s@DescribeApiDestinationResponse' {} a -> s {description = a} :: DescribeApiDestinationResponse)
 
 -- | The maximum number of invocations per second to specified for the API
@@ -262,11 +268,13 @@ describeApiDestinationResponse_description = Lens.lens (\DescribeApiDestinationR
 -- 24-hour retry window. If you plan to set the rate lower than the rate
 -- necessary to deliver all events, consider using a dead-letter queue to
 -- catch events that are not delivered within 24 hours.
-describeApiDestinationResponse_invocationRateLimitPerSecond :: Lens.Lens' DescribeApiDestinationResponse (Core.Maybe Core.Natural)
+describeApiDestinationResponse_invocationRateLimitPerSecond :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Natural)
 describeApiDestinationResponse_invocationRateLimitPerSecond = Lens.lens (\DescribeApiDestinationResponse' {invocationRateLimitPerSecond} -> invocationRateLimitPerSecond) (\s@DescribeApiDestinationResponse' {} a -> s {invocationRateLimitPerSecond = a} :: DescribeApiDestinationResponse)
 
 -- | The response's http status code.
-describeApiDestinationResponse_httpStatus :: Lens.Lens' DescribeApiDestinationResponse Core.Int
+describeApiDestinationResponse_httpStatus :: Lens.Lens' DescribeApiDestinationResponse Prelude.Int
 describeApiDestinationResponse_httpStatus = Lens.lens (\DescribeApiDestinationResponse' {httpStatus} -> httpStatus) (\s@DescribeApiDestinationResponse' {} a -> s {httpStatus = a} :: DescribeApiDestinationResponse)
 
-instance Core.NFData DescribeApiDestinationResponse
+instance
+  Prelude.NFData
+    DescribeApiDestinationResponse

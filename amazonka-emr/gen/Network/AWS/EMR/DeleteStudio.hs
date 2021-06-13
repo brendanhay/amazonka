@@ -38,15 +38,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteStudio' smart constructor.
 data DeleteStudio = DeleteStudio'
   { -- | The ID of the Amazon EMR Studio.
-    studioId :: Core.Text
+    studioId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStudio' with all optional fields omitted.
@@ -59,13 +60,13 @@ data DeleteStudio = DeleteStudio'
 -- 'studioId', 'deleteStudio_studioId' - The ID of the Amazon EMR Studio.
 newDeleteStudio ::
   -- | 'studioId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteStudio
 newDeleteStudio pStudioId_ =
   DeleteStudio' {studioId = pStudioId_}
 
 -- | The ID of the Amazon EMR Studio.
-deleteStudio_studioId :: Lens.Lens' DeleteStudio Core.Text
+deleteStudio_studioId :: Lens.Lens' DeleteStudio Prelude.Text
 deleteStudio_studioId = Lens.lens (\DeleteStudio' {studioId} -> studioId) (\s@DeleteStudio' {} a -> s {studioId = a} :: DeleteStudio)
 
 instance Core.AWSRequest DeleteStudio where
@@ -73,39 +74,43 @@ instance Core.AWSRequest DeleteStudio where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteStudioResponse'
 
-instance Core.Hashable DeleteStudio
+instance Prelude.Hashable DeleteStudio
 
-instance Core.NFData DeleteStudio
+instance Prelude.NFData DeleteStudio
 
 instance Core.ToHeaders DeleteStudio where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ElasticMapReduce.DeleteStudio" :: Core.ByteString),
+              Core.=# ( "ElasticMapReduce.DeleteStudio" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteStudio where
   toJSON DeleteStudio' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("StudioId" Core..= studioId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("StudioId" Core..= studioId)]
       )
 
 instance Core.ToPath DeleteStudio where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteStudio where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStudioResponse' smart constructor.
 data DeleteStudioResponse = DeleteStudioResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStudioResponse' with all optional fields omitted.
@@ -115,4 +120,4 @@ newDeleteStudioResponse ::
   DeleteStudioResponse
 newDeleteStudioResponse = DeleteStudioResponse'
 
-instance Core.NFData DeleteStudioResponse
+instance Prelude.NFData DeleteStudioResponse

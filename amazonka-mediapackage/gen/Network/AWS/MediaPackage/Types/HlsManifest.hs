@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.AdMarkers
 import Network.AWS.MediaPackage.Types.PlaylistType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A HTTP Live Streaming (HLS) manifest configuration.
 --
@@ -37,7 +38,7 @@ data HlsManifest = HlsManifest'
     -- \"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program
     -- transition events in HLS and CMAF manifests. For this option, you must
     -- set a programDateTimeIntervalSeconds value that is greater than 0.
-    adMarkers :: Core.Maybe AdMarkers,
+    adMarkers :: Prelude.Maybe AdMarkers,
     -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
     -- inserted into manifests. Additionally, when an interval is specified
     -- ID3Timed Metadata messages will be generated every 5 seconds using the
@@ -47,25 +48,25 @@ data HlsManifest = HlsManifest'
     -- irrespective of this parameter, if any ID3 Timed Metadata is found in
     -- HTTP Live Streaming (HLS) input, it will be passed through to HLS
     -- output.
-    programDateTimeIntervalSeconds :: Core.Maybe Core.Int,
+    programDateTimeIntervalSeconds :: Prelude.Maybe Prelude.Int,
     -- | Time window (in seconds) contained in each parent manifest.
-    playlistWindowSeconds :: Core.Maybe Core.Int,
+    playlistWindowSeconds :: Prelude.Maybe Prelude.Int,
     -- | When enabled, an I-Frame only stream will be included in the output.
-    includeIframeOnlyStream :: Core.Maybe Core.Bool,
+    includeIframeOnlyStream :: Prelude.Maybe Prelude.Bool,
     -- | An optional short string appended to the end of the OriginEndpoint URL.
     -- If not specified, defaults to the manifestName for the OriginEndpoint.
-    manifestName :: Core.Maybe Core.Text,
+    manifestName :: Prelude.Maybe Prelude.Text,
     -- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
     -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
     -- included in the media playlist.
-    playlistType :: Core.Maybe PlaylistType,
+    playlistType :: Prelude.Maybe PlaylistType,
     -- | The URL of the packaged OriginEndpoint for consumption.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The ID of the manifest. The ID must be unique within the OriginEndpoint
     -- and it cannot be changed after it is created.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsManifest' with all optional fields omitted.
@@ -112,17 +113,17 @@ data HlsManifest = HlsManifest'
 -- and it cannot be changed after it is created.
 newHlsManifest ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   HlsManifest
 newHlsManifest pId_ =
   HlsManifest'
-    { adMarkers = Core.Nothing,
-      programDateTimeIntervalSeconds = Core.Nothing,
-      playlistWindowSeconds = Core.Nothing,
-      includeIframeOnlyStream = Core.Nothing,
-      manifestName = Core.Nothing,
-      playlistType = Core.Nothing,
-      url = Core.Nothing,
+    { adMarkers = Prelude.Nothing,
+      programDateTimeIntervalSeconds = Prelude.Nothing,
+      playlistWindowSeconds = Prelude.Nothing,
+      includeIframeOnlyStream = Prelude.Nothing,
+      manifestName = Prelude.Nothing,
+      playlistType = Prelude.Nothing,
+      url = Prelude.Nothing,
       id = pId_
     }
 
@@ -135,7 +136,7 @@ newHlsManifest pId_ =
 -- \"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program
 -- transition events in HLS and CMAF manifests. For this option, you must
 -- set a programDateTimeIntervalSeconds value that is greater than 0.
-hlsManifest_adMarkers :: Lens.Lens' HlsManifest (Core.Maybe AdMarkers)
+hlsManifest_adMarkers :: Lens.Lens' HlsManifest (Prelude.Maybe AdMarkers)
 hlsManifest_adMarkers = Lens.lens (\HlsManifest' {adMarkers} -> adMarkers) (\s@HlsManifest' {} a -> s {adMarkers = a} :: HlsManifest)
 
 -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
@@ -147,35 +148,35 @@ hlsManifest_adMarkers = Lens.lens (\HlsManifest' {adMarkers} -> adMarkers) (\s@H
 -- irrespective of this parameter, if any ID3 Timed Metadata is found in
 -- HTTP Live Streaming (HLS) input, it will be passed through to HLS
 -- output.
-hlsManifest_programDateTimeIntervalSeconds :: Lens.Lens' HlsManifest (Core.Maybe Core.Int)
+hlsManifest_programDateTimeIntervalSeconds :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Int)
 hlsManifest_programDateTimeIntervalSeconds = Lens.lens (\HlsManifest' {programDateTimeIntervalSeconds} -> programDateTimeIntervalSeconds) (\s@HlsManifest' {} a -> s {programDateTimeIntervalSeconds = a} :: HlsManifest)
 
 -- | Time window (in seconds) contained in each parent manifest.
-hlsManifest_playlistWindowSeconds :: Lens.Lens' HlsManifest (Core.Maybe Core.Int)
+hlsManifest_playlistWindowSeconds :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Int)
 hlsManifest_playlistWindowSeconds = Lens.lens (\HlsManifest' {playlistWindowSeconds} -> playlistWindowSeconds) (\s@HlsManifest' {} a -> s {playlistWindowSeconds = a} :: HlsManifest)
 
 -- | When enabled, an I-Frame only stream will be included in the output.
-hlsManifest_includeIframeOnlyStream :: Lens.Lens' HlsManifest (Core.Maybe Core.Bool)
+hlsManifest_includeIframeOnlyStream :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Bool)
 hlsManifest_includeIframeOnlyStream = Lens.lens (\HlsManifest' {includeIframeOnlyStream} -> includeIframeOnlyStream) (\s@HlsManifest' {} a -> s {includeIframeOnlyStream = a} :: HlsManifest)
 
 -- | An optional short string appended to the end of the OriginEndpoint URL.
 -- If not specified, defaults to the manifestName for the OriginEndpoint.
-hlsManifest_manifestName :: Lens.Lens' HlsManifest (Core.Maybe Core.Text)
+hlsManifest_manifestName :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Text)
 hlsManifest_manifestName = Lens.lens (\HlsManifest' {manifestName} -> manifestName) (\s@HlsManifest' {} a -> s {manifestName = a} :: HlsManifest)
 
 -- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
 -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
 -- included in the media playlist.
-hlsManifest_playlistType :: Lens.Lens' HlsManifest (Core.Maybe PlaylistType)
+hlsManifest_playlistType :: Lens.Lens' HlsManifest (Prelude.Maybe PlaylistType)
 hlsManifest_playlistType = Lens.lens (\HlsManifest' {playlistType} -> playlistType) (\s@HlsManifest' {} a -> s {playlistType = a} :: HlsManifest)
 
 -- | The URL of the packaged OriginEndpoint for consumption.
-hlsManifest_url :: Lens.Lens' HlsManifest (Core.Maybe Core.Text)
+hlsManifest_url :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Text)
 hlsManifest_url = Lens.lens (\HlsManifest' {url} -> url) (\s@HlsManifest' {} a -> s {url = a} :: HlsManifest)
 
 -- | The ID of the manifest. The ID must be unique within the OriginEndpoint
 -- and it cannot be changed after it is created.
-hlsManifest_id :: Lens.Lens' HlsManifest Core.Text
+hlsManifest_id :: Lens.Lens' HlsManifest Prelude.Text
 hlsManifest_id = Lens.lens (\HlsManifest' {id} -> id) (\s@HlsManifest' {} a -> s {id = a} :: HlsManifest)
 
 instance Core.FromJSON HlsManifest where
@@ -184,16 +185,16 @@ instance Core.FromJSON HlsManifest where
       "HlsManifest"
       ( \x ->
           HlsManifest'
-            Core.<$> (x Core..:? "adMarkers")
-            Core.<*> (x Core..:? "programDateTimeIntervalSeconds")
-            Core.<*> (x Core..:? "playlistWindowSeconds")
-            Core.<*> (x Core..:? "includeIframeOnlyStream")
-            Core.<*> (x Core..:? "manifestName")
-            Core.<*> (x Core..:? "playlistType")
-            Core.<*> (x Core..:? "url")
-            Core.<*> (x Core..: "id")
+            Prelude.<$> (x Core..:? "adMarkers")
+            Prelude.<*> (x Core..:? "programDateTimeIntervalSeconds")
+            Prelude.<*> (x Core..:? "playlistWindowSeconds")
+            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
+            Prelude.<*> (x Core..:? "manifestName")
+            Prelude.<*> (x Core..:? "playlistType")
+            Prelude.<*> (x Core..:? "url")
+            Prelude.<*> (x Core..: "id")
       )
 
-instance Core.Hashable HlsManifest
+instance Prelude.Hashable HlsManifest
 
-instance Core.NFData HlsManifest
+instance Prelude.NFData HlsManifest

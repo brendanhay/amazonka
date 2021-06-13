@@ -22,6 +22,7 @@ module Network.AWS.CloudFormation.Types.PropertyDifference where
 import Network.AWS.CloudFormation.Types.DifferenceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a resource property whose actual value differs from
 -- its expected value, as defined in the stack template and any values
@@ -33,12 +34,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPropertyDifference' smart constructor.
 data PropertyDifference = PropertyDifference'
   { -- | The fully-qualified path to the resource property.
-    propertyPath :: Core.Text,
+    propertyPath :: Prelude.Text,
     -- | The expected property value of the resource property, as defined in the
     -- stack template and any values specified as template parameters.
-    expectedValue :: Core.Text,
+    expectedValue :: Prelude.Text,
     -- | The actual property value of the resource property.
-    actualValue :: Core.Text,
+    actualValue :: Prelude.Text,
     -- | The type of property difference.
     --
     -- -   @ADD@: A value has been added to a resource property that is an
@@ -52,7 +53,7 @@ data PropertyDifference = PropertyDifference'
     --     template parameters).
     differenceType :: DifferenceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PropertyDifference' with all optional fields omitted.
@@ -82,11 +83,11 @@ data PropertyDifference = PropertyDifference'
 --     template parameters).
 newPropertyDifference ::
   -- | 'propertyPath'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'expectedValue'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'actualValue'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'differenceType'
   DifferenceType ->
   PropertyDifference
@@ -103,16 +104,16 @@ newPropertyDifference
       }
 
 -- | The fully-qualified path to the resource property.
-propertyDifference_propertyPath :: Lens.Lens' PropertyDifference Core.Text
+propertyDifference_propertyPath :: Lens.Lens' PropertyDifference Prelude.Text
 propertyDifference_propertyPath = Lens.lens (\PropertyDifference' {propertyPath} -> propertyPath) (\s@PropertyDifference' {} a -> s {propertyPath = a} :: PropertyDifference)
 
 -- | The expected property value of the resource property, as defined in the
 -- stack template and any values specified as template parameters.
-propertyDifference_expectedValue :: Lens.Lens' PropertyDifference Core.Text
+propertyDifference_expectedValue :: Lens.Lens' PropertyDifference Prelude.Text
 propertyDifference_expectedValue = Lens.lens (\PropertyDifference' {expectedValue} -> expectedValue) (\s@PropertyDifference' {} a -> s {expectedValue = a} :: PropertyDifference)
 
 -- | The actual property value of the resource property.
-propertyDifference_actualValue :: Lens.Lens' PropertyDifference Core.Text
+propertyDifference_actualValue :: Lens.Lens' PropertyDifference Prelude.Text
 propertyDifference_actualValue = Lens.lens (\PropertyDifference' {actualValue} -> actualValue) (\s@PropertyDifference' {} a -> s {actualValue = a} :: PropertyDifference)
 
 -- | The type of property difference.
@@ -132,11 +133,11 @@ propertyDifference_differenceType = Lens.lens (\PropertyDifference' {differenceT
 instance Core.FromXML PropertyDifference where
   parseXML x =
     PropertyDifference'
-      Core.<$> (x Core..@ "PropertyPath")
-      Core.<*> (x Core..@ "ExpectedValue")
-      Core.<*> (x Core..@ "ActualValue")
-      Core.<*> (x Core..@ "DifferenceType")
+      Prelude.<$> (x Core..@ "PropertyPath")
+      Prelude.<*> (x Core..@ "ExpectedValue")
+      Prelude.<*> (x Core..@ "ActualValue")
+      Prelude.<*> (x Core..@ "DifferenceType")
 
-instance Core.Hashable PropertyDifference
+instance Prelude.Hashable PropertyDifference
 
-instance Core.NFData PropertyDifference
+instance Prelude.NFData PropertyDifference

@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,34 +66,34 @@ import qualified Network.AWS.Response as Response
 data ModifyVpcEndpointServiceConfiguration = ModifyVpcEndpointServiceConfiguration'
   { -- | The Amazon Resource Names (ARNs) of Network Load Balancers to remove
     -- from your service configuration.
-    removeNetworkLoadBalancerArns :: Core.Maybe [Core.Text],
+    removeNetworkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Names (ARNs) of Network Load Balancers to add to
     -- your service configuration.
-    addNetworkLoadBalancerArns :: Core.Maybe [Core.Text],
+    addNetworkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint configuration) The private DNS name to assign to the
     -- endpoint service.
-    privateDnsName :: Core.Maybe Core.Text,
+    privateDnsName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether requests to create an endpoint to your service must be
     -- accepted.
-    acceptanceRequired :: Core.Maybe Core.Bool,
+    acceptanceRequired :: Prelude.Maybe Prelude.Bool,
     -- | (Interface endpoint configuration) Removes the private DNS name of the
     -- endpoint service.
-    removePrivateDnsName :: Core.Maybe Core.Bool,
+    removePrivateDnsName :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to
     -- your service configuration.
-    addGatewayLoadBalancerArns :: Core.Maybe [Core.Text],
+    addGatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove
     -- from your service configuration.
-    removeGatewayLoadBalancerArns :: Core.Maybe [Core.Text],
+    removeGatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the service.
-    serviceId :: Core.Text
+    serviceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcEndpointServiceConfiguration' with all optional fields omitted.
@@ -131,69 +132,70 @@ data ModifyVpcEndpointServiceConfiguration = ModifyVpcEndpointServiceConfigurati
 -- 'serviceId', 'modifyVpcEndpointServiceConfiguration_serviceId' - The ID of the service.
 newModifyVpcEndpointServiceConfiguration ::
   -- | 'serviceId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyVpcEndpointServiceConfiguration
 newModifyVpcEndpointServiceConfiguration pServiceId_ =
   ModifyVpcEndpointServiceConfiguration'
     { removeNetworkLoadBalancerArns =
-        Core.Nothing,
-      dryRun = Core.Nothing,
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       addNetworkLoadBalancerArns =
-        Core.Nothing,
-      privateDnsName = Core.Nothing,
-      acceptanceRequired = Core.Nothing,
-      removePrivateDnsName = Core.Nothing,
+        Prelude.Nothing,
+      privateDnsName = Prelude.Nothing,
+      acceptanceRequired = Prelude.Nothing,
+      removePrivateDnsName =
+        Prelude.Nothing,
       addGatewayLoadBalancerArns =
-        Core.Nothing,
+        Prelude.Nothing,
       removeGatewayLoadBalancerArns =
-        Core.Nothing,
+        Prelude.Nothing,
       serviceId = pServiceId_
     }
 
 -- | The Amazon Resource Names (ARNs) of Network Load Balancers to remove
 -- from your service configuration.
-modifyVpcEndpointServiceConfiguration_removeNetworkLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Core.Maybe [Core.Text])
-modifyVpcEndpointServiceConfiguration_removeNetworkLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removeNetworkLoadBalancerArns} -> removeNetworkLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removeNetworkLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpointServiceConfiguration_removeNetworkLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpointServiceConfiguration_removeNetworkLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removeNetworkLoadBalancerArns} -> removeNetworkLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removeNetworkLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpcEndpointServiceConfiguration_dryRun :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Core.Maybe Core.Bool)
+modifyVpcEndpointServiceConfiguration_dryRun :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServiceConfiguration_dryRun = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {dryRun} -> dryRun) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {dryRun = a} :: ModifyVpcEndpointServiceConfiguration)
 
 -- | The Amazon Resource Names (ARNs) of Network Load Balancers to add to
 -- your service configuration.
-modifyVpcEndpointServiceConfiguration_addNetworkLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Core.Maybe [Core.Text])
-modifyVpcEndpointServiceConfiguration_addNetworkLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {addNetworkLoadBalancerArns} -> addNetworkLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {addNetworkLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpointServiceConfiguration_addNetworkLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpointServiceConfiguration_addNetworkLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {addNetworkLoadBalancerArns} -> addNetworkLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {addNetworkLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Interface endpoint configuration) The private DNS name to assign to the
 -- endpoint service.
-modifyVpcEndpointServiceConfiguration_privateDnsName :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Core.Maybe Core.Text)
+modifyVpcEndpointServiceConfiguration_privateDnsName :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
 modifyVpcEndpointServiceConfiguration_privateDnsName = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {privateDnsName} -> privateDnsName) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {privateDnsName = a} :: ModifyVpcEndpointServiceConfiguration)
 
 -- | Indicates whether requests to create an endpoint to your service must be
 -- accepted.
-modifyVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Core.Maybe Core.Bool)
+modifyVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServiceConfiguration_acceptanceRequired = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {acceptanceRequired = a} :: ModifyVpcEndpointServiceConfiguration)
 
 -- | (Interface endpoint configuration) Removes the private DNS name of the
 -- endpoint service.
-modifyVpcEndpointServiceConfiguration_removePrivateDnsName :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Core.Maybe Core.Bool)
+modifyVpcEndpointServiceConfiguration_removePrivateDnsName :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServiceConfiguration_removePrivateDnsName = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removePrivateDnsName} -> removePrivateDnsName) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removePrivateDnsName = a} :: ModifyVpcEndpointServiceConfiguration)
 
 -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to
 -- your service configuration.
-modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Core.Maybe [Core.Text])
-modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {addGatewayLoadBalancerArns} -> addGatewayLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {addGatewayLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {addGatewayLoadBalancerArns} -> addGatewayLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {addGatewayLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove
 -- from your service configuration.
-modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Core.Maybe [Core.Text])
-modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removeGatewayLoadBalancerArns} -> removeGatewayLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removeGatewayLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removeGatewayLoadBalancerArns} -> removeGatewayLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removeGatewayLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the service.
-modifyVpcEndpointServiceConfiguration_serviceId :: Lens.Lens' ModifyVpcEndpointServiceConfiguration Core.Text
+modifyVpcEndpointServiceConfiguration_serviceId :: Lens.Lens' ModifyVpcEndpointServiceConfiguration Prelude.Text
 modifyVpcEndpointServiceConfiguration_serviceId = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {serviceId} -> serviceId) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {serviceId = a} :: ModifyVpcEndpointServiceConfiguration)
 
 instance
@@ -209,60 +211,61 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointServiceConfigurationResponse'
-            Core.<$> (x Core..@? "return")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModifyVpcEndpointServiceConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyVpcEndpointServiceConfiguration
 
 instance
   Core.ToHeaders
     ModifyVpcEndpointServiceConfiguration
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ModifyVpcEndpointServiceConfiguration
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ModifyVpcEndpointServiceConfiguration
   where
   toQuery ModifyVpcEndpointServiceConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ModifyVpcEndpointServiceConfiguration" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "RemoveNetworkLoadBalancerArn"
-              Core.<$> removeNetworkLoadBalancerArns
+              Prelude.<$> removeNetworkLoadBalancerArns
           ),
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "AddNetworkLoadBalancerArn"
-              Core.<$> addNetworkLoadBalancerArns
+              Prelude.<$> addNetworkLoadBalancerArns
           ),
         "PrivateDnsName" Core.=: privateDnsName,
         "AcceptanceRequired" Core.=: acceptanceRequired,
         "RemovePrivateDnsName" Core.=: removePrivateDnsName,
         Core.toQuery
           ( Core.toQueryList "AddGatewayLoadBalancerArn"
-              Core.<$> addGatewayLoadBalancerArns
+              Prelude.<$> addGatewayLoadBalancerArns
           ),
         Core.toQuery
           ( Core.toQueryList "RemoveGatewayLoadBalancerArn"
-              Core.<$> removeGatewayLoadBalancerArns
+              Prelude.<$> removeGatewayLoadBalancerArns
           ),
         "ServiceId" Core.=: serviceId
       ]
@@ -270,11 +273,11 @@ instance
 -- | /See:/ 'newModifyVpcEndpointServiceConfigurationResponse' smart constructor.
 data ModifyVpcEndpointServiceConfigurationResponse = ModifyVpcEndpointServiceConfigurationResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcEndpointServiceConfigurationResponse' with all optional fields omitted.
@@ -289,24 +292,24 @@ data ModifyVpcEndpointServiceConfigurationResponse = ModifyVpcEndpointServiceCon
 -- 'httpStatus', 'modifyVpcEndpointServiceConfigurationResponse_httpStatus' - The response's http status code.
 newModifyVpcEndpointServiceConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyVpcEndpointServiceConfigurationResponse
 newModifyVpcEndpointServiceConfigurationResponse
   pHttpStatus_ =
     ModifyVpcEndpointServiceConfigurationResponse'
       { return' =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-modifyVpcEndpointServiceConfigurationResponse_return :: Lens.Lens' ModifyVpcEndpointServiceConfigurationResponse (Core.Maybe Core.Bool)
+modifyVpcEndpointServiceConfigurationResponse_return :: Lens.Lens' ModifyVpcEndpointServiceConfigurationResponse (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServiceConfigurationResponse_return = Lens.lens (\ModifyVpcEndpointServiceConfigurationResponse' {return'} -> return') (\s@ModifyVpcEndpointServiceConfigurationResponse' {} a -> s {return' = a} :: ModifyVpcEndpointServiceConfigurationResponse)
 
 -- | The response's http status code.
-modifyVpcEndpointServiceConfigurationResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointServiceConfigurationResponse Core.Int
+modifyVpcEndpointServiceConfigurationResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointServiceConfigurationResponse Prelude.Int
 modifyVpcEndpointServiceConfigurationResponse_httpStatus = Lens.lens (\ModifyVpcEndpointServiceConfigurationResponse' {httpStatus} -> httpStatus) (\s@ModifyVpcEndpointServiceConfigurationResponse' {} a -> s {httpStatus = a} :: ModifyVpcEndpointServiceConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyVpcEndpointServiceConfigurationResponse

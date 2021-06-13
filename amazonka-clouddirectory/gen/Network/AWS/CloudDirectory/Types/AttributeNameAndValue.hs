@@ -22,17 +22,18 @@ module Network.AWS.CloudDirectory.Types.AttributeNameAndValue where
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the attribute name and value for a typed link.
 --
 -- /See:/ 'newAttributeNameAndValue' smart constructor.
 data AttributeNameAndValue = AttributeNameAndValue'
   { -- | The attribute name of the typed link.
-    attributeName :: Core.Text,
+    attributeName :: Prelude.Text,
     -- | The value for the typed link.
     value :: TypedAttributeValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttributeNameAndValue' with all optional fields omitted.
@@ -47,7 +48,7 @@ data AttributeNameAndValue = AttributeNameAndValue'
 -- 'value', 'attributeNameAndValue_value' - The value for the typed link.
 newAttributeNameAndValue ::
   -- | 'attributeName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
   TypedAttributeValue ->
   AttributeNameAndValue
@@ -59,7 +60,7 @@ newAttributeNameAndValue pAttributeName_ pValue_ =
     }
 
 -- | The attribute name of the typed link.
-attributeNameAndValue_attributeName :: Lens.Lens' AttributeNameAndValue Core.Text
+attributeNameAndValue_attributeName :: Lens.Lens' AttributeNameAndValue Prelude.Text
 attributeNameAndValue_attributeName = Lens.lens (\AttributeNameAndValue' {attributeName} -> attributeName) (\s@AttributeNameAndValue' {} a -> s {attributeName = a} :: AttributeNameAndValue)
 
 -- | The value for the typed link.
@@ -72,19 +73,20 @@ instance Core.FromJSON AttributeNameAndValue where
       "AttributeNameAndValue"
       ( \x ->
           AttributeNameAndValue'
-            Core.<$> (x Core..: "AttributeName")
-            Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "AttributeName")
+            Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable AttributeNameAndValue
+instance Prelude.Hashable AttributeNameAndValue
 
-instance Core.NFData AttributeNameAndValue
+instance Prelude.NFData AttributeNameAndValue
 
 instance Core.ToJSON AttributeNameAndValue where
   toJSON AttributeNameAndValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AttributeName" Core..= attributeName),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("AttributeName" Core..= attributeName),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

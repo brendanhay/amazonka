@@ -49,17 +49,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetInstanceAccessDetails' smart constructor.
 data GetInstanceAccessDetails = GetInstanceAccessDetails'
   { -- | The protocol to use to connect to your instance. Defaults to @ssh@.
-    protocol :: Core.Maybe InstanceAccessProtocol,
+    protocol :: Prelude.Maybe InstanceAccessProtocol,
     -- | The name of the instance to access.
-    instanceName :: Core.Text
+    instanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInstanceAccessDetails' with all optional fields omitted.
@@ -74,20 +75,21 @@ data GetInstanceAccessDetails = GetInstanceAccessDetails'
 -- 'instanceName', 'getInstanceAccessDetails_instanceName' - The name of the instance to access.
 newGetInstanceAccessDetails ::
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   GetInstanceAccessDetails
 newGetInstanceAccessDetails pInstanceName_ =
   GetInstanceAccessDetails'
-    { protocol = Core.Nothing,
+    { protocol =
+        Prelude.Nothing,
       instanceName = pInstanceName_
     }
 
 -- | The protocol to use to connect to your instance. Defaults to @ssh@.
-getInstanceAccessDetails_protocol :: Lens.Lens' GetInstanceAccessDetails (Core.Maybe InstanceAccessProtocol)
+getInstanceAccessDetails_protocol :: Lens.Lens' GetInstanceAccessDetails (Prelude.Maybe InstanceAccessProtocol)
 getInstanceAccessDetails_protocol = Lens.lens (\GetInstanceAccessDetails' {protocol} -> protocol) (\s@GetInstanceAccessDetails' {} a -> s {protocol = a} :: GetInstanceAccessDetails)
 
 -- | The name of the instance to access.
-getInstanceAccessDetails_instanceName :: Lens.Lens' GetInstanceAccessDetails Core.Text
+getInstanceAccessDetails_instanceName :: Lens.Lens' GetInstanceAccessDetails Prelude.Text
 getInstanceAccessDetails_instanceName = Lens.lens (\GetInstanceAccessDetails' {instanceName} -> instanceName) (\s@GetInstanceAccessDetails' {} a -> s {instanceName = a} :: GetInstanceAccessDetails)
 
 instance Core.AWSRequest GetInstanceAccessDetails where
@@ -99,51 +101,53 @@ instance Core.AWSRequest GetInstanceAccessDetails where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceAccessDetailsResponse'
-            Core.<$> (x Core..?> "accessDetails")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "accessDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInstanceAccessDetails
+instance Prelude.Hashable GetInstanceAccessDetails
 
-instance Core.NFData GetInstanceAccessDetails
+instance Prelude.NFData GetInstanceAccessDetails
 
 instance Core.ToHeaders GetInstanceAccessDetails where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetInstanceAccessDetails" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetInstanceAccessDetails where
   toJSON GetInstanceAccessDetails' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("protocol" Core..=) Core.<$> protocol,
-            Core.Just ("instanceName" Core..= instanceName)
+      ( Prelude.catMaybes
+          [ ("protocol" Core..=) Prelude.<$> protocol,
+            Prelude.Just ("instanceName" Core..= instanceName)
           ]
       )
 
 instance Core.ToPath GetInstanceAccessDetails where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetInstanceAccessDetails where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstanceAccessDetailsResponse' smart constructor.
 data GetInstanceAccessDetailsResponse = GetInstanceAccessDetailsResponse'
   { -- | An array of key-value pairs containing information about a get instance
     -- access request.
-    accessDetails :: Core.Maybe InstanceAccessDetails,
+    accessDetails :: Prelude.Maybe InstanceAccessDetails,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInstanceAccessDetailsResponse' with all optional fields omitted.
@@ -159,22 +163,24 @@ data GetInstanceAccessDetailsResponse = GetInstanceAccessDetailsResponse'
 -- 'httpStatus', 'getInstanceAccessDetailsResponse_httpStatus' - The response's http status code.
 newGetInstanceAccessDetailsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInstanceAccessDetailsResponse
 newGetInstanceAccessDetailsResponse pHttpStatus_ =
   GetInstanceAccessDetailsResponse'
     { accessDetails =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs containing information about a get instance
 -- access request.
-getInstanceAccessDetailsResponse_accessDetails :: Lens.Lens' GetInstanceAccessDetailsResponse (Core.Maybe InstanceAccessDetails)
+getInstanceAccessDetailsResponse_accessDetails :: Lens.Lens' GetInstanceAccessDetailsResponse (Prelude.Maybe InstanceAccessDetails)
 getInstanceAccessDetailsResponse_accessDetails = Lens.lens (\GetInstanceAccessDetailsResponse' {accessDetails} -> accessDetails) (\s@GetInstanceAccessDetailsResponse' {} a -> s {accessDetails = a} :: GetInstanceAccessDetailsResponse)
 
 -- | The response's http status code.
-getInstanceAccessDetailsResponse_httpStatus :: Lens.Lens' GetInstanceAccessDetailsResponse Core.Int
+getInstanceAccessDetailsResponse_httpStatus :: Lens.Lens' GetInstanceAccessDetailsResponse Prelude.Int
 getInstanceAccessDetailsResponse_httpStatus = Lens.lens (\GetInstanceAccessDetailsResponse' {httpStatus} -> httpStatus) (\s@GetInstanceAccessDetailsResponse' {} a -> s {httpStatus = a} :: GetInstanceAccessDetailsResponse)
 
-instance Core.NFData GetInstanceAccessDetailsResponse
+instance
+  Prelude.NFData
+    GetInstanceAccessDetailsResponse

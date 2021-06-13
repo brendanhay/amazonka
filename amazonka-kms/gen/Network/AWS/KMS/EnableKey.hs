@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,9 +72,9 @@ data EnableKey = EnableKey'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableKey' with all optional fields omitted.
@@ -97,7 +98,7 @@ data EnableKey = EnableKey'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newEnableKey ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   EnableKey
 newEnableKey pKeyId_ = EnableKey' {keyId = pKeyId_}
 
@@ -113,7 +114,7 @@ newEnableKey pKeyId_ = EnableKey' {keyId = pKeyId_}
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-enableKey_keyId :: Lens.Lens' EnableKey Core.Text
+enableKey_keyId :: Lens.Lens' EnableKey Prelude.Text
 enableKey_keyId = Lens.lens (\EnableKey' {keyId} -> keyId) (\s@EnableKey' {} a -> s {keyId = a} :: EnableKey)
 
 instance Core.AWSRequest EnableKey where
@@ -121,37 +122,41 @@ instance Core.AWSRequest EnableKey where
   request = Request.postJSON defaultService
   response = Response.receiveNull EnableKeyResponse'
 
-instance Core.Hashable EnableKey
+instance Prelude.Hashable EnableKey
 
-instance Core.NFData EnableKey
+instance Prelude.NFData EnableKey
 
 instance Core.ToHeaders EnableKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.EnableKey" :: Core.ByteString),
+              Core.=# ("TrentService.EnableKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableKey where
   toJSON EnableKey' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("KeyId" Core..= keyId)]
+      )
 
 instance Core.ToPath EnableKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableKeyResponse' smart constructor.
 data EnableKeyResponse = EnableKeyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableKeyResponse' with all optional fields omitted.
@@ -161,4 +166,4 @@ newEnableKeyResponse ::
   EnableKeyResponse
 newEnableKeyResponse = EnableKeyResponse'
 
-instance Core.NFData EnableKeyResponse
+instance Prelude.NFData EnableKeyResponse

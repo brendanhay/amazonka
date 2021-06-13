@@ -39,6 +39,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | An ARN of a CloudFront resource.
-    resource :: Core.Text,
+    resource :: Prelude.Text,
     -- | A complex type that contains zero or more @Tag@ key elements.
     tagKeys :: TagKeys
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -66,7 +67,7 @@ data UntagResource = UntagResource'
 -- 'tagKeys', 'untagResource_tagKeys' - A complex type that contains zero or more @Tag@ key elements.
 newUntagResource ::
   -- | 'resource'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tagKeys'
   TagKeys ->
   UntagResource
@@ -77,7 +78,7 @@ newUntagResource pResource_ pTagKeys_ =
     }
 
 -- | An ARN of a CloudFront resource.
-untagResource_resource :: Lens.Lens' UntagResource Core.Text
+untagResource_resource :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resource = Lens.lens (\UntagResource' {resource} -> resource) (\s@UntagResource' {} a -> s {resource = a} :: UntagResource)
 
 -- | A complex type that contains zero or more @Tag@ key elements.
@@ -92,9 +93,9 @@ instance Core.AWSRequest UntagResource where
   response =
     Response.receiveNull UntagResourceResponse'
 
-instance Core.Hashable UntagResource
+instance Prelude.Hashable UntagResource
 
-instance Core.NFData UntagResource
+instance Prelude.NFData UntagResource
 
 instance Core.ToElement UntagResource where
   toElement UntagResource' {..} =
@@ -103,21 +104,21 @@ instance Core.ToElement UntagResource where
       tagKeys
 
 instance Core.ToHeaders UntagResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagResource where
-  toPath = Core.const "/2020-05-31/tagging"
+  toPath = Prelude.const "/2020-05-31/tagging"
 
 instance Core.ToQuery UntagResource where
   toQuery UntagResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Resource" Core.=: resource, "Operation=Untag"]
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResourceResponse' with all optional fields omitted.
@@ -127,4 +128,4 @@ newUntagResourceResponse ::
   UntagResourceResponse
 newUntagResourceResponse = UntagResourceResponse'
 
-instance Core.NFData UntagResourceResponse
+instance Prelude.NFData UntagResourceResponse

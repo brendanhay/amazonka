@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InferenceDeviceInfo
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Inference accelerators for the instance type.
 --
 -- /See:/ 'newInferenceAcceleratorInfo' smart constructor.
 data InferenceAcceleratorInfo = InferenceAcceleratorInfo'
   { -- | Describes the Inference accelerators for the instance type.
-    accelerators :: Core.Maybe [InferenceDeviceInfo]
+    accelerators :: Prelude.Maybe [InferenceDeviceInfo]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InferenceAcceleratorInfo' with all optional fields omitted.
@@ -47,20 +48,20 @@ newInferenceAcceleratorInfo ::
 newInferenceAcceleratorInfo =
   InferenceAcceleratorInfo'
     { accelerators =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Describes the Inference accelerators for the instance type.
-inferenceAcceleratorInfo_accelerators :: Lens.Lens' InferenceAcceleratorInfo (Core.Maybe [InferenceDeviceInfo])
-inferenceAcceleratorInfo_accelerators = Lens.lens (\InferenceAcceleratorInfo' {accelerators} -> accelerators) (\s@InferenceAcceleratorInfo' {} a -> s {accelerators = a} :: InferenceAcceleratorInfo) Core.. Lens.mapping Lens._Coerce
+inferenceAcceleratorInfo_accelerators :: Lens.Lens' InferenceAcceleratorInfo (Prelude.Maybe [InferenceDeviceInfo])
+inferenceAcceleratorInfo_accelerators = Lens.lens (\InferenceAcceleratorInfo' {accelerators} -> accelerators) (\s@InferenceAcceleratorInfo' {} a -> s {accelerators = a} :: InferenceAcceleratorInfo) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML InferenceAcceleratorInfo where
   parseXML x =
     InferenceAcceleratorInfo'
-      Core.<$> ( x Core..@? "accelerators" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "accelerators" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable InferenceAcceleratorInfo
+instance Prelude.Hashable InferenceAcceleratorInfo
 
-instance Core.NFData InferenceAcceleratorInfo
+instance Prelude.NFData InferenceAcceleratorInfo

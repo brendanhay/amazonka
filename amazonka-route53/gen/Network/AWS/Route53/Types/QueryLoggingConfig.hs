@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.QueryLoggingConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A complex type that contains information about a configuration for DNS
@@ -29,14 +30,14 @@ import Network.AWS.Route53.Internal
 -- /See:/ 'newQueryLoggingConfig' smart constructor.
 data QueryLoggingConfig = QueryLoggingConfig'
   { -- | The ID for a configuration for DNS query logging.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The ID of the hosted zone that CloudWatch Logs is logging queries for.
     hostedZoneId :: ResourceId,
     -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group that
     -- Amazon Route 53 is publishing logs to.
-    cloudWatchLogsLogGroupArn :: Core.Text
+    cloudWatchLogsLogGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryLoggingConfig' with all optional fields omitted.
@@ -54,11 +55,11 @@ data QueryLoggingConfig = QueryLoggingConfig'
 -- Amazon Route 53 is publishing logs to.
 newQueryLoggingConfig ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'cloudWatchLogsLogGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   QueryLoggingConfig
 newQueryLoggingConfig
   pId_
@@ -72,7 +73,7 @@ newQueryLoggingConfig
       }
 
 -- | The ID for a configuration for DNS query logging.
-queryLoggingConfig_id :: Lens.Lens' QueryLoggingConfig Core.Text
+queryLoggingConfig_id :: Lens.Lens' QueryLoggingConfig Prelude.Text
 queryLoggingConfig_id = Lens.lens (\QueryLoggingConfig' {id} -> id) (\s@QueryLoggingConfig' {} a -> s {id = a} :: QueryLoggingConfig)
 
 -- | The ID of the hosted zone that CloudWatch Logs is logging queries for.
@@ -81,16 +82,16 @@ queryLoggingConfig_hostedZoneId = Lens.lens (\QueryLoggingConfig' {hostedZoneId}
 
 -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group that
 -- Amazon Route 53 is publishing logs to.
-queryLoggingConfig_cloudWatchLogsLogGroupArn :: Lens.Lens' QueryLoggingConfig Core.Text
+queryLoggingConfig_cloudWatchLogsLogGroupArn :: Lens.Lens' QueryLoggingConfig Prelude.Text
 queryLoggingConfig_cloudWatchLogsLogGroupArn = Lens.lens (\QueryLoggingConfig' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@QueryLoggingConfig' {} a -> s {cloudWatchLogsLogGroupArn = a} :: QueryLoggingConfig)
 
 instance Core.FromXML QueryLoggingConfig where
   parseXML x =
     QueryLoggingConfig'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "HostedZoneId")
-      Core.<*> (x Core..@ "CloudWatchLogsLogGroupArn")
+      Prelude.<$> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "HostedZoneId")
+      Prelude.<*> (x Core..@ "CloudWatchLogsLogGroupArn")
 
-instance Core.Hashable QueryLoggingConfig
+instance Prelude.Hashable QueryLoggingConfig
 
-instance Core.NFData QueryLoggingConfig
+instance Prelude.NFData QueryLoggingConfig

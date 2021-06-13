@@ -22,6 +22,7 @@ module Network.AWS.APIGateway.Types.Deployment where
 import Network.AWS.APIGateway.Types.MethodSnapshot
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An immutable representation of a RestApi resource that can be called by
 -- users using Stages. A deployment must be associated with a Stage for it
@@ -39,16 +40,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDeployment' smart constructor.
 data Deployment = Deployment'
   { -- | The date and time that the deployment resource was created.
-    createdDate :: Core.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The identifier for the deployment resource.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | A summary of the RestApi at the date and time that the deployment
     -- resource was created.
-    apiSummary :: Core.Maybe (Core.HashMap Core.Text (Core.HashMap Core.Text MethodSnapshot)),
+    apiSummary :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text MethodSnapshot)),
     -- | The description for the deployment resource.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Deployment' with all optional fields omitted.
@@ -70,27 +71,27 @@ newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { createdDate = Core.Nothing,
-      id = Core.Nothing,
-      apiSummary = Core.Nothing,
-      description = Core.Nothing
+    { createdDate = Prelude.Nothing,
+      id = Prelude.Nothing,
+      apiSummary = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The date and time that the deployment resource was created.
-deployment_createdDate :: Lens.Lens' Deployment (Core.Maybe Core.UTCTime)
-deployment_createdDate = Lens.lens (\Deployment' {createdDate} -> createdDate) (\s@Deployment' {} a -> s {createdDate = a} :: Deployment) Core.. Lens.mapping Core._Time
+deployment_createdDate :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
+deployment_createdDate = Lens.lens (\Deployment' {createdDate} -> createdDate) (\s@Deployment' {} a -> s {createdDate = a} :: Deployment) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier for the deployment resource.
-deployment_id :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_id :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_id = Lens.lens (\Deployment' {id} -> id) (\s@Deployment' {} a -> s {id = a} :: Deployment)
 
 -- | A summary of the RestApi at the date and time that the deployment
 -- resource was created.
-deployment_apiSummary :: Lens.Lens' Deployment (Core.Maybe (Core.HashMap Core.Text (Core.HashMap Core.Text MethodSnapshot)))
-deployment_apiSummary = Lens.lens (\Deployment' {apiSummary} -> apiSummary) (\s@Deployment' {} a -> s {apiSummary = a} :: Deployment) Core.. Lens.mapping Lens._Coerce
+deployment_apiSummary :: Lens.Lens' Deployment (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text MethodSnapshot)))
+deployment_apiSummary = Lens.lens (\Deployment' {apiSummary} -> apiSummary) (\s@Deployment' {} a -> s {apiSummary = a} :: Deployment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description for the deployment resource.
-deployment_description :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+deployment_description :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_description = Lens.lens (\Deployment' {description} -> description) (\s@Deployment' {} a -> s {description = a} :: Deployment)
 
 instance Core.FromJSON Deployment where
@@ -99,12 +100,12 @@ instance Core.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Core.<$> (x Core..:? "createdDate")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "apiSummary" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "createdDate")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "apiSummary" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "description")
       )
 
-instance Core.Hashable Deployment
+instance Prelude.Hashable Deployment
 
-instance Core.NFData Deployment
+instance Prelude.NFData Deployment

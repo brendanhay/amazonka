@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.LifecycleHook where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a lifecycle hook, which tells Amazon EC2 Auto Scaling that you
 -- want to perform an action whenever it launches instances or terminates
@@ -30,40 +31,40 @@ import qualified Network.AWS.Lens as Lens
 data LifecycleHook = LifecycleHook'
   { -- | The ARN of the IAM role that allows the Auto Scaling group to publish to
     -- the specified notification target.
-    roleARN :: Core.Maybe Core.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications
     -- to when an instance is in the transition state for the lifecycle hook.
     -- The notification target can be either an SQS queue or an SNS topic.
-    notificationTargetARN :: Core.Maybe Core.Text,
+    notificationTargetARN :: Prelude.Maybe Prelude.Text,
     -- | The state of the EC2 instance to which to attach the lifecycle hook. The
     -- following are possible values:
     --
     -- -   autoscaling:EC2_INSTANCE_LAUNCHING
     --
     -- -   autoscaling:EC2_INSTANCE_TERMINATING
-    lifecycleTransition :: Core.Maybe Core.Text,
+    lifecycleTransition :: Prelude.Maybe Prelude.Text,
     -- | The maximum time, in seconds, that can elapse before the lifecycle hook
     -- times out. If the lifecycle hook times out, Amazon EC2 Auto Scaling
     -- performs the action that you specified in the @DefaultResult@ parameter.
-    heartbeatTimeout :: Core.Maybe Core.Int,
+    heartbeatTimeout :: Prelude.Maybe Prelude.Int,
     -- | The maximum time, in seconds, that an instance can remain in a
     -- @Pending:Wait@ or @Terminating:Wait@ state. The maximum is 172800
     -- seconds (48 hours) or 100 times @HeartbeatTimeout@, whichever is
     -- smaller.
-    globalTimeout :: Core.Maybe Core.Int,
+    globalTimeout :: Prelude.Maybe Prelude.Int,
     -- | Additional information that is included any time Amazon EC2 Auto Scaling
     -- sends a message to the notification target.
-    notificationMetadata :: Core.Maybe Core.Text,
+    notificationMetadata :: Prelude.Maybe Prelude.Text,
     -- | Defines the action the Auto Scaling group should take when the lifecycle
     -- hook timeout elapses or if an unexpected failure occurs. The possible
     -- values are @CONTINUE@ and @ABANDON@.
-    defaultResult :: Core.Maybe Core.Text,
+    defaultResult :: Prelude.Maybe Prelude.Text,
     -- | The name of the lifecycle hook.
-    lifecycleHookName :: Core.Maybe Core.Text,
+    lifecycleHookName :: Prelude.Maybe Prelude.Text,
     -- | The name of the Auto Scaling group for the lifecycle hook.
-    autoScalingGroupName :: Core.Maybe Core.Text
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LifecycleHook' with all optional fields omitted.
@@ -110,26 +111,26 @@ newLifecycleHook ::
   LifecycleHook
 newLifecycleHook =
   LifecycleHook'
-    { roleARN = Core.Nothing,
-      notificationTargetARN = Core.Nothing,
-      lifecycleTransition = Core.Nothing,
-      heartbeatTimeout = Core.Nothing,
-      globalTimeout = Core.Nothing,
-      notificationMetadata = Core.Nothing,
-      defaultResult = Core.Nothing,
-      lifecycleHookName = Core.Nothing,
-      autoScalingGroupName = Core.Nothing
+    { roleARN = Prelude.Nothing,
+      notificationTargetARN = Prelude.Nothing,
+      lifecycleTransition = Prelude.Nothing,
+      heartbeatTimeout = Prelude.Nothing,
+      globalTimeout = Prelude.Nothing,
+      notificationMetadata = Prelude.Nothing,
+      defaultResult = Prelude.Nothing,
+      lifecycleHookName = Prelude.Nothing,
+      autoScalingGroupName = Prelude.Nothing
     }
 
 -- | The ARN of the IAM role that allows the Auto Scaling group to publish to
 -- the specified notification target.
-lifecycleHook_roleARN :: Lens.Lens' LifecycleHook (Core.Maybe Core.Text)
+lifecycleHook_roleARN :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Text)
 lifecycleHook_roleARN = Lens.lens (\LifecycleHook' {roleARN} -> roleARN) (\s@LifecycleHook' {} a -> s {roleARN = a} :: LifecycleHook)
 
 -- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications
 -- to when an instance is in the transition state for the lifecycle hook.
 -- The notification target can be either an SQS queue or an SNS topic.
-lifecycleHook_notificationTargetARN :: Lens.Lens' LifecycleHook (Core.Maybe Core.Text)
+lifecycleHook_notificationTargetARN :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Text)
 lifecycleHook_notificationTargetARN = Lens.lens (\LifecycleHook' {notificationTargetARN} -> notificationTargetARN) (\s@LifecycleHook' {} a -> s {notificationTargetARN = a} :: LifecycleHook)
 
 -- | The state of the EC2 instance to which to attach the lifecycle hook. The
@@ -138,54 +139,54 @@ lifecycleHook_notificationTargetARN = Lens.lens (\LifecycleHook' {notificationTa
 -- -   autoscaling:EC2_INSTANCE_LAUNCHING
 --
 -- -   autoscaling:EC2_INSTANCE_TERMINATING
-lifecycleHook_lifecycleTransition :: Lens.Lens' LifecycleHook (Core.Maybe Core.Text)
+lifecycleHook_lifecycleTransition :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Text)
 lifecycleHook_lifecycleTransition = Lens.lens (\LifecycleHook' {lifecycleTransition} -> lifecycleTransition) (\s@LifecycleHook' {} a -> s {lifecycleTransition = a} :: LifecycleHook)
 
 -- | The maximum time, in seconds, that can elapse before the lifecycle hook
 -- times out. If the lifecycle hook times out, Amazon EC2 Auto Scaling
 -- performs the action that you specified in the @DefaultResult@ parameter.
-lifecycleHook_heartbeatTimeout :: Lens.Lens' LifecycleHook (Core.Maybe Core.Int)
+lifecycleHook_heartbeatTimeout :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Int)
 lifecycleHook_heartbeatTimeout = Lens.lens (\LifecycleHook' {heartbeatTimeout} -> heartbeatTimeout) (\s@LifecycleHook' {} a -> s {heartbeatTimeout = a} :: LifecycleHook)
 
 -- | The maximum time, in seconds, that an instance can remain in a
 -- @Pending:Wait@ or @Terminating:Wait@ state. The maximum is 172800
 -- seconds (48 hours) or 100 times @HeartbeatTimeout@, whichever is
 -- smaller.
-lifecycleHook_globalTimeout :: Lens.Lens' LifecycleHook (Core.Maybe Core.Int)
+lifecycleHook_globalTimeout :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Int)
 lifecycleHook_globalTimeout = Lens.lens (\LifecycleHook' {globalTimeout} -> globalTimeout) (\s@LifecycleHook' {} a -> s {globalTimeout = a} :: LifecycleHook)
 
 -- | Additional information that is included any time Amazon EC2 Auto Scaling
 -- sends a message to the notification target.
-lifecycleHook_notificationMetadata :: Lens.Lens' LifecycleHook (Core.Maybe Core.Text)
+lifecycleHook_notificationMetadata :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Text)
 lifecycleHook_notificationMetadata = Lens.lens (\LifecycleHook' {notificationMetadata} -> notificationMetadata) (\s@LifecycleHook' {} a -> s {notificationMetadata = a} :: LifecycleHook)
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The possible
 -- values are @CONTINUE@ and @ABANDON@.
-lifecycleHook_defaultResult :: Lens.Lens' LifecycleHook (Core.Maybe Core.Text)
+lifecycleHook_defaultResult :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Text)
 lifecycleHook_defaultResult = Lens.lens (\LifecycleHook' {defaultResult} -> defaultResult) (\s@LifecycleHook' {} a -> s {defaultResult = a} :: LifecycleHook)
 
 -- | The name of the lifecycle hook.
-lifecycleHook_lifecycleHookName :: Lens.Lens' LifecycleHook (Core.Maybe Core.Text)
+lifecycleHook_lifecycleHookName :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Text)
 lifecycleHook_lifecycleHookName = Lens.lens (\LifecycleHook' {lifecycleHookName} -> lifecycleHookName) (\s@LifecycleHook' {} a -> s {lifecycleHookName = a} :: LifecycleHook)
 
 -- | The name of the Auto Scaling group for the lifecycle hook.
-lifecycleHook_autoScalingGroupName :: Lens.Lens' LifecycleHook (Core.Maybe Core.Text)
+lifecycleHook_autoScalingGroupName :: Lens.Lens' LifecycleHook (Prelude.Maybe Prelude.Text)
 lifecycleHook_autoScalingGroupName = Lens.lens (\LifecycleHook' {autoScalingGroupName} -> autoScalingGroupName) (\s@LifecycleHook' {} a -> s {autoScalingGroupName = a} :: LifecycleHook)
 
 instance Core.FromXML LifecycleHook where
   parseXML x =
     LifecycleHook'
-      Core.<$> (x Core..@? "RoleARN")
-      Core.<*> (x Core..@? "NotificationTargetARN")
-      Core.<*> (x Core..@? "LifecycleTransition")
-      Core.<*> (x Core..@? "HeartbeatTimeout")
-      Core.<*> (x Core..@? "GlobalTimeout")
-      Core.<*> (x Core..@? "NotificationMetadata")
-      Core.<*> (x Core..@? "DefaultResult")
-      Core.<*> (x Core..@? "LifecycleHookName")
-      Core.<*> (x Core..@? "AutoScalingGroupName")
+      Prelude.<$> (x Core..@? "RoleARN")
+      Prelude.<*> (x Core..@? "NotificationTargetARN")
+      Prelude.<*> (x Core..@? "LifecycleTransition")
+      Prelude.<*> (x Core..@? "HeartbeatTimeout")
+      Prelude.<*> (x Core..@? "GlobalTimeout")
+      Prelude.<*> (x Core..@? "NotificationMetadata")
+      Prelude.<*> (x Core..@? "DefaultResult")
+      Prelude.<*> (x Core..@? "LifecycleHookName")
+      Prelude.<*> (x Core..@? "AutoScalingGroupName")
 
-instance Core.Hashable LifecycleHook
+instance Prelude.Hashable LifecycleHook
 
-instance Core.NFData LifecycleHook
+instance Prelude.NFData LifecycleHook

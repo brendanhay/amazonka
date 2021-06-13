@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.XssMatchTuple where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.FieldToMatch
 import Network.AWS.WAFRegional.Types.TextTransformation
 
@@ -117,7 +118,7 @@ data XssMatchTuple = XssMatchTuple'
     -- Specify @NONE@ if you don\'t want to perform any text transformations.
     textTransformation :: TextTransformation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'XssMatchTuple' with all optional fields omitted.
@@ -302,20 +303,20 @@ instance Core.FromJSON XssMatchTuple where
       "XssMatchTuple"
       ( \x ->
           XssMatchTuple'
-            Core.<$> (x Core..: "FieldToMatch")
-            Core.<*> (x Core..: "TextTransformation")
+            Prelude.<$> (x Core..: "FieldToMatch")
+            Prelude.<*> (x Core..: "TextTransformation")
       )
 
-instance Core.Hashable XssMatchTuple
+instance Prelude.Hashable XssMatchTuple
 
-instance Core.NFData XssMatchTuple
+instance Prelude.NFData XssMatchTuple
 
 instance Core.ToJSON XssMatchTuple where
   toJSON XssMatchTuple' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+            Prelude.Just
               ("TextTransformation" Core..= textTransformation)
           ]
       )

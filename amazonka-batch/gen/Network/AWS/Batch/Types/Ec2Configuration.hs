@@ -21,6 +21,7 @@ module Network.AWS.Batch.Types.Ec2Configuration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information used to select Amazon Machine Images (AMIs) for
 -- instances in the compute environment. If the @Ec2Configuration@ isn\'t
@@ -33,7 +34,7 @@ data Ec2Configuration = Ec2Configuration'
   { -- | The AMI ID used for instances launched in the compute environment that
     -- match the image type. This setting overrides the @imageId@ set in the
     -- @computeResource@ object.
-    imageIdOverride :: Core.Maybe Core.Text,
+    imageIdOverride :: Prelude.Maybe Prelude.Text,
     -- | The image type to match with the instance type to select an AMI. If the
     -- @imageIdOverride@ parameter isn\'t specified, then a recent
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI>
@@ -55,9 +56,9 @@ data Ec2Configuration = Ec2Configuration'
     --     for all non-GPU, non-AWS Graviton instance families. Amazon Linux is
     --     reaching the end-of-life of standard support. For more information,
     --     see <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
-    imageType :: Core.Text
+    imageType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Ec2Configuration' with all optional fields omitted.
@@ -94,18 +95,19 @@ data Ec2Configuration = Ec2Configuration'
 --     see <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
 newEc2Configuration ::
   -- | 'imageType'
-  Core.Text ->
+  Prelude.Text ->
   Ec2Configuration
 newEc2Configuration pImageType_ =
   Ec2Configuration'
-    { imageIdOverride = Core.Nothing,
+    { imageIdOverride =
+        Prelude.Nothing,
       imageType = pImageType_
     }
 
 -- | The AMI ID used for instances launched in the compute environment that
 -- match the image type. This setting overrides the @imageId@ set in the
 -- @computeResource@ object.
-ec2Configuration_imageIdOverride :: Lens.Lens' Ec2Configuration (Core.Maybe Core.Text)
+ec2Configuration_imageIdOverride :: Lens.Lens' Ec2Configuration (Prelude.Maybe Prelude.Text)
 ec2Configuration_imageIdOverride = Lens.lens (\Ec2Configuration' {imageIdOverride} -> imageIdOverride) (\s@Ec2Configuration' {} a -> s {imageIdOverride = a} :: Ec2Configuration)
 
 -- | The image type to match with the instance type to select an AMI. If the
@@ -129,7 +131,7 @@ ec2Configuration_imageIdOverride = Lens.lens (\Ec2Configuration' {imageIdOverrid
 --     for all non-GPU, non-AWS Graviton instance families. Amazon Linux is
 --     reaching the end-of-life of standard support. For more information,
 --     see <http://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI>.
-ec2Configuration_imageType :: Lens.Lens' Ec2Configuration Core.Text
+ec2Configuration_imageType :: Lens.Lens' Ec2Configuration Prelude.Text
 ec2Configuration_imageType = Lens.lens (\Ec2Configuration' {imageType} -> imageType) (\s@Ec2Configuration' {} a -> s {imageType = a} :: Ec2Configuration)
 
 instance Core.FromJSON Ec2Configuration where
@@ -138,20 +140,20 @@ instance Core.FromJSON Ec2Configuration where
       "Ec2Configuration"
       ( \x ->
           Ec2Configuration'
-            Core.<$> (x Core..:? "imageIdOverride")
-            Core.<*> (x Core..: "imageType")
+            Prelude.<$> (x Core..:? "imageIdOverride")
+            Prelude.<*> (x Core..: "imageType")
       )
 
-instance Core.Hashable Ec2Configuration
+instance Prelude.Hashable Ec2Configuration
 
-instance Core.NFData Ec2Configuration
+instance Prelude.NFData Ec2Configuration
 
 instance Core.ToJSON Ec2Configuration where
   toJSON Ec2Configuration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("imageIdOverride" Core..=)
-              Core.<$> imageIdOverride,
-            Core.Just ("imageType" Core..= imageType)
+              Prelude.<$> imageIdOverride,
+            Prelude.Just ("imageType" Core..= imageType)
           ]
       )

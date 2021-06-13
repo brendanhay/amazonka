@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -53,7 +54,7 @@ import Network.AWS.Shield.Types
 data DisassociateDRTRole = DisassociateDRTRole'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateDRTRole' with all optional fields omitted.
@@ -72,41 +73,43 @@ instance Core.AWSRequest DisassociateDRTRole where
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDRTRoleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateDRTRole
+instance Prelude.Hashable DisassociateDRTRole
 
-instance Core.NFData DisassociateDRTRole
+instance Prelude.NFData DisassociateDRTRole
 
 instance Core.ToHeaders DisassociateDRTRole where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.DisassociateDRTRole" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateDRTRole where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DisassociateDRTRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateDRTRole where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateDRTRoleResponse' smart constructor.
 data DisassociateDRTRoleResponse = DisassociateDRTRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateDRTRoleResponse' with all optional fields omitted.
@@ -119,7 +122,7 @@ data DisassociateDRTRoleResponse = DisassociateDRTRoleResponse'
 -- 'httpStatus', 'disassociateDRTRoleResponse_httpStatus' - The response's http status code.
 newDisassociateDRTRoleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateDRTRoleResponse
 newDisassociateDRTRoleResponse pHttpStatus_ =
   DisassociateDRTRoleResponse'
@@ -128,7 +131,7 @@ newDisassociateDRTRoleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateDRTRoleResponse_httpStatus :: Lens.Lens' DisassociateDRTRoleResponse Core.Int
+disassociateDRTRoleResponse_httpStatus :: Lens.Lens' DisassociateDRTRoleResponse Prelude.Int
 disassociateDRTRoleResponse_httpStatus = Lens.lens (\DisassociateDRTRoleResponse' {httpStatus} -> httpStatus) (\s@DisassociateDRTRoleResponse' {} a -> s {httpStatus = a} :: DisassociateDRTRoleResponse)
 
-instance Core.NFData DisassociateDRTRoleResponse
+instance Prelude.NFData DisassociateDRTRoleResponse

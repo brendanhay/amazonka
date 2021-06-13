@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -64,19 +65,19 @@ data ListNamespaces = ListNamespaces'
     -- first @MaxResults@ namespaces matched the specified criteria but that
     -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
     -- match the criteria.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of namespaces that you want AWS Cloud Map to return
     -- in the response to a @ListNamespaces@ request. If you don\'t specify a
     -- value for @MaxResults@, AWS Cloud Map returns up to 100 namespaces.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A complex type that contains specifications for the namespaces that you
     -- want to list.
     --
     -- If you specify more than one filter, a namespace must match all filters
     -- to be returned by @ListNamespaces@.
-    filters :: Core.Maybe [NamespaceFilter]
+    filters :: Prelude.Maybe [NamespaceFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListNamespaces' with all optional fields omitted.
@@ -111,9 +112,9 @@ newListNamespaces ::
   ListNamespaces
 newListNamespaces =
   ListNamespaces'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | For the first @ListNamespaces@ request, omit this value.
@@ -127,13 +128,13 @@ newListNamespaces =
 -- first @MaxResults@ namespaces matched the specified criteria but that
 -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
 -- match the criteria.
-listNamespaces_nextToken :: Lens.Lens' ListNamespaces (Core.Maybe Core.Text)
+listNamespaces_nextToken :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Text)
 listNamespaces_nextToken = Lens.lens (\ListNamespaces' {nextToken} -> nextToken) (\s@ListNamespaces' {} a -> s {nextToken = a} :: ListNamespaces)
 
 -- | The maximum number of namespaces that you want AWS Cloud Map to return
 -- in the response to a @ListNamespaces@ request. If you don\'t specify a
 -- value for @MaxResults@, AWS Cloud Map returns up to 100 namespaces.
-listNamespaces_maxResults :: Lens.Lens' ListNamespaces (Core.Maybe Core.Natural)
+listNamespaces_maxResults :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Natural)
 listNamespaces_maxResults = Lens.lens (\ListNamespaces' {maxResults} -> maxResults) (\s@ListNamespaces' {} a -> s {maxResults = a} :: ListNamespaces)
 
 -- | A complex type that contains specifications for the namespaces that you
@@ -141,27 +142,29 @@ listNamespaces_maxResults = Lens.lens (\ListNamespaces' {maxResults} -> maxResul
 --
 -- If you specify more than one filter, a namespace must match all filters
 -- to be returned by @ListNamespaces@.
-listNamespaces_filters :: Lens.Lens' ListNamespaces (Core.Maybe [NamespaceFilter])
-listNamespaces_filters = Lens.lens (\ListNamespaces' {filters} -> filters) (\s@ListNamespaces' {} a -> s {filters = a} :: ListNamespaces) Core.. Lens.mapping Lens._Coerce
+listNamespaces_filters :: Lens.Lens' ListNamespaces (Prelude.Maybe [NamespaceFilter])
+listNamespaces_filters = Lens.lens (\ListNamespaces' {filters} -> filters) (\s@ListNamespaces' {} a -> s {filters = a} :: ListNamespaces) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListNamespaces where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listNamespacesResponse_nextToken Core.. Lens._Just
+            Lens.^? listNamespacesResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listNamespacesResponse_namespaces Core.. Lens._Just
+            Lens.^? listNamespacesResponse_namespaces
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listNamespaces_nextToken
+          Prelude.& listNamespaces_nextToken
           Lens..~ rs
-          Lens.^? listNamespacesResponse_nextToken Core.. Lens._Just
+          Lens.^? listNamespacesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNamespaces where
   type
@@ -172,43 +175,45 @@ instance Core.AWSRequest ListNamespaces where
     Response.receiveJSON
       ( \s h x ->
           ListNamespacesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Namespaces" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Namespaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListNamespaces
+instance Prelude.Hashable ListNamespaces
 
-instance Core.NFData ListNamespaces
+instance Prelude.NFData ListNamespaces
 
 instance Core.ToHeaders ListNamespaces where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.ListNamespaces" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListNamespaces where
   toJSON ListNamespaces' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath ListNamespaces where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListNamespaces where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNamespacesResponse' smart constructor.
 data ListNamespacesResponse = ListNamespacesResponse'
@@ -221,14 +226,14 @@ data ListNamespacesResponse = ListNamespacesResponse'
     -- first @MaxResults@ namespaces matched the specified criteria but that
     -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
     -- match the criteria.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array that contains one @NamespaceSummary@ object for each namespace
     -- that matches the specified filter criteria.
-    namespaces :: Core.Maybe [NamespaceSummary],
+    namespaces :: Prelude.Maybe [NamespaceSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListNamespacesResponse' with all optional fields omitted.
@@ -254,12 +259,13 @@ data ListNamespacesResponse = ListNamespacesResponse'
 -- 'httpStatus', 'listNamespacesResponse_httpStatus' - The response's http status code.
 newListNamespacesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListNamespacesResponse
 newListNamespacesResponse pHttpStatus_ =
   ListNamespacesResponse'
-    { nextToken = Core.Nothing,
-      namespaces = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      namespaces = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -272,16 +278,16 @@ newListNamespacesResponse pHttpStatus_ =
 -- first @MaxResults@ namespaces matched the specified criteria but that
 -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
 -- match the criteria.
-listNamespacesResponse_nextToken :: Lens.Lens' ListNamespacesResponse (Core.Maybe Core.Text)
+listNamespacesResponse_nextToken :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe Prelude.Text)
 listNamespacesResponse_nextToken = Lens.lens (\ListNamespacesResponse' {nextToken} -> nextToken) (\s@ListNamespacesResponse' {} a -> s {nextToken = a} :: ListNamespacesResponse)
 
 -- | An array that contains one @NamespaceSummary@ object for each namespace
 -- that matches the specified filter criteria.
-listNamespacesResponse_namespaces :: Lens.Lens' ListNamespacesResponse (Core.Maybe [NamespaceSummary])
-listNamespacesResponse_namespaces = Lens.lens (\ListNamespacesResponse' {namespaces} -> namespaces) (\s@ListNamespacesResponse' {} a -> s {namespaces = a} :: ListNamespacesResponse) Core.. Lens.mapping Lens._Coerce
+listNamespacesResponse_namespaces :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe [NamespaceSummary])
+listNamespacesResponse_namespaces = Lens.lens (\ListNamespacesResponse' {namespaces} -> namespaces) (\s@ListNamespacesResponse' {} a -> s {namespaces = a} :: ListNamespacesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listNamespacesResponse_httpStatus :: Lens.Lens' ListNamespacesResponse Core.Int
+listNamespacesResponse_httpStatus :: Lens.Lens' ListNamespacesResponse Prelude.Int
 listNamespacesResponse_httpStatus = Lens.lens (\ListNamespacesResponse' {httpStatus} -> httpStatus) (\s@ListNamespacesResponse' {} a -> s {httpStatus = a} :: ListNamespacesResponse)
 
-instance Core.NFData ListNamespacesResponse
+instance Prelude.NFData ListNamespacesResponse

@@ -21,6 +21,7 @@ module Network.AWS.Glacier.Types.DataRetrievalRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Data retrieval policy rule.
 --
@@ -31,13 +32,13 @@ data DataRetrievalRule = DataRetrievalRule'
     -- This field is required only if the value of the Strategy field is
     -- @BytesPerHour@. Your PUT operation will be rejected if the Strategy
     -- field is not set to @BytesPerHour@ and you set this field.
-    bytesPerHour :: Core.Maybe Core.Integer,
+    bytesPerHour :: Prelude.Maybe Prelude.Integer,
     -- | The type of data retrieval policy to set.
     --
     -- Valid values: BytesPerHour|FreeTier|None
-    strategy :: Core.Maybe Core.Text
+    strategy :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataRetrievalRule' with all optional fields omitted.
@@ -60,8 +61,8 @@ newDataRetrievalRule ::
   DataRetrievalRule
 newDataRetrievalRule =
   DataRetrievalRule'
-    { bytesPerHour = Core.Nothing,
-      strategy = Core.Nothing
+    { bytesPerHour = Prelude.Nothing,
+      strategy = Prelude.Nothing
     }
 
 -- | The maximum number of bytes that can be retrieved in an hour.
@@ -69,13 +70,13 @@ newDataRetrievalRule =
 -- This field is required only if the value of the Strategy field is
 -- @BytesPerHour@. Your PUT operation will be rejected if the Strategy
 -- field is not set to @BytesPerHour@ and you set this field.
-dataRetrievalRule_bytesPerHour :: Lens.Lens' DataRetrievalRule (Core.Maybe Core.Integer)
+dataRetrievalRule_bytesPerHour :: Lens.Lens' DataRetrievalRule (Prelude.Maybe Prelude.Integer)
 dataRetrievalRule_bytesPerHour = Lens.lens (\DataRetrievalRule' {bytesPerHour} -> bytesPerHour) (\s@DataRetrievalRule' {} a -> s {bytesPerHour = a} :: DataRetrievalRule)
 
 -- | The type of data retrieval policy to set.
 --
 -- Valid values: BytesPerHour|FreeTier|None
-dataRetrievalRule_strategy :: Lens.Lens' DataRetrievalRule (Core.Maybe Core.Text)
+dataRetrievalRule_strategy :: Lens.Lens' DataRetrievalRule (Prelude.Maybe Prelude.Text)
 dataRetrievalRule_strategy = Lens.lens (\DataRetrievalRule' {strategy} -> strategy) (\s@DataRetrievalRule' {} a -> s {strategy = a} :: DataRetrievalRule)
 
 instance Core.FromJSON DataRetrievalRule where
@@ -84,19 +85,19 @@ instance Core.FromJSON DataRetrievalRule where
       "DataRetrievalRule"
       ( \x ->
           DataRetrievalRule'
-            Core.<$> (x Core..:? "BytesPerHour")
-            Core.<*> (x Core..:? "Strategy")
+            Prelude.<$> (x Core..:? "BytesPerHour")
+            Prelude.<*> (x Core..:? "Strategy")
       )
 
-instance Core.Hashable DataRetrievalRule
+instance Prelude.Hashable DataRetrievalRule
 
-instance Core.NFData DataRetrievalRule
+instance Prelude.NFData DataRetrievalRule
 
 instance Core.ToJSON DataRetrievalRule where
   toJSON DataRetrievalRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("BytesPerHour" Core..=) Core.<$> bytesPerHour,
-            ("Strategy" Core..=) Core.<$> strategy
+      ( Prelude.catMaybes
+          [ ("BytesPerHour" Core..=) Prelude.<$> bytesPerHour,
+            ("Strategy" Core..=) Prelude.<$> strategy
           ]
       )

@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ data CreateAccountAlias = CreateAccountAlias'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of lowercase letters, digits, and dashes. You cannot start or
     -- finish with a dash, nor can you have two dashes in a row.
-    accountAlias :: Core.Text
+    accountAlias :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAccountAlias' with all optional fields omitted.
@@ -72,7 +73,7 @@ data CreateAccountAlias = CreateAccountAlias'
 -- finish with a dash, nor can you have two dashes in a row.
 newCreateAccountAlias ::
   -- | 'accountAlias'
-  Core.Text ->
+  Prelude.Text ->
   CreateAccountAlias
 newCreateAccountAlias pAccountAlias_ =
   CreateAccountAlias' {accountAlias = pAccountAlias_}
@@ -83,7 +84,7 @@ newCreateAccountAlias pAccountAlias_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of lowercase letters, digits, and dashes. You cannot start or
 -- finish with a dash, nor can you have two dashes in a row.
-createAccountAlias_accountAlias :: Lens.Lens' CreateAccountAlias Core.Text
+createAccountAlias_accountAlias :: Lens.Lens' CreateAccountAlias Prelude.Text
 createAccountAlias_accountAlias = Lens.lens (\CreateAccountAlias' {accountAlias} -> accountAlias) (\s@CreateAccountAlias' {} a -> s {accountAlias = a} :: CreateAccountAlias)
 
 instance Core.AWSRequest CreateAccountAlias where
@@ -94,22 +95,23 @@ instance Core.AWSRequest CreateAccountAlias where
   response =
     Response.receiveNull CreateAccountAliasResponse'
 
-instance Core.Hashable CreateAccountAlias
+instance Prelude.Hashable CreateAccountAlias
 
-instance Core.NFData CreateAccountAlias
+instance Prelude.NFData CreateAccountAlias
 
 instance Core.ToHeaders CreateAccountAlias where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateAccountAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAccountAlias where
   toQuery CreateAccountAlias' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateAccountAlias" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("CreateAccountAlias" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "AccountAlias" Core.=: accountAlias
       ]
 
@@ -117,7 +119,7 @@ instance Core.ToQuery CreateAccountAlias where
 data CreateAccountAliasResponse = CreateAccountAliasResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAccountAliasResponse' with all optional fields omitted.
@@ -128,4 +130,4 @@ newCreateAccountAliasResponse ::
 newCreateAccountAliasResponse =
   CreateAccountAliasResponse'
 
-instance Core.NFData CreateAccountAliasResponse
+instance Prelude.NFData CreateAccountAliasResponse

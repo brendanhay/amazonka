@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -52,11 +53,11 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newGetTraceGraph' smart constructor.
 data GetTraceGraph = GetTraceGraph'
   { -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Trace IDs of requests for which to generate a service graph.
-    traceIds :: [Core.Text]
+    traceIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTraceGraph' with all optional fields omitted.
@@ -73,36 +74,36 @@ newGetTraceGraph ::
   GetTraceGraph
 newGetTraceGraph =
   GetTraceGraph'
-    { nextToken = Core.Nothing,
-      traceIds = Core.mempty
+    { nextToken = Prelude.Nothing,
+      traceIds = Prelude.mempty
     }
 
 -- | Pagination token.
-getTraceGraph_nextToken :: Lens.Lens' GetTraceGraph (Core.Maybe Core.Text)
+getTraceGraph_nextToken :: Lens.Lens' GetTraceGraph (Prelude.Maybe Prelude.Text)
 getTraceGraph_nextToken = Lens.lens (\GetTraceGraph' {nextToken} -> nextToken) (\s@GetTraceGraph' {} a -> s {nextToken = a} :: GetTraceGraph)
 
 -- | Trace IDs of requests for which to generate a service graph.
-getTraceGraph_traceIds :: Lens.Lens' GetTraceGraph [Core.Text]
-getTraceGraph_traceIds = Lens.lens (\GetTraceGraph' {traceIds} -> traceIds) (\s@GetTraceGraph' {} a -> s {traceIds = a} :: GetTraceGraph) Core.. Lens._Coerce
+getTraceGraph_traceIds :: Lens.Lens' GetTraceGraph [Prelude.Text]
+getTraceGraph_traceIds = Lens.lens (\GetTraceGraph' {traceIds} -> traceIds) (\s@GetTraceGraph' {} a -> s {traceIds = a} :: GetTraceGraph) Prelude.. Lens._Coerce
 
 instance Core.AWSPager GetTraceGraph where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getTraceGraphResponse_nextToken Core.. Lens._Just
+            Lens.^? getTraceGraphResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getTraceGraphResponse_services Core.. Lens._Just
+            Lens.^? getTraceGraphResponse_services Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getTraceGraph_nextToken
+          Prelude.& getTraceGraph_nextToken
           Lens..~ rs
-          Lens.^? getTraceGraphResponse_nextToken Core.. Lens._Just
+          Lens.^? getTraceGraphResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTraceGraph where
   type
@@ -113,43 +114,43 @@ instance Core.AWSRequest GetTraceGraph where
     Response.receiveJSON
       ( \s h x ->
           GetTraceGraphResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Services" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Services" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTraceGraph
+instance Prelude.Hashable GetTraceGraph
 
-instance Core.NFData GetTraceGraph
+instance Prelude.NFData GetTraceGraph
 
 instance Core.ToHeaders GetTraceGraph where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetTraceGraph where
   toJSON GetTraceGraph' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            Core.Just ("TraceIds" Core..= traceIds)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("TraceIds" Core..= traceIds)
           ]
       )
 
 instance Core.ToPath GetTraceGraph where
-  toPath = Core.const "/TraceGraph"
+  toPath = Prelude.const "/TraceGraph"
 
 instance Core.ToQuery GetTraceGraph where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTraceGraphResponse' smart constructor.
 data GetTraceGraphResponse = GetTraceGraphResponse'
   { -- | Pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The services that have processed one of the specified requests.
-    services :: Core.Maybe [ServiceInfo],
+    services :: Prelude.Maybe [ServiceInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTraceGraphResponse' with all optional fields omitted.
@@ -166,25 +167,25 @@ data GetTraceGraphResponse = GetTraceGraphResponse'
 -- 'httpStatus', 'getTraceGraphResponse_httpStatus' - The response's http status code.
 newGetTraceGraphResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTraceGraphResponse
 newGetTraceGraphResponse pHttpStatus_ =
   GetTraceGraphResponse'
-    { nextToken = Core.Nothing,
-      services = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      services = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token.
-getTraceGraphResponse_nextToken :: Lens.Lens' GetTraceGraphResponse (Core.Maybe Core.Text)
+getTraceGraphResponse_nextToken :: Lens.Lens' GetTraceGraphResponse (Prelude.Maybe Prelude.Text)
 getTraceGraphResponse_nextToken = Lens.lens (\GetTraceGraphResponse' {nextToken} -> nextToken) (\s@GetTraceGraphResponse' {} a -> s {nextToken = a} :: GetTraceGraphResponse)
 
 -- | The services that have processed one of the specified requests.
-getTraceGraphResponse_services :: Lens.Lens' GetTraceGraphResponse (Core.Maybe [ServiceInfo])
-getTraceGraphResponse_services = Lens.lens (\GetTraceGraphResponse' {services} -> services) (\s@GetTraceGraphResponse' {} a -> s {services = a} :: GetTraceGraphResponse) Core.. Lens.mapping Lens._Coerce
+getTraceGraphResponse_services :: Lens.Lens' GetTraceGraphResponse (Prelude.Maybe [ServiceInfo])
+getTraceGraphResponse_services = Lens.lens (\GetTraceGraphResponse' {services} -> services) (\s@GetTraceGraphResponse' {} a -> s {services = a} :: GetTraceGraphResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTraceGraphResponse_httpStatus :: Lens.Lens' GetTraceGraphResponse Core.Int
+getTraceGraphResponse_httpStatus :: Lens.Lens' GetTraceGraphResponse Prelude.Int
 getTraceGraphResponse_httpStatus = Lens.lens (\GetTraceGraphResponse' {httpStatus} -> httpStatus) (\s@GetTraceGraphResponse' {} a -> s {httpStatus = a} :: GetTraceGraphResponse)
 
-instance Core.NFData GetTraceGraphResponse
+instance Prelude.NFData GetTraceGraphResponse

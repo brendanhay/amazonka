@@ -71,6 +71,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -83,11 +84,11 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
     -- Support currently supports English (\"en\") and Japanese (\"ja\").
     -- Language parameters must be passed explicitly for operations that take
     -- them.
-    language :: Core.Maybe Core.Text,
+    language :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the Trusted Advisor check.
-    checkId :: Core.Text
+    checkId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTrustedAdvisorCheckResult' with all optional fields omitted.
@@ -105,12 +106,12 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
 -- 'checkId', 'describeTrustedAdvisorCheckResult_checkId' - The unique identifier for the Trusted Advisor check.
 newDescribeTrustedAdvisorCheckResult ::
   -- | 'checkId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeTrustedAdvisorCheckResult
 newDescribeTrustedAdvisorCheckResult pCheckId_ =
   DescribeTrustedAdvisorCheckResult'
     { language =
-        Core.Nothing,
+        Prelude.Nothing,
       checkId = pCheckId_
     }
 
@@ -118,11 +119,11 @@ newDescribeTrustedAdvisorCheckResult pCheckId_ =
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-describeTrustedAdvisorCheckResult_language :: Lens.Lens' DescribeTrustedAdvisorCheckResult (Core.Maybe Core.Text)
+describeTrustedAdvisorCheckResult_language :: Lens.Lens' DescribeTrustedAdvisorCheckResult (Prelude.Maybe Prelude.Text)
 describeTrustedAdvisorCheckResult_language = Lens.lens (\DescribeTrustedAdvisorCheckResult' {language} -> language) (\s@DescribeTrustedAdvisorCheckResult' {} a -> s {language = a} :: DescribeTrustedAdvisorCheckResult)
 
 -- | The unique identifier for the Trusted Advisor check.
-describeTrustedAdvisorCheckResult_checkId :: Lens.Lens' DescribeTrustedAdvisorCheckResult Core.Text
+describeTrustedAdvisorCheckResult_checkId :: Lens.Lens' DescribeTrustedAdvisorCheckResult Prelude.Text
 describeTrustedAdvisorCheckResult_checkId = Lens.lens (\DescribeTrustedAdvisorCheckResult' {checkId} -> checkId) (\s@DescribeTrustedAdvisorCheckResult' {} a -> s {checkId = a} :: DescribeTrustedAdvisorCheckResult)
 
 instance
@@ -137,16 +138,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeTrustedAdvisorCheckResultResponse'
-            Core.<$> (x Core..?> "result")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "result")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeTrustedAdvisorCheckResult
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTrustedAdvisorCheckResult
 
 instance
@@ -154,14 +155,16 @@ instance
     DescribeTrustedAdvisorCheckResult
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -171,9 +174,9 @@ instance
   where
   toJSON DescribeTrustedAdvisorCheckResult' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("language" Core..=) Core.<$> language,
-            Core.Just ("checkId" Core..= checkId)
+      ( Prelude.catMaybes
+          [ ("language" Core..=) Prelude.<$> language,
+            Prelude.Just ("checkId" Core..= checkId)
           ]
       )
 
@@ -181,13 +184,13 @@ instance
   Core.ToPath
     DescribeTrustedAdvisorCheckResult
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeTrustedAdvisorCheckResult
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of the Trusted Advisor check returned by the
 -- DescribeTrustedAdvisorCheckResult operation.
@@ -195,11 +198,11 @@ instance
 -- /See:/ 'newDescribeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
   { -- | The detailed results of the Trusted Advisor check.
-    result :: Core.Maybe TrustedAdvisorCheckResult,
+    result :: Prelude.Maybe TrustedAdvisorCheckResult,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTrustedAdvisorCheckResultResponse' with all optional fields omitted.
@@ -214,24 +217,24 @@ data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResu
 -- 'httpStatus', 'describeTrustedAdvisorCheckResultResponse_httpStatus' - The response's http status code.
 newDescribeTrustedAdvisorCheckResultResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTrustedAdvisorCheckResultResponse
 newDescribeTrustedAdvisorCheckResultResponse
   pHttpStatus_ =
     DescribeTrustedAdvisorCheckResultResponse'
       { result =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The detailed results of the Trusted Advisor check.
-describeTrustedAdvisorCheckResultResponse_result :: Lens.Lens' DescribeTrustedAdvisorCheckResultResponse (Core.Maybe TrustedAdvisorCheckResult)
+describeTrustedAdvisorCheckResultResponse_result :: Lens.Lens' DescribeTrustedAdvisorCheckResultResponse (Prelude.Maybe TrustedAdvisorCheckResult)
 describeTrustedAdvisorCheckResultResponse_result = Lens.lens (\DescribeTrustedAdvisorCheckResultResponse' {result} -> result) (\s@DescribeTrustedAdvisorCheckResultResponse' {} a -> s {result = a} :: DescribeTrustedAdvisorCheckResultResponse)
 
 -- | The response's http status code.
-describeTrustedAdvisorCheckResultResponse_httpStatus :: Lens.Lens' DescribeTrustedAdvisorCheckResultResponse Core.Int
+describeTrustedAdvisorCheckResultResponse_httpStatus :: Lens.Lens' DescribeTrustedAdvisorCheckResultResponse Prelude.Int
 describeTrustedAdvisorCheckResultResponse_httpStatus = Lens.lens (\DescribeTrustedAdvisorCheckResultResponse' {httpStatus} -> httpStatus) (\s@DescribeTrustedAdvisorCheckResultResponse' {} a -> s {httpStatus = a} :: DescribeTrustedAdvisorCheckResultResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTrustedAdvisorCheckResultResponse

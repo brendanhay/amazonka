@@ -43,6 +43,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateDeviceStatus' smart constructor.
 data UpdateDeviceStatus = UpdateDeviceStatus'
   { -- | The status of whether a device is remembered.
-    deviceRememberedStatus :: Core.Maybe DeviceRememberedStatusType,
+    deviceRememberedStatus :: Prelude.Maybe DeviceRememberedStatusType,
     -- | The access token.
-    accessToken :: Core.Sensitive Core.Text,
+    accessToken :: Core.Sensitive Prelude.Text,
     -- | The device key.
-    deviceKey :: Core.Text
+    deviceKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceStatus' with all optional fields omitted.
@@ -74,28 +75,28 @@ data UpdateDeviceStatus = UpdateDeviceStatus'
 -- 'deviceKey', 'updateDeviceStatus_deviceKey' - The device key.
 newUpdateDeviceStatus ::
   -- | 'accessToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deviceKey'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDeviceStatus
 newUpdateDeviceStatus pAccessToken_ pDeviceKey_ =
   UpdateDeviceStatus'
     { deviceRememberedStatus =
-        Core.Nothing,
+        Prelude.Nothing,
       accessToken = Core._Sensitive Lens.# pAccessToken_,
       deviceKey = pDeviceKey_
     }
 
 -- | The status of whether a device is remembered.
-updateDeviceStatus_deviceRememberedStatus :: Lens.Lens' UpdateDeviceStatus (Core.Maybe DeviceRememberedStatusType)
+updateDeviceStatus_deviceRememberedStatus :: Lens.Lens' UpdateDeviceStatus (Prelude.Maybe DeviceRememberedStatusType)
 updateDeviceStatus_deviceRememberedStatus = Lens.lens (\UpdateDeviceStatus' {deviceRememberedStatus} -> deviceRememberedStatus) (\s@UpdateDeviceStatus' {} a -> s {deviceRememberedStatus = a} :: UpdateDeviceStatus)
 
 -- | The access token.
-updateDeviceStatus_accessToken :: Lens.Lens' UpdateDeviceStatus Core.Text
-updateDeviceStatus_accessToken = Lens.lens (\UpdateDeviceStatus' {accessToken} -> accessToken) (\s@UpdateDeviceStatus' {} a -> s {accessToken = a} :: UpdateDeviceStatus) Core.. Core._Sensitive
+updateDeviceStatus_accessToken :: Lens.Lens' UpdateDeviceStatus Prelude.Text
+updateDeviceStatus_accessToken = Lens.lens (\UpdateDeviceStatus' {accessToken} -> accessToken) (\s@UpdateDeviceStatus' {} a -> s {accessToken = a} :: UpdateDeviceStatus) Prelude.. Core._Sensitive
 
 -- | The device key.
-updateDeviceStatus_deviceKey :: Lens.Lens' UpdateDeviceStatus Core.Text
+updateDeviceStatus_deviceKey :: Lens.Lens' UpdateDeviceStatus Prelude.Text
 updateDeviceStatus_deviceKey = Lens.lens (\UpdateDeviceStatus' {deviceKey} -> deviceKey) (\s@UpdateDeviceStatus' {} a -> s {deviceKey = a} :: UpdateDeviceStatus)
 
 instance Core.AWSRequest UpdateDeviceStatus where
@@ -107,51 +108,53 @@ instance Core.AWSRequest UpdateDeviceStatus where
     Response.receiveEmpty
       ( \s h x ->
           UpdateDeviceStatusResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDeviceStatus
+instance Prelude.Hashable UpdateDeviceStatus
 
-instance Core.NFData UpdateDeviceStatus
+instance Prelude.NFData UpdateDeviceStatus
 
 instance Core.ToHeaders UpdateDeviceStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.UpdateDeviceStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDeviceStatus where
   toJSON UpdateDeviceStatus' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DeviceRememberedStatus" Core..=)
-              Core.<$> deviceRememberedStatus,
-            Core.Just ("AccessToken" Core..= accessToken),
-            Core.Just ("DeviceKey" Core..= deviceKey)
+              Prelude.<$> deviceRememberedStatus,
+            Prelude.Just ("AccessToken" Core..= accessToken),
+            Prelude.Just ("DeviceKey" Core..= deviceKey)
           ]
       )
 
 instance Core.ToPath UpdateDeviceStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDeviceStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response to the request to update the device status.
 --
 -- /See:/ 'newUpdateDeviceStatusResponse' smart constructor.
 data UpdateDeviceStatusResponse = UpdateDeviceStatusResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceStatusResponse' with all optional fields omitted.
@@ -164,7 +167,7 @@ data UpdateDeviceStatusResponse = UpdateDeviceStatusResponse'
 -- 'httpStatus', 'updateDeviceStatusResponse_httpStatus' - The response's http status code.
 newUpdateDeviceStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDeviceStatusResponse
 newUpdateDeviceStatusResponse pHttpStatus_ =
   UpdateDeviceStatusResponse'
@@ -173,7 +176,7 @@ newUpdateDeviceStatusResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateDeviceStatusResponse_httpStatus :: Lens.Lens' UpdateDeviceStatusResponse Core.Int
+updateDeviceStatusResponse_httpStatus :: Lens.Lens' UpdateDeviceStatusResponse Prelude.Int
 updateDeviceStatusResponse_httpStatus = Lens.lens (\UpdateDeviceStatusResponse' {httpStatus} -> httpStatus) (\s@UpdateDeviceStatusResponse' {} a -> s {httpStatus = a} :: UpdateDeviceStatusResponse)
 
-instance Core.NFData UpdateDeviceStatusResponse
+instance Prelude.NFData UpdateDeviceStatusResponse

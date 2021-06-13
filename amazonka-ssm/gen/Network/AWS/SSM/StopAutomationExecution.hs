@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -49,11 +50,11 @@ import Network.AWS.SSM.Types
 data StopAutomationExecution = StopAutomationExecution'
   { -- | The stop request type. Valid types include the following: Cancel and
     -- Complete. The default type is Cancel.
-    type' :: Core.Maybe StopType,
+    type' :: Prelude.Maybe StopType,
     -- | The execution ID of the Automation to stop.
-    automationExecutionId :: Core.Text
+    automationExecutionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAutomationExecution' with all optional fields omitted.
@@ -69,21 +70,21 @@ data StopAutomationExecution = StopAutomationExecution'
 -- 'automationExecutionId', 'stopAutomationExecution_automationExecutionId' - The execution ID of the Automation to stop.
 newStopAutomationExecution ::
   -- | 'automationExecutionId'
-  Core.Text ->
+  Prelude.Text ->
   StopAutomationExecution
 newStopAutomationExecution pAutomationExecutionId_ =
   StopAutomationExecution'
-    { type' = Core.Nothing,
+    { type' = Prelude.Nothing,
       automationExecutionId = pAutomationExecutionId_
     }
 
 -- | The stop request type. Valid types include the following: Cancel and
 -- Complete. The default type is Cancel.
-stopAutomationExecution_type :: Lens.Lens' StopAutomationExecution (Core.Maybe StopType)
+stopAutomationExecution_type :: Lens.Lens' StopAutomationExecution (Prelude.Maybe StopType)
 stopAutomationExecution_type = Lens.lens (\StopAutomationExecution' {type'} -> type') (\s@StopAutomationExecution' {} a -> s {type' = a} :: StopAutomationExecution)
 
 -- | The execution ID of the Automation to stop.
-stopAutomationExecution_automationExecutionId :: Lens.Lens' StopAutomationExecution Core.Text
+stopAutomationExecution_automationExecutionId :: Lens.Lens' StopAutomationExecution Prelude.Text
 stopAutomationExecution_automationExecutionId = Lens.lens (\StopAutomationExecution' {automationExecutionId} -> automationExecutionId) (\s@StopAutomationExecution' {} a -> s {automationExecutionId = a} :: StopAutomationExecution)
 
 instance Core.AWSRequest StopAutomationExecution where
@@ -95,32 +96,34 @@ instance Core.AWSRequest StopAutomationExecution where
     Response.receiveEmpty
       ( \s h x ->
           StopAutomationExecutionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopAutomationExecution
+instance Prelude.Hashable StopAutomationExecution
 
-instance Core.NFData StopAutomationExecution
+instance Prelude.NFData StopAutomationExecution
 
 instance Core.ToHeaders StopAutomationExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.StopAutomationExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopAutomationExecution where
   toJSON StopAutomationExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Type" Core..=) Core.<$> type',
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Type" Core..=) Prelude.<$> type',
+            Prelude.Just
               ( "AutomationExecutionId"
                   Core..= automationExecutionId
               )
@@ -128,17 +131,17 @@ instance Core.ToJSON StopAutomationExecution where
       )
 
 instance Core.ToPath StopAutomationExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopAutomationExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopAutomationExecutionResponse' smart constructor.
 data StopAutomationExecutionResponse = StopAutomationExecutionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAutomationExecutionResponse' with all optional fields omitted.
@@ -151,7 +154,7 @@ data StopAutomationExecutionResponse = StopAutomationExecutionResponse'
 -- 'httpStatus', 'stopAutomationExecutionResponse_httpStatus' - The response's http status code.
 newStopAutomationExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopAutomationExecutionResponse
 newStopAutomationExecutionResponse pHttpStatus_ =
   StopAutomationExecutionResponse'
@@ -160,7 +163,9 @@ newStopAutomationExecutionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopAutomationExecutionResponse_httpStatus :: Lens.Lens' StopAutomationExecutionResponse Core.Int
+stopAutomationExecutionResponse_httpStatus :: Lens.Lens' StopAutomationExecutionResponse Prelude.Int
 stopAutomationExecutionResponse_httpStatus = Lens.lens (\StopAutomationExecutionResponse' {httpStatus} -> httpStatus) (\s@StopAutomationExecutionResponse' {} a -> s {httpStatus = a} :: StopAutomationExecutionResponse)
 
-instance Core.NFData StopAutomationExecutionResponse
+instance
+  Prelude.NFData
+    StopAutomationExecutionResponse

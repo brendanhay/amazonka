@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.SalesforceAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to write a message to a Salesforce IoT Cloud Input
 -- Stream.
@@ -30,13 +31,13 @@ data SalesforceAction = SalesforceAction'
   { -- | The token used to authenticate access to the Salesforce IoT Cloud Input
     -- Stream. The token is available from the Salesforce IoT Cloud platform
     -- after creation of the Input Stream.
-    token :: Core.Text,
+    token :: Prelude.Text,
     -- | The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is
     -- available from the Salesforce IoT Cloud platform after creation of the
     -- Input Stream.
-    url :: Core.Text
+    url :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SalesforceAction' with all optional fields omitted.
@@ -55,9 +56,9 @@ data SalesforceAction = SalesforceAction'
 -- Input Stream.
 newSalesforceAction ::
   -- | 'token'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'url'
-  Core.Text ->
+  Prelude.Text ->
   SalesforceAction
 newSalesforceAction pToken_ pUrl_ =
   SalesforceAction' {token = pToken_, url = pUrl_}
@@ -65,13 +66,13 @@ newSalesforceAction pToken_ pUrl_ =
 -- | The token used to authenticate access to the Salesforce IoT Cloud Input
 -- Stream. The token is available from the Salesforce IoT Cloud platform
 -- after creation of the Input Stream.
-salesforceAction_token :: Lens.Lens' SalesforceAction Core.Text
+salesforceAction_token :: Lens.Lens' SalesforceAction Prelude.Text
 salesforceAction_token = Lens.lens (\SalesforceAction' {token} -> token) (\s@SalesforceAction' {} a -> s {token = a} :: SalesforceAction)
 
 -- | The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is
 -- available from the Salesforce IoT Cloud platform after creation of the
 -- Input Stream.
-salesforceAction_url :: Lens.Lens' SalesforceAction Core.Text
+salesforceAction_url :: Lens.Lens' SalesforceAction Prelude.Text
 salesforceAction_url = Lens.lens (\SalesforceAction' {url} -> url) (\s@SalesforceAction' {} a -> s {url = a} :: SalesforceAction)
 
 instance Core.FromJSON SalesforceAction where
@@ -80,18 +81,18 @@ instance Core.FromJSON SalesforceAction where
       "SalesforceAction"
       ( \x ->
           SalesforceAction'
-            Core.<$> (x Core..: "token") Core.<*> (x Core..: "url")
+            Prelude.<$> (x Core..: "token") Prelude.<*> (x Core..: "url")
       )
 
-instance Core.Hashable SalesforceAction
+instance Prelude.Hashable SalesforceAction
 
-instance Core.NFData SalesforceAction
+instance Prelude.NFData SalesforceAction
 
 instance Core.ToJSON SalesforceAction where
   toJSON SalesforceAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("token" Core..= token),
-            Core.Just ("url" Core..= url)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("token" Core..= token),
+            Prelude.Just ("url" Core..= url)
           ]
       )

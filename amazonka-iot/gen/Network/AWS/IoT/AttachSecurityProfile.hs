@@ -44,18 +44,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAttachSecurityProfile' smart constructor.
 data AttachSecurityProfile = AttachSecurityProfile'
   { -- | The security profile that is attached.
-    securityProfileName :: Core.Text,
+    securityProfileName :: Prelude.Text,
     -- | The ARN of the target (thing group) to which the security profile is
     -- attached.
-    securityProfileTargetArn :: Core.Text
+    securityProfileTargetArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachSecurityProfile' with all optional fields omitted.
@@ -71,9 +72,9 @@ data AttachSecurityProfile = AttachSecurityProfile'
 -- attached.
 newAttachSecurityProfile ::
   -- | 'securityProfileName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'securityProfileTargetArn'
-  Core.Text ->
+  Prelude.Text ->
   AttachSecurityProfile
 newAttachSecurityProfile
   pSecurityProfileName_
@@ -86,12 +87,12 @@ newAttachSecurityProfile
       }
 
 -- | The security profile that is attached.
-attachSecurityProfile_securityProfileName :: Lens.Lens' AttachSecurityProfile Core.Text
+attachSecurityProfile_securityProfileName :: Lens.Lens' AttachSecurityProfile Prelude.Text
 attachSecurityProfile_securityProfileName = Lens.lens (\AttachSecurityProfile' {securityProfileName} -> securityProfileName) (\s@AttachSecurityProfile' {} a -> s {securityProfileName = a} :: AttachSecurityProfile)
 
 -- | The ARN of the target (thing group) to which the security profile is
 -- attached.
-attachSecurityProfile_securityProfileTargetArn :: Lens.Lens' AttachSecurityProfile Core.Text
+attachSecurityProfile_securityProfileTargetArn :: Lens.Lens' AttachSecurityProfile Prelude.Text
 attachSecurityProfile_securityProfileTargetArn = Lens.lens (\AttachSecurityProfile' {securityProfileTargetArn} -> securityProfileTargetArn) (\s@AttachSecurityProfile' {} a -> s {securityProfileTargetArn = a} :: AttachSecurityProfile)
 
 instance Core.AWSRequest AttachSecurityProfile where
@@ -103,22 +104,22 @@ instance Core.AWSRequest AttachSecurityProfile where
     Response.receiveEmpty
       ( \s h x ->
           AttachSecurityProfileResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AttachSecurityProfile
+instance Prelude.Hashable AttachSecurityProfile
 
-instance Core.NFData AttachSecurityProfile
+instance Prelude.NFData AttachSecurityProfile
 
 instance Core.ToHeaders AttachSecurityProfile where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON AttachSecurityProfile where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath AttachSecurityProfile where
   toPath AttachSecurityProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/security-profiles/",
         Core.toBS securityProfileName,
         "/targets"
@@ -126,7 +127,7 @@ instance Core.ToPath AttachSecurityProfile where
 
 instance Core.ToQuery AttachSecurityProfile where
   toQuery AttachSecurityProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "securityProfileTargetArn"
           Core.=: securityProfileTargetArn
       ]
@@ -134,9 +135,9 @@ instance Core.ToQuery AttachSecurityProfile where
 -- | /See:/ 'newAttachSecurityProfileResponse' smart constructor.
 data AttachSecurityProfileResponse = AttachSecurityProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachSecurityProfileResponse' with all optional fields omitted.
@@ -149,7 +150,7 @@ data AttachSecurityProfileResponse = AttachSecurityProfileResponse'
 -- 'httpStatus', 'attachSecurityProfileResponse_httpStatus' - The response's http status code.
 newAttachSecurityProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AttachSecurityProfileResponse
 newAttachSecurityProfileResponse pHttpStatus_ =
   AttachSecurityProfileResponse'
@@ -158,7 +159,7 @@ newAttachSecurityProfileResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-attachSecurityProfileResponse_httpStatus :: Lens.Lens' AttachSecurityProfileResponse Core.Int
+attachSecurityProfileResponse_httpStatus :: Lens.Lens' AttachSecurityProfileResponse Prelude.Int
 attachSecurityProfileResponse_httpStatus = Lens.lens (\AttachSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@AttachSecurityProfileResponse' {} a -> s {httpStatus = a} :: AttachSecurityProfileResponse)
 
-instance Core.NFData AttachSecurityProfileResponse
+instance Prelude.NFData AttachSecurityProfileResponse

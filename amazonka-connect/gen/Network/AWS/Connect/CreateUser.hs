@@ -57,15 +57,16 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
   { -- | The information about the identity of the user.
-    identityInfo :: Core.Maybe UserIdentityInfo,
+    identityInfo :: Prelude.Maybe UserIdentityInfo,
     -- | The identifier of the hierarchy group for the user.
-    hierarchyGroupId :: Core.Maybe Core.Text,
+    hierarchyGroupId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the user account in the directory used for identity
     -- management. If Amazon Connect cannot access the directory, you can
     -- specify this identifier to authenticate users. If you include the
@@ -77,28 +78,28 @@ data CreateUser = CreateUser'
     -- identity management in Amazon Connect when Amazon Connect cannot access
     -- your directory to authenticate users. If you are using SAML for identity
     -- management and include this parameter, an error is returned.
-    directoryUserId :: Core.Maybe Core.Text,
+    directoryUserId :: Prelude.Maybe Prelude.Text,
     -- | The password for the user account. A password is required if you are
     -- using Amazon Connect for identity management. Otherwise, it is an error
     -- to include a password.
-    password :: Core.Maybe Core.Text,
+    password :: Prelude.Maybe Prelude.Text,
     -- | One or more tags.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The user name for the account. For instances not using SAML for identity
     -- management, the user name can include up to 20 characters. If you are
     -- using SAML for identity management, the user name can include up to 64
     -- characters from [a-zA-Z0-9_-.\\\@]+.
-    username :: Core.Text,
+    username :: Prelude.Text,
     -- | The phone settings for the user.
     phoneConfig :: UserPhoneConfig,
     -- | The identifier of the security profile for the user.
-    securityProfileIds :: Core.NonEmpty Core.Text,
+    securityProfileIds :: Prelude.NonEmpty Prelude.Text,
     -- | The identifier of the routing profile for the user.
-    routingProfileId :: Core.Text,
+    routingProfileId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUser' with all optional fields omitted.
@@ -144,15 +145,15 @@ data CreateUser = CreateUser'
 -- 'instanceId', 'createUser_instanceId' - The identifier of the Amazon Connect instance.
 newCreateUser ::
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'phoneConfig'
   UserPhoneConfig ->
   -- | 'securityProfileIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'routingProfileId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   CreateUser
 newCreateUser
   pUsername_
@@ -161,11 +162,11 @@ newCreateUser
   pRoutingProfileId_
   pInstanceId_ =
     CreateUser'
-      { identityInfo = Core.Nothing,
-        hierarchyGroupId = Core.Nothing,
-        directoryUserId = Core.Nothing,
-        password = Core.Nothing,
-        tags = Core.Nothing,
+      { identityInfo = Prelude.Nothing,
+        hierarchyGroupId = Prelude.Nothing,
+        directoryUserId = Prelude.Nothing,
+        password = Prelude.Nothing,
+        tags = Prelude.Nothing,
         username = pUsername_,
         phoneConfig = pPhoneConfig_,
         securityProfileIds =
@@ -175,11 +176,11 @@ newCreateUser
       }
 
 -- | The information about the identity of the user.
-createUser_identityInfo :: Lens.Lens' CreateUser (Core.Maybe UserIdentityInfo)
+createUser_identityInfo :: Lens.Lens' CreateUser (Prelude.Maybe UserIdentityInfo)
 createUser_identityInfo = Lens.lens (\CreateUser' {identityInfo} -> identityInfo) (\s@CreateUser' {} a -> s {identityInfo = a} :: CreateUser)
 
 -- | The identifier of the hierarchy group for the user.
-createUser_hierarchyGroupId :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
+createUser_hierarchyGroupId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_hierarchyGroupId = Lens.lens (\CreateUser' {hierarchyGroupId} -> hierarchyGroupId) (\s@CreateUser' {} a -> s {hierarchyGroupId = a} :: CreateUser)
 
 -- | The identifier of the user account in the directory used for identity
@@ -193,24 +194,24 @@ createUser_hierarchyGroupId = Lens.lens (\CreateUser' {hierarchyGroupId} -> hier
 -- identity management in Amazon Connect when Amazon Connect cannot access
 -- your directory to authenticate users. If you are using SAML for identity
 -- management and include this parameter, an error is returned.
-createUser_directoryUserId :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
+createUser_directoryUserId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_directoryUserId = Lens.lens (\CreateUser' {directoryUserId} -> directoryUserId) (\s@CreateUser' {} a -> s {directoryUserId = a} :: CreateUser)
 
 -- | The password for the user account. A password is required if you are
 -- using Amazon Connect for identity management. Otherwise, it is an error
 -- to include a password.
-createUser_password :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
+createUser_password :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser)
 
 -- | One or more tags.
-createUser_tags :: Lens.Lens' CreateUser (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Core.. Lens.mapping Lens._Coerce
+createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user name for the account. For instances not using SAML for identity
 -- management, the user name can include up to 20 characters. If you are
 -- using SAML for identity management, the user name can include up to 64
 -- characters from [a-zA-Z0-9_-.\\\@]+.
-createUser_username :: Lens.Lens' CreateUser Core.Text
+createUser_username :: Lens.Lens' CreateUser Prelude.Text
 createUser_username = Lens.lens (\CreateUser' {username} -> username) (\s@CreateUser' {} a -> s {username = a} :: CreateUser)
 
 -- | The phone settings for the user.
@@ -218,15 +219,15 @@ createUser_phoneConfig :: Lens.Lens' CreateUser UserPhoneConfig
 createUser_phoneConfig = Lens.lens (\CreateUser' {phoneConfig} -> phoneConfig) (\s@CreateUser' {} a -> s {phoneConfig = a} :: CreateUser)
 
 -- | The identifier of the security profile for the user.
-createUser_securityProfileIds :: Lens.Lens' CreateUser (Core.NonEmpty Core.Text)
-createUser_securityProfileIds = Lens.lens (\CreateUser' {securityProfileIds} -> securityProfileIds) (\s@CreateUser' {} a -> s {securityProfileIds = a} :: CreateUser) Core.. Lens._Coerce
+createUser_securityProfileIds :: Lens.Lens' CreateUser (Prelude.NonEmpty Prelude.Text)
+createUser_securityProfileIds = Lens.lens (\CreateUser' {securityProfileIds} -> securityProfileIds) (\s@CreateUser' {} a -> s {securityProfileIds = a} :: CreateUser) Prelude.. Lens._Coerce
 
 -- | The identifier of the routing profile for the user.
-createUser_routingProfileId :: Lens.Lens' CreateUser Core.Text
+createUser_routingProfileId :: Lens.Lens' CreateUser Prelude.Text
 createUser_routingProfileId = Lens.lens (\CreateUser' {routingProfileId} -> routingProfileId) (\s@CreateUser' {} a -> s {routingProfileId = a} :: CreateUser)
 
 -- | The identifier of the Amazon Connect instance.
-createUser_instanceId :: Lens.Lens' CreateUser Core.Text
+createUser_instanceId :: Lens.Lens' CreateUser Prelude.Text
 createUser_instanceId = Lens.lens (\CreateUser' {instanceId} -> instanceId) (\s@CreateUser' {} a -> s {instanceId = a} :: CreateUser)
 
 instance Core.AWSRequest CreateUser where
@@ -236,60 +237,63 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Core.<$> (x Core..?> "UserArn")
-            Core.<*> (x Core..?> "UserId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UserArn")
+            Prelude.<*> (x Core..?> "UserId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateUser
+instance Prelude.Hashable CreateUser
 
-instance Core.NFData CreateUser
+instance Prelude.NFData CreateUser
 
 instance Core.ToHeaders CreateUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IdentityInfo" Core..=) Core.<$> identityInfo,
+      ( Prelude.catMaybes
+          [ ("IdentityInfo" Core..=) Prelude.<$> identityInfo,
             ("HierarchyGroupId" Core..=)
-              Core.<$> hierarchyGroupId,
-            ("DirectoryUserId" Core..=) Core.<$> directoryUserId,
-            ("Password" Core..=) Core.<$> password,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("Username" Core..= username),
-            Core.Just ("PhoneConfig" Core..= phoneConfig),
-            Core.Just
+              Prelude.<$> hierarchyGroupId,
+            ("DirectoryUserId" Core..=)
+              Prelude.<$> directoryUserId,
+            ("Password" Core..=) Prelude.<$> password,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("PhoneConfig" Core..= phoneConfig),
+            Prelude.Just
               ("SecurityProfileIds" Core..= securityProfileIds),
-            Core.Just
+            Prelude.Just
               ("RoutingProfileId" Core..= routingProfileId)
           ]
       )
 
 instance Core.ToPath CreateUser where
   toPath CreateUser' {..} =
-    Core.mconcat ["/users/", Core.toBS instanceId]
+    Prelude.mconcat ["/users/", Core.toBS instanceId]
 
 instance Core.ToQuery CreateUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
   { -- | The Amazon Resource Name (ARN) of the user account.
-    userArn :: Core.Maybe Core.Text,
+    userArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the user account.
-    userId :: Core.Maybe Core.Text,
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUserResponse' with all optional fields omitted.
@@ -306,25 +310,25 @@ data CreateUserResponse = CreateUserResponse'
 -- 'httpStatus', 'createUserResponse_httpStatus' - The response's http status code.
 newCreateUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateUserResponse
 newCreateUserResponse pHttpStatus_ =
   CreateUserResponse'
-    { userArn = Core.Nothing,
-      userId = Core.Nothing,
+    { userArn = Prelude.Nothing,
+      userId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the user account.
-createUserResponse_userArn :: Lens.Lens' CreateUserResponse (Core.Maybe Core.Text)
+createUserResponse_userArn :: Lens.Lens' CreateUserResponse (Prelude.Maybe Prelude.Text)
 createUserResponse_userArn = Lens.lens (\CreateUserResponse' {userArn} -> userArn) (\s@CreateUserResponse' {} a -> s {userArn = a} :: CreateUserResponse)
 
 -- | The identifier of the user account.
-createUserResponse_userId :: Lens.Lens' CreateUserResponse (Core.Maybe Core.Text)
+createUserResponse_userId :: Lens.Lens' CreateUserResponse (Prelude.Maybe Prelude.Text)
 createUserResponse_userId = Lens.lens (\CreateUserResponse' {userId} -> userId) (\s@CreateUserResponse' {} a -> s {userId = a} :: CreateUserResponse)
 
 -- | The response's http status code.
-createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Core.Int
+createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Prelude.Int
 createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> httpStatus) (\s@CreateUserResponse' {} a -> s {httpStatus = a} :: CreateUserResponse)
 
-instance Core.NFData CreateUserResponse
+instance Prelude.NFData CreateUserResponse

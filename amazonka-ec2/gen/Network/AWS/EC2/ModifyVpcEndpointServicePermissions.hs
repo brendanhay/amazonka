@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,18 +63,18 @@ data ModifyVpcEndpointServicePermissions = ModifyVpcEndpointServicePermissions'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Names (ARN) of one or more principals. Permissions
     -- are granted to the principals in this list. To grant permissions to all
     -- principals, specify an asterisk (*).
-    addAllowedPrincipals :: Core.Maybe [Core.Text],
+    addAllowedPrincipals :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Names (ARN) of one or more principals. Permissions
     -- are revoked for principals in this list.
-    removeAllowedPrincipals :: Core.Maybe [Core.Text],
+    removeAllowedPrincipals :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the service.
-    serviceId :: Core.Text
+    serviceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcEndpointServicePermissions' with all optional fields omitted.
@@ -98,14 +99,15 @@ data ModifyVpcEndpointServicePermissions = ModifyVpcEndpointServicePermissions'
 -- 'serviceId', 'modifyVpcEndpointServicePermissions_serviceId' - The ID of the service.
 newModifyVpcEndpointServicePermissions ::
   -- | 'serviceId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyVpcEndpointServicePermissions
 newModifyVpcEndpointServicePermissions pServiceId_ =
   ModifyVpcEndpointServicePermissions'
     { dryRun =
-        Core.Nothing,
-      addAllowedPrincipals = Core.Nothing,
-      removeAllowedPrincipals = Core.Nothing,
+        Prelude.Nothing,
+      addAllowedPrincipals = Prelude.Nothing,
+      removeAllowedPrincipals =
+        Prelude.Nothing,
       serviceId = pServiceId_
     }
 
@@ -113,22 +115,22 @@ newModifyVpcEndpointServicePermissions pServiceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpcEndpointServicePermissions_dryRun :: Lens.Lens' ModifyVpcEndpointServicePermissions (Core.Maybe Core.Bool)
+modifyVpcEndpointServicePermissions_dryRun :: Lens.Lens' ModifyVpcEndpointServicePermissions (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServicePermissions_dryRun = Lens.lens (\ModifyVpcEndpointServicePermissions' {dryRun} -> dryRun) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {dryRun = a} :: ModifyVpcEndpointServicePermissions)
 
 -- | The Amazon Resource Names (ARN) of one or more principals. Permissions
 -- are granted to the principals in this list. To grant permissions to all
 -- principals, specify an asterisk (*).
-modifyVpcEndpointServicePermissions_addAllowedPrincipals :: Lens.Lens' ModifyVpcEndpointServicePermissions (Core.Maybe [Core.Text])
-modifyVpcEndpointServicePermissions_addAllowedPrincipals = Lens.lens (\ModifyVpcEndpointServicePermissions' {addAllowedPrincipals} -> addAllowedPrincipals) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {addAllowedPrincipals = a} :: ModifyVpcEndpointServicePermissions) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpointServicePermissions_addAllowedPrincipals :: Lens.Lens' ModifyVpcEndpointServicePermissions (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpointServicePermissions_addAllowedPrincipals = Lens.lens (\ModifyVpcEndpointServicePermissions' {addAllowedPrincipals} -> addAllowedPrincipals) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {addAllowedPrincipals = a} :: ModifyVpcEndpointServicePermissions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Names (ARN) of one or more principals. Permissions
 -- are revoked for principals in this list.
-modifyVpcEndpointServicePermissions_removeAllowedPrincipals :: Lens.Lens' ModifyVpcEndpointServicePermissions (Core.Maybe [Core.Text])
-modifyVpcEndpointServicePermissions_removeAllowedPrincipals = Lens.lens (\ModifyVpcEndpointServicePermissions' {removeAllowedPrincipals} -> removeAllowedPrincipals) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {removeAllowedPrincipals = a} :: ModifyVpcEndpointServicePermissions) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpointServicePermissions_removeAllowedPrincipals :: Lens.Lens' ModifyVpcEndpointServicePermissions (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpointServicePermissions_removeAllowedPrincipals = Lens.lens (\ModifyVpcEndpointServicePermissions' {removeAllowedPrincipals} -> removeAllowedPrincipals) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {removeAllowedPrincipals = a} :: ModifyVpcEndpointServicePermissions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the service.
-modifyVpcEndpointServicePermissions_serviceId :: Lens.Lens' ModifyVpcEndpointServicePermissions Core.Text
+modifyVpcEndpointServicePermissions_serviceId :: Lens.Lens' ModifyVpcEndpointServicePermissions Prelude.Text
 modifyVpcEndpointServicePermissions_serviceId = Lens.lens (\ModifyVpcEndpointServicePermissions' {serviceId} -> serviceId) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {serviceId = a} :: ModifyVpcEndpointServicePermissions)
 
 instance
@@ -143,49 +145,50 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointServicePermissionsResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModifyVpcEndpointServicePermissions
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyVpcEndpointServicePermissions
 
 instance
   Core.ToHeaders
     ModifyVpcEndpointServicePermissions
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ModifyVpcEndpointServicePermissions
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ModifyVpcEndpointServicePermissions
   where
   toQuery ModifyVpcEndpointServicePermissions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ModifyVpcEndpointServicePermissions" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "AddAllowedPrincipals"
-              Core.<$> addAllowedPrincipals
+              Prelude.<$> addAllowedPrincipals
           ),
         Core.toQuery
           ( Core.toQueryList "RemoveAllowedPrincipals"
-              Core.<$> removeAllowedPrincipals
+              Prelude.<$> removeAllowedPrincipals
           ),
         "ServiceId" Core.=: serviceId
       ]
@@ -193,11 +196,11 @@ instance
 -- | /See:/ 'newModifyVpcEndpointServicePermissionsResponse' smart constructor.
 data ModifyVpcEndpointServicePermissionsResponse = ModifyVpcEndpointServicePermissionsResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    returnValue :: Core.Maybe Core.Bool,
+    returnValue :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcEndpointServicePermissionsResponse' with all optional fields omitted.
@@ -212,24 +215,24 @@ data ModifyVpcEndpointServicePermissionsResponse = ModifyVpcEndpointServicePermi
 -- 'httpStatus', 'modifyVpcEndpointServicePermissionsResponse_httpStatus' - The response's http status code.
 newModifyVpcEndpointServicePermissionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyVpcEndpointServicePermissionsResponse
 newModifyVpcEndpointServicePermissionsResponse
   pHttpStatus_ =
     ModifyVpcEndpointServicePermissionsResponse'
       { returnValue =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-modifyVpcEndpointServicePermissionsResponse_returnValue :: Lens.Lens' ModifyVpcEndpointServicePermissionsResponse (Core.Maybe Core.Bool)
+modifyVpcEndpointServicePermissionsResponse_returnValue :: Lens.Lens' ModifyVpcEndpointServicePermissionsResponse (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServicePermissionsResponse_returnValue = Lens.lens (\ModifyVpcEndpointServicePermissionsResponse' {returnValue} -> returnValue) (\s@ModifyVpcEndpointServicePermissionsResponse' {} a -> s {returnValue = a} :: ModifyVpcEndpointServicePermissionsResponse)
 
 -- | The response's http status code.
-modifyVpcEndpointServicePermissionsResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointServicePermissionsResponse Core.Int
+modifyVpcEndpointServicePermissionsResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointServicePermissionsResponse Prelude.Int
 modifyVpcEndpointServicePermissionsResponse_httpStatus = Lens.lens (\ModifyVpcEndpointServicePermissionsResponse' {httpStatus} -> httpStatus) (\s@ModifyVpcEndpointServicePermissionsResponse' {} a -> s {httpStatus = a} :: ModifyVpcEndpointServicePermissionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyVpcEndpointServicePermissionsResponse

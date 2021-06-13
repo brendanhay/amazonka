@@ -83,6 +83,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,9 +93,9 @@ import qualified Network.AWS.Response as Response
 data DescribeFleetPortSettings = DescribeFleetPortSettings'
   { -- | A unique identifier for a fleet to retrieve port settings for. You can
     -- use either the fleet ID or ARN value.
-    fleetId :: Core.Text
+    fleetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeFleetPortSettings' with all optional fields omitted.
@@ -108,14 +109,14 @@ data DescribeFleetPortSettings = DescribeFleetPortSettings'
 -- use either the fleet ID or ARN value.
 newDescribeFleetPortSettings ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeFleetPortSettings
 newDescribeFleetPortSettings pFleetId_ =
   DescribeFleetPortSettings' {fleetId = pFleetId_}
 
 -- | A unique identifier for a fleet to retrieve port settings for. You can
 -- use either the fleet ID or ARN value.
-describeFleetPortSettings_fleetId :: Lens.Lens' DescribeFleetPortSettings Core.Text
+describeFleetPortSettings_fleetId :: Lens.Lens' DescribeFleetPortSettings Prelude.Text
 describeFleetPortSettings_fleetId = Lens.lens (\DescribeFleetPortSettings' {fleetId} -> fleetId) (\s@DescribeFleetPortSettings' {} a -> s {fleetId = a} :: DescribeFleetPortSettings)
 
 instance Core.AWSRequest DescribeFleetPortSettings where
@@ -127,52 +128,54 @@ instance Core.AWSRequest DescribeFleetPortSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetPortSettingsResponse'
-            Core.<$> ( x Core..?> "InboundPermissions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "InboundPermissions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeFleetPortSettings
+instance Prelude.Hashable DescribeFleetPortSettings
 
-instance Core.NFData DescribeFleetPortSettings
+instance Prelude.NFData DescribeFleetPortSettings
 
 instance Core.ToHeaders DescribeFleetPortSettings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DescribeFleetPortSettings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeFleetPortSettings where
   toJSON DescribeFleetPortSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("FleetId" Core..= fleetId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("FleetId" Core..= fleetId)]
       )
 
 instance Core.ToPath DescribeFleetPortSettings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeFleetPortSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newDescribeFleetPortSettingsResponse' smart constructor.
 data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
   { -- | The port settings for the requested fleet ID.
-    inboundPermissions :: Core.Maybe [IpPermission],
+    inboundPermissions :: Prelude.Maybe [IpPermission],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeFleetPortSettingsResponse' with all optional fields omitted.
@@ -187,23 +190,23 @@ data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
 -- 'httpStatus', 'describeFleetPortSettingsResponse_httpStatus' - The response's http status code.
 newDescribeFleetPortSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeFleetPortSettingsResponse
 newDescribeFleetPortSettingsResponse pHttpStatus_ =
   DescribeFleetPortSettingsResponse'
     { inboundPermissions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The port settings for the requested fleet ID.
-describeFleetPortSettingsResponse_inboundPermissions :: Lens.Lens' DescribeFleetPortSettingsResponse (Core.Maybe [IpPermission])
-describeFleetPortSettingsResponse_inboundPermissions = Lens.lens (\DescribeFleetPortSettingsResponse' {inboundPermissions} -> inboundPermissions) (\s@DescribeFleetPortSettingsResponse' {} a -> s {inboundPermissions = a} :: DescribeFleetPortSettingsResponse) Core.. Lens.mapping Lens._Coerce
+describeFleetPortSettingsResponse_inboundPermissions :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe [IpPermission])
+describeFleetPortSettingsResponse_inboundPermissions = Lens.lens (\DescribeFleetPortSettingsResponse' {inboundPermissions} -> inboundPermissions) (\s@DescribeFleetPortSettingsResponse' {} a -> s {inboundPermissions = a} :: DescribeFleetPortSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeFleetPortSettingsResponse_httpStatus :: Lens.Lens' DescribeFleetPortSettingsResponse Core.Int
+describeFleetPortSettingsResponse_httpStatus :: Lens.Lens' DescribeFleetPortSettingsResponse Prelude.Int
 describeFleetPortSettingsResponse_httpStatus = Lens.lens (\DescribeFleetPortSettingsResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetPortSettingsResponse' {} a -> s {httpStatus = a} :: DescribeFleetPortSettingsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeFleetPortSettingsResponse

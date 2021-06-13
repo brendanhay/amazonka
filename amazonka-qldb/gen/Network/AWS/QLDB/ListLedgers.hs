@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,12 +58,12 @@ data ListLedgers = ListLedgers'
     -- of results. If you received a value for @NextToken@ in the response from
     -- a previous @ListLedgers@ call, then you should use that value as input
     -- here.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single @ListLedgers@
     -- request. (The actual number of results returned might be fewer.)
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLedgers' with all optional fields omitted.
@@ -83,20 +84,20 @@ newListLedgers ::
   ListLedgers
 newListLedgers =
   ListLedgers'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A pagination token, indicating that you want to retrieve the next page
 -- of results. If you received a value for @NextToken@ in the response from
 -- a previous @ListLedgers@ call, then you should use that value as input
 -- here.
-listLedgers_nextToken :: Lens.Lens' ListLedgers (Core.Maybe Core.Text)
+listLedgers_nextToken :: Lens.Lens' ListLedgers (Prelude.Maybe Prelude.Text)
 listLedgers_nextToken = Lens.lens (\ListLedgers' {nextToken} -> nextToken) (\s@ListLedgers' {} a -> s {nextToken = a} :: ListLedgers)
 
 -- | The maximum number of results to return in a single @ListLedgers@
 -- request. (The actual number of results returned might be fewer.)
-listLedgers_maxResults :: Lens.Lens' ListLedgers (Core.Maybe Core.Natural)
+listLedgers_maxResults :: Lens.Lens' ListLedgers (Prelude.Maybe Prelude.Natural)
 listLedgers_maxResults = Lens.lens (\ListLedgers' {maxResults} -> maxResults) (\s@ListLedgers' {} a -> s {maxResults = a} :: ListLedgers)
 
 instance Core.AWSRequest ListLedgers where
@@ -106,30 +107,32 @@ instance Core.AWSRequest ListLedgers where
     Response.receiveJSON
       ( \s h x ->
           ListLedgersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Ledgers" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Ledgers" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListLedgers
+instance Prelude.Hashable ListLedgers
 
-instance Core.NFData ListLedgers
+instance Prelude.NFData ListLedgers
 
 instance Core.ToHeaders ListLedgers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListLedgers where
-  toPath = Core.const "/ledgers"
+  toPath = Prelude.const "/ledgers"
 
 instance Core.ToQuery ListLedgers where
   toQuery ListLedgers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "next_token" Core.=: nextToken,
         "max_results" Core.=: maxResults
       ]
@@ -144,14 +147,14 @@ data ListLedgersResponse = ListLedgersResponse'
     -- -   If @NextToken@ is /not/ empty, then there are more results
     --     available. To retrieve the next page of results, use the value of
     --     @NextToken@ in a subsequent @ListLedgers@ call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The array of ledger summaries that are associated with the current AWS
     -- account and Region.
-    ledgers :: Core.Maybe [LedgerSummary],
+    ledgers :: Prelude.Maybe [LedgerSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLedgersResponse' with all optional fields omitted.
@@ -176,12 +179,12 @@ data ListLedgersResponse = ListLedgersResponse'
 -- 'httpStatus', 'listLedgersResponse_httpStatus' - The response's http status code.
 newListLedgersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListLedgersResponse
 newListLedgersResponse pHttpStatus_ =
   ListLedgersResponse'
-    { nextToken = Core.Nothing,
-      ledgers = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      ledgers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -193,16 +196,16 @@ newListLedgersResponse pHttpStatus_ =
 -- -   If @NextToken@ is /not/ empty, then there are more results
 --     available. To retrieve the next page of results, use the value of
 --     @NextToken@ in a subsequent @ListLedgers@ call.
-listLedgersResponse_nextToken :: Lens.Lens' ListLedgersResponse (Core.Maybe Core.Text)
+listLedgersResponse_nextToken :: Lens.Lens' ListLedgersResponse (Prelude.Maybe Prelude.Text)
 listLedgersResponse_nextToken = Lens.lens (\ListLedgersResponse' {nextToken} -> nextToken) (\s@ListLedgersResponse' {} a -> s {nextToken = a} :: ListLedgersResponse)
 
 -- | The array of ledger summaries that are associated with the current AWS
 -- account and Region.
-listLedgersResponse_ledgers :: Lens.Lens' ListLedgersResponse (Core.Maybe [LedgerSummary])
-listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledgers) (\s@ListLedgersResponse' {} a -> s {ledgers = a} :: ListLedgersResponse) Core.. Lens.mapping Lens._Coerce
+listLedgersResponse_ledgers :: Lens.Lens' ListLedgersResponse (Prelude.Maybe [LedgerSummary])
+listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledgers) (\s@ListLedgersResponse' {} a -> s {ledgers = a} :: ListLedgersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listLedgersResponse_httpStatus :: Lens.Lens' ListLedgersResponse Core.Int
+listLedgersResponse_httpStatus :: Lens.Lens' ListLedgersResponse Prelude.Int
 listLedgersResponse_httpStatus = Lens.lens (\ListLedgersResponse' {httpStatus} -> httpStatus) (\s@ListLedgersResponse' {} a -> s {httpStatus = a} :: ListLedgersResponse)
 
-instance Core.NFData ListLedgersResponse
+instance Prelude.NFData ListLedgersResponse

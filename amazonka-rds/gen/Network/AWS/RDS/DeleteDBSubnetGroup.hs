@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -58,9 +59,9 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup'
     -- be default.
     --
     -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Core.Text
+    dbSubnetGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBSubnetGroup' with all optional fields omitted.
@@ -82,7 +83,7 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup'
 -- Example: @mySubnetgroup@
 newDeleteDBSubnetGroup ::
   -- | 'dbSubnetGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDBSubnetGroup
 newDeleteDBSubnetGroup pDBSubnetGroupName_ =
   DeleteDBSubnetGroup'
@@ -100,7 +101,7 @@ newDeleteDBSubnetGroup pDBSubnetGroupName_ =
 -- be default.
 --
 -- Example: @mySubnetgroup@
-deleteDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' DeleteDBSubnetGroup Core.Text
+deleteDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' DeleteDBSubnetGroup Prelude.Text
 deleteDBSubnetGroup_dbSubnetGroupName = Lens.lens (\DeleteDBSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@DeleteDBSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: DeleteDBSubnetGroup)
 
 instance Core.AWSRequest DeleteDBSubnetGroup where
@@ -111,22 +112,23 @@ instance Core.AWSRequest DeleteDBSubnetGroup where
   response =
     Response.receiveNull DeleteDBSubnetGroupResponse'
 
-instance Core.Hashable DeleteDBSubnetGroup
+instance Prelude.Hashable DeleteDBSubnetGroup
 
-instance Core.NFData DeleteDBSubnetGroup
+instance Prelude.NFData DeleteDBSubnetGroup
 
 instance Core.ToHeaders DeleteDBSubnetGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDBSubnetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDBSubnetGroup where
   toQuery DeleteDBSubnetGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBSubnetGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeleteDBSubnetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBSubnetGroupName" Core.=: dbSubnetGroupName
       ]
 
@@ -134,7 +136,7 @@ instance Core.ToQuery DeleteDBSubnetGroup where
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBSubnetGroupResponse' with all optional fields omitted.
@@ -145,4 +147,4 @@ newDeleteDBSubnetGroupResponse ::
 newDeleteDBSubnetGroupResponse =
   DeleteDBSubnetGroupResponse'
 
-instance Core.NFData DeleteDBSubnetGroupResponse
+instance Prelude.NFData DeleteDBSubnetGroupResponse

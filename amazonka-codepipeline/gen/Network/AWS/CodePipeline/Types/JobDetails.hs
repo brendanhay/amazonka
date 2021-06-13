@@ -22,20 +22,21 @@ module Network.AWS.CodePipeline.Types.JobDetails where
 import Network.AWS.CodePipeline.Types.JobData
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the details of a job.
 --
 -- /See:/ 'newJobDetails' smart constructor.
 data JobDetails = JobDetails'
   { -- | The AWS account ID associated with the job.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | Represents other information about a job required for a job worker to
     -- complete the job.
-    data' :: Core.Maybe JobData,
+    data' :: Prelude.Maybe JobData,
     -- | The unique system-generated ID of the job.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobDetails' with all optional fields omitted.
@@ -55,22 +56,22 @@ newJobDetails ::
   JobDetails
 newJobDetails =
   JobDetails'
-    { accountId = Core.Nothing,
-      data' = Core.Nothing,
-      id = Core.Nothing
+    { accountId = Prelude.Nothing,
+      data' = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The AWS account ID associated with the job.
-jobDetails_accountId :: Lens.Lens' JobDetails (Core.Maybe Core.Text)
+jobDetails_accountId :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Text)
 jobDetails_accountId = Lens.lens (\JobDetails' {accountId} -> accountId) (\s@JobDetails' {} a -> s {accountId = a} :: JobDetails)
 
 -- | Represents other information about a job required for a job worker to
 -- complete the job.
-jobDetails_data :: Lens.Lens' JobDetails (Core.Maybe JobData)
+jobDetails_data :: Lens.Lens' JobDetails (Prelude.Maybe JobData)
 jobDetails_data = Lens.lens (\JobDetails' {data'} -> data') (\s@JobDetails' {} a -> s {data' = a} :: JobDetails)
 
 -- | The unique system-generated ID of the job.
-jobDetails_id :: Lens.Lens' JobDetails (Core.Maybe Core.Text)
+jobDetails_id :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Text)
 jobDetails_id = Lens.lens (\JobDetails' {id} -> id) (\s@JobDetails' {} a -> s {id = a} :: JobDetails)
 
 instance Core.FromJSON JobDetails where
@@ -79,11 +80,11 @@ instance Core.FromJSON JobDetails where
       "JobDetails"
       ( \x ->
           JobDetails'
-            Core.<$> (x Core..:? "accountId")
-            Core.<*> (x Core..:? "data")
-            Core.<*> (x Core..:? "id")
+            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<*> (x Core..:? "data")
+            Prelude.<*> (x Core..:? "id")
       )
 
-instance Core.Hashable JobDetails
+instance Prelude.Hashable JobDetails
 
-instance Core.NFData JobDetails
+instance Prelude.NFData JobDetails

@@ -21,6 +21,7 @@ module Network.AWS.CodeCommit.Types.Target where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a target for a pull request.
 --
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 data Target = Target'
   { -- | The branch of the repository where the pull request changes are merged.
     -- Also known as the destination branch.
-    destinationReference :: Core.Maybe Core.Text,
+    destinationReference :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that contains the pull request.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The branch of the repository that contains the changes for the pull
     -- request. Also known as the source branch.
-    sourceReference :: Core.Text
+    sourceReference :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Target' with all optional fields omitted.
@@ -54,43 +55,44 @@ data Target = Target'
 -- request. Also known as the source branch.
 newTarget ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceReference'
-  Core.Text ->
+  Prelude.Text ->
   Target
 newTarget pRepositoryName_ pSourceReference_ =
   Target'
-    { destinationReference = Core.Nothing,
+    { destinationReference = Prelude.Nothing,
       repositoryName = pRepositoryName_,
       sourceReference = pSourceReference_
     }
 
 -- | The branch of the repository where the pull request changes are merged.
 -- Also known as the destination branch.
-target_destinationReference :: Lens.Lens' Target (Core.Maybe Core.Text)
+target_destinationReference :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_destinationReference = Lens.lens (\Target' {destinationReference} -> destinationReference) (\s@Target' {} a -> s {destinationReference = a} :: Target)
 
 -- | The name of the repository that contains the pull request.
-target_repositoryName :: Lens.Lens' Target Core.Text
+target_repositoryName :: Lens.Lens' Target Prelude.Text
 target_repositoryName = Lens.lens (\Target' {repositoryName} -> repositoryName) (\s@Target' {} a -> s {repositoryName = a} :: Target)
 
 -- | The branch of the repository that contains the changes for the pull
 -- request. Also known as the source branch.
-target_sourceReference :: Lens.Lens' Target Core.Text
+target_sourceReference :: Lens.Lens' Target Prelude.Text
 target_sourceReference = Lens.lens (\Target' {sourceReference} -> sourceReference) (\s@Target' {} a -> s {sourceReference = a} :: Target)
 
-instance Core.Hashable Target
+instance Prelude.Hashable Target
 
-instance Core.NFData Target
+instance Prelude.NFData Target
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("destinationReference" Core..=)
-              Core.<$> destinationReference,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just
+              Prelude.<$> destinationReference,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just
               ("sourceReference" Core..= sourceReference)
           ]
       )

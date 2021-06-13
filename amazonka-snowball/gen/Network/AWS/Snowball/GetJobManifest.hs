@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -67,9 +68,9 @@ import Network.AWS.Snowball.Types
 data GetJobManifest = GetJobManifest'
   { -- | The ID for a job that you want to get the manifest file for, for example
     -- @JID123e4567-e89b-12d3-a456-426655440000@.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJobManifest' with all optional fields omitted.
@@ -83,14 +84,14 @@ data GetJobManifest = GetJobManifest'
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
 newGetJobManifest ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   GetJobManifest
 newGetJobManifest pJobId_ =
   GetJobManifest' {jobId = pJobId_}
 
 -- | The ID for a job that you want to get the manifest file for, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
-getJobManifest_jobId :: Lens.Lens' GetJobManifest Core.Text
+getJobManifest_jobId :: Lens.Lens' GetJobManifest Prelude.Text
 getJobManifest_jobId = Lens.lens (\GetJobManifest' {jobId} -> jobId) (\s@GetJobManifest' {} a -> s {jobId = a} :: GetJobManifest)
 
 instance Core.AWSRequest GetJobManifest where
@@ -102,47 +103,51 @@ instance Core.AWSRequest GetJobManifest where
     Response.receiveJSON
       ( \s h x ->
           GetJobManifestResponse'
-            Core.<$> (x Core..?> "ManifestURI")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ManifestURI")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetJobManifest
+instance Prelude.Hashable GetJobManifest
 
-instance Core.NFData GetJobManifest
+instance Prelude.NFData GetJobManifest
 
 instance Core.ToHeaders GetJobManifest where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.GetJobManifest" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetJobManifest where
   toJSON GetJobManifest' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
 instance Core.ToPath GetJobManifest where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetJobManifest where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetJobManifestResponse' smart constructor.
 data GetJobManifestResponse = GetJobManifestResponse'
   { -- | The Amazon S3 presigned URL for the manifest file associated with the
     -- specified @JobId@ value.
-    manifestURI :: Core.Maybe Core.Text,
+    manifestURI :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetJobManifestResponse' with all optional fields omitted.
@@ -158,21 +163,22 @@ data GetJobManifestResponse = GetJobManifestResponse'
 -- 'httpStatus', 'getJobManifestResponse_httpStatus' - The response's http status code.
 newGetJobManifestResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetJobManifestResponse
 newGetJobManifestResponse pHttpStatus_ =
   GetJobManifestResponse'
-    { manifestURI = Core.Nothing,
+    { manifestURI =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon S3 presigned URL for the manifest file associated with the
 -- specified @JobId@ value.
-getJobManifestResponse_manifestURI :: Lens.Lens' GetJobManifestResponse (Core.Maybe Core.Text)
+getJobManifestResponse_manifestURI :: Lens.Lens' GetJobManifestResponse (Prelude.Maybe Prelude.Text)
 getJobManifestResponse_manifestURI = Lens.lens (\GetJobManifestResponse' {manifestURI} -> manifestURI) (\s@GetJobManifestResponse' {} a -> s {manifestURI = a} :: GetJobManifestResponse)
 
 -- | The response's http status code.
-getJobManifestResponse_httpStatus :: Lens.Lens' GetJobManifestResponse Core.Int
+getJobManifestResponse_httpStatus :: Lens.Lens' GetJobManifestResponse Prelude.Int
 getJobManifestResponse_httpStatus = Lens.lens (\GetJobManifestResponse' {httpStatus} -> httpStatus) (\s@GetJobManifestResponse' {} a -> s {httpStatus = a} :: GetJobManifestResponse)
 
-instance Core.NFData GetJobManifestResponse
+instance Prelude.NFData GetJobManifestResponse

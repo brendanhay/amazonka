@@ -22,6 +22,7 @@ module Network.AWS.Greengrass.Types.ResourceAccessPolicy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Permission
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A policy used by the function to access a resource.
 --
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data ResourceAccessPolicy = ResourceAccessPolicy'
   { -- | The permissions that the Lambda function has to the resource. Can be one
     -- of \'\'rw\'\' (read\/write) or \'\'ro\'\' (read-only).
-    permission :: Core.Maybe Permission,
+    permission :: Prelude.Maybe Permission,
     -- | The ID of the resource. (This ID is assigned to the resource when you
     -- create the resource definiton.)
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceAccessPolicy' with all optional fields omitted.
@@ -51,22 +52,22 @@ data ResourceAccessPolicy = ResourceAccessPolicy'
 -- create the resource definiton.)
 newResourceAccessPolicy ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   ResourceAccessPolicy
 newResourceAccessPolicy pResourceId_ =
   ResourceAccessPolicy'
-    { permission = Core.Nothing,
+    { permission = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
 -- | The permissions that the Lambda function has to the resource. Can be one
 -- of \'\'rw\'\' (read\/write) or \'\'ro\'\' (read-only).
-resourceAccessPolicy_permission :: Lens.Lens' ResourceAccessPolicy (Core.Maybe Permission)
+resourceAccessPolicy_permission :: Lens.Lens' ResourceAccessPolicy (Prelude.Maybe Permission)
 resourceAccessPolicy_permission = Lens.lens (\ResourceAccessPolicy' {permission} -> permission) (\s@ResourceAccessPolicy' {} a -> s {permission = a} :: ResourceAccessPolicy)
 
 -- | The ID of the resource. (This ID is assigned to the resource when you
 -- create the resource definiton.)
-resourceAccessPolicy_resourceId :: Lens.Lens' ResourceAccessPolicy Core.Text
+resourceAccessPolicy_resourceId :: Lens.Lens' ResourceAccessPolicy Prelude.Text
 resourceAccessPolicy_resourceId = Lens.lens (\ResourceAccessPolicy' {resourceId} -> resourceId) (\s@ResourceAccessPolicy' {} a -> s {resourceId = a} :: ResourceAccessPolicy)
 
 instance Core.FromJSON ResourceAccessPolicy where
@@ -75,19 +76,19 @@ instance Core.FromJSON ResourceAccessPolicy where
       "ResourceAccessPolicy"
       ( \x ->
           ResourceAccessPolicy'
-            Core.<$> (x Core..:? "Permission")
-            Core.<*> (x Core..: "ResourceId")
+            Prelude.<$> (x Core..:? "Permission")
+            Prelude.<*> (x Core..: "ResourceId")
       )
 
-instance Core.Hashable ResourceAccessPolicy
+instance Prelude.Hashable ResourceAccessPolicy
 
-instance Core.NFData ResourceAccessPolicy
+instance Prelude.NFData ResourceAccessPolicy
 
 instance Core.ToJSON ResourceAccessPolicy where
   toJSON ResourceAccessPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Permission" Core..=) Core.<$> permission,
-            Core.Just ("ResourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ ("Permission" Core..=) Prelude.<$> permission,
+            Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )

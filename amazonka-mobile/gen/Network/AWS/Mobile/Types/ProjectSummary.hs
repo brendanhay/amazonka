@@ -21,17 +21,18 @@ module Network.AWS.Mobile.Types.ProjectSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about an AWS Mobile Hub project.
 --
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
   { -- | Unique project identifier.
-    projectId :: Core.Maybe Core.Text,
+    projectId :: Prelude.Maybe Prelude.Text,
     -- | Name of the project.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProjectSummary' with all optional fields omitted.
@@ -48,16 +49,16 @@ newProjectSummary ::
   ProjectSummary
 newProjectSummary =
   ProjectSummary'
-    { projectId = Core.Nothing,
-      name = Core.Nothing
+    { projectId = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | Unique project identifier.
-projectSummary_projectId :: Lens.Lens' ProjectSummary (Core.Maybe Core.Text)
+projectSummary_projectId :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
 projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
 -- | Name of the project.
-projectSummary_name :: Lens.Lens' ProjectSummary (Core.Maybe Core.Text)
+projectSummary_name :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
 projectSummary_name = Lens.lens (\ProjectSummary' {name} -> name) (\s@ProjectSummary' {} a -> s {name = a} :: ProjectSummary)
 
 instance Core.FromJSON ProjectSummary where
@@ -66,10 +67,10 @@ instance Core.FromJSON ProjectSummary where
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Core.<$> (x Core..:? "projectId")
-            Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "projectId")
+            Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable ProjectSummary
+instance Prelude.Hashable ProjectSummary
 
-instance Core.NFData ProjectSummary
+instance Prelude.NFData ProjectSummary

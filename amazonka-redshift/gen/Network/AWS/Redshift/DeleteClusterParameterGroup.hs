@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -54,9 +55,9 @@ data DeleteClusterParameterGroup = DeleteClusterParameterGroup'
     -- -   Must be the name of an existing cluster parameter group.
     --
     -- -   Cannot delete a default cluster parameter group.
-    parameterGroupName :: Core.Text
+    parameterGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterParameterGroup' with all optional fields omitted.
@@ -75,7 +76,7 @@ data DeleteClusterParameterGroup = DeleteClusterParameterGroup'
 -- -   Cannot delete a default cluster parameter group.
 newDeleteClusterParameterGroup ::
   -- | 'parameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteClusterParameterGroup
 newDeleteClusterParameterGroup pParameterGroupName_ =
   DeleteClusterParameterGroup'
@@ -90,7 +91,7 @@ newDeleteClusterParameterGroup pParameterGroupName_ =
 -- -   Must be the name of an existing cluster parameter group.
 --
 -- -   Cannot delete a default cluster parameter group.
-deleteClusterParameterGroup_parameterGroupName :: Lens.Lens' DeleteClusterParameterGroup Core.Text
+deleteClusterParameterGroup_parameterGroupName :: Lens.Lens' DeleteClusterParameterGroup Prelude.Text
 deleteClusterParameterGroup_parameterGroupName = Lens.lens (\DeleteClusterParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@DeleteClusterParameterGroup' {} a -> s {parameterGroupName = a} :: DeleteClusterParameterGroup)
 
 instance Core.AWSRequest DeleteClusterParameterGroup where
@@ -102,22 +103,25 @@ instance Core.AWSRequest DeleteClusterParameterGroup where
     Response.receiveNull
       DeleteClusterParameterGroupResponse'
 
-instance Core.Hashable DeleteClusterParameterGroup
+instance Prelude.Hashable DeleteClusterParameterGroup
 
-instance Core.NFData DeleteClusterParameterGroup
+instance Prelude.NFData DeleteClusterParameterGroup
 
 instance Core.ToHeaders DeleteClusterParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteClusterParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteClusterParameterGroup where
   toQuery DeleteClusterParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteClusterParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ( "DeleteClusterParameterGroup" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ParameterGroupName" Core.=: parameterGroupName
       ]
 
@@ -125,7 +129,7 @@ instance Core.ToQuery DeleteClusterParameterGroup where
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterParameterGroupResponse' with all optional fields omitted.
@@ -137,5 +141,5 @@ newDeleteClusterParameterGroupResponse =
   DeleteClusterParameterGroupResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteClusterParameterGroupResponse

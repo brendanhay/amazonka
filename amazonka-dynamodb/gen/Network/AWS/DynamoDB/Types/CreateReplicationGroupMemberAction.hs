@@ -23,26 +23,27 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
 import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a replica to be created.
 --
 -- /See:/ 'newCreateReplicationGroupMemberAction' smart constructor.
 data CreateReplicationGroupMemberAction = CreateReplicationGroupMemberAction'
   { -- | Replica-specific global secondary index settings.
-    globalSecondaryIndexes :: Core.Maybe (Core.NonEmpty ReplicaGlobalSecondaryIndex),
+    globalSecondaryIndexes :: Prelude.Maybe (Prelude.NonEmpty ReplicaGlobalSecondaryIndex),
     -- | Replica-specific provisioned throughput. If not specified, uses the
     -- source table\'s provisioned throughput settings.
-    provisionedThroughputOverride :: Core.Maybe ProvisionedThroughputOverride,
+    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughputOverride,
     -- | The AWS KMS customer master key (CMK) that should be used for AWS KMS
     -- encryption in the new replica. To specify a CMK, use its key ID, Amazon
     -- Resource Name (ARN), alias name, or alias ARN. Note that you should only
     -- provide this parameter if the key is different from the default DynamoDB
     -- KMS master key alias\/aws\/dynamodb.
-    kmsMasterKeyId :: Core.Maybe Core.Text,
+    kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Region where the new replica will be created.
-    regionName :: Core.Text
+    regionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReplicationGroupMemberAction' with all optional fields omitted.
@@ -66,25 +67,25 @@ data CreateReplicationGroupMemberAction = CreateReplicationGroupMemberAction'
 -- 'regionName', 'createReplicationGroupMemberAction_regionName' - The Region where the new replica will be created.
 newCreateReplicationGroupMemberAction ::
   -- | 'regionName'
-  Core.Text ->
+  Prelude.Text ->
   CreateReplicationGroupMemberAction
 newCreateReplicationGroupMemberAction pRegionName_ =
   CreateReplicationGroupMemberAction'
     { globalSecondaryIndexes =
-        Core.Nothing,
+        Prelude.Nothing,
       provisionedThroughputOverride =
-        Core.Nothing,
-      kmsMasterKeyId = Core.Nothing,
+        Prelude.Nothing,
+      kmsMasterKeyId = Prelude.Nothing,
       regionName = pRegionName_
     }
 
 -- | Replica-specific global secondary index settings.
-createReplicationGroupMemberAction_globalSecondaryIndexes :: Lens.Lens' CreateReplicationGroupMemberAction (Core.Maybe (Core.NonEmpty ReplicaGlobalSecondaryIndex))
-createReplicationGroupMemberAction_globalSecondaryIndexes = Lens.lens (\CreateReplicationGroupMemberAction' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@CreateReplicationGroupMemberAction' {} a -> s {globalSecondaryIndexes = a} :: CreateReplicationGroupMemberAction) Core.. Lens.mapping Lens._Coerce
+createReplicationGroupMemberAction_globalSecondaryIndexes :: Lens.Lens' CreateReplicationGroupMemberAction (Prelude.Maybe (Prelude.NonEmpty ReplicaGlobalSecondaryIndex))
+createReplicationGroupMemberAction_globalSecondaryIndexes = Lens.lens (\CreateReplicationGroupMemberAction' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@CreateReplicationGroupMemberAction' {} a -> s {globalSecondaryIndexes = a} :: CreateReplicationGroupMemberAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Replica-specific provisioned throughput. If not specified, uses the
 -- source table\'s provisioned throughput settings.
-createReplicationGroupMemberAction_provisionedThroughputOverride :: Lens.Lens' CreateReplicationGroupMemberAction (Core.Maybe ProvisionedThroughputOverride)
+createReplicationGroupMemberAction_provisionedThroughputOverride :: Lens.Lens' CreateReplicationGroupMemberAction (Prelude.Maybe ProvisionedThroughputOverride)
 createReplicationGroupMemberAction_provisionedThroughputOverride = Lens.lens (\CreateReplicationGroupMemberAction' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@CreateReplicationGroupMemberAction' {} a -> s {provisionedThroughputOverride = a} :: CreateReplicationGroupMemberAction)
 
 -- | The AWS KMS customer master key (CMK) that should be used for AWS KMS
@@ -92,19 +93,19 @@ createReplicationGroupMemberAction_provisionedThroughputOverride = Lens.lens (\C
 -- Resource Name (ARN), alias name, or alias ARN. Note that you should only
 -- provide this parameter if the key is different from the default DynamoDB
 -- KMS master key alias\/aws\/dynamodb.
-createReplicationGroupMemberAction_kmsMasterKeyId :: Lens.Lens' CreateReplicationGroupMemberAction (Core.Maybe Core.Text)
+createReplicationGroupMemberAction_kmsMasterKeyId :: Lens.Lens' CreateReplicationGroupMemberAction (Prelude.Maybe Prelude.Text)
 createReplicationGroupMemberAction_kmsMasterKeyId = Lens.lens (\CreateReplicationGroupMemberAction' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@CreateReplicationGroupMemberAction' {} a -> s {kmsMasterKeyId = a} :: CreateReplicationGroupMemberAction)
 
 -- | The Region where the new replica will be created.
-createReplicationGroupMemberAction_regionName :: Lens.Lens' CreateReplicationGroupMemberAction Core.Text
+createReplicationGroupMemberAction_regionName :: Lens.Lens' CreateReplicationGroupMemberAction Prelude.Text
 createReplicationGroupMemberAction_regionName = Lens.lens (\CreateReplicationGroupMemberAction' {regionName} -> regionName) (\s@CreateReplicationGroupMemberAction' {} a -> s {regionName = a} :: CreateReplicationGroupMemberAction)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateReplicationGroupMemberAction
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateReplicationGroupMemberAction
 
 instance
@@ -113,12 +114,13 @@ instance
   where
   toJSON CreateReplicationGroupMemberAction' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("GlobalSecondaryIndexes" Core..=)
-              Core.<$> globalSecondaryIndexes,
+              Prelude.<$> globalSecondaryIndexes,
             ("ProvisionedThroughputOverride" Core..=)
-              Core.<$> provisionedThroughputOverride,
-            ("KMSMasterKeyId" Core..=) Core.<$> kmsMasterKeyId,
-            Core.Just ("RegionName" Core..= regionName)
+              Prelude.<$> provisionedThroughputOverride,
+            ("KMSMasterKeyId" Core..=)
+              Prelude.<$> kmsMasterKeyId,
+            Prelude.Just ("RegionName" Core..= regionName)
           ]
       )

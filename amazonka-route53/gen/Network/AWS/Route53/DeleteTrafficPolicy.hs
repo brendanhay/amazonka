@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -63,11 +64,11 @@ import Network.AWS.Route53.Types
 -- /See:/ 'newDeleteTrafficPolicy' smart constructor.
 data DeleteTrafficPolicy = DeleteTrafficPolicy'
   { -- | The ID of the traffic policy that you want to delete.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The version number of the traffic policy that you want to delete.
-    version :: Core.Natural
+    version :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTrafficPolicy' with all optional fields omitted.
@@ -82,9 +83,9 @@ data DeleteTrafficPolicy = DeleteTrafficPolicy'
 -- 'version', 'deleteTrafficPolicy_version' - The version number of the traffic policy that you want to delete.
 newDeleteTrafficPolicy ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Natural ->
+  Prelude.Natural ->
   DeleteTrafficPolicy
 newDeleteTrafficPolicy pId_ pVersion_ =
   DeleteTrafficPolicy'
@@ -93,11 +94,11 @@ newDeleteTrafficPolicy pId_ pVersion_ =
     }
 
 -- | The ID of the traffic policy that you want to delete.
-deleteTrafficPolicy_id :: Lens.Lens' DeleteTrafficPolicy Core.Text
+deleteTrafficPolicy_id :: Lens.Lens' DeleteTrafficPolicy Prelude.Text
 deleteTrafficPolicy_id = Lens.lens (\DeleteTrafficPolicy' {id} -> id) (\s@DeleteTrafficPolicy' {} a -> s {id = a} :: DeleteTrafficPolicy)
 
 -- | The version number of the traffic policy that you want to delete.
-deleteTrafficPolicy_version :: Lens.Lens' DeleteTrafficPolicy Core.Natural
+deleteTrafficPolicy_version :: Lens.Lens' DeleteTrafficPolicy Prelude.Natural
 deleteTrafficPolicy_version = Lens.lens (\DeleteTrafficPolicy' {version} -> version) (\s@DeleteTrafficPolicy' {} a -> s {version = a} :: DeleteTrafficPolicy)
 
 instance Core.AWSRequest DeleteTrafficPolicy where
@@ -109,19 +110,19 @@ instance Core.AWSRequest DeleteTrafficPolicy where
     Response.receiveEmpty
       ( \s h x ->
           DeleteTrafficPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTrafficPolicy
+instance Prelude.Hashable DeleteTrafficPolicy
 
-instance Core.NFData DeleteTrafficPolicy
+instance Prelude.NFData DeleteTrafficPolicy
 
 instance Core.ToHeaders DeleteTrafficPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTrafficPolicy where
   toPath DeleteTrafficPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2013-04-01/trafficpolicy/",
         Core.toBS id,
         "/",
@@ -129,16 +130,16 @@ instance Core.ToPath DeleteTrafficPolicy where
       ]
 
 instance Core.ToQuery DeleteTrafficPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | An empty element.
 --
 -- /See:/ 'newDeleteTrafficPolicyResponse' smart constructor.
 data DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTrafficPolicyResponse' with all optional fields omitted.
@@ -151,7 +152,7 @@ data DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
 -- 'httpStatus', 'deleteTrafficPolicyResponse_httpStatus' - The response's http status code.
 newDeleteTrafficPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTrafficPolicyResponse
 newDeleteTrafficPolicyResponse pHttpStatus_ =
   DeleteTrafficPolicyResponse'
@@ -160,7 +161,7 @@ newDeleteTrafficPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTrafficPolicyResponse_httpStatus :: Lens.Lens' DeleteTrafficPolicyResponse Core.Int
+deleteTrafficPolicyResponse_httpStatus :: Lens.Lens' DeleteTrafficPolicyResponse Prelude.Int
 deleteTrafficPolicyResponse_httpStatus = Lens.lens (\DeleteTrafficPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteTrafficPolicyResponse' {} a -> s {httpStatus = a} :: DeleteTrafficPolicyResponse)
 
-instance Core.NFData DeleteTrafficPolicyResponse
+instance Prelude.NFData DeleteTrafficPolicyResponse

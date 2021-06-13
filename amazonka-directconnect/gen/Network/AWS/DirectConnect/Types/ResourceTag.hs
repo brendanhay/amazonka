@@ -22,17 +22,18 @@ module Network.AWS.DirectConnect.Types.ResourceTag where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a tag associated with an AWS Direct Connect resource.
 --
 -- /See:/ 'newResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Core.Maybe Core.Text,
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The tags.
-    tags :: Core.Maybe (Core.NonEmpty Tag)
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceTag' with all optional fields omitted.
@@ -49,17 +50,17 @@ newResourceTag ::
   ResourceTag
 newResourceTag =
   ResourceTag'
-    { resourceArn = Core.Nothing,
-      tags = Core.Nothing
+    { resourceArn = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
-resourceTag_resourceArn :: Lens.Lens' ResourceTag (Core.Maybe Core.Text)
+resourceTag_resourceArn :: Lens.Lens' ResourceTag (Prelude.Maybe Prelude.Text)
 resourceTag_resourceArn = Lens.lens (\ResourceTag' {resourceArn} -> resourceArn) (\s@ResourceTag' {} a -> s {resourceArn = a} :: ResourceTag)
 
 -- | The tags.
-resourceTag_tags :: Lens.Lens' ResourceTag (Core.Maybe (Core.NonEmpty Tag))
-resourceTag_tags = Lens.lens (\ResourceTag' {tags} -> tags) (\s@ResourceTag' {} a -> s {tags = a} :: ResourceTag) Core.. Lens.mapping Lens._Coerce
+resourceTag_tags :: Lens.Lens' ResourceTag (Prelude.Maybe (Prelude.NonEmpty Tag))
+resourceTag_tags = Lens.lens (\ResourceTag' {tags} -> tags) (\s@ResourceTag' {} a -> s {tags = a} :: ResourceTag) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ResourceTag where
   parseJSON =
@@ -67,10 +68,10 @@ instance Core.FromJSON ResourceTag where
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Core.<$> (x Core..:? "resourceArn")
-            Core.<*> (x Core..:? "tags")
+            Prelude.<$> (x Core..:? "resourceArn")
+            Prelude.<*> (x Core..:? "tags")
       )
 
-instance Core.Hashable ResourceTag
+instance Prelude.Hashable ResourceTag
 
-instance Core.NFData ResourceTag
+instance Prelude.NFData ResourceTag

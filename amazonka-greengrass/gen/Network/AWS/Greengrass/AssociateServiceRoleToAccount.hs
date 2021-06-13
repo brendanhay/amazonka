@@ -46,15 +46,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateServiceRoleToAccount' smart constructor.
 data AssociateServiceRoleToAccount = AssociateServiceRoleToAccount'
   { -- | The ARN of the service role you wish to associate with your account.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateServiceRoleToAccount' with all optional fields omitted.
@@ -67,13 +68,13 @@ data AssociateServiceRoleToAccount = AssociateServiceRoleToAccount'
 -- 'roleArn', 'associateServiceRoleToAccount_roleArn' - The ARN of the service role you wish to associate with your account.
 newAssociateServiceRoleToAccount ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   AssociateServiceRoleToAccount
 newAssociateServiceRoleToAccount pRoleArn_ =
   AssociateServiceRoleToAccount' {roleArn = pRoleArn_}
 
 -- | The ARN of the service role you wish to associate with your account.
-associateServiceRoleToAccount_roleArn :: Lens.Lens' AssociateServiceRoleToAccount Core.Text
+associateServiceRoleToAccount_roleArn :: Lens.Lens' AssociateServiceRoleToAccount Prelude.Text
 associateServiceRoleToAccount_roleArn = Lens.lens (\AssociateServiceRoleToAccount' {roleArn} -> roleArn) (\s@AssociateServiceRoleToAccount' {} a -> s {roleArn = a} :: AssociateServiceRoleToAccount)
 
 instance
@@ -88,44 +89,48 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateServiceRoleToAccountResponse'
-            Core.<$> (x Core..?> "AssociatedAt")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AssociatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateServiceRoleToAccount
+instance
+  Prelude.Hashable
+    AssociateServiceRoleToAccount
 
-instance Core.NFData AssociateServiceRoleToAccount
+instance Prelude.NFData AssociateServiceRoleToAccount
 
 instance Core.ToHeaders AssociateServiceRoleToAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateServiceRoleToAccount where
   toJSON AssociateServiceRoleToAccount' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RoleArn" Core..= roleArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RoleArn" Core..= roleArn)]
       )
 
 instance Core.ToPath AssociateServiceRoleToAccount where
-  toPath = Core.const "/greengrass/servicerole"
+  toPath = Prelude.const "/greengrass/servicerole"
 
 instance Core.ToQuery AssociateServiceRoleToAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateServiceRoleToAccountResponse' smart constructor.
 data AssociateServiceRoleToAccountResponse = AssociateServiceRoleToAccountResponse'
   { -- | The time when the service role was associated with the account.
-    associatedAt :: Core.Maybe Core.Text,
+    associatedAt :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateServiceRoleToAccountResponse' with all optional fields omitted.
@@ -140,23 +145,23 @@ data AssociateServiceRoleToAccountResponse = AssociateServiceRoleToAccountRespon
 -- 'httpStatus', 'associateServiceRoleToAccountResponse_httpStatus' - The response's http status code.
 newAssociateServiceRoleToAccountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateServiceRoleToAccountResponse
 newAssociateServiceRoleToAccountResponse pHttpStatus_ =
   AssociateServiceRoleToAccountResponse'
     { associatedAt =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time when the service role was associated with the account.
-associateServiceRoleToAccountResponse_associatedAt :: Lens.Lens' AssociateServiceRoleToAccountResponse (Core.Maybe Core.Text)
+associateServiceRoleToAccountResponse_associatedAt :: Lens.Lens' AssociateServiceRoleToAccountResponse (Prelude.Maybe Prelude.Text)
 associateServiceRoleToAccountResponse_associatedAt = Lens.lens (\AssociateServiceRoleToAccountResponse' {associatedAt} -> associatedAt) (\s@AssociateServiceRoleToAccountResponse' {} a -> s {associatedAt = a} :: AssociateServiceRoleToAccountResponse)
 
 -- | The response's http status code.
-associateServiceRoleToAccountResponse_httpStatus :: Lens.Lens' AssociateServiceRoleToAccountResponse Core.Int
+associateServiceRoleToAccountResponse_httpStatus :: Lens.Lens' AssociateServiceRoleToAccountResponse Prelude.Int
 associateServiceRoleToAccountResponse_httpStatus = Lens.lens (\AssociateServiceRoleToAccountResponse' {httpStatus} -> httpStatus) (\s@AssociateServiceRoleToAccountResponse' {} a -> s {httpStatus = a} :: AssociateServiceRoleToAccountResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateServiceRoleToAccountResponse

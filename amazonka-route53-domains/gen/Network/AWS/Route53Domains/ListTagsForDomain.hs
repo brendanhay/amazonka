@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -54,9 +55,9 @@ import Network.AWS.Route53Domains.Types
 -- /See:/ 'newListTagsForDomain' smart constructor.
 data ListTagsForDomain = ListTagsForDomain'
   { -- | The domain for which you want to get a list of tags.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForDomain' with all optional fields omitted.
@@ -69,13 +70,13 @@ data ListTagsForDomain = ListTagsForDomain'
 -- 'domainName', 'listTagsForDomain_domainName' - The domain for which you want to get a list of tags.
 newListTagsForDomain ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForDomain
 newListTagsForDomain pDomainName_ =
   ListTagsForDomain' {domainName = pDomainName_}
 
 -- | The domain for which you want to get a list of tags.
-listTagsForDomain_domainName :: Lens.Lens' ListTagsForDomain Core.Text
+listTagsForDomain_domainName :: Lens.Lens' ListTagsForDomain Prelude.Text
 listTagsForDomain_domainName = Lens.lens (\ListTagsForDomain' {domainName} -> domainName) (\s@ListTagsForDomain' {} a -> s {domainName = a} :: ListTagsForDomain)
 
 instance Core.AWSRequest ListTagsForDomain where
@@ -87,50 +88,52 @@ instance Core.AWSRequest ListTagsForDomain where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForDomainResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "TagList" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "TagList" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListTagsForDomain
+instance Prelude.Hashable ListTagsForDomain
 
-instance Core.NFData ListTagsForDomain
+instance Prelude.NFData ListTagsForDomain
 
 instance Core.ToHeaders ListTagsForDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.ListTagsForDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsForDomain where
   toJSON ListTagsForDomain' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("DomainName" Core..= domainName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("DomainName" Core..= domainName)]
       )
 
 instance Core.ToPath ListTagsForDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsForDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The ListTagsForDomain response includes the following elements.
 --
 -- /See:/ 'newListTagsForDomainResponse' smart constructor.
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of the tags that are associated with the specified domain.
     tagList :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForDomainResponse' with all optional fields omitted.
@@ -145,21 +148,21 @@ data ListTagsForDomainResponse = ListTagsForDomainResponse'
 -- 'tagList', 'listTagsForDomainResponse_tagList' - A list of the tags that are associated with the specified domain.
 newListTagsForDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsForDomainResponse
 newListTagsForDomainResponse pHttpStatus_ =
   ListTagsForDomainResponse'
     { httpStatus =
         pHttpStatus_,
-      tagList = Core.mempty
+      tagList = Prelude.mempty
     }
 
 -- | The response's http status code.
-listTagsForDomainResponse_httpStatus :: Lens.Lens' ListTagsForDomainResponse Core.Int
+listTagsForDomainResponse_httpStatus :: Lens.Lens' ListTagsForDomainResponse Prelude.Int
 listTagsForDomainResponse_httpStatus = Lens.lens (\ListTagsForDomainResponse' {httpStatus} -> httpStatus) (\s@ListTagsForDomainResponse' {} a -> s {httpStatus = a} :: ListTagsForDomainResponse)
 
 -- | A list of the tags that are associated with the specified domain.
 listTagsForDomainResponse_tagList :: Lens.Lens' ListTagsForDomainResponse [Tag]
-listTagsForDomainResponse_tagList = Lens.lens (\ListTagsForDomainResponse' {tagList} -> tagList) (\s@ListTagsForDomainResponse' {} a -> s {tagList = a} :: ListTagsForDomainResponse) Core.. Lens._Coerce
+listTagsForDomainResponse_tagList = Lens.lens (\ListTagsForDomainResponse' {tagList} -> tagList) (\s@ListTagsForDomainResponse' {} a -> s {tagList = a} :: ListTagsForDomainResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListTagsForDomainResponse
+instance Prelude.NFData ListTagsForDomainResponse

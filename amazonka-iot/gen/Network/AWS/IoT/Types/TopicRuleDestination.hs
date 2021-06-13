@@ -24,6 +24,7 @@ import Network.AWS.IoT.Types.HttpUrlDestinationProperties
 import Network.AWS.IoT.Types.TopicRuleDestinationStatus
 import Network.AWS.IoT.Types.VpcDestinationProperties
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A topic rule destination.
 --
@@ -55,22 +56,22 @@ data TopicRuleDestination = TopicRuleDestination'
     --     @UpdateTopicRuleDestination@. Calling @UpdateTopicRuleDestination@
     --     causes a new confirmation challenge to be sent to your confirmation
     --     endpoint.
-    status :: Core.Maybe TopicRuleDestinationStatus,
+    status :: Prelude.Maybe TopicRuleDestinationStatus,
     -- | The date and time when the topic rule destination was created.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The topic rule destination URL.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Properties of the virtual private cloud (VPC) connection.
-    vpcProperties :: Core.Maybe VpcDestinationProperties,
+    vpcProperties :: Prelude.Maybe VpcDestinationProperties,
     -- | Additional details or reason why the topic rule destination is in the
     -- current status.
-    statusReason :: Core.Maybe Core.Text,
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | Properties of the HTTP URL.
-    httpUrlProperties :: Core.Maybe HttpUrlDestinationProperties,
+    httpUrlProperties :: Prelude.Maybe HttpUrlDestinationProperties,
     -- | The date and time when the topic rule destination was last updated.
-    lastUpdatedAt :: Core.Maybe Core.POSIX
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TopicRuleDestination' with all optional fields omitted.
@@ -123,13 +124,13 @@ newTopicRuleDestination ::
   TopicRuleDestination
 newTopicRuleDestination =
   TopicRuleDestination'
-    { status = Core.Nothing,
-      createdAt = Core.Nothing,
-      arn = Core.Nothing,
-      vpcProperties = Core.Nothing,
-      statusReason = Core.Nothing,
-      httpUrlProperties = Core.Nothing,
-      lastUpdatedAt = Core.Nothing
+    { status = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      vpcProperties = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
+      httpUrlProperties = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing
     }
 
 -- | The status of the topic rule destination. Valid values are:
@@ -158,33 +159,33 @@ newTopicRuleDestination =
 --     @UpdateTopicRuleDestination@. Calling @UpdateTopicRuleDestination@
 --     causes a new confirmation challenge to be sent to your confirmation
 --     endpoint.
-topicRuleDestination_status :: Lens.Lens' TopicRuleDestination (Core.Maybe TopicRuleDestinationStatus)
+topicRuleDestination_status :: Lens.Lens' TopicRuleDestination (Prelude.Maybe TopicRuleDestinationStatus)
 topicRuleDestination_status = Lens.lens (\TopicRuleDestination' {status} -> status) (\s@TopicRuleDestination' {} a -> s {status = a} :: TopicRuleDestination)
 
 -- | The date and time when the topic rule destination was created.
-topicRuleDestination_createdAt :: Lens.Lens' TopicRuleDestination (Core.Maybe Core.UTCTime)
-topicRuleDestination_createdAt = Lens.lens (\TopicRuleDestination' {createdAt} -> createdAt) (\s@TopicRuleDestination' {} a -> s {createdAt = a} :: TopicRuleDestination) Core.. Lens.mapping Core._Time
+topicRuleDestination_createdAt :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.UTCTime)
+topicRuleDestination_createdAt = Lens.lens (\TopicRuleDestination' {createdAt} -> createdAt) (\s@TopicRuleDestination' {} a -> s {createdAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Core._Time
 
 -- | The topic rule destination URL.
-topicRuleDestination_arn :: Lens.Lens' TopicRuleDestination (Core.Maybe Core.Text)
+topicRuleDestination_arn :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.Text)
 topicRuleDestination_arn = Lens.lens (\TopicRuleDestination' {arn} -> arn) (\s@TopicRuleDestination' {} a -> s {arn = a} :: TopicRuleDestination)
 
 -- | Properties of the virtual private cloud (VPC) connection.
-topicRuleDestination_vpcProperties :: Lens.Lens' TopicRuleDestination (Core.Maybe VpcDestinationProperties)
+topicRuleDestination_vpcProperties :: Lens.Lens' TopicRuleDestination (Prelude.Maybe VpcDestinationProperties)
 topicRuleDestination_vpcProperties = Lens.lens (\TopicRuleDestination' {vpcProperties} -> vpcProperties) (\s@TopicRuleDestination' {} a -> s {vpcProperties = a} :: TopicRuleDestination)
 
 -- | Additional details or reason why the topic rule destination is in the
 -- current status.
-topicRuleDestination_statusReason :: Lens.Lens' TopicRuleDestination (Core.Maybe Core.Text)
+topicRuleDestination_statusReason :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.Text)
 topicRuleDestination_statusReason = Lens.lens (\TopicRuleDestination' {statusReason} -> statusReason) (\s@TopicRuleDestination' {} a -> s {statusReason = a} :: TopicRuleDestination)
 
 -- | Properties of the HTTP URL.
-topicRuleDestination_httpUrlProperties :: Lens.Lens' TopicRuleDestination (Core.Maybe HttpUrlDestinationProperties)
+topicRuleDestination_httpUrlProperties :: Lens.Lens' TopicRuleDestination (Prelude.Maybe HttpUrlDestinationProperties)
 topicRuleDestination_httpUrlProperties = Lens.lens (\TopicRuleDestination' {httpUrlProperties} -> httpUrlProperties) (\s@TopicRuleDestination' {} a -> s {httpUrlProperties = a} :: TopicRuleDestination)
 
 -- | The date and time when the topic rule destination was last updated.
-topicRuleDestination_lastUpdatedAt :: Lens.Lens' TopicRuleDestination (Core.Maybe Core.UTCTime)
-topicRuleDestination_lastUpdatedAt = Lens.lens (\TopicRuleDestination' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestination' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestination) Core.. Lens.mapping Core._Time
+topicRuleDestination_lastUpdatedAt :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.UTCTime)
+topicRuleDestination_lastUpdatedAt = Lens.lens (\TopicRuleDestination' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestination' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON TopicRuleDestination where
   parseJSON =
@@ -192,15 +193,15 @@ instance Core.FromJSON TopicRuleDestination where
       "TopicRuleDestination"
       ( \x ->
           TopicRuleDestination'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "vpcProperties")
-            Core.<*> (x Core..:? "statusReason")
-            Core.<*> (x Core..:? "httpUrlProperties")
-            Core.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "vpcProperties")
+            Prelude.<*> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..:? "httpUrlProperties")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
       )
 
-instance Core.Hashable TopicRuleDestination
+instance Prelude.Hashable TopicRuleDestination
 
-instance Core.NFData TopicRuleDestination
+instance Prelude.NFData TopicRuleDestination

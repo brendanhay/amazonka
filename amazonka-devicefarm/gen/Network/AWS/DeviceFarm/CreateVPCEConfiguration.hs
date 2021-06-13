@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,18 +54,18 @@ import qualified Network.AWS.Response as Response
 data CreateVPCEConfiguration = CreateVPCEConfiguration'
   { -- | An optional description that provides details about your VPC endpoint
     -- configuration.
-    vpceConfigurationDescription :: Core.Maybe Core.Text,
+    vpceConfigurationDescription :: Prelude.Maybe Prelude.Text,
     -- | The friendly name you give to your VPC endpoint configuration, to manage
     -- your configurations more easily.
-    vpceConfigurationName :: Core.Text,
+    vpceConfigurationName :: Prelude.Text,
     -- | The name of the VPC endpoint service running in your AWS account that
     -- you want Device Farm to test.
-    vpceServiceName :: Core.Text,
+    vpceServiceName :: Prelude.Text,
     -- | The DNS name of the service running in your VPC that you want Device
     -- Farm to test.
-    serviceDnsName :: Core.Text
+    serviceDnsName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVPCEConfiguration' with all optional fields omitted.
@@ -87,11 +88,11 @@ data CreateVPCEConfiguration = CreateVPCEConfiguration'
 -- Farm to test.
 newCreateVPCEConfiguration ::
   -- | 'vpceConfigurationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpceServiceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceDnsName'
-  Core.Text ->
+  Prelude.Text ->
   CreateVPCEConfiguration
 newCreateVPCEConfiguration
   pVpceConfigurationName_
@@ -99,7 +100,7 @@ newCreateVPCEConfiguration
   pServiceDnsName_ =
     CreateVPCEConfiguration'
       { vpceConfigurationDescription =
-          Core.Nothing,
+          Prelude.Nothing,
         vpceConfigurationName = pVpceConfigurationName_,
         vpceServiceName = pVpceServiceName_,
         serviceDnsName = pServiceDnsName_
@@ -107,22 +108,22 @@ newCreateVPCEConfiguration
 
 -- | An optional description that provides details about your VPC endpoint
 -- configuration.
-createVPCEConfiguration_vpceConfigurationDescription :: Lens.Lens' CreateVPCEConfiguration (Core.Maybe Core.Text)
+createVPCEConfiguration_vpceConfigurationDescription :: Lens.Lens' CreateVPCEConfiguration (Prelude.Maybe Prelude.Text)
 createVPCEConfiguration_vpceConfigurationDescription = Lens.lens (\CreateVPCEConfiguration' {vpceConfigurationDescription} -> vpceConfigurationDescription) (\s@CreateVPCEConfiguration' {} a -> s {vpceConfigurationDescription = a} :: CreateVPCEConfiguration)
 
 -- | The friendly name you give to your VPC endpoint configuration, to manage
 -- your configurations more easily.
-createVPCEConfiguration_vpceConfigurationName :: Lens.Lens' CreateVPCEConfiguration Core.Text
+createVPCEConfiguration_vpceConfigurationName :: Lens.Lens' CreateVPCEConfiguration Prelude.Text
 createVPCEConfiguration_vpceConfigurationName = Lens.lens (\CreateVPCEConfiguration' {vpceConfigurationName} -> vpceConfigurationName) (\s@CreateVPCEConfiguration' {} a -> s {vpceConfigurationName = a} :: CreateVPCEConfiguration)
 
 -- | The name of the VPC endpoint service running in your AWS account that
 -- you want Device Farm to test.
-createVPCEConfiguration_vpceServiceName :: Lens.Lens' CreateVPCEConfiguration Core.Text
+createVPCEConfiguration_vpceServiceName :: Lens.Lens' CreateVPCEConfiguration Prelude.Text
 createVPCEConfiguration_vpceServiceName = Lens.lens (\CreateVPCEConfiguration' {vpceServiceName} -> vpceServiceName) (\s@CreateVPCEConfiguration' {} a -> s {vpceServiceName = a} :: CreateVPCEConfiguration)
 
 -- | The DNS name of the service running in your VPC that you want Device
 -- Farm to test.
-createVPCEConfiguration_serviceDnsName :: Lens.Lens' CreateVPCEConfiguration Core.Text
+createVPCEConfiguration_serviceDnsName :: Lens.Lens' CreateVPCEConfiguration Prelude.Text
 createVPCEConfiguration_serviceDnsName = Lens.lens (\CreateVPCEConfiguration' {serviceDnsName} -> serviceDnsName) (\s@CreateVPCEConfiguration' {} a -> s {serviceDnsName = a} :: CreateVPCEConfiguration)
 
 instance Core.AWSRequest CreateVPCEConfiguration where
@@ -134,58 +135,61 @@ instance Core.AWSRequest CreateVPCEConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateVPCEConfigurationResponse'
-            Core.<$> (x Core..?> "vpceConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "vpceConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateVPCEConfiguration
+instance Prelude.Hashable CreateVPCEConfiguration
 
-instance Core.NFData CreateVPCEConfiguration
+instance Prelude.NFData CreateVPCEConfiguration
 
 instance Core.ToHeaders CreateVPCEConfiguration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.CreateVPCEConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateVPCEConfiguration where
   toJSON CreateVPCEConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("vpceConfigurationDescription" Core..=)
-              Core.<$> vpceConfigurationDescription,
-            Core.Just
+              Prelude.<$> vpceConfigurationDescription,
+            Prelude.Just
               ( "vpceConfigurationName"
                   Core..= vpceConfigurationName
               ),
-            Core.Just
+            Prelude.Just
               ("vpceServiceName" Core..= vpceServiceName),
-            Core.Just ("serviceDnsName" Core..= serviceDnsName)
+            Prelude.Just
+              ("serviceDnsName" Core..= serviceDnsName)
           ]
       )
 
 instance Core.ToPath CreateVPCEConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateVPCEConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVPCEConfigurationResponse' smart constructor.
 data CreateVPCEConfigurationResponse = CreateVPCEConfigurationResponse'
   { -- | An object that contains information about your VPC endpoint
     -- configuration.
-    vpceConfiguration :: Core.Maybe VPCEConfiguration,
+    vpceConfiguration :: Prelude.Maybe VPCEConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVPCEConfigurationResponse' with all optional fields omitted.
@@ -201,22 +205,24 @@ data CreateVPCEConfigurationResponse = CreateVPCEConfigurationResponse'
 -- 'httpStatus', 'createVPCEConfigurationResponse_httpStatus' - The response's http status code.
 newCreateVPCEConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateVPCEConfigurationResponse
 newCreateVPCEConfigurationResponse pHttpStatus_ =
   CreateVPCEConfigurationResponse'
     { vpceConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about your VPC endpoint
 -- configuration.
-createVPCEConfigurationResponse_vpceConfiguration :: Lens.Lens' CreateVPCEConfigurationResponse (Core.Maybe VPCEConfiguration)
+createVPCEConfigurationResponse_vpceConfiguration :: Lens.Lens' CreateVPCEConfigurationResponse (Prelude.Maybe VPCEConfiguration)
 createVPCEConfigurationResponse_vpceConfiguration = Lens.lens (\CreateVPCEConfigurationResponse' {vpceConfiguration} -> vpceConfiguration) (\s@CreateVPCEConfigurationResponse' {} a -> s {vpceConfiguration = a} :: CreateVPCEConfigurationResponse)
 
 -- | The response's http status code.
-createVPCEConfigurationResponse_httpStatus :: Lens.Lens' CreateVPCEConfigurationResponse Core.Int
+createVPCEConfigurationResponse_httpStatus :: Lens.Lens' CreateVPCEConfigurationResponse Prelude.Int
 createVPCEConfigurationResponse_httpStatus = Lens.lens (\CreateVPCEConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateVPCEConfigurationResponse' {} a -> s {httpStatus = a} :: CreateVPCEConfigurationResponse)
 
-instance Core.NFData CreateVPCEConfigurationResponse
+instance
+  Prelude.NFData
+    CreateVPCEConfigurationResponse

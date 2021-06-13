@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -50,9 +51,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newDeleteIpGroup' smart constructor.
 data DeleteIpGroup = DeleteIpGroup'
   { -- | The identifier of the IP access control group.
-    groupId :: Core.Text
+    groupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIpGroup' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DeleteIpGroup = DeleteIpGroup'
 -- 'groupId', 'deleteIpGroup_groupId' - The identifier of the IP access control group.
 newDeleteIpGroup ::
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteIpGroup
 newDeleteIpGroup pGroupId_ =
   DeleteIpGroup' {groupId = pGroupId_}
 
 -- | The identifier of the IP access control group.
-deleteIpGroup_groupId :: Lens.Lens' DeleteIpGroup Core.Text
+deleteIpGroup_groupId :: Lens.Lens' DeleteIpGroup Prelude.Text
 deleteIpGroup_groupId = Lens.lens (\DeleteIpGroup' {groupId} -> groupId) (\s@DeleteIpGroup' {} a -> s {groupId = a} :: DeleteIpGroup)
 
 instance Core.AWSRequest DeleteIpGroup where
@@ -83,45 +84,47 @@ instance Core.AWSRequest DeleteIpGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteIpGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteIpGroup
+instance Prelude.Hashable DeleteIpGroup
 
-instance Core.NFData DeleteIpGroup
+instance Prelude.NFData DeleteIpGroup
 
 instance Core.ToHeaders DeleteIpGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DeleteIpGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteIpGroup where
   toJSON DeleteIpGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GroupId" Core..= groupId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("GroupId" Core..= groupId)]
       )
 
 instance Core.ToPath DeleteIpGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteIpGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIpGroupResponse' smart constructor.
 data DeleteIpGroupResponse = DeleteIpGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIpGroupResponse' with all optional fields omitted.
@@ -134,13 +137,13 @@ data DeleteIpGroupResponse = DeleteIpGroupResponse'
 -- 'httpStatus', 'deleteIpGroupResponse_httpStatus' - The response's http status code.
 newDeleteIpGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteIpGroupResponse
 newDeleteIpGroupResponse pHttpStatus_ =
   DeleteIpGroupResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteIpGroupResponse_httpStatus :: Lens.Lens' DeleteIpGroupResponse Core.Int
+deleteIpGroupResponse_httpStatus :: Lens.Lens' DeleteIpGroupResponse Prelude.Int
 deleteIpGroupResponse_httpStatus = Lens.lens (\DeleteIpGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteIpGroupResponse' {} a -> s {httpStatus = a} :: DeleteIpGroupResponse)
 
-instance Core.NFData DeleteIpGroupResponse
+instance Prelude.NFData DeleteIpGroupResponse

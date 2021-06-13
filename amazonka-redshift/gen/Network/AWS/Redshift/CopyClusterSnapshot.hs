@@ -57,6 +57,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -71,7 +72,7 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
     -- The value must be either -1 or an integer between 1 and 3,653.
     --
     -- The default value is -1.
-    manualSnapshotRetentionPeriod :: Core.Maybe Core.Int,
+    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The identifier of the cluster the source snapshot was created from. This
     -- parameter is required if your IAM user has a policy containing a
     -- snapshot resource element that specifies anything other than * for the
@@ -80,14 +81,14 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
     -- Constraints:
     --
     -- -   Must be the identifier for a valid cluster.
-    sourceSnapshotClusterIdentifier :: Core.Maybe Core.Text,
+    sourceSnapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the source snapshot.
     --
     -- Constraints:
     --
     -- -   Must be the identifier for a valid automated snapshot whose state is
     --     @available@.
-    sourceSnapshotIdentifier :: Core.Text,
+    sourceSnapshotIdentifier :: Prelude.Text,
     -- | The identifier given to the new manual snapshot.
     --
     -- Constraints:
@@ -101,9 +102,9 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     --
     -- -   Must be unique for the AWS account that is making the request.
-    targetSnapshotIdentifier :: Core.Text
+    targetSnapshotIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyClusterSnapshot' with all optional fields omitted.
@@ -151,17 +152,17 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 -- -   Must be unique for the AWS account that is making the request.
 newCopyClusterSnapshot ::
   -- | 'sourceSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   CopyClusterSnapshot
 newCopyClusterSnapshot
   pSourceSnapshotIdentifier_
   pTargetSnapshotIdentifier_ =
     CopyClusterSnapshot'
       { manualSnapshotRetentionPeriod =
-          Core.Nothing,
-        sourceSnapshotClusterIdentifier = Core.Nothing,
+          Prelude.Nothing,
+        sourceSnapshotClusterIdentifier = Prelude.Nothing,
         sourceSnapshotIdentifier =
           pSourceSnapshotIdentifier_,
         targetSnapshotIdentifier =
@@ -174,7 +175,7 @@ newCopyClusterSnapshot
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
 -- The default value is -1.
-copyClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' CopyClusterSnapshot (Core.Maybe Core.Int)
+copyClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' CopyClusterSnapshot (Prelude.Maybe Prelude.Int)
 copyClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\CopyClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CopyClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: CopyClusterSnapshot)
 
 -- | The identifier of the cluster the source snapshot was created from. This
@@ -185,7 +186,7 @@ copyClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\CopyClusterSnaps
 -- Constraints:
 --
 -- -   Must be the identifier for a valid cluster.
-copyClusterSnapshot_sourceSnapshotClusterIdentifier :: Lens.Lens' CopyClusterSnapshot (Core.Maybe Core.Text)
+copyClusterSnapshot_sourceSnapshotClusterIdentifier :: Lens.Lens' CopyClusterSnapshot (Prelude.Maybe Prelude.Text)
 copyClusterSnapshot_sourceSnapshotClusterIdentifier = Lens.lens (\CopyClusterSnapshot' {sourceSnapshotClusterIdentifier} -> sourceSnapshotClusterIdentifier) (\s@CopyClusterSnapshot' {} a -> s {sourceSnapshotClusterIdentifier = a} :: CopyClusterSnapshot)
 
 -- | The identifier for the source snapshot.
@@ -194,7 +195,7 @@ copyClusterSnapshot_sourceSnapshotClusterIdentifier = Lens.lens (\CopyClusterSna
 --
 -- -   Must be the identifier for a valid automated snapshot whose state is
 --     @available@.
-copyClusterSnapshot_sourceSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Core.Text
+copyClusterSnapshot_sourceSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Prelude.Text
 copyClusterSnapshot_sourceSnapshotIdentifier = Lens.lens (\CopyClusterSnapshot' {sourceSnapshotIdentifier} -> sourceSnapshotIdentifier) (\s@CopyClusterSnapshot' {} a -> s {sourceSnapshotIdentifier = a} :: CopyClusterSnapshot)
 
 -- | The identifier given to the new manual snapshot.
@@ -210,7 +211,7 @@ copyClusterSnapshot_sourceSnapshotIdentifier = Lens.lens (\CopyClusterSnapshot' 
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- -   Must be unique for the AWS account that is making the request.
-copyClusterSnapshot_targetSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Core.Text
+copyClusterSnapshot_targetSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Prelude.Text
 copyClusterSnapshot_targetSnapshotIdentifier = Lens.lens (\CopyClusterSnapshot' {targetSnapshotIdentifier} -> targetSnapshotIdentifier) (\s@CopyClusterSnapshot' {} a -> s {targetSnapshotIdentifier = a} :: CopyClusterSnapshot)
 
 instance Core.AWSRequest CopyClusterSnapshot where
@@ -223,26 +224,27 @@ instance Core.AWSRequest CopyClusterSnapshot where
       "CopyClusterSnapshotResult"
       ( \s h x ->
           CopyClusterSnapshotResponse'
-            Core.<$> (x Core..@? "Snapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CopyClusterSnapshot
+instance Prelude.Hashable CopyClusterSnapshot
 
-instance Core.NFData CopyClusterSnapshot
+instance Prelude.NFData CopyClusterSnapshot
 
 instance Core.ToHeaders CopyClusterSnapshot where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CopyClusterSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CopyClusterSnapshot where
   toQuery CopyClusterSnapshot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyClusterSnapshot" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("CopyClusterSnapshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ManualSnapshotRetentionPeriod"
           Core.=: manualSnapshotRetentionPeriod,
         "SourceSnapshotClusterIdentifier"
@@ -255,11 +257,11 @@ instance Core.ToQuery CopyClusterSnapshot where
 
 -- | /See:/ 'newCopyClusterSnapshotResponse' smart constructor.
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
-  { snapshot :: Core.Maybe Snapshot,
+  { snapshot :: Prelude.Maybe Snapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyClusterSnapshotResponse' with all optional fields omitted.
@@ -274,21 +276,21 @@ data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
 -- 'httpStatus', 'copyClusterSnapshotResponse_httpStatus' - The response's http status code.
 newCopyClusterSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CopyClusterSnapshotResponse
 newCopyClusterSnapshotResponse pHttpStatus_ =
   CopyClusterSnapshotResponse'
     { snapshot =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-copyClusterSnapshotResponse_snapshot :: Lens.Lens' CopyClusterSnapshotResponse (Core.Maybe Snapshot)
+copyClusterSnapshotResponse_snapshot :: Lens.Lens' CopyClusterSnapshotResponse (Prelude.Maybe Snapshot)
 copyClusterSnapshotResponse_snapshot = Lens.lens (\CopyClusterSnapshotResponse' {snapshot} -> snapshot) (\s@CopyClusterSnapshotResponse' {} a -> s {snapshot = a} :: CopyClusterSnapshotResponse)
 
 -- | The response's http status code.
-copyClusterSnapshotResponse_httpStatus :: Lens.Lens' CopyClusterSnapshotResponse Core.Int
+copyClusterSnapshotResponse_httpStatus :: Lens.Lens' CopyClusterSnapshotResponse Prelude.Int
 copyClusterSnapshotResponse_httpStatus = Lens.lens (\CopyClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@CopyClusterSnapshotResponse' {} a -> s {httpStatus = a} :: CopyClusterSnapshotResponse)
 
-instance Core.NFData CopyClusterSnapshotResponse
+instance Prelude.NFData CopyClusterSnapshotResponse

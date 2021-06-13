@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -52,11 +53,11 @@ import Network.AWS.SMS.Types
 data GenerateTemplate = GenerateTemplate'
   { -- | The ID of the application associated with the AWS CloudFormation
     -- template.
-    appId :: Core.Maybe Core.Text,
+    appId :: Prelude.Maybe Prelude.Text,
     -- | The format for generating the AWS CloudFormation template.
-    templateFormat :: Core.Maybe OutputFormat
+    templateFormat :: Prelude.Maybe OutputFormat
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateTemplate' with all optional fields omitted.
@@ -74,17 +75,17 @@ newGenerateTemplate ::
   GenerateTemplate
 newGenerateTemplate =
   GenerateTemplate'
-    { appId = Core.Nothing,
-      templateFormat = Core.Nothing
+    { appId = Prelude.Nothing,
+      templateFormat = Prelude.Nothing
     }
 
 -- | The ID of the application associated with the AWS CloudFormation
 -- template.
-generateTemplate_appId :: Lens.Lens' GenerateTemplate (Core.Maybe Core.Text)
+generateTemplate_appId :: Lens.Lens' GenerateTemplate (Prelude.Maybe Prelude.Text)
 generateTemplate_appId = Lens.lens (\GenerateTemplate' {appId} -> appId) (\s@GenerateTemplate' {} a -> s {appId = a} :: GenerateTemplate)
 
 -- | The format for generating the AWS CloudFormation template.
-generateTemplate_templateFormat :: Lens.Lens' GenerateTemplate (Core.Maybe OutputFormat)
+generateTemplate_templateFormat :: Lens.Lens' GenerateTemplate (Prelude.Maybe OutputFormat)
 generateTemplate_templateFormat = Lens.lens (\GenerateTemplate' {templateFormat} -> templateFormat) (\s@GenerateTemplate' {} a -> s {templateFormat = a} :: GenerateTemplate)
 
 instance Core.AWSRequest GenerateTemplate where
@@ -96,50 +97,53 @@ instance Core.AWSRequest GenerateTemplate where
     Response.receiveJSON
       ( \s h x ->
           GenerateTemplateResponse'
-            Core.<$> (x Core..?> "s3Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "s3Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GenerateTemplate
+instance Prelude.Hashable GenerateTemplate
 
-instance Core.NFData GenerateTemplate
+instance Prelude.NFData GenerateTemplate
 
 instance Core.ToHeaders GenerateTemplate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.GenerateTemplate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GenerateTemplate where
   toJSON GenerateTemplate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("appId" Core..=) Core.<$> appId,
-            ("templateFormat" Core..=) Core.<$> templateFormat
+      ( Prelude.catMaybes
+          [ ("appId" Core..=) Prelude.<$> appId,
+            ("templateFormat" Core..=)
+              Prelude.<$> templateFormat
           ]
       )
 
 instance Core.ToPath GenerateTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GenerateTemplate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateTemplateResponse' smart constructor.
 data GenerateTemplateResponse = GenerateTemplateResponse'
   { -- | The location of the Amazon S3 object.
-    s3Location :: Core.Maybe S3Location,
+    s3Location :: Prelude.Maybe S3Location,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateTemplateResponse' with all optional fields omitted.
@@ -154,21 +158,21 @@ data GenerateTemplateResponse = GenerateTemplateResponse'
 -- 'httpStatus', 'generateTemplateResponse_httpStatus' - The response's http status code.
 newGenerateTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GenerateTemplateResponse
 newGenerateTemplateResponse pHttpStatus_ =
   GenerateTemplateResponse'
     { s3Location =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The location of the Amazon S3 object.
-generateTemplateResponse_s3Location :: Lens.Lens' GenerateTemplateResponse (Core.Maybe S3Location)
+generateTemplateResponse_s3Location :: Lens.Lens' GenerateTemplateResponse (Prelude.Maybe S3Location)
 generateTemplateResponse_s3Location = Lens.lens (\GenerateTemplateResponse' {s3Location} -> s3Location) (\s@GenerateTemplateResponse' {} a -> s {s3Location = a} :: GenerateTemplateResponse)
 
 -- | The response's http status code.
-generateTemplateResponse_httpStatus :: Lens.Lens' GenerateTemplateResponse Core.Int
+generateTemplateResponse_httpStatus :: Lens.Lens' GenerateTemplateResponse Prelude.Int
 generateTemplateResponse_httpStatus = Lens.lens (\GenerateTemplateResponse' {httpStatus} -> httpStatus) (\s@GenerateTemplateResponse' {} a -> s {httpStatus = a} :: GenerateTemplateResponse)
 
-instance Core.NFData GenerateTemplateResponse
+instance Prelude.NFData GenerateTemplateResponse

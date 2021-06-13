@@ -44,6 +44,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetDocumentationVersion' smart constructor.
 data GetDocumentationVersion = GetDocumentationVersion'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The version identifier of the to-be-retrieved documentation
     -- snapshot.
-    documentationVersion :: Core.Text
+    documentationVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDocumentationVersion' with all optional fields omitted.
@@ -73,9 +74,9 @@ data GetDocumentationVersion = GetDocumentationVersion'
 -- snapshot.
 newGetDocumentationVersion ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'documentationVersion'
-  Core.Text ->
+  Prelude.Text ->
   GetDocumentationVersion
 newGetDocumentationVersion
   pRestApiId_
@@ -86,12 +87,12 @@ newGetDocumentationVersion
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-getDocumentationVersion_restApiId :: Lens.Lens' GetDocumentationVersion Core.Text
+getDocumentationVersion_restApiId :: Lens.Lens' GetDocumentationVersion Prelude.Text
 getDocumentationVersion_restApiId = Lens.lens (\GetDocumentationVersion' {restApiId} -> restApiId) (\s@GetDocumentationVersion' {} a -> s {restApiId = a} :: GetDocumentationVersion)
 
 -- | [Required] The version identifier of the to-be-retrieved documentation
 -- snapshot.
-getDocumentationVersion_documentationVersion :: Lens.Lens' GetDocumentationVersion Core.Text
+getDocumentationVersion_documentationVersion :: Lens.Lens' GetDocumentationVersion Prelude.Text
 getDocumentationVersion_documentationVersion = Lens.lens (\GetDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@GetDocumentationVersion' {} a -> s {documentationVersion = a} :: GetDocumentationVersion)
 
 instance Core.AWSRequest GetDocumentationVersion where
@@ -103,22 +104,22 @@ instance Core.AWSRequest GetDocumentationVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetDocumentationVersion
+instance Prelude.Hashable GetDocumentationVersion
 
-instance Core.NFData GetDocumentationVersion
+instance Prelude.NFData GetDocumentationVersion
 
 instance Core.ToHeaders GetDocumentationVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetDocumentationVersion where
   toPath GetDocumentationVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/documentation/versions/",
@@ -126,4 +127,4 @@ instance Core.ToPath GetDocumentationVersion where
       ]
 
 instance Core.ToQuery GetDocumentationVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

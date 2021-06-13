@@ -40,19 +40,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateUserRoutingProfile' smart constructor.
 data UpdateUserRoutingProfile = UpdateUserRoutingProfile'
   { -- | The identifier of the routing profile for the user.
-    routingProfileId :: Core.Text,
+    routingProfileId :: Prelude.Text,
     -- | The identifier of the user account.
-    userId :: Core.Text,
+    userId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserRoutingProfile' with all optional fields omitted.
@@ -69,11 +70,11 @@ data UpdateUserRoutingProfile = UpdateUserRoutingProfile'
 -- 'instanceId', 'updateUserRoutingProfile_instanceId' - The identifier of the Amazon Connect instance.
 newUpdateUserRoutingProfile ::
   -- | 'routingProfileId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateUserRoutingProfile
 newUpdateUserRoutingProfile
   pRoutingProfileId_
@@ -87,15 +88,15 @@ newUpdateUserRoutingProfile
       }
 
 -- | The identifier of the routing profile for the user.
-updateUserRoutingProfile_routingProfileId :: Lens.Lens' UpdateUserRoutingProfile Core.Text
+updateUserRoutingProfile_routingProfileId :: Lens.Lens' UpdateUserRoutingProfile Prelude.Text
 updateUserRoutingProfile_routingProfileId = Lens.lens (\UpdateUserRoutingProfile' {routingProfileId} -> routingProfileId) (\s@UpdateUserRoutingProfile' {} a -> s {routingProfileId = a} :: UpdateUserRoutingProfile)
 
 -- | The identifier of the user account.
-updateUserRoutingProfile_userId :: Lens.Lens' UpdateUserRoutingProfile Core.Text
+updateUserRoutingProfile_userId :: Lens.Lens' UpdateUserRoutingProfile Prelude.Text
 updateUserRoutingProfile_userId = Lens.lens (\UpdateUserRoutingProfile' {userId} -> userId) (\s@UpdateUserRoutingProfile' {} a -> s {userId = a} :: UpdateUserRoutingProfile)
 
 -- | The identifier of the Amazon Connect instance.
-updateUserRoutingProfile_instanceId :: Lens.Lens' UpdateUserRoutingProfile Core.Text
+updateUserRoutingProfile_instanceId :: Lens.Lens' UpdateUserRoutingProfile Prelude.Text
 updateUserRoutingProfile_instanceId = Lens.lens (\UpdateUserRoutingProfile' {instanceId} -> instanceId) (\s@UpdateUserRoutingProfile' {} a -> s {instanceId = a} :: UpdateUserRoutingProfile)
 
 instance Core.AWSRequest UpdateUserRoutingProfile where
@@ -107,31 +108,33 @@ instance Core.AWSRequest UpdateUserRoutingProfile where
     Response.receiveNull
       UpdateUserRoutingProfileResponse'
 
-instance Core.Hashable UpdateUserRoutingProfile
+instance Prelude.Hashable UpdateUserRoutingProfile
 
-instance Core.NFData UpdateUserRoutingProfile
+instance Prelude.NFData UpdateUserRoutingProfile
 
 instance Core.ToHeaders UpdateUserRoutingProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateUserRoutingProfile where
   toJSON UpdateUserRoutingProfile' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("RoutingProfileId" Core..= routingProfileId)
           ]
       )
 
 instance Core.ToPath UpdateUserRoutingProfile where
   toPath UpdateUserRoutingProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/users/",
         Core.toBS instanceId,
         "/",
@@ -140,13 +143,13 @@ instance Core.ToPath UpdateUserRoutingProfile where
       ]
 
 instance Core.ToQuery UpdateUserRoutingProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserRoutingProfileResponse' smart constructor.
 data UpdateUserRoutingProfileResponse = UpdateUserRoutingProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserRoutingProfileResponse' with all optional fields omitted.
@@ -157,4 +160,6 @@ newUpdateUserRoutingProfileResponse ::
 newUpdateUserRoutingProfileResponse =
   UpdateUserRoutingProfileResponse'
 
-instance Core.NFData UpdateUserRoutingProfileResponse
+instance
+  Prelude.NFData
+    UpdateUserRoutingProfileResponse

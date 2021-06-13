@@ -42,17 +42,18 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateFleet' smart constructor.
 data DisassociateFleet = DisassociateFleet'
   { -- | The name of the fleet.
-    fleetName :: Core.Text,
+    fleetName :: Prelude.Text,
     -- | The name of the stack.
-    stackName :: Core.Text
+    stackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateFleet' with all optional fields omitted.
@@ -67,9 +68,9 @@ data DisassociateFleet = DisassociateFleet'
 -- 'stackName', 'disassociateFleet_stackName' - The name of the stack.
 newDisassociateFleet ::
   -- | 'fleetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stackName'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateFleet
 newDisassociateFleet pFleetName_ pStackName_ =
   DisassociateFleet'
@@ -78,11 +79,11 @@ newDisassociateFleet pFleetName_ pStackName_ =
     }
 
 -- | The name of the fleet.
-disassociateFleet_fleetName :: Lens.Lens' DisassociateFleet Core.Text
+disassociateFleet_fleetName :: Lens.Lens' DisassociateFleet Prelude.Text
 disassociateFleet_fleetName = Lens.lens (\DisassociateFleet' {fleetName} -> fleetName) (\s@DisassociateFleet' {} a -> s {fleetName = a} :: DisassociateFleet)
 
 -- | The name of the stack.
-disassociateFleet_stackName :: Lens.Lens' DisassociateFleet Core.Text
+disassociateFleet_stackName :: Lens.Lens' DisassociateFleet Prelude.Text
 disassociateFleet_stackName = Lens.lens (\DisassociateFleet' {stackName} -> stackName) (\s@DisassociateFleet' {} a -> s {stackName = a} :: DisassociateFleet)
 
 instance Core.AWSRequest DisassociateFleet where
@@ -94,47 +95,49 @@ instance Core.AWSRequest DisassociateFleet where
     Response.receiveEmpty
       ( \s h x ->
           DisassociateFleetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateFleet
+instance Prelude.Hashable DisassociateFleet
 
-instance Core.NFData DisassociateFleet
+instance Prelude.NFData DisassociateFleet
 
 instance Core.ToHeaders DisassociateFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.DisassociateFleet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateFleet where
   toJSON DisassociateFleet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FleetName" Core..= fleetName),
-            Core.Just ("StackName" Core..= stackName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FleetName" Core..= fleetName),
+            Prelude.Just ("StackName" Core..= stackName)
           ]
       )
 
 instance Core.ToPath DisassociateFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateFleetResponse' smart constructor.
 data DisassociateFleetResponse = DisassociateFleetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateFleetResponse' with all optional fields omitted.
@@ -147,7 +150,7 @@ data DisassociateFleetResponse = DisassociateFleetResponse'
 -- 'httpStatus', 'disassociateFleetResponse_httpStatus' - The response's http status code.
 newDisassociateFleetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateFleetResponse
 newDisassociateFleetResponse pHttpStatus_ =
   DisassociateFleetResponse'
@@ -156,7 +159,7 @@ newDisassociateFleetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateFleetResponse_httpStatus :: Lens.Lens' DisassociateFleetResponse Core.Int
+disassociateFleetResponse_httpStatus :: Lens.Lens' DisassociateFleetResponse Prelude.Int
 disassociateFleetResponse_httpStatus = Lens.lens (\DisassociateFleetResponse' {httpStatus} -> httpStatus) (\s@DisassociateFleetResponse' {} a -> s {httpStatus = a} :: DisassociateFleetResponse)
 
-instance Core.NFData DisassociateFleetResponse
+instance Prelude.NFData DisassociateFleetResponse

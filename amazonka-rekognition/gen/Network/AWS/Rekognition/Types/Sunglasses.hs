@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Sunglasses where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the face is wearing sunglasses, and the
 -- confidence level in the determination.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSunglasses' smart constructor.
 data Sunglasses = Sunglasses'
   { -- | Level of confidence in the determination.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | Boolean value that indicates whether the face is wearing sunglasses or
     -- not.
-    value :: Core.Maybe Core.Bool
+    value :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Sunglasses' with all optional fields omitted.
@@ -51,17 +52,17 @@ newSunglasses ::
   Sunglasses
 newSunglasses =
   Sunglasses'
-    { confidence = Core.Nothing,
-      value = Core.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Level of confidence in the determination.
-sunglasses_confidence :: Lens.Lens' Sunglasses (Core.Maybe Core.Double)
+sunglasses_confidence :: Lens.Lens' Sunglasses (Prelude.Maybe Prelude.Double)
 sunglasses_confidence = Lens.lens (\Sunglasses' {confidence} -> confidence) (\s@Sunglasses' {} a -> s {confidence = a} :: Sunglasses)
 
 -- | Boolean value that indicates whether the face is wearing sunglasses or
 -- not.
-sunglasses_value :: Lens.Lens' Sunglasses (Core.Maybe Core.Bool)
+sunglasses_value :: Lens.Lens' Sunglasses (Prelude.Maybe Prelude.Bool)
 sunglasses_value = Lens.lens (\Sunglasses' {value} -> value) (\s@Sunglasses' {} a -> s {value = a} :: Sunglasses)
 
 instance Core.FromJSON Sunglasses where
@@ -70,10 +71,10 @@ instance Core.FromJSON Sunglasses where
       "Sunglasses"
       ( \x ->
           Sunglasses'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Sunglasses
+instance Prelude.Hashable Sunglasses
 
-instance Core.NFData Sunglasses
+instance Prelude.NFData Sunglasses

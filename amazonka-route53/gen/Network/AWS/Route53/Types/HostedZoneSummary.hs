@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.HostedZoneSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.HostedZoneOwner
 
@@ -36,12 +37,12 @@ data HostedZoneSummary = HostedZoneSummary'
     -- VPC is associated with.
     hostedZoneId :: ResourceId,
     -- | The name of the private hosted zone, such as @example.com@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The owner of a private hosted zone that the specified VPC is associated
     -- with. The owner can be either an AWS account or an AWS service.
     owner :: HostedZoneOwner
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostedZoneSummary' with all optional fields omitted.
@@ -62,7 +63,7 @@ newHostedZoneSummary ::
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'owner'
   HostedZoneOwner ->
   HostedZoneSummary
@@ -79,7 +80,7 @@ hostedZoneSummary_hostedZoneId :: Lens.Lens' HostedZoneSummary ResourceId
 hostedZoneSummary_hostedZoneId = Lens.lens (\HostedZoneSummary' {hostedZoneId} -> hostedZoneId) (\s@HostedZoneSummary' {} a -> s {hostedZoneId = a} :: HostedZoneSummary)
 
 -- | The name of the private hosted zone, such as @example.com@.
-hostedZoneSummary_name :: Lens.Lens' HostedZoneSummary Core.Text
+hostedZoneSummary_name :: Lens.Lens' HostedZoneSummary Prelude.Text
 hostedZoneSummary_name = Lens.lens (\HostedZoneSummary' {name} -> name) (\s@HostedZoneSummary' {} a -> s {name = a} :: HostedZoneSummary)
 
 -- | The owner of a private hosted zone that the specified VPC is associated
@@ -90,10 +91,10 @@ hostedZoneSummary_owner = Lens.lens (\HostedZoneSummary' {owner} -> owner) (\s@H
 instance Core.FromXML HostedZoneSummary where
   parseXML x =
     HostedZoneSummary'
-      Core.<$> (x Core..@ "HostedZoneId")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "Owner")
+      Prelude.<$> (x Core..@ "HostedZoneId")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "Owner")
 
-instance Core.Hashable HostedZoneSummary
+instance Prelude.Hashable HostedZoneSummary
 
-instance Core.NFData HostedZoneSummary
+instance Prelude.NFData HostedZoneSummary

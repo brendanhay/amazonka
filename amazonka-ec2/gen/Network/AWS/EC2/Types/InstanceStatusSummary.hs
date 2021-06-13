@@ -24,17 +24,18 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceStatusDetails
 import Network.AWS.EC2.Types.SummaryStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of an instance.
 --
 -- /See:/ 'newInstanceStatusSummary' smart constructor.
 data InstanceStatusSummary = InstanceStatusSummary'
   { -- | The system instance health or application instance health.
-    details :: Core.Maybe [InstanceStatusDetails],
+    details :: Prelude.Maybe [InstanceStatusDetails],
     -- | The status.
     status :: SummaryStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceStatusSummary' with all optional fields omitted.
@@ -53,13 +54,13 @@ newInstanceStatusSummary ::
   InstanceStatusSummary
 newInstanceStatusSummary pStatus_ =
   InstanceStatusSummary'
-    { details = Core.Nothing,
+    { details = Prelude.Nothing,
       status = pStatus_
     }
 
 -- | The system instance health or application instance health.
-instanceStatusSummary_details :: Lens.Lens' InstanceStatusSummary (Core.Maybe [InstanceStatusDetails])
-instanceStatusSummary_details = Lens.lens (\InstanceStatusSummary' {details} -> details) (\s@InstanceStatusSummary' {} a -> s {details = a} :: InstanceStatusSummary) Core.. Lens.mapping Lens._Coerce
+instanceStatusSummary_details :: Lens.Lens' InstanceStatusSummary (Prelude.Maybe [InstanceStatusDetails])
+instanceStatusSummary_details = Lens.lens (\InstanceStatusSummary' {details} -> details) (\s@InstanceStatusSummary' {} a -> s {details = a} :: InstanceStatusSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The status.
 instanceStatusSummary_status :: Lens.Lens' InstanceStatusSummary SummaryStatus
@@ -68,11 +69,11 @@ instanceStatusSummary_status = Lens.lens (\InstanceStatusSummary' {status} -> st
 instance Core.FromXML InstanceStatusSummary where
   parseXML x =
     InstanceStatusSummary'
-      Core.<$> ( x Core..@? "details" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@ "status")
+      Prelude.<$> ( x Core..@? "details" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@ "status")
 
-instance Core.Hashable InstanceStatusSummary
+instance Prelude.Hashable InstanceStatusSummary
 
-instance Core.NFData InstanceStatusSummary
+instance Prelude.NFData InstanceStatusSummary

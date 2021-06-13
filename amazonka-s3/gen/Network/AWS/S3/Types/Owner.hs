@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Owner where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for the owner\'s display name and ID.
@@ -28,11 +29,11 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newOwner' smart constructor.
 data Owner = Owner'
   { -- | Container for the ID of the owner.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | Container for the display name of the owner.
-    displayName :: Core.Maybe Core.Text
+    displayName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Owner' with all optional fields omitted.
@@ -49,28 +50,29 @@ newOwner ::
   Owner
 newOwner =
   Owner'
-    { id = Core.Nothing,
-      displayName = Core.Nothing
+    { id = Prelude.Nothing,
+      displayName = Prelude.Nothing
     }
 
 -- | Container for the ID of the owner.
-owner_id :: Lens.Lens' Owner (Core.Maybe Core.Text)
+owner_id :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
 owner_id = Lens.lens (\Owner' {id} -> id) (\s@Owner' {} a -> s {id = a} :: Owner)
 
 -- | Container for the display name of the owner.
-owner_displayName :: Lens.Lens' Owner (Core.Maybe Core.Text)
+owner_displayName :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
 owner_displayName = Lens.lens (\Owner' {displayName} -> displayName) (\s@Owner' {} a -> s {displayName = a} :: Owner)
 
 instance Core.FromXML Owner where
   parseXML x =
     Owner'
-      Core.<$> (x Core..@? "ID") Core.<*> (x Core..@? "DisplayName")
+      Prelude.<$> (x Core..@? "ID")
+      Prelude.<*> (x Core..@? "DisplayName")
 
-instance Core.Hashable Owner
+instance Prelude.Hashable Owner
 
-instance Core.NFData Owner
+instance Prelude.NFData Owner
 
 instance Core.ToXML Owner where
   toXML Owner' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["ID" Core.@= id, "DisplayName" Core.@= displayName]

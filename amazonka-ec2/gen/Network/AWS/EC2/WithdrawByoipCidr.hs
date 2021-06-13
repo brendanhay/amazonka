@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +60,11 @@ data WithdrawByoipCidr = WithdrawByoipCidr'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The address range, in CIDR notation.
-    cidr :: Core.Text
+    cidr :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WithdrawByoipCidr' with all optional fields omitted.
@@ -81,11 +82,11 @@ data WithdrawByoipCidr = WithdrawByoipCidr'
 -- 'cidr', 'withdrawByoipCidr_cidr' - The address range, in CIDR notation.
 newWithdrawByoipCidr ::
   -- | 'cidr'
-  Core.Text ->
+  Prelude.Text ->
   WithdrawByoipCidr
 newWithdrawByoipCidr pCidr_ =
   WithdrawByoipCidr'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       cidr = pCidr_
     }
 
@@ -93,11 +94,11 @@ newWithdrawByoipCidr pCidr_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-withdrawByoipCidr_dryRun :: Lens.Lens' WithdrawByoipCidr (Core.Maybe Core.Bool)
+withdrawByoipCidr_dryRun :: Lens.Lens' WithdrawByoipCidr (Prelude.Maybe Prelude.Bool)
 withdrawByoipCidr_dryRun = Lens.lens (\WithdrawByoipCidr' {dryRun} -> dryRun) (\s@WithdrawByoipCidr' {} a -> s {dryRun = a} :: WithdrawByoipCidr)
 
 -- | The address range, in CIDR notation.
-withdrawByoipCidr_cidr :: Lens.Lens' WithdrawByoipCidr Core.Text
+withdrawByoipCidr_cidr :: Lens.Lens' WithdrawByoipCidr Prelude.Text
 withdrawByoipCidr_cidr = Lens.lens (\WithdrawByoipCidr' {cidr} -> cidr) (\s@WithdrawByoipCidr' {} a -> s {cidr = a} :: WithdrawByoipCidr)
 
 instance Core.AWSRequest WithdrawByoipCidr where
@@ -109,26 +110,27 @@ instance Core.AWSRequest WithdrawByoipCidr where
     Response.receiveXML
       ( \s h x ->
           WithdrawByoipCidrResponse'
-            Core.<$> (x Core..@? "byoipCidr")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "byoipCidr")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable WithdrawByoipCidr
+instance Prelude.Hashable WithdrawByoipCidr
 
-instance Core.NFData WithdrawByoipCidr
+instance Prelude.NFData WithdrawByoipCidr
 
 instance Core.ToHeaders WithdrawByoipCidr where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath WithdrawByoipCidr where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery WithdrawByoipCidr where
   toQuery WithdrawByoipCidr' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("WithdrawByoipCidr" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("WithdrawByoipCidr" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Cidr" Core.=: cidr
       ]
@@ -136,11 +138,11 @@ instance Core.ToQuery WithdrawByoipCidr where
 -- | /See:/ 'newWithdrawByoipCidrResponse' smart constructor.
 data WithdrawByoipCidrResponse = WithdrawByoipCidrResponse'
   { -- | Information about the address pool.
-    byoipCidr :: Core.Maybe ByoipCidr,
+    byoipCidr :: Prelude.Maybe ByoipCidr,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WithdrawByoipCidrResponse' with all optional fields omitted.
@@ -155,21 +157,21 @@ data WithdrawByoipCidrResponse = WithdrawByoipCidrResponse'
 -- 'httpStatus', 'withdrawByoipCidrResponse_httpStatus' - The response's http status code.
 newWithdrawByoipCidrResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   WithdrawByoipCidrResponse
 newWithdrawByoipCidrResponse pHttpStatus_ =
   WithdrawByoipCidrResponse'
     { byoipCidr =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the address pool.
-withdrawByoipCidrResponse_byoipCidr :: Lens.Lens' WithdrawByoipCidrResponse (Core.Maybe ByoipCidr)
+withdrawByoipCidrResponse_byoipCidr :: Lens.Lens' WithdrawByoipCidrResponse (Prelude.Maybe ByoipCidr)
 withdrawByoipCidrResponse_byoipCidr = Lens.lens (\WithdrawByoipCidrResponse' {byoipCidr} -> byoipCidr) (\s@WithdrawByoipCidrResponse' {} a -> s {byoipCidr = a} :: WithdrawByoipCidrResponse)
 
 -- | The response's http status code.
-withdrawByoipCidrResponse_httpStatus :: Lens.Lens' WithdrawByoipCidrResponse Core.Int
+withdrawByoipCidrResponse_httpStatus :: Lens.Lens' WithdrawByoipCidrResponse Prelude.Int
 withdrawByoipCidrResponse_httpStatus = Lens.lens (\WithdrawByoipCidrResponse' {httpStatus} -> httpStatus) (\s@WithdrawByoipCidrResponse' {} a -> s {httpStatus = a} :: WithdrawByoipCidrResponse)
 
-instance Core.NFData WithdrawByoipCidrResponse
+instance Prelude.NFData WithdrawByoipCidrResponse

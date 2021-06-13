@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.HttpUrlDestinationProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | HTTP URL destination properties.
 --
 -- /See:/ 'newHttpUrlDestinationProperties' smart constructor.
 data HttpUrlDestinationProperties = HttpUrlDestinationProperties'
   { -- | The URL used to confirm the HTTP topic rule destination URL.
-    confirmationUrl :: Core.Maybe Core.Text
+    confirmationUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpUrlDestinationProperties' with all optional fields omitted.
@@ -45,11 +46,11 @@ newHttpUrlDestinationProperties ::
 newHttpUrlDestinationProperties =
   HttpUrlDestinationProperties'
     { confirmationUrl =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The URL used to confirm the HTTP topic rule destination URL.
-httpUrlDestinationProperties_confirmationUrl :: Lens.Lens' HttpUrlDestinationProperties (Core.Maybe Core.Text)
+httpUrlDestinationProperties_confirmationUrl :: Lens.Lens' HttpUrlDestinationProperties (Prelude.Maybe Prelude.Text)
 httpUrlDestinationProperties_confirmationUrl = Lens.lens (\HttpUrlDestinationProperties' {confirmationUrl} -> confirmationUrl) (\s@HttpUrlDestinationProperties' {} a -> s {confirmationUrl = a} :: HttpUrlDestinationProperties)
 
 instance Core.FromJSON HttpUrlDestinationProperties where
@@ -58,9 +59,11 @@ instance Core.FromJSON HttpUrlDestinationProperties where
       "HttpUrlDestinationProperties"
       ( \x ->
           HttpUrlDestinationProperties'
-            Core.<$> (x Core..:? "confirmationUrl")
+            Prelude.<$> (x Core..:? "confirmationUrl")
       )
 
-instance Core.Hashable HttpUrlDestinationProperties
+instance
+  Prelude.Hashable
+    HttpUrlDestinationProperties
 
-instance Core.NFData HttpUrlDestinationProperties
+instance Prelude.NFData HttpUrlDestinationProperties

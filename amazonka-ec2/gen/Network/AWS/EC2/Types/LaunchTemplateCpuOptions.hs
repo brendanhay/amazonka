@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.LaunchTemplateCpuOptions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The CPU options for the instance.
 --
 -- /See:/ 'newLaunchTemplateCpuOptions' smart constructor.
 data LaunchTemplateCpuOptions = LaunchTemplateCpuOptions'
   { -- | The number of threads per CPU core.
-    threadsPerCore :: Core.Maybe Core.Int,
+    threadsPerCore :: Prelude.Maybe Prelude.Int,
     -- | The number of CPU cores for the instance.
-    coreCount :: Core.Maybe Core.Int
+    coreCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateCpuOptions' with all optional fields omitted.
@@ -50,24 +51,24 @@ newLaunchTemplateCpuOptions ::
 newLaunchTemplateCpuOptions =
   LaunchTemplateCpuOptions'
     { threadsPerCore =
-        Core.Nothing,
-      coreCount = Core.Nothing
+        Prelude.Nothing,
+      coreCount = Prelude.Nothing
     }
 
 -- | The number of threads per CPU core.
-launchTemplateCpuOptions_threadsPerCore :: Lens.Lens' LaunchTemplateCpuOptions (Core.Maybe Core.Int)
+launchTemplateCpuOptions_threadsPerCore :: Lens.Lens' LaunchTemplateCpuOptions (Prelude.Maybe Prelude.Int)
 launchTemplateCpuOptions_threadsPerCore = Lens.lens (\LaunchTemplateCpuOptions' {threadsPerCore} -> threadsPerCore) (\s@LaunchTemplateCpuOptions' {} a -> s {threadsPerCore = a} :: LaunchTemplateCpuOptions)
 
 -- | The number of CPU cores for the instance.
-launchTemplateCpuOptions_coreCount :: Lens.Lens' LaunchTemplateCpuOptions (Core.Maybe Core.Int)
+launchTemplateCpuOptions_coreCount :: Lens.Lens' LaunchTemplateCpuOptions (Prelude.Maybe Prelude.Int)
 launchTemplateCpuOptions_coreCount = Lens.lens (\LaunchTemplateCpuOptions' {coreCount} -> coreCount) (\s@LaunchTemplateCpuOptions' {} a -> s {coreCount = a} :: LaunchTemplateCpuOptions)
 
 instance Core.FromXML LaunchTemplateCpuOptions where
   parseXML x =
     LaunchTemplateCpuOptions'
-      Core.<$> (x Core..@? "threadsPerCore")
-      Core.<*> (x Core..@? "coreCount")
+      Prelude.<$> (x Core..@? "threadsPerCore")
+      Prelude.<*> (x Core..@? "coreCount")
 
-instance Core.Hashable LaunchTemplateCpuOptions
+instance Prelude.Hashable LaunchTemplateCpuOptions
 
-instance Core.NFData LaunchTemplateCpuOptions
+instance Prelude.NFData LaunchTemplateCpuOptions

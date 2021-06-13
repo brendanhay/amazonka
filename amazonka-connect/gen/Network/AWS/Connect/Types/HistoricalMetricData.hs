@@ -22,17 +22,18 @@ module Network.AWS.Connect.Types.HistoricalMetricData where
 import Network.AWS.Connect.Types.HistoricalMetric
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the data for a historical metric.
 --
 -- /See:/ 'newHistoricalMetricData' smart constructor.
 data HistoricalMetricData = HistoricalMetricData'
   { -- | Information about the metric.
-    metric :: Core.Maybe HistoricalMetric,
+    metric :: Prelude.Maybe HistoricalMetric,
     -- | The value of the metric.
-    value :: Core.Maybe Core.Double
+    value :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HistoricalMetricData' with all optional fields omitted.
@@ -49,16 +50,16 @@ newHistoricalMetricData ::
   HistoricalMetricData
 newHistoricalMetricData =
   HistoricalMetricData'
-    { metric = Core.Nothing,
-      value = Core.Nothing
+    { metric = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Information about the metric.
-historicalMetricData_metric :: Lens.Lens' HistoricalMetricData (Core.Maybe HistoricalMetric)
+historicalMetricData_metric :: Lens.Lens' HistoricalMetricData (Prelude.Maybe HistoricalMetric)
 historicalMetricData_metric = Lens.lens (\HistoricalMetricData' {metric} -> metric) (\s@HistoricalMetricData' {} a -> s {metric = a} :: HistoricalMetricData)
 
 -- | The value of the metric.
-historicalMetricData_value :: Lens.Lens' HistoricalMetricData (Core.Maybe Core.Double)
+historicalMetricData_value :: Lens.Lens' HistoricalMetricData (Prelude.Maybe Prelude.Double)
 historicalMetricData_value = Lens.lens (\HistoricalMetricData' {value} -> value) (\s@HistoricalMetricData' {} a -> s {value = a} :: HistoricalMetricData)
 
 instance Core.FromJSON HistoricalMetricData where
@@ -67,9 +68,10 @@ instance Core.FromJSON HistoricalMetricData where
       "HistoricalMetricData"
       ( \x ->
           HistoricalMetricData'
-            Core.<$> (x Core..:? "Metric") Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Metric")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable HistoricalMetricData
+instance Prelude.Hashable HistoricalMetricData
 
-instance Core.NFData HistoricalMetricData
+instance Prelude.NFData HistoricalMetricData

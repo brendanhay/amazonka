@@ -22,15 +22,16 @@ module Network.AWS.CostExplorer.Types.ResourceUtilization where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.EC2ResourceUtilization
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Resource utilization of current resource.
 --
 -- /See:/ 'newResourceUtilization' smart constructor.
 data ResourceUtilization = ResourceUtilization'
   { -- | Utilization of current Amazon EC2 instance.
-    eC2ResourceUtilization :: Core.Maybe EC2ResourceUtilization
+    eC2ResourceUtilization :: Prelude.Maybe EC2ResourceUtilization
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceUtilization' with all optional fields omitted.
@@ -46,11 +47,11 @@ newResourceUtilization ::
 newResourceUtilization =
   ResourceUtilization'
     { eC2ResourceUtilization =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Utilization of current Amazon EC2 instance.
-resourceUtilization_eC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Core.Maybe EC2ResourceUtilization)
+resourceUtilization_eC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Prelude.Maybe EC2ResourceUtilization)
 resourceUtilization_eC2ResourceUtilization = Lens.lens (\ResourceUtilization' {eC2ResourceUtilization} -> eC2ResourceUtilization) (\s@ResourceUtilization' {} a -> s {eC2ResourceUtilization = a} :: ResourceUtilization)
 
 instance Core.FromJSON ResourceUtilization where
@@ -59,9 +60,9 @@ instance Core.FromJSON ResourceUtilization where
       "ResourceUtilization"
       ( \x ->
           ResourceUtilization'
-            Core.<$> (x Core..:? "EC2ResourceUtilization")
+            Prelude.<$> (x Core..:? "EC2ResourceUtilization")
       )
 
-instance Core.Hashable ResourceUtilization
+instance Prelude.Hashable ResourceUtilization
 
-instance Core.NFData ResourceUtilization
+instance Prelude.NFData ResourceUtilization

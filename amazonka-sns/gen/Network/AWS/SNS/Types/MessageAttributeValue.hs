@@ -21,6 +21,7 @@ module Network.AWS.SNS.Types.MessageAttributeValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message
@@ -42,16 +43,16 @@ data MessageAttributeValue = MessageAttributeValue'
   { -- | Strings are Unicode with UTF8 binary encoding. For a list of code
     -- values, see
     -- <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
-    stringValue :: Core.Maybe Core.Text,
+    stringValue :: Prelude.Maybe Prelude.Text,
     -- | Binary type attributes can store any binary data, for example,
     -- compressed data, encrypted data, or images.
-    binaryValue :: Core.Maybe Core.Base64,
+    binaryValue :: Prelude.Maybe Core.Base64,
     -- | Amazon SNS supports the following logical data types: String,
     -- String.Array, Number, and Binary. For more information, see
     -- <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.
-    dataType :: Core.Text
+    dataType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MessageAttributeValue' with all optional fields omitted.
@@ -77,19 +78,20 @@ data MessageAttributeValue = MessageAttributeValue'
 -- <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.
 newMessageAttributeValue ::
   -- | 'dataType'
-  Core.Text ->
+  Prelude.Text ->
   MessageAttributeValue
 newMessageAttributeValue pDataType_ =
   MessageAttributeValue'
-    { stringValue = Core.Nothing,
-      binaryValue = Core.Nothing,
+    { stringValue =
+        Prelude.Nothing,
+      binaryValue = Prelude.Nothing,
       dataType = pDataType_
     }
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code
 -- values, see
 -- <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
-messageAttributeValue_stringValue :: Lens.Lens' MessageAttributeValue (Core.Maybe Core.Text)
+messageAttributeValue_stringValue :: Lens.Lens' MessageAttributeValue (Prelude.Maybe Prelude.Text)
 messageAttributeValue_stringValue = Lens.lens (\MessageAttributeValue' {stringValue} -> stringValue) (\s@MessageAttributeValue' {} a -> s {stringValue = a} :: MessageAttributeValue)
 
 -- | Binary type attributes can store any binary data, for example,
@@ -98,22 +100,22 @@ messageAttributeValue_stringValue = Lens.lens (\MessageAttributeValue' {stringVa
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-messageAttributeValue_binaryValue :: Lens.Lens' MessageAttributeValue (Core.Maybe Core.ByteString)
-messageAttributeValue_binaryValue = Lens.lens (\MessageAttributeValue' {binaryValue} -> binaryValue) (\s@MessageAttributeValue' {} a -> s {binaryValue = a} :: MessageAttributeValue) Core.. Lens.mapping Core._Base64
+messageAttributeValue_binaryValue :: Lens.Lens' MessageAttributeValue (Prelude.Maybe Prelude.ByteString)
+messageAttributeValue_binaryValue = Lens.lens (\MessageAttributeValue' {binaryValue} -> binaryValue) (\s@MessageAttributeValue' {} a -> s {binaryValue = a} :: MessageAttributeValue) Prelude.. Lens.mapping Core._Base64
 
 -- | Amazon SNS supports the following logical data types: String,
 -- String.Array, Number, and Binary. For more information, see
 -- <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.
-messageAttributeValue_dataType :: Lens.Lens' MessageAttributeValue Core.Text
+messageAttributeValue_dataType :: Lens.Lens' MessageAttributeValue Prelude.Text
 messageAttributeValue_dataType = Lens.lens (\MessageAttributeValue' {dataType} -> dataType) (\s@MessageAttributeValue' {} a -> s {dataType = a} :: MessageAttributeValue)
 
-instance Core.Hashable MessageAttributeValue
+instance Prelude.Hashable MessageAttributeValue
 
-instance Core.NFData MessageAttributeValue
+instance Prelude.NFData MessageAttributeValue
 
 instance Core.ToQuery MessageAttributeValue where
   toQuery MessageAttributeValue' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "StringValue" Core.=: stringValue,
         "BinaryValue" Core.=: binaryValue,
         "DataType" Core.=: dataType

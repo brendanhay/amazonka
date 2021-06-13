@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -48,9 +49,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteContext' smart constructor.
 data DeleteContext = DeleteContext'
   { -- | The name of the context to delete.
-    contextName :: Core.Text
+    contextName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteContext' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DeleteContext = DeleteContext'
 -- 'contextName', 'deleteContext_contextName' - The name of the context to delete.
 newDeleteContext ::
   -- | 'contextName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteContext
 newDeleteContext pContextName_ =
   DeleteContext' {contextName = pContextName_}
 
 -- | The name of the context to delete.
-deleteContext_contextName :: Lens.Lens' DeleteContext Core.Text
+deleteContext_contextName :: Lens.Lens' DeleteContext Prelude.Text
 deleteContext_contextName = Lens.lens (\DeleteContext' {contextName} -> contextName) (\s@DeleteContext' {} a -> s {contextName = a} :: DeleteContext)
 
 instance Core.AWSRequest DeleteContext where
@@ -81,46 +82,48 @@ instance Core.AWSRequest DeleteContext where
     Response.receiveJSON
       ( \s h x ->
           DeleteContextResponse'
-            Core.<$> (x Core..?> "ContextArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ContextArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteContext
+instance Prelude.Hashable DeleteContext
 
-instance Core.NFData DeleteContext
+instance Prelude.NFData DeleteContext
 
 instance Core.ToHeaders DeleteContext where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteContext" :: Core.ByteString),
+              Core.=# ("SageMaker.DeleteContext" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteContext where
   toJSON DeleteContext' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContextName" Core..= contextName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ContextName" Core..= contextName)]
       )
 
 instance Core.ToPath DeleteContext where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteContext where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContextResponse' smart constructor.
 data DeleteContextResponse = DeleteContextResponse'
   { -- | The Amazon Resource Name (ARN) of the context.
-    contextArn :: Core.Maybe Core.Text,
+    contextArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteContextResponse' with all optional fields omitted.
@@ -135,20 +138,21 @@ data DeleteContextResponse = DeleteContextResponse'
 -- 'httpStatus', 'deleteContextResponse_httpStatus' - The response's http status code.
 newDeleteContextResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteContextResponse
 newDeleteContextResponse pHttpStatus_ =
   DeleteContextResponse'
-    { contextArn = Core.Nothing,
+    { contextArn =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the context.
-deleteContextResponse_contextArn :: Lens.Lens' DeleteContextResponse (Core.Maybe Core.Text)
+deleteContextResponse_contextArn :: Lens.Lens' DeleteContextResponse (Prelude.Maybe Prelude.Text)
 deleteContextResponse_contextArn = Lens.lens (\DeleteContextResponse' {contextArn} -> contextArn) (\s@DeleteContextResponse' {} a -> s {contextArn = a} :: DeleteContextResponse)
 
 -- | The response's http status code.
-deleteContextResponse_httpStatus :: Lens.Lens' DeleteContextResponse Core.Int
+deleteContextResponse_httpStatus :: Lens.Lens' DeleteContextResponse Prelude.Int
 deleteContextResponse_httpStatus = Lens.lens (\DeleteContextResponse' {httpStatus} -> httpStatus) (\s@DeleteContextResponse' {} a -> s {httpStatus = a} :: DeleteContextResponse)
 
-instance Core.NFData DeleteContextResponse
+instance Prelude.NFData DeleteContextResponse

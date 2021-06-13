@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -61,31 +62,31 @@ import Network.AWS.SageMaker.Types
 data ListImageVersions = ListImageVersions'
   { -- | A filter that returns only versions modified on or before the specified
     -- time.
-    lastModifiedTimeBefore :: Core.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The sort order. The default value is @DESCENDING@.
-    sortOrder :: Core.Maybe ImageVersionSortOrder,
+    sortOrder :: Prelude.Maybe ImageVersionSortOrder,
     -- | If the previous call to @ListImageVersions@ didn\'t return the full set
     -- of versions, the call returns a token for getting the next set of
     -- versions.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of versions to return in the response. The default
     -- value is 10.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only versions created on or before the specified
     -- time.
-    creationTimeBefore :: Core.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only versions modified on or after the specified
     -- time.
-    lastModifiedTimeAfter :: Core.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | The property used to sort results. The default value is @CREATION_TIME@.
-    sortBy :: Core.Maybe ImageVersionSortBy,
+    sortBy :: Prelude.Maybe ImageVersionSortBy,
     -- | A filter that returns only versions created on or after the specified
     -- time.
-    creationTimeAfter :: Core.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | The name of the image to list the versions of.
-    imageName :: Core.Text
+    imageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListImageVersions' with all optional fields omitted.
@@ -121,63 +122,63 @@ data ListImageVersions = ListImageVersions'
 -- 'imageName', 'listImageVersions_imageName' - The name of the image to list the versions of.
 newListImageVersions ::
   -- | 'imageName'
-  Core.Text ->
+  Prelude.Text ->
   ListImageVersions
 newListImageVersions pImageName_ =
   ListImageVersions'
     { lastModifiedTimeBefore =
-        Core.Nothing,
-      sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      creationTimeBefore = Core.Nothing,
-      lastModifiedTimeAfter = Core.Nothing,
-      sortBy = Core.Nothing,
-      creationTimeAfter = Core.Nothing,
+        Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
+      lastModifiedTimeAfter = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       imageName = pImageName_
     }
 
 -- | A filter that returns only versions modified on or before the specified
 -- time.
-listImageVersions_lastModifiedTimeBefore :: Lens.Lens' ListImageVersions (Core.Maybe Core.UTCTime)
-listImageVersions_lastModifiedTimeBefore = Lens.lens (\ListImageVersions' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListImageVersions' {} a -> s {lastModifiedTimeBefore = a} :: ListImageVersions) Core.. Lens.mapping Core._Time
+listImageVersions_lastModifiedTimeBefore :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
+listImageVersions_lastModifiedTimeBefore = Lens.lens (\ListImageVersions' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListImageVersions' {} a -> s {lastModifiedTimeBefore = a} :: ListImageVersions) Prelude.. Lens.mapping Core._Time
 
 -- | The sort order. The default value is @DESCENDING@.
-listImageVersions_sortOrder :: Lens.Lens' ListImageVersions (Core.Maybe ImageVersionSortOrder)
+listImageVersions_sortOrder :: Lens.Lens' ListImageVersions (Prelude.Maybe ImageVersionSortOrder)
 listImageVersions_sortOrder = Lens.lens (\ListImageVersions' {sortOrder} -> sortOrder) (\s@ListImageVersions' {} a -> s {sortOrder = a} :: ListImageVersions)
 
 -- | If the previous call to @ListImageVersions@ didn\'t return the full set
 -- of versions, the call returns a token for getting the next set of
 -- versions.
-listImageVersions_nextToken :: Lens.Lens' ListImageVersions (Core.Maybe Core.Text)
+listImageVersions_nextToken :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.Text)
 listImageVersions_nextToken = Lens.lens (\ListImageVersions' {nextToken} -> nextToken) (\s@ListImageVersions' {} a -> s {nextToken = a} :: ListImageVersions)
 
 -- | The maximum number of versions to return in the response. The default
 -- value is 10.
-listImageVersions_maxResults :: Lens.Lens' ListImageVersions (Core.Maybe Core.Natural)
+listImageVersions_maxResults :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.Natural)
 listImageVersions_maxResults = Lens.lens (\ListImageVersions' {maxResults} -> maxResults) (\s@ListImageVersions' {} a -> s {maxResults = a} :: ListImageVersions)
 
 -- | A filter that returns only versions created on or before the specified
 -- time.
-listImageVersions_creationTimeBefore :: Lens.Lens' ListImageVersions (Core.Maybe Core.UTCTime)
-listImageVersions_creationTimeBefore = Lens.lens (\ListImageVersions' {creationTimeBefore} -> creationTimeBefore) (\s@ListImageVersions' {} a -> s {creationTimeBefore = a} :: ListImageVersions) Core.. Lens.mapping Core._Time
+listImageVersions_creationTimeBefore :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
+listImageVersions_creationTimeBefore = Lens.lens (\ListImageVersions' {creationTimeBefore} -> creationTimeBefore) (\s@ListImageVersions' {} a -> s {creationTimeBefore = a} :: ListImageVersions) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only versions modified on or after the specified
 -- time.
-listImageVersions_lastModifiedTimeAfter :: Lens.Lens' ListImageVersions (Core.Maybe Core.UTCTime)
-listImageVersions_lastModifiedTimeAfter = Lens.lens (\ListImageVersions' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListImageVersions' {} a -> s {lastModifiedTimeAfter = a} :: ListImageVersions) Core.. Lens.mapping Core._Time
+listImageVersions_lastModifiedTimeAfter :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
+listImageVersions_lastModifiedTimeAfter = Lens.lens (\ListImageVersions' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListImageVersions' {} a -> s {lastModifiedTimeAfter = a} :: ListImageVersions) Prelude.. Lens.mapping Core._Time
 
 -- | The property used to sort results. The default value is @CREATION_TIME@.
-listImageVersions_sortBy :: Lens.Lens' ListImageVersions (Core.Maybe ImageVersionSortBy)
+listImageVersions_sortBy :: Lens.Lens' ListImageVersions (Prelude.Maybe ImageVersionSortBy)
 listImageVersions_sortBy = Lens.lens (\ListImageVersions' {sortBy} -> sortBy) (\s@ListImageVersions' {} a -> s {sortBy = a} :: ListImageVersions)
 
 -- | A filter that returns only versions created on or after the specified
 -- time.
-listImageVersions_creationTimeAfter :: Lens.Lens' ListImageVersions (Core.Maybe Core.UTCTime)
-listImageVersions_creationTimeAfter = Lens.lens (\ListImageVersions' {creationTimeAfter} -> creationTimeAfter) (\s@ListImageVersions' {} a -> s {creationTimeAfter = a} :: ListImageVersions) Core.. Lens.mapping Core._Time
+listImageVersions_creationTimeAfter :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
+listImageVersions_creationTimeAfter = Lens.lens (\ListImageVersions' {creationTimeAfter} -> creationTimeAfter) (\s@ListImageVersions' {} a -> s {creationTimeAfter = a} :: ListImageVersions) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the image to list the versions of.
-listImageVersions_imageName :: Lens.Lens' ListImageVersions Core.Text
+listImageVersions_imageName :: Lens.Lens' ListImageVersions Prelude.Text
 listImageVersions_imageName = Lens.lens (\ListImageVersions' {imageName} -> imageName) (\s@ListImageVersions' {} a -> s {imageName = a} :: ListImageVersions)
 
 instance Core.AWSPager ListImageVersions where
@@ -185,21 +186,22 @@ instance Core.AWSPager ListImageVersions where
     | Core.stop
         ( rs
             Lens.^? listImageVersionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listImageVersionsResponse_imageVersions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listImageVersions_nextToken
+          Prelude.& listImageVersions_nextToken
           Lens..~ rs
-          Lens.^? listImageVersionsResponse_nextToken Core.. Lens._Just
+          Lens.^? listImageVersionsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImageVersions where
   type
@@ -210,62 +212,66 @@ instance Core.AWSRequest ListImageVersions where
     Response.receiveJSON
       ( \s h x ->
           ListImageVersionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ImageVersions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ImageVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListImageVersions
+instance Prelude.Hashable ListImageVersions
 
-instance Core.NFData ListImageVersions
+instance Prelude.NFData ListImageVersions
 
 instance Core.ToHeaders ListImageVersions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListImageVersions" :: Core.ByteString),
+              Core.=# ( "SageMaker.ListImageVersions" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListImageVersions where
   toJSON ListImageVersions' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
-              Core.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+              Prelude.<$> lastModifiedTimeBefore,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
-              Core.<$> creationTimeBefore,
+              Prelude.<$> creationTimeBefore,
             ("LastModifiedTimeAfter" Core..=)
-              Core.<$> lastModifiedTimeAfter,
-            ("SortBy" Core..=) Core.<$> sortBy,
+              Prelude.<$> lastModifiedTimeAfter,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("CreationTimeAfter" Core..=)
-              Core.<$> creationTimeAfter,
-            Core.Just ("ImageName" Core..= imageName)
+              Prelude.<$> creationTimeAfter,
+            Prelude.Just ("ImageName" Core..= imageName)
           ]
       )
 
 instance Core.ToPath ListImageVersions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListImageVersions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImageVersionsResponse' smart constructor.
 data ListImageVersionsResponse = ListImageVersionsResponse'
   { -- | A token for getting the next set of versions, if there are any.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of versions and their properties.
-    imageVersions :: Core.Maybe [ImageVersion],
+    imageVersions :: Prelude.Maybe [ImageVersion],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListImageVersionsResponse' with all optional fields omitted.
@@ -282,26 +288,26 @@ data ListImageVersionsResponse = ListImageVersionsResponse'
 -- 'httpStatus', 'listImageVersionsResponse_httpStatus' - The response's http status code.
 newListImageVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListImageVersionsResponse
 newListImageVersionsResponse pHttpStatus_ =
   ListImageVersionsResponse'
     { nextToken =
-        Core.Nothing,
-      imageVersions = Core.Nothing,
+        Prelude.Nothing,
+      imageVersions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token for getting the next set of versions, if there are any.
-listImageVersionsResponse_nextToken :: Lens.Lens' ListImageVersionsResponse (Core.Maybe Core.Text)
+listImageVersionsResponse_nextToken :: Lens.Lens' ListImageVersionsResponse (Prelude.Maybe Prelude.Text)
 listImageVersionsResponse_nextToken = Lens.lens (\ListImageVersionsResponse' {nextToken} -> nextToken) (\s@ListImageVersionsResponse' {} a -> s {nextToken = a} :: ListImageVersionsResponse)
 
 -- | A list of versions and their properties.
-listImageVersionsResponse_imageVersions :: Lens.Lens' ListImageVersionsResponse (Core.Maybe [ImageVersion])
-listImageVersionsResponse_imageVersions = Lens.lens (\ListImageVersionsResponse' {imageVersions} -> imageVersions) (\s@ListImageVersionsResponse' {} a -> s {imageVersions = a} :: ListImageVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listImageVersionsResponse_imageVersions :: Lens.Lens' ListImageVersionsResponse (Prelude.Maybe [ImageVersion])
+listImageVersionsResponse_imageVersions = Lens.lens (\ListImageVersionsResponse' {imageVersions} -> imageVersions) (\s@ListImageVersionsResponse' {} a -> s {imageVersions = a} :: ListImageVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listImageVersionsResponse_httpStatus :: Lens.Lens' ListImageVersionsResponse Core.Int
+listImageVersionsResponse_httpStatus :: Lens.Lens' ListImageVersionsResponse Prelude.Int
 listImageVersionsResponse_httpStatus = Lens.lens (\ListImageVersionsResponse' {httpStatus} -> httpStatus) (\s@ListImageVersionsResponse' {} a -> s {httpStatus = a} :: ListImageVersionsResponse)
 
-instance Core.NFData ListImageVersionsResponse
+instance Prelude.NFData ListImageVersionsResponse

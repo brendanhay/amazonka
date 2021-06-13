@@ -43,17 +43,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRoutingProfile' smart constructor.
 data DescribeRoutingProfile = DescribeRoutingProfile'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
-    routingProfileId :: Core.Text
+    routingProfileId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRoutingProfile' with all optional fields omitted.
@@ -68,9 +69,9 @@ data DescribeRoutingProfile = DescribeRoutingProfile'
 -- 'routingProfileId', 'describeRoutingProfile_routingProfileId' - The identifier of the routing profile.
 newDescribeRoutingProfile ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routingProfileId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeRoutingProfile
 newDescribeRoutingProfile
   pInstanceId_
@@ -81,11 +82,11 @@ newDescribeRoutingProfile
       }
 
 -- | The identifier of the Amazon Connect instance.
-describeRoutingProfile_instanceId :: Lens.Lens' DescribeRoutingProfile Core.Text
+describeRoutingProfile_instanceId :: Lens.Lens' DescribeRoutingProfile Prelude.Text
 describeRoutingProfile_instanceId = Lens.lens (\DescribeRoutingProfile' {instanceId} -> instanceId) (\s@DescribeRoutingProfile' {} a -> s {instanceId = a} :: DescribeRoutingProfile)
 
 -- | The identifier of the routing profile.
-describeRoutingProfile_routingProfileId :: Lens.Lens' DescribeRoutingProfile Core.Text
+describeRoutingProfile_routingProfileId :: Lens.Lens' DescribeRoutingProfile Prelude.Text
 describeRoutingProfile_routingProfileId = Lens.lens (\DescribeRoutingProfile' {routingProfileId} -> routingProfileId) (\s@DescribeRoutingProfile' {} a -> s {routingProfileId = a} :: DescribeRoutingProfile)
 
 instance Core.AWSRequest DescribeRoutingProfile where
@@ -97,26 +98,28 @@ instance Core.AWSRequest DescribeRoutingProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeRoutingProfileResponse'
-            Core.<$> (x Core..?> "RoutingProfile")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RoutingProfile")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRoutingProfile
+instance Prelude.Hashable DescribeRoutingProfile
 
-instance Core.NFData DescribeRoutingProfile
+instance Prelude.NFData DescribeRoutingProfile
 
 instance Core.ToHeaders DescribeRoutingProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeRoutingProfile where
   toPath DescribeRoutingProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/routing-profiles/",
         Core.toBS instanceId,
         "/",
@@ -124,16 +127,16 @@ instance Core.ToPath DescribeRoutingProfile where
       ]
 
 instance Core.ToQuery DescribeRoutingProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRoutingProfileResponse' smart constructor.
 data DescribeRoutingProfileResponse = DescribeRoutingProfileResponse'
   { -- | The routing profile.
-    routingProfile :: Core.Maybe RoutingProfile,
+    routingProfile :: Prelude.Maybe RoutingProfile,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRoutingProfileResponse' with all optional fields omitted.
@@ -148,21 +151,23 @@ data DescribeRoutingProfileResponse = DescribeRoutingProfileResponse'
 -- 'httpStatus', 'describeRoutingProfileResponse_httpStatus' - The response's http status code.
 newDescribeRoutingProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRoutingProfileResponse
 newDescribeRoutingProfileResponse pHttpStatus_ =
   DescribeRoutingProfileResponse'
     { routingProfile =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The routing profile.
-describeRoutingProfileResponse_routingProfile :: Lens.Lens' DescribeRoutingProfileResponse (Core.Maybe RoutingProfile)
+describeRoutingProfileResponse_routingProfile :: Lens.Lens' DescribeRoutingProfileResponse (Prelude.Maybe RoutingProfile)
 describeRoutingProfileResponse_routingProfile = Lens.lens (\DescribeRoutingProfileResponse' {routingProfile} -> routingProfile) (\s@DescribeRoutingProfileResponse' {} a -> s {routingProfile = a} :: DescribeRoutingProfileResponse)
 
 -- | The response's http status code.
-describeRoutingProfileResponse_httpStatus :: Lens.Lens' DescribeRoutingProfileResponse Core.Int
+describeRoutingProfileResponse_httpStatus :: Lens.Lens' DescribeRoutingProfileResponse Prelude.Int
 describeRoutingProfileResponse_httpStatus = Lens.lens (\DescribeRoutingProfileResponse' {httpStatus} -> httpStatus) (\s@DescribeRoutingProfileResponse' {} a -> s {httpStatus = a} :: DescribeRoutingProfileResponse)
 
-instance Core.NFData DescribeRoutingProfileResponse
+instance
+  Prelude.NFData
+    DescribeRoutingProfileResponse

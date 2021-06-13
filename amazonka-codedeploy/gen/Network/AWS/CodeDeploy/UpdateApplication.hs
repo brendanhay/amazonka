@@ -39,6 +39,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
   { -- | The new name to give the application.
-    newApplicationName' :: Core.Maybe Core.Text,
+    newApplicationName' :: Prelude.Maybe Prelude.Text,
     -- | The current name of the application you want to change.
-    applicationName :: Core.Maybe Core.Text
+    applicationName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplication' with all optional fields omitted.
@@ -69,16 +70,16 @@ newUpdateApplication ::
 newUpdateApplication =
   UpdateApplication'
     { newApplicationName' =
-        Core.Nothing,
-      applicationName = Core.Nothing
+        Prelude.Nothing,
+      applicationName = Prelude.Nothing
     }
 
 -- | The new name to give the application.
-updateApplication_newApplicationName :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
+updateApplication_newApplicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_newApplicationName = Lens.lens (\UpdateApplication' {newApplicationName'} -> newApplicationName') (\s@UpdateApplication' {} a -> s {newApplicationName' = a} :: UpdateApplication)
 
 -- | The current name of the application you want to change.
-updateApplication_applicationName :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
+updateApplication_applicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_applicationName = Lens.lens (\UpdateApplication' {applicationName} -> applicationName) (\s@UpdateApplication' {} a -> s {applicationName = a} :: UpdateApplication)
 
 instance Core.AWSRequest UpdateApplication where
@@ -89,45 +90,47 @@ instance Core.AWSRequest UpdateApplication where
   response =
     Response.receiveNull UpdateApplicationResponse'
 
-instance Core.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication
 
-instance Core.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.UpdateApplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("newApplicationName" Core..=)
-              Core.<$> newApplicationName',
+              Prelude.<$> newApplicationName',
             ("applicationName" Core..=)
-              Core.<$> applicationName
+              Prelude.<$> applicationName
           ]
       )
 
 instance Core.ToPath UpdateApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateApplication where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.
 data UpdateApplicationResponse = UpdateApplicationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationResponse' with all optional fields omitted.
@@ -138,4 +141,4 @@ newUpdateApplicationResponse ::
 newUpdateApplicationResponse =
   UpdateApplicationResponse'
 
-instance Core.NFData UpdateApplicationResponse
+instance Prelude.NFData UpdateApplicationResponse

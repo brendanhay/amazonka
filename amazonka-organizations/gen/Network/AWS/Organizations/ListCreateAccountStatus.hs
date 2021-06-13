@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,11 +69,11 @@ data ListCreateAccountStatus = ListCreateAccountStatus'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of one or more states that you want included in the response. If
     -- this parameter isn\'t present, all requests are included in the
     -- response.
-    states :: Core.Maybe [CreateAccountState],
+    states :: Prelude.Maybe [CreateAccountState],
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -83,9 +84,9 @@ data ListCreateAccountStatus = ListCreateAccountStatus'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCreateAccountStatus' with all optional fields omitted.
@@ -119,9 +120,10 @@ newListCreateAccountStatus ::
   ListCreateAccountStatus
 newListCreateAccountStatus =
   ListCreateAccountStatus'
-    { nextToken = Core.Nothing,
-      states = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      states = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The parameter for receiving additional results if you receive a
@@ -129,14 +131,14 @@ newListCreateAccountStatus =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listCreateAccountStatus_nextToken :: Lens.Lens' ListCreateAccountStatus (Core.Maybe Core.Text)
+listCreateAccountStatus_nextToken :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe Prelude.Text)
 listCreateAccountStatus_nextToken = Lens.lens (\ListCreateAccountStatus' {nextToken} -> nextToken) (\s@ListCreateAccountStatus' {} a -> s {nextToken = a} :: ListCreateAccountStatus)
 
 -- | A list of one or more states that you want included in the response. If
 -- this parameter isn\'t present, all requests are included in the
 -- response.
-listCreateAccountStatus_states :: Lens.Lens' ListCreateAccountStatus (Core.Maybe [CreateAccountState])
-listCreateAccountStatus_states = Lens.lens (\ListCreateAccountStatus' {states} -> states) (\s@ListCreateAccountStatus' {} a -> s {states = a} :: ListCreateAccountStatus) Core.. Lens.mapping Lens._Coerce
+listCreateAccountStatus_states :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe [CreateAccountState])
+listCreateAccountStatus_states = Lens.lens (\ListCreateAccountStatus' {states} -> states) (\s@ListCreateAccountStatus' {} a -> s {states = a} :: ListCreateAccountStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -148,7 +150,7 @@ listCreateAccountStatus_states = Lens.lens (\ListCreateAccountStatus' {states} -
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listCreateAccountStatus_maxResults :: Lens.Lens' ListCreateAccountStatus (Core.Maybe Core.Natural)
+listCreateAccountStatus_maxResults :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe Prelude.Natural)
 listCreateAccountStatus_maxResults = Lens.lens (\ListCreateAccountStatus' {maxResults} -> maxResults) (\s@ListCreateAccountStatus' {} a -> s {maxResults = a} :: ListCreateAccountStatus)
 
 instance Core.AWSPager ListCreateAccountStatus where
@@ -156,22 +158,22 @@ instance Core.AWSPager ListCreateAccountStatus where
     | Core.stop
         ( rs
             Lens.^? listCreateAccountStatusResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCreateAccountStatusResponse_createAccountStatuses
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listCreateAccountStatus_nextToken
+          Prelude.& listCreateAccountStatus_nextToken
           Lens..~ rs
           Lens.^? listCreateAccountStatusResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCreateAccountStatus where
   type
@@ -182,45 +184,47 @@ instance Core.AWSRequest ListCreateAccountStatus where
     Response.receiveJSON
       ( \s h x ->
           ListCreateAccountStatusResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "CreateAccountStatuses"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "CreateAccountStatuses"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListCreateAccountStatus
+instance Prelude.Hashable ListCreateAccountStatus
 
-instance Core.NFData ListCreateAccountStatus
+instance Prelude.NFData ListCreateAccountStatus
 
 instance Core.ToHeaders ListCreateAccountStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.ListCreateAccountStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListCreateAccountStatus where
   toJSON ListCreateAccountStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("States" Core..=) Core.<$> states,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("States" Core..=) Prelude.<$> states,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListCreateAccountStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListCreateAccountStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCreateAccountStatusResponse' smart constructor.
 data ListCreateAccountStatusResponse = ListCreateAccountStatusResponse'
@@ -229,15 +233,15 @@ data ListCreateAccountStatusResponse = ListCreateAccountStatusResponse'
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of objects with details about the requests. Certain elements,
     -- such as the accountId number, are present in the output only after the
     -- account has been successfully created.
-    createAccountStatuses :: Core.Maybe [CreateAccountStatus],
+    createAccountStatuses :: Prelude.Maybe [CreateAccountStatus],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCreateAccountStatusResponse' with all optional fields omitted.
@@ -260,13 +264,13 @@ data ListCreateAccountStatusResponse = ListCreateAccountStatusResponse'
 -- 'httpStatus', 'listCreateAccountStatusResponse_httpStatus' - The response's http status code.
 newListCreateAccountStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListCreateAccountStatusResponse
 newListCreateAccountStatusResponse pHttpStatus_ =
   ListCreateAccountStatusResponse'
     { nextToken =
-        Core.Nothing,
-      createAccountStatuses = Core.Nothing,
+        Prelude.Nothing,
+      createAccountStatuses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -275,17 +279,19 @@ newListCreateAccountStatusResponse pHttpStatus_ =
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listCreateAccountStatusResponse_nextToken :: Lens.Lens' ListCreateAccountStatusResponse (Core.Maybe Core.Text)
+listCreateAccountStatusResponse_nextToken :: Lens.Lens' ListCreateAccountStatusResponse (Prelude.Maybe Prelude.Text)
 listCreateAccountStatusResponse_nextToken = Lens.lens (\ListCreateAccountStatusResponse' {nextToken} -> nextToken) (\s@ListCreateAccountStatusResponse' {} a -> s {nextToken = a} :: ListCreateAccountStatusResponse)
 
 -- | A list of objects with details about the requests. Certain elements,
 -- such as the accountId number, are present in the output only after the
 -- account has been successfully created.
-listCreateAccountStatusResponse_createAccountStatuses :: Lens.Lens' ListCreateAccountStatusResponse (Core.Maybe [CreateAccountStatus])
-listCreateAccountStatusResponse_createAccountStatuses = Lens.lens (\ListCreateAccountStatusResponse' {createAccountStatuses} -> createAccountStatuses) (\s@ListCreateAccountStatusResponse' {} a -> s {createAccountStatuses = a} :: ListCreateAccountStatusResponse) Core.. Lens.mapping Lens._Coerce
+listCreateAccountStatusResponse_createAccountStatuses :: Lens.Lens' ListCreateAccountStatusResponse (Prelude.Maybe [CreateAccountStatus])
+listCreateAccountStatusResponse_createAccountStatuses = Lens.lens (\ListCreateAccountStatusResponse' {createAccountStatuses} -> createAccountStatuses) (\s@ListCreateAccountStatusResponse' {} a -> s {createAccountStatuses = a} :: ListCreateAccountStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCreateAccountStatusResponse_httpStatus :: Lens.Lens' ListCreateAccountStatusResponse Core.Int
+listCreateAccountStatusResponse_httpStatus :: Lens.Lens' ListCreateAccountStatusResponse Prelude.Int
 listCreateAccountStatusResponse_httpStatus = Lens.lens (\ListCreateAccountStatusResponse' {httpStatus} -> httpStatus) (\s@ListCreateAccountStatusResponse' {} a -> s {httpStatus = a} :: ListCreateAccountStatusResponse)
 
-instance Core.NFData ListCreateAccountStatusResponse
+instance
+  Prelude.NFData
+    ListCreateAccountStatusResponse

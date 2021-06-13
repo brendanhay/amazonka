@@ -22,15 +22,16 @@ module Network.AWS.IoT.Types.Destination where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.S3Destination
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the location of the updated firmware.
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
   { -- | Describes the location in S3 of the updated firmware.
-    s3Destination :: Core.Maybe S3Destination
+    s3Destination :: Prelude.Maybe S3Destination
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Destination' with all optional fields omitted.
@@ -44,10 +45,10 @@ data Destination = Destination'
 newDestination ::
   Destination
 newDestination =
-  Destination' {s3Destination = Core.Nothing}
+  Destination' {s3Destination = Prelude.Nothing}
 
 -- | Describes the location in S3 of the updated firmware.
-destination_s3Destination :: Lens.Lens' Destination (Core.Maybe S3Destination)
+destination_s3Destination :: Lens.Lens' Destination (Prelude.Maybe S3Destination)
 destination_s3Destination = Lens.lens (\Destination' {s3Destination} -> s3Destination) (\s@Destination' {} a -> s {s3Destination = a} :: Destination)
 
 instance Core.FromJSON Destination where
@@ -55,16 +56,19 @@ instance Core.FromJSON Destination where
     Core.withObject
       "Destination"
       ( \x ->
-          Destination' Core.<$> (x Core..:? "s3Destination")
+          Destination'
+            Prelude.<$> (x Core..:? "s3Destination")
       )
 
-instance Core.Hashable Destination
+instance Prelude.Hashable Destination
 
-instance Core.NFData Destination
+instance Prelude.NFData Destination
 
 instance Core.ToJSON Destination where
   toJSON Destination' {..} =
     Core.object
-      ( Core.catMaybes
-          [("s3Destination" Core..=) Core.<$> s3Destination]
+      ( Prelude.catMaybes
+          [ ("s3Destination" Core..=)
+              Prelude.<$> s3Destination
+          ]
       )

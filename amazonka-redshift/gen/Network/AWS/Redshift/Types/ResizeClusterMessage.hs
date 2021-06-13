@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ResizeClusterMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a resize cluster operation. For example, a scheduled action to
@@ -31,19 +32,19 @@ data ResizeClusterMessage = ResizeClusterMessage'
   { -- | A boolean value indicating whether the resize operation is using the
     -- classic resize process. If you don\'t provide this parameter or set the
     -- value to @false@, the resize type is elastic.
-    classic :: Core.Maybe Core.Bool,
+    classic :: Prelude.Maybe Prelude.Bool,
     -- | The new cluster type for the specified cluster.
-    clusterType :: Core.Maybe Core.Text,
+    clusterType :: Prelude.Maybe Prelude.Text,
     -- | The new number of nodes for the cluster. If not specified, the
     -- cluster\'s current number of nodes is used.
-    numberOfNodes :: Core.Maybe Core.Int,
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The new node type for the nodes you are adding. If not specified, the
     -- cluster\'s current node type is used.
-    nodeType :: Core.Maybe Core.Text,
+    nodeType :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the cluster to resize.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResizeClusterMessage' with all optional fields omitted.
@@ -68,57 +69,57 @@ data ResizeClusterMessage = ResizeClusterMessage'
 -- 'clusterIdentifier', 'resizeClusterMessage_clusterIdentifier' - The unique identifier for the cluster to resize.
 newResizeClusterMessage ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ResizeClusterMessage
 newResizeClusterMessage pClusterIdentifier_ =
   ResizeClusterMessage'
-    { classic = Core.Nothing,
-      clusterType = Core.Nothing,
-      numberOfNodes = Core.Nothing,
-      nodeType = Core.Nothing,
+    { classic = Prelude.Nothing,
+      clusterType = Prelude.Nothing,
+      numberOfNodes = Prelude.Nothing,
+      nodeType = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
 
 -- | A boolean value indicating whether the resize operation is using the
 -- classic resize process. If you don\'t provide this parameter or set the
 -- value to @false@, the resize type is elastic.
-resizeClusterMessage_classic :: Lens.Lens' ResizeClusterMessage (Core.Maybe Core.Bool)
+resizeClusterMessage_classic :: Lens.Lens' ResizeClusterMessage (Prelude.Maybe Prelude.Bool)
 resizeClusterMessage_classic = Lens.lens (\ResizeClusterMessage' {classic} -> classic) (\s@ResizeClusterMessage' {} a -> s {classic = a} :: ResizeClusterMessage)
 
 -- | The new cluster type for the specified cluster.
-resizeClusterMessage_clusterType :: Lens.Lens' ResizeClusterMessage (Core.Maybe Core.Text)
+resizeClusterMessage_clusterType :: Lens.Lens' ResizeClusterMessage (Prelude.Maybe Prelude.Text)
 resizeClusterMessage_clusterType = Lens.lens (\ResizeClusterMessage' {clusterType} -> clusterType) (\s@ResizeClusterMessage' {} a -> s {clusterType = a} :: ResizeClusterMessage)
 
 -- | The new number of nodes for the cluster. If not specified, the
 -- cluster\'s current number of nodes is used.
-resizeClusterMessage_numberOfNodes :: Lens.Lens' ResizeClusterMessage (Core.Maybe Core.Int)
+resizeClusterMessage_numberOfNodes :: Lens.Lens' ResizeClusterMessage (Prelude.Maybe Prelude.Int)
 resizeClusterMessage_numberOfNodes = Lens.lens (\ResizeClusterMessage' {numberOfNodes} -> numberOfNodes) (\s@ResizeClusterMessage' {} a -> s {numberOfNodes = a} :: ResizeClusterMessage)
 
 -- | The new node type for the nodes you are adding. If not specified, the
 -- cluster\'s current node type is used.
-resizeClusterMessage_nodeType :: Lens.Lens' ResizeClusterMessage (Core.Maybe Core.Text)
+resizeClusterMessage_nodeType :: Lens.Lens' ResizeClusterMessage (Prelude.Maybe Prelude.Text)
 resizeClusterMessage_nodeType = Lens.lens (\ResizeClusterMessage' {nodeType} -> nodeType) (\s@ResizeClusterMessage' {} a -> s {nodeType = a} :: ResizeClusterMessage)
 
 -- | The unique identifier for the cluster to resize.
-resizeClusterMessage_clusterIdentifier :: Lens.Lens' ResizeClusterMessage Core.Text
+resizeClusterMessage_clusterIdentifier :: Lens.Lens' ResizeClusterMessage Prelude.Text
 resizeClusterMessage_clusterIdentifier = Lens.lens (\ResizeClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@ResizeClusterMessage' {} a -> s {clusterIdentifier = a} :: ResizeClusterMessage)
 
 instance Core.FromXML ResizeClusterMessage where
   parseXML x =
     ResizeClusterMessage'
-      Core.<$> (x Core..@? "Classic")
-      Core.<*> (x Core..@? "ClusterType")
-      Core.<*> (x Core..@? "NumberOfNodes")
-      Core.<*> (x Core..@? "NodeType")
-      Core.<*> (x Core..@ "ClusterIdentifier")
+      Prelude.<$> (x Core..@? "Classic")
+      Prelude.<*> (x Core..@? "ClusterType")
+      Prelude.<*> (x Core..@? "NumberOfNodes")
+      Prelude.<*> (x Core..@? "NodeType")
+      Prelude.<*> (x Core..@ "ClusterIdentifier")
 
-instance Core.Hashable ResizeClusterMessage
+instance Prelude.Hashable ResizeClusterMessage
 
-instance Core.NFData ResizeClusterMessage
+instance Prelude.NFData ResizeClusterMessage
 
 instance Core.ToQuery ResizeClusterMessage where
   toQuery ResizeClusterMessage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Classic" Core.=: classic,
         "ClusterType" Core.=: clusterType,
         "NumberOfNodes" Core.=: numberOfNodes,

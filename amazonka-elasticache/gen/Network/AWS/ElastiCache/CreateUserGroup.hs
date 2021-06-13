@@ -51,19 +51,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUserGroup' smart constructor.
 data CreateUserGroup = CreateUserGroup'
   { -- | The list of user IDs that belong to the user group.
-    userIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    userIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ID of the user group.
-    userGroupId :: Core.Text,
+    userGroupId :: Prelude.Text,
     -- | The current supported value is Redis.
-    engine :: Core.Text
+    engine :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUserGroup' with all optional fields omitted.
@@ -80,27 +81,27 @@ data CreateUserGroup = CreateUserGroup'
 -- 'engine', 'createUserGroup_engine' - The current supported value is Redis.
 newCreateUserGroup ::
   -- | 'userGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'engine'
-  Core.Text ->
+  Prelude.Text ->
   CreateUserGroup
 newCreateUserGroup pUserGroupId_ pEngine_ =
   CreateUserGroup'
-    { userIds = Core.Nothing,
+    { userIds = Prelude.Nothing,
       userGroupId = pUserGroupId_,
       engine = pEngine_
     }
 
 -- | The list of user IDs that belong to the user group.
-createUserGroup_userIds :: Lens.Lens' CreateUserGroup (Core.Maybe (Core.NonEmpty Core.Text))
-createUserGroup_userIds = Lens.lens (\CreateUserGroup' {userIds} -> userIds) (\s@CreateUserGroup' {} a -> s {userIds = a} :: CreateUserGroup) Core.. Lens.mapping Lens._Coerce
+createUserGroup_userIds :: Lens.Lens' CreateUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createUserGroup_userIds = Lens.lens (\CreateUserGroup' {userIds} -> userIds) (\s@CreateUserGroup' {} a -> s {userIds = a} :: CreateUserGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the user group.
-createUserGroup_userGroupId :: Lens.Lens' CreateUserGroup Core.Text
+createUserGroup_userGroupId :: Lens.Lens' CreateUserGroup Prelude.Text
 createUserGroup_userGroupId = Lens.lens (\CreateUserGroup' {userGroupId} -> userGroupId) (\s@CreateUserGroup' {} a -> s {userGroupId = a} :: CreateUserGroup)
 
 -- | The current supported value is Redis.
-createUserGroup_engine :: Lens.Lens' CreateUserGroup Core.Text
+createUserGroup_engine :: Lens.Lens' CreateUserGroup Prelude.Text
 createUserGroup_engine = Lens.lens (\CreateUserGroup' {engine} -> engine) (\s@CreateUserGroup' {} a -> s {engine = a} :: CreateUserGroup)
 
 instance Core.AWSRequest CreateUserGroup where
@@ -111,25 +112,26 @@ instance Core.AWSRequest CreateUserGroup where
       "CreateUserGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable CreateUserGroup
+instance Prelude.Hashable CreateUserGroup
 
-instance Core.NFData CreateUserGroup
+instance Prelude.NFData CreateUserGroup
 
 instance Core.ToHeaders CreateUserGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateUserGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateUserGroup where
   toQuery CreateUserGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateUserGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("CreateUserGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "UserIds"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> userIds),
+            (Core.toQueryList "member" Prelude.<$> userIds),
         "UserGroupId" Core.=: userGroupId,
         "Engine" Core.=: engine
       ]

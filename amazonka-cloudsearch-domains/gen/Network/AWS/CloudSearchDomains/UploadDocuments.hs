@@ -71,6 +71,7 @@ where
 import Network.AWS.CloudSearchDomains.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,7 +88,7 @@ data UploadDocuments = UploadDocuments'
     -- | A batch of documents formatted in JSON or HTML.
     documents :: Core.HashedBody
   }
-  deriving (Core.Show, Core.Generic)
+  deriving (Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadDocuments' with all optional fields omitted.
@@ -137,11 +138,11 @@ instance Core.AWSRequest UploadDocuments where
     Response.receiveJSON
       ( \s h x ->
           UploadDocumentsResponse'
-            Core.<$> (x Core..?> "status")
-            Core.<*> (x Core..?> "warnings" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "deletes")
-            Core.<*> (x Core..?> "adds")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "deletes")
+            Prelude.<*> (x Core..?> "adds")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Core.ToBody UploadDocuments where
@@ -149,31 +150,33 @@ instance Core.ToBody UploadDocuments where
 
 instance Core.ToHeaders UploadDocuments where
   toHeaders UploadDocuments' {..} =
-    Core.mconcat ["Content-Type" Core.=# contentType]
+    Prelude.mconcat
+      ["Content-Type" Core.=# contentType]
 
 instance Core.ToPath UploadDocuments where
-  toPath = Core.const "/2013-01-01/documents/batch"
+  toPath = Prelude.const "/2013-01-01/documents/batch"
 
 instance Core.ToQuery UploadDocuments where
-  toQuery = Core.const (Core.mconcat ["format=sdk"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["format=sdk"])
 
 -- | Contains the response to an @UploadDocuments@ request.
 --
 -- /See:/ 'newUploadDocumentsResponse' smart constructor.
 data UploadDocumentsResponse = UploadDocumentsResponse'
   { -- | The status of an @UploadDocumentsRequest@.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | Any warnings returned by the document service about the documents being
     -- uploaded.
-    warnings :: Core.Maybe [DocumentServiceWarning],
+    warnings :: Prelude.Maybe [DocumentServiceWarning],
     -- | The number of documents that were deleted from the search domain.
-    deletes :: Core.Maybe Core.Integer,
+    deletes :: Prelude.Maybe Prelude.Integer,
     -- | The number of documents that were added to the search domain.
-    adds :: Core.Maybe Core.Integer,
+    adds :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadDocumentsResponse' with all optional fields omitted.
@@ -195,36 +198,36 @@ data UploadDocumentsResponse = UploadDocumentsResponse'
 -- 'httpStatus', 'uploadDocumentsResponse_httpStatus' - The response's http status code.
 newUploadDocumentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UploadDocumentsResponse
 newUploadDocumentsResponse pHttpStatus_ =
   UploadDocumentsResponse'
-    { status = Core.Nothing,
-      warnings = Core.Nothing,
-      deletes = Core.Nothing,
-      adds = Core.Nothing,
+    { status = Prelude.Nothing,
+      warnings = Prelude.Nothing,
+      deletes = Prelude.Nothing,
+      adds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of an @UploadDocumentsRequest@.
-uploadDocumentsResponse_status :: Lens.Lens' UploadDocumentsResponse (Core.Maybe Core.Text)
+uploadDocumentsResponse_status :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Text)
 uploadDocumentsResponse_status = Lens.lens (\UploadDocumentsResponse' {status} -> status) (\s@UploadDocumentsResponse' {} a -> s {status = a} :: UploadDocumentsResponse)
 
 -- | Any warnings returned by the document service about the documents being
 -- uploaded.
-uploadDocumentsResponse_warnings :: Lens.Lens' UploadDocumentsResponse (Core.Maybe [DocumentServiceWarning])
-uploadDocumentsResponse_warnings = Lens.lens (\UploadDocumentsResponse' {warnings} -> warnings) (\s@UploadDocumentsResponse' {} a -> s {warnings = a} :: UploadDocumentsResponse) Core.. Lens.mapping Lens._Coerce
+uploadDocumentsResponse_warnings :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe [DocumentServiceWarning])
+uploadDocumentsResponse_warnings = Lens.lens (\UploadDocumentsResponse' {warnings} -> warnings) (\s@UploadDocumentsResponse' {} a -> s {warnings = a} :: UploadDocumentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of documents that were deleted from the search domain.
-uploadDocumentsResponse_deletes :: Lens.Lens' UploadDocumentsResponse (Core.Maybe Core.Integer)
+uploadDocumentsResponse_deletes :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Integer)
 uploadDocumentsResponse_deletes = Lens.lens (\UploadDocumentsResponse' {deletes} -> deletes) (\s@UploadDocumentsResponse' {} a -> s {deletes = a} :: UploadDocumentsResponse)
 
 -- | The number of documents that were added to the search domain.
-uploadDocumentsResponse_adds :: Lens.Lens' UploadDocumentsResponse (Core.Maybe Core.Integer)
+uploadDocumentsResponse_adds :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Integer)
 uploadDocumentsResponse_adds = Lens.lens (\UploadDocumentsResponse' {adds} -> adds) (\s@UploadDocumentsResponse' {} a -> s {adds = a} :: UploadDocumentsResponse)
 
 -- | The response's http status code.
-uploadDocumentsResponse_httpStatus :: Lens.Lens' UploadDocumentsResponse Core.Int
+uploadDocumentsResponse_httpStatus :: Lens.Lens' UploadDocumentsResponse Prelude.Int
 uploadDocumentsResponse_httpStatus = Lens.lens (\UploadDocumentsResponse' {httpStatus} -> httpStatus) (\s@UploadDocumentsResponse' {} a -> s {httpStatus = a} :: UploadDocumentsResponse)
 
-instance Core.NFData UploadDocumentsResponse
+instance Prelude.NFData UploadDocumentsResponse

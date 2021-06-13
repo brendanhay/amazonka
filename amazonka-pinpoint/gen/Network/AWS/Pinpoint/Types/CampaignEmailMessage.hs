@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.CampaignEmailMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the content and \"From\" address for an email message that\'s
 -- sent to recipients of a campaign.
@@ -28,18 +29,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCampaignEmailMessage' smart constructor.
 data CampaignEmailMessage = CampaignEmailMessage'
   { -- | The subject line, or title, of the email.
-    title :: Core.Maybe Core.Text,
+    title :: Prelude.Maybe Prelude.Text,
     -- | The body of the email for recipients whose email clients don\'t render
     -- HTML content.
-    body :: Core.Maybe Core.Text,
+    body :: Prelude.Maybe Prelude.Text,
     -- | The body of the email, in HTML format, for recipients whose email
     -- clients render HTML content.
-    htmlBody :: Core.Maybe Core.Text,
+    htmlBody :: Prelude.Maybe Prelude.Text,
     -- | The verified email address to send the email from. The default address
     -- is the FromAddress specified for the email channel for the application.
-    fromAddress :: Core.Maybe Core.Text
+    fromAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CampaignEmailMessage' with all optional fields omitted.
@@ -63,29 +64,29 @@ newCampaignEmailMessage ::
   CampaignEmailMessage
 newCampaignEmailMessage =
   CampaignEmailMessage'
-    { title = Core.Nothing,
-      body = Core.Nothing,
-      htmlBody = Core.Nothing,
-      fromAddress = Core.Nothing
+    { title = Prelude.Nothing,
+      body = Prelude.Nothing,
+      htmlBody = Prelude.Nothing,
+      fromAddress = Prelude.Nothing
     }
 
 -- | The subject line, or title, of the email.
-campaignEmailMessage_title :: Lens.Lens' CampaignEmailMessage (Core.Maybe Core.Text)
+campaignEmailMessage_title :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
 campaignEmailMessage_title = Lens.lens (\CampaignEmailMessage' {title} -> title) (\s@CampaignEmailMessage' {} a -> s {title = a} :: CampaignEmailMessage)
 
 -- | The body of the email for recipients whose email clients don\'t render
 -- HTML content.
-campaignEmailMessage_body :: Lens.Lens' CampaignEmailMessage (Core.Maybe Core.Text)
+campaignEmailMessage_body :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
 campaignEmailMessage_body = Lens.lens (\CampaignEmailMessage' {body} -> body) (\s@CampaignEmailMessage' {} a -> s {body = a} :: CampaignEmailMessage)
 
 -- | The body of the email, in HTML format, for recipients whose email
 -- clients render HTML content.
-campaignEmailMessage_htmlBody :: Lens.Lens' CampaignEmailMessage (Core.Maybe Core.Text)
+campaignEmailMessage_htmlBody :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
 campaignEmailMessage_htmlBody = Lens.lens (\CampaignEmailMessage' {htmlBody} -> htmlBody) (\s@CampaignEmailMessage' {} a -> s {htmlBody = a} :: CampaignEmailMessage)
 
 -- | The verified email address to send the email from. The default address
 -- is the FromAddress specified for the email channel for the application.
-campaignEmailMessage_fromAddress :: Lens.Lens' CampaignEmailMessage (Core.Maybe Core.Text)
+campaignEmailMessage_fromAddress :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
 campaignEmailMessage_fromAddress = Lens.lens (\CampaignEmailMessage' {fromAddress} -> fromAddress) (\s@CampaignEmailMessage' {} a -> s {fromAddress = a} :: CampaignEmailMessage)
 
 instance Core.FromJSON CampaignEmailMessage where
@@ -94,23 +95,23 @@ instance Core.FromJSON CampaignEmailMessage where
       "CampaignEmailMessage"
       ( \x ->
           CampaignEmailMessage'
-            Core.<$> (x Core..:? "Title")
-            Core.<*> (x Core..:? "Body")
-            Core.<*> (x Core..:? "HtmlBody")
-            Core.<*> (x Core..:? "FromAddress")
+            Prelude.<$> (x Core..:? "Title")
+            Prelude.<*> (x Core..:? "Body")
+            Prelude.<*> (x Core..:? "HtmlBody")
+            Prelude.<*> (x Core..:? "FromAddress")
       )
 
-instance Core.Hashable CampaignEmailMessage
+instance Prelude.Hashable CampaignEmailMessage
 
-instance Core.NFData CampaignEmailMessage
+instance Prelude.NFData CampaignEmailMessage
 
 instance Core.ToJSON CampaignEmailMessage where
   toJSON CampaignEmailMessage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Title" Core..=) Core.<$> title,
-            ("Body" Core..=) Core.<$> body,
-            ("HtmlBody" Core..=) Core.<$> htmlBody,
-            ("FromAddress" Core..=) Core.<$> fromAddress
+      ( Prelude.catMaybes
+          [ ("Title" Core..=) Prelude.<$> title,
+            ("Body" Core..=) Prelude.<$> body,
+            ("HtmlBody" Core..=) Prelude.<$> htmlBody,
+            ("FromAddress" Core..=) Prelude.<$> fromAddress
           ]
       )

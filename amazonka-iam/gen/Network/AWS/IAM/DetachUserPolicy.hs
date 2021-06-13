@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +57,15 @@ data DetachUserPolicy = DetachUserPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Core.Text
+    policyArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachUserPolicy' with all optional fields omitted.
@@ -89,9 +90,9 @@ data DetachUserPolicy = DetachUserPolicy'
 -- in the /AWS General Reference/.
 newDetachUserPolicy ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   DetachUserPolicy
 newDetachUserPolicy pUserName_ pPolicyArn_ =
   DetachUserPolicy'
@@ -106,7 +107,7 @@ newDetachUserPolicy pUserName_ pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-detachUserPolicy_userName :: Lens.Lens' DetachUserPolicy Core.Text
+detachUserPolicy_userName :: Lens.Lens' DetachUserPolicy Prelude.Text
 detachUserPolicy_userName = Lens.lens (\DetachUserPolicy' {userName} -> userName) (\s@DetachUserPolicy' {} a -> s {userName = a} :: DetachUserPolicy)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
@@ -114,7 +115,7 @@ detachUserPolicy_userName = Lens.lens (\DetachUserPolicy' {userName} -> userName
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-detachUserPolicy_policyArn :: Lens.Lens' DetachUserPolicy Core.Text
+detachUserPolicy_policyArn :: Lens.Lens' DetachUserPolicy Prelude.Text
 detachUserPolicy_policyArn = Lens.lens (\DetachUserPolicy' {policyArn} -> policyArn) (\s@DetachUserPolicy' {} a -> s {policyArn = a} :: DetachUserPolicy)
 
 instance Core.AWSRequest DetachUserPolicy where
@@ -125,22 +126,23 @@ instance Core.AWSRequest DetachUserPolicy where
   response =
     Response.receiveNull DetachUserPolicyResponse'
 
-instance Core.Hashable DetachUserPolicy
+instance Prelude.Hashable DetachUserPolicy
 
-instance Core.NFData DetachUserPolicy
+instance Prelude.NFData DetachUserPolicy
 
 instance Core.ToHeaders DetachUserPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetachUserPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachUserPolicy where
   toQuery DetachUserPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachUserPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DetachUserPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "PolicyArn" Core.=: policyArn
       ]
@@ -149,7 +151,7 @@ instance Core.ToQuery DetachUserPolicy where
 data DetachUserPolicyResponse = DetachUserPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachUserPolicyResponse' with all optional fields omitted.
@@ -160,4 +162,4 @@ newDetachUserPolicyResponse ::
 newDetachUserPolicyResponse =
   DetachUserPolicyResponse'
 
-instance Core.NFData DetachUserPolicyResponse
+instance Prelude.NFData DetachUserPolicyResponse

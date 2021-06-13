@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.MonitoringSubscription where
 import Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A monitoring subscription. This structure contains information about
 -- whether additional CloudWatch metrics are enabled for a given CloudFront
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMonitoringSubscription' smart constructor.
 data MonitoringSubscription = MonitoringSubscription'
   { -- | A subscription configuration for additional CloudWatch metrics.
-    realtimeMetricsSubscriptionConfig :: Core.Maybe RealtimeMetricsSubscriptionConfig
+    realtimeMetricsSubscriptionConfig :: Prelude.Maybe RealtimeMetricsSubscriptionConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringSubscription' with all optional fields omitted.
@@ -48,25 +49,25 @@ newMonitoringSubscription ::
 newMonitoringSubscription =
   MonitoringSubscription'
     { realtimeMetricsSubscriptionConfig =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A subscription configuration for additional CloudWatch metrics.
-monitoringSubscription_realtimeMetricsSubscriptionConfig :: Lens.Lens' MonitoringSubscription (Core.Maybe RealtimeMetricsSubscriptionConfig)
+monitoringSubscription_realtimeMetricsSubscriptionConfig :: Lens.Lens' MonitoringSubscription (Prelude.Maybe RealtimeMetricsSubscriptionConfig)
 monitoringSubscription_realtimeMetricsSubscriptionConfig = Lens.lens (\MonitoringSubscription' {realtimeMetricsSubscriptionConfig} -> realtimeMetricsSubscriptionConfig) (\s@MonitoringSubscription' {} a -> s {realtimeMetricsSubscriptionConfig = a} :: MonitoringSubscription)
 
 instance Core.FromXML MonitoringSubscription where
   parseXML x =
     MonitoringSubscription'
-      Core.<$> (x Core..@? "RealtimeMetricsSubscriptionConfig")
+      Prelude.<$> (x Core..@? "RealtimeMetricsSubscriptionConfig")
 
-instance Core.Hashable MonitoringSubscription
+instance Prelude.Hashable MonitoringSubscription
 
-instance Core.NFData MonitoringSubscription
+instance Prelude.NFData MonitoringSubscription
 
 instance Core.ToXML MonitoringSubscription where
   toXML MonitoringSubscription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "RealtimeMetricsSubscriptionConfig"
           Core.@= realtimeMetricsSubscriptionConfig
       ]

@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -62,17 +63,17 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
     --
     -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
     -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
-    exclusiveEndTime :: Core.Maybe Core.POSIX,
+    exclusiveEndTime :: Prelude.Maybe Core.POSIX,
     -- | The key-value pairs to add as tags to the stream that you want to
     -- create. Tag keys are case sensitive. Tag values are case sensitive and
     -- can be null.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the ledger.
-    ledgerName :: Core.Text,
+    ledgerName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
     -- permissions for a journal stream to write data records to a Kinesis Data
     -- Streams resource.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The inclusive start date and time from which to start streaming journal
     -- data. This parameter must be in @ISO 8601@ date and time format and in
     -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
@@ -96,9 +97,9 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
     -- as defined in
     -- <https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming Quotas in Amazon QLDB>
     -- in the /Amazon QLDB Developer Guide/.
-    streamName :: Core.Text
+    streamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamJournalToKinesis' with all optional fields omitted.
@@ -150,15 +151,15 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
 -- in the /Amazon QLDB Developer Guide/.
 newStreamJournalToKinesis ::
   -- | 'ledgerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inclusiveStartTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'kinesisConfiguration'
   KinesisConfiguration ->
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   StreamJournalToKinesis
 newStreamJournalToKinesis
   pLedgerName_
@@ -168,8 +169,8 @@ newStreamJournalToKinesis
   pStreamName_ =
     StreamJournalToKinesis'
       { exclusiveEndTime =
-          Core.Nothing,
-        tags = Core.Nothing,
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         ledgerName = pLedgerName_,
         roleArn = pRoleArn_,
         inclusiveStartTime =
@@ -184,23 +185,23 @@ newStreamJournalToKinesis
 --
 -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
 -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
-streamJournalToKinesis_exclusiveEndTime :: Lens.Lens' StreamJournalToKinesis (Core.Maybe Core.UTCTime)
-streamJournalToKinesis_exclusiveEndTime = Lens.lens (\StreamJournalToKinesis' {exclusiveEndTime} -> exclusiveEndTime) (\s@StreamJournalToKinesis' {} a -> s {exclusiveEndTime = a} :: StreamJournalToKinesis) Core.. Lens.mapping Core._Time
+streamJournalToKinesis_exclusiveEndTime :: Lens.Lens' StreamJournalToKinesis (Prelude.Maybe Prelude.UTCTime)
+streamJournalToKinesis_exclusiveEndTime = Lens.lens (\StreamJournalToKinesis' {exclusiveEndTime} -> exclusiveEndTime) (\s@StreamJournalToKinesis' {} a -> s {exclusiveEndTime = a} :: StreamJournalToKinesis) Prelude.. Lens.mapping Core._Time
 
 -- | The key-value pairs to add as tags to the stream that you want to
 -- create. Tag keys are case sensitive. Tag values are case sensitive and
 -- can be null.
-streamJournalToKinesis_tags :: Lens.Lens' StreamJournalToKinesis (Core.Maybe (Core.HashMap Core.Text Core.Text))
-streamJournalToKinesis_tags = Lens.lens (\StreamJournalToKinesis' {tags} -> tags) (\s@StreamJournalToKinesis' {} a -> s {tags = a} :: StreamJournalToKinesis) Core.. Lens.mapping Lens._Coerce
+streamJournalToKinesis_tags :: Lens.Lens' StreamJournalToKinesis (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+streamJournalToKinesis_tags = Lens.lens (\StreamJournalToKinesis' {tags} -> tags) (\s@StreamJournalToKinesis' {} a -> s {tags = a} :: StreamJournalToKinesis) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the ledger.
-streamJournalToKinesis_ledgerName :: Lens.Lens' StreamJournalToKinesis Core.Text
+streamJournalToKinesis_ledgerName :: Lens.Lens' StreamJournalToKinesis Prelude.Text
 streamJournalToKinesis_ledgerName = Lens.lens (\StreamJournalToKinesis' {ledgerName} -> ledgerName) (\s@StreamJournalToKinesis' {} a -> s {ledgerName = a} :: StreamJournalToKinesis)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 -- permissions for a journal stream to write data records to a Kinesis Data
 -- Streams resource.
-streamJournalToKinesis_roleArn :: Lens.Lens' StreamJournalToKinesis Core.Text
+streamJournalToKinesis_roleArn :: Lens.Lens' StreamJournalToKinesis Prelude.Text
 streamJournalToKinesis_roleArn = Lens.lens (\StreamJournalToKinesis' {roleArn} -> roleArn) (\s@StreamJournalToKinesis' {} a -> s {roleArn = a} :: StreamJournalToKinesis)
 
 -- | The inclusive start date and time from which to start streaming journal
@@ -213,8 +214,8 @@ streamJournalToKinesis_roleArn = Lens.lens (\StreamJournalToKinesis' {roleArn} -
 -- If you provide an @InclusiveStartTime@ that is before the ledger\'s
 -- @CreationDateTime@, QLDB effectively defaults it to the ledger\'s
 -- @CreationDateTime@.
-streamJournalToKinesis_inclusiveStartTime :: Lens.Lens' StreamJournalToKinesis Core.UTCTime
-streamJournalToKinesis_inclusiveStartTime = Lens.lens (\StreamJournalToKinesis' {inclusiveStartTime} -> inclusiveStartTime) (\s@StreamJournalToKinesis' {} a -> s {inclusiveStartTime = a} :: StreamJournalToKinesis) Core.. Core._Time
+streamJournalToKinesis_inclusiveStartTime :: Lens.Lens' StreamJournalToKinesis Prelude.UTCTime
+streamJournalToKinesis_inclusiveStartTime = Lens.lens (\StreamJournalToKinesis' {inclusiveStartTime} -> inclusiveStartTime) (\s@StreamJournalToKinesis' {} a -> s {inclusiveStartTime = a} :: StreamJournalToKinesis) Prelude.. Core._Time
 
 -- | The configuration settings of the Kinesis Data Streams destination for
 -- your stream request.
@@ -230,7 +231,7 @@ streamJournalToKinesis_kinesisConfiguration = Lens.lens (\StreamJournalToKinesis
 -- as defined in
 -- <https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming Quotas in Amazon QLDB>
 -- in the /Amazon QLDB Developer Guide/.
-streamJournalToKinesis_streamName :: Lens.Lens' StreamJournalToKinesis Core.Text
+streamJournalToKinesis_streamName :: Lens.Lens' StreamJournalToKinesis Prelude.Text
 streamJournalToKinesis_streamName = Lens.lens (\StreamJournalToKinesis' {streamName} -> streamName) (\s@StreamJournalToKinesis' {} a -> s {streamName = a} :: StreamJournalToKinesis)
 
 instance Core.AWSRequest StreamJournalToKinesis where
@@ -242,60 +243,62 @@ instance Core.AWSRequest StreamJournalToKinesis where
     Response.receiveJSON
       ( \s h x ->
           StreamJournalToKinesisResponse'
-            Core.<$> (x Core..?> "StreamId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "StreamId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StreamJournalToKinesis
+instance Prelude.Hashable StreamJournalToKinesis
 
-instance Core.NFData StreamJournalToKinesis
+instance Prelude.NFData StreamJournalToKinesis
 
 instance Core.ToHeaders StreamJournalToKinesis where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StreamJournalToKinesis where
   toJSON StreamJournalToKinesis' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExclusiveEndTime" Core..=)
-              Core.<$> exclusiveEndTime,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("RoleArn" Core..= roleArn),
-            Core.Just
+              Prelude.<$> exclusiveEndTime,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("RoleArn" Core..= roleArn),
+            Prelude.Just
               ("InclusiveStartTime" Core..= inclusiveStartTime),
-            Core.Just
+            Prelude.Just
               ( "KinesisConfiguration"
                   Core..= kinesisConfiguration
               ),
-            Core.Just ("StreamName" Core..= streamName)
+            Prelude.Just ("StreamName" Core..= streamName)
           ]
       )
 
 instance Core.ToPath StreamJournalToKinesis where
   toPath StreamJournalToKinesis' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/ledgers/",
         Core.toBS ledgerName,
         "/journal-kinesis-streams"
       ]
 
 instance Core.ToQuery StreamJournalToKinesis where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStreamJournalToKinesisResponse' smart constructor.
 data StreamJournalToKinesisResponse = StreamJournalToKinesisResponse'
   { -- | The unique ID that QLDB assigns to each QLDB journal stream.
-    streamId :: Core.Maybe Core.Text,
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamJournalToKinesisResponse' with all optional fields omitted.
@@ -310,21 +313,23 @@ data StreamJournalToKinesisResponse = StreamJournalToKinesisResponse'
 -- 'httpStatus', 'streamJournalToKinesisResponse_httpStatus' - The response's http status code.
 newStreamJournalToKinesisResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StreamJournalToKinesisResponse
 newStreamJournalToKinesisResponse pHttpStatus_ =
   StreamJournalToKinesisResponse'
     { streamId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID that QLDB assigns to each QLDB journal stream.
-streamJournalToKinesisResponse_streamId :: Lens.Lens' StreamJournalToKinesisResponse (Core.Maybe Core.Text)
+streamJournalToKinesisResponse_streamId :: Lens.Lens' StreamJournalToKinesisResponse (Prelude.Maybe Prelude.Text)
 streamJournalToKinesisResponse_streamId = Lens.lens (\StreamJournalToKinesisResponse' {streamId} -> streamId) (\s@StreamJournalToKinesisResponse' {} a -> s {streamId = a} :: StreamJournalToKinesisResponse)
 
 -- | The response's http status code.
-streamJournalToKinesisResponse_httpStatus :: Lens.Lens' StreamJournalToKinesisResponse Core.Int
+streamJournalToKinesisResponse_httpStatus :: Lens.Lens' StreamJournalToKinesisResponse Prelude.Int
 streamJournalToKinesisResponse_httpStatus = Lens.lens (\StreamJournalToKinesisResponse' {httpStatus} -> httpStatus) (\s@StreamJournalToKinesisResponse' {} a -> s {httpStatus = a} :: StreamJournalToKinesisResponse)
 
-instance Core.NFData StreamJournalToKinesisResponse
+instance
+  Prelude.NFData
+    StreamJournalToKinesisResponse

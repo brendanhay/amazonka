@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The retry strategy to use for failed jobs, if the target is an AWS Batch
 -- job. If you specify a retry strategy here, it overrides the retry
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data BatchRetryStrategy = BatchRetryStrategy'
   { -- | The number of times to attempt to retry, if the job fails. Valid values
     -- are 1–10.
-    attempts :: Core.Maybe Core.Int
+    attempts :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchRetryStrategy' with all optional fields omitted.
@@ -47,11 +48,11 @@ data BatchRetryStrategy = BatchRetryStrategy'
 newBatchRetryStrategy ::
   BatchRetryStrategy
 newBatchRetryStrategy =
-  BatchRetryStrategy' {attempts = Core.Nothing}
+  BatchRetryStrategy' {attempts = Prelude.Nothing}
 
 -- | The number of times to attempt to retry, if the job fails. Valid values
 -- are 1–10.
-batchRetryStrategy_attempts :: Lens.Lens' BatchRetryStrategy (Core.Maybe Core.Int)
+batchRetryStrategy_attempts :: Lens.Lens' BatchRetryStrategy (Prelude.Maybe Prelude.Int)
 batchRetryStrategy_attempts = Lens.lens (\BatchRetryStrategy' {attempts} -> attempts) (\s@BatchRetryStrategy' {} a -> s {attempts = a} :: BatchRetryStrategy)
 
 instance Core.FromJSON BatchRetryStrategy where
@@ -59,16 +60,17 @@ instance Core.FromJSON BatchRetryStrategy where
     Core.withObject
       "BatchRetryStrategy"
       ( \x ->
-          BatchRetryStrategy' Core.<$> (x Core..:? "Attempts")
+          BatchRetryStrategy'
+            Prelude.<$> (x Core..:? "Attempts")
       )
 
-instance Core.Hashable BatchRetryStrategy
+instance Prelude.Hashable BatchRetryStrategy
 
-instance Core.NFData BatchRetryStrategy
+instance Prelude.NFData BatchRetryStrategy
 
 instance Core.ToJSON BatchRetryStrategy where
   toJSON BatchRetryStrategy' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Attempts" Core..=) Core.<$> attempts]
+      ( Prelude.catMaybes
+          [("Attempts" Core..=) Prelude.<$> attempts]
       )

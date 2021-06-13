@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,12 +51,12 @@ import Network.AWS.SageMaker.Types
 data UpdateMonitoringSchedule = UpdateMonitoringSchedule'
   { -- | The name of the monitoring schedule. The name must be unique within an
     -- AWS Region within an AWS account.
-    monitoringScheduleName :: Core.Text,
+    monitoringScheduleName :: Prelude.Text,
     -- | The configuration object that specifies the monitoring schedule and
     -- defines the monitoring job.
     monitoringScheduleConfig :: MonitoringScheduleConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateMonitoringSchedule' with all optional fields omitted.
@@ -72,7 +73,7 @@ data UpdateMonitoringSchedule = UpdateMonitoringSchedule'
 -- defines the monitoring job.
 newUpdateMonitoringSchedule ::
   -- | 'monitoringScheduleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'monitoringScheduleConfig'
   MonitoringScheduleConfig ->
   UpdateMonitoringSchedule
@@ -88,7 +89,7 @@ newUpdateMonitoringSchedule
 
 -- | The name of the monitoring schedule. The name must be unique within an
 -- AWS Region within an AWS account.
-updateMonitoringSchedule_monitoringScheduleName :: Lens.Lens' UpdateMonitoringSchedule Core.Text
+updateMonitoringSchedule_monitoringScheduleName :: Lens.Lens' UpdateMonitoringSchedule Prelude.Text
 updateMonitoringSchedule_monitoringScheduleName = Lens.lens (\UpdateMonitoringSchedule' {monitoringScheduleName} -> monitoringScheduleName) (\s@UpdateMonitoringSchedule' {} a -> s {monitoringScheduleName = a} :: UpdateMonitoringSchedule)
 
 -- | The configuration object that specifies the monitoring schedule and
@@ -105,36 +106,38 @@ instance Core.AWSRequest UpdateMonitoringSchedule where
     Response.receiveJSON
       ( \s h x ->
           UpdateMonitoringScheduleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "MonitoringScheduleArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "MonitoringScheduleArn")
       )
 
-instance Core.Hashable UpdateMonitoringSchedule
+instance Prelude.Hashable UpdateMonitoringSchedule
 
-instance Core.NFData UpdateMonitoringSchedule
+instance Prelude.NFData UpdateMonitoringSchedule
 
 instance Core.ToHeaders UpdateMonitoringSchedule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.UpdateMonitoringSchedule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateMonitoringSchedule where
   toJSON UpdateMonitoringSchedule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "MonitoringScheduleName"
                   Core..= monitoringScheduleName
               ),
-            Core.Just
+            Prelude.Just
               ( "MonitoringScheduleConfig"
                   Core..= monitoringScheduleConfig
               )
@@ -142,19 +145,19 @@ instance Core.ToJSON UpdateMonitoringSchedule where
       )
 
 instance Core.ToPath UpdateMonitoringSchedule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateMonitoringSchedule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMonitoringScheduleResponse' smart constructor.
 data UpdateMonitoringScheduleResponse = UpdateMonitoringScheduleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the monitoring schedule.
-    monitoringScheduleArn :: Core.Text
+    monitoringScheduleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateMonitoringScheduleResponse' with all optional fields omitted.
@@ -169,9 +172,9 @@ data UpdateMonitoringScheduleResponse = UpdateMonitoringScheduleResponse'
 -- 'monitoringScheduleArn', 'updateMonitoringScheduleResponse_monitoringScheduleArn' - The Amazon Resource Name (ARN) of the monitoring schedule.
 newUpdateMonitoringScheduleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'monitoringScheduleArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateMonitoringScheduleResponse
 newUpdateMonitoringScheduleResponse
   pHttpStatus_
@@ -184,11 +187,13 @@ newUpdateMonitoringScheduleResponse
       }
 
 -- | The response's http status code.
-updateMonitoringScheduleResponse_httpStatus :: Lens.Lens' UpdateMonitoringScheduleResponse Core.Int
+updateMonitoringScheduleResponse_httpStatus :: Lens.Lens' UpdateMonitoringScheduleResponse Prelude.Int
 updateMonitoringScheduleResponse_httpStatus = Lens.lens (\UpdateMonitoringScheduleResponse' {httpStatus} -> httpStatus) (\s@UpdateMonitoringScheduleResponse' {} a -> s {httpStatus = a} :: UpdateMonitoringScheduleResponse)
 
 -- | The Amazon Resource Name (ARN) of the monitoring schedule.
-updateMonitoringScheduleResponse_monitoringScheduleArn :: Lens.Lens' UpdateMonitoringScheduleResponse Core.Text
+updateMonitoringScheduleResponse_monitoringScheduleArn :: Lens.Lens' UpdateMonitoringScheduleResponse Prelude.Text
 updateMonitoringScheduleResponse_monitoringScheduleArn = Lens.lens (\UpdateMonitoringScheduleResponse' {monitoringScheduleArn} -> monitoringScheduleArn) (\s@UpdateMonitoringScheduleResponse' {} a -> s {monitoringScheduleArn = a} :: UpdateMonitoringScheduleResponse)
 
-instance Core.NFData UpdateMonitoringScheduleResponse
+instance
+  Prelude.NFData
+    UpdateMonitoringScheduleResponse

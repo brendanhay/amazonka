@@ -21,6 +21,7 @@ module Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The name of the Global Datastore and role of this replication group in
 -- the Global Datastore.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data GlobalReplicationGroupInfo = GlobalReplicationGroupInfo'
   { -- | The role of the replication group in a Global Datastore. Can be primary
     -- or secondary.
-    globalReplicationGroupMemberRole :: Core.Maybe Core.Text,
+    globalReplicationGroupMemberRole :: Prelude.Maybe Prelude.Text,
     -- | The name of the Global Datastore
-    globalReplicationGroupId :: Core.Maybe Core.Text
+    globalReplicationGroupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GlobalReplicationGroupInfo' with all optional fields omitted.
@@ -52,25 +53,25 @@ newGlobalReplicationGroupInfo ::
 newGlobalReplicationGroupInfo =
   GlobalReplicationGroupInfo'
     { globalReplicationGroupMemberRole =
-        Core.Nothing,
-      globalReplicationGroupId = Core.Nothing
+        Prelude.Nothing,
+      globalReplicationGroupId = Prelude.Nothing
     }
 
 -- | The role of the replication group in a Global Datastore. Can be primary
 -- or secondary.
-globalReplicationGroupInfo_globalReplicationGroupMemberRole :: Lens.Lens' GlobalReplicationGroupInfo (Core.Maybe Core.Text)
+globalReplicationGroupInfo_globalReplicationGroupMemberRole :: Lens.Lens' GlobalReplicationGroupInfo (Prelude.Maybe Prelude.Text)
 globalReplicationGroupInfo_globalReplicationGroupMemberRole = Lens.lens (\GlobalReplicationGroupInfo' {globalReplicationGroupMemberRole} -> globalReplicationGroupMemberRole) (\s@GlobalReplicationGroupInfo' {} a -> s {globalReplicationGroupMemberRole = a} :: GlobalReplicationGroupInfo)
 
 -- | The name of the Global Datastore
-globalReplicationGroupInfo_globalReplicationGroupId :: Lens.Lens' GlobalReplicationGroupInfo (Core.Maybe Core.Text)
+globalReplicationGroupInfo_globalReplicationGroupId :: Lens.Lens' GlobalReplicationGroupInfo (Prelude.Maybe Prelude.Text)
 globalReplicationGroupInfo_globalReplicationGroupId = Lens.lens (\GlobalReplicationGroupInfo' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@GlobalReplicationGroupInfo' {} a -> s {globalReplicationGroupId = a} :: GlobalReplicationGroupInfo)
 
 instance Core.FromXML GlobalReplicationGroupInfo where
   parseXML x =
     GlobalReplicationGroupInfo'
-      Core.<$> (x Core..@? "GlobalReplicationGroupMemberRole")
-      Core.<*> (x Core..@? "GlobalReplicationGroupId")
+      Prelude.<$> (x Core..@? "GlobalReplicationGroupMemberRole")
+      Prelude.<*> (x Core..@? "GlobalReplicationGroupId")
 
-instance Core.Hashable GlobalReplicationGroupInfo
+instance Prelude.Hashable GlobalReplicationGroupInfo
 
-instance Core.NFData GlobalReplicationGroupInfo
+instance Prelude.NFData GlobalReplicationGroupInfo

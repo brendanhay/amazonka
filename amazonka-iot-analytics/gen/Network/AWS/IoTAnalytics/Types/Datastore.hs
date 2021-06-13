@@ -25,6 +25,7 @@ import Network.AWS.IoTAnalytics.Types.DatastoreStorage
 import Network.AWS.IoTAnalytics.Types.FileFormatConfiguration
 import Network.AWS.IoTAnalytics.Types.RetentionPeriod
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a data store.
 --
@@ -38,7 +39,7 @@ data Datastore = Datastore'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Core.Maybe Core.POSIX,
+    lastMessageArrivalTime :: Prelude.Maybe Core.POSIX,
     -- | The status of a data store:
     --
     -- [CREATING]
@@ -49,13 +50,13 @@ data Datastore = Datastore'
     --
     -- [DELETING]
     --     The data store is being deleted.
-    status :: Core.Maybe DatastoreStatus,
+    status :: Prelude.Maybe DatastoreStatus,
     -- | When the data store was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The last time the data store was updated.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the data store.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Contains the configuration information of file formats. AWS IoT
     -- Analytics data stores support JSON and
     -- <https://parquet.apache.org/ Parquet>.
@@ -63,19 +64,19 @@ data Datastore = Datastore'
     -- The default file format is JSON. You can specify only one format.
     --
     -- You can\'t change the file format after you create the data store.
-    fileFormatConfiguration :: Core.Maybe FileFormatConfiguration,
+    fileFormatConfiguration :: Prelude.Maybe FileFormatConfiguration,
     -- | The name of the data store.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | How long, in days, message data is kept for the data store. When
     -- @customerManagedS3@ storage is selected, this parameter is ignored.
-    retentionPeriod :: Core.Maybe RetentionPeriod,
+    retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | Where data store data is stored. You can choose one of
     -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
     -- default is @serviceManagedS3@. You cannot change this storage option
     -- after the data store is created.
-    storage :: Core.Maybe DatastoreStorage
+    storage :: Prelude.Maybe DatastoreStorage
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Datastore' with all optional fields omitted.
@@ -132,15 +133,16 @@ newDatastore ::
   Datastore
 newDatastore =
   Datastore'
-    { lastMessageArrivalTime = Core.Nothing,
-      status = Core.Nothing,
-      creationTime = Core.Nothing,
-      lastUpdateTime = Core.Nothing,
-      arn = Core.Nothing,
-      fileFormatConfiguration = Core.Nothing,
-      name = Core.Nothing,
-      retentionPeriod = Core.Nothing,
-      storage = Core.Nothing
+    { lastMessageArrivalTime =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      fileFormatConfiguration = Prelude.Nothing,
+      name = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      storage = Prelude.Nothing
     }
 
 -- | The last time when a new message arrived in the data store.
@@ -151,8 +153,8 @@ newDatastore =
 --
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
-datastore_lastMessageArrivalTime :: Lens.Lens' Datastore (Core.Maybe Core.UTCTime)
-datastore_lastMessageArrivalTime = Lens.lens (\Datastore' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Datastore' {} a -> s {lastMessageArrivalTime = a} :: Datastore) Core.. Lens.mapping Core._Time
+datastore_lastMessageArrivalTime :: Lens.Lens' Datastore (Prelude.Maybe Prelude.UTCTime)
+datastore_lastMessageArrivalTime = Lens.lens (\Datastore' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Datastore' {} a -> s {lastMessageArrivalTime = a} :: Datastore) Prelude.. Lens.mapping Core._Time
 
 -- | The status of a data store:
 --
@@ -164,19 +166,19 @@ datastore_lastMessageArrivalTime = Lens.lens (\Datastore' {lastMessageArrivalTim
 --
 -- [DELETING]
 --     The data store is being deleted.
-datastore_status :: Lens.Lens' Datastore (Core.Maybe DatastoreStatus)
+datastore_status :: Lens.Lens' Datastore (Prelude.Maybe DatastoreStatus)
 datastore_status = Lens.lens (\Datastore' {status} -> status) (\s@Datastore' {} a -> s {status = a} :: Datastore)
 
 -- | When the data store was created.
-datastore_creationTime :: Lens.Lens' Datastore (Core.Maybe Core.UTCTime)
-datastore_creationTime = Lens.lens (\Datastore' {creationTime} -> creationTime) (\s@Datastore' {} a -> s {creationTime = a} :: Datastore) Core.. Lens.mapping Core._Time
+datastore_creationTime :: Lens.Lens' Datastore (Prelude.Maybe Prelude.UTCTime)
+datastore_creationTime = Lens.lens (\Datastore' {creationTime} -> creationTime) (\s@Datastore' {} a -> s {creationTime = a} :: Datastore) Prelude.. Lens.mapping Core._Time
 
 -- | The last time the data store was updated.
-datastore_lastUpdateTime :: Lens.Lens' Datastore (Core.Maybe Core.UTCTime)
-datastore_lastUpdateTime = Lens.lens (\Datastore' {lastUpdateTime} -> lastUpdateTime) (\s@Datastore' {} a -> s {lastUpdateTime = a} :: Datastore) Core.. Lens.mapping Core._Time
+datastore_lastUpdateTime :: Lens.Lens' Datastore (Prelude.Maybe Prelude.UTCTime)
+datastore_lastUpdateTime = Lens.lens (\Datastore' {lastUpdateTime} -> lastUpdateTime) (\s@Datastore' {} a -> s {lastUpdateTime = a} :: Datastore) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the data store.
-datastore_arn :: Lens.Lens' Datastore (Core.Maybe Core.Text)
+datastore_arn :: Lens.Lens' Datastore (Prelude.Maybe Prelude.Text)
 datastore_arn = Lens.lens (\Datastore' {arn} -> arn) (\s@Datastore' {} a -> s {arn = a} :: Datastore)
 
 -- | Contains the configuration information of file formats. AWS IoT
@@ -186,23 +188,23 @@ datastore_arn = Lens.lens (\Datastore' {arn} -> arn) (\s@Datastore' {} a -> s {a
 -- The default file format is JSON. You can specify only one format.
 --
 -- You can\'t change the file format after you create the data store.
-datastore_fileFormatConfiguration :: Lens.Lens' Datastore (Core.Maybe FileFormatConfiguration)
+datastore_fileFormatConfiguration :: Lens.Lens' Datastore (Prelude.Maybe FileFormatConfiguration)
 datastore_fileFormatConfiguration = Lens.lens (\Datastore' {fileFormatConfiguration} -> fileFormatConfiguration) (\s@Datastore' {} a -> s {fileFormatConfiguration = a} :: Datastore)
 
 -- | The name of the data store.
-datastore_name :: Lens.Lens' Datastore (Core.Maybe Core.Text)
+datastore_name :: Lens.Lens' Datastore (Prelude.Maybe Prelude.Text)
 datastore_name = Lens.lens (\Datastore' {name} -> name) (\s@Datastore' {} a -> s {name = a} :: Datastore)
 
 -- | How long, in days, message data is kept for the data store. When
 -- @customerManagedS3@ storage is selected, this parameter is ignored.
-datastore_retentionPeriod :: Lens.Lens' Datastore (Core.Maybe RetentionPeriod)
+datastore_retentionPeriod :: Lens.Lens' Datastore (Prelude.Maybe RetentionPeriod)
 datastore_retentionPeriod = Lens.lens (\Datastore' {retentionPeriod} -> retentionPeriod) (\s@Datastore' {} a -> s {retentionPeriod = a} :: Datastore)
 
 -- | Where data store data is stored. You can choose one of
 -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
 -- default is @serviceManagedS3@. You cannot change this storage option
 -- after the data store is created.
-datastore_storage :: Lens.Lens' Datastore (Core.Maybe DatastoreStorage)
+datastore_storage :: Lens.Lens' Datastore (Prelude.Maybe DatastoreStorage)
 datastore_storage = Lens.lens (\Datastore' {storage} -> storage) (\s@Datastore' {} a -> s {storage = a} :: Datastore)
 
 instance Core.FromJSON Datastore where
@@ -211,17 +213,17 @@ instance Core.FromJSON Datastore where
       "Datastore"
       ( \x ->
           Datastore'
-            Core.<$> (x Core..:? "lastMessageArrivalTime")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "creationTime")
-            Core.<*> (x Core..:? "lastUpdateTime")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "fileFormatConfiguration")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "retentionPeriod")
-            Core.<*> (x Core..:? "storage")
+            Prelude.<$> (x Core..:? "lastMessageArrivalTime")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "fileFormatConfiguration")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "retentionPeriod")
+            Prelude.<*> (x Core..:? "storage")
       )
 
-instance Core.Hashable Datastore
+instance Prelude.Hashable Datastore
 
-instance Core.NFData Datastore
+instance Prelude.NFData Datastore

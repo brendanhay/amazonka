@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,9 +68,9 @@ data GetPolicy = GetPolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Core.Text
+    policyArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPolicy' with all optional fields omitted.
@@ -87,7 +88,7 @@ data GetPolicy = GetPolicy'
 -- in the /AWS General Reference/.
 newGetPolicy ::
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   GetPolicy
 newGetPolicy pPolicyArn_ =
   GetPolicy' {policyArn = pPolicyArn_}
@@ -98,7 +99,7 @@ newGetPolicy pPolicyArn_ =
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-getPolicy_policyArn :: Lens.Lens' GetPolicy Core.Text
+getPolicy_policyArn :: Lens.Lens' GetPolicy Prelude.Text
 getPolicy_policyArn = Lens.lens (\GetPolicy' {policyArn} -> policyArn) (\s@GetPolicy' {} a -> s {policyArn = a} :: GetPolicy)
 
 instance Core.AWSRequest GetPolicy where
@@ -109,25 +110,27 @@ instance Core.AWSRequest GetPolicy where
       "GetPolicyResult"
       ( \s h x ->
           GetPolicyResponse'
-            Core.<$> (x Core..@? "Policy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPolicy
+instance Prelude.Hashable GetPolicy
 
-instance Core.NFData GetPolicy
+instance Prelude.NFData GetPolicy
 
 instance Core.ToHeaders GetPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPolicy where
   toQuery GetPolicy' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("GetPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PolicyArn" Core.=: policyArn
       ]
 
@@ -136,11 +139,11 @@ instance Core.ToQuery GetPolicy where
 -- /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
   { -- | A structure containing details about the policy.
-    policy :: Core.Maybe Policy,
+    policy :: Prelude.Maybe Policy,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPolicyResponse' with all optional fields omitted.
@@ -155,20 +158,20 @@ data GetPolicyResponse = GetPolicyResponse'
 -- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.
 newGetPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPolicyResponse
 newGetPolicyResponse pHttpStatus_ =
   GetPolicyResponse'
-    { policy = Core.Nothing,
+    { policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure containing details about the policy.
-getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Core.Maybe Policy)
+getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Policy)
 getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\s@GetPolicyResponse' {} a -> s {policy = a} :: GetPolicyResponse)
 
 -- | The response's http status code.
-getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Core.Int
+getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int
 getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPolicyResponse' {} a -> s {httpStatus = a} :: GetPolicyResponse)
 
-instance Core.NFData GetPolicyResponse
+instance Prelude.NFData GetPolicyResponse

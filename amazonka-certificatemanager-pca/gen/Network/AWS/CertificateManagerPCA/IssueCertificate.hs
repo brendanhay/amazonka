@@ -57,6 +57,7 @@ where
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,7 +70,7 @@ data IssueCertificate = IssueCertificate'
     -- Private CA recognizes that you are requesting only one certificate and
     -- will issue only one. If you change the idempotency token for each call,
     -- PCA recognizes that you are requesting multiple certificates.
-    idempotencyToken :: Core.Maybe Core.Text,
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | Information describing the start of the validity period of the
     -- certificate. This parameter sets the “Not Before\" date for the
     -- certificate.
@@ -89,7 +90,7 @@ data IssueCertificate = IssueCertificate'
     -- in this API reference and
     -- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
     -- 5280.
-    validityNotBefore :: Core.Maybe Validity,
+    validityNotBefore :: Prelude.Maybe Validity,
     -- | Specifies a custom configuration template to use when issuing a
     -- certificate. If this parameter is not provided, ACM Private CA defaults
     -- to the @EndEntityCertificate\/V1@ template. For CA certificates, you
@@ -103,7 +104,7 @@ data IssueCertificate = IssueCertificate'
     --
     -- For a list of @TemplateArn@ values supported by ACM Private CA, see
     -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Understanding Certificate Templates>.
-    templateArn :: Core.Maybe Core.Text,
+    templateArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies X.509 certificate information to be included in the issued
     -- certificate. An @APIPassthrough@ or @APICSRPassthrough@ template variant
     -- must be selected, or else this parameter is ignored. For more
@@ -113,13 +114,13 @@ data IssueCertificate = IssueCertificate'
     -- If conflicting or duplicate certificate information is supplied during
     -- certificate issuance, ACM Private CA applies
     -- <xxxxx order of operation rules> to determine what information is used.
-    apiPassthrough :: Core.Maybe ApiPassthrough,
+    apiPassthrough :: Prelude.Maybe ApiPassthrough,
     -- | The Amazon Resource Name (ARN) that was returned when you called
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-    certificateAuthorityArn :: Core.Text,
+    certificateAuthorityArn :: Prelude.Text,
     -- | The certificate signing request (CSR) for the certificate you want to
     -- issue. As an example, you can use the following OpenSSL command to
     -- create the CSR and a 2048 bit RSA private key.
@@ -161,7 +162,7 @@ data IssueCertificate = IssueCertificate'
     -- exceed the limit set on its parents in the CA hierarchy.
     validity :: Validity
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IssueCertificate' with all optional fields omitted.
@@ -274,9 +275,9 @@ data IssueCertificate = IssueCertificate'
 -- exceed the limit set on its parents in the CA hierarchy.
 newIssueCertificate ::
   -- | 'certificateAuthorityArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'csr'
-  Core.ByteString ->
+  Prelude.ByteString ->
   -- | 'signingAlgorithm'
   SigningAlgorithm ->
   -- | 'validity'
@@ -288,10 +289,11 @@ newIssueCertificate
   pSigningAlgorithm_
   pValidity_ =
     IssueCertificate'
-      { idempotencyToken = Core.Nothing,
-        validityNotBefore = Core.Nothing,
-        templateArn = Core.Nothing,
-        apiPassthrough = Core.Nothing,
+      { idempotencyToken =
+          Prelude.Nothing,
+        validityNotBefore = Prelude.Nothing,
+        templateArn = Prelude.Nothing,
+        apiPassthrough = Prelude.Nothing,
         certificateAuthorityArn = pCertificateAuthorityArn_,
         csr = Core._Base64 Lens.# pCsr_,
         signingAlgorithm = pSigningAlgorithm_,
@@ -305,7 +307,7 @@ newIssueCertificate
 -- Private CA recognizes that you are requesting only one certificate and
 -- will issue only one. If you change the idempotency token for each call,
 -- PCA recognizes that you are requesting multiple certificates.
-issueCertificate_idempotencyToken :: Lens.Lens' IssueCertificate (Core.Maybe Core.Text)
+issueCertificate_idempotencyToken :: Lens.Lens' IssueCertificate (Prelude.Maybe Prelude.Text)
 issueCertificate_idempotencyToken = Lens.lens (\IssueCertificate' {idempotencyToken} -> idempotencyToken) (\s@IssueCertificate' {} a -> s {idempotencyToken = a} :: IssueCertificate)
 
 -- | Information describing the start of the validity period of the
@@ -327,7 +329,7 @@ issueCertificate_idempotencyToken = Lens.lens (\IssueCertificate' {idempotencyTo
 -- in this API reference and
 -- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
 -- 5280.
-issueCertificate_validityNotBefore :: Lens.Lens' IssueCertificate (Core.Maybe Validity)
+issueCertificate_validityNotBefore :: Lens.Lens' IssueCertificate (Prelude.Maybe Validity)
 issueCertificate_validityNotBefore = Lens.lens (\IssueCertificate' {validityNotBefore} -> validityNotBefore) (\s@IssueCertificate' {} a -> s {validityNotBefore = a} :: IssueCertificate)
 
 -- | Specifies a custom configuration template to use when issuing a
@@ -343,7 +345,7 @@ issueCertificate_validityNotBefore = Lens.lens (\IssueCertificate' {validityNotB
 --
 -- For a list of @TemplateArn@ values supported by ACM Private CA, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Understanding Certificate Templates>.
-issueCertificate_templateArn :: Lens.Lens' IssueCertificate (Core.Maybe Core.Text)
+issueCertificate_templateArn :: Lens.Lens' IssueCertificate (Prelude.Maybe Prelude.Text)
 issueCertificate_templateArn = Lens.lens (\IssueCertificate' {templateArn} -> templateArn) (\s@IssueCertificate' {} a -> s {templateArn = a} :: IssueCertificate)
 
 -- | Specifies X.509 certificate information to be included in the issued
@@ -355,7 +357,7 @@ issueCertificate_templateArn = Lens.lens (\IssueCertificate' {templateArn} -> te
 -- If conflicting or duplicate certificate information is supplied during
 -- certificate issuance, ACM Private CA applies
 -- <xxxxx order of operation rules> to determine what information is used.
-issueCertificate_apiPassthrough :: Lens.Lens' IssueCertificate (Core.Maybe ApiPassthrough)
+issueCertificate_apiPassthrough :: Lens.Lens' IssueCertificate (Prelude.Maybe ApiPassthrough)
 issueCertificate_apiPassthrough = Lens.lens (\IssueCertificate' {apiPassthrough} -> apiPassthrough) (\s@IssueCertificate' {} a -> s {apiPassthrough = a} :: IssueCertificate)
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
@@ -363,7 +365,7 @@ issueCertificate_apiPassthrough = Lens.lens (\IssueCertificate' {apiPassthrough}
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-issueCertificate_certificateAuthorityArn :: Lens.Lens' IssueCertificate Core.Text
+issueCertificate_certificateAuthorityArn :: Lens.Lens' IssueCertificate Prelude.Text
 issueCertificate_certificateAuthorityArn = Lens.lens (\IssueCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@IssueCertificate' {} a -> s {certificateAuthorityArn = a} :: IssueCertificate)
 
 -- | The certificate signing request (CSR) for the certificate you want to
@@ -384,8 +386,8 @@ issueCertificate_certificateAuthorityArn = Lens.lens (\IssueCertificate' {certif
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-issueCertificate_csr :: Lens.Lens' IssueCertificate Core.ByteString
-issueCertificate_csr = Lens.lens (\IssueCertificate' {csr} -> csr) (\s@IssueCertificate' {} a -> s {csr = a} :: IssueCertificate) Core.. Core._Base64
+issueCertificate_csr :: Lens.Lens' IssueCertificate Prelude.ByteString
+issueCertificate_csr = Lens.lens (\IssueCertificate' {csr} -> csr) (\s@IssueCertificate' {} a -> s {csr = a} :: IssueCertificate) Prelude.. Core._Base64
 
 -- | The name of the algorithm that will be used to sign the certificate to
 -- be issued.
@@ -425,51 +427,56 @@ instance Core.AWSRequest IssueCertificate where
     Response.receiveJSON
       ( \s h x ->
           IssueCertificateResponse'
-            Core.<$> (x Core..?> "CertificateArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CertificateArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable IssueCertificate
+instance Prelude.Hashable IssueCertificate
 
-instance Core.NFData IssueCertificate
+instance Prelude.NFData IssueCertificate
 
 instance Core.ToHeaders IssueCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ACMPrivateCA.IssueCertificate" :: Core.ByteString),
+              Core.=# ( "ACMPrivateCA.IssueCertificate" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON IssueCertificate where
   toJSON IssueCertificate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("IdempotencyToken" Core..=)
-              Core.<$> idempotencyToken,
+              Prelude.<$> idempotencyToken,
             ("ValidityNotBefore" Core..=)
-              Core.<$> validityNotBefore,
-            ("TemplateArn" Core..=) Core.<$> templateArn,
-            ("ApiPassthrough" Core..=) Core.<$> apiPassthrough,
-            Core.Just
+              Prelude.<$> validityNotBefore,
+            ("TemplateArn" Core..=) Prelude.<$> templateArn,
+            ("ApiPassthrough" Core..=)
+              Prelude.<$> apiPassthrough,
+            Prelude.Just
               ( "CertificateAuthorityArn"
                   Core..= certificateAuthorityArn
               ),
-            Core.Just ("Csr" Core..= csr),
-            Core.Just
+            Prelude.Just ("Csr" Core..= csr),
+            Prelude.Just
               ("SigningAlgorithm" Core..= signingAlgorithm),
-            Core.Just ("Validity" Core..= validity)
+            Prelude.Just ("Validity" Core..= validity)
           ]
       )
 
 instance Core.ToPath IssueCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery IssueCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newIssueCertificateResponse' smart constructor.
 data IssueCertificateResponse = IssueCertificateResponse'
@@ -477,11 +484,11 @@ data IssueCertificateResponse = IssueCertificateResponse'
     -- certificate serial number. This is of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IssueCertificateResponse' with all optional fields omitted.
@@ -499,12 +506,12 @@ data IssueCertificateResponse = IssueCertificateResponse'
 -- 'httpStatus', 'issueCertificateResponse_httpStatus' - The response's http status code.
 newIssueCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   IssueCertificateResponse
 newIssueCertificateResponse pHttpStatus_ =
   IssueCertificateResponse'
     { certificateArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -512,11 +519,11 @@ newIssueCertificateResponse pHttpStatus_ =
 -- certificate serial number. This is of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
-issueCertificateResponse_certificateArn :: Lens.Lens' IssueCertificateResponse (Core.Maybe Core.Text)
+issueCertificateResponse_certificateArn :: Lens.Lens' IssueCertificateResponse (Prelude.Maybe Prelude.Text)
 issueCertificateResponse_certificateArn = Lens.lens (\IssueCertificateResponse' {certificateArn} -> certificateArn) (\s@IssueCertificateResponse' {} a -> s {certificateArn = a} :: IssueCertificateResponse)
 
 -- | The response's http status code.
-issueCertificateResponse_httpStatus :: Lens.Lens' IssueCertificateResponse Core.Int
+issueCertificateResponse_httpStatus :: Lens.Lens' IssueCertificateResponse Prelude.Int
 issueCertificateResponse_httpStatus = Lens.lens (\IssueCertificateResponse' {httpStatus} -> httpStatus) (\s@IssueCertificateResponse' {} a -> s {httpStatus = a} :: IssueCertificateResponse)
 
-instance Core.NFData IssueCertificateResponse
+instance Prelude.NFData IssueCertificateResponse

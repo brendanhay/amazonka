@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.UiTemplateInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Container for user interface template information.
 --
 -- /See:/ 'newUiTemplateInfo' smart constructor.
 data UiTemplateInfo = UiTemplateInfo'
   { -- | The SHA-256 digest of the contents of the template.
-    contentSha256 :: Core.Maybe Core.Text,
+    contentSha256 :: Prelude.Maybe Prelude.Text,
     -- | The URL for the user interface template.
-    url :: Core.Maybe Core.Text
+    url :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UiTemplateInfo' with all optional fields omitted.
@@ -48,16 +49,16 @@ newUiTemplateInfo ::
   UiTemplateInfo
 newUiTemplateInfo =
   UiTemplateInfo'
-    { contentSha256 = Core.Nothing,
-      url = Core.Nothing
+    { contentSha256 = Prelude.Nothing,
+      url = Prelude.Nothing
     }
 
 -- | The SHA-256 digest of the contents of the template.
-uiTemplateInfo_contentSha256 :: Lens.Lens' UiTemplateInfo (Core.Maybe Core.Text)
+uiTemplateInfo_contentSha256 :: Lens.Lens' UiTemplateInfo (Prelude.Maybe Prelude.Text)
 uiTemplateInfo_contentSha256 = Lens.lens (\UiTemplateInfo' {contentSha256} -> contentSha256) (\s@UiTemplateInfo' {} a -> s {contentSha256 = a} :: UiTemplateInfo)
 
 -- | The URL for the user interface template.
-uiTemplateInfo_url :: Lens.Lens' UiTemplateInfo (Core.Maybe Core.Text)
+uiTemplateInfo_url :: Lens.Lens' UiTemplateInfo (Prelude.Maybe Prelude.Text)
 uiTemplateInfo_url = Lens.lens (\UiTemplateInfo' {url} -> url) (\s@UiTemplateInfo' {} a -> s {url = a} :: UiTemplateInfo)
 
 instance Core.FromJSON UiTemplateInfo where
@@ -66,10 +67,10 @@ instance Core.FromJSON UiTemplateInfo where
       "UiTemplateInfo"
       ( \x ->
           UiTemplateInfo'
-            Core.<$> (x Core..:? "ContentSha256")
-            Core.<*> (x Core..:? "Url")
+            Prelude.<$> (x Core..:? "ContentSha256")
+            Prelude.<*> (x Core..:? "Url")
       )
 
-instance Core.Hashable UiTemplateInfo
+instance Prelude.Hashable UiTemplateInfo
 
-instance Core.NFData UiTemplateInfo
+instance Prelude.NFData UiTemplateInfo

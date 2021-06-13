@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,11 +72,11 @@ data UntagResource = UntagResource'
     --
     -- -   Policy – specify the policy ID that begins with @p-@ andlooks
     --     similar to: @p-12abcdefg3 @
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The list of keys for tags to remove from the specified resource.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -103,12 +104,12 @@ data UntagResource = UntagResource'
 -- 'tagKeys', 'untagResource_tagKeys' - The list of keys for tags to remove from the specified resource.
 newUntagResource ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   UntagResource
 newUntagResource pResourceId_ =
   UntagResource'
     { resourceId = pResourceId_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The ID of the resource to remove a tag from.
@@ -125,12 +126,12 @@ newUntagResource pResourceId_ =
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
 --     similar to: @p-12abcdefg3 @
-untagResource_resourceId :: Lens.Lens' UntagResource Core.Text
+untagResource_resourceId :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceId = Lens.lens (\UntagResource' {resourceId} -> resourceId) (\s@UntagResource' {} a -> s {resourceId = a} :: UntagResource)
 
 -- | The list of keys for tags to remove from the specified resource.
-untagResource_tagKeys :: Lens.Lens' UntagResource [Core.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Core.. Lens._Coerce
+untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagResource where
   type
@@ -140,43 +141,45 @@ instance Core.AWSRequest UntagResource where
   response =
     Response.receiveNull UntagResourceResponse'
 
-instance Core.Hashable UntagResource
+instance Prelude.Hashable UntagResource
 
-instance Core.NFData UntagResource
+instance Prelude.NFData UntagResource
 
 instance Core.ToHeaders UntagResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.UntagResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UntagResource where
   toJSON UntagResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("TagKeys" Core..= tagKeys)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
 instance Core.ToPath UntagResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResourceResponse' with all optional fields omitted.
@@ -186,4 +189,4 @@ newUntagResourceResponse ::
   UntagResourceResponse
 newUntagResourceResponse = UntagResourceResponse'
 
-instance Core.NFData UntagResourceResponse
+instance Prelude.NFData UntagResourceResponse

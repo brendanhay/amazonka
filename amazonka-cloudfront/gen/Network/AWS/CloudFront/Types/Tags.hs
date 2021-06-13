@@ -22,15 +22,16 @@ module Network.AWS.CloudFront.Types.Tags where
 import Network.AWS.CloudFront.Types.Tag
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains zero or more @Tag@ elements.
 --
 -- /See:/ 'newTags' smart constructor.
 data Tags = Tags'
   { -- | A complex type that contains @Tag@ elements.
-    items :: Core.Maybe [Tag]
+    items :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tags' with all optional fields omitted.
@@ -43,26 +44,26 @@ data Tags = Tags'
 -- 'items', 'tags_items' - A complex type that contains @Tag@ elements.
 newTags ::
   Tags
-newTags = Tags' {items = Core.Nothing}
+newTags = Tags' {items = Prelude.Nothing}
 
 -- | A complex type that contains @Tag@ elements.
-tags_items :: Lens.Lens' Tags (Core.Maybe [Tag])
-tags_items = Lens.lens (\Tags' {items} -> items) (\s@Tags' {} a -> s {items = a} :: Tags) Core.. Lens.mapping Lens._Coerce
+tags_items :: Lens.Lens' Tags (Prelude.Maybe [Tag])
+tags_items = Lens.lens (\Tags' {items} -> items) (\s@Tags' {} a -> s {items = a} :: Tags) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML Tags where
   parseXML x =
     Tags'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Tag")
-               )
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+                  )
 
-instance Core.Hashable Tags
+instance Prelude.Hashable Tags
 
-instance Core.NFData Tags
+instance Prelude.NFData Tags
 
 instance Core.ToXML Tags where
   toXML Tags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Core.<$> items)
+          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> items)
       ]

@@ -144,6 +144,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -151,28 +152,28 @@ import Network.AWS.S3.Types
 -- | /See:/ 'newCreateBucket' smart constructor.
 data CreateBucket = CreateBucket'
   { -- | Allows grantee to list the objects in the bucket.
-    grantRead :: Core.Maybe Core.Text,
+    grantRead :: Prelude.Maybe Prelude.Text,
     -- | The configuration information for the bucket.
-    createBucketConfiguration :: Core.Maybe CreateBucketConfiguration,
+    createBucketConfiguration :: Prelude.Maybe CreateBucketConfiguration,
     -- | Allows grantee to write the ACL for the applicable bucket.
-    grantWriteACP :: Core.Maybe Core.Text,
+    grantWriteACP :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether you want S3 Object Lock to be enabled for the new
     -- bucket.
-    objectLockEnabledForBucket :: Core.Maybe Core.Bool,
+    objectLockEnabledForBucket :: Prelude.Maybe Prelude.Bool,
     -- | Allows grantee to read the bucket ACL.
-    grantReadACP :: Core.Maybe Core.Text,
+    grantReadACP :: Prelude.Maybe Prelude.Text,
     -- | The canned ACL to apply to the bucket.
-    acl :: Core.Maybe BucketCannedACL,
+    acl :: Prelude.Maybe BucketCannedACL,
     -- | Allows grantee to create, overwrite, and delete any object in the
     -- bucket.
-    grantWrite :: Core.Maybe Core.Text,
+    grantWrite :: Prelude.Maybe Prelude.Text,
     -- | Allows grantee the read, write, read ACP, and write ACP permissions on
     -- the bucket.
-    grantFullControl :: Core.Maybe Core.Text,
+    grantFullControl :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket to create.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBucket' with all optional fields omitted.
@@ -208,50 +209,50 @@ newCreateBucket ::
   CreateBucket
 newCreateBucket pBucket_ =
   CreateBucket'
-    { grantRead = Core.Nothing,
-      createBucketConfiguration = Core.Nothing,
-      grantWriteACP = Core.Nothing,
-      objectLockEnabledForBucket = Core.Nothing,
-      grantReadACP = Core.Nothing,
-      acl = Core.Nothing,
-      grantWrite = Core.Nothing,
-      grantFullControl = Core.Nothing,
+    { grantRead = Prelude.Nothing,
+      createBucketConfiguration = Prelude.Nothing,
+      grantWriteACP = Prelude.Nothing,
+      objectLockEnabledForBucket = Prelude.Nothing,
+      grantReadACP = Prelude.Nothing,
+      acl = Prelude.Nothing,
+      grantWrite = Prelude.Nothing,
+      grantFullControl = Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | Allows grantee to list the objects in the bucket.
-createBucket_grantRead :: Lens.Lens' CreateBucket (Core.Maybe Core.Text)
+createBucket_grantRead :: Lens.Lens' CreateBucket (Prelude.Maybe Prelude.Text)
 createBucket_grantRead = Lens.lens (\CreateBucket' {grantRead} -> grantRead) (\s@CreateBucket' {} a -> s {grantRead = a} :: CreateBucket)
 
 -- | The configuration information for the bucket.
-createBucket_createBucketConfiguration :: Lens.Lens' CreateBucket (Core.Maybe CreateBucketConfiguration)
+createBucket_createBucketConfiguration :: Lens.Lens' CreateBucket (Prelude.Maybe CreateBucketConfiguration)
 createBucket_createBucketConfiguration = Lens.lens (\CreateBucket' {createBucketConfiguration} -> createBucketConfiguration) (\s@CreateBucket' {} a -> s {createBucketConfiguration = a} :: CreateBucket)
 
 -- | Allows grantee to write the ACL for the applicable bucket.
-createBucket_grantWriteACP :: Lens.Lens' CreateBucket (Core.Maybe Core.Text)
+createBucket_grantWriteACP :: Lens.Lens' CreateBucket (Prelude.Maybe Prelude.Text)
 createBucket_grantWriteACP = Lens.lens (\CreateBucket' {grantWriteACP} -> grantWriteACP) (\s@CreateBucket' {} a -> s {grantWriteACP = a} :: CreateBucket)
 
 -- | Specifies whether you want S3 Object Lock to be enabled for the new
 -- bucket.
-createBucket_objectLockEnabledForBucket :: Lens.Lens' CreateBucket (Core.Maybe Core.Bool)
+createBucket_objectLockEnabledForBucket :: Lens.Lens' CreateBucket (Prelude.Maybe Prelude.Bool)
 createBucket_objectLockEnabledForBucket = Lens.lens (\CreateBucket' {objectLockEnabledForBucket} -> objectLockEnabledForBucket) (\s@CreateBucket' {} a -> s {objectLockEnabledForBucket = a} :: CreateBucket)
 
 -- | Allows grantee to read the bucket ACL.
-createBucket_grantReadACP :: Lens.Lens' CreateBucket (Core.Maybe Core.Text)
+createBucket_grantReadACP :: Lens.Lens' CreateBucket (Prelude.Maybe Prelude.Text)
 createBucket_grantReadACP = Lens.lens (\CreateBucket' {grantReadACP} -> grantReadACP) (\s@CreateBucket' {} a -> s {grantReadACP = a} :: CreateBucket)
 
 -- | The canned ACL to apply to the bucket.
-createBucket_acl :: Lens.Lens' CreateBucket (Core.Maybe BucketCannedACL)
+createBucket_acl :: Lens.Lens' CreateBucket (Prelude.Maybe BucketCannedACL)
 createBucket_acl = Lens.lens (\CreateBucket' {acl} -> acl) (\s@CreateBucket' {} a -> s {acl = a} :: CreateBucket)
 
 -- | Allows grantee to create, overwrite, and delete any object in the
 -- bucket.
-createBucket_grantWrite :: Lens.Lens' CreateBucket (Core.Maybe Core.Text)
+createBucket_grantWrite :: Lens.Lens' CreateBucket (Prelude.Maybe Prelude.Text)
 createBucket_grantWrite = Lens.lens (\CreateBucket' {grantWrite} -> grantWrite) (\s@CreateBucket' {} a -> s {grantWrite = a} :: CreateBucket)
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on
 -- the bucket.
-createBucket_grantFullControl :: Lens.Lens' CreateBucket (Core.Maybe Core.Text)
+createBucket_grantFullControl :: Lens.Lens' CreateBucket (Prelude.Maybe Prelude.Text)
 createBucket_grantFullControl = Lens.lens (\CreateBucket' {grantFullControl} -> grantFullControl) (\s@CreateBucket' {} a -> s {grantFullControl = a} :: CreateBucket)
 
 -- | The name of the bucket to create.
@@ -265,13 +266,13 @@ instance Core.AWSRequest CreateBucket where
     Response.receiveEmpty
       ( \s h x ->
           CreateBucketResponse'
-            Core.<$> (h Core..#? "Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateBucket
+instance Prelude.Hashable CreateBucket
 
-instance Core.NFData CreateBucket
+instance Prelude.NFData CreateBucket
 
 instance Core.ToElement CreateBucket where
   toElement CreateBucket' {..} =
@@ -281,7 +282,7 @@ instance Core.ToElement CreateBucket where
 
 instance Core.ToHeaders CreateBucket where
   toHeaders CreateBucket' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-grant-read" Core.=# grantRead,
         "x-amz-grant-write-acp" Core.=# grantWriteACP,
         "x-amz-bucket-object-lock-enabled"
@@ -294,21 +295,21 @@ instance Core.ToHeaders CreateBucket where
 
 instance Core.ToPath CreateBucket where
   toPath CreateBucket' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery CreateBucket where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
   { -- | Specifies the Region where the bucket will be created. If you are
     -- creating a bucket on the US East (N. Virginia) Region (us-east-1), you
     -- do not need to specify the location.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateBucketResponse' with all optional fields omitted.
@@ -325,22 +326,22 @@ data CreateBucketResponse = CreateBucketResponse'
 -- 'httpStatus', 'createBucketResponse_httpStatus' - The response's http status code.
 newCreateBucketResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateBucketResponse
 newCreateBucketResponse pHttpStatus_ =
   CreateBucketResponse'
-    { location = Core.Nothing,
+    { location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Specifies the Region where the bucket will be created. If you are
 -- creating a bucket on the US East (N. Virginia) Region (us-east-1), you
 -- do not need to specify the location.
-createBucketResponse_location :: Lens.Lens' CreateBucketResponse (Core.Maybe Core.Text)
+createBucketResponse_location :: Lens.Lens' CreateBucketResponse (Prelude.Maybe Prelude.Text)
 createBucketResponse_location = Lens.lens (\CreateBucketResponse' {location} -> location) (\s@CreateBucketResponse' {} a -> s {location = a} :: CreateBucketResponse)
 
 -- | The response's http status code.
-createBucketResponse_httpStatus :: Lens.Lens' CreateBucketResponse Core.Int
+createBucketResponse_httpStatus :: Lens.Lens' CreateBucketResponse Prelude.Int
 createBucketResponse_httpStatus = Lens.lens (\CreateBucketResponse' {httpStatus} -> httpStatus) (\s@CreateBucketResponse' {} a -> s {httpStatus = a} :: CreateBucketResponse)
 
-instance Core.NFData CreateBucketResponse
+instance Prelude.NFData CreateBucketResponse

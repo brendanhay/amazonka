@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -61,9 +62,9 @@ data ResolveCase = ResolveCase'
   { -- | The AWS Support case ID requested or returned in the call. The case ID
     -- is an alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-    caseId :: Core.Maybe Core.Text
+    caseId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResolveCase' with all optional fields omitted.
@@ -78,12 +79,13 @@ data ResolveCase = ResolveCase'
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 newResolveCase ::
   ResolveCase
-newResolveCase = ResolveCase' {caseId = Core.Nothing}
+newResolveCase =
+  ResolveCase' {caseId = Prelude.Nothing}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-resolveCase_caseId :: Lens.Lens' ResolveCase (Core.Maybe Core.Text)
+resolveCase_caseId :: Lens.Lens' ResolveCase (Prelude.Maybe Prelude.Text)
 resolveCase_caseId = Lens.lens (\ResolveCase' {caseId} -> caseId) (\s@ResolveCase' {} a -> s {caseId = a} :: ResolveCase)
 
 instance Core.AWSRequest ResolveCase where
@@ -93,51 +95,55 @@ instance Core.AWSRequest ResolveCase where
     Response.receiveJSON
       ( \s h x ->
           ResolveCaseResponse'
-            Core.<$> (x Core..?> "finalCaseStatus")
-            Core.<*> (x Core..?> "initialCaseStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "finalCaseStatus")
+            Prelude.<*> (x Core..?> "initialCaseStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResolveCase
+instance Prelude.Hashable ResolveCase
 
-instance Core.NFData ResolveCase
+instance Prelude.NFData ResolveCase
 
 instance Core.ToHeaders ResolveCase where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSSupport_20130415.ResolveCase" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ResolveCase where
   toJSON ResolveCase' {..} =
     Core.object
-      (Core.catMaybes [("caseId" Core..=) Core.<$> caseId])
+      ( Prelude.catMaybes
+          [("caseId" Core..=) Prelude.<$> caseId]
+      )
 
 instance Core.ToPath ResolveCase where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResolveCase where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The status of the case returned by the ResolveCase operation.
 --
 -- /See:/ 'newResolveCaseResponse' smart constructor.
 data ResolveCaseResponse = ResolveCaseResponse'
   { -- | The status of the case after the ResolveCase request was processed.
-    finalCaseStatus :: Core.Maybe Core.Text,
+    finalCaseStatus :: Prelude.Maybe Prelude.Text,
     -- | The status of the case when the ResolveCase request was sent.
-    initialCaseStatus :: Core.Maybe Core.Text,
+    initialCaseStatus :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResolveCaseResponse' with all optional fields omitted.
@@ -154,26 +160,26 @@ data ResolveCaseResponse = ResolveCaseResponse'
 -- 'httpStatus', 'resolveCaseResponse_httpStatus' - The response's http status code.
 newResolveCaseResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResolveCaseResponse
 newResolveCaseResponse pHttpStatus_ =
   ResolveCaseResponse'
     { finalCaseStatus =
-        Core.Nothing,
-      initialCaseStatus = Core.Nothing,
+        Prelude.Nothing,
+      initialCaseStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the case after the ResolveCase request was processed.
-resolveCaseResponse_finalCaseStatus :: Lens.Lens' ResolveCaseResponse (Core.Maybe Core.Text)
+resolveCaseResponse_finalCaseStatus :: Lens.Lens' ResolveCaseResponse (Prelude.Maybe Prelude.Text)
 resolveCaseResponse_finalCaseStatus = Lens.lens (\ResolveCaseResponse' {finalCaseStatus} -> finalCaseStatus) (\s@ResolveCaseResponse' {} a -> s {finalCaseStatus = a} :: ResolveCaseResponse)
 
 -- | The status of the case when the ResolveCase request was sent.
-resolveCaseResponse_initialCaseStatus :: Lens.Lens' ResolveCaseResponse (Core.Maybe Core.Text)
+resolveCaseResponse_initialCaseStatus :: Lens.Lens' ResolveCaseResponse (Prelude.Maybe Prelude.Text)
 resolveCaseResponse_initialCaseStatus = Lens.lens (\ResolveCaseResponse' {initialCaseStatus} -> initialCaseStatus) (\s@ResolveCaseResponse' {} a -> s {initialCaseStatus = a} :: ResolveCaseResponse)
 
 -- | The response's http status code.
-resolveCaseResponse_httpStatus :: Lens.Lens' ResolveCaseResponse Core.Int
+resolveCaseResponse_httpStatus :: Lens.Lens' ResolveCaseResponse Prelude.Int
 resolveCaseResponse_httpStatus = Lens.lens (\ResolveCaseResponse' {httpStatus} -> httpStatus) (\s@ResolveCaseResponse' {} a -> s {httpStatus = a} :: ResolveCaseResponse)
 
-instance Core.NFData ResolveCaseResponse
+instance Prelude.NFData ResolveCaseResponse

@@ -21,6 +21,7 @@ module Network.AWS.CloudFormation.Types.RollbackTrigger where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A rollback trigger AWS CloudFormation monitors during creation and
 -- updating of stacks. If any of the alarms you specify goes to ALARM state
@@ -33,13 +34,13 @@ data RollbackTrigger = RollbackTrigger'
     --
     -- If a specified trigger is missing, the entire stack operation fails and
     -- is rolled back.
-    arn :: Core.Text,
+    arn :: Prelude.Text,
     -- | The resource type of the rollback trigger. Currently,
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html AWS::CloudWatch::Alarm>
     -- is the only supported resource type.
-    type' :: Core.Text
+    type' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RollbackTrigger' with all optional fields omitted.
@@ -59,9 +60,9 @@ data RollbackTrigger = RollbackTrigger'
 -- is the only supported resource type.
 newRollbackTrigger ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
-  Core.Text ->
+  Prelude.Text ->
   RollbackTrigger
 newRollbackTrigger pArn_ pType_ =
   RollbackTrigger' {arn = pArn_, type' = pType_}
@@ -70,25 +71,25 @@ newRollbackTrigger pArn_ pType_ =
 --
 -- If a specified trigger is missing, the entire stack operation fails and
 -- is rolled back.
-rollbackTrigger_arn :: Lens.Lens' RollbackTrigger Core.Text
+rollbackTrigger_arn :: Lens.Lens' RollbackTrigger Prelude.Text
 rollbackTrigger_arn = Lens.lens (\RollbackTrigger' {arn} -> arn) (\s@RollbackTrigger' {} a -> s {arn = a} :: RollbackTrigger)
 
 -- | The resource type of the rollback trigger. Currently,
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html AWS::CloudWatch::Alarm>
 -- is the only supported resource type.
-rollbackTrigger_type :: Lens.Lens' RollbackTrigger Core.Text
+rollbackTrigger_type :: Lens.Lens' RollbackTrigger Prelude.Text
 rollbackTrigger_type = Lens.lens (\RollbackTrigger' {type'} -> type') (\s@RollbackTrigger' {} a -> s {type' = a} :: RollbackTrigger)
 
 instance Core.FromXML RollbackTrigger where
   parseXML x =
     RollbackTrigger'
-      Core.<$> (x Core..@ "Arn") Core.<*> (x Core..@ "Type")
+      Prelude.<$> (x Core..@ "Arn") Prelude.<*> (x Core..@ "Type")
 
-instance Core.Hashable RollbackTrigger
+instance Prelude.Hashable RollbackTrigger
 
-instance Core.NFData RollbackTrigger
+instance Prelude.NFData RollbackTrigger
 
 instance Core.ToQuery RollbackTrigger where
   toQuery RollbackTrigger' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Arn" Core.=: arn, "Type" Core.=: type']

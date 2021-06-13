@@ -51,6 +51,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +60,13 @@ data ListApprovedOrigins = ListApprovedOrigins'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListApprovedOrigins' with all optional fields omitted.
@@ -84,27 +85,27 @@ data ListApprovedOrigins = ListApprovedOrigins'
 -- 'instanceId', 'listApprovedOrigins_instanceId' - The identifier of the Amazon Connect instance.
 newListApprovedOrigins ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   ListApprovedOrigins
 newListApprovedOrigins pInstanceId_ =
   ListApprovedOrigins'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listApprovedOrigins_nextToken :: Lens.Lens' ListApprovedOrigins (Core.Maybe Core.Text)
+listApprovedOrigins_nextToken :: Lens.Lens' ListApprovedOrigins (Prelude.Maybe Prelude.Text)
 listApprovedOrigins_nextToken = Lens.lens (\ListApprovedOrigins' {nextToken} -> nextToken) (\s@ListApprovedOrigins' {} a -> s {nextToken = a} :: ListApprovedOrigins)
 
 -- | The maximum number of results to return per page.
-listApprovedOrigins_maxResults :: Lens.Lens' ListApprovedOrigins (Core.Maybe Core.Natural)
+listApprovedOrigins_maxResults :: Lens.Lens' ListApprovedOrigins (Prelude.Maybe Prelude.Natural)
 listApprovedOrigins_maxResults = Lens.lens (\ListApprovedOrigins' {maxResults} -> maxResults) (\s@ListApprovedOrigins' {} a -> s {maxResults = a} :: ListApprovedOrigins)
 
 -- | The identifier of the Amazon Connect instance.
-listApprovedOrigins_instanceId :: Lens.Lens' ListApprovedOrigins Core.Text
+listApprovedOrigins_instanceId :: Lens.Lens' ListApprovedOrigins Prelude.Text
 listApprovedOrigins_instanceId = Lens.lens (\ListApprovedOrigins' {instanceId} -> instanceId) (\s@ListApprovedOrigins' {} a -> s {instanceId = a} :: ListApprovedOrigins)
 
 instance Core.AWSPager ListApprovedOrigins where
@@ -112,22 +113,22 @@ instance Core.AWSPager ListApprovedOrigins where
     | Core.stop
         ( rs
             Lens.^? listApprovedOriginsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApprovedOriginsResponse_origins
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listApprovedOrigins_nextToken
+          Prelude.& listApprovedOrigins_nextToken
           Lens..~ rs
           Lens.^? listApprovedOriginsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApprovedOrigins where
   type
@@ -138,27 +139,29 @@ instance Core.AWSRequest ListApprovedOrigins where
     Response.receiveJSON
       ( \s h x ->
           ListApprovedOriginsResponse'
-            Core.<$> (x Core..?> "Origins" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Origins" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListApprovedOrigins
+instance Prelude.Hashable ListApprovedOrigins
 
-instance Core.NFData ListApprovedOrigins
+instance Prelude.NFData ListApprovedOrigins
 
 instance Core.ToHeaders ListApprovedOrigins where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListApprovedOrigins where
   toPath ListApprovedOrigins' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/approved-origins"
@@ -166,7 +169,7 @@ instance Core.ToPath ListApprovedOrigins where
 
 instance Core.ToQuery ListApprovedOrigins where
   toQuery ListApprovedOrigins' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -174,14 +177,14 @@ instance Core.ToQuery ListApprovedOrigins where
 -- | /See:/ 'newListApprovedOriginsResponse' smart constructor.
 data ListApprovedOriginsResponse = ListApprovedOriginsResponse'
   { -- | The approved origins.
-    origins :: Core.Maybe [Core.Text],
+    origins :: Prelude.Maybe [Prelude.Text],
     -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListApprovedOriginsResponse' with all optional fields omitted.
@@ -199,27 +202,27 @@ data ListApprovedOriginsResponse = ListApprovedOriginsResponse'
 -- 'httpStatus', 'listApprovedOriginsResponse_httpStatus' - The response's http status code.
 newListApprovedOriginsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListApprovedOriginsResponse
 newListApprovedOriginsResponse pHttpStatus_ =
   ListApprovedOriginsResponse'
     { origins =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The approved origins.
-listApprovedOriginsResponse_origins :: Lens.Lens' ListApprovedOriginsResponse (Core.Maybe [Core.Text])
-listApprovedOriginsResponse_origins = Lens.lens (\ListApprovedOriginsResponse' {origins} -> origins) (\s@ListApprovedOriginsResponse' {} a -> s {origins = a} :: ListApprovedOriginsResponse) Core.. Lens.mapping Lens._Coerce
+listApprovedOriginsResponse_origins :: Lens.Lens' ListApprovedOriginsResponse (Prelude.Maybe [Prelude.Text])
+listApprovedOriginsResponse_origins = Lens.lens (\ListApprovedOriginsResponse' {origins} -> origins) (\s@ListApprovedOriginsResponse' {} a -> s {origins = a} :: ListApprovedOriginsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listApprovedOriginsResponse_nextToken :: Lens.Lens' ListApprovedOriginsResponse (Core.Maybe Core.Text)
+listApprovedOriginsResponse_nextToken :: Lens.Lens' ListApprovedOriginsResponse (Prelude.Maybe Prelude.Text)
 listApprovedOriginsResponse_nextToken = Lens.lens (\ListApprovedOriginsResponse' {nextToken} -> nextToken) (\s@ListApprovedOriginsResponse' {} a -> s {nextToken = a} :: ListApprovedOriginsResponse)
 
 -- | The response's http status code.
-listApprovedOriginsResponse_httpStatus :: Lens.Lens' ListApprovedOriginsResponse Core.Int
+listApprovedOriginsResponse_httpStatus :: Lens.Lens' ListApprovedOriginsResponse Prelude.Int
 listApprovedOriginsResponse_httpStatus = Lens.lens (\ListApprovedOriginsResponse' {httpStatus} -> httpStatus) (\s@ListApprovedOriginsResponse' {} a -> s {httpStatus = a} :: ListApprovedOriginsResponse)
 
-instance Core.NFData ListApprovedOriginsResponse
+instance Prelude.NFData ListApprovedOriginsResponse

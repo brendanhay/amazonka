@@ -22,6 +22,7 @@ module Network.AWS.Discovery.Types.ImportTaskFilter where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types.ImportTaskFilterName
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A name-values pair of elements you can use to filter the results when
 -- querying your import tasks. Currently, wildcards are not supported for
@@ -34,11 +35,11 @@ data ImportTaskFilter = ImportTaskFilter'
   { -- | An array of strings that you can provide to match against a specific
     -- name, status, or import task ID to filter the results for your import
     -- task queries.
-    values :: Core.Maybe (Core.NonEmpty Core.Text),
+    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name, status, or import task ID for a specific import task.
-    name :: Core.Maybe ImportTaskFilterName
+    name :: Prelude.Maybe ImportTaskFilterName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportTaskFilter' with all optional fields omitted.
@@ -57,29 +58,29 @@ newImportTaskFilter ::
   ImportTaskFilter
 newImportTaskFilter =
   ImportTaskFilter'
-    { values = Core.Nothing,
-      name = Core.Nothing
+    { values = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | An array of strings that you can provide to match against a specific
 -- name, status, or import task ID to filter the results for your import
 -- task queries.
-importTaskFilter_values :: Lens.Lens' ImportTaskFilter (Core.Maybe (Core.NonEmpty Core.Text))
-importTaskFilter_values = Lens.lens (\ImportTaskFilter' {values} -> values) (\s@ImportTaskFilter' {} a -> s {values = a} :: ImportTaskFilter) Core.. Lens.mapping Lens._Coerce
+importTaskFilter_values :: Lens.Lens' ImportTaskFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+importTaskFilter_values = Lens.lens (\ImportTaskFilter' {values} -> values) (\s@ImportTaskFilter' {} a -> s {values = a} :: ImportTaskFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name, status, or import task ID for a specific import task.
-importTaskFilter_name :: Lens.Lens' ImportTaskFilter (Core.Maybe ImportTaskFilterName)
+importTaskFilter_name :: Lens.Lens' ImportTaskFilter (Prelude.Maybe ImportTaskFilterName)
 importTaskFilter_name = Lens.lens (\ImportTaskFilter' {name} -> name) (\s@ImportTaskFilter' {} a -> s {name = a} :: ImportTaskFilter)
 
-instance Core.Hashable ImportTaskFilter
+instance Prelude.Hashable ImportTaskFilter
 
-instance Core.NFData ImportTaskFilter
+instance Prelude.NFData ImportTaskFilter
 
 instance Core.ToJSON ImportTaskFilter where
   toJSON ImportTaskFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("values" Core..=) Core.<$> values,
-            ("name" Core..=) Core.<$> name
+      ( Prelude.catMaybes
+          [ ("values" Core..=) Prelude.<$> values,
+            ("name" Core..=) Prelude.<$> name
           ]
       )

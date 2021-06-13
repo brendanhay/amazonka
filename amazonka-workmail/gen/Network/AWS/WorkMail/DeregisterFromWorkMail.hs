@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -52,11 +53,11 @@ import Network.AWS.WorkMail.Types
 data DeregisterFromWorkMail = DeregisterFromWorkMail'
   { -- | The identifier for the organization under which the Amazon WorkMail
     -- entity exists.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The identifier for the member (user or group) to be updated.
-    entityId :: Core.Text
+    entityId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterFromWorkMail' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DeregisterFromWorkMail = DeregisterFromWorkMail'
 -- 'entityId', 'deregisterFromWorkMail_entityId' - The identifier for the member (user or group) to be updated.
 newDeregisterFromWorkMail ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'entityId'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterFromWorkMail
 newDeregisterFromWorkMail pOrganizationId_ pEntityId_ =
   DeregisterFromWorkMail'
@@ -85,11 +86,11 @@ newDeregisterFromWorkMail pOrganizationId_ pEntityId_ =
 
 -- | The identifier for the organization under which the Amazon WorkMail
 -- entity exists.
-deregisterFromWorkMail_organizationId :: Lens.Lens' DeregisterFromWorkMail Core.Text
+deregisterFromWorkMail_organizationId :: Lens.Lens' DeregisterFromWorkMail Prelude.Text
 deregisterFromWorkMail_organizationId = Lens.lens (\DeregisterFromWorkMail' {organizationId} -> organizationId) (\s@DeregisterFromWorkMail' {} a -> s {organizationId = a} :: DeregisterFromWorkMail)
 
 -- | The identifier for the member (user or group) to be updated.
-deregisterFromWorkMail_entityId :: Lens.Lens' DeregisterFromWorkMail Core.Text
+deregisterFromWorkMail_entityId :: Lens.Lens' DeregisterFromWorkMail Prelude.Text
 deregisterFromWorkMail_entityId = Lens.lens (\DeregisterFromWorkMail' {entityId} -> entityId) (\s@DeregisterFromWorkMail' {} a -> s {entityId = a} :: DeregisterFromWorkMail)
 
 instance Core.AWSRequest DeregisterFromWorkMail where
@@ -101,47 +102,50 @@ instance Core.AWSRequest DeregisterFromWorkMail where
     Response.receiveEmpty
       ( \s h x ->
           DeregisterFromWorkMailResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeregisterFromWorkMail
+instance Prelude.Hashable DeregisterFromWorkMail
 
-instance Core.NFData DeregisterFromWorkMail
+instance Prelude.NFData DeregisterFromWorkMail
 
 instance Core.ToHeaders DeregisterFromWorkMail where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.DeregisterFromWorkMail" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeregisterFromWorkMail where
   toJSON DeregisterFromWorkMail' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("EntityId" Core..= entityId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("EntityId" Core..= entityId)
           ]
       )
 
 instance Core.ToPath DeregisterFromWorkMail where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterFromWorkMail where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterFromWorkMailResponse' smart constructor.
 data DeregisterFromWorkMailResponse = DeregisterFromWorkMailResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterFromWorkMailResponse' with all optional fields omitted.
@@ -154,7 +158,7 @@ data DeregisterFromWorkMailResponse = DeregisterFromWorkMailResponse'
 -- 'httpStatus', 'deregisterFromWorkMailResponse_httpStatus' - The response's http status code.
 newDeregisterFromWorkMailResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterFromWorkMailResponse
 newDeregisterFromWorkMailResponse pHttpStatus_ =
   DeregisterFromWorkMailResponse'
@@ -163,7 +167,9 @@ newDeregisterFromWorkMailResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deregisterFromWorkMailResponse_httpStatus :: Lens.Lens' DeregisterFromWorkMailResponse Core.Int
+deregisterFromWorkMailResponse_httpStatus :: Lens.Lens' DeregisterFromWorkMailResponse Prelude.Int
 deregisterFromWorkMailResponse_httpStatus = Lens.lens (\DeregisterFromWorkMailResponse' {httpStatus} -> httpStatus) (\s@DeregisterFromWorkMailResponse' {} a -> s {httpStatus = a} :: DeregisterFromWorkMailResponse)
 
-instance Core.NFData DeregisterFromWorkMailResponse
+instance
+  Prelude.NFData
+    DeregisterFromWorkMailResponse

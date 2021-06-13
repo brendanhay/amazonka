@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.AwsJobTimeoutConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the amount of time each device has to finish its execution of
 -- the job. A timer is started when the job execution status is set to
@@ -37,9 +38,9 @@ data AwsJobTimeoutConfig = AwsJobTimeoutConfig'
     -- execution remains in the IN_PROGRESS status for longer than this
     -- interval, the job execution will fail and switch to the terminal
     -- @TIMED_OUT@ status.
-    inProgressTimeoutInMinutes :: Core.Maybe Core.Integer
+    inProgressTimeoutInMinutes :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AwsJobTimeoutConfig' with all optional fields omitted.
@@ -61,7 +62,7 @@ newAwsJobTimeoutConfig ::
 newAwsJobTimeoutConfig =
   AwsJobTimeoutConfig'
     { inProgressTimeoutInMinutes =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies the amount of time, in minutes, this device has to finish
@@ -71,18 +72,18 @@ newAwsJobTimeoutConfig =
 -- execution remains in the IN_PROGRESS status for longer than this
 -- interval, the job execution will fail and switch to the terminal
 -- @TIMED_OUT@ status.
-awsJobTimeoutConfig_inProgressTimeoutInMinutes :: Lens.Lens' AwsJobTimeoutConfig (Core.Maybe Core.Integer)
+awsJobTimeoutConfig_inProgressTimeoutInMinutes :: Lens.Lens' AwsJobTimeoutConfig (Prelude.Maybe Prelude.Integer)
 awsJobTimeoutConfig_inProgressTimeoutInMinutes = Lens.lens (\AwsJobTimeoutConfig' {inProgressTimeoutInMinutes} -> inProgressTimeoutInMinutes) (\s@AwsJobTimeoutConfig' {} a -> s {inProgressTimeoutInMinutes = a} :: AwsJobTimeoutConfig)
 
-instance Core.Hashable AwsJobTimeoutConfig
+instance Prelude.Hashable AwsJobTimeoutConfig
 
-instance Core.NFData AwsJobTimeoutConfig
+instance Prelude.NFData AwsJobTimeoutConfig
 
 instance Core.ToJSON AwsJobTimeoutConfig where
   toJSON AwsJobTimeoutConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("inProgressTimeoutInMinutes" Core..=)
-              Core.<$> inProgressTimeoutInMinutes
+              Prelude.<$> inProgressTimeoutInMinutes
           ]
       )

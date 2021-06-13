@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.PolicyType
 import Network.AWS.Organizations.Types.PolicyTypeStatus
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a policy type and its status in the
 -- associated root.
@@ -33,11 +34,11 @@ data PolicyTypeSummary = PolicyTypeSummary'
     -- attach a policy of the specified type to a root or to an OU or account
     -- in that root, it must be available in the organization and enabled for
     -- that root.
-    status :: Core.Maybe PolicyTypeStatus,
+    status :: Prelude.Maybe PolicyTypeStatus,
     -- | The name of the policy type.
-    type' :: Core.Maybe PolicyType
+    type' :: Prelude.Maybe PolicyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyTypeSummary' with all optional fields omitted.
@@ -57,19 +58,19 @@ newPolicyTypeSummary ::
   PolicyTypeSummary
 newPolicyTypeSummary =
   PolicyTypeSummary'
-    { status = Core.Nothing,
-      type' = Core.Nothing
+    { status = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The status of the policy type as it relates to the associated root. To
 -- attach a policy of the specified type to a root or to an OU or account
 -- in that root, it must be available in the organization and enabled for
 -- that root.
-policyTypeSummary_status :: Lens.Lens' PolicyTypeSummary (Core.Maybe PolicyTypeStatus)
+policyTypeSummary_status :: Lens.Lens' PolicyTypeSummary (Prelude.Maybe PolicyTypeStatus)
 policyTypeSummary_status = Lens.lens (\PolicyTypeSummary' {status} -> status) (\s@PolicyTypeSummary' {} a -> s {status = a} :: PolicyTypeSummary)
 
 -- | The name of the policy type.
-policyTypeSummary_type :: Lens.Lens' PolicyTypeSummary (Core.Maybe PolicyType)
+policyTypeSummary_type :: Lens.Lens' PolicyTypeSummary (Prelude.Maybe PolicyType)
 policyTypeSummary_type = Lens.lens (\PolicyTypeSummary' {type'} -> type') (\s@PolicyTypeSummary' {} a -> s {type' = a} :: PolicyTypeSummary)
 
 instance Core.FromJSON PolicyTypeSummary where
@@ -78,9 +79,10 @@ instance Core.FromJSON PolicyTypeSummary where
       "PolicyTypeSummary"
       ( \x ->
           PolicyTypeSummary'
-            Core.<$> (x Core..:? "Status") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable PolicyTypeSummary
+instance Prelude.Hashable PolicyTypeSummary
 
-instance Core.NFData PolicyTypeSummary
+instance Prelude.NFData PolicyTypeSummary

@@ -22,20 +22,21 @@ module Network.AWS.DirectoryService.Types.Computer where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.Attribute
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a computer account in a directory.
 --
 -- /See:/ 'newComputer' smart constructor.
 data Computer = Computer'
   { -- | The computer name.
-    computerName :: Core.Maybe Core.Text,
+    computerName :: Prelude.Maybe Prelude.Text,
     -- | An array of Attribute objects containing the LDAP attributes that belong
     -- to the computer account.
-    computerAttributes :: Core.Maybe [Attribute],
+    computerAttributes :: Prelude.Maybe [Attribute],
     -- | The identifier of the computer.
-    computerId :: Core.Maybe Core.Text
+    computerId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Computer' with all optional fields omitted.
@@ -55,22 +56,22 @@ newComputer ::
   Computer
 newComputer =
   Computer'
-    { computerName = Core.Nothing,
-      computerAttributes = Core.Nothing,
-      computerId = Core.Nothing
+    { computerName = Prelude.Nothing,
+      computerAttributes = Prelude.Nothing,
+      computerId = Prelude.Nothing
     }
 
 -- | The computer name.
-computer_computerName :: Lens.Lens' Computer (Core.Maybe Core.Text)
+computer_computerName :: Lens.Lens' Computer (Prelude.Maybe Prelude.Text)
 computer_computerName = Lens.lens (\Computer' {computerName} -> computerName) (\s@Computer' {} a -> s {computerName = a} :: Computer)
 
 -- | An array of Attribute objects containing the LDAP attributes that belong
 -- to the computer account.
-computer_computerAttributes :: Lens.Lens' Computer (Core.Maybe [Attribute])
-computer_computerAttributes = Lens.lens (\Computer' {computerAttributes} -> computerAttributes) (\s@Computer' {} a -> s {computerAttributes = a} :: Computer) Core.. Lens.mapping Lens._Coerce
+computer_computerAttributes :: Lens.Lens' Computer (Prelude.Maybe [Attribute])
+computer_computerAttributes = Lens.lens (\Computer' {computerAttributes} -> computerAttributes) (\s@Computer' {} a -> s {computerAttributes = a} :: Computer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the computer.
-computer_computerId :: Lens.Lens' Computer (Core.Maybe Core.Text)
+computer_computerId :: Lens.Lens' Computer (Prelude.Maybe Prelude.Text)
 computer_computerId = Lens.lens (\Computer' {computerId} -> computerId) (\s@Computer' {} a -> s {computerId = a} :: Computer)
 
 instance Core.FromJSON Computer where
@@ -79,13 +80,13 @@ instance Core.FromJSON Computer where
       "Computer"
       ( \x ->
           Computer'
-            Core.<$> (x Core..:? "ComputerName")
-            Core.<*> ( x Core..:? "ComputerAttributes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "ComputerId")
+            Prelude.<$> (x Core..:? "ComputerName")
+            Prelude.<*> ( x Core..:? "ComputerAttributes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ComputerId")
       )
 
-instance Core.Hashable Computer
+instance Prelude.Hashable Computer
 
-instance Core.NFData Computer
+instance Prelude.NFData Computer

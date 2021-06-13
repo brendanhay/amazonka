@@ -74,6 +74,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -84,10 +85,10 @@ data CreateCompilationJob = CreateCompilationJob'
     -- resources in different ways, for example, by purpose, owner, or
     -- environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A name for the model compilation job. The name must be unique within the
     -- AWS Region and within your AWS account.
-    compilationJobName :: Core.Text,
+    compilationJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
     -- SageMaker to perform tasks on your behalf.
     --
@@ -105,7 +106,7 @@ data CreateCompilationJob = CreateCompilationJob'
     -- this role to Amazon SageMaker, the caller of this API must have the
     -- @iam:PassRole@ permission. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.>
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | Provides information about the location of input model artifacts, the
     -- name and shape of the expected data inputs, and the framework in which
     -- the model was trained.
@@ -118,7 +119,7 @@ data CreateCompilationJob = CreateCompilationJob'
     -- Use this API to cap model training costs.
     stoppingCondition :: StoppingCondition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCompilationJob' with all optional fields omitted.
@@ -166,9 +167,9 @@ data CreateCompilationJob = CreateCompilationJob'
 -- Use this API to cap model training costs.
 newCreateCompilationJob ::
   -- | 'compilationJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputConfig'
   InputConfig ->
   -- | 'outputConfig'
@@ -183,7 +184,7 @@ newCreateCompilationJob
   pOutputConfig_
   pStoppingCondition_ =
     CreateCompilationJob'
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         compilationJobName = pCompilationJobName_,
         roleArn = pRoleArn_,
         inputConfig = pInputConfig_,
@@ -195,12 +196,12 @@ newCreateCompilationJob
 -- resources in different ways, for example, by purpose, owner, or
 -- environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-createCompilationJob_tags :: Lens.Lens' CreateCompilationJob (Core.Maybe [Tag])
-createCompilationJob_tags = Lens.lens (\CreateCompilationJob' {tags} -> tags) (\s@CreateCompilationJob' {} a -> s {tags = a} :: CreateCompilationJob) Core.. Lens.mapping Lens._Coerce
+createCompilationJob_tags :: Lens.Lens' CreateCompilationJob (Prelude.Maybe [Tag])
+createCompilationJob_tags = Lens.lens (\CreateCompilationJob' {tags} -> tags) (\s@CreateCompilationJob' {} a -> s {tags = a} :: CreateCompilationJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A name for the model compilation job. The name must be unique within the
 -- AWS Region and within your AWS account.
-createCompilationJob_compilationJobName :: Lens.Lens' CreateCompilationJob Core.Text
+createCompilationJob_compilationJobName :: Lens.Lens' CreateCompilationJob Prelude.Text
 createCompilationJob_compilationJobName = Lens.lens (\CreateCompilationJob' {compilationJobName} -> compilationJobName) (\s@CreateCompilationJob' {} a -> s {compilationJobName = a} :: CreateCompilationJob)
 
 -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
@@ -220,7 +221,7 @@ createCompilationJob_compilationJobName = Lens.lens (\CreateCompilationJob' {com
 -- this role to Amazon SageMaker, the caller of this API must have the
 -- @iam:PassRole@ permission. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.>
-createCompilationJob_roleArn :: Lens.Lens' CreateCompilationJob Core.Text
+createCompilationJob_roleArn :: Lens.Lens' CreateCompilationJob Prelude.Text
 createCompilationJob_roleArn = Lens.lens (\CreateCompilationJob' {roleArn} -> roleArn) (\s@CreateCompilationJob' {} a -> s {roleArn = a} :: CreateCompilationJob)
 
 -- | Provides information about the location of input model artifacts, the
@@ -249,60 +250,62 @@ instance Core.AWSRequest CreateCompilationJob where
     Response.receiveJSON
       ( \s h x ->
           CreateCompilationJobResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "CompilationJobArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "CompilationJobArn")
       )
 
-instance Core.Hashable CreateCompilationJob
+instance Prelude.Hashable CreateCompilationJob
 
-instance Core.NFData CreateCompilationJob
+instance Prelude.NFData CreateCompilationJob
 
 instance Core.ToHeaders CreateCompilationJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.CreateCompilationJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateCompilationJob where
   toJSON CreateCompilationJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("CompilationJobName" Core..= compilationJobName),
-            Core.Just ("RoleArn" Core..= roleArn),
-            Core.Just ("InputConfig" Core..= inputConfig),
-            Core.Just ("OutputConfig" Core..= outputConfig),
-            Core.Just
+            Prelude.Just ("RoleArn" Core..= roleArn),
+            Prelude.Just ("InputConfig" Core..= inputConfig),
+            Prelude.Just ("OutputConfig" Core..= outputConfig),
+            Prelude.Just
               ("StoppingCondition" Core..= stoppingCondition)
           ]
       )
 
 instance Core.ToPath CreateCompilationJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateCompilationJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCompilationJobResponse' smart constructor.
 data CreateCompilationJobResponse = CreateCompilationJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | If the action is successful, the service sends back an HTTP 200
     -- response. Amazon SageMaker returns the following data in JSON format:
     --
     -- -   @CompilationJobArn@: The Amazon Resource Name (ARN) of the compiled
     --     job.
-    compilationJobArn :: Core.Text
+    compilationJobArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCompilationJobResponse' with all optional fields omitted.
@@ -321,9 +324,9 @@ data CreateCompilationJobResponse = CreateCompilationJobResponse'
 --     job.
 newCreateCompilationJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'compilationJobArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateCompilationJobResponse
 newCreateCompilationJobResponse
   pHttpStatus_
@@ -335,7 +338,7 @@ newCreateCompilationJobResponse
       }
 
 -- | The response's http status code.
-createCompilationJobResponse_httpStatus :: Lens.Lens' CreateCompilationJobResponse Core.Int
+createCompilationJobResponse_httpStatus :: Lens.Lens' CreateCompilationJobResponse Prelude.Int
 createCompilationJobResponse_httpStatus = Lens.lens (\CreateCompilationJobResponse' {httpStatus} -> httpStatus) (\s@CreateCompilationJobResponse' {} a -> s {httpStatus = a} :: CreateCompilationJobResponse)
 
 -- | If the action is successful, the service sends back an HTTP 200
@@ -343,7 +346,7 @@ createCompilationJobResponse_httpStatus = Lens.lens (\CreateCompilationJobRespon
 --
 -- -   @CompilationJobArn@: The Amazon Resource Name (ARN) of the compiled
 --     job.
-createCompilationJobResponse_compilationJobArn :: Lens.Lens' CreateCompilationJobResponse Core.Text
+createCompilationJobResponse_compilationJobArn :: Lens.Lens' CreateCompilationJobResponse Prelude.Text
 createCompilationJobResponse_compilationJobArn = Lens.lens (\CreateCompilationJobResponse' {compilationJobArn} -> compilationJobArn) (\s@CreateCompilationJobResponse' {} a -> s {compilationJobArn = a} :: CreateCompilationJobResponse)
 
-instance Core.NFData CreateCompilationJobResponse
+instance Prelude.NFData CreateCompilationJobResponse

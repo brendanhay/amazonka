@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.Failure where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A failed resource. For a list of common causes, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html API failure reasons>
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFailure' smart constructor.
 data Failure = Failure'
   { -- | The Amazon Resource Name (ARN) of the failed resource.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The reason for the failure.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The details of the failure.
-    detail :: Core.Maybe Core.Text
+    detail :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Failure' with all optional fields omitted.
@@ -54,21 +55,21 @@ newFailure ::
   Failure
 newFailure =
   Failure'
-    { arn = Core.Nothing,
-      reason = Core.Nothing,
-      detail = Core.Nothing
+    { arn = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      detail = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the failed resource.
-failure_arn :: Lens.Lens' Failure (Core.Maybe Core.Text)
+failure_arn :: Lens.Lens' Failure (Prelude.Maybe Prelude.Text)
 failure_arn = Lens.lens (\Failure' {arn} -> arn) (\s@Failure' {} a -> s {arn = a} :: Failure)
 
 -- | The reason for the failure.
-failure_reason :: Lens.Lens' Failure (Core.Maybe Core.Text)
+failure_reason :: Lens.Lens' Failure (Prelude.Maybe Prelude.Text)
 failure_reason = Lens.lens (\Failure' {reason} -> reason) (\s@Failure' {} a -> s {reason = a} :: Failure)
 
 -- | The details of the failure.
-failure_detail :: Lens.Lens' Failure (Core.Maybe Core.Text)
+failure_detail :: Lens.Lens' Failure (Prelude.Maybe Prelude.Text)
 failure_detail = Lens.lens (\Failure' {detail} -> detail) (\s@Failure' {} a -> s {detail = a} :: Failure)
 
 instance Core.FromJSON Failure where
@@ -77,11 +78,11 @@ instance Core.FromJSON Failure where
       "Failure"
       ( \x ->
           Failure'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "reason")
-            Core.<*> (x Core..:? "detail")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "reason")
+            Prelude.<*> (x Core..:? "detail")
       )
 
-instance Core.Hashable Failure
+instance Prelude.Hashable Failure
 
-instance Core.NFData Failure
+instance Prelude.NFData Failure

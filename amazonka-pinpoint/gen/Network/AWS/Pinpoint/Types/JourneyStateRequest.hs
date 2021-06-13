@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.JourneyStateRequest where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.State
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Changes the status of a journey.
 --
@@ -40,9 +41,9 @@ data JourneyStateRequest = JourneyStateRequest'
     -- activities from the journey. In addition, Amazon Pinpoint stops
     -- evaluating the journey and doesn\'t perform any activities that haven\'t
     -- started.
-    state :: Core.Maybe State
+    state :: Prelude.Maybe State
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JourneyStateRequest' with all optional fields omitted.
@@ -68,7 +69,7 @@ data JourneyStateRequest = JourneyStateRequest'
 newJourneyStateRequest ::
   JourneyStateRequest
 newJourneyStateRequest =
-  JourneyStateRequest' {state = Core.Nothing}
+  JourneyStateRequest' {state = Prelude.Nothing}
 
 -- | The status of the journey. Currently, the only supported value is
 -- CANCELLED.
@@ -83,14 +84,16 @@ newJourneyStateRequest =
 -- activities from the journey. In addition, Amazon Pinpoint stops
 -- evaluating the journey and doesn\'t perform any activities that haven\'t
 -- started.
-journeyStateRequest_state :: Lens.Lens' JourneyStateRequest (Core.Maybe State)
+journeyStateRequest_state :: Lens.Lens' JourneyStateRequest (Prelude.Maybe State)
 journeyStateRequest_state = Lens.lens (\JourneyStateRequest' {state} -> state) (\s@JourneyStateRequest' {} a -> s {state = a} :: JourneyStateRequest)
 
-instance Core.Hashable JourneyStateRequest
+instance Prelude.Hashable JourneyStateRequest
 
-instance Core.NFData JourneyStateRequest
+instance Prelude.NFData JourneyStateRequest
 
 instance Core.ToJSON JourneyStateRequest where
   toJSON JourneyStateRequest' {..} =
     Core.object
-      (Core.catMaybes [("State" Core..=) Core.<$> state])
+      ( Prelude.catMaybes
+          [("State" Core..=) Prelude.<$> state]
+      )

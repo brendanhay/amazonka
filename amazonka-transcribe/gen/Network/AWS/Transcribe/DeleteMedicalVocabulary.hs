@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -44,9 +45,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newDeleteMedicalVocabulary' smart constructor.
 data DeleteMedicalVocabulary = DeleteMedicalVocabulary'
   { -- | The name of the vocabulary that you want to delete.
-    vocabularyName :: Core.Text
+    vocabularyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMedicalVocabulary' with all optional fields omitted.
@@ -59,7 +60,7 @@ data DeleteMedicalVocabulary = DeleteMedicalVocabulary'
 -- 'vocabularyName', 'deleteMedicalVocabulary_vocabularyName' - The name of the vocabulary that you want to delete.
 newDeleteMedicalVocabulary ::
   -- | 'vocabularyName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMedicalVocabulary
 newDeleteMedicalVocabulary pVocabularyName_ =
   DeleteMedicalVocabulary'
@@ -68,7 +69,7 @@ newDeleteMedicalVocabulary pVocabularyName_ =
     }
 
 -- | The name of the vocabulary that you want to delete.
-deleteMedicalVocabulary_vocabularyName :: Lens.Lens' DeleteMedicalVocabulary Core.Text
+deleteMedicalVocabulary_vocabularyName :: Lens.Lens' DeleteMedicalVocabulary Prelude.Text
 deleteMedicalVocabulary_vocabularyName = Lens.lens (\DeleteMedicalVocabulary' {vocabularyName} -> vocabularyName) (\s@DeleteMedicalVocabulary' {} a -> s {vocabularyName = a} :: DeleteMedicalVocabulary)
 
 instance Core.AWSRequest DeleteMedicalVocabulary where
@@ -80,43 +81,45 @@ instance Core.AWSRequest DeleteMedicalVocabulary where
     Response.receiveNull
       DeleteMedicalVocabularyResponse'
 
-instance Core.Hashable DeleteMedicalVocabulary
+instance Prelude.Hashable DeleteMedicalVocabulary
 
-instance Core.NFData DeleteMedicalVocabulary
+instance Prelude.NFData DeleteMedicalVocabulary
 
 instance Core.ToHeaders DeleteMedicalVocabulary where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.DeleteMedicalVocabulary" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteMedicalVocabulary where
   toJSON DeleteMedicalVocabulary' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("VocabularyName" Core..= vocabularyName)
           ]
       )
 
 instance Core.ToPath DeleteMedicalVocabulary where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteMedicalVocabulary where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMedicalVocabularyResponse' smart constructor.
 data DeleteMedicalVocabularyResponse = DeleteMedicalVocabularyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMedicalVocabularyResponse' with all optional fields omitted.
@@ -127,4 +130,6 @@ newDeleteMedicalVocabularyResponse ::
 newDeleteMedicalVocabularyResponse =
   DeleteMedicalVocabularyResponse'
 
-instance Core.NFData DeleteMedicalVocabularyResponse
+instance
+  Prelude.NFData
+    DeleteMedicalVocabularyResponse

@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -58,9 +59,9 @@ import qualified Network.AWS.Response as Response
 data StopDBCluster = StopDBCluster'
   { -- | The DB cluster identifier of the Amazon Aurora DB cluster to be stopped.
     -- This parameter is stored as a lowercase string.
-    dbClusterIdentifier :: Core.Text
+    dbClusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopDBCluster' with all optional fields omitted.
@@ -74,7 +75,7 @@ data StopDBCluster = StopDBCluster'
 -- This parameter is stored as a lowercase string.
 newStopDBCluster ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   StopDBCluster
 newStopDBCluster pDBClusterIdentifier_ =
   StopDBCluster'
@@ -84,7 +85,7 @@ newStopDBCluster pDBClusterIdentifier_ =
 
 -- | The DB cluster identifier of the Amazon Aurora DB cluster to be stopped.
 -- This parameter is stored as a lowercase string.
-stopDBCluster_dbClusterIdentifier :: Lens.Lens' StopDBCluster Core.Text
+stopDBCluster_dbClusterIdentifier :: Lens.Lens' StopDBCluster Prelude.Text
 stopDBCluster_dbClusterIdentifier = Lens.lens (\StopDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@StopDBCluster' {} a -> s {dbClusterIdentifier = a} :: StopDBCluster)
 
 instance Core.AWSRequest StopDBCluster where
@@ -97,36 +98,37 @@ instance Core.AWSRequest StopDBCluster where
       "StopDBClusterResult"
       ( \s h x ->
           StopDBClusterResponse'
-            Core.<$> (x Core..@? "DBCluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopDBCluster
+instance Prelude.Hashable StopDBCluster
 
-instance Core.NFData StopDBCluster
+instance Prelude.NFData StopDBCluster
 
 instance Core.ToHeaders StopDBCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath StopDBCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopDBCluster where
   toQuery StopDBCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("StopDBCluster" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("StopDBCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newStopDBClusterResponse' smart constructor.
 data StopDBClusterResponse = StopDBClusterResponse'
-  { dbCluster :: Core.Maybe DBCluster,
+  { dbCluster :: Prelude.Maybe DBCluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopDBClusterResponse' with all optional fields omitted.
@@ -141,20 +143,20 @@ data StopDBClusterResponse = StopDBClusterResponse'
 -- 'httpStatus', 'stopDBClusterResponse_httpStatus' - The response's http status code.
 newStopDBClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopDBClusterResponse
 newStopDBClusterResponse pHttpStatus_ =
   StopDBClusterResponse'
-    { dbCluster = Core.Nothing,
+    { dbCluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-stopDBClusterResponse_dbCluster :: Lens.Lens' StopDBClusterResponse (Core.Maybe DBCluster)
+stopDBClusterResponse_dbCluster :: Lens.Lens' StopDBClusterResponse (Prelude.Maybe DBCluster)
 stopDBClusterResponse_dbCluster = Lens.lens (\StopDBClusterResponse' {dbCluster} -> dbCluster) (\s@StopDBClusterResponse' {} a -> s {dbCluster = a} :: StopDBClusterResponse)
 
 -- | The response's http status code.
-stopDBClusterResponse_httpStatus :: Lens.Lens' StopDBClusterResponse Core.Int
+stopDBClusterResponse_httpStatus :: Lens.Lens' StopDBClusterResponse Prelude.Int
 stopDBClusterResponse_httpStatus = Lens.lens (\StopDBClusterResponse' {httpStatus} -> httpStatus) (\s@StopDBClusterResponse' {} a -> s {httpStatus = a} :: StopDBClusterResponse)
 
-instance Core.NFData StopDBClusterResponse
+instance Prelude.NFData StopDBClusterResponse

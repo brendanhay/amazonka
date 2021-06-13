@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,13 +68,13 @@ data ListContainerInstances = ListContainerInstances'
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the container instances by status. For example, if you specify
     -- the @DRAINING@ status, the results include only container instances that
     -- have been set to @DRAINING@ using UpdateContainerInstancesState. If you
     -- do not specify this parameter, the default is to include container
     -- instances set to all states other than @INACTIVE@.
-    status :: Core.Maybe ContainerInstanceStatus,
+    status :: Prelude.Maybe ContainerInstanceStatus,
     -- | The maximum number of container instance results returned by
     -- @ListContainerInstances@ in paginated output. When this parameter is
     -- used, @ListContainerInstances@ only returns @maxResults@ results in a
@@ -83,18 +84,18 @@ data ListContainerInstances = ListContainerInstances'
     -- This value can be between 1 and 100. If this parameter is not used, then
     -- @ListContainerInstances@ returns up to 100 results and a @nextToken@
     -- value if applicable.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | You can filter the results of a @ListContainerInstances@ operation with
     -- cluster query language statements. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    filter' :: Core.Maybe Core.Text,
+    filter' :: Prelude.Maybe Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the container instances to list. If you do not specify a cluster,
     -- the default cluster is assumed.
-    cluster :: Core.Maybe Core.Text
+    cluster :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListContainerInstances' with all optional fields omitted.
@@ -141,11 +142,12 @@ newListContainerInstances ::
   ListContainerInstances
 newListContainerInstances =
   ListContainerInstances'
-    { nextToken = Core.Nothing,
-      status = Core.Nothing,
-      maxResults = Core.Nothing,
-      filter' = Core.Nothing,
-      cluster = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      cluster = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a @ListContainerInstances@ request
@@ -156,7 +158,7 @@ newListContainerInstances =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listContainerInstances_nextToken :: Lens.Lens' ListContainerInstances (Core.Maybe Core.Text)
+listContainerInstances_nextToken :: Lens.Lens' ListContainerInstances (Prelude.Maybe Prelude.Text)
 listContainerInstances_nextToken = Lens.lens (\ListContainerInstances' {nextToken} -> nextToken) (\s@ListContainerInstances' {} a -> s {nextToken = a} :: ListContainerInstances)
 
 -- | Filters the container instances by status. For example, if you specify
@@ -164,7 +166,7 @@ listContainerInstances_nextToken = Lens.lens (\ListContainerInstances' {nextToke
 -- have been set to @DRAINING@ using UpdateContainerInstancesState. If you
 -- do not specify this parameter, the default is to include container
 -- instances set to all states other than @INACTIVE@.
-listContainerInstances_status :: Lens.Lens' ListContainerInstances (Core.Maybe ContainerInstanceStatus)
+listContainerInstances_status :: Lens.Lens' ListContainerInstances (Prelude.Maybe ContainerInstanceStatus)
 listContainerInstances_status = Lens.lens (\ListContainerInstances' {status} -> status) (\s@ListContainerInstances' {} a -> s {status = a} :: ListContainerInstances)
 
 -- | The maximum number of container instance results returned by
@@ -176,20 +178,20 @@ listContainerInstances_status = Lens.lens (\ListContainerInstances' {status} -> 
 -- This value can be between 1 and 100. If this parameter is not used, then
 -- @ListContainerInstances@ returns up to 100 results and a @nextToken@
 -- value if applicable.
-listContainerInstances_maxResults :: Lens.Lens' ListContainerInstances (Core.Maybe Core.Int)
+listContainerInstances_maxResults :: Lens.Lens' ListContainerInstances (Prelude.Maybe Prelude.Int)
 listContainerInstances_maxResults = Lens.lens (\ListContainerInstances' {maxResults} -> maxResults) (\s@ListContainerInstances' {} a -> s {maxResults = a} :: ListContainerInstances)
 
 -- | You can filter the results of a @ListContainerInstances@ operation with
 -- cluster query language statements. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-listContainerInstances_filter :: Lens.Lens' ListContainerInstances (Core.Maybe Core.Text)
+listContainerInstances_filter :: Lens.Lens' ListContainerInstances (Prelude.Maybe Prelude.Text)
 listContainerInstances_filter = Lens.lens (\ListContainerInstances' {filter'} -> filter') (\s@ListContainerInstances' {} a -> s {filter' = a} :: ListContainerInstances)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instances to list. If you do not specify a cluster,
 -- the default cluster is assumed.
-listContainerInstances_cluster :: Lens.Lens' ListContainerInstances (Core.Maybe Core.Text)
+listContainerInstances_cluster :: Lens.Lens' ListContainerInstances (Prelude.Maybe Prelude.Text)
 listContainerInstances_cluster = Lens.lens (\ListContainerInstances' {cluster} -> cluster) (\s@ListContainerInstances' {} a -> s {cluster = a} :: ListContainerInstances)
 
 instance Core.AWSPager ListContainerInstances where
@@ -197,22 +199,22 @@ instance Core.AWSPager ListContainerInstances where
     | Core.stop
         ( rs
             Lens.^? listContainerInstancesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listContainerInstancesResponse_containerInstanceArns
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listContainerInstances_nextToken
+          Prelude.& listContainerInstances_nextToken
           Lens..~ rs
           Lens.^? listContainerInstancesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContainerInstances where
   type
@@ -223,47 +225,49 @@ instance Core.AWSRequest ListContainerInstances where
     Response.receiveJSON
       ( \s h x ->
           ListContainerInstancesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> ( x Core..?> "containerInstanceArns"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "containerInstanceArns"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListContainerInstances
+instance Prelude.Hashable ListContainerInstances
 
-instance Core.NFData ListContainerInstances
+instance Prelude.NFData ListContainerInstances
 
 instance Core.ToHeaders ListContainerInstances where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.ListContainerInstances" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListContainerInstances where
   toJSON ListContainerInstances' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("status" Core..=) Core.<$> status,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("filter" Core..=) Core.<$> filter',
-            ("cluster" Core..=) Core.<$> cluster
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("status" Core..=) Prelude.<$> status,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("filter" Core..=) Prelude.<$> filter',
+            ("cluster" Core..=) Prelude.<$> cluster
           ]
       )
 
 instance Core.ToPath ListContainerInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListContainerInstances where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListContainerInstancesResponse' smart constructor.
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
@@ -271,14 +275,14 @@ data ListContainerInstancesResponse = ListContainerInstancesResponse'
     -- request. When the results of a @ListContainerInstances@ request exceed
     -- @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of container instances with full ARN entries for each container
     -- instance associated with the specified cluster.
-    containerInstanceArns :: Core.Maybe [Core.Text],
+    containerInstanceArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListContainerInstancesResponse' with all optional fields omitted.
@@ -299,13 +303,13 @@ data ListContainerInstancesResponse = ListContainerInstancesResponse'
 -- 'httpStatus', 'listContainerInstancesResponse_httpStatus' - The response's http status code.
 newListContainerInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListContainerInstancesResponse
 newListContainerInstancesResponse pHttpStatus_ =
   ListContainerInstancesResponse'
     { nextToken =
-        Core.Nothing,
-      containerInstanceArns = Core.Nothing,
+        Prelude.Nothing,
+      containerInstanceArns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -313,16 +317,18 @@ newListContainerInstancesResponse pHttpStatus_ =
 -- request. When the results of a @ListContainerInstances@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
-listContainerInstancesResponse_nextToken :: Lens.Lens' ListContainerInstancesResponse (Core.Maybe Core.Text)
+listContainerInstancesResponse_nextToken :: Lens.Lens' ListContainerInstancesResponse (Prelude.Maybe Prelude.Text)
 listContainerInstancesResponse_nextToken = Lens.lens (\ListContainerInstancesResponse' {nextToken} -> nextToken) (\s@ListContainerInstancesResponse' {} a -> s {nextToken = a} :: ListContainerInstancesResponse)
 
 -- | The list of container instances with full ARN entries for each container
 -- instance associated with the specified cluster.
-listContainerInstancesResponse_containerInstanceArns :: Lens.Lens' ListContainerInstancesResponse (Core.Maybe [Core.Text])
-listContainerInstancesResponse_containerInstanceArns = Lens.lens (\ListContainerInstancesResponse' {containerInstanceArns} -> containerInstanceArns) (\s@ListContainerInstancesResponse' {} a -> s {containerInstanceArns = a} :: ListContainerInstancesResponse) Core.. Lens.mapping Lens._Coerce
+listContainerInstancesResponse_containerInstanceArns :: Lens.Lens' ListContainerInstancesResponse (Prelude.Maybe [Prelude.Text])
+listContainerInstancesResponse_containerInstanceArns = Lens.lens (\ListContainerInstancesResponse' {containerInstanceArns} -> containerInstanceArns) (\s@ListContainerInstancesResponse' {} a -> s {containerInstanceArns = a} :: ListContainerInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listContainerInstancesResponse_httpStatus :: Lens.Lens' ListContainerInstancesResponse Core.Int
+listContainerInstancesResponse_httpStatus :: Lens.Lens' ListContainerInstancesResponse Prelude.Int
 listContainerInstancesResponse_httpStatus = Lens.lens (\ListContainerInstancesResponse' {httpStatus} -> httpStatus) (\s@ListContainerInstancesResponse' {} a -> s {httpStatus = a} :: ListContainerInstancesResponse)
 
-instance Core.NFData ListContainerInstancesResponse
+instance
+  Prelude.NFData
+    ListContainerInstancesResponse

@@ -70,6 +70,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,19 +84,19 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses'
     --
     -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
     -- IP address within the subnet range.
-    privateIpAddresses :: Core.Maybe [Core.Text],
+    privateIpAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The number of secondary IP addresses to assign to the network interface.
     -- You can\'t specify this parameter when also specifying private IP
     -- addresses.
-    secondaryPrivateIpAddressCount :: Core.Maybe Core.Int,
+    secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether to allow an IP address that is already assigned to
     -- another network interface or instance to be reassigned to the specified
     -- network interface.
-    allowReassignment :: Core.Maybe Core.Bool,
+    allowReassignment :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the network interface.
-    networkInterfaceId :: Core.Text
+    networkInterfaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssignPrivateIpAddresses' with all optional fields omitted.
@@ -123,14 +124,14 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses'
 -- 'networkInterfaceId', 'assignPrivateIpAddresses_networkInterfaceId' - The ID of the network interface.
 newAssignPrivateIpAddresses ::
   -- | 'networkInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   AssignPrivateIpAddresses
 newAssignPrivateIpAddresses pNetworkInterfaceId_ =
   AssignPrivateIpAddresses'
     { privateIpAddresses =
-        Core.Nothing,
-      secondaryPrivateIpAddressCount = Core.Nothing,
-      allowReassignment = Core.Nothing,
+        Prelude.Nothing,
+      secondaryPrivateIpAddressCount = Prelude.Nothing,
+      allowReassignment = Prelude.Nothing,
       networkInterfaceId = pNetworkInterfaceId_
     }
 
@@ -140,23 +141,23 @@ newAssignPrivateIpAddresses pNetworkInterfaceId_ =
 --
 -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
 -- IP address within the subnet range.
-assignPrivateIpAddresses_privateIpAddresses :: Lens.Lens' AssignPrivateIpAddresses (Core.Maybe [Core.Text])
-assignPrivateIpAddresses_privateIpAddresses = Lens.lens (\AssignPrivateIpAddresses' {privateIpAddresses} -> privateIpAddresses) (\s@AssignPrivateIpAddresses' {} a -> s {privateIpAddresses = a} :: AssignPrivateIpAddresses) Core.. Lens.mapping Lens._Coerce
+assignPrivateIpAddresses_privateIpAddresses :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
+assignPrivateIpAddresses_privateIpAddresses = Lens.lens (\AssignPrivateIpAddresses' {privateIpAddresses} -> privateIpAddresses) (\s@AssignPrivateIpAddresses' {} a -> s {privateIpAddresses = a} :: AssignPrivateIpAddresses) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of secondary IP addresses to assign to the network interface.
 -- You can\'t specify this parameter when also specifying private IP
 -- addresses.
-assignPrivateIpAddresses_secondaryPrivateIpAddressCount :: Lens.Lens' AssignPrivateIpAddresses (Core.Maybe Core.Int)
+assignPrivateIpAddresses_secondaryPrivateIpAddressCount :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe Prelude.Int)
 assignPrivateIpAddresses_secondaryPrivateIpAddressCount = Lens.lens (\AssignPrivateIpAddresses' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@AssignPrivateIpAddresses' {} a -> s {secondaryPrivateIpAddressCount = a} :: AssignPrivateIpAddresses)
 
 -- | Indicates whether to allow an IP address that is already assigned to
 -- another network interface or instance to be reassigned to the specified
 -- network interface.
-assignPrivateIpAddresses_allowReassignment :: Lens.Lens' AssignPrivateIpAddresses (Core.Maybe Core.Bool)
+assignPrivateIpAddresses_allowReassignment :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe Prelude.Bool)
 assignPrivateIpAddresses_allowReassignment = Lens.lens (\AssignPrivateIpAddresses' {allowReassignment} -> allowReassignment) (\s@AssignPrivateIpAddresses' {} a -> s {allowReassignment = a} :: AssignPrivateIpAddresses)
 
 -- | The ID of the network interface.
-assignPrivateIpAddresses_networkInterfaceId :: Lens.Lens' AssignPrivateIpAddresses Core.Text
+assignPrivateIpAddresses_networkInterfaceId :: Lens.Lens' AssignPrivateIpAddresses Prelude.Text
 assignPrivateIpAddresses_networkInterfaceId = Lens.lens (\AssignPrivateIpAddresses' {networkInterfaceId} -> networkInterfaceId) (\s@AssignPrivateIpAddresses' {} a -> s {networkInterfaceId = a} :: AssignPrivateIpAddresses)
 
 instance Core.AWSRequest AssignPrivateIpAddresses where
@@ -168,33 +169,34 @@ instance Core.AWSRequest AssignPrivateIpAddresses where
     Response.receiveXML
       ( \s h x ->
           AssignPrivateIpAddressesResponse'
-            Core.<$> ( x Core..@? "assignedPrivateIpAddressesSet"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (x Core..@? "networkInterfaceId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "assignedPrivateIpAddressesSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "networkInterfaceId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssignPrivateIpAddresses
+instance Prelude.Hashable AssignPrivateIpAddresses
 
-instance Core.NFData AssignPrivateIpAddresses
+instance Prelude.NFData AssignPrivateIpAddresses
 
 instance Core.ToHeaders AssignPrivateIpAddresses where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AssignPrivateIpAddresses where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssignPrivateIpAddresses where
   toQuery AssignPrivateIpAddresses' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AssignPrivateIpAddresses" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("AssignPrivateIpAddresses" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "PrivateIpAddress"
-              Core.<$> privateIpAddresses
+              Prelude.<$> privateIpAddresses
           ),
         "SecondaryPrivateIpAddressCount"
           Core.=: secondaryPrivateIpAddressCount,
@@ -205,13 +207,13 @@ instance Core.ToQuery AssignPrivateIpAddresses where
 -- | /See:/ 'newAssignPrivateIpAddressesResponse' smart constructor.
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse'
   { -- | The private IP addresses assigned to the network interface.
-    assignedPrivateIpAddresses :: Core.Maybe [AssignedPrivateIpAddress],
+    assignedPrivateIpAddresses :: Prelude.Maybe [AssignedPrivateIpAddress],
     -- | The ID of the network interface.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssignPrivateIpAddressesResponse' with all optional fields omitted.
@@ -228,26 +230,28 @@ data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse'
 -- 'httpStatus', 'assignPrivateIpAddressesResponse_httpStatus' - The response's http status code.
 newAssignPrivateIpAddressesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssignPrivateIpAddressesResponse
 newAssignPrivateIpAddressesResponse pHttpStatus_ =
   AssignPrivateIpAddressesResponse'
     { assignedPrivateIpAddresses =
-        Core.Nothing,
-      networkInterfaceId = Core.Nothing,
+        Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The private IP addresses assigned to the network interface.
-assignPrivateIpAddressesResponse_assignedPrivateIpAddresses :: Lens.Lens' AssignPrivateIpAddressesResponse (Core.Maybe [AssignedPrivateIpAddress])
-assignPrivateIpAddressesResponse_assignedPrivateIpAddresses = Lens.lens (\AssignPrivateIpAddressesResponse' {assignedPrivateIpAddresses} -> assignedPrivateIpAddresses) (\s@AssignPrivateIpAddressesResponse' {} a -> s {assignedPrivateIpAddresses = a} :: AssignPrivateIpAddressesResponse) Core.. Lens.mapping Lens._Coerce
+assignPrivateIpAddressesResponse_assignedPrivateIpAddresses :: Lens.Lens' AssignPrivateIpAddressesResponse (Prelude.Maybe [AssignedPrivateIpAddress])
+assignPrivateIpAddressesResponse_assignedPrivateIpAddresses = Lens.lens (\AssignPrivateIpAddressesResponse' {assignedPrivateIpAddresses} -> assignedPrivateIpAddresses) (\s@AssignPrivateIpAddressesResponse' {} a -> s {assignedPrivateIpAddresses = a} :: AssignPrivateIpAddressesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the network interface.
-assignPrivateIpAddressesResponse_networkInterfaceId :: Lens.Lens' AssignPrivateIpAddressesResponse (Core.Maybe Core.Text)
+assignPrivateIpAddressesResponse_networkInterfaceId :: Lens.Lens' AssignPrivateIpAddressesResponse (Prelude.Maybe Prelude.Text)
 assignPrivateIpAddressesResponse_networkInterfaceId = Lens.lens (\AssignPrivateIpAddressesResponse' {networkInterfaceId} -> networkInterfaceId) (\s@AssignPrivateIpAddressesResponse' {} a -> s {networkInterfaceId = a} :: AssignPrivateIpAddressesResponse)
 
 -- | The response's http status code.
-assignPrivateIpAddressesResponse_httpStatus :: Lens.Lens' AssignPrivateIpAddressesResponse Core.Int
+assignPrivateIpAddressesResponse_httpStatus :: Lens.Lens' AssignPrivateIpAddressesResponse Prelude.Int
 assignPrivateIpAddressesResponse_httpStatus = Lens.lens (\AssignPrivateIpAddressesResponse' {httpStatus} -> httpStatus) (\s@AssignPrivateIpAddressesResponse' {} a -> s {httpStatus = a} :: AssignPrivateIpAddressesResponse)
 
-instance Core.NFData AssignPrivateIpAddressesResponse
+instance
+  Prelude.NFData
+    AssignPrivateIpAddressesResponse

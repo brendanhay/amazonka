@@ -23,17 +23,18 @@ import Network.AWS.Connect.Types.CurrentMetricData
 import Network.AWS.Connect.Types.Dimensions
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a set of real-time metrics.
 --
 -- /See:/ 'newCurrentMetricResult' smart constructor.
 data CurrentMetricResult = CurrentMetricResult'
   { -- | The set of metrics.
-    collections :: Core.Maybe [CurrentMetricData],
+    collections :: Prelude.Maybe [CurrentMetricData],
     -- | The dimensions for the metrics.
-    dimensions :: Core.Maybe Dimensions
+    dimensions :: Prelude.Maybe Dimensions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CurrentMetricResult' with all optional fields omitted.
@@ -50,16 +51,16 @@ newCurrentMetricResult ::
   CurrentMetricResult
 newCurrentMetricResult =
   CurrentMetricResult'
-    { collections = Core.Nothing,
-      dimensions = Core.Nothing
+    { collections = Prelude.Nothing,
+      dimensions = Prelude.Nothing
     }
 
 -- | The set of metrics.
-currentMetricResult_collections :: Lens.Lens' CurrentMetricResult (Core.Maybe [CurrentMetricData])
-currentMetricResult_collections = Lens.lens (\CurrentMetricResult' {collections} -> collections) (\s@CurrentMetricResult' {} a -> s {collections = a} :: CurrentMetricResult) Core.. Lens.mapping Lens._Coerce
+currentMetricResult_collections :: Lens.Lens' CurrentMetricResult (Prelude.Maybe [CurrentMetricData])
+currentMetricResult_collections = Lens.lens (\CurrentMetricResult' {collections} -> collections) (\s@CurrentMetricResult' {} a -> s {collections = a} :: CurrentMetricResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The dimensions for the metrics.
-currentMetricResult_dimensions :: Lens.Lens' CurrentMetricResult (Core.Maybe Dimensions)
+currentMetricResult_dimensions :: Lens.Lens' CurrentMetricResult (Prelude.Maybe Dimensions)
 currentMetricResult_dimensions = Lens.lens (\CurrentMetricResult' {dimensions} -> dimensions) (\s@CurrentMetricResult' {} a -> s {dimensions = a} :: CurrentMetricResult)
 
 instance Core.FromJSON CurrentMetricResult where
@@ -68,10 +69,10 @@ instance Core.FromJSON CurrentMetricResult where
       "CurrentMetricResult"
       ( \x ->
           CurrentMetricResult'
-            Core.<$> (x Core..:? "Collections" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Dimensions")
+            Prelude.<$> (x Core..:? "Collections" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Dimensions")
       )
 
-instance Core.Hashable CurrentMetricResult
+instance Prelude.Hashable CurrentMetricResult
 
-instance Core.NFData CurrentMetricResult
+instance Prelude.NFData CurrentMetricResult

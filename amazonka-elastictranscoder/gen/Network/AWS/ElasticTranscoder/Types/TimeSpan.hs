@@ -21,6 +21,7 @@ module Network.AWS.ElasticTranscoder.Types.TimeSpan where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings that determine when a clip begins and how long it lasts.
 --
@@ -33,15 +34,15 @@ data TimeSpan = TimeSpan'
     --
     -- If you specify a value longer than the duration of the input file,
     -- Elastic Transcoder transcodes the file and returns a warning message.
-    duration :: Core.Maybe Core.Text,
+    duration :: Prelude.Maybe Prelude.Text,
     -- | The place in the input file where you want a clip to start. The format
     -- can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is
     -- thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you
     -- don\'t specify a value, Elastic Transcoder starts at the beginning of
     -- the input file.
-    startTime :: Core.Maybe Core.Text
+    startTime :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimeSpan' with all optional fields omitted.
@@ -68,8 +69,8 @@ newTimeSpan ::
   TimeSpan
 newTimeSpan =
   TimeSpan'
-    { duration = Core.Nothing,
-      startTime = Core.Nothing
+    { duration = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
 
 -- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum
@@ -79,7 +80,7 @@ newTimeSpan =
 --
 -- If you specify a value longer than the duration of the input file,
 -- Elastic Transcoder transcodes the file and returns a warning message.
-timeSpan_duration :: Lens.Lens' TimeSpan (Core.Maybe Core.Text)
+timeSpan_duration :: Lens.Lens' TimeSpan (Prelude.Maybe Prelude.Text)
 timeSpan_duration = Lens.lens (\TimeSpan' {duration} -> duration) (\s@TimeSpan' {} a -> s {duration = a} :: TimeSpan)
 
 -- | The place in the input file where you want a clip to start. The format
@@ -87,7 +88,7 @@ timeSpan_duration = Lens.lens (\TimeSpan' {duration} -> duration) (\s@TimeSpan' 
 -- thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you
 -- don\'t specify a value, Elastic Transcoder starts at the beginning of
 -- the input file.
-timeSpan_startTime :: Lens.Lens' TimeSpan (Core.Maybe Core.Text)
+timeSpan_startTime :: Lens.Lens' TimeSpan (Prelude.Maybe Prelude.Text)
 timeSpan_startTime = Lens.lens (\TimeSpan' {startTime} -> startTime) (\s@TimeSpan' {} a -> s {startTime = a} :: TimeSpan)
 
 instance Core.FromJSON TimeSpan where
@@ -96,19 +97,19 @@ instance Core.FromJSON TimeSpan where
       "TimeSpan"
       ( \x ->
           TimeSpan'
-            Core.<$> (x Core..:? "Duration")
-            Core.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Core..:? "Duration")
+            Prelude.<*> (x Core..:? "StartTime")
       )
 
-instance Core.Hashable TimeSpan
+instance Prelude.Hashable TimeSpan
 
-instance Core.NFData TimeSpan
+instance Prelude.NFData TimeSpan
 
 instance Core.ToJSON TimeSpan where
   toJSON TimeSpan' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Duration" Core..=) Core.<$> duration,
-            ("StartTime" Core..=) Core.<$> startTime
+      ( Prelude.catMaybes
+          [ ("Duration" Core..=) Prelude.<$> duration,
+            ("StartTime" Core..=) Prelude.<$> startTime
           ]
       )

@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopAccessLogging' smart constructor.
 data StopAccessLogging = StopAccessLogging'
   { -- | The name of the container that you want to stop access logging on.
-    containerName :: Core.Text
+    containerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAccessLogging' with all optional fields omitted.
@@ -65,13 +66,13 @@ data StopAccessLogging = StopAccessLogging'
 -- 'containerName', 'stopAccessLogging_containerName' - The name of the container that you want to stop access logging on.
 newStopAccessLogging ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   StopAccessLogging
 newStopAccessLogging pContainerName_ =
   StopAccessLogging' {containerName = pContainerName_}
 
 -- | The name of the container that you want to stop access logging on.
-stopAccessLogging_containerName :: Lens.Lens' StopAccessLogging Core.Text
+stopAccessLogging_containerName :: Lens.Lens' StopAccessLogging Prelude.Text
 stopAccessLogging_containerName = Lens.lens (\StopAccessLogging' {containerName} -> containerName) (\s@StopAccessLogging' {} a -> s {containerName = a} :: StopAccessLogging)
 
 instance Core.AWSRequest StopAccessLogging where
@@ -83,45 +84,49 @@ instance Core.AWSRequest StopAccessLogging where
     Response.receiveEmpty
       ( \s h x ->
           StopAccessLoggingResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopAccessLogging
+instance Prelude.Hashable StopAccessLogging
 
-instance Core.NFData StopAccessLogging
+instance Prelude.NFData StopAccessLogging
 
 instance Core.ToHeaders StopAccessLogging where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.StopAccessLogging" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopAccessLogging where
   toJSON StopAccessLogging' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
       )
 
 instance Core.ToPath StopAccessLogging where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopAccessLogging where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopAccessLoggingResponse' smart constructor.
 data StopAccessLoggingResponse = StopAccessLoggingResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAccessLoggingResponse' with all optional fields omitted.
@@ -134,7 +139,7 @@ data StopAccessLoggingResponse = StopAccessLoggingResponse'
 -- 'httpStatus', 'stopAccessLoggingResponse_httpStatus' - The response's http status code.
 newStopAccessLoggingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopAccessLoggingResponse
 newStopAccessLoggingResponse pHttpStatus_ =
   StopAccessLoggingResponse'
@@ -143,7 +148,7 @@ newStopAccessLoggingResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopAccessLoggingResponse_httpStatus :: Lens.Lens' StopAccessLoggingResponse Core.Int
+stopAccessLoggingResponse_httpStatus :: Lens.Lens' StopAccessLoggingResponse Prelude.Int
 stopAccessLoggingResponse_httpStatus = Lens.lens (\StopAccessLoggingResponse' {httpStatus} -> httpStatus) (\s@StopAccessLoggingResponse' {} a -> s {httpStatus = a} :: StopAccessLoggingResponse)
 
-instance Core.NFData StopAccessLoggingResponse
+instance Prelude.NFData StopAccessLoggingResponse

@@ -61,6 +61,7 @@ where
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,14 +71,14 @@ data CreateCertificateAuthorityAuditReport = CreateCertificateAuthorityAuditRepo
     -- form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-    certificateAuthorityArn :: Core.Text,
+    certificateAuthorityArn :: Prelude.Text,
     -- | The name of the S3 bucket that will contain the audit report.
-    s3BucketName :: Core.Text,
+    s3BucketName :: Prelude.Text,
     -- | The format in which to create the report. This can be either __JSON__ or
     -- __CSV__.
     auditReportResponseFormat :: AuditReportResponseFormat
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCertificateAuthorityAuditReport' with all optional fields omitted.
@@ -98,9 +99,9 @@ data CreateCertificateAuthorityAuditReport = CreateCertificateAuthorityAuditRepo
 -- __CSV__.
 newCreateCertificateAuthorityAuditReport ::
   -- | 'certificateAuthorityArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 's3BucketName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'auditReportResponseFormat'
   AuditReportResponseFormat ->
   CreateCertificateAuthorityAuditReport
@@ -120,11 +121,11 @@ newCreateCertificateAuthorityAuditReport
 -- form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-createCertificateAuthorityAuditReport_certificateAuthorityArn :: Lens.Lens' CreateCertificateAuthorityAuditReport Core.Text
+createCertificateAuthorityAuditReport_certificateAuthorityArn :: Lens.Lens' CreateCertificateAuthorityAuditReport Prelude.Text
 createCertificateAuthorityAuditReport_certificateAuthorityArn = Lens.lens (\CreateCertificateAuthorityAuditReport' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@CreateCertificateAuthorityAuditReport' {} a -> s {certificateAuthorityArn = a} :: CreateCertificateAuthorityAuditReport)
 
 -- | The name of the S3 bucket that will contain the audit report.
-createCertificateAuthorityAuditReport_s3BucketName :: Lens.Lens' CreateCertificateAuthorityAuditReport Core.Text
+createCertificateAuthorityAuditReport_s3BucketName :: Lens.Lens' CreateCertificateAuthorityAuditReport Prelude.Text
 createCertificateAuthorityAuditReport_s3BucketName = Lens.lens (\CreateCertificateAuthorityAuditReport' {s3BucketName} -> s3BucketName) (\s@CreateCertificateAuthorityAuditReport' {} a -> s {s3BucketName = a} :: CreateCertificateAuthorityAuditReport)
 
 -- | The format in which to create the report. This can be either __JSON__ or
@@ -145,17 +146,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateAuthorityAuditReportResponse'
-            Core.<$> (x Core..?> "S3Key")
-              Core.<*> (x Core..?> "AuditReportId")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "S3Key")
+              Prelude.<*> (x Core..?> "AuditReportId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateCertificateAuthorityAuditReport
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateCertificateAuthorityAuditReport
 
 instance
@@ -163,14 +164,16 @@ instance
     CreateCertificateAuthorityAuditReport
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ACMPrivateCA.CreateCertificateAuthorityAuditReport" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -180,13 +183,13 @@ instance
   where
   toJSON CreateCertificateAuthorityAuditReport' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "CertificateAuthorityArn"
                   Core..= certificateAuthorityArn
               ),
-            Core.Just ("S3BucketName" Core..= s3BucketName),
-            Core.Just
+            Prelude.Just ("S3BucketName" Core..= s3BucketName),
+            Prelude.Just
               ( "AuditReportResponseFormat"
                   Core..= auditReportResponseFormat
               )
@@ -197,24 +200,24 @@ instance
   Core.ToPath
     CreateCertificateAuthorityAuditReport
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     CreateCertificateAuthorityAuditReport
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCertificateAuthorityAuditReportResponse' smart constructor.
 data CreateCertificateAuthorityAuditReportResponse = CreateCertificateAuthorityAuditReportResponse'
   { -- | The __key__ that uniquely identifies the report file in your S3 bucket.
-    s3Key :: Core.Maybe Core.Text,
+    s3Key :: Prelude.Maybe Prelude.Text,
     -- | An alphanumeric string that contains a report identifier.
-    auditReportId :: Core.Maybe Core.Text,
+    auditReportId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCertificateAuthorityAuditReportResponse' with all optional fields omitted.
@@ -231,29 +234,30 @@ data CreateCertificateAuthorityAuditReportResponse = CreateCertificateAuthorityA
 -- 'httpStatus', 'createCertificateAuthorityAuditReportResponse_httpStatus' - The response's http status code.
 newCreateCertificateAuthorityAuditReportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateCertificateAuthorityAuditReportResponse
 newCreateCertificateAuthorityAuditReportResponse
   pHttpStatus_ =
     CreateCertificateAuthorityAuditReportResponse'
       { s3Key =
-          Core.Nothing,
-        auditReportId = Core.Nothing,
+          Prelude.Nothing,
+        auditReportId =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The __key__ that uniquely identifies the report file in your S3 bucket.
-createCertificateAuthorityAuditReportResponse_s3Key :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse (Core.Maybe Core.Text)
+createCertificateAuthorityAuditReportResponse_s3Key :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.Text)
 createCertificateAuthorityAuditReportResponse_s3Key = Lens.lens (\CreateCertificateAuthorityAuditReportResponse' {s3Key} -> s3Key) (\s@CreateCertificateAuthorityAuditReportResponse' {} a -> s {s3Key = a} :: CreateCertificateAuthorityAuditReportResponse)
 
 -- | An alphanumeric string that contains a report identifier.
-createCertificateAuthorityAuditReportResponse_auditReportId :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse (Core.Maybe Core.Text)
+createCertificateAuthorityAuditReportResponse_auditReportId :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.Text)
 createCertificateAuthorityAuditReportResponse_auditReportId = Lens.lens (\CreateCertificateAuthorityAuditReportResponse' {auditReportId} -> auditReportId) (\s@CreateCertificateAuthorityAuditReportResponse' {} a -> s {auditReportId = a} :: CreateCertificateAuthorityAuditReportResponse)
 
 -- | The response's http status code.
-createCertificateAuthorityAuditReportResponse_httpStatus :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse Core.Int
+createCertificateAuthorityAuditReportResponse_httpStatus :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse Prelude.Int
 createCertificateAuthorityAuditReportResponse_httpStatus = Lens.lens (\CreateCertificateAuthorityAuditReportResponse' {httpStatus} -> httpStatus) (\s@CreateCertificateAuthorityAuditReportResponse' {} a -> s {httpStatus = a} :: CreateCertificateAuthorityAuditReportResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateCertificateAuthorityAuditReportResponse

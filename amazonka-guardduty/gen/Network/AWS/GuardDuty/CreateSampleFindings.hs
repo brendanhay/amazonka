@@ -44,17 +44,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSampleFindings' smart constructor.
 data CreateSampleFindings = CreateSampleFindings'
   { -- | The types of sample findings to generate.
-    findingTypes :: Core.Maybe [Core.Text],
+    findingTypes :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the detector to create sample findings for.
-    detectorId :: Core.Text
+    detectorId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSampleFindings' with all optional fields omitted.
@@ -69,20 +70,21 @@ data CreateSampleFindings = CreateSampleFindings'
 -- 'detectorId', 'createSampleFindings_detectorId' - The ID of the detector to create sample findings for.
 newCreateSampleFindings ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   CreateSampleFindings
 newCreateSampleFindings pDetectorId_ =
   CreateSampleFindings'
-    { findingTypes = Core.Nothing,
+    { findingTypes =
+        Prelude.Nothing,
       detectorId = pDetectorId_
     }
 
 -- | The types of sample findings to generate.
-createSampleFindings_findingTypes :: Lens.Lens' CreateSampleFindings (Core.Maybe [Core.Text])
-createSampleFindings_findingTypes = Lens.lens (\CreateSampleFindings' {findingTypes} -> findingTypes) (\s@CreateSampleFindings' {} a -> s {findingTypes = a} :: CreateSampleFindings) Core.. Lens.mapping Lens._Coerce
+createSampleFindings_findingTypes :: Lens.Lens' CreateSampleFindings (Prelude.Maybe [Prelude.Text])
+createSampleFindings_findingTypes = Lens.lens (\CreateSampleFindings' {findingTypes} -> findingTypes) (\s@CreateSampleFindings' {} a -> s {findingTypes = a} :: CreateSampleFindings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the detector to create sample findings for.
-createSampleFindings_detectorId :: Lens.Lens' CreateSampleFindings Core.Text
+createSampleFindings_detectorId :: Lens.Lens' CreateSampleFindings Prelude.Text
 createSampleFindings_detectorId = Lens.lens (\CreateSampleFindings' {detectorId} -> detectorId) (\s@CreateSampleFindings' {} a -> s {detectorId = a} :: CreateSampleFindings)
 
 instance Core.AWSRequest CreateSampleFindings where
@@ -94,46 +96,48 @@ instance Core.AWSRequest CreateSampleFindings where
     Response.receiveEmpty
       ( \s h x ->
           CreateSampleFindingsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSampleFindings
+instance Prelude.Hashable CreateSampleFindings
 
-instance Core.NFData CreateSampleFindings
+instance Prelude.NFData CreateSampleFindings
 
 instance Core.ToHeaders CreateSampleFindings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateSampleFindings where
   toJSON CreateSampleFindings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("findingTypes" Core..=) Core.<$> findingTypes]
+      ( Prelude.catMaybes
+          [("findingTypes" Core..=) Prelude.<$> findingTypes]
       )
 
 instance Core.ToPath CreateSampleFindings where
   toPath CreateSampleFindings' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/findings/create"
       ]
 
 instance Core.ToQuery CreateSampleFindings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSampleFindingsResponse' smart constructor.
 data CreateSampleFindingsResponse = CreateSampleFindingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSampleFindingsResponse' with all optional fields omitted.
@@ -146,7 +150,7 @@ data CreateSampleFindingsResponse = CreateSampleFindingsResponse'
 -- 'httpStatus', 'createSampleFindingsResponse_httpStatus' - The response's http status code.
 newCreateSampleFindingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSampleFindingsResponse
 newCreateSampleFindingsResponse pHttpStatus_ =
   CreateSampleFindingsResponse'
@@ -155,7 +159,7 @@ newCreateSampleFindingsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createSampleFindingsResponse_httpStatus :: Lens.Lens' CreateSampleFindingsResponse Core.Int
+createSampleFindingsResponse_httpStatus :: Lens.Lens' CreateSampleFindingsResponse Prelude.Int
 createSampleFindingsResponse_httpStatus = Lens.lens (\CreateSampleFindingsResponse' {httpStatus} -> httpStatus) (\s@CreateSampleFindingsResponse' {} a -> s {httpStatus = a} :: CreateSampleFindingsResponse)
 
-instance Core.NFData CreateSampleFindingsResponse
+instance Prelude.NFData CreateSampleFindingsResponse

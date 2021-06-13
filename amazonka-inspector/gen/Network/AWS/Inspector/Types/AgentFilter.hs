@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.AgentHealth
 import Network.AWS.Inspector.Types.AgentHealthCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector agent. This data type is
 -- used as a request parameter in the ListAssessmentRunAgents action.
@@ -37,7 +38,7 @@ data AgentFilter = AgentFilter'
     -- __UNKNOWN__.
     agentHealthCodes :: [AgentHealthCode]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AgentFilter' with all optional fields omitted.
@@ -57,31 +58,31 @@ newAgentFilter ::
   AgentFilter
 newAgentFilter =
   AgentFilter'
-    { agentHealths = Core.mempty,
-      agentHealthCodes = Core.mempty
+    { agentHealths = Prelude.mempty,
+      agentHealthCodes = Prelude.mempty
     }
 
 -- | The current health state of the agent. Values can be set to __HEALTHY__
 -- or __UNHEALTHY__.
 agentFilter_agentHealths :: Lens.Lens' AgentFilter [AgentHealth]
-agentFilter_agentHealths = Lens.lens (\AgentFilter' {agentHealths} -> agentHealths) (\s@AgentFilter' {} a -> s {agentHealths = a} :: AgentFilter) Core.. Lens._Coerce
+agentFilter_agentHealths = Lens.lens (\AgentFilter' {agentHealths} -> agentHealths) (\s@AgentFilter' {} a -> s {agentHealths = a} :: AgentFilter) Prelude.. Lens._Coerce
 
 -- | The detailed health state of the agent. Values can be set to __IDLE__,
 -- __RUNNING__, __SHUTDOWN__, __UNHEALTHY__, __THROTTLED__, and
 -- __UNKNOWN__.
 agentFilter_agentHealthCodes :: Lens.Lens' AgentFilter [AgentHealthCode]
-agentFilter_agentHealthCodes = Lens.lens (\AgentFilter' {agentHealthCodes} -> agentHealthCodes) (\s@AgentFilter' {} a -> s {agentHealthCodes = a} :: AgentFilter) Core.. Lens._Coerce
+agentFilter_agentHealthCodes = Lens.lens (\AgentFilter' {agentHealthCodes} -> agentHealthCodes) (\s@AgentFilter' {} a -> s {agentHealthCodes = a} :: AgentFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable AgentFilter
+instance Prelude.Hashable AgentFilter
 
-instance Core.NFData AgentFilter
+instance Prelude.NFData AgentFilter
 
 instance Core.ToJSON AgentFilter where
   toJSON AgentFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("agentHealths" Core..= agentHealths),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("agentHealths" Core..= agentHealths),
+            Prelude.Just
               ("agentHealthCodes" Core..= agentHealthCodes)
           ]
       )

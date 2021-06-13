@@ -42,17 +42,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDynamicThingGroup' smart constructor.
 data DeleteDynamicThingGroup = DeleteDynamicThingGroup'
   { -- | The expected version of the dynamic thing group to delete.
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the dynamic thing group to delete.
-    thingGroupName :: Core.Text
+    thingGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDynamicThingGroup' with all optional fields omitted.
@@ -67,21 +68,21 @@ data DeleteDynamicThingGroup = DeleteDynamicThingGroup'
 -- 'thingGroupName', 'deleteDynamicThingGroup_thingGroupName' - The name of the dynamic thing group to delete.
 newDeleteDynamicThingGroup ::
   -- | 'thingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDynamicThingGroup
 newDeleteDynamicThingGroup pThingGroupName_ =
   DeleteDynamicThingGroup'
     { expectedVersion =
-        Core.Nothing,
+        Prelude.Nothing,
       thingGroupName = pThingGroupName_
     }
 
 -- | The expected version of the dynamic thing group to delete.
-deleteDynamicThingGroup_expectedVersion :: Lens.Lens' DeleteDynamicThingGroup (Core.Maybe Core.Integer)
+deleteDynamicThingGroup_expectedVersion :: Lens.Lens' DeleteDynamicThingGroup (Prelude.Maybe Prelude.Integer)
 deleteDynamicThingGroup_expectedVersion = Lens.lens (\DeleteDynamicThingGroup' {expectedVersion} -> expectedVersion) (\s@DeleteDynamicThingGroup' {} a -> s {expectedVersion = a} :: DeleteDynamicThingGroup)
 
 -- | The name of the dynamic thing group to delete.
-deleteDynamicThingGroup_thingGroupName :: Lens.Lens' DeleteDynamicThingGroup Core.Text
+deleteDynamicThingGroup_thingGroupName :: Lens.Lens' DeleteDynamicThingGroup Prelude.Text
 deleteDynamicThingGroup_thingGroupName = Lens.lens (\DeleteDynamicThingGroup' {thingGroupName} -> thingGroupName) (\s@DeleteDynamicThingGroup' {} a -> s {thingGroupName = a} :: DeleteDynamicThingGroup)
 
 instance Core.AWSRequest DeleteDynamicThingGroup where
@@ -93,32 +94,32 @@ instance Core.AWSRequest DeleteDynamicThingGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteDynamicThingGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDynamicThingGroup
+instance Prelude.Hashable DeleteDynamicThingGroup
 
-instance Core.NFData DeleteDynamicThingGroup
+instance Prelude.NFData DeleteDynamicThingGroup
 
 instance Core.ToHeaders DeleteDynamicThingGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDynamicThingGroup where
   toPath DeleteDynamicThingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/dynamic-thing-groups/", Core.toBS thingGroupName]
 
 instance Core.ToQuery DeleteDynamicThingGroup where
   toQuery DeleteDynamicThingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["expectedVersion" Core.=: expectedVersion]
 
 -- | /See:/ 'newDeleteDynamicThingGroupResponse' smart constructor.
 data DeleteDynamicThingGroupResponse = DeleteDynamicThingGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDynamicThingGroupResponse' with all optional fields omitted.
@@ -131,7 +132,7 @@ data DeleteDynamicThingGroupResponse = DeleteDynamicThingGroupResponse'
 -- 'httpStatus', 'deleteDynamicThingGroupResponse_httpStatus' - The response's http status code.
 newDeleteDynamicThingGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDynamicThingGroupResponse
 newDeleteDynamicThingGroupResponse pHttpStatus_ =
   DeleteDynamicThingGroupResponse'
@@ -140,7 +141,9 @@ newDeleteDynamicThingGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteDynamicThingGroupResponse_httpStatus :: Lens.Lens' DeleteDynamicThingGroupResponse Core.Int
+deleteDynamicThingGroupResponse_httpStatus :: Lens.Lens' DeleteDynamicThingGroupResponse Prelude.Int
 deleteDynamicThingGroupResponse_httpStatus = Lens.lens (\DeleteDynamicThingGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteDynamicThingGroupResponse' {} a -> s {httpStatus = a} :: DeleteDynamicThingGroupResponse)
 
-instance Core.NFData DeleteDynamicThingGroupResponse
+instance
+  Prelude.NFData
+    DeleteDynamicThingGroupResponse

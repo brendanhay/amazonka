@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.NodeConfigurationOptionsFilterName
 import Network.AWS.Redshift.Types.OperatorType
@@ -33,16 +34,16 @@ data NodeConfigurationOptionsFilter = NodeConfigurationOptionsFilter'
     -- NumberOfNodes, then values can range from 0 to 200. If filter Name is
     -- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
     -- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
-    values :: Core.Maybe [Core.Text],
+    values :: Prelude.Maybe [Prelude.Text],
     -- | The filter operator. If filter Name is NodeType only the \'in\' operator
     -- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',
     -- \'gt\', and \'ge\'. Provide two values to evaluate for \'between\'.
     -- Provide a list of values for \'in\'.
-    operator :: Core.Maybe OperatorType,
+    operator :: Prelude.Maybe OperatorType,
     -- | The name of the element to filter.
-    name :: Core.Maybe NodeConfigurationOptionsFilterName
+    name :: Prelude.Maybe NodeConfigurationOptionsFilterName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeConfigurationOptionsFilter' with all optional fields omitted.
@@ -68,39 +69,43 @@ newNodeConfigurationOptionsFilter ::
 newNodeConfigurationOptionsFilter =
   NodeConfigurationOptionsFilter'
     { values =
-        Core.Nothing,
-      operator = Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      operator = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | List of values. Compare Name using Operator to Values. If filter Name is
 -- NumberOfNodes, then values can range from 0 to 200. If filter Name is
 -- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
 -- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
-nodeConfigurationOptionsFilter_values :: Lens.Lens' NodeConfigurationOptionsFilter (Core.Maybe [Core.Text])
-nodeConfigurationOptionsFilter_values = Lens.lens (\NodeConfigurationOptionsFilter' {values} -> values) (\s@NodeConfigurationOptionsFilter' {} a -> s {values = a} :: NodeConfigurationOptionsFilter) Core.. Lens.mapping Lens._Coerce
+nodeConfigurationOptionsFilter_values :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe [Prelude.Text])
+nodeConfigurationOptionsFilter_values = Lens.lens (\NodeConfigurationOptionsFilter' {values} -> values) (\s@NodeConfigurationOptionsFilter' {} a -> s {values = a} :: NodeConfigurationOptionsFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filter operator. If filter Name is NodeType only the \'in\' operator
 -- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',
 -- \'gt\', and \'ge\'. Provide two values to evaluate for \'between\'.
 -- Provide a list of values for \'in\'.
-nodeConfigurationOptionsFilter_operator :: Lens.Lens' NodeConfigurationOptionsFilter (Core.Maybe OperatorType)
+nodeConfigurationOptionsFilter_operator :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe OperatorType)
 nodeConfigurationOptionsFilter_operator = Lens.lens (\NodeConfigurationOptionsFilter' {operator} -> operator) (\s@NodeConfigurationOptionsFilter' {} a -> s {operator = a} :: NodeConfigurationOptionsFilter)
 
 -- | The name of the element to filter.
-nodeConfigurationOptionsFilter_name :: Lens.Lens' NodeConfigurationOptionsFilter (Core.Maybe NodeConfigurationOptionsFilterName)
+nodeConfigurationOptionsFilter_name :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe NodeConfigurationOptionsFilterName)
 nodeConfigurationOptionsFilter_name = Lens.lens (\NodeConfigurationOptionsFilter' {name} -> name) (\s@NodeConfigurationOptionsFilter' {} a -> s {name = a} :: NodeConfigurationOptionsFilter)
 
-instance Core.Hashable NodeConfigurationOptionsFilter
+instance
+  Prelude.Hashable
+    NodeConfigurationOptionsFilter
 
-instance Core.NFData NodeConfigurationOptionsFilter
+instance
+  Prelude.NFData
+    NodeConfigurationOptionsFilter
 
 instance Core.ToQuery NodeConfigurationOptionsFilter where
   toQuery NodeConfigurationOptionsFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Value"
           Core.=: Core.toQuery
-            (Core.toQueryList "item" Core.<$> values),
+            (Core.toQueryList "item" Prelude.<$> values),
         "Operator" Core.=: operator,
         "Name" Core.=: name
       ]

@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -56,9 +57,9 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newCreatePortfolio' smart constructor.
 data CreatePortfolio = CreatePortfolio'
   { -- | One or more tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The description of the portfolio.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -66,17 +67,17 @@ data CreatePortfolio = CreatePortfolio'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The name to use for display purposes.
-    displayName :: Core.Text,
+    displayName :: Prelude.Text,
     -- | The name of the portfolio provider.
-    providerName :: Core.Text,
+    providerName :: Prelude.Text,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Core.Text
+    idempotencyToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePortfolio' with all optional fields omitted.
@@ -107,31 +108,31 @@ data CreatePortfolio = CreatePortfolio'
 -- returned for each repeated request.
 newCreatePortfolio ::
   -- | 'displayName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'providerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'idempotencyToken'
-  Core.Text ->
+  Prelude.Text ->
   CreatePortfolio
 newCreatePortfolio
   pDisplayName_
   pProviderName_
   pIdempotencyToken_ =
     CreatePortfolio'
-      { tags = Core.Nothing,
-        description = Core.Nothing,
-        acceptLanguage = Core.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         displayName = pDisplayName_,
         providerName = pProviderName_,
         idempotencyToken = pIdempotencyToken_
       }
 
 -- | One or more tags.
-createPortfolio_tags :: Lens.Lens' CreatePortfolio (Core.Maybe [Tag])
-createPortfolio_tags = Lens.lens (\CreatePortfolio' {tags} -> tags) (\s@CreatePortfolio' {} a -> s {tags = a} :: CreatePortfolio) Core.. Lens.mapping Lens._Coerce
+createPortfolio_tags :: Lens.Lens' CreatePortfolio (Prelude.Maybe [Tag])
+createPortfolio_tags = Lens.lens (\CreatePortfolio' {tags} -> tags) (\s@CreatePortfolio' {} a -> s {tags = a} :: CreatePortfolio) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the portfolio.
-createPortfolio_description :: Lens.Lens' CreatePortfolio (Core.Maybe Core.Text)
+createPortfolio_description :: Lens.Lens' CreatePortfolio (Prelude.Maybe Prelude.Text)
 createPortfolio_description = Lens.lens (\CreatePortfolio' {description} -> description) (\s@CreatePortfolio' {} a -> s {description = a} :: CreatePortfolio)
 
 -- | The language code.
@@ -141,21 +142,21 @@ createPortfolio_description = Lens.lens (\CreatePortfolio' {description} -> desc
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-createPortfolio_acceptLanguage :: Lens.Lens' CreatePortfolio (Core.Maybe Core.Text)
+createPortfolio_acceptLanguage :: Lens.Lens' CreatePortfolio (Prelude.Maybe Prelude.Text)
 createPortfolio_acceptLanguage = Lens.lens (\CreatePortfolio' {acceptLanguage} -> acceptLanguage) (\s@CreatePortfolio' {} a -> s {acceptLanguage = a} :: CreatePortfolio)
 
 -- | The name to use for display purposes.
-createPortfolio_displayName :: Lens.Lens' CreatePortfolio Core.Text
+createPortfolio_displayName :: Lens.Lens' CreatePortfolio Prelude.Text
 createPortfolio_displayName = Lens.lens (\CreatePortfolio' {displayName} -> displayName) (\s@CreatePortfolio' {} a -> s {displayName = a} :: CreatePortfolio)
 
 -- | The name of the portfolio provider.
-createPortfolio_providerName :: Lens.Lens' CreatePortfolio Core.Text
+createPortfolio_providerName :: Lens.Lens' CreatePortfolio Prelude.Text
 createPortfolio_providerName = Lens.lens (\CreatePortfolio' {providerName} -> providerName) (\s@CreatePortfolio' {} a -> s {providerName = a} :: CreatePortfolio)
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createPortfolio_idempotencyToken :: Lens.Lens' CreatePortfolio Core.Text
+createPortfolio_idempotencyToken :: Lens.Lens' CreatePortfolio Prelude.Text
 createPortfolio_idempotencyToken = Lens.lens (\CreatePortfolio' {idempotencyToken} -> idempotencyToken) (\s@CreatePortfolio' {} a -> s {idempotencyToken = a} :: CreatePortfolio)
 
 instance Core.AWSRequest CreatePortfolio where
@@ -167,58 +168,61 @@ instance Core.AWSRequest CreatePortfolio where
     Response.receiveJSON
       ( \s h x ->
           CreatePortfolioResponse'
-            Core.<$> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "PortfolioDetail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PortfolioDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePortfolio
+instance Prelude.Hashable CreatePortfolio
 
-instance Core.NFData CreatePortfolio
+instance Prelude.NFData CreatePortfolio
 
 instance Core.ToHeaders CreatePortfolio where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.CreatePortfolio" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePortfolio where
   toJSON CreatePortfolio' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("DisplayName" Core..= displayName),
-            Core.Just ("ProviderName" Core..= providerName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("DisplayName" Core..= displayName),
+            Prelude.Just ("ProviderName" Core..= providerName),
+            Prelude.Just
               ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
 
 instance Core.ToPath CreatePortfolio where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePortfolio where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePortfolioResponse' smart constructor.
 data CreatePortfolioResponse = CreatePortfolioResponse'
   { -- | Information about the tags associated with the portfolio.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Information about the portfolio.
-    portfolioDetail :: Core.Maybe PortfolioDetail,
+    portfolioDetail :: Prelude.Maybe PortfolioDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePortfolioResponse' with all optional fields omitted.
@@ -235,25 +239,25 @@ data CreatePortfolioResponse = CreatePortfolioResponse'
 -- 'httpStatus', 'createPortfolioResponse_httpStatus' - The response's http status code.
 newCreatePortfolioResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePortfolioResponse
 newCreatePortfolioResponse pHttpStatus_ =
   CreatePortfolioResponse'
-    { tags = Core.Nothing,
-      portfolioDetail = Core.Nothing,
+    { tags = Prelude.Nothing,
+      portfolioDetail = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the tags associated with the portfolio.
-createPortfolioResponse_tags :: Lens.Lens' CreatePortfolioResponse (Core.Maybe [Tag])
-createPortfolioResponse_tags = Lens.lens (\CreatePortfolioResponse' {tags} -> tags) (\s@CreatePortfolioResponse' {} a -> s {tags = a} :: CreatePortfolioResponse) Core.. Lens.mapping Lens._Coerce
+createPortfolioResponse_tags :: Lens.Lens' CreatePortfolioResponse (Prelude.Maybe [Tag])
+createPortfolioResponse_tags = Lens.lens (\CreatePortfolioResponse' {tags} -> tags) (\s@CreatePortfolioResponse' {} a -> s {tags = a} :: CreatePortfolioResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the portfolio.
-createPortfolioResponse_portfolioDetail :: Lens.Lens' CreatePortfolioResponse (Core.Maybe PortfolioDetail)
+createPortfolioResponse_portfolioDetail :: Lens.Lens' CreatePortfolioResponse (Prelude.Maybe PortfolioDetail)
 createPortfolioResponse_portfolioDetail = Lens.lens (\CreatePortfolioResponse' {portfolioDetail} -> portfolioDetail) (\s@CreatePortfolioResponse' {} a -> s {portfolioDetail = a} :: CreatePortfolioResponse)
 
 -- | The response's http status code.
-createPortfolioResponse_httpStatus :: Lens.Lens' CreatePortfolioResponse Core.Int
+createPortfolioResponse_httpStatus :: Lens.Lens' CreatePortfolioResponse Prelude.Int
 createPortfolioResponse_httpStatus = Lens.lens (\CreatePortfolioResponse' {httpStatus} -> httpStatus) (\s@CreatePortfolioResponse' {} a -> s {httpStatus = a} :: CreatePortfolioResponse)
 
-instance Core.NFData CreatePortfolioResponse
+instance Prelude.NFData CreatePortfolioResponse

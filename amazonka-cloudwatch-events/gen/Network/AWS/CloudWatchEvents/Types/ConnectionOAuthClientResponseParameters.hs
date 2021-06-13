@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameter
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the client response parameters for the connection when OAuth is
 -- specified as the authorization type.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newConnectionOAuthClientResponseParameters' smart constructor.
 data ConnectionOAuthClientResponseParameters = ConnectionOAuthClientResponseParameters'
   { -- | The client ID associated with the response to the connection request.
-    clientID :: Core.Maybe Core.Text
+    clientID :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectionOAuthClientResponseParameters' with all optional fields omitted.
@@ -46,11 +47,11 @@ newConnectionOAuthClientResponseParameters ::
 newConnectionOAuthClientResponseParameters =
   ConnectionOAuthClientResponseParameters'
     { clientID =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The client ID associated with the response to the connection request.
-connectionOAuthClientResponseParameters_clientID :: Lens.Lens' ConnectionOAuthClientResponseParameters (Core.Maybe Core.Text)
+connectionOAuthClientResponseParameters_clientID :: Lens.Lens' ConnectionOAuthClientResponseParameters (Prelude.Maybe Prelude.Text)
 connectionOAuthClientResponseParameters_clientID = Lens.lens (\ConnectionOAuthClientResponseParameters' {clientID} -> clientID) (\s@ConnectionOAuthClientResponseParameters' {} a -> s {clientID = a} :: ConnectionOAuthClientResponseParameters)
 
 instance
@@ -62,13 +63,13 @@ instance
       "ConnectionOAuthClientResponseParameters"
       ( \x ->
           ConnectionOAuthClientResponseParameters'
-            Core.<$> (x Core..:? "ClientID")
+            Prelude.<$> (x Core..:? "ClientID")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ConnectionOAuthClientResponseParameters
 
 instance
-  Core.NFData
+  Prelude.NFData
     ConnectionOAuthClientResponseParameters

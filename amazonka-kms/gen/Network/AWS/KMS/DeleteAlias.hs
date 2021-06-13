@@ -71,6 +71,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,9 +79,9 @@ import qualified Network.AWS.Response as Response
 data DeleteAlias = DeleteAlias'
   { -- | The alias to be deleted. The alias name must begin with @alias\/@
     -- followed by the alias name, such as @alias\/ExampleAlias@.
-    aliasName :: Core.Text
+    aliasName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAlias' with all optional fields omitted.
@@ -94,14 +95,14 @@ data DeleteAlias = DeleteAlias'
 -- followed by the alias name, such as @alias\/ExampleAlias@.
 newDeleteAlias ::
   -- | 'aliasName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAlias
 newDeleteAlias pAliasName_ =
   DeleteAlias' {aliasName = pAliasName_}
 
 -- | The alias to be deleted. The alias name must begin with @alias\/@
 -- followed by the alias name, such as @alias\/ExampleAlias@.
-deleteAlias_aliasName :: Lens.Lens' DeleteAlias Core.Text
+deleteAlias_aliasName :: Lens.Lens' DeleteAlias Prelude.Text
 deleteAlias_aliasName = Lens.lens (\DeleteAlias' {aliasName} -> aliasName) (\s@DeleteAlias' {} a -> s {aliasName = a} :: DeleteAlias)
 
 instance Core.AWSRequest DeleteAlias where
@@ -109,39 +110,41 @@ instance Core.AWSRequest DeleteAlias where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteAliasResponse'
 
-instance Core.Hashable DeleteAlias
+instance Prelude.Hashable DeleteAlias
 
-instance Core.NFData DeleteAlias
+instance Prelude.NFData DeleteAlias
 
 instance Core.ToHeaders DeleteAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.DeleteAlias" :: Core.ByteString),
+              Core.=# ("TrentService.DeleteAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteAlias where
   toJSON DeleteAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AliasName" Core..= aliasName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("AliasName" Core..= aliasName)]
       )
 
 instance Core.ToPath DeleteAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAliasResponse' with all optional fields omitted.
@@ -151,4 +154,4 @@ newDeleteAliasResponse ::
   DeleteAliasResponse
 newDeleteAliasResponse = DeleteAliasResponse'
 
-instance Core.NFData DeleteAliasResponse
+instance Prelude.NFData DeleteAliasResponse

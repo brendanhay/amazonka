@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListStudios' smart constructor.
 data ListStudios = ListStudios'
   { -- | The pagination token that indicates the set of results to retrieve.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStudios' with all optional fields omitted.
@@ -68,30 +69,31 @@ data ListStudios = ListStudios'
 -- 'marker', 'listStudios_marker' - The pagination token that indicates the set of results to retrieve.
 newListStudios ::
   ListStudios
-newListStudios = ListStudios' {marker = Core.Nothing}
+newListStudios =
+  ListStudios' {marker = Prelude.Nothing}
 
 -- | The pagination token that indicates the set of results to retrieve.
-listStudios_marker :: Lens.Lens' ListStudios (Core.Maybe Core.Text)
+listStudios_marker :: Lens.Lens' ListStudios (Prelude.Maybe Prelude.Text)
 listStudios_marker = Lens.lens (\ListStudios' {marker} -> marker) (\s@ListStudios' {} a -> s {marker = a} :: ListStudios)
 
 instance Core.AWSPager ListStudios where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listStudiosResponse_marker Core.. Lens._Just
+            Lens.^? listStudiosResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listStudiosResponse_studios Core.. Lens._Just
+            Lens.^? listStudiosResponse_studios Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listStudios_marker
+          Prelude.& listStudios_marker
           Lens..~ rs
-          Lens.^? listStudiosResponse_marker Core.. Lens._Just
+          Lens.^? listStudiosResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudios where
   type AWSResponse ListStudios = ListStudiosResponse
@@ -100,47 +102,53 @@ instance Core.AWSRequest ListStudios where
     Response.receiveJSON
       ( \s h x ->
           ListStudiosResponse'
-            Core.<$> (x Core..?> "Studios" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Studios" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListStudios
+instance Prelude.Hashable ListStudios
 
-instance Core.NFData ListStudios
+instance Prelude.NFData ListStudios
 
 instance Core.ToHeaders ListStudios where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ElasticMapReduce.ListStudios" :: Core.ByteString),
+              Core.=# ( "ElasticMapReduce.ListStudios" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListStudios where
   toJSON ListStudios' {..} =
     Core.object
-      (Core.catMaybes [("Marker" Core..=) Core.<$> marker])
+      ( Prelude.catMaybes
+          [("Marker" Core..=) Prelude.<$> marker]
+      )
 
 instance Core.ToPath ListStudios where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListStudios where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStudiosResponse' smart constructor.
 data ListStudiosResponse = ListStudiosResponse'
   { -- | The list of Studio summary objects.
-    studios :: Core.Maybe [StudioSummary],
+    studios :: Prelude.Maybe [StudioSummary],
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStudiosResponse' with all optional fields omitted.
@@ -157,25 +165,25 @@ data ListStudiosResponse = ListStudiosResponse'
 -- 'httpStatus', 'listStudiosResponse_httpStatus' - The response's http status code.
 newListStudiosResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListStudiosResponse
 newListStudiosResponse pHttpStatus_ =
   ListStudiosResponse'
-    { studios = Core.Nothing,
-      marker = Core.Nothing,
+    { studios = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of Studio summary objects.
-listStudiosResponse_studios :: Lens.Lens' ListStudiosResponse (Core.Maybe [StudioSummary])
-listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> studios) (\s@ListStudiosResponse' {} a -> s {studios = a} :: ListStudiosResponse) Core.. Lens.mapping Lens._Coerce
+listStudiosResponse_studios :: Lens.Lens' ListStudiosResponse (Prelude.Maybe [StudioSummary])
+listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> studios) (\s@ListStudiosResponse' {} a -> s {studios = a} :: ListStudiosResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
-listStudiosResponse_marker :: Lens.Lens' ListStudiosResponse (Core.Maybe Core.Text)
+listStudiosResponse_marker :: Lens.Lens' ListStudiosResponse (Prelude.Maybe Prelude.Text)
 listStudiosResponse_marker = Lens.lens (\ListStudiosResponse' {marker} -> marker) (\s@ListStudiosResponse' {} a -> s {marker = a} :: ListStudiosResponse)
 
 -- | The response's http status code.
-listStudiosResponse_httpStatus :: Lens.Lens' ListStudiosResponse Core.Int
+listStudiosResponse_httpStatus :: Lens.Lens' ListStudiosResponse Prelude.Int
 listStudiosResponse_httpStatus = Lens.lens (\ListStudiosResponse' {httpStatus} -> httpStatus) (\s@ListStudiosResponse' {} a -> s {httpStatus = a} :: ListStudiosResponse)
 
-instance Core.NFData ListStudiosResponse
+instance Prelude.NFData ListStudiosResponse

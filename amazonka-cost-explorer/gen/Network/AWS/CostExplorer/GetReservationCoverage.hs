@@ -84,6 +84,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -101,21 +102,21 @@ data GetReservationCoverage = GetReservationCoverage'
     --
     -- The @GetReservationCoverage@ operation supports only @DAILY@ and
     -- @MONTHLY@ granularities.
-    granularity :: Core.Maybe Granularity,
+    granularity :: Prelude.Maybe Granularity,
     -- | The maximum number of objects that you returned for this request. If
     -- more objects are available, in the response, AWS provides a
     -- NextPageToken value that you can use in a subsequent call to get the
     -- next batch of objects.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to retrieve the next set of results. AWS provides the token
     -- when the response from a previous call has more results than the maximum
     -- page size.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The measurement that you want your reservation coverage reported in.
     --
     -- Valid values are @Hour@, @Unit@, and @Cost@. You can use multiple values
     -- in a request.
-    metrics :: Core.Maybe [Core.Text],
+    metrics :: Prelude.Maybe [Prelude.Text],
     -- | You can group the data by the following attributes:
     --
     -- -   AZ
@@ -137,7 +138,7 @@ data GetReservationCoverage = GetReservationCoverage'
     -- -   REGION
     --
     -- -   TENANCY
-    groupBy :: Core.Maybe [GroupDefinition],
+    groupBy :: Prelude.Maybe [GroupDefinition],
     -- | The value by which you want to sort the data.
     --
     -- The following values are supported for @Key@:
@@ -163,7 +164,7 @@ data GetReservationCoverage = GetReservationCoverage'
     -- -   @Time@
     --
     -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
-    sortBy :: Core.Maybe SortDefinition,
+    sortBy :: Prelude.Maybe SortDefinition,
     -- | Filters utilization data by dimensions. You can filter by the following
     -- dimensions:
     --
@@ -200,7 +201,7 @@ data GetReservationCoverage = GetReservationCoverage'
     -- If you don\'t provide a @SERVICE@ filter, Cost Explorer defaults to EC2.
     --
     -- Cost category is also supported.
-    filter' :: Core.Maybe Expression,
+    filter' :: Prelude.Maybe Expression,
     -- | The start and end dates of the period that you want to retrieve data
     -- about reservation coverage for. You can retrieve data for a maximum of
     -- 13 months: the last 12 months and the current month. The start date is
@@ -210,7 +211,7 @@ data GetReservationCoverage = GetReservationCoverage'
     -- including @2017-05-01@.
     timePeriod :: DateInterval
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetReservationCoverage' with all optional fields omitted.
@@ -342,13 +343,14 @@ newGetReservationCoverage ::
   GetReservationCoverage
 newGetReservationCoverage pTimePeriod_ =
   GetReservationCoverage'
-    { granularity = Core.Nothing,
-      maxResults = Core.Nothing,
-      nextPageToken = Core.Nothing,
-      metrics = Core.Nothing,
-      groupBy = Core.Nothing,
-      sortBy = Core.Nothing,
-      filter' = Core.Nothing,
+    { granularity =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      metrics = Prelude.Nothing,
+      groupBy = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       timePeriod = pTimePeriod_
     }
 
@@ -361,28 +363,28 @@ newGetReservationCoverage pTimePeriod_ =
 --
 -- The @GetReservationCoverage@ operation supports only @DAILY@ and
 -- @MONTHLY@ granularities.
-getReservationCoverage_granularity :: Lens.Lens' GetReservationCoverage (Core.Maybe Granularity)
+getReservationCoverage_granularity :: Lens.Lens' GetReservationCoverage (Prelude.Maybe Granularity)
 getReservationCoverage_granularity = Lens.lens (\GetReservationCoverage' {granularity} -> granularity) (\s@GetReservationCoverage' {} a -> s {granularity = a} :: GetReservationCoverage)
 
 -- | The maximum number of objects that you returned for this request. If
 -- more objects are available, in the response, AWS provides a
 -- NextPageToken value that you can use in a subsequent call to get the
 -- next batch of objects.
-getReservationCoverage_maxResults :: Lens.Lens' GetReservationCoverage (Core.Maybe Core.Natural)
+getReservationCoverage_maxResults :: Lens.Lens' GetReservationCoverage (Prelude.Maybe Prelude.Natural)
 getReservationCoverage_maxResults = Lens.lens (\GetReservationCoverage' {maxResults} -> maxResults) (\s@GetReservationCoverage' {} a -> s {maxResults = a} :: GetReservationCoverage)
 
 -- | The token to retrieve the next set of results. AWS provides the token
 -- when the response from a previous call has more results than the maximum
 -- page size.
-getReservationCoverage_nextPageToken :: Lens.Lens' GetReservationCoverage (Core.Maybe Core.Text)
+getReservationCoverage_nextPageToken :: Lens.Lens' GetReservationCoverage (Prelude.Maybe Prelude.Text)
 getReservationCoverage_nextPageToken = Lens.lens (\GetReservationCoverage' {nextPageToken} -> nextPageToken) (\s@GetReservationCoverage' {} a -> s {nextPageToken = a} :: GetReservationCoverage)
 
 -- | The measurement that you want your reservation coverage reported in.
 --
 -- Valid values are @Hour@, @Unit@, and @Cost@. You can use multiple values
 -- in a request.
-getReservationCoverage_metrics :: Lens.Lens' GetReservationCoverage (Core.Maybe [Core.Text])
-getReservationCoverage_metrics = Lens.lens (\GetReservationCoverage' {metrics} -> metrics) (\s@GetReservationCoverage' {} a -> s {metrics = a} :: GetReservationCoverage) Core.. Lens.mapping Lens._Coerce
+getReservationCoverage_metrics :: Lens.Lens' GetReservationCoverage (Prelude.Maybe [Prelude.Text])
+getReservationCoverage_metrics = Lens.lens (\GetReservationCoverage' {metrics} -> metrics) (\s@GetReservationCoverage' {} a -> s {metrics = a} :: GetReservationCoverage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | You can group the data by the following attributes:
 --
@@ -405,8 +407,8 @@ getReservationCoverage_metrics = Lens.lens (\GetReservationCoverage' {metrics} -
 -- -   REGION
 --
 -- -   TENANCY
-getReservationCoverage_groupBy :: Lens.Lens' GetReservationCoverage (Core.Maybe [GroupDefinition])
-getReservationCoverage_groupBy = Lens.lens (\GetReservationCoverage' {groupBy} -> groupBy) (\s@GetReservationCoverage' {} a -> s {groupBy = a} :: GetReservationCoverage) Core.. Lens.mapping Lens._Coerce
+getReservationCoverage_groupBy :: Lens.Lens' GetReservationCoverage (Prelude.Maybe [GroupDefinition])
+getReservationCoverage_groupBy = Lens.lens (\GetReservationCoverage' {groupBy} -> groupBy) (\s@GetReservationCoverage' {} a -> s {groupBy = a} :: GetReservationCoverage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The value by which you want to sort the data.
 --
@@ -433,7 +435,7 @@ getReservationCoverage_groupBy = Lens.lens (\GetReservationCoverage' {groupBy} -
 -- -   @Time@
 --
 -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
-getReservationCoverage_sortBy :: Lens.Lens' GetReservationCoverage (Core.Maybe SortDefinition)
+getReservationCoverage_sortBy :: Lens.Lens' GetReservationCoverage (Prelude.Maybe SortDefinition)
 getReservationCoverage_sortBy = Lens.lens (\GetReservationCoverage' {sortBy} -> sortBy) (\s@GetReservationCoverage' {} a -> s {sortBy = a} :: GetReservationCoverage)
 
 -- | Filters utilization data by dimensions. You can filter by the following
@@ -472,7 +474,7 @@ getReservationCoverage_sortBy = Lens.lens (\GetReservationCoverage' {sortBy} -> 
 -- If you don\'t provide a @SERVICE@ filter, Cost Explorer defaults to EC2.
 --
 -- Cost category is also supported.
-getReservationCoverage_filter :: Lens.Lens' GetReservationCoverage (Core.Maybe Expression)
+getReservationCoverage_filter :: Lens.Lens' GetReservationCoverage (Prelude.Maybe Expression)
 getReservationCoverage_filter = Lens.lens (\GetReservationCoverage' {filter'} -> filter') (\s@GetReservationCoverage' {} a -> s {filter' = a} :: GetReservationCoverage)
 
 -- | The start and end dates of the period that you want to retrieve data
@@ -494,64 +496,68 @@ instance Core.AWSRequest GetReservationCoverage where
     Response.receiveJSON
       ( \s h x ->
           GetReservationCoverageResponse'
-            Core.<$> (x Core..?> "Total")
-            Core.<*> (x Core..?> "NextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "CoveragesByTime" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "Total")
+            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "CoveragesByTime"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable GetReservationCoverage
+instance Prelude.Hashable GetReservationCoverage
 
-instance Core.NFData GetReservationCoverage
+instance Prelude.NFData GetReservationCoverage
 
 instance Core.ToHeaders GetReservationCoverage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSInsightsIndexService.GetReservationCoverage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetReservationCoverage where
   toJSON GetReservationCoverage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Granularity" Core..=) Core.<$> granularity,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("NextPageToken" Core..=) Core.<$> nextPageToken,
-            ("Metrics" Core..=) Core.<$> metrics,
-            ("GroupBy" Core..=) Core.<$> groupBy,
-            ("SortBy" Core..=) Core.<$> sortBy,
-            ("Filter" Core..=) Core.<$> filter',
-            Core.Just ("TimePeriod" Core..= timePeriod)
+      ( Prelude.catMaybes
+          [ ("Granularity" Core..=) Prelude.<$> granularity,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("Metrics" Core..=) Prelude.<$> metrics,
+            ("GroupBy" Core..=) Prelude.<$> groupBy,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("Filter" Core..=) Prelude.<$> filter',
+            Prelude.Just ("TimePeriod" Core..= timePeriod)
           ]
       )
 
 instance Core.ToPath GetReservationCoverage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetReservationCoverage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetReservationCoverageResponse' smart constructor.
 data GetReservationCoverageResponse = GetReservationCoverageResponse'
   { -- | The total amount of instance usage that a reservation covered.
-    total :: Core.Maybe Coverage,
+    total :: Prelude.Maybe Coverage,
     -- | The token for the next set of retrievable results. AWS provides the
     -- token when the response from a previous call has more results than the
     -- maximum page size.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The amount of time that your reservations covered.
     coveragesByTime :: [CoverageByTime]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetReservationCoverageResponse' with all optional fields omitted.
@@ -572,33 +578,35 @@ data GetReservationCoverageResponse = GetReservationCoverageResponse'
 -- 'coveragesByTime', 'getReservationCoverageResponse_coveragesByTime' - The amount of time that your reservations covered.
 newGetReservationCoverageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetReservationCoverageResponse
 newGetReservationCoverageResponse pHttpStatus_ =
   GetReservationCoverageResponse'
     { total =
-        Core.Nothing,
-      nextPageToken = Core.Nothing,
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      coveragesByTime = Core.mempty
+      coveragesByTime = Prelude.mempty
     }
 
 -- | The total amount of instance usage that a reservation covered.
-getReservationCoverageResponse_total :: Lens.Lens' GetReservationCoverageResponse (Core.Maybe Coverage)
+getReservationCoverageResponse_total :: Lens.Lens' GetReservationCoverageResponse (Prelude.Maybe Coverage)
 getReservationCoverageResponse_total = Lens.lens (\GetReservationCoverageResponse' {total} -> total) (\s@GetReservationCoverageResponse' {} a -> s {total = a} :: GetReservationCoverageResponse)
 
 -- | The token for the next set of retrievable results. AWS provides the
 -- token when the response from a previous call has more results than the
 -- maximum page size.
-getReservationCoverageResponse_nextPageToken :: Lens.Lens' GetReservationCoverageResponse (Core.Maybe Core.Text)
+getReservationCoverageResponse_nextPageToken :: Lens.Lens' GetReservationCoverageResponse (Prelude.Maybe Prelude.Text)
 getReservationCoverageResponse_nextPageToken = Lens.lens (\GetReservationCoverageResponse' {nextPageToken} -> nextPageToken) (\s@GetReservationCoverageResponse' {} a -> s {nextPageToken = a} :: GetReservationCoverageResponse)
 
 -- | The response's http status code.
-getReservationCoverageResponse_httpStatus :: Lens.Lens' GetReservationCoverageResponse Core.Int
+getReservationCoverageResponse_httpStatus :: Lens.Lens' GetReservationCoverageResponse Prelude.Int
 getReservationCoverageResponse_httpStatus = Lens.lens (\GetReservationCoverageResponse' {httpStatus} -> httpStatus) (\s@GetReservationCoverageResponse' {} a -> s {httpStatus = a} :: GetReservationCoverageResponse)
 
 -- | The amount of time that your reservations covered.
 getReservationCoverageResponse_coveragesByTime :: Lens.Lens' GetReservationCoverageResponse [CoverageByTime]
-getReservationCoverageResponse_coveragesByTime = Lens.lens (\GetReservationCoverageResponse' {coveragesByTime} -> coveragesByTime) (\s@GetReservationCoverageResponse' {} a -> s {coveragesByTime = a} :: GetReservationCoverageResponse) Core.. Lens._Coerce
+getReservationCoverageResponse_coveragesByTime = Lens.lens (\GetReservationCoverageResponse' {coveragesByTime} -> coveragesByTime) (\s@GetReservationCoverageResponse' {} a -> s {coveragesByTime = a} :: GetReservationCoverageResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData GetReservationCoverageResponse
+instance
+  Prelude.NFData
+    GetReservationCoverageResponse

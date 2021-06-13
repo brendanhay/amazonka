@@ -48,21 +48,22 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateArchive' smart constructor.
 data UpdateArchive = UpdateArchive'
   { -- | The event pattern to use to filter events sent to the archive.
-    eventPattern :: Core.Maybe Core.Text,
+    eventPattern :: Prelude.Maybe Prelude.Text,
     -- | The description for the archive.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The number of days to retain events in the archive.
-    retentionDays :: Core.Maybe Core.Natural,
+    retentionDays :: Prelude.Maybe Prelude.Natural,
     -- | The name of the archive to update.
-    archiveName :: Core.Text
+    archiveName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateArchive' with all optional fields omitted.
@@ -81,30 +82,30 @@ data UpdateArchive = UpdateArchive'
 -- 'archiveName', 'updateArchive_archiveName' - The name of the archive to update.
 newUpdateArchive ::
   -- | 'archiveName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateArchive
 newUpdateArchive pArchiveName_ =
   UpdateArchive'
-    { eventPattern = Core.Nothing,
-      description = Core.Nothing,
-      retentionDays = Core.Nothing,
+    { eventPattern = Prelude.Nothing,
+      description = Prelude.Nothing,
+      retentionDays = Prelude.Nothing,
       archiveName = pArchiveName_
     }
 
 -- | The event pattern to use to filter events sent to the archive.
-updateArchive_eventPattern :: Lens.Lens' UpdateArchive (Core.Maybe Core.Text)
+updateArchive_eventPattern :: Lens.Lens' UpdateArchive (Prelude.Maybe Prelude.Text)
 updateArchive_eventPattern = Lens.lens (\UpdateArchive' {eventPattern} -> eventPattern) (\s@UpdateArchive' {} a -> s {eventPattern = a} :: UpdateArchive)
 
 -- | The description for the archive.
-updateArchive_description :: Lens.Lens' UpdateArchive (Core.Maybe Core.Text)
+updateArchive_description :: Lens.Lens' UpdateArchive (Prelude.Maybe Prelude.Text)
 updateArchive_description = Lens.lens (\UpdateArchive' {description} -> description) (\s@UpdateArchive' {} a -> s {description = a} :: UpdateArchive)
 
 -- | The number of days to retain events in the archive.
-updateArchive_retentionDays :: Lens.Lens' UpdateArchive (Core.Maybe Core.Natural)
+updateArchive_retentionDays :: Lens.Lens' UpdateArchive (Prelude.Maybe Prelude.Natural)
 updateArchive_retentionDays = Lens.lens (\UpdateArchive' {retentionDays} -> retentionDays) (\s@UpdateArchive' {} a -> s {retentionDays = a} :: UpdateArchive)
 
 -- | The name of the archive to update.
-updateArchive_archiveName :: Lens.Lens' UpdateArchive Core.Text
+updateArchive_archiveName :: Lens.Lens' UpdateArchive Prelude.Text
 updateArchive_archiveName = Lens.lens (\UpdateArchive' {archiveName} -> archiveName) (\s@UpdateArchive' {} a -> s {archiveName = a} :: UpdateArchive)
 
 instance Core.AWSRequest UpdateArchive where
@@ -116,59 +117,61 @@ instance Core.AWSRequest UpdateArchive where
     Response.receiveJSON
       ( \s h x ->
           UpdateArchiveResponse'
-            Core.<$> (x Core..?> "CreationTime")
-            Core.<*> (x Core..?> "StateReason")
-            Core.<*> (x Core..?> "ArchiveArn")
-            Core.<*> (x Core..?> "State")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "StateReason")
+            Prelude.<*> (x Core..?> "ArchiveArn")
+            Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateArchive
+instance Prelude.Hashable UpdateArchive
 
-instance Core.NFData UpdateArchive
+instance Prelude.NFData UpdateArchive
 
 instance Core.ToHeaders UpdateArchive where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.UpdateArchive" :: Core.ByteString),
+              Core.=# ("AWSEvents.UpdateArchive" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateArchive where
   toJSON UpdateArchive' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EventPattern" Core..=) Core.<$> eventPattern,
-            ("Description" Core..=) Core.<$> description,
-            ("RetentionDays" Core..=) Core.<$> retentionDays,
-            Core.Just ("ArchiveName" Core..= archiveName)
+      ( Prelude.catMaybes
+          [ ("EventPattern" Core..=) Prelude.<$> eventPattern,
+            ("Description" Core..=) Prelude.<$> description,
+            ("RetentionDays" Core..=) Prelude.<$> retentionDays,
+            Prelude.Just ("ArchiveName" Core..= archiveName)
           ]
       )
 
 instance Core.ToPath UpdateArchive where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateArchive where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateArchiveResponse' smart constructor.
 data UpdateArchiveResponse = UpdateArchiveResponse'
   { -- | The time at which the archive was updated.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The reason that the archive is in the current state.
-    stateReason :: Core.Maybe Core.Text,
+    stateReason :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the archive.
-    archiveArn :: Core.Maybe Core.Text,
+    archiveArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the archive.
-    state :: Core.Maybe ArchiveState,
+    state :: Prelude.Maybe ArchiveState,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateArchiveResponse' with all optional fields omitted.
@@ -189,35 +192,36 @@ data UpdateArchiveResponse = UpdateArchiveResponse'
 -- 'httpStatus', 'updateArchiveResponse_httpStatus' - The response's http status code.
 newUpdateArchiveResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateArchiveResponse
 newUpdateArchiveResponse pHttpStatus_ =
   UpdateArchiveResponse'
-    { creationTime = Core.Nothing,
-      stateReason = Core.Nothing,
-      archiveArn = Core.Nothing,
-      state = Core.Nothing,
+    { creationTime =
+        Prelude.Nothing,
+      stateReason = Prelude.Nothing,
+      archiveArn = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time at which the archive was updated.
-updateArchiveResponse_creationTime :: Lens.Lens' UpdateArchiveResponse (Core.Maybe Core.UTCTime)
-updateArchiveResponse_creationTime = Lens.lens (\UpdateArchiveResponse' {creationTime} -> creationTime) (\s@UpdateArchiveResponse' {} a -> s {creationTime = a} :: UpdateArchiveResponse) Core.. Lens.mapping Core._Time
+updateArchiveResponse_creationTime :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.UTCTime)
+updateArchiveResponse_creationTime = Lens.lens (\UpdateArchiveResponse' {creationTime} -> creationTime) (\s@UpdateArchiveResponse' {} a -> s {creationTime = a} :: UpdateArchiveResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The reason that the archive is in the current state.
-updateArchiveResponse_stateReason :: Lens.Lens' UpdateArchiveResponse (Core.Maybe Core.Text)
+updateArchiveResponse_stateReason :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)
 updateArchiveResponse_stateReason = Lens.lens (\UpdateArchiveResponse' {stateReason} -> stateReason) (\s@UpdateArchiveResponse' {} a -> s {stateReason = a} :: UpdateArchiveResponse)
 
 -- | The ARN of the archive.
-updateArchiveResponse_archiveArn :: Lens.Lens' UpdateArchiveResponse (Core.Maybe Core.Text)
+updateArchiveResponse_archiveArn :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)
 updateArchiveResponse_archiveArn = Lens.lens (\UpdateArchiveResponse' {archiveArn} -> archiveArn) (\s@UpdateArchiveResponse' {} a -> s {archiveArn = a} :: UpdateArchiveResponse)
 
 -- | The state of the archive.
-updateArchiveResponse_state :: Lens.Lens' UpdateArchiveResponse (Core.Maybe ArchiveState)
+updateArchiveResponse_state :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe ArchiveState)
 updateArchiveResponse_state = Lens.lens (\UpdateArchiveResponse' {state} -> state) (\s@UpdateArchiveResponse' {} a -> s {state = a} :: UpdateArchiveResponse)
 
 -- | The response's http status code.
-updateArchiveResponse_httpStatus :: Lens.Lens' UpdateArchiveResponse Core.Int
+updateArchiveResponse_httpStatus :: Lens.Lens' UpdateArchiveResponse Prelude.Int
 updateArchiveResponse_httpStatus = Lens.lens (\UpdateArchiveResponse' {httpStatus} -> httpStatus) (\s@UpdateArchiveResponse' {} a -> s {httpStatus = a} :: UpdateArchiveResponse)
 
-instance Core.NFData UpdateArchiveResponse
+instance Prelude.NFData UpdateArchiveResponse

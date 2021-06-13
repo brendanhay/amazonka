@@ -21,6 +21,7 @@ module Network.AWS.DMS.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A user-defined key-value pair that describes metadata added to an AWS
 -- DMS resource and that is used by operations such as the following:
@@ -38,15 +39,15 @@ data Tag = Tag'
     -- \"dms:\". The string can only contain only the set of Unicode letters,
     -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
     -- regular expressions: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | A value is the optional value of the tag. The string value can be 1-256
     -- Unicode characters in length and can\'t be prefixed with \"aws:\" or
     -- \"dms:\". The string can only contain only the set of Unicode letters,
     -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
     -- regular expressions: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -70,14 +71,17 @@ data Tag = Tag'
 newTag ::
   Tag
 newTag =
-  Tag' {key = Core.Nothing, value = Core.Nothing}
+  Tag'
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
+    }
 
 -- | A key is the required name of the tag. The string value can be 1-128
 -- Unicode characters in length and can\'t be prefixed with \"aws:\" or
 -- \"dms:\". The string can only contain only the set of Unicode letters,
 -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
 -- regular expressions: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
-tag_key :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | A value is the optional value of the tag. The string value can be 1-256
@@ -85,7 +89,7 @@ tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 -- \"dms:\". The string can only contain only the set of Unicode letters,
 -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
 -- regular expressions: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
-tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -94,18 +98,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

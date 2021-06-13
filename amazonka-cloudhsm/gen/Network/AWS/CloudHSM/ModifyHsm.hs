@@ -67,6 +67,7 @@ where
 import Network.AWS.CloudHSM.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,26 +76,26 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyHsm' smart constructor.
 data ModifyHsm = ModifyHsm'
   { -- | The new IAM role ARN.
-    iamRoleArn :: Core.Maybe Core.Text,
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The new IP address for the elastic network interface (ENI) attached to
     -- the HSM.
     --
     -- If the HSM is moved to a different subnet, and an IP address is not
     -- specified, an IP address will be randomly chosen from the CIDR range of
     -- the new subnet.
-    eniIp :: Core.Maybe Core.Text,
+    eniIp :: Prelude.Maybe Prelude.Text,
     -- | The new IP address for the syslog monitoring server. The AWS CloudHSM
     -- service only supports one syslog monitoring server.
-    syslogIp :: Core.Maybe Core.Text,
+    syslogIp :: Prelude.Maybe Prelude.Text,
     -- | The new identifier of the subnet that the HSM is in. The new subnet must
     -- be in the same Availability Zone as the current subnet.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The new external ID.
-    externalId :: Core.Maybe Core.Text,
+    externalId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the HSM to modify.
-    hsmArn :: Core.Text
+    hsmArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyHsm' with all optional fields omitted.
@@ -124,20 +125,20 @@ data ModifyHsm = ModifyHsm'
 -- 'hsmArn', 'modifyHsm_hsmArn' - The ARN of the HSM to modify.
 newModifyHsm ::
   -- | 'hsmArn'
-  Core.Text ->
+  Prelude.Text ->
   ModifyHsm
 newModifyHsm pHsmArn_ =
   ModifyHsm'
-    { iamRoleArn = Core.Nothing,
-      eniIp = Core.Nothing,
-      syslogIp = Core.Nothing,
-      subnetId = Core.Nothing,
-      externalId = Core.Nothing,
+    { iamRoleArn = Prelude.Nothing,
+      eniIp = Prelude.Nothing,
+      syslogIp = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      externalId = Prelude.Nothing,
       hsmArn = pHsmArn_
     }
 
 -- | The new IAM role ARN.
-modifyHsm_iamRoleArn :: Lens.Lens' ModifyHsm (Core.Maybe Core.Text)
+modifyHsm_iamRoleArn :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
 modifyHsm_iamRoleArn = Lens.lens (\ModifyHsm' {iamRoleArn} -> iamRoleArn) (\s@ModifyHsm' {} a -> s {iamRoleArn = a} :: ModifyHsm)
 
 -- | The new IP address for the elastic network interface (ENI) attached to
@@ -146,25 +147,25 @@ modifyHsm_iamRoleArn = Lens.lens (\ModifyHsm' {iamRoleArn} -> iamRoleArn) (\s@Mo
 -- If the HSM is moved to a different subnet, and an IP address is not
 -- specified, an IP address will be randomly chosen from the CIDR range of
 -- the new subnet.
-modifyHsm_eniIp :: Lens.Lens' ModifyHsm (Core.Maybe Core.Text)
+modifyHsm_eniIp :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
 modifyHsm_eniIp = Lens.lens (\ModifyHsm' {eniIp} -> eniIp) (\s@ModifyHsm' {} a -> s {eniIp = a} :: ModifyHsm)
 
 -- | The new IP address for the syslog monitoring server. The AWS CloudHSM
 -- service only supports one syslog monitoring server.
-modifyHsm_syslogIp :: Lens.Lens' ModifyHsm (Core.Maybe Core.Text)
+modifyHsm_syslogIp :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
 modifyHsm_syslogIp = Lens.lens (\ModifyHsm' {syslogIp} -> syslogIp) (\s@ModifyHsm' {} a -> s {syslogIp = a} :: ModifyHsm)
 
 -- | The new identifier of the subnet that the HSM is in. The new subnet must
 -- be in the same Availability Zone as the current subnet.
-modifyHsm_subnetId :: Lens.Lens' ModifyHsm (Core.Maybe Core.Text)
+modifyHsm_subnetId :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
 modifyHsm_subnetId = Lens.lens (\ModifyHsm' {subnetId} -> subnetId) (\s@ModifyHsm' {} a -> s {subnetId = a} :: ModifyHsm)
 
 -- | The new external ID.
-modifyHsm_externalId :: Lens.Lens' ModifyHsm (Core.Maybe Core.Text)
+modifyHsm_externalId :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
 modifyHsm_externalId = Lens.lens (\ModifyHsm' {externalId} -> externalId) (\s@ModifyHsm' {} a -> s {externalId = a} :: ModifyHsm)
 
 -- | The ARN of the HSM to modify.
-modifyHsm_hsmArn :: Lens.Lens' ModifyHsm Core.Text
+modifyHsm_hsmArn :: Lens.Lens' ModifyHsm Prelude.Text
 modifyHsm_hsmArn = Lens.lens (\ModifyHsm' {hsmArn} -> hsmArn) (\s@ModifyHsm' {} a -> s {hsmArn = a} :: ModifyHsm)
 
 instance Core.AWSRequest ModifyHsm where
@@ -174,56 +175,58 @@ instance Core.AWSRequest ModifyHsm where
     Response.receiveJSON
       ( \s h x ->
           ModifyHsmResponse'
-            Core.<$> (x Core..?> "HsmArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HsmArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyHsm
+instance Prelude.Hashable ModifyHsm
 
-instance Core.NFData ModifyHsm
+instance Prelude.NFData ModifyHsm
 
 instance Core.ToHeaders ModifyHsm where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CloudHsmFrontendService.ModifyHsm" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyHsm where
   toJSON ModifyHsm' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IamRoleArn" Core..=) Core.<$> iamRoleArn,
-            ("EniIp" Core..=) Core.<$> eniIp,
-            ("SyslogIp" Core..=) Core.<$> syslogIp,
-            ("SubnetId" Core..=) Core.<$> subnetId,
-            ("ExternalId" Core..=) Core.<$> externalId,
-            Core.Just ("HsmArn" Core..= hsmArn)
+      ( Prelude.catMaybes
+          [ ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
+            ("EniIp" Core..=) Prelude.<$> eniIp,
+            ("SyslogIp" Core..=) Prelude.<$> syslogIp,
+            ("SubnetId" Core..=) Prelude.<$> subnetId,
+            ("ExternalId" Core..=) Prelude.<$> externalId,
+            Prelude.Just ("HsmArn" Core..= hsmArn)
           ]
       )
 
 instance Core.ToPath ModifyHsm where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyHsm where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the ModifyHsm operation.
 --
 -- /See:/ 'newModifyHsmResponse' smart constructor.
 data ModifyHsmResponse = ModifyHsmResponse'
   { -- | The ARN of the HSM.
-    hsmArn :: Core.Maybe Core.Text,
+    hsmArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyHsmResponse' with all optional fields omitted.
@@ -238,20 +241,20 @@ data ModifyHsmResponse = ModifyHsmResponse'
 -- 'httpStatus', 'modifyHsmResponse_httpStatus' - The response's http status code.
 newModifyHsmResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyHsmResponse
 newModifyHsmResponse pHttpStatus_ =
   ModifyHsmResponse'
-    { hsmArn = Core.Nothing,
+    { hsmArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the HSM.
-modifyHsmResponse_hsmArn :: Lens.Lens' ModifyHsmResponse (Core.Maybe Core.Text)
+modifyHsmResponse_hsmArn :: Lens.Lens' ModifyHsmResponse (Prelude.Maybe Prelude.Text)
 modifyHsmResponse_hsmArn = Lens.lens (\ModifyHsmResponse' {hsmArn} -> hsmArn) (\s@ModifyHsmResponse' {} a -> s {hsmArn = a} :: ModifyHsmResponse)
 
 -- | The response's http status code.
-modifyHsmResponse_httpStatus :: Lens.Lens' ModifyHsmResponse Core.Int
+modifyHsmResponse_httpStatus :: Lens.Lens' ModifyHsmResponse Prelude.Int
 modifyHsmResponse_httpStatus = Lens.lens (\ModifyHsmResponse' {httpStatus} -> httpStatus) (\s@ModifyHsmResponse' {} a -> s {httpStatus = a} :: ModifyHsmResponse)
 
-instance Core.NFData ModifyHsmResponse
+instance Prelude.NFData ModifyHsmResponse

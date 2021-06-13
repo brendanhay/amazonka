@@ -66,6 +66,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,7 +85,7 @@ data UpdateStackSet = UpdateStackSet'
     --     the IAM roles required to deploy to accounts managed by AWS
     --     Organizations. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
-    permissionModel :: Core.Maybe PermissionModels,
+    permissionModel :: Prelude.Maybe PermissionModels,
     -- | The name of the IAM execution role to use to update the stack set. If
     -- you do not specify an execution role, AWS CloudFormation uses the
     -- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
@@ -99,7 +100,7 @@ data UpdateStackSet = UpdateStackSet'
     -- role, AWS CloudFormation performs the update using the role previously
     -- associated with the stack set, so long as you have permissions to
     -- perform operations on the stack set.
-    executionRoleName :: Core.Maybe Core.Text,
+    executionRoleName :: Prelude.Maybe Prelude.Text,
     -- | In some cases, you must explicitly acknowledge that your stack template
     -- contains certain capabilities in order for AWS CloudFormation to update
     -- the stack set and its associated stack instances.
@@ -161,7 +162,7 @@ data UpdateStackSet = UpdateStackSet'
     --     transforms, which are macros hosted by AWS CloudFormation.) Even if
     --     you specify this capability, if you include a macro in your template
     --     the stack set operation will fail.
-    capabilities :: Core.Maybe [Capability],
+    capabilities :: Prelude.Maybe [Capability],
     -- | The location of the file that contains the template body. The URL must
     -- point to a template (maximum size: 460,800 bytes) that is located in an
     -- Amazon S3 bucket or a Systems Manager document. For more information,
@@ -171,7 +172,7 @@ data UpdateStackSet = UpdateStackSet'
     --
     -- Conditional: You must specify only one of the following parameters:
     -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-    templateURL :: Core.Maybe Core.Text,
+    templateURL :: Prelude.Maybe Prelude.Text,
     -- | [Service-managed permissions] The AWS Organizations accounts in which to
     -- update associated stack instances.
     --
@@ -186,7 +187,7 @@ data UpdateStackSet = UpdateStackSet'
     -- template or parameters, AWS CloudFormation updates the stack instances
     -- in the specified accounts and Regions, while leaving all other stack
     -- instances with their existing stack instance status.
-    deploymentTargets :: Core.Maybe DeploymentTargets,
+    deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | The unique ID for this stack set operation.
     --
     -- The operation ID also functions as an idempotency token, to ensure that
@@ -200,7 +201,7 @@ data UpdateStackSet = UpdateStackSet'
     --
     -- Repeating this stack set operation with a new operation ID retries all
     -- stack instances whose status is @OUTDATED@.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -217,10 +218,10 @@ data UpdateStackSet = UpdateStackSet'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Core.Maybe CallAs,
+    callAs :: Prelude.Maybe CallAs,
     -- | Preferences for how AWS CloudFormation performs this stack set
     -- operation.
-    operationPreferences :: Core.Maybe StackSetOperationPreferences,
+    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | [Self-managed permissions] The accounts in which to update associated
     -- stack instances. If you specify accounts, you must also specify the
     -- Regions in which to update stack set instances.
@@ -236,7 +237,7 @@ data UpdateStackSet = UpdateStackSet'
     -- changes to the template or parameters, AWS CloudFormation updates the
     -- stack instances in the specified accounts and Regions, while leaving all
     -- other stack instances with their existing stack instance status.
-    accounts :: Core.Maybe [Core.Text],
+    accounts :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Number (ARN) of the IAM role to use to update this
     -- stack set.
     --
@@ -250,7 +251,7 @@ data UpdateStackSet = UpdateStackSet'
     -- stack set, you must specify a customized administrator role, even if it
     -- is the same customized administrator role used with this stack set
     -- previously.
-    administrationRoleARN :: Core.Maybe Core.Text,
+    administrationRoleARN :: Prelude.Maybe Prelude.Text,
     -- | The key-value pairs to associate with this stack set and the stacks
     -- created from it. AWS CloudFormation also propagates these tags to
     -- supported resources that are created in the stacks. You can specify a
@@ -280,16 +281,16 @@ data UpdateStackSet = UpdateStackSet'
     -- if you have permission to untag resources. If you don\'t have the
     -- necessary permission(s), the entire @UpdateStackSet@ action fails with
     -- an @access denied@ error, and the stack set is not updated.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | [Service-managed permissions] Describes whether StackSets automatically
     -- deploys to AWS Organizations accounts that are added to a target
     -- organization or organizational unit (OU).
     --
     -- If you specify @AutoDeployment@, do not specify @DeploymentTargets@ or
     -- @Regions@.
-    autoDeployment :: Core.Maybe AutoDeployment,
+    autoDeployment :: Prelude.Maybe AutoDeployment,
     -- | A brief description of updates that you are making.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Regions in which to update associated stack instances. If you
     -- specify Regions, you must also specify accounts in which to update stack
     -- set instances.
@@ -305,7 +306,7 @@ data UpdateStackSet = UpdateStackSet'
     -- changes to the template or parameters, AWS CloudFormation updates the
     -- stack instances in the specified accounts and Regions, while leaving all
     -- other stack instances with their existing stack instance status.
-    regions :: Core.Maybe [Core.Text],
+    regions :: Prelude.Maybe [Prelude.Text],
     -- | The structure that contains the template body, with a minimum length of
     -- 1 byte and a maximum length of 51,200 bytes. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -313,19 +314,19 @@ data UpdateStackSet = UpdateStackSet'
     --
     -- Conditional: You must specify only one of the following parameters:
     -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-    templateBody :: Core.Maybe Core.Text,
+    templateBody :: Prelude.Maybe Prelude.Text,
     -- | A list of input parameters for the stack set template.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | Use the existing template that\'s associated with the stack set that
     -- you\'re updating.
     --
     -- Conditional: You must specify only one of the following parameters:
     -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-    usePreviousTemplate :: Core.Maybe Core.Bool,
+    usePreviousTemplate :: Prelude.Maybe Prelude.Bool,
     -- | The name or unique ID of the stack set that you want to update.
-    stackSetName :: Core.Text
+    stackSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStackSet' with all optional fields omitted.
@@ -589,27 +590,27 @@ data UpdateStackSet = UpdateStackSet'
 -- 'stackSetName', 'updateStackSet_stackSetName' - The name or unique ID of the stack set that you want to update.
 newUpdateStackSet ::
   -- | 'stackSetName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateStackSet
 newUpdateStackSet pStackSetName_ =
   UpdateStackSet'
-    { permissionModel = Core.Nothing,
-      executionRoleName = Core.Nothing,
-      capabilities = Core.Nothing,
-      templateURL = Core.Nothing,
-      deploymentTargets = Core.Nothing,
-      operationId = Core.Nothing,
-      callAs = Core.Nothing,
-      operationPreferences = Core.Nothing,
-      accounts = Core.Nothing,
-      administrationRoleARN = Core.Nothing,
-      tags = Core.Nothing,
-      autoDeployment = Core.Nothing,
-      description = Core.Nothing,
-      regions = Core.Nothing,
-      templateBody = Core.Nothing,
-      parameters = Core.Nothing,
-      usePreviousTemplate = Core.Nothing,
+    { permissionModel = Prelude.Nothing,
+      executionRoleName = Prelude.Nothing,
+      capabilities = Prelude.Nothing,
+      templateURL = Prelude.Nothing,
+      deploymentTargets = Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      callAs = Prelude.Nothing,
+      operationPreferences = Prelude.Nothing,
+      accounts = Prelude.Nothing,
+      administrationRoleARN = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      autoDeployment = Prelude.Nothing,
+      description = Prelude.Nothing,
+      regions = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      usePreviousTemplate = Prelude.Nothing,
       stackSetName = pStackSetName_
     }
 
@@ -626,7 +627,7 @@ newUpdateStackSet pStackSetName_ =
 --     the IAM roles required to deploy to accounts managed by AWS
 --     Organizations. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
-updateStackSet_permissionModel :: Lens.Lens' UpdateStackSet (Core.Maybe PermissionModels)
+updateStackSet_permissionModel :: Lens.Lens' UpdateStackSet (Prelude.Maybe PermissionModels)
 updateStackSet_permissionModel = Lens.lens (\UpdateStackSet' {permissionModel} -> permissionModel) (\s@UpdateStackSet' {} a -> s {permissionModel = a} :: UpdateStackSet)
 
 -- | The name of the IAM execution role to use to update the stack set. If
@@ -643,7 +644,7 @@ updateStackSet_permissionModel = Lens.lens (\UpdateStackSet' {permissionModel} -
 -- role, AWS CloudFormation performs the update using the role previously
 -- associated with the stack set, so long as you have permissions to
 -- perform operations on the stack set.
-updateStackSet_executionRoleName :: Lens.Lens' UpdateStackSet (Core.Maybe Core.Text)
+updateStackSet_executionRoleName :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
 updateStackSet_executionRoleName = Lens.lens (\UpdateStackSet' {executionRoleName} -> executionRoleName) (\s@UpdateStackSet' {} a -> s {executionRoleName = a} :: UpdateStackSet)
 
 -- | In some cases, you must explicitly acknowledge that your stack template
@@ -707,8 +708,8 @@ updateStackSet_executionRoleName = Lens.lens (\UpdateStackSet' {executionRoleNam
 --     transforms, which are macros hosted by AWS CloudFormation.) Even if
 --     you specify this capability, if you include a macro in your template
 --     the stack set operation will fail.
-updateStackSet_capabilities :: Lens.Lens' UpdateStackSet (Core.Maybe [Capability])
-updateStackSet_capabilities = Lens.lens (\UpdateStackSet' {capabilities} -> capabilities) (\s@UpdateStackSet' {} a -> s {capabilities = a} :: UpdateStackSet) Core.. Lens.mapping Lens._Coerce
+updateStackSet_capabilities :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Capability])
+updateStackSet_capabilities = Lens.lens (\UpdateStackSet' {capabilities} -> capabilities) (\s@UpdateStackSet' {} a -> s {capabilities = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The location of the file that contains the template body. The URL must
 -- point to a template (maximum size: 460,800 bytes) that is located in an
@@ -719,7 +720,7 @@ updateStackSet_capabilities = Lens.lens (\UpdateStackSet' {capabilities} -> capa
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-updateStackSet_templateURL :: Lens.Lens' UpdateStackSet (Core.Maybe Core.Text)
+updateStackSet_templateURL :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
 updateStackSet_templateURL = Lens.lens (\UpdateStackSet' {templateURL} -> templateURL) (\s@UpdateStackSet' {} a -> s {templateURL = a} :: UpdateStackSet)
 
 -- | [Service-managed permissions] The AWS Organizations accounts in which to
@@ -736,7 +737,7 @@ updateStackSet_templateURL = Lens.lens (\UpdateStackSet' {templateURL} -> templa
 -- template or parameters, AWS CloudFormation updates the stack instances
 -- in the specified accounts and Regions, while leaving all other stack
 -- instances with their existing stack instance status.
-updateStackSet_deploymentTargets :: Lens.Lens' UpdateStackSet (Core.Maybe DeploymentTargets)
+updateStackSet_deploymentTargets :: Lens.Lens' UpdateStackSet (Prelude.Maybe DeploymentTargets)
 updateStackSet_deploymentTargets = Lens.lens (\UpdateStackSet' {deploymentTargets} -> deploymentTargets) (\s@UpdateStackSet' {} a -> s {deploymentTargets = a} :: UpdateStackSet)
 
 -- | The unique ID for this stack set operation.
@@ -752,7 +753,7 @@ updateStackSet_deploymentTargets = Lens.lens (\UpdateStackSet' {deploymentTarget
 --
 -- Repeating this stack set operation with a new operation ID retries all
 -- stack instances whose status is @OUTDATED@.
-updateStackSet_operationId :: Lens.Lens' UpdateStackSet (Core.Maybe Core.Text)
+updateStackSet_operationId :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
 updateStackSet_operationId = Lens.lens (\UpdateStackSet' {operationId} -> operationId) (\s@UpdateStackSet' {} a -> s {operationId = a} :: UpdateStackSet)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
@@ -771,12 +772,12 @@ updateStackSet_operationId = Lens.lens (\UpdateStackSet' {operationId} -> operat
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-updateStackSet_callAs :: Lens.Lens' UpdateStackSet (Core.Maybe CallAs)
+updateStackSet_callAs :: Lens.Lens' UpdateStackSet (Prelude.Maybe CallAs)
 updateStackSet_callAs = Lens.lens (\UpdateStackSet' {callAs} -> callAs) (\s@UpdateStackSet' {} a -> s {callAs = a} :: UpdateStackSet)
 
 -- | Preferences for how AWS CloudFormation performs this stack set
 -- operation.
-updateStackSet_operationPreferences :: Lens.Lens' UpdateStackSet (Core.Maybe StackSetOperationPreferences)
+updateStackSet_operationPreferences :: Lens.Lens' UpdateStackSet (Prelude.Maybe StackSetOperationPreferences)
 updateStackSet_operationPreferences = Lens.lens (\UpdateStackSet' {operationPreferences} -> operationPreferences) (\s@UpdateStackSet' {} a -> s {operationPreferences = a} :: UpdateStackSet)
 
 -- | [Self-managed permissions] The accounts in which to update associated
@@ -794,8 +795,8 @@ updateStackSet_operationPreferences = Lens.lens (\UpdateStackSet' {operationPref
 -- changes to the template or parameters, AWS CloudFormation updates the
 -- stack instances in the specified accounts and Regions, while leaving all
 -- other stack instances with their existing stack instance status.
-updateStackSet_accounts :: Lens.Lens' UpdateStackSet (Core.Maybe [Core.Text])
-updateStackSet_accounts = Lens.lens (\UpdateStackSet' {accounts} -> accounts) (\s@UpdateStackSet' {} a -> s {accounts = a} :: UpdateStackSet) Core.. Lens.mapping Lens._Coerce
+updateStackSet_accounts :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Prelude.Text])
+updateStackSet_accounts = Lens.lens (\UpdateStackSet' {accounts} -> accounts) (\s@UpdateStackSet' {} a -> s {accounts = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Number (ARN) of the IAM role to use to update this
 -- stack set.
@@ -810,7 +811,7 @@ updateStackSet_accounts = Lens.lens (\UpdateStackSet' {accounts} -> accounts) (\
 -- stack set, you must specify a customized administrator role, even if it
 -- is the same customized administrator role used with this stack set
 -- previously.
-updateStackSet_administrationRoleARN :: Lens.Lens' UpdateStackSet (Core.Maybe Core.Text)
+updateStackSet_administrationRoleARN :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
 updateStackSet_administrationRoleARN = Lens.lens (\UpdateStackSet' {administrationRoleARN} -> administrationRoleARN) (\s@UpdateStackSet' {} a -> s {administrationRoleARN = a} :: UpdateStackSet)
 
 -- | The key-value pairs to associate with this stack set and the stacks
@@ -842,8 +843,8 @@ updateStackSet_administrationRoleARN = Lens.lens (\UpdateStackSet' {administrati
 -- if you have permission to untag resources. If you don\'t have the
 -- necessary permission(s), the entire @UpdateStackSet@ action fails with
 -- an @access denied@ error, and the stack set is not updated.
-updateStackSet_tags :: Lens.Lens' UpdateStackSet (Core.Maybe [Tag])
-updateStackSet_tags = Lens.lens (\UpdateStackSet' {tags} -> tags) (\s@UpdateStackSet' {} a -> s {tags = a} :: UpdateStackSet) Core.. Lens.mapping Lens._Coerce
+updateStackSet_tags :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Tag])
+updateStackSet_tags = Lens.lens (\UpdateStackSet' {tags} -> tags) (\s@UpdateStackSet' {} a -> s {tags = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Service-managed permissions] Describes whether StackSets automatically
 -- deploys to AWS Organizations accounts that are added to a target
@@ -851,11 +852,11 @@ updateStackSet_tags = Lens.lens (\UpdateStackSet' {tags} -> tags) (\s@UpdateStac
 --
 -- If you specify @AutoDeployment@, do not specify @DeploymentTargets@ or
 -- @Regions@.
-updateStackSet_autoDeployment :: Lens.Lens' UpdateStackSet (Core.Maybe AutoDeployment)
+updateStackSet_autoDeployment :: Lens.Lens' UpdateStackSet (Prelude.Maybe AutoDeployment)
 updateStackSet_autoDeployment = Lens.lens (\UpdateStackSet' {autoDeployment} -> autoDeployment) (\s@UpdateStackSet' {} a -> s {autoDeployment = a} :: UpdateStackSet)
 
 -- | A brief description of updates that you are making.
-updateStackSet_description :: Lens.Lens' UpdateStackSet (Core.Maybe Core.Text)
+updateStackSet_description :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
 updateStackSet_description = Lens.lens (\UpdateStackSet' {description} -> description) (\s@UpdateStackSet' {} a -> s {description = a} :: UpdateStackSet)
 
 -- | The Regions in which to update associated stack instances. If you
@@ -873,8 +874,8 @@ updateStackSet_description = Lens.lens (\UpdateStackSet' {description} -> descri
 -- changes to the template or parameters, AWS CloudFormation updates the
 -- stack instances in the specified accounts and Regions, while leaving all
 -- other stack instances with their existing stack instance status.
-updateStackSet_regions :: Lens.Lens' UpdateStackSet (Core.Maybe [Core.Text])
-updateStackSet_regions = Lens.lens (\UpdateStackSet' {regions} -> regions) (\s@UpdateStackSet' {} a -> s {regions = a} :: UpdateStackSet) Core.. Lens.mapping Lens._Coerce
+updateStackSet_regions :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Prelude.Text])
+updateStackSet_regions = Lens.lens (\UpdateStackSet' {regions} -> regions) (\s@UpdateStackSet' {} a -> s {regions = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The structure that contains the template body, with a minimum length of
 -- 1 byte and a maximum length of 51,200 bytes. For more information, see
@@ -883,23 +884,23 @@ updateStackSet_regions = Lens.lens (\UpdateStackSet' {regions} -> regions) (\s@U
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-updateStackSet_templateBody :: Lens.Lens' UpdateStackSet (Core.Maybe Core.Text)
+updateStackSet_templateBody :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
 updateStackSet_templateBody = Lens.lens (\UpdateStackSet' {templateBody} -> templateBody) (\s@UpdateStackSet' {} a -> s {templateBody = a} :: UpdateStackSet)
 
 -- | A list of input parameters for the stack set template.
-updateStackSet_parameters :: Lens.Lens' UpdateStackSet (Core.Maybe [Parameter])
-updateStackSet_parameters = Lens.lens (\UpdateStackSet' {parameters} -> parameters) (\s@UpdateStackSet' {} a -> s {parameters = a} :: UpdateStackSet) Core.. Lens.mapping Lens._Coerce
+updateStackSet_parameters :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Parameter])
+updateStackSet_parameters = Lens.lens (\UpdateStackSet' {parameters} -> parameters) (\s@UpdateStackSet' {} a -> s {parameters = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use the existing template that\'s associated with the stack set that
 -- you\'re updating.
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-updateStackSet_usePreviousTemplate :: Lens.Lens' UpdateStackSet (Core.Maybe Core.Bool)
+updateStackSet_usePreviousTemplate :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Bool)
 updateStackSet_usePreviousTemplate = Lens.lens (\UpdateStackSet' {usePreviousTemplate} -> usePreviousTemplate) (\s@UpdateStackSet' {} a -> s {usePreviousTemplate = a} :: UpdateStackSet)
 
 -- | The name or unique ID of the stack set that you want to update.
-updateStackSet_stackSetName :: Lens.Lens' UpdateStackSet Core.Text
+updateStackSet_stackSetName :: Lens.Lens' UpdateStackSet Prelude.Text
 updateStackSet_stackSetName = Lens.lens (\UpdateStackSet' {stackSetName} -> stackSetName) (\s@UpdateStackSet' {} a -> s {stackSetName = a} :: UpdateStackSet)
 
 instance Core.AWSRequest UpdateStackSet where
@@ -912,31 +913,32 @@ instance Core.AWSRequest UpdateStackSet where
       "UpdateStackSetResult"
       ( \s h x ->
           UpdateStackSetResponse'
-            Core.<$> (x Core..@? "OperationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateStackSet
+instance Prelude.Hashable UpdateStackSet
 
-instance Core.NFData UpdateStackSet
+instance Prelude.NFData UpdateStackSet
 
 instance Core.ToHeaders UpdateStackSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateStackSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateStackSet where
   toQuery UpdateStackSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateStackSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("UpdateStackSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "PermissionModel" Core.=: permissionModel,
         "ExecutionRoleName" Core.=: executionRoleName,
         "Capabilities"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> capabilities),
+            (Core.toQueryList "member" Prelude.<$> capabilities),
         "TemplateURL" Core.=: templateURL,
         "DeploymentTargets" Core.=: deploymentTargets,
         "OperationId" Core.=: operationId,
@@ -944,21 +946,21 @@ instance Core.ToQuery UpdateStackSet where
         "OperationPreferences" Core.=: operationPreferences,
         "Accounts"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> accounts),
+            (Core.toQueryList "member" Prelude.<$> accounts),
         "AdministrationRoleARN"
           Core.=: administrationRoleARN,
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "AutoDeployment" Core.=: autoDeployment,
         "Description" Core.=: description,
         "Regions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> regions),
+            (Core.toQueryList "member" Prelude.<$> regions),
         "TemplateBody" Core.=: templateBody,
         "Parameters"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> parameters),
+            (Core.toQueryList "member" Prelude.<$> parameters),
         "UsePreviousTemplate" Core.=: usePreviousTemplate,
         "StackSetName" Core.=: stackSetName
       ]
@@ -966,11 +968,11 @@ instance Core.ToQuery UpdateStackSet where
 -- | /See:/ 'newUpdateStackSetResponse' smart constructor.
 data UpdateStackSetResponse = UpdateStackSetResponse'
   { -- | The unique ID for this stack set operation.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStackSetResponse' with all optional fields omitted.
@@ -985,20 +987,21 @@ data UpdateStackSetResponse = UpdateStackSetResponse'
 -- 'httpStatus', 'updateStackSetResponse_httpStatus' - The response's http status code.
 newUpdateStackSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateStackSetResponse
 newUpdateStackSetResponse pHttpStatus_ =
   UpdateStackSetResponse'
-    { operationId = Core.Nothing,
+    { operationId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID for this stack set operation.
-updateStackSetResponse_operationId :: Lens.Lens' UpdateStackSetResponse (Core.Maybe Core.Text)
+updateStackSetResponse_operationId :: Lens.Lens' UpdateStackSetResponse (Prelude.Maybe Prelude.Text)
 updateStackSetResponse_operationId = Lens.lens (\UpdateStackSetResponse' {operationId} -> operationId) (\s@UpdateStackSetResponse' {} a -> s {operationId = a} :: UpdateStackSetResponse)
 
 -- | The response's http status code.
-updateStackSetResponse_httpStatus :: Lens.Lens' UpdateStackSetResponse Core.Int
+updateStackSetResponse_httpStatus :: Lens.Lens' UpdateStackSetResponse Prelude.Int
 updateStackSetResponse_httpStatus = Lens.lens (\UpdateStackSetResponse' {httpStatus} -> httpStatus) (\s@UpdateStackSetResponse' {} a -> s {httpStatus = a} :: UpdateStackSetResponse)
 
-instance Core.NFData UpdateStackSetResponse
+instance Prelude.NFData UpdateStackSetResponse

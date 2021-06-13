@@ -51,6 +51,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,7 +61,7 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     -- (VPC) containing the resources you are using for your custom entity
     -- recognizer. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Core.Maybe VpcConfig,
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -70,23 +71,23 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     --
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Core.Maybe Core.Text,
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Tags to be associated with the entity recognizer being created. A tag is
     -- a key-value pair that adds as a metadata to a resource used by Amazon
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name given to the newly created recognizer. Recognizer names can be
     -- a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
     -- underscores (_) are allowed. The name must be unique in the
     -- account\/region.
-    recognizerName :: Core.Text,
+    recognizerName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
     -- role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleArn :: Core.Text,
+    dataAccessRoleArn :: Prelude.Text,
     -- | Specifies the format and location of the input data. The S3 bucket
     -- containing the input data must be located in the same region as the
     -- entity recognizer being created.
@@ -97,7 +98,7 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     -- in the same language.
     languageCode :: LanguageCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEntityRecognizer' with all optional fields omitted.
@@ -148,9 +149,9 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 -- in the same language.
 newCreateEntityRecognizer ::
   -- | 'recognizerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataAccessRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputDataConfig'
   EntityRecognizerInputDataConfig ->
   -- | 'languageCode'
@@ -162,10 +163,11 @@ newCreateEntityRecognizer
   pInputDataConfig_
   pLanguageCode_ =
     CreateEntityRecognizer'
-      { vpcConfig = Core.Nothing,
-        volumeKmsKeyId = Core.Nothing,
-        tags = Core.Nothing,
-        clientRequestToken = Core.Nothing,
+      { vpcConfig =
+          Prelude.Nothing,
+        volumeKmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
         recognizerName = pRecognizerName_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         inputDataConfig = pInputDataConfig_,
@@ -176,7 +178,7 @@ newCreateEntityRecognizer
 -- (VPC) containing the resources you are using for your custom entity
 -- recognizer. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-createEntityRecognizer_vpcConfig :: Lens.Lens' CreateEntityRecognizer (Core.Maybe VpcConfig)
+createEntityRecognizer_vpcConfig :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe VpcConfig)
 createEntityRecognizer_vpcConfig = Lens.lens (\CreateEntityRecognizer' {vpcConfig} -> vpcConfig) (\s@CreateEntityRecognizer' {} a -> s {vpcConfig = a} :: CreateEntityRecognizer)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -188,31 +190,31 @@ createEntityRecognizer_vpcConfig = Lens.lens (\CreateEntityRecognizer' {vpcConfi
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-createEntityRecognizer_volumeKmsKeyId :: Lens.Lens' CreateEntityRecognizer (Core.Maybe Core.Text)
+createEntityRecognizer_volumeKmsKeyId :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
 createEntityRecognizer_volumeKmsKeyId = Lens.lens (\CreateEntityRecognizer' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@CreateEntityRecognizer' {} a -> s {volumeKmsKeyId = a} :: CreateEntityRecognizer)
 
 -- | Tags to be associated with the entity recognizer being created. A tag is
 -- a key-value pair that adds as a metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
-createEntityRecognizer_tags :: Lens.Lens' CreateEntityRecognizer (Core.Maybe [Tag])
-createEntityRecognizer_tags = Lens.lens (\CreateEntityRecognizer' {tags} -> tags) (\s@CreateEntityRecognizer' {} a -> s {tags = a} :: CreateEntityRecognizer) Core.. Lens.mapping Lens._Coerce
+createEntityRecognizer_tags :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe [Tag])
+createEntityRecognizer_tags = Lens.lens (\CreateEntityRecognizer' {tags} -> tags) (\s@CreateEntityRecognizer' {} a -> s {tags = a} :: CreateEntityRecognizer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
-createEntityRecognizer_clientRequestToken :: Lens.Lens' CreateEntityRecognizer (Core.Maybe Core.Text)
+createEntityRecognizer_clientRequestToken :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
 createEntityRecognizer_clientRequestToken = Lens.lens (\CreateEntityRecognizer' {clientRequestToken} -> clientRequestToken) (\s@CreateEntityRecognizer' {} a -> s {clientRequestToken = a} :: CreateEntityRecognizer)
 
 -- | The name given to the newly created recognizer. Recognizer names can be
 -- a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
 -- underscores (_) are allowed. The name must be unique in the
 -- account\/region.
-createEntityRecognizer_recognizerName :: Lens.Lens' CreateEntityRecognizer Core.Text
+createEntityRecognizer_recognizerName :: Lens.Lens' CreateEntityRecognizer Prelude.Text
 createEntityRecognizer_recognizerName = Lens.lens (\CreateEntityRecognizer' {recognizerName} -> recognizerName) (\s@CreateEntityRecognizer' {} a -> s {recognizerName = a} :: CreateEntityRecognizer)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
 -- role that grants Amazon Comprehend read access to your input data.
-createEntityRecognizer_dataAccessRoleArn :: Lens.Lens' CreateEntityRecognizer Core.Text
+createEntityRecognizer_dataAccessRoleArn :: Lens.Lens' CreateEntityRecognizer Prelude.Text
 createEntityRecognizer_dataAccessRoleArn = Lens.lens (\CreateEntityRecognizer' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateEntityRecognizer' {} a -> s {dataAccessRoleArn = a} :: CreateEntityRecognizer)
 
 -- | Specifies the format and location of the input data. The S3 bucket
@@ -237,59 +239,63 @@ instance Core.AWSRequest CreateEntityRecognizer where
     Response.receiveJSON
       ( \s h x ->
           CreateEntityRecognizerResponse'
-            Core.<$> (x Core..?> "EntityRecognizerArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "EntityRecognizerArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateEntityRecognizer
+instance Prelude.Hashable CreateEntityRecognizer
 
-instance Core.NFData CreateEntityRecognizer
+instance Prelude.NFData CreateEntityRecognizer
 
 instance Core.ToHeaders CreateEntityRecognizer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.CreateEntityRecognizer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateEntityRecognizer where
   toJSON CreateEntityRecognizer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("VpcConfig" Core..=) Core.<$> vpcConfig,
-            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
-            ("Tags" Core..=) Core.<$> tags,
+      ( Prelude.catMaybes
+          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just ("RecognizerName" Core..= recognizerName),
-            Core.Just
+              Prelude.<$> clientRequestToken,
+            Prelude.Just
+              ("RecognizerName" Core..= recognizerName),
+            Prelude.Just
               ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Core.Just
+            Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
-            Core.Just ("LanguageCode" Core..= languageCode)
+            Prelude.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
 instance Core.ToPath CreateEntityRecognizer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateEntityRecognizer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEntityRecognizerResponse' smart constructor.
 data CreateEntityRecognizerResponse = CreateEntityRecognizerResponse'
   { -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-    entityRecognizerArn :: Core.Maybe Core.Text,
+    entityRecognizerArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEntityRecognizerResponse' with all optional fields omitted.
@@ -304,21 +310,23 @@ data CreateEntityRecognizerResponse = CreateEntityRecognizerResponse'
 -- 'httpStatus', 'createEntityRecognizerResponse_httpStatus' - The response's http status code.
 newCreateEntityRecognizerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateEntityRecognizerResponse
 newCreateEntityRecognizerResponse pHttpStatus_ =
   CreateEntityRecognizerResponse'
     { entityRecognizerArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-createEntityRecognizerResponse_entityRecognizerArn :: Lens.Lens' CreateEntityRecognizerResponse (Core.Maybe Core.Text)
+createEntityRecognizerResponse_entityRecognizerArn :: Lens.Lens' CreateEntityRecognizerResponse (Prelude.Maybe Prelude.Text)
 createEntityRecognizerResponse_entityRecognizerArn = Lens.lens (\CreateEntityRecognizerResponse' {entityRecognizerArn} -> entityRecognizerArn) (\s@CreateEntityRecognizerResponse' {} a -> s {entityRecognizerArn = a} :: CreateEntityRecognizerResponse)
 
 -- | The response's http status code.
-createEntityRecognizerResponse_httpStatus :: Lens.Lens' CreateEntityRecognizerResponse Core.Int
+createEntityRecognizerResponse_httpStatus :: Lens.Lens' CreateEntityRecognizerResponse Prelude.Int
 createEntityRecognizerResponse_httpStatus = Lens.lens (\CreateEntityRecognizerResponse' {httpStatus} -> httpStatus) (\s@CreateEntityRecognizerResponse' {} a -> s {httpStatus = a} :: CreateEntityRecognizerResponse)
 
-instance Core.NFData CreateEntityRecognizerResponse
+instance
+  Prelude.NFData
+    CreateEntityRecognizerResponse

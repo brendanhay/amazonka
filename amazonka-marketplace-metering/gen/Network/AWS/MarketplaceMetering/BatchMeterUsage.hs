@@ -60,6 +60,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,9 +75,9 @@ data BatchMeterUsage = BatchMeterUsage'
     -- | Product code is used to uniquely identify a product in AWS Marketplace.
     -- The product code should be the same as the one used during the
     -- publishing of a new product.
-    productCode :: Core.Text
+    productCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchMeterUsage' with all optional fields omitted.
@@ -94,23 +95,23 @@ data BatchMeterUsage = BatchMeterUsage'
 -- publishing of a new product.
 newBatchMeterUsage ::
   -- | 'productCode'
-  Core.Text ->
+  Prelude.Text ->
   BatchMeterUsage
 newBatchMeterUsage pProductCode_ =
   BatchMeterUsage'
-    { usageRecords = Core.mempty,
+    { usageRecords = Prelude.mempty,
       productCode = pProductCode_
     }
 
 -- | The set of UsageRecords to submit. BatchMeterUsage accepts up to 25
 -- UsageRecords at a time.
 batchMeterUsage_usageRecords :: Lens.Lens' BatchMeterUsage [UsageRecord]
-batchMeterUsage_usageRecords = Lens.lens (\BatchMeterUsage' {usageRecords} -> usageRecords) (\s@BatchMeterUsage' {} a -> s {usageRecords = a} :: BatchMeterUsage) Core.. Lens._Coerce
+batchMeterUsage_usageRecords = Lens.lens (\BatchMeterUsage' {usageRecords} -> usageRecords) (\s@BatchMeterUsage' {} a -> s {usageRecords = a} :: BatchMeterUsage) Prelude.. Lens._Coerce
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code should be the same as the one used during the
 -- publishing of a new product.
-batchMeterUsage_productCode :: Lens.Lens' BatchMeterUsage Core.Text
+batchMeterUsage_productCode :: Lens.Lens' BatchMeterUsage Prelude.Text
 batchMeterUsage_productCode = Lens.lens (\BatchMeterUsage' {productCode} -> productCode) (\s@BatchMeterUsage' {} a -> s {productCode = a} :: BatchMeterUsage)
 
 instance Core.AWSRequest BatchMeterUsage where
@@ -122,44 +123,46 @@ instance Core.AWSRequest BatchMeterUsage where
     Response.receiveJSON
       ( \s h x ->
           BatchMeterUsageResponse'
-            Core.<$> ( x Core..?> "UnprocessedRecords"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "Results" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "UnprocessedRecords"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchMeterUsage
+instance Prelude.Hashable BatchMeterUsage
 
-instance Core.NFData BatchMeterUsage
+instance Prelude.NFData BatchMeterUsage
 
 instance Core.ToHeaders BatchMeterUsage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMPMeteringService.BatchMeterUsage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchMeterUsage where
   toJSON BatchMeterUsage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UsageRecords" Core..= usageRecords),
-            Core.Just ("ProductCode" Core..= productCode)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UsageRecords" Core..= usageRecords),
+            Prelude.Just ("ProductCode" Core..= productCode)
           ]
       )
 
 instance Core.ToPath BatchMeterUsage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchMeterUsage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the UsageRecords processed by BatchMeterUsage and any records
 -- that have failed due to transient error.
@@ -170,14 +173,14 @@ data BatchMeterUsageResponse = BatchMeterUsageResponse'
     -- This is a list of UsageRecords. You can retry the failed request by
     -- making another BatchMeterUsage call with this list as input in the
     -- BatchMeterUsageRequest.
-    unprocessedRecords :: Core.Maybe [UsageRecord],
+    unprocessedRecords :: Prelude.Maybe [UsageRecord],
     -- | Contains all UsageRecords processed by BatchMeterUsage. These records
     -- were either honored by AWS Marketplace Metering Service or were invalid.
-    results :: Core.Maybe [UsageRecordResult],
+    results :: Prelude.Maybe [UsageRecordResult],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchMeterUsageResponse' with all optional fields omitted.
@@ -198,13 +201,13 @@ data BatchMeterUsageResponse = BatchMeterUsageResponse'
 -- 'httpStatus', 'batchMeterUsageResponse_httpStatus' - The response's http status code.
 newBatchMeterUsageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchMeterUsageResponse
 newBatchMeterUsageResponse pHttpStatus_ =
   BatchMeterUsageResponse'
     { unprocessedRecords =
-        Core.Nothing,
-      results = Core.Nothing,
+        Prelude.Nothing,
+      results = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -212,16 +215,16 @@ newBatchMeterUsageResponse pHttpStatus_ =
 -- This is a list of UsageRecords. You can retry the failed request by
 -- making another BatchMeterUsage call with this list as input in the
 -- BatchMeterUsageRequest.
-batchMeterUsageResponse_unprocessedRecords :: Lens.Lens' BatchMeterUsageResponse (Core.Maybe [UsageRecord])
-batchMeterUsageResponse_unprocessedRecords = Lens.lens (\BatchMeterUsageResponse' {unprocessedRecords} -> unprocessedRecords) (\s@BatchMeterUsageResponse' {} a -> s {unprocessedRecords = a} :: BatchMeterUsageResponse) Core.. Lens.mapping Lens._Coerce
+batchMeterUsageResponse_unprocessedRecords :: Lens.Lens' BatchMeterUsageResponse (Prelude.Maybe [UsageRecord])
+batchMeterUsageResponse_unprocessedRecords = Lens.lens (\BatchMeterUsageResponse' {unprocessedRecords} -> unprocessedRecords) (\s@BatchMeterUsageResponse' {} a -> s {unprocessedRecords = a} :: BatchMeterUsageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contains all UsageRecords processed by BatchMeterUsage. These records
 -- were either honored by AWS Marketplace Metering Service or were invalid.
-batchMeterUsageResponse_results :: Lens.Lens' BatchMeterUsageResponse (Core.Maybe [UsageRecordResult])
-batchMeterUsageResponse_results = Lens.lens (\BatchMeterUsageResponse' {results} -> results) (\s@BatchMeterUsageResponse' {} a -> s {results = a} :: BatchMeterUsageResponse) Core.. Lens.mapping Lens._Coerce
+batchMeterUsageResponse_results :: Lens.Lens' BatchMeterUsageResponse (Prelude.Maybe [UsageRecordResult])
+batchMeterUsageResponse_results = Lens.lens (\BatchMeterUsageResponse' {results} -> results) (\s@BatchMeterUsageResponse' {} a -> s {results = a} :: BatchMeterUsageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchMeterUsageResponse_httpStatus :: Lens.Lens' BatchMeterUsageResponse Core.Int
+batchMeterUsageResponse_httpStatus :: Lens.Lens' BatchMeterUsageResponse Prelude.Int
 batchMeterUsageResponse_httpStatus = Lens.lens (\BatchMeterUsageResponse' {httpStatus} -> httpStatus) (\s@BatchMeterUsageResponse' {} a -> s {httpStatus = a} :: BatchMeterUsageResponse)
 
-instance Core.NFData BatchMeterUsageResponse
+instance Prelude.NFData BatchMeterUsageResponse

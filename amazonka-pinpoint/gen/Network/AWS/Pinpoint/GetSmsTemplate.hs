@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,14 +72,14 @@ data GetSmsTemplate = GetSmsTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSmsTemplate' with all optional fields omitted.
@@ -117,11 +118,11 @@ data GetSmsTemplate = GetSmsTemplate'
 -- (-). Template names are case sensitive.
 newGetSmsTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   GetSmsTemplate
 newGetSmsTemplate pTemplateName_ =
   GetSmsTemplate'
-    { version = Core.Nothing,
+    { version = Prelude.Nothing,
       templateName = pTemplateName_
     }
 
@@ -147,14 +148,14 @@ newGetSmsTemplate pTemplateName_ =
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-getSmsTemplate_version :: Lens.Lens' GetSmsTemplate (Core.Maybe Core.Text)
+getSmsTemplate_version :: Lens.Lens' GetSmsTemplate (Prelude.Maybe Prelude.Text)
 getSmsTemplate_version = Lens.lens (\GetSmsTemplate' {version} -> version) (\s@GetSmsTemplate' {} a -> s {version = a} :: GetSmsTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-getSmsTemplate_templateName :: Lens.Lens' GetSmsTemplate Core.Text
+getSmsTemplate_templateName :: Lens.Lens' GetSmsTemplate Prelude.Text
 getSmsTemplate_templateName = Lens.lens (\GetSmsTemplate' {templateName} -> templateName) (\s@GetSmsTemplate' {} a -> s {templateName = a} :: GetSmsTemplate)
 
 instance Core.AWSRequest GetSmsTemplate where
@@ -166,39 +167,41 @@ instance Core.AWSRequest GetSmsTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetSmsTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetSmsTemplate
+instance Prelude.Hashable GetSmsTemplate
 
-instance Core.NFData GetSmsTemplate
+instance Prelude.NFData GetSmsTemplate
 
 instance Core.ToHeaders GetSmsTemplate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetSmsTemplate where
   toPath GetSmsTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/templates/", Core.toBS templateName, "/sms"]
 
 instance Core.ToQuery GetSmsTemplate where
   toQuery GetSmsTemplate' {..} =
-    Core.mconcat ["version" Core.=: version]
+    Prelude.mconcat ["version" Core.=: version]
 
 -- | /See:/ 'newGetSmsTemplateResponse' smart constructor.
 data GetSmsTemplateResponse = GetSmsTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     sMSTemplateResponse :: SMSTemplateResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSmsTemplateResponse' with all optional fields omitted.
@@ -213,7 +216,7 @@ data GetSmsTemplateResponse = GetSmsTemplateResponse'
 -- 'sMSTemplateResponse', 'getSmsTemplateResponse_sMSTemplateResponse' - Undocumented member.
 newGetSmsTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'sMSTemplateResponse'
   SMSTemplateResponse ->
   GetSmsTemplateResponse
@@ -226,11 +229,11 @@ newGetSmsTemplateResponse
       }
 
 -- | The response's http status code.
-getSmsTemplateResponse_httpStatus :: Lens.Lens' GetSmsTemplateResponse Core.Int
+getSmsTemplateResponse_httpStatus :: Lens.Lens' GetSmsTemplateResponse Prelude.Int
 getSmsTemplateResponse_httpStatus = Lens.lens (\GetSmsTemplateResponse' {httpStatus} -> httpStatus) (\s@GetSmsTemplateResponse' {} a -> s {httpStatus = a} :: GetSmsTemplateResponse)
 
 -- | Undocumented member.
 getSmsTemplateResponse_sMSTemplateResponse :: Lens.Lens' GetSmsTemplateResponse SMSTemplateResponse
 getSmsTemplateResponse_sMSTemplateResponse = Lens.lens (\GetSmsTemplateResponse' {sMSTemplateResponse} -> sMSTemplateResponse) (\s@GetSmsTemplateResponse' {} a -> s {sMSTemplateResponse = a} :: GetSmsTemplateResponse)
 
-instance Core.NFData GetSmsTemplateResponse
+instance Prelude.NFData GetSmsTemplateResponse

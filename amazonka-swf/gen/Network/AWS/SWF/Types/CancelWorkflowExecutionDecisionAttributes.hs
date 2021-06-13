@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.CancelWorkflowExecutionDecisionAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @CancelWorkflowExecution@ decision.
 --
@@ -47,9 +48,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCancelWorkflowExecutionDecisionAttributes' smart constructor.
 data CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes'
   { -- | Details of the cancellation.
-    details :: Core.Maybe Core.Text
+    details :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelWorkflowExecutionDecisionAttributes' with all optional fields omitted.
@@ -65,19 +66,19 @@ newCancelWorkflowExecutionDecisionAttributes ::
 newCancelWorkflowExecutionDecisionAttributes =
   CancelWorkflowExecutionDecisionAttributes'
     { details =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Details of the cancellation.
-cancelWorkflowExecutionDecisionAttributes_details :: Lens.Lens' CancelWorkflowExecutionDecisionAttributes (Core.Maybe Core.Text)
+cancelWorkflowExecutionDecisionAttributes_details :: Lens.Lens' CancelWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
 cancelWorkflowExecutionDecisionAttributes_details = Lens.lens (\CancelWorkflowExecutionDecisionAttributes' {details} -> details) (\s@CancelWorkflowExecutionDecisionAttributes' {} a -> s {details = a} :: CancelWorkflowExecutionDecisionAttributes)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CancelWorkflowExecutionDecisionAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelWorkflowExecutionDecisionAttributes
 
 instance
@@ -86,6 +87,6 @@ instance
   where
   toJSON CancelWorkflowExecutionDecisionAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [("details" Core..=) Core.<$> details]
+      ( Prelude.catMaybes
+          [("details" Core..=) Prelude.<$> details]
       )

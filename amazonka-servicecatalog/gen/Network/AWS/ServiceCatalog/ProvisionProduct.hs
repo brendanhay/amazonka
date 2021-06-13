@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -71,30 +72,30 @@ import Network.AWS.ServiceCatalog.Types
 data ProvisionProduct = ProvisionProduct'
   { -- | An object that contains information about the provisioning preferences
     -- for a stack set.
-    provisioningPreferences :: Core.Maybe ProvisioningPreferences,
+    provisioningPreferences :: Prelude.Maybe ProvisioningPreferences,
     -- | Passed to CloudFormation. The SNS topic ARNs to which to publish
     -- stack-related events.
-    notificationArns :: Core.Maybe [Core.Text],
+    notificationArns :: Prelude.Maybe [Prelude.Text],
     -- | The name of the provisioning artifact. You must provide the name or ID,
     -- but not both.
-    provisioningArtifactName :: Core.Maybe Core.Text,
+    provisioningArtifactName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioning artifact. You must provide the name
     -- or ID, but not both.
-    provisioningArtifactId :: Core.Maybe Core.Text,
+    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
     -- | The name of the product. You must provide the name or ID, but not both.
-    productName :: Core.Maybe Core.Text,
+    productName :: Prelude.Maybe Prelude.Text,
     -- | One or more tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The product identifier. You must provide the name or ID, but not both.
-    productId :: Core.Maybe Core.Text,
+    productId :: Prelude.Maybe Prelude.Text,
     -- | Parameters specified by the administrator that are required for
     -- provisioning the product.
-    provisioningParameters :: Core.Maybe [ProvisioningParameter],
+    provisioningParameters :: Prelude.Maybe [ProvisioningParameter],
     -- | The path identifier of the product. This value is optional if the
     -- product has a default path, and required if the product has more than
     -- one path. To list the paths for a product, use ListLaunchPaths. You must
     -- provide the name or ID, but not both.
-    pathId :: Core.Maybe Core.Text,
+    pathId :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -102,17 +103,17 @@ data ProvisionProduct = ProvisionProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The name of the path. You must provide the name or ID, but not both.
-    pathName :: Core.Maybe Core.Text,
+    pathName :: Prelude.Maybe Prelude.Text,
     -- | A user-friendly name for the provisioned product. This value must be
     -- unique for the AWS account and cannot be updated after the product is
     -- provisioned.
-    provisionedProductName :: Core.Text,
+    provisionedProductName :: Prelude.Text,
     -- | An idempotency token that uniquely identifies the provisioning request.
-    provisionToken :: Core.Text
+    provisionToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisionProduct' with all optional fields omitted.
@@ -165,72 +166,72 @@ data ProvisionProduct = ProvisionProduct'
 -- 'provisionToken', 'provisionProduct_provisionToken' - An idempotency token that uniquely identifies the provisioning request.
 newProvisionProduct ::
   -- | 'provisionedProductName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'provisionToken'
-  Core.Text ->
+  Prelude.Text ->
   ProvisionProduct
 newProvisionProduct
   pProvisionedProductName_
   pProvisionToken_ =
     ProvisionProduct'
       { provisioningPreferences =
-          Core.Nothing,
-        notificationArns = Core.Nothing,
-        provisioningArtifactName = Core.Nothing,
-        provisioningArtifactId = Core.Nothing,
-        productName = Core.Nothing,
-        tags = Core.Nothing,
-        productId = Core.Nothing,
-        provisioningParameters = Core.Nothing,
-        pathId = Core.Nothing,
-        acceptLanguage = Core.Nothing,
-        pathName = Core.Nothing,
+          Prelude.Nothing,
+        notificationArns = Prelude.Nothing,
+        provisioningArtifactName = Prelude.Nothing,
+        provisioningArtifactId = Prelude.Nothing,
+        productName = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        productId = Prelude.Nothing,
+        provisioningParameters = Prelude.Nothing,
+        pathId = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
+        pathName = Prelude.Nothing,
         provisionedProductName = pProvisionedProductName_,
         provisionToken = pProvisionToken_
       }
 
 -- | An object that contains information about the provisioning preferences
 -- for a stack set.
-provisionProduct_provisioningPreferences :: Lens.Lens' ProvisionProduct (Core.Maybe ProvisioningPreferences)
+provisionProduct_provisioningPreferences :: Lens.Lens' ProvisionProduct (Prelude.Maybe ProvisioningPreferences)
 provisionProduct_provisioningPreferences = Lens.lens (\ProvisionProduct' {provisioningPreferences} -> provisioningPreferences) (\s@ProvisionProduct' {} a -> s {provisioningPreferences = a} :: ProvisionProduct)
 
 -- | Passed to CloudFormation. The SNS topic ARNs to which to publish
 -- stack-related events.
-provisionProduct_notificationArns :: Lens.Lens' ProvisionProduct (Core.Maybe [Core.Text])
-provisionProduct_notificationArns = Lens.lens (\ProvisionProduct' {notificationArns} -> notificationArns) (\s@ProvisionProduct' {} a -> s {notificationArns = a} :: ProvisionProduct) Core.. Lens.mapping Lens._Coerce
+provisionProduct_notificationArns :: Lens.Lens' ProvisionProduct (Prelude.Maybe [Prelude.Text])
+provisionProduct_notificationArns = Lens.lens (\ProvisionProduct' {notificationArns} -> notificationArns) (\s@ProvisionProduct' {} a -> s {notificationArns = a} :: ProvisionProduct) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the provisioning artifact. You must provide the name or ID,
 -- but not both.
-provisionProduct_provisioningArtifactName :: Lens.Lens' ProvisionProduct (Core.Maybe Core.Text)
+provisionProduct_provisioningArtifactName :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_provisioningArtifactName = Lens.lens (\ProvisionProduct' {provisioningArtifactName} -> provisioningArtifactName) (\s@ProvisionProduct' {} a -> s {provisioningArtifactName = a} :: ProvisionProduct)
 
 -- | The identifier of the provisioning artifact. You must provide the name
 -- or ID, but not both.
-provisionProduct_provisioningArtifactId :: Lens.Lens' ProvisionProduct (Core.Maybe Core.Text)
+provisionProduct_provisioningArtifactId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_provisioningArtifactId = Lens.lens (\ProvisionProduct' {provisioningArtifactId} -> provisioningArtifactId) (\s@ProvisionProduct' {} a -> s {provisioningArtifactId = a} :: ProvisionProduct)
 
 -- | The name of the product. You must provide the name or ID, but not both.
-provisionProduct_productName :: Lens.Lens' ProvisionProduct (Core.Maybe Core.Text)
+provisionProduct_productName :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_productName = Lens.lens (\ProvisionProduct' {productName} -> productName) (\s@ProvisionProduct' {} a -> s {productName = a} :: ProvisionProduct)
 
 -- | One or more tags.
-provisionProduct_tags :: Lens.Lens' ProvisionProduct (Core.Maybe [Tag])
-provisionProduct_tags = Lens.lens (\ProvisionProduct' {tags} -> tags) (\s@ProvisionProduct' {} a -> s {tags = a} :: ProvisionProduct) Core.. Lens.mapping Lens._Coerce
+provisionProduct_tags :: Lens.Lens' ProvisionProduct (Prelude.Maybe [Tag])
+provisionProduct_tags = Lens.lens (\ProvisionProduct' {tags} -> tags) (\s@ProvisionProduct' {} a -> s {tags = a} :: ProvisionProduct) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The product identifier. You must provide the name or ID, but not both.
-provisionProduct_productId :: Lens.Lens' ProvisionProduct (Core.Maybe Core.Text)
+provisionProduct_productId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_productId = Lens.lens (\ProvisionProduct' {productId} -> productId) (\s@ProvisionProduct' {} a -> s {productId = a} :: ProvisionProduct)
 
 -- | Parameters specified by the administrator that are required for
 -- provisioning the product.
-provisionProduct_provisioningParameters :: Lens.Lens' ProvisionProduct (Core.Maybe [ProvisioningParameter])
-provisionProduct_provisioningParameters = Lens.lens (\ProvisionProduct' {provisioningParameters} -> provisioningParameters) (\s@ProvisionProduct' {} a -> s {provisioningParameters = a} :: ProvisionProduct) Core.. Lens.mapping Lens._Coerce
+provisionProduct_provisioningParameters :: Lens.Lens' ProvisionProduct (Prelude.Maybe [ProvisioningParameter])
+provisionProduct_provisioningParameters = Lens.lens (\ProvisionProduct' {provisioningParameters} -> provisioningParameters) (\s@ProvisionProduct' {} a -> s {provisioningParameters = a} :: ProvisionProduct) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path identifier of the product. This value is optional if the
 -- product has a default path, and required if the product has more than
 -- one path. To list the paths for a product, use ListLaunchPaths. You must
 -- provide the name or ID, but not both.
-provisionProduct_pathId :: Lens.Lens' ProvisionProduct (Core.Maybe Core.Text)
+provisionProduct_pathId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_pathId = Lens.lens (\ProvisionProduct' {pathId} -> pathId) (\s@ProvisionProduct' {} a -> s {pathId = a} :: ProvisionProduct)
 
 -- | The language code.
@@ -240,21 +241,21 @@ provisionProduct_pathId = Lens.lens (\ProvisionProduct' {pathId} -> pathId) (\s@
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-provisionProduct_acceptLanguage :: Lens.Lens' ProvisionProduct (Core.Maybe Core.Text)
+provisionProduct_acceptLanguage :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_acceptLanguage = Lens.lens (\ProvisionProduct' {acceptLanguage} -> acceptLanguage) (\s@ProvisionProduct' {} a -> s {acceptLanguage = a} :: ProvisionProduct)
 
 -- | The name of the path. You must provide the name or ID, but not both.
-provisionProduct_pathName :: Lens.Lens' ProvisionProduct (Core.Maybe Core.Text)
+provisionProduct_pathName :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_pathName = Lens.lens (\ProvisionProduct' {pathName} -> pathName) (\s@ProvisionProduct' {} a -> s {pathName = a} :: ProvisionProduct)
 
 -- | A user-friendly name for the provisioned product. This value must be
 -- unique for the AWS account and cannot be updated after the product is
 -- provisioned.
-provisionProduct_provisionedProductName :: Lens.Lens' ProvisionProduct Core.Text
+provisionProduct_provisionedProductName :: Lens.Lens' ProvisionProduct Prelude.Text
 provisionProduct_provisionedProductName = Lens.lens (\ProvisionProduct' {provisionedProductName} -> provisionedProductName) (\s@ProvisionProduct' {} a -> s {provisionedProductName = a} :: ProvisionProduct)
 
 -- | An idempotency token that uniquely identifies the provisioning request.
-provisionProduct_provisionToken :: Lens.Lens' ProvisionProduct Core.Text
+provisionProduct_provisionToken :: Lens.Lens' ProvisionProduct Prelude.Text
 provisionProduct_provisionToken = Lens.lens (\ProvisionProduct' {provisionToken} -> provisionToken) (\s@ProvisionProduct' {} a -> s {provisionToken = a} :: ProvisionProduct)
 
 instance Core.AWSRequest ProvisionProduct where
@@ -266,69 +267,73 @@ instance Core.AWSRequest ProvisionProduct where
     Response.receiveJSON
       ( \s h x ->
           ProvisionProductResponse'
-            Core.<$> (x Core..?> "RecordDetail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RecordDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ProvisionProduct
+instance Prelude.Hashable ProvisionProduct
 
-instance Core.NFData ProvisionProduct
+instance Prelude.NFData ProvisionProduct
 
 instance Core.ToHeaders ProvisionProduct where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.ProvisionProduct" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ProvisionProduct where
   toJSON ProvisionProduct' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProvisioningPreferences" Core..=)
-              Core.<$> provisioningPreferences,
+              Prelude.<$> provisioningPreferences,
             ("NotificationArns" Core..=)
-              Core.<$> notificationArns,
+              Prelude.<$> notificationArns,
             ("ProvisioningArtifactName" Core..=)
-              Core.<$> provisioningArtifactName,
+              Prelude.<$> provisioningArtifactName,
             ("ProvisioningArtifactId" Core..=)
-              Core.<$> provisioningArtifactId,
-            ("ProductName" Core..=) Core.<$> productName,
-            ("Tags" Core..=) Core.<$> tags,
-            ("ProductId" Core..=) Core.<$> productId,
+              Prelude.<$> provisioningArtifactId,
+            ("ProductName" Core..=) Prelude.<$> productName,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("ProductId" Core..=) Prelude.<$> productId,
             ("ProvisioningParameters" Core..=)
-              Core.<$> provisioningParameters,
-            ("PathId" Core..=) Core.<$> pathId,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            ("PathName" Core..=) Core.<$> pathName,
-            Core.Just
+              Prelude.<$> provisioningParameters,
+            ("PathId" Core..=) Prelude.<$> pathId,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            ("PathName" Core..=) Prelude.<$> pathName,
+            Prelude.Just
               ( "ProvisionedProductName"
                   Core..= provisionedProductName
               ),
-            Core.Just ("ProvisionToken" Core..= provisionToken)
+            Prelude.Just
+              ("ProvisionToken" Core..= provisionToken)
           ]
       )
 
 instance Core.ToPath ProvisionProduct where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ProvisionProduct where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newProvisionProductResponse' smart constructor.
 data ProvisionProductResponse = ProvisionProductResponse'
   { -- | Information about the result of provisioning the product.
-    recordDetail :: Core.Maybe RecordDetail,
+    recordDetail :: Prelude.Maybe RecordDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisionProductResponse' with all optional fields omitted.
@@ -343,21 +348,21 @@ data ProvisionProductResponse = ProvisionProductResponse'
 -- 'httpStatus', 'provisionProductResponse_httpStatus' - The response's http status code.
 newProvisionProductResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ProvisionProductResponse
 newProvisionProductResponse pHttpStatus_ =
   ProvisionProductResponse'
     { recordDetail =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the result of provisioning the product.
-provisionProductResponse_recordDetail :: Lens.Lens' ProvisionProductResponse (Core.Maybe RecordDetail)
+provisionProductResponse_recordDetail :: Lens.Lens' ProvisionProductResponse (Prelude.Maybe RecordDetail)
 provisionProductResponse_recordDetail = Lens.lens (\ProvisionProductResponse' {recordDetail} -> recordDetail) (\s@ProvisionProductResponse' {} a -> s {recordDetail = a} :: ProvisionProductResponse)
 
 -- | The response's http status code.
-provisionProductResponse_httpStatus :: Lens.Lens' ProvisionProductResponse Core.Int
+provisionProductResponse_httpStatus :: Lens.Lens' ProvisionProductResponse Prelude.Int
 provisionProductResponse_httpStatus = Lens.lens (\ProvisionProductResponse' {httpStatus} -> httpStatus) (\s@ProvisionProductResponse' {} a -> s {httpStatus = a} :: ProvisionProductResponse)
 
-instance Core.NFData ProvisionProductResponse
+instance Prelude.NFData ProvisionProductResponse

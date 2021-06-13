@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ChannelSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CompressionType
 import Network.AWS.SageMaker.Types.TrainingInputMode
 
@@ -30,15 +31,15 @@ import Network.AWS.SageMaker.Types.TrainingInputMode
 -- /See:/ 'newChannelSpecification' smart constructor.
 data ChannelSpecification = ChannelSpecification'
   { -- | A brief description of the channel.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the channel is required by the algorithm.
-    isRequired :: Core.Maybe Core.Bool,
+    isRequired :: Prelude.Maybe Prelude.Bool,
     -- | The allowed compression types, if data compression is used.
-    supportedCompressionTypes :: Core.Maybe [CompressionType],
+    supportedCompressionTypes :: Prelude.Maybe [CompressionType],
     -- | The name of the channel.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The supported MIME types for the data.
-    supportedContentTypes :: [Core.Text],
+    supportedContentTypes :: [Prelude.Text],
     -- | The allowed input mode, either FILE or PIPE.
     --
     -- In FILE mode, Amazon SageMaker copies the data from the input source
@@ -48,9 +49,9 @@ data ChannelSpecification = ChannelSpecification'
     --
     -- In PIPE mode, Amazon SageMaker streams input data from the source
     -- directly to your algorithm without using the EBS volume.
-    supportedInputModes :: Core.NonEmpty TrainingInputMode
+    supportedInputModes :: Prelude.NonEmpty TrainingInputMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChannelSpecification' with all optional fields omitted.
@@ -81,40 +82,41 @@ data ChannelSpecification = ChannelSpecification'
 -- directly to your algorithm without using the EBS volume.
 newChannelSpecification ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'supportedInputModes'
-  Core.NonEmpty TrainingInputMode ->
+  Prelude.NonEmpty TrainingInputMode ->
   ChannelSpecification
 newChannelSpecification pName_ pSupportedInputModes_ =
   ChannelSpecification'
-    { description = Core.Nothing,
-      isRequired = Core.Nothing,
-      supportedCompressionTypes = Core.Nothing,
+    { description =
+        Prelude.Nothing,
+      isRequired = Prelude.Nothing,
+      supportedCompressionTypes = Prelude.Nothing,
       name = pName_,
-      supportedContentTypes = Core.mempty,
+      supportedContentTypes = Prelude.mempty,
       supportedInputModes =
         Lens._Coerce Lens.# pSupportedInputModes_
     }
 
 -- | A brief description of the channel.
-channelSpecification_description :: Lens.Lens' ChannelSpecification (Core.Maybe Core.Text)
+channelSpecification_description :: Lens.Lens' ChannelSpecification (Prelude.Maybe Prelude.Text)
 channelSpecification_description = Lens.lens (\ChannelSpecification' {description} -> description) (\s@ChannelSpecification' {} a -> s {description = a} :: ChannelSpecification)
 
 -- | Indicates whether the channel is required by the algorithm.
-channelSpecification_isRequired :: Lens.Lens' ChannelSpecification (Core.Maybe Core.Bool)
+channelSpecification_isRequired :: Lens.Lens' ChannelSpecification (Prelude.Maybe Prelude.Bool)
 channelSpecification_isRequired = Lens.lens (\ChannelSpecification' {isRequired} -> isRequired) (\s@ChannelSpecification' {} a -> s {isRequired = a} :: ChannelSpecification)
 
 -- | The allowed compression types, if data compression is used.
-channelSpecification_supportedCompressionTypes :: Lens.Lens' ChannelSpecification (Core.Maybe [CompressionType])
-channelSpecification_supportedCompressionTypes = Lens.lens (\ChannelSpecification' {supportedCompressionTypes} -> supportedCompressionTypes) (\s@ChannelSpecification' {} a -> s {supportedCompressionTypes = a} :: ChannelSpecification) Core.. Lens.mapping Lens._Coerce
+channelSpecification_supportedCompressionTypes :: Lens.Lens' ChannelSpecification (Prelude.Maybe [CompressionType])
+channelSpecification_supportedCompressionTypes = Lens.lens (\ChannelSpecification' {supportedCompressionTypes} -> supportedCompressionTypes) (\s@ChannelSpecification' {} a -> s {supportedCompressionTypes = a} :: ChannelSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the channel.
-channelSpecification_name :: Lens.Lens' ChannelSpecification Core.Text
+channelSpecification_name :: Lens.Lens' ChannelSpecification Prelude.Text
 channelSpecification_name = Lens.lens (\ChannelSpecification' {name} -> name) (\s@ChannelSpecification' {} a -> s {name = a} :: ChannelSpecification)
 
 -- | The supported MIME types for the data.
-channelSpecification_supportedContentTypes :: Lens.Lens' ChannelSpecification [Core.Text]
-channelSpecification_supportedContentTypes = Lens.lens (\ChannelSpecification' {supportedContentTypes} -> supportedContentTypes) (\s@ChannelSpecification' {} a -> s {supportedContentTypes = a} :: ChannelSpecification) Core.. Lens._Coerce
+channelSpecification_supportedContentTypes :: Lens.Lens' ChannelSpecification [Prelude.Text]
+channelSpecification_supportedContentTypes = Lens.lens (\ChannelSpecification' {supportedContentTypes} -> supportedContentTypes) (\s@ChannelSpecification' {} a -> s {supportedContentTypes = a} :: ChannelSpecification) Prelude.. Lens._Coerce
 
 -- | The allowed input mode, either FILE or PIPE.
 --
@@ -125,8 +127,8 @@ channelSpecification_supportedContentTypes = Lens.lens (\ChannelSpecification' {
 --
 -- In PIPE mode, Amazon SageMaker streams input data from the source
 -- directly to your algorithm without using the EBS volume.
-channelSpecification_supportedInputModes :: Lens.Lens' ChannelSpecification (Core.NonEmpty TrainingInputMode)
-channelSpecification_supportedInputModes = Lens.lens (\ChannelSpecification' {supportedInputModes} -> supportedInputModes) (\s@ChannelSpecification' {} a -> s {supportedInputModes = a} :: ChannelSpecification) Core.. Lens._Coerce
+channelSpecification_supportedInputModes :: Lens.Lens' ChannelSpecification (Prelude.NonEmpty TrainingInputMode)
+channelSpecification_supportedInputModes = Lens.lens (\ChannelSpecification' {supportedInputModes} -> supportedInputModes) (\s@ChannelSpecification' {} a -> s {supportedInputModes = a} :: ChannelSpecification) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ChannelSpecification where
   parseJSON =
@@ -134,36 +136,36 @@ instance Core.FromJSON ChannelSpecification where
       "ChannelSpecification"
       ( \x ->
           ChannelSpecification'
-            Core.<$> (x Core..:? "Description")
-            Core.<*> (x Core..:? "IsRequired")
-            Core.<*> ( x Core..:? "SupportedCompressionTypes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..: "Name")
-            Core.<*> ( x Core..:? "SupportedContentTypes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..: "SupportedInputModes")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "IsRequired")
+            Prelude.<*> ( x Core..:? "SupportedCompressionTypes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> ( x Core..:? "SupportedContentTypes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "SupportedInputModes")
       )
 
-instance Core.Hashable ChannelSpecification
+instance Prelude.Hashable ChannelSpecification
 
-instance Core.NFData ChannelSpecification
+instance Prelude.NFData ChannelSpecification
 
 instance Core.ToJSON ChannelSpecification where
   toJSON ChannelSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Description" Core..=) Core.<$> description,
-            ("IsRequired" Core..=) Core.<$> isRequired,
+      ( Prelude.catMaybes
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("IsRequired" Core..=) Prelude.<$> isRequired,
             ("SupportedCompressionTypes" Core..=)
-              Core.<$> supportedCompressionTypes,
-            Core.Just ("Name" Core..= name),
-            Core.Just
+              Prelude.<$> supportedCompressionTypes,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ( "SupportedContentTypes"
                   Core..= supportedContentTypes
               ),
-            Core.Just
+            Prelude.Just
               ("SupportedInputModes" Core..= supportedInputModes)
           ]
       )

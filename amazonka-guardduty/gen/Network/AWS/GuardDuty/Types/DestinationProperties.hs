@@ -21,6 +21,7 @@ module Network.AWS.GuardDuty.Types.DestinationProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the Amazon Resource Name (ARN) of the resource to publish to,
 -- such as an S3 bucket, and the ARN of the KMS key to use to encrypt
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDestinationProperties' smart constructor.
 data DestinationProperties = DestinationProperties'
   { -- | The ARN of the resource to publish to.
-    destinationArn :: Core.Maybe Core.Text,
+    destinationArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the KMS key to use for encryption.
-    kmsKeyArn :: Core.Maybe Core.Text
+    kmsKeyArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DestinationProperties' with all optional fields omitted.
@@ -51,16 +52,16 @@ newDestinationProperties ::
 newDestinationProperties =
   DestinationProperties'
     { destinationArn =
-        Core.Nothing,
-      kmsKeyArn = Core.Nothing
+        Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing
     }
 
 -- | The ARN of the resource to publish to.
-destinationProperties_destinationArn :: Lens.Lens' DestinationProperties (Core.Maybe Core.Text)
+destinationProperties_destinationArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
 destinationProperties_destinationArn = Lens.lens (\DestinationProperties' {destinationArn} -> destinationArn) (\s@DestinationProperties' {} a -> s {destinationArn = a} :: DestinationProperties)
 
 -- | The ARN of the KMS key to use for encryption.
-destinationProperties_kmsKeyArn :: Lens.Lens' DestinationProperties (Core.Maybe Core.Text)
+destinationProperties_kmsKeyArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
 destinationProperties_kmsKeyArn = Lens.lens (\DestinationProperties' {kmsKeyArn} -> kmsKeyArn) (\s@DestinationProperties' {} a -> s {kmsKeyArn = a} :: DestinationProperties)
 
 instance Core.FromJSON DestinationProperties where
@@ -69,19 +70,20 @@ instance Core.FromJSON DestinationProperties where
       "DestinationProperties"
       ( \x ->
           DestinationProperties'
-            Core.<$> (x Core..:? "destinationArn")
-            Core.<*> (x Core..:? "kmsKeyArn")
+            Prelude.<$> (x Core..:? "destinationArn")
+            Prelude.<*> (x Core..:? "kmsKeyArn")
       )
 
-instance Core.Hashable DestinationProperties
+instance Prelude.Hashable DestinationProperties
 
-instance Core.NFData DestinationProperties
+instance Prelude.NFData DestinationProperties
 
 instance Core.ToJSON DestinationProperties where
   toJSON DestinationProperties' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("destinationArn" Core..=) Core.<$> destinationArn,
-            ("kmsKeyArn" Core..=) Core.<$> kmsKeyArn
+      ( Prelude.catMaybes
+          [ ("destinationArn" Core..=)
+              Prelude.<$> destinationArn,
+            ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn
           ]
       )

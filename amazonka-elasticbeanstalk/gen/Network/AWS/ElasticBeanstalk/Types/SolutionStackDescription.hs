@@ -21,17 +21,18 @@ module Network.AWS.ElasticBeanstalk.Types.SolutionStackDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the solution stack.
 --
 -- /See:/ 'newSolutionStackDescription' smart constructor.
 data SolutionStackDescription = SolutionStackDescription'
   { -- | The permitted file types allowed for a solution stack.
-    permittedFileTypes :: Core.Maybe [Core.Text],
+    permittedFileTypes :: Prelude.Maybe [Prelude.Text],
     -- | The name of the solution stack.
-    solutionStackName :: Core.Maybe Core.Text
+    solutionStackName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SolutionStackDescription' with all optional fields omitted.
@@ -49,26 +50,27 @@ newSolutionStackDescription ::
 newSolutionStackDescription =
   SolutionStackDescription'
     { permittedFileTypes =
-        Core.Nothing,
-      solutionStackName = Core.Nothing
+        Prelude.Nothing,
+      solutionStackName = Prelude.Nothing
     }
 
 -- | The permitted file types allowed for a solution stack.
-solutionStackDescription_permittedFileTypes :: Lens.Lens' SolutionStackDescription (Core.Maybe [Core.Text])
-solutionStackDescription_permittedFileTypes = Lens.lens (\SolutionStackDescription' {permittedFileTypes} -> permittedFileTypes) (\s@SolutionStackDescription' {} a -> s {permittedFileTypes = a} :: SolutionStackDescription) Core.. Lens.mapping Lens._Coerce
+solutionStackDescription_permittedFileTypes :: Lens.Lens' SolutionStackDescription (Prelude.Maybe [Prelude.Text])
+solutionStackDescription_permittedFileTypes = Lens.lens (\SolutionStackDescription' {permittedFileTypes} -> permittedFileTypes) (\s@SolutionStackDescription' {} a -> s {permittedFileTypes = a} :: SolutionStackDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the solution stack.
-solutionStackDescription_solutionStackName :: Lens.Lens' SolutionStackDescription (Core.Maybe Core.Text)
+solutionStackDescription_solutionStackName :: Lens.Lens' SolutionStackDescription (Prelude.Maybe Prelude.Text)
 solutionStackDescription_solutionStackName = Lens.lens (\SolutionStackDescription' {solutionStackName} -> solutionStackName) (\s@SolutionStackDescription' {} a -> s {solutionStackName = a} :: SolutionStackDescription)
 
 instance Core.FromXML SolutionStackDescription where
   parseXML x =
     SolutionStackDescription'
-      Core.<$> ( x Core..@? "PermittedFileTypes" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "SolutionStackName")
+      Prelude.<$> ( x Core..@? "PermittedFileTypes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "SolutionStackName")
 
-instance Core.Hashable SolutionStackDescription
+instance Prelude.Hashable SolutionStackDescription
 
-instance Core.NFData SolutionStackDescription
+instance Prelude.NFData SolutionStackDescription

@@ -24,6 +24,7 @@ import Network.AWS.GuardDuty.Types.UsageAccountResult
 import Network.AWS.GuardDuty.Types.UsageDataSourceResult
 import Network.AWS.GuardDuty.Types.UsageResourceResult
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the result of GuardDuty usage. If a UsageStatisticType is
 -- provided the result for other types will be null.
@@ -31,16 +32,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUsageStatistics' smart constructor.
 data UsageStatistics = UsageStatistics'
   { -- | The usage statistic sum organized by on data source.
-    sumByDataSource :: Core.Maybe [UsageDataSourceResult],
+    sumByDataSource :: Prelude.Maybe [UsageDataSourceResult],
     -- | Lists the top 50 resources that have generated the most GuardDuty usage,
     -- in order from most to least expensive.
-    topResources :: Core.Maybe [UsageResourceResult],
+    topResources :: Prelude.Maybe [UsageResourceResult],
     -- | The usage statistic sum organized by account ID.
-    sumByAccount :: Core.Maybe [UsageAccountResult],
+    sumByAccount :: Prelude.Maybe [UsageAccountResult],
     -- | The usage statistic sum organized by resource.
-    sumByResource :: Core.Maybe [UsageResourceResult]
+    sumByResource :: Prelude.Maybe [UsageResourceResult]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UsageStatistics' with all optional fields omitted.
@@ -62,28 +63,28 @@ newUsageStatistics ::
   UsageStatistics
 newUsageStatistics =
   UsageStatistics'
-    { sumByDataSource = Core.Nothing,
-      topResources = Core.Nothing,
-      sumByAccount = Core.Nothing,
-      sumByResource = Core.Nothing
+    { sumByDataSource = Prelude.Nothing,
+      topResources = Prelude.Nothing,
+      sumByAccount = Prelude.Nothing,
+      sumByResource = Prelude.Nothing
     }
 
 -- | The usage statistic sum organized by on data source.
-usageStatistics_sumByDataSource :: Lens.Lens' UsageStatistics (Core.Maybe [UsageDataSourceResult])
-usageStatistics_sumByDataSource = Lens.lens (\UsageStatistics' {sumByDataSource} -> sumByDataSource) (\s@UsageStatistics' {} a -> s {sumByDataSource = a} :: UsageStatistics) Core.. Lens.mapping Lens._Coerce
+usageStatistics_sumByDataSource :: Lens.Lens' UsageStatistics (Prelude.Maybe [UsageDataSourceResult])
+usageStatistics_sumByDataSource = Lens.lens (\UsageStatistics' {sumByDataSource} -> sumByDataSource) (\s@UsageStatistics' {} a -> s {sumByDataSource = a} :: UsageStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Lists the top 50 resources that have generated the most GuardDuty usage,
 -- in order from most to least expensive.
-usageStatistics_topResources :: Lens.Lens' UsageStatistics (Core.Maybe [UsageResourceResult])
-usageStatistics_topResources = Lens.lens (\UsageStatistics' {topResources} -> topResources) (\s@UsageStatistics' {} a -> s {topResources = a} :: UsageStatistics) Core.. Lens.mapping Lens._Coerce
+usageStatistics_topResources :: Lens.Lens' UsageStatistics (Prelude.Maybe [UsageResourceResult])
+usageStatistics_topResources = Lens.lens (\UsageStatistics' {topResources} -> topResources) (\s@UsageStatistics' {} a -> s {topResources = a} :: UsageStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The usage statistic sum organized by account ID.
-usageStatistics_sumByAccount :: Lens.Lens' UsageStatistics (Core.Maybe [UsageAccountResult])
-usageStatistics_sumByAccount = Lens.lens (\UsageStatistics' {sumByAccount} -> sumByAccount) (\s@UsageStatistics' {} a -> s {sumByAccount = a} :: UsageStatistics) Core.. Lens.mapping Lens._Coerce
+usageStatistics_sumByAccount :: Lens.Lens' UsageStatistics (Prelude.Maybe [UsageAccountResult])
+usageStatistics_sumByAccount = Lens.lens (\UsageStatistics' {sumByAccount} -> sumByAccount) (\s@UsageStatistics' {} a -> s {sumByAccount = a} :: UsageStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The usage statistic sum organized by resource.
-usageStatistics_sumByResource :: Lens.Lens' UsageStatistics (Core.Maybe [UsageResourceResult])
-usageStatistics_sumByResource = Lens.lens (\UsageStatistics' {sumByResource} -> sumByResource) (\s@UsageStatistics' {} a -> s {sumByResource = a} :: UsageStatistics) Core.. Lens.mapping Lens._Coerce
+usageStatistics_sumByResource :: Lens.Lens' UsageStatistics (Prelude.Maybe [UsageResourceResult])
+usageStatistics_sumByResource = Lens.lens (\UsageStatistics' {sumByResource} -> sumByResource) (\s@UsageStatistics' {} a -> s {sumByResource = a} :: UsageStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON UsageStatistics where
   parseJSON =
@@ -91,12 +92,14 @@ instance Core.FromJSON UsageStatistics where
       "UsageStatistics"
       ( \x ->
           UsageStatistics'
-            Core.<$> (x Core..:? "sumByDataSource" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "topResources" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "sumByAccount" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "sumByResource" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "sumByDataSource"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "topResources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "sumByAccount" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "sumByResource" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable UsageStatistics
+instance Prelude.Hashable UsageStatistics
 
-instance Core.NFData UsageStatistics
+instance Prelude.NFData UsageStatistics

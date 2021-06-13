@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDataflowGraph' smart constructor.
 data GetDataflowGraph = GetDataflowGraph'
   { -- | The Python script to transform.
-    pythonScript :: Core.Maybe Core.Text
+    pythonScript :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataflowGraph' with all optional fields omitted.
@@ -65,10 +66,10 @@ data GetDataflowGraph = GetDataflowGraph'
 newGetDataflowGraph ::
   GetDataflowGraph
 newGetDataflowGraph =
-  GetDataflowGraph' {pythonScript = Core.Nothing}
+  GetDataflowGraph' {pythonScript = Prelude.Nothing}
 
 -- | The Python script to transform.
-getDataflowGraph_pythonScript :: Lens.Lens' GetDataflowGraph (Core.Maybe Core.Text)
+getDataflowGraph_pythonScript :: Lens.Lens' GetDataflowGraph (Prelude.Maybe Prelude.Text)
 getDataflowGraph_pythonScript = Lens.lens (\GetDataflowGraph' {pythonScript} -> pythonScript) (\s@GetDataflowGraph' {} a -> s {pythonScript = a} :: GetDataflowGraph)
 
 instance Core.AWSRequest GetDataflowGraph where
@@ -80,49 +81,51 @@ instance Core.AWSRequest GetDataflowGraph where
     Response.receiveJSON
       ( \s h x ->
           GetDataflowGraphResponse'
-            Core.<$> (x Core..?> "DagNodes" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "DagEdges" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DagNodes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "DagEdges" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDataflowGraph
+instance Prelude.Hashable GetDataflowGraph
 
-instance Core.NFData GetDataflowGraph
+instance Prelude.NFData GetDataflowGraph
 
 instance Core.ToHeaders GetDataflowGraph where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetDataflowGraph" :: Core.ByteString),
+              Core.=# ("AWSGlue.GetDataflowGraph" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDataflowGraph where
   toJSON GetDataflowGraph' {..} =
     Core.object
-      ( Core.catMaybes
-          [("PythonScript" Core..=) Core.<$> pythonScript]
+      ( Prelude.catMaybes
+          [("PythonScript" Core..=) Prelude.<$> pythonScript]
       )
 
 instance Core.ToPath GetDataflowGraph where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDataflowGraph where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataflowGraphResponse' smart constructor.
 data GetDataflowGraphResponse = GetDataflowGraphResponse'
   { -- | A list of the nodes in the resulting DAG.
-    dagNodes :: Core.Maybe [CodeGenNode],
+    dagNodes :: Prelude.Maybe [CodeGenNode],
     -- | A list of the edges in the resulting DAG.
-    dagEdges :: Core.Maybe [CodeGenEdge],
+    dagEdges :: Prelude.Maybe [CodeGenEdge],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataflowGraphResponse' with all optional fields omitted.
@@ -139,25 +142,26 @@ data GetDataflowGraphResponse = GetDataflowGraphResponse'
 -- 'httpStatus', 'getDataflowGraphResponse_httpStatus' - The response's http status code.
 newGetDataflowGraphResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDataflowGraphResponse
 newGetDataflowGraphResponse pHttpStatus_ =
   GetDataflowGraphResponse'
-    { dagNodes = Core.Nothing,
-      dagEdges = Core.Nothing,
+    { dagNodes =
+        Prelude.Nothing,
+      dagEdges = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of the nodes in the resulting DAG.
-getDataflowGraphResponse_dagNodes :: Lens.Lens' GetDataflowGraphResponse (Core.Maybe [CodeGenNode])
-getDataflowGraphResponse_dagNodes = Lens.lens (\GetDataflowGraphResponse' {dagNodes} -> dagNodes) (\s@GetDataflowGraphResponse' {} a -> s {dagNodes = a} :: GetDataflowGraphResponse) Core.. Lens.mapping Lens._Coerce
+getDataflowGraphResponse_dagNodes :: Lens.Lens' GetDataflowGraphResponse (Prelude.Maybe [CodeGenNode])
+getDataflowGraphResponse_dagNodes = Lens.lens (\GetDataflowGraphResponse' {dagNodes} -> dagNodes) (\s@GetDataflowGraphResponse' {} a -> s {dagNodes = a} :: GetDataflowGraphResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of the edges in the resulting DAG.
-getDataflowGraphResponse_dagEdges :: Lens.Lens' GetDataflowGraphResponse (Core.Maybe [CodeGenEdge])
-getDataflowGraphResponse_dagEdges = Lens.lens (\GetDataflowGraphResponse' {dagEdges} -> dagEdges) (\s@GetDataflowGraphResponse' {} a -> s {dagEdges = a} :: GetDataflowGraphResponse) Core.. Lens.mapping Lens._Coerce
+getDataflowGraphResponse_dagEdges :: Lens.Lens' GetDataflowGraphResponse (Prelude.Maybe [CodeGenEdge])
+getDataflowGraphResponse_dagEdges = Lens.lens (\GetDataflowGraphResponse' {dagEdges} -> dagEdges) (\s@GetDataflowGraphResponse' {} a -> s {dagEdges = a} :: GetDataflowGraphResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDataflowGraphResponse_httpStatus :: Lens.Lens' GetDataflowGraphResponse Core.Int
+getDataflowGraphResponse_httpStatus :: Lens.Lens' GetDataflowGraphResponse Prelude.Int
 getDataflowGraphResponse_httpStatus = Lens.lens (\GetDataflowGraphResponse' {httpStatus} -> httpStatus) (\s@GetDataflowGraphResponse' {} a -> s {httpStatus = a} :: GetDataflowGraphResponse)
 
-instance Core.NFData GetDataflowGraphResponse
+instance Prelude.NFData GetDataflowGraphResponse

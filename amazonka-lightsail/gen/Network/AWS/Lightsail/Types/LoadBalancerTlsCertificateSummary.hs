@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a summary of SSL\/TLS certificate metadata.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data LoadBalancerTlsCertificateSummary = LoadBalancerTlsCertificateSummary'
   { -- | When @true@, the SSL\/TLS certificate is attached to the Lightsail load
     -- balancer.
-    isAttached :: Core.Maybe Core.Bool,
+    isAttached :: Prelude.Maybe Prelude.Bool,
     -- | The name of the SSL\/TLS certificate.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerTlsCertificateSummary' with all optional fields omitted.
@@ -51,17 +52,17 @@ newLoadBalancerTlsCertificateSummary ::
 newLoadBalancerTlsCertificateSummary =
   LoadBalancerTlsCertificateSummary'
     { isAttached =
-        Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | When @true@, the SSL\/TLS certificate is attached to the Lightsail load
 -- balancer.
-loadBalancerTlsCertificateSummary_isAttached :: Lens.Lens' LoadBalancerTlsCertificateSummary (Core.Maybe Core.Bool)
+loadBalancerTlsCertificateSummary_isAttached :: Lens.Lens' LoadBalancerTlsCertificateSummary (Prelude.Maybe Prelude.Bool)
 loadBalancerTlsCertificateSummary_isAttached = Lens.lens (\LoadBalancerTlsCertificateSummary' {isAttached} -> isAttached) (\s@LoadBalancerTlsCertificateSummary' {} a -> s {isAttached = a} :: LoadBalancerTlsCertificateSummary)
 
 -- | The name of the SSL\/TLS certificate.
-loadBalancerTlsCertificateSummary_name :: Lens.Lens' LoadBalancerTlsCertificateSummary (Core.Maybe Core.Text)
+loadBalancerTlsCertificateSummary_name :: Lens.Lens' LoadBalancerTlsCertificateSummary (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificateSummary_name = Lens.lens (\LoadBalancerTlsCertificateSummary' {name} -> name) (\s@LoadBalancerTlsCertificateSummary' {} a -> s {name = a} :: LoadBalancerTlsCertificateSummary)
 
 instance
@@ -73,14 +74,14 @@ instance
       "LoadBalancerTlsCertificateSummary"
       ( \x ->
           LoadBalancerTlsCertificateSummary'
-            Core.<$> (x Core..:? "isAttached")
-            Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "isAttached")
+            Prelude.<*> (x Core..:? "name")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LoadBalancerTlsCertificateSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     LoadBalancerTlsCertificateSummary

@@ -24,16 +24,17 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
 import Network.AWS.MediaLive.Types.Rec601Settings
 import Network.AWS.MediaLive.Types.Rec709Settings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | H264 Color Space Settings
 --
 -- /See:/ 'newH264ColorSpaceSettings' smart constructor.
 data H264ColorSpaceSettings = H264ColorSpaceSettings'
-  { rec601Settings :: Core.Maybe Rec601Settings,
-    rec709Settings :: Core.Maybe Rec709Settings,
-    colorSpacePassthroughSettings :: Core.Maybe ColorSpacePassthroughSettings
+  { rec601Settings :: Prelude.Maybe Rec601Settings,
+    rec709Settings :: Prelude.Maybe Rec709Settings,
+    colorSpacePassthroughSettings :: Prelude.Maybe ColorSpacePassthroughSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'H264ColorSpaceSettings' with all optional fields omitted.
@@ -53,21 +54,21 @@ newH264ColorSpaceSettings ::
 newH264ColorSpaceSettings =
   H264ColorSpaceSettings'
     { rec601Settings =
-        Core.Nothing,
-      rec709Settings = Core.Nothing,
-      colorSpacePassthroughSettings = Core.Nothing
+        Prelude.Nothing,
+      rec709Settings = Prelude.Nothing,
+      colorSpacePassthroughSettings = Prelude.Nothing
     }
 
 -- | Undocumented member.
-h264ColorSpaceSettings_rec601Settings :: Lens.Lens' H264ColorSpaceSettings (Core.Maybe Rec601Settings)
+h264ColorSpaceSettings_rec601Settings :: Lens.Lens' H264ColorSpaceSettings (Prelude.Maybe Rec601Settings)
 h264ColorSpaceSettings_rec601Settings = Lens.lens (\H264ColorSpaceSettings' {rec601Settings} -> rec601Settings) (\s@H264ColorSpaceSettings' {} a -> s {rec601Settings = a} :: H264ColorSpaceSettings)
 
 -- | Undocumented member.
-h264ColorSpaceSettings_rec709Settings :: Lens.Lens' H264ColorSpaceSettings (Core.Maybe Rec709Settings)
+h264ColorSpaceSettings_rec709Settings :: Lens.Lens' H264ColorSpaceSettings (Prelude.Maybe Rec709Settings)
 h264ColorSpaceSettings_rec709Settings = Lens.lens (\H264ColorSpaceSettings' {rec709Settings} -> rec709Settings) (\s@H264ColorSpaceSettings' {} a -> s {rec709Settings = a} :: H264ColorSpaceSettings)
 
 -- | Undocumented member.
-h264ColorSpaceSettings_colorSpacePassthroughSettings :: Lens.Lens' H264ColorSpaceSettings (Core.Maybe ColorSpacePassthroughSettings)
+h264ColorSpaceSettings_colorSpacePassthroughSettings :: Lens.Lens' H264ColorSpaceSettings (Prelude.Maybe ColorSpacePassthroughSettings)
 h264ColorSpaceSettings_colorSpacePassthroughSettings = Lens.lens (\H264ColorSpaceSettings' {colorSpacePassthroughSettings} -> colorSpacePassthroughSettings) (\s@H264ColorSpaceSettings' {} a -> s {colorSpacePassthroughSettings = a} :: H264ColorSpaceSettings)
 
 instance Core.FromJSON H264ColorSpaceSettings where
@@ -76,22 +77,24 @@ instance Core.FromJSON H264ColorSpaceSettings where
       "H264ColorSpaceSettings"
       ( \x ->
           H264ColorSpaceSettings'
-            Core.<$> (x Core..:? "rec601Settings")
-            Core.<*> (x Core..:? "rec709Settings")
-            Core.<*> (x Core..:? "colorSpacePassthroughSettings")
+            Prelude.<$> (x Core..:? "rec601Settings")
+            Prelude.<*> (x Core..:? "rec709Settings")
+            Prelude.<*> (x Core..:? "colorSpacePassthroughSettings")
       )
 
-instance Core.Hashable H264ColorSpaceSettings
+instance Prelude.Hashable H264ColorSpaceSettings
 
-instance Core.NFData H264ColorSpaceSettings
+instance Prelude.NFData H264ColorSpaceSettings
 
 instance Core.ToJSON H264ColorSpaceSettings where
   toJSON H264ColorSpaceSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("rec601Settings" Core..=) Core.<$> rec601Settings,
-            ("rec709Settings" Core..=) Core.<$> rec709Settings,
+      ( Prelude.catMaybes
+          [ ("rec601Settings" Core..=)
+              Prelude.<$> rec601Settings,
+            ("rec709Settings" Core..=)
+              Prelude.<$> rec709Settings,
             ("colorSpacePassthroughSettings" Core..=)
-              Core.<$> colorSpacePassthroughSettings
+              Prelude.<$> colorSpacePassthroughSettings
           ]
       )

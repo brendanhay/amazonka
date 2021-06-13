@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -53,9 +54,9 @@ import Network.AWS.StorageGateway.Types
 data DescribeSMBFileShares = DescribeSMBFileShares'
   { -- | An array containing the Amazon Resource Name (ARN) of each file share to
     -- be described.
-    fileShareARNList :: Core.NonEmpty Core.Text
+    fileShareARNList :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSMBFileShares' with all optional fields omitted.
@@ -69,7 +70,7 @@ data DescribeSMBFileShares = DescribeSMBFileShares'
 -- be described.
 newDescribeSMBFileShares ::
   -- | 'fileShareARNList'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DescribeSMBFileShares
 newDescribeSMBFileShares pFileShareARNList_ =
   DescribeSMBFileShares'
@@ -79,8 +80,8 @@ newDescribeSMBFileShares pFileShareARNList_ =
 
 -- | An array containing the Amazon Resource Name (ARN) of each file share to
 -- be described.
-describeSMBFileShares_fileShareARNList :: Lens.Lens' DescribeSMBFileShares (Core.NonEmpty Core.Text)
-describeSMBFileShares_fileShareARNList = Lens.lens (\DescribeSMBFileShares' {fileShareARNList} -> fileShareARNList) (\s@DescribeSMBFileShares' {} a -> s {fileShareARNList = a} :: DescribeSMBFileShares) Core.. Lens._Coerce
+describeSMBFileShares_fileShareARNList :: Lens.Lens' DescribeSMBFileShares (Prelude.NonEmpty Prelude.Text)
+describeSMBFileShares_fileShareARNList = Lens.lens (\DescribeSMBFileShares' {fileShareARNList} -> fileShareARNList) (\s@DescribeSMBFileShares' {} a -> s {fileShareARNList = a} :: DescribeSMBFileShares) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeSMBFileShares where
   type
@@ -91,54 +92,56 @@ instance Core.AWSRequest DescribeSMBFileShares where
     Response.receiveJSON
       ( \s h x ->
           DescribeSMBFileSharesResponse'
-            Core.<$> ( x Core..?> "SMBFileShareInfoList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "SMBFileShareInfoList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSMBFileShares
+instance Prelude.Hashable DescribeSMBFileShares
 
-instance Core.NFData DescribeSMBFileShares
+instance Prelude.NFData DescribeSMBFileShares
 
 instance Core.ToHeaders DescribeSMBFileShares where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DescribeSMBFileShares" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeSMBFileShares where
   toJSON DescribeSMBFileShares' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("FileShareARNList" Core..= fileShareARNList)
           ]
       )
 
 instance Core.ToPath DescribeSMBFileShares where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeSMBFileShares where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeSMBFileSharesOutput
 --
 -- /See:/ 'newDescribeSMBFileSharesResponse' smart constructor.
 data DescribeSMBFileSharesResponse = DescribeSMBFileSharesResponse'
   { -- | An array containing a description for each requested file share.
-    sMBFileShareInfoList :: Core.Maybe [SMBFileShareInfo],
+    sMBFileShareInfoList :: Prelude.Maybe [SMBFileShareInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSMBFileSharesResponse' with all optional fields omitted.
@@ -153,21 +156,21 @@ data DescribeSMBFileSharesResponse = DescribeSMBFileSharesResponse'
 -- 'httpStatus', 'describeSMBFileSharesResponse_httpStatus' - The response's http status code.
 newDescribeSMBFileSharesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSMBFileSharesResponse
 newDescribeSMBFileSharesResponse pHttpStatus_ =
   DescribeSMBFileSharesResponse'
     { sMBFileShareInfoList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array containing a description for each requested file share.
-describeSMBFileSharesResponse_sMBFileShareInfoList :: Lens.Lens' DescribeSMBFileSharesResponse (Core.Maybe [SMBFileShareInfo])
-describeSMBFileSharesResponse_sMBFileShareInfoList = Lens.lens (\DescribeSMBFileSharesResponse' {sMBFileShareInfoList} -> sMBFileShareInfoList) (\s@DescribeSMBFileSharesResponse' {} a -> s {sMBFileShareInfoList = a} :: DescribeSMBFileSharesResponse) Core.. Lens.mapping Lens._Coerce
+describeSMBFileSharesResponse_sMBFileShareInfoList :: Lens.Lens' DescribeSMBFileSharesResponse (Prelude.Maybe [SMBFileShareInfo])
+describeSMBFileSharesResponse_sMBFileShareInfoList = Lens.lens (\DescribeSMBFileSharesResponse' {sMBFileShareInfoList} -> sMBFileShareInfoList) (\s@DescribeSMBFileSharesResponse' {} a -> s {sMBFileShareInfoList = a} :: DescribeSMBFileSharesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSMBFileSharesResponse_httpStatus :: Lens.Lens' DescribeSMBFileSharesResponse Core.Int
+describeSMBFileSharesResponse_httpStatus :: Lens.Lens' DescribeSMBFileSharesResponse Prelude.Int
 describeSMBFileSharesResponse_httpStatus = Lens.lens (\DescribeSMBFileSharesResponse' {httpStatus} -> httpStatus) (\s@DescribeSMBFileSharesResponse' {} a -> s {httpStatus = a} :: DescribeSMBFileSharesResponse)
 
-instance Core.NFData DescribeSMBFileSharesResponse
+instance Prelude.NFData DescribeSMBFileSharesResponse

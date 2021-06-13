@@ -45,17 +45,18 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartSchemaCreation' smart constructor.
 data StartSchemaCreation = StartSchemaCreation'
   { -- | The API ID.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | The schema definition, in GraphQL schema language format.
     definition :: Core.Base64
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartSchemaCreation' with all optional fields omitted.
@@ -74,9 +75,9 @@ data StartSchemaCreation = StartSchemaCreation'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newStartSchemaCreation ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'definition'
-  Core.ByteString ->
+  Prelude.ByteString ->
   StartSchemaCreation
 newStartSchemaCreation pApiId_ pDefinition_ =
   StartSchemaCreation'
@@ -85,7 +86,7 @@ newStartSchemaCreation pApiId_ pDefinition_ =
     }
 
 -- | The API ID.
-startSchemaCreation_apiId :: Lens.Lens' StartSchemaCreation Core.Text
+startSchemaCreation_apiId :: Lens.Lens' StartSchemaCreation Prelude.Text
 startSchemaCreation_apiId = Lens.lens (\StartSchemaCreation' {apiId} -> apiId) (\s@StartSchemaCreation' {} a -> s {apiId = a} :: StartSchemaCreation)
 
 -- | The schema definition, in GraphQL schema language format.--
@@ -93,8 +94,8 @@ startSchemaCreation_apiId = Lens.lens (\StartSchemaCreation' {apiId} -> apiId) (
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-startSchemaCreation_definition :: Lens.Lens' StartSchemaCreation Core.ByteString
-startSchemaCreation_definition = Lens.lens (\StartSchemaCreation' {definition} -> definition) (\s@StartSchemaCreation' {} a -> s {definition = a} :: StartSchemaCreation) Core.. Core._Base64
+startSchemaCreation_definition :: Lens.Lens' StartSchemaCreation Prelude.ByteString
+startSchemaCreation_definition = Lens.lens (\StartSchemaCreation' {definition} -> definition) (\s@StartSchemaCreation' {} a -> s {definition = a} :: StartSchemaCreation) Prelude.. Core._Base64
 
 instance Core.AWSRequest StartSchemaCreation where
   type
@@ -105,48 +106,50 @@ instance Core.AWSRequest StartSchemaCreation where
     Response.receiveJSON
       ( \s h x ->
           StartSchemaCreationResponse'
-            Core.<$> (x Core..?> "status")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartSchemaCreation
+instance Prelude.Hashable StartSchemaCreation
 
-instance Core.NFData StartSchemaCreation
+instance Prelude.NFData StartSchemaCreation
 
 instance Core.ToHeaders StartSchemaCreation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartSchemaCreation where
   toJSON StartSchemaCreation' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("definition" Core..= definition)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("definition" Core..= definition)]
       )
 
 instance Core.ToPath StartSchemaCreation where
   toPath StartSchemaCreation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apis/", Core.toBS apiId, "/schemacreation"]
 
 instance Core.ToQuery StartSchemaCreation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSchemaCreationResponse' smart constructor.
 data StartSchemaCreationResponse = StartSchemaCreationResponse'
   { -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or
     -- NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add
     -- data.
-    status :: Core.Maybe SchemaStatus,
+    status :: Prelude.Maybe SchemaStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartSchemaCreationResponse' with all optional fields omitted.
@@ -163,22 +166,23 @@ data StartSchemaCreationResponse = StartSchemaCreationResponse'
 -- 'httpStatus', 'startSchemaCreationResponse_httpStatus' - The response's http status code.
 newStartSchemaCreationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartSchemaCreationResponse
 newStartSchemaCreationResponse pHttpStatus_ =
   StartSchemaCreationResponse'
-    { status = Core.Nothing,
+    { status =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or
 -- NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add
 -- data.
-startSchemaCreationResponse_status :: Lens.Lens' StartSchemaCreationResponse (Core.Maybe SchemaStatus)
+startSchemaCreationResponse_status :: Lens.Lens' StartSchemaCreationResponse (Prelude.Maybe SchemaStatus)
 startSchemaCreationResponse_status = Lens.lens (\StartSchemaCreationResponse' {status} -> status) (\s@StartSchemaCreationResponse' {} a -> s {status = a} :: StartSchemaCreationResponse)
 
 -- | The response's http status code.
-startSchemaCreationResponse_httpStatus :: Lens.Lens' StartSchemaCreationResponse Core.Int
+startSchemaCreationResponse_httpStatus :: Lens.Lens' StartSchemaCreationResponse Prelude.Int
 startSchemaCreationResponse_httpStatus = Lens.lens (\StartSchemaCreationResponse' {httpStatus} -> httpStatus) (\s@StartSchemaCreationResponse' {} a -> s {httpStatus = a} :: StartSchemaCreationResponse)
 
-instance Core.NFData StartSchemaCreationResponse
+instance Prelude.NFData StartSchemaCreationResponse

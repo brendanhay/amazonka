@@ -49,22 +49,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRules' smart constructor.
 data DescribeRules = DescribeRules'
   { -- | The maximum number of results to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Core.Maybe Core.Text,
+    listenerArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Names (ARN) of the rules.
-    ruleArns :: Core.Maybe [Core.Text],
+    ruleArns :: Prelude.Maybe [Prelude.Text],
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRules' with all optional fields omitted.
@@ -86,47 +87,48 @@ newDescribeRules ::
   DescribeRules
 newDescribeRules =
   DescribeRules'
-    { pageSize = Core.Nothing,
-      listenerArn = Core.Nothing,
-      ruleArns = Core.Nothing,
-      marker = Core.Nothing
+    { pageSize = Prelude.Nothing,
+      listenerArn = Prelude.Nothing,
+      ruleArns = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The maximum number of results to return with this call.
-describeRules_pageSize :: Lens.Lens' DescribeRules (Core.Maybe Core.Natural)
+describeRules_pageSize :: Lens.Lens' DescribeRules (Prelude.Maybe Prelude.Natural)
 describeRules_pageSize = Lens.lens (\DescribeRules' {pageSize} -> pageSize) (\s@DescribeRules' {} a -> s {pageSize = a} :: DescribeRules)
 
 -- | The Amazon Resource Name (ARN) of the listener.
-describeRules_listenerArn :: Lens.Lens' DescribeRules (Core.Maybe Core.Text)
+describeRules_listenerArn :: Lens.Lens' DescribeRules (Prelude.Maybe Prelude.Text)
 describeRules_listenerArn = Lens.lens (\DescribeRules' {listenerArn} -> listenerArn) (\s@DescribeRules' {} a -> s {listenerArn = a} :: DescribeRules)
 
 -- | The Amazon Resource Names (ARN) of the rules.
-describeRules_ruleArns :: Lens.Lens' DescribeRules (Core.Maybe [Core.Text])
-describeRules_ruleArns = Lens.lens (\DescribeRules' {ruleArns} -> ruleArns) (\s@DescribeRules' {} a -> s {ruleArns = a} :: DescribeRules) Core.. Lens.mapping Lens._Coerce
+describeRules_ruleArns :: Lens.Lens' DescribeRules (Prelude.Maybe [Prelude.Text])
+describeRules_ruleArns = Lens.lens (\DescribeRules' {ruleArns} -> ruleArns) (\s@DescribeRules' {} a -> s {ruleArns = a} :: DescribeRules) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeRules_marker :: Lens.Lens' DescribeRules (Core.Maybe Core.Text)
+describeRules_marker :: Lens.Lens' DescribeRules (Prelude.Maybe Prelude.Text)
 describeRules_marker = Lens.lens (\DescribeRules' {marker} -> marker) (\s@DescribeRules' {} a -> s {marker = a} :: DescribeRules)
 
 instance Core.AWSPager DescribeRules where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeRulesResponse_nextMarker Core.. Lens._Just
+            Lens.^? describeRulesResponse_nextMarker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeRulesResponse_rules Core.. Lens._Just
+            Lens.^? describeRulesResponse_rules Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeRules_marker
+          Prelude.& describeRules_marker
           Lens..~ rs
-          Lens.^? describeRulesResponse_nextMarker Core.. Lens._Just
+          Lens.^? describeRulesResponse_nextMarker Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRules where
   type
@@ -138,34 +140,35 @@ instance Core.AWSRequest DescribeRules where
       "DescribeRulesResult"
       ( \s h x ->
           DescribeRulesResponse'
-            Core.<$> (x Core..@? "NextMarker")
-            Core.<*> ( x Core..@? "Rules" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextMarker")
+            Prelude.<*> ( x Core..@? "Rules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRules
+instance Prelude.Hashable DescribeRules
 
-instance Core.NFData DescribeRules
+instance Prelude.NFData DescribeRules
 
 instance Core.ToHeaders DescribeRules where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeRules where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeRules where
   toQuery DescribeRules' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeRules" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("DescribeRules" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "PageSize" Core.=: pageSize,
         "ListenerArn" Core.=: listenerArn,
         "RuleArns"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> ruleArns),
+            (Core.toQueryList "member" Prelude.<$> ruleArns),
         "Marker" Core.=: marker
       ]
 
@@ -173,13 +176,13 @@ instance Core.ToQuery DescribeRules where
 data DescribeRulesResponse = DescribeRulesResponse'
   { -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Information about the rules.
-    rules :: Core.Maybe [Rule],
+    rules :: Prelude.Maybe [Rule],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRulesResponse' with all optional fields omitted.
@@ -197,26 +200,27 @@ data DescribeRulesResponse = DescribeRulesResponse'
 -- 'httpStatus', 'describeRulesResponse_httpStatus' - The response's http status code.
 newDescribeRulesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRulesResponse
 newDescribeRulesResponse pHttpStatus_ =
   DescribeRulesResponse'
-    { nextMarker = Core.Nothing,
-      rules = Core.Nothing,
+    { nextMarker =
+        Prelude.Nothing,
+      rules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
-describeRulesResponse_nextMarker :: Lens.Lens' DescribeRulesResponse (Core.Maybe Core.Text)
+describeRulesResponse_nextMarker :: Lens.Lens' DescribeRulesResponse (Prelude.Maybe Prelude.Text)
 describeRulesResponse_nextMarker = Lens.lens (\DescribeRulesResponse' {nextMarker} -> nextMarker) (\s@DescribeRulesResponse' {} a -> s {nextMarker = a} :: DescribeRulesResponse)
 
 -- | Information about the rules.
-describeRulesResponse_rules :: Lens.Lens' DescribeRulesResponse (Core.Maybe [Rule])
-describeRulesResponse_rules = Lens.lens (\DescribeRulesResponse' {rules} -> rules) (\s@DescribeRulesResponse' {} a -> s {rules = a} :: DescribeRulesResponse) Core.. Lens.mapping Lens._Coerce
+describeRulesResponse_rules :: Lens.Lens' DescribeRulesResponse (Prelude.Maybe [Rule])
+describeRulesResponse_rules = Lens.lens (\DescribeRulesResponse' {rules} -> rules) (\s@DescribeRulesResponse' {} a -> s {rules = a} :: DescribeRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeRulesResponse_httpStatus :: Lens.Lens' DescribeRulesResponse Core.Int
+describeRulesResponse_httpStatus :: Lens.Lens' DescribeRulesResponse Prelude.Int
 describeRulesResponse_httpStatus = Lens.lens (\DescribeRulesResponse' {httpStatus} -> httpStatus) (\s@DescribeRulesResponse' {} a -> s {httpStatus = a} :: DescribeRulesResponse)
 
-instance Core.NFData DescribeRulesResponse
+instance Prelude.NFData DescribeRulesResponse

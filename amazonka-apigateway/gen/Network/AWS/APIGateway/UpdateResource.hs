@@ -47,6 +47,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +57,13 @@ import qualified Network.AWS.Response as Response
 data UpdateResource = UpdateResource'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the Resource resource.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateResource' with all optional fields omitted.
@@ -80,28 +81,28 @@ data UpdateResource = UpdateResource'
 -- 'resourceId', 'updateResource_resourceId' - [Required] The identifier of the Resource resource.
 newUpdateResource ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateResource
 newUpdateResource pRestApiId_ pResourceId_ =
   UpdateResource'
-    { patchOperations = Core.Nothing,
+    { patchOperations = Prelude.Nothing,
       restApiId = pRestApiId_,
       resourceId = pResourceId_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateResource_patchOperations :: Lens.Lens' UpdateResource (Core.Maybe [PatchOperation])
-updateResource_patchOperations = Lens.lens (\UpdateResource' {patchOperations} -> patchOperations) (\s@UpdateResource' {} a -> s {patchOperations = a} :: UpdateResource) Core.. Lens.mapping Lens._Coerce
+updateResource_patchOperations :: Lens.Lens' UpdateResource (Prelude.Maybe [PatchOperation])
+updateResource_patchOperations = Lens.lens (\UpdateResource' {patchOperations} -> patchOperations) (\s@UpdateResource' {} a -> s {patchOperations = a} :: UpdateResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateResource_restApiId :: Lens.Lens' UpdateResource Core.Text
+updateResource_restApiId :: Lens.Lens' UpdateResource Prelude.Text
 updateResource_restApiId = Lens.lens (\UpdateResource' {restApiId} -> restApiId) (\s@UpdateResource' {} a -> s {restApiId = a} :: UpdateResource)
 
 -- | [Required] The identifier of the Resource resource.
-updateResource_resourceId :: Lens.Lens' UpdateResource Core.Text
+updateResource_resourceId :: Lens.Lens' UpdateResource Prelude.Text
 updateResource_resourceId = Lens.lens (\UpdateResource' {resourceId} -> resourceId) (\s@UpdateResource' {} a -> s {resourceId = a} :: UpdateResource)
 
 instance Core.AWSRequest UpdateResource where
@@ -111,31 +112,31 @@ instance Core.AWSRequest UpdateResource where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateResource
+instance Prelude.Hashable UpdateResource
 
-instance Core.NFData UpdateResource
+instance Prelude.NFData UpdateResource
 
 instance Core.ToHeaders UpdateResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateResource where
   toJSON UpdateResource' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateResource where
   toPath UpdateResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -143,4 +144,4 @@ instance Core.ToPath UpdateResource where
       ]
 
 instance Core.ToQuery UpdateResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

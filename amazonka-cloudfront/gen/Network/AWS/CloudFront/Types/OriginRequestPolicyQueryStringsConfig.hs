@@ -23,6 +23,7 @@ import Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringBehavior
 import Network.AWS.CloudFront.Types.QueryStringNames
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that determines whether any URL query strings in viewer
 -- requests (and if so, which query strings) are included in requests that
@@ -32,7 +33,7 @@ import qualified Network.AWS.Lens as Lens
 data OriginRequestPolicyQueryStringsConfig = OriginRequestPolicyQueryStringsConfig'
   { -- | Contains a list of the query strings in viewer requests that are
     -- included in requests that CloudFront sends to the origin.
-    queryStrings :: Core.Maybe QueryStringNames,
+    queryStrings :: Prelude.Maybe QueryStringNames,
     -- | Determines whether any URL query strings in viewer requests are included
     -- in requests that CloudFront sends to the origin. Valid values are:
     --
@@ -49,7 +50,7 @@ data OriginRequestPolicyQueryStringsConfig = OriginRequestPolicyQueryStringsConf
     --     requests that CloudFront sends to the origin.
     queryStringBehavior :: OriginRequestPolicyQueryStringBehavior
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicyQueryStringsConfig' with all optional fields omitted.
@@ -84,14 +85,14 @@ newOriginRequestPolicyQueryStringsConfig
   pQueryStringBehavior_ =
     OriginRequestPolicyQueryStringsConfig'
       { queryStrings =
-          Core.Nothing,
+          Prelude.Nothing,
         queryStringBehavior =
           pQueryStringBehavior_
       }
 
 -- | Contains a list of the query strings in viewer requests that are
 -- included in requests that CloudFront sends to the origin.
-originRequestPolicyQueryStringsConfig_queryStrings :: Lens.Lens' OriginRequestPolicyQueryStringsConfig (Core.Maybe QueryStringNames)
+originRequestPolicyQueryStringsConfig_queryStrings :: Lens.Lens' OriginRequestPolicyQueryStringsConfig (Prelude.Maybe QueryStringNames)
 originRequestPolicyQueryStringsConfig_queryStrings = Lens.lens (\OriginRequestPolicyQueryStringsConfig' {queryStrings} -> queryStrings) (\s@OriginRequestPolicyQueryStringsConfig' {} a -> s {queryStrings = a} :: OriginRequestPolicyQueryStringsConfig)
 
 -- | Determines whether any URL query strings in viewer requests are included
@@ -117,15 +118,15 @@ instance
   where
   parseXML x =
     OriginRequestPolicyQueryStringsConfig'
-      Core.<$> (x Core..@? "QueryStrings")
-      Core.<*> (x Core..@ "QueryStringBehavior")
+      Prelude.<$> (x Core..@? "QueryStrings")
+      Prelude.<*> (x Core..@ "QueryStringBehavior")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OriginRequestPolicyQueryStringsConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     OriginRequestPolicyQueryStringsConfig
 
 instance
@@ -133,7 +134,7 @@ instance
     OriginRequestPolicyQueryStringsConfig
   where
   toXML OriginRequestPolicyQueryStringsConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "QueryStrings" Core.@= queryStrings,
         "QueryStringBehavior" Core.@= queryStringBehavior
       ]

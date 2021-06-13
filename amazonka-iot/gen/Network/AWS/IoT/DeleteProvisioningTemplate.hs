@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteProvisioningTemplate' smart constructor.
 data DeleteProvisioningTemplate = DeleteProvisioningTemplate'
   { -- | The name of the fleet provision template to delete.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisioningTemplate' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteProvisioningTemplate = DeleteProvisioningTemplate'
 -- 'templateName', 'deleteProvisioningTemplate_templateName' - The name of the fleet provision template to delete.
 newDeleteProvisioningTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteProvisioningTemplate
 newDeleteProvisioningTemplate pTemplateName_ =
   DeleteProvisioningTemplate'
@@ -71,7 +72,7 @@ newDeleteProvisioningTemplate pTemplateName_ =
     }
 
 -- | The name of the fleet provision template to delete.
-deleteProvisioningTemplate_templateName :: Lens.Lens' DeleteProvisioningTemplate Core.Text
+deleteProvisioningTemplate_templateName :: Lens.Lens' DeleteProvisioningTemplate Prelude.Text
 deleteProvisioningTemplate_templateName = Lens.lens (\DeleteProvisioningTemplate' {templateName} -> templateName) (\s@DeleteProvisioningTemplate' {} a -> s {templateName = a} :: DeleteProvisioningTemplate)
 
 instance Core.AWSRequest DeleteProvisioningTemplate where
@@ -83,30 +84,30 @@ instance Core.AWSRequest DeleteProvisioningTemplate where
     Response.receiveEmpty
       ( \s h x ->
           DeleteProvisioningTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteProvisioningTemplate
+instance Prelude.Hashable DeleteProvisioningTemplate
 
-instance Core.NFData DeleteProvisioningTemplate
+instance Prelude.NFData DeleteProvisioningTemplate
 
 instance Core.ToHeaders DeleteProvisioningTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteProvisioningTemplate where
   toPath DeleteProvisioningTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/provisioning-templates/", Core.toBS templateName]
 
 instance Core.ToQuery DeleteProvisioningTemplate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProvisioningTemplateResponse' smart constructor.
 data DeleteProvisioningTemplateResponse = DeleteProvisioningTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisioningTemplateResponse' with all optional fields omitted.
@@ -119,7 +120,7 @@ data DeleteProvisioningTemplateResponse = DeleteProvisioningTemplateResponse'
 -- 'httpStatus', 'deleteProvisioningTemplateResponse_httpStatus' - The response's http status code.
 newDeleteProvisioningTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteProvisioningTemplateResponse
 newDeleteProvisioningTemplateResponse pHttpStatus_ =
   DeleteProvisioningTemplateResponse'
@@ -128,9 +129,9 @@ newDeleteProvisioningTemplateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteProvisioningTemplateResponse_httpStatus :: Lens.Lens' DeleteProvisioningTemplateResponse Core.Int
+deleteProvisioningTemplateResponse_httpStatus :: Lens.Lens' DeleteProvisioningTemplateResponse Prelude.Int
 deleteProvisioningTemplateResponse_httpStatus = Lens.lens (\DeleteProvisioningTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteProvisioningTemplateResponse' {} a -> s {httpStatus = a} :: DeleteProvisioningTemplateResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteProvisioningTemplateResponse

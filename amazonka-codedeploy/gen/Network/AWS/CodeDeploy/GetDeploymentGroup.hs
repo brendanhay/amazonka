@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data GetDeploymentGroup = GetDeploymentGroup'
   { -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The name of a deployment group for the specified application.
-    deploymentGroupName :: Core.Text
+    deploymentGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeploymentGroup' with all optional fields omitted.
@@ -72,9 +73,9 @@ data GetDeploymentGroup = GetDeploymentGroup'
 -- 'deploymentGroupName', 'getDeploymentGroup_deploymentGroupName' - The name of a deployment group for the specified application.
 newGetDeploymentGroup ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deploymentGroupName'
-  Core.Text ->
+  Prelude.Text ->
   GetDeploymentGroup
 newGetDeploymentGroup
   pApplicationName_
@@ -87,11 +88,11 @@ newGetDeploymentGroup
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
-getDeploymentGroup_applicationName :: Lens.Lens' GetDeploymentGroup Core.Text
+getDeploymentGroup_applicationName :: Lens.Lens' GetDeploymentGroup Prelude.Text
 getDeploymentGroup_applicationName = Lens.lens (\GetDeploymentGroup' {applicationName} -> applicationName) (\s@GetDeploymentGroup' {} a -> s {applicationName = a} :: GetDeploymentGroup)
 
 -- | The name of a deployment group for the specified application.
-getDeploymentGroup_deploymentGroupName :: Lens.Lens' GetDeploymentGroup Core.Text
+getDeploymentGroup_deploymentGroupName :: Lens.Lens' GetDeploymentGroup Prelude.Text
 getDeploymentGroup_deploymentGroupName = Lens.lens (\GetDeploymentGroup' {deploymentGroupName} -> deploymentGroupName) (\s@GetDeploymentGroup' {} a -> s {deploymentGroupName = a} :: GetDeploymentGroup)
 
 instance Core.AWSRequest GetDeploymentGroup where
@@ -103,54 +104,56 @@ instance Core.AWSRequest GetDeploymentGroup where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentGroupResponse'
-            Core.<$> (x Core..?> "deploymentGroupInfo")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "deploymentGroupInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDeploymentGroup
+instance Prelude.Hashable GetDeploymentGroup
 
-instance Core.NFData GetDeploymentGroup
+instance Prelude.NFData GetDeploymentGroup
 
 instance Core.ToHeaders GetDeploymentGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.GetDeploymentGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDeploymentGroup where
   toJSON GetDeploymentGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("applicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ("deploymentGroupName" Core..= deploymentGroupName)
           ]
       )
 
 instance Core.ToPath GetDeploymentGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDeploymentGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetDeploymentGroup@ operation.
 --
 -- /See:/ 'newGetDeploymentGroupResponse' smart constructor.
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
   { -- | Information about the deployment group.
-    deploymentGroupInfo :: Core.Maybe DeploymentGroupInfo,
+    deploymentGroupInfo :: Prelude.Maybe DeploymentGroupInfo,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeploymentGroupResponse' with all optional fields omitted.
@@ -165,21 +168,21 @@ data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
 -- 'httpStatus', 'getDeploymentGroupResponse_httpStatus' - The response's http status code.
 newGetDeploymentGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDeploymentGroupResponse
 newGetDeploymentGroupResponse pHttpStatus_ =
   GetDeploymentGroupResponse'
     { deploymentGroupInfo =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the deployment group.
-getDeploymentGroupResponse_deploymentGroupInfo :: Lens.Lens' GetDeploymentGroupResponse (Core.Maybe DeploymentGroupInfo)
+getDeploymentGroupResponse_deploymentGroupInfo :: Lens.Lens' GetDeploymentGroupResponse (Prelude.Maybe DeploymentGroupInfo)
 getDeploymentGroupResponse_deploymentGroupInfo = Lens.lens (\GetDeploymentGroupResponse' {deploymentGroupInfo} -> deploymentGroupInfo) (\s@GetDeploymentGroupResponse' {} a -> s {deploymentGroupInfo = a} :: GetDeploymentGroupResponse)
 
 -- | The response's http status code.
-getDeploymentGroupResponse_httpStatus :: Lens.Lens' GetDeploymentGroupResponse Core.Int
+getDeploymentGroupResponse_httpStatus :: Lens.Lens' GetDeploymentGroupResponse Prelude.Int
 getDeploymentGroupResponse_httpStatus = Lens.lens (\GetDeploymentGroupResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentGroupResponse' {} a -> s {httpStatus = a} :: GetDeploymentGroupResponse)
 
-instance Core.NFData GetDeploymentGroupResponse
+instance Prelude.NFData GetDeploymentGroupResponse

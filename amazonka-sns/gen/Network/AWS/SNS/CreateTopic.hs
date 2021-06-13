@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -106,12 +107,12 @@ data CreateTopic = CreateTopic'
     --         (Optional) To override the generated value, you can specify a
     --         value for the the @MessageDeduplicationId@ parameter for the
     --         @Publish@ action.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The list of tags to add to a new topic.
     --
     -- To be able to tag a topic on creation, you must have the
     -- @sns:CreateTopic@ and @sns:TagResource@ permissions.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the topic you want to create.
     --
     -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -120,9 +121,9 @@ data CreateTopic = CreateTopic'
     --
     -- For a FIFO (first-in-first-out) topic, the name must end with the
     -- @.fifo@ suffix.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTopic' with all optional fields omitted.
@@ -197,12 +198,12 @@ data CreateTopic = CreateTopic'
 -- @.fifo@ suffix.
 newCreateTopic ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateTopic
 newCreateTopic pName_ =
   CreateTopic'
-    { attributes = Core.Nothing,
-      tags = Core.Nothing,
+    { attributes = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
 
@@ -255,15 +256,15 @@ newCreateTopic pName_ =
 --         (Optional) To override the generated value, you can specify a
 --         value for the the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
-createTopic_attributes :: Lens.Lens' CreateTopic (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createTopic_attributes = Lens.lens (\CreateTopic' {attributes} -> attributes) (\s@CreateTopic' {} a -> s {attributes = a} :: CreateTopic) Core.. Lens.mapping Lens._Coerce
+createTopic_attributes :: Lens.Lens' CreateTopic (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTopic_attributes = Lens.lens (\CreateTopic' {attributes} -> attributes) (\s@CreateTopic' {} a -> s {attributes = a} :: CreateTopic) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of tags to add to a new topic.
 --
 -- To be able to tag a topic on creation, you must have the
 -- @sns:CreateTopic@ and @sns:TagResource@ permissions.
-createTopic_tags :: Lens.Lens' CreateTopic (Core.Maybe [Tag])
-createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} a -> s {tags = a} :: CreateTopic) Core.. Lens.mapping Lens._Coerce
+createTopic_tags :: Lens.Lens' CreateTopic (Prelude.Maybe [Tag])
+createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} a -> s {tags = a} :: CreateTopic) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the topic you want to create.
 --
@@ -273,7 +274,7 @@ createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} 
 --
 -- For a FIFO (first-in-first-out) topic, the name must end with the
 -- @.fifo@ suffix.
-createTopic_name :: Lens.Lens' CreateTopic Core.Text
+createTopic_name :: Lens.Lens' CreateTopic Prelude.Text
 createTopic_name = Lens.lens (\CreateTopic' {name} -> name) (\s@CreateTopic' {} a -> s {name = a} :: CreateTopic)
 
 instance Core.AWSRequest CreateTopic where
@@ -284,33 +285,35 @@ instance Core.AWSRequest CreateTopic where
       "CreateTopicResult"
       ( \s h x ->
           CreateTopicResponse'
-            Core.<$> (x Core..@? "TopicArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "TopicArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTopic
+instance Prelude.Hashable CreateTopic
 
-instance Core.NFData CreateTopic
+instance Prelude.NFData CreateTopic
 
 instance Core.ToHeaders CreateTopic where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTopic where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTopic where
   toQuery CreateTopic' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CreateTopic" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateTopic" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "Attributes"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"
-                Core.<$> attributes
+                Prelude.<$> attributes
             ),
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "Name" Core.=: name
       ]
 
@@ -319,11 +322,11 @@ instance Core.ToQuery CreateTopic where
 -- /See:/ 'newCreateTopicResponse' smart constructor.
 data CreateTopicResponse = CreateTopicResponse'
   { -- | The Amazon Resource Name (ARN) assigned to the created topic.
-    topicArn :: Core.Maybe Core.Text,
+    topicArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTopicResponse' with all optional fields omitted.
@@ -338,20 +341,20 @@ data CreateTopicResponse = CreateTopicResponse'
 -- 'httpStatus', 'createTopicResponse_httpStatus' - The response's http status code.
 newCreateTopicResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTopicResponse
 newCreateTopicResponse pHttpStatus_ =
   CreateTopicResponse'
-    { topicArn = Core.Nothing,
+    { topicArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
-createTopicResponse_topicArn :: Lens.Lens' CreateTopicResponse (Core.Maybe Core.Text)
+createTopicResponse_topicArn :: Lens.Lens' CreateTopicResponse (Prelude.Maybe Prelude.Text)
 createTopicResponse_topicArn = Lens.lens (\CreateTopicResponse' {topicArn} -> topicArn) (\s@CreateTopicResponse' {} a -> s {topicArn = a} :: CreateTopicResponse)
 
 -- | The response's http status code.
-createTopicResponse_httpStatus :: Lens.Lens' CreateTopicResponse Core.Int
+createTopicResponse_httpStatus :: Lens.Lens' CreateTopicResponse Prelude.Int
 createTopicResponse_httpStatus = Lens.lens (\CreateTopicResponse' {httpStatus} -> httpStatus) (\s@CreateTopicResponse' {} a -> s {httpStatus = a} :: CreateTopicResponse)
 
-instance Core.NFData CreateTopicResponse
+instance Prelude.NFData CreateTopicResponse

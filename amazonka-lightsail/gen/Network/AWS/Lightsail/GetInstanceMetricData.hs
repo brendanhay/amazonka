@@ -54,13 +54,14 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetInstanceMetricData' smart constructor.
 data GetInstanceMetricData = GetInstanceMetricData'
   { -- | The name of the instance for which you want to get metrics data.
-    instanceName :: Core.Text,
+    instanceName :: Prelude.Text,
     -- | The metric for which you want to return information.
     --
     -- Valid instance metric names are listed below, along with the most useful
@@ -164,7 +165,7 @@ data GetInstanceMetricData = GetInstanceMetricData'
     -- @StatusCheckFailed_System@ instance metric data is available in 1-minute
     -- (60 seconds) granularity. All other instance metric data is available in
     -- 5-minute (300 seconds) granularity.
-    period :: Core.Natural,
+    period :: Prelude.Natural,
     -- | The start time of the time period.
     startTime :: Core.POSIX,
     -- | The end time of the time period.
@@ -200,7 +201,7 @@ data GetInstanceMetricData = GetInstanceMetricData'
     --     statistical calculation.
     statistics :: [MetricStatistic]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInstanceMetricData' with all optional fields omitted.
@@ -351,15 +352,15 @@ data GetInstanceMetricData = GetInstanceMetricData'
 --     statistical calculation.
 newGetInstanceMetricData ::
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
   InstanceMetricName ->
   -- | 'period'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'unit'
   MetricUnit ->
   GetInstanceMetricData
@@ -378,11 +379,11 @@ newGetInstanceMetricData
         startTime = Core._Time Lens.# pStartTime_,
         endTime = Core._Time Lens.# pEndTime_,
         unit = pUnit_,
-        statistics = Core.mempty
+        statistics = Prelude.mempty
       }
 
 -- | The name of the instance for which you want to get metrics data.
-getInstanceMetricData_instanceName :: Lens.Lens' GetInstanceMetricData Core.Text
+getInstanceMetricData_instanceName :: Lens.Lens' GetInstanceMetricData Prelude.Text
 getInstanceMetricData_instanceName = Lens.lens (\GetInstanceMetricData' {instanceName} -> instanceName) (\s@GetInstanceMetricData' {} a -> s {instanceName = a} :: GetInstanceMetricData)
 
 -- | The metric for which you want to return information.
@@ -490,16 +491,16 @@ getInstanceMetricData_metricName = Lens.lens (\GetInstanceMetricData' {metricNam
 -- @StatusCheckFailed_System@ instance metric data is available in 1-minute
 -- (60 seconds) granularity. All other instance metric data is available in
 -- 5-minute (300 seconds) granularity.
-getInstanceMetricData_period :: Lens.Lens' GetInstanceMetricData Core.Natural
+getInstanceMetricData_period :: Lens.Lens' GetInstanceMetricData Prelude.Natural
 getInstanceMetricData_period = Lens.lens (\GetInstanceMetricData' {period} -> period) (\s@GetInstanceMetricData' {} a -> s {period = a} :: GetInstanceMetricData)
 
 -- | The start time of the time period.
-getInstanceMetricData_startTime :: Lens.Lens' GetInstanceMetricData Core.UTCTime
-getInstanceMetricData_startTime = Lens.lens (\GetInstanceMetricData' {startTime} -> startTime) (\s@GetInstanceMetricData' {} a -> s {startTime = a} :: GetInstanceMetricData) Core.. Core._Time
+getInstanceMetricData_startTime :: Lens.Lens' GetInstanceMetricData Prelude.UTCTime
+getInstanceMetricData_startTime = Lens.lens (\GetInstanceMetricData' {startTime} -> startTime) (\s@GetInstanceMetricData' {} a -> s {startTime = a} :: GetInstanceMetricData) Prelude.. Core._Time
 
 -- | The end time of the time period.
-getInstanceMetricData_endTime :: Lens.Lens' GetInstanceMetricData Core.UTCTime
-getInstanceMetricData_endTime = Lens.lens (\GetInstanceMetricData' {endTime} -> endTime) (\s@GetInstanceMetricData' {} a -> s {endTime = a} :: GetInstanceMetricData) Core.. Core._Time
+getInstanceMetricData_endTime :: Lens.Lens' GetInstanceMetricData Prelude.UTCTime
+getInstanceMetricData_endTime = Lens.lens (\GetInstanceMetricData' {endTime} -> endTime) (\s@GetInstanceMetricData' {} a -> s {endTime = a} :: GetInstanceMetricData) Prelude.. Core._Time
 
 -- | The unit for the metric data request. Valid units depend on the metric
 -- data being requested. For the valid units to specify with each available
@@ -533,7 +534,7 @@ getInstanceMetricData_unit = Lens.lens (\GetInstanceMetricData' {unit} -> unit) 
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getInstanceMetricData_statistics :: Lens.Lens' GetInstanceMetricData [MetricStatistic]
-getInstanceMetricData_statistics = Lens.lens (\GetInstanceMetricData' {statistics} -> statistics) (\s@GetInstanceMetricData' {} a -> s {statistics = a} :: GetInstanceMetricData) Core.. Lens._Coerce
+getInstanceMetricData_statistics = Lens.lens (\GetInstanceMetricData' {statistics} -> statistics) (\s@GetInstanceMetricData' {} a -> s {statistics = a} :: GetInstanceMetricData) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetInstanceMetricData where
   type
@@ -544,58 +545,60 @@ instance Core.AWSRequest GetInstanceMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceMetricDataResponse'
-            Core.<$> (x Core..?> "metricName")
-            Core.<*> (x Core..?> "metricData" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "metricName")
+            Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInstanceMetricData
+instance Prelude.Hashable GetInstanceMetricData
 
-instance Core.NFData GetInstanceMetricData
+instance Prelude.NFData GetInstanceMetricData
 
 instance Core.ToHeaders GetInstanceMetricData where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetInstanceMetricData" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetInstanceMetricData where
   toJSON GetInstanceMetricData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("instanceName" Core..= instanceName),
-            Core.Just ("metricName" Core..= metricName),
-            Core.Just ("period" Core..= period),
-            Core.Just ("startTime" Core..= startTime),
-            Core.Just ("endTime" Core..= endTime),
-            Core.Just ("unit" Core..= unit),
-            Core.Just ("statistics" Core..= statistics)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("instanceName" Core..= instanceName),
+            Prelude.Just ("metricName" Core..= metricName),
+            Prelude.Just ("period" Core..= period),
+            Prelude.Just ("startTime" Core..= startTime),
+            Prelude.Just ("endTime" Core..= endTime),
+            Prelude.Just ("unit" Core..= unit),
+            Prelude.Just ("statistics" Core..= statistics)
           ]
       )
 
 instance Core.ToPath GetInstanceMetricData where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetInstanceMetricData where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstanceMetricDataResponse' smart constructor.
 data GetInstanceMetricDataResponse = GetInstanceMetricDataResponse'
   { -- | The name of the metric returned.
-    metricName :: Core.Maybe InstanceMetricName,
+    metricName :: Prelude.Maybe InstanceMetricName,
     -- | An array of objects that describe the metric data returned.
-    metricData :: Core.Maybe [MetricDatapoint],
+    metricData :: Prelude.Maybe [MetricDatapoint],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInstanceMetricDataResponse' with all optional fields omitted.
@@ -612,26 +615,26 @@ data GetInstanceMetricDataResponse = GetInstanceMetricDataResponse'
 -- 'httpStatus', 'getInstanceMetricDataResponse_httpStatus' - The response's http status code.
 newGetInstanceMetricDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInstanceMetricDataResponse
 newGetInstanceMetricDataResponse pHttpStatus_ =
   GetInstanceMetricDataResponse'
     { metricName =
-        Core.Nothing,
-      metricData = Core.Nothing,
+        Prelude.Nothing,
+      metricData = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the metric returned.
-getInstanceMetricDataResponse_metricName :: Lens.Lens' GetInstanceMetricDataResponse (Core.Maybe InstanceMetricName)
+getInstanceMetricDataResponse_metricName :: Lens.Lens' GetInstanceMetricDataResponse (Prelude.Maybe InstanceMetricName)
 getInstanceMetricDataResponse_metricName = Lens.lens (\GetInstanceMetricDataResponse' {metricName} -> metricName) (\s@GetInstanceMetricDataResponse' {} a -> s {metricName = a} :: GetInstanceMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
-getInstanceMetricDataResponse_metricData :: Lens.Lens' GetInstanceMetricDataResponse (Core.Maybe [MetricDatapoint])
-getInstanceMetricDataResponse_metricData = Lens.lens (\GetInstanceMetricDataResponse' {metricData} -> metricData) (\s@GetInstanceMetricDataResponse' {} a -> s {metricData = a} :: GetInstanceMetricDataResponse) Core.. Lens.mapping Lens._Coerce
+getInstanceMetricDataResponse_metricData :: Lens.Lens' GetInstanceMetricDataResponse (Prelude.Maybe [MetricDatapoint])
+getInstanceMetricDataResponse_metricData = Lens.lens (\GetInstanceMetricDataResponse' {metricData} -> metricData) (\s@GetInstanceMetricDataResponse' {} a -> s {metricData = a} :: GetInstanceMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getInstanceMetricDataResponse_httpStatus :: Lens.Lens' GetInstanceMetricDataResponse Core.Int
+getInstanceMetricDataResponse_httpStatus :: Lens.Lens' GetInstanceMetricDataResponse Prelude.Int
 getInstanceMetricDataResponse_httpStatus = Lens.lens (\GetInstanceMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetInstanceMetricDataResponse' {} a -> s {httpStatus = a} :: GetInstanceMetricDataResponse)
 
-instance Core.NFData GetInstanceMetricDataResponse
+instance Prelude.NFData GetInstanceMetricDataResponse

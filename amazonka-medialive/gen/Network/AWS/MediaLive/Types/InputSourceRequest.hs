@@ -21,19 +21,20 @@ module Network.AWS.MediaLive.Types.InputSourceRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for for a PULL type input.
 --
 -- /See:/ 'newInputSourceRequest' smart constructor.
 data InputSourceRequest = InputSourceRequest'
   { -- | The key used to extract the password from EC2 Parameter store.
-    passwordParam :: Core.Maybe Core.Text,
+    passwordParam :: Prelude.Maybe Prelude.Text,
     -- | The username for the input source.
-    username :: Core.Maybe Core.Text,
+    username :: Prelude.Maybe Prelude.Text,
     -- | This represents the customer\'s source URL where stream is pulled from.
-    url :: Core.Maybe Core.Text
+    url :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputSourceRequest' with all optional fields omitted.
@@ -52,33 +53,34 @@ newInputSourceRequest ::
   InputSourceRequest
 newInputSourceRequest =
   InputSourceRequest'
-    { passwordParam = Core.Nothing,
-      username = Core.Nothing,
-      url = Core.Nothing
+    { passwordParam =
+        Prelude.Nothing,
+      username = Prelude.Nothing,
+      url = Prelude.Nothing
     }
 
 -- | The key used to extract the password from EC2 Parameter store.
-inputSourceRequest_passwordParam :: Lens.Lens' InputSourceRequest (Core.Maybe Core.Text)
+inputSourceRequest_passwordParam :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
 inputSourceRequest_passwordParam = Lens.lens (\InputSourceRequest' {passwordParam} -> passwordParam) (\s@InputSourceRequest' {} a -> s {passwordParam = a} :: InputSourceRequest)
 
 -- | The username for the input source.
-inputSourceRequest_username :: Lens.Lens' InputSourceRequest (Core.Maybe Core.Text)
+inputSourceRequest_username :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
 inputSourceRequest_username = Lens.lens (\InputSourceRequest' {username} -> username) (\s@InputSourceRequest' {} a -> s {username = a} :: InputSourceRequest)
 
 -- | This represents the customer\'s source URL where stream is pulled from.
-inputSourceRequest_url :: Lens.Lens' InputSourceRequest (Core.Maybe Core.Text)
+inputSourceRequest_url :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
 inputSourceRequest_url = Lens.lens (\InputSourceRequest' {url} -> url) (\s@InputSourceRequest' {} a -> s {url = a} :: InputSourceRequest)
 
-instance Core.Hashable InputSourceRequest
+instance Prelude.Hashable InputSourceRequest
 
-instance Core.NFData InputSourceRequest
+instance Prelude.NFData InputSourceRequest
 
 instance Core.ToJSON InputSourceRequest where
   toJSON InputSourceRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("passwordParam" Core..=) Core.<$> passwordParam,
-            ("username" Core..=) Core.<$> username,
-            ("url" Core..=) Core.<$> url
+      ( Prelude.catMaybes
+          [ ("passwordParam" Core..=) Prelude.<$> passwordParam,
+            ("username" Core..=) Prelude.<$> username,
+            ("url" Core..=) Prelude.<$> url
           ]
       )

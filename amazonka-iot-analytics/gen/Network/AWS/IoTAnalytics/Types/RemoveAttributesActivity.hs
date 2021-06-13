@@ -21,19 +21,20 @@ module Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An activity that removes attributes from a message.
 --
 -- /See:/ 'newRemoveAttributesActivity' smart constructor.
 data RemoveAttributesActivity = RemoveAttributesActivity'
   { -- | The next activity in the pipeline.
-    next :: Core.Maybe Core.Text,
+    next :: Prelude.Maybe Prelude.Text,
     -- | The name of the @removeAttributes@ activity.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A list of 1-50 attributes to remove from the message.
-    attributes :: Core.NonEmpty Core.Text
+    attributes :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveAttributesActivity' with all optional fields omitted.
@@ -50,28 +51,28 @@ data RemoveAttributesActivity = RemoveAttributesActivity'
 -- 'attributes', 'removeAttributesActivity_attributes' - A list of 1-50 attributes to remove from the message.
 newRemoveAttributesActivity ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attributes'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   RemoveAttributesActivity
 newRemoveAttributesActivity pName_ pAttributes_ =
   RemoveAttributesActivity'
-    { next = Core.Nothing,
+    { next = Prelude.Nothing,
       name = pName_,
       attributes = Lens._Coerce Lens.# pAttributes_
     }
 
 -- | The next activity in the pipeline.
-removeAttributesActivity_next :: Lens.Lens' RemoveAttributesActivity (Core.Maybe Core.Text)
+removeAttributesActivity_next :: Lens.Lens' RemoveAttributesActivity (Prelude.Maybe Prelude.Text)
 removeAttributesActivity_next = Lens.lens (\RemoveAttributesActivity' {next} -> next) (\s@RemoveAttributesActivity' {} a -> s {next = a} :: RemoveAttributesActivity)
 
 -- | The name of the @removeAttributes@ activity.
-removeAttributesActivity_name :: Lens.Lens' RemoveAttributesActivity Core.Text
+removeAttributesActivity_name :: Lens.Lens' RemoveAttributesActivity Prelude.Text
 removeAttributesActivity_name = Lens.lens (\RemoveAttributesActivity' {name} -> name) (\s@RemoveAttributesActivity' {} a -> s {name = a} :: RemoveAttributesActivity)
 
 -- | A list of 1-50 attributes to remove from the message.
-removeAttributesActivity_attributes :: Lens.Lens' RemoveAttributesActivity (Core.NonEmpty Core.Text)
-removeAttributesActivity_attributes = Lens.lens (\RemoveAttributesActivity' {attributes} -> attributes) (\s@RemoveAttributesActivity' {} a -> s {attributes = a} :: RemoveAttributesActivity) Core.. Lens._Coerce
+removeAttributesActivity_attributes :: Lens.Lens' RemoveAttributesActivity (Prelude.NonEmpty Prelude.Text)
+removeAttributesActivity_attributes = Lens.lens (\RemoveAttributesActivity' {attributes} -> attributes) (\s@RemoveAttributesActivity' {} a -> s {attributes = a} :: RemoveAttributesActivity) Prelude.. Lens._Coerce
 
 instance Core.FromJSON RemoveAttributesActivity where
   parseJSON =
@@ -79,21 +80,21 @@ instance Core.FromJSON RemoveAttributesActivity where
       "RemoveAttributesActivity"
       ( \x ->
           RemoveAttributesActivity'
-            Core.<$> (x Core..:? "next")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "attributes")
+            Prelude.<$> (x Core..:? "next")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "attributes")
       )
 
-instance Core.Hashable RemoveAttributesActivity
+instance Prelude.Hashable RemoveAttributesActivity
 
-instance Core.NFData RemoveAttributesActivity
+instance Prelude.NFData RemoveAttributesActivity
 
 instance Core.ToJSON RemoveAttributesActivity where
   toJSON RemoveAttributesActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("next" Core..=) Core.<$> next,
-            Core.Just ("name" Core..= name),
-            Core.Just ("attributes" Core..= attributes)
+      ( Prelude.catMaybes
+          [ ("next" Core..=) Prelude.<$> next,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("attributes" Core..= attributes)
           ]
       )

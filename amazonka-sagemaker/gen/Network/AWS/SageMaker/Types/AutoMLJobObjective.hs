@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AutoMLJobObjective where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLMetricEnum
 
 -- | Specifies a metric to minimize or maximize as the objective of a job.
@@ -101,7 +102,7 @@ data AutoMLJobObjective = AutoMLJobObjective'
     -- -   @Accuracy@: for multiclass classification.
     metricName :: AutoMLMetricEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoMLJobObjective' with all optional fields omitted.
@@ -271,16 +272,16 @@ instance Core.FromJSON AutoMLJobObjective where
       "AutoMLJobObjective"
       ( \x ->
           AutoMLJobObjective'
-            Core.<$> (x Core..: "MetricName")
+            Prelude.<$> (x Core..: "MetricName")
       )
 
-instance Core.Hashable AutoMLJobObjective
+instance Prelude.Hashable AutoMLJobObjective
 
-instance Core.NFData AutoMLJobObjective
+instance Prelude.NFData AutoMLJobObjective
 
 instance Core.ToJSON AutoMLJobObjective where
   toJSON AutoMLJobObjective' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("MetricName" Core..= metricName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("MetricName" Core..= metricName)]
       )

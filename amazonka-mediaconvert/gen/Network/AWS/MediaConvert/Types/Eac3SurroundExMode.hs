@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.Eac3SurroundExMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When encoding 3\/2 audio, sets whether an extra center back surround
 -- channel is matrix encoded into the left and right surround channels.
@@ -36,15 +37,15 @@ newtype Eac3SurroundExMode = Eac3SurroundExMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

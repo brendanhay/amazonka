@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -47,11 +48,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteUserProfile' smart constructor.
 data DeleteUserProfile = DeleteUserProfile'
   { -- | The domain ID.
-    domainId :: Core.Text,
+    domainId :: Prelude.Text,
     -- | The user profile name.
-    userProfileName :: Core.Text
+    userProfileName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserProfile' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteUserProfile = DeleteUserProfile'
 -- 'userProfileName', 'deleteUserProfile_userProfileName' - The user profile name.
 newDeleteUserProfile ::
   -- | 'domainId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userProfileName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserProfile
 newDeleteUserProfile pDomainId_ pUserProfileName_ =
   DeleteUserProfile'
@@ -77,11 +78,11 @@ newDeleteUserProfile pDomainId_ pUserProfileName_ =
     }
 
 -- | The domain ID.
-deleteUserProfile_domainId :: Lens.Lens' DeleteUserProfile Core.Text
+deleteUserProfile_domainId :: Lens.Lens' DeleteUserProfile Prelude.Text
 deleteUserProfile_domainId = Lens.lens (\DeleteUserProfile' {domainId} -> domainId) (\s@DeleteUserProfile' {} a -> s {domainId = a} :: DeleteUserProfile)
 
 -- | The user profile name.
-deleteUserProfile_userProfileName :: Lens.Lens' DeleteUserProfile Core.Text
+deleteUserProfile_userProfileName :: Lens.Lens' DeleteUserProfile Prelude.Text
 deleteUserProfile_userProfileName = Lens.lens (\DeleteUserProfile' {userProfileName} -> userProfileName) (\s@DeleteUserProfile' {} a -> s {userProfileName = a} :: DeleteUserProfile)
 
 instance Core.AWSRequest DeleteUserProfile where
@@ -92,42 +93,46 @@ instance Core.AWSRequest DeleteUserProfile where
   response =
     Response.receiveNull DeleteUserProfileResponse'
 
-instance Core.Hashable DeleteUserProfile
+instance Prelude.Hashable DeleteUserProfile
 
-instance Core.NFData DeleteUserProfile
+instance Prelude.NFData DeleteUserProfile
 
 instance Core.ToHeaders DeleteUserProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteUserProfile" :: Core.ByteString),
+              Core.=# ( "SageMaker.DeleteUserProfile" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DomainId" Core..= domainId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DomainId" Core..= domainId),
+            Prelude.Just
               ("UserProfileName" Core..= userProfileName)
           ]
       )
 
 instance Core.ToPath DeleteUserProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUserProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserProfileResponse' with all optional fields omitted.
@@ -138,4 +143,4 @@ newDeleteUserProfileResponse ::
 newDeleteUserProfileResponse =
   DeleteUserProfileResponse'
 
-instance Core.NFData DeleteUserProfileResponse
+instance Prelude.NFData DeleteUserProfileResponse

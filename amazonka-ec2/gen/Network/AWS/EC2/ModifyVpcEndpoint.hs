@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,41 +67,41 @@ data ModifyVpcEndpoint = ModifyVpcEndpoint'
   { -- | (Interface and gateway endpoints) A policy to attach to the endpoint
     -- that controls access to the service. The policy must be in valid JSON
     -- format.
-    policyDocument :: Core.Maybe Core.Text,
+    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | (Interface endpoint) One or more subnets IDs in which to remove the
     -- endpoint.
-    removeSubnetIds :: Core.Maybe [Core.Text],
+    removeSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | (Gateway endpoint) One or more route tables IDs to associate with the
     -- endpoint.
-    addRouteTableIds :: Core.Maybe [Core.Text],
+    addRouteTableIds :: Prelude.Maybe [Prelude.Text],
     -- | (Gateway endpoint) Specify @true@ to reset the policy document to the
     -- default policy. The default policy allows full access to the service.
-    resetPolicy :: Core.Maybe Core.Bool,
+    resetPolicy :: Prelude.Maybe Prelude.Bool,
     -- | (Gateway endpoint) One or more route table IDs to disassociate from the
     -- endpoint.
-    removeRouteTableIds :: Core.Maybe [Core.Text],
+    removeRouteTableIds :: Prelude.Maybe [Prelude.Text],
     -- | (Interface and Gateway Load Balancer endpoints) One or more subnet IDs
     -- in which to serve the endpoint. For a Gateway Load Balancer endpoint,
     -- you can specify only one subnet.
-    addSubnetIds :: Core.Maybe [Core.Text],
+    addSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint) Indicates whether a private hosted zone is
     -- associated with the VPC.
-    privateDnsEnabled :: Core.Maybe Core.Bool,
+    privateDnsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | (Interface endpoint) One or more security group IDs to disassociate from
     -- the network interface.
-    removeSecurityGroupIds :: Core.Maybe [Core.Text],
+    removeSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint) One or more security group IDs to associate with
     -- the network interface.
-    addSecurityGroupIds :: Core.Maybe [Core.Text],
+    addSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the endpoint.
-    vpcEndpointId :: Core.Text
+    vpcEndpointId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcEndpoint' with all optional fields omitted.
@@ -147,79 +148,80 @@ data ModifyVpcEndpoint = ModifyVpcEndpoint'
 -- 'vpcEndpointId', 'modifyVpcEndpoint_vpcEndpointId' - The ID of the endpoint.
 newModifyVpcEndpoint ::
   -- | 'vpcEndpointId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyVpcEndpoint
 newModifyVpcEndpoint pVpcEndpointId_ =
   ModifyVpcEndpoint'
-    { policyDocument = Core.Nothing,
-      dryRun = Core.Nothing,
-      removeSubnetIds = Core.Nothing,
-      addRouteTableIds = Core.Nothing,
-      resetPolicy = Core.Nothing,
-      removeRouteTableIds = Core.Nothing,
-      addSubnetIds = Core.Nothing,
-      privateDnsEnabled = Core.Nothing,
-      removeSecurityGroupIds = Core.Nothing,
-      addSecurityGroupIds = Core.Nothing,
+    { policyDocument =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      removeSubnetIds = Prelude.Nothing,
+      addRouteTableIds = Prelude.Nothing,
+      resetPolicy = Prelude.Nothing,
+      removeRouteTableIds = Prelude.Nothing,
+      addSubnetIds = Prelude.Nothing,
+      privateDnsEnabled = Prelude.Nothing,
+      removeSecurityGroupIds = Prelude.Nothing,
+      addSecurityGroupIds = Prelude.Nothing,
       vpcEndpointId = pVpcEndpointId_
     }
 
 -- | (Interface and gateway endpoints) A policy to attach to the endpoint
 -- that controls access to the service. The policy must be in valid JSON
 -- format.
-modifyVpcEndpoint_policyDocument :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe Core.Text)
+modifyVpcEndpoint_policyDocument :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe Prelude.Text)
 modifyVpcEndpoint_policyDocument = Lens.lens (\ModifyVpcEndpoint' {policyDocument} -> policyDocument) (\s@ModifyVpcEndpoint' {} a -> s {policyDocument = a} :: ModifyVpcEndpoint)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpcEndpoint_dryRun :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe Core.Bool)
+modifyVpcEndpoint_dryRun :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpoint_dryRun = Lens.lens (\ModifyVpcEndpoint' {dryRun} -> dryRun) (\s@ModifyVpcEndpoint' {} a -> s {dryRun = a} :: ModifyVpcEndpoint)
 
 -- | (Interface endpoint) One or more subnets IDs in which to remove the
 -- endpoint.
-modifyVpcEndpoint_removeSubnetIds :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe [Core.Text])
-modifyVpcEndpoint_removeSubnetIds = Lens.lens (\ModifyVpcEndpoint' {removeSubnetIds} -> removeSubnetIds) (\s@ModifyVpcEndpoint' {} a -> s {removeSubnetIds = a} :: ModifyVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpoint_removeSubnetIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpoint_removeSubnetIds = Lens.lens (\ModifyVpcEndpoint' {removeSubnetIds} -> removeSubnetIds) (\s@ModifyVpcEndpoint' {} a -> s {removeSubnetIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Gateway endpoint) One or more route tables IDs to associate with the
 -- endpoint.
-modifyVpcEndpoint_addRouteTableIds :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe [Core.Text])
-modifyVpcEndpoint_addRouteTableIds = Lens.lens (\ModifyVpcEndpoint' {addRouteTableIds} -> addRouteTableIds) (\s@ModifyVpcEndpoint' {} a -> s {addRouteTableIds = a} :: ModifyVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpoint_addRouteTableIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpoint_addRouteTableIds = Lens.lens (\ModifyVpcEndpoint' {addRouteTableIds} -> addRouteTableIds) (\s@ModifyVpcEndpoint' {} a -> s {addRouteTableIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Gateway endpoint) Specify @true@ to reset the policy document to the
 -- default policy. The default policy allows full access to the service.
-modifyVpcEndpoint_resetPolicy :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe Core.Bool)
+modifyVpcEndpoint_resetPolicy :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpoint_resetPolicy = Lens.lens (\ModifyVpcEndpoint' {resetPolicy} -> resetPolicy) (\s@ModifyVpcEndpoint' {} a -> s {resetPolicy = a} :: ModifyVpcEndpoint)
 
 -- | (Gateway endpoint) One or more route table IDs to disassociate from the
 -- endpoint.
-modifyVpcEndpoint_removeRouteTableIds :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe [Core.Text])
-modifyVpcEndpoint_removeRouteTableIds = Lens.lens (\ModifyVpcEndpoint' {removeRouteTableIds} -> removeRouteTableIds) (\s@ModifyVpcEndpoint' {} a -> s {removeRouteTableIds = a} :: ModifyVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpoint_removeRouteTableIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpoint_removeRouteTableIds = Lens.lens (\ModifyVpcEndpoint' {removeRouteTableIds} -> removeRouteTableIds) (\s@ModifyVpcEndpoint' {} a -> s {removeRouteTableIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Interface and Gateway Load Balancer endpoints) One or more subnet IDs
 -- in which to serve the endpoint. For a Gateway Load Balancer endpoint,
 -- you can specify only one subnet.
-modifyVpcEndpoint_addSubnetIds :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe [Core.Text])
-modifyVpcEndpoint_addSubnetIds = Lens.lens (\ModifyVpcEndpoint' {addSubnetIds} -> addSubnetIds) (\s@ModifyVpcEndpoint' {} a -> s {addSubnetIds = a} :: ModifyVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpoint_addSubnetIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpoint_addSubnetIds = Lens.lens (\ModifyVpcEndpoint' {addSubnetIds} -> addSubnetIds) (\s@ModifyVpcEndpoint' {} a -> s {addSubnetIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Interface endpoint) Indicates whether a private hosted zone is
 -- associated with the VPC.
-modifyVpcEndpoint_privateDnsEnabled :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe Core.Bool)
+modifyVpcEndpoint_privateDnsEnabled :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpoint_privateDnsEnabled = Lens.lens (\ModifyVpcEndpoint' {privateDnsEnabled} -> privateDnsEnabled) (\s@ModifyVpcEndpoint' {} a -> s {privateDnsEnabled = a} :: ModifyVpcEndpoint)
 
 -- | (Interface endpoint) One or more security group IDs to disassociate from
 -- the network interface.
-modifyVpcEndpoint_removeSecurityGroupIds :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe [Core.Text])
-modifyVpcEndpoint_removeSecurityGroupIds = Lens.lens (\ModifyVpcEndpoint' {removeSecurityGroupIds} -> removeSecurityGroupIds) (\s@ModifyVpcEndpoint' {} a -> s {removeSecurityGroupIds = a} :: ModifyVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpoint_removeSecurityGroupIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpoint_removeSecurityGroupIds = Lens.lens (\ModifyVpcEndpoint' {removeSecurityGroupIds} -> removeSecurityGroupIds) (\s@ModifyVpcEndpoint' {} a -> s {removeSecurityGroupIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Interface endpoint) One or more security group IDs to associate with
 -- the network interface.
-modifyVpcEndpoint_addSecurityGroupIds :: Lens.Lens' ModifyVpcEndpoint (Core.Maybe [Core.Text])
-modifyVpcEndpoint_addSecurityGroupIds = Lens.lens (\ModifyVpcEndpoint' {addSecurityGroupIds} -> addSecurityGroupIds) (\s@ModifyVpcEndpoint' {} a -> s {addSecurityGroupIds = a} :: ModifyVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+modifyVpcEndpoint_addSecurityGroupIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpoint_addSecurityGroupIds = Lens.lens (\ModifyVpcEndpoint' {addSecurityGroupIds} -> addSecurityGroupIds) (\s@ModifyVpcEndpoint' {} a -> s {addSecurityGroupIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the endpoint.
-modifyVpcEndpoint_vpcEndpointId :: Lens.Lens' ModifyVpcEndpoint Core.Text
+modifyVpcEndpoint_vpcEndpointId :: Lens.Lens' ModifyVpcEndpoint Prelude.Text
 modifyVpcEndpoint_vpcEndpointId = Lens.lens (\ModifyVpcEndpoint' {vpcEndpointId} -> vpcEndpointId) (\s@ModifyVpcEndpoint' {} a -> s {vpcEndpointId = a} :: ModifyVpcEndpoint)
 
 instance Core.AWSRequest ModifyVpcEndpoint where
@@ -231,53 +233,54 @@ instance Core.AWSRequest ModifyVpcEndpoint where
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyVpcEndpoint
+instance Prelude.Hashable ModifyVpcEndpoint
 
-instance Core.NFData ModifyVpcEndpoint
+instance Prelude.NFData ModifyVpcEndpoint
 
 instance Core.ToHeaders ModifyVpcEndpoint where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyVpcEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyVpcEndpoint where
   toQuery ModifyVpcEndpoint' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpcEndpoint" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyVpcEndpoint" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "PolicyDocument" Core.=: policyDocument,
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "RemoveSubnetId"
-              Core.<$> removeSubnetIds
+              Prelude.<$> removeSubnetIds
           ),
         Core.toQuery
           ( Core.toQueryList "AddRouteTableId"
-              Core.<$> addRouteTableIds
+              Prelude.<$> addRouteTableIds
           ),
         "ResetPolicy" Core.=: resetPolicy,
         Core.toQuery
           ( Core.toQueryList "RemoveRouteTableId"
-              Core.<$> removeRouteTableIds
+              Prelude.<$> removeRouteTableIds
           ),
         Core.toQuery
           ( Core.toQueryList "AddSubnetId"
-              Core.<$> addSubnetIds
+              Prelude.<$> addSubnetIds
           ),
         "PrivateDnsEnabled" Core.=: privateDnsEnabled,
         Core.toQuery
           ( Core.toQueryList "RemoveSecurityGroupId"
-              Core.<$> removeSecurityGroupIds
+              Prelude.<$> removeSecurityGroupIds
           ),
         Core.toQuery
           ( Core.toQueryList "AddSecurityGroupId"
-              Core.<$> addSecurityGroupIds
+              Prelude.<$> addSecurityGroupIds
           ),
         "VpcEndpointId" Core.=: vpcEndpointId
       ]
@@ -285,11 +288,11 @@ instance Core.ToQuery ModifyVpcEndpoint where
 -- | /See:/ 'newModifyVpcEndpointResponse' smart constructor.
 data ModifyVpcEndpointResponse = ModifyVpcEndpointResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcEndpointResponse' with all optional fields omitted.
@@ -304,20 +307,21 @@ data ModifyVpcEndpointResponse = ModifyVpcEndpointResponse'
 -- 'httpStatus', 'modifyVpcEndpointResponse_httpStatus' - The response's http status code.
 newModifyVpcEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyVpcEndpointResponse
 newModifyVpcEndpointResponse pHttpStatus_ =
   ModifyVpcEndpointResponse'
-    { return' = Core.Nothing,
+    { return' =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-modifyVpcEndpointResponse_return :: Lens.Lens' ModifyVpcEndpointResponse (Core.Maybe Core.Bool)
+modifyVpcEndpointResponse_return :: Lens.Lens' ModifyVpcEndpointResponse (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointResponse_return = Lens.lens (\ModifyVpcEndpointResponse' {return'} -> return') (\s@ModifyVpcEndpointResponse' {} a -> s {return' = a} :: ModifyVpcEndpointResponse)
 
 -- | The response's http status code.
-modifyVpcEndpointResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointResponse Core.Int
+modifyVpcEndpointResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointResponse Prelude.Int
 modifyVpcEndpointResponse_httpStatus = Lens.lens (\ModifyVpcEndpointResponse' {httpStatus} -> httpStatus) (\s@ModifyVpcEndpointResponse' {} a -> s {httpStatus = a} :: ModifyVpcEndpointResponse)
 
-instance Core.NFData ModifyVpcEndpointResponse
+instance Prelude.NFData ModifyVpcEndpointResponse

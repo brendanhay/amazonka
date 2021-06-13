@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,15 +63,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetLoadBalancerPoliciesOfListener' smart constructor.
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The external port of the load balancer.
-    loadBalancerPort :: Core.Int,
+    loadBalancerPort :: Prelude.Int,
     -- | The names of the policies. This list must include all policies to be
     -- enabled. If you omit a policy that is currently enabled, it is disabled.
     -- If the list is empty, all current policies are disabled.
-    policyNames :: [Core.Text]
+    policyNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetLoadBalancerPoliciesOfListener' with all optional fields omitted.
@@ -89,9 +90,9 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
 -- If the list is empty, all current policies are disabled.
 newSetLoadBalancerPoliciesOfListener ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'loadBalancerPort'
-  Core.Int ->
+  Prelude.Int ->
   SetLoadBalancerPoliciesOfListener
 newSetLoadBalancerPoliciesOfListener
   pLoadBalancerName_
@@ -100,22 +101,22 @@ newSetLoadBalancerPoliciesOfListener
       { loadBalancerName =
           pLoadBalancerName_,
         loadBalancerPort = pLoadBalancerPort_,
-        policyNames = Core.mempty
+        policyNames = Prelude.mempty
       }
 
 -- | The name of the load balancer.
-setLoadBalancerPoliciesOfListener_loadBalancerName :: Lens.Lens' SetLoadBalancerPoliciesOfListener Core.Text
+setLoadBalancerPoliciesOfListener_loadBalancerName :: Lens.Lens' SetLoadBalancerPoliciesOfListener Prelude.Text
 setLoadBalancerPoliciesOfListener_loadBalancerName = Lens.lens (\SetLoadBalancerPoliciesOfListener' {loadBalancerName} -> loadBalancerName) (\s@SetLoadBalancerPoliciesOfListener' {} a -> s {loadBalancerName = a} :: SetLoadBalancerPoliciesOfListener)
 
 -- | The external port of the load balancer.
-setLoadBalancerPoliciesOfListener_loadBalancerPort :: Lens.Lens' SetLoadBalancerPoliciesOfListener Core.Int
+setLoadBalancerPoliciesOfListener_loadBalancerPort :: Lens.Lens' SetLoadBalancerPoliciesOfListener Prelude.Int
 setLoadBalancerPoliciesOfListener_loadBalancerPort = Lens.lens (\SetLoadBalancerPoliciesOfListener' {loadBalancerPort} -> loadBalancerPort) (\s@SetLoadBalancerPoliciesOfListener' {} a -> s {loadBalancerPort = a} :: SetLoadBalancerPoliciesOfListener)
 
 -- | The names of the policies. This list must include all policies to be
 -- enabled. If you omit a policy that is currently enabled, it is disabled.
 -- If the list is empty, all current policies are disabled.
-setLoadBalancerPoliciesOfListener_policyNames :: Lens.Lens' SetLoadBalancerPoliciesOfListener [Core.Text]
-setLoadBalancerPoliciesOfListener_policyNames = Lens.lens (\SetLoadBalancerPoliciesOfListener' {policyNames} -> policyNames) (\s@SetLoadBalancerPoliciesOfListener' {} a -> s {policyNames = a} :: SetLoadBalancerPoliciesOfListener) Core.. Lens._Coerce
+setLoadBalancerPoliciesOfListener_policyNames :: Lens.Lens' SetLoadBalancerPoliciesOfListener [Prelude.Text]
+setLoadBalancerPoliciesOfListener_policyNames = Lens.lens (\SetLoadBalancerPoliciesOfListener' {policyNames} -> policyNames) (\s@SetLoadBalancerPoliciesOfListener' {} a -> s {policyNames = a} :: SetLoadBalancerPoliciesOfListener) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -130,40 +131,41 @@ instance
       "SetLoadBalancerPoliciesOfListenerResult"
       ( \s h x ->
           SetLoadBalancerPoliciesOfListenerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SetLoadBalancerPoliciesOfListener
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetLoadBalancerPoliciesOfListener
 
 instance
   Core.ToHeaders
     SetLoadBalancerPoliciesOfListener
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     SetLoadBalancerPoliciesOfListener
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     SetLoadBalancerPoliciesOfListener
   where
   toQuery SetLoadBalancerPoliciesOfListener' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "SetLoadBalancerPoliciesOfListener" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerName" Core.=: loadBalancerName,
         "LoadBalancerPort" Core.=: loadBalancerPort,
         "PolicyNames"
@@ -175,9 +177,9 @@ instance
 -- /See:/ 'newSetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetLoadBalancerPoliciesOfListenerResponse' with all optional fields omitted.
@@ -190,7 +192,7 @@ data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListen
 -- 'httpStatus', 'setLoadBalancerPoliciesOfListenerResponse_httpStatus' - The response's http status code.
 newSetLoadBalancerPoliciesOfListenerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetLoadBalancerPoliciesOfListenerResponse
 newSetLoadBalancerPoliciesOfListenerResponse
   pHttpStatus_ =
@@ -200,9 +202,9 @@ newSetLoadBalancerPoliciesOfListenerResponse
       }
 
 -- | The response's http status code.
-setLoadBalancerPoliciesOfListenerResponse_httpStatus :: Lens.Lens' SetLoadBalancerPoliciesOfListenerResponse Core.Int
+setLoadBalancerPoliciesOfListenerResponse_httpStatus :: Lens.Lens' SetLoadBalancerPoliciesOfListenerResponse Prelude.Int
 setLoadBalancerPoliciesOfListenerResponse_httpStatus = Lens.lens (\SetLoadBalancerPoliciesOfListenerResponse' {httpStatus} -> httpStatus) (\s@SetLoadBalancerPoliciesOfListenerResponse' {} a -> s {httpStatus = a} :: SetLoadBalancerPoliciesOfListenerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetLoadBalancerPoliciesOfListenerResponse

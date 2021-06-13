@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowExecutionInfos where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecutionInfo
 
 -- | Contains a paginated list of information about workflow executions.
@@ -34,11 +35,11 @@ data WorkflowExecutionInfos = WorkflowExecutionInfos'
     --
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The list of workflow information structures.
     executionInfos :: [WorkflowExecutionInfo]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionInfos' with all optional fields omitted.
@@ -62,8 +63,8 @@ newWorkflowExecutionInfos ::
 newWorkflowExecutionInfos =
   WorkflowExecutionInfos'
     { nextPageToken =
-        Core.Nothing,
-      executionInfos = Core.mempty
+        Prelude.Nothing,
+      executionInfos = Prelude.mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -73,12 +74,12 @@ newWorkflowExecutionInfos =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-workflowExecutionInfos_nextPageToken :: Lens.Lens' WorkflowExecutionInfos (Core.Maybe Core.Text)
+workflowExecutionInfos_nextPageToken :: Lens.Lens' WorkflowExecutionInfos (Prelude.Maybe Prelude.Text)
 workflowExecutionInfos_nextPageToken = Lens.lens (\WorkflowExecutionInfos' {nextPageToken} -> nextPageToken) (\s@WorkflowExecutionInfos' {} a -> s {nextPageToken = a} :: WorkflowExecutionInfos)
 
 -- | The list of workflow information structures.
 workflowExecutionInfos_executionInfos :: Lens.Lens' WorkflowExecutionInfos [WorkflowExecutionInfo]
-workflowExecutionInfos_executionInfos = Lens.lens (\WorkflowExecutionInfos' {executionInfos} -> executionInfos) (\s@WorkflowExecutionInfos' {} a -> s {executionInfos = a} :: WorkflowExecutionInfos) Core.. Lens._Coerce
+workflowExecutionInfos_executionInfos = Lens.lens (\WorkflowExecutionInfos' {executionInfos} -> executionInfos) (\s@WorkflowExecutionInfos' {} a -> s {executionInfos = a} :: WorkflowExecutionInfos) Prelude.. Lens._Coerce
 
 instance Core.FromJSON WorkflowExecutionInfos where
   parseJSON =
@@ -86,10 +87,12 @@ instance Core.FromJSON WorkflowExecutionInfos where
       "WorkflowExecutionInfos"
       ( \x ->
           WorkflowExecutionInfos'
-            Core.<$> (x Core..:? "nextPageToken")
-            Core.<*> (x Core..:? "executionInfos" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "nextPageToken")
+            Prelude.<*> ( x Core..:? "executionInfos"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable WorkflowExecutionInfos
+instance Prelude.Hashable WorkflowExecutionInfos
 
-instance Core.NFData WorkflowExecutionInfos
+instance Prelude.NFData WorkflowExecutionInfos

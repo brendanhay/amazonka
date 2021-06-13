@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.EndpointSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointStatus
 
 -- | Provides summary information for an endpoint.
@@ -28,9 +29,9 @@ import Network.AWS.SageMaker.Types.EndpointStatus
 -- /See:/ 'newEndpointSummary' smart constructor.
 data EndpointSummary = EndpointSummary'
   { -- | The name of the endpoint.
-    endpointName :: Core.Text,
+    endpointName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the endpoint.
-    endpointArn :: Core.Text,
+    endpointArn :: Prelude.Text,
     -- | A timestamp that shows when the endpoint was created.
     creationTime :: Core.POSIX,
     -- | A timestamp that shows when the endpoint was last modified.
@@ -72,7 +73,7 @@ data EndpointSummary = EndpointSummary'
     -- ListEndpointsInput$StatusEquals filter.
     endpointStatus :: EndpointStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EndpointSummary' with all optional fields omitted.
@@ -127,13 +128,13 @@ data EndpointSummary = EndpointSummary'
 -- ListEndpointsInput$StatusEquals filter.
 newEndpointSummary ::
   -- | 'endpointName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endpointStatus'
   EndpointStatus ->
   EndpointSummary
@@ -153,20 +154,20 @@ newEndpointSummary
       }
 
 -- | The name of the endpoint.
-endpointSummary_endpointName :: Lens.Lens' EndpointSummary Core.Text
+endpointSummary_endpointName :: Lens.Lens' EndpointSummary Prelude.Text
 endpointSummary_endpointName = Lens.lens (\EndpointSummary' {endpointName} -> endpointName) (\s@EndpointSummary' {} a -> s {endpointName = a} :: EndpointSummary)
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
-endpointSummary_endpointArn :: Lens.Lens' EndpointSummary Core.Text
+endpointSummary_endpointArn :: Lens.Lens' EndpointSummary Prelude.Text
 endpointSummary_endpointArn = Lens.lens (\EndpointSummary' {endpointArn} -> endpointArn) (\s@EndpointSummary' {} a -> s {endpointArn = a} :: EndpointSummary)
 
 -- | A timestamp that shows when the endpoint was created.
-endpointSummary_creationTime :: Lens.Lens' EndpointSummary Core.UTCTime
-endpointSummary_creationTime = Lens.lens (\EndpointSummary' {creationTime} -> creationTime) (\s@EndpointSummary' {} a -> s {creationTime = a} :: EndpointSummary) Core.. Core._Time
+endpointSummary_creationTime :: Lens.Lens' EndpointSummary Prelude.UTCTime
+endpointSummary_creationTime = Lens.lens (\EndpointSummary' {creationTime} -> creationTime) (\s@EndpointSummary' {} a -> s {creationTime = a} :: EndpointSummary) Prelude.. Core._Time
 
 -- | A timestamp that shows when the endpoint was last modified.
-endpointSummary_lastModifiedTime :: Lens.Lens' EndpointSummary Core.UTCTime
-endpointSummary_lastModifiedTime = Lens.lens (\EndpointSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EndpointSummary' {} a -> s {lastModifiedTime = a} :: EndpointSummary) Core.. Core._Time
+endpointSummary_lastModifiedTime :: Lens.Lens' EndpointSummary Prelude.UTCTime
+endpointSummary_lastModifiedTime = Lens.lens (\EndpointSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EndpointSummary' {} a -> s {lastModifiedTime = a} :: EndpointSummary) Prelude.. Core._Time
 
 -- | The status of the endpoint.
 --
@@ -212,13 +213,13 @@ instance Core.FromJSON EndpointSummary where
       "EndpointSummary"
       ( \x ->
           EndpointSummary'
-            Core.<$> (x Core..: "EndpointName")
-            Core.<*> (x Core..: "EndpointArn")
-            Core.<*> (x Core..: "CreationTime")
-            Core.<*> (x Core..: "LastModifiedTime")
-            Core.<*> (x Core..: "EndpointStatus")
+            Prelude.<$> (x Core..: "EndpointName")
+            Prelude.<*> (x Core..: "EndpointArn")
+            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Core..: "LastModifiedTime")
+            Prelude.<*> (x Core..: "EndpointStatus")
       )
 
-instance Core.Hashable EndpointSummary
+instance Prelude.Hashable EndpointSummary
 
-instance Core.NFData EndpointSummary
+instance Prelude.NFData EndpointSummary

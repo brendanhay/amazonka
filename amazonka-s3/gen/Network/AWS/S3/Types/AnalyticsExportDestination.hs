@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.AnalyticsExportDestination where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsS3BucketDestination
 
@@ -31,7 +32,7 @@ data AnalyticsExportDestination = AnalyticsExportDestination'
   { -- | A destination signifying output to an S3 bucket.
     s3BucketDestination :: AnalyticsS3BucketDestination
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalyticsExportDestination' with all optional fields omitted.
@@ -59,13 +60,13 @@ analyticsExportDestination_s3BucketDestination = Lens.lens (\AnalyticsExportDest
 instance Core.FromXML AnalyticsExportDestination where
   parseXML x =
     AnalyticsExportDestination'
-      Core.<$> (x Core..@ "S3BucketDestination")
+      Prelude.<$> (x Core..@ "S3BucketDestination")
 
-instance Core.Hashable AnalyticsExportDestination
+instance Prelude.Hashable AnalyticsExportDestination
 
-instance Core.NFData AnalyticsExportDestination
+instance Prelude.NFData AnalyticsExportDestination
 
 instance Core.ToXML AnalyticsExportDestination where
   toXML AnalyticsExportDestination' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["S3BucketDestination" Core.@= s3BucketDestination]

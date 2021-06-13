@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ data DeleteCacheParameterGroup = DeleteCacheParameterGroup'
     --
     -- The specified cache security group must not be associated with any
     -- clusters.
-    cacheParameterGroupName :: Core.Text
+    cacheParameterGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCacheParameterGroup' with all optional fields omitted.
@@ -69,7 +70,7 @@ data DeleteCacheParameterGroup = DeleteCacheParameterGroup'
 -- clusters.
 newDeleteCacheParameterGroup ::
   -- | 'cacheParameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCacheParameterGroup
 newDeleteCacheParameterGroup
   pCacheParameterGroupName_ =
@@ -82,7 +83,7 @@ newDeleteCacheParameterGroup
 --
 -- The specified cache security group must not be associated with any
 -- clusters.
-deleteCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' DeleteCacheParameterGroup Core.Text
+deleteCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' DeleteCacheParameterGroup Prelude.Text
 deleteCacheParameterGroup_cacheParameterGroupName = Lens.lens (\DeleteCacheParameterGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@DeleteCacheParameterGroup' {} a -> s {cacheParameterGroupName = a} :: DeleteCacheParameterGroup)
 
 instance Core.AWSRequest DeleteCacheParameterGroup where
@@ -94,22 +95,23 @@ instance Core.AWSRequest DeleteCacheParameterGroup where
     Response.receiveNull
       DeleteCacheParameterGroupResponse'
 
-instance Core.Hashable DeleteCacheParameterGroup
+instance Prelude.Hashable DeleteCacheParameterGroup
 
-instance Core.NFData DeleteCacheParameterGroup
+instance Prelude.NFData DeleteCacheParameterGroup
 
 instance Core.ToHeaders DeleteCacheParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteCacheParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCacheParameterGroup where
   toQuery DeleteCacheParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteCacheParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("DeleteCacheParameterGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheParameterGroupName"
           Core.=: cacheParameterGroupName
       ]
@@ -118,7 +120,7 @@ instance Core.ToQuery DeleteCacheParameterGroup where
 data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCacheParameterGroupResponse' with all optional fields omitted.
@@ -130,5 +132,5 @@ newDeleteCacheParameterGroupResponse =
   DeleteCacheParameterGroupResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteCacheParameterGroupResponse

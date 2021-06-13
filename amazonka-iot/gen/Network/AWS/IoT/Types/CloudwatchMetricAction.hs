@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.CloudwatchMetricAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action that captures a CloudWatch metric.
 --
@@ -28,21 +29,21 @@ import qualified Network.AWS.Lens as Lens
 data CloudwatchMetricAction = CloudwatchMetricAction'
   { -- | An optional
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp>.
-    metricTimestamp :: Core.Maybe Core.Text,
+    metricTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that allows access to the CloudWatch metric.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The CloudWatch metric namespace name.
-    metricNamespace :: Core.Text,
+    metricNamespace :: Prelude.Text,
     -- | The CloudWatch metric name.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The CloudWatch metric value.
-    metricValue :: Core.Text,
+    metricValue :: Prelude.Text,
     -- | The
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit>
     -- supported by CloudWatch.
-    metricUnit :: Core.Text
+    metricUnit :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudwatchMetricAction' with all optional fields omitted.
@@ -68,15 +69,15 @@ data CloudwatchMetricAction = CloudwatchMetricAction'
 -- supported by CloudWatch.
 newCloudwatchMetricAction ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricNamespace'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricValue'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricUnit'
-  Core.Text ->
+  Prelude.Text ->
   CloudwatchMetricAction
 newCloudwatchMetricAction
   pRoleArn_
@@ -86,7 +87,7 @@ newCloudwatchMetricAction
   pMetricUnit_ =
     CloudwatchMetricAction'
       { metricTimestamp =
-          Core.Nothing,
+          Prelude.Nothing,
         roleArn = pRoleArn_,
         metricNamespace = pMetricNamespace_,
         metricName = pMetricName_,
@@ -96,29 +97,29 @@ newCloudwatchMetricAction
 
 -- | An optional
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp>.
-cloudwatchMetricAction_metricTimestamp :: Lens.Lens' CloudwatchMetricAction (Core.Maybe Core.Text)
+cloudwatchMetricAction_metricTimestamp :: Lens.Lens' CloudwatchMetricAction (Prelude.Maybe Prelude.Text)
 cloudwatchMetricAction_metricTimestamp = Lens.lens (\CloudwatchMetricAction' {metricTimestamp} -> metricTimestamp) (\s@CloudwatchMetricAction' {} a -> s {metricTimestamp = a} :: CloudwatchMetricAction)
 
 -- | The IAM role that allows access to the CloudWatch metric.
-cloudwatchMetricAction_roleArn :: Lens.Lens' CloudwatchMetricAction Core.Text
+cloudwatchMetricAction_roleArn :: Lens.Lens' CloudwatchMetricAction Prelude.Text
 cloudwatchMetricAction_roleArn = Lens.lens (\CloudwatchMetricAction' {roleArn} -> roleArn) (\s@CloudwatchMetricAction' {} a -> s {roleArn = a} :: CloudwatchMetricAction)
 
 -- | The CloudWatch metric namespace name.
-cloudwatchMetricAction_metricNamespace :: Lens.Lens' CloudwatchMetricAction Core.Text
+cloudwatchMetricAction_metricNamespace :: Lens.Lens' CloudwatchMetricAction Prelude.Text
 cloudwatchMetricAction_metricNamespace = Lens.lens (\CloudwatchMetricAction' {metricNamespace} -> metricNamespace) (\s@CloudwatchMetricAction' {} a -> s {metricNamespace = a} :: CloudwatchMetricAction)
 
 -- | The CloudWatch metric name.
-cloudwatchMetricAction_metricName :: Lens.Lens' CloudwatchMetricAction Core.Text
+cloudwatchMetricAction_metricName :: Lens.Lens' CloudwatchMetricAction Prelude.Text
 cloudwatchMetricAction_metricName = Lens.lens (\CloudwatchMetricAction' {metricName} -> metricName) (\s@CloudwatchMetricAction' {} a -> s {metricName = a} :: CloudwatchMetricAction)
 
 -- | The CloudWatch metric value.
-cloudwatchMetricAction_metricValue :: Lens.Lens' CloudwatchMetricAction Core.Text
+cloudwatchMetricAction_metricValue :: Lens.Lens' CloudwatchMetricAction Prelude.Text
 cloudwatchMetricAction_metricValue = Lens.lens (\CloudwatchMetricAction' {metricValue} -> metricValue) (\s@CloudwatchMetricAction' {} a -> s {metricValue = a} :: CloudwatchMetricAction)
 
 -- | The
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit>
 -- supported by CloudWatch.
-cloudwatchMetricAction_metricUnit :: Lens.Lens' CloudwatchMetricAction Core.Text
+cloudwatchMetricAction_metricUnit :: Lens.Lens' CloudwatchMetricAction Prelude.Text
 cloudwatchMetricAction_metricUnit = Lens.lens (\CloudwatchMetricAction' {metricUnit} -> metricUnit) (\s@CloudwatchMetricAction' {} a -> s {metricUnit = a} :: CloudwatchMetricAction)
 
 instance Core.FromJSON CloudwatchMetricAction where
@@ -127,29 +128,29 @@ instance Core.FromJSON CloudwatchMetricAction where
       "CloudwatchMetricAction"
       ( \x ->
           CloudwatchMetricAction'
-            Core.<$> (x Core..:? "metricTimestamp")
-            Core.<*> (x Core..: "roleArn")
-            Core.<*> (x Core..: "metricNamespace")
-            Core.<*> (x Core..: "metricName")
-            Core.<*> (x Core..: "metricValue")
-            Core.<*> (x Core..: "metricUnit")
+            Prelude.<$> (x Core..:? "metricTimestamp")
+            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<*> (x Core..: "metricNamespace")
+            Prelude.<*> (x Core..: "metricName")
+            Prelude.<*> (x Core..: "metricValue")
+            Prelude.<*> (x Core..: "metricUnit")
       )
 
-instance Core.Hashable CloudwatchMetricAction
+instance Prelude.Hashable CloudwatchMetricAction
 
-instance Core.NFData CloudwatchMetricAction
+instance Prelude.NFData CloudwatchMetricAction
 
 instance Core.ToJSON CloudwatchMetricAction where
   toJSON CloudwatchMetricAction' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("metricTimestamp" Core..=)
-              Core.<$> metricTimestamp,
-            Core.Just ("roleArn" Core..= roleArn),
-            Core.Just
+              Prelude.<$> metricTimestamp,
+            Prelude.Just ("roleArn" Core..= roleArn),
+            Prelude.Just
               ("metricNamespace" Core..= metricNamespace),
-            Core.Just ("metricName" Core..= metricName),
-            Core.Just ("metricValue" Core..= metricValue),
-            Core.Just ("metricUnit" Core..= metricUnit)
+            Prelude.Just ("metricName" Core..= metricName),
+            Prelude.Just ("metricValue" Core..= metricValue),
+            Prelude.Just ("metricUnit" Core..= metricUnit)
           ]
       )

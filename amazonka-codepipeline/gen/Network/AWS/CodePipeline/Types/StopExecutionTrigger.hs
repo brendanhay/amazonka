@@ -21,15 +21,16 @@ module Network.AWS.CodePipeline.Types.StopExecutionTrigger where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The interaction that stopped a pipeline execution.
 --
 -- /See:/ 'newStopExecutionTrigger' smart constructor.
 data StopExecutionTrigger = StopExecutionTrigger'
   { -- | The user-specified reason the pipeline was stopped.
-    reason :: Core.Maybe Core.Text
+    reason :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopExecutionTrigger' with all optional fields omitted.
@@ -43,10 +44,10 @@ data StopExecutionTrigger = StopExecutionTrigger'
 newStopExecutionTrigger ::
   StopExecutionTrigger
 newStopExecutionTrigger =
-  StopExecutionTrigger' {reason = Core.Nothing}
+  StopExecutionTrigger' {reason = Prelude.Nothing}
 
 -- | The user-specified reason the pipeline was stopped.
-stopExecutionTrigger_reason :: Lens.Lens' StopExecutionTrigger (Core.Maybe Core.Text)
+stopExecutionTrigger_reason :: Lens.Lens' StopExecutionTrigger (Prelude.Maybe Prelude.Text)
 stopExecutionTrigger_reason = Lens.lens (\StopExecutionTrigger' {reason} -> reason) (\s@StopExecutionTrigger' {} a -> s {reason = a} :: StopExecutionTrigger)
 
 instance Core.FromJSON StopExecutionTrigger where
@@ -54,9 +55,10 @@ instance Core.FromJSON StopExecutionTrigger where
     Core.withObject
       "StopExecutionTrigger"
       ( \x ->
-          StopExecutionTrigger' Core.<$> (x Core..:? "reason")
+          StopExecutionTrigger'
+            Prelude.<$> (x Core..:? "reason")
       )
 
-instance Core.Hashable StopExecutionTrigger
+instance Prelude.Hashable StopExecutionTrigger
 
-instance Core.NFData StopExecutionTrigger
+instance Prelude.NFData StopExecutionTrigger

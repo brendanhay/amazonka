@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
 import Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the timestamp range and timestamp origin of a range of
 -- fragments.
@@ -42,7 +43,7 @@ data ClipFragmentSelector = ClipFragmentSelector'
     -- | The range of timestamps to return.
     timestampRange :: ClipTimestampRange
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClipFragmentSelector' with all optional fields omitted.
@@ -78,18 +79,19 @@ clipFragmentSelector_fragmentSelectorType = Lens.lens (\ClipFragmentSelector' {f
 clipFragmentSelector_timestampRange :: Lens.Lens' ClipFragmentSelector ClipTimestampRange
 clipFragmentSelector_timestampRange = Lens.lens (\ClipFragmentSelector' {timestampRange} -> timestampRange) (\s@ClipFragmentSelector' {} a -> s {timestampRange = a} :: ClipFragmentSelector)
 
-instance Core.Hashable ClipFragmentSelector
+instance Prelude.Hashable ClipFragmentSelector
 
-instance Core.NFData ClipFragmentSelector
+instance Prelude.NFData ClipFragmentSelector
 
 instance Core.ToJSON ClipFragmentSelector where
   toJSON ClipFragmentSelector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "FragmentSelectorType"
                   Core..= fragmentSelectorType
               ),
-            Core.Just ("TimestampRange" Core..= timestampRange)
+            Prelude.Just
+              ("TimestampRange" Core..= timestampRange)
           ]
       )

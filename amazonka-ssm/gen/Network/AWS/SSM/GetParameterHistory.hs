@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -55,18 +56,18 @@ import Network.AWS.SSM.Types
 data GetParameterHistory = GetParameterHistory'
   { -- | Return decrypted values for secure string parameters. This flag is
     -- ignored for String and StringList parameter types.
-    withDecryption :: Core.Maybe Core.Bool,
+    withDecryption :: Prelude.Maybe Prelude.Bool,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the parameter for which you want to review history.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParameterHistory' with all optional fields omitted.
@@ -89,34 +90,35 @@ data GetParameterHistory = GetParameterHistory'
 -- 'name', 'getParameterHistory_name' - The name of the parameter for which you want to review history.
 newGetParameterHistory ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetParameterHistory
 newGetParameterHistory pName_ =
   GetParameterHistory'
-    { withDecryption = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { withDecryption =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       name = pName_
     }
 
 -- | Return decrypted values for secure string parameters. This flag is
 -- ignored for String and StringList parameter types.
-getParameterHistory_withDecryption :: Lens.Lens' GetParameterHistory (Core.Maybe Core.Bool)
+getParameterHistory_withDecryption :: Lens.Lens' GetParameterHistory (Prelude.Maybe Prelude.Bool)
 getParameterHistory_withDecryption = Lens.lens (\GetParameterHistory' {withDecryption} -> withDecryption) (\s@GetParameterHistory' {} a -> s {withDecryption = a} :: GetParameterHistory)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-getParameterHistory_nextToken :: Lens.Lens' GetParameterHistory (Core.Maybe Core.Text)
+getParameterHistory_nextToken :: Lens.Lens' GetParameterHistory (Prelude.Maybe Prelude.Text)
 getParameterHistory_nextToken = Lens.lens (\GetParameterHistory' {nextToken} -> nextToken) (\s@GetParameterHistory' {} a -> s {nextToken = a} :: GetParameterHistory)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-getParameterHistory_maxResults :: Lens.Lens' GetParameterHistory (Core.Maybe Core.Natural)
+getParameterHistory_maxResults :: Lens.Lens' GetParameterHistory (Prelude.Maybe Prelude.Natural)
 getParameterHistory_maxResults = Lens.lens (\GetParameterHistory' {maxResults} -> maxResults) (\s@GetParameterHistory' {} a -> s {maxResults = a} :: GetParameterHistory)
 
 -- | The name of the parameter for which you want to review history.
-getParameterHistory_name :: Lens.Lens' GetParameterHistory Core.Text
+getParameterHistory_name :: Lens.Lens' GetParameterHistory Prelude.Text
 getParameterHistory_name = Lens.lens (\GetParameterHistory' {name} -> name) (\s@GetParameterHistory' {} a -> s {name = a} :: GetParameterHistory)
 
 instance Core.AWSPager GetParameterHistory where
@@ -124,22 +126,22 @@ instance Core.AWSPager GetParameterHistory where
     | Core.stop
         ( rs
             Lens.^? getParameterHistoryResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getParameterHistoryResponse_parameters
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getParameterHistory_nextToken
+          Prelude.& getParameterHistory_nextToken
           Lens..~ rs
           Lens.^? getParameterHistoryResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetParameterHistory where
   type
@@ -150,54 +152,59 @@ instance Core.AWSRequest GetParameterHistory where
     Response.receiveJSON
       ( \s h x ->
           GetParameterHistoryResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Parameters" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetParameterHistory
+instance Prelude.Hashable GetParameterHistory
 
-instance Core.NFData GetParameterHistory
+instance Prelude.NFData GetParameterHistory
 
 instance Core.ToHeaders GetParameterHistory where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetParameterHistory" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.GetParameterHistory" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetParameterHistory where
   toJSON GetParameterHistory' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("WithDecryption" Core..=) Core.<$> withDecryption,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("WithDecryption" Core..=)
+              Prelude.<$> withDecryption,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath GetParameterHistory where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetParameterHistory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParameterHistoryResponse' smart constructor.
 data GetParameterHistoryResponse = GetParameterHistoryResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of parameters returned by the request.
-    parameters :: Core.Maybe [ParameterHistory],
+    parameters :: Prelude.Maybe [ParameterHistory],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParameterHistoryResponse' with all optional fields omitted.
@@ -215,27 +222,27 @@ data GetParameterHistoryResponse = GetParameterHistoryResponse'
 -- 'httpStatus', 'getParameterHistoryResponse_httpStatus' - The response's http status code.
 newGetParameterHistoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetParameterHistoryResponse
 newGetParameterHistoryResponse pHttpStatus_ =
   GetParameterHistoryResponse'
     { nextToken =
-        Core.Nothing,
-      parameters = Core.Nothing,
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-getParameterHistoryResponse_nextToken :: Lens.Lens' GetParameterHistoryResponse (Core.Maybe Core.Text)
+getParameterHistoryResponse_nextToken :: Lens.Lens' GetParameterHistoryResponse (Prelude.Maybe Prelude.Text)
 getParameterHistoryResponse_nextToken = Lens.lens (\GetParameterHistoryResponse' {nextToken} -> nextToken) (\s@GetParameterHistoryResponse' {} a -> s {nextToken = a} :: GetParameterHistoryResponse)
 
 -- | A list of parameters returned by the request.
-getParameterHistoryResponse_parameters :: Lens.Lens' GetParameterHistoryResponse (Core.Maybe [ParameterHistory])
-getParameterHistoryResponse_parameters = Lens.lens (\GetParameterHistoryResponse' {parameters} -> parameters) (\s@GetParameterHistoryResponse' {} a -> s {parameters = a} :: GetParameterHistoryResponse) Core.. Lens.mapping Lens._Coerce
+getParameterHistoryResponse_parameters :: Lens.Lens' GetParameterHistoryResponse (Prelude.Maybe [ParameterHistory])
+getParameterHistoryResponse_parameters = Lens.lens (\GetParameterHistoryResponse' {parameters} -> parameters) (\s@GetParameterHistoryResponse' {} a -> s {parameters = a} :: GetParameterHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getParameterHistoryResponse_httpStatus :: Lens.Lens' GetParameterHistoryResponse Core.Int
+getParameterHistoryResponse_httpStatus :: Lens.Lens' GetParameterHistoryResponse Prelude.Int
 getParameterHistoryResponse_httpStatus = Lens.lens (\GetParameterHistoryResponse' {httpStatus} -> httpStatus) (\s@GetParameterHistoryResponse' {} a -> s {httpStatus = a} :: GetParameterHistoryResponse)
 
-instance Core.NFData GetParameterHistoryResponse
+instance Prelude.NFData GetParameterHistoryResponse

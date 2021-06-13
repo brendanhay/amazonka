@@ -21,6 +21,7 @@ module Network.AWS.Route53Domains.Types.ExtraParam where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53Domains.Types.ExtraParamName
 
 -- | ExtraParam includes the following elements.
@@ -376,9 +377,9 @@ data ExtraParam = ExtraParam'
     -- In addition, many TLDs require a @VAT_NUMBER@.
     name :: ExtraParamName,
     -- | The value that corresponds with the name of an extra parameter.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExtraParam' with all optional fields omitted.
@@ -741,7 +742,7 @@ newExtraParam ::
   -- | 'name'
   ExtraParamName ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   ExtraParam
 newExtraParam pName_ pValue_ =
   ExtraParam' {name = pName_, value = pValue_}
@@ -1097,7 +1098,7 @@ extraParam_name :: Lens.Lens' ExtraParam ExtraParamName
 extraParam_name = Lens.lens (\ExtraParam' {name} -> name) (\s@ExtraParam' {} a -> s {name = a} :: ExtraParam)
 
 -- | The value that corresponds with the name of an extra parameter.
-extraParam_value :: Lens.Lens' ExtraParam Core.Text
+extraParam_value :: Lens.Lens' ExtraParam Prelude.Text
 extraParam_value = Lens.lens (\ExtraParam' {value} -> value) (\s@ExtraParam' {} a -> s {value = a} :: ExtraParam)
 
 instance Core.FromJSON ExtraParam where
@@ -1106,18 +1107,18 @@ instance Core.FromJSON ExtraParam where
       "ExtraParam"
       ( \x ->
           ExtraParam'
-            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable ExtraParam
+instance Prelude.Hashable ExtraParam
 
-instance Core.NFData ExtraParam
+instance Prelude.NFData ExtraParam
 
 instance Core.ToJSON ExtraParam where
   toJSON ExtraParam' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

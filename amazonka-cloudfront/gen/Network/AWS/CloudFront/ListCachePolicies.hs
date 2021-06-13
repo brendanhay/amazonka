@@ -54,6 +54,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,17 +67,17 @@ data ListCachePolicies = ListCachePolicies'
     --
     -- -   @custom@ – Returns only the custom policies created in your AWS
     --     account.
-    type' :: Core.Maybe CachePolicyType,
+    type' :: Prelude.Maybe CachePolicyType,
     -- | The maximum number of cache policies that you want in the response.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of cache policies. The response includes cache policies in the
     -- list that occur after the marker. To get the next page of the list, set
     -- this field’s value to the value of @NextMarker@ from the current page’s
     -- response.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCachePolicies' with all optional fields omitted.
@@ -105,9 +106,9 @@ newListCachePolicies ::
   ListCachePolicies
 newListCachePolicies =
   ListCachePolicies'
-    { type' = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { type' = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A filter to return only the specified kinds of cache policies. Valid
@@ -117,11 +118,11 @@ newListCachePolicies =
 --
 -- -   @custom@ – Returns only the custom policies created in your AWS
 --     account.
-listCachePolicies_type :: Lens.Lens' ListCachePolicies (Core.Maybe CachePolicyType)
+listCachePolicies_type :: Lens.Lens' ListCachePolicies (Prelude.Maybe CachePolicyType)
 listCachePolicies_type = Lens.lens (\ListCachePolicies' {type'} -> type') (\s@ListCachePolicies' {} a -> s {type' = a} :: ListCachePolicies)
 
 -- | The maximum number of cache policies that you want in the response.
-listCachePolicies_maxItems :: Lens.Lens' ListCachePolicies (Core.Maybe Core.Text)
+listCachePolicies_maxItems :: Lens.Lens' ListCachePolicies (Prelude.Maybe Prelude.Text)
 listCachePolicies_maxItems = Lens.lens (\ListCachePolicies' {maxItems} -> maxItems) (\s@ListCachePolicies' {} a -> s {maxItems = a} :: ListCachePolicies)
 
 -- | Use this field when paginating results to indicate where to begin in
@@ -129,7 +130,7 @@ listCachePolicies_maxItems = Lens.lens (\ListCachePolicies' {maxItems} -> maxIte
 -- list that occur after the marker. To get the next page of the list, set
 -- this field’s value to the value of @NextMarker@ from the current page’s
 -- response.
-listCachePolicies_marker :: Lens.Lens' ListCachePolicies (Core.Maybe Core.Text)
+listCachePolicies_marker :: Lens.Lens' ListCachePolicies (Prelude.Maybe Prelude.Text)
 listCachePolicies_marker = Lens.lens (\ListCachePolicies' {marker} -> marker) (\s@ListCachePolicies' {} a -> s {marker = a} :: ListCachePolicies)
 
 instance Core.AWSRequest ListCachePolicies where
@@ -141,23 +142,23 @@ instance Core.AWSRequest ListCachePolicies where
     Response.receiveXML
       ( \s h x ->
           ListCachePoliciesResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListCachePolicies
+instance Prelude.Hashable ListCachePolicies
 
-instance Core.NFData ListCachePolicies
+instance Prelude.NFData ListCachePolicies
 
 instance Core.ToHeaders ListCachePolicies where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListCachePolicies where
-  toPath = Core.const "/2020-05-31/cache-policy"
+  toPath = Prelude.const "/2020-05-31/cache-policy"
 
 instance Core.ToQuery ListCachePolicies where
   toQuery ListCachePolicies' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Type" Core.=: type',
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker
@@ -166,11 +167,11 @@ instance Core.ToQuery ListCachePolicies where
 -- | /See:/ 'newListCachePoliciesResponse' smart constructor.
 data ListCachePoliciesResponse = ListCachePoliciesResponse'
   { -- | A list of cache policies.
-    cachePolicyList :: Core.Maybe CachePolicyList,
+    cachePolicyList :: Prelude.Maybe CachePolicyList,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCachePoliciesResponse' with all optional fields omitted.
@@ -185,21 +186,21 @@ data ListCachePoliciesResponse = ListCachePoliciesResponse'
 -- 'httpStatus', 'listCachePoliciesResponse_httpStatus' - The response's http status code.
 newListCachePoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListCachePoliciesResponse
 newListCachePoliciesResponse pHttpStatus_ =
   ListCachePoliciesResponse'
     { cachePolicyList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of cache policies.
-listCachePoliciesResponse_cachePolicyList :: Lens.Lens' ListCachePoliciesResponse (Core.Maybe CachePolicyList)
+listCachePoliciesResponse_cachePolicyList :: Lens.Lens' ListCachePoliciesResponse (Prelude.Maybe CachePolicyList)
 listCachePoliciesResponse_cachePolicyList = Lens.lens (\ListCachePoliciesResponse' {cachePolicyList} -> cachePolicyList) (\s@ListCachePoliciesResponse' {} a -> s {cachePolicyList = a} :: ListCachePoliciesResponse)
 
 -- | The response's http status code.
-listCachePoliciesResponse_httpStatus :: Lens.Lens' ListCachePoliciesResponse Core.Int
+listCachePoliciesResponse_httpStatus :: Lens.Lens' ListCachePoliciesResponse Prelude.Int
 listCachePoliciesResponse_httpStatus = Lens.lens (\ListCachePoliciesResponse' {httpStatus} -> httpStatus) (\s@ListCachePoliciesResponse' {} a -> s {httpStatus = a} :: ListCachePoliciesResponse)
 
-instance Core.NFData ListCachePoliciesResponse
+instance Prelude.NFData ListCachePoliciesResponse

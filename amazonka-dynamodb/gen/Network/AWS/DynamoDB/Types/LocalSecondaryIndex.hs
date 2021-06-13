@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a local secondary index.
 --
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 data LocalSecondaryIndex = LocalSecondaryIndex'
   { -- | The name of the local secondary index. The name must be unique among all
     -- other indexes on this table.
-    indexName :: Core.Text,
+    indexName :: Prelude.Text,
     -- | The complete key schema for the local secondary index, consisting of one
     -- or more pairs of attribute names and key types:
     --
@@ -47,13 +48,13 @@ data LocalSecondaryIndex = LocalSecondaryIndex'
     -- \"range attribute\" derives from the way DynamoDB stores items with the
     -- same partition key physically close together, in sorted order by the
     -- sort key value.
-    keySchema :: Core.NonEmpty KeySchemaElement,
+    keySchema :: Prelude.NonEmpty KeySchemaElement,
     -- | Represents attributes that are copied (projected) from the table into
     -- the local secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
     projection :: Projection
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LocalSecondaryIndex' with all optional fields omitted.
@@ -88,9 +89,9 @@ data LocalSecondaryIndex = LocalSecondaryIndex'
 -- attributes and index key attributes, which are automatically projected.
 newLocalSecondaryIndex ::
   -- | 'indexName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'keySchema'
-  Core.NonEmpty KeySchemaElement ->
+  Prelude.NonEmpty KeySchemaElement ->
   -- | 'projection'
   Projection ->
   LocalSecondaryIndex
@@ -106,7 +107,7 @@ newLocalSecondaryIndex
 
 -- | The name of the local secondary index. The name must be unique among all
 -- other indexes on this table.
-localSecondaryIndex_indexName :: Lens.Lens' LocalSecondaryIndex Core.Text
+localSecondaryIndex_indexName :: Lens.Lens' LocalSecondaryIndex Prelude.Text
 localSecondaryIndex_indexName = Lens.lens (\LocalSecondaryIndex' {indexName} -> indexName) (\s@LocalSecondaryIndex' {} a -> s {indexName = a} :: LocalSecondaryIndex)
 
 -- | The complete key schema for the local secondary index, consisting of one
@@ -125,8 +126,8 @@ localSecondaryIndex_indexName = Lens.lens (\LocalSecondaryIndex' {indexName} -> 
 -- \"range attribute\" derives from the way DynamoDB stores items with the
 -- same partition key physically close together, in sorted order by the
 -- sort key value.
-localSecondaryIndex_keySchema :: Lens.Lens' LocalSecondaryIndex (Core.NonEmpty KeySchemaElement)
-localSecondaryIndex_keySchema = Lens.lens (\LocalSecondaryIndex' {keySchema} -> keySchema) (\s@LocalSecondaryIndex' {} a -> s {keySchema = a} :: LocalSecondaryIndex) Core.. Lens._Coerce
+localSecondaryIndex_keySchema :: Lens.Lens' LocalSecondaryIndex (Prelude.NonEmpty KeySchemaElement)
+localSecondaryIndex_keySchema = Lens.lens (\LocalSecondaryIndex' {keySchema} -> keySchema) (\s@LocalSecondaryIndex' {} a -> s {keySchema = a} :: LocalSecondaryIndex) Prelude.. Lens._Coerce
 
 -- | Represents attributes that are copied (projected) from the table into
 -- the local secondary index. These are in addition to the primary key
@@ -134,16 +135,16 @@ localSecondaryIndex_keySchema = Lens.lens (\LocalSecondaryIndex' {keySchema} -> 
 localSecondaryIndex_projection :: Lens.Lens' LocalSecondaryIndex Projection
 localSecondaryIndex_projection = Lens.lens (\LocalSecondaryIndex' {projection} -> projection) (\s@LocalSecondaryIndex' {} a -> s {projection = a} :: LocalSecondaryIndex)
 
-instance Core.Hashable LocalSecondaryIndex
+instance Prelude.Hashable LocalSecondaryIndex
 
-instance Core.NFData LocalSecondaryIndex
+instance Prelude.NFData LocalSecondaryIndex
 
 instance Core.ToJSON LocalSecondaryIndex where
   toJSON LocalSecondaryIndex' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("IndexName" Core..= indexName),
-            Core.Just ("KeySchema" Core..= keySchema),
-            Core.Just ("Projection" Core..= projection)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("IndexName" Core..= indexName),
+            Prelude.Just ("KeySchema" Core..= keySchema),
+            Prelude.Just ("Projection" Core..= projection)
           ]
       )

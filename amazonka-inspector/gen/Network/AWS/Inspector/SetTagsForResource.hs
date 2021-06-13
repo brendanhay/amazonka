@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 data SetTagsForResource = SetTagsForResource'
   { -- | A collection of key and value pairs that you want to set to the
     -- assessment template.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The ARN of the assessment template that you want to set tags to.
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTagsForResource' with all optional fields omitted.
@@ -67,21 +68,21 @@ data SetTagsForResource = SetTagsForResource'
 -- 'resourceArn', 'setTagsForResource_resourceArn' - The ARN of the assessment template that you want to set tags to.
 newSetTagsForResource ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   SetTagsForResource
 newSetTagsForResource pResourceArn_ =
   SetTagsForResource'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
 
 -- | A collection of key and value pairs that you want to set to the
 -- assessment template.
-setTagsForResource_tags :: Lens.Lens' SetTagsForResource (Core.Maybe [Tag])
-setTagsForResource_tags = Lens.lens (\SetTagsForResource' {tags} -> tags) (\s@SetTagsForResource' {} a -> s {tags = a} :: SetTagsForResource) Core.. Lens.mapping Lens._Coerce
+setTagsForResource_tags :: Lens.Lens' SetTagsForResource (Prelude.Maybe [Tag])
+setTagsForResource_tags = Lens.lens (\SetTagsForResource' {tags} -> tags) (\s@SetTagsForResource' {} a -> s {tags = a} :: SetTagsForResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the assessment template that you want to set tags to.
-setTagsForResource_resourceArn :: Lens.Lens' SetTagsForResource Core.Text
+setTagsForResource_resourceArn :: Lens.Lens' SetTagsForResource Prelude.Text
 setTagsForResource_resourceArn = Lens.lens (\SetTagsForResource' {resourceArn} -> resourceArn) (\s@SetTagsForResource' {} a -> s {resourceArn = a} :: SetTagsForResource)
 
 instance Core.AWSRequest SetTagsForResource where
@@ -92,43 +93,45 @@ instance Core.AWSRequest SetTagsForResource where
   response =
     Response.receiveNull SetTagsForResourceResponse'
 
-instance Core.Hashable SetTagsForResource
+instance Prelude.Hashable SetTagsForResource
 
-instance Core.NFData SetTagsForResource
+instance Prelude.NFData SetTagsForResource
 
 instance Core.ToHeaders SetTagsForResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.SetTagsForResource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetTagsForResource where
   toJSON SetTagsForResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            Core.Just ("resourceArn" Core..= resourceArn)
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("resourceArn" Core..= resourceArn)
           ]
       )
 
 instance Core.ToPath SetTagsForResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetTagsForResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetTagsForResourceResponse' smart constructor.
 data SetTagsForResourceResponse = SetTagsForResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTagsForResourceResponse' with all optional fields omitted.
@@ -139,4 +142,4 @@ newSetTagsForResourceResponse ::
 newSetTagsForResourceResponse =
   SetTagsForResourceResponse'
 
-instance Core.NFData SetTagsForResourceResponse
+instance Prelude.NFData SetTagsForResourceResponse

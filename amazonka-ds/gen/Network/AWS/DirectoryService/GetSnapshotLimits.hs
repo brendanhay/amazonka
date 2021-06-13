@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetSnapshotLimits' smart constructor.
 data GetSnapshotLimits = GetSnapshotLimits'
   { -- | Contains the identifier of the directory to obtain the limits for.
-    directoryId :: Core.Text
+    directoryId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSnapshotLimits' with all optional fields omitted.
@@ -65,13 +66,13 @@ data GetSnapshotLimits = GetSnapshotLimits'
 -- 'directoryId', 'getSnapshotLimits_directoryId' - Contains the identifier of the directory to obtain the limits for.
 newGetSnapshotLimits ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   GetSnapshotLimits
 newGetSnapshotLimits pDirectoryId_ =
   GetSnapshotLimits' {directoryId = pDirectoryId_}
 
 -- | Contains the identifier of the directory to obtain the limits for.
-getSnapshotLimits_directoryId :: Lens.Lens' GetSnapshotLimits Core.Text
+getSnapshotLimits_directoryId :: Lens.Lens' GetSnapshotLimits Prelude.Text
 getSnapshotLimits_directoryId = Lens.lens (\GetSnapshotLimits' {directoryId} -> directoryId) (\s@GetSnapshotLimits' {} a -> s {directoryId = a} :: GetSnapshotLimits)
 
 instance Core.AWSRequest GetSnapshotLimits where
@@ -83,39 +84,41 @@ instance Core.AWSRequest GetSnapshotLimits where
     Response.receiveJSON
       ( \s h x ->
           GetSnapshotLimitsResponse'
-            Core.<$> (x Core..?> "SnapshotLimits")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SnapshotLimits")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSnapshotLimits
+instance Prelude.Hashable GetSnapshotLimits
 
-instance Core.NFData GetSnapshotLimits
+instance Prelude.NFData GetSnapshotLimits
 
 instance Core.ToHeaders GetSnapshotLimits where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.GetSnapshotLimits" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSnapshotLimits where
   toJSON GetSnapshotLimits' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("DirectoryId" Core..= directoryId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("DirectoryId" Core..= directoryId)]
       )
 
 instance Core.ToPath GetSnapshotLimits where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSnapshotLimits where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the GetSnapshotLimits operation.
 --
@@ -123,11 +126,11 @@ instance Core.ToQuery GetSnapshotLimits where
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
   { -- | A SnapshotLimits object that contains the manual snapshot limits for the
     -- specified directory.
-    snapshotLimits :: Core.Maybe SnapshotLimits,
+    snapshotLimits :: Prelude.Maybe SnapshotLimits,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSnapshotLimitsResponse' with all optional fields omitted.
@@ -143,22 +146,22 @@ data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
 -- 'httpStatus', 'getSnapshotLimitsResponse_httpStatus' - The response's http status code.
 newGetSnapshotLimitsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSnapshotLimitsResponse
 newGetSnapshotLimitsResponse pHttpStatus_ =
   GetSnapshotLimitsResponse'
     { snapshotLimits =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A SnapshotLimits object that contains the manual snapshot limits for the
 -- specified directory.
-getSnapshotLimitsResponse_snapshotLimits :: Lens.Lens' GetSnapshotLimitsResponse (Core.Maybe SnapshotLimits)
+getSnapshotLimitsResponse_snapshotLimits :: Lens.Lens' GetSnapshotLimitsResponse (Prelude.Maybe SnapshotLimits)
 getSnapshotLimitsResponse_snapshotLimits = Lens.lens (\GetSnapshotLimitsResponse' {snapshotLimits} -> snapshotLimits) (\s@GetSnapshotLimitsResponse' {} a -> s {snapshotLimits = a} :: GetSnapshotLimitsResponse)
 
 -- | The response's http status code.
-getSnapshotLimitsResponse_httpStatus :: Lens.Lens' GetSnapshotLimitsResponse Core.Int
+getSnapshotLimitsResponse_httpStatus :: Lens.Lens' GetSnapshotLimitsResponse Prelude.Int
 getSnapshotLimitsResponse_httpStatus = Lens.lens (\GetSnapshotLimitsResponse' {httpStatus} -> httpStatus) (\s@GetSnapshotLimitsResponse' {} a -> s {httpStatus = a} :: GetSnapshotLimitsResponse)
 
-instance Core.NFData GetSnapshotLimitsResponse
+instance Prelude.NFData GetSnapshotLimitsResponse

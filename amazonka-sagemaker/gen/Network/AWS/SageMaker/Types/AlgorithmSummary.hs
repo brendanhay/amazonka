@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AlgorithmSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AlgorithmStatus
 
 -- | Provides summary information about an algorithm.
@@ -28,17 +29,17 @@ import Network.AWS.SageMaker.Types.AlgorithmStatus
 -- /See:/ 'newAlgorithmSummary' smart constructor.
 data AlgorithmSummary = AlgorithmSummary'
   { -- | A brief description of the algorithm.
-    algorithmDescription :: Core.Maybe Core.Text,
+    algorithmDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the algorithm that is described by the summary.
-    algorithmName :: Core.Text,
+    algorithmName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the algorithm.
-    algorithmArn :: Core.Text,
+    algorithmArn :: Prelude.Text,
     -- | A timestamp that shows when the algorithm was created.
     creationTime :: Core.POSIX,
     -- | The overall status of the algorithm.
     algorithmStatus :: AlgorithmStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AlgorithmSummary' with all optional fields omitted.
@@ -59,11 +60,11 @@ data AlgorithmSummary = AlgorithmSummary'
 -- 'algorithmStatus', 'algorithmSummary_algorithmStatus' - The overall status of the algorithm.
 newAlgorithmSummary ::
   -- | 'algorithmName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'algorithmArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'algorithmStatus'
   AlgorithmStatus ->
   AlgorithmSummary
@@ -74,7 +75,7 @@ newAlgorithmSummary
   pAlgorithmStatus_ =
     AlgorithmSummary'
       { algorithmDescription =
-          Core.Nothing,
+          Prelude.Nothing,
         algorithmName = pAlgorithmName_,
         algorithmArn = pAlgorithmArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
@@ -82,20 +83,20 @@ newAlgorithmSummary
       }
 
 -- | A brief description of the algorithm.
-algorithmSummary_algorithmDescription :: Lens.Lens' AlgorithmSummary (Core.Maybe Core.Text)
+algorithmSummary_algorithmDescription :: Lens.Lens' AlgorithmSummary (Prelude.Maybe Prelude.Text)
 algorithmSummary_algorithmDescription = Lens.lens (\AlgorithmSummary' {algorithmDescription} -> algorithmDescription) (\s@AlgorithmSummary' {} a -> s {algorithmDescription = a} :: AlgorithmSummary)
 
 -- | The name of the algorithm that is described by the summary.
-algorithmSummary_algorithmName :: Lens.Lens' AlgorithmSummary Core.Text
+algorithmSummary_algorithmName :: Lens.Lens' AlgorithmSummary Prelude.Text
 algorithmSummary_algorithmName = Lens.lens (\AlgorithmSummary' {algorithmName} -> algorithmName) (\s@AlgorithmSummary' {} a -> s {algorithmName = a} :: AlgorithmSummary)
 
 -- | The Amazon Resource Name (ARN) of the algorithm.
-algorithmSummary_algorithmArn :: Lens.Lens' AlgorithmSummary Core.Text
+algorithmSummary_algorithmArn :: Lens.Lens' AlgorithmSummary Prelude.Text
 algorithmSummary_algorithmArn = Lens.lens (\AlgorithmSummary' {algorithmArn} -> algorithmArn) (\s@AlgorithmSummary' {} a -> s {algorithmArn = a} :: AlgorithmSummary)
 
 -- | A timestamp that shows when the algorithm was created.
-algorithmSummary_creationTime :: Lens.Lens' AlgorithmSummary Core.UTCTime
-algorithmSummary_creationTime = Lens.lens (\AlgorithmSummary' {creationTime} -> creationTime) (\s@AlgorithmSummary' {} a -> s {creationTime = a} :: AlgorithmSummary) Core.. Core._Time
+algorithmSummary_creationTime :: Lens.Lens' AlgorithmSummary Prelude.UTCTime
+algorithmSummary_creationTime = Lens.lens (\AlgorithmSummary' {creationTime} -> creationTime) (\s@AlgorithmSummary' {} a -> s {creationTime = a} :: AlgorithmSummary) Prelude.. Core._Time
 
 -- | The overall status of the algorithm.
 algorithmSummary_algorithmStatus :: Lens.Lens' AlgorithmSummary AlgorithmStatus
@@ -107,13 +108,13 @@ instance Core.FromJSON AlgorithmSummary where
       "AlgorithmSummary"
       ( \x ->
           AlgorithmSummary'
-            Core.<$> (x Core..:? "AlgorithmDescription")
-            Core.<*> (x Core..: "AlgorithmName")
-            Core.<*> (x Core..: "AlgorithmArn")
-            Core.<*> (x Core..: "CreationTime")
-            Core.<*> (x Core..: "AlgorithmStatus")
+            Prelude.<$> (x Core..:? "AlgorithmDescription")
+            Prelude.<*> (x Core..: "AlgorithmName")
+            Prelude.<*> (x Core..: "AlgorithmArn")
+            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Core..: "AlgorithmStatus")
       )
 
-instance Core.Hashable AlgorithmSummary
+instance Prelude.Hashable AlgorithmSummary
 
-instance Core.NFData AlgorithmSummary
+instance Prelude.NFData AlgorithmSummary

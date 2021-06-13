@@ -21,17 +21,18 @@ module Network.AWS.GuardDuty.Types.GeoLocation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the location of the remote IP address.
 --
 -- /See:/ 'newGeoLocation' smart constructor.
 data GeoLocation = GeoLocation'
   { -- | The latitude information of the remote IP address.
-    lat :: Core.Maybe Core.Double,
+    lat :: Prelude.Maybe Prelude.Double,
     -- | The longitude information of the remote IP address.
-    lon :: Core.Maybe Core.Double
+    lon :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GeoLocation' with all optional fields omitted.
@@ -48,16 +49,16 @@ newGeoLocation ::
   GeoLocation
 newGeoLocation =
   GeoLocation'
-    { lat = Core.Nothing,
-      lon = Core.Nothing
+    { lat = Prelude.Nothing,
+      lon = Prelude.Nothing
     }
 
 -- | The latitude information of the remote IP address.
-geoLocation_lat :: Lens.Lens' GeoLocation (Core.Maybe Core.Double)
+geoLocation_lat :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Double)
 geoLocation_lat = Lens.lens (\GeoLocation' {lat} -> lat) (\s@GeoLocation' {} a -> s {lat = a} :: GeoLocation)
 
 -- | The longitude information of the remote IP address.
-geoLocation_lon :: Lens.Lens' GeoLocation (Core.Maybe Core.Double)
+geoLocation_lon :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Double)
 geoLocation_lon = Lens.lens (\GeoLocation' {lon} -> lon) (\s@GeoLocation' {} a -> s {lon = a} :: GeoLocation)
 
 instance Core.FromJSON GeoLocation where
@@ -66,9 +67,9 @@ instance Core.FromJSON GeoLocation where
       "GeoLocation"
       ( \x ->
           GeoLocation'
-            Core.<$> (x Core..:? "lat") Core.<*> (x Core..:? "lon")
+            Prelude.<$> (x Core..:? "lat") Prelude.<*> (x Core..:? "lon")
       )
 
-instance Core.Hashable GeoLocation
+instance Prelude.Hashable GeoLocation
 
-instance Core.NFData GeoLocation
+instance Prelude.NFData GeoLocation

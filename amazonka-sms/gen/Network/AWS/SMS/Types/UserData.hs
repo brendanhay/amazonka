@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.UserData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.S3Location
 
 -- | A script that runs on first launch of an Amazon EC2 instance. Used for
@@ -29,9 +30,9 @@ import Network.AWS.SMS.Types.S3Location
 -- /See:/ 'newUserData' smart constructor.
 data UserData = UserData'
   { -- | Amazon S3 location of the user-data script.
-    s3Location :: Core.Maybe S3Location
+    s3Location :: Prelude.Maybe S3Location
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserData' with all optional fields omitted.
@@ -44,25 +45,27 @@ data UserData = UserData'
 -- 's3Location', 'userData_s3Location' - Amazon S3 location of the user-data script.
 newUserData ::
   UserData
-newUserData = UserData' {s3Location = Core.Nothing}
+newUserData = UserData' {s3Location = Prelude.Nothing}
 
 -- | Amazon S3 location of the user-data script.
-userData_s3Location :: Lens.Lens' UserData (Core.Maybe S3Location)
+userData_s3Location :: Lens.Lens' UserData (Prelude.Maybe S3Location)
 userData_s3Location = Lens.lens (\UserData' {s3Location} -> s3Location) (\s@UserData' {} a -> s {s3Location = a} :: UserData)
 
 instance Core.FromJSON UserData where
   parseJSON =
     Core.withObject
       "UserData"
-      (\x -> UserData' Core.<$> (x Core..:? "s3Location"))
+      ( \x ->
+          UserData' Prelude.<$> (x Core..:? "s3Location")
+      )
 
-instance Core.Hashable UserData
+instance Prelude.Hashable UserData
 
-instance Core.NFData UserData
+instance Prelude.NFData UserData
 
 instance Core.ToJSON UserData where
   toJSON UserData' {..} =
     Core.object
-      ( Core.catMaybes
-          [("s3Location" Core..=) Core.<$> s3Location]
+      ( Prelude.catMaybes
+          [("s3Location" Core..=) Prelude.<$> s3Location]
       )

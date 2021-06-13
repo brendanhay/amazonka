@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ExistingObjectReplication where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ExistingObjectReplicationStatus
 
@@ -33,7 +34,7 @@ import Network.AWS.S3.Types.ExistingObjectReplicationStatus
 data ExistingObjectReplication = ExistingObjectReplication'
   { status :: ExistingObjectReplicationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExistingObjectReplication' with all optional fields omitted.
@@ -58,12 +59,12 @@ existingObjectReplication_status = Lens.lens (\ExistingObjectReplication' {statu
 instance Core.FromXML ExistingObjectReplication where
   parseXML x =
     ExistingObjectReplication'
-      Core.<$> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Status")
 
-instance Core.Hashable ExistingObjectReplication
+instance Prelude.Hashable ExistingObjectReplication
 
-instance Core.NFData ExistingObjectReplication
+instance Prelude.NFData ExistingObjectReplication
 
 instance Core.ToXML ExistingObjectReplication where
   toXML ExistingObjectReplication' {..} =
-    Core.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Core.@= status]

@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.MathActivity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An activity that computes an arithmetic expression using the message\'s
 -- attributes.
@@ -28,17 +29,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMathActivity' smart constructor.
 data MathActivity = MathActivity'
   { -- | The next activity in the pipeline.
-    next :: Core.Maybe Core.Text,
+    next :: Prelude.Maybe Prelude.Text,
     -- | The name of the math activity.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The name of the attribute that contains the result of the math
     -- operation.
-    attribute :: Core.Text,
+    attribute :: Prelude.Text,
     -- | An expression that uses one or more existing attributes and must return
     -- an integer value.
-    math :: Core.Text
+    math :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MathActivity' with all optional fields omitted.
@@ -59,36 +60,36 @@ data MathActivity = MathActivity'
 -- an integer value.
 newMathActivity ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attribute'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'math'
-  Core.Text ->
+  Prelude.Text ->
   MathActivity
 newMathActivity pName_ pAttribute_ pMath_ =
   MathActivity'
-    { next = Core.Nothing,
+    { next = Prelude.Nothing,
       name = pName_,
       attribute = pAttribute_,
       math = pMath_
     }
 
 -- | The next activity in the pipeline.
-mathActivity_next :: Lens.Lens' MathActivity (Core.Maybe Core.Text)
+mathActivity_next :: Lens.Lens' MathActivity (Prelude.Maybe Prelude.Text)
 mathActivity_next = Lens.lens (\MathActivity' {next} -> next) (\s@MathActivity' {} a -> s {next = a} :: MathActivity)
 
 -- | The name of the math activity.
-mathActivity_name :: Lens.Lens' MathActivity Core.Text
+mathActivity_name :: Lens.Lens' MathActivity Prelude.Text
 mathActivity_name = Lens.lens (\MathActivity' {name} -> name) (\s@MathActivity' {} a -> s {name = a} :: MathActivity)
 
 -- | The name of the attribute that contains the result of the math
 -- operation.
-mathActivity_attribute :: Lens.Lens' MathActivity Core.Text
+mathActivity_attribute :: Lens.Lens' MathActivity Prelude.Text
 mathActivity_attribute = Lens.lens (\MathActivity' {attribute} -> attribute) (\s@MathActivity' {} a -> s {attribute = a} :: MathActivity)
 
 -- | An expression that uses one or more existing attributes and must return
 -- an integer value.
-mathActivity_math :: Lens.Lens' MathActivity Core.Text
+mathActivity_math :: Lens.Lens' MathActivity Prelude.Text
 mathActivity_math = Lens.lens (\MathActivity' {math} -> math) (\s@MathActivity' {} a -> s {math = a} :: MathActivity)
 
 instance Core.FromJSON MathActivity where
@@ -97,23 +98,23 @@ instance Core.FromJSON MathActivity where
       "MathActivity"
       ( \x ->
           MathActivity'
-            Core.<$> (x Core..:? "next")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "attribute")
-            Core.<*> (x Core..: "math")
+            Prelude.<$> (x Core..:? "next")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "attribute")
+            Prelude.<*> (x Core..: "math")
       )
 
-instance Core.Hashable MathActivity
+instance Prelude.Hashable MathActivity
 
-instance Core.NFData MathActivity
+instance Prelude.NFData MathActivity
 
 instance Core.ToJSON MathActivity where
   toJSON MathActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("next" Core..=) Core.<$> next,
-            Core.Just ("name" Core..= name),
-            Core.Just ("attribute" Core..= attribute),
-            Core.Just ("math" Core..= math)
+      ( Prelude.catMaybes
+          [ ("next" Core..=) Prelude.<$> next,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("attribute" Core..= attribute),
+            Prelude.Just ("math" Core..= math)
           ]
       )

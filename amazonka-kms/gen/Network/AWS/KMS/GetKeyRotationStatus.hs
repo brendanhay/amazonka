@@ -77,6 +77,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -95,9 +96,9 @@ data GetKeyRotationStatus = GetKeyRotationStatus'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetKeyRotationStatus' with all optional fields omitted.
@@ -122,7 +123,7 @@ data GetKeyRotationStatus = GetKeyRotationStatus'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newGetKeyRotationStatus ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   GetKeyRotationStatus
 newGetKeyRotationStatus pKeyId_ =
   GetKeyRotationStatus' {keyId = pKeyId_}
@@ -140,7 +141,7 @@ newGetKeyRotationStatus pKeyId_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-getKeyRotationStatus_keyId :: Lens.Lens' GetKeyRotationStatus Core.Text
+getKeyRotationStatus_keyId :: Lens.Lens' GetKeyRotationStatus Prelude.Text
 getKeyRotationStatus_keyId = Lens.lens (\GetKeyRotationStatus' {keyId} -> keyId) (\s@GetKeyRotationStatus' {} a -> s {keyId = a} :: GetKeyRotationStatus)
 
 instance Core.AWSRequest GetKeyRotationStatus where
@@ -152,46 +153,50 @@ instance Core.AWSRequest GetKeyRotationStatus where
     Response.receiveJSON
       ( \s h x ->
           GetKeyRotationStatusResponse'
-            Core.<$> (x Core..?> "KeyRotationEnabled")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "KeyRotationEnabled")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetKeyRotationStatus
+instance Prelude.Hashable GetKeyRotationStatus
 
-instance Core.NFData GetKeyRotationStatus
+instance Prelude.NFData GetKeyRotationStatus
 
 instance Core.ToHeaders GetKeyRotationStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "TrentService.GetKeyRotationStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetKeyRotationStatus where
   toJSON GetKeyRotationStatus' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("KeyId" Core..= keyId)]
+      )
 
 instance Core.ToPath GetKeyRotationStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetKeyRotationStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetKeyRotationStatusResponse' smart constructor.
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
   { -- | A Boolean value that specifies whether key rotation is enabled.
-    keyRotationEnabled :: Core.Maybe Core.Bool,
+    keyRotationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetKeyRotationStatusResponse' with all optional fields omitted.
@@ -206,21 +211,21 @@ data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
 -- 'httpStatus', 'getKeyRotationStatusResponse_httpStatus' - The response's http status code.
 newGetKeyRotationStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetKeyRotationStatusResponse
 newGetKeyRotationStatusResponse pHttpStatus_ =
   GetKeyRotationStatusResponse'
     { keyRotationEnabled =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A Boolean value that specifies whether key rotation is enabled.
-getKeyRotationStatusResponse_keyRotationEnabled :: Lens.Lens' GetKeyRotationStatusResponse (Core.Maybe Core.Bool)
+getKeyRotationStatusResponse_keyRotationEnabled :: Lens.Lens' GetKeyRotationStatusResponse (Prelude.Maybe Prelude.Bool)
 getKeyRotationStatusResponse_keyRotationEnabled = Lens.lens (\GetKeyRotationStatusResponse' {keyRotationEnabled} -> keyRotationEnabled) (\s@GetKeyRotationStatusResponse' {} a -> s {keyRotationEnabled = a} :: GetKeyRotationStatusResponse)
 
 -- | The response's http status code.
-getKeyRotationStatusResponse_httpStatus :: Lens.Lens' GetKeyRotationStatusResponse Core.Int
+getKeyRotationStatusResponse_httpStatus :: Lens.Lens' GetKeyRotationStatusResponse Prelude.Int
 getKeyRotationStatusResponse_httpStatus = Lens.lens (\GetKeyRotationStatusResponse' {httpStatus} -> httpStatus) (\s@GetKeyRotationStatusResponse' {} a -> s {httpStatus = a} :: GetKeyRotationStatusResponse)
 
-instance Core.NFData GetKeyRotationStatusResponse
+instance Prelude.NFData GetKeyRotationStatusResponse

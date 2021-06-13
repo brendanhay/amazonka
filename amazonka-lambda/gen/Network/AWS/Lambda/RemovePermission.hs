@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,10 +51,10 @@ data RemovePermission = RemovePermission'
   { -- | Only update the policy if the revision ID matches the ID that\'s
     -- specified. Use this option to avoid modifying a policy that has changed
     -- since you last read it.
-    revisionId :: Core.Maybe Core.Text,
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | Specify a version or alias to remove permissions from a published
     -- version of the function.
-    qualifier :: Core.Maybe Core.Text,
+    qualifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -69,11 +70,11 @@ data RemovePermission = RemovePermission'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Core.Text,
+    functionName :: Prelude.Text,
     -- | Statement ID of the permission to remove.
-    statementId :: Core.Text
+    statementId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemovePermission' with all optional fields omitted.
@@ -109,14 +110,14 @@ data RemovePermission = RemovePermission'
 -- 'statementId', 'removePermission_statementId' - Statement ID of the permission to remove.
 newRemovePermission ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'statementId'
-  Core.Text ->
+  Prelude.Text ->
   RemovePermission
 newRemovePermission pFunctionName_ pStatementId_ =
   RemovePermission'
-    { revisionId = Core.Nothing,
-      qualifier = Core.Nothing,
+    { revisionId = Prelude.Nothing,
+      qualifier = Prelude.Nothing,
       functionName = pFunctionName_,
       statementId = pStatementId_
     }
@@ -124,12 +125,12 @@ newRemovePermission pFunctionName_ pStatementId_ =
 -- | Only update the policy if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying a policy that has changed
 -- since you last read it.
-removePermission_revisionId :: Lens.Lens' RemovePermission (Core.Maybe Core.Text)
+removePermission_revisionId :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
 removePermission_revisionId = Lens.lens (\RemovePermission' {revisionId} -> revisionId) (\s@RemovePermission' {} a -> s {revisionId = a} :: RemovePermission)
 
 -- | Specify a version or alias to remove permissions from a published
 -- version of the function.
-removePermission_qualifier :: Lens.Lens' RemovePermission (Core.Maybe Core.Text)
+removePermission_qualifier :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
 removePermission_qualifier = Lens.lens (\RemovePermission' {qualifier} -> qualifier) (\s@RemovePermission' {} a -> s {qualifier = a} :: RemovePermission)
 
 -- | The name of the Lambda function, version, or alias.
@@ -147,11 +148,11 @@ removePermission_qualifier = Lens.lens (\RemovePermission' {qualifier} -> qualif
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-removePermission_functionName :: Lens.Lens' RemovePermission Core.Text
+removePermission_functionName :: Lens.Lens' RemovePermission Prelude.Text
 removePermission_functionName = Lens.lens (\RemovePermission' {functionName} -> functionName) (\s@RemovePermission' {} a -> s {functionName = a} :: RemovePermission)
 
 -- | Statement ID of the permission to remove.
-removePermission_statementId :: Lens.Lens' RemovePermission Core.Text
+removePermission_statementId :: Lens.Lens' RemovePermission Prelude.Text
 removePermission_statementId = Lens.lens (\RemovePermission' {statementId} -> statementId) (\s@RemovePermission' {} a -> s {statementId = a} :: RemovePermission)
 
 instance Core.AWSRequest RemovePermission where
@@ -162,16 +163,16 @@ instance Core.AWSRequest RemovePermission where
   response =
     Response.receiveNull RemovePermissionResponse'
 
-instance Core.Hashable RemovePermission
+instance Prelude.Hashable RemovePermission
 
-instance Core.NFData RemovePermission
+instance Prelude.NFData RemovePermission
 
 instance Core.ToHeaders RemovePermission where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RemovePermission where
   toPath RemovePermission' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/policy/",
@@ -180,7 +181,7 @@ instance Core.ToPath RemovePermission where
 
 instance Core.ToQuery RemovePermission where
   toQuery RemovePermission' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "RevisionId" Core.=: revisionId,
         "Qualifier" Core.=: qualifier
       ]
@@ -189,7 +190,7 @@ instance Core.ToQuery RemovePermission where
 data RemovePermissionResponse = RemovePermissionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemovePermissionResponse' with all optional fields omitted.
@@ -200,4 +201,4 @@ newRemovePermissionResponse ::
 newRemovePermissionResponse =
   RemovePermissionResponse'
 
-instance Core.NFData RemovePermissionResponse
+instance Prelude.NFData RemovePermissionResponse

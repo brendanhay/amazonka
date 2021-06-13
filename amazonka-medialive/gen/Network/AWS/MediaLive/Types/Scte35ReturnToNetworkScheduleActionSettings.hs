@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings w
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for a SCTE-35 return_to_network message.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data Scte35ReturnToNetworkScheduleActionSettings = Scte35ReturnToNetworkScheduleActionSettings'
   { -- | The splice_event_id for the SCTE-35 splice_insert, as defined in
     -- SCTE-35.
-    spliceEventId :: Core.Natural
+    spliceEventId :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Scte35ReturnToNetworkScheduleActionSettings' with all optional fields omitted.
@@ -44,7 +45,7 @@ data Scte35ReturnToNetworkScheduleActionSettings = Scte35ReturnToNetworkSchedule
 -- SCTE-35.
 newScte35ReturnToNetworkScheduleActionSettings ::
   -- | 'spliceEventId'
-  Core.Natural ->
+  Prelude.Natural ->
   Scte35ReturnToNetworkScheduleActionSettings
 newScte35ReturnToNetworkScheduleActionSettings
   pSpliceEventId_ =
@@ -55,7 +56,7 @@ newScte35ReturnToNetworkScheduleActionSettings
 
 -- | The splice_event_id for the SCTE-35 splice_insert, as defined in
 -- SCTE-35.
-scte35ReturnToNetworkScheduleActionSettings_spliceEventId :: Lens.Lens' Scte35ReturnToNetworkScheduleActionSettings Core.Natural
+scte35ReturnToNetworkScheduleActionSettings_spliceEventId :: Lens.Lens' Scte35ReturnToNetworkScheduleActionSettings Prelude.Natural
 scte35ReturnToNetworkScheduleActionSettings_spliceEventId = Lens.lens (\Scte35ReturnToNetworkScheduleActionSettings' {spliceEventId} -> spliceEventId) (\s@Scte35ReturnToNetworkScheduleActionSettings' {} a -> s {spliceEventId = a} :: Scte35ReturnToNetworkScheduleActionSettings)
 
 instance
@@ -67,15 +68,15 @@ instance
       "Scte35ReturnToNetworkScheduleActionSettings"
       ( \x ->
           Scte35ReturnToNetworkScheduleActionSettings'
-            Core.<$> (x Core..: "spliceEventId")
+            Prelude.<$> (x Core..: "spliceEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     Scte35ReturnToNetworkScheduleActionSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     Scte35ReturnToNetworkScheduleActionSettings
 
 instance
@@ -85,6 +86,8 @@ instance
   toJSON
     Scte35ReturnToNetworkScheduleActionSettings' {..} =
       Core.object
-        ( Core.catMaybes
-            [Core.Just ("spliceEventId" Core..= spliceEventId)]
+        ( Prelude.catMaybes
+            [ Prelude.Just
+                ("spliceEventId" Core..= spliceEventId)
+            ]
         )

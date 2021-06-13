@@ -21,15 +21,16 @@ module Network.AWS.ElastiCache.Types.SlotMigration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the progress of an online resharding operation.
 --
 -- /See:/ 'newSlotMigration' smart constructor.
 data SlotMigration = SlotMigration'
   { -- | The percentage of the slot migration that is complete.
-    progressPercentage :: Core.Maybe Core.Double
+    progressPercentage :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SlotMigration' with all optional fields omitted.
@@ -43,17 +44,20 @@ data SlotMigration = SlotMigration'
 newSlotMigration ::
   SlotMigration
 newSlotMigration =
-  SlotMigration' {progressPercentage = Core.Nothing}
+  SlotMigration'
+    { progressPercentage =
+        Prelude.Nothing
+    }
 
 -- | The percentage of the slot migration that is complete.
-slotMigration_progressPercentage :: Lens.Lens' SlotMigration (Core.Maybe Core.Double)
+slotMigration_progressPercentage :: Lens.Lens' SlotMigration (Prelude.Maybe Prelude.Double)
 slotMigration_progressPercentage = Lens.lens (\SlotMigration' {progressPercentage} -> progressPercentage) (\s@SlotMigration' {} a -> s {progressPercentage = a} :: SlotMigration)
 
 instance Core.FromXML SlotMigration where
   parseXML x =
     SlotMigration'
-      Core.<$> (x Core..@? "ProgressPercentage")
+      Prelude.<$> (x Core..@? "ProgressPercentage")
 
-instance Core.Hashable SlotMigration
+instance Prelude.Hashable SlotMigration
 
-instance Core.NFData SlotMigration
+instance Prelude.NFData SlotMigration

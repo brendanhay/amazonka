@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -59,9 +60,9 @@ data PromoteReadReplicaDBCluster = PromoteReadReplicaDBCluster'
     -- -   Must match the identifier of an existing DB cluster read replica.
     --
     -- Example: @my-cluster-replica1@
-    dbClusterIdentifier :: Core.Text
+    dbClusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PromoteReadReplicaDBCluster' with all optional fields omitted.
@@ -81,7 +82,7 @@ data PromoteReadReplicaDBCluster = PromoteReadReplicaDBCluster'
 -- Example: @my-cluster-replica1@
 newPromoteReadReplicaDBCluster ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   PromoteReadReplicaDBCluster
 newPromoteReadReplicaDBCluster pDBClusterIdentifier_ =
   PromoteReadReplicaDBCluster'
@@ -97,7 +98,7 @@ newPromoteReadReplicaDBCluster pDBClusterIdentifier_ =
 -- -   Must match the identifier of an existing DB cluster read replica.
 --
 -- Example: @my-cluster-replica1@
-promoteReadReplicaDBCluster_dbClusterIdentifier :: Lens.Lens' PromoteReadReplicaDBCluster Core.Text
+promoteReadReplicaDBCluster_dbClusterIdentifier :: Lens.Lens' PromoteReadReplicaDBCluster Prelude.Text
 promoteReadReplicaDBCluster_dbClusterIdentifier = Lens.lens (\PromoteReadReplicaDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@PromoteReadReplicaDBCluster' {} a -> s {dbClusterIdentifier = a} :: PromoteReadReplicaDBCluster)
 
 instance Core.AWSRequest PromoteReadReplicaDBCluster where
@@ -110,36 +111,39 @@ instance Core.AWSRequest PromoteReadReplicaDBCluster where
       "PromoteReadReplicaDBClusterResult"
       ( \s h x ->
           PromoteReadReplicaDBClusterResponse'
-            Core.<$> (x Core..@? "DBCluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PromoteReadReplicaDBCluster
+instance Prelude.Hashable PromoteReadReplicaDBCluster
 
-instance Core.NFData PromoteReadReplicaDBCluster
+instance Prelude.NFData PromoteReadReplicaDBCluster
 
 instance Core.ToHeaders PromoteReadReplicaDBCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PromoteReadReplicaDBCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PromoteReadReplicaDBCluster where
   toQuery PromoteReadReplicaDBCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PromoteReadReplicaDBCluster" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ( "PromoteReadReplicaDBCluster" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newPromoteReadReplicaDBClusterResponse' smart constructor.
 data PromoteReadReplicaDBClusterResponse = PromoteReadReplicaDBClusterResponse'
-  { dbCluster :: Core.Maybe DBCluster,
+  { dbCluster :: Prelude.Maybe DBCluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PromoteReadReplicaDBClusterResponse' with all optional fields omitted.
@@ -154,23 +158,23 @@ data PromoteReadReplicaDBClusterResponse = PromoteReadReplicaDBClusterResponse'
 -- 'httpStatus', 'promoteReadReplicaDBClusterResponse_httpStatus' - The response's http status code.
 newPromoteReadReplicaDBClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PromoteReadReplicaDBClusterResponse
 newPromoteReadReplicaDBClusterResponse pHttpStatus_ =
   PromoteReadReplicaDBClusterResponse'
     { dbCluster =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-promoteReadReplicaDBClusterResponse_dbCluster :: Lens.Lens' PromoteReadReplicaDBClusterResponse (Core.Maybe DBCluster)
+promoteReadReplicaDBClusterResponse_dbCluster :: Lens.Lens' PromoteReadReplicaDBClusterResponse (Prelude.Maybe DBCluster)
 promoteReadReplicaDBClusterResponse_dbCluster = Lens.lens (\PromoteReadReplicaDBClusterResponse' {dbCluster} -> dbCluster) (\s@PromoteReadReplicaDBClusterResponse' {} a -> s {dbCluster = a} :: PromoteReadReplicaDBClusterResponse)
 
 -- | The response's http status code.
-promoteReadReplicaDBClusterResponse_httpStatus :: Lens.Lens' PromoteReadReplicaDBClusterResponse Core.Int
+promoteReadReplicaDBClusterResponse_httpStatus :: Lens.Lens' PromoteReadReplicaDBClusterResponse Prelude.Int
 promoteReadReplicaDBClusterResponse_httpStatus = Lens.lens (\PromoteReadReplicaDBClusterResponse' {httpStatus} -> httpStatus) (\s@PromoteReadReplicaDBClusterResponse' {} a -> s {httpStatus = a} :: PromoteReadReplicaDBClusterResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PromoteReadReplicaDBClusterResponse

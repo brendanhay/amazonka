@@ -56,6 +56,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -65,34 +66,34 @@ data CreateAutoMLJob = CreateAutoMLJob'
   { -- | Generates possible candidates without training a model. A candidate is a
     -- combination of data preprocessors, algorithms, and algorithm parameter
     -- settings.
-    generateCandidateDefinitionsOnly :: Core.Maybe Core.Bool,
+    generateCandidateDefinitionsOnly :: Prelude.Maybe Prelude.Bool,
     -- | Each tag consists of a key and an optional value. Tag keys must be
     -- unique per resource.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Defines the objective of a an AutoML job. You provide a
     -- AutoMLJobObjective$MetricName and Autopilot infers whether to minimize
     -- or maximize it. If a metric is not specified, the most commonly used
     -- ObjectiveMetric for problem type is automaically selected.
-    autoMLJobObjective :: Core.Maybe AutoMLJobObjective,
+    autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
     -- | Contains CompletionCriteria and SecurityConfig.
-    autoMLJobConfig :: Core.Maybe AutoMLJobConfig,
+    autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
     -- | Defines the kind of preprocessing and algorithms intended for the
     -- candidates. Options include: BinaryClassification,
     -- MulticlassClassification, and Regression.
-    problemType :: Core.Maybe ProblemType,
+    problemType :: Prelude.Maybe ProblemType,
     -- | Identifies an Autopilot job. Must be unique to your account and is
     -- case-insensitive.
-    autoMLJobName :: Core.Text,
+    autoMLJobName :: Prelude.Text,
     -- | Similar to InputDataConfig supported by Tuning. Format(s) supported:
     -- CSV. Minimum of 500 rows.
-    inputDataConfig :: Core.NonEmpty AutoMLChannel,
+    inputDataConfig :: Prelude.NonEmpty AutoMLChannel,
     -- | Similar to OutputDataConfig supported by Tuning. Format(s) supported:
     -- CSV.
     outputDataConfig :: AutoMLOutputDataConfig,
     -- | The ARN of the role that is used to access the data.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAutoMLJob' with all optional fields omitted.
@@ -132,13 +133,13 @@ data CreateAutoMLJob = CreateAutoMLJob'
 -- 'roleArn', 'createAutoMLJob_roleArn' - The ARN of the role that is used to access the data.
 newCreateAutoMLJob ::
   -- | 'autoMLJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputDataConfig'
-  Core.NonEmpty AutoMLChannel ->
+  Prelude.NonEmpty AutoMLChannel ->
   -- | 'outputDataConfig'
   AutoMLOutputDataConfig ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateAutoMLJob
 newCreateAutoMLJob
   pAutoMLJobName_
@@ -147,11 +148,11 @@ newCreateAutoMLJob
   pRoleArn_ =
     CreateAutoMLJob'
       { generateCandidateDefinitionsOnly =
-          Core.Nothing,
-        tags = Core.Nothing,
-        autoMLJobObjective = Core.Nothing,
-        autoMLJobConfig = Core.Nothing,
-        problemType = Core.Nothing,
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
+        autoMLJobObjective = Prelude.Nothing,
+        autoMLJobConfig = Prelude.Nothing,
+        problemType = Prelude.Nothing,
         autoMLJobName = pAutoMLJobName_,
         inputDataConfig =
           Lens._Coerce Lens.# pInputDataConfig_,
@@ -162,40 +163,40 @@ newCreateAutoMLJob
 -- | Generates possible candidates without training a model. A candidate is a
 -- combination of data preprocessors, algorithms, and algorithm parameter
 -- settings.
-createAutoMLJob_generateCandidateDefinitionsOnly :: Lens.Lens' CreateAutoMLJob (Core.Maybe Core.Bool)
+createAutoMLJob_generateCandidateDefinitionsOnly :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe Prelude.Bool)
 createAutoMLJob_generateCandidateDefinitionsOnly = Lens.lens (\CreateAutoMLJob' {generateCandidateDefinitionsOnly} -> generateCandidateDefinitionsOnly) (\s@CreateAutoMLJob' {} a -> s {generateCandidateDefinitionsOnly = a} :: CreateAutoMLJob)
 
 -- | Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
-createAutoMLJob_tags :: Lens.Lens' CreateAutoMLJob (Core.Maybe [Tag])
-createAutoMLJob_tags = Lens.lens (\CreateAutoMLJob' {tags} -> tags) (\s@CreateAutoMLJob' {} a -> s {tags = a} :: CreateAutoMLJob) Core.. Lens.mapping Lens._Coerce
+createAutoMLJob_tags :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe [Tag])
+createAutoMLJob_tags = Lens.lens (\CreateAutoMLJob' {tags} -> tags) (\s@CreateAutoMLJob' {} a -> s {tags = a} :: CreateAutoMLJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Defines the objective of a an AutoML job. You provide a
 -- AutoMLJobObjective$MetricName and Autopilot infers whether to minimize
 -- or maximize it. If a metric is not specified, the most commonly used
 -- ObjectiveMetric for problem type is automaically selected.
-createAutoMLJob_autoMLJobObjective :: Lens.Lens' CreateAutoMLJob (Core.Maybe AutoMLJobObjective)
+createAutoMLJob_autoMLJobObjective :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe AutoMLJobObjective)
 createAutoMLJob_autoMLJobObjective = Lens.lens (\CreateAutoMLJob' {autoMLJobObjective} -> autoMLJobObjective) (\s@CreateAutoMLJob' {} a -> s {autoMLJobObjective = a} :: CreateAutoMLJob)
 
 -- | Contains CompletionCriteria and SecurityConfig.
-createAutoMLJob_autoMLJobConfig :: Lens.Lens' CreateAutoMLJob (Core.Maybe AutoMLJobConfig)
+createAutoMLJob_autoMLJobConfig :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe AutoMLJobConfig)
 createAutoMLJob_autoMLJobConfig = Lens.lens (\CreateAutoMLJob' {autoMLJobConfig} -> autoMLJobConfig) (\s@CreateAutoMLJob' {} a -> s {autoMLJobConfig = a} :: CreateAutoMLJob)
 
 -- | Defines the kind of preprocessing and algorithms intended for the
 -- candidates. Options include: BinaryClassification,
 -- MulticlassClassification, and Regression.
-createAutoMLJob_problemType :: Lens.Lens' CreateAutoMLJob (Core.Maybe ProblemType)
+createAutoMLJob_problemType :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe ProblemType)
 createAutoMLJob_problemType = Lens.lens (\CreateAutoMLJob' {problemType} -> problemType) (\s@CreateAutoMLJob' {} a -> s {problemType = a} :: CreateAutoMLJob)
 
 -- | Identifies an Autopilot job. Must be unique to your account and is
 -- case-insensitive.
-createAutoMLJob_autoMLJobName :: Lens.Lens' CreateAutoMLJob Core.Text
+createAutoMLJob_autoMLJobName :: Lens.Lens' CreateAutoMLJob Prelude.Text
 createAutoMLJob_autoMLJobName = Lens.lens (\CreateAutoMLJob' {autoMLJobName} -> autoMLJobName) (\s@CreateAutoMLJob' {} a -> s {autoMLJobName = a} :: CreateAutoMLJob)
 
 -- | Similar to InputDataConfig supported by Tuning. Format(s) supported:
 -- CSV. Minimum of 500 rows.
-createAutoMLJob_inputDataConfig :: Lens.Lens' CreateAutoMLJob (Core.NonEmpty AutoMLChannel)
-createAutoMLJob_inputDataConfig = Lens.lens (\CreateAutoMLJob' {inputDataConfig} -> inputDataConfig) (\s@CreateAutoMLJob' {} a -> s {inputDataConfig = a} :: CreateAutoMLJob) Core.. Lens._Coerce
+createAutoMLJob_inputDataConfig :: Lens.Lens' CreateAutoMLJob (Prelude.NonEmpty AutoMLChannel)
+createAutoMLJob_inputDataConfig = Lens.lens (\CreateAutoMLJob' {inputDataConfig} -> inputDataConfig) (\s@CreateAutoMLJob' {} a -> s {inputDataConfig = a} :: CreateAutoMLJob) Prelude.. Lens._Coerce
 
 -- | Similar to OutputDataConfig supported by Tuning. Format(s) supported:
 -- CSV.
@@ -203,7 +204,7 @@ createAutoMLJob_outputDataConfig :: Lens.Lens' CreateAutoMLJob AutoMLOutputDataC
 createAutoMLJob_outputDataConfig = Lens.lens (\CreateAutoMLJob' {outputDataConfig} -> outputDataConfig) (\s@CreateAutoMLJob' {} a -> s {outputDataConfig = a} :: CreateAutoMLJob)
 
 -- | The ARN of the role that is used to access the data.
-createAutoMLJob_roleArn :: Lens.Lens' CreateAutoMLJob Core.Text
+createAutoMLJob_roleArn :: Lens.Lens' CreateAutoMLJob Prelude.Text
 createAutoMLJob_roleArn = Lens.lens (\CreateAutoMLJob' {roleArn} -> roleArn) (\s@CreateAutoMLJob' {} a -> s {roleArn = a} :: CreateAutoMLJob)
 
 instance Core.AWSRequest CreateAutoMLJob where
@@ -215,59 +216,62 @@ instance Core.AWSRequest CreateAutoMLJob where
     Response.receiveJSON
       ( \s h x ->
           CreateAutoMLJobResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "AutoMLJobArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "AutoMLJobArn")
       )
 
-instance Core.Hashable CreateAutoMLJob
+instance Prelude.Hashable CreateAutoMLJob
 
-instance Core.NFData CreateAutoMLJob
+instance Prelude.NFData CreateAutoMLJob
 
 instance Core.ToHeaders CreateAutoMLJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateAutoMLJob" :: Core.ByteString),
+              Core.=# ("SageMaker.CreateAutoMLJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateAutoMLJob where
   toJSON CreateAutoMLJob' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("GenerateCandidateDefinitionsOnly" Core..=)
-              Core.<$> generateCandidateDefinitionsOnly,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> generateCandidateDefinitionsOnly,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("AutoMLJobObjective" Core..=)
-              Core.<$> autoMLJobObjective,
-            ("AutoMLJobConfig" Core..=) Core.<$> autoMLJobConfig,
-            ("ProblemType" Core..=) Core.<$> problemType,
-            Core.Just ("AutoMLJobName" Core..= autoMLJobName),
-            Core.Just
+              Prelude.<$> autoMLJobObjective,
+            ("AutoMLJobConfig" Core..=)
+              Prelude.<$> autoMLJobConfig,
+            ("ProblemType" Core..=) Prelude.<$> problemType,
+            Prelude.Just ("AutoMLJobName" Core..= autoMLJobName),
+            Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
-            Core.Just
+            Prelude.Just
               ("OutputDataConfig" Core..= outputDataConfig),
-            Core.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("RoleArn" Core..= roleArn)
           ]
       )
 
 instance Core.ToPath CreateAutoMLJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAutoMLJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAutoMLJobResponse' smart constructor.
 data CreateAutoMLJobResponse = CreateAutoMLJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | When a job is created, it is assigned a unique ARN.
-    autoMLJobArn :: Core.Text
+    autoMLJobArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAutoMLJobResponse' with all optional fields omitted.
@@ -282,9 +286,9 @@ data CreateAutoMLJobResponse = CreateAutoMLJobResponse'
 -- 'autoMLJobArn', 'createAutoMLJobResponse_autoMLJobArn' - When a job is created, it is assigned a unique ARN.
 newCreateAutoMLJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'autoMLJobArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateAutoMLJobResponse
 newCreateAutoMLJobResponse
   pHttpStatus_
@@ -295,11 +299,11 @@ newCreateAutoMLJobResponse
       }
 
 -- | The response's http status code.
-createAutoMLJobResponse_httpStatus :: Lens.Lens' CreateAutoMLJobResponse Core.Int
+createAutoMLJobResponse_httpStatus :: Lens.Lens' CreateAutoMLJobResponse Prelude.Int
 createAutoMLJobResponse_httpStatus = Lens.lens (\CreateAutoMLJobResponse' {httpStatus} -> httpStatus) (\s@CreateAutoMLJobResponse' {} a -> s {httpStatus = a} :: CreateAutoMLJobResponse)
 
 -- | When a job is created, it is assigned a unique ARN.
-createAutoMLJobResponse_autoMLJobArn :: Lens.Lens' CreateAutoMLJobResponse Core.Text
+createAutoMLJobResponse_autoMLJobArn :: Lens.Lens' CreateAutoMLJobResponse Prelude.Text
 createAutoMLJobResponse_autoMLJobArn = Lens.lens (\CreateAutoMLJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@CreateAutoMLJobResponse' {} a -> s {autoMLJobArn = a} :: CreateAutoMLJobResponse)
 
-instance Core.NFData CreateAutoMLJobResponse
+instance Prelude.NFData CreateAutoMLJobResponse

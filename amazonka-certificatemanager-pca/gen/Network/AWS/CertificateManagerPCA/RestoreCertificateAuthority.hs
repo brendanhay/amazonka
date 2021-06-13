@@ -59,6 +59,7 @@ where
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,9 +70,9 @@ data RestoreCertificateAuthority = RestoreCertificateAuthority'
     -- action. This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-    certificateAuthorityArn :: Core.Text
+    certificateAuthorityArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreCertificateAuthority' with all optional fields omitted.
@@ -88,7 +89,7 @@ data RestoreCertificateAuthority = RestoreCertificateAuthority'
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
 newRestoreCertificateAuthority ::
   -- | 'certificateAuthorityArn'
-  Core.Text ->
+  Prelude.Text ->
   RestoreCertificateAuthority
 newRestoreCertificateAuthority
   pCertificateAuthorityArn_ =
@@ -102,7 +103,7 @@ newRestoreCertificateAuthority
 -- action. This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-restoreCertificateAuthority_certificateAuthorityArn :: Lens.Lens' RestoreCertificateAuthority Core.Text
+restoreCertificateAuthority_certificateAuthorityArn :: Lens.Lens' RestoreCertificateAuthority Prelude.Text
 restoreCertificateAuthority_certificateAuthorityArn = Lens.lens (\RestoreCertificateAuthority' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@RestoreCertificateAuthority' {} a -> s {certificateAuthorityArn = a} :: RestoreCertificateAuthority)
 
 instance Core.AWSRequest RestoreCertificateAuthority where
@@ -114,28 +115,30 @@ instance Core.AWSRequest RestoreCertificateAuthority where
     Response.receiveNull
       RestoreCertificateAuthorityResponse'
 
-instance Core.Hashable RestoreCertificateAuthority
+instance Prelude.Hashable RestoreCertificateAuthority
 
-instance Core.NFData RestoreCertificateAuthority
+instance Prelude.NFData RestoreCertificateAuthority
 
 instance Core.ToHeaders RestoreCertificateAuthority where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ACMPrivateCA.RestoreCertificateAuthority" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RestoreCertificateAuthority where
   toJSON RestoreCertificateAuthority' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "CertificateAuthorityArn"
                   Core..= certificateAuthorityArn
               )
@@ -143,16 +146,16 @@ instance Core.ToJSON RestoreCertificateAuthority where
       )
 
 instance Core.ToPath RestoreCertificateAuthority where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RestoreCertificateAuthority where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreCertificateAuthorityResponse' smart constructor.
 data RestoreCertificateAuthorityResponse = RestoreCertificateAuthorityResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreCertificateAuthorityResponse' with all optional fields omitted.
@@ -164,5 +167,5 @@ newRestoreCertificateAuthorityResponse =
   RestoreCertificateAuthorityResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RestoreCertificateAuthorityResponse

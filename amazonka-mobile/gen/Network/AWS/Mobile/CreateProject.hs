@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,17 +56,17 @@ data CreateProject = CreateProject'
   { -- | ZIP or YAML file which contains configuration settings to be used when
     -- creating the project. This may be the contents of the file downloaded
     -- from the URL provided in an export project operation.
-    contents :: Core.Maybe Core.ByteString,
+    contents :: Prelude.Maybe Prelude.ByteString,
     -- | Name of the project.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier for an exported snapshot of project configuration.
     -- This snapshot identifier is included in the share URL when a project is
     -- exported.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | Default region where project resources should be created.
-    region :: Core.Maybe Core.Text
+    region :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProject' with all optional fields omitted.
@@ -90,30 +91,30 @@ newCreateProject ::
   CreateProject
 newCreateProject =
   CreateProject'
-    { contents = Core.Nothing,
-      name = Core.Nothing,
-      snapshotId = Core.Nothing,
-      region = Core.Nothing
+    { contents = Prelude.Nothing,
+      name = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | ZIP or YAML file which contains configuration settings to be used when
 -- creating the project. This may be the contents of the file downloaded
 -- from the URL provided in an export project operation.
-createProject_contents :: Lens.Lens' CreateProject (Core.Maybe Core.ByteString)
+createProject_contents :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.ByteString)
 createProject_contents = Lens.lens (\CreateProject' {contents} -> contents) (\s@CreateProject' {} a -> s {contents = a} :: CreateProject)
 
 -- | Name of the project.
-createProject_name :: Lens.Lens' CreateProject (Core.Maybe Core.Text)
+createProject_name :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_name = Lens.lens (\CreateProject' {name} -> name) (\s@CreateProject' {} a -> s {name = a} :: CreateProject)
 
 -- | Unique identifier for an exported snapshot of project configuration.
 -- This snapshot identifier is included in the share URL when a project is
 -- exported.
-createProject_snapshotId :: Lens.Lens' CreateProject (Core.Maybe Core.Text)
+createProject_snapshotId :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_snapshotId = Lens.lens (\CreateProject' {snapshotId} -> snapshotId) (\s@CreateProject' {} a -> s {snapshotId = a} :: CreateProject)
 
 -- | Default region where project resources should be created.
-createProject_region :: Lens.Lens' CreateProject (Core.Maybe Core.Text)
+createProject_region :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_region = Lens.lens (\CreateProject' {region} -> region) (\s@CreateProject' {} a -> s {region = a} :: CreateProject)
 
 instance Core.AWSRequest CreateProject where
@@ -125,32 +126,34 @@ instance Core.AWSRequest CreateProject where
     Response.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            Core.<$> (x Core..?> "details")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "details")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateProject
+instance Prelude.Hashable CreateProject
 
-instance Core.NFData CreateProject
+instance Prelude.NFData CreateProject
 
 instance Core.ToBody CreateProject where
   toBody CreateProject' {..} = Core.toBody contents
 
 instance Core.ToHeaders CreateProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath CreateProject where
-  toPath = Core.const "/projects"
+  toPath = Prelude.const "/projects"
 
 instance Core.ToQuery CreateProject where
   toQuery CreateProject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "name" Core.=: name,
         "snapshotId" Core.=: snapshotId,
         "region" Core.=: region
@@ -161,11 +164,11 @@ instance Core.ToQuery CreateProject where
 -- /See:/ 'newCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
   { -- | Detailed information about the created AWS Mobile Hub project.
-    details :: Core.Maybe ProjectDetails,
+    details :: Prelude.Maybe ProjectDetails,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProjectResponse' with all optional fields omitted.
@@ -180,20 +183,20 @@ data CreateProjectResponse = CreateProjectResponse'
 -- 'httpStatus', 'createProjectResponse_httpStatus' - The response's http status code.
 newCreateProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateProjectResponse
 newCreateProjectResponse pHttpStatus_ =
   CreateProjectResponse'
-    { details = Core.Nothing,
+    { details = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Detailed information about the created AWS Mobile Hub project.
-createProjectResponse_details :: Lens.Lens' CreateProjectResponse (Core.Maybe ProjectDetails)
+createProjectResponse_details :: Lens.Lens' CreateProjectResponse (Prelude.Maybe ProjectDetails)
 createProjectResponse_details = Lens.lens (\CreateProjectResponse' {details} -> details) (\s@CreateProjectResponse' {} a -> s {details = a} :: CreateProjectResponse)
 
 -- | The response's http status code.
-createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Core.Int
+createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Prelude.Int
 createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatus} -> httpStatus) (\s@CreateProjectResponse' {} a -> s {httpStatus = a} :: CreateProjectResponse)
 
-instance Core.NFData CreateProjectResponse
+instance Prelude.NFData CreateProjectResponse

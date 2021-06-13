@@ -22,6 +22,7 @@ module Network.AWS.GameLift.Types.EC2InstanceLimit where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.EC2InstanceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The maximum number of instances allowed based on the Amazon Elastic
 -- Compute Cloud (Amazon EC2) instance type. Instance limits can be
@@ -30,19 +31,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEC2InstanceLimit' smart constructor.
 data EC2InstanceLimit = EC2InstanceLimit'
   { -- | Number of instances allowed.
-    instanceLimit :: Core.Maybe Core.Natural,
+    instanceLimit :: Prelude.Maybe Prelude.Natural,
     -- | Number of instances of the specified type that are currently in use by
     -- this AWS account.
-    currentInstances :: Core.Maybe Core.Natural,
+    currentInstances :: Prelude.Maybe Prelude.Natural,
     -- | Name of an EC2 instance type that is supported in Amazon GameLift. A
     -- fleet instance type determines the computing resources of each instance
     -- in the fleet, including CPU, memory, storage, and networking capacity.
     -- Amazon GameLift supports the following EC2 instance types. See
     -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
     -- for detailed descriptions.
-    eC2InstanceType :: Core.Maybe EC2InstanceType
+    eC2InstanceType :: Prelude.Maybe EC2InstanceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EC2InstanceLimit' with all optional fields omitted.
@@ -67,18 +68,18 @@ newEC2InstanceLimit ::
   EC2InstanceLimit
 newEC2InstanceLimit =
   EC2InstanceLimit'
-    { instanceLimit = Core.Nothing,
-      currentInstances = Core.Nothing,
-      eC2InstanceType = Core.Nothing
+    { instanceLimit = Prelude.Nothing,
+      currentInstances = Prelude.Nothing,
+      eC2InstanceType = Prelude.Nothing
     }
 
 -- | Number of instances allowed.
-eC2InstanceLimit_instanceLimit :: Lens.Lens' EC2InstanceLimit (Core.Maybe Core.Natural)
+eC2InstanceLimit_instanceLimit :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe Prelude.Natural)
 eC2InstanceLimit_instanceLimit = Lens.lens (\EC2InstanceLimit' {instanceLimit} -> instanceLimit) (\s@EC2InstanceLimit' {} a -> s {instanceLimit = a} :: EC2InstanceLimit)
 
 -- | Number of instances of the specified type that are currently in use by
 -- this AWS account.
-eC2InstanceLimit_currentInstances :: Lens.Lens' EC2InstanceLimit (Core.Maybe Core.Natural)
+eC2InstanceLimit_currentInstances :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe Prelude.Natural)
 eC2InstanceLimit_currentInstances = Lens.lens (\EC2InstanceLimit' {currentInstances} -> currentInstances) (\s@EC2InstanceLimit' {} a -> s {currentInstances = a} :: EC2InstanceLimit)
 
 -- | Name of an EC2 instance type that is supported in Amazon GameLift. A
@@ -87,7 +88,7 @@ eC2InstanceLimit_currentInstances = Lens.lens (\EC2InstanceLimit' {currentInstan
 -- Amazon GameLift supports the following EC2 instance types. See
 -- <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
 -- for detailed descriptions.
-eC2InstanceLimit_eC2InstanceType :: Lens.Lens' EC2InstanceLimit (Core.Maybe EC2InstanceType)
+eC2InstanceLimit_eC2InstanceType :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe EC2InstanceType)
 eC2InstanceLimit_eC2InstanceType = Lens.lens (\EC2InstanceLimit' {eC2InstanceType} -> eC2InstanceType) (\s@EC2InstanceLimit' {} a -> s {eC2InstanceType = a} :: EC2InstanceLimit)
 
 instance Core.FromJSON EC2InstanceLimit where
@@ -96,11 +97,11 @@ instance Core.FromJSON EC2InstanceLimit where
       "EC2InstanceLimit"
       ( \x ->
           EC2InstanceLimit'
-            Core.<$> (x Core..:? "InstanceLimit")
-            Core.<*> (x Core..:? "CurrentInstances")
-            Core.<*> (x Core..:? "EC2InstanceType")
+            Prelude.<$> (x Core..:? "InstanceLimit")
+            Prelude.<*> (x Core..:? "CurrentInstances")
+            Prelude.<*> (x Core..:? "EC2InstanceType")
       )
 
-instance Core.Hashable EC2InstanceLimit
+instance Prelude.Hashable EC2InstanceLimit
 
-instance Core.NFData EC2InstanceLimit
+instance Prelude.NFData EC2InstanceLimit

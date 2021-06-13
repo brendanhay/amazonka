@@ -22,6 +22,7 @@ module Network.AWS.CloudTrail.Types.AdvancedEventSelector where
 import Network.AWS.CloudTrail.Types.AdvancedFieldSelector
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Advanced event selectors let you create fine-grained selectors for the
 -- following AWS CloudTrail event record ﬁelds. They help you control costs
@@ -49,11 +50,11 @@ import qualified Network.AWS.Lens as Lens
 data AdvancedEventSelector = AdvancedEventSelector'
   { -- | An optional, descriptive name for an advanced event selector, such as
     -- \"Log data events for only two S3 buckets\".
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Contains all selector statements in an advanced event selector.
-    fieldSelectors :: Core.NonEmpty AdvancedFieldSelector
+    fieldSelectors :: Prelude.NonEmpty AdvancedFieldSelector
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdvancedEventSelector' with all optional fields omitted.
@@ -69,23 +70,23 @@ data AdvancedEventSelector = AdvancedEventSelector'
 -- 'fieldSelectors', 'advancedEventSelector_fieldSelectors' - Contains all selector statements in an advanced event selector.
 newAdvancedEventSelector ::
   -- | 'fieldSelectors'
-  Core.NonEmpty AdvancedFieldSelector ->
+  Prelude.NonEmpty AdvancedFieldSelector ->
   AdvancedEventSelector
 newAdvancedEventSelector pFieldSelectors_ =
   AdvancedEventSelector'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       fieldSelectors =
         Lens._Coerce Lens.# pFieldSelectors_
     }
 
 -- | An optional, descriptive name for an advanced event selector, such as
 -- \"Log data events for only two S3 buckets\".
-advancedEventSelector_name :: Lens.Lens' AdvancedEventSelector (Core.Maybe Core.Text)
+advancedEventSelector_name :: Lens.Lens' AdvancedEventSelector (Prelude.Maybe Prelude.Text)
 advancedEventSelector_name = Lens.lens (\AdvancedEventSelector' {name} -> name) (\s@AdvancedEventSelector' {} a -> s {name = a} :: AdvancedEventSelector)
 
 -- | Contains all selector statements in an advanced event selector.
-advancedEventSelector_fieldSelectors :: Lens.Lens' AdvancedEventSelector (Core.NonEmpty AdvancedFieldSelector)
-advancedEventSelector_fieldSelectors = Lens.lens (\AdvancedEventSelector' {fieldSelectors} -> fieldSelectors) (\s@AdvancedEventSelector' {} a -> s {fieldSelectors = a} :: AdvancedEventSelector) Core.. Lens._Coerce
+advancedEventSelector_fieldSelectors :: Lens.Lens' AdvancedEventSelector (Prelude.NonEmpty AdvancedFieldSelector)
+advancedEventSelector_fieldSelectors = Lens.lens (\AdvancedEventSelector' {fieldSelectors} -> fieldSelectors) (\s@AdvancedEventSelector' {} a -> s {fieldSelectors = a} :: AdvancedEventSelector) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AdvancedEventSelector where
   parseJSON =
@@ -93,19 +94,20 @@ instance Core.FromJSON AdvancedEventSelector where
       "AdvancedEventSelector"
       ( \x ->
           AdvancedEventSelector'
-            Core.<$> (x Core..:? "Name")
-            Core.<*> (x Core..: "FieldSelectors")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..: "FieldSelectors")
       )
 
-instance Core.Hashable AdvancedEventSelector
+instance Prelude.Hashable AdvancedEventSelector
 
-instance Core.NFData AdvancedEventSelector
+instance Prelude.NFData AdvancedEventSelector
 
 instance Core.ToJSON AdvancedEventSelector where
   toJSON AdvancedEventSelector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            Core.Just ("FieldSelectors" Core..= fieldSelectors)
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            Prelude.Just
+              ("FieldSelectors" Core..= fieldSelectors)
           ]
       )

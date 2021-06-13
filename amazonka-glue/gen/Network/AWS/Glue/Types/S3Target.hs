@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.S3Target where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a data store in Amazon Simple Storage Service (Amazon S3).
 --
@@ -29,15 +30,15 @@ data S3Target = S3Target'
   { -- | The name of a connection which allows a job or crawler to access data in
     -- Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon
     -- VPC).
-    connectionName :: Core.Maybe Core.Text,
+    connectionName :: Prelude.Maybe Prelude.Text,
     -- | A list of glob patterns used to exclude from the crawl. For more
     -- information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-    exclusions :: Core.Maybe [Core.Text],
+    exclusions :: Prelude.Maybe [Prelude.Text],
     -- | The path to the Amazon S3 target.
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3Target' with all optional fields omitted.
@@ -60,25 +61,25 @@ newS3Target ::
   S3Target
 newS3Target =
   S3Target'
-    { connectionName = Core.Nothing,
-      exclusions = Core.Nothing,
-      path = Core.Nothing
+    { connectionName = Prelude.Nothing,
+      exclusions = Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | The name of a connection which allows a job or crawler to access data in
 -- Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon
 -- VPC).
-s3Target_connectionName :: Lens.Lens' S3Target (Core.Maybe Core.Text)
+s3Target_connectionName :: Lens.Lens' S3Target (Prelude.Maybe Prelude.Text)
 s3Target_connectionName = Lens.lens (\S3Target' {connectionName} -> connectionName) (\s@S3Target' {} a -> s {connectionName = a} :: S3Target)
 
 -- | A list of glob patterns used to exclude from the crawl. For more
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-s3Target_exclusions :: Lens.Lens' S3Target (Core.Maybe [Core.Text])
-s3Target_exclusions = Lens.lens (\S3Target' {exclusions} -> exclusions) (\s@S3Target' {} a -> s {exclusions = a} :: S3Target) Core.. Lens.mapping Lens._Coerce
+s3Target_exclusions :: Lens.Lens' S3Target (Prelude.Maybe [Prelude.Text])
+s3Target_exclusions = Lens.lens (\S3Target' {exclusions} -> exclusions) (\s@S3Target' {} a -> s {exclusions = a} :: S3Target) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path to the Amazon S3 target.
-s3Target_path :: Lens.Lens' S3Target (Core.Maybe Core.Text)
+s3Target_path :: Lens.Lens' S3Target (Prelude.Maybe Prelude.Text)
 s3Target_path = Lens.lens (\S3Target' {path} -> path) (\s@S3Target' {} a -> s {path = a} :: S3Target)
 
 instance Core.FromJSON S3Target where
@@ -87,21 +88,22 @@ instance Core.FromJSON S3Target where
       "S3Target"
       ( \x ->
           S3Target'
-            Core.<$> (x Core..:? "ConnectionName")
-            Core.<*> (x Core..:? "Exclusions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Path")
+            Prelude.<$> (x Core..:? "ConnectionName")
+            Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Path")
       )
 
-instance Core.Hashable S3Target
+instance Prelude.Hashable S3Target
 
-instance Core.NFData S3Target
+instance Prelude.NFData S3Target
 
 instance Core.ToJSON S3Target where
   toJSON S3Target' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ConnectionName" Core..=) Core.<$> connectionName,
-            ("Exclusions" Core..=) Core.<$> exclusions,
-            ("Path" Core..=) Core.<$> path
+      ( Prelude.catMaybes
+          [ ("ConnectionName" Core..=)
+              Prelude.<$> connectionName,
+            ("Exclusions" Core..=) Prelude.<$> exclusions,
+            ("Path" Core..=) Prelude.<$> path
           ]
       )

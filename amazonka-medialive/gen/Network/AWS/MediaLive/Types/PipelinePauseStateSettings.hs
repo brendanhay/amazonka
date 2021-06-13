@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.PipelinePauseStateSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.PipelineId
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for pausing a pipeline.
 --
@@ -30,7 +31,7 @@ data PipelinePauseStateSettings = PipelinePauseStateSettings'
   { -- | Pipeline ID to pause (\"PIPELINE_0\" or \"PIPELINE_1\").
     pipelineId :: PipelineId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PipelinePauseStateSettings' with all optional fields omitted.
@@ -61,16 +62,16 @@ instance Core.FromJSON PipelinePauseStateSettings where
       "PipelinePauseStateSettings"
       ( \x ->
           PipelinePauseStateSettings'
-            Core.<$> (x Core..: "pipelineId")
+            Prelude.<$> (x Core..: "pipelineId")
       )
 
-instance Core.Hashable PipelinePauseStateSettings
+instance Prelude.Hashable PipelinePauseStateSettings
 
-instance Core.NFData PipelinePauseStateSettings
+instance Prelude.NFData PipelinePauseStateSettings
 
 instance Core.ToJSON PipelinePauseStateSettings where
   toJSON PipelinePauseStateSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("pipelineId" Core..= pipelineId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("pipelineId" Core..= pipelineId)]
       )

@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,14 +68,14 @@ data GetBotVersions = GetBotVersions'
     -- response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of versions, specify the
     -- pagination token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of bot versions to return in the response. The
     -- default is 10.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the bot for which versions should be returned.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBotVersions' with all optional fields omitted.
@@ -95,12 +96,12 @@ data GetBotVersions = GetBotVersions'
 -- 'name', 'getBotVersions_name' - The name of the bot for which versions should be returned.
 newGetBotVersions ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetBotVersions
 newGetBotVersions pName_ =
   GetBotVersions'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       name = pName_
     }
 
@@ -108,36 +109,37 @@ newGetBotVersions pName_ =
 -- response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of versions, specify the
 -- pagination token in the next request.
-getBotVersions_nextToken :: Lens.Lens' GetBotVersions (Core.Maybe Core.Text)
+getBotVersions_nextToken :: Lens.Lens' GetBotVersions (Prelude.Maybe Prelude.Text)
 getBotVersions_nextToken = Lens.lens (\GetBotVersions' {nextToken} -> nextToken) (\s@GetBotVersions' {} a -> s {nextToken = a} :: GetBotVersions)
 
 -- | The maximum number of bot versions to return in the response. The
 -- default is 10.
-getBotVersions_maxResults :: Lens.Lens' GetBotVersions (Core.Maybe Core.Natural)
+getBotVersions_maxResults :: Lens.Lens' GetBotVersions (Prelude.Maybe Prelude.Natural)
 getBotVersions_maxResults = Lens.lens (\GetBotVersions' {maxResults} -> maxResults) (\s@GetBotVersions' {} a -> s {maxResults = a} :: GetBotVersions)
 
 -- | The name of the bot for which versions should be returned.
-getBotVersions_name :: Lens.Lens' GetBotVersions Core.Text
+getBotVersions_name :: Lens.Lens' GetBotVersions Prelude.Text
 getBotVersions_name = Lens.lens (\GetBotVersions' {name} -> name) (\s@GetBotVersions' {} a -> s {name = a} :: GetBotVersions)
 
 instance Core.AWSPager GetBotVersions where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getBotVersionsResponse_nextToken Core.. Lens._Just
+            Lens.^? getBotVersionsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getBotVersionsResponse_bots Core.. Lens._Just
+            Lens.^? getBotVersionsResponse_bots Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getBotVersions_nextToken
+          Prelude.& getBotVersions_nextToken
           Lens..~ rs
-          Lens.^? getBotVersionsResponse_nextToken Core.. Lens._Just
+          Lens.^? getBotVersionsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBotVersions where
   type
@@ -148,32 +150,34 @@ instance Core.AWSRequest GetBotVersions where
     Response.receiveJSON
       ( \s h x ->
           GetBotVersionsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "bots" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "bots" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBotVersions
+instance Prelude.Hashable GetBotVersions
 
-instance Core.NFData GetBotVersions
+instance Prelude.NFData GetBotVersions
 
 instance Core.ToHeaders GetBotVersions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetBotVersions where
   toPath GetBotVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/bots/", Core.toBS name, "/versions/"]
 
 instance Core.ToQuery GetBotVersions where
   toQuery GetBotVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -184,14 +188,14 @@ data GetBotVersionsResponse = GetBotVersionsResponse'
     -- response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of versions, specify the
     -- pagination token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @BotMetadata@ objects, one for each numbered version of the
     -- bot plus one for the @$LATEST@ version.
-    bots :: Core.Maybe [BotMetadata],
+    bots :: Prelude.Maybe [BotMetadata],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBotVersionsResponse' with all optional fields omitted.
@@ -212,12 +216,13 @@ data GetBotVersionsResponse = GetBotVersionsResponse'
 -- 'httpStatus', 'getBotVersionsResponse_httpStatus' - The response's http status code.
 newGetBotVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBotVersionsResponse
 newGetBotVersionsResponse pHttpStatus_ =
   GetBotVersionsResponse'
-    { nextToken = Core.Nothing,
-      bots = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      bots = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -225,16 +230,16 @@ newGetBotVersionsResponse pHttpStatus_ =
 -- response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of versions, specify the
 -- pagination token in the next request.
-getBotVersionsResponse_nextToken :: Lens.Lens' GetBotVersionsResponse (Core.Maybe Core.Text)
+getBotVersionsResponse_nextToken :: Lens.Lens' GetBotVersionsResponse (Prelude.Maybe Prelude.Text)
 getBotVersionsResponse_nextToken = Lens.lens (\GetBotVersionsResponse' {nextToken} -> nextToken) (\s@GetBotVersionsResponse' {} a -> s {nextToken = a} :: GetBotVersionsResponse)
 
 -- | An array of @BotMetadata@ objects, one for each numbered version of the
 -- bot plus one for the @$LATEST@ version.
-getBotVersionsResponse_bots :: Lens.Lens' GetBotVersionsResponse (Core.Maybe [BotMetadata])
-getBotVersionsResponse_bots = Lens.lens (\GetBotVersionsResponse' {bots} -> bots) (\s@GetBotVersionsResponse' {} a -> s {bots = a} :: GetBotVersionsResponse) Core.. Lens.mapping Lens._Coerce
+getBotVersionsResponse_bots :: Lens.Lens' GetBotVersionsResponse (Prelude.Maybe [BotMetadata])
+getBotVersionsResponse_bots = Lens.lens (\GetBotVersionsResponse' {bots} -> bots) (\s@GetBotVersionsResponse' {} a -> s {bots = a} :: GetBotVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getBotVersionsResponse_httpStatus :: Lens.Lens' GetBotVersionsResponse Core.Int
+getBotVersionsResponse_httpStatus :: Lens.Lens' GetBotVersionsResponse Prelude.Int
 getBotVersionsResponse_httpStatus = Lens.lens (\GetBotVersionsResponse' {httpStatus} -> httpStatus) (\s@GetBotVersionsResponse' {} a -> s {httpStatus = a} :: GetBotVersionsResponse)
 
-instance Core.NFData GetBotVersionsResponse
+instance Prelude.NFData GetBotVersionsResponse

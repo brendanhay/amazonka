@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.LambdaFunctionAssociation where
 import Network.AWS.CloudFront.Types.EventType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains a Lambda function association.
 --
@@ -31,10 +32,10 @@ data LambdaFunctionAssociation = LambdaFunctionAssociation'
     -- content. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option>
     -- in the Amazon CloudFront Developer Guide.
-    includeBody :: Core.Maybe Core.Bool,
+    includeBody :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the Lambda function. You must specify the ARN of a function
     -- version; you can\'t specify a Lambda alias or $LATEST.
-    lambdaFunctionARN :: Core.Text,
+    lambdaFunctionARN :: Prelude.Text,
     -- | Specifies the event type that triggers a Lambda function invocation. You
     -- can specify the following values:
     --
@@ -59,7 +60,7 @@ data LambdaFunctionAssociation = LambdaFunctionAssociation'
     --     the function doesn\'t execute.
     eventType :: EventType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionAssociation' with all optional fields omitted.
@@ -101,7 +102,7 @@ data LambdaFunctionAssociation = LambdaFunctionAssociation'
 --     the function doesn\'t execute.
 newLambdaFunctionAssociation ::
   -- | 'lambdaFunctionARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'eventType'
   EventType ->
   LambdaFunctionAssociation
@@ -110,7 +111,7 @@ newLambdaFunctionAssociation
   pEventType_ =
     LambdaFunctionAssociation'
       { includeBody =
-          Core.Nothing,
+          Prelude.Nothing,
         lambdaFunctionARN = pLambdaFunctionARN_,
         eventType = pEventType_
       }
@@ -119,12 +120,12 @@ newLambdaFunctionAssociation
 -- content. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option>
 -- in the Amazon CloudFront Developer Guide.
-lambdaFunctionAssociation_includeBody :: Lens.Lens' LambdaFunctionAssociation (Core.Maybe Core.Bool)
+lambdaFunctionAssociation_includeBody :: Lens.Lens' LambdaFunctionAssociation (Prelude.Maybe Prelude.Bool)
 lambdaFunctionAssociation_includeBody = Lens.lens (\LambdaFunctionAssociation' {includeBody} -> includeBody) (\s@LambdaFunctionAssociation' {} a -> s {includeBody = a} :: LambdaFunctionAssociation)
 
 -- | The ARN of the Lambda function. You must specify the ARN of a function
 -- version; you can\'t specify a Lambda alias or $LATEST.
-lambdaFunctionAssociation_lambdaFunctionARN :: Lens.Lens' LambdaFunctionAssociation Core.Text
+lambdaFunctionAssociation_lambdaFunctionARN :: Lens.Lens' LambdaFunctionAssociation Prelude.Text
 lambdaFunctionAssociation_lambdaFunctionARN = Lens.lens (\LambdaFunctionAssociation' {lambdaFunctionARN} -> lambdaFunctionARN) (\s@LambdaFunctionAssociation' {} a -> s {lambdaFunctionARN = a} :: LambdaFunctionAssociation)
 
 -- | Specifies the event type that triggers a Lambda function invocation. You
@@ -155,17 +156,17 @@ lambdaFunctionAssociation_eventType = Lens.lens (\LambdaFunctionAssociation' {ev
 instance Core.FromXML LambdaFunctionAssociation where
   parseXML x =
     LambdaFunctionAssociation'
-      Core.<$> (x Core..@? "IncludeBody")
-      Core.<*> (x Core..@ "LambdaFunctionARN")
-      Core.<*> (x Core..@ "EventType")
+      Prelude.<$> (x Core..@? "IncludeBody")
+      Prelude.<*> (x Core..@ "LambdaFunctionARN")
+      Prelude.<*> (x Core..@ "EventType")
 
-instance Core.Hashable LambdaFunctionAssociation
+instance Prelude.Hashable LambdaFunctionAssociation
 
-instance Core.NFData LambdaFunctionAssociation
+instance Prelude.NFData LambdaFunctionAssociation
 
 instance Core.ToXML LambdaFunctionAssociation where
   toXML LambdaFunctionAssociation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "IncludeBody" Core.@= includeBody,
         "LambdaFunctionARN" Core.@= lambdaFunctionARN,
         "EventType" Core.@= eventType

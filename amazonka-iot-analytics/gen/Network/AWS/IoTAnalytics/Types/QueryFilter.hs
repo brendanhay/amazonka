@@ -22,6 +22,7 @@ module Network.AWS.IoTAnalytics.Types.QueryFilter where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.DeltaTime
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information that is used to filter message data, to segregate it
 -- according to the timeframe in which it arrives.
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data QueryFilter = QueryFilter'
   { -- | Used to limit data to that which has arrived since the last execution of
     -- the action.
-    deltaTime :: Core.Maybe DeltaTime
+    deltaTime :: Prelude.Maybe DeltaTime
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryFilter' with all optional fields omitted.
@@ -47,11 +48,11 @@ data QueryFilter = QueryFilter'
 newQueryFilter ::
   QueryFilter
 newQueryFilter =
-  QueryFilter' {deltaTime = Core.Nothing}
+  QueryFilter' {deltaTime = Prelude.Nothing}
 
 -- | Used to limit data to that which has arrived since the last execution of
 -- the action.
-queryFilter_deltaTime :: Lens.Lens' QueryFilter (Core.Maybe DeltaTime)
+queryFilter_deltaTime :: Lens.Lens' QueryFilter (Prelude.Maybe DeltaTime)
 queryFilter_deltaTime = Lens.lens (\QueryFilter' {deltaTime} -> deltaTime) (\s@QueryFilter' {} a -> s {deltaTime = a} :: QueryFilter)
 
 instance Core.FromJSON QueryFilter where
@@ -59,16 +60,16 @@ instance Core.FromJSON QueryFilter where
     Core.withObject
       "QueryFilter"
       ( \x ->
-          QueryFilter' Core.<$> (x Core..:? "deltaTime")
+          QueryFilter' Prelude.<$> (x Core..:? "deltaTime")
       )
 
-instance Core.Hashable QueryFilter
+instance Prelude.Hashable QueryFilter
 
-instance Core.NFData QueryFilter
+instance Prelude.NFData QueryFilter
 
 instance Core.ToJSON QueryFilter where
   toJSON QueryFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [("deltaTime" Core..=) Core.<$> deltaTime]
+      ( Prelude.catMaybes
+          [("deltaTime" Core..=) Prelude.<$> deltaTime]
       )

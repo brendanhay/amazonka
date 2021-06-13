@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +63,7 @@ data ListServices = ListServices'
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of service results returned by @ListServices@ in
     -- paginated output. When this parameter is used, @ListServices@ only
     -- returns @maxResults@ results in a single page along with a @nextToken@
@@ -71,17 +72,17 @@ data ListServices = ListServices'
     -- @nextToken@ value. This value can be between 1 and 100. If this
     -- parameter is not used, then @ListServices@ returns up to 10 results and
     -- a @nextToken@ value if applicable.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The launch type for the services to list.
-    launchType :: Core.Maybe LaunchType,
+    launchType :: Prelude.Maybe LaunchType,
     -- | The scheduling strategy for services to list.
-    schedulingStrategy :: Core.Maybe SchedulingStrategy,
+    schedulingStrategy :: Prelude.Maybe SchedulingStrategy,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the services to list. If you do not specify a cluster, the default
     -- cluster is assumed.
-    cluster :: Core.Maybe Core.Text
+    cluster :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListServices' with all optional fields omitted.
@@ -120,11 +121,11 @@ newListServices ::
   ListServices
 newListServices =
   ListServices'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      launchType = Core.Nothing,
-      schedulingStrategy = Core.Nothing,
-      cluster = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      launchType = Prelude.Nothing,
+      schedulingStrategy = Prelude.Nothing,
+      cluster = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a @ListServices@ request indicating
@@ -135,7 +136,7 @@ newListServices =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listServices_nextToken :: Lens.Lens' ListServices (Core.Maybe Core.Text)
+listServices_nextToken :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
 listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s@ListServices' {} a -> s {nextToken = a} :: ListServices)
 
 -- | The maximum number of service results returned by @ListServices@ in
@@ -146,41 +147,42 @@ listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter is not used, then @ListServices@ returns up to 10 results and
 -- a @nextToken@ value if applicable.
-listServices_maxResults :: Lens.Lens' ListServices (Core.Maybe Core.Int)
+listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Int)
 listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
 
 -- | The launch type for the services to list.
-listServices_launchType :: Lens.Lens' ListServices (Core.Maybe LaunchType)
+listServices_launchType :: Lens.Lens' ListServices (Prelude.Maybe LaunchType)
 listServices_launchType = Lens.lens (\ListServices' {launchType} -> launchType) (\s@ListServices' {} a -> s {launchType = a} :: ListServices)
 
 -- | The scheduling strategy for services to list.
-listServices_schedulingStrategy :: Lens.Lens' ListServices (Core.Maybe SchedulingStrategy)
+listServices_schedulingStrategy :: Lens.Lens' ListServices (Prelude.Maybe SchedulingStrategy)
 listServices_schedulingStrategy = Lens.lens (\ListServices' {schedulingStrategy} -> schedulingStrategy) (\s@ListServices' {} a -> s {schedulingStrategy = a} :: ListServices)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the services to list. If you do not specify a cluster, the default
 -- cluster is assumed.
-listServices_cluster :: Lens.Lens' ListServices (Core.Maybe Core.Text)
+listServices_cluster :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
 listServices_cluster = Lens.lens (\ListServices' {cluster} -> cluster) (\s@ListServices' {} a -> s {cluster = a} :: ListServices)
 
 instance Core.AWSPager ListServices where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listServicesResponse_nextToken Core.. Lens._Just
+            Lens.^? listServicesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listServicesResponse_serviceArns Core.. Lens._Just
+            Lens.^? listServicesResponse_serviceArns
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listServices_nextToken
+          Prelude.& listServices_nextToken
           Lens..~ rs
-          Lens.^? listServicesResponse_nextToken Core.. Lens._Just
+          Lens.^? listServicesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServices where
   type AWSResponse ListServices = ListServicesResponse
@@ -189,46 +191,48 @@ instance Core.AWSRequest ListServices where
     Response.receiveJSON
       ( \s h x ->
           ListServicesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "serviceArns" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "serviceArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListServices
+instance Prelude.Hashable ListServices
 
-instance Core.NFData ListServices
+instance Prelude.NFData ListServices
 
 instance Core.ToHeaders ListServices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.ListServices" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListServices where
   toJSON ListServices' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("launchType" Core..=) Core.<$> launchType,
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("launchType" Core..=) Prelude.<$> launchType,
             ("schedulingStrategy" Core..=)
-              Core.<$> schedulingStrategy,
-            ("cluster" Core..=) Core.<$> cluster
+              Prelude.<$> schedulingStrategy,
+            ("cluster" Core..=) Prelude.<$> cluster
           ]
       )
 
 instance Core.ToPath ListServices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListServices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
@@ -236,14 +240,14 @@ data ListServicesResponse = ListServicesResponse'
     -- When the results of a @ListServices@ request exceed @maxResults@, this
     -- value can be used to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of full ARN entries for each service associated with the
     -- specified cluster.
-    serviceArns :: Core.Maybe [Core.Text],
+    serviceArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListServicesResponse' with all optional fields omitted.
@@ -264,12 +268,12 @@ data ListServicesResponse = ListServicesResponse'
 -- 'httpStatus', 'listServicesResponse_httpStatus' - The response's http status code.
 newListServicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListServicesResponse
 newListServicesResponse pHttpStatus_ =
   ListServicesResponse'
-    { nextToken = Core.Nothing,
-      serviceArns = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      serviceArns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -277,16 +281,16 @@ newListServicesResponse pHttpStatus_ =
 -- When the results of a @ListServices@ request exceed @maxResults@, this
 -- value can be used to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-listServicesResponse_nextToken :: Lens.Lens' ListServicesResponse (Core.Maybe Core.Text)
+listServicesResponse_nextToken :: Lens.Lens' ListServicesResponse (Prelude.Maybe Prelude.Text)
 listServicesResponse_nextToken = Lens.lens (\ListServicesResponse' {nextToken} -> nextToken) (\s@ListServicesResponse' {} a -> s {nextToken = a} :: ListServicesResponse)
 
 -- | The list of full ARN entries for each service associated with the
 -- specified cluster.
-listServicesResponse_serviceArns :: Lens.Lens' ListServicesResponse (Core.Maybe [Core.Text])
-listServicesResponse_serviceArns = Lens.lens (\ListServicesResponse' {serviceArns} -> serviceArns) (\s@ListServicesResponse' {} a -> s {serviceArns = a} :: ListServicesResponse) Core.. Lens.mapping Lens._Coerce
+listServicesResponse_serviceArns :: Lens.Lens' ListServicesResponse (Prelude.Maybe [Prelude.Text])
+listServicesResponse_serviceArns = Lens.lens (\ListServicesResponse' {serviceArns} -> serviceArns) (\s@ListServicesResponse' {} a -> s {serviceArns = a} :: ListServicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listServicesResponse_httpStatus :: Lens.Lens' ListServicesResponse Core.Int
+listServicesResponse_httpStatus :: Lens.Lens' ListServicesResponse Prelude.Int
 listServicesResponse_httpStatus = Lens.lens (\ListServicesResponse' {httpStatus} -> httpStatus) (\s@ListServicesResponse' {} a -> s {httpStatus = a} :: ListServicesResponse)
 
-instance Core.NFData ListServicesResponse
+instance Prelude.NFData ListServicesResponse

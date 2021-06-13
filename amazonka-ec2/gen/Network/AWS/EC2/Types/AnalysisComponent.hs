@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.AnalysisComponent where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a path component.
 --
 -- /See:/ 'newAnalysisComponent' smart constructor.
 data AnalysisComponent = AnalysisComponent'
   { -- | The Amazon Resource Name (ARN) of the component.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the component.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalysisComponent' with all optional fields omitted.
@@ -49,23 +50,23 @@ newAnalysisComponent ::
   AnalysisComponent
 newAnalysisComponent =
   AnalysisComponent'
-    { arn = Core.Nothing,
-      id = Core.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the component.
-analysisComponent_arn :: Lens.Lens' AnalysisComponent (Core.Maybe Core.Text)
+analysisComponent_arn :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
 analysisComponent_arn = Lens.lens (\AnalysisComponent' {arn} -> arn) (\s@AnalysisComponent' {} a -> s {arn = a} :: AnalysisComponent)
 
 -- | The ID of the component.
-analysisComponent_id :: Lens.Lens' AnalysisComponent (Core.Maybe Core.Text)
+analysisComponent_id :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
 analysisComponent_id = Lens.lens (\AnalysisComponent' {id} -> id) (\s@AnalysisComponent' {} a -> s {id = a} :: AnalysisComponent)
 
 instance Core.FromXML AnalysisComponent where
   parseXML x =
     AnalysisComponent'
-      Core.<$> (x Core..@? "arn") Core.<*> (x Core..@? "id")
+      Prelude.<$> (x Core..@? "arn") Prelude.<*> (x Core..@? "id")
 
-instance Core.Hashable AnalysisComponent
+instance Prelude.Hashable AnalysisComponent
 
-instance Core.NFData AnalysisComponent
+instance Prelude.NFData AnalysisComponent

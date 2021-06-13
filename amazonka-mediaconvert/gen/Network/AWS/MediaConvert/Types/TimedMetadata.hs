@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.TimedMetadata
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Applies only to HLS outputs. Use this setting to specify whether the
 -- service inserts the ID3 timed metadata from the input in this output.
@@ -35,15 +36,15 @@ newtype TimedMetadata = TimedMetadata'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

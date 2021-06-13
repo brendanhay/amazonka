@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.EndpointItemResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the status code and message that result from processing data
 -- for an endpoint.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data EndpointItemResponse = EndpointItemResponse'
   { -- | The custom message that\'s returned in the response as a result of
     -- processing the endpoint data.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status code that\'s returned in the response as a result of
     -- processing the endpoint data.
-    statusCode :: Core.Maybe Core.Int
+    statusCode :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EndpointItemResponse' with all optional fields omitted.
@@ -53,18 +54,18 @@ newEndpointItemResponse ::
   EndpointItemResponse
 newEndpointItemResponse =
   EndpointItemResponse'
-    { message = Core.Nothing,
-      statusCode = Core.Nothing
+    { message = Prelude.Nothing,
+      statusCode = Prelude.Nothing
     }
 
 -- | The custom message that\'s returned in the response as a result of
 -- processing the endpoint data.
-endpointItemResponse_message :: Lens.Lens' EndpointItemResponse (Core.Maybe Core.Text)
+endpointItemResponse_message :: Lens.Lens' EndpointItemResponse (Prelude.Maybe Prelude.Text)
 endpointItemResponse_message = Lens.lens (\EndpointItemResponse' {message} -> message) (\s@EndpointItemResponse' {} a -> s {message = a} :: EndpointItemResponse)
 
 -- | The status code that\'s returned in the response as a result of
 -- processing the endpoint data.
-endpointItemResponse_statusCode :: Lens.Lens' EndpointItemResponse (Core.Maybe Core.Int)
+endpointItemResponse_statusCode :: Lens.Lens' EndpointItemResponse (Prelude.Maybe Prelude.Int)
 endpointItemResponse_statusCode = Lens.lens (\EndpointItemResponse' {statusCode} -> statusCode) (\s@EndpointItemResponse' {} a -> s {statusCode = a} :: EndpointItemResponse)
 
 instance Core.FromJSON EndpointItemResponse where
@@ -73,10 +74,10 @@ instance Core.FromJSON EndpointItemResponse where
       "EndpointItemResponse"
       ( \x ->
           EndpointItemResponse'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "StatusCode")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "StatusCode")
       )
 
-instance Core.Hashable EndpointItemResponse
+instance Prelude.Hashable EndpointItemResponse
 
-instance Core.NFData EndpointItemResponse
+instance Prelude.NFData EndpointItemResponse

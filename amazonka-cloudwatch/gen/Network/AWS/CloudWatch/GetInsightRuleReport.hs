@@ -85,6 +85,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,7 +93,7 @@ import qualified Network.AWS.Response as Response
 data GetInsightRuleReport = GetInsightRuleReport'
   { -- | Determines what statistic to use to rank the contributors. Valid values
     -- are SUM and MAXIMUM.
-    orderBy :: Core.Maybe Core.Text,
+    orderBy :: Prelude.Maybe Prelude.Text,
     -- | Specifies which metrics to use for aggregation of contributor values for
     -- the report. You can specify one or more of the following metrics:
     --
@@ -122,12 +123,12 @@ data GetInsightRuleReport = GetInsightRuleReport'
     --
     -- -   @Average@ -- the average value from all contributors during the time
     --     period represented by that data point.
-    metrics :: Core.Maybe [Core.Text],
+    metrics :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of contributors to include in the report. The range
     -- is 1 to 100. If you omit this, the default of 10 is used.
-    maxContributorCount :: Core.Maybe Core.Int,
+    maxContributorCount :: Prelude.Maybe Prelude.Int,
     -- | The name of the rule that you want to see data from.
-    ruleName :: Core.Text,
+    ruleName :: Prelude.Text,
     -- | The start time of the data to use in the report. When used in a raw HTTP
     -- Query API, it is formatted as @yyyy-MM-dd\'T\'HH:mm:ss@. For example,
     -- @2019-07-01T23:59:59@.
@@ -138,9 +139,9 @@ data GetInsightRuleReport = GetInsightRuleReport'
     endTime :: Core.ISO8601,
     -- | The period, in seconds, to use for the statistics in the
     -- @InsightRuleMetricDatapoint@ results.
-    period :: Core.Natural
+    period :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInsightRuleReport' with all optional fields omitted.
@@ -200,13 +201,13 @@ data GetInsightRuleReport = GetInsightRuleReport'
 -- @InsightRuleMetricDatapoint@ results.
 newGetInsightRuleReport ::
   -- | 'ruleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'period'
-  Core.Natural ->
+  Prelude.Natural ->
   GetInsightRuleReport
 newGetInsightRuleReport
   pRuleName_
@@ -214,9 +215,9 @@ newGetInsightRuleReport
   pEndTime_
   pPeriod_ =
     GetInsightRuleReport'
-      { orderBy = Core.Nothing,
-        metrics = Core.Nothing,
-        maxContributorCount = Core.Nothing,
+      { orderBy = Prelude.Nothing,
+        metrics = Prelude.Nothing,
+        maxContributorCount = Prelude.Nothing,
         ruleName = pRuleName_,
         startTime = Core._Time Lens.# pStartTime_,
         endTime = Core._Time Lens.# pEndTime_,
@@ -225,7 +226,7 @@ newGetInsightRuleReport
 
 -- | Determines what statistic to use to rank the contributors. Valid values
 -- are SUM and MAXIMUM.
-getInsightRuleReport_orderBy :: Lens.Lens' GetInsightRuleReport (Core.Maybe Core.Text)
+getInsightRuleReport_orderBy :: Lens.Lens' GetInsightRuleReport (Prelude.Maybe Prelude.Text)
 getInsightRuleReport_orderBy = Lens.lens (\GetInsightRuleReport' {orderBy} -> orderBy) (\s@GetInsightRuleReport' {} a -> s {orderBy = a} :: GetInsightRuleReport)
 
 -- | Specifies which metrics to use for aggregation of contributor values for
@@ -257,33 +258,33 @@ getInsightRuleReport_orderBy = Lens.lens (\GetInsightRuleReport' {orderBy} -> or
 --
 -- -   @Average@ -- the average value from all contributors during the time
 --     period represented by that data point.
-getInsightRuleReport_metrics :: Lens.Lens' GetInsightRuleReport (Core.Maybe [Core.Text])
-getInsightRuleReport_metrics = Lens.lens (\GetInsightRuleReport' {metrics} -> metrics) (\s@GetInsightRuleReport' {} a -> s {metrics = a} :: GetInsightRuleReport) Core.. Lens.mapping Lens._Coerce
+getInsightRuleReport_metrics :: Lens.Lens' GetInsightRuleReport (Prelude.Maybe [Prelude.Text])
+getInsightRuleReport_metrics = Lens.lens (\GetInsightRuleReport' {metrics} -> metrics) (\s@GetInsightRuleReport' {} a -> s {metrics = a} :: GetInsightRuleReport) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of contributors to include in the report. The range
 -- is 1 to 100. If you omit this, the default of 10 is used.
-getInsightRuleReport_maxContributorCount :: Lens.Lens' GetInsightRuleReport (Core.Maybe Core.Int)
+getInsightRuleReport_maxContributorCount :: Lens.Lens' GetInsightRuleReport (Prelude.Maybe Prelude.Int)
 getInsightRuleReport_maxContributorCount = Lens.lens (\GetInsightRuleReport' {maxContributorCount} -> maxContributorCount) (\s@GetInsightRuleReport' {} a -> s {maxContributorCount = a} :: GetInsightRuleReport)
 
 -- | The name of the rule that you want to see data from.
-getInsightRuleReport_ruleName :: Lens.Lens' GetInsightRuleReport Core.Text
+getInsightRuleReport_ruleName :: Lens.Lens' GetInsightRuleReport Prelude.Text
 getInsightRuleReport_ruleName = Lens.lens (\GetInsightRuleReport' {ruleName} -> ruleName) (\s@GetInsightRuleReport' {} a -> s {ruleName = a} :: GetInsightRuleReport)
 
 -- | The start time of the data to use in the report. When used in a raw HTTP
 -- Query API, it is formatted as @yyyy-MM-dd\'T\'HH:mm:ss@. For example,
 -- @2019-07-01T23:59:59@.
-getInsightRuleReport_startTime :: Lens.Lens' GetInsightRuleReport Core.UTCTime
-getInsightRuleReport_startTime = Lens.lens (\GetInsightRuleReport' {startTime} -> startTime) (\s@GetInsightRuleReport' {} a -> s {startTime = a} :: GetInsightRuleReport) Core.. Core._Time
+getInsightRuleReport_startTime :: Lens.Lens' GetInsightRuleReport Prelude.UTCTime
+getInsightRuleReport_startTime = Lens.lens (\GetInsightRuleReport' {startTime} -> startTime) (\s@GetInsightRuleReport' {} a -> s {startTime = a} :: GetInsightRuleReport) Prelude.. Core._Time
 
 -- | The end time of the data to use in the report. When used in a raw HTTP
 -- Query API, it is formatted as @yyyy-MM-dd\'T\'HH:mm:ss@. For example,
 -- @2019-07-01T23:59:59@.
-getInsightRuleReport_endTime :: Lens.Lens' GetInsightRuleReport Core.UTCTime
-getInsightRuleReport_endTime = Lens.lens (\GetInsightRuleReport' {endTime} -> endTime) (\s@GetInsightRuleReport' {} a -> s {endTime = a} :: GetInsightRuleReport) Core.. Core._Time
+getInsightRuleReport_endTime :: Lens.Lens' GetInsightRuleReport Prelude.UTCTime
+getInsightRuleReport_endTime = Lens.lens (\GetInsightRuleReport' {endTime} -> endTime) (\s@GetInsightRuleReport' {} a -> s {endTime = a} :: GetInsightRuleReport) Prelude.. Core._Time
 
 -- | The period, in seconds, to use for the statistics in the
 -- @InsightRuleMetricDatapoint@ results.
-getInsightRuleReport_period :: Lens.Lens' GetInsightRuleReport Core.Natural
+getInsightRuleReport_period :: Lens.Lens' GetInsightRuleReport Prelude.Natural
 getInsightRuleReport_period = Lens.lens (\GetInsightRuleReport' {period} -> period) (\s@GetInsightRuleReport' {} a -> s {period = a} :: GetInsightRuleReport)
 
 instance Core.AWSRequest GetInsightRuleReport where
@@ -296,41 +297,43 @@ instance Core.AWSRequest GetInsightRuleReport where
       "GetInsightRuleReportResult"
       ( \s h x ->
           GetInsightRuleReportResponse'
-            Core.<$> (x Core..@? "ApproximateUniqueCount")
-            Core.<*> ( x Core..@? "MetricDatapoints" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> ( x Core..@? "Contributors" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "AggregateValue")
-            Core.<*> ( x Core..@? "KeyLabels" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "AggregationStatistic")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ApproximateUniqueCount")
+            Prelude.<*> ( x Core..@? "MetricDatapoints"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> ( x Core..@? "Contributors" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "AggregateValue")
+            Prelude.<*> ( x Core..@? "KeyLabels" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "AggregationStatistic")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInsightRuleReport
+instance Prelude.Hashable GetInsightRuleReport
 
-instance Core.NFData GetInsightRuleReport
+instance Prelude.NFData GetInsightRuleReport
 
 instance Core.ToHeaders GetInsightRuleReport where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetInsightRuleReport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetInsightRuleReport where
   toQuery GetInsightRuleReport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetInsightRuleReport" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("GetInsightRuleReport" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "OrderBy" Core.=: orderBy,
         "Metrics"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> metrics),
+            (Core.toQueryList "member" Prelude.<$> metrics),
         "MaxContributorCount" Core.=: maxContributorCount,
         "RuleName" Core.=: ruleName,
         "StartTime" Core.=: startTime,
@@ -342,28 +345,28 @@ instance Core.ToQuery GetInsightRuleReport where
 data GetInsightRuleReportResponse = GetInsightRuleReportResponse'
   { -- | An approximate count of the unique contributors found by this rule in
     -- this time period.
-    approximateUniqueCount :: Core.Maybe Core.Integer,
+    approximateUniqueCount :: Prelude.Maybe Prelude.Integer,
     -- | A time series of metric data points that matches the time period in the
     -- rule request.
-    metricDatapoints :: Core.Maybe [InsightRuleMetricDatapoint],
+    metricDatapoints :: Prelude.Maybe [InsightRuleMetricDatapoint],
     -- | An array of the unique contributors found by this rule in this time
     -- period. If the rule contains multiple keys, each combination of values
     -- for the keys counts as a unique contributor.
-    contributors :: Core.Maybe [InsightRuleContributor],
+    contributors :: Prelude.Maybe [InsightRuleContributor],
     -- | The sum of the values from all individual contributors that match the
     -- rule.
-    aggregateValue :: Core.Maybe Core.Double,
+    aggregateValue :: Prelude.Maybe Prelude.Double,
     -- | An array of the strings used as the keys for this rule. The keys are the
     -- dimensions used to classify contributors. If the rule contains more than
     -- one key, then each unique combination of values for the keys is counted
     -- as a unique contributor.
-    keyLabels :: Core.Maybe [Core.Text],
+    keyLabels :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether this rule aggregates contributor data by COUNT or SUM.
-    aggregationStatistic :: Core.Maybe Core.Text,
+    aggregationStatistic :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInsightRuleReportResponse' with all optional fields omitted.
@@ -396,54 +399,54 @@ data GetInsightRuleReportResponse = GetInsightRuleReportResponse'
 -- 'httpStatus', 'getInsightRuleReportResponse_httpStatus' - The response's http status code.
 newGetInsightRuleReportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInsightRuleReportResponse
 newGetInsightRuleReportResponse pHttpStatus_ =
   GetInsightRuleReportResponse'
     { approximateUniqueCount =
-        Core.Nothing,
-      metricDatapoints = Core.Nothing,
-      contributors = Core.Nothing,
-      aggregateValue = Core.Nothing,
-      keyLabels = Core.Nothing,
-      aggregationStatistic = Core.Nothing,
+        Prelude.Nothing,
+      metricDatapoints = Prelude.Nothing,
+      contributors = Prelude.Nothing,
+      aggregateValue = Prelude.Nothing,
+      keyLabels = Prelude.Nothing,
+      aggregationStatistic = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An approximate count of the unique contributors found by this rule in
 -- this time period.
-getInsightRuleReportResponse_approximateUniqueCount :: Lens.Lens' GetInsightRuleReportResponse (Core.Maybe Core.Integer)
+getInsightRuleReportResponse_approximateUniqueCount :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe Prelude.Integer)
 getInsightRuleReportResponse_approximateUniqueCount = Lens.lens (\GetInsightRuleReportResponse' {approximateUniqueCount} -> approximateUniqueCount) (\s@GetInsightRuleReportResponse' {} a -> s {approximateUniqueCount = a} :: GetInsightRuleReportResponse)
 
 -- | A time series of metric data points that matches the time period in the
 -- rule request.
-getInsightRuleReportResponse_metricDatapoints :: Lens.Lens' GetInsightRuleReportResponse (Core.Maybe [InsightRuleMetricDatapoint])
-getInsightRuleReportResponse_metricDatapoints = Lens.lens (\GetInsightRuleReportResponse' {metricDatapoints} -> metricDatapoints) (\s@GetInsightRuleReportResponse' {} a -> s {metricDatapoints = a} :: GetInsightRuleReportResponse) Core.. Lens.mapping Lens._Coerce
+getInsightRuleReportResponse_metricDatapoints :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe [InsightRuleMetricDatapoint])
+getInsightRuleReportResponse_metricDatapoints = Lens.lens (\GetInsightRuleReportResponse' {metricDatapoints} -> metricDatapoints) (\s@GetInsightRuleReportResponse' {} a -> s {metricDatapoints = a} :: GetInsightRuleReportResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of the unique contributors found by this rule in this time
 -- period. If the rule contains multiple keys, each combination of values
 -- for the keys counts as a unique contributor.
-getInsightRuleReportResponse_contributors :: Lens.Lens' GetInsightRuleReportResponse (Core.Maybe [InsightRuleContributor])
-getInsightRuleReportResponse_contributors = Lens.lens (\GetInsightRuleReportResponse' {contributors} -> contributors) (\s@GetInsightRuleReportResponse' {} a -> s {contributors = a} :: GetInsightRuleReportResponse) Core.. Lens.mapping Lens._Coerce
+getInsightRuleReportResponse_contributors :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe [InsightRuleContributor])
+getInsightRuleReportResponse_contributors = Lens.lens (\GetInsightRuleReportResponse' {contributors} -> contributors) (\s@GetInsightRuleReportResponse' {} a -> s {contributors = a} :: GetInsightRuleReportResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The sum of the values from all individual contributors that match the
 -- rule.
-getInsightRuleReportResponse_aggregateValue :: Lens.Lens' GetInsightRuleReportResponse (Core.Maybe Core.Double)
+getInsightRuleReportResponse_aggregateValue :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe Prelude.Double)
 getInsightRuleReportResponse_aggregateValue = Lens.lens (\GetInsightRuleReportResponse' {aggregateValue} -> aggregateValue) (\s@GetInsightRuleReportResponse' {} a -> s {aggregateValue = a} :: GetInsightRuleReportResponse)
 
 -- | An array of the strings used as the keys for this rule. The keys are the
 -- dimensions used to classify contributors. If the rule contains more than
 -- one key, then each unique combination of values for the keys is counted
 -- as a unique contributor.
-getInsightRuleReportResponse_keyLabels :: Lens.Lens' GetInsightRuleReportResponse (Core.Maybe [Core.Text])
-getInsightRuleReportResponse_keyLabels = Lens.lens (\GetInsightRuleReportResponse' {keyLabels} -> keyLabels) (\s@GetInsightRuleReportResponse' {} a -> s {keyLabels = a} :: GetInsightRuleReportResponse) Core.. Lens.mapping Lens._Coerce
+getInsightRuleReportResponse_keyLabels :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe [Prelude.Text])
+getInsightRuleReportResponse_keyLabels = Lens.lens (\GetInsightRuleReportResponse' {keyLabels} -> keyLabels) (\s@GetInsightRuleReportResponse' {} a -> s {keyLabels = a} :: GetInsightRuleReportResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether this rule aggregates contributor data by COUNT or SUM.
-getInsightRuleReportResponse_aggregationStatistic :: Lens.Lens' GetInsightRuleReportResponse (Core.Maybe Core.Text)
+getInsightRuleReportResponse_aggregationStatistic :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe Prelude.Text)
 getInsightRuleReportResponse_aggregationStatistic = Lens.lens (\GetInsightRuleReportResponse' {aggregationStatistic} -> aggregationStatistic) (\s@GetInsightRuleReportResponse' {} a -> s {aggregationStatistic = a} :: GetInsightRuleReportResponse)
 
 -- | The response's http status code.
-getInsightRuleReportResponse_httpStatus :: Lens.Lens' GetInsightRuleReportResponse Core.Int
+getInsightRuleReportResponse_httpStatus :: Lens.Lens' GetInsightRuleReportResponse Prelude.Int
 getInsightRuleReportResponse_httpStatus = Lens.lens (\GetInsightRuleReportResponse' {httpStatus} -> httpStatus) (\s@GetInsightRuleReportResponse' {} a -> s {httpStatus = a} :: GetInsightRuleReportResponse)
 
-instance Core.NFData GetInsightRuleReportResponse
+instance Prelude.NFData GetInsightRuleReportResponse

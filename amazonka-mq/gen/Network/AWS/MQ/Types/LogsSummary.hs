@@ -22,6 +22,7 @@ module Network.AWS.MQ.Types.LogsSummary where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.PendingLogs
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The list of information about logs currently enabled and pending to be
 -- deployed for the specified broker.
@@ -29,20 +30,20 @@ import Network.AWS.MQ.Types.PendingLogs
 -- /See:/ 'newLogsSummary' smart constructor.
 data LogsSummary = LogsSummary'
   { -- | Enables general logging.
-    general :: Core.Maybe Core.Bool,
+    general :: Prelude.Maybe Prelude.Bool,
     -- | Enables audit logging. Every user management action made using JMX or
     -- the ActiveMQ Web Console is logged.
-    audit :: Core.Maybe Core.Bool,
+    audit :: Prelude.Maybe Prelude.Bool,
     -- | The list of information about logs pending to be deployed for the
     -- specified broker.
-    pending :: Core.Maybe PendingLogs,
+    pending :: Prelude.Maybe PendingLogs,
     -- | The location of the CloudWatch Logs log group where audit logs are sent.
-    auditLogGroup :: Core.Maybe Core.Text,
+    auditLogGroup :: Prelude.Maybe Prelude.Text,
     -- | The location of the CloudWatch Logs log group where general logs are
     -- sent.
-    generalLogGroup :: Core.Maybe Core.Text
+    generalLogGroup :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LogsSummary' with all optional fields omitted.
@@ -68,34 +69,34 @@ newLogsSummary ::
   LogsSummary
 newLogsSummary =
   LogsSummary'
-    { general = Core.Nothing,
-      audit = Core.Nothing,
-      pending = Core.Nothing,
-      auditLogGroup = Core.Nothing,
-      generalLogGroup = Core.Nothing
+    { general = Prelude.Nothing,
+      audit = Prelude.Nothing,
+      pending = Prelude.Nothing,
+      auditLogGroup = Prelude.Nothing,
+      generalLogGroup = Prelude.Nothing
     }
 
 -- | Enables general logging.
-logsSummary_general :: Lens.Lens' LogsSummary (Core.Maybe Core.Bool)
+logsSummary_general :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Bool)
 logsSummary_general = Lens.lens (\LogsSummary' {general} -> general) (\s@LogsSummary' {} a -> s {general = a} :: LogsSummary)
 
 -- | Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged.
-logsSummary_audit :: Lens.Lens' LogsSummary (Core.Maybe Core.Bool)
+logsSummary_audit :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Bool)
 logsSummary_audit = Lens.lens (\LogsSummary' {audit} -> audit) (\s@LogsSummary' {} a -> s {audit = a} :: LogsSummary)
 
 -- | The list of information about logs pending to be deployed for the
 -- specified broker.
-logsSummary_pending :: Lens.Lens' LogsSummary (Core.Maybe PendingLogs)
+logsSummary_pending :: Lens.Lens' LogsSummary (Prelude.Maybe PendingLogs)
 logsSummary_pending = Lens.lens (\LogsSummary' {pending} -> pending) (\s@LogsSummary' {} a -> s {pending = a} :: LogsSummary)
 
 -- | The location of the CloudWatch Logs log group where audit logs are sent.
-logsSummary_auditLogGroup :: Lens.Lens' LogsSummary (Core.Maybe Core.Text)
+logsSummary_auditLogGroup :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Text)
 logsSummary_auditLogGroup = Lens.lens (\LogsSummary' {auditLogGroup} -> auditLogGroup) (\s@LogsSummary' {} a -> s {auditLogGroup = a} :: LogsSummary)
 
 -- | The location of the CloudWatch Logs log group where general logs are
 -- sent.
-logsSummary_generalLogGroup :: Lens.Lens' LogsSummary (Core.Maybe Core.Text)
+logsSummary_generalLogGroup :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Text)
 logsSummary_generalLogGroup = Lens.lens (\LogsSummary' {generalLogGroup} -> generalLogGroup) (\s@LogsSummary' {} a -> s {generalLogGroup = a} :: LogsSummary)
 
 instance Core.FromJSON LogsSummary where
@@ -104,13 +105,13 @@ instance Core.FromJSON LogsSummary where
       "LogsSummary"
       ( \x ->
           LogsSummary'
-            Core.<$> (x Core..:? "general")
-            Core.<*> (x Core..:? "audit")
-            Core.<*> (x Core..:? "pending")
-            Core.<*> (x Core..:? "auditLogGroup")
-            Core.<*> (x Core..:? "generalLogGroup")
+            Prelude.<$> (x Core..:? "general")
+            Prelude.<*> (x Core..:? "audit")
+            Prelude.<*> (x Core..:? "pending")
+            Prelude.<*> (x Core..:? "auditLogGroup")
+            Prelude.<*> (x Core..:? "generalLogGroup")
       )
 
-instance Core.Hashable LogsSummary
+instance Prelude.Hashable LogsSummary
 
-instance Core.NFData LogsSummary
+instance Prelude.NFData LogsSummary

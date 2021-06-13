@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -49,16 +50,16 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newModifyAccount' smart constructor.
 data ModifyAccount = ModifyAccount'
   { -- | The status of BYOL.
-    dedicatedTenancySupport :: Core.Maybe DedicatedTenancySupportEnum,
+    dedicatedTenancySupport :: Prelude.Maybe DedicatedTenancySupportEnum,
     -- | The IP address range, specified as an IPv4 CIDR block, for the
     -- management network interface. Specify an IP address range that is
     -- compatible with your network and in CIDR notation (that is, specify the
     -- range as an IPv4 CIDR block). The CIDR block size must be \/16 (for
     -- example, 203.0.113.25\/16). It must also be specified as available by
     -- the @ListAvailableManagementCidrRanges@ operation.
-    dedicatedTenancyManagementCidrRange :: Core.Maybe Core.Text
+    dedicatedTenancyManagementCidrRange :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyAccount' with all optional fields omitted.
@@ -81,12 +82,13 @@ newModifyAccount ::
 newModifyAccount =
   ModifyAccount'
     { dedicatedTenancySupport =
-        Core.Nothing,
-      dedicatedTenancyManagementCidrRange = Core.Nothing
+        Prelude.Nothing,
+      dedicatedTenancyManagementCidrRange =
+        Prelude.Nothing
     }
 
 -- | The status of BYOL.
-modifyAccount_dedicatedTenancySupport :: Lens.Lens' ModifyAccount (Core.Maybe DedicatedTenancySupportEnum)
+modifyAccount_dedicatedTenancySupport :: Lens.Lens' ModifyAccount (Prelude.Maybe DedicatedTenancySupportEnum)
 modifyAccount_dedicatedTenancySupport = Lens.lens (\ModifyAccount' {dedicatedTenancySupport} -> dedicatedTenancySupport) (\s@ModifyAccount' {} a -> s {dedicatedTenancySupport = a} :: ModifyAccount)
 
 -- | The IP address range, specified as an IPv4 CIDR block, for the
@@ -95,7 +97,7 @@ modifyAccount_dedicatedTenancySupport = Lens.lens (\ModifyAccount' {dedicatedTen
 -- range as an IPv4 CIDR block). The CIDR block size must be \/16 (for
 -- example, 203.0.113.25\/16). It must also be specified as available by
 -- the @ListAvailableManagementCidrRanges@ operation.
-modifyAccount_dedicatedTenancyManagementCidrRange :: Lens.Lens' ModifyAccount (Core.Maybe Core.Text)
+modifyAccount_dedicatedTenancyManagementCidrRange :: Lens.Lens' ModifyAccount (Prelude.Maybe Prelude.Text)
 modifyAccount_dedicatedTenancyManagementCidrRange = Lens.lens (\ModifyAccount' {dedicatedTenancyManagementCidrRange} -> dedicatedTenancyManagementCidrRange) (\s@ModifyAccount' {} a -> s {dedicatedTenancyManagementCidrRange = a} :: ModifyAccount)
 
 instance Core.AWSRequest ModifyAccount where
@@ -107,49 +109,51 @@ instance Core.AWSRequest ModifyAccount where
     Response.receiveEmpty
       ( \s h x ->
           ModifyAccountResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyAccount
+instance Prelude.Hashable ModifyAccount
 
-instance Core.NFData ModifyAccount
+instance Prelude.NFData ModifyAccount
 
 instance Core.ToHeaders ModifyAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.ModifyAccount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ModifyAccount where
   toJSON ModifyAccount' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DedicatedTenancySupport" Core..=)
-              Core.<$> dedicatedTenancySupport,
+              Prelude.<$> dedicatedTenancySupport,
             ("DedicatedTenancyManagementCidrRange" Core..=)
-              Core.<$> dedicatedTenancyManagementCidrRange
+              Prelude.<$> dedicatedTenancyManagementCidrRange
           ]
       )
 
 instance Core.ToPath ModifyAccount where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyAccountResponse' smart constructor.
 data ModifyAccountResponse = ModifyAccountResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyAccountResponse' with all optional fields omitted.
@@ -162,13 +166,13 @@ data ModifyAccountResponse = ModifyAccountResponse'
 -- 'httpStatus', 'modifyAccountResponse_httpStatus' - The response's http status code.
 newModifyAccountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyAccountResponse
 newModifyAccountResponse pHttpStatus_ =
   ModifyAccountResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-modifyAccountResponse_httpStatus :: Lens.Lens' ModifyAccountResponse Core.Int
+modifyAccountResponse_httpStatus :: Lens.Lens' ModifyAccountResponse Prelude.Int
 modifyAccountResponse_httpStatus = Lens.lens (\ModifyAccountResponse' {httpStatus} -> httpStatus) (\s@ModifyAccountResponse' {} a -> s {httpStatus = a} :: ModifyAccountResponse)
 
-instance Core.NFData ModifyAccountResponse
+instance Prelude.NFData ModifyAccountResponse

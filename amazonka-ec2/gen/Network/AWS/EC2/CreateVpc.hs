@@ -72,18 +72,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateVpc' smart constructor.
 data CreateVpc = CreateVpc'
   { -- | The tags to assign to the VPC.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The tenancy options for instances launched into the VPC. For @default@,
     -- instances are launched with shared tenancy by default. You can launch
     -- instances with any tenancy into a shared tenancy VPC. For @dedicated@,
@@ -95,32 +96,32 @@ data CreateVpc = CreateVpc'
     -- the @default@ or @dedicated@ values only.
     --
     -- Default: @default@
-    instanceTenancy :: Core.Maybe Tenancy,
+    instanceTenancy :: Prelude.Maybe Tenancy,
     -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
     -- block.
-    ipv6Pool :: Core.Maybe Core.Text,
+    ipv6Pool :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 CIDR block from the IPv6 address pool. You must also specify
     -- @Ipv6Pool@ in the request.
     --
     -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
-    ipv6CidrBlock :: Core.Maybe Core.Text,
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The name of the location from which we advertise the IPV6 CIDR block.
     -- Use this parameter to limit the address to this location.
     --
     -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this
     -- parameter.
-    ipv6CidrBlockNetworkBorderGroup :: Core.Maybe Core.Text,
+    ipv6CidrBlockNetworkBorderGroup :: Prelude.Maybe Prelude.Text,
     -- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
     -- for the VPC. You cannot specify the range of IP addresses, or the size
     -- of the CIDR block.
-    amazonProvidedIpv6CidrBlock :: Core.Maybe Core.Bool,
+    amazonProvidedIpv6CidrBlock :: Prelude.Maybe Prelude.Bool,
     -- | The IPv4 network range for the VPC, in CIDR notation. For example,
     -- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical
     -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
     -- @100.68.0.0\/18@.
-    cidrBlock :: Core.Text
+    cidrBlock :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpc' with all optional fields omitted.
@@ -173,29 +174,29 @@ data CreateVpc = CreateVpc'
 -- @100.68.0.0\/18@.
 newCreateVpc ::
   -- | 'cidrBlock'
-  Core.Text ->
+  Prelude.Text ->
   CreateVpc
 newCreateVpc pCidrBlock_ =
   CreateVpc'
-    { tagSpecifications = Core.Nothing,
-      dryRun = Core.Nothing,
-      instanceTenancy = Core.Nothing,
-      ipv6Pool = Core.Nothing,
-      ipv6CidrBlock = Core.Nothing,
-      ipv6CidrBlockNetworkBorderGroup = Core.Nothing,
-      amazonProvidedIpv6CidrBlock = Core.Nothing,
+    { tagSpecifications = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      instanceTenancy = Prelude.Nothing,
+      ipv6Pool = Prelude.Nothing,
+      ipv6CidrBlock = Prelude.Nothing,
+      ipv6CidrBlockNetworkBorderGroup = Prelude.Nothing,
+      amazonProvidedIpv6CidrBlock = Prelude.Nothing,
       cidrBlock = pCidrBlock_
     }
 
 -- | The tags to assign to the VPC.
-createVpc_tagSpecifications :: Lens.Lens' CreateVpc (Core.Maybe [TagSpecification])
-createVpc_tagSpecifications = Lens.lens (\CreateVpc' {tagSpecifications} -> tagSpecifications) (\s@CreateVpc' {} a -> s {tagSpecifications = a} :: CreateVpc) Core.. Lens.mapping Lens._Coerce
+createVpc_tagSpecifications :: Lens.Lens' CreateVpc (Prelude.Maybe [TagSpecification])
+createVpc_tagSpecifications = Lens.lens (\CreateVpc' {tagSpecifications} -> tagSpecifications) (\s@CreateVpc' {} a -> s {tagSpecifications = a} :: CreateVpc) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createVpc_dryRun :: Lens.Lens' CreateVpc (Core.Maybe Core.Bool)
+createVpc_dryRun :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Bool)
 createVpc_dryRun = Lens.lens (\CreateVpc' {dryRun} -> dryRun) (\s@CreateVpc' {} a -> s {dryRun = a} :: CreateVpc)
 
 -- | The tenancy options for instances launched into the VPC. For @default@,
@@ -209,19 +210,19 @@ createVpc_dryRun = Lens.lens (\CreateVpc' {dryRun} -> dryRun) (\s@CreateVpc' {} 
 -- the @default@ or @dedicated@ values only.
 --
 -- Default: @default@
-createVpc_instanceTenancy :: Lens.Lens' CreateVpc (Core.Maybe Tenancy)
+createVpc_instanceTenancy :: Lens.Lens' CreateVpc (Prelude.Maybe Tenancy)
 createVpc_instanceTenancy = Lens.lens (\CreateVpc' {instanceTenancy} -> instanceTenancy) (\s@CreateVpc' {} a -> s {instanceTenancy = a} :: CreateVpc)
 
 -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
 -- block.
-createVpc_ipv6Pool :: Lens.Lens' CreateVpc (Core.Maybe Core.Text)
+createVpc_ipv6Pool :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Text)
 createVpc_ipv6Pool = Lens.lens (\CreateVpc' {ipv6Pool} -> ipv6Pool) (\s@CreateVpc' {} a -> s {ipv6Pool = a} :: CreateVpc)
 
 -- | The IPv6 CIDR block from the IPv6 address pool. You must also specify
 -- @Ipv6Pool@ in the request.
 --
 -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
-createVpc_ipv6CidrBlock :: Lens.Lens' CreateVpc (Core.Maybe Core.Text)
+createVpc_ipv6CidrBlock :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Text)
 createVpc_ipv6CidrBlock = Lens.lens (\CreateVpc' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@CreateVpc' {} a -> s {ipv6CidrBlock = a} :: CreateVpc)
 
 -- | The name of the location from which we advertise the IPV6 CIDR block.
@@ -229,20 +230,20 @@ createVpc_ipv6CidrBlock = Lens.lens (\CreateVpc' {ipv6CidrBlock} -> ipv6CidrBloc
 --
 -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this
 -- parameter.
-createVpc_ipv6CidrBlockNetworkBorderGroup :: Lens.Lens' CreateVpc (Core.Maybe Core.Text)
+createVpc_ipv6CidrBlockNetworkBorderGroup :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Text)
 createVpc_ipv6CidrBlockNetworkBorderGroup = Lens.lens (\CreateVpc' {ipv6CidrBlockNetworkBorderGroup} -> ipv6CidrBlockNetworkBorderGroup) (\s@CreateVpc' {} a -> s {ipv6CidrBlockNetworkBorderGroup = a} :: CreateVpc)
 
 -- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
 -- for the VPC. You cannot specify the range of IP addresses, or the size
 -- of the CIDR block.
-createVpc_amazonProvidedIpv6CidrBlock :: Lens.Lens' CreateVpc (Core.Maybe Core.Bool)
+createVpc_amazonProvidedIpv6CidrBlock :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Bool)
 createVpc_amazonProvidedIpv6CidrBlock = Lens.lens (\CreateVpc' {amazonProvidedIpv6CidrBlock} -> amazonProvidedIpv6CidrBlock) (\s@CreateVpc' {} a -> s {amazonProvidedIpv6CidrBlock = a} :: CreateVpc)
 
 -- | The IPv4 network range for the VPC, in CIDR notation. For example,
 -- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical
 -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
 -- @100.68.0.0\/18@.
-createVpc_cidrBlock :: Lens.Lens' CreateVpc Core.Text
+createVpc_cidrBlock :: Lens.Lens' CreateVpc Prelude.Text
 createVpc_cidrBlock = Lens.lens (\CreateVpc' {cidrBlock} -> cidrBlock) (\s@CreateVpc' {} a -> s {cidrBlock = a} :: CreateVpc)
 
 instance Core.AWSRequest CreateVpc where
@@ -252,28 +253,30 @@ instance Core.AWSRequest CreateVpc where
     Response.receiveXML
       ( \s h x ->
           CreateVpcResponse'
-            Core.<$> (x Core..@? "vpc")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "vpc")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateVpc
+instance Prelude.Hashable CreateVpc
 
-instance Core.NFData CreateVpc
+instance Prelude.NFData CreateVpc
 
 instance Core.ToHeaders CreateVpc where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateVpc where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateVpc where
   toQuery CreateVpc' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CreateVpc" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateVpc" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "InstanceTenancy" Core.=: instanceTenancy,
@@ -289,11 +292,11 @@ instance Core.ToQuery CreateVpc where
 -- | /See:/ 'newCreateVpcResponse' smart constructor.
 data CreateVpcResponse = CreateVpcResponse'
   { -- | Information about the VPC.
-    vpc :: Core.Maybe Vpc,
+    vpc :: Prelude.Maybe Vpc,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcResponse' with all optional fields omitted.
@@ -308,20 +311,20 @@ data CreateVpcResponse = CreateVpcResponse'
 -- 'httpStatus', 'createVpcResponse_httpStatus' - The response's http status code.
 newCreateVpcResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateVpcResponse
 newCreateVpcResponse pHttpStatus_ =
   CreateVpcResponse'
-    { vpc = Core.Nothing,
+    { vpc = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the VPC.
-createVpcResponse_vpc :: Lens.Lens' CreateVpcResponse (Core.Maybe Vpc)
+createVpcResponse_vpc :: Lens.Lens' CreateVpcResponse (Prelude.Maybe Vpc)
 createVpcResponse_vpc = Lens.lens (\CreateVpcResponse' {vpc} -> vpc) (\s@CreateVpcResponse' {} a -> s {vpc = a} :: CreateVpcResponse)
 
 -- | The response's http status code.
-createVpcResponse_httpStatus :: Lens.Lens' CreateVpcResponse Core.Int
+createVpcResponse_httpStatus :: Lens.Lens' CreateVpcResponse Prelude.Int
 createVpcResponse_httpStatus = Lens.lens (\CreateVpcResponse' {httpStatus} -> httpStatus) (\s@CreateVpcResponse' {} a -> s {httpStatus = a} :: CreateVpcResponse)
 
-instance Core.NFData CreateVpcResponse
+instance Prelude.NFData CreateVpcResponse

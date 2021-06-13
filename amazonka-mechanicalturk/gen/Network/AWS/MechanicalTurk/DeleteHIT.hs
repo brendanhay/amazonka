@@ -61,15 +61,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteHIT' smart constructor.
 data DeleteHIT = DeleteHIT'
   { -- | The ID of the HIT to be deleted.
-    hITId :: Core.Text
+    hITId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteHIT' with all optional fields omitted.
@@ -82,12 +83,12 @@ data DeleteHIT = DeleteHIT'
 -- 'hITId', 'deleteHIT_hITId' - The ID of the HIT to be deleted.
 newDeleteHIT ::
   -- | 'hITId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteHIT
 newDeleteHIT pHITId_ = DeleteHIT' {hITId = pHITId_}
 
 -- | The ID of the HIT to be deleted.
-deleteHIT_hITId :: Lens.Lens' DeleteHIT Core.Text
+deleteHIT_hITId :: Lens.Lens' DeleteHIT Prelude.Text
 deleteHIT_hITId = Lens.lens (\DeleteHIT' {hITId} -> hITId) (\s@DeleteHIT' {} a -> s {hITId = a} :: DeleteHIT)
 
 instance Core.AWSRequest DeleteHIT where
@@ -97,43 +98,47 @@ instance Core.AWSRequest DeleteHIT where
     Response.receiveEmpty
       ( \s h x ->
           DeleteHITResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteHIT
+instance Prelude.Hashable DeleteHIT
 
-instance Core.NFData DeleteHIT
+instance Prelude.NFData DeleteHIT
 
 instance Core.ToHeaders DeleteHIT where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.DeleteHIT" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteHIT where
   toJSON DeleteHIT' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("HITId" Core..= hITId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("HITId" Core..= hITId)]
+      )
 
 instance Core.ToPath DeleteHIT where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteHIT where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteHITResponse' smart constructor.
 data DeleteHITResponse = DeleteHITResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteHITResponse' with all optional fields omitted.
@@ -146,13 +151,13 @@ data DeleteHITResponse = DeleteHITResponse'
 -- 'httpStatus', 'deleteHITResponse_httpStatus' - The response's http status code.
 newDeleteHITResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteHITResponse
 newDeleteHITResponse pHttpStatus_ =
   DeleteHITResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteHITResponse_httpStatus :: Lens.Lens' DeleteHITResponse Core.Int
+deleteHITResponse_httpStatus :: Lens.Lens' DeleteHITResponse Prelude.Int
 deleteHITResponse_httpStatus = Lens.lens (\DeleteHITResponse' {httpStatus} -> httpStatus) (\s@DeleteHITResponse' {} a -> s {httpStatus = a} :: DeleteHITResponse)
 
-instance Core.NFData DeleteHITResponse
+instance Prelude.NFData DeleteHITResponse

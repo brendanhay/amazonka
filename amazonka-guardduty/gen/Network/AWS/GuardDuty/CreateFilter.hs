@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,23 +58,23 @@ data CreateFilter = CreateFilter'
   { -- | Specifies the position of the filter in the list of current filters.
     -- Also specifies the order in which this filter is applied to the
     -- findings.
-    rank :: Core.Maybe Core.Natural,
+    rank :: Prelude.Maybe Prelude.Natural,
     -- | The tags to be added to a new filter resource.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the action that is to be applied to the findings that match
     -- the filter.
-    action :: Core.Maybe FilterAction,
+    action :: Prelude.Maybe FilterAction,
     -- | The description of the filter.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The idempotency token for the create request.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the detector belonging to the GuardDuty account that you want
     -- to create a filter for.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | The name of the filter. Minimum length of 3. Maximum length of 64. Valid
     -- characters include alphanumeric characters, dot (.), underscore (_), and
     -- dash (-). Spaces are not allowed.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Represents the criteria to be used in the filter for querying findings.
     --
     -- You can only use the following attributes to query findings:
@@ -190,7 +191,7 @@ data CreateFilter = CreateFilter'
     --     milliseconds.
     findingCriteria :: FindingCriteria
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFilter' with all optional fields omitted.
@@ -336,19 +337,19 @@ data CreateFilter = CreateFilter'
 --     milliseconds.
 newCreateFilter ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'findingCriteria'
   FindingCriteria ->
   CreateFilter
 newCreateFilter pDetectorId_ pName_ pFindingCriteria_ =
   CreateFilter'
-    { rank = Core.Nothing,
-      tags = Core.Nothing,
-      action = Core.Nothing,
-      description = Core.Nothing,
-      clientToken = Core.Nothing,
+    { rank = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      action = Prelude.Nothing,
+      description = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       detectorId = pDetectorId_,
       name = pName_,
       findingCriteria = pFindingCriteria_
@@ -357,35 +358,35 @@ newCreateFilter pDetectorId_ pName_ pFindingCriteria_ =
 -- | Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
 -- findings.
-createFilter_rank :: Lens.Lens' CreateFilter (Core.Maybe Core.Natural)
+createFilter_rank :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Natural)
 createFilter_rank = Lens.lens (\CreateFilter' {rank} -> rank) (\s@CreateFilter' {} a -> s {rank = a} :: CreateFilter)
 
 -- | The tags to be added to a new filter resource.
-createFilter_tags :: Lens.Lens' CreateFilter (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Core.. Lens.mapping Lens._Coerce
+createFilter_tags :: Lens.Lens' CreateFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the action that is to be applied to the findings that match
 -- the filter.
-createFilter_action :: Lens.Lens' CreateFilter (Core.Maybe FilterAction)
+createFilter_action :: Lens.Lens' CreateFilter (Prelude.Maybe FilterAction)
 createFilter_action = Lens.lens (\CreateFilter' {action} -> action) (\s@CreateFilter' {} a -> s {action = a} :: CreateFilter)
 
 -- | The description of the filter.
-createFilter_description :: Lens.Lens' CreateFilter (Core.Maybe Core.Text)
+createFilter_description :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_description = Lens.lens (\CreateFilter' {description} -> description) (\s@CreateFilter' {} a -> s {description = a} :: CreateFilter)
 
 -- | The idempotency token for the create request.
-createFilter_clientToken :: Lens.Lens' CreateFilter (Core.Maybe Core.Text)
+createFilter_clientToken :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_clientToken = Lens.lens (\CreateFilter' {clientToken} -> clientToken) (\s@CreateFilter' {} a -> s {clientToken = a} :: CreateFilter)
 
 -- | The ID of the detector belonging to the GuardDuty account that you want
 -- to create a filter for.
-createFilter_detectorId :: Lens.Lens' CreateFilter Core.Text
+createFilter_detectorId :: Lens.Lens' CreateFilter Prelude.Text
 createFilter_detectorId = Lens.lens (\CreateFilter' {detectorId} -> detectorId) (\s@CreateFilter' {} a -> s {detectorId = a} :: CreateFilter)
 
 -- | The name of the filter. Minimum length of 3. Maximum length of 64. Valid
 -- characters include alphanumeric characters, dot (.), underscore (_), and
 -- dash (-). Spaces are not allowed.
-createFilter_name :: Lens.Lens' CreateFilter Core.Text
+createFilter_name :: Lens.Lens' CreateFilter Prelude.Text
 createFilter_name = Lens.lens (\CreateFilter' {name} -> name) (\s@CreateFilter' {} a -> s {name = a} :: CreateFilter)
 
 -- | Represents the criteria to be used in the filter for querying findings.
@@ -512,54 +513,56 @@ instance Core.AWSRequest CreateFilter where
     Response.receiveJSON
       ( \s h x ->
           CreateFilterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "name")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "name")
       )
 
-instance Core.Hashable CreateFilter
+instance Prelude.Hashable CreateFilter
 
-instance Core.NFData CreateFilter
+instance Prelude.NFData CreateFilter
 
 instance Core.ToHeaders CreateFilter where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateFilter where
   toJSON CreateFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("rank" Core..=) Core.<$> rank,
-            ("tags" Core..=) Core.<$> tags,
-            ("action" Core..=) Core.<$> action,
-            ("description" Core..=) Core.<$> description,
-            ("clientToken" Core..=) Core.<$> clientToken,
-            Core.Just ("name" Core..= name),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("rank" Core..=) Prelude.<$> rank,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("action" Core..=) Prelude.<$> action,
+            ("description" Core..=) Prelude.<$> description,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just
               ("findingCriteria" Core..= findingCriteria)
           ]
       )
 
 instance Core.ToPath CreateFilter where
   toPath CreateFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/detector/", Core.toBS detectorId, "/filter"]
 
 instance Core.ToQuery CreateFilter where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFilterResponse' smart constructor.
 data CreateFilterResponse = CreateFilterResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The name of the successfully created filter.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFilterResponse' with all optional fields omitted.
@@ -574,9 +577,9 @@ data CreateFilterResponse = CreateFilterResponse'
 -- 'name', 'createFilterResponse_name' - The name of the successfully created filter.
 newCreateFilterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateFilterResponse
 newCreateFilterResponse pHttpStatus_ pName_ =
   CreateFilterResponse'
@@ -585,11 +588,11 @@ newCreateFilterResponse pHttpStatus_ pName_ =
     }
 
 -- | The response's http status code.
-createFilterResponse_httpStatus :: Lens.Lens' CreateFilterResponse Core.Int
+createFilterResponse_httpStatus :: Lens.Lens' CreateFilterResponse Prelude.Int
 createFilterResponse_httpStatus = Lens.lens (\CreateFilterResponse' {httpStatus} -> httpStatus) (\s@CreateFilterResponse' {} a -> s {httpStatus = a} :: CreateFilterResponse)
 
 -- | The name of the successfully created filter.
-createFilterResponse_name :: Lens.Lens' CreateFilterResponse Core.Text
+createFilterResponse_name :: Lens.Lens' CreateFilterResponse Prelude.Text
 createFilterResponse_name = Lens.lens (\CreateFilterResponse' {name} -> name) (\s@CreateFilterResponse' {} a -> s {name = a} :: CreateFilterResponse)
 
-instance Core.NFData CreateFilterResponse
+instance Prelude.NFData CreateFilterResponse

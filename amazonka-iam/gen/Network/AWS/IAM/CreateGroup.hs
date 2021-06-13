@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,15 +67,15 @@ data CreateGroup = CreateGroup'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | The name of the group to create. Do not include the path in this value.
     --
     -- IAM user, group, role, and policy names must be unique within the
     -- account. Names are not distinguished by case. For example, you cannot
     -- create resources named both \"MyResource\" and \"myresource\".
-    groupName :: Core.Text
+    groupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGroup' with all optional fields omitted.
@@ -106,11 +107,11 @@ data CreateGroup = CreateGroup'
 -- create resources named both \"MyResource\" and \"myresource\".
 newCreateGroup ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   CreateGroup
 newCreateGroup pGroupName_ =
   CreateGroup'
-    { path = Core.Nothing,
+    { path = Prelude.Nothing,
       groupName = pGroupName_
     }
 
@@ -128,7 +129,7 @@ newCreateGroup pGroupName_ =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-createGroup_path :: Lens.Lens' CreateGroup (Core.Maybe Core.Text)
+createGroup_path :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
 createGroup_path = Lens.lens (\CreateGroup' {path} -> path) (\s@CreateGroup' {} a -> s {path = a} :: CreateGroup)
 
 -- | The name of the group to create. Do not include the path in this value.
@@ -136,7 +137,7 @@ createGroup_path = Lens.lens (\CreateGroup' {path} -> path) (\s@CreateGroup' {} 
 -- IAM user, group, role, and policy names must be unique within the
 -- account. Names are not distinguished by case. For example, you cannot
 -- create resources named both \"MyResource\" and \"myresource\".
-createGroup_groupName :: Lens.Lens' CreateGroup Core.Text
+createGroup_groupName :: Lens.Lens' CreateGroup Prelude.Text
 createGroup_groupName = Lens.lens (\CreateGroup' {groupName} -> groupName) (\s@CreateGroup' {} a -> s {groupName = a} :: CreateGroup)
 
 instance Core.AWSRequest CreateGroup where
@@ -147,25 +148,27 @@ instance Core.AWSRequest CreateGroup where
       "CreateGroupResult"
       ( \s h x ->
           CreateGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "Group")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "Group")
       )
 
-instance Core.Hashable CreateGroup
+instance Prelude.Hashable CreateGroup
 
-instance Core.NFData CreateGroup
+instance Prelude.NFData CreateGroup
 
 instance Core.ToHeaders CreateGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateGroup where
   toQuery CreateGroup' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CreateGroup" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "Path" Core.=: path,
         "GroupName" Core.=: groupName
       ]
@@ -175,11 +178,11 @@ instance Core.ToQuery CreateGroup where
 -- /See:/ 'newCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A structure containing details about the new group.
     group' :: Group
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateGroupResponse' with all optional fields omitted.
@@ -194,7 +197,7 @@ data CreateGroupResponse = CreateGroupResponse'
 -- 'group'', 'createGroupResponse_group' - A structure containing details about the new group.
 newCreateGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'group''
   Group ->
   CreateGroupResponse
@@ -205,11 +208,11 @@ newCreateGroupResponse pHttpStatus_ pGroup_ =
     }
 
 -- | The response's http status code.
-createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Core.Int
+createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Prelude.Int
 createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGroupResponse' {} a -> s {httpStatus = a} :: CreateGroupResponse)
 
 -- | A structure containing details about the new group.
 createGroupResponse_group :: Lens.Lens' CreateGroupResponse Group
 createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group') (\s@CreateGroupResponse' {} a -> s {group' = a} :: CreateGroupResponse)
 
-instance Core.NFData CreateGroupResponse
+instance Prelude.NFData CreateGroupResponse

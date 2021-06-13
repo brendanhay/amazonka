@@ -48,6 +48,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +57,7 @@ data ListActionExecutions = ListActionExecutions'
   { -- | The token that was returned from the previous @ListActionExecutions@
     -- call, which can be used to return the next set of action executions in
     -- the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned nextToken
     -- value. Action execution history is retained for up to 12 months, based
@@ -64,14 +65,14 @@ data ListActionExecutions = ListActionExecutions'
     --
     -- Detailed execution history is available for executions run on or after
     -- February 21, 2019.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Input information used to filter action execution history.
-    filter' :: Core.Maybe ActionExecutionFilter,
+    filter' :: Prelude.Maybe ActionExecutionFilter,
     -- | The name of the pipeline for which you want to list action execution
     -- history.
-    pipelineName :: Core.Text
+    pipelineName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListActionExecutions' with all optional fields omitted.
@@ -99,20 +100,20 @@ data ListActionExecutions = ListActionExecutions'
 -- history.
 newListActionExecutions ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   ListActionExecutions
 newListActionExecutions pPipelineName_ =
   ListActionExecutions'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filter' = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       pipelineName = pPipelineName_
     }
 
 -- | The token that was returned from the previous @ListActionExecutions@
 -- call, which can be used to return the next set of action executions in
 -- the list.
-listActionExecutions_nextToken :: Lens.Lens' ListActionExecutions (Core.Maybe Core.Text)
+listActionExecutions_nextToken :: Lens.Lens' ListActionExecutions (Prelude.Maybe Prelude.Text)
 listActionExecutions_nextToken = Lens.lens (\ListActionExecutions' {nextToken} -> nextToken) (\s@ListActionExecutions' {} a -> s {nextToken = a} :: ListActionExecutions)
 
 -- | The maximum number of results to return in a single call. To retrieve
@@ -122,16 +123,16 @@ listActionExecutions_nextToken = Lens.lens (\ListActionExecutions' {nextToken} -
 --
 -- Detailed execution history is available for executions run on or after
 -- February 21, 2019.
-listActionExecutions_maxResults :: Lens.Lens' ListActionExecutions (Core.Maybe Core.Natural)
+listActionExecutions_maxResults :: Lens.Lens' ListActionExecutions (Prelude.Maybe Prelude.Natural)
 listActionExecutions_maxResults = Lens.lens (\ListActionExecutions' {maxResults} -> maxResults) (\s@ListActionExecutions' {} a -> s {maxResults = a} :: ListActionExecutions)
 
 -- | Input information used to filter action execution history.
-listActionExecutions_filter :: Lens.Lens' ListActionExecutions (Core.Maybe ActionExecutionFilter)
+listActionExecutions_filter :: Lens.Lens' ListActionExecutions (Prelude.Maybe ActionExecutionFilter)
 listActionExecutions_filter = Lens.lens (\ListActionExecutions' {filter'} -> filter') (\s@ListActionExecutions' {} a -> s {filter' = a} :: ListActionExecutions)
 
 -- | The name of the pipeline for which you want to list action execution
 -- history.
-listActionExecutions_pipelineName :: Lens.Lens' ListActionExecutions Core.Text
+listActionExecutions_pipelineName :: Lens.Lens' ListActionExecutions Prelude.Text
 listActionExecutions_pipelineName = Lens.lens (\ListActionExecutions' {pipelineName} -> pipelineName) (\s@ListActionExecutions' {} a -> s {pipelineName = a} :: ListActionExecutions)
 
 instance Core.AWSPager ListActionExecutions where
@@ -139,22 +140,22 @@ instance Core.AWSPager ListActionExecutions where
     | Core.stop
         ( rs
             Lens.^? listActionExecutionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listActionExecutionsResponse_actionExecutionDetails
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listActionExecutions_nextToken
+          Prelude.& listActionExecutions_nextToken
           Lens..~ rs
           Lens.^? listActionExecutionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActionExecutions where
   type
@@ -165,46 +166,48 @@ instance Core.AWSRequest ListActionExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListActionExecutionsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> ( x Core..?> "actionExecutionDetails"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "actionExecutionDetails"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListActionExecutions
+instance Prelude.Hashable ListActionExecutions
 
-instance Core.NFData ListActionExecutions
+instance Prelude.NFData ListActionExecutions
 
 instance Core.ToHeaders ListActionExecutions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.ListActionExecutions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListActionExecutions where
   toJSON ListActionExecutions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("filter" Core..=) Core.<$> filter',
-            Core.Just ("pipelineName" Core..= pipelineName)
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("filter" Core..=) Prelude.<$> filter',
+            Prelude.Just ("pipelineName" Core..= pipelineName)
           ]
       )
 
 instance Core.ToPath ListActionExecutions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListActionExecutions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListActionExecutionsResponse' smart constructor.
 data ListActionExecutionsResponse = ListActionExecutionsResponse'
@@ -212,14 +215,14 @@ data ListActionExecutionsResponse = ListActionExecutionsResponse'
     -- identifier is also returned and can be used in a subsequent
     -- @ListActionExecutions@ call to return the next set of action executions
     -- in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The details for a list of recent executions, such as action execution
     -- ID.
-    actionExecutionDetails :: Core.Maybe [ActionExecutionDetail],
+    actionExecutionDetails :: Prelude.Maybe [ActionExecutionDetail],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListActionExecutionsResponse' with all optional fields omitted.
@@ -240,13 +243,13 @@ data ListActionExecutionsResponse = ListActionExecutionsResponse'
 -- 'httpStatus', 'listActionExecutionsResponse_httpStatus' - The response's http status code.
 newListActionExecutionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListActionExecutionsResponse
 newListActionExecutionsResponse pHttpStatus_ =
   ListActionExecutionsResponse'
     { nextToken =
-        Core.Nothing,
-      actionExecutionDetails = Core.Nothing,
+        Prelude.Nothing,
+      actionExecutionDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -254,16 +257,16 @@ newListActionExecutionsResponse pHttpStatus_ =
 -- identifier is also returned and can be used in a subsequent
 -- @ListActionExecutions@ call to return the next set of action executions
 -- in the list.
-listActionExecutionsResponse_nextToken :: Lens.Lens' ListActionExecutionsResponse (Core.Maybe Core.Text)
+listActionExecutionsResponse_nextToken :: Lens.Lens' ListActionExecutionsResponse (Prelude.Maybe Prelude.Text)
 listActionExecutionsResponse_nextToken = Lens.lens (\ListActionExecutionsResponse' {nextToken} -> nextToken) (\s@ListActionExecutionsResponse' {} a -> s {nextToken = a} :: ListActionExecutionsResponse)
 
 -- | The details for a list of recent executions, such as action execution
 -- ID.
-listActionExecutionsResponse_actionExecutionDetails :: Lens.Lens' ListActionExecutionsResponse (Core.Maybe [ActionExecutionDetail])
-listActionExecutionsResponse_actionExecutionDetails = Lens.lens (\ListActionExecutionsResponse' {actionExecutionDetails} -> actionExecutionDetails) (\s@ListActionExecutionsResponse' {} a -> s {actionExecutionDetails = a} :: ListActionExecutionsResponse) Core.. Lens.mapping Lens._Coerce
+listActionExecutionsResponse_actionExecutionDetails :: Lens.Lens' ListActionExecutionsResponse (Prelude.Maybe [ActionExecutionDetail])
+listActionExecutionsResponse_actionExecutionDetails = Lens.lens (\ListActionExecutionsResponse' {actionExecutionDetails} -> actionExecutionDetails) (\s@ListActionExecutionsResponse' {} a -> s {actionExecutionDetails = a} :: ListActionExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listActionExecutionsResponse_httpStatus :: Lens.Lens' ListActionExecutionsResponse Core.Int
+listActionExecutionsResponse_httpStatus :: Lens.Lens' ListActionExecutionsResponse Prelude.Int
 listActionExecutionsResponse_httpStatus = Lens.lens (\ListActionExecutionsResponse' {httpStatus} -> httpStatus) (\s@ListActionExecutionsResponse' {} a -> s {httpStatus = a} :: ListActionExecutionsResponse)
 
-instance Core.NFData ListActionExecutionsResponse
+instance Prelude.NFData ListActionExecutionsResponse

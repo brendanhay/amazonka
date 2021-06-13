@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,11 +65,11 @@ data DeleteVpnConnection = DeleteVpnConnection'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPN connection.
-    vpnConnectionId :: Core.Text
+    vpnConnectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpnConnection' with all optional fields omitted.
@@ -86,11 +87,11 @@ data DeleteVpnConnection = DeleteVpnConnection'
 -- 'vpnConnectionId', 'deleteVpnConnection_vpnConnectionId' - The ID of the VPN connection.
 newDeleteVpnConnection ::
   -- | 'vpnConnectionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVpnConnection
 newDeleteVpnConnection pVpnConnectionId_ =
   DeleteVpnConnection'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       vpnConnectionId = pVpnConnectionId_
     }
 
@@ -98,11 +99,11 @@ newDeleteVpnConnection pVpnConnectionId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVpnConnection_dryRun :: Lens.Lens' DeleteVpnConnection (Core.Maybe Core.Bool)
+deleteVpnConnection_dryRun :: Lens.Lens' DeleteVpnConnection (Prelude.Maybe Prelude.Bool)
 deleteVpnConnection_dryRun = Lens.lens (\DeleteVpnConnection' {dryRun} -> dryRun) (\s@DeleteVpnConnection' {} a -> s {dryRun = a} :: DeleteVpnConnection)
 
 -- | The ID of the VPN connection.
-deleteVpnConnection_vpnConnectionId :: Lens.Lens' DeleteVpnConnection Core.Text
+deleteVpnConnection_vpnConnectionId :: Lens.Lens' DeleteVpnConnection Prelude.Text
 deleteVpnConnection_vpnConnectionId = Lens.lens (\DeleteVpnConnection' {vpnConnectionId} -> vpnConnectionId) (\s@DeleteVpnConnection' {} a -> s {vpnConnectionId = a} :: DeleteVpnConnection)
 
 instance Core.AWSRequest DeleteVpnConnection where
@@ -113,22 +114,23 @@ instance Core.AWSRequest DeleteVpnConnection where
   response =
     Response.receiveNull DeleteVpnConnectionResponse'
 
-instance Core.Hashable DeleteVpnConnection
+instance Prelude.Hashable DeleteVpnConnection
 
-instance Core.NFData DeleteVpnConnection
+instance Prelude.NFData DeleteVpnConnection
 
 instance Core.ToHeaders DeleteVpnConnection where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteVpnConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVpnConnection where
   toQuery DeleteVpnConnection' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVpnConnection" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteVpnConnection" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "VpnConnectionId" Core.=: vpnConnectionId
       ]
@@ -137,7 +139,7 @@ instance Core.ToQuery DeleteVpnConnection where
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpnConnectionResponse' with all optional fields omitted.
@@ -148,4 +150,4 @@ newDeleteVpnConnectionResponse ::
 newDeleteVpnConnectionResponse =
   DeleteVpnConnectionResponse'
 
-instance Core.NFData DeleteVpnConnectionResponse
+instance Prelude.NFData DeleteVpnConnectionResponse

@@ -21,15 +21,16 @@ module Network.AWS.ElasticBeanstalk.Types.Builder where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The builder used to build the custom platform.
 --
 -- /See:/ 'newBuilder' smart constructor.
 data Builder = Builder'
   { -- | The ARN of the builder.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Builder' with all optional fields omitted.
@@ -42,15 +43,15 @@ data Builder = Builder'
 -- 'arn', 'builder_arn' - The ARN of the builder.
 newBuilder ::
   Builder
-newBuilder = Builder' {arn = Core.Nothing}
+newBuilder = Builder' {arn = Prelude.Nothing}
 
 -- | The ARN of the builder.
-builder_arn :: Lens.Lens' Builder (Core.Maybe Core.Text)
+builder_arn :: Lens.Lens' Builder (Prelude.Maybe Prelude.Text)
 builder_arn = Lens.lens (\Builder' {arn} -> arn) (\s@Builder' {} a -> s {arn = a} :: Builder)
 
 instance Core.FromXML Builder where
-  parseXML x = Builder' Core.<$> (x Core..@? "ARN")
+  parseXML x = Builder' Prelude.<$> (x Core..@? "ARN")
 
-instance Core.Hashable Builder
+instance Prelude.Hashable Builder
 
-instance Core.NFData Builder
+instance Prelude.NFData Builder

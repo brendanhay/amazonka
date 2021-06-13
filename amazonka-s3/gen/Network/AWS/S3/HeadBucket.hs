@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -62,7 +63,7 @@ data HeadBucket = HeadBucket'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     --
     -- When using this API with an access point, you must direct requests to
@@ -85,7 +86,7 @@ data HeadBucket = HeadBucket'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HeadBucket' with all optional fields omitted.
@@ -125,14 +126,14 @@ newHeadBucket ::
   HeadBucket
 newHeadBucket pBucket_ =
   HeadBucket'
-    { expectedBucketOwner = Core.Nothing,
+    { expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-headBucket_expectedBucketOwner :: Lens.Lens' HeadBucket (Core.Maybe Core.Text)
+headBucket_expectedBucketOwner :: Lens.Lens' HeadBucket (Prelude.Maybe Prelude.Text)
 headBucket_expectedBucketOwner = Lens.lens (\HeadBucket' {expectedBucketOwner} -> expectedBucketOwner) (\s@HeadBucket' {} a -> s {expectedBucketOwner = a} :: HeadBucket)
 
 -- | The bucket name.
@@ -163,29 +164,29 @@ instance Core.AWSRequest HeadBucket where
   request = Request.head' defaultService
   response = Response.receiveNull HeadBucketResponse'
 
-instance Core.Hashable HeadBucket
+instance Prelude.Hashable HeadBucket
 
-instance Core.NFData HeadBucket
+instance Prelude.NFData HeadBucket
 
 instance Core.ToHeaders HeadBucket where
   toHeaders HeadBucket' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath HeadBucket where
   toPath HeadBucket' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery HeadBucket where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newHeadBucketResponse' smart constructor.
 data HeadBucketResponse = HeadBucketResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HeadBucketResponse' with all optional fields omitted.
@@ -195,4 +196,4 @@ newHeadBucketResponse ::
   HeadBucketResponse
 newHeadBucketResponse = HeadBucketResponse'
 
-instance Core.NFData HeadBucketResponse
+instance Prelude.NFData HeadBucketResponse

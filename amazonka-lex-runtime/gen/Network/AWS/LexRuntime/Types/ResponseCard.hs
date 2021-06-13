@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.ContentType
 import Network.AWS.LexRuntime.Types.GenericAttachment
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If you configure a response card when creating your bots, Amazon Lex
 -- substitutes the session attributes and slot values that are available,
@@ -32,13 +33,13 @@ import Network.AWS.LexRuntime.Types.GenericAttachment
 -- /See:/ 'newResponseCard' smart constructor.
 data ResponseCard = ResponseCard'
   { -- | The content type of the response.
-    contentType :: Core.Maybe ContentType,
+    contentType :: Prelude.Maybe ContentType,
     -- | An array of attachment objects representing options.
-    genericAttachments :: Core.Maybe [GenericAttachment],
+    genericAttachments :: Prelude.Maybe [GenericAttachment],
     -- | The version of the response card format.
-    version :: Core.Maybe Core.Text
+    version :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResponseCard' with all optional fields omitted.
@@ -57,21 +58,21 @@ newResponseCard ::
   ResponseCard
 newResponseCard =
   ResponseCard'
-    { contentType = Core.Nothing,
-      genericAttachments = Core.Nothing,
-      version = Core.Nothing
+    { contentType = Prelude.Nothing,
+      genericAttachments = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | The content type of the response.
-responseCard_contentType :: Lens.Lens' ResponseCard (Core.Maybe ContentType)
+responseCard_contentType :: Lens.Lens' ResponseCard (Prelude.Maybe ContentType)
 responseCard_contentType = Lens.lens (\ResponseCard' {contentType} -> contentType) (\s@ResponseCard' {} a -> s {contentType = a} :: ResponseCard)
 
 -- | An array of attachment objects representing options.
-responseCard_genericAttachments :: Lens.Lens' ResponseCard (Core.Maybe [GenericAttachment])
-responseCard_genericAttachments = Lens.lens (\ResponseCard' {genericAttachments} -> genericAttachments) (\s@ResponseCard' {} a -> s {genericAttachments = a} :: ResponseCard) Core.. Lens.mapping Lens._Coerce
+responseCard_genericAttachments :: Lens.Lens' ResponseCard (Prelude.Maybe [GenericAttachment])
+responseCard_genericAttachments = Lens.lens (\ResponseCard' {genericAttachments} -> genericAttachments) (\s@ResponseCard' {} a -> s {genericAttachments = a} :: ResponseCard) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The version of the response card format.
-responseCard_version :: Lens.Lens' ResponseCard (Core.Maybe Core.Text)
+responseCard_version :: Lens.Lens' ResponseCard (Prelude.Maybe Prelude.Text)
 responseCard_version = Lens.lens (\ResponseCard' {version} -> version) (\s@ResponseCard' {} a -> s {version = a} :: ResponseCard)
 
 instance Core.FromJSON ResponseCard where
@@ -80,13 +81,13 @@ instance Core.FromJSON ResponseCard where
       "ResponseCard"
       ( \x ->
           ResponseCard'
-            Core.<$> (x Core..:? "contentType")
-            Core.<*> ( x Core..:? "genericAttachments"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "version")
+            Prelude.<$> (x Core..:? "contentType")
+            Prelude.<*> ( x Core..:? "genericAttachments"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "version")
       )
 
-instance Core.Hashable ResponseCard
+instance Prelude.Hashable ResponseCard
 
-instance Core.NFData ResponseCard
+instance Prelude.NFData ResponseCard

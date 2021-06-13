@@ -21,17 +21,18 @@ module Network.AWS.Lambda.Types.EnvironmentError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Error messages for environment variables that couldn\'t be applied.
 --
 -- /See:/ 'newEnvironmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
   { -- | The error message.
-    message :: Core.Maybe (Core.Sensitive Core.Text),
+    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The error code.
-    errorCode :: Core.Maybe Core.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentError' with all optional fields omitted.
@@ -48,16 +49,16 @@ newEnvironmentError ::
   EnvironmentError
 newEnvironmentError =
   EnvironmentError'
-    { message = Core.Nothing,
-      errorCode = Core.Nothing
+    { message = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The error message.
-environmentError_message :: Lens.Lens' EnvironmentError (Core.Maybe Core.Text)
-environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Core.. Lens.mapping Core._Sensitive
+environmentError_message :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
+environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The error code.
-environmentError_errorCode :: Lens.Lens' EnvironmentError (Core.Maybe Core.Text)
+environmentError_errorCode :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
 environmentError_errorCode = Lens.lens (\EnvironmentError' {errorCode} -> errorCode) (\s@EnvironmentError' {} a -> s {errorCode = a} :: EnvironmentError)
 
 instance Core.FromJSON EnvironmentError where
@@ -66,10 +67,10 @@ instance Core.FromJSON EnvironmentError where
       "EnvironmentError"
       ( \x ->
           EnvironmentError'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable EnvironmentError
+instance Prelude.Hashable EnvironmentError
 
-instance Core.NFData EnvironmentError
+instance Prelude.NFData EnvironmentError

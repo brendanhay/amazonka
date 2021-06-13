@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.JobTemplateListBy
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. When you request a list of job templates, you can choose to
 -- list them alphabetically by NAME or chronologically by CREATION_DATE. If
@@ -37,15 +38,15 @@ newtype JobTemplateListBy = JobTemplateListBy'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

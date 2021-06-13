@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,9 +69,9 @@ import qualified Network.AWS.Response as Response
 data DescribeAlias = DescribeAlias'
   { -- | The unique identifier for the fleet alias that you want to retrieve. You
     -- can use either the alias ID or ARN value.
-    aliasId :: Core.Text
+    aliasId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAlias' with all optional fields omitted.
@@ -84,14 +85,14 @@ data DescribeAlias = DescribeAlias'
 -- can use either the alias ID or ARN value.
 newDescribeAlias ::
   -- | 'aliasId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeAlias
 newDescribeAlias pAliasId_ =
   DescribeAlias' {aliasId = pAliasId_}
 
 -- | The unique identifier for the fleet alias that you want to retrieve. You
 -- can use either the alias ID or ARN value.
-describeAlias_aliasId :: Lens.Lens' DescribeAlias Core.Text
+describeAlias_aliasId :: Lens.Lens' DescribeAlias Prelude.Text
 describeAlias_aliasId = Lens.lens (\DescribeAlias' {aliasId} -> aliasId) (\s@DescribeAlias' {} a -> s {aliasId = a} :: DescribeAlias)
 
 instance Core.AWSRequest DescribeAlias where
@@ -103,48 +104,50 @@ instance Core.AWSRequest DescribeAlias where
     Response.receiveJSON
       ( \s h x ->
           DescribeAliasResponse'
-            Core.<$> (x Core..?> "Alias")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Alias")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAlias
+instance Prelude.Hashable DescribeAlias
 
-instance Core.NFData DescribeAlias
+instance Prelude.NFData DescribeAlias
 
 instance Core.ToHeaders DescribeAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DescribeAlias" :: Core.ByteString),
+              Core.=# ("GameLift.DescribeAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeAlias where
   toJSON DescribeAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AliasId" Core..= aliasId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("AliasId" Core..= aliasId)]
       )
 
 instance Core.ToPath DescribeAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newDescribeAliasResponse' smart constructor.
 data DescribeAliasResponse = DescribeAliasResponse'
   { -- | The requested alias resource.
-    alias :: Core.Maybe Alias,
+    alias :: Prelude.Maybe Alias,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAliasResponse' with all optional fields omitted.
@@ -159,20 +162,20 @@ data DescribeAliasResponse = DescribeAliasResponse'
 -- 'httpStatus', 'describeAliasResponse_httpStatus' - The response's http status code.
 newDescribeAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAliasResponse
 newDescribeAliasResponse pHttpStatus_ =
   DescribeAliasResponse'
-    { alias = Core.Nothing,
+    { alias = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested alias resource.
-describeAliasResponse_alias :: Lens.Lens' DescribeAliasResponse (Core.Maybe Alias)
+describeAliasResponse_alias :: Lens.Lens' DescribeAliasResponse (Prelude.Maybe Alias)
 describeAliasResponse_alias = Lens.lens (\DescribeAliasResponse' {alias} -> alias) (\s@DescribeAliasResponse' {} a -> s {alias = a} :: DescribeAliasResponse)
 
 -- | The response's http status code.
-describeAliasResponse_httpStatus :: Lens.Lens' DescribeAliasResponse Core.Int
+describeAliasResponse_httpStatus :: Lens.Lens' DescribeAliasResponse Prelude.Int
 describeAliasResponse_httpStatus = Lens.lens (\DescribeAliasResponse' {httpStatus} -> httpStatus) (\s@DescribeAliasResponse' {} a -> s {httpStatus = a} :: DescribeAliasResponse)
 
-instance Core.NFData DescribeAliasResponse
+instance Prelude.NFData DescribeAliasResponse

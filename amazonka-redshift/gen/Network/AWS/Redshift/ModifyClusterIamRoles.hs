@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,16 +58,16 @@ data ModifyClusterIamRoles = ModifyClusterIamRoles'
   { -- | Zero or more IAM roles in ARN format to disassociate from the cluster.
     -- You can disassociate up to 10 IAM roles from a single cluster in a
     -- single request.
-    removeIamRoles :: Core.Maybe [Core.Text],
+    removeIamRoles :: Prelude.Maybe [Prelude.Text],
     -- | Zero or more IAM roles to associate with the cluster. The roles must be
     -- in their Amazon Resource Name (ARN) format. You can associate up to 10
     -- IAM roles with a single cluster in a single request.
-    addIamRoles :: Core.Maybe [Core.Text],
+    addIamRoles :: Prelude.Maybe [Prelude.Text],
     -- | The unique identifier of the cluster for which you want to associate or
     -- disassociate IAM roles.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterIamRoles' with all optional fields omitted.
@@ -88,31 +89,31 @@ data ModifyClusterIamRoles = ModifyClusterIamRoles'
 -- disassociate IAM roles.
 newModifyClusterIamRoles ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ModifyClusterIamRoles
 newModifyClusterIamRoles pClusterIdentifier_ =
   ModifyClusterIamRoles'
     { removeIamRoles =
-        Core.Nothing,
-      addIamRoles = Core.Nothing,
+        Prelude.Nothing,
+      addIamRoles = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
 
 -- | Zero or more IAM roles in ARN format to disassociate from the cluster.
 -- You can disassociate up to 10 IAM roles from a single cluster in a
 -- single request.
-modifyClusterIamRoles_removeIamRoles :: Lens.Lens' ModifyClusterIamRoles (Core.Maybe [Core.Text])
-modifyClusterIamRoles_removeIamRoles = Lens.lens (\ModifyClusterIamRoles' {removeIamRoles} -> removeIamRoles) (\s@ModifyClusterIamRoles' {} a -> s {removeIamRoles = a} :: ModifyClusterIamRoles) Core.. Lens.mapping Lens._Coerce
+modifyClusterIamRoles_removeIamRoles :: Lens.Lens' ModifyClusterIamRoles (Prelude.Maybe [Prelude.Text])
+modifyClusterIamRoles_removeIamRoles = Lens.lens (\ModifyClusterIamRoles' {removeIamRoles} -> removeIamRoles) (\s@ModifyClusterIamRoles' {} a -> s {removeIamRoles = a} :: ModifyClusterIamRoles) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Zero or more IAM roles to associate with the cluster. The roles must be
 -- in their Amazon Resource Name (ARN) format. You can associate up to 10
 -- IAM roles with a single cluster in a single request.
-modifyClusterIamRoles_addIamRoles :: Lens.Lens' ModifyClusterIamRoles (Core.Maybe [Core.Text])
-modifyClusterIamRoles_addIamRoles = Lens.lens (\ModifyClusterIamRoles' {addIamRoles} -> addIamRoles) (\s@ModifyClusterIamRoles' {} a -> s {addIamRoles = a} :: ModifyClusterIamRoles) Core.. Lens.mapping Lens._Coerce
+modifyClusterIamRoles_addIamRoles :: Lens.Lens' ModifyClusterIamRoles (Prelude.Maybe [Prelude.Text])
+modifyClusterIamRoles_addIamRoles = Lens.lens (\ModifyClusterIamRoles' {addIamRoles} -> addIamRoles) (\s@ModifyClusterIamRoles' {} a -> s {addIamRoles = a} :: ModifyClusterIamRoles) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier of the cluster for which you want to associate or
 -- disassociate IAM roles.
-modifyClusterIamRoles_clusterIdentifier :: Lens.Lens' ModifyClusterIamRoles Core.Text
+modifyClusterIamRoles_clusterIdentifier :: Lens.Lens' ModifyClusterIamRoles Prelude.Text
 modifyClusterIamRoles_clusterIdentifier = Lens.lens (\ModifyClusterIamRoles' {clusterIdentifier} -> clusterIdentifier) (\s@ModifyClusterIamRoles' {} a -> s {clusterIdentifier = a} :: ModifyClusterIamRoles)
 
 instance Core.AWSRequest ModifyClusterIamRoles where
@@ -125,44 +126,47 @@ instance Core.AWSRequest ModifyClusterIamRoles where
       "ModifyClusterIamRolesResult"
       ( \s h x ->
           ModifyClusterIamRolesResponse'
-            Core.<$> (x Core..@? "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyClusterIamRoles
+instance Prelude.Hashable ModifyClusterIamRoles
 
-instance Core.NFData ModifyClusterIamRoles
+instance Prelude.NFData ModifyClusterIamRoles
 
 instance Core.ToHeaders ModifyClusterIamRoles where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyClusterIamRoles where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyClusterIamRoles where
   toQuery ModifyClusterIamRoles' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyClusterIamRoles" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("ModifyClusterIamRoles" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "RemoveIamRoles"
           Core.=: Core.toQuery
             ( Core.toQueryList "IamRoleArn"
-                Core.<$> removeIamRoles
+                Prelude.<$> removeIamRoles
             ),
         "AddIamRoles"
           Core.=: Core.toQuery
-            (Core.toQueryList "IamRoleArn" Core.<$> addIamRoles),
+            ( Core.toQueryList "IamRoleArn"
+                Prelude.<$> addIamRoles
+            ),
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newModifyClusterIamRolesResponse' smart constructor.
 data ModifyClusterIamRolesResponse = ModifyClusterIamRolesResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterIamRolesResponse' with all optional fields omitted.
@@ -177,21 +181,21 @@ data ModifyClusterIamRolesResponse = ModifyClusterIamRolesResponse'
 -- 'httpStatus', 'modifyClusterIamRolesResponse_httpStatus' - The response's http status code.
 newModifyClusterIamRolesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyClusterIamRolesResponse
 newModifyClusterIamRolesResponse pHttpStatus_ =
   ModifyClusterIamRolesResponse'
     { cluster =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyClusterIamRolesResponse_cluster :: Lens.Lens' ModifyClusterIamRolesResponse (Core.Maybe Cluster)
+modifyClusterIamRolesResponse_cluster :: Lens.Lens' ModifyClusterIamRolesResponse (Prelude.Maybe Cluster)
 modifyClusterIamRolesResponse_cluster = Lens.lens (\ModifyClusterIamRolesResponse' {cluster} -> cluster) (\s@ModifyClusterIamRolesResponse' {} a -> s {cluster = a} :: ModifyClusterIamRolesResponse)
 
 -- | The response's http status code.
-modifyClusterIamRolesResponse_httpStatus :: Lens.Lens' ModifyClusterIamRolesResponse Core.Int
+modifyClusterIamRolesResponse_httpStatus :: Lens.Lens' ModifyClusterIamRolesResponse Prelude.Int
 modifyClusterIamRolesResponse_httpStatus = Lens.lens (\ModifyClusterIamRolesResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterIamRolesResponse' {} a -> s {httpStatus = a} :: ModifyClusterIamRolesResponse)
 
-instance Core.NFData ModifyClusterIamRolesResponse
+instance Prelude.NFData ModifyClusterIamRolesResponse

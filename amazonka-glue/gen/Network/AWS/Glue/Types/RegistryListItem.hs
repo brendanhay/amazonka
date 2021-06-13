@@ -22,25 +22,26 @@ module Network.AWS.Glue.Types.RegistryListItem where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.RegistryStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure containing the details for a registry.
 --
 -- /See:/ 'newRegistryListItem' smart constructor.
 data RegistryListItem = RegistryListItem'
   { -- | The status of the registry.
-    status :: Core.Maybe RegistryStatus,
+    status :: Prelude.Maybe RegistryStatus,
     -- | The date the registry was updated.
-    updatedTime :: Core.Maybe Core.Text,
+    updatedTime :: Prelude.Maybe Prelude.Text,
     -- | The data the registry was created.
-    createdTime :: Core.Maybe Core.Text,
+    createdTime :: Prelude.Maybe Prelude.Text,
     -- | The name of the registry.
-    registryName :: Core.Maybe Core.Text,
+    registryName :: Prelude.Maybe Prelude.Text,
     -- | A description of the registry.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the registry.
-    registryArn :: Core.Maybe Core.Text
+    registryArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegistryListItem' with all optional fields omitted.
@@ -65,36 +66,36 @@ newRegistryListItem ::
   RegistryListItem
 newRegistryListItem =
   RegistryListItem'
-    { status = Core.Nothing,
-      updatedTime = Core.Nothing,
-      createdTime = Core.Nothing,
-      registryName = Core.Nothing,
-      description = Core.Nothing,
-      registryArn = Core.Nothing
+    { status = Prelude.Nothing,
+      updatedTime = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      registryName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      registryArn = Prelude.Nothing
     }
 
 -- | The status of the registry.
-registryListItem_status :: Lens.Lens' RegistryListItem (Core.Maybe RegistryStatus)
+registryListItem_status :: Lens.Lens' RegistryListItem (Prelude.Maybe RegistryStatus)
 registryListItem_status = Lens.lens (\RegistryListItem' {status} -> status) (\s@RegistryListItem' {} a -> s {status = a} :: RegistryListItem)
 
 -- | The date the registry was updated.
-registryListItem_updatedTime :: Lens.Lens' RegistryListItem (Core.Maybe Core.Text)
+registryListItem_updatedTime :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
 registryListItem_updatedTime = Lens.lens (\RegistryListItem' {updatedTime} -> updatedTime) (\s@RegistryListItem' {} a -> s {updatedTime = a} :: RegistryListItem)
 
 -- | The data the registry was created.
-registryListItem_createdTime :: Lens.Lens' RegistryListItem (Core.Maybe Core.Text)
+registryListItem_createdTime :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
 registryListItem_createdTime = Lens.lens (\RegistryListItem' {createdTime} -> createdTime) (\s@RegistryListItem' {} a -> s {createdTime = a} :: RegistryListItem)
 
 -- | The name of the registry.
-registryListItem_registryName :: Lens.Lens' RegistryListItem (Core.Maybe Core.Text)
+registryListItem_registryName :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
 registryListItem_registryName = Lens.lens (\RegistryListItem' {registryName} -> registryName) (\s@RegistryListItem' {} a -> s {registryName = a} :: RegistryListItem)
 
 -- | A description of the registry.
-registryListItem_description :: Lens.Lens' RegistryListItem (Core.Maybe Core.Text)
+registryListItem_description :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
 registryListItem_description = Lens.lens (\RegistryListItem' {description} -> description) (\s@RegistryListItem' {} a -> s {description = a} :: RegistryListItem)
 
 -- | The Amazon Resource Name (ARN) of the registry.
-registryListItem_registryArn :: Lens.Lens' RegistryListItem (Core.Maybe Core.Text)
+registryListItem_registryArn :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
 registryListItem_registryArn = Lens.lens (\RegistryListItem' {registryArn} -> registryArn) (\s@RegistryListItem' {} a -> s {registryArn = a} :: RegistryListItem)
 
 instance Core.FromJSON RegistryListItem where
@@ -103,14 +104,14 @@ instance Core.FromJSON RegistryListItem where
       "RegistryListItem"
       ( \x ->
           RegistryListItem'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "UpdatedTime")
-            Core.<*> (x Core..:? "CreatedTime")
-            Core.<*> (x Core..:? "RegistryName")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "RegistryArn")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "UpdatedTime")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "RegistryName")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "RegistryArn")
       )
 
-instance Core.Hashable RegistryListItem
+instance Prelude.Hashable RegistryListItem
 
-instance Core.NFData RegistryListItem
+instance Prelude.NFData RegistryListItem

@@ -21,6 +21,7 @@ module Network.AWS.FMS.Types.StatefulRuleGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | AWS Network Firewall stateful rule group, used in a
 -- NetworkFirewallPolicyDescription.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newStatefulRuleGroup' smart constructor.
 data StatefulRuleGroup = StatefulRuleGroup'
   { -- | The resource ID of the rule group.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule group.
-    ruleGroupName :: Core.Maybe Core.Text
+    ruleGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StatefulRuleGroup' with all optional fields omitted.
@@ -49,16 +50,16 @@ newStatefulRuleGroup ::
   StatefulRuleGroup
 newStatefulRuleGroup =
   StatefulRuleGroup'
-    { resourceId = Core.Nothing,
-      ruleGroupName = Core.Nothing
+    { resourceId = Prelude.Nothing,
+      ruleGroupName = Prelude.Nothing
     }
 
 -- | The resource ID of the rule group.
-statefulRuleGroup_resourceId :: Lens.Lens' StatefulRuleGroup (Core.Maybe Core.Text)
+statefulRuleGroup_resourceId :: Lens.Lens' StatefulRuleGroup (Prelude.Maybe Prelude.Text)
 statefulRuleGroup_resourceId = Lens.lens (\StatefulRuleGroup' {resourceId} -> resourceId) (\s@StatefulRuleGroup' {} a -> s {resourceId = a} :: StatefulRuleGroup)
 
 -- | The name of the rule group.
-statefulRuleGroup_ruleGroupName :: Lens.Lens' StatefulRuleGroup (Core.Maybe Core.Text)
+statefulRuleGroup_ruleGroupName :: Lens.Lens' StatefulRuleGroup (Prelude.Maybe Prelude.Text)
 statefulRuleGroup_ruleGroupName = Lens.lens (\StatefulRuleGroup' {ruleGroupName} -> ruleGroupName) (\s@StatefulRuleGroup' {} a -> s {ruleGroupName = a} :: StatefulRuleGroup)
 
 instance Core.FromJSON StatefulRuleGroup where
@@ -67,10 +68,10 @@ instance Core.FromJSON StatefulRuleGroup where
       "StatefulRuleGroup"
       ( \x ->
           StatefulRuleGroup'
-            Core.<$> (x Core..:? "ResourceId")
-            Core.<*> (x Core..:? "RuleGroupName")
+            Prelude.<$> (x Core..:? "ResourceId")
+            Prelude.<*> (x Core..:? "RuleGroupName")
       )
 
-instance Core.Hashable StatefulRuleGroup
+instance Prelude.Hashable StatefulRuleGroup
 
-instance Core.NFData StatefulRuleGroup
+instance Prelude.NFData StatefulRuleGroup

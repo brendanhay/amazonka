@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.WebACL where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ActivatedRule
 import Network.AWS.WAFRegional.Types.WafAction
 
@@ -51,18 +52,18 @@ data WebACL = WebACL'
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
     -- @WebACL@.
-    metricName :: Core.Maybe Core.Text,
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | Tha Amazon Resource Name (ARN) of the web ACL.
-    webACLArn :: Core.Maybe Core.Text,
+    webACLArn :: Prelude.Maybe Prelude.Text,
     -- | A friendly name or description of the @WebACL@. You can\'t change the
     -- name of a @WebACL@ after you create it.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a @WebACL@. You use @WebACLId@ to get
     -- information about a @WebACL@ (see GetWebACL), update a @WebACL@ (see
     -- UpdateWebACL), and delete a @WebACL@ from AWS WAF (see DeleteWebACL).
     --
     -- @WebACLId@ is returned by CreateWebACL and by ListWebACLs.
-    webACLId :: Core.Text,
+    webACLId :: Prelude.Text,
     -- | The action to perform if none of the @Rules@ contained in the @WebACL@
     -- match. The action is specified by the WafAction object.
     defaultAction :: WafAction,
@@ -70,7 +71,7 @@ data WebACL = WebACL'
     -- priority of the @Rule@, and the ID of the @Rule@.
     rules :: [ActivatedRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WebACL' with all optional fields omitted.
@@ -105,18 +106,18 @@ data WebACL = WebACL'
 -- priority of the @Rule@, and the ID of the @Rule@.
 newWebACL ::
   -- | 'webACLId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'defaultAction'
   WafAction ->
   WebACL
 newWebACL pWebACLId_ pDefaultAction_ =
   WebACL'
-    { metricName = Core.Nothing,
-      webACLArn = Core.Nothing,
-      name = Core.Nothing,
+    { metricName = Prelude.Nothing,
+      webACLArn = Prelude.Nothing,
+      name = Prelude.Nothing,
       webACLId = pWebACLId_,
       defaultAction = pDefaultAction_,
-      rules = Core.mempty
+      rules = Prelude.mempty
     }
 
 -- | A friendly name or description for the metrics for this @WebACL@. The
@@ -125,16 +126,16 @@ newWebACL pWebACLId_ pDefaultAction_ =
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
 -- @WebACL@.
-webACL_metricName :: Lens.Lens' WebACL (Core.Maybe Core.Text)
+webACL_metricName :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Text)
 webACL_metricName = Lens.lens (\WebACL' {metricName} -> metricName) (\s@WebACL' {} a -> s {metricName = a} :: WebACL)
 
 -- | Tha Amazon Resource Name (ARN) of the web ACL.
-webACL_webACLArn :: Lens.Lens' WebACL (Core.Maybe Core.Text)
+webACL_webACLArn :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Text)
 webACL_webACLArn = Lens.lens (\WebACL' {webACLArn} -> webACLArn) (\s@WebACL' {} a -> s {webACLArn = a} :: WebACL)
 
 -- | A friendly name or description of the @WebACL@. You can\'t change the
 -- name of a @WebACL@ after you create it.
-webACL_name :: Lens.Lens' WebACL (Core.Maybe Core.Text)
+webACL_name :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Text)
 webACL_name = Lens.lens (\WebACL' {name} -> name) (\s@WebACL' {} a -> s {name = a} :: WebACL)
 
 -- | A unique identifier for a @WebACL@. You use @WebACLId@ to get
@@ -142,7 +143,7 @@ webACL_name = Lens.lens (\WebACL' {name} -> name) (\s@WebACL' {} a -> s {name = 
 -- UpdateWebACL), and delete a @WebACL@ from AWS WAF (see DeleteWebACL).
 --
 -- @WebACLId@ is returned by CreateWebACL and by ListWebACLs.
-webACL_webACLId :: Lens.Lens' WebACL Core.Text
+webACL_webACLId :: Lens.Lens' WebACL Prelude.Text
 webACL_webACLId = Lens.lens (\WebACL' {webACLId} -> webACLId) (\s@WebACL' {} a -> s {webACLId = a} :: WebACL)
 
 -- | The action to perform if none of the @Rules@ contained in the @WebACL@
@@ -153,7 +154,7 @@ webACL_defaultAction = Lens.lens (\WebACL' {defaultAction} -> defaultAction) (\s
 -- | An array that contains the action for each @Rule@ in a @WebACL@, the
 -- priority of the @Rule@, and the ID of the @Rule@.
 webACL_rules :: Lens.Lens' WebACL [ActivatedRule]
-webACL_rules = Lens.lens (\WebACL' {rules} -> rules) (\s@WebACL' {} a -> s {rules = a} :: WebACL) Core.. Lens._Coerce
+webACL_rules = Lens.lens (\WebACL' {rules} -> rules) (\s@WebACL' {} a -> s {rules = a} :: WebACL) Prelude.. Lens._Coerce
 
 instance Core.FromJSON WebACL where
   parseJSON =
@@ -161,14 +162,14 @@ instance Core.FromJSON WebACL where
       "WebACL"
       ( \x ->
           WebACL'
-            Core.<$> (x Core..:? "MetricName")
-            Core.<*> (x Core..:? "WebACLArn")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..: "WebACLId")
-            Core.<*> (x Core..: "DefaultAction")
-            Core.<*> (x Core..:? "Rules" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "MetricName")
+            Prelude.<*> (x Core..:? "WebACLArn")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..: "WebACLId")
+            Prelude.<*> (x Core..: "DefaultAction")
+            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable WebACL
+instance Prelude.Hashable WebACL
 
-instance Core.NFData WebACL
+instance Prelude.NFData WebACL

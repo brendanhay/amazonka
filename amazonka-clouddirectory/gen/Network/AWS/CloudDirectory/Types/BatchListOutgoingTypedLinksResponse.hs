@@ -22,17 +22,18 @@ module Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse wher
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a ListOutgoingTypedLinks response operation.
 --
 -- /See:/ 'newBatchListOutgoingTypedLinksResponse' smart constructor.
 data BatchListOutgoingTypedLinksResponse = BatchListOutgoingTypedLinksResponse'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns a typed link specifier as output.
-    typedLinkSpecifiers :: Core.Maybe [TypedLinkSpecifier]
+    typedLinkSpecifiers :: Prelude.Maybe [TypedLinkSpecifier]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchListOutgoingTypedLinksResponse' with all optional fields omitted.
@@ -50,17 +51,17 @@ newBatchListOutgoingTypedLinksResponse ::
 newBatchListOutgoingTypedLinksResponse =
   BatchListOutgoingTypedLinksResponse'
     { nextToken =
-        Core.Nothing,
-      typedLinkSpecifiers = Core.Nothing
+        Prelude.Nothing,
+      typedLinkSpecifiers = Prelude.Nothing
     }
 
 -- | The pagination token.
-batchListOutgoingTypedLinksResponse_nextToken :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Core.Maybe Core.Text)
+batchListOutgoingTypedLinksResponse_nextToken :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Prelude.Maybe Prelude.Text)
 batchListOutgoingTypedLinksResponse_nextToken = Lens.lens (\BatchListOutgoingTypedLinksResponse' {nextToken} -> nextToken) (\s@BatchListOutgoingTypedLinksResponse' {} a -> s {nextToken = a} :: BatchListOutgoingTypedLinksResponse)
 
 -- | Returns a typed link specifier as output.
-batchListOutgoingTypedLinksResponse_typedLinkSpecifiers :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Core.Maybe [TypedLinkSpecifier])
-batchListOutgoingTypedLinksResponse_typedLinkSpecifiers = Lens.lens (\BatchListOutgoingTypedLinksResponse' {typedLinkSpecifiers} -> typedLinkSpecifiers) (\s@BatchListOutgoingTypedLinksResponse' {} a -> s {typedLinkSpecifiers = a} :: BatchListOutgoingTypedLinksResponse) Core.. Lens.mapping Lens._Coerce
+batchListOutgoingTypedLinksResponse_typedLinkSpecifiers :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Prelude.Maybe [TypedLinkSpecifier])
+batchListOutgoingTypedLinksResponse_typedLinkSpecifiers = Lens.lens (\BatchListOutgoingTypedLinksResponse' {typedLinkSpecifiers} -> typedLinkSpecifiers) (\s@BatchListOutgoingTypedLinksResponse' {} a -> s {typedLinkSpecifiers = a} :: BatchListOutgoingTypedLinksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -71,16 +72,16 @@ instance
       "BatchListOutgoingTypedLinksResponse"
       ( \x ->
           BatchListOutgoingTypedLinksResponse'
-            Core.<$> (x Core..:? "NextToken")
-            Core.<*> ( x Core..:? "TypedLinkSpecifiers"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<*> ( x Core..:? "TypedLinkSpecifiers"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchListOutgoingTypedLinksResponse
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchListOutgoingTypedLinksResponse

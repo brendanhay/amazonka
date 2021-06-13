@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.TrafficPolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.RRType
 
@@ -30,15 +31,15 @@ import Network.AWS.Route53.Types.RRType
 data TrafficPolicy = TrafficPolicy'
   { -- | The comment that you specify in the @CreateTrafficPolicy@ request, if
     -- any.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The ID that Amazon Route 53 assigned to a traffic policy when you
     -- created it.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The version number that Amazon Route 53 assigns to a traffic policy. For
     -- a new traffic policy, the value of @Version@ is always 1.
-    version :: Core.Natural,
+    version :: Prelude.Natural,
     -- | The name that you specified when you created the traffic policy.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The DNS type of the resource record sets that Amazon Route 53 creates
     -- when you use a traffic policy to create a traffic policy instance.
     type' :: RRType,
@@ -46,9 +47,9 @@ data TrafficPolicy = TrafficPolicy'
     -- document to use for a new traffic policy in the @CreateTrafficPolicy@
     -- request. For more information about the JSON format, see
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format>.
-    document :: Core.Text
+    document :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrafficPolicy' with all optional fields omitted.
@@ -78,15 +79,15 @@ data TrafficPolicy = TrafficPolicy'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format>.
 newTrafficPolicy ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   RRType ->
   -- | 'document'
-  Core.Text ->
+  Prelude.Text ->
   TrafficPolicy
 newTrafficPolicy
   pId_
@@ -95,7 +96,7 @@ newTrafficPolicy
   pType_
   pDocument_ =
     TrafficPolicy'
-      { comment = Core.Nothing,
+      { comment = Prelude.Nothing,
         id = pId_,
         version = pVersion_,
         name = pName_,
@@ -105,21 +106,21 @@ newTrafficPolicy
 
 -- | The comment that you specify in the @CreateTrafficPolicy@ request, if
 -- any.
-trafficPolicy_comment :: Lens.Lens' TrafficPolicy (Core.Maybe Core.Text)
+trafficPolicy_comment :: Lens.Lens' TrafficPolicy (Prelude.Maybe Prelude.Text)
 trafficPolicy_comment = Lens.lens (\TrafficPolicy' {comment} -> comment) (\s@TrafficPolicy' {} a -> s {comment = a} :: TrafficPolicy)
 
 -- | The ID that Amazon Route 53 assigned to a traffic policy when you
 -- created it.
-trafficPolicy_id :: Lens.Lens' TrafficPolicy Core.Text
+trafficPolicy_id :: Lens.Lens' TrafficPolicy Prelude.Text
 trafficPolicy_id = Lens.lens (\TrafficPolicy' {id} -> id) (\s@TrafficPolicy' {} a -> s {id = a} :: TrafficPolicy)
 
 -- | The version number that Amazon Route 53 assigns to a traffic policy. For
 -- a new traffic policy, the value of @Version@ is always 1.
-trafficPolicy_version :: Lens.Lens' TrafficPolicy Core.Natural
+trafficPolicy_version :: Lens.Lens' TrafficPolicy Prelude.Natural
 trafficPolicy_version = Lens.lens (\TrafficPolicy' {version} -> version) (\s@TrafficPolicy' {} a -> s {version = a} :: TrafficPolicy)
 
 -- | The name that you specified when you created the traffic policy.
-trafficPolicy_name :: Lens.Lens' TrafficPolicy Core.Text
+trafficPolicy_name :: Lens.Lens' TrafficPolicy Prelude.Text
 trafficPolicy_name = Lens.lens (\TrafficPolicy' {name} -> name) (\s@TrafficPolicy' {} a -> s {name = a} :: TrafficPolicy)
 
 -- | The DNS type of the resource record sets that Amazon Route 53 creates
@@ -131,19 +132,19 @@ trafficPolicy_type = Lens.lens (\TrafficPolicy' {type'} -> type') (\s@TrafficPol
 -- document to use for a new traffic policy in the @CreateTrafficPolicy@
 -- request. For more information about the JSON format, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format>.
-trafficPolicy_document :: Lens.Lens' TrafficPolicy Core.Text
+trafficPolicy_document :: Lens.Lens' TrafficPolicy Prelude.Text
 trafficPolicy_document = Lens.lens (\TrafficPolicy' {document} -> document) (\s@TrafficPolicy' {} a -> s {document = a} :: TrafficPolicy)
 
 instance Core.FromXML TrafficPolicy where
   parseXML x =
     TrafficPolicy'
-      Core.<$> (x Core..@? "Comment")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "Version")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "Type")
-      Core.<*> (x Core..@ "Document")
+      Prelude.<$> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "Version")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "Type")
+      Prelude.<*> (x Core..@ "Document")
 
-instance Core.Hashable TrafficPolicy
+instance Prelude.Hashable TrafficPolicy
 
-instance Core.NFData TrafficPolicy
+instance Prelude.NFData TrafficPolicy

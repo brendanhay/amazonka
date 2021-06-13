@@ -55,6 +55,7 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,11 +63,11 @@ import qualified Network.AWS.Response as Response
 data DescribeRule = DescribeRule'
   { -- | The name or ARN of the event bus associated with the rule. If you omit
     -- this, the default event bus is used.
-    eventBusName :: Core.Maybe Core.Text,
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRule' with all optional fields omitted.
@@ -82,21 +83,21 @@ data DescribeRule = DescribeRule'
 -- 'name', 'describeRule_name' - The name of the rule.
 newDescribeRule ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DescribeRule
 newDescribeRule pName_ =
   DescribeRule'
-    { eventBusName = Core.Nothing,
+    { eventBusName = Prelude.Nothing,
       name = pName_
     }
 
 -- | The name or ARN of the event bus associated with the rule. If you omit
 -- this, the default event bus is used.
-describeRule_eventBusName :: Lens.Lens' DescribeRule (Core.Maybe Core.Text)
+describeRule_eventBusName :: Lens.Lens' DescribeRule (Prelude.Maybe Prelude.Text)
 describeRule_eventBusName = Lens.lens (\DescribeRule' {eventBusName} -> eventBusName) (\s@DescribeRule' {} a -> s {eventBusName = a} :: DescribeRule)
 
 -- | The name of the rule.
-describeRule_name :: Lens.Lens' DescribeRule Core.Text
+describeRule_name :: Lens.Lens' DescribeRule Prelude.Text
 describeRule_name = Lens.lens (\DescribeRule' {name} -> name) (\s@DescribeRule' {} a -> s {name = a} :: DescribeRule)
 
 instance Core.AWSRequest DescribeRule where
@@ -106,84 +107,86 @@ instance Core.AWSRequest DescribeRule where
     Response.receiveJSON
       ( \s h x ->
           DescribeRuleResponse'
-            Core.<$> (x Core..?> "EventPattern")
-            Core.<*> (x Core..?> "RoleArn")
-            Core.<*> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "EventBusName")
-            Core.<*> (x Core..?> "State")
-            Core.<*> (x Core..?> "ScheduleExpression")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (x Core..?> "ManagedBy")
-            Core.<*> (x Core..?> "Description")
-            Core.<*> (x Core..?> "CreatedBy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "EventPattern")
+            Prelude.<*> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "EventBusName")
+            Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "ScheduleExpression")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "ManagedBy")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRule
+instance Prelude.Hashable DescribeRule
 
-instance Core.NFData DescribeRule
+instance Prelude.NFData DescribeRule
 
 instance Core.ToHeaders DescribeRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DescribeRule" :: Core.ByteString),
+              Core.=# ("AWSEvents.DescribeRule" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeRule where
   toJSON DescribeRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EventBusName" Core..=) Core.<$> eventBusName,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath DescribeRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRuleResponse' smart constructor.
 data DescribeRuleResponse = DescribeRuleResponse'
   { -- | The event pattern. For more information, see
     -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
     -- in the /Amazon EventBridge User Guide/.
-    eventPattern :: Core.Maybe Core.Text,
+    eventPattern :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the rule.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the event bus associated with the rule.
-    eventBusName :: Core.Maybe Core.Text,
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the rule is enabled or disabled.
-    state :: Core.Maybe RuleState,
+    state :: Prelude.Maybe RuleState,
     -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
     -- minutes)\".
-    scheduleExpression :: Core.Maybe Core.Text,
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | If this is a managed rule, created by an AWS service on your behalf,
     -- this field displays the principal name of the AWS service that created
     -- the rule.
-    managedBy :: Core.Maybe Core.Text,
+    managedBy :: Prelude.Maybe Prelude.Text,
     -- | The description of the rule.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the user that created the rule. If you use @PutRule@
     -- to put a rule on an event bus in another account, the other account is
     -- the owner of the rule, and the rule ARN includes the account ID for that
     -- account. However, the value for @CreatedBy@ is the account ID as the
     -- account that created the rule in the other account.
-    createdBy :: Core.Maybe Core.Text,
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRuleResponse' with all optional fields omitted.
@@ -225,62 +228,63 @@ data DescribeRuleResponse = DescribeRuleResponse'
 -- 'httpStatus', 'describeRuleResponse_httpStatus' - The response's http status code.
 newDescribeRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRuleResponse
 newDescribeRuleResponse pHttpStatus_ =
   DescribeRuleResponse'
-    { eventPattern = Core.Nothing,
-      roleArn = Core.Nothing,
-      arn = Core.Nothing,
-      eventBusName = Core.Nothing,
-      state = Core.Nothing,
-      scheduleExpression = Core.Nothing,
-      name = Core.Nothing,
-      managedBy = Core.Nothing,
-      description = Core.Nothing,
-      createdBy = Core.Nothing,
+    { eventPattern =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      state = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      name = Prelude.Nothing,
+      managedBy = Prelude.Nothing,
+      description = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The event pattern. For more information, see
 -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
 -- in the /Amazon EventBridge User Guide/.
-describeRuleResponse_eventPattern :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_eventPattern :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_eventPattern = Lens.lens (\DescribeRuleResponse' {eventPattern} -> eventPattern) (\s@DescribeRuleResponse' {} a -> s {eventPattern = a} :: DescribeRuleResponse)
 
 -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
-describeRuleResponse_roleArn :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_roleArn :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_roleArn = Lens.lens (\DescribeRuleResponse' {roleArn} -> roleArn) (\s@DescribeRuleResponse' {} a -> s {roleArn = a} :: DescribeRuleResponse)
 
 -- | The Amazon Resource Name (ARN) of the rule.
-describeRuleResponse_arn :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_arn :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_arn = Lens.lens (\DescribeRuleResponse' {arn} -> arn) (\s@DescribeRuleResponse' {} a -> s {arn = a} :: DescribeRuleResponse)
 
 -- | The name of the event bus associated with the rule.
-describeRuleResponse_eventBusName :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_eventBusName :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_eventBusName = Lens.lens (\DescribeRuleResponse' {eventBusName} -> eventBusName) (\s@DescribeRuleResponse' {} a -> s {eventBusName = a} :: DescribeRuleResponse)
 
 -- | Specifies whether the rule is enabled or disabled.
-describeRuleResponse_state :: Lens.Lens' DescribeRuleResponse (Core.Maybe RuleState)
+describeRuleResponse_state :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe RuleState)
 describeRuleResponse_state = Lens.lens (\DescribeRuleResponse' {state} -> state) (\s@DescribeRuleResponse' {} a -> s {state = a} :: DescribeRuleResponse)
 
 -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
 -- minutes)\".
-describeRuleResponse_scheduleExpression :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_scheduleExpression :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_scheduleExpression = Lens.lens (\DescribeRuleResponse' {scheduleExpression} -> scheduleExpression) (\s@DescribeRuleResponse' {} a -> s {scheduleExpression = a} :: DescribeRuleResponse)
 
 -- | The name of the rule.
-describeRuleResponse_name :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_name :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_name = Lens.lens (\DescribeRuleResponse' {name} -> name) (\s@DescribeRuleResponse' {} a -> s {name = a} :: DescribeRuleResponse)
 
 -- | If this is a managed rule, created by an AWS service on your behalf,
 -- this field displays the principal name of the AWS service that created
 -- the rule.
-describeRuleResponse_managedBy :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_managedBy :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_managedBy = Lens.lens (\DescribeRuleResponse' {managedBy} -> managedBy) (\s@DescribeRuleResponse' {} a -> s {managedBy = a} :: DescribeRuleResponse)
 
 -- | The description of the rule.
-describeRuleResponse_description :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_description :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_description = Lens.lens (\DescribeRuleResponse' {description} -> description) (\s@DescribeRuleResponse' {} a -> s {description = a} :: DescribeRuleResponse)
 
 -- | The account ID of the user that created the rule. If you use @PutRule@
@@ -288,11 +292,11 @@ describeRuleResponse_description = Lens.lens (\DescribeRuleResponse' {descriptio
 -- the owner of the rule, and the rule ARN includes the account ID for that
 -- account. However, the value for @CreatedBy@ is the account ID as the
 -- account that created the rule in the other account.
-describeRuleResponse_createdBy :: Lens.Lens' DescribeRuleResponse (Core.Maybe Core.Text)
+describeRuleResponse_createdBy :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_createdBy = Lens.lens (\DescribeRuleResponse' {createdBy} -> createdBy) (\s@DescribeRuleResponse' {} a -> s {createdBy = a} :: DescribeRuleResponse)
 
 -- | The response's http status code.
-describeRuleResponse_httpStatus :: Lens.Lens' DescribeRuleResponse Core.Int
+describeRuleResponse_httpStatus :: Lens.Lens' DescribeRuleResponse Prelude.Int
 describeRuleResponse_httpStatus = Lens.lens (\DescribeRuleResponse' {httpStatus} -> httpStatus) (\s@DescribeRuleResponse' {} a -> s {httpStatus = a} :: DescribeRuleResponse)
 
-instance Core.NFData DescribeRuleResponse
+instance Prelude.NFData DescribeRuleResponse

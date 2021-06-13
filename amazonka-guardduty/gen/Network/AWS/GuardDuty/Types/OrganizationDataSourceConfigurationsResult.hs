@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurationsResult wh
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.OrganizationS3LogsConfigurationResult
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains information on which data sources are
 -- automatically enabled for new members within the organization.
@@ -31,7 +32,7 @@ data OrganizationDataSourceConfigurationsResult = OrganizationDataSourceConfigur
   { -- | Describes whether S3 data event logs are enabled as a data source.
     s3Logs :: OrganizationS3LogsConfigurationResult
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationDataSourceConfigurationsResult' with all optional fields omitted.
@@ -66,13 +67,13 @@ instance
       "OrganizationDataSourceConfigurationsResult"
       ( \x ->
           OrganizationDataSourceConfigurationsResult'
-            Core.<$> (x Core..: "s3Logs")
+            Prelude.<$> (x Core..: "s3Logs")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OrganizationDataSourceConfigurationsResult
 
 instance
-  Core.NFData
+  Prelude.NFData
     OrganizationDataSourceConfigurationsResult

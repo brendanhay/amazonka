@@ -117,6 +117,7 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the encoding of the log file so that the file can be read
 -- correctly. The default is @utf_8@. Encodings supported by Python
@@ -126,15 +127,15 @@ newtype CloudWatchLogsEncoding = CloudWatchLogsEncoding'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -63,6 +63,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,14 +72,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAddApplicationReferenceDataSource' smart constructor.
 data AddApplicationReferenceDataSource = AddApplicationReferenceDataSource'
   { -- | Name of an existing application.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | Version of the application for which you are adding the reference data
     -- source. You can use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to get the current application version. If the version
     -- specified is not the current version, the
     -- @ConcurrentModificationException@ is returned.
-    currentApplicationVersionId :: Core.Natural,
+    currentApplicationVersionId :: Prelude.Natural,
     -- | The reference data source can be an object in your Amazon S3 bucket.
     -- Amazon Kinesis Analytics reads the object and copies the data into the
     -- in-application table that is created. You provide an S3 bucket, object
@@ -88,7 +89,7 @@ data AddApplicationReferenceDataSource = AddApplicationReferenceDataSource'
     -- your behalf.
     referenceDataSource :: ReferenceDataSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddApplicationReferenceDataSource' with all optional fields omitted.
@@ -116,9 +117,9 @@ data AddApplicationReferenceDataSource = AddApplicationReferenceDataSource'
 -- your behalf.
 newAddApplicationReferenceDataSource ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'currentApplicationVersionId'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'referenceDataSource'
   ReferenceDataSource ->
   AddApplicationReferenceDataSource
@@ -136,7 +137,7 @@ newAddApplicationReferenceDataSource
       }
 
 -- | Name of an existing application.
-addApplicationReferenceDataSource_applicationName :: Lens.Lens' AddApplicationReferenceDataSource Core.Text
+addApplicationReferenceDataSource_applicationName :: Lens.Lens' AddApplicationReferenceDataSource Prelude.Text
 addApplicationReferenceDataSource_applicationName = Lens.lens (\AddApplicationReferenceDataSource' {applicationName} -> applicationName) (\s@AddApplicationReferenceDataSource' {} a -> s {applicationName = a} :: AddApplicationReferenceDataSource)
 
 -- | Version of the application for which you are adding the reference data
@@ -145,7 +146,7 @@ addApplicationReferenceDataSource_applicationName = Lens.lens (\AddApplicationRe
 -- operation to get the current application version. If the version
 -- specified is not the current version, the
 -- @ConcurrentModificationException@ is returned.
-addApplicationReferenceDataSource_currentApplicationVersionId :: Lens.Lens' AddApplicationReferenceDataSource Core.Natural
+addApplicationReferenceDataSource_currentApplicationVersionId :: Lens.Lens' AddApplicationReferenceDataSource Prelude.Natural
 addApplicationReferenceDataSource_currentApplicationVersionId = Lens.lens (\AddApplicationReferenceDataSource' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationReferenceDataSource' {} a -> s {currentApplicationVersionId = a} :: AddApplicationReferenceDataSource)
 
 -- | The reference data source can be an object in your Amazon S3 bucket.
@@ -170,15 +171,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationReferenceDataSourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AddApplicationReferenceDataSource
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddApplicationReferenceDataSource
 
 instance
@@ -186,14 +187,16 @@ instance
     AddApplicationReferenceDataSource
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "KinesisAnalytics_20150814.AddApplicationReferenceDataSource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -203,14 +206,14 @@ instance
   where
   toJSON AddApplicationReferenceDataSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ApplicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ( "CurrentApplicationVersionId"
                   Core..= currentApplicationVersionId
               ),
-            Core.Just
+            Prelude.Just
               ("ReferenceDataSource" Core..= referenceDataSource)
           ]
       )
@@ -219,22 +222,22 @@ instance
   Core.ToPath
     AddApplicationReferenceDataSource
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AddApplicationReferenceDataSource
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newAddApplicationReferenceDataSourceResponse' smart constructor.
 data AddApplicationReferenceDataSourceResponse = AddApplicationReferenceDataSourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddApplicationReferenceDataSourceResponse' with all optional fields omitted.
@@ -247,7 +250,7 @@ data AddApplicationReferenceDataSourceResponse = AddApplicationReferenceDataSour
 -- 'httpStatus', 'addApplicationReferenceDataSourceResponse_httpStatus' - The response's http status code.
 newAddApplicationReferenceDataSourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddApplicationReferenceDataSourceResponse
 newAddApplicationReferenceDataSourceResponse
   pHttpStatus_ =
@@ -257,9 +260,9 @@ newAddApplicationReferenceDataSourceResponse
       }
 
 -- | The response's http status code.
-addApplicationReferenceDataSourceResponse_httpStatus :: Lens.Lens' AddApplicationReferenceDataSourceResponse Core.Int
+addApplicationReferenceDataSourceResponse_httpStatus :: Lens.Lens' AddApplicationReferenceDataSourceResponse Prelude.Int
 addApplicationReferenceDataSourceResponse_httpStatus = Lens.lens (\AddApplicationReferenceDataSourceResponse' {httpStatus} -> httpStatus) (\s@AddApplicationReferenceDataSourceResponse' {} a -> s {httpStatus = a} :: AddApplicationReferenceDataSourceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddApplicationReferenceDataSourceResponse

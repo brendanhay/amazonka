@@ -37,6 +37,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -44,7 +45,7 @@ import qualified Network.AWS.Response as Response
 data DeleteOrganization = DeleteOrganization'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganization' with all optional fields omitted.
@@ -62,37 +63,39 @@ instance Core.AWSRequest DeleteOrganization where
   response =
     Response.receiveNull DeleteOrganizationResponse'
 
-instance Core.Hashable DeleteOrganization
+instance Prelude.Hashable DeleteOrganization
 
-instance Core.NFData DeleteOrganization
+instance Prelude.NFData DeleteOrganization
 
 instance Core.ToHeaders DeleteOrganization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.DeleteOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteOrganization where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DeleteOrganization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteOrganization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOrganizationResponse' smart constructor.
 data DeleteOrganizationResponse = DeleteOrganizationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationResponse' with all optional fields omitted.
@@ -103,4 +106,4 @@ newDeleteOrganizationResponse ::
 newDeleteOrganizationResponse =
   DeleteOrganizationResponse'
 
-instance Core.NFData DeleteOrganizationResponse
+instance Prelude.NFData DeleteOrganizationResponse

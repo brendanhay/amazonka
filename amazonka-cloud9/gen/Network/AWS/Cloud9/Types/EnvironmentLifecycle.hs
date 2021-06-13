@@ -22,6 +22,7 @@ module Network.AWS.Cloud9.Types.EnvironmentLifecycle where
 import Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the current creation or deletion lifecycle state of an
 -- AWS Cloud9 development environment.
@@ -39,14 +40,14 @@ data EnvironmentLifecycle = EnvironmentLifecycle'
     -- -   @DELETING@: The environment is in the process of being deleted.
     --
     -- -   @DELETE_FAILED@: The environment failed to delete.
-    status :: Core.Maybe EnvironmentLifecycleStatus,
+    status :: Prelude.Maybe EnvironmentLifecycleStatus,
     -- | Any informational message about the lifecycle state of the environment.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
     -- the related AWS resource.
-    failureResource :: Core.Maybe Core.Text
+    failureResource :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentLifecycle' with all optional fields omitted.
@@ -76,9 +77,9 @@ newEnvironmentLifecycle ::
   EnvironmentLifecycle
 newEnvironmentLifecycle =
   EnvironmentLifecycle'
-    { status = Core.Nothing,
-      reason = Core.Nothing,
-      failureResource = Core.Nothing
+    { status = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      failureResource = Prelude.Nothing
     }
 
 -- | The current creation or deletion lifecycle state of the environment.
@@ -92,16 +93,16 @@ newEnvironmentLifecycle =
 -- -   @DELETING@: The environment is in the process of being deleted.
 --
 -- -   @DELETE_FAILED@: The environment failed to delete.
-environmentLifecycle_status :: Lens.Lens' EnvironmentLifecycle (Core.Maybe EnvironmentLifecycleStatus)
+environmentLifecycle_status :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe EnvironmentLifecycleStatus)
 environmentLifecycle_status = Lens.lens (\EnvironmentLifecycle' {status} -> status) (\s@EnvironmentLifecycle' {} a -> s {status = a} :: EnvironmentLifecycle)
 
 -- | Any informational message about the lifecycle state of the environment.
-environmentLifecycle_reason :: Lens.Lens' EnvironmentLifecycle (Core.Maybe Core.Text)
+environmentLifecycle_reason :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
 environmentLifecycle_reason = Lens.lens (\EnvironmentLifecycle' {reason} -> reason) (\s@EnvironmentLifecycle' {} a -> s {reason = a} :: EnvironmentLifecycle)
 
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
 -- the related AWS resource.
-environmentLifecycle_failureResource :: Lens.Lens' EnvironmentLifecycle (Core.Maybe Core.Text)
+environmentLifecycle_failureResource :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
 environmentLifecycle_failureResource = Lens.lens (\EnvironmentLifecycle' {failureResource} -> failureResource) (\s@EnvironmentLifecycle' {} a -> s {failureResource = a} :: EnvironmentLifecycle)
 
 instance Core.FromJSON EnvironmentLifecycle where
@@ -110,11 +111,11 @@ instance Core.FromJSON EnvironmentLifecycle where
       "EnvironmentLifecycle"
       ( \x ->
           EnvironmentLifecycle'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "reason")
-            Core.<*> (x Core..:? "failureResource")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "reason")
+            Prelude.<*> (x Core..:? "failureResource")
       )
 
-instance Core.Hashable EnvironmentLifecycle
+instance Prelude.Hashable EnvironmentLifecycle
 
-instance Core.NFData EnvironmentLifecycle
+instance Prelude.NFData EnvironmentLifecycle

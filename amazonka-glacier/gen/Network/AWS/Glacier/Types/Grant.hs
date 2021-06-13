@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.Grantee
 import Network.AWS.Glacier.Types.Permission
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a grant.
 --
 -- /See:/ 'newGrant' smart constructor.
 data Grant = Grant'
   { -- | The grantee.
-    grantee :: Core.Maybe Grantee,
+    grantee :: Prelude.Maybe Grantee,
     -- | Specifies the permission given to the grantee.
-    permission :: Core.Maybe Permission
+    permission :: Prelude.Maybe Permission
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Grant' with all optional fields omitted.
@@ -50,16 +51,16 @@ newGrant ::
   Grant
 newGrant =
   Grant'
-    { grantee = Core.Nothing,
-      permission = Core.Nothing
+    { grantee = Prelude.Nothing,
+      permission = Prelude.Nothing
     }
 
 -- | The grantee.
-grant_grantee :: Lens.Lens' Grant (Core.Maybe Grantee)
+grant_grantee :: Lens.Lens' Grant (Prelude.Maybe Grantee)
 grant_grantee = Lens.lens (\Grant' {grantee} -> grantee) (\s@Grant' {} a -> s {grantee = a} :: Grant)
 
 -- | Specifies the permission given to the grantee.
-grant_permission :: Lens.Lens' Grant (Core.Maybe Permission)
+grant_permission :: Lens.Lens' Grant (Prelude.Maybe Permission)
 grant_permission = Lens.lens (\Grant' {permission} -> permission) (\s@Grant' {} a -> s {permission = a} :: Grant)
 
 instance Core.FromJSON Grant where
@@ -68,19 +69,19 @@ instance Core.FromJSON Grant where
       "Grant"
       ( \x ->
           Grant'
-            Core.<$> (x Core..:? "Grantee")
-            Core.<*> (x Core..:? "Permission")
+            Prelude.<$> (x Core..:? "Grantee")
+            Prelude.<*> (x Core..:? "Permission")
       )
 
-instance Core.Hashable Grant
+instance Prelude.Hashable Grant
 
-instance Core.NFData Grant
+instance Prelude.NFData Grant
 
 instance Core.ToJSON Grant where
   toJSON Grant' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Grantee" Core..=) Core.<$> grantee,
-            ("Permission" Core..=) Core.<$> permission
+      ( Prelude.catMaybes
+          [ ("Grantee" Core..=) Prelude.<$> grantee,
+            ("Permission" Core..=) Prelude.<$> permission
           ]
       )

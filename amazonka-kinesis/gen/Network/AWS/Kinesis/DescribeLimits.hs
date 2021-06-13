@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +53,7 @@ import qualified Network.AWS.Response as Response
 data DescribeLimits = DescribeLimits'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLimits' with all optional fields omitted.
@@ -71,47 +72,49 @@ instance Core.AWSRequest DescribeLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeLimitsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ShardLimit")
-            Core.<*> (x Core..:> "OpenShardCount")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ShardLimit")
+            Prelude.<*> (x Core..:> "OpenShardCount")
       )
 
-instance Core.Hashable DescribeLimits
+instance Prelude.Hashable DescribeLimits
 
-instance Core.NFData DescribeLimits
+instance Prelude.NFData DescribeLimits
 
 instance Core.ToHeaders DescribeLimits where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Kinesis_20131202.DescribeLimits" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeLimits where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DescribeLimits where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeLimits where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The maximum number of shards.
-    shardLimit :: Core.Natural,
+    shardLimit :: Prelude.Natural,
     -- | The number of open shards.
-    openShardCount :: Core.Natural
+    openShardCount :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLimitsResponse' with all optional fields omitted.
@@ -128,11 +131,11 @@ data DescribeLimitsResponse = DescribeLimitsResponse'
 -- 'openShardCount', 'describeLimitsResponse_openShardCount' - The number of open shards.
 newDescribeLimitsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'shardLimit'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'openShardCount'
-  Core.Natural ->
+  Prelude.Natural ->
   DescribeLimitsResponse
 newDescribeLimitsResponse
   pHttpStatus_
@@ -145,15 +148,15 @@ newDescribeLimitsResponse
       }
 
 -- | The response's http status code.
-describeLimitsResponse_httpStatus :: Lens.Lens' DescribeLimitsResponse Core.Int
+describeLimitsResponse_httpStatus :: Lens.Lens' DescribeLimitsResponse Prelude.Int
 describeLimitsResponse_httpStatus = Lens.lens (\DescribeLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeLimitsResponse' {} a -> s {httpStatus = a} :: DescribeLimitsResponse)
 
 -- | The maximum number of shards.
-describeLimitsResponse_shardLimit :: Lens.Lens' DescribeLimitsResponse Core.Natural
+describeLimitsResponse_shardLimit :: Lens.Lens' DescribeLimitsResponse Prelude.Natural
 describeLimitsResponse_shardLimit = Lens.lens (\DescribeLimitsResponse' {shardLimit} -> shardLimit) (\s@DescribeLimitsResponse' {} a -> s {shardLimit = a} :: DescribeLimitsResponse)
 
 -- | The number of open shards.
-describeLimitsResponse_openShardCount :: Lens.Lens' DescribeLimitsResponse Core.Natural
+describeLimitsResponse_openShardCount :: Lens.Lens' DescribeLimitsResponse Prelude.Natural
 describeLimitsResponse_openShardCount = Lens.lens (\DescribeLimitsResponse' {openShardCount} -> openShardCount) (\s@DescribeLimitsResponse' {} a -> s {openShardCount = a} :: DescribeLimitsResponse)
 
-instance Core.NFData DescribeLimitsResponse
+instance Prelude.NFData DescribeLimitsResponse

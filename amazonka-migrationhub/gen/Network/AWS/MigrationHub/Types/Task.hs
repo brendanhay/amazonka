@@ -22,21 +22,22 @@ module Network.AWS.MigrationHub.Types.Task where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.MigrationStatus
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Task object encapsulating task information.
 --
 -- /See:/ 'newTask' smart constructor.
 data Task = Task'
   { -- | Indication of the percentage completion of the task.
-    progressPercent :: Core.Maybe Core.Natural,
+    progressPercent :: Prelude.Maybe Prelude.Natural,
     -- | Details of task status as notified by a migration tool. A tool might use
     -- this field to provide clarifying information about the status that is
     -- unique to that tool or that explains an error state.
-    statusDetail :: Core.Maybe Core.Text,
+    statusDetail :: Prelude.Maybe Prelude.Text,
     -- | Status of the task - Not Started, In-Progress, Complete.
     status :: MigrationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Task' with all optional fields omitted.
@@ -59,19 +60,19 @@ newTask ::
   Task
 newTask pStatus_ =
   Task'
-    { progressPercent = Core.Nothing,
-      statusDetail = Core.Nothing,
+    { progressPercent = Prelude.Nothing,
+      statusDetail = Prelude.Nothing,
       status = pStatus_
     }
 
 -- | Indication of the percentage completion of the task.
-task_progressPercent :: Lens.Lens' Task (Core.Maybe Core.Natural)
+task_progressPercent :: Lens.Lens' Task (Prelude.Maybe Prelude.Natural)
 task_progressPercent = Lens.lens (\Task' {progressPercent} -> progressPercent) (\s@Task' {} a -> s {progressPercent = a} :: Task)
 
 -- | Details of task status as notified by a migration tool. A tool might use
 -- this field to provide clarifying information about the status that is
 -- unique to that tool or that explains an error state.
-task_statusDetail :: Lens.Lens' Task (Core.Maybe Core.Text)
+task_statusDetail :: Lens.Lens' Task (Prelude.Maybe Prelude.Text)
 task_statusDetail = Lens.lens (\Task' {statusDetail} -> statusDetail) (\s@Task' {} a -> s {statusDetail = a} :: Task)
 
 -- | Status of the task - Not Started, In-Progress, Complete.
@@ -84,22 +85,22 @@ instance Core.FromJSON Task where
       "Task"
       ( \x ->
           Task'
-            Core.<$> (x Core..:? "ProgressPercent")
-            Core.<*> (x Core..:? "StatusDetail")
-            Core.<*> (x Core..: "Status")
+            Prelude.<$> (x Core..:? "ProgressPercent")
+            Prelude.<*> (x Core..:? "StatusDetail")
+            Prelude.<*> (x Core..: "Status")
       )
 
-instance Core.Hashable Task
+instance Prelude.Hashable Task
 
-instance Core.NFData Task
+instance Prelude.NFData Task
 
 instance Core.ToJSON Task where
   toJSON Task' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProgressPercent" Core..=)
-              Core.<$> progressPercent,
-            ("StatusDetail" Core..=) Core.<$> statusDetail,
-            Core.Just ("Status" Core..= status)
+              Prelude.<$> progressPercent,
+            ("StatusDetail" Core..=) Prelude.<$> statusDetail,
+            Prelude.Just ("Status" Core..= status)
           ]
       )

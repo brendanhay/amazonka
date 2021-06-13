@@ -101,6 +101,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -109,9 +110,9 @@ data DisableAWSServiceAccess = DisableAWSServiceAccess'
   { -- | The service principal name of the AWS service for which you want to
     -- disable integration with your organization. This is typically in the
     -- form of a URL, such as @ service-abbreviation.amazonaws.com@.
-    servicePrincipal :: Core.Text
+    servicePrincipal :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableAWSServiceAccess' with all optional fields omitted.
@@ -126,7 +127,7 @@ data DisableAWSServiceAccess = DisableAWSServiceAccess'
 -- form of a URL, such as @ service-abbreviation.amazonaws.com@.
 newDisableAWSServiceAccess ::
   -- | 'servicePrincipal'
-  Core.Text ->
+  Prelude.Text ->
   DisableAWSServiceAccess
 newDisableAWSServiceAccess pServicePrincipal_ =
   DisableAWSServiceAccess'
@@ -137,7 +138,7 @@ newDisableAWSServiceAccess pServicePrincipal_ =
 -- | The service principal name of the AWS service for which you want to
 -- disable integration with your organization. This is typically in the
 -- form of a URL, such as @ service-abbreviation.amazonaws.com@.
-disableAWSServiceAccess_servicePrincipal :: Lens.Lens' DisableAWSServiceAccess Core.Text
+disableAWSServiceAccess_servicePrincipal :: Lens.Lens' DisableAWSServiceAccess Prelude.Text
 disableAWSServiceAccess_servicePrincipal = Lens.lens (\DisableAWSServiceAccess' {servicePrincipal} -> servicePrincipal) (\s@DisableAWSServiceAccess' {} a -> s {servicePrincipal = a} :: DisableAWSServiceAccess)
 
 instance Core.AWSRequest DisableAWSServiceAccess where
@@ -149,43 +150,45 @@ instance Core.AWSRequest DisableAWSServiceAccess where
     Response.receiveNull
       DisableAWSServiceAccessResponse'
 
-instance Core.Hashable DisableAWSServiceAccess
+instance Prelude.Hashable DisableAWSServiceAccess
 
-instance Core.NFData DisableAWSServiceAccess
+instance Prelude.NFData DisableAWSServiceAccess
 
 instance Core.ToHeaders DisableAWSServiceAccess where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.DisableAWSServiceAccess" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisableAWSServiceAccess where
   toJSON DisableAWSServiceAccess' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ServicePrincipal" Core..= servicePrincipal)
           ]
       )
 
 instance Core.ToPath DisableAWSServiceAccess where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableAWSServiceAccess where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableAWSServiceAccessResponse' smart constructor.
 data DisableAWSServiceAccessResponse = DisableAWSServiceAccessResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableAWSServiceAccessResponse' with all optional fields omitted.
@@ -196,4 +199,6 @@ newDisableAWSServiceAccessResponse ::
 newDisableAWSServiceAccessResponse =
   DisableAWSServiceAccessResponse'
 
-instance Core.NFData DisableAWSServiceAccessResponse
+instance
+  Prelude.NFData
+    DisableAWSServiceAccessResponse

@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,12 +67,12 @@ data GetBlueprints = GetBlueprints'
     -- To get a page token, perform an initial @GetBlueprints@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether to include inactive results in your
     -- request.
-    includeInactive :: Core.Maybe Core.Bool
+    includeInactive :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBlueprints' with all optional fields omitted.
@@ -93,8 +94,8 @@ newGetBlueprints ::
   GetBlueprints
 newGetBlueprints =
   GetBlueprints'
-    { pageToken = Core.Nothing,
-      includeInactive = Core.Nothing
+    { pageToken = Prelude.Nothing,
+      includeInactive = Prelude.Nothing
     }
 
 -- | The token to advance to the next page of results from your request.
@@ -102,12 +103,12 @@ newGetBlueprints =
 -- To get a page token, perform an initial @GetBlueprints@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
-getBlueprints_pageToken :: Lens.Lens' GetBlueprints (Core.Maybe Core.Text)
+getBlueprints_pageToken :: Lens.Lens' GetBlueprints (Prelude.Maybe Prelude.Text)
 getBlueprints_pageToken = Lens.lens (\GetBlueprints' {pageToken} -> pageToken) (\s@GetBlueprints' {} a -> s {pageToken = a} :: GetBlueprints)
 
 -- | A Boolean value indicating whether to include inactive results in your
 -- request.
-getBlueprints_includeInactive :: Lens.Lens' GetBlueprints (Core.Maybe Core.Bool)
+getBlueprints_includeInactive :: Lens.Lens' GetBlueprints (Prelude.Maybe Prelude.Bool)
 getBlueprints_includeInactive = Lens.lens (\GetBlueprints' {includeInactive} -> includeInactive) (\s@GetBlueprints' {} a -> s {includeInactive = a} :: GetBlueprints)
 
 instance Core.AWSPager GetBlueprints where
@@ -115,20 +116,22 @@ instance Core.AWSPager GetBlueprints where
     | Core.stop
         ( rs
             Lens.^? getBlueprintsResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getBlueprintsResponse_blueprints Core.. Lens._Just
+            Lens.^? getBlueprintsResponse_blueprints
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getBlueprints_pageToken
+          Prelude.& getBlueprints_pageToken
           Lens..~ rs
-          Lens.^? getBlueprintsResponse_nextPageToken Core.. Lens._Just
+          Lens.^? getBlueprintsResponse_nextPageToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBlueprints where
   type
@@ -139,49 +142,51 @@ instance Core.AWSRequest GetBlueprints where
     Response.receiveJSON
       ( \s h x ->
           GetBlueprintsResponse'
-            Core.<$> (x Core..?> "blueprints" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "nextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "blueprints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBlueprints
+instance Prelude.Hashable GetBlueprints
 
-instance Core.NFData GetBlueprints
+instance Prelude.NFData GetBlueprints
 
 instance Core.ToHeaders GetBlueprints where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetBlueprints" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetBlueprints where
   toJSON GetBlueprints' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("pageToken" Core..=) Core.<$> pageToken,
+      ( Prelude.catMaybes
+          [ ("pageToken" Core..=) Prelude.<$> pageToken,
             ("includeInactive" Core..=)
-              Core.<$> includeInactive
+              Prelude.<$> includeInactive
           ]
       )
 
 instance Core.ToPath GetBlueprints where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetBlueprints where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBlueprintsResponse' smart constructor.
 data GetBlueprintsResponse = GetBlueprintsResponse'
   { -- | An array of key-value pairs that contains information about the
     -- available blueprints.
-    blueprints :: Core.Maybe [Blueprint],
+    blueprints :: Prelude.Maybe [Blueprint],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -189,11 +194,11 @@ data GetBlueprintsResponse = GetBlueprintsResponse'
     --
     -- To get the next page of results, perform another @GetBlueprints@ request
     -- and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBlueprintsResponse' with all optional fields omitted.
@@ -217,19 +222,20 @@ data GetBlueprintsResponse = GetBlueprintsResponse'
 -- 'httpStatus', 'getBlueprintsResponse_httpStatus' - The response's http status code.
 newGetBlueprintsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBlueprintsResponse
 newGetBlueprintsResponse pHttpStatus_ =
   GetBlueprintsResponse'
-    { blueprints = Core.Nothing,
-      nextPageToken = Core.Nothing,
+    { blueprints =
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs that contains information about the
 -- available blueprints.
-getBlueprintsResponse_blueprints :: Lens.Lens' GetBlueprintsResponse (Core.Maybe [Blueprint])
-getBlueprintsResponse_blueprints = Lens.lens (\GetBlueprintsResponse' {blueprints} -> blueprints) (\s@GetBlueprintsResponse' {} a -> s {blueprints = a} :: GetBlueprintsResponse) Core.. Lens.mapping Lens._Coerce
+getBlueprintsResponse_blueprints :: Lens.Lens' GetBlueprintsResponse (Prelude.Maybe [Blueprint])
+getBlueprintsResponse_blueprints = Lens.lens (\GetBlueprintsResponse' {blueprints} -> blueprints) (\s@GetBlueprintsResponse' {} a -> s {blueprints = a} :: GetBlueprintsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -238,11 +244,11 @@ getBlueprintsResponse_blueprints = Lens.lens (\GetBlueprintsResponse' {blueprint
 --
 -- To get the next page of results, perform another @GetBlueprints@ request
 -- and specify the next page token using the @pageToken@ parameter.
-getBlueprintsResponse_nextPageToken :: Lens.Lens' GetBlueprintsResponse (Core.Maybe Core.Text)
+getBlueprintsResponse_nextPageToken :: Lens.Lens' GetBlueprintsResponse (Prelude.Maybe Prelude.Text)
 getBlueprintsResponse_nextPageToken = Lens.lens (\GetBlueprintsResponse' {nextPageToken} -> nextPageToken) (\s@GetBlueprintsResponse' {} a -> s {nextPageToken = a} :: GetBlueprintsResponse)
 
 -- | The response's http status code.
-getBlueprintsResponse_httpStatus :: Lens.Lens' GetBlueprintsResponse Core.Int
+getBlueprintsResponse_httpStatus :: Lens.Lens' GetBlueprintsResponse Prelude.Int
 getBlueprintsResponse_httpStatus = Lens.lens (\GetBlueprintsResponse' {httpStatus} -> httpStatus) (\s@GetBlueprintsResponse' {} a -> s {httpStatus = a} :: GetBlueprintsResponse)
 
-instance Core.NFData GetBlueprintsResponse
+instance Prelude.NFData GetBlueprintsResponse

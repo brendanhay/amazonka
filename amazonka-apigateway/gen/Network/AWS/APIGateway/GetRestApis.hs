@@ -46,6 +46,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetRestApis' smart constructor.
 data GetRestApis = GetRestApis'
   { -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int
+    limit :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRestApis' with all optional fields omitted.
@@ -77,37 +78,37 @@ newGetRestApis ::
   GetRestApis
 newGetRestApis =
   GetRestApis'
-    { position = Core.Nothing,
-      limit = Core.Nothing
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The current pagination position in the paged result set.
-getRestApis_position :: Lens.Lens' GetRestApis (Core.Maybe Core.Text)
+getRestApis_position :: Lens.Lens' GetRestApis (Prelude.Maybe Prelude.Text)
 getRestApis_position = Lens.lens (\GetRestApis' {position} -> position) (\s@GetRestApis' {} a -> s {position = a} :: GetRestApis)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getRestApis_limit :: Lens.Lens' GetRestApis (Core.Maybe Core.Int)
+getRestApis_limit :: Lens.Lens' GetRestApis (Prelude.Maybe Prelude.Int)
 getRestApis_limit = Lens.lens (\GetRestApis' {limit} -> limit) (\s@GetRestApis' {} a -> s {limit = a} :: GetRestApis)
 
 instance Core.AWSPager GetRestApis where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getRestApisResponse_position Core.. Lens._Just
+            Lens.^? getRestApisResponse_position Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getRestApisResponse_items Core.. Lens._Just
+            Lens.^? getRestApisResponse_items Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getRestApis_position
+          Prelude.& getRestApis_position
           Lens..~ rs
-          Lens.^? getRestApisResponse_position Core.. Lens._Just
+          Lens.^? getRestApisResponse_position Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRestApis where
   type AWSResponse GetRestApis = GetRestApisResponse
@@ -116,30 +117,30 @@ instance Core.AWSRequest GetRestApis where
     Response.receiveJSON
       ( \s h x ->
           GetRestApisResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRestApis
+instance Prelude.Hashable GetRestApis
 
-instance Core.NFData GetRestApis
+instance Prelude.NFData GetRestApis
 
 instance Core.ToHeaders GetRestApis where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetRestApis where
-  toPath = Core.const "/restapis"
+  toPath = Prelude.const "/restapis"
 
 instance Core.ToQuery GetRestApis where
   toQuery GetRestApis' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | Contains references to your APIs and links that guide you in how to
@@ -151,12 +152,12 @@ instance Core.ToQuery GetRestApis where
 -- /See:/ 'newGetRestApisResponse' smart constructor.
 data GetRestApisResponse = GetRestApisResponse'
   { -- | The current page of elements from this collection.
-    items :: Core.Maybe [RestApi],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [RestApi],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRestApisResponse' with all optional fields omitted.
@@ -173,25 +174,25 @@ data GetRestApisResponse = GetRestApisResponse'
 -- 'httpStatus', 'getRestApisResponse_httpStatus' - The response's http status code.
 newGetRestApisResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRestApisResponse
 newGetRestApisResponse pHttpStatus_ =
   GetRestApisResponse'
-    { items = Core.Nothing,
-      position = Core.Nothing,
+    { items = Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getRestApisResponse_items :: Lens.Lens' GetRestApisResponse (Core.Maybe [RestApi])
-getRestApisResponse_items = Lens.lens (\GetRestApisResponse' {items} -> items) (\s@GetRestApisResponse' {} a -> s {items = a} :: GetRestApisResponse) Core.. Lens.mapping Lens._Coerce
+getRestApisResponse_items :: Lens.Lens' GetRestApisResponse (Prelude.Maybe [RestApi])
+getRestApisResponse_items = Lens.lens (\GetRestApisResponse' {items} -> items) (\s@GetRestApisResponse' {} a -> s {items = a} :: GetRestApisResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getRestApisResponse_position :: Lens.Lens' GetRestApisResponse (Core.Maybe Core.Text)
+getRestApisResponse_position :: Lens.Lens' GetRestApisResponse (Prelude.Maybe Prelude.Text)
 getRestApisResponse_position = Lens.lens (\GetRestApisResponse' {position} -> position) (\s@GetRestApisResponse' {} a -> s {position = a} :: GetRestApisResponse)
 
 -- | The response's http status code.
-getRestApisResponse_httpStatus :: Lens.Lens' GetRestApisResponse Core.Int
+getRestApisResponse_httpStatus :: Lens.Lens' GetRestApisResponse Prelude.Int
 getRestApisResponse_httpStatus = Lens.lens (\GetRestApisResponse' {httpStatus} -> httpStatus) (\s@GetRestApisResponse' {} a -> s {httpStatus = a} :: GetRestApisResponse)
 
-instance Core.NFData GetRestApisResponse
+instance Prelude.NFData GetRestApisResponse

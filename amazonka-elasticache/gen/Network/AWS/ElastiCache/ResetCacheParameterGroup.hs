@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,16 +60,16 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup'
     -- @ParameterNameValues@ are reset to their default values.
     --
     -- Valid values: @true@ | @false@
-    resetAllParameters :: Core.Maybe Core.Bool,
+    resetAllParameters :: Prelude.Maybe Prelude.Bool,
     -- | An array of parameter names to reset to their default values. If
     -- @ResetAllParameters@ is @true@, do not use @ParameterNameValues@. If
     -- @ResetAllParameters@ is @false@, you must specify the name of at least
     -- one parameter to reset.
-    parameterNameValues :: Core.Maybe [ParameterNameValue],
+    parameterNameValues :: Prelude.Maybe [ParameterNameValue],
     -- | The name of the cache parameter group to reset.
-    cacheParameterGroupName :: Core.Text
+    cacheParameterGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetCacheParameterGroup' with all optional fields omitted.
@@ -92,13 +93,13 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup'
 -- 'cacheParameterGroupName', 'resetCacheParameterGroup_cacheParameterGroupName' - The name of the cache parameter group to reset.
 newResetCacheParameterGroup ::
   -- | 'cacheParameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   ResetCacheParameterGroup
 newResetCacheParameterGroup pCacheParameterGroupName_ =
   ResetCacheParameterGroup'
     { resetAllParameters =
-        Core.Nothing,
-      parameterNameValues = Core.Nothing,
+        Prelude.Nothing,
+      parameterNameValues = Prelude.Nothing,
       cacheParameterGroupName =
         pCacheParameterGroupName_
     }
@@ -108,18 +109,18 @@ newResetCacheParameterGroup pCacheParameterGroupName_ =
 -- @ParameterNameValues@ are reset to their default values.
 --
 -- Valid values: @true@ | @false@
-resetCacheParameterGroup_resetAllParameters :: Lens.Lens' ResetCacheParameterGroup (Core.Maybe Core.Bool)
+resetCacheParameterGroup_resetAllParameters :: Lens.Lens' ResetCacheParameterGroup (Prelude.Maybe Prelude.Bool)
 resetCacheParameterGroup_resetAllParameters = Lens.lens (\ResetCacheParameterGroup' {resetAllParameters} -> resetAllParameters) (\s@ResetCacheParameterGroup' {} a -> s {resetAllParameters = a} :: ResetCacheParameterGroup)
 
 -- | An array of parameter names to reset to their default values. If
 -- @ResetAllParameters@ is @true@, do not use @ParameterNameValues@. If
 -- @ResetAllParameters@ is @false@, you must specify the name of at least
 -- one parameter to reset.
-resetCacheParameterGroup_parameterNameValues :: Lens.Lens' ResetCacheParameterGroup (Core.Maybe [ParameterNameValue])
-resetCacheParameterGroup_parameterNameValues = Lens.lens (\ResetCacheParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@ResetCacheParameterGroup' {} a -> s {parameterNameValues = a} :: ResetCacheParameterGroup) Core.. Lens.mapping Lens._Coerce
+resetCacheParameterGroup_parameterNameValues :: Lens.Lens' ResetCacheParameterGroup (Prelude.Maybe [ParameterNameValue])
+resetCacheParameterGroup_parameterNameValues = Lens.lens (\ResetCacheParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@ResetCacheParameterGroup' {} a -> s {parameterNameValues = a} :: ResetCacheParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the cache parameter group to reset.
-resetCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' ResetCacheParameterGroup Core.Text
+resetCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' ResetCacheParameterGroup Prelude.Text
 resetCacheParameterGroup_cacheParameterGroupName = Lens.lens (\ResetCacheParameterGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ResetCacheParameterGroup' {} a -> s {cacheParameterGroupName = a} :: ResetCacheParameterGroup)
 
 instance Core.AWSRequest ResetCacheParameterGroup where
@@ -132,27 +133,28 @@ instance Core.AWSRequest ResetCacheParameterGroup where
       "ResetCacheParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable ResetCacheParameterGroup
+instance Prelude.Hashable ResetCacheParameterGroup
 
-instance Core.NFData ResetCacheParameterGroup
+instance Prelude.NFData ResetCacheParameterGroup
 
 instance Core.ToHeaders ResetCacheParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ResetCacheParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResetCacheParameterGroup where
   toQuery ResetCacheParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetCacheParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("ResetCacheParameterGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "ResetAllParameters" Core.=: resetAllParameters,
         "ParameterNameValues"
           Core.=: Core.toQuery
             ( Core.toQueryList "ParameterNameValue"
-                Core.<$> parameterNameValues
+                Prelude.<$> parameterNameValues
             ),
         "CacheParameterGroupName"
           Core.=: cacheParameterGroupName

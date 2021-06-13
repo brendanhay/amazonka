@@ -21,19 +21,20 @@ module Network.AWS.SDB.Types.Attribute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
-  { alternateNameEncoding :: Core.Maybe Core.Text,
-    alternateValueEncoding :: Core.Maybe Core.Text,
+  { alternateNameEncoding :: Prelude.Maybe Prelude.Text,
+    alternateValueEncoding :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value of the attribute.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Attribute' with all optional fields omitted.
@@ -52,49 +53,49 @@ data Attribute = Attribute'
 -- 'value', 'attribute_value' - The value of the attribute.
 newAttribute ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Attribute
 newAttribute pName_ pValue_ =
   Attribute'
-    { alternateNameEncoding = Core.Nothing,
-      alternateValueEncoding = Core.Nothing,
+    { alternateNameEncoding = Prelude.Nothing,
+      alternateValueEncoding = Prelude.Nothing,
       name = pName_,
       value = pValue_
     }
 
 -- |
-attribute_alternateNameEncoding :: Lens.Lens' Attribute (Core.Maybe Core.Text)
+attribute_alternateNameEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_alternateNameEncoding = Lens.lens (\Attribute' {alternateNameEncoding} -> alternateNameEncoding) (\s@Attribute' {} a -> s {alternateNameEncoding = a} :: Attribute)
 
 -- |
-attribute_alternateValueEncoding :: Lens.Lens' Attribute (Core.Maybe Core.Text)
+attribute_alternateValueEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_alternateValueEncoding = Lens.lens (\Attribute' {alternateValueEncoding} -> alternateValueEncoding) (\s@Attribute' {} a -> s {alternateValueEncoding = a} :: Attribute)
 
 -- | The name of the attribute.
-attribute_name :: Lens.Lens' Attribute Core.Text
+attribute_name :: Lens.Lens' Attribute Prelude.Text
 attribute_name = Lens.lens (\Attribute' {name} -> name) (\s@Attribute' {} a -> s {name = a} :: Attribute)
 
 -- | The value of the attribute.
-attribute_value :: Lens.Lens' Attribute Core.Text
+attribute_value :: Lens.Lens' Attribute Prelude.Text
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 instance Core.FromXML Attribute where
   parseXML x =
     Attribute'
-      Core.<$> (x Core..@? "AlternateNameEncoding")
-      Core.<*> (x Core..@? "AlternateValueEncoding")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@? "AlternateNameEncoding")
+      Prelude.<*> (x Core..@? "AlternateValueEncoding")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable Attribute
+instance Prelude.Hashable Attribute
 
-instance Core.NFData Attribute
+instance Prelude.NFData Attribute
 
 instance Core.ToQuery Attribute where
   toQuery Attribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "AlternateNameEncoding"
           Core.=: alternateNameEncoding,
         "AlternateValueEncoding"

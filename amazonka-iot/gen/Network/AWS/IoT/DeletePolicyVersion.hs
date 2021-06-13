@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
   { -- | The name of the policy.
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The policy version ID.
-    policyVersionId :: Core.Text
+    policyVersionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyVersion' with all optional fields omitted.
@@ -69,9 +70,9 @@ data DeletePolicyVersion = DeletePolicyVersion'
 -- 'policyVersionId', 'deletePolicyVersion_policyVersionId' - The policy version ID.
 newDeletePolicyVersion ::
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyVersionId'
-  Core.Text ->
+  Prelude.Text ->
   DeletePolicyVersion
 newDeletePolicyVersion pPolicyName_ pPolicyVersionId_ =
   DeletePolicyVersion'
@@ -80,11 +81,11 @@ newDeletePolicyVersion pPolicyName_ pPolicyVersionId_ =
     }
 
 -- | The name of the policy.
-deletePolicyVersion_policyName :: Lens.Lens' DeletePolicyVersion Core.Text
+deletePolicyVersion_policyName :: Lens.Lens' DeletePolicyVersion Prelude.Text
 deletePolicyVersion_policyName = Lens.lens (\DeletePolicyVersion' {policyName} -> policyName) (\s@DeletePolicyVersion' {} a -> s {policyName = a} :: DeletePolicyVersion)
 
 -- | The policy version ID.
-deletePolicyVersion_policyVersionId :: Lens.Lens' DeletePolicyVersion Core.Text
+deletePolicyVersion_policyVersionId :: Lens.Lens' DeletePolicyVersion Prelude.Text
 deletePolicyVersion_policyVersionId = Lens.lens (\DeletePolicyVersion' {policyVersionId} -> policyVersionId) (\s@DeletePolicyVersion' {} a -> s {policyVersionId = a} :: DeletePolicyVersion)
 
 instance Core.AWSRequest DeletePolicyVersion where
@@ -95,16 +96,16 @@ instance Core.AWSRequest DeletePolicyVersion where
   response =
     Response.receiveNull DeletePolicyVersionResponse'
 
-instance Core.Hashable DeletePolicyVersion
+instance Prelude.Hashable DeletePolicyVersion
 
-instance Core.NFData DeletePolicyVersion
+instance Prelude.NFData DeletePolicyVersion
 
 instance Core.ToHeaders DeletePolicyVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeletePolicyVersion where
   toPath DeletePolicyVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/policies/",
         Core.toBS policyName,
         "/version/",
@@ -112,13 +113,13 @@ instance Core.ToPath DeletePolicyVersion where
       ]
 
 instance Core.ToQuery DeletePolicyVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse = DeletePolicyVersionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyVersionResponse' with all optional fields omitted.
@@ -129,4 +130,4 @@ newDeletePolicyVersionResponse ::
 newDeletePolicyVersionResponse =
   DeletePolicyVersionResponse'
 
-instance Core.NFData DeletePolicyVersionResponse
+instance Prelude.NFData DeletePolicyVersionResponse

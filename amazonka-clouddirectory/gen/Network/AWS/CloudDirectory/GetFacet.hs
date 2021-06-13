@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data GetFacet = GetFacet'
   { -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
     -- more information, see arns.
-    schemaArn :: Core.Text,
+    schemaArn :: Prelude.Text,
     -- | The name of the facet to retrieve.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFacet' with all optional fields omitted.
@@ -72,20 +73,20 @@ data GetFacet = GetFacet'
 -- 'name', 'getFacet_name' - The name of the facet to retrieve.
 newGetFacet ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetFacet
 newGetFacet pSchemaArn_ pName_ =
   GetFacet' {schemaArn = pSchemaArn_, name = pName_}
 
 -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
 -- more information, see arns.
-getFacet_schemaArn :: Lens.Lens' GetFacet Core.Text
+getFacet_schemaArn :: Lens.Lens' GetFacet Prelude.Text
 getFacet_schemaArn = Lens.lens (\GetFacet' {schemaArn} -> schemaArn) (\s@GetFacet' {} a -> s {schemaArn = a} :: GetFacet)
 
 -- | The name of the facet to retrieve.
-getFacet_name :: Lens.Lens' GetFacet Core.Text
+getFacet_name :: Lens.Lens' GetFacet Prelude.Text
 getFacet_name = Lens.lens (\GetFacet' {name} -> name) (\s@GetFacet' {} a -> s {name = a} :: GetFacet)
 
 instance Core.AWSRequest GetFacet where
@@ -95,39 +96,42 @@ instance Core.AWSRequest GetFacet where
     Response.receiveJSON
       ( \s h x ->
           GetFacetResponse'
-            Core.<$> (x Core..?> "Facet")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Facet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetFacet
+instance Prelude.Hashable GetFacet
 
-instance Core.NFData GetFacet
+instance Prelude.NFData GetFacet
 
 instance Core.ToHeaders GetFacet where
   toHeaders GetFacet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON GetFacet where
   toJSON GetFacet' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath GetFacet where
   toPath =
-    Core.const "/amazonclouddirectory/2017-01-11/facet"
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/facet"
 
 instance Core.ToQuery GetFacet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFacetResponse' smart constructor.
 data GetFacetResponse = GetFacetResponse'
   { -- | The Facet structure that is associated with the facet.
-    facet :: Core.Maybe Facet,
+    facet :: Prelude.Maybe Facet,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFacetResponse' with all optional fields omitted.
@@ -142,20 +146,20 @@ data GetFacetResponse = GetFacetResponse'
 -- 'httpStatus', 'getFacetResponse_httpStatus' - The response's http status code.
 newGetFacetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetFacetResponse
 newGetFacetResponse pHttpStatus_ =
   GetFacetResponse'
-    { facet = Core.Nothing,
+    { facet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Facet structure that is associated with the facet.
-getFacetResponse_facet :: Lens.Lens' GetFacetResponse (Core.Maybe Facet)
+getFacetResponse_facet :: Lens.Lens' GetFacetResponse (Prelude.Maybe Facet)
 getFacetResponse_facet = Lens.lens (\GetFacetResponse' {facet} -> facet) (\s@GetFacetResponse' {} a -> s {facet = a} :: GetFacetResponse)
 
 -- | The response's http status code.
-getFacetResponse_httpStatus :: Lens.Lens' GetFacetResponse Core.Int
+getFacetResponse_httpStatus :: Lens.Lens' GetFacetResponse Prelude.Int
 getFacetResponse_httpStatus = Lens.lens (\GetFacetResponse' {httpStatus} -> httpStatus) (\s@GetFacetResponse' {} a -> s {httpStatus = a} :: GetFacetResponse)
 
-instance Core.NFData GetFacetResponse
+instance Prelude.NFData GetFacetResponse

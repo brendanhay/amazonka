@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data GetAccountSettings = GetAccountSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountSettings' with all optional fields omitted.
@@ -68,34 +69,35 @@ instance Core.AWSRequest GetAccountSettings where
     Response.receiveJSON
       ( \s h x ->
           GetAccountSettingsResponse'
-            Core.<$> (x Core..?> "AccountLimit")
-            Core.<*> (x Core..?> "AccountUsage")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AccountLimit")
+            Prelude.<*> (x Core..?> "AccountUsage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAccountSettings
+instance Prelude.Hashable GetAccountSettings
 
-instance Core.NFData GetAccountSettings
+instance Prelude.NFData GetAccountSettings
 
 instance Core.ToHeaders GetAccountSettings where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAccountSettings where
-  toPath = Core.const "/2016-08-19/account-settings/"
+  toPath =
+    Prelude.const "/2016-08-19/account-settings/"
 
 instance Core.ToQuery GetAccountSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
   { -- | Limits that are related to concurrency and code storage.
-    accountLimit :: Core.Maybe AccountLimit,
+    accountLimit :: Prelude.Maybe AccountLimit,
     -- | The number of functions and amount of storage in use.
-    accountUsage :: Core.Maybe AccountUsage,
+    accountUsage :: Prelude.Maybe AccountUsage,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountSettingsResponse' with all optional fields omitted.
@@ -112,26 +114,26 @@ data GetAccountSettingsResponse = GetAccountSettingsResponse'
 -- 'httpStatus', 'getAccountSettingsResponse_httpStatus' - The response's http status code.
 newGetAccountSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAccountSettingsResponse
 newGetAccountSettingsResponse pHttpStatus_ =
   GetAccountSettingsResponse'
     { accountLimit =
-        Core.Nothing,
-      accountUsage = Core.Nothing,
+        Prelude.Nothing,
+      accountUsage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Limits that are related to concurrency and code storage.
-getAccountSettingsResponse_accountLimit :: Lens.Lens' GetAccountSettingsResponse (Core.Maybe AccountLimit)
+getAccountSettingsResponse_accountLimit :: Lens.Lens' GetAccountSettingsResponse (Prelude.Maybe AccountLimit)
 getAccountSettingsResponse_accountLimit = Lens.lens (\GetAccountSettingsResponse' {accountLimit} -> accountLimit) (\s@GetAccountSettingsResponse' {} a -> s {accountLimit = a} :: GetAccountSettingsResponse)
 
 -- | The number of functions and amount of storage in use.
-getAccountSettingsResponse_accountUsage :: Lens.Lens' GetAccountSettingsResponse (Core.Maybe AccountUsage)
+getAccountSettingsResponse_accountUsage :: Lens.Lens' GetAccountSettingsResponse (Prelude.Maybe AccountUsage)
 getAccountSettingsResponse_accountUsage = Lens.lens (\GetAccountSettingsResponse' {accountUsage} -> accountUsage) (\s@GetAccountSettingsResponse' {} a -> s {accountUsage = a} :: GetAccountSettingsResponse)
 
 -- | The response's http status code.
-getAccountSettingsResponse_httpStatus :: Lens.Lens' GetAccountSettingsResponse Core.Int
+getAccountSettingsResponse_httpStatus :: Lens.Lens' GetAccountSettingsResponse Prelude.Int
 getAccountSettingsResponse_httpStatus = Lens.lens (\GetAccountSettingsResponse' {httpStatus} -> httpStatus) (\s@GetAccountSettingsResponse' {} a -> s {httpStatus = a} :: GetAccountSettingsResponse)
 
-instance Core.NFData GetAccountSettingsResponse
+instance Prelude.NFData GetAccountSettingsResponse

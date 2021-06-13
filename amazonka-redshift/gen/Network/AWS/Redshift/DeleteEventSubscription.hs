@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -47,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data DeleteEventSubscription = DeleteEventSubscription'
   { -- | The name of the Amazon Redshift event notification subscription to be
     -- deleted.
-    subscriptionName :: Core.Text
+    subscriptionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEventSubscription' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteEventSubscription = DeleteEventSubscription'
 -- deleted.
 newDeleteEventSubscription ::
   -- | 'subscriptionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEventSubscription
 newDeleteEventSubscription pSubscriptionName_ =
   DeleteEventSubscription'
@@ -73,7 +74,7 @@ newDeleteEventSubscription pSubscriptionName_ =
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
-deleteEventSubscription_subscriptionName :: Lens.Lens' DeleteEventSubscription Core.Text
+deleteEventSubscription_subscriptionName :: Lens.Lens' DeleteEventSubscription Prelude.Text
 deleteEventSubscription_subscriptionName = Lens.lens (\DeleteEventSubscription' {subscriptionName} -> subscriptionName) (\s@DeleteEventSubscription' {} a -> s {subscriptionName = a} :: DeleteEventSubscription)
 
 instance Core.AWSRequest DeleteEventSubscription where
@@ -85,22 +86,23 @@ instance Core.AWSRequest DeleteEventSubscription where
     Response.receiveNull
       DeleteEventSubscriptionResponse'
 
-instance Core.Hashable DeleteEventSubscription
+instance Prelude.Hashable DeleteEventSubscription
 
-instance Core.NFData DeleteEventSubscription
+instance Prelude.NFData DeleteEventSubscription
 
 instance Core.ToHeaders DeleteEventSubscription where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteEventSubscription where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteEventSubscription where
   toQuery DeleteEventSubscription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteEventSubscription" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DeleteEventSubscription" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "SubscriptionName" Core.=: subscriptionName
       ]
 
@@ -108,7 +110,7 @@ instance Core.ToQuery DeleteEventSubscription where
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEventSubscriptionResponse' with all optional fields omitted.
@@ -119,4 +121,6 @@ newDeleteEventSubscriptionResponse ::
 newDeleteEventSubscriptionResponse =
   DeleteEventSubscriptionResponse'
 
-instance Core.NFData DeleteEventSubscriptionResponse
+instance
+  Prelude.NFData
+    DeleteEventSubscriptionResponse

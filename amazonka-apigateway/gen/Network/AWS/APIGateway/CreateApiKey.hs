@@ -59,6 +59,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,28 +69,28 @@ import qualified Network.AWS.Response as Response
 data CreateApiKey = CreateApiKey'
   { -- | An AWS Marketplace customer identifier , when integrating with the AWS
     -- SaaS Marketplace.
-    customerId :: Core.Maybe Core.Text,
+    customerId :: Prelude.Maybe Prelude.Text,
     -- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
     -- key.
-    stageKeys :: Core.Maybe [StageKey],
+    stageKeys :: Prelude.Maybe [StageKey],
     -- | Specifies whether the ApiKey can be used by callers.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the ApiKey.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether (@true@) or not (@false@) the key identifier is
     -- distinct from the created API key value. This parameter is deprecated
     -- and should not be used.
-    generateDistinctId :: Core.Maybe Core.Bool,
+    generateDistinctId :: Prelude.Maybe Prelude.Bool,
     -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the ApiKey.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies a value of the API key.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateApiKey' with all optional fields omitted.
@@ -124,52 +125,52 @@ newCreateApiKey ::
   CreateApiKey
 newCreateApiKey =
   CreateApiKey'
-    { customerId = Core.Nothing,
-      stageKeys = Core.Nothing,
-      enabled = Core.Nothing,
-      name = Core.Nothing,
-      generateDistinctId = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
-      value = Core.Nothing
+    { customerId = Prelude.Nothing,
+      stageKeys = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      name = Prelude.Nothing,
+      generateDistinctId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | An AWS Marketplace customer identifier , when integrating with the AWS
 -- SaaS Marketplace.
-createApiKey_customerId :: Lens.Lens' CreateApiKey (Core.Maybe Core.Text)
+createApiKey_customerId :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
 createApiKey_customerId = Lens.lens (\CreateApiKey' {customerId} -> customerId) (\s@CreateApiKey' {} a -> s {customerId = a} :: CreateApiKey)
 
 -- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
 -- key.
-createApiKey_stageKeys :: Lens.Lens' CreateApiKey (Core.Maybe [StageKey])
-createApiKey_stageKeys = Lens.lens (\CreateApiKey' {stageKeys} -> stageKeys) (\s@CreateApiKey' {} a -> s {stageKeys = a} :: CreateApiKey) Core.. Lens.mapping Lens._Coerce
+createApiKey_stageKeys :: Lens.Lens' CreateApiKey (Prelude.Maybe [StageKey])
+createApiKey_stageKeys = Lens.lens (\CreateApiKey' {stageKeys} -> stageKeys) (\s@CreateApiKey' {} a -> s {stageKeys = a} :: CreateApiKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the ApiKey can be used by callers.
-createApiKey_enabled :: Lens.Lens' CreateApiKey (Core.Maybe Core.Bool)
+createApiKey_enabled :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Bool)
 createApiKey_enabled = Lens.lens (\CreateApiKey' {enabled} -> enabled) (\s@CreateApiKey' {} a -> s {enabled = a} :: CreateApiKey)
 
 -- | The name of the ApiKey.
-createApiKey_name :: Lens.Lens' CreateApiKey (Core.Maybe Core.Text)
+createApiKey_name :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
 createApiKey_name = Lens.lens (\CreateApiKey' {name} -> name) (\s@CreateApiKey' {} a -> s {name = a} :: CreateApiKey)
 
 -- | Specifies whether (@true@) or not (@false@) the key identifier is
 -- distinct from the created API key value. This parameter is deprecated
 -- and should not be used.
-createApiKey_generateDistinctId :: Lens.Lens' CreateApiKey (Core.Maybe Core.Bool)
+createApiKey_generateDistinctId :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Bool)
 createApiKey_generateDistinctId = Lens.lens (\CreateApiKey' {generateDistinctId} -> generateDistinctId) (\s@CreateApiKey' {} a -> s {generateDistinctId = a} :: CreateApiKey)
 
 -- | The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
-createApiKey_tags :: Lens.Lens' CreateApiKey (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createApiKey_tags = Lens.lens (\CreateApiKey' {tags} -> tags) (\s@CreateApiKey' {} a -> s {tags = a} :: CreateApiKey) Core.. Lens.mapping Lens._Coerce
+createApiKey_tags :: Lens.Lens' CreateApiKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createApiKey_tags = Lens.lens (\CreateApiKey' {tags} -> tags) (\s@CreateApiKey' {} a -> s {tags = a} :: CreateApiKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the ApiKey.
-createApiKey_description :: Lens.Lens' CreateApiKey (Core.Maybe Core.Text)
+createApiKey_description :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
 createApiKey_description = Lens.lens (\CreateApiKey' {description} -> description) (\s@CreateApiKey' {} a -> s {description = a} :: CreateApiKey)
 
 -- | Specifies a value of the API key.
-createApiKey_value :: Lens.Lens' CreateApiKey (Core.Maybe Core.Text)
+createApiKey_value :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
 createApiKey_value = Lens.lens (\CreateApiKey' {value} -> value) (\s@CreateApiKey' {} a -> s {value = a} :: CreateApiKey)
 
 instance Core.AWSRequest CreateApiKey where
@@ -179,37 +180,37 @@ instance Core.AWSRequest CreateApiKey where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreateApiKey
+instance Prelude.Hashable CreateApiKey
 
-instance Core.NFData CreateApiKey
+instance Prelude.NFData CreateApiKey
 
 instance Core.ToHeaders CreateApiKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON CreateApiKey where
   toJSON CreateApiKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("customerId" Core..=) Core.<$> customerId,
-            ("stageKeys" Core..=) Core.<$> stageKeys,
-            ("enabled" Core..=) Core.<$> enabled,
-            ("name" Core..=) Core.<$> name,
+      ( Prelude.catMaybes
+          [ ("customerId" Core..=) Prelude.<$> customerId,
+            ("stageKeys" Core..=) Prelude.<$> stageKeys,
+            ("enabled" Core..=) Prelude.<$> enabled,
+            ("name" Core..=) Prelude.<$> name,
             ("generateDistinctId" Core..=)
-              Core.<$> generateDistinctId,
-            ("tags" Core..=) Core.<$> tags,
-            ("description" Core..=) Core.<$> description,
-            ("value" Core..=) Core.<$> value
+              Prelude.<$> generateDistinctId,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
+            ("value" Core..=) Prelude.<$> value
           ]
       )
 
 instance Core.ToPath CreateApiKey where
-  toPath = Core.const "/apikeys"
+  toPath = Prelude.const "/apikeys"
 
 instance Core.ToQuery CreateApiKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.ImportImageLicenseConfigurationRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The request information of license configurations.
 --
 -- /See:/ 'newImportImageLicenseConfigurationRequest' smart constructor.
 data ImportImageLicenseConfigurationRequest = ImportImageLicenseConfigurationRequest'
   { -- | The ARN of a license configuration.
-    licenseConfigurationArn :: Core.Maybe Core.Text
+    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportImageLicenseConfigurationRequest' with all optional fields omitted.
@@ -46,19 +47,19 @@ newImportImageLicenseConfigurationRequest ::
 newImportImageLicenseConfigurationRequest =
   ImportImageLicenseConfigurationRequest'
     { licenseConfigurationArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ARN of a license configuration.
-importImageLicenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationRequest (Core.Maybe Core.Text)
+importImageLicenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationRequest (Prelude.Maybe Prelude.Text)
 importImageLicenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\ImportImageLicenseConfigurationRequest' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@ImportImageLicenseConfigurationRequest' {} a -> s {licenseConfigurationArn = a} :: ImportImageLicenseConfigurationRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ImportImageLicenseConfigurationRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     ImportImageLicenseConfigurationRequest
 
 instance
@@ -66,7 +67,7 @@ instance
     ImportImageLicenseConfigurationRequest
   where
   toQuery ImportImageLicenseConfigurationRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "LicenseConfigurationArn"
           Core.=: licenseConfigurationArn
       ]

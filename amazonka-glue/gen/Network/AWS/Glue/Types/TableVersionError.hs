@@ -22,20 +22,21 @@ module Network.AWS.Glue.Types.TableVersionError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ErrorDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An error record for table-version operations.
 --
 -- /See:/ 'newTableVersionError' smart constructor.
 data TableVersionError = TableVersionError'
   { -- | The name of the table in question.
-    tableName :: Core.Maybe Core.Text,
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The details about the error.
-    errorDetail :: Core.Maybe ErrorDetail,
+    errorDetail :: Prelude.Maybe ErrorDetail,
     -- | The ID value of the version in question. A @VersionID@ is a string
     -- representation of an integer. Each version is incremented by 1.
-    versionId :: Core.Maybe Core.Text
+    versionId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TableVersionError' with all optional fields omitted.
@@ -55,22 +56,22 @@ newTableVersionError ::
   TableVersionError
 newTableVersionError =
   TableVersionError'
-    { tableName = Core.Nothing,
-      errorDetail = Core.Nothing,
-      versionId = Core.Nothing
+    { tableName = Prelude.Nothing,
+      errorDetail = Prelude.Nothing,
+      versionId = Prelude.Nothing
     }
 
 -- | The name of the table in question.
-tableVersionError_tableName :: Lens.Lens' TableVersionError (Core.Maybe Core.Text)
+tableVersionError_tableName :: Lens.Lens' TableVersionError (Prelude.Maybe Prelude.Text)
 tableVersionError_tableName = Lens.lens (\TableVersionError' {tableName} -> tableName) (\s@TableVersionError' {} a -> s {tableName = a} :: TableVersionError)
 
 -- | The details about the error.
-tableVersionError_errorDetail :: Lens.Lens' TableVersionError (Core.Maybe ErrorDetail)
+tableVersionError_errorDetail :: Lens.Lens' TableVersionError (Prelude.Maybe ErrorDetail)
 tableVersionError_errorDetail = Lens.lens (\TableVersionError' {errorDetail} -> errorDetail) (\s@TableVersionError' {} a -> s {errorDetail = a} :: TableVersionError)
 
 -- | The ID value of the version in question. A @VersionID@ is a string
 -- representation of an integer. Each version is incremented by 1.
-tableVersionError_versionId :: Lens.Lens' TableVersionError (Core.Maybe Core.Text)
+tableVersionError_versionId :: Lens.Lens' TableVersionError (Prelude.Maybe Prelude.Text)
 tableVersionError_versionId = Lens.lens (\TableVersionError' {versionId} -> versionId) (\s@TableVersionError' {} a -> s {versionId = a} :: TableVersionError)
 
 instance Core.FromJSON TableVersionError where
@@ -79,11 +80,11 @@ instance Core.FromJSON TableVersionError where
       "TableVersionError"
       ( \x ->
           TableVersionError'
-            Core.<$> (x Core..:? "TableName")
-            Core.<*> (x Core..:? "ErrorDetail")
-            Core.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "ErrorDetail")
+            Prelude.<*> (x Core..:? "VersionId")
       )
 
-instance Core.Hashable TableVersionError
+instance Prelude.Hashable TableVersionError
 
-instance Core.NFData TableVersionError
+instance Prelude.NFData TableVersionError

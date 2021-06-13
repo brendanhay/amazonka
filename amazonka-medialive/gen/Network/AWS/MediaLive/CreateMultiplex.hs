@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,19 +55,19 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateMultiplex'' smart constructor.
 data CreateMultiplex' = CreateMultiplex''
   { -- | A collection of key-value pairs.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique request ID. This prevents retries from creating multiple
     -- resources.
-    requestId :: Core.Text,
+    requestId :: Prelude.Text,
     -- | Configuration for a multiplex event.
     multiplexSettings :: MultiplexSettings,
     -- | A list of availability zones for the multiplex. You must specify exactly
     -- two.
-    availabilityZones :: [Core.Text],
+    availabilityZones :: [Prelude.Text],
     -- | Name of multiplex.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMultiplex'' with all optional fields omitted.
@@ -89,31 +90,31 @@ data CreateMultiplex' = CreateMultiplex''
 -- 'name', 'createMultiplex'_name' - Name of multiplex.
 newCreateMultiplex' ::
   -- | 'requestId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'multiplexSettings'
   MultiplexSettings ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateMultiplex'
 newCreateMultiplex'
   pRequestId_
   pMultiplexSettings_
   pName_ =
     CreateMultiplex''
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         requestId = pRequestId_,
         multiplexSettings = pMultiplexSettings_,
-        availabilityZones = Core.mempty,
+        availabilityZones = Prelude.mempty,
         name = pName_
       }
 
 -- | A collection of key-value pairs.
-createMultiplex'_tags :: Lens.Lens' CreateMultiplex' (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createMultiplex'_tags = Lens.lens (\CreateMultiplex'' {tags} -> tags) (\s@CreateMultiplex'' {} a -> s {tags = a} :: CreateMultiplex') Core.. Lens.mapping Lens._Coerce
+createMultiplex'_tags :: Lens.Lens' CreateMultiplex' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createMultiplex'_tags = Lens.lens (\CreateMultiplex'' {tags} -> tags) (\s@CreateMultiplex'' {} a -> s {tags = a} :: CreateMultiplex') Prelude.. Lens.mapping Lens._Coerce
 
 -- | Unique request ID. This prevents retries from creating multiple
 -- resources.
-createMultiplex'_requestId :: Lens.Lens' CreateMultiplex' Core.Text
+createMultiplex'_requestId :: Lens.Lens' CreateMultiplex' Prelude.Text
 createMultiplex'_requestId = Lens.lens (\CreateMultiplex'' {requestId} -> requestId) (\s@CreateMultiplex'' {} a -> s {requestId = a} :: CreateMultiplex')
 
 -- | Configuration for a multiplex event.
@@ -122,11 +123,11 @@ createMultiplex'_multiplexSettings = Lens.lens (\CreateMultiplex'' {multiplexSet
 
 -- | A list of availability zones for the multiplex. You must specify exactly
 -- two.
-createMultiplex'_availabilityZones :: Lens.Lens' CreateMultiplex' [Core.Text]
-createMultiplex'_availabilityZones = Lens.lens (\CreateMultiplex'' {availabilityZones} -> availabilityZones) (\s@CreateMultiplex'' {} a -> s {availabilityZones = a} :: CreateMultiplex') Core.. Lens._Coerce
+createMultiplex'_availabilityZones :: Lens.Lens' CreateMultiplex' [Prelude.Text]
+createMultiplex'_availabilityZones = Lens.lens (\CreateMultiplex'' {availabilityZones} -> availabilityZones) (\s@CreateMultiplex'' {} a -> s {availabilityZones = a} :: CreateMultiplex') Prelude.. Lens._Coerce
 
 -- | Name of multiplex.
-createMultiplex'_name :: Lens.Lens' CreateMultiplex' Core.Text
+createMultiplex'_name :: Lens.Lens' CreateMultiplex' Prelude.Text
 createMultiplex'_name = Lens.lens (\CreateMultiplex'' {name} -> name) (\s@CreateMultiplex'' {} a -> s {name = a} :: CreateMultiplex')
 
 instance Core.AWSRequest CreateMultiplex' where
@@ -138,53 +139,55 @@ instance Core.AWSRequest CreateMultiplex' where
     Response.receiveJSON
       ( \s h x ->
           CreateMultiplexResponse'
-            Core.<$> (x Core..?> "multiplex")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "multiplex")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateMultiplex'
+instance Prelude.Hashable CreateMultiplex'
 
-instance Core.NFData CreateMultiplex'
+instance Prelude.NFData CreateMultiplex'
 
 instance Core.ToHeaders CreateMultiplex' where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateMultiplex' where
   toJSON CreateMultiplex'' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            Core.Just ("requestId" Core..= requestId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("requestId" Core..= requestId),
+            Prelude.Just
               ("multiplexSettings" Core..= multiplexSettings),
-            Core.Just
+            Prelude.Just
               ("availabilityZones" Core..= availabilityZones),
-            Core.Just ("name" Core..= name)
+            Prelude.Just ("name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateMultiplex' where
-  toPath = Core.const "/prod/multiplexes"
+  toPath = Prelude.const "/prod/multiplexes"
 
 instance Core.ToQuery CreateMultiplex' where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for CreateMultiplexResponse
 --
 -- /See:/ 'newCreateMultiplexResponse' smart constructor.
 data CreateMultiplexResponse = CreateMultiplexResponse'
   { -- | The newly created multiplex.
-    multiplex :: Core.Maybe Multiplex,
+    multiplex :: Prelude.Maybe Multiplex,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMultiplexResponse' with all optional fields omitted.
@@ -199,20 +202,21 @@ data CreateMultiplexResponse = CreateMultiplexResponse'
 -- 'httpStatus', 'createMultiplexResponse_httpStatus' - The response's http status code.
 newCreateMultiplexResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateMultiplexResponse
 newCreateMultiplexResponse pHttpStatus_ =
   CreateMultiplexResponse'
-    { multiplex = Core.Nothing,
+    { multiplex =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The newly created multiplex.
-createMultiplexResponse_multiplex :: Lens.Lens' CreateMultiplexResponse (Core.Maybe Multiplex)
+createMultiplexResponse_multiplex :: Lens.Lens' CreateMultiplexResponse (Prelude.Maybe Multiplex)
 createMultiplexResponse_multiplex = Lens.lens (\CreateMultiplexResponse' {multiplex} -> multiplex) (\s@CreateMultiplexResponse' {} a -> s {multiplex = a} :: CreateMultiplexResponse)
 
 -- | The response's http status code.
-createMultiplexResponse_httpStatus :: Lens.Lens' CreateMultiplexResponse Core.Int
+createMultiplexResponse_httpStatus :: Lens.Lens' CreateMultiplexResponse Prelude.Int
 createMultiplexResponse_httpStatus = Lens.lens (\CreateMultiplexResponse' {httpStatus} -> httpStatus) (\s@CreateMultiplexResponse' {} a -> s {httpStatus = a} :: CreateMultiplexResponse)
 
-instance Core.NFData CreateMultiplexResponse
+instance Prelude.NFData CreateMultiplexResponse

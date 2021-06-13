@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.InputConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.Framework
 
 -- | Contains information about the location of input model artifacts, the
@@ -34,11 +35,11 @@ data InputConfig = InputConfig'
     -- This API field is only supported for PyTorch framework versions @1.4@,
     -- @1.5@, and @1.6@ for cloud instance target devices: @ml_c4@, @ml_c5@,
     -- @ml_m4@, @ml_m5@, @ml_p2@, @ml_p3@, and @ml_g4dn@.
-    frameworkVersion :: Core.Maybe Core.Text,
+    frameworkVersion :: Prelude.Maybe Prelude.Text,
     -- | The S3 path where the model artifacts, which result from model training,
     -- are stored. This path must point to a single gzip compressed tar archive
     -- (.tar.gz suffix).
-    s3Uri :: Core.Text,
+    s3Uri :: Prelude.Text,
     -- | Specifies the name and shape of the expected data inputs for your
     -- trained model with a JSON dictionary form. The data inputs are
     -- InputConfig$Framework specific.
@@ -186,12 +187,12 @@ data InputConfig = InputConfig'
     --     -   @\"DataInputConfig\": [{\"shape\": [[1,3,224,224], [1,3,160,160]], \"default_shape\": [1,3,224,224], \"type\": \"Image\", \"bias\": [-1,-1,-1], \"scale\": 0.007843137255}]@
     --
     --     -   @\"CompilerOptions\": {\"class_labels\": \"imagenet_labels_1000.txt\"}@
-    dataInputConfig :: Core.Text,
+    dataInputConfig :: Prelude.Text,
     -- | Identifies the framework in which the model was trained. For example:
     -- TENSORFLOW.
     framework :: Framework
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputConfig' with all optional fields omitted.
@@ -363,15 +364,15 @@ data InputConfig = InputConfig'
 -- TENSORFLOW.
 newInputConfig ::
   -- | 's3Uri'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataInputConfig'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'framework'
   Framework ->
   InputConfig
 newInputConfig pS3Uri_ pDataInputConfig_ pFramework_ =
   InputConfig'
-    { frameworkVersion = Core.Nothing,
+    { frameworkVersion = Prelude.Nothing,
       s3Uri = pS3Uri_,
       dataInputConfig = pDataInputConfig_,
       framework = pFramework_
@@ -382,13 +383,13 @@ newInputConfig pS3Uri_ pDataInputConfig_ pFramework_ =
 -- This API field is only supported for PyTorch framework versions @1.4@,
 -- @1.5@, and @1.6@ for cloud instance target devices: @ml_c4@, @ml_c5@,
 -- @ml_m4@, @ml_m5@, @ml_p2@, @ml_p3@, and @ml_g4dn@.
-inputConfig_frameworkVersion :: Lens.Lens' InputConfig (Core.Maybe Core.Text)
+inputConfig_frameworkVersion :: Lens.Lens' InputConfig (Prelude.Maybe Prelude.Text)
 inputConfig_frameworkVersion = Lens.lens (\InputConfig' {frameworkVersion} -> frameworkVersion) (\s@InputConfig' {} a -> s {frameworkVersion = a} :: InputConfig)
 
 -- | The S3 path where the model artifacts, which result from model training,
 -- are stored. This path must point to a single gzip compressed tar archive
 -- (.tar.gz suffix).
-inputConfig_s3Uri :: Lens.Lens' InputConfig Core.Text
+inputConfig_s3Uri :: Lens.Lens' InputConfig Prelude.Text
 inputConfig_s3Uri = Lens.lens (\InputConfig' {s3Uri} -> s3Uri) (\s@InputConfig' {} a -> s {s3Uri = a} :: InputConfig)
 
 -- | Specifies the name and shape of the expected data inputs for your
@@ -538,7 +539,7 @@ inputConfig_s3Uri = Lens.lens (\InputConfig' {s3Uri} -> s3Uri) (\s@InputConfig' 
 --     -   @\"DataInputConfig\": [{\"shape\": [[1,3,224,224], [1,3,160,160]], \"default_shape\": [1,3,224,224], \"type\": \"Image\", \"bias\": [-1,-1,-1], \"scale\": 0.007843137255}]@
 --
 --     -   @\"CompilerOptions\": {\"class_labels\": \"imagenet_labels_1000.txt\"}@
-inputConfig_dataInputConfig :: Lens.Lens' InputConfig Core.Text
+inputConfig_dataInputConfig :: Lens.Lens' InputConfig Prelude.Text
 inputConfig_dataInputConfig = Lens.lens (\InputConfig' {dataInputConfig} -> dataInputConfig) (\s@InputConfig' {} a -> s {dataInputConfig = a} :: InputConfig)
 
 -- | Identifies the framework in which the model was trained. For example:
@@ -552,25 +553,25 @@ instance Core.FromJSON InputConfig where
       "InputConfig"
       ( \x ->
           InputConfig'
-            Core.<$> (x Core..:? "FrameworkVersion")
-            Core.<*> (x Core..: "S3Uri")
-            Core.<*> (x Core..: "DataInputConfig")
-            Core.<*> (x Core..: "Framework")
+            Prelude.<$> (x Core..:? "FrameworkVersion")
+            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<*> (x Core..: "DataInputConfig")
+            Prelude.<*> (x Core..: "Framework")
       )
 
-instance Core.Hashable InputConfig
+instance Prelude.Hashable InputConfig
 
-instance Core.NFData InputConfig
+instance Prelude.NFData InputConfig
 
 instance Core.ToJSON InputConfig where
   toJSON InputConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("FrameworkVersion" Core..=)
-              Core.<$> frameworkVersion,
-            Core.Just ("S3Uri" Core..= s3Uri),
-            Core.Just
+              Prelude.<$> frameworkVersion,
+            Prelude.Just ("S3Uri" Core..= s3Uri),
+            Prelude.Just
               ("DataInputConfig" Core..= dataInputConfig),
-            Core.Just ("Framework" Core..= framework)
+            Prelude.Just ("Framework" Core..= framework)
           ]
       )

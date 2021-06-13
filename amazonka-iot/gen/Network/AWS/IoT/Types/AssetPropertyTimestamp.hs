@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.AssetPropertyTimestamp where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An asset property timestamp entry containing the following information.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data AssetPropertyTimestamp = AssetPropertyTimestamp'
   { -- | Optional. A string that contains the nanosecond time offset. Accepts
     -- substitution templates.
-    offsetInNanos :: Core.Maybe Core.Text,
+    offsetInNanos :: Prelude.Maybe Prelude.Text,
     -- | A string that contains the time in seconds since epoch. Accepts
     -- substitution templates.
-    timeInSeconds :: Core.Text
+    timeInSeconds :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssetPropertyTimestamp' with all optional fields omitted.
@@ -50,23 +51,23 @@ data AssetPropertyTimestamp = AssetPropertyTimestamp'
 -- substitution templates.
 newAssetPropertyTimestamp ::
   -- | 'timeInSeconds'
-  Core.Text ->
+  Prelude.Text ->
   AssetPropertyTimestamp
 newAssetPropertyTimestamp pTimeInSeconds_ =
   AssetPropertyTimestamp'
     { offsetInNanos =
-        Core.Nothing,
+        Prelude.Nothing,
       timeInSeconds = pTimeInSeconds_
     }
 
 -- | Optional. A string that contains the nanosecond time offset. Accepts
 -- substitution templates.
-assetPropertyTimestamp_offsetInNanos :: Lens.Lens' AssetPropertyTimestamp (Core.Maybe Core.Text)
+assetPropertyTimestamp_offsetInNanos :: Lens.Lens' AssetPropertyTimestamp (Prelude.Maybe Prelude.Text)
 assetPropertyTimestamp_offsetInNanos = Lens.lens (\AssetPropertyTimestamp' {offsetInNanos} -> offsetInNanos) (\s@AssetPropertyTimestamp' {} a -> s {offsetInNanos = a} :: AssetPropertyTimestamp)
 
 -- | A string that contains the time in seconds since epoch. Accepts
 -- substitution templates.
-assetPropertyTimestamp_timeInSeconds :: Lens.Lens' AssetPropertyTimestamp Core.Text
+assetPropertyTimestamp_timeInSeconds :: Lens.Lens' AssetPropertyTimestamp Prelude.Text
 assetPropertyTimestamp_timeInSeconds = Lens.lens (\AssetPropertyTimestamp' {timeInSeconds} -> timeInSeconds) (\s@AssetPropertyTimestamp' {} a -> s {timeInSeconds = a} :: AssetPropertyTimestamp)
 
 instance Core.FromJSON AssetPropertyTimestamp where
@@ -75,19 +76,20 @@ instance Core.FromJSON AssetPropertyTimestamp where
       "AssetPropertyTimestamp"
       ( \x ->
           AssetPropertyTimestamp'
-            Core.<$> (x Core..:? "offsetInNanos")
-            Core.<*> (x Core..: "timeInSeconds")
+            Prelude.<$> (x Core..:? "offsetInNanos")
+            Prelude.<*> (x Core..: "timeInSeconds")
       )
 
-instance Core.Hashable AssetPropertyTimestamp
+instance Prelude.Hashable AssetPropertyTimestamp
 
-instance Core.NFData AssetPropertyTimestamp
+instance Prelude.NFData AssetPropertyTimestamp
 
 instance Core.ToJSON AssetPropertyTimestamp where
   toJSON AssetPropertyTimestamp' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("offsetInNanos" Core..=) Core.<$> offsetInNanos,
-            Core.Just ("timeInSeconds" Core..= timeInSeconds)
+      ( Prelude.catMaybes
+          [ ("offsetInNanos" Core..=) Prelude.<$> offsetInNanos,
+            Prelude.Just
+              ("timeInSeconds" Core..= timeInSeconds)
           ]
       )

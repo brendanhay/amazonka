@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,17 +60,17 @@ data ListJobsByStatus = ListJobsByStatus'
   { -- | To list jobs in chronological order by the date and time that they were
     -- submitted, enter @true@. To list jobs in reverse chronological order,
     -- enter @false@.
-    ascending :: Core.Maybe Core.Text,
+    ascending :: Prelude.Maybe Prelude.Text,
     -- | When Elastic Transcoder returns more than one page of results, use
     -- @pageToken@ in subsequent @GET@ requests to get each successive page of
     -- results.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | To get information about all of the jobs associated with the current AWS
     -- account that have a given status, specify the following status:
     -- @Submitted@, @Progressing@, @Complete@, @Canceled@, or @Error@.
-    status :: Core.Text
+    status :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobsByStatus' with all optional fields omitted.
@@ -92,31 +93,31 @@ data ListJobsByStatus = ListJobsByStatus'
 -- @Submitted@, @Progressing@, @Complete@, @Canceled@, or @Error@.
 newListJobsByStatus ::
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   ListJobsByStatus
 newListJobsByStatus pStatus_ =
   ListJobsByStatus'
-    { ascending = Core.Nothing,
-      pageToken = Core.Nothing,
+    { ascending = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
       status = pStatus_
     }
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter @true@. To list jobs in reverse chronological order,
 -- enter @false@.
-listJobsByStatus_ascending :: Lens.Lens' ListJobsByStatus (Core.Maybe Core.Text)
+listJobsByStatus_ascending :: Lens.Lens' ListJobsByStatus (Prelude.Maybe Prelude.Text)
 listJobsByStatus_ascending = Lens.lens (\ListJobsByStatus' {ascending} -> ascending) (\s@ListJobsByStatus' {} a -> s {ascending = a} :: ListJobsByStatus)
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-listJobsByStatus_pageToken :: Lens.Lens' ListJobsByStatus (Core.Maybe Core.Text)
+listJobsByStatus_pageToken :: Lens.Lens' ListJobsByStatus (Prelude.Maybe Prelude.Text)
 listJobsByStatus_pageToken = Lens.lens (\ListJobsByStatus' {pageToken} -> pageToken) (\s@ListJobsByStatus' {} a -> s {pageToken = a} :: ListJobsByStatus)
 
 -- | To get information about all of the jobs associated with the current AWS
 -- account that have a given status, specify the following status:
 -- @Submitted@, @Progressing@, @Complete@, @Canceled@, or @Error@.
-listJobsByStatus_status :: Lens.Lens' ListJobsByStatus Core.Text
+listJobsByStatus_status :: Lens.Lens' ListJobsByStatus Prelude.Text
 listJobsByStatus_status = Lens.lens (\ListJobsByStatus' {status} -> status) (\s@ListJobsByStatus' {} a -> s {status = a} :: ListJobsByStatus)
 
 instance Core.AWSPager ListJobsByStatus where
@@ -124,21 +125,21 @@ instance Core.AWSPager ListJobsByStatus where
     | Core.stop
         ( rs
             Lens.^? listJobsByStatusResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listJobsByStatusResponse_jobs Core.. Lens._Just
+            Lens.^? listJobsByStatusResponse_jobs Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listJobsByStatus_pageToken
+          Prelude.& listJobsByStatus_pageToken
           Lens..~ rs
           Lens.^? listJobsByStatusResponse_nextPageToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobsByStatus where
   type
@@ -149,26 +150,26 @@ instance Core.AWSRequest ListJobsByStatus where
     Response.receiveJSON
       ( \s h x ->
           ListJobsByStatusResponse'
-            Core.<$> (x Core..?> "NextPageToken")
-            Core.<*> (x Core..?> "Jobs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListJobsByStatus
+instance Prelude.Hashable ListJobsByStatus
 
-instance Core.NFData ListJobsByStatus
+instance Prelude.NFData ListJobsByStatus
 
 instance Core.ToHeaders ListJobsByStatus where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListJobsByStatus where
   toPath ListJobsByStatus' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2012-09-25/jobsByStatus/", Core.toBS status]
 
 instance Core.ToQuery ListJobsByStatus where
   toQuery ListJobsByStatus' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Ascending" Core.=: ascending,
         "PageToken" Core.=: pageToken
       ]
@@ -181,13 +182,13 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse'
     -- results, if any. When the jobs in the specified pipeline fit on one page
     -- or when you\'ve reached the last page of results, the value of
     -- @NextPageToken@ is @null@.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @Job@ objects that have the specified status.
-    jobs :: Core.Maybe [Job'],
+    jobs :: Prelude.Maybe [Job'],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobsByStatusResponse' with all optional fields omitted.
@@ -207,13 +208,13 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse'
 -- 'httpStatus', 'listJobsByStatusResponse_httpStatus' - The response's http status code.
 newListJobsByStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListJobsByStatusResponse
 newListJobsByStatusResponse pHttpStatus_ =
   ListJobsByStatusResponse'
     { nextPageToken =
-        Core.Nothing,
-      jobs = Core.Nothing,
+        Prelude.Nothing,
+      jobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -221,15 +222,15 @@ newListJobsByStatusResponse pHttpStatus_ =
 -- results, if any. When the jobs in the specified pipeline fit on one page
 -- or when you\'ve reached the last page of results, the value of
 -- @NextPageToken@ is @null@.
-listJobsByStatusResponse_nextPageToken :: Lens.Lens' ListJobsByStatusResponse (Core.Maybe Core.Text)
+listJobsByStatusResponse_nextPageToken :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe Prelude.Text)
 listJobsByStatusResponse_nextPageToken = Lens.lens (\ListJobsByStatusResponse' {nextPageToken} -> nextPageToken) (\s@ListJobsByStatusResponse' {} a -> s {nextPageToken = a} :: ListJobsByStatusResponse)
 
 -- | An array of @Job@ objects that have the specified status.
-listJobsByStatusResponse_jobs :: Lens.Lens' ListJobsByStatusResponse (Core.Maybe [Job'])
-listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> jobs) (\s@ListJobsByStatusResponse' {} a -> s {jobs = a} :: ListJobsByStatusResponse) Core.. Lens.mapping Lens._Coerce
+listJobsByStatusResponse_jobs :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe [Job'])
+listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> jobs) (\s@ListJobsByStatusResponse' {} a -> s {jobs = a} :: ListJobsByStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listJobsByStatusResponse_httpStatus :: Lens.Lens' ListJobsByStatusResponse Core.Int
+listJobsByStatusResponse_httpStatus :: Lens.Lens' ListJobsByStatusResponse Prelude.Int
 listJobsByStatusResponse_httpStatus = Lens.lens (\ListJobsByStatusResponse' {httpStatus} -> httpStatus) (\s@ListJobsByStatusResponse' {} a -> s {httpStatus = a} :: ListJobsByStatusResponse)
 
-instance Core.NFData ListJobsByStatusResponse
+instance Prelude.NFData ListJobsByStatusResponse

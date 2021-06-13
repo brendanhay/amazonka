@@ -43,22 +43,23 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateContactFlowContent' smart constructor.
 data UpdateContactFlowContent = UpdateContactFlowContent'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier of the contact flow.
-    contactFlowId :: Core.Text,
+    contactFlowId :: Prelude.Text,
     -- | The JSON string that represents contact flow’s content. For an example,
     -- see
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language>
     -- in the /Amazon Connect Administrator Guide/.
-    content :: Core.Text
+    content :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateContactFlowContent' with all optional fields omitted.
@@ -78,11 +79,11 @@ data UpdateContactFlowContent = UpdateContactFlowContent'
 -- in the /Amazon Connect Administrator Guide/.
 newUpdateContactFlowContent ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'contactFlowId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'content'
-  Core.Text ->
+  Prelude.Text ->
   UpdateContactFlowContent
 newUpdateContactFlowContent
   pInstanceId_
@@ -96,18 +97,18 @@ newUpdateContactFlowContent
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateContactFlowContent_instanceId :: Lens.Lens' UpdateContactFlowContent Core.Text
+updateContactFlowContent_instanceId :: Lens.Lens' UpdateContactFlowContent Prelude.Text
 updateContactFlowContent_instanceId = Lens.lens (\UpdateContactFlowContent' {instanceId} -> instanceId) (\s@UpdateContactFlowContent' {} a -> s {instanceId = a} :: UpdateContactFlowContent)
 
 -- | The identifier of the contact flow.
-updateContactFlowContent_contactFlowId :: Lens.Lens' UpdateContactFlowContent Core.Text
+updateContactFlowContent_contactFlowId :: Lens.Lens' UpdateContactFlowContent Prelude.Text
 updateContactFlowContent_contactFlowId = Lens.lens (\UpdateContactFlowContent' {contactFlowId} -> contactFlowId) (\s@UpdateContactFlowContent' {} a -> s {contactFlowId = a} :: UpdateContactFlowContent)
 
 -- | The JSON string that represents contact flow’s content. For an example,
 -- see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language>
 -- in the /Amazon Connect Administrator Guide/.
-updateContactFlowContent_content :: Lens.Lens' UpdateContactFlowContent Core.Text
+updateContactFlowContent_content :: Lens.Lens' UpdateContactFlowContent Prelude.Text
 updateContactFlowContent_content = Lens.lens (\UpdateContactFlowContent' {content} -> content) (\s@UpdateContactFlowContent' {} a -> s {content = a} :: UpdateContactFlowContent)
 
 instance Core.AWSRequest UpdateContactFlowContent where
@@ -119,29 +120,31 @@ instance Core.AWSRequest UpdateContactFlowContent where
     Response.receiveNull
       UpdateContactFlowContentResponse'
 
-instance Core.Hashable UpdateContactFlowContent
+instance Prelude.Hashable UpdateContactFlowContent
 
-instance Core.NFData UpdateContactFlowContent
+instance Prelude.NFData UpdateContactFlowContent
 
 instance Core.ToHeaders UpdateContactFlowContent where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateContactFlowContent where
   toJSON UpdateContactFlowContent' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Content" Core..= content)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Content" Core..= content)]
       )
 
 instance Core.ToPath UpdateContactFlowContent where
   toPath UpdateContactFlowContent' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/contact-flows/",
         Core.toBS instanceId,
         "/",
@@ -150,13 +153,13 @@ instance Core.ToPath UpdateContactFlowContent where
       ]
 
 instance Core.ToQuery UpdateContactFlowContent where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContactFlowContentResponse' smart constructor.
 data UpdateContactFlowContentResponse = UpdateContactFlowContentResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateContactFlowContentResponse' with all optional fields omitted.
@@ -167,4 +170,6 @@ newUpdateContactFlowContentResponse ::
 newUpdateContactFlowContentResponse =
   UpdateContactFlowContentResponse'
 
-instance Core.NFData UpdateContactFlowContentResponse
+instance
+  Prelude.NFData
+    UpdateContactFlowContentResponse

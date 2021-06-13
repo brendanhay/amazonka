@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.ResponseTimeRootCauseService where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.ResponseTimeRootCauseEntity
 
 -- | A collection of fields identifying the service in a response time
@@ -29,19 +30,19 @@ import Network.AWS.XRay.Types.ResponseTimeRootCauseEntity
 -- /See:/ 'newResponseTimeRootCauseService' smart constructor.
 data ResponseTimeRootCauseService = ResponseTimeRootCauseService'
   { -- | A collection of associated service names.
-    names :: Core.Maybe [Core.Text],
+    names :: Prelude.Maybe [Prelude.Text],
     -- | The account ID associated to the service.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating if the service is inferred from the trace.
-    inferred :: Core.Maybe Core.Bool,
+    inferred :: Prelude.Maybe Prelude.Bool,
     -- | The service name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The path of root cause entities found on the service.
-    entityPath :: Core.Maybe [ResponseTimeRootCauseEntity],
+    entityPath :: Prelude.Maybe [ResponseTimeRootCauseEntity],
     -- | The type associated to the service.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResponseTimeRootCauseService' with all optional fields omitted.
@@ -66,36 +67,37 @@ newResponseTimeRootCauseService ::
   ResponseTimeRootCauseService
 newResponseTimeRootCauseService =
   ResponseTimeRootCauseService'
-    { names = Core.Nothing,
-      accountId = Core.Nothing,
-      inferred = Core.Nothing,
-      name = Core.Nothing,
-      entityPath = Core.Nothing,
-      type' = Core.Nothing
+    { names =
+        Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      inferred = Prelude.Nothing,
+      name = Prelude.Nothing,
+      entityPath = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | A collection of associated service names.
-responseTimeRootCauseService_names :: Lens.Lens' ResponseTimeRootCauseService (Core.Maybe [Core.Text])
-responseTimeRootCauseService_names = Lens.lens (\ResponseTimeRootCauseService' {names} -> names) (\s@ResponseTimeRootCauseService' {} a -> s {names = a} :: ResponseTimeRootCauseService) Core.. Lens.mapping Lens._Coerce
+responseTimeRootCauseService_names :: Lens.Lens' ResponseTimeRootCauseService (Prelude.Maybe [Prelude.Text])
+responseTimeRootCauseService_names = Lens.lens (\ResponseTimeRootCauseService' {names} -> names) (\s@ResponseTimeRootCauseService' {} a -> s {names = a} :: ResponseTimeRootCauseService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The account ID associated to the service.
-responseTimeRootCauseService_accountId :: Lens.Lens' ResponseTimeRootCauseService (Core.Maybe Core.Text)
+responseTimeRootCauseService_accountId :: Lens.Lens' ResponseTimeRootCauseService (Prelude.Maybe Prelude.Text)
 responseTimeRootCauseService_accountId = Lens.lens (\ResponseTimeRootCauseService' {accountId} -> accountId) (\s@ResponseTimeRootCauseService' {} a -> s {accountId = a} :: ResponseTimeRootCauseService)
 
 -- | A Boolean value indicating if the service is inferred from the trace.
-responseTimeRootCauseService_inferred :: Lens.Lens' ResponseTimeRootCauseService (Core.Maybe Core.Bool)
+responseTimeRootCauseService_inferred :: Lens.Lens' ResponseTimeRootCauseService (Prelude.Maybe Prelude.Bool)
 responseTimeRootCauseService_inferred = Lens.lens (\ResponseTimeRootCauseService' {inferred} -> inferred) (\s@ResponseTimeRootCauseService' {} a -> s {inferred = a} :: ResponseTimeRootCauseService)
 
 -- | The service name.
-responseTimeRootCauseService_name :: Lens.Lens' ResponseTimeRootCauseService (Core.Maybe Core.Text)
+responseTimeRootCauseService_name :: Lens.Lens' ResponseTimeRootCauseService (Prelude.Maybe Prelude.Text)
 responseTimeRootCauseService_name = Lens.lens (\ResponseTimeRootCauseService' {name} -> name) (\s@ResponseTimeRootCauseService' {} a -> s {name = a} :: ResponseTimeRootCauseService)
 
 -- | The path of root cause entities found on the service.
-responseTimeRootCauseService_entityPath :: Lens.Lens' ResponseTimeRootCauseService (Core.Maybe [ResponseTimeRootCauseEntity])
-responseTimeRootCauseService_entityPath = Lens.lens (\ResponseTimeRootCauseService' {entityPath} -> entityPath) (\s@ResponseTimeRootCauseService' {} a -> s {entityPath = a} :: ResponseTimeRootCauseService) Core.. Lens.mapping Lens._Coerce
+responseTimeRootCauseService_entityPath :: Lens.Lens' ResponseTimeRootCauseService (Prelude.Maybe [ResponseTimeRootCauseEntity])
+responseTimeRootCauseService_entityPath = Lens.lens (\ResponseTimeRootCauseService' {entityPath} -> entityPath) (\s@ResponseTimeRootCauseService' {} a -> s {entityPath = a} :: ResponseTimeRootCauseService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type associated to the service.
-responseTimeRootCauseService_type :: Lens.Lens' ResponseTimeRootCauseService (Core.Maybe Core.Text)
+responseTimeRootCauseService_type :: Lens.Lens' ResponseTimeRootCauseService (Prelude.Maybe Prelude.Text)
 responseTimeRootCauseService_type = Lens.lens (\ResponseTimeRootCauseService' {type'} -> type') (\s@ResponseTimeRootCauseService' {} a -> s {type' = a} :: ResponseTimeRootCauseService)
 
 instance Core.FromJSON ResponseTimeRootCauseService where
@@ -104,14 +106,16 @@ instance Core.FromJSON ResponseTimeRootCauseService where
       "ResponseTimeRootCauseService"
       ( \x ->
           ResponseTimeRootCauseService'
-            Core.<$> (x Core..:? "Names" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "AccountId")
-            Core.<*> (x Core..:? "Inferred")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "EntityPath" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Names" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "Inferred")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "EntityPath" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable ResponseTimeRootCauseService
+instance
+  Prelude.Hashable
+    ResponseTimeRootCauseService
 
-instance Core.NFData ResponseTimeRootCauseService
+instance Prelude.NFData ResponseTimeRootCauseService

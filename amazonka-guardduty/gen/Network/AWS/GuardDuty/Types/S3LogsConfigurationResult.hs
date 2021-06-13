@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.S3LogsConfigurationResult where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSourceStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes whether S3 data event logs will be enabled as a data source.
 --
@@ -31,7 +32,7 @@ data S3LogsConfigurationResult = S3LogsConfigurationResult'
     -- enabled for new members of the organization.
     status :: DataSourceStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3LogsConfigurationResult' with all optional fields omitted.
@@ -61,9 +62,9 @@ instance Core.FromJSON S3LogsConfigurationResult where
       "S3LogsConfigurationResult"
       ( \x ->
           S3LogsConfigurationResult'
-            Core.<$> (x Core..: "status")
+            Prelude.<$> (x Core..: "status")
       )
 
-instance Core.Hashable S3LogsConfigurationResult
+instance Prelude.Hashable S3LogsConfigurationResult
 
-instance Core.NFData S3LogsConfigurationResult
+instance Prelude.NFData S3LogsConfigurationResult

@@ -45,15 +45,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateProvisioningClaim' smart constructor.
 data CreateProvisioningClaim = CreateProvisioningClaim'
   { -- | The name of the provisioning template to use.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProvisioningClaim' with all optional fields omitted.
@@ -66,7 +67,7 @@ data CreateProvisioningClaim = CreateProvisioningClaim'
 -- 'templateName', 'createProvisioningClaim_templateName' - The name of the provisioning template to use.
 newCreateProvisioningClaim ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   CreateProvisioningClaim
 newCreateProvisioningClaim pTemplateName_ =
   CreateProvisioningClaim'
@@ -75,7 +76,7 @@ newCreateProvisioningClaim pTemplateName_ =
     }
 
 -- | The name of the provisioning template to use.
-createProvisioningClaim_templateName :: Lens.Lens' CreateProvisioningClaim Core.Text
+createProvisioningClaim_templateName :: Lens.Lens' CreateProvisioningClaim Prelude.Text
 createProvisioningClaim_templateName = Lens.lens (\CreateProvisioningClaim' {templateName} -> templateName) (\s@CreateProvisioningClaim' {} a -> s {templateName = a} :: CreateProvisioningClaim)
 
 instance Core.AWSRequest CreateProvisioningClaim where
@@ -87,48 +88,48 @@ instance Core.AWSRequest CreateProvisioningClaim where
     Response.receiveJSON
       ( \s h x ->
           CreateProvisioningClaimResponse'
-            Core.<$> (x Core..?> "expiration")
-            Core.<*> (x Core..?> "keyPair")
-            Core.<*> (x Core..?> "certificateId")
-            Core.<*> (x Core..?> "certificatePem")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "expiration")
+            Prelude.<*> (x Core..?> "keyPair")
+            Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<*> (x Core..?> "certificatePem")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateProvisioningClaim
+instance Prelude.Hashable CreateProvisioningClaim
 
-instance Core.NFData CreateProvisioningClaim
+instance Prelude.NFData CreateProvisioningClaim
 
 instance Core.ToHeaders CreateProvisioningClaim where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateProvisioningClaim where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath CreateProvisioningClaim where
   toPath CreateProvisioningClaim' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/provisioning-templates/",
         Core.toBS templateName,
         "/provisioning-claim"
       ]
 
 instance Core.ToQuery CreateProvisioningClaim where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProvisioningClaimResponse' smart constructor.
 data CreateProvisioningClaimResponse = CreateProvisioningClaimResponse'
   { -- | The provisioning claim expiration time.
-    expiration :: Core.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Core.POSIX,
     -- | The provisioning claim key pair.
-    keyPair :: Core.Maybe KeyPair,
+    keyPair :: Prelude.Maybe KeyPair,
     -- | The ID of the certificate.
-    certificateId :: Core.Maybe Core.Text,
+    certificateId :: Prelude.Maybe Prelude.Text,
     -- | The provisioning claim certificate.
-    certificatePem :: Core.Maybe Core.Text,
+    certificatePem :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProvisioningClaimResponse' with all optional fields omitted.
@@ -149,36 +150,38 @@ data CreateProvisioningClaimResponse = CreateProvisioningClaimResponse'
 -- 'httpStatus', 'createProvisioningClaimResponse_httpStatus' - The response's http status code.
 newCreateProvisioningClaimResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateProvisioningClaimResponse
 newCreateProvisioningClaimResponse pHttpStatus_ =
   CreateProvisioningClaimResponse'
     { expiration =
-        Core.Nothing,
-      keyPair = Core.Nothing,
-      certificateId = Core.Nothing,
-      certificatePem = Core.Nothing,
+        Prelude.Nothing,
+      keyPair = Prelude.Nothing,
+      certificateId = Prelude.Nothing,
+      certificatePem = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The provisioning claim expiration time.
-createProvisioningClaimResponse_expiration :: Lens.Lens' CreateProvisioningClaimResponse (Core.Maybe Core.UTCTime)
-createProvisioningClaimResponse_expiration = Lens.lens (\CreateProvisioningClaimResponse' {expiration} -> expiration) (\s@CreateProvisioningClaimResponse' {} a -> s {expiration = a} :: CreateProvisioningClaimResponse) Core.. Lens.mapping Core._Time
+createProvisioningClaimResponse_expiration :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.UTCTime)
+createProvisioningClaimResponse_expiration = Lens.lens (\CreateProvisioningClaimResponse' {expiration} -> expiration) (\s@CreateProvisioningClaimResponse' {} a -> s {expiration = a} :: CreateProvisioningClaimResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The provisioning claim key pair.
-createProvisioningClaimResponse_keyPair :: Lens.Lens' CreateProvisioningClaimResponse (Core.Maybe KeyPair)
+createProvisioningClaimResponse_keyPair :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe KeyPair)
 createProvisioningClaimResponse_keyPair = Lens.lens (\CreateProvisioningClaimResponse' {keyPair} -> keyPair) (\s@CreateProvisioningClaimResponse' {} a -> s {keyPair = a} :: CreateProvisioningClaimResponse)
 
 -- | The ID of the certificate.
-createProvisioningClaimResponse_certificateId :: Lens.Lens' CreateProvisioningClaimResponse (Core.Maybe Core.Text)
+createProvisioningClaimResponse_certificateId :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.Text)
 createProvisioningClaimResponse_certificateId = Lens.lens (\CreateProvisioningClaimResponse' {certificateId} -> certificateId) (\s@CreateProvisioningClaimResponse' {} a -> s {certificateId = a} :: CreateProvisioningClaimResponse)
 
 -- | The provisioning claim certificate.
-createProvisioningClaimResponse_certificatePem :: Lens.Lens' CreateProvisioningClaimResponse (Core.Maybe Core.Text)
+createProvisioningClaimResponse_certificatePem :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.Text)
 createProvisioningClaimResponse_certificatePem = Lens.lens (\CreateProvisioningClaimResponse' {certificatePem} -> certificatePem) (\s@CreateProvisioningClaimResponse' {} a -> s {certificatePem = a} :: CreateProvisioningClaimResponse)
 
 -- | The response's http status code.
-createProvisioningClaimResponse_httpStatus :: Lens.Lens' CreateProvisioningClaimResponse Core.Int
+createProvisioningClaimResponse_httpStatus :: Lens.Lens' CreateProvisioningClaimResponse Prelude.Int
 createProvisioningClaimResponse_httpStatus = Lens.lens (\CreateProvisioningClaimResponse' {httpStatus} -> httpStatus) (\s@CreateProvisioningClaimResponse' {} a -> s {httpStatus = a} :: CreateProvisioningClaimResponse)
 
-instance Core.NFData CreateProvisioningClaimResponse
+instance
+  Prelude.NFData
+    CreateProvisioningClaimResponse

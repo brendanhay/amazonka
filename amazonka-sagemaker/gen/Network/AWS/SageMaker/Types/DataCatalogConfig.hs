@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.DataCatalogConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The meta data of the Glue table which serves as data catalog for the
 -- @OfflineStore@.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDataCatalogConfig' smart constructor.
 data DataCatalogConfig = DataCatalogConfig'
   { -- | The name of the Glue table.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | The name of the Glue table catalog.
-    catalog :: Core.Text,
+    catalog :: Prelude.Text,
     -- | The name of the Glue table database.
-    database :: Core.Text
+    database :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataCatalogConfig' with all optional fields omitted.
@@ -51,11 +52,11 @@ data DataCatalogConfig = DataCatalogConfig'
 -- 'database', 'dataCatalogConfig_database' - The name of the Glue table database.
 newDataCatalogConfig ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'catalog'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'database'
-  Core.Text ->
+  Prelude.Text ->
   DataCatalogConfig
 newDataCatalogConfig pTableName_ pCatalog_ pDatabase_ =
   DataCatalogConfig'
@@ -65,15 +66,15 @@ newDataCatalogConfig pTableName_ pCatalog_ pDatabase_ =
     }
 
 -- | The name of the Glue table.
-dataCatalogConfig_tableName :: Lens.Lens' DataCatalogConfig Core.Text
+dataCatalogConfig_tableName :: Lens.Lens' DataCatalogConfig Prelude.Text
 dataCatalogConfig_tableName = Lens.lens (\DataCatalogConfig' {tableName} -> tableName) (\s@DataCatalogConfig' {} a -> s {tableName = a} :: DataCatalogConfig)
 
 -- | The name of the Glue table catalog.
-dataCatalogConfig_catalog :: Lens.Lens' DataCatalogConfig Core.Text
+dataCatalogConfig_catalog :: Lens.Lens' DataCatalogConfig Prelude.Text
 dataCatalogConfig_catalog = Lens.lens (\DataCatalogConfig' {catalog} -> catalog) (\s@DataCatalogConfig' {} a -> s {catalog = a} :: DataCatalogConfig)
 
 -- | The name of the Glue table database.
-dataCatalogConfig_database :: Lens.Lens' DataCatalogConfig Core.Text
+dataCatalogConfig_database :: Lens.Lens' DataCatalogConfig Prelude.Text
 dataCatalogConfig_database = Lens.lens (\DataCatalogConfig' {database} -> database) (\s@DataCatalogConfig' {} a -> s {database = a} :: DataCatalogConfig)
 
 instance Core.FromJSON DataCatalogConfig where
@@ -82,21 +83,21 @@ instance Core.FromJSON DataCatalogConfig where
       "DataCatalogConfig"
       ( \x ->
           DataCatalogConfig'
-            Core.<$> (x Core..: "TableName")
-            Core.<*> (x Core..: "Catalog")
-            Core.<*> (x Core..: "Database")
+            Prelude.<$> (x Core..: "TableName")
+            Prelude.<*> (x Core..: "Catalog")
+            Prelude.<*> (x Core..: "Database")
       )
 
-instance Core.Hashable DataCatalogConfig
+instance Prelude.Hashable DataCatalogConfig
 
-instance Core.NFData DataCatalogConfig
+instance Prelude.NFData DataCatalogConfig
 
 instance Core.ToJSON DataCatalogConfig where
   toJSON DataCatalogConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TableName" Core..= tableName),
-            Core.Just ("Catalog" Core..= catalog),
-            Core.Just ("Database" Core..= database)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just ("Catalog" Core..= catalog),
+            Prelude.Just ("Database" Core..= database)
           ]
       )

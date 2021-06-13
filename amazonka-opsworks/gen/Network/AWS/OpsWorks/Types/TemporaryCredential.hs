@@ -21,6 +21,7 @@ module Network.AWS.OpsWorks.Types.TemporaryCredential where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the data needed by RDP clients such as the Microsoft Remote
 -- Desktop Connection to log in to the instance.
@@ -31,15 +32,15 @@ data TemporaryCredential = TemporaryCredential'
     -- expires, at the end of this period, the user will no longer be able to
     -- use the credentials to log in. If they are logged in at the time, they
     -- will be automatically logged out.
-    validForInMinutes :: Core.Maybe Core.Int,
+    validForInMinutes :: Prelude.Maybe Prelude.Int,
     -- | The instance\'s AWS OpsWorks Stacks ID.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The password.
-    password :: Core.Maybe Core.Text,
+    password :: Prelude.Maybe Prelude.Text,
     -- | The user name.
-    username :: Core.Maybe Core.Text
+    username :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TemporaryCredential' with all optional fields omitted.
@@ -64,29 +65,29 @@ newTemporaryCredential ::
 newTemporaryCredential =
   TemporaryCredential'
     { validForInMinutes =
-        Core.Nothing,
-      instanceId = Core.Nothing,
-      password = Core.Nothing,
-      username = Core.Nothing
+        Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      password = Prelude.Nothing,
+      username = Prelude.Nothing
     }
 
 -- | The length of time (in minutes) that the grant is valid. When the grant
 -- expires, at the end of this period, the user will no longer be able to
 -- use the credentials to log in. If they are logged in at the time, they
 -- will be automatically logged out.
-temporaryCredential_validForInMinutes :: Lens.Lens' TemporaryCredential (Core.Maybe Core.Int)
+temporaryCredential_validForInMinutes :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Int)
 temporaryCredential_validForInMinutes = Lens.lens (\TemporaryCredential' {validForInMinutes} -> validForInMinutes) (\s@TemporaryCredential' {} a -> s {validForInMinutes = a} :: TemporaryCredential)
 
 -- | The instance\'s AWS OpsWorks Stacks ID.
-temporaryCredential_instanceId :: Lens.Lens' TemporaryCredential (Core.Maybe Core.Text)
+temporaryCredential_instanceId :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
 temporaryCredential_instanceId = Lens.lens (\TemporaryCredential' {instanceId} -> instanceId) (\s@TemporaryCredential' {} a -> s {instanceId = a} :: TemporaryCredential)
 
 -- | The password.
-temporaryCredential_password :: Lens.Lens' TemporaryCredential (Core.Maybe Core.Text)
+temporaryCredential_password :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
 temporaryCredential_password = Lens.lens (\TemporaryCredential' {password} -> password) (\s@TemporaryCredential' {} a -> s {password = a} :: TemporaryCredential)
 
 -- | The user name.
-temporaryCredential_username :: Lens.Lens' TemporaryCredential (Core.Maybe Core.Text)
+temporaryCredential_username :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
 temporaryCredential_username = Lens.lens (\TemporaryCredential' {username} -> username) (\s@TemporaryCredential' {} a -> s {username = a} :: TemporaryCredential)
 
 instance Core.FromJSON TemporaryCredential where
@@ -95,12 +96,12 @@ instance Core.FromJSON TemporaryCredential where
       "TemporaryCredential"
       ( \x ->
           TemporaryCredential'
-            Core.<$> (x Core..:? "ValidForInMinutes")
-            Core.<*> (x Core..:? "InstanceId")
-            Core.<*> (x Core..:? "Password")
-            Core.<*> (x Core..:? "Username")
+            Prelude.<$> (x Core..:? "ValidForInMinutes")
+            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "Password")
+            Prelude.<*> (x Core..:? "Username")
       )
 
-instance Core.Hashable TemporaryCredential
+instance Prelude.Hashable TemporaryCredential
 
-instance Core.NFData TemporaryCredential
+instance Prelude.NFData TemporaryCredential

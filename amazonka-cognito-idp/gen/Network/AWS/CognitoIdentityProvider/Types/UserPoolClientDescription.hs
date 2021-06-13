@@ -21,20 +21,21 @@ module Network.AWS.CognitoIdentityProvider.Types.UserPoolClientDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The description of the user pool client.
 --
 -- /See:/ 'newUserPoolClientDescription' smart constructor.
 data UserPoolClientDescription = UserPoolClientDescription'
   { -- | The ID of the client associated with the user pool.
-    clientId :: Core.Maybe (Core.Sensitive Core.Text),
+    clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The client name from the user pool client description.
-    clientName :: Core.Maybe Core.Text,
+    clientName :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool where you want to describe the user
     -- pool client.
-    userPoolId :: Core.Maybe Core.Text
+    userPoolId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserPoolClientDescription' with all optional fields omitted.
@@ -54,22 +55,23 @@ newUserPoolClientDescription ::
   UserPoolClientDescription
 newUserPoolClientDescription =
   UserPoolClientDescription'
-    { clientId = Core.Nothing,
-      clientName = Core.Nothing,
-      userPoolId = Core.Nothing
+    { clientId =
+        Prelude.Nothing,
+      clientName = Prelude.Nothing,
+      userPoolId = Prelude.Nothing
     }
 
 -- | The ID of the client associated with the user pool.
-userPoolClientDescription_clientId :: Lens.Lens' UserPoolClientDescription (Core.Maybe Core.Text)
-userPoolClientDescription_clientId = Lens.lens (\UserPoolClientDescription' {clientId} -> clientId) (\s@UserPoolClientDescription' {} a -> s {clientId = a} :: UserPoolClientDescription) Core.. Lens.mapping Core._Sensitive
+userPoolClientDescription_clientId :: Lens.Lens' UserPoolClientDescription (Prelude.Maybe Prelude.Text)
+userPoolClientDescription_clientId = Lens.lens (\UserPoolClientDescription' {clientId} -> clientId) (\s@UserPoolClientDescription' {} a -> s {clientId = a} :: UserPoolClientDescription) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The client name from the user pool client description.
-userPoolClientDescription_clientName :: Lens.Lens' UserPoolClientDescription (Core.Maybe Core.Text)
+userPoolClientDescription_clientName :: Lens.Lens' UserPoolClientDescription (Prelude.Maybe Prelude.Text)
 userPoolClientDescription_clientName = Lens.lens (\UserPoolClientDescription' {clientName} -> clientName) (\s@UserPoolClientDescription' {} a -> s {clientName = a} :: UserPoolClientDescription)
 
 -- | The user pool ID for the user pool where you want to describe the user
 -- pool client.
-userPoolClientDescription_userPoolId :: Lens.Lens' UserPoolClientDescription (Core.Maybe Core.Text)
+userPoolClientDescription_userPoolId :: Lens.Lens' UserPoolClientDescription (Prelude.Maybe Prelude.Text)
 userPoolClientDescription_userPoolId = Lens.lens (\UserPoolClientDescription' {userPoolId} -> userPoolId) (\s@UserPoolClientDescription' {} a -> s {userPoolId = a} :: UserPoolClientDescription)
 
 instance Core.FromJSON UserPoolClientDescription where
@@ -78,11 +80,11 @@ instance Core.FromJSON UserPoolClientDescription where
       "UserPoolClientDescription"
       ( \x ->
           UserPoolClientDescription'
-            Core.<$> (x Core..:? "ClientId")
-            Core.<*> (x Core..:? "ClientName")
-            Core.<*> (x Core..:? "UserPoolId")
+            Prelude.<$> (x Core..:? "ClientId")
+            Prelude.<*> (x Core..:? "ClientName")
+            Prelude.<*> (x Core..:? "UserPoolId")
       )
 
-instance Core.Hashable UserPoolClientDescription
+instance Prelude.Hashable UserPoolClientDescription
 
-instance Core.NFData UserPoolClientDescription
+instance Prelude.NFData UserPoolClientDescription

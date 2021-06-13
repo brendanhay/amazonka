@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,9 +69,9 @@ import qualified Network.AWS.Response as Response
 data DeleteBuild = DeleteBuild'
   { -- | A unique identifier for a build to delete. You can use either the build
     -- ID or ARN value.
-    buildId :: Core.Text
+    buildId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBuild' with all optional fields omitted.
@@ -84,14 +85,14 @@ data DeleteBuild = DeleteBuild'
 -- ID or ARN value.
 newDeleteBuild ::
   -- | 'buildId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBuild
 newDeleteBuild pBuildId_ =
   DeleteBuild' {buildId = pBuildId_}
 
 -- | A unique identifier for a build to delete. You can use either the build
 -- ID or ARN value.
-deleteBuild_buildId :: Lens.Lens' DeleteBuild Core.Text
+deleteBuild_buildId :: Lens.Lens' DeleteBuild Prelude.Text
 deleteBuild_buildId = Lens.lens (\DeleteBuild' {buildId} -> buildId) (\s@DeleteBuild' {} a -> s {buildId = a} :: DeleteBuild)
 
 instance Core.AWSRequest DeleteBuild where
@@ -99,39 +100,41 @@ instance Core.AWSRequest DeleteBuild where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteBuildResponse'
 
-instance Core.Hashable DeleteBuild
+instance Prelude.Hashable DeleteBuild
 
-instance Core.NFData DeleteBuild
+instance Prelude.NFData DeleteBuild
 
 instance Core.ToHeaders DeleteBuild where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DeleteBuild" :: Core.ByteString),
+              Core.=# ("GameLift.DeleteBuild" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteBuild where
   toJSON DeleteBuild' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("BuildId" Core..= buildId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("BuildId" Core..= buildId)]
       )
 
 instance Core.ToPath DeleteBuild where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteBuild where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBuildResponse' smart constructor.
 data DeleteBuildResponse = DeleteBuildResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBuildResponse' with all optional fields omitted.
@@ -141,4 +144,4 @@ newDeleteBuildResponse ::
   DeleteBuildResponse
 newDeleteBuildResponse = DeleteBuildResponse'
 
-instance Core.NFData DeleteBuildResponse
+instance Prelude.NFData DeleteBuildResponse

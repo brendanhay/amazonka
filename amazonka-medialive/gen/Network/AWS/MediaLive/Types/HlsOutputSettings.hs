@@ -23,25 +23,26 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.HlsH265PackagingType
 import Network.AWS.MediaLive.Types.HlsSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Hls Output Settings
 --
 -- /See:/ 'newHlsOutputSettings' smart constructor.
 data HlsOutputSettings = HlsOutputSettings'
   { -- | String concatenated to end of segment filenames.
-    segmentModifier :: Core.Maybe Core.Text,
+    segmentModifier :: Prelude.Maybe Prelude.Text,
     -- | Only applicable when this output is referencing an H.265 video
     -- description. Specifies whether MP4 segments should be packaged as HEV1
     -- or HVC1.
-    h265PackagingType :: Core.Maybe HlsH265PackagingType,
+    h265PackagingType :: Prelude.Maybe HlsH265PackagingType,
     -- | String concatenated to the end of the destination filename. Accepts
     -- \\\"Format Identifiers\\\":#formatIdentifierParameters.
-    nameModifier :: Core.Maybe Core.Text,
+    nameModifier :: Prelude.Maybe Prelude.Text,
     -- | Settings regarding the underlying stream. These settings are different
     -- for audio-only outputs.
     hlsSettings :: HlsSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsOutputSettings' with all optional fields omitted.
@@ -68,25 +69,26 @@ newHlsOutputSettings ::
   HlsOutputSettings
 newHlsOutputSettings pHlsSettings_ =
   HlsOutputSettings'
-    { segmentModifier = Core.Nothing,
-      h265PackagingType = Core.Nothing,
-      nameModifier = Core.Nothing,
+    { segmentModifier =
+        Prelude.Nothing,
+      h265PackagingType = Prelude.Nothing,
+      nameModifier = Prelude.Nothing,
       hlsSettings = pHlsSettings_
     }
 
 -- | String concatenated to end of segment filenames.
-hlsOutputSettings_segmentModifier :: Lens.Lens' HlsOutputSettings (Core.Maybe Core.Text)
+hlsOutputSettings_segmentModifier :: Lens.Lens' HlsOutputSettings (Prelude.Maybe Prelude.Text)
 hlsOutputSettings_segmentModifier = Lens.lens (\HlsOutputSettings' {segmentModifier} -> segmentModifier) (\s@HlsOutputSettings' {} a -> s {segmentModifier = a} :: HlsOutputSettings)
 
 -- | Only applicable when this output is referencing an H.265 video
 -- description. Specifies whether MP4 segments should be packaged as HEV1
 -- or HVC1.
-hlsOutputSettings_h265PackagingType :: Lens.Lens' HlsOutputSettings (Core.Maybe HlsH265PackagingType)
+hlsOutputSettings_h265PackagingType :: Lens.Lens' HlsOutputSettings (Prelude.Maybe HlsH265PackagingType)
 hlsOutputSettings_h265PackagingType = Lens.lens (\HlsOutputSettings' {h265PackagingType} -> h265PackagingType) (\s@HlsOutputSettings' {} a -> s {h265PackagingType = a} :: HlsOutputSettings)
 
 -- | String concatenated to the end of the destination filename. Accepts
 -- \\\"Format Identifiers\\\":#formatIdentifierParameters.
-hlsOutputSettings_nameModifier :: Lens.Lens' HlsOutputSettings (Core.Maybe Core.Text)
+hlsOutputSettings_nameModifier :: Lens.Lens' HlsOutputSettings (Prelude.Maybe Prelude.Text)
 hlsOutputSettings_nameModifier = Lens.lens (\HlsOutputSettings' {nameModifier} -> nameModifier) (\s@HlsOutputSettings' {} a -> s {nameModifier = a} :: HlsOutputSettings)
 
 -- | Settings regarding the underlying stream. These settings are different
@@ -100,25 +102,25 @@ instance Core.FromJSON HlsOutputSettings where
       "HlsOutputSettings"
       ( \x ->
           HlsOutputSettings'
-            Core.<$> (x Core..:? "segmentModifier")
-            Core.<*> (x Core..:? "h265PackagingType")
-            Core.<*> (x Core..:? "nameModifier")
-            Core.<*> (x Core..: "hlsSettings")
+            Prelude.<$> (x Core..:? "segmentModifier")
+            Prelude.<*> (x Core..:? "h265PackagingType")
+            Prelude.<*> (x Core..:? "nameModifier")
+            Prelude.<*> (x Core..: "hlsSettings")
       )
 
-instance Core.Hashable HlsOutputSettings
+instance Prelude.Hashable HlsOutputSettings
 
-instance Core.NFData HlsOutputSettings
+instance Prelude.NFData HlsOutputSettings
 
 instance Core.ToJSON HlsOutputSettings where
   toJSON HlsOutputSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("segmentModifier" Core..=)
-              Core.<$> segmentModifier,
+              Prelude.<$> segmentModifier,
             ("h265PackagingType" Core..=)
-              Core.<$> h265PackagingType,
-            ("nameModifier" Core..=) Core.<$> nameModifier,
-            Core.Just ("hlsSettings" Core..= hlsSettings)
+              Prelude.<$> h265PackagingType,
+            ("nameModifier" Core..=) Prelude.<$> nameModifier,
+            Prelude.Just ("hlsSettings" Core..= hlsSettings)
           ]
       )

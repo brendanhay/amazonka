@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ProcessingClusterConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingInstanceType
 
 -- | Configuration for the cluster used to run a processing job.
@@ -30,18 +31,18 @@ data ProcessingClusterConfig = ProcessingClusterConfig'
   { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that run the processing job.
-    volumeKmsKeyId :: Core.Maybe Core.Text,
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The number of ML compute instances to use in the processing job. For
     -- distributed processing jobs, specify a value greater than 1. The default
     -- value is 1.
-    instanceCount :: Core.Natural,
+    instanceCount :: Prelude.Natural,
     -- | The ML compute instance type for the processing job.
     instanceType :: ProcessingInstanceType,
     -- | The size of the ML storage volume in gigabytes that you want to
     -- provision. You must specify sufficient ML storage for your scenario.
-    volumeSizeInGB :: Core.Natural
+    volumeSizeInGB :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessingClusterConfig' with all optional fields omitted.
@@ -65,11 +66,11 @@ data ProcessingClusterConfig = ProcessingClusterConfig'
 -- provision. You must specify sufficient ML storage for your scenario.
 newProcessingClusterConfig ::
   -- | 'instanceCount'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'instanceType'
   ProcessingInstanceType ->
   -- | 'volumeSizeInGB'
-  Core.Natural ->
+  Prelude.Natural ->
   ProcessingClusterConfig
 newProcessingClusterConfig
   pInstanceCount_
@@ -77,7 +78,7 @@ newProcessingClusterConfig
   pVolumeSizeInGB_ =
     ProcessingClusterConfig'
       { volumeKmsKeyId =
-          Core.Nothing,
+          Prelude.Nothing,
         instanceCount = pInstanceCount_,
         instanceType = pInstanceType_,
         volumeSizeInGB = pVolumeSizeInGB_
@@ -86,13 +87,13 @@ newProcessingClusterConfig
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that run the processing job.
-processingClusterConfig_volumeKmsKeyId :: Lens.Lens' ProcessingClusterConfig (Core.Maybe Core.Text)
+processingClusterConfig_volumeKmsKeyId :: Lens.Lens' ProcessingClusterConfig (Prelude.Maybe Prelude.Text)
 processingClusterConfig_volumeKmsKeyId = Lens.lens (\ProcessingClusterConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@ProcessingClusterConfig' {} a -> s {volumeKmsKeyId = a} :: ProcessingClusterConfig)
 
 -- | The number of ML compute instances to use in the processing job. For
 -- distributed processing jobs, specify a value greater than 1. The default
 -- value is 1.
-processingClusterConfig_instanceCount :: Lens.Lens' ProcessingClusterConfig Core.Natural
+processingClusterConfig_instanceCount :: Lens.Lens' ProcessingClusterConfig Prelude.Natural
 processingClusterConfig_instanceCount = Lens.lens (\ProcessingClusterConfig' {instanceCount} -> instanceCount) (\s@ProcessingClusterConfig' {} a -> s {instanceCount = a} :: ProcessingClusterConfig)
 
 -- | The ML compute instance type for the processing job.
@@ -101,7 +102,7 @@ processingClusterConfig_instanceType = Lens.lens (\ProcessingClusterConfig' {ins
 
 -- | The size of the ML storage volume in gigabytes that you want to
 -- provision. You must specify sufficient ML storage for your scenario.
-processingClusterConfig_volumeSizeInGB :: Lens.Lens' ProcessingClusterConfig Core.Natural
+processingClusterConfig_volumeSizeInGB :: Lens.Lens' ProcessingClusterConfig Prelude.Natural
 processingClusterConfig_volumeSizeInGB = Lens.lens (\ProcessingClusterConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@ProcessingClusterConfig' {} a -> s {volumeSizeInGB = a} :: ProcessingClusterConfig)
 
 instance Core.FromJSON ProcessingClusterConfig where
@@ -110,23 +111,25 @@ instance Core.FromJSON ProcessingClusterConfig where
       "ProcessingClusterConfig"
       ( \x ->
           ProcessingClusterConfig'
-            Core.<$> (x Core..:? "VolumeKmsKeyId")
-            Core.<*> (x Core..: "InstanceCount")
-            Core.<*> (x Core..: "InstanceType")
-            Core.<*> (x Core..: "VolumeSizeInGB")
+            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Core..: "InstanceCount")
+            Prelude.<*> (x Core..: "InstanceType")
+            Prelude.<*> (x Core..: "VolumeSizeInGB")
       )
 
-instance Core.Hashable ProcessingClusterConfig
+instance Prelude.Hashable ProcessingClusterConfig
 
-instance Core.NFData ProcessingClusterConfig
+instance Prelude.NFData ProcessingClusterConfig
 
 instance Core.ToJSON ProcessingClusterConfig where
   toJSON ProcessingClusterConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
-            Core.Just ("InstanceCount" Core..= instanceCount),
-            Core.Just ("InstanceType" Core..= instanceType),
-            Core.Just ("VolumeSizeInGB" Core..= volumeSizeInGB)
+      ( Prelude.catMaybes
+          [ ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId,
+            Prelude.Just ("InstanceCount" Core..= instanceCount),
+            Prelude.Just ("InstanceType" Core..= instanceType),
+            Prelude.Just
+              ("VolumeSizeInGB" Core..= volumeSizeInGB)
           ]
       )

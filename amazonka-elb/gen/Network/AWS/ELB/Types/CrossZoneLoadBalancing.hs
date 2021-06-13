@@ -22,6 +22,7 @@ module Network.AWS.ELB.Types.CrossZoneLoadBalancing where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the @CrossZoneLoadBalancing@ attribute.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data CrossZoneLoadBalancing = CrossZoneLoadBalancing'
   { -- | Specifies whether cross-zone load balancing is enabled for the load
     -- balancer.
-    enabled :: Core.Bool
+    enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CrossZoneLoadBalancing' with all optional fields omitted.
@@ -45,25 +46,25 @@ data CrossZoneLoadBalancing = CrossZoneLoadBalancing'
 -- balancer.
 newCrossZoneLoadBalancing ::
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   CrossZoneLoadBalancing
 newCrossZoneLoadBalancing pEnabled_ =
   CrossZoneLoadBalancing' {enabled = pEnabled_}
 
 -- | Specifies whether cross-zone load balancing is enabled for the load
 -- balancer.
-crossZoneLoadBalancing_enabled :: Lens.Lens' CrossZoneLoadBalancing Core.Bool
+crossZoneLoadBalancing_enabled :: Lens.Lens' CrossZoneLoadBalancing Prelude.Bool
 crossZoneLoadBalancing_enabled = Lens.lens (\CrossZoneLoadBalancing' {enabled} -> enabled) (\s@CrossZoneLoadBalancing' {} a -> s {enabled = a} :: CrossZoneLoadBalancing)
 
 instance Core.FromXML CrossZoneLoadBalancing where
   parseXML x =
     CrossZoneLoadBalancing'
-      Core.<$> (x Core..@ "Enabled")
+      Prelude.<$> (x Core..@ "Enabled")
 
-instance Core.Hashable CrossZoneLoadBalancing
+instance Prelude.Hashable CrossZoneLoadBalancing
 
-instance Core.NFData CrossZoneLoadBalancing
+instance Prelude.NFData CrossZoneLoadBalancing
 
 instance Core.ToQuery CrossZoneLoadBalancing where
   toQuery CrossZoneLoadBalancing' {..} =
-    Core.mconcat ["Enabled" Core.=: enabled]
+    Prelude.mconcat ["Enabled" Core.=: enabled]

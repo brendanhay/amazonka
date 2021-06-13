@@ -46,17 +46,18 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutSchemaFromJson' smart constructor.
 data PutSchemaFromJson = PutSchemaFromJson'
   { -- | The ARN of the schema to update.
-    schemaArn :: Core.Text,
+    schemaArn :: Prelude.Text,
     -- | The replacement JSON schema.
-    document :: Core.Text
+    document :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutSchemaFromJson' with all optional fields omitted.
@@ -71,9 +72,9 @@ data PutSchemaFromJson = PutSchemaFromJson'
 -- 'document', 'putSchemaFromJson_document' - The replacement JSON schema.
 newPutSchemaFromJson ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'document'
-  Core.Text ->
+  Prelude.Text ->
   PutSchemaFromJson
 newPutSchemaFromJson pSchemaArn_ pDocument_ =
   PutSchemaFromJson'
@@ -82,11 +83,11 @@ newPutSchemaFromJson pSchemaArn_ pDocument_ =
     }
 
 -- | The ARN of the schema to update.
-putSchemaFromJson_schemaArn :: Lens.Lens' PutSchemaFromJson Core.Text
+putSchemaFromJson_schemaArn :: Lens.Lens' PutSchemaFromJson Prelude.Text
 putSchemaFromJson_schemaArn = Lens.lens (\PutSchemaFromJson' {schemaArn} -> schemaArn) (\s@PutSchemaFromJson' {} a -> s {schemaArn = a} :: PutSchemaFromJson)
 
 -- | The replacement JSON schema.
-putSchemaFromJson_document :: Lens.Lens' PutSchemaFromJson Core.Text
+putSchemaFromJson_document :: Lens.Lens' PutSchemaFromJson Prelude.Text
 putSchemaFromJson_document = Lens.lens (\PutSchemaFromJson' {document} -> document) (\s@PutSchemaFromJson' {} a -> s {document = a} :: PutSchemaFromJson)
 
 instance Core.AWSRequest PutSchemaFromJson where
@@ -98,42 +99,42 @@ instance Core.AWSRequest PutSchemaFromJson where
     Response.receiveJSON
       ( \s h x ->
           PutSchemaFromJsonResponse'
-            Core.<$> (x Core..?> "Arn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutSchemaFromJson
+instance Prelude.Hashable PutSchemaFromJson
 
-instance Core.NFData PutSchemaFromJson
+instance Prelude.NFData PutSchemaFromJson
 
 instance Core.ToHeaders PutSchemaFromJson where
   toHeaders PutSchemaFromJson' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON PutSchemaFromJson where
   toJSON PutSchemaFromJson' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Document" Core..= document)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Document" Core..= document)]
       )
 
 instance Core.ToPath PutSchemaFromJson where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/json"
 
 instance Core.ToQuery PutSchemaFromJson where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutSchemaFromJsonResponse' smart constructor.
 data PutSchemaFromJsonResponse = PutSchemaFromJsonResponse'
   { -- | The ARN of the schema to update.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutSchemaFromJsonResponse' with all optional fields omitted.
@@ -148,20 +149,20 @@ data PutSchemaFromJsonResponse = PutSchemaFromJsonResponse'
 -- 'httpStatus', 'putSchemaFromJsonResponse_httpStatus' - The response's http status code.
 newPutSchemaFromJsonResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutSchemaFromJsonResponse
 newPutSchemaFromJsonResponse pHttpStatus_ =
   PutSchemaFromJsonResponse'
-    { arn = Core.Nothing,
+    { arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the schema to update.
-putSchemaFromJsonResponse_arn :: Lens.Lens' PutSchemaFromJsonResponse (Core.Maybe Core.Text)
+putSchemaFromJsonResponse_arn :: Lens.Lens' PutSchemaFromJsonResponse (Prelude.Maybe Prelude.Text)
 putSchemaFromJsonResponse_arn = Lens.lens (\PutSchemaFromJsonResponse' {arn} -> arn) (\s@PutSchemaFromJsonResponse' {} a -> s {arn = a} :: PutSchemaFromJsonResponse)
 
 -- | The response's http status code.
-putSchemaFromJsonResponse_httpStatus :: Lens.Lens' PutSchemaFromJsonResponse Core.Int
+putSchemaFromJsonResponse_httpStatus :: Lens.Lens' PutSchemaFromJsonResponse Prelude.Int
 putSchemaFromJsonResponse_httpStatus = Lens.lens (\PutSchemaFromJsonResponse' {httpStatus} -> httpStatus) (\s@PutSchemaFromJsonResponse' {} a -> s {httpStatus = a} :: PutSchemaFromJsonResponse)
 
-instance Core.NFData PutSchemaFromJsonResponse
+instance Prelude.NFData PutSchemaFromJsonResponse

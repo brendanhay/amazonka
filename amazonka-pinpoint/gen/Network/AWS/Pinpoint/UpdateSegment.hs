@@ -46,19 +46,20 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateSegment' smart constructor.
 data UpdateSegment = UpdateSegment'
   { -- | The unique identifier for the segment.
-    segmentId :: Core.Text,
+    segmentId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     writeSegmentRequest :: WriteSegmentRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSegment' with all optional fields omitted.
@@ -76,9 +77,9 @@ data UpdateSegment = UpdateSegment'
 -- 'writeSegmentRequest', 'updateSegment_writeSegmentRequest' - Undocumented member.
 newUpdateSegment ::
   -- | 'segmentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'writeSegmentRequest'
   WriteSegmentRequest ->
   UpdateSegment
@@ -93,12 +94,12 @@ newUpdateSegment
       }
 
 -- | The unique identifier for the segment.
-updateSegment_segmentId :: Lens.Lens' UpdateSegment Core.Text
+updateSegment_segmentId :: Lens.Lens' UpdateSegment Prelude.Text
 updateSegment_segmentId = Lens.lens (\UpdateSegment' {segmentId} -> segmentId) (\s@UpdateSegment' {} a -> s {segmentId = a} :: UpdateSegment)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateSegment_applicationId :: Lens.Lens' UpdateSegment Core.Text
+updateSegment_applicationId :: Lens.Lens' UpdateSegment Prelude.Text
 updateSegment_applicationId = Lens.lens (\UpdateSegment' {applicationId} -> applicationId) (\s@UpdateSegment' {} a -> s {applicationId = a} :: UpdateSegment)
 
 -- | Undocumented member.
@@ -114,35 +115,37 @@ instance Core.AWSRequest UpdateSegment where
     Response.receiveJSON
       ( \s h x ->
           UpdateSegmentResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateSegment
+instance Prelude.Hashable UpdateSegment
 
-instance Core.NFData UpdateSegment
+instance Prelude.NFData UpdateSegment
 
 instance Core.ToHeaders UpdateSegment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSegment where
   toJSON UpdateSegment' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("WriteSegmentRequest" Core..= writeSegmentRequest)
           ]
       )
 
 instance Core.ToPath UpdateSegment where
   toPath UpdateSegment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/segments/",
@@ -150,15 +153,15 @@ instance Core.ToPath UpdateSegment where
       ]
 
 instance Core.ToQuery UpdateSegment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSegmentResponse' smart constructor.
 data UpdateSegmentResponse = UpdateSegmentResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     segmentResponse :: SegmentResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSegmentResponse' with all optional fields omitted.
@@ -173,7 +176,7 @@ data UpdateSegmentResponse = UpdateSegmentResponse'
 -- 'segmentResponse', 'updateSegmentResponse_segmentResponse' - Undocumented member.
 newUpdateSegmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'segmentResponse'
   SegmentResponse ->
   UpdateSegmentResponse
@@ -186,11 +189,11 @@ newUpdateSegmentResponse
       }
 
 -- | The response's http status code.
-updateSegmentResponse_httpStatus :: Lens.Lens' UpdateSegmentResponse Core.Int
+updateSegmentResponse_httpStatus :: Lens.Lens' UpdateSegmentResponse Prelude.Int
 updateSegmentResponse_httpStatus = Lens.lens (\UpdateSegmentResponse' {httpStatus} -> httpStatus) (\s@UpdateSegmentResponse' {} a -> s {httpStatus = a} :: UpdateSegmentResponse)
 
 -- | Undocumented member.
 updateSegmentResponse_segmentResponse :: Lens.Lens' UpdateSegmentResponse SegmentResponse
 updateSegmentResponse_segmentResponse = Lens.lens (\UpdateSegmentResponse' {segmentResponse} -> segmentResponse) (\s@UpdateSegmentResponse' {} a -> s {segmentResponse = a} :: UpdateSegmentResponse)
 
-instance Core.NFData UpdateSegmentResponse
+instance Prelude.NFData UpdateSegmentResponse

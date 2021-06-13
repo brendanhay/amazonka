@@ -23,6 +23,7 @@ import Network.AWS.CloudFront.Types.CookieNames
 import Network.AWS.CloudFront.Types.ItemSelection
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
 -- origin request policy instead of this field.
@@ -70,7 +71,7 @@ data CookiePreference = CookiePreference'
     -- whitelist for each cache behavior, see
     -- <https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront CloudFront Limits>
     -- in the /AWS General Reference/.
-    whitelistedNames :: Core.Maybe CookieNames,
+    whitelistedNames :: Prelude.Maybe CookieNames,
     -- | This field is deprecated. We recommend that you use a cache policy or an
     -- origin request policy instead of this field.
     --
@@ -93,7 +94,7 @@ data CookiePreference = CookiePreference'
     -- @Forward@ element.
     forward :: ItemSelection
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CookiePreference' with all optional fields omitted.
@@ -158,7 +159,8 @@ newCookiePreference ::
   CookiePreference
 newCookiePreference pForward_ =
   CookiePreference'
-    { whitelistedNames = Core.Nothing,
+    { whitelistedNames =
+        Prelude.Nothing,
       forward = pForward_
     }
 
@@ -190,7 +192,7 @@ newCookiePreference pForward_ =
 -- whitelist for each cache behavior, see
 -- <https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront CloudFront Limits>
 -- in the /AWS General Reference/.
-cookiePreference_whitelistedNames :: Lens.Lens' CookiePreference (Core.Maybe CookieNames)
+cookiePreference_whitelistedNames :: Lens.Lens' CookiePreference (Prelude.Maybe CookieNames)
 cookiePreference_whitelistedNames = Lens.lens (\CookiePreference' {whitelistedNames} -> whitelistedNames) (\s@CookiePreference' {} a -> s {whitelistedNames = a} :: CookiePreference)
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
@@ -219,16 +221,16 @@ cookiePreference_forward = Lens.lens (\CookiePreference' {forward} -> forward) (
 instance Core.FromXML CookiePreference where
   parseXML x =
     CookiePreference'
-      Core.<$> (x Core..@? "WhitelistedNames")
-      Core.<*> (x Core..@ "Forward")
+      Prelude.<$> (x Core..@? "WhitelistedNames")
+      Prelude.<*> (x Core..@ "Forward")
 
-instance Core.Hashable CookiePreference
+instance Prelude.Hashable CookiePreference
 
-instance Core.NFData CookiePreference
+instance Prelude.NFData CookiePreference
 
 instance Core.ToXML CookiePreference where
   toXML CookiePreference' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "WhitelistedNames" Core.@= whitelistedNames,
         "Forward" Core.@= forward
       ]

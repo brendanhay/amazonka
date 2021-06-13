@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.BillingGroupProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The properties of a billing group.
 --
 -- /See:/ 'newBillingGroupProperties' smart constructor.
 data BillingGroupProperties = BillingGroupProperties'
   { -- | The description of the billing group.
-    billingGroupDescription :: Core.Maybe Core.Text
+    billingGroupDescription :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BillingGroupProperties' with all optional fields omitted.
@@ -45,11 +46,11 @@ newBillingGroupProperties ::
 newBillingGroupProperties =
   BillingGroupProperties'
     { billingGroupDescription =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The description of the billing group.
-billingGroupProperties_billingGroupDescription :: Lens.Lens' BillingGroupProperties (Core.Maybe Core.Text)
+billingGroupProperties_billingGroupDescription :: Lens.Lens' BillingGroupProperties (Prelude.Maybe Prelude.Text)
 billingGroupProperties_billingGroupDescription = Lens.lens (\BillingGroupProperties' {billingGroupDescription} -> billingGroupDescription) (\s@BillingGroupProperties' {} a -> s {billingGroupDescription = a} :: BillingGroupProperties)
 
 instance Core.FromJSON BillingGroupProperties where
@@ -58,18 +59,18 @@ instance Core.FromJSON BillingGroupProperties where
       "BillingGroupProperties"
       ( \x ->
           BillingGroupProperties'
-            Core.<$> (x Core..:? "billingGroupDescription")
+            Prelude.<$> (x Core..:? "billingGroupDescription")
       )
 
-instance Core.Hashable BillingGroupProperties
+instance Prelude.Hashable BillingGroupProperties
 
-instance Core.NFData BillingGroupProperties
+instance Prelude.NFData BillingGroupProperties
 
 instance Core.ToJSON BillingGroupProperties where
   toJSON BillingGroupProperties' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("billingGroupDescription" Core..=)
-              Core.<$> billingGroupDescription
+              Prelude.<$> billingGroupDescription
           ]
       )

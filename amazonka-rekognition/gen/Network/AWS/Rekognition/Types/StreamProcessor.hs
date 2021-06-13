@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.StreamProcessor where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.StreamProcessorStatus
 
 -- | An object that recognizes faces in a streaming video. An Amazon
@@ -33,11 +34,11 @@ import Network.AWS.Rekognition.Types.StreamProcessorStatus
 -- /See:/ 'newStreamProcessor' smart constructor.
 data StreamProcessor = StreamProcessor'
   { -- | Current status of the Amazon Rekognition stream processor.
-    status :: Core.Maybe StreamProcessorStatus,
+    status :: Prelude.Maybe StreamProcessorStatus,
     -- | Name of the Amazon Rekognition stream processor.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamProcessor' with all optional fields omitted.
@@ -54,16 +55,16 @@ newStreamProcessor ::
   StreamProcessor
 newStreamProcessor =
   StreamProcessor'
-    { status = Core.Nothing,
-      name = Core.Nothing
+    { status = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | Current status of the Amazon Rekognition stream processor.
-streamProcessor_status :: Lens.Lens' StreamProcessor (Core.Maybe StreamProcessorStatus)
+streamProcessor_status :: Lens.Lens' StreamProcessor (Prelude.Maybe StreamProcessorStatus)
 streamProcessor_status = Lens.lens (\StreamProcessor' {status} -> status) (\s@StreamProcessor' {} a -> s {status = a} :: StreamProcessor)
 
 -- | Name of the Amazon Rekognition stream processor.
-streamProcessor_name :: Lens.Lens' StreamProcessor (Core.Maybe Core.Text)
+streamProcessor_name :: Lens.Lens' StreamProcessor (Prelude.Maybe Prelude.Text)
 streamProcessor_name = Lens.lens (\StreamProcessor' {name} -> name) (\s@StreamProcessor' {} a -> s {name = a} :: StreamProcessor)
 
 instance Core.FromJSON StreamProcessor where
@@ -72,9 +73,10 @@ instance Core.FromJSON StreamProcessor where
       "StreamProcessor"
       ( \x ->
           StreamProcessor'
-            Core.<$> (x Core..:? "Status") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable StreamProcessor
+instance Prelude.Hashable StreamProcessor
 
-instance Core.NFData StreamProcessor
+instance Prelude.NFData StreamProcessor

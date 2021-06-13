@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -49,9 +50,9 @@ import Network.AWS.Snowball.Types
 -- | /See:/ 'newDescribeAddress' smart constructor.
 data DescribeAddress = DescribeAddress'
   { -- | The automatically generated ID for a specific address.
-    addressId :: Core.Text
+    addressId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAddress' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DescribeAddress = DescribeAddress'
 -- 'addressId', 'describeAddress_addressId' - The automatically generated ID for a specific address.
 newDescribeAddress ::
   -- | 'addressId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeAddress
 newDescribeAddress pAddressId_ =
   DescribeAddress' {addressId = pAddressId_}
 
 -- | The automatically generated ID for a specific address.
-describeAddress_addressId :: Lens.Lens' DescribeAddress Core.Text
+describeAddress_addressId :: Lens.Lens' DescribeAddress Prelude.Text
 describeAddress_addressId = Lens.lens (\DescribeAddress' {addressId} -> addressId) (\s@DescribeAddress' {} a -> s {addressId = a} :: DescribeAddress)
 
 instance Core.AWSRequest DescribeAddress where
@@ -82,49 +83,51 @@ instance Core.AWSRequest DescribeAddress where
     Response.receiveJSON
       ( \s h x ->
           DescribeAddressResponse'
-            Core.<$> (x Core..?> "Address")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Address")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAddress
+instance Prelude.Hashable DescribeAddress
 
-instance Core.NFData DescribeAddress
+instance Prelude.NFData DescribeAddress
 
 instance Core.ToHeaders DescribeAddress where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.DescribeAddress" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeAddress where
   toJSON DescribeAddress' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AddressId" Core..= addressId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("AddressId" Core..= addressId)]
       )
 
 instance Core.ToPath DescribeAddress where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAddress where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAddressResponse' smart constructor.
 data DescribeAddressResponse = DescribeAddressResponse'
   { -- | The address that you want the Snow device(s) associated with a specific
     -- job to be shipped to.
-    address :: Core.Maybe Address,
+    address :: Prelude.Maybe Address,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAddressResponse' with all optional fields omitted.
@@ -140,21 +143,21 @@ data DescribeAddressResponse = DescribeAddressResponse'
 -- 'httpStatus', 'describeAddressResponse_httpStatus' - The response's http status code.
 newDescribeAddressResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAddressResponse
 newDescribeAddressResponse pHttpStatus_ =
   DescribeAddressResponse'
-    { address = Core.Nothing,
+    { address = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The address that you want the Snow device(s) associated with a specific
 -- job to be shipped to.
-describeAddressResponse_address :: Lens.Lens' DescribeAddressResponse (Core.Maybe Address)
+describeAddressResponse_address :: Lens.Lens' DescribeAddressResponse (Prelude.Maybe Address)
 describeAddressResponse_address = Lens.lens (\DescribeAddressResponse' {address} -> address) (\s@DescribeAddressResponse' {} a -> s {address = a} :: DescribeAddressResponse)
 
 -- | The response's http status code.
-describeAddressResponse_httpStatus :: Lens.Lens' DescribeAddressResponse Core.Int
+describeAddressResponse_httpStatus :: Lens.Lens' DescribeAddressResponse Prelude.Int
 describeAddressResponse_httpStatus = Lens.lens (\DescribeAddressResponse' {httpStatus} -> httpStatus) (\s@DescribeAddressResponse' {} a -> s {httpStatus = a} :: DescribeAddressResponse)
 
-instance Core.NFData DescribeAddressResponse
+instance Prelude.NFData DescribeAddressResponse

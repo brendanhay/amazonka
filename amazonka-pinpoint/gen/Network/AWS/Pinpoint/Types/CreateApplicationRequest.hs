@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.CreateApplicationRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the display name of an application and the tags to associate
 -- with the application.
@@ -30,12 +31,12 @@ data CreateApplicationRequest = CreateApplicationRequest'
   { -- | A string-to-string map of key-value pairs that defines the tags to
     -- associate with the application. Each tag consists of a required tag key
     -- and an associated tag value.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The display name of the application. This name is displayed as the
     -- __Project name__ on the Amazon Pinpoint console.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateApplicationRequest' with all optional fields omitted.
@@ -53,34 +54,34 @@ data CreateApplicationRequest = CreateApplicationRequest'
 -- __Project name__ on the Amazon Pinpoint console.
 newCreateApplicationRequest ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateApplicationRequest
 newCreateApplicationRequest pName_ =
   CreateApplicationRequest'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       name = pName_
     }
 
 -- | A string-to-string map of key-value pairs that defines the tags to
 -- associate with the application. Each tag consists of a required tag key
 -- and an associated tag value.
-createApplicationRequest_tags :: Lens.Lens' CreateApplicationRequest (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createApplicationRequest_tags = Lens.lens (\CreateApplicationRequest' {tags} -> tags) (\s@CreateApplicationRequest' {} a -> s {tags = a} :: CreateApplicationRequest) Core.. Lens.mapping Lens._Coerce
+createApplicationRequest_tags :: Lens.Lens' CreateApplicationRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createApplicationRequest_tags = Lens.lens (\CreateApplicationRequest' {tags} -> tags) (\s@CreateApplicationRequest' {} a -> s {tags = a} :: CreateApplicationRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The display name of the application. This name is displayed as the
 -- __Project name__ on the Amazon Pinpoint console.
-createApplicationRequest_name :: Lens.Lens' CreateApplicationRequest Core.Text
+createApplicationRequest_name :: Lens.Lens' CreateApplicationRequest Prelude.Text
 createApplicationRequest_name = Lens.lens (\CreateApplicationRequest' {name} -> name) (\s@CreateApplicationRequest' {} a -> s {name = a} :: CreateApplicationRequest)
 
-instance Core.Hashable CreateApplicationRequest
+instance Prelude.Hashable CreateApplicationRequest
 
-instance Core.NFData CreateApplicationRequest
+instance Prelude.NFData CreateApplicationRequest
 
 instance Core.ToJSON CreateApplicationRequest where
   toJSON CreateApplicationRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Core..= name)
           ]
       )

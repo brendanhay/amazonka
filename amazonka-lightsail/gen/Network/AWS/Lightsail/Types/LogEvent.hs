@@ -21,17 +21,18 @@ module Network.AWS.Lightsail.Types.LogEvent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a database log event.
 --
 -- /See:/ 'newLogEvent' smart constructor.
 data LogEvent = LogEvent'
   { -- | The message of the database log event.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the database log event was created.
-    createdAt :: Core.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LogEvent' with all optional fields omitted.
@@ -48,17 +49,17 @@ newLogEvent ::
   LogEvent
 newLogEvent =
   LogEvent'
-    { message = Core.Nothing,
-      createdAt = Core.Nothing
+    { message = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
 
 -- | The message of the database log event.
-logEvent_message :: Lens.Lens' LogEvent (Core.Maybe Core.Text)
+logEvent_message :: Lens.Lens' LogEvent (Prelude.Maybe Prelude.Text)
 logEvent_message = Lens.lens (\LogEvent' {message} -> message) (\s@LogEvent' {} a -> s {message = a} :: LogEvent)
 
 -- | The timestamp when the database log event was created.
-logEvent_createdAt :: Lens.Lens' LogEvent (Core.Maybe Core.UTCTime)
-logEvent_createdAt = Lens.lens (\LogEvent' {createdAt} -> createdAt) (\s@LogEvent' {} a -> s {createdAt = a} :: LogEvent) Core.. Lens.mapping Core._Time
+logEvent_createdAt :: Lens.Lens' LogEvent (Prelude.Maybe Prelude.UTCTime)
+logEvent_createdAt = Lens.lens (\LogEvent' {createdAt} -> createdAt) (\s@LogEvent' {} a -> s {createdAt = a} :: LogEvent) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON LogEvent where
   parseJSON =
@@ -66,10 +67,10 @@ instance Core.FromJSON LogEvent where
       "LogEvent"
       ( \x ->
           LogEvent'
-            Core.<$> (x Core..:? "message")
-            Core.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
-instance Core.Hashable LogEvent
+instance Prelude.Hashable LogEvent
 
-instance Core.NFData LogEvent
+instance Prelude.NFData LogEvent

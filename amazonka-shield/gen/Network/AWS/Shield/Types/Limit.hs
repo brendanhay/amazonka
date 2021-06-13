@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.Limit where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies how many protections of a given type you can create.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data Limit = Limit'
   { -- | The maximum number of protections that can be created for the specified
     -- @Type@.
-    max :: Core.Maybe Core.Integer,
+    max :: Prelude.Maybe Prelude.Integer,
     -- | The type of protection.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Limit' with all optional fields omitted.
@@ -49,15 +50,18 @@ data Limit = Limit'
 newLimit ::
   Limit
 newLimit =
-  Limit' {max = Core.Nothing, type' = Core.Nothing}
+  Limit'
+    { max = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
 
 -- | The maximum number of protections that can be created for the specified
 -- @Type@.
-limit_max :: Lens.Lens' Limit (Core.Maybe Core.Integer)
+limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Integer)
 limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
 
 -- | The type of protection.
-limit_type :: Lens.Lens' Limit (Core.Maybe Core.Text)
+limit_type :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
 limit_type = Lens.lens (\Limit' {type'} -> type') (\s@Limit' {} a -> s {type' = a} :: Limit)
 
 instance Core.FromJSON Limit where
@@ -66,9 +70,9 @@ instance Core.FromJSON Limit where
       "Limit"
       ( \x ->
           Limit'
-            Core.<$> (x Core..:? "Max") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Max") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable Limit
+instance Prelude.Hashable Limit
 
-instance Core.NFData Limit
+instance Prelude.NFData Limit

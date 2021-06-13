@@ -22,6 +22,7 @@ module Network.AWS.IAM.Types.SSHPublicKeyMetadata where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.StatusType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an SSH public key, without the key\'s body or
 -- fingerprint.
@@ -32,9 +33,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSSHPublicKeyMetadata' smart constructor.
 data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
   { -- | The name of the IAM user associated with the SSH public key.
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The unique identifier for the SSH public key.
-    sSHPublicKeyId :: Core.Text,
+    sSHPublicKeyId :: Prelude.Text,
     -- | The status of the SSH public key. @Active@ means that the key can be
     -- used for authentication with an AWS CodeCommit repository. @Inactive@
     -- means that the key cannot be used.
@@ -44,7 +45,7 @@ data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
     -- public key was uploaded.
     uploadDate :: Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SSHPublicKeyMetadata' with all optional fields omitted.
@@ -67,13 +68,13 @@ data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
 -- public key was uploaded.
 newSSHPublicKeyMetadata ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sSHPublicKeyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   StatusType ->
   -- | 'uploadDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   SSHPublicKeyMetadata
 newSSHPublicKeyMetadata
   pUserName_
@@ -88,11 +89,11 @@ newSSHPublicKeyMetadata
       }
 
 -- | The name of the IAM user associated with the SSH public key.
-sSHPublicKeyMetadata_userName :: Lens.Lens' SSHPublicKeyMetadata Core.Text
+sSHPublicKeyMetadata_userName :: Lens.Lens' SSHPublicKeyMetadata Prelude.Text
 sSHPublicKeyMetadata_userName = Lens.lens (\SSHPublicKeyMetadata' {userName} -> userName) (\s@SSHPublicKeyMetadata' {} a -> s {userName = a} :: SSHPublicKeyMetadata)
 
 -- | The unique identifier for the SSH public key.
-sSHPublicKeyMetadata_sSHPublicKeyId :: Lens.Lens' SSHPublicKeyMetadata Core.Text
+sSHPublicKeyMetadata_sSHPublicKeyId :: Lens.Lens' SSHPublicKeyMetadata Prelude.Text
 sSHPublicKeyMetadata_sSHPublicKeyId = Lens.lens (\SSHPublicKeyMetadata' {sSHPublicKeyId} -> sSHPublicKeyId) (\s@SSHPublicKeyMetadata' {} a -> s {sSHPublicKeyId = a} :: SSHPublicKeyMetadata)
 
 -- | The status of the SSH public key. @Active@ means that the key can be
@@ -104,17 +105,17 @@ sSHPublicKeyMetadata_status = Lens.lens (\SSHPublicKeyMetadata' {status} -> stat
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
 -- public key was uploaded.
-sSHPublicKeyMetadata_uploadDate :: Lens.Lens' SSHPublicKeyMetadata Core.UTCTime
-sSHPublicKeyMetadata_uploadDate = Lens.lens (\SSHPublicKeyMetadata' {uploadDate} -> uploadDate) (\s@SSHPublicKeyMetadata' {} a -> s {uploadDate = a} :: SSHPublicKeyMetadata) Core.. Core._Time
+sSHPublicKeyMetadata_uploadDate :: Lens.Lens' SSHPublicKeyMetadata Prelude.UTCTime
+sSHPublicKeyMetadata_uploadDate = Lens.lens (\SSHPublicKeyMetadata' {uploadDate} -> uploadDate) (\s@SSHPublicKeyMetadata' {} a -> s {uploadDate = a} :: SSHPublicKeyMetadata) Prelude.. Core._Time
 
 instance Core.FromXML SSHPublicKeyMetadata where
   parseXML x =
     SSHPublicKeyMetadata'
-      Core.<$> (x Core..@ "UserName")
-      Core.<*> (x Core..@ "SSHPublicKeyId")
-      Core.<*> (x Core..@ "Status")
-      Core.<*> (x Core..@ "UploadDate")
+      Prelude.<$> (x Core..@ "UserName")
+      Prelude.<*> (x Core..@ "SSHPublicKeyId")
+      Prelude.<*> (x Core..@ "Status")
+      Prelude.<*> (x Core..@ "UploadDate")
 
-instance Core.Hashable SSHPublicKeyMetadata
+instance Prelude.Hashable SSHPublicKeyMetadata
 
-instance Core.NFData SSHPublicKeyMetadata
+instance Prelude.NFData SSHPublicKeyMetadata

@@ -22,6 +22,7 @@ module Network.AWS.EMR.Types.ExecutionEngineConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ExecutionEngineType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the execution engine (cluster) to run the notebook and perform
 -- the notebook execution, for example, an EMR cluster.
@@ -33,14 +34,14 @@ data ExecutionEngineConfig = ExecutionEngineConfig'
     -- information see
     -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
     -- in the /EMR Management Guide/.
-    masterInstanceSecurityGroupId :: Core.Maybe Core.Text,
+    masterInstanceSecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.
-    type' :: Core.Maybe ExecutionEngineType,
+    type' :: Prelude.Maybe ExecutionEngineType,
     -- | The unique identifier of the execution engine. For an EMR cluster, this
     -- is the cluster ID.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecutionEngineConfig' with all optional fields omitted.
@@ -62,13 +63,13 @@ data ExecutionEngineConfig = ExecutionEngineConfig'
 -- is the cluster ID.
 newExecutionEngineConfig ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   ExecutionEngineConfig
 newExecutionEngineConfig pId_ =
   ExecutionEngineConfig'
     { masterInstanceSecurityGroupId =
-        Core.Nothing,
-      type' = Core.Nothing,
+        Prelude.Nothing,
+      type' = Prelude.Nothing,
       id = pId_
     }
 
@@ -77,16 +78,16 @@ newExecutionEngineConfig pId_ =
 -- information see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
 -- in the /EMR Management Guide/.
-executionEngineConfig_masterInstanceSecurityGroupId :: Lens.Lens' ExecutionEngineConfig (Core.Maybe Core.Text)
+executionEngineConfig_masterInstanceSecurityGroupId :: Lens.Lens' ExecutionEngineConfig (Prelude.Maybe Prelude.Text)
 executionEngineConfig_masterInstanceSecurityGroupId = Lens.lens (\ExecutionEngineConfig' {masterInstanceSecurityGroupId} -> masterInstanceSecurityGroupId) (\s@ExecutionEngineConfig' {} a -> s {masterInstanceSecurityGroupId = a} :: ExecutionEngineConfig)
 
 -- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.
-executionEngineConfig_type :: Lens.Lens' ExecutionEngineConfig (Core.Maybe ExecutionEngineType)
+executionEngineConfig_type :: Lens.Lens' ExecutionEngineConfig (Prelude.Maybe ExecutionEngineType)
 executionEngineConfig_type = Lens.lens (\ExecutionEngineConfig' {type'} -> type') (\s@ExecutionEngineConfig' {} a -> s {type' = a} :: ExecutionEngineConfig)
 
 -- | The unique identifier of the execution engine. For an EMR cluster, this
 -- is the cluster ID.
-executionEngineConfig_id :: Lens.Lens' ExecutionEngineConfig Core.Text
+executionEngineConfig_id :: Lens.Lens' ExecutionEngineConfig Prelude.Text
 executionEngineConfig_id = Lens.lens (\ExecutionEngineConfig' {id} -> id) (\s@ExecutionEngineConfig' {} a -> s {id = a} :: ExecutionEngineConfig)
 
 instance Core.FromJSON ExecutionEngineConfig where
@@ -95,22 +96,22 @@ instance Core.FromJSON ExecutionEngineConfig where
       "ExecutionEngineConfig"
       ( \x ->
           ExecutionEngineConfig'
-            Core.<$> (x Core..:? "MasterInstanceSecurityGroupId")
-            Core.<*> (x Core..:? "Type")
-            Core.<*> (x Core..: "Id")
+            Prelude.<$> (x Core..:? "MasterInstanceSecurityGroupId")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..: "Id")
       )
 
-instance Core.Hashable ExecutionEngineConfig
+instance Prelude.Hashable ExecutionEngineConfig
 
-instance Core.NFData ExecutionEngineConfig
+instance Prelude.NFData ExecutionEngineConfig
 
 instance Core.ToJSON ExecutionEngineConfig where
   toJSON ExecutionEngineConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MasterInstanceSecurityGroupId" Core..=)
-              Core.<$> masterInstanceSecurityGroupId,
-            ("Type" Core..=) Core.<$> type',
-            Core.Just ("Id" Core..= id)
+              Prelude.<$> masterInstanceSecurityGroupId,
+            ("Type" Core..=) Prelude.<$> type',
+            Prelude.Just ("Id" Core..= id)
           ]
       )

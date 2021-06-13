@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType 
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type of the configuration to override the risk decision.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data RiskExceptionConfigurationType = RiskExceptionConfigurationType'
   { -- | Risk detection is not performed on the IP addresses in the range list.
     -- The IP range is in CIDR notation.
-    skippedIPRangeList :: Core.Maybe [Core.Text],
+    skippedIPRangeList :: Prelude.Maybe [Prelude.Text],
     -- | Overrides the risk decision to always block the pre-authentication
     -- requests. The IP range is in CIDR notation: a compact representation of
     -- an IP address and its associated routing prefix.
-    blockedIPRangeList :: Core.Maybe [Core.Text]
+    blockedIPRangeList :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RiskExceptionConfigurationType' with all optional fields omitted.
@@ -55,20 +56,20 @@ newRiskExceptionConfigurationType ::
 newRiskExceptionConfigurationType =
   RiskExceptionConfigurationType'
     { skippedIPRangeList =
-        Core.Nothing,
-      blockedIPRangeList = Core.Nothing
+        Prelude.Nothing,
+      blockedIPRangeList = Prelude.Nothing
     }
 
 -- | Risk detection is not performed on the IP addresses in the range list.
 -- The IP range is in CIDR notation.
-riskExceptionConfigurationType_skippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Core.Maybe [Core.Text])
-riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {skippedIPRangeList} -> skippedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType) Core.. Lens.mapping Lens._Coerce
+riskExceptionConfigurationType_skippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
+riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {skippedIPRangeList} -> skippedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Overrides the risk decision to always block the pre-authentication
 -- requests. The IP range is in CIDR notation: a compact representation of
 -- an IP address and its associated routing prefix.
-riskExceptionConfigurationType_blockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Core.Maybe [Core.Text])
-riskExceptionConfigurationType_blockedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {blockedIPRangeList} -> blockedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType) Core.. Lens.mapping Lens._Coerce
+riskExceptionConfigurationType_blockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
+riskExceptionConfigurationType_blockedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {blockedIPRangeList} -> blockedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON RiskExceptionConfigurationType where
   parseJSON =
@@ -76,25 +77,29 @@ instance Core.FromJSON RiskExceptionConfigurationType where
       "RiskExceptionConfigurationType"
       ( \x ->
           RiskExceptionConfigurationType'
-            Core.<$> ( x Core..:? "SkippedIPRangeList"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "BlockedIPRangeList"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "SkippedIPRangeList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "BlockedIPRangeList"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable RiskExceptionConfigurationType
+instance
+  Prelude.Hashable
+    RiskExceptionConfigurationType
 
-instance Core.NFData RiskExceptionConfigurationType
+instance
+  Prelude.NFData
+    RiskExceptionConfigurationType
 
 instance Core.ToJSON RiskExceptionConfigurationType where
   toJSON RiskExceptionConfigurationType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SkippedIPRangeList" Core..=)
-              Core.<$> skippedIPRangeList,
+              Prelude.<$> skippedIPRangeList,
             ("BlockedIPRangeList" Core..=)
-              Core.<$> blockedIPRangeList
+              Prelude.<$> blockedIPRangeList
           ]
       )

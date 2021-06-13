@@ -22,17 +22,18 @@ module Network.AWS.CloudWatchLogs.Types.ExportTaskStatus where
 import Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the status of an export task.
 --
 -- /See:/ 'newExportTaskStatus' smart constructor.
 data ExportTaskStatus = ExportTaskStatus'
   { -- | The status message related to the status code.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status code of the export task.
-    code :: Core.Maybe ExportTaskStatusCode
+    code :: Prelude.Maybe ExportTaskStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportTaskStatus' with all optional fields omitted.
@@ -49,16 +50,16 @@ newExportTaskStatus ::
   ExportTaskStatus
 newExportTaskStatus =
   ExportTaskStatus'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The status message related to the status code.
-exportTaskStatus_message :: Lens.Lens' ExportTaskStatus (Core.Maybe Core.Text)
+exportTaskStatus_message :: Lens.Lens' ExportTaskStatus (Prelude.Maybe Prelude.Text)
 exportTaskStatus_message = Lens.lens (\ExportTaskStatus' {message} -> message) (\s@ExportTaskStatus' {} a -> s {message = a} :: ExportTaskStatus)
 
 -- | The status code of the export task.
-exportTaskStatus_code :: Lens.Lens' ExportTaskStatus (Core.Maybe ExportTaskStatusCode)
+exportTaskStatus_code :: Lens.Lens' ExportTaskStatus (Prelude.Maybe ExportTaskStatusCode)
 exportTaskStatus_code = Lens.lens (\ExportTaskStatus' {code} -> code) (\s@ExportTaskStatus' {} a -> s {code = a} :: ExportTaskStatus)
 
 instance Core.FromJSON ExportTaskStatus where
@@ -67,9 +68,10 @@ instance Core.FromJSON ExportTaskStatus where
       "ExportTaskStatus"
       ( \x ->
           ExportTaskStatus'
-            Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "code")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "code")
       )
 
-instance Core.Hashable ExportTaskStatus
+instance Prelude.Hashable ExportTaskStatus
 
-instance Core.NFData ExportTaskStatus
+instance Prelude.NFData ExportTaskStatus

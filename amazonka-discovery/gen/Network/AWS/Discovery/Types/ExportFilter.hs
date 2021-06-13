@@ -21,6 +21,7 @@ module Network.AWS.Discovery.Types.ExportFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to select which agent\'s data is to be exported. A single agent ID
 -- may be selected for export using the
@@ -30,16 +31,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newExportFilter' smart constructor.
 data ExportFilter = ExportFilter'
   { -- | A single @ExportFilter@ name. Supported filters: @agentId@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found
     -- using the
     -- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents>
     -- action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@.
-    values :: [Core.Text],
+    values :: [Prelude.Text],
     -- | Supported condition: @EQUALS@
-    condition :: Core.Text
+    condition :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportFilter' with all optional fields omitted.
@@ -59,42 +60,42 @@ data ExportFilter = ExportFilter'
 -- 'condition', 'exportFilter_condition' - Supported condition: @EQUALS@
 newExportFilter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'condition'
-  Core.Text ->
+  Prelude.Text ->
   ExportFilter
 newExportFilter pName_ pCondition_ =
   ExportFilter'
     { name = pName_,
-      values = Core.mempty,
+      values = Prelude.mempty,
       condition = pCondition_
     }
 
 -- | A single @ExportFilter@ name. Supported filters: @agentId@.
-exportFilter_name :: Lens.Lens' ExportFilter Core.Text
+exportFilter_name :: Lens.Lens' ExportFilter Prelude.Text
 exportFilter_name = Lens.lens (\ExportFilter' {name} -> name) (\s@ExportFilter' {} a -> s {name = a} :: ExportFilter)
 
 -- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found
 -- using the
 -- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents>
 -- action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@.
-exportFilter_values :: Lens.Lens' ExportFilter [Core.Text]
-exportFilter_values = Lens.lens (\ExportFilter' {values} -> values) (\s@ExportFilter' {} a -> s {values = a} :: ExportFilter) Core.. Lens._Coerce
+exportFilter_values :: Lens.Lens' ExportFilter [Prelude.Text]
+exportFilter_values = Lens.lens (\ExportFilter' {values} -> values) (\s@ExportFilter' {} a -> s {values = a} :: ExportFilter) Prelude.. Lens._Coerce
 
 -- | Supported condition: @EQUALS@
-exportFilter_condition :: Lens.Lens' ExportFilter Core.Text
+exportFilter_condition :: Lens.Lens' ExportFilter Prelude.Text
 exportFilter_condition = Lens.lens (\ExportFilter' {condition} -> condition) (\s@ExportFilter' {} a -> s {condition = a} :: ExportFilter)
 
-instance Core.Hashable ExportFilter
+instance Prelude.Hashable ExportFilter
 
-instance Core.NFData ExportFilter
+instance Prelude.NFData ExportFilter
 
 instance Core.ToJSON ExportFilter where
   toJSON ExportFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("values" Core..= values),
-            Core.Just ("condition" Core..= condition)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just ("values" Core..= values),
+            Prelude.Just ("condition" Core..= condition)
           ]
       )

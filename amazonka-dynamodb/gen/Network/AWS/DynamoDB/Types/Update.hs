@@ -23,32 +23,33 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a request to perform an @UpdateItem@ operation.
 --
 -- /See:/ 'newUpdate' smart constructor.
 data Update = Update'
   { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
-    returnValuesOnConditionCheckFailure :: Core.Maybe ReturnValuesOnConditionCheckFailure,
+    returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
     -- | One or more substitution tokens for attribute names in an expression.
-    expressionAttributeNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A condition that must be satisfied in order for a conditional update to
     -- succeed.
-    conditionExpression :: Core.Maybe Core.Text,
+    conditionExpression :: Prelude.Maybe Prelude.Text,
     -- | The primary key of the item to be updated. Each element consists of an
     -- attribute name and a value for that attribute.
-    key :: Core.HashMap Core.Text AttributeValue,
+    key :: Prelude.HashMap Prelude.Text AttributeValue,
     -- | An expression that defines one or more attributes to be updated, the
     -- action to be performed on them, and new value(s) for them.
-    updateExpression :: Core.Text,
+    updateExpression :: Prelude.Text,
     -- | Name of the table for the @UpdateItem@ request.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Update' with all optional fields omitted.
@@ -78,73 +79,75 @@ data Update = Update'
 -- 'tableName', 'update_tableName' - Name of the table for the @UpdateItem@ request.
 newUpdate ::
   -- | 'updateExpression'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   Update
 newUpdate pUpdateExpression_ pTableName_ =
   Update'
-    { expressionAttributeValues = Core.Nothing,
-      returnValuesOnConditionCheckFailure = Core.Nothing,
-      expressionAttributeNames = Core.Nothing,
-      conditionExpression = Core.Nothing,
-      key = Core.mempty,
+    { expressionAttributeValues =
+        Prelude.Nothing,
+      returnValuesOnConditionCheckFailure =
+        Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      conditionExpression = Prelude.Nothing,
+      key = Prelude.mempty,
       updateExpression = pUpdateExpression_,
       tableName = pTableName_
     }
 
 -- | One or more values that can be substituted in an expression.
-update_expressionAttributeValues :: Lens.Lens' Update (Core.Maybe (Core.HashMap Core.Text AttributeValue))
-update_expressionAttributeValues = Lens.lens (\Update' {expressionAttributeValues} -> expressionAttributeValues) (\s@Update' {} a -> s {expressionAttributeValues = a} :: Update) Core.. Lens.mapping Lens._Coerce
+update_expressionAttributeValues :: Lens.Lens' Update (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+update_expressionAttributeValues = Lens.lens (\Update' {expressionAttributeValues} -> expressionAttributeValues) (\s@Update' {} a -> s {expressionAttributeValues = a} :: Update) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
-update_returnValuesOnConditionCheckFailure :: Lens.Lens' Update (Core.Maybe ReturnValuesOnConditionCheckFailure)
+update_returnValuesOnConditionCheckFailure :: Lens.Lens' Update (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
 update_returnValuesOnConditionCheckFailure = Lens.lens (\Update' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@Update' {} a -> s {returnValuesOnConditionCheckFailure = a} :: Update)
 
 -- | One or more substitution tokens for attribute names in an expression.
-update_expressionAttributeNames :: Lens.Lens' Update (Core.Maybe (Core.HashMap Core.Text Core.Text))
-update_expressionAttributeNames = Lens.lens (\Update' {expressionAttributeNames} -> expressionAttributeNames) (\s@Update' {} a -> s {expressionAttributeNames = a} :: Update) Core.. Lens.mapping Lens._Coerce
+update_expressionAttributeNames :: Lens.Lens' Update (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+update_expressionAttributeNames = Lens.lens (\Update' {expressionAttributeNames} -> expressionAttributeNames) (\s@Update' {} a -> s {expressionAttributeNames = a} :: Update) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A condition that must be satisfied in order for a conditional update to
 -- succeed.
-update_conditionExpression :: Lens.Lens' Update (Core.Maybe Core.Text)
+update_conditionExpression :: Lens.Lens' Update (Prelude.Maybe Prelude.Text)
 update_conditionExpression = Lens.lens (\Update' {conditionExpression} -> conditionExpression) (\s@Update' {} a -> s {conditionExpression = a} :: Update)
 
 -- | The primary key of the item to be updated. Each element consists of an
 -- attribute name and a value for that attribute.
-update_key :: Lens.Lens' Update (Core.HashMap Core.Text AttributeValue)
-update_key = Lens.lens (\Update' {key} -> key) (\s@Update' {} a -> s {key = a} :: Update) Core.. Lens._Coerce
+update_key :: Lens.Lens' Update (Prelude.HashMap Prelude.Text AttributeValue)
+update_key = Lens.lens (\Update' {key} -> key) (\s@Update' {} a -> s {key = a} :: Update) Prelude.. Lens._Coerce
 
 -- | An expression that defines one or more attributes to be updated, the
 -- action to be performed on them, and new value(s) for them.
-update_updateExpression :: Lens.Lens' Update Core.Text
+update_updateExpression :: Lens.Lens' Update Prelude.Text
 update_updateExpression = Lens.lens (\Update' {updateExpression} -> updateExpression) (\s@Update' {} a -> s {updateExpression = a} :: Update)
 
 -- | Name of the table for the @UpdateItem@ request.
-update_tableName :: Lens.Lens' Update Core.Text
+update_tableName :: Lens.Lens' Update Prelude.Text
 update_tableName = Lens.lens (\Update' {tableName} -> tableName) (\s@Update' {} a -> s {tableName = a} :: Update)
 
-instance Core.Hashable Update
+instance Prelude.Hashable Update
 
-instance Core.NFData Update
+instance Prelude.NFData Update
 
 instance Core.ToJSON Update where
   toJSON Update' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExpressionAttributeValues" Core..=)
-              Core.<$> expressionAttributeValues,
+              Prelude.<$> expressionAttributeValues,
             ("ReturnValuesOnConditionCheckFailure" Core..=)
-              Core.<$> returnValuesOnConditionCheckFailure,
+              Prelude.<$> returnValuesOnConditionCheckFailure,
             ("ExpressionAttributeNames" Core..=)
-              Core.<$> expressionAttributeNames,
+              Prelude.<$> expressionAttributeNames,
             ("ConditionExpression" Core..=)
-              Core.<$> conditionExpression,
-            Core.Just ("Key" Core..= key),
-            Core.Just
+              Prelude.<$> conditionExpression,
+            Prelude.Just ("Key" Core..= key),
+            Prelude.Just
               ("UpdateExpression" Core..= updateExpression),
-            Core.Just ("TableName" Core..= tableName)
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )

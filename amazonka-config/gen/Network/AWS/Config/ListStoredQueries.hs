@@ -45,6 +45,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data ListStoredQueries = ListStoredQueries'
   { -- | The nextToken string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned with a single call.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStoredQueries' with all optional fields omitted.
@@ -74,17 +75,17 @@ newListStoredQueries ::
   ListStoredQueries
 newListStoredQueries =
   ListStoredQueries'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The nextToken string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
-listStoredQueries_nextToken :: Lens.Lens' ListStoredQueries (Core.Maybe Core.Text)
+listStoredQueries_nextToken :: Lens.Lens' ListStoredQueries (Prelude.Maybe Prelude.Text)
 listStoredQueries_nextToken = Lens.lens (\ListStoredQueries' {nextToken} -> nextToken) (\s@ListStoredQueries' {} a -> s {nextToken = a} :: ListStoredQueries)
 
 -- | The maximum number of results to be returned with a single call.
-listStoredQueries_maxResults :: Lens.Lens' ListStoredQueries (Core.Maybe Core.Natural)
+listStoredQueries_maxResults :: Lens.Lens' ListStoredQueries (Prelude.Maybe Prelude.Natural)
 listStoredQueries_maxResults = Lens.lens (\ListStoredQueries' {maxResults} -> maxResults) (\s@ListStoredQueries' {} a -> s {maxResults = a} :: ListStoredQueries)
 
 instance Core.AWSRequest ListStoredQueries where
@@ -96,44 +97,46 @@ instance Core.AWSRequest ListStoredQueries where
     Response.receiveJSON
       ( \s h x ->
           ListStoredQueriesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "StoredQueryMetadata"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "StoredQueryMetadata"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListStoredQueries
+instance Prelude.Hashable ListStoredQueries
 
-instance Core.NFData ListStoredQueries
+instance Prelude.NFData ListStoredQueries
 
 instance Core.ToHeaders ListStoredQueries where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.ListStoredQueries" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListStoredQueries where
   toJSON ListStoredQueries' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListStoredQueries where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListStoredQueries where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStoredQueriesResponse' smart constructor.
 data ListStoredQueriesResponse = ListStoredQueriesResponse'
@@ -143,13 +146,13 @@ data ListStoredQueriesResponse = ListStoredQueriesResponse'
     -- assign that token to the request object\'s @NextToken@ parameter. If
     -- there are no remaining results, the previous response object\'s
     -- @NextToken@ parameter is set to @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @StoredQueryMetadata@ objects.
-    storedQueryMetadata :: Core.Maybe [StoredQueryMetadata],
+    storedQueryMetadata :: Prelude.Maybe [StoredQueryMetadata],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStoredQueriesResponse' with all optional fields omitted.
@@ -171,13 +174,13 @@ data ListStoredQueriesResponse = ListStoredQueriesResponse'
 -- 'httpStatus', 'listStoredQueriesResponse_httpStatus' - The response's http status code.
 newListStoredQueriesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListStoredQueriesResponse
 newListStoredQueriesResponse pHttpStatus_ =
   ListStoredQueriesResponse'
     { nextToken =
-        Core.Nothing,
-      storedQueryMetadata = Core.Nothing,
+        Prelude.Nothing,
+      storedQueryMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -187,15 +190,15 @@ newListStoredQueriesResponse pHttpStatus_ =
 -- assign that token to the request object\'s @NextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
-listStoredQueriesResponse_nextToken :: Lens.Lens' ListStoredQueriesResponse (Core.Maybe Core.Text)
+listStoredQueriesResponse_nextToken :: Lens.Lens' ListStoredQueriesResponse (Prelude.Maybe Prelude.Text)
 listStoredQueriesResponse_nextToken = Lens.lens (\ListStoredQueriesResponse' {nextToken} -> nextToken) (\s@ListStoredQueriesResponse' {} a -> s {nextToken = a} :: ListStoredQueriesResponse)
 
 -- | A list of @StoredQueryMetadata@ objects.
-listStoredQueriesResponse_storedQueryMetadata :: Lens.Lens' ListStoredQueriesResponse (Core.Maybe [StoredQueryMetadata])
-listStoredQueriesResponse_storedQueryMetadata = Lens.lens (\ListStoredQueriesResponse' {storedQueryMetadata} -> storedQueryMetadata) (\s@ListStoredQueriesResponse' {} a -> s {storedQueryMetadata = a} :: ListStoredQueriesResponse) Core.. Lens.mapping Lens._Coerce
+listStoredQueriesResponse_storedQueryMetadata :: Lens.Lens' ListStoredQueriesResponse (Prelude.Maybe [StoredQueryMetadata])
+listStoredQueriesResponse_storedQueryMetadata = Lens.lens (\ListStoredQueriesResponse' {storedQueryMetadata} -> storedQueryMetadata) (\s@ListStoredQueriesResponse' {} a -> s {storedQueryMetadata = a} :: ListStoredQueriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listStoredQueriesResponse_httpStatus :: Lens.Lens' ListStoredQueriesResponse Core.Int
+listStoredQueriesResponse_httpStatus :: Lens.Lens' ListStoredQueriesResponse Prelude.Int
 listStoredQueriesResponse_httpStatus = Lens.lens (\ListStoredQueriesResponse' {httpStatus} -> httpStatus) (\s@ListStoredQueriesResponse' {} a -> s {httpStatus = a} :: ListStoredQueriesResponse)
 
-instance Core.NFData ListStoredQueriesResponse
+instance Prelude.NFData ListStoredQueriesResponse

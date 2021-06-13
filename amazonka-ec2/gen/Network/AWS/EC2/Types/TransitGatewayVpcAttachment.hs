@@ -25,32 +25,33 @@ import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TransitGatewayAttachmentState
 import Network.AWS.EC2.Types.TransitGatewayVpcAttachmentOptions
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a VPC attachment.
 --
 -- /See:/ 'newTransitGatewayVpcAttachment' smart constructor.
 data TransitGatewayVpcAttachment = TransitGatewayVpcAttachment'
   { -- | The creation time.
-    creationTime :: Core.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Core.ISO8601,
     -- | The VPC attachment options.
-    options :: Core.Maybe TransitGatewayVpcAttachmentOptions,
+    options :: Prelude.Maybe TransitGatewayVpcAttachmentOptions,
     -- | The IDs of the subnets.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The state of the VPC attachment. Note that the @initiating@ state has
     -- been deprecated.
-    state :: Core.Maybe TransitGatewayAttachmentState,
+    state :: Prelude.Maybe TransitGatewayAttachmentState,
     -- | The ID of the AWS account that owns the VPC.
-    vpcOwnerId :: Core.Maybe Core.Text,
+    vpcOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The tags for the VPC attachment.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Core.Maybe Core.Text,
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Core.Maybe Core.Text
+    transitGatewayId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayVpcAttachment' with all optional fields omitted.
@@ -83,71 +84,71 @@ newTransitGatewayVpcAttachment ::
 newTransitGatewayVpcAttachment =
   TransitGatewayVpcAttachment'
     { creationTime =
-        Core.Nothing,
-      options = Core.Nothing,
-      subnetIds = Core.Nothing,
-      state = Core.Nothing,
-      vpcOwnerId = Core.Nothing,
-      tags = Core.Nothing,
-      transitGatewayAttachmentId = Core.Nothing,
-      vpcId = Core.Nothing,
-      transitGatewayId = Core.Nothing
+        Prelude.Nothing,
+      options = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      state = Prelude.Nothing,
+      vpcOwnerId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      transitGatewayAttachmentId = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      transitGatewayId = Prelude.Nothing
     }
 
 -- | The creation time.
-transitGatewayVpcAttachment_creationTime :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe Core.UTCTime)
-transitGatewayVpcAttachment_creationTime = Lens.lens (\TransitGatewayVpcAttachment' {creationTime} -> creationTime) (\s@TransitGatewayVpcAttachment' {} a -> s {creationTime = a} :: TransitGatewayVpcAttachment) Core.. Lens.mapping Core._Time
+transitGatewayVpcAttachment_creationTime :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.UTCTime)
+transitGatewayVpcAttachment_creationTime = Lens.lens (\TransitGatewayVpcAttachment' {creationTime} -> creationTime) (\s@TransitGatewayVpcAttachment' {} a -> s {creationTime = a} :: TransitGatewayVpcAttachment) Prelude.. Lens.mapping Core._Time
 
 -- | The VPC attachment options.
-transitGatewayVpcAttachment_options :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe TransitGatewayVpcAttachmentOptions)
+transitGatewayVpcAttachment_options :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe TransitGatewayVpcAttachmentOptions)
 transitGatewayVpcAttachment_options = Lens.lens (\TransitGatewayVpcAttachment' {options} -> options) (\s@TransitGatewayVpcAttachment' {} a -> s {options = a} :: TransitGatewayVpcAttachment)
 
 -- | The IDs of the subnets.
-transitGatewayVpcAttachment_subnetIds :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe [Core.Text])
-transitGatewayVpcAttachment_subnetIds = Lens.lens (\TransitGatewayVpcAttachment' {subnetIds} -> subnetIds) (\s@TransitGatewayVpcAttachment' {} a -> s {subnetIds = a} :: TransitGatewayVpcAttachment) Core.. Lens.mapping Lens._Coerce
+transitGatewayVpcAttachment_subnetIds :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe [Prelude.Text])
+transitGatewayVpcAttachment_subnetIds = Lens.lens (\TransitGatewayVpcAttachment' {subnetIds} -> subnetIds) (\s@TransitGatewayVpcAttachment' {} a -> s {subnetIds = a} :: TransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The state of the VPC attachment. Note that the @initiating@ state has
 -- been deprecated.
-transitGatewayVpcAttachment_state :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe TransitGatewayAttachmentState)
+transitGatewayVpcAttachment_state :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe TransitGatewayAttachmentState)
 transitGatewayVpcAttachment_state = Lens.lens (\TransitGatewayVpcAttachment' {state} -> state) (\s@TransitGatewayVpcAttachment' {} a -> s {state = a} :: TransitGatewayVpcAttachment)
 
 -- | The ID of the AWS account that owns the VPC.
-transitGatewayVpcAttachment_vpcOwnerId :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe Core.Text)
+transitGatewayVpcAttachment_vpcOwnerId :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayVpcAttachment_vpcOwnerId = Lens.lens (\TransitGatewayVpcAttachment' {vpcOwnerId} -> vpcOwnerId) (\s@TransitGatewayVpcAttachment' {} a -> s {vpcOwnerId = a} :: TransitGatewayVpcAttachment)
 
 -- | The tags for the VPC attachment.
-transitGatewayVpcAttachment_tags :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe [Tag])
-transitGatewayVpcAttachment_tags = Lens.lens (\TransitGatewayVpcAttachment' {tags} -> tags) (\s@TransitGatewayVpcAttachment' {} a -> s {tags = a} :: TransitGatewayVpcAttachment) Core.. Lens.mapping Lens._Coerce
+transitGatewayVpcAttachment_tags :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe [Tag])
+transitGatewayVpcAttachment_tags = Lens.lens (\TransitGatewayVpcAttachment' {tags} -> tags) (\s@TransitGatewayVpcAttachment' {} a -> s {tags = a} :: TransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the attachment.
-transitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe Core.Text)
+transitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayVpcAttachment_transitGatewayAttachmentId = Lens.lens (\TransitGatewayVpcAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayVpcAttachment' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayVpcAttachment)
 
 -- | The ID of the VPC.
-transitGatewayVpcAttachment_vpcId :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe Core.Text)
+transitGatewayVpcAttachment_vpcId :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayVpcAttachment_vpcId = Lens.lens (\TransitGatewayVpcAttachment' {vpcId} -> vpcId) (\s@TransitGatewayVpcAttachment' {} a -> s {vpcId = a} :: TransitGatewayVpcAttachment)
 
 -- | The ID of the transit gateway.
-transitGatewayVpcAttachment_transitGatewayId :: Lens.Lens' TransitGatewayVpcAttachment (Core.Maybe Core.Text)
+transitGatewayVpcAttachment_transitGatewayId :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayVpcAttachment_transitGatewayId = Lens.lens (\TransitGatewayVpcAttachment' {transitGatewayId} -> transitGatewayId) (\s@TransitGatewayVpcAttachment' {} a -> s {transitGatewayId = a} :: TransitGatewayVpcAttachment)
 
 instance Core.FromXML TransitGatewayVpcAttachment where
   parseXML x =
     TransitGatewayVpcAttachment'
-      Core.<$> (x Core..@? "creationTime")
-      Core.<*> (x Core..@? "options")
-      Core.<*> ( x Core..@? "subnetIds" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "state")
-      Core.<*> (x Core..@? "vpcOwnerId")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "transitGatewayAttachmentId")
-      Core.<*> (x Core..@? "vpcId")
-      Core.<*> (x Core..@? "transitGatewayId")
+      Prelude.<$> (x Core..@? "creationTime")
+      Prelude.<*> (x Core..@? "options")
+      Prelude.<*> ( x Core..@? "subnetIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "vpcOwnerId")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Core..@? "transitGatewayId")
 
-instance Core.Hashable TransitGatewayVpcAttachment
+instance Prelude.Hashable TransitGatewayVpcAttachment
 
-instance Core.NFData TransitGatewayVpcAttachment
+instance Prelude.NFData TransitGatewayVpcAttachment

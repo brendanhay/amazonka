@@ -50,6 +50,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +59,13 @@ data ListInstanceAttributes = ListInstanceAttributes'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInstanceAttributes' with all optional fields omitted.
@@ -83,27 +84,28 @@ data ListInstanceAttributes = ListInstanceAttributes'
 -- 'instanceId', 'listInstanceAttributes_instanceId' - The identifier of the Amazon Connect instance.
 newListInstanceAttributes ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   ListInstanceAttributes
 newListInstanceAttributes pInstanceId_ =
   ListInstanceAttributes'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listInstanceAttributes_nextToken :: Lens.Lens' ListInstanceAttributes (Core.Maybe Core.Text)
+listInstanceAttributes_nextToken :: Lens.Lens' ListInstanceAttributes (Prelude.Maybe Prelude.Text)
 listInstanceAttributes_nextToken = Lens.lens (\ListInstanceAttributes' {nextToken} -> nextToken) (\s@ListInstanceAttributes' {} a -> s {nextToken = a} :: ListInstanceAttributes)
 
 -- | The maximum number of results to return per page.
-listInstanceAttributes_maxResults :: Lens.Lens' ListInstanceAttributes (Core.Maybe Core.Natural)
+listInstanceAttributes_maxResults :: Lens.Lens' ListInstanceAttributes (Prelude.Maybe Prelude.Natural)
 listInstanceAttributes_maxResults = Lens.lens (\ListInstanceAttributes' {maxResults} -> maxResults) (\s@ListInstanceAttributes' {} a -> s {maxResults = a} :: ListInstanceAttributes)
 
 -- | The identifier of the Amazon Connect instance.
-listInstanceAttributes_instanceId :: Lens.Lens' ListInstanceAttributes Core.Text
+listInstanceAttributes_instanceId :: Lens.Lens' ListInstanceAttributes Prelude.Text
 listInstanceAttributes_instanceId = Lens.lens (\ListInstanceAttributes' {instanceId} -> instanceId) (\s@ListInstanceAttributes' {} a -> s {instanceId = a} :: ListInstanceAttributes)
 
 instance Core.AWSPager ListInstanceAttributes where
@@ -111,22 +113,22 @@ instance Core.AWSPager ListInstanceAttributes where
     | Core.stop
         ( rs
             Lens.^? listInstanceAttributesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstanceAttributesResponse_attributes
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listInstanceAttributes_nextToken
+          Prelude.& listInstanceAttributes_nextToken
           Lens..~ rs
           Lens.^? listInstanceAttributesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceAttributes where
   type
@@ -137,32 +139,34 @@ instance Core.AWSRequest ListInstanceAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceAttributesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Attributes" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListInstanceAttributes
+instance Prelude.Hashable ListInstanceAttributes
 
-instance Core.NFData ListInstanceAttributes
+instance Prelude.NFData ListInstanceAttributes
 
 instance Core.ToHeaders ListInstanceAttributes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListInstanceAttributes where
   toPath ListInstanceAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/instance/", Core.toBS instanceId, "/attributes"]
 
 instance Core.ToQuery ListInstanceAttributes where
   toQuery ListInstanceAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -171,13 +175,13 @@ instance Core.ToQuery ListInstanceAttributes where
 data ListInstanceAttributesResponse = ListInstanceAttributesResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The attribute types.
-    attributes :: Core.Maybe [Attribute],
+    attributes :: Prelude.Maybe [Attribute],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInstanceAttributesResponse' with all optional fields omitted.
@@ -195,27 +199,29 @@ data ListInstanceAttributesResponse = ListInstanceAttributesResponse'
 -- 'httpStatus', 'listInstanceAttributesResponse_httpStatus' - The response's http status code.
 newListInstanceAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListInstanceAttributesResponse
 newListInstanceAttributesResponse pHttpStatus_ =
   ListInstanceAttributesResponse'
     { nextToken =
-        Core.Nothing,
-      attributes = Core.Nothing,
+        Prelude.Nothing,
+      attributes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listInstanceAttributesResponse_nextToken :: Lens.Lens' ListInstanceAttributesResponse (Core.Maybe Core.Text)
+listInstanceAttributesResponse_nextToken :: Lens.Lens' ListInstanceAttributesResponse (Prelude.Maybe Prelude.Text)
 listInstanceAttributesResponse_nextToken = Lens.lens (\ListInstanceAttributesResponse' {nextToken} -> nextToken) (\s@ListInstanceAttributesResponse' {} a -> s {nextToken = a} :: ListInstanceAttributesResponse)
 
 -- | The attribute types.
-listInstanceAttributesResponse_attributes :: Lens.Lens' ListInstanceAttributesResponse (Core.Maybe [Attribute])
-listInstanceAttributesResponse_attributes = Lens.lens (\ListInstanceAttributesResponse' {attributes} -> attributes) (\s@ListInstanceAttributesResponse' {} a -> s {attributes = a} :: ListInstanceAttributesResponse) Core.. Lens.mapping Lens._Coerce
+listInstanceAttributesResponse_attributes :: Lens.Lens' ListInstanceAttributesResponse (Prelude.Maybe [Attribute])
+listInstanceAttributesResponse_attributes = Lens.lens (\ListInstanceAttributesResponse' {attributes} -> attributes) (\s@ListInstanceAttributesResponse' {} a -> s {attributes = a} :: ListInstanceAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInstanceAttributesResponse_httpStatus :: Lens.Lens' ListInstanceAttributesResponse Core.Int
+listInstanceAttributesResponse_httpStatus :: Lens.Lens' ListInstanceAttributesResponse Prelude.Int
 listInstanceAttributesResponse_httpStatus = Lens.lens (\ListInstanceAttributesResponse' {httpStatus} -> httpStatus) (\s@ListInstanceAttributesResponse' {} a -> s {httpStatus = a} :: ListInstanceAttributesResponse)
 
-instance Core.NFData ListInstanceAttributesResponse
+instance
+  Prelude.NFData
+    ListInstanceAttributesResponse

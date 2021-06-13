@@ -67,24 +67,25 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTransitGateway' smart constructor.
 data CreateTransitGateway = CreateTransitGateway'
   { -- | The tags to apply to the transit gateway.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The transit gateway options.
-    options :: Core.Maybe TransitGatewayRequestOptions,
+    options :: Prelude.Maybe TransitGatewayRequestOptions,
     -- | A description of the transit gateway.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGateway' with all optional fields omitted.
@@ -109,29 +110,29 @@ newCreateTransitGateway ::
 newCreateTransitGateway =
   CreateTransitGateway'
     { tagSpecifications =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      options = Core.Nothing,
-      description = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      options = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The tags to apply to the transit gateway.
-createTransitGateway_tagSpecifications :: Lens.Lens' CreateTransitGateway (Core.Maybe [TagSpecification])
-createTransitGateway_tagSpecifications = Lens.lens (\CreateTransitGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGateway' {} a -> s {tagSpecifications = a} :: CreateTransitGateway) Core.. Lens.mapping Lens._Coerce
+createTransitGateway_tagSpecifications :: Lens.Lens' CreateTransitGateway (Prelude.Maybe [TagSpecification])
+createTransitGateway_tagSpecifications = Lens.lens (\CreateTransitGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGateway' {} a -> s {tagSpecifications = a} :: CreateTransitGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createTransitGateway_dryRun :: Lens.Lens' CreateTransitGateway (Core.Maybe Core.Bool)
+createTransitGateway_dryRun :: Lens.Lens' CreateTransitGateway (Prelude.Maybe Prelude.Bool)
 createTransitGateway_dryRun = Lens.lens (\CreateTransitGateway' {dryRun} -> dryRun) (\s@CreateTransitGateway' {} a -> s {dryRun = a} :: CreateTransitGateway)
 
 -- | The transit gateway options.
-createTransitGateway_options :: Lens.Lens' CreateTransitGateway (Core.Maybe TransitGatewayRequestOptions)
+createTransitGateway_options :: Lens.Lens' CreateTransitGateway (Prelude.Maybe TransitGatewayRequestOptions)
 createTransitGateway_options = Lens.lens (\CreateTransitGateway' {options} -> options) (\s@CreateTransitGateway' {} a -> s {options = a} :: CreateTransitGateway)
 
 -- | A description of the transit gateway.
-createTransitGateway_description :: Lens.Lens' CreateTransitGateway (Core.Maybe Core.Text)
+createTransitGateway_description :: Lens.Lens' CreateTransitGateway (Prelude.Maybe Prelude.Text)
 createTransitGateway_description = Lens.lens (\CreateTransitGateway' {description} -> description) (\s@CreateTransitGateway' {} a -> s {description = a} :: CreateTransitGateway)
 
 instance Core.AWSRequest CreateTransitGateway where
@@ -143,29 +144,30 @@ instance Core.AWSRequest CreateTransitGateway where
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayResponse'
-            Core.<$> (x Core..@? "transitGateway")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGateway")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTransitGateway
+instance Prelude.Hashable CreateTransitGateway
 
-instance Core.NFData CreateTransitGateway
+instance Prelude.NFData CreateTransitGateway
 
 instance Core.ToHeaders CreateTransitGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTransitGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTransitGateway where
   toQuery CreateTransitGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTransitGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateTransitGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "Options" Core.=: options,
@@ -175,11 +177,11 @@ instance Core.ToQuery CreateTransitGateway where
 -- | /See:/ 'newCreateTransitGatewayResponse' smart constructor.
 data CreateTransitGatewayResponse = CreateTransitGatewayResponse'
   { -- | Information about the transit gateway.
-    transitGateway :: Core.Maybe TransitGateway,
+    transitGateway :: Prelude.Maybe TransitGateway,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayResponse' with all optional fields omitted.
@@ -194,21 +196,21 @@ data CreateTransitGatewayResponse = CreateTransitGatewayResponse'
 -- 'httpStatus', 'createTransitGatewayResponse_httpStatus' - The response's http status code.
 newCreateTransitGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTransitGatewayResponse
 newCreateTransitGatewayResponse pHttpStatus_ =
   CreateTransitGatewayResponse'
     { transitGateway =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the transit gateway.
-createTransitGatewayResponse_transitGateway :: Lens.Lens' CreateTransitGatewayResponse (Core.Maybe TransitGateway)
+createTransitGatewayResponse_transitGateway :: Lens.Lens' CreateTransitGatewayResponse (Prelude.Maybe TransitGateway)
 createTransitGatewayResponse_transitGateway = Lens.lens (\CreateTransitGatewayResponse' {transitGateway} -> transitGateway) (\s@CreateTransitGatewayResponse' {} a -> s {transitGateway = a} :: CreateTransitGatewayResponse)
 
 -- | The response's http status code.
-createTransitGatewayResponse_httpStatus :: Lens.Lens' CreateTransitGatewayResponse Core.Int
+createTransitGatewayResponse_httpStatus :: Lens.Lens' CreateTransitGatewayResponse Prelude.Int
 createTransitGatewayResponse_httpStatus = Lens.lens (\CreateTransitGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateTransitGatewayResponse' {} a -> s {httpStatus = a} :: CreateTransitGatewayResponse)
 
-instance Core.NFData CreateTransitGatewayResponse
+instance Prelude.NFData CreateTransitGatewayResponse

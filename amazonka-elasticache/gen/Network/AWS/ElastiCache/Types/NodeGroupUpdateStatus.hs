@@ -22,17 +22,18 @@ module Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of the service update on the node group
 --
 -- /See:/ 'newNodeGroupUpdateStatus' smart constructor.
 data NodeGroupUpdateStatus = NodeGroupUpdateStatus'
   { -- | The ID of the node group
-    nodeGroupId :: Core.Maybe Core.Text,
+    nodeGroupId :: Prelude.Maybe Prelude.Text,
     -- | The status of the service update on the node group member
-    nodeGroupMemberUpdateStatus :: Core.Maybe [NodeGroupMemberUpdateStatus]
+    nodeGroupMemberUpdateStatus :: Prelude.Maybe [NodeGroupMemberUpdateStatus]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeGroupUpdateStatus' with all optional fields omitted.
@@ -49,28 +50,29 @@ newNodeGroupUpdateStatus ::
   NodeGroupUpdateStatus
 newNodeGroupUpdateStatus =
   NodeGroupUpdateStatus'
-    { nodeGroupId = Core.Nothing,
-      nodeGroupMemberUpdateStatus = Core.Nothing
+    { nodeGroupId =
+        Prelude.Nothing,
+      nodeGroupMemberUpdateStatus = Prelude.Nothing
     }
 
 -- | The ID of the node group
-nodeGroupUpdateStatus_nodeGroupId :: Lens.Lens' NodeGroupUpdateStatus (Core.Maybe Core.Text)
+nodeGroupUpdateStatus_nodeGroupId :: Lens.Lens' NodeGroupUpdateStatus (Prelude.Maybe Prelude.Text)
 nodeGroupUpdateStatus_nodeGroupId = Lens.lens (\NodeGroupUpdateStatus' {nodeGroupId} -> nodeGroupId) (\s@NodeGroupUpdateStatus' {} a -> s {nodeGroupId = a} :: NodeGroupUpdateStatus)
 
 -- | The status of the service update on the node group member
-nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus :: Lens.Lens' NodeGroupUpdateStatus (Core.Maybe [NodeGroupMemberUpdateStatus])
-nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus = Lens.lens (\NodeGroupUpdateStatus' {nodeGroupMemberUpdateStatus} -> nodeGroupMemberUpdateStatus) (\s@NodeGroupUpdateStatus' {} a -> s {nodeGroupMemberUpdateStatus = a} :: NodeGroupUpdateStatus) Core.. Lens.mapping Lens._Coerce
+nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus :: Lens.Lens' NodeGroupUpdateStatus (Prelude.Maybe [NodeGroupMemberUpdateStatus])
+nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus = Lens.lens (\NodeGroupUpdateStatus' {nodeGroupMemberUpdateStatus} -> nodeGroupMemberUpdateStatus) (\s@NodeGroupUpdateStatus' {} a -> s {nodeGroupMemberUpdateStatus = a} :: NodeGroupUpdateStatus) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML NodeGroupUpdateStatus where
   parseXML x =
     NodeGroupUpdateStatus'
-      Core.<$> (x Core..@? "NodeGroupId")
-      Core.<*> ( x Core..@? "NodeGroupMemberUpdateStatus"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "NodeGroupMemberUpdateStatus")
-               )
+      Prelude.<$> (x Core..@? "NodeGroupId")
+      Prelude.<*> ( x Core..@? "NodeGroupMemberUpdateStatus"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "NodeGroupMemberUpdateStatus")
+                  )
 
-instance Core.Hashable NodeGroupUpdateStatus
+instance Prelude.Hashable NodeGroupUpdateStatus
 
-instance Core.NFData NodeGroupUpdateStatus
+instance Prelude.NFData NodeGroupUpdateStatus

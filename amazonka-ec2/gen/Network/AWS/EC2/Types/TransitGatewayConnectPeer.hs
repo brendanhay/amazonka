@@ -25,25 +25,26 @@ import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TransitGatewayConnectPeerConfiguration
 import Network.AWS.EC2.Types.TransitGatewayConnectPeerState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a transit gateway Connect peer.
 --
 -- /See:/ 'newTransitGatewayConnectPeer' smart constructor.
 data TransitGatewayConnectPeer = TransitGatewayConnectPeer'
   { -- | The Connect peer details.
-    connectPeerConfiguration :: Core.Maybe TransitGatewayConnectPeerConfiguration,
+    connectPeerConfiguration :: Prelude.Maybe TransitGatewayConnectPeerConfiguration,
     -- | The creation time.
-    creationTime :: Core.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Core.ISO8601,
     -- | The ID of the Connect peer.
-    transitGatewayConnectPeerId :: Core.Maybe Core.Text,
+    transitGatewayConnectPeerId :: Prelude.Maybe Prelude.Text,
     -- | The state of the Connect peer.
-    state :: Core.Maybe TransitGatewayConnectPeerState,
+    state :: Prelude.Maybe TransitGatewayConnectPeerState,
     -- | The tags for the Connect peer.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the Connect attachment.
-    transitGatewayAttachmentId :: Core.Maybe Core.Text
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayConnectPeer' with all optional fields omitted.
@@ -69,50 +70,50 @@ newTransitGatewayConnectPeer ::
 newTransitGatewayConnectPeer =
   TransitGatewayConnectPeer'
     { connectPeerConfiguration =
-        Core.Nothing,
-      creationTime = Core.Nothing,
-      transitGatewayConnectPeerId = Core.Nothing,
-      state = Core.Nothing,
-      tags = Core.Nothing,
-      transitGatewayAttachmentId = Core.Nothing
+        Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      transitGatewayConnectPeerId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      transitGatewayAttachmentId = Prelude.Nothing
     }
 
 -- | The Connect peer details.
-transitGatewayConnectPeer_connectPeerConfiguration :: Lens.Lens' TransitGatewayConnectPeer (Core.Maybe TransitGatewayConnectPeerConfiguration)
+transitGatewayConnectPeer_connectPeerConfiguration :: Lens.Lens' TransitGatewayConnectPeer (Prelude.Maybe TransitGatewayConnectPeerConfiguration)
 transitGatewayConnectPeer_connectPeerConfiguration = Lens.lens (\TransitGatewayConnectPeer' {connectPeerConfiguration} -> connectPeerConfiguration) (\s@TransitGatewayConnectPeer' {} a -> s {connectPeerConfiguration = a} :: TransitGatewayConnectPeer)
 
 -- | The creation time.
-transitGatewayConnectPeer_creationTime :: Lens.Lens' TransitGatewayConnectPeer (Core.Maybe Core.UTCTime)
-transitGatewayConnectPeer_creationTime = Lens.lens (\TransitGatewayConnectPeer' {creationTime} -> creationTime) (\s@TransitGatewayConnectPeer' {} a -> s {creationTime = a} :: TransitGatewayConnectPeer) Core.. Lens.mapping Core._Time
+transitGatewayConnectPeer_creationTime :: Lens.Lens' TransitGatewayConnectPeer (Prelude.Maybe Prelude.UTCTime)
+transitGatewayConnectPeer_creationTime = Lens.lens (\TransitGatewayConnectPeer' {creationTime} -> creationTime) (\s@TransitGatewayConnectPeer' {} a -> s {creationTime = a} :: TransitGatewayConnectPeer) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the Connect peer.
-transitGatewayConnectPeer_transitGatewayConnectPeerId :: Lens.Lens' TransitGatewayConnectPeer (Core.Maybe Core.Text)
+transitGatewayConnectPeer_transitGatewayConnectPeerId :: Lens.Lens' TransitGatewayConnectPeer (Prelude.Maybe Prelude.Text)
 transitGatewayConnectPeer_transitGatewayConnectPeerId = Lens.lens (\TransitGatewayConnectPeer' {transitGatewayConnectPeerId} -> transitGatewayConnectPeerId) (\s@TransitGatewayConnectPeer' {} a -> s {transitGatewayConnectPeerId = a} :: TransitGatewayConnectPeer)
 
 -- | The state of the Connect peer.
-transitGatewayConnectPeer_state :: Lens.Lens' TransitGatewayConnectPeer (Core.Maybe TransitGatewayConnectPeerState)
+transitGatewayConnectPeer_state :: Lens.Lens' TransitGatewayConnectPeer (Prelude.Maybe TransitGatewayConnectPeerState)
 transitGatewayConnectPeer_state = Lens.lens (\TransitGatewayConnectPeer' {state} -> state) (\s@TransitGatewayConnectPeer' {} a -> s {state = a} :: TransitGatewayConnectPeer)
 
 -- | The tags for the Connect peer.
-transitGatewayConnectPeer_tags :: Lens.Lens' TransitGatewayConnectPeer (Core.Maybe [Tag])
-transitGatewayConnectPeer_tags = Lens.lens (\TransitGatewayConnectPeer' {tags} -> tags) (\s@TransitGatewayConnectPeer' {} a -> s {tags = a} :: TransitGatewayConnectPeer) Core.. Lens.mapping Lens._Coerce
+transitGatewayConnectPeer_tags :: Lens.Lens' TransitGatewayConnectPeer (Prelude.Maybe [Tag])
+transitGatewayConnectPeer_tags = Lens.lens (\TransitGatewayConnectPeer' {tags} -> tags) (\s@TransitGatewayConnectPeer' {} a -> s {tags = a} :: TransitGatewayConnectPeer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Connect attachment.
-transitGatewayConnectPeer_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayConnectPeer (Core.Maybe Core.Text)
+transitGatewayConnectPeer_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayConnectPeer (Prelude.Maybe Prelude.Text)
 transitGatewayConnectPeer_transitGatewayAttachmentId = Lens.lens (\TransitGatewayConnectPeer' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayConnectPeer' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayConnectPeer)
 
 instance Core.FromXML TransitGatewayConnectPeer where
   parseXML x =
     TransitGatewayConnectPeer'
-      Core.<$> (x Core..@? "connectPeerConfiguration")
-      Core.<*> (x Core..@? "creationTime")
-      Core.<*> (x Core..@? "transitGatewayConnectPeerId")
-      Core.<*> (x Core..@? "state")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "transitGatewayAttachmentId")
+      Prelude.<$> (x Core..@? "connectPeerConfiguration")
+      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<*> (x Core..@? "transitGatewayConnectPeerId")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
 
-instance Core.Hashable TransitGatewayConnectPeer
+instance Prelude.Hashable TransitGatewayConnectPeer
 
-instance Core.NFData TransitGatewayConnectPeer
+instance Prelude.NFData TransitGatewayConnectPeer

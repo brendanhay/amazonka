@@ -21,6 +21,7 @@ module Network.AWS.CloudWatch.Types.Dimension where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A dimension is a name\/value pair that is part of the identity of a
 -- metric. You can assign up to 10 dimensions to a metric. Because
@@ -32,12 +33,12 @@ import qualified Network.AWS.Lens as Lens
 data Dimension = Dimension'
   { -- | The name of the dimension. Dimension names cannot contain blank spaces
     -- or non-ASCII characters.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value of the dimension. Dimension values cannot contain blank spaces
     -- or non-ASCII characters.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Dimension' with all optional fields omitted.
@@ -54,33 +55,33 @@ data Dimension = Dimension'
 -- or non-ASCII characters.
 newDimension ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Dimension
 newDimension pName_ pValue_ =
   Dimension' {name = pName_, value = pValue_}
 
 -- | The name of the dimension. Dimension names cannot contain blank spaces
 -- or non-ASCII characters.
-dimension_name :: Lens.Lens' Dimension Core.Text
+dimension_name :: Lens.Lens' Dimension Prelude.Text
 dimension_name = Lens.lens (\Dimension' {name} -> name) (\s@Dimension' {} a -> s {name = a} :: Dimension)
 
 -- | The value of the dimension. Dimension values cannot contain blank spaces
 -- or non-ASCII characters.
-dimension_value :: Lens.Lens' Dimension Core.Text
+dimension_value :: Lens.Lens' Dimension Prelude.Text
 dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
 
 instance Core.FromXML Dimension where
   parseXML x =
     Dimension'
-      Core.<$> (x Core..@ "Name") Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable Dimension
+instance Prelude.Hashable Dimension
 
-instance Core.NFData Dimension
+instance Prelude.NFData Dimension
 
 instance Core.ToQuery Dimension where
   toQuery Dimension' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Name" Core.=: name, "Value" Core.=: value]

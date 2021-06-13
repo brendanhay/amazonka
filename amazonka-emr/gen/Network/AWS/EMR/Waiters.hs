@@ -21,6 +21,7 @@ import Network.AWS.EMR.DescribeStep
 import Network.AWS.EMR.Lens
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newClusterTerminated :: Core.Wait DescribeCluster
@@ -34,19 +35,19 @@ newClusterTerminated =
             "TERMINATED"
             Core.AcceptSuccess
             ( describeClusterResponse_cluster
-                Core.. cluster_status
-                Core.. clusterStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "TERMINATED_WITH_ERRORS"
             Core.AcceptFailure
             ( describeClusterResponse_cluster
-                Core.. cluster_status
-                Core.. clusterStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -62,32 +63,32 @@ newStepComplete =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess
-            ( describeStepResponse_step Core.. Lens._Just
-                Core.. step_status
-                Core.. Lens._Just
-                Core.. stepStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeStepResponse_step Prelude.. Lens._Just
+                Prelude.. step_status
+                Prelude.. Lens._Just
+                Prelude.. stepStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( describeStepResponse_step Core.. Lens._Just
-                Core.. step_status
-                Core.. Lens._Just
-                Core.. stepStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeStepResponse_step Prelude.. Lens._Just
+                Prelude.. step_status
+                Prelude.. Lens._Just
+                Prelude.. stepStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "CANCELLED"
             Core.AcceptFailure
-            ( describeStepResponse_step Core.. Lens._Just
-                Core.. step_status
-                Core.. Lens._Just
-                Core.. stepStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeStepResponse_step Prelude.. Lens._Just
+                Prelude.. step_status
+                Prelude.. Lens._Just
+                Prelude.. stepStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -104,46 +105,46 @@ newClusterRunning =
             "RUNNING"
             Core.AcceptSuccess
             ( describeClusterResponse_cluster
-                Core.. cluster_status
-                Core.. clusterStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "WAITING"
             Core.AcceptSuccess
             ( describeClusterResponse_cluster
-                Core.. cluster_status
-                Core.. clusterStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "TERMINATING"
             Core.AcceptFailure
             ( describeClusterResponse_cluster
-                Core.. cluster_status
-                Core.. clusterStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "TERMINATED"
             Core.AcceptFailure
             ( describeClusterResponse_cluster
-                Core.. cluster_status
-                Core.. clusterStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "TERMINATED_WITH_ERRORS"
             Core.AcceptFailure
             ( describeClusterResponse_cluster
-                Core.. cluster_status
-                Core.. clusterStatus_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

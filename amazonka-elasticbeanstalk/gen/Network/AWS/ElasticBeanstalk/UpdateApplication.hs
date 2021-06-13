@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +57,12 @@ data UpdateApplication = UpdateApplication'
     --
     -- Default: If not specified, AWS Elastic Beanstalk does not update the
     -- description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the application to update. If no such application is found,
     -- @UpdateApplication@ returns an @InvalidParameterValue@ error.
-    applicationName :: Core.Text
+    applicationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplication' with all optional fields omitted.
@@ -80,11 +81,11 @@ data UpdateApplication = UpdateApplication'
 -- @UpdateApplication@ returns an @InvalidParameterValue@ error.
 newUpdateApplication ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateApplication
 newUpdateApplication pApplicationName_ =
   UpdateApplication'
-    { description = Core.Nothing,
+    { description = Prelude.Nothing,
       applicationName = pApplicationName_
     }
 
@@ -92,12 +93,12 @@ newUpdateApplication pApplicationName_ =
 --
 -- Default: If not specified, AWS Elastic Beanstalk does not update the
 -- description.
-updateApplication_description :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
+updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
 
 -- | The name of the application to update. If no such application is found,
 -- @UpdateApplication@ returns an @InvalidParameterValue@ error.
-updateApplication_applicationName :: Lens.Lens' UpdateApplication Core.Text
+updateApplication_applicationName :: Lens.Lens' UpdateApplication Prelude.Text
 updateApplication_applicationName = Lens.lens (\UpdateApplication' {applicationName} -> applicationName) (\s@UpdateApplication' {} a -> s {applicationName = a} :: UpdateApplication)
 
 instance Core.AWSRequest UpdateApplication where
@@ -110,22 +111,23 @@ instance Core.AWSRequest UpdateApplication where
       "UpdateApplicationResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication
 
-instance Core.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication
 
 instance Core.ToHeaders UpdateApplication where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateApplication where
   toQuery UpdateApplication' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateApplication" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("UpdateApplication" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Description" Core.=: description,
         "ApplicationName" Core.=: applicationName
       ]

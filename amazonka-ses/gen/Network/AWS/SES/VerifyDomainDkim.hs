@@ -75,6 +75,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -87,9 +88,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newVerifyDomainDkim' smart constructor.
 data VerifyDomainDkim = VerifyDomainDkim'
   { -- | The name of the domain to be verified for Easy DKIM signing.
-    domain :: Core.Text
+    domain :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VerifyDomainDkim' with all optional fields omitted.
@@ -102,13 +103,13 @@ data VerifyDomainDkim = VerifyDomainDkim'
 -- 'domain', 'verifyDomainDkim_domain' - The name of the domain to be verified for Easy DKIM signing.
 newVerifyDomainDkim ::
   -- | 'domain'
-  Core.Text ->
+  Prelude.Text ->
   VerifyDomainDkim
 newVerifyDomainDkim pDomain_ =
   VerifyDomainDkim' {domain = pDomain_}
 
 -- | The name of the domain to be verified for Easy DKIM signing.
-verifyDomainDkim_domain :: Lens.Lens' VerifyDomainDkim Core.Text
+verifyDomainDkim_domain :: Lens.Lens' VerifyDomainDkim Prelude.Text
 verifyDomainDkim_domain = Lens.lens (\VerifyDomainDkim' {domain} -> domain) (\s@VerifyDomainDkim' {} a -> s {domain = a} :: VerifyDomainDkim)
 
 instance Core.AWSRequest VerifyDomainDkim where
@@ -121,28 +122,29 @@ instance Core.AWSRequest VerifyDomainDkim where
       "VerifyDomainDkimResult"
       ( \s h x ->
           VerifyDomainDkimResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "DkimTokens" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "DkimTokens" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable VerifyDomainDkim
+instance Prelude.Hashable VerifyDomainDkim
 
-instance Core.NFData VerifyDomainDkim
+instance Prelude.NFData VerifyDomainDkim
 
 instance Core.ToHeaders VerifyDomainDkim where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath VerifyDomainDkim where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery VerifyDomainDkim where
   toQuery VerifyDomainDkim' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("VerifyDomainDkim" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("VerifyDomainDkim" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Domain" Core.=: domain
       ]
 
@@ -152,7 +154,7 @@ instance Core.ToQuery VerifyDomainDkim where
 -- /See:/ 'newVerifyDomainDkimResponse' smart constructor.
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A set of character strings that represent the domain\'s identity. If the
     -- identity is an email address, the tokens represent the domain of that
     -- address.
@@ -167,9 +169,9 @@ data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
     -- For more information about creating DNS records using DKIM tokens, see
     -- the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
-    dkimTokens :: [Core.Text]
+    dkimTokens :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VerifyDomainDkimResponse' with all optional fields omitted.
@@ -197,17 +199,17 @@ data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
 newVerifyDomainDkimResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   VerifyDomainDkimResponse
 newVerifyDomainDkimResponse pHttpStatus_ =
   VerifyDomainDkimResponse'
     { httpStatus =
         pHttpStatus_,
-      dkimTokens = Core.mempty
+      dkimTokens = Prelude.mempty
     }
 
 -- | The response's http status code.
-verifyDomainDkimResponse_httpStatus :: Lens.Lens' VerifyDomainDkimResponse Core.Int
+verifyDomainDkimResponse_httpStatus :: Lens.Lens' VerifyDomainDkimResponse Prelude.Int
 verifyDomainDkimResponse_httpStatus = Lens.lens (\VerifyDomainDkimResponse' {httpStatus} -> httpStatus) (\s@VerifyDomainDkimResponse' {} a -> s {httpStatus = a} :: VerifyDomainDkimResponse)
 
 -- | A set of character strings that represent the domain\'s identity. If the
@@ -224,7 +226,7 @@ verifyDomainDkimResponse_httpStatus = Lens.lens (\VerifyDomainDkimResponse' {htt
 -- For more information about creating DNS records using DKIM tokens, see
 -- the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
-verifyDomainDkimResponse_dkimTokens :: Lens.Lens' VerifyDomainDkimResponse [Core.Text]
-verifyDomainDkimResponse_dkimTokens = Lens.lens (\VerifyDomainDkimResponse' {dkimTokens} -> dkimTokens) (\s@VerifyDomainDkimResponse' {} a -> s {dkimTokens = a} :: VerifyDomainDkimResponse) Core.. Lens._Coerce
+verifyDomainDkimResponse_dkimTokens :: Lens.Lens' VerifyDomainDkimResponse [Prelude.Text]
+verifyDomainDkimResponse_dkimTokens = Lens.lens (\VerifyDomainDkimResponse' {dkimTokens} -> dkimTokens) (\s@VerifyDomainDkimResponse' {} a -> s {dkimTokens = a} :: VerifyDomainDkimResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData VerifyDomainDkimResponse
+instance Prelude.NFData VerifyDomainDkimResponse

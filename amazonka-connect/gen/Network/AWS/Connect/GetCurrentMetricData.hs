@@ -54,6 +54,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,7 +67,7 @@ data GetCurrentMetricData = GetCurrentMetricData'
     -- The token expires after 5 minutes from the time it is created.
     -- Subsequent requests that use the token must use the same request
     -- parameters as the request that generated the token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The grouping applied to the metrics returned. For example, when grouped
     -- by @QUEUE@, the metrics returned apply to each queue rather than
     -- aggregated for all queues. If you group by @CHANNEL@, you should include
@@ -74,11 +75,11 @@ data GetCurrentMetricData = GetCurrentMetricData'
     --
     -- If no @Grouping@ is included in the request, a summary of metrics is
     -- returned.
-    groupings :: Core.Maybe [Grouping],
+    groupings :: Prelude.Maybe [Grouping],
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The queues, up to 100, or channels, to use to filter the metrics
     -- returned. Metric data is retrieved only for the resources associated
     -- with the queues or channels included in the filter. You can include both
@@ -177,7 +178,7 @@ data GetCurrentMetricData = GetCurrentMetricData'
     --     <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time Availability>
     currentMetrics :: [CurrentMetric]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCurrentMetricData' with all optional fields omitted.
@@ -305,18 +306,18 @@ data GetCurrentMetricData = GetCurrentMetricData'
 --     <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time Availability>
 newGetCurrentMetricData ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filters'
   Filters ->
   GetCurrentMetricData
 newGetCurrentMetricData pInstanceId_ pFilters_ =
   GetCurrentMetricData'
-    { nextToken = Core.Nothing,
-      groupings = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      groupings = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_,
       filters = pFilters_,
-      currentMetrics = Core.mempty
+      currentMetrics = Prelude.mempty
     }
 
 -- | The token for the next set of results. Use the value returned in the
@@ -326,7 +327,7 @@ newGetCurrentMetricData pInstanceId_ pFilters_ =
 -- The token expires after 5 minutes from the time it is created.
 -- Subsequent requests that use the token must use the same request
 -- parameters as the request that generated the token.
-getCurrentMetricData_nextToken :: Lens.Lens' GetCurrentMetricData (Core.Maybe Core.Text)
+getCurrentMetricData_nextToken :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe Prelude.Text)
 getCurrentMetricData_nextToken = Lens.lens (\GetCurrentMetricData' {nextToken} -> nextToken) (\s@GetCurrentMetricData' {} a -> s {nextToken = a} :: GetCurrentMetricData)
 
 -- | The grouping applied to the metrics returned. For example, when grouped
@@ -336,15 +337,15 @@ getCurrentMetricData_nextToken = Lens.lens (\GetCurrentMetricData' {nextToken} -
 --
 -- If no @Grouping@ is included in the request, a summary of metrics is
 -- returned.
-getCurrentMetricData_groupings :: Lens.Lens' GetCurrentMetricData (Core.Maybe [Grouping])
-getCurrentMetricData_groupings = Lens.lens (\GetCurrentMetricData' {groupings} -> groupings) (\s@GetCurrentMetricData' {} a -> s {groupings = a} :: GetCurrentMetricData) Core.. Lens.mapping Lens._Coerce
+getCurrentMetricData_groupings :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe [Grouping])
+getCurrentMetricData_groupings = Lens.lens (\GetCurrentMetricData' {groupings} -> groupings) (\s@GetCurrentMetricData' {} a -> s {groupings = a} :: GetCurrentMetricData) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return per page.
-getCurrentMetricData_maxResults :: Lens.Lens' GetCurrentMetricData (Core.Maybe Core.Natural)
+getCurrentMetricData_maxResults :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe Prelude.Natural)
 getCurrentMetricData_maxResults = Lens.lens (\GetCurrentMetricData' {maxResults} -> maxResults) (\s@GetCurrentMetricData' {} a -> s {maxResults = a} :: GetCurrentMetricData)
 
 -- | The identifier of the Amazon Connect instance.
-getCurrentMetricData_instanceId :: Lens.Lens' GetCurrentMetricData Core.Text
+getCurrentMetricData_instanceId :: Lens.Lens' GetCurrentMetricData Prelude.Text
 getCurrentMetricData_instanceId = Lens.lens (\GetCurrentMetricData' {instanceId} -> instanceId) (\s@GetCurrentMetricData' {} a -> s {instanceId = a} :: GetCurrentMetricData)
 
 -- | The queues, up to 100, or channels, to use to filter the metrics
@@ -446,7 +447,7 @@ getCurrentMetricData_filters = Lens.lens (\GetCurrentMetricData' {filters} -> fi
 --     Name in real-time metrics report:
 --     <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time Availability>
 getCurrentMetricData_currentMetrics :: Lens.Lens' GetCurrentMetricData [CurrentMetric]
-getCurrentMetricData_currentMetrics = Lens.lens (\GetCurrentMetricData' {currentMetrics} -> currentMetrics) (\s@GetCurrentMetricData' {} a -> s {currentMetrics = a} :: GetCurrentMetricData) Core.. Lens._Coerce
+getCurrentMetricData_currentMetrics = Lens.lens (\GetCurrentMetricData' {currentMetrics} -> currentMetrics) (\s@GetCurrentMetricData' {} a -> s {currentMetrics = a} :: GetCurrentMetricData) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetCurrentMetricData where
   type
@@ -457,44 +458,47 @@ instance Core.AWSRequest GetCurrentMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetCurrentMetricDataResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "DataSnapshotTime")
-            Core.<*> (x Core..?> "MetricResults" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "DataSnapshotTime")
+            Prelude.<*> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetCurrentMetricData
+instance Prelude.Hashable GetCurrentMetricData
 
-instance Core.NFData GetCurrentMetricData
+instance Prelude.NFData GetCurrentMetricData
 
 instance Core.ToHeaders GetCurrentMetricData where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetCurrentMetricData where
   toJSON GetCurrentMetricData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Groupings" Core..=) Core.<$> groupings,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("Filters" Core..= filters),
-            Core.Just ("CurrentMetrics" Core..= currentMetrics)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Groupings" Core..=) Prelude.<$> groupings,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filters" Core..= filters),
+            Prelude.Just
+              ("CurrentMetrics" Core..= currentMetrics)
           ]
       )
 
 instance Core.ToPath GetCurrentMetricData where
   toPath GetCurrentMetricData' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/metrics/current/", Core.toBS instanceId]
 
 instance Core.ToQuery GetCurrentMetricData where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCurrentMetricDataResponse' smart constructor.
 data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
@@ -504,15 +508,15 @@ data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
     -- The token expires after 5 minutes from the time it is created.
     -- Subsequent requests that use the token must use the same request
     -- parameters as the request that generated the token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time at which the metrics were retrieved and cached for pagination.
-    dataSnapshotTime :: Core.Maybe Core.POSIX,
+    dataSnapshotTime :: Prelude.Maybe Core.POSIX,
     -- | Information about the real-time metrics.
-    metricResults :: Core.Maybe [CurrentMetricResult],
+    metricResults :: Prelude.Maybe [CurrentMetricResult],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCurrentMetricDataResponse' with all optional fields omitted.
@@ -536,14 +540,14 @@ data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
 -- 'httpStatus', 'getCurrentMetricDataResponse_httpStatus' - The response's http status code.
 newGetCurrentMetricDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCurrentMetricDataResponse
 newGetCurrentMetricDataResponse pHttpStatus_ =
   GetCurrentMetricDataResponse'
     { nextToken =
-        Core.Nothing,
-      dataSnapshotTime = Core.Nothing,
-      metricResults = Core.Nothing,
+        Prelude.Nothing,
+      dataSnapshotTime = Prelude.Nothing,
+      metricResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -553,19 +557,19 @@ newGetCurrentMetricDataResponse pHttpStatus_ =
 -- The token expires after 5 minutes from the time it is created.
 -- Subsequent requests that use the token must use the same request
 -- parameters as the request that generated the token.
-getCurrentMetricDataResponse_nextToken :: Lens.Lens' GetCurrentMetricDataResponse (Core.Maybe Core.Text)
+getCurrentMetricDataResponse_nextToken :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe Prelude.Text)
 getCurrentMetricDataResponse_nextToken = Lens.lens (\GetCurrentMetricDataResponse' {nextToken} -> nextToken) (\s@GetCurrentMetricDataResponse' {} a -> s {nextToken = a} :: GetCurrentMetricDataResponse)
 
 -- | The time at which the metrics were retrieved and cached for pagination.
-getCurrentMetricDataResponse_dataSnapshotTime :: Lens.Lens' GetCurrentMetricDataResponse (Core.Maybe Core.UTCTime)
-getCurrentMetricDataResponse_dataSnapshotTime = Lens.lens (\GetCurrentMetricDataResponse' {dataSnapshotTime} -> dataSnapshotTime) (\s@GetCurrentMetricDataResponse' {} a -> s {dataSnapshotTime = a} :: GetCurrentMetricDataResponse) Core.. Lens.mapping Core._Time
+getCurrentMetricDataResponse_dataSnapshotTime :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe Prelude.UTCTime)
+getCurrentMetricDataResponse_dataSnapshotTime = Lens.lens (\GetCurrentMetricDataResponse' {dataSnapshotTime} -> dataSnapshotTime) (\s@GetCurrentMetricDataResponse' {} a -> s {dataSnapshotTime = a} :: GetCurrentMetricDataResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Information about the real-time metrics.
-getCurrentMetricDataResponse_metricResults :: Lens.Lens' GetCurrentMetricDataResponse (Core.Maybe [CurrentMetricResult])
-getCurrentMetricDataResponse_metricResults = Lens.lens (\GetCurrentMetricDataResponse' {metricResults} -> metricResults) (\s@GetCurrentMetricDataResponse' {} a -> s {metricResults = a} :: GetCurrentMetricDataResponse) Core.. Lens.mapping Lens._Coerce
+getCurrentMetricDataResponse_metricResults :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe [CurrentMetricResult])
+getCurrentMetricDataResponse_metricResults = Lens.lens (\GetCurrentMetricDataResponse' {metricResults} -> metricResults) (\s@GetCurrentMetricDataResponse' {} a -> s {metricResults = a} :: GetCurrentMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getCurrentMetricDataResponse_httpStatus :: Lens.Lens' GetCurrentMetricDataResponse Core.Int
+getCurrentMetricDataResponse_httpStatus :: Lens.Lens' GetCurrentMetricDataResponse Prelude.Int
 getCurrentMetricDataResponse_httpStatus = Lens.lens (\GetCurrentMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetCurrentMetricDataResponse' {} a -> s {httpStatus = a} :: GetCurrentMetricDataResponse)
 
-instance Core.NFData GetCurrentMetricDataResponse
+instance Prelude.NFData GetCurrentMetricDataResponse

@@ -26,6 +26,7 @@ import Network.AWS.IAM.Types.PolicyEvaluationDecisionType
 import Network.AWS.IAM.Types.ResourceSpecificResult
 import Network.AWS.IAM.Types.Statement
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the results of a simulation.
 --
@@ -53,25 +54,25 @@ data EvaluationResult = EvaluationResult'
     -- If an AWS Organizations SCP included in the evaluation denies access,
     -- the simulation ends. In this case, policy evaluation does not proceed
     -- any further and this parameter is not returned.
-    evalDecisionDetails :: Core.Maybe (Core.HashMap Core.Text PolicyEvaluationDecisionType),
+    evalDecisionDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text PolicyEvaluationDecisionType),
     -- | Contains information about the effect that a permissions boundary has on
     -- a policy simulation when the boundary is applied to an IAM entity.
-    permissionsBoundaryDecisionDetail :: Core.Maybe PermissionsBoundaryDecisionDetail,
+    permissionsBoundaryDecisionDetail :: Prelude.Maybe PermissionsBoundaryDecisionDetail,
     -- | A structure that details how Organizations and its service control
     -- policies affect the results of the simulation. Only applies if the
     -- simulated user\'s account is part of an organization.
-    organizationsDecisionDetail :: Core.Maybe OrganizationsDecisionDetail,
+    organizationsDecisionDetail :: Prelude.Maybe OrganizationsDecisionDetail,
     -- | The individual results of the simulation of the API operation specified
     -- in EvalActionName on each resource.
-    resourceSpecificResults :: Core.Maybe [ResourceSpecificResult],
+    resourceSpecificResults :: Prelude.Maybe [ResourceSpecificResult],
     -- | A list of the statements in the input policies that determine the result
     -- for this scenario. Remember that even if multiple statements allow the
     -- operation on the resource, if only one statement denies that operation,
     -- then the explicit deny overrides any allow. In addition, the deny
     -- statement is the only entry included in the result.
-    matchedStatements :: Core.Maybe [Statement],
+    matchedStatements :: Prelude.Maybe [Statement],
     -- | The ARN of the resource that the indicated API operation was tested on.
-    evalResourceName :: Core.Maybe Core.Text,
+    evalResourceName :: Prelude.Maybe Prelude.Text,
     -- | A list of context keys that are required by the included input policies
     -- but that were not provided by one of the input parameters. This list is
     -- used when the resource in a simulation is \"*\", either explicitly, or
@@ -80,13 +81,13 @@ data EvaluationResult = EvaluationResult'
     -- the @ResourceSpecificResults@ section. To discover the context keys used
     -- by a set of policies, you can call GetContextKeysForCustomPolicy or
     -- GetContextKeysForPrincipalPolicy.
-    missingContextValues :: Core.Maybe [Core.Text],
+    missingContextValues :: Prelude.Maybe [Prelude.Text],
     -- | The name of the API operation tested on the indicated resource.
-    evalActionName :: Core.Text,
+    evalActionName :: Prelude.Text,
     -- | The result of the simulation.
     evalDecision :: PolicyEvaluationDecisionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EvaluationResult' with all optional fields omitted.
@@ -148,20 +149,20 @@ data EvaluationResult = EvaluationResult'
 -- 'evalDecision', 'evaluationResult_evalDecision' - The result of the simulation.
 newEvaluationResult ::
   -- | 'evalActionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'evalDecision'
   PolicyEvaluationDecisionType ->
   EvaluationResult
 newEvaluationResult pEvalActionName_ pEvalDecision_ =
   EvaluationResult'
     { evalDecisionDetails =
-        Core.Nothing,
-      permissionsBoundaryDecisionDetail = Core.Nothing,
-      organizationsDecisionDetail = Core.Nothing,
-      resourceSpecificResults = Core.Nothing,
-      matchedStatements = Core.Nothing,
-      evalResourceName = Core.Nothing,
-      missingContextValues = Core.Nothing,
+        Prelude.Nothing,
+      permissionsBoundaryDecisionDetail = Prelude.Nothing,
+      organizationsDecisionDetail = Prelude.Nothing,
+      resourceSpecificResults = Prelude.Nothing,
+      matchedStatements = Prelude.Nothing,
+      evalResourceName = Prelude.Nothing,
+      missingContextValues = Prelude.Nothing,
       evalActionName = pEvalActionName_,
       evalDecision = pEvalDecision_
     }
@@ -185,35 +186,35 @@ newEvaluationResult pEvalActionName_ pEvalDecision_ =
 -- If an AWS Organizations SCP included in the evaluation denies access,
 -- the simulation ends. In this case, policy evaluation does not proceed
 -- any further and this parameter is not returned.
-evaluationResult_evalDecisionDetails :: Lens.Lens' EvaluationResult (Core.Maybe (Core.HashMap Core.Text PolicyEvaluationDecisionType))
-evaluationResult_evalDecisionDetails = Lens.lens (\EvaluationResult' {evalDecisionDetails} -> evalDecisionDetails) (\s@EvaluationResult' {} a -> s {evalDecisionDetails = a} :: EvaluationResult) Core.. Lens.mapping Lens._Coerce
+evaluationResult_evalDecisionDetails :: Lens.Lens' EvaluationResult (Prelude.Maybe (Prelude.HashMap Prelude.Text PolicyEvaluationDecisionType))
+evaluationResult_evalDecisionDetails = Lens.lens (\EvaluationResult' {evalDecisionDetails} -> evalDecisionDetails) (\s@EvaluationResult' {} a -> s {evalDecisionDetails = a} :: EvaluationResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contains information about the effect that a permissions boundary has on
 -- a policy simulation when the boundary is applied to an IAM entity.
-evaluationResult_permissionsBoundaryDecisionDetail :: Lens.Lens' EvaluationResult (Core.Maybe PermissionsBoundaryDecisionDetail)
+evaluationResult_permissionsBoundaryDecisionDetail :: Lens.Lens' EvaluationResult (Prelude.Maybe PermissionsBoundaryDecisionDetail)
 evaluationResult_permissionsBoundaryDecisionDetail = Lens.lens (\EvaluationResult' {permissionsBoundaryDecisionDetail} -> permissionsBoundaryDecisionDetail) (\s@EvaluationResult' {} a -> s {permissionsBoundaryDecisionDetail = a} :: EvaluationResult)
 
 -- | A structure that details how Organizations and its service control
 -- policies affect the results of the simulation. Only applies if the
 -- simulated user\'s account is part of an organization.
-evaluationResult_organizationsDecisionDetail :: Lens.Lens' EvaluationResult (Core.Maybe OrganizationsDecisionDetail)
+evaluationResult_organizationsDecisionDetail :: Lens.Lens' EvaluationResult (Prelude.Maybe OrganizationsDecisionDetail)
 evaluationResult_organizationsDecisionDetail = Lens.lens (\EvaluationResult' {organizationsDecisionDetail} -> organizationsDecisionDetail) (\s@EvaluationResult' {} a -> s {organizationsDecisionDetail = a} :: EvaluationResult)
 
 -- | The individual results of the simulation of the API operation specified
 -- in EvalActionName on each resource.
-evaluationResult_resourceSpecificResults :: Lens.Lens' EvaluationResult (Core.Maybe [ResourceSpecificResult])
-evaluationResult_resourceSpecificResults = Lens.lens (\EvaluationResult' {resourceSpecificResults} -> resourceSpecificResults) (\s@EvaluationResult' {} a -> s {resourceSpecificResults = a} :: EvaluationResult) Core.. Lens.mapping Lens._Coerce
+evaluationResult_resourceSpecificResults :: Lens.Lens' EvaluationResult (Prelude.Maybe [ResourceSpecificResult])
+evaluationResult_resourceSpecificResults = Lens.lens (\EvaluationResult' {resourceSpecificResults} -> resourceSpecificResults) (\s@EvaluationResult' {} a -> s {resourceSpecificResults = a} :: EvaluationResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of the statements in the input policies that determine the result
 -- for this scenario. Remember that even if multiple statements allow the
 -- operation on the resource, if only one statement denies that operation,
 -- then the explicit deny overrides any allow. In addition, the deny
 -- statement is the only entry included in the result.
-evaluationResult_matchedStatements :: Lens.Lens' EvaluationResult (Core.Maybe [Statement])
-evaluationResult_matchedStatements = Lens.lens (\EvaluationResult' {matchedStatements} -> matchedStatements) (\s@EvaluationResult' {} a -> s {matchedStatements = a} :: EvaluationResult) Core.. Lens.mapping Lens._Coerce
+evaluationResult_matchedStatements :: Lens.Lens' EvaluationResult (Prelude.Maybe [Statement])
+evaluationResult_matchedStatements = Lens.lens (\EvaluationResult' {matchedStatements} -> matchedStatements) (\s@EvaluationResult' {} a -> s {matchedStatements = a} :: EvaluationResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the resource that the indicated API operation was tested on.
-evaluationResult_evalResourceName :: Lens.Lens' EvaluationResult (Core.Maybe Core.Text)
+evaluationResult_evalResourceName :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Text)
 evaluationResult_evalResourceName = Lens.lens (\EvaluationResult' {evalResourceName} -> evalResourceName) (\s@EvaluationResult' {} a -> s {evalResourceName = a} :: EvaluationResult)
 
 -- | A list of context keys that are required by the included input policies
@@ -224,11 +225,11 @@ evaluationResult_evalResourceName = Lens.lens (\EvaluationResult' {evalResourceN
 -- the @ResourceSpecificResults@ section. To discover the context keys used
 -- by a set of policies, you can call GetContextKeysForCustomPolicy or
 -- GetContextKeysForPrincipalPolicy.
-evaluationResult_missingContextValues :: Lens.Lens' EvaluationResult (Core.Maybe [Core.Text])
-evaluationResult_missingContextValues = Lens.lens (\EvaluationResult' {missingContextValues} -> missingContextValues) (\s@EvaluationResult' {} a -> s {missingContextValues = a} :: EvaluationResult) Core.. Lens.mapping Lens._Coerce
+evaluationResult_missingContextValues :: Lens.Lens' EvaluationResult (Prelude.Maybe [Prelude.Text])
+evaluationResult_missingContextValues = Lens.lens (\EvaluationResult' {missingContextValues} -> missingContextValues) (\s@EvaluationResult' {} a -> s {missingContextValues = a} :: EvaluationResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the API operation tested on the indicated resource.
-evaluationResult_evalActionName :: Lens.Lens' EvaluationResult Core.Text
+evaluationResult_evalActionName :: Lens.Lens' EvaluationResult Prelude.Text
 evaluationResult_evalActionName = Lens.lens (\EvaluationResult' {evalActionName} -> evalActionName) (\s@EvaluationResult' {} a -> s {evalActionName = a} :: EvaluationResult)
 
 -- | The result of the simulation.
@@ -238,27 +239,28 @@ evaluationResult_evalDecision = Lens.lens (\EvaluationResult' {evalDecision} -> 
 instance Core.FromXML EvaluationResult where
   parseXML x =
     EvaluationResult'
-      Core.<$> ( x Core..@? "EvalDecisionDetails"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
-               )
-      Core.<*> (x Core..@? "PermissionsBoundaryDecisionDetail")
-      Core.<*> (x Core..@? "OrganizationsDecisionDetail")
-      Core.<*> ( x Core..@? "ResourceSpecificResults"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> ( x Core..@? "MatchedStatements" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "EvalResourceName")
-      Core.<*> ( x Core..@? "MissingContextValues"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@ "EvalActionName")
-      Core.<*> (x Core..@ "EvalDecision")
+      Prelude.<$> ( x Core..@? "EvalDecisionDetails"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                  )
+      Prelude.<*> (x Core..@? "PermissionsBoundaryDecisionDetail")
+      Prelude.<*> (x Core..@? "OrganizationsDecisionDetail")
+      Prelude.<*> ( x Core..@? "ResourceSpecificResults"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> ( x Core..@? "MatchedStatements"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "EvalResourceName")
+      Prelude.<*> ( x Core..@? "MissingContextValues"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@ "EvalActionName")
+      Prelude.<*> (x Core..@ "EvalDecision")
 
-instance Core.Hashable EvaluationResult
+instance Prelude.Hashable EvaluationResult
 
-instance Core.NFData EvaluationResult
+instance Prelude.NFData EvaluationResult

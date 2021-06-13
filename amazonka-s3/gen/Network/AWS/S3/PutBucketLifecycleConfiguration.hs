@@ -107,6 +107,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -116,13 +117,13 @@ data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Container for lifecycle rules. You can add as many as 1,000 rules.
-    lifecycleConfiguration :: Core.Maybe BucketLifecycleConfiguration,
+    lifecycleConfiguration :: Prelude.Maybe BucketLifecycleConfiguration,
     -- | The name of the bucket for which to set the configuration.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketLifecycleConfiguration' with all optional fields omitted.
@@ -146,19 +147,19 @@ newPutBucketLifecycleConfiguration ::
 newPutBucketLifecycleConfiguration pBucket_ =
   PutBucketLifecycleConfiguration'
     { expectedBucketOwner =
-        Core.Nothing,
-      lifecycleConfiguration = Core.Nothing,
+        Prelude.Nothing,
+      lifecycleConfiguration = Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketLifecycleConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketLifecycleConfiguration (Core.Maybe Core.Text)
+putBucketLifecycleConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketLifecycleConfiguration (Prelude.Maybe Prelude.Text)
 putBucketLifecycleConfiguration_expectedBucketOwner = Lens.lens (\PutBucketLifecycleConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketLifecycleConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketLifecycleConfiguration)
 
 -- | Container for lifecycle rules. You can add as many as 1,000 rules.
-putBucketLifecycleConfiguration_lifecycleConfiguration :: Lens.Lens' PutBucketLifecycleConfiguration (Core.Maybe BucketLifecycleConfiguration)
+putBucketLifecycleConfiguration_lifecycleConfiguration :: Lens.Lens' PutBucketLifecycleConfiguration (Prelude.Maybe BucketLifecycleConfiguration)
 putBucketLifecycleConfiguration_lifecycleConfiguration = Lens.lens (\PutBucketLifecycleConfiguration' {lifecycleConfiguration} -> lifecycleConfiguration) (\s@PutBucketLifecycleConfiguration' {} a -> s {lifecycleConfiguration = a} :: PutBucketLifecycleConfiguration)
 
 -- | The name of the bucket for which to set the configuration.
@@ -178,10 +179,12 @@ instance
       PutBucketLifecycleConfigurationResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PutBucketLifecycleConfiguration
 
-instance Core.NFData PutBucketLifecycleConfiguration
+instance
+  Prelude.NFData
+    PutBucketLifecycleConfiguration
 
 instance
   Core.ToElement
@@ -197,23 +200,24 @@ instance
     PutBucketLifecycleConfiguration
   where
   toHeaders PutBucketLifecycleConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketLifecycleConfiguration where
   toPath PutBucketLifecycleConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutBucketLifecycleConfiguration where
-  toQuery = Core.const (Core.mconcat ["lifecycle"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["lifecycle"])
 
 -- | /See:/ 'newPutBucketLifecycleConfigurationResponse' smart constructor.
 data PutBucketLifecycleConfigurationResponse = PutBucketLifecycleConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketLifecycleConfigurationResponse' with all optional fields omitted.
@@ -225,5 +229,5 @@ newPutBucketLifecycleConfigurationResponse =
   PutBucketLifecycleConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutBucketLifecycleConfigurationResponse

@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.LambdaFunctionAssociations where
 import Network.AWS.CloudFront.Types.LambdaFunctionAssociation
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that specifies a list of Lambda functions associations
 -- for a cache behavior.
@@ -41,11 +42,11 @@ data LambdaFunctionAssociations = LambdaFunctionAssociations'
   { -- | __Optional__: A complex type that contains @LambdaFunctionAssociation@
     -- items for this cache behavior. If @Quantity@ is @0@, you can omit
     -- @Items@.
-    items :: Core.Maybe [LambdaFunctionAssociation],
+    items :: Prelude.Maybe [LambdaFunctionAssociation],
     -- | The number of Lambda function associations for this cache behavior.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionAssociations' with all optional fields omitted.
@@ -62,44 +63,45 @@ data LambdaFunctionAssociations = LambdaFunctionAssociations'
 -- 'quantity', 'lambdaFunctionAssociations_quantity' - The number of Lambda function associations for this cache behavior.
 newLambdaFunctionAssociations ::
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   LambdaFunctionAssociations
 newLambdaFunctionAssociations pQuantity_ =
   LambdaFunctionAssociations'
-    { items = Core.Nothing,
+    { items =
+        Prelude.Nothing,
       quantity = pQuantity_
     }
 
 -- | __Optional__: A complex type that contains @LambdaFunctionAssociation@
 -- items for this cache behavior. If @Quantity@ is @0@, you can omit
 -- @Items@.
-lambdaFunctionAssociations_items :: Lens.Lens' LambdaFunctionAssociations (Core.Maybe [LambdaFunctionAssociation])
-lambdaFunctionAssociations_items = Lens.lens (\LambdaFunctionAssociations' {items} -> items) (\s@LambdaFunctionAssociations' {} a -> s {items = a} :: LambdaFunctionAssociations) Core.. Lens.mapping Lens._Coerce
+lambdaFunctionAssociations_items :: Lens.Lens' LambdaFunctionAssociations (Prelude.Maybe [LambdaFunctionAssociation])
+lambdaFunctionAssociations_items = Lens.lens (\LambdaFunctionAssociations' {items} -> items) (\s@LambdaFunctionAssociations' {} a -> s {items = a} :: LambdaFunctionAssociations) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of Lambda function associations for this cache behavior.
-lambdaFunctionAssociations_quantity :: Lens.Lens' LambdaFunctionAssociations Core.Int
+lambdaFunctionAssociations_quantity :: Lens.Lens' LambdaFunctionAssociations Prelude.Int
 lambdaFunctionAssociations_quantity = Lens.lens (\LambdaFunctionAssociations' {quantity} -> quantity) (\s@LambdaFunctionAssociations' {} a -> s {quantity = a} :: LambdaFunctionAssociations)
 
 instance Core.FromXML LambdaFunctionAssociations where
   parseXML x =
     LambdaFunctionAssociations'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "LambdaFunctionAssociation")
-               )
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "LambdaFunctionAssociation")
+                  )
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable LambdaFunctionAssociations
+instance Prelude.Hashable LambdaFunctionAssociations
 
-instance Core.NFData LambdaFunctionAssociations
+instance Prelude.NFData LambdaFunctionAssociations
 
 instance Core.ToXML LambdaFunctionAssociations where
   toXML LambdaFunctionAssociations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
           Core.@= Core.toXML
             ( Core.toXMLList "LambdaFunctionAssociation"
-                Core.<$> items
+                Prelude.<$> items
             ),
         "Quantity" Core.@= quantity
       ]

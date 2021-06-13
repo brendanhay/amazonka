@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -49,13 +50,13 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newAssociateMemberToGroup' smart constructor.
 data AssociateMemberToGroup = AssociateMemberToGroup'
   { -- | The organization under which the group exists.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The group to which the member (user or group) is associated.
-    groupId :: Core.Text,
+    groupId :: Prelude.Text,
     -- | The member (user or group) to associate to the group.
-    memberId :: Core.Text
+    memberId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateMemberToGroup' with all optional fields omitted.
@@ -72,11 +73,11 @@ data AssociateMemberToGroup = AssociateMemberToGroup'
 -- 'memberId', 'associateMemberToGroup_memberId' - The member (user or group) to associate to the group.
 newAssociateMemberToGroup ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'memberId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateMemberToGroup
 newAssociateMemberToGroup
   pOrganizationId_
@@ -90,15 +91,15 @@ newAssociateMemberToGroup
       }
 
 -- | The organization under which the group exists.
-associateMemberToGroup_organizationId :: Lens.Lens' AssociateMemberToGroup Core.Text
+associateMemberToGroup_organizationId :: Lens.Lens' AssociateMemberToGroup Prelude.Text
 associateMemberToGroup_organizationId = Lens.lens (\AssociateMemberToGroup' {organizationId} -> organizationId) (\s@AssociateMemberToGroup' {} a -> s {organizationId = a} :: AssociateMemberToGroup)
 
 -- | The group to which the member (user or group) is associated.
-associateMemberToGroup_groupId :: Lens.Lens' AssociateMemberToGroup Core.Text
+associateMemberToGroup_groupId :: Lens.Lens' AssociateMemberToGroup Prelude.Text
 associateMemberToGroup_groupId = Lens.lens (\AssociateMemberToGroup' {groupId} -> groupId) (\s@AssociateMemberToGroup' {} a -> s {groupId = a} :: AssociateMemberToGroup)
 
 -- | The member (user or group) to associate to the group.
-associateMemberToGroup_memberId :: Lens.Lens' AssociateMemberToGroup Core.Text
+associateMemberToGroup_memberId :: Lens.Lens' AssociateMemberToGroup Prelude.Text
 associateMemberToGroup_memberId = Lens.lens (\AssociateMemberToGroup' {memberId} -> memberId) (\s@AssociateMemberToGroup' {} a -> s {memberId = a} :: AssociateMemberToGroup)
 
 instance Core.AWSRequest AssociateMemberToGroup where
@@ -110,48 +111,51 @@ instance Core.AWSRequest AssociateMemberToGroup where
     Response.receiveEmpty
       ( \s h x ->
           AssociateMemberToGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateMemberToGroup
+instance Prelude.Hashable AssociateMemberToGroup
 
-instance Core.NFData AssociateMemberToGroup
+instance Prelude.NFData AssociateMemberToGroup
 
 instance Core.ToHeaders AssociateMemberToGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.AssociateMemberToGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateMemberToGroup where
   toJSON AssociateMemberToGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("GroupId" Core..= groupId),
-            Core.Just ("MemberId" Core..= memberId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("GroupId" Core..= groupId),
+            Prelude.Just ("MemberId" Core..= memberId)
           ]
       )
 
 instance Core.ToPath AssociateMemberToGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateMemberToGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateMemberToGroupResponse' smart constructor.
 data AssociateMemberToGroupResponse = AssociateMemberToGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateMemberToGroupResponse' with all optional fields omitted.
@@ -164,7 +168,7 @@ data AssociateMemberToGroupResponse = AssociateMemberToGroupResponse'
 -- 'httpStatus', 'associateMemberToGroupResponse_httpStatus' - The response's http status code.
 newAssociateMemberToGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateMemberToGroupResponse
 newAssociateMemberToGroupResponse pHttpStatus_ =
   AssociateMemberToGroupResponse'
@@ -173,7 +177,9 @@ newAssociateMemberToGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateMemberToGroupResponse_httpStatus :: Lens.Lens' AssociateMemberToGroupResponse Core.Int
+associateMemberToGroupResponse_httpStatus :: Lens.Lens' AssociateMemberToGroupResponse Prelude.Int
 associateMemberToGroupResponse_httpStatus = Lens.lens (\AssociateMemberToGroupResponse' {httpStatus} -> httpStatus) (\s@AssociateMemberToGroupResponse' {} a -> s {httpStatus = a} :: AssociateMemberToGroupResponse)
 
-instance Core.NFData AssociateMemberToGroupResponse
+instance
+  Prelude.NFData
+    AssociateMemberToGroupResponse

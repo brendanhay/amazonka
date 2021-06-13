@@ -27,6 +27,7 @@ module Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The strategy hyperparameter tuning uses to find the best combination of
 -- hyperparameters for your model. Currently, the only supported value is
@@ -36,15 +37,15 @@ newtype HyperParameterTuningJobStrategyType = HyperParameterTuningJobStrategyTyp
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

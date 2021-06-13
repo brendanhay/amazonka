@@ -22,6 +22,7 @@ module Network.AWS.Connect.Types.MediaConcurrency where
 import Network.AWS.Connect.Types.Channel
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about which channels are supported, and how many
 -- contacts an agent can have on a channel simultaneously.
@@ -31,9 +32,9 @@ data MediaConcurrency = MediaConcurrency'
   { -- | The channels that agents can handle in the Contact Control Panel (CCP).
     channel :: Channel,
     -- | The number of contacts an agent can have on a channel simultaneously.
-    concurrency :: Core.Natural
+    concurrency :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MediaConcurrency' with all optional fields omitted.
@@ -50,7 +51,7 @@ newMediaConcurrency ::
   -- | 'channel'
   Channel ->
   -- | 'concurrency'
-  Core.Natural ->
+  Prelude.Natural ->
   MediaConcurrency
 newMediaConcurrency pChannel_ pConcurrency_ =
   MediaConcurrency'
@@ -63,7 +64,7 @@ mediaConcurrency_channel :: Lens.Lens' MediaConcurrency Channel
 mediaConcurrency_channel = Lens.lens (\MediaConcurrency' {channel} -> channel) (\s@MediaConcurrency' {} a -> s {channel = a} :: MediaConcurrency)
 
 -- | The number of contacts an agent can have on a channel simultaneously.
-mediaConcurrency_concurrency :: Lens.Lens' MediaConcurrency Core.Natural
+mediaConcurrency_concurrency :: Lens.Lens' MediaConcurrency Prelude.Natural
 mediaConcurrency_concurrency = Lens.lens (\MediaConcurrency' {concurrency} -> concurrency) (\s@MediaConcurrency' {} a -> s {concurrency = a} :: MediaConcurrency)
 
 instance Core.FromJSON MediaConcurrency where
@@ -72,19 +73,19 @@ instance Core.FromJSON MediaConcurrency where
       "MediaConcurrency"
       ( \x ->
           MediaConcurrency'
-            Core.<$> (x Core..: "Channel")
-            Core.<*> (x Core..: "Concurrency")
+            Prelude.<$> (x Core..: "Channel")
+            Prelude.<*> (x Core..: "Concurrency")
       )
 
-instance Core.Hashable MediaConcurrency
+instance Prelude.Hashable MediaConcurrency
 
-instance Core.NFData MediaConcurrency
+instance Prelude.NFData MediaConcurrency
 
 instance Core.ToJSON MediaConcurrency where
   toJSON MediaConcurrency' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Channel" Core..= channel),
-            Core.Just ("Concurrency" Core..= concurrency)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Channel" Core..= channel),
+            Prelude.Just ("Concurrency" Core..= concurrency)
           ]
       )

@@ -58,34 +58,35 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutResourceConfig' smart constructor.
 data PutResourceConfig = PutResourceConfig'
   { -- | Tags associated with the resource.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Name of the resource.
-    resourceName :: Core.Maybe Core.Text,
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of the resource. The custom resource type must be registered
     -- with AWS CloudFormation.
     --
     -- You cannot use the organization names “aws”, “amzn”, “amazon”, “alexa”,
     -- “custom” with custom resource types. It is the first part of the
     -- ResourceType up to the first ::.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | Version of the schema registered for the ResourceType in AWS
     -- CloudFormation.
-    schemaVersionId :: Core.Text,
+    schemaVersionId :: Prelude.Text,
     -- | Unique identifier of the resource.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The configuration object of the resource in valid JSON format. It must
     -- match the schema registered with AWS CloudFormation.
     --
     -- The configuration JSON must not exceed 64 KB.
-    configuration :: Core.Text
+    configuration :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutResourceConfig' with all optional fields omitted.
@@ -117,13 +118,13 @@ data PutResourceConfig = PutResourceConfig'
 -- The configuration JSON must not exceed 64 KB.
 newPutResourceConfig ::
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'schemaVersionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'configuration'
-  Core.Text ->
+  Prelude.Text ->
   PutResourceConfig
 newPutResourceConfig
   pResourceType_
@@ -131,8 +132,8 @@ newPutResourceConfig
   pResourceId_
   pConfiguration_ =
     PutResourceConfig'
-      { tags = Core.Nothing,
-        resourceName = Core.Nothing,
+      { tags = Prelude.Nothing,
+        resourceName = Prelude.Nothing,
         resourceType = pResourceType_,
         schemaVersionId = pSchemaVersionId_,
         resourceId = pResourceId_,
@@ -140,11 +141,11 @@ newPutResourceConfig
       }
 
 -- | Tags associated with the resource.
-putResourceConfig_tags :: Lens.Lens' PutResourceConfig (Core.Maybe (Core.HashMap Core.Text Core.Text))
-putResourceConfig_tags = Lens.lens (\PutResourceConfig' {tags} -> tags) (\s@PutResourceConfig' {} a -> s {tags = a} :: PutResourceConfig) Core.. Lens.mapping Lens._Coerce
+putResourceConfig_tags :: Lens.Lens' PutResourceConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putResourceConfig_tags = Lens.lens (\PutResourceConfig' {tags} -> tags) (\s@PutResourceConfig' {} a -> s {tags = a} :: PutResourceConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Name of the resource.
-putResourceConfig_resourceName :: Lens.Lens' PutResourceConfig (Core.Maybe Core.Text)
+putResourceConfig_resourceName :: Lens.Lens' PutResourceConfig (Prelude.Maybe Prelude.Text)
 putResourceConfig_resourceName = Lens.lens (\PutResourceConfig' {resourceName} -> resourceName) (\s@PutResourceConfig' {} a -> s {resourceName = a} :: PutResourceConfig)
 
 -- | The type of the resource. The custom resource type must be registered
@@ -153,23 +154,23 @@ putResourceConfig_resourceName = Lens.lens (\PutResourceConfig' {resourceName} -
 -- You cannot use the organization names “aws”, “amzn”, “amazon”, “alexa”,
 -- “custom” with custom resource types. It is the first part of the
 -- ResourceType up to the first ::.
-putResourceConfig_resourceType :: Lens.Lens' PutResourceConfig Core.Text
+putResourceConfig_resourceType :: Lens.Lens' PutResourceConfig Prelude.Text
 putResourceConfig_resourceType = Lens.lens (\PutResourceConfig' {resourceType} -> resourceType) (\s@PutResourceConfig' {} a -> s {resourceType = a} :: PutResourceConfig)
 
 -- | Version of the schema registered for the ResourceType in AWS
 -- CloudFormation.
-putResourceConfig_schemaVersionId :: Lens.Lens' PutResourceConfig Core.Text
+putResourceConfig_schemaVersionId :: Lens.Lens' PutResourceConfig Prelude.Text
 putResourceConfig_schemaVersionId = Lens.lens (\PutResourceConfig' {schemaVersionId} -> schemaVersionId) (\s@PutResourceConfig' {} a -> s {schemaVersionId = a} :: PutResourceConfig)
 
 -- | Unique identifier of the resource.
-putResourceConfig_resourceId :: Lens.Lens' PutResourceConfig Core.Text
+putResourceConfig_resourceId :: Lens.Lens' PutResourceConfig Prelude.Text
 putResourceConfig_resourceId = Lens.lens (\PutResourceConfig' {resourceId} -> resourceId) (\s@PutResourceConfig' {} a -> s {resourceId = a} :: PutResourceConfig)
 
 -- | The configuration object of the resource in valid JSON format. It must
 -- match the schema registered with AWS CloudFormation.
 --
 -- The configuration JSON must not exceed 64 KB.
-putResourceConfig_configuration :: Lens.Lens' PutResourceConfig Core.Text
+putResourceConfig_configuration :: Lens.Lens' PutResourceConfig Prelude.Text
 putResourceConfig_configuration = Lens.lens (\PutResourceConfig' {configuration} -> configuration) (\s@PutResourceConfig' {} a -> s {configuration = a} :: PutResourceConfig)
 
 instance Core.AWSRequest PutResourceConfig where
@@ -180,48 +181,51 @@ instance Core.AWSRequest PutResourceConfig where
   response =
     Response.receiveNull PutResourceConfigResponse'
 
-instance Core.Hashable PutResourceConfig
+instance Prelude.Hashable PutResourceConfig
 
-instance Core.NFData PutResourceConfig
+instance Prelude.NFData PutResourceConfig
 
 instance Core.ToHeaders PutResourceConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutResourceConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutResourceConfig where
   toJSON PutResourceConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            ("ResourceName" Core..=) Core.<$> resourceName,
-            Core.Just ("ResourceType" Core..= resourceType),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ResourceName" Core..=) Prelude.<$> resourceName,
+            Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just
               ("SchemaVersionId" Core..= schemaVersionId),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("Configuration" Core..= configuration)
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just
+              ("Configuration" Core..= configuration)
           ]
       )
 
 instance Core.ToPath PutResourceConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutResourceConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutResourceConfigResponse' smart constructor.
 data PutResourceConfigResponse = PutResourceConfigResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutResourceConfigResponse' with all optional fields omitted.
@@ -232,4 +236,4 @@ newPutResourceConfigResponse ::
 newPutResourceConfigResponse =
   PutResourceConfigResponse'
 
-instance Core.NFData PutResourceConfigResponse
+instance Prelude.NFData PutResourceConfigResponse

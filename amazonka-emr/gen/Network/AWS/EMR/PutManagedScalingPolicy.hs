@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ import qualified Network.AWS.Response as Response
 data PutManagedScalingPolicy = PutManagedScalingPolicy'
   { -- | Specifies the ID of an EMR cluster where the managed scaling policy is
     -- attached.
-    clusterId :: Core.Text,
+    clusterId :: Prelude.Text,
     -- | Specifies the constraints for the managed scaling policy.
     managedScalingPolicy :: ManagedScalingPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutManagedScalingPolicy' with all optional fields omitted.
@@ -73,7 +74,7 @@ data PutManagedScalingPolicy = PutManagedScalingPolicy'
 -- 'managedScalingPolicy', 'putManagedScalingPolicy_managedScalingPolicy' - Specifies the constraints for the managed scaling policy.
 newPutManagedScalingPolicy ::
   -- | 'clusterId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'managedScalingPolicy'
   ManagedScalingPolicy ->
   PutManagedScalingPolicy
@@ -87,7 +88,7 @@ newPutManagedScalingPolicy
 
 -- | Specifies the ID of an EMR cluster where the managed scaling policy is
 -- attached.
-putManagedScalingPolicy_clusterId :: Lens.Lens' PutManagedScalingPolicy Core.Text
+putManagedScalingPolicy_clusterId :: Lens.Lens' PutManagedScalingPolicy Prelude.Text
 putManagedScalingPolicy_clusterId = Lens.lens (\PutManagedScalingPolicy' {clusterId} -> clusterId) (\s@PutManagedScalingPolicy' {} a -> s {clusterId = a} :: PutManagedScalingPolicy)
 
 -- | Specifies the constraints for the managed scaling policy.
@@ -103,32 +104,34 @@ instance Core.AWSRequest PutManagedScalingPolicy where
     Response.receiveEmpty
       ( \s h x ->
           PutManagedScalingPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutManagedScalingPolicy
+instance Prelude.Hashable PutManagedScalingPolicy
 
-instance Core.NFData PutManagedScalingPolicy
+instance Prelude.NFData PutManagedScalingPolicy
 
 instance Core.ToHeaders PutManagedScalingPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.PutManagedScalingPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutManagedScalingPolicy where
   toJSON PutManagedScalingPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ClusterId" Core..= clusterId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ClusterId" Core..= clusterId),
+            Prelude.Just
               ( "ManagedScalingPolicy"
                   Core..= managedScalingPolicy
               )
@@ -136,17 +139,17 @@ instance Core.ToJSON PutManagedScalingPolicy where
       )
 
 instance Core.ToPath PutManagedScalingPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutManagedScalingPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutManagedScalingPolicyResponse' smart constructor.
 data PutManagedScalingPolicyResponse = PutManagedScalingPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutManagedScalingPolicyResponse' with all optional fields omitted.
@@ -159,7 +162,7 @@ data PutManagedScalingPolicyResponse = PutManagedScalingPolicyResponse'
 -- 'httpStatus', 'putManagedScalingPolicyResponse_httpStatus' - The response's http status code.
 newPutManagedScalingPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutManagedScalingPolicyResponse
 newPutManagedScalingPolicyResponse pHttpStatus_ =
   PutManagedScalingPolicyResponse'
@@ -168,7 +171,9 @@ newPutManagedScalingPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putManagedScalingPolicyResponse_httpStatus :: Lens.Lens' PutManagedScalingPolicyResponse Core.Int
+putManagedScalingPolicyResponse_httpStatus :: Lens.Lens' PutManagedScalingPolicyResponse Prelude.Int
 putManagedScalingPolicyResponse_httpStatus = Lens.lens (\PutManagedScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@PutManagedScalingPolicyResponse' {} a -> s {httpStatus = a} :: PutManagedScalingPolicyResponse)
 
-instance Core.NFData PutManagedScalingPolicyResponse
+instance
+  Prelude.NFData
+    PutManagedScalingPolicyResponse

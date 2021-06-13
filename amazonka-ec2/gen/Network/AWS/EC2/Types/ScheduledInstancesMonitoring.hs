@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.ScheduledInstancesMonitoring where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes whether monitoring is enabled for a Scheduled Instance.
 --
 -- /See:/ 'newScheduledInstancesMonitoring' smart constructor.
 data ScheduledInstancesMonitoring = ScheduledInstancesMonitoring'
   { -- | Indicates whether monitoring is enabled.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesMonitoring' with all optional fields omitted.
@@ -46,17 +47,19 @@ newScheduledInstancesMonitoring ::
 newScheduledInstancesMonitoring =
   ScheduledInstancesMonitoring'
     { enabled =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Indicates whether monitoring is enabled.
-scheduledInstancesMonitoring_enabled :: Lens.Lens' ScheduledInstancesMonitoring (Core.Maybe Core.Bool)
+scheduledInstancesMonitoring_enabled :: Lens.Lens' ScheduledInstancesMonitoring (Prelude.Maybe Prelude.Bool)
 scheduledInstancesMonitoring_enabled = Lens.lens (\ScheduledInstancesMonitoring' {enabled} -> enabled) (\s@ScheduledInstancesMonitoring' {} a -> s {enabled = a} :: ScheduledInstancesMonitoring)
 
-instance Core.Hashable ScheduledInstancesMonitoring
+instance
+  Prelude.Hashable
+    ScheduledInstancesMonitoring
 
-instance Core.NFData ScheduledInstancesMonitoring
+instance Prelude.NFData ScheduledInstancesMonitoring
 
 instance Core.ToQuery ScheduledInstancesMonitoring where
   toQuery ScheduledInstancesMonitoring' {..} =
-    Core.mconcat ["Enabled" Core.=: enabled]
+    Prelude.mconcat ["Enabled" Core.=: enabled]

@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ data DeleteTransitGatewayConnectPeer = DeleteTransitGatewayConnectPeer'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Connect peer.
-    transitGatewayConnectPeerId :: Core.Text
+    transitGatewayConnectPeerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayConnectPeer' with all optional fields omitted.
@@ -74,13 +75,13 @@ data DeleteTransitGatewayConnectPeer = DeleteTransitGatewayConnectPeer'
 -- 'transitGatewayConnectPeerId', 'deleteTransitGatewayConnectPeer_transitGatewayConnectPeerId' - The ID of the Connect peer.
 newDeleteTransitGatewayConnectPeer ::
   -- | 'transitGatewayConnectPeerId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTransitGatewayConnectPeer
 newDeleteTransitGatewayConnectPeer
   pTransitGatewayConnectPeerId_ =
     DeleteTransitGatewayConnectPeer'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         transitGatewayConnectPeerId =
           pTransitGatewayConnectPeerId_
       }
@@ -89,11 +90,11 @@ newDeleteTransitGatewayConnectPeer
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteTransitGatewayConnectPeer_dryRun :: Lens.Lens' DeleteTransitGatewayConnectPeer (Core.Maybe Core.Bool)
+deleteTransitGatewayConnectPeer_dryRun :: Lens.Lens' DeleteTransitGatewayConnectPeer (Prelude.Maybe Prelude.Bool)
 deleteTransitGatewayConnectPeer_dryRun = Lens.lens (\DeleteTransitGatewayConnectPeer' {dryRun} -> dryRun) (\s@DeleteTransitGatewayConnectPeer' {} a -> s {dryRun = a} :: DeleteTransitGatewayConnectPeer)
 
 -- | The ID of the Connect peer.
-deleteTransitGatewayConnectPeer_transitGatewayConnectPeerId :: Lens.Lens' DeleteTransitGatewayConnectPeer Core.Text
+deleteTransitGatewayConnectPeer_transitGatewayConnectPeerId :: Lens.Lens' DeleteTransitGatewayConnectPeer Prelude.Text
 deleteTransitGatewayConnectPeer_transitGatewayConnectPeerId = Lens.lens (\DeleteTransitGatewayConnectPeer' {transitGatewayConnectPeerId} -> transitGatewayConnectPeerId) (\s@DeleteTransitGatewayConnectPeer' {} a -> s {transitGatewayConnectPeerId = a} :: DeleteTransitGatewayConnectPeer)
 
 instance
@@ -108,33 +109,36 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteTransitGatewayConnectPeerResponse'
-            Core.<$> (x Core..@? "transitGatewayConnectPeer")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGatewayConnectPeer")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteTransitGatewayConnectPeer
 
-instance Core.NFData DeleteTransitGatewayConnectPeer
+instance
+  Prelude.NFData
+    DeleteTransitGatewayConnectPeer
 
 instance
   Core.ToHeaders
     DeleteTransitGatewayConnectPeer
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTransitGatewayConnectPeer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTransitGatewayConnectPeer where
   toQuery DeleteTransitGatewayConnectPeer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DeleteTransitGatewayConnectPeer" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "TransitGatewayConnectPeerId"
           Core.=: transitGatewayConnectPeerId
@@ -143,11 +147,11 @@ instance Core.ToQuery DeleteTransitGatewayConnectPeer where
 -- | /See:/ 'newDeleteTransitGatewayConnectPeerResponse' smart constructor.
 data DeleteTransitGatewayConnectPeerResponse = DeleteTransitGatewayConnectPeerResponse'
   { -- | Information about the deleted Connect peer.
-    transitGatewayConnectPeer :: Core.Maybe TransitGatewayConnectPeer,
+    transitGatewayConnectPeer :: Prelude.Maybe TransitGatewayConnectPeer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayConnectPeerResponse' with all optional fields omitted.
@@ -162,24 +166,24 @@ data DeleteTransitGatewayConnectPeerResponse = DeleteTransitGatewayConnectPeerRe
 -- 'httpStatus', 'deleteTransitGatewayConnectPeerResponse_httpStatus' - The response's http status code.
 newDeleteTransitGatewayConnectPeerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTransitGatewayConnectPeerResponse
 newDeleteTransitGatewayConnectPeerResponse
   pHttpStatus_ =
     DeleteTransitGatewayConnectPeerResponse'
       { transitGatewayConnectPeer =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the deleted Connect peer.
-deleteTransitGatewayConnectPeerResponse_transitGatewayConnectPeer :: Lens.Lens' DeleteTransitGatewayConnectPeerResponse (Core.Maybe TransitGatewayConnectPeer)
+deleteTransitGatewayConnectPeerResponse_transitGatewayConnectPeer :: Lens.Lens' DeleteTransitGatewayConnectPeerResponse (Prelude.Maybe TransitGatewayConnectPeer)
 deleteTransitGatewayConnectPeerResponse_transitGatewayConnectPeer = Lens.lens (\DeleteTransitGatewayConnectPeerResponse' {transitGatewayConnectPeer} -> transitGatewayConnectPeer) (\s@DeleteTransitGatewayConnectPeerResponse' {} a -> s {transitGatewayConnectPeer = a} :: DeleteTransitGatewayConnectPeerResponse)
 
 -- | The response's http status code.
-deleteTransitGatewayConnectPeerResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayConnectPeerResponse Core.Int
+deleteTransitGatewayConnectPeerResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayConnectPeerResponse Prelude.Int
 deleteTransitGatewayConnectPeerResponse_httpStatus = Lens.lens (\DeleteTransitGatewayConnectPeerResponse' {httpStatus} -> httpStatus) (\s@DeleteTransitGatewayConnectPeerResponse' {} a -> s {httpStatus = a} :: DeleteTransitGatewayConnectPeerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteTransitGatewayConnectPeerResponse

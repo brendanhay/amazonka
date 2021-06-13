@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ReplicationTime where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ReplicationTimeStatus
 import Network.AWS.S3.Types.ReplicationTimeValue
@@ -38,7 +39,7 @@ data ReplicationTime = ReplicationTime'
     -- for all objects and operations on objects.
     time :: ReplicationTimeValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationTime' with all optional fields omitted.
@@ -73,13 +74,13 @@ replicationTime_time = Lens.lens (\ReplicationTime' {time} -> time) (\s@Replicat
 instance Core.FromXML ReplicationTime where
   parseXML x =
     ReplicationTime'
-      Core.<$> (x Core..@ "Status") Core.<*> (x Core..@ "Time")
+      Prelude.<$> (x Core..@ "Status") Prelude.<*> (x Core..@ "Time")
 
-instance Core.Hashable ReplicationTime
+instance Prelude.Hashable ReplicationTime
 
-instance Core.NFData ReplicationTime
+instance Prelude.NFData ReplicationTime
 
 instance Core.ToXML ReplicationTime where
   toXML ReplicationTime' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Status" Core.@= status, "Time" Core.@= time]

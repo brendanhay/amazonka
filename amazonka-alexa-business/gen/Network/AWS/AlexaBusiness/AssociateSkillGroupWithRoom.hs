@@ -43,17 +43,18 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateSkillGroupWithRoom' smart constructor.
 data AssociateSkillGroupWithRoom = AssociateSkillGroupWithRoom'
   { -- | The ARN of the room with which to associate the skill group. Required.
-    roomArn :: Core.Maybe Core.Text,
+    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the skill group to associate with a room. Required.
-    skillGroupArn :: Core.Maybe Core.Text
+    skillGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateSkillGroupWithRoom' with all optional fields omitted.
@@ -71,16 +72,16 @@ newAssociateSkillGroupWithRoom ::
 newAssociateSkillGroupWithRoom =
   AssociateSkillGroupWithRoom'
     { roomArn =
-        Core.Nothing,
-      skillGroupArn = Core.Nothing
+        Prelude.Nothing,
+      skillGroupArn = Prelude.Nothing
     }
 
 -- | The ARN of the room with which to associate the skill group. Required.
-associateSkillGroupWithRoom_roomArn :: Lens.Lens' AssociateSkillGroupWithRoom (Core.Maybe Core.Text)
+associateSkillGroupWithRoom_roomArn :: Lens.Lens' AssociateSkillGroupWithRoom (Prelude.Maybe Prelude.Text)
 associateSkillGroupWithRoom_roomArn = Lens.lens (\AssociateSkillGroupWithRoom' {roomArn} -> roomArn) (\s@AssociateSkillGroupWithRoom' {} a -> s {roomArn = a} :: AssociateSkillGroupWithRoom)
 
 -- | The ARN of the skill group to associate with a room. Required.
-associateSkillGroupWithRoom_skillGroupArn :: Lens.Lens' AssociateSkillGroupWithRoom (Core.Maybe Core.Text)
+associateSkillGroupWithRoom_skillGroupArn :: Lens.Lens' AssociateSkillGroupWithRoom (Prelude.Maybe Prelude.Text)
 associateSkillGroupWithRoom_skillGroupArn = Lens.lens (\AssociateSkillGroupWithRoom' {skillGroupArn} -> skillGroupArn) (\s@AssociateSkillGroupWithRoom' {} a -> s {skillGroupArn = a} :: AssociateSkillGroupWithRoom)
 
 instance Core.AWSRequest AssociateSkillGroupWithRoom where
@@ -92,47 +93,49 @@ instance Core.AWSRequest AssociateSkillGroupWithRoom where
     Response.receiveEmpty
       ( \s h x ->
           AssociateSkillGroupWithRoomResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateSkillGroupWithRoom
+instance Prelude.Hashable AssociateSkillGroupWithRoom
 
-instance Core.NFData AssociateSkillGroupWithRoom
+instance Prelude.NFData AssociateSkillGroupWithRoom
 
 instance Core.ToHeaders AssociateSkillGroupWithRoom where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.AssociateSkillGroupWithRoom" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateSkillGroupWithRoom where
   toJSON AssociateSkillGroupWithRoom' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoomArn" Core..=) Core.<$> roomArn,
-            ("SkillGroupArn" Core..=) Core.<$> skillGroupArn
+      ( Prelude.catMaybes
+          [ ("RoomArn" Core..=) Prelude.<$> roomArn,
+            ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn
           ]
       )
 
 instance Core.ToPath AssociateSkillGroupWithRoom where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateSkillGroupWithRoom where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateSkillGroupWithRoomResponse' smart constructor.
 data AssociateSkillGroupWithRoomResponse = AssociateSkillGroupWithRoomResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateSkillGroupWithRoomResponse' with all optional fields omitted.
@@ -145,7 +148,7 @@ data AssociateSkillGroupWithRoomResponse = AssociateSkillGroupWithRoomResponse'
 -- 'httpStatus', 'associateSkillGroupWithRoomResponse_httpStatus' - The response's http status code.
 newAssociateSkillGroupWithRoomResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateSkillGroupWithRoomResponse
 newAssociateSkillGroupWithRoomResponse pHttpStatus_ =
   AssociateSkillGroupWithRoomResponse'
@@ -154,9 +157,9 @@ newAssociateSkillGroupWithRoomResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateSkillGroupWithRoomResponse_httpStatus :: Lens.Lens' AssociateSkillGroupWithRoomResponse Core.Int
+associateSkillGroupWithRoomResponse_httpStatus :: Lens.Lens' AssociateSkillGroupWithRoomResponse Prelude.Int
 associateSkillGroupWithRoomResponse_httpStatus = Lens.lens (\AssociateSkillGroupWithRoomResponse' {httpStatus} -> httpStatus) (\s@AssociateSkillGroupWithRoomResponse' {} a -> s {httpStatus = a} :: AssociateSkillGroupWithRoomResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateSkillGroupWithRoomResponse

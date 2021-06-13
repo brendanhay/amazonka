@@ -22,15 +22,16 @@ module Network.AWS.Glue.Types.CrawlerNodeDetails where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Crawl
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a Crawler node present in the workflow.
 --
 -- /See:/ 'newCrawlerNodeDetails' smart constructor.
 data CrawlerNodeDetails = CrawlerNodeDetails'
   { -- | A list of crawls represented by the crawl node.
-    crawls :: Core.Maybe [Crawl]
+    crawls :: Prelude.Maybe [Crawl]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CrawlerNodeDetails' with all optional fields omitted.
@@ -44,11 +45,11 @@ data CrawlerNodeDetails = CrawlerNodeDetails'
 newCrawlerNodeDetails ::
   CrawlerNodeDetails
 newCrawlerNodeDetails =
-  CrawlerNodeDetails' {crawls = Core.Nothing}
+  CrawlerNodeDetails' {crawls = Prelude.Nothing}
 
 -- | A list of crawls represented by the crawl node.
-crawlerNodeDetails_crawls :: Lens.Lens' CrawlerNodeDetails (Core.Maybe [Crawl])
-crawlerNodeDetails_crawls = Lens.lens (\CrawlerNodeDetails' {crawls} -> crawls) (\s@CrawlerNodeDetails' {} a -> s {crawls = a} :: CrawlerNodeDetails) Core.. Lens.mapping Lens._Coerce
+crawlerNodeDetails_crawls :: Lens.Lens' CrawlerNodeDetails (Prelude.Maybe [Crawl])
+crawlerNodeDetails_crawls = Lens.lens (\CrawlerNodeDetails' {crawls} -> crawls) (\s@CrawlerNodeDetails' {} a -> s {crawls = a} :: CrawlerNodeDetails) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON CrawlerNodeDetails where
   parseJSON =
@@ -56,9 +57,9 @@ instance Core.FromJSON CrawlerNodeDetails where
       "CrawlerNodeDetails"
       ( \x ->
           CrawlerNodeDetails'
-            Core.<$> (x Core..:? "Crawls" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Crawls" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable CrawlerNodeDetails
+instance Prelude.Hashable CrawlerNodeDetails
 
-instance Core.NFData CrawlerNodeDetails
+instance Prelude.NFData CrawlerNodeDetails

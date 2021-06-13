@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -56,9 +57,9 @@ import Network.AWS.SQS.Types
 -- | /See:/ 'newListQueueTags' smart constructor.
 data ListQueueTags = ListQueueTags'
   { -- | The URL of the queue.
-    queueUrl :: Core.Text
+    queueUrl :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListQueueTags' with all optional fields omitted.
@@ -71,13 +72,13 @@ data ListQueueTags = ListQueueTags'
 -- 'queueUrl', 'listQueueTags_queueUrl' - The URL of the queue.
 newListQueueTags ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   ListQueueTags
 newListQueueTags pQueueUrl_ =
   ListQueueTags' {queueUrl = pQueueUrl_}
 
 -- | The URL of the queue.
-listQueueTags_queueUrl :: Lens.Lens' ListQueueTags Core.Text
+listQueueTags_queueUrl :: Lens.Lens' ListQueueTags Prelude.Text
 listQueueTags_queueUrl = Lens.lens (\ListQueueTags' {queueUrl} -> queueUrl) (\s@ListQueueTags' {} a -> s {queueUrl = a} :: ListQueueTags)
 
 instance Core.AWSRequest ListQueueTags where
@@ -90,37 +91,38 @@ instance Core.AWSRequest ListQueueTags where
       "ListQueueTagsResult"
       ( \s h x ->
           ListQueueTagsResponse'
-            Core.<$> (Core.may (Core.parseXMLMap "Tag" "Key" "Value") x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.may (Core.parseXMLMap "Tag" "Key" "Value") x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListQueueTags
+instance Prelude.Hashable ListQueueTags
 
-instance Core.NFData ListQueueTags
+instance Prelude.NFData ListQueueTags
 
 instance Core.ToHeaders ListQueueTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListQueueTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListQueueTags where
   toQuery ListQueueTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListQueueTags" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+          Core.=: ("ListQueueTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueUrl" Core.=: queueUrl
       ]
 
 -- | /See:/ 'newListQueueTagsResponse' smart constructor.
 data ListQueueTagsResponse = ListQueueTagsResponse'
   { -- | The list of all tags added to the specified queue.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListQueueTagsResponse' with all optional fields omitted.
@@ -135,20 +137,20 @@ data ListQueueTagsResponse = ListQueueTagsResponse'
 -- 'httpStatus', 'listQueueTagsResponse_httpStatus' - The response's http status code.
 newListQueueTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListQueueTagsResponse
 newListQueueTagsResponse pHttpStatus_ =
   ListQueueTagsResponse'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of all tags added to the specified queue.
-listQueueTagsResponse_tags :: Lens.Lens' ListQueueTagsResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-listQueueTagsResponse_tags = Lens.lens (\ListQueueTagsResponse' {tags} -> tags) (\s@ListQueueTagsResponse' {} a -> s {tags = a} :: ListQueueTagsResponse) Core.. Lens.mapping Lens._Coerce
+listQueueTagsResponse_tags :: Lens.Lens' ListQueueTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listQueueTagsResponse_tags = Lens.lens (\ListQueueTagsResponse' {tags} -> tags) (\s@ListQueueTagsResponse' {} a -> s {tags = a} :: ListQueueTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listQueueTagsResponse_httpStatus :: Lens.Lens' ListQueueTagsResponse Core.Int
+listQueueTagsResponse_httpStatus :: Lens.Lens' ListQueueTagsResponse Prelude.Int
 listQueueTagsResponse_httpStatus = Lens.lens (\ListQueueTagsResponse' {httpStatus} -> httpStatus) (\s@ListQueueTagsResponse' {} a -> s {httpStatus = a} :: ListQueueTagsResponse)
 
-instance Core.NFData ListQueueTagsResponse
+instance Prelude.NFData ListQueueTagsResponse

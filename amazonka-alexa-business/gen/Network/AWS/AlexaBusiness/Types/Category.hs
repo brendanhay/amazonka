@@ -21,6 +21,7 @@ module Network.AWS.AlexaBusiness.Types.Category where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The skill store category that is shown. Alexa skills are assigned a
 -- specific skill category during creation, such as News, Social, and
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCategory' smart constructor.
 data Category = Category'
   { -- | The ID of the skill store category.
-    categoryId :: Core.Maybe Core.Natural,
+    categoryId :: Prelude.Maybe Prelude.Natural,
     -- | The name of the skill store category.
-    categoryName :: Core.Maybe Core.Text
+    categoryName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Category' with all optional fields omitted.
@@ -50,16 +51,16 @@ newCategory ::
   Category
 newCategory =
   Category'
-    { categoryId = Core.Nothing,
-      categoryName = Core.Nothing
+    { categoryId = Prelude.Nothing,
+      categoryName = Prelude.Nothing
     }
 
 -- | The ID of the skill store category.
-category_categoryId :: Lens.Lens' Category (Core.Maybe Core.Natural)
+category_categoryId :: Lens.Lens' Category (Prelude.Maybe Prelude.Natural)
 category_categoryId = Lens.lens (\Category' {categoryId} -> categoryId) (\s@Category' {} a -> s {categoryId = a} :: Category)
 
 -- | The name of the skill store category.
-category_categoryName :: Lens.Lens' Category (Core.Maybe Core.Text)
+category_categoryName :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
 category_categoryName = Lens.lens (\Category' {categoryName} -> categoryName) (\s@Category' {} a -> s {categoryName = a} :: Category)
 
 instance Core.FromJSON Category where
@@ -68,10 +69,10 @@ instance Core.FromJSON Category where
       "Category"
       ( \x ->
           Category'
-            Core.<$> (x Core..:? "CategoryId")
-            Core.<*> (x Core..:? "CategoryName")
+            Prelude.<$> (x Core..:? "CategoryId")
+            Prelude.<*> (x Core..:? "CategoryName")
       )
 
-instance Core.Hashable Category
+instance Prelude.Hashable Category
 
-instance Core.NFData Category
+instance Prelude.NFData Category

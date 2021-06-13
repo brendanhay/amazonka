@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.NetworkInterfaceAssociation where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes association information for an Elastic IP address (IPv4 only),
 -- or a Carrier IP address (for a network interface which resides in a
@@ -30,24 +31,24 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newNetworkInterfaceAssociation' smart constructor.
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation'
   { -- | The ID of the Elastic IP address owner.
-    ipOwnerId :: Core.Maybe Core.Text,
+    ipOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The carrier IP address associated with the network interface.
     --
     -- This option is only available when the network interface is in a subnet
     -- which is associated with a Wavelength Zone.
-    carrierIp :: Core.Maybe Core.Text,
+    carrierIp :: Prelude.Maybe Prelude.Text,
     -- | The customer-owned IP address associated with the network interface.
-    customerOwnedIp :: Core.Maybe Core.Text,
+    customerOwnedIp :: Prelude.Maybe Prelude.Text,
     -- | The public DNS name.
-    publicDnsName :: Core.Maybe Core.Text,
+    publicDnsName :: Prelude.Maybe Prelude.Text,
     -- | The association ID.
-    associationId :: Core.Maybe Core.Text,
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The address of the Elastic IP address bound to the network interface.
-    publicIp :: Core.Maybe Core.Text,
+    publicIp :: Prelude.Maybe Prelude.Text,
     -- | The allocation ID.
-    allocationId :: Core.Maybe Core.Text
+    allocationId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkInterfaceAssociation' with all optional fields omitted.
@@ -78,57 +79,57 @@ newNetworkInterfaceAssociation ::
 newNetworkInterfaceAssociation =
   NetworkInterfaceAssociation'
     { ipOwnerId =
-        Core.Nothing,
-      carrierIp = Core.Nothing,
-      customerOwnedIp = Core.Nothing,
-      publicDnsName = Core.Nothing,
-      associationId = Core.Nothing,
-      publicIp = Core.Nothing,
-      allocationId = Core.Nothing
+        Prelude.Nothing,
+      carrierIp = Prelude.Nothing,
+      customerOwnedIp = Prelude.Nothing,
+      publicDnsName = Prelude.Nothing,
+      associationId = Prelude.Nothing,
+      publicIp = Prelude.Nothing,
+      allocationId = Prelude.Nothing
     }
 
 -- | The ID of the Elastic IP address owner.
-networkInterfaceAssociation_ipOwnerId :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Core.Text)
+networkInterfaceAssociation_ipOwnerId :: Lens.Lens' NetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 networkInterfaceAssociation_ipOwnerId = Lens.lens (\NetworkInterfaceAssociation' {ipOwnerId} -> ipOwnerId) (\s@NetworkInterfaceAssociation' {} a -> s {ipOwnerId = a} :: NetworkInterfaceAssociation)
 
 -- | The carrier IP address associated with the network interface.
 --
 -- This option is only available when the network interface is in a subnet
 -- which is associated with a Wavelength Zone.
-networkInterfaceAssociation_carrierIp :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Core.Text)
+networkInterfaceAssociation_carrierIp :: Lens.Lens' NetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 networkInterfaceAssociation_carrierIp = Lens.lens (\NetworkInterfaceAssociation' {carrierIp} -> carrierIp) (\s@NetworkInterfaceAssociation' {} a -> s {carrierIp = a} :: NetworkInterfaceAssociation)
 
 -- | The customer-owned IP address associated with the network interface.
-networkInterfaceAssociation_customerOwnedIp :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Core.Text)
+networkInterfaceAssociation_customerOwnedIp :: Lens.Lens' NetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 networkInterfaceAssociation_customerOwnedIp = Lens.lens (\NetworkInterfaceAssociation' {customerOwnedIp} -> customerOwnedIp) (\s@NetworkInterfaceAssociation' {} a -> s {customerOwnedIp = a} :: NetworkInterfaceAssociation)
 
 -- | The public DNS name.
-networkInterfaceAssociation_publicDnsName :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Core.Text)
+networkInterfaceAssociation_publicDnsName :: Lens.Lens' NetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 networkInterfaceAssociation_publicDnsName = Lens.lens (\NetworkInterfaceAssociation' {publicDnsName} -> publicDnsName) (\s@NetworkInterfaceAssociation' {} a -> s {publicDnsName = a} :: NetworkInterfaceAssociation)
 
 -- | The association ID.
-networkInterfaceAssociation_associationId :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Core.Text)
+networkInterfaceAssociation_associationId :: Lens.Lens' NetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 networkInterfaceAssociation_associationId = Lens.lens (\NetworkInterfaceAssociation' {associationId} -> associationId) (\s@NetworkInterfaceAssociation' {} a -> s {associationId = a} :: NetworkInterfaceAssociation)
 
 -- | The address of the Elastic IP address bound to the network interface.
-networkInterfaceAssociation_publicIp :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Core.Text)
+networkInterfaceAssociation_publicIp :: Lens.Lens' NetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 networkInterfaceAssociation_publicIp = Lens.lens (\NetworkInterfaceAssociation' {publicIp} -> publicIp) (\s@NetworkInterfaceAssociation' {} a -> s {publicIp = a} :: NetworkInterfaceAssociation)
 
 -- | The allocation ID.
-networkInterfaceAssociation_allocationId :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Core.Text)
+networkInterfaceAssociation_allocationId :: Lens.Lens' NetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 networkInterfaceAssociation_allocationId = Lens.lens (\NetworkInterfaceAssociation' {allocationId} -> allocationId) (\s@NetworkInterfaceAssociation' {} a -> s {allocationId = a} :: NetworkInterfaceAssociation)
 
 instance Core.FromXML NetworkInterfaceAssociation where
   parseXML x =
     NetworkInterfaceAssociation'
-      Core.<$> (x Core..@? "ipOwnerId")
-      Core.<*> (x Core..@? "carrierIp")
-      Core.<*> (x Core..@? "customerOwnedIp")
-      Core.<*> (x Core..@? "publicDnsName")
-      Core.<*> (x Core..@? "associationId")
-      Core.<*> (x Core..@? "publicIp")
-      Core.<*> (x Core..@? "allocationId")
+      Prelude.<$> (x Core..@? "ipOwnerId")
+      Prelude.<*> (x Core..@? "carrierIp")
+      Prelude.<*> (x Core..@? "customerOwnedIp")
+      Prelude.<*> (x Core..@? "publicDnsName")
+      Prelude.<*> (x Core..@? "associationId")
+      Prelude.<*> (x Core..@? "publicIp")
+      Prelude.<*> (x Core..@? "allocationId")
 
-instance Core.Hashable NetworkInterfaceAssociation
+instance Prelude.Hashable NetworkInterfaceAssociation
 
-instance Core.NFData NetworkInterfaceAssociation
+instance Prelude.NFData NetworkInterfaceAssociation

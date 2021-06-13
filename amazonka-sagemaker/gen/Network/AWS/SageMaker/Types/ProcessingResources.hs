@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ProcessingResources where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingClusterConfig
 
 -- | Identifies the resources, ML compute instances, and ML storage volumes
@@ -33,7 +34,7 @@ data ProcessingResources = ProcessingResources'
     -- processing job.
     clusterConfig :: ProcessingClusterConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessingResources' with all optional fields omitted.
@@ -66,16 +67,18 @@ instance Core.FromJSON ProcessingResources where
       "ProcessingResources"
       ( \x ->
           ProcessingResources'
-            Core.<$> (x Core..: "ClusterConfig")
+            Prelude.<$> (x Core..: "ClusterConfig")
       )
 
-instance Core.Hashable ProcessingResources
+instance Prelude.Hashable ProcessingResources
 
-instance Core.NFData ProcessingResources
+instance Prelude.NFData ProcessingResources
 
 instance Core.ToJSON ProcessingResources where
   toJSON ProcessingResources' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ClusterConfig" Core..= clusterConfig)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ClusterConfig" Core..= clusterConfig)
+          ]
       )

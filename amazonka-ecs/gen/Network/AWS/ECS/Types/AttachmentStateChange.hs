@@ -21,17 +21,18 @@ module Network.AWS.ECS.Types.AttachmentStateChange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a change in state for a task attachment.
 --
 -- /See:/ 'newAttachmentStateChange' smart constructor.
 data AttachmentStateChange = AttachmentStateChange'
   { -- | The Amazon Resource Name (ARN) of the attachment.
-    attachmentArn :: Core.Text,
+    attachmentArn :: Prelude.Text,
     -- | The status of the attachment.
-    status :: Core.Text
+    status :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachmentStateChange' with all optional fields omitted.
@@ -46,9 +47,9 @@ data AttachmentStateChange = AttachmentStateChange'
 -- 'status', 'attachmentStateChange_status' - The status of the attachment.
 newAttachmentStateChange ::
   -- | 'attachmentArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   AttachmentStateChange
 newAttachmentStateChange pAttachmentArn_ pStatus_ =
   AttachmentStateChange'
@@ -58,22 +59,23 @@ newAttachmentStateChange pAttachmentArn_ pStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the attachment.
-attachmentStateChange_attachmentArn :: Lens.Lens' AttachmentStateChange Core.Text
+attachmentStateChange_attachmentArn :: Lens.Lens' AttachmentStateChange Prelude.Text
 attachmentStateChange_attachmentArn = Lens.lens (\AttachmentStateChange' {attachmentArn} -> attachmentArn) (\s@AttachmentStateChange' {} a -> s {attachmentArn = a} :: AttachmentStateChange)
 
 -- | The status of the attachment.
-attachmentStateChange_status :: Lens.Lens' AttachmentStateChange Core.Text
+attachmentStateChange_status :: Lens.Lens' AttachmentStateChange Prelude.Text
 attachmentStateChange_status = Lens.lens (\AttachmentStateChange' {status} -> status) (\s@AttachmentStateChange' {} a -> s {status = a} :: AttachmentStateChange)
 
-instance Core.Hashable AttachmentStateChange
+instance Prelude.Hashable AttachmentStateChange
 
-instance Core.NFData AttachmentStateChange
+instance Prelude.NFData AttachmentStateChange
 
 instance Core.ToJSON AttachmentStateChange where
   toJSON AttachmentStateChange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("attachmentArn" Core..= attachmentArn),
-            Core.Just ("status" Core..= status)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("attachmentArn" Core..= attachmentArn),
+            Prelude.Just ("status" Core..= status)
           ]
       )

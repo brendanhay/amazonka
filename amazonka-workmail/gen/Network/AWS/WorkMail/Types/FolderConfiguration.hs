@@ -21,6 +21,7 @@ module Network.AWS.WorkMail.Types.FolderConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkMail.Types.FolderName
 import Network.AWS.WorkMail.Types.RetentionAction
 
@@ -30,14 +31,14 @@ import Network.AWS.WorkMail.Types.RetentionAction
 -- /See:/ 'newFolderConfiguration' smart constructor.
 data FolderConfiguration = FolderConfiguration'
   { -- | The period of time at which the folder configuration action is applied.
-    period :: Core.Maybe Core.Natural,
+    period :: Prelude.Maybe Prelude.Natural,
     -- | The folder name.
     name :: FolderName,
     -- | The action to take on the folder contents at the end of the folder
     -- configuration period.
     action :: RetentionAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FolderConfiguration' with all optional fields omitted.
@@ -61,13 +62,13 @@ newFolderConfiguration ::
   FolderConfiguration
 newFolderConfiguration pName_ pAction_ =
   FolderConfiguration'
-    { period = Core.Nothing,
+    { period = Prelude.Nothing,
       name = pName_,
       action = pAction_
     }
 
 -- | The period of time at which the folder configuration action is applied.
-folderConfiguration_period :: Lens.Lens' FolderConfiguration (Core.Maybe Core.Natural)
+folderConfiguration_period :: Lens.Lens' FolderConfiguration (Prelude.Maybe Prelude.Natural)
 folderConfiguration_period = Lens.lens (\FolderConfiguration' {period} -> period) (\s@FolderConfiguration' {} a -> s {period = a} :: FolderConfiguration)
 
 -- | The folder name.
@@ -85,21 +86,21 @@ instance Core.FromJSON FolderConfiguration where
       "FolderConfiguration"
       ( \x ->
           FolderConfiguration'
-            Core.<$> (x Core..:? "Period")
-            Core.<*> (x Core..: "Name")
-            Core.<*> (x Core..: "Action")
+            Prelude.<$> (x Core..:? "Period")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "Action")
       )
 
-instance Core.Hashable FolderConfiguration
+instance Prelude.Hashable FolderConfiguration
 
-instance Core.NFData FolderConfiguration
+instance Prelude.NFData FolderConfiguration
 
 instance Core.ToJSON FolderConfiguration where
   toJSON FolderConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Period" Core..=) Core.<$> period,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Action" Core..= action)
+      ( Prelude.catMaybes
+          [ ("Period" Core..=) Prelude.<$> period,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Action" Core..= action)
           ]
       )

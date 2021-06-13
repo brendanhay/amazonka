@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAccessPoint' smart constructor.
 data DeleteAccessPoint = DeleteAccessPoint'
   { -- | The ID of the access point that you want to delete.
-    accessPointId :: Core.Text
+    accessPointId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAccessPoint' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DeleteAccessPoint = DeleteAccessPoint'
 -- 'accessPointId', 'deleteAccessPoint_accessPointId' - The ID of the access point that you want to delete.
 newDeleteAccessPoint ::
   -- | 'accessPointId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAccessPoint
 newDeleteAccessPoint pAccessPointId_ =
   DeleteAccessPoint' {accessPointId = pAccessPointId_}
 
 -- | The ID of the access point that you want to delete.
-deleteAccessPoint_accessPointId :: Lens.Lens' DeleteAccessPoint Core.Text
+deleteAccessPoint_accessPointId :: Lens.Lens' DeleteAccessPoint Prelude.Text
 deleteAccessPoint_accessPointId = Lens.lens (\DeleteAccessPoint' {accessPointId} -> accessPointId) (\s@DeleteAccessPoint' {} a -> s {accessPointId = a} :: DeleteAccessPoint)
 
 instance Core.AWSRequest DeleteAccessPoint where
@@ -82,28 +83,28 @@ instance Core.AWSRequest DeleteAccessPoint where
   response =
     Response.receiveNull DeleteAccessPointResponse'
 
-instance Core.Hashable DeleteAccessPoint
+instance Prelude.Hashable DeleteAccessPoint
 
-instance Core.NFData DeleteAccessPoint
+instance Prelude.NFData DeleteAccessPoint
 
 instance Core.ToHeaders DeleteAccessPoint where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteAccessPoint where
   toPath DeleteAccessPoint' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-02-01/access-points/",
         Core.toBS accessPointId
       ]
 
 instance Core.ToQuery DeleteAccessPoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAccessPointResponse' smart constructor.
 data DeleteAccessPointResponse = DeleteAccessPointResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAccessPointResponse' with all optional fields omitted.
@@ -114,4 +115,4 @@ newDeleteAccessPointResponse ::
 newDeleteAccessPointResponse =
   DeleteAccessPointResponse'
 
-instance Core.NFData DeleteAccessPointResponse
+instance Prelude.NFData DeleteAccessPointResponse

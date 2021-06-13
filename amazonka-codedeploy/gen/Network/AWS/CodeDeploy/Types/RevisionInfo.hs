@@ -23,6 +23,7 @@ import Network.AWS.CodeDeploy.Types.GenericRevisionInfo
 import Network.AWS.CodeDeploy.Types.RevisionLocation
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an application revision.
 --
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data RevisionInfo = RevisionInfo'
   { -- | Information about an application revision, including usage details and
     -- associated deployment groups.
-    genericRevisionInfo :: Core.Maybe GenericRevisionInfo,
+    genericRevisionInfo :: Prelude.Maybe GenericRevisionInfo,
     -- | Information about the location and type of an application revision.
-    revisionLocation :: Core.Maybe RevisionLocation
+    revisionLocation :: Prelude.Maybe RevisionLocation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RevisionInfo' with all optional fields omitted.
@@ -52,17 +53,18 @@ newRevisionInfo ::
   RevisionInfo
 newRevisionInfo =
   RevisionInfo'
-    { genericRevisionInfo = Core.Nothing,
-      revisionLocation = Core.Nothing
+    { genericRevisionInfo =
+        Prelude.Nothing,
+      revisionLocation = Prelude.Nothing
     }
 
 -- | Information about an application revision, including usage details and
 -- associated deployment groups.
-revisionInfo_genericRevisionInfo :: Lens.Lens' RevisionInfo (Core.Maybe GenericRevisionInfo)
+revisionInfo_genericRevisionInfo :: Lens.Lens' RevisionInfo (Prelude.Maybe GenericRevisionInfo)
 revisionInfo_genericRevisionInfo = Lens.lens (\RevisionInfo' {genericRevisionInfo} -> genericRevisionInfo) (\s@RevisionInfo' {} a -> s {genericRevisionInfo = a} :: RevisionInfo)
 
 -- | Information about the location and type of an application revision.
-revisionInfo_revisionLocation :: Lens.Lens' RevisionInfo (Core.Maybe RevisionLocation)
+revisionInfo_revisionLocation :: Lens.Lens' RevisionInfo (Prelude.Maybe RevisionLocation)
 revisionInfo_revisionLocation = Lens.lens (\RevisionInfo' {revisionLocation} -> revisionLocation) (\s@RevisionInfo' {} a -> s {revisionLocation = a} :: RevisionInfo)
 
 instance Core.FromJSON RevisionInfo where
@@ -71,10 +73,10 @@ instance Core.FromJSON RevisionInfo where
       "RevisionInfo"
       ( \x ->
           RevisionInfo'
-            Core.<$> (x Core..:? "genericRevisionInfo")
-            Core.<*> (x Core..:? "revisionLocation")
+            Prelude.<$> (x Core..:? "genericRevisionInfo")
+            Prelude.<*> (x Core..:? "revisionLocation")
       )
 
-instance Core.Hashable RevisionInfo
+instance Prelude.Hashable RevisionInfo
 
-instance Core.NFData RevisionInfo
+instance Prelude.NFData RevisionInfo

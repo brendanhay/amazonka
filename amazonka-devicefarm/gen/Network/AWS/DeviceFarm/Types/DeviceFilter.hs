@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.DeviceFilterAttribute
 import Network.AWS.DeviceFarm.Types.RuleOperator
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a device filter used to select a set of devices to be
 -- included in a test run. This data structure is passed in as the
@@ -36,7 +37,7 @@ import qualified Network.AWS.Lens as Lens
 data DeviceFilter = DeviceFilter'
   { -- | Specifies how Device Farm compares the filter\'s attribute to the value.
     -- See the attribute descriptions.
-    operator :: Core.Maybe RuleOperator,
+    operator :: Prelude.Maybe RuleOperator,
     -- | An array of one or more filter values used in a device filter.
     --
     -- __Operator Values__
@@ -56,7 +57,7 @@ data DeviceFilter = DeviceFilter'
     -- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.
     --
     -- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
-    values :: Core.Maybe [Core.Text],
+    values :: Prelude.Maybe [Prelude.Text],
     -- | The aspect of a device such as platform or model used as the selection
     -- criteria in a device filter.
     --
@@ -132,9 +133,9 @@ data DeviceFilter = DeviceFilter'
     --     The fleet type. Valid values are PUBLIC or PRIVATE.
     --
     --     Supported operators: @EQUALS@
-    attribute :: Core.Maybe DeviceFilterAttribute
+    attribute :: Prelude.Maybe DeviceFilterAttribute
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeviceFilter' with all optional fields omitted.
@@ -246,14 +247,14 @@ newDeviceFilter ::
   DeviceFilter
 newDeviceFilter =
   DeviceFilter'
-    { operator = Core.Nothing,
-      values = Core.Nothing,
-      attribute = Core.Nothing
+    { operator = Prelude.Nothing,
+      values = Prelude.Nothing,
+      attribute = Prelude.Nothing
     }
 
 -- | Specifies how Device Farm compares the filter\'s attribute to the value.
 -- See the attribute descriptions.
-deviceFilter_operator :: Lens.Lens' DeviceFilter (Core.Maybe RuleOperator)
+deviceFilter_operator :: Lens.Lens' DeviceFilter (Prelude.Maybe RuleOperator)
 deviceFilter_operator = Lens.lens (\DeviceFilter' {operator} -> operator) (\s@DeviceFilter' {} a -> s {operator = a} :: DeviceFilter)
 
 -- | An array of one or more filter values used in a device filter.
@@ -275,8 +276,8 @@ deviceFilter_operator = Lens.lens (\DeviceFilter' {operator} -> operator) (\s@De
 -- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.
 --
 -- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
-deviceFilter_values :: Lens.Lens' DeviceFilter (Core.Maybe [Core.Text])
-deviceFilter_values = Lens.lens (\DeviceFilter' {values} -> values) (\s@DeviceFilter' {} a -> s {values = a} :: DeviceFilter) Core.. Lens.mapping Lens._Coerce
+deviceFilter_values :: Lens.Lens' DeviceFilter (Prelude.Maybe [Prelude.Text])
+deviceFilter_values = Lens.lens (\DeviceFilter' {values} -> values) (\s@DeviceFilter' {} a -> s {values = a} :: DeviceFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The aspect of a device such as platform or model used as the selection
 -- criteria in a device filter.
@@ -353,7 +354,7 @@ deviceFilter_values = Lens.lens (\DeviceFilter' {values} -> values) (\s@DeviceFi
 --     The fleet type. Valid values are PUBLIC or PRIVATE.
 --
 --     Supported operators: @EQUALS@
-deviceFilter_attribute :: Lens.Lens' DeviceFilter (Core.Maybe DeviceFilterAttribute)
+deviceFilter_attribute :: Lens.Lens' DeviceFilter (Prelude.Maybe DeviceFilterAttribute)
 deviceFilter_attribute = Lens.lens (\DeviceFilter' {attribute} -> attribute) (\s@DeviceFilter' {} a -> s {attribute = a} :: DeviceFilter)
 
 instance Core.FromJSON DeviceFilter where
@@ -362,21 +363,21 @@ instance Core.FromJSON DeviceFilter where
       "DeviceFilter"
       ( \x ->
           DeviceFilter'
-            Core.<$> (x Core..:? "operator")
-            Core.<*> (x Core..:? "values" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "attribute")
+            Prelude.<$> (x Core..:? "operator")
+            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "attribute")
       )
 
-instance Core.Hashable DeviceFilter
+instance Prelude.Hashable DeviceFilter
 
-instance Core.NFData DeviceFilter
+instance Prelude.NFData DeviceFilter
 
 instance Core.ToJSON DeviceFilter where
   toJSON DeviceFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("operator" Core..=) Core.<$> operator,
-            ("values" Core..=) Core.<$> values,
-            ("attribute" Core..=) Core.<$> attribute
+      ( Prelude.catMaybes
+          [ ("operator" Core..=) Prelude.<$> operator,
+            ("values" Core..=) Prelude.<$> values,
+            ("attribute" Core..=) Prelude.<$> attribute
           ]
       )

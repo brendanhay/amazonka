@@ -21,6 +21,7 @@ import Network.AWS.Lambda.GetFunctionConfiguration
 import Network.AWS.Lambda.Lens
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newFunctionUpdated :: Core.Wait GetFunctionConfiguration
@@ -34,22 +35,22 @@ newFunctionUpdated =
             "Successful"
             Core.AcceptSuccess
             ( functionConfiguration_lastUpdateStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( functionConfiguration_lastUpdateStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "InProgress"
             Core.AcceptRetry
             ( functionConfiguration_lastUpdateStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -80,20 +81,20 @@ newFunctionActive =
         [ Core.matchAll
             "Active"
             Core.AcceptSuccess
-            ( functionConfiguration_state Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( functionConfiguration_state Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
-            ( functionConfiguration_state Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( functionConfiguration_state Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Pending"
             Core.AcceptRetry
-            ( functionConfiguration_state Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( functionConfiguration_state Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

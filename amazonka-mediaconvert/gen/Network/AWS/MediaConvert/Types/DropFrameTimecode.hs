@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.DropFrameTimecode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Applies only to 29.97 fps outputs. When this feature is enabled, the
 -- service will use drop-frame timecode on outputs. If it is not possible
@@ -38,15 +39,15 @@ newtype DropFrameTimecode = DropFrameTimecode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

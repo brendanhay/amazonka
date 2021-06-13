@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.SpotInstanceStateFault where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Spot Instance state change.
 --
 -- /See:/ 'newSpotInstanceStateFault' smart constructor.
 data SpotInstanceStateFault = SpotInstanceStateFault'
   { -- | The message for the Spot Instance state change.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The reason code for the Spot Instance state change.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotInstanceStateFault' with all optional fields omitted.
@@ -49,23 +50,24 @@ newSpotInstanceStateFault ::
   SpotInstanceStateFault
 newSpotInstanceStateFault =
   SpotInstanceStateFault'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The message for the Spot Instance state change.
-spotInstanceStateFault_message :: Lens.Lens' SpotInstanceStateFault (Core.Maybe Core.Text)
+spotInstanceStateFault_message :: Lens.Lens' SpotInstanceStateFault (Prelude.Maybe Prelude.Text)
 spotInstanceStateFault_message = Lens.lens (\SpotInstanceStateFault' {message} -> message) (\s@SpotInstanceStateFault' {} a -> s {message = a} :: SpotInstanceStateFault)
 
 -- | The reason code for the Spot Instance state change.
-spotInstanceStateFault_code :: Lens.Lens' SpotInstanceStateFault (Core.Maybe Core.Text)
+spotInstanceStateFault_code :: Lens.Lens' SpotInstanceStateFault (Prelude.Maybe Prelude.Text)
 spotInstanceStateFault_code = Lens.lens (\SpotInstanceStateFault' {code} -> code) (\s@SpotInstanceStateFault' {} a -> s {code = a} :: SpotInstanceStateFault)
 
 instance Core.FromXML SpotInstanceStateFault where
   parseXML x =
     SpotInstanceStateFault'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable SpotInstanceStateFault
+instance Prelude.Hashable SpotInstanceStateFault
 
-instance Core.NFData SpotInstanceStateFault
+instance Prelude.NFData SpotInstanceStateFault

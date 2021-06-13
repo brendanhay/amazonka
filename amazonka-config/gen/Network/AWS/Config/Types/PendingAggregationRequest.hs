@@ -21,6 +21,7 @@ module Network.AWS.Config.Types.PendingAggregationRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that represents the account ID and region of an aggregator
 -- account that is requesting authorization but is not yet authorized.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPendingAggregationRequest' smart constructor.
 data PendingAggregationRequest = PendingAggregationRequest'
   { -- | The region requesting to aggregate data.
-    requesterAwsRegion :: Core.Maybe Core.Text,
+    requesterAwsRegion :: Prelude.Maybe Prelude.Text,
     -- | The 12-digit account ID of the account requesting to aggregate data.
-    requesterAccountId :: Core.Maybe Core.Text
+    requesterAccountId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PendingAggregationRequest' with all optional fields omitted.
@@ -50,16 +51,16 @@ newPendingAggregationRequest ::
 newPendingAggregationRequest =
   PendingAggregationRequest'
     { requesterAwsRegion =
-        Core.Nothing,
-      requesterAccountId = Core.Nothing
+        Prelude.Nothing,
+      requesterAccountId = Prelude.Nothing
     }
 
 -- | The region requesting to aggregate data.
-pendingAggregationRequest_requesterAwsRegion :: Lens.Lens' PendingAggregationRequest (Core.Maybe Core.Text)
+pendingAggregationRequest_requesterAwsRegion :: Lens.Lens' PendingAggregationRequest (Prelude.Maybe Prelude.Text)
 pendingAggregationRequest_requesterAwsRegion = Lens.lens (\PendingAggregationRequest' {requesterAwsRegion} -> requesterAwsRegion) (\s@PendingAggregationRequest' {} a -> s {requesterAwsRegion = a} :: PendingAggregationRequest)
 
 -- | The 12-digit account ID of the account requesting to aggregate data.
-pendingAggregationRequest_requesterAccountId :: Lens.Lens' PendingAggregationRequest (Core.Maybe Core.Text)
+pendingAggregationRequest_requesterAccountId :: Lens.Lens' PendingAggregationRequest (Prelude.Maybe Prelude.Text)
 pendingAggregationRequest_requesterAccountId = Lens.lens (\PendingAggregationRequest' {requesterAccountId} -> requesterAccountId) (\s@PendingAggregationRequest' {} a -> s {requesterAccountId = a} :: PendingAggregationRequest)
 
 instance Core.FromJSON PendingAggregationRequest where
@@ -68,10 +69,10 @@ instance Core.FromJSON PendingAggregationRequest where
       "PendingAggregationRequest"
       ( \x ->
           PendingAggregationRequest'
-            Core.<$> (x Core..:? "RequesterAwsRegion")
-            Core.<*> (x Core..:? "RequesterAccountId")
+            Prelude.<$> (x Core..:? "RequesterAwsRegion")
+            Prelude.<*> (x Core..:? "RequesterAccountId")
       )
 
-instance Core.Hashable PendingAggregationRequest
+instance Prelude.Hashable PendingAggregationRequest
 
-instance Core.NFData PendingAggregationRequest
+instance Prelude.NFData PendingAggregationRequest

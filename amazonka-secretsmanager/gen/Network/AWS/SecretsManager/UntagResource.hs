@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -87,7 +88,7 @@ data UntagResource = UntagResource'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Core.Text,
+    secretId :: Prelude.Text,
     -- | A list of tag key names to remove from the secret. You don\'t specify
     -- the value. Both the key and its associated value are removed.
     --
@@ -96,9 +97,9 @@ data UntagResource = UntagResource'
     -- line tool environments, see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
     -- in the /AWS CLI User Guide/.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -141,12 +142,12 @@ data UntagResource = UntagResource'
 -- in the /AWS CLI User Guide/.
 newUntagResource ::
   -- | 'secretId'
-  Core.Text ->
+  Prelude.Text ->
   UntagResource
 newUntagResource pSecretId_ =
   UntagResource'
     { secretId = pSecretId_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The identifier for the secret that you want to remove tags from. You can
@@ -171,7 +172,7 @@ newUntagResource pSecretId_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-untagResource_secretId :: Lens.Lens' UntagResource Core.Text
+untagResource_secretId :: Lens.Lens' UntagResource Prelude.Text
 untagResource_secretId = Lens.lens (\UntagResource' {secretId} -> secretId) (\s@UntagResource' {} a -> s {secretId = a} :: UntagResource)
 
 -- | A list of tag key names to remove from the secret. You don\'t specify
@@ -182,8 +183,8 @@ untagResource_secretId = Lens.lens (\UntagResource' {secretId} -> secretId) (\s@
 -- line tool environments, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
 -- in the /AWS CLI User Guide/.
-untagResource_tagKeys :: Lens.Lens' UntagResource [Core.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Core.. Lens._Coerce
+untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagResource where
   type
@@ -193,41 +194,45 @@ instance Core.AWSRequest UntagResource where
   response =
     Response.receiveNull UntagResourceResponse'
 
-instance Core.Hashable UntagResource
+instance Prelude.Hashable UntagResource
 
-instance Core.NFData UntagResource
+instance Prelude.NFData UntagResource
 
 instance Core.ToHeaders UntagResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("secretsmanager.UntagResource" :: Core.ByteString),
+              Core.=# ( "secretsmanager.UntagResource" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UntagResource where
   toJSON UntagResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("SecretId" Core..= secretId),
-            Core.Just ("TagKeys" Core..= tagKeys)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("SecretId" Core..= secretId),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
 instance Core.ToPath UntagResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResourceResponse' with all optional fields omitted.
@@ -237,4 +242,4 @@ newUntagResourceResponse ::
   UntagResourceResponse
 newUntagResourceResponse = UntagResourceResponse'
 
-instance Core.NFData UntagResourceResponse
+instance Prelude.NFData UntagResourceResponse

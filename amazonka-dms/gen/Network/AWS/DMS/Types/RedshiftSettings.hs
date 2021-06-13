@@ -22,6 +22,7 @@ module Network.AWS.DMS.Types.RedshiftSettings where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.EncryptionModeValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information that defines an Amazon Redshift endpoint.
 --
@@ -30,13 +31,13 @@ data RedshiftSettings = RedshiftSettings'
   { -- | A value that specifies to replaces the invalid characters specified in
     -- @ReplaceInvalidChars@, substituting the specified characters instead.
     -- The default is @\"?\"@.
-    replaceChars :: Core.Maybe Core.Text,
+    replaceChars :: Prelude.Maybe Prelude.Text,
     -- | If Amazon Redshift is configured to support case sensitive schema names,
     -- set @CaseSensitiveNames@ to @true@. The default is @false@.
-    caseSensitiveNames :: Core.Maybe Core.Bool,
+    caseSensitiveNames :: Prelude.Maybe Prelude.Bool,
     -- | The name of the intermediate S3 bucket used to store .csv files before
     -- uploading data to Redshift.
-    bucketName :: Core.Maybe Core.Text,
+    bucketName :: Prelude.Maybe Prelude.Text,
     -- | The number of threads used to upload a single file. This parameter
     -- accepts a value from 1 through 64. It defaults to 10.
     --
@@ -46,13 +47,13 @@ data RedshiftSettings = RedshiftSettings'
     --
     -- @FileTransferUploadStreams@ accepts a value from 1 through 64. It
     -- defaults to 10.
-    fileTransferUploadStreams :: Core.Maybe Core.Int,
+    fileTransferUploadStreams :: Prelude.Maybe Prelude.Int,
     -- | A list of characters that you want to replace. Use with @ReplaceChars@.
-    replaceInvalidChars :: Core.Maybe Core.Text,
+    replaceInvalidChars :: Prelude.Maybe Prelude.Text,
     -- | The AWS KMS key ID. If you are using @SSE_KMS@ for the @EncryptionMode@,
     -- provide this key ID. The key that you use needs an attached policy that
     -- enables IAM user permissions and allows use of the key.
-    serverSideEncryptionKmsKeyId :: Core.Maybe Core.Text,
+    serverSideEncryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time format that you want to use. Valid values are @auto@
     -- (case-sensitive), @\'timeformat_string\'@, @\'epochsecs\'@, or
     -- @\'epochmillisecs\'@. It defaults to 10. Using @auto@ recognizes most
@@ -61,14 +62,14 @@ data RedshiftSettings = RedshiftSettings'
     --
     -- If your date and time values use formats different from each other, set
     -- this parameter to @auto@.
-    timeFormat :: Core.Maybe Core.Text,
+    timeFormat :: Prelude.Maybe Prelude.Text,
     -- | The size (in KB) of the in-memory file write buffer used when generating
     -- .csv files on the local disk at the DMS replication instance. The
     -- default value is 1000 (buffer size is 1000KB).
-    writeBufferSize :: Core.Maybe Core.Int,
+    writeBufferSize :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the IAM role that has access to the
     -- Amazon Redshift service.
-    serviceAccessRoleArn :: Core.Maybe Core.Text,
+    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | An S3 folder where the comma-separated-value (.csv) files are stored
     -- before being uploaded to the target Redshift cluster.
     --
@@ -83,23 +84,23 @@ data RedshiftSettings = RedshiftSettings'
     -- For change-data-capture (CDC) mode, AWS DMS creates a /NetChanges/
     -- table, and loads the .csv files to this
     -- /BucketFolder\/NetChangesTableID/ path.
-    bucketFolder :: Core.Maybe Core.Text,
+    bucketFolder :: Prelude.Maybe Prelude.Text,
     -- | A value that sets the amount of time to wait (in milliseconds) before
     -- timing out, beginning from when you initially establish a connection.
-    connectionTimeout :: Core.Maybe Core.Int,
+    connectionTimeout :: Prelude.Maybe Prelude.Int,
     -- | The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerSecret@ that contains the Amazon Redshift endpoint
     -- connection details.
-    secretsManagerSecretId :: Core.Maybe Core.Text,
+    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | The amount of time to wait (in milliseconds) before timing out of
     -- operations performed by AWS DMS on a Redshift cluster, such as Redshift
     -- COPY, INSERT, DELETE, and UPDATE.
-    loadTimeout :: Core.Maybe Core.Int,
+    loadTimeout :: Prelude.Maybe Prelude.Int,
     -- | Code to run after connecting. This parameter should contain the code
     -- itself, not the name of a file containing the code.
-    afterConnectScript :: Core.Maybe Core.Text,
+    afterConnectScript :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Redshift cluster you are using.
-    serverName :: Core.Maybe Core.Text,
+    serverName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates to allow any date format, including invalid
     -- formats such as 00\/00\/00 00:00:00, to be loaded without generating an
     -- error. You can choose @true@ or @false@ (the default).
@@ -108,18 +109,18 @@ data RedshiftSettings = RedshiftSettings'
     -- ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the
     -- data doesn\'t match the DATEFORMAT specification, Amazon Redshift
     -- inserts a NULL value into that field.
-    acceptAnyDate :: Core.Maybe Core.Bool,
+    acceptAnyDate :: Prelude.Maybe Prelude.Bool,
     -- | The maximum size (in KB) of any .csv file used to load data on an S3
     -- bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1
     -- GB).
-    maxFileSize :: Core.Maybe Core.Int,
+    maxFileSize :: Prelude.Maybe Prelude.Int,
     -- | A value that specifies to remove surrounding quotation marks from
     -- strings in the incoming data. All characters within the quotation marks,
     -- including delimiters, are retained. Choose @true@ to remove quotation
     -- marks. The default is @false@.
-    removeQuotes :: Core.Maybe Core.Bool,
+    removeQuotes :: Prelude.Maybe Prelude.Bool,
     -- | The password for the user named in the @username@ property.
-    password :: Core.Maybe (Core.Sensitive Core.Text),
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The date format that you are using. Valid values are @auto@
     -- (case-sensitive), your date format string enclosed in quotes, or NULL.
     -- If this parameter is left unset (NULL), it defaults to a format of
@@ -128,7 +129,7 @@ data RedshiftSettings = RedshiftSettings'
     --
     -- If your date and time values use formats different from each other, set
     -- this to @auto@.
-    dateFormat :: Core.Maybe Core.Text,
+    dateFormat :: Prelude.Maybe Prelude.Text,
     -- | The type of server-side encryption that you want to use for your data.
     -- This encryption type is part of the endpoint settings or the extra
     -- connections attributes for Amazon S3. You can choose either @SSE_S3@
@@ -141,15 +142,15 @@ data RedshiftSettings = RedshiftSettings'
     -- To use @SSE_S3@, create an AWS Identity and Access Management (IAM) role
     -- with a policy that allows @\"arn:aws:s3:::*\"@ to use the following
     -- actions: @\"s3:PutObject\", \"s3:ListBucket\"@
-    encryptionMode :: Core.Maybe EncryptionModeValue,
+    encryptionMode :: Prelude.Maybe EncryptionModeValue,
     -- | A value that specifies whether AWS DMS should migrate empty CHAR and
     -- VARCHAR fields as NULL. A value of @true@ sets empty CHAR and VARCHAR
     -- fields to null. The default is @false@.
-    emptyAsNull :: Core.Maybe Core.Bool,
+    emptyAsNull :: Prelude.Maybe Prelude.Bool,
     -- | The port number for Amazon Redshift. The default value is 5439.
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | An Amazon Redshift user name for a registered user.
-    username :: Core.Maybe Core.Text,
+    username :: Prelude.Maybe Prelude.Text,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
     -- DMS as the trusted entity and grants the required permissions to access
     -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
@@ -164,34 +165,34 @@ data RedshiftSettings = RedshiftSettings'
     -- @SecretsManagerSecretId@ required to access it, see
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
     -- in the /AWS Database Migration Service User Guide/.
-    secretsManagerAccessRoleArn :: Core.Maybe Core.Text,
+    secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A value that specifies to remove the trailing white space characters
     -- from a VARCHAR string. This parameter applies only to columns with a
     -- VARCHAR data type. Choose @true@ to remove unneeded white space. The
     -- default is @false@.
-    trimBlanks :: Core.Maybe Core.Bool,
+    trimBlanks :: Prelude.Maybe Prelude.Bool,
     -- | A value that specifies to truncate data in columns to the appropriate
     -- number of characters, so that the data fits in the column. This
     -- parameter applies only to columns with a VARCHAR or CHAR data type, and
     -- rows with a size of 4 MB or less. Choose @true@ to truncate data. The
     -- default is @false@.
-    truncateColumns :: Core.Maybe Core.Bool,
+    truncateColumns :: Prelude.Maybe Prelude.Bool,
     -- | If you set @CompUpdate@ to @true@ Amazon Redshift applies automatic
     -- compression if the table is empty. This applies even if the table
     -- columns already have encodings other than @RAW@. If you set @CompUpdate@
     -- to @false@, automatic compression is disabled and existing column
     -- encodings aren\'t changed. The default is @true@.
-    compUpdate :: Core.Maybe Core.Bool,
+    compUpdate :: Prelude.Maybe Prelude.Bool,
     -- | This setting is only valid for a full-load migration task. Set
     -- @ExplicitIds@ to @true@ to have tables with @IDENTITY@ columns override
     -- their auto-generated values with explicit values loaded from the source
     -- data files used to populate the tables. The default is @false@.
-    explicitIds :: Core.Maybe Core.Bool,
+    explicitIds :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Amazon Redshift data warehouse (service) that you are
     -- working with.
-    databaseName :: Core.Maybe Core.Text
+    databaseName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RedshiftSettings' with all optional fields omitted.
@@ -367,52 +368,52 @@ newRedshiftSettings ::
   RedshiftSettings
 newRedshiftSettings =
   RedshiftSettings'
-    { replaceChars = Core.Nothing,
-      caseSensitiveNames = Core.Nothing,
-      bucketName = Core.Nothing,
-      fileTransferUploadStreams = Core.Nothing,
-      replaceInvalidChars = Core.Nothing,
-      serverSideEncryptionKmsKeyId = Core.Nothing,
-      timeFormat = Core.Nothing,
-      writeBufferSize = Core.Nothing,
-      serviceAccessRoleArn = Core.Nothing,
-      bucketFolder = Core.Nothing,
-      connectionTimeout = Core.Nothing,
-      secretsManagerSecretId = Core.Nothing,
-      loadTimeout = Core.Nothing,
-      afterConnectScript = Core.Nothing,
-      serverName = Core.Nothing,
-      acceptAnyDate = Core.Nothing,
-      maxFileSize = Core.Nothing,
-      removeQuotes = Core.Nothing,
-      password = Core.Nothing,
-      dateFormat = Core.Nothing,
-      encryptionMode = Core.Nothing,
-      emptyAsNull = Core.Nothing,
-      port = Core.Nothing,
-      username = Core.Nothing,
-      secretsManagerAccessRoleArn = Core.Nothing,
-      trimBlanks = Core.Nothing,
-      truncateColumns = Core.Nothing,
-      compUpdate = Core.Nothing,
-      explicitIds = Core.Nothing,
-      databaseName = Core.Nothing
+    { replaceChars = Prelude.Nothing,
+      caseSensitiveNames = Prelude.Nothing,
+      bucketName = Prelude.Nothing,
+      fileTransferUploadStreams = Prelude.Nothing,
+      replaceInvalidChars = Prelude.Nothing,
+      serverSideEncryptionKmsKeyId = Prelude.Nothing,
+      timeFormat = Prelude.Nothing,
+      writeBufferSize = Prelude.Nothing,
+      serviceAccessRoleArn = Prelude.Nothing,
+      bucketFolder = Prelude.Nothing,
+      connectionTimeout = Prelude.Nothing,
+      secretsManagerSecretId = Prelude.Nothing,
+      loadTimeout = Prelude.Nothing,
+      afterConnectScript = Prelude.Nothing,
+      serverName = Prelude.Nothing,
+      acceptAnyDate = Prelude.Nothing,
+      maxFileSize = Prelude.Nothing,
+      removeQuotes = Prelude.Nothing,
+      password = Prelude.Nothing,
+      dateFormat = Prelude.Nothing,
+      encryptionMode = Prelude.Nothing,
+      emptyAsNull = Prelude.Nothing,
+      port = Prelude.Nothing,
+      username = Prelude.Nothing,
+      secretsManagerAccessRoleArn = Prelude.Nothing,
+      trimBlanks = Prelude.Nothing,
+      truncateColumns = Prelude.Nothing,
+      compUpdate = Prelude.Nothing,
+      explicitIds = Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
 
 -- | A value that specifies to replaces the invalid characters specified in
 -- @ReplaceInvalidChars@, substituting the specified characters instead.
 -- The default is @\"?\"@.
-redshiftSettings_replaceChars :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_replaceChars :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_replaceChars = Lens.lens (\RedshiftSettings' {replaceChars} -> replaceChars) (\s@RedshiftSettings' {} a -> s {replaceChars = a} :: RedshiftSettings)
 
 -- | If Amazon Redshift is configured to support case sensitive schema names,
 -- set @CaseSensitiveNames@ to @true@. The default is @false@.
-redshiftSettings_caseSensitiveNames :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Bool)
+redshiftSettings_caseSensitiveNames :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
 redshiftSettings_caseSensitiveNames = Lens.lens (\RedshiftSettings' {caseSensitiveNames} -> caseSensitiveNames) (\s@RedshiftSettings' {} a -> s {caseSensitiveNames = a} :: RedshiftSettings)
 
 -- | The name of the intermediate S3 bucket used to store .csv files before
 -- uploading data to Redshift.
-redshiftSettings_bucketName :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_bucketName :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_bucketName = Lens.lens (\RedshiftSettings' {bucketName} -> bucketName) (\s@RedshiftSettings' {} a -> s {bucketName = a} :: RedshiftSettings)
 
 -- | The number of threads used to upload a single file. This parameter
@@ -424,17 +425,17 @@ redshiftSettings_bucketName = Lens.lens (\RedshiftSettings' {bucketName} -> buck
 --
 -- @FileTransferUploadStreams@ accepts a value from 1 through 64. It
 -- defaults to 10.
-redshiftSettings_fileTransferUploadStreams :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Int)
+redshiftSettings_fileTransferUploadStreams :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Int)
 redshiftSettings_fileTransferUploadStreams = Lens.lens (\RedshiftSettings' {fileTransferUploadStreams} -> fileTransferUploadStreams) (\s@RedshiftSettings' {} a -> s {fileTransferUploadStreams = a} :: RedshiftSettings)
 
 -- | A list of characters that you want to replace. Use with @ReplaceChars@.
-redshiftSettings_replaceInvalidChars :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_replaceInvalidChars :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_replaceInvalidChars = Lens.lens (\RedshiftSettings' {replaceInvalidChars} -> replaceInvalidChars) (\s@RedshiftSettings' {} a -> s {replaceInvalidChars = a} :: RedshiftSettings)
 
 -- | The AWS KMS key ID. If you are using @SSE_KMS@ for the @EncryptionMode@,
 -- provide this key ID. The key that you use needs an attached policy that
 -- enables IAM user permissions and allows use of the key.
-redshiftSettings_serverSideEncryptionKmsKeyId :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_serverSideEncryptionKmsKeyId :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_serverSideEncryptionKmsKeyId = Lens.lens (\RedshiftSettings' {serverSideEncryptionKmsKeyId} -> serverSideEncryptionKmsKeyId) (\s@RedshiftSettings' {} a -> s {serverSideEncryptionKmsKeyId = a} :: RedshiftSettings)
 
 -- | The time format that you want to use. Valid values are @auto@
@@ -445,18 +446,18 @@ redshiftSettings_serverSideEncryptionKmsKeyId = Lens.lens (\RedshiftSettings' {s
 --
 -- If your date and time values use formats different from each other, set
 -- this parameter to @auto@.
-redshiftSettings_timeFormat :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_timeFormat :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_timeFormat = Lens.lens (\RedshiftSettings' {timeFormat} -> timeFormat) (\s@RedshiftSettings' {} a -> s {timeFormat = a} :: RedshiftSettings)
 
 -- | The size (in KB) of the in-memory file write buffer used when generating
 -- .csv files on the local disk at the DMS replication instance. The
 -- default value is 1000 (buffer size is 1000KB).
-redshiftSettings_writeBufferSize :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Int)
+redshiftSettings_writeBufferSize :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Int)
 redshiftSettings_writeBufferSize = Lens.lens (\RedshiftSettings' {writeBufferSize} -> writeBufferSize) (\s@RedshiftSettings' {} a -> s {writeBufferSize = a} :: RedshiftSettings)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that has access to the
 -- Amazon Redshift service.
-redshiftSettings_serviceAccessRoleArn :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_serviceAccessRoleArn :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_serviceAccessRoleArn = Lens.lens (\RedshiftSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@RedshiftSettings' {} a -> s {serviceAccessRoleArn = a} :: RedshiftSettings)
 
 -- | An S3 folder where the comma-separated-value (.csv) files are stored
@@ -473,33 +474,33 @@ redshiftSettings_serviceAccessRoleArn = Lens.lens (\RedshiftSettings' {serviceAc
 -- For change-data-capture (CDC) mode, AWS DMS creates a /NetChanges/
 -- table, and loads the .csv files to this
 -- /BucketFolder\/NetChangesTableID/ path.
-redshiftSettings_bucketFolder :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_bucketFolder :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_bucketFolder = Lens.lens (\RedshiftSettings' {bucketFolder} -> bucketFolder) (\s@RedshiftSettings' {} a -> s {bucketFolder = a} :: RedshiftSettings)
 
 -- | A value that sets the amount of time to wait (in milliseconds) before
 -- timing out, beginning from when you initially establish a connection.
-redshiftSettings_connectionTimeout :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Int)
+redshiftSettings_connectionTimeout :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Int)
 redshiftSettings_connectionTimeout = Lens.lens (\RedshiftSettings' {connectionTimeout} -> connectionTimeout) (\s@RedshiftSettings' {} a -> s {connectionTimeout = a} :: RedshiftSettings)
 
 -- | The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the Amazon Redshift endpoint
 -- connection details.
-redshiftSettings_secretsManagerSecretId :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_secretsManagerSecretId :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_secretsManagerSecretId = Lens.lens (\RedshiftSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@RedshiftSettings' {} a -> s {secretsManagerSecretId = a} :: RedshiftSettings)
 
 -- | The amount of time to wait (in milliseconds) before timing out of
 -- operations performed by AWS DMS on a Redshift cluster, such as Redshift
 -- COPY, INSERT, DELETE, and UPDATE.
-redshiftSettings_loadTimeout :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Int)
+redshiftSettings_loadTimeout :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Int)
 redshiftSettings_loadTimeout = Lens.lens (\RedshiftSettings' {loadTimeout} -> loadTimeout) (\s@RedshiftSettings' {} a -> s {loadTimeout = a} :: RedshiftSettings)
 
 -- | Code to run after connecting. This parameter should contain the code
 -- itself, not the name of a file containing the code.
-redshiftSettings_afterConnectScript :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_afterConnectScript :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_afterConnectScript = Lens.lens (\RedshiftSettings' {afterConnectScript} -> afterConnectScript) (\s@RedshiftSettings' {} a -> s {afterConnectScript = a} :: RedshiftSettings)
 
 -- | The name of the Amazon Redshift cluster you are using.
-redshiftSettings_serverName :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_serverName :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_serverName = Lens.lens (\RedshiftSettings' {serverName} -> serverName) (\s@RedshiftSettings' {} a -> s {serverName = a} :: RedshiftSettings)
 
 -- | A value that indicates to allow any date format, including invalid
@@ -510,25 +511,25 @@ redshiftSettings_serverName = Lens.lens (\RedshiftSettings' {serverName} -> serv
 -- ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the
 -- data doesn\'t match the DATEFORMAT specification, Amazon Redshift
 -- inserts a NULL value into that field.
-redshiftSettings_acceptAnyDate :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Bool)
+redshiftSettings_acceptAnyDate :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
 redshiftSettings_acceptAnyDate = Lens.lens (\RedshiftSettings' {acceptAnyDate} -> acceptAnyDate) (\s@RedshiftSettings' {} a -> s {acceptAnyDate = a} :: RedshiftSettings)
 
 -- | The maximum size (in KB) of any .csv file used to load data on an S3
 -- bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1
 -- GB).
-redshiftSettings_maxFileSize :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Int)
+redshiftSettings_maxFileSize :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Int)
 redshiftSettings_maxFileSize = Lens.lens (\RedshiftSettings' {maxFileSize} -> maxFileSize) (\s@RedshiftSettings' {} a -> s {maxFileSize = a} :: RedshiftSettings)
 
 -- | A value that specifies to remove surrounding quotation marks from
 -- strings in the incoming data. All characters within the quotation marks,
 -- including delimiters, are retained. Choose @true@ to remove quotation
 -- marks. The default is @false@.
-redshiftSettings_removeQuotes :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Bool)
+redshiftSettings_removeQuotes :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
 redshiftSettings_removeQuotes = Lens.lens (\RedshiftSettings' {removeQuotes} -> removeQuotes) (\s@RedshiftSettings' {} a -> s {removeQuotes = a} :: RedshiftSettings)
 
 -- | The password for the user named in the @username@ property.
-redshiftSettings_password :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
-redshiftSettings_password = Lens.lens (\RedshiftSettings' {password} -> password) (\s@RedshiftSettings' {} a -> s {password = a} :: RedshiftSettings) Core.. Lens.mapping Core._Sensitive
+redshiftSettings_password :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
+redshiftSettings_password = Lens.lens (\RedshiftSettings' {password} -> password) (\s@RedshiftSettings' {} a -> s {password = a} :: RedshiftSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The date format that you are using. Valid values are @auto@
 -- (case-sensitive), your date format string enclosed in quotes, or NULL.
@@ -538,7 +539,7 @@ redshiftSettings_password = Lens.lens (\RedshiftSettings' {password} -> password
 --
 -- If your date and time values use formats different from each other, set
 -- this to @auto@.
-redshiftSettings_dateFormat :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_dateFormat :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_dateFormat = Lens.lens (\RedshiftSettings' {dateFormat} -> dateFormat) (\s@RedshiftSettings' {} a -> s {dateFormat = a} :: RedshiftSettings)
 
 -- | The type of server-side encryption that you want to use for your data.
@@ -553,21 +554,21 @@ redshiftSettings_dateFormat = Lens.lens (\RedshiftSettings' {dateFormat} -> date
 -- To use @SSE_S3@, create an AWS Identity and Access Management (IAM) role
 -- with a policy that allows @\"arn:aws:s3:::*\"@ to use the following
 -- actions: @\"s3:PutObject\", \"s3:ListBucket\"@
-redshiftSettings_encryptionMode :: Lens.Lens' RedshiftSettings (Core.Maybe EncryptionModeValue)
+redshiftSettings_encryptionMode :: Lens.Lens' RedshiftSettings (Prelude.Maybe EncryptionModeValue)
 redshiftSettings_encryptionMode = Lens.lens (\RedshiftSettings' {encryptionMode} -> encryptionMode) (\s@RedshiftSettings' {} a -> s {encryptionMode = a} :: RedshiftSettings)
 
 -- | A value that specifies whether AWS DMS should migrate empty CHAR and
 -- VARCHAR fields as NULL. A value of @true@ sets empty CHAR and VARCHAR
 -- fields to null. The default is @false@.
-redshiftSettings_emptyAsNull :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Bool)
+redshiftSettings_emptyAsNull :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
 redshiftSettings_emptyAsNull = Lens.lens (\RedshiftSettings' {emptyAsNull} -> emptyAsNull) (\s@RedshiftSettings' {} a -> s {emptyAsNull = a} :: RedshiftSettings)
 
 -- | The port number for Amazon Redshift. The default value is 5439.
-redshiftSettings_port :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Int)
+redshiftSettings_port :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Int)
 redshiftSettings_port = Lens.lens (\RedshiftSettings' {port} -> port) (\s@RedshiftSettings' {} a -> s {port = a} :: RedshiftSettings)
 
 -- | An Amazon Redshift user name for a registered user.
-redshiftSettings_username :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_username :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_username = Lens.lens (\RedshiftSettings' {username} -> username) (\s@RedshiftSettings' {} a -> s {username = a} :: RedshiftSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
@@ -584,14 +585,14 @@ redshiftSettings_username = Lens.lens (\RedshiftSettings' {username} -> username
 -- @SecretsManagerSecretId@ required to access it, see
 -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
 -- in the /AWS Database Migration Service User Guide/.
-redshiftSettings_secretsManagerAccessRoleArn :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_secretsManagerAccessRoleArn :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_secretsManagerAccessRoleArn = Lens.lens (\RedshiftSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@RedshiftSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: RedshiftSettings)
 
 -- | A value that specifies to remove the trailing white space characters
 -- from a VARCHAR string. This parameter applies only to columns with a
 -- VARCHAR data type. Choose @true@ to remove unneeded white space. The
 -- default is @false@.
-redshiftSettings_trimBlanks :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Bool)
+redshiftSettings_trimBlanks :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
 redshiftSettings_trimBlanks = Lens.lens (\RedshiftSettings' {trimBlanks} -> trimBlanks) (\s@RedshiftSettings' {} a -> s {trimBlanks = a} :: RedshiftSettings)
 
 -- | A value that specifies to truncate data in columns to the appropriate
@@ -599,7 +600,7 @@ redshiftSettings_trimBlanks = Lens.lens (\RedshiftSettings' {trimBlanks} -> trim
 -- parameter applies only to columns with a VARCHAR or CHAR data type, and
 -- rows with a size of 4 MB or less. Choose @true@ to truncate data. The
 -- default is @false@.
-redshiftSettings_truncateColumns :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Bool)
+redshiftSettings_truncateColumns :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
 redshiftSettings_truncateColumns = Lens.lens (\RedshiftSettings' {truncateColumns} -> truncateColumns) (\s@RedshiftSettings' {} a -> s {truncateColumns = a} :: RedshiftSettings)
 
 -- | If you set @CompUpdate@ to @true@ Amazon Redshift applies automatic
@@ -607,19 +608,19 @@ redshiftSettings_truncateColumns = Lens.lens (\RedshiftSettings' {truncateColumn
 -- columns already have encodings other than @RAW@. If you set @CompUpdate@
 -- to @false@, automatic compression is disabled and existing column
 -- encodings aren\'t changed. The default is @true@.
-redshiftSettings_compUpdate :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Bool)
+redshiftSettings_compUpdate :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
 redshiftSettings_compUpdate = Lens.lens (\RedshiftSettings' {compUpdate} -> compUpdate) (\s@RedshiftSettings' {} a -> s {compUpdate = a} :: RedshiftSettings)
 
 -- | This setting is only valid for a full-load migration task. Set
 -- @ExplicitIds@ to @true@ to have tables with @IDENTITY@ columns override
 -- their auto-generated values with explicit values loaded from the source
 -- data files used to populate the tables. The default is @false@.
-redshiftSettings_explicitIds :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Bool)
+redshiftSettings_explicitIds :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
 redshiftSettings_explicitIds = Lens.lens (\RedshiftSettings' {explicitIds} -> explicitIds) (\s@RedshiftSettings' {} a -> s {explicitIds = a} :: RedshiftSettings)
 
 -- | The name of the Amazon Redshift data warehouse (service) that you are
 -- working with.
-redshiftSettings_databaseName :: Lens.Lens' RedshiftSettings (Core.Maybe Core.Text)
+redshiftSettings_databaseName :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
 redshiftSettings_databaseName = Lens.lens (\RedshiftSettings' {databaseName} -> databaseName) (\s@RedshiftSettings' {} a -> s {databaseName = a} :: RedshiftSettings)
 
 instance Core.FromJSON RedshiftSettings where
@@ -628,84 +629,87 @@ instance Core.FromJSON RedshiftSettings where
       "RedshiftSettings"
       ( \x ->
           RedshiftSettings'
-            Core.<$> (x Core..:? "ReplaceChars")
-            Core.<*> (x Core..:? "CaseSensitiveNames")
-            Core.<*> (x Core..:? "BucketName")
-            Core.<*> (x Core..:? "FileTransferUploadStreams")
-            Core.<*> (x Core..:? "ReplaceInvalidChars")
-            Core.<*> (x Core..:? "ServerSideEncryptionKmsKeyId")
-            Core.<*> (x Core..:? "TimeFormat")
-            Core.<*> (x Core..:? "WriteBufferSize")
-            Core.<*> (x Core..:? "ServiceAccessRoleArn")
-            Core.<*> (x Core..:? "BucketFolder")
-            Core.<*> (x Core..:? "ConnectionTimeout")
-            Core.<*> (x Core..:? "SecretsManagerSecretId")
-            Core.<*> (x Core..:? "LoadTimeout")
-            Core.<*> (x Core..:? "AfterConnectScript")
-            Core.<*> (x Core..:? "ServerName")
-            Core.<*> (x Core..:? "AcceptAnyDate")
-            Core.<*> (x Core..:? "MaxFileSize")
-            Core.<*> (x Core..:? "RemoveQuotes")
-            Core.<*> (x Core..:? "Password")
-            Core.<*> (x Core..:? "DateFormat")
-            Core.<*> (x Core..:? "EncryptionMode")
-            Core.<*> (x Core..:? "EmptyAsNull")
-            Core.<*> (x Core..:? "Port")
-            Core.<*> (x Core..:? "Username")
-            Core.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Core.<*> (x Core..:? "TrimBlanks")
-            Core.<*> (x Core..:? "TruncateColumns")
-            Core.<*> (x Core..:? "CompUpdate")
-            Core.<*> (x Core..:? "ExplicitIds")
-            Core.<*> (x Core..:? "DatabaseName")
+            Prelude.<$> (x Core..:? "ReplaceChars")
+            Prelude.<*> (x Core..:? "CaseSensitiveNames")
+            Prelude.<*> (x Core..:? "BucketName")
+            Prelude.<*> (x Core..:? "FileTransferUploadStreams")
+            Prelude.<*> (x Core..:? "ReplaceInvalidChars")
+            Prelude.<*> (x Core..:? "ServerSideEncryptionKmsKeyId")
+            Prelude.<*> (x Core..:? "TimeFormat")
+            Prelude.<*> (x Core..:? "WriteBufferSize")
+            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Core..:? "BucketFolder")
+            Prelude.<*> (x Core..:? "ConnectionTimeout")
+            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Core..:? "LoadTimeout")
+            Prelude.<*> (x Core..:? "AfterConnectScript")
+            Prelude.<*> (x Core..:? "ServerName")
+            Prelude.<*> (x Core..:? "AcceptAnyDate")
+            Prelude.<*> (x Core..:? "MaxFileSize")
+            Prelude.<*> (x Core..:? "RemoveQuotes")
+            Prelude.<*> (x Core..:? "Password")
+            Prelude.<*> (x Core..:? "DateFormat")
+            Prelude.<*> (x Core..:? "EncryptionMode")
+            Prelude.<*> (x Core..:? "EmptyAsNull")
+            Prelude.<*> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Core..:? "TrimBlanks")
+            Prelude.<*> (x Core..:? "TruncateColumns")
+            Prelude.<*> (x Core..:? "CompUpdate")
+            Prelude.<*> (x Core..:? "ExplicitIds")
+            Prelude.<*> (x Core..:? "DatabaseName")
       )
 
-instance Core.Hashable RedshiftSettings
+instance Prelude.Hashable RedshiftSettings
 
-instance Core.NFData RedshiftSettings
+instance Prelude.NFData RedshiftSettings
 
 instance Core.ToJSON RedshiftSettings where
   toJSON RedshiftSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ReplaceChars" Core..=) Core.<$> replaceChars,
+      ( Prelude.catMaybes
+          [ ("ReplaceChars" Core..=) Prelude.<$> replaceChars,
             ("CaseSensitiveNames" Core..=)
-              Core.<$> caseSensitiveNames,
-            ("BucketName" Core..=) Core.<$> bucketName,
+              Prelude.<$> caseSensitiveNames,
+            ("BucketName" Core..=) Prelude.<$> bucketName,
             ("FileTransferUploadStreams" Core..=)
-              Core.<$> fileTransferUploadStreams,
+              Prelude.<$> fileTransferUploadStreams,
             ("ReplaceInvalidChars" Core..=)
-              Core.<$> replaceInvalidChars,
+              Prelude.<$> replaceInvalidChars,
             ("ServerSideEncryptionKmsKeyId" Core..=)
-              Core.<$> serverSideEncryptionKmsKeyId,
-            ("TimeFormat" Core..=) Core.<$> timeFormat,
-            ("WriteBufferSize" Core..=) Core.<$> writeBufferSize,
+              Prelude.<$> serverSideEncryptionKmsKeyId,
+            ("TimeFormat" Core..=) Prelude.<$> timeFormat,
+            ("WriteBufferSize" Core..=)
+              Prelude.<$> writeBufferSize,
             ("ServiceAccessRoleArn" Core..=)
-              Core.<$> serviceAccessRoleArn,
-            ("BucketFolder" Core..=) Core.<$> bucketFolder,
+              Prelude.<$> serviceAccessRoleArn,
+            ("BucketFolder" Core..=) Prelude.<$> bucketFolder,
             ("ConnectionTimeout" Core..=)
-              Core.<$> connectionTimeout,
+              Prelude.<$> connectionTimeout,
             ("SecretsManagerSecretId" Core..=)
-              Core.<$> secretsManagerSecretId,
-            ("LoadTimeout" Core..=) Core.<$> loadTimeout,
+              Prelude.<$> secretsManagerSecretId,
+            ("LoadTimeout" Core..=) Prelude.<$> loadTimeout,
             ("AfterConnectScript" Core..=)
-              Core.<$> afterConnectScript,
-            ("ServerName" Core..=) Core.<$> serverName,
-            ("AcceptAnyDate" Core..=) Core.<$> acceptAnyDate,
-            ("MaxFileSize" Core..=) Core.<$> maxFileSize,
-            ("RemoveQuotes" Core..=) Core.<$> removeQuotes,
-            ("Password" Core..=) Core.<$> password,
-            ("DateFormat" Core..=) Core.<$> dateFormat,
-            ("EncryptionMode" Core..=) Core.<$> encryptionMode,
-            ("EmptyAsNull" Core..=) Core.<$> emptyAsNull,
-            ("Port" Core..=) Core.<$> port,
-            ("Username" Core..=) Core.<$> username,
+              Prelude.<$> afterConnectScript,
+            ("ServerName" Core..=) Prelude.<$> serverName,
+            ("AcceptAnyDate" Core..=) Prelude.<$> acceptAnyDate,
+            ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
+            ("RemoveQuotes" Core..=) Prelude.<$> removeQuotes,
+            ("Password" Core..=) Prelude.<$> password,
+            ("DateFormat" Core..=) Prelude.<$> dateFormat,
+            ("EncryptionMode" Core..=)
+              Prelude.<$> encryptionMode,
+            ("EmptyAsNull" Core..=) Prelude.<$> emptyAsNull,
+            ("Port" Core..=) Prelude.<$> port,
+            ("Username" Core..=) Prelude.<$> username,
             ("SecretsManagerAccessRoleArn" Core..=)
-              Core.<$> secretsManagerAccessRoleArn,
-            ("TrimBlanks" Core..=) Core.<$> trimBlanks,
-            ("TruncateColumns" Core..=) Core.<$> truncateColumns,
-            ("CompUpdate" Core..=) Core.<$> compUpdate,
-            ("ExplicitIds" Core..=) Core.<$> explicitIds,
-            ("DatabaseName" Core..=) Core.<$> databaseName
+              Prelude.<$> secretsManagerAccessRoleArn,
+            ("TrimBlanks" Core..=) Prelude.<$> trimBlanks,
+            ("TruncateColumns" Core..=)
+              Prelude.<$> truncateColumns,
+            ("CompUpdate" Core..=) Prelude.<$> compUpdate,
+            ("ExplicitIds" Core..=) Prelude.<$> explicitIds,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

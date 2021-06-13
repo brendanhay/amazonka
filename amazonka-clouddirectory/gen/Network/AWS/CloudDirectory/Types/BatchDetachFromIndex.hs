@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchDetachFromIndex where
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Detaches the specified object from the specified index inside a
 -- BatchRead operation. For more information, see DetachFromIndex and
@@ -34,7 +35,7 @@ data BatchDetachFromIndex = BatchDetachFromIndex'
     -- | A reference to the object being detached from the index.
     targetReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetachFromIndex' with all optional fields omitted.
@@ -70,16 +71,17 @@ batchDetachFromIndex_indexReference = Lens.lens (\BatchDetachFromIndex' {indexRe
 batchDetachFromIndex_targetReference :: Lens.Lens' BatchDetachFromIndex ObjectReference
 batchDetachFromIndex_targetReference = Lens.lens (\BatchDetachFromIndex' {targetReference} -> targetReference) (\s@BatchDetachFromIndex' {} a -> s {targetReference = a} :: BatchDetachFromIndex)
 
-instance Core.Hashable BatchDetachFromIndex
+instance Prelude.Hashable BatchDetachFromIndex
 
-instance Core.NFData BatchDetachFromIndex
+instance Prelude.NFData BatchDetachFromIndex
 
 instance Core.ToJSON BatchDetachFromIndex where
   toJSON BatchDetachFromIndex' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("IndexReference" Core..= indexReference),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("IndexReference" Core..= indexReference),
+            Prelude.Just
               ("TargetReference" Core..= targetReference)
           ]
       )

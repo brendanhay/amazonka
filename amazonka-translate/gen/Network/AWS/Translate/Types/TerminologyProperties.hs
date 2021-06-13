@@ -21,6 +21,7 @@ module Network.AWS.Translate.Types.TerminologyProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Translate.Types.EncryptionKey
 
 -- | The properties of the custom terminology.
@@ -28,31 +29,31 @@ import Network.AWS.Translate.Types.EncryptionKey
 -- /See:/ 'newTerminologyProperties' smart constructor.
 data TerminologyProperties = TerminologyProperties'
   { -- | The encryption key for the custom terminology.
-    encryptionKey :: Core.Maybe EncryptionKey,
+    encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | The Amazon Resource Name (ARN) of the custom terminology.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The language codes for the target languages available with the custom
     -- terminology file. All possible target languages are returned in array.
-    targetLanguageCodes :: Core.Maybe [Core.Text],
+    targetLanguageCodes :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the custom terminology was created, based on the
     -- timestamp.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The name of the custom terminology.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The size of the file used when importing a custom terminology.
-    sizeBytes :: Core.Maybe Core.Int,
+    sizeBytes :: Prelude.Maybe Prelude.Int,
     -- | The description of the custom terminology properties.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The number of terms included in the custom terminology.
-    termCount :: Core.Maybe Core.Int,
+    termCount :: Prelude.Maybe Prelude.Int,
     -- | The language code for the source text of the translation request for
     -- which the custom terminology is being used.
-    sourceLanguageCode :: Core.Maybe Core.Text,
+    sourceLanguageCode :: Prelude.Maybe Prelude.Text,
     -- | The time at which the custom terminology was last update, based on the
     -- timestamp.
-    lastUpdatedAt :: Core.Maybe Core.POSIX
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminologyProperties' with all optional fields omitted.
@@ -90,61 +91,61 @@ newTerminologyProperties ::
 newTerminologyProperties =
   TerminologyProperties'
     { encryptionKey =
-        Core.Nothing,
-      arn = Core.Nothing,
-      targetLanguageCodes = Core.Nothing,
-      createdAt = Core.Nothing,
-      name = Core.Nothing,
-      sizeBytes = Core.Nothing,
-      description = Core.Nothing,
-      termCount = Core.Nothing,
-      sourceLanguageCode = Core.Nothing,
-      lastUpdatedAt = Core.Nothing
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      targetLanguageCodes = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      name = Prelude.Nothing,
+      sizeBytes = Prelude.Nothing,
+      description = Prelude.Nothing,
+      termCount = Prelude.Nothing,
+      sourceLanguageCode = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing
     }
 
 -- | The encryption key for the custom terminology.
-terminologyProperties_encryptionKey :: Lens.Lens' TerminologyProperties (Core.Maybe EncryptionKey)
+terminologyProperties_encryptionKey :: Lens.Lens' TerminologyProperties (Prelude.Maybe EncryptionKey)
 terminologyProperties_encryptionKey = Lens.lens (\TerminologyProperties' {encryptionKey} -> encryptionKey) (\s@TerminologyProperties' {} a -> s {encryptionKey = a} :: TerminologyProperties)
 
 -- | The Amazon Resource Name (ARN) of the custom terminology.
-terminologyProperties_arn :: Lens.Lens' TerminologyProperties (Core.Maybe Core.Text)
+terminologyProperties_arn :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.Text)
 terminologyProperties_arn = Lens.lens (\TerminologyProperties' {arn} -> arn) (\s@TerminologyProperties' {} a -> s {arn = a} :: TerminologyProperties)
 
 -- | The language codes for the target languages available with the custom
 -- terminology file. All possible target languages are returned in array.
-terminologyProperties_targetLanguageCodes :: Lens.Lens' TerminologyProperties (Core.Maybe [Core.Text])
-terminologyProperties_targetLanguageCodes = Lens.lens (\TerminologyProperties' {targetLanguageCodes} -> targetLanguageCodes) (\s@TerminologyProperties' {} a -> s {targetLanguageCodes = a} :: TerminologyProperties) Core.. Lens.mapping Lens._Coerce
+terminologyProperties_targetLanguageCodes :: Lens.Lens' TerminologyProperties (Prelude.Maybe [Prelude.Text])
+terminologyProperties_targetLanguageCodes = Lens.lens (\TerminologyProperties' {targetLanguageCodes} -> targetLanguageCodes) (\s@TerminologyProperties' {} a -> s {targetLanguageCodes = a} :: TerminologyProperties) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time at which the custom terminology was created, based on the
 -- timestamp.
-terminologyProperties_createdAt :: Lens.Lens' TerminologyProperties (Core.Maybe Core.UTCTime)
-terminologyProperties_createdAt = Lens.lens (\TerminologyProperties' {createdAt} -> createdAt) (\s@TerminologyProperties' {} a -> s {createdAt = a} :: TerminologyProperties) Core.. Lens.mapping Core._Time
+terminologyProperties_createdAt :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.UTCTime)
+terminologyProperties_createdAt = Lens.lens (\TerminologyProperties' {createdAt} -> createdAt) (\s@TerminologyProperties' {} a -> s {createdAt = a} :: TerminologyProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the custom terminology.
-terminologyProperties_name :: Lens.Lens' TerminologyProperties (Core.Maybe Core.Text)
+terminologyProperties_name :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.Text)
 terminologyProperties_name = Lens.lens (\TerminologyProperties' {name} -> name) (\s@TerminologyProperties' {} a -> s {name = a} :: TerminologyProperties)
 
 -- | The size of the file used when importing a custom terminology.
-terminologyProperties_sizeBytes :: Lens.Lens' TerminologyProperties (Core.Maybe Core.Int)
+terminologyProperties_sizeBytes :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.Int)
 terminologyProperties_sizeBytes = Lens.lens (\TerminologyProperties' {sizeBytes} -> sizeBytes) (\s@TerminologyProperties' {} a -> s {sizeBytes = a} :: TerminologyProperties)
 
 -- | The description of the custom terminology properties.
-terminologyProperties_description :: Lens.Lens' TerminologyProperties (Core.Maybe Core.Text)
+terminologyProperties_description :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.Text)
 terminologyProperties_description = Lens.lens (\TerminologyProperties' {description} -> description) (\s@TerminologyProperties' {} a -> s {description = a} :: TerminologyProperties)
 
 -- | The number of terms included in the custom terminology.
-terminologyProperties_termCount :: Lens.Lens' TerminologyProperties (Core.Maybe Core.Int)
+terminologyProperties_termCount :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.Int)
 terminologyProperties_termCount = Lens.lens (\TerminologyProperties' {termCount} -> termCount) (\s@TerminologyProperties' {} a -> s {termCount = a} :: TerminologyProperties)
 
 -- | The language code for the source text of the translation request for
 -- which the custom terminology is being used.
-terminologyProperties_sourceLanguageCode :: Lens.Lens' TerminologyProperties (Core.Maybe Core.Text)
+terminologyProperties_sourceLanguageCode :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.Text)
 terminologyProperties_sourceLanguageCode = Lens.lens (\TerminologyProperties' {sourceLanguageCode} -> sourceLanguageCode) (\s@TerminologyProperties' {} a -> s {sourceLanguageCode = a} :: TerminologyProperties)
 
 -- | The time at which the custom terminology was last update, based on the
 -- timestamp.
-terminologyProperties_lastUpdatedAt :: Lens.Lens' TerminologyProperties (Core.Maybe Core.UTCTime)
-terminologyProperties_lastUpdatedAt = Lens.lens (\TerminologyProperties' {lastUpdatedAt} -> lastUpdatedAt) (\s@TerminologyProperties' {} a -> s {lastUpdatedAt = a} :: TerminologyProperties) Core.. Lens.mapping Core._Time
+terminologyProperties_lastUpdatedAt :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.UTCTime)
+terminologyProperties_lastUpdatedAt = Lens.lens (\TerminologyProperties' {lastUpdatedAt} -> lastUpdatedAt) (\s@TerminologyProperties' {} a -> s {lastUpdatedAt = a} :: TerminologyProperties) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON TerminologyProperties where
   parseJSON =
@@ -152,20 +153,20 @@ instance Core.FromJSON TerminologyProperties where
       "TerminologyProperties"
       ( \x ->
           TerminologyProperties'
-            Core.<$> (x Core..:? "EncryptionKey")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> ( x Core..:? "TargetLanguageCodes"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "CreatedAt")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "SizeBytes")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "TermCount")
-            Core.<*> (x Core..:? "SourceLanguageCode")
-            Core.<*> (x Core..:? "LastUpdatedAt")
+            Prelude.<$> (x Core..:? "EncryptionKey")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> ( x Core..:? "TargetLanguageCodes"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "SizeBytes")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "TermCount")
+            Prelude.<*> (x Core..:? "SourceLanguageCode")
+            Prelude.<*> (x Core..:? "LastUpdatedAt")
       )
 
-instance Core.Hashable TerminologyProperties
+instance Prelude.Hashable TerminologyProperties
 
-instance Core.NFData TerminologyProperties
+instance Prelude.NFData TerminologyProperties

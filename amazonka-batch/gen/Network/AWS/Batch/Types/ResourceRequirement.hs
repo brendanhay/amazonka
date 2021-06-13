@@ -22,6 +22,7 @@ module Network.AWS.Batch.Types.ResourceRequirement where
 import Network.AWS.Batch.Types.ResourceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type and amount of a resource to assign to a container. The
 -- supported resources include @GPU@, @MEMORY@, and @VCPU@.
@@ -131,12 +132,12 @@ data ResourceRequirement = ResourceRequirement'
     --         @MEMORY@ = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360,
     --         16384, 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576,
     --         25600, 26624, 27648, 28672, 29696, or 30720
-    value :: Core.Text,
+    value :: Prelude.Text,
     -- | The type of resource to assign to a container. The supported resources
     -- include @GPU@, @MEMORY@, and @VCPU@.
     type' :: ResourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceRequirement' with all optional fields omitted.
@@ -254,7 +255,7 @@ data ResourceRequirement = ResourceRequirement'
 -- include @GPU@, @MEMORY@, and @VCPU@.
 newResourceRequirement ::
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   ResourceType ->
   ResourceRequirement
@@ -367,7 +368,7 @@ newResourceRequirement pValue_ pType_ =
 --         @MEMORY@ = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360,
 --         16384, 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576,
 --         25600, 26624, 27648, 28672, 29696, or 30720
-resourceRequirement_value :: Lens.Lens' ResourceRequirement Core.Text
+resourceRequirement_value :: Lens.Lens' ResourceRequirement Prelude.Text
 resourceRequirement_value = Lens.lens (\ResourceRequirement' {value} -> value) (\s@ResourceRequirement' {} a -> s {value = a} :: ResourceRequirement)
 
 -- | The type of resource to assign to a container. The supported resources
@@ -381,18 +382,18 @@ instance Core.FromJSON ResourceRequirement where
       "ResourceRequirement"
       ( \x ->
           ResourceRequirement'
-            Core.<$> (x Core..: "value") Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable ResourceRequirement
+instance Prelude.Hashable ResourceRequirement
 
-instance Core.NFData ResourceRequirement
+instance Prelude.NFData ResourceRequirement
 
 instance Core.ToJSON ResourceRequirement where
   toJSON ResourceRequirement' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("value" Core..= value),
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("value" Core..= value),
+            Prelude.Just ("type" Core..= type')
           ]
       )

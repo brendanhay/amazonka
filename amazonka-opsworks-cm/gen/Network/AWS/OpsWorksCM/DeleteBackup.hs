@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data DeleteBackup = DeleteBackup'
   { -- | The ID of the backup to delete. Run the DescribeBackups command to get a
     -- list of backup IDs. Backup IDs are in the format
     -- @ServerName-yyyyMMddHHmmssSSS@.
-    backupId :: Core.Text
+    backupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBackup' with all optional fields omitted.
@@ -72,7 +73,7 @@ data DeleteBackup = DeleteBackup'
 -- @ServerName-yyyyMMddHHmmssSSS@.
 newDeleteBackup ::
   -- | 'backupId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteBackup
 newDeleteBackup pBackupId_ =
   DeleteBackup' {backupId = pBackupId_}
@@ -80,7 +81,7 @@ newDeleteBackup pBackupId_ =
 -- | The ID of the backup to delete. Run the DescribeBackups command to get a
 -- list of backup IDs. Backup IDs are in the format
 -- @ServerName-yyyyMMddHHmmssSSS@.
-deleteBackup_backupId :: Lens.Lens' DeleteBackup Core.Text
+deleteBackup_backupId :: Lens.Lens' DeleteBackup Prelude.Text
 deleteBackup_backupId = Lens.lens (\DeleteBackup' {backupId} -> backupId) (\s@DeleteBackup' {} a -> s {backupId = a} :: DeleteBackup)
 
 instance Core.AWSRequest DeleteBackup where
@@ -90,45 +91,47 @@ instance Core.AWSRequest DeleteBackup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteBackupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteBackup
+instance Prelude.Hashable DeleteBackup
 
-instance Core.NFData DeleteBackup
+instance Prelude.NFData DeleteBackup
 
 instance Core.ToHeaders DeleteBackup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.DeleteBackup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteBackup where
   toJSON DeleteBackup' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("BackupId" Core..= backupId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("BackupId" Core..= backupId)]
       )
 
 instance Core.ToPath DeleteBackup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteBackup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBackupResponse' smart constructor.
 data DeleteBackupResponse = DeleteBackupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBackupResponse' with all optional fields omitted.
@@ -141,13 +144,13 @@ data DeleteBackupResponse = DeleteBackupResponse'
 -- 'httpStatus', 'deleteBackupResponse_httpStatus' - The response's http status code.
 newDeleteBackupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteBackupResponse
 newDeleteBackupResponse pHttpStatus_ =
   DeleteBackupResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteBackupResponse_httpStatus :: Lens.Lens' DeleteBackupResponse Core.Int
+deleteBackupResponse_httpStatus :: Lens.Lens' DeleteBackupResponse Prelude.Int
 deleteBackupResponse_httpStatus = Lens.lens (\DeleteBackupResponse' {httpStatus} -> httpStatus) (\s@DeleteBackupResponse' {} a -> s {httpStatus = a} :: DeleteBackupResponse)
 
-instance Core.NFData DeleteBackupResponse
+instance Prelude.NFData DeleteBackupResponse

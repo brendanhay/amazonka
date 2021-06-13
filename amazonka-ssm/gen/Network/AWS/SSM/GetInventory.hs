@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,23 +57,23 @@ import Network.AWS.SSM.Types
 data GetInventory = GetInventory'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The list of inventory item types to return.
-    resultAttributes :: Core.Maybe (Core.NonEmpty ResultAttribute),
+    resultAttributes :: Prelude.Maybe (Prelude.NonEmpty ResultAttribute),
     -- | One or more filters. Use a filter to return a more specific list of
     -- results.
-    filters :: Core.Maybe (Core.NonEmpty InventoryFilter),
+    filters :: Prelude.Maybe (Prelude.NonEmpty InventoryFilter),
     -- | Returns counts of inventory types based on one or more expressions. For
     -- example, if you aggregate by using an expression that uses the
     -- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
     -- many Windows and Linux instances exist in your inventoried fleet.
-    aggregators :: Core.Maybe (Core.NonEmpty InventoryAggregator)
+    aggregators :: Prelude.Maybe (Prelude.NonEmpty InventoryAggregator)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInventory' with all optional fields omitted.
@@ -102,58 +103,58 @@ newGetInventory ::
   GetInventory
 newGetInventory =
   GetInventory'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      resultAttributes = Core.Nothing,
-      filters = Core.Nothing,
-      aggregators = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      resultAttributes = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      aggregators = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-getInventory_nextToken :: Lens.Lens' GetInventory (Core.Maybe Core.Text)
+getInventory_nextToken :: Lens.Lens' GetInventory (Prelude.Maybe Prelude.Text)
 getInventory_nextToken = Lens.lens (\GetInventory' {nextToken} -> nextToken) (\s@GetInventory' {} a -> s {nextToken = a} :: GetInventory)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-getInventory_maxResults :: Lens.Lens' GetInventory (Core.Maybe Core.Natural)
+getInventory_maxResults :: Lens.Lens' GetInventory (Prelude.Maybe Prelude.Natural)
 getInventory_maxResults = Lens.lens (\GetInventory' {maxResults} -> maxResults) (\s@GetInventory' {} a -> s {maxResults = a} :: GetInventory)
 
 -- | The list of inventory item types to return.
-getInventory_resultAttributes :: Lens.Lens' GetInventory (Core.Maybe (Core.NonEmpty ResultAttribute))
-getInventory_resultAttributes = Lens.lens (\GetInventory' {resultAttributes} -> resultAttributes) (\s@GetInventory' {} a -> s {resultAttributes = a} :: GetInventory) Core.. Lens.mapping Lens._Coerce
+getInventory_resultAttributes :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty ResultAttribute))
+getInventory_resultAttributes = Lens.lens (\GetInventory' {resultAttributes} -> resultAttributes) (\s@GetInventory' {} a -> s {resultAttributes = a} :: GetInventory) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
-getInventory_filters :: Lens.Lens' GetInventory (Core.Maybe (Core.NonEmpty InventoryFilter))
-getInventory_filters = Lens.lens (\GetInventory' {filters} -> filters) (\s@GetInventory' {} a -> s {filters = a} :: GetInventory) Core.. Lens.mapping Lens._Coerce
+getInventory_filters :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty InventoryFilter))
+getInventory_filters = Lens.lens (\GetInventory' {filters} -> filters) (\s@GetInventory' {} a -> s {filters = a} :: GetInventory) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Returns counts of inventory types based on one or more expressions. For
 -- example, if you aggregate by using an expression that uses the
 -- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
 -- many Windows and Linux instances exist in your inventoried fleet.
-getInventory_aggregators :: Lens.Lens' GetInventory (Core.Maybe (Core.NonEmpty InventoryAggregator))
-getInventory_aggregators = Lens.lens (\GetInventory' {aggregators} -> aggregators) (\s@GetInventory' {} a -> s {aggregators = a} :: GetInventory) Core.. Lens.mapping Lens._Coerce
+getInventory_aggregators :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty InventoryAggregator))
+getInventory_aggregators = Lens.lens (\GetInventory' {aggregators} -> aggregators) (\s@GetInventory' {} a -> s {aggregators = a} :: GetInventory) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager GetInventory where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getInventoryResponse_nextToken Core.. Lens._Just
+            Lens.^? getInventoryResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getInventoryResponse_entities Core.. Lens._Just
+            Lens.^? getInventoryResponse_entities Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getInventory_nextToken
+          Prelude.& getInventory_nextToken
           Lens..~ rs
-          Lens.^? getInventoryResponse_nextToken Core.. Lens._Just
+          Lens.^? getInventoryResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetInventory where
   type AWSResponse GetInventory = GetInventoryResponse
@@ -162,57 +163,59 @@ instance Core.AWSRequest GetInventory where
     Response.receiveJSON
       ( \s h x ->
           GetInventoryResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Entities" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInventory
+instance Prelude.Hashable GetInventory
 
-instance Core.NFData GetInventory
+instance Prelude.NFData GetInventory
 
 instance Core.ToHeaders GetInventory where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetInventory" :: Core.ByteString),
+              Core.=# ("AmazonSSM.GetInventory" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetInventory where
   toJSON GetInventory' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ResultAttributes" Core..=)
-              Core.<$> resultAttributes,
-            ("Filters" Core..=) Core.<$> filters,
-            ("Aggregators" Core..=) Core.<$> aggregators
+              Prelude.<$> resultAttributes,
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("Aggregators" Core..=) Prelude.<$> aggregators
           ]
       )
 
 instance Core.ToPath GetInventory where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetInventory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInventoryResponse' smart constructor.
 data GetInventoryResponse = GetInventoryResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Collection of inventory entities such as a collection of instance
     -- inventory.
-    entities :: Core.Maybe [InventoryResultEntity],
+    entities :: Prelude.Maybe [InventoryResultEntity],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInventoryResponse' with all optional fields omitted.
@@ -231,27 +234,27 @@ data GetInventoryResponse = GetInventoryResponse'
 -- 'httpStatus', 'getInventoryResponse_httpStatus' - The response's http status code.
 newGetInventoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInventoryResponse
 newGetInventoryResponse pHttpStatus_ =
   GetInventoryResponse'
-    { nextToken = Core.Nothing,
-      entities = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      entities = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-getInventoryResponse_nextToken :: Lens.Lens' GetInventoryResponse (Core.Maybe Core.Text)
+getInventoryResponse_nextToken :: Lens.Lens' GetInventoryResponse (Prelude.Maybe Prelude.Text)
 getInventoryResponse_nextToken = Lens.lens (\GetInventoryResponse' {nextToken} -> nextToken) (\s@GetInventoryResponse' {} a -> s {nextToken = a} :: GetInventoryResponse)
 
 -- | Collection of inventory entities such as a collection of instance
 -- inventory.
-getInventoryResponse_entities :: Lens.Lens' GetInventoryResponse (Core.Maybe [InventoryResultEntity])
-getInventoryResponse_entities = Lens.lens (\GetInventoryResponse' {entities} -> entities) (\s@GetInventoryResponse' {} a -> s {entities = a} :: GetInventoryResponse) Core.. Lens.mapping Lens._Coerce
+getInventoryResponse_entities :: Lens.Lens' GetInventoryResponse (Prelude.Maybe [InventoryResultEntity])
+getInventoryResponse_entities = Lens.lens (\GetInventoryResponse' {entities} -> entities) (\s@GetInventoryResponse' {} a -> s {entities = a} :: GetInventoryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getInventoryResponse_httpStatus :: Lens.Lens' GetInventoryResponse Core.Int
+getInventoryResponse_httpStatus :: Lens.Lens' GetInventoryResponse Prelude.Int
 getInventoryResponse_httpStatus = Lens.lens (\GetInventoryResponse' {httpStatus} -> httpStatus) (\s@GetInventoryResponse' {} a -> s {httpStatus = a} :: GetInventoryResponse)
 
-instance Core.NFData GetInventoryResponse
+instance Prelude.NFData GetInventoryResponse

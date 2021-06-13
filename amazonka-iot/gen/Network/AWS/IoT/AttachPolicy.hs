@@ -39,19 +39,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAttachPolicy' smart constructor.
 data AttachPolicy = AttachPolicy'
   { -- | The name of the policy to attach.
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html identity>
     -- to which the policy is attached.
-    target :: Core.Text
+    target :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachPolicy' with all optional fields omitted.
@@ -68,9 +69,9 @@ data AttachPolicy = AttachPolicy'
 -- to which the policy is attached.
 newAttachPolicy ::
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'target'
-  Core.Text ->
+  Prelude.Text ->
   AttachPolicy
 newAttachPolicy pPolicyName_ pTarget_ =
   AttachPolicy'
@@ -79,13 +80,13 @@ newAttachPolicy pPolicyName_ pTarget_ =
     }
 
 -- | The name of the policy to attach.
-attachPolicy_policyName :: Lens.Lens' AttachPolicy Core.Text
+attachPolicy_policyName :: Lens.Lens' AttachPolicy Prelude.Text
 attachPolicy_policyName = Lens.lens (\AttachPolicy' {policyName} -> policyName) (\s@AttachPolicy' {} a -> s {policyName = a} :: AttachPolicy)
 
 -- | The
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html identity>
 -- to which the policy is attached.
-attachPolicy_target :: Lens.Lens' AttachPolicy Core.Text
+attachPolicy_target :: Lens.Lens' AttachPolicy Prelude.Text
 attachPolicy_target = Lens.lens (\AttachPolicy' {target} -> target) (\s@AttachPolicy' {} a -> s {target = a} :: AttachPolicy)
 
 instance Core.AWSRequest AttachPolicy where
@@ -93,33 +94,33 @@ instance Core.AWSRequest AttachPolicy where
   request = Request.putJSON defaultService
   response = Response.receiveNull AttachPolicyResponse'
 
-instance Core.Hashable AttachPolicy
+instance Prelude.Hashable AttachPolicy
 
-instance Core.NFData AttachPolicy
+instance Prelude.NFData AttachPolicy
 
 instance Core.ToHeaders AttachPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON AttachPolicy where
   toJSON AttachPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("target" Core..= target)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("target" Core..= target)]
       )
 
 instance Core.ToPath AttachPolicy where
   toPath AttachPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/target-policies/", Core.toBS policyName]
 
 instance Core.ToQuery AttachPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachPolicyResponse' smart constructor.
 data AttachPolicyResponse = AttachPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachPolicyResponse' with all optional fields omitted.
@@ -129,4 +130,4 @@ newAttachPolicyResponse ::
   AttachPolicyResponse
 newAttachPolicyResponse = AttachPolicyResponse'
 
-instance Core.NFData AttachPolicyResponse
+instance Prelude.NFData AttachPolicyResponse

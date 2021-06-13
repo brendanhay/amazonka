@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputTimecodeSource
 import Network.AWS.MediaLive.Types.StartTimecode
 import Network.AWS.MediaLive.Types.StopTimecode
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings to let you create a clip of the file input, in order to set up
 -- the input to ingest only a portion of the file.
@@ -31,13 +32,13 @@ import Network.AWS.MediaLive.Types.StopTimecode
 -- /See:/ 'newInputClippingSettings' smart constructor.
 data InputClippingSettings = InputClippingSettings'
   { -- | Settings to identify the start of the clip.
-    startTimecode :: Core.Maybe StartTimecode,
+    startTimecode :: Prelude.Maybe StartTimecode,
     -- | Settings to identify the end of the clip.
-    stopTimecode :: Core.Maybe StopTimecode,
+    stopTimecode :: Prelude.Maybe StopTimecode,
     -- | The source of the timecodes in the source being clipped.
     inputTimecodeSource :: InputTimecodeSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputClippingSettings' with all optional fields omitted.
@@ -59,17 +60,17 @@ newInputClippingSettings ::
 newInputClippingSettings pInputTimecodeSource_ =
   InputClippingSettings'
     { startTimecode =
-        Core.Nothing,
-      stopTimecode = Core.Nothing,
+        Prelude.Nothing,
+      stopTimecode = Prelude.Nothing,
       inputTimecodeSource = pInputTimecodeSource_
     }
 
 -- | Settings to identify the start of the clip.
-inputClippingSettings_startTimecode :: Lens.Lens' InputClippingSettings (Core.Maybe StartTimecode)
+inputClippingSettings_startTimecode :: Lens.Lens' InputClippingSettings (Prelude.Maybe StartTimecode)
 inputClippingSettings_startTimecode = Lens.lens (\InputClippingSettings' {startTimecode} -> startTimecode) (\s@InputClippingSettings' {} a -> s {startTimecode = a} :: InputClippingSettings)
 
 -- | Settings to identify the end of the clip.
-inputClippingSettings_stopTimecode :: Lens.Lens' InputClippingSettings (Core.Maybe StopTimecode)
+inputClippingSettings_stopTimecode :: Lens.Lens' InputClippingSettings (Prelude.Maybe StopTimecode)
 inputClippingSettings_stopTimecode = Lens.lens (\InputClippingSettings' {stopTimecode} -> stopTimecode) (\s@InputClippingSettings' {} a -> s {stopTimecode = a} :: InputClippingSettings)
 
 -- | The source of the timecodes in the source being clipped.
@@ -82,22 +83,22 @@ instance Core.FromJSON InputClippingSettings where
       "InputClippingSettings"
       ( \x ->
           InputClippingSettings'
-            Core.<$> (x Core..:? "startTimecode")
-            Core.<*> (x Core..:? "stopTimecode")
-            Core.<*> (x Core..: "inputTimecodeSource")
+            Prelude.<$> (x Core..:? "startTimecode")
+            Prelude.<*> (x Core..:? "stopTimecode")
+            Prelude.<*> (x Core..: "inputTimecodeSource")
       )
 
-instance Core.Hashable InputClippingSettings
+instance Prelude.Hashable InputClippingSettings
 
-instance Core.NFData InputClippingSettings
+instance Prelude.NFData InputClippingSettings
 
 instance Core.ToJSON InputClippingSettings where
   toJSON InputClippingSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("startTimecode" Core..=) Core.<$> startTimecode,
-            ("stopTimecode" Core..=) Core.<$> stopTimecode,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("startTimecode" Core..=) Prelude.<$> startTimecode,
+            ("stopTimecode" Core..=) Prelude.<$> stopTimecode,
+            Prelude.Just
               ("inputTimecodeSource" Core..= inputTimecodeSource)
           ]
       )

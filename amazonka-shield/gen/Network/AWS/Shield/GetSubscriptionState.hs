@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -46,7 +47,7 @@ import Network.AWS.Shield.Types
 data GetSubscriptionState = GetSubscriptionState'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionState' with all optional fields omitted.
@@ -65,44 +66,46 @@ instance Core.AWSRequest GetSubscriptionState where
     Response.receiveJSON
       ( \s h x ->
           GetSubscriptionStateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "SubscriptionState")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "SubscriptionState")
       )
 
-instance Core.Hashable GetSubscriptionState
+instance Prelude.Hashable GetSubscriptionState
 
-instance Core.NFData GetSubscriptionState
+instance Prelude.NFData GetSubscriptionState
 
 instance Core.ToHeaders GetSubscriptionState where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.GetSubscriptionState" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSubscriptionState where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetSubscriptionState where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSubscriptionState where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSubscriptionStateResponse' smart constructor.
 data GetSubscriptionStateResponse = GetSubscriptionStateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The status of the subscription.
     subscriptionState :: SubscriptionState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionStateResponse' with all optional fields omitted.
@@ -117,7 +120,7 @@ data GetSubscriptionStateResponse = GetSubscriptionStateResponse'
 -- 'subscriptionState', 'getSubscriptionStateResponse_subscriptionState' - The status of the subscription.
 newGetSubscriptionStateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'subscriptionState'
   SubscriptionState ->
   GetSubscriptionStateResponse
@@ -131,11 +134,11 @@ newGetSubscriptionStateResponse
       }
 
 -- | The response's http status code.
-getSubscriptionStateResponse_httpStatus :: Lens.Lens' GetSubscriptionStateResponse Core.Int
+getSubscriptionStateResponse_httpStatus :: Lens.Lens' GetSubscriptionStateResponse Prelude.Int
 getSubscriptionStateResponse_httpStatus = Lens.lens (\GetSubscriptionStateResponse' {httpStatus} -> httpStatus) (\s@GetSubscriptionStateResponse' {} a -> s {httpStatus = a} :: GetSubscriptionStateResponse)
 
 -- | The status of the subscription.
 getSubscriptionStateResponse_subscriptionState :: Lens.Lens' GetSubscriptionStateResponse SubscriptionState
 getSubscriptionStateResponse_subscriptionState = Lens.lens (\GetSubscriptionStateResponse' {subscriptionState} -> subscriptionState) (\s@GetSubscriptionStateResponse' {} a -> s {subscriptionState = a} :: GetSubscriptionStateResponse)
 
-instance Core.NFData GetSubscriptionStateResponse
+instance Prelude.NFData GetSubscriptionStateResponse

@@ -21,20 +21,21 @@ module Network.AWS.CostExplorer.Types.SavingsPlansDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Attribute details on a specific Savings Plan.
 --
 -- /See:/ 'newSavingsPlansDetails' smart constructor.
 data SavingsPlansDetails = SavingsPlansDetails'
   { -- | A group of instance types that Savings Plans applies to.
-    instanceFamily :: Core.Maybe Core.Text,
+    instanceFamily :: Prelude.Maybe Prelude.Text,
     -- | The unique ID used to distinguish Savings Plans from one another.
-    offeringId :: Core.Maybe Core.Text,
+    offeringId :: Prelude.Maybe Prelude.Text,
     -- | A collection of AWS resources in a geographic area. Each AWS Region is
     -- isolated and independent of the other Regions.
-    region :: Core.Maybe Core.Text
+    region :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansDetails' with all optional fields omitted.
@@ -54,22 +55,23 @@ newSavingsPlansDetails ::
   SavingsPlansDetails
 newSavingsPlansDetails =
   SavingsPlansDetails'
-    { instanceFamily = Core.Nothing,
-      offeringId = Core.Nothing,
-      region = Core.Nothing
+    { instanceFamily =
+        Prelude.Nothing,
+      offeringId = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | A group of instance types that Savings Plans applies to.
-savingsPlansDetails_instanceFamily :: Lens.Lens' SavingsPlansDetails (Core.Maybe Core.Text)
+savingsPlansDetails_instanceFamily :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
 savingsPlansDetails_instanceFamily = Lens.lens (\SavingsPlansDetails' {instanceFamily} -> instanceFamily) (\s@SavingsPlansDetails' {} a -> s {instanceFamily = a} :: SavingsPlansDetails)
 
 -- | The unique ID used to distinguish Savings Plans from one another.
-savingsPlansDetails_offeringId :: Lens.Lens' SavingsPlansDetails (Core.Maybe Core.Text)
+savingsPlansDetails_offeringId :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
 savingsPlansDetails_offeringId = Lens.lens (\SavingsPlansDetails' {offeringId} -> offeringId) (\s@SavingsPlansDetails' {} a -> s {offeringId = a} :: SavingsPlansDetails)
 
 -- | A collection of AWS resources in a geographic area. Each AWS Region is
 -- isolated and independent of the other Regions.
-savingsPlansDetails_region :: Lens.Lens' SavingsPlansDetails (Core.Maybe Core.Text)
+savingsPlansDetails_region :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
 savingsPlansDetails_region = Lens.lens (\SavingsPlansDetails' {region} -> region) (\s@SavingsPlansDetails' {} a -> s {region = a} :: SavingsPlansDetails)
 
 instance Core.FromJSON SavingsPlansDetails where
@@ -78,11 +80,11 @@ instance Core.FromJSON SavingsPlansDetails where
       "SavingsPlansDetails"
       ( \x ->
           SavingsPlansDetails'
-            Core.<$> (x Core..:? "InstanceFamily")
-            Core.<*> (x Core..:? "OfferingId")
-            Core.<*> (x Core..:? "Region")
+            Prelude.<$> (x Core..:? "InstanceFamily")
+            Prelude.<*> (x Core..:? "OfferingId")
+            Prelude.<*> (x Core..:? "Region")
       )
 
-instance Core.Hashable SavingsPlansDetails
+instance Prelude.Hashable SavingsPlansDetails
 
-instance Core.NFData SavingsPlansDetails
+instance Prelude.NFData SavingsPlansDetails

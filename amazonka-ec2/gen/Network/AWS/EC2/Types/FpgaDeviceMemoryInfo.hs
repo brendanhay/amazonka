@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.FpgaDeviceMemoryInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the memory for the FPGA accelerator for the instance type.
 --
 -- /See:/ 'newFpgaDeviceMemoryInfo' smart constructor.
 data FpgaDeviceMemoryInfo = FpgaDeviceMemoryInfo'
   { -- | The size of the memory available to the FPGA accelerator, in MiB.
-    sizeInMiB :: Core.Maybe Core.Int
+    sizeInMiB :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FpgaDeviceMemoryInfo' with all optional fields omitted.
@@ -44,17 +45,17 @@ data FpgaDeviceMemoryInfo = FpgaDeviceMemoryInfo'
 newFpgaDeviceMemoryInfo ::
   FpgaDeviceMemoryInfo
 newFpgaDeviceMemoryInfo =
-  FpgaDeviceMemoryInfo' {sizeInMiB = Core.Nothing}
+  FpgaDeviceMemoryInfo' {sizeInMiB = Prelude.Nothing}
 
 -- | The size of the memory available to the FPGA accelerator, in MiB.
-fpgaDeviceMemoryInfo_sizeInMiB :: Lens.Lens' FpgaDeviceMemoryInfo (Core.Maybe Core.Int)
+fpgaDeviceMemoryInfo_sizeInMiB :: Lens.Lens' FpgaDeviceMemoryInfo (Prelude.Maybe Prelude.Int)
 fpgaDeviceMemoryInfo_sizeInMiB = Lens.lens (\FpgaDeviceMemoryInfo' {sizeInMiB} -> sizeInMiB) (\s@FpgaDeviceMemoryInfo' {} a -> s {sizeInMiB = a} :: FpgaDeviceMemoryInfo)
 
 instance Core.FromXML FpgaDeviceMemoryInfo where
   parseXML x =
     FpgaDeviceMemoryInfo'
-      Core.<$> (x Core..@? "sizeInMiB")
+      Prelude.<$> (x Core..@? "sizeInMiB")
 
-instance Core.Hashable FpgaDeviceMemoryInfo
+instance Prelude.Hashable FpgaDeviceMemoryInfo
 
-instance Core.NFData FpgaDeviceMemoryInfo
+instance Prelude.NFData FpgaDeviceMemoryInfo

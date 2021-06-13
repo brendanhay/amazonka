@@ -44,18 +44,19 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchDeleteScheduledAction' smart constructor.
 data BatchDeleteScheduledAction = BatchDeleteScheduledAction'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | The names of the scheduled actions to delete. The maximum number allowed
     -- is 50.
-    scheduledActionNames :: [Core.Text]
+    scheduledActionNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteScheduledAction' with all optional fields omitted.
@@ -71,23 +72,23 @@ data BatchDeleteScheduledAction = BatchDeleteScheduledAction'
 -- is 50.
 newBatchDeleteScheduledAction ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   BatchDeleteScheduledAction
 newBatchDeleteScheduledAction pAutoScalingGroupName_ =
   BatchDeleteScheduledAction'
     { autoScalingGroupName =
         pAutoScalingGroupName_,
-      scheduledActionNames = Core.mempty
+      scheduledActionNames = Prelude.mempty
     }
 
 -- | The name of the Auto Scaling group.
-batchDeleteScheduledAction_autoScalingGroupName :: Lens.Lens' BatchDeleteScheduledAction Core.Text
+batchDeleteScheduledAction_autoScalingGroupName :: Lens.Lens' BatchDeleteScheduledAction Prelude.Text
 batchDeleteScheduledAction_autoScalingGroupName = Lens.lens (\BatchDeleteScheduledAction' {autoScalingGroupName} -> autoScalingGroupName) (\s@BatchDeleteScheduledAction' {} a -> s {autoScalingGroupName = a} :: BatchDeleteScheduledAction)
 
 -- | The names of the scheduled actions to delete. The maximum number allowed
 -- is 50.
-batchDeleteScheduledAction_scheduledActionNames :: Lens.Lens' BatchDeleteScheduledAction [Core.Text]
-batchDeleteScheduledAction_scheduledActionNames = Lens.lens (\BatchDeleteScheduledAction' {scheduledActionNames} -> scheduledActionNames) (\s@BatchDeleteScheduledAction' {} a -> s {scheduledActionNames = a} :: BatchDeleteScheduledAction) Core.. Lens._Coerce
+batchDeleteScheduledAction_scheduledActionNames :: Lens.Lens' BatchDeleteScheduledAction [Prelude.Text]
+batchDeleteScheduledAction_scheduledActionNames = Lens.lens (\BatchDeleteScheduledAction' {scheduledActionNames} -> scheduledActionNames) (\s@BatchDeleteScheduledAction' {} a -> s {scheduledActionNames = a} :: BatchDeleteScheduledAction) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchDeleteScheduledAction where
   type
@@ -99,29 +100,30 @@ instance Core.AWSRequest BatchDeleteScheduledAction where
       "BatchDeleteScheduledActionResult"
       ( \s h x ->
           BatchDeleteScheduledActionResponse'
-            Core.<$> ( x Core..@? "FailedScheduledActions"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "FailedScheduledActions"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchDeleteScheduledAction
+instance Prelude.Hashable BatchDeleteScheduledAction
 
-instance Core.NFData BatchDeleteScheduledAction
+instance Prelude.NFData BatchDeleteScheduledAction
 
 instance Core.ToHeaders BatchDeleteScheduledAction where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath BatchDeleteScheduledAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDeleteScheduledAction where
   toQuery BatchDeleteScheduledAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("BatchDeleteScheduledAction" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("BatchDeleteScheduledAction" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "ScheduledActionNames"
           Core.=: Core.toQueryList "member" scheduledActionNames
@@ -131,11 +133,11 @@ instance Core.ToQuery BatchDeleteScheduledAction where
 data BatchDeleteScheduledActionResponse = BatchDeleteScheduledActionResponse'
   { -- | The names of the scheduled actions that could not be deleted, including
     -- an error message.
-    failedScheduledActions :: Core.Maybe [FailedScheduledUpdateGroupActionRequest],
+    failedScheduledActions :: Prelude.Maybe [FailedScheduledUpdateGroupActionRequest],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteScheduledActionResponse' with all optional fields omitted.
@@ -151,24 +153,24 @@ data BatchDeleteScheduledActionResponse = BatchDeleteScheduledActionResponse'
 -- 'httpStatus', 'batchDeleteScheduledActionResponse_httpStatus' - The response's http status code.
 newBatchDeleteScheduledActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDeleteScheduledActionResponse
 newBatchDeleteScheduledActionResponse pHttpStatus_ =
   BatchDeleteScheduledActionResponse'
     { failedScheduledActions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The names of the scheduled actions that could not be deleted, including
 -- an error message.
-batchDeleteScheduledActionResponse_failedScheduledActions :: Lens.Lens' BatchDeleteScheduledActionResponse (Core.Maybe [FailedScheduledUpdateGroupActionRequest])
-batchDeleteScheduledActionResponse_failedScheduledActions = Lens.lens (\BatchDeleteScheduledActionResponse' {failedScheduledActions} -> failedScheduledActions) (\s@BatchDeleteScheduledActionResponse' {} a -> s {failedScheduledActions = a} :: BatchDeleteScheduledActionResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteScheduledActionResponse_failedScheduledActions :: Lens.Lens' BatchDeleteScheduledActionResponse (Prelude.Maybe [FailedScheduledUpdateGroupActionRequest])
+batchDeleteScheduledActionResponse_failedScheduledActions = Lens.lens (\BatchDeleteScheduledActionResponse' {failedScheduledActions} -> failedScheduledActions) (\s@BatchDeleteScheduledActionResponse' {} a -> s {failedScheduledActions = a} :: BatchDeleteScheduledActionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeleteScheduledActionResponse_httpStatus :: Lens.Lens' BatchDeleteScheduledActionResponse Core.Int
+batchDeleteScheduledActionResponse_httpStatus :: Lens.Lens' BatchDeleteScheduledActionResponse Prelude.Int
 batchDeleteScheduledActionResponse_httpStatus = Lens.lens (\BatchDeleteScheduledActionResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteScheduledActionResponse' {} a -> s {httpStatus = a} :: BatchDeleteScheduledActionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchDeleteScheduledActionResponse

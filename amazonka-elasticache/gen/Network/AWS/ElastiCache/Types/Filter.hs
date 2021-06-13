@@ -21,6 +21,7 @@ module Network.AWS.ElastiCache.Types.Filter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to streamline results of a search based on the property being
 -- filtered.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
   { -- | The property being filtered. For example, UserId.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The property values to filter on. For example, \"user-123\".
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -47,9 +48,9 @@ data Filter = Filter'
 -- 'values', 'filter_values' - The property values to filter on. For example, \"user-123\".
 newFilter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   Filter
 newFilter pName_ pValues_ =
   Filter'
@@ -58,20 +59,20 @@ newFilter pName_ pValues_ =
     }
 
 -- | The property being filtered. For example, UserId.
-filter_name :: Lens.Lens' Filter Core.Text
+filter_name :: Lens.Lens' Filter Prelude.Text
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
 -- | The property values to filter on. For example, \"user-123\".
-filter_values :: Lens.Lens' Filter (Core.NonEmpty Core.Text)
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens._Coerce
+filter_values :: Lens.Lens' Filter (Prelude.NonEmpty Prelude.Text)
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
 
-instance Core.Hashable Filter
+instance Prelude.Hashable Filter
 
-instance Core.NFData Filter
+instance Prelude.NFData Filter
 
 instance Core.ToQuery Filter where
   toQuery Filter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Name" Core.=: name,
         "Values" Core.=: Core.toQueryList "member" values
       ]

@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.ShotSegment where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a shot detection segment detected in a video. For more
 -- information, see SegmentDetection.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data ShotSegment = ShotSegment'
   { -- | The confidence that Amazon Rekognition Video has in the accuracy of the
     -- detected segment.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | An Identifier for a shot detection segment detected in a video.
-    index :: Core.Maybe Core.Natural
+    index :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ShotSegment' with all optional fields omitted.
@@ -51,17 +52,17 @@ newShotSegment ::
   ShotSegment
 newShotSegment =
   ShotSegment'
-    { confidence = Core.Nothing,
-      index = Core.Nothing
+    { confidence = Prelude.Nothing,
+      index = Prelude.Nothing
     }
 
 -- | The confidence that Amazon Rekognition Video has in the accuracy of the
 -- detected segment.
-shotSegment_confidence :: Lens.Lens' ShotSegment (Core.Maybe Core.Double)
+shotSegment_confidence :: Lens.Lens' ShotSegment (Prelude.Maybe Prelude.Double)
 shotSegment_confidence = Lens.lens (\ShotSegment' {confidence} -> confidence) (\s@ShotSegment' {} a -> s {confidence = a} :: ShotSegment)
 
 -- | An Identifier for a shot detection segment detected in a video.
-shotSegment_index :: Lens.Lens' ShotSegment (Core.Maybe Core.Natural)
+shotSegment_index :: Lens.Lens' ShotSegment (Prelude.Maybe Prelude.Natural)
 shotSegment_index = Lens.lens (\ShotSegment' {index} -> index) (\s@ShotSegment' {} a -> s {index = a} :: ShotSegment)
 
 instance Core.FromJSON ShotSegment where
@@ -70,10 +71,10 @@ instance Core.FromJSON ShotSegment where
       "ShotSegment"
       ( \x ->
           ShotSegment'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Index")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Index")
       )
 
-instance Core.Hashable ShotSegment
+instance Prelude.Hashable ShotSegment
 
-instance Core.NFData ShotSegment
+instance Prelude.NFData ShotSegment

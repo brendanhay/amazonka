@@ -22,13 +22,14 @@ module Network.AWS.DirectConnect.Types.Connections where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.Connection
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newConnections' smart constructor.
 data Connections = Connections'
   { -- | The connections.
-    connections :: Core.Maybe [Connection]
+    connections :: Prelude.Maybe [Connection]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Connections' with all optional fields omitted.
@@ -42,11 +43,11 @@ data Connections = Connections'
 newConnections ::
   Connections
 newConnections =
-  Connections' {connections = Core.Nothing}
+  Connections' {connections = Prelude.Nothing}
 
 -- | The connections.
-connections_connections :: Lens.Lens' Connections (Core.Maybe [Connection])
-connections_connections = Lens.lens (\Connections' {connections} -> connections) (\s@Connections' {} a -> s {connections = a} :: Connections) Core.. Lens.mapping Lens._Coerce
+connections_connections :: Lens.Lens' Connections (Prelude.Maybe [Connection])
+connections_connections = Lens.lens (\Connections' {connections} -> connections) (\s@Connections' {} a -> s {connections = a} :: Connections) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Connections where
   parseJSON =
@@ -54,9 +55,9 @@ instance Core.FromJSON Connections where
       "Connections"
       ( \x ->
           Connections'
-            Core.<$> (x Core..:? "connections" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "connections" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Connections
+instance Prelude.Hashable Connections
 
-instance Core.NFData Connections
+instance Prelude.NFData Connections

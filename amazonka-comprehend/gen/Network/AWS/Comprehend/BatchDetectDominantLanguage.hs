@@ -46,6 +46,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data BatchDetectDominantLanguage = BatchDetectDominantLanguage'
     -- a maximum of 25 documents. Each document should contain at least 20
     -- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
     -- characters.
-    textList :: Core.Sensitive [Core.Sensitive Core.Text]
+    textList :: Core.Sensitive [Core.Sensitive Prelude.Text]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetectDominantLanguage' with all optional fields omitted.
@@ -76,15 +77,15 @@ newBatchDetectDominantLanguage ::
 newBatchDetectDominantLanguage =
   BatchDetectDominantLanguage'
     { textList =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list containing the text of the input documents. The list can contain
 -- a maximum of 25 documents. Each document should contain at least 20
 -- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
 -- characters.
-batchDetectDominantLanguage_textList :: Lens.Lens' BatchDetectDominantLanguage [Core.Text]
-batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Core.. Core._Sensitive Core.. Lens._Coerce
+batchDetectDominantLanguage_textList :: Lens.Lens' BatchDetectDominantLanguage [Prelude.Text]
+batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchDetectDominantLanguage where
   type
@@ -95,45 +96,47 @@ instance Core.AWSRequest BatchDetectDominantLanguage where
     Response.receiveJSON
       ( \s h x ->
           BatchDetectDominantLanguageResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "ResultList" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ErrorList" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable BatchDetectDominantLanguage
+instance Prelude.Hashable BatchDetectDominantLanguage
 
-instance Core.NFData BatchDetectDominantLanguage
+instance Prelude.NFData BatchDetectDominantLanguage
 
 instance Core.ToHeaders BatchDetectDominantLanguage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.BatchDetectDominantLanguage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchDetectDominantLanguage where
   toJSON BatchDetectDominantLanguage' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("TextList" Core..= textList)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("TextList" Core..= textList)]
       )
 
 instance Core.ToPath BatchDetectDominantLanguage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDetectDominantLanguage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDetectDominantLanguageResponse' smart constructor.
 data BatchDetectDominantLanguageResponse = BatchDetectDominantLanguageResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of objects containing the results of the operation. The results
     -- are sorted in ascending order by the @Index@ field and match the order
     -- of the documents in the input list. If all of the documents contain an
@@ -145,7 +148,7 @@ data BatchDetectDominantLanguageResponse = BatchDetectDominantLanguageResponse'
     -- the batch, the @ErrorList@ is empty.
     errorList :: [BatchItemError]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetectDominantLanguageResponse' with all optional fields omitted.
@@ -168,18 +171,18 @@ data BatchDetectDominantLanguageResponse = BatchDetectDominantLanguageResponse'
 -- the batch, the @ErrorList@ is empty.
 newBatchDetectDominantLanguageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDetectDominantLanguageResponse
 newBatchDetectDominantLanguageResponse pHttpStatus_ =
   BatchDetectDominantLanguageResponse'
     { httpStatus =
         pHttpStatus_,
-      resultList = Core.mempty,
-      errorList = Core.mempty
+      resultList = Prelude.mempty,
+      errorList = Prelude.mempty
     }
 
 -- | The response's http status code.
-batchDetectDominantLanguageResponse_httpStatus :: Lens.Lens' BatchDetectDominantLanguageResponse Core.Int
+batchDetectDominantLanguageResponse_httpStatus :: Lens.Lens' BatchDetectDominantLanguageResponse Prelude.Int
 batchDetectDominantLanguageResponse_httpStatus = Lens.lens (\BatchDetectDominantLanguageResponse' {httpStatus} -> httpStatus) (\s@BatchDetectDominantLanguageResponse' {} a -> s {httpStatus = a} :: BatchDetectDominantLanguageResponse)
 
 -- | A list of objects containing the results of the operation. The results
@@ -187,15 +190,15 @@ batchDetectDominantLanguageResponse_httpStatus = Lens.lens (\BatchDetectDominant
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectDominantLanguageResponse_resultList :: Lens.Lens' BatchDetectDominantLanguageResponse [BatchDetectDominantLanguageItemResult]
-batchDetectDominantLanguageResponse_resultList = Lens.lens (\BatchDetectDominantLanguageResponse' {resultList} -> resultList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {resultList = a} :: BatchDetectDominantLanguageResponse) Core.. Lens._Coerce
+batchDetectDominantLanguageResponse_resultList = Lens.lens (\BatchDetectDominantLanguageResponse' {resultList} -> resultList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {resultList = a} :: BatchDetectDominantLanguageResponse) Prelude.. Lens._Coerce
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectDominantLanguageResponse_errorList :: Lens.Lens' BatchDetectDominantLanguageResponse [BatchItemError]
-batchDetectDominantLanguageResponse_errorList = Lens.lens (\BatchDetectDominantLanguageResponse' {errorList} -> errorList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {errorList = a} :: BatchDetectDominantLanguageResponse) Core.. Lens._Coerce
+batchDetectDominantLanguageResponse_errorList = Lens.lens (\BatchDetectDominantLanguageResponse' {errorList} -> errorList) (\s@BatchDetectDominantLanguageResponse' {} a -> s {errorList = a} :: BatchDetectDominantLanguageResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchDetectDominantLanguageResponse

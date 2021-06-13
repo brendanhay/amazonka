@@ -21,6 +21,7 @@ module Network.AWS.Firehose.Types.SchemaConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the schema to which you want Kinesis Data Firehose to
 -- configure your data before it writes it to Amazon S3. This parameter is
@@ -31,25 +32,25 @@ data SchemaConfiguration = SchemaConfiguration'
   { -- | The role that Kinesis Data Firehose can use to access AWS Glue. This
     -- role must be in the same account you use for Kinesis Data Firehose.
     -- Cross-account roles aren\'t allowed.
-    roleARN :: Core.Maybe Core.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | Specifies the AWS Glue table that contains the column information that
     -- constitutes your data schema.
-    tableName :: Core.Maybe Core.Text,
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
     -- account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the table version for the output data schema. If you don\'t
     -- specify this version ID, or if you set it to @LATEST@, Kinesis Data
     -- Firehose uses the most recent version. This means that any updates to
     -- the table are automatically picked up.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | If you don\'t specify an AWS Region, the default is the current Region.
-    region :: Core.Maybe Core.Text,
+    region :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the AWS Glue database that contains the schema for
     -- the output data.
-    databaseName :: Core.Maybe Core.Text
+    databaseName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SchemaConfiguration' with all optional fields omitted.
@@ -82,44 +83,44 @@ newSchemaConfiguration ::
   SchemaConfiguration
 newSchemaConfiguration =
   SchemaConfiguration'
-    { roleARN = Core.Nothing,
-      tableName = Core.Nothing,
-      catalogId = Core.Nothing,
-      versionId = Core.Nothing,
-      region = Core.Nothing,
-      databaseName = Core.Nothing
+    { roleARN = Prelude.Nothing,
+      tableName = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      region = Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
 
 -- | The role that Kinesis Data Firehose can use to access AWS Glue. This
 -- role must be in the same account you use for Kinesis Data Firehose.
 -- Cross-account roles aren\'t allowed.
-schemaConfiguration_roleARN :: Lens.Lens' SchemaConfiguration (Core.Maybe Core.Text)
+schemaConfiguration_roleARN :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_roleARN = Lens.lens (\SchemaConfiguration' {roleARN} -> roleARN) (\s@SchemaConfiguration' {} a -> s {roleARN = a} :: SchemaConfiguration)
 
 -- | Specifies the AWS Glue table that contains the column information that
 -- constitutes your data schema.
-schemaConfiguration_tableName :: Lens.Lens' SchemaConfiguration (Core.Maybe Core.Text)
+schemaConfiguration_tableName :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_tableName = Lens.lens (\SchemaConfiguration' {tableName} -> tableName) (\s@SchemaConfiguration' {} a -> s {tableName = a} :: SchemaConfiguration)
 
 -- | The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
 -- account ID is used by default.
-schemaConfiguration_catalogId :: Lens.Lens' SchemaConfiguration (Core.Maybe Core.Text)
+schemaConfiguration_catalogId :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_catalogId = Lens.lens (\SchemaConfiguration' {catalogId} -> catalogId) (\s@SchemaConfiguration' {} a -> s {catalogId = a} :: SchemaConfiguration)
 
 -- | Specifies the table version for the output data schema. If you don\'t
 -- specify this version ID, or if you set it to @LATEST@, Kinesis Data
 -- Firehose uses the most recent version. This means that any updates to
 -- the table are automatically picked up.
-schemaConfiguration_versionId :: Lens.Lens' SchemaConfiguration (Core.Maybe Core.Text)
+schemaConfiguration_versionId :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_versionId = Lens.lens (\SchemaConfiguration' {versionId} -> versionId) (\s@SchemaConfiguration' {} a -> s {versionId = a} :: SchemaConfiguration)
 
 -- | If you don\'t specify an AWS Region, the default is the current Region.
-schemaConfiguration_region :: Lens.Lens' SchemaConfiguration (Core.Maybe Core.Text)
+schemaConfiguration_region :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_region = Lens.lens (\SchemaConfiguration' {region} -> region) (\s@SchemaConfiguration' {} a -> s {region = a} :: SchemaConfiguration)
 
 -- | Specifies the name of the AWS Glue database that contains the schema for
 -- the output data.
-schemaConfiguration_databaseName :: Lens.Lens' SchemaConfiguration (Core.Maybe Core.Text)
+schemaConfiguration_databaseName :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_databaseName = Lens.lens (\SchemaConfiguration' {databaseName} -> databaseName) (\s@SchemaConfiguration' {} a -> s {databaseName = a} :: SchemaConfiguration)
 
 instance Core.FromJSON SchemaConfiguration where
@@ -128,27 +129,27 @@ instance Core.FromJSON SchemaConfiguration where
       "SchemaConfiguration"
       ( \x ->
           SchemaConfiguration'
-            Core.<$> (x Core..:? "RoleARN")
-            Core.<*> (x Core..:? "TableName")
-            Core.<*> (x Core..:? "CatalogId")
-            Core.<*> (x Core..:? "VersionId")
-            Core.<*> (x Core..:? "Region")
-            Core.<*> (x Core..:? "DatabaseName")
+            Prelude.<$> (x Core..:? "RoleARN")
+            Prelude.<*> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "CatalogId")
+            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<*> (x Core..:? "Region")
+            Prelude.<*> (x Core..:? "DatabaseName")
       )
 
-instance Core.Hashable SchemaConfiguration
+instance Prelude.Hashable SchemaConfiguration
 
-instance Core.NFData SchemaConfiguration
+instance Prelude.NFData SchemaConfiguration
 
 instance Core.ToJSON SchemaConfiguration where
   toJSON SchemaConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleARN" Core..=) Core.<$> roleARN,
-            ("TableName" Core..=) Core.<$> tableName,
-            ("CatalogId" Core..=) Core.<$> catalogId,
-            ("VersionId" Core..=) Core.<$> versionId,
-            ("Region" Core..=) Core.<$> region,
-            ("DatabaseName" Core..=) Core.<$> databaseName
+      ( Prelude.catMaybes
+          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
+            ("TableName" Core..=) Prelude.<$> tableName,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("VersionId" Core..=) Prelude.<$> versionId,
+            ("Region" Core..=) Prelude.<$> region,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

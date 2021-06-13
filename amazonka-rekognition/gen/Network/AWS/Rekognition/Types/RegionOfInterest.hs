@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.RegionOfInterest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 
 -- | Specifies a location within the frame that Rekognition checks for text.
@@ -34,9 +35,9 @@ import Network.AWS.Rekognition.Types.BoundingBox
 -- /See:/ 'newRegionOfInterest' smart constructor.
 data RegionOfInterest = RegionOfInterest'
   { -- | The box representing a region of interest on screen.
-    boundingBox :: Core.Maybe BoundingBox
+    boundingBox :: Prelude.Maybe BoundingBox
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegionOfInterest' with all optional fields omitted.
@@ -50,19 +51,19 @@ data RegionOfInterest = RegionOfInterest'
 newRegionOfInterest ::
   RegionOfInterest
 newRegionOfInterest =
-  RegionOfInterest' {boundingBox = Core.Nothing}
+  RegionOfInterest' {boundingBox = Prelude.Nothing}
 
 -- | The box representing a region of interest on screen.
-regionOfInterest_boundingBox :: Lens.Lens' RegionOfInterest (Core.Maybe BoundingBox)
+regionOfInterest_boundingBox :: Lens.Lens' RegionOfInterest (Prelude.Maybe BoundingBox)
 regionOfInterest_boundingBox = Lens.lens (\RegionOfInterest' {boundingBox} -> boundingBox) (\s@RegionOfInterest' {} a -> s {boundingBox = a} :: RegionOfInterest)
 
-instance Core.Hashable RegionOfInterest
+instance Prelude.Hashable RegionOfInterest
 
-instance Core.NFData RegionOfInterest
+instance Prelude.NFData RegionOfInterest
 
 instance Core.ToJSON RegionOfInterest where
   toJSON RegionOfInterest' {..} =
     Core.object
-      ( Core.catMaybes
-          [("BoundingBox" Core..=) Core.<$> boundingBox]
+      ( Prelude.catMaybes
+          [("BoundingBox" Core..=) Prelude.<$> boundingBox]
       )

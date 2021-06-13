@@ -45,17 +45,18 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPullRequestApprovalStates' smart constructor.
 data GetPullRequestApprovalStates = GetPullRequestApprovalStates'
   { -- | The system-generated ID for the pull request.
-    pullRequestId :: Core.Text,
+    pullRequestId :: Prelude.Text,
     -- | The system-generated ID for the pull request revision.
-    revisionId :: Core.Text
+    revisionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPullRequestApprovalStates' with all optional fields omitted.
@@ -70,9 +71,9 @@ data GetPullRequestApprovalStates = GetPullRequestApprovalStates'
 -- 'revisionId', 'getPullRequestApprovalStates_revisionId' - The system-generated ID for the pull request revision.
 newGetPullRequestApprovalStates ::
   -- | 'pullRequestId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'revisionId'
-  Core.Text ->
+  Prelude.Text ->
   GetPullRequestApprovalStates
 newGetPullRequestApprovalStates
   pPullRequestId_
@@ -84,11 +85,11 @@ newGetPullRequestApprovalStates
       }
 
 -- | The system-generated ID for the pull request.
-getPullRequestApprovalStates_pullRequestId :: Lens.Lens' GetPullRequestApprovalStates Core.Text
+getPullRequestApprovalStates_pullRequestId :: Lens.Lens' GetPullRequestApprovalStates Prelude.Text
 getPullRequestApprovalStates_pullRequestId = Lens.lens (\GetPullRequestApprovalStates' {pullRequestId} -> pullRequestId) (\s@GetPullRequestApprovalStates' {} a -> s {pullRequestId = a} :: GetPullRequestApprovalStates)
 
 -- | The system-generated ID for the pull request revision.
-getPullRequestApprovalStates_revisionId :: Lens.Lens' GetPullRequestApprovalStates Core.Text
+getPullRequestApprovalStates_revisionId :: Lens.Lens' GetPullRequestApprovalStates Prelude.Text
 getPullRequestApprovalStates_revisionId = Lens.lens (\GetPullRequestApprovalStates' {revisionId} -> revisionId) (\s@GetPullRequestApprovalStates' {} a -> s {revisionId = a} :: GetPullRequestApprovalStates)
 
 instance Core.AWSRequest GetPullRequestApprovalStates where
@@ -100,50 +101,55 @@ instance Core.AWSRequest GetPullRequestApprovalStates where
     Response.receiveJSON
       ( \s h x ->
           GetPullRequestApprovalStatesResponse'
-            Core.<$> (x Core..?> "approvals" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "approvals" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPullRequestApprovalStates
+instance
+  Prelude.Hashable
+    GetPullRequestApprovalStates
 
-instance Core.NFData GetPullRequestApprovalStates
+instance Prelude.NFData GetPullRequestApprovalStates
 
 instance Core.ToHeaders GetPullRequestApprovalStates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.GetPullRequestApprovalStates" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPullRequestApprovalStates where
   toJSON GetPullRequestApprovalStates' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pullRequestId" Core..= pullRequestId),
-            Core.Just ("revisionId" Core..= revisionId)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just ("revisionId" Core..= revisionId)
           ]
       )
 
 instance Core.ToPath GetPullRequestApprovalStates where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPullRequestApprovalStates where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPullRequestApprovalStatesResponse' smart constructor.
 data GetPullRequestApprovalStatesResponse = GetPullRequestApprovalStatesResponse'
   { -- | Information about users who have approved the pull request.
-    approvals :: Core.Maybe [Approval],
+    approvals :: Prelude.Maybe [Approval],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPullRequestApprovalStatesResponse' with all optional fields omitted.
@@ -158,23 +164,23 @@ data GetPullRequestApprovalStatesResponse = GetPullRequestApprovalStatesResponse
 -- 'httpStatus', 'getPullRequestApprovalStatesResponse_httpStatus' - The response's http status code.
 newGetPullRequestApprovalStatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPullRequestApprovalStatesResponse
 newGetPullRequestApprovalStatesResponse pHttpStatus_ =
   GetPullRequestApprovalStatesResponse'
     { approvals =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about users who have approved the pull request.
-getPullRequestApprovalStatesResponse_approvals :: Lens.Lens' GetPullRequestApprovalStatesResponse (Core.Maybe [Approval])
-getPullRequestApprovalStatesResponse_approvals = Lens.lens (\GetPullRequestApprovalStatesResponse' {approvals} -> approvals) (\s@GetPullRequestApprovalStatesResponse' {} a -> s {approvals = a} :: GetPullRequestApprovalStatesResponse) Core.. Lens.mapping Lens._Coerce
+getPullRequestApprovalStatesResponse_approvals :: Lens.Lens' GetPullRequestApprovalStatesResponse (Prelude.Maybe [Approval])
+getPullRequestApprovalStatesResponse_approvals = Lens.lens (\GetPullRequestApprovalStatesResponse' {approvals} -> approvals) (\s@GetPullRequestApprovalStatesResponse' {} a -> s {approvals = a} :: GetPullRequestApprovalStatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getPullRequestApprovalStatesResponse_httpStatus :: Lens.Lens' GetPullRequestApprovalStatesResponse Core.Int
+getPullRequestApprovalStatesResponse_httpStatus :: Lens.Lens' GetPullRequestApprovalStatesResponse Prelude.Int
 getPullRequestApprovalStatesResponse_httpStatus = Lens.lens (\GetPullRequestApprovalStatesResponse' {httpStatus} -> httpStatus) (\s@GetPullRequestApprovalStatesResponse' {} a -> s {httpStatus = a} :: GetPullRequestApprovalStatesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetPullRequestApprovalStatesResponse

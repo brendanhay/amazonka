@@ -21,19 +21,20 @@ module Network.AWS.EMR.Types.InstanceGroupTimeline where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The timeline of the instance group lifecycle.
 --
 -- /See:/ 'newInstanceGroupTimeline' smart constructor.
 data InstanceGroupTimeline = InstanceGroupTimeline'
   { -- | The date and time when the instance group terminated.
-    endDateTime :: Core.Maybe Core.POSIX,
+    endDateTime :: Prelude.Maybe Core.POSIX,
     -- | The creation date and time of the instance group.
-    creationDateTime :: Core.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time when the instance group became ready to perform tasks.
-    readyDateTime :: Core.Maybe Core.POSIX
+    readyDateTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceGroupTimeline' with all optional fields omitted.
@@ -52,22 +53,23 @@ newInstanceGroupTimeline ::
   InstanceGroupTimeline
 newInstanceGroupTimeline =
   InstanceGroupTimeline'
-    { endDateTime = Core.Nothing,
-      creationDateTime = Core.Nothing,
-      readyDateTime = Core.Nothing
+    { endDateTime =
+        Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      readyDateTime = Prelude.Nothing
     }
 
 -- | The date and time when the instance group terminated.
-instanceGroupTimeline_endDateTime :: Lens.Lens' InstanceGroupTimeline (Core.Maybe Core.UTCTime)
-instanceGroupTimeline_endDateTime = Lens.lens (\InstanceGroupTimeline' {endDateTime} -> endDateTime) (\s@InstanceGroupTimeline' {} a -> s {endDateTime = a} :: InstanceGroupTimeline) Core.. Lens.mapping Core._Time
+instanceGroupTimeline_endDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
+instanceGroupTimeline_endDateTime = Lens.lens (\InstanceGroupTimeline' {endDateTime} -> endDateTime) (\s@InstanceGroupTimeline' {} a -> s {endDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The creation date and time of the instance group.
-instanceGroupTimeline_creationDateTime :: Lens.Lens' InstanceGroupTimeline (Core.Maybe Core.UTCTime)
-instanceGroupTimeline_creationDateTime = Lens.lens (\InstanceGroupTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceGroupTimeline' {} a -> s {creationDateTime = a} :: InstanceGroupTimeline) Core.. Lens.mapping Core._Time
+instanceGroupTimeline_creationDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
+instanceGroupTimeline_creationDateTime = Lens.lens (\InstanceGroupTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceGroupTimeline' {} a -> s {creationDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time when the instance group became ready to perform tasks.
-instanceGroupTimeline_readyDateTime :: Lens.Lens' InstanceGroupTimeline (Core.Maybe Core.UTCTime)
-instanceGroupTimeline_readyDateTime = Lens.lens (\InstanceGroupTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceGroupTimeline' {} a -> s {readyDateTime = a} :: InstanceGroupTimeline) Core.. Lens.mapping Core._Time
+instanceGroupTimeline_readyDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
+instanceGroupTimeline_readyDateTime = Lens.lens (\InstanceGroupTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceGroupTimeline' {} a -> s {readyDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON InstanceGroupTimeline where
   parseJSON =
@@ -75,11 +77,11 @@ instance Core.FromJSON InstanceGroupTimeline where
       "InstanceGroupTimeline"
       ( \x ->
           InstanceGroupTimeline'
-            Core.<$> (x Core..:? "EndDateTime")
-            Core.<*> (x Core..:? "CreationDateTime")
-            Core.<*> (x Core..:? "ReadyDateTime")
+            Prelude.<$> (x Core..:? "EndDateTime")
+            Prelude.<*> (x Core..:? "CreationDateTime")
+            Prelude.<*> (x Core..:? "ReadyDateTime")
       )
 
-instance Core.Hashable InstanceGroupTimeline
+instance Prelude.Hashable InstanceGroupTimeline
 
-instance Core.NFData InstanceGroupTimeline
+instance Prelude.NFData InstanceGroupTimeline

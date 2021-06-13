@@ -21,6 +21,7 @@ module Network.AWS.MechanicalTurk.Types.ParameterMapEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This data structure is the data type for the AnswerKey parameter of the
 -- ScoreMyKnownAnswers\/2011-09-01 Review Policy.
@@ -30,13 +31,13 @@ data ParameterMapEntry = ParameterMapEntry'
   { -- | The QuestionID from the HIT that is used to identify which question
     -- requires Mechanical Turk to score as part of the
     -- ScoreMyKnownAnswers\/2011-09-01 Review Policy.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The list of answers to the question specified in the MapEntry Key
     -- element. The Worker must match all values in order for the answer to be
     -- scored correctly.
-    values :: Core.Maybe [Core.Text]
+    values :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterMapEntry' with all optional fields omitted.
@@ -57,21 +58,21 @@ newParameterMapEntry ::
   ParameterMapEntry
 newParameterMapEntry =
   ParameterMapEntry'
-    { key = Core.Nothing,
-      values = Core.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
 
 -- | The QuestionID from the HIT that is used to identify which question
 -- requires Mechanical Turk to score as part of the
 -- ScoreMyKnownAnswers\/2011-09-01 Review Policy.
-parameterMapEntry_key :: Lens.Lens' ParameterMapEntry (Core.Maybe Core.Text)
+parameterMapEntry_key :: Lens.Lens' ParameterMapEntry (Prelude.Maybe Prelude.Text)
 parameterMapEntry_key = Lens.lens (\ParameterMapEntry' {key} -> key) (\s@ParameterMapEntry' {} a -> s {key = a} :: ParameterMapEntry)
 
 -- | The list of answers to the question specified in the MapEntry Key
 -- element. The Worker must match all values in order for the answer to be
 -- scored correctly.
-parameterMapEntry_values :: Lens.Lens' ParameterMapEntry (Core.Maybe [Core.Text])
-parameterMapEntry_values = Lens.lens (\ParameterMapEntry' {values} -> values) (\s@ParameterMapEntry' {} a -> s {values = a} :: ParameterMapEntry) Core.. Lens.mapping Lens._Coerce
+parameterMapEntry_values :: Lens.Lens' ParameterMapEntry (Prelude.Maybe [Prelude.Text])
+parameterMapEntry_values = Lens.lens (\ParameterMapEntry' {values} -> values) (\s@ParameterMapEntry' {} a -> s {values = a} :: ParameterMapEntry) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ParameterMapEntry where
   parseJSON =
@@ -79,19 +80,19 @@ instance Core.FromJSON ParameterMapEntry where
       "ParameterMapEntry"
       ( \x ->
           ParameterMapEntry'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ParameterMapEntry
+instance Prelude.Hashable ParameterMapEntry
 
-instance Core.NFData ParameterMapEntry
+instance Prelude.NFData ParameterMapEntry
 
 instance Core.ToJSON ParameterMapEntry where
   toJSON ParameterMapEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
-            ("Values" Core..=) Core.<$> values
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

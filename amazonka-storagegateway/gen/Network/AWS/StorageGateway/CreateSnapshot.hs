@@ -73,6 +73,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -92,17 +93,17 @@ data CreateSnapshot = CreateSnapshot'
     -- representable in UTF-8 format, and the following special characters: + -
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
     -- operation to return a list of gateway volumes.
-    volumeARN :: Core.Text,
+    volumeARN :: Prelude.Text,
     -- | Textual description of the snapshot that appears in the Amazon EC2
     -- console, Elastic Block Store snapshots panel in the __Description__
     -- field, and in the AWS Storage Gateway snapshot __Details__ pane,
     -- __Description__ field.
-    snapshotDescription :: Core.Text
+    snapshotDescription :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshot' with all optional fields omitted.
@@ -129,13 +130,13 @@ data CreateSnapshot = CreateSnapshot'
 -- __Description__ field.
 newCreateSnapshot ::
   -- | 'volumeARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'snapshotDescription'
-  Core.Text ->
+  Prelude.Text ->
   CreateSnapshot
 newCreateSnapshot pVolumeARN_ pSnapshotDescription_ =
   CreateSnapshot'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       volumeARN = pVolumeARN_,
       snapshotDescription = pSnapshotDescription_
     }
@@ -147,19 +148,19 @@ newCreateSnapshot pVolumeARN_ pSnapshotDescription_ =
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
-createSnapshot_tags :: Lens.Lens' CreateSnapshot (Core.Maybe [Tag])
-createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Core.. Lens.mapping Lens._Coerce
+createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe [Tag])
+createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-createSnapshot_volumeARN :: Lens.Lens' CreateSnapshot Core.Text
+createSnapshot_volumeARN :: Lens.Lens' CreateSnapshot Prelude.Text
 createSnapshot_volumeARN = Lens.lens (\CreateSnapshot' {volumeARN} -> volumeARN) (\s@CreateSnapshot' {} a -> s {volumeARN = a} :: CreateSnapshot)
 
 -- | Textual description of the snapshot that appears in the Amazon EC2
 -- console, Elastic Block Store snapshots panel in the __Description__
 -- field, and in the AWS Storage Gateway snapshot __Details__ pane,
 -- __Description__ field.
-createSnapshot_snapshotDescription :: Lens.Lens' CreateSnapshot Core.Text
+createSnapshot_snapshotDescription :: Lens.Lens' CreateSnapshot Prelude.Text
 createSnapshot_snapshotDescription = Lens.lens (\CreateSnapshot' {snapshotDescription} -> snapshotDescription) (\s@CreateSnapshot' {} a -> s {snapshotDescription = a} :: CreateSnapshot)
 
 instance Core.AWSRequest CreateSnapshot where
@@ -171,44 +172,46 @@ instance Core.AWSRequest CreateSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CreateSnapshotResponse'
-            Core.<$> (x Core..?> "VolumeARN")
-            Core.<*> (x Core..?> "SnapshotId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "VolumeARN")
+            Prelude.<*> (x Core..?> "SnapshotId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSnapshot
+instance Prelude.Hashable CreateSnapshot
 
-instance Core.NFData CreateSnapshot
+instance Prelude.NFData CreateSnapshot
 
 instance Core.ToHeaders CreateSnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.CreateSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateSnapshot where
   toJSON CreateSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("VolumeARN" Core..= volumeARN),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("VolumeARN" Core..= volumeARN),
+            Prelude.Just
               ("SnapshotDescription" Core..= snapshotDescription)
           ]
       )
 
 instance Core.ToPath CreateSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateSnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:
 --
@@ -216,16 +219,16 @@ instance Core.ToQuery CreateSnapshot where
 data CreateSnapshotResponse = CreateSnapshotResponse'
   { -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
     -- taken.
-    volumeARN :: Core.Maybe Core.Text,
+    volumeARN :: Prelude.Maybe Prelude.Text,
     -- | The snapshot ID that is used to refer to the snapshot in future
     -- operations such as describing snapshots (Amazon Elastic Compute Cloud
     -- API @DescribeSnapshots@) or creating a volume from a snapshot
     -- (CreateStorediSCSIVolume).
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshotResponse' with all optional fields omitted.
@@ -246,29 +249,30 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 -- 'httpStatus', 'createSnapshotResponse_httpStatus' - The response's http status code.
 newCreateSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSnapshotResponse
 newCreateSnapshotResponse pHttpStatus_ =
   CreateSnapshotResponse'
-    { volumeARN = Core.Nothing,
-      snapshotId = Core.Nothing,
+    { volumeARN =
+        Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
 -- taken.
-createSnapshotResponse_volumeARN :: Lens.Lens' CreateSnapshotResponse (Core.Maybe Core.Text)
+createSnapshotResponse_volumeARN :: Lens.Lens' CreateSnapshotResponse (Prelude.Maybe Prelude.Text)
 createSnapshotResponse_volumeARN = Lens.lens (\CreateSnapshotResponse' {volumeARN} -> volumeARN) (\s@CreateSnapshotResponse' {} a -> s {volumeARN = a} :: CreateSnapshotResponse)
 
 -- | The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud
 -- API @DescribeSnapshots@) or creating a volume from a snapshot
 -- (CreateStorediSCSIVolume).
-createSnapshotResponse_snapshotId :: Lens.Lens' CreateSnapshotResponse (Core.Maybe Core.Text)
+createSnapshotResponse_snapshotId :: Lens.Lens' CreateSnapshotResponse (Prelude.Maybe Prelude.Text)
 createSnapshotResponse_snapshotId = Lens.lens (\CreateSnapshotResponse' {snapshotId} -> snapshotId) (\s@CreateSnapshotResponse' {} a -> s {snapshotId = a} :: CreateSnapshotResponse)
 
 -- | The response's http status code.
-createSnapshotResponse_httpStatus :: Lens.Lens' CreateSnapshotResponse Core.Int
+createSnapshotResponse_httpStatus :: Lens.Lens' CreateSnapshotResponse Prelude.Int
 createSnapshotResponse_httpStatus = Lens.lens (\CreateSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotResponse' {} a -> s {httpStatus = a} :: CreateSnapshotResponse)
 
-instance Core.NFData CreateSnapshotResponse
+instance Prelude.NFData CreateSnapshotResponse

@@ -22,23 +22,24 @@ module Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileConfig where
 import Network.AWS.CloudFront.Types.EncryptionEntities
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type of profiles for the field-level encryption.
 --
 -- /See:/ 'newFieldLevelEncryptionProfileConfig' smart constructor.
 data FieldLevelEncryptionProfileConfig = FieldLevelEncryptionProfileConfig'
   { -- | An optional comment for the field-level encryption profile.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | Profile name for the field-level encryption profile.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A unique number that ensures that the request can\'t be replayed.
-    callerReference :: Core.Text,
+    callerReference :: Prelude.Text,
     -- | A complex data type of encryption entities for the field-level
     -- encryption profile that include the public key ID, provider, and field
     -- patterns for specifying which fields to encrypt with this key.
     encryptionEntities :: EncryptionEntities
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FieldLevelEncryptionProfileConfig' with all optional fields omitted.
@@ -59,9 +60,9 @@ data FieldLevelEncryptionProfileConfig = FieldLevelEncryptionProfileConfig'
 -- patterns for specifying which fields to encrypt with this key.
 newFieldLevelEncryptionProfileConfig ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'callerReference'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'encryptionEntities'
   EncryptionEntities ->
   FieldLevelEncryptionProfileConfig
@@ -71,7 +72,7 @@ newFieldLevelEncryptionProfileConfig
   pEncryptionEntities_ =
     FieldLevelEncryptionProfileConfig'
       { comment =
-          Core.Nothing,
+          Prelude.Nothing,
         name = pName_,
         callerReference = pCallerReference_,
         encryptionEntities =
@@ -79,15 +80,15 @@ newFieldLevelEncryptionProfileConfig
       }
 
 -- | An optional comment for the field-level encryption profile.
-fieldLevelEncryptionProfileConfig_comment :: Lens.Lens' FieldLevelEncryptionProfileConfig (Core.Maybe Core.Text)
+fieldLevelEncryptionProfileConfig_comment :: Lens.Lens' FieldLevelEncryptionProfileConfig (Prelude.Maybe Prelude.Text)
 fieldLevelEncryptionProfileConfig_comment = Lens.lens (\FieldLevelEncryptionProfileConfig' {comment} -> comment) (\s@FieldLevelEncryptionProfileConfig' {} a -> s {comment = a} :: FieldLevelEncryptionProfileConfig)
 
 -- | Profile name for the field-level encryption profile.
-fieldLevelEncryptionProfileConfig_name :: Lens.Lens' FieldLevelEncryptionProfileConfig Core.Text
+fieldLevelEncryptionProfileConfig_name :: Lens.Lens' FieldLevelEncryptionProfileConfig Prelude.Text
 fieldLevelEncryptionProfileConfig_name = Lens.lens (\FieldLevelEncryptionProfileConfig' {name} -> name) (\s@FieldLevelEncryptionProfileConfig' {} a -> s {name = a} :: FieldLevelEncryptionProfileConfig)
 
 -- | A unique number that ensures that the request can\'t be replayed.
-fieldLevelEncryptionProfileConfig_callerReference :: Lens.Lens' FieldLevelEncryptionProfileConfig Core.Text
+fieldLevelEncryptionProfileConfig_callerReference :: Lens.Lens' FieldLevelEncryptionProfileConfig Prelude.Text
 fieldLevelEncryptionProfileConfig_callerReference = Lens.lens (\FieldLevelEncryptionProfileConfig' {callerReference} -> callerReference) (\s@FieldLevelEncryptionProfileConfig' {} a -> s {callerReference = a} :: FieldLevelEncryptionProfileConfig)
 
 -- | A complex data type of encryption entities for the field-level
@@ -102,22 +103,22 @@ instance
   where
   parseXML x =
     FieldLevelEncryptionProfileConfig'
-      Core.<$> (x Core..@? "Comment")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "CallerReference")
-      Core.<*> (x Core..@ "EncryptionEntities")
+      Prelude.<$> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "CallerReference")
+      Prelude.<*> (x Core..@ "EncryptionEntities")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FieldLevelEncryptionProfileConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     FieldLevelEncryptionProfileConfig
 
 instance Core.ToXML FieldLevelEncryptionProfileConfig where
   toXML FieldLevelEncryptionProfileConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Comment" Core.@= comment,
         "Name" Core.@= name,
         "CallerReference" Core.@= callerReference,

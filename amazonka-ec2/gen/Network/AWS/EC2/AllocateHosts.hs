@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,9 +65,9 @@ data AllocateHosts = AllocateHosts'
     -- only, omit this parameter and specify __InstanceType__ instead. You
     -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
     -- request.
-    instanceFamily :: Core.Maybe Core.Text,
+    instanceFamily :: Prelude.Maybe Prelude.Text,
     -- | The tags to apply to the Dedicated Host during creation.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Specifies the instance type to be supported by the Dedicated Hosts. If
     -- you specify an instance type, the Dedicated Hosts support instances of
     -- the specified instance type only.
@@ -75,7 +76,7 @@ data AllocateHosts = AllocateHosts'
     -- specific instance family, omit this parameter and specify
     -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
     -- __InstanceFamily__ in the same request.
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the host accepts any untargeted instance launches that
     -- match its instance type configuration, or if it only accepts Host
     -- tenancy instance launches that specify its unique host ID. For more
@@ -84,25 +85,25 @@ data AllocateHosts = AllocateHosts'
     -- in the /Amazon EC2 User Guide/.
     --
     -- Default: @on@
-    autoPlacement :: Core.Maybe AutoPlacement,
+    autoPlacement :: Prelude.Maybe AutoPlacement,
     -- | Indicates whether to enable or disable host recovery for the Dedicated
     -- Host. Host recovery is disabled by default. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
     -- in the /Amazon EC2 User Guide/.
     --
     -- Default: @off@
-    hostRecovery :: Core.Maybe HostRecovery,
+    hostRecovery :: Prelude.Maybe HostRecovery,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone in which to allocate the Dedicated Host.
-    availabilityZone :: Core.Text,
+    availabilityZone :: Prelude.Text,
     -- | The number of Dedicated Hosts to allocate to your account with these
     -- parameters.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AllocateHosts' with all optional fields omitted.
@@ -158,18 +159,18 @@ data AllocateHosts = AllocateHosts'
 -- parameters.
 newAllocateHosts ::
   -- | 'availabilityZone'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   AllocateHosts
 newAllocateHosts pAvailabilityZone_ pQuantity_ =
   AllocateHosts'
-    { instanceFamily = Core.Nothing,
-      tagSpecifications = Core.Nothing,
-      instanceType = Core.Nothing,
-      autoPlacement = Core.Nothing,
-      hostRecovery = Core.Nothing,
-      clientToken = Core.Nothing,
+    { instanceFamily = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      autoPlacement = Prelude.Nothing,
+      hostRecovery = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       availabilityZone = pAvailabilityZone_,
       quantity = pQuantity_
     }
@@ -182,12 +183,12 @@ newAllocateHosts pAvailabilityZone_ pQuantity_ =
 -- only, omit this parameter and specify __InstanceType__ instead. You
 -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
 -- request.
-allocateHosts_instanceFamily :: Lens.Lens' AllocateHosts (Core.Maybe Core.Text)
+allocateHosts_instanceFamily :: Lens.Lens' AllocateHosts (Prelude.Maybe Prelude.Text)
 allocateHosts_instanceFamily = Lens.lens (\AllocateHosts' {instanceFamily} -> instanceFamily) (\s@AllocateHosts' {} a -> s {instanceFamily = a} :: AllocateHosts)
 
 -- | The tags to apply to the Dedicated Host during creation.
-allocateHosts_tagSpecifications :: Lens.Lens' AllocateHosts (Core.Maybe [TagSpecification])
-allocateHosts_tagSpecifications = Lens.lens (\AllocateHosts' {tagSpecifications} -> tagSpecifications) (\s@AllocateHosts' {} a -> s {tagSpecifications = a} :: AllocateHosts) Core.. Lens.mapping Lens._Coerce
+allocateHosts_tagSpecifications :: Lens.Lens' AllocateHosts (Prelude.Maybe [TagSpecification])
+allocateHosts_tagSpecifications = Lens.lens (\AllocateHosts' {tagSpecifications} -> tagSpecifications) (\s@AllocateHosts' {} a -> s {tagSpecifications = a} :: AllocateHosts) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the instance type to be supported by the Dedicated Hosts. If
 -- you specify an instance type, the Dedicated Hosts support instances of
@@ -197,7 +198,7 @@ allocateHosts_tagSpecifications = Lens.lens (\AllocateHosts' {tagSpecifications}
 -- specific instance family, omit this parameter and specify
 -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
 -- __InstanceFamily__ in the same request.
-allocateHosts_instanceType :: Lens.Lens' AllocateHosts (Core.Maybe Core.Text)
+allocateHosts_instanceType :: Lens.Lens' AllocateHosts (Prelude.Maybe Prelude.Text)
 allocateHosts_instanceType = Lens.lens (\AllocateHosts' {instanceType} -> instanceType) (\s@AllocateHosts' {} a -> s {instanceType = a} :: AllocateHosts)
 
 -- | Indicates whether the host accepts any untargeted instance launches that
@@ -208,7 +209,7 @@ allocateHosts_instanceType = Lens.lens (\AllocateHosts' {instanceType} -> instan
 -- in the /Amazon EC2 User Guide/.
 --
 -- Default: @on@
-allocateHosts_autoPlacement :: Lens.Lens' AllocateHosts (Core.Maybe AutoPlacement)
+allocateHosts_autoPlacement :: Lens.Lens' AllocateHosts (Prelude.Maybe AutoPlacement)
 allocateHosts_autoPlacement = Lens.lens (\AllocateHosts' {autoPlacement} -> autoPlacement) (\s@AllocateHosts' {} a -> s {autoPlacement = a} :: AllocateHosts)
 
 -- | Indicates whether to enable or disable host recovery for the Dedicated
@@ -217,22 +218,22 @@ allocateHosts_autoPlacement = Lens.lens (\AllocateHosts' {autoPlacement} -> auto
 -- in the /Amazon EC2 User Guide/.
 --
 -- Default: @off@
-allocateHosts_hostRecovery :: Lens.Lens' AllocateHosts (Core.Maybe HostRecovery)
+allocateHosts_hostRecovery :: Lens.Lens' AllocateHosts (Prelude.Maybe HostRecovery)
 allocateHosts_hostRecovery = Lens.lens (\AllocateHosts' {hostRecovery} -> hostRecovery) (\s@AllocateHosts' {} a -> s {hostRecovery = a} :: AllocateHosts)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-allocateHosts_clientToken :: Lens.Lens' AllocateHosts (Core.Maybe Core.Text)
+allocateHosts_clientToken :: Lens.Lens' AllocateHosts (Prelude.Maybe Prelude.Text)
 allocateHosts_clientToken = Lens.lens (\AllocateHosts' {clientToken} -> clientToken) (\s@AllocateHosts' {} a -> s {clientToken = a} :: AllocateHosts)
 
 -- | The Availability Zone in which to allocate the Dedicated Host.
-allocateHosts_availabilityZone :: Lens.Lens' AllocateHosts Core.Text
+allocateHosts_availabilityZone :: Lens.Lens' AllocateHosts Prelude.Text
 allocateHosts_availabilityZone = Lens.lens (\AllocateHosts' {availabilityZone} -> availabilityZone) (\s@AllocateHosts' {} a -> s {availabilityZone = a} :: AllocateHosts)
 
 -- | The number of Dedicated Hosts to allocate to your account with these
 -- parameters.
-allocateHosts_quantity :: Lens.Lens' AllocateHosts Core.Int
+allocateHosts_quantity :: Lens.Lens' AllocateHosts Prelude.Int
 allocateHosts_quantity = Lens.lens (\AllocateHosts' {quantity} -> quantity) (\s@AllocateHosts' {} a -> s {quantity = a} :: AllocateHosts)
 
 instance Core.AWSRequest AllocateHosts where
@@ -244,32 +245,33 @@ instance Core.AWSRequest AllocateHosts where
     Response.receiveXML
       ( \s h x ->
           AllocateHostsResponse'
-            Core.<$> ( x Core..@? "hostIdSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "hostIdSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AllocateHosts
+instance Prelude.Hashable AllocateHosts
 
-instance Core.NFData AllocateHosts
+instance Prelude.NFData AllocateHosts
 
 instance Core.ToHeaders AllocateHosts where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AllocateHosts where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AllocateHosts where
   toQuery AllocateHosts' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AllocateHosts" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("AllocateHosts" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "InstanceFamily" Core.=: instanceFamily,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "InstanceType" Core.=: instanceType,
         "AutoPlacement" Core.=: autoPlacement,
@@ -285,11 +287,11 @@ instance Core.ToQuery AllocateHosts where
 data AllocateHostsResponse = AllocateHostsResponse'
   { -- | The ID of the allocated Dedicated Host. This is used to launch an
     -- instance onto a specific host.
-    hostIds :: Core.Maybe [Core.Text],
+    hostIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AllocateHostsResponse' with all optional fields omitted.
@@ -305,21 +307,21 @@ data AllocateHostsResponse = AllocateHostsResponse'
 -- 'httpStatus', 'allocateHostsResponse_httpStatus' - The response's http status code.
 newAllocateHostsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AllocateHostsResponse
 newAllocateHostsResponse pHttpStatus_ =
   AllocateHostsResponse'
-    { hostIds = Core.Nothing,
+    { hostIds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the allocated Dedicated Host. This is used to launch an
 -- instance onto a specific host.
-allocateHostsResponse_hostIds :: Lens.Lens' AllocateHostsResponse (Core.Maybe [Core.Text])
-allocateHostsResponse_hostIds = Lens.lens (\AllocateHostsResponse' {hostIds} -> hostIds) (\s@AllocateHostsResponse' {} a -> s {hostIds = a} :: AllocateHostsResponse) Core.. Lens.mapping Lens._Coerce
+allocateHostsResponse_hostIds :: Lens.Lens' AllocateHostsResponse (Prelude.Maybe [Prelude.Text])
+allocateHostsResponse_hostIds = Lens.lens (\AllocateHostsResponse' {hostIds} -> hostIds) (\s@AllocateHostsResponse' {} a -> s {hostIds = a} :: AllocateHostsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-allocateHostsResponse_httpStatus :: Lens.Lens' AllocateHostsResponse Core.Int
+allocateHostsResponse_httpStatus :: Lens.Lens' AllocateHostsResponse Prelude.Int
 allocateHostsResponse_httpStatus = Lens.lens (\AllocateHostsResponse' {httpStatus} -> httpStatus) (\s@AllocateHostsResponse' {} a -> s {httpStatus = a} :: AllocateHostsResponse)
 
-instance Core.NFData AllocateHostsResponse
+instance Prelude.NFData AllocateHostsResponse

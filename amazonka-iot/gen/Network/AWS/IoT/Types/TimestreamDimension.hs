@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.TimestreamDimension where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata attributes of the time series that are written in each measure
 -- record.
@@ -33,11 +34,11 @@ data TimestreamDimension = TimestreamDimension'
     -- Dimensions cannot be named: @measure_name@, @measure_value@, or @time@.
     -- These names are reserved. Dimension names cannot start with @ts_@ or
     -- @measure_value@ and they cannot contain the colon (@:@) character.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value to write in this column of the database record.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimestreamDimension' with all optional fields omitted.
@@ -57,9 +58,9 @@ data TimestreamDimension = TimestreamDimension'
 -- 'value', 'timestreamDimension_value' - The value to write in this column of the database record.
 newTimestreamDimension ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   TimestreamDimension
 newTimestreamDimension pName_ pValue_ =
   TimestreamDimension'
@@ -73,11 +74,11 @@ newTimestreamDimension pName_ pValue_ =
 -- Dimensions cannot be named: @measure_name@, @measure_value@, or @time@.
 -- These names are reserved. Dimension names cannot start with @ts_@ or
 -- @measure_value@ and they cannot contain the colon (@:@) character.
-timestreamDimension_name :: Lens.Lens' TimestreamDimension Core.Text
+timestreamDimension_name :: Lens.Lens' TimestreamDimension Prelude.Text
 timestreamDimension_name = Lens.lens (\TimestreamDimension' {name} -> name) (\s@TimestreamDimension' {} a -> s {name = a} :: TimestreamDimension)
 
 -- | The value to write in this column of the database record.
-timestreamDimension_value :: Lens.Lens' TimestreamDimension Core.Text
+timestreamDimension_value :: Lens.Lens' TimestreamDimension Prelude.Text
 timestreamDimension_value = Lens.lens (\TimestreamDimension' {value} -> value) (\s@TimestreamDimension' {} a -> s {value = a} :: TimestreamDimension)
 
 instance Core.FromJSON TimestreamDimension where
@@ -86,18 +87,18 @@ instance Core.FromJSON TimestreamDimension where
       "TimestreamDimension"
       ( \x ->
           TimestreamDimension'
-            Core.<$> (x Core..: "name") Core.<*> (x Core..: "value")
+            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "value")
       )
 
-instance Core.Hashable TimestreamDimension
+instance Prelude.Hashable TimestreamDimension
 
-instance Core.NFData TimestreamDimension
+instance Prelude.NFData TimestreamDimension
 
 instance Core.ToJSON TimestreamDimension where
   toJSON TimestreamDimension' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just ("value" Core..= value)
           ]
       )

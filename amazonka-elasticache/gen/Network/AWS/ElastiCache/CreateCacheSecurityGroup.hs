@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,11 +65,11 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
     -- Cannot be the word \"Default\".
     --
     -- Example: @mysecuritygroup@
-    cacheSecurityGroupName :: Core.Text,
+    cacheSecurityGroupName :: Prelude.Text,
     -- | A description for the cache security group.
-    description :: Core.Text
+    description :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCacheSecurityGroup' with all optional fields omitted.
@@ -89,9 +90,9 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
 -- 'description', 'createCacheSecurityGroup_description' - A description for the cache security group.
 newCreateCacheSecurityGroup ::
   -- | 'cacheSecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   CreateCacheSecurityGroup
 newCreateCacheSecurityGroup
   pCacheSecurityGroupName_
@@ -109,11 +110,11 @@ newCreateCacheSecurityGroup
 -- Cannot be the word \"Default\".
 --
 -- Example: @mysecuritygroup@
-createCacheSecurityGroup_cacheSecurityGroupName :: Lens.Lens' CreateCacheSecurityGroup Core.Text
+createCacheSecurityGroup_cacheSecurityGroupName :: Lens.Lens' CreateCacheSecurityGroup Prelude.Text
 createCacheSecurityGroup_cacheSecurityGroupName = Lens.lens (\CreateCacheSecurityGroup' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@CreateCacheSecurityGroup' {} a -> s {cacheSecurityGroupName = a} :: CreateCacheSecurityGroup)
 
 -- | A description for the cache security group.
-createCacheSecurityGroup_description :: Lens.Lens' CreateCacheSecurityGroup Core.Text
+createCacheSecurityGroup_description :: Lens.Lens' CreateCacheSecurityGroup Prelude.Text
 createCacheSecurityGroup_description = Lens.lens (\CreateCacheSecurityGroup' {description} -> description) (\s@CreateCacheSecurityGroup' {} a -> s {description = a} :: CreateCacheSecurityGroup)
 
 instance Core.AWSRequest CreateCacheSecurityGroup where
@@ -126,26 +127,27 @@ instance Core.AWSRequest CreateCacheSecurityGroup where
       "CreateCacheSecurityGroupResult"
       ( \s h x ->
           CreateCacheSecurityGroupResponse'
-            Core.<$> (x Core..@? "CacheSecurityGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "CacheSecurityGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateCacheSecurityGroup
+instance Prelude.Hashable CreateCacheSecurityGroup
 
-instance Core.NFData CreateCacheSecurityGroup
+instance Prelude.NFData CreateCacheSecurityGroup
 
 instance Core.ToHeaders CreateCacheSecurityGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateCacheSecurityGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateCacheSecurityGroup where
   toQuery CreateCacheSecurityGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCacheSecurityGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("CreateCacheSecurityGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheSecurityGroupName"
           Core.=: cacheSecurityGroupName,
         "Description" Core.=: description
@@ -153,11 +155,11 @@ instance Core.ToQuery CreateCacheSecurityGroup where
 
 -- | /See:/ 'newCreateCacheSecurityGroupResponse' smart constructor.
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
-  { cacheSecurityGroup :: Core.Maybe CacheSecurityGroup,
+  { cacheSecurityGroup :: Prelude.Maybe CacheSecurityGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCacheSecurityGroupResponse' with all optional fields omitted.
@@ -172,21 +174,23 @@ data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
 -- 'httpStatus', 'createCacheSecurityGroupResponse_httpStatus' - The response's http status code.
 newCreateCacheSecurityGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateCacheSecurityGroupResponse
 newCreateCacheSecurityGroupResponse pHttpStatus_ =
   CreateCacheSecurityGroupResponse'
     { cacheSecurityGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createCacheSecurityGroupResponse_cacheSecurityGroup :: Lens.Lens' CreateCacheSecurityGroupResponse (Core.Maybe CacheSecurityGroup)
+createCacheSecurityGroupResponse_cacheSecurityGroup :: Lens.Lens' CreateCacheSecurityGroupResponse (Prelude.Maybe CacheSecurityGroup)
 createCacheSecurityGroupResponse_cacheSecurityGroup = Lens.lens (\CreateCacheSecurityGroupResponse' {cacheSecurityGroup} -> cacheSecurityGroup) (\s@CreateCacheSecurityGroupResponse' {} a -> s {cacheSecurityGroup = a} :: CreateCacheSecurityGroupResponse)
 
 -- | The response's http status code.
-createCacheSecurityGroupResponse_httpStatus :: Lens.Lens' CreateCacheSecurityGroupResponse Core.Int
+createCacheSecurityGroupResponse_httpStatus :: Lens.Lens' CreateCacheSecurityGroupResponse Prelude.Int
 createCacheSecurityGroupResponse_httpStatus = Lens.lens (\CreateCacheSecurityGroupResponse' {httpStatus} -> httpStatus) (\s@CreateCacheSecurityGroupResponse' {} a -> s {httpStatus = a} :: CreateCacheSecurityGroupResponse)
 
-instance Core.NFData CreateCacheSecurityGroupResponse
+instance
+  Prelude.NFData
+    CreateCacheSecurityGroupResponse

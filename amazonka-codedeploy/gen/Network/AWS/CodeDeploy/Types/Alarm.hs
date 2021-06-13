@@ -21,6 +21,7 @@ module Network.AWS.CodeDeploy.Types.Alarm where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an alarm.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data Alarm = Alarm'
   { -- | The name of the alarm. Maximum length is 255 characters. Each alarm name
     -- can be used only once in a list of alarms.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Alarm' with all optional fields omitted.
@@ -44,24 +45,26 @@ data Alarm = Alarm'
 -- can be used only once in a list of alarms.
 newAlarm ::
   Alarm
-newAlarm = Alarm' {name = Core.Nothing}
+newAlarm = Alarm' {name = Prelude.Nothing}
 
 -- | The name of the alarm. Maximum length is 255 characters. Each alarm name
 -- can be used only once in a list of alarms.
-alarm_name :: Lens.Lens' Alarm (Core.Maybe Core.Text)
+alarm_name :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
 alarm_name = Lens.lens (\Alarm' {name} -> name) (\s@Alarm' {} a -> s {name = a} :: Alarm)
 
 instance Core.FromJSON Alarm where
   parseJSON =
     Core.withObject
       "Alarm"
-      (\x -> Alarm' Core.<$> (x Core..:? "name"))
+      (\x -> Alarm' Prelude.<$> (x Core..:? "name"))
 
-instance Core.Hashable Alarm
+instance Prelude.Hashable Alarm
 
-instance Core.NFData Alarm
+instance Prelude.NFData Alarm
 
 instance Core.ToJSON Alarm where
   toJSON Alarm' {..} =
     Core.object
-      (Core.catMaybes [("name" Core..=) Core.<$> name])
+      ( Prelude.catMaybes
+          [("name" Core..=) Prelude.<$> name]
+      )

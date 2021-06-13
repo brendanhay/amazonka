@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.AvailBlanking where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for Avail Blanking
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data AvailBlanking = AvailBlanking'
   { -- | Blanking image to be used. Leave empty for solid black. Only bmp and png
     -- images are supported.
-    availBlankingImage :: Core.Maybe Core.Text
+    availBlankingImage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AvailBlanking' with all optional fields omitted.
@@ -45,11 +46,14 @@ data AvailBlanking = AvailBlanking'
 newAvailBlanking ::
   AvailBlanking
 newAvailBlanking =
-  AvailBlanking' {availBlankingImage = Core.Nothing}
+  AvailBlanking'
+    { availBlankingImage =
+        Prelude.Nothing
+    }
 
 -- | Blanking image to be used. Leave empty for solid black. Only bmp and png
 -- images are supported.
-availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Core.Maybe Core.Text)
+availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Prelude.Maybe Prelude.Text)
 availBlanking_availBlankingImage = Lens.lens (\AvailBlanking' {availBlankingImage} -> availBlankingImage) (\s@AvailBlanking' {} a -> s {availBlankingImage = a} :: AvailBlanking)
 
 instance Core.FromJSON AvailBlanking where
@@ -58,18 +62,18 @@ instance Core.FromJSON AvailBlanking where
       "AvailBlanking"
       ( \x ->
           AvailBlanking'
-            Core.<$> (x Core..:? "availBlankingImage")
+            Prelude.<$> (x Core..:? "availBlankingImage")
       )
 
-instance Core.Hashable AvailBlanking
+instance Prelude.Hashable AvailBlanking
 
-instance Core.NFData AvailBlanking
+instance Prelude.NFData AvailBlanking
 
 instance Core.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("availBlankingImage" Core..=)
-              Core.<$> availBlankingImage
+              Prelude.<$> availBlankingImage
           ]
       )

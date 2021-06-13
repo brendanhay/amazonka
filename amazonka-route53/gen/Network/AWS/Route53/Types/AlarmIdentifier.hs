@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.AlarmIdentifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.CloudWatchRegion
 
@@ -50,9 +51,9 @@ data AlarmIdentifier = AlarmIdentifier'
     --
     -- -   Statistics: Average, Minimum, Maximum, Sum, and SampleCount.
     --     Extended statistics aren\'t supported.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AlarmIdentifier' with all optional fields omitted.
@@ -86,7 +87,7 @@ newAlarmIdentifier ::
   -- | 'region'
   CloudWatchRegion ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   AlarmIdentifier
 newAlarmIdentifier pRegion_ pName_ =
   AlarmIdentifier' {region = pRegion_, name = pName_}
@@ -113,19 +114,19 @@ alarmIdentifier_region = Lens.lens (\AlarmIdentifier' {region} -> region) (\s@Al
 --
 -- -   Statistics: Average, Minimum, Maximum, Sum, and SampleCount.
 --     Extended statistics aren\'t supported.
-alarmIdentifier_name :: Lens.Lens' AlarmIdentifier Core.Text
+alarmIdentifier_name :: Lens.Lens' AlarmIdentifier Prelude.Text
 alarmIdentifier_name = Lens.lens (\AlarmIdentifier' {name} -> name) (\s@AlarmIdentifier' {} a -> s {name = a} :: AlarmIdentifier)
 
 instance Core.FromXML AlarmIdentifier where
   parseXML x =
     AlarmIdentifier'
-      Core.<$> (x Core..@ "Region") Core.<*> (x Core..@ "Name")
+      Prelude.<$> (x Core..@ "Region") Prelude.<*> (x Core..@ "Name")
 
-instance Core.Hashable AlarmIdentifier
+instance Prelude.Hashable AlarmIdentifier
 
-instance Core.NFData AlarmIdentifier
+instance Prelude.NFData AlarmIdentifier
 
 instance Core.ToXML AlarmIdentifier where
   toXML AlarmIdentifier' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Region" Core.@= region, "Name" Core.@= name]

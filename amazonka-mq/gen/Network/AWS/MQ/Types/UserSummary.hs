@@ -22,19 +22,20 @@ module Network.AWS.MQ.Types.UserSummary where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.ChangeType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns a list of all broker users.
 --
 -- /See:/ 'newUserSummary' smart constructor.
 data UserSummary = UserSummary'
   { -- | The type of change pending for the broker user.
-    pendingChange :: Core.Maybe ChangeType,
+    pendingChange :: Prelude.Maybe ChangeType,
     -- | Required. The username of the broker user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
-    username :: Core.Maybe Core.Text
+    username :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserSummary' with all optional fields omitted.
@@ -53,18 +54,18 @@ newUserSummary ::
   UserSummary
 newUserSummary =
   UserSummary'
-    { pendingChange = Core.Nothing,
-      username = Core.Nothing
+    { pendingChange = Prelude.Nothing,
+      username = Prelude.Nothing
     }
 
 -- | The type of change pending for the broker user.
-userSummary_pendingChange :: Lens.Lens' UserSummary (Core.Maybe ChangeType)
+userSummary_pendingChange :: Lens.Lens' UserSummary (Prelude.Maybe ChangeType)
 userSummary_pendingChange = Lens.lens (\UserSummary' {pendingChange} -> pendingChange) (\s@UserSummary' {} a -> s {pendingChange = a} :: UserSummary)
 
 -- | Required. The username of the broker user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
-userSummary_username :: Lens.Lens' UserSummary (Core.Maybe Core.Text)
+userSummary_username :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
 userSummary_username = Lens.lens (\UserSummary' {username} -> username) (\s@UserSummary' {} a -> s {username = a} :: UserSummary)
 
 instance Core.FromJSON UserSummary where
@@ -73,10 +74,10 @@ instance Core.FromJSON UserSummary where
       "UserSummary"
       ( \x ->
           UserSummary'
-            Core.<$> (x Core..:? "pendingChange")
-            Core.<*> (x Core..:? "username")
+            Prelude.<$> (x Core..:? "pendingChange")
+            Prelude.<*> (x Core..:? "username")
       )
 
-instance Core.Hashable UserSummary
+instance Prelude.Hashable UserSummary
 
-instance Core.NFData UserSummary
+instance Prelude.NFData UserSummary

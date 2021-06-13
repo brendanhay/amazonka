@@ -22,21 +22,22 @@ module Network.AWS.DMS.Types.ResourcePendingMaintenanceActions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.PendingMaintenanceAction
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies an AWS DMS resource and any pending actions for it.
 --
 -- /See:/ 'newResourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
   { -- | Detailed information about the pending maintenance action.
-    pendingMaintenanceActionDetails :: Core.Maybe [PendingMaintenanceAction],
+    pendingMaintenanceActionDetails :: Prelude.Maybe [PendingMaintenanceAction],
     -- | The Amazon Resource Name (ARN) of the DMS resource that the pending
     -- maintenance action applies to. For information about creating an ARN,
     -- see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS>
     -- in the DMS documentation.
-    resourceIdentifier :: Core.Maybe Core.Text
+    resourceIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourcePendingMaintenanceActions' with all optional fields omitted.
@@ -58,20 +59,20 @@ newResourcePendingMaintenanceActions ::
 newResourcePendingMaintenanceActions =
   ResourcePendingMaintenanceActions'
     { pendingMaintenanceActionDetails =
-        Core.Nothing,
-      resourceIdentifier = Core.Nothing
+        Prelude.Nothing,
+      resourceIdentifier = Prelude.Nothing
     }
 
 -- | Detailed information about the pending maintenance action.
-resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Core.Maybe [PendingMaintenanceAction])
-resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Core.. Lens.mapping Lens._Coerce
+resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe [PendingMaintenanceAction])
+resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the DMS resource that the pending
 -- maintenance action applies to. For information about creating an ARN,
 -- see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS>
 -- in the DMS documentation.
-resourcePendingMaintenanceActions_resourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Core.Maybe Core.Text)
+resourcePendingMaintenanceActions_resourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
 resourcePendingMaintenanceActions_resourceIdentifier = Lens.lens (\ResourcePendingMaintenanceActions' {resourceIdentifier} -> resourceIdentifier) (\s@ResourcePendingMaintenanceActions' {} a -> s {resourceIdentifier = a} :: ResourcePendingMaintenanceActions)
 
 instance
@@ -83,16 +84,16 @@ instance
       "ResourcePendingMaintenanceActions"
       ( \x ->
           ResourcePendingMaintenanceActions'
-            Core.<$> ( x Core..:? "PendingMaintenanceActionDetails"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "ResourceIdentifier")
+            Prelude.<$> ( x Core..:? "PendingMaintenanceActionDetails"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ResourceIdentifier")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ResourcePendingMaintenanceActions
 
 instance
-  Core.NFData
+  Prelude.NFData
     ResourcePendingMaintenanceActions

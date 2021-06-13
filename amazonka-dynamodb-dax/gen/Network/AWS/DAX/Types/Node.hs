@@ -22,29 +22,30 @@ module Network.AWS.DAX.Types.Node where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types.Endpoint
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an individual node within a DAX cluster.
 --
 -- /See:/ 'newNode' smart constructor.
 data Node = Node'
   { -- | The current status of the node. For example: @available@.
-    nodeStatus :: Core.Maybe Core.Text,
+    nodeStatus :: Prelude.Maybe Prelude.Text,
     -- | A system-generated identifier for the node.
-    nodeId :: Core.Maybe Core.Text,
+    nodeId :: Prelude.Maybe Prelude.Text,
     -- | The status of the parameter group associated with this node. For
     -- example, @in-sync@.
-    parameterGroupStatus :: Core.Maybe Core.Text,
+    parameterGroupStatus :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone (AZ) in which the node has been deployed.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in UNIX epoch format) when the node was launched.
-    nodeCreateTime :: Core.Maybe Core.POSIX,
+    nodeCreateTime :: Prelude.Maybe Core.POSIX,
     -- | The endpoint for the node, consisting of a DNS name and a port number.
     -- Client applications can connect directly to a node endpoint, if desired
     -- (as an alternative to allowing DAX client software to intelligently
     -- route requests and responses to nodes in the DAX cluster.
-    endpoint :: Core.Maybe Endpoint
+    endpoint :: Prelude.Maybe Endpoint
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Node' with all optional fields omitted.
@@ -73,40 +74,40 @@ newNode ::
   Node
 newNode =
   Node'
-    { nodeStatus = Core.Nothing,
-      nodeId = Core.Nothing,
-      parameterGroupStatus = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      nodeCreateTime = Core.Nothing,
-      endpoint = Core.Nothing
+    { nodeStatus = Prelude.Nothing,
+      nodeId = Prelude.Nothing,
+      parameterGroupStatus = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      nodeCreateTime = Prelude.Nothing,
+      endpoint = Prelude.Nothing
     }
 
 -- | The current status of the node. For example: @available@.
-node_nodeStatus :: Lens.Lens' Node (Core.Maybe Core.Text)
+node_nodeStatus :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_nodeStatus = Lens.lens (\Node' {nodeStatus} -> nodeStatus) (\s@Node' {} a -> s {nodeStatus = a} :: Node)
 
 -- | A system-generated identifier for the node.
-node_nodeId :: Lens.Lens' Node (Core.Maybe Core.Text)
+node_nodeId :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_nodeId = Lens.lens (\Node' {nodeId} -> nodeId) (\s@Node' {} a -> s {nodeId = a} :: Node)
 
 -- | The status of the parameter group associated with this node. For
 -- example, @in-sync@.
-node_parameterGroupStatus :: Lens.Lens' Node (Core.Maybe Core.Text)
+node_parameterGroupStatus :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_parameterGroupStatus = Lens.lens (\Node' {parameterGroupStatus} -> parameterGroupStatus) (\s@Node' {} a -> s {parameterGroupStatus = a} :: Node)
 
 -- | The Availability Zone (AZ) in which the node has been deployed.
-node_availabilityZone :: Lens.Lens' Node (Core.Maybe Core.Text)
+node_availabilityZone :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_availabilityZone = Lens.lens (\Node' {availabilityZone} -> availabilityZone) (\s@Node' {} a -> s {availabilityZone = a} :: Node)
 
 -- | The date and time (in UNIX epoch format) when the node was launched.
-node_nodeCreateTime :: Lens.Lens' Node (Core.Maybe Core.UTCTime)
-node_nodeCreateTime = Lens.lens (\Node' {nodeCreateTime} -> nodeCreateTime) (\s@Node' {} a -> s {nodeCreateTime = a} :: Node) Core.. Lens.mapping Core._Time
+node_nodeCreateTime :: Lens.Lens' Node (Prelude.Maybe Prelude.UTCTime)
+node_nodeCreateTime = Lens.lens (\Node' {nodeCreateTime} -> nodeCreateTime) (\s@Node' {} a -> s {nodeCreateTime = a} :: Node) Prelude.. Lens.mapping Core._Time
 
 -- | The endpoint for the node, consisting of a DNS name and a port number.
 -- Client applications can connect directly to a node endpoint, if desired
 -- (as an alternative to allowing DAX client software to intelligently
 -- route requests and responses to nodes in the DAX cluster.
-node_endpoint :: Lens.Lens' Node (Core.Maybe Endpoint)
+node_endpoint :: Lens.Lens' Node (Prelude.Maybe Endpoint)
 node_endpoint = Lens.lens (\Node' {endpoint} -> endpoint) (\s@Node' {} a -> s {endpoint = a} :: Node)
 
 instance Core.FromJSON Node where
@@ -115,14 +116,14 @@ instance Core.FromJSON Node where
       "Node"
       ( \x ->
           Node'
-            Core.<$> (x Core..:? "NodeStatus")
-            Core.<*> (x Core..:? "NodeId")
-            Core.<*> (x Core..:? "ParameterGroupStatus")
-            Core.<*> (x Core..:? "AvailabilityZone")
-            Core.<*> (x Core..:? "NodeCreateTime")
-            Core.<*> (x Core..:? "Endpoint")
+            Prelude.<$> (x Core..:? "NodeStatus")
+            Prelude.<*> (x Core..:? "NodeId")
+            Prelude.<*> (x Core..:? "ParameterGroupStatus")
+            Prelude.<*> (x Core..:? "AvailabilityZone")
+            Prelude.<*> (x Core..:? "NodeCreateTime")
+            Prelude.<*> (x Core..:? "Endpoint")
       )
 
-instance Core.Hashable Node
+instance Prelude.Hashable Node
 
-instance Core.NFData Node
+instance Prelude.NFData Node

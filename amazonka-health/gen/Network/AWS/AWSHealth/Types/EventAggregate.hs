@@ -21,6 +21,7 @@ module Network.AWS.AWSHealth.Types.EventAggregate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of events of each issue type. Returned by the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html DescribeEventAggregates>
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEventAggregate' smart constructor.
 data EventAggregate = EventAggregate'
   { -- | The number of events of the associated issue type.
-    count :: Core.Maybe Core.Int,
+    count :: Prelude.Maybe Prelude.Int,
     -- | The issue type for the associated count.
-    aggregateValue :: Core.Maybe Core.Text
+    aggregateValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventAggregate' with all optional fields omitted.
@@ -50,16 +51,16 @@ newEventAggregate ::
   EventAggregate
 newEventAggregate =
   EventAggregate'
-    { count = Core.Nothing,
-      aggregateValue = Core.Nothing
+    { count = Prelude.Nothing,
+      aggregateValue = Prelude.Nothing
     }
 
 -- | The number of events of the associated issue type.
-eventAggregate_count :: Lens.Lens' EventAggregate (Core.Maybe Core.Int)
+eventAggregate_count :: Lens.Lens' EventAggregate (Prelude.Maybe Prelude.Int)
 eventAggregate_count = Lens.lens (\EventAggregate' {count} -> count) (\s@EventAggregate' {} a -> s {count = a} :: EventAggregate)
 
 -- | The issue type for the associated count.
-eventAggregate_aggregateValue :: Lens.Lens' EventAggregate (Core.Maybe Core.Text)
+eventAggregate_aggregateValue :: Lens.Lens' EventAggregate (Prelude.Maybe Prelude.Text)
 eventAggregate_aggregateValue = Lens.lens (\EventAggregate' {aggregateValue} -> aggregateValue) (\s@EventAggregate' {} a -> s {aggregateValue = a} :: EventAggregate)
 
 instance Core.FromJSON EventAggregate where
@@ -68,10 +69,10 @@ instance Core.FromJSON EventAggregate where
       "EventAggregate"
       ( \x ->
           EventAggregate'
-            Core.<$> (x Core..:? "count")
-            Core.<*> (x Core..:? "aggregateValue")
+            Prelude.<$> (x Core..:? "count")
+            Prelude.<*> (x Core..:? "aggregateValue")
       )
 
-instance Core.Hashable EventAggregate
+instance Prelude.Hashable EventAggregate
 
-instance Core.NFData EventAggregate
+instance Prelude.NFData EventAggregate

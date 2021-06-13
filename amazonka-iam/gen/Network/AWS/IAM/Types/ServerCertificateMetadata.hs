@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.ServerCertificateMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a server certificate without its certificate
 -- body, certificate chain, and private key.
@@ -31,28 +32,28 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newServerCertificateMetadata' smart constructor.
 data ServerCertificateMetadata = ServerCertificateMetadata'
   { -- | The date when the server certificate was uploaded.
-    uploadDate :: Core.Maybe Core.ISO8601,
+    uploadDate :: Prelude.Maybe Core.ISO8601,
     -- | The date on which the certificate is set to expire.
-    expiration :: Core.Maybe Core.ISO8601,
+    expiration :: Prelude.Maybe Core.ISO8601,
     -- | The path to the server certificate. For more information about paths,
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    path :: Core.Text,
+    path :: Prelude.Text,
     -- | The name that identifies the server certificate.
-    serverCertificateName :: Core.Text,
+    serverCertificateName :: Prelude.Text,
     -- | The stable and unique string identifying the server certificate. For
     -- more information about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    serverCertificateId :: Core.Text,
+    serverCertificateId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) specifying the server certificate. For
     -- more information about ARNs and how to use them in policies, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServerCertificateMetadata' with all optional fields omitted.
@@ -84,13 +85,13 @@ data ServerCertificateMetadata = ServerCertificateMetadata'
 -- in the /IAM User Guide/.
 newServerCertificateMetadata ::
   -- | 'path'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serverCertificateName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serverCertificateId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   ServerCertificateMetadata
 newServerCertificateMetadata
   pPath_
@@ -99,8 +100,8 @@ newServerCertificateMetadata
   pArn_ =
     ServerCertificateMetadata'
       { uploadDate =
-          Core.Nothing,
-        expiration = Core.Nothing,
+          Prelude.Nothing,
+        expiration = Prelude.Nothing,
         path = pPath_,
         serverCertificateName = pServerCertificateName_,
         serverCertificateId = pServerCertificateId_,
@@ -108,48 +109,48 @@ newServerCertificateMetadata
       }
 
 -- | The date when the server certificate was uploaded.
-serverCertificateMetadata_uploadDate :: Lens.Lens' ServerCertificateMetadata (Core.Maybe Core.UTCTime)
-serverCertificateMetadata_uploadDate = Lens.lens (\ServerCertificateMetadata' {uploadDate} -> uploadDate) (\s@ServerCertificateMetadata' {} a -> s {uploadDate = a} :: ServerCertificateMetadata) Core.. Lens.mapping Core._Time
+serverCertificateMetadata_uploadDate :: Lens.Lens' ServerCertificateMetadata (Prelude.Maybe Prelude.UTCTime)
+serverCertificateMetadata_uploadDate = Lens.lens (\ServerCertificateMetadata' {uploadDate} -> uploadDate) (\s@ServerCertificateMetadata' {} a -> s {uploadDate = a} :: ServerCertificateMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The date on which the certificate is set to expire.
-serverCertificateMetadata_expiration :: Lens.Lens' ServerCertificateMetadata (Core.Maybe Core.UTCTime)
-serverCertificateMetadata_expiration = Lens.lens (\ServerCertificateMetadata' {expiration} -> expiration) (\s@ServerCertificateMetadata' {} a -> s {expiration = a} :: ServerCertificateMetadata) Core.. Lens.mapping Core._Time
+serverCertificateMetadata_expiration :: Lens.Lens' ServerCertificateMetadata (Prelude.Maybe Prelude.UTCTime)
+serverCertificateMetadata_expiration = Lens.lens (\ServerCertificateMetadata' {expiration} -> expiration) (\s@ServerCertificateMetadata' {} a -> s {expiration = a} :: ServerCertificateMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The path to the server certificate. For more information about paths,
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-serverCertificateMetadata_path :: Lens.Lens' ServerCertificateMetadata Core.Text
+serverCertificateMetadata_path :: Lens.Lens' ServerCertificateMetadata Prelude.Text
 serverCertificateMetadata_path = Lens.lens (\ServerCertificateMetadata' {path} -> path) (\s@ServerCertificateMetadata' {} a -> s {path = a} :: ServerCertificateMetadata)
 
 -- | The name that identifies the server certificate.
-serverCertificateMetadata_serverCertificateName :: Lens.Lens' ServerCertificateMetadata Core.Text
+serverCertificateMetadata_serverCertificateName :: Lens.Lens' ServerCertificateMetadata Prelude.Text
 serverCertificateMetadata_serverCertificateName = Lens.lens (\ServerCertificateMetadata' {serverCertificateName} -> serverCertificateName) (\s@ServerCertificateMetadata' {} a -> s {serverCertificateName = a} :: ServerCertificateMetadata)
 
 -- | The stable and unique string identifying the server certificate. For
 -- more information about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-serverCertificateMetadata_serverCertificateId :: Lens.Lens' ServerCertificateMetadata Core.Text
+serverCertificateMetadata_serverCertificateId :: Lens.Lens' ServerCertificateMetadata Prelude.Text
 serverCertificateMetadata_serverCertificateId = Lens.lens (\ServerCertificateMetadata' {serverCertificateId} -> serverCertificateId) (\s@ServerCertificateMetadata' {} a -> s {serverCertificateId = a} :: ServerCertificateMetadata)
 
 -- | The Amazon Resource Name (ARN) specifying the server certificate. For
 -- more information about ARNs and how to use them in policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-serverCertificateMetadata_arn :: Lens.Lens' ServerCertificateMetadata Core.Text
+serverCertificateMetadata_arn :: Lens.Lens' ServerCertificateMetadata Prelude.Text
 serverCertificateMetadata_arn = Lens.lens (\ServerCertificateMetadata' {arn} -> arn) (\s@ServerCertificateMetadata' {} a -> s {arn = a} :: ServerCertificateMetadata)
 
 instance Core.FromXML ServerCertificateMetadata where
   parseXML x =
     ServerCertificateMetadata'
-      Core.<$> (x Core..@? "UploadDate")
-      Core.<*> (x Core..@? "Expiration")
-      Core.<*> (x Core..@ "Path")
-      Core.<*> (x Core..@ "ServerCertificateName")
-      Core.<*> (x Core..@ "ServerCertificateId")
-      Core.<*> (x Core..@ "Arn")
+      Prelude.<$> (x Core..@? "UploadDate")
+      Prelude.<*> (x Core..@? "Expiration")
+      Prelude.<*> (x Core..@ "Path")
+      Prelude.<*> (x Core..@ "ServerCertificateName")
+      Prelude.<*> (x Core..@ "ServerCertificateId")
+      Prelude.<*> (x Core..@ "Arn")
 
-instance Core.Hashable ServerCertificateMetadata
+instance Prelude.Hashable ServerCertificateMetadata
 
-instance Core.NFData ServerCertificateMetadata
+instance Prelude.NFData ServerCertificateMetadata

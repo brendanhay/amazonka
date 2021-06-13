@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -58,7 +59,7 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newStartMedicalTranscriptionJob' smart constructor.
 data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
   { -- | The audio format of the input media file.
-    mediaFormat :: Core.Maybe MediaFormat,
+    mediaFormat :: Prelude.Maybe MediaFormat,
     -- | You can specify a location in an Amazon S3 bucket to store the output of
     -- your medical transcription job.
     --
@@ -78,7 +79,7 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     --
     -- If you specify an output key, you must also specify an S3 bucket in the
     -- @OutputBucketName@ parameter.
-    outputKey :: Core.Maybe Core.Text,
+    outputKey :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
     -- key used to encrypt the output of the transcription job. The user
     -- calling the StartMedicalTranscriptionJob operation must have permission
@@ -106,7 +107,7 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     --
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location in the @OutputBucketName@ parameter.
-    outputEncryptionKMSKeyId :: Core.Maybe Core.Text,
+    outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | The sample rate, in Hertz, of the audio track in the input media file.
     --
     -- If you do not specify the media sample rate, Amazon Transcribe Medical
@@ -114,15 +115,15 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- match the rate detected by Amazon Transcribe Medical. In most cases, you
     -- should leave the @MediaSampleRateHertz@ field blank and let Amazon
     -- Transcribe Medical determine the sample rate.
-    mediaSampleRateHertz :: Core.Maybe Core.Natural,
+    mediaSampleRateHertz :: Prelude.Maybe Prelude.Natural,
     -- | Optional settings for the medical transcription job.
-    settings :: Core.Maybe MedicalTranscriptionSetting,
+    settings :: Prelude.Maybe MedicalTranscriptionSetting,
     -- | The name of the medical transcription job. You can\'t use the strings
     -- \"@.@\" or \"@..@\" by themselves as the job name. The name must also be
     -- unique within an AWS account. If you try to create a medical
     -- transcription job with the same name as a previous medical transcription
     -- job, you get a @ConflictException@ error.
-    medicalTranscriptionJobName :: Core.Text,
+    medicalTranscriptionJobName :: Prelude.Text,
     -- | The language code for the language spoken in the input media file. US
     -- English (en-US) is the valid value for medical transcription jobs. Any
     -- other value you enter for language code results in a
@@ -144,7 +145,7 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- parameter. If you don\'t specify a KMS key, Amazon Transcribe Medical
     -- uses the default Amazon S3 key for server-side encryption of transcripts
     -- that are placed in your S3 bucket.
-    outputBucketName :: Core.Text,
+    outputBucketName :: Prelude.Text,
     -- | The medical specialty of any clinician speaking in the input media.
     specialty :: Specialty,
     -- | The type of speech in the input audio. @CONVERSATION@ refers to
@@ -153,7 +154,7 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- dictated speech, e.g., for clinical notes.
     type' :: Type
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartMedicalTranscriptionJob' with all optional fields omitted.
@@ -260,13 +261,13 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- dictated speech, e.g., for clinical notes.
 newStartMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'languageCode'
   LanguageCode ->
   -- | 'media'
   Media ->
   -- | 'outputBucketName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'specialty'
   Specialty ->
   -- | 'type''
@@ -281,11 +282,11 @@ newStartMedicalTranscriptionJob
   pType_ =
     StartMedicalTranscriptionJob'
       { mediaFormat =
-          Core.Nothing,
-        outputKey = Core.Nothing,
-        outputEncryptionKMSKeyId = Core.Nothing,
-        mediaSampleRateHertz = Core.Nothing,
-        settings = Core.Nothing,
+          Prelude.Nothing,
+        outputKey = Prelude.Nothing,
+        outputEncryptionKMSKeyId = Prelude.Nothing,
+        mediaSampleRateHertz = Prelude.Nothing,
+        settings = Prelude.Nothing,
         medicalTranscriptionJobName =
           pMedicalTranscriptionJobName_,
         languageCode = pLanguageCode_,
@@ -296,7 +297,7 @@ newStartMedicalTranscriptionJob
       }
 
 -- | The audio format of the input media file.
-startMedicalTranscriptionJob_mediaFormat :: Lens.Lens' StartMedicalTranscriptionJob (Core.Maybe MediaFormat)
+startMedicalTranscriptionJob_mediaFormat :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MediaFormat)
 startMedicalTranscriptionJob_mediaFormat = Lens.lens (\StartMedicalTranscriptionJob' {mediaFormat} -> mediaFormat) (\s@StartMedicalTranscriptionJob' {} a -> s {mediaFormat = a} :: StartMedicalTranscriptionJob)
 
 -- | You can specify a location in an Amazon S3 bucket to store the output of
@@ -318,7 +319,7 @@ startMedicalTranscriptionJob_mediaFormat = Lens.lens (\StartMedicalTranscription
 --
 -- If you specify an output key, you must also specify an S3 bucket in the
 -- @OutputBucketName@ parameter.
-startMedicalTranscriptionJob_outputKey :: Lens.Lens' StartMedicalTranscriptionJob (Core.Maybe Core.Text)
+startMedicalTranscriptionJob_outputKey :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
 startMedicalTranscriptionJob_outputKey = Lens.lens (\StartMedicalTranscriptionJob' {outputKey} -> outputKey) (\s@StartMedicalTranscriptionJob' {} a -> s {outputKey = a} :: StartMedicalTranscriptionJob)
 
 -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
@@ -348,7 +349,7 @@ startMedicalTranscriptionJob_outputKey = Lens.lens (\StartMedicalTranscriptionJo
 --
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location in the @OutputBucketName@ parameter.
-startMedicalTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartMedicalTranscriptionJob (Core.Maybe Core.Text)
+startMedicalTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
 startMedicalTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartMedicalTranscriptionJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartMedicalTranscriptionJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartMedicalTranscriptionJob)
 
 -- | The sample rate, in Hertz, of the audio track in the input media file.
@@ -358,11 +359,11 @@ startMedicalTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartMedical
 -- match the rate detected by Amazon Transcribe Medical. In most cases, you
 -- should leave the @MediaSampleRateHertz@ field blank and let Amazon
 -- Transcribe Medical determine the sample rate.
-startMedicalTranscriptionJob_mediaSampleRateHertz :: Lens.Lens' StartMedicalTranscriptionJob (Core.Maybe Core.Natural)
+startMedicalTranscriptionJob_mediaSampleRateHertz :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Natural)
 startMedicalTranscriptionJob_mediaSampleRateHertz = Lens.lens (\StartMedicalTranscriptionJob' {mediaSampleRateHertz} -> mediaSampleRateHertz) (\s@StartMedicalTranscriptionJob' {} a -> s {mediaSampleRateHertz = a} :: StartMedicalTranscriptionJob)
 
 -- | Optional settings for the medical transcription job.
-startMedicalTranscriptionJob_settings :: Lens.Lens' StartMedicalTranscriptionJob (Core.Maybe MedicalTranscriptionSetting)
+startMedicalTranscriptionJob_settings :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MedicalTranscriptionSetting)
 startMedicalTranscriptionJob_settings = Lens.lens (\StartMedicalTranscriptionJob' {settings} -> settings) (\s@StartMedicalTranscriptionJob' {} a -> s {settings = a} :: StartMedicalTranscriptionJob)
 
 -- | The name of the medical transcription job. You can\'t use the strings
@@ -370,7 +371,7 @@ startMedicalTranscriptionJob_settings = Lens.lens (\StartMedicalTranscriptionJob
 -- unique within an AWS account. If you try to create a medical
 -- transcription job with the same name as a previous medical transcription
 -- job, you get a @ConflictException@ error.
-startMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' StartMedicalTranscriptionJob Core.Text
+startMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' StartMedicalTranscriptionJob Prelude.Text
 startMedicalTranscriptionJob_medicalTranscriptionJobName = Lens.lens (\StartMedicalTranscriptionJob' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@StartMedicalTranscriptionJob' {} a -> s {medicalTranscriptionJobName = a} :: StartMedicalTranscriptionJob)
 
 -- | The language code for the language spoken in the input media file. US
@@ -399,7 +400,7 @@ startMedicalTranscriptionJob_media = Lens.lens (\StartMedicalTranscriptionJob' {
 -- parameter. If you don\'t specify a KMS key, Amazon Transcribe Medical
 -- uses the default Amazon S3 key for server-side encryption of transcripts
 -- that are placed in your S3 bucket.
-startMedicalTranscriptionJob_outputBucketName :: Lens.Lens' StartMedicalTranscriptionJob Core.Text
+startMedicalTranscriptionJob_outputBucketName :: Lens.Lens' StartMedicalTranscriptionJob Prelude.Text
 startMedicalTranscriptionJob_outputBucketName = Lens.lens (\StartMedicalTranscriptionJob' {outputBucketName} -> outputBucketName) (\s@StartMedicalTranscriptionJob' {} a -> s {outputBucketName = a} :: StartMedicalTranscriptionJob)
 
 -- | The medical specialty of any clinician speaking in the input media.
@@ -422,65 +423,69 @@ instance Core.AWSRequest StartMedicalTranscriptionJob where
     Response.receiveJSON
       ( \s h x ->
           StartMedicalTranscriptionJobResponse'
-            Core.<$> (x Core..?> "MedicalTranscriptionJob")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "MedicalTranscriptionJob")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartMedicalTranscriptionJob
+instance
+  Prelude.Hashable
+    StartMedicalTranscriptionJob
 
-instance Core.NFData StartMedicalTranscriptionJob
+instance Prelude.NFData StartMedicalTranscriptionJob
 
 instance Core.ToHeaders StartMedicalTranscriptionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.StartMedicalTranscriptionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartMedicalTranscriptionJob where
   toJSON StartMedicalTranscriptionJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MediaFormat" Core..=) Core.<$> mediaFormat,
-            ("OutputKey" Core..=) Core.<$> outputKey,
+      ( Prelude.catMaybes
+          [ ("MediaFormat" Core..=) Prelude.<$> mediaFormat,
+            ("OutputKey" Core..=) Prelude.<$> outputKey,
             ("OutputEncryptionKMSKeyId" Core..=)
-              Core.<$> outputEncryptionKMSKeyId,
+              Prelude.<$> outputEncryptionKMSKeyId,
             ("MediaSampleRateHertz" Core..=)
-              Core.<$> mediaSampleRateHertz,
-            ("Settings" Core..=) Core.<$> settings,
-            Core.Just
+              Prelude.<$> mediaSampleRateHertz,
+            ("Settings" Core..=) Prelude.<$> settings,
+            Prelude.Just
               ( "MedicalTranscriptionJobName"
                   Core..= medicalTranscriptionJobName
               ),
-            Core.Just ("LanguageCode" Core..= languageCode),
-            Core.Just ("Media" Core..= media),
-            Core.Just
+            Prelude.Just ("LanguageCode" Core..= languageCode),
+            Prelude.Just ("Media" Core..= media),
+            Prelude.Just
               ("OutputBucketName" Core..= outputBucketName),
-            Core.Just ("Specialty" Core..= specialty),
-            Core.Just ("Type" Core..= type')
+            Prelude.Just ("Specialty" Core..= specialty),
+            Prelude.Just ("Type" Core..= type')
           ]
       )
 
 instance Core.ToPath StartMedicalTranscriptionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartMedicalTranscriptionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartMedicalTranscriptionJobResponse' smart constructor.
 data StartMedicalTranscriptionJobResponse = StartMedicalTranscriptionJobResponse'
   { -- | A batch job submitted to transcribe medical speech to text.
-    medicalTranscriptionJob :: Core.Maybe MedicalTranscriptionJob,
+    medicalTranscriptionJob :: Prelude.Maybe MedicalTranscriptionJob,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartMedicalTranscriptionJobResponse' with all optional fields omitted.
@@ -495,23 +500,23 @@ data StartMedicalTranscriptionJobResponse = StartMedicalTranscriptionJobResponse
 -- 'httpStatus', 'startMedicalTranscriptionJobResponse_httpStatus' - The response's http status code.
 newStartMedicalTranscriptionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartMedicalTranscriptionJobResponse
 newStartMedicalTranscriptionJobResponse pHttpStatus_ =
   StartMedicalTranscriptionJobResponse'
     { medicalTranscriptionJob =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A batch job submitted to transcribe medical speech to text.
-startMedicalTranscriptionJobResponse_medicalTranscriptionJob :: Lens.Lens' StartMedicalTranscriptionJobResponse (Core.Maybe MedicalTranscriptionJob)
+startMedicalTranscriptionJobResponse_medicalTranscriptionJob :: Lens.Lens' StartMedicalTranscriptionJobResponse (Prelude.Maybe MedicalTranscriptionJob)
 startMedicalTranscriptionJobResponse_medicalTranscriptionJob = Lens.lens (\StartMedicalTranscriptionJobResponse' {medicalTranscriptionJob} -> medicalTranscriptionJob) (\s@StartMedicalTranscriptionJobResponse' {} a -> s {medicalTranscriptionJob = a} :: StartMedicalTranscriptionJobResponse)
 
 -- | The response's http status code.
-startMedicalTranscriptionJobResponse_httpStatus :: Lens.Lens' StartMedicalTranscriptionJobResponse Core.Int
+startMedicalTranscriptionJobResponse_httpStatus :: Lens.Lens' StartMedicalTranscriptionJobResponse Prelude.Int
 startMedicalTranscriptionJobResponse_httpStatus = Lens.lens (\StartMedicalTranscriptionJobResponse' {httpStatus} -> httpStatus) (\s@StartMedicalTranscriptionJobResponse' {} a -> s {httpStatus = a} :: StartMedicalTranscriptionJobResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartMedicalTranscriptionJobResponse

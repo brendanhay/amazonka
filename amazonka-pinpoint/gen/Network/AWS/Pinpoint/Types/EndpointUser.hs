@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.EndpointUser where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies data for one or more attributes that describe the user who\'s
 -- associated with an endpoint.
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEndpointUser' smart constructor.
 data EndpointUser = EndpointUser'
   { -- | The unique identifier for the user.
-    userId :: Core.Maybe Core.Text,
+    userId :: Prelude.Maybe Prelude.Text,
     -- | One or more custom attributes that describe the user by associating a
     -- name with an array of values. For example, the value of an attribute
     -- named Interests might be: [\"Science\", \"Music\", \"Travel\"]. You can
@@ -41,9 +42,9 @@ data EndpointUser = EndpointUser'
     -- (:), question mark (?), backslash (\\), and slash (\/). The Amazon
     -- Pinpoint console can\'t display attribute names that contain these
     -- characters. This restriction doesn\'t apply to attribute values.
-    userAttributes :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
+    userAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EndpointUser' with all optional fields omitted.
@@ -71,12 +72,12 @@ newEndpointUser ::
   EndpointUser
 newEndpointUser =
   EndpointUser'
-    { userId = Core.Nothing,
-      userAttributes = Core.Nothing
+    { userId = Prelude.Nothing,
+      userAttributes = Prelude.Nothing
     }
 
 -- | The unique identifier for the user.
-endpointUser_userId :: Lens.Lens' EndpointUser (Core.Maybe Core.Text)
+endpointUser_userId :: Lens.Lens' EndpointUser (Prelude.Maybe Prelude.Text)
 endpointUser_userId = Lens.lens (\EndpointUser' {userId} -> userId) (\s@EndpointUser' {} a -> s {userId = a} :: EndpointUser)
 
 -- | One or more custom attributes that describe the user by associating a
@@ -91,8 +92,8 @@ endpointUser_userId = Lens.lens (\EndpointUser' {userId} -> userId) (\s@Endpoint
 -- (:), question mark (?), backslash (\\), and slash (\/). The Amazon
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
-endpointUser_userAttributes :: Lens.Lens' EndpointUser (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-endpointUser_userAttributes = Lens.lens (\EndpointUser' {userAttributes} -> userAttributes) (\s@EndpointUser' {} a -> s {userAttributes = a} :: EndpointUser) Core.. Lens.mapping Lens._Coerce
+endpointUser_userAttributes :: Lens.Lens' EndpointUser (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+endpointUser_userAttributes = Lens.lens (\EndpointUser' {userAttributes} -> userAttributes) (\s@EndpointUser' {} a -> s {userAttributes = a} :: EndpointUser) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON EndpointUser where
   parseJSON =
@@ -100,19 +101,22 @@ instance Core.FromJSON EndpointUser where
       "EndpointUser"
       ( \x ->
           EndpointUser'
-            Core.<$> (x Core..:? "UserId")
-            Core.<*> (x Core..:? "UserAttributes" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "UserId")
+            Prelude.<*> ( x Core..:? "UserAttributes"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable EndpointUser
+instance Prelude.Hashable EndpointUser
 
-instance Core.NFData EndpointUser
+instance Prelude.NFData EndpointUser
 
 instance Core.ToJSON EndpointUser where
   toJSON EndpointUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("UserId" Core..=) Core.<$> userId,
-            ("UserAttributes" Core..=) Core.<$> userAttributes
+      ( Prelude.catMaybes
+          [ ("UserId" Core..=) Prelude.<$> userId,
+            ("UserAttributes" Core..=)
+              Prelude.<$> userAttributes
           ]
       )

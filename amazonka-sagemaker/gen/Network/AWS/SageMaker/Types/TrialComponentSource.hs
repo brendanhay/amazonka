@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TrialComponentSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon Resource Name (ARN) and job type of the source of a trial
 -- component.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTrialComponentSource' smart constructor.
 data TrialComponentSource = TrialComponentSource'
   { -- | The source job type.
-    sourceType :: Core.Maybe Core.Text,
+    sourceType :: Prelude.Maybe Prelude.Text,
     -- | The source ARN.
-    sourceArn :: Core.Text
+    sourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrialComponentSource' with all optional fields omitted.
@@ -47,20 +48,20 @@ data TrialComponentSource = TrialComponentSource'
 -- 'sourceArn', 'trialComponentSource_sourceArn' - The source ARN.
 newTrialComponentSource ::
   -- | 'sourceArn'
-  Core.Text ->
+  Prelude.Text ->
   TrialComponentSource
 newTrialComponentSource pSourceArn_ =
   TrialComponentSource'
-    { sourceType = Core.Nothing,
+    { sourceType = Prelude.Nothing,
       sourceArn = pSourceArn_
     }
 
 -- | The source job type.
-trialComponentSource_sourceType :: Lens.Lens' TrialComponentSource (Core.Maybe Core.Text)
+trialComponentSource_sourceType :: Lens.Lens' TrialComponentSource (Prelude.Maybe Prelude.Text)
 trialComponentSource_sourceType = Lens.lens (\TrialComponentSource' {sourceType} -> sourceType) (\s@TrialComponentSource' {} a -> s {sourceType = a} :: TrialComponentSource)
 
 -- | The source ARN.
-trialComponentSource_sourceArn :: Lens.Lens' TrialComponentSource Core.Text
+trialComponentSource_sourceArn :: Lens.Lens' TrialComponentSource Prelude.Text
 trialComponentSource_sourceArn = Lens.lens (\TrialComponentSource' {sourceArn} -> sourceArn) (\s@TrialComponentSource' {} a -> s {sourceArn = a} :: TrialComponentSource)
 
 instance Core.FromJSON TrialComponentSource where
@@ -69,10 +70,10 @@ instance Core.FromJSON TrialComponentSource where
       "TrialComponentSource"
       ( \x ->
           TrialComponentSource'
-            Core.<$> (x Core..:? "SourceType")
-            Core.<*> (x Core..: "SourceArn")
+            Prelude.<$> (x Core..:? "SourceType")
+            Prelude.<*> (x Core..: "SourceArn")
       )
 
-instance Core.Hashable TrialComponentSource
+instance Prelude.Hashable TrialComponentSource
 
-instance Core.NFData TrialComponentSource
+instance Prelude.NFData TrialComponentSource

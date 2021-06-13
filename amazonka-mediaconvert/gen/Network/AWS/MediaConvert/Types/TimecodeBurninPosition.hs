@@ -34,6 +34,7 @@ module Network.AWS.MediaConvert.Types.TimecodeBurninPosition
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
 -- specify the location the burned-in timecode on output video.
@@ -42,15 +43,15 @@ newtype TimecodeBurninPosition = TimecodeBurninPosition'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

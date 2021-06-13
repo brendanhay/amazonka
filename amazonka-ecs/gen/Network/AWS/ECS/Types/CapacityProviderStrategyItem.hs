@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.CapacityProviderStrategyItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a capacity provider strategy.
 --
@@ -36,15 +37,15 @@ data CapacityProviderStrategyItem = CapacityProviderStrategyItem'
     -- same logic, if you specify a weight of @1@ for /capacityProviderA/ and a
     -- weight of @4@ for /capacityProviderB/, then for every one task that is
     -- run using /capacityProviderA/, four tasks would use /capacityProviderB/.
-    weight :: Core.Maybe Core.Natural,
+    weight :: Prelude.Maybe Prelude.Natural,
     -- | The /base/ value designates how many tasks, at a minimum, to run on the
     -- specified capacity provider. Only one capacity provider in a capacity
     -- provider strategy can have a /base/ defined.
-    base :: Core.Maybe Core.Natural,
+    base :: Prelude.Maybe Prelude.Natural,
     -- | The short name of the capacity provider.
-    capacityProvider :: Core.Text
+    capacityProvider :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CapacityProviderStrategyItem' with all optional fields omitted.
@@ -72,13 +73,13 @@ data CapacityProviderStrategyItem = CapacityProviderStrategyItem'
 -- 'capacityProvider', 'capacityProviderStrategyItem_capacityProvider' - The short name of the capacity provider.
 newCapacityProviderStrategyItem ::
   -- | 'capacityProvider'
-  Core.Text ->
+  Prelude.Text ->
   CapacityProviderStrategyItem
 newCapacityProviderStrategyItem pCapacityProvider_ =
   CapacityProviderStrategyItem'
     { weight =
-        Core.Nothing,
-      base = Core.Nothing,
+        Prelude.Nothing,
+      base = Prelude.Nothing,
       capacityProvider = pCapacityProvider_
     }
 
@@ -92,17 +93,17 @@ newCapacityProviderStrategyItem pCapacityProvider_ =
 -- same logic, if you specify a weight of @1@ for /capacityProviderA/ and a
 -- weight of @4@ for /capacityProviderB/, then for every one task that is
 -- run using /capacityProviderA/, four tasks would use /capacityProviderB/.
-capacityProviderStrategyItem_weight :: Lens.Lens' CapacityProviderStrategyItem (Core.Maybe Core.Natural)
+capacityProviderStrategyItem_weight :: Lens.Lens' CapacityProviderStrategyItem (Prelude.Maybe Prelude.Natural)
 capacityProviderStrategyItem_weight = Lens.lens (\CapacityProviderStrategyItem' {weight} -> weight) (\s@CapacityProviderStrategyItem' {} a -> s {weight = a} :: CapacityProviderStrategyItem)
 
 -- | The /base/ value designates how many tasks, at a minimum, to run on the
 -- specified capacity provider. Only one capacity provider in a capacity
 -- provider strategy can have a /base/ defined.
-capacityProviderStrategyItem_base :: Lens.Lens' CapacityProviderStrategyItem (Core.Maybe Core.Natural)
+capacityProviderStrategyItem_base :: Lens.Lens' CapacityProviderStrategyItem (Prelude.Maybe Prelude.Natural)
 capacityProviderStrategyItem_base = Lens.lens (\CapacityProviderStrategyItem' {base} -> base) (\s@CapacityProviderStrategyItem' {} a -> s {base = a} :: CapacityProviderStrategyItem)
 
 -- | The short name of the capacity provider.
-capacityProviderStrategyItem_capacityProvider :: Lens.Lens' CapacityProviderStrategyItem Core.Text
+capacityProviderStrategyItem_capacityProvider :: Lens.Lens' CapacityProviderStrategyItem Prelude.Text
 capacityProviderStrategyItem_capacityProvider = Lens.lens (\CapacityProviderStrategyItem' {capacityProvider} -> capacityProvider) (\s@CapacityProviderStrategyItem' {} a -> s {capacityProvider = a} :: CapacityProviderStrategyItem)
 
 instance Core.FromJSON CapacityProviderStrategyItem where
@@ -111,22 +112,24 @@ instance Core.FromJSON CapacityProviderStrategyItem where
       "CapacityProviderStrategyItem"
       ( \x ->
           CapacityProviderStrategyItem'
-            Core.<$> (x Core..:? "weight")
-            Core.<*> (x Core..:? "base")
-            Core.<*> (x Core..: "capacityProvider")
+            Prelude.<$> (x Core..:? "weight")
+            Prelude.<*> (x Core..:? "base")
+            Prelude.<*> (x Core..: "capacityProvider")
       )
 
-instance Core.Hashable CapacityProviderStrategyItem
+instance
+  Prelude.Hashable
+    CapacityProviderStrategyItem
 
-instance Core.NFData CapacityProviderStrategyItem
+instance Prelude.NFData CapacityProviderStrategyItem
 
 instance Core.ToJSON CapacityProviderStrategyItem where
   toJSON CapacityProviderStrategyItem' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("weight" Core..=) Core.<$> weight,
-            ("base" Core..=) Core.<$> base,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("weight" Core..=) Prelude.<$> weight,
+            ("base" Core..=) Prelude.<$> base,
+            Prelude.Just
               ("capacityProvider" Core..= capacityProvider)
           ]
       )

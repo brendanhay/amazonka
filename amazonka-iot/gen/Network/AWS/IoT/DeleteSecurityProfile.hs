@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ data DeleteSecurityProfile = DeleteSecurityProfile'
     -- whenever the security profile is updated. If you specify a value that is
     -- different from the actual version, a @VersionConflictException@ is
     -- thrown.
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the security profile to be deleted.
-    securityProfileName :: Core.Text
+    securityProfileName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSecurityProfile' with all optional fields omitted.
@@ -73,12 +74,12 @@ data DeleteSecurityProfile = DeleteSecurityProfile'
 -- 'securityProfileName', 'deleteSecurityProfile_securityProfileName' - The name of the security profile to be deleted.
 newDeleteSecurityProfile ::
   -- | 'securityProfileName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSecurityProfile
 newDeleteSecurityProfile pSecurityProfileName_ =
   DeleteSecurityProfile'
     { expectedVersion =
-        Core.Nothing,
+        Prelude.Nothing,
       securityProfileName = pSecurityProfileName_
     }
 
@@ -86,11 +87,11 @@ newDeleteSecurityProfile pSecurityProfileName_ =
 -- whenever the security profile is updated. If you specify a value that is
 -- different from the actual version, a @VersionConflictException@ is
 -- thrown.
-deleteSecurityProfile_expectedVersion :: Lens.Lens' DeleteSecurityProfile (Core.Maybe Core.Integer)
+deleteSecurityProfile_expectedVersion :: Lens.Lens' DeleteSecurityProfile (Prelude.Maybe Prelude.Integer)
 deleteSecurityProfile_expectedVersion = Lens.lens (\DeleteSecurityProfile' {expectedVersion} -> expectedVersion) (\s@DeleteSecurityProfile' {} a -> s {expectedVersion = a} :: DeleteSecurityProfile)
 
 -- | The name of the security profile to be deleted.
-deleteSecurityProfile_securityProfileName :: Lens.Lens' DeleteSecurityProfile Core.Text
+deleteSecurityProfile_securityProfileName :: Lens.Lens' DeleteSecurityProfile Prelude.Text
 deleteSecurityProfile_securityProfileName = Lens.lens (\DeleteSecurityProfile' {securityProfileName} -> securityProfileName) (\s@DeleteSecurityProfile' {} a -> s {securityProfileName = a} :: DeleteSecurityProfile)
 
 instance Core.AWSRequest DeleteSecurityProfile where
@@ -102,34 +103,34 @@ instance Core.AWSRequest DeleteSecurityProfile where
     Response.receiveEmpty
       ( \s h x ->
           DeleteSecurityProfileResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteSecurityProfile
+instance Prelude.Hashable DeleteSecurityProfile
 
-instance Core.NFData DeleteSecurityProfile
+instance Prelude.NFData DeleteSecurityProfile
 
 instance Core.ToHeaders DeleteSecurityProfile where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteSecurityProfile where
   toPath DeleteSecurityProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/security-profiles/",
         Core.toBS securityProfileName
       ]
 
 instance Core.ToQuery DeleteSecurityProfile where
   toQuery DeleteSecurityProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["expectedVersion" Core.=: expectedVersion]
 
 -- | /See:/ 'newDeleteSecurityProfileResponse' smart constructor.
 data DeleteSecurityProfileResponse = DeleteSecurityProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSecurityProfileResponse' with all optional fields omitted.
@@ -142,7 +143,7 @@ data DeleteSecurityProfileResponse = DeleteSecurityProfileResponse'
 -- 'httpStatus', 'deleteSecurityProfileResponse_httpStatus' - The response's http status code.
 newDeleteSecurityProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteSecurityProfileResponse
 newDeleteSecurityProfileResponse pHttpStatus_ =
   DeleteSecurityProfileResponse'
@@ -151,7 +152,7 @@ newDeleteSecurityProfileResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteSecurityProfileResponse_httpStatus :: Lens.Lens' DeleteSecurityProfileResponse Core.Int
+deleteSecurityProfileResponse_httpStatus :: Lens.Lens' DeleteSecurityProfileResponse Prelude.Int
 deleteSecurityProfileResponse_httpStatus = Lens.lens (\DeleteSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteSecurityProfileResponse' {} a -> s {httpStatus = a} :: DeleteSecurityProfileResponse)
 
-instance Core.NFData DeleteSecurityProfileResponse
+instance Prelude.NFData DeleteSecurityProfileResponse

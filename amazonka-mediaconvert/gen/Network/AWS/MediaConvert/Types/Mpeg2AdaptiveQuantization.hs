@@ -29,6 +29,7 @@ module Network.AWS.MediaConvert.Types.Mpeg2AdaptiveQuantization
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the strength of any adaptive quantization filters that you
 -- enable. The value that you choose here applies to the following
@@ -39,15 +40,15 @@ newtype Mpeg2AdaptiveQuantization = Mpeg2AdaptiveQuantization'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -22,27 +22,28 @@ module Network.AWS.IoT.Types.ThingDocument where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ThingConnectivity
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The thing search index document.
 --
 -- /See:/ 'newThingDocument' smart constructor.
 data ThingDocument = ThingDocument'
   { -- | The thing ID.
-    thingId :: Core.Maybe Core.Text,
+    thingId :: Prelude.Maybe Prelude.Text,
     -- | The thing name.
-    thingName :: Core.Maybe Core.Text,
+    thingName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the thing is connected to the AWS IoT service.
-    connectivity :: Core.Maybe ThingConnectivity,
+    connectivity :: Prelude.Maybe ThingConnectivity,
     -- | The attributes.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Thing group names.
-    thingGroupNames :: Core.Maybe [Core.Text],
+    thingGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | The shadow.
-    shadow :: Core.Maybe Core.Text,
+    shadow :: Prelude.Maybe Prelude.Text,
     -- | The thing type name.
-    thingTypeName :: Core.Maybe Core.Text
+    thingTypeName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ThingDocument' with all optional fields omitted.
@@ -69,41 +70,41 @@ newThingDocument ::
   ThingDocument
 newThingDocument =
   ThingDocument'
-    { thingId = Core.Nothing,
-      thingName = Core.Nothing,
-      connectivity = Core.Nothing,
-      attributes = Core.Nothing,
-      thingGroupNames = Core.Nothing,
-      shadow = Core.Nothing,
-      thingTypeName = Core.Nothing
+    { thingId = Prelude.Nothing,
+      thingName = Prelude.Nothing,
+      connectivity = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      thingGroupNames = Prelude.Nothing,
+      shadow = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing
     }
 
 -- | The thing ID.
-thingDocument_thingId :: Lens.Lens' ThingDocument (Core.Maybe Core.Text)
+thingDocument_thingId :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
 thingDocument_thingId = Lens.lens (\ThingDocument' {thingId} -> thingId) (\s@ThingDocument' {} a -> s {thingId = a} :: ThingDocument)
 
 -- | The thing name.
-thingDocument_thingName :: Lens.Lens' ThingDocument (Core.Maybe Core.Text)
+thingDocument_thingName :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
 thingDocument_thingName = Lens.lens (\ThingDocument' {thingName} -> thingName) (\s@ThingDocument' {} a -> s {thingName = a} :: ThingDocument)
 
 -- | Indicates whether the thing is connected to the AWS IoT service.
-thingDocument_connectivity :: Lens.Lens' ThingDocument (Core.Maybe ThingConnectivity)
+thingDocument_connectivity :: Lens.Lens' ThingDocument (Prelude.Maybe ThingConnectivity)
 thingDocument_connectivity = Lens.lens (\ThingDocument' {connectivity} -> connectivity) (\s@ThingDocument' {} a -> s {connectivity = a} :: ThingDocument)
 
 -- | The attributes.
-thingDocument_attributes :: Lens.Lens' ThingDocument (Core.Maybe (Core.HashMap Core.Text Core.Text))
-thingDocument_attributes = Lens.lens (\ThingDocument' {attributes} -> attributes) (\s@ThingDocument' {} a -> s {attributes = a} :: ThingDocument) Core.. Lens.mapping Lens._Coerce
+thingDocument_attributes :: Lens.Lens' ThingDocument (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+thingDocument_attributes = Lens.lens (\ThingDocument' {attributes} -> attributes) (\s@ThingDocument' {} a -> s {attributes = a} :: ThingDocument) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Thing group names.
-thingDocument_thingGroupNames :: Lens.Lens' ThingDocument (Core.Maybe [Core.Text])
-thingDocument_thingGroupNames = Lens.lens (\ThingDocument' {thingGroupNames} -> thingGroupNames) (\s@ThingDocument' {} a -> s {thingGroupNames = a} :: ThingDocument) Core.. Lens.mapping Lens._Coerce
+thingDocument_thingGroupNames :: Lens.Lens' ThingDocument (Prelude.Maybe [Prelude.Text])
+thingDocument_thingGroupNames = Lens.lens (\ThingDocument' {thingGroupNames} -> thingGroupNames) (\s@ThingDocument' {} a -> s {thingGroupNames = a} :: ThingDocument) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The shadow.
-thingDocument_shadow :: Lens.Lens' ThingDocument (Core.Maybe Core.Text)
+thingDocument_shadow :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
 thingDocument_shadow = Lens.lens (\ThingDocument' {shadow} -> shadow) (\s@ThingDocument' {} a -> s {shadow = a} :: ThingDocument)
 
 -- | The thing type name.
-thingDocument_thingTypeName :: Lens.Lens' ThingDocument (Core.Maybe Core.Text)
+thingDocument_thingTypeName :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
 thingDocument_thingTypeName = Lens.lens (\ThingDocument' {thingTypeName} -> thingTypeName) (\s@ThingDocument' {} a -> s {thingTypeName = a} :: ThingDocument)
 
 instance Core.FromJSON ThingDocument where
@@ -112,15 +113,17 @@ instance Core.FromJSON ThingDocument where
       "ThingDocument"
       ( \x ->
           ThingDocument'
-            Core.<$> (x Core..:? "thingId")
-            Core.<*> (x Core..:? "thingName")
-            Core.<*> (x Core..:? "connectivity")
-            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "thingGroupNames" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "shadow")
-            Core.<*> (x Core..:? "thingTypeName")
+            Prelude.<$> (x Core..:? "thingId")
+            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<*> (x Core..:? "connectivity")
+            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "thingGroupNames"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "shadow")
+            Prelude.<*> (x Core..:? "thingTypeName")
       )
 
-instance Core.Hashable ThingDocument
+instance Prelude.Hashable ThingDocument
 
-instance Core.NFData ThingDocument
+instance Prelude.NFData ThingDocument

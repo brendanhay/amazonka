@@ -22,19 +22,20 @@ module Network.AWS.CloudWatch.Types.Metric where
 import Network.AWS.CloudWatch.Types.Dimension
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a specific metric.
 --
 -- /See:/ 'newMetric' smart constructor.
 data Metric = Metric'
   { -- | The name of the metric. This is a required field.
-    metricName :: Core.Maybe Core.Text,
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | The dimensions for the metric.
-    dimensions :: Core.Maybe [Dimension],
+    dimensions :: Prelude.Maybe [Dimension],
     -- | The namespace of the metric.
-    namespace :: Core.Maybe Core.Text
+    namespace :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Metric' with all optional fields omitted.
@@ -53,42 +54,42 @@ newMetric ::
   Metric
 newMetric =
   Metric'
-    { metricName = Core.Nothing,
-      dimensions = Core.Nothing,
-      namespace = Core.Nothing
+    { metricName = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
+      namespace = Prelude.Nothing
     }
 
 -- | The name of the metric. This is a required field.
-metric_metricName :: Lens.Lens' Metric (Core.Maybe Core.Text)
+metric_metricName :: Lens.Lens' Metric (Prelude.Maybe Prelude.Text)
 metric_metricName = Lens.lens (\Metric' {metricName} -> metricName) (\s@Metric' {} a -> s {metricName = a} :: Metric)
 
 -- | The dimensions for the metric.
-metric_dimensions :: Lens.Lens' Metric (Core.Maybe [Dimension])
-metric_dimensions = Lens.lens (\Metric' {dimensions} -> dimensions) (\s@Metric' {} a -> s {dimensions = a} :: Metric) Core.. Lens.mapping Lens._Coerce
+metric_dimensions :: Lens.Lens' Metric (Prelude.Maybe [Dimension])
+metric_dimensions = Lens.lens (\Metric' {dimensions} -> dimensions) (\s@Metric' {} a -> s {dimensions = a} :: Metric) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace of the metric.
-metric_namespace :: Lens.Lens' Metric (Core.Maybe Core.Text)
+metric_namespace :: Lens.Lens' Metric (Prelude.Maybe Prelude.Text)
 metric_namespace = Lens.lens (\Metric' {namespace} -> namespace) (\s@Metric' {} a -> s {namespace = a} :: Metric)
 
 instance Core.FromXML Metric where
   parseXML x =
     Metric'
-      Core.<$> (x Core..@? "MetricName")
-      Core.<*> ( x Core..@? "Dimensions" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "Namespace")
+      Prelude.<$> (x Core..@? "MetricName")
+      Prelude.<*> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "Namespace")
 
-instance Core.Hashable Metric
+instance Prelude.Hashable Metric
 
-instance Core.NFData Metric
+instance Prelude.NFData Metric
 
 instance Core.ToQuery Metric where
   toQuery Metric' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MetricName" Core.=: metricName,
         "Dimensions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> dimensions),
+            (Core.toQueryList "member" Prelude.<$> dimensions),
         "Namespace" Core.=: namespace
       ]

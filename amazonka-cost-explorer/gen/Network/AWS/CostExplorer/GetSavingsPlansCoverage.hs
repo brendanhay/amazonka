@@ -66,6 +66,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,22 +75,22 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
   { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The granularity of the Amazon Web Services cost data for your Savings
     -- Plans. @Granularity@ can\'t be set if @GroupBy@ is set.
     --
     -- The @GetSavingsPlansCoverage@ operation supports only @DAILY@ and
     -- @MONTHLY@ granularities.
-    granularity :: Core.Maybe Granularity,
+    granularity :: Prelude.Maybe Granularity,
     -- | The number of items to be returned in a response. The default is @20@,
     -- with a minimum value of @1@.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The measurement that you want your Savings Plans coverage reported in.
     -- The only valid value is @SpendCoveredBySavingsPlans@.
-    metrics :: Core.Maybe [Core.Text],
+    metrics :: Prelude.Maybe [Prelude.Text],
     -- | You can group the data using the attributes @INSTANCE_FAMILY@, @REGION@,
     -- or @SERVICE@.
-    groupBy :: Core.Maybe [GroupDefinition],
+    groupBy :: Prelude.Maybe [GroupDefinition],
     -- | The value by which you want to sort the data.
     --
     -- The following values are supported for @Key@:
@@ -109,7 +110,7 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
     -- -   @Service@
     --
     -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
-    sortBy :: Core.Maybe SortDefinition,
+    sortBy :: Prelude.Maybe SortDefinition,
     -- | Filters Savings Plans coverage data by dimensions. You can filter data
     -- for Savings Plans usage with the following dimensions:
     --
@@ -128,14 +129,14 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
     -- together.
     --
     -- Cost category is also supported.
-    filter' :: Core.Maybe Expression,
+    filter' :: Prelude.Maybe Expression,
     -- | The time period that you want the usage and costs for. The @Start@ date
     -- must be within 13 months. The @End@ date must be after the @Start@ date,
     -- and before the current date. Future dates can\'t be used as an @End@
     -- date.
     timePeriod :: DateInterval
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSavingsPlansCoverage' with all optional fields omitted.
@@ -213,20 +214,21 @@ newGetSavingsPlansCoverage ::
   GetSavingsPlansCoverage
 newGetSavingsPlansCoverage pTimePeriod_ =
   GetSavingsPlansCoverage'
-    { nextToken = Core.Nothing,
-      granularity = Core.Nothing,
-      maxResults = Core.Nothing,
-      metrics = Core.Nothing,
-      groupBy = Core.Nothing,
-      sortBy = Core.Nothing,
-      filter' = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      granularity = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      metrics = Prelude.Nothing,
+      groupBy = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       timePeriod = pTimePeriod_
     }
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
-getSavingsPlansCoverage_nextToken :: Lens.Lens' GetSavingsPlansCoverage (Core.Maybe Core.Text)
+getSavingsPlansCoverage_nextToken :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Prelude.Text)
 getSavingsPlansCoverage_nextToken = Lens.lens (\GetSavingsPlansCoverage' {nextToken} -> nextToken) (\s@GetSavingsPlansCoverage' {} a -> s {nextToken = a} :: GetSavingsPlansCoverage)
 
 -- | The granularity of the Amazon Web Services cost data for your Savings
@@ -234,23 +236,23 @@ getSavingsPlansCoverage_nextToken = Lens.lens (\GetSavingsPlansCoverage' {nextTo
 --
 -- The @GetSavingsPlansCoverage@ operation supports only @DAILY@ and
 -- @MONTHLY@ granularities.
-getSavingsPlansCoverage_granularity :: Lens.Lens' GetSavingsPlansCoverage (Core.Maybe Granularity)
+getSavingsPlansCoverage_granularity :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Granularity)
 getSavingsPlansCoverage_granularity = Lens.lens (\GetSavingsPlansCoverage' {granularity} -> granularity) (\s@GetSavingsPlansCoverage' {} a -> s {granularity = a} :: GetSavingsPlansCoverage)
 
 -- | The number of items to be returned in a response. The default is @20@,
 -- with a minimum value of @1@.
-getSavingsPlansCoverage_maxResults :: Lens.Lens' GetSavingsPlansCoverage (Core.Maybe Core.Natural)
+getSavingsPlansCoverage_maxResults :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Prelude.Natural)
 getSavingsPlansCoverage_maxResults = Lens.lens (\GetSavingsPlansCoverage' {maxResults} -> maxResults) (\s@GetSavingsPlansCoverage' {} a -> s {maxResults = a} :: GetSavingsPlansCoverage)
 
 -- | The measurement that you want your Savings Plans coverage reported in.
 -- The only valid value is @SpendCoveredBySavingsPlans@.
-getSavingsPlansCoverage_metrics :: Lens.Lens' GetSavingsPlansCoverage (Core.Maybe [Core.Text])
-getSavingsPlansCoverage_metrics = Lens.lens (\GetSavingsPlansCoverage' {metrics} -> metrics) (\s@GetSavingsPlansCoverage' {} a -> s {metrics = a} :: GetSavingsPlansCoverage) Core.. Lens.mapping Lens._Coerce
+getSavingsPlansCoverage_metrics :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe [Prelude.Text])
+getSavingsPlansCoverage_metrics = Lens.lens (\GetSavingsPlansCoverage' {metrics} -> metrics) (\s@GetSavingsPlansCoverage' {} a -> s {metrics = a} :: GetSavingsPlansCoverage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | You can group the data using the attributes @INSTANCE_FAMILY@, @REGION@,
 -- or @SERVICE@.
-getSavingsPlansCoverage_groupBy :: Lens.Lens' GetSavingsPlansCoverage (Core.Maybe [GroupDefinition])
-getSavingsPlansCoverage_groupBy = Lens.lens (\GetSavingsPlansCoverage' {groupBy} -> groupBy) (\s@GetSavingsPlansCoverage' {} a -> s {groupBy = a} :: GetSavingsPlansCoverage) Core.. Lens.mapping Lens._Coerce
+getSavingsPlansCoverage_groupBy :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe [GroupDefinition])
+getSavingsPlansCoverage_groupBy = Lens.lens (\GetSavingsPlansCoverage' {groupBy} -> groupBy) (\s@GetSavingsPlansCoverage' {} a -> s {groupBy = a} :: GetSavingsPlansCoverage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The value by which you want to sort the data.
 --
@@ -271,7 +273,7 @@ getSavingsPlansCoverage_groupBy = Lens.lens (\GetSavingsPlansCoverage' {groupBy}
 -- -   @Service@
 --
 -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
-getSavingsPlansCoverage_sortBy :: Lens.Lens' GetSavingsPlansCoverage (Core.Maybe SortDefinition)
+getSavingsPlansCoverage_sortBy :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe SortDefinition)
 getSavingsPlansCoverage_sortBy = Lens.lens (\GetSavingsPlansCoverage' {sortBy} -> sortBy) (\s@GetSavingsPlansCoverage' {} a -> s {sortBy = a} :: GetSavingsPlansCoverage)
 
 -- | Filters Savings Plans coverage data by dimensions. You can filter data
@@ -292,7 +294,7 @@ getSavingsPlansCoverage_sortBy = Lens.lens (\GetSavingsPlansCoverage' {sortBy} -
 -- together.
 --
 -- Cost category is also supported.
-getSavingsPlansCoverage_filter :: Lens.Lens' GetSavingsPlansCoverage (Core.Maybe Expression)
+getSavingsPlansCoverage_filter :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Expression)
 getSavingsPlansCoverage_filter = Lens.lens (\GetSavingsPlansCoverage' {filter'} -> filter') (\s@GetSavingsPlansCoverage' {} a -> s {filter' = a} :: GetSavingsPlansCoverage)
 
 -- | The time period that you want the usage and costs for. The @Start@ date
@@ -311,63 +313,65 @@ instance Core.AWSRequest GetSavingsPlansCoverage where
     Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansCoverageResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "SavingsPlansCoverages"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "SavingsPlansCoverages"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable GetSavingsPlansCoverage
+instance Prelude.Hashable GetSavingsPlansCoverage
 
-instance Core.NFData GetSavingsPlansCoverage
+instance Prelude.NFData GetSavingsPlansCoverage
 
 instance Core.ToHeaders GetSavingsPlansCoverage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSInsightsIndexService.GetSavingsPlansCoverage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSavingsPlansCoverage where
   toJSON GetSavingsPlansCoverage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Granularity" Core..=) Core.<$> granularity,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Metrics" Core..=) Core.<$> metrics,
-            ("GroupBy" Core..=) Core.<$> groupBy,
-            ("SortBy" Core..=) Core.<$> sortBy,
-            ("Filter" Core..=) Core.<$> filter',
-            Core.Just ("TimePeriod" Core..= timePeriod)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Granularity" Core..=) Prelude.<$> granularity,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Metrics" Core..=) Prelude.<$> metrics,
+            ("GroupBy" Core..=) Prelude.<$> groupBy,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("Filter" Core..=) Prelude.<$> filter',
+            Prelude.Just ("TimePeriod" Core..= timePeriod)
           ]
       )
 
 instance Core.ToPath GetSavingsPlansCoverage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSavingsPlansCoverage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSavingsPlansCoverageResponse' smart constructor.
 data GetSavingsPlansCoverageResponse = GetSavingsPlansCoverageResponse'
   { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The amount of spend that your Savings Plans covered.
     savingsPlansCoverages :: [SavingsPlansCoverage]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSavingsPlansCoverageResponse' with all optional fields omitted.
@@ -386,28 +390,30 @@ data GetSavingsPlansCoverageResponse = GetSavingsPlansCoverageResponse'
 -- 'savingsPlansCoverages', 'getSavingsPlansCoverageResponse_savingsPlansCoverages' - The amount of spend that your Savings Plans covered.
 newGetSavingsPlansCoverageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSavingsPlansCoverageResponse
 newGetSavingsPlansCoverageResponse pHttpStatus_ =
   GetSavingsPlansCoverageResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      savingsPlansCoverages = Core.mempty
+      savingsPlansCoverages = Prelude.mempty
     }
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
-getSavingsPlansCoverageResponse_nextToken :: Lens.Lens' GetSavingsPlansCoverageResponse (Core.Maybe Core.Text)
+getSavingsPlansCoverageResponse_nextToken :: Lens.Lens' GetSavingsPlansCoverageResponse (Prelude.Maybe Prelude.Text)
 getSavingsPlansCoverageResponse_nextToken = Lens.lens (\GetSavingsPlansCoverageResponse' {nextToken} -> nextToken) (\s@GetSavingsPlansCoverageResponse' {} a -> s {nextToken = a} :: GetSavingsPlansCoverageResponse)
 
 -- | The response's http status code.
-getSavingsPlansCoverageResponse_httpStatus :: Lens.Lens' GetSavingsPlansCoverageResponse Core.Int
+getSavingsPlansCoverageResponse_httpStatus :: Lens.Lens' GetSavingsPlansCoverageResponse Prelude.Int
 getSavingsPlansCoverageResponse_httpStatus = Lens.lens (\GetSavingsPlansCoverageResponse' {httpStatus} -> httpStatus) (\s@GetSavingsPlansCoverageResponse' {} a -> s {httpStatus = a} :: GetSavingsPlansCoverageResponse)
 
 -- | The amount of spend that your Savings Plans covered.
 getSavingsPlansCoverageResponse_savingsPlansCoverages :: Lens.Lens' GetSavingsPlansCoverageResponse [SavingsPlansCoverage]
-getSavingsPlansCoverageResponse_savingsPlansCoverages = Lens.lens (\GetSavingsPlansCoverageResponse' {savingsPlansCoverages} -> savingsPlansCoverages) (\s@GetSavingsPlansCoverageResponse' {} a -> s {savingsPlansCoverages = a} :: GetSavingsPlansCoverageResponse) Core.. Lens._Coerce
+getSavingsPlansCoverageResponse_savingsPlansCoverages = Lens.lens (\GetSavingsPlansCoverageResponse' {savingsPlansCoverages} -> savingsPlansCoverages) (\s@GetSavingsPlansCoverageResponse' {} a -> s {savingsPlansCoverages = a} :: GetSavingsPlansCoverageResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData GetSavingsPlansCoverageResponse
+instance
+  Prelude.NFData
+    GetSavingsPlansCoverageResponse

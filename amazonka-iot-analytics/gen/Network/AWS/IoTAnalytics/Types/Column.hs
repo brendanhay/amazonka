@@ -21,20 +21,21 @@ module Network.AWS.IoTAnalytics.Types.Column where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a column that stores your data.
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
   { -- | The name of the column.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The type of data. For more information about the supported data types,
     -- see
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html Common data types>
     -- in the /AWS Glue Developer Guide/.
-    type' :: Core.Text
+    type' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Column' with all optional fields omitted.
@@ -52,22 +53,22 @@ data Column = Column'
 -- in the /AWS Glue Developer Guide/.
 newColumn ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
-  Core.Text ->
+  Prelude.Text ->
   Column
 newColumn pName_ pType_ =
   Column' {name = pName_, type' = pType_}
 
 -- | The name of the column.
-column_name :: Lens.Lens' Column Core.Text
+column_name :: Lens.Lens' Column Prelude.Text
 column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = a} :: Column)
 
 -- | The type of data. For more information about the supported data types,
 -- see
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html Common data types>
 -- in the /AWS Glue Developer Guide/.
-column_type :: Lens.Lens' Column Core.Text
+column_type :: Lens.Lens' Column Prelude.Text
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
 instance Core.FromJSON Column where
@@ -76,18 +77,18 @@ instance Core.FromJSON Column where
       "Column"
       ( \x ->
           Column'
-            Core.<$> (x Core..: "name") Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable Column
+instance Prelude.Hashable Column
 
-instance Core.NFData Column
+instance Prelude.NFData Column
 
 instance Core.ToJSON Column where
   toJSON Column' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just ("type" Core..= type')
           ]
       )

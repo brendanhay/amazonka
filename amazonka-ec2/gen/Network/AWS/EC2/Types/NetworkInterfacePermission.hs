@@ -24,25 +24,26 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InterfacePermissionType
 import Network.AWS.EC2.Types.NetworkInterfacePermissionState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a permission for a network interface.
 --
 -- /See:/ 'newNetworkInterfacePermission' smart constructor.
 data NetworkInterfacePermission = NetworkInterfacePermission'
   { -- | The AWS account ID.
-    awsAccountId :: Core.Maybe Core.Text,
+    awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Information about the state of the permission.
-    permissionState :: Core.Maybe NetworkInterfacePermissionState,
+    permissionState :: Prelude.Maybe NetworkInterfacePermissionState,
     -- | The ID of the network interface.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The type of permission.
-    permission :: Core.Maybe InterfacePermissionType,
+    permission :: Prelude.Maybe InterfacePermissionType,
     -- | The AWS service.
-    awsService :: Core.Maybe Core.Text,
+    awsService :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface permission.
-    networkInterfacePermissionId :: Core.Maybe Core.Text
+    networkInterfacePermissionId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkInterfacePermission' with all optional fields omitted.
@@ -68,48 +69,48 @@ newNetworkInterfacePermission ::
 newNetworkInterfacePermission =
   NetworkInterfacePermission'
     { awsAccountId =
-        Core.Nothing,
-      permissionState = Core.Nothing,
-      networkInterfaceId = Core.Nothing,
-      permission = Core.Nothing,
-      awsService = Core.Nothing,
-      networkInterfacePermissionId = Core.Nothing
+        Prelude.Nothing,
+      permissionState = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
+      permission = Prelude.Nothing,
+      awsService = Prelude.Nothing,
+      networkInterfacePermissionId = Prelude.Nothing
     }
 
 -- | The AWS account ID.
-networkInterfacePermission_awsAccountId :: Lens.Lens' NetworkInterfacePermission (Core.Maybe Core.Text)
+networkInterfacePermission_awsAccountId :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 networkInterfacePermission_awsAccountId = Lens.lens (\NetworkInterfacePermission' {awsAccountId} -> awsAccountId) (\s@NetworkInterfacePermission' {} a -> s {awsAccountId = a} :: NetworkInterfacePermission)
 
 -- | Information about the state of the permission.
-networkInterfacePermission_permissionState :: Lens.Lens' NetworkInterfacePermission (Core.Maybe NetworkInterfacePermissionState)
+networkInterfacePermission_permissionState :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe NetworkInterfacePermissionState)
 networkInterfacePermission_permissionState = Lens.lens (\NetworkInterfacePermission' {permissionState} -> permissionState) (\s@NetworkInterfacePermission' {} a -> s {permissionState = a} :: NetworkInterfacePermission)
 
 -- | The ID of the network interface.
-networkInterfacePermission_networkInterfaceId :: Lens.Lens' NetworkInterfacePermission (Core.Maybe Core.Text)
+networkInterfacePermission_networkInterfaceId :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 networkInterfacePermission_networkInterfaceId = Lens.lens (\NetworkInterfacePermission' {networkInterfaceId} -> networkInterfaceId) (\s@NetworkInterfacePermission' {} a -> s {networkInterfaceId = a} :: NetworkInterfacePermission)
 
 -- | The type of permission.
-networkInterfacePermission_permission :: Lens.Lens' NetworkInterfacePermission (Core.Maybe InterfacePermissionType)
+networkInterfacePermission_permission :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe InterfacePermissionType)
 networkInterfacePermission_permission = Lens.lens (\NetworkInterfacePermission' {permission} -> permission) (\s@NetworkInterfacePermission' {} a -> s {permission = a} :: NetworkInterfacePermission)
 
 -- | The AWS service.
-networkInterfacePermission_awsService :: Lens.Lens' NetworkInterfacePermission (Core.Maybe Core.Text)
+networkInterfacePermission_awsService :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 networkInterfacePermission_awsService = Lens.lens (\NetworkInterfacePermission' {awsService} -> awsService) (\s@NetworkInterfacePermission' {} a -> s {awsService = a} :: NetworkInterfacePermission)
 
 -- | The ID of the network interface permission.
-networkInterfacePermission_networkInterfacePermissionId :: Lens.Lens' NetworkInterfacePermission (Core.Maybe Core.Text)
+networkInterfacePermission_networkInterfacePermissionId :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 networkInterfacePermission_networkInterfacePermissionId = Lens.lens (\NetworkInterfacePermission' {networkInterfacePermissionId} -> networkInterfacePermissionId) (\s@NetworkInterfacePermission' {} a -> s {networkInterfacePermissionId = a} :: NetworkInterfacePermission)
 
 instance Core.FromXML NetworkInterfacePermission where
   parseXML x =
     NetworkInterfacePermission'
-      Core.<$> (x Core..@? "awsAccountId")
-      Core.<*> (x Core..@? "permissionState")
-      Core.<*> (x Core..@? "networkInterfaceId")
-      Core.<*> (x Core..@? "permission")
-      Core.<*> (x Core..@? "awsService")
-      Core.<*> (x Core..@? "networkInterfacePermissionId")
+      Prelude.<$> (x Core..@? "awsAccountId")
+      Prelude.<*> (x Core..@? "permissionState")
+      Prelude.<*> (x Core..@? "networkInterfaceId")
+      Prelude.<*> (x Core..@? "permission")
+      Prelude.<*> (x Core..@? "awsService")
+      Prelude.<*> (x Core..@? "networkInterfacePermissionId")
 
-instance Core.Hashable NetworkInterfacePermission
+instance Prelude.Hashable NetworkInterfacePermission
 
-instance Core.NFData NetworkInterfacePermission
+instance Prelude.NFData NetworkInterfacePermission

@@ -21,6 +21,7 @@ module Network.AWS.DynamoDB.Types.ArchivalSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details of a table archival operation.
 --
@@ -30,19 +31,19 @@ data ArchivalSummary = ArchivalSummary'
     -- when applicable in the archival reason. If you wish to restore this
     -- backup to the same table name, you will need to delete the original
     -- table.
-    archivalBackupArn :: Core.Maybe Core.Text,
+    archivalBackupArn :: Prelude.Maybe Prelude.Text,
     -- | The reason DynamoDB archived the table. Currently, the only possible
     -- value is:
     --
     -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due
     --     to the table\'s AWS KMS key being inaccessible for more than seven
     --     days. An On-Demand backup was created at the archival time.
-    archivalReason :: Core.Maybe Core.Text,
+    archivalReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time when table archival was initiated by DynamoDB, in UNIX
     -- epoch time format.
-    archivalDateTime :: Core.Maybe Core.POSIX
+    archivalDateTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArchivalSummary' with all optional fields omitted.
@@ -70,16 +71,17 @@ newArchivalSummary ::
   ArchivalSummary
 newArchivalSummary =
   ArchivalSummary'
-    { archivalBackupArn = Core.Nothing,
-      archivalReason = Core.Nothing,
-      archivalDateTime = Core.Nothing
+    { archivalBackupArn =
+        Prelude.Nothing,
+      archivalReason = Prelude.Nothing,
+      archivalDateTime = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the backup the table was archived to,
 -- when applicable in the archival reason. If you wish to restore this
 -- backup to the same table name, you will need to delete the original
 -- table.
-archivalSummary_archivalBackupArn :: Lens.Lens' ArchivalSummary (Core.Maybe Core.Text)
+archivalSummary_archivalBackupArn :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.Text)
 archivalSummary_archivalBackupArn = Lens.lens (\ArchivalSummary' {archivalBackupArn} -> archivalBackupArn) (\s@ArchivalSummary' {} a -> s {archivalBackupArn = a} :: ArchivalSummary)
 
 -- | The reason DynamoDB archived the table. Currently, the only possible
@@ -88,13 +90,13 @@ archivalSummary_archivalBackupArn = Lens.lens (\ArchivalSummary' {archivalBackup
 -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due
 --     to the table\'s AWS KMS key being inaccessible for more than seven
 --     days. An On-Demand backup was created at the archival time.
-archivalSummary_archivalReason :: Lens.Lens' ArchivalSummary (Core.Maybe Core.Text)
+archivalSummary_archivalReason :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.Text)
 archivalSummary_archivalReason = Lens.lens (\ArchivalSummary' {archivalReason} -> archivalReason) (\s@ArchivalSummary' {} a -> s {archivalReason = a} :: ArchivalSummary)
 
 -- | The date and time when table archival was initiated by DynamoDB, in UNIX
 -- epoch time format.
-archivalSummary_archivalDateTime :: Lens.Lens' ArchivalSummary (Core.Maybe Core.UTCTime)
-archivalSummary_archivalDateTime = Lens.lens (\ArchivalSummary' {archivalDateTime} -> archivalDateTime) (\s@ArchivalSummary' {} a -> s {archivalDateTime = a} :: ArchivalSummary) Core.. Lens.mapping Core._Time
+archivalSummary_archivalDateTime :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.UTCTime)
+archivalSummary_archivalDateTime = Lens.lens (\ArchivalSummary' {archivalDateTime} -> archivalDateTime) (\s@ArchivalSummary' {} a -> s {archivalDateTime = a} :: ArchivalSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ArchivalSummary where
   parseJSON =
@@ -102,11 +104,11 @@ instance Core.FromJSON ArchivalSummary where
       "ArchivalSummary"
       ( \x ->
           ArchivalSummary'
-            Core.<$> (x Core..:? "ArchivalBackupArn")
-            Core.<*> (x Core..:? "ArchivalReason")
-            Core.<*> (x Core..:? "ArchivalDateTime")
+            Prelude.<$> (x Core..:? "ArchivalBackupArn")
+            Prelude.<*> (x Core..:? "ArchivalReason")
+            Prelude.<*> (x Core..:? "ArchivalDateTime")
       )
 
-instance Core.Hashable ArchivalSummary
+instance Prelude.Hashable ArchivalSummary
 
-instance Core.NFData ArchivalSummary
+instance Prelude.NFData ArchivalSummary

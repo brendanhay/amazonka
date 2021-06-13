@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.StartTextDetectionFilters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.DetectionFilter
 import Network.AWS.Rekognition.Types.RegionOfInterest
 
@@ -33,11 +34,11 @@ import Network.AWS.Rekognition.Types.RegionOfInterest
 data StartTextDetectionFilters = StartTextDetectionFilters'
   { -- | Filter focusing on a certain area of the frame. Uses a @BoundingBox@
     -- object to set the region of the screen.
-    regionsOfInterest :: Core.Maybe [RegionOfInterest],
+    regionsOfInterest :: Prelude.Maybe [RegionOfInterest],
     -- | Filters focusing on qualities of the text, such as confidence or size.
-    wordFilter :: Core.Maybe DetectionFilter
+    wordFilter :: Prelude.Maybe DetectionFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTextDetectionFilters' with all optional fields omitted.
@@ -56,29 +57,29 @@ newStartTextDetectionFilters ::
 newStartTextDetectionFilters =
   StartTextDetectionFilters'
     { regionsOfInterest =
-        Core.Nothing,
-      wordFilter = Core.Nothing
+        Prelude.Nothing,
+      wordFilter = Prelude.Nothing
     }
 
 -- | Filter focusing on a certain area of the frame. Uses a @BoundingBox@
 -- object to set the region of the screen.
-startTextDetectionFilters_regionsOfInterest :: Lens.Lens' StartTextDetectionFilters (Core.Maybe [RegionOfInterest])
-startTextDetectionFilters_regionsOfInterest = Lens.lens (\StartTextDetectionFilters' {regionsOfInterest} -> regionsOfInterest) (\s@StartTextDetectionFilters' {} a -> s {regionsOfInterest = a} :: StartTextDetectionFilters) Core.. Lens.mapping Lens._Coerce
+startTextDetectionFilters_regionsOfInterest :: Lens.Lens' StartTextDetectionFilters (Prelude.Maybe [RegionOfInterest])
+startTextDetectionFilters_regionsOfInterest = Lens.lens (\StartTextDetectionFilters' {regionsOfInterest} -> regionsOfInterest) (\s@StartTextDetectionFilters' {} a -> s {regionsOfInterest = a} :: StartTextDetectionFilters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Filters focusing on qualities of the text, such as confidence or size.
-startTextDetectionFilters_wordFilter :: Lens.Lens' StartTextDetectionFilters (Core.Maybe DetectionFilter)
+startTextDetectionFilters_wordFilter :: Lens.Lens' StartTextDetectionFilters (Prelude.Maybe DetectionFilter)
 startTextDetectionFilters_wordFilter = Lens.lens (\StartTextDetectionFilters' {wordFilter} -> wordFilter) (\s@StartTextDetectionFilters' {} a -> s {wordFilter = a} :: StartTextDetectionFilters)
 
-instance Core.Hashable StartTextDetectionFilters
+instance Prelude.Hashable StartTextDetectionFilters
 
-instance Core.NFData StartTextDetectionFilters
+instance Prelude.NFData StartTextDetectionFilters
 
 instance Core.ToJSON StartTextDetectionFilters where
   toJSON StartTextDetectionFilters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RegionsOfInterest" Core..=)
-              Core.<$> regionsOfInterest,
-            ("WordFilter" Core..=) Core.<$> wordFilter
+              Prelude.<$> regionsOfInterest,
+            ("WordFilter" Core..=) Prelude.<$> wordFilter
           ]
       )

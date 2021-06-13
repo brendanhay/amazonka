@@ -22,6 +22,7 @@ module Network.AWS.CertificateManager.Types.KeyUsage where
 import Network.AWS.CertificateManager.Types.KeyUsageName
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Key Usage X.509 v3 extension defines the purpose of the public key
 -- contained in the certificate.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKeyUsage' smart constructor.
 data KeyUsage = KeyUsage'
   { -- | A string value that contains a Key Usage extension name.
-    name :: Core.Maybe KeyUsageName
+    name :: Prelude.Maybe KeyUsageName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeyUsage' with all optional fields omitted.
@@ -44,18 +45,18 @@ data KeyUsage = KeyUsage'
 -- 'name', 'keyUsage_name' - A string value that contains a Key Usage extension name.
 newKeyUsage ::
   KeyUsage
-newKeyUsage = KeyUsage' {name = Core.Nothing}
+newKeyUsage = KeyUsage' {name = Prelude.Nothing}
 
 -- | A string value that contains a Key Usage extension name.
-keyUsage_name :: Lens.Lens' KeyUsage (Core.Maybe KeyUsageName)
+keyUsage_name :: Lens.Lens' KeyUsage (Prelude.Maybe KeyUsageName)
 keyUsage_name = Lens.lens (\KeyUsage' {name} -> name) (\s@KeyUsage' {} a -> s {name = a} :: KeyUsage)
 
 instance Core.FromJSON KeyUsage where
   parseJSON =
     Core.withObject
       "KeyUsage"
-      (\x -> KeyUsage' Core.<$> (x Core..:? "Name"))
+      (\x -> KeyUsage' Prelude.<$> (x Core..:? "Name"))
 
-instance Core.Hashable KeyUsage
+instance Prelude.Hashable KeyUsage
 
-instance Core.NFData KeyUsage
+instance Prelude.NFData KeyUsage

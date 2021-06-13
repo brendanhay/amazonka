@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +57,13 @@ data ListStudioSessionMappings = ListStudioSessionMappings'
   { -- | Specifies whether to return session mappings for users or groups. If not
     -- specified, the results include session mapping details for both users
     -- and groups.
-    identityType :: Core.Maybe IdentityType,
+    identityType :: Prelude.Maybe IdentityType,
     -- | The ID of the Amazon EMR Studio.
-    studioId :: Core.Maybe Core.Text,
+    studioId :: Prelude.Maybe Prelude.Text,
     -- | The pagination token that indicates the set of results to retrieve.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStudioSessionMappings' with all optional fields omitted.
@@ -84,23 +85,23 @@ newListStudioSessionMappings ::
 newListStudioSessionMappings =
   ListStudioSessionMappings'
     { identityType =
-        Core.Nothing,
-      studioId = Core.Nothing,
-      marker = Core.Nothing
+        Prelude.Nothing,
+      studioId = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Specifies whether to return session mappings for users or groups. If not
 -- specified, the results include session mapping details for both users
 -- and groups.
-listStudioSessionMappings_identityType :: Lens.Lens' ListStudioSessionMappings (Core.Maybe IdentityType)
+listStudioSessionMappings_identityType :: Lens.Lens' ListStudioSessionMappings (Prelude.Maybe IdentityType)
 listStudioSessionMappings_identityType = Lens.lens (\ListStudioSessionMappings' {identityType} -> identityType) (\s@ListStudioSessionMappings' {} a -> s {identityType = a} :: ListStudioSessionMappings)
 
 -- | The ID of the Amazon EMR Studio.
-listStudioSessionMappings_studioId :: Lens.Lens' ListStudioSessionMappings (Core.Maybe Core.Text)
+listStudioSessionMappings_studioId :: Lens.Lens' ListStudioSessionMappings (Prelude.Maybe Prelude.Text)
 listStudioSessionMappings_studioId = Lens.lens (\ListStudioSessionMappings' {studioId} -> studioId) (\s@ListStudioSessionMappings' {} a -> s {studioId = a} :: ListStudioSessionMappings)
 
 -- | The pagination token that indicates the set of results to retrieve.
-listStudioSessionMappings_marker :: Lens.Lens' ListStudioSessionMappings (Core.Maybe Core.Text)
+listStudioSessionMappings_marker :: Lens.Lens' ListStudioSessionMappings (Prelude.Maybe Prelude.Text)
 listStudioSessionMappings_marker = Lens.lens (\ListStudioSessionMappings' {marker} -> marker) (\s@ListStudioSessionMappings' {} a -> s {marker = a} :: ListStudioSessionMappings)
 
 instance Core.AWSPager ListStudioSessionMappings where
@@ -108,22 +109,22 @@ instance Core.AWSPager ListStudioSessionMappings where
     | Core.stop
         ( rs
             Lens.^? listStudioSessionMappingsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStudioSessionMappingsResponse_sessionMappings
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listStudioSessionMappings_marker
+          Prelude.& listStudioSessionMappings_marker
           Lens..~ rs
           Lens.^? listStudioSessionMappingsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudioSessionMappings where
   type
@@ -134,56 +135,60 @@ instance Core.AWSRequest ListStudioSessionMappings where
     Response.receiveJSON
       ( \s h x ->
           ListStudioSessionMappingsResponse'
-            Core.<$> (x Core..?> "SessionMappings" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "SessionMappings"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListStudioSessionMappings
+instance Prelude.Hashable ListStudioSessionMappings
 
-instance Core.NFData ListStudioSessionMappings
+instance Prelude.NFData ListStudioSessionMappings
 
 instance Core.ToHeaders ListStudioSessionMappings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.ListStudioSessionMappings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListStudioSessionMappings where
   toJSON ListStudioSessionMappings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IdentityType" Core..=) Core.<$> identityType,
-            ("StudioId" Core..=) Core.<$> studioId,
-            ("Marker" Core..=) Core.<$> marker
+      ( Prelude.catMaybes
+          [ ("IdentityType" Core..=) Prelude.<$> identityType,
+            ("StudioId" Core..=) Prelude.<$> studioId,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 
 instance Core.ToPath ListStudioSessionMappings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListStudioSessionMappings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStudioSessionMappingsResponse' smart constructor.
 data ListStudioSessionMappingsResponse = ListStudioSessionMappingsResponse'
   { -- | A list of session mapping summary objects. Each object includes session
     -- mapping details such as creation time, identity type (user or group),
     -- and Amazon EMR Studio ID.
-    sessionMappings :: Core.Maybe [SessionMappingSummary],
+    sessionMappings :: Prelude.Maybe [SessionMappingSummary],
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListStudioSessionMappingsResponse' with all optional fields omitted.
@@ -202,30 +207,30 @@ data ListStudioSessionMappingsResponse = ListStudioSessionMappingsResponse'
 -- 'httpStatus', 'listStudioSessionMappingsResponse_httpStatus' - The response's http status code.
 newListStudioSessionMappingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListStudioSessionMappingsResponse
 newListStudioSessionMappingsResponse pHttpStatus_ =
   ListStudioSessionMappingsResponse'
     { sessionMappings =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of session mapping summary objects. Each object includes session
 -- mapping details such as creation time, identity type (user or group),
 -- and Amazon EMR Studio ID.
-listStudioSessionMappingsResponse_sessionMappings :: Lens.Lens' ListStudioSessionMappingsResponse (Core.Maybe [SessionMappingSummary])
-listStudioSessionMappingsResponse_sessionMappings = Lens.lens (\ListStudioSessionMappingsResponse' {sessionMappings} -> sessionMappings) (\s@ListStudioSessionMappingsResponse' {} a -> s {sessionMappings = a} :: ListStudioSessionMappingsResponse) Core.. Lens.mapping Lens._Coerce
+listStudioSessionMappingsResponse_sessionMappings :: Lens.Lens' ListStudioSessionMappingsResponse (Prelude.Maybe [SessionMappingSummary])
+listStudioSessionMappingsResponse_sessionMappings = Lens.lens (\ListStudioSessionMappingsResponse' {sessionMappings} -> sessionMappings) (\s@ListStudioSessionMappingsResponse' {} a -> s {sessionMappings = a} :: ListStudioSessionMappingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
-listStudioSessionMappingsResponse_marker :: Lens.Lens' ListStudioSessionMappingsResponse (Core.Maybe Core.Text)
+listStudioSessionMappingsResponse_marker :: Lens.Lens' ListStudioSessionMappingsResponse (Prelude.Maybe Prelude.Text)
 listStudioSessionMappingsResponse_marker = Lens.lens (\ListStudioSessionMappingsResponse' {marker} -> marker) (\s@ListStudioSessionMappingsResponse' {} a -> s {marker = a} :: ListStudioSessionMappingsResponse)
 
 -- | The response's http status code.
-listStudioSessionMappingsResponse_httpStatus :: Lens.Lens' ListStudioSessionMappingsResponse Core.Int
+listStudioSessionMappingsResponse_httpStatus :: Lens.Lens' ListStudioSessionMappingsResponse Prelude.Int
 listStudioSessionMappingsResponse_httpStatus = Lens.lens (\ListStudioSessionMappingsResponse' {httpStatus} -> httpStatus) (\s@ListStudioSessionMappingsResponse' {} a -> s {httpStatus = a} :: ListStudioSessionMappingsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListStudioSessionMappingsResponse

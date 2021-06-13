@@ -22,6 +22,7 @@ module Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsage where
 import Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies additional purposes for which the certified public key may be
 -- used other than basic purposes indicated in the @KeyUsage@ extension.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newExtendedKeyUsage' smart constructor.
 data ExtendedKeyUsage = ExtendedKeyUsage'
   { -- | Specifies a custom @ExtendedKeyUsage@ with an object identifier (OID).
-    extendedKeyUsageObjectIdentifier :: Core.Maybe Core.Text,
+    extendedKeyUsageObjectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies a standard @ExtendedKeyUsage@ as defined as in
     -- <https://tools.ietf.org/html/rfc5280#section-4.2.1.12 RFC 5280>.
-    extendedKeyUsageType :: Core.Maybe ExtendedKeyUsageType
+    extendedKeyUsageType :: Prelude.Maybe ExtendedKeyUsageType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExtendedKeyUsage' with all optional fields omitted.
@@ -53,30 +54,30 @@ newExtendedKeyUsage ::
 newExtendedKeyUsage =
   ExtendedKeyUsage'
     { extendedKeyUsageObjectIdentifier =
-        Core.Nothing,
-      extendedKeyUsageType = Core.Nothing
+        Prelude.Nothing,
+      extendedKeyUsageType = Prelude.Nothing
     }
 
 -- | Specifies a custom @ExtendedKeyUsage@ with an object identifier (OID).
-extendedKeyUsage_extendedKeyUsageObjectIdentifier :: Lens.Lens' ExtendedKeyUsage (Core.Maybe Core.Text)
+extendedKeyUsage_extendedKeyUsageObjectIdentifier :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe Prelude.Text)
 extendedKeyUsage_extendedKeyUsageObjectIdentifier = Lens.lens (\ExtendedKeyUsage' {extendedKeyUsageObjectIdentifier} -> extendedKeyUsageObjectIdentifier) (\s@ExtendedKeyUsage' {} a -> s {extendedKeyUsageObjectIdentifier = a} :: ExtendedKeyUsage)
 
 -- | Specifies a standard @ExtendedKeyUsage@ as defined as in
 -- <https://tools.ietf.org/html/rfc5280#section-4.2.1.12 RFC 5280>.
-extendedKeyUsage_extendedKeyUsageType :: Lens.Lens' ExtendedKeyUsage (Core.Maybe ExtendedKeyUsageType)
+extendedKeyUsage_extendedKeyUsageType :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe ExtendedKeyUsageType)
 extendedKeyUsage_extendedKeyUsageType = Lens.lens (\ExtendedKeyUsage' {extendedKeyUsageType} -> extendedKeyUsageType) (\s@ExtendedKeyUsage' {} a -> s {extendedKeyUsageType = a} :: ExtendedKeyUsage)
 
-instance Core.Hashable ExtendedKeyUsage
+instance Prelude.Hashable ExtendedKeyUsage
 
-instance Core.NFData ExtendedKeyUsage
+instance Prelude.NFData ExtendedKeyUsage
 
 instance Core.ToJSON ExtendedKeyUsage where
   toJSON ExtendedKeyUsage' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExtendedKeyUsageObjectIdentifier" Core..=)
-              Core.<$> extendedKeyUsageObjectIdentifier,
+              Prelude.<$> extendedKeyUsageObjectIdentifier,
             ("ExtendedKeyUsageType" Core..=)
-              Core.<$> extendedKeyUsageType
+              Prelude.<$> extendedKeyUsageType
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.AuditMitigationActionsTaskMetadata where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an audit mitigation actions task that is returned by
 -- @ListAuditMitigationActionsTasks@.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAuditMitigationActionsTaskMetadata' smart constructor.
 data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
   { -- | The unique identifier for the task.
-    taskId :: Core.Maybe Core.Text,
+    taskId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the audit mitigation actions task was started.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The current state of the audit mitigation actions task.
-    taskStatus :: Core.Maybe AuditMitigationActionsTaskStatus
+    taskStatus :: Prelude.Maybe AuditMitigationActionsTaskStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuditMitigationActionsTaskMetadata' with all optional fields omitted.
@@ -55,21 +56,21 @@ newAuditMitigationActionsTaskMetadata ::
 newAuditMitigationActionsTaskMetadata =
   AuditMitigationActionsTaskMetadata'
     { taskId =
-        Core.Nothing,
-      startTime = Core.Nothing,
-      taskStatus = Core.Nothing
+        Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      taskStatus = Prelude.Nothing
     }
 
 -- | The unique identifier for the task.
-auditMitigationActionsTaskMetadata_taskId :: Lens.Lens' AuditMitigationActionsTaskMetadata (Core.Maybe Core.Text)
+auditMitigationActionsTaskMetadata_taskId :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.Text)
 auditMitigationActionsTaskMetadata_taskId = Lens.lens (\AuditMitigationActionsTaskMetadata' {taskId} -> taskId) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {taskId = a} :: AuditMitigationActionsTaskMetadata)
 
 -- | The time at which the audit mitigation actions task was started.
-auditMitigationActionsTaskMetadata_startTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Core.Maybe Core.UTCTime)
-auditMitigationActionsTaskMetadata_startTime = Lens.lens (\AuditMitigationActionsTaskMetadata' {startTime} -> startTime) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata) Core.. Lens.mapping Core._Time
+auditMitigationActionsTaskMetadata_startTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.UTCTime)
+auditMitigationActionsTaskMetadata_startTime = Lens.lens (\AuditMitigationActionsTaskMetadata' {startTime} -> startTime) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The current state of the audit mitigation actions task.
-auditMitigationActionsTaskMetadata_taskStatus :: Lens.Lens' AuditMitigationActionsTaskMetadata (Core.Maybe AuditMitigationActionsTaskStatus)
+auditMitigationActionsTaskMetadata_taskStatus :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe AuditMitigationActionsTaskStatus)
 auditMitigationActionsTaskMetadata_taskStatus = Lens.lens (\AuditMitigationActionsTaskMetadata' {taskStatus} -> taskStatus) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {taskStatus = a} :: AuditMitigationActionsTaskMetadata)
 
 instance
@@ -81,15 +82,15 @@ instance
       "AuditMitigationActionsTaskMetadata"
       ( \x ->
           AuditMitigationActionsTaskMetadata'
-            Core.<$> (x Core..:? "taskId")
-            Core.<*> (x Core..:? "startTime")
-            Core.<*> (x Core..:? "taskStatus")
+            Prelude.<$> (x Core..:? "taskId")
+            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Core..:? "taskStatus")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AuditMitigationActionsTaskMetadata
 
 instance
-  Core.NFData
+  Prelude.NFData
     AuditMitigationActionsTaskMetadata

@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,7 +67,7 @@ data ModifyEbsDefaultKmsKeyId = ModifyEbsDefaultKmsKeyId'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the AWS Key Management Service (AWS KMS) customer
     -- master key (CMK) to use for Amazon EBS encryption. If this parameter is
     -- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
@@ -89,9 +90,9 @@ data ModifyEbsDefaultKmsKeyId = ModifyEbsDefaultKmsKeyId'
     -- but eventually fails.
     --
     -- Amazon EBS does not support asymmetric CMKs.
-    kmsKeyId :: Core.Text
+    kmsKeyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyEbsDefaultKmsKeyId' with all optional fields omitted.
@@ -130,11 +131,11 @@ data ModifyEbsDefaultKmsKeyId = ModifyEbsDefaultKmsKeyId'
 -- Amazon EBS does not support asymmetric CMKs.
 newModifyEbsDefaultKmsKeyId ::
   -- | 'kmsKeyId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyEbsDefaultKmsKeyId
 newModifyEbsDefaultKmsKeyId pKmsKeyId_ =
   ModifyEbsDefaultKmsKeyId'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       kmsKeyId = pKmsKeyId_
     }
 
@@ -142,7 +143,7 @@ newModifyEbsDefaultKmsKeyId pKmsKeyId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyEbsDefaultKmsKeyId_dryRun :: Lens.Lens' ModifyEbsDefaultKmsKeyId (Core.Maybe Core.Bool)
+modifyEbsDefaultKmsKeyId_dryRun :: Lens.Lens' ModifyEbsDefaultKmsKeyId (Prelude.Maybe Prelude.Bool)
 modifyEbsDefaultKmsKeyId_dryRun = Lens.lens (\ModifyEbsDefaultKmsKeyId' {dryRun} -> dryRun) (\s@ModifyEbsDefaultKmsKeyId' {} a -> s {dryRun = a} :: ModifyEbsDefaultKmsKeyId)
 
 -- | The identifier of the AWS Key Management Service (AWS KMS) customer
@@ -167,7 +168,7 @@ modifyEbsDefaultKmsKeyId_dryRun = Lens.lens (\ModifyEbsDefaultKmsKeyId' {dryRun}
 -- but eventually fails.
 --
 -- Amazon EBS does not support asymmetric CMKs.
-modifyEbsDefaultKmsKeyId_kmsKeyId :: Lens.Lens' ModifyEbsDefaultKmsKeyId Core.Text
+modifyEbsDefaultKmsKeyId_kmsKeyId :: Lens.Lens' ModifyEbsDefaultKmsKeyId Prelude.Text
 modifyEbsDefaultKmsKeyId_kmsKeyId = Lens.lens (\ModifyEbsDefaultKmsKeyId' {kmsKeyId} -> kmsKeyId) (\s@ModifyEbsDefaultKmsKeyId' {} a -> s {kmsKeyId = a} :: ModifyEbsDefaultKmsKeyId)
 
 instance Core.AWSRequest ModifyEbsDefaultKmsKeyId where
@@ -179,26 +180,27 @@ instance Core.AWSRequest ModifyEbsDefaultKmsKeyId where
     Response.receiveXML
       ( \s h x ->
           ModifyEbsDefaultKmsKeyIdResponse'
-            Core.<$> (x Core..@? "kmsKeyId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "kmsKeyId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyEbsDefaultKmsKeyId
+instance Prelude.Hashable ModifyEbsDefaultKmsKeyId
 
-instance Core.NFData ModifyEbsDefaultKmsKeyId
+instance Prelude.NFData ModifyEbsDefaultKmsKeyId
 
 instance Core.ToHeaders ModifyEbsDefaultKmsKeyId where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyEbsDefaultKmsKeyId where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyEbsDefaultKmsKeyId where
   toQuery ModifyEbsDefaultKmsKeyId' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyEbsDefaultKmsKeyId" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyEbsDefaultKmsKeyId" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "KmsKeyId" Core.=: kmsKeyId
       ]
@@ -207,11 +209,11 @@ instance Core.ToQuery ModifyEbsDefaultKmsKeyId where
 data ModifyEbsDefaultKmsKeyIdResponse = ModifyEbsDefaultKmsKeyIdResponse'
   { -- | The Amazon Resource Name (ARN) of the default CMK for encryption by
     -- default.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyEbsDefaultKmsKeyIdResponse' with all optional fields omitted.
@@ -227,22 +229,24 @@ data ModifyEbsDefaultKmsKeyIdResponse = ModifyEbsDefaultKmsKeyIdResponse'
 -- 'httpStatus', 'modifyEbsDefaultKmsKeyIdResponse_httpStatus' - The response's http status code.
 newModifyEbsDefaultKmsKeyIdResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyEbsDefaultKmsKeyIdResponse
 newModifyEbsDefaultKmsKeyIdResponse pHttpStatus_ =
   ModifyEbsDefaultKmsKeyIdResponse'
     { kmsKeyId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the default CMK for encryption by
 -- default.
-modifyEbsDefaultKmsKeyIdResponse_kmsKeyId :: Lens.Lens' ModifyEbsDefaultKmsKeyIdResponse (Core.Maybe Core.Text)
+modifyEbsDefaultKmsKeyIdResponse_kmsKeyId :: Lens.Lens' ModifyEbsDefaultKmsKeyIdResponse (Prelude.Maybe Prelude.Text)
 modifyEbsDefaultKmsKeyIdResponse_kmsKeyId = Lens.lens (\ModifyEbsDefaultKmsKeyIdResponse' {kmsKeyId} -> kmsKeyId) (\s@ModifyEbsDefaultKmsKeyIdResponse' {} a -> s {kmsKeyId = a} :: ModifyEbsDefaultKmsKeyIdResponse)
 
 -- | The response's http status code.
-modifyEbsDefaultKmsKeyIdResponse_httpStatus :: Lens.Lens' ModifyEbsDefaultKmsKeyIdResponse Core.Int
+modifyEbsDefaultKmsKeyIdResponse_httpStatus :: Lens.Lens' ModifyEbsDefaultKmsKeyIdResponse Prelude.Int
 modifyEbsDefaultKmsKeyIdResponse_httpStatus = Lens.lens (\ModifyEbsDefaultKmsKeyIdResponse' {httpStatus} -> httpStatus) (\s@ModifyEbsDefaultKmsKeyIdResponse' {} a -> s {httpStatus = a} :: ModifyEbsDefaultKmsKeyIdResponse)
 
-instance Core.NFData ModifyEbsDefaultKmsKeyIdResponse
+instance
+  Prelude.NFData
+    ModifyEbsDefaultKmsKeyIdResponse

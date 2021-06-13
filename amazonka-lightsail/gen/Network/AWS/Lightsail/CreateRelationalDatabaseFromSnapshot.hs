@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,9 +75,9 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     --
     -- When creating a new database from a snapshot, you cannot choose a bundle
     -- that is smaller than the bundle of the source database.
-    relationalDatabaseBundleId :: Core.Maybe Core.Text,
+    relationalDatabaseBundleId :: Prelude.Maybe Prelude.Text,
     -- | The name of the source database.
-    sourceRelationalDatabaseName :: Core.Maybe Core.Text,
+    sourceRelationalDatabaseName :: Prelude.Maybe Prelude.Text,
     -- | The date and time to restore your database from.
     --
     -- Constraints:
@@ -92,16 +93,16 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     --
     --     For example, if you wish to use a restore time of October 1, 2018,
     --     at 8 PM UTC, then you input @1538424000@ as the restore time.
-    restoreTime :: Core.Maybe Core.POSIX,
+    restoreTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the database snapshot from which to create your new
     -- database.
-    relationalDatabaseSnapshotName :: Core.Maybe Core.Text,
+    relationalDatabaseSnapshotName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the accessibility options for your new database. A value of
     -- @true@ specifies a database that is available to resources outside of
     -- your Lightsail account. A value of @false@ specifies a database that is
     -- available only to your Lightsail resources in the same region as your
     -- database.
-    publiclyAccessible :: Core.Maybe Core.Bool,
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | The Availability Zone in which to create your new database. Use the
     -- @us-east-2a@ case-sensitive format.
     --
@@ -109,11 +110,11 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     -- operation. Be sure to add the
     -- @include relational database Availability Zones@ parameter to your
     -- request.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies whether your database is restored from the latest backup time.
     -- A value of @true@ restores from the latest backup time.
     --
@@ -121,7 +122,7 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     --
     -- Constraints: Cannot be specified if the @restore time@ parameter is
     -- provided.
-    useLatestRestorableTime :: Core.Maybe Core.Bool,
+    useLatestRestorableTime :: Prelude.Maybe Prelude.Bool,
     -- | The name to use for your new database.
     --
     -- Constraints:
@@ -129,9 +130,9 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     -- -   Must contain from 2 to 255 alphanumeric characters, or hyphens.
     --
     -- -   The first and last character must be a letter or number.
-    relationalDatabaseName :: Core.Text
+    relationalDatabaseName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRelationalDatabaseFromSnapshot' with all optional fields omitted.
@@ -206,23 +207,23 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
 -- -   The first and last character must be a letter or number.
 newCreateRelationalDatabaseFromSnapshot ::
   -- | 'relationalDatabaseName'
-  Core.Text ->
+  Prelude.Text ->
   CreateRelationalDatabaseFromSnapshot
 newCreateRelationalDatabaseFromSnapshot
   pRelationalDatabaseName_ =
     CreateRelationalDatabaseFromSnapshot'
       { relationalDatabaseBundleId =
-          Core.Nothing,
+          Prelude.Nothing,
         sourceRelationalDatabaseName =
-          Core.Nothing,
-        restoreTime = Core.Nothing,
+          Prelude.Nothing,
+        restoreTime = Prelude.Nothing,
         relationalDatabaseSnapshotName =
-          Core.Nothing,
-        publiclyAccessible = Core.Nothing,
-        availabilityZone = Core.Nothing,
-        tags = Core.Nothing,
+          Prelude.Nothing,
+        publiclyAccessible = Prelude.Nothing,
+        availabilityZone = Prelude.Nothing,
+        tags = Prelude.Nothing,
         useLatestRestorableTime =
-          Core.Nothing,
+          Prelude.Nothing,
         relationalDatabaseName =
           pRelationalDatabaseName_
       }
@@ -235,11 +236,11 @@ newCreateRelationalDatabaseFromSnapshot
 --
 -- When creating a new database from a snapshot, you cannot choose a bundle
 -- that is smaller than the bundle of the source database.
-createRelationalDatabaseFromSnapshot_relationalDatabaseBundleId :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Core.Maybe Core.Text)
+createRelationalDatabaseFromSnapshot_relationalDatabaseBundleId :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
 createRelationalDatabaseFromSnapshot_relationalDatabaseBundleId = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {relationalDatabaseBundleId} -> relationalDatabaseBundleId) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {relationalDatabaseBundleId = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | The name of the source database.
-createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Core.Maybe Core.Text)
+createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
 createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {sourceRelationalDatabaseName} -> sourceRelationalDatabaseName) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {sourceRelationalDatabaseName = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | The date and time to restore your database from.
@@ -257,12 +258,12 @@ createRelationalDatabaseFromSnapshot_sourceRelationalDatabaseName = Lens.lens (\
 --
 --     For example, if you wish to use a restore time of October 1, 2018,
 --     at 8 PM UTC, then you input @1538424000@ as the restore time.
-createRelationalDatabaseFromSnapshot_restoreTime :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Core.Maybe Core.UTCTime)
-createRelationalDatabaseFromSnapshot_restoreTime = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {restoreTime} -> restoreTime) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {restoreTime = a} :: CreateRelationalDatabaseFromSnapshot) Core.. Lens.mapping Core._Time
+createRelationalDatabaseFromSnapshot_restoreTime :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.UTCTime)
+createRelationalDatabaseFromSnapshot_restoreTime = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {restoreTime} -> restoreTime) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {restoreTime = a} :: CreateRelationalDatabaseFromSnapshot) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the database snapshot from which to create your new
 -- database.
-createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Core.Maybe Core.Text)
+createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
 createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {relationalDatabaseSnapshotName} -> relationalDatabaseSnapshotName) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {relationalDatabaseSnapshotName = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | Specifies the accessibility options for your new database. A value of
@@ -270,7 +271,7 @@ createRelationalDatabaseFromSnapshot_relationalDatabaseSnapshotName = Lens.lens 
 -- your Lightsail account. A value of @false@ specifies a database that is
 -- available only to your Lightsail resources in the same region as your
 -- database.
-createRelationalDatabaseFromSnapshot_publiclyAccessible :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Core.Maybe Core.Bool)
+createRelationalDatabaseFromSnapshot_publiclyAccessible :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Bool)
 createRelationalDatabaseFromSnapshot_publiclyAccessible = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {publiclyAccessible} -> publiclyAccessible) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {publiclyAccessible = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | The Availability Zone in which to create your new database. Use the
@@ -280,14 +281,14 @@ createRelationalDatabaseFromSnapshot_publiclyAccessible = Lens.lens (\CreateRela
 -- operation. Be sure to add the
 -- @include relational database Availability Zones@ parameter to your
 -- request.
-createRelationalDatabaseFromSnapshot_availabilityZone :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Core.Maybe Core.Text)
+createRelationalDatabaseFromSnapshot_availabilityZone :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Text)
 createRelationalDatabaseFromSnapshot_availabilityZone = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {availabilityZone} -> availabilityZone) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {availabilityZone = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createRelationalDatabaseFromSnapshot_tags :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Core.Maybe [Tag])
-createRelationalDatabaseFromSnapshot_tags = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {tags} -> tags) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {tags = a} :: CreateRelationalDatabaseFromSnapshot) Core.. Lens.mapping Lens._Coerce
+createRelationalDatabaseFromSnapshot_tags :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe [Tag])
+createRelationalDatabaseFromSnapshot_tags = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {tags} -> tags) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {tags = a} :: CreateRelationalDatabaseFromSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether your database is restored from the latest backup time.
 -- A value of @true@ restores from the latest backup time.
@@ -296,7 +297,7 @@ createRelationalDatabaseFromSnapshot_tags = Lens.lens (\CreateRelationalDatabase
 --
 -- Constraints: Cannot be specified if the @restore time@ parameter is
 -- provided.
-createRelationalDatabaseFromSnapshot_useLatestRestorableTime :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Core.Maybe Core.Bool)
+createRelationalDatabaseFromSnapshot_useLatestRestorableTime :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Bool)
 createRelationalDatabaseFromSnapshot_useLatestRestorableTime = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {useLatestRestorableTime} -> useLatestRestorableTime) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {useLatestRestorableTime = a} :: CreateRelationalDatabaseFromSnapshot)
 
 -- | The name to use for your new database.
@@ -306,7 +307,7 @@ createRelationalDatabaseFromSnapshot_useLatestRestorableTime = Lens.lens (\Creat
 -- -   Must contain from 2 to 255 alphanumeric characters, or hyphens.
 --
 -- -   The first and last character must be a letter or number.
-createRelationalDatabaseFromSnapshot_relationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot Core.Text
+createRelationalDatabaseFromSnapshot_relationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot Prelude.Text
 createRelationalDatabaseFromSnapshot_relationalDatabaseName = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {relationalDatabaseName} -> relationalDatabaseName) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {relationalDatabaseName = a} :: CreateRelationalDatabaseFromSnapshot)
 
 instance
@@ -321,16 +322,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateRelationalDatabaseFromSnapshotResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateRelationalDatabaseFromSnapshot
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateRelationalDatabaseFromSnapshot
 
 instance
@@ -338,14 +339,16 @@ instance
     CreateRelationalDatabaseFromSnapshot
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -355,22 +358,22 @@ instance
   where
   toJSON CreateRelationalDatabaseFromSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("relationalDatabaseBundleId" Core..=)
-              Core.<$> relationalDatabaseBundleId,
+              Prelude.<$> relationalDatabaseBundleId,
             ("sourceRelationalDatabaseName" Core..=)
-              Core.<$> sourceRelationalDatabaseName,
-            ("restoreTime" Core..=) Core.<$> restoreTime,
+              Prelude.<$> sourceRelationalDatabaseName,
+            ("restoreTime" Core..=) Prelude.<$> restoreTime,
             ("relationalDatabaseSnapshotName" Core..=)
-              Core.<$> relationalDatabaseSnapshotName,
+              Prelude.<$> relationalDatabaseSnapshotName,
             ("publiclyAccessible" Core..=)
-              Core.<$> publiclyAccessible,
+              Prelude.<$> publiclyAccessible,
             ("availabilityZone" Core..=)
-              Core.<$> availabilityZone,
-            ("tags" Core..=) Core.<$> tags,
+              Prelude.<$> availabilityZone,
+            ("tags" Core..=) Prelude.<$> tags,
             ("useLatestRestorableTime" Core..=)
-              Core.<$> useLatestRestorableTime,
-            Core.Just
+              Prelude.<$> useLatestRestorableTime,
+            Prelude.Just
               ( "relationalDatabaseName"
                   Core..= relationalDatabaseName
               )
@@ -381,24 +384,24 @@ instance
   Core.ToPath
     CreateRelationalDatabaseFromSnapshot
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     CreateRelationalDatabaseFromSnapshot
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRelationalDatabaseFromSnapshotResponse' smart constructor.
 data CreateRelationalDatabaseFromSnapshotResponse = CreateRelationalDatabaseFromSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRelationalDatabaseFromSnapshotResponse' with all optional fields omitted.
@@ -415,26 +418,26 @@ data CreateRelationalDatabaseFromSnapshotResponse = CreateRelationalDatabaseFrom
 -- 'httpStatus', 'createRelationalDatabaseFromSnapshotResponse_httpStatus' - The response's http status code.
 newCreateRelationalDatabaseFromSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateRelationalDatabaseFromSnapshotResponse
 newCreateRelationalDatabaseFromSnapshotResponse
   pHttpStatus_ =
     CreateRelationalDatabaseFromSnapshotResponse'
       { operations =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createRelationalDatabaseFromSnapshotResponse_operations :: Lens.Lens' CreateRelationalDatabaseFromSnapshotResponse (Core.Maybe [Operation])
-createRelationalDatabaseFromSnapshotResponse_operations = Lens.lens (\CreateRelationalDatabaseFromSnapshotResponse' {operations} -> operations) (\s@CreateRelationalDatabaseFromSnapshotResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseFromSnapshotResponse) Core.. Lens.mapping Lens._Coerce
+createRelationalDatabaseFromSnapshotResponse_operations :: Lens.Lens' CreateRelationalDatabaseFromSnapshotResponse (Prelude.Maybe [Operation])
+createRelationalDatabaseFromSnapshotResponse_operations = Lens.lens (\CreateRelationalDatabaseFromSnapshotResponse' {operations} -> operations) (\s@CreateRelationalDatabaseFromSnapshotResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseFromSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createRelationalDatabaseFromSnapshotResponse_httpStatus :: Lens.Lens' CreateRelationalDatabaseFromSnapshotResponse Core.Int
+createRelationalDatabaseFromSnapshotResponse_httpStatus :: Lens.Lens' CreateRelationalDatabaseFromSnapshotResponse Prelude.Int
 createRelationalDatabaseFromSnapshotResponse_httpStatus = Lens.lens (\CreateRelationalDatabaseFromSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateRelationalDatabaseFromSnapshotResponse' {} a -> s {httpStatus = a} :: CreateRelationalDatabaseFromSnapshotResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateRelationalDatabaseFromSnapshotResponse

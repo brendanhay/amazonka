@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,9 +51,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteEndpoint' smart constructor.
 data DeleteEndpoint = DeleteEndpoint'
   { -- | The name of the endpoint that you want to delete.
-    endpointName :: Core.Text
+    endpointName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEndpoint' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DeleteEndpoint = DeleteEndpoint'
 -- 'endpointName', 'deleteEndpoint_endpointName' - The name of the endpoint that you want to delete.
 newDeleteEndpoint ::
   -- | 'endpointName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEndpoint
 newDeleteEndpoint pEndpointName_ =
   DeleteEndpoint' {endpointName = pEndpointName_}
 
 -- | The name of the endpoint that you want to delete.
-deleteEndpoint_endpointName :: Lens.Lens' DeleteEndpoint Core.Text
+deleteEndpoint_endpointName :: Lens.Lens' DeleteEndpoint Prelude.Text
 deleteEndpoint_endpointName = Lens.lens (\DeleteEndpoint' {endpointName} -> endpointName) (\s@DeleteEndpoint' {} a -> s {endpointName = a} :: DeleteEndpoint)
 
 instance Core.AWSRequest DeleteEndpoint where
@@ -82,39 +83,41 @@ instance Core.AWSRequest DeleteEndpoint where
   response =
     Response.receiveNull DeleteEndpointResponse'
 
-instance Core.Hashable DeleteEndpoint
+instance Prelude.Hashable DeleteEndpoint
 
-instance Core.NFData DeleteEndpoint
+instance Prelude.NFData DeleteEndpoint
 
 instance Core.ToHeaders DeleteEndpoint where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteEndpoint" :: Core.ByteString),
+              Core.=# ("SageMaker.DeleteEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteEndpoint where
   toJSON DeleteEndpoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("EndpointName" Core..= endpointName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("EndpointName" Core..= endpointName)]
       )
 
 instance Core.ToPath DeleteEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteEndpoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEndpointResponse' with all optional fields omitted.
@@ -124,4 +127,4 @@ newDeleteEndpointResponse ::
   DeleteEndpointResponse
 newDeleteEndpointResponse = DeleteEndpointResponse'
 
-instance Core.NFData DeleteEndpointResponse
+instance Prelude.NFData DeleteEndpointResponse

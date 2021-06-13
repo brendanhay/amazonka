@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When you enable Precise segment duration in DASH manifests
 -- (writeSegmentTimelineInRepresentation), your DASH manifest shows precise
@@ -40,15 +41,15 @@ newtype CmafWriteSegmentTimelineInRepresentation = CmafWriteSegmentTimelineInRep
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

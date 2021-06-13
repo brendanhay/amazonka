@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,15 +53,15 @@ data DeleteOTAUpdate = DeleteOTAUpdate'
     -- it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state
     -- (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is
     -- false.
-    forceDeleteAWSJob :: Core.Maybe Core.Bool,
+    forceDeleteAWSJob :: Prelude.Maybe Prelude.Bool,
     -- | When true, the stream created by the OTAUpdate process is deleted when
     -- the OTA update is deleted. Ignored if the stream specified in the
     -- OTAUpdate is supplied by the user.
-    deleteStream :: Core.Maybe Core.Bool,
+    deleteStream :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the OTA update to delete.
-    otaUpdateId :: Core.Text
+    otaUpdateId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOTAUpdate' with all optional fields omitted.
@@ -82,12 +83,13 @@ data DeleteOTAUpdate = DeleteOTAUpdate'
 -- 'otaUpdateId', 'deleteOTAUpdate_otaUpdateId' - The ID of the OTA update to delete.
 newDeleteOTAUpdate ::
   -- | 'otaUpdateId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteOTAUpdate
 newDeleteOTAUpdate pOtaUpdateId_ =
   DeleteOTAUpdate'
-    { forceDeleteAWSJob = Core.Nothing,
-      deleteStream = Core.Nothing,
+    { forceDeleteAWSJob =
+        Prelude.Nothing,
+      deleteStream = Prelude.Nothing,
       otaUpdateId = pOtaUpdateId_
     }
 
@@ -95,17 +97,17 @@ newDeleteOTAUpdate pOtaUpdateId_ =
 -- it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state
 -- (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is
 -- false.
-deleteOTAUpdate_forceDeleteAWSJob :: Lens.Lens' DeleteOTAUpdate (Core.Maybe Core.Bool)
+deleteOTAUpdate_forceDeleteAWSJob :: Lens.Lens' DeleteOTAUpdate (Prelude.Maybe Prelude.Bool)
 deleteOTAUpdate_forceDeleteAWSJob = Lens.lens (\DeleteOTAUpdate' {forceDeleteAWSJob} -> forceDeleteAWSJob) (\s@DeleteOTAUpdate' {} a -> s {forceDeleteAWSJob = a} :: DeleteOTAUpdate)
 
 -- | When true, the stream created by the OTAUpdate process is deleted when
 -- the OTA update is deleted. Ignored if the stream specified in the
 -- OTAUpdate is supplied by the user.
-deleteOTAUpdate_deleteStream :: Lens.Lens' DeleteOTAUpdate (Core.Maybe Core.Bool)
+deleteOTAUpdate_deleteStream :: Lens.Lens' DeleteOTAUpdate (Prelude.Maybe Prelude.Bool)
 deleteOTAUpdate_deleteStream = Lens.lens (\DeleteOTAUpdate' {deleteStream} -> deleteStream) (\s@DeleteOTAUpdate' {} a -> s {deleteStream = a} :: DeleteOTAUpdate)
 
 -- | The ID of the OTA update to delete.
-deleteOTAUpdate_otaUpdateId :: Lens.Lens' DeleteOTAUpdate Core.Text
+deleteOTAUpdate_otaUpdateId :: Lens.Lens' DeleteOTAUpdate Prelude.Text
 deleteOTAUpdate_otaUpdateId = Lens.lens (\DeleteOTAUpdate' {otaUpdateId} -> otaUpdateId) (\s@DeleteOTAUpdate' {} a -> s {otaUpdateId = a} :: DeleteOTAUpdate)
 
 instance Core.AWSRequest DeleteOTAUpdate where
@@ -117,24 +119,24 @@ instance Core.AWSRequest DeleteOTAUpdate where
     Response.receiveEmpty
       ( \s h x ->
           DeleteOTAUpdateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteOTAUpdate
+instance Prelude.Hashable DeleteOTAUpdate
 
-instance Core.NFData DeleteOTAUpdate
+instance Prelude.NFData DeleteOTAUpdate
 
 instance Core.ToHeaders DeleteOTAUpdate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteOTAUpdate where
   toPath DeleteOTAUpdate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/otaUpdates/", Core.toBS otaUpdateId]
 
 instance Core.ToQuery DeleteOTAUpdate where
   toQuery DeleteOTAUpdate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "forceDeleteAWSJob" Core.=: forceDeleteAWSJob,
         "deleteStream" Core.=: deleteStream
       ]
@@ -142,9 +144,9 @@ instance Core.ToQuery DeleteOTAUpdate where
 -- | /See:/ 'newDeleteOTAUpdateResponse' smart constructor.
 data DeleteOTAUpdateResponse = DeleteOTAUpdateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteOTAUpdateResponse' with all optional fields omitted.
@@ -157,13 +159,13 @@ data DeleteOTAUpdateResponse = DeleteOTAUpdateResponse'
 -- 'httpStatus', 'deleteOTAUpdateResponse_httpStatus' - The response's http status code.
 newDeleteOTAUpdateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteOTAUpdateResponse
 newDeleteOTAUpdateResponse pHttpStatus_ =
   DeleteOTAUpdateResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteOTAUpdateResponse_httpStatus :: Lens.Lens' DeleteOTAUpdateResponse Core.Int
+deleteOTAUpdateResponse_httpStatus :: Lens.Lens' DeleteOTAUpdateResponse Prelude.Int
 deleteOTAUpdateResponse_httpStatus = Lens.lens (\DeleteOTAUpdateResponse' {httpStatus} -> httpStatus) (\s@DeleteOTAUpdateResponse' {} a -> s {httpStatus = a} :: DeleteOTAUpdateResponse)
 
-instance Core.NFData DeleteOTAUpdateResponse
+instance Prelude.NFData DeleteOTAUpdateResponse

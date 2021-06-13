@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.AnalyticsFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsAndOperator
 import Network.AWS.S3.Types.Tag
@@ -33,14 +34,14 @@ import Network.AWS.S3.Types.Tag
 -- /See:/ 'newAnalyticsFilter' smart constructor.
 data AnalyticsFilter = AnalyticsFilter'
   { -- | The prefix to use when evaluating an analytics filter.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | A conjunction (logical AND) of predicates, which is used in evaluating
     -- an analytics filter. The operator must have at least two predicates.
-    and :: Core.Maybe AnalyticsAndOperator,
+    and :: Prelude.Maybe AnalyticsAndOperator,
     -- | The tag to use when evaluating an analytics filter.
-    tag :: Core.Maybe Tag
+    tag :: Prelude.Maybe Tag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalyticsFilter' with all optional fields omitted.
@@ -60,38 +61,38 @@ newAnalyticsFilter ::
   AnalyticsFilter
 newAnalyticsFilter =
   AnalyticsFilter'
-    { prefix = Core.Nothing,
-      and = Core.Nothing,
-      tag = Core.Nothing
+    { prefix = Prelude.Nothing,
+      and = Prelude.Nothing,
+      tag = Prelude.Nothing
     }
 
 -- | The prefix to use when evaluating an analytics filter.
-analyticsFilter_prefix :: Lens.Lens' AnalyticsFilter (Core.Maybe Core.Text)
+analyticsFilter_prefix :: Lens.Lens' AnalyticsFilter (Prelude.Maybe Prelude.Text)
 analyticsFilter_prefix = Lens.lens (\AnalyticsFilter' {prefix} -> prefix) (\s@AnalyticsFilter' {} a -> s {prefix = a} :: AnalyticsFilter)
 
 -- | A conjunction (logical AND) of predicates, which is used in evaluating
 -- an analytics filter. The operator must have at least two predicates.
-analyticsFilter_and :: Lens.Lens' AnalyticsFilter (Core.Maybe AnalyticsAndOperator)
+analyticsFilter_and :: Lens.Lens' AnalyticsFilter (Prelude.Maybe AnalyticsAndOperator)
 analyticsFilter_and = Lens.lens (\AnalyticsFilter' {and} -> and) (\s@AnalyticsFilter' {} a -> s {and = a} :: AnalyticsFilter)
 
 -- | The tag to use when evaluating an analytics filter.
-analyticsFilter_tag :: Lens.Lens' AnalyticsFilter (Core.Maybe Tag)
+analyticsFilter_tag :: Lens.Lens' AnalyticsFilter (Prelude.Maybe Tag)
 analyticsFilter_tag = Lens.lens (\AnalyticsFilter' {tag} -> tag) (\s@AnalyticsFilter' {} a -> s {tag = a} :: AnalyticsFilter)
 
 instance Core.FromXML AnalyticsFilter where
   parseXML x =
     AnalyticsFilter'
-      Core.<$> (x Core..@? "Prefix")
-      Core.<*> (x Core..@? "And")
-      Core.<*> (x Core..@? "Tag")
+      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "And")
+      Prelude.<*> (x Core..@? "Tag")
 
-instance Core.Hashable AnalyticsFilter
+instance Prelude.Hashable AnalyticsFilter
 
-instance Core.NFData AnalyticsFilter
+instance Prelude.NFData AnalyticsFilter
 
 instance Core.ToXML AnalyticsFilter where
   toXML AnalyticsFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Prefix" Core.@= prefix,
         "And" Core.@= and,
         "Tag" Core.@= tag

@@ -21,19 +21,20 @@ module Network.AWS.Connect.Types.UserSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about a user.
 --
 -- /See:/ 'newUserSummary' smart constructor.
 data UserSummary = UserSummary'
   { -- | The Amazon Resource Name (ARN) of the user account.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the user account.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Connect user name of the user account.
-    username :: Core.Maybe Core.Text
+    username :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserSummary' with all optional fields omitted.
@@ -52,21 +53,21 @@ newUserSummary ::
   UserSummary
 newUserSummary =
   UserSummary'
-    { arn = Core.Nothing,
-      id = Core.Nothing,
-      username = Core.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      username = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user account.
-userSummary_arn :: Lens.Lens' UserSummary (Core.Maybe Core.Text)
+userSummary_arn :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
 userSummary_arn = Lens.lens (\UserSummary' {arn} -> arn) (\s@UserSummary' {} a -> s {arn = a} :: UserSummary)
 
 -- | The identifier of the user account.
-userSummary_id :: Lens.Lens' UserSummary (Core.Maybe Core.Text)
+userSummary_id :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
 userSummary_id = Lens.lens (\UserSummary' {id} -> id) (\s@UserSummary' {} a -> s {id = a} :: UserSummary)
 
 -- | The Amazon Connect user name of the user account.
-userSummary_username :: Lens.Lens' UserSummary (Core.Maybe Core.Text)
+userSummary_username :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
 userSummary_username = Lens.lens (\UserSummary' {username} -> username) (\s@UserSummary' {} a -> s {username = a} :: UserSummary)
 
 instance Core.FromJSON UserSummary where
@@ -75,11 +76,11 @@ instance Core.FromJSON UserSummary where
       "UserSummary"
       ( \x ->
           UserSummary'
-            Core.<$> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Username")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Username")
       )
 
-instance Core.Hashable UserSummary
+instance Prelude.Hashable UserSummary
 
-instance Core.NFData UserSummary
+instance Prelude.NFData UserSummary

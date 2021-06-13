@@ -21,15 +21,16 @@ module Network.AWS.Glue.Types.DataLakePrincipal where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS Lake Formation principal.
 --
 -- /See:/ 'newDataLakePrincipal' smart constructor.
 data DataLakePrincipal = DataLakePrincipal'
   { -- | An identifier for the AWS Lake Formation principal.
-    dataLakePrincipalIdentifier :: Core.Maybe Core.Text
+    dataLakePrincipalIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataLakePrincipal' with all optional fields omitted.
@@ -45,11 +46,11 @@ newDataLakePrincipal ::
 newDataLakePrincipal =
   DataLakePrincipal'
     { dataLakePrincipalIdentifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | An identifier for the AWS Lake Formation principal.
-dataLakePrincipal_dataLakePrincipalIdentifier :: Lens.Lens' DataLakePrincipal (Core.Maybe Core.Text)
+dataLakePrincipal_dataLakePrincipalIdentifier :: Lens.Lens' DataLakePrincipal (Prelude.Maybe Prelude.Text)
 dataLakePrincipal_dataLakePrincipalIdentifier = Lens.lens (\DataLakePrincipal' {dataLakePrincipalIdentifier} -> dataLakePrincipalIdentifier) (\s@DataLakePrincipal' {} a -> s {dataLakePrincipalIdentifier = a} :: DataLakePrincipal)
 
 instance Core.FromJSON DataLakePrincipal where
@@ -58,18 +59,18 @@ instance Core.FromJSON DataLakePrincipal where
       "DataLakePrincipal"
       ( \x ->
           DataLakePrincipal'
-            Core.<$> (x Core..:? "DataLakePrincipalIdentifier")
+            Prelude.<$> (x Core..:? "DataLakePrincipalIdentifier")
       )
 
-instance Core.Hashable DataLakePrincipal
+instance Prelude.Hashable DataLakePrincipal
 
-instance Core.NFData DataLakePrincipal
+instance Prelude.NFData DataLakePrincipal
 
 instance Core.ToJSON DataLakePrincipal where
   toJSON DataLakePrincipal' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DataLakePrincipalIdentifier" Core..=)
-              Core.<$> dataLakePrincipalIdentifier
+              Prelude.<$> dataLakePrincipalIdentifier
           ]
       )

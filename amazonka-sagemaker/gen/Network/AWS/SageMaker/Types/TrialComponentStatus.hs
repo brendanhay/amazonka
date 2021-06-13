@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TrialComponentStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TrialComponentPrimaryStatus
 
 -- | The status of the trial component.
@@ -28,11 +29,11 @@ import Network.AWS.SageMaker.Types.TrialComponentPrimaryStatus
 -- /See:/ 'newTrialComponentStatus' smart constructor.
 data TrialComponentStatus = TrialComponentStatus'
   { -- | If the component failed, a message describing why.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status of the trial component.
-    primaryStatus :: Core.Maybe TrialComponentPrimaryStatus
+    primaryStatus :: Prelude.Maybe TrialComponentPrimaryStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrialComponentStatus' with all optional fields omitted.
@@ -49,16 +50,16 @@ newTrialComponentStatus ::
   TrialComponentStatus
 newTrialComponentStatus =
   TrialComponentStatus'
-    { message = Core.Nothing,
-      primaryStatus = Core.Nothing
+    { message = Prelude.Nothing,
+      primaryStatus = Prelude.Nothing
     }
 
 -- | If the component failed, a message describing why.
-trialComponentStatus_message :: Lens.Lens' TrialComponentStatus (Core.Maybe Core.Text)
+trialComponentStatus_message :: Lens.Lens' TrialComponentStatus (Prelude.Maybe Prelude.Text)
 trialComponentStatus_message = Lens.lens (\TrialComponentStatus' {message} -> message) (\s@TrialComponentStatus' {} a -> s {message = a} :: TrialComponentStatus)
 
 -- | The status of the trial component.
-trialComponentStatus_primaryStatus :: Lens.Lens' TrialComponentStatus (Core.Maybe TrialComponentPrimaryStatus)
+trialComponentStatus_primaryStatus :: Lens.Lens' TrialComponentStatus (Prelude.Maybe TrialComponentPrimaryStatus)
 trialComponentStatus_primaryStatus = Lens.lens (\TrialComponentStatus' {primaryStatus} -> primaryStatus) (\s@TrialComponentStatus' {} a -> s {primaryStatus = a} :: TrialComponentStatus)
 
 instance Core.FromJSON TrialComponentStatus where
@@ -67,19 +68,19 @@ instance Core.FromJSON TrialComponentStatus where
       "TrialComponentStatus"
       ( \x ->
           TrialComponentStatus'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "PrimaryStatus")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "PrimaryStatus")
       )
 
-instance Core.Hashable TrialComponentStatus
+instance Prelude.Hashable TrialComponentStatus
 
-instance Core.NFData TrialComponentStatus
+instance Prelude.NFData TrialComponentStatus
 
 instance Core.ToJSON TrialComponentStatus where
   toJSON TrialComponentStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Message" Core..=) Core.<$> message,
-            ("PrimaryStatus" Core..=) Core.<$> primaryStatus
+      ( Prelude.catMaybes
+          [ ("Message" Core..=) Prelude.<$> message,
+            ("PrimaryStatus" Core..=) Prelude.<$> primaryStatus
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @LambdaFunctionCompleted@ event. It isn\'t
 -- set for other event types.
@@ -28,17 +29,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLambdaFunctionCompletedEventAttributes' smart constructor.
 data LambdaFunctionCompletedEventAttributes = LambdaFunctionCompletedEventAttributes'
   { -- | The results of the Lambda task.
-    result :: Core.Maybe Core.Text,
+    result :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
     -- this Lambda task was scheduled. To help diagnose issues, use this
     -- information to trace back the chain of events leading up to this event.
-    scheduledEventId :: Core.Integer,
+    scheduledEventId :: Prelude.Integer,
     -- | The ID of the @LambdaFunctionStarted@ event recorded when this activity
     -- task started. To help diagnose issues, use this information to trace
     -- back the chain of events leading up to this event.
-    startedEventId :: Core.Integer
+    startedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionCompletedEventAttributes' with all optional fields omitted.
@@ -59,35 +60,35 @@ data LambdaFunctionCompletedEventAttributes = LambdaFunctionCompletedEventAttrib
 -- back the chain of events leading up to this event.
 newLambdaFunctionCompletedEventAttributes ::
   -- | 'scheduledEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'startedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   LambdaFunctionCompletedEventAttributes
 newLambdaFunctionCompletedEventAttributes
   pScheduledEventId_
   pStartedEventId_ =
     LambdaFunctionCompletedEventAttributes'
       { result =
-          Core.Nothing,
+          Prelude.Nothing,
         scheduledEventId =
           pScheduledEventId_,
         startedEventId = pStartedEventId_
       }
 
 -- | The results of the Lambda task.
-lambdaFunctionCompletedEventAttributes_result :: Lens.Lens' LambdaFunctionCompletedEventAttributes (Core.Maybe Core.Text)
+lambdaFunctionCompletedEventAttributes_result :: Lens.Lens' LambdaFunctionCompletedEventAttributes (Prelude.Maybe Prelude.Text)
 lambdaFunctionCompletedEventAttributes_result = Lens.lens (\LambdaFunctionCompletedEventAttributes' {result} -> result) (\s@LambdaFunctionCompletedEventAttributes' {} a -> s {result = a} :: LambdaFunctionCompletedEventAttributes)
 
 -- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
 -- this Lambda task was scheduled. To help diagnose issues, use this
 -- information to trace back the chain of events leading up to this event.
-lambdaFunctionCompletedEventAttributes_scheduledEventId :: Lens.Lens' LambdaFunctionCompletedEventAttributes Core.Integer
+lambdaFunctionCompletedEventAttributes_scheduledEventId :: Lens.Lens' LambdaFunctionCompletedEventAttributes Prelude.Integer
 lambdaFunctionCompletedEventAttributes_scheduledEventId = Lens.lens (\LambdaFunctionCompletedEventAttributes' {scheduledEventId} -> scheduledEventId) (\s@LambdaFunctionCompletedEventAttributes' {} a -> s {scheduledEventId = a} :: LambdaFunctionCompletedEventAttributes)
 
 -- | The ID of the @LambdaFunctionStarted@ event recorded when this activity
 -- task started. To help diagnose issues, use this information to trace
 -- back the chain of events leading up to this event.
-lambdaFunctionCompletedEventAttributes_startedEventId :: Lens.Lens' LambdaFunctionCompletedEventAttributes Core.Integer
+lambdaFunctionCompletedEventAttributes_startedEventId :: Lens.Lens' LambdaFunctionCompletedEventAttributes Prelude.Integer
 lambdaFunctionCompletedEventAttributes_startedEventId = Lens.lens (\LambdaFunctionCompletedEventAttributes' {startedEventId} -> startedEventId) (\s@LambdaFunctionCompletedEventAttributes' {} a -> s {startedEventId = a} :: LambdaFunctionCompletedEventAttributes)
 
 instance
@@ -99,15 +100,15 @@ instance
       "LambdaFunctionCompletedEventAttributes"
       ( \x ->
           LambdaFunctionCompletedEventAttributes'
-            Core.<$> (x Core..:? "result")
-            Core.<*> (x Core..: "scheduledEventId")
-            Core.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Core..:? "result")
+            Prelude.<*> (x Core..: "scheduledEventId")
+            Prelude.<*> (x Core..: "startedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LambdaFunctionCompletedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     LambdaFunctionCompletedEventAttributes

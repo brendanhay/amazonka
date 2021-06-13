@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MonitoringJobDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringAppSpecification
 import Network.AWS.SageMaker.Types.MonitoringBaselineConfig
 import Network.AWS.SageMaker.Types.MonitoringInput
@@ -34,18 +35,18 @@ import Network.AWS.SageMaker.Types.NetworkConfig
 -- /See:/ 'newMonitoringJobDefinition' smart constructor.
 data MonitoringJobDefinition = MonitoringJobDefinition'
   { -- | Specifies networking options for an monitoring job.
-    networkConfig :: Core.Maybe NetworkConfig,
+    networkConfig :: Prelude.Maybe NetworkConfig,
     -- | Sets the environment variables in the Docker container.
-    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Baseline configuration used to validate that the data conforms to the
     -- specified constraints and statistics
-    baselineConfig :: Core.Maybe MonitoringBaselineConfig,
+    baselineConfig :: Prelude.Maybe MonitoringBaselineConfig,
     -- | Specifies a time limit for how long the monitoring job is allowed to
     -- run.
-    stoppingCondition :: Core.Maybe MonitoringStoppingCondition,
+    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The array of inputs for the monitoring job. Currently we support
     -- monitoring an Amazon SageMaker Endpoint.
-    monitoringInputs :: Core.NonEmpty MonitoringInput,
+    monitoringInputs :: Prelude.NonEmpty MonitoringInput,
     -- | The array of outputs from the monitoring job to be uploaded to Amazon
     -- Simple Storage Service (Amazon S3).
     monitoringOutputConfig :: MonitoringOutputConfig,
@@ -57,9 +58,9 @@ data MonitoringJobDefinition = MonitoringJobDefinition'
     monitoringAppSpecification :: MonitoringAppSpecification,
     -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
     -- assume to perform tasks on your behalf.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringJobDefinition' with all optional fields omitted.
@@ -95,7 +96,7 @@ data MonitoringJobDefinition = MonitoringJobDefinition'
 -- assume to perform tasks on your behalf.
 newMonitoringJobDefinition ::
   -- | 'monitoringInputs'
-  Core.NonEmpty MonitoringInput ->
+  Prelude.NonEmpty MonitoringInput ->
   -- | 'monitoringOutputConfig'
   MonitoringOutputConfig ->
   -- | 'monitoringResources'
@@ -103,7 +104,7 @@ newMonitoringJobDefinition ::
   -- | 'monitoringAppSpecification'
   MonitoringAppSpecification ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   MonitoringJobDefinition
 newMonitoringJobDefinition
   pMonitoringInputs_
@@ -113,10 +114,10 @@ newMonitoringJobDefinition
   pRoleArn_ =
     MonitoringJobDefinition'
       { networkConfig =
-          Core.Nothing,
-        environment = Core.Nothing,
-        baselineConfig = Core.Nothing,
-        stoppingCondition = Core.Nothing,
+          Prelude.Nothing,
+        environment = Prelude.Nothing,
+        baselineConfig = Prelude.Nothing,
+        stoppingCondition = Prelude.Nothing,
         monitoringInputs =
           Lens._Coerce Lens.# pMonitoringInputs_,
         monitoringOutputConfig = pMonitoringOutputConfig_,
@@ -127,27 +128,27 @@ newMonitoringJobDefinition
       }
 
 -- | Specifies networking options for an monitoring job.
-monitoringJobDefinition_networkConfig :: Lens.Lens' MonitoringJobDefinition (Core.Maybe NetworkConfig)
+monitoringJobDefinition_networkConfig :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe NetworkConfig)
 monitoringJobDefinition_networkConfig = Lens.lens (\MonitoringJobDefinition' {networkConfig} -> networkConfig) (\s@MonitoringJobDefinition' {} a -> s {networkConfig = a} :: MonitoringJobDefinition)
 
 -- | Sets the environment variables in the Docker container.
-monitoringJobDefinition_environment :: Lens.Lens' MonitoringJobDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
-monitoringJobDefinition_environment = Lens.lens (\MonitoringJobDefinition' {environment} -> environment) (\s@MonitoringJobDefinition' {} a -> s {environment = a} :: MonitoringJobDefinition) Core.. Lens.mapping Lens._Coerce
+monitoringJobDefinition_environment :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+monitoringJobDefinition_environment = Lens.lens (\MonitoringJobDefinition' {environment} -> environment) (\s@MonitoringJobDefinition' {} a -> s {environment = a} :: MonitoringJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Baseline configuration used to validate that the data conforms to the
 -- specified constraints and statistics
-monitoringJobDefinition_baselineConfig :: Lens.Lens' MonitoringJobDefinition (Core.Maybe MonitoringBaselineConfig)
+monitoringJobDefinition_baselineConfig :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe MonitoringBaselineConfig)
 monitoringJobDefinition_baselineConfig = Lens.lens (\MonitoringJobDefinition' {baselineConfig} -> baselineConfig) (\s@MonitoringJobDefinition' {} a -> s {baselineConfig = a} :: MonitoringJobDefinition)
 
 -- | Specifies a time limit for how long the monitoring job is allowed to
 -- run.
-monitoringJobDefinition_stoppingCondition :: Lens.Lens' MonitoringJobDefinition (Core.Maybe MonitoringStoppingCondition)
+monitoringJobDefinition_stoppingCondition :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
 monitoringJobDefinition_stoppingCondition = Lens.lens (\MonitoringJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@MonitoringJobDefinition' {} a -> s {stoppingCondition = a} :: MonitoringJobDefinition)
 
 -- | The array of inputs for the monitoring job. Currently we support
 -- monitoring an Amazon SageMaker Endpoint.
-monitoringJobDefinition_monitoringInputs :: Lens.Lens' MonitoringJobDefinition (Core.NonEmpty MonitoringInput)
-monitoringJobDefinition_monitoringInputs = Lens.lens (\MonitoringJobDefinition' {monitoringInputs} -> monitoringInputs) (\s@MonitoringJobDefinition' {} a -> s {monitoringInputs = a} :: MonitoringJobDefinition) Core.. Lens._Coerce
+monitoringJobDefinition_monitoringInputs :: Lens.Lens' MonitoringJobDefinition (Prelude.NonEmpty MonitoringInput)
+monitoringJobDefinition_monitoringInputs = Lens.lens (\MonitoringJobDefinition' {monitoringInputs} -> monitoringInputs) (\s@MonitoringJobDefinition' {} a -> s {monitoringInputs = a} :: MonitoringJobDefinition) Prelude.. Lens._Coerce
 
 -- | The array of outputs from the monitoring job to be uploaded to Amazon
 -- Simple Storage Service (Amazon S3).
@@ -166,7 +167,7 @@ monitoringJobDefinition_monitoringAppSpecification = Lens.lens (\MonitoringJobDe
 
 -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
 -- assume to perform tasks on your behalf.
-monitoringJobDefinition_roleArn :: Lens.Lens' MonitoringJobDefinition Core.Text
+monitoringJobDefinition_roleArn :: Lens.Lens' MonitoringJobDefinition Prelude.Text
 monitoringJobDefinition_roleArn = Lens.lens (\MonitoringJobDefinition' {roleArn} -> roleArn) (\s@MonitoringJobDefinition' {} a -> s {roleArn = a} :: MonitoringJobDefinition)
 
 instance Core.FromJSON MonitoringJobDefinition where
@@ -175,42 +176,43 @@ instance Core.FromJSON MonitoringJobDefinition where
       "MonitoringJobDefinition"
       ( \x ->
           MonitoringJobDefinition'
-            Core.<$> (x Core..:? "NetworkConfig")
-            Core.<*> (x Core..:? "Environment" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "BaselineConfig")
-            Core.<*> (x Core..:? "StoppingCondition")
-            Core.<*> (x Core..: "MonitoringInputs")
-            Core.<*> (x Core..: "MonitoringOutputConfig")
-            Core.<*> (x Core..: "MonitoringResources")
-            Core.<*> (x Core..: "MonitoringAppSpecification")
-            Core.<*> (x Core..: "RoleArn")
+            Prelude.<$> (x Core..:? "NetworkConfig")
+            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "BaselineConfig")
+            Prelude.<*> (x Core..:? "StoppingCondition")
+            Prelude.<*> (x Core..: "MonitoringInputs")
+            Prelude.<*> (x Core..: "MonitoringOutputConfig")
+            Prelude.<*> (x Core..: "MonitoringResources")
+            Prelude.<*> (x Core..: "MonitoringAppSpecification")
+            Prelude.<*> (x Core..: "RoleArn")
       )
 
-instance Core.Hashable MonitoringJobDefinition
+instance Prelude.Hashable MonitoringJobDefinition
 
-instance Core.NFData MonitoringJobDefinition
+instance Prelude.NFData MonitoringJobDefinition
 
 instance Core.ToJSON MonitoringJobDefinition where
   toJSON MonitoringJobDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NetworkConfig" Core..=) Core.<$> networkConfig,
-            ("Environment" Core..=) Core.<$> environment,
-            ("BaselineConfig" Core..=) Core.<$> baselineConfig,
+      ( Prelude.catMaybes
+          [ ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
+            ("Environment" Core..=) Prelude.<$> environment,
+            ("BaselineConfig" Core..=)
+              Prelude.<$> baselineConfig,
             ("StoppingCondition" Core..=)
-              Core.<$> stoppingCondition,
-            Core.Just
+              Prelude.<$> stoppingCondition,
+            Prelude.Just
               ("MonitoringInputs" Core..= monitoringInputs),
-            Core.Just
+            Prelude.Just
               ( "MonitoringOutputConfig"
                   Core..= monitoringOutputConfig
               ),
-            Core.Just
+            Prelude.Just
               ("MonitoringResources" Core..= monitoringResources),
-            Core.Just
+            Prelude.Just
               ( "MonitoringAppSpecification"
                   Core..= monitoringAppSpecification
               ),
-            Core.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("RoleArn" Core..= roleArn)
           ]
       )

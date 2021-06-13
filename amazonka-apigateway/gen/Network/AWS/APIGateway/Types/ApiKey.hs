@@ -21,6 +21,7 @@ module Network.AWS.APIGateway.Types.ApiKey where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A resource that can be distributed to callers for executing Method
 -- resources that require an API key. API keys can be mapped to any Stage
@@ -32,29 +33,29 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newApiKey' smart constructor.
 data ApiKey = ApiKey'
   { -- | The timestamp when the API Key was created.
-    createdDate :: Core.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Core.POSIX,
     -- | An AWS Marketplace customer identifier , when integrating with the AWS
     -- SaaS Marketplace.
-    customerId :: Core.Maybe Core.Text,
+    customerId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the API Key was last updated.
-    lastUpdatedDate :: Core.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
     -- | A list of Stage resources that are associated with the ApiKey resource.
-    stageKeys :: Core.Maybe [Core.Text],
+    stageKeys :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether the API Key can be used by callers.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the API Key.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the API Key.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The collection of tags. Each tag element is associated with a given
     -- resource.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the API Key.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The value of the API Key.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApiKey' with all optional fields omitted.
@@ -89,58 +90,58 @@ newApiKey ::
   ApiKey
 newApiKey =
   ApiKey'
-    { createdDate = Core.Nothing,
-      customerId = Core.Nothing,
-      lastUpdatedDate = Core.Nothing,
-      stageKeys = Core.Nothing,
-      enabled = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
-      value = Core.Nothing
+    { createdDate = Prelude.Nothing,
+      customerId = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      stageKeys = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The timestamp when the API Key was created.
-apiKey_createdDate :: Lens.Lens' ApiKey (Core.Maybe Core.UTCTime)
-apiKey_createdDate = Lens.lens (\ApiKey' {createdDate} -> createdDate) (\s@ApiKey' {} a -> s {createdDate = a} :: ApiKey) Core.. Lens.mapping Core._Time
+apiKey_createdDate :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.UTCTime)
+apiKey_createdDate = Lens.lens (\ApiKey' {createdDate} -> createdDate) (\s@ApiKey' {} a -> s {createdDate = a} :: ApiKey) Prelude.. Lens.mapping Core._Time
 
 -- | An AWS Marketplace customer identifier , when integrating with the AWS
 -- SaaS Marketplace.
-apiKey_customerId :: Lens.Lens' ApiKey (Core.Maybe Core.Text)
+apiKey_customerId :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_customerId = Lens.lens (\ApiKey' {customerId} -> customerId) (\s@ApiKey' {} a -> s {customerId = a} :: ApiKey)
 
 -- | The timestamp when the API Key was last updated.
-apiKey_lastUpdatedDate :: Lens.Lens' ApiKey (Core.Maybe Core.UTCTime)
-apiKey_lastUpdatedDate = Lens.lens (\ApiKey' {lastUpdatedDate} -> lastUpdatedDate) (\s@ApiKey' {} a -> s {lastUpdatedDate = a} :: ApiKey) Core.. Lens.mapping Core._Time
+apiKey_lastUpdatedDate :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.UTCTime)
+apiKey_lastUpdatedDate = Lens.lens (\ApiKey' {lastUpdatedDate} -> lastUpdatedDate) (\s@ApiKey' {} a -> s {lastUpdatedDate = a} :: ApiKey) Prelude.. Lens.mapping Core._Time
 
 -- | A list of Stage resources that are associated with the ApiKey resource.
-apiKey_stageKeys :: Lens.Lens' ApiKey (Core.Maybe [Core.Text])
-apiKey_stageKeys = Lens.lens (\ApiKey' {stageKeys} -> stageKeys) (\s@ApiKey' {} a -> s {stageKeys = a} :: ApiKey) Core.. Lens.mapping Lens._Coerce
+apiKey_stageKeys :: Lens.Lens' ApiKey (Prelude.Maybe [Prelude.Text])
+apiKey_stageKeys = Lens.lens (\ApiKey' {stageKeys} -> stageKeys) (\s@ApiKey' {} a -> s {stageKeys = a} :: ApiKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the API Key can be used by callers.
-apiKey_enabled :: Lens.Lens' ApiKey (Core.Maybe Core.Bool)
+apiKey_enabled :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Bool)
 apiKey_enabled = Lens.lens (\ApiKey' {enabled} -> enabled) (\s@ApiKey' {} a -> s {enabled = a} :: ApiKey)
 
 -- | The identifier of the API Key.
-apiKey_id :: Lens.Lens' ApiKey (Core.Maybe Core.Text)
+apiKey_id :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_id = Lens.lens (\ApiKey' {id} -> id) (\s@ApiKey' {} a -> s {id = a} :: ApiKey)
 
 -- | The name of the API Key.
-apiKey_name :: Lens.Lens' ApiKey (Core.Maybe Core.Text)
+apiKey_name :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_name = Lens.lens (\ApiKey' {name} -> name) (\s@ApiKey' {} a -> s {name = a} :: ApiKey)
 
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.
-apiKey_tags :: Lens.Lens' ApiKey (Core.Maybe (Core.HashMap Core.Text Core.Text))
-apiKey_tags = Lens.lens (\ApiKey' {tags} -> tags) (\s@ApiKey' {} a -> s {tags = a} :: ApiKey) Core.. Lens.mapping Lens._Coerce
+apiKey_tags :: Lens.Lens' ApiKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+apiKey_tags = Lens.lens (\ApiKey' {tags} -> tags) (\s@ApiKey' {} a -> s {tags = a} :: ApiKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the API Key.
-apiKey_description :: Lens.Lens' ApiKey (Core.Maybe Core.Text)
+apiKey_description :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_description = Lens.lens (\ApiKey' {description} -> description) (\s@ApiKey' {} a -> s {description = a} :: ApiKey)
 
 -- | The value of the API Key.
-apiKey_value :: Lens.Lens' ApiKey (Core.Maybe Core.Text)
+apiKey_value :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_value = Lens.lens (\ApiKey' {value} -> value) (\s@ApiKey' {} a -> s {value = a} :: ApiKey)
 
 instance Core.FromJSON ApiKey where
@@ -149,18 +150,18 @@ instance Core.FromJSON ApiKey where
       "ApiKey"
       ( \x ->
           ApiKey'
-            Core.<$> (x Core..:? "createdDate")
-            Core.<*> (x Core..:? "customerId")
-            Core.<*> (x Core..:? "lastUpdatedDate")
-            Core.<*> (x Core..:? "stageKeys" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "enabled")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "createdDate")
+            Prelude.<*> (x Core..:? "customerId")
+            Prelude.<*> (x Core..:? "lastUpdatedDate")
+            Prelude.<*> (x Core..:? "stageKeys" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "enabled")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "value")
       )
 
-instance Core.Hashable ApiKey
+instance Prelude.Hashable ApiKey
 
-instance Core.NFData ApiKey
+instance Prelude.NFData ApiKey

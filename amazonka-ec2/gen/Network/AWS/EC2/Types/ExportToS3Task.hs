@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ContainerFormat
 import Network.AWS.EC2.Types.DiskImageFormat
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the format and location for the export task.
 --
@@ -31,17 +32,17 @@ import qualified Network.AWS.Lens as Lens
 data ExportToS3Task = ExportToS3Task'
   { -- | The container format used to combine disk images with metadata (such as
     -- OVF). If absent, only the disk image is exported.
-    containerFormat :: Core.Maybe ContainerFormat,
+    containerFormat :: Prelude.Maybe ContainerFormat,
     -- | The format for the exported image.
-    diskImageFormat :: Core.Maybe DiskImageFormat,
+    diskImageFormat :: Prelude.Maybe DiskImageFormat,
     -- | The Amazon S3 bucket for the destination image. The destination bucket
     -- must exist and grant WRITE and READ_ACP permissions to the AWS account
     -- @vm-import-export\@amazon.com@.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The encryption key for your S3 bucket.
-    s3Key :: Core.Maybe Core.Text
+    s3Key :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportToS3Task' with all optional fields omitted.
@@ -65,39 +66,39 @@ newExportToS3Task ::
   ExportToS3Task
 newExportToS3Task =
   ExportToS3Task'
-    { containerFormat = Core.Nothing,
-      diskImageFormat = Core.Nothing,
-      s3Bucket = Core.Nothing,
-      s3Key = Core.Nothing
+    { containerFormat = Prelude.Nothing,
+      diskImageFormat = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
+      s3Key = Prelude.Nothing
     }
 
 -- | The container format used to combine disk images with metadata (such as
 -- OVF). If absent, only the disk image is exported.
-exportToS3Task_containerFormat :: Lens.Lens' ExportToS3Task (Core.Maybe ContainerFormat)
+exportToS3Task_containerFormat :: Lens.Lens' ExportToS3Task (Prelude.Maybe ContainerFormat)
 exportToS3Task_containerFormat = Lens.lens (\ExportToS3Task' {containerFormat} -> containerFormat) (\s@ExportToS3Task' {} a -> s {containerFormat = a} :: ExportToS3Task)
 
 -- | The format for the exported image.
-exportToS3Task_diskImageFormat :: Lens.Lens' ExportToS3Task (Core.Maybe DiskImageFormat)
+exportToS3Task_diskImageFormat :: Lens.Lens' ExportToS3Task (Prelude.Maybe DiskImageFormat)
 exportToS3Task_diskImageFormat = Lens.lens (\ExportToS3Task' {diskImageFormat} -> diskImageFormat) (\s@ExportToS3Task' {} a -> s {diskImageFormat = a} :: ExportToS3Task)
 
 -- | The Amazon S3 bucket for the destination image. The destination bucket
 -- must exist and grant WRITE and READ_ACP permissions to the AWS account
 -- @vm-import-export\@amazon.com@.
-exportToS3Task_s3Bucket :: Lens.Lens' ExportToS3Task (Core.Maybe Core.Text)
+exportToS3Task_s3Bucket :: Lens.Lens' ExportToS3Task (Prelude.Maybe Prelude.Text)
 exportToS3Task_s3Bucket = Lens.lens (\ExportToS3Task' {s3Bucket} -> s3Bucket) (\s@ExportToS3Task' {} a -> s {s3Bucket = a} :: ExportToS3Task)
 
 -- | The encryption key for your S3 bucket.
-exportToS3Task_s3Key :: Lens.Lens' ExportToS3Task (Core.Maybe Core.Text)
+exportToS3Task_s3Key :: Lens.Lens' ExportToS3Task (Prelude.Maybe Prelude.Text)
 exportToS3Task_s3Key = Lens.lens (\ExportToS3Task' {s3Key} -> s3Key) (\s@ExportToS3Task' {} a -> s {s3Key = a} :: ExportToS3Task)
 
 instance Core.FromXML ExportToS3Task where
   parseXML x =
     ExportToS3Task'
-      Core.<$> (x Core..@? "containerFormat")
-      Core.<*> (x Core..@? "diskImageFormat")
-      Core.<*> (x Core..@? "s3Bucket")
-      Core.<*> (x Core..@? "s3Key")
+      Prelude.<$> (x Core..@? "containerFormat")
+      Prelude.<*> (x Core..@? "diskImageFormat")
+      Prelude.<*> (x Core..@? "s3Bucket")
+      Prelude.<*> (x Core..@? "s3Key")
 
-instance Core.Hashable ExportToS3Task
+instance Prelude.Hashable ExportToS3Task
 
-instance Core.NFData ExportToS3Task
+instance Prelude.NFData ExportToS3Task

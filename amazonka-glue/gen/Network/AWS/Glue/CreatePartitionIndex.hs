@@ -44,24 +44,25 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePartitionIndex' smart constructor.
 data CreatePartitionIndex = CreatePartitionIndex'
   { -- | The catalog ID where the table resides.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of a database in which you want to create a partition
     -- index.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | Specifies the name of a table in which you want to create a partition
     -- index.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | Specifies a @PartitionIndex@ structure to create a partition index in an
     -- existing table.
     partitionIndex :: PartitionIndex
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePartitionIndex' with all optional fields omitted.
@@ -83,9 +84,9 @@ data CreatePartitionIndex = CreatePartitionIndex'
 -- existing table.
 newCreatePartitionIndex ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'partitionIndex'
   PartitionIndex ->
   CreatePartitionIndex
@@ -94,24 +95,24 @@ newCreatePartitionIndex
   pTableName_
   pPartitionIndex_ =
     CreatePartitionIndex'
-      { catalogId = Core.Nothing,
+      { catalogId = Prelude.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
         partitionIndex = pPartitionIndex_
       }
 
 -- | The catalog ID where the table resides.
-createPartitionIndex_catalogId :: Lens.Lens' CreatePartitionIndex (Core.Maybe Core.Text)
+createPartitionIndex_catalogId :: Lens.Lens' CreatePartitionIndex (Prelude.Maybe Prelude.Text)
 createPartitionIndex_catalogId = Lens.lens (\CreatePartitionIndex' {catalogId} -> catalogId) (\s@CreatePartitionIndex' {} a -> s {catalogId = a} :: CreatePartitionIndex)
 
 -- | Specifies the name of a database in which you want to create a partition
 -- index.
-createPartitionIndex_databaseName :: Lens.Lens' CreatePartitionIndex Core.Text
+createPartitionIndex_databaseName :: Lens.Lens' CreatePartitionIndex Prelude.Text
 createPartitionIndex_databaseName = Lens.lens (\CreatePartitionIndex' {databaseName} -> databaseName) (\s@CreatePartitionIndex' {} a -> s {databaseName = a} :: CreatePartitionIndex)
 
 -- | Specifies the name of a table in which you want to create a partition
 -- index.
-createPartitionIndex_tableName :: Lens.Lens' CreatePartitionIndex Core.Text
+createPartitionIndex_tableName :: Lens.Lens' CreatePartitionIndex Prelude.Text
 createPartitionIndex_tableName = Lens.lens (\CreatePartitionIndex' {tableName} -> tableName) (\s@CreatePartitionIndex' {} a -> s {tableName = a} :: CreatePartitionIndex)
 
 -- | Specifies a @PartitionIndex@ structure to create a partition index in an
@@ -128,47 +129,52 @@ instance Core.AWSRequest CreatePartitionIndex where
     Response.receiveEmpty
       ( \s h x ->
           CreatePartitionIndexResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePartitionIndex
+instance Prelude.Hashable CreatePartitionIndex
 
-instance Core.NFData CreatePartitionIndex
+instance Prelude.NFData CreatePartitionIndex
 
 instance Core.ToHeaders CreatePartitionIndex where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreatePartitionIndex" :: Core.ByteString),
+              Core.=# ( "AWSGlue.CreatePartitionIndex" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePartitionIndex where
   toJSON CreatePartitionIndex' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just ("PartitionIndex" Core..= partitionIndex)
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just
+              ("PartitionIndex" Core..= partitionIndex)
           ]
       )
 
 instance Core.ToPath CreatePartitionIndex where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePartitionIndex where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePartitionIndexResponse' smart constructor.
 data CreatePartitionIndexResponse = CreatePartitionIndexResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePartitionIndexResponse' with all optional fields omitted.
@@ -181,7 +187,7 @@ data CreatePartitionIndexResponse = CreatePartitionIndexResponse'
 -- 'httpStatus', 'createPartitionIndexResponse_httpStatus' - The response's http status code.
 newCreatePartitionIndexResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePartitionIndexResponse
 newCreatePartitionIndexResponse pHttpStatus_ =
   CreatePartitionIndexResponse'
@@ -190,7 +196,7 @@ newCreatePartitionIndexResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createPartitionIndexResponse_httpStatus :: Lens.Lens' CreatePartitionIndexResponse Core.Int
+createPartitionIndexResponse_httpStatus :: Lens.Lens' CreatePartitionIndexResponse Prelude.Int
 createPartitionIndexResponse_httpStatus = Lens.lens (\CreatePartitionIndexResponse' {httpStatus} -> httpStatus) (\s@CreatePartitionIndexResponse' {} a -> s {httpStatus = a} :: CreatePartitionIndexResponse)
 
-instance Core.NFData CreatePartitionIndexResponse
+instance Prelude.NFData CreatePartitionIndexResponse

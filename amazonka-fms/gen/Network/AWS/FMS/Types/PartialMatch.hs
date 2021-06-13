@@ -21,6 +21,7 @@ module Network.AWS.FMS.Types.PartialMatch where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The reference rule that partially matches the @ViolationTarget@ rule and
 -- violation reason.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPartialMatch' smart constructor.
 data PartialMatch = PartialMatch'
   { -- | The violation reason.
-    targetViolationReasons :: Core.Maybe [Core.Text],
+    targetViolationReasons :: Prelude.Maybe [Prelude.Text],
     -- | The reference rule from the master security group of the AWS Firewall
     -- Manager policy.
-    reference :: Core.Maybe Core.Text
+    reference :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PartialMatch' with all optional fields omitted.
@@ -52,17 +53,17 @@ newPartialMatch ::
 newPartialMatch =
   PartialMatch'
     { targetViolationReasons =
-        Core.Nothing,
-      reference = Core.Nothing
+        Prelude.Nothing,
+      reference = Prelude.Nothing
     }
 
 -- | The violation reason.
-partialMatch_targetViolationReasons :: Lens.Lens' PartialMatch (Core.Maybe [Core.Text])
-partialMatch_targetViolationReasons = Lens.lens (\PartialMatch' {targetViolationReasons} -> targetViolationReasons) (\s@PartialMatch' {} a -> s {targetViolationReasons = a} :: PartialMatch) Core.. Lens.mapping Lens._Coerce
+partialMatch_targetViolationReasons :: Lens.Lens' PartialMatch (Prelude.Maybe [Prelude.Text])
+partialMatch_targetViolationReasons = Lens.lens (\PartialMatch' {targetViolationReasons} -> targetViolationReasons) (\s@PartialMatch' {} a -> s {targetViolationReasons = a} :: PartialMatch) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The reference rule from the master security group of the AWS Firewall
 -- Manager policy.
-partialMatch_reference :: Lens.Lens' PartialMatch (Core.Maybe Core.Text)
+partialMatch_reference :: Lens.Lens' PartialMatch (Prelude.Maybe Prelude.Text)
 partialMatch_reference = Lens.lens (\PartialMatch' {reference} -> reference) (\s@PartialMatch' {} a -> s {reference = a} :: PartialMatch)
 
 instance Core.FromJSON PartialMatch where
@@ -71,12 +72,12 @@ instance Core.FromJSON PartialMatch where
       "PartialMatch"
       ( \x ->
           PartialMatch'
-            Core.<$> ( x Core..:? "TargetViolationReasons"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "Reference")
+            Prelude.<$> ( x Core..:? "TargetViolationReasons"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Reference")
       )
 
-instance Core.Hashable PartialMatch
+instance Prelude.Hashable PartialMatch
 
-instance Core.NFData PartialMatch
+instance Prelude.NFData PartialMatch

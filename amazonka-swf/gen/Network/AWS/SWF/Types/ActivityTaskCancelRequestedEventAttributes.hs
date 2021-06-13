@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ActivityTaskCancelRequestedEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @ActivityTaskCancelRequested@ event.
 --
@@ -31,11 +32,11 @@ data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEve
     -- for this cancellation request. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Core.Integer,
+    decisionTaskCompletedEventId :: Prelude.Integer,
     -- | The unique ID of the task.
-    activityId :: Core.Text
+    activityId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivityTaskCancelRequestedEventAttributes' with all optional fields omitted.
@@ -54,9 +55,9 @@ data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEve
 -- 'activityId', 'activityTaskCancelRequestedEventAttributes_activityId' - The unique ID of the task.
 newActivityTaskCancelRequestedEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'activityId'
-  Core.Text ->
+  Prelude.Text ->
   ActivityTaskCancelRequestedEventAttributes
 newActivityTaskCancelRequestedEventAttributes
   pDecisionTaskCompletedEventId_
@@ -72,11 +73,11 @@ newActivityTaskCancelRequestedEventAttributes
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-activityTaskCancelRequestedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' ActivityTaskCancelRequestedEventAttributes Core.Integer
+activityTaskCancelRequestedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' ActivityTaskCancelRequestedEventAttributes Prelude.Integer
 activityTaskCancelRequestedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\ActivityTaskCancelRequestedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@ActivityTaskCancelRequestedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: ActivityTaskCancelRequestedEventAttributes)
 
 -- | The unique ID of the task.
-activityTaskCancelRequestedEventAttributes_activityId :: Lens.Lens' ActivityTaskCancelRequestedEventAttributes Core.Text
+activityTaskCancelRequestedEventAttributes_activityId :: Lens.Lens' ActivityTaskCancelRequestedEventAttributes Prelude.Text
 activityTaskCancelRequestedEventAttributes_activityId = Lens.lens (\ActivityTaskCancelRequestedEventAttributes' {activityId} -> activityId) (\s@ActivityTaskCancelRequestedEventAttributes' {} a -> s {activityId = a} :: ActivityTaskCancelRequestedEventAttributes)
 
 instance
@@ -88,14 +89,14 @@ instance
       "ActivityTaskCancelRequestedEventAttributes"
       ( \x ->
           ActivityTaskCancelRequestedEventAttributes'
-            Core.<$> (x Core..: "decisionTaskCompletedEventId")
-            Core.<*> (x Core..: "activityId")
+            Prelude.<$> (x Core..: "decisionTaskCompletedEventId")
+              Prelude.<*> (x Core..: "activityId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ActivityTaskCancelRequestedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ActivityTaskCancelRequestedEventAttributes

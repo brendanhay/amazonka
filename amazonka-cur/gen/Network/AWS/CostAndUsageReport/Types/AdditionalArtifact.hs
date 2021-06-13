@@ -28,6 +28,7 @@ module Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The types of manifest that you want AWS to create for this report.
 newtype AdditionalArtifact = AdditionalArtifact'
@@ -35,15 +36,15 @@ newtype AdditionalArtifact = AdditionalArtifact'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.Filter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter name and value pair that is used to return a more specific list
 -- of results from a describe operation. Filters can be used to match a set
@@ -44,11 +45,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
   { -- | The name of the filter. Filter names are case-sensitive.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | One or more filter values. Filter values are case-sensitive.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -63,26 +64,26 @@ data Filter = Filter'
 -- 'values', 'filter_values' - One or more filter values. Filter values are case-sensitive.
 newFilter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Filter
 newFilter pName_ =
-  Filter' {name = pName_, values = Core.mempty}
+  Filter' {name = pName_, values = Prelude.mempty}
 
 -- | The name of the filter. Filter names are case-sensitive.
-filter_name :: Lens.Lens' Filter Core.Text
+filter_name :: Lens.Lens' Filter Prelude.Text
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
 -- | One or more filter values. Filter values are case-sensitive.
-filter_values :: Lens.Lens' Filter [Core.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens._Coerce
+filter_values :: Lens.Lens' Filter [Prelude.Text]
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
 
-instance Core.Hashable Filter
+instance Prelude.Hashable Filter
 
-instance Core.NFData Filter
+instance Prelude.NFData Filter
 
 instance Core.ToQuery Filter where
   toQuery Filter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Name" Core.=: name,
         "Values" Core.=: Core.toQueryList "Value" values
       ]

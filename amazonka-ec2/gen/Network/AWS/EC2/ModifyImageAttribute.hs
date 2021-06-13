@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,33 +69,33 @@ data ModifyImageAttribute = ModifyImageAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The DevPay product codes. After you add a product code to an AMI, it
     -- can\'t be removed.
-    productCodes :: Core.Maybe [Core.Text],
+    productCodes :: Prelude.Maybe [Prelude.Text],
     -- | The AWS account IDs. This parameter can be used only when the
     -- @Attribute@ parameter is @launchPermission@.
-    userIds :: Core.Maybe [Core.Text],
+    userIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the attribute to modify. The valid values are @description@,
     -- @launchPermission@, and @productCodes@.
-    attribute :: Core.Maybe Core.Text,
+    attribute :: Prelude.Maybe Prelude.Text,
     -- | A new launch permission for the AMI.
-    launchPermission :: Core.Maybe LaunchPermissionModifications,
+    launchPermission :: Prelude.Maybe LaunchPermissionModifications,
     -- | A new description for the AMI.
-    description :: Core.Maybe AttributeValue,
+    description :: Prelude.Maybe AttributeValue,
     -- | The value of the attribute being modified. This parameter can be used
     -- only when the @Attribute@ parameter is @description@ or @productCodes@.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The user groups. This parameter can be used only when the @Attribute@
     -- parameter is @launchPermission@.
-    userGroups :: Core.Maybe [Core.Text],
+    userGroups :: Prelude.Maybe [Prelude.Text],
     -- | The operation type. This parameter can be used only when the @Attribute@
     -- parameter is @launchPermission@.
-    operationType :: Core.Maybe OperationType,
+    operationType :: Prelude.Maybe OperationType,
     -- | The ID of the AMI.
-    imageId :: Core.Text
+    imageId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyImageAttribute' with all optional fields omitted.
@@ -134,19 +135,19 @@ data ModifyImageAttribute = ModifyImageAttribute'
 -- 'imageId', 'modifyImageAttribute_imageId' - The ID of the AMI.
 newModifyImageAttribute ::
   -- | 'imageId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyImageAttribute
 newModifyImageAttribute pImageId_ =
   ModifyImageAttribute'
-    { dryRun = Core.Nothing,
-      productCodes = Core.Nothing,
-      userIds = Core.Nothing,
-      attribute = Core.Nothing,
-      launchPermission = Core.Nothing,
-      description = Core.Nothing,
-      value = Core.Nothing,
-      userGroups = Core.Nothing,
-      operationType = Core.Nothing,
+    { dryRun = Prelude.Nothing,
+      productCodes = Prelude.Nothing,
+      userIds = Prelude.Nothing,
+      attribute = Prelude.Nothing,
+      launchPermission = Prelude.Nothing,
+      description = Prelude.Nothing,
+      value = Prelude.Nothing,
+      userGroups = Prelude.Nothing,
+      operationType = Prelude.Nothing,
       imageId = pImageId_
     }
 
@@ -154,49 +155,49 @@ newModifyImageAttribute pImageId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyImageAttribute_dryRun :: Lens.Lens' ModifyImageAttribute (Core.Maybe Core.Bool)
+modifyImageAttribute_dryRun :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Bool)
 modifyImageAttribute_dryRun = Lens.lens (\ModifyImageAttribute' {dryRun} -> dryRun) (\s@ModifyImageAttribute' {} a -> s {dryRun = a} :: ModifyImageAttribute)
 
 -- | The DevPay product codes. After you add a product code to an AMI, it
 -- can\'t be removed.
-modifyImageAttribute_productCodes :: Lens.Lens' ModifyImageAttribute (Core.Maybe [Core.Text])
-modifyImageAttribute_productCodes = Lens.lens (\ModifyImageAttribute' {productCodes} -> productCodes) (\s@ModifyImageAttribute' {} a -> s {productCodes = a} :: ModifyImageAttribute) Core.. Lens.mapping Lens._Coerce
+modifyImageAttribute_productCodes :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyImageAttribute_productCodes = Lens.lens (\ModifyImageAttribute' {productCodes} -> productCodes) (\s@ModifyImageAttribute' {} a -> s {productCodes = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS account IDs. This parameter can be used only when the
 -- @Attribute@ parameter is @launchPermission@.
-modifyImageAttribute_userIds :: Lens.Lens' ModifyImageAttribute (Core.Maybe [Core.Text])
-modifyImageAttribute_userIds = Lens.lens (\ModifyImageAttribute' {userIds} -> userIds) (\s@ModifyImageAttribute' {} a -> s {userIds = a} :: ModifyImageAttribute) Core.. Lens.mapping Lens._Coerce
+modifyImageAttribute_userIds :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyImageAttribute_userIds = Lens.lens (\ModifyImageAttribute' {userIds} -> userIds) (\s@ModifyImageAttribute' {} a -> s {userIds = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the attribute to modify. The valid values are @description@,
 -- @launchPermission@, and @productCodes@.
-modifyImageAttribute_attribute :: Lens.Lens' ModifyImageAttribute (Core.Maybe Core.Text)
+modifyImageAttribute_attribute :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Text)
 modifyImageAttribute_attribute = Lens.lens (\ModifyImageAttribute' {attribute} -> attribute) (\s@ModifyImageAttribute' {} a -> s {attribute = a} :: ModifyImageAttribute)
 
 -- | A new launch permission for the AMI.
-modifyImageAttribute_launchPermission :: Lens.Lens' ModifyImageAttribute (Core.Maybe LaunchPermissionModifications)
+modifyImageAttribute_launchPermission :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe LaunchPermissionModifications)
 modifyImageAttribute_launchPermission = Lens.lens (\ModifyImageAttribute' {launchPermission} -> launchPermission) (\s@ModifyImageAttribute' {} a -> s {launchPermission = a} :: ModifyImageAttribute)
 
 -- | A new description for the AMI.
-modifyImageAttribute_description :: Lens.Lens' ModifyImageAttribute (Core.Maybe AttributeValue)
+modifyImageAttribute_description :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe AttributeValue)
 modifyImageAttribute_description = Lens.lens (\ModifyImageAttribute' {description} -> description) (\s@ModifyImageAttribute' {} a -> s {description = a} :: ModifyImageAttribute)
 
 -- | The value of the attribute being modified. This parameter can be used
 -- only when the @Attribute@ parameter is @description@ or @productCodes@.
-modifyImageAttribute_value :: Lens.Lens' ModifyImageAttribute (Core.Maybe Core.Text)
+modifyImageAttribute_value :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Text)
 modifyImageAttribute_value = Lens.lens (\ModifyImageAttribute' {value} -> value) (\s@ModifyImageAttribute' {} a -> s {value = a} :: ModifyImageAttribute)
 
 -- | The user groups. This parameter can be used only when the @Attribute@
 -- parameter is @launchPermission@.
-modifyImageAttribute_userGroups :: Lens.Lens' ModifyImageAttribute (Core.Maybe [Core.Text])
-modifyImageAttribute_userGroups = Lens.lens (\ModifyImageAttribute' {userGroups} -> userGroups) (\s@ModifyImageAttribute' {} a -> s {userGroups = a} :: ModifyImageAttribute) Core.. Lens.mapping Lens._Coerce
+modifyImageAttribute_userGroups :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyImageAttribute_userGroups = Lens.lens (\ModifyImageAttribute' {userGroups} -> userGroups) (\s@ModifyImageAttribute' {} a -> s {userGroups = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The operation type. This parameter can be used only when the @Attribute@
 -- parameter is @launchPermission@.
-modifyImageAttribute_operationType :: Lens.Lens' ModifyImageAttribute (Core.Maybe OperationType)
+modifyImageAttribute_operationType :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe OperationType)
 modifyImageAttribute_operationType = Lens.lens (\ModifyImageAttribute' {operationType} -> operationType) (\s@ModifyImageAttribute' {} a -> s {operationType = a} :: ModifyImageAttribute)
 
 -- | The ID of the AMI.
-modifyImageAttribute_imageId :: Lens.Lens' ModifyImageAttribute Core.Text
+modifyImageAttribute_imageId :: Lens.Lens' ModifyImageAttribute Prelude.Text
 modifyImageAttribute_imageId = Lens.lens (\ModifyImageAttribute' {imageId} -> imageId) (\s@ModifyImageAttribute' {} a -> s {imageId = a} :: ModifyImageAttribute)
 
 instance Core.AWSRequest ModifyImageAttribute where
@@ -207,35 +208,38 @@ instance Core.AWSRequest ModifyImageAttribute where
   response =
     Response.receiveNull ModifyImageAttributeResponse'
 
-instance Core.Hashable ModifyImageAttribute
+instance Prelude.Hashable ModifyImageAttribute
 
-instance Core.NFData ModifyImageAttribute
+instance Prelude.NFData ModifyImageAttribute
 
 instance Core.ToHeaders ModifyImageAttribute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyImageAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyImageAttribute where
   toQuery ModifyImageAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyImageAttribute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyImageAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "ProductCode"
-              Core.<$> productCodes
+              Prelude.<$> productCodes
           ),
         Core.toQuery
-          (Core.toQueryList "UserId" Core.<$> userIds),
+          (Core.toQueryList "UserId" Prelude.<$> userIds),
         "Attribute" Core.=: attribute,
         "LaunchPermission" Core.=: launchPermission,
         "Description" Core.=: description,
         "Value" Core.=: value,
         Core.toQuery
-          (Core.toQueryList "UserGroup" Core.<$> userGroups),
+          ( Core.toQueryList "UserGroup"
+              Prelude.<$> userGroups
+          ),
         "OperationType" Core.=: operationType,
         "ImageId" Core.=: imageId
       ]
@@ -244,7 +248,7 @@ instance Core.ToQuery ModifyImageAttribute where
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyImageAttributeResponse' with all optional fields omitted.
@@ -255,4 +259,4 @@ newModifyImageAttributeResponse ::
 newModifyImageAttributeResponse =
   ModifyImageAttributeResponse'
 
-instance Core.NFData ModifyImageAttributeResponse
+instance Prelude.NFData ModifyImageAttributeResponse

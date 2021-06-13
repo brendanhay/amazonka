@@ -44,6 +44,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAdminEnableUser' smart constructor.
 data AdminEnableUser = AdminEnableUser'
   { -- | The user pool ID for the user pool where you want to enable the user.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The user name of the user you wish to enable.
-    username :: Core.Sensitive Core.Text
+    username :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminEnableUser' with all optional fields omitted.
@@ -71,9 +72,9 @@ data AdminEnableUser = AdminEnableUser'
 -- 'username', 'adminEnableUser_username' - The user name of the user you wish to enable.
 newAdminEnableUser ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   AdminEnableUser
 newAdminEnableUser pUserPoolId_ pUsername_ =
   AdminEnableUser'
@@ -82,12 +83,12 @@ newAdminEnableUser pUserPoolId_ pUsername_ =
     }
 
 -- | The user pool ID for the user pool where you want to enable the user.
-adminEnableUser_userPoolId :: Lens.Lens' AdminEnableUser Core.Text
+adminEnableUser_userPoolId :: Lens.Lens' AdminEnableUser Prelude.Text
 adminEnableUser_userPoolId = Lens.lens (\AdminEnableUser' {userPoolId} -> userPoolId) (\s@AdminEnableUser' {} a -> s {userPoolId = a} :: AdminEnableUser)
 
 -- | The user name of the user you wish to enable.
-adminEnableUser_username :: Lens.Lens' AdminEnableUser Core.Text
-adminEnableUser_username = Lens.lens (\AdminEnableUser' {username} -> username) (\s@AdminEnableUser' {} a -> s {username = a} :: AdminEnableUser) Core.. Core._Sensitive
+adminEnableUser_username :: Lens.Lens' AdminEnableUser Prelude.Text
+adminEnableUser_username = Lens.lens (\AdminEnableUser' {username} -> username) (\s@AdminEnableUser' {} a -> s {username = a} :: AdminEnableUser) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest AdminEnableUser where
   type
@@ -98,40 +99,42 @@ instance Core.AWSRequest AdminEnableUser where
     Response.receiveEmpty
       ( \s h x ->
           AdminEnableUserResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AdminEnableUser
+instance Prelude.Hashable AdminEnableUser
 
-instance Core.NFData AdminEnableUser
+instance Prelude.NFData AdminEnableUser
 
 instance Core.ToHeaders AdminEnableUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminEnableUser" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminEnableUser where
   toJSON AdminEnableUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Username" Core..= username)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username)
           ]
       )
 
 instance Core.ToPath AdminEnableUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminEnableUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server for the request to enable a user
 -- as an administrator.
@@ -139,9 +142,9 @@ instance Core.ToQuery AdminEnableUser where
 -- /See:/ 'newAdminEnableUserResponse' smart constructor.
 data AdminEnableUserResponse = AdminEnableUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminEnableUserResponse' with all optional fields omitted.
@@ -154,13 +157,13 @@ data AdminEnableUserResponse = AdminEnableUserResponse'
 -- 'httpStatus', 'adminEnableUserResponse_httpStatus' - The response's http status code.
 newAdminEnableUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AdminEnableUserResponse
 newAdminEnableUserResponse pHttpStatus_ =
   AdminEnableUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-adminEnableUserResponse_httpStatus :: Lens.Lens' AdminEnableUserResponse Core.Int
+adminEnableUserResponse_httpStatus :: Lens.Lens' AdminEnableUserResponse Prelude.Int
 adminEnableUserResponse_httpStatus = Lens.lens (\AdminEnableUserResponse' {httpStatus} -> httpStatus) (\s@AdminEnableUserResponse' {} a -> s {httpStatus = a} :: AdminEnableUserResponse)
 
-instance Core.NFData AdminEnableUserResponse
+instance Prelude.NFData AdminEnableUserResponse

@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,17 +69,17 @@ data UpdateFileSystem = UpdateFileSystem'
     -- this value in your request. If you are changing the @ThroughputMode@ to
     -- @provisioned@, you must also set a value for
     -- @ProvisionedThroughputInMibps@.
-    throughputMode :: Core.Maybe ThroughputMode,
+    throughputMode :: Prelude.Maybe ThroughputMode,
     -- | (Optional) The amount of throughput, in MiB\/s, that you want to
     -- provision for your file system. Valid values are 1-1024. Required if
     -- @ThroughputMode@ is changed to @provisioned@ on update. If you\'re not
     -- updating the amount of provisioned throughput for your file system, you
     -- don\'t need to provide this value in your request.
-    provisionedThroughputInMibps :: Core.Maybe Core.Double,
+    provisionedThroughputInMibps :: Prelude.Maybe Prelude.Double,
     -- | The ID of the file system that you want to update.
-    fileSystemId :: Core.Text
+    fileSystemId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFileSystem' with all optional fields omitted.
@@ -103,12 +104,12 @@ data UpdateFileSystem = UpdateFileSystem'
 -- 'fileSystemId', 'updateFileSystem_fileSystemId' - The ID of the file system that you want to update.
 newUpdateFileSystem ::
   -- | 'fileSystemId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFileSystem
 newUpdateFileSystem pFileSystemId_ =
   UpdateFileSystem'
-    { throughputMode = Core.Nothing,
-      provisionedThroughputInMibps = Core.Nothing,
+    { throughputMode = Prelude.Nothing,
+      provisionedThroughputInMibps = Prelude.Nothing,
       fileSystemId = pFileSystemId_
     }
 
@@ -117,7 +118,7 @@ newUpdateFileSystem pFileSystemId_ =
 -- this value in your request. If you are changing the @ThroughputMode@ to
 -- @provisioned@, you must also set a value for
 -- @ProvisionedThroughputInMibps@.
-updateFileSystem_throughputMode :: Lens.Lens' UpdateFileSystem (Core.Maybe ThroughputMode)
+updateFileSystem_throughputMode :: Lens.Lens' UpdateFileSystem (Prelude.Maybe ThroughputMode)
 updateFileSystem_throughputMode = Lens.lens (\UpdateFileSystem' {throughputMode} -> throughputMode) (\s@UpdateFileSystem' {} a -> s {throughputMode = a} :: UpdateFileSystem)
 
 -- | (Optional) The amount of throughput, in MiB\/s, that you want to
@@ -125,11 +126,11 @@ updateFileSystem_throughputMode = Lens.lens (\UpdateFileSystem' {throughputMode}
 -- @ThroughputMode@ is changed to @provisioned@ on update. If you\'re not
 -- updating the amount of provisioned throughput for your file system, you
 -- don\'t need to provide this value in your request.
-updateFileSystem_provisionedThroughputInMibps :: Lens.Lens' UpdateFileSystem (Core.Maybe Core.Double)
+updateFileSystem_provisionedThroughputInMibps :: Lens.Lens' UpdateFileSystem (Prelude.Maybe Prelude.Double)
 updateFileSystem_provisionedThroughputInMibps = Lens.lens (\UpdateFileSystem' {provisionedThroughputInMibps} -> provisionedThroughputInMibps) (\s@UpdateFileSystem' {} a -> s {provisionedThroughputInMibps = a} :: UpdateFileSystem)
 
 -- | The ID of the file system that you want to update.
-updateFileSystem_fileSystemId :: Lens.Lens' UpdateFileSystem Core.Text
+updateFileSystem_fileSystemId :: Lens.Lens' UpdateFileSystem Prelude.Text
 updateFileSystem_fileSystemId = Lens.lens (\UpdateFileSystem' {fileSystemId} -> fileSystemId) (\s@UpdateFileSystem' {} a -> s {fileSystemId = a} :: UpdateFileSystem)
 
 instance Core.AWSRequest UpdateFileSystem where
@@ -141,27 +142,28 @@ instance Core.AWSRequest UpdateFileSystem where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateFileSystem
+instance Prelude.Hashable UpdateFileSystem
 
-instance Core.NFData UpdateFileSystem
+instance Prelude.NFData UpdateFileSystem
 
 instance Core.ToHeaders UpdateFileSystem where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateFileSystem where
   toJSON UpdateFileSystem' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ThroughputMode" Core..=) Core.<$> throughputMode,
+      ( Prelude.catMaybes
+          [ ("ThroughputMode" Core..=)
+              Prelude.<$> throughputMode,
             ("ProvisionedThroughputInMibps" Core..=)
-              Core.<$> provisionedThroughputInMibps
+              Prelude.<$> provisionedThroughputInMibps
           ]
       )
 
 instance Core.ToPath UpdateFileSystem where
   toPath UpdateFileSystem' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2015-02-01/file-systems/", Core.toBS fileSystemId]
 
 instance Core.ToQuery UpdateFileSystem where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

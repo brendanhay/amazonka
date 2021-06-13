@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.FrameCaptureHlsSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Frame Capture Hls Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data FrameCaptureHlsSettings = FrameCaptureHlsSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FrameCaptureHlsSettings' with all optional fields omitted.
@@ -42,11 +43,11 @@ instance Core.FromJSON FrameCaptureHlsSettings where
   parseJSON =
     Core.withObject
       "FrameCaptureHlsSettings"
-      (\x -> Core.pure FrameCaptureHlsSettings')
+      (\x -> Prelude.pure FrameCaptureHlsSettings')
 
-instance Core.Hashable FrameCaptureHlsSettings
+instance Prelude.Hashable FrameCaptureHlsSettings
 
-instance Core.NFData FrameCaptureHlsSettings
+instance Prelude.NFData FrameCaptureHlsSettings
 
 instance Core.ToJSON FrameCaptureHlsSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

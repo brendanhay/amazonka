@@ -80,6 +80,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,7 +90,7 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
     -- Scaling groups.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | An updated list of EC2 instance types to use in the Auto Scaling group.
     -- The instance definitions must specify at least two different instance
     -- types that are supported by GameLift FleetIQ. This updated list replaces
@@ -102,7 +103,7 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
     -- information about capacity weighting, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
     -- in the Amazon EC2 Auto Scaling User Guide.
-    instanceDefinitions :: Core.Maybe (Core.NonEmpty InstanceDefinition),
+    instanceDefinitions :: Prelude.Maybe (Prelude.NonEmpty InstanceDefinition),
     -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
     -- On-Demand Instances in the game server group. Method options include the
     -- following:
@@ -124,7 +125,7 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
     -- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game
     --     server group. No Spot Instances are used, even when available, while
     --     this balancing strategy is in force.
-    balancingStrategy :: Core.Maybe BalancingStrategy,
+    balancingStrategy :: Prelude.Maybe BalancingStrategy,
     -- | A flag that indicates whether instances in the game server group are
     -- protected from early termination. Unprotected instances that have active
     -- game servers running might be terminated during a scale-down event,
@@ -134,12 +135,12 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
     -- this is with Spot Instances, which can be terminated by AWS regardless
     -- of protection status. This property is set to @NO_PROTECTION@ by
     -- default.
-    gameServerProtectionPolicy :: Core.Maybe GameServerProtectionPolicy,
+    gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
     -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
-    gameServerGroupName :: Core.Text
+    gameServerGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGameServerGroup' with all optional fields omitted.
@@ -203,14 +204,14 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 -- GameServerGroup name or ARN value.
 newUpdateGameServerGroup ::
   -- | 'gameServerGroupName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateGameServerGroup
 newUpdateGameServerGroup pGameServerGroupName_ =
   UpdateGameServerGroup'
-    { roleArn = Core.Nothing,
-      instanceDefinitions = Core.Nothing,
-      balancingStrategy = Core.Nothing,
-      gameServerProtectionPolicy = Core.Nothing,
+    { roleArn = Prelude.Nothing,
+      instanceDefinitions = Prelude.Nothing,
+      balancingStrategy = Prelude.Nothing,
+      gameServerProtectionPolicy = Prelude.Nothing,
       gameServerGroupName = pGameServerGroupName_
     }
 
@@ -218,7 +219,7 @@ newUpdateGameServerGroup pGameServerGroupName_ =
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
 -- Scaling groups.
-updateGameServerGroup_roleArn :: Lens.Lens' UpdateGameServerGroup (Core.Maybe Core.Text)
+updateGameServerGroup_roleArn :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe Prelude.Text)
 updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> roleArn) (\s@UpdateGameServerGroup' {} a -> s {roleArn = a} :: UpdateGameServerGroup)
 
 -- | An updated list of EC2 instance types to use in the Auto Scaling group.
@@ -233,8 +234,8 @@ updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> 
 -- information about capacity weighting, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
 -- in the Amazon EC2 Auto Scaling User Guide.
-updateGameServerGroup_instanceDefinitions :: Lens.Lens' UpdateGameServerGroup (Core.Maybe (Core.NonEmpty InstanceDefinition))
-updateGameServerGroup_instanceDefinitions = Lens.lens (\UpdateGameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@UpdateGameServerGroup' {} a -> s {instanceDefinitions = a} :: UpdateGameServerGroup) Core.. Lens.mapping Lens._Coerce
+updateGameServerGroup_instanceDefinitions :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe (Prelude.NonEmpty InstanceDefinition))
+updateGameServerGroup_instanceDefinitions = Lens.lens (\UpdateGameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@UpdateGameServerGroup' {} a -> s {instanceDefinitions = a} :: UpdateGameServerGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -257,7 +258,7 @@ updateGameServerGroup_instanceDefinitions = Lens.lens (\UpdateGameServerGroup' {
 -- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game
 --     server group. No Spot Instances are used, even when available, while
 --     this balancing strategy is in force.
-updateGameServerGroup_balancingStrategy :: Lens.Lens' UpdateGameServerGroup (Core.Maybe BalancingStrategy)
+updateGameServerGroup_balancingStrategy :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe BalancingStrategy)
 updateGameServerGroup_balancingStrategy = Lens.lens (\UpdateGameServerGroup' {balancingStrategy} -> balancingStrategy) (\s@UpdateGameServerGroup' {} a -> s {balancingStrategy = a} :: UpdateGameServerGroup)
 
 -- | A flag that indicates whether instances in the game server group are
@@ -269,12 +270,12 @@ updateGameServerGroup_balancingStrategy = Lens.lens (\UpdateGameServerGroup' {ba
 -- this is with Spot Instances, which can be terminated by AWS regardless
 -- of protection status. This property is set to @NO_PROTECTION@ by
 -- default.
-updateGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' UpdateGameServerGroup (Core.Maybe GameServerProtectionPolicy)
+updateGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
 updateGameServerGroup_gameServerProtectionPolicy = Lens.lens (\UpdateGameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@UpdateGameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: UpdateGameServerGroup)
 
 -- | A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
-updateGameServerGroup_gameServerGroupName :: Lens.Lens' UpdateGameServerGroup Core.Text
+updateGameServerGroup_gameServerGroupName :: Lens.Lens' UpdateGameServerGroup Prelude.Text
 updateGameServerGroup_gameServerGroupName = Lens.lens (\UpdateGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@UpdateGameServerGroup' {} a -> s {gameServerGroupName = a} :: UpdateGameServerGroup)
 
 instance Core.AWSRequest UpdateGameServerGroup where
@@ -286,58 +287,60 @@ instance Core.AWSRequest UpdateGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameServerGroupResponse'
-            Core.<$> (x Core..?> "GameServerGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateGameServerGroup
+instance Prelude.Hashable UpdateGameServerGroup
 
-instance Core.NFData UpdateGameServerGroup
+instance Prelude.NFData UpdateGameServerGroup
 
 instance Core.ToHeaders UpdateGameServerGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.UpdateGameServerGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateGameServerGroup where
   toJSON UpdateGameServerGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleArn" Core..=) Core.<$> roleArn,
+      ( Prelude.catMaybes
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("InstanceDefinitions" Core..=)
-              Core.<$> instanceDefinitions,
+              Prelude.<$> instanceDefinitions,
             ("BalancingStrategy" Core..=)
-              Core.<$> balancingStrategy,
+              Prelude.<$> balancingStrategy,
             ("GameServerProtectionPolicy" Core..=)
-              Core.<$> gameServerProtectionPolicy,
-            Core.Just
+              Prelude.<$> gameServerProtectionPolicy,
+            Prelude.Just
               ("GameServerGroupName" Core..= gameServerGroupName)
           ]
       )
 
 instance Core.ToPath UpdateGameServerGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateGameServerGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGameServerGroupResponse' smart constructor.
 data UpdateGameServerGroupResponse = UpdateGameServerGroupResponse'
   { -- | An object that describes the game server group resource with updated
     -- properties.
-    gameServerGroup :: Core.Maybe GameServerGroup,
+    gameServerGroup :: Prelude.Maybe GameServerGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGameServerGroupResponse' with all optional fields omitted.
@@ -353,22 +356,22 @@ data UpdateGameServerGroupResponse = UpdateGameServerGroupResponse'
 -- 'httpStatus', 'updateGameServerGroupResponse_httpStatus' - The response's http status code.
 newUpdateGameServerGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateGameServerGroupResponse
 newUpdateGameServerGroupResponse pHttpStatus_ =
   UpdateGameServerGroupResponse'
     { gameServerGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes the game server group resource with updated
 -- properties.
-updateGameServerGroupResponse_gameServerGroup :: Lens.Lens' UpdateGameServerGroupResponse (Core.Maybe GameServerGroup)
+updateGameServerGroupResponse_gameServerGroup :: Lens.Lens' UpdateGameServerGroupResponse (Prelude.Maybe GameServerGroup)
 updateGameServerGroupResponse_gameServerGroup = Lens.lens (\UpdateGameServerGroupResponse' {gameServerGroup} -> gameServerGroup) (\s@UpdateGameServerGroupResponse' {} a -> s {gameServerGroup = a} :: UpdateGameServerGroupResponse)
 
 -- | The response's http status code.
-updateGameServerGroupResponse_httpStatus :: Lens.Lens' UpdateGameServerGroupResponse Core.Int
+updateGameServerGroupResponse_httpStatus :: Lens.Lens' UpdateGameServerGroupResponse Prelude.Int
 updateGameServerGroupResponse_httpStatus = Lens.lens (\UpdateGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateGameServerGroupResponse' {} a -> s {httpStatus = a} :: UpdateGameServerGroupResponse)
 
-instance Core.NFData UpdateGameServerGroupResponse
+instance Prelude.NFData UpdateGameServerGroupResponse

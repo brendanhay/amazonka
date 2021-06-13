@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Mp4CslgAtom
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When enabled, file composition times will start at zero, composition
 -- times in the \'ctts\' (composition time to sample) box for B-frames will
@@ -38,15 +39,15 @@ newtype Mp4CslgAtom = Mp4CslgAtom'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

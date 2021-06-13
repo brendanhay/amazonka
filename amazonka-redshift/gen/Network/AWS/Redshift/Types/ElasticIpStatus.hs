@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ElasticIpStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes the status of the elastic IP (EIP) address.
@@ -28,11 +29,11 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newElasticIpStatus' smart constructor.
 data ElasticIpStatus = ElasticIpStatus'
   { -- | The elastic IP (EIP) address for the cluster.
-    elasticIp :: Core.Maybe Core.Text,
+    elasticIp :: Prelude.Maybe Prelude.Text,
     -- | The status of the elastic IP (EIP) address.
-    status :: Core.Maybe Core.Text
+    status :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ElasticIpStatus' with all optional fields omitted.
@@ -49,24 +50,24 @@ newElasticIpStatus ::
   ElasticIpStatus
 newElasticIpStatus =
   ElasticIpStatus'
-    { elasticIp = Core.Nothing,
-      status = Core.Nothing
+    { elasticIp = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The elastic IP (EIP) address for the cluster.
-elasticIpStatus_elasticIp :: Lens.Lens' ElasticIpStatus (Core.Maybe Core.Text)
+elasticIpStatus_elasticIp :: Lens.Lens' ElasticIpStatus (Prelude.Maybe Prelude.Text)
 elasticIpStatus_elasticIp = Lens.lens (\ElasticIpStatus' {elasticIp} -> elasticIp) (\s@ElasticIpStatus' {} a -> s {elasticIp = a} :: ElasticIpStatus)
 
 -- | The status of the elastic IP (EIP) address.
-elasticIpStatus_status :: Lens.Lens' ElasticIpStatus (Core.Maybe Core.Text)
+elasticIpStatus_status :: Lens.Lens' ElasticIpStatus (Prelude.Maybe Prelude.Text)
 elasticIpStatus_status = Lens.lens (\ElasticIpStatus' {status} -> status) (\s@ElasticIpStatus' {} a -> s {status = a} :: ElasticIpStatus)
 
 instance Core.FromXML ElasticIpStatus where
   parseXML x =
     ElasticIpStatus'
-      Core.<$> (x Core..@? "ElasticIp")
-      Core.<*> (x Core..@? "Status")
+      Prelude.<$> (x Core..@? "ElasticIp")
+      Prelude.<*> (x Core..@? "Status")
 
-instance Core.Hashable ElasticIpStatus
+instance Prelude.Hashable ElasticIpStatus
 
-instance Core.NFData ElasticIpStatus
+instance Prelude.NFData ElasticIpStatus

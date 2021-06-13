@@ -56,6 +56,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -71,20 +72,20 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
     -- Deep Archive) that corresponds to the pool.
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-    poolId :: Core.Maybe Core.Text,
+    poolId :: Prelude.Maybe Prelude.Text,
     -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
     -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Core.Maybe Core.Bool,
+    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
     -- used for Amazon S3 server-side encryption. Storage Gateway does not
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
-    kmsKey :: Core.Maybe Core.Text,
+    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | Set to @TRUE@ if the tape you are creating is to be configured as a
     -- write-once-read-many (WORM) tape.
-    worm :: Core.Maybe Core.Bool,
+    worm :: Prelude.Maybe Prelude.Bool,
     -- | A list of up to 50 tags that can be assigned to a virtual tape that has
     -- a barcode. Each tag is a key-value pair.
     --
@@ -92,22 +93,22 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
     -- representable in UTF-8 format, and the following special characters: + -
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The unique Amazon Resource Name (ARN) that represents the gateway to
     -- associate the virtual tape with. Use the ListGateways operation to
     -- return a list of gateways for your account and AWS Region.
-    gatewayARN :: Core.Text,
+    gatewayARN :: Prelude.Text,
     -- | The size, in bytes, of the virtual tape that you want to create.
     --
     -- The size must be aligned by gigabyte (1024*1024*1024 bytes).
-    tapeSizeInBytes :: Core.Integer,
+    tapeSizeInBytes :: Prelude.Integer,
     -- | The barcode that you want to assign to the tape.
     --
     -- Barcodes cannot be reused. This includes barcodes used for tapes that
     -- have been deleted.
-    tapeBarcode :: Core.Text
+    tapeBarcode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTapeWithBarcode' with all optional fields omitted.
@@ -160,22 +161,22 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
 -- have been deleted.
 newCreateTapeWithBarcode ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tapeSizeInBytes'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'tapeBarcode'
-  Core.Text ->
+  Prelude.Text ->
   CreateTapeWithBarcode
 newCreateTapeWithBarcode
   pGatewayARN_
   pTapeSizeInBytes_
   pTapeBarcode_ =
     CreateTapeWithBarcode'
-      { poolId = Core.Nothing,
-        kmsEncrypted = Core.Nothing,
-        kmsKey = Core.Nothing,
-        worm = Core.Nothing,
-        tags = Core.Nothing,
+      { poolId = Prelude.Nothing,
+        kmsEncrypted = Prelude.Nothing,
+        kmsKey = Prelude.Nothing,
+        worm = Prelude.Nothing,
+        tags = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         tapeSizeInBytes = pTapeSizeInBytes_,
         tapeBarcode = pTapeBarcode_
@@ -188,26 +189,26 @@ newCreateTapeWithBarcode
 -- Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-createTapeWithBarcode_poolId :: Lens.Lens' CreateTapeWithBarcode (Core.Maybe Core.Text)
+createTapeWithBarcode_poolId :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Text)
 createTapeWithBarcode_poolId = Lens.lens (\CreateTapeWithBarcode' {poolId} -> poolId) (\s@CreateTapeWithBarcode' {} a -> s {poolId = a} :: CreateTapeWithBarcode)
 
 -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
 -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
-createTapeWithBarcode_kmsEncrypted :: Lens.Lens' CreateTapeWithBarcode (Core.Maybe Core.Bool)
+createTapeWithBarcode_kmsEncrypted :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Bool)
 createTapeWithBarcode_kmsEncrypted = Lens.lens (\CreateTapeWithBarcode' {kmsEncrypted} -> kmsEncrypted) (\s@CreateTapeWithBarcode' {} a -> s {kmsEncrypted = a} :: CreateTapeWithBarcode)
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
 -- is @true@. Optional.
-createTapeWithBarcode_kmsKey :: Lens.Lens' CreateTapeWithBarcode (Core.Maybe Core.Text)
+createTapeWithBarcode_kmsKey :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Text)
 createTapeWithBarcode_kmsKey = Lens.lens (\CreateTapeWithBarcode' {kmsKey} -> kmsKey) (\s@CreateTapeWithBarcode' {} a -> s {kmsKey = a} :: CreateTapeWithBarcode)
 
 -- | Set to @TRUE@ if the tape you are creating is to be configured as a
 -- write-once-read-many (WORM) tape.
-createTapeWithBarcode_worm :: Lens.Lens' CreateTapeWithBarcode (Core.Maybe Core.Bool)
+createTapeWithBarcode_worm :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Bool)
 createTapeWithBarcode_worm = Lens.lens (\CreateTapeWithBarcode' {worm} -> worm) (\s@CreateTapeWithBarcode' {} a -> s {worm = a} :: CreateTapeWithBarcode)
 
 -- | A list of up to 50 tags that can be assigned to a virtual tape that has
@@ -217,26 +218,26 @@ createTapeWithBarcode_worm = Lens.lens (\CreateTapeWithBarcode' {worm} -> worm) 
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
-createTapeWithBarcode_tags :: Lens.Lens' CreateTapeWithBarcode (Core.Maybe [Tag])
-createTapeWithBarcode_tags = Lens.lens (\CreateTapeWithBarcode' {tags} -> tags) (\s@CreateTapeWithBarcode' {} a -> s {tags = a} :: CreateTapeWithBarcode) Core.. Lens.mapping Lens._Coerce
+createTapeWithBarcode_tags :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe [Tag])
+createTapeWithBarcode_tags = Lens.lens (\CreateTapeWithBarcode' {tags} -> tags) (\s@CreateTapeWithBarcode' {} a -> s {tags = a} :: CreateTapeWithBarcode) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tape with. Use the ListGateways operation to
 -- return a list of gateways for your account and AWS Region.
-createTapeWithBarcode_gatewayARN :: Lens.Lens' CreateTapeWithBarcode Core.Text
+createTapeWithBarcode_gatewayARN :: Lens.Lens' CreateTapeWithBarcode Prelude.Text
 createTapeWithBarcode_gatewayARN = Lens.lens (\CreateTapeWithBarcode' {gatewayARN} -> gatewayARN) (\s@CreateTapeWithBarcode' {} a -> s {gatewayARN = a} :: CreateTapeWithBarcode)
 
 -- | The size, in bytes, of the virtual tape that you want to create.
 --
 -- The size must be aligned by gigabyte (1024*1024*1024 bytes).
-createTapeWithBarcode_tapeSizeInBytes :: Lens.Lens' CreateTapeWithBarcode Core.Integer
+createTapeWithBarcode_tapeSizeInBytes :: Lens.Lens' CreateTapeWithBarcode Prelude.Integer
 createTapeWithBarcode_tapeSizeInBytes = Lens.lens (\CreateTapeWithBarcode' {tapeSizeInBytes} -> tapeSizeInBytes) (\s@CreateTapeWithBarcode' {} a -> s {tapeSizeInBytes = a} :: CreateTapeWithBarcode)
 
 -- | The barcode that you want to assign to the tape.
 --
 -- Barcodes cannot be reused. This includes barcodes used for tapes that
 -- have been deleted.
-createTapeWithBarcode_tapeBarcode :: Lens.Lens' CreateTapeWithBarcode Core.Text
+createTapeWithBarcode_tapeBarcode :: Lens.Lens' CreateTapeWithBarcode Prelude.Text
 createTapeWithBarcode_tapeBarcode = Lens.lens (\CreateTapeWithBarcode' {tapeBarcode} -> tapeBarcode) (\s@CreateTapeWithBarcode' {} a -> s {tapeBarcode = a} :: CreateTapeWithBarcode)
 
 instance Core.AWSRequest CreateTapeWithBarcode where
@@ -248,48 +249,50 @@ instance Core.AWSRequest CreateTapeWithBarcode where
     Response.receiveJSON
       ( \s h x ->
           CreateTapeWithBarcodeResponse'
-            Core.<$> (x Core..?> "TapeARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTapeWithBarcode
+instance Prelude.Hashable CreateTapeWithBarcode
 
-instance Core.NFData CreateTapeWithBarcode
+instance Prelude.NFData CreateTapeWithBarcode
 
 instance Core.ToHeaders CreateTapeWithBarcode where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.CreateTapeWithBarcode" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateTapeWithBarcode where
   toJSON CreateTapeWithBarcode' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PoolId" Core..=) Core.<$> poolId,
-            ("KMSEncrypted" Core..=) Core.<$> kmsEncrypted,
-            ("KMSKey" Core..=) Core.<$> kmsKey,
-            ("Worm" Core..=) Core.<$> worm,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("GatewayARN" Core..= gatewayARN),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("PoolId" Core..=) Prelude.<$> poolId,
+            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
+            ("Worm" Core..=) Prelude.<$> worm,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just
               ("TapeSizeInBytes" Core..= tapeSizeInBytes),
-            Core.Just ("TapeBarcode" Core..= tapeBarcode)
+            Prelude.Just ("TapeBarcode" Core..= tapeBarcode)
           ]
       )
 
 instance Core.ToPath CreateTapeWithBarcode where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTapeWithBarcode where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | CreateTapeOutput
 --
@@ -297,11 +300,11 @@ instance Core.ToQuery CreateTapeWithBarcode where
 data CreateTapeWithBarcodeResponse = CreateTapeWithBarcodeResponse'
   { -- | A unique Amazon Resource Name (ARN) that represents the virtual tape
     -- that was created.
-    tapeARN :: Core.Maybe Core.Text,
+    tapeARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTapeWithBarcodeResponse' with all optional fields omitted.
@@ -317,22 +320,22 @@ data CreateTapeWithBarcodeResponse = CreateTapeWithBarcodeResponse'
 -- 'httpStatus', 'createTapeWithBarcodeResponse_httpStatus' - The response's http status code.
 newCreateTapeWithBarcodeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTapeWithBarcodeResponse
 newCreateTapeWithBarcodeResponse pHttpStatus_ =
   CreateTapeWithBarcodeResponse'
     { tapeARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique Amazon Resource Name (ARN) that represents the virtual tape
 -- that was created.
-createTapeWithBarcodeResponse_tapeARN :: Lens.Lens' CreateTapeWithBarcodeResponse (Core.Maybe Core.Text)
+createTapeWithBarcodeResponse_tapeARN :: Lens.Lens' CreateTapeWithBarcodeResponse (Prelude.Maybe Prelude.Text)
 createTapeWithBarcodeResponse_tapeARN = Lens.lens (\CreateTapeWithBarcodeResponse' {tapeARN} -> tapeARN) (\s@CreateTapeWithBarcodeResponse' {} a -> s {tapeARN = a} :: CreateTapeWithBarcodeResponse)
 
 -- | The response's http status code.
-createTapeWithBarcodeResponse_httpStatus :: Lens.Lens' CreateTapeWithBarcodeResponse Core.Int
+createTapeWithBarcodeResponse_httpStatus :: Lens.Lens' CreateTapeWithBarcodeResponse Prelude.Int
 createTapeWithBarcodeResponse_httpStatus = Lens.lens (\CreateTapeWithBarcodeResponse' {httpStatus} -> httpStatus) (\s@CreateTapeWithBarcodeResponse' {} a -> s {httpStatus = a} :: CreateTapeWithBarcodeResponse)
 
-instance Core.NFData CreateTapeWithBarcodeResponse
+instance Prelude.NFData CreateTapeWithBarcodeResponse

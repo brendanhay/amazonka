@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.MetricsFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.MetricsAndOperator
 import Network.AWS.S3.Types.Tag
@@ -32,16 +33,16 @@ import Network.AWS.S3.Types.Tag
 -- /See:/ 'newMetricsFilter' smart constructor.
 data MetricsFilter = MetricsFilter'
   { -- | The prefix used when evaluating a metrics filter.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | A conjunction (logical AND) of predicates, which is used in evaluating a
     -- metrics filter. The operator must have at least two predicates, and an
     -- object must match all of the predicates in order for the filter to
     -- apply.
-    and :: Core.Maybe MetricsAndOperator,
+    and :: Prelude.Maybe MetricsAndOperator,
     -- | The tag used when evaluating a metrics filter.
-    tag :: Core.Maybe Tag
+    tag :: Prelude.Maybe Tag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricsFilter' with all optional fields omitted.
@@ -63,40 +64,40 @@ newMetricsFilter ::
   MetricsFilter
 newMetricsFilter =
   MetricsFilter'
-    { prefix = Core.Nothing,
-      and = Core.Nothing,
-      tag = Core.Nothing
+    { prefix = Prelude.Nothing,
+      and = Prelude.Nothing,
+      tag = Prelude.Nothing
     }
 
 -- | The prefix used when evaluating a metrics filter.
-metricsFilter_prefix :: Lens.Lens' MetricsFilter (Core.Maybe Core.Text)
+metricsFilter_prefix :: Lens.Lens' MetricsFilter (Prelude.Maybe Prelude.Text)
 metricsFilter_prefix = Lens.lens (\MetricsFilter' {prefix} -> prefix) (\s@MetricsFilter' {} a -> s {prefix = a} :: MetricsFilter)
 
 -- | A conjunction (logical AND) of predicates, which is used in evaluating a
 -- metrics filter. The operator must have at least two predicates, and an
 -- object must match all of the predicates in order for the filter to
 -- apply.
-metricsFilter_and :: Lens.Lens' MetricsFilter (Core.Maybe MetricsAndOperator)
+metricsFilter_and :: Lens.Lens' MetricsFilter (Prelude.Maybe MetricsAndOperator)
 metricsFilter_and = Lens.lens (\MetricsFilter' {and} -> and) (\s@MetricsFilter' {} a -> s {and = a} :: MetricsFilter)
 
 -- | The tag used when evaluating a metrics filter.
-metricsFilter_tag :: Lens.Lens' MetricsFilter (Core.Maybe Tag)
+metricsFilter_tag :: Lens.Lens' MetricsFilter (Prelude.Maybe Tag)
 metricsFilter_tag = Lens.lens (\MetricsFilter' {tag} -> tag) (\s@MetricsFilter' {} a -> s {tag = a} :: MetricsFilter)
 
 instance Core.FromXML MetricsFilter where
   parseXML x =
     MetricsFilter'
-      Core.<$> (x Core..@? "Prefix")
-      Core.<*> (x Core..@? "And")
-      Core.<*> (x Core..@? "Tag")
+      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "And")
+      Prelude.<*> (x Core..@? "Tag")
 
-instance Core.Hashable MetricsFilter
+instance Prelude.Hashable MetricsFilter
 
-instance Core.NFData MetricsFilter
+instance Prelude.NFData MetricsFilter
 
 instance Core.ToXML MetricsFilter where
   toXML MetricsFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Prefix" Core.@= prefix,
         "And" Core.@= and,
         "Tag" Core.@= tag

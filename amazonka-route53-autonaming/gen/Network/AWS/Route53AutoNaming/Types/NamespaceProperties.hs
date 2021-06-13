@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.NamespaceProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.DnsProperties
 import Network.AWS.Route53AutoNaming.Types.HttpProperties
 
@@ -30,12 +31,12 @@ import Network.AWS.Route53AutoNaming.Types.HttpProperties
 -- /See:/ 'newNamespaceProperties' smart constructor.
 data NamespaceProperties = NamespaceProperties'
   { -- | A complex type that contains the name of an HTTP namespace.
-    httpProperties :: Core.Maybe HttpProperties,
+    httpProperties :: Prelude.Maybe HttpProperties,
     -- | A complex type that contains the ID for the Route 53 hosted zone that
     -- AWS Cloud Map creates when you create a namespace.
-    dnsProperties :: Core.Maybe DnsProperties
+    dnsProperties :: Prelude.Maybe DnsProperties
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NamespaceProperties' with all optional fields omitted.
@@ -53,17 +54,18 @@ newNamespaceProperties ::
   NamespaceProperties
 newNamespaceProperties =
   NamespaceProperties'
-    { httpProperties = Core.Nothing,
-      dnsProperties = Core.Nothing
+    { httpProperties =
+        Prelude.Nothing,
+      dnsProperties = Prelude.Nothing
     }
 
 -- | A complex type that contains the name of an HTTP namespace.
-namespaceProperties_httpProperties :: Lens.Lens' NamespaceProperties (Core.Maybe HttpProperties)
+namespaceProperties_httpProperties :: Lens.Lens' NamespaceProperties (Prelude.Maybe HttpProperties)
 namespaceProperties_httpProperties = Lens.lens (\NamespaceProperties' {httpProperties} -> httpProperties) (\s@NamespaceProperties' {} a -> s {httpProperties = a} :: NamespaceProperties)
 
 -- | A complex type that contains the ID for the Route 53 hosted zone that
 -- AWS Cloud Map creates when you create a namespace.
-namespaceProperties_dnsProperties :: Lens.Lens' NamespaceProperties (Core.Maybe DnsProperties)
+namespaceProperties_dnsProperties :: Lens.Lens' NamespaceProperties (Prelude.Maybe DnsProperties)
 namespaceProperties_dnsProperties = Lens.lens (\NamespaceProperties' {dnsProperties} -> dnsProperties) (\s@NamespaceProperties' {} a -> s {dnsProperties = a} :: NamespaceProperties)
 
 instance Core.FromJSON NamespaceProperties where
@@ -72,10 +74,10 @@ instance Core.FromJSON NamespaceProperties where
       "NamespaceProperties"
       ( \x ->
           NamespaceProperties'
-            Core.<$> (x Core..:? "HttpProperties")
-            Core.<*> (x Core..:? "DnsProperties")
+            Prelude.<$> (x Core..:? "HttpProperties")
+            Prelude.<*> (x Core..:? "DnsProperties")
       )
 
-instance Core.Hashable NamespaceProperties
+instance Prelude.Hashable NamespaceProperties
 
-instance Core.NFData NamespaceProperties
+instance Prelude.NFData NamespaceProperties

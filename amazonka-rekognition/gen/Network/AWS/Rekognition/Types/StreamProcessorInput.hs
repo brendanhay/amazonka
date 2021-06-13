@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.StreamProcessorInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.KinesisVideoStream
 
 -- | Information about the source streaming video.
@@ -28,9 +29,9 @@ import Network.AWS.Rekognition.Types.KinesisVideoStream
 -- /See:/ 'newStreamProcessorInput' smart constructor.
 data StreamProcessorInput = StreamProcessorInput'
   { -- | The Kinesis video stream input stream for the source streaming video.
-    kinesisVideoStream :: Core.Maybe KinesisVideoStream
+    kinesisVideoStream :: Prelude.Maybe KinesisVideoStream
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamProcessorInput' with all optional fields omitted.
@@ -46,11 +47,11 @@ newStreamProcessorInput ::
 newStreamProcessorInput =
   StreamProcessorInput'
     { kinesisVideoStream =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Kinesis video stream input stream for the source streaming video.
-streamProcessorInput_kinesisVideoStream :: Lens.Lens' StreamProcessorInput (Core.Maybe KinesisVideoStream)
+streamProcessorInput_kinesisVideoStream :: Lens.Lens' StreamProcessorInput (Prelude.Maybe KinesisVideoStream)
 streamProcessorInput_kinesisVideoStream = Lens.lens (\StreamProcessorInput' {kinesisVideoStream} -> kinesisVideoStream) (\s@StreamProcessorInput' {} a -> s {kinesisVideoStream = a} :: StreamProcessorInput)
 
 instance Core.FromJSON StreamProcessorInput where
@@ -59,18 +60,18 @@ instance Core.FromJSON StreamProcessorInput where
       "StreamProcessorInput"
       ( \x ->
           StreamProcessorInput'
-            Core.<$> (x Core..:? "KinesisVideoStream")
+            Prelude.<$> (x Core..:? "KinesisVideoStream")
       )
 
-instance Core.Hashable StreamProcessorInput
+instance Prelude.Hashable StreamProcessorInput
 
-instance Core.NFData StreamProcessorInput
+instance Prelude.NFData StreamProcessorInput
 
 instance Core.ToJSON StreamProcessorInput where
   toJSON StreamProcessorInput' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("KinesisVideoStream" Core..=)
-              Core.<$> kinesisVideoStream
+              Prelude.<$> kinesisVideoStream
           ]
       )

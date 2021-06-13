@@ -44,6 +44,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +54,13 @@ import qualified Network.AWS.Response as Response
 data AcknowledgeJob = AcknowledgeJob'
   { -- | The unique system-generated ID of the job for which you want to confirm
     -- receipt.
-    jobId :: Core.Text,
+    jobId :: Prelude.Text,
     -- | A system-generated random number that AWS CodePipeline uses to ensure
     -- that the job is being worked on by only one job worker. Get this number
     -- from the response of the PollForJobs request that returned this job.
-    nonce :: Core.Text
+    nonce :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcknowledgeJob' with all optional fields omitted.
@@ -77,22 +78,22 @@ data AcknowledgeJob = AcknowledgeJob'
 -- from the response of the PollForJobs request that returned this job.
 newAcknowledgeJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'nonce'
-  Core.Text ->
+  Prelude.Text ->
   AcknowledgeJob
 newAcknowledgeJob pJobId_ pNonce_ =
   AcknowledgeJob' {jobId = pJobId_, nonce = pNonce_}
 
 -- | The unique system-generated ID of the job for which you want to confirm
 -- receipt.
-acknowledgeJob_jobId :: Lens.Lens' AcknowledgeJob Core.Text
+acknowledgeJob_jobId :: Lens.Lens' AcknowledgeJob Prelude.Text
 acknowledgeJob_jobId = Lens.lens (\AcknowledgeJob' {jobId} -> jobId) (\s@AcknowledgeJob' {} a -> s {jobId = a} :: AcknowledgeJob)
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. Get this number
 -- from the response of the PollForJobs request that returned this job.
-acknowledgeJob_nonce :: Lens.Lens' AcknowledgeJob Core.Text
+acknowledgeJob_nonce :: Lens.Lens' AcknowledgeJob Prelude.Text
 acknowledgeJob_nonce = Lens.lens (\AcknowledgeJob' {nonce} -> nonce) (\s@AcknowledgeJob' {} a -> s {nonce = a} :: AcknowledgeJob)
 
 instance Core.AWSRequest AcknowledgeJob where
@@ -104,52 +105,54 @@ instance Core.AWSRequest AcknowledgeJob where
     Response.receiveJSON
       ( \s h x ->
           AcknowledgeJobResponse'
-            Core.<$> (x Core..?> "status")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AcknowledgeJob
+instance Prelude.Hashable AcknowledgeJob
 
-instance Core.NFData AcknowledgeJob
+instance Prelude.NFData AcknowledgeJob
 
 instance Core.ToHeaders AcknowledgeJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.AcknowledgeJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AcknowledgeJob where
   toJSON AcknowledgeJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("jobId" Core..= jobId),
-            Core.Just ("nonce" Core..= nonce)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("jobId" Core..= jobId),
+            Prelude.Just ("nonce" Core..= nonce)
           ]
       )
 
 instance Core.ToPath AcknowledgeJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AcknowledgeJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an AcknowledgeJob action.
 --
 -- /See:/ 'newAcknowledgeJobResponse' smart constructor.
 data AcknowledgeJobResponse = AcknowledgeJobResponse'
   { -- | Whether the job worker has received the specified job.
-    status :: Core.Maybe JobStatus,
+    status :: Prelude.Maybe JobStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcknowledgeJobResponse' with all optional fields omitted.
@@ -164,20 +167,20 @@ data AcknowledgeJobResponse = AcknowledgeJobResponse'
 -- 'httpStatus', 'acknowledgeJobResponse_httpStatus' - The response's http status code.
 newAcknowledgeJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AcknowledgeJobResponse
 newAcknowledgeJobResponse pHttpStatus_ =
   AcknowledgeJobResponse'
-    { status = Core.Nothing,
+    { status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Whether the job worker has received the specified job.
-acknowledgeJobResponse_status :: Lens.Lens' AcknowledgeJobResponse (Core.Maybe JobStatus)
+acknowledgeJobResponse_status :: Lens.Lens' AcknowledgeJobResponse (Prelude.Maybe JobStatus)
 acknowledgeJobResponse_status = Lens.lens (\AcknowledgeJobResponse' {status} -> status) (\s@AcknowledgeJobResponse' {} a -> s {status = a} :: AcknowledgeJobResponse)
 
 -- | The response's http status code.
-acknowledgeJobResponse_httpStatus :: Lens.Lens' AcknowledgeJobResponse Core.Int
+acknowledgeJobResponse_httpStatus :: Lens.Lens' AcknowledgeJobResponse Prelude.Int
 acknowledgeJobResponse_httpStatus = Lens.lens (\AcknowledgeJobResponse' {httpStatus} -> httpStatus) (\s@AcknowledgeJobResponse' {} a -> s {httpStatus = a} :: AcknowledgeJobResponse)
 
-instance Core.NFData AcknowledgeJobResponse
+instance Prelude.NFData AcknowledgeJobResponse

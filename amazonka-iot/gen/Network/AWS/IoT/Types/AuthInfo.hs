@@ -22,18 +22,19 @@ module Network.AWS.IoT.Types.AuthInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ActionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of authorization information.
 --
 -- /See:/ 'newAuthInfo' smart constructor.
 data AuthInfo = AuthInfo'
   { -- | The type of action for which the principal is being authorized.
-    actionType :: Core.Maybe ActionType,
+    actionType :: Prelude.Maybe ActionType,
     -- | The resources for which the principal is being authorized to perform the
     -- specified action.
-    resources :: [Core.Text]
+    resources :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthInfo' with all optional fields omitted.
@@ -51,18 +52,18 @@ newAuthInfo ::
   AuthInfo
 newAuthInfo =
   AuthInfo'
-    { actionType = Core.Nothing,
-      resources = Core.mempty
+    { actionType = Prelude.Nothing,
+      resources = Prelude.mempty
     }
 
 -- | The type of action for which the principal is being authorized.
-authInfo_actionType :: Lens.Lens' AuthInfo (Core.Maybe ActionType)
+authInfo_actionType :: Lens.Lens' AuthInfo (Prelude.Maybe ActionType)
 authInfo_actionType = Lens.lens (\AuthInfo' {actionType} -> actionType) (\s@AuthInfo' {} a -> s {actionType = a} :: AuthInfo)
 
 -- | The resources for which the principal is being authorized to perform the
 -- specified action.
-authInfo_resources :: Lens.Lens' AuthInfo [Core.Text]
-authInfo_resources = Lens.lens (\AuthInfo' {resources} -> resources) (\s@AuthInfo' {} a -> s {resources = a} :: AuthInfo) Core.. Lens._Coerce
+authInfo_resources :: Lens.Lens' AuthInfo [Prelude.Text]
+authInfo_resources = Lens.lens (\AuthInfo' {resources} -> resources) (\s@AuthInfo' {} a -> s {resources = a} :: AuthInfo) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AuthInfo where
   parseJSON =
@@ -70,19 +71,19 @@ instance Core.FromJSON AuthInfo where
       "AuthInfo"
       ( \x ->
           AuthInfo'
-            Core.<$> (x Core..:? "actionType")
-            Core.<*> (x Core..:? "resources" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "actionType")
+            Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable AuthInfo
+instance Prelude.Hashable AuthInfo
 
-instance Core.NFData AuthInfo
+instance Prelude.NFData AuthInfo
 
 instance Core.ToJSON AuthInfo where
   toJSON AuthInfo' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("actionType" Core..=) Core.<$> actionType,
-            Core.Just ("resources" Core..= resources)
+      ( Prelude.catMaybes
+          [ ("actionType" Core..=) Prelude.<$> actionType,
+            Prelude.Just ("resources" Core..= resources)
           ]
       )

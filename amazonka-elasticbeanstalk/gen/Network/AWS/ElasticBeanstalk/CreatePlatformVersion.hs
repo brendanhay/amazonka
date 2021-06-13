@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,23 +57,23 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreatePlatformVersion' smart constructor.
 data CreatePlatformVersion = CreatePlatformVersion'
   { -- | The name of the builder environment.
-    environmentName :: Core.Maybe Core.Text,
+    environmentName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the tags applied to the new platform version.
     --
     -- Elastic Beanstalk applies these tags only to the platform version.
     -- Environments that you create using the platform version don\'t inherit
     -- the tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The configuration option settings to apply to the builder environment.
-    optionSettings :: Core.Maybe [ConfigurationOptionSetting],
+    optionSettings :: Prelude.Maybe [ConfigurationOptionSetting],
     -- | The name of your custom platform.
-    platformName :: Core.Text,
+    platformName :: Prelude.Text,
     -- | The number, such as 1.0.2, for the new platform version.
-    platformVersion :: Core.Text,
+    platformVersion :: Prelude.Text,
     -- | The location of the platform definition archive in Amazon S3.
     platformDefinitionBundle :: S3Location
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePlatformVersion' with all optional fields omitted.
@@ -99,9 +100,9 @@ data CreatePlatformVersion = CreatePlatformVersion'
 -- 'platformDefinitionBundle', 'createPlatformVersion_platformDefinitionBundle' - The location of the platform definition archive in Amazon S3.
 newCreatePlatformVersion ::
   -- | 'platformName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'platformVersion'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'platformDefinitionBundle'
   S3Location ->
   CreatePlatformVersion
@@ -111,9 +112,9 @@ newCreatePlatformVersion
   pPlatformDefinitionBundle_ =
     CreatePlatformVersion'
       { environmentName =
-          Core.Nothing,
-        tags = Core.Nothing,
-        optionSettings = Core.Nothing,
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
+        optionSettings = Prelude.Nothing,
         platformName = pPlatformName_,
         platformVersion = pPlatformVersion_,
         platformDefinitionBundle =
@@ -121,7 +122,7 @@ newCreatePlatformVersion
       }
 
 -- | The name of the builder environment.
-createPlatformVersion_environmentName :: Lens.Lens' CreatePlatformVersion (Core.Maybe Core.Text)
+createPlatformVersion_environmentName :: Lens.Lens' CreatePlatformVersion (Prelude.Maybe Prelude.Text)
 createPlatformVersion_environmentName = Lens.lens (\CreatePlatformVersion' {environmentName} -> environmentName) (\s@CreatePlatformVersion' {} a -> s {environmentName = a} :: CreatePlatformVersion)
 
 -- | Specifies the tags applied to the new platform version.
@@ -129,19 +130,19 @@ createPlatformVersion_environmentName = Lens.lens (\CreatePlatformVersion' {envi
 -- Elastic Beanstalk applies these tags only to the platform version.
 -- Environments that you create using the platform version don\'t inherit
 -- the tags.
-createPlatformVersion_tags :: Lens.Lens' CreatePlatformVersion (Core.Maybe [Tag])
-createPlatformVersion_tags = Lens.lens (\CreatePlatformVersion' {tags} -> tags) (\s@CreatePlatformVersion' {} a -> s {tags = a} :: CreatePlatformVersion) Core.. Lens.mapping Lens._Coerce
+createPlatformVersion_tags :: Lens.Lens' CreatePlatformVersion (Prelude.Maybe [Tag])
+createPlatformVersion_tags = Lens.lens (\CreatePlatformVersion' {tags} -> tags) (\s@CreatePlatformVersion' {} a -> s {tags = a} :: CreatePlatformVersion) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The configuration option settings to apply to the builder environment.
-createPlatformVersion_optionSettings :: Lens.Lens' CreatePlatformVersion (Core.Maybe [ConfigurationOptionSetting])
-createPlatformVersion_optionSettings = Lens.lens (\CreatePlatformVersion' {optionSettings} -> optionSettings) (\s@CreatePlatformVersion' {} a -> s {optionSettings = a} :: CreatePlatformVersion) Core.. Lens.mapping Lens._Coerce
+createPlatformVersion_optionSettings :: Lens.Lens' CreatePlatformVersion (Prelude.Maybe [ConfigurationOptionSetting])
+createPlatformVersion_optionSettings = Lens.lens (\CreatePlatformVersion' {optionSettings} -> optionSettings) (\s@CreatePlatformVersion' {} a -> s {optionSettings = a} :: CreatePlatformVersion) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of your custom platform.
-createPlatformVersion_platformName :: Lens.Lens' CreatePlatformVersion Core.Text
+createPlatformVersion_platformName :: Lens.Lens' CreatePlatformVersion Prelude.Text
 createPlatformVersion_platformName = Lens.lens (\CreatePlatformVersion' {platformName} -> platformName) (\s@CreatePlatformVersion' {} a -> s {platformName = a} :: CreatePlatformVersion)
 
 -- | The number, such as 1.0.2, for the new platform version.
-createPlatformVersion_platformVersion :: Lens.Lens' CreatePlatformVersion Core.Text
+createPlatformVersion_platformVersion :: Lens.Lens' CreatePlatformVersion Prelude.Text
 createPlatformVersion_platformVersion = Lens.lens (\CreatePlatformVersion' {platformVersion} -> platformVersion) (\s@CreatePlatformVersion' {} a -> s {platformVersion = a} :: CreatePlatformVersion)
 
 -- | The location of the platform definition archive in Amazon S3.
@@ -158,34 +159,37 @@ instance Core.AWSRequest CreatePlatformVersion where
       "CreatePlatformVersionResult"
       ( \s h x ->
           CreatePlatformVersionResponse'
-            Core.<$> (x Core..@? "PlatformSummary")
-            Core.<*> (x Core..@? "Builder")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "PlatformSummary")
+            Prelude.<*> (x Core..@? "Builder")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePlatformVersion
+instance Prelude.Hashable CreatePlatformVersion
 
-instance Core.NFData CreatePlatformVersion
+instance Prelude.NFData CreatePlatformVersion
 
 instance Core.ToHeaders CreatePlatformVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreatePlatformVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePlatformVersion where
   toQuery CreatePlatformVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePlatformVersion" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("CreatePlatformVersion" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "EnvironmentName" Core.=: environmentName,
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "OptionSettings"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> optionSettings),
+            ( Core.toQueryList "member"
+                Prelude.<$> optionSettings
+            ),
         "PlatformName" Core.=: platformName,
         "PlatformVersion" Core.=: platformVersion,
         "PlatformDefinitionBundle"
@@ -195,13 +199,13 @@ instance Core.ToQuery CreatePlatformVersion where
 -- | /See:/ 'newCreatePlatformVersionResponse' smart constructor.
 data CreatePlatformVersionResponse = CreatePlatformVersionResponse'
   { -- | Detailed information about the new version of the custom platform.
-    platformSummary :: Core.Maybe PlatformSummary,
+    platformSummary :: Prelude.Maybe PlatformSummary,
     -- | The builder used to create the custom platform.
-    builder :: Core.Maybe Builder,
+    builder :: Prelude.Maybe Builder,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePlatformVersionResponse' with all optional fields omitted.
@@ -218,26 +222,26 @@ data CreatePlatformVersionResponse = CreatePlatformVersionResponse'
 -- 'httpStatus', 'createPlatformVersionResponse_httpStatus' - The response's http status code.
 newCreatePlatformVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePlatformVersionResponse
 newCreatePlatformVersionResponse pHttpStatus_ =
   CreatePlatformVersionResponse'
     { platformSummary =
-        Core.Nothing,
-      builder = Core.Nothing,
+        Prelude.Nothing,
+      builder = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Detailed information about the new version of the custom platform.
-createPlatformVersionResponse_platformSummary :: Lens.Lens' CreatePlatformVersionResponse (Core.Maybe PlatformSummary)
+createPlatformVersionResponse_platformSummary :: Lens.Lens' CreatePlatformVersionResponse (Prelude.Maybe PlatformSummary)
 createPlatformVersionResponse_platformSummary = Lens.lens (\CreatePlatformVersionResponse' {platformSummary} -> platformSummary) (\s@CreatePlatformVersionResponse' {} a -> s {platformSummary = a} :: CreatePlatformVersionResponse)
 
 -- | The builder used to create the custom platform.
-createPlatformVersionResponse_builder :: Lens.Lens' CreatePlatformVersionResponse (Core.Maybe Builder)
+createPlatformVersionResponse_builder :: Lens.Lens' CreatePlatformVersionResponse (Prelude.Maybe Builder)
 createPlatformVersionResponse_builder = Lens.lens (\CreatePlatformVersionResponse' {builder} -> builder) (\s@CreatePlatformVersionResponse' {} a -> s {builder = a} :: CreatePlatformVersionResponse)
 
 -- | The response's http status code.
-createPlatformVersionResponse_httpStatus :: Lens.Lens' CreatePlatformVersionResponse Core.Int
+createPlatformVersionResponse_httpStatus :: Lens.Lens' CreatePlatformVersionResponse Prelude.Int
 createPlatformVersionResponse_httpStatus = Lens.lens (\CreatePlatformVersionResponse' {httpStatus} -> httpStatus) (\s@CreatePlatformVersionResponse' {} a -> s {httpStatus = a} :: CreatePlatformVersionResponse)
 
-instance Core.NFData CreatePlatformVersionResponse
+instance Prelude.NFData CreatePlatformVersionResponse

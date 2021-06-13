@@ -28,6 +28,7 @@ module Network.AWS.MediaLive.Types.H265LookAheadRateControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | H265 Look Ahead Rate Control
 newtype H265LookAheadRateControl = H265LookAheadRateControl'
@@ -35,15 +36,15 @@ newtype H265LookAheadRateControl = H265LookAheadRateControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

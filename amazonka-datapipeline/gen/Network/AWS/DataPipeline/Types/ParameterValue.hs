@@ -21,17 +21,18 @@ module Network.AWS.DataPipeline.Types.ParameterValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A value or list of parameter values.
 --
 -- /See:/ 'newParameterValue' smart constructor.
 data ParameterValue = ParameterValue'
   { -- | The ID of the parameter value.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The field value, expressed as a String.
-    stringValue :: Core.Text
+    stringValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterValue' with all optional fields omitted.
@@ -46,9 +47,9 @@ data ParameterValue = ParameterValue'
 -- 'stringValue', 'parameterValue_stringValue' - The field value, expressed as a String.
 newParameterValue ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stringValue'
-  Core.Text ->
+  Prelude.Text ->
   ParameterValue
 newParameterValue pId_ pStringValue_ =
   ParameterValue'
@@ -57,11 +58,11 @@ newParameterValue pId_ pStringValue_ =
     }
 
 -- | The ID of the parameter value.
-parameterValue_id :: Lens.Lens' ParameterValue Core.Text
+parameterValue_id :: Lens.Lens' ParameterValue Prelude.Text
 parameterValue_id = Lens.lens (\ParameterValue' {id} -> id) (\s@ParameterValue' {} a -> s {id = a} :: ParameterValue)
 
 -- | The field value, expressed as a String.
-parameterValue_stringValue :: Lens.Lens' ParameterValue Core.Text
+parameterValue_stringValue :: Lens.Lens' ParameterValue Prelude.Text
 parameterValue_stringValue = Lens.lens (\ParameterValue' {stringValue} -> stringValue) (\s@ParameterValue' {} a -> s {stringValue = a} :: ParameterValue)
 
 instance Core.FromJSON ParameterValue where
@@ -70,18 +71,19 @@ instance Core.FromJSON ParameterValue where
       "ParameterValue"
       ( \x ->
           ParameterValue'
-            Core.<$> (x Core..: "id") Core.<*> (x Core..: "stringValue")
+            Prelude.<$> (x Core..: "id")
+            Prelude.<*> (x Core..: "stringValue")
       )
 
-instance Core.Hashable ParameterValue
+instance Prelude.Hashable ParameterValue
 
-instance Core.NFData ParameterValue
+instance Prelude.NFData ParameterValue
 
 instance Core.ToJSON ParameterValue where
   toJSON ParameterValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("id" Core..= id),
-            Core.Just ("stringValue" Core..= stringValue)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("id" Core..= id),
+            Prelude.Just ("stringValue" Core..= stringValue)
           ]
       )

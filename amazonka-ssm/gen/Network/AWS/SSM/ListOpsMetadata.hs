@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -55,16 +56,16 @@ import Network.AWS.SSM.Types
 data ListOpsMetadata = ListOpsMetadata'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters to limit the number of OpsMetadata objects returned
     -- by the call.
-    filters :: Core.Maybe [OpsMetadataFilter]
+    filters :: Prelude.Maybe [OpsMetadataFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOpsMetadata' with all optional fields omitted.
@@ -87,47 +88,49 @@ newListOpsMetadata ::
   ListOpsMetadata
 newListOpsMetadata =
   ListOpsMetadata'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-listOpsMetadata_nextToken :: Lens.Lens' ListOpsMetadata (Core.Maybe Core.Text)
+listOpsMetadata_nextToken :: Lens.Lens' ListOpsMetadata (Prelude.Maybe Prelude.Text)
 listOpsMetadata_nextToken = Lens.lens (\ListOpsMetadata' {nextToken} -> nextToken) (\s@ListOpsMetadata' {} a -> s {nextToken = a} :: ListOpsMetadata)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-listOpsMetadata_maxResults :: Lens.Lens' ListOpsMetadata (Core.Maybe Core.Natural)
+listOpsMetadata_maxResults :: Lens.Lens' ListOpsMetadata (Prelude.Maybe Prelude.Natural)
 listOpsMetadata_maxResults = Lens.lens (\ListOpsMetadata' {maxResults} -> maxResults) (\s@ListOpsMetadata' {} a -> s {maxResults = a} :: ListOpsMetadata)
 
 -- | One or more filters to limit the number of OpsMetadata objects returned
 -- by the call.
-listOpsMetadata_filters :: Lens.Lens' ListOpsMetadata (Core.Maybe [OpsMetadataFilter])
-listOpsMetadata_filters = Lens.lens (\ListOpsMetadata' {filters} -> filters) (\s@ListOpsMetadata' {} a -> s {filters = a} :: ListOpsMetadata) Core.. Lens.mapping Lens._Coerce
+listOpsMetadata_filters :: Lens.Lens' ListOpsMetadata (Prelude.Maybe [OpsMetadataFilter])
+listOpsMetadata_filters = Lens.lens (\ListOpsMetadata' {filters} -> filters) (\s@ListOpsMetadata' {} a -> s {filters = a} :: ListOpsMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListOpsMetadata where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listOpsMetadataResponse_nextToken Core.. Lens._Just
+            Lens.^? listOpsMetadataResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOpsMetadataResponse_opsMetadataList
-              Core.. Lens._Just
-              Core.. Lens.to Core.toList
+              Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listOpsMetadata_nextToken
+          Prelude.& listOpsMetadata_nextToken
           Lens..~ rs
-          Lens.^? listOpsMetadataResponse_nextToken Core.. Lens._Just
+          Lens.^? listOpsMetadataResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOpsMetadata where
   type
@@ -138,53 +141,55 @@ instance Core.AWSRequest ListOpsMetadata where
     Response.receiveJSON
       ( \s h x ->
           ListOpsMetadataResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "OpsMetadataList")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "OpsMetadataList")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListOpsMetadata
+instance Prelude.Hashable ListOpsMetadata
 
-instance Core.NFData ListOpsMetadata
+instance Prelude.NFData ListOpsMetadata
 
 instance Core.ToHeaders ListOpsMetadata where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ListOpsMetadata" :: Core.ByteString),
+              Core.=# ("AmazonSSM.ListOpsMetadata" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListOpsMetadata where
   toJSON ListOpsMetadata' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath ListOpsMetadata where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListOpsMetadata where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListOpsMetadataResponse' smart constructor.
 data ListOpsMetadataResponse = ListOpsMetadataResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns a list of OpsMetadata objects.
-    opsMetadataList :: Core.Maybe (Core.NonEmpty OpsMetadata),
+    opsMetadataList :: Prelude.Maybe (Prelude.NonEmpty OpsMetadata),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOpsMetadataResponse' with all optional fields omitted.
@@ -202,26 +207,27 @@ data ListOpsMetadataResponse = ListOpsMetadataResponse'
 -- 'httpStatus', 'listOpsMetadataResponse_httpStatus' - The response's http status code.
 newListOpsMetadataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListOpsMetadataResponse
 newListOpsMetadataResponse pHttpStatus_ =
   ListOpsMetadataResponse'
-    { nextToken = Core.Nothing,
-      opsMetadataList = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      opsMetadataList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-listOpsMetadataResponse_nextToken :: Lens.Lens' ListOpsMetadataResponse (Core.Maybe Core.Text)
+listOpsMetadataResponse_nextToken :: Lens.Lens' ListOpsMetadataResponse (Prelude.Maybe Prelude.Text)
 listOpsMetadataResponse_nextToken = Lens.lens (\ListOpsMetadataResponse' {nextToken} -> nextToken) (\s@ListOpsMetadataResponse' {} a -> s {nextToken = a} :: ListOpsMetadataResponse)
 
 -- | Returns a list of OpsMetadata objects.
-listOpsMetadataResponse_opsMetadataList :: Lens.Lens' ListOpsMetadataResponse (Core.Maybe (Core.NonEmpty OpsMetadata))
-listOpsMetadataResponse_opsMetadataList = Lens.lens (\ListOpsMetadataResponse' {opsMetadataList} -> opsMetadataList) (\s@ListOpsMetadataResponse' {} a -> s {opsMetadataList = a} :: ListOpsMetadataResponse) Core.. Lens.mapping Lens._Coerce
+listOpsMetadataResponse_opsMetadataList :: Lens.Lens' ListOpsMetadataResponse (Prelude.Maybe (Prelude.NonEmpty OpsMetadata))
+listOpsMetadataResponse_opsMetadataList = Lens.lens (\ListOpsMetadataResponse' {opsMetadataList} -> opsMetadataList) (\s@ListOpsMetadataResponse' {} a -> s {opsMetadataList = a} :: ListOpsMetadataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOpsMetadataResponse_httpStatus :: Lens.Lens' ListOpsMetadataResponse Core.Int
+listOpsMetadataResponse_httpStatus :: Lens.Lens' ListOpsMetadataResponse Prelude.Int
 listOpsMetadataResponse_httpStatus = Lens.lens (\ListOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@ListOpsMetadataResponse' {} a -> s {httpStatus = a} :: ListOpsMetadataResponse)
 
-instance Core.NFData ListOpsMetadataResponse
+instance Prelude.NFData ListOpsMetadataResponse

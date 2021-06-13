@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +64,9 @@ data PutInstancePublicPorts = PutInstancePublicPorts'
     -- instance.
     portInfos :: [PortInfo],
     -- | The name of the instance for which to open ports.
-    instanceName :: Core.Text
+    instanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutInstancePublicPorts' with all optional fields omitted.
@@ -81,21 +82,21 @@ data PutInstancePublicPorts = PutInstancePublicPorts'
 -- 'instanceName', 'putInstancePublicPorts_instanceName' - The name of the instance for which to open ports.
 newPutInstancePublicPorts ::
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   PutInstancePublicPorts
 newPutInstancePublicPorts pInstanceName_ =
   PutInstancePublicPorts'
-    { portInfos = Core.mempty,
+    { portInfos = Prelude.mempty,
       instanceName = pInstanceName_
     }
 
 -- | An array of objects to describe the ports to open for the specified
 -- instance.
 putInstancePublicPorts_portInfos :: Lens.Lens' PutInstancePublicPorts [PortInfo]
-putInstancePublicPorts_portInfos = Lens.lens (\PutInstancePublicPorts' {portInfos} -> portInfos) (\s@PutInstancePublicPorts' {} a -> s {portInfos = a} :: PutInstancePublicPorts) Core.. Lens._Coerce
+putInstancePublicPorts_portInfos = Lens.lens (\PutInstancePublicPorts' {portInfos} -> portInfos) (\s@PutInstancePublicPorts' {} a -> s {portInfos = a} :: PutInstancePublicPorts) Prelude.. Lens._Coerce
 
 -- | The name of the instance for which to open ports.
-putInstancePublicPorts_instanceName :: Lens.Lens' PutInstancePublicPorts Core.Text
+putInstancePublicPorts_instanceName :: Lens.Lens' PutInstancePublicPorts Prelude.Text
 putInstancePublicPorts_instanceName = Lens.lens (\PutInstancePublicPorts' {instanceName} -> instanceName) (\s@PutInstancePublicPorts' {} a -> s {instanceName = a} :: PutInstancePublicPorts)
 
 instance Core.AWSRequest PutInstancePublicPorts where
@@ -107,52 +108,54 @@ instance Core.AWSRequest PutInstancePublicPorts where
     Response.receiveJSON
       ( \s h x ->
           PutInstancePublicPortsResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutInstancePublicPorts
+instance Prelude.Hashable PutInstancePublicPorts
 
-instance Core.NFData PutInstancePublicPorts
+instance Prelude.NFData PutInstancePublicPorts
 
 instance Core.ToHeaders PutInstancePublicPorts where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.PutInstancePublicPorts" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutInstancePublicPorts where
   toJSON PutInstancePublicPorts' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("portInfos" Core..= portInfos),
-            Core.Just ("instanceName" Core..= instanceName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("portInfos" Core..= portInfos),
+            Prelude.Just ("instanceName" Core..= instanceName)
           ]
       )
 
 instance Core.ToPath PutInstancePublicPorts where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutInstancePublicPorts where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutInstancePublicPortsResponse' smart constructor.
 data PutInstancePublicPortsResponse = PutInstancePublicPortsResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutInstancePublicPortsResponse' with all optional fields omitted.
@@ -169,23 +172,25 @@ data PutInstancePublicPortsResponse = PutInstancePublicPortsResponse'
 -- 'httpStatus', 'putInstancePublicPortsResponse_httpStatus' - The response's http status code.
 newPutInstancePublicPortsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutInstancePublicPortsResponse
 newPutInstancePublicPortsResponse pHttpStatus_ =
   PutInstancePublicPortsResponse'
     { operation =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-putInstancePublicPortsResponse_operation :: Lens.Lens' PutInstancePublicPortsResponse (Core.Maybe Operation)
+putInstancePublicPortsResponse_operation :: Lens.Lens' PutInstancePublicPortsResponse (Prelude.Maybe Operation)
 putInstancePublicPortsResponse_operation = Lens.lens (\PutInstancePublicPortsResponse' {operation} -> operation) (\s@PutInstancePublicPortsResponse' {} a -> s {operation = a} :: PutInstancePublicPortsResponse)
 
 -- | The response's http status code.
-putInstancePublicPortsResponse_httpStatus :: Lens.Lens' PutInstancePublicPortsResponse Core.Int
+putInstancePublicPortsResponse_httpStatus :: Lens.Lens' PutInstancePublicPortsResponse Prelude.Int
 putInstancePublicPortsResponse_httpStatus = Lens.lens (\PutInstancePublicPortsResponse' {httpStatus} -> httpStatus) (\s@PutInstancePublicPortsResponse' {} a -> s {httpStatus = a} :: PutInstancePublicPortsResponse)
 
-instance Core.NFData PutInstancePublicPortsResponse
+instance
+  Prelude.NFData
+    PutInstancePublicPortsResponse

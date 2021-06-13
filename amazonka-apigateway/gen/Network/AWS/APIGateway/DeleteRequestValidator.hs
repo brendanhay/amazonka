@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteRequestValidator' smart constructor.
 data DeleteRequestValidator = DeleteRequestValidator'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the RequestValidator to be deleted.
-    requestValidatorId :: Core.Text
+    requestValidatorId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRequestValidator' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteRequestValidator = DeleteRequestValidator'
 -- 'requestValidatorId', 'deleteRequestValidator_requestValidatorId' - [Required] The identifier of the RequestValidator to be deleted.
 newDeleteRequestValidator ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'requestValidatorId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRequestValidator
 newDeleteRequestValidator
   pRestApiId_
@@ -79,11 +80,11 @@ newDeleteRequestValidator
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteRequestValidator_restApiId :: Lens.Lens' DeleteRequestValidator Core.Text
+deleteRequestValidator_restApiId :: Lens.Lens' DeleteRequestValidator Prelude.Text
 deleteRequestValidator_restApiId = Lens.lens (\DeleteRequestValidator' {restApiId} -> restApiId) (\s@DeleteRequestValidator' {} a -> s {restApiId = a} :: DeleteRequestValidator)
 
 -- | [Required] The identifier of the RequestValidator to be deleted.
-deleteRequestValidator_requestValidatorId :: Lens.Lens' DeleteRequestValidator Core.Text
+deleteRequestValidator_requestValidatorId :: Lens.Lens' DeleteRequestValidator Prelude.Text
 deleteRequestValidator_requestValidatorId = Lens.lens (\DeleteRequestValidator' {requestValidatorId} -> requestValidatorId) (\s@DeleteRequestValidator' {} a -> s {requestValidatorId = a} :: DeleteRequestValidator)
 
 instance Core.AWSRequest DeleteRequestValidator where
@@ -95,22 +96,22 @@ instance Core.AWSRequest DeleteRequestValidator where
     Response.receiveNull
       DeleteRequestValidatorResponse'
 
-instance Core.Hashable DeleteRequestValidator
+instance Prelude.Hashable DeleteRequestValidator
 
-instance Core.NFData DeleteRequestValidator
+instance Prelude.NFData DeleteRequestValidator
 
 instance Core.ToHeaders DeleteRequestValidator where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteRequestValidator where
   toPath DeleteRequestValidator' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/requestvalidators/",
@@ -118,13 +119,13 @@ instance Core.ToPath DeleteRequestValidator where
       ]
 
 instance Core.ToQuery DeleteRequestValidator where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRequestValidatorResponse' smart constructor.
 data DeleteRequestValidatorResponse = DeleteRequestValidatorResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRequestValidatorResponse' with all optional fields omitted.
@@ -135,4 +136,6 @@ newDeleteRequestValidatorResponse ::
 newDeleteRequestValidatorResponse =
   DeleteRequestValidatorResponse'
 
-instance Core.NFData DeleteRequestValidatorResponse
+instance
+  Prelude.NFData
+    DeleteRequestValidatorResponse

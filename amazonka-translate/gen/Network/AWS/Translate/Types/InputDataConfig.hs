@@ -21,6 +21,7 @@ module Network.AWS.Translate.Types.InputDataConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The input configuration properties for requesting a batch translation
 -- job.
@@ -29,7 +30,7 @@ import qualified Network.AWS.Lens as Lens
 data InputDataConfig = InputDataConfig'
   { -- | The URI of the AWS S3 folder that contains the input file. The folder
     -- must be in the same Region as the API endpoint you are calling.
-    s3Uri :: Core.Text,
+    s3Uri :: Prelude.Text,
     -- | Describes the format of the data that you submit to Amazon Translate as
     -- input. You can specify one of the following multipurpose internet mail
     -- extension (MIME) types:
@@ -57,9 +58,9 @@ data InputDataConfig = InputDataConfig'
     -- translation to the contents of the @html@ element in each file.
     -- Otherwise, if you set this parameter to @text\/plain@, your costs will
     -- cover the translation of every character.
-    contentType :: Core.Text
+    contentType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputDataConfig' with all optional fields omitted.
@@ -101,9 +102,9 @@ data InputDataConfig = InputDataConfig'
 -- cover the translation of every character.
 newInputDataConfig ::
   -- | 's3Uri'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'contentType'
-  Core.Text ->
+  Prelude.Text ->
   InputDataConfig
 newInputDataConfig pS3Uri_ pContentType_ =
   InputDataConfig'
@@ -113,7 +114,7 @@ newInputDataConfig pS3Uri_ pContentType_ =
 
 -- | The URI of the AWS S3 folder that contains the input file. The folder
 -- must be in the same Region as the API endpoint you are calling.
-inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Core.Text
+inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@InputDataConfig' {} a -> s {s3Uri = a} :: InputDataConfig)
 
 -- | Describes the format of the data that you submit to Amazon Translate as
@@ -143,7 +144,7 @@ inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@Input
 -- translation to the contents of the @html@ element in each file.
 -- Otherwise, if you set this parameter to @text\/plain@, your costs will
 -- cover the translation of every character.
-inputDataConfig_contentType :: Lens.Lens' InputDataConfig Core.Text
+inputDataConfig_contentType :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_contentType = Lens.lens (\InputDataConfig' {contentType} -> contentType) (\s@InputDataConfig' {} a -> s {contentType = a} :: InputDataConfig)
 
 instance Core.FromJSON InputDataConfig where
@@ -152,19 +153,19 @@ instance Core.FromJSON InputDataConfig where
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Core.<$> (x Core..: "S3Uri")
-            Core.<*> (x Core..: "ContentType")
+            Prelude.<$> (x Core..: "S3Uri")
+            Prelude.<*> (x Core..: "ContentType")
       )
 
-instance Core.Hashable InputDataConfig
+instance Prelude.Hashable InputDataConfig
 
-instance Core.NFData InputDataConfig
+instance Prelude.NFData InputDataConfig
 
 instance Core.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("S3Uri" Core..= s3Uri),
-            Core.Just ("ContentType" Core..= contentType)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("S3Uri" Core..= s3Uri),
+            Prelude.Just ("ContentType" Core..= contentType)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.Comprehend.Types.SentimentScore where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the level of confidence that Amazon Comprehend has in the
 -- accuracy of its detection of sentiments.
@@ -29,18 +30,18 @@ import qualified Network.AWS.Lens as Lens
 data SentimentScore = SentimentScore'
   { -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- its detection of the @NEGATIVE@ sentiment.
-    negative :: Core.Maybe Core.Double,
+    negative :: Prelude.Maybe Prelude.Double,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- its detection of the @MIXED@ sentiment.
-    mixed :: Core.Maybe Core.Double,
+    mixed :: Prelude.Maybe Prelude.Double,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- its detection of the @POSITIVE@ sentiment.
-    positive :: Core.Maybe Core.Double,
+    positive :: Prelude.Maybe Prelude.Double,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- its detection of the @NEUTRAL@ sentiment.
-    neutral :: Core.Maybe Core.Double
+    neutral :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SentimentScore' with all optional fields omitted.
@@ -65,30 +66,30 @@ newSentimentScore ::
   SentimentScore
 newSentimentScore =
   SentimentScore'
-    { negative = Core.Nothing,
-      mixed = Core.Nothing,
-      positive = Core.Nothing,
-      neutral = Core.Nothing
+    { negative = Prelude.Nothing,
+      mixed = Prelude.Nothing,
+      positive = Prelude.Nothing,
+      neutral = Prelude.Nothing
     }
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- its detection of the @NEGATIVE@ sentiment.
-sentimentScore_negative :: Lens.Lens' SentimentScore (Core.Maybe Core.Double)
+sentimentScore_negative :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
 sentimentScore_negative = Lens.lens (\SentimentScore' {negative} -> negative) (\s@SentimentScore' {} a -> s {negative = a} :: SentimentScore)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- its detection of the @MIXED@ sentiment.
-sentimentScore_mixed :: Lens.Lens' SentimentScore (Core.Maybe Core.Double)
+sentimentScore_mixed :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
 sentimentScore_mixed = Lens.lens (\SentimentScore' {mixed} -> mixed) (\s@SentimentScore' {} a -> s {mixed = a} :: SentimentScore)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- its detection of the @POSITIVE@ sentiment.
-sentimentScore_positive :: Lens.Lens' SentimentScore (Core.Maybe Core.Double)
+sentimentScore_positive :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
 sentimentScore_positive = Lens.lens (\SentimentScore' {positive} -> positive) (\s@SentimentScore' {} a -> s {positive = a} :: SentimentScore)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- its detection of the @NEUTRAL@ sentiment.
-sentimentScore_neutral :: Lens.Lens' SentimentScore (Core.Maybe Core.Double)
+sentimentScore_neutral :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
 sentimentScore_neutral = Lens.lens (\SentimentScore' {neutral} -> neutral) (\s@SentimentScore' {} a -> s {neutral = a} :: SentimentScore)
 
 instance Core.FromJSON SentimentScore where
@@ -97,12 +98,12 @@ instance Core.FromJSON SentimentScore where
       "SentimentScore"
       ( \x ->
           SentimentScore'
-            Core.<$> (x Core..:? "Negative")
-            Core.<*> (x Core..:? "Mixed")
-            Core.<*> (x Core..:? "Positive")
-            Core.<*> (x Core..:? "Neutral")
+            Prelude.<$> (x Core..:? "Negative")
+            Prelude.<*> (x Core..:? "Mixed")
+            Prelude.<*> (x Core..:? "Positive")
+            Prelude.<*> (x Core..:? "Neutral")
       )
 
-instance Core.Hashable SentimentScore
+instance Prelude.Hashable SentimentScore
 
-instance Core.NFData SentimentScore
+instance Prelude.NFData SentimentScore

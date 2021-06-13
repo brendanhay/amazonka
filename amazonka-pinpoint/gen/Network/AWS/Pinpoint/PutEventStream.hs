@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data PutEventStream = PutEventStream'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     writeEventStream :: WriteEventStream
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutEventStream' with all optional fields omitted.
@@ -70,7 +71,7 @@ data PutEventStream = PutEventStream'
 -- 'writeEventStream', 'putEventStream_writeEventStream' - Undocumented member.
 newPutEventStream ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'writeEventStream'
   WriteEventStream ->
   PutEventStream
@@ -82,7 +83,7 @@ newPutEventStream pApplicationId_ pWriteEventStream_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-putEventStream_applicationId :: Lens.Lens' PutEventStream Core.Text
+putEventStream_applicationId :: Lens.Lens' PutEventStream Prelude.Text
 putEventStream_applicationId = Lens.lens (\PutEventStream' {applicationId} -> applicationId) (\s@PutEventStream' {} a -> s {applicationId = a} :: PutEventStream)
 
 -- | Undocumented member.
@@ -98,50 +99,52 @@ instance Core.AWSRequest PutEventStream where
     Response.receiveJSON
       ( \s h x ->
           PutEventStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable PutEventStream
+instance Prelude.Hashable PutEventStream
 
-instance Core.NFData PutEventStream
+instance Prelude.NFData PutEventStream
 
 instance Core.ToHeaders PutEventStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutEventStream where
   toJSON PutEventStream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("WriteEventStream" Core..= writeEventStream)
           ]
       )
 
 instance Core.ToPath PutEventStream where
   toPath PutEventStream' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/eventstream"
       ]
 
 instance Core.ToQuery PutEventStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutEventStreamResponse' smart constructor.
 data PutEventStreamResponse = PutEventStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     eventStream :: EventStream
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutEventStreamResponse' with all optional fields omitted.
@@ -156,7 +159,7 @@ data PutEventStreamResponse = PutEventStreamResponse'
 -- 'eventStream', 'putEventStreamResponse_eventStream' - Undocumented member.
 newPutEventStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'eventStream'
   EventStream ->
   PutEventStreamResponse
@@ -167,11 +170,11 @@ newPutEventStreamResponse pHttpStatus_ pEventStream_ =
     }
 
 -- | The response's http status code.
-putEventStreamResponse_httpStatus :: Lens.Lens' PutEventStreamResponse Core.Int
+putEventStreamResponse_httpStatus :: Lens.Lens' PutEventStreamResponse Prelude.Int
 putEventStreamResponse_httpStatus = Lens.lens (\PutEventStreamResponse' {httpStatus} -> httpStatus) (\s@PutEventStreamResponse' {} a -> s {httpStatus = a} :: PutEventStreamResponse)
 
 -- | Undocumented member.
 putEventStreamResponse_eventStream :: Lens.Lens' PutEventStreamResponse EventStream
 putEventStreamResponse_eventStream = Lens.lens (\PutEventStreamResponse' {eventStream} -> eventStream) (\s@PutEventStreamResponse' {} a -> s {eventStream = a} :: PutEventStreamResponse)
 
-instance Core.NFData PutEventStreamResponse
+instance Prelude.NFData PutEventStreamResponse

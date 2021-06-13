@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.HttpHeaderConditionConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an HTTP header condition.
 --
@@ -40,16 +41,16 @@ data HttpHeaderConditionConfig = HttpHeaderConditionConfig'
     -- If you specify multiple strings, the condition is satisfied if one of
     -- the strings matches the value of the HTTP header. To require that all of
     -- the strings are a match, create one condition per string.
-    values :: Core.Maybe [Core.Text],
+    values :: Prelude.Maybe [Prelude.Text],
     -- | The name of the HTTP header field. The maximum size is 40 characters.
     -- The header name is case insensitive. The allowed characters are
     -- specified by RFC 7230. Wildcards are not supported.
     --
     -- You can\'t use an HTTP header condition to specify the host header. Use
     -- HostHeaderConditionConfig to specify a host header condition.
-    httpHeaderName :: Core.Maybe Core.Text
+    httpHeaderName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpHeaderConditionConfig' with all optional fields omitted.
@@ -81,8 +82,9 @@ newHttpHeaderConditionConfig ::
   HttpHeaderConditionConfig
 newHttpHeaderConditionConfig =
   HttpHeaderConditionConfig'
-    { values = Core.Nothing,
-      httpHeaderName = Core.Nothing
+    { values =
+        Prelude.Nothing,
+      httpHeaderName = Prelude.Nothing
     }
 
 -- | One or more strings to compare against the value of the HTTP header. The
@@ -96,8 +98,8 @@ newHttpHeaderConditionConfig =
 -- If you specify multiple strings, the condition is satisfied if one of
 -- the strings matches the value of the HTTP header. To require that all of
 -- the strings are a match, create one condition per string.
-httpHeaderConditionConfig_values :: Lens.Lens' HttpHeaderConditionConfig (Core.Maybe [Core.Text])
-httpHeaderConditionConfig_values = Lens.lens (\HttpHeaderConditionConfig' {values} -> values) (\s@HttpHeaderConditionConfig' {} a -> s {values = a} :: HttpHeaderConditionConfig) Core.. Lens.mapping Lens._Coerce
+httpHeaderConditionConfig_values :: Lens.Lens' HttpHeaderConditionConfig (Prelude.Maybe [Prelude.Text])
+httpHeaderConditionConfig_values = Lens.lens (\HttpHeaderConditionConfig' {values} -> values) (\s@HttpHeaderConditionConfig' {} a -> s {values = a} :: HttpHeaderConditionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the HTTP header field. The maximum size is 40 characters.
 -- The header name is case insensitive. The allowed characters are
@@ -105,26 +107,26 @@ httpHeaderConditionConfig_values = Lens.lens (\HttpHeaderConditionConfig' {value
 --
 -- You can\'t use an HTTP header condition to specify the host header. Use
 -- HostHeaderConditionConfig to specify a host header condition.
-httpHeaderConditionConfig_httpHeaderName :: Lens.Lens' HttpHeaderConditionConfig (Core.Maybe Core.Text)
+httpHeaderConditionConfig_httpHeaderName :: Lens.Lens' HttpHeaderConditionConfig (Prelude.Maybe Prelude.Text)
 httpHeaderConditionConfig_httpHeaderName = Lens.lens (\HttpHeaderConditionConfig' {httpHeaderName} -> httpHeaderName) (\s@HttpHeaderConditionConfig' {} a -> s {httpHeaderName = a} :: HttpHeaderConditionConfig)
 
 instance Core.FromXML HttpHeaderConditionConfig where
   parseXML x =
     HttpHeaderConditionConfig'
-      Core.<$> ( x Core..@? "Values" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "HttpHeaderName")
+      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "HttpHeaderName")
 
-instance Core.Hashable HttpHeaderConditionConfig
+instance Prelude.Hashable HttpHeaderConditionConfig
 
-instance Core.NFData HttpHeaderConditionConfig
+instance Prelude.NFData HttpHeaderConditionConfig
 
 instance Core.ToQuery HttpHeaderConditionConfig where
   toQuery HttpHeaderConditionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Values"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> values),
+            (Core.toQueryList "member" Prelude.<$> values),
         "HttpHeaderName" Core.=: httpHeaderName
       ]

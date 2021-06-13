@@ -22,17 +22,18 @@ module Network.AWS.DataPipeline.Types.ParameterObject where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types.ParameterAttribute
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a parameter object.
 --
 -- /See:/ 'newParameterObject' smart constructor.
 data ParameterObject = ParameterObject'
   { -- | The ID of the parameter object.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The attributes of the parameter object.
     attributes :: [ParameterAttribute]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterObject' with all optional fields omitted.
@@ -47,21 +48,21 @@ data ParameterObject = ParameterObject'
 -- 'attributes', 'parameterObject_attributes' - The attributes of the parameter object.
 newParameterObject ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   ParameterObject
 newParameterObject pId_ =
   ParameterObject'
     { id = pId_,
-      attributes = Core.mempty
+      attributes = Prelude.mempty
     }
 
 -- | The ID of the parameter object.
-parameterObject_id :: Lens.Lens' ParameterObject Core.Text
+parameterObject_id :: Lens.Lens' ParameterObject Prelude.Text
 parameterObject_id = Lens.lens (\ParameterObject' {id} -> id) (\s@ParameterObject' {} a -> s {id = a} :: ParameterObject)
 
 -- | The attributes of the parameter object.
 parameterObject_attributes :: Lens.Lens' ParameterObject [ParameterAttribute]
-parameterObject_attributes = Lens.lens (\ParameterObject' {attributes} -> attributes) (\s@ParameterObject' {} a -> s {attributes = a} :: ParameterObject) Core.. Lens._Coerce
+parameterObject_attributes = Lens.lens (\ParameterObject' {attributes} -> attributes) (\s@ParameterObject' {} a -> s {attributes = a} :: ParameterObject) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ParameterObject where
   parseJSON =
@@ -69,19 +70,19 @@ instance Core.FromJSON ParameterObject where
       "ParameterObject"
       ( \x ->
           ParameterObject'
-            Core.<$> (x Core..: "id")
-            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
+            Prelude.<$> (x Core..: "id")
+            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ParameterObject
+instance Prelude.Hashable ParameterObject
 
-instance Core.NFData ParameterObject
+instance Prelude.NFData ParameterObject
 
 instance Core.ToJSON ParameterObject where
   toJSON ParameterObject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("id" Core..= id),
-            Core.Just ("attributes" Core..= attributes)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("id" Core..= id),
+            Prelude.Just ("attributes" Core..= attributes)
           ]
       )

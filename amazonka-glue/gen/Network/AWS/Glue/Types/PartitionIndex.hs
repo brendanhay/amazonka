@@ -21,17 +21,18 @@ module Network.AWS.Glue.Types.PartitionIndex where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure for a partition index.
 --
 -- /See:/ 'newPartitionIndex' smart constructor.
 data PartitionIndex = PartitionIndex'
   { -- | The keys for the partition index.
-    keys :: Core.NonEmpty Core.Text,
+    keys :: Prelude.NonEmpty Prelude.Text,
     -- | The name of the partition index.
-    indexName :: Core.Text
+    indexName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PartitionIndex' with all optional fields omitted.
@@ -46,9 +47,9 @@ data PartitionIndex = PartitionIndex'
 -- 'indexName', 'partitionIndex_indexName' - The name of the partition index.
 newPartitionIndex ::
   -- | 'keys'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'indexName'
-  Core.Text ->
+  Prelude.Text ->
   PartitionIndex
 newPartitionIndex pKeys_ pIndexName_ =
   PartitionIndex'
@@ -57,22 +58,22 @@ newPartitionIndex pKeys_ pIndexName_ =
     }
 
 -- | The keys for the partition index.
-partitionIndex_keys :: Lens.Lens' PartitionIndex (Core.NonEmpty Core.Text)
-partitionIndex_keys = Lens.lens (\PartitionIndex' {keys} -> keys) (\s@PartitionIndex' {} a -> s {keys = a} :: PartitionIndex) Core.. Lens._Coerce
+partitionIndex_keys :: Lens.Lens' PartitionIndex (Prelude.NonEmpty Prelude.Text)
+partitionIndex_keys = Lens.lens (\PartitionIndex' {keys} -> keys) (\s@PartitionIndex' {} a -> s {keys = a} :: PartitionIndex) Prelude.. Lens._Coerce
 
 -- | The name of the partition index.
-partitionIndex_indexName :: Lens.Lens' PartitionIndex Core.Text
+partitionIndex_indexName :: Lens.Lens' PartitionIndex Prelude.Text
 partitionIndex_indexName = Lens.lens (\PartitionIndex' {indexName} -> indexName) (\s@PartitionIndex' {} a -> s {indexName = a} :: PartitionIndex)
 
-instance Core.Hashable PartitionIndex
+instance Prelude.Hashable PartitionIndex
 
-instance Core.NFData PartitionIndex
+instance Prelude.NFData PartitionIndex
 
 instance Core.ToJSON PartitionIndex where
   toJSON PartitionIndex' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Keys" Core..= keys),
-            Core.Just ("IndexName" Core..= indexName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Keys" Core..= keys),
+            Prelude.Just ("IndexName" Core..= indexName)
           ]
       )

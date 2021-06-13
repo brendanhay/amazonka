@@ -26,6 +26,7 @@ import Network.AWS.Glacier.Types.OutputLocation
 import Network.AWS.Glacier.Types.SelectParameters
 import Network.AWS.Glacier.Types.StatusCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the description of an Amazon S3 Glacier job.
 --
@@ -52,68 +53,68 @@ data GlacierJobDescription = GlacierJobDescription'
     -- -   Inventory jobs
     --
     -- -   Select jobs
-    sHA256TreeHash :: Core.Maybe Core.Text,
+    sHA256TreeHash :: Prelude.Maybe Prelude.Text,
     -- | A friendly message that describes the job status.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The job description provided when initiating the job.
-    jobDescription :: Core.Maybe Core.Text,
+    jobDescription :: Prelude.Maybe Prelude.Text,
     -- | The retrieved byte range for archive retrieval jobs in the form
     -- /StartByteValue/-/EndByteValue/. If no range was specified in the
     -- archive retrieval, then the whole archive is retrieved. In this case,
     -- /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the
     -- archive minus 1. For inventory retrieval or select jobs, this field is
     -- null.
-    retrievalByteRange :: Core.Maybe Core.Text,
+    retrievalByteRange :: Prelude.Maybe Prelude.Text,
     -- | The UTC date when the job was created. This value is a string
     -- representation of ISO 8601 date format, for example
     -- @\"2012-03-20T17:03:43.221Z\"@.
-    creationDate :: Core.Maybe Core.Text,
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | Contains the job output location.
-    jobOutputPath :: Core.Maybe Core.Text,
+    jobOutputPath :: Prelude.Maybe Prelude.Text,
     -- | Contains the parameters used for a select.
-    selectParameters :: Core.Maybe SelectParameters,
+    selectParameters :: Prelude.Maybe SelectParameters,
     -- | The Amazon Resource Name (ARN) of the vault from which an archive
     -- retrieval was requested.
-    vaultARN :: Core.Maybe Core.Text,
+    vaultARN :: Prelude.Maybe Prelude.Text,
     -- | The archive ID requested for a select job or archive retrieval.
     -- Otherwise, this field is null.
-    archiveId :: Core.Maybe Core.Text,
+    archiveId :: Prelude.Maybe Prelude.Text,
     -- | An Amazon SNS topic that receives notification.
-    sNSTopic :: Core.Maybe Core.Text,
+    sNSTopic :: Prelude.Maybe Prelude.Text,
     -- | For an inventory retrieval job, this value is the size in bytes of the
     -- inventory requested for download. For an archive retrieval or select
     -- job, this value is null.
-    inventorySizeInBytes :: Core.Maybe Core.Integer,
+    inventorySizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The status code can be @InProgress@, @Succeeded@, or @Failed@, and
     -- indicates the status of the job.
-    statusCode :: Core.Maybe StatusCode,
+    statusCode :: Prelude.Maybe StatusCode,
     -- | For an archive retrieval job, this value is the size in bytes of the
     -- archive being requested for download. For an inventory retrieval or
     -- select job, this value is null.
-    archiveSizeInBytes :: Core.Maybe Core.Integer,
+    archiveSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The job type. This value is either @ArchiveRetrieval@,
     -- @InventoryRetrieval@, or @Select@.
-    action :: Core.Maybe ActionCode,
+    action :: Prelude.Maybe ActionCode,
     -- | Parameters used for range inventory retrieval.
-    inventoryRetrievalParameters :: Core.Maybe InventoryRetrievalJobDescription,
+    inventoryRetrievalParameters :: Prelude.Maybe InventoryRetrievalJobDescription,
     -- | The UTC time that the job request completed. While the job is in
     -- progress, the value is null.
-    completionDate :: Core.Maybe Core.Text,
+    completionDate :: Prelude.Maybe Prelude.Text,
     -- | The SHA256 tree hash of the entire archive for an archive retrieval. For
     -- inventory retrieval or select jobs, this field is null.
-    archiveSHA256TreeHash :: Core.Maybe Core.Text,
+    archiveSHA256TreeHash :: Prelude.Maybe Prelude.Text,
     -- | The job status. When a job is completed, you get the job\'s output using
     -- Get Job Output (GET output).
-    completed :: Core.Maybe Core.Bool,
+    completed :: Prelude.Maybe Prelude.Bool,
     -- | An opaque string that identifies an Amazon S3 Glacier job.
-    jobId :: Core.Maybe Core.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | Contains the location where the data from the select job is stored.
-    outputLocation :: Core.Maybe OutputLocation,
+    outputLocation :: Prelude.Maybe OutputLocation,
     -- | The tier to use for a select or an archive retrieval. Valid values are
     -- @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
-    tier :: Core.Maybe Core.Text
+    tier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GlacierJobDescription' with all optional fields omitted.
@@ -208,27 +209,27 @@ newGlacierJobDescription ::
 newGlacierJobDescription =
   GlacierJobDescription'
     { sHA256TreeHash =
-        Core.Nothing,
-      statusMessage = Core.Nothing,
-      jobDescription = Core.Nothing,
-      retrievalByteRange = Core.Nothing,
-      creationDate = Core.Nothing,
-      jobOutputPath = Core.Nothing,
-      selectParameters = Core.Nothing,
-      vaultARN = Core.Nothing,
-      archiveId = Core.Nothing,
-      sNSTopic = Core.Nothing,
-      inventorySizeInBytes = Core.Nothing,
-      statusCode = Core.Nothing,
-      archiveSizeInBytes = Core.Nothing,
-      action = Core.Nothing,
-      inventoryRetrievalParameters = Core.Nothing,
-      completionDate = Core.Nothing,
-      archiveSHA256TreeHash = Core.Nothing,
-      completed = Core.Nothing,
-      jobId = Core.Nothing,
-      outputLocation = Core.Nothing,
-      tier = Core.Nothing
+        Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      jobDescription = Prelude.Nothing,
+      retrievalByteRange = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      jobOutputPath = Prelude.Nothing,
+      selectParameters = Prelude.Nothing,
+      vaultARN = Prelude.Nothing,
+      archiveId = Prelude.Nothing,
+      sNSTopic = Prelude.Nothing,
+      inventorySizeInBytes = Prelude.Nothing,
+      statusCode = Prelude.Nothing,
+      archiveSizeInBytes = Prelude.Nothing,
+      action = Prelude.Nothing,
+      inventoryRetrievalParameters = Prelude.Nothing,
+      completionDate = Prelude.Nothing,
+      archiveSHA256TreeHash = Prelude.Nothing,
+      completed = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      outputLocation = Prelude.Nothing,
+      tier = Prelude.Nothing
     }
 
 -- | For an archive retrieval job, this value is the checksum of the archive.
@@ -252,15 +253,15 @@ newGlacierJobDescription =
 -- -   Inventory jobs
 --
 -- -   Select jobs
-glacierJobDescription_sHA256TreeHash :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_sHA256TreeHash :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_sHA256TreeHash = Lens.lens (\GlacierJobDescription' {sHA256TreeHash} -> sHA256TreeHash) (\s@GlacierJobDescription' {} a -> s {sHA256TreeHash = a} :: GlacierJobDescription)
 
 -- | A friendly message that describes the job status.
-glacierJobDescription_statusMessage :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_statusMessage :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_statusMessage = Lens.lens (\GlacierJobDescription' {statusMessage} -> statusMessage) (\s@GlacierJobDescription' {} a -> s {statusMessage = a} :: GlacierJobDescription)
 
 -- | The job description provided when initiating the job.
-glacierJobDescription_jobDescription :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_jobDescription :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_jobDescription = Lens.lens (\GlacierJobDescription' {jobDescription} -> jobDescription) (\s@GlacierJobDescription' {} a -> s {jobDescription = a} :: GlacierJobDescription)
 
 -- | The retrieved byte range for archive retrieval jobs in the form
@@ -269,89 +270,89 @@ glacierJobDescription_jobDescription = Lens.lens (\GlacierJobDescription' {jobDe
 -- /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the
 -- archive minus 1. For inventory retrieval or select jobs, this field is
 -- null.
-glacierJobDescription_retrievalByteRange :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_retrievalByteRange :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_retrievalByteRange = Lens.lens (\GlacierJobDescription' {retrievalByteRange} -> retrievalByteRange) (\s@GlacierJobDescription' {} a -> s {retrievalByteRange = a} :: GlacierJobDescription)
 
 -- | The UTC date when the job was created. This value is a string
 -- representation of ISO 8601 date format, for example
 -- @\"2012-03-20T17:03:43.221Z\"@.
-glacierJobDescription_creationDate :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_creationDate :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_creationDate = Lens.lens (\GlacierJobDescription' {creationDate} -> creationDate) (\s@GlacierJobDescription' {} a -> s {creationDate = a} :: GlacierJobDescription)
 
 -- | Contains the job output location.
-glacierJobDescription_jobOutputPath :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_jobOutputPath :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_jobOutputPath = Lens.lens (\GlacierJobDescription' {jobOutputPath} -> jobOutputPath) (\s@GlacierJobDescription' {} a -> s {jobOutputPath = a} :: GlacierJobDescription)
 
 -- | Contains the parameters used for a select.
-glacierJobDescription_selectParameters :: Lens.Lens' GlacierJobDescription (Core.Maybe SelectParameters)
+glacierJobDescription_selectParameters :: Lens.Lens' GlacierJobDescription (Prelude.Maybe SelectParameters)
 glacierJobDescription_selectParameters = Lens.lens (\GlacierJobDescription' {selectParameters} -> selectParameters) (\s@GlacierJobDescription' {} a -> s {selectParameters = a} :: GlacierJobDescription)
 
 -- | The Amazon Resource Name (ARN) of the vault from which an archive
 -- retrieval was requested.
-glacierJobDescription_vaultARN :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_vaultARN :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_vaultARN = Lens.lens (\GlacierJobDescription' {vaultARN} -> vaultARN) (\s@GlacierJobDescription' {} a -> s {vaultARN = a} :: GlacierJobDescription)
 
 -- | The archive ID requested for a select job or archive retrieval.
 -- Otherwise, this field is null.
-glacierJobDescription_archiveId :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_archiveId :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_archiveId = Lens.lens (\GlacierJobDescription' {archiveId} -> archiveId) (\s@GlacierJobDescription' {} a -> s {archiveId = a} :: GlacierJobDescription)
 
 -- | An Amazon SNS topic that receives notification.
-glacierJobDescription_sNSTopic :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_sNSTopic :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_sNSTopic = Lens.lens (\GlacierJobDescription' {sNSTopic} -> sNSTopic) (\s@GlacierJobDescription' {} a -> s {sNSTopic = a} :: GlacierJobDescription)
 
 -- | For an inventory retrieval job, this value is the size in bytes of the
 -- inventory requested for download. For an archive retrieval or select
 -- job, this value is null.
-glacierJobDescription_inventorySizeInBytes :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Integer)
+glacierJobDescription_inventorySizeInBytes :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Integer)
 glacierJobDescription_inventorySizeInBytes = Lens.lens (\GlacierJobDescription' {inventorySizeInBytes} -> inventorySizeInBytes) (\s@GlacierJobDescription' {} a -> s {inventorySizeInBytes = a} :: GlacierJobDescription)
 
 -- | The status code can be @InProgress@, @Succeeded@, or @Failed@, and
 -- indicates the status of the job.
-glacierJobDescription_statusCode :: Lens.Lens' GlacierJobDescription (Core.Maybe StatusCode)
+glacierJobDescription_statusCode :: Lens.Lens' GlacierJobDescription (Prelude.Maybe StatusCode)
 glacierJobDescription_statusCode = Lens.lens (\GlacierJobDescription' {statusCode} -> statusCode) (\s@GlacierJobDescription' {} a -> s {statusCode = a} :: GlacierJobDescription)
 
 -- | For an archive retrieval job, this value is the size in bytes of the
 -- archive being requested for download. For an inventory retrieval or
 -- select job, this value is null.
-glacierJobDescription_archiveSizeInBytes :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Integer)
+glacierJobDescription_archiveSizeInBytes :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Integer)
 glacierJobDescription_archiveSizeInBytes = Lens.lens (\GlacierJobDescription' {archiveSizeInBytes} -> archiveSizeInBytes) (\s@GlacierJobDescription' {} a -> s {archiveSizeInBytes = a} :: GlacierJobDescription)
 
 -- | The job type. This value is either @ArchiveRetrieval@,
 -- @InventoryRetrieval@, or @Select@.
-glacierJobDescription_action :: Lens.Lens' GlacierJobDescription (Core.Maybe ActionCode)
+glacierJobDescription_action :: Lens.Lens' GlacierJobDescription (Prelude.Maybe ActionCode)
 glacierJobDescription_action = Lens.lens (\GlacierJobDescription' {action} -> action) (\s@GlacierJobDescription' {} a -> s {action = a} :: GlacierJobDescription)
 
 -- | Parameters used for range inventory retrieval.
-glacierJobDescription_inventoryRetrievalParameters :: Lens.Lens' GlacierJobDescription (Core.Maybe InventoryRetrievalJobDescription)
+glacierJobDescription_inventoryRetrievalParameters :: Lens.Lens' GlacierJobDescription (Prelude.Maybe InventoryRetrievalJobDescription)
 glacierJobDescription_inventoryRetrievalParameters = Lens.lens (\GlacierJobDescription' {inventoryRetrievalParameters} -> inventoryRetrievalParameters) (\s@GlacierJobDescription' {} a -> s {inventoryRetrievalParameters = a} :: GlacierJobDescription)
 
 -- | The UTC time that the job request completed. While the job is in
 -- progress, the value is null.
-glacierJobDescription_completionDate :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_completionDate :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_completionDate = Lens.lens (\GlacierJobDescription' {completionDate} -> completionDate) (\s@GlacierJobDescription' {} a -> s {completionDate = a} :: GlacierJobDescription)
 
 -- | The SHA256 tree hash of the entire archive for an archive retrieval. For
 -- inventory retrieval or select jobs, this field is null.
-glacierJobDescription_archiveSHA256TreeHash :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_archiveSHA256TreeHash :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_archiveSHA256TreeHash = Lens.lens (\GlacierJobDescription' {archiveSHA256TreeHash} -> archiveSHA256TreeHash) (\s@GlacierJobDescription' {} a -> s {archiveSHA256TreeHash = a} :: GlacierJobDescription)
 
 -- | The job status. When a job is completed, you get the job\'s output using
 -- Get Job Output (GET output).
-glacierJobDescription_completed :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Bool)
+glacierJobDescription_completed :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Bool)
 glacierJobDescription_completed = Lens.lens (\GlacierJobDescription' {completed} -> completed) (\s@GlacierJobDescription' {} a -> s {completed = a} :: GlacierJobDescription)
 
 -- | An opaque string that identifies an Amazon S3 Glacier job.
-glacierJobDescription_jobId :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_jobId :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_jobId = Lens.lens (\GlacierJobDescription' {jobId} -> jobId) (\s@GlacierJobDescription' {} a -> s {jobId = a} :: GlacierJobDescription)
 
 -- | Contains the location where the data from the select job is stored.
-glacierJobDescription_outputLocation :: Lens.Lens' GlacierJobDescription (Core.Maybe OutputLocation)
+glacierJobDescription_outputLocation :: Lens.Lens' GlacierJobDescription (Prelude.Maybe OutputLocation)
 glacierJobDescription_outputLocation = Lens.lens (\GlacierJobDescription' {outputLocation} -> outputLocation) (\s@GlacierJobDescription' {} a -> s {outputLocation = a} :: GlacierJobDescription)
 
 -- | The tier to use for a select or an archive retrieval. Valid values are
 -- @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
-glacierJobDescription_tier :: Lens.Lens' GlacierJobDescription (Core.Maybe Core.Text)
+glacierJobDescription_tier :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_tier = Lens.lens (\GlacierJobDescription' {tier} -> tier) (\s@GlacierJobDescription' {} a -> s {tier = a} :: GlacierJobDescription)
 
 instance Core.FromJSON GlacierJobDescription where
@@ -360,29 +361,29 @@ instance Core.FromJSON GlacierJobDescription where
       "GlacierJobDescription"
       ( \x ->
           GlacierJobDescription'
-            Core.<$> (x Core..:? "SHA256TreeHash")
-            Core.<*> (x Core..:? "StatusMessage")
-            Core.<*> (x Core..:? "JobDescription")
-            Core.<*> (x Core..:? "RetrievalByteRange")
-            Core.<*> (x Core..:? "CreationDate")
-            Core.<*> (x Core..:? "JobOutputPath")
-            Core.<*> (x Core..:? "SelectParameters")
-            Core.<*> (x Core..:? "VaultARN")
-            Core.<*> (x Core..:? "ArchiveId")
-            Core.<*> (x Core..:? "SNSTopic")
-            Core.<*> (x Core..:? "InventorySizeInBytes")
-            Core.<*> (x Core..:? "StatusCode")
-            Core.<*> (x Core..:? "ArchiveSizeInBytes")
-            Core.<*> (x Core..:? "Action")
-            Core.<*> (x Core..:? "InventoryRetrievalParameters")
-            Core.<*> (x Core..:? "CompletionDate")
-            Core.<*> (x Core..:? "ArchiveSHA256TreeHash")
-            Core.<*> (x Core..:? "Completed")
-            Core.<*> (x Core..:? "JobId")
-            Core.<*> (x Core..:? "OutputLocation")
-            Core.<*> (x Core..:? "Tier")
+            Prelude.<$> (x Core..:? "SHA256TreeHash")
+            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<*> (x Core..:? "JobDescription")
+            Prelude.<*> (x Core..:? "RetrievalByteRange")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "JobOutputPath")
+            Prelude.<*> (x Core..:? "SelectParameters")
+            Prelude.<*> (x Core..:? "VaultARN")
+            Prelude.<*> (x Core..:? "ArchiveId")
+            Prelude.<*> (x Core..:? "SNSTopic")
+            Prelude.<*> (x Core..:? "InventorySizeInBytes")
+            Prelude.<*> (x Core..:? "StatusCode")
+            Prelude.<*> (x Core..:? "ArchiveSizeInBytes")
+            Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Core..:? "InventoryRetrievalParameters")
+            Prelude.<*> (x Core..:? "CompletionDate")
+            Prelude.<*> (x Core..:? "ArchiveSHA256TreeHash")
+            Prelude.<*> (x Core..:? "Completed")
+            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<*> (x Core..:? "OutputLocation")
+            Prelude.<*> (x Core..:? "Tier")
       )
 
-instance Core.Hashable GlacierJobDescription
+instance Prelude.Hashable GlacierJobDescription
 
-instance Core.NFData GlacierJobDescription
+instance Prelude.NFData GlacierJobDescription

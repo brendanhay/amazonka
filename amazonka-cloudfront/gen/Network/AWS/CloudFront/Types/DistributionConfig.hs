@@ -32,6 +32,7 @@ import Network.AWS.CloudFront.Types.Restrictions
 import Network.AWS.CloudFront.Types.ViewerCertificate
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A distribution configuration.
 --
@@ -39,7 +40,7 @@ import qualified Network.AWS.Lens as Lens
 data DistributionConfig = DistributionConfig'
   { -- | A complex type that determines the distribution’s SSL\/TLS configuration
     -- for communicating with viewers.
-    viewerCertificate :: Core.Maybe ViewerCertificate,
+    viewerCertificate :: Prelude.Maybe ViewerCertificate,
     -- | A complex type that controls the following:
     --
     -- -   Whether CloudFront replaces HTTP status codes in the 4xx and 5xx
@@ -52,7 +53,7 @@ data DistributionConfig = DistributionConfig'
     -- For more information about custom error pages, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html Customizing Error Responses>
     -- in the /Amazon CloudFront Developer Guide/.
-    customErrorResponses :: Core.Maybe CustomErrorResponses,
+    customErrorResponses :: Prelude.Maybe CustomErrorResponses,
     -- | A unique identifier that specifies the AWS WAF web ACL, if any, to
     -- associate with this distribution. To specify a web ACL created using the
     -- latest version of AWS WAF, use the ACL ARN, for example
@@ -69,7 +70,7 @@ data DistributionConfig = DistributionConfig'
     -- configure CloudFront to return a custom error page when a request is
     -- blocked. For more information about AWS WAF, see the
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html AWS WAF Developer Guide>.
-    webACLId :: Core.Maybe Core.Text,
+    webACLId :: Prelude.Maybe Prelude.Text,
     -- | The price class that corresponds with the maximum price that you want to
     -- pay for CloudFront service. If you specify @PriceClass_All@, CloudFront
     -- responds to requests for your objects from all CloudFront edge
@@ -87,20 +88,20 @@ data DistributionConfig = DistributionConfig'
     -- CloudFront pricing, including how price classes (such as Price Class
     -- 100) map to CloudFront regions, see
     -- <http://aws.amazon.com/cloudfront/pricing/ Amazon CloudFront Pricing>.
-    priceClass :: Core.Maybe PriceClass,
+    priceClass :: Prelude.Maybe PriceClass,
     -- | A complex type that controls whether access logs are written for the
     -- distribution.
     --
     -- For more information about logging, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html Access Logs>
     -- in the /Amazon CloudFront Developer Guide/.
-    logging :: Core.Maybe LoggingConfig,
+    logging :: Prelude.Maybe LoggingConfig,
     -- | A complex type that contains information about origin groups for this
     -- distribution.
-    originGroups :: Core.Maybe OriginGroups,
+    originGroups :: Prelude.Maybe OriginGroups,
     -- | A complex type that identifies ways in which you want to restrict
     -- distribution of your content.
-    restrictions :: Core.Maybe Restrictions,
+    restrictions :: Prelude.Maybe Restrictions,
     -- | If you want CloudFront to respond to IPv6 DNS requests with an IPv6
     -- address for your distribution, specify @true@. If you specify @false@,
     -- CloudFront responds to IPv6 DNS requests with the DNS response code
@@ -134,9 +135,9 @@ data DistributionConfig = DistributionConfig'
     -- or with another DNS service, you don\'t need to make any changes. A
     -- CNAME record will route traffic to your distribution regardless of the
     -- IP address format of the viewer request.
-    isIPV6Enabled :: Core.Maybe Core.Bool,
+    isIPV6Enabled :: Prelude.Maybe Prelude.Bool,
     -- | A complex type that contains zero or more @CacheBehavior@ elements.
-    cacheBehaviors :: Core.Maybe CacheBehaviors,
+    cacheBehaviors :: Prelude.Maybe CacheBehaviors,
     -- | The object that you want CloudFront to request from your origin (for
     -- example, @index.html@) when a viewer requests the root URL for your
     -- distribution (@http:\/\/www.example.com@) instead of an object in your
@@ -160,10 +161,10 @@ data DistributionConfig = DistributionConfig'
     -- For more information about the default root object, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html Creating a Default Root Object>
     -- in the /Amazon CloudFront Developer Guide/.
-    defaultRootObject :: Core.Maybe Core.Text,
+    defaultRootObject :: Prelude.Maybe Prelude.Text,
     -- | A complex type that contains information about CNAMEs (alternate domain
     -- names), if any, for this distribution.
-    aliases :: Core.Maybe Aliases,
+    aliases :: Prelude.Maybe Aliases,
     -- | (Optional) Specify the maximum HTTP version that you want viewers to use
     -- to communicate with CloudFront. The default value for new web
     -- distributions is http2. Viewers that don\'t support HTTP\/2
@@ -176,7 +177,7 @@ data DistributionConfig = DistributionConfig'
     -- HTTP\/2 reduces latency. You can improve performance by optimizing for
     -- HTTP\/2. For more information, do an Internet search for \"http\/2
     -- optimization.\"
-    httpVersion :: Core.Maybe HttpVersion,
+    httpVersion :: Prelude.Maybe HttpVersion,
     -- | A unique value (for example, a date-time stamp) that ensures that the
     -- request can\'t be replayed.
     --
@@ -186,7 +187,7 @@ data DistributionConfig = DistributionConfig'
     -- If @CallerReference@ is a value that you already sent in a previous
     -- request to create a distribution, CloudFront returns a
     -- @DistributionAlreadyExists@ error.
-    callerReference :: Core.Text,
+    callerReference :: Prelude.Text,
     -- | A complex type that contains information about origins for this
     -- distribution.
     origins :: Origins,
@@ -205,11 +206,11 @@ data DistributionConfig = DistributionConfig'
     --
     -- To add or change a comment, update the distribution configuration and
     -- specify the new comment.
-    comment :: Core.Sensitive Core.Text,
+    comment :: Core.Sensitive Prelude.Text,
     -- | From this field, you can enable or disable the selected distribution.
-    enabled :: Core.Bool
+    enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DistributionConfig' with all optional fields omitted.
@@ -391,15 +392,15 @@ data DistributionConfig = DistributionConfig'
 -- 'enabled', 'distributionConfig_enabled' - From this field, you can enable or disable the selected distribution.
 newDistributionConfig ::
   -- | 'callerReference'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'origins'
   Origins ->
   -- | 'defaultCacheBehavior'
   DefaultCacheBehavior ->
   -- | 'comment'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   DistributionConfig
 newDistributionConfig
   pCallerReference_
@@ -409,18 +410,18 @@ newDistributionConfig
   pEnabled_ =
     DistributionConfig'
       { viewerCertificate =
-          Core.Nothing,
-        customErrorResponses = Core.Nothing,
-        webACLId = Core.Nothing,
-        priceClass = Core.Nothing,
-        logging = Core.Nothing,
-        originGroups = Core.Nothing,
-        restrictions = Core.Nothing,
-        isIPV6Enabled = Core.Nothing,
-        cacheBehaviors = Core.Nothing,
-        defaultRootObject = Core.Nothing,
-        aliases = Core.Nothing,
-        httpVersion = Core.Nothing,
+          Prelude.Nothing,
+        customErrorResponses = Prelude.Nothing,
+        webACLId = Prelude.Nothing,
+        priceClass = Prelude.Nothing,
+        logging = Prelude.Nothing,
+        originGroups = Prelude.Nothing,
+        restrictions = Prelude.Nothing,
+        isIPV6Enabled = Prelude.Nothing,
+        cacheBehaviors = Prelude.Nothing,
+        defaultRootObject = Prelude.Nothing,
+        aliases = Prelude.Nothing,
+        httpVersion = Prelude.Nothing,
         callerReference = pCallerReference_,
         origins = pOrigins_,
         defaultCacheBehavior = pDefaultCacheBehavior_,
@@ -430,7 +431,7 @@ newDistributionConfig
 
 -- | A complex type that determines the distribution’s SSL\/TLS configuration
 -- for communicating with viewers.
-distributionConfig_viewerCertificate :: Lens.Lens' DistributionConfig (Core.Maybe ViewerCertificate)
+distributionConfig_viewerCertificate :: Lens.Lens' DistributionConfig (Prelude.Maybe ViewerCertificate)
 distributionConfig_viewerCertificate = Lens.lens (\DistributionConfig' {viewerCertificate} -> viewerCertificate) (\s@DistributionConfig' {} a -> s {viewerCertificate = a} :: DistributionConfig)
 
 -- | A complex type that controls the following:
@@ -445,7 +446,7 @@ distributionConfig_viewerCertificate = Lens.lens (\DistributionConfig' {viewerCe
 -- For more information about custom error pages, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html Customizing Error Responses>
 -- in the /Amazon CloudFront Developer Guide/.
-distributionConfig_customErrorResponses :: Lens.Lens' DistributionConfig (Core.Maybe CustomErrorResponses)
+distributionConfig_customErrorResponses :: Lens.Lens' DistributionConfig (Prelude.Maybe CustomErrorResponses)
 distributionConfig_customErrorResponses = Lens.lens (\DistributionConfig' {customErrorResponses} -> customErrorResponses) (\s@DistributionConfig' {} a -> s {customErrorResponses = a} :: DistributionConfig)
 
 -- | A unique identifier that specifies the AWS WAF web ACL, if any, to
@@ -464,7 +465,7 @@ distributionConfig_customErrorResponses = Lens.lens (\DistributionConfig' {custo
 -- configure CloudFront to return a custom error page when a request is
 -- blocked. For more information about AWS WAF, see the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html AWS WAF Developer Guide>.
-distributionConfig_webACLId :: Lens.Lens' DistributionConfig (Core.Maybe Core.Text)
+distributionConfig_webACLId :: Lens.Lens' DistributionConfig (Prelude.Maybe Prelude.Text)
 distributionConfig_webACLId = Lens.lens (\DistributionConfig' {webACLId} -> webACLId) (\s@DistributionConfig' {} a -> s {webACLId = a} :: DistributionConfig)
 
 -- | The price class that corresponds with the maximum price that you want to
@@ -484,7 +485,7 @@ distributionConfig_webACLId = Lens.lens (\DistributionConfig' {webACLId} -> webA
 -- CloudFront pricing, including how price classes (such as Price Class
 -- 100) map to CloudFront regions, see
 -- <http://aws.amazon.com/cloudfront/pricing/ Amazon CloudFront Pricing>.
-distributionConfig_priceClass :: Lens.Lens' DistributionConfig (Core.Maybe PriceClass)
+distributionConfig_priceClass :: Lens.Lens' DistributionConfig (Prelude.Maybe PriceClass)
 distributionConfig_priceClass = Lens.lens (\DistributionConfig' {priceClass} -> priceClass) (\s@DistributionConfig' {} a -> s {priceClass = a} :: DistributionConfig)
 
 -- | A complex type that controls whether access logs are written for the
@@ -493,17 +494,17 @@ distributionConfig_priceClass = Lens.lens (\DistributionConfig' {priceClass} -> 
 -- For more information about logging, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html Access Logs>
 -- in the /Amazon CloudFront Developer Guide/.
-distributionConfig_logging :: Lens.Lens' DistributionConfig (Core.Maybe LoggingConfig)
+distributionConfig_logging :: Lens.Lens' DistributionConfig (Prelude.Maybe LoggingConfig)
 distributionConfig_logging = Lens.lens (\DistributionConfig' {logging} -> logging) (\s@DistributionConfig' {} a -> s {logging = a} :: DistributionConfig)
 
 -- | A complex type that contains information about origin groups for this
 -- distribution.
-distributionConfig_originGroups :: Lens.Lens' DistributionConfig (Core.Maybe OriginGroups)
+distributionConfig_originGroups :: Lens.Lens' DistributionConfig (Prelude.Maybe OriginGroups)
 distributionConfig_originGroups = Lens.lens (\DistributionConfig' {originGroups} -> originGroups) (\s@DistributionConfig' {} a -> s {originGroups = a} :: DistributionConfig)
 
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
-distributionConfig_restrictions :: Lens.Lens' DistributionConfig (Core.Maybe Restrictions)
+distributionConfig_restrictions :: Lens.Lens' DistributionConfig (Prelude.Maybe Restrictions)
 distributionConfig_restrictions = Lens.lens (\DistributionConfig' {restrictions} -> restrictions) (\s@DistributionConfig' {} a -> s {restrictions = a} :: DistributionConfig)
 
 -- | If you want CloudFront to respond to IPv6 DNS requests with an IPv6
@@ -539,11 +540,11 @@ distributionConfig_restrictions = Lens.lens (\DistributionConfig' {restrictions}
 -- or with another DNS service, you don\'t need to make any changes. A
 -- CNAME record will route traffic to your distribution regardless of the
 -- IP address format of the viewer request.
-distributionConfig_isIPV6Enabled :: Lens.Lens' DistributionConfig (Core.Maybe Core.Bool)
+distributionConfig_isIPV6Enabled :: Lens.Lens' DistributionConfig (Prelude.Maybe Prelude.Bool)
 distributionConfig_isIPV6Enabled = Lens.lens (\DistributionConfig' {isIPV6Enabled} -> isIPV6Enabled) (\s@DistributionConfig' {} a -> s {isIPV6Enabled = a} :: DistributionConfig)
 
 -- | A complex type that contains zero or more @CacheBehavior@ elements.
-distributionConfig_cacheBehaviors :: Lens.Lens' DistributionConfig (Core.Maybe CacheBehaviors)
+distributionConfig_cacheBehaviors :: Lens.Lens' DistributionConfig (Prelude.Maybe CacheBehaviors)
 distributionConfig_cacheBehaviors = Lens.lens (\DistributionConfig' {cacheBehaviors} -> cacheBehaviors) (\s@DistributionConfig' {} a -> s {cacheBehaviors = a} :: DistributionConfig)
 
 -- | The object that you want CloudFront to request from your origin (for
@@ -569,12 +570,12 @@ distributionConfig_cacheBehaviors = Lens.lens (\DistributionConfig' {cacheBehavi
 -- For more information about the default root object, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html Creating a Default Root Object>
 -- in the /Amazon CloudFront Developer Guide/.
-distributionConfig_defaultRootObject :: Lens.Lens' DistributionConfig (Core.Maybe Core.Text)
+distributionConfig_defaultRootObject :: Lens.Lens' DistributionConfig (Prelude.Maybe Prelude.Text)
 distributionConfig_defaultRootObject = Lens.lens (\DistributionConfig' {defaultRootObject} -> defaultRootObject) (\s@DistributionConfig' {} a -> s {defaultRootObject = a} :: DistributionConfig)
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
-distributionConfig_aliases :: Lens.Lens' DistributionConfig (Core.Maybe Aliases)
+distributionConfig_aliases :: Lens.Lens' DistributionConfig (Prelude.Maybe Aliases)
 distributionConfig_aliases = Lens.lens (\DistributionConfig' {aliases} -> aliases) (\s@DistributionConfig' {} a -> s {aliases = a} :: DistributionConfig)
 
 -- | (Optional) Specify the maximum HTTP version that you want viewers to use
@@ -589,7 +590,7 @@ distributionConfig_aliases = Lens.lens (\DistributionConfig' {aliases} -> aliase
 -- HTTP\/2 reduces latency. You can improve performance by optimizing for
 -- HTTP\/2. For more information, do an Internet search for \"http\/2
 -- optimization.\"
-distributionConfig_httpVersion :: Lens.Lens' DistributionConfig (Core.Maybe HttpVersion)
+distributionConfig_httpVersion :: Lens.Lens' DistributionConfig (Prelude.Maybe HttpVersion)
 distributionConfig_httpVersion = Lens.lens (\DistributionConfig' {httpVersion} -> httpVersion) (\s@DistributionConfig' {} a -> s {httpVersion = a} :: DistributionConfig)
 
 -- | A unique value (for example, a date-time stamp) that ensures that the
@@ -601,7 +602,7 @@ distributionConfig_httpVersion = Lens.lens (\DistributionConfig' {httpVersion} -
 -- If @CallerReference@ is a value that you already sent in a previous
 -- request to create a distribution, CloudFront returns a
 -- @DistributionAlreadyExists@ error.
-distributionConfig_callerReference :: Lens.Lens' DistributionConfig Core.Text
+distributionConfig_callerReference :: Lens.Lens' DistributionConfig Prelude.Text
 distributionConfig_callerReference = Lens.lens (\DistributionConfig' {callerReference} -> callerReference) (\s@DistributionConfig' {} a -> s {callerReference = a} :: DistributionConfig)
 
 -- | A complex type that contains information about origins for this
@@ -626,41 +627,41 @@ distributionConfig_defaultCacheBehavior = Lens.lens (\DistributionConfig' {defau
 --
 -- To add or change a comment, update the distribution configuration and
 -- specify the new comment.
-distributionConfig_comment :: Lens.Lens' DistributionConfig Core.Text
-distributionConfig_comment = Lens.lens (\DistributionConfig' {comment} -> comment) (\s@DistributionConfig' {} a -> s {comment = a} :: DistributionConfig) Core.. Core._Sensitive
+distributionConfig_comment :: Lens.Lens' DistributionConfig Prelude.Text
+distributionConfig_comment = Lens.lens (\DistributionConfig' {comment} -> comment) (\s@DistributionConfig' {} a -> s {comment = a} :: DistributionConfig) Prelude.. Core._Sensitive
 
 -- | From this field, you can enable or disable the selected distribution.
-distributionConfig_enabled :: Lens.Lens' DistributionConfig Core.Bool
+distributionConfig_enabled :: Lens.Lens' DistributionConfig Prelude.Bool
 distributionConfig_enabled = Lens.lens (\DistributionConfig' {enabled} -> enabled) (\s@DistributionConfig' {} a -> s {enabled = a} :: DistributionConfig)
 
 instance Core.FromXML DistributionConfig where
   parseXML x =
     DistributionConfig'
-      Core.<$> (x Core..@? "ViewerCertificate")
-      Core.<*> (x Core..@? "CustomErrorResponses")
-      Core.<*> (x Core..@? "WebACLId")
-      Core.<*> (x Core..@? "PriceClass")
-      Core.<*> (x Core..@? "Logging")
-      Core.<*> (x Core..@? "OriginGroups")
-      Core.<*> (x Core..@? "Restrictions")
-      Core.<*> (x Core..@? "IsIPV6Enabled")
-      Core.<*> (x Core..@? "CacheBehaviors")
-      Core.<*> (x Core..@? "DefaultRootObject")
-      Core.<*> (x Core..@? "Aliases")
-      Core.<*> (x Core..@? "HttpVersion")
-      Core.<*> (x Core..@ "CallerReference")
-      Core.<*> (x Core..@ "Origins")
-      Core.<*> (x Core..@ "DefaultCacheBehavior")
-      Core.<*> (x Core..@ "Comment")
-      Core.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Core..@? "ViewerCertificate")
+      Prelude.<*> (x Core..@? "CustomErrorResponses")
+      Prelude.<*> (x Core..@? "WebACLId")
+      Prelude.<*> (x Core..@? "PriceClass")
+      Prelude.<*> (x Core..@? "Logging")
+      Prelude.<*> (x Core..@? "OriginGroups")
+      Prelude.<*> (x Core..@? "Restrictions")
+      Prelude.<*> (x Core..@? "IsIPV6Enabled")
+      Prelude.<*> (x Core..@? "CacheBehaviors")
+      Prelude.<*> (x Core..@? "DefaultRootObject")
+      Prelude.<*> (x Core..@? "Aliases")
+      Prelude.<*> (x Core..@? "HttpVersion")
+      Prelude.<*> (x Core..@ "CallerReference")
+      Prelude.<*> (x Core..@ "Origins")
+      Prelude.<*> (x Core..@ "DefaultCacheBehavior")
+      Prelude.<*> (x Core..@ "Comment")
+      Prelude.<*> (x Core..@ "Enabled")
 
-instance Core.Hashable DistributionConfig
+instance Prelude.Hashable DistributionConfig
 
-instance Core.NFData DistributionConfig
+instance Prelude.NFData DistributionConfig
 
 instance Core.ToXML DistributionConfig where
   toXML DistributionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ViewerCertificate" Core.@= viewerCertificate,
         "CustomErrorResponses" Core.@= customErrorResponses,
         "WebACLId" Core.@= webACLId,

@@ -72,6 +72,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,21 +85,21 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
     --
     -- To remove an instance from a placement group, specify an empty string
     -- (\"\").
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The tenancy for the instance.
-    tenancy :: Core.Maybe HostTenancy,
+    tenancy :: Prelude.Maybe HostTenancy,
     -- | The affinity setting for the instance.
-    affinity :: Core.Maybe Affinity,
+    affinity :: Prelude.Maybe Affinity,
     -- | Reserved for future use.
-    partitionNumber :: Core.Maybe Core.Int,
+    partitionNumber :: Prelude.Maybe Prelude.Int,
     -- | The ARN of the host resource group in which to place the instance.
-    hostResourceGroupArn :: Core.Maybe Core.Text,
+    hostResourceGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Dedicated Host with which to associate the instance.
-    hostId :: Core.Maybe Core.Text,
+    hostId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance that you are modifying.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyInstancePlacement' with all optional fields omitted.
@@ -129,16 +130,17 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
 -- 'instanceId', 'modifyInstancePlacement_instanceId' - The ID of the instance that you are modifying.
 newModifyInstancePlacement ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyInstancePlacement
 newModifyInstancePlacement pInstanceId_ =
   ModifyInstancePlacement'
-    { groupName = Core.Nothing,
-      tenancy = Core.Nothing,
-      affinity = Core.Nothing,
-      partitionNumber = Core.Nothing,
-      hostResourceGroupArn = Core.Nothing,
-      hostId = Core.Nothing,
+    { groupName =
+        Prelude.Nothing,
+      tenancy = Prelude.Nothing,
+      affinity = Prelude.Nothing,
+      partitionNumber = Prelude.Nothing,
+      hostResourceGroupArn = Prelude.Nothing,
+      hostId = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -149,31 +151,31 @@ newModifyInstancePlacement pInstanceId_ =
 --
 -- To remove an instance from a placement group, specify an empty string
 -- (\"\").
-modifyInstancePlacement_groupName :: Lens.Lens' ModifyInstancePlacement (Core.Maybe Core.Text)
+modifyInstancePlacement_groupName :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
 modifyInstancePlacement_groupName = Lens.lens (\ModifyInstancePlacement' {groupName} -> groupName) (\s@ModifyInstancePlacement' {} a -> s {groupName = a} :: ModifyInstancePlacement)
 
 -- | The tenancy for the instance.
-modifyInstancePlacement_tenancy :: Lens.Lens' ModifyInstancePlacement (Core.Maybe HostTenancy)
+modifyInstancePlacement_tenancy :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe HostTenancy)
 modifyInstancePlacement_tenancy = Lens.lens (\ModifyInstancePlacement' {tenancy} -> tenancy) (\s@ModifyInstancePlacement' {} a -> s {tenancy = a} :: ModifyInstancePlacement)
 
 -- | The affinity setting for the instance.
-modifyInstancePlacement_affinity :: Lens.Lens' ModifyInstancePlacement (Core.Maybe Affinity)
+modifyInstancePlacement_affinity :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Affinity)
 modifyInstancePlacement_affinity = Lens.lens (\ModifyInstancePlacement' {affinity} -> affinity) (\s@ModifyInstancePlacement' {} a -> s {affinity = a} :: ModifyInstancePlacement)
 
 -- | Reserved for future use.
-modifyInstancePlacement_partitionNumber :: Lens.Lens' ModifyInstancePlacement (Core.Maybe Core.Int)
+modifyInstancePlacement_partitionNumber :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Int)
 modifyInstancePlacement_partitionNumber = Lens.lens (\ModifyInstancePlacement' {partitionNumber} -> partitionNumber) (\s@ModifyInstancePlacement' {} a -> s {partitionNumber = a} :: ModifyInstancePlacement)
 
 -- | The ARN of the host resource group in which to place the instance.
-modifyInstancePlacement_hostResourceGroupArn :: Lens.Lens' ModifyInstancePlacement (Core.Maybe Core.Text)
+modifyInstancePlacement_hostResourceGroupArn :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
 modifyInstancePlacement_hostResourceGroupArn = Lens.lens (\ModifyInstancePlacement' {hostResourceGroupArn} -> hostResourceGroupArn) (\s@ModifyInstancePlacement' {} a -> s {hostResourceGroupArn = a} :: ModifyInstancePlacement)
 
 -- | The ID of the Dedicated Host with which to associate the instance.
-modifyInstancePlacement_hostId :: Lens.Lens' ModifyInstancePlacement (Core.Maybe Core.Text)
+modifyInstancePlacement_hostId :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
 modifyInstancePlacement_hostId = Lens.lens (\ModifyInstancePlacement' {hostId} -> hostId) (\s@ModifyInstancePlacement' {} a -> s {hostId = a} :: ModifyInstancePlacement)
 
 -- | The ID of the instance that you are modifying.
-modifyInstancePlacement_instanceId :: Lens.Lens' ModifyInstancePlacement Core.Text
+modifyInstancePlacement_instanceId :: Lens.Lens' ModifyInstancePlacement Prelude.Text
 modifyInstancePlacement_instanceId = Lens.lens (\ModifyInstancePlacement' {instanceId} -> instanceId) (\s@ModifyInstancePlacement' {} a -> s {instanceId = a} :: ModifyInstancePlacement)
 
 instance Core.AWSRequest ModifyInstancePlacement where
@@ -185,26 +187,27 @@ instance Core.AWSRequest ModifyInstancePlacement where
     Response.receiveXML
       ( \s h x ->
           ModifyInstancePlacementResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyInstancePlacement
+instance Prelude.Hashable ModifyInstancePlacement
 
-instance Core.NFData ModifyInstancePlacement
+instance Prelude.NFData ModifyInstancePlacement
 
 instance Core.ToHeaders ModifyInstancePlacement where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyInstancePlacement where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyInstancePlacement where
   toQuery ModifyInstancePlacement' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyInstancePlacement" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyInstancePlacement" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "GroupName" Core.=: groupName,
         "Tenancy" Core.=: tenancy,
         "Affinity" Core.=: affinity,
@@ -217,11 +220,11 @@ instance Core.ToQuery ModifyInstancePlacement where
 -- | /See:/ 'newModifyInstancePlacementResponse' smart constructor.
 data ModifyInstancePlacementResponse = ModifyInstancePlacementResponse'
   { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyInstancePlacementResponse' with all optional fields omitted.
@@ -236,21 +239,23 @@ data ModifyInstancePlacementResponse = ModifyInstancePlacementResponse'
 -- 'httpStatus', 'modifyInstancePlacementResponse_httpStatus' - The response's http status code.
 newModifyInstancePlacementResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyInstancePlacementResponse
 newModifyInstancePlacementResponse pHttpStatus_ =
   ModifyInstancePlacementResponse'
     { return' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
-modifyInstancePlacementResponse_return :: Lens.Lens' ModifyInstancePlacementResponse (Core.Maybe Core.Bool)
+modifyInstancePlacementResponse_return :: Lens.Lens' ModifyInstancePlacementResponse (Prelude.Maybe Prelude.Bool)
 modifyInstancePlacementResponse_return = Lens.lens (\ModifyInstancePlacementResponse' {return'} -> return') (\s@ModifyInstancePlacementResponse' {} a -> s {return' = a} :: ModifyInstancePlacementResponse)
 
 -- | The response's http status code.
-modifyInstancePlacementResponse_httpStatus :: Lens.Lens' ModifyInstancePlacementResponse Core.Int
+modifyInstancePlacementResponse_httpStatus :: Lens.Lens' ModifyInstancePlacementResponse Prelude.Int
 modifyInstancePlacementResponse_httpStatus = Lens.lens (\ModifyInstancePlacementResponse' {httpStatus} -> httpStatus) (\s@ModifyInstancePlacementResponse' {} a -> s {httpStatus = a} :: ModifyInstancePlacementResponse)
 
-instance Core.NFData ModifyInstancePlacementResponse
+instance
+  Prelude.NFData
+    ModifyInstancePlacementResponse

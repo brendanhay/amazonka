@@ -23,19 +23,20 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance state change.
 --
 -- /See:/ 'newInstanceStateChange' smart constructor.
 data InstanceStateChange = InstanceStateChange'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the instance.
-    currentState :: Core.Maybe InstanceState,
+    currentState :: Prelude.Maybe InstanceState,
     -- | The previous state of the instance.
-    previousState :: Core.Maybe InstanceState
+    previousState :: Prelude.Maybe InstanceState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceStateChange' with all optional fields omitted.
@@ -54,30 +55,30 @@ newInstanceStateChange ::
   InstanceStateChange
 newInstanceStateChange =
   InstanceStateChange'
-    { instanceId = Core.Nothing,
-      currentState = Core.Nothing,
-      previousState = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      currentState = Prelude.Nothing,
+      previousState = Prelude.Nothing
     }
 
 -- | The ID of the instance.
-instanceStateChange_instanceId :: Lens.Lens' InstanceStateChange (Core.Maybe Core.Text)
+instanceStateChange_instanceId :: Lens.Lens' InstanceStateChange (Prelude.Maybe Prelude.Text)
 instanceStateChange_instanceId = Lens.lens (\InstanceStateChange' {instanceId} -> instanceId) (\s@InstanceStateChange' {} a -> s {instanceId = a} :: InstanceStateChange)
 
 -- | The current state of the instance.
-instanceStateChange_currentState :: Lens.Lens' InstanceStateChange (Core.Maybe InstanceState)
+instanceStateChange_currentState :: Lens.Lens' InstanceStateChange (Prelude.Maybe InstanceState)
 instanceStateChange_currentState = Lens.lens (\InstanceStateChange' {currentState} -> currentState) (\s@InstanceStateChange' {} a -> s {currentState = a} :: InstanceStateChange)
 
 -- | The previous state of the instance.
-instanceStateChange_previousState :: Lens.Lens' InstanceStateChange (Core.Maybe InstanceState)
+instanceStateChange_previousState :: Lens.Lens' InstanceStateChange (Prelude.Maybe InstanceState)
 instanceStateChange_previousState = Lens.lens (\InstanceStateChange' {previousState} -> previousState) (\s@InstanceStateChange' {} a -> s {previousState = a} :: InstanceStateChange)
 
 instance Core.FromXML InstanceStateChange where
   parseXML x =
     InstanceStateChange'
-      Core.<$> (x Core..@? "instanceId")
-      Core.<*> (x Core..@? "currentState")
-      Core.<*> (x Core..@? "previousState")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "currentState")
+      Prelude.<*> (x Core..@? "previousState")
 
-instance Core.Hashable InstanceStateChange
+instance Prelude.Hashable InstanceStateChange
 
-instance Core.NFData InstanceStateChange
+instance Prelude.NFData InstanceStateChange

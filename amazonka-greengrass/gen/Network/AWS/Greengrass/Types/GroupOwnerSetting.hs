@@ -21,6 +21,7 @@ module Network.AWS.Greengrass.Types.GroupOwnerSetting where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Group owner related settings for local resources.
 --
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 data GroupOwnerSetting = GroupOwnerSetting'
   { -- | The name of the Linux OS group whose privileges will be added to the
     -- Lambda process. This field is optional.
-    groupOwner :: Core.Maybe Core.Text,
+    groupOwner :: Prelude.Maybe Prelude.Text,
     -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS
     -- group owner of the resource to the Lambda process privileges. Thus the
     -- Lambda process will have the file access permissions of the added Linux
     -- group.
-    autoAddGroupOwner :: Core.Maybe Core.Bool
+    autoAddGroupOwner :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupOwnerSetting' with all optional fields omitted.
@@ -56,20 +57,20 @@ newGroupOwnerSetting ::
   GroupOwnerSetting
 newGroupOwnerSetting =
   GroupOwnerSetting'
-    { groupOwner = Core.Nothing,
-      autoAddGroupOwner = Core.Nothing
+    { groupOwner = Prelude.Nothing,
+      autoAddGroupOwner = Prelude.Nothing
     }
 
 -- | The name of the Linux OS group whose privileges will be added to the
 -- Lambda process. This field is optional.
-groupOwnerSetting_groupOwner :: Lens.Lens' GroupOwnerSetting (Core.Maybe Core.Text)
+groupOwnerSetting_groupOwner :: Lens.Lens' GroupOwnerSetting (Prelude.Maybe Prelude.Text)
 groupOwnerSetting_groupOwner = Lens.lens (\GroupOwnerSetting' {groupOwner} -> groupOwner) (\s@GroupOwnerSetting' {} a -> s {groupOwner = a} :: GroupOwnerSetting)
 
 -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS
 -- group owner of the resource to the Lambda process privileges. Thus the
 -- Lambda process will have the file access permissions of the added Linux
 -- group.
-groupOwnerSetting_autoAddGroupOwner :: Lens.Lens' GroupOwnerSetting (Core.Maybe Core.Bool)
+groupOwnerSetting_autoAddGroupOwner :: Lens.Lens' GroupOwnerSetting (Prelude.Maybe Prelude.Bool)
 groupOwnerSetting_autoAddGroupOwner = Lens.lens (\GroupOwnerSetting' {autoAddGroupOwner} -> autoAddGroupOwner) (\s@GroupOwnerSetting' {} a -> s {autoAddGroupOwner = a} :: GroupOwnerSetting)
 
 instance Core.FromJSON GroupOwnerSetting where
@@ -78,20 +79,20 @@ instance Core.FromJSON GroupOwnerSetting where
       "GroupOwnerSetting"
       ( \x ->
           GroupOwnerSetting'
-            Core.<$> (x Core..:? "GroupOwner")
-            Core.<*> (x Core..:? "AutoAddGroupOwner")
+            Prelude.<$> (x Core..:? "GroupOwner")
+            Prelude.<*> (x Core..:? "AutoAddGroupOwner")
       )
 
-instance Core.Hashable GroupOwnerSetting
+instance Prelude.Hashable GroupOwnerSetting
 
-instance Core.NFData GroupOwnerSetting
+instance Prelude.NFData GroupOwnerSetting
 
 instance Core.ToJSON GroupOwnerSetting where
   toJSON GroupOwnerSetting' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GroupOwner" Core..=) Core.<$> groupOwner,
+      ( Prelude.catMaybes
+          [ ("GroupOwner" Core..=) Prelude.<$> groupOwner,
             ("AutoAddGroupOwner" Core..=)
-              Core.<$> autoAddGroupOwner
+              Prelude.<$> autoAddGroupOwner
           ]
       )

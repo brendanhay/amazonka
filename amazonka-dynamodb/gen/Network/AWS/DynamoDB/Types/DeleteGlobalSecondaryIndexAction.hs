@@ -21,6 +21,7 @@ module Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a global secondary index to be deleted from an existing
 -- table.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDeleteGlobalSecondaryIndexAction' smart constructor.
 data DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
   { -- | The name of the global secondary index to be deleted.
-    indexName :: Core.Text
+    indexName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGlobalSecondaryIndexAction' with all optional fields omitted.
@@ -43,7 +44,7 @@ data DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
 -- 'indexName', 'deleteGlobalSecondaryIndexAction_indexName' - The name of the global secondary index to be deleted.
 newDeleteGlobalSecondaryIndexAction ::
   -- | 'indexName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteGlobalSecondaryIndexAction
 newDeleteGlobalSecondaryIndexAction pIndexName_ =
   DeleteGlobalSecondaryIndexAction'
@@ -52,18 +53,20 @@ newDeleteGlobalSecondaryIndexAction pIndexName_ =
     }
 
 -- | The name of the global secondary index to be deleted.
-deleteGlobalSecondaryIndexAction_indexName :: Lens.Lens' DeleteGlobalSecondaryIndexAction Core.Text
+deleteGlobalSecondaryIndexAction_indexName :: Lens.Lens' DeleteGlobalSecondaryIndexAction Prelude.Text
 deleteGlobalSecondaryIndexAction_indexName = Lens.lens (\DeleteGlobalSecondaryIndexAction' {indexName} -> indexName) (\s@DeleteGlobalSecondaryIndexAction' {} a -> s {indexName = a} :: DeleteGlobalSecondaryIndexAction)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteGlobalSecondaryIndexAction
 
-instance Core.NFData DeleteGlobalSecondaryIndexAction
+instance
+  Prelude.NFData
+    DeleteGlobalSecondaryIndexAction
 
 instance Core.ToJSON DeleteGlobalSecondaryIndexAction where
   toJSON DeleteGlobalSecondaryIndexAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("IndexName" Core..= indexName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("IndexName" Core..= indexName)]
       )

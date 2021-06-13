@@ -188,6 +188,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.WorkMail.Types.AccessControlRule
 import Network.AWS.WorkMail.Types.AccessControlRuleEffect
@@ -223,7 +224,7 @@ defaultService =
       Core._serviceVersion = "2017-10-01",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseJSONError "WorkMail",
       Core._serviceRetry = retry
@@ -238,51 +239,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The identifier supplied for the user, group, or resource does not exist
 -- in your organization.
-_EntityNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EntityNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -290,14 +293,14 @@ _EntityNotFoundException =
 
 -- | An operation received a valid organization identifier that either
 -- doesn\'t belong or exist in the system.
-_OrganizationNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OrganizationNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OrganizationNotFoundException =
   Core._MatchServiceError
     defaultService
     "OrganizationNotFoundException"
 
 -- | This user, group, or resource name is not allowed in Amazon WorkMail.
-_ReservedNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ReservedNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReservedNameException =
   Core._MatchServiceError
     defaultService
@@ -305,21 +308,21 @@ _ReservedNameException =
 
 -- | After a domain has been added to the organization, it must be verified.
 -- The domain is not yet verified.
-_MailDomainStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MailDomainStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MailDomainStateException =
   Core._MatchServiceError
     defaultService
     "MailDomainStateException"
 
 -- | The resource can have up to 50 user-applied tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | The user, group, or resource name isn\'t unique in Amazon WorkMail.
-_NameAvailabilityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NameAvailabilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NameAvailabilityException =
   Core._MatchServiceError
     defaultService
@@ -328,7 +331,7 @@ _NameAvailabilityException =
 -- | The configuration for a resource isn\'t valid. A resource must either be
 -- able to auto-respond to requests or have at least one delegate
 -- associated that can do so on its behalf.
-_InvalidConfigurationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -336,7 +339,7 @@ _InvalidConfigurationException =
 
 -- | The organization must have a valid state to perform certain operations
 -- on the organization or its members.
-_OrganizationStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OrganizationStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OrganizationStateException =
   Core._MatchServiceError
     defaultService
@@ -344,7 +347,7 @@ _OrganizationStateException =
 
 -- | You are performing an operation on a user, group, or resource that
 -- isn\'t in the expected state, such as trying to delete an active user.
-_EntityStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EntityStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EntityStateException =
   Core._MatchServiceError
     defaultService
@@ -352,14 +355,14 @@ _EntityStateException =
 
 -- | The directory is already in use by another WorkMail organization in the
 -- same account and Region.
-_DirectoryInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DirectoryInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DirectoryInUseException =
   Core._MatchServiceError
     defaultService
     "DirectoryInUseException"
 
 -- | You can\'t perform a write operation against a read-only directory.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService
@@ -367,7 +370,7 @@ _UnsupportedOperationException =
 
 -- | One or more of the input parameters don\'t match the service\'s
 -- restrictions.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -375,14 +378,14 @@ _InvalidParameterException =
 
 -- | The directory is unavailable. It might be located in another Region or
 -- deleted.
-_DirectoryUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DirectoryUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DirectoryUnavailableException =
   Core._MatchServiceError
     defaultService
     "DirectoryUnavailableException"
 
 -- | The request exceeds the limit of the resource.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -390,7 +393,7 @@ _LimitExceededException =
 
 -- | The supplied password doesn\'t match the minimum security constraints,
 -- such as length or use of special characters.
-_InvalidPasswordException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidPasswordException =
   Core._MatchServiceError
     defaultService
@@ -398,14 +401,14 @@ _InvalidPasswordException =
 
 -- | The email address that you\'re trying to assign is already created for a
 -- different user, group, or resource.
-_EmailAddressInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EmailAddressInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EmailAddressInUseException =
   Core._MatchServiceError
     defaultService
     "EmailAddressInUseException"
 
 -- | The resource cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -413,7 +416,7 @@ _ResourceNotFoundException =
 
 -- | The directory service doesn\'t recognize the credentials supplied by
 -- WorkMail.
-_DirectoryServiceAuthenticationFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DirectoryServiceAuthenticationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DirectoryServiceAuthenticationFailedException =
   Core._MatchServiceError
     defaultService
@@ -421,7 +424,7 @@ _DirectoryServiceAuthenticationFailedException =
 
 -- | For an email or alias to be created in Amazon WorkMail, the included
 -- domain must be defined in the organization.
-_MailDomainNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MailDomainNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MailDomainNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -429,7 +432,7 @@ _MailDomainNotFoundException =
 
 -- | The user, group, or resource that you\'re trying to register is already
 -- registered.
-_EntityAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EntityAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EntityAlreadyRegisteredException =
   Core._MatchServiceError
     defaultService

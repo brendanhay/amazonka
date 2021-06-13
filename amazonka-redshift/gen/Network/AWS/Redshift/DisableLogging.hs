@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,9 +58,9 @@ data DisableLogging = DisableLogging'
   { -- | The identifier of the cluster on which logging is to be stopped.
     --
     -- Example: @examplecluster@
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableLogging' with all optional fields omitted.
@@ -74,7 +75,7 @@ data DisableLogging = DisableLogging'
 -- Example: @examplecluster@
 newDisableLogging ::
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DisableLogging
 newDisableLogging pClusterIdentifier_ =
   DisableLogging'
@@ -85,7 +86,7 @@ newDisableLogging pClusterIdentifier_ =
 -- | The identifier of the cluster on which logging is to be stopped.
 --
 -- Example: @examplecluster@
-disableLogging_clusterIdentifier :: Lens.Lens' DisableLogging Core.Text
+disableLogging_clusterIdentifier :: Lens.Lens' DisableLogging Prelude.Text
 disableLogging_clusterIdentifier = Lens.lens (\DisableLogging' {clusterIdentifier} -> clusterIdentifier) (\s@DisableLogging' {} a -> s {clusterIdentifier = a} :: DisableLogging)
 
 instance Core.AWSRequest DisableLogging where
@@ -96,21 +97,22 @@ instance Core.AWSRequest DisableLogging where
       "DisableLoggingResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable DisableLogging
+instance Prelude.Hashable DisableLogging
 
-instance Core.NFData DisableLogging
+instance Prelude.NFData DisableLogging
 
 instance Core.ToHeaders DisableLogging where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisableLogging where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableLogging where
   toQuery DisableLogging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableLogging" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DisableLogging" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]

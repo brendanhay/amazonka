@@ -49,28 +49,29 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newQuerySchemaVersionMetadata' smart constructor.
 data QuerySchemaVersionMetadata = QuerySchemaVersionMetadata'
   { -- | A continuation token, if this is a continuation call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique version ID of the schema version.
-    schemaVersionId :: Core.Maybe Core.Text,
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results required per page. If the value is not
     -- supplied, this will be defaulted to 25 per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The version number of the schema.
-    schemaVersionNumber :: Core.Maybe SchemaVersionNumber,
+    schemaVersionNumber :: Prelude.Maybe SchemaVersionNumber,
     -- | Search key-value pairs for metadata, if they are not provided all the
     -- metadata information will be fetched.
-    metadataList :: Core.Maybe [MetadataKeyValuePair],
+    metadataList :: Prelude.Maybe [MetadataKeyValuePair],
     -- | A wrapper structure that may contain the schema name and Amazon Resource
     -- Name (ARN).
-    schemaId :: Core.Maybe SchemaId
+    schemaId :: Prelude.Maybe SchemaId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QuerySchemaVersionMetadata' with all optional fields omitted.
@@ -99,39 +100,39 @@ newQuerySchemaVersionMetadata ::
 newQuerySchemaVersionMetadata =
   QuerySchemaVersionMetadata'
     { nextToken =
-        Core.Nothing,
-      schemaVersionId = Core.Nothing,
-      maxResults = Core.Nothing,
-      schemaVersionNumber = Core.Nothing,
-      metadataList = Core.Nothing,
-      schemaId = Core.Nothing
+        Prelude.Nothing,
+      schemaVersionId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      schemaVersionNumber = Prelude.Nothing,
+      metadataList = Prelude.Nothing,
+      schemaId = Prelude.Nothing
     }
 
 -- | A continuation token, if this is a continuation call.
-querySchemaVersionMetadata_nextToken :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe Core.Text)
+querySchemaVersionMetadata_nextToken :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe Prelude.Text)
 querySchemaVersionMetadata_nextToken = Lens.lens (\QuerySchemaVersionMetadata' {nextToken} -> nextToken) (\s@QuerySchemaVersionMetadata' {} a -> s {nextToken = a} :: QuerySchemaVersionMetadata)
 
 -- | The unique version ID of the schema version.
-querySchemaVersionMetadata_schemaVersionId :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe Core.Text)
+querySchemaVersionMetadata_schemaVersionId :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe Prelude.Text)
 querySchemaVersionMetadata_schemaVersionId = Lens.lens (\QuerySchemaVersionMetadata' {schemaVersionId} -> schemaVersionId) (\s@QuerySchemaVersionMetadata' {} a -> s {schemaVersionId = a} :: QuerySchemaVersionMetadata)
 
 -- | Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
-querySchemaVersionMetadata_maxResults :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe Core.Natural)
+querySchemaVersionMetadata_maxResults :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe Prelude.Natural)
 querySchemaVersionMetadata_maxResults = Lens.lens (\QuerySchemaVersionMetadata' {maxResults} -> maxResults) (\s@QuerySchemaVersionMetadata' {} a -> s {maxResults = a} :: QuerySchemaVersionMetadata)
 
 -- | The version number of the schema.
-querySchemaVersionMetadata_schemaVersionNumber :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe SchemaVersionNumber)
+querySchemaVersionMetadata_schemaVersionNumber :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe SchemaVersionNumber)
 querySchemaVersionMetadata_schemaVersionNumber = Lens.lens (\QuerySchemaVersionMetadata' {schemaVersionNumber} -> schemaVersionNumber) (\s@QuerySchemaVersionMetadata' {} a -> s {schemaVersionNumber = a} :: QuerySchemaVersionMetadata)
 
 -- | Search key-value pairs for metadata, if they are not provided all the
 -- metadata information will be fetched.
-querySchemaVersionMetadata_metadataList :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe [MetadataKeyValuePair])
-querySchemaVersionMetadata_metadataList = Lens.lens (\QuerySchemaVersionMetadata' {metadataList} -> metadataList) (\s@QuerySchemaVersionMetadata' {} a -> s {metadataList = a} :: QuerySchemaVersionMetadata) Core.. Lens.mapping Lens._Coerce
+querySchemaVersionMetadata_metadataList :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe [MetadataKeyValuePair])
+querySchemaVersionMetadata_metadataList = Lens.lens (\QuerySchemaVersionMetadata' {metadataList} -> metadataList) (\s@QuerySchemaVersionMetadata' {} a -> s {metadataList = a} :: QuerySchemaVersionMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A wrapper structure that may contain the schema name and Amazon Resource
 -- Name (ARN).
-querySchemaVersionMetadata_schemaId :: Lens.Lens' QuerySchemaVersionMetadata (Core.Maybe SchemaId)
+querySchemaVersionMetadata_schemaId :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe SchemaId)
 querySchemaVersionMetadata_schemaId = Lens.lens (\QuerySchemaVersionMetadata' {schemaId} -> schemaId) (\s@QuerySchemaVersionMetadata' {} a -> s {schemaId = a} :: QuerySchemaVersionMetadata)
 
 instance Core.AWSRequest QuerySchemaVersionMetadata where
@@ -143,62 +144,67 @@ instance Core.AWSRequest QuerySchemaVersionMetadata where
     Response.receiveJSON
       ( \s h x ->
           QuerySchemaVersionMetadataResponse'
-            Core.<$> (x Core..?> "MetadataInfoMap" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "SchemaVersionId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "MetadataInfoMap"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "SchemaVersionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable QuerySchemaVersionMetadata
+instance Prelude.Hashable QuerySchemaVersionMetadata
 
-instance Core.NFData QuerySchemaVersionMetadata
+instance Prelude.NFData QuerySchemaVersionMetadata
 
 instance Core.ToHeaders QuerySchemaVersionMetadata where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.QuerySchemaVersionMetadata" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON QuerySchemaVersionMetadata where
   toJSON QuerySchemaVersionMetadata' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("SchemaVersionId" Core..=) Core.<$> schemaVersionId,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SchemaVersionId" Core..=)
+              Prelude.<$> schemaVersionId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SchemaVersionNumber" Core..=)
-              Core.<$> schemaVersionNumber,
-            ("MetadataList" Core..=) Core.<$> metadataList,
-            ("SchemaId" Core..=) Core.<$> schemaId
+              Prelude.<$> schemaVersionNumber,
+            ("MetadataList" Core..=) Prelude.<$> metadataList,
+            ("SchemaId" Core..=) Prelude.<$> schemaId
           ]
       )
 
 instance Core.ToPath QuerySchemaVersionMetadata where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery QuerySchemaVersionMetadata where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newQuerySchemaVersionMetadataResponse' smart constructor.
 data QuerySchemaVersionMetadataResponse = QuerySchemaVersionMetadataResponse'
   { -- | A map of a metadata key and associated values.
-    metadataInfoMap :: Core.Maybe (Core.HashMap Core.Text MetadataInfo),
+    metadataInfoMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataInfo),
     -- | A continuation token for paginating the returned list of tokens,
     -- returned if the current segment of the list is not the last.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique version ID of the schema version.
-    schemaVersionId :: Core.Maybe Core.Text,
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QuerySchemaVersionMetadataResponse' with all optional fields omitted.
@@ -218,34 +224,34 @@ data QuerySchemaVersionMetadataResponse = QuerySchemaVersionMetadataResponse'
 -- 'httpStatus', 'querySchemaVersionMetadataResponse_httpStatus' - The response's http status code.
 newQuerySchemaVersionMetadataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   QuerySchemaVersionMetadataResponse
 newQuerySchemaVersionMetadataResponse pHttpStatus_ =
   QuerySchemaVersionMetadataResponse'
     { metadataInfoMap =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      schemaVersionId = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      schemaVersionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A map of a metadata key and associated values.
-querySchemaVersionMetadataResponse_metadataInfoMap :: Lens.Lens' QuerySchemaVersionMetadataResponse (Core.Maybe (Core.HashMap Core.Text MetadataInfo))
-querySchemaVersionMetadataResponse_metadataInfoMap = Lens.lens (\QuerySchemaVersionMetadataResponse' {metadataInfoMap} -> metadataInfoMap) (\s@QuerySchemaVersionMetadataResponse' {} a -> s {metadataInfoMap = a} :: QuerySchemaVersionMetadataResponse) Core.. Lens.mapping Lens._Coerce
+querySchemaVersionMetadataResponse_metadataInfoMap :: Lens.Lens' QuerySchemaVersionMetadataResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataInfo))
+querySchemaVersionMetadataResponse_metadataInfoMap = Lens.lens (\QuerySchemaVersionMetadataResponse' {metadataInfoMap} -> metadataInfoMap) (\s@QuerySchemaVersionMetadataResponse' {} a -> s {metadataInfoMap = a} :: QuerySchemaVersionMetadataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A continuation token for paginating the returned list of tokens,
 -- returned if the current segment of the list is not the last.
-querySchemaVersionMetadataResponse_nextToken :: Lens.Lens' QuerySchemaVersionMetadataResponse (Core.Maybe Core.Text)
+querySchemaVersionMetadataResponse_nextToken :: Lens.Lens' QuerySchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 querySchemaVersionMetadataResponse_nextToken = Lens.lens (\QuerySchemaVersionMetadataResponse' {nextToken} -> nextToken) (\s@QuerySchemaVersionMetadataResponse' {} a -> s {nextToken = a} :: QuerySchemaVersionMetadataResponse)
 
 -- | The unique version ID of the schema version.
-querySchemaVersionMetadataResponse_schemaVersionId :: Lens.Lens' QuerySchemaVersionMetadataResponse (Core.Maybe Core.Text)
+querySchemaVersionMetadataResponse_schemaVersionId :: Lens.Lens' QuerySchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 querySchemaVersionMetadataResponse_schemaVersionId = Lens.lens (\QuerySchemaVersionMetadataResponse' {schemaVersionId} -> schemaVersionId) (\s@QuerySchemaVersionMetadataResponse' {} a -> s {schemaVersionId = a} :: QuerySchemaVersionMetadataResponse)
 
 -- | The response's http status code.
-querySchemaVersionMetadataResponse_httpStatus :: Lens.Lens' QuerySchemaVersionMetadataResponse Core.Int
+querySchemaVersionMetadataResponse_httpStatus :: Lens.Lens' QuerySchemaVersionMetadataResponse Prelude.Int
 querySchemaVersionMetadataResponse_httpStatus = Lens.lens (\QuerySchemaVersionMetadataResponse' {httpStatus} -> httpStatus) (\s@QuerySchemaVersionMetadataResponse' {} a -> s {httpStatus = a} :: QuerySchemaVersionMetadataResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     QuerySchemaVersionMetadataResponse

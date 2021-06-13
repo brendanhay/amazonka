@@ -22,6 +22,7 @@ module Network.AWS.GameLift.Types.InstanceDefinition where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.GameServerGroupInstanceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game
 -- server groups.__
@@ -40,11 +41,11 @@ data InstanceDefinition = InstanceDefinition'
     -- For detailed information on weighting instance capacity, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
     -- in the /Amazon EC2 Auto Scaling User Guide/. Default value is \"1\".
-    weightedCapacity :: Core.Maybe Core.Text,
+    weightedCapacity :: Prelude.Maybe Prelude.Text,
     -- | An EC2 instance type designation.
     instanceType :: GameServerGroupInstanceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceDefinition' with all optional fields omitted.
@@ -70,7 +71,7 @@ newInstanceDefinition ::
 newInstanceDefinition pInstanceType_ =
   InstanceDefinition'
     { weightedCapacity =
-        Core.Nothing,
+        Prelude.Nothing,
       instanceType = pInstanceType_
     }
 
@@ -81,7 +82,7 @@ newInstanceDefinition pInstanceType_ =
 -- For detailed information on weighting instance capacity, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
 -- in the /Amazon EC2 Auto Scaling User Guide/. Default value is \"1\".
-instanceDefinition_weightedCapacity :: Lens.Lens' InstanceDefinition (Core.Maybe Core.Text)
+instanceDefinition_weightedCapacity :: Lens.Lens' InstanceDefinition (Prelude.Maybe Prelude.Text)
 instanceDefinition_weightedCapacity = Lens.lens (\InstanceDefinition' {weightedCapacity} -> weightedCapacity) (\s@InstanceDefinition' {} a -> s {weightedCapacity = a} :: InstanceDefinition)
 
 -- | An EC2 instance type designation.
@@ -94,20 +95,20 @@ instance Core.FromJSON InstanceDefinition where
       "InstanceDefinition"
       ( \x ->
           InstanceDefinition'
-            Core.<$> (x Core..:? "WeightedCapacity")
-            Core.<*> (x Core..: "InstanceType")
+            Prelude.<$> (x Core..:? "WeightedCapacity")
+            Prelude.<*> (x Core..: "InstanceType")
       )
 
-instance Core.Hashable InstanceDefinition
+instance Prelude.Hashable InstanceDefinition
 
-instance Core.NFData InstanceDefinition
+instance Prelude.NFData InstanceDefinition
 
 instance Core.ToJSON InstanceDefinition where
   toJSON InstanceDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("WeightedCapacity" Core..=)
-              Core.<$> weightedCapacity,
-            Core.Just ("InstanceType" Core..= instanceType)
+              Prelude.<$> weightedCapacity,
+            Prelude.Just ("InstanceType" Core..= instanceType)
           ]
       )

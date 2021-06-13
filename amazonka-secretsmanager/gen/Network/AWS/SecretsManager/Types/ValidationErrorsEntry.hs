@@ -21,18 +21,19 @@ module Network.AWS.SecretsManager.Types.ValidationErrorsEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Displays errors that occurred during validation of the resource policy.
 --
 -- /See:/ 'newValidationErrorsEntry' smart constructor.
 data ValidationErrorsEntry = ValidationErrorsEntry'
   { -- | Checks the name of the policy.
-    checkName :: Core.Maybe Core.Text,
+    checkName :: Prelude.Maybe Prelude.Text,
     -- | Displays error messages if validation encounters problems during
     -- validation of the resource policy.
-    errorMessage :: Core.Maybe Core.Text
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidationErrorsEntry' with all optional fields omitted.
@@ -50,17 +51,17 @@ newValidationErrorsEntry ::
   ValidationErrorsEntry
 newValidationErrorsEntry =
   ValidationErrorsEntry'
-    { checkName = Core.Nothing,
-      errorMessage = Core.Nothing
+    { checkName = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | Checks the name of the policy.
-validationErrorsEntry_checkName :: Lens.Lens' ValidationErrorsEntry (Core.Maybe Core.Text)
+validationErrorsEntry_checkName :: Lens.Lens' ValidationErrorsEntry (Prelude.Maybe Prelude.Text)
 validationErrorsEntry_checkName = Lens.lens (\ValidationErrorsEntry' {checkName} -> checkName) (\s@ValidationErrorsEntry' {} a -> s {checkName = a} :: ValidationErrorsEntry)
 
 -- | Displays error messages if validation encounters problems during
 -- validation of the resource policy.
-validationErrorsEntry_errorMessage :: Lens.Lens' ValidationErrorsEntry (Core.Maybe Core.Text)
+validationErrorsEntry_errorMessage :: Lens.Lens' ValidationErrorsEntry (Prelude.Maybe Prelude.Text)
 validationErrorsEntry_errorMessage = Lens.lens (\ValidationErrorsEntry' {errorMessage} -> errorMessage) (\s@ValidationErrorsEntry' {} a -> s {errorMessage = a} :: ValidationErrorsEntry)
 
 instance Core.FromJSON ValidationErrorsEntry where
@@ -69,10 +70,10 @@ instance Core.FromJSON ValidationErrorsEntry where
       "ValidationErrorsEntry"
       ( \x ->
           ValidationErrorsEntry'
-            Core.<$> (x Core..:? "CheckName")
-            Core.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "CheckName")
+            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Core.Hashable ValidationErrorsEntry
+instance Prelude.Hashable ValidationErrorsEntry
 
-instance Core.NFData ValidationErrorsEntry
+instance Prelude.NFData ValidationErrorsEntry

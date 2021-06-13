@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -63,16 +64,16 @@ import Network.AWS.StorageGateway.Types
 data ListTapePools = ListTapePools'
   { -- | An optional number limit for the tape pools in the list returned by this
     -- call.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want
     -- to list. If you don\'t specify a custom tape pool ARN, the response
     -- lists all custom tape pools.
-    poolARNs :: Core.Maybe [Core.Text],
+    poolARNs :: Prelude.Maybe [Prelude.Text],
     -- | A string that indicates the position at which to begin the returned list
     -- of tape pools.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTapePools' with all optional fields omitted.
@@ -95,45 +96,45 @@ newListTapePools ::
   ListTapePools
 newListTapePools =
   ListTapePools'
-    { limit = Core.Nothing,
-      poolARNs = Core.Nothing,
-      marker = Core.Nothing
+    { limit = Prelude.Nothing,
+      poolARNs = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | An optional number limit for the tape pools in the list returned by this
 -- call.
-listTapePools_limit :: Lens.Lens' ListTapePools (Core.Maybe Core.Natural)
+listTapePools_limit :: Lens.Lens' ListTapePools (Prelude.Maybe Prelude.Natural)
 listTapePools_limit = Lens.lens (\ListTapePools' {limit} -> limit) (\s@ListTapePools' {} a -> s {limit = a} :: ListTapePools)
 
 -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want
 -- to list. If you don\'t specify a custom tape pool ARN, the response
 -- lists all custom tape pools.
-listTapePools_poolARNs :: Lens.Lens' ListTapePools (Core.Maybe [Core.Text])
-listTapePools_poolARNs = Lens.lens (\ListTapePools' {poolARNs} -> poolARNs) (\s@ListTapePools' {} a -> s {poolARNs = a} :: ListTapePools) Core.. Lens.mapping Lens._Coerce
+listTapePools_poolARNs :: Lens.Lens' ListTapePools (Prelude.Maybe [Prelude.Text])
+listTapePools_poolARNs = Lens.lens (\ListTapePools' {poolARNs} -> poolARNs) (\s@ListTapePools' {} a -> s {poolARNs = a} :: ListTapePools) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string that indicates the position at which to begin the returned list
 -- of tape pools.
-listTapePools_marker :: Lens.Lens' ListTapePools (Core.Maybe Core.Text)
+listTapePools_marker :: Lens.Lens' ListTapePools (Prelude.Maybe Prelude.Text)
 listTapePools_marker = Lens.lens (\ListTapePools' {marker} -> marker) (\s@ListTapePools' {} a -> s {marker = a} :: ListTapePools)
 
 instance Core.AWSPager ListTapePools where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTapePoolsResponse_marker Core.. Lens._Just
+            Lens.^? listTapePoolsResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTapePoolsResponse_poolInfos Core.. Lens._Just
+            Lens.^? listTapePoolsResponse_poolInfos Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTapePools_marker
+          Prelude.& listTapePools_marker
           Lens..~ rs
-          Lens.^? listTapePoolsResponse_marker Core.. Lens._Just
+          Lens.^? listTapePoolsResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTapePools where
   type
@@ -144,59 +145,61 @@ instance Core.AWSRequest ListTapePools where
     Response.receiveJSON
       ( \s h x ->
           ListTapePoolsResponse'
-            Core.<$> (x Core..?> "PoolInfos" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PoolInfos" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTapePools
+instance Prelude.Hashable ListTapePools
 
-instance Core.NFData ListTapePools
+instance Prelude.NFData ListTapePools
 
 instance Core.ToHeaders ListTapePools where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.ListTapePools" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTapePools where
   toJSON ListTapePools' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Limit" Core..=) Core.<$> limit,
-            ("PoolARNs" Core..=) Core.<$> poolARNs,
-            ("Marker" Core..=) Core.<$> marker
+      ( Prelude.catMaybes
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("PoolARNs" Core..=) Prelude.<$> poolARNs,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 
 instance Core.ToPath ListTapePools where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTapePools where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTapePoolsResponse' smart constructor.
 data ListTapePoolsResponse = ListTapePoolsResponse'
   { -- | An array of @PoolInfo@ objects, where each object describes a single
     -- custom tape pool. If there are no custom tape pools, the @PoolInfos@ is
     -- an empty array.
-    poolInfos :: Core.Maybe [PoolInfo],
+    poolInfos :: Prelude.Maybe [PoolInfo],
     -- | A string that indicates the position at which to begin the returned list
     -- of tape pools. Use the marker in your next request to continue
     -- pagination of tape pools. If there are no more tape pools to list, this
     -- element does not appear in the response body.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTapePoolsResponse' with all optional fields omitted.
@@ -218,30 +221,30 @@ data ListTapePoolsResponse = ListTapePoolsResponse'
 -- 'httpStatus', 'listTapePoolsResponse_httpStatus' - The response's http status code.
 newListTapePoolsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTapePoolsResponse
 newListTapePoolsResponse pHttpStatus_ =
   ListTapePoolsResponse'
-    { poolInfos = Core.Nothing,
-      marker = Core.Nothing,
+    { poolInfos = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @PoolInfo@ objects, where each object describes a single
 -- custom tape pool. If there are no custom tape pools, the @PoolInfos@ is
 -- an empty array.
-listTapePoolsResponse_poolInfos :: Lens.Lens' ListTapePoolsResponse (Core.Maybe [PoolInfo])
-listTapePoolsResponse_poolInfos = Lens.lens (\ListTapePoolsResponse' {poolInfos} -> poolInfos) (\s@ListTapePoolsResponse' {} a -> s {poolInfos = a} :: ListTapePoolsResponse) Core.. Lens.mapping Lens._Coerce
+listTapePoolsResponse_poolInfos :: Lens.Lens' ListTapePoolsResponse (Prelude.Maybe [PoolInfo])
+listTapePoolsResponse_poolInfos = Lens.lens (\ListTapePoolsResponse' {poolInfos} -> poolInfos) (\s@ListTapePoolsResponse' {} a -> s {poolInfos = a} :: ListTapePoolsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string that indicates the position at which to begin the returned list
 -- of tape pools. Use the marker in your next request to continue
 -- pagination of tape pools. If there are no more tape pools to list, this
 -- element does not appear in the response body.
-listTapePoolsResponse_marker :: Lens.Lens' ListTapePoolsResponse (Core.Maybe Core.Text)
+listTapePoolsResponse_marker :: Lens.Lens' ListTapePoolsResponse (Prelude.Maybe Prelude.Text)
 listTapePoolsResponse_marker = Lens.lens (\ListTapePoolsResponse' {marker} -> marker) (\s@ListTapePoolsResponse' {} a -> s {marker = a} :: ListTapePoolsResponse)
 
 -- | The response's http status code.
-listTapePoolsResponse_httpStatus :: Lens.Lens' ListTapePoolsResponse Core.Int
+listTapePoolsResponse_httpStatus :: Lens.Lens' ListTapePoolsResponse Prelude.Int
 listTapePoolsResponse_httpStatus = Lens.lens (\ListTapePoolsResponse' {httpStatus} -> httpStatus) (\s@ListTapePoolsResponse' {} a -> s {httpStatus = a} :: ListTapePoolsResponse)
 
-instance Core.NFData ListTapePoolsResponse
+instance Prelude.NFData ListTapePoolsResponse

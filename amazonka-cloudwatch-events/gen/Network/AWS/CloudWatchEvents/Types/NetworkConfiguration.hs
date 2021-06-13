@@ -22,6 +22,7 @@ module Network.AWS.CloudWatchEvents.Types.NetworkConfiguration where
 import Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure specifies the network configuration for an ECS task.
 --
@@ -30,9 +31,9 @@ data NetworkConfiguration = NetworkConfiguration'
   { -- | Use this structure to specify the VPC subnets and security groups for
     -- the task, and whether a public IP address is to be used. This structure
     -- is relevant only for ECS tasks that use the @awsvpc@ network mode.
-    awsvpcConfiguration :: Core.Maybe AwsVpcConfiguration
+    awsvpcConfiguration :: Prelude.Maybe AwsVpcConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkConfiguration' with all optional fields omitted.
@@ -50,13 +51,13 @@ newNetworkConfiguration ::
 newNetworkConfiguration =
   NetworkConfiguration'
     { awsvpcConfiguration =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Use this structure to specify the VPC subnets and security groups for
 -- the task, and whether a public IP address is to be used. This structure
 -- is relevant only for ECS tasks that use the @awsvpc@ network mode.
-networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Core.Maybe AwsVpcConfiguration)
+networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AwsVpcConfiguration)
 networkConfiguration_awsvpcConfiguration = Lens.lens (\NetworkConfiguration' {awsvpcConfiguration} -> awsvpcConfiguration) (\s@NetworkConfiguration' {} a -> s {awsvpcConfiguration = a} :: NetworkConfiguration)
 
 instance Core.FromJSON NetworkConfiguration where
@@ -65,18 +66,18 @@ instance Core.FromJSON NetworkConfiguration where
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Core.<$> (x Core..:? "awsvpcConfiguration")
+            Prelude.<$> (x Core..:? "awsvpcConfiguration")
       )
 
-instance Core.Hashable NetworkConfiguration
+instance Prelude.Hashable NetworkConfiguration
 
-instance Core.NFData NetworkConfiguration
+instance Prelude.NFData NetworkConfiguration
 
 instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("awsvpcConfiguration" Core..=)
-              Core.<$> awsvpcConfiguration
+              Prelude.<$> awsvpcConfiguration
           ]
       )

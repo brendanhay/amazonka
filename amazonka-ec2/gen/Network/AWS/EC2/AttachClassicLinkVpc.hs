@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,17 +67,17 @@ data AttachClassicLinkVpc = AttachClassicLinkVpc'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of one or more of the VPC\'s security groups. You cannot specify
     -- security groups from a different VPC.
-    groups :: [Core.Text],
+    groups :: [Prelude.Text],
     -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled
     -- VPC.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The ID of a ClassicLink-enabled VPC.
-    vpcId :: Core.Text
+    vpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachClassicLinkVpc' with all optional fields omitted.
@@ -100,14 +101,14 @@ data AttachClassicLinkVpc = AttachClassicLinkVpc'
 -- 'vpcId', 'attachClassicLinkVpc_vpcId' - The ID of a ClassicLink-enabled VPC.
 newAttachClassicLinkVpc ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   AttachClassicLinkVpc
 newAttachClassicLinkVpc pInstanceId_ pVpcId_ =
   AttachClassicLinkVpc'
-    { dryRun = Core.Nothing,
-      groups = Core.mempty,
+    { dryRun = Prelude.Nothing,
+      groups = Prelude.mempty,
       instanceId = pInstanceId_,
       vpcId = pVpcId_
     }
@@ -116,21 +117,21 @@ newAttachClassicLinkVpc pInstanceId_ pVpcId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-attachClassicLinkVpc_dryRun :: Lens.Lens' AttachClassicLinkVpc (Core.Maybe Core.Bool)
+attachClassicLinkVpc_dryRun :: Lens.Lens' AttachClassicLinkVpc (Prelude.Maybe Prelude.Bool)
 attachClassicLinkVpc_dryRun = Lens.lens (\AttachClassicLinkVpc' {dryRun} -> dryRun) (\s@AttachClassicLinkVpc' {} a -> s {dryRun = a} :: AttachClassicLinkVpc)
 
 -- | The ID of one or more of the VPC\'s security groups. You cannot specify
 -- security groups from a different VPC.
-attachClassicLinkVpc_groups :: Lens.Lens' AttachClassicLinkVpc [Core.Text]
-attachClassicLinkVpc_groups = Lens.lens (\AttachClassicLinkVpc' {groups} -> groups) (\s@AttachClassicLinkVpc' {} a -> s {groups = a} :: AttachClassicLinkVpc) Core.. Lens._Coerce
+attachClassicLinkVpc_groups :: Lens.Lens' AttachClassicLinkVpc [Prelude.Text]
+attachClassicLinkVpc_groups = Lens.lens (\AttachClassicLinkVpc' {groups} -> groups) (\s@AttachClassicLinkVpc' {} a -> s {groups = a} :: AttachClassicLinkVpc) Prelude.. Lens._Coerce
 
 -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled
 -- VPC.
-attachClassicLinkVpc_instanceId :: Lens.Lens' AttachClassicLinkVpc Core.Text
+attachClassicLinkVpc_instanceId :: Lens.Lens' AttachClassicLinkVpc Prelude.Text
 attachClassicLinkVpc_instanceId = Lens.lens (\AttachClassicLinkVpc' {instanceId} -> instanceId) (\s@AttachClassicLinkVpc' {} a -> s {instanceId = a} :: AttachClassicLinkVpc)
 
 -- | The ID of a ClassicLink-enabled VPC.
-attachClassicLinkVpc_vpcId :: Lens.Lens' AttachClassicLinkVpc Core.Text
+attachClassicLinkVpc_vpcId :: Lens.Lens' AttachClassicLinkVpc Prelude.Text
 attachClassicLinkVpc_vpcId = Lens.lens (\AttachClassicLinkVpc' {vpcId} -> vpcId) (\s@AttachClassicLinkVpc' {} a -> s {vpcId = a} :: AttachClassicLinkVpc)
 
 instance Core.AWSRequest AttachClassicLinkVpc where
@@ -142,26 +143,27 @@ instance Core.AWSRequest AttachClassicLinkVpc where
     Response.receiveXML
       ( \s h x ->
           AttachClassicLinkVpcResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AttachClassicLinkVpc
+instance Prelude.Hashable AttachClassicLinkVpc
 
-instance Core.NFData AttachClassicLinkVpc
+instance Prelude.NFData AttachClassicLinkVpc
 
 instance Core.ToHeaders AttachClassicLinkVpc where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AttachClassicLinkVpc where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AttachClassicLinkVpc where
   toQuery AttachClassicLinkVpc' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachClassicLinkVpc" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("AttachClassicLinkVpc" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQueryList "SecurityGroupId" groups,
         "InstanceId" Core.=: instanceId,
@@ -171,11 +173,11 @@ instance Core.ToQuery AttachClassicLinkVpc where
 -- | /See:/ 'newAttachClassicLinkVpcResponse' smart constructor.
 data AttachClassicLinkVpcResponse = AttachClassicLinkVpcResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachClassicLinkVpcResponse' with all optional fields omitted.
@@ -190,21 +192,21 @@ data AttachClassicLinkVpcResponse = AttachClassicLinkVpcResponse'
 -- 'httpStatus', 'attachClassicLinkVpcResponse_httpStatus' - The response's http status code.
 newAttachClassicLinkVpcResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AttachClassicLinkVpcResponse
 newAttachClassicLinkVpcResponse pHttpStatus_ =
   AttachClassicLinkVpcResponse'
     { return' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-attachClassicLinkVpcResponse_return :: Lens.Lens' AttachClassicLinkVpcResponse (Core.Maybe Core.Bool)
+attachClassicLinkVpcResponse_return :: Lens.Lens' AttachClassicLinkVpcResponse (Prelude.Maybe Prelude.Bool)
 attachClassicLinkVpcResponse_return = Lens.lens (\AttachClassicLinkVpcResponse' {return'} -> return') (\s@AttachClassicLinkVpcResponse' {} a -> s {return' = a} :: AttachClassicLinkVpcResponse)
 
 -- | The response's http status code.
-attachClassicLinkVpcResponse_httpStatus :: Lens.Lens' AttachClassicLinkVpcResponse Core.Int
+attachClassicLinkVpcResponse_httpStatus :: Lens.Lens' AttachClassicLinkVpcResponse Prelude.Int
 attachClassicLinkVpcResponse_httpStatus = Lens.lens (\AttachClassicLinkVpcResponse' {httpStatus} -> httpStatus) (\s@AttachClassicLinkVpcResponse' {} a -> s {httpStatus = a} :: AttachClassicLinkVpcResponse)
 
-instance Core.NFData AttachClassicLinkVpcResponse
+instance Prelude.NFData AttachClassicLinkVpcResponse

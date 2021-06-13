@@ -24,6 +24,7 @@ import Network.AWS.Glue.Types.ConnectionPropertyKey
 import Network.AWS.Glue.Types.ConnectionType
 import Network.AWS.Glue.Types.PhysicalConnectionRequirements
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a connection to a data source.
 --
@@ -120,27 +121,27 @@ data Connection = Connection'
     --
     -- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
     --     or CUSTOM connection.
-    connectionProperties :: Core.Maybe (Core.HashMap ConnectionPropertyKey Core.Text),
+    connectionProperties :: Prelude.Maybe (Prelude.HashMap ConnectionPropertyKey Prelude.Text),
     -- | The time that this connection definition was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The type of the connection. Currently, SFTP is not supported.
-    connectionType :: Core.Maybe ConnectionType,
+    connectionType :: Prelude.Maybe ConnectionType,
     -- | A map of physical connection requirements, such as virtual private cloud
     -- (VPC) and @SecurityGroup@, that are needed to make this connection
     -- successfully.
-    physicalConnectionRequirements :: Core.Maybe PhysicalConnectionRequirements,
+    physicalConnectionRequirements :: Prelude.Maybe PhysicalConnectionRequirements,
     -- | The name of the connection definition.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The user, group, or role that last updated this connection definition.
-    lastUpdatedBy :: Core.Maybe Core.Text,
+    lastUpdatedBy :: Prelude.Maybe Prelude.Text,
     -- | The description of the connection.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of criteria that can be used in selecting this connection.
-    matchCriteria :: Core.Maybe [Core.Text],
+    matchCriteria :: Prelude.Maybe [Prelude.Text],
     -- | The last time that this connection definition was updated.
-    lastUpdatedTime :: Core.Maybe Core.POSIX
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Connection' with all optional fields omitted.
@@ -263,15 +264,15 @@ newConnection ::
   Connection
 newConnection =
   Connection'
-    { connectionProperties = Core.Nothing,
-      creationTime = Core.Nothing,
-      connectionType = Core.Nothing,
-      physicalConnectionRequirements = Core.Nothing,
-      name = Core.Nothing,
-      lastUpdatedBy = Core.Nothing,
-      description = Core.Nothing,
-      matchCriteria = Core.Nothing,
-      lastUpdatedTime = Core.Nothing
+    { connectionProperties = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      connectionType = Prelude.Nothing,
+      physicalConnectionRequirements = Prelude.Nothing,
+      name = Prelude.Nothing,
+      lastUpdatedBy = Prelude.Nothing,
+      description = Prelude.Nothing,
+      matchCriteria = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing
     }
 
 -- | These key-value pairs define parameters for the connection:
@@ -365,42 +366,42 @@ newConnection =
 --
 -- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
 --     or CUSTOM connection.
-connection_connectionProperties :: Lens.Lens' Connection (Core.Maybe (Core.HashMap ConnectionPropertyKey Core.Text))
-connection_connectionProperties = Lens.lens (\Connection' {connectionProperties} -> connectionProperties) (\s@Connection' {} a -> s {connectionProperties = a} :: Connection) Core.. Lens.mapping Lens._Coerce
+connection_connectionProperties :: Lens.Lens' Connection (Prelude.Maybe (Prelude.HashMap ConnectionPropertyKey Prelude.Text))
+connection_connectionProperties = Lens.lens (\Connection' {connectionProperties} -> connectionProperties) (\s@Connection' {} a -> s {connectionProperties = a} :: Connection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time that this connection definition was created.
-connection_creationTime :: Lens.Lens' Connection (Core.Maybe Core.UTCTime)
-connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Core.. Lens.mapping Core._Time
+connection_creationTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
+connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
 
 -- | The type of the connection. Currently, SFTP is not supported.
-connection_connectionType :: Lens.Lens' Connection (Core.Maybe ConnectionType)
+connection_connectionType :: Lens.Lens' Connection (Prelude.Maybe ConnectionType)
 connection_connectionType = Lens.lens (\Connection' {connectionType} -> connectionType) (\s@Connection' {} a -> s {connectionType = a} :: Connection)
 
 -- | A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to make this connection
 -- successfully.
-connection_physicalConnectionRequirements :: Lens.Lens' Connection (Core.Maybe PhysicalConnectionRequirements)
+connection_physicalConnectionRequirements :: Lens.Lens' Connection (Prelude.Maybe PhysicalConnectionRequirements)
 connection_physicalConnectionRequirements = Lens.lens (\Connection' {physicalConnectionRequirements} -> physicalConnectionRequirements) (\s@Connection' {} a -> s {physicalConnectionRequirements = a} :: Connection)
 
 -- | The name of the connection definition.
-connection_name :: Lens.Lens' Connection (Core.Maybe Core.Text)
+connection_name :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_name = Lens.lens (\Connection' {name} -> name) (\s@Connection' {} a -> s {name = a} :: Connection)
 
 -- | The user, group, or role that last updated this connection definition.
-connection_lastUpdatedBy :: Lens.Lens' Connection (Core.Maybe Core.Text)
+connection_lastUpdatedBy :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_lastUpdatedBy = Lens.lens (\Connection' {lastUpdatedBy} -> lastUpdatedBy) (\s@Connection' {} a -> s {lastUpdatedBy = a} :: Connection)
 
 -- | The description of the connection.
-connection_description :: Lens.Lens' Connection (Core.Maybe Core.Text)
+connection_description :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_description = Lens.lens (\Connection' {description} -> description) (\s@Connection' {} a -> s {description = a} :: Connection)
 
 -- | A list of criteria that can be used in selecting this connection.
-connection_matchCriteria :: Lens.Lens' Connection (Core.Maybe [Core.Text])
-connection_matchCriteria = Lens.lens (\Connection' {matchCriteria} -> matchCriteria) (\s@Connection' {} a -> s {matchCriteria = a} :: Connection) Core.. Lens.mapping Lens._Coerce
+connection_matchCriteria :: Lens.Lens' Connection (Prelude.Maybe [Prelude.Text])
+connection_matchCriteria = Lens.lens (\Connection' {matchCriteria} -> matchCriteria) (\s@Connection' {} a -> s {matchCriteria = a} :: Connection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The last time that this connection definition was updated.
-connection_lastUpdatedTime :: Lens.Lens' Connection (Core.Maybe Core.UTCTime)
-connection_lastUpdatedTime = Lens.lens (\Connection' {lastUpdatedTime} -> lastUpdatedTime) (\s@Connection' {} a -> s {lastUpdatedTime = a} :: Connection) Core.. Lens.mapping Core._Time
+connection_lastUpdatedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
+connection_lastUpdatedTime = Lens.lens (\Connection' {lastUpdatedTime} -> lastUpdatedTime) (\s@Connection' {} a -> s {lastUpdatedTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Connection where
   parseJSON =
@@ -408,19 +409,19 @@ instance Core.FromJSON Connection where
       "Connection"
       ( \x ->
           Connection'
-            Core.<$> ( x Core..:? "ConnectionProperties"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "ConnectionType")
-            Core.<*> (x Core..:? "PhysicalConnectionRequirements")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "LastUpdatedBy")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "MatchCriteria" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<$> ( x Core..:? "ConnectionProperties"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "ConnectionType")
+            Prelude.<*> (x Core..:? "PhysicalConnectionRequirements")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "LastUpdatedBy")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "MatchCriteria" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
       )
 
-instance Core.Hashable Connection
+instance Prelude.Hashable Connection
 
-instance Core.NFData Connection
+instance Prelude.NFData Connection

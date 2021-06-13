@@ -46,13 +46,14 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCopyDBClusterParameterGroup' smart constructor.
 data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
-  { tags :: Core.Maybe [Tag],
+  { tags :: Prelude.Maybe [Tag],
     -- | The identifier or Amazon Resource Name (ARN) for the source DB cluster
     -- parameter group. For information about creating an ARN, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
@@ -61,7 +62,7 @@ data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
     -- Constraints:
     --
     -- -   Must specify a valid DB cluster parameter group.
-    sourceDBClusterParameterGroupIdentifier :: Core.Text,
+    sourceDBClusterParameterGroupIdentifier :: Prelude.Text,
     -- | The identifier for the copied DB cluster parameter group.
     --
     -- Constraints:
@@ -75,11 +76,11 @@ data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @my-cluster-param-group1@
-    targetDBClusterParameterGroupIdentifier :: Core.Text,
+    targetDBClusterParameterGroupIdentifier :: Prelude.Text,
     -- | A description for the copied DB cluster parameter group.
-    targetDBClusterParameterGroupDescription :: Core.Text
+    targetDBClusterParameterGroupDescription :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyDBClusterParameterGroup' with all optional fields omitted.
@@ -117,18 +118,19 @@ data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
 -- 'targetDBClusterParameterGroupDescription', 'copyDBClusterParameterGroup_targetDBClusterParameterGroupDescription' - A description for the copied DB cluster parameter group.
 newCopyDBClusterParameterGroup ::
   -- | 'sourceDBClusterParameterGroupIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetDBClusterParameterGroupIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetDBClusterParameterGroupDescription'
-  Core.Text ->
+  Prelude.Text ->
   CopyDBClusterParameterGroup
 newCopyDBClusterParameterGroup
   pSourceDBClusterParameterGroupIdentifier_
   pTargetDBClusterParameterGroupIdentifier_
   pTargetDBClusterParameterGroupDescription_ =
     CopyDBClusterParameterGroup'
-      { tags = Core.Nothing,
+      { tags =
+          Prelude.Nothing,
         sourceDBClusterParameterGroupIdentifier =
           pSourceDBClusterParameterGroupIdentifier_,
         targetDBClusterParameterGroupIdentifier =
@@ -138,8 +140,8 @@ newCopyDBClusterParameterGroup
       }
 
 -- | Undocumented member.
-copyDBClusterParameterGroup_tags :: Lens.Lens' CopyDBClusterParameterGroup (Core.Maybe [Tag])
-copyDBClusterParameterGroup_tags = Lens.lens (\CopyDBClusterParameterGroup' {tags} -> tags) (\s@CopyDBClusterParameterGroup' {} a -> s {tags = a} :: CopyDBClusterParameterGroup) Core.. Lens.mapping Lens._Coerce
+copyDBClusterParameterGroup_tags :: Lens.Lens' CopyDBClusterParameterGroup (Prelude.Maybe [Tag])
+copyDBClusterParameterGroup_tags = Lens.lens (\CopyDBClusterParameterGroup' {tags} -> tags) (\s@CopyDBClusterParameterGroup' {} a -> s {tags = a} :: CopyDBClusterParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier or Amazon Resource Name (ARN) for the source DB cluster
 -- parameter group. For information about creating an ARN, see
@@ -149,7 +151,7 @@ copyDBClusterParameterGroup_tags = Lens.lens (\CopyDBClusterParameterGroup' {tag
 -- Constraints:
 --
 -- -   Must specify a valid DB cluster parameter group.
-copyDBClusterParameterGroup_sourceDBClusterParameterGroupIdentifier :: Lens.Lens' CopyDBClusterParameterGroup Core.Text
+copyDBClusterParameterGroup_sourceDBClusterParameterGroupIdentifier :: Lens.Lens' CopyDBClusterParameterGroup Prelude.Text
 copyDBClusterParameterGroup_sourceDBClusterParameterGroupIdentifier = Lens.lens (\CopyDBClusterParameterGroup' {sourceDBClusterParameterGroupIdentifier} -> sourceDBClusterParameterGroupIdentifier) (\s@CopyDBClusterParameterGroup' {} a -> s {sourceDBClusterParameterGroupIdentifier = a} :: CopyDBClusterParameterGroup)
 
 -- | The identifier for the copied DB cluster parameter group.
@@ -165,11 +167,11 @@ copyDBClusterParameterGroup_sourceDBClusterParameterGroupIdentifier = Lens.lens 
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-cluster-param-group1@
-copyDBClusterParameterGroup_targetDBClusterParameterGroupIdentifier :: Lens.Lens' CopyDBClusterParameterGroup Core.Text
+copyDBClusterParameterGroup_targetDBClusterParameterGroupIdentifier :: Lens.Lens' CopyDBClusterParameterGroup Prelude.Text
 copyDBClusterParameterGroup_targetDBClusterParameterGroupIdentifier = Lens.lens (\CopyDBClusterParameterGroup' {targetDBClusterParameterGroupIdentifier} -> targetDBClusterParameterGroupIdentifier) (\s@CopyDBClusterParameterGroup' {} a -> s {targetDBClusterParameterGroupIdentifier = a} :: CopyDBClusterParameterGroup)
 
 -- | A description for the copied DB cluster parameter group.
-copyDBClusterParameterGroup_targetDBClusterParameterGroupDescription :: Lens.Lens' CopyDBClusterParameterGroup Core.Text
+copyDBClusterParameterGroup_targetDBClusterParameterGroupDescription :: Lens.Lens' CopyDBClusterParameterGroup Prelude.Text
 copyDBClusterParameterGroup_targetDBClusterParameterGroupDescription = Lens.lens (\CopyDBClusterParameterGroup' {targetDBClusterParameterGroupDescription} -> targetDBClusterParameterGroupDescription) (\s@CopyDBClusterParameterGroup' {} a -> s {targetDBClusterParameterGroupDescription = a} :: CopyDBClusterParameterGroup)
 
 instance Core.AWSRequest CopyDBClusterParameterGroup where
@@ -182,28 +184,32 @@ instance Core.AWSRequest CopyDBClusterParameterGroup where
       "CopyDBClusterParameterGroupResult"
       ( \s h x ->
           CopyDBClusterParameterGroupResponse'
-            Core.<$> (x Core..@? "DBClusterParameterGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBClusterParameterGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CopyDBClusterParameterGroup
+instance Prelude.Hashable CopyDBClusterParameterGroup
 
-instance Core.NFData CopyDBClusterParameterGroup
+instance Prelude.NFData CopyDBClusterParameterGroup
 
 instance Core.ToHeaders CopyDBClusterParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CopyDBClusterParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CopyDBClusterParameterGroup where
   toQuery CopyDBClusterParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyDBClusterParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ( "CopyDBClusterParameterGroup" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "SourceDBClusterParameterGroupIdentifier"
           Core.=: sourceDBClusterParameterGroupIdentifier,
         "TargetDBClusterParameterGroupIdentifier"
@@ -214,11 +220,11 @@ instance Core.ToQuery CopyDBClusterParameterGroup where
 
 -- | /See:/ 'newCopyDBClusterParameterGroupResponse' smart constructor.
 data CopyDBClusterParameterGroupResponse = CopyDBClusterParameterGroupResponse'
-  { dbClusterParameterGroup :: Core.Maybe DBClusterParameterGroup,
+  { dbClusterParameterGroup :: Prelude.Maybe DBClusterParameterGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyDBClusterParameterGroupResponse' with all optional fields omitted.
@@ -233,23 +239,23 @@ data CopyDBClusterParameterGroupResponse = CopyDBClusterParameterGroupResponse'
 -- 'httpStatus', 'copyDBClusterParameterGroupResponse_httpStatus' - The response's http status code.
 newCopyDBClusterParameterGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CopyDBClusterParameterGroupResponse
 newCopyDBClusterParameterGroupResponse pHttpStatus_ =
   CopyDBClusterParameterGroupResponse'
     { dbClusterParameterGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-copyDBClusterParameterGroupResponse_dbClusterParameterGroup :: Lens.Lens' CopyDBClusterParameterGroupResponse (Core.Maybe DBClusterParameterGroup)
+copyDBClusterParameterGroupResponse_dbClusterParameterGroup :: Lens.Lens' CopyDBClusterParameterGroupResponse (Prelude.Maybe DBClusterParameterGroup)
 copyDBClusterParameterGroupResponse_dbClusterParameterGroup = Lens.lens (\CopyDBClusterParameterGroupResponse' {dbClusterParameterGroup} -> dbClusterParameterGroup) (\s@CopyDBClusterParameterGroupResponse' {} a -> s {dbClusterParameterGroup = a} :: CopyDBClusterParameterGroupResponse)
 
 -- | The response's http status code.
-copyDBClusterParameterGroupResponse_httpStatus :: Lens.Lens' CopyDBClusterParameterGroupResponse Core.Int
+copyDBClusterParameterGroupResponse_httpStatus :: Lens.Lens' CopyDBClusterParameterGroupResponse Prelude.Int
 copyDBClusterParameterGroupResponse_httpStatus = Lens.lens (\CopyDBClusterParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CopyDBClusterParameterGroupResponse' {} a -> s {httpStatus = a} :: CopyDBClusterParameterGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CopyDBClusterParameterGroupResponse

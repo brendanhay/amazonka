@@ -23,6 +23,7 @@ import Network.AWS.Config.Types.OrganizationCustomRuleMetadata
 import Network.AWS.Config.Types.OrganizationManagedRuleMetadata
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An organization config rule that has information about config rules that
 -- AWS Config creates in member accounts.
@@ -30,20 +31,20 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOrganizationConfigRule' smart constructor.
 data OrganizationConfigRule = OrganizationConfigRule'
   { -- | The timestamp of the last update.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | An @OrganizationManagedRuleMetadata@ object.
-    organizationManagedRuleMetadata :: Core.Maybe OrganizationManagedRuleMetadata,
+    organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
     -- | An @OrganizationCustomRuleMetadata@ object.
-    organizationCustomRuleMetadata :: Core.Maybe OrganizationCustomRuleMetadata,
+    organizationCustomRuleMetadata :: Prelude.Maybe OrganizationCustomRuleMetadata,
     -- | A comma-separated list of accounts excluded from organization config
     -- rule.
-    excludedAccounts :: Core.Maybe [Core.Text],
+    excludedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | The name that you assign to organization config rule.
-    organizationConfigRuleName :: Core.Text,
+    organizationConfigRuleName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of organization config rule.
-    organizationConfigRuleArn :: Core.Text
+    organizationConfigRuleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationConfigRule' with all optional fields omitted.
@@ -67,19 +68,19 @@ data OrganizationConfigRule = OrganizationConfigRule'
 -- 'organizationConfigRuleArn', 'organizationConfigRule_organizationConfigRuleArn' - Amazon Resource Name (ARN) of organization config rule.
 newOrganizationConfigRule ::
   -- | 'organizationConfigRuleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'organizationConfigRuleArn'
-  Core.Text ->
+  Prelude.Text ->
   OrganizationConfigRule
 newOrganizationConfigRule
   pOrganizationConfigRuleName_
   pOrganizationConfigRuleArn_ =
     OrganizationConfigRule'
       { lastUpdateTime =
-          Core.Nothing,
-        organizationManagedRuleMetadata = Core.Nothing,
-        organizationCustomRuleMetadata = Core.Nothing,
-        excludedAccounts = Core.Nothing,
+          Prelude.Nothing,
+        organizationManagedRuleMetadata = Prelude.Nothing,
+        organizationCustomRuleMetadata = Prelude.Nothing,
+        excludedAccounts = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_,
         organizationConfigRuleArn =
@@ -87,28 +88,28 @@ newOrganizationConfigRule
       }
 
 -- | The timestamp of the last update.
-organizationConfigRule_lastUpdateTime :: Lens.Lens' OrganizationConfigRule (Core.Maybe Core.UTCTime)
-organizationConfigRule_lastUpdateTime = Lens.lens (\OrganizationConfigRule' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRule' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRule) Core.. Lens.mapping Core._Time
+organizationConfigRule_lastUpdateTime :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe Prelude.UTCTime)
+organizationConfigRule_lastUpdateTime = Lens.lens (\OrganizationConfigRule' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRule' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Core._Time
 
 -- | An @OrganizationManagedRuleMetadata@ object.
-organizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' OrganizationConfigRule (Core.Maybe OrganizationManagedRuleMetadata)
+organizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
 organizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: OrganizationConfigRule)
 
 -- | An @OrganizationCustomRuleMetadata@ object.
-organizationConfigRule_organizationCustomRuleMetadata :: Lens.Lens' OrganizationConfigRule (Core.Maybe OrganizationCustomRuleMetadata)
+organizationConfigRule_organizationCustomRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationCustomRuleMetadata)
 organizationConfigRule_organizationCustomRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationCustomRuleMetadata} -> organizationCustomRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationCustomRuleMetadata = a} :: OrganizationConfigRule)
 
 -- | A comma-separated list of accounts excluded from organization config
 -- rule.
-organizationConfigRule_excludedAccounts :: Lens.Lens' OrganizationConfigRule (Core.Maybe [Core.Text])
-organizationConfigRule_excludedAccounts = Lens.lens (\OrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConfigRule' {} a -> s {excludedAccounts = a} :: OrganizationConfigRule) Core.. Lens.mapping Lens._Coerce
+organizationConfigRule_excludedAccounts :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe [Prelude.Text])
+organizationConfigRule_excludedAccounts = Lens.lens (\OrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConfigRule' {} a -> s {excludedAccounts = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name that you assign to organization config rule.
-organizationConfigRule_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRule Core.Text
+organizationConfigRule_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRule Prelude.Text
 organizationConfigRule_organizationConfigRuleName = Lens.lens (\OrganizationConfigRule' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@OrganizationConfigRule' {} a -> s {organizationConfigRuleName = a} :: OrganizationConfigRule)
 
 -- | Amazon Resource Name (ARN) of organization config rule.
-organizationConfigRule_organizationConfigRuleArn :: Lens.Lens' OrganizationConfigRule Core.Text
+organizationConfigRule_organizationConfigRuleArn :: Lens.Lens' OrganizationConfigRule Prelude.Text
 organizationConfigRule_organizationConfigRuleArn = Lens.lens (\OrganizationConfigRule' {organizationConfigRuleArn} -> organizationConfigRuleArn) (\s@OrganizationConfigRule' {} a -> s {organizationConfigRuleArn = a} :: OrganizationConfigRule)
 
 instance Core.FromJSON OrganizationConfigRule where
@@ -117,14 +118,16 @@ instance Core.FromJSON OrganizationConfigRule where
       "OrganizationConfigRule"
       ( \x ->
           OrganizationConfigRule'
-            Core.<$> (x Core..:? "LastUpdateTime")
-            Core.<*> (x Core..:? "OrganizationManagedRuleMetadata")
-            Core.<*> (x Core..:? "OrganizationCustomRuleMetadata")
-            Core.<*> (x Core..:? "ExcludedAccounts" Core..!= Core.mempty)
-            Core.<*> (x Core..: "OrganizationConfigRuleName")
-            Core.<*> (x Core..: "OrganizationConfigRuleArn")
+            Prelude.<$> (x Core..:? "LastUpdateTime")
+            Prelude.<*> (x Core..:? "OrganizationManagedRuleMetadata")
+            Prelude.<*> (x Core..:? "OrganizationCustomRuleMetadata")
+            Prelude.<*> ( x Core..:? "ExcludedAccounts"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "OrganizationConfigRuleName")
+            Prelude.<*> (x Core..: "OrganizationConfigRuleArn")
       )
 
-instance Core.Hashable OrganizationConfigRule
+instance Prelude.Hashable OrganizationConfigRule
 
-instance Core.NFData OrganizationConfigRule
+instance Prelude.NFData OrganizationConfigRule

@@ -50,6 +50,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,28 +58,28 @@ import qualified Network.AWS.Response as Response
 data DescribeAnomalyDetectors = DescribeAnomalyDetectors'
   { -- | Use the token returned by the previous operation to request the next
     -- page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in one operation. The maximum
     -- value that you can specify is 100.
     --
     -- To retrieve the remaining results, make another call with the returned
     -- @NextToken@ value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Limits the results to only the anomaly detection models that are
     -- associated with the specified metric name. If there are multiple metrics
     -- with this name in different namespaces that have anomaly detection
     -- models, they\'re all returned.
-    metricName :: Core.Maybe Core.Text,
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | Limits the results to only the anomaly detection models that are
     -- associated with the specified metric dimensions. If there are multiple
     -- metrics that have these dimensions and have anomaly detection models
     -- associated, they\'re all returned.
-    dimensions :: Core.Maybe [Dimension],
+    dimensions :: Prelude.Maybe [Dimension],
     -- | Limits the results to only the anomaly detection models that are
     -- associated with the specified namespace.
-    namespace :: Core.Maybe Core.Text
+    namespace :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAnomalyDetectors' with all optional fields omitted.
@@ -113,16 +114,17 @@ newDescribeAnomalyDetectors ::
   DescribeAnomalyDetectors
 newDescribeAnomalyDetectors =
   DescribeAnomalyDetectors'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      metricName = Core.Nothing,
-      dimensions = Core.Nothing,
-      namespace = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      metricName = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
+      namespace = Prelude.Nothing
     }
 
 -- | Use the token returned by the previous operation to request the next
 -- page of results.
-describeAnomalyDetectors_nextToken :: Lens.Lens' DescribeAnomalyDetectors (Core.Maybe Core.Text)
+describeAnomalyDetectors_nextToken :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe Prelude.Text)
 describeAnomalyDetectors_nextToken = Lens.lens (\DescribeAnomalyDetectors' {nextToken} -> nextToken) (\s@DescribeAnomalyDetectors' {} a -> s {nextToken = a} :: DescribeAnomalyDetectors)
 
 -- | The maximum number of results to return in one operation. The maximum
@@ -130,26 +132,26 @@ describeAnomalyDetectors_nextToken = Lens.lens (\DescribeAnomalyDetectors' {next
 --
 -- To retrieve the remaining results, make another call with the returned
 -- @NextToken@ value.
-describeAnomalyDetectors_maxResults :: Lens.Lens' DescribeAnomalyDetectors (Core.Maybe Core.Natural)
+describeAnomalyDetectors_maxResults :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe Prelude.Natural)
 describeAnomalyDetectors_maxResults = Lens.lens (\DescribeAnomalyDetectors' {maxResults} -> maxResults) (\s@DescribeAnomalyDetectors' {} a -> s {maxResults = a} :: DescribeAnomalyDetectors)
 
 -- | Limits the results to only the anomaly detection models that are
 -- associated with the specified metric name. If there are multiple metrics
 -- with this name in different namespaces that have anomaly detection
 -- models, they\'re all returned.
-describeAnomalyDetectors_metricName :: Lens.Lens' DescribeAnomalyDetectors (Core.Maybe Core.Text)
+describeAnomalyDetectors_metricName :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe Prelude.Text)
 describeAnomalyDetectors_metricName = Lens.lens (\DescribeAnomalyDetectors' {metricName} -> metricName) (\s@DescribeAnomalyDetectors' {} a -> s {metricName = a} :: DescribeAnomalyDetectors)
 
 -- | Limits the results to only the anomaly detection models that are
 -- associated with the specified metric dimensions. If there are multiple
 -- metrics that have these dimensions and have anomaly detection models
 -- associated, they\'re all returned.
-describeAnomalyDetectors_dimensions :: Lens.Lens' DescribeAnomalyDetectors (Core.Maybe [Dimension])
-describeAnomalyDetectors_dimensions = Lens.lens (\DescribeAnomalyDetectors' {dimensions} -> dimensions) (\s@DescribeAnomalyDetectors' {} a -> s {dimensions = a} :: DescribeAnomalyDetectors) Core.. Lens.mapping Lens._Coerce
+describeAnomalyDetectors_dimensions :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe [Dimension])
+describeAnomalyDetectors_dimensions = Lens.lens (\DescribeAnomalyDetectors' {dimensions} -> dimensions) (\s@DescribeAnomalyDetectors' {} a -> s {dimensions = a} :: DescribeAnomalyDetectors) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Limits the results to only the anomaly detection models that are
 -- associated with the specified namespace.
-describeAnomalyDetectors_namespace :: Lens.Lens' DescribeAnomalyDetectors (Core.Maybe Core.Text)
+describeAnomalyDetectors_namespace :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe Prelude.Text)
 describeAnomalyDetectors_namespace = Lens.lens (\DescribeAnomalyDetectors' {namespace} -> namespace) (\s@DescribeAnomalyDetectors' {} a -> s {namespace = a} :: DescribeAnomalyDetectors)
 
 instance Core.AWSRequest DescribeAnomalyDetectors where
@@ -162,35 +164,37 @@ instance Core.AWSRequest DescribeAnomalyDetectors where
       "DescribeAnomalyDetectorsResult"
       ( \s h x ->
           DescribeAnomalyDetectorsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "AnomalyDetectors" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "AnomalyDetectors"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAnomalyDetectors
+instance Prelude.Hashable DescribeAnomalyDetectors
 
-instance Core.NFData DescribeAnomalyDetectors
+instance Prelude.NFData DescribeAnomalyDetectors
 
 instance Core.ToHeaders DescribeAnomalyDetectors where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeAnomalyDetectors where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAnomalyDetectors where
   toQuery DescribeAnomalyDetectors' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAnomalyDetectors" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("DescribeAnomalyDetectors" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
         "MetricName" Core.=: metricName,
         "Dimensions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> dimensions),
+            (Core.toQueryList "member" Prelude.<$> dimensions),
         "Namespace" Core.=: namespace
       ]
 
@@ -198,13 +202,13 @@ instance Core.ToQuery DescribeAnomalyDetectors where
 data DescribeAnomalyDetectorsResponse = DescribeAnomalyDetectorsResponse'
   { -- | A token that you can use in a subsequent operation to retrieve the next
     -- set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of anomaly detection models returned by the operation.
-    anomalyDetectors :: Core.Maybe [AnomalyDetector],
+    anomalyDetectors :: Prelude.Maybe [AnomalyDetector],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAnomalyDetectorsResponse' with all optional fields omitted.
@@ -222,27 +226,29 @@ data DescribeAnomalyDetectorsResponse = DescribeAnomalyDetectorsResponse'
 -- 'httpStatus', 'describeAnomalyDetectorsResponse_httpStatus' - The response's http status code.
 newDescribeAnomalyDetectorsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAnomalyDetectorsResponse
 newDescribeAnomalyDetectorsResponse pHttpStatus_ =
   DescribeAnomalyDetectorsResponse'
     { nextToken =
-        Core.Nothing,
-      anomalyDetectors = Core.Nothing,
+        Prelude.Nothing,
+      anomalyDetectors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token that you can use in a subsequent operation to retrieve the next
 -- set of results.
-describeAnomalyDetectorsResponse_nextToken :: Lens.Lens' DescribeAnomalyDetectorsResponse (Core.Maybe Core.Text)
+describeAnomalyDetectorsResponse_nextToken :: Lens.Lens' DescribeAnomalyDetectorsResponse (Prelude.Maybe Prelude.Text)
 describeAnomalyDetectorsResponse_nextToken = Lens.lens (\DescribeAnomalyDetectorsResponse' {nextToken} -> nextToken) (\s@DescribeAnomalyDetectorsResponse' {} a -> s {nextToken = a} :: DescribeAnomalyDetectorsResponse)
 
 -- | The list of anomaly detection models returned by the operation.
-describeAnomalyDetectorsResponse_anomalyDetectors :: Lens.Lens' DescribeAnomalyDetectorsResponse (Core.Maybe [AnomalyDetector])
-describeAnomalyDetectorsResponse_anomalyDetectors = Lens.lens (\DescribeAnomalyDetectorsResponse' {anomalyDetectors} -> anomalyDetectors) (\s@DescribeAnomalyDetectorsResponse' {} a -> s {anomalyDetectors = a} :: DescribeAnomalyDetectorsResponse) Core.. Lens.mapping Lens._Coerce
+describeAnomalyDetectorsResponse_anomalyDetectors :: Lens.Lens' DescribeAnomalyDetectorsResponse (Prelude.Maybe [AnomalyDetector])
+describeAnomalyDetectorsResponse_anomalyDetectors = Lens.lens (\DescribeAnomalyDetectorsResponse' {anomalyDetectors} -> anomalyDetectors) (\s@DescribeAnomalyDetectorsResponse' {} a -> s {anomalyDetectors = a} :: DescribeAnomalyDetectorsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAnomalyDetectorsResponse_httpStatus :: Lens.Lens' DescribeAnomalyDetectorsResponse Core.Int
+describeAnomalyDetectorsResponse_httpStatus :: Lens.Lens' DescribeAnomalyDetectorsResponse Prelude.Int
 describeAnomalyDetectorsResponse_httpStatus = Lens.lens (\DescribeAnomalyDetectorsResponse' {httpStatus} -> httpStatus) (\s@DescribeAnomalyDetectorsResponse' {} a -> s {httpStatus = a} :: DescribeAnomalyDetectorsResponse)
 
-instance Core.NFData DescribeAnomalyDetectorsResponse
+instance
+  Prelude.NFData
+    DescribeAnomalyDetectorsResponse

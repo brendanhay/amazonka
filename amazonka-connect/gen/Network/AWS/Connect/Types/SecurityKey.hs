@@ -21,20 +21,21 @@ module Network.AWS.Connect.Types.SecurityKey where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information of the security key.
 --
 -- /See:/ 'newSecurityKey' smart constructor.
 data SecurityKey = SecurityKey'
   { -- | The key of the security key.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | When the security key was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Core.Maybe Core.Text
+    associationId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecurityKey' with all optional fields omitted.
@@ -54,22 +55,22 @@ newSecurityKey ::
   SecurityKey
 newSecurityKey =
   SecurityKey'
-    { key = Core.Nothing,
-      creationTime = Core.Nothing,
-      associationId = Core.Nothing
+    { key = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      associationId = Prelude.Nothing
     }
 
 -- | The key of the security key.
-securityKey_key :: Lens.Lens' SecurityKey (Core.Maybe Core.Text)
+securityKey_key :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.Text)
 securityKey_key = Lens.lens (\SecurityKey' {key} -> key) (\s@SecurityKey' {} a -> s {key = a} :: SecurityKey)
 
 -- | When the security key was created.
-securityKey_creationTime :: Lens.Lens' SecurityKey (Core.Maybe Core.UTCTime)
-securityKey_creationTime = Lens.lens (\SecurityKey' {creationTime} -> creationTime) (\s@SecurityKey' {} a -> s {creationTime = a} :: SecurityKey) Core.. Lens.mapping Core._Time
+securityKey_creationTime :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.UTCTime)
+securityKey_creationTime = Lens.lens (\SecurityKey' {creationTime} -> creationTime) (\s@SecurityKey' {} a -> s {creationTime = a} :: SecurityKey) Prelude.. Lens.mapping Core._Time
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
-securityKey_associationId :: Lens.Lens' SecurityKey (Core.Maybe Core.Text)
+securityKey_associationId :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.Text)
 securityKey_associationId = Lens.lens (\SecurityKey' {associationId} -> associationId) (\s@SecurityKey' {} a -> s {associationId = a} :: SecurityKey)
 
 instance Core.FromJSON SecurityKey where
@@ -78,11 +79,11 @@ instance Core.FromJSON SecurityKey where
       "SecurityKey"
       ( \x ->
           SecurityKey'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "AssociationId")
       )
 
-instance Core.Hashable SecurityKey
+instance Prelude.Hashable SecurityKey
 
-instance Core.NFData SecurityKey
+instance Prelude.NFData SecurityKey

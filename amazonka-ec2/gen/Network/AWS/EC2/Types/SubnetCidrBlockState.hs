@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.SubnetCidrBlockStateCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a CIDR block.
 --
 -- /See:/ 'newSubnetCidrBlockState' smart constructor.
 data SubnetCidrBlockState = SubnetCidrBlockState'
   { -- | A message about the status of the CIDR block, if applicable.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The state of a CIDR block.
-    state :: Core.Maybe SubnetCidrBlockStateCode
+    state :: Prelude.Maybe SubnetCidrBlockStateCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubnetCidrBlockState' with all optional fields omitted.
@@ -50,24 +51,25 @@ newSubnetCidrBlockState ::
   SubnetCidrBlockState
 newSubnetCidrBlockState =
   SubnetCidrBlockState'
-    { statusMessage = Core.Nothing,
-      state = Core.Nothing
+    { statusMessage =
+        Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
 -- | A message about the status of the CIDR block, if applicable.
-subnetCidrBlockState_statusMessage :: Lens.Lens' SubnetCidrBlockState (Core.Maybe Core.Text)
+subnetCidrBlockState_statusMessage :: Lens.Lens' SubnetCidrBlockState (Prelude.Maybe Prelude.Text)
 subnetCidrBlockState_statusMessage = Lens.lens (\SubnetCidrBlockState' {statusMessage} -> statusMessage) (\s@SubnetCidrBlockState' {} a -> s {statusMessage = a} :: SubnetCidrBlockState)
 
 -- | The state of a CIDR block.
-subnetCidrBlockState_state :: Lens.Lens' SubnetCidrBlockState (Core.Maybe SubnetCidrBlockStateCode)
+subnetCidrBlockState_state :: Lens.Lens' SubnetCidrBlockState (Prelude.Maybe SubnetCidrBlockStateCode)
 subnetCidrBlockState_state = Lens.lens (\SubnetCidrBlockState' {state} -> state) (\s@SubnetCidrBlockState' {} a -> s {state = a} :: SubnetCidrBlockState)
 
 instance Core.FromXML SubnetCidrBlockState where
   parseXML x =
     SubnetCidrBlockState'
-      Core.<$> (x Core..@? "statusMessage")
-      Core.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "state")
 
-instance Core.Hashable SubnetCidrBlockState
+instance Prelude.Hashable SubnetCidrBlockState
 
-instance Core.NFData SubnetCidrBlockState
+instance Prelude.NFData SubnetCidrBlockState

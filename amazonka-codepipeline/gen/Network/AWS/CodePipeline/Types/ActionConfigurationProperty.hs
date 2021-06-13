@@ -22,6 +22,7 @@ module Network.AWS.CodePipeline.Types.ActionConfigurationProperty where
 import Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an action configuration property.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data ActionConfigurationProperty = ActionConfigurationProperty'
   { -- | The description of the action configuration property that is displayed
     -- to users.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of the configuration property.
-    type' :: Core.Maybe ActionConfigurationPropertyType,
+    type' :: Prelude.Maybe ActionConfigurationPropertyType,
     -- | Indicates that the property is used with @PollForJobs@. When creating a
     -- custom action, an action can have up to one queryable property. If it
     -- has one, that property must be both required and not secret.
@@ -41,22 +42,22 @@ data ActionConfigurationProperty = ActionConfigurationProperty'
     -- property is subject to other restrictions. The value must be less than
     -- or equal to twenty (20) characters. The value can contain only
     -- alphanumeric characters, underscores, and hyphens.
-    queryable :: Core.Maybe Core.Bool,
+    queryable :: Prelude.Maybe Prelude.Bool,
     -- | The name of the action configuration property.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Whether the configuration property is a required value.
-    required :: Core.Bool,
+    required :: Prelude.Bool,
     -- | Whether the configuration property is a key.
-    key :: Core.Bool,
+    key :: Prelude.Bool,
     -- | Whether the configuration property is secret. Secrets are hidden from
     -- all calls except for @GetJobDetails@, @GetThirdPartyJobDetails@,
     -- @PollForJobs@, and @PollForThirdPartyJobs@.
     --
     -- When updating a pipeline, passing * * * * * without changing any other
     -- values of the action preserves the previous value of the secret.
-    secret :: Core.Bool
+    secret :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionConfigurationProperty' with all optional fields omitted.
@@ -95,13 +96,13 @@ data ActionConfigurationProperty = ActionConfigurationProperty'
 -- values of the action preserves the previous value of the secret.
 newActionConfigurationProperty ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'required'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'key'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'secret'
-  Core.Bool ->
+  Prelude.Bool ->
   ActionConfigurationProperty
 newActionConfigurationProperty
   pName_
@@ -110,9 +111,9 @@ newActionConfigurationProperty
   pSecret_ =
     ActionConfigurationProperty'
       { description =
-          Core.Nothing,
-        type' = Core.Nothing,
-        queryable = Core.Nothing,
+          Prelude.Nothing,
+        type' = Prelude.Nothing,
+        queryable = Prelude.Nothing,
         name = pName_,
         required = pRequired_,
         key = pKey_,
@@ -121,11 +122,11 @@ newActionConfigurationProperty
 
 -- | The description of the action configuration property that is displayed
 -- to users.
-actionConfigurationProperty_description :: Lens.Lens' ActionConfigurationProperty (Core.Maybe Core.Text)
+actionConfigurationProperty_description :: Lens.Lens' ActionConfigurationProperty (Prelude.Maybe Prelude.Text)
 actionConfigurationProperty_description = Lens.lens (\ActionConfigurationProperty' {description} -> description) (\s@ActionConfigurationProperty' {} a -> s {description = a} :: ActionConfigurationProperty)
 
 -- | The type of the configuration property.
-actionConfigurationProperty_type :: Lens.Lens' ActionConfigurationProperty (Core.Maybe ActionConfigurationPropertyType)
+actionConfigurationProperty_type :: Lens.Lens' ActionConfigurationProperty (Prelude.Maybe ActionConfigurationPropertyType)
 actionConfigurationProperty_type = Lens.lens (\ActionConfigurationProperty' {type'} -> type') (\s@ActionConfigurationProperty' {} a -> s {type' = a} :: ActionConfigurationProperty)
 
 -- | Indicates that the property is used with @PollForJobs@. When creating a
@@ -137,19 +138,19 @@ actionConfigurationProperty_type = Lens.lens (\ActionConfigurationProperty' {typ
 -- property is subject to other restrictions. The value must be less than
 -- or equal to twenty (20) characters. The value can contain only
 -- alphanumeric characters, underscores, and hyphens.
-actionConfigurationProperty_queryable :: Lens.Lens' ActionConfigurationProperty (Core.Maybe Core.Bool)
+actionConfigurationProperty_queryable :: Lens.Lens' ActionConfigurationProperty (Prelude.Maybe Prelude.Bool)
 actionConfigurationProperty_queryable = Lens.lens (\ActionConfigurationProperty' {queryable} -> queryable) (\s@ActionConfigurationProperty' {} a -> s {queryable = a} :: ActionConfigurationProperty)
 
 -- | The name of the action configuration property.
-actionConfigurationProperty_name :: Lens.Lens' ActionConfigurationProperty Core.Text
+actionConfigurationProperty_name :: Lens.Lens' ActionConfigurationProperty Prelude.Text
 actionConfigurationProperty_name = Lens.lens (\ActionConfigurationProperty' {name} -> name) (\s@ActionConfigurationProperty' {} a -> s {name = a} :: ActionConfigurationProperty)
 
 -- | Whether the configuration property is a required value.
-actionConfigurationProperty_required :: Lens.Lens' ActionConfigurationProperty Core.Bool
+actionConfigurationProperty_required :: Lens.Lens' ActionConfigurationProperty Prelude.Bool
 actionConfigurationProperty_required = Lens.lens (\ActionConfigurationProperty' {required} -> required) (\s@ActionConfigurationProperty' {} a -> s {required = a} :: ActionConfigurationProperty)
 
 -- | Whether the configuration property is a key.
-actionConfigurationProperty_key :: Lens.Lens' ActionConfigurationProperty Core.Bool
+actionConfigurationProperty_key :: Lens.Lens' ActionConfigurationProperty Prelude.Bool
 actionConfigurationProperty_key = Lens.lens (\ActionConfigurationProperty' {key} -> key) (\s@ActionConfigurationProperty' {} a -> s {key = a} :: ActionConfigurationProperty)
 
 -- | Whether the configuration property is secret. Secrets are hidden from
@@ -158,7 +159,7 @@ actionConfigurationProperty_key = Lens.lens (\ActionConfigurationProperty' {key}
 --
 -- When updating a pipeline, passing * * * * * without changing any other
 -- values of the action preserves the previous value of the secret.
-actionConfigurationProperty_secret :: Lens.Lens' ActionConfigurationProperty Core.Bool
+actionConfigurationProperty_secret :: Lens.Lens' ActionConfigurationProperty Prelude.Bool
 actionConfigurationProperty_secret = Lens.lens (\ActionConfigurationProperty' {secret} -> secret) (\s@ActionConfigurationProperty' {} a -> s {secret = a} :: ActionConfigurationProperty)
 
 instance Core.FromJSON ActionConfigurationProperty where
@@ -167,29 +168,29 @@ instance Core.FromJSON ActionConfigurationProperty where
       "ActionConfigurationProperty"
       ( \x ->
           ActionConfigurationProperty'
-            Core.<$> (x Core..:? "description")
-            Core.<*> (x Core..:? "type")
-            Core.<*> (x Core..:? "queryable")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "required")
-            Core.<*> (x Core..: "key")
-            Core.<*> (x Core..: "secret")
+            Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "queryable")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "required")
+            Prelude.<*> (x Core..: "key")
+            Prelude.<*> (x Core..: "secret")
       )
 
-instance Core.Hashable ActionConfigurationProperty
+instance Prelude.Hashable ActionConfigurationProperty
 
-instance Core.NFData ActionConfigurationProperty
+instance Prelude.NFData ActionConfigurationProperty
 
 instance Core.ToJSON ActionConfigurationProperty where
   toJSON ActionConfigurationProperty' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("description" Core..=) Core.<$> description,
-            ("type" Core..=) Core.<$> type',
-            ("queryable" Core..=) Core.<$> queryable,
-            Core.Just ("name" Core..= name),
-            Core.Just ("required" Core..= required),
-            Core.Just ("key" Core..= key),
-            Core.Just ("secret" Core..= secret)
+      ( Prelude.catMaybes
+          [ ("description" Core..=) Prelude.<$> description,
+            ("type" Core..=) Prelude.<$> type',
+            ("queryable" Core..=) Prelude.<$> queryable,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("required" Core..= required),
+            Prelude.Just ("key" Core..= key),
+            Prelude.Just ("secret" Core..= secret)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.NetworkConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.AwsVpcConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the network configuration for a task or service.
 --
@@ -30,9 +31,9 @@ data NetworkConfiguration = NetworkConfiguration'
   { -- | The VPC subnets and security groups associated with a task.
     --
     -- All specified subnets and security groups must be from the same VPC.
-    awsvpcConfiguration :: Core.Maybe AwsVpcConfiguration
+    awsvpcConfiguration :: Prelude.Maybe AwsVpcConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkConfiguration' with all optional fields omitted.
@@ -50,13 +51,13 @@ newNetworkConfiguration ::
 newNetworkConfiguration =
   NetworkConfiguration'
     { awsvpcConfiguration =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The VPC subnets and security groups associated with a task.
 --
 -- All specified subnets and security groups must be from the same VPC.
-networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Core.Maybe AwsVpcConfiguration)
+networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AwsVpcConfiguration)
 networkConfiguration_awsvpcConfiguration = Lens.lens (\NetworkConfiguration' {awsvpcConfiguration} -> awsvpcConfiguration) (\s@NetworkConfiguration' {} a -> s {awsvpcConfiguration = a} :: NetworkConfiguration)
 
 instance Core.FromJSON NetworkConfiguration where
@@ -65,18 +66,18 @@ instance Core.FromJSON NetworkConfiguration where
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Core.<$> (x Core..:? "awsvpcConfiguration")
+            Prelude.<$> (x Core..:? "awsvpcConfiguration")
       )
 
-instance Core.Hashable NetworkConfiguration
+instance Prelude.Hashable NetworkConfiguration
 
-instance Core.NFData NetworkConfiguration
+instance Prelude.NFData NetworkConfiguration
 
 instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("awsvpcConfiguration" Core..=)
-              Core.<$> awsvpcConfiguration
+              Prelude.<$> awsvpcConfiguration
           ]
       )

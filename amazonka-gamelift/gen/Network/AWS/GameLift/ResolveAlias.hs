@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,9 +65,9 @@ import qualified Network.AWS.Response as Response
 data ResolveAlias = ResolveAlias'
   { -- | The unique identifier of the alias that you want to retrieve a fleet ID
     -- for. You can use either the alias ID or ARN value.
-    aliasId :: Core.Text
+    aliasId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResolveAlias' with all optional fields omitted.
@@ -80,14 +81,14 @@ data ResolveAlias = ResolveAlias'
 -- for. You can use either the alias ID or ARN value.
 newResolveAlias ::
   -- | 'aliasId'
-  Core.Text ->
+  Prelude.Text ->
   ResolveAlias
 newResolveAlias pAliasId_ =
   ResolveAlias' {aliasId = pAliasId_}
 
 -- | The unique identifier of the alias that you want to retrieve a fleet ID
 -- for. You can use either the alias ID or ARN value.
-resolveAlias_aliasId :: Lens.Lens' ResolveAlias Core.Text
+resolveAlias_aliasId :: Lens.Lens' ResolveAlias Prelude.Text
 resolveAlias_aliasId = Lens.lens (\ResolveAlias' {aliasId} -> aliasId) (\s@ResolveAlias' {} a -> s {aliasId = a} :: ResolveAlias)
 
 instance Core.AWSRequest ResolveAlias where
@@ -97,38 +98,40 @@ instance Core.AWSRequest ResolveAlias where
     Response.receiveJSON
       ( \s h x ->
           ResolveAliasResponse'
-            Core.<$> (x Core..?> "FleetArn")
-            Core.<*> (x Core..?> "FleetId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FleetArn")
+            Prelude.<*> (x Core..?> "FleetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResolveAlias
+instance Prelude.Hashable ResolveAlias
 
-instance Core.NFData ResolveAlias
+instance Prelude.NFData ResolveAlias
 
 instance Core.ToHeaders ResolveAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.ResolveAlias" :: Core.ByteString),
+              Core.=# ("GameLift.ResolveAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ResolveAlias where
   toJSON ResolveAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AliasId" Core..= aliasId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("AliasId" Core..= aliasId)]
       )
 
 instance Core.ToPath ResolveAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResolveAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -137,13 +140,13 @@ data ResolveAliasResponse = ResolveAliasResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
     -- associated with the GameLift fleet resource that this alias points to.
-    fleetArn :: Core.Maybe Core.Text,
+    fleetArn :: Prelude.Maybe Prelude.Text,
     -- | The fleet identifier that the alias is pointing to.
-    fleetId :: Core.Maybe Core.Text,
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResolveAliasResponse' with all optional fields omitted.
@@ -162,27 +165,27 @@ data ResolveAliasResponse = ResolveAliasResponse'
 -- 'httpStatus', 'resolveAliasResponse_httpStatus' - The response's http status code.
 newResolveAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResolveAliasResponse
 newResolveAliasResponse pHttpStatus_ =
   ResolveAliasResponse'
-    { fleetArn = Core.Nothing,
-      fleetId = Core.Nothing,
+    { fleetArn = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
 -- associated with the GameLift fleet resource that this alias points to.
-resolveAliasResponse_fleetArn :: Lens.Lens' ResolveAliasResponse (Core.Maybe Core.Text)
+resolveAliasResponse_fleetArn :: Lens.Lens' ResolveAliasResponse (Prelude.Maybe Prelude.Text)
 resolveAliasResponse_fleetArn = Lens.lens (\ResolveAliasResponse' {fleetArn} -> fleetArn) (\s@ResolveAliasResponse' {} a -> s {fleetArn = a} :: ResolveAliasResponse)
 
 -- | The fleet identifier that the alias is pointing to.
-resolveAliasResponse_fleetId :: Lens.Lens' ResolveAliasResponse (Core.Maybe Core.Text)
+resolveAliasResponse_fleetId :: Lens.Lens' ResolveAliasResponse (Prelude.Maybe Prelude.Text)
 resolveAliasResponse_fleetId = Lens.lens (\ResolveAliasResponse' {fleetId} -> fleetId) (\s@ResolveAliasResponse' {} a -> s {fleetId = a} :: ResolveAliasResponse)
 
 -- | The response's http status code.
-resolveAliasResponse_httpStatus :: Lens.Lens' ResolveAliasResponse Core.Int
+resolveAliasResponse_httpStatus :: Lens.Lens' ResolveAliasResponse Prelude.Int
 resolveAliasResponse_httpStatus = Lens.lens (\ResolveAliasResponse' {httpStatus} -> httpStatus) (\s@ResolveAliasResponse' {} a -> s {httpStatus = a} :: ResolveAliasResponse)
 
-instance Core.NFData ResolveAliasResponse
+instance Prelude.NFData ResolveAliasResponse

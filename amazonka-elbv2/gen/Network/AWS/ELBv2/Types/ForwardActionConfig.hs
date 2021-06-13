@@ -23,18 +23,19 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
 import Network.AWS.ELBv2.Types.TargetGroupTuple
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a forward action.
 --
 -- /See:/ 'newForwardActionConfig' smart constructor.
 data ForwardActionConfig = ForwardActionConfig'
   { -- | The target group stickiness for the rule.
-    targetGroupStickinessConfig :: Core.Maybe TargetGroupStickinessConfig,
+    targetGroupStickinessConfig :: Prelude.Maybe TargetGroupStickinessConfig,
     -- | One or more target groups. For Network Load Balancers, you can specify a
     -- single target group.
-    targetGroups :: Core.Maybe [TargetGroupTuple]
+    targetGroups :: Prelude.Maybe [TargetGroupTuple]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ForwardActionConfig' with all optional fields omitted.
@@ -53,37 +54,37 @@ newForwardActionConfig ::
 newForwardActionConfig =
   ForwardActionConfig'
     { targetGroupStickinessConfig =
-        Core.Nothing,
-      targetGroups = Core.Nothing
+        Prelude.Nothing,
+      targetGroups = Prelude.Nothing
     }
 
 -- | The target group stickiness for the rule.
-forwardActionConfig_targetGroupStickinessConfig :: Lens.Lens' ForwardActionConfig (Core.Maybe TargetGroupStickinessConfig)
+forwardActionConfig_targetGroupStickinessConfig :: Lens.Lens' ForwardActionConfig (Prelude.Maybe TargetGroupStickinessConfig)
 forwardActionConfig_targetGroupStickinessConfig = Lens.lens (\ForwardActionConfig' {targetGroupStickinessConfig} -> targetGroupStickinessConfig) (\s@ForwardActionConfig' {} a -> s {targetGroupStickinessConfig = a} :: ForwardActionConfig)
 
 -- | One or more target groups. For Network Load Balancers, you can specify a
 -- single target group.
-forwardActionConfig_targetGroups :: Lens.Lens' ForwardActionConfig (Core.Maybe [TargetGroupTuple])
-forwardActionConfig_targetGroups = Lens.lens (\ForwardActionConfig' {targetGroups} -> targetGroups) (\s@ForwardActionConfig' {} a -> s {targetGroups = a} :: ForwardActionConfig) Core.. Lens.mapping Lens._Coerce
+forwardActionConfig_targetGroups :: Lens.Lens' ForwardActionConfig (Prelude.Maybe [TargetGroupTuple])
+forwardActionConfig_targetGroups = Lens.lens (\ForwardActionConfig' {targetGroups} -> targetGroups) (\s@ForwardActionConfig' {} a -> s {targetGroups = a} :: ForwardActionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML ForwardActionConfig where
   parseXML x =
     ForwardActionConfig'
-      Core.<$> (x Core..@? "TargetGroupStickinessConfig")
-      Core.<*> ( x Core..@? "TargetGroups" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> (x Core..@? "TargetGroupStickinessConfig")
+      Prelude.<*> ( x Core..@? "TargetGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable ForwardActionConfig
+instance Prelude.Hashable ForwardActionConfig
 
-instance Core.NFData ForwardActionConfig
+instance Prelude.NFData ForwardActionConfig
 
 instance Core.ToQuery ForwardActionConfig where
   toQuery ForwardActionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "TargetGroupStickinessConfig"
           Core.=: targetGroupStickinessConfig,
         "TargetGroups"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> targetGroups)
+            (Core.toQueryList "member" Prelude.<$> targetGroups)
       ]

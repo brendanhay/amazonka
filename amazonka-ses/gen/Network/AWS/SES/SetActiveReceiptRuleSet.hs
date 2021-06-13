@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -61,9 +62,9 @@ import Network.AWS.SES.Types
 data SetActiveReceiptRuleSet = SetActiveReceiptRuleSet'
   { -- | The name of the receipt rule set to make active. Setting this value to
     -- null disables all email receiving.
-    ruleSetName :: Core.Maybe Core.Text
+    ruleSetName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetActiveReceiptRuleSet' with all optional fields omitted.
@@ -80,12 +81,12 @@ newSetActiveReceiptRuleSet ::
 newSetActiveReceiptRuleSet =
   SetActiveReceiptRuleSet'
     { ruleSetName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the receipt rule set to make active. Setting this value to
 -- null disables all email receiving.
-setActiveReceiptRuleSet_ruleSetName :: Lens.Lens' SetActiveReceiptRuleSet (Core.Maybe Core.Text)
+setActiveReceiptRuleSet_ruleSetName :: Lens.Lens' SetActiveReceiptRuleSet (Prelude.Maybe Prelude.Text)
 setActiveReceiptRuleSet_ruleSetName = Lens.lens (\SetActiveReceiptRuleSet' {ruleSetName} -> ruleSetName) (\s@SetActiveReceiptRuleSet' {} a -> s {ruleSetName = a} :: SetActiveReceiptRuleSet)
 
 instance Core.AWSRequest SetActiveReceiptRuleSet where
@@ -98,25 +99,26 @@ instance Core.AWSRequest SetActiveReceiptRuleSet where
       "SetActiveReceiptRuleSetResult"
       ( \s h x ->
           SetActiveReceiptRuleSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetActiveReceiptRuleSet
+instance Prelude.Hashable SetActiveReceiptRuleSet
 
-instance Core.NFData SetActiveReceiptRuleSet
+instance Prelude.NFData SetActiveReceiptRuleSet
 
 instance Core.ToHeaders SetActiveReceiptRuleSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetActiveReceiptRuleSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetActiveReceiptRuleSet where
   toQuery SetActiveReceiptRuleSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetActiveReceiptRuleSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("SetActiveReceiptRuleSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "RuleSetName" Core.=: ruleSetName
       ]
 
@@ -125,9 +127,9 @@ instance Core.ToQuery SetActiveReceiptRuleSet where
 -- /See:/ 'newSetActiveReceiptRuleSetResponse' smart constructor.
 data SetActiveReceiptRuleSetResponse = SetActiveReceiptRuleSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetActiveReceiptRuleSetResponse' with all optional fields omitted.
@@ -140,7 +142,7 @@ data SetActiveReceiptRuleSetResponse = SetActiveReceiptRuleSetResponse'
 -- 'httpStatus', 'setActiveReceiptRuleSetResponse_httpStatus' - The response's http status code.
 newSetActiveReceiptRuleSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetActiveReceiptRuleSetResponse
 newSetActiveReceiptRuleSetResponse pHttpStatus_ =
   SetActiveReceiptRuleSetResponse'
@@ -149,7 +151,9 @@ newSetActiveReceiptRuleSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setActiveReceiptRuleSetResponse_httpStatus :: Lens.Lens' SetActiveReceiptRuleSetResponse Core.Int
+setActiveReceiptRuleSetResponse_httpStatus :: Lens.Lens' SetActiveReceiptRuleSetResponse Prelude.Int
 setActiveReceiptRuleSetResponse_httpStatus = Lens.lens (\SetActiveReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@SetActiveReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: SetActiveReceiptRuleSetResponse)
 
-instance Core.NFData SetActiveReceiptRuleSetResponse
+instance
+  Prelude.NFData
+    SetActiveReceiptRuleSetResponse

@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.IotEventsAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Sends an input to an AWS IoT Events detector.
 --
@@ -36,7 +37,7 @@ data IotEventsAction = IotEventsAction'
     -- sent to AWS IoT Events by calling
     -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html BatchPutMessage>
     -- . The resulting array can\'t have more than 10 messages.
-    batchMode :: Core.Maybe Core.Bool,
+    batchMode :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the message. The default @messageId@ is a new UUID value.
     --
     -- When @batchMode@ is @true@, you can\'t specify a @messageId@--a new UUID
@@ -45,14 +46,14 @@ data IotEventsAction = IotEventsAction'
     -- Assign a value to this property to ensure that only one input (message)
     -- with a given @messageId@ will be processed by an AWS IoT Events
     -- detector.
-    messageId :: Core.Maybe Core.Text,
+    messageId :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS IoT Events input.
-    inputName :: Core.Text,
+    inputName :: Prelude.Text,
     -- | The ARN of the role that grants AWS IoT permission to send an input to
     -- an AWS IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IotEventsAction' with all optional fields omitted.
@@ -88,14 +89,14 @@ data IotEventsAction = IotEventsAction'
 -- an AWS IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
 newIotEventsAction ::
   -- | 'inputName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   IotEventsAction
 newIotEventsAction pInputName_ pRoleArn_ =
   IotEventsAction'
-    { batchMode = Core.Nothing,
-      messageId = Core.Nothing,
+    { batchMode = Prelude.Nothing,
+      messageId = Prelude.Nothing,
       inputName = pInputName_,
       roleArn = pRoleArn_
     }
@@ -110,7 +111,7 @@ newIotEventsAction pInputName_ pRoleArn_ =
 -- sent to AWS IoT Events by calling
 -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html BatchPutMessage>
 -- . The resulting array can\'t have more than 10 messages.
-iotEventsAction_batchMode :: Lens.Lens' IotEventsAction (Core.Maybe Core.Bool)
+iotEventsAction_batchMode :: Lens.Lens' IotEventsAction (Prelude.Maybe Prelude.Bool)
 iotEventsAction_batchMode = Lens.lens (\IotEventsAction' {batchMode} -> batchMode) (\s@IotEventsAction' {} a -> s {batchMode = a} :: IotEventsAction)
 
 -- | The ID of the message. The default @messageId@ is a new UUID value.
@@ -121,16 +122,16 @@ iotEventsAction_batchMode = Lens.lens (\IotEventsAction' {batchMode} -> batchMod
 -- Assign a value to this property to ensure that only one input (message)
 -- with a given @messageId@ will be processed by an AWS IoT Events
 -- detector.
-iotEventsAction_messageId :: Lens.Lens' IotEventsAction (Core.Maybe Core.Text)
+iotEventsAction_messageId :: Lens.Lens' IotEventsAction (Prelude.Maybe Prelude.Text)
 iotEventsAction_messageId = Lens.lens (\IotEventsAction' {messageId} -> messageId) (\s@IotEventsAction' {} a -> s {messageId = a} :: IotEventsAction)
 
 -- | The name of the AWS IoT Events input.
-iotEventsAction_inputName :: Lens.Lens' IotEventsAction Core.Text
+iotEventsAction_inputName :: Lens.Lens' IotEventsAction Prelude.Text
 iotEventsAction_inputName = Lens.lens (\IotEventsAction' {inputName} -> inputName) (\s@IotEventsAction' {} a -> s {inputName = a} :: IotEventsAction)
 
 -- | The ARN of the role that grants AWS IoT permission to send an input to
 -- an AWS IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").
-iotEventsAction_roleArn :: Lens.Lens' IotEventsAction Core.Text
+iotEventsAction_roleArn :: Lens.Lens' IotEventsAction Prelude.Text
 iotEventsAction_roleArn = Lens.lens (\IotEventsAction' {roleArn} -> roleArn) (\s@IotEventsAction' {} a -> s {roleArn = a} :: IotEventsAction)
 
 instance Core.FromJSON IotEventsAction where
@@ -139,23 +140,23 @@ instance Core.FromJSON IotEventsAction where
       "IotEventsAction"
       ( \x ->
           IotEventsAction'
-            Core.<$> (x Core..:? "batchMode")
-            Core.<*> (x Core..:? "messageId")
-            Core.<*> (x Core..: "inputName")
-            Core.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Core..:? "batchMode")
+            Prelude.<*> (x Core..:? "messageId")
+            Prelude.<*> (x Core..: "inputName")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Core.Hashable IotEventsAction
+instance Prelude.Hashable IotEventsAction
 
-instance Core.NFData IotEventsAction
+instance Prelude.NFData IotEventsAction
 
 instance Core.ToJSON IotEventsAction where
   toJSON IotEventsAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("batchMode" Core..=) Core.<$> batchMode,
-            ("messageId" Core..=) Core.<$> messageId,
-            Core.Just ("inputName" Core..= inputName),
-            Core.Just ("roleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ ("batchMode" Core..=) Prelude.<$> batchMode,
+            ("messageId" Core..=) Prelude.<$> messageId,
+            Prelude.Just ("inputName" Core..= inputName),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

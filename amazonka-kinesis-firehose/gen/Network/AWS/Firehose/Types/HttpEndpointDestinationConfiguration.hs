@@ -29,6 +29,7 @@ import Network.AWS.Firehose.Types.HttpEndpointS3BackupMode
 import Network.AWS.Firehose.Types.ProcessingConfiguration
 import Network.AWS.Firehose.Types.S3DestinationConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the configuration of the HTTP endpoint destination.
 --
@@ -36,34 +37,34 @@ import qualified Network.AWS.Lens as Lens
 data HttpEndpointDestinationConfiguration = HttpEndpointDestinationConfiguration'
   { -- | Kinesis Data Firehose uses this IAM role for all the permissions that
     -- the delivery stream needs.
-    roleARN :: Core.Maybe Core.Text,
-    processingConfiguration :: Core.Maybe ProcessingConfiguration,
-    cloudWatchLoggingOptions :: Core.Maybe CloudWatchLoggingOptions,
+    roleARN :: Prelude.Maybe Prelude.Text,
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The configuration of the requeste sent to the HTTP endpoint specified as
     -- the destination.
-    requestConfiguration :: Core.Maybe HttpEndpointRequestConfiguration,
+    requestConfiguration :: Prelude.Maybe HttpEndpointRequestConfiguration,
     -- | The buffering options that can be used before data is delivered to the
     -- specified destination. Kinesis Data Firehose treats these options as
     -- hints, and it might choose to use more optimal values. The @SizeInMBs@
     -- and @IntervalInSeconds@ parameters are optional. However, if you specify
     -- a value for one of them, you must also provide a value for the other.
-    bufferingHints :: Core.Maybe HttpEndpointBufferingHints,
+    bufferingHints :: Prelude.Maybe HttpEndpointBufferingHints,
     -- | Describes the retry behavior in case Kinesis Data Firehose is unable to
     -- deliver data to the specified HTTP endpoint destination, or if it
     -- doesn\'t receive a valid acknowledgment of receipt from the specified
     -- HTTP endpoint destination.
-    retryOptions :: Core.Maybe HttpEndpointRetryOptions,
+    retryOptions :: Prelude.Maybe HttpEndpointRetryOptions,
     -- | Describes the S3 bucket backup options for the data that Kinesis Data
     -- Firehose delivers to the HTTP endpoint destination. You can back up all
     -- documents (@AllData@) or only the documents that Kinesis Data Firehose
     -- could not deliver to the specified HTTP endpoint destination
     -- (@FailedDataOnly@).
-    s3BackupMode :: Core.Maybe HttpEndpointS3BackupMode,
+    s3BackupMode :: Prelude.Maybe HttpEndpointS3BackupMode,
     -- | The configuration of the HTTP endpoint selected as the destination.
     endpointConfiguration :: HttpEndpointConfiguration,
     s3Configuration :: S3DestinationConfiguration
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointDestinationConfiguration' with all optional fields omitted.
@@ -114,15 +115,16 @@ newHttpEndpointDestinationConfiguration
   pS3Configuration_ =
     HttpEndpointDestinationConfiguration'
       { roleARN =
-          Core.Nothing,
+          Prelude.Nothing,
         processingConfiguration =
-          Core.Nothing,
+          Prelude.Nothing,
         cloudWatchLoggingOptions =
-          Core.Nothing,
-        requestConfiguration = Core.Nothing,
-        bufferingHints = Core.Nothing,
-        retryOptions = Core.Nothing,
-        s3BackupMode = Core.Nothing,
+          Prelude.Nothing,
+        requestConfiguration =
+          Prelude.Nothing,
+        bufferingHints = Prelude.Nothing,
+        retryOptions = Prelude.Nothing,
+        s3BackupMode = Prelude.Nothing,
         endpointConfiguration =
           pEndpointConfiguration_,
         s3Configuration = pS3Configuration_
@@ -130,20 +132,20 @@ newHttpEndpointDestinationConfiguration
 
 -- | Kinesis Data Firehose uses this IAM role for all the permissions that
 -- the delivery stream needs.
-httpEndpointDestinationConfiguration_roleARN :: Lens.Lens' HttpEndpointDestinationConfiguration (Core.Maybe Core.Text)
+httpEndpointDestinationConfiguration_roleARN :: Lens.Lens' HttpEndpointDestinationConfiguration (Prelude.Maybe Prelude.Text)
 httpEndpointDestinationConfiguration_roleARN = Lens.lens (\HttpEndpointDestinationConfiguration' {roleARN} -> roleARN) (\s@HttpEndpointDestinationConfiguration' {} a -> s {roleARN = a} :: HttpEndpointDestinationConfiguration)
 
 -- | Undocumented member.
-httpEndpointDestinationConfiguration_processingConfiguration :: Lens.Lens' HttpEndpointDestinationConfiguration (Core.Maybe ProcessingConfiguration)
+httpEndpointDestinationConfiguration_processingConfiguration :: Lens.Lens' HttpEndpointDestinationConfiguration (Prelude.Maybe ProcessingConfiguration)
 httpEndpointDestinationConfiguration_processingConfiguration = Lens.lens (\HttpEndpointDestinationConfiguration' {processingConfiguration} -> processingConfiguration) (\s@HttpEndpointDestinationConfiguration' {} a -> s {processingConfiguration = a} :: HttpEndpointDestinationConfiguration)
 
 -- | Undocumented member.
-httpEndpointDestinationConfiguration_cloudWatchLoggingOptions :: Lens.Lens' HttpEndpointDestinationConfiguration (Core.Maybe CloudWatchLoggingOptions)
+httpEndpointDestinationConfiguration_cloudWatchLoggingOptions :: Lens.Lens' HttpEndpointDestinationConfiguration (Prelude.Maybe CloudWatchLoggingOptions)
 httpEndpointDestinationConfiguration_cloudWatchLoggingOptions = Lens.lens (\HttpEndpointDestinationConfiguration' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@HttpEndpointDestinationConfiguration' {} a -> s {cloudWatchLoggingOptions = a} :: HttpEndpointDestinationConfiguration)
 
 -- | The configuration of the requeste sent to the HTTP endpoint specified as
 -- the destination.
-httpEndpointDestinationConfiguration_requestConfiguration :: Lens.Lens' HttpEndpointDestinationConfiguration (Core.Maybe HttpEndpointRequestConfiguration)
+httpEndpointDestinationConfiguration_requestConfiguration :: Lens.Lens' HttpEndpointDestinationConfiguration (Prelude.Maybe HttpEndpointRequestConfiguration)
 httpEndpointDestinationConfiguration_requestConfiguration = Lens.lens (\HttpEndpointDestinationConfiguration' {requestConfiguration} -> requestConfiguration) (\s@HttpEndpointDestinationConfiguration' {} a -> s {requestConfiguration = a} :: HttpEndpointDestinationConfiguration)
 
 -- | The buffering options that can be used before data is delivered to the
@@ -151,14 +153,14 @@ httpEndpointDestinationConfiguration_requestConfiguration = Lens.lens (\HttpEndp
 -- hints, and it might choose to use more optimal values. The @SizeInMBs@
 -- and @IntervalInSeconds@ parameters are optional. However, if you specify
 -- a value for one of them, you must also provide a value for the other.
-httpEndpointDestinationConfiguration_bufferingHints :: Lens.Lens' HttpEndpointDestinationConfiguration (Core.Maybe HttpEndpointBufferingHints)
+httpEndpointDestinationConfiguration_bufferingHints :: Lens.Lens' HttpEndpointDestinationConfiguration (Prelude.Maybe HttpEndpointBufferingHints)
 httpEndpointDestinationConfiguration_bufferingHints = Lens.lens (\HttpEndpointDestinationConfiguration' {bufferingHints} -> bufferingHints) (\s@HttpEndpointDestinationConfiguration' {} a -> s {bufferingHints = a} :: HttpEndpointDestinationConfiguration)
 
 -- | Describes the retry behavior in case Kinesis Data Firehose is unable to
 -- deliver data to the specified HTTP endpoint destination, or if it
 -- doesn\'t receive a valid acknowledgment of receipt from the specified
 -- HTTP endpoint destination.
-httpEndpointDestinationConfiguration_retryOptions :: Lens.Lens' HttpEndpointDestinationConfiguration (Core.Maybe HttpEndpointRetryOptions)
+httpEndpointDestinationConfiguration_retryOptions :: Lens.Lens' HttpEndpointDestinationConfiguration (Prelude.Maybe HttpEndpointRetryOptions)
 httpEndpointDestinationConfiguration_retryOptions = Lens.lens (\HttpEndpointDestinationConfiguration' {retryOptions} -> retryOptions) (\s@HttpEndpointDestinationConfiguration' {} a -> s {retryOptions = a} :: HttpEndpointDestinationConfiguration)
 
 -- | Describes the S3 bucket backup options for the data that Kinesis Data
@@ -166,7 +168,7 @@ httpEndpointDestinationConfiguration_retryOptions = Lens.lens (\HttpEndpointDest
 -- documents (@AllData@) or only the documents that Kinesis Data Firehose
 -- could not deliver to the specified HTTP endpoint destination
 -- (@FailedDataOnly@).
-httpEndpointDestinationConfiguration_s3BackupMode :: Lens.Lens' HttpEndpointDestinationConfiguration (Core.Maybe HttpEndpointS3BackupMode)
+httpEndpointDestinationConfiguration_s3BackupMode :: Lens.Lens' HttpEndpointDestinationConfiguration (Prelude.Maybe HttpEndpointS3BackupMode)
 httpEndpointDestinationConfiguration_s3BackupMode = Lens.lens (\HttpEndpointDestinationConfiguration' {s3BackupMode} -> s3BackupMode) (\s@HttpEndpointDestinationConfiguration' {} a -> s {s3BackupMode = a} :: HttpEndpointDestinationConfiguration)
 
 -- | The configuration of the HTTP endpoint selected as the destination.
@@ -178,11 +180,11 @@ httpEndpointDestinationConfiguration_s3Configuration :: Lens.Lens' HttpEndpointD
 httpEndpointDestinationConfiguration_s3Configuration = Lens.lens (\HttpEndpointDestinationConfiguration' {s3Configuration} -> s3Configuration) (\s@HttpEndpointDestinationConfiguration' {} a -> s {s3Configuration = a} :: HttpEndpointDestinationConfiguration)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HttpEndpointDestinationConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     HttpEndpointDestinationConfiguration
 
 instance
@@ -191,22 +193,23 @@ instance
   where
   toJSON HttpEndpointDestinationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleARN" Core..=) Core.<$> roleARN,
+      ( Prelude.catMaybes
+          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
             ("ProcessingConfiguration" Core..=)
-              Core.<$> processingConfiguration,
+              Prelude.<$> processingConfiguration,
             ("CloudWatchLoggingOptions" Core..=)
-              Core.<$> cloudWatchLoggingOptions,
+              Prelude.<$> cloudWatchLoggingOptions,
             ("RequestConfiguration" Core..=)
-              Core.<$> requestConfiguration,
-            ("BufferingHints" Core..=) Core.<$> bufferingHints,
-            ("RetryOptions" Core..=) Core.<$> retryOptions,
-            ("S3BackupMode" Core..=) Core.<$> s3BackupMode,
-            Core.Just
+              Prelude.<$> requestConfiguration,
+            ("BufferingHints" Core..=)
+              Prelude.<$> bufferingHints,
+            ("RetryOptions" Core..=) Prelude.<$> retryOptions,
+            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
+            Prelude.Just
               ( "EndpointConfiguration"
                   Core..= endpointConfiguration
               ),
-            Core.Just
+            Prelude.Just
               ("S3Configuration" Core..= s3Configuration)
           ]
       )

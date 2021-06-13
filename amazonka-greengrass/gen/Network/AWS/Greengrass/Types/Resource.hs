@@ -22,6 +22,7 @@ module Network.AWS.Greengrass.Types.Resource where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.ResourceDataContainer
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a resource.
 --
@@ -32,13 +33,13 @@ data Resource = Resource'
     -- | The resource ID, used to refer to a resource in the Lambda function
     -- configuration. Max length is 128 characters with pattern
     -- \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The descriptive resource name, which is displayed on the AWS IoT
     -- Greengrass console. Max length 128 characters with pattern
     -- \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Resource' with all optional fields omitted.
@@ -61,9 +62,9 @@ newResource ::
   -- | 'resourceDataContainer'
   ResourceDataContainer ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Resource
 newResource pResourceDataContainer_ pId_ pName_ =
   Resource'
@@ -80,13 +81,13 @@ resource_resourceDataContainer = Lens.lens (\Resource' {resourceDataContainer} -
 -- | The resource ID, used to refer to a resource in the Lambda function
 -- configuration. Max length is 128 characters with pattern
 -- \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
-resource_id :: Lens.Lens' Resource Core.Text
+resource_id :: Lens.Lens' Resource Prelude.Text
 resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
 -- | The descriptive resource name, which is displayed on the AWS IoT
 -- Greengrass console. Max length 128 characters with pattern
 -- \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
-resource_name :: Lens.Lens' Resource Core.Text
+resource_name :: Lens.Lens' Resource Prelude.Text
 resource_name = Lens.lens (\Resource' {name} -> name) (\s@Resource' {} a -> s {name = a} :: Resource)
 
 instance Core.FromJSON Resource where
@@ -95,24 +96,24 @@ instance Core.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Core.<$> (x Core..: "ResourceDataContainer")
-            Core.<*> (x Core..: "Id")
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..: "ResourceDataContainer")
+            Prelude.<*> (x Core..: "Id")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable Resource
+instance Prelude.Hashable Resource
 
-instance Core.NFData Resource
+instance Prelude.NFData Resource
 
 instance Core.ToJSON Resource where
   toJSON Resource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ResourceDataContainer"
                   Core..= resourceDataContainer
               ),
-            Core.Just ("Id" Core..= id),
-            Core.Just ("Name" Core..= name)
+            Prelude.Just ("Id" Core..= id),
+            Prelude.Just ("Name" Core..= name)
           ]
       )

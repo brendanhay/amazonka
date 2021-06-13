@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,14 +53,14 @@ import qualified Network.AWS.Response as Response
 data DetachObject = DetachObject'
   { -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where objects reside. For more information, see arns.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | The parent reference from which the object with the specified link name
     -- is detached.
     parentReference :: ObjectReference,
     -- | The link name associated with the object that needs to be detached.
-    linkName :: Core.Text
+    linkName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachObject' with all optional fields omitted.
@@ -78,11 +79,11 @@ data DetachObject = DetachObject'
 -- 'linkName', 'detachObject_linkName' - The link name associated with the object that needs to be detached.
 newDetachObject ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'parentReference'
   ObjectReference ->
   -- | 'linkName'
-  Core.Text ->
+  Prelude.Text ->
   DetachObject
 newDetachObject
   pDirectoryArn_
@@ -96,7 +97,7 @@ newDetachObject
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where objects reside. For more information, see arns.
-detachObject_directoryArn :: Lens.Lens' DetachObject Core.Text
+detachObject_directoryArn :: Lens.Lens' DetachObject Prelude.Text
 detachObject_directoryArn = Lens.lens (\DetachObject' {directoryArn} -> directoryArn) (\s@DetachObject' {} a -> s {directoryArn = a} :: DetachObject)
 
 -- | The parent reference from which the object with the specified link name
@@ -105,7 +106,7 @@ detachObject_parentReference :: Lens.Lens' DetachObject ObjectReference
 detachObject_parentReference = Lens.lens (\DetachObject' {parentReference} -> parentReference) (\s@DetachObject' {} a -> s {parentReference = a} :: DetachObject)
 
 -- | The link name associated with the object that needs to be detached.
-detachObject_linkName :: Lens.Lens' DetachObject Core.Text
+detachObject_linkName :: Lens.Lens' DetachObject Prelude.Text
 detachObject_linkName = Lens.lens (\DetachObject' {linkName} -> linkName) (\s@DetachObject' {} a -> s {linkName = a} :: DetachObject)
 
 instance Core.AWSRequest DetachObject where
@@ -115,45 +116,45 @@ instance Core.AWSRequest DetachObject where
     Response.receiveJSON
       ( \s h x ->
           DetachObjectResponse'
-            Core.<$> (x Core..?> "DetachedObjectIdentifier")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DetachedObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetachObject
+instance Prelude.Hashable DetachObject
 
-instance Core.NFData DetachObject
+instance Prelude.NFData DetachObject
 
 instance Core.ToHeaders DetachObject where
   toHeaders DetachObject' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON DetachObject where
   toJSON DetachObject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ParentReference" Core..= parentReference),
-            Core.Just ("LinkName" Core..= linkName)
+            Prelude.Just ("LinkName" Core..= linkName)
           ]
       )
 
 instance Core.ToPath DetachObject where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/object/detach"
 
 instance Core.ToQuery DetachObject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachObjectResponse' smart constructor.
 data DetachObjectResponse = DetachObjectResponse'
   { -- | The @ObjectIdentifier@ that was detached from the object.
-    detachedObjectIdentifier :: Core.Maybe Core.Text,
+    detachedObjectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachObjectResponse' with all optional fields omitted.
@@ -168,21 +169,21 @@ data DetachObjectResponse = DetachObjectResponse'
 -- 'httpStatus', 'detachObjectResponse_httpStatus' - The response's http status code.
 newDetachObjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetachObjectResponse
 newDetachObjectResponse pHttpStatus_ =
   DetachObjectResponse'
     { detachedObjectIdentifier =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ObjectIdentifier@ that was detached from the object.
-detachObjectResponse_detachedObjectIdentifier :: Lens.Lens' DetachObjectResponse (Core.Maybe Core.Text)
+detachObjectResponse_detachedObjectIdentifier :: Lens.Lens' DetachObjectResponse (Prelude.Maybe Prelude.Text)
 detachObjectResponse_detachedObjectIdentifier = Lens.lens (\DetachObjectResponse' {detachedObjectIdentifier} -> detachedObjectIdentifier) (\s@DetachObjectResponse' {} a -> s {detachedObjectIdentifier = a} :: DetachObjectResponse)
 
 -- | The response's http status code.
-detachObjectResponse_httpStatus :: Lens.Lens' DetachObjectResponse Core.Int
+detachObjectResponse_httpStatus :: Lens.Lens' DetachObjectResponse Prelude.Int
 detachObjectResponse_httpStatus = Lens.lens (\DetachObjectResponse' {httpStatus} -> httpStatus) (\s@DetachObjectResponse' {} a -> s {httpStatus = a} :: DetachObjectResponse)
 
-instance Core.NFData DetachObjectResponse
+instance Prelude.NFData DetachObjectResponse

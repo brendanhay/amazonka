@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -75,13 +76,13 @@ data GetBucketMetricsConfiguration = GetBucketMetricsConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket containing the metrics configuration to retrieve.
     bucket :: BucketName,
     -- | The ID used to identify the metrics configuration.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketMetricsConfiguration' with all optional fields omitted.
@@ -102,12 +103,12 @@ newGetBucketMetricsConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetBucketMetricsConfiguration
 newGetBucketMetricsConfiguration pBucket_ pId_ =
   GetBucketMetricsConfiguration'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_,
       id = pId_
     }
@@ -115,7 +116,7 @@ newGetBucketMetricsConfiguration pBucket_ pId_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketMetricsConfiguration (Core.Maybe Core.Text)
+getBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketMetricsConfiguration (Prelude.Maybe Prelude.Text)
 getBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\GetBucketMetricsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketMetricsConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketMetricsConfiguration)
 
 -- | The name of the bucket containing the metrics configuration to retrieve.
@@ -123,7 +124,7 @@ getBucketMetricsConfiguration_bucket :: Lens.Lens' GetBucketMetricsConfiguration
 getBucketMetricsConfiguration_bucket = Lens.lens (\GetBucketMetricsConfiguration' {bucket} -> bucket) (\s@GetBucketMetricsConfiguration' {} a -> s {bucket = a} :: GetBucketMetricsConfiguration)
 
 -- | The ID used to identify the metrics configuration.
-getBucketMetricsConfiguration_id :: Lens.Lens' GetBucketMetricsConfiguration Core.Text
+getBucketMetricsConfiguration_id :: Lens.Lens' GetBucketMetricsConfiguration Prelude.Text
 getBucketMetricsConfiguration_id = Lens.lens (\GetBucketMetricsConfiguration' {id} -> id) (\s@GetBucketMetricsConfiguration' {} a -> s {id = a} :: GetBucketMetricsConfiguration)
 
 instance
@@ -138,37 +139,39 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketMetricsConfigurationResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBucketMetricsConfiguration
+instance
+  Prelude.Hashable
+    GetBucketMetricsConfiguration
 
-instance Core.NFData GetBucketMetricsConfiguration
+instance Prelude.NFData GetBucketMetricsConfiguration
 
 instance Core.ToHeaders GetBucketMetricsConfiguration where
   toHeaders GetBucketMetricsConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetBucketMetricsConfiguration where
   toPath GetBucketMetricsConfiguration' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery GetBucketMetricsConfiguration where
   toQuery GetBucketMetricsConfiguration' {..} =
-    Core.mconcat ["id" Core.=: id, "metrics"]
+    Prelude.mconcat ["id" Core.=: id, "metrics"]
 
 -- | /See:/ 'newGetBucketMetricsConfigurationResponse' smart constructor.
 data GetBucketMetricsConfigurationResponse = GetBucketMetricsConfigurationResponse'
   { -- | Specifies the metrics configuration.
-    metricsConfiguration :: Core.Maybe MetricsConfiguration,
+    metricsConfiguration :: Prelude.Maybe MetricsConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketMetricsConfigurationResponse' with all optional fields omitted.
@@ -183,23 +186,23 @@ data GetBucketMetricsConfigurationResponse = GetBucketMetricsConfigurationRespon
 -- 'httpStatus', 'getBucketMetricsConfigurationResponse_httpStatus' - The response's http status code.
 newGetBucketMetricsConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBucketMetricsConfigurationResponse
 newGetBucketMetricsConfigurationResponse pHttpStatus_ =
   GetBucketMetricsConfigurationResponse'
     { metricsConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Specifies the metrics configuration.
-getBucketMetricsConfigurationResponse_metricsConfiguration :: Lens.Lens' GetBucketMetricsConfigurationResponse (Core.Maybe MetricsConfiguration)
+getBucketMetricsConfigurationResponse_metricsConfiguration :: Lens.Lens' GetBucketMetricsConfigurationResponse (Prelude.Maybe MetricsConfiguration)
 getBucketMetricsConfigurationResponse_metricsConfiguration = Lens.lens (\GetBucketMetricsConfigurationResponse' {metricsConfiguration} -> metricsConfiguration) (\s@GetBucketMetricsConfigurationResponse' {} a -> s {metricsConfiguration = a} :: GetBucketMetricsConfigurationResponse)
 
 -- | The response's http status code.
-getBucketMetricsConfigurationResponse_httpStatus :: Lens.Lens' GetBucketMetricsConfigurationResponse Core.Int
+getBucketMetricsConfigurationResponse_httpStatus :: Lens.Lens' GetBucketMetricsConfigurationResponse Prelude.Int
 getBucketMetricsConfigurationResponse_httpStatus = Lens.lens (\GetBucketMetricsConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetBucketMetricsConfigurationResponse' {} a -> s {httpStatus = a} :: GetBucketMetricsConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBucketMetricsConfigurationResponse

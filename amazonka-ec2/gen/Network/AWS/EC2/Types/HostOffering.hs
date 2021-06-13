@@ -24,28 +24,29 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import Network.AWS.EC2.Types.PaymentOption
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the Dedicated Host Reservation offering.
 --
 -- /See:/ 'newHostOffering' smart constructor.
 data HostOffering = HostOffering'
   { -- | The instance family of the offering.
-    instanceFamily :: Core.Maybe Core.Text,
+    instanceFamily :: Prelude.Maybe Prelude.Text,
     -- | The upfront price of the offering. Does not apply to No Upfront
     -- offerings.
-    upfrontPrice :: Core.Maybe Core.Text,
+    upfrontPrice :: Prelude.Maybe Prelude.Text,
     -- | The available payment option.
-    paymentOption :: Core.Maybe PaymentOption,
+    paymentOption :: Prelude.Maybe PaymentOption,
     -- | The duration of the offering (in seconds).
-    duration :: Core.Maybe Core.Int,
+    duration :: Prelude.Maybe Prelude.Int,
     -- | The ID of the offering.
-    offeringId :: Core.Maybe Core.Text,
+    offeringId :: Prelude.Maybe Prelude.Text,
     -- | The currency of the offering.
-    currencyCode :: Core.Maybe CurrencyCodeValues,
+    currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The hourly price of the offering.
-    hourlyPrice :: Core.Maybe Core.Text
+    hourlyPrice :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostOffering' with all optional fields omitted.
@@ -73,55 +74,55 @@ newHostOffering ::
   HostOffering
 newHostOffering =
   HostOffering'
-    { instanceFamily = Core.Nothing,
-      upfrontPrice = Core.Nothing,
-      paymentOption = Core.Nothing,
-      duration = Core.Nothing,
-      offeringId = Core.Nothing,
-      currencyCode = Core.Nothing,
-      hourlyPrice = Core.Nothing
+    { instanceFamily = Prelude.Nothing,
+      upfrontPrice = Prelude.Nothing,
+      paymentOption = Prelude.Nothing,
+      duration = Prelude.Nothing,
+      offeringId = Prelude.Nothing,
+      currencyCode = Prelude.Nothing,
+      hourlyPrice = Prelude.Nothing
     }
 
 -- | The instance family of the offering.
-hostOffering_instanceFamily :: Lens.Lens' HostOffering (Core.Maybe Core.Text)
+hostOffering_instanceFamily :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
 hostOffering_instanceFamily = Lens.lens (\HostOffering' {instanceFamily} -> instanceFamily) (\s@HostOffering' {} a -> s {instanceFamily = a} :: HostOffering)
 
 -- | The upfront price of the offering. Does not apply to No Upfront
 -- offerings.
-hostOffering_upfrontPrice :: Lens.Lens' HostOffering (Core.Maybe Core.Text)
+hostOffering_upfrontPrice :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
 hostOffering_upfrontPrice = Lens.lens (\HostOffering' {upfrontPrice} -> upfrontPrice) (\s@HostOffering' {} a -> s {upfrontPrice = a} :: HostOffering)
 
 -- | The available payment option.
-hostOffering_paymentOption :: Lens.Lens' HostOffering (Core.Maybe PaymentOption)
+hostOffering_paymentOption :: Lens.Lens' HostOffering (Prelude.Maybe PaymentOption)
 hostOffering_paymentOption = Lens.lens (\HostOffering' {paymentOption} -> paymentOption) (\s@HostOffering' {} a -> s {paymentOption = a} :: HostOffering)
 
 -- | The duration of the offering (in seconds).
-hostOffering_duration :: Lens.Lens' HostOffering (Core.Maybe Core.Int)
+hostOffering_duration :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Int)
 hostOffering_duration = Lens.lens (\HostOffering' {duration} -> duration) (\s@HostOffering' {} a -> s {duration = a} :: HostOffering)
 
 -- | The ID of the offering.
-hostOffering_offeringId :: Lens.Lens' HostOffering (Core.Maybe Core.Text)
+hostOffering_offeringId :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
 hostOffering_offeringId = Lens.lens (\HostOffering' {offeringId} -> offeringId) (\s@HostOffering' {} a -> s {offeringId = a} :: HostOffering)
 
 -- | The currency of the offering.
-hostOffering_currencyCode :: Lens.Lens' HostOffering (Core.Maybe CurrencyCodeValues)
+hostOffering_currencyCode :: Lens.Lens' HostOffering (Prelude.Maybe CurrencyCodeValues)
 hostOffering_currencyCode = Lens.lens (\HostOffering' {currencyCode} -> currencyCode) (\s@HostOffering' {} a -> s {currencyCode = a} :: HostOffering)
 
 -- | The hourly price of the offering.
-hostOffering_hourlyPrice :: Lens.Lens' HostOffering (Core.Maybe Core.Text)
+hostOffering_hourlyPrice :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
 hostOffering_hourlyPrice = Lens.lens (\HostOffering' {hourlyPrice} -> hourlyPrice) (\s@HostOffering' {} a -> s {hourlyPrice = a} :: HostOffering)
 
 instance Core.FromXML HostOffering where
   parseXML x =
     HostOffering'
-      Core.<$> (x Core..@? "instanceFamily")
-      Core.<*> (x Core..@? "upfrontPrice")
-      Core.<*> (x Core..@? "paymentOption")
-      Core.<*> (x Core..@? "duration")
-      Core.<*> (x Core..@? "offeringId")
-      Core.<*> (x Core..@? "currencyCode")
-      Core.<*> (x Core..@? "hourlyPrice")
+      Prelude.<$> (x Core..@? "instanceFamily")
+      Prelude.<*> (x Core..@? "upfrontPrice")
+      Prelude.<*> (x Core..@? "paymentOption")
+      Prelude.<*> (x Core..@? "duration")
+      Prelude.<*> (x Core..@? "offeringId")
+      Prelude.<*> (x Core..@? "currencyCode")
+      Prelude.<*> (x Core..@? "hourlyPrice")
 
-instance Core.Hashable HostOffering
+instance Prelude.Hashable HostOffering
 
-instance Core.NFData HostOffering
+instance Prelude.NFData HostOffering

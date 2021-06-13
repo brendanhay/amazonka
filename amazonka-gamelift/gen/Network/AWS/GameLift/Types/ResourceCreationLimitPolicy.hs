@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.ResourceCreationLimitPolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A policy that limits the number of game sessions a player can create on
 -- the same fleet. This optional policy gives game owners control over how
@@ -38,12 +39,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResourceCreationLimitPolicy' smart constructor.
 data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
   { -- | The time span used in evaluating the resource creation limit policy.
-    policyPeriodInMinutes :: Core.Maybe Core.Natural,
+    policyPeriodInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of game sessions that an individual can create during
     -- the policy period.
-    newGameSessionsPerCreator' :: Core.Maybe Core.Natural
+    newGameSessionsPerCreator' :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceCreationLimitPolicy' with all optional fields omitted.
@@ -62,17 +63,17 @@ newResourceCreationLimitPolicy ::
 newResourceCreationLimitPolicy =
   ResourceCreationLimitPolicy'
     { policyPeriodInMinutes =
-        Core.Nothing,
-      newGameSessionsPerCreator' = Core.Nothing
+        Prelude.Nothing,
+      newGameSessionsPerCreator' = Prelude.Nothing
     }
 
 -- | The time span used in evaluating the resource creation limit policy.
-resourceCreationLimitPolicy_policyPeriodInMinutes :: Lens.Lens' ResourceCreationLimitPolicy (Core.Maybe Core.Natural)
+resourceCreationLimitPolicy_policyPeriodInMinutes :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
 resourceCreationLimitPolicy_policyPeriodInMinutes = Lens.lens (\ResourceCreationLimitPolicy' {policyPeriodInMinutes} -> policyPeriodInMinutes) (\s@ResourceCreationLimitPolicy' {} a -> s {policyPeriodInMinutes = a} :: ResourceCreationLimitPolicy)
 
 -- | The maximum number of game sessions that an individual can create during
 -- the policy period.
-resourceCreationLimitPolicy_newGameSessionsPerCreator :: Lens.Lens' ResourceCreationLimitPolicy (Core.Maybe Core.Natural)
+resourceCreationLimitPolicy_newGameSessionsPerCreator :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
 resourceCreationLimitPolicy_newGameSessionsPerCreator = Lens.lens (\ResourceCreationLimitPolicy' {newGameSessionsPerCreator'} -> newGameSessionsPerCreator') (\s@ResourceCreationLimitPolicy' {} a -> s {newGameSessionsPerCreator' = a} :: ResourceCreationLimitPolicy)
 
 instance Core.FromJSON ResourceCreationLimitPolicy where
@@ -81,21 +82,21 @@ instance Core.FromJSON ResourceCreationLimitPolicy where
       "ResourceCreationLimitPolicy"
       ( \x ->
           ResourceCreationLimitPolicy'
-            Core.<$> (x Core..:? "PolicyPeriodInMinutes")
-            Core.<*> (x Core..:? "NewGameSessionsPerCreator")
+            Prelude.<$> (x Core..:? "PolicyPeriodInMinutes")
+            Prelude.<*> (x Core..:? "NewGameSessionsPerCreator")
       )
 
-instance Core.Hashable ResourceCreationLimitPolicy
+instance Prelude.Hashable ResourceCreationLimitPolicy
 
-instance Core.NFData ResourceCreationLimitPolicy
+instance Prelude.NFData ResourceCreationLimitPolicy
 
 instance Core.ToJSON ResourceCreationLimitPolicy where
   toJSON ResourceCreationLimitPolicy' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PolicyPeriodInMinutes" Core..=)
-              Core.<$> policyPeriodInMinutes,
+              Prelude.<$> policyPeriodInMinutes,
             ("NewGameSessionsPerCreator" Core..=)
-              Core.<$> newGameSessionsPerCreator'
+              Prelude.<$> newGameSessionsPerCreator'
           ]
       )

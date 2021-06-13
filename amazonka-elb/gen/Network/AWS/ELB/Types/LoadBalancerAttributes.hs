@@ -27,6 +27,7 @@ import Network.AWS.ELB.Types.ConnectionDraining
 import Network.AWS.ELB.Types.ConnectionSettings
 import Network.AWS.ELB.Types.CrossZoneLoadBalancing
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The attributes for a load balancer.
 --
@@ -39,9 +40,9 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
     -- For more information, see
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining>
     -- in the /Classic Load Balancers Guide/.
-    connectionDraining :: Core.Maybe ConnectionDraining,
+    connectionDraining :: Prelude.Maybe ConnectionDraining,
     -- | Any additional attributes.
-    additionalAttributes :: Core.Maybe [AdditionalAttribute],
+    additionalAttributes :: Prelude.Maybe [AdditionalAttribute],
     -- | If enabled, the load balancer allows the connections to remain idle (no
     -- data is sent over the connection) for the specified duration.
     --
@@ -50,7 +51,7 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
     -- balancer. For more information, see
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout>
     -- in the /Classic Load Balancers Guide/.
-    connectionSettings :: Core.Maybe ConnectionSettings,
+    connectionSettings :: Prelude.Maybe ConnectionSettings,
     -- | If enabled, the load balancer captures detailed information of all
     -- requests and delivers the information to the Amazon S3 bucket that you
     -- specify.
@@ -58,16 +59,16 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
     -- For more information, see
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs>
     -- in the /Classic Load Balancers Guide/.
-    accessLog :: Core.Maybe AccessLog,
+    accessLog :: Prelude.Maybe AccessLog,
     -- | If enabled, the load balancer routes the request traffic evenly across
     -- all instances regardless of the Availability Zones.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing>
     -- in the /Classic Load Balancers Guide/.
-    crossZoneLoadBalancing :: Core.Maybe CrossZoneLoadBalancing
+    crossZoneLoadBalancing :: Prelude.Maybe CrossZoneLoadBalancing
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerAttributes' with all optional fields omitted.
@@ -115,11 +116,11 @@ newLoadBalancerAttributes ::
 newLoadBalancerAttributes =
   LoadBalancerAttributes'
     { connectionDraining =
-        Core.Nothing,
-      additionalAttributes = Core.Nothing,
-      connectionSettings = Core.Nothing,
-      accessLog = Core.Nothing,
-      crossZoneLoadBalancing = Core.Nothing
+        Prelude.Nothing,
+      additionalAttributes = Prelude.Nothing,
+      connectionSettings = Prelude.Nothing,
+      accessLog = Prelude.Nothing,
+      crossZoneLoadBalancing = Prelude.Nothing
     }
 
 -- | If enabled, the load balancer allows existing requests to complete
@@ -129,12 +130,12 @@ newLoadBalancerAttributes =
 -- For more information, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining>
 -- in the /Classic Load Balancers Guide/.
-loadBalancerAttributes_connectionDraining :: Lens.Lens' LoadBalancerAttributes (Core.Maybe ConnectionDraining)
+loadBalancerAttributes_connectionDraining :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe ConnectionDraining)
 loadBalancerAttributes_connectionDraining = Lens.lens (\LoadBalancerAttributes' {connectionDraining} -> connectionDraining) (\s@LoadBalancerAttributes' {} a -> s {connectionDraining = a} :: LoadBalancerAttributes)
 
 -- | Any additional attributes.
-loadBalancerAttributes_additionalAttributes :: Lens.Lens' LoadBalancerAttributes (Core.Maybe [AdditionalAttribute])
-loadBalancerAttributes_additionalAttributes = Lens.lens (\LoadBalancerAttributes' {additionalAttributes} -> additionalAttributes) (\s@LoadBalancerAttributes' {} a -> s {additionalAttributes = a} :: LoadBalancerAttributes) Core.. Lens.mapping Lens._Coerce
+loadBalancerAttributes_additionalAttributes :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe [AdditionalAttribute])
+loadBalancerAttributes_additionalAttributes = Lens.lens (\LoadBalancerAttributes' {additionalAttributes} -> additionalAttributes) (\s@LoadBalancerAttributes' {} a -> s {additionalAttributes = a} :: LoadBalancerAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If enabled, the load balancer allows the connections to remain idle (no
 -- data is sent over the connection) for the specified duration.
@@ -144,7 +145,7 @@ loadBalancerAttributes_additionalAttributes = Lens.lens (\LoadBalancerAttributes
 -- balancer. For more information, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout>
 -- in the /Classic Load Balancers Guide/.
-loadBalancerAttributes_connectionSettings :: Lens.Lens' LoadBalancerAttributes (Core.Maybe ConnectionSettings)
+loadBalancerAttributes_connectionSettings :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe ConnectionSettings)
 loadBalancerAttributes_connectionSettings = Lens.lens (\LoadBalancerAttributes' {connectionSettings} -> connectionSettings) (\s@LoadBalancerAttributes' {} a -> s {connectionSettings = a} :: LoadBalancerAttributes)
 
 -- | If enabled, the load balancer captures detailed information of all
@@ -154,7 +155,7 @@ loadBalancerAttributes_connectionSettings = Lens.lens (\LoadBalancerAttributes' 
 -- For more information, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs>
 -- in the /Classic Load Balancers Guide/.
-loadBalancerAttributes_accessLog :: Lens.Lens' LoadBalancerAttributes (Core.Maybe AccessLog)
+loadBalancerAttributes_accessLog :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe AccessLog)
 loadBalancerAttributes_accessLog = Lens.lens (\LoadBalancerAttributes' {accessLog} -> accessLog) (\s@LoadBalancerAttributes' {} a -> s {accessLog = a} :: LoadBalancerAttributes)
 
 -- | If enabled, the load balancer routes the request traffic evenly across
@@ -163,33 +164,33 @@ loadBalancerAttributes_accessLog = Lens.lens (\LoadBalancerAttributes' {accessLo
 -- For more information, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing>
 -- in the /Classic Load Balancers Guide/.
-loadBalancerAttributes_crossZoneLoadBalancing :: Lens.Lens' LoadBalancerAttributes (Core.Maybe CrossZoneLoadBalancing)
+loadBalancerAttributes_crossZoneLoadBalancing :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe CrossZoneLoadBalancing)
 loadBalancerAttributes_crossZoneLoadBalancing = Lens.lens (\LoadBalancerAttributes' {crossZoneLoadBalancing} -> crossZoneLoadBalancing) (\s@LoadBalancerAttributes' {} a -> s {crossZoneLoadBalancing = a} :: LoadBalancerAttributes)
 
 instance Core.FromXML LoadBalancerAttributes where
   parseXML x =
     LoadBalancerAttributes'
-      Core.<$> (x Core..@? "ConnectionDraining")
-      Core.<*> ( x Core..@? "AdditionalAttributes"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "ConnectionSettings")
-      Core.<*> (x Core..@? "AccessLog")
-      Core.<*> (x Core..@? "CrossZoneLoadBalancing")
+      Prelude.<$> (x Core..@? "ConnectionDraining")
+      Prelude.<*> ( x Core..@? "AdditionalAttributes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "ConnectionSettings")
+      Prelude.<*> (x Core..@? "AccessLog")
+      Prelude.<*> (x Core..@? "CrossZoneLoadBalancing")
 
-instance Core.Hashable LoadBalancerAttributes
+instance Prelude.Hashable LoadBalancerAttributes
 
-instance Core.NFData LoadBalancerAttributes
+instance Prelude.NFData LoadBalancerAttributes
 
 instance Core.ToQuery LoadBalancerAttributes where
   toQuery LoadBalancerAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ConnectionDraining" Core.=: connectionDraining,
         "AdditionalAttributes"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> additionalAttributes
+                Prelude.<$> additionalAttributes
             ),
         "ConnectionSettings" Core.=: connectionSettings,
         "AccessLog" Core.=: accessLog,

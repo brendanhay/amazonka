@@ -47,22 +47,23 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTopicsDetectionJobs' smart constructor.
 data ListTopicsDetectionJobs = ListTopicsDetectionJobs'
   { -- | Identifies the next page of results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in each page. The default is
     -- 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the jobs that are returned. Jobs can be filtered on their name,
     -- status, or the date and time that they were submitted. You can set only
     -- one filter at a time.
-    filter' :: Core.Maybe TopicsDetectionJobFilter
+    filter' :: Prelude.Maybe TopicsDetectionJobFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTopicsDetectionJobs' with all optional fields omitted.
@@ -84,24 +85,25 @@ newListTopicsDetectionJobs ::
   ListTopicsDetectionJobs
 newListTopicsDetectionJobs =
   ListTopicsDetectionJobs'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filter' = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filter' = Prelude.Nothing
     }
 
 -- | Identifies the next page of results to return.
-listTopicsDetectionJobs_nextToken :: Lens.Lens' ListTopicsDetectionJobs (Core.Maybe Core.Text)
+listTopicsDetectionJobs_nextToken :: Lens.Lens' ListTopicsDetectionJobs (Prelude.Maybe Prelude.Text)
 listTopicsDetectionJobs_nextToken = Lens.lens (\ListTopicsDetectionJobs' {nextToken} -> nextToken) (\s@ListTopicsDetectionJobs' {} a -> s {nextToken = a} :: ListTopicsDetectionJobs)
 
 -- | The maximum number of results to return in each page. The default is
 -- 100.
-listTopicsDetectionJobs_maxResults :: Lens.Lens' ListTopicsDetectionJobs (Core.Maybe Core.Natural)
+listTopicsDetectionJobs_maxResults :: Lens.Lens' ListTopicsDetectionJobs (Prelude.Maybe Prelude.Natural)
 listTopicsDetectionJobs_maxResults = Lens.lens (\ListTopicsDetectionJobs' {maxResults} -> maxResults) (\s@ListTopicsDetectionJobs' {} a -> s {maxResults = a} :: ListTopicsDetectionJobs)
 
 -- | Filters the jobs that are returned. Jobs can be filtered on their name,
 -- status, or the date and time that they were submitted. You can set only
 -- one filter at a time.
-listTopicsDetectionJobs_filter :: Lens.Lens' ListTopicsDetectionJobs (Core.Maybe TopicsDetectionJobFilter)
+listTopicsDetectionJobs_filter :: Lens.Lens' ListTopicsDetectionJobs (Prelude.Maybe TopicsDetectionJobFilter)
 listTopicsDetectionJobs_filter = Lens.lens (\ListTopicsDetectionJobs' {filter'} -> filter') (\s@ListTopicsDetectionJobs' {} a -> s {filter' = a} :: ListTopicsDetectionJobs)
 
 instance Core.AWSPager ListTopicsDetectionJobs where
@@ -109,22 +111,22 @@ instance Core.AWSPager ListTopicsDetectionJobs where
     | Core.stop
         ( rs
             Lens.^? listTopicsDetectionJobsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTopicsDetectionJobs_nextToken
+          Prelude.& listTopicsDetectionJobs_nextToken
           Lens..~ rs
           Lens.^? listTopicsDetectionJobsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTopicsDetectionJobs where
   type
@@ -135,56 +137,58 @@ instance Core.AWSRequest ListTopicsDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListTopicsDetectionJobsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "TopicsDetectionJobPropertiesList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "TopicsDetectionJobPropertiesList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTopicsDetectionJobs
+instance Prelude.Hashable ListTopicsDetectionJobs
 
-instance Core.NFData ListTopicsDetectionJobs
+instance Prelude.NFData ListTopicsDetectionJobs
 
 instance Core.ToHeaders ListTopicsDetectionJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.ListTopicsDetectionJobs" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTopicsDetectionJobs where
   toJSON ListTopicsDetectionJobs' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filter" Core..=) Core.<$> filter'
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filter" Core..=) Prelude.<$> filter'
           ]
       )
 
 instance Core.ToPath ListTopicsDetectionJobs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTopicsDetectionJobs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTopicsDetectionJobsResponse' smart constructor.
 data ListTopicsDetectionJobsResponse = ListTopicsDetectionJobsResponse'
   { -- | Identifies the next page of results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list containing the properties of each job that is returned.
-    topicsDetectionJobPropertiesList :: Core.Maybe [TopicsDetectionJobProperties],
+    topicsDetectionJobPropertiesList :: Prelude.Maybe [TopicsDetectionJobProperties],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTopicsDetectionJobsResponse' with all optional fields omitted.
@@ -201,27 +205,29 @@ data ListTopicsDetectionJobsResponse = ListTopicsDetectionJobsResponse'
 -- 'httpStatus', 'listTopicsDetectionJobsResponse_httpStatus' - The response's http status code.
 newListTopicsDetectionJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTopicsDetectionJobsResponse
 newListTopicsDetectionJobsResponse pHttpStatus_ =
   ListTopicsDetectionJobsResponse'
     { nextToken =
-        Core.Nothing,
+        Prelude.Nothing,
       topicsDetectionJobPropertiesList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Identifies the next page of results to return.
-listTopicsDetectionJobsResponse_nextToken :: Lens.Lens' ListTopicsDetectionJobsResponse (Core.Maybe Core.Text)
+listTopicsDetectionJobsResponse_nextToken :: Lens.Lens' ListTopicsDetectionJobsResponse (Prelude.Maybe Prelude.Text)
 listTopicsDetectionJobsResponse_nextToken = Lens.lens (\ListTopicsDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListTopicsDetectionJobsResponse' {} a -> s {nextToken = a} :: ListTopicsDetectionJobsResponse)
 
 -- | A list containing the properties of each job that is returned.
-listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList :: Lens.Lens' ListTopicsDetectionJobsResponse (Core.Maybe [TopicsDetectionJobProperties])
-listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList = Lens.lens (\ListTopicsDetectionJobsResponse' {topicsDetectionJobPropertiesList} -> topicsDetectionJobPropertiesList) (\s@ListTopicsDetectionJobsResponse' {} a -> s {topicsDetectionJobPropertiesList = a} :: ListTopicsDetectionJobsResponse) Core.. Lens.mapping Lens._Coerce
+listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList :: Lens.Lens' ListTopicsDetectionJobsResponse (Prelude.Maybe [TopicsDetectionJobProperties])
+listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList = Lens.lens (\ListTopicsDetectionJobsResponse' {topicsDetectionJobPropertiesList} -> topicsDetectionJobPropertiesList) (\s@ListTopicsDetectionJobsResponse' {} a -> s {topicsDetectionJobPropertiesList = a} :: ListTopicsDetectionJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTopicsDetectionJobsResponse_httpStatus :: Lens.Lens' ListTopicsDetectionJobsResponse Core.Int
+listTopicsDetectionJobsResponse_httpStatus :: Lens.Lens' ListTopicsDetectionJobsResponse Prelude.Int
 listTopicsDetectionJobsResponse_httpStatus = Lens.lens (\ListTopicsDetectionJobsResponse' {httpStatus} -> httpStatus) (\s@ListTopicsDetectionJobsResponse' {} a -> s {httpStatus = a} :: ListTopicsDetectionJobsResponse)
 
-instance Core.NFData ListTopicsDetectionJobsResponse
+instance
+  Prelude.NFData
+    ListTopicsDetectionJobsResponse

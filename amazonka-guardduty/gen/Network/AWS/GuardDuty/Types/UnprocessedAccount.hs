@@ -21,17 +21,18 @@ module Network.AWS.GuardDuty.Types.UnprocessedAccount where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the accounts that weren\'t processed.
 --
 -- /See:/ 'newUnprocessedAccount' smart constructor.
 data UnprocessedAccount = UnprocessedAccount'
   { -- | The AWS account ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | A reason why the account hasn\'t been processed.
-    result :: Core.Text
+    result :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnprocessedAccount' with all optional fields omitted.
@@ -46,9 +47,9 @@ data UnprocessedAccount = UnprocessedAccount'
 -- 'result', 'unprocessedAccount_result' - A reason why the account hasn\'t been processed.
 newUnprocessedAccount ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'result'
-  Core.Text ->
+  Prelude.Text ->
   UnprocessedAccount
 newUnprocessedAccount pAccountId_ pResult_ =
   UnprocessedAccount'
@@ -57,11 +58,11 @@ newUnprocessedAccount pAccountId_ pResult_ =
     }
 
 -- | The AWS account ID.
-unprocessedAccount_accountId :: Lens.Lens' UnprocessedAccount Core.Text
+unprocessedAccount_accountId :: Lens.Lens' UnprocessedAccount Prelude.Text
 unprocessedAccount_accountId = Lens.lens (\UnprocessedAccount' {accountId} -> accountId) (\s@UnprocessedAccount' {} a -> s {accountId = a} :: UnprocessedAccount)
 
 -- | A reason why the account hasn\'t been processed.
-unprocessedAccount_result :: Lens.Lens' UnprocessedAccount Core.Text
+unprocessedAccount_result :: Lens.Lens' UnprocessedAccount Prelude.Text
 unprocessedAccount_result = Lens.lens (\UnprocessedAccount' {result} -> result) (\s@UnprocessedAccount' {} a -> s {result = a} :: UnprocessedAccount)
 
 instance Core.FromJSON UnprocessedAccount where
@@ -70,10 +71,10 @@ instance Core.FromJSON UnprocessedAccount where
       "UnprocessedAccount"
       ( \x ->
           UnprocessedAccount'
-            Core.<$> (x Core..: "accountId")
-            Core.<*> (x Core..: "result")
+            Prelude.<$> (x Core..: "accountId")
+            Prelude.<*> (x Core..: "result")
       )
 
-instance Core.Hashable UnprocessedAccount
+instance Prelude.Hashable UnprocessedAccount
 
-instance Core.NFData UnprocessedAccount
+instance Prelude.NFData UnprocessedAccount

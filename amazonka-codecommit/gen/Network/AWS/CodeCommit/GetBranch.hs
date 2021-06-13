@@ -44,6 +44,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetBranch' smart constructor.
 data GetBranch = GetBranch'
   { -- | The name of the branch for which you want to retrieve information.
-    branchName :: Core.Maybe Core.Text,
+    branchName :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that contains the branch for which you want
     -- to retrieve information.
-    repositoryName :: Core.Maybe Core.Text
+    repositoryName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBranch' with all optional fields omitted.
@@ -75,17 +76,17 @@ newGetBranch ::
   GetBranch
 newGetBranch =
   GetBranch'
-    { branchName = Core.Nothing,
-      repositoryName = Core.Nothing
+    { branchName = Prelude.Nothing,
+      repositoryName = Prelude.Nothing
     }
 
 -- | The name of the branch for which you want to retrieve information.
-getBranch_branchName :: Lens.Lens' GetBranch (Core.Maybe Core.Text)
+getBranch_branchName :: Lens.Lens' GetBranch (Prelude.Maybe Prelude.Text)
 getBranch_branchName = Lens.lens (\GetBranch' {branchName} -> branchName) (\s@GetBranch' {} a -> s {branchName = a} :: GetBranch)
 
 -- | The name of the repository that contains the branch for which you want
 -- to retrieve information.
-getBranch_repositoryName :: Lens.Lens' GetBranch (Core.Maybe Core.Text)
+getBranch_repositoryName :: Lens.Lens' GetBranch (Prelude.Maybe Prelude.Text)
 getBranch_repositoryName = Lens.lens (\GetBranch' {repositoryName} -> repositoryName) (\s@GetBranch' {} a -> s {repositoryName = a} :: GetBranch)
 
 instance Core.AWSRequest GetBranch where
@@ -95,50 +96,55 @@ instance Core.AWSRequest GetBranch where
     Response.receiveJSON
       ( \s h x ->
           GetBranchResponse'
-            Core.<$> (x Core..?> "branch")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "branch")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBranch
+instance Prelude.Hashable GetBranch
 
-instance Core.NFData GetBranch
+instance Prelude.NFData GetBranch
 
 instance Core.ToHeaders GetBranch where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("CodeCommit_20150413.GetBranch" :: Core.ByteString),
+              Core.=# ( "CodeCommit_20150413.GetBranch" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetBranch where
   toJSON GetBranch' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("branchName" Core..=) Core.<$> branchName,
-            ("repositoryName" Core..=) Core.<$> repositoryName
+      ( Prelude.catMaybes
+          [ ("branchName" Core..=) Prelude.<$> branchName,
+            ("repositoryName" Core..=)
+              Prelude.<$> repositoryName
           ]
       )
 
 instance Core.ToPath GetBranch where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetBranch where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a get branch operation.
 --
 -- /See:/ 'newGetBranchResponse' smart constructor.
 data GetBranchResponse = GetBranchResponse'
   { -- | The name of the branch.
-    branch :: Core.Maybe BranchInfo,
+    branch :: Prelude.Maybe BranchInfo,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBranchResponse' with all optional fields omitted.
@@ -153,20 +159,20 @@ data GetBranchResponse = GetBranchResponse'
 -- 'httpStatus', 'getBranchResponse_httpStatus' - The response's http status code.
 newGetBranchResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBranchResponse
 newGetBranchResponse pHttpStatus_ =
   GetBranchResponse'
-    { branch = Core.Nothing,
+    { branch = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the branch.
-getBranchResponse_branch :: Lens.Lens' GetBranchResponse (Core.Maybe BranchInfo)
+getBranchResponse_branch :: Lens.Lens' GetBranchResponse (Prelude.Maybe BranchInfo)
 getBranchResponse_branch = Lens.lens (\GetBranchResponse' {branch} -> branch) (\s@GetBranchResponse' {} a -> s {branch = a} :: GetBranchResponse)
 
 -- | The response's http status code.
-getBranchResponse_httpStatus :: Lens.Lens' GetBranchResponse Core.Int
+getBranchResponse_httpStatus :: Lens.Lens' GetBranchResponse Prelude.Int
 getBranchResponse_httpStatus = Lens.lens (\GetBranchResponse' {httpStatus} -> httpStatus) (\s@GetBranchResponse' {} a -> s {httpStatus = a} :: GetBranchResponse)
 
-instance Core.NFData GetBranchResponse
+instance Prelude.NFData GetBranchResponse

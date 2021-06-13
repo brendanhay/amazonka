@@ -34,6 +34,7 @@ import Network.AWS.DeviceFarm.Types.NetworkProfile
 import Network.AWS.DeviceFarm.Types.Radios
 import Network.AWS.DeviceFarm.Types.TestType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a test run on a set of devices with a given app package, test
 -- parameters, and so on.
@@ -43,12 +44,12 @@ data Run = Run'
   { -- | For fuzz tests, this is a seed to use for randomizing the UI fuzz test.
     -- Using the same seed value between tests ensures identical event
     -- sequences.
-    seed :: Core.Maybe Core.Int,
+    seed :: Prelude.Maybe Prelude.Int,
     -- | For fuzz tests, this is the number of events, between 1 and 10000, that
     -- the UI fuzz test should perform.
-    eventCount :: Core.Maybe Core.Int,
+    eventCount :: Prelude.Maybe Prelude.Int,
     -- | The run\'s result counters.
-    counters :: Core.Maybe Counters,
+    counters :: Prelude.Maybe Counters,
     -- | The run\'s platform.
     --
     -- Allowed values include:
@@ -56,7 +57,7 @@ data Run = Run'
     -- -   ANDROID
     --
     -- -   IOS
-    platform :: Core.Maybe DevicePlatform,
+    platform :: Prelude.Maybe DevicePlatform,
     -- | The run\'s status.
     --
     -- Allowed values include:
@@ -78,7 +79,7 @@ data Run = Run'
     -- -   COMPLETED
     --
     -- -   STOPPING
-    status :: Core.Maybe ExecutionStatus,
+    status :: Prelude.Maybe ExecutionStatus,
     -- | The run\'s result.
     --
     -- Allowed values include:
@@ -96,61 +97,61 @@ data Run = Run'
     -- -   ERRORED
     --
     -- -   STOPPED
-    result :: Core.Maybe ExecutionResult,
+    result :: Prelude.Maybe ExecutionResult,
     -- | The ARN of the device pool for the run.
-    devicePoolArn :: Core.Maybe Core.Text,
+    devicePoolArn :: Prelude.Maybe Prelude.Text,
     -- | The results of a device filter used to select the devices for a test
     -- run.
-    deviceSelectionResult :: Core.Maybe DeviceSelectionResult,
+    deviceSelectionResult :: Prelude.Maybe DeviceSelectionResult,
     -- | The run\'s start time.
-    started :: Core.Maybe Core.POSIX,
+    started :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the YAML-formatted test specification for the run.
-    testSpecArn :: Core.Maybe Core.Text,
+    testSpecArn :: Prelude.Maybe Prelude.Text,
     -- | A message about the run\'s result.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | Information about the locale that is used for the run.
-    locale :: Core.Maybe Core.Text,
+    locale :: Prelude.Maybe Prelude.Text,
     -- | The run\'s ARN.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The network profile being used for a test run.
-    networkProfile :: Core.Maybe NetworkProfile,
+    networkProfile :: Prelude.Maybe NetworkProfile,
     -- | An app to upload or that has been uploaded.
-    appUpload :: Core.Maybe Core.Text,
+    appUpload :: Prelude.Maybe Prelude.Text,
     -- | Information about the radio states for the run.
-    radios :: Core.Maybe Radios,
+    radios :: Prelude.Maybe Radios,
     -- | The run\'s name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies the billing method for a test run: @metered@ or @unmetered@.
     -- If the parameter is not specified, the default value is @metered@.
     --
     -- If you have unmetered device slots, you must set this to @unmetered@ to
     -- use them. Otherwise, the run is counted toward metered device minutes.
-    billingMethod :: Core.Maybe BillingMethod,
+    billingMethod :: Prelude.Maybe BillingMethod,
     -- | Output @CustomerArtifactPaths@ object for the test run.
-    customerArtifactPaths :: Core.Maybe CustomerArtifactPaths,
+    customerArtifactPaths :: Prelude.Maybe CustomerArtifactPaths,
     -- | Supporting field for the result field. Set only if @result@ is
     -- @SKIPPED@. @PARSING_FAILED@ if the result is skipped because of test
     -- package parsing failure.
-    resultCode :: Core.Maybe ExecutionResultCode,
+    resultCode :: Prelude.Maybe ExecutionResultCode,
     -- | When set to @true@, for private devices, Device Farm does not sign your
     -- app again. For public devices, Device Farm always signs your apps again.
     --
     -- For more information about how Device Farm re-signs your apps, see
     -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
     -- /AWS Device Farm FAQs/.
-    skipAppResign :: Core.Maybe Core.Bool,
+    skipAppResign :: Prelude.Maybe Prelude.Bool,
     -- | The total number of completed jobs.
-    completedJobs :: Core.Maybe Core.Int,
+    completedJobs :: Prelude.Maybe Prelude.Int,
     -- | The run\'s stop time.
-    stopped :: Core.Maybe Core.POSIX,
+    stopped :: Prelude.Maybe Core.POSIX,
     -- | The number of minutes the job executes before it times out.
-    jobTimeoutMinutes :: Core.Maybe Core.Int,
+    jobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
     -- | The total number of jobs for the run.
-    totalJobs :: Core.Maybe Core.Int,
+    totalJobs :: Prelude.Maybe Prelude.Int,
     -- | The Device Farm console URL for the recording of the run.
-    webUrl :: Core.Maybe Core.Text,
+    webUrl :: Prelude.Maybe Prelude.Text,
     -- | When the run was created.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | The run\'s type.
     --
     -- Must be one of the following values:
@@ -193,19 +194,19 @@ data Run = Run'
     -- -   XCTEST
     --
     -- -   XCTEST_UI
-    type' :: Core.Maybe TestType,
+    type' :: Prelude.Maybe TestType,
     -- | Represents the total (metered or unmetered) minutes used by the test
     -- run.
-    deviceMinutes :: Core.Maybe DeviceMinutes,
+    deviceMinutes :: Prelude.Maybe DeviceMinutes,
     -- | Information about the location that is used for the run.
-    location :: Core.Maybe Location,
+    location :: Prelude.Maybe Location,
     -- | Read-only URL for an object in an S3 bucket where you can get the
     -- parsing results of the test package. If the test package doesn\'t parse,
     -- the reason why it doesn\'t parse appears in the file that this URL
     -- points to.
-    parsingResultUrl :: Core.Maybe Core.Text
+    parsingResultUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Run' with all optional fields omitted.
@@ -382,52 +383,52 @@ newRun ::
   Run
 newRun =
   Run'
-    { seed = Core.Nothing,
-      eventCount = Core.Nothing,
-      counters = Core.Nothing,
-      platform = Core.Nothing,
-      status = Core.Nothing,
-      result = Core.Nothing,
-      devicePoolArn = Core.Nothing,
-      deviceSelectionResult = Core.Nothing,
-      started = Core.Nothing,
-      testSpecArn = Core.Nothing,
-      message = Core.Nothing,
-      locale = Core.Nothing,
-      arn = Core.Nothing,
-      networkProfile = Core.Nothing,
-      appUpload = Core.Nothing,
-      radios = Core.Nothing,
-      name = Core.Nothing,
-      billingMethod = Core.Nothing,
-      customerArtifactPaths = Core.Nothing,
-      resultCode = Core.Nothing,
-      skipAppResign = Core.Nothing,
-      completedJobs = Core.Nothing,
-      stopped = Core.Nothing,
-      jobTimeoutMinutes = Core.Nothing,
-      totalJobs = Core.Nothing,
-      webUrl = Core.Nothing,
-      created = Core.Nothing,
-      type' = Core.Nothing,
-      deviceMinutes = Core.Nothing,
-      location = Core.Nothing,
-      parsingResultUrl = Core.Nothing
+    { seed = Prelude.Nothing,
+      eventCount = Prelude.Nothing,
+      counters = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      status = Prelude.Nothing,
+      result = Prelude.Nothing,
+      devicePoolArn = Prelude.Nothing,
+      deviceSelectionResult = Prelude.Nothing,
+      started = Prelude.Nothing,
+      testSpecArn = Prelude.Nothing,
+      message = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      networkProfile = Prelude.Nothing,
+      appUpload = Prelude.Nothing,
+      radios = Prelude.Nothing,
+      name = Prelude.Nothing,
+      billingMethod = Prelude.Nothing,
+      customerArtifactPaths = Prelude.Nothing,
+      resultCode = Prelude.Nothing,
+      skipAppResign = Prelude.Nothing,
+      completedJobs = Prelude.Nothing,
+      stopped = Prelude.Nothing,
+      jobTimeoutMinutes = Prelude.Nothing,
+      totalJobs = Prelude.Nothing,
+      webUrl = Prelude.Nothing,
+      created = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      deviceMinutes = Prelude.Nothing,
+      location = Prelude.Nothing,
+      parsingResultUrl = Prelude.Nothing
     }
 
 -- | For fuzz tests, this is a seed to use for randomizing the UI fuzz test.
 -- Using the same seed value between tests ensures identical event
 -- sequences.
-run_seed :: Lens.Lens' Run (Core.Maybe Core.Int)
+run_seed :: Lens.Lens' Run (Prelude.Maybe Prelude.Int)
 run_seed = Lens.lens (\Run' {seed} -> seed) (\s@Run' {} a -> s {seed = a} :: Run)
 
 -- | For fuzz tests, this is the number of events, between 1 and 10000, that
 -- the UI fuzz test should perform.
-run_eventCount :: Lens.Lens' Run (Core.Maybe Core.Int)
+run_eventCount :: Lens.Lens' Run (Prelude.Maybe Prelude.Int)
 run_eventCount = Lens.lens (\Run' {eventCount} -> eventCount) (\s@Run' {} a -> s {eventCount = a} :: Run)
 
 -- | The run\'s result counters.
-run_counters :: Lens.Lens' Run (Core.Maybe Counters)
+run_counters :: Lens.Lens' Run (Prelude.Maybe Counters)
 run_counters = Lens.lens (\Run' {counters} -> counters) (\s@Run' {} a -> s {counters = a} :: Run)
 
 -- | The run\'s platform.
@@ -437,7 +438,7 @@ run_counters = Lens.lens (\Run' {counters} -> counters) (\s@Run' {} a -> s {coun
 -- -   ANDROID
 --
 -- -   IOS
-run_platform :: Lens.Lens' Run (Core.Maybe DevicePlatform)
+run_platform :: Lens.Lens' Run (Prelude.Maybe DevicePlatform)
 run_platform = Lens.lens (\Run' {platform} -> platform) (\s@Run' {} a -> s {platform = a} :: Run)
 
 -- | The run\'s status.
@@ -461,7 +462,7 @@ run_platform = Lens.lens (\Run' {platform} -> platform) (\s@Run' {} a -> s {plat
 -- -   COMPLETED
 --
 -- -   STOPPING
-run_status :: Lens.Lens' Run (Core.Maybe ExecutionStatus)
+run_status :: Lens.Lens' Run (Prelude.Maybe ExecutionStatus)
 run_status = Lens.lens (\Run' {status} -> status) (\s@Run' {} a -> s {status = a} :: Run)
 
 -- | The run\'s result.
@@ -481,52 +482,52 @@ run_status = Lens.lens (\Run' {status} -> status) (\s@Run' {} a -> s {status = a
 -- -   ERRORED
 --
 -- -   STOPPED
-run_result :: Lens.Lens' Run (Core.Maybe ExecutionResult)
+run_result :: Lens.Lens' Run (Prelude.Maybe ExecutionResult)
 run_result = Lens.lens (\Run' {result} -> result) (\s@Run' {} a -> s {result = a} :: Run)
 
 -- | The ARN of the device pool for the run.
-run_devicePoolArn :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_devicePoolArn :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_devicePoolArn = Lens.lens (\Run' {devicePoolArn} -> devicePoolArn) (\s@Run' {} a -> s {devicePoolArn = a} :: Run)
 
 -- | The results of a device filter used to select the devices for a test
 -- run.
-run_deviceSelectionResult :: Lens.Lens' Run (Core.Maybe DeviceSelectionResult)
+run_deviceSelectionResult :: Lens.Lens' Run (Prelude.Maybe DeviceSelectionResult)
 run_deviceSelectionResult = Lens.lens (\Run' {deviceSelectionResult} -> deviceSelectionResult) (\s@Run' {} a -> s {deviceSelectionResult = a} :: Run)
 
 -- | The run\'s start time.
-run_started :: Lens.Lens' Run (Core.Maybe Core.UTCTime)
-run_started = Lens.lens (\Run' {started} -> started) (\s@Run' {} a -> s {started = a} :: Run) Core.. Lens.mapping Core._Time
+run_started :: Lens.Lens' Run (Prelude.Maybe Prelude.UTCTime)
+run_started = Lens.lens (\Run' {started} -> started) (\s@Run' {} a -> s {started = a} :: Run) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the YAML-formatted test specification for the run.
-run_testSpecArn :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_testSpecArn :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_testSpecArn = Lens.lens (\Run' {testSpecArn} -> testSpecArn) (\s@Run' {} a -> s {testSpecArn = a} :: Run)
 
 -- | A message about the run\'s result.
-run_message :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_message :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_message = Lens.lens (\Run' {message} -> message) (\s@Run' {} a -> s {message = a} :: Run)
 
 -- | Information about the locale that is used for the run.
-run_locale :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_locale :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_locale = Lens.lens (\Run' {locale} -> locale) (\s@Run' {} a -> s {locale = a} :: Run)
 
 -- | The run\'s ARN.
-run_arn :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_arn :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_arn = Lens.lens (\Run' {arn} -> arn) (\s@Run' {} a -> s {arn = a} :: Run)
 
 -- | The network profile being used for a test run.
-run_networkProfile :: Lens.Lens' Run (Core.Maybe NetworkProfile)
+run_networkProfile :: Lens.Lens' Run (Prelude.Maybe NetworkProfile)
 run_networkProfile = Lens.lens (\Run' {networkProfile} -> networkProfile) (\s@Run' {} a -> s {networkProfile = a} :: Run)
 
 -- | An app to upload or that has been uploaded.
-run_appUpload :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_appUpload :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_appUpload = Lens.lens (\Run' {appUpload} -> appUpload) (\s@Run' {} a -> s {appUpload = a} :: Run)
 
 -- | Information about the radio states for the run.
-run_radios :: Lens.Lens' Run (Core.Maybe Radios)
+run_radios :: Lens.Lens' Run (Prelude.Maybe Radios)
 run_radios = Lens.lens (\Run' {radios} -> radios) (\s@Run' {} a -> s {radios = a} :: Run)
 
 -- | The run\'s name.
-run_name :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_name :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_name = Lens.lens (\Run' {name} -> name) (\s@Run' {} a -> s {name = a} :: Run)
 
 -- | Specifies the billing method for a test run: @metered@ or @unmetered@.
@@ -534,17 +535,17 @@ run_name = Lens.lens (\Run' {name} -> name) (\s@Run' {} a -> s {name = a} :: Run
 --
 -- If you have unmetered device slots, you must set this to @unmetered@ to
 -- use them. Otherwise, the run is counted toward metered device minutes.
-run_billingMethod :: Lens.Lens' Run (Core.Maybe BillingMethod)
+run_billingMethod :: Lens.Lens' Run (Prelude.Maybe BillingMethod)
 run_billingMethod = Lens.lens (\Run' {billingMethod} -> billingMethod) (\s@Run' {} a -> s {billingMethod = a} :: Run)
 
 -- | Output @CustomerArtifactPaths@ object for the test run.
-run_customerArtifactPaths :: Lens.Lens' Run (Core.Maybe CustomerArtifactPaths)
+run_customerArtifactPaths :: Lens.Lens' Run (Prelude.Maybe CustomerArtifactPaths)
 run_customerArtifactPaths = Lens.lens (\Run' {customerArtifactPaths} -> customerArtifactPaths) (\s@Run' {} a -> s {customerArtifactPaths = a} :: Run)
 
 -- | Supporting field for the result field. Set only if @result@ is
 -- @SKIPPED@. @PARSING_FAILED@ if the result is skipped because of test
 -- package parsing failure.
-run_resultCode :: Lens.Lens' Run (Core.Maybe ExecutionResultCode)
+run_resultCode :: Lens.Lens' Run (Prelude.Maybe ExecutionResultCode)
 run_resultCode = Lens.lens (\Run' {resultCode} -> resultCode) (\s@Run' {} a -> s {resultCode = a} :: Run)
 
 -- | When set to @true@, for private devices, Device Farm does not sign your
@@ -553,32 +554,32 @@ run_resultCode = Lens.lens (\Run' {resultCode} -> resultCode) (\s@Run' {} a -> s
 -- For more information about how Device Farm re-signs your apps, see
 -- <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
-run_skipAppResign :: Lens.Lens' Run (Core.Maybe Core.Bool)
+run_skipAppResign :: Lens.Lens' Run (Prelude.Maybe Prelude.Bool)
 run_skipAppResign = Lens.lens (\Run' {skipAppResign} -> skipAppResign) (\s@Run' {} a -> s {skipAppResign = a} :: Run)
 
 -- | The total number of completed jobs.
-run_completedJobs :: Lens.Lens' Run (Core.Maybe Core.Int)
+run_completedJobs :: Lens.Lens' Run (Prelude.Maybe Prelude.Int)
 run_completedJobs = Lens.lens (\Run' {completedJobs} -> completedJobs) (\s@Run' {} a -> s {completedJobs = a} :: Run)
 
 -- | The run\'s stop time.
-run_stopped :: Lens.Lens' Run (Core.Maybe Core.UTCTime)
-run_stopped = Lens.lens (\Run' {stopped} -> stopped) (\s@Run' {} a -> s {stopped = a} :: Run) Core.. Lens.mapping Core._Time
+run_stopped :: Lens.Lens' Run (Prelude.Maybe Prelude.UTCTime)
+run_stopped = Lens.lens (\Run' {stopped} -> stopped) (\s@Run' {} a -> s {stopped = a} :: Run) Prelude.. Lens.mapping Core._Time
 
 -- | The number of minutes the job executes before it times out.
-run_jobTimeoutMinutes :: Lens.Lens' Run (Core.Maybe Core.Int)
+run_jobTimeoutMinutes :: Lens.Lens' Run (Prelude.Maybe Prelude.Int)
 run_jobTimeoutMinutes = Lens.lens (\Run' {jobTimeoutMinutes} -> jobTimeoutMinutes) (\s@Run' {} a -> s {jobTimeoutMinutes = a} :: Run)
 
 -- | The total number of jobs for the run.
-run_totalJobs :: Lens.Lens' Run (Core.Maybe Core.Int)
+run_totalJobs :: Lens.Lens' Run (Prelude.Maybe Prelude.Int)
 run_totalJobs = Lens.lens (\Run' {totalJobs} -> totalJobs) (\s@Run' {} a -> s {totalJobs = a} :: Run)
 
 -- | The Device Farm console URL for the recording of the run.
-run_webUrl :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_webUrl :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_webUrl = Lens.lens (\Run' {webUrl} -> webUrl) (\s@Run' {} a -> s {webUrl = a} :: Run)
 
 -- | When the run was created.
-run_created :: Lens.Lens' Run (Core.Maybe Core.UTCTime)
-run_created = Lens.lens (\Run' {created} -> created) (\s@Run' {} a -> s {created = a} :: Run) Core.. Lens.mapping Core._Time
+run_created :: Lens.Lens' Run (Prelude.Maybe Prelude.UTCTime)
+run_created = Lens.lens (\Run' {created} -> created) (\s@Run' {} a -> s {created = a} :: Run) Prelude.. Lens.mapping Core._Time
 
 -- | The run\'s type.
 --
@@ -622,23 +623,23 @@ run_created = Lens.lens (\Run' {created} -> created) (\s@Run' {} a -> s {created
 -- -   XCTEST
 --
 -- -   XCTEST_UI
-run_type :: Lens.Lens' Run (Core.Maybe TestType)
+run_type :: Lens.Lens' Run (Prelude.Maybe TestType)
 run_type = Lens.lens (\Run' {type'} -> type') (\s@Run' {} a -> s {type' = a} :: Run)
 
 -- | Represents the total (metered or unmetered) minutes used by the test
 -- run.
-run_deviceMinutes :: Lens.Lens' Run (Core.Maybe DeviceMinutes)
+run_deviceMinutes :: Lens.Lens' Run (Prelude.Maybe DeviceMinutes)
 run_deviceMinutes = Lens.lens (\Run' {deviceMinutes} -> deviceMinutes) (\s@Run' {} a -> s {deviceMinutes = a} :: Run)
 
 -- | Information about the location that is used for the run.
-run_location :: Lens.Lens' Run (Core.Maybe Location)
+run_location :: Lens.Lens' Run (Prelude.Maybe Location)
 run_location = Lens.lens (\Run' {location} -> location) (\s@Run' {} a -> s {location = a} :: Run)
 
 -- | Read-only URL for an object in an S3 bucket where you can get the
 -- parsing results of the test package. If the test package doesn\'t parse,
 -- the reason why it doesn\'t parse appears in the file that this URL
 -- points to.
-run_parsingResultUrl :: Lens.Lens' Run (Core.Maybe Core.Text)
+run_parsingResultUrl :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
 run_parsingResultUrl = Lens.lens (\Run' {parsingResultUrl} -> parsingResultUrl) (\s@Run' {} a -> s {parsingResultUrl = a} :: Run)
 
 instance Core.FromJSON Run where
@@ -647,39 +648,39 @@ instance Core.FromJSON Run where
       "Run"
       ( \x ->
           Run'
-            Core.<$> (x Core..:? "seed")
-            Core.<*> (x Core..:? "eventCount")
-            Core.<*> (x Core..:? "counters")
-            Core.<*> (x Core..:? "platform")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "result")
-            Core.<*> (x Core..:? "devicePoolArn")
-            Core.<*> (x Core..:? "deviceSelectionResult")
-            Core.<*> (x Core..:? "started")
-            Core.<*> (x Core..:? "testSpecArn")
-            Core.<*> (x Core..:? "message")
-            Core.<*> (x Core..:? "locale")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "networkProfile")
-            Core.<*> (x Core..:? "appUpload")
-            Core.<*> (x Core..:? "radios")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "billingMethod")
-            Core.<*> (x Core..:? "customerArtifactPaths")
-            Core.<*> (x Core..:? "resultCode")
-            Core.<*> (x Core..:? "skipAppResign")
-            Core.<*> (x Core..:? "completedJobs")
-            Core.<*> (x Core..:? "stopped")
-            Core.<*> (x Core..:? "jobTimeoutMinutes")
-            Core.<*> (x Core..:? "totalJobs")
-            Core.<*> (x Core..:? "webUrl")
-            Core.<*> (x Core..:? "created")
-            Core.<*> (x Core..:? "type")
-            Core.<*> (x Core..:? "deviceMinutes")
-            Core.<*> (x Core..:? "location")
-            Core.<*> (x Core..:? "parsingResultUrl")
+            Prelude.<$> (x Core..:? "seed")
+            Prelude.<*> (x Core..:? "eventCount")
+            Prelude.<*> (x Core..:? "counters")
+            Prelude.<*> (x Core..:? "platform")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "result")
+            Prelude.<*> (x Core..:? "devicePoolArn")
+            Prelude.<*> (x Core..:? "deviceSelectionResult")
+            Prelude.<*> (x Core..:? "started")
+            Prelude.<*> (x Core..:? "testSpecArn")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "locale")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "networkProfile")
+            Prelude.<*> (x Core..:? "appUpload")
+            Prelude.<*> (x Core..:? "radios")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "billingMethod")
+            Prelude.<*> (x Core..:? "customerArtifactPaths")
+            Prelude.<*> (x Core..:? "resultCode")
+            Prelude.<*> (x Core..:? "skipAppResign")
+            Prelude.<*> (x Core..:? "completedJobs")
+            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<*> (x Core..:? "jobTimeoutMinutes")
+            Prelude.<*> (x Core..:? "totalJobs")
+            Prelude.<*> (x Core..:? "webUrl")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "deviceMinutes")
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "parsingResultUrl")
       )
 
-instance Core.Hashable Run
+instance Prelude.Hashable Run
 
-instance Core.NFData Run
+instance Prelude.NFData Run

@@ -22,6 +22,7 @@ module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the coonection status of an inbound cross-cluster search
 -- connection.
@@ -29,7 +30,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newInboundCrossClusterSearchConnectionStatus' smart constructor.
 data InboundCrossClusterSearchConnectionStatus = InboundCrossClusterSearchConnectionStatus'
   { -- | Specifies verbose information for the inbound connection status.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The state code for inbound connection. This can be one of the following:
     --
     -- -   PENDING_ACCEPTANCE: Inbound connection is not yet accepted by
@@ -40,9 +41,9 @@ data InboundCrossClusterSearchConnectionStatus = InboundCrossClusterSearchConnec
     -- -   REJECTED: Inbound connection is rejected.
     -- -   DELETING: Inbound connection deletion is in progress.
     -- -   DELETED: Inbound connection is deleted and cannot be used further.
-    statusCode :: Core.Maybe InboundCrossClusterSearchConnectionStatusCode
+    statusCode :: Prelude.Maybe InboundCrossClusterSearchConnectionStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InboundCrossClusterSearchConnectionStatus' with all optional fields omitted.
@@ -69,12 +70,12 @@ newInboundCrossClusterSearchConnectionStatus ::
 newInboundCrossClusterSearchConnectionStatus =
   InboundCrossClusterSearchConnectionStatus'
     { message =
-        Core.Nothing,
-      statusCode = Core.Nothing
+        Prelude.Nothing,
+      statusCode = Prelude.Nothing
     }
 
 -- | Specifies verbose information for the inbound connection status.
-inboundCrossClusterSearchConnectionStatus_message :: Lens.Lens' InboundCrossClusterSearchConnectionStatus (Core.Maybe Core.Text)
+inboundCrossClusterSearchConnectionStatus_message :: Lens.Lens' InboundCrossClusterSearchConnectionStatus (Prelude.Maybe Prelude.Text)
 inboundCrossClusterSearchConnectionStatus_message = Lens.lens (\InboundCrossClusterSearchConnectionStatus' {message} -> message) (\s@InboundCrossClusterSearchConnectionStatus' {} a -> s {message = a} :: InboundCrossClusterSearchConnectionStatus)
 
 -- | The state code for inbound connection. This can be one of the following:
@@ -87,7 +88,7 @@ inboundCrossClusterSearchConnectionStatus_message = Lens.lens (\InboundCrossClus
 -- -   REJECTED: Inbound connection is rejected.
 -- -   DELETING: Inbound connection deletion is in progress.
 -- -   DELETED: Inbound connection is deleted and cannot be used further.
-inboundCrossClusterSearchConnectionStatus_statusCode :: Lens.Lens' InboundCrossClusterSearchConnectionStatus (Core.Maybe InboundCrossClusterSearchConnectionStatusCode)
+inboundCrossClusterSearchConnectionStatus_statusCode :: Lens.Lens' InboundCrossClusterSearchConnectionStatus (Prelude.Maybe InboundCrossClusterSearchConnectionStatusCode)
 inboundCrossClusterSearchConnectionStatus_statusCode = Lens.lens (\InboundCrossClusterSearchConnectionStatus' {statusCode} -> statusCode) (\s@InboundCrossClusterSearchConnectionStatus' {} a -> s {statusCode = a} :: InboundCrossClusterSearchConnectionStatus)
 
 instance
@@ -99,14 +100,14 @@ instance
       "InboundCrossClusterSearchConnectionStatus"
       ( \x ->
           InboundCrossClusterSearchConnectionStatus'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "StatusCode")
+            Prelude.<$> (x Core..:? "Message")
+              Prelude.<*> (x Core..:? "StatusCode")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InboundCrossClusterSearchConnectionStatus
 
 instance
-  Core.NFData
+  Prelude.NFData
     InboundCrossClusterSearchConnectionStatus

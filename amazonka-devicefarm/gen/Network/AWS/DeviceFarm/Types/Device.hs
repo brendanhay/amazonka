@@ -27,13 +27,14 @@ import Network.AWS.DeviceFarm.Types.DeviceInstance
 import Network.AWS.DeviceFarm.Types.DevicePlatform
 import Network.AWS.DeviceFarm.Types.Resolution
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a device type that an app is tested against.
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
   { -- | The device\'s manufacturer name.
-    manufacturer :: Core.Maybe Core.Text,
+    manufacturer :: Prelude.Maybe Prelude.Text,
     -- | The device\'s platform.
     --
     -- Allowed values include:
@@ -41,19 +42,19 @@ data Device = Device'
     -- -   ANDROID
     --
     -- -   IOS
-    platform :: Core.Maybe DevicePlatform,
+    platform :: Prelude.Maybe DevicePlatform,
     -- | The device\'s model name.
-    model :: Core.Maybe Core.Text,
+    model :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet to which this device belongs.
-    fleetName :: Core.Maybe Core.Text,
+    fleetName :: Prelude.Maybe Prelude.Text,
     -- | The device\'s total memory size, expressed in bytes.
-    memory :: Core.Maybe Core.Integer,
+    memory :: Prelude.Maybe Prelude.Integer,
     -- | Indicates how likely a device is available for a test run. Currently
     -- available in the ListDevices and GetDevice API methods.
-    availability :: Core.Maybe DeviceAvailability,
+    availability :: Prelude.Maybe DeviceAvailability,
     -- | The type of fleet to which this device belongs. Possible values are
     -- PRIVATE and PUBLIC.
-    fleetType :: Core.Maybe Core.Text,
+    fleetType :: Prelude.Maybe Prelude.Text,
     -- | The device\'s form factor.
     --
     -- Allowed values include:
@@ -61,40 +62,40 @@ data Device = Device'
     -- -   PHONE
     --
     -- -   TABLET
-    formFactor :: Core.Maybe DeviceFormFactor,
+    formFactor :: Prelude.Maybe DeviceFormFactor,
     -- | Specifies whether remote access has been enabled for the specified
     -- device.
-    remoteAccessEnabled :: Core.Maybe Core.Bool,
+    remoteAccessEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The device\'s ARN.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The instances that belong to this device.
-    instances :: Core.Maybe [DeviceInstance],
+    instances :: Prelude.Maybe [DeviceInstance],
     -- | The device\'s display name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The device\'s image name.
-    image :: Core.Maybe Core.Text,
+    image :: Prelude.Maybe Prelude.Text,
     -- | The device\'s carrier.
-    carrier :: Core.Maybe Core.Text,
+    carrier :: Prelude.Maybe Prelude.Text,
     -- | The device\'s operating system type.
-    os :: Core.Maybe Core.Text,
+    os :: Prelude.Maybe Prelude.Text,
     -- | The device\'s heap size, expressed in bytes.
-    heapSize :: Core.Maybe Core.Integer,
+    heapSize :: Prelude.Maybe Prelude.Integer,
     -- | The device\'s radio.
-    radio :: Core.Maybe Core.Text,
+    radio :: Prelude.Maybe Prelude.Text,
     -- | The resolution of the device.
-    resolution :: Core.Maybe Resolution,
+    resolution :: Prelude.Maybe Resolution,
     -- | Information about the device\'s CPU.
-    cpu :: Core.Maybe CPU,
+    cpu :: Prelude.Maybe CPU,
     -- | This flag is set to @true@ if remote debugging is enabled for the
     -- device.
     --
     -- Remote debugging is
     -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-    remoteDebugEnabled :: Core.Maybe Core.Bool,
+    remoteDebugEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The device\'s model ID.
-    modelId :: Core.Maybe Core.Text
+    modelId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Device' with all optional fields omitted.
@@ -168,31 +169,31 @@ newDevice ::
   Device
 newDevice =
   Device'
-    { manufacturer = Core.Nothing,
-      platform = Core.Nothing,
-      model = Core.Nothing,
-      fleetName = Core.Nothing,
-      memory = Core.Nothing,
-      availability = Core.Nothing,
-      fleetType = Core.Nothing,
-      formFactor = Core.Nothing,
-      remoteAccessEnabled = Core.Nothing,
-      arn = Core.Nothing,
-      instances = Core.Nothing,
-      name = Core.Nothing,
-      image = Core.Nothing,
-      carrier = Core.Nothing,
-      os = Core.Nothing,
-      heapSize = Core.Nothing,
-      radio = Core.Nothing,
-      resolution = Core.Nothing,
-      cpu = Core.Nothing,
-      remoteDebugEnabled = Core.Nothing,
-      modelId = Core.Nothing
+    { manufacturer = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      model = Prelude.Nothing,
+      fleetName = Prelude.Nothing,
+      memory = Prelude.Nothing,
+      availability = Prelude.Nothing,
+      fleetType = Prelude.Nothing,
+      formFactor = Prelude.Nothing,
+      remoteAccessEnabled = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      instances = Prelude.Nothing,
+      name = Prelude.Nothing,
+      image = Prelude.Nothing,
+      carrier = Prelude.Nothing,
+      os = Prelude.Nothing,
+      heapSize = Prelude.Nothing,
+      radio = Prelude.Nothing,
+      resolution = Prelude.Nothing,
+      cpu = Prelude.Nothing,
+      remoteDebugEnabled = Prelude.Nothing,
+      modelId = Prelude.Nothing
     }
 
 -- | The device\'s manufacturer name.
-device_manufacturer :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_manufacturer :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_manufacturer = Lens.lens (\Device' {manufacturer} -> manufacturer) (\s@Device' {} a -> s {manufacturer = a} :: Device)
 
 -- | The device\'s platform.
@@ -202,29 +203,29 @@ device_manufacturer = Lens.lens (\Device' {manufacturer} -> manufacturer) (\s@De
 -- -   ANDROID
 --
 -- -   IOS
-device_platform :: Lens.Lens' Device (Core.Maybe DevicePlatform)
+device_platform :: Lens.Lens' Device (Prelude.Maybe DevicePlatform)
 device_platform = Lens.lens (\Device' {platform} -> platform) (\s@Device' {} a -> s {platform = a} :: Device)
 
 -- | The device\'s model name.
-device_model :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_model :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_model = Lens.lens (\Device' {model} -> model) (\s@Device' {} a -> s {model = a} :: Device)
 
 -- | The name of the fleet to which this device belongs.
-device_fleetName :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_fleetName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_fleetName = Lens.lens (\Device' {fleetName} -> fleetName) (\s@Device' {} a -> s {fleetName = a} :: Device)
 
 -- | The device\'s total memory size, expressed in bytes.
-device_memory :: Lens.Lens' Device (Core.Maybe Core.Integer)
+device_memory :: Lens.Lens' Device (Prelude.Maybe Prelude.Integer)
 device_memory = Lens.lens (\Device' {memory} -> memory) (\s@Device' {} a -> s {memory = a} :: Device)
 
 -- | Indicates how likely a device is available for a test run. Currently
 -- available in the ListDevices and GetDevice API methods.
-device_availability :: Lens.Lens' Device (Core.Maybe DeviceAvailability)
+device_availability :: Lens.Lens' Device (Prelude.Maybe DeviceAvailability)
 device_availability = Lens.lens (\Device' {availability} -> availability) (\s@Device' {} a -> s {availability = a} :: Device)
 
 -- | The type of fleet to which this device belongs. Possible values are
 -- PRIVATE and PUBLIC.
-device_fleetType :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_fleetType :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_fleetType = Lens.lens (\Device' {fleetType} -> fleetType) (\s@Device' {} a -> s {fleetType = a} :: Device)
 
 -- | The device\'s form factor.
@@ -234,52 +235,52 @@ device_fleetType = Lens.lens (\Device' {fleetType} -> fleetType) (\s@Device' {} 
 -- -   PHONE
 --
 -- -   TABLET
-device_formFactor :: Lens.Lens' Device (Core.Maybe DeviceFormFactor)
+device_formFactor :: Lens.Lens' Device (Prelude.Maybe DeviceFormFactor)
 device_formFactor = Lens.lens (\Device' {formFactor} -> formFactor) (\s@Device' {} a -> s {formFactor = a} :: Device)
 
 -- | Specifies whether remote access has been enabled for the specified
 -- device.
-device_remoteAccessEnabled :: Lens.Lens' Device (Core.Maybe Core.Bool)
+device_remoteAccessEnabled :: Lens.Lens' Device (Prelude.Maybe Prelude.Bool)
 device_remoteAccessEnabled = Lens.lens (\Device' {remoteAccessEnabled} -> remoteAccessEnabled) (\s@Device' {} a -> s {remoteAccessEnabled = a} :: Device)
 
 -- | The device\'s ARN.
-device_arn :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_arn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_arn = Lens.lens (\Device' {arn} -> arn) (\s@Device' {} a -> s {arn = a} :: Device)
 
 -- | The instances that belong to this device.
-device_instances :: Lens.Lens' Device (Core.Maybe [DeviceInstance])
-device_instances = Lens.lens (\Device' {instances} -> instances) (\s@Device' {} a -> s {instances = a} :: Device) Core.. Lens.mapping Lens._Coerce
+device_instances :: Lens.Lens' Device (Prelude.Maybe [DeviceInstance])
+device_instances = Lens.lens (\Device' {instances} -> instances) (\s@Device' {} a -> s {instances = a} :: Device) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The device\'s display name.
-device_name :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_name :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_name = Lens.lens (\Device' {name} -> name) (\s@Device' {} a -> s {name = a} :: Device)
 
 -- | The device\'s image name.
-device_image :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_image :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_image = Lens.lens (\Device' {image} -> image) (\s@Device' {} a -> s {image = a} :: Device)
 
 -- | The device\'s carrier.
-device_carrier :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_carrier :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_carrier = Lens.lens (\Device' {carrier} -> carrier) (\s@Device' {} a -> s {carrier = a} :: Device)
 
 -- | The device\'s operating system type.
-device_os :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_os :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_os = Lens.lens (\Device' {os} -> os) (\s@Device' {} a -> s {os = a} :: Device)
 
 -- | The device\'s heap size, expressed in bytes.
-device_heapSize :: Lens.Lens' Device (Core.Maybe Core.Integer)
+device_heapSize :: Lens.Lens' Device (Prelude.Maybe Prelude.Integer)
 device_heapSize = Lens.lens (\Device' {heapSize} -> heapSize) (\s@Device' {} a -> s {heapSize = a} :: Device)
 
 -- | The device\'s radio.
-device_radio :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_radio :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_radio = Lens.lens (\Device' {radio} -> radio) (\s@Device' {} a -> s {radio = a} :: Device)
 
 -- | The resolution of the device.
-device_resolution :: Lens.Lens' Device (Core.Maybe Resolution)
+device_resolution :: Lens.Lens' Device (Prelude.Maybe Resolution)
 device_resolution = Lens.lens (\Device' {resolution} -> resolution) (\s@Device' {} a -> s {resolution = a} :: Device)
 
 -- | Information about the device\'s CPU.
-device_cpu :: Lens.Lens' Device (Core.Maybe CPU)
+device_cpu :: Lens.Lens' Device (Prelude.Maybe CPU)
 device_cpu = Lens.lens (\Device' {cpu} -> cpu) (\s@Device' {} a -> s {cpu = a} :: Device)
 
 -- | This flag is set to @true@ if remote debugging is enabled for the
@@ -287,11 +288,11 @@ device_cpu = Lens.lens (\Device' {cpu} -> cpu) (\s@Device' {} a -> s {cpu = a} :
 --
 -- Remote debugging is
 -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-device_remoteDebugEnabled :: Lens.Lens' Device (Core.Maybe Core.Bool)
+device_remoteDebugEnabled :: Lens.Lens' Device (Prelude.Maybe Prelude.Bool)
 device_remoteDebugEnabled = Lens.lens (\Device' {remoteDebugEnabled} -> remoteDebugEnabled) (\s@Device' {} a -> s {remoteDebugEnabled = a} :: Device)
 
 -- | The device\'s model ID.
-device_modelId :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_modelId :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_modelId = Lens.lens (\Device' {modelId} -> modelId) (\s@Device' {} a -> s {modelId = a} :: Device)
 
 instance Core.FromJSON Device where
@@ -300,29 +301,29 @@ instance Core.FromJSON Device where
       "Device"
       ( \x ->
           Device'
-            Core.<$> (x Core..:? "manufacturer")
-            Core.<*> (x Core..:? "platform")
-            Core.<*> (x Core..:? "model")
-            Core.<*> (x Core..:? "fleetName")
-            Core.<*> (x Core..:? "memory")
-            Core.<*> (x Core..:? "availability")
-            Core.<*> (x Core..:? "fleetType")
-            Core.<*> (x Core..:? "formFactor")
-            Core.<*> (x Core..:? "remoteAccessEnabled")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "instances" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "image")
-            Core.<*> (x Core..:? "carrier")
-            Core.<*> (x Core..:? "os")
-            Core.<*> (x Core..:? "heapSize")
-            Core.<*> (x Core..:? "radio")
-            Core.<*> (x Core..:? "resolution")
-            Core.<*> (x Core..:? "cpu")
-            Core.<*> (x Core..:? "remoteDebugEnabled")
-            Core.<*> (x Core..:? "modelId")
+            Prelude.<$> (x Core..:? "manufacturer")
+            Prelude.<*> (x Core..:? "platform")
+            Prelude.<*> (x Core..:? "model")
+            Prelude.<*> (x Core..:? "fleetName")
+            Prelude.<*> (x Core..:? "memory")
+            Prelude.<*> (x Core..:? "availability")
+            Prelude.<*> (x Core..:? "fleetType")
+            Prelude.<*> (x Core..:? "formFactor")
+            Prelude.<*> (x Core..:? "remoteAccessEnabled")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "instances" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "image")
+            Prelude.<*> (x Core..:? "carrier")
+            Prelude.<*> (x Core..:? "os")
+            Prelude.<*> (x Core..:? "heapSize")
+            Prelude.<*> (x Core..:? "radio")
+            Prelude.<*> (x Core..:? "resolution")
+            Prelude.<*> (x Core..:? "cpu")
+            Prelude.<*> (x Core..:? "remoteDebugEnabled")
+            Prelude.<*> (x Core..:? "modelId")
       )
 
-instance Core.Hashable Device
+instance Prelude.Hashable Device
 
-instance Core.NFData Device
+instance Prelude.NFData Device

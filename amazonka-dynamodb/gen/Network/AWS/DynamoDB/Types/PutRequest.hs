@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.PutRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a request to perform a @PutItem@ operation on an item.
 --
@@ -33,9 +34,9 @@ data PutRequest = PutRequest'
     -- of the table\'s key schema. If any attributes are present in the item
     -- that are part of an index key schema for the table, their types must
     -- match the index key schema.
-    item :: Core.HashMap Core.Text AttributeValue
+    item :: Prelude.HashMap Prelude.Text AttributeValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRequest' with all optional fields omitted.
@@ -53,7 +54,7 @@ data PutRequest = PutRequest'
 -- match the index key schema.
 newPutRequest ::
   PutRequest
-newPutRequest = PutRequest' {item = Core.mempty}
+newPutRequest = PutRequest' {item = Prelude.mempty}
 
 -- | A map of attribute name to attribute values, representing the primary
 -- key of an item to be processed by @PutItem@. All of the table\'s primary
@@ -61,8 +62,8 @@ newPutRequest = PutRequest' {item = Core.mempty}
 -- of the table\'s key schema. If any attributes are present in the item
 -- that are part of an index key schema for the table, their types must
 -- match the index key schema.
-putRequest_item :: Lens.Lens' PutRequest (Core.HashMap Core.Text AttributeValue)
-putRequest_item = Lens.lens (\PutRequest' {item} -> item) (\s@PutRequest' {} a -> s {item = a} :: PutRequest) Core.. Lens._Coerce
+putRequest_item :: Lens.Lens' PutRequest (Prelude.HashMap Prelude.Text AttributeValue)
+putRequest_item = Lens.lens (\PutRequest' {item} -> item) (\s@PutRequest' {} a -> s {item = a} :: PutRequest) Prelude.. Lens._Coerce
 
 instance Core.FromJSON PutRequest where
   parseJSON =
@@ -70,14 +71,16 @@ instance Core.FromJSON PutRequest where
       "PutRequest"
       ( \x ->
           PutRequest'
-            Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable PutRequest
+instance Prelude.Hashable PutRequest
 
-instance Core.NFData PutRequest
+instance Prelude.NFData PutRequest
 
 instance Core.ToJSON PutRequest where
   toJSON PutRequest' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Item" Core..= item)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Item" Core..= item)]
+      )

@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.ScheduledInstancesPlacement where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the placement for a Scheduled Instance.
 --
 -- /See:/ 'newScheduledInstancesPlacement' smart constructor.
 data ScheduledInstancesPlacement = ScheduledInstancesPlacement'
   { -- | The name of the placement group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone.
-    availabilityZone :: Core.Maybe Core.Text
+    availabilityZone :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesPlacement' with all optional fields omitted.
@@ -50,25 +51,25 @@ newScheduledInstancesPlacement ::
 newScheduledInstancesPlacement =
   ScheduledInstancesPlacement'
     { groupName =
-        Core.Nothing,
-      availabilityZone = Core.Nothing
+        Prelude.Nothing,
+      availabilityZone = Prelude.Nothing
     }
 
 -- | The name of the placement group.
-scheduledInstancesPlacement_groupName :: Lens.Lens' ScheduledInstancesPlacement (Core.Maybe Core.Text)
+scheduledInstancesPlacement_groupName :: Lens.Lens' ScheduledInstancesPlacement (Prelude.Maybe Prelude.Text)
 scheduledInstancesPlacement_groupName = Lens.lens (\ScheduledInstancesPlacement' {groupName} -> groupName) (\s@ScheduledInstancesPlacement' {} a -> s {groupName = a} :: ScheduledInstancesPlacement)
 
 -- | The Availability Zone.
-scheduledInstancesPlacement_availabilityZone :: Lens.Lens' ScheduledInstancesPlacement (Core.Maybe Core.Text)
+scheduledInstancesPlacement_availabilityZone :: Lens.Lens' ScheduledInstancesPlacement (Prelude.Maybe Prelude.Text)
 scheduledInstancesPlacement_availabilityZone = Lens.lens (\ScheduledInstancesPlacement' {availabilityZone} -> availabilityZone) (\s@ScheduledInstancesPlacement' {} a -> s {availabilityZone = a} :: ScheduledInstancesPlacement)
 
-instance Core.Hashable ScheduledInstancesPlacement
+instance Prelude.Hashable ScheduledInstancesPlacement
 
-instance Core.NFData ScheduledInstancesPlacement
+instance Prelude.NFData ScheduledInstancesPlacement
 
 instance Core.ToQuery ScheduledInstancesPlacement where
   toQuery ScheduledInstancesPlacement' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "GroupName" Core.=: groupName,
         "AvailabilityZone" Core.=: availabilityZone
       ]

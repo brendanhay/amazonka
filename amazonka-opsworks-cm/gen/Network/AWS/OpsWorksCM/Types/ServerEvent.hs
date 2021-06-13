@@ -21,6 +21,7 @@ module Network.AWS.OpsWorksCM.Types.ServerEvent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An event that is related to the server, such as the start of maintenance
 -- or backup.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newServerEvent' smart constructor.
 data ServerEvent = ServerEvent'
   { -- | The Amazon S3 URL of the event\'s log file.
-    logUrl :: Core.Maybe Core.Text,
+    logUrl :: Prelude.Maybe Prelude.Text,
     -- | A human-readable informational or status message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The time when the event occurred.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The name of the server on or for which the event occurred.
-    serverName :: Core.Maybe Core.Text
+    serverName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServerEvent' with all optional fields omitted.
@@ -57,26 +58,26 @@ newServerEvent ::
   ServerEvent
 newServerEvent =
   ServerEvent'
-    { logUrl = Core.Nothing,
-      message = Core.Nothing,
-      createdAt = Core.Nothing,
-      serverName = Core.Nothing
+    { logUrl = Prelude.Nothing,
+      message = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      serverName = Prelude.Nothing
     }
 
 -- | The Amazon S3 URL of the event\'s log file.
-serverEvent_logUrl :: Lens.Lens' ServerEvent (Core.Maybe Core.Text)
+serverEvent_logUrl :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.Text)
 serverEvent_logUrl = Lens.lens (\ServerEvent' {logUrl} -> logUrl) (\s@ServerEvent' {} a -> s {logUrl = a} :: ServerEvent)
 
 -- | A human-readable informational or status message.
-serverEvent_message :: Lens.Lens' ServerEvent (Core.Maybe Core.Text)
+serverEvent_message :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.Text)
 serverEvent_message = Lens.lens (\ServerEvent' {message} -> message) (\s@ServerEvent' {} a -> s {message = a} :: ServerEvent)
 
 -- | The time when the event occurred.
-serverEvent_createdAt :: Lens.Lens' ServerEvent (Core.Maybe Core.UTCTime)
-serverEvent_createdAt = Lens.lens (\ServerEvent' {createdAt} -> createdAt) (\s@ServerEvent' {} a -> s {createdAt = a} :: ServerEvent) Core.. Lens.mapping Core._Time
+serverEvent_createdAt :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.UTCTime)
+serverEvent_createdAt = Lens.lens (\ServerEvent' {createdAt} -> createdAt) (\s@ServerEvent' {} a -> s {createdAt = a} :: ServerEvent) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the server on or for which the event occurred.
-serverEvent_serverName :: Lens.Lens' ServerEvent (Core.Maybe Core.Text)
+serverEvent_serverName :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.Text)
 serverEvent_serverName = Lens.lens (\ServerEvent' {serverName} -> serverName) (\s@ServerEvent' {} a -> s {serverName = a} :: ServerEvent)
 
 instance Core.FromJSON ServerEvent where
@@ -85,12 +86,12 @@ instance Core.FromJSON ServerEvent where
       "ServerEvent"
       ( \x ->
           ServerEvent'
-            Core.<$> (x Core..:? "LogUrl")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "CreatedAt")
-            Core.<*> (x Core..:? "ServerName")
+            Prelude.<$> (x Core..:? "LogUrl")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "ServerName")
       )
 
-instance Core.Hashable ServerEvent
+instance Prelude.Hashable ServerEvent
 
-instance Core.NFData ServerEvent
+instance Prelude.NFData ServerEvent

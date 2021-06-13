@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this to store data store data in an S3 bucket managed by AWS IoT
 -- Analytics. You cannot change the choice of service-managed or
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 data ServiceManagedDatastoreS3Storage = ServiceManagedDatastoreS3Storage'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceManagedDatastoreS3Storage' with all optional fields omitted.
@@ -48,13 +49,17 @@ instance
   parseJSON =
     Core.withObject
       "ServiceManagedDatastoreS3Storage"
-      (\x -> Core.pure ServiceManagedDatastoreS3Storage')
+      ( \x ->
+          Prelude.pure ServiceManagedDatastoreS3Storage'
+      )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ServiceManagedDatastoreS3Storage
 
-instance Core.NFData ServiceManagedDatastoreS3Storage
+instance
+  Prelude.NFData
+    ServiceManagedDatastoreS3Storage
 
 instance Core.ToJSON ServiceManagedDatastoreS3Storage where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

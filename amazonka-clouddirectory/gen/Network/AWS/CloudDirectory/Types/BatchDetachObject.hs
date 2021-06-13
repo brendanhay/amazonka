@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchDetachObject where
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DetachObject operation.
 --
@@ -30,14 +31,14 @@ data BatchDetachObject = BatchDetachObject'
   { -- | The batch reference name. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
     -- for more information.
-    batchReferenceName :: Core.Maybe Core.Text,
+    batchReferenceName :: Prelude.Maybe Prelude.Text,
     -- | Parent reference from which the object with the specified link name is
     -- detached.
     parentReference :: ObjectReference,
     -- | The name of the link.
-    linkName :: Core.Text
+    linkName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetachObject' with all optional fields omitted.
@@ -59,12 +60,12 @@ newBatchDetachObject ::
   -- | 'parentReference'
   ObjectReference ->
   -- | 'linkName'
-  Core.Text ->
+  Prelude.Text ->
   BatchDetachObject
 newBatchDetachObject pParentReference_ pLinkName_ =
   BatchDetachObject'
     { batchReferenceName =
-        Core.Nothing,
+        Prelude.Nothing,
       parentReference = pParentReference_,
       linkName = pLinkName_
     }
@@ -72,7 +73,7 @@ newBatchDetachObject pParentReference_ pLinkName_ =
 -- | The batch reference name. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
 -- for more information.
-batchDetachObject_batchReferenceName :: Lens.Lens' BatchDetachObject (Core.Maybe Core.Text)
+batchDetachObject_batchReferenceName :: Lens.Lens' BatchDetachObject (Prelude.Maybe Prelude.Text)
 batchDetachObject_batchReferenceName = Lens.lens (\BatchDetachObject' {batchReferenceName} -> batchReferenceName) (\s@BatchDetachObject' {} a -> s {batchReferenceName = a} :: BatchDetachObject)
 
 -- | Parent reference from which the object with the specified link name is
@@ -81,21 +82,21 @@ batchDetachObject_parentReference :: Lens.Lens' BatchDetachObject ObjectReferenc
 batchDetachObject_parentReference = Lens.lens (\BatchDetachObject' {parentReference} -> parentReference) (\s@BatchDetachObject' {} a -> s {parentReference = a} :: BatchDetachObject)
 
 -- | The name of the link.
-batchDetachObject_linkName :: Lens.Lens' BatchDetachObject Core.Text
+batchDetachObject_linkName :: Lens.Lens' BatchDetachObject Prelude.Text
 batchDetachObject_linkName = Lens.lens (\BatchDetachObject' {linkName} -> linkName) (\s@BatchDetachObject' {} a -> s {linkName = a} :: BatchDetachObject)
 
-instance Core.Hashable BatchDetachObject
+instance Prelude.Hashable BatchDetachObject
 
-instance Core.NFData BatchDetachObject
+instance Prelude.NFData BatchDetachObject
 
 instance Core.ToJSON BatchDetachObject where
   toJSON BatchDetachObject' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("BatchReferenceName" Core..=)
-              Core.<$> batchReferenceName,
-            Core.Just
+              Prelude.<$> batchReferenceName,
+            Prelude.Just
               ("ParentReference" Core..= parentReference),
-            Core.Just ("LinkName" Core..= linkName)
+            Prelude.Just ("LinkName" Core..= linkName)
           ]
       )

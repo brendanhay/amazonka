@@ -21,6 +21,7 @@ module Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the polling configuration for the @JobWorker@ action
 -- engine, or executor.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data JobWorkerExecutorConfiguration = JobWorkerExecutorConfiguration'
   { -- | The accounts in which the job worker is configured and might poll for
     -- jobs as part of the action execution.
-    pollingAccounts :: Core.Maybe (Core.NonEmpty Core.Text),
+    pollingAccounts :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The service Principals in which the job worker is configured and might
     -- poll for jobs as part of the action execution.
-    pollingServicePrincipals :: Core.Maybe (Core.NonEmpty Core.Text)
+    pollingServicePrincipals :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobWorkerExecutorConfiguration' with all optional fields omitted.
@@ -54,19 +55,19 @@ newJobWorkerExecutorConfiguration ::
 newJobWorkerExecutorConfiguration =
   JobWorkerExecutorConfiguration'
     { pollingAccounts =
-        Core.Nothing,
-      pollingServicePrincipals = Core.Nothing
+        Prelude.Nothing,
+      pollingServicePrincipals = Prelude.Nothing
     }
 
 -- | The accounts in which the job worker is configured and might poll for
 -- jobs as part of the action execution.
-jobWorkerExecutorConfiguration_pollingAccounts :: Lens.Lens' JobWorkerExecutorConfiguration (Core.Maybe (Core.NonEmpty Core.Text))
-jobWorkerExecutorConfiguration_pollingAccounts = Lens.lens (\JobWorkerExecutorConfiguration' {pollingAccounts} -> pollingAccounts) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingAccounts = a} :: JobWorkerExecutorConfiguration) Core.. Lens.mapping Lens._Coerce
+jobWorkerExecutorConfiguration_pollingAccounts :: Lens.Lens' JobWorkerExecutorConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+jobWorkerExecutorConfiguration_pollingAccounts = Lens.lens (\JobWorkerExecutorConfiguration' {pollingAccounts} -> pollingAccounts) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingAccounts = a} :: JobWorkerExecutorConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The service Principals in which the job worker is configured and might
 -- poll for jobs as part of the action execution.
-jobWorkerExecutorConfiguration_pollingServicePrincipals :: Lens.Lens' JobWorkerExecutorConfiguration (Core.Maybe (Core.NonEmpty Core.Text))
-jobWorkerExecutorConfiguration_pollingServicePrincipals = Lens.lens (\JobWorkerExecutorConfiguration' {pollingServicePrincipals} -> pollingServicePrincipals) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingServicePrincipals = a} :: JobWorkerExecutorConfiguration) Core.. Lens.mapping Lens._Coerce
+jobWorkerExecutorConfiguration_pollingServicePrincipals :: Lens.Lens' JobWorkerExecutorConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+jobWorkerExecutorConfiguration_pollingServicePrincipals = Lens.lens (\JobWorkerExecutorConfiguration' {pollingServicePrincipals} -> pollingServicePrincipals) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingServicePrincipals = a} :: JobWorkerExecutorConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON JobWorkerExecutorConfiguration where
   parseJSON =
@@ -74,21 +75,25 @@ instance Core.FromJSON JobWorkerExecutorConfiguration where
       "JobWorkerExecutorConfiguration"
       ( \x ->
           JobWorkerExecutorConfiguration'
-            Core.<$> (x Core..:? "pollingAccounts")
-            Core.<*> (x Core..:? "pollingServicePrincipals")
+            Prelude.<$> (x Core..:? "pollingAccounts")
+            Prelude.<*> (x Core..:? "pollingServicePrincipals")
       )
 
-instance Core.Hashable JobWorkerExecutorConfiguration
+instance
+  Prelude.Hashable
+    JobWorkerExecutorConfiguration
 
-instance Core.NFData JobWorkerExecutorConfiguration
+instance
+  Prelude.NFData
+    JobWorkerExecutorConfiguration
 
 instance Core.ToJSON JobWorkerExecutorConfiguration where
   toJSON JobWorkerExecutorConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("pollingAccounts" Core..=)
-              Core.<$> pollingAccounts,
+              Prelude.<$> pollingAccounts,
             ("pollingServicePrincipals" Core..=)
-              Core.<$> pollingServicePrincipals
+              Prelude.<$> pollingServicePrincipals
           ]
       )

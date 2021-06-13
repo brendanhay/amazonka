@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AutoMLJobCompletionCriteria where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | How long a job is allowed to run, or how many candidates a job is
 -- allowed to generate.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAutoMLJobCompletionCriteria' smart constructor.
 data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
   { -- | The maximum time, in seconds, a job is allowed to run.
-    maxRuntimePerTrainingJobInSeconds :: Core.Maybe Core.Natural,
+    maxRuntimePerTrainingJobInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum time, in seconds, an AutoML job is allowed to wait for a
     -- trial to complete. It must be equal to or greater than
     -- MaxRuntimePerTrainingJobInSeconds.
-    maxAutoMLJobRuntimeInSeconds :: Core.Maybe Core.Natural,
+    maxAutoMLJobRuntimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of times a training job is allowed to run.
-    maxCandidates :: Core.Maybe Core.Natural
+    maxCandidates :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoMLJobCompletionCriteria' with all optional fields omitted.
@@ -58,23 +59,23 @@ newAutoMLJobCompletionCriteria ::
 newAutoMLJobCompletionCriteria =
   AutoMLJobCompletionCriteria'
     { maxRuntimePerTrainingJobInSeconds =
-        Core.Nothing,
-      maxAutoMLJobRuntimeInSeconds = Core.Nothing,
-      maxCandidates = Core.Nothing
+        Prelude.Nothing,
+      maxAutoMLJobRuntimeInSeconds = Prelude.Nothing,
+      maxCandidates = Prelude.Nothing
     }
 
 -- | The maximum time, in seconds, a job is allowed to run.
-autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Core.Maybe Core.Natural)
+autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxRuntimePerTrainingJobInSeconds} -> maxRuntimePerTrainingJobInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxRuntimePerTrainingJobInSeconds = a} :: AutoMLJobCompletionCriteria)
 
 -- | The maximum time, in seconds, an AutoML job is allowed to wait for a
 -- trial to complete. It must be equal to or greater than
 -- MaxRuntimePerTrainingJobInSeconds.
-autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Core.Maybe Core.Natural)
+autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxAutoMLJobRuntimeInSeconds} -> maxAutoMLJobRuntimeInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxAutoMLJobRuntimeInSeconds = a} :: AutoMLJobCompletionCriteria)
 
 -- | The maximum number of times a training job is allowed to run.
-autoMLJobCompletionCriteria_maxCandidates :: Lens.Lens' AutoMLJobCompletionCriteria (Core.Maybe Core.Natural)
+autoMLJobCompletionCriteria_maxCandidates :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxCandidates = Lens.lens (\AutoMLJobCompletionCriteria' {maxCandidates} -> maxCandidates) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxCandidates = a} :: AutoMLJobCompletionCriteria)
 
 instance Core.FromJSON AutoMLJobCompletionCriteria where
@@ -83,23 +84,23 @@ instance Core.FromJSON AutoMLJobCompletionCriteria where
       "AutoMLJobCompletionCriteria"
       ( \x ->
           AutoMLJobCompletionCriteria'
-            Core.<$> (x Core..:? "MaxRuntimePerTrainingJobInSeconds")
-            Core.<*> (x Core..:? "MaxAutoMLJobRuntimeInSeconds")
-            Core.<*> (x Core..:? "MaxCandidates")
+            Prelude.<$> (x Core..:? "MaxRuntimePerTrainingJobInSeconds")
+            Prelude.<*> (x Core..:? "MaxAutoMLJobRuntimeInSeconds")
+            Prelude.<*> (x Core..:? "MaxCandidates")
       )
 
-instance Core.Hashable AutoMLJobCompletionCriteria
+instance Prelude.Hashable AutoMLJobCompletionCriteria
 
-instance Core.NFData AutoMLJobCompletionCriteria
+instance Prelude.NFData AutoMLJobCompletionCriteria
 
 instance Core.ToJSON AutoMLJobCompletionCriteria where
   toJSON AutoMLJobCompletionCriteria' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MaxRuntimePerTrainingJobInSeconds" Core..=)
-              Core.<$> maxRuntimePerTrainingJobInSeconds,
+              Prelude.<$> maxRuntimePerTrainingJobInSeconds,
             ("MaxAutoMLJobRuntimeInSeconds" Core..=)
-              Core.<$> maxAutoMLJobRuntimeInSeconds,
-            ("MaxCandidates" Core..=) Core.<$> maxCandidates
+              Prelude.<$> maxAutoMLJobRuntimeInSeconds,
+            ("MaxCandidates" Core..=) Prelude.<$> maxCandidates
           ]
       )

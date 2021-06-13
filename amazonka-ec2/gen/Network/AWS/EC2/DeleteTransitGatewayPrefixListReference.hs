@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ data DeleteTransitGatewayPrefixListReference = DeleteTransitGatewayPrefixListRef
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the route table.
-    transitGatewayRouteTableId :: Core.Text,
+    transitGatewayRouteTableId :: Prelude.Text,
     -- | The ID of the prefix list.
-    prefixListId :: Core.Text
+    prefixListId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayPrefixListReference' with all optional fields omitted.
@@ -80,16 +81,16 @@ data DeleteTransitGatewayPrefixListReference = DeleteTransitGatewayPrefixListRef
 -- 'prefixListId', 'deleteTransitGatewayPrefixListReference_prefixListId' - The ID of the prefix list.
 newDeleteTransitGatewayPrefixListReference ::
   -- | 'transitGatewayRouteTableId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'prefixListId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTransitGatewayPrefixListReference
 newDeleteTransitGatewayPrefixListReference
   pTransitGatewayRouteTableId_
   pPrefixListId_ =
     DeleteTransitGatewayPrefixListReference'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         prefixListId = pPrefixListId_
@@ -99,15 +100,15 @@ newDeleteTransitGatewayPrefixListReference
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteTransitGatewayPrefixListReference_dryRun :: Lens.Lens' DeleteTransitGatewayPrefixListReference (Core.Maybe Core.Bool)
+deleteTransitGatewayPrefixListReference_dryRun :: Lens.Lens' DeleteTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
 deleteTransitGatewayPrefixListReference_dryRun = Lens.lens (\DeleteTransitGatewayPrefixListReference' {dryRun} -> dryRun) (\s@DeleteTransitGatewayPrefixListReference' {} a -> s {dryRun = a} :: DeleteTransitGatewayPrefixListReference)
 
 -- | The ID of the route table.
-deleteTransitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' DeleteTransitGatewayPrefixListReference Core.Text
+deleteTransitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' DeleteTransitGatewayPrefixListReference Prelude.Text
 deleteTransitGatewayPrefixListReference_transitGatewayRouteTableId = Lens.lens (\DeleteTransitGatewayPrefixListReference' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@DeleteTransitGatewayPrefixListReference' {} a -> s {transitGatewayRouteTableId = a} :: DeleteTransitGatewayPrefixListReference)
 
 -- | The ID of the prefix list.
-deleteTransitGatewayPrefixListReference_prefixListId :: Lens.Lens' DeleteTransitGatewayPrefixListReference Core.Text
+deleteTransitGatewayPrefixListReference_prefixListId :: Lens.Lens' DeleteTransitGatewayPrefixListReference Prelude.Text
 deleteTransitGatewayPrefixListReference_prefixListId = Lens.lens (\DeleteTransitGatewayPrefixListReference' {prefixListId} -> prefixListId) (\s@DeleteTransitGatewayPrefixListReference' {} a -> s {prefixListId = a} :: DeleteTransitGatewayPrefixListReference)
 
 instance
@@ -123,41 +124,42 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteTransitGatewayPrefixListReferenceResponse'
-            Core.<$> (x Core..@? "transitGatewayPrefixListReference")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGatewayPrefixListReference")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteTransitGatewayPrefixListReference
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteTransitGatewayPrefixListReference
 
 instance
   Core.ToHeaders
     DeleteTransitGatewayPrefixListReference
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DeleteTransitGatewayPrefixListReference
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteTransitGatewayPrefixListReference
   where
   toQuery DeleteTransitGatewayPrefixListReference' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DeleteTransitGatewayPrefixListReference" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "TransitGatewayRouteTableId"
           Core.=: transitGatewayRouteTableId,
@@ -167,11 +169,11 @@ instance
 -- | /See:/ 'newDeleteTransitGatewayPrefixListReferenceResponse' smart constructor.
 data DeleteTransitGatewayPrefixListReferenceResponse = DeleteTransitGatewayPrefixListReferenceResponse'
   { -- | Information about the deleted prefix list reference.
-    transitGatewayPrefixListReference :: Core.Maybe TransitGatewayPrefixListReference,
+    transitGatewayPrefixListReference :: Prelude.Maybe TransitGatewayPrefixListReference,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayPrefixListReferenceResponse' with all optional fields omitted.
@@ -186,24 +188,24 @@ data DeleteTransitGatewayPrefixListReferenceResponse = DeleteTransitGatewayPrefi
 -- 'httpStatus', 'deleteTransitGatewayPrefixListReferenceResponse_httpStatus' - The response's http status code.
 newDeleteTransitGatewayPrefixListReferenceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTransitGatewayPrefixListReferenceResponse
 newDeleteTransitGatewayPrefixListReferenceResponse
   pHttpStatus_ =
     DeleteTransitGatewayPrefixListReferenceResponse'
       { transitGatewayPrefixListReference =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the deleted prefix list reference.
-deleteTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference :: Lens.Lens' DeleteTransitGatewayPrefixListReferenceResponse (Core.Maybe TransitGatewayPrefixListReference)
+deleteTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference :: Lens.Lens' DeleteTransitGatewayPrefixListReferenceResponse (Prelude.Maybe TransitGatewayPrefixListReference)
 deleteTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference = Lens.lens (\DeleteTransitGatewayPrefixListReferenceResponse' {transitGatewayPrefixListReference} -> transitGatewayPrefixListReference) (\s@DeleteTransitGatewayPrefixListReferenceResponse' {} a -> s {transitGatewayPrefixListReference = a} :: DeleteTransitGatewayPrefixListReferenceResponse)
 
 -- | The response's http status code.
-deleteTransitGatewayPrefixListReferenceResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayPrefixListReferenceResponse Core.Int
+deleteTransitGatewayPrefixListReferenceResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayPrefixListReferenceResponse Prelude.Int
 deleteTransitGatewayPrefixListReferenceResponse_httpStatus = Lens.lens (\DeleteTransitGatewayPrefixListReferenceResponse' {httpStatus} -> httpStatus) (\s@DeleteTransitGatewayPrefixListReferenceResponse' {} a -> s {httpStatus = a} :: DeleteTransitGatewayPrefixListReferenceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteTransitGatewayPrefixListReferenceResponse

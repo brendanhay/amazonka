@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.HealthCheckObservation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.HealthCheckRegion
 import Network.AWS.Route53.Types.StatusReport
@@ -32,15 +33,15 @@ import Network.AWS.Route53.Types.StatusReport
 data HealthCheckObservation = HealthCheckObservation'
   { -- | The IP address of the Amazon Route 53 health checker that provided the
     -- failure reason in @StatusReport@.
-    iPAddress :: Core.Maybe Core.Text,
+    iPAddress :: Prelude.Maybe Prelude.Text,
     -- | The region of the Amazon Route 53 health checker that provided the
     -- status in @StatusReport@.
-    region :: Core.Maybe HealthCheckRegion,
+    region :: Prelude.Maybe HealthCheckRegion,
     -- | A complex type that contains the last failure reason as reported by one
     -- Amazon Route 53 health checker and the time of the failed health check.
-    statusReport :: Core.Maybe StatusReport
+    statusReport :: Prelude.Maybe StatusReport
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HealthCheckObservation' with all optional fields omitted.
@@ -62,33 +63,34 @@ newHealthCheckObservation ::
   HealthCheckObservation
 newHealthCheckObservation =
   HealthCheckObservation'
-    { iPAddress = Core.Nothing,
-      region = Core.Nothing,
-      statusReport = Core.Nothing
+    { iPAddress =
+        Prelude.Nothing,
+      region = Prelude.Nothing,
+      statusReport = Prelude.Nothing
     }
 
 -- | The IP address of the Amazon Route 53 health checker that provided the
 -- failure reason in @StatusReport@.
-healthCheckObservation_iPAddress :: Lens.Lens' HealthCheckObservation (Core.Maybe Core.Text)
+healthCheckObservation_iPAddress :: Lens.Lens' HealthCheckObservation (Prelude.Maybe Prelude.Text)
 healthCheckObservation_iPAddress = Lens.lens (\HealthCheckObservation' {iPAddress} -> iPAddress) (\s@HealthCheckObservation' {} a -> s {iPAddress = a} :: HealthCheckObservation)
 
 -- | The region of the Amazon Route 53 health checker that provided the
 -- status in @StatusReport@.
-healthCheckObservation_region :: Lens.Lens' HealthCheckObservation (Core.Maybe HealthCheckRegion)
+healthCheckObservation_region :: Lens.Lens' HealthCheckObservation (Prelude.Maybe HealthCheckRegion)
 healthCheckObservation_region = Lens.lens (\HealthCheckObservation' {region} -> region) (\s@HealthCheckObservation' {} a -> s {region = a} :: HealthCheckObservation)
 
 -- | A complex type that contains the last failure reason as reported by one
 -- Amazon Route 53 health checker and the time of the failed health check.
-healthCheckObservation_statusReport :: Lens.Lens' HealthCheckObservation (Core.Maybe StatusReport)
+healthCheckObservation_statusReport :: Lens.Lens' HealthCheckObservation (Prelude.Maybe StatusReport)
 healthCheckObservation_statusReport = Lens.lens (\HealthCheckObservation' {statusReport} -> statusReport) (\s@HealthCheckObservation' {} a -> s {statusReport = a} :: HealthCheckObservation)
 
 instance Core.FromXML HealthCheckObservation where
   parseXML x =
     HealthCheckObservation'
-      Core.<$> (x Core..@? "IPAddress")
-      Core.<*> (x Core..@? "Region")
-      Core.<*> (x Core..@? "StatusReport")
+      Prelude.<$> (x Core..@? "IPAddress")
+      Prelude.<*> (x Core..@? "Region")
+      Prelude.<*> (x Core..@? "StatusReport")
 
-instance Core.Hashable HealthCheckObservation
+instance Prelude.Hashable HealthCheckObservation
 
-instance Core.NFData HealthCheckObservation
+instance Prelude.NFData HealthCheckObservation

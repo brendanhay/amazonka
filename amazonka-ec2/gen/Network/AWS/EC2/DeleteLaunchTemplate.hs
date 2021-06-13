@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,15 +55,15 @@ data DeleteLaunchTemplate = DeleteLaunchTemplate'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the launch template. You must specify either the launch
     -- template ID or launch template name in the request.
-    launchTemplateId :: Core.Maybe Core.Text,
+    launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template. You must specify either the launch
     -- template ID or launch template name in the request.
-    launchTemplateName :: Core.Maybe Core.Text
+    launchTemplateName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchTemplate' with all optional fields omitted.
@@ -86,26 +87,26 @@ newDeleteLaunchTemplate ::
   DeleteLaunchTemplate
 newDeleteLaunchTemplate =
   DeleteLaunchTemplate'
-    { dryRun = Core.Nothing,
-      launchTemplateId = Core.Nothing,
-      launchTemplateName = Core.Nothing
+    { dryRun = Prelude.Nothing,
+      launchTemplateId = Prelude.Nothing,
+      launchTemplateName = Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteLaunchTemplate_dryRun :: Lens.Lens' DeleteLaunchTemplate (Core.Maybe Core.Bool)
+deleteLaunchTemplate_dryRun :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Bool)
 deleteLaunchTemplate_dryRun = Lens.lens (\DeleteLaunchTemplate' {dryRun} -> dryRun) (\s@DeleteLaunchTemplate' {} a -> s {dryRun = a} :: DeleteLaunchTemplate)
 
 -- | The ID of the launch template. You must specify either the launch
 -- template ID or launch template name in the request.
-deleteLaunchTemplate_launchTemplateId :: Lens.Lens' DeleteLaunchTemplate (Core.Maybe Core.Text)
+deleteLaunchTemplate_launchTemplateId :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplate_launchTemplateId = Lens.lens (\DeleteLaunchTemplate' {launchTemplateId} -> launchTemplateId) (\s@DeleteLaunchTemplate' {} a -> s {launchTemplateId = a} :: DeleteLaunchTemplate)
 
 -- | The name of the launch template. You must specify either the launch
 -- template ID or launch template name in the request.
-deleteLaunchTemplate_launchTemplateName :: Lens.Lens' DeleteLaunchTemplate (Core.Maybe Core.Text)
+deleteLaunchTemplate_launchTemplateName :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplate_launchTemplateName = Lens.lens (\DeleteLaunchTemplate' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplate' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplate)
 
 instance Core.AWSRequest DeleteLaunchTemplate where
@@ -117,26 +118,27 @@ instance Core.AWSRequest DeleteLaunchTemplate where
     Response.receiveXML
       ( \s h x ->
           DeleteLaunchTemplateResponse'
-            Core.<$> (x Core..@? "launchTemplate")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "launchTemplate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteLaunchTemplate
+instance Prelude.Hashable DeleteLaunchTemplate
 
-instance Core.NFData DeleteLaunchTemplate
+instance Prelude.NFData DeleteLaunchTemplate
 
 instance Core.ToHeaders DeleteLaunchTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteLaunchTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLaunchTemplate where
   toQuery DeleteLaunchTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteLaunchTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteLaunchTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "LaunchTemplateId" Core.=: launchTemplateId,
         "LaunchTemplateName" Core.=: launchTemplateName
@@ -145,11 +147,11 @@ instance Core.ToQuery DeleteLaunchTemplate where
 -- | /See:/ 'newDeleteLaunchTemplateResponse' smart constructor.
 data DeleteLaunchTemplateResponse = DeleteLaunchTemplateResponse'
   { -- | Information about the launch template.
-    launchTemplate :: Core.Maybe LaunchTemplate,
+    launchTemplate :: Prelude.Maybe LaunchTemplate,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchTemplateResponse' with all optional fields omitted.
@@ -164,21 +166,21 @@ data DeleteLaunchTemplateResponse = DeleteLaunchTemplateResponse'
 -- 'httpStatus', 'deleteLaunchTemplateResponse_httpStatus' - The response's http status code.
 newDeleteLaunchTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLaunchTemplateResponse
 newDeleteLaunchTemplateResponse pHttpStatus_ =
   DeleteLaunchTemplateResponse'
     { launchTemplate =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the launch template.
-deleteLaunchTemplateResponse_launchTemplate :: Lens.Lens' DeleteLaunchTemplateResponse (Core.Maybe LaunchTemplate)
+deleteLaunchTemplateResponse_launchTemplate :: Lens.Lens' DeleteLaunchTemplateResponse (Prelude.Maybe LaunchTemplate)
 deleteLaunchTemplateResponse_launchTemplate = Lens.lens (\DeleteLaunchTemplateResponse' {launchTemplate} -> launchTemplate) (\s@DeleteLaunchTemplateResponse' {} a -> s {launchTemplate = a} :: DeleteLaunchTemplateResponse)
 
 -- | The response's http status code.
-deleteLaunchTemplateResponse_httpStatus :: Lens.Lens' DeleteLaunchTemplateResponse Core.Int
+deleteLaunchTemplateResponse_httpStatus :: Lens.Lens' DeleteLaunchTemplateResponse Prelude.Int
 deleteLaunchTemplateResponse_httpStatus = Lens.lens (\DeleteLaunchTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteLaunchTemplateResponse' {} a -> s {httpStatus = a} :: DeleteLaunchTemplateResponse)
 
-instance Core.NFData DeleteLaunchTemplateResponse
+instance Prelude.NFData DeleteLaunchTemplateResponse

@@ -23,33 +23,34 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.UserBucketDetails
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the snapshot created from the imported disk.
 --
 -- /See:/ 'newSnapshotDetail' smart constructor.
 data SnapshotDetail = SnapshotDetail'
   { -- | The size of the disk in the snapshot, in GiB.
-    diskImageSize :: Core.Maybe Core.Double,
+    diskImageSize :: Prelude.Maybe Prelude.Double,
     -- | A detailed status message for the snapshot creation.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | A brief status of the snapshot creation.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The format of the disk image from which the snapshot is created.
-    format :: Core.Maybe Core.Text,
+    format :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket for the disk image.
-    userBucket :: Core.Maybe UserBucketDetails,
+    userBucket :: Prelude.Maybe UserBucketDetails,
     -- | The block device mapping for the snapshot.
-    deviceName :: Core.Maybe Core.Text,
+    deviceName :: Prelude.Maybe Prelude.Text,
     -- | The snapshot ID of the disk being imported.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | A description for the snapshot.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The URL used to access the disk image.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The percentage of progress for the task.
-    progress :: Core.Maybe Core.Text
+    progress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SnapshotDetail' with all optional fields omitted.
@@ -82,72 +83,72 @@ newSnapshotDetail ::
   SnapshotDetail
 newSnapshotDetail =
   SnapshotDetail'
-    { diskImageSize = Core.Nothing,
-      statusMessage = Core.Nothing,
-      status = Core.Nothing,
-      format = Core.Nothing,
-      userBucket = Core.Nothing,
-      deviceName = Core.Nothing,
-      snapshotId = Core.Nothing,
-      description = Core.Nothing,
-      url = Core.Nothing,
-      progress = Core.Nothing
+    { diskImageSize = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      status = Prelude.Nothing,
+      format = Prelude.Nothing,
+      userBucket = Prelude.Nothing,
+      deviceName = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      url = Prelude.Nothing,
+      progress = Prelude.Nothing
     }
 
 -- | The size of the disk in the snapshot, in GiB.
-snapshotDetail_diskImageSize :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Double)
+snapshotDetail_diskImageSize :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Double)
 snapshotDetail_diskImageSize = Lens.lens (\SnapshotDetail' {diskImageSize} -> diskImageSize) (\s@SnapshotDetail' {} a -> s {diskImageSize = a} :: SnapshotDetail)
 
 -- | A detailed status message for the snapshot creation.
-snapshotDetail_statusMessage :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Text)
+snapshotDetail_statusMessage :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_statusMessage = Lens.lens (\SnapshotDetail' {statusMessage} -> statusMessage) (\s@SnapshotDetail' {} a -> s {statusMessage = a} :: SnapshotDetail)
 
 -- | A brief status of the snapshot creation.
-snapshotDetail_status :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Text)
+snapshotDetail_status :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_status = Lens.lens (\SnapshotDetail' {status} -> status) (\s@SnapshotDetail' {} a -> s {status = a} :: SnapshotDetail)
 
 -- | The format of the disk image from which the snapshot is created.
-snapshotDetail_format :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Text)
+snapshotDetail_format :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_format = Lens.lens (\SnapshotDetail' {format} -> format) (\s@SnapshotDetail' {} a -> s {format = a} :: SnapshotDetail)
 
 -- | The Amazon S3 bucket for the disk image.
-snapshotDetail_userBucket :: Lens.Lens' SnapshotDetail (Core.Maybe UserBucketDetails)
+snapshotDetail_userBucket :: Lens.Lens' SnapshotDetail (Prelude.Maybe UserBucketDetails)
 snapshotDetail_userBucket = Lens.lens (\SnapshotDetail' {userBucket} -> userBucket) (\s@SnapshotDetail' {} a -> s {userBucket = a} :: SnapshotDetail)
 
 -- | The block device mapping for the snapshot.
-snapshotDetail_deviceName :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Text)
+snapshotDetail_deviceName :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_deviceName = Lens.lens (\SnapshotDetail' {deviceName} -> deviceName) (\s@SnapshotDetail' {} a -> s {deviceName = a} :: SnapshotDetail)
 
 -- | The snapshot ID of the disk being imported.
-snapshotDetail_snapshotId :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Text)
+snapshotDetail_snapshotId :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_snapshotId = Lens.lens (\SnapshotDetail' {snapshotId} -> snapshotId) (\s@SnapshotDetail' {} a -> s {snapshotId = a} :: SnapshotDetail)
 
 -- | A description for the snapshot.
-snapshotDetail_description :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Text)
+snapshotDetail_description :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_description = Lens.lens (\SnapshotDetail' {description} -> description) (\s@SnapshotDetail' {} a -> s {description = a} :: SnapshotDetail)
 
 -- | The URL used to access the disk image.
-snapshotDetail_url :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Text)
+snapshotDetail_url :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_url = Lens.lens (\SnapshotDetail' {url} -> url) (\s@SnapshotDetail' {} a -> s {url = a} :: SnapshotDetail)
 
 -- | The percentage of progress for the task.
-snapshotDetail_progress :: Lens.Lens' SnapshotDetail (Core.Maybe Core.Text)
+snapshotDetail_progress :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_progress = Lens.lens (\SnapshotDetail' {progress} -> progress) (\s@SnapshotDetail' {} a -> s {progress = a} :: SnapshotDetail)
 
 instance Core.FromXML SnapshotDetail where
   parseXML x =
     SnapshotDetail'
-      Core.<$> (x Core..@? "diskImageSize")
-      Core.<*> (x Core..@? "statusMessage")
-      Core.<*> (x Core..@? "status")
-      Core.<*> (x Core..@? "format")
-      Core.<*> (x Core..@? "userBucket")
-      Core.<*> (x Core..@? "deviceName")
-      Core.<*> (x Core..@? "snapshotId")
-      Core.<*> (x Core..@? "description")
-      Core.<*> (x Core..@? "url")
-      Core.<*> (x Core..@? "progress")
+      Prelude.<$> (x Core..@? "diskImageSize")
+      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "format")
+      Prelude.<*> (x Core..@? "userBucket")
+      Prelude.<*> (x Core..@? "deviceName")
+      Prelude.<*> (x Core..@? "snapshotId")
+      Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "url")
+      Prelude.<*> (x Core..@? "progress")
 
-instance Core.Hashable SnapshotDetail
+instance Prelude.Hashable SnapshotDetail
 
-instance Core.NFData SnapshotDetail
+instance Prelude.NFData SnapshotDetail

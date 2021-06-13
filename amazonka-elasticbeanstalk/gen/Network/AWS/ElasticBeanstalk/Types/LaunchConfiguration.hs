@@ -21,15 +21,16 @@ module Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'newLaunchConfiguration' smart constructor.
 data LaunchConfiguration = LaunchConfiguration'
   { -- | The name of the launch configuration.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchConfiguration' with all optional fields omitted.
@@ -43,16 +44,17 @@ data LaunchConfiguration = LaunchConfiguration'
 newLaunchConfiguration ::
   LaunchConfiguration
 newLaunchConfiguration =
-  LaunchConfiguration' {name = Core.Nothing}
+  LaunchConfiguration' {name = Prelude.Nothing}
 
 -- | The name of the launch configuration.
-launchConfiguration_name :: Lens.Lens' LaunchConfiguration (Core.Maybe Core.Text)
+launchConfiguration_name :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
 launchConfiguration_name = Lens.lens (\LaunchConfiguration' {name} -> name) (\s@LaunchConfiguration' {} a -> s {name = a} :: LaunchConfiguration)
 
 instance Core.FromXML LaunchConfiguration where
   parseXML x =
-    LaunchConfiguration' Core.<$> (x Core..@? "Name")
+    LaunchConfiguration'
+      Prelude.<$> (x Core..@? "Name")
 
-instance Core.Hashable LaunchConfiguration
+instance Prelude.Hashable LaunchConfiguration
 
-instance Core.NFData LaunchConfiguration
+instance Prelude.NFData LaunchConfiguration

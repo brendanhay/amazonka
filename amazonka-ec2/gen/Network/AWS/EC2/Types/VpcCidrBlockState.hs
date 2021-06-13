@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.VpcCidrBlockStateCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a CIDR block.
 --
 -- /See:/ 'newVpcCidrBlockState' smart constructor.
 data VpcCidrBlockState = VpcCidrBlockState'
   { -- | A message about the status of the CIDR block, if applicable.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The state of the CIDR block.
-    state :: Core.Maybe VpcCidrBlockStateCode
+    state :: Prelude.Maybe VpcCidrBlockStateCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcCidrBlockState' with all optional fields omitted.
@@ -50,24 +51,24 @@ newVpcCidrBlockState ::
   VpcCidrBlockState
 newVpcCidrBlockState =
   VpcCidrBlockState'
-    { statusMessage = Core.Nothing,
-      state = Core.Nothing
+    { statusMessage = Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
 -- | A message about the status of the CIDR block, if applicable.
-vpcCidrBlockState_statusMessage :: Lens.Lens' VpcCidrBlockState (Core.Maybe Core.Text)
+vpcCidrBlockState_statusMessage :: Lens.Lens' VpcCidrBlockState (Prelude.Maybe Prelude.Text)
 vpcCidrBlockState_statusMessage = Lens.lens (\VpcCidrBlockState' {statusMessage} -> statusMessage) (\s@VpcCidrBlockState' {} a -> s {statusMessage = a} :: VpcCidrBlockState)
 
 -- | The state of the CIDR block.
-vpcCidrBlockState_state :: Lens.Lens' VpcCidrBlockState (Core.Maybe VpcCidrBlockStateCode)
+vpcCidrBlockState_state :: Lens.Lens' VpcCidrBlockState (Prelude.Maybe VpcCidrBlockStateCode)
 vpcCidrBlockState_state = Lens.lens (\VpcCidrBlockState' {state} -> state) (\s@VpcCidrBlockState' {} a -> s {state = a} :: VpcCidrBlockState)
 
 instance Core.FromXML VpcCidrBlockState where
   parseXML x =
     VpcCidrBlockState'
-      Core.<$> (x Core..@? "statusMessage")
-      Core.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "state")
 
-instance Core.Hashable VpcCidrBlockState
+instance Prelude.Hashable VpcCidrBlockState
 
-instance Core.NFData VpcCidrBlockState
+instance Prelude.NFData VpcCidrBlockState

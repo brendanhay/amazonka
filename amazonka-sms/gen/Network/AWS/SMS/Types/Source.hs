@@ -21,15 +21,16 @@ module Network.AWS.SMS.Types.Source where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.S3Location
 
 -- | Contains the location of a validation script.
 --
 -- /See:/ 'newSource' smart constructor.
 data Source = Source'
-  { s3Location :: Core.Maybe S3Location
+  { s3Location :: Prelude.Maybe S3Location
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Source' with all optional fields omitted.
@@ -42,25 +43,27 @@ data Source = Source'
 -- 's3Location', 'source_s3Location' - Undocumented member.
 newSource ::
   Source
-newSource = Source' {s3Location = Core.Nothing}
+newSource = Source' {s3Location = Prelude.Nothing}
 
 -- | Undocumented member.
-source_s3Location :: Lens.Lens' Source (Core.Maybe S3Location)
+source_s3Location :: Lens.Lens' Source (Prelude.Maybe S3Location)
 source_s3Location = Lens.lens (\Source' {s3Location} -> s3Location) (\s@Source' {} a -> s {s3Location = a} :: Source)
 
 instance Core.FromJSON Source where
   parseJSON =
     Core.withObject
       "Source"
-      (\x -> Source' Core.<$> (x Core..:? "s3Location"))
+      ( \x ->
+          Source' Prelude.<$> (x Core..:? "s3Location")
+      )
 
-instance Core.Hashable Source
+instance Prelude.Hashable Source
 
-instance Core.NFData Source
+instance Prelude.NFData Source
 
 instance Core.ToJSON Source where
   toJSON Source' {..} =
     Core.object
-      ( Core.catMaybes
-          [("s3Location" Core..=) Core.<$> s3Location]
+      ( Prelude.catMaybes
+          [("s3Location" Core..=) Prelude.<$> s3Location]
       )

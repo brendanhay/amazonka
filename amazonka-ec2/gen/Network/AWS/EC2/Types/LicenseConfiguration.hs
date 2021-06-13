@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.LicenseConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'newLicenseConfiguration' smart constructor.
 data LicenseConfiguration = LicenseConfiguration'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Core.Maybe Core.Text
+    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LicenseConfiguration' with all optional fields omitted.
@@ -46,18 +47,18 @@ newLicenseConfiguration ::
 newLicenseConfiguration =
   LicenseConfiguration'
     { licenseConfigurationArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-licenseConfiguration_licenseConfigurationArn :: Lens.Lens' LicenseConfiguration (Core.Maybe Core.Text)
+licenseConfiguration_licenseConfigurationArn :: Lens.Lens' LicenseConfiguration (Prelude.Maybe Prelude.Text)
 licenseConfiguration_licenseConfigurationArn = Lens.lens (\LicenseConfiguration' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LicenseConfiguration' {} a -> s {licenseConfigurationArn = a} :: LicenseConfiguration)
 
 instance Core.FromXML LicenseConfiguration where
   parseXML x =
     LicenseConfiguration'
-      Core.<$> (x Core..@? "licenseConfigurationArn")
+      Prelude.<$> (x Core..@? "licenseConfigurationArn")
 
-instance Core.Hashable LicenseConfiguration
+instance Prelude.Hashable LicenseConfiguration
 
-instance Core.NFData LicenseConfiguration
+instance Prelude.NFData LicenseConfiguration

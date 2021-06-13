@@ -70,6 +70,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,14 +84,14 @@ data ListPolicies = ListPolicies'
     --
     -- This parameter is optional. If it is not included, or if it is set to
     -- @All@, all policies are returned.
-    scope :: Core.Maybe PolicyScopeType,
+    scope :: Prelude.Maybe PolicyScopeType,
     -- | A flag to filter the results to only the attached policies.
     --
     -- When @OnlyAttached@ is @true@, the returned list contains only the
     -- policies that are attached to an IAM user, group, or role. When
     -- @OnlyAttached@ is @false@, or when the parameter is not included, all
     -- policies are returned.
-    onlyAttached :: Core.Maybe Core.Bool,
+    onlyAttached :: Prelude.Maybe Prelude.Bool,
     -- | The policy usage method to use for filtering the results.
     --
     -- To list only permissions policies,
@@ -100,7 +101,7 @@ data ListPolicies = ListPolicies'
     --
     -- This parameter is optional. If it is not included, all policies are
     -- returned.
-    policyUsageFilter :: Core.Maybe PolicyUsageType,
+    policyUsageFilter :: Prelude.Maybe PolicyUsageType,
     -- | The path prefix for filtering the results. This parameter is optional.
     -- If it is not included, it defaults to a slash (\/), listing all
     -- policies. This parameter allows (through its
@@ -110,7 +111,7 @@ data ListPolicies = ListPolicies'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    pathPrefix :: Core.Maybe Core.Text,
+    pathPrefix :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -120,14 +121,14 @@ data ListPolicies = ListPolicies'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPolicies' with all optional fields omitted.
@@ -191,12 +192,12 @@ newListPolicies ::
   ListPolicies
 newListPolicies =
   ListPolicies'
-    { scope = Core.Nothing,
-      onlyAttached = Core.Nothing,
-      policyUsageFilter = Core.Nothing,
-      pathPrefix = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { scope = Prelude.Nothing,
+      onlyAttached = Prelude.Nothing,
+      policyUsageFilter = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The scope to use for filtering the results.
@@ -207,7 +208,7 @@ newListPolicies =
 --
 -- This parameter is optional. If it is not included, or if it is set to
 -- @All@, all policies are returned.
-listPolicies_scope :: Lens.Lens' ListPolicies (Core.Maybe PolicyScopeType)
+listPolicies_scope :: Lens.Lens' ListPolicies (Prelude.Maybe PolicyScopeType)
 listPolicies_scope = Lens.lens (\ListPolicies' {scope} -> scope) (\s@ListPolicies' {} a -> s {scope = a} :: ListPolicies)
 
 -- | A flag to filter the results to only the attached policies.
@@ -216,7 +217,7 @@ listPolicies_scope = Lens.lens (\ListPolicies' {scope} -> scope) (\s@ListPolicie
 -- policies that are attached to an IAM user, group, or role. When
 -- @OnlyAttached@ is @false@, or when the parameter is not included, all
 -- policies are returned.
-listPolicies_onlyAttached :: Lens.Lens' ListPolicies (Core.Maybe Core.Bool)
+listPolicies_onlyAttached :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Bool)
 listPolicies_onlyAttached = Lens.lens (\ListPolicies' {onlyAttached} -> onlyAttached) (\s@ListPolicies' {} a -> s {onlyAttached = a} :: ListPolicies)
 
 -- | The policy usage method to use for filtering the results.
@@ -228,7 +229,7 @@ listPolicies_onlyAttached = Lens.lens (\ListPolicies' {onlyAttached} -> onlyAtta
 --
 -- This parameter is optional. If it is not included, all policies are
 -- returned.
-listPolicies_policyUsageFilter :: Lens.Lens' ListPolicies (Core.Maybe PolicyUsageType)
+listPolicies_policyUsageFilter :: Lens.Lens' ListPolicies (Prelude.Maybe PolicyUsageType)
 listPolicies_policyUsageFilter = Lens.lens (\ListPolicies' {policyUsageFilter} -> policyUsageFilter) (\s@ListPolicies' {} a -> s {policyUsageFilter = a} :: ListPolicies)
 
 -- | The path prefix for filtering the results. This parameter is optional.
@@ -240,7 +241,7 @@ listPolicies_policyUsageFilter = Lens.lens (\ListPolicies' {policyUsageFilter} -
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-listPolicies_pathPrefix :: Lens.Lens' ListPolicies (Core.Maybe Core.Text)
+listPolicies_pathPrefix :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
 listPolicies_pathPrefix = Lens.lens (\ListPolicies' {pathPrefix} -> pathPrefix) (\s@ListPolicies' {} a -> s {pathPrefix = a} :: ListPolicies)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -252,34 +253,35 @@ listPolicies_pathPrefix = Lens.lens (\ListPolicies' {pathPrefix} -> pathPrefix) 
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listPolicies_maxItems :: Lens.Lens' ListPolicies (Core.Maybe Core.Natural)
+listPolicies_maxItems :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
 listPolicies_maxItems = Lens.lens (\ListPolicies' {maxItems} -> maxItems) (\s@ListPolicies' {} a -> s {maxItems = a} :: ListPolicies)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listPolicies_marker :: Lens.Lens' ListPolicies (Core.Maybe Core.Text)
+listPolicies_marker :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
 listPolicies_marker = Lens.lens (\ListPolicies' {marker} -> marker) (\s@ListPolicies' {} a -> s {marker = a} :: ListPolicies)
 
 instance Core.AWSPager ListPolicies where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_isTruncated Core.. Lens._Just
+            Lens.^? listPoliciesResponse_isTruncated
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listPoliciesResponse_marker Core.. Lens._Just
+            Lens.^? listPoliciesResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPolicies_marker
+          Prelude.& listPolicies_marker
           Lens..~ rs
-          Lens.^? listPoliciesResponse_marker Core.. Lens._Just
+          Lens.^? listPoliciesResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -289,30 +291,31 @@ instance Core.AWSRequest ListPolicies where
       "ListPoliciesResult"
       ( \s h x ->
           ListPoliciesResponse'
-            Core.<$> ( x Core..@? "Policies" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Policies" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPolicies
+instance Prelude.Hashable ListPolicies
 
-instance Core.NFData ListPolicies
+instance Prelude.NFData ListPolicies
 
 instance Core.ToHeaders ListPolicies where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListPolicies where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListPolicies where
   toQuery ListPolicies' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPolicies" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListPolicies" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "Scope" Core.=: scope,
         "OnlyAttached" Core.=: onlyAttached,
         "PolicyUsageFilter" Core.=: policyUsageFilter,
@@ -326,7 +329,7 @@ instance Core.ToQuery ListPolicies where
 -- /See:/ 'newListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
   { -- | A list of policies.
-    policies :: Core.Maybe [Policy],
+    policies :: Prelude.Maybe [Policy],
     -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -334,15 +337,15 @@ data ListPoliciesResponse = ListPoliciesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPoliciesResponse' with all optional fields omitted.
@@ -369,19 +372,19 @@ data ListPoliciesResponse = ListPoliciesResponse'
 -- 'httpStatus', 'listPoliciesResponse_httpStatus' - The response's http status code.
 newListPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPoliciesResponse
 newListPoliciesResponse pHttpStatus_ =
   ListPoliciesResponse'
-    { policies = Core.Nothing,
-      isTruncated = Core.Nothing,
-      marker = Core.Nothing,
+    { policies = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of policies.
-listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Core.Maybe [Policy])
-listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Core.. Lens.mapping Lens._Coerce
+listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [Policy])
+listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -390,17 +393,17 @@ listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> 
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listPoliciesResponse_isTruncated :: Lens.Lens' ListPoliciesResponse (Core.Maybe Core.Bool)
+listPoliciesResponse_isTruncated :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe Prelude.Bool)
 listPoliciesResponse_isTruncated = Lens.lens (\ListPoliciesResponse' {isTruncated} -> isTruncated) (\s@ListPoliciesResponse' {} a -> s {isTruncated = a} :: ListPoliciesResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listPoliciesResponse_marker :: Lens.Lens' ListPoliciesResponse (Core.Maybe Core.Text)
+listPoliciesResponse_marker :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe Prelude.Text)
 listPoliciesResponse_marker = Lens.lens (\ListPoliciesResponse' {marker} -> marker) (\s@ListPoliciesResponse' {} a -> s {marker = a} :: ListPoliciesResponse)
 
 -- | The response's http status code.
-listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Core.Int
+listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int
 listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesResponse' {} a -> s {httpStatus = a} :: ListPoliciesResponse)
 
-instance Core.NFData ListPoliciesResponse
+instance Prelude.NFData ListPoliciesResponse

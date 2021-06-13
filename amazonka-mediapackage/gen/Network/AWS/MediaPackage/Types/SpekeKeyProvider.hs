@@ -21,6 +21,7 @@ module Network.AWS.MediaPackage.Types.SpekeKeyProvider where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A configuration for accessing an external Secure Packager and Encoder
 -- Key Exchange (SPEKE) service that will provide encryption keys.
@@ -30,18 +31,18 @@ data SpekeKeyProvider = SpekeKeyProvider'
   { -- | An Amazon Resource Name (ARN) of a Certificate Manager certificate that
     -- MediaPackage will use for enforcing secure end-to-end data transfer with
     -- the key provider service.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The resource ID to include in key requests.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The system IDs to include in key requests.
-    systemIds :: [Core.Text],
+    systemIds :: [Prelude.Text],
     -- | The URL of the external key provider service.
-    url :: Core.Text,
+    url :: Prelude.Text,
     -- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
     -- MediaPackage will assume when accessing the key provider service.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpekeKeyProvider' with all optional fields omitted.
@@ -65,17 +66,17 @@ data SpekeKeyProvider = SpekeKeyProvider'
 -- MediaPackage will assume when accessing the key provider service.
 newSpekeKeyProvider ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'url'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   SpekeKeyProvider
 newSpekeKeyProvider pResourceId_ pUrl_ pRoleArn_ =
   SpekeKeyProvider'
-    { certificateArn = Core.Nothing,
+    { certificateArn = Prelude.Nothing,
       resourceId = pResourceId_,
-      systemIds = Core.mempty,
+      systemIds = Prelude.mempty,
       url = pUrl_,
       roleArn = pRoleArn_
     }
@@ -83,24 +84,24 @@ newSpekeKeyProvider pResourceId_ pUrl_ pRoleArn_ =
 -- | An Amazon Resource Name (ARN) of a Certificate Manager certificate that
 -- MediaPackage will use for enforcing secure end-to-end data transfer with
 -- the key provider service.
-spekeKeyProvider_certificateArn :: Lens.Lens' SpekeKeyProvider (Core.Maybe Core.Text)
+spekeKeyProvider_certificateArn :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe Prelude.Text)
 spekeKeyProvider_certificateArn = Lens.lens (\SpekeKeyProvider' {certificateArn} -> certificateArn) (\s@SpekeKeyProvider' {} a -> s {certificateArn = a} :: SpekeKeyProvider)
 
 -- | The resource ID to include in key requests.
-spekeKeyProvider_resourceId :: Lens.Lens' SpekeKeyProvider Core.Text
+spekeKeyProvider_resourceId :: Lens.Lens' SpekeKeyProvider Prelude.Text
 spekeKeyProvider_resourceId = Lens.lens (\SpekeKeyProvider' {resourceId} -> resourceId) (\s@SpekeKeyProvider' {} a -> s {resourceId = a} :: SpekeKeyProvider)
 
 -- | The system IDs to include in key requests.
-spekeKeyProvider_systemIds :: Lens.Lens' SpekeKeyProvider [Core.Text]
-spekeKeyProvider_systemIds = Lens.lens (\SpekeKeyProvider' {systemIds} -> systemIds) (\s@SpekeKeyProvider' {} a -> s {systemIds = a} :: SpekeKeyProvider) Core.. Lens._Coerce
+spekeKeyProvider_systemIds :: Lens.Lens' SpekeKeyProvider [Prelude.Text]
+spekeKeyProvider_systemIds = Lens.lens (\SpekeKeyProvider' {systemIds} -> systemIds) (\s@SpekeKeyProvider' {} a -> s {systemIds = a} :: SpekeKeyProvider) Prelude.. Lens._Coerce
 
 -- | The URL of the external key provider service.
-spekeKeyProvider_url :: Lens.Lens' SpekeKeyProvider Core.Text
+spekeKeyProvider_url :: Lens.Lens' SpekeKeyProvider Prelude.Text
 spekeKeyProvider_url = Lens.lens (\SpekeKeyProvider' {url} -> url) (\s@SpekeKeyProvider' {} a -> s {url = a} :: SpekeKeyProvider)
 
 -- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
 -- MediaPackage will assume when accessing the key provider service.
-spekeKeyProvider_roleArn :: Lens.Lens' SpekeKeyProvider Core.Text
+spekeKeyProvider_roleArn :: Lens.Lens' SpekeKeyProvider Prelude.Text
 spekeKeyProvider_roleArn = Lens.lens (\SpekeKeyProvider' {roleArn} -> roleArn) (\s@SpekeKeyProvider' {} a -> s {roleArn = a} :: SpekeKeyProvider)
 
 instance Core.FromJSON SpekeKeyProvider where
@@ -109,25 +110,26 @@ instance Core.FromJSON SpekeKeyProvider where
       "SpekeKeyProvider"
       ( \x ->
           SpekeKeyProvider'
-            Core.<$> (x Core..:? "certificateArn")
-            Core.<*> (x Core..: "resourceId")
-            Core.<*> (x Core..:? "systemIds" Core..!= Core.mempty)
-            Core.<*> (x Core..: "url")
-            Core.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Core..:? "certificateArn")
+            Prelude.<*> (x Core..: "resourceId")
+            Prelude.<*> (x Core..:? "systemIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "url")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Core.Hashable SpekeKeyProvider
+instance Prelude.Hashable SpekeKeyProvider
 
-instance Core.NFData SpekeKeyProvider
+instance Prelude.NFData SpekeKeyProvider
 
 instance Core.ToJSON SpekeKeyProvider where
   toJSON SpekeKeyProvider' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("certificateArn" Core..=) Core.<$> certificateArn,
-            Core.Just ("resourceId" Core..= resourceId),
-            Core.Just ("systemIds" Core..= systemIds),
-            Core.Just ("url" Core..= url),
-            Core.Just ("roleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ ("certificateArn" Core..=)
+              Prelude.<$> certificateArn,
+            Prelude.Just ("resourceId" Core..= resourceId),
+            Prelude.Just ("systemIds" Core..= systemIds),
+            Prelude.Just ("url" Core..= url),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

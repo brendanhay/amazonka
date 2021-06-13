@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.NumberValidateRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a phone number to validate and retrieve information about.
 --
@@ -29,12 +30,12 @@ data NumberValidateRequest = NumberValidateRequest'
   { -- | The phone number to retrieve information about. The phone number that
     -- you provide should include a valid numeric country code. Otherwise, the
     -- operation might result in an error.
-    phoneNumber :: Core.Maybe Core.Text,
+    phoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or
     -- region where the phone number was originally registered.
-    isoCountryCode :: Core.Maybe Core.Text
+    isoCountryCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NumberValidateRequest' with all optional fields omitted.
@@ -54,30 +55,32 @@ newNumberValidateRequest ::
   NumberValidateRequest
 newNumberValidateRequest =
   NumberValidateRequest'
-    { phoneNumber = Core.Nothing,
-      isoCountryCode = Core.Nothing
+    { phoneNumber =
+        Prelude.Nothing,
+      isoCountryCode = Prelude.Nothing
     }
 
 -- | The phone number to retrieve information about. The phone number that
 -- you provide should include a valid numeric country code. Otherwise, the
 -- operation might result in an error.
-numberValidateRequest_phoneNumber :: Lens.Lens' NumberValidateRequest (Core.Maybe Core.Text)
+numberValidateRequest_phoneNumber :: Lens.Lens' NumberValidateRequest (Prelude.Maybe Prelude.Text)
 numberValidateRequest_phoneNumber = Lens.lens (\NumberValidateRequest' {phoneNumber} -> phoneNumber) (\s@NumberValidateRequest' {} a -> s {phoneNumber = a} :: NumberValidateRequest)
 
 -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or
 -- region where the phone number was originally registered.
-numberValidateRequest_isoCountryCode :: Lens.Lens' NumberValidateRequest (Core.Maybe Core.Text)
+numberValidateRequest_isoCountryCode :: Lens.Lens' NumberValidateRequest (Prelude.Maybe Prelude.Text)
 numberValidateRequest_isoCountryCode = Lens.lens (\NumberValidateRequest' {isoCountryCode} -> isoCountryCode) (\s@NumberValidateRequest' {} a -> s {isoCountryCode = a} :: NumberValidateRequest)
 
-instance Core.Hashable NumberValidateRequest
+instance Prelude.Hashable NumberValidateRequest
 
-instance Core.NFData NumberValidateRequest
+instance Prelude.NFData NumberValidateRequest
 
 instance Core.ToJSON NumberValidateRequest where
   toJSON NumberValidateRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PhoneNumber" Core..=) Core.<$> phoneNumber,
-            ("IsoCountryCode" Core..=) Core.<$> isoCountryCode
+      ( Prelude.catMaybes
+          [ ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
+            ("IsoCountryCode" Core..=)
+              Prelude.<$> isoCountryCode
           ]
       )

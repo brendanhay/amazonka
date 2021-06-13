@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.ProvisioningHook where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Structure that contains @payloadVersion@ and @targetArn@.
 --
@@ -29,13 +30,13 @@ data ProvisioningHook = ProvisioningHook'
   { -- | The payload that was sent to the target function.
     --
     -- /Note:/ Only Lambda functions are currently supported.
-    payloadVersion :: Core.Maybe Core.Text,
+    payloadVersion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the target function.
     --
     -- /Note:/ Only Lambda functions are currently supported.
-    targetArn :: Core.Text
+    targetArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisioningHook' with all optional fields omitted.
@@ -54,24 +55,24 @@ data ProvisioningHook = ProvisioningHook'
 -- /Note:/ Only Lambda functions are currently supported.
 newProvisioningHook ::
   -- | 'targetArn'
-  Core.Text ->
+  Prelude.Text ->
   ProvisioningHook
 newProvisioningHook pTargetArn_ =
   ProvisioningHook'
-    { payloadVersion = Core.Nothing,
+    { payloadVersion = Prelude.Nothing,
       targetArn = pTargetArn_
     }
 
 -- | The payload that was sent to the target function.
 --
 -- /Note:/ Only Lambda functions are currently supported.
-provisioningHook_payloadVersion :: Lens.Lens' ProvisioningHook (Core.Maybe Core.Text)
+provisioningHook_payloadVersion :: Lens.Lens' ProvisioningHook (Prelude.Maybe Prelude.Text)
 provisioningHook_payloadVersion = Lens.lens (\ProvisioningHook' {payloadVersion} -> payloadVersion) (\s@ProvisioningHook' {} a -> s {payloadVersion = a} :: ProvisioningHook)
 
 -- | The ARN of the target function.
 --
 -- /Note:/ Only Lambda functions are currently supported.
-provisioningHook_targetArn :: Lens.Lens' ProvisioningHook Core.Text
+provisioningHook_targetArn :: Lens.Lens' ProvisioningHook Prelude.Text
 provisioningHook_targetArn = Lens.lens (\ProvisioningHook' {targetArn} -> targetArn) (\s@ProvisioningHook' {} a -> s {targetArn = a} :: ProvisioningHook)
 
 instance Core.FromJSON ProvisioningHook where
@@ -80,19 +81,20 @@ instance Core.FromJSON ProvisioningHook where
       "ProvisioningHook"
       ( \x ->
           ProvisioningHook'
-            Core.<$> (x Core..:? "payloadVersion")
-            Core.<*> (x Core..: "targetArn")
+            Prelude.<$> (x Core..:? "payloadVersion")
+            Prelude.<*> (x Core..: "targetArn")
       )
 
-instance Core.Hashable ProvisioningHook
+instance Prelude.Hashable ProvisioningHook
 
-instance Core.NFData ProvisioningHook
+instance Prelude.NFData ProvisioningHook
 
 instance Core.ToJSON ProvisioningHook where
   toJSON ProvisioningHook' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("payloadVersion" Core..=) Core.<$> payloadVersion,
-            Core.Just ("targetArn" Core..= targetArn)
+      ( Prelude.catMaybes
+          [ ("payloadVersion" Core..=)
+              Prelude.<$> payloadVersion,
+            Prelude.Just ("targetArn" Core..= targetArn)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.DirectoryService.Types.RegionsInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the Regions that are configured for
 -- multi-Region replication.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data RegionsInfo = RegionsInfo'
   { -- | Lists the Regions where the directory has been replicated, excluding the
     -- primary Region.
-    additionalRegions :: Core.Maybe [Core.Text],
+    additionalRegions :: Prelude.Maybe [Prelude.Text],
     -- | The Region where the AWS Managed Microsoft AD directory was originally
     -- created.
-    primaryRegion :: Core.Maybe Core.Text
+    primaryRegion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegionsInfo' with all optional fields omitted.
@@ -53,18 +54,18 @@ newRegionsInfo ::
   RegionsInfo
 newRegionsInfo =
   RegionsInfo'
-    { additionalRegions = Core.Nothing,
-      primaryRegion = Core.Nothing
+    { additionalRegions = Prelude.Nothing,
+      primaryRegion = Prelude.Nothing
     }
 
 -- | Lists the Regions where the directory has been replicated, excluding the
 -- primary Region.
-regionsInfo_additionalRegions :: Lens.Lens' RegionsInfo (Core.Maybe [Core.Text])
-regionsInfo_additionalRegions = Lens.lens (\RegionsInfo' {additionalRegions} -> additionalRegions) (\s@RegionsInfo' {} a -> s {additionalRegions = a} :: RegionsInfo) Core.. Lens.mapping Lens._Coerce
+regionsInfo_additionalRegions :: Lens.Lens' RegionsInfo (Prelude.Maybe [Prelude.Text])
+regionsInfo_additionalRegions = Lens.lens (\RegionsInfo' {additionalRegions} -> additionalRegions) (\s@RegionsInfo' {} a -> s {additionalRegions = a} :: RegionsInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Region where the AWS Managed Microsoft AD directory was originally
 -- created.
-regionsInfo_primaryRegion :: Lens.Lens' RegionsInfo (Core.Maybe Core.Text)
+regionsInfo_primaryRegion :: Lens.Lens' RegionsInfo (Prelude.Maybe Prelude.Text)
 regionsInfo_primaryRegion = Lens.lens (\RegionsInfo' {primaryRegion} -> primaryRegion) (\s@RegionsInfo' {} a -> s {primaryRegion = a} :: RegionsInfo)
 
 instance Core.FromJSON RegionsInfo where
@@ -73,10 +74,12 @@ instance Core.FromJSON RegionsInfo where
       "RegionsInfo"
       ( \x ->
           RegionsInfo'
-            Core.<$> (x Core..:? "AdditionalRegions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "PrimaryRegion")
+            Prelude.<$> ( x Core..:? "AdditionalRegions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "PrimaryRegion")
       )
 
-instance Core.Hashable RegionsInfo
+instance Prelude.Hashable RegionsInfo
 
-instance Core.NFData RegionsInfo
+instance Prelude.NFData RegionsInfo

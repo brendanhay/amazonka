@@ -23,6 +23,7 @@ import Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior
 import Network.AWS.CloudFront.Types.QueryStringNames
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that determines whether any URL query strings in viewer
 -- requests (and if so, which query strings) are included in the cache key
@@ -38,7 +39,7 @@ data CachePolicyQueryStringsConfig = CachePolicyQueryStringsConfig'
     -- @CachePolicyQueryStringsConfig@ type is set to @whitelist@ (the listed
     -- query strings /__are__/ included) or @allExcept@ (the listed query
     -- strings /__are not__/ included, but all other query strings are).
-    queryStrings :: Core.Maybe QueryStringNames,
+    queryStrings :: Prelude.Maybe QueryStringNames,
     -- | Determines whether any URL query strings in viewer requests are included
     -- in the cache key and automatically included in requests that CloudFront
     -- sends to the origin. Valid values are:
@@ -64,7 +65,7 @@ data CachePolicyQueryStringsConfig = CachePolicyQueryStringsConfig'
     --     sends to the origin.
     queryStringBehavior :: CachePolicyQueryStringBehavior
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CachePolicyQueryStringsConfig' with all optional fields omitted.
@@ -113,7 +114,7 @@ newCachePolicyQueryStringsConfig
   pQueryStringBehavior_ =
     CachePolicyQueryStringsConfig'
       { queryStrings =
-          Core.Nothing,
+          Prelude.Nothing,
         queryStringBehavior = pQueryStringBehavior_
       }
 
@@ -124,7 +125,7 @@ newCachePolicyQueryStringsConfig
 -- @CachePolicyQueryStringsConfig@ type is set to @whitelist@ (the listed
 -- query strings /__are__/ included) or @allExcept@ (the listed query
 -- strings /__are not__/ included, but all other query strings are).
-cachePolicyQueryStringsConfig_queryStrings :: Lens.Lens' CachePolicyQueryStringsConfig (Core.Maybe QueryStringNames)
+cachePolicyQueryStringsConfig_queryStrings :: Lens.Lens' CachePolicyQueryStringsConfig (Prelude.Maybe QueryStringNames)
 cachePolicyQueryStringsConfig_queryStrings = Lens.lens (\CachePolicyQueryStringsConfig' {queryStrings} -> queryStrings) (\s@CachePolicyQueryStringsConfig' {} a -> s {queryStrings = a} :: CachePolicyQueryStringsConfig)
 
 -- | Determines whether any URL query strings in viewer requests are included
@@ -156,16 +157,18 @@ cachePolicyQueryStringsConfig_queryStringBehavior = Lens.lens (\CachePolicyQuery
 instance Core.FromXML CachePolicyQueryStringsConfig where
   parseXML x =
     CachePolicyQueryStringsConfig'
-      Core.<$> (x Core..@? "QueryStrings")
-      Core.<*> (x Core..@ "QueryStringBehavior")
+      Prelude.<$> (x Core..@? "QueryStrings")
+      Prelude.<*> (x Core..@ "QueryStringBehavior")
 
-instance Core.Hashable CachePolicyQueryStringsConfig
+instance
+  Prelude.Hashable
+    CachePolicyQueryStringsConfig
 
-instance Core.NFData CachePolicyQueryStringsConfig
+instance Prelude.NFData CachePolicyQueryStringsConfig
 
 instance Core.ToXML CachePolicyQueryStringsConfig where
   toXML CachePolicyQueryStringsConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "QueryStrings" Core.@= queryStrings,
         "QueryStringBehavior" Core.@= queryStringBehavior
       ]

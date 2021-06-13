@@ -74,6 +74,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,21 +85,21 @@ data DescribeFileSystems = DescribeFileSystems'
   { -- | (Optional) Restricts the list to the file system with this creation
     -- token (String). You specify a creation token when you create an Amazon
     -- EFS file system.
-    creationToken :: Core.Maybe Core.Text,
+    creationToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) ID of the file system whose description you want to retrieve
     -- (String).
-    fileSystemId :: Core.Maybe Core.Text,
+    fileSystemId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies the maximum number of file systems to return in the
     -- response (integer). This number is automatically set to 100. The
     -- response is paginated at 100 per page if you have more than 100 file
     -- systems.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | (Optional) Opaque pagination token returned from a previous
     -- @DescribeFileSystems@ operation (String). If present, specifies to
     -- continue the list from where the returning call had left off.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeFileSystems' with all optional fields omitted.
@@ -127,34 +128,35 @@ newDescribeFileSystems ::
   DescribeFileSystems
 newDescribeFileSystems =
   DescribeFileSystems'
-    { creationToken = Core.Nothing,
-      fileSystemId = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { creationToken =
+        Prelude.Nothing,
+      fileSystemId = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | (Optional) Restricts the list to the file system with this creation
 -- token (String). You specify a creation token when you create an Amazon
 -- EFS file system.
-describeFileSystems_creationToken :: Lens.Lens' DescribeFileSystems (Core.Maybe Core.Text)
+describeFileSystems_creationToken :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
 describeFileSystems_creationToken = Lens.lens (\DescribeFileSystems' {creationToken} -> creationToken) (\s@DescribeFileSystems' {} a -> s {creationToken = a} :: DescribeFileSystems)
 
 -- | (Optional) ID of the file system whose description you want to retrieve
 -- (String).
-describeFileSystems_fileSystemId :: Lens.Lens' DescribeFileSystems (Core.Maybe Core.Text)
+describeFileSystems_fileSystemId :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
 describeFileSystems_fileSystemId = Lens.lens (\DescribeFileSystems' {fileSystemId} -> fileSystemId) (\s@DescribeFileSystems' {} a -> s {fileSystemId = a} :: DescribeFileSystems)
 
 -- | (Optional) Specifies the maximum number of file systems to return in the
 -- response (integer). This number is automatically set to 100. The
 -- response is paginated at 100 per page if you have more than 100 file
 -- systems.
-describeFileSystems_maxItems :: Lens.Lens' DescribeFileSystems (Core.Maybe Core.Natural)
+describeFileSystems_maxItems :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Natural)
 describeFileSystems_maxItems = Lens.lens (\DescribeFileSystems' {maxItems} -> maxItems) (\s@DescribeFileSystems' {} a -> s {maxItems = a} :: DescribeFileSystems)
 
 -- | (Optional) Opaque pagination token returned from a previous
 -- @DescribeFileSystems@ operation (String). If present, specifies to
 -- continue the list from where the returning call had left off.
-describeFileSystems_marker :: Lens.Lens' DescribeFileSystems (Core.Maybe Core.Text)
+describeFileSystems_marker :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
 describeFileSystems_marker = Lens.lens (\DescribeFileSystems' {marker} -> marker) (\s@DescribeFileSystems' {} a -> s {marker = a} :: DescribeFileSystems)
 
 instance Core.AWSPager DescribeFileSystems where
@@ -162,22 +164,22 @@ instance Core.AWSPager DescribeFileSystems where
     | Core.stop
         ( rs
             Lens.^? describeFileSystemsResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFileSystemsResponse_fileSystems
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeFileSystems_marker
+          Prelude.& describeFileSystems_marker
           Lens..~ rs
           Lens.^? describeFileSystemsResponse_nextMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFileSystems where
   type
@@ -188,25 +190,25 @@ instance Core.AWSRequest DescribeFileSystems where
     Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemsResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "FileSystems" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "FileSystems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeFileSystems
+instance Prelude.Hashable DescribeFileSystems
 
-instance Core.NFData DescribeFileSystems
+instance Prelude.NFData DescribeFileSystems
 
 instance Core.ToHeaders DescribeFileSystems where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeFileSystems where
-  toPath = Core.const "/2015-02-01/file-systems"
+  toPath = Prelude.const "/2015-02-01/file-systems"
 
 instance Core.ToQuery DescribeFileSystems where
   toQuery DescribeFileSystems' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "CreationToken" Core.=: creationToken,
         "FileSystemId" Core.=: fileSystemId,
         "MaxItems" Core.=: maxItems,
@@ -218,15 +220,15 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
   { -- | Present if there are more file systems than returned in the response
     -- (String). You can use the @NextMarker@ in the subsequent request to
     -- fetch the descriptions.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | An array of file system descriptions.
-    fileSystems :: Core.Maybe [FileSystemDescription],
+    fileSystems :: Prelude.Maybe [FileSystemDescription],
     -- | Present if provided by caller in the request (String).
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeFileSystemsResponse' with all optional fields omitted.
@@ -247,33 +249,33 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
 -- 'httpStatus', 'describeFileSystemsResponse_httpStatus' - The response's http status code.
 newDescribeFileSystemsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeFileSystemsResponse
 newDescribeFileSystemsResponse pHttpStatus_ =
   DescribeFileSystemsResponse'
     { nextMarker =
-        Core.Nothing,
-      fileSystems = Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      fileSystems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Present if there are more file systems than returned in the response
 -- (String). You can use the @NextMarker@ in the subsequent request to
 -- fetch the descriptions.
-describeFileSystemsResponse_nextMarker :: Lens.Lens' DescribeFileSystemsResponse (Core.Maybe Core.Text)
+describeFileSystemsResponse_nextMarker :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe Prelude.Text)
 describeFileSystemsResponse_nextMarker = Lens.lens (\DescribeFileSystemsResponse' {nextMarker} -> nextMarker) (\s@DescribeFileSystemsResponse' {} a -> s {nextMarker = a} :: DescribeFileSystemsResponse)
 
 -- | An array of file system descriptions.
-describeFileSystemsResponse_fileSystems :: Lens.Lens' DescribeFileSystemsResponse (Core.Maybe [FileSystemDescription])
-describeFileSystemsResponse_fileSystems = Lens.lens (\DescribeFileSystemsResponse' {fileSystems} -> fileSystems) (\s@DescribeFileSystemsResponse' {} a -> s {fileSystems = a} :: DescribeFileSystemsResponse) Core.. Lens.mapping Lens._Coerce
+describeFileSystemsResponse_fileSystems :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe [FileSystemDescription])
+describeFileSystemsResponse_fileSystems = Lens.lens (\DescribeFileSystemsResponse' {fileSystems} -> fileSystems) (\s@DescribeFileSystemsResponse' {} a -> s {fileSystems = a} :: DescribeFileSystemsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Present if provided by caller in the request (String).
-describeFileSystemsResponse_marker :: Lens.Lens' DescribeFileSystemsResponse (Core.Maybe Core.Text)
+describeFileSystemsResponse_marker :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe Prelude.Text)
 describeFileSystemsResponse_marker = Lens.lens (\DescribeFileSystemsResponse' {marker} -> marker) (\s@DescribeFileSystemsResponse' {} a -> s {marker = a} :: DescribeFileSystemsResponse)
 
 -- | The response's http status code.
-describeFileSystemsResponse_httpStatus :: Lens.Lens' DescribeFileSystemsResponse Core.Int
+describeFileSystemsResponse_httpStatus :: Lens.Lens' DescribeFileSystemsResponse Prelude.Int
 describeFileSystemsResponse_httpStatus = Lens.lens (\DescribeFileSystemsResponse' {httpStatus} -> httpStatus) (\s@DescribeFileSystemsResponse' {} a -> s {httpStatus = a} :: DescribeFileSystemsResponse)
 
-instance Core.NFData DescribeFileSystemsResponse
+instance Prelude.NFData DescribeFileSystemsResponse

@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ExportEnvironment
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance to export.
 --
 -- /See:/ 'newInstanceExportDetails' smart constructor.
 data InstanceExportDetails = InstanceExportDetails'
   { -- | The ID of the resource being exported.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The target virtualization environment.
-    targetEnvironment :: Core.Maybe ExportEnvironment
+    targetEnvironment :: Prelude.Maybe ExportEnvironment
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceExportDetails' with all optional fields omitted.
@@ -50,24 +51,25 @@ newInstanceExportDetails ::
   InstanceExportDetails
 newInstanceExportDetails =
   InstanceExportDetails'
-    { instanceId = Core.Nothing,
-      targetEnvironment = Core.Nothing
+    { instanceId =
+        Prelude.Nothing,
+      targetEnvironment = Prelude.Nothing
     }
 
 -- | The ID of the resource being exported.
-instanceExportDetails_instanceId :: Lens.Lens' InstanceExportDetails (Core.Maybe Core.Text)
+instanceExportDetails_instanceId :: Lens.Lens' InstanceExportDetails (Prelude.Maybe Prelude.Text)
 instanceExportDetails_instanceId = Lens.lens (\InstanceExportDetails' {instanceId} -> instanceId) (\s@InstanceExportDetails' {} a -> s {instanceId = a} :: InstanceExportDetails)
 
 -- | The target virtualization environment.
-instanceExportDetails_targetEnvironment :: Lens.Lens' InstanceExportDetails (Core.Maybe ExportEnvironment)
+instanceExportDetails_targetEnvironment :: Lens.Lens' InstanceExportDetails (Prelude.Maybe ExportEnvironment)
 instanceExportDetails_targetEnvironment = Lens.lens (\InstanceExportDetails' {targetEnvironment} -> targetEnvironment) (\s@InstanceExportDetails' {} a -> s {targetEnvironment = a} :: InstanceExportDetails)
 
 instance Core.FromXML InstanceExportDetails where
   parseXML x =
     InstanceExportDetails'
-      Core.<$> (x Core..@? "instanceId")
-      Core.<*> (x Core..@? "targetEnvironment")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "targetEnvironment")
 
-instance Core.Hashable InstanceExportDetails
+instance Prelude.Hashable InstanceExportDetails
 
-instance Core.NFData InstanceExportDetails
+instance Prelude.NFData InstanceExportDetails

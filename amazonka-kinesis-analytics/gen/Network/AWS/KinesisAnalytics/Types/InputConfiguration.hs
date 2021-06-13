@@ -22,6 +22,7 @@ module Network.AWS.KinesisAnalytics.Types.InputConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When you start your application, you provide this configuration, which
 -- identifies the input source and the point in the input source at which
@@ -32,12 +33,12 @@ data InputConfiguration = InputConfiguration'
   { -- | Input source ID. You can get this ID by calling the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | Point at which you want the application to start processing records from
     -- the streaming source.
     inputStartingPositionConfiguration :: InputStartingPositionConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputConfiguration' with all optional fields omitted.
@@ -55,7 +56,7 @@ data InputConfiguration = InputConfiguration'
 -- the streaming source.
 newInputConfiguration ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputStartingPositionConfiguration'
   InputStartingPositionConfiguration ->
   InputConfiguration
@@ -71,7 +72,7 @@ newInputConfiguration
 -- | Input source ID. You can get this ID by calling the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
 -- operation.
-inputConfiguration_id :: Lens.Lens' InputConfiguration Core.Text
+inputConfiguration_id :: Lens.Lens' InputConfiguration Prelude.Text
 inputConfiguration_id = Lens.lens (\InputConfiguration' {id} -> id) (\s@InputConfiguration' {} a -> s {id = a} :: InputConfiguration)
 
 -- | Point at which you want the application to start processing records from
@@ -79,16 +80,16 @@ inputConfiguration_id = Lens.lens (\InputConfiguration' {id} -> id) (\s@InputCon
 inputConfiguration_inputStartingPositionConfiguration :: Lens.Lens' InputConfiguration InputStartingPositionConfiguration
 inputConfiguration_inputStartingPositionConfiguration = Lens.lens (\InputConfiguration' {inputStartingPositionConfiguration} -> inputStartingPositionConfiguration) (\s@InputConfiguration' {} a -> s {inputStartingPositionConfiguration = a} :: InputConfiguration)
 
-instance Core.Hashable InputConfiguration
+instance Prelude.Hashable InputConfiguration
 
-instance Core.NFData InputConfiguration
+instance Prelude.NFData InputConfiguration
 
 instance Core.ToJSON InputConfiguration where
   toJSON InputConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Id" Core..= id),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Id" Core..= id),
+            Prelude.Just
               ( "InputStartingPositionConfiguration"
                   Core..= inputStartingPositionConfiguration
               )

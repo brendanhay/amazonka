@@ -21,15 +21,16 @@ module Network.AWS.WorkSpaces.Types.RootStorage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the root volume for a WorkSpace bundle.
 --
 -- /See:/ 'newRootStorage' smart constructor.
 data RootStorage = RootStorage'
   { -- | The size of the root volume.
-    capacity :: Core.Maybe Core.Text
+    capacity :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RootStorage' with all optional fields omitted.
@@ -43,10 +44,10 @@ data RootStorage = RootStorage'
 newRootStorage ::
   RootStorage
 newRootStorage =
-  RootStorage' {capacity = Core.Nothing}
+  RootStorage' {capacity = Prelude.Nothing}
 
 -- | The size of the root volume.
-rootStorage_capacity :: Lens.Lens' RootStorage (Core.Maybe Core.Text)
+rootStorage_capacity :: Lens.Lens' RootStorage (Prelude.Maybe Prelude.Text)
 rootStorage_capacity = Lens.lens (\RootStorage' {capacity} -> capacity) (\s@RootStorage' {} a -> s {capacity = a} :: RootStorage)
 
 instance Core.FromJSON RootStorage where
@@ -54,9 +55,9 @@ instance Core.FromJSON RootStorage where
     Core.withObject
       "RootStorage"
       ( \x ->
-          RootStorage' Core.<$> (x Core..:? "Capacity")
+          RootStorage' Prelude.<$> (x Core..:? "Capacity")
       )
 
-instance Core.Hashable RootStorage
+instance Prelude.Hashable RootStorage
 
-instance Core.NFData RootStorage
+instance Prelude.NFData RootStorage

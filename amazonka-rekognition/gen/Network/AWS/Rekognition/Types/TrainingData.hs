@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.TrainingData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Asset
 
 -- | The dataset used for training.
@@ -29,9 +30,9 @@ import Network.AWS.Rekognition.Types.Asset
 data TrainingData = TrainingData'
   { -- | A Sagemaker GroundTruth manifest file that contains the training images
     -- (assets).
-    assets :: Core.Maybe [Asset]
+    assets :: Prelude.Maybe [Asset]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrainingData' with all optional fields omitted.
@@ -46,12 +47,12 @@ data TrainingData = TrainingData'
 newTrainingData ::
   TrainingData
 newTrainingData =
-  TrainingData' {assets = Core.Nothing}
+  TrainingData' {assets = Prelude.Nothing}
 
 -- | A Sagemaker GroundTruth manifest file that contains the training images
 -- (assets).
-trainingData_assets :: Lens.Lens' TrainingData (Core.Maybe [Asset])
-trainingData_assets = Lens.lens (\TrainingData' {assets} -> assets) (\s@TrainingData' {} a -> s {assets = a} :: TrainingData) Core.. Lens.mapping Lens._Coerce
+trainingData_assets :: Lens.Lens' TrainingData (Prelude.Maybe [Asset])
+trainingData_assets = Lens.lens (\TrainingData' {assets} -> assets) (\s@TrainingData' {} a -> s {assets = a} :: TrainingData) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON TrainingData where
   parseJSON =
@@ -59,14 +60,16 @@ instance Core.FromJSON TrainingData where
       "TrainingData"
       ( \x ->
           TrainingData'
-            Core.<$> (x Core..:? "Assets" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Assets" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable TrainingData
+instance Prelude.Hashable TrainingData
 
-instance Core.NFData TrainingData
+instance Prelude.NFData TrainingData
 
 instance Core.ToJSON TrainingData where
   toJSON TrainingData' {..} =
     Core.object
-      (Core.catMaybes [("Assets" Core..=) Core.<$> assets])
+      ( Prelude.catMaybes
+          [("Assets" Core..=) Prelude.<$> assets]
+      )

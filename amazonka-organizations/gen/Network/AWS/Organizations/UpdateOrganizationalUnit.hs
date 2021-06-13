@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,7 +59,7 @@ data UpdateOrganizationalUnit = UpdateOrganizationalUnit'
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the OU that you want to rename. You can
     -- get the ID from the ListOrganizationalUnitsForParent operation.
     --
@@ -67,9 +68,9 @@ data UpdateOrganizationalUnit = UpdateOrganizationalUnit'
     -- lowercase letters or digits (the ID of the root that contains the OU).
     -- This string is followed by a second \"-\" dash and from 8 to 32
     -- additional lowercase letters or digits.
-    organizationalUnitId :: Core.Text
+    organizationalUnitId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOrganizationalUnit' with all optional fields omitted.
@@ -95,11 +96,11 @@ data UpdateOrganizationalUnit = UpdateOrganizationalUnit'
 -- additional lowercase letters or digits.
 newUpdateOrganizationalUnit ::
   -- | 'organizationalUnitId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateOrganizationalUnit
 newUpdateOrganizationalUnit pOrganizationalUnitId_ =
   UpdateOrganizationalUnit'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       organizationalUnitId = pOrganizationalUnitId_
     }
 
@@ -108,7 +109,7 @@ newUpdateOrganizationalUnit pOrganizationalUnitId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
-updateOrganizationalUnit_name :: Lens.Lens' UpdateOrganizationalUnit (Core.Maybe Core.Text)
+updateOrganizationalUnit_name :: Lens.Lens' UpdateOrganizationalUnit (Prelude.Maybe Prelude.Text)
 updateOrganizationalUnit_name = Lens.lens (\UpdateOrganizationalUnit' {name} -> name) (\s@UpdateOrganizationalUnit' {} a -> s {name = a} :: UpdateOrganizationalUnit)
 
 -- | The unique identifier (ID) of the OU that you want to rename. You can
@@ -119,7 +120,7 @@ updateOrganizationalUnit_name = Lens.lens (\UpdateOrganizationalUnit' {name} -> 
 -- lowercase letters or digits (the ID of the root that contains the OU).
 -- This string is followed by a second \"-\" dash and from 8 to 32
 -- additional lowercase letters or digits.
-updateOrganizationalUnit_organizationalUnitId :: Lens.Lens' UpdateOrganizationalUnit Core.Text
+updateOrganizationalUnit_organizationalUnitId :: Lens.Lens' UpdateOrganizationalUnit Prelude.Text
 updateOrganizationalUnit_organizationalUnitId = Lens.lens (\UpdateOrganizationalUnit' {organizationalUnitId} -> organizationalUnitId) (\s@UpdateOrganizationalUnit' {} a -> s {organizationalUnitId = a} :: UpdateOrganizationalUnit)
 
 instance Core.AWSRequest UpdateOrganizationalUnit where
@@ -131,33 +132,35 @@ instance Core.AWSRequest UpdateOrganizationalUnit where
     Response.receiveJSON
       ( \s h x ->
           UpdateOrganizationalUnitResponse'
-            Core.<$> (x Core..?> "OrganizationalUnit")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OrganizationalUnit")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateOrganizationalUnit
+instance Prelude.Hashable UpdateOrganizationalUnit
 
-instance Core.NFData UpdateOrganizationalUnit
+instance Prelude.NFData UpdateOrganizationalUnit
 
 instance Core.ToHeaders UpdateOrganizationalUnit where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.UpdateOrganizationalUnit" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateOrganizationalUnit where
   toJSON UpdateOrganizationalUnit' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            Prelude.Just
               ( "OrganizationalUnitId"
                   Core..= organizationalUnitId
               )
@@ -165,20 +168,20 @@ instance Core.ToJSON UpdateOrganizationalUnit where
       )
 
 instance Core.ToPath UpdateOrganizationalUnit where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateOrganizationalUnit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateOrganizationalUnitResponse' smart constructor.
 data UpdateOrganizationalUnitResponse = UpdateOrganizationalUnitResponse'
   { -- | A structure that contains the details about the specified OU, including
     -- its new name.
-    organizationalUnit :: Core.Maybe OrganizationalUnit,
+    organizationalUnit :: Prelude.Maybe OrganizationalUnit,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOrganizationalUnitResponse' with all optional fields omitted.
@@ -194,22 +197,24 @@ data UpdateOrganizationalUnitResponse = UpdateOrganizationalUnitResponse'
 -- 'httpStatus', 'updateOrganizationalUnitResponse_httpStatus' - The response's http status code.
 newUpdateOrganizationalUnitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateOrganizationalUnitResponse
 newUpdateOrganizationalUnitResponse pHttpStatus_ =
   UpdateOrganizationalUnitResponse'
     { organizationalUnit =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains the details about the specified OU, including
 -- its new name.
-updateOrganizationalUnitResponse_organizationalUnit :: Lens.Lens' UpdateOrganizationalUnitResponse (Core.Maybe OrganizationalUnit)
+updateOrganizationalUnitResponse_organizationalUnit :: Lens.Lens' UpdateOrganizationalUnitResponse (Prelude.Maybe OrganizationalUnit)
 updateOrganizationalUnitResponse_organizationalUnit = Lens.lens (\UpdateOrganizationalUnitResponse' {organizationalUnit} -> organizationalUnit) (\s@UpdateOrganizationalUnitResponse' {} a -> s {organizationalUnit = a} :: UpdateOrganizationalUnitResponse)
 
 -- | The response's http status code.
-updateOrganizationalUnitResponse_httpStatus :: Lens.Lens' UpdateOrganizationalUnitResponse Core.Int
+updateOrganizationalUnitResponse_httpStatus :: Lens.Lens' UpdateOrganizationalUnitResponse Prelude.Int
 updateOrganizationalUnitResponse_httpStatus = Lens.lens (\UpdateOrganizationalUnitResponse' {httpStatus} -> httpStatus) (\s@UpdateOrganizationalUnitResponse' {} a -> s {httpStatus = a} :: UpdateOrganizationalUnitResponse)
 
-instance Core.NFData UpdateOrganizationalUnitResponse
+instance
+  Prelude.NFData
+    UpdateOrganizationalUnitResponse

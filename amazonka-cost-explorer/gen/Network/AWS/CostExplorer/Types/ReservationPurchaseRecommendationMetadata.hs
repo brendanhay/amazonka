@@ -21,6 +21,7 @@ module Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationMetadata 
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about this specific recommendation, such as the timestamp
 -- for when AWS made a specific recommendation.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newReservationPurchaseRecommendationMetadata' smart constructor.
 data ReservationPurchaseRecommendationMetadata = ReservationPurchaseRecommendationMetadata'
   { -- | The ID for this specific recommendation.
-    recommendationId :: Core.Maybe Core.Text,
+    recommendationId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp for when AWS made this recommendation.
-    generationTimestamp :: Core.Maybe Core.Text
+    generationTimestamp :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservationPurchaseRecommendationMetadata' with all optional fields omitted.
@@ -50,17 +51,17 @@ newReservationPurchaseRecommendationMetadata ::
 newReservationPurchaseRecommendationMetadata =
   ReservationPurchaseRecommendationMetadata'
     { recommendationId =
-        Core.Nothing,
+        Prelude.Nothing,
       generationTimestamp =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID for this specific recommendation.
-reservationPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Core.Maybe Core.Text)
+reservationPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationMetadata_recommendationId = Lens.lens (\ReservationPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@ReservationPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: ReservationPurchaseRecommendationMetadata)
 
 -- | The timestamp for when AWS made this recommendation.
-reservationPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Core.Maybe Core.Text)
+reservationPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\ReservationPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@ReservationPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: ReservationPurchaseRecommendationMetadata)
 
 instance
@@ -72,14 +73,14 @@ instance
       "ReservationPurchaseRecommendationMetadata"
       ( \x ->
           ReservationPurchaseRecommendationMetadata'
-            Core.<$> (x Core..:? "RecommendationId")
-            Core.<*> (x Core..:? "GenerationTimestamp")
+            Prelude.<$> (x Core..:? "RecommendationId")
+              Prelude.<*> (x Core..:? "GenerationTimestamp")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReservationPurchaseRecommendationMetadata
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReservationPurchaseRecommendationMetadata

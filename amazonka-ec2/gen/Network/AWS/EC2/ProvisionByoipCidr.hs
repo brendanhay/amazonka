@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,27 +75,27 @@ data ProvisionByoipCidr = ProvisionByoipCidr'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | A signed document that proves that you are authorized to bring the
     -- specified IP address range to Amazon using BYOIP.
-    cidrAuthorizationContext :: Core.Maybe CidrAuthorizationContext,
+    cidrAuthorizationContext :: Prelude.Maybe CidrAuthorizationContext,
     -- | (IPv6 only) Indicate whether the address range will be publicly
     -- advertised to the internet.
     --
     -- Default: true
-    publiclyAdvertisable :: Core.Maybe Core.Bool,
+    publiclyAdvertisable :: Prelude.Maybe Prelude.Bool,
     -- | A description for the address range and the address pool.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The tags to apply to the address pool.
-    poolTagSpecifications :: Core.Maybe [TagSpecification],
+    poolTagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The public IPv4 or IPv6 address range, in CIDR notation. The most
     -- specific IPv4 prefix that you can specify is \/24. The most specific
     -- IPv6 prefix you can specify is \/56. The address range cannot overlap
     -- with another address range that you\'ve brought to this or another
     -- Region.
-    cidr :: Core.Text
+    cidr :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisionByoipCidr' with all optional fields omitted.
@@ -128,15 +129,15 @@ data ProvisionByoipCidr = ProvisionByoipCidr'
 -- Region.
 newProvisionByoipCidr ::
   -- | 'cidr'
-  Core.Text ->
+  Prelude.Text ->
   ProvisionByoipCidr
 newProvisionByoipCidr pCidr_ =
   ProvisionByoipCidr'
-    { dryRun = Core.Nothing,
-      cidrAuthorizationContext = Core.Nothing,
-      publiclyAdvertisable = Core.Nothing,
-      description = Core.Nothing,
-      poolTagSpecifications = Core.Nothing,
+    { dryRun = Prelude.Nothing,
+      cidrAuthorizationContext = Prelude.Nothing,
+      publiclyAdvertisable = Prelude.Nothing,
+      description = Prelude.Nothing,
+      poolTagSpecifications = Prelude.Nothing,
       cidr = pCidr_
     }
 
@@ -144,35 +145,35 @@ newProvisionByoipCidr pCidr_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-provisionByoipCidr_dryRun :: Lens.Lens' ProvisionByoipCidr (Core.Maybe Core.Bool)
+provisionByoipCidr_dryRun :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Bool)
 provisionByoipCidr_dryRun = Lens.lens (\ProvisionByoipCidr' {dryRun} -> dryRun) (\s@ProvisionByoipCidr' {} a -> s {dryRun = a} :: ProvisionByoipCidr)
 
 -- | A signed document that proves that you are authorized to bring the
 -- specified IP address range to Amazon using BYOIP.
-provisionByoipCidr_cidrAuthorizationContext :: Lens.Lens' ProvisionByoipCidr (Core.Maybe CidrAuthorizationContext)
+provisionByoipCidr_cidrAuthorizationContext :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe CidrAuthorizationContext)
 provisionByoipCidr_cidrAuthorizationContext = Lens.lens (\ProvisionByoipCidr' {cidrAuthorizationContext} -> cidrAuthorizationContext) (\s@ProvisionByoipCidr' {} a -> s {cidrAuthorizationContext = a} :: ProvisionByoipCidr)
 
 -- | (IPv6 only) Indicate whether the address range will be publicly
 -- advertised to the internet.
 --
 -- Default: true
-provisionByoipCidr_publiclyAdvertisable :: Lens.Lens' ProvisionByoipCidr (Core.Maybe Core.Bool)
+provisionByoipCidr_publiclyAdvertisable :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Bool)
 provisionByoipCidr_publiclyAdvertisable = Lens.lens (\ProvisionByoipCidr' {publiclyAdvertisable} -> publiclyAdvertisable) (\s@ProvisionByoipCidr' {} a -> s {publiclyAdvertisable = a} :: ProvisionByoipCidr)
 
 -- | A description for the address range and the address pool.
-provisionByoipCidr_description :: Lens.Lens' ProvisionByoipCidr (Core.Maybe Core.Text)
+provisionByoipCidr_description :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Text)
 provisionByoipCidr_description = Lens.lens (\ProvisionByoipCidr' {description} -> description) (\s@ProvisionByoipCidr' {} a -> s {description = a} :: ProvisionByoipCidr)
 
 -- | The tags to apply to the address pool.
-provisionByoipCidr_poolTagSpecifications :: Lens.Lens' ProvisionByoipCidr (Core.Maybe [TagSpecification])
-provisionByoipCidr_poolTagSpecifications = Lens.lens (\ProvisionByoipCidr' {poolTagSpecifications} -> poolTagSpecifications) (\s@ProvisionByoipCidr' {} a -> s {poolTagSpecifications = a} :: ProvisionByoipCidr) Core.. Lens.mapping Lens._Coerce
+provisionByoipCidr_poolTagSpecifications :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe [TagSpecification])
+provisionByoipCidr_poolTagSpecifications = Lens.lens (\ProvisionByoipCidr' {poolTagSpecifications} -> poolTagSpecifications) (\s@ProvisionByoipCidr' {} a -> s {poolTagSpecifications = a} :: ProvisionByoipCidr) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The public IPv4 or IPv6 address range, in CIDR notation. The most
 -- specific IPv4 prefix that you can specify is \/24. The most specific
 -- IPv6 prefix you can specify is \/56. The address range cannot overlap
 -- with another address range that you\'ve brought to this or another
 -- Region.
-provisionByoipCidr_cidr :: Lens.Lens' ProvisionByoipCidr Core.Text
+provisionByoipCidr_cidr :: Lens.Lens' ProvisionByoipCidr Prelude.Text
 provisionByoipCidr_cidr = Lens.lens (\ProvisionByoipCidr' {cidr} -> cidr) (\s@ProvisionByoipCidr' {} a -> s {cidr = a} :: ProvisionByoipCidr)
 
 instance Core.AWSRequest ProvisionByoipCidr where
@@ -184,26 +185,27 @@ instance Core.AWSRequest ProvisionByoipCidr where
     Response.receiveXML
       ( \s h x ->
           ProvisionByoipCidrResponse'
-            Core.<$> (x Core..@? "byoipCidr")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "byoipCidr")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ProvisionByoipCidr
+instance Prelude.Hashable ProvisionByoipCidr
 
-instance Core.NFData ProvisionByoipCidr
+instance Prelude.NFData ProvisionByoipCidr
 
 instance Core.ToHeaders ProvisionByoipCidr where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ProvisionByoipCidr where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ProvisionByoipCidr where
   toQuery ProvisionByoipCidr' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ProvisionByoipCidr" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ProvisionByoipCidr" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "CidrAuthorizationContext"
           Core.=: cidrAuthorizationContext,
@@ -211,7 +213,7 @@ instance Core.ToQuery ProvisionByoipCidr where
         "Description" Core.=: description,
         Core.toQuery
           ( Core.toQueryList "PoolTagSpecification"
-              Core.<$> poolTagSpecifications
+              Prelude.<$> poolTagSpecifications
           ),
         "Cidr" Core.=: cidr
       ]
@@ -219,11 +221,11 @@ instance Core.ToQuery ProvisionByoipCidr where
 -- | /See:/ 'newProvisionByoipCidrResponse' smart constructor.
 data ProvisionByoipCidrResponse = ProvisionByoipCidrResponse'
   { -- | Information about the address range.
-    byoipCidr :: Core.Maybe ByoipCidr,
+    byoipCidr :: Prelude.Maybe ByoipCidr,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisionByoipCidrResponse' with all optional fields omitted.
@@ -238,21 +240,21 @@ data ProvisionByoipCidrResponse = ProvisionByoipCidrResponse'
 -- 'httpStatus', 'provisionByoipCidrResponse_httpStatus' - The response's http status code.
 newProvisionByoipCidrResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ProvisionByoipCidrResponse
 newProvisionByoipCidrResponse pHttpStatus_ =
   ProvisionByoipCidrResponse'
     { byoipCidr =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the address range.
-provisionByoipCidrResponse_byoipCidr :: Lens.Lens' ProvisionByoipCidrResponse (Core.Maybe ByoipCidr)
+provisionByoipCidrResponse_byoipCidr :: Lens.Lens' ProvisionByoipCidrResponse (Prelude.Maybe ByoipCidr)
 provisionByoipCidrResponse_byoipCidr = Lens.lens (\ProvisionByoipCidrResponse' {byoipCidr} -> byoipCidr) (\s@ProvisionByoipCidrResponse' {} a -> s {byoipCidr = a} :: ProvisionByoipCidrResponse)
 
 -- | The response's http status code.
-provisionByoipCidrResponse_httpStatus :: Lens.Lens' ProvisionByoipCidrResponse Core.Int
+provisionByoipCidrResponse_httpStatus :: Lens.Lens' ProvisionByoipCidrResponse Prelude.Int
 provisionByoipCidrResponse_httpStatus = Lens.lens (\ProvisionByoipCidrResponse' {httpStatus} -> httpStatus) (\s@ProvisionByoipCidrResponse' {} a -> s {httpStatus = a} :: ProvisionByoipCidrResponse)
 
-instance Core.NFData ProvisionByoipCidrResponse
+instance Prelude.NFData ProvisionByoipCidrResponse

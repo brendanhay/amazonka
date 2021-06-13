@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
 import Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the range of timestamps for the requested media, and the source
 -- of the timestamps.
@@ -58,13 +59,13 @@ data HLSFragmentSelector = HLSFragmentSelector'
     -- in the HLS media playlist.
     --
     -- The default is @SERVER_TIMESTAMP@.
-    fragmentSelectorType :: Core.Maybe HLSFragmentSelectorType,
+    fragmentSelectorType :: Prelude.Maybe HLSFragmentSelectorType,
     -- | The start and end of the timestamp range for the requested media.
     --
     -- This value should not be present if @PlaybackType@ is @LIVE@.
-    timestampRange :: Core.Maybe HLSTimestampRange
+    timestampRange :: Prelude.Maybe HLSTimestampRange
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HLSFragmentSelector' with all optional fields omitted.
@@ -112,8 +113,8 @@ newHLSFragmentSelector ::
 newHLSFragmentSelector =
   HLSFragmentSelector'
     { fragmentSelectorType =
-        Core.Nothing,
-      timestampRange = Core.Nothing
+        Prelude.Nothing,
+      timestampRange = Prelude.Nothing
     }
 
 -- | The source of the timestamps for the requested media.
@@ -145,25 +146,26 @@ newHLSFragmentSelector =
 -- in the HLS media playlist.
 --
 -- The default is @SERVER_TIMESTAMP@.
-hLSFragmentSelector_fragmentSelectorType :: Lens.Lens' HLSFragmentSelector (Core.Maybe HLSFragmentSelectorType)
+hLSFragmentSelector_fragmentSelectorType :: Lens.Lens' HLSFragmentSelector (Prelude.Maybe HLSFragmentSelectorType)
 hLSFragmentSelector_fragmentSelectorType = Lens.lens (\HLSFragmentSelector' {fragmentSelectorType} -> fragmentSelectorType) (\s@HLSFragmentSelector' {} a -> s {fragmentSelectorType = a} :: HLSFragmentSelector)
 
 -- | The start and end of the timestamp range for the requested media.
 --
 -- This value should not be present if @PlaybackType@ is @LIVE@.
-hLSFragmentSelector_timestampRange :: Lens.Lens' HLSFragmentSelector (Core.Maybe HLSTimestampRange)
+hLSFragmentSelector_timestampRange :: Lens.Lens' HLSFragmentSelector (Prelude.Maybe HLSTimestampRange)
 hLSFragmentSelector_timestampRange = Lens.lens (\HLSFragmentSelector' {timestampRange} -> timestampRange) (\s@HLSFragmentSelector' {} a -> s {timestampRange = a} :: HLSFragmentSelector)
 
-instance Core.Hashable HLSFragmentSelector
+instance Prelude.Hashable HLSFragmentSelector
 
-instance Core.NFData HLSFragmentSelector
+instance Prelude.NFData HLSFragmentSelector
 
 instance Core.ToJSON HLSFragmentSelector where
   toJSON HLSFragmentSelector' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("FragmentSelectorType" Core..=)
-              Core.<$> fragmentSelectorType,
-            ("TimestampRange" Core..=) Core.<$> timestampRange
+              Prelude.<$> fragmentSelectorType,
+            ("TimestampRange" Core..=)
+              Prelude.<$> timestampRange
           ]
       )

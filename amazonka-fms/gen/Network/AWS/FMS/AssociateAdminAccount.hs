@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data AssociateAdminAccount = AssociateAdminAccount'
     -- master account or a member account. For more information about AWS
     -- Organizations and master accounts, see
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
-    adminAccount :: Core.Text
+    adminAccount :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateAdminAccount' with all optional fields omitted.
@@ -75,7 +76,7 @@ data AssociateAdminAccount = AssociateAdminAccount'
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
 newAssociateAdminAccount ::
   -- | 'adminAccount'
-  Core.Text ->
+  Prelude.Text ->
   AssociateAdminAccount
 newAssociateAdminAccount pAdminAccount_ =
   AssociateAdminAccount'
@@ -88,7 +89,7 @@ newAssociateAdminAccount pAdminAccount_ =
 -- master account or a member account. For more information about AWS
 -- Organizations and master accounts, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
-associateAdminAccount_adminAccount :: Lens.Lens' AssociateAdminAccount Core.Text
+associateAdminAccount_adminAccount :: Lens.Lens' AssociateAdminAccount Prelude.Text
 associateAdminAccount_adminAccount = Lens.lens (\AssociateAdminAccount' {adminAccount} -> adminAccount) (\s@AssociateAdminAccount' {} a -> s {adminAccount = a} :: AssociateAdminAccount)
 
 instance Core.AWSRequest AssociateAdminAccount where
@@ -99,41 +100,43 @@ instance Core.AWSRequest AssociateAdminAccount where
   response =
     Response.receiveNull AssociateAdminAccountResponse'
 
-instance Core.Hashable AssociateAdminAccount
+instance Prelude.Hashable AssociateAdminAccount
 
-instance Core.NFData AssociateAdminAccount
+instance Prelude.NFData AssociateAdminAccount
 
 instance Core.ToHeaders AssociateAdminAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSFMS_20180101.AssociateAdminAccount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateAdminAccount where
   toJSON AssociateAdminAccount' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("AdminAccount" Core..= adminAccount)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("AdminAccount" Core..= adminAccount)]
       )
 
 instance Core.ToPath AssociateAdminAccount where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateAdminAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateAdminAccountResponse' smart constructor.
 data AssociateAdminAccountResponse = AssociateAdminAccountResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateAdminAccountResponse' with all optional fields omitted.
@@ -144,4 +147,4 @@ newAssociateAdminAccountResponse ::
 newAssociateAdminAccountResponse =
   AssociateAdminAccountResponse'
 
-instance Core.NFData AssociateAdminAccountResponse
+instance Prelude.NFData AssociateAdminAccountResponse

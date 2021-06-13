@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.AccessControlTranslation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.OwnerOverride
 
@@ -33,7 +34,7 @@ data AccessControlTranslation = AccessControlTranslation'
     -- in the /Amazon Simple Storage Service API Reference/.
     owner :: OwnerOverride
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessControlTranslation' with all optional fields omitted.
@@ -62,12 +63,12 @@ accessControlTranslation_owner = Lens.lens (\AccessControlTranslation' {owner} -
 instance Core.FromXML AccessControlTranslation where
   parseXML x =
     AccessControlTranslation'
-      Core.<$> (x Core..@ "Owner")
+      Prelude.<$> (x Core..@ "Owner")
 
-instance Core.Hashable AccessControlTranslation
+instance Prelude.Hashable AccessControlTranslation
 
-instance Core.NFData AccessControlTranslation
+instance Prelude.NFData AccessControlTranslation
 
 instance Core.ToXML AccessControlTranslation where
   toXML AccessControlTranslation' {..} =
-    Core.mconcat ["Owner" Core.@= owner]
+    Prelude.mconcat ["Owner" Core.@= owner]

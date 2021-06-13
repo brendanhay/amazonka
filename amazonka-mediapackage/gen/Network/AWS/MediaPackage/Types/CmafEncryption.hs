@@ -22,16 +22,17 @@ module Network.AWS.MediaPackage.Types.CmafEncryption where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.SpekeKeyProvider
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A Common Media Application Format (CMAF) encryption configuration.
 --
 -- /See:/ 'newCmafEncryption' smart constructor.
 data CmafEncryption = CmafEncryption'
   { -- | Time (in seconds) between each encryption key rotation.
-    keyRotationIntervalSeconds :: Core.Maybe Core.Int,
+    keyRotationIntervalSeconds :: Prelude.Maybe Prelude.Int,
     spekeKeyProvider :: SpekeKeyProvider
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CmafEncryption' with all optional fields omitted.
@@ -51,12 +52,12 @@ newCmafEncryption ::
 newCmafEncryption pSpekeKeyProvider_ =
   CmafEncryption'
     { keyRotationIntervalSeconds =
-        Core.Nothing,
+        Prelude.Nothing,
       spekeKeyProvider = pSpekeKeyProvider_
     }
 
 -- | Time (in seconds) between each encryption key rotation.
-cmafEncryption_keyRotationIntervalSeconds :: Lens.Lens' CmafEncryption (Core.Maybe Core.Int)
+cmafEncryption_keyRotationIntervalSeconds :: Lens.Lens' CmafEncryption (Prelude.Maybe Prelude.Int)
 cmafEncryption_keyRotationIntervalSeconds = Lens.lens (\CmafEncryption' {keyRotationIntervalSeconds} -> keyRotationIntervalSeconds) (\s@CmafEncryption' {} a -> s {keyRotationIntervalSeconds = a} :: CmafEncryption)
 
 -- | Undocumented member.
@@ -69,21 +70,21 @@ instance Core.FromJSON CmafEncryption where
       "CmafEncryption"
       ( \x ->
           CmafEncryption'
-            Core.<$> (x Core..:? "keyRotationIntervalSeconds")
-            Core.<*> (x Core..: "spekeKeyProvider")
+            Prelude.<$> (x Core..:? "keyRotationIntervalSeconds")
+            Prelude.<*> (x Core..: "spekeKeyProvider")
       )
 
-instance Core.Hashable CmafEncryption
+instance Prelude.Hashable CmafEncryption
 
-instance Core.NFData CmafEncryption
+instance Prelude.NFData CmafEncryption
 
 instance Core.ToJSON CmafEncryption where
   toJSON CmafEncryption' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("keyRotationIntervalSeconds" Core..=)
-              Core.<$> keyRotationIntervalSeconds,
-            Core.Just
+              Prelude.<$> keyRotationIntervalSeconds,
+            Prelude.Just
               ("spekeKeyProvider" Core..= spekeKeyProvider)
           ]
       )

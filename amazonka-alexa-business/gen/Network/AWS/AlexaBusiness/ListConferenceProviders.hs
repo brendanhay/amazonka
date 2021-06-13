@@ -46,18 +46,19 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListConferenceProviders' smart constructor.
 data ListConferenceProviders = ListConferenceProviders'
   { -- | The tokens used for pagination.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of conference providers to be returned, per paginated
     -- calls.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListConferenceProviders' with all optional fields omitted.
@@ -75,17 +76,18 @@ newListConferenceProviders ::
   ListConferenceProviders
 newListConferenceProviders =
   ListConferenceProviders'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The tokens used for pagination.
-listConferenceProviders_nextToken :: Lens.Lens' ListConferenceProviders (Core.Maybe Core.Text)
+listConferenceProviders_nextToken :: Lens.Lens' ListConferenceProviders (Prelude.Maybe Prelude.Text)
 listConferenceProviders_nextToken = Lens.lens (\ListConferenceProviders' {nextToken} -> nextToken) (\s@ListConferenceProviders' {} a -> s {nextToken = a} :: ListConferenceProviders)
 
 -- | The maximum number of conference providers to be returned, per paginated
 -- calls.
-listConferenceProviders_maxResults :: Lens.Lens' ListConferenceProviders (Core.Maybe Core.Natural)
+listConferenceProviders_maxResults :: Lens.Lens' ListConferenceProviders (Prelude.Maybe Prelude.Natural)
 listConferenceProviders_maxResults = Lens.lens (\ListConferenceProviders' {maxResults} -> maxResults) (\s@ListConferenceProviders' {} a -> s {maxResults = a} :: ListConferenceProviders)
 
 instance Core.AWSPager ListConferenceProviders where
@@ -93,22 +95,22 @@ instance Core.AWSPager ListConferenceProviders where
     | Core.stop
         ( rs
             Lens.^? listConferenceProvidersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listConferenceProvidersResponse_conferenceProviders
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listConferenceProviders_nextToken
+          Prelude.& listConferenceProviders_nextToken
           Lens..~ rs
           Lens.^? listConferenceProvidersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConferenceProviders where
   type
@@ -119,55 +121,57 @@ instance Core.AWSRequest ListConferenceProviders where
     Response.receiveJSON
       ( \s h x ->
           ListConferenceProvidersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "ConferenceProviders"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ConferenceProviders"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListConferenceProviders
+instance Prelude.Hashable ListConferenceProviders
 
-instance Core.NFData ListConferenceProviders
+instance Prelude.NFData ListConferenceProviders
 
 instance Core.ToHeaders ListConferenceProviders where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.ListConferenceProviders" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListConferenceProviders where
   toJSON ListConferenceProviders' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListConferenceProviders where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListConferenceProviders where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConferenceProvidersResponse' smart constructor.
 data ListConferenceProvidersResponse = ListConferenceProvidersResponse'
   { -- | The tokens used for pagination.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The conference providers.
-    conferenceProviders :: Core.Maybe [ConferenceProvider],
+    conferenceProviders :: Prelude.Maybe [ConferenceProvider],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListConferenceProvidersResponse' with all optional fields omitted.
@@ -184,26 +188,28 @@ data ListConferenceProvidersResponse = ListConferenceProvidersResponse'
 -- 'httpStatus', 'listConferenceProvidersResponse_httpStatus' - The response's http status code.
 newListConferenceProvidersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListConferenceProvidersResponse
 newListConferenceProvidersResponse pHttpStatus_ =
   ListConferenceProvidersResponse'
     { nextToken =
-        Core.Nothing,
-      conferenceProviders = Core.Nothing,
+        Prelude.Nothing,
+      conferenceProviders = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The tokens used for pagination.
-listConferenceProvidersResponse_nextToken :: Lens.Lens' ListConferenceProvidersResponse (Core.Maybe Core.Text)
+listConferenceProvidersResponse_nextToken :: Lens.Lens' ListConferenceProvidersResponse (Prelude.Maybe Prelude.Text)
 listConferenceProvidersResponse_nextToken = Lens.lens (\ListConferenceProvidersResponse' {nextToken} -> nextToken) (\s@ListConferenceProvidersResponse' {} a -> s {nextToken = a} :: ListConferenceProvidersResponse)
 
 -- | The conference providers.
-listConferenceProvidersResponse_conferenceProviders :: Lens.Lens' ListConferenceProvidersResponse (Core.Maybe [ConferenceProvider])
-listConferenceProvidersResponse_conferenceProviders = Lens.lens (\ListConferenceProvidersResponse' {conferenceProviders} -> conferenceProviders) (\s@ListConferenceProvidersResponse' {} a -> s {conferenceProviders = a} :: ListConferenceProvidersResponse) Core.. Lens.mapping Lens._Coerce
+listConferenceProvidersResponse_conferenceProviders :: Lens.Lens' ListConferenceProvidersResponse (Prelude.Maybe [ConferenceProvider])
+listConferenceProvidersResponse_conferenceProviders = Lens.lens (\ListConferenceProvidersResponse' {conferenceProviders} -> conferenceProviders) (\s@ListConferenceProvidersResponse' {} a -> s {conferenceProviders = a} :: ListConferenceProvidersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listConferenceProvidersResponse_httpStatus :: Lens.Lens' ListConferenceProvidersResponse Core.Int
+listConferenceProvidersResponse_httpStatus :: Lens.Lens' ListConferenceProvidersResponse Prelude.Int
 listConferenceProvidersResponse_httpStatus = Lens.lens (\ListConferenceProvidersResponse' {httpStatus} -> httpStatus) (\s@ListConferenceProvidersResponse' {} a -> s {httpStatus = a} :: ListConferenceProvidersResponse)
 
-instance Core.NFData ListConferenceProvidersResponse
+instance
+  Prelude.NFData
+    ListConferenceProvidersResponse

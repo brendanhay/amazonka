@@ -21,20 +21,21 @@ module Network.AWS.IoT.Types.ProvisioningTemplateVersionSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of information about a fleet provision template version.
 --
 -- /See:/ 'newProvisioningTemplateVersionSummary' smart constructor.
 data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
   { -- | The date when the fleet provisioning template version was created
-    creationDate :: Core.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The ID of the fleet privisioning template version.
-    versionId :: Core.Maybe Core.Int,
+    versionId :: Prelude.Maybe Prelude.Int,
     -- | True if the fleet provisioning template version is the default version,
     -- otherwise false.
-    isDefaultVersion :: Core.Maybe Core.Bool
+    isDefaultVersion :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisioningTemplateVersionSummary' with all optional fields omitted.
@@ -55,22 +56,22 @@ newProvisioningTemplateVersionSummary ::
 newProvisioningTemplateVersionSummary =
   ProvisioningTemplateVersionSummary'
     { creationDate =
-        Core.Nothing,
-      versionId = Core.Nothing,
-      isDefaultVersion = Core.Nothing
+        Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      isDefaultVersion = Prelude.Nothing
     }
 
 -- | The date when the fleet provisioning template version was created
-provisioningTemplateVersionSummary_creationDate :: Lens.Lens' ProvisioningTemplateVersionSummary (Core.Maybe Core.UTCTime)
-provisioningTemplateVersionSummary_creationDate = Lens.lens (\ProvisioningTemplateVersionSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateVersionSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary) Core.. Lens.mapping Core._Time
+provisioningTemplateVersionSummary_creationDate :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.UTCTime)
+provisioningTemplateVersionSummary_creationDate = Lens.lens (\ProvisioningTemplateVersionSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateVersionSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the fleet privisioning template version.
-provisioningTemplateVersionSummary_versionId :: Lens.Lens' ProvisioningTemplateVersionSummary (Core.Maybe Core.Int)
+provisioningTemplateVersionSummary_versionId :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.Int)
 provisioningTemplateVersionSummary_versionId = Lens.lens (\ProvisioningTemplateVersionSummary' {versionId} -> versionId) (\s@ProvisioningTemplateVersionSummary' {} a -> s {versionId = a} :: ProvisioningTemplateVersionSummary)
 
 -- | True if the fleet provisioning template version is the default version,
 -- otherwise false.
-provisioningTemplateVersionSummary_isDefaultVersion :: Lens.Lens' ProvisioningTemplateVersionSummary (Core.Maybe Core.Bool)
+provisioningTemplateVersionSummary_isDefaultVersion :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.Bool)
 provisioningTemplateVersionSummary_isDefaultVersion = Lens.lens (\ProvisioningTemplateVersionSummary' {isDefaultVersion} -> isDefaultVersion) (\s@ProvisioningTemplateVersionSummary' {} a -> s {isDefaultVersion = a} :: ProvisioningTemplateVersionSummary)
 
 instance
@@ -82,15 +83,15 @@ instance
       "ProvisioningTemplateVersionSummary"
       ( \x ->
           ProvisioningTemplateVersionSummary'
-            Core.<$> (x Core..:? "creationDate")
-            Core.<*> (x Core..:? "versionId")
-            Core.<*> (x Core..:? "isDefaultVersion")
+            Prelude.<$> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "versionId")
+            Prelude.<*> (x Core..:? "isDefaultVersion")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ProvisioningTemplateVersionSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     ProvisioningTemplateVersionSummary

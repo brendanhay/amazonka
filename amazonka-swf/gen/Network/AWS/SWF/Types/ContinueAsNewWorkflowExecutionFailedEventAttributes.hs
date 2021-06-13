@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionFailedEventAttributes
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause
 
 -- | Provides the details of the @ContinueAsNewWorkflowExecutionFailed@
@@ -42,9 +43,9 @@ data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflow
     -- decision that started this execution. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Core.Integer
+    decisionTaskCompletedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContinueAsNewWorkflowExecutionFailedEventAttributes' with all optional fields omitted.
@@ -72,7 +73,7 @@ newContinueAsNewWorkflowExecutionFailedEventAttributes ::
   -- | 'cause'
   ContinueAsNewWorkflowExecutionFailedCause ->
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   ContinueAsNewWorkflowExecutionFailedEventAttributes
 newContinueAsNewWorkflowExecutionFailedEventAttributes
   pCause_
@@ -100,7 +101,7 @@ continueAsNewWorkflowExecutionFailedEventAttributes_cause = Lens.lens (\Continue
 -- decision that started this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-continueAsNewWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes Core.Integer
+continueAsNewWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes Prelude.Integer
 continueAsNewWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\ContinueAsNewWorkflowExecutionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@ContinueAsNewWorkflowExecutionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: ContinueAsNewWorkflowExecutionFailedEventAttributes)
 
 instance
@@ -112,14 +113,14 @@ instance
       "ContinueAsNewWorkflowExecutionFailedEventAttributes"
       ( \x ->
           ContinueAsNewWorkflowExecutionFailedEventAttributes'
-            Core.<$> (x Core..: "cause")
-              Core.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Core..: "cause")
+              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ContinueAsNewWorkflowExecutionFailedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ContinueAsNewWorkflowExecutionFailedEventAttributes

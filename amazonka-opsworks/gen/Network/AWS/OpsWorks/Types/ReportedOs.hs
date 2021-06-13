@@ -21,19 +21,20 @@ module Network.AWS.OpsWorks.Types.ReportedOs where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A registered instance\'s reported operating system.
 --
 -- /See:/ 'newReportedOs' smart constructor.
 data ReportedOs = ReportedOs'
   { -- | The operating system version.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The operating system name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The operating system family.
-    family :: Core.Maybe Core.Text
+    family :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReportedOs' with all optional fields omitted.
@@ -52,21 +53,21 @@ newReportedOs ::
   ReportedOs
 newReportedOs =
   ReportedOs'
-    { version = Core.Nothing,
-      name = Core.Nothing,
-      family = Core.Nothing
+    { version = Prelude.Nothing,
+      name = Prelude.Nothing,
+      family = Prelude.Nothing
     }
 
 -- | The operating system version.
-reportedOs_version :: Lens.Lens' ReportedOs (Core.Maybe Core.Text)
+reportedOs_version :: Lens.Lens' ReportedOs (Prelude.Maybe Prelude.Text)
 reportedOs_version = Lens.lens (\ReportedOs' {version} -> version) (\s@ReportedOs' {} a -> s {version = a} :: ReportedOs)
 
 -- | The operating system name.
-reportedOs_name :: Lens.Lens' ReportedOs (Core.Maybe Core.Text)
+reportedOs_name :: Lens.Lens' ReportedOs (Prelude.Maybe Prelude.Text)
 reportedOs_name = Lens.lens (\ReportedOs' {name} -> name) (\s@ReportedOs' {} a -> s {name = a} :: ReportedOs)
 
 -- | The operating system family.
-reportedOs_family :: Lens.Lens' ReportedOs (Core.Maybe Core.Text)
+reportedOs_family :: Lens.Lens' ReportedOs (Prelude.Maybe Prelude.Text)
 reportedOs_family = Lens.lens (\ReportedOs' {family} -> family) (\s@ReportedOs' {} a -> s {family = a} :: ReportedOs)
 
 instance Core.FromJSON ReportedOs where
@@ -75,11 +76,11 @@ instance Core.FromJSON ReportedOs where
       "ReportedOs"
       ( \x ->
           ReportedOs'
-            Core.<$> (x Core..:? "Version")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Family")
+            Prelude.<$> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Family")
       )
 
-instance Core.Hashable ReportedOs
+instance Prelude.Hashable ReportedOs
 
-instance Core.NFData ReportedOs
+instance Prelude.NFData ReportedOs

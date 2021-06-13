@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
   { -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The name of a deployment group for the specified application.
-    deploymentGroupName :: Core.Text
+    deploymentGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeploymentGroup' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DeleteDeploymentGroup = DeleteDeploymentGroup'
 -- 'deploymentGroupName', 'deleteDeploymentGroup_deploymentGroupName' - The name of a deployment group for the specified application.
 newDeleteDeploymentGroup ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deploymentGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDeploymentGroup
 newDeleteDeploymentGroup
   pApplicationName_
@@ -87,11 +88,11 @@ newDeleteDeploymentGroup
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
-deleteDeploymentGroup_applicationName :: Lens.Lens' DeleteDeploymentGroup Core.Text
+deleteDeploymentGroup_applicationName :: Lens.Lens' DeleteDeploymentGroup Prelude.Text
 deleteDeploymentGroup_applicationName = Lens.lens (\DeleteDeploymentGroup' {applicationName} -> applicationName) (\s@DeleteDeploymentGroup' {} a -> s {applicationName = a} :: DeleteDeploymentGroup)
 
 -- | The name of a deployment group for the specified application.
-deleteDeploymentGroup_deploymentGroupName :: Lens.Lens' DeleteDeploymentGroup Core.Text
+deleteDeploymentGroup_deploymentGroupName :: Lens.Lens' DeleteDeploymentGroup Prelude.Text
 deleteDeploymentGroup_deploymentGroupName = Lens.lens (\DeleteDeploymentGroup' {deploymentGroupName} -> deploymentGroupName) (\s@DeleteDeploymentGroup' {} a -> s {deploymentGroupName = a} :: DeleteDeploymentGroup)
 
 instance Core.AWSRequest DeleteDeploymentGroup where
@@ -103,43 +104,47 @@ instance Core.AWSRequest DeleteDeploymentGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteDeploymentGroupResponse'
-            Core.<$> (x Core..?> "hooksNotCleanedUp" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "hooksNotCleanedUp"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDeploymentGroup
+instance Prelude.Hashable DeleteDeploymentGroup
 
-instance Core.NFData DeleteDeploymentGroup
+instance Prelude.NFData DeleteDeploymentGroup
 
 instance Core.ToHeaders DeleteDeploymentGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.DeleteDeploymentGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDeploymentGroup where
   toJSON DeleteDeploymentGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("applicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ("deploymentGroupName" Core..= deploymentGroupName)
           ]
       )
 
 instance Core.ToPath DeleteDeploymentGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDeploymentGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteDeploymentGroup@ operation.
 --
@@ -151,11 +156,11 @@ data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
     -- Amazon EC2 instances in the Auto Scaling group. If the output contains
     -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
     -- hooks from the Amazon EC2 instances in the Auto Scaling group.
-    hooksNotCleanedUp :: Core.Maybe [AutoScalingGroup],
+    hooksNotCleanedUp :: Prelude.Maybe [AutoScalingGroup],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeploymentGroupResponse' with all optional fields omitted.
@@ -175,12 +180,12 @@ data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
 -- 'httpStatus', 'deleteDeploymentGroupResponse_httpStatus' - The response's http status code.
 newDeleteDeploymentGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDeploymentGroupResponse
 newDeleteDeploymentGroupResponse pHttpStatus_ =
   DeleteDeploymentGroupResponse'
     { hooksNotCleanedUp =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -190,11 +195,11 @@ newDeleteDeploymentGroupResponse pHttpStatus_ =
 -- Amazon EC2 instances in the Auto Scaling group. If the output contains
 -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
-deleteDeploymentGroupResponse_hooksNotCleanedUp :: Lens.Lens' DeleteDeploymentGroupResponse (Core.Maybe [AutoScalingGroup])
-deleteDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\DeleteDeploymentGroupResponse' {hooksNotCleanedUp} -> hooksNotCleanedUp) (\s@DeleteDeploymentGroupResponse' {} a -> s {hooksNotCleanedUp = a} :: DeleteDeploymentGroupResponse) Core.. Lens.mapping Lens._Coerce
+deleteDeploymentGroupResponse_hooksNotCleanedUp :: Lens.Lens' DeleteDeploymentGroupResponse (Prelude.Maybe [AutoScalingGroup])
+deleteDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\DeleteDeploymentGroupResponse' {hooksNotCleanedUp} -> hooksNotCleanedUp) (\s@DeleteDeploymentGroupResponse' {} a -> s {hooksNotCleanedUp = a} :: DeleteDeploymentGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteDeploymentGroupResponse_httpStatus :: Lens.Lens' DeleteDeploymentGroupResponse Core.Int
+deleteDeploymentGroupResponse_httpStatus :: Lens.Lens' DeleteDeploymentGroupResponse Prelude.Int
 deleteDeploymentGroupResponse_httpStatus = Lens.lens (\DeleteDeploymentGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteDeploymentGroupResponse' {} a -> s {httpStatus = a} :: DeleteDeploymentGroupResponse)
 
-instance Core.NFData DeleteDeploymentGroupResponse
+instance Prelude.NFData DeleteDeploymentGroupResponse

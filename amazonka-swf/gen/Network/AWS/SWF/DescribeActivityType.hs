@@ -72,6 +72,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -79,13 +80,13 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newDescribeActivityType' smart constructor.
 data DescribeActivityType = DescribeActivityType'
   { -- | The name of the domain in which the activity type is registered.
-    domain :: Core.Text,
+    domain :: Prelude.Text,
     -- | The activity type to get information about. Activity types are
     -- identified by the @name@ and @version@ that were supplied when the
     -- activity was registered.
     activityType :: ActivityType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeActivityType' with all optional fields omitted.
@@ -102,7 +103,7 @@ data DescribeActivityType = DescribeActivityType'
 -- activity was registered.
 newDescribeActivityType ::
   -- | 'domain'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'activityType'
   ActivityType ->
   DescribeActivityType
@@ -113,7 +114,7 @@ newDescribeActivityType pDomain_ pActivityType_ =
     }
 
 -- | The name of the domain in which the activity type is registered.
-describeActivityType_domain :: Lens.Lens' DescribeActivityType Core.Text
+describeActivityType_domain :: Lens.Lens' DescribeActivityType Prelude.Text
 describeActivityType_domain = Lens.lens (\DescribeActivityType' {domain} -> domain) (\s@DescribeActivityType' {} a -> s {domain = a} :: DescribeActivityType)
 
 -- | The activity type to get information about. Activity types are
@@ -131,49 +132,51 @@ instance Core.AWSRequest DescribeActivityType where
     Response.receiveJSON
       ( \s h x ->
           DescribeActivityTypeResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "typeInfo")
-            Core.<*> (x Core..:> "configuration")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "typeInfo")
+            Prelude.<*> (x Core..:> "configuration")
       )
 
-instance Core.Hashable DescribeActivityType
+instance Prelude.Hashable DescribeActivityType
 
-instance Core.NFData DescribeActivityType
+instance Prelude.NFData DescribeActivityType
 
 instance Core.ToHeaders DescribeActivityType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.DescribeActivityType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeActivityType where
   toJSON DescribeActivityType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("domain" Core..= domain),
-            Core.Just ("activityType" Core..= activityType)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("domain" Core..= domain),
+            Prelude.Just ("activityType" Core..= activityType)
           ]
       )
 
 instance Core.ToPath DescribeActivityType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeActivityType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Detailed information about an activity type.
 --
 -- /See:/ 'newDescribeActivityTypeResponse' smart constructor.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | General information about the activity type.
     --
     -- The status of activity type (returned in the ActivityTypeInfo structure)
@@ -189,7 +192,7 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
     -- | The configuration settings registered with the activity type.
     configuration :: ActivityTypeConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeActivityTypeResponse' with all optional fields omitted.
@@ -216,7 +219,7 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
 -- 'configuration', 'describeActivityTypeResponse_configuration' - The configuration settings registered with the activity type.
 newDescribeActivityTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'typeInfo'
   ActivityTypeInfo ->
   -- | 'configuration'
@@ -234,7 +237,7 @@ newDescribeActivityTypeResponse
       }
 
 -- | The response's http status code.
-describeActivityTypeResponse_httpStatus :: Lens.Lens' DescribeActivityTypeResponse Core.Int
+describeActivityTypeResponse_httpStatus :: Lens.Lens' DescribeActivityTypeResponse Prelude.Int
 describeActivityTypeResponse_httpStatus = Lens.lens (\DescribeActivityTypeResponse' {httpStatus} -> httpStatus) (\s@DescribeActivityTypeResponse' {} a -> s {httpStatus = a} :: DescribeActivityTypeResponse)
 
 -- | General information about the activity type.
@@ -255,4 +258,4 @@ describeActivityTypeResponse_typeInfo = Lens.lens (\DescribeActivityTypeResponse
 describeActivityTypeResponse_configuration :: Lens.Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 describeActivityTypeResponse_configuration = Lens.lens (\DescribeActivityTypeResponse' {configuration} -> configuration) (\s@DescribeActivityTypeResponse' {} a -> s {configuration = a} :: DescribeActivityTypeResponse)
 
-instance Core.NFData DescribeActivityTypeResponse
+instance Prelude.NFData DescribeActivityTypeResponse

@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchGetObjectInformation where
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Retrieves metadata about an object inside a BatchRead operation. For
 -- more information, see GetObjectInformation and
@@ -32,7 +33,7 @@ data BatchGetObjectInformation = BatchGetObjectInformation'
   { -- | A reference to the object.
     objectReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetObjectInformation' with all optional fields omitted.
@@ -57,15 +58,15 @@ newBatchGetObjectInformation pObjectReference_ =
 batchGetObjectInformation_objectReference :: Lens.Lens' BatchGetObjectInformation ObjectReference
 batchGetObjectInformation_objectReference = Lens.lens (\BatchGetObjectInformation' {objectReference} -> objectReference) (\s@BatchGetObjectInformation' {} a -> s {objectReference = a} :: BatchGetObjectInformation)
 
-instance Core.Hashable BatchGetObjectInformation
+instance Prelude.Hashable BatchGetObjectInformation
 
-instance Core.NFData BatchGetObjectInformation
+instance Prelude.NFData BatchGetObjectInformation
 
 instance Core.ToJSON BatchGetObjectInformation where
   toJSON BatchGetObjectInformation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
       )

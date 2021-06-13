@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOpt
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the domain names on an SSL\/TLS certificate
 -- that you will use to validate domain ownership.
@@ -29,11 +30,11 @@ import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
 -- /See:/ 'newLoadBalancerTlsCertificateDomainValidationOption' smart constructor.
 data LoadBalancerTlsCertificateDomainValidationOption = LoadBalancerTlsCertificateDomainValidationOption'
   { -- | The fully qualified domain name in the certificate request.
-    domainName :: Core.Maybe Core.Text,
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | The status of the domain validation. Valid values are listed below.
-    validationStatus :: Core.Maybe LoadBalancerTlsCertificateDomainStatus
+    validationStatus :: Prelude.Maybe LoadBalancerTlsCertificateDomainStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerTlsCertificateDomainValidationOption' with all optional fields omitted.
@@ -51,17 +52,17 @@ newLoadBalancerTlsCertificateDomainValidationOption ::
 newLoadBalancerTlsCertificateDomainValidationOption =
   LoadBalancerTlsCertificateDomainValidationOption'
     { domainName =
-        Core.Nothing,
+        Prelude.Nothing,
       validationStatus =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The fully qualified domain name in the certificate request.
-loadBalancerTlsCertificateDomainValidationOption_domainName :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationOption (Core.Maybe Core.Text)
+loadBalancerTlsCertificateDomainValidationOption_domainName :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationOption (Prelude.Maybe Prelude.Text)
 loadBalancerTlsCertificateDomainValidationOption_domainName = Lens.lens (\LoadBalancerTlsCertificateDomainValidationOption' {domainName} -> domainName) (\s@LoadBalancerTlsCertificateDomainValidationOption' {} a -> s {domainName = a} :: LoadBalancerTlsCertificateDomainValidationOption)
 
 -- | The status of the domain validation. Valid values are listed below.
-loadBalancerTlsCertificateDomainValidationOption_validationStatus :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationOption (Core.Maybe LoadBalancerTlsCertificateDomainStatus)
+loadBalancerTlsCertificateDomainValidationOption_validationStatus :: Lens.Lens' LoadBalancerTlsCertificateDomainValidationOption (Prelude.Maybe LoadBalancerTlsCertificateDomainStatus)
 loadBalancerTlsCertificateDomainValidationOption_validationStatus = Lens.lens (\LoadBalancerTlsCertificateDomainValidationOption' {validationStatus} -> validationStatus) (\s@LoadBalancerTlsCertificateDomainValidationOption' {} a -> s {validationStatus = a} :: LoadBalancerTlsCertificateDomainValidationOption)
 
 instance
@@ -73,14 +74,14 @@ instance
       "LoadBalancerTlsCertificateDomainValidationOption"
       ( \x ->
           LoadBalancerTlsCertificateDomainValidationOption'
-            Core.<$> (x Core..:? "domainName")
-              Core.<*> (x Core..:? "validationStatus")
+            Prelude.<$> (x Core..:? "domainName")
+              Prelude.<*> (x Core..:? "validationStatus")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LoadBalancerTlsCertificateDomainValidationOption
 
 instance
-  Core.NFData
+  Prelude.NFData
     LoadBalancerTlsCertificateDomainValidationOption

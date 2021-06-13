@@ -22,6 +22,7 @@ module Network.AWS.CloudSearch.Types.DocumentSuggesterOptions where
 import Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Options for a search suggester.
 --
@@ -32,7 +33,7 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions'
     -- an exact prefix. With low, suggestions must differ from the specified
     -- string by no more than one character. With high, suggestions can differ
     -- by up to two characters. The default is none.
-    fuzzyMatching :: Core.Maybe SuggesterFuzzyMatching,
+    fuzzyMatching :: Prelude.Maybe SuggesterFuzzyMatching,
     -- | An expression that computes a score for each suggestion to control how
     -- they are sorted. The scores are rounded to the nearest integer, with a
     -- floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not
@@ -41,11 +42,11 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions'
     -- expression, simply specify the name of the field or expression. If no
     -- expression is configured for the suggester, the suggestions are sorted
     -- with the closest matches listed first.
-    sortExpression :: Core.Maybe Core.Text,
+    sortExpression :: Prelude.Maybe Prelude.Text,
     -- | The name of the index field you want to use for suggestions.
-    sourceField :: Core.Text
+    sourceField :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentSuggesterOptions' with all optional fields omitted.
@@ -73,13 +74,13 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions'
 -- 'sourceField', 'documentSuggesterOptions_sourceField' - The name of the index field you want to use for suggestions.
 newDocumentSuggesterOptions ::
   -- | 'sourceField'
-  Core.Text ->
+  Prelude.Text ->
   DocumentSuggesterOptions
 newDocumentSuggesterOptions pSourceField_ =
   DocumentSuggesterOptions'
     { fuzzyMatching =
-        Core.Nothing,
-      sortExpression = Core.Nothing,
+        Prelude.Nothing,
+      sortExpression = Prelude.Nothing,
       sourceField = pSourceField_
     }
 
@@ -88,7 +89,7 @@ newDocumentSuggesterOptions pSourceField_ =
 -- an exact prefix. With low, suggestions must differ from the specified
 -- string by no more than one character. With high, suggestions can differ
 -- by up to two characters. The default is none.
-documentSuggesterOptions_fuzzyMatching :: Lens.Lens' DocumentSuggesterOptions (Core.Maybe SuggesterFuzzyMatching)
+documentSuggesterOptions_fuzzyMatching :: Lens.Lens' DocumentSuggesterOptions (Prelude.Maybe SuggesterFuzzyMatching)
 documentSuggesterOptions_fuzzyMatching = Lens.lens (\DocumentSuggesterOptions' {fuzzyMatching} -> fuzzyMatching) (\s@DocumentSuggesterOptions' {} a -> s {fuzzyMatching = a} :: DocumentSuggesterOptions)
 
 -- | An expression that computes a score for each suggestion to control how
@@ -99,27 +100,27 @@ documentSuggesterOptions_fuzzyMatching = Lens.lens (\DocumentSuggesterOptions' {
 -- expression, simply specify the name of the field or expression. If no
 -- expression is configured for the suggester, the suggestions are sorted
 -- with the closest matches listed first.
-documentSuggesterOptions_sortExpression :: Lens.Lens' DocumentSuggesterOptions (Core.Maybe Core.Text)
+documentSuggesterOptions_sortExpression :: Lens.Lens' DocumentSuggesterOptions (Prelude.Maybe Prelude.Text)
 documentSuggesterOptions_sortExpression = Lens.lens (\DocumentSuggesterOptions' {sortExpression} -> sortExpression) (\s@DocumentSuggesterOptions' {} a -> s {sortExpression = a} :: DocumentSuggesterOptions)
 
 -- | The name of the index field you want to use for suggestions.
-documentSuggesterOptions_sourceField :: Lens.Lens' DocumentSuggesterOptions Core.Text
+documentSuggesterOptions_sourceField :: Lens.Lens' DocumentSuggesterOptions Prelude.Text
 documentSuggesterOptions_sourceField = Lens.lens (\DocumentSuggesterOptions' {sourceField} -> sourceField) (\s@DocumentSuggesterOptions' {} a -> s {sourceField = a} :: DocumentSuggesterOptions)
 
 instance Core.FromXML DocumentSuggesterOptions where
   parseXML x =
     DocumentSuggesterOptions'
-      Core.<$> (x Core..@? "FuzzyMatching")
-      Core.<*> (x Core..@? "SortExpression")
-      Core.<*> (x Core..@ "SourceField")
+      Prelude.<$> (x Core..@? "FuzzyMatching")
+      Prelude.<*> (x Core..@? "SortExpression")
+      Prelude.<*> (x Core..@ "SourceField")
 
-instance Core.Hashable DocumentSuggesterOptions
+instance Prelude.Hashable DocumentSuggesterOptions
 
-instance Core.NFData DocumentSuggesterOptions
+instance Prelude.NFData DocumentSuggesterOptions
 
 instance Core.ToQuery DocumentSuggesterOptions where
   toQuery DocumentSuggesterOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "FuzzyMatching" Core.=: fuzzyMatching,
         "SortExpression" Core.=: sortExpression,
         "SourceField" Core.=: sourceField

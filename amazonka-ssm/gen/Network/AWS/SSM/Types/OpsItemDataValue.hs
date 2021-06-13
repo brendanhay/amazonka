@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.OpsItemDataValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsItemDataType
 
 -- | An object that defines the value of the key and its type in the
@@ -29,12 +30,12 @@ import Network.AWS.SSM.Types.OpsItemDataType
 -- /See:/ 'newOpsItemDataValue' smart constructor.
 data OpsItemDataValue = OpsItemDataValue'
   { -- | The value of the OperationalData key.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The type of key-value pair. Valid types include @SearchableString@ and
     -- @String@.
-    type' :: Core.Maybe OpsItemDataType
+    type' :: Prelude.Maybe OpsItemDataType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpsItemDataValue' with all optional fields omitted.
@@ -52,17 +53,17 @@ newOpsItemDataValue ::
   OpsItemDataValue
 newOpsItemDataValue =
   OpsItemDataValue'
-    { value = Core.Nothing,
-      type' = Core.Nothing
+    { value = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The value of the OperationalData key.
-opsItemDataValue_value :: Lens.Lens' OpsItemDataValue (Core.Maybe Core.Text)
+opsItemDataValue_value :: Lens.Lens' OpsItemDataValue (Prelude.Maybe Prelude.Text)
 opsItemDataValue_value = Lens.lens (\OpsItemDataValue' {value} -> value) (\s@OpsItemDataValue' {} a -> s {value = a} :: OpsItemDataValue)
 
 -- | The type of key-value pair. Valid types include @SearchableString@ and
 -- @String@.
-opsItemDataValue_type :: Lens.Lens' OpsItemDataValue (Core.Maybe OpsItemDataType)
+opsItemDataValue_type :: Lens.Lens' OpsItemDataValue (Prelude.Maybe OpsItemDataType)
 opsItemDataValue_type = Lens.lens (\OpsItemDataValue' {type'} -> type') (\s@OpsItemDataValue' {} a -> s {type' = a} :: OpsItemDataValue)
 
 instance Core.FromJSON OpsItemDataValue where
@@ -71,18 +72,18 @@ instance Core.FromJSON OpsItemDataValue where
       "OpsItemDataValue"
       ( \x ->
           OpsItemDataValue'
-            Core.<$> (x Core..:? "Value") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable OpsItemDataValue
+instance Prelude.Hashable OpsItemDataValue
 
-instance Core.NFData OpsItemDataValue
+instance Prelude.NFData OpsItemDataValue
 
 instance Core.ToJSON OpsItemDataValue where
   toJSON OpsItemDataValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Value" Core..=) Core.<$> value,
-            ("Type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

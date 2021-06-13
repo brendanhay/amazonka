@@ -23,6 +23,7 @@ import Network.AWS.CodeDeploy.Types.TargetGroupInfo
 import Network.AWS.CodeDeploy.Types.TrafficRoute
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about two target groups and how traffic is routed during an
 -- Amazon ECS deployment. An optional test traffic route can be specified.
@@ -32,16 +33,16 @@ data TargetGroupPairInfo = TargetGroupPairInfo'
   { -- | One pair of target groups. One is associated with the original task set.
     -- The second is associated with the task set that serves traffic after the
     -- deployment is complete.
-    targetGroups :: Core.Maybe [TargetGroupInfo],
+    targetGroups :: Prelude.Maybe [TargetGroupInfo],
     -- | The path used by a load balancer to route production traffic when an
     -- Amazon ECS deployment is complete.
-    prodTrafficRoute :: Core.Maybe TrafficRoute,
+    prodTrafficRoute :: Prelude.Maybe TrafficRoute,
     -- | An optional path used by a load balancer to route test traffic after an
     -- Amazon ECS deployment. Validation can occur while test traffic is served
     -- during a deployment.
-    testTrafficRoute :: Core.Maybe TrafficRoute
+    testTrafficRoute :: Prelude.Maybe TrafficRoute
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetGroupPairInfo' with all optional fields omitted.
@@ -65,26 +66,27 @@ newTargetGroupPairInfo ::
   TargetGroupPairInfo
 newTargetGroupPairInfo =
   TargetGroupPairInfo'
-    { targetGroups = Core.Nothing,
-      prodTrafficRoute = Core.Nothing,
-      testTrafficRoute = Core.Nothing
+    { targetGroups =
+        Prelude.Nothing,
+      prodTrafficRoute = Prelude.Nothing,
+      testTrafficRoute = Prelude.Nothing
     }
 
 -- | One pair of target groups. One is associated with the original task set.
 -- The second is associated with the task set that serves traffic after the
 -- deployment is complete.
-targetGroupPairInfo_targetGroups :: Lens.Lens' TargetGroupPairInfo (Core.Maybe [TargetGroupInfo])
-targetGroupPairInfo_targetGroups = Lens.lens (\TargetGroupPairInfo' {targetGroups} -> targetGroups) (\s@TargetGroupPairInfo' {} a -> s {targetGroups = a} :: TargetGroupPairInfo) Core.. Lens.mapping Lens._Coerce
+targetGroupPairInfo_targetGroups :: Lens.Lens' TargetGroupPairInfo (Prelude.Maybe [TargetGroupInfo])
+targetGroupPairInfo_targetGroups = Lens.lens (\TargetGroupPairInfo' {targetGroups} -> targetGroups) (\s@TargetGroupPairInfo' {} a -> s {targetGroups = a} :: TargetGroupPairInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path used by a load balancer to route production traffic when an
 -- Amazon ECS deployment is complete.
-targetGroupPairInfo_prodTrafficRoute :: Lens.Lens' TargetGroupPairInfo (Core.Maybe TrafficRoute)
+targetGroupPairInfo_prodTrafficRoute :: Lens.Lens' TargetGroupPairInfo (Prelude.Maybe TrafficRoute)
 targetGroupPairInfo_prodTrafficRoute = Lens.lens (\TargetGroupPairInfo' {prodTrafficRoute} -> prodTrafficRoute) (\s@TargetGroupPairInfo' {} a -> s {prodTrafficRoute = a} :: TargetGroupPairInfo)
 
 -- | An optional path used by a load balancer to route test traffic after an
 -- Amazon ECS deployment. Validation can occur while test traffic is served
 -- during a deployment.
-targetGroupPairInfo_testTrafficRoute :: Lens.Lens' TargetGroupPairInfo (Core.Maybe TrafficRoute)
+targetGroupPairInfo_testTrafficRoute :: Lens.Lens' TargetGroupPairInfo (Prelude.Maybe TrafficRoute)
 targetGroupPairInfo_testTrafficRoute = Lens.lens (\TargetGroupPairInfo' {testTrafficRoute} -> testTrafficRoute) (\s@TargetGroupPairInfo' {} a -> s {testTrafficRoute = a} :: TargetGroupPairInfo)
 
 instance Core.FromJSON TargetGroupPairInfo where
@@ -93,23 +95,23 @@ instance Core.FromJSON TargetGroupPairInfo where
       "TargetGroupPairInfo"
       ( \x ->
           TargetGroupPairInfo'
-            Core.<$> (x Core..:? "targetGroups" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "prodTrafficRoute")
-            Core.<*> (x Core..:? "testTrafficRoute")
+            Prelude.<$> (x Core..:? "targetGroups" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "prodTrafficRoute")
+            Prelude.<*> (x Core..:? "testTrafficRoute")
       )
 
-instance Core.Hashable TargetGroupPairInfo
+instance Prelude.Hashable TargetGroupPairInfo
 
-instance Core.NFData TargetGroupPairInfo
+instance Prelude.NFData TargetGroupPairInfo
 
 instance Core.ToJSON TargetGroupPairInfo where
   toJSON TargetGroupPairInfo' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("targetGroups" Core..=) Core.<$> targetGroups,
+      ( Prelude.catMaybes
+          [ ("targetGroups" Core..=) Prelude.<$> targetGroups,
             ("prodTrafficRoute" Core..=)
-              Core.<$> prodTrafficRoute,
+              Prelude.<$> prodTrafficRoute,
             ("testTrafficRoute" Core..=)
-              Core.<$> testTrafficRoute
+              Prelude.<$> testTrafficRoute
           ]
       )

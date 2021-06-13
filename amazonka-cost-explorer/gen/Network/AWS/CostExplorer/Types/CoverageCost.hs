@@ -21,15 +21,16 @@ module Network.AWS.CostExplorer.Types.CoverageCost where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | How much it costs to run an instance.
 --
 -- /See:/ 'newCoverageCost' smart constructor.
 data CoverageCost = CoverageCost'
   { -- | How much an On-Demand Instance costs.
-    onDemandCost :: Core.Maybe Core.Text
+    onDemandCost :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CoverageCost' with all optional fields omitted.
@@ -43,10 +44,10 @@ data CoverageCost = CoverageCost'
 newCoverageCost ::
   CoverageCost
 newCoverageCost =
-  CoverageCost' {onDemandCost = Core.Nothing}
+  CoverageCost' {onDemandCost = Prelude.Nothing}
 
 -- | How much an On-Demand Instance costs.
-coverageCost_onDemandCost :: Lens.Lens' CoverageCost (Core.Maybe Core.Text)
+coverageCost_onDemandCost :: Lens.Lens' CoverageCost (Prelude.Maybe Prelude.Text)
 coverageCost_onDemandCost = Lens.lens (\CoverageCost' {onDemandCost} -> onDemandCost) (\s@CoverageCost' {} a -> s {onDemandCost = a} :: CoverageCost)
 
 instance Core.FromJSON CoverageCost where
@@ -54,9 +55,10 @@ instance Core.FromJSON CoverageCost where
     Core.withObject
       "CoverageCost"
       ( \x ->
-          CoverageCost' Core.<$> (x Core..:? "OnDemandCost")
+          CoverageCost'
+            Prelude.<$> (x Core..:? "OnDemandCost")
       )
 
-instance Core.Hashable CoverageCost
+instance Prelude.Hashable CoverageCost
 
-instance Core.NFData CoverageCost
+instance Prelude.NFData CoverageCost

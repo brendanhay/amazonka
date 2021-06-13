@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,17 +57,17 @@ data ModifyTransitGatewayPrefixListReference = ModifyTransitGatewayPrefixListRef
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether to drop traffic that matches this route.
-    blackhole :: Core.Maybe Core.Bool,
+    blackhole :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the attachment to which traffic is routed.
-    transitGatewayAttachmentId :: Core.Maybe Core.Text,
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Core.Text,
+    transitGatewayRouteTableId :: Prelude.Text,
     -- | The ID of the prefix list.
-    prefixListId :: Core.Text
+    prefixListId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyTransitGatewayPrefixListReference' with all optional fields omitted.
@@ -90,19 +91,19 @@ data ModifyTransitGatewayPrefixListReference = ModifyTransitGatewayPrefixListRef
 -- 'prefixListId', 'modifyTransitGatewayPrefixListReference_prefixListId' - The ID of the prefix list.
 newModifyTransitGatewayPrefixListReference ::
   -- | 'transitGatewayRouteTableId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'prefixListId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyTransitGatewayPrefixListReference
 newModifyTransitGatewayPrefixListReference
   pTransitGatewayRouteTableId_
   pPrefixListId_ =
     ModifyTransitGatewayPrefixListReference'
       { dryRun =
-          Core.Nothing,
-        blackhole = Core.Nothing,
+          Prelude.Nothing,
+        blackhole = Prelude.Nothing,
         transitGatewayAttachmentId =
-          Core.Nothing,
+          Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         prefixListId = pPrefixListId_
@@ -112,23 +113,23 @@ newModifyTransitGatewayPrefixListReference
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyTransitGatewayPrefixListReference_dryRun :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Core.Maybe Core.Bool)
+modifyTransitGatewayPrefixListReference_dryRun :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
 modifyTransitGatewayPrefixListReference_dryRun = Lens.lens (\ModifyTransitGatewayPrefixListReference' {dryRun} -> dryRun) (\s@ModifyTransitGatewayPrefixListReference' {} a -> s {dryRun = a} :: ModifyTransitGatewayPrefixListReference)
 
 -- | Indicates whether to drop traffic that matches this route.
-modifyTransitGatewayPrefixListReference_blackhole :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Core.Maybe Core.Bool)
+modifyTransitGatewayPrefixListReference_blackhole :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
 modifyTransitGatewayPrefixListReference_blackhole = Lens.lens (\ModifyTransitGatewayPrefixListReference' {blackhole} -> blackhole) (\s@ModifyTransitGatewayPrefixListReference' {} a -> s {blackhole = a} :: ModifyTransitGatewayPrefixListReference)
 
 -- | The ID of the attachment to which traffic is routed.
-modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Core.Maybe Core.Text)
+modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
 modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId = Lens.lens (\ModifyTransitGatewayPrefixListReference' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@ModifyTransitGatewayPrefixListReference' {} a -> s {transitGatewayAttachmentId = a} :: ModifyTransitGatewayPrefixListReference)
 
 -- | The ID of the transit gateway route table.
-modifyTransitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' ModifyTransitGatewayPrefixListReference Core.Text
+modifyTransitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' ModifyTransitGatewayPrefixListReference Prelude.Text
 modifyTransitGatewayPrefixListReference_transitGatewayRouteTableId = Lens.lens (\ModifyTransitGatewayPrefixListReference' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@ModifyTransitGatewayPrefixListReference' {} a -> s {transitGatewayRouteTableId = a} :: ModifyTransitGatewayPrefixListReference)
 
 -- | The ID of the prefix list.
-modifyTransitGatewayPrefixListReference_prefixListId :: Lens.Lens' ModifyTransitGatewayPrefixListReference Core.Text
+modifyTransitGatewayPrefixListReference_prefixListId :: Lens.Lens' ModifyTransitGatewayPrefixListReference Prelude.Text
 modifyTransitGatewayPrefixListReference_prefixListId = Lens.lens (\ModifyTransitGatewayPrefixListReference' {prefixListId} -> prefixListId) (\s@ModifyTransitGatewayPrefixListReference' {} a -> s {prefixListId = a} :: ModifyTransitGatewayPrefixListReference)
 
 instance
@@ -144,41 +145,42 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyTransitGatewayPrefixListReferenceResponse'
-            Core.<$> (x Core..@? "transitGatewayPrefixListReference")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGatewayPrefixListReference")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModifyTransitGatewayPrefixListReference
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyTransitGatewayPrefixListReference
 
 instance
   Core.ToHeaders
     ModifyTransitGatewayPrefixListReference
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ModifyTransitGatewayPrefixListReference
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ModifyTransitGatewayPrefixListReference
   where
   toQuery ModifyTransitGatewayPrefixListReference' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ModifyTransitGatewayPrefixListReference" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Blackhole" Core.=: blackhole,
         "TransitGatewayAttachmentId"
@@ -191,11 +193,11 @@ instance
 -- | /See:/ 'newModifyTransitGatewayPrefixListReferenceResponse' smart constructor.
 data ModifyTransitGatewayPrefixListReferenceResponse = ModifyTransitGatewayPrefixListReferenceResponse'
   { -- | Information about the prefix list reference.
-    transitGatewayPrefixListReference :: Core.Maybe TransitGatewayPrefixListReference,
+    transitGatewayPrefixListReference :: Prelude.Maybe TransitGatewayPrefixListReference,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyTransitGatewayPrefixListReferenceResponse' with all optional fields omitted.
@@ -210,24 +212,24 @@ data ModifyTransitGatewayPrefixListReferenceResponse = ModifyTransitGatewayPrefi
 -- 'httpStatus', 'modifyTransitGatewayPrefixListReferenceResponse_httpStatus' - The response's http status code.
 newModifyTransitGatewayPrefixListReferenceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyTransitGatewayPrefixListReferenceResponse
 newModifyTransitGatewayPrefixListReferenceResponse
   pHttpStatus_ =
     ModifyTransitGatewayPrefixListReferenceResponse'
       { transitGatewayPrefixListReference =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the prefix list reference.
-modifyTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference :: Lens.Lens' ModifyTransitGatewayPrefixListReferenceResponse (Core.Maybe TransitGatewayPrefixListReference)
+modifyTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference :: Lens.Lens' ModifyTransitGatewayPrefixListReferenceResponse (Prelude.Maybe TransitGatewayPrefixListReference)
 modifyTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference = Lens.lens (\ModifyTransitGatewayPrefixListReferenceResponse' {transitGatewayPrefixListReference} -> transitGatewayPrefixListReference) (\s@ModifyTransitGatewayPrefixListReferenceResponse' {} a -> s {transitGatewayPrefixListReference = a} :: ModifyTransitGatewayPrefixListReferenceResponse)
 
 -- | The response's http status code.
-modifyTransitGatewayPrefixListReferenceResponse_httpStatus :: Lens.Lens' ModifyTransitGatewayPrefixListReferenceResponse Core.Int
+modifyTransitGatewayPrefixListReferenceResponse_httpStatus :: Lens.Lens' ModifyTransitGatewayPrefixListReferenceResponse Prelude.Int
 modifyTransitGatewayPrefixListReferenceResponse_httpStatus = Lens.lens (\ModifyTransitGatewayPrefixListReferenceResponse' {httpStatus} -> httpStatus) (\s@ModifyTransitGatewayPrefixListReferenceResponse' {} a -> s {httpStatus = a} :: ModifyTransitGatewayPrefixListReferenceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyTransitGatewayPrefixListReferenceResponse

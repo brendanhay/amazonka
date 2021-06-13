@@ -49,29 +49,30 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetManagedPrefixListEntries' smart constructor.
 data GetManagedPrefixListEntries = GetManagedPrefixListEntries'
   { -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The version of the prefix list for which to return the entries. The
     -- default is the current version.
-    targetVersion :: Core.Maybe Core.Integer,
+    targetVersion :: Prelude.Maybe Prelude.Integer,
     -- | The ID of the prefix list.
-    prefixListId :: Core.Text
+    prefixListId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetManagedPrefixListEntries' with all optional fields omitted.
@@ -98,42 +99,42 @@ data GetManagedPrefixListEntries = GetManagedPrefixListEntries'
 -- 'prefixListId', 'getManagedPrefixListEntries_prefixListId' - The ID of the prefix list.
 newGetManagedPrefixListEntries ::
   -- | 'prefixListId'
-  Core.Text ->
+  Prelude.Text ->
   GetManagedPrefixListEntries
 newGetManagedPrefixListEntries pPrefixListId_ =
   GetManagedPrefixListEntries'
     { nextToken =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      targetVersion = Core.Nothing,
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      targetVersion = Prelude.Nothing,
       prefixListId = pPrefixListId_
     }
 
 -- | The token for the next page of results.
-getManagedPrefixListEntries_nextToken :: Lens.Lens' GetManagedPrefixListEntries (Core.Maybe Core.Text)
+getManagedPrefixListEntries_nextToken :: Lens.Lens' GetManagedPrefixListEntries (Prelude.Maybe Prelude.Text)
 getManagedPrefixListEntries_nextToken = Lens.lens (\GetManagedPrefixListEntries' {nextToken} -> nextToken) (\s@GetManagedPrefixListEntries' {} a -> s {nextToken = a} :: GetManagedPrefixListEntries)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getManagedPrefixListEntries_dryRun :: Lens.Lens' GetManagedPrefixListEntries (Core.Maybe Core.Bool)
+getManagedPrefixListEntries_dryRun :: Lens.Lens' GetManagedPrefixListEntries (Prelude.Maybe Prelude.Bool)
 getManagedPrefixListEntries_dryRun = Lens.lens (\GetManagedPrefixListEntries' {dryRun} -> dryRun) (\s@GetManagedPrefixListEntries' {} a -> s {dryRun = a} :: GetManagedPrefixListEntries)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-getManagedPrefixListEntries_maxResults :: Lens.Lens' GetManagedPrefixListEntries (Core.Maybe Core.Natural)
+getManagedPrefixListEntries_maxResults :: Lens.Lens' GetManagedPrefixListEntries (Prelude.Maybe Prelude.Natural)
 getManagedPrefixListEntries_maxResults = Lens.lens (\GetManagedPrefixListEntries' {maxResults} -> maxResults) (\s@GetManagedPrefixListEntries' {} a -> s {maxResults = a} :: GetManagedPrefixListEntries)
 
 -- | The version of the prefix list for which to return the entries. The
 -- default is the current version.
-getManagedPrefixListEntries_targetVersion :: Lens.Lens' GetManagedPrefixListEntries (Core.Maybe Core.Integer)
+getManagedPrefixListEntries_targetVersion :: Lens.Lens' GetManagedPrefixListEntries (Prelude.Maybe Prelude.Integer)
 getManagedPrefixListEntries_targetVersion = Lens.lens (\GetManagedPrefixListEntries' {targetVersion} -> targetVersion) (\s@GetManagedPrefixListEntries' {} a -> s {targetVersion = a} :: GetManagedPrefixListEntries)
 
 -- | The ID of the prefix list.
-getManagedPrefixListEntries_prefixListId :: Lens.Lens' GetManagedPrefixListEntries Core.Text
+getManagedPrefixListEntries_prefixListId :: Lens.Lens' GetManagedPrefixListEntries Prelude.Text
 getManagedPrefixListEntries_prefixListId = Lens.lens (\GetManagedPrefixListEntries' {prefixListId} -> prefixListId) (\s@GetManagedPrefixListEntries' {} a -> s {prefixListId = a} :: GetManagedPrefixListEntries)
 
 instance Core.AWSPager GetManagedPrefixListEntries where
@@ -141,22 +142,22 @@ instance Core.AWSPager GetManagedPrefixListEntries where
     | Core.stop
         ( rs
             Lens.^? getManagedPrefixListEntriesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getManagedPrefixListEntriesResponse_entries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getManagedPrefixListEntries_nextToken
+          Prelude.& getManagedPrefixListEntries_nextToken
           Lens..~ rs
           Lens.^? getManagedPrefixListEntriesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetManagedPrefixListEntries where
   type
@@ -167,29 +168,32 @@ instance Core.AWSRequest GetManagedPrefixListEntries where
     Response.receiveXML
       ( \s h x ->
           GetManagedPrefixListEntriesResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "entrySet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "entrySet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetManagedPrefixListEntries
+instance Prelude.Hashable GetManagedPrefixListEntries
 
-instance Core.NFData GetManagedPrefixListEntries
+instance Prelude.NFData GetManagedPrefixListEntries
 
 instance Core.ToHeaders GetManagedPrefixListEntries where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetManagedPrefixListEntries where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetManagedPrefixListEntries where
   toQuery GetManagedPrefixListEntries' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetManagedPrefixListEntries" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ( "GetManagedPrefixListEntries" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
@@ -201,13 +205,13 @@ instance Core.ToQuery GetManagedPrefixListEntries where
 data GetManagedPrefixListEntriesResponse = GetManagedPrefixListEntriesResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the prefix list entries.
-    entries :: Core.Maybe [PrefixListEntry],
+    entries :: Prelude.Maybe [PrefixListEntry],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetManagedPrefixListEntriesResponse' with all optional fields omitted.
@@ -225,29 +229,29 @@ data GetManagedPrefixListEntriesResponse = GetManagedPrefixListEntriesResponse'
 -- 'httpStatus', 'getManagedPrefixListEntriesResponse_httpStatus' - The response's http status code.
 newGetManagedPrefixListEntriesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetManagedPrefixListEntriesResponse
 newGetManagedPrefixListEntriesResponse pHttpStatus_ =
   GetManagedPrefixListEntriesResponse'
     { nextToken =
-        Core.Nothing,
-      entries = Core.Nothing,
+        Prelude.Nothing,
+      entries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-getManagedPrefixListEntriesResponse_nextToken :: Lens.Lens' GetManagedPrefixListEntriesResponse (Core.Maybe Core.Text)
+getManagedPrefixListEntriesResponse_nextToken :: Lens.Lens' GetManagedPrefixListEntriesResponse (Prelude.Maybe Prelude.Text)
 getManagedPrefixListEntriesResponse_nextToken = Lens.lens (\GetManagedPrefixListEntriesResponse' {nextToken} -> nextToken) (\s@GetManagedPrefixListEntriesResponse' {} a -> s {nextToken = a} :: GetManagedPrefixListEntriesResponse)
 
 -- | Information about the prefix list entries.
-getManagedPrefixListEntriesResponse_entries :: Lens.Lens' GetManagedPrefixListEntriesResponse (Core.Maybe [PrefixListEntry])
-getManagedPrefixListEntriesResponse_entries = Lens.lens (\GetManagedPrefixListEntriesResponse' {entries} -> entries) (\s@GetManagedPrefixListEntriesResponse' {} a -> s {entries = a} :: GetManagedPrefixListEntriesResponse) Core.. Lens.mapping Lens._Coerce
+getManagedPrefixListEntriesResponse_entries :: Lens.Lens' GetManagedPrefixListEntriesResponse (Prelude.Maybe [PrefixListEntry])
+getManagedPrefixListEntriesResponse_entries = Lens.lens (\GetManagedPrefixListEntriesResponse' {entries} -> entries) (\s@GetManagedPrefixListEntriesResponse' {} a -> s {entries = a} :: GetManagedPrefixListEntriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getManagedPrefixListEntriesResponse_httpStatus :: Lens.Lens' GetManagedPrefixListEntriesResponse Core.Int
+getManagedPrefixListEntriesResponse_httpStatus :: Lens.Lens' GetManagedPrefixListEntriesResponse Prelude.Int
 getManagedPrefixListEntriesResponse_httpStatus = Lens.lens (\GetManagedPrefixListEntriesResponse' {httpStatus} -> httpStatus) (\s@GetManagedPrefixListEntriesResponse' {} a -> s {httpStatus = a} :: GetManagedPrefixListEntriesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetManagedPrefixListEntriesResponse

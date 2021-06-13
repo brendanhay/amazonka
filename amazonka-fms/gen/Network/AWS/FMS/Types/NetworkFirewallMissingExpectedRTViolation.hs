@@ -21,6 +21,7 @@ module Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Violation details for AWS Network Firewall for a subnet that\'s not
 -- associated to the expected Firewall Manager managed route table.
@@ -29,18 +30,18 @@ import qualified Network.AWS.Lens as Lens
 data NetworkFirewallMissingExpectedRTViolation = NetworkFirewallMissingExpectedRTViolation'
   { -- | The resource ID of the current route table that\'s associated with the
     -- subnet, if one is available.
-    currentRouteTable :: Core.Maybe Core.Text,
+    currentRouteTable :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AWS Network Firewall or VPC resource that\'s in violation.
-    violationTarget :: Core.Maybe Core.Text,
+    violationTarget :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone of a violating subnet.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The resource ID of the route table that should be associated with the
     -- subnet.
-    expectedRouteTable :: Core.Maybe Core.Text,
+    expectedRouteTable :: Prelude.Maybe Prelude.Text,
     -- | The resource ID of the VPC associated with a violating subnet.
-    vpc :: Core.Maybe Core.Text
+    vpc :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NetworkFirewallMissingExpectedRTViolation' with all optional fields omitted.
@@ -66,34 +67,36 @@ newNetworkFirewallMissingExpectedRTViolation ::
 newNetworkFirewallMissingExpectedRTViolation =
   NetworkFirewallMissingExpectedRTViolation'
     { currentRouteTable =
-        Core.Nothing,
-      violationTarget = Core.Nothing,
-      availabilityZone = Core.Nothing,
+        Prelude.Nothing,
+      violationTarget =
+        Prelude.Nothing,
+      availabilityZone =
+        Prelude.Nothing,
       expectedRouteTable =
-        Core.Nothing,
-      vpc = Core.Nothing
+        Prelude.Nothing,
+      vpc = Prelude.Nothing
     }
 
 -- | The resource ID of the current route table that\'s associated with the
 -- subnet, if one is available.
-networkFirewallMissingExpectedRTViolation_currentRouteTable :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Core.Maybe Core.Text)
+networkFirewallMissingExpectedRTViolation_currentRouteTable :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRTViolation_currentRouteTable = Lens.lens (\NetworkFirewallMissingExpectedRTViolation' {currentRouteTable} -> currentRouteTable) (\s@NetworkFirewallMissingExpectedRTViolation' {} a -> s {currentRouteTable = a} :: NetworkFirewallMissingExpectedRTViolation)
 
 -- | The ID of the AWS Network Firewall or VPC resource that\'s in violation.
-networkFirewallMissingExpectedRTViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Core.Maybe Core.Text)
+networkFirewallMissingExpectedRTViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRTViolation_violationTarget = Lens.lens (\NetworkFirewallMissingExpectedRTViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallMissingExpectedRTViolation' {} a -> s {violationTarget = a} :: NetworkFirewallMissingExpectedRTViolation)
 
 -- | The Availability Zone of a violating subnet.
-networkFirewallMissingExpectedRTViolation_availabilityZone :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Core.Maybe Core.Text)
+networkFirewallMissingExpectedRTViolation_availabilityZone :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRTViolation_availabilityZone = Lens.lens (\NetworkFirewallMissingExpectedRTViolation' {availabilityZone} -> availabilityZone) (\s@NetworkFirewallMissingExpectedRTViolation' {} a -> s {availabilityZone = a} :: NetworkFirewallMissingExpectedRTViolation)
 
 -- | The resource ID of the route table that should be associated with the
 -- subnet.
-networkFirewallMissingExpectedRTViolation_expectedRouteTable :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Core.Maybe Core.Text)
+networkFirewallMissingExpectedRTViolation_expectedRouteTable :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRTViolation_expectedRouteTable = Lens.lens (\NetworkFirewallMissingExpectedRTViolation' {expectedRouteTable} -> expectedRouteTable) (\s@NetworkFirewallMissingExpectedRTViolation' {} a -> s {expectedRouteTable = a} :: NetworkFirewallMissingExpectedRTViolation)
 
 -- | The resource ID of the VPC associated with a violating subnet.
-networkFirewallMissingExpectedRTViolation_vpc :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Core.Maybe Core.Text)
+networkFirewallMissingExpectedRTViolation_vpc :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRTViolation_vpc = Lens.lens (\NetworkFirewallMissingExpectedRTViolation' {vpc} -> vpc) (\s@NetworkFirewallMissingExpectedRTViolation' {} a -> s {vpc = a} :: NetworkFirewallMissingExpectedRTViolation)
 
 instance
@@ -105,17 +108,17 @@ instance
       "NetworkFirewallMissingExpectedRTViolation"
       ( \x ->
           NetworkFirewallMissingExpectedRTViolation'
-            Core.<$> (x Core..:? "CurrentRouteTable")
-            Core.<*> (x Core..:? "ViolationTarget")
-            Core.<*> (x Core..:? "AvailabilityZone")
-            Core.<*> (x Core..:? "ExpectedRouteTable")
-            Core.<*> (x Core..:? "VPC")
+            Prelude.<$> (x Core..:? "CurrentRouteTable")
+              Prelude.<*> (x Core..:? "ViolationTarget")
+              Prelude.<*> (x Core..:? "AvailabilityZone")
+              Prelude.<*> (x Core..:? "ExpectedRouteTable")
+              Prelude.<*> (x Core..:? "VPC")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     NetworkFirewallMissingExpectedRTViolation
 
 instance
-  Core.NFData
+  Prelude.NFData
     NetworkFirewallMissingExpectedRTViolation

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.CmafEncryptionType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the encryption scheme that you want the service to use when
 -- encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or
@@ -36,15 +37,15 @@ newtype CmafEncryptionType = CmafEncryptionType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

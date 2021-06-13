@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.TrafficPolicySummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.RRType
 
@@ -31,19 +32,19 @@ import Network.AWS.Route53.Types.RRType
 data TrafficPolicySummary = TrafficPolicySummary'
   { -- | The ID that Amazon Route 53 assigned to the traffic policy when you
     -- created it.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The name that you specified for the traffic policy when you created it.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The DNS type of the resource record sets that Amazon Route 53 creates
     -- when you use a traffic policy to create a traffic policy instance.
     type' :: RRType,
     -- | The version number of the latest version of the traffic policy.
-    latestVersion :: Core.Natural,
+    latestVersion :: Prelude.Natural,
     -- | The number of traffic policies that are associated with the current AWS
     -- account.
-    trafficPolicyCount :: Core.Natural
+    trafficPolicyCount :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrafficPolicySummary' with all optional fields omitted.
@@ -67,15 +68,15 @@ data TrafficPolicySummary = TrafficPolicySummary'
 -- account.
 newTrafficPolicySummary ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   RRType ->
   -- | 'latestVersion'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'trafficPolicyCount'
-  Core.Natural ->
+  Prelude.Natural ->
   TrafficPolicySummary
 newTrafficPolicySummary
   pId_
@@ -93,11 +94,11 @@ newTrafficPolicySummary
 
 -- | The ID that Amazon Route 53 assigned to the traffic policy when you
 -- created it.
-trafficPolicySummary_id :: Lens.Lens' TrafficPolicySummary Core.Text
+trafficPolicySummary_id :: Lens.Lens' TrafficPolicySummary Prelude.Text
 trafficPolicySummary_id = Lens.lens (\TrafficPolicySummary' {id} -> id) (\s@TrafficPolicySummary' {} a -> s {id = a} :: TrafficPolicySummary)
 
 -- | The name that you specified for the traffic policy when you created it.
-trafficPolicySummary_name :: Lens.Lens' TrafficPolicySummary Core.Text
+trafficPolicySummary_name :: Lens.Lens' TrafficPolicySummary Prelude.Text
 trafficPolicySummary_name = Lens.lens (\TrafficPolicySummary' {name} -> name) (\s@TrafficPolicySummary' {} a -> s {name = a} :: TrafficPolicySummary)
 
 -- | The DNS type of the resource record sets that Amazon Route 53 creates
@@ -106,23 +107,23 @@ trafficPolicySummary_type :: Lens.Lens' TrafficPolicySummary RRType
 trafficPolicySummary_type = Lens.lens (\TrafficPolicySummary' {type'} -> type') (\s@TrafficPolicySummary' {} a -> s {type' = a} :: TrafficPolicySummary)
 
 -- | The version number of the latest version of the traffic policy.
-trafficPolicySummary_latestVersion :: Lens.Lens' TrafficPolicySummary Core.Natural
+trafficPolicySummary_latestVersion :: Lens.Lens' TrafficPolicySummary Prelude.Natural
 trafficPolicySummary_latestVersion = Lens.lens (\TrafficPolicySummary' {latestVersion} -> latestVersion) (\s@TrafficPolicySummary' {} a -> s {latestVersion = a} :: TrafficPolicySummary)
 
 -- | The number of traffic policies that are associated with the current AWS
 -- account.
-trafficPolicySummary_trafficPolicyCount :: Lens.Lens' TrafficPolicySummary Core.Natural
+trafficPolicySummary_trafficPolicyCount :: Lens.Lens' TrafficPolicySummary Prelude.Natural
 trafficPolicySummary_trafficPolicyCount = Lens.lens (\TrafficPolicySummary' {trafficPolicyCount} -> trafficPolicyCount) (\s@TrafficPolicySummary' {} a -> s {trafficPolicyCount = a} :: TrafficPolicySummary)
 
 instance Core.FromXML TrafficPolicySummary where
   parseXML x =
     TrafficPolicySummary'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> (x Core..@ "Type")
-      Core.<*> (x Core..@ "LatestVersion")
-      Core.<*> (x Core..@ "TrafficPolicyCount")
+      Prelude.<$> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Core..@ "Type")
+      Prelude.<*> (x Core..@ "LatestVersion")
+      Prelude.<*> (x Core..@ "TrafficPolicyCount")
 
-instance Core.Hashable TrafficPolicySummary
+instance Prelude.Hashable TrafficPolicySummary
 
-instance Core.NFData TrafficPolicySummary
+instance Prelude.NFData TrafficPolicySummary

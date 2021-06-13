@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ data UpdateCrawlerSchedule = UpdateCrawlerSchedule'
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
     -- For example, to run something every day at 12:15 UTC, you would specify:
     -- @cron(15 12 * * ? *)@.
-    schedule :: Core.Maybe Core.Text,
+    schedule :: Prelude.Maybe Prelude.Text,
     -- | The name of the crawler whose schedule to update.
-    crawlerName :: Core.Text
+    crawlerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCrawlerSchedule' with all optional fields omitted.
@@ -73,11 +74,11 @@ data UpdateCrawlerSchedule = UpdateCrawlerSchedule'
 -- 'crawlerName', 'updateCrawlerSchedule_crawlerName' - The name of the crawler whose schedule to update.
 newUpdateCrawlerSchedule ::
   -- | 'crawlerName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateCrawlerSchedule
 newUpdateCrawlerSchedule pCrawlerName_ =
   UpdateCrawlerSchedule'
-    { schedule = Core.Nothing,
+    { schedule = Prelude.Nothing,
       crawlerName = pCrawlerName_
     }
 
@@ -85,11 +86,11 @@ newUpdateCrawlerSchedule pCrawlerName_ =
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
 -- For example, to run something every day at 12:15 UTC, you would specify:
 -- @cron(15 12 * * ? *)@.
-updateCrawlerSchedule_schedule :: Lens.Lens' UpdateCrawlerSchedule (Core.Maybe Core.Text)
+updateCrawlerSchedule_schedule :: Lens.Lens' UpdateCrawlerSchedule (Prelude.Maybe Prelude.Text)
 updateCrawlerSchedule_schedule = Lens.lens (\UpdateCrawlerSchedule' {schedule} -> schedule) (\s@UpdateCrawlerSchedule' {} a -> s {schedule = a} :: UpdateCrawlerSchedule)
 
 -- | The name of the crawler whose schedule to update.
-updateCrawlerSchedule_crawlerName :: Lens.Lens' UpdateCrawlerSchedule Core.Text
+updateCrawlerSchedule_crawlerName :: Lens.Lens' UpdateCrawlerSchedule Prelude.Text
 updateCrawlerSchedule_crawlerName = Lens.lens (\UpdateCrawlerSchedule' {crawlerName} -> crawlerName) (\s@UpdateCrawlerSchedule' {} a -> s {crawlerName = a} :: UpdateCrawlerSchedule)
 
 instance Core.AWSRequest UpdateCrawlerSchedule where
@@ -101,45 +102,49 @@ instance Core.AWSRequest UpdateCrawlerSchedule where
     Response.receiveEmpty
       ( \s h x ->
           UpdateCrawlerScheduleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateCrawlerSchedule
+instance Prelude.Hashable UpdateCrawlerSchedule
 
-instance Core.NFData UpdateCrawlerSchedule
+instance Prelude.NFData UpdateCrawlerSchedule
 
 instance Core.ToHeaders UpdateCrawlerSchedule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateCrawlerSchedule" :: Core.ByteString),
+              Core.=# ( "AWSGlue.UpdateCrawlerSchedule" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateCrawlerSchedule where
   toJSON UpdateCrawlerSchedule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Schedule" Core..=) Core.<$> schedule,
-            Core.Just ("CrawlerName" Core..= crawlerName)
+      ( Prelude.catMaybes
+          [ ("Schedule" Core..=) Prelude.<$> schedule,
+            Prelude.Just ("CrawlerName" Core..= crawlerName)
           ]
       )
 
 instance Core.ToPath UpdateCrawlerSchedule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateCrawlerSchedule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCrawlerScheduleResponse' smart constructor.
 data UpdateCrawlerScheduleResponse = UpdateCrawlerScheduleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCrawlerScheduleResponse' with all optional fields omitted.
@@ -152,7 +157,7 @@ data UpdateCrawlerScheduleResponse = UpdateCrawlerScheduleResponse'
 -- 'httpStatus', 'updateCrawlerScheduleResponse_httpStatus' - The response's http status code.
 newUpdateCrawlerScheduleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateCrawlerScheduleResponse
 newUpdateCrawlerScheduleResponse pHttpStatus_ =
   UpdateCrawlerScheduleResponse'
@@ -161,7 +166,7 @@ newUpdateCrawlerScheduleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateCrawlerScheduleResponse_httpStatus :: Lens.Lens' UpdateCrawlerScheduleResponse Core.Int
+updateCrawlerScheduleResponse_httpStatus :: Lens.Lens' UpdateCrawlerScheduleResponse Prelude.Int
 updateCrawlerScheduleResponse_httpStatus = Lens.lens (\UpdateCrawlerScheduleResponse' {httpStatus} -> httpStatus) (\s@UpdateCrawlerScheduleResponse' {} a -> s {httpStatus = a} :: UpdateCrawlerScheduleResponse)
 
-instance Core.NFData UpdateCrawlerScheduleResponse
+instance Prelude.NFData UpdateCrawlerScheduleResponse

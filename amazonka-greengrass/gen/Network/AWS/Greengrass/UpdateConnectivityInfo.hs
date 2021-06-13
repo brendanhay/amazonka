@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateConnectivityInfo' smart constructor.
 data UpdateConnectivityInfo = UpdateConnectivityInfo'
   { -- | A list of connectivity info.
-    connectivityInfo :: Core.Maybe [ConnectivityInfo],
+    connectivityInfo :: Prelude.Maybe [ConnectivityInfo],
     -- | The thing name.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectivityInfo' with all optional fields omitted.
@@ -73,21 +74,21 @@ data UpdateConnectivityInfo = UpdateConnectivityInfo'
 -- 'thingName', 'updateConnectivityInfo_thingName' - The thing name.
 newUpdateConnectivityInfo ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateConnectivityInfo
 newUpdateConnectivityInfo pThingName_ =
   UpdateConnectivityInfo'
     { connectivityInfo =
-        Core.Nothing,
+        Prelude.Nothing,
       thingName = pThingName_
     }
 
 -- | A list of connectivity info.
-updateConnectivityInfo_connectivityInfo :: Lens.Lens' UpdateConnectivityInfo (Core.Maybe [ConnectivityInfo])
-updateConnectivityInfo_connectivityInfo = Lens.lens (\UpdateConnectivityInfo' {connectivityInfo} -> connectivityInfo) (\s@UpdateConnectivityInfo' {} a -> s {connectivityInfo = a} :: UpdateConnectivityInfo) Core.. Lens.mapping Lens._Coerce
+updateConnectivityInfo_connectivityInfo :: Lens.Lens' UpdateConnectivityInfo (Prelude.Maybe [ConnectivityInfo])
+updateConnectivityInfo_connectivityInfo = Lens.lens (\UpdateConnectivityInfo' {connectivityInfo} -> connectivityInfo) (\s@UpdateConnectivityInfo' {} a -> s {connectivityInfo = a} :: UpdateConnectivityInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The thing name.
-updateConnectivityInfo_thingName :: Lens.Lens' UpdateConnectivityInfo Core.Text
+updateConnectivityInfo_thingName :: Lens.Lens' UpdateConnectivityInfo Prelude.Text
 updateConnectivityInfo_thingName = Lens.lens (\UpdateConnectivityInfo' {thingName} -> thingName) (\s@UpdateConnectivityInfo' {} a -> s {thingName = a} :: UpdateConnectivityInfo)
 
 instance Core.AWSRequest UpdateConnectivityInfo where
@@ -99,54 +100,56 @@ instance Core.AWSRequest UpdateConnectivityInfo where
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectivityInfoResponse'
-            Core.<$> (x Core..?> "message")
-            Core.<*> (x Core..?> "Version")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "message")
+            Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateConnectivityInfo
+instance Prelude.Hashable UpdateConnectivityInfo
 
-instance Core.NFData UpdateConnectivityInfo
+instance Prelude.NFData UpdateConnectivityInfo
 
 instance Core.ToHeaders UpdateConnectivityInfo where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateConnectivityInfo where
   toJSON UpdateConnectivityInfo' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ConnectivityInfo" Core..=)
-              Core.<$> connectivityInfo
+              Prelude.<$> connectivityInfo
           ]
       )
 
 instance Core.ToPath UpdateConnectivityInfo where
   toPath UpdateConnectivityInfo' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/things/",
         Core.toBS thingName,
         "/connectivityInfo"
       ]
 
 instance Core.ToQuery UpdateConnectivityInfo where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectivityInfoResponse' smart constructor.
 data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
   { -- | A message about the connectivity info update request.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The new version of the connectivity info.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectivityInfoResponse' with all optional fields omitted.
@@ -163,26 +166,28 @@ data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
 -- 'httpStatus', 'updateConnectivityInfoResponse_httpStatus' - The response's http status code.
 newUpdateConnectivityInfoResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateConnectivityInfoResponse
 newUpdateConnectivityInfoResponse pHttpStatus_ =
   UpdateConnectivityInfoResponse'
     { message =
-        Core.Nothing,
-      version = Core.Nothing,
+        Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A message about the connectivity info update request.
-updateConnectivityInfoResponse_message :: Lens.Lens' UpdateConnectivityInfoResponse (Core.Maybe Core.Text)
+updateConnectivityInfoResponse_message :: Lens.Lens' UpdateConnectivityInfoResponse (Prelude.Maybe Prelude.Text)
 updateConnectivityInfoResponse_message = Lens.lens (\UpdateConnectivityInfoResponse' {message} -> message) (\s@UpdateConnectivityInfoResponse' {} a -> s {message = a} :: UpdateConnectivityInfoResponse)
 
 -- | The new version of the connectivity info.
-updateConnectivityInfoResponse_version :: Lens.Lens' UpdateConnectivityInfoResponse (Core.Maybe Core.Text)
+updateConnectivityInfoResponse_version :: Lens.Lens' UpdateConnectivityInfoResponse (Prelude.Maybe Prelude.Text)
 updateConnectivityInfoResponse_version = Lens.lens (\UpdateConnectivityInfoResponse' {version} -> version) (\s@UpdateConnectivityInfoResponse' {} a -> s {version = a} :: UpdateConnectivityInfoResponse)
 
 -- | The response's http status code.
-updateConnectivityInfoResponse_httpStatus :: Lens.Lens' UpdateConnectivityInfoResponse Core.Int
+updateConnectivityInfoResponse_httpStatus :: Lens.Lens' UpdateConnectivityInfoResponse Prelude.Int
 updateConnectivityInfoResponse_httpStatus = Lens.lens (\UpdateConnectivityInfoResponse' {httpStatus} -> httpStatus) (\s@UpdateConnectivityInfoResponse' {} a -> s {httpStatus = a} :: UpdateConnectivityInfoResponse)
 
-instance Core.NFData UpdateConnectivityInfoResponse
+instance
+  Prelude.NFData
+    UpdateConnectivityInfoResponse

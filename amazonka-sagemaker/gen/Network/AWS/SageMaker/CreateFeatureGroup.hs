@@ -60,6 +60,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -78,21 +79,21 @@ data CreateFeatureGroup = CreateFeatureGroup'
     --     @OfflineStore@.
     --
     -- To learn more about this parameter, see OfflineStoreConfig.
-    offlineStoreConfig :: Core.Maybe OfflineStoreConfig,
+    offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
     -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
     -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Tags used to identify @Features@ in each @FeatureGroup@.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A free-form description of a @FeatureGroup@.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | You can turn the @OnlineStore@ on or off by specifying @True@ for the
     -- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
     -- @False@.
     --
     -- You can also include an AWS KMS key ID (@KMSKeyId@) for at-rest
     -- encryption of the @OnlineStore@.
-    onlineStoreConfig :: Core.Maybe OnlineStoreConfig,
+    onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
     -- | The name of the @FeatureGroup@. The name must be unique within an AWS
     -- Region in an AWS account. The name:
     --
@@ -100,7 +101,7 @@ data CreateFeatureGroup = CreateFeatureGroup'
     --
     -- -   Can only contain alphanumeric character and hyphens. Spaces are not
     --     allowed.
-    featureGroupName :: Core.Text,
+    featureGroupName :: Prelude.Text,
     -- | The name of the @Feature@ whose value uniquely identifies a @Record@
     -- defined in the @FeatureStore@. Only the latest record per identifier
     -- value will be stored in the @OnlineStore@. @RecordIdentifierFeatureName@
@@ -115,7 +116,7 @@ data CreateFeatureGroup = CreateFeatureGroup'
     --
     -- -   Can only contains alphanumeric characters, hyphens, underscores.
     --     Spaces are not allowed.
-    recordIdentifierFeatureName :: Core.Text,
+    recordIdentifierFeatureName :: Prelude.Text,
     -- | The name of the feature that stores the @EventTime@ of a @Record@ in a
     -- @FeatureGroup@.
     --
@@ -136,7 +137,7 @@ data CreateFeatureGroup = CreateFeatureGroup'
     --     respectively and @HH@, @mm@, @ss@, and if applicable, @SSS@
     --     represent the hour, month, second and milliseconds respsectively.
     --     @\'T\'@ and @Z@ are constants.
-    eventTimeFeatureName :: Core.Text,
+    eventTimeFeatureName :: Prelude.Text,
     -- | A list of @Feature@ names and types. @Name@ and @Type@ is compulsory per
     -- @Feature@.
     --
@@ -146,9 +147,9 @@ data CreateFeatureGroup = CreateFeatureGroup'
     -- @write_time@, @api_invocation_time@
     --
     -- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.
-    featureDefinitions :: Core.NonEmpty FeatureDefinition
+    featureDefinitions :: Prelude.NonEmpty FeatureDefinition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFeatureGroup' with all optional fields omitted.
@@ -240,13 +241,13 @@ data CreateFeatureGroup = CreateFeatureGroup'
 -- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.
 newCreateFeatureGroup ::
   -- | 'featureGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'recordIdentifierFeatureName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'eventTimeFeatureName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'featureDefinitions'
-  Core.NonEmpty FeatureDefinition ->
+  Prelude.NonEmpty FeatureDefinition ->
   CreateFeatureGroup
 newCreateFeatureGroup
   pFeatureGroupName_
@@ -255,11 +256,11 @@ newCreateFeatureGroup
   pFeatureDefinitions_ =
     CreateFeatureGroup'
       { offlineStoreConfig =
-          Core.Nothing,
-        roleArn = Core.Nothing,
-        tags = Core.Nothing,
-        description = Core.Nothing,
-        onlineStoreConfig = Core.Nothing,
+          Prelude.Nothing,
+        roleArn = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        description = Prelude.Nothing,
+        onlineStoreConfig = Prelude.Nothing,
         featureGroupName = pFeatureGroupName_,
         recordIdentifierFeatureName =
           pRecordIdentifierFeatureName_,
@@ -280,20 +281,20 @@ newCreateFeatureGroup
 --     @OfflineStore@.
 --
 -- To learn more about this parameter, see OfflineStoreConfig.
-createFeatureGroup_offlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Core.Maybe OfflineStoreConfig)
+createFeatureGroup_offlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OfflineStoreConfig)
 createFeatureGroup_offlineStoreConfig = Lens.lens (\CreateFeatureGroup' {offlineStoreConfig} -> offlineStoreConfig) (\s@CreateFeatureGroup' {} a -> s {offlineStoreConfig = a} :: CreateFeatureGroup)
 
 -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
 -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
-createFeatureGroup_roleArn :: Lens.Lens' CreateFeatureGroup (Core.Maybe Core.Text)
+createFeatureGroup_roleArn :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe Prelude.Text)
 createFeatureGroup_roleArn = Lens.lens (\CreateFeatureGroup' {roleArn} -> roleArn) (\s@CreateFeatureGroup' {} a -> s {roleArn = a} :: CreateFeatureGroup)
 
 -- | Tags used to identify @Features@ in each @FeatureGroup@.
-createFeatureGroup_tags :: Lens.Lens' CreateFeatureGroup (Core.Maybe [Tag])
-createFeatureGroup_tags = Lens.lens (\CreateFeatureGroup' {tags} -> tags) (\s@CreateFeatureGroup' {} a -> s {tags = a} :: CreateFeatureGroup) Core.. Lens.mapping Lens._Coerce
+createFeatureGroup_tags :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe [Tag])
+createFeatureGroup_tags = Lens.lens (\CreateFeatureGroup' {tags} -> tags) (\s@CreateFeatureGroup' {} a -> s {tags = a} :: CreateFeatureGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A free-form description of a @FeatureGroup@.
-createFeatureGroup_description :: Lens.Lens' CreateFeatureGroup (Core.Maybe Core.Text)
+createFeatureGroup_description :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe Prelude.Text)
 createFeatureGroup_description = Lens.lens (\CreateFeatureGroup' {description} -> description) (\s@CreateFeatureGroup' {} a -> s {description = a} :: CreateFeatureGroup)
 
 -- | You can turn the @OnlineStore@ on or off by specifying @True@ for the
@@ -302,7 +303,7 @@ createFeatureGroup_description = Lens.lens (\CreateFeatureGroup' {description} -
 --
 -- You can also include an AWS KMS key ID (@KMSKeyId@) for at-rest
 -- encryption of the @OnlineStore@.
-createFeatureGroup_onlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Core.Maybe OnlineStoreConfig)
+createFeatureGroup_onlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OnlineStoreConfig)
 createFeatureGroup_onlineStoreConfig = Lens.lens (\CreateFeatureGroup' {onlineStoreConfig} -> onlineStoreConfig) (\s@CreateFeatureGroup' {} a -> s {onlineStoreConfig = a} :: CreateFeatureGroup)
 
 -- | The name of the @FeatureGroup@. The name must be unique within an AWS
@@ -312,7 +313,7 @@ createFeatureGroup_onlineStoreConfig = Lens.lens (\CreateFeatureGroup' {onlineSt
 --
 -- -   Can only contain alphanumeric character and hyphens. Spaces are not
 --     allowed.
-createFeatureGroup_featureGroupName :: Lens.Lens' CreateFeatureGroup Core.Text
+createFeatureGroup_featureGroupName :: Lens.Lens' CreateFeatureGroup Prelude.Text
 createFeatureGroup_featureGroupName = Lens.lens (\CreateFeatureGroup' {featureGroupName} -> featureGroupName) (\s@CreateFeatureGroup' {} a -> s {featureGroupName = a} :: CreateFeatureGroup)
 
 -- | The name of the @Feature@ whose value uniquely identifies a @Record@
@@ -329,7 +330,7 @@ createFeatureGroup_featureGroupName = Lens.lens (\CreateFeatureGroup' {featureGr
 --
 -- -   Can only contains alphanumeric characters, hyphens, underscores.
 --     Spaces are not allowed.
-createFeatureGroup_recordIdentifierFeatureName :: Lens.Lens' CreateFeatureGroup Core.Text
+createFeatureGroup_recordIdentifierFeatureName :: Lens.Lens' CreateFeatureGroup Prelude.Text
 createFeatureGroup_recordIdentifierFeatureName = Lens.lens (\CreateFeatureGroup' {recordIdentifierFeatureName} -> recordIdentifierFeatureName) (\s@CreateFeatureGroup' {} a -> s {recordIdentifierFeatureName = a} :: CreateFeatureGroup)
 
 -- | The name of the feature that stores the @EventTime@ of a @Record@ in a
@@ -352,7 +353,7 @@ createFeatureGroup_recordIdentifierFeatureName = Lens.lens (\CreateFeatureGroup'
 --     respectively and @HH@, @mm@, @ss@, and if applicable, @SSS@
 --     represent the hour, month, second and milliseconds respsectively.
 --     @\'T\'@ and @Z@ are constants.
-createFeatureGroup_eventTimeFeatureName :: Lens.Lens' CreateFeatureGroup Core.Text
+createFeatureGroup_eventTimeFeatureName :: Lens.Lens' CreateFeatureGroup Prelude.Text
 createFeatureGroup_eventTimeFeatureName = Lens.lens (\CreateFeatureGroup' {eventTimeFeatureName} -> eventTimeFeatureName) (\s@CreateFeatureGroup' {} a -> s {eventTimeFeatureName = a} :: CreateFeatureGroup)
 
 -- | A list of @Feature@ names and types. @Name@ and @Type@ is compulsory per
@@ -364,8 +365,8 @@ createFeatureGroup_eventTimeFeatureName = Lens.lens (\CreateFeatureGroup' {event
 -- @write_time@, @api_invocation_time@
 --
 -- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.
-createFeatureGroup_featureDefinitions :: Lens.Lens' CreateFeatureGroup (Core.NonEmpty FeatureDefinition)
-createFeatureGroup_featureDefinitions = Lens.lens (\CreateFeatureGroup' {featureDefinitions} -> featureDefinitions) (\s@CreateFeatureGroup' {} a -> s {featureDefinitions = a} :: CreateFeatureGroup) Core.. Lens._Coerce
+createFeatureGroup_featureDefinitions :: Lens.Lens' CreateFeatureGroup (Prelude.NonEmpty FeatureDefinition)
+createFeatureGroup_featureDefinitions = Lens.lens (\CreateFeatureGroup' {featureDefinitions} -> featureDefinitions) (\s@CreateFeatureGroup' {} a -> s {featureDefinitions = a} :: CreateFeatureGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateFeatureGroup where
   type
@@ -376,66 +377,70 @@ instance Core.AWSRequest CreateFeatureGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateFeatureGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "FeatureGroupArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "FeatureGroupArn")
       )
 
-instance Core.Hashable CreateFeatureGroup
+instance Prelude.Hashable CreateFeatureGroup
 
-instance Core.NFData CreateFeatureGroup
+instance Prelude.NFData CreateFeatureGroup
 
 instance Core.ToHeaders CreateFeatureGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateFeatureGroup" :: Core.ByteString),
+              Core.=# ( "SageMaker.CreateFeatureGroup" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateFeatureGroup where
   toJSON CreateFeatureGroup' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("OfflineStoreConfig" Core..=)
-              Core.<$> offlineStoreConfig,
-            ("RoleArn" Core..=) Core.<$> roleArn,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
+              Prelude.<$> offlineStoreConfig,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             ("OnlineStoreConfig" Core..=)
-              Core.<$> onlineStoreConfig,
-            Core.Just
+              Prelude.<$> onlineStoreConfig,
+            Prelude.Just
               ("FeatureGroupName" Core..= featureGroupName),
-            Core.Just
+            Prelude.Just
               ( "RecordIdentifierFeatureName"
                   Core..= recordIdentifierFeatureName
               ),
-            Core.Just
+            Prelude.Just
               ( "EventTimeFeatureName"
                   Core..= eventTimeFeatureName
               ),
-            Core.Just
+            Prelude.Just
               ("FeatureDefinitions" Core..= featureDefinitions)
           ]
       )
 
 instance Core.ToPath CreateFeatureGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateFeatureGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFeatureGroupResponse' smart constructor.
 data CreateFeatureGroupResponse = CreateFeatureGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the @FeatureGroup@. This is a unique
     -- identifier for the feature group.
-    featureGroupArn :: Core.Text
+    featureGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFeatureGroupResponse' with all optional fields omitted.
@@ -451,9 +456,9 @@ data CreateFeatureGroupResponse = CreateFeatureGroupResponse'
 -- identifier for the feature group.
 newCreateFeatureGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'featureGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateFeatureGroupResponse
 newCreateFeatureGroupResponse
   pHttpStatus_
@@ -465,12 +470,12 @@ newCreateFeatureGroupResponse
       }
 
 -- | The response's http status code.
-createFeatureGroupResponse_httpStatus :: Lens.Lens' CreateFeatureGroupResponse Core.Int
+createFeatureGroupResponse_httpStatus :: Lens.Lens' CreateFeatureGroupResponse Prelude.Int
 createFeatureGroupResponse_httpStatus = Lens.lens (\CreateFeatureGroupResponse' {httpStatus} -> httpStatus) (\s@CreateFeatureGroupResponse' {} a -> s {httpStatus = a} :: CreateFeatureGroupResponse)
 
 -- | The Amazon Resource Name (ARN) of the @FeatureGroup@. This is a unique
 -- identifier for the feature group.
-createFeatureGroupResponse_featureGroupArn :: Lens.Lens' CreateFeatureGroupResponse Core.Text
+createFeatureGroupResponse_featureGroupArn :: Lens.Lens' CreateFeatureGroupResponse Prelude.Text
 createFeatureGroupResponse_featureGroupArn = Lens.lens (\CreateFeatureGroupResponse' {featureGroupArn} -> featureGroupArn) (\s@CreateFeatureGroupResponse' {} a -> s {featureGroupArn = a} :: CreateFeatureGroupResponse)
 
-instance Core.NFData CreateFeatureGroupResponse
+instance Prelude.NFData CreateFeatureGroupResponse

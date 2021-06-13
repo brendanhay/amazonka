@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -48,9 +49,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newStopStreamProcessor' smart constructor.
 data StopStreamProcessor = StopStreamProcessor'
   { -- | The name of a stream processor created by CreateStreamProcessor.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopStreamProcessor' with all optional fields omitted.
@@ -63,13 +64,13 @@ data StopStreamProcessor = StopStreamProcessor'
 -- 'name', 'stopStreamProcessor_name' - The name of a stream processor created by CreateStreamProcessor.
 newStopStreamProcessor ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   StopStreamProcessor
 newStopStreamProcessor pName_ =
   StopStreamProcessor' {name = pName_}
 
 -- | The name of a stream processor created by CreateStreamProcessor.
-stopStreamProcessor_name :: Lens.Lens' StopStreamProcessor Core.Text
+stopStreamProcessor_name :: Lens.Lens' StopStreamProcessor Prelude.Text
 stopStreamProcessor_name = Lens.lens (\StopStreamProcessor' {name} -> name) (\s@StopStreamProcessor' {} a -> s {name = a} :: StopStreamProcessor)
 
 instance Core.AWSRequest StopStreamProcessor where
@@ -81,43 +82,47 @@ instance Core.AWSRequest StopStreamProcessor where
     Response.receiveEmpty
       ( \s h x ->
           StopStreamProcessorResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopStreamProcessor
+instance Prelude.Hashable StopStreamProcessor
 
-instance Core.NFData StopStreamProcessor
+instance Prelude.NFData StopStreamProcessor
 
 instance Core.ToHeaders StopStreamProcessor where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.StopStreamProcessor" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopStreamProcessor where
   toJSON StopStreamProcessor' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath StopStreamProcessor where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopStreamProcessor where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopStreamProcessorResponse' smart constructor.
 data StopStreamProcessorResponse = StopStreamProcessorResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopStreamProcessorResponse' with all optional fields omitted.
@@ -130,7 +135,7 @@ data StopStreamProcessorResponse = StopStreamProcessorResponse'
 -- 'httpStatus', 'stopStreamProcessorResponse_httpStatus' - The response's http status code.
 newStopStreamProcessorResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopStreamProcessorResponse
 newStopStreamProcessorResponse pHttpStatus_ =
   StopStreamProcessorResponse'
@@ -139,7 +144,7 @@ newStopStreamProcessorResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopStreamProcessorResponse_httpStatus :: Lens.Lens' StopStreamProcessorResponse Core.Int
+stopStreamProcessorResponse_httpStatus :: Lens.Lens' StopStreamProcessorResponse Prelude.Int
 stopStreamProcessorResponse_httpStatus = Lens.lens (\StopStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@StopStreamProcessorResponse' {} a -> s {httpStatus = a} :: StopStreamProcessorResponse)
 
-instance Core.NFData StopStreamProcessorResponse
+instance Prelude.NFData StopStreamProcessorResponse

@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,12 +64,12 @@ import qualified Network.AWS.Response as Response
 data NotifyMigrationTaskState = NotifyMigrationTaskState'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Core.Text,
+    progressUpdateStream :: Prelude.Text,
     -- | Unique identifier that references the migration task. /Do not store
     -- personal data in this field./
-    migrationTaskName :: Core.Text,
+    migrationTaskName :: Prelude.Text,
     -- | Information about the task\'s progress and status.
     task :: Task,
     -- | The timestamp when the task was gathered.
@@ -77,9 +78,9 @@ data NotifyMigrationTaskState = NotifyMigrationTaskState'
     -- Hub can expect an update. If Migration Hub does not receive an update
     -- within the specified interval, then the migration task will be
     -- considered stale.
-    nextUpdateSeconds :: Core.Natural
+    nextUpdateSeconds :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotifyMigrationTaskState' with all optional fields omitted.
@@ -107,15 +108,15 @@ data NotifyMigrationTaskState = NotifyMigrationTaskState'
 -- considered stale.
 newNotifyMigrationTaskState ::
   -- | 'progressUpdateStream'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'migrationTaskName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'task'
   Task ->
   -- | 'updateDateTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'nextUpdateSeconds'
-  Core.Natural ->
+  Prelude.Natural ->
   NotifyMigrationTaskState
 newNotifyMigrationTaskState
   pProgressUpdateStream_
@@ -124,7 +125,7 @@ newNotifyMigrationTaskState
   pUpdateDateTime_
   pNextUpdateSeconds_ =
     NotifyMigrationTaskState'
-      { dryRun = Core.Nothing,
+      { dryRun = Prelude.Nothing,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
         task = pTask_,
@@ -135,16 +136,16 @@ newNotifyMigrationTaskState
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-notifyMigrationTaskState_dryRun :: Lens.Lens' NotifyMigrationTaskState (Core.Maybe Core.Bool)
+notifyMigrationTaskState_dryRun :: Lens.Lens' NotifyMigrationTaskState (Prelude.Maybe Prelude.Bool)
 notifyMigrationTaskState_dryRun = Lens.lens (\NotifyMigrationTaskState' {dryRun} -> dryRun) (\s@NotifyMigrationTaskState' {} a -> s {dryRun = a} :: NotifyMigrationTaskState)
 
 -- | The name of the ProgressUpdateStream.
-notifyMigrationTaskState_progressUpdateStream :: Lens.Lens' NotifyMigrationTaskState Core.Text
+notifyMigrationTaskState_progressUpdateStream :: Lens.Lens' NotifyMigrationTaskState Prelude.Text
 notifyMigrationTaskState_progressUpdateStream = Lens.lens (\NotifyMigrationTaskState' {progressUpdateStream} -> progressUpdateStream) (\s@NotifyMigrationTaskState' {} a -> s {progressUpdateStream = a} :: NotifyMigrationTaskState)
 
 -- | Unique identifier that references the migration task. /Do not store
 -- personal data in this field./
-notifyMigrationTaskState_migrationTaskName :: Lens.Lens' NotifyMigrationTaskState Core.Text
+notifyMigrationTaskState_migrationTaskName :: Lens.Lens' NotifyMigrationTaskState Prelude.Text
 notifyMigrationTaskState_migrationTaskName = Lens.lens (\NotifyMigrationTaskState' {migrationTaskName} -> migrationTaskName) (\s@NotifyMigrationTaskState' {} a -> s {migrationTaskName = a} :: NotifyMigrationTaskState)
 
 -- | Information about the task\'s progress and status.
@@ -152,14 +153,14 @@ notifyMigrationTaskState_task :: Lens.Lens' NotifyMigrationTaskState Task
 notifyMigrationTaskState_task = Lens.lens (\NotifyMigrationTaskState' {task} -> task) (\s@NotifyMigrationTaskState' {} a -> s {task = a} :: NotifyMigrationTaskState)
 
 -- | The timestamp when the task was gathered.
-notifyMigrationTaskState_updateDateTime :: Lens.Lens' NotifyMigrationTaskState Core.UTCTime
-notifyMigrationTaskState_updateDateTime = Lens.lens (\NotifyMigrationTaskState' {updateDateTime} -> updateDateTime) (\s@NotifyMigrationTaskState' {} a -> s {updateDateTime = a} :: NotifyMigrationTaskState) Core.. Core._Time
+notifyMigrationTaskState_updateDateTime :: Lens.Lens' NotifyMigrationTaskState Prelude.UTCTime
+notifyMigrationTaskState_updateDateTime = Lens.lens (\NotifyMigrationTaskState' {updateDateTime} -> updateDateTime) (\s@NotifyMigrationTaskState' {} a -> s {updateDateTime = a} :: NotifyMigrationTaskState) Prelude.. Core._Time
 
 -- | Number of seconds after the UpdateDateTime within which the Migration
 -- Hub can expect an update. If Migration Hub does not receive an update
 -- within the specified interval, then the migration task will be
 -- considered stale.
-notifyMigrationTaskState_nextUpdateSeconds :: Lens.Lens' NotifyMigrationTaskState Core.Natural
+notifyMigrationTaskState_nextUpdateSeconds :: Lens.Lens' NotifyMigrationTaskState Prelude.Natural
 notifyMigrationTaskState_nextUpdateSeconds = Lens.lens (\NotifyMigrationTaskState' {nextUpdateSeconds} -> nextUpdateSeconds) (\s@NotifyMigrationTaskState' {} a -> s {nextUpdateSeconds = a} :: NotifyMigrationTaskState)
 
 instance Core.AWSRequest NotifyMigrationTaskState where
@@ -171,56 +172,59 @@ instance Core.AWSRequest NotifyMigrationTaskState where
     Response.receiveEmpty
       ( \s h x ->
           NotifyMigrationTaskStateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable NotifyMigrationTaskState
+instance Prelude.Hashable NotifyMigrationTaskState
 
-instance Core.NFData NotifyMigrationTaskState
+instance Prelude.NFData NotifyMigrationTaskState
 
 instance Core.ToHeaders NotifyMigrationTaskState where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMigrationHub.NotifyMigrationTaskState" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON NotifyMigrationTaskState where
   toJSON NotifyMigrationTaskState' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DryRun" Core..=) Core.<$> dryRun,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+            Prelude.Just
               ( "ProgressUpdateStream"
                   Core..= progressUpdateStream
               ),
-            Core.Just
+            Prelude.Just
               ("MigrationTaskName" Core..= migrationTaskName),
-            Core.Just ("Task" Core..= task),
-            Core.Just ("UpdateDateTime" Core..= updateDateTime),
-            Core.Just
+            Prelude.Just ("Task" Core..= task),
+            Prelude.Just
+              ("UpdateDateTime" Core..= updateDateTime),
+            Prelude.Just
               ("NextUpdateSeconds" Core..= nextUpdateSeconds)
           ]
       )
 
 instance Core.ToPath NotifyMigrationTaskState where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery NotifyMigrationTaskState where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newNotifyMigrationTaskStateResponse' smart constructor.
 data NotifyMigrationTaskStateResponse = NotifyMigrationTaskStateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotifyMigrationTaskStateResponse' with all optional fields omitted.
@@ -233,7 +237,7 @@ data NotifyMigrationTaskStateResponse = NotifyMigrationTaskStateResponse'
 -- 'httpStatus', 'notifyMigrationTaskStateResponse_httpStatus' - The response's http status code.
 newNotifyMigrationTaskStateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   NotifyMigrationTaskStateResponse
 newNotifyMigrationTaskStateResponse pHttpStatus_ =
   NotifyMigrationTaskStateResponse'
@@ -242,7 +246,9 @@ newNotifyMigrationTaskStateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-notifyMigrationTaskStateResponse_httpStatus :: Lens.Lens' NotifyMigrationTaskStateResponse Core.Int
+notifyMigrationTaskStateResponse_httpStatus :: Lens.Lens' NotifyMigrationTaskStateResponse Prelude.Int
 notifyMigrationTaskStateResponse_httpStatus = Lens.lens (\NotifyMigrationTaskStateResponse' {httpStatus} -> httpStatus) (\s@NotifyMigrationTaskStateResponse' {} a -> s {httpStatus = a} :: NotifyMigrationTaskStateResponse)
 
-instance Core.NFData NotifyMigrationTaskStateResponse
+instance
+  Prelude.NFData
+    NotifyMigrationTaskStateResponse

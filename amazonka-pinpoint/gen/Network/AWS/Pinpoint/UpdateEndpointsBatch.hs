@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,10 +56,10 @@ import qualified Network.AWS.Response as Response
 data UpdateEndpointsBatch = UpdateEndpointsBatch'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     endpointBatchRequest :: EndpointBatchRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateEndpointsBatch' with all optional fields omitted.
@@ -74,7 +75,7 @@ data UpdateEndpointsBatch = UpdateEndpointsBatch'
 -- 'endpointBatchRequest', 'updateEndpointsBatch_endpointBatchRequest' - Undocumented member.
 newUpdateEndpointsBatch ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointBatchRequest'
   EndpointBatchRequest ->
   UpdateEndpointsBatch
@@ -89,7 +90,7 @@ newUpdateEndpointsBatch
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateEndpointsBatch_applicationId :: Lens.Lens' UpdateEndpointsBatch Core.Text
+updateEndpointsBatch_applicationId :: Lens.Lens' UpdateEndpointsBatch Prelude.Text
 updateEndpointsBatch_applicationId = Lens.lens (\UpdateEndpointsBatch' {applicationId} -> applicationId) (\s@UpdateEndpointsBatch' {} a -> s {applicationId = a} :: UpdateEndpointsBatch)
 
 -- | Undocumented member.
@@ -105,28 +106,30 @@ instance Core.AWSRequest UpdateEndpointsBatch where
     Response.receiveJSON
       ( \s h x ->
           UpdateEndpointsBatchResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateEndpointsBatch
+instance Prelude.Hashable UpdateEndpointsBatch
 
-instance Core.NFData UpdateEndpointsBatch
+instance Prelude.NFData UpdateEndpointsBatch
 
 instance Core.ToHeaders UpdateEndpointsBatch where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateEndpointsBatch where
   toJSON UpdateEndpointsBatch' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "EndpointBatchRequest"
                   Core..= endpointBatchRequest
               )
@@ -135,19 +138,19 @@ instance Core.ToJSON UpdateEndpointsBatch where
 
 instance Core.ToPath UpdateEndpointsBatch where
   toPath UpdateEndpointsBatch' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apps/", Core.toBS applicationId, "/endpoints"]
 
 instance Core.ToQuery UpdateEndpointsBatch where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointsBatchResponse' smart constructor.
 data UpdateEndpointsBatchResponse = UpdateEndpointsBatchResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     messageBody :: MessageBody
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateEndpointsBatchResponse' with all optional fields omitted.
@@ -162,7 +165,7 @@ data UpdateEndpointsBatchResponse = UpdateEndpointsBatchResponse'
 -- 'messageBody', 'updateEndpointsBatchResponse_messageBody' - Undocumented member.
 newUpdateEndpointsBatchResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'messageBody'
   MessageBody ->
   UpdateEndpointsBatchResponse
@@ -176,11 +179,11 @@ newUpdateEndpointsBatchResponse
       }
 
 -- | The response's http status code.
-updateEndpointsBatchResponse_httpStatus :: Lens.Lens' UpdateEndpointsBatchResponse Core.Int
+updateEndpointsBatchResponse_httpStatus :: Lens.Lens' UpdateEndpointsBatchResponse Prelude.Int
 updateEndpointsBatchResponse_httpStatus = Lens.lens (\UpdateEndpointsBatchResponse' {httpStatus} -> httpStatus) (\s@UpdateEndpointsBatchResponse' {} a -> s {httpStatus = a} :: UpdateEndpointsBatchResponse)
 
 -- | Undocumented member.
 updateEndpointsBatchResponse_messageBody :: Lens.Lens' UpdateEndpointsBatchResponse MessageBody
 updateEndpointsBatchResponse_messageBody = Lens.lens (\UpdateEndpointsBatchResponse' {messageBody} -> messageBody) (\s@UpdateEndpointsBatchResponse' {} a -> s {messageBody = a} :: UpdateEndpointsBatchResponse)
 
-instance Core.NFData UpdateEndpointsBatchResponse
+instance Prelude.NFData UpdateEndpointsBatchResponse

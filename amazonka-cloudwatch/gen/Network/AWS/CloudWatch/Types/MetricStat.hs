@@ -23,6 +23,7 @@ import Network.AWS.CloudWatch.Types.Metric
 import Network.AWS.CloudWatch.Types.StandardUnit
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure defines the metric to be returned, along with the
 -- statistics, period, and units.
@@ -39,7 +40,7 @@ data MetricStat = MetricStat'
     -- that unit specified. If you specify a unit that does not match the data
     -- collected, the results of the operation are null. CloudWatch does not
     -- perform unit conversions.
-    unit :: Core.Maybe StandardUnit,
+    unit :: Prelude.Maybe StandardUnit,
     -- | The metric to return, including the metric name, namespace, and
     -- dimensions.
     metric :: Metric,
@@ -63,12 +64,12 @@ data MetricStat = MetricStat'
     --
     -- -   Start time greater than 63 days ago - Use a multiple of 3600 seconds
     --     (1 hour).
-    period :: Core.Natural,
+    period :: Prelude.Natural,
     -- | The statistic to return. It can include any CloudWatch statistic or
     -- extended statistic.
-    stat :: Core.Text
+    stat :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricStat' with all optional fields omitted.
@@ -119,13 +120,13 @@ newMetricStat ::
   -- | 'metric'
   Metric ->
   -- | 'period'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'stat'
-  Core.Text ->
+  Prelude.Text ->
   MetricStat
 newMetricStat pMetric_ pPeriod_ pStat_ =
   MetricStat'
-    { unit = Core.Nothing,
+    { unit = Prelude.Nothing,
       metric = pMetric_,
       period = pPeriod_,
       stat = pStat_
@@ -141,7 +142,7 @@ newMetricStat pMetric_ pPeriod_ pStat_ =
 -- that unit specified. If you specify a unit that does not match the data
 -- collected, the results of the operation are null. CloudWatch does not
 -- perform unit conversions.
-metricStat_unit :: Lens.Lens' MetricStat (Core.Maybe StandardUnit)
+metricStat_unit :: Lens.Lens' MetricStat (Prelude.Maybe StandardUnit)
 metricStat_unit = Lens.lens (\MetricStat' {unit} -> unit) (\s@MetricStat' {} a -> s {unit = a} :: MetricStat)
 
 -- | The metric to return, including the metric name, namespace, and
@@ -169,29 +170,29 @@ metricStat_metric = Lens.lens (\MetricStat' {metric} -> metric) (\s@MetricStat' 
 --
 -- -   Start time greater than 63 days ago - Use a multiple of 3600 seconds
 --     (1 hour).
-metricStat_period :: Lens.Lens' MetricStat Core.Natural
+metricStat_period :: Lens.Lens' MetricStat Prelude.Natural
 metricStat_period = Lens.lens (\MetricStat' {period} -> period) (\s@MetricStat' {} a -> s {period = a} :: MetricStat)
 
 -- | The statistic to return. It can include any CloudWatch statistic or
 -- extended statistic.
-metricStat_stat :: Lens.Lens' MetricStat Core.Text
+metricStat_stat :: Lens.Lens' MetricStat Prelude.Text
 metricStat_stat = Lens.lens (\MetricStat' {stat} -> stat) (\s@MetricStat' {} a -> s {stat = a} :: MetricStat)
 
 instance Core.FromXML MetricStat where
   parseXML x =
     MetricStat'
-      Core.<$> (x Core..@? "Unit")
-      Core.<*> (x Core..@ "Metric")
-      Core.<*> (x Core..@ "Period")
-      Core.<*> (x Core..@ "Stat")
+      Prelude.<$> (x Core..@? "Unit")
+      Prelude.<*> (x Core..@ "Metric")
+      Prelude.<*> (x Core..@ "Period")
+      Prelude.<*> (x Core..@ "Stat")
 
-instance Core.Hashable MetricStat
+instance Prelude.Hashable MetricStat
 
-instance Core.NFData MetricStat
+instance Prelude.NFData MetricStat
 
 instance Core.ToQuery MetricStat where
   toQuery MetricStat' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Unit" Core.=: unit,
         "Metric" Core.=: metric,
         "Period" Core.=: period,

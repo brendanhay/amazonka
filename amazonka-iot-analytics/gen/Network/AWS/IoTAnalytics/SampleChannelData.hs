@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +54,15 @@ import qualified Network.AWS.Response as Response
 data SampleChannelData = SampleChannelData'
   { -- | The number of sample messages to be retrieved. The limit is 10. The
     -- default is also 10.
-    maxMessages :: Core.Maybe Core.Natural,
+    maxMessages :: Prelude.Maybe Prelude.Natural,
     -- | The start of the time window from which sample messages are retrieved.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The end of the time window from which sample messages are retrieved.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the channel whose message samples are retrieved.
-    channelName :: Core.Text
+    channelName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SampleChannelData' with all optional fields omitted.
@@ -81,31 +82,31 @@ data SampleChannelData = SampleChannelData'
 -- 'channelName', 'sampleChannelData_channelName' - The name of the channel whose message samples are retrieved.
 newSampleChannelData ::
   -- | 'channelName'
-  Core.Text ->
+  Prelude.Text ->
   SampleChannelData
 newSampleChannelData pChannelName_ =
   SampleChannelData'
-    { maxMessages = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
+    { maxMessages = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
       channelName = pChannelName_
     }
 
 -- | The number of sample messages to be retrieved. The limit is 10. The
 -- default is also 10.
-sampleChannelData_maxMessages :: Lens.Lens' SampleChannelData (Core.Maybe Core.Natural)
+sampleChannelData_maxMessages :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.Natural)
 sampleChannelData_maxMessages = Lens.lens (\SampleChannelData' {maxMessages} -> maxMessages) (\s@SampleChannelData' {} a -> s {maxMessages = a} :: SampleChannelData)
 
 -- | The start of the time window from which sample messages are retrieved.
-sampleChannelData_startTime :: Lens.Lens' SampleChannelData (Core.Maybe Core.UTCTime)
-sampleChannelData_startTime = Lens.lens (\SampleChannelData' {startTime} -> startTime) (\s@SampleChannelData' {} a -> s {startTime = a} :: SampleChannelData) Core.. Lens.mapping Core._Time
+sampleChannelData_startTime :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.UTCTime)
+sampleChannelData_startTime = Lens.lens (\SampleChannelData' {startTime} -> startTime) (\s@SampleChannelData' {} a -> s {startTime = a} :: SampleChannelData) Prelude.. Lens.mapping Core._Time
 
 -- | The end of the time window from which sample messages are retrieved.
-sampleChannelData_endTime :: Lens.Lens' SampleChannelData (Core.Maybe Core.UTCTime)
-sampleChannelData_endTime = Lens.lens (\SampleChannelData' {endTime} -> endTime) (\s@SampleChannelData' {} a -> s {endTime = a} :: SampleChannelData) Core.. Lens.mapping Core._Time
+sampleChannelData_endTime :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.UTCTime)
+sampleChannelData_endTime = Lens.lens (\SampleChannelData' {endTime} -> endTime) (\s@SampleChannelData' {} a -> s {endTime = a} :: SampleChannelData) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the channel whose message samples are retrieved.
-sampleChannelData_channelName :: Lens.Lens' SampleChannelData Core.Text
+sampleChannelData_channelName :: Lens.Lens' SampleChannelData Prelude.Text
 sampleChannelData_channelName = Lens.lens (\SampleChannelData' {channelName} -> channelName) (\s@SampleChannelData' {} a -> s {channelName = a} :: SampleChannelData)
 
 instance Core.AWSRequest SampleChannelData where
@@ -117,25 +118,25 @@ instance Core.AWSRequest SampleChannelData where
     Response.receiveJSON
       ( \s h x ->
           SampleChannelDataResponse'
-            Core.<$> (x Core..?> "payloads")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "payloads")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SampleChannelData
+instance Prelude.Hashable SampleChannelData
 
-instance Core.NFData SampleChannelData
+instance Prelude.NFData SampleChannelData
 
 instance Core.ToHeaders SampleChannelData where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SampleChannelData where
   toPath SampleChannelData' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/channels/", Core.toBS channelName, "/sample"]
 
 instance Core.ToQuery SampleChannelData where
   toQuery SampleChannelData' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "maxMessages" Core.=: maxMessages,
         "startTime" Core.=: startTime,
         "endTime" Core.=: endTime
@@ -145,11 +146,11 @@ instance Core.ToQuery SampleChannelData where
 data SampleChannelDataResponse = SampleChannelDataResponse'
   { -- | The list of message samples. Each sample message is returned as a
     -- base64-encoded string.
-    payloads :: Core.Maybe (Core.NonEmpty Core.Base64),
+    payloads :: Prelude.Maybe (Prelude.NonEmpty Core.Base64),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SampleChannelDataResponse' with all optional fields omitted.
@@ -165,21 +166,22 @@ data SampleChannelDataResponse = SampleChannelDataResponse'
 -- 'httpStatus', 'sampleChannelDataResponse_httpStatus' - The response's http status code.
 newSampleChannelDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SampleChannelDataResponse
 newSampleChannelDataResponse pHttpStatus_ =
   SampleChannelDataResponse'
-    { payloads = Core.Nothing,
+    { payloads =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of message samples. Each sample message is returned as a
 -- base64-encoded string.
-sampleChannelDataResponse_payloads :: Lens.Lens' SampleChannelDataResponse (Core.Maybe (Core.NonEmpty Core.ByteString))
-sampleChannelDataResponse_payloads = Lens.lens (\SampleChannelDataResponse' {payloads} -> payloads) (\s@SampleChannelDataResponse' {} a -> s {payloads = a} :: SampleChannelDataResponse) Core.. Lens.mapping Lens._Coerce
+sampleChannelDataResponse_payloads :: Lens.Lens' SampleChannelDataResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.ByteString))
+sampleChannelDataResponse_payloads = Lens.lens (\SampleChannelDataResponse' {payloads} -> payloads) (\s@SampleChannelDataResponse' {} a -> s {payloads = a} :: SampleChannelDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-sampleChannelDataResponse_httpStatus :: Lens.Lens' SampleChannelDataResponse Core.Int
+sampleChannelDataResponse_httpStatus :: Lens.Lens' SampleChannelDataResponse Prelude.Int
 sampleChannelDataResponse_httpStatus = Lens.lens (\SampleChannelDataResponse' {httpStatus} -> httpStatus) (\s@SampleChannelDataResponse' {} a -> s {httpStatus = a} :: SampleChannelDataResponse)
 
-instance Core.NFData SampleChannelDataResponse
+instance Prelude.NFData SampleChannelDataResponse

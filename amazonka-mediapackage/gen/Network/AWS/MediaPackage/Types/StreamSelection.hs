@@ -22,19 +22,20 @@ module Network.AWS.MediaPackage.Types.StreamSelection where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.StreamOrder
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A StreamSelection configuration.
 --
 -- /See:/ 'newStreamSelection' smart constructor.
 data StreamSelection = StreamSelection'
   { -- | The minimum video bitrate (bps) to include in output.
-    minVideoBitsPerSecond :: Core.Maybe Core.Int,
+    minVideoBitsPerSecond :: Prelude.Maybe Prelude.Int,
     -- | The maximum video bitrate (bps) to include in output.
-    maxVideoBitsPerSecond :: Core.Maybe Core.Int,
+    maxVideoBitsPerSecond :: Prelude.Maybe Prelude.Int,
     -- | A directive that determines the order of streams in the output.
-    streamOrder :: Core.Maybe StreamOrder
+    streamOrder :: Prelude.Maybe StreamOrder
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamSelection' with all optional fields omitted.
@@ -54,21 +55,21 @@ newStreamSelection ::
 newStreamSelection =
   StreamSelection'
     { minVideoBitsPerSecond =
-        Core.Nothing,
-      maxVideoBitsPerSecond = Core.Nothing,
-      streamOrder = Core.Nothing
+        Prelude.Nothing,
+      maxVideoBitsPerSecond = Prelude.Nothing,
+      streamOrder = Prelude.Nothing
     }
 
 -- | The minimum video bitrate (bps) to include in output.
-streamSelection_minVideoBitsPerSecond :: Lens.Lens' StreamSelection (Core.Maybe Core.Int)
+streamSelection_minVideoBitsPerSecond :: Lens.Lens' StreamSelection (Prelude.Maybe Prelude.Int)
 streamSelection_minVideoBitsPerSecond = Lens.lens (\StreamSelection' {minVideoBitsPerSecond} -> minVideoBitsPerSecond) (\s@StreamSelection' {} a -> s {minVideoBitsPerSecond = a} :: StreamSelection)
 
 -- | The maximum video bitrate (bps) to include in output.
-streamSelection_maxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Core.Maybe Core.Int)
+streamSelection_maxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Prelude.Maybe Prelude.Int)
 streamSelection_maxVideoBitsPerSecond = Lens.lens (\StreamSelection' {maxVideoBitsPerSecond} -> maxVideoBitsPerSecond) (\s@StreamSelection' {} a -> s {maxVideoBitsPerSecond = a} :: StreamSelection)
 
 -- | A directive that determines the order of streams in the output.
-streamSelection_streamOrder :: Lens.Lens' StreamSelection (Core.Maybe StreamOrder)
+streamSelection_streamOrder :: Lens.Lens' StreamSelection (Prelude.Maybe StreamOrder)
 streamSelection_streamOrder = Lens.lens (\StreamSelection' {streamOrder} -> streamOrder) (\s@StreamSelection' {} a -> s {streamOrder = a} :: StreamSelection)
 
 instance Core.FromJSON StreamSelection where
@@ -77,23 +78,23 @@ instance Core.FromJSON StreamSelection where
       "StreamSelection"
       ( \x ->
           StreamSelection'
-            Core.<$> (x Core..:? "minVideoBitsPerSecond")
-            Core.<*> (x Core..:? "maxVideoBitsPerSecond")
-            Core.<*> (x Core..:? "streamOrder")
+            Prelude.<$> (x Core..:? "minVideoBitsPerSecond")
+            Prelude.<*> (x Core..:? "maxVideoBitsPerSecond")
+            Prelude.<*> (x Core..:? "streamOrder")
       )
 
-instance Core.Hashable StreamSelection
+instance Prelude.Hashable StreamSelection
 
-instance Core.NFData StreamSelection
+instance Prelude.NFData StreamSelection
 
 instance Core.ToJSON StreamSelection where
   toJSON StreamSelection' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("minVideoBitsPerSecond" Core..=)
-              Core.<$> minVideoBitsPerSecond,
+              Prelude.<$> minVideoBitsPerSecond,
             ("maxVideoBitsPerSecond" Core..=)
-              Core.<$> maxVideoBitsPerSecond,
-            ("streamOrder" Core..=) Core.<$> streamOrder
+              Prelude.<$> maxVideoBitsPerSecond,
+            ("streamOrder" Core..=) Prelude.<$> streamOrder
           ]
       )

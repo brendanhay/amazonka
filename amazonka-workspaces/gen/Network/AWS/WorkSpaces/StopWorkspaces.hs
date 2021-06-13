@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -51,9 +52,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newStopWorkspaces' smart constructor.
 data StopWorkspaces = StopWorkspaces'
   { -- | The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
-    stopWorkspaceRequests :: Core.NonEmpty StopRequest
+    stopWorkspaceRequests :: Prelude.NonEmpty StopRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopWorkspaces' with all optional fields omitted.
@@ -66,7 +67,7 @@ data StopWorkspaces = StopWorkspaces'
 -- 'stopWorkspaceRequests', 'stopWorkspaces_stopWorkspaceRequests' - The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
 newStopWorkspaces ::
   -- | 'stopWorkspaceRequests'
-  Core.NonEmpty StopRequest ->
+  Prelude.NonEmpty StopRequest ->
   StopWorkspaces
 newStopWorkspaces pStopWorkspaceRequests_ =
   StopWorkspaces'
@@ -75,8 +76,8 @@ newStopWorkspaces pStopWorkspaceRequests_ =
     }
 
 -- | The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
-stopWorkspaces_stopWorkspaceRequests :: Lens.Lens' StopWorkspaces (Core.NonEmpty StopRequest)
-stopWorkspaces_stopWorkspaceRequests = Lens.lens (\StopWorkspaces' {stopWorkspaceRequests} -> stopWorkspaceRequests) (\s@StopWorkspaces' {} a -> s {stopWorkspaceRequests = a} :: StopWorkspaces) Core.. Lens._Coerce
+stopWorkspaces_stopWorkspaceRequests :: Lens.Lens' StopWorkspaces (Prelude.NonEmpty StopRequest)
+stopWorkspaces_stopWorkspaceRequests = Lens.lens (\StopWorkspaces' {stopWorkspaceRequests} -> stopWorkspaceRequests) (\s@StopWorkspaces' {} a -> s {stopWorkspaceRequests = a} :: StopWorkspaces) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest StopWorkspaces where
   type
@@ -87,32 +88,34 @@ instance Core.AWSRequest StopWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           StopWorkspacesResponse'
-            Core.<$> (x Core..?> "FailedRequests" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FailedRequests" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopWorkspaces
+instance Prelude.Hashable StopWorkspaces
 
-instance Core.NFData StopWorkspaces
+instance Prelude.NFData StopWorkspaces
 
 instance Core.ToHeaders StopWorkspaces where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.StopWorkspaces" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopWorkspaces where
   toJSON StopWorkspaces' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "StopWorkspaceRequests"
                   Core..= stopWorkspaceRequests
               )
@@ -120,19 +123,19 @@ instance Core.ToJSON StopWorkspaces where
       )
 
 instance Core.ToPath StopWorkspaces where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopWorkspaces where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopWorkspacesResponse' smart constructor.
 data StopWorkspacesResponse = StopWorkspacesResponse'
   { -- | Information about the WorkSpaces that could not be stopped.
-    failedRequests :: Core.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Prelude.Maybe [FailedWorkspaceChangeRequest],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopWorkspacesResponse' with all optional fields omitted.
@@ -147,21 +150,21 @@ data StopWorkspacesResponse = StopWorkspacesResponse'
 -- 'httpStatus', 'stopWorkspacesResponse_httpStatus' - The response's http status code.
 newStopWorkspacesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopWorkspacesResponse
 newStopWorkspacesResponse pHttpStatus_ =
   StopWorkspacesResponse'
     { failedRequests =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the WorkSpaces that could not be stopped.
-stopWorkspacesResponse_failedRequests :: Lens.Lens' StopWorkspacesResponse (Core.Maybe [FailedWorkspaceChangeRequest])
-stopWorkspacesResponse_failedRequests = Lens.lens (\StopWorkspacesResponse' {failedRequests} -> failedRequests) (\s@StopWorkspacesResponse' {} a -> s {failedRequests = a} :: StopWorkspacesResponse) Core.. Lens.mapping Lens._Coerce
+stopWorkspacesResponse_failedRequests :: Lens.Lens' StopWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
+stopWorkspacesResponse_failedRequests = Lens.lens (\StopWorkspacesResponse' {failedRequests} -> failedRequests) (\s@StopWorkspacesResponse' {} a -> s {failedRequests = a} :: StopWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-stopWorkspacesResponse_httpStatus :: Lens.Lens' StopWorkspacesResponse Core.Int
+stopWorkspacesResponse_httpStatus :: Lens.Lens' StopWorkspacesResponse Prelude.Int
 stopWorkspacesResponse_httpStatus = Lens.lens (\StopWorkspacesResponse' {httpStatus} -> httpStatus) (\s@StopWorkspacesResponse' {} a -> s {httpStatus = a} :: StopWorkspacesResponse)
 
-instance Core.NFData StopWorkspacesResponse
+instance Prelude.NFData StopWorkspacesResponse

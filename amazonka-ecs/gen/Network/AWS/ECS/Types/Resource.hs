@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.Resource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the resources available for a container instance.
 --
@@ -28,24 +29,24 @@ import qualified Network.AWS.Lens as Lens
 data Resource = Resource'
   { -- | When the @stringSetValue@ type is set, the value of the resource must be
     -- a string type.
-    stringSetValue :: Core.Maybe [Core.Text],
+    stringSetValue :: Prelude.Maybe [Prelude.Text],
     -- | When the @doubleValue@ type is set, the value of the resource must be a
     -- double precision floating-point type.
-    doubleValue :: Core.Maybe Core.Double,
+    doubleValue :: Prelude.Maybe Prelude.Double,
     -- | The name of the resource, such as @CPU@, @MEMORY@, @PORTS@, @PORTS_UDP@,
     -- or a user-defined resource.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | When the @longValue@ type is set, the value of the resource must be an
     -- extended precision floating-point type.
-    longValue :: Core.Maybe Core.Integer,
+    longValue :: Prelude.Maybe Prelude.Integer,
     -- | The type of the resource, such as @INTEGER@, @DOUBLE@, @LONG@, or
     -- @STRINGSET@.
-    type' :: Core.Maybe Core.Text,
+    type' :: Prelude.Maybe Prelude.Text,
     -- | When the @integerValue@ type is set, the value of the resource must be
     -- an integer.
-    integerValue :: Core.Maybe Core.Int
+    integerValue :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Resource' with all optional fields omitted.
@@ -76,42 +77,42 @@ newResource ::
   Resource
 newResource =
   Resource'
-    { stringSetValue = Core.Nothing,
-      doubleValue = Core.Nothing,
-      name = Core.Nothing,
-      longValue = Core.Nothing,
-      type' = Core.Nothing,
-      integerValue = Core.Nothing
+    { stringSetValue = Prelude.Nothing,
+      doubleValue = Prelude.Nothing,
+      name = Prelude.Nothing,
+      longValue = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      integerValue = Prelude.Nothing
     }
 
 -- | When the @stringSetValue@ type is set, the value of the resource must be
 -- a string type.
-resource_stringSetValue :: Lens.Lens' Resource (Core.Maybe [Core.Text])
-resource_stringSetValue = Lens.lens (\Resource' {stringSetValue} -> stringSetValue) (\s@Resource' {} a -> s {stringSetValue = a} :: Resource) Core.. Lens.mapping Lens._Coerce
+resource_stringSetValue :: Lens.Lens' Resource (Prelude.Maybe [Prelude.Text])
+resource_stringSetValue = Lens.lens (\Resource' {stringSetValue} -> stringSetValue) (\s@Resource' {} a -> s {stringSetValue = a} :: Resource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When the @doubleValue@ type is set, the value of the resource must be a
 -- double precision floating-point type.
-resource_doubleValue :: Lens.Lens' Resource (Core.Maybe Core.Double)
+resource_doubleValue :: Lens.Lens' Resource (Prelude.Maybe Prelude.Double)
 resource_doubleValue = Lens.lens (\Resource' {doubleValue} -> doubleValue) (\s@Resource' {} a -> s {doubleValue = a} :: Resource)
 
 -- | The name of the resource, such as @CPU@, @MEMORY@, @PORTS@, @PORTS_UDP@,
 -- or a user-defined resource.
-resource_name :: Lens.Lens' Resource (Core.Maybe Core.Text)
+resource_name :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_name = Lens.lens (\Resource' {name} -> name) (\s@Resource' {} a -> s {name = a} :: Resource)
 
 -- | When the @longValue@ type is set, the value of the resource must be an
 -- extended precision floating-point type.
-resource_longValue :: Lens.Lens' Resource (Core.Maybe Core.Integer)
+resource_longValue :: Lens.Lens' Resource (Prelude.Maybe Prelude.Integer)
 resource_longValue = Lens.lens (\Resource' {longValue} -> longValue) (\s@Resource' {} a -> s {longValue = a} :: Resource)
 
 -- | The type of the resource, such as @INTEGER@, @DOUBLE@, @LONG@, or
 -- @STRINGSET@.
-resource_type :: Lens.Lens' Resource (Core.Maybe Core.Text)
+resource_type :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_type = Lens.lens (\Resource' {type'} -> type') (\s@Resource' {} a -> s {type' = a} :: Resource)
 
 -- | When the @integerValue@ type is set, the value of the resource must be
 -- an integer.
-resource_integerValue :: Lens.Lens' Resource (Core.Maybe Core.Int)
+resource_integerValue :: Lens.Lens' Resource (Prelude.Maybe Prelude.Int)
 resource_integerValue = Lens.lens (\Resource' {integerValue} -> integerValue) (\s@Resource' {} a -> s {integerValue = a} :: Resource)
 
 instance Core.FromJSON Resource where
@@ -120,27 +121,28 @@ instance Core.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Core.<$> (x Core..:? "stringSetValue" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "doubleValue")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "longValue")
-            Core.<*> (x Core..:? "type")
-            Core.<*> (x Core..:? "integerValue")
+            Prelude.<$> (x Core..:? "stringSetValue" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "doubleValue")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "longValue")
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "integerValue")
       )
 
-instance Core.Hashable Resource
+instance Prelude.Hashable Resource
 
-instance Core.NFData Resource
+instance Prelude.NFData Resource
 
 instance Core.ToJSON Resource where
   toJSON Resource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("stringSetValue" Core..=) Core.<$> stringSetValue,
-            ("doubleValue" Core..=) Core.<$> doubleValue,
-            ("name" Core..=) Core.<$> name,
-            ("longValue" Core..=) Core.<$> longValue,
-            ("type" Core..=) Core.<$> type',
-            ("integerValue" Core..=) Core.<$> integerValue
+      ( Prelude.catMaybes
+          [ ("stringSetValue" Core..=)
+              Prelude.<$> stringSetValue,
+            ("doubleValue" Core..=) Prelude.<$> doubleValue,
+            ("name" Core..=) Prelude.<$> name,
+            ("longValue" Core..=) Prelude.<$> longValue,
+            ("type" Core..=) Prelude.<$> type',
+            ("integerValue" Core..=) Prelude.<$> integerValue
           ]
       )

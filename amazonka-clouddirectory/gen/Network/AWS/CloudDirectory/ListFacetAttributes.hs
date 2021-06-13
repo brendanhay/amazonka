@@ -48,21 +48,22 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFacetAttributes' smart constructor.
 data ListFacetAttributes = ListFacetAttributes'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to retrieve.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the schema where the facet resides.
-    schemaArn :: Core.Text,
+    schemaArn :: Prelude.Text,
     -- | The name of the facet whose attributes will be retrieved.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListFacetAttributes' with all optional fields omitted.
@@ -81,32 +82,32 @@ data ListFacetAttributes = ListFacetAttributes'
 -- 'name', 'listFacetAttributes_name' - The name of the facet whose attributes will be retrieved.
 newListFacetAttributes ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   ListFacetAttributes
 newListFacetAttributes pSchemaArn_ pName_ =
   ListFacetAttributes'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       schemaArn = pSchemaArn_,
       name = pName_
     }
 
 -- | The pagination token.
-listFacetAttributes_nextToken :: Lens.Lens' ListFacetAttributes (Core.Maybe Core.Text)
+listFacetAttributes_nextToken :: Lens.Lens' ListFacetAttributes (Prelude.Maybe Prelude.Text)
 listFacetAttributes_nextToken = Lens.lens (\ListFacetAttributes' {nextToken} -> nextToken) (\s@ListFacetAttributes' {} a -> s {nextToken = a} :: ListFacetAttributes)
 
 -- | The maximum number of results to retrieve.
-listFacetAttributes_maxResults :: Lens.Lens' ListFacetAttributes (Core.Maybe Core.Natural)
+listFacetAttributes_maxResults :: Lens.Lens' ListFacetAttributes (Prelude.Maybe Prelude.Natural)
 listFacetAttributes_maxResults = Lens.lens (\ListFacetAttributes' {maxResults} -> maxResults) (\s@ListFacetAttributes' {} a -> s {maxResults = a} :: ListFacetAttributes)
 
 -- | The ARN of the schema where the facet resides.
-listFacetAttributes_schemaArn :: Lens.Lens' ListFacetAttributes Core.Text
+listFacetAttributes_schemaArn :: Lens.Lens' ListFacetAttributes Prelude.Text
 listFacetAttributes_schemaArn = Lens.lens (\ListFacetAttributes' {schemaArn} -> schemaArn) (\s@ListFacetAttributes' {} a -> s {schemaArn = a} :: ListFacetAttributes)
 
 -- | The name of the facet whose attributes will be retrieved.
-listFacetAttributes_name :: Lens.Lens' ListFacetAttributes Core.Text
+listFacetAttributes_name :: Lens.Lens' ListFacetAttributes Prelude.Text
 listFacetAttributes_name = Lens.lens (\ListFacetAttributes' {name} -> name) (\s@ListFacetAttributes' {} a -> s {name = a} :: ListFacetAttributes)
 
 instance Core.AWSPager ListFacetAttributes where
@@ -114,22 +115,22 @@ instance Core.AWSPager ListFacetAttributes where
     | Core.stop
         ( rs
             Lens.^? listFacetAttributesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFacetAttributesResponse_attributes
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listFacetAttributes_nextToken
+          Prelude.& listFacetAttributes_nextToken
           Lens..~ rs
           Lens.^? listFacetAttributesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFacetAttributes where
   type
@@ -140,48 +141,48 @@ instance Core.AWSRequest ListFacetAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListFacetAttributesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Attributes" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListFacetAttributes
+instance Prelude.Hashable ListFacetAttributes
 
-instance Core.NFData ListFacetAttributes
+instance Prelude.NFData ListFacetAttributes
 
 instance Core.ToHeaders ListFacetAttributes where
   toHeaders ListFacetAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON ListFacetAttributes where
   toJSON ListFacetAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath ListFacetAttributes where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/facet/attributes"
 
 instance Core.ToQuery ListFacetAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFacetAttributesResponse' smart constructor.
 data ListFacetAttributesResponse = ListFacetAttributesResponse'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The attributes attached to the facet.
-    attributes :: Core.Maybe [FacetAttribute],
+    attributes :: Prelude.Maybe [FacetAttribute],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListFacetAttributesResponse' with all optional fields omitted.
@@ -198,26 +199,26 @@ data ListFacetAttributesResponse = ListFacetAttributesResponse'
 -- 'httpStatus', 'listFacetAttributesResponse_httpStatus' - The response's http status code.
 newListFacetAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListFacetAttributesResponse
 newListFacetAttributesResponse pHttpStatus_ =
   ListFacetAttributesResponse'
     { nextToken =
-        Core.Nothing,
-      attributes = Core.Nothing,
+        Prelude.Nothing,
+      attributes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token.
-listFacetAttributesResponse_nextToken :: Lens.Lens' ListFacetAttributesResponse (Core.Maybe Core.Text)
+listFacetAttributesResponse_nextToken :: Lens.Lens' ListFacetAttributesResponse (Prelude.Maybe Prelude.Text)
 listFacetAttributesResponse_nextToken = Lens.lens (\ListFacetAttributesResponse' {nextToken} -> nextToken) (\s@ListFacetAttributesResponse' {} a -> s {nextToken = a} :: ListFacetAttributesResponse)
 
 -- | The attributes attached to the facet.
-listFacetAttributesResponse_attributes :: Lens.Lens' ListFacetAttributesResponse (Core.Maybe [FacetAttribute])
-listFacetAttributesResponse_attributes = Lens.lens (\ListFacetAttributesResponse' {attributes} -> attributes) (\s@ListFacetAttributesResponse' {} a -> s {attributes = a} :: ListFacetAttributesResponse) Core.. Lens.mapping Lens._Coerce
+listFacetAttributesResponse_attributes :: Lens.Lens' ListFacetAttributesResponse (Prelude.Maybe [FacetAttribute])
+listFacetAttributesResponse_attributes = Lens.lens (\ListFacetAttributesResponse' {attributes} -> attributes) (\s@ListFacetAttributesResponse' {} a -> s {attributes = a} :: ListFacetAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listFacetAttributesResponse_httpStatus :: Lens.Lens' ListFacetAttributesResponse Core.Int
+listFacetAttributesResponse_httpStatus :: Lens.Lens' ListFacetAttributesResponse Prelude.Int
 listFacetAttributesResponse_httpStatus = Lens.lens (\ListFacetAttributesResponse' {httpStatus} -> httpStatus) (\s@ListFacetAttributesResponse' {} a -> s {httpStatus = a} :: ListFacetAttributesResponse)
 
-instance Core.NFData ListFacetAttributesResponse
+instance Prelude.NFData ListFacetAttributesResponse

@@ -62,15 +62,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteConnection' smart constructor.
 data DeleteConnection = DeleteConnection'
   { -- | The ID of the connection.
-    connectionId :: Core.Text
+    connectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConnection' with all optional fields omitted.
@@ -83,13 +84,13 @@ data DeleteConnection = DeleteConnection'
 -- 'connectionId', 'deleteConnection_connectionId' - The ID of the connection.
 newDeleteConnection ::
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConnection
 newDeleteConnection pConnectionId_ =
   DeleteConnection' {connectionId = pConnectionId_}
 
 -- | The ID of the connection.
-deleteConnection_connectionId :: Lens.Lens' DeleteConnection Core.Text
+deleteConnection_connectionId :: Lens.Lens' DeleteConnection Prelude.Text
 deleteConnection_connectionId = Lens.lens (\DeleteConnection' {connectionId} -> connectionId) (\s@DeleteConnection' {} a -> s {connectionId = a} :: DeleteConnection)
 
 instance Core.AWSRequest DeleteConnection where
@@ -99,32 +100,34 @@ instance Core.AWSRequest DeleteConnection where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable DeleteConnection
+instance Prelude.Hashable DeleteConnection
 
-instance Core.NFData DeleteConnection
+instance Prelude.NFData DeleteConnection
 
 instance Core.ToHeaders DeleteConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.DeleteConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteConnection where
   toJSON DeleteConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("connectionId" Core..= connectionId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("connectionId" Core..= connectionId)]
       )
 
 instance Core.ToPath DeleteConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

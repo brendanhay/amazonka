@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetStreamingDistribution' smart constructor.
 data GetStreamingDistribution = GetStreamingDistribution'
   { -- | The streaming distribution\'s ID.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStreamingDistribution' with all optional fields omitted.
@@ -67,13 +68,13 @@ data GetStreamingDistribution = GetStreamingDistribution'
 -- 'id', 'getStreamingDistribution_id' - The streaming distribution\'s ID.
 newGetStreamingDistribution ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetStreamingDistribution
 newGetStreamingDistribution pId_ =
   GetStreamingDistribution' {id = pId_}
 
 -- | The streaming distribution\'s ID.
-getStreamingDistribution_id :: Lens.Lens' GetStreamingDistribution Core.Text
+getStreamingDistribution_id :: Lens.Lens' GetStreamingDistribution Prelude.Text
 getStreamingDistribution_id = Lens.lens (\GetStreamingDistribution' {id} -> id) (\s@GetStreamingDistribution' {} a -> s {id = a} :: GetStreamingDistribution)
 
 instance Core.AWSRequest GetStreamingDistribution where
@@ -85,25 +86,25 @@ instance Core.AWSRequest GetStreamingDistribution where
     Response.receiveXML
       ( \s h x ->
           GetStreamingDistributionResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetStreamingDistribution
+instance Prelude.Hashable GetStreamingDistribution
 
-instance Core.NFData GetStreamingDistribution
+instance Prelude.NFData GetStreamingDistribution
 
 instance Core.ToHeaders GetStreamingDistribution where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetStreamingDistribution where
   toPath GetStreamingDistribution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/streaming-distribution/", Core.toBS id]
 
 instance Core.ToQuery GetStreamingDistribution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
@@ -111,13 +112,13 @@ instance Core.ToQuery GetStreamingDistribution where
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
   { -- | The current version of the streaming distribution\'s information. For
     -- example: @E2QWRUHAPOMQZL@.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The streaming distribution\'s information.
-    streamingDistribution :: Core.Maybe StreamingDistribution,
+    streamingDistribution :: Prelude.Maybe StreamingDistribution,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStreamingDistributionResponse' with all optional fields omitted.
@@ -135,27 +136,29 @@ data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
 -- 'httpStatus', 'getStreamingDistributionResponse_httpStatus' - The response's http status code.
 newGetStreamingDistributionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetStreamingDistributionResponse
 newGetStreamingDistributionResponse pHttpStatus_ =
   GetStreamingDistributionResponse'
     { eTag =
-        Core.Nothing,
-      streamingDistribution = Core.Nothing,
+        Prelude.Nothing,
+      streamingDistribution = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the streaming distribution\'s information. For
 -- example: @E2QWRUHAPOMQZL@.
-getStreamingDistributionResponse_eTag :: Lens.Lens' GetStreamingDistributionResponse (Core.Maybe Core.Text)
+getStreamingDistributionResponse_eTag :: Lens.Lens' GetStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
 getStreamingDistributionResponse_eTag = Lens.lens (\GetStreamingDistributionResponse' {eTag} -> eTag) (\s@GetStreamingDistributionResponse' {} a -> s {eTag = a} :: GetStreamingDistributionResponse)
 
 -- | The streaming distribution\'s information.
-getStreamingDistributionResponse_streamingDistribution :: Lens.Lens' GetStreamingDistributionResponse (Core.Maybe StreamingDistribution)
+getStreamingDistributionResponse_streamingDistribution :: Lens.Lens' GetStreamingDistributionResponse (Prelude.Maybe StreamingDistribution)
 getStreamingDistributionResponse_streamingDistribution = Lens.lens (\GetStreamingDistributionResponse' {streamingDistribution} -> streamingDistribution) (\s@GetStreamingDistributionResponse' {} a -> s {streamingDistribution = a} :: GetStreamingDistributionResponse)
 
 -- | The response's http status code.
-getStreamingDistributionResponse_httpStatus :: Lens.Lens' GetStreamingDistributionResponse Core.Int
+getStreamingDistributionResponse_httpStatus :: Lens.Lens' GetStreamingDistributionResponse Prelude.Int
 getStreamingDistributionResponse_httpStatus = Lens.lens (\GetStreamingDistributionResponse' {httpStatus} -> httpStatus) (\s@GetStreamingDistributionResponse' {} a -> s {httpStatus = a} :: GetStreamingDistributionResponse)
 
-instance Core.NFData GetStreamingDistributionResponse
+instance
+  Prelude.NFData
+    GetStreamingDistributionResponse

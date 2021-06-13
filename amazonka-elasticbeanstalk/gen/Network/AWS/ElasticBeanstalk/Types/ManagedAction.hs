@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.ActionStatus
 import Network.AWS.ElasticBeanstalk.Types.ActionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The record of an upcoming or in-progress managed action.
 --
@@ -30,18 +31,18 @@ import qualified Network.AWS.Lens as Lens
 data ManagedAction = ManagedAction'
   { -- | The status of the managed action. If the action is @Scheduled@, you can
     -- apply it immediately with ApplyEnvironmentManagedAction.
-    status :: Core.Maybe ActionStatus,
+    status :: Prelude.Maybe ActionStatus,
     -- | The type of managed action.
-    actionType :: Core.Maybe ActionType,
+    actionType :: Prelude.Maybe ActionType,
     -- | A unique identifier for the managed action.
-    actionId :: Core.Maybe Core.Text,
+    actionId :: Prelude.Maybe Prelude.Text,
     -- | A description of the managed action.
-    actionDescription :: Core.Maybe Core.Text,
+    actionDescription :: Prelude.Maybe Prelude.Text,
     -- | The start time of the maintenance window in which the managed action
     -- will execute.
-    windowStartTime :: Core.Maybe Core.ISO8601
+    windowStartTime :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ManagedAction' with all optional fields omitted.
@@ -66,44 +67,44 @@ newManagedAction ::
   ManagedAction
 newManagedAction =
   ManagedAction'
-    { status = Core.Nothing,
-      actionType = Core.Nothing,
-      actionId = Core.Nothing,
-      actionDescription = Core.Nothing,
-      windowStartTime = Core.Nothing
+    { status = Prelude.Nothing,
+      actionType = Prelude.Nothing,
+      actionId = Prelude.Nothing,
+      actionDescription = Prelude.Nothing,
+      windowStartTime = Prelude.Nothing
     }
 
 -- | The status of the managed action. If the action is @Scheduled@, you can
 -- apply it immediately with ApplyEnvironmentManagedAction.
-managedAction_status :: Lens.Lens' ManagedAction (Core.Maybe ActionStatus)
+managedAction_status :: Lens.Lens' ManagedAction (Prelude.Maybe ActionStatus)
 managedAction_status = Lens.lens (\ManagedAction' {status} -> status) (\s@ManagedAction' {} a -> s {status = a} :: ManagedAction)
 
 -- | The type of managed action.
-managedAction_actionType :: Lens.Lens' ManagedAction (Core.Maybe ActionType)
+managedAction_actionType :: Lens.Lens' ManagedAction (Prelude.Maybe ActionType)
 managedAction_actionType = Lens.lens (\ManagedAction' {actionType} -> actionType) (\s@ManagedAction' {} a -> s {actionType = a} :: ManagedAction)
 
 -- | A unique identifier for the managed action.
-managedAction_actionId :: Lens.Lens' ManagedAction (Core.Maybe Core.Text)
+managedAction_actionId :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.Text)
 managedAction_actionId = Lens.lens (\ManagedAction' {actionId} -> actionId) (\s@ManagedAction' {} a -> s {actionId = a} :: ManagedAction)
 
 -- | A description of the managed action.
-managedAction_actionDescription :: Lens.Lens' ManagedAction (Core.Maybe Core.Text)
+managedAction_actionDescription :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.Text)
 managedAction_actionDescription = Lens.lens (\ManagedAction' {actionDescription} -> actionDescription) (\s@ManagedAction' {} a -> s {actionDescription = a} :: ManagedAction)
 
 -- | The start time of the maintenance window in which the managed action
 -- will execute.
-managedAction_windowStartTime :: Lens.Lens' ManagedAction (Core.Maybe Core.UTCTime)
-managedAction_windowStartTime = Lens.lens (\ManagedAction' {windowStartTime} -> windowStartTime) (\s@ManagedAction' {} a -> s {windowStartTime = a} :: ManagedAction) Core.. Lens.mapping Core._Time
+managedAction_windowStartTime :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.UTCTime)
+managedAction_windowStartTime = Lens.lens (\ManagedAction' {windowStartTime} -> windowStartTime) (\s@ManagedAction' {} a -> s {windowStartTime = a} :: ManagedAction) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML ManagedAction where
   parseXML x =
     ManagedAction'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "ActionType")
-      Core.<*> (x Core..@? "ActionId")
-      Core.<*> (x Core..@? "ActionDescription")
-      Core.<*> (x Core..@? "WindowStartTime")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "ActionType")
+      Prelude.<*> (x Core..@? "ActionId")
+      Prelude.<*> (x Core..@? "ActionDescription")
+      Prelude.<*> (x Core..@? "WindowStartTime")
 
-instance Core.Hashable ManagedAction
+instance Prelude.Hashable ManagedAction
 
-instance Core.NFData ManagedAction
+instance Prelude.NFData ManagedAction

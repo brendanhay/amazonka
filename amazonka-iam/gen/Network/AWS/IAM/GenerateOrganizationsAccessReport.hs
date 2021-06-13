@@ -168,6 +168,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -178,7 +179,7 @@ data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
     --
     -- This ID is used to generate information about when an account principal
     -- that is limited by the SCP attempted to access an AWS service.
-    organizationsPolicyId :: Core.Maybe Core.Text,
+    organizationsPolicyId :: Prelude.Maybe Prelude.Text,
     -- | The path of the AWS Organizations entity (root, OU, or account). You can
     -- build an entity path using the known structure of your organization. For
     -- example, assume that your account ID is @123456789012@ and its parent OU
@@ -186,9 +187,9 @@ data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
     -- @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@. Your
     -- entity path is
     -- @o-a1b2c3d4e5\/r-f6g7h8i9j0example\/ou-rge0-awsabcde\/123456789012@.
-    entityPath :: Core.Text
+    entityPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateOrganizationsAccessReport' with all optional fields omitted.
@@ -213,12 +214,12 @@ data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
 -- @o-a1b2c3d4e5\/r-f6g7h8i9j0example\/ou-rge0-awsabcde\/123456789012@.
 newGenerateOrganizationsAccessReport ::
   -- | 'entityPath'
-  Core.Text ->
+  Prelude.Text ->
   GenerateOrganizationsAccessReport
 newGenerateOrganizationsAccessReport pEntityPath_ =
   GenerateOrganizationsAccessReport'
     { organizationsPolicyId =
-        Core.Nothing,
+        Prelude.Nothing,
       entityPath = pEntityPath_
     }
 
@@ -227,7 +228,7 @@ newGenerateOrganizationsAccessReport pEntityPath_ =
 --
 -- This ID is used to generate information about when an account principal
 -- that is limited by the SCP attempted to access an AWS service.
-generateOrganizationsAccessReport_organizationsPolicyId :: Lens.Lens' GenerateOrganizationsAccessReport (Core.Maybe Core.Text)
+generateOrganizationsAccessReport_organizationsPolicyId :: Lens.Lens' GenerateOrganizationsAccessReport (Prelude.Maybe Prelude.Text)
 generateOrganizationsAccessReport_organizationsPolicyId = Lens.lens (\GenerateOrganizationsAccessReport' {organizationsPolicyId} -> organizationsPolicyId) (\s@GenerateOrganizationsAccessReport' {} a -> s {organizationsPolicyId = a} :: GenerateOrganizationsAccessReport)
 
 -- | The path of the AWS Organizations entity (root, OU, or account). You can
@@ -237,7 +238,7 @@ generateOrganizationsAccessReport_organizationsPolicyId = Lens.lens (\GenerateOr
 -- @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@. Your
 -- entity path is
 -- @o-a1b2c3d4e5\/r-f6g7h8i9j0example\/ou-rge0-awsabcde\/123456789012@.
-generateOrganizationsAccessReport_entityPath :: Lens.Lens' GenerateOrganizationsAccessReport Core.Text
+generateOrganizationsAccessReport_entityPath :: Lens.Lens' GenerateOrganizationsAccessReport Prelude.Text
 generateOrganizationsAccessReport_entityPath = Lens.lens (\GenerateOrganizationsAccessReport' {entityPath} -> entityPath) (\s@GenerateOrganizationsAccessReport' {} a -> s {entityPath = a} :: GenerateOrganizationsAccessReport)
 
 instance
@@ -253,41 +254,42 @@ instance
       "GenerateOrganizationsAccessReportResult"
       ( \s h x ->
           GenerateOrganizationsAccessReportResponse'
-            Core.<$> (x Core..@? "JobId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "JobId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GenerateOrganizationsAccessReport
 
 instance
-  Core.NFData
+  Prelude.NFData
     GenerateOrganizationsAccessReport
 
 instance
   Core.ToHeaders
     GenerateOrganizationsAccessReport
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     GenerateOrganizationsAccessReport
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GenerateOrganizationsAccessReport
   where
   toQuery GenerateOrganizationsAccessReport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "GenerateOrganizationsAccessReport" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "OrganizationsPolicyId"
           Core.=: organizationsPolicyId,
         "EntityPath" Core.=: entityPath
@@ -297,11 +299,11 @@ instance
 data GenerateOrganizationsAccessReportResponse = GenerateOrganizationsAccessReportResponse'
   { -- | The job identifier that you can use in the GetOrganizationsAccessReport
     -- operation.
-    jobId :: Core.Maybe Core.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateOrganizationsAccessReportResponse' with all optional fields omitted.
@@ -317,25 +319,25 @@ data GenerateOrganizationsAccessReportResponse = GenerateOrganizationsAccessRepo
 -- 'httpStatus', 'generateOrganizationsAccessReportResponse_httpStatus' - The response's http status code.
 newGenerateOrganizationsAccessReportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GenerateOrganizationsAccessReportResponse
 newGenerateOrganizationsAccessReportResponse
   pHttpStatus_ =
     GenerateOrganizationsAccessReportResponse'
       { jobId =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The job identifier that you can use in the GetOrganizationsAccessReport
 -- operation.
-generateOrganizationsAccessReportResponse_jobId :: Lens.Lens' GenerateOrganizationsAccessReportResponse (Core.Maybe Core.Text)
+generateOrganizationsAccessReportResponse_jobId :: Lens.Lens' GenerateOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Text)
 generateOrganizationsAccessReportResponse_jobId = Lens.lens (\GenerateOrganizationsAccessReportResponse' {jobId} -> jobId) (\s@GenerateOrganizationsAccessReportResponse' {} a -> s {jobId = a} :: GenerateOrganizationsAccessReportResponse)
 
 -- | The response's http status code.
-generateOrganizationsAccessReportResponse_httpStatus :: Lens.Lens' GenerateOrganizationsAccessReportResponse Core.Int
+generateOrganizationsAccessReportResponse_httpStatus :: Lens.Lens' GenerateOrganizationsAccessReportResponse Prelude.Int
 generateOrganizationsAccessReportResponse_httpStatus = Lens.lens (\GenerateOrganizationsAccessReportResponse' {httpStatus} -> httpStatus) (\s@GenerateOrganizationsAccessReportResponse' {} a -> s {httpStatus = a} :: GenerateOrganizationsAccessReportResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GenerateOrganizationsAccessReportResponse

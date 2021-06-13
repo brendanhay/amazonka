@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.AnnotationValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Value of a segment annotation. Has one of three value types: Number,
 -- Boolean, or String.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAnnotationValue' smart constructor.
 data AnnotationValue = AnnotationValue'
   { -- | Value for a String annotation.
-    stringValue :: Core.Maybe Core.Text,
+    stringValue :: Prelude.Maybe Prelude.Text,
     -- | Value for a Boolean annotation.
-    booleanValue :: Core.Maybe Core.Bool,
+    booleanValue :: Prelude.Maybe Prelude.Bool,
     -- | Value for a Number annotation.
-    numberValue :: Core.Maybe Core.Double
+    numberValue :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnnotationValue' with all optional fields omitted.
@@ -53,21 +54,21 @@ newAnnotationValue ::
   AnnotationValue
 newAnnotationValue =
   AnnotationValue'
-    { stringValue = Core.Nothing,
-      booleanValue = Core.Nothing,
-      numberValue = Core.Nothing
+    { stringValue = Prelude.Nothing,
+      booleanValue = Prelude.Nothing,
+      numberValue = Prelude.Nothing
     }
 
 -- | Value for a String annotation.
-annotationValue_stringValue :: Lens.Lens' AnnotationValue (Core.Maybe Core.Text)
+annotationValue_stringValue :: Lens.Lens' AnnotationValue (Prelude.Maybe Prelude.Text)
 annotationValue_stringValue = Lens.lens (\AnnotationValue' {stringValue} -> stringValue) (\s@AnnotationValue' {} a -> s {stringValue = a} :: AnnotationValue)
 
 -- | Value for a Boolean annotation.
-annotationValue_booleanValue :: Lens.Lens' AnnotationValue (Core.Maybe Core.Bool)
+annotationValue_booleanValue :: Lens.Lens' AnnotationValue (Prelude.Maybe Prelude.Bool)
 annotationValue_booleanValue = Lens.lens (\AnnotationValue' {booleanValue} -> booleanValue) (\s@AnnotationValue' {} a -> s {booleanValue = a} :: AnnotationValue)
 
 -- | Value for a Number annotation.
-annotationValue_numberValue :: Lens.Lens' AnnotationValue (Core.Maybe Core.Double)
+annotationValue_numberValue :: Lens.Lens' AnnotationValue (Prelude.Maybe Prelude.Double)
 annotationValue_numberValue = Lens.lens (\AnnotationValue' {numberValue} -> numberValue) (\s@AnnotationValue' {} a -> s {numberValue = a} :: AnnotationValue)
 
 instance Core.FromJSON AnnotationValue where
@@ -76,11 +77,11 @@ instance Core.FromJSON AnnotationValue where
       "AnnotationValue"
       ( \x ->
           AnnotationValue'
-            Core.<$> (x Core..:? "StringValue")
-            Core.<*> (x Core..:? "BooleanValue")
-            Core.<*> (x Core..:? "NumberValue")
+            Prelude.<$> (x Core..:? "StringValue")
+            Prelude.<*> (x Core..:? "BooleanValue")
+            Prelude.<*> (x Core..:? "NumberValue")
       )
 
-instance Core.Hashable AnnotationValue
+instance Prelude.Hashable AnnotationValue
 
-instance Core.NFData AnnotationValue
+instance Prelude.NFData AnnotationValue

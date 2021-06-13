@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Mpeg2ScanTypeConversionMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this setting for interlaced outputs, when your output frame rate is
 -- half of your input frame rate. In this situation, choose Optimized
@@ -48,15 +49,15 @@ newtype Mpeg2ScanTypeConversionMode = Mpeg2ScanTypeConversionMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,22 +60,22 @@ data ListFindings = ListFindings'
     -- action. Subsequent calls to the action fill __nextToken__ in the request
     -- with the value of __NextToken__ from the previous response to continue
     -- listing data.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ARNs of the assessment runs that generate the findings that you want
     -- to list.
-    assessmentRunArns :: Core.Maybe [Core.Text],
+    assessmentRunArns :: Prelude.Maybe [Prelude.Text],
     -- | You can use this parameter to specify a subset of data to be included in
     -- the action\'s response.
     --
     -- For a record to match a filter, all specified filter attributes must
     -- match. When multiple values are specified for a filter attribute, any of
     -- the values can match.
-    filter' :: Core.Maybe FindingFilter
+    filter' :: Prelude.Maybe FindingFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListFindings' with all optional fields omitted.
@@ -106,10 +107,10 @@ newListFindings ::
   ListFindings
 newListFindings =
   ListFindings'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      assessmentRunArns = Core.Nothing,
-      filter' = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      assessmentRunArns = Prelude.Nothing,
+      filter' = Prelude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -117,18 +118,18 @@ newListFindings =
 -- action. Subsequent calls to the action fill __nextToken__ in the request
 -- with the value of __NextToken__ from the previous response to continue
 -- listing data.
-listFindings_nextToken :: Lens.Lens' ListFindings (Core.Maybe Core.Text)
+listFindings_nextToken :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Text)
 listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s@ListFindings' {} a -> s {nextToken = a} :: ListFindings)
 
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 10. The maximum value is 500.
-listFindings_maxResults :: Lens.Lens' ListFindings (Core.Maybe Core.Int)
+listFindings_maxResults :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Int)
 listFindings_maxResults = Lens.lens (\ListFindings' {maxResults} -> maxResults) (\s@ListFindings' {} a -> s {maxResults = a} :: ListFindings)
 
 -- | The ARNs of the assessment runs that generate the findings that you want
 -- to list.
-listFindings_assessmentRunArns :: Lens.Lens' ListFindings (Core.Maybe [Core.Text])
-listFindings_assessmentRunArns = Lens.lens (\ListFindings' {assessmentRunArns} -> assessmentRunArns) (\s@ListFindings' {} a -> s {assessmentRunArns = a} :: ListFindings) Core.. Lens.mapping Lens._Coerce
+listFindings_assessmentRunArns :: Lens.Lens' ListFindings (Prelude.Maybe [Prelude.Text])
+listFindings_assessmentRunArns = Lens.lens (\ListFindings' {assessmentRunArns} -> assessmentRunArns) (\s@ListFindings' {} a -> s {assessmentRunArns = a} :: ListFindings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
@@ -136,25 +137,25 @@ listFindings_assessmentRunArns = Lens.lens (\ListFindings' {assessmentRunArns} -
 -- For a record to match a filter, all specified filter attributes must
 -- match. When multiple values are specified for a filter attribute, any of
 -- the values can match.
-listFindings_filter :: Lens.Lens' ListFindings (Core.Maybe FindingFilter)
+listFindings_filter :: Lens.Lens' ListFindings (Prelude.Maybe FindingFilter)
 listFindings_filter = Lens.lens (\ListFindings' {filter'} -> filter') (\s@ListFindings' {} a -> s {filter' = a} :: ListFindings)
 
 instance Core.AWSPager ListFindings where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listFindingsResponse_nextToken Core.. Lens._Just
+            Lens.^? listFindingsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         (rs Lens.^. listFindingsResponse_findingArns) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listFindings_nextToken
+          Prelude.& listFindings_nextToken
           Lens..~ rs
-          Lens.^? listFindingsResponse_nextToken Core.. Lens._Just
+          Lens.^? listFindingsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFindings where
   type AWSResponse ListFindings = ListFindingsResponse
@@ -163,43 +164,47 @@ instance Core.AWSRequest ListFindings where
     Response.receiveJSON
       ( \s h x ->
           ListFindingsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "findingArns" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "findingArns" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListFindings
+instance Prelude.Hashable ListFindings
 
-instance Core.NFData ListFindings
+instance Prelude.NFData ListFindings
 
 instance Core.ToHeaders ListFindings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("InspectorService.ListFindings" :: Core.ByteString),
+              Core.=# ( "InspectorService.ListFindings" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListFindings where
   toJSON ListFindings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("assessmentRunArns" Core..=)
-              Core.<$> assessmentRunArns,
-            ("filter" Core..=) Core.<$> filter'
+              Prelude.<$> assessmentRunArns,
+            ("filter" Core..=) Prelude.<$> filter'
           ]
       )
 
 instance Core.ToPath ListFindings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListFindings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFindingsResponse' smart constructor.
 data ListFindingsResponse = ListFindingsResponse'
@@ -207,13 +212,13 @@ data ListFindingsResponse = ListFindingsResponse'
     -- parameter is present in the response and contains the value to use for
     -- the __nextToken__ parameter in a subsequent pagination request. If there
     -- is no more data to be listed, this parameter is set to null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of ARNs that specifies the findings returned by the action.
-    findingArns :: [Core.Text]
+    findingArns :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListFindingsResponse' with all optional fields omitted.
@@ -233,28 +238,28 @@ data ListFindingsResponse = ListFindingsResponse'
 -- 'findingArns', 'listFindingsResponse_findingArns' - A list of ARNs that specifies the findings returned by the action.
 newListFindingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListFindingsResponse
 newListFindingsResponse pHttpStatus_ =
   ListFindingsResponse'
-    { nextToken = Core.Nothing,
+    { nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      findingArns = Core.mempty
+      findingArns = Prelude.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this
 -- parameter is present in the response and contains the value to use for
 -- the __nextToken__ parameter in a subsequent pagination request. If there
 -- is no more data to be listed, this parameter is set to null.
-listFindingsResponse_nextToken :: Lens.Lens' ListFindingsResponse (Core.Maybe Core.Text)
+listFindingsResponse_nextToken :: Lens.Lens' ListFindingsResponse (Prelude.Maybe Prelude.Text)
 listFindingsResponse_nextToken = Lens.lens (\ListFindingsResponse' {nextToken} -> nextToken) (\s@ListFindingsResponse' {} a -> s {nextToken = a} :: ListFindingsResponse)
 
 -- | The response's http status code.
-listFindingsResponse_httpStatus :: Lens.Lens' ListFindingsResponse Core.Int
+listFindingsResponse_httpStatus :: Lens.Lens' ListFindingsResponse Prelude.Int
 listFindingsResponse_httpStatus = Lens.lens (\ListFindingsResponse' {httpStatus} -> httpStatus) (\s@ListFindingsResponse' {} a -> s {httpStatus = a} :: ListFindingsResponse)
 
 -- | A list of ARNs that specifies the findings returned by the action.
-listFindingsResponse_findingArns :: Lens.Lens' ListFindingsResponse [Core.Text]
-listFindingsResponse_findingArns = Lens.lens (\ListFindingsResponse' {findingArns} -> findingArns) (\s@ListFindingsResponse' {} a -> s {findingArns = a} :: ListFindingsResponse) Core.. Lens._Coerce
+listFindingsResponse_findingArns :: Lens.Lens' ListFindingsResponse [Prelude.Text]
+listFindingsResponse_findingArns = Lens.lens (\ListFindingsResponse' {findingArns} -> findingArns) (\s@ListFindingsResponse' {} a -> s {findingArns = a} :: ListFindingsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListFindingsResponse
+instance Prelude.NFData ListFindingsResponse

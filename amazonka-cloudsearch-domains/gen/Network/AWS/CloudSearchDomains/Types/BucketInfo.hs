@@ -22,15 +22,16 @@ module Network.AWS.CloudSearchDomains.Types.BucketInfo where
 import Network.AWS.CloudSearchDomains.Types.Bucket
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A container for the calculated facet values and counts.
 --
 -- /See:/ 'newBucketInfo' smart constructor.
 data BucketInfo = BucketInfo'
   { -- | A list of the calculated facet values and counts.
-    buckets :: Core.Maybe [Bucket]
+    buckets :: Prelude.Maybe [Bucket]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BucketInfo' with all optional fields omitted.
@@ -43,11 +44,12 @@ data BucketInfo = BucketInfo'
 -- 'buckets', 'bucketInfo_buckets' - A list of the calculated facet values and counts.
 newBucketInfo ::
   BucketInfo
-newBucketInfo = BucketInfo' {buckets = Core.Nothing}
+newBucketInfo =
+  BucketInfo' {buckets = Prelude.Nothing}
 
 -- | A list of the calculated facet values and counts.
-bucketInfo_buckets :: Lens.Lens' BucketInfo (Core.Maybe [Bucket])
-bucketInfo_buckets = Lens.lens (\BucketInfo' {buckets} -> buckets) (\s@BucketInfo' {} a -> s {buckets = a} :: BucketInfo) Core.. Lens.mapping Lens._Coerce
+bucketInfo_buckets :: Lens.Lens' BucketInfo (Prelude.Maybe [Bucket])
+bucketInfo_buckets = Lens.lens (\BucketInfo' {buckets} -> buckets) (\s@BucketInfo' {} a -> s {buckets = a} :: BucketInfo) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON BucketInfo where
   parseJSON =
@@ -55,9 +57,9 @@ instance Core.FromJSON BucketInfo where
       "BucketInfo"
       ( \x ->
           BucketInfo'
-            Core.<$> (x Core..:? "buckets" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "buckets" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable BucketInfo
+instance Prelude.Hashable BucketInfo
 
-instance Core.NFData BucketInfo
+instance Prelude.NFData BucketInfo

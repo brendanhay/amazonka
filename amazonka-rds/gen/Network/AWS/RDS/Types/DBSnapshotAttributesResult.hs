@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBSnapshotAttributesResult where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.DBSnapshotAttribute
 
 -- | Contains the results of a successful call to the
@@ -33,11 +34,11 @@ import Network.AWS.RDS.Types.DBSnapshotAttribute
 -- /See:/ 'newDBSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
   { -- | The identifier of the manual DB snapshot that the attributes apply to.
-    dbSnapshotIdentifier :: Core.Maybe Core.Text,
+    dbSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The list of attributes and values for the manual DB snapshot.
-    dbSnapshotAttributes :: Core.Maybe [DBSnapshotAttribute]
+    dbSnapshotAttributes :: Prelude.Maybe [DBSnapshotAttribute]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBSnapshotAttributesResult' with all optional fields omitted.
@@ -55,27 +56,27 @@ newDBSnapshotAttributesResult ::
 newDBSnapshotAttributesResult =
   DBSnapshotAttributesResult'
     { dbSnapshotIdentifier =
-        Core.Nothing,
-      dbSnapshotAttributes = Core.Nothing
+        Prelude.Nothing,
+      dbSnapshotAttributes = Prelude.Nothing
     }
 
 -- | The identifier of the manual DB snapshot that the attributes apply to.
-dbSnapshotAttributesResult_dbSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Core.Maybe Core.Text)
+dbSnapshotAttributesResult_dbSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
 dbSnapshotAttributesResult_dbSnapshotIdentifier = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotIdentifier = a} :: DBSnapshotAttributesResult)
 
 -- | The list of attributes and values for the manual DB snapshot.
-dbSnapshotAttributesResult_dbSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Core.Maybe [DBSnapshotAttribute])
-dbSnapshotAttributesResult_dbSnapshotAttributes = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotAttributes} -> dbSnapshotAttributes) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult) Core.. Lens.mapping Lens._Coerce
+dbSnapshotAttributesResult_dbSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe [DBSnapshotAttribute])
+dbSnapshotAttributesResult_dbSnapshotAttributes = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotAttributes} -> dbSnapshotAttributes) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML DBSnapshotAttributesResult where
   parseXML x =
     DBSnapshotAttributesResult'
-      Core.<$> (x Core..@? "DBSnapshotIdentifier")
-      Core.<*> ( x Core..@? "DBSnapshotAttributes"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "DBSnapshotAttribute")
-               )
+      Prelude.<$> (x Core..@? "DBSnapshotIdentifier")
+      Prelude.<*> ( x Core..@? "DBSnapshotAttributes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "DBSnapshotAttribute")
+                  )
 
-instance Core.Hashable DBSnapshotAttributesResult
+instance Prelude.Hashable DBSnapshotAttributesResult
 
-instance Core.NFData DBSnapshotAttributesResult
+instance Prelude.NFData DBSnapshotAttributesResult

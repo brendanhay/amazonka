@@ -24,6 +24,7 @@ import Network.AWS.Budgets.Types.ActionStatus
 import Network.AWS.Budgets.Types.EventType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The historical records for a budget action.
 --
@@ -38,7 +39,7 @@ data ActionHistory = ActionHistory'
     -- | The description of details of the event.
     actionHistoryDetails :: ActionHistoryDetails
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionHistory' with all optional fields omitted.
@@ -58,7 +59,7 @@ data ActionHistory = ActionHistory'
 -- 'actionHistoryDetails', 'actionHistory_actionHistoryDetails' - The description of details of the event.
 newActionHistory ::
   -- | 'timestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'status'
   ActionStatus ->
   -- | 'eventType'
@@ -80,8 +81,8 @@ newActionHistory
       }
 
 -- | Undocumented member.
-actionHistory_timestamp :: Lens.Lens' ActionHistory Core.UTCTime
-actionHistory_timestamp = Lens.lens (\ActionHistory' {timestamp} -> timestamp) (\s@ActionHistory' {} a -> s {timestamp = a} :: ActionHistory) Core.. Core._Time
+actionHistory_timestamp :: Lens.Lens' ActionHistory Prelude.UTCTime
+actionHistory_timestamp = Lens.lens (\ActionHistory' {timestamp} -> timestamp) (\s@ActionHistory' {} a -> s {timestamp = a} :: ActionHistory) Prelude.. Core._Time
 
 -- | The status of action at the time of the event.
 actionHistory_status :: Lens.Lens' ActionHistory ActionStatus
@@ -102,12 +103,12 @@ instance Core.FromJSON ActionHistory where
       "ActionHistory"
       ( \x ->
           ActionHistory'
-            Core.<$> (x Core..: "Timestamp")
-            Core.<*> (x Core..: "Status")
-            Core.<*> (x Core..: "EventType")
-            Core.<*> (x Core..: "ActionHistoryDetails")
+            Prelude.<$> (x Core..: "Timestamp")
+            Prelude.<*> (x Core..: "Status")
+            Prelude.<*> (x Core..: "EventType")
+            Prelude.<*> (x Core..: "ActionHistoryDetails")
       )
 
-instance Core.Hashable ActionHistory
+instance Prelude.Hashable ActionHistory
 
-instance Core.NFData ActionHistory
+instance Prelude.NFData ActionHistory

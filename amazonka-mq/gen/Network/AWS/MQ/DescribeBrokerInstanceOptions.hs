@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,18 +56,18 @@ import qualified Network.AWS.Response as Response
 data DescribeBrokerInstanceOptions = DescribeBrokerInstanceOptions'
   { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filter response by storage type.
-    storageType :: Core.Maybe Core.Text,
+    storageType :: Prelude.Maybe Prelude.Text,
     -- | Filter response by engine type.
-    engineType :: Core.Maybe Core.Text,
+    engineType :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of instance options that Amazon MQ can return per
     -- page (20 by default). This value must be an integer from 5 to 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filter response by host instance type.
-    hostInstanceType :: Core.Maybe Core.Text
+    hostInstanceType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBrokerInstanceOptions' with all optional fields omitted.
@@ -92,33 +93,33 @@ newDescribeBrokerInstanceOptions ::
 newDescribeBrokerInstanceOptions =
   DescribeBrokerInstanceOptions'
     { nextToken =
-        Core.Nothing,
-      storageType = Core.Nothing,
-      engineType = Core.Nothing,
-      maxResults = Core.Nothing,
-      hostInstanceType = Core.Nothing
+        Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      engineType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      hostInstanceType = Prelude.Nothing
     }
 
 -- | The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
-describeBrokerInstanceOptions_nextToken :: Lens.Lens' DescribeBrokerInstanceOptions (Core.Maybe Core.Text)
+describeBrokerInstanceOptions_nextToken :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Text)
 describeBrokerInstanceOptions_nextToken = Lens.lens (\DescribeBrokerInstanceOptions' {nextToken} -> nextToken) (\s@DescribeBrokerInstanceOptions' {} a -> s {nextToken = a} :: DescribeBrokerInstanceOptions)
 
 -- | Filter response by storage type.
-describeBrokerInstanceOptions_storageType :: Lens.Lens' DescribeBrokerInstanceOptions (Core.Maybe Core.Text)
+describeBrokerInstanceOptions_storageType :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Text)
 describeBrokerInstanceOptions_storageType = Lens.lens (\DescribeBrokerInstanceOptions' {storageType} -> storageType) (\s@DescribeBrokerInstanceOptions' {} a -> s {storageType = a} :: DescribeBrokerInstanceOptions)
 
 -- | Filter response by engine type.
-describeBrokerInstanceOptions_engineType :: Lens.Lens' DescribeBrokerInstanceOptions (Core.Maybe Core.Text)
+describeBrokerInstanceOptions_engineType :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Text)
 describeBrokerInstanceOptions_engineType = Lens.lens (\DescribeBrokerInstanceOptions' {engineType} -> engineType) (\s@DescribeBrokerInstanceOptions' {} a -> s {engineType = a} :: DescribeBrokerInstanceOptions)
 
 -- | The maximum number of instance options that Amazon MQ can return per
 -- page (20 by default). This value must be an integer from 5 to 100.
-describeBrokerInstanceOptions_maxResults :: Lens.Lens' DescribeBrokerInstanceOptions (Core.Maybe Core.Natural)
+describeBrokerInstanceOptions_maxResults :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Natural)
 describeBrokerInstanceOptions_maxResults = Lens.lens (\DescribeBrokerInstanceOptions' {maxResults} -> maxResults) (\s@DescribeBrokerInstanceOptions' {} a -> s {maxResults = a} :: DescribeBrokerInstanceOptions)
 
 -- | Filter response by host instance type.
-describeBrokerInstanceOptions_hostInstanceType :: Lens.Lens' DescribeBrokerInstanceOptions (Core.Maybe Core.Text)
+describeBrokerInstanceOptions_hostInstanceType :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Text)
 describeBrokerInstanceOptions_hostInstanceType = Lens.lens (\DescribeBrokerInstanceOptions' {hostInstanceType} -> hostInstanceType) (\s@DescribeBrokerInstanceOptions' {} a -> s {hostInstanceType = a} :: DescribeBrokerInstanceOptions)
 
 instance
@@ -133,33 +134,37 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeBrokerInstanceOptionsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "maxResults")
-            Core.<*> ( x Core..?> "brokerInstanceOptions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "maxResults")
+            Prelude.<*> ( x Core..?> "brokerInstanceOptions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeBrokerInstanceOptions
+instance
+  Prelude.Hashable
+    DescribeBrokerInstanceOptions
 
-instance Core.NFData DescribeBrokerInstanceOptions
+instance Prelude.NFData DescribeBrokerInstanceOptions
 
 instance Core.ToHeaders DescribeBrokerInstanceOptions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeBrokerInstanceOptions where
-  toPath = Core.const "/v1/broker-instance-options"
+  toPath = Prelude.const "/v1/broker-instance-options"
 
 instance Core.ToQuery DescribeBrokerInstanceOptions where
   toQuery DescribeBrokerInstanceOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "storageType" Core.=: storageType,
         "engineType" Core.=: engineType,
@@ -171,16 +176,16 @@ instance Core.ToQuery DescribeBrokerInstanceOptions where
 data DescribeBrokerInstanceOptionsResponse = DescribeBrokerInstanceOptionsResponse'
   { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Required. The maximum number of instance options that can be returned
     -- per page (20 by default). This value must be an integer from 5 to 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | List of available broker instance options.
-    brokerInstanceOptions :: Core.Maybe [BrokerInstanceOption],
+    brokerInstanceOptions :: Prelude.Maybe [BrokerInstanceOption],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBrokerInstanceOptionsResponse' with all optional fields omitted.
@@ -201,35 +206,36 @@ data DescribeBrokerInstanceOptionsResponse = DescribeBrokerInstanceOptionsRespon
 -- 'httpStatus', 'describeBrokerInstanceOptionsResponse_httpStatus' - The response's http status code.
 newDescribeBrokerInstanceOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeBrokerInstanceOptionsResponse
 newDescribeBrokerInstanceOptionsResponse pHttpStatus_ =
   DescribeBrokerInstanceOptionsResponse'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
-      brokerInstanceOptions = Core.Nothing,
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      brokerInstanceOptions =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
-describeBrokerInstanceOptionsResponse_nextToken :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Core.Maybe Core.Text)
+describeBrokerInstanceOptionsResponse_nextToken :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Prelude.Maybe Prelude.Text)
 describeBrokerInstanceOptionsResponse_nextToken = Lens.lens (\DescribeBrokerInstanceOptionsResponse' {nextToken} -> nextToken) (\s@DescribeBrokerInstanceOptionsResponse' {} a -> s {nextToken = a} :: DescribeBrokerInstanceOptionsResponse)
 
 -- | Required. The maximum number of instance options that can be returned
 -- per page (20 by default). This value must be an integer from 5 to 100.
-describeBrokerInstanceOptionsResponse_maxResults :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Core.Maybe Core.Natural)
+describeBrokerInstanceOptionsResponse_maxResults :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Prelude.Maybe Prelude.Natural)
 describeBrokerInstanceOptionsResponse_maxResults = Lens.lens (\DescribeBrokerInstanceOptionsResponse' {maxResults} -> maxResults) (\s@DescribeBrokerInstanceOptionsResponse' {} a -> s {maxResults = a} :: DescribeBrokerInstanceOptionsResponse)
 
 -- | List of available broker instance options.
-describeBrokerInstanceOptionsResponse_brokerInstanceOptions :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Core.Maybe [BrokerInstanceOption])
-describeBrokerInstanceOptionsResponse_brokerInstanceOptions = Lens.lens (\DescribeBrokerInstanceOptionsResponse' {brokerInstanceOptions} -> brokerInstanceOptions) (\s@DescribeBrokerInstanceOptionsResponse' {} a -> s {brokerInstanceOptions = a} :: DescribeBrokerInstanceOptionsResponse) Core.. Lens.mapping Lens._Coerce
+describeBrokerInstanceOptionsResponse_brokerInstanceOptions :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Prelude.Maybe [BrokerInstanceOption])
+describeBrokerInstanceOptionsResponse_brokerInstanceOptions = Lens.lens (\DescribeBrokerInstanceOptionsResponse' {brokerInstanceOptions} -> brokerInstanceOptions) (\s@DescribeBrokerInstanceOptionsResponse' {} a -> s {brokerInstanceOptions = a} :: DescribeBrokerInstanceOptionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeBrokerInstanceOptionsResponse_httpStatus :: Lens.Lens' DescribeBrokerInstanceOptionsResponse Core.Int
+describeBrokerInstanceOptionsResponse_httpStatus :: Lens.Lens' DescribeBrokerInstanceOptionsResponse Prelude.Int
 describeBrokerInstanceOptionsResponse_httpStatus = Lens.lens (\DescribeBrokerInstanceOptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeBrokerInstanceOptionsResponse' {} a -> s {httpStatus = a} :: DescribeBrokerInstanceOptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeBrokerInstanceOptionsResponse

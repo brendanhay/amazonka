@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,15 +54,15 @@ data AddRoleToDBCluster = AddRoleToDBCluster'
   { -- | The name of the feature for the DB cluster that the IAM role is to be
     -- associated with. For the list of supported feature names, see
     -- DBEngineVersion.
-    featureName :: Core.Maybe Core.Text,
+    featureName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster to associate the IAM role with.
-    dbClusterIdentifier :: Core.Text,
+    dbClusterIdentifier :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to associate with the
     -- Aurora DB cluster, for example,
     -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddRoleToDBCluster' with all optional fields omitted.
@@ -82,13 +83,13 @@ data AddRoleToDBCluster = AddRoleToDBCluster'
 -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
 newAddRoleToDBCluster ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   AddRoleToDBCluster
 newAddRoleToDBCluster pDBClusterIdentifier_ pRoleArn_ =
   AddRoleToDBCluster'
-    { featureName = Core.Nothing,
+    { featureName = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_,
       roleArn = pRoleArn_
     }
@@ -96,17 +97,17 @@ newAddRoleToDBCluster pDBClusterIdentifier_ pRoleArn_ =
 -- | The name of the feature for the DB cluster that the IAM role is to be
 -- associated with. For the list of supported feature names, see
 -- DBEngineVersion.
-addRoleToDBCluster_featureName :: Lens.Lens' AddRoleToDBCluster (Core.Maybe Core.Text)
+addRoleToDBCluster_featureName :: Lens.Lens' AddRoleToDBCluster (Prelude.Maybe Prelude.Text)
 addRoleToDBCluster_featureName = Lens.lens (\AddRoleToDBCluster' {featureName} -> featureName) (\s@AddRoleToDBCluster' {} a -> s {featureName = a} :: AddRoleToDBCluster)
 
 -- | The name of the DB cluster to associate the IAM role with.
-addRoleToDBCluster_dbClusterIdentifier :: Lens.Lens' AddRoleToDBCluster Core.Text
+addRoleToDBCluster_dbClusterIdentifier :: Lens.Lens' AddRoleToDBCluster Prelude.Text
 addRoleToDBCluster_dbClusterIdentifier = Lens.lens (\AddRoleToDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@AddRoleToDBCluster' {} a -> s {dbClusterIdentifier = a} :: AddRoleToDBCluster)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to associate with the
 -- Aurora DB cluster, for example,
 -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
-addRoleToDBCluster_roleArn :: Lens.Lens' AddRoleToDBCluster Core.Text
+addRoleToDBCluster_roleArn :: Lens.Lens' AddRoleToDBCluster Prelude.Text
 addRoleToDBCluster_roleArn = Lens.lens (\AddRoleToDBCluster' {roleArn} -> roleArn) (\s@AddRoleToDBCluster' {} a -> s {roleArn = a} :: AddRoleToDBCluster)
 
 instance Core.AWSRequest AddRoleToDBCluster where
@@ -117,22 +118,23 @@ instance Core.AWSRequest AddRoleToDBCluster where
   response =
     Response.receiveNull AddRoleToDBClusterResponse'
 
-instance Core.Hashable AddRoleToDBCluster
+instance Prelude.Hashable AddRoleToDBCluster
 
-instance Core.NFData AddRoleToDBCluster
+instance Prelude.NFData AddRoleToDBCluster
 
 instance Core.ToHeaders AddRoleToDBCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AddRoleToDBCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddRoleToDBCluster where
   toQuery AddRoleToDBCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AddRoleToDBCluster" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("AddRoleToDBCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "FeatureName" Core.=: featureName,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "RoleArn" Core.=: roleArn
@@ -142,7 +144,7 @@ instance Core.ToQuery AddRoleToDBCluster where
 data AddRoleToDBClusterResponse = AddRoleToDBClusterResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddRoleToDBClusterResponse' with all optional fields omitted.
@@ -153,4 +155,4 @@ newAddRoleToDBClusterResponse ::
 newAddRoleToDBClusterResponse =
   AddRoleToDBClusterResponse'
 
-instance Core.NFData AddRoleToDBClusterResponse
+instance Prelude.NFData AddRoleToDBClusterResponse

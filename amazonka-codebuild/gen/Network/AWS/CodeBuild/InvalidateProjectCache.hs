@@ -41,15 +41,16 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newInvalidateProjectCache' smart constructor.
 data InvalidateProjectCache = InvalidateProjectCache'
   { -- | The name of the AWS CodeBuild build project that the cache is reset for.
-    projectName :: Core.Text
+    projectName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InvalidateProjectCache' with all optional fields omitted.
@@ -62,7 +63,7 @@ data InvalidateProjectCache = InvalidateProjectCache'
 -- 'projectName', 'invalidateProjectCache_projectName' - The name of the AWS CodeBuild build project that the cache is reset for.
 newInvalidateProjectCache ::
   -- | 'projectName'
-  Core.Text ->
+  Prelude.Text ->
   InvalidateProjectCache
 newInvalidateProjectCache pProjectName_ =
   InvalidateProjectCache'
@@ -71,7 +72,7 @@ newInvalidateProjectCache pProjectName_ =
     }
 
 -- | The name of the AWS CodeBuild build project that the cache is reset for.
-invalidateProjectCache_projectName :: Lens.Lens' InvalidateProjectCache Core.Text
+invalidateProjectCache_projectName :: Lens.Lens' InvalidateProjectCache Prelude.Text
 invalidateProjectCache_projectName = Lens.lens (\InvalidateProjectCache' {projectName} -> projectName) (\s@InvalidateProjectCache' {} a -> s {projectName = a} :: InvalidateProjectCache)
 
 instance Core.AWSRequest InvalidateProjectCache where
@@ -83,45 +84,47 @@ instance Core.AWSRequest InvalidateProjectCache where
     Response.receiveEmpty
       ( \s h x ->
           InvalidateProjectCacheResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable InvalidateProjectCache
+instance Prelude.Hashable InvalidateProjectCache
 
-instance Core.NFData InvalidateProjectCache
+instance Prelude.NFData InvalidateProjectCache
 
 instance Core.ToHeaders InvalidateProjectCache where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.InvalidateProjectCache" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON InvalidateProjectCache where
   toJSON InvalidateProjectCache' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("projectName" Core..= projectName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("projectName" Core..= projectName)]
       )
 
 instance Core.ToPath InvalidateProjectCache where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery InvalidateProjectCache where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInvalidateProjectCacheResponse' smart constructor.
 data InvalidateProjectCacheResponse = InvalidateProjectCacheResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InvalidateProjectCacheResponse' with all optional fields omitted.
@@ -134,7 +137,7 @@ data InvalidateProjectCacheResponse = InvalidateProjectCacheResponse'
 -- 'httpStatus', 'invalidateProjectCacheResponse_httpStatus' - The response's http status code.
 newInvalidateProjectCacheResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   InvalidateProjectCacheResponse
 newInvalidateProjectCacheResponse pHttpStatus_ =
   InvalidateProjectCacheResponse'
@@ -143,7 +146,9 @@ newInvalidateProjectCacheResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-invalidateProjectCacheResponse_httpStatus :: Lens.Lens' InvalidateProjectCacheResponse Core.Int
+invalidateProjectCacheResponse_httpStatus :: Lens.Lens' InvalidateProjectCacheResponse Prelude.Int
 invalidateProjectCacheResponse_httpStatus = Lens.lens (\InvalidateProjectCacheResponse' {httpStatus} -> httpStatus) (\s@InvalidateProjectCacheResponse' {} a -> s {httpStatus = a} :: InvalidateProjectCacheResponse)
 
-instance Core.NFData InvalidateProjectCacheResponse
+instance
+  Prelude.NFData
+    InvalidateProjectCacheResponse

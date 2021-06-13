@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -63,17 +64,17 @@ data ModifyDBClusterEndpoint = ModifyDBClusterEndpoint'
   { -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
     -- endpoint. Only relevant if the list of static members is empty.
-    excludedMembers :: Core.Maybe [Core.Text],
+    excludedMembers :: Prelude.Maybe [Prelude.Text],
     -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
-    endpointType :: Core.Maybe Core.Text,
+    endpointType :: Prelude.Maybe Prelude.Text,
     -- | List of DB instance identifiers that are part of the custom endpoint
     -- group.
-    staticMembers :: Core.Maybe [Core.Text],
+    staticMembers :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the endpoint to modify. This parameter is stored as a
     -- lowercase string.
-    dbClusterEndpointIdentifier :: Core.Text
+    dbClusterEndpointIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBClusterEndpoint' with all optional fields omitted.
@@ -96,15 +97,15 @@ data ModifyDBClusterEndpoint = ModifyDBClusterEndpoint'
 -- lowercase string.
 newModifyDBClusterEndpoint ::
   -- | 'dbClusterEndpointIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   ModifyDBClusterEndpoint
 newModifyDBClusterEndpoint
   pDBClusterEndpointIdentifier_ =
     ModifyDBClusterEndpoint'
       { excludedMembers =
-          Core.Nothing,
-        endpointType = Core.Nothing,
-        staticMembers = Core.Nothing,
+          Prelude.Nothing,
+        endpointType = Prelude.Nothing,
+        staticMembers = Prelude.Nothing,
         dbClusterEndpointIdentifier =
           pDBClusterEndpointIdentifier_
       }
@@ -112,21 +113,21 @@ newModifyDBClusterEndpoint
 -- | List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
 -- endpoint. Only relevant if the list of static members is empty.
-modifyDBClusterEndpoint_excludedMembers :: Lens.Lens' ModifyDBClusterEndpoint (Core.Maybe [Core.Text])
-modifyDBClusterEndpoint_excludedMembers = Lens.lens (\ModifyDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {excludedMembers = a} :: ModifyDBClusterEndpoint) Core.. Lens.mapping Lens._Coerce
+modifyDBClusterEndpoint_excludedMembers :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
+modifyDBClusterEndpoint_excludedMembers = Lens.lens (\ModifyDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {excludedMembers = a} :: ModifyDBClusterEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
-modifyDBClusterEndpoint_endpointType :: Lens.Lens' ModifyDBClusterEndpoint (Core.Maybe Core.Text)
+modifyDBClusterEndpoint_endpointType :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe Prelude.Text)
 modifyDBClusterEndpoint_endpointType = Lens.lens (\ModifyDBClusterEndpoint' {endpointType} -> endpointType) (\s@ModifyDBClusterEndpoint' {} a -> s {endpointType = a} :: ModifyDBClusterEndpoint)
 
 -- | List of DB instance identifiers that are part of the custom endpoint
 -- group.
-modifyDBClusterEndpoint_staticMembers :: Lens.Lens' ModifyDBClusterEndpoint (Core.Maybe [Core.Text])
-modifyDBClusterEndpoint_staticMembers = Lens.lens (\ModifyDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {staticMembers = a} :: ModifyDBClusterEndpoint) Core.. Lens.mapping Lens._Coerce
+modifyDBClusterEndpoint_staticMembers :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
+modifyDBClusterEndpoint_staticMembers = Lens.lens (\ModifyDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {staticMembers = a} :: ModifyDBClusterEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the endpoint to modify. This parameter is stored as a
 -- lowercase string.
-modifyDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' ModifyDBClusterEndpoint Core.Text
+modifyDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' ModifyDBClusterEndpoint Prelude.Text
 modifyDBClusterEndpoint_dbClusterEndpointIdentifier = Lens.lens (\ModifyDBClusterEndpoint' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@ModifyDBClusterEndpoint' {} a -> s {dbClusterEndpointIdentifier = a} :: ModifyDBClusterEndpoint)
 
 instance Core.AWSRequest ModifyDBClusterEndpoint where
@@ -139,29 +140,34 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
       "ModifyDBClusterEndpointResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable ModifyDBClusterEndpoint
+instance Prelude.Hashable ModifyDBClusterEndpoint
 
-instance Core.NFData ModifyDBClusterEndpoint
+instance Prelude.NFData ModifyDBClusterEndpoint
 
 instance Core.ToHeaders ModifyDBClusterEndpoint where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyDBClusterEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyDBClusterEndpoint where
   toQuery ModifyDBClusterEndpoint' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBClusterEndpoint" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("ModifyDBClusterEndpoint" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ExcludedMembers"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> excludedMembers),
+            ( Core.toQueryList "member"
+                Prelude.<$> excludedMembers
+            ),
         "EndpointType" Core.=: endpointType,
         "StaticMembers"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> staticMembers),
+            ( Core.toQueryList "member"
+                Prelude.<$> staticMembers
+            ),
         "DBClusterEndpointIdentifier"
           Core.=: dbClusterEndpointIdentifier
       ]

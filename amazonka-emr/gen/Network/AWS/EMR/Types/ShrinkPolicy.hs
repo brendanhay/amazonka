@@ -22,6 +22,7 @@ module Network.AWS.EMR.Types.ShrinkPolicy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.InstanceResizePolicy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Policy for customizing shrink operations. Allows configuration of
 -- decommissioning timeout and targeted instance shrinking.
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 data ShrinkPolicy = ShrinkPolicy'
   { -- | Custom policy for requesting termination protection or termination of
     -- specific instances when shrinking an instance group.
-    instanceResizePolicy :: Core.Maybe InstanceResizePolicy,
+    instanceResizePolicy :: Prelude.Maybe InstanceResizePolicy,
     -- | The desired timeout for decommissioning an instance. Overrides the
     -- default YARN decommissioning timeout.
-    decommissionTimeout :: Core.Maybe Core.Int
+    decommissionTimeout :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ShrinkPolicy' with all optional fields omitted.
@@ -54,18 +55,19 @@ newShrinkPolicy ::
   ShrinkPolicy
 newShrinkPolicy =
   ShrinkPolicy'
-    { instanceResizePolicy = Core.Nothing,
-      decommissionTimeout = Core.Nothing
+    { instanceResizePolicy =
+        Prelude.Nothing,
+      decommissionTimeout = Prelude.Nothing
     }
 
 -- | Custom policy for requesting termination protection or termination of
 -- specific instances when shrinking an instance group.
-shrinkPolicy_instanceResizePolicy :: Lens.Lens' ShrinkPolicy (Core.Maybe InstanceResizePolicy)
+shrinkPolicy_instanceResizePolicy :: Lens.Lens' ShrinkPolicy (Prelude.Maybe InstanceResizePolicy)
 shrinkPolicy_instanceResizePolicy = Lens.lens (\ShrinkPolicy' {instanceResizePolicy} -> instanceResizePolicy) (\s@ShrinkPolicy' {} a -> s {instanceResizePolicy = a} :: ShrinkPolicy)
 
 -- | The desired timeout for decommissioning an instance. Overrides the
 -- default YARN decommissioning timeout.
-shrinkPolicy_decommissionTimeout :: Lens.Lens' ShrinkPolicy (Core.Maybe Core.Int)
+shrinkPolicy_decommissionTimeout :: Lens.Lens' ShrinkPolicy (Prelude.Maybe Prelude.Int)
 shrinkPolicy_decommissionTimeout = Lens.lens (\ShrinkPolicy' {decommissionTimeout} -> decommissionTimeout) (\s@ShrinkPolicy' {} a -> s {decommissionTimeout = a} :: ShrinkPolicy)
 
 instance Core.FromJSON ShrinkPolicy where
@@ -74,21 +76,21 @@ instance Core.FromJSON ShrinkPolicy where
       "ShrinkPolicy"
       ( \x ->
           ShrinkPolicy'
-            Core.<$> (x Core..:? "InstanceResizePolicy")
-            Core.<*> (x Core..:? "DecommissionTimeout")
+            Prelude.<$> (x Core..:? "InstanceResizePolicy")
+            Prelude.<*> (x Core..:? "DecommissionTimeout")
       )
 
-instance Core.Hashable ShrinkPolicy
+instance Prelude.Hashable ShrinkPolicy
 
-instance Core.NFData ShrinkPolicy
+instance Prelude.NFData ShrinkPolicy
 
 instance Core.ToJSON ShrinkPolicy where
   toJSON ShrinkPolicy' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("InstanceResizePolicy" Core..=)
-              Core.<$> instanceResizePolicy,
+              Prelude.<$> instanceResizePolicy,
             ("DecommissionTimeout" Core..=)
-              Core.<$> decommissionTimeout
+              Prelude.<$> decommissionTimeout
           ]
       )

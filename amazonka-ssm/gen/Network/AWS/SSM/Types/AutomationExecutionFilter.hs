@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.AutomationExecutionFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AutomationExecutionFilterKey
 
 -- | A filter used to match specific automation executions. This is used to
@@ -32,9 +33,9 @@ data AutomationExecutionFilter = AutomationExecutionFilter'
     key :: AutomationExecutionFilterKey,
     -- | The values used to limit the execution information associated with the
     -- filter\'s key.
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutomationExecutionFilter' with all optional fields omitted.
@@ -52,7 +53,7 @@ newAutomationExecutionFilter ::
   -- | 'key'
   AutomationExecutionFilterKey ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   AutomationExecutionFilter
 newAutomationExecutionFilter pKey_ pValues_ =
   AutomationExecutionFilter'
@@ -66,18 +67,18 @@ automationExecutionFilter_key = Lens.lens (\AutomationExecutionFilter' {key} -> 
 
 -- | The values used to limit the execution information associated with the
 -- filter\'s key.
-automationExecutionFilter_values :: Lens.Lens' AutomationExecutionFilter (Core.NonEmpty Core.Text)
-automationExecutionFilter_values = Lens.lens (\AutomationExecutionFilter' {values} -> values) (\s@AutomationExecutionFilter' {} a -> s {values = a} :: AutomationExecutionFilter) Core.. Lens._Coerce
+automationExecutionFilter_values :: Lens.Lens' AutomationExecutionFilter (Prelude.NonEmpty Prelude.Text)
+automationExecutionFilter_values = Lens.lens (\AutomationExecutionFilter' {values} -> values) (\s@AutomationExecutionFilter' {} a -> s {values = a} :: AutomationExecutionFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable AutomationExecutionFilter
+instance Prelude.Hashable AutomationExecutionFilter
 
-instance Core.NFData AutomationExecutionFilter
+instance Prelude.NFData AutomationExecutionFilter
 
 instance Core.ToJSON AutomationExecutionFilter where
   toJSON AutomationExecutionFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -60,29 +61,29 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListAutoMLJobs' smart constructor.
 data ListAutoMLJobs = ListAutoMLJobs'
   { -- | Request a list of jobs, using a filter for time.
-    lastModifiedTimeBefore :: Core.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The sort order for the results. The default is Descending.
-    sortOrder :: Core.Maybe AutoMLSortOrder,
+    sortOrder :: Prelude.Maybe AutoMLSortOrder,
     -- | If the previous response was truncated, you receive this token. Use it
     -- in your next request to receive the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Request a list of jobs, using a search filter for name.
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | Request a list of jobs up to a specified limit.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Request a list of jobs, using a filter for time.
-    creationTimeBefore :: Core.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | Request a list of jobs, using a filter for time.
-    lastModifiedTimeAfter :: Core.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | The parameter by which to sort the results. The default is
     -- AutoMLJobName.
-    sortBy :: Core.Maybe AutoMLSortBy,
+    sortBy :: Prelude.Maybe AutoMLSortBy,
     -- | Request a list of jobs, using a filter for status.
-    statusEquals :: Core.Maybe AutoMLJobStatus,
+    statusEquals :: Prelude.Maybe AutoMLJobStatus,
     -- | Request a list of jobs, using a filter for time.
-    creationTimeAfter :: Core.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAutoMLJobs' with all optional fields omitted.
@@ -118,78 +119,79 @@ newListAutoMLJobs ::
 newListAutoMLJobs =
   ListAutoMLJobs'
     { lastModifiedTimeBefore =
-        Core.Nothing,
-      sortOrder = Core.Nothing,
-      nextToken = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing,
-      creationTimeBefore = Core.Nothing,
-      lastModifiedTimeAfter = Core.Nothing,
-      sortBy = Core.Nothing,
-      statusEquals = Core.Nothing,
-      creationTimeAfter = Core.Nothing
+        Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
+      lastModifiedTimeAfter = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      statusEquals = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing
     }
 
 -- | Request a list of jobs, using a filter for time.
-listAutoMLJobs_lastModifiedTimeBefore :: Lens.Lens' ListAutoMLJobs (Core.Maybe Core.UTCTime)
-listAutoMLJobs_lastModifiedTimeBefore = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListAutoMLJobs) Core.. Lens.mapping Core._Time
+listAutoMLJobs_lastModifiedTimeBefore :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
+listAutoMLJobs_lastModifiedTimeBefore = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Core._Time
 
 -- | The sort order for the results. The default is Descending.
-listAutoMLJobs_sortOrder :: Lens.Lens' ListAutoMLJobs (Core.Maybe AutoMLSortOrder)
+listAutoMLJobs_sortOrder :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLSortOrder)
 listAutoMLJobs_sortOrder = Lens.lens (\ListAutoMLJobs' {sortOrder} -> sortOrder) (\s@ListAutoMLJobs' {} a -> s {sortOrder = a} :: ListAutoMLJobs)
 
 -- | If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
-listAutoMLJobs_nextToken :: Lens.Lens' ListAutoMLJobs (Core.Maybe Core.Text)
+listAutoMLJobs_nextToken :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Text)
 listAutoMLJobs_nextToken = Lens.lens (\ListAutoMLJobs' {nextToken} -> nextToken) (\s@ListAutoMLJobs' {} a -> s {nextToken = a} :: ListAutoMLJobs)
 
 -- | Request a list of jobs, using a search filter for name.
-listAutoMLJobs_nameContains :: Lens.Lens' ListAutoMLJobs (Core.Maybe Core.Text)
+listAutoMLJobs_nameContains :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Text)
 listAutoMLJobs_nameContains = Lens.lens (\ListAutoMLJobs' {nameContains} -> nameContains) (\s@ListAutoMLJobs' {} a -> s {nameContains = a} :: ListAutoMLJobs)
 
 -- | Request a list of jobs up to a specified limit.
-listAutoMLJobs_maxResults :: Lens.Lens' ListAutoMLJobs (Core.Maybe Core.Natural)
+listAutoMLJobs_maxResults :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Natural)
 listAutoMLJobs_maxResults = Lens.lens (\ListAutoMLJobs' {maxResults} -> maxResults) (\s@ListAutoMLJobs' {} a -> s {maxResults = a} :: ListAutoMLJobs)
 
 -- | Request a list of jobs, using a filter for time.
-listAutoMLJobs_creationTimeBefore :: Lens.Lens' ListAutoMLJobs (Core.Maybe Core.UTCTime)
-listAutoMLJobs_creationTimeBefore = Lens.lens (\ListAutoMLJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAutoMLJobs' {} a -> s {creationTimeBefore = a} :: ListAutoMLJobs) Core.. Lens.mapping Core._Time
+listAutoMLJobs_creationTimeBefore :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
+listAutoMLJobs_creationTimeBefore = Lens.lens (\ListAutoMLJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAutoMLJobs' {} a -> s {creationTimeBefore = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Core._Time
 
 -- | Request a list of jobs, using a filter for time.
-listAutoMLJobs_lastModifiedTimeAfter :: Lens.Lens' ListAutoMLJobs (Core.Maybe Core.UTCTime)
-listAutoMLJobs_lastModifiedTimeAfter = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListAutoMLJobs) Core.. Lens.mapping Core._Time
+listAutoMLJobs_lastModifiedTimeAfter :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
+listAutoMLJobs_lastModifiedTimeAfter = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Core._Time
 
 -- | The parameter by which to sort the results. The default is
 -- AutoMLJobName.
-listAutoMLJobs_sortBy :: Lens.Lens' ListAutoMLJobs (Core.Maybe AutoMLSortBy)
+listAutoMLJobs_sortBy :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLSortBy)
 listAutoMLJobs_sortBy = Lens.lens (\ListAutoMLJobs' {sortBy} -> sortBy) (\s@ListAutoMLJobs' {} a -> s {sortBy = a} :: ListAutoMLJobs)
 
 -- | Request a list of jobs, using a filter for status.
-listAutoMLJobs_statusEquals :: Lens.Lens' ListAutoMLJobs (Core.Maybe AutoMLJobStatus)
+listAutoMLJobs_statusEquals :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLJobStatus)
 listAutoMLJobs_statusEquals = Lens.lens (\ListAutoMLJobs' {statusEquals} -> statusEquals) (\s@ListAutoMLJobs' {} a -> s {statusEquals = a} :: ListAutoMLJobs)
 
 -- | Request a list of jobs, using a filter for time.
-listAutoMLJobs_creationTimeAfter :: Lens.Lens' ListAutoMLJobs (Core.Maybe Core.UTCTime)
-listAutoMLJobs_creationTimeAfter = Lens.lens (\ListAutoMLJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListAutoMLJobs' {} a -> s {creationTimeAfter = a} :: ListAutoMLJobs) Core.. Lens.mapping Core._Time
+listAutoMLJobs_creationTimeAfter :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
+listAutoMLJobs_creationTimeAfter = Lens.lens (\ListAutoMLJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListAutoMLJobs' {} a -> s {creationTimeAfter = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListAutoMLJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAutoMLJobsResponse_nextToken Core.. Lens._Just
+            Lens.^? listAutoMLJobsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listAutoMLJobsResponse_autoMLJobSummaries
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAutoMLJobs_nextToken
+          Prelude.& listAutoMLJobs_nextToken
           Lens..~ rs
-          Lens.^? listAutoMLJobsResponse_nextToken Core.. Lens._Just
+          Lens.^? listAutoMLJobsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAutoMLJobs where
   type
@@ -200,66 +202,68 @@ instance Core.AWSRequest ListAutoMLJobs where
     Response.receiveJSON
       ( \s h x ->
           ListAutoMLJobsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "AutoMLJobSummaries"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "AutoMLJobSummaries"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ListAutoMLJobs
+instance Prelude.Hashable ListAutoMLJobs
 
-instance Core.NFData ListAutoMLJobs
+instance Prelude.NFData ListAutoMLJobs
 
 instance Core.ToHeaders ListAutoMLJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListAutoMLJobs" :: Core.ByteString),
+              Core.=# ("SageMaker.ListAutoMLJobs" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListAutoMLJobs where
   toJSON ListAutoMLJobs' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
-              Core.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("NameContains" Core..=) Core.<$> nameContains,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+              Prelude.<$> lastModifiedTimeBefore,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
-              Core.<$> creationTimeBefore,
+              Prelude.<$> creationTimeBefore,
             ("LastModifiedTimeAfter" Core..=)
-              Core.<$> lastModifiedTimeAfter,
-            ("SortBy" Core..=) Core.<$> sortBy,
-            ("StatusEquals" Core..=) Core.<$> statusEquals,
+              Prelude.<$> lastModifiedTimeAfter,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
             ("CreationTimeAfter" Core..=)
-              Core.<$> creationTimeAfter
+              Prelude.<$> creationTimeAfter
           ]
       )
 
 instance Core.ToPath ListAutoMLJobs where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListAutoMLJobs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAutoMLJobsResponse' smart constructor.
 data ListAutoMLJobsResponse = ListAutoMLJobsResponse'
   { -- | If the previous response was truncated, you receive this token. Use it
     -- in your next request to receive the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Returns a summary list of jobs.
     autoMLJobSummaries :: [AutoMLJobSummary]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAutoMLJobsResponse' with all optional fields omitted.
@@ -277,26 +281,27 @@ data ListAutoMLJobsResponse = ListAutoMLJobsResponse'
 -- 'autoMLJobSummaries', 'listAutoMLJobsResponse_autoMLJobSummaries' - Returns a summary list of jobs.
 newListAutoMLJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAutoMLJobsResponse
 newListAutoMLJobsResponse pHttpStatus_ =
   ListAutoMLJobsResponse'
-    { nextToken = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      autoMLJobSummaries = Core.mempty
+      autoMLJobSummaries = Prelude.mempty
     }
 
 -- | If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
-listAutoMLJobsResponse_nextToken :: Lens.Lens' ListAutoMLJobsResponse (Core.Maybe Core.Text)
+listAutoMLJobsResponse_nextToken :: Lens.Lens' ListAutoMLJobsResponse (Prelude.Maybe Prelude.Text)
 listAutoMLJobsResponse_nextToken = Lens.lens (\ListAutoMLJobsResponse' {nextToken} -> nextToken) (\s@ListAutoMLJobsResponse' {} a -> s {nextToken = a} :: ListAutoMLJobsResponse)
 
 -- | The response's http status code.
-listAutoMLJobsResponse_httpStatus :: Lens.Lens' ListAutoMLJobsResponse Core.Int
+listAutoMLJobsResponse_httpStatus :: Lens.Lens' ListAutoMLJobsResponse Prelude.Int
 listAutoMLJobsResponse_httpStatus = Lens.lens (\ListAutoMLJobsResponse' {httpStatus} -> httpStatus) (\s@ListAutoMLJobsResponse' {} a -> s {httpStatus = a} :: ListAutoMLJobsResponse)
 
 -- | Returns a summary list of jobs.
 listAutoMLJobsResponse_autoMLJobSummaries :: Lens.Lens' ListAutoMLJobsResponse [AutoMLJobSummary]
-listAutoMLJobsResponse_autoMLJobSummaries = Lens.lens (\ListAutoMLJobsResponse' {autoMLJobSummaries} -> autoMLJobSummaries) (\s@ListAutoMLJobsResponse' {} a -> s {autoMLJobSummaries = a} :: ListAutoMLJobsResponse) Core.. Lens._Coerce
+listAutoMLJobsResponse_autoMLJobSummaries = Lens.lens (\ListAutoMLJobsResponse' {autoMLJobSummaries} -> autoMLJobSummaries) (\s@ListAutoMLJobsResponse' {} a -> s {autoMLJobSummaries = a} :: ListAutoMLJobsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListAutoMLJobsResponse
+instance Prelude.NFData ListAutoMLJobsResponse

@@ -21,17 +21,18 @@ module Network.AWS.CodePipeline.Types.ErrorDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an error in AWS CodePipeline.
 --
 -- /See:/ 'newErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
   { -- | The text of the error message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The system ID or number code of the error.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ErrorDetails' with all optional fields omitted.
@@ -48,16 +49,16 @@ newErrorDetails ::
   ErrorDetails
 newErrorDetails =
   ErrorDetails'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The text of the error message.
-errorDetails_message :: Lens.Lens' ErrorDetails (Core.Maybe Core.Text)
+errorDetails_message :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
 errorDetails_message = Lens.lens (\ErrorDetails' {message} -> message) (\s@ErrorDetails' {} a -> s {message = a} :: ErrorDetails)
 
 -- | The system ID or number code of the error.
-errorDetails_code :: Lens.Lens' ErrorDetails (Core.Maybe Core.Text)
+errorDetails_code :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
 errorDetails_code = Lens.lens (\ErrorDetails' {code} -> code) (\s@ErrorDetails' {} a -> s {code = a} :: ErrorDetails)
 
 instance Core.FromJSON ErrorDetails where
@@ -66,9 +67,10 @@ instance Core.FromJSON ErrorDetails where
       "ErrorDetails"
       ( \x ->
           ErrorDetails'
-            Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "code")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "code")
       )
 
-instance Core.Hashable ErrorDetails
+instance Prelude.Hashable ErrorDetails
 
-instance Core.NFData ErrorDetails
+instance Prelude.NFData ErrorDetails

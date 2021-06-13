@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ data GetContainerServices = GetContainerServices'
     --
     -- When omitted, the response includes all of your container services in
     -- the AWS Region where the request is made.
-    serviceName :: Core.Maybe Core.Text
+    serviceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerServices' with all optional fields omitted.
@@ -71,13 +72,16 @@ data GetContainerServices = GetContainerServices'
 newGetContainerServices ::
   GetContainerServices
 newGetContainerServices =
-  GetContainerServices' {serviceName = Core.Nothing}
+  GetContainerServices'
+    { serviceName =
+        Prelude.Nothing
+    }
 
 -- | The name of the container service for which to return information.
 --
 -- When omitted, the response includes all of your container services in
 -- the AWS Region where the request is made.
-getContainerServices_serviceName :: Lens.Lens' GetContainerServices (Core.Maybe Core.Text)
+getContainerServices_serviceName :: Lens.Lens' GetContainerServices (Prelude.Maybe Prelude.Text)
 getContainerServices_serviceName = Lens.lens (\GetContainerServices' {serviceName} -> serviceName) (\s@GetContainerServices' {} a -> s {serviceName = a} :: GetContainerServices)
 
 instance Core.AWSRequest GetContainerServices where
@@ -89,48 +93,52 @@ instance Core.AWSRequest GetContainerServices where
     Response.receiveJSON
       ( \s h x ->
           GetContainerServicesResponse'
-            Core.<$> (x Core..?> "containerServices" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "containerServices"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetContainerServices
+instance Prelude.Hashable GetContainerServices
 
-instance Core.NFData GetContainerServices
+instance Prelude.NFData GetContainerServices
 
 instance Core.ToHeaders GetContainerServices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetContainerServices" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetContainerServices where
   toJSON GetContainerServices' {..} =
     Core.object
-      ( Core.catMaybes
-          [("serviceName" Core..=) Core.<$> serviceName]
+      ( Prelude.catMaybes
+          [("serviceName" Core..=) Prelude.<$> serviceName]
       )
 
 instance Core.ToPath GetContainerServices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetContainerServices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerServicesResponse' smart constructor.
 data GetContainerServicesResponse = GetContainerServicesResponse'
   { -- | An array of objects that describe one or more container services.
-    containerServices :: Core.Maybe [ContainerService],
+    containerServices :: Prelude.Maybe [ContainerService],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerServicesResponse' with all optional fields omitted.
@@ -145,21 +153,21 @@ data GetContainerServicesResponse = GetContainerServicesResponse'
 -- 'httpStatus', 'getContainerServicesResponse_httpStatus' - The response's http status code.
 newGetContainerServicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetContainerServicesResponse
 newGetContainerServicesResponse pHttpStatus_ =
   GetContainerServicesResponse'
     { containerServices =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe one or more container services.
-getContainerServicesResponse_containerServices :: Lens.Lens' GetContainerServicesResponse (Core.Maybe [ContainerService])
-getContainerServicesResponse_containerServices = Lens.lens (\GetContainerServicesResponse' {containerServices} -> containerServices) (\s@GetContainerServicesResponse' {} a -> s {containerServices = a} :: GetContainerServicesResponse) Core.. Lens.mapping Lens._Coerce
+getContainerServicesResponse_containerServices :: Lens.Lens' GetContainerServicesResponse (Prelude.Maybe [ContainerService])
+getContainerServicesResponse_containerServices = Lens.lens (\GetContainerServicesResponse' {containerServices} -> containerServices) (\s@GetContainerServicesResponse' {} a -> s {containerServices = a} :: GetContainerServicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContainerServicesResponse_httpStatus :: Lens.Lens' GetContainerServicesResponse Core.Int
+getContainerServicesResponse_httpStatus :: Lens.Lens' GetContainerServicesResponse Prelude.Int
 getContainerServicesResponse_httpStatus = Lens.lens (\GetContainerServicesResponse' {httpStatus} -> httpStatus) (\s@GetContainerServicesResponse' {} a -> s {httpStatus = a} :: GetContainerServicesResponse)
 
-instance Core.NFData GetContainerServicesResponse
+instance Prelude.NFData GetContainerServicesResponse

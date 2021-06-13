@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,15 +60,15 @@ data ResetServiceSpecificCredential = ResetServiceSpecificCredential'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Maybe Core.Text,
+    userName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the service-specific credential.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    serviceSpecificCredentialId :: Core.Text
+    serviceSpecificCredentialId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetServiceSpecificCredential' with all optional fields omitted.
@@ -93,13 +94,13 @@ data ResetServiceSpecificCredential = ResetServiceSpecificCredential'
 -- that can consist of any upper or lowercased letter or digit.
 newResetServiceSpecificCredential ::
   -- | 'serviceSpecificCredentialId'
-  Core.Text ->
+  Prelude.Text ->
   ResetServiceSpecificCredential
 newResetServiceSpecificCredential
   pServiceSpecificCredentialId_ =
     ResetServiceSpecificCredential'
       { userName =
-          Core.Nothing,
+          Prelude.Nothing,
         serviceSpecificCredentialId =
           pServiceSpecificCredentialId_
       }
@@ -112,7 +113,7 @@ newResetServiceSpecificCredential
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-resetServiceSpecificCredential_userName :: Lens.Lens' ResetServiceSpecificCredential (Core.Maybe Core.Text)
+resetServiceSpecificCredential_userName :: Lens.Lens' ResetServiceSpecificCredential (Prelude.Maybe Prelude.Text)
 resetServiceSpecificCredential_userName = Lens.lens (\ResetServiceSpecificCredential' {userName} -> userName) (\s@ResetServiceSpecificCredential' {} a -> s {userName = a} :: ResetServiceSpecificCredential)
 
 -- | The unique identifier of the service-specific credential.
@@ -120,7 +121,7 @@ resetServiceSpecificCredential_userName = Lens.lens (\ResetServiceSpecificCreden
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-resetServiceSpecificCredential_serviceSpecificCredentialId :: Lens.Lens' ResetServiceSpecificCredential Core.Text
+resetServiceSpecificCredential_serviceSpecificCredentialId :: Lens.Lens' ResetServiceSpecificCredential Prelude.Text
 resetServiceSpecificCredential_serviceSpecificCredentialId = Lens.lens (\ResetServiceSpecificCredential' {serviceSpecificCredentialId} -> serviceSpecificCredentialId) (\s@ResetServiceSpecificCredential' {} a -> s {serviceSpecificCredentialId = a} :: ResetServiceSpecificCredential)
 
 instance
@@ -136,31 +137,36 @@ instance
       "ResetServiceSpecificCredentialResult"
       ( \s h x ->
           ResetServiceSpecificCredentialResponse'
-            Core.<$> (x Core..@? "ServiceSpecificCredential")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ServiceSpecificCredential")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ResetServiceSpecificCredential
+instance
+  Prelude.Hashable
+    ResetServiceSpecificCredential
 
-instance Core.NFData ResetServiceSpecificCredential
+instance
+  Prelude.NFData
+    ResetServiceSpecificCredential
 
 instance
   Core.ToHeaders
     ResetServiceSpecificCredential
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ResetServiceSpecificCredential where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResetServiceSpecificCredential where
   toQuery ResetServiceSpecificCredential' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ResetServiceSpecificCredential" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "ServiceSpecificCredentialId"
           Core.=: serviceSpecificCredentialId
@@ -173,11 +179,11 @@ data ResetServiceSpecificCredentialResponse = ResetServiceSpecificCredentialResp
     --
     -- This is the __only__ time that you can access the password. You cannot
     -- recover the password later, but you can reset it again.
-    serviceSpecificCredential :: Core.Maybe ServiceSpecificCredential,
+    serviceSpecificCredential :: Prelude.Maybe ServiceSpecificCredential,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetServiceSpecificCredentialResponse' with all optional fields omitted.
@@ -196,13 +202,13 @@ data ResetServiceSpecificCredentialResponse = ResetServiceSpecificCredentialResp
 -- 'httpStatus', 'resetServiceSpecificCredentialResponse_httpStatus' - The response's http status code.
 newResetServiceSpecificCredentialResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ResetServiceSpecificCredentialResponse
 newResetServiceSpecificCredentialResponse
   pHttpStatus_ =
     ResetServiceSpecificCredentialResponse'
       { serviceSpecificCredential =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -211,13 +217,13 @@ newResetServiceSpecificCredentialResponse
 --
 -- This is the __only__ time that you can access the password. You cannot
 -- recover the password later, but you can reset it again.
-resetServiceSpecificCredentialResponse_serviceSpecificCredential :: Lens.Lens' ResetServiceSpecificCredentialResponse (Core.Maybe ServiceSpecificCredential)
+resetServiceSpecificCredentialResponse_serviceSpecificCredential :: Lens.Lens' ResetServiceSpecificCredentialResponse (Prelude.Maybe ServiceSpecificCredential)
 resetServiceSpecificCredentialResponse_serviceSpecificCredential = Lens.lens (\ResetServiceSpecificCredentialResponse' {serviceSpecificCredential} -> serviceSpecificCredential) (\s@ResetServiceSpecificCredentialResponse' {} a -> s {serviceSpecificCredential = a} :: ResetServiceSpecificCredentialResponse)
 
 -- | The response's http status code.
-resetServiceSpecificCredentialResponse_httpStatus :: Lens.Lens' ResetServiceSpecificCredentialResponse Core.Int
+resetServiceSpecificCredentialResponse_httpStatus :: Lens.Lens' ResetServiceSpecificCredentialResponse Prelude.Int
 resetServiceSpecificCredentialResponse_httpStatus = Lens.lens (\ResetServiceSpecificCredentialResponse' {httpStatus} -> httpStatus) (\s@ResetServiceSpecificCredentialResponse' {} a -> s {httpStatus = a} :: ResetServiceSpecificCredentialResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ResetServiceSpecificCredentialResponse

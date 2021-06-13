@@ -21,6 +21,7 @@ module Network.AWS.DAX.Types.ParameterGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A named set of parameters that are applied to all of the nodes in a DAX
 -- cluster.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newParameterGroup' smart constructor.
 data ParameterGroup = ParameterGroup'
   { -- | The name of the parameter group.
-    parameterGroupName :: Core.Maybe Core.Text,
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameter group.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterGroup' with all optional fields omitted.
@@ -49,16 +50,17 @@ newParameterGroup ::
   ParameterGroup
 newParameterGroup =
   ParameterGroup'
-    { parameterGroupName = Core.Nothing,
-      description = Core.Nothing
+    { parameterGroupName =
+        Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The name of the parameter group.
-parameterGroup_parameterGroupName :: Lens.Lens' ParameterGroup (Core.Maybe Core.Text)
+parameterGroup_parameterGroupName :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
 parameterGroup_parameterGroupName = Lens.lens (\ParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@ParameterGroup' {} a -> s {parameterGroupName = a} :: ParameterGroup)
 
 -- | A description of the parameter group.
-parameterGroup_description :: Lens.Lens' ParameterGroup (Core.Maybe Core.Text)
+parameterGroup_description :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
 parameterGroup_description = Lens.lens (\ParameterGroup' {description} -> description) (\s@ParameterGroup' {} a -> s {description = a} :: ParameterGroup)
 
 instance Core.FromJSON ParameterGroup where
@@ -67,10 +69,10 @@ instance Core.FromJSON ParameterGroup where
       "ParameterGroup"
       ( \x ->
           ParameterGroup'
-            Core.<$> (x Core..:? "ParameterGroupName")
-            Core.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "ParameterGroupName")
+            Prelude.<*> (x Core..:? "Description")
       )
 
-instance Core.Hashable ParameterGroup
+instance Prelude.Hashable ParameterGroup
 
-instance Core.NFData ParameterGroup
+instance Prelude.NFData ParameterGroup

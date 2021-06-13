@@ -29,6 +29,7 @@ module Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This setting allows the delivery restriction flags on SCTE-35
 -- segmentation descriptors to determine whether a message signals an ad.
@@ -46,15 +47,15 @@ newtype AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

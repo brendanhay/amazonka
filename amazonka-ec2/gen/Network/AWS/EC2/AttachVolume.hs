@@ -76,6 +76,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,16 +86,16 @@ data AttachVolume = AttachVolume'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-    device :: Core.Text,
+    device :: Prelude.Text,
     -- | The ID of the instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The ID of the EBS volume. The volume and instance must be within the
     -- same Availability Zone.
-    volumeId :: Core.Text
+    volumeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachVolume' with all optional fields omitted.
@@ -117,15 +118,15 @@ data AttachVolume = AttachVolume'
 -- same Availability Zone.
 newAttachVolume ::
   -- | 'device'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'volumeId'
-  Core.Text ->
+  Prelude.Text ->
   AttachVolume
 newAttachVolume pDevice_ pInstanceId_ pVolumeId_ =
   AttachVolume'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       device = pDevice_,
       instanceId = pInstanceId_,
       volumeId = pVolumeId_
@@ -135,20 +136,20 @@ newAttachVolume pDevice_ pInstanceId_ pVolumeId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-attachVolume_dryRun :: Lens.Lens' AttachVolume (Core.Maybe Core.Bool)
+attachVolume_dryRun :: Lens.Lens' AttachVolume (Prelude.Maybe Prelude.Bool)
 attachVolume_dryRun = Lens.lens (\AttachVolume' {dryRun} -> dryRun) (\s@AttachVolume' {} a -> s {dryRun = a} :: AttachVolume)
 
 -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-attachVolume_device :: Lens.Lens' AttachVolume Core.Text
+attachVolume_device :: Lens.Lens' AttachVolume Prelude.Text
 attachVolume_device = Lens.lens (\AttachVolume' {device} -> device) (\s@AttachVolume' {} a -> s {device = a} :: AttachVolume)
 
 -- | The ID of the instance.
-attachVolume_instanceId :: Lens.Lens' AttachVolume Core.Text
+attachVolume_instanceId :: Lens.Lens' AttachVolume Prelude.Text
 attachVolume_instanceId = Lens.lens (\AttachVolume' {instanceId} -> instanceId) (\s@AttachVolume' {} a -> s {instanceId = a} :: AttachVolume)
 
 -- | The ID of the EBS volume. The volume and instance must be within the
 -- same Availability Zone.
-attachVolume_volumeId :: Lens.Lens' AttachVolume Core.Text
+attachVolume_volumeId :: Lens.Lens' AttachVolume Prelude.Text
 attachVolume_volumeId = Lens.lens (\AttachVolume' {volumeId} -> volumeId) (\s@AttachVolume' {} a -> s {volumeId = a} :: AttachVolume)
 
 instance Core.AWSRequest AttachVolume where
@@ -157,22 +158,23 @@ instance Core.AWSRequest AttachVolume where
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Core.Hashable AttachVolume
+instance Prelude.Hashable AttachVolume
 
-instance Core.NFData AttachVolume
+instance Prelude.NFData AttachVolume
 
 instance Core.ToHeaders AttachVolume where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AttachVolume where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AttachVolume where
   toQuery AttachVolume' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachVolume" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("AttachVolume" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Device" Core.=: device,
         "InstanceId" Core.=: instanceId,

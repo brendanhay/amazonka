@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an event to be submitted.
 --
@@ -28,32 +29,32 @@ import qualified Network.AWS.Lens as Lens
 data PutEventsRequestEntry = PutEventsRequestEntry'
   { -- | Free-form string used to decide what fields to expect in the event
     -- detail.
-    detailType :: Core.Maybe Core.Text,
+    detailType :: Prelude.Maybe Prelude.Text,
     -- | The source of the event.
-    source :: Core.Maybe Core.Text,
+    source :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the event bus to receive the event. Only the rules
     -- that are associated with this event bus are used to match the event. If
     -- you omit this, the default event bus is used.
-    eventBusName :: Core.Maybe Core.Text,
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | A valid JSON string. There is no other schema imposed. The JSON string
     -- may contain fields and nested subobjects.
-    detail :: Core.Maybe Core.Text,
+    detail :: Prelude.Maybe Prelude.Text,
     -- | AWS resources, identified by Amazon Resource Name (ARN), which the event
     -- primarily concerns. Any number, including zero, may be present.
-    resources :: Core.Maybe [Core.Text],
+    resources :: Prelude.Maybe [Prelude.Text],
     -- | An AWS X-Ray trade header, which is an http header (X-Amzn-Trace-Id)
     -- that contains the trace-id associated with the event.
     --
     -- To learn more about X-Ray trace headers, see
     -- <https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader Tracing header>
     -- in the AWS X-Ray Developer Guide.
-    traceHeader :: Core.Maybe Core.Text,
+    traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the event, per
     -- <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no time stamp
     -- is provided, the time stamp of the PutEvents call is used.
-    time :: Core.Maybe Core.POSIX
+    time :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutEventsRequestEntry' with all optional fields omitted.
@@ -92,39 +93,40 @@ newPutEventsRequestEntry ::
   PutEventsRequestEntry
 newPutEventsRequestEntry =
   PutEventsRequestEntry'
-    { detailType = Core.Nothing,
-      source = Core.Nothing,
-      eventBusName = Core.Nothing,
-      detail = Core.Nothing,
-      resources = Core.Nothing,
-      traceHeader = Core.Nothing,
-      time = Core.Nothing
+    { detailType =
+        Prelude.Nothing,
+      source = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      detail = Prelude.Nothing,
+      resources = Prelude.Nothing,
+      traceHeader = Prelude.Nothing,
+      time = Prelude.Nothing
     }
 
 -- | Free-form string used to decide what fields to expect in the event
 -- detail.
-putEventsRequestEntry_detailType :: Lens.Lens' PutEventsRequestEntry (Core.Maybe Core.Text)
+putEventsRequestEntry_detailType :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_detailType = Lens.lens (\PutEventsRequestEntry' {detailType} -> detailType) (\s@PutEventsRequestEntry' {} a -> s {detailType = a} :: PutEventsRequestEntry)
 
 -- | The source of the event.
-putEventsRequestEntry_source :: Lens.Lens' PutEventsRequestEntry (Core.Maybe Core.Text)
+putEventsRequestEntry_source :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_source = Lens.lens (\PutEventsRequestEntry' {source} -> source) (\s@PutEventsRequestEntry' {} a -> s {source = a} :: PutEventsRequestEntry)
 
 -- | The name or ARN of the event bus to receive the event. Only the rules
 -- that are associated with this event bus are used to match the event. If
 -- you omit this, the default event bus is used.
-putEventsRequestEntry_eventBusName :: Lens.Lens' PutEventsRequestEntry (Core.Maybe Core.Text)
+putEventsRequestEntry_eventBusName :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_eventBusName = Lens.lens (\PutEventsRequestEntry' {eventBusName} -> eventBusName) (\s@PutEventsRequestEntry' {} a -> s {eventBusName = a} :: PutEventsRequestEntry)
 
 -- | A valid JSON string. There is no other schema imposed. The JSON string
 -- may contain fields and nested subobjects.
-putEventsRequestEntry_detail :: Lens.Lens' PutEventsRequestEntry (Core.Maybe Core.Text)
+putEventsRequestEntry_detail :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_detail = Lens.lens (\PutEventsRequestEntry' {detail} -> detail) (\s@PutEventsRequestEntry' {} a -> s {detail = a} :: PutEventsRequestEntry)
 
 -- | AWS resources, identified by Amazon Resource Name (ARN), which the event
 -- primarily concerns. Any number, including zero, may be present.
-putEventsRequestEntry_resources :: Lens.Lens' PutEventsRequestEntry (Core.Maybe [Core.Text])
-putEventsRequestEntry_resources = Lens.lens (\PutEventsRequestEntry' {resources} -> resources) (\s@PutEventsRequestEntry' {} a -> s {resources = a} :: PutEventsRequestEntry) Core.. Lens.mapping Lens._Coerce
+putEventsRequestEntry_resources :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe [Prelude.Text])
+putEventsRequestEntry_resources = Lens.lens (\PutEventsRequestEntry' {resources} -> resources) (\s@PutEventsRequestEntry' {} a -> s {resources = a} :: PutEventsRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An AWS X-Ray trade header, which is an http header (X-Amzn-Trace-Id)
 -- that contains the trace-id associated with the event.
@@ -132,29 +134,29 @@ putEventsRequestEntry_resources = Lens.lens (\PutEventsRequestEntry' {resources}
 -- To learn more about X-Ray trace headers, see
 -- <https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader Tracing header>
 -- in the AWS X-Ray Developer Guide.
-putEventsRequestEntry_traceHeader :: Lens.Lens' PutEventsRequestEntry (Core.Maybe Core.Text)
+putEventsRequestEntry_traceHeader :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_traceHeader = Lens.lens (\PutEventsRequestEntry' {traceHeader} -> traceHeader) (\s@PutEventsRequestEntry' {} a -> s {traceHeader = a} :: PutEventsRequestEntry)
 
 -- | The time stamp of the event, per
 -- <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no time stamp
 -- is provided, the time stamp of the PutEvents call is used.
-putEventsRequestEntry_time :: Lens.Lens' PutEventsRequestEntry (Core.Maybe Core.UTCTime)
-putEventsRequestEntry_time = Lens.lens (\PutEventsRequestEntry' {time} -> time) (\s@PutEventsRequestEntry' {} a -> s {time = a} :: PutEventsRequestEntry) Core.. Lens.mapping Core._Time
+putEventsRequestEntry_time :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.UTCTime)
+putEventsRequestEntry_time = Lens.lens (\PutEventsRequestEntry' {time} -> time) (\s@PutEventsRequestEntry' {} a -> s {time = a} :: PutEventsRequestEntry) Prelude.. Lens.mapping Core._Time
 
-instance Core.Hashable PutEventsRequestEntry
+instance Prelude.Hashable PutEventsRequestEntry
 
-instance Core.NFData PutEventsRequestEntry
+instance Prelude.NFData PutEventsRequestEntry
 
 instance Core.ToJSON PutEventsRequestEntry where
   toJSON PutEventsRequestEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DetailType" Core..=) Core.<$> detailType,
-            ("Source" Core..=) Core.<$> source,
-            ("EventBusName" Core..=) Core.<$> eventBusName,
-            ("Detail" Core..=) Core.<$> detail,
-            ("Resources" Core..=) Core.<$> resources,
-            ("TraceHeader" Core..=) Core.<$> traceHeader,
-            ("Time" Core..=) Core.<$> time
+      ( Prelude.catMaybes
+          [ ("DetailType" Core..=) Prelude.<$> detailType,
+            ("Source" Core..=) Prelude.<$> source,
+            ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            ("Detail" Core..=) Prelude.<$> detail,
+            ("Resources" Core..=) Prelude.<$> resources,
+            ("TraceHeader" Core..=) Prelude.<$> traceHeader,
+            ("Time" Core..=) Prelude.<$> time
           ]
       )

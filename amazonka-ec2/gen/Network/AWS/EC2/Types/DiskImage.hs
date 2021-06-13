@@ -24,19 +24,20 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DiskImageDetail
 import Network.AWS.EC2.Types.VolumeDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a disk image.
 --
 -- /See:/ 'newDiskImage' smart constructor.
 data DiskImage = DiskImage'
   { -- | Information about the volume.
-    volume :: Core.Maybe VolumeDetail,
+    volume :: Prelude.Maybe VolumeDetail,
     -- | Information about the disk image.
-    image :: Core.Maybe DiskImageDetail,
+    image :: Prelude.Maybe DiskImageDetail,
     -- | A description of the disk image.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiskImage' with all optional fields omitted.
@@ -55,30 +56,30 @@ newDiskImage ::
   DiskImage
 newDiskImage =
   DiskImage'
-    { volume = Core.Nothing,
-      image = Core.Nothing,
-      description = Core.Nothing
+    { volume = Prelude.Nothing,
+      image = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | Information about the volume.
-diskImage_volume :: Lens.Lens' DiskImage (Core.Maybe VolumeDetail)
+diskImage_volume :: Lens.Lens' DiskImage (Prelude.Maybe VolumeDetail)
 diskImage_volume = Lens.lens (\DiskImage' {volume} -> volume) (\s@DiskImage' {} a -> s {volume = a} :: DiskImage)
 
 -- | Information about the disk image.
-diskImage_image :: Lens.Lens' DiskImage (Core.Maybe DiskImageDetail)
+diskImage_image :: Lens.Lens' DiskImage (Prelude.Maybe DiskImageDetail)
 diskImage_image = Lens.lens (\DiskImage' {image} -> image) (\s@DiskImage' {} a -> s {image = a} :: DiskImage)
 
 -- | A description of the disk image.
-diskImage_description :: Lens.Lens' DiskImage (Core.Maybe Core.Text)
+diskImage_description :: Lens.Lens' DiskImage (Prelude.Maybe Prelude.Text)
 diskImage_description = Lens.lens (\DiskImage' {description} -> description) (\s@DiskImage' {} a -> s {description = a} :: DiskImage)
 
-instance Core.Hashable DiskImage
+instance Prelude.Hashable DiskImage
 
-instance Core.NFData DiskImage
+instance Prelude.NFData DiskImage
 
 instance Core.ToQuery DiskImage where
   toQuery DiskImage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Volume" Core.=: volume,
         "Image" Core.=: image,
         "Description" Core.=: description

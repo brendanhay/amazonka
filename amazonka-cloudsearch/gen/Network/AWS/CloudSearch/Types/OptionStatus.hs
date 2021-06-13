@@ -22,15 +22,16 @@ module Network.AWS.CloudSearch.Types.OptionStatus where
 import Network.AWS.CloudSearch.Types.OptionState
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of domain configuration option.
 --
 -- /See:/ 'newOptionStatus' smart constructor.
 data OptionStatus = OptionStatus'
   { -- | A unique integer that indicates when this option was last updated.
-    updateVersion :: Core.Maybe Core.Natural,
+    updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | Indicates that the option will be deleted once processing is complete.
-    pendingDeletion :: Core.Maybe Core.Bool,
+    pendingDeletion :: Prelude.Maybe Prelude.Bool,
     -- | A timestamp for when this option was created.
     creationDate :: Core.ISO8601,
     -- | A timestamp for when this option was last updated.
@@ -49,7 +50,7 @@ data OptionStatus = OptionStatus'
     --     documents.
     state :: OptionState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OptionStatus' with all optional fields omitted.
@@ -81,36 +82,36 @@ data OptionStatus = OptionStatus'
 --     documents.
 newOptionStatus ::
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'updateDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'state'
   OptionState ->
   OptionStatus
 newOptionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
-    { updateVersion = Core.Nothing,
-      pendingDeletion = Core.Nothing,
+    { updateVersion = Prelude.Nothing,
+      pendingDeletion = Prelude.Nothing,
       creationDate = Core._Time Lens.# pCreationDate_,
       updateDate = Core._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
 -- | A unique integer that indicates when this option was last updated.
-optionStatus_updateVersion :: Lens.Lens' OptionStatus (Core.Maybe Core.Natural)
+optionStatus_updateVersion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Natural)
 optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> updateVersion) (\s@OptionStatus' {} a -> s {updateVersion = a} :: OptionStatus)
 
 -- | Indicates that the option will be deleted once processing is complete.
-optionStatus_pendingDeletion :: Lens.Lens' OptionStatus (Core.Maybe Core.Bool)
+optionStatus_pendingDeletion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Bool)
 optionStatus_pendingDeletion = Lens.lens (\OptionStatus' {pendingDeletion} -> pendingDeletion) (\s@OptionStatus' {} a -> s {pendingDeletion = a} :: OptionStatus)
 
 -- | A timestamp for when this option was created.
-optionStatus_creationDate :: Lens.Lens' OptionStatus Core.UTCTime
-optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Core.. Core._Time
+optionStatus_creationDate :: Lens.Lens' OptionStatus Prelude.UTCTime
+optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Prelude.. Core._Time
 
 -- | A timestamp for when this option was last updated.
-optionStatus_updateDate :: Lens.Lens' OptionStatus Core.UTCTime
-optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Core.. Core._Time
+optionStatus_updateDate :: Lens.Lens' OptionStatus Prelude.UTCTime
+optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Prelude.. Core._Time
 
 -- | The state of processing a change to an option. Possible values:
 --
@@ -130,12 +131,12 @@ optionStatus_state = Lens.lens (\OptionStatus' {state} -> state) (\s@OptionStatu
 instance Core.FromXML OptionStatus where
   parseXML x =
     OptionStatus'
-      Core.<$> (x Core..@? "UpdateVersion")
-      Core.<*> (x Core..@? "PendingDeletion")
-      Core.<*> (x Core..@ "CreationDate")
-      Core.<*> (x Core..@ "UpdateDate")
-      Core.<*> (x Core..@ "State")
+      Prelude.<$> (x Core..@? "UpdateVersion")
+      Prelude.<*> (x Core..@? "PendingDeletion")
+      Prelude.<*> (x Core..@ "CreationDate")
+      Prelude.<*> (x Core..@ "UpdateDate")
+      Prelude.<*> (x Core..@ "State")
 
-instance Core.Hashable OptionStatus
+instance Prelude.Hashable OptionStatus
 
-instance Core.NFData OptionStatus
+instance Prelude.NFData OptionStatus

@@ -21,23 +21,24 @@ module Network.AWS.ServiceCatalog.Types.ResourceDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a resource.
 --
 -- /See:/ 'newResourceDetail' smart constructor.
 data ResourceDetail = ResourceDetail'
   { -- | The identifier of the resource.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the resource.
-    createdTime :: Core.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the resource.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The description of the resource.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceDetail' with all optional fields omitted.
@@ -60,31 +61,31 @@ newResourceDetail ::
   ResourceDetail
 newResourceDetail =
   ResourceDetail'
-    { id = Core.Nothing,
-      arn = Core.Nothing,
-      createdTime = Core.Nothing,
-      name = Core.Nothing,
-      description = Core.Nothing
+    { id = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The identifier of the resource.
-resourceDetail_id :: Lens.Lens' ResourceDetail (Core.Maybe Core.Text)
+resourceDetail_id :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
 resourceDetail_id = Lens.lens (\ResourceDetail' {id} -> id) (\s@ResourceDetail' {} a -> s {id = a} :: ResourceDetail)
 
 -- | The ARN of the resource.
-resourceDetail_arn :: Lens.Lens' ResourceDetail (Core.Maybe Core.Text)
+resourceDetail_arn :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
 resourceDetail_arn = Lens.lens (\ResourceDetail' {arn} -> arn) (\s@ResourceDetail' {} a -> s {arn = a} :: ResourceDetail)
 
 -- | The creation time of the resource.
-resourceDetail_createdTime :: Lens.Lens' ResourceDetail (Core.Maybe Core.UTCTime)
-resourceDetail_createdTime = Lens.lens (\ResourceDetail' {createdTime} -> createdTime) (\s@ResourceDetail' {} a -> s {createdTime = a} :: ResourceDetail) Core.. Lens.mapping Core._Time
+resourceDetail_createdTime :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.UTCTime)
+resourceDetail_createdTime = Lens.lens (\ResourceDetail' {createdTime} -> createdTime) (\s@ResourceDetail' {} a -> s {createdTime = a} :: ResourceDetail) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the resource.
-resourceDetail_name :: Lens.Lens' ResourceDetail (Core.Maybe Core.Text)
+resourceDetail_name :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
 resourceDetail_name = Lens.lens (\ResourceDetail' {name} -> name) (\s@ResourceDetail' {} a -> s {name = a} :: ResourceDetail)
 
 -- | The description of the resource.
-resourceDetail_description :: Lens.Lens' ResourceDetail (Core.Maybe Core.Text)
+resourceDetail_description :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
 resourceDetail_description = Lens.lens (\ResourceDetail' {description} -> description) (\s@ResourceDetail' {} a -> s {description = a} :: ResourceDetail)
 
 instance Core.FromJSON ResourceDetail where
@@ -93,13 +94,13 @@ instance Core.FromJSON ResourceDetail where
       "ResourceDetail"
       ( \x ->
           ResourceDetail'
-            Core.<$> (x Core..:? "Id")
-            Core.<*> (x Core..:? "ARN")
-            Core.<*> (x Core..:? "CreatedTime")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "ARN")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Description")
       )
 
-instance Core.Hashable ResourceDetail
+instance Prelude.Hashable ResourceDetail
 
-instance Core.NFData ResourceDetail
+instance Prelude.NFData ResourceDetail

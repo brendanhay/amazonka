@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.LaunchTemplateSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game
 -- server groups.__
@@ -33,16 +34,16 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | A unique identifier for an existing EC2 launch template.
-    launchTemplateId :: Core.Maybe Core.Text,
+    launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | A readable identifier for an existing EC2 launch template.
-    launchTemplateName :: Core.Maybe Core.Text,
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The version of the EC2 launch template to use. If no version is
     -- specified, the default version will be used. With Amazon EC2, you can
     -- specify a default version for a launch template. If none is set, the
     -- default is the first version created.
-    version :: Core.Maybe Core.Text
+    version :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateSpecification' with all optional fields omitted.
@@ -65,38 +66,38 @@ newLaunchTemplateSpecification ::
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
     { launchTemplateId =
-        Core.Nothing,
-      launchTemplateName = Core.Nothing,
-      version = Core.Nothing
+        Prelude.Nothing,
+      launchTemplateName = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | A unique identifier for an existing EC2 launch template.
-launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecification' {launchTemplateId} -> launchTemplateId) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateId = a} :: LaunchTemplateSpecification)
 
 -- | A readable identifier for an existing EC2 launch template.
-launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 -- | The version of the EC2 launch template to use. If no version is
 -- specified, the default version will be used. With Amazon EC2, you can
 -- specify a default version for a launch template. If none is set, the
 -- default is the first version created.
-launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
-instance Core.Hashable LaunchTemplateSpecification
+instance Prelude.Hashable LaunchTemplateSpecification
 
-instance Core.NFData LaunchTemplateSpecification
+instance Prelude.NFData LaunchTemplateSpecification
 
 instance Core.ToJSON LaunchTemplateSpecification where
   toJSON LaunchTemplateSpecification' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("LaunchTemplateId" Core..=)
-              Core.<$> launchTemplateId,
+              Prelude.<$> launchTemplateId,
             ("LaunchTemplateName" Core..=)
-              Core.<$> launchTemplateName,
-            ("Version" Core..=) Core.<$> version
+              Prelude.<$> launchTemplateName,
+            ("Version" Core..=) Prelude.<$> version
           ]
       )

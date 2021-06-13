@@ -46,20 +46,21 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSegmentVersion' smart constructor.
 data GetSegmentVersion = GetSegmentVersion'
   { -- | The unique identifier for the segment.
-    segmentId :: Core.Text,
+    segmentId :: Prelude.Text,
     -- | The unique version number (Version property) for the campaign version.
-    version :: Core.Text,
+    version :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSegmentVersion' with all optional fields omitted.
@@ -77,11 +78,11 @@ data GetSegmentVersion = GetSegmentVersion'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetSegmentVersion ::
   -- | 'segmentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetSegmentVersion
 newGetSegmentVersion
   pSegmentId_
@@ -94,16 +95,16 @@ newGetSegmentVersion
       }
 
 -- | The unique identifier for the segment.
-getSegmentVersion_segmentId :: Lens.Lens' GetSegmentVersion Core.Text
+getSegmentVersion_segmentId :: Lens.Lens' GetSegmentVersion Prelude.Text
 getSegmentVersion_segmentId = Lens.lens (\GetSegmentVersion' {segmentId} -> segmentId) (\s@GetSegmentVersion' {} a -> s {segmentId = a} :: GetSegmentVersion)
 
 -- | The unique version number (Version property) for the campaign version.
-getSegmentVersion_version :: Lens.Lens' GetSegmentVersion Core.Text
+getSegmentVersion_version :: Lens.Lens' GetSegmentVersion Prelude.Text
 getSegmentVersion_version = Lens.lens (\GetSegmentVersion' {version} -> version) (\s@GetSegmentVersion' {} a -> s {version = a} :: GetSegmentVersion)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getSegmentVersion_applicationId :: Lens.Lens' GetSegmentVersion Core.Text
+getSegmentVersion_applicationId :: Lens.Lens' GetSegmentVersion Prelude.Text
 getSegmentVersion_applicationId = Lens.lens (\GetSegmentVersion' {applicationId} -> applicationId) (\s@GetSegmentVersion' {} a -> s {applicationId = a} :: GetSegmentVersion)
 
 instance Core.AWSRequest GetSegmentVersion where
@@ -115,26 +116,28 @@ instance Core.AWSRequest GetSegmentVersion where
     Response.receiveJSON
       ( \s h x ->
           GetSegmentVersionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetSegmentVersion
+instance Prelude.Hashable GetSegmentVersion
 
-instance Core.NFData GetSegmentVersion
+instance Prelude.NFData GetSegmentVersion
 
 instance Core.ToHeaders GetSegmentVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetSegmentVersion where
   toPath GetSegmentVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/segments/",
@@ -144,15 +147,15 @@ instance Core.ToPath GetSegmentVersion where
       ]
 
 instance Core.ToQuery GetSegmentVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSegmentVersionResponse' smart constructor.
 data GetSegmentVersionResponse = GetSegmentVersionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     segmentResponse :: SegmentResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSegmentVersionResponse' with all optional fields omitted.
@@ -167,7 +170,7 @@ data GetSegmentVersionResponse = GetSegmentVersionResponse'
 -- 'segmentResponse', 'getSegmentVersionResponse_segmentResponse' - Undocumented member.
 newGetSegmentVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'segmentResponse'
   SegmentResponse ->
   GetSegmentVersionResponse
@@ -181,11 +184,11 @@ newGetSegmentVersionResponse
       }
 
 -- | The response's http status code.
-getSegmentVersionResponse_httpStatus :: Lens.Lens' GetSegmentVersionResponse Core.Int
+getSegmentVersionResponse_httpStatus :: Lens.Lens' GetSegmentVersionResponse Prelude.Int
 getSegmentVersionResponse_httpStatus = Lens.lens (\GetSegmentVersionResponse' {httpStatus} -> httpStatus) (\s@GetSegmentVersionResponse' {} a -> s {httpStatus = a} :: GetSegmentVersionResponse)
 
 -- | Undocumented member.
 getSegmentVersionResponse_segmentResponse :: Lens.Lens' GetSegmentVersionResponse SegmentResponse
 getSegmentVersionResponse_segmentResponse = Lens.lens (\GetSegmentVersionResponse' {segmentResponse} -> segmentResponse) (\s@GetSegmentVersionResponse' {} a -> s {segmentResponse = a} :: GetSegmentVersionResponse)
 
-instance Core.NFData GetSegmentVersionResponse
+instance Prelude.NFData GetSegmentVersionResponse

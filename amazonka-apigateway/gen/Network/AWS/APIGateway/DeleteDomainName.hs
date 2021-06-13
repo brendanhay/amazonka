@@ -38,6 +38,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,9 +47,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteDomainName' smart constructor.
 data DeleteDomainName = DeleteDomainName'
   { -- | [Required] The name of the DomainName resource to be deleted.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainName' with all optional fields omitted.
@@ -61,13 +62,13 @@ data DeleteDomainName = DeleteDomainName'
 -- 'domainName', 'deleteDomainName_domainName' - [Required] The name of the DomainName resource to be deleted.
 newDeleteDomainName ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDomainName
 newDeleteDomainName pDomainName_ =
   DeleteDomainName' {domainName = pDomainName_}
 
 -- | [Required] The name of the DomainName resource to be deleted.
-deleteDomainName_domainName :: Lens.Lens' DeleteDomainName Core.Text
+deleteDomainName_domainName :: Lens.Lens' DeleteDomainName Prelude.Text
 deleteDomainName_domainName = Lens.lens (\DeleteDomainName' {domainName} -> domainName) (\s@DeleteDomainName' {} a -> s {domainName = a} :: DeleteDomainName)
 
 instance Core.AWSRequest DeleteDomainName where
@@ -78,32 +79,32 @@ instance Core.AWSRequest DeleteDomainName where
   response =
     Response.receiveNull DeleteDomainNameResponse'
 
-instance Core.Hashable DeleteDomainName
+instance Prelude.Hashable DeleteDomainName
 
-instance Core.NFData DeleteDomainName
+instance Prelude.NFData DeleteDomainName
 
 instance Core.ToHeaders DeleteDomainName where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteDomainName where
   toPath DeleteDomainName' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/domainnames/", Core.toBS domainName]
 
 instance Core.ToQuery DeleteDomainName where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDomainNameResponse' smart constructor.
 data DeleteDomainNameResponse = DeleteDomainNameResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainNameResponse' with all optional fields omitted.
@@ -114,4 +115,4 @@ newDeleteDomainNameResponse ::
 newDeleteDomainNameResponse =
   DeleteDomainNameResponse'
 
-instance Core.NFData DeleteDomainNameResponse
+instance Prelude.NFData DeleteDomainNameResponse

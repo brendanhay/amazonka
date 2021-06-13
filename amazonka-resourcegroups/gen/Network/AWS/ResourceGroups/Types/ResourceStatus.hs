@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.ResourceStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.ResourceStatusValue
 
 -- | A structure that identifies the current group membership status for a
@@ -31,9 +32,9 @@ import Network.AWS.ResourceGroups.Types.ResourceStatusValue
 -- /See:/ 'newResourceStatus' smart constructor.
 data ResourceStatus = ResourceStatus'
   { -- | The current status.
-    name :: Core.Maybe ResourceStatusValue
+    name :: Prelude.Maybe ResourceStatusValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceStatus' with all optional fields omitted.
@@ -47,18 +48,20 @@ data ResourceStatus = ResourceStatus'
 newResourceStatus ::
   ResourceStatus
 newResourceStatus =
-  ResourceStatus' {name = Core.Nothing}
+  ResourceStatus' {name = Prelude.Nothing}
 
 -- | The current status.
-resourceStatus_name :: Lens.Lens' ResourceStatus (Core.Maybe ResourceStatusValue)
+resourceStatus_name :: Lens.Lens' ResourceStatus (Prelude.Maybe ResourceStatusValue)
 resourceStatus_name = Lens.lens (\ResourceStatus' {name} -> name) (\s@ResourceStatus' {} a -> s {name = a} :: ResourceStatus)
 
 instance Core.FromJSON ResourceStatus where
   parseJSON =
     Core.withObject
       "ResourceStatus"
-      (\x -> ResourceStatus' Core.<$> (x Core..:? "Name"))
+      ( \x ->
+          ResourceStatus' Prelude.<$> (x Core..:? "Name")
+      )
 
-instance Core.Hashable ResourceStatus
+instance Prelude.Hashable ResourceStatus
 
-instance Core.NFData ResourceStatus
+instance Prelude.NFData ResourceStatus

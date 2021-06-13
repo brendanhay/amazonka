@@ -24,6 +24,7 @@ import Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
 import Network.AWS.CostExplorer.Types.SavingsPlansSavings
 import Network.AWS.CostExplorer.Types.SavingsPlansUtilization
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A single daily or monthly Savings Plans utilization rate, and details
 -- for your account. A management account in an organization have access to
@@ -35,19 +36,19 @@ data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
   { -- | The amount saved by using existing Savings Plans. Savings returns both
     -- net savings from savings plans as well as the @onDemandCostEquivalent@
     -- of the Savings Plans when considering the utilization rate.
-    savings :: Core.Maybe SavingsPlansSavings,
+    savings :: Prelude.Maybe SavingsPlansSavings,
     -- | A ratio of your effectiveness of using existing Savings Plans to apply
     -- to workloads that are Savings Plans eligible.
-    utilization :: Core.Maybe SavingsPlansUtilization,
+    utilization :: Prelude.Maybe SavingsPlansUtilization,
     -- | The attribute that applies to a specific @Dimension@.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The total amortized commitment for a Savings Plans. Includes the sum of
     -- the upfront and recurring Savings Plans fees.
-    amortizedCommitment :: Core.Maybe SavingsPlansAmortizedCommitment,
+    amortizedCommitment :: Prelude.Maybe SavingsPlansAmortizedCommitment,
     -- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.
-    savingsPlanArn :: Core.Maybe Core.Text
+    savingsPlanArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansUtilizationDetail' with all optional fields omitted.
@@ -75,35 +76,35 @@ newSavingsPlansUtilizationDetail ::
 newSavingsPlansUtilizationDetail =
   SavingsPlansUtilizationDetail'
     { savings =
-        Core.Nothing,
-      utilization = Core.Nothing,
-      attributes = Core.Nothing,
-      amortizedCommitment = Core.Nothing,
-      savingsPlanArn = Core.Nothing
+        Prelude.Nothing,
+      utilization = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      amortizedCommitment = Prelude.Nothing,
+      savingsPlanArn = Prelude.Nothing
     }
 
 -- | The amount saved by using existing Savings Plans. Savings returns both
 -- net savings from savings plans as well as the @onDemandCostEquivalent@
 -- of the Savings Plans when considering the utilization rate.
-savingsPlansUtilizationDetail_savings :: Lens.Lens' SavingsPlansUtilizationDetail (Core.Maybe SavingsPlansSavings)
+savingsPlansUtilizationDetail_savings :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansSavings)
 savingsPlansUtilizationDetail_savings = Lens.lens (\SavingsPlansUtilizationDetail' {savings} -> savings) (\s@SavingsPlansUtilizationDetail' {} a -> s {savings = a} :: SavingsPlansUtilizationDetail)
 
 -- | A ratio of your effectiveness of using existing Savings Plans to apply
 -- to workloads that are Savings Plans eligible.
-savingsPlansUtilizationDetail_utilization :: Lens.Lens' SavingsPlansUtilizationDetail (Core.Maybe SavingsPlansUtilization)
+savingsPlansUtilizationDetail_utilization :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansUtilization)
 savingsPlansUtilizationDetail_utilization = Lens.lens (\SavingsPlansUtilizationDetail' {utilization} -> utilization) (\s@SavingsPlansUtilizationDetail' {} a -> s {utilization = a} :: SavingsPlansUtilizationDetail)
 
 -- | The attribute that applies to a specific @Dimension@.
-savingsPlansUtilizationDetail_attributes :: Lens.Lens' SavingsPlansUtilizationDetail (Core.Maybe (Core.HashMap Core.Text Core.Text))
-savingsPlansUtilizationDetail_attributes = Lens.lens (\SavingsPlansUtilizationDetail' {attributes} -> attributes) (\s@SavingsPlansUtilizationDetail' {} a -> s {attributes = a} :: SavingsPlansUtilizationDetail) Core.. Lens.mapping Lens._Coerce
+savingsPlansUtilizationDetail_attributes :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+savingsPlansUtilizationDetail_attributes = Lens.lens (\SavingsPlansUtilizationDetail' {attributes} -> attributes) (\s@SavingsPlansUtilizationDetail' {} a -> s {attributes = a} :: SavingsPlansUtilizationDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The total amortized commitment for a Savings Plans. Includes the sum of
 -- the upfront and recurring Savings Plans fees.
-savingsPlansUtilizationDetail_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationDetail (Core.Maybe SavingsPlansAmortizedCommitment)
+savingsPlansUtilizationDetail_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe SavingsPlansAmortizedCommitment)
 savingsPlansUtilizationDetail_amortizedCommitment = Lens.lens (\SavingsPlansUtilizationDetail' {amortizedCommitment} -> amortizedCommitment) (\s@SavingsPlansUtilizationDetail' {} a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationDetail)
 
 -- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.
-savingsPlansUtilizationDetail_savingsPlanArn :: Lens.Lens' SavingsPlansUtilizationDetail (Core.Maybe Core.Text)
+savingsPlansUtilizationDetail_savingsPlanArn :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe Prelude.Text)
 savingsPlansUtilizationDetail_savingsPlanArn = Lens.lens (\SavingsPlansUtilizationDetail' {savingsPlanArn} -> savingsPlanArn) (\s@SavingsPlansUtilizationDetail' {} a -> s {savingsPlanArn = a} :: SavingsPlansUtilizationDetail)
 
 instance Core.FromJSON SavingsPlansUtilizationDetail where
@@ -112,13 +113,15 @@ instance Core.FromJSON SavingsPlansUtilizationDetail where
       "SavingsPlansUtilizationDetail"
       ( \x ->
           SavingsPlansUtilizationDetail'
-            Core.<$> (x Core..:? "Savings")
-            Core.<*> (x Core..:? "Utilization")
-            Core.<*> (x Core..:? "Attributes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "AmortizedCommitment")
-            Core.<*> (x Core..:? "SavingsPlanArn")
+            Prelude.<$> (x Core..:? "Savings")
+            Prelude.<*> (x Core..:? "Utilization")
+            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AmortizedCommitment")
+            Prelude.<*> (x Core..:? "SavingsPlanArn")
       )
 
-instance Core.Hashable SavingsPlansUtilizationDetail
+instance
+  Prelude.Hashable
+    SavingsPlansUtilizationDetail
 
-instance Core.NFData SavingsPlansUtilizationDetail
+instance Prelude.NFData SavingsPlansUtilizationDetail

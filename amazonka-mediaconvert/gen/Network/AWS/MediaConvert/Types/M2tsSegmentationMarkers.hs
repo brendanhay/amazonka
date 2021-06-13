@@ -31,6 +31,7 @@ module Network.AWS.MediaConvert.Types.M2tsSegmentationMarkers
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Inserts segmentation markers at each segmentation_time period.
 -- rai_segstart sets the Random Access Indicator bit in the adaptation
@@ -45,15 +46,15 @@ newtype M2tsSegmentationMarkers = M2tsSegmentationMarkers'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

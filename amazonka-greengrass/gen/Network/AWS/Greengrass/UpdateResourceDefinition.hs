@@ -42,17 +42,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateResourceDefinition' smart constructor.
 data UpdateResourceDefinition = UpdateResourceDefinition'
   { -- | The name of the definition.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the resource definition.
-    resourceDefinitionId :: Core.Text
+    resourceDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceDefinition' with all optional fields omitted.
@@ -67,20 +68,20 @@ data UpdateResourceDefinition = UpdateResourceDefinition'
 -- 'resourceDefinitionId', 'updateResourceDefinition_resourceDefinitionId' - The ID of the resource definition.
 newUpdateResourceDefinition ::
   -- | 'resourceDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateResourceDefinition
 newUpdateResourceDefinition pResourceDefinitionId_ =
   UpdateResourceDefinition'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       resourceDefinitionId = pResourceDefinitionId_
     }
 
 -- | The name of the definition.
-updateResourceDefinition_name :: Lens.Lens' UpdateResourceDefinition (Core.Maybe Core.Text)
+updateResourceDefinition_name :: Lens.Lens' UpdateResourceDefinition (Prelude.Maybe Prelude.Text)
 updateResourceDefinition_name = Lens.lens (\UpdateResourceDefinition' {name} -> name) (\s@UpdateResourceDefinition' {} a -> s {name = a} :: UpdateResourceDefinition)
 
 -- | The ID of the resource definition.
-updateResourceDefinition_resourceDefinitionId :: Lens.Lens' UpdateResourceDefinition Core.Text
+updateResourceDefinition_resourceDefinitionId :: Lens.Lens' UpdateResourceDefinition Prelude.Text
 updateResourceDefinition_resourceDefinitionId = Lens.lens (\UpdateResourceDefinition' {resourceDefinitionId} -> resourceDefinitionId) (\s@UpdateResourceDefinition' {} a -> s {resourceDefinitionId = a} :: UpdateResourceDefinition)
 
 instance Core.AWSRequest UpdateResourceDefinition where
@@ -92,43 +93,47 @@ instance Core.AWSRequest UpdateResourceDefinition where
     Response.receiveEmpty
       ( \s h x ->
           UpdateResourceDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateResourceDefinition
+instance Prelude.Hashable UpdateResourceDefinition
 
-instance Core.NFData UpdateResourceDefinition
+instance Prelude.NFData UpdateResourceDefinition
 
 instance Core.ToHeaders UpdateResourceDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateResourceDefinition where
   toJSON UpdateResourceDefinition' {..} =
     Core.object
-      (Core.catMaybes [("Name" Core..=) Core.<$> name])
+      ( Prelude.catMaybes
+          [("Name" Core..=) Prelude.<$> name]
+      )
 
 instance Core.ToPath UpdateResourceDefinition where
   toPath UpdateResourceDefinition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/resources/",
         Core.toBS resourceDefinitionId
       ]
 
 instance Core.ToQuery UpdateResourceDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResourceDefinitionResponse' smart constructor.
 data UpdateResourceDefinitionResponse = UpdateResourceDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceDefinitionResponse' with all optional fields omitted.
@@ -141,7 +146,7 @@ data UpdateResourceDefinitionResponse = UpdateResourceDefinitionResponse'
 -- 'httpStatus', 'updateResourceDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateResourceDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateResourceDefinitionResponse
 newUpdateResourceDefinitionResponse pHttpStatus_ =
   UpdateResourceDefinitionResponse'
@@ -150,7 +155,9 @@ newUpdateResourceDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateResourceDefinitionResponse_httpStatus :: Lens.Lens' UpdateResourceDefinitionResponse Core.Int
+updateResourceDefinitionResponse_httpStatus :: Lens.Lens' UpdateResourceDefinitionResponse Prelude.Int
 updateResourceDefinitionResponse_httpStatus = Lens.lens (\UpdateResourceDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateResourceDefinitionResponse)
 
-instance Core.NFData UpdateResourceDefinitionResponse
+instance
+  Prelude.NFData
+    UpdateResourceDefinitionResponse

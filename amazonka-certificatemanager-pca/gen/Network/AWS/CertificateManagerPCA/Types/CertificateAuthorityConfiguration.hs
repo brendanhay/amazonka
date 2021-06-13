@@ -25,6 +25,7 @@ import Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
 import Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains configuration information for your private certificate
 -- authority (CA). This includes information about the class of public key
@@ -39,7 +40,7 @@ import qualified Network.AWS.Lens as Lens
 data CertificateAuthorityConfiguration = CertificateAuthorityConfiguration'
   { -- | Specifies information to be added to the extension section of the
     -- certificate signing request (CSR).
-    csrExtensions :: Core.Maybe CsrExtensions,
+    csrExtensions :: Prelude.Maybe CsrExtensions,
     -- | Type of the public key algorithm and size, in bits, of the key pair that
     -- your CA creates when it issues a certificate. When you create a
     -- subordinate CA, you must use a key algorithm supported by the parent CA.
@@ -53,7 +54,7 @@ data CertificateAuthorityConfiguration = CertificateAuthorityConfiguration'
     -- private CA.
     subject :: ASN1Subject
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CertificateAuthorityConfiguration' with all optional fields omitted.
@@ -91,7 +92,7 @@ newCertificateAuthorityConfiguration
   pSubject_ =
     CertificateAuthorityConfiguration'
       { csrExtensions =
-          Core.Nothing,
+          Prelude.Nothing,
         keyAlgorithm = pKeyAlgorithm_,
         signingAlgorithm = pSigningAlgorithm_,
         subject = pSubject_
@@ -99,7 +100,7 @@ newCertificateAuthorityConfiguration
 
 -- | Specifies information to be added to the extension section of the
 -- certificate signing request (CSR).
-certificateAuthorityConfiguration_csrExtensions :: Lens.Lens' CertificateAuthorityConfiguration (Core.Maybe CsrExtensions)
+certificateAuthorityConfiguration_csrExtensions :: Lens.Lens' CertificateAuthorityConfiguration (Prelude.Maybe CsrExtensions)
 certificateAuthorityConfiguration_csrExtensions = Lens.lens (\CertificateAuthorityConfiguration' {csrExtensions} -> csrExtensions) (\s@CertificateAuthorityConfiguration' {} a -> s {csrExtensions = a} :: CertificateAuthorityConfiguration)
 
 -- | Type of the public key algorithm and size, in bits, of the key pair that
@@ -129,18 +130,18 @@ instance
       "CertificateAuthorityConfiguration"
       ( \x ->
           CertificateAuthorityConfiguration'
-            Core.<$> (x Core..:? "CsrExtensions")
-            Core.<*> (x Core..: "KeyAlgorithm")
-            Core.<*> (x Core..: "SigningAlgorithm")
-            Core.<*> (x Core..: "Subject")
+            Prelude.<$> (x Core..:? "CsrExtensions")
+            Prelude.<*> (x Core..: "KeyAlgorithm")
+            Prelude.<*> (x Core..: "SigningAlgorithm")
+            Prelude.<*> (x Core..: "Subject")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CertificateAuthorityConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     CertificateAuthorityConfiguration
 
 instance
@@ -149,11 +150,11 @@ instance
   where
   toJSON CertificateAuthorityConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CsrExtensions" Core..=) Core.<$> csrExtensions,
-            Core.Just ("KeyAlgorithm" Core..= keyAlgorithm),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CsrExtensions" Core..=) Prelude.<$> csrExtensions,
+            Prelude.Just ("KeyAlgorithm" Core..= keyAlgorithm),
+            Prelude.Just
               ("SigningAlgorithm" Core..= signingAlgorithm),
-            Core.Just ("Subject" Core..= subject)
+            Prelude.Just ("Subject" Core..= subject)
           ]
       )

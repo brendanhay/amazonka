@@ -49,6 +49,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,19 +59,19 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetUsagePlanKeys' smart constructor.
 data GetUsagePlanKeys = GetUsagePlanKeys'
   { -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int,
+    limit :: Prelude.Maybe Prelude.Int,
     -- | A query parameter specifying the name of the to-be-returned usage plan
     -- keys.
-    nameQuery :: Core.Maybe Core.Text,
+    nameQuery :: Prelude.Maybe Prelude.Text,
     -- | [Required] The Id of the UsagePlan resource representing the usage plan
     -- containing the to-be-retrieved UsagePlanKey resource representing a plan
     -- customer.
-    usagePlanId :: Core.Text
+    usagePlanId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUsagePlanKeys' with all optional fields omitted.
@@ -93,54 +94,56 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 -- customer.
 newGetUsagePlanKeys ::
   -- | 'usagePlanId'
-  Core.Text ->
+  Prelude.Text ->
   GetUsagePlanKeys
 newGetUsagePlanKeys pUsagePlanId_ =
   GetUsagePlanKeys'
-    { position = Core.Nothing,
-      limit = Core.Nothing,
-      nameQuery = Core.Nothing,
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      nameQuery = Prelude.Nothing,
       usagePlanId = pUsagePlanId_
     }
 
 -- | The current pagination position in the paged result set.
-getUsagePlanKeys_position :: Lens.Lens' GetUsagePlanKeys (Core.Maybe Core.Text)
+getUsagePlanKeys_position :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
 getUsagePlanKeys_position = Lens.lens (\GetUsagePlanKeys' {position} -> position) (\s@GetUsagePlanKeys' {} a -> s {position = a} :: GetUsagePlanKeys)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getUsagePlanKeys_limit :: Lens.Lens' GetUsagePlanKeys (Core.Maybe Core.Int)
+getUsagePlanKeys_limit :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Int)
 getUsagePlanKeys_limit = Lens.lens (\GetUsagePlanKeys' {limit} -> limit) (\s@GetUsagePlanKeys' {} a -> s {limit = a} :: GetUsagePlanKeys)
 
 -- | A query parameter specifying the name of the to-be-returned usage plan
 -- keys.
-getUsagePlanKeys_nameQuery :: Lens.Lens' GetUsagePlanKeys (Core.Maybe Core.Text)
+getUsagePlanKeys_nameQuery :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
 getUsagePlanKeys_nameQuery = Lens.lens (\GetUsagePlanKeys' {nameQuery} -> nameQuery) (\s@GetUsagePlanKeys' {} a -> s {nameQuery = a} :: GetUsagePlanKeys)
 
 -- | [Required] The Id of the UsagePlan resource representing the usage plan
 -- containing the to-be-retrieved UsagePlanKey resource representing a plan
 -- customer.
-getUsagePlanKeys_usagePlanId :: Lens.Lens' GetUsagePlanKeys Core.Text
+getUsagePlanKeys_usagePlanId :: Lens.Lens' GetUsagePlanKeys Prelude.Text
 getUsagePlanKeys_usagePlanId = Lens.lens (\GetUsagePlanKeys' {usagePlanId} -> usagePlanId) (\s@GetUsagePlanKeys' {} a -> s {usagePlanId = a} :: GetUsagePlanKeys)
 
 instance Core.AWSPager GetUsagePlanKeys where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getUsagePlanKeysResponse_position Core.. Lens._Just
+            Lens.^? getUsagePlanKeysResponse_position
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getUsagePlanKeysResponse_items Core.. Lens._Just
+            Lens.^? getUsagePlanKeysResponse_items Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getUsagePlanKeys_position
+          Prelude.& getUsagePlanKeys_position
           Lens..~ rs
-          Lens.^? getUsagePlanKeysResponse_position Core.. Lens._Just
+          Lens.^? getUsagePlanKeysResponse_position
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUsagePlanKeys where
   type
@@ -151,32 +154,32 @@ instance Core.AWSRequest GetUsagePlanKeys where
     Response.receiveJSON
       ( \s h x ->
           GetUsagePlanKeysResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetUsagePlanKeys
+instance Prelude.Hashable GetUsagePlanKeys
 
-instance Core.NFData GetUsagePlanKeys
+instance Prelude.NFData GetUsagePlanKeys
 
 instance Core.ToHeaders GetUsagePlanKeys where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetUsagePlanKeys where
   toPath GetUsagePlanKeys' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/usageplans/", Core.toBS usagePlanId, "/keys"]
 
 instance Core.ToQuery GetUsagePlanKeys where
   toQuery GetUsagePlanKeys' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "position" Core.=: position,
         "limit" Core.=: limit,
         "name" Core.=: nameQuery
@@ -190,12 +193,12 @@ instance Core.ToQuery GetUsagePlanKeys where
 -- /See:/ 'newGetUsagePlanKeysResponse' smart constructor.
 data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
   { -- | The current page of elements from this collection.
-    items :: Core.Maybe [UsagePlanKey],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [UsagePlanKey],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUsagePlanKeysResponse' with all optional fields omitted.
@@ -212,25 +215,25 @@ data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
 -- 'httpStatus', 'getUsagePlanKeysResponse_httpStatus' - The response's http status code.
 newGetUsagePlanKeysResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetUsagePlanKeysResponse
 newGetUsagePlanKeysResponse pHttpStatus_ =
   GetUsagePlanKeysResponse'
-    { items = Core.Nothing,
-      position = Core.Nothing,
+    { items = Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getUsagePlanKeysResponse_items :: Lens.Lens' GetUsagePlanKeysResponse (Core.Maybe [UsagePlanKey])
-getUsagePlanKeysResponse_items = Lens.lens (\GetUsagePlanKeysResponse' {items} -> items) (\s@GetUsagePlanKeysResponse' {} a -> s {items = a} :: GetUsagePlanKeysResponse) Core.. Lens.mapping Lens._Coerce
+getUsagePlanKeysResponse_items :: Lens.Lens' GetUsagePlanKeysResponse (Prelude.Maybe [UsagePlanKey])
+getUsagePlanKeysResponse_items = Lens.lens (\GetUsagePlanKeysResponse' {items} -> items) (\s@GetUsagePlanKeysResponse' {} a -> s {items = a} :: GetUsagePlanKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getUsagePlanKeysResponse_position :: Lens.Lens' GetUsagePlanKeysResponse (Core.Maybe Core.Text)
+getUsagePlanKeysResponse_position :: Lens.Lens' GetUsagePlanKeysResponse (Prelude.Maybe Prelude.Text)
 getUsagePlanKeysResponse_position = Lens.lens (\GetUsagePlanKeysResponse' {position} -> position) (\s@GetUsagePlanKeysResponse' {} a -> s {position = a} :: GetUsagePlanKeysResponse)
 
 -- | The response's http status code.
-getUsagePlanKeysResponse_httpStatus :: Lens.Lens' GetUsagePlanKeysResponse Core.Int
+getUsagePlanKeysResponse_httpStatus :: Lens.Lens' GetUsagePlanKeysResponse Prelude.Int
 getUsagePlanKeysResponse_httpStatus = Lens.lens (\GetUsagePlanKeysResponse' {httpStatus} -> httpStatus) (\s@GetUsagePlanKeysResponse' {} a -> s {httpStatus = a} :: GetUsagePlanKeysResponse)
 
-instance Core.NFData GetUsagePlanKeysResponse
+instance Prelude.NFData GetUsagePlanKeysResponse

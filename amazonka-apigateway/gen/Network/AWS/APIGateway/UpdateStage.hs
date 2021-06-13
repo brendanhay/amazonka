@@ -59,6 +59,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,13 +69,13 @@ import qualified Network.AWS.Response as Response
 data UpdateStage = UpdateStage'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The name of the Stage resource to change information about.
-    stageName :: Core.Text
+    stageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStage' with all optional fields omitted.
@@ -92,28 +93,28 @@ data UpdateStage = UpdateStage'
 -- 'stageName', 'updateStage_stageName' - [Required] The name of the Stage resource to change information about.
 newUpdateStage ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateStage
 newUpdateStage pRestApiId_ pStageName_ =
   UpdateStage'
-    { patchOperations = Core.Nothing,
+    { patchOperations = Prelude.Nothing,
       restApiId = pRestApiId_,
       stageName = pStageName_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateStage_patchOperations :: Lens.Lens' UpdateStage (Core.Maybe [PatchOperation])
-updateStage_patchOperations = Lens.lens (\UpdateStage' {patchOperations} -> patchOperations) (\s@UpdateStage' {} a -> s {patchOperations = a} :: UpdateStage) Core.. Lens.mapping Lens._Coerce
+updateStage_patchOperations :: Lens.Lens' UpdateStage (Prelude.Maybe [PatchOperation])
+updateStage_patchOperations = Lens.lens (\UpdateStage' {patchOperations} -> patchOperations) (\s@UpdateStage' {} a -> s {patchOperations = a} :: UpdateStage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateStage_restApiId :: Lens.Lens' UpdateStage Core.Text
+updateStage_restApiId :: Lens.Lens' UpdateStage Prelude.Text
 updateStage_restApiId = Lens.lens (\UpdateStage' {restApiId} -> restApiId) (\s@UpdateStage' {} a -> s {restApiId = a} :: UpdateStage)
 
 -- | [Required] The name of the Stage resource to change information about.
-updateStage_stageName :: Lens.Lens' UpdateStage Core.Text
+updateStage_stageName :: Lens.Lens' UpdateStage Prelude.Text
 updateStage_stageName = Lens.lens (\UpdateStage' {stageName} -> stageName) (\s@UpdateStage' {} a -> s {stageName = a} :: UpdateStage)
 
 instance Core.AWSRequest UpdateStage where
@@ -123,31 +124,31 @@ instance Core.AWSRequest UpdateStage where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateStage
+instance Prelude.Hashable UpdateStage
 
-instance Core.NFData UpdateStage
+instance Prelude.NFData UpdateStage
 
 instance Core.ToHeaders UpdateStage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateStage where
   toJSON UpdateStage' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateStage where
   toPath UpdateStage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/stages/",
@@ -155,4 +156,4 @@ instance Core.ToPath UpdateStage where
       ]
 
 instance Core.ToQuery UpdateStage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

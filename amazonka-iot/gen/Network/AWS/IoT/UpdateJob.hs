@@ -44,19 +44,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
   { -- | Allows you to create a staged rollout of the job.
-    jobExecutionsRolloutConfig :: Core.Maybe JobExecutionsRolloutConfig,
+    jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
     -- | Specifies the amount of time each device has to finish its execution of
     -- the job. The timer is started when the job execution status is set to
     -- @IN_PROGRESS@. If the job execution status is not set to another
     -- terminal state before the time expires, it will be automatically set to
     -- @TIMED_OUT@.
-    timeoutConfig :: Core.Maybe TimeoutConfig,
+    timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, AWS IoT Core sends jobs
@@ -66,17 +67,17 @@ data UpdateJob = UpdateJob'
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
     -- The @namespaceId@ feature is in public preview.
-    namespaceId :: Core.Maybe Core.Text,
+    namespaceId :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for pre-signed S3 URLs.
-    presignedUrlConfig :: Core.Maybe PresignedUrlConfig,
+    presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     -- | A short text description of the job.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Allows you to create criteria to abort a job.
-    abortConfig :: Core.Maybe AbortConfig,
+    abortConfig :: Prelude.Maybe AbortConfig,
     -- | The ID of the job to be updated.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJob' with all optional fields omitted.
@@ -113,22 +114,22 @@ data UpdateJob = UpdateJob'
 -- 'jobId', 'updateJob_jobId' - The ID of the job to be updated.
 newUpdateJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateJob
 newUpdateJob pJobId_ =
   UpdateJob'
     { jobExecutionsRolloutConfig =
-        Core.Nothing,
-      timeoutConfig = Core.Nothing,
-      namespaceId = Core.Nothing,
-      presignedUrlConfig = Core.Nothing,
-      description = Core.Nothing,
-      abortConfig = Core.Nothing,
+        Prelude.Nothing,
+      timeoutConfig = Prelude.Nothing,
+      namespaceId = Prelude.Nothing,
+      presignedUrlConfig = Prelude.Nothing,
+      description = Prelude.Nothing,
+      abortConfig = Prelude.Nothing,
       jobId = pJobId_
     }
 
 -- | Allows you to create a staged rollout of the job.
-updateJob_jobExecutionsRolloutConfig :: Lens.Lens' UpdateJob (Core.Maybe JobExecutionsRolloutConfig)
+updateJob_jobExecutionsRolloutConfig :: Lens.Lens' UpdateJob (Prelude.Maybe JobExecutionsRolloutConfig)
 updateJob_jobExecutionsRolloutConfig = Lens.lens (\UpdateJob' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@UpdateJob' {} a -> s {jobExecutionsRolloutConfig = a} :: UpdateJob)
 
 -- | Specifies the amount of time each device has to finish its execution of
@@ -136,7 +137,7 @@ updateJob_jobExecutionsRolloutConfig = Lens.lens (\UpdateJob' {jobExecutionsRoll
 -- @IN_PROGRESS@. If the job execution status is not set to another
 -- terminal state before the time expires, it will be automatically set to
 -- @TIMED_OUT@.
-updateJob_timeoutConfig :: Lens.Lens' UpdateJob (Core.Maybe TimeoutConfig)
+updateJob_timeoutConfig :: Lens.Lens' UpdateJob (Prelude.Maybe TimeoutConfig)
 updateJob_timeoutConfig = Lens.lens (\UpdateJob' {timeoutConfig} -> timeoutConfig) (\s@UpdateJob' {} a -> s {timeoutConfig = a} :: UpdateJob)
 
 -- | The namespace used to indicate that a job is a customer-managed job.
@@ -148,23 +149,23 @@ updateJob_timeoutConfig = Lens.lens (\UpdateJob' {timeoutConfig} -> timeoutConfi
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
-updateJob_namespaceId :: Lens.Lens' UpdateJob (Core.Maybe Core.Text)
+updateJob_namespaceId :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_namespaceId = Lens.lens (\UpdateJob' {namespaceId} -> namespaceId) (\s@UpdateJob' {} a -> s {namespaceId = a} :: UpdateJob)
 
 -- | Configuration information for pre-signed S3 URLs.
-updateJob_presignedUrlConfig :: Lens.Lens' UpdateJob (Core.Maybe PresignedUrlConfig)
+updateJob_presignedUrlConfig :: Lens.Lens' UpdateJob (Prelude.Maybe PresignedUrlConfig)
 updateJob_presignedUrlConfig = Lens.lens (\UpdateJob' {presignedUrlConfig} -> presignedUrlConfig) (\s@UpdateJob' {} a -> s {presignedUrlConfig = a} :: UpdateJob)
 
 -- | A short text description of the job.
-updateJob_description :: Lens.Lens' UpdateJob (Core.Maybe Core.Text)
+updateJob_description :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_description = Lens.lens (\UpdateJob' {description} -> description) (\s@UpdateJob' {} a -> s {description = a} :: UpdateJob)
 
 -- | Allows you to create criteria to abort a job.
-updateJob_abortConfig :: Lens.Lens' UpdateJob (Core.Maybe AbortConfig)
+updateJob_abortConfig :: Lens.Lens' UpdateJob (Prelude.Maybe AbortConfig)
 updateJob_abortConfig = Lens.lens (\UpdateJob' {abortConfig} -> abortConfig) (\s@UpdateJob' {} a -> s {abortConfig = a} :: UpdateJob)
 
 -- | The ID of the job to be updated.
-updateJob_jobId :: Lens.Lens' UpdateJob Core.Text
+updateJob_jobId :: Lens.Lens' UpdateJob Prelude.Text
 updateJob_jobId = Lens.lens (\UpdateJob' {jobId} -> jobId) (\s@UpdateJob' {} a -> s {jobId = a} :: UpdateJob)
 
 instance Core.AWSRequest UpdateJob where
@@ -172,40 +173,40 @@ instance Core.AWSRequest UpdateJob where
   request = Request.patchJSON defaultService
   response = Response.receiveNull UpdateJobResponse'
 
-instance Core.Hashable UpdateJob
+instance Prelude.Hashable UpdateJob
 
-instance Core.NFData UpdateJob
+instance Prelude.NFData UpdateJob
 
 instance Core.ToHeaders UpdateJob where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateJob where
   toJSON UpdateJob' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("jobExecutionsRolloutConfig" Core..=)
-              Core.<$> jobExecutionsRolloutConfig,
-            ("timeoutConfig" Core..=) Core.<$> timeoutConfig,
+              Prelude.<$> jobExecutionsRolloutConfig,
+            ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig,
             ("presignedUrlConfig" Core..=)
-              Core.<$> presignedUrlConfig,
-            ("description" Core..=) Core.<$> description,
-            ("abortConfig" Core..=) Core.<$> abortConfig
+              Prelude.<$> presignedUrlConfig,
+            ("description" Core..=) Prelude.<$> description,
+            ("abortConfig" Core..=) Prelude.<$> abortConfig
           ]
       )
 
 instance Core.ToPath UpdateJob where
   toPath UpdateJob' {..} =
-    Core.mconcat ["/jobs/", Core.toBS jobId]
+    Prelude.mconcat ["/jobs/", Core.toBS jobId]
 
 instance Core.ToQuery UpdateJob where
   toQuery UpdateJob' {..} =
-    Core.mconcat ["namespaceId" Core.=: namespaceId]
+    Prelude.mconcat ["namespaceId" Core.=: namespaceId]
 
 -- | /See:/ 'newUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJobResponse' with all optional fields omitted.
@@ -215,4 +216,4 @@ newUpdateJobResponse ::
   UpdateJobResponse
 newUpdateJobResponse = UpdateJobResponse'
 
-instance Core.NFData UpdateJobResponse
+instance Prelude.NFData UpdateJobResponse

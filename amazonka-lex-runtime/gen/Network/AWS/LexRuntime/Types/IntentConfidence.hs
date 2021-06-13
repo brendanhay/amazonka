@@ -21,6 +21,7 @@ module Network.AWS.LexRuntime.Types.IntentConfidence where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a score that indicates the confidence that Amazon Lex has that
 -- an intent is the one that satisfies the user\'s intent.
@@ -30,9 +31,9 @@ data IntentConfidence = IntentConfidence'
   { -- | A score that indicates how confident Amazon Lex is that an intent
     -- satisfies the user\'s intent. Ranges between 0.00 and 1.00. Higher
     -- scores indicate higher confidence.
-    score :: Core.Maybe Core.Double
+    score :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IntentConfidence' with all optional fields omitted.
@@ -48,12 +49,12 @@ data IntentConfidence = IntentConfidence'
 newIntentConfidence ::
   IntentConfidence
 newIntentConfidence =
-  IntentConfidence' {score = Core.Nothing}
+  IntentConfidence' {score = Prelude.Nothing}
 
 -- | A score that indicates how confident Amazon Lex is that an intent
 -- satisfies the user\'s intent. Ranges between 0.00 and 1.00. Higher
 -- scores indicate higher confidence.
-intentConfidence_score :: Lens.Lens' IntentConfidence (Core.Maybe Core.Double)
+intentConfidence_score :: Lens.Lens' IntentConfidence (Prelude.Maybe Prelude.Double)
 intentConfidence_score = Lens.lens (\IntentConfidence' {score} -> score) (\s@IntentConfidence' {} a -> s {score = a} :: IntentConfidence)
 
 instance Core.FromJSON IntentConfidence where
@@ -61,9 +62,9 @@ instance Core.FromJSON IntentConfidence where
     Core.withObject
       "IntentConfidence"
       ( \x ->
-          IntentConfidence' Core.<$> (x Core..:? "score")
+          IntentConfidence' Prelude.<$> (x Core..:? "score")
       )
 
-instance Core.Hashable IntentConfidence
+instance Prelude.Hashable IntentConfidence
 
-instance Core.NFData IntentConfidence
+instance Prelude.NFData IntentConfidence

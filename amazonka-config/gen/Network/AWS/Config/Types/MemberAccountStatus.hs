@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.MemberAccountStatus where
 import Network.AWS.Config.Types.MemberAccountRuleStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Organization config rule creation or deletion status in each member
 -- account. This includes the name of the rule, the status, error code and
@@ -30,17 +31,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMemberAccountStatus' smart constructor.
 data MemberAccountStatus = MemberAccountStatus'
   { -- | The timestamp of the last status update.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | An error message indicating that config rule account creation or
     -- deletion has failed due to an error in the member account.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | An error code that is returned when config rule creation or deletion
     -- failed in the member account.
-    errorCode :: Core.Maybe Core.Text,
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The 12-digit account ID of a member account.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of config rule deployed in the member account.
-    configRuleName :: Core.Text,
+    configRuleName :: Prelude.Text,
     -- | Indicates deployment status for config rule in the member account. When
     -- master account calls @PutOrganizationConfigRule@ action for the first
     -- time, config rule status is created in the member account. When master
@@ -79,7 +80,7 @@ data MemberAccountStatus = MemberAccountStatus'
     --     account.
     memberAccountRuleStatus :: MemberAccountRuleStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MemberAccountStatus' with all optional fields omitted.
@@ -139,9 +140,9 @@ data MemberAccountStatus = MemberAccountStatus'
 --     account.
 newMemberAccountStatus ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'configRuleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'memberAccountRuleStatus'
   MemberAccountRuleStatus ->
   MemberAccountStatus
@@ -150,34 +151,35 @@ newMemberAccountStatus
   pConfigRuleName_
   pMemberAccountRuleStatus_ =
     MemberAccountStatus'
-      { lastUpdateTime = Core.Nothing,
-        errorMessage = Core.Nothing,
-        errorCode = Core.Nothing,
+      { lastUpdateTime =
+          Prelude.Nothing,
+        errorMessage = Prelude.Nothing,
+        errorCode = Prelude.Nothing,
         accountId = pAccountId_,
         configRuleName = pConfigRuleName_,
         memberAccountRuleStatus = pMemberAccountRuleStatus_
       }
 
 -- | The timestamp of the last status update.
-memberAccountStatus_lastUpdateTime :: Lens.Lens' MemberAccountStatus (Core.Maybe Core.UTCTime)
-memberAccountStatus_lastUpdateTime = Lens.lens (\MemberAccountStatus' {lastUpdateTime} -> lastUpdateTime) (\s@MemberAccountStatus' {} a -> s {lastUpdateTime = a} :: MemberAccountStatus) Core.. Lens.mapping Core._Time
+memberAccountStatus_lastUpdateTime :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.UTCTime)
+memberAccountStatus_lastUpdateTime = Lens.lens (\MemberAccountStatus' {lastUpdateTime} -> lastUpdateTime) (\s@MemberAccountStatus' {} a -> s {lastUpdateTime = a} :: MemberAccountStatus) Prelude.. Lens.mapping Core._Time
 
 -- | An error message indicating that config rule account creation or
 -- deletion has failed due to an error in the member account.
-memberAccountStatus_errorMessage :: Lens.Lens' MemberAccountStatus (Core.Maybe Core.Text)
+memberAccountStatus_errorMessage :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.Text)
 memberAccountStatus_errorMessage = Lens.lens (\MemberAccountStatus' {errorMessage} -> errorMessage) (\s@MemberAccountStatus' {} a -> s {errorMessage = a} :: MemberAccountStatus)
 
 -- | An error code that is returned when config rule creation or deletion
 -- failed in the member account.
-memberAccountStatus_errorCode :: Lens.Lens' MemberAccountStatus (Core.Maybe Core.Text)
+memberAccountStatus_errorCode :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.Text)
 memberAccountStatus_errorCode = Lens.lens (\MemberAccountStatus' {errorCode} -> errorCode) (\s@MemberAccountStatus' {} a -> s {errorCode = a} :: MemberAccountStatus)
 
 -- | The 12-digit account ID of a member account.
-memberAccountStatus_accountId :: Lens.Lens' MemberAccountStatus Core.Text
+memberAccountStatus_accountId :: Lens.Lens' MemberAccountStatus Prelude.Text
 memberAccountStatus_accountId = Lens.lens (\MemberAccountStatus' {accountId} -> accountId) (\s@MemberAccountStatus' {} a -> s {accountId = a} :: MemberAccountStatus)
 
 -- | The name of config rule deployed in the member account.
-memberAccountStatus_configRuleName :: Lens.Lens' MemberAccountStatus Core.Text
+memberAccountStatus_configRuleName :: Lens.Lens' MemberAccountStatus Prelude.Text
 memberAccountStatus_configRuleName = Lens.lens (\MemberAccountStatus' {configRuleName} -> configRuleName) (\s@MemberAccountStatus' {} a -> s {configRuleName = a} :: MemberAccountStatus)
 
 -- | Indicates deployment status for config rule in the member account. When
@@ -225,14 +227,14 @@ instance Core.FromJSON MemberAccountStatus where
       "MemberAccountStatus"
       ( \x ->
           MemberAccountStatus'
-            Core.<$> (x Core..:? "LastUpdateTime")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
-            Core.<*> (x Core..: "AccountId")
-            Core.<*> (x Core..: "ConfigRuleName")
-            Core.<*> (x Core..: "MemberAccountRuleStatus")
+            Prelude.<$> (x Core..:? "LastUpdateTime")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..: "AccountId")
+            Prelude.<*> (x Core..: "ConfigRuleName")
+            Prelude.<*> (x Core..: "MemberAccountRuleStatus")
       )
 
-instance Core.Hashable MemberAccountStatus
+instance Prelude.Hashable MemberAccountStatus
 
-instance Core.NFData MemberAccountStatus
+instance Prelude.NFData MemberAccountStatus

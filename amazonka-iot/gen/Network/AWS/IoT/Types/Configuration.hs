@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.Configuration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration.
 --
 -- /See:/ 'newConfiguration' smart constructor.
 data Configuration = Configuration'
   { -- | True to enable the configuration.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Configuration' with all optional fields omitted.
@@ -43,10 +44,10 @@ data Configuration = Configuration'
 newConfiguration ::
   Configuration
 newConfiguration =
-  Configuration' {enabled = Core.Nothing}
+  Configuration' {enabled = Prelude.Nothing}
 
 -- | True to enable the configuration.
-configuration_enabled :: Lens.Lens' Configuration (Core.Maybe Core.Bool)
+configuration_enabled :: Lens.Lens' Configuration (Prelude.Maybe Prelude.Bool)
 configuration_enabled = Lens.lens (\Configuration' {enabled} -> enabled) (\s@Configuration' {} a -> s {enabled = a} :: Configuration)
 
 instance Core.FromJSON Configuration where
@@ -54,16 +55,16 @@ instance Core.FromJSON Configuration where
     Core.withObject
       "Configuration"
       ( \x ->
-          Configuration' Core.<$> (x Core..:? "Enabled")
+          Configuration' Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Core.Hashable Configuration
+instance Prelude.Hashable Configuration
 
-instance Core.NFData Configuration
+instance Prelude.NFData Configuration
 
 instance Core.ToJSON Configuration where
   toJSON Configuration' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Enabled" Core..=) Core.<$> enabled]
+      ( Prelude.catMaybes
+          [("Enabled" Core..=) Prelude.<$> enabled]
       )
